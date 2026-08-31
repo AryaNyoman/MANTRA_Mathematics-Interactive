@@ -1,0 +1,52 @@
+{
+  "adegan": "EnamRasioNyata",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Tahap 6 — Enam rasio sebagai panjang nyata. Lanjutan langsung tahap 5, referensi visual sama (qc/referensi/1-rasio.png). Inti: tan, cot, sec, csc bukan rumus hafalan — keempatnya ruas garis yang bisa ditunjuk pada lingkaran satuan, lewat dua garis singgung. Sudut kerja 55 derajat, dipilih supaya keenam ruas sama-sama berukuran wajar; di sudut kecil cot dan csc meledak, di sudut besar tan dan sec meledak.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Selain sinus dan cosinus, masih ada empat perbandingan lagi. Dan keempatnya bisa ditunjuk sebagai ruas garis."
+    },
+    {
+      "id": "ulang",
+      "teks": "Kita mulai dari lingkaran satuan yang tadi. Cosinus theta adalah x, dan sinus theta adalah y."
+    },
+    {
+      "id": "singgung",
+      "teks": "Sekarang tarik sebuah garis tegak yang menyentuh lingkaran di sebelah kanan. Garis seperti ini disebut garis singgung."
+    },
+    {
+      "id": "tan",
+      "teks": "Perpanjang jari-jarinya sampai mengenai garis singgung tadi. Ruas dari sumbu mendatar sampai titik potong itu panjangnya persis tangen theta."
+    },
+    {
+      "id": "sec",
+      "teks": "Dan ruas dari pusat lingkaran sampai titik potong yang sama panjangnya sekan theta."
+    },
+    {
+      "id": "singgung2",
+      "teks": "Sekarang tarik garis singgung yang kedua. Kali ini mendatar, menyentuh lingkaran di bagian atas."
+    },
+    {
+      "id": "cot",
+      "teks": "Perpanjang lagi jari-jarinya ke arah itu. Ruas dari sumbu tegak sampai titik potongnya panjangnya kotangen theta."
+    },
+    {
+      "id": "csc",
+      "teks": "Dan ruas dari pusat sampai titik potong itu panjangnya kosekan theta."
+    },
+    {
+      "id": "enam",
+      "teks": "Enam ruas, enam nama. Semuanya lahir dari satu lingkaran dan satu sudut yang sama."
+    },
+    {
+      "id": "putar",
+      "teks": "Geser sudutnya, dan keenamnya berubah bersama-sama. Yang satu memanjang, yang lain memendek."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi sekan dan kosekan bukan rumus yang harus dihafal. Keduanya panjang yang bisa Anda tunjuk langsung di gambar."
+    }
+  ]
+}

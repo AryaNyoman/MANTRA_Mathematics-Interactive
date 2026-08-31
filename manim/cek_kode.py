@@ -33,7 +33,7 @@ from pathlib import Path
 
 AKAR = Path(__file__).resolve().parent.parent
 
-PEMBUAT_TEX = frozenset({"MathTex", "Tex", "SingleStringMathTex"})
+PEMBUAT_TEX = frozenset({"MathTex", "Tex", "SingleStringMathTex", "Text"})
 
 # Perintah LaTeX yang WAJIB diikuti sejumlah argumen berkurung.
 ARITAS = {
@@ -148,6 +148,19 @@ def kumpulkan_tex(sumber: str, pohon: ast.AST, t: Temuan) -> list[tuple[int, str
         nama = f.attr if isinstance(f, ast.Attribute) else getattr(f, "id", None)
         if nama not in PEMBUAT_TEX:
             continue
+
+        # Warna WAJIB disebut. Tanpa `color=`, Manim memakai putih — dan pada
+        # latar krem MATRA putih praktis tidak terlihat. Pada tahap 5 (31 Agu)
+        # itu membuat semua tanda "=", kurung, dan koma lenyap dari layar,
+        # sehingga "(x, y) = (cos t, sin t)" tampil sebagai "x y   cos t sin t".
+        # `qc.periksa_adegan` TIDAK bisa menangkap ini: ia memeriksa posisi,
+        # bukan warna. Jadi gerbangnya harus di sini.
+        if not any(k.arg == "color" for k in simpul.keywords):
+            t.salah(simpul.lineno,
+                    f"{nama}(...) tidak menyebut color= — Manim akan memakai "
+                    f"putih, yang hilang di latar krem. Tulis color=t.tinta "
+                    f"(atau warna tema lain), baru warnai bagiannya.")
+
         for arg in simpul.args:
             if not (isinstance(arg, ast.Constant) and isinstance(arg.value, str)):
                 continue

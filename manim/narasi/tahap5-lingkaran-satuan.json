@@ -1,0 +1,52 @@
+{
+  "adegan": "LingkaranSatuanLahir",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Tahap 5 — Lingkaran satuan. Pola visual meniru referensi 1 (qc/referensi/1-rasio.png): lingkaran satuan di kiri, daftar rumus tumbuh di kanan, tiap besaran muncul sebagai ruas garis berwarna. Inti yang harus tertanam: kalau sisi miring dibuat 1, penyebutnya hilang — cos theta menjadi x dan sin theta menjadi y. Satu sumber kebenaran untuk naskah.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Perhatikan apa yang terjadi kalau sisi miring sebuah segitiga dibuat tepat berukuran satu."
+    },
+    {
+      "id": "segitiga",
+      "teks": "Ini segitiga siku-siku yang sudah kita kenal sejak tahap tiga. Sudutnya theta, dan sisi miringnya kita beri nama r."
+    },
+    {
+      "id": "rumus",
+      "teks": "Dari tahap empat kita sudah tahu. Cosinus theta adalah sisi samping dibagi sisi miring, dan sinus theta adalah sisi depan dibagi sisi miring."
+    },
+    {
+      "id": "kecilkan",
+      "teks": "Sekarang segitiganya kita perkecil pelan-pelan, sampai sisi miringnya tepat berukuran satu."
+    },
+    {
+      "id": "lingkaran",
+      "teks": "Kalau titik ujungnya kita putar mengelilingi titik asal, jejaknya membentuk sebuah lingkaran berjari-jari satu. Inilah yang disebut lingkaran satuan."
+    },
+    {
+      "id": "bagi",
+      "teks": "Sekarang perhatikan baik-baik rumusnya. Sisi miringnya bukan lagi r, melainkan satu. Jadi cosinus theta sama dengan x dibagi satu."
+    },
+    {
+      "id": "hilang",
+      "teks": "Dan dibagi satu tidak mengubah apa pun. Penyebutnya boleh dicoret. Yang tersisa hanya x."
+    },
+    {
+      "id": "sinus",
+      "teks": "Dengan cara yang persis sama, sinus theta sama dengan y dibagi satu, yang berarti sinus theta sama dengan y."
+    },
+    {
+      "id": "koordinat",
+      "teks": "Perhatikan apa yang baru saja terjadi. Koordinat titik itu bukan sekadar x dan y. Koordinatnya adalah cosinus theta dan sinus theta."
+    },
+    {
+      "id": "putar",
+      "teks": "Geser sudutnya, dan kedua angka itu bergerak bersama titiknya. Satu sudut, satu pasang koordinat."
+    },
+    {
+      "id": "tutup",
+      "teks": "Sinus dan cosinus tidak lagi sekadar hasil bagi dua sisi. Sekarang keduanya adalah posisi sebuah titik yang sedang berputar."
+    }
+  ]
+}
