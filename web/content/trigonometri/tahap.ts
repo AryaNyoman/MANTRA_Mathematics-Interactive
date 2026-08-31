@@ -18,6 +18,10 @@ export type Widget =
   | 'penamaan-sisi'
   | 'pabrik-rasio'
   | 'lingkaran-satuan'
+  | 'enam-rasio'
+  | 'perjalanan-sudut'
+  | 'lingkaran-ke-grafik'
+  | 'tiga-grafik'
 
 /** Satu potongan penjelasan. Bentuknya sengaja beragam supaya tidak monoton. */
 export type Blok =
@@ -347,28 +351,245 @@ export const TAHAP: Tahap[] = [
     siap: true,
   },
   {
-    no: 6, slug: 'enam-rasio', judul: 'Enam rasio sebagai panjang nyata',
+    no: 6,
+    slug: 'enam-rasio',
+    judul: 'Enam rasio sebagai panjang nyata',
     labelPendek: 'Enam rasio',
     pertanyaan: 'Di mana letak tan, cot, sec, dan csc pada gambarnya?',
-    penjelasan: [{ jenis: 'paragraf', teks: 'Tahap ini sedang disiapkan.' }], siap: false,
+    intisari: [
+      'Keenam rasio bukan rumus — semuanya ruas garis yang bisa diukur.',
+      'tan hidup di garis singgung x = 1, cot di garis singgung y = 1.',
+      'sec dan csc adalah garis dari pusat yang menembus kedua singgung itu.',
+      'Nama tangen memang berarti menyentuh.',
+    ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Di tahap 4 kita menemukan enam pembagian. Di tahap 5 dua di antaranya berubah jadi koordinat. Sekarang pertanyaannya: di mana empat sisanya berada pada gambar?' },
+      { jenis: 'sorot', teks: 'Jawabannya: keenamnya adalah ruas garis sungguhan pada lingkaran satuan. Tidak ada yang cuma rumus.' },
+      {
+        jenis: 'poin',
+        judul: 'Dua yang sudah kita kenal',
+        butir: [
+          'cos θ — ruas mendatar dari pusat sampai kaki titik',
+          'sin θ — ruas tegak dari kaki titik naik ke titiknya',
+        ],
+      },
+      {
+        jenis: 'poin',
+        judul: 'Dua yang hidup di garis singgung',
+        butir: [
+          'tan θ — tarik garis tegak menyentuh lingkaran di x = 1. Perpanjang jari-jari sampai menabraknya. Tinggi tabrakan itulah tan θ',
+          'cot θ — hal yang sama, tapi dengan garis mendatar yang menyentuh di y = 1',
+        ],
+      },
+      { jenis: 'sorot', teks: 'Inilah asal nama tangen: tangens berarti “yang menyentuh”. Ia memang ruas pada garis singgung.' },
+      {
+        jenis: 'poin',
+        judul: 'Dua yang menembus keluar',
+        butir: [
+          'sec θ — panjang jari-jari yang diperpanjang, dari pusat sampai menabrak garis singgung x = 1',
+          'csc θ — dari pusat sampai menabrak garis singgung y = 1',
+          'Keduanya selalu lebih panjang dari 1 — karena harus menembus keluar lingkaran dulu',
+        ],
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Pada sudut 45°',
+        baris: [
+          'sin 45°  =  0,707      cos 45°  =  0,707',
+          'tan 45°  =  1,000      cot 45°  =  1,000',
+          'sec 45°  =  1,414      csc 45°  =  1,414',
+        ],
+        simpul: 'Di 45° semuanya berpasangan kembar, karena segitiganya sama kaki.',
+      },
+      { jenis: 'paragraf', teks: 'Geser sudutnya di sebelah kiri, lalu klik nama rasio yang ingin disorot. Perhatikan tan memanjang tak terkendali saat sudut mendekati 90°, sementara cot justru menyusut — dan sebaliknya saat sudut mengecil.' },
+    ],
+    seringKeliru: {
+      judul: 'sec dikira kebalikan sin',
+      isi: 'Namanya mirip, jadi sering tertukar. Yang benar: sec adalah kebalikan cos, dan csc kebalikan sin. Cara mengingatnya lewat huruf ketiga — se-C-an berpasangan dengan C-osinus, ko-S-ekan dengan S-inus. Persis terbalik dari dugaan kebanyakan orang.',
+    },
+    widget: 'enam-rasio',
+    siap: true,
   },
   {
-    no: 7, slug: 'sudut-istimewa', judul: 'Sudut istimewa',
+    no: 7,
+    slug: 'sudut-istimewa',
+    judul: 'Sudut istimewa',
     labelPendek: 'Sudut istimewa',
     pertanyaan: 'Kenapa 30°, 45°, dan 60° disebut istimewa?',
-    penjelasan: [{ jenis: 'paragraf', teks: 'Tahap ini sedang disiapkan.' }], siap: false,
+    intisari: [
+      'Istimewa bukan karena angkanya bagus.',
+      'Ketiganya lahir dari dua bangun yang bisa digambar siapa pun.',
+      'Nilainya EKSAK — pecahan dan akar, bukan desimal tak berujung.',
+      'Sudut lain butuh kalkulator; ketiganya tidak.',
+    ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Coba hitung sin 37° tanpa kalkulator. Tidak bisa. Tapi sin 30° bisa dijawab siapa pun yang pernah menggambar segitiga sama sisi. Di situlah letak keistimewaannya.' },
+      { jenis: 'sorot', teks: 'Sudut istimewa bukan sudut yang angkanya bagus — tapi sudut yang nilainya bisa dihitung persis, tanpa alat.' },
+      {
+        jenis: 'poin',
+        judul: '45° lahir dari persegi',
+        butir: [
+          'Gambar persegi dengan sisi 1, lalu potong sepanjang diagonalnya',
+          'Muncul segitiga siku-siku dengan dua sisi sama panjang, keduanya 1',
+          'Diagonalnya, lewat Pythagoras, panjangnya √2',
+          'Karena kedua sisinya kembar, sin 45° dan cos 45° juga kembar, dan tan 45° tepat 1',
+        ],
+      },
+      {
+        jenis: 'poin',
+        judul: '30° dan 60° lahir dari segitiga sama sisi',
+        butir: [
+          'Gambar segitiga sama sisi bersisi 2, lalu belah tepat di tengah',
+          'Alasnya terpotong jadi 1, sisi miringnya tetap 2, dan tingginya √3',
+          'Sudut 60° tetap utuh, sudut 30° adalah separuh dari yang dibelah',
+          'Jadi sin 30° = 1/2 — tepat setengah, bukan kebetulan',
+        ],
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Nilai eksaknya',
+        baris: [
+          '          sin        cos        tan',
+          '30°       1/2        √3/2       1/√3',
+          '45°       √2/2       √2/2       1',
+          '60°       √3/2       1/2        √3',
+        ],
+        simpul: 'Perhatikan 30° dan 60° tertukar nilainya — karena keduanya sudut pelengkap.',
+      },
+      {
+        jenis: 'poin',
+        judul: 'Kenapa ini berguna',
+        butir: [
+          'Jawaban ujian bisa ditulis persis, bukan angka desimal yang dibulatkan',
+          'Kesalahan pembulatan tidak menumpuk pada perhitungan bertingkat',
+          'Nilai di kuadran lain tinggal dicerminkan — tandanya berubah, besarnya tidak',
+        ],
+      },
+      { jenis: 'paragraf', teks: 'Telusuri perjalanannya di sebelah kiri. Jari-jari berhenti di tiap sudut istimewa, dan nilai eksaknya muncul di bawah — lengkap dengan asal-usul bangunnya.' },
+    ],
+    seringKeliru: {
+      judul: 'Tabel sudut istimewa dihafal mentah',
+      isi: 'Banyak siswa menghafal tabelnya lalu lupa separuh saat ujian. Padahal cukup ingat dua bangun: persegi dibelah diagonal, dan segitiga sama sisi dibelah dua. Dari dua gambar itu seluruh tabel bisa disusun ulang dalam satu menit — dan kalau lupa, tinggal digambar lagi.',
+    },
+    widget: 'perjalanan-sudut',
+    siap: true,
   },
   {
-    no: 8, slug: 'grafik-sin', judul: 'Terbentuknya grafik sinus',
+    no: 8,
+    slug: 'grafik-sin',
+    judul: 'Terbentuknya grafik sinus',
     labelPendek: 'Grafik sin',
     pertanyaan: 'Bagaimana putaran berubah menjadi gelombang?',
-    penjelasan: [{ jenis: 'paragraf', teks: 'Tahap ini sedang disiapkan.' }], siap: false,
+    intisari: [
+      'Biarkan titiknya terus berputar, jangan berhenti.',
+      'Catat tingginya pada setiap sudut.',
+      'Catatan itulah kurva sinus.',
+      'Gelombang bukan bentuk baru — ia rekaman tinggi sebuah putaran.',
+    ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Sampai tahap 7 titiknya selalu kita hentikan di sudut tertentu. Sekarang biarkan ia terus berputar, dan catat tingginya sepanjang perjalanan.' },
+      {
+        jenis: 'poin',
+        judul: 'Cara membacanya',
+        butir: [
+          'Sumbu mendatar grafik — bukan jarak, melainkan besar sudut yang sudah disapu',
+          'Sumbu tegak grafik — tinggi titik di lingkaran pada sudut itu, yaitu sin θ',
+          'Garis putus-putus kuning — penghubung antara tinggi di lingkaran dan titik di grafik',
+        ],
+      },
+      { jenis: 'sorot', teks: 'Kurva sinus adalah catatan tinggi sebuah titik yang berputar. Bukan bentuk baru yang perlu dihafal.' },
+      {
+        jenis: 'poin',
+        judul: 'Yang langsung terbaca dari bentuknya',
+        butir: [
+          'Puncaknya tepat 1 di sudut 90° — di situ titik berada paling atas',
+          'Turun ke nol di 180° — titiknya kembali sejajar pusat',
+          'Lembahnya −1 di 270° — titik berada paling bawah',
+          'Kembali nol di 360°, lalu seluruhnya mengulang persis sama',
+        ],
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Kenapa kurvanya melandai di puncak',
+        baris: [
+          'Dekat 0°    tinggi berubah cepat   →  kurva menanjak curam',
+          'Dekat 90°   tinggi hampir diam     →  kurva mendatar di puncak',
+          'Dekat 180°  tinggi turun cepat     →  kurva menukik lagi',
+        ],
+        simpul: 'Di puncak, titik sedang bergerak menyamping — bukan naik. Karena itu kurvanya melandai.',
+      },
+      { jenis: 'paragraf', teks: 'Geser sudutnya di sebelah kiri dan perhatikan kurvanya tumbuh sendiri. Naikkan sampai lewat 360° — kurva mengulang persis, karena putarannya memang mengulang.' },
+    ],
+    seringKeliru: {
+      judul: 'Grafik sinus dikira gambar bentuk sesuatu',
+      isi: 'Sumbu mendatarnya bukan jarak atau posisi, melainkan besar sudut. Jadi kurva ini tidak menggambarkan bentuk benda apa pun — ia grafik nilai terhadap sudut, sama seperti grafik suhu terhadap waktu.',
+    },
+    widget: 'lingkaran-ke-grafik',
+    siap: true,
   },
   {
-    no: 9, slug: 'tiga-grafik', judul: 'Sin, cos, dan tan berdampingan',
+    no: 9,
+    slug: 'tiga-grafik',
+    judul: 'Sin, cos, dan tan berdampingan',
     labelPendek: 'Tiga grafik',
     pertanyaan: 'Kenapa grafik tan punya jurang, sedangkan sin dan cos tidak?',
-    penjelasan: [{ jenis: 'paragraf', teks: 'Tahap ini sedang disiapkan.' }], siap: false,
+    intisari: [
+      'Satu putaran yang sama, tiga hal berbeda yang dicatat.',
+      'sin mencatat tinggi, cos mencatat posisi mendatar.',
+      'Grafik cos adalah grafik sin yang digeser 90°.',
+      'tan meledak setiap 90° karena penyebutnya menjadi nol.',
+    ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Ketiga panel di sebelah kiri digerakkan oleh satu sudut yang sama. Yang berbeda hanya apa yang dicatat dari putaran itu.' },
+      {
+        jenis: 'poin',
+        judul: 'Apa yang dicatat masing-masing',
+        butir: [
+          'sin θ — tinggi titik, ruas tegak',
+          'cos θ — posisi mendatarnya, ruas mendatar',
+          'tan θ — ruas pada garis singgung, yang kita temui di tahap 6',
+        ],
+      },
+      { jenis: 'sorot', teks: 'Grafik cos bentuknya persis grafik sin — hanya berangkat 90° lebih awal.' },
+      { jenis: 'paragraf', teks: 'Masuk akal: saat sudut nol, titiknya berada paling kanan. Posisi mendatarnya sudah maksimum, sementara tingginya masih nol. Cos sudah di puncak ketika sin baru mulai.' },
+      {
+        jenis: 'poin',
+        judul: 'Kenapa tan punya jurang',
+        butir: [
+          'tan θ = sin θ ÷ cos θ',
+          'Di 90° dan 270°, cos bernilai nol — dan pembagian dengan nol tidak terdefinisi',
+          'Mendekati sudut itu, penyebutnya makin kecil, jadi hasilnya melesat tanpa batas',
+          'Garis putus-putus tegak pada grafik menandai jurang itu; kurvanya tidak pernah menyentuhnya',
+        ],
+      },
+      {
+        jenis: 'contoh',
+        judul: 'tan mendekati 90°',
+        baris: [
+          'tan 80°   =    5,67',
+          'tan 89°   =   57,29',
+          'tan 89,9° =  572,96',
+          'tan 90°   =  tidak terdefinisi',
+        ],
+        simpul: 'Bukan “tak hingga”, melainkan tidak terdefinisi — tidak ada angka yang bisa ditulis di situ.',
+      },
+      {
+        jenis: 'poin',
+        judul: 'Tiga perbedaan yang terlihat sekaligus',
+        butir: [
+          'sin dan cos — terkurung antara −1 dan 1, tidak pernah keluar',
+          'tan — tidak punya batas atas maupun bawah',
+          'Pengulangan — sin dan cos mengulang tiap 360°, tan tiap 180°',
+        ],
+      },
+      { jenis: 'paragraf', teks: 'Geser sudutnya dan perhatikan ketiga kurva tumbuh bersamaan dari satu putaran yang sama.' },
+    ],
+    seringKeliru: {
+      judul: 'Jurang grafik tan dikira “nilainya tak hingga”',
+      isi: 'Tak hingga bukan sebuah angka. Yang benar: pada 90° nilai tan tidak terdefinisi — tidak ada bilangan yang bisa ditulis di sana. Kurvanya mendekati garis putus-putus itu sedekat apa pun, tapi tidak pernah menyentuhnya.',
+    },
+    widget: 'tiga-grafik',
+    siap: true,
   },
   {
     no: 10, slug: 'dunia-nyata', judul: 'Dipakai di dunia nyata',

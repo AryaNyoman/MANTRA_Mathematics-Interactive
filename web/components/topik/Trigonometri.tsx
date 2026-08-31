@@ -6,6 +6,10 @@ import PenamaanSisi, { type SudutAktif } from '@/components/widget/PenamaanSisi'
 import Bayangan, { BATAS_SUDUT, hitungBayangan } from '@/components/widget/Bayangan'
 import PabrikRasio, { hitungRasio, SISI, type NamaSisi } from '@/components/widget/PabrikRasio'
 import LingkaranSatuan, { hitungLingkaran, angka3 } from '@/components/widget/LingkaranSatuan'
+import EnamRasio, { BATAS_ENAM, RASIO, URUT_RASIO, hitungEnam, type Rasio } from '@/components/widget/EnamRasio'
+import PerjalananSudut, { ISTIMEWA } from '@/components/widget/PerjalananSudut'
+import LingkaranKeGrafik, { BATAS_SAPU } from '@/components/widget/LingkaranKeGrafik'
+import TigaGrafik from '@/components/widget/TigaGrafik'
 import Penjelasan from '@/components/topik/Penjelasan'
 import Latihan from '@/components/topik/Latihan'
 import Kuis from '@/components/topik/Kuis'
@@ -35,6 +39,10 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
   const [pembilang, setPembilang] = useState<NamaSisi>('depan')
   const [penyebut, setPenyebut] = useState<NamaSisi>('miring')
   const [sudutLingkaran, setSudutLingkaran] = useState(52)
+  const [sudutEnam, setSudutEnam] = useState(45)
+  const [sorotRasio, setSorotRasio] = useState<Rasio>('tan')
+  const [langkahIstimewa, setLangkahIstimewa] = useState(2)
+  const [sudutSapu, setSudutSapu] = useState(200)
 
   const tahap: Tahap | undefined =
     layar.jenis === 'tahap' ? TAHAP.find((t) => t.slug === layar.slug) : undefined
@@ -191,6 +199,80 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 </>
               )}
 
+              {tahap.widget === 'enam-rasio' && (
+                <>
+                  <div className="layar"><EnamRasio derajat={sudutEnam} sorot={sorotRasio} /></div>
+                  <div className="kendali">
+                    <div style={{ gridColumn: '1 / -1' }}>
+                      <label htmlFor="sudutEnam">
+                        <span>Sudut <span style={{ textTransform: 'none' }}>θ</span></span>
+                        <span className="mono">{sudutEnam}°</span>
+                      </label>
+                      <input id="sudutEnam" type="range"
+                             min={BATAS_ENAM.min} max={BATAS_ENAM.maks} value={sudutEnam}
+                             onChange={(e) => setSudutEnam(+e.target.value)} />
+                    </div>
+                    <div style={{ gridColumn: '1 / -1' }}>
+                      <label><span>Sorot rasio</span></label>
+                      <div className="pilih-sisi">
+                        {URUT_RASIO.map((r) => (
+                          <button key={r} aria-pressed={sorotRasio === r} onClick={() => setSorotRasio(r)}>
+                            {r}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {tahap.widget === 'perjalanan-sudut' && (
+                <>
+                  <div className="layar"><PerjalananSudut indeks={langkahIstimewa} /></div>
+                  <div className="kendali">
+                    <div style={{ gridColumn: '1 / -1', display: 'flex', gap: 8 }}>
+                      <button className="tombol garis" style={{ flex: 'none' }}
+                              disabled={langkahIstimewa === 0}
+                              onClick={() => setLangkahIstimewa((n) => n - 1)}>← SEBELUM</button>
+                      <div className="pilih-sisi" style={{ flex: 1, flexWrap: 'wrap' }}>
+                        {ISTIMEWA.map((t, n) => (
+                          <button key={t.derajat} aria-pressed={langkahIstimewa === n}
+                                  onClick={() => setLangkahIstimewa(n)}>{t.derajat}°</button>
+                        ))}
+                      </div>
+                      <button className="tombol garis" style={{ flex: 'none' }}
+                              disabled={langkahIstimewa === ISTIMEWA.length - 1}
+                              onClick={() => setLangkahIstimewa((n) => n + 1)}>BERIKUT →</button>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {(tahap.widget === 'lingkaran-ke-grafik' || tahap.widget === 'tiga-grafik') && (
+                <>
+                  <div className="layar">
+                    {tahap.widget === 'lingkaran-ke-grafik'
+                      ? <LingkaranKeGrafik derajat={sudutSapu} />
+                      : <TigaGrafik derajat={sudutSapu} />}
+                  </div>
+                  <div className="kendali">
+                    <div style={{ gridColumn: '1 / -1' }}>
+                      <label htmlFor="sudutSapu">
+                        <span>Sudut yang sudah disapu</span>
+                        <span className="mono">{sudutSapu}°</span>
+                      </label>
+                      <input id="sudutSapu" type="range"
+                             min={BATAS_SAPU.min} max={BATAS_SAPU.maks} step={2} value={sudutSapu}
+                             onChange={(e) => setSudutSapu(+e.target.value)} />
+                    </div>
+                    <div className="skala-info">
+                      <span className="titik" />
+                      <span>naikkan sampai lewat 360° — kurvanya mengulang persis</span>
+                    </div>
+                  </div>
+                </>
+              )}
+
               {!tahap.widget && (
                 <div className="isi-gulir">
                   <div className="cap">Intisari tahap ini</div>
@@ -239,6 +321,37 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
               <div className="blok">
                 <div className="cap">Hasil pilihan Anda</div>
                 <HasilRasio pembilang={pembilang} penyebut={penyebut} />
+              </div>
+            )}
+            {tahap.widget === 'enam-rasio' && (
+              <div className="blok">
+                <div className="cap">Keenamnya pada sudut {sudutEnam}°</div>
+                <table className="tabel-angka">
+                  <tbody>
+                    {URUT_RASIO.map((r) => (
+                      <tr key={r} className={sorotRasio === r ? 'tegas' : undefined}>
+                        <td>{RASIO[r].lambang} — {RASIO[r].nama}</td>
+                        <td>{angka(hitungEnam(sudutEnam)[r], 3)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <div className="catatan">{RASIO[sorotRasio].letak}</div>
+              </div>
+            )}
+            {tahap.widget === 'perjalanan-sudut' && (
+              <div className="blok">
+                <div className="cap">
+                  {ISTIMEWA[langkahIstimewa].derajat}° = {ISTIMEWA[langkahIstimewa].radian}
+                </div>
+                <table className="tabel-angka">
+                  <tbody>
+                    <tr><td>sin θ</td><td>{ISTIMEWA[langkahIstimewa].sin}</td></tr>
+                    <tr><td>cos θ</td><td>{ISTIMEWA[langkahIstimewa].cos}</td></tr>
+                    <tr className="tegas"><td>tan θ</td><td>{ISTIMEWA[langkahIstimewa].tan}</td></tr>
+                  </tbody>
+                </table>
+                <div className="catatan">{ISTIMEWA[langkahIstimewa].asal}</div>
               </div>
             )}
             {tahap.widget === 'lingkaran-satuan' && (
