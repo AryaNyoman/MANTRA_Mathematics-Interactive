@@ -5,8 +5,16 @@
   "catatan": "Tahap 8 — Terbentuknya grafik sinus. Pola visual meniru referensi 3 (Visualizing Trigonometry: Fungsi SIN): lingkaran mengecil ke kiri, sumbu grafik muncul di kanan, garis mendatar membawa tinggi titik ke papan grafik. Satu sumber kebenaran untuk naskah — jangan ditulis ulang di adegan.",
   "segmen": [
     {
+      "id": "sapa",
+      "teks": "Perhatikan bagaimana terbentuknya grafik sinus."
+    },
+    {
+      "id": "mulai",
+      "teks": "Semuanya dimulai dari sebuah lingkaran yang berjari-jari satu."
+    },
+    {
       "id": "buka",
-      "teks": "Ini lingkaran dengan jari-jari satu. Sebuah titik berjalan di tepinya, berlawanan arah jarum jam, berangkat dari sebelah kanan."
+      "teks": "Sebuah titik berjalan di tepinya, berlawanan arah jarum jam, berangkat dari sebelah kanan."
     },
     {
       "id": "tinggi",

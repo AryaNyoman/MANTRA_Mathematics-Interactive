@@ -2,9 +2,10 @@
 
 STORYBOARD (ditulis lebih dulu, kode menyusul — bukan sebaliknya):
 
-  1. Judul pembuka penuh layar, lalu MEMUDAR. Panggung ditinggalkan bersih.
-  2. Lingkaran besar di tengah; titik berjalan di tepinya; jari-jari mengikuti.
-  3. Garis tinggi merah muncul, diberi nama sin theta.
+  1. Judul pembuka penuh layar selama kalimat sapaan, lalu MEMUDAR.
+  2. Lingkaran digambar, selesai tepat sebelum narator mengucap "berjari-jari satu".
+  3. Titik berjalan di tepinya; jari-jari mengikuti.
+  4. Garis tinggi merah muncul, diberi nama sin theta.
   4. Lingkaran mengecil dan bergeser ke kiri; papan grafik terbit di kanan;
      panel angka hidup muncul di atas.
   5. Titik menyapu 0 -> 60 derajat. Garis mendatar membawa tingginya ke papan,
@@ -89,16 +90,18 @@ class GrafikSinusLahir(Scene):
         self.siapkan_penggerak()
         self.siapkan_lingkaran()
 
-        self.b01_buka()
-        self.b02_tinggi()
-        self.b03_geser()
-        self.b04_sapu()
-        self.b05_puncak()
-        self.b06_turun()
-        self.b07_bawah()
-        self.b08_genap()
-        self.b09_ulang()
-        self.b10_tutup()
+        self.b01_sapa()
+        self.b02_mulai()
+        self.b03_buka()
+        self.b04_tinggi()
+        self.b05_geser()
+        self.b06_sapu()
+        self.b07_puncak()
+        self.b08_turun()
+        self.b09_bawah()
+        self.b10_genap()
+        self.b11_ulang()
+        self.b12_tutup()
 
     # ==================================================================
     # Bahan
@@ -160,19 +163,32 @@ class GrafikSinusLahir(Scene):
     # ==================================================================
     # Babak
     # ==================================================================
-    def b01_buka(self):
-        t = self.t
-        with sinema.babak(self, "buka", DURASI) as b:
-            sinema.judul_pembuka(self, "Terbentuknya grafik sinus", t, lama=4.0)
-            b.catat(4.0)
+    def b01_sapa(self):
+        """Judul mengisi seluruh kalimat pertama, lalu memudar."""
+        with sinema.babak(self, "sapa", DURASI) as b:
+            sinema.judul_pembuka(self, "Terbentuknya grafik sinus", self.t,
+                                 lama=DURASI["sapa"])
+            b.catat(DURASI["sapa"])
+
+    def b02_mulai(self):
+        """Lingkaran selesai digambar TEPAT sebelum narator mengucap
+        "berjari-jari satu", sehingga saat frasa itu terdengar bentuknya sudah
+        berdiri. Sisa waktu dibiarkan diam — itu jeda yang disengaja, bukan
+        waktu mati (permintaan ARYA setelah menonton versi pertama)."""
+        gambar = DURASI["mulai"] * 0.70
+        with sinema.babak(self, "mulai", DURASI) as b:
             b.main(Create(self.lingkaran), Create(self.sb_h), Create(self.sb_v),
-                   run_time=1.7)
-            b.main(FadeIn(self.jari), FadeIn(self.titik), FadeIn(self.busur),
-                   run_time=1.0)
-            b.main(self.theta.animate.set_value(35), run_time=2.2)
+                   run_time=gambar)
         qc.periksa_adegan({"lingkaran": self.gugus_lingkaran})
 
-    def b02_tinggi(self):
+    def b03_buka(self):
+        with sinema.babak(self, "buka", DURASI) as b:
+            b.main(FadeIn(self.jari), FadeIn(self.titik), FadeIn(self.busur),
+                   run_time=1.2)
+            b.main(self.theta.animate.set_value(35), run_time=4.2)
+        qc.periksa_adegan({"lingkaran": self.gugus_lingkaran})
+
+    def b04_tinggi(self):
         t = self.t
         # Label menempel pada garis merah lewat updater posisi — bukan
         # always_redraw MathTex, yang memaksa LaTeX dibangun ulang tiap frame.
@@ -188,7 +204,7 @@ class GrafikSinusLahir(Scene):
         qc.periksa_adegan(
             {"lingkaran": self.gugus_lingkaran, "lab_tinggi": self.lab_tinggi})
 
-    def b03_geser(self):
+    def b05_geser(self):
         t = self.t
         self.papan = Axes(
             x_range=[0, AKHIR, 180], y_range=[-1, 1, 1],
@@ -280,7 +296,7 @@ class GrafikSinusLahir(Scene):
             lambda: DashedLine(self.T(), G(), color=t.redup,
                                stroke_width=2.2, dash_length=0.10))
 
-    def b04_sapu(self):
+    def b06_sapu(self):
         self.siapkan_kurva()
         self.add(self.kurva)
         with sinema.babak(self, "sapu", DURASI) as b:
@@ -291,7 +307,7 @@ class GrafikSinusLahir(Scene):
              "lingkaran": self.gugus_lingkaran, "panel": self.panel},
             [("kurva", "lingkaran"), ("panel", "kurva")])
 
-    def b05_puncak(self):
+    def b07_puncak(self):
         with sinema.babak(self, "puncak", DURASI) as b:
             b.main(self.theta.animate.set_value(90), run_time=4.4, rate_func=linear)
             self.kotak = SurroundingRectangle(
@@ -302,12 +318,12 @@ class GrafikSinusLahir(Scene):
         qc.periksa_adegan({"kotak": self.kotak, "kurva": self.kurva},
                           [("kotak", "kurva")])
 
-    def b06_turun(self):
+    def b08_turun(self):
         with sinema.babak(self, "turun", DURASI) as b:
             b.main(FadeOut(self.kotak), run_time=0.6)
             b.main(self.theta.animate.set_value(180), run_time=8.4, rate_func=linear)
 
-    def b07_bawah(self):
+    def b09_bawah(self):
         with sinema.babak(self, "bawah", DURASI) as b:
             b.main(self.theta.animate.set_value(270), run_time=9.6, rate_func=linear)
         qc.periksa_adegan(
@@ -315,7 +331,7 @@ class GrafikSinusLahir(Scene):
              "papan": self.gugus_papan, "lab_x": self.lab_x},
             [("kurva", "lingkaran"), ("kurva", "lab_x")])
 
-    def b08_genap(self):
+    def b10_genap(self):
         t = self.t
         with sinema.babak(self, "genap", DURASI) as b:
             b.main(self.theta.animate.set_value(360), run_time=5.2, rate_func=linear)
@@ -328,7 +344,7 @@ class GrafikSinusLahir(Scene):
         qc.periksa_adegan({"cap": self.cap, "lab_x": self.lab_x, "batas": self.batas},
                           [("cap", "lab_x")])
 
-    def b09_ulang(self):
+    def b11_ulang(self):
         with sinema.babak(self, "ulang", DURASI) as b:
             b.main(self.theta.animate.set_value(AKHIR), run_time=8.2, rate_func=linear)
         qc.periksa_adegan(
@@ -336,7 +352,7 @@ class GrafikSinusLahir(Scene):
              "cap": self.cap, "lab_x": self.lab_x},
             [("kurva", "lab_x"), ("cap", "lab_x"), ("panel", "kurva")])
 
-    def b10_tutup(self):
+    def b12_tutup(self):
         t = self.t
         self.kurva.clear_updaters()
         self.num_th.clear_updaters()
