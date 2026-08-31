@@ -30,3 +30,6 @@ qc/
 
 # Audio draf hasil TTS — dibuat ulang dari NARASI di web/content/
 audio/trigonometri/
+
+# artefak pemeriksaan Playwright
+.playwright-cli/

@@ -454,3 +454,46 @@ ul.poin li b { color: var(--tinta); font-weight: 600; }
   font-family: var(--font-fraunces), serif; font-size: 17px; color: var(--tinta);
 }
 .nama-resmi .catatan-resmi { font-size: 12.5px; color: var(--redup); line-height: 1.45; }
+
+/* ===== Tahap 10: galeri "dipakai di dunia nyata" ===== */
+/* Foto nyata dengan bangun matematikanya digambar DI ATAS foto, bukan di
+   sebelahnya — supaya siswa melihat sudut itu ada di benda yang ia pegang. */
+.galeri { margin: 0; display: flex; flex-direction: column; gap: 12px; height: 100%; min-height: 0; }
+.galeri-bingkai {
+  position: relative; flex: 1; min-height: 0;
+  border: 1px solid var(--garis); border-radius: 8px; overflow: hidden;
+  background: var(--kertas);
+}
+.galeri-bingkai img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.galeri-lapis { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.galeri-teks { flex: none; }
+.galeri-judul { font-weight: 600; font-size: 14.5px; margin-bottom: 4px; }
+.galeri-judul .mono { color: var(--redup); margin-right: 6px; }
+.galeri-teks p { margin: 0 0 8px; font-size: 13.5px; line-height: 1.5; color: var(--redup); }
+.galeri-rumus {
+  font-size: 12px; padding: 7px 10px; border-radius: 6px;
+  background: var(--kertas); border: 1px solid var(--garis); display: inline-block;
+}
+.galeri-hitung { font-size: 12px; margin-top: 7px; color: var(--redup); }
+.galeri-hitung b { color: var(--tinta); }
+
+/* Pemilih contoh (tahap 10) dan pemilih tonton/coba (tahap bervideo) */
+.pilih-contoh { display: flex; flex-wrap: wrap; gap: 6px; }
+.pilih-contoh button, .pilih-mode button {
+  font-family: var(--font-plex-mono), monospace; font-size: 10.5px;
+  letter-spacing: 0.04em; padding: 6px 10px; cursor: pointer;
+  border: 1px solid var(--garis); border-radius: 6px;
+  background: var(--kertas); color: var(--redup);
+}
+.pilih-contoh button b { color: var(--tinta); margin-right: 4px; }
+.pilih-contoh button[aria-pressed="true"], .pilih-mode button[aria-pressed="true"] {
+  background: var(--tegas); color: var(--kartu); border-color: var(--tegas);
+}
+.pilih-contoh button[aria-pressed="true"] b { color: var(--kartu); }
+/* Baris sendiri, BUKAN melayang di pojok. Versi melayang menutupi label
+   widget di kanan atas (`sin θ = ...`) — tertangkap saat pemeriksaan visual.
+   Sisi kiri diberi ruang supaya tidak tertimpa tanda "TAHAP 08". */
+.pilih-mode {
+  flex: none; display: flex; gap: 5px; justify-content: flex-end;
+  padding: 1px 2px 9px 170px;
+}

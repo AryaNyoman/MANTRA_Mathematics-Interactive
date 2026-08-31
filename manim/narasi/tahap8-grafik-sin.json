@@ -1,0 +1,48 @@
+{
+  "adegan": "GrafikSinusLahir",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Tahap 8 — Terbentuknya grafik sinus. Pola visual meniru referensi 3 (Visualizing Trigonometry: Fungsi SIN): lingkaran mengecil ke kiri, sumbu grafik muncul di kanan, garis mendatar membawa tinggi titik ke papan grafik. Satu sumber kebenaran untuk naskah — jangan ditulis ulang di adegan.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Ini lingkaran dengan jari-jari satu. Sebuah titik berjalan di tepinya, berlawanan arah jarum jam, berangkat dari sebelah kanan."
+    },
+    {
+      "id": "tinggi",
+      "teks": "Yang kita perhatikan cuma satu hal. Seberapa tinggi titik itu di atas garis mendatar. Tinggi itulah yang kita sebut sinus theta."
+    },
+    {
+      "id": "geser",
+      "teks": "Sekarang lingkarannya kita geser ke kiri, dan di sebelah kanan kita siapkan papan kosong. Sumbu mendatarnya besar sudut, sumbu tegaknya tinggi tadi."
+    },
+    {
+      "id": "sapu",
+      "teks": "Titiknya mulai berjalan. Setiap kali ia bergerak, tingginya kita bawa lurus ke kanan, lalu kita tandai di papan."
+    },
+    {
+      "id": "puncak",
+      "teks": "Di sembilan puluh derajat titiknya berada paling atas. Tingginya satu, dan itu setinggi-tingginya yang bisa ia capai."
+    },
+    {
+      "id": "turun",
+      "teks": "Lewat sembilan puluh, titiknya mulai turun. Di seratus delapan puluh derajat ia kembali menyentuh garis mendatar, dan tingginya nol lagi."
+    },
+    {
+      "id": "bawah",
+      "teks": "Setelah itu titiknya masuk ke bawah garis. Tingginya menjadi negatif. Di dua ratus tujuh puluh derajat ia paling dalam, minus satu."
+    },
+    {
+      "id": "genap",
+      "teks": "Di tiga ratus enam puluh derajat titiknya sampai lagi di tempat ia berangkat. Satu putaran penuh selesai."
+    },
+    {
+      "id": "ulang",
+      "teks": "Kalau titiknya jalan terus, ia hanya mengulang jalan yang sama. Maka kurvanya pun mengulang bentuk yang sama, tanpa pernah berhenti."
+    },
+    {
+      "id": "tutup",
+      "teks": "Inilah grafik sinus. Bukan gambar yang harus dihafal, melainkan jejak tinggi sebuah titik yang sedang berputar."
+    }
+  ]
+}

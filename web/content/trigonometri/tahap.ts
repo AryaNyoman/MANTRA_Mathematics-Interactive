@@ -22,6 +22,7 @@ export type Widget =
   | 'perjalanan-sudut'
   | 'lingkaran-ke-grafik'
   | 'tiga-grafik'
+  | 'dunia-nyata'
 
 /** Satu potongan penjelasan. Bentuknya sengaja beragam supaya tidak monoton. */
 export type Blok =
@@ -525,6 +526,7 @@ export const TAHAP: Tahap[] = [
       isi: 'Sumbu mendatarnya bukan jarak atau posisi, melainkan besar sudut. Jadi kurva ini tidak menggambarkan bentuk benda apa pun — ia grafik nilai terhadap sudut, sama seperti grafik suhu terhadap waktu.',
     },
     widget: 'lingkaran-ke-grafik',
+    video: { berkas: 'tahap8-grafik-sin.webm', poster: 'tahap8-grafik-sin.jpg' },
     siap: true,
   },
   {
@@ -592,10 +594,85 @@ export const TAHAP: Tahap[] = [
     siap: true,
   },
   {
-    no: 10, slug: 'dunia-nyata', judul: 'Dipakai di dunia nyata',
+    no: 10,
+    slug: 'dunia-nyata',
+    judul: 'Dipakai di dunia nyata',
     labelPendek: 'Dunia nyata',
     pertanyaan: 'Di gawai yang Anda pegang sekarang, di mana trigonometrinya?',
-    penjelasan: [{ jenis: 'paragraf', teks: 'Tahap ini sedang disiapkan.' }], siap: false,
+    intisari: [
+      'Kamera tahu seberapa lebar yang muat lewat tangen.',
+      'Layar berputar karena ponsel menghitung sudut kemiringannya.',
+      'Setiap benda yang berputar di game digerakkan sin dan cos.',
+      'Suara yang Anda dengar bentuknya gelombang sinus.',
+    ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Trigonometri terasa jauh dari hidup sehari-hari — sampai Anda sadar bahwa benda yang sedang Anda pegang memakainya ribuan kali setiap detik.' },
+      { jenis: 'sorot', teks: 'Keempat contoh di bawah semuanya ada di dalam satu ponsel.' },
+
+      {
+        jenis: 'poin',
+        judul: '1. Kamera — seberapa lebar yang muat',
+        butir: [
+          'Setiap lensa punya sudut pandang tetap, misalnya 78°',
+          'Yang menentukan lebar hasil foto adalah sudut itu dan jarak Anda',
+          'Setengah sudut pandang membentuk segitiga siku-siku dengan garis tengah lensa — di situlah tangen masuk',
+        ],
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Berapa lebar yang muat dari jarak 1 meter?',
+        baris: [
+          'sudut pandang     = 78°',
+          'setengahnya       = 39°',
+          'setengah lebar    = 1 × tan 39°  =  0,81 m',
+          'lebar seluruhnya  = 2 × 0,81     =  1,62 m',
+        ],
+        simpul: 'Itu sebabnya untuk foto beramai-ramai Anda harus mundur. Bukan sihir — tangen.',
+      },
+
+      {
+        jenis: 'poin',
+        judul: '2. Layar yang berputar sendiri',
+        butir: [
+          'Di dalam ponsel ada sensor yang merasakan tarikan gravitasi',
+          'Sensor itu memecah tarikan tadi menjadi dua arah: mendatar dan tegak',
+          'Kemiringan ponsel = sudut yang tangennya sama dengan perbandingan kedua arah itu',
+          'Begitu sudutnya melewati batas, layar dibalik',
+        ],
+      },
+      { jenis: 'paragraf', teks: 'Jadi setiap kali layar berputar saat ponsel Anda miringkan, yang baru saja terjadi adalah pembacaan sudut dari sebuah perbandingan sisi — persis yang Anda pelajari di tahap 4.' },
+
+      {
+        jenis: 'poin',
+        judul: '3. Game — memutar apa pun',
+        butir: [
+          'Karakter berbalik, peluru melengkung, kamera mengitari arena — semuanya perputaran',
+          'Memutar titik (x, y) sejauh θ menghasilkan (x cos θ − y sin θ, x sin θ + y cos θ)',
+          'Game yang berjalan 60 gambar per detik menghitung rumus itu puluhan ribu kali tiap detik',
+        ],
+      },
+      { jenis: 'paragraf', teks: 'Perhatikan bahwa rumus itu hanya memakai sin dan cos dari sudut putarnya. Tidak ada yang lain. Seluruh gerak berputar di layar game dibangun dari dua angka yang Anda kenal sejak tahap 4.' },
+
+      {
+        jenis: 'poin',
+        judul: '4. Suara — bentuk aslinya kurva sinus',
+        butir: [
+          'Nada A yang dipakai menyetem gitar bergetar 440 kali per detik',
+          'Bentuk getarannya persis kurva yang lahir di tahap 8',
+          'Nada lebih tinggi = kurva lebih rapat; suara lebih keras = kurva lebih tinggi',
+          'Equalizer memecah lagu menjadi tumpukan gelombang sinus, lalu mengeraskan atau memelankan tiap kelompok',
+        ],
+      },
+      { jenis: 'sorot', teks: 'Kurva yang Anda gambar di tahap 8 itu bukan latihan. Itu bentuk suara yang sedang Anda dengar.' },
+
+      { jenis: 'paragraf', teks: 'Empat contoh, satu benda. Dan itu belum termasuk yang di luar genggaman: gelombang radio, arus listrik di rumah, pasang surut air laut, dan denyut jantung yang terbaca di layar rumah sakit — semuanya dijelaskan dengan kurva yang sama.' },
+    ],
+    seringKeliru: {
+      judul: 'Mengira trigonometri hanya untuk mengukur tinggi pohon',
+      isi: 'Mengukur yang tidak terjangkau memang pintu masuknya, dan itu memang cerita tahap 1. Tapi begitu sesuatu berputar atau berulang secara teratur — suara, cahaya, arus listrik, pasang surut, gerak game — sin dan cos hampir selalu ikut. Trigonometri lebih sering dipakai untuk hal yang BERULANG daripada untuk segitiga.',
+    },
+    widget: 'dunia-nyata',
+    siap: true,
   },
 ]
 

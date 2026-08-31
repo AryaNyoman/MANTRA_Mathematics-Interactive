@@ -10,6 +10,8 @@ import EnamRasio, { BATAS_ENAM, RASIO, URUT_RASIO, hitungEnam, type Rasio } from
 import PerjalananSudut, { ISTIMEWA } from '@/components/widget/PerjalananSudut'
 import LingkaranKeGrafik, { BATAS_SAPU } from '@/components/widget/LingkaranKeGrafik'
 import TigaGrafik from '@/components/widget/TigaGrafik'
+import PemutarVideo from '@/components/PemutarVideo'
+import DuniaNyata, { CONTOH, BATAS_JARAK } from '@/components/widget/DuniaNyata'
 import Penjelasan from '@/components/topik/Penjelasan'
 import Latihan from '@/components/topik/Latihan'
 import Kuis from '@/components/topik/Kuis'
@@ -43,9 +45,16 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
   const [sorotRasio, setSorotRasio] = useState<Rasio>('tan')
   const [langkahIstimewa, setLangkahIstimewa] = useState(2)
   const [sudutSapu, setSudutSapu] = useState(200)
+  // Tahap yang punya video menampilkan salah satu saja pada satu waktu,
+  // supaya panggung tetap satu layar tanpa gulir atas-bawah.
+  const [mode, setMode] = useState<'coba' | 'tonton'>('tonton')
+  const [contoh, setContoh] = useState(0)
+  const [jarakFoto, setJarakFoto] = useState(1)
 
   const tahap: Tahap | undefined =
     layar.jenis === 'tahap' ? TAHAP.find((t) => t.slug === layar.slug) : undefined
+  const adaVideo = Boolean(tahap?.video)
+  const tampilWidget = !adaVideo || mode === 'coba'
 
   return (
     <div className="panggung">
@@ -91,10 +100,37 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
           {tahap && (
             <>
               <div className="tanda">
-                TAHAP {String(tahap.no).padStart(2, '0')} · {tahap.widget ? 'INTERAKTIF' : 'BACAAN'}
+                TAHAP {String(tahap.no).padStart(2, '0')} ·{' '}
+                {adaVideo && mode === 'tonton'
+                  ? 'ANIMASI'
+                  : tahap.widget ? 'INTERAKTIF' : 'BACAAN'}
               </div>
 
-              {tahap.widget === 'bayangan' && (
+              {/* Tahap yang punya animasi DAN widget: siswa memilih salah satu.
+                  Menampilkan keduanya sekaligus memaksa panggung digulir, dan
+                  tata letak satu layar adalah keputusan yang sudah dikunci. */}
+              {adaVideo && tahap.widget && (
+                <div className="pilih-mode" role="group" aria-label="Cara belajar tahap ini">
+                  <button aria-pressed={mode === 'tonton'} onClick={() => setMode('tonton')}>
+                    Tonton
+                  </button>
+                  <button aria-pressed={mode === 'coba'} onClick={() => setMode('coba')}>
+                    Coba sendiri
+                  </button>
+                </div>
+              )}
+
+              {adaVideo && mode === 'tonton' && tahap.video && (
+                <div className="layar">
+                  <PemutarVideo
+                    berkas={tahap.video.berkas}
+                    poster={tahap.video.poster}
+                    judul={`Animasi: ${tahap.judul}`}
+                  />
+                </div>
+              )}
+
+              {tampilWidget && tahap.widget === 'bayangan' && (
                 <>
                   <div className="layar"><Bayangan derajat={sudutSinar} /></div>
                   <div className="kendali">
@@ -118,7 +154,7 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 </>
               )}
 
-              {tahap.widget === 'segitiga-sebangun' && (
+              {tampilWidget && tahap.widget === 'segitiga-sebangun' && (
                 <>
                   <div className="layar">
                     <SegitigaSebangun
@@ -154,13 +190,13 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 </>
               )}
 
-              {tahap.widget === 'penamaan-sisi' && (
+              {tampilWidget && tahap.widget === 'penamaan-sisi' && (
                 <div className="layar">
                   <PenamaanSisi aktif={sudutDilihat} onPilih={setSudutDilihat} />
                 </div>
               )}
 
-              {tahap.widget === 'pabrik-rasio' && (
+              {tampilWidget && tahap.widget === 'pabrik-rasio' && (
                 <>
                   <div className="layar">
                     <PabrikRasio pembilang={pembilang} penyebut={penyebut} />
@@ -176,7 +212,7 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 </>
               )}
 
-              {tahap.widget === 'lingkaran-satuan' && (
+              {tampilWidget && tahap.widget === 'lingkaran-satuan' && (
                 <>
                   <div className="layar">
                     <LingkaranSatuan derajat={sudutLingkaran} onUbah={setSudutLingkaran} />
@@ -199,7 +235,7 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 </>
               )}
 
-              {tahap.widget === 'enam-rasio' && (
+              {tampilWidget && tahap.widget === 'enam-rasio' && (
                 <>
                   <div className="layar"><EnamRasio derajat={sudutEnam} sorot={sorotRasio} /></div>
                   <div className="kendali">
@@ -226,7 +262,7 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 </>
               )}
 
-              {tahap.widget === 'perjalanan-sudut' && (
+              {tampilWidget && tahap.widget === 'perjalanan-sudut' && (
                 <>
                   <div className="layar"><PerjalananSudut indeks={langkahIstimewa} /></div>
                   <div className="kendali">
@@ -248,7 +284,7 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 </>
               )}
 
-              {(tahap.widget === 'lingkaran-ke-grafik' || tahap.widget === 'tiga-grafik') && (
+              {tampilWidget && (tahap.widget === 'lingkaran-ke-grafik' || tahap.widget === 'tiga-grafik') && (
                 <>
                   <div className="layar">
                     {tahap.widget === 'lingkaran-ke-grafik'
@@ -273,7 +309,41 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 </>
               )}
 
-              {!tahap.widget && (
+              {tampilWidget && tahap.widget === 'dunia-nyata' && (
+                <>
+                  <div className="layar">
+                    <DuniaNyata pilih={contoh} jarak={jarakFoto} />
+                  </div>
+                  <div className="kendali">
+                    <div className="pilih-contoh" style={{ gridColumn: '1 / -1' }}>
+                      {CONTOH.map((c, i) => (
+                        <button key={c.id} aria-pressed={contoh === i}
+                                onClick={() => setContoh(i)}>
+                          <b>{c.nomor}</b> {c.judul.split(' — ')[0]}
+                        </button>
+                      ))}
+                    </div>
+                    {CONTOH[contoh].id === 'kamera' && (
+                      <div style={{ gridColumn: '1 / -1' }}>
+                        <label htmlFor="jarakFoto">
+                          <span>Jarak Anda ke objek</span>
+                          <span className="mono">{jarakFoto.toFixed(1).replace('.', ',')} m</span>
+                        </label>
+                        <input id="jarakFoto" type="range"
+                               min={BATAS_JARAK.min} max={BATAS_JARAK.maks}
+                               step={BATAS_JARAK.langkah} value={jarakFoto}
+                               onChange={(e) => setJarakFoto(+e.target.value)} />
+                      </div>
+                    )}
+                    <div className="skala-info">
+                      <span className="titik" />
+                      <span>keempatnya ada di dalam satu ponsel</span>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {tampilWidget && !tahap.widget && (
                 <div className="isi-gulir">
                   <div className="cap">Intisari tahap ini</div>
                   <ul className="intisari">
@@ -311,19 +381,19 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
             </div>
 
             {/* angka hidup hanya untuk tahap yang punya widget berangka */}
-            {tahap.widget === 'segitiga-sebangun' && (
+            {tampilWidget && tahap.widget === 'segitiga-sebangun' && (
               <div className="blok">
                 <div className="cap">Angka dari segitiga di sebelah kiri</div>
                 <AngkaSegitiga skala={skala} derajat={derajat} />
               </div>
             )}
-            {tahap.widget === 'pabrik-rasio' && (
+            {tampilWidget && tahap.widget === 'pabrik-rasio' && (
               <div className="blok">
                 <div className="cap">Hasil pilihan Anda</div>
                 <HasilRasio pembilang={pembilang} penyebut={penyebut} />
               </div>
             )}
-            {tahap.widget === 'enam-rasio' && (
+            {tampilWidget && tahap.widget === 'enam-rasio' && (
               <div className="blok">
                 <div className="cap">Keenamnya pada sudut {sudutEnam}°</div>
                 <table className="tabel-angka">
@@ -339,7 +409,7 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 <div className="catatan">{RASIO[sorotRasio].letak}</div>
               </div>
             )}
-            {tahap.widget === 'perjalanan-sudut' && (
+            {tampilWidget && tahap.widget === 'perjalanan-sudut' && (
               <div className="blok">
                 <div className="cap">
                   {ISTIMEWA[langkahIstimewa].derajat}° = {ISTIMEWA[langkahIstimewa].radian}
@@ -354,7 +424,7 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 <div className="catatan">{ISTIMEWA[langkahIstimewa].asal}</div>
               </div>
             )}
-            {tahap.widget === 'lingkaran-satuan' && (
+            {tampilWidget && tahap.widget === 'lingkaran-satuan' && (
               <div className="blok">
                 <div className="cap">Titik pada sudut {sudutLingkaran}°</div>
                 <table className="tabel-angka">
@@ -369,7 +439,7 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 </div>
               </div>
             )}
-            {tahap.widget === 'penamaan-sisi' && (
+            {tampilWidget && tahap.widget === 'penamaan-sisi' && (
               <div className="blok">
                 <div className="cap">Dilihat dari sudut {sudutDilihat}</div>
                 <table className="tabel-angka">
