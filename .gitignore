@@ -27,3 +27,6 @@ Thumbs.db
 
 # Artefak pemeriksaan video — dibuat ulang kapan saja oleh manim/cek_video.py
 qc/
+
+# Audio draf hasil TTS — dibuat ulang dari NARASI di web/content/
+audio/trigonometri/

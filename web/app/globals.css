@@ -229,3 +229,83 @@ h1, h2, h3, .disp {
   color: var(--redup); border: 1px solid var(--garis); border-radius: 4px; padding: 2px 7px;
 }
 .kartu-topik[data-siap="false"] { opacity: .62; }
+
+/* ============================================================
+   Latihan & Kuis (tab 03 dan 04 pada panggung kiri)
+   ============================================================ */
+.isi-gulir { flex: 1; min-height: 0; overflow-y: auto; padding: 26px 22px 12px; }
+
+.latihan-atas {
+  display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px;
+  padding-bottom: 10px; border-bottom: 2px solid var(--tegas);
+}
+.label-soal {
+  margin-left: auto; font-family: var(--font-plex-mono), monospace;
+  font-size: 10.5px; letter-spacing: 0.08em; color: var(--redup);
+}
+.soal-teks { font-size: 16px; line-height: 1.65; margin: 0 0 18px; }
+
+.buka-bahas { width: 100%; }
+
+.pembahasan {
+  background: #FAF6EF; border: 1px solid var(--garis);
+  border-radius: 10px; padding: 15px 18px; margin-bottom: 16px;
+}
+.pembahasan ol { margin: 0; padding-left: 20px; font-size: 14.5px; line-height: 1.6; }
+.pembahasan ol li { padding: 4px 0; }
+.jawaban {
+  display: flex; align-items: baseline; gap: 10px; margin-top: 12px;
+  padding-top: 10px; border-top: 1px solid var(--garis);
+}
+.jawaban b { color: var(--bata); font-size: 15px; }
+
+.latihan-bawah { display: flex; align-items: center; gap: 12px; margin-top: 6px; }
+.latihan-bawah .tombol { flex: none; }
+.latihan-bawah .tombol:disabled { opacity: 0.35; cursor: not-allowed; }
+.titik-soal { display: flex; gap: 7px; margin: 0 auto; }
+.titik-soal button {
+  width: 9px; height: 9px; border-radius: 99px; border: 1px solid var(--redup);
+  background: transparent; padding: 0; cursor: pointer;
+}
+.titik-soal button.aktif { background: var(--tegas); border-color: var(--tegas); }
+
+/* --- kuis --- */
+.pilihan { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.opsi {
+  display: flex; align-items: flex-start; gap: 11px; text-align: left;
+  background: var(--kartu); border: 1px solid var(--garis); border-radius: 10px;
+  padding: 12px 14px; font: inherit; font-size: 14.5px; cursor: pointer;
+  color: var(--tinta); transition: border-color .12s, background .12s;
+}
+.opsi:hover:not(:disabled) { border-color: var(--tegas); }
+.opsi:disabled { cursor: default; }
+.opsi .huruf {
+  font-family: var(--font-plex-mono), monospace; font-size: 11px; font-weight: 600;
+  color: var(--redup); border: 1px solid var(--garis); border-radius: 4px;
+  padding: 1px 6px; flex: none; margin-top: 2px;
+}
+.opsi.benar { border-color: var(--hijau); background: #F0F5F2; }
+.opsi.benar .huruf { color: var(--hijau); border-color: var(--hijau); }
+.opsi.salah { border-color: var(--bata); background: #FBF3EF; }
+.opsi.salah .huruf { color: var(--bata); border-color: var(--bata); }
+.opsi.redam { opacity: 0.45; }
+
+.kuis-selesai { text-align: center; padding: 30px 10px; }
+.kuis-selesai .skor {
+  font-family: var(--font-fraunces), serif; font-size: 56px;
+  color: var(--bata); line-height: 1.1; margin: 6px 0 10px;
+}
+.kuis-selesai p { max-width: 420px; margin: 0 auto 12px; }
+.kuis-selesai .tombol { margin: 16px auto 0; width: fit-content; padding: 11px 22px; }
+
+/* --- daftar tautan kanal --- */
+.tautan { list-style: none; padding: 0; margin: 8px 0 0; font-size: 14px; }
+.tautan li {
+  padding: 8px 0; border-bottom: 1px solid var(--garis);
+  display: flex; flex-direction: column; gap: 2px;
+}
+.tautan li:last-child { border-bottom: 0; }
+.tautan a { color: var(--tinta); text-decoration: none; }
+.tautan a:hover { color: var(--bata); text-decoration: underline; }
+.tautan .mono { font-size: 11px; color: var(--redup); }
+.cari { font-size: 12px; color: var(--redup); font-style: italic; }
