@@ -30,6 +30,27 @@
 
 ---
 
+## 🔄 PERUBAHAN ARAH — 31 Agustus 2026 (sore)
+
+ARYA mengkritik struktur Trigonometri: halaman langsung menyodorkan rumus
+`tan θ = depan/samping` **tanpa pernah menjelaskan apa itu tangen dan dari mana asalnya**.
+Kritik itu benar. Rancangan baru: **10 tahap belajar, 7 video** —
+lihat `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`.
+
+Tiga permintaan lain yang sudah dicatat:
+- Kata **"Miskonsepsi" jangan di halaman depan** — istilah guru, terasa menghakimi.
+  Turunkan jadi kotak "Sering keliru" di bagian bawah tiap tahap.
+- **Jangan memampatkan informasi.** Ada siswa yang belajar dengan membaca, ada yang
+  dengan menonton. Teks harus lengkap, video harus banyak dan bertahap.
+- **Tahap ke-10: manfaat dunia nyata** dengan contoh konkret dekat remaja
+  (kamera ponsel, layar gawai, GPS, animasi game) + foto.
+
+**Keputusan jadwal ARYA:** fokuskan Trigonometri sampai mantap dulu; tenggat topik
+lain ia sesuaikan sendiri. Trigonometri sedalam ini ±4-5 hari.
+
+**Referensi video ARYA** ada di folder Downloads (4 berkas), lembar kontaknya sudah
+dibedah ke `qc/referensi/`. Repo rujukan: github.com/adenosie/math-vids.
+
 ## 🔜 Berikutnya (urut)
 
 ### Hari 1
