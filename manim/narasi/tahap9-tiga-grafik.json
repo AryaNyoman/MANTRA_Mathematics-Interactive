@@ -1,0 +1,48 @@
+{
+  "adegan": "TigaGrafikBersama",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Tahap 9 — Sin, cos, tan berdampingan. Pola visual meniru referensi 4 (Grafik SIN COS TAN): tiga panel bertumpuk, masing-masing lingkaran kecil di kiri dan grafiknya di kanan, semuanya digerakkan SATU sudut yang sama. Inti yang harus tertanam: ketiga kurva lahir dari satu putaran; yang berbeda hanya apa yang dicatat. Asimtot tangen dijelaskan sebagai akibat pembagian dengan nol, bukan sebagai 'nilainya tak hingga'.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Sekarang kita letakkan sinus, cosinus, dan tangen berdampingan. Ketiganya digerakkan oleh satu sudut yang sama."
+    },
+    {
+      "id": "sin",
+      "teks": "Yang pertama sudah kita kenal dari tahap delapan. Sinus mencatat tinggi titik, dan jejaknya melahirkan kurva yang naik turun antara satu dan minus satu."
+    },
+    {
+      "id": "cos",
+      "teks": "Yang kedua, cosinus, mencatat posisi mendatarnya. Bentuk kurvanya persis sama, hanya saja ia berangkat lebih awal."
+    },
+    {
+      "id": "geser",
+      "teks": "Sembilan puluh derajat lebih awal, tepatnya. Masuk akal, karena saat sudutnya nol titik berada paling kanan. Posisi mendatarnya sudah maksimum, sementara tingginya masih nol."
+    },
+    {
+      "id": "tan",
+      "teks": "Yang ketiga berbeda sendiri. Tangen adalah tinggi dibagi posisi mendatar."
+    },
+    {
+      "id": "bagi",
+      "teks": "Selama pembaginya tidak nol, hasilnya baik-baik saja. Tetapi di sembilan puluh derajat, posisi mendatarnya tepat nol."
+    },
+    {
+      "id": "jurang",
+      "teks": "Dan pembagian dengan nol tidak terdefinisi. Kurvanya melesat naik tanpa pernah menyentuh garis putus-putus itu."
+    },
+    {
+      "id": "banding",
+      "teks": "Sinus dan cosinus terkurung rapat antara satu dan minus satu. Tangen tidak punya batas, baik ke atas maupun ke bawah."
+    },
+    {
+      "id": "ulang",
+      "teks": "Sinus dan cosinus mengulang setiap tiga ratus enam puluh derajat. Tangen mengulang dua kali lebih cepat, setiap seratus delapan puluh derajat."
+    },
+    {
+      "id": "tutup",
+      "teks": "Tiga kurva, satu putaran. Yang berbeda hanya apa yang dicatat dari perjalanan yang sama."
+    }
+  ]
+}
