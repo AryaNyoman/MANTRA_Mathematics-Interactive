@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MATRA · Gaya E — Satu Layar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --kertas:#F6F2EC; --kartu:#FFFDFA; --garis:#E1D9CC; --tegas:#211E1A; --petak:#EDE6DA;
+  --tinta:#211E1A; --redup:#7C7469;
+  --hijau:#2F5D50; --oker:#B8863B; --bata:#A6503F;
+  /* warna SISI segitiga — WAJIB sama persis dengan manim/matra_theme.py */
+  --sisi-samping:#3A6EA5; --sisi-depan:#C25E4D; --sisi-miring:#1F2430; --sisi-sudut:#D9A441;
+  --nav:57px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;color:var(--tinta);font-family:Inter,system-ui,sans-serif;font-size:15px;
+  line-height:1.55;-webkit-font-smoothing:antialiased;background:var(--kertas);
+  background-image:repeating-linear-gradient(0deg,var(--petak) 0 1px,transparent 1px 26px),
+                   repeating-linear-gradient(90deg,var(--petak) 0 1px,transparent 1px 26px);
+  overflow:hidden}
+h1,h2,h3,.disp{font-family:Fraunces,Georgia,serif;font-weight:400;letter-spacing:-.012em}
+.mono{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+
+nav{height:var(--nav);background:var(--kartu);border-bottom:1px solid var(--garis);
+  display:flex;align-items:center;gap:24px;padding:0 26px}
+.merk{font-family:Fraunces,serif;font-size:21px;letter-spacing:-.02em}
+.merk i{color:var(--oker);font-style:normal}
+nav a{color:var(--redup);text-decoration:none;font-size:14px}
+nav a.on{color:var(--tinta);font-weight:500}
+.sp{margin-left:auto}
+.kode{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--redup);
+  border:1px solid var(--garis);border-radius:4px;padding:3px 8px}
+
+/* ===== dua kolom, satu layar ===== */
+.panggung{height:calc(100vh - var(--nav));display:grid;
+  grid-template-columns:minmax(0,1.22fr) minmax(380px,.78fr);gap:22px;padding:20px 26px}
+.kolom{min-height:0;display:flex;flex-direction:column}
+
+/* --- kiri: satu wadah visual, dua tab --- */
+.tab{display:flex;gap:6px;margin-bottom:10px;flex:none}
+.tab button{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;background:transparent;border:1px solid var(--garis);
+  border-radius:7px;padding:8px 14px;cursor:pointer;color:var(--redup)}
+.tab button[aria-selected=true]{background:var(--tegas);color:var(--kartu);border-color:var(--tegas)}
+.wadah{flex:1;min-height:0;border:1px solid var(--garis);border-radius:14px;
+  background:var(--kartu);padding:10px;position:relative;display:flex;flex-direction:column}
+.tanda{position:absolute;top:0;left:0;z-index:2;font-family:"IBM Plex Mono",monospace;
+  font-size:10px;background:var(--tegas);color:var(--kartu);padding:2px 8px;
+  letter-spacing:.06em;border-radius:14px 0 5px 0}
+.layar{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+video{max-width:100%;max-height:100%;border-radius:8px;background:var(--kertas)}
+svg{width:100%;height:100%;display:block}
+
+/* kendali widget, di bawah gambar */
+.kendali{flex:none;display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  border-top:1px solid var(--garis);margin-top:10px;padding-top:12px}
+label{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;
+  font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--redup);margin-bottom:5px}
+input[type=range]{width:100%;accent-color:var(--hijau);margin:0}
+.skala-info{grid-column:1/-1;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+  color:var(--redup);display:flex;align-items:center;gap:7px}
+.titik{width:6px;height:6px;border-radius:99px;background:var(--oker);flex:none}
+.sembunyi{display:none !important}
+
+/* --- kanan: penjelasan, rumus, aksi --- */
+.kanan{overflow-y:auto;padding-right:6px}
+.jalur{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--bata);font-weight:600}
+h1{font-size:33px;line-height:1.08;margin:8px 0 6px}
+.sub{font-family:Fraunces,serif;font-style:italic;font-size:16px;color:var(--hijau);
+  padding-bottom:14px;border-bottom:2px solid var(--tegas)}
+
+.blok{padding:15px 0;border-bottom:1px solid var(--garis)}
+.cap{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--redup);font-weight:600;margin-bottom:6px}
+.cap.merah{color:var(--bata)}
+.miskon{border-left:3px solid var(--bata);background:#FBF3EF;border-radius:0 9px 9px 0;
+  padding:12px 15px;font-size:14px}
+.sumber{font-family:Fraunces,serif;font-style:italic;font-size:12px;color:var(--redup);margin-top:7px}
+
+/* angka hidup — nyambung dengan widget di kiri */
+table{width:100%;border-collapse:collapse;font-size:14px}
+td{padding:6px 0;border-bottom:1px solid var(--garis)}
+td:last-child{text-align:right;font-family:"IBM Plex Mono",monospace;font-weight:500}
+tr.tegas td{border-top:2px solid var(--tegas);border-bottom:2px solid var(--tegas);
+  font-weight:600;padding:9px 0}
+tr.tegas td:last-child{color:var(--bata);font-size:20px}
+
+.rumus{font-family:Fraunces,serif;font-size:17px;padding:7px 0;display:flex;
+  justify-content:space-between;align-items:baseline}
+.rumus + .rumus{border-top:1px solid var(--garis)}
+.aksi{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding-top:15px}
+.tombol{background:var(--tegas);color:var(--kartu);border:0;padding:11px;border-radius:8px;
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.07em;cursor:pointer}
+.tombol.garis{background:transparent;color:var(--tinta);border:1px solid var(--garis)}
+.catatan{font-size:13px;color:var(--redup);margin-top:9px;min-height:34px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="merk">Matra<i>·</i></div>
+  <a href="#" class="on">Topik</a><a href="#">Latihan</a><a href="#">Tentang</a>
+  <div class="sp"></div><span class="kode">TRIG-10-B4</span>
+</nav>
+
+<div class="panggung">
+  <!-- ================= KIRI: visual ================= -->
+  <div class="kolom">
+    <div class="tab" role="tablist">
+      <button id="tab-video" role="tab" aria-selected="true" onclick="pilih('video')">01 · Tonton</button>
+      <button id="tab-alat"  role="tab" aria-selected="false" onclick="pilih('alat')">02 · Coba sendiri</button>
+    </div>
+
+    <div class="wadah">
+      <div class="tanda" id="tanda">MANIM · 1280×720</div>
+
+      <div class="layar" id="layar-video">
+        <video controls preload="metadata" poster="img/segitiga-terang.png">
+          <source src="img/trigonometri.webm" type="video/webm">
+        </video>
+      </div>
+
+      <div class="layar sembunyi" id="layar-alat">
+        <svg id="sv" viewBox="0 0 460 300" preserveAspectRatio="xMidYMid meet">
+          <g id="petak"></g>
+          <line id="sm" stroke="var(--sisi-samping)" stroke-width="3.5" stroke-linecap="round"/>
+          <line id="dp" stroke="var(--sisi-depan)" stroke-width="3.5" stroke-linecap="round"/>
+          <line id="mr" stroke="var(--sisi-miring)" stroke-width="3.5" stroke-linecap="round"/>
+          <path id="siku" fill="none" stroke="#7C7469" stroke-width="2"/>
+          <path id="bs" fill="none" stroke="var(--sisi-sudut)" stroke-width="3"/>
+          <text id="th" font-size="17" fill="var(--sisi-sudut)" font-style="italic"
+                font-family="Fraunces, Georgia, serif">θ</text>
+        </svg>
+      </div>
+
+      <div class="kendali sembunyi" id="kendali">
+        <div>
+          <label>Besar segitiga <span class="mono" id="v-skala-pct"></span></label>
+          <input type="range" id="skala" min="35" max="100" value="100">
+        </div>
+        <div>
+          <label>Sudut θ <span class="mono" id="v-deg"></span></label>
+          <input type="range" id="sudut" min="10" max="80" value="37">
+        </div>
+        <div class="skala-info"><span class="titik"></span><span id="v-skala">—</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= KANAN: penjelasan ================= -->
+  <div class="kolom kanan">
+    <div class="jalur">Kelas 10 / Bab 4 / Kurikulum Merdeka</div>
+    <h1>Perbandingan Trigonometri</h1>
+    <div class="sub">Kenapa sudut yang sama selalu memberi angka yang sama?</div>
+
+    <div class="blok">
+      <div class="cap merah">Miskonsepsi</div>
+      <div class="miskon">
+        Siswa mengira <b>tan 37° ≈ 0,75</b> adalah angka mati dari kalkulator. Padahal itu
+        <b>perbandingan</b> — sisi depan dibagi sisi samping. Justru karena ia perbandingan,
+        nilainya tidak peduli seberapa besar segitiganya.
+        <div class="sumber">Buku Panduan Guru Matematika Kelas X, Bab 4</div>
+      </div>
+    </div>
+
+    <div class="blok">
+      <div class="cap">Angka dari segitiga di sebelah kiri</div>
+      <table>
+        <tr><td>sisi samping</td><td id="v-sm">—</td></tr>
+        <tr><td>sisi depan</td><td id="v-dp">—</td></tr>
+        <tr class="tegas"><td>tan θ</td><td id="v-tan">—</td></tr>
+      </table>
+      <div class="catatan" id="catatan">Buka tab “Coba sendiri” untuk menggeser segitiganya.</div>
+    </div>
+
+    <div class="blok">
+      <div class="cap">Tiga perbandingan</div>
+      <div class="rumus"><span>sin θ</span><span><span style="color:var(--sisi-depan)">depan</span> / miring</span></div>
+      <div class="rumus"><span>cos θ</span><span><span style="color:var(--sisi-samping)">samping</span> / miring</span></div>
+      <div class="rumus"><span>tan θ</span><span><span style="color:var(--sisi-depan)">depan</span> / <span style="color:var(--sisi-samping)">samping</span></span></div>
+    </div>
+
+    <div class="aksi">
+      <button class="tombol">LATIHAN · 4 SOAL</button>
+      <button class="tombol garis">KUIS · 8 SOAL</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---- pergantian tab ---- */
+function pilih(mana){
+  const video = mana === 'video';
+  document.getElementById('tab-video').setAttribute('aria-selected', video);
+  document.getElementById('tab-alat').setAttribute('aria-selected', !video);
+  document.getElementById('layar-video').classList.toggle('sembunyi', !video);
+  document.getElementById('layar-alat').classList.toggle('sembunyi', video);
+  document.getElementById('kendali').classList.toggle('sembunyi', video);
+  document.getElementById('tanda').textContent = video ? 'MANIM · 1280×720' : 'INTERAKTIF · SVG';
+  document.getElementById('catatan').textContent = video
+    ? 'Buka tab “Coba sendiri” untuk menggeser segitiganya.'
+    : 'Geser “Besar segitiga”. Sisi berubah, tan θ tetap.';
+  if (!video) gambar();
+}
+
+/* ---- widget: bingkai selalu menyesuaikan, tidak pernah memotong ---- */
+const NS = 'http://www.w3.org/2000/svg';
+const VW = 460, VH = 300, PAD = 40;
+const LEBAR = VW - PAD * 2, TINGGI = VH - PAD * 2, SAMPING_MAKS = 5;
+const S = () => document.getElementById('skala');
+const A = () => document.getElementById('sudut');
+
+function gambar(){
+  const s = +S().value / 100, deg = +A().value, rad = deg * Math.PI / 180;
+  const ppc = Math.min(LEBAR / SAMPING_MAKS, TINGGI / (SAMPING_MAKS * Math.tan(rad)));
+  const sampingCm = SAMPING_MAKS * s, depanCm = sampingCm * Math.tan(rad);
+  const ox = PAD, oy = VH - PAD;
+  const bx = ox + sampingCm * ppc, cy = oy - depanCm * ppc;
+
+  const g = document.getElementById('petak'); g.innerHTML = '';
+  for (let x = ox; x <= VW - 5; x += ppc) g.appendChild(garis(x, 5, x, VH - 5));
+  for (let y = oy; y >= 5; y -= ppc) g.appendChild(garis(5, y, VW - 5, y));
+
+  set('sm', {x1:ox, y1:oy, x2:bx, y2:oy});
+  set('dp', {x1:bx, y1:oy, x2:bx, y2:cy});
+  set('mr', {x1:bx, y1:cy, x2:ox, y2:oy});
+
+  // tanda siku-siku DI DALAM segitiga (kiri-atas dari titik siku)
+  const t = Math.max(5, Math.min(13, (bx-ox) * .3, (oy-cy) * .3));
+  document.getElementById('siku').setAttribute('d',
+    `M ${bx-t} ${oy} L ${bx-t} ${oy-t} L ${bx} ${oy-t}`);
+
+  const r = Math.max(16, Math.min(46, (bx-ox) * .42));
+  document.getElementById('bs').setAttribute('d',
+    `M ${ox+r} ${oy} A ${r} ${r} 0 0 0 ${ox + r*Math.cos(rad)} ${oy - r*Math.sin(rad)}`);
+  const th = document.getElementById('th');
+  th.setAttribute('x', ox + (r+13) * Math.cos(rad/2));
+  th.setAttribute('y', oy - (r+13) * Math.sin(rad/2) + 5);
+
+  const km = n => n.toFixed(2).replace('.', ',');
+  document.getElementById('v-sm').textContent = km(sampingCm) + ' cm';
+  document.getElementById('v-dp').textContent = km(depanCm) + ' cm';
+  document.getElementById('v-tan').textContent = Math.tan(rad).toFixed(3).replace('.', ',');
+  document.getElementById('v-deg').textContent = deg + '°';
+  document.getElementById('v-skala-pct').textContent = Math.round(s*100) + '%';
+  document.getElementById('v-skala').textContent =
+    'skala tampilan: 1 cm = ' + ppc.toFixed(1).replace('.', ',') + ' px';
+  document.getElementById('catatan').textContent =
+    deg > 60 ? 'Sudut curam — bingkai otomatis menjauh supaya segitiga tetap utuh. Petaknya ikut merapat.'
+    : s < .99 ? 'Segitiga mengecil. Kedua sisi ikut mengecil, tapi tan θ tidak bergeser sedikit pun.'
+    : 'Geser “Besar segitiga”. Sisi berubah, tan θ tetap.';
+}
+function garis(x1,y1,x2,y2){
+  const l = document.createElementNS(NS,'line');
+  l.setAttribute('x1',x1); l.setAttribute('y1',y1);
+  l.setAttribute('x2',x2); l.setAttribute('y2',y2);
+  l.setAttribute('stroke','#EDE6DA'); l.setAttribute('stroke-width','1');
+  return l;
+}
+function set(id,a){const e=document.getElementById(id);for(const k in a)e.setAttribute(k,a[k]);}
+S().oninput = A().oninput = gambar;
+gambar();
+</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MATRA · Gaya B — Papan Tulis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papan:#0E1016; --panel:#161A23; --garis:#242A36;
+  --kapur:#ECEAE4; --redup:#7C8698;
+  --biru:#58C4DD; --kuning:#FFD166; --merah:#FC6255; --hijau:#83C167;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papan);color:var(--kapur);
+  font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.7;
+  -webkit-font-smoothing:antialiased}
+.mono{font-variant-numeric:tabular-nums}
+.serif{font-family:"Source Serif 4",Georgia,serif}
+.wrap{max-width:860px;margin:0 auto;padding:0 26px}
+.lebar{max-width:1120px;margin:0 auto;padding:0 26px}
+
+nav{border-bottom:1px solid var(--garis)}
+nav .lebar{display:flex;align-items:center;gap:30px;padding:20px 0}
+.merk{font-family:"Source Serif 4",serif;font-size:22px;letter-spacing:.02em}
+.merk b{color:var(--biru);font-weight:400}
+nav a{color:var(--redup);text-decoration:none;font-size:14px}
+nav a.on{color:var(--kapur)}
+.sp{margin-left:auto}
+
+header{padding:70px 0 34px;text-align:center}
+.kelas{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--biru)}
+h1{font-family:"Source Serif 4",serif;font-weight:400;font-size:54px;
+  line-height:1.12;margin:16px 0 14px;letter-spacing:-.015em}
+.sub{color:var(--redup);font-size:19px;max-width:600px;margin:0 auto}
+
+/* panggung video: latar SAMA dengan papan → menyatu penuh */
+.panggung{background:var(--papan);border:1px solid var(--garis);border-radius:10px;
+  padding:10px;margin:22px 0 8px}
+.panggung img{width:100%;display:block;border-radius:4px}
+.kendali{display:flex;align-items:center;gap:14px;color:var(--redup);font-size:13px}
+.main{width:34px;height:34px;border-radius:99px;background:var(--biru);color:#0E1016;
+  display:grid;place-items:center;font-size:13px;cursor:pointer}
+.rel{flex:1;height:3px;background:var(--garis);border-radius:99px;position:relative}
+.rel::after{content:"";position:absolute;inset:0 62% 0 0;background:var(--biru);border-radius:99px}
+
+h2{font-family:"Source Serif 4",serif;font-weight:400;font-size:32px;margin:62px 0 14px;letter-spacing:-.01em}
+p{color:#C9CEDA}
+.sorotkuning{color:var(--kuning)}
+.sorotbiru{color:var(--biru)}
+.kutip{border-left:2px solid var(--kuning);padding:4px 0 4px 18px;color:var(--redup);
+  font-family:"Source Serif 4",serif;font-style:italic;font-size:17px;margin:24px 0}
+
+/* widget */
+.alat{background:var(--panel);border:1px solid var(--garis);border-radius:14px;
+  padding:26px;display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center;margin-top:20px}
+svg{width:100%;height:auto;display:block}
+label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--redup);margin:18px 0 8px}
+input[type=range]{width:100%;accent-color:var(--biru)}
+.baris{display:flex;justify-content:space-between;padding:7px 0;font-size:14px;
+  color:var(--redup);border-bottom:1px solid var(--garis)}
+.baris b{color:var(--kapur);font-weight:500}
+.hasil{margin-top:18px;text-align:center}
+.hasil .cap{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--redup)}
+.hasil .nilai{font-family:"Source Serif 4",serif;font-size:48px;color:var(--kuning);line-height:1.1}
+.catatan{color:var(--redup);font-size:13.5px;margin-top:12px;min-height:38px}
+
+.rumusbaris{display:flex;gap:14px;flex-wrap:wrap;margin:26px 0}
+.rumusbaris div{flex:1;min-width:190px;background:var(--panel);border:1px solid var(--garis);
+  border-radius:12px;padding:18px;text-align:center;font-family:"Source Serif 4",serif;font-size:21px}
+
+.dua{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.kotak{background:var(--panel);border:1px solid var(--garis);border-radius:12px;padding:20px}
+.kotak h3{font-family:"Source Serif 4",serif;font-weight:400;font-size:20px;margin:0 0 10px}
+ol{margin:0;padding-left:20px;color:#C9CEDA;font-size:14.5px}
+ol li{padding:5px 0}
+.sumber{font-size:11.5px;color:var(--redup);font-style:italic;margin-top:12px}
+.tombol{margin-top:16px;background:transparent;border:1px solid var(--garis);color:var(--kapur);
+  border-radius:9px;padding:10px 16px;font-size:13.5px;cursor:pointer;font-family:inherit}
+footer{border-top:1px solid var(--garis);margin-top:70px;padding:24px 0 46px;
+  font-size:12.5px;color:var(--redup)}
+</style>
+</head>
+<body>
+<nav><div class="lebar">
+  <div class="merk">MATRA<b>.</b></div>
+  <a href="#" class="on">Topik</a><a href="#">Latihan</a><a href="#">Tentang</a>
+  <div class="sp"></div><span style="color:var(--redup);font-size:13px">Kelas 10 — 12</span>
+</div></nav>
+
+<div class="wrap">
+  <header>
+    <div class="kelas">Kelas 10 · Bab 4</div>
+    <h1>Perbandingan<br>Trigonometri</h1>
+    <div class="sub">Kenapa sudut yang sama selalu memberi angka yang sama — sebesar apa pun segitiganya?</div>
+  </header>
+</div>
+
+<div class="lebar">
+  <div class="panggung"><img src="img/segitiga-gelap.png" alt="Dua segitiga sebangun"></div>
+  <div class="kendali">
+    <div class="main">▶</div><div class="rel"></div><span class="mono">0:29 / 0:48</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <h2>Yang biasanya salah dipahami</h2>
+  <p>Kebanyakan siswa menghafal <span class="sorotkuning">tan 37° ≈ 0,75</span> seperti menghafal
+  nomor telepon — sebuah angka mati yang keluar dari kalkulator. Padahal itu bukan angka mati.
+  Itu <span class="sorotbiru">perbandingan</span>: sisi depan dibagi sisi samping.</p>
+  <div class="kutip">“Siswa perlu membuktikan bahwa sinus dan cosinus suatu sudut berupa rasio,
+  bukan nilai tetap.” — Buku Panduan Guru Matematika Kelas X, Bab 4</div>
+  <p>Dan justru karena ia perbandingan, nilainya tidak peduli seberapa besar segitiganya.
+  Itulah alasan kalkulator sanggup menjawab tanpa pernah tahu segitiga mana yang Anda maksud.</p>
+
+  <h2>Buktikan sendiri</h2>
+  <div class="alat">
+    <svg viewBox="0 0 320 230" id="sv">
+      <line id="sm" x1="40" y1="190" x2="240" y2="190" stroke="#58C4DD" stroke-width="3"/>
+      <line id="dp" x1="240" y1="190" x2="240" y2="90" stroke="#FC6255" stroke-width="3"/>
+      <line id="mr" x1="240" y1="90"  x2="40"  y2="190" stroke="#ECEAE4" stroke-width="3"/>
+      <path id="bs" fill="none" stroke="#FFD166" stroke-width="2.5"/>
+      <text id="th" x="70" y="182" font-size="15" fill="#FFD166" font-style="italic">θ</text>
+    </svg>
+    <div>
+      <label>Besar segitiga</label>
+      <input type="range" id="skala" min="40" max="100" value="100">
+      <label>Sudut θ</label>
+      <input type="range" id="sudut" min="15" max="65" value="37">
+      <div style="margin-top:18px">
+        <div class="baris"><span>sisi depan</span><b class="mono" id="v-dp">—</b></div>
+        <div class="baris"><span>sisi samping</span><b class="mono" id="v-sm">—</b></div>
+      </div>
+      <div class="hasil">
+        <div class="cap">tan θ</div>
+        <div class="nilai mono" id="v-tan">—</div>
+      </div>
+      <div class="catatan" id="catatan"></div>
+    </div>
+  </div>
+
+  <h2>Tiga perbandingan itu</h2>
+  <div class="rumusbaris">
+    <div>sin θ = <span style="color:var(--merah)">depan</span> / miring</div>
+    <div>cos θ = <span style="color:var(--biru)">samping</span> / miring</div>
+    <div>tan θ = <span style="color:var(--merah)">depan</span> / <span style="color:var(--biru)">samping</span></div>
+  </div>
+
+  <div class="dua">
+    <div class="kotak">
+      <h3>Latihan</h3>
+      <ol>
+        <li>Tiang 6 m, bayangan 8 m. Berapa tan sudut elevasinya?</li>
+        <li>tan θ = 0,75 dan miring 10 cm. Cari kedua sisi lainnya.</li>
+        <li>Buktikan sin θ = cos(90° − θ).</li>
+        <li>Dua tangga bersandar dengan sudut sama. Mana yang lebih panjang?</li>
+      </ol>
+      <button class="tombol">Buka pembahasan →</button>
+    </div>
+    <div class="kotak">
+      <h3>Uji paham</h3>
+      <p style="font-size:14.5px;margin:0">Delapan soal. Nilai langsung terlihat. Kalau salah,
+      ditunjukkan letak kelirunya — bukan cuma dicoret.</p>
+      <button class="tombol">Mulai kuis →</button>
+      <h3 style="margin-top:24px">Belajar lebih lanjut</h3>
+      <ol style="list-style:none;padding:0">
+        <li>▶ Perbandingan trigonometri — 14 menit</li>
+        <li>▶ Sudut istimewa tanpa hafalan — 9 menit</li>
+      </ol>
+      <div class="sumber">Tautan ke kanal asli. Kami tidak mengunggah ulang.</div>
+    </div>
+  </div>
+
+  <footer>MATRA · Gaya B — “Papan Tulis”. Gelap seperti 3Blue1Brown. Video Manim menyatu
+  sempurna karena latarnya memang gelap — nol usaha penyesuaian.</footer>
+</div>
+
+<script>
+const S=document.getElementById('skala'),A=document.getElementById('sudut');
+function gambar(){
+  const s=+S.value/100, deg=+A.value, rad=deg*Math.PI/180;
+  const px=40, py=190, samping=200*s, depan=samping*Math.tan(rad);
+  const bx=px+samping, cy=py-depan;
+  document.getElementById('sm').setAttribute('x2',bx);
+  document.getElementById('dp').setAttribute('x1',bx);
+  document.getElementById('dp').setAttribute('x2',bx);
+  document.getElementById('dp').setAttribute('y2',cy);
+  document.getElementById('mr').setAttribute('x1',bx);
+  document.getElementById('mr').setAttribute('y1',cy);
+  const r=34;
+  document.getElementById('bs').setAttribute('d',
+    `M ${px+r} ${py} A ${r} ${r} 0 0 0 ${px+r*Math.cos(rad)} ${py-r*Math.sin(rad)}`);
+  document.getElementById('th').setAttribute('x',px+r+9);
+  document.getElementById('v-dp').textContent=(depan/40).toFixed(2).replace('.',',')+' cm';
+  document.getElementById('v-sm').textContent=(samping/40).toFixed(2).replace('.',',')+' cm';
+  document.getElementById('v-tan').textContent=Math.tan(rad).toFixed(3).replace('.',',');
+  document.getElementById('catatan').textContent = s<0.99
+    ? 'Segitiganya mengecil. Kedua sisi ikut mengecil — tapi tan θ tidak bergeser sedikit pun.'
+    : 'Geser “Besar segitiga”. Perhatikan: sisi berubah, tan θ tetap.';
+}
+S.oninput=A.oninput=gambar; gambar();
+</script>
+</body>
+</html>

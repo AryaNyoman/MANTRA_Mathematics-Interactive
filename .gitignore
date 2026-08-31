@@ -1,0 +1,29 @@
+# Keluaran mentah Manim — besar, bisa dibuat ulang kapan saja
+media/
+
+# Artefak verifikasi Playwright
+.playwright-cli/
+shot-*.png
+
+# Node
+node_modules/
+.next/
+out/
+.vercel/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Sistem
+Thumbs.db
+.DS_Store
+
+# Rahasia — JANGAN pernah di-commit
+.env
+.env.local
+*.key
+
+# Artefak pemeriksaan video — dibuat ulang kapan saja oleh manim/cek_video.py
+qc/
