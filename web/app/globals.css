@@ -427,3 +427,30 @@ ul.poin li b { color: var(--tinta); font-weight: 600; }
   color: var(--kartu); background: var(--hijau); width: 16px; height: 16px;
   border-radius: 4px; display: grid; place-items: center;
 }
+
+/* --- pemilih sisi (widget Pabrik Rasio, tahap 4) --- */
+.pilih-sisi { display: flex; gap: 5px; }
+.pilih-sisi button {
+  flex: 1; font-family: var(--font-inter), sans-serif; font-size: 12.5px;
+  background: transparent; border: 1px solid var(--garis); border-radius: 7px;
+  padding: 7px 4px; cursor: pointer; color: var(--redup);
+}
+.pilih-sisi button[aria-pressed="true"] {
+  border-color: var(--w); color: var(--w); font-weight: 600;
+  box-shadow: inset 0 -3px 0 var(--w);
+}
+
+/* --- kartu nama resmi hasil pembagian --- */
+.nama-resmi {
+  display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; align-items: baseline;
+  background: #F1EDE4; border: 1px solid var(--garis); border-radius: 10px;
+  padding: 12px 15px; margin-top: 12px;
+}
+.nama-resmi .lambang {
+  font-size: 22px; color: var(--bata); font-weight: 600; grid-row: 1 / span 2;
+  align-self: center;
+}
+.nama-resmi .nama {
+  font-family: var(--font-fraunces), serif; font-size: 17px; color: var(--tinta);
+}
+.nama-resmi .catatan-resmi { font-size: 12.5px; color: var(--redup); line-height: 1.45; }

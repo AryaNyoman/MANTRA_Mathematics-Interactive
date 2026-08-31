@@ -22,11 +22,11 @@ ARYA mengkritik struktur awal: halaman langsung menyodorkan rumus `tan θ = depa
 
 | # | Tahap | Video | Status |
 |---|---|---|---|
-| 1 | Kenapa kita butuh ini (masalah nyata) | ✅ perlu | ⬜ belum |
+| 1 | Kenapa kita butuh ini (masalah nyata) | ✅ perlu | 🟢 teks+widget jadi, video belum |
 | 2 | Perbandingan yang tidak berubah | ✅ **sudah ada** | 🟡 perlu narasi ulang |
-| 3 | Menamai sisi (depan/samping/miring) | — | ⬜ belum |
-| 4 | Lahirnya sin, cos, tan | ✅ perlu | ⬜ belum |
-| 5 | Lingkaran satuan (`cos θ = x`, `sin θ = y`) | ✅ perlu | ⬜ belum |
+| 3 | Menamai sisi (depan/samping/miring) | — | ✅ selesai |
+| 4 | Lahirnya sin, cos, tan | ✅ perlu | 🟢 teks+widget jadi, video belum |
+| 5 | Lingkaran satuan (`cos θ = x`, `sin θ = y`) | ✅ perlu | 🟢 teks+widget jadi, video belum |
 | 6 | Enam rasio sebagai panjang nyata | ✅ perlu | ⬜ belum |
 | 7 | Sudut istimewa & kenapa istimewa | ✅ perlu | ⬜ belum |
 | 8 | Terbentuknya grafik sin | ✅ perlu | ⬜ belum |

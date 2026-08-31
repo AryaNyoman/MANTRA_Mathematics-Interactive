@@ -4,6 +4,8 @@ import { useState } from 'react'
 import SegitigaSebangun, { hitungGeometri, angka } from '@/components/widget/SegitigaSebangun'
 import PenamaanSisi, { type SudutAktif } from '@/components/widget/PenamaanSisi'
 import Bayangan, { BATAS_SUDUT, hitungBayangan } from '@/components/widget/Bayangan'
+import PabrikRasio, { hitungRasio, SISI, type NamaSisi } from '@/components/widget/PabrikRasio'
+import LingkaranSatuan, { hitungLingkaran, angka3 } from '@/components/widget/LingkaranSatuan'
 import Penjelasan from '@/components/topik/Penjelasan'
 import Latihan from '@/components/topik/Latihan'
 import Kuis from '@/components/topik/Kuis'
@@ -30,6 +32,9 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
   const [derajat, setDerajat] = useState(37)
   const [sudutSinar, setSudutSinar] = useState(51)
   const [sudutDilihat, setSudutDilihat] = useState<SudutAktif>('A')
+  const [pembilang, setPembilang] = useState<NamaSisi>('depan')
+  const [penyebut, setPenyebut] = useState<NamaSisi>('miring')
+  const [sudutLingkaran, setSudutLingkaran] = useState(52)
 
   const tahap: Tahap | undefined =
     layar.jenis === 'tahap' ? TAHAP.find((t) => t.slug === layar.slug) : undefined
@@ -147,6 +152,45 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 </div>
               )}
 
+              {tahap.widget === 'pabrik-rasio' && (
+                <>
+                  <div className="layar">
+                    <PabrikRasio pembilang={pembilang} penyebut={penyebut} />
+                  </div>
+                  <div className="kendali">
+                    <PilihSisi label="Pembilang (atas)" nilai={pembilang} atur={setPembilang} />
+                    <PilihSisi label="Penyebut (bawah)" nilai={penyebut} atur={setPenyebut} />
+                    <div className="skala-info">
+                      <span className="titik" />
+                      <span>coba keenam pasangan — tiap satu punya nama resminya sendiri</span>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {tahap.widget === 'lingkaran-satuan' && (
+                <>
+                  <div className="layar">
+                    <LingkaranSatuan derajat={sudutLingkaran} onUbah={setSudutLingkaran} />
+                  </div>
+                  <div className="kendali">
+                    <div style={{ gridColumn: '1 / -1' }}>
+                      <label htmlFor="sudutLingkaran">
+                        <span>Sudut <span style={{ textTransform: 'none' }}>θ</span></span>
+                        <span className="mono">{sudutLingkaran}°</span>
+                      </label>
+                      <input id="sudutLingkaran" type="range" min={0} max={359}
+                             value={sudutLingkaran}
+                             onChange={(e) => setSudutLingkaran(+e.target.value)} />
+                    </div>
+                    <div className="skala-info">
+                      <span className="titik" />
+                      <span>lewati 90° dan perhatikan cos mulai bernilai negatif</span>
+                    </div>
+                  </div>
+                </>
+              )}
+
               {!tahap.widget && (
                 <div className="isi-gulir">
                   <div className="cap">Intisari tahap ini</div>
@@ -189,6 +233,27 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
               <div className="blok">
                 <div className="cap">Angka dari segitiga di sebelah kiri</div>
                 <AngkaSegitiga skala={skala} derajat={derajat} />
+              </div>
+            )}
+            {tahap.widget === 'pabrik-rasio' && (
+              <div className="blok">
+                <div className="cap">Hasil pilihan Anda</div>
+                <HasilRasio pembilang={pembilang} penyebut={penyebut} />
+              </div>
+            )}
+            {tahap.widget === 'lingkaran-satuan' && (
+              <div className="blok">
+                <div className="cap">Titik pada sudut {sudutLingkaran}°</div>
+                <table className="tabel-angka">
+                  <tbody>
+                    <tr><td>cos θ — koordinat x</td><td>{angka3(hitungLingkaran(sudutLingkaran).cos)}</td></tr>
+                    <tr><td>sin θ — koordinat y</td><td>{angka3(hitungLingkaran(sudutLingkaran).sin)}</td></tr>
+                    <tr className="tegas"><td>jari-jari (sisi miring)</td><td>1</td></tr>
+                  </tbody>
+                </table>
+                <div className="catatan">
+                  Titiknya selalu berada di (cos θ, sin θ). Tidak ada pembagian sama sekali.
+                </div>
               </div>
             )}
             {tahap.widget === 'penamaan-sisi' && (
@@ -257,6 +322,61 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
         </div>
       </div>
     </div>
+  )
+}
+
+/** Pemilih sisi untuk widget Pabrik Rasio. Di luar render induk, bukan di dalamnya. */
+function PilihSisi({
+  label, nilai, atur,
+}: {
+  label: string; nilai: NamaSisi; atur: (s: NamaSisi) => void
+}) {
+  return (
+    <div>
+      <label><span>{label}</span></label>
+      <div className="pilih-sisi">
+        {(Object.keys(SISI) as NamaSisi[]).map((s) => (
+          <button
+            key={s}
+            aria-pressed={nilai === s}
+            onClick={() => atur(s)}
+            style={{ ['--w' as string]: SISI[s].warna }}
+          >
+            {s}
+          </button>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function HasilRasio({ pembilang, penyebut }: { pembilang: NamaSisi; penyebut: NamaSisi }) {
+  const r = hitungRasio(pembilang, penyebut)
+  return (
+    <>
+      <table className="tabel-angka">
+        <tbody>
+          <tr><td>pembilang</td><td>{pembilang} = {SISI[pembilang].panjang}</td></tr>
+          <tr><td>penyebut</td><td>{penyebut} = {SISI[penyebut].panjang}</td></tr>
+          <tr className="tegas">
+            <td>{r.pecahan}</td>
+            <td>{angka(r.nilai, 3)}</td>
+          </tr>
+        </tbody>
+      </table>
+      {r.sama ? (
+        <div className="catatan">
+          Sisi yang sama dibagi dirinya sendiri selalu 1. Tidak ada nama khusus untuk ini —
+          pilih dua sisi yang berbeda.
+        </div>
+      ) : r.resmi ? (
+        <div className="nama-resmi">
+          <span className="lambang mono">{r.resmi.lambang}</span>
+          <span className="nama">{r.resmi.nama}</span>
+          <span className="catatan-resmi">{r.resmi.catatan}</span>
+        </div>
+      ) : null}
+    </>
   )
 }
 
