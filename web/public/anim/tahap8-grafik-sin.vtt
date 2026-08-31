@@ -1,0 +1,115 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/tahap8-grafik-sin.json
+
+1
+00:00:00.000 --> 00:00:03.672
+Perhatikan bagaimana terbentuknya <b>grafik sinus</b>.
+
+2
+00:00:03.672 --> 00:00:07.968
+Semuanya dimulai dari sebuah lingkaran yang berjari-jari satu.
+
+3
+00:00:07.968 --> 00:00:12.256
+Sebuah titik berjalan di tepinya, berlawanan arah jarum jam,
+
+4
+00:00:12.256 --> 00:00:14.328
+berangkat dari sebelah kanan.
+
+5
+00:00:14.328 --> 00:00:16.995
+Yang kita perhatikan cuma satu hal.
+
+6
+00:00:16.995 --> 00:00:20.728
+Seberapa tinggi titik itu di atas garis mendatar.
+
+7
+00:00:20.728 --> 00:00:23.928
+Tinggi itulah yang kita sebut <b>sinus theta</b>.
+
+8
+00:00:23.928 --> 00:00:26.813
+Sekarang lingkarannya kita geser ke kiri,
+
+9
+00:00:26.813 --> 00:00:30.119
+dan di sebelah kanan kita siapkan papan kosong.
+
+10
+00:00:30.119 --> 00:00:34.200
+Sumbu mendatarnya besar sudut, sumbu tegaknya tinggi tadi.
+
+11
+00:00:34.200 --> 00:00:36.069
+Titiknya mulai berjalan.
+
+12
+00:00:36.069 --> 00:00:40.743
+Setiap kali ia bergerak, tingginya kita bawa lurus ke kanan,
+
+13
+00:00:40.743 --> 00:00:42.768
+lalu kita tandai di papan.
+
+14
+00:00:42.768 --> 00:00:46.690
+Di sembilan puluh derajat titiknya berada paling atas.
+
+15
+00:00:46.690 --> 00:00:51.192
+Tingginya satu, dan itu setinggi-tingginya yang bisa ia capai.
+
+16
+00:00:51.192 --> 00:00:54.257
+Lewat sembilan puluh, titiknya mulai turun.
+
+17
+00:00:54.257 --> 00:00:59.176
+Di seratus delapan puluh derajat ia kembali menyentuh garis mendatar,
+
+18
+00:00:59.176 --> 00:01:00.816
+dan tingginya nol lagi.
+
+19
+00:01:00.816 --> 00:01:04.199
+Setelah itu titiknya masuk ke bawah garis.
+
+20
+00:01:04.199 --> 00:01:06.294
+Tingginya menjadi negatif.
+
+21
+00:01:06.294 --> 00:01:11.208
+Di dua ratus tujuh puluh derajat ia paling dalam, minus satu.
+
+22
+00:01:11.208 --> 00:01:16.716
+Di tiga ratus enam puluh derajat titiknya sampai lagi di tempat ia berangkat.
+
+23
+00:01:16.716 --> 00:01:18.648
+Satu putaran penuh selesai.
+
+24
+00:01:18.648 --> 00:01:23.115
+Kalau titiknya jalan terus, ia hanya mengulang jalan yang sama.
+
+25
+00:01:23.115 --> 00:01:27.936
+Maka kurvanya pun mengulang bentuk yang sama, tanpa pernah berhenti.
+
+26
+00:01:27.936 --> 00:01:29.455
+Inilah grafik sinus.
+
+27
+00:01:29.455 --> 00:01:31.886
+Bukan gambar yang harus dihafal,
+
+28
+00:01:31.886 --> 00:01:36.216
+melainkan <b>jejak tinggi</b> sebuah titik yang sedang berputar.

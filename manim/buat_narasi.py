@@ -62,7 +62,9 @@ async def buat(topik: str) -> None:
     total_huruf = 0
 
     for i, seg in enumerate(naskah["segmen"], start=1):
-        teks = " ".join(seg["teks"].split())
+        # Tanda bintang adalah penanda TEBAL untuk subtitle, bukan untuk
+        # diucapkan. Dibuang di sini supaya mesin suara tidak membacanya.
+        teks = " ".join(seg["teks"].replace("*", "").split())
         total_huruf += len(teks)
         berkas = keluar / f"{i:02d}-{seg['id']}.mp3"
         await edge_tts.Communicate(teks, suara, rate=tempo).save(str(berkas))

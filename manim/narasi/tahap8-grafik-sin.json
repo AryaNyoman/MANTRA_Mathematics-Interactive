@@ -6,7 +6,7 @@
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Perhatikan bagaimana terbentuknya grafik sinus."
+      "teks": "Perhatikan bagaimana terbentuknya *grafik sinus*."
     },
     {
       "id": "mulai",
@@ -18,7 +18,7 @@
     },
     {
       "id": "tinggi",
-      "teks": "Yang kita perhatikan cuma satu hal. Seberapa tinggi titik itu di atas garis mendatar. Tinggi itulah yang kita sebut sinus theta."
+      "teks": "Yang kita perhatikan cuma satu hal. Seberapa tinggi titik itu di atas garis mendatar. Tinggi itulah yang kita sebut *sinus theta*."
     },
     {
       "id": "geser",
@@ -50,7 +50,7 @@
     },
     {
       "id": "tutup",
-      "teks": "Inilah grafik sinus. Bukan gambar yang harus dihafal, melainkan jejak tinggi sebuah titik yang sedang berputar."
+      "teks": "Inilah grafik sinus. Bukan gambar yang harus dihafal, melainkan *jejak tinggi* sebuah titik yang sedang berputar."
     }
   ]
 }

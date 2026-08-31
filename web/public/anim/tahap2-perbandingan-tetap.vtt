@@ -1,0 +1,107 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/tahap2-perbandingan-tetap.json
+
+1
+00:00:00.000 --> 00:00:02.999
+Tahap satu berakhir pada satu dugaan.
+
+2
+00:00:02.999 --> 00:00:07.376
+Sudut yang sama selalu memberi <b>perbandingan yang sama</b>.
+
+3
+00:00:07.376 --> 00:00:09.240
+Sekarang kita buktikan.
+
+4
+00:00:09.240 --> 00:00:12.318
+Ini segitiga siku-siku dengan sudut theta.
+
+5
+00:00:12.318 --> 00:00:15.469
+Sisi depannya satu koma delapan sentimeter,
+
+6
+00:00:15.469 --> 00:00:18.840
+dan sisi sampingnya dua koma empat sentimeter.
+
+7
+00:00:18.840 --> 00:00:22.024
+Bagi sisi depan dengan sisi samping.
+
+8
+00:00:22.024 --> 00:00:25.563
+Satu koma delapan dibagi dua koma empat.
+
+9
+00:00:25.563 --> 00:00:28.128
+Hasilnya <b>nol koma tujuh lima</b>.
+
+10
+00:00:28.128 --> 00:00:30.742
+Sekarang segitiganya kita besarkan.
+
+11
+00:00:30.742 --> 00:00:36.120
+Sudut theta tidak kita sentuh sama sekali, hanya ukurannya yang berubah.
+
+12
+00:00:36.120 --> 00:00:42.017
+Sisi depannya sekarang tiga sentimeter, dan sisi sampingnya empat sentimeter.
+
+13
+00:00:42.017 --> 00:00:44.544
+Keduanya jelas berbeda dari tadi.
+
+14
+00:00:44.544 --> 00:00:46.616
+Tapi coba bagi lagi.
+
+15
+00:00:46.616 --> 00:00:48.480
+Tiga dibagi empat.
+
+16
+00:00:48.480 --> 00:00:51.485
+Hasilnya nol koma tujuh lima.
+
+17
+00:00:51.485 --> 00:00:54.696
+Sama persis seperti sebelumnya.
+
+18
+00:00:54.696 --> 00:00:56.210
+Sebabnya sederhana.
+
+19
+00:00:56.210 --> 00:01:02.904
+Waktu segitiganya diperbesar, sisi depan dan sisi samping dikalikan angka yang sama.
+
+20
+00:01:02.904 --> 00:01:08.939
+Dan pada pembagian, angka pengali yang sama di atas dan di bawah <b>saling menghapus</b>.
+
+21
+00:01:08.939 --> 00:01:11.736
+Yang tersisa persis hasil bagi semula.
+
+22
+00:01:11.736 --> 00:01:15.222
+Sekarang perhatikan kalau yang diubah sudutnya.
+
+23
+00:01:15.222 --> 00:01:19.152
+Begitu theta bergerak, barulah angkanya ikut berubah.
+
+24
+00:01:19.152 --> 00:01:23.547
+Jadi perbandingan itu <b>hanya bergantung pada sudut</b>, bukan pada ukuran.
+
+25
+00:01:23.547 --> 00:01:27.433
+Itulah sebabnya nilainya bisa dihitung sekali lalu dibukukan,
+
+26
+00:01:27.433 --> 00:01:32.592
+dan kalkulator sanggup menjawab tanpa pernah tahu segitiga mana yang Anda maksud.

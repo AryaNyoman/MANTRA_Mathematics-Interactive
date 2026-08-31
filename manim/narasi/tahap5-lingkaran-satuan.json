@@ -22,11 +22,11 @@
     },
     {
       "id": "lingkaran",
-      "teks": "Kalau titik ujungnya kita putar mengelilingi titik asal, jejaknya membentuk sebuah lingkaran berjari-jari satu. Inilah yang disebut lingkaran satuan."
+      "teks": "Kalau titik ujungnya kita putar mengelilingi titik asal, jejaknya membentuk sebuah lingkaran berjari-jari satu. Inilah yang disebut *lingkaran satuan*."
     },
     {
       "id": "bagi",
-      "teks": "Sekarang perhatikan baik-baik rumusnya. Sisi miringnya bukan lagi r, melainkan satu. Jadi cosinus theta sama dengan x dibagi satu."
+      "teks": "Sekarang perhatikan baik-baik rumusnya. Sisi miringnya bukan lagi r, melainkan satu. Jadi *cosinus theta sama dengan x* dibagi satu."
     },
     {
       "id": "hilang",
@@ -34,7 +34,7 @@
     },
     {
       "id": "sinus",
-      "teks": "Dengan cara yang persis sama, sinus theta sama dengan y dibagi satu, yang berarti sinus theta sama dengan y."
+      "teks": "Dengan cara yang persis sama, *sinus theta sama dengan y* dibagi satu, yang berarti sinus theta sama dengan y."
     },
     {
       "id": "koordinat",
@@ -46,7 +46,7 @@
     },
     {
       "id": "tutup",
-      "teks": "Sinus dan cosinus tidak lagi sekadar hasil bagi dua sisi. Sekarang keduanya adalah posisi sebuah titik yang sedang berputar."
+      "teks": "Sinus dan cosinus tidak lagi sekadar hasil bagi dua sisi. Sekarang keduanya adalah *posisi sebuah titik* yang sedang berputar."
     }
   ]
 }

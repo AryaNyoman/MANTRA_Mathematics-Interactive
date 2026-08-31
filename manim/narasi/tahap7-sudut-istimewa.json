@@ -6,11 +6,11 @@
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Ada tiga sudut yang di semua buku selalu disebut istimewa. Tiga puluh, empat puluh lima, dan enam puluh derajat."
+      "teks": "Ada tiga sudut yang di semua buku selalu disebut *istimewa*. Tiga puluh, empat puluh lima, dan enam puluh derajat."
     },
     {
       "id": "kenapa",
-      "teks": "Istimewanya bukan karena angkanya bulat. Melainkan karena nilainya bisa ditulis persis, tanpa deretan desimal yang tidak pernah habis."
+      "teks": "Istimewanya bukan karena angkanya bulat. Melainkan karena nilainya bisa *ditulis persis*, tanpa deretan desimal yang tidak pernah habis."
     },
     {
       "id": "persegi",
@@ -18,7 +18,7 @@
     },
     {
       "id": "empatlima",
-      "teks": "Yang tersisa adalah segitiga siku-siku dengan dua sudut empat puluh lima derajat. Kedua sisi tegaknya satu, dan sisi miringnya akar dua."
+      "teks": "Yang tersisa adalah segitiga siku-siku dengan dua sudut empat puluh lima derajat. Kedua sisi tegaknya satu, dan sisi miringnya *akar dua*."
     },
     {
       "id": "nilai45",
@@ -30,7 +30,7 @@
     },
     {
       "id": "tigapuluh",
-      "teks": "Sekarang muncul segitiga siku-siku dengan sudut tiga puluh dan enam puluh derajat. Alasnya satu, miringnya dua, dan sisi tegaknya akar tiga."
+      "teks": "Sekarang muncul segitiga siku-siku dengan sudut tiga puluh dan enam puluh derajat. Alasnya satu, miringnya dua, dan sisi tegaknya *akar tiga*."
     },
     {
       "id": "nilai30",

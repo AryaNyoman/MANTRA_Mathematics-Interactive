@@ -133,14 +133,26 @@ class PerbandinganTetap(Scene):
     # ==================================================================
     # Babak
     # ==================================================================
+    def penanda_bagian(self, teks: str):
+        """Penanda bagian di pojok kiri atas — permintaan ARYA supaya siswa tahu
+        video ini punya dua babak: dulu MEMBUKTIKAN, baru MENJELASKAN sebabnya."""
+        t = self.t
+        m = Text(teks, font_size=22, color=t.redup)
+        sinema.batasi_lebar(m, 4.4)
+        m.move_to([-3.90, 3.35, 0])
+        return m
+
     def b01_sapa(self):
         with sinema.babak(self, "sapa", DURASI) as b:
             sinema.judul_pembuka(self, "Perbandingan yang tidak berubah", self.t,
-                                 lama=DURASI["sapa"] * 0.60)
-            b.catat(DURASI["sapa"] * 0.60)
+                                 lama=DURASI["sapa"] * 0.52)
+            b.catat(DURASI["sapa"] * 0.52)
+            self.bagian = self.penanda_bagian("Bagian 1 — buktinya")
+            b.main(FadeIn(self.bagian), run_time=0.9)
             b.main(Create(self.miring), Create(self.samping), Create(self.depan),
-                   Create(self.siku), run_time=2.4)
-        qc.periksa_adegan({"segitiga": self.segitiga})
+                   Create(self.siku), run_time=2.2)
+        qc.periksa_adegan({"segitiga": self.segitiga, "bagian": self.bagian},
+                          [("bagian", "segitiga")])
 
     def b02_segitiga(self):
         self.lab_s, self.lab_d = self.angka_sisi()
@@ -206,10 +218,13 @@ class PerbandinganTetap(Scene):
     def b07_kenapa(self):
         t = self.t
         self.h3 = self.baris(2, r"\frac{1{,}8 \times k}{2{,}4 \times k}", ukuran=34)
+        bagian2 = self.penanda_bagian("Bagian 2 — sebabnya")
         with sinema.babak(self, "kenapa", DURASI) as b:
-            b.main(FadeOut(self.kotak_sama), FadeOut(self.jaga), run_time=0.9)
-            b.main(Write(self.h3), run_time=3.0)
+            b.main(FadeOut(self.kotak_sama), FadeOut(self.jaga),
+                   ReplacementTransform(self.bagian, bagian2), run_time=1.2)
+            b.main(Write(self.h3), run_time=2.8)
             b.jeda(1.4)
+        self.bagian = bagian2
         qc.periksa_adegan({"h3": self.h3, "h1": self.h1, "h2": self.h2,
                            "segitiga": self.segitiga},
                           [("h3", "segitiga"), ("h3", "h2")])

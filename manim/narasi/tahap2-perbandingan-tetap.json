@@ -6,7 +6,7 @@
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Tahap satu berakhir pada satu dugaan. Sudut yang sama selalu memberi perbandingan yang sama. Sekarang kita buktikan."
+      "teks": "Tahap satu berakhir pada satu dugaan. Sudut yang sama selalu memberi *perbandingan yang sama*. Sekarang kita buktikan."
     },
     {
       "id": "segitiga",
@@ -14,7 +14,7 @@
     },
     {
       "id": "bagi1",
-      "teks": "Bagi sisi depan dengan sisi samping. Satu koma delapan dibagi dua koma empat. Hasilnya nol koma tujuh lima."
+      "teks": "Bagi sisi depan dengan sisi samping. Satu koma delapan dibagi dua koma empat. Hasilnya *nol koma tujuh lima*."
     },
     {
       "id": "besarkan",
@@ -34,7 +34,7 @@
     },
     {
       "id": "hapus",
-      "teks": "Dan pada pembagian, angka pengali yang sama di atas dan di bawah saling menghapus. Yang tersisa persis hasil bagi semula."
+      "teks": "Dan pada pembagian, angka pengali yang sama di atas dan di bawah *saling menghapus*. Yang tersisa persis hasil bagi semula."
     },
     {
       "id": "geser",
@@ -42,7 +42,7 @@
     },
     {
       "id": "tutup",
-      "teks": "Jadi perbandingan itu hanya bergantung pada sudut, bukan pada ukuran. Itulah sebabnya nilainya bisa dihitung sekali lalu dibukukan, dan kalkulator sanggup menjawab tanpa pernah tahu segitiga mana yang Anda maksud."
+      "teks": "Jadi perbandingan itu *hanya bergantung pada sudut*, bukan pada ukuran. Itulah sebabnya nilainya bisa dihitung sekali lalu dibukukan, dan kalkulator sanggup menjawab tanpa pernah tahu segitiga mana yang Anda maksud."
     }
   ]
 }

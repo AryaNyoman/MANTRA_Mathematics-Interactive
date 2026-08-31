@@ -6,7 +6,7 @@
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Sekarang kita letakkan sinus, cosinus, dan tangen berdampingan. Ketiganya digerakkan oleh satu sudut yang sama."
+      "teks": "Sekarang kita letakkan sinus, cosinus, dan tangen berdampingan. Ketiganya digerakkan oleh *satu sudut yang sama*."
     },
     {
       "id": "sin",
@@ -30,7 +30,7 @@
     },
     {
       "id": "jurang",
-      "teks": "Dan pembagian dengan nol tidak terdefinisi. Kurvanya melesat naik tanpa pernah menyentuh garis putus-putus itu."
+      "teks": "Dan pembagian dengan nol *tidak terdefinisi*. Kurvanya melesat naik tanpa pernah menyentuh garis putus-putus itu."
     },
     {
       "id": "banding",
@@ -38,7 +38,7 @@
     },
     {
       "id": "ulang",
-      "teks": "Sinus dan cosinus mengulang setiap tiga ratus enam puluh derajat. Tangen mengulang dua kali lebih cepat, setiap seratus delapan puluh derajat."
+      "teks": "Sinus dan cosinus mengulang setiap tiga ratus enam puluh derajat. Tangen mengulang dua kali lebih cepat, setiap *seratus delapan puluh derajat*."
     },
     {
       "id": "tutup",

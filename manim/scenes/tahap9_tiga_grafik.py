@@ -45,7 +45,11 @@ DURASI: dict[str, float] = json.loads(
 )["segmen"]
 
 # --- ZONA TETAP (bingkai 14,22 x 8; batas aman x ±6,91  y ±3,80) ---
-Y_PANEL = [2.05, -0.15, -2.35]     # titik tengah tiga panel, atas ke bawah
+# Ketiga panel dinaikkan setelah skala derajat+radian ditambahkan: dua baris
+# angka di bawah panel terbawah mendorong tepi bawahnya ke -4,09, melewati
+# batas aman -3,80 (digagalkan qc). Jarak antar panel 2,15 menyisakan celah
+# 0,04 satuan — cukup, dan diperiksa qc lewat pasangan panel_sin/panel_tan.
+Y_PANEL = [2.25, 0.10, -2.05]      # titik tengah tiga panel, atas ke bawah
 R_LING = 0.78                       # jari-jari lingkaran kecil tiap panel
 X_LING = -5.55                      # pusat lingkaran kecil
 X_GRAFIK = -4.20                    # sudut 0 pada papan grafik
@@ -169,9 +173,30 @@ class TigaGrafikBersama(Scene):
         label = MathTex(nama, color=warna, font_size=28)
         label.next_to(sumbu_y, LEFT, buff=0.22).shift(UP * 0.30)
 
+        # Skala sumbu mendatar hanya digambar pada panel PALING BAWAH, supaya
+        # tidak diulang tiga kali dan tidak menyesaki panel di atasnya.
+        #
+        # Derajat DAN radian ditulis berdampingan — permintaan ARYA: "jangan
+        # sampai ilmunya kepisah-pisah". Tahap-tahap sebelumnya memakai derajat,
+        # jadi derajat tetap ada; radian ditambahkan di bawahnya supaya siswa
+        # melihat sendiri bahwa satu putaran penuh sama dengan 2 pi.
+        skala = VGroup()
+        if i == len(Y_PANEL) - 1:
+            for d, rad in ((0, "0"), (180, r"\pi"), (360, r"2\pi"), (540, r"3\pi")):
+                x = self.x_dari(d)
+                tik = Line([x, y0 - TINGGI_SATU * 1.35, 0],
+                           [x, y0 - TINGGI_SATU * 1.55, 0],
+                           color=t.redup, stroke_width=1.8)
+                drj = MathTex(rf"{d}^\circ", color=t.redup, font_size=21)
+                drj.next_to(tik, DOWN, buff=0.10)
+                rd_ = MathTex(rad, color=t.aksen2, font_size=21)
+                rd_.next_to(drj, DOWN, buff=0.07)
+                skala.add(VGroup(tik, drj, rd_))
+
         return dict(y0=y0, pusat=pusat, lingkaran=lingkaran, sb=sb,
                     sumbu=VGroup(sumbu_x, sumbu_y), jari=jari, titik=titik,
                     kurva=kurva, kurva_penuh=kurva_penuh, label=label,
+                    skala=skala,
                     rangka=VGroup(lingkaran, sb, sumbu_x, sumbu_y))
 
     # ==================================================================
@@ -252,13 +277,17 @@ class TigaGrafikBersama(Scene):
         sinema.batasi_lebar(self.rumus_tan, LEBAR_KANAN)
         self.rumus_tan.move_to([X_KANAN, Y_PANEL[2], 0])
         with sinema.babak(self, "tan", DURASI) as b:
-            b.main(Create(p["rangka"]), FadeIn(p["label"]), run_time=1.8)
+            b.main(Create(p["rangka"]), FadeIn(p["label"]), run_time=1.6)
             b.main(FadeIn(p["jari"]), FadeIn(p["titik"]), Write(self.rumus_tan),
-                   run_time=2.4)
+                   run_time=2.2)
+            # Skala derajat + radian muncul bersama panel terbawah, dan berlaku
+            # untuk ketiga panel karena sumbu mendatarnya sejajar.
+            b.main(FadeIn(p["skala"]), run_time=1.2)
         qc.periksa_adegan(
             {"panel_tan": p["rangka"], "rumus": self.rumus_tan,
-             "panel_cos": self.p_cos["rangka"]},
-            [("panel_tan", "panel_cos"), ("rumus", "panel_cos")])
+             "panel_cos": self.p_cos["rangka"], "skala": p["skala"]},
+            [("panel_tan", "panel_cos"), ("rumus", "panel_cos"),
+             ("skala", "rumus")])
 
     def b06_bagi(self):
         t = self.t
@@ -314,13 +343,20 @@ class TigaGrafikBersama(Scene):
                               color=t.sorot, stroke_width=2, dash_length=0.10)
         lab360 = MathTex(r"360^\circ", color=t.tinta, font_size=24)
         lab360.next_to(tanda360, UP, buff=0.12)
-        lab180 = MathTex(r"180^\circ", color=t.tinta, font_size=24)
-        lab180.next_to(self.asimtot[0], DOWN, buff=0.14)
+        # Keterangan periode tangen menggantikan rumusnya di kolom kanan.
+        # Versi pertama menaruh teks "180 derajat" TEPAT DI BAWAH asimtot 90
+        # derajat — salah tempat, dan bertabrakan maknanya dengan angka 180 di
+        # skala sumbu. Sekarang ia jadi kalimat di kolom kanan, tidak ada dua
+        # angka sama yang berarti dua hal berbeda.
+        lab180 = Text("tan mengulang tiap 180°", font_size=22, color=t.redup)
+        sinema.batasi_lebar(lab180, LEBAR_KANAN)
+        lab180.move_to([X_KANAN, Y_PANEL[2], 0])
         with sinema.babak(self, "ulang", DURASI) as b:
             b.main(self.theta.animate.set_value(AKHIR), run_time=3.2, rate_func=linear)
             b.main(Create(tanda360), FadeIn(lab360), run_time=1.8)
-            b.main(FadeIn(lab180), run_time=1.2)
-            b.jeda(1.6)
+            b.main(ReplacementTransform(self.rumus_tan, lab180), run_time=1.4)
+            b.jeda(1.4)
+        self.rumus_tan = lab180
         self.tanda_ulang = VGroup(tanda360, lab360, lab180)
         qc.periksa_adegan(
             {"tanda360": tanda360, "lab360": lab360, "lab180": lab180,
@@ -333,10 +369,9 @@ class TigaGrafikBersama(Scene):
             p["kurva"].clear_updaters()
         penutup = Text("tiga kurva, satu putaran", font_size=24, color=t.redup)
         sinema.batasi_lebar(penutup, LEBAR_KANAN)
-        penutup.move_to([X_KANAN, Y_PANEL[1], 0])
+        penutup.move_to([X_KANAN, Y_PANEL[1], 0])   # panel tengah, satu-satunya kolom kanan yang masih kosong
         with sinema.babak(self, "tutup", DURASI) as b:
-            b.main(FadeOut(self.rumus_tan), run_time=0.8)
-            b.main(FadeIn(penutup, shift=UP * 0.15), run_time=1.4)
+            b.main(FadeIn(penutup, shift=UP * 0.15), run_time=1.6)
             # Ditebalkan, BUKAN di-Indicate. Indicate mengubah warnanya jadi
             # kuning serentak, dan ketiga kurva sesaat kehilangan identitas
             # warnanya — padahal justru warna itu yang membedakan mereka.

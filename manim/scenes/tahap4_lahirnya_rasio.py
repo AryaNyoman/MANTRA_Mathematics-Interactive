@@ -122,18 +122,29 @@ class LahirnyaRasio(Scene):
         """Tiga pilihan atas, dua sisa bawah — dihitung, bukan diberitahu."""
         t = self.t
         atas = MathTex(r"3", r"\text{ pilihan untuk pembilang}",
-                       color=t.tinta, font_size=30).move_to([2.30, 2.05, 0])
+                       color=t.tinta, font_size=30).move_to([2.30, 2.35, 0])
         atas[0].set_color(t.sorot)
         bawah = MathTex(r"2", r"\text{ sisa untuk penyebut}",
-                        color=t.tinta, font_size=30).move_to([2.30, 0.85, 0])
+                        color=t.tinta, font_size=30).move_to([2.30, 1.35, 0])
         bawah[0].set_color(t.sorot)
-        self.hitungan = VGroup(atas, bawah)
+        # ARYA menanyakan ini setelah menonton: kenapa penyebutnya 2, bukan 3?
+        # Jawabannya harus TERTULIS, bukan diandaikan sudah jelas.
+        # DUA baris, bukan satu. Versi satu baris terpaksa diperkecil sampai
+        # nyaris tak terbaca supaya muat 5,9 satuan — batasi_lebar menskalakan,
+        # jadi kalimat panjang justru jadi kecil, bukan terpotong.
+        sebab = Text("sisi yang dipakai di atas tidak boleh dipakai lagi di bawah,\n"
+                     "karena membagi sisi dengan dirinya sendiri selalu 1",
+                     font_size=22, color=t.redup, line_spacing=0.9)
+        sinema.batasi_lebar(sebab, 6.1)
+        sebab.move_to([2.30, 0.25, 0])
+        self.hitungan = VGroup(atas, bawah, sebab)
         with sinema.babak(self, "hitung", DURASI) as b:
-            b.main(Write(atas), run_time=2.4)
-            b.main(Write(bawah), run_time=2.4)
+            b.main(Write(atas), run_time=2.2)
+            b.main(Write(bawah), run_time=2.0)
+            b.main(FadeIn(sebab, shift=UP * 0.12), run_time=1.8)
             b.main(LaggedStart(*[Indicate(m, scale_factor=1.12, color=t.sorot)
                                  for m in self.nama_sisi], lag_ratio=0.4),
-                   run_time=2.4)
+                   run_time=2.2)
         qc.periksa_adegan({"hitungan": self.hitungan, "segitiga": self.segitiga,
                            "nama_sisi": self.nama_sisi},
                           [("hitungan", "segitiga"), ("hitungan", "nama_sisi")])
@@ -180,14 +191,17 @@ class LahirnyaRasio(Scene):
         sorot = SurroundingRectangle(target, color=warna, buff=0.16,
                                      stroke_width=3, corner_radius=0.08)
         label = MathTex(nama, color=warna, font_size=32)
-        label.next_to(sorot, LEFT, buff=0.26)
+        # buff 0,26 membuat "sin theta =" menyentuh kotaknya — terlihat ARYA
+        # pada tangkapan layar. Diberi jarak lebih, dan pasangan label-kotak
+        # ikut diperiksa qc supaya tindihan seperti ini tidak lolos lagi.
+        label.next_to(sorot, LEFT, buff=0.40)
         with sinema.babak(self, nama_babak, DURASI) as b:
             b.main(Create(sorot), run_time=1.2)
             b.main(Write(label), run_time=1.6)
             b.jeda(1.0)
         qc.periksa_adegan({"sorot": sorot, "label": label, "kotaks": self.kotaks,
                            "segitiga": self.segitiga},
-                          [("label", "segitiga")])
+                          [("label", "segitiga"), ("label", "sorot")])
         return VGroup(sorot, label)
 
     def b05_sin(self):

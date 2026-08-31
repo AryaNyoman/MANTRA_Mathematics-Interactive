@@ -14,15 +14,15 @@
     },
     {
       "id": "singgung",
-      "teks": "Sekarang tarik sebuah garis tegak yang menyentuh lingkaran di sebelah kanan. Garis seperti ini disebut garis singgung."
+      "teks": "Sekarang tarik sebuah garis tegak yang menyentuh lingkaran di sebelah kanan. Garis seperti ini disebut *garis singgung*."
     },
     {
       "id": "tan",
-      "teks": "Perpanjang jari-jarinya sampai mengenai garis singgung tadi. Ruas dari sumbu mendatar sampai titik potong itu panjangnya persis tangen theta."
+      "teks": "Perpanjang jari-jarinya sampai mengenai garis singgung tadi. Ruas dari sumbu mendatar sampai titik potong itu panjangnya persis *tangen theta*."
     },
     {
       "id": "sec",
-      "teks": "Dan ruas dari pusat lingkaran sampai titik potong yang sama panjangnya sekan theta."
+      "teks": "Dan ruas dari pusat lingkaran sampai titik potong yang sama panjangnya *sekan theta*."
     },
     {
       "id": "singgung2",
@@ -30,11 +30,11 @@
     },
     {
       "id": "cot",
-      "teks": "Perpanjang lagi jari-jarinya ke arah itu. Ruas dari sumbu tegak sampai titik potongnya panjangnya kotangen theta."
+      "teks": "Perpanjang lagi jari-jarinya ke arah itu. Ruas dari sumbu tegak sampai titik potongnya panjangnya *kotangen theta*."
     },
     {
       "id": "csc",
-      "teks": "Dan ruas dari pusat sampai titik potong itu panjangnya kosekan theta."
+      "teks": "Dan ruas dari pusat sampai titik potong itu panjangnya *kosekan theta*."
     },
     {
       "id": "enam",

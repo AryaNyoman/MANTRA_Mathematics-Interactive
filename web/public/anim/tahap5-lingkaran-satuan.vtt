@@ -1,0 +1,107 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/tahap5-lingkaran-satuan.json
+
+1
+00:00:00.000 --> 00:00:05.640
+Perhatikan apa yang terjadi kalau sisi miring sebuah segitiga dibuat tepat berukuran satu.
+
+2
+00:00:05.640 --> 00:00:10.391
+Ini segitiga siku-siku yang sudah kita kenal sejak tahap tiga.
+
+3
+00:00:10.391 --> 00:00:14.376
+Sudutnya theta, dan sisi miringnya kita beri nama r.
+
+4
+00:00:14.376 --> 00:00:16.706
+Dari tahap empat kita sudah tahu.
+
+5
+00:00:16.706 --> 00:00:20.449
+Cosinus theta adalah sisi samping dibagi sisi miring,
+
+6
+00:00:20.449 --> 00:00:24.192
+dan sinus theta adalah sisi depan dibagi sisi miring.
+
+7
+00:00:24.192 --> 00:00:27.325
+Sekarang segitiganya kita perkecil pelan-pelan,
+
+8
+00:00:27.325 --> 00:00:30.192
+sampai sisi miringnya tepat berukuran satu.
+
+9
+00:00:30.192 --> 00:00:33.977
+Kalau titik ujungnya kita putar mengelilingi titik asal,
+
+10
+00:00:33.977 --> 00:00:37.627
+jejaknya membentuk sebuah lingkaran berjari-jari satu.
+
+11
+00:00:37.627 --> 00:00:40.128
+Inilah yang disebut <b>lingkaran satuan</b>.
+
+12
+00:00:40.128 --> 00:00:43.477
+Sekarang perhatikan baik-baik rumusnya.
+
+13
+00:00:43.477 --> 00:00:47.256
+Sisi miringnya bukan lagi r, melainkan satu.
+
+14
+00:00:47.256 --> 00:00:51.120
+Jadi <b>cosinus theta sama dengan x</b> dibagi satu.
+
+15
+00:00:51.120 --> 00:00:54.766
+Dan dibagi satu tidak mengubah apa pun.
+
+16
+00:00:54.766 --> 00:00:57.197
+Penyebutnya boleh dicoret.
+
+17
+00:00:57.197 --> 00:00:59.160
+Yang tersisa hanya x.
+
+18
+00:00:59.160 --> 00:01:03.873
+Dengan cara yang persis sama, <b>sinus theta sama dengan y</b> dibagi satu,
+
+19
+00:01:03.873 --> 00:01:06.576
+yang berarti sinus theta sama dengan y.
+
+20
+00:01:06.576 --> 00:01:09.333
+Perhatikan apa yang baru saja terjadi.
+
+21
+00:01:09.333 --> 00:01:12.380
+Koordinat titik itu bukan sekadar x dan y.
+
+22
+00:01:12.380 --> 00:01:16.008
+Koordinatnya adalah cosinus theta dan sinus theta.
+
+23
+00:01:16.008 --> 00:01:21.325
+Geser sudutnya, dan kedua angka itu bergerak bersama titiknya.
+
+24
+00:01:21.325 --> 00:01:24.240
+Satu sudut, satu pasang koordinat.
+
+25
+00:01:24.240 --> 00:01:28.277
+Sinus dan cosinus tidak lagi sekadar hasil bagi dua sisi.
+
+26
+00:01:28.277 --> 00:01:32.952
+Sekarang keduanya adalah <b>posisi sebuah titik</b> yang sedang berputar.

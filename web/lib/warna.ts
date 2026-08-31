@@ -18,8 +18,13 @@ export const WARNA = {
   depan: '#C25E4D',
   /** sisi miring / garis utama / kurva */
   miring: '#1F2430',
-  /** sudut, dan nilai yang sedang disorot */
-  sudut: '#D9A441',
+  /**
+   * sudut, dan nilai yang sedang disorot.
+   * Kuning #D9A441 dibuang 31 Agu 2026: kontrasnya di atas krem hanya 2,04:1,
+   * jauh di bawah batas layak 4,5:1, dan pada video nyaris tak terbaca.
+   * Pengganti ini 6,20:1. WAJIB sama dengan TERANG_SOROT di matra_theme.py.
+   */
+  sudut: '#6A4C93',
   /** garis bantu, petak, keterangan sekunder */
   redup: '#8B8378',
 } as const
@@ -29,7 +34,7 @@ export const WARNA_GELAP = {
   samping: '#58C4DD',
   depan: '#FF6B5B',
   miring: '#ECEAE4',
-  sudut: '#FFD166',
+  sudut: '#B9A0E8',
   redup: '#5C6270',
 } as const
 

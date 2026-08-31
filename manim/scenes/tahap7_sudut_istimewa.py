@@ -281,13 +281,31 @@ class SudutIstimewaLahir(Scene):
                          self.pusat_ling + UP * R_LING * 1.2,
                          color=t.redup, stroke_width=2)
         self.sumbu = VGroup(self.sb_h, self.sb_v)
+
+        # Derajatnya DITULIS di lingkaran — permintaan ARYA setelah melihat
+        # lingkarannya polos. Tanpa label, siswa harus menebak jari-jari itu
+        # sedang berhenti di sudut berapa.
+        self.tanda_sudut = VGroup()
+        for d in ISTIMEWA:
+            r = np.radians(d)
+            arah = np.array([np.cos(r), np.sin(r), 0.0])
+            garis = Line(self.pusat_ling + arah * R_LING,
+                         self.pusat_ling + arah * R_LING * 1.10,
+                         color=t.redup, stroke_width=2)
+            lab = MathTex(rf"{d}^\circ", color=t.tinta, font_size=25)
+            lab.move_to(self.pusat_ling + arah * R_LING * 1.30)
+            self.tanda_sudut.add(VGroup(garis, lab))
+
         with sinema.babak(self, "lingkaran", DURASI) as b:
             b.main(FadeOut(self.segi30), FadeOut(self.tanda30), run_time=1.2)
-            b.main(Create(self.sumbu), Create(self.lingkaran), run_time=2.6)
-            b.jeda(1.4)
+            b.main(Create(self.sumbu), Create(self.lingkaran), run_time=2.2)
+            b.main(LaggedStart(*[FadeIn(m, shift=UP * 0.10)
+                                 for m in self.tanda_sudut], lag_ratio=0.3),
+                   run_time=2.4)
         qc.periksa_adegan({"lingkaran": self.lingkaran, "sumbu": self.sumbu,
-                           "daftar": self.daftar},
-                          [("lingkaran", "daftar"), ("sumbu", "daftar")])
+                           "daftar": self.daftar, "tanda_sudut": self.tanda_sudut},
+                          [("lingkaran", "daftar"), ("sumbu", "daftar"),
+                           ("tanda_sudut", "daftar")])
 
     def b10_sapu(self):
         """Jari-jari berhenti di tiap sudut istimewa, juringnya terisi."""

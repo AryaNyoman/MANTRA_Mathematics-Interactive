@@ -14,7 +14,7 @@
     },
     {
       "id": "enam",
-      "teks": "Tiga dikali dua sama dengan enam. Jadi ada enam perbandingan yang mungkin. Tidak lebih, dan tidak kurang."
+      "teks": "Tiga dikali dua sama dengan enam. Jadi ada *enam perbandingan* yang mungkin. Tidak lebih, dan tidak kurang."
     },
     {
       "id": "nama",
@@ -22,15 +22,15 @@
     },
     {
       "id": "sin",
-      "teks": "Sisi depan dibagi sisi miring. Namanya sinus."
+      "teks": "Sisi depan dibagi sisi miring. Namanya *sinus*."
     },
     {
       "id": "cos",
-      "teks": "Sisi samping dibagi sisi miring. Namanya cosinus."
+      "teks": "Sisi samping dibagi sisi miring. Namanya *cosinus*."
     },
     {
       "id": "tan",
-      "teks": "Dan sisi depan dibagi sisi samping. Namanya tangen."
+      "teks": "Dan sisi depan dibagi sisi samping. Namanya *tangen*."
     },
     {
       "id": "kenapa",
@@ -38,7 +38,7 @@
     },
     {
       "id": "sisa",
-      "teks": "Tiga sisanya adalah kebalikan dari ketiga tadi. Namanya kosekan, sekan, dan kotangen. Kita akan menemuinya lagi di tahap enam."
+      "teks": "Tiga sisanya adalah kebalikan dari ketiga tadi. Namanya *kosekan, sekan, dan kotangen*. Kita akan menemuinya lagi di tahap enam."
     },
     {
       "id": "tutup",

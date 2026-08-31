@@ -25,6 +25,19 @@ type Props = {
   judul: string
 }
 
+/**
+ * Subtitle memakai berkas .vtt terpisah, BUKAN teks yang dibakar ke video.
+ * Alasannya (keputusan 31 Agu 2026, permintaan ARYA):
+ *   - tidak mungkin menindih animasi: peramban menaruhnya di lapisannya sendiri
+ *   - bisa dimatikan siswa lewat kontrol bawaan
+ *   - naskah berubah cukup jalankan `python manim/buat_subtitle.py <topik>`,
+ *     tanpa render ulang video belasan menit
+ *   - bisa disalin, dicari, dan dibaca pembaca layar
+ * Berkasnya dibuat otomatis dari durasi suara yang sudah terukur, jadi
+ * waktunya sama persis dengan narasi dan animasinya.
+ */
+const berkasSubtitle = (berkas: string) => berkas.replace(/\.webm$/, '.vtt')
+
 export default function PemutarVideo({ berkas, poster, judul }: Props) {
   // Tanpa pembungkus tambahan: `.layar video` di globals.css sudah mengatur
   // batas ukuran dalam rem, dan aturan itu sengaja dibuat supaya kotaknya ikut
@@ -38,6 +51,13 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
       aria-label={judul}
     >
       <source src={`/anim/${berkas}`} type="video/webm" />
+      <track
+        kind="subtitles"
+        src={`/anim/${berkasSubtitle(berkas)}`}
+        srcLang="id"
+        label="Bahasa Indonesia"
+        default
+      />
       Peramban Anda tidak bisa memutar video ini. Penjelasan lengkapnya tetap
       tersedia sebagai teks di sebelah kanan.
     </video>
