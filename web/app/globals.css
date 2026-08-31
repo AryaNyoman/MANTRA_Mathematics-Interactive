@@ -320,3 +320,46 @@ h1, h2, h3, .disp {
 .tautan a:hover { color: var(--bata); text-decoration: underline; }
 .tautan .mono { font-size: 11px; color: var(--redup); }
 .cari { font-size: 12px; color: var(--redup); font-style: italic; }
+
+/* ============================================================
+   Daftar 10 tahap belajar (menggantikan tab lama)
+   ============================================================ */
+.langkah {
+  display: flex; gap: 5px; margin-bottom: 10px; flex: none;
+  overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin;
+}
+.langkah button {
+  flex: none; font-family: var(--font-plex-mono), monospace; font-size: 10.5px;
+  letter-spacing: 0.04em; background: transparent; border: 1px solid var(--garis);
+  border-radius: 7px; padding: 7px 11px; cursor: pointer; color: var(--redup);
+  white-space: nowrap;
+}
+.langkah button b { color: var(--tinta); font-weight: 600; }
+.langkah button[aria-selected="true"] {
+  background: var(--tegas); color: var(--kartu); border-color: var(--tegas);
+}
+.langkah button[aria-selected="true"] b { color: var(--kartu); }
+.langkah button:disabled { opacity: 0.4; cursor: not-allowed; }
+.langkah button:disabled b { color: var(--redup); }
+.pisah {
+  flex: none; width: 1px; background: var(--garis); margin: 2px 5px; align-self: stretch;
+}
+
+/* --- bacaan panjang di kolom kanan --- */
+.bacaan p {
+  margin: 0 0 12px; font-size: 15.5px; line-height: 1.72; color: #33302B;
+}
+.bacaan p:last-child { margin-bottom: 0; }
+.intisari {
+  list-style: none; padding: 0; margin: 0; font-size: 14.5px;
+}
+.intisari li {
+  position: relative; padding: 6px 0 6px 20px; line-height: 1.55;
+  border-bottom: 1px solid var(--garis);
+}
+.intisari li:last-child { border-bottom: 0; }
+.intisari li::before {
+  content: ""; position: absolute; left: 4px; top: 15px;
+  width: 6px; height: 6px; border-radius: 99px; background: var(--oker);
+}
+.miskon p { font-size: 14px; line-height: 1.6; }
