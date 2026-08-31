@@ -4,20 +4,25 @@ import { useState } from 'react'
 import type { Soal } from '@/content/trigonometri'
 
 /**
- * Latihan: satu soal per layar, pembahasan disembunyikan sampai siswa minta.
+ * Latihan: satu soal per layar, pilihan ganda A sampai E.
  *
- * Sengaja TIDAK langsung menampilkan pembahasan. Kalau jawabannya terlihat
- * bersama soalnya, siswa membaca alih-alih mengerjakan — dan merasa paham
- * padahal belum. Tombolnya diberi label jujur: "menyerah dulu".
+ * REVISI 1 Sep 2026 (permintaan ARYA): sebelumnya latihan berupa isian dengan
+ * tombol "buka pembahasan". Masalahnya, siswa tidak pernah harus memutuskan
+ * apa pun sebelum melihat jawabannya, jadi mudah merasa paham padahal belum.
+ * Dengan pilihan ganda ia harus memilih dulu, dan barulah pembahasan terbuka.
+ *
+ * Bedanya dengan kuis: latihan TIDAK berskor dan boleh diulang. Tujuannya
+ * berlatih, bukan dinilai. Karena itu setelah salah pun soalnya tetap bisa
+ * dicoba lagi.
  */
 export default function Latihan({ soal }: { soal: Soal[] }) {
   const [i, setI] = useState(0)
-  const [buka, setBuka] = useState(false)
+  const [dipilih, setDipilih] = useState<number | null>(null)
 
   const s = soal[i]
   const pindah = (ke: number) => {
     setI(ke)
-    setBuka(false)
+    setDipilih(null)
   }
 
   return (
@@ -31,9 +36,31 @@ export default function Latihan({ soal }: { soal: Soal[] }) {
 
       <p className="soal-teks">{s.pertanyaan}</p>
 
-      {buka ? (
+      <div className="pilihan">
+        {s.pilihan.map((p, n) => {
+          const terpilih = dipilih === n
+          const iniBenar = n === s.benar
+          const kelas =
+            dipilih === null ? '' : iniBenar ? 'benar' : terpilih ? 'salah' : 'redam'
+          return (
+            <button
+              key={n}
+              className={`opsi ${kelas}`}
+              onClick={() => setDipilih(n)}
+              disabled={dipilih !== null}
+            >
+              <span className="huruf">{String.fromCharCode(65 + n)}</span>
+              {p}
+            </button>
+          )
+        })}
+      </div>
+
+      {dipilih !== null && (
         <div className="pembahasan">
-          <div className="cap">Pembahasan</div>
+          <div className="cap">
+            {dipilih === s.benar ? 'Benar' : 'Belum tepat, ini langkahnya'}
+          </div>
           <ol>
             {s.pembahasan.map((baris, n) => (
               <li key={n}>{baris}</li>
@@ -43,11 +70,16 @@ export default function Latihan({ soal }: { soal: Soal[] }) {
             <span className="cap" style={{ margin: 0 }}>Jawaban</span>
             <b>{s.jawaban}</b>
           </div>
+          {dipilih !== s.benar && (
+            <button
+              className="tombol garis"
+              style={{ marginTop: 12 }}
+              onClick={() => setDipilih(null)}
+            >
+              COBA LAGI SOAL INI
+            </button>
+          )}
         </div>
-      ) : (
-        <button className="tombol garis buka-bahas" onClick={() => setBuka(true)}>
-          COBA DULU · BUKA PEMBAHASAN KALAU SUDAH MENTOK
-        </button>
       )}
 
       <div className="latihan-bawah">
@@ -56,7 +88,7 @@ export default function Latihan({ soal }: { soal: Soal[] }) {
           disabled={i === 0}
           onClick={() => pindah(i - 1)}
         >
-          ← SEBELUMNYA
+          &#8592; SEBELUMNYA
         </button>
         <div className="titik-soal">
           {soal.map((_, n) => (
@@ -74,7 +106,7 @@ export default function Latihan({ soal }: { soal: Soal[] }) {
           disabled={i === soal.length - 1}
           onClick={() => pindah(i + 1)}
         >
-          BERIKUTNYA →
+          BERIKUTNYA &#8594;
         </button>
       </div>
     </div>

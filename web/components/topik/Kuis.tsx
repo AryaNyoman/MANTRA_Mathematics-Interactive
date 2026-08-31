@@ -5,7 +5,7 @@ import { baca, bacaDiServer, langgan, tulis } from '@/lib/simpanan'
 import type { SoalKuis } from '@/content/trigonometri'
 
 /**
- * Kuis berskor. Tanpa database dan tanpa login — skor disimpan di browser
+ * Kuis berskor. Tanpa database dan tanpa login, skor disimpan di browser
  * siswa lewat localStorage (lihat keputusan di docs/.../matra-design.md).
  *
  * Saat salah, yang ditampilkan bukan sekadar "salah" tapi ALASANNYA, termasuk
@@ -63,7 +63,7 @@ export default function Kuis({ soal, kunciSimpan }: { soal: SoalKuis[]; kunciSim
               ? 'Sudah kuat. Baca lagi pembahasan yang salah, lalu ulangi.'
               : persen >= 50
                 ? 'Separuh jalan. Tonton animasinya sekali lagi, lalu coba alat interaktifnya.'
-                : 'Belum nyantol. Mulai lagi dari animasi dan alat interaktifnya — jangan langsung ke soal.'}
+                : 'Belum nyantol. Mulai lagi dari animasi dan alat interaktifnya, jangan langsung ke soal.'}
         </p>
         {rekor !== null && <p className="catatan">Nilai terbaik Anda di perangkat ini: {rekor} / {soal.length}</p>}
         <button className="tombol" onClick={ulang}>ULANGI KUIS</button>

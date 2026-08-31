@@ -4,13 +4,13 @@ import { useMemo } from 'react'
 import { WARNA } from '@/lib/warna'
 
 /**
- * Widget "Dari Lingkaran ke Grafik" — Trigonometri tahap 8.
+ * Widget "Dari Lingkaran ke Grafik", Trigonometri tahap 8.
  *
  * Meniru pola video referensi ARYA `Visualizing Trigonometry_ Fungsi SIN.mp4`:
  * lingkaran di kiri, sumbu grafik di kanan, dan sebuah GARIS MENDATAR
  * menghubungkan tinggi titik di lingkaran ke titik yang sedang dilukis di
  * grafik. Itu penghubung yang membuat siswa paham bahwa gelombang sinus
- * bukan bentuk baru — ia catatan tinggi sebuah titik yang berputar.
+ * bukan bentuk baru, ia catatan tinggi sebuah titik yang berputar.
  */
 
 const VW = 460
@@ -44,7 +44,7 @@ export default function LingkaranKeGrafik({
   const px = LX + Math.cos(rad) * LR
   const py = LY - Math.sin(rad) * LR
 
-  // kurva dilukis hanya sampai sudut sekarang — jadi terasa "sedang tumbuh"
+  // kurva dilukis hanya sampai sudut sekarang, jadi terasa "sedang tumbuh"
   const jalur = useMemo(() => {
     const titik: string[] = []
     for (let d = 0; d <= derajat; d += 3) {

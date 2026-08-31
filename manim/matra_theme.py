@@ -12,12 +12,12 @@ from manim import *
 TERANG_LATAR = "#F7F3EE"   # krem kertas
 TERANG_TINTA = "#1F2430"   # tinta gelap untuk teks & garis
 TERANG_REDUP = "#8B8378"   # abu hangat, untuk garis bantu
-TERANG_AKSEN = "#C25E4D"   # merah bata — sisi/nilai yang disorot
-TERANG_AKSEN2 = "#3A6EA5"  # biru tinta — sudut & besaran kedua
-TERANG_SOROT = "#6A4C93"   # ungu tua — sudut, sorot, kesimpulan
+TERANG_AKSEN = "#C25E4D"   # merah bata, sisi/nilai yang disorot
+TERANG_AKSEN2 = "#3A6EA5"  # biru tinta, sudut & besaran kedua
+TERANG_SOROT = "#6A4C93"   # ungu tua, sudut, sorot, kesimpulan
 # Kuning #D9A441 dipakai sampai 31 Agu 2026 dan DIBUANG: di atas krem
 # kontrasnya hanya 2,04:1, jauh di bawah batas layak 4,5:1. Pada video ia
-# nyaris tidak terbaca — temuan ARYA setelah menonton tahap 4-9.
+# nyaris tidak terbaca, temuan ARYA setelah menonton tahap 4-9.
 # Pengganti ini 6,20:1, dan hue-nya jelas terpisah dari biru (sisi samping)
 # maupun merah (sisi depan), juga dari aksen situs hijau/oker/bata.
 

@@ -1,4 +1,4 @@
-"""Tahap 5 — Lingkaran satuan.
+"""Tahap 5, Lingkaran satuan.
 
 STORYBOARD (ditulis lebih dulu, kode menyusul):
 
@@ -8,7 +8,7 @@ STORYBOARD (ditulis lebih dulu, kode menyusul):
   4. Segitiga diperkecil sampai sisi miringnya tepat satu; label r berganti 1.
   5. Titik ujungnya diputar sekeliling; jejaknya membentuk lingkaran satuan.
   6. Nama sisi berganti jadi x dan y; rumus pertama berubah jadi x per satu.
-  7. Penyebutnya dicoret — yang tersisa hanya x.
+  7. Penyebutnya dicoret, yang tersisa hanya x.
   8. Hal yang sama pada sinus: y per satu, lalu y.
   9. Kesimpulan muncul: koordinat titik itu (cos theta, sin theta).
  10. Sudut digeser; kedua angka bergerak bersama titiknya.
@@ -18,7 +18,7 @@ INTI YANG HARUS TERTANAM: penyebutnya hilang BUKAN karena disederhanakan
 begitu saja, melainkan karena sisi miringnya memang dibuat satu. Itu sebabnya
 babak 4 (memperkecil) harus terlihat, bukan dilewati.
 
-ATURAN YANG DIPATUHI BERKAS INI — sama dengan tahap 8:
+ATURAN YANG DIPATUHI BERKAS INI, sama dengan tahap 8:
   * Lama tiap babak dari durasi suara sebenarnya; `sinema.babak` menggagalkan
     render kalau animasi melewati narasinya.
   * `qc.periksa_adegan` di tiap babak.
@@ -87,7 +87,7 @@ class LingkaranSatuanLahir(Scene):
         self.b11_tutup()
 
     # ==================================================================
-    # Bahan — semuanya turunan dari dua tracker, jadi tidak ada urutan
+    # Bahan, semuanya turunan dari dua tracker, jadi tidak ada urutan
     # updater yang perlu dijaga.
     # ==================================================================
     def siapkan_penggerak(self):
@@ -192,7 +192,7 @@ class LingkaranSatuanLahir(Scene):
              ("r_cos", "nama_sisi"), ("r_sin", "nama_sisi")])
 
     def b04_kecilkan(self):
-        """Sisi miring diperkecil sampai satu. Babak ini TIDAK boleh dilewati —
+        """Sisi miring diperkecil sampai satu. Babak ini TIDAK boleh dilewati -
         inilah alasan penyebutnya nanti boleh hilang."""
         satu = MathTex("1", color=self.t.tinta, font_size=32)
         satu.add_updater(lambda o: o.move_to(

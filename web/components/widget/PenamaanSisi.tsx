@@ -3,14 +3,14 @@
 import { WARNA } from '@/lib/warna'
 
 /**
- * Widget "Penamaan Sisi" — Trigonometri tahap 3.
+ * Widget "Penamaan Sisi", Trigonometri tahap 3.
  *
  * Melawan kekeliruan yang paling sering dan paling sering luput: nama sisi
  * dikira melekat pada garisnya ("yang tegak itu sisi depan"). Padahal nama
  * ditentukan oleh SUDUT yang sedang dirujuk.
  *
  * Siswa mengklik salah satu dari dua sudut lancip. Segitiganya tidak bergerak
- * sedikit pun — hanya namanya yang bertukar. Itu justru intinya: yang berubah
+ * sedikit pun, hanya namanya yang bertukar. Itu justru intinya: yang berubah
  * bukan gambarnya, tapi dari mana kita memandang.
  */
 
@@ -25,7 +25,7 @@ const C = { x: 366, y: 66 }   // sudut lancip kanan atas
 export type SudutAktif = 'A' | 'C'
 
 
-/** Tombol sudut. Didefinisikan DI LUAR render — kalau di dalam, React membuat
+/** Tombol sudut. Didefinisikan DI LUAR render, kalau di dalam, React membuat
  *  komponen baru tiap render dan state-nya ikut ter-reset. */
 function TombolSudut({
   id, cx, cy, aktif, onPilih,

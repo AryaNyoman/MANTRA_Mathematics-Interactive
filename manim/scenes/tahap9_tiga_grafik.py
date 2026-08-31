@@ -1,4 +1,4 @@
-"""Tahap 9 — Sin, cos, tan berdampingan.
+"""Tahap 9, Sin, cos, tan berdampingan.
 
 STORYBOARD (ditulis lebih dulu, kode menyusul):
 
@@ -14,13 +14,13 @@ STORYBOARD (ditulis lebih dulu, kode menyusul):
  10. Penutup.
 
 INTI YANG HARUS TERTANAM: satu sudut, tiga catatan berbeda. Karena itu KETIGA
-panel digerakkan oleh satu ValueTracker yang sama — bukan tiga animasi terpisah
+panel digerakkan oleh satu ValueTracker yang sama, bukan tiga animasi terpisah
 yang kebetulan seirama.
 
 ASIMTOT dijelaskan sebagai akibat pembagian dengan nol, BUKAN sebagai "nilainya
 tak hingga". Itu koreksi yang sudah tertulis di kotak "Sering keliru" tahap 9.
 
-ATURAN YANG DIPATUHI — sama dengan tahap 5, 6, 7, 8.
+ATURAN YANG DIPATUHI, sama dengan tahap 5, 6, 7, 8.
 
 WARNA: merah = sin (tinggi) · biru = cos (mendatar) · tinta = tan
 """
@@ -48,14 +48,14 @@ DURASI: dict[str, float] = json.loads(
 # Ketiga panel dinaikkan setelah skala derajat+radian ditambahkan: dua baris
 # angka di bawah panel terbawah mendorong tepi bawahnya ke -4,09, melewati
 # batas aman -3,80 (digagalkan qc). Jarak antar panel 2,15 menyisakan celah
-# 0,04 satuan — cukup, dan diperiksa qc lewat pasangan panel_sin/panel_tan.
+# 0,04 satuan, cukup, dan diperiksa qc lewat pasangan panel_sin/panel_tan.
 Y_PANEL = [2.25, 0.10, -2.05]      # titik tengah tiga panel, atas ke bawah
 R_LING = 0.78                       # jari-jari lingkaran kecil tiap panel
 X_LING = -5.55                      # pusat lingkaran kecil
 X_GRAFIK = -4.20                    # sudut 0 pada papan grafik
 # Papan sengaja TIDAK dibuat selebar mungkin. Versi pertama memakai 10,20 dan
 # menghabiskan layar sampai x = 6,10, sehingga keterangan tidak punya tempat
-# dan menindih panel cos — digagalkan qc. Sekarang disisakan kolom kanan.
+# dan menindih panel cos, digagalkan qc. Sekarang disisakan kolom kanan.
 L_GRAFIK = 8.20                     # panjang papan, mewakili 0…540°
 X_KANAN = 5.55                      # kolom keterangan, sejajar panelnya
 LEBAR_KANAN = 2.55
@@ -96,7 +96,7 @@ class TigaGrafikBersama(Scene):
     def buat_panel(self, i, nama, fungsi, warna, potong=None):
         """Satu panel: lingkaran kecil di kiri, papan grafik di kanan.
 
-        `potong` membatasi nilai yang digambar — dipakai tangen, yang kalau
+        `potong` membatasi nilai yang digambar, dipakai tangen, yang kalau
         dibiarkan akan melesat jauh melewati panel di atas dan di bawahnya.
         """
         t = self.t
@@ -132,11 +132,11 @@ class TigaGrafikBersama(Scene):
         # garis. Hasilnya bukan kurva tangen melainkan GIGI GERGAJI berpuncak
         # datar: nilainya rata di batas, lalu jatuh tegak lurus melintasi
         # asimtot. Itu salah secara matematis, dan justru mengajarkan kebalikan
-        # dari yang mau ditanamkan — bahwa tan "punya nilai maksimum".
+        # dari yang mau ditanamkan, bahwa tan "punya nilai maksimum".
         #
         # Sekarang tiap cabang dibatasi pada rentang sudut yang nilainya masih
         # muat di panel, jadi kurvanya berhenti di tepi panel dan muncul lagi
-        # di seberang asimtot — persis seperti kurva tangen yang sebenarnya.
+        # di seberang asimtot, persis seperti kurva tangen yang sebenarnya.
         if potong:
             tepi = float(np.degrees(np.arctan(potong)))
             cabang = [(0.0, tepi)]
@@ -176,7 +176,7 @@ class TigaGrafikBersama(Scene):
         # Skala sumbu mendatar hanya digambar pada panel PALING BAWAH, supaya
         # tidak diulang tiga kali dan tidak menyesaki panel di atasnya.
         #
-        # Derajat DAN radian ditulis berdampingan — permintaan ARYA: "jangan
+        # Derajat DAN radian ditulis berdampingan, permintaan ARYA: "jangan
         # sampai ilmunya kepisah-pisah". Tahap-tahap sebelumnya memakai derajat,
         # jadi derajat tetap ada; radian ditambahkan di bawahnya supaya siswa
         # melihat sendiri bahwa satu putaran penuh sama dengan 2 pi.
@@ -240,7 +240,7 @@ class TigaGrafikBersama(Scene):
             [("panel_cos", "panel_sin")])
 
     def b04_geser(self):
-        """Cos berangkat 90 derajat lebih awal — ditunjukkan, bukan diklaim."""
+        """Cos berangkat 90 derajat lebih awal, ditunjukkan, bukan diklaim."""
         t = self.t
         atas = self.p_sin
         p90 = np.array([self.x_dari(90), atas["y0"] + TINGGI_SATU, 0.0])
@@ -270,7 +270,7 @@ class TigaGrafikBersama(Scene):
         p = self.p_tan
         # Bentuk sin/cos dipilih, bukan "tinggi/mendatar": lebih pendek sehingga
         # muat di kolom kanan, DAN sekaligus memperlihatkan hubungan yang jadi
-        # sebab asimtotnya — pembaginya cos, dan cos bisa nol.
+        # sebab asimtotnya, pembaginya cos, dan cos bisa nol.
         self.rumus_tan = MathTex(r"\tan\theta", "=", r"\frac{\sin\theta}{\cos\theta}",
                                  color=t.tinta, font_size=28)
         self.rumus_tan[2].set_color(t.aksen2)
@@ -345,7 +345,7 @@ class TigaGrafikBersama(Scene):
         lab360.next_to(tanda360, UP, buff=0.12)
         # Keterangan periode tangen menggantikan rumusnya di kolom kanan.
         # Versi pertama menaruh teks "180 derajat" TEPAT DI BAWAH asimtot 90
-        # derajat — salah tempat, dan bertabrakan maknanya dengan angka 180 di
+        # derajat, salah tempat, dan bertabrakan maknanya dengan angka 180 di
         # skala sumbu. Sekarang ia jadi kalimat di kolom kanan, tidak ada dua
         # angka sama yang berarti dua hal berbeda.
         lab180 = Text("tan mengulang tiap 180°", font_size=22, color=t.redup)
@@ -374,7 +374,7 @@ class TigaGrafikBersama(Scene):
             b.main(FadeIn(penutup, shift=UP * 0.15), run_time=1.6)
             # Ditebalkan, BUKAN di-Indicate. Indicate mengubah warnanya jadi
             # warna sorot serentak, dan ketiga kurva sesaat kehilangan identitas
-            # warnanya — padahal justru warna itu yang membedakan mereka.
+            # warnanya, padahal justru warna itu yang membedakan mereka.
             b.main(*[p["kurva"].animate.set_stroke(width=6)
                      for p in (self.p_sin, self.p_cos, self.p_tan)], run_time=1.4)
             b.jeda(1.6)

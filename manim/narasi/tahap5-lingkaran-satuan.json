@@ -2,7 +2,7 @@
   "adegan": "LingkaranSatuanLahir",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Tahap 5 — Lingkaran satuan. Pola visual meniru referensi 1 (qc/referensi/1-rasio.png): lingkaran satuan di kiri, daftar rumus tumbuh di kanan, tiap besaran muncul sebagai ruas garis berwarna. Inti yang harus tertanam: kalau sisi miring dibuat 1, penyebutnya hilang — cos theta menjadi x dan sin theta menjadi y. Satu sumber kebenaran untuk naskah.",
+  "catatan": "Tahap 5, Lingkaran satuan. Pola visual meniru referensi 1 (qc/referensi/1-rasio.png): lingkaran satuan di kiri, daftar rumus tumbuh di kanan, tiap besaran muncul sebagai ruas garis berwarna. Inti yang harus tertanam: kalau sisi miring dibuat 1, penyebutnya hilang, cos theta menjadi x dan sin theta menjadi y. Satu sumber kebenaran untuk naskah.",
   "segmen": [
     {
       "id": "sapa",

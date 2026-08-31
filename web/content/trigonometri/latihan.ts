@@ -1,11 +1,11 @@
 /**
- * Isi materi Trigonometri — Kelas 10, Bab 4 (Kurikulum Merdeka).
+ * Isi materi Trigonometri, Kelas 10, Bab 4 (Kurikulum Merdeka).
  *
  * SOAL DITULIS SENDIRI, tapi tingkat kesulitannya dikalibrasi dulu ke kunci
  * jawaban Buku Panduan Guru Kelas X Bab 4. Pola yang dipakai buku itu, dan
  * kita tiru polanya (bukan soalnya):
- *   - Latihan 4.2 no.1 : soal JEBAKAN — segitiganya bukan siku-siku
- *   - Latihan 4.1 no.2 : soal CARI-KESALAHAN — siswa mengoreksi jawaban orang
+ *   - Latihan 4.2 no.1 : soal JEBAKAN, segitiganya bukan siku-siku
+ *   - Latihan 4.1 no.2 : soal CARI-KESALAHAN, siswa mengoreksi jawaban orang
  *   - Latihan 4.4 no.2 : HITUNG dua langkah (x = 12,07 cm dsb.)
  * Tanpa kalibrasi ini soal buatan Claude cenderung satu langkah dan terlalu mudah.
  */
@@ -16,6 +16,14 @@ export type Soal = {
   pertanyaan: string
   pembahasan: string[]
   jawaban: string
+  /**
+   * Lima pilihan, A sampai E (permintaan ARYA 1 Sep 2026).
+   * Pengecohnya bukan asal salah: tiap butir adalah kekeliruan yang benar-benar
+   * sering terjadi, sehingga siswa yang memilihnya belajar sesuatu.
+   */
+  pilihan: string[]
+  /** indeks jawaban benar pada `pilihan` */
+  benar: number
 }
 
 export type SoalKuis = {
@@ -23,7 +31,7 @@ export type SoalKuis = {
   pilihan: string[]
   /** indeks jawaban benar */
   benar: number
-  /** dijelaskan setelah dijawab — termasuk kenapa yang salah itu menggoda */
+  /** dijelaskan setelah dijawab, termasuk kenapa yang salah itu menggoda */
   alasan: string
 }
 
@@ -36,7 +44,7 @@ export type Kanal = {
 }
 
 /* ------------------------------------------------------------------ */
-/* Narasi audio — dibaca mesin TTS, mengiringi animasi Manim            */
+/* Narasi audio, dibaca mesin TTS, mengiringi animasi Manim            */
 /* Panjang ±1.050 karakter (≈70 detik). Bahasa santai, sesuai permintaan */
 /* ------------------------------------------------------------------ */
 
@@ -59,7 +67,7 @@ segitiga mana yang sedang kamu maksud.
 `.trim()
 
 /* ------------------------------------------------------------------ */
-/* Latihan — 4 soal bertingkat                                          */
+/* Latihan, 4 soal bertingkat                                          */
 /* ------------------------------------------------------------------ */
 
 export const LATIHAN: Soal[] = [
@@ -72,9 +80,17 @@ export const LATIHAN: Soal[] = [
       'Cari dulu sisi miring PQR dengan Pythagoras: √(3² + 4²) = √25 = 5 cm.',
       'Bandingkan sisi miring keduanya untuk mendapat faktor pembesaran: 20 ÷ 5 = 4.',
       'Karena sebangun, semua sisi ikut dikali 4. Sisi depan STU = 3 × 4 = 12 cm, sisi samping = 4 × 4 = 16 cm.',
-      'Periksa ulang: tan θ pada STU = 12/16 = 0,75 — sama persis dengan 3/4 pada PQR. Perbandingannya memang tidak ikut berubah.',
+      'Periksa ulang: tan θ pada STU = 12/16 = 0,75 - sama persis dengan 3/4 pada PQR. Perbandingannya memang tidak ikut berubah.',
     ],
     jawaban: 'sisi depan 12 cm, sisi samping 16 cm',
+    pilihan: [
+      'sisi depan 12 cm, sisi samping 16 cm',
+      'sisi depan 16 cm, sisi samping 12 cm',
+      'sisi depan 7 cm, sisi samping 8 cm',
+      'sisi depan 9 cm, sisi samping 12 cm',
+      'tidak bisa ditentukan tanpa besar sudutnya',
+    ],
+    benar: 0,
   },
   {
     no: 2,
@@ -83,11 +99,19 @@ export const LATIHAN: Soal[] = [
       'Pada segitiga ABC diketahui ∠A = 50°, AB = 6 cm, dan BC = 7 cm. Seorang siswa menulis: “tan 50° = BC/AB = 7/6”. Apakah langkah itu benar? Jelaskan.',
     pembahasan: [
       'Salah. Soal tidak pernah menyebut segitiga ABC siku-siku.',
-      'Perbandingan sin, cos, dan tan yang dipelajari di bab ini hanya berlaku untuk segitiga siku-siku — istilah “sisi depan”, “sisi samping”, dan “sisi miring” baru punya arti kalau ada sudut siku-sikunya.',
+      'Perbandingan sin, cos, dan tan yang dipelajari di bab ini hanya berlaku untuk segitiga siku-siku - istilah “sisi depan”, “sisi samping”, dan “sisi miring” baru punya arti kalau ada sudut siku-sikunya.',
       'Jadi 7/6 tidak boleh disebut tan 50°.',
-      'Untuk segitiga sembarang, hubungan sisi dan sudut memakai aturan sinus atau aturan kosinus — bukan materi bab ini.',
+      'Untuk segitiga sembarang, hubungan sisi dan sudut memakai aturan sinus atau aturan kosinus - bukan materi bab ini.',
     ],
-    jawaban: 'Salah — segitiganya belum tentu siku-siku',
+    jawaban: 'Salah, segitiganya belum tentu siku-siku',
+    pilihan: [
+      'Benar, karena tan adalah depan dibagi samping',
+      'Salah, segitiganya belum tentu siku-siku',
+      'Salah, seharusnya tan 50° = AB/BC',
+      'Benar, tetapi hasilnya harus dibalik',
+      'Salah, karena 50° bukan sudut istimewa',
+    ],
+    benar: 1,
   },
   {
     no: 3,
@@ -95,13 +119,21 @@ export const LATIHAN: Soal[] = [
     pertanyaan:
       'Segitiga ABC siku-siku di B. Diketahui ∠A = 30° dan BC = 5 cm. Rani menulis: “tan 30° = BC/AC = 5/AC”. Di mana letak kesalahan Rani, dan bagaimana seharusnya?',
     pembahasan: [
-      'Kesalahannya pada pemilihan sisi penyebut. Karena siku-siku di B, sisi yang menghadap sudut B adalah AC — jadi AC adalah sisi MIRING, bukan sisi samping.',
+      'Kesalahannya pada pemilihan sisi penyebut. Karena siku-siku di B, sisi yang menghadap sudut B adalah AC - jadi AC adalah sisi MIRING, bukan sisi samping.',
       'Tangen memakai sisi depan dibagi sisi SAMPING, bukan dibagi sisi miring.',
       'Terhadap sudut A: sisi depan = BC, sisi samping = AB, sisi miring = AC.',
       'Yang benar: tan 30° = BC/AB = 5/AB.',
       'Kalau memang AC yang ingin dipakai, perbandingannya bukan tangen melainkan sinus: sin 30° = BC/AC = 5/AC.',
     ],
     jawaban: 'AC adalah sisi miring; seharusnya tan 30° = BC/AB',
+    pilihan: [
+      'Tidak ada kesalahan, penulisannya sudah benar',
+      'Kesalahannya pada nilai 30°, seharusnya 60°',
+      'AC adalah sisi miring; seharusnya tan 30° = BC/AB',
+      'BC bukan sisi depan sudut A, melainkan sisi samping',
+      'Seharusnya memakai sin, bukan tan',
+    ],
+    benar: 2,
   },
   {
     no: 4,
@@ -116,53 +148,61 @@ export const LATIHAN: Soal[] = [
       'Perhatikan: sudut hampir dua kali lipat, tapi jaraknya tidak jadi setengahnya. Tangen tidak tumbuh secara lurus.',
     ],
     jawaban: '≈ 38,1 meter',
+    pilihan: [
+      '≈ 38,1 meter',
+      '≈ 85,8 meter',
+      '≈ 18,7 meter',
+      '≈ 124,0 meter',
+      '≈ 40,0 meter',
+    ],
+    benar: 0,
   },
 ]
 
 /* ------------------------------------------------------------------ */
-/* Kuis — 8 soal pilihan ganda                                          */
+/* Kuis, 8 soal pilihan ganda                                          */
 /* ------------------------------------------------------------------ */
 
 export const KUIS: SoalKuis[] = [
   {
     pertanyaan: 'Pada segitiga siku-siku, sisi yang menghadap sudut siku-siku disebut sisi…',
-    pilihan: ['depan', 'samping', 'miring', 'alas'],
+    pilihan: ['depan', 'samping', 'miring', 'alas', 'tegak'],
     benar: 2,
     alasan: 'Sisi miring selalu yang menghadap sudut siku-siku, dan selalu sisi terpanjang.',
   },
   {
     pertanyaan: 'tan θ adalah perbandingan antara…',
-    pilihan: ['depan / miring', 'samping / miring', 'depan / samping', 'miring / samping'],
+    pilihan: ['depan / miring', 'samping / miring', 'depan / samping', 'miring / samping', 'samping / depan'],
     benar: 2,
     alasan: 'tan θ = depan / samping. Yang “depan / miring” itu sin, “samping / miring” itu cos.',
   },
   {
     pertanyaan:
       'Dua segitiga siku-siku sebangun. Yang kedua dua kali lebih besar. Nilai tan θ pada segitiga kedua…',
-    pilihan: ['dua kali lipat', 'setengahnya', 'sama saja', 'tidak bisa ditentukan'],
+    pilihan: ['dua kali lipat', 'setengahnya', 'sama saja', 'tidak bisa ditentukan', 'empat kali lipat'],
     benar: 2,
     alasan:
-      'Inti bab ini. Kedua sisi sama-sama dikali 2, jadi hasil baginya tidak berubah — 2a/2b = a/b.',
+      'Inti bab ini. Kedua sisi sama-sama dikali 2, jadi hasil baginya tidak berubah - 2a/2b = a/b.',
   },
   {
     pertanyaan: 'Segitiga siku-siku dengan sisi depan 6 cm dan sisi samping 8 cm. Nilai tan θ =',
-    pilihan: ['0,60', '0,75', '0,80', '1,33'],
+    pilihan: ['0,60', '0,75', '0,80', '1,33', '0,48'],
     benar: 1,
     alasan:
       '6/8 = 0,75. Yang menjawab 0,60 memakai depan/miring (itu sin), yang menjawab 1,33 membalik pembilang dan penyebutnya.',
   },
   {
     pertanyaan: 'Sisi depan 6 cm dan sisi miring 10 cm. Nilai sin θ =',
-    pilihan: ['0,60', '0,75', '0,80', '1,67'],
+    pilihan: ['0,60', '0,75', '0,80', '1,67', '0,50'],
     benar: 0,
     alasan: 'sin θ = depan/miring = 6/10 = 0,60. (Sisi sampingnya 8 cm, jadi cos θ = 0,80.)',
   },
   {
     pertanyaan: 'Untuk θ antara 0° dan 90°, saat θ diperbesar maka nilai tan θ…',
-    pilihan: ['mengecil', 'membesar', 'tetap', 'mengecil lalu membesar'],
+    pilihan: ['mengecil', 'membesar', 'tetap', 'mengecil lalu membesar', 'membesar lalu mengecil'],
     benar: 1,
     alasan:
-      'Sudut makin curam berarti sisi depan makin panjang dibanding sisi samping, jadi tan θ membesar — dan pertumbuhannya makin cepat mendekati 90°.',
+      'Sudut makin curam berarti sisi depan makin panjang dibanding sisi samping, jadi tan θ membesar - dan pertumbuhannya makin cepat mendekati 90°.',
   },
   {
     pertanyaan:
@@ -170,8 +210,9 @@ export const KUIS: SoalKuis[] = [
     pilihan: [
       'Boleh, asal sudutnya diketahui',
       'Boleh, asal panjang dua sisi diketahui',
-      'Tidak boleh — perbandingan itu hanya berlaku pada segitiga siku-siku',
+      'Tidak boleh - perbandingan itu hanya berlaku pada segitiga siku-siku',
       'Boleh, asal segitiganya sama kaki',
+      'Boleh, hasilnya cuma kurang teliti sedikit',
     ],
     benar: 2,
     alasan:
@@ -179,15 +220,15 @@ export const KUIS: SoalKuis[] = [
   },
   {
     pertanyaan: 'Nilai sin θ sama dengan…',
-    pilihan: ['cos θ', 'cos(90° − θ)', 'tan θ', 'cos(180° − θ)'],
+    pilihan: ['cos θ', 'cos(90° − θ)', 'tan θ', 'cos(180° − θ)', 'sin(90° − θ)'],
     benar: 1,
     alasan:
-      'Pada segitiga siku-siku, kedua sudut lancipnya berjumlah 90°. Sisi depan sudut yang satu adalah sisi samping sudut yang lain — jadi sin θ = cos(90° − θ).',
+      'Pada segitiga siku-siku, kedua sudut lancipnya berjumlah 90°. Sisi depan sudut yang satu adalah sisi samping sudut yang lain - jadi sin θ = cos(90° − θ).',
   },
 ]
 
 /* ------------------------------------------------------------------ */
-/* Belajar lebih lanjut — kanal Indonesia, sudah diverifikasi ada       */
+/* Belajar lebih lanjut, kanal Indonesia, sudah diverifikasi ada       */
 /* Kami menautkan KANAL-nya, bukan video tertentu, supaya tautannya     */
 /* tidak mati saat video dihapus atau diganti pemiliknya.               */
 /* ------------------------------------------------------------------ */

@@ -1,4 +1,4 @@
-"""Tahap 2 — Perbandingan yang tidak berubah.
+"""Tahap 2, Perbandingan yang tidak berubah.
 
 MENGGANTIKAN video lama `UkuranBedaRasioSama` (17 detik, tanpa narasi), yang
 dirilis pada 31 Agu 2026 dengan 7 cacat karena hanya dicek lognya. Berkas ini
@@ -9,11 +9,11 @@ STORYBOARD (ditulis lebih dulu, kode menyusul):
   1. Judul pembuka; dugaan dari tahap 1 diingatkan.
   2. Segitiga muncul dengan ukuran 1,8 dan 2,4 sentimeter.
   3. Hasil baginya dihitung: 0,75.
-  4. Segitiga DIBESARKAN — sudutnya tidak disentuh.
+  4. Segitiga DIBESARKAN, sudutnya tidak disentuh.
   5. Ukuran barunya terbaca: 3 dan 4.
   6. Dibagi lagi: tetap 0,75. Kedua hasil disandingkan.
   7. Sebabnya: kedua sisi dikali angka yang sama.
-  8. Pengali di atas dan di bawah dicoret — saling menghapus.
+  8. Pengali di atas dan di bawah dicoret, saling menghapus.
   9. Sekarang SUDUTNYA yang diubah; barulah angkanya bergerak.
  10. Penutup.
 
@@ -21,7 +21,7 @@ INTI YANG HARUS TERTANAM: yang membuat hasil baginya tetap bukan keajaiban,
 melainkan pembilang dan penyebut dikali angka yang sama. Karena itu babak 7-8
 (pencoretan) adalah puncak video ini, bukan tempelan.
 
-ATURAN YANG DIPATUHI — sama dengan tahap 4-9.
+ATURAN YANG DIPATUHI, sama dengan tahap 4-9.
 
 WARNA: biru = samping · merah = depan · tinta = miring · ungu = sudut/hasil
 """
@@ -48,7 +48,7 @@ DURASI: dict[str, float] = json.loads(
 # --- ZONA TETAP (bingkai 14,22 x 8; batas aman x ±6,91  y ±3,80) ---
 SIKU = np.array([-6.10, -1.95, 0.0])
 SATUAN = 1.02                  # panjang layar untuk 1 sentimeter
-RASIO = 0.75                   # depan / samping — tetap sepanjang video
+RASIO = 0.75                   # depan / samping, tetap sepanjang video
 AWAL, BESAR = 2.40, 4.00       # panjang sisi samping, dalam sentimeter
 
 X_KANAN = 2.75
@@ -95,7 +95,7 @@ class PerbandinganTetap(Scene):
         self.miring = always_redraw(
             lambda: Line(SIKU, self.C(), color=t.tinta, stroke_width=6))
         # Kedua garis berangkat DARI titik siku, supaya tandanya jatuh di dalam
-        # segitiga. Versi lama menaruhnya di luar — salah geometri.
+        # segitiga. Versi lama menaruhnya di luar, salah geometri.
         self.siku = always_redraw(
             lambda: RightAngle(Line(self.B(), SIKU), Line(self.B(), self.C()),
                                length=0.28, color=t.redup, stroke_width=3))
@@ -134,7 +134,7 @@ class PerbandinganTetap(Scene):
     # Babak
     # ==================================================================
     def penanda_bagian(self, teks: str):
-        """Penanda bagian di pojok kiri atas — permintaan ARYA supaya siswa tahu
+        """Penanda bagian di pojok kiri atas, permintaan ARYA supaya siswa tahu
         video ini punya dua babak: dulu MEMBUKTIKAN, baru MENJELASKAN sebabnya."""
         t = self.t
         m = Text(teks, font_size=22, color=t.redup)
@@ -147,7 +147,7 @@ class PerbandinganTetap(Scene):
             sinema.judul_pembuka(self, "Perbandingan yang tidak berubah", self.t,
                                  lama=DURASI["sapa"] * 0.52)
             b.catat(DURASI["sapa"] * 0.52)
-            self.bagian = self.penanda_bagian("Bagian 1 — buktinya")
+            self.bagian = self.penanda_bagian("Bagian 1, buktinya")
             b.main(FadeIn(self.bagian), run_time=0.9)
             b.main(Create(self.miring), Create(self.samping), Create(self.depan),
                    Create(self.siku), run_time=2.2)
@@ -218,7 +218,7 @@ class PerbandinganTetap(Scene):
     def b07_kenapa(self):
         t = self.t
         self.h3 = self.baris(2, r"\frac{1{,}8 \times k}{2{,}4 \times k}", ukuran=34)
-        bagian2 = self.penanda_bagian("Bagian 2 — sebabnya")
+        bagian2 = self.penanda_bagian("Bagian 2, sebabnya")
         with sinema.babak(self, "kenapa", DURASI) as b:
             b.main(FadeOut(self.kotak_sama), FadeOut(self.jaga),
                    ReplacementTransform(self.bagian, bagian2), run_time=1.2)
@@ -254,7 +254,7 @@ class PerbandinganTetap(Scene):
                           [("hasil", "segitiga"), ("hasil", "h2")])
 
     def b09_geser(self):
-        """Baru sekarang SUDUTNYA diubah — dan angkanya ikut bergerak."""
+        """Baru sekarang SUDUTNYA diubah, dan angkanya ikut bergerak."""
         t = self.t
         hidup = sinema.AngkaKoma(RASIO, num_decimal_places=2, color=t.sorot,
                                  font_size=34)

@@ -3,7 +3,7 @@
  *
  * Nilai di sini WAJIB sama persis dengan `manim/matra_theme.py`.
  * Kalau tidak, siswa melihat sisi samping berwarna biru di video lalu hijau di
- * widget — dan kaitan yang sedang kita bangun justru rusak. Itu pernah terjadi
+ * widget, dan kaitan yang sedang kita bangun justru rusak. Itu pernah terjadi
  * pada 31 Agu 2026 dan harus dicegah, bukan diperbaiki belakangan.
  *
  * Warna AKSEN SITUS (hijau, oker, bata) tidak boleh dipakai untuk bagian
@@ -29,7 +29,7 @@ export const WARNA = {
   redup: '#8B8378',
 } as const
 
-/** Versi tema gelap — dipakai kalau nanti ada mode gelap. Sama dgn matra_theme.py. */
+/** Versi tema gelap, dipakai kalau nanti ada mode gelap. Sama dgn matra_theme.py. */
 export const WARNA_GELAP = {
   samping: '#58C4DD',
   depan: '#FF6B5B',

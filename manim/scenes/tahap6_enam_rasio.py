@@ -1,4 +1,4 @@
-"""Tahap 6 — Enam rasio sebagai panjang nyata.
+"""Tahap 6, Enam rasio sebagai panjang nyata.
 
 STORYBOARD (ditulis lebih dulu, kode menyusul):
 
@@ -6,11 +6,11 @@ STORYBOARD (ditulis lebih dulu, kode menyusul):
   2. Lingkaran satuan dari tahap 5 kembali; x dan y sudah bernama.
   3. Garis singgung TEGAK di sisi kanan lingkaran muncul.
   4. Jari-jari diperpanjang sampai mengenainya; ruas dari sumbu mendatar ke
-     titik potong itu disorot — panjangnya tan.
-  5. Ruas dari pusat ke titik potong yang sama disorot — panjangnya sec.
+     titik potong itu disorot, panjangnya tan.
+  5. Ruas dari pusat ke titik potong yang sama disorot, panjangnya sec.
   6. Garis singgung MENDATAR di bagian atas lingkaran muncul.
-  7. Ruas dari sumbu tegak ke titik potongnya disorot — panjangnya cot.
-  8. Ruas dari pusat ke titik potong itu disorot — panjangnya csc.
+  7. Ruas dari sumbu tegak ke titik potongnya disorot, panjangnya cot.
+  8. Ruas dari pusat ke titik potong itu disorot, panjangnya csc.
   9. Keenam ruas tampil bersama, daftar rumusnya lengkap.
  10. Sudut digeser; keenamnya berubah bersama.
  11. Penutup.
@@ -91,7 +91,7 @@ class EnamRasioNyata(Scene):
         self.b11_tutup()
 
     # ==================================================================
-    # Geometri — semuanya turunan dari satu tracker
+    # Geometri, semuanya turunan dari satu tracker
     # ==================================================================
     def rd(self):
         return np.radians(self.theta.get_value())
@@ -199,7 +199,7 @@ class EnamRasioNyata(Scene):
         self.sing_tegak = Line(self.kanan() + DOWN * 0.55, self.kanan() + UP * 3.15,
                                color=t.redup, stroke_width=2.5)
         # Keterangan ditaruh di KANAN-ATAS garis singgung. Versi pertama
-        # menaruhnya di bawah, dan tepi kirinya menembus lingkaran —
+        # menaruhnya di bawah, dan tepi kirinya menembus lingkaran -
         # qc tidak menangkapnya karena pasangan cap-lingkaran belum diperiksa.
         # Sekarang pasangan itu ikut diperiksa di bawah.
         cap = Text("garis singgung", font_size=20, color=t.redup)
@@ -299,7 +299,7 @@ class EnamRasioNyata(Scene):
             [("r_csc", "r_sec")])
 
     def b09_enam(self):
-        """Keenam ruas tampil bersama. Yang lama dinyalakan lagi, tapi tipis —
+        """Keenam ruas tampil bersama. Yang lama dinyalakan lagi, tapi tipis -
         supaya terlihat sebagai satu keluarga, bukan enam gambar terpisah."""
         t = self.t
         self.ruas_csc.clear_updaters()
@@ -357,8 +357,8 @@ class EnamRasioNyata(Scene):
         # Lebar dihitung dari jarak pusat ke tepi aman, bukan ditebak: dengan
         # titik tengah di x = -3,60 dan batas kiri -6,91, lebar maksimalnya
         # 6,62. Versi pertama memakai 6,4 pada x = -3,90 dan tepi kirinya
-        # menembus layar di -7,10 — digagalkan qc.periksa_adegan.
-        penutup = Text("bukan rumus hafalan — panjang yang bisa ditunjuk",
+        # menembus layar di -7,10, digagalkan qc.periksa_adegan.
+        penutup = Text("bukan rumus hafalan, tapi panjang yang bisa ditunjuk",
                        font_size=24, color=t.redup)
         sinema.batasi_lebar(penutup, 6.2)
         penutup.move_to([-3.60, -3.35, 0])

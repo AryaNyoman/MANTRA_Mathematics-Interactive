@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState, useSyncExternalStore } from 'react'
 import SegitigaSebangun, { hitungGeometri, angka } from '@/components/widget/SegitigaSebangun'
 import PenamaanSisi, { type SudutAktif } from '@/components/widget/PenamaanSisi'
 import Bayangan, { BATAS_SUDUT, hitungBayangan } from '@/components/widget/Bayangan'
@@ -11,12 +11,16 @@ import PerjalananSudut, { ISTIMEWA } from '@/components/widget/PerjalananSudut'
 import LingkaranKeGrafik, { BATAS_SAPU } from '@/components/widget/LingkaranKeGrafik'
 import TigaGrafik from '@/components/widget/TigaGrafik'
 import PemutarVideo from '@/components/PemutarVideo'
-import DuniaNyata, { CONTOH, BATAS_JARAK } from '@/components/widget/DuniaNyata'
+import DuniaNyata, { CONTOH } from '@/components/widget/DuniaNyata'
 import Penjelasan from '@/components/topik/Penjelasan'
 import Latihan from '@/components/topik/Latihan'
 import Kuis from '@/components/topik/Kuis'
 import { TAHAP, LATIHAN, KUIS, KANAL, type Tahap } from '@/content/trigonometri'
+import { langgan } from '@/lib/simpanan'
 import type { Topik } from '@/content/topik'
+import {
+  bacaKemajuan, catatDibuka, tambahDetik, kuisTerbuka, ajakan,
+} from '@/lib/kemajuan'
 
 type Layar = { jenis: 'tahap'; slug: string } | { jenis: 'latihan' } | { jenis: 'kuis' }
 
@@ -27,7 +31,7 @@ type Layar = { jenis: 'tahap'; slug: string } | { jenis: 'latihan' } | { jenis: 
  * kanan berisi penjelasan lengkap. Siswa tidak perlu menggulir atas-bawah
  * untuk menghubungkan gambar dengan penjelasannya.
  *
- * Urutannya dari KONSEP menuju rumus — bukan sebaliknya. Kotak "Sering keliru"
+ * Urutannya dari KONSEP menuju rumus, bukan sebaliknya. Kotak "Sering keliru"
  * ada di bawah, setelah siswa paham, bukan menyambut di halaman depan.
  */
 export default function Trigonometri({ topik }: { topik: Topik }) {
@@ -49,12 +53,50 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
   // supaya panggung tetap satu layar tanpa gulir atas-bawah.
   const [mode, setMode] = useState<'coba' | 'tonton'>('tonton')
   const [contoh, setContoh] = useState(0)
-  const [jarakFoto, setJarakFoto] = useState(1)
+  // Satu nilai penggeser per contoh, supaya pindah kartu tidak menghapus
+  // hasil utak-atik siswa di kartu sebelumnya.
+  const [nilaiContoh, setNilaiContoh] = useState<number[]>([1.4, 20, 45, 440])
 
   const tahap: Tahap | undefined =
     layar.jenis === 'tahap' ? TAHAP.find((t) => t.slug === layar.slug) : undefined
   const adaVideo = Boolean(tahap?.video)
   const tampilWidget = !adaVideo || mode === 'coba'
+
+  /* --- kemajuan membaca, dipakai membuka kunci kuis ---------------------
+     Syaratnya sengaja tidak diumumkan; lihat lib/kemajuan.ts. Yang tampil
+     hanya ajakan halus, karena tombol mati tanpa keterangan akan dikira
+     situsnya rusak.
+
+     Dibaca sebagai "external store", BUKAN useState yang diperbarui di dalam
+     useEffect. Dua alasan:
+
+     1. React 19 melarang setState langsung di badan effect
+        (react-hooks/set-state-in-effect), karena memicu render berantai.
+     2. `catatDibuka` dan `tambahDetik` menulis lewat `tulis()` di simpanan.ts,
+        yang sudah memberi tahu semua pendengar. Jadi begitu kemajuannya
+        bertambah, nilai di bawah ini ikut segar sendiri tanpa perlu disalin
+        ke state.
+
+     Nilai server sengaja `true`: HTML yang dikirim server tidak boleh
+     menampilkan tombol mati, karena localStorage baru terbaca di peramban. */
+  const terbuka = useSyncExternalStore(
+    langgan,
+    () => kuisTerbuka(bacaKemajuan(topik.slug), TAHAP.length),
+    () => true,
+  )
+
+  useEffect(() => {
+    if (layar.jenis === 'tahap') catatDibuka(topik.slug, layar.slug)
+  }, [layar, topik.slug])
+
+  // Waktu hanya bertambah selama tab benar-benar terlihat: meninggalkan
+  // halaman semalaman tidak boleh dihitung sebagai membaca.
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      if (document.visibilityState === 'visible') tambahDetik(topik.slug, 15)
+    }, 15000)
+    return () => window.clearInterval(id)
+  }, [topik.slug])
 
   return (
     <div className="panggung">
@@ -67,17 +109,19 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
               role="tab"
               aria-selected={layar.jenis === 'tahap' && layar.slug === t.slug}
               disabled={!t.siap}
-              title={t.siap ? t.judul : `${t.judul} — belum dibangun`}
+              title={t.siap ? t.judul : `${t.judul} (belum dibangun)`}
               onClick={() => setLayar({ jenis: 'tahap', slug: t.slug })}
             >
-              <b>{String(t.no).padStart(2, '0')}</b> {t.labelPendek}
+              <b>MATERI {String(t.no).padStart(2, '0')}</b> {t.labelPendek}
             </button>
           ))}
           <span className="pisah" aria-hidden />
           <button role="tab" aria-selected={layar.jenis === 'latihan'}
                   onClick={() => setLayar({ jenis: 'latihan' })}>Latihan</button>
           <button role="tab" aria-selected={layar.jenis === 'kuis'}
-                  onClick={() => setLayar({ jenis: 'kuis' })}>Kuis</button>
+                  disabled={!terbuka}
+                  title={terbuka ? 'Kuis' : ajakan()}
+                  onClick={() => terbuka && setLayar({ jenis: 'kuis' })}>Kuis</button>
         </div>
 
         <div className="wadah">
@@ -99,8 +143,9 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
 
           {tahap && (
             <>
+              {/* Nomornya sudah terbaca di tab yang sedang aktif; mengulangnya
+                  di sini hanya menambah kata tanpa menambah keterangan. */}
               <div className="tanda">
-                TAHAP {String(tahap.no).padStart(2, '0')} ·{' '}
                 {adaVideo && mode === 'tonton'
                   ? 'ANIMASI'
                   : tahap.widget ? 'INTERAKTIF' : 'BACAAN'}
@@ -173,7 +218,7 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                              onChange={(e) => setSkala(+e.target.value)} />
                     </div>
                     <div>
-                      {/* θ dikecualikan dari huruf besar — kalau ikut, ia jadi Θ */}
+                      {/* θ dikecualikan dari huruf besar, kalau ikut, ia jadi Θ */}
                       <label htmlFor="sudut">
                         <span>Sudut <span style={{ textTransform: 'none' }}>θ</span></span>
                         <span className="mono">{derajat}°</span>
@@ -206,7 +251,7 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                     <PilihSisi label="Penyebut (bawah)" nilai={penyebut} atur={setPenyebut} />
                     <div className="skala-info">
                       <span className="titik" />
-                      <span>coba keenam pasangan — tiap satu punya nama resminya sendiri</span>
+                      <span>coba keenam pasangan, tiap satu punya nama resminya sendiri</span>
                     </div>
                   </div>
                 </>
@@ -303,7 +348,7 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                     </div>
                     <div className="skala-info">
                       <span className="titik" />
-                      <span>naikkan sampai lewat 360° — kurvanya mengulang persis</span>
+                      <span>naikkan sampai lewat 360°, kurvanya mengulang persis</span>
                     </div>
                   </div>
                 </>
@@ -312,32 +357,48 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
               {tampilWidget && tahap.widget === 'dunia-nyata' && (
                 <>
                   <div className="layar">
-                    <DuniaNyata pilih={contoh} jarak={jarakFoto} />
+                    <DuniaNyata pilih={contoh} nilai={nilaiContoh[contoh]} />
                   </div>
                   <div className="kendali">
                     <div className="pilih-contoh" style={{ gridColumn: '1 / -1' }}>
                       {CONTOH.map((c, i) => (
                         <button key={c.id} aria-pressed={contoh === i}
                                 onClick={() => setContoh(i)}>
-                          <b>{c.nomor}</b> {c.judul.split(' — ')[0]}
+                          <b>{c.nomor}</b> {c.judul.split(', ')[0]}
                         </button>
                       ))}
                     </div>
-                    {CONTOH[contoh].id === 'kamera' && (
-                      <div style={{ gridColumn: '1 / -1' }}>
-                        <label htmlFor="jarakFoto">
-                          <span>Jarak Anda ke objek</span>
-                          <span className="mono">{jarakFoto.toFixed(1).replace('.', ',')} m</span>
-                        </label>
-                        <input id="jarakFoto" type="range"
-                               min={BATAS_JARAK.min} max={BATAS_JARAK.maks}
-                               step={BATAS_JARAK.langkah} value={jarakFoto}
-                               onChange={(e) => setJarakFoto(+e.target.value)} />
-                      </div>
-                    )}
+                    {/* KEEMPAT contoh punya penggesernya sendiri. Sebelumnya hanya
+                        kamera yang punya, sehingga mengklik contoh 02 sampai 04
+                        memang tidak menghasilkan apa-apa dan terasa rusak.
+                        (Temuan ARYA, 1 Sep 2026.) */}
+                    <div style={{ gridColumn: '1 / -1' }}>
+                      <label htmlFor="geserContoh">
+                        <span>{CONTOH[contoh].geser.label}</span>
+                        <span className="mono">
+                          {CONTOH[contoh].geser.langkah < 1
+                            ? nilaiContoh[contoh].toFixed(1).replace('.', ',')
+                            : nilaiContoh[contoh]}{' '}
+                          {CONTOH[contoh].geser.satuan}
+                        </span>
+                      </label>
+                      <input
+                        id="geserContoh"
+                        type="range"
+                        min={CONTOH[contoh].geser.min}
+                        max={CONTOH[contoh].geser.maks}
+                        step={CONTOH[contoh].geser.langkah}
+                        value={nilaiContoh[contoh]}
+                        onChange={(e) => {
+                          const baru = [...nilaiContoh]
+                          baru[contoh] = +e.target.value
+                          setNilaiContoh(baru)
+                        }}
+                      />
+                    </div>
                     <div className="skala-info">
                       <span className="titik" />
-                      <span>keempatnya ada di dalam satu ponsel</span>
+                      <span>keempatnya ada di dalam satu ponsel, geser dan lihat angkanya berubah</span>
                     </div>
                   </div>
                 </>
@@ -358,7 +419,7 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
 
       {/* ======================= KANAN ======================= */}
       <div className="kolom kanan">
-        <div className="jalur">{topik.kelas} / Kurikulum Merdeka</div>
+        <div className="jalur">Materi {topik.kelas}</div>
 
         {tahap ? (
           <>
@@ -367,9 +428,9 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
 
             {tahap.intisari && tahap.widget && (
               /* Sengaja dibedakan tampilannya dari daftar poin di dalam
-                 penjelasan — kalau markanya sama, keduanya terasa mengulang. */
+                 penjelasan, kalau markanya sama, keduanya terasa mengulang. */
               <div className="baca-cepat">
-                <div className="cap">Baca cepat · {tahap.intisari.length} poin</div>
+                <div className="cap">Ringkasan</div>
                 <ol>
                   {tahap.intisari.map((b, i) => <li key={i}>{b}</li>)}
                 </ol>
@@ -400,7 +461,7 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                   <tbody>
                     {URUT_RASIO.map((r) => (
                       <tr key={r} className={sorotRasio === r ? 'tegas' : undefined}>
-                        <td>{RASIO[r].lambang} — {RASIO[r].nama}</td>
+                        <td>{RASIO[r].lambang}, {RASIO[r].nama}</td>
                         <td>{angka(hitungEnam(sudutEnam)[r], 3)}</td>
                       </tr>
                     ))}
@@ -429,8 +490,8 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 <div className="cap">Titik pada sudut {sudutLingkaran}°</div>
                 <table className="tabel-angka">
                   <tbody>
-                    <tr><td>cos θ — koordinat x</td><td>{angka3(hitungLingkaran(sudutLingkaran).cos)}</td></tr>
-                    <tr><td>sin θ — koordinat y</td><td>{angka3(hitungLingkaran(sudutLingkaran).sin)}</td></tr>
+                    <tr><td>cos θ, koordinat x</td><td>{angka3(hitungLingkaran(sudutLingkaran).cos)}</td></tr>
+                    <tr><td>sin θ, koordinat y</td><td>{angka3(hitungLingkaran(sudutLingkaran).sin)}</td></tr>
                     <tr className="tegas"><td>jari-jari (sisi miring)</td><td>1</td></tr>
                   </tbody>
                 </table>
@@ -474,28 +535,50 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
             <div className="sub">
               {layar.jenis === 'latihan'
                 ? 'Kerjakan dulu sendiri. Pembahasan sengaja disembunyikan.'
-                : 'Salah itu wajar — yang penting tahu di mana letak kelirunya.'}
+                : 'Salah itu wajar, yang penting tahu di mana letak kelirunya.'}
             </div>
             <div className="blok bacaan">
               <div className="cap">Cara memakainya</div>
               <p>
                 {layar.jenis === 'latihan'
                   ? 'Empat soal dengan tingkat kesulitan menaik: dari menerapkan perbandingan, memeriksa syarat, menemukan kesalahan orang lain, sampai penerapan dua langkah. Buka pembahasan hanya setelah benar-benar mentok.'
-                  : 'Delapan soal pilihan ganda. Setelah menjawab, Anda langsung melihat alasannya — termasuk kenapa pilihan yang keliru itu terasa masuk akal. Nilai terbaik disimpan di peramban ini saja.'}
+                  : 'Delapan soal pilihan ganda. Setelah menjawab, Anda langsung melihat alasannya, termasuk kenapa pilihan yang keliru itu terasa masuk akal. Nilai terbaik disimpan di peramban ini saja.'}
               </p>
             </div>
           </>
         )}
 
-        <div className="blok" style={{ borderBottom: 0 }}>
-          <div className="cap">Kalau lebih suka belajar dengan menonton</div>
+        {/* Bagian ini SENGAJA dipisah tegas dari materi: sebelumnya ia menyatu
+            dengan penjelasan di atasnya sehingga tidak terbaca sebagai bagian
+            tersendiri. Sekarang punya garis pemisah tebal, latar sendiri, dan
+            judul dengan logo YouTube.
+
+            Tautannya langsung ke HASIL PENCARIAN di kanal itu, bukan ke
+            halaman depan kanal: siswa cukup satu klik, tidak perlu mengetik
+            ulang kata kunci yang tertulis di layar. */}
+        <div className="sesi-youtube">
+          <h2 className="youtube-judul">
+            <svg width="26" height="19" viewBox="0 0 28 20" aria-hidden="true">
+              <rect width="28" height="20" rx="5" fill="#C4302B" />
+              <path d="M11 5.6 19 10l-8 4.4V5.6Z" fill="#fff" />
+            </svg>
+            Pelajari lebih dalam lewat YouTube!
+          </h2>
+          <p className="youtube-antar">
+            Klik nama kanalnya, Anda langsung dibawa ke hasil pencarian topik ini
+            di kanal tersebut.
+          </p>
           <ul className="tautan">
             {KANAL.map((k) => (
               <li key={k.handle}>
-                <a href={k.url} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={`${k.url}/search?query=${encodeURIComponent(k.cari)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   ▶ {k.nama} <span className="mono">{k.handle}</span>
                 </a>
-                <span className="cari">cari: “{k.cari}”</span>
+                <span className="cari">{k.cari}</span>
               </li>
             ))}
           </ul>
@@ -549,7 +632,7 @@ function HasilRasio({ pembilang, penyebut }: { pembilang: NamaSisi; penyebut: Na
       </table>
       {r.sama ? (
         <div className="catatan">
-          Sisi yang sama dibagi dirinya sendiri selalu 1. Tidak ada nama khusus untuk ini —
+          Sisi yang sama dibagi dirinya sendiri selalu 1. Tidak ada nama khusus untuk ini -
           pilih dua sisi yang berbeda.
         </div>
       ) : r.resmi ? (

@@ -4,7 +4,7 @@ import { useCallback, useRef } from 'react'
 import { WARNA } from '@/lib/warna'
 
 /**
- * Widget "Lingkaran Satuan" — Trigonometri tahap 5.
+ * Widget "Lingkaran Satuan", Trigonometri tahap 5.
  *
  * Mengikuti pola video referensi ARYA (`6 Rasion Trigonometri.mp4`): jari-jari
  * dibuat tepat 1, sehingga pembagian dengan sisi miring hilang begitu saja.
@@ -23,7 +23,7 @@ const R = 112 // jari-jari 1 satuan = 112 piksel
 /** Tiga angka desimal, koma sebagai pemisah.
  *
  *  Nilai yang sangat dekat nol dibulatkan ke nol dulu. Tanpa ini, cos 270°
- *  menghasilkan -0,00000000006 dan tampil sebagai "-0,000" — tidak salah
+ *  menghasilkan -0,00000000006 dan tampil sebagai "-0,000", tidak salah
  *  secara mesin, tapi membingungkan siswa yang membacanya. */
 export const angka3 = (n: number) =>
   (Math.abs(n) < 5e-4 ? 0 : n).toFixed(3).replace('.', ',')

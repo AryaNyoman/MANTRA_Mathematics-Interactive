@@ -3,14 +3,14 @@
 import { WARNA } from '@/lib/warna'
 
 /**
- * Widget "Enam Rasio" — Trigonometri tahap 6.
+ * Widget "Enam Rasio", Trigonometri tahap 6.
  *
  * Meniru pola video referensi ARYA `6 Rasion Trigonometri.mp4`: keenam
  * perbandingan digambar sebagai RUAS GARIS SUNGGUHAN di lingkaran satuan,
  * bukan sekadar rumus di kertas. tan benar-benar garis singgung, sec benar-benar
  * garis potong, dan panjangnya bisa diukur.
  *
- * Sudut dibatasi 25°-65° supaya keenam ruas tetap muat di bingkai — di luar
+ * Sudut dibatasi 25°-65° supaya keenam ruas tetap muat di bingkai, di luar
  * rentang itu cot atau tan melesat sangat panjang.
  */
 

@@ -4,14 +4,14 @@ import { useCallback, useMemo, useRef } from 'react'
 import { WARNA } from '@/lib/warna'
 
 /**
- * Widget "Segitiga Sebangun" — Trigonometri Kelas 10.
+ * Widget "Segitiga Sebangun", Trigonometri Kelas 10.
  *
  * DUA ATURAN yang lahir dari temuan ARYA:
  *
  * 1. Widget tidak boleh memotong gambarnya sendiri. Saat sudut membesar, sisi
  *    depan tumbuh sangat cepat (di 80°, 5,7x sisi samping). Bingkai karena itu
  *    dihitung dari segitiga TERBESAR pada sudut tersebut, lalu digambar sesuai
- *    skala — tidak pernah terpotong, tapi slider ukuran tetap terasa efeknya.
+ *    skala, tidak pernah terpotong, tapi slider ukuran tetap terasa efeknya.
  *    Perubahan bingkai DIBERITAHUKAN lewat `ppc` (skala tampilan).
  *
  * 2. Segitiganya harus bisa DITARIK LANGSUNG, bukan cuma lewat slider.
@@ -35,7 +35,7 @@ export type Geometri = {
   tan: number
   sin: number
   cos: number
-  /** piksel per cm — berubah saat bingkai menyesuaikan */
+  /** piksel per cm, berubah saat bingkai menyesuaikan */
   ppc: number
 }
 
@@ -132,7 +132,7 @@ export default function SegitigaSebangun({
     ;(e.target as Element).releasePointerCapture?.(e.pointerId)
   }
 
-  // petak latar ikut merapat saat bingkai menjauh — tanda visual bahwa
+  // petak latar ikut merapat saat bingkai menjauh, tanda visual bahwa
   // tampilan sedang "mundur", bukan segitiganya yang mengecil
   const petak = useMemo(() => {
     const garis: { key: string; x1: number; y1: number; x2: number; y2: number }[] = []
@@ -192,7 +192,7 @@ export default function SegitigaSebangun({
         θ
       </text>
 
-      {/* pegangan di titik puncak — inilah yang ditarik langsung */}
+      {/* pegangan di titik puncak, inilah yang ditarik langsung */}
       {onUbah && (
         <g onPointerDown={mulai} style={{ cursor: 'grab' }}>
           <circle cx={bx} cy={cy} r={16} fill="transparent" />

@@ -2,7 +2,7 @@
   "adegan": "EnamRasioNyata",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Tahap 6 — Enam rasio sebagai panjang nyata. Lanjutan langsung tahap 5, referensi visual sama (qc/referensi/1-rasio.png). Inti: tan, cot, sec, csc bukan rumus hafalan — keempatnya ruas garis yang bisa ditunjuk pada lingkaran satuan, lewat dua garis singgung. Sudut kerja 55 derajat, dipilih supaya keenam ruas sama-sama berukuran wajar; di sudut kecil cot dan csc meledak, di sudut besar tan dan sec meledak.",
+  "catatan": "Tahap 6, Enam rasio sebagai panjang nyata. Lanjutan langsung tahap 5, referensi visual sama (qc/referensi/1-rasio.png). Inti: tan, cot, sec, csc bukan rumus hafalan, keempatnya ruas garis yang bisa ditunjuk pada lingkaran satuan, lewat dua garis singgung. Sudut kerja 55 derajat, dipilih supaya keenam ruas sama-sama berukuran wajar; di sudut kecil cot dan csc meledak, di sudut besar tan dan sec meledak.",
   "segmen": [
     {
       "id": "sapa",

@@ -3,7 +3,7 @@
 import { WARNA } from '@/lib/warna'
 
 /**
- * Widget "Bayangan" — Trigonometri tahap 1.
+ * Widget "Bayangan", Trigonometri tahap 1.
  *
  * Bukti pertama bahwa sudut yang sama memberi perbandingan yang sama, memakai
  * benda yang bisa dilihat siswa sendiri di halaman rumah: pohon dan dirinya,

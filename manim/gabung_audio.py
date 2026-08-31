@@ -4,11 +4,11 @@
 
 Yang dilakukan:
   1. Mencari video hasil render dan berkas `narasi-penuh.mp3`
-  2. Memeriksa selisih durasi keduanya — kalau melenceng > 1,5 detik, BERHENTI
+  2. Memeriksa selisih durasi keduanya, kalau melenceng > 1,5 detik, BERHENTI
      dan memberi tahu, bukan diam-diam menghasilkan video yang tidak sinkron
   3. Menggabungkan jadi satu berkas WebM (video disalin, audio diubah ke Opus)
   4. Menyalin hasilnya ke `web/public/anim/` supaya langsung dipakai situs
-  5. Melaporkan ukuran berkas — kalau > 4 MB, memperingatkan
+  5. Melaporkan ukuran berkas, kalau > 4 MB, memperingatkan
 
 Setelah ini WAJIB jalankan `manim/cek_video.py` dan LIHAT lembar kontaknya.
 Berhasil digabung bukan berarti videonya benar.

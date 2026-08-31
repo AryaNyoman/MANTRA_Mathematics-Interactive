@@ -20,7 +20,7 @@ const plexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'MATRA — Matematika Interaktif',
+  title: 'MATRA | Matematika Interaktif',
   description:
     'Belajar matematika SMA lewat animasi yang menjelaskan dan alat yang bisa dicoba sendiri.',
 }

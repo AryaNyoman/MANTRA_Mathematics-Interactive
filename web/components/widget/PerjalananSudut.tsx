@@ -3,11 +3,11 @@
 import { WARNA } from '@/lib/warna'
 
 /**
- * Widget "Perjalanan Sudut Istimewa" — Trigonometri tahap 7.
+ * Widget "Perjalanan Sudut Istimewa", Trigonometri tahap 7.
  *
  * Meniru pola video referensi ARYA `Unit Circle Journey (sudut istimewa).mp4`:
  * jari-jari berhenti di tiap sudut istimewa, juring terisi, dan nilai EKSAK-nya
- * muncul — bukan desimal.
+ * muncul, bukan desimal.
  *
  * Yang membuat sudut-sudut ini "istimewa" bukan angkanya, tapi asalnya:
  * 45° lahir dari persegi yang dibelah diagonal, 30° dan 60° dari segitiga sama
@@ -32,8 +32,8 @@ export type SudutIstimewa = {
 }
 
 export const ISTIMEWA: SudutIstimewa[] = [
-  { derajat: 0, radian: '0', sin: '0', cos: '1', tan: '0', asal: 'Titik awal — belum berputar sama sekali.' },
-  { derajat: 30, radian: 'π/6', sin: '1/2', cos: '√3/2', tan: '1/√3', asal: 'Segitiga sama sisi dibelah dua. Sisi terpendeknya persis setengah sisi miring — itulah kenapa sin 30° tepat 1/2.' },
+  { derajat: 0, radian: '0', sin: '0', cos: '1', tan: '0', asal: 'Titik awal, belum berputar sama sekali.' },
+  { derajat: 30, radian: 'π/6', sin: '1/2', cos: '√3/2', tan: '1/√3', asal: 'Segitiga sama sisi dibelah dua. Sisi terpendeknya persis setengah sisi miring, itulah kenapa sin 30° tepat 1/2.' },
   { derajat: 45, radian: 'π/4', sin: '√2/2', cos: '√2/2', tan: '1', asal: 'Persegi dibelah diagonal. Kedua sisinya sama panjang, jadi sin dan cos-nya kembar dan tan-nya tepat 1.' },
   { derajat: 60, radian: 'π/3', sin: '√3/2', cos: '1/2', tan: '√3', asal: 'Segitiga sama sisi dibelah dua, dilihat dari sudut yang lain. Nilainya tertukar dengan 30°.' },
   { derajat: 90, radian: 'π/2', sin: '1', cos: '0', tan: 'tak ada', asal: 'Tegak lurus. Sisi sampingnya menyusut jadi nol, jadi tan tidak terdefinisi.' },
@@ -42,7 +42,7 @@ export const ISTIMEWA: SudutIstimewa[] = [
   { derajat: 150, radian: '5π/6', sin: '1/2', cos: '−√3/2', tan: '−1/√3', asal: 'Cerminan 30°.' },
   { derajat: 180, radian: 'π', sin: '0', cos: '−1', tan: '0', asal: 'Setengah putaran penuh. Titiknya persis di seberang titik awal.' },
   { derajat: 270, radian: '3π/2', sin: '−1', cos: '0', tan: 'tak ada', asal: 'Tiga perempat putaran. Menunjuk lurus ke bawah.' },
-  { derajat: 360, radian: '2π', sin: '0', cos: '1', tan: '0', asal: 'Satu putaran penuh — kembali ke titik awal. Semua nilainya mengulang.' },
+  { derajat: 360, radian: '2π', sin: '0', cos: '1', tan: '0', asal: 'Satu putaran penuh, kembali ke titik awal. Semua nilainya mengulang.' },
 ]
 
 export default function PerjalananSudut({ indeks }: { indeks: number }) {

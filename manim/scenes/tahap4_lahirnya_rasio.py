@@ -1,10 +1,10 @@
-"""Tahap 4 — Lahirnya sin, cos, tan.
+"""Tahap 4, Lahirnya sin, cos, tan.
 
 STORYBOARD (ditulis lebih dulu, kode menyusul):
 
   1. Judul pembuka; segitiga siku-siku dengan tiga sisi bernama muncul.
   2. Pertanyaan dihitung: tiga pilihan atas, dua sisa bawah.
-  3. Enam kotak pecahan kosong terbentuk — enam kemungkinan, tidak lebih.
+  3. Enam kotak pecahan kosong terbentuk, enam kemungkinan, tidak lebih.
   4. Ditegaskan keenamnya punya nama.
   5. Kotak pertama diisi: depan per miring, diberi nama sinus.
   6. Kotak kedua: samping per miring, cosinus.
@@ -14,10 +14,10 @@ STORYBOARD (ditulis lebih dulu, kode menyusul):
  10. Penutup.
 
 INTI YANG HARUS TERTANAM: enam kemungkinan itu DIHITUNG dulu, baru diberi
-nama. Kalau langsung menyodorkan tiga rumus, siswa kembali ke keadaan awal —
+nama. Kalau langsung menyodorkan tiga rumus, siswa kembali ke keadaan awal -
 menerima rumus tanpa tahu dari mana. Karena itu babak 2-3 tidak boleh dipangkas.
 
-ATURAN YANG DIPATUHI — sama dengan tahap 5, 6, 7, 8, 9.
+ATURAN YANG DIPATUHI, sama dengan tahap 5, 6, 7, 8, 9.
 
 WARNA: biru = samping · merah = depan · tinta = miring · ungu = sudut
 """
@@ -119,7 +119,7 @@ class LahirnyaRasio(Scene):
         qc.periksa_adegan({"segitiga": self.segitiga, "nama_sisi": self.nama_sisi})
 
     def b02_hitung(self):
-        """Tiga pilihan atas, dua sisa bawah — dihitung, bukan diberitahu."""
+        """Tiga pilihan atas, dua sisa bawah, dihitung, bukan diberitahu."""
         t = self.t
         atas = MathTex(r"3", r"\text{ pilihan untuk pembilang}",
                        color=t.tinta, font_size=30).move_to([2.30, 2.35, 0])
@@ -130,7 +130,7 @@ class LahirnyaRasio(Scene):
         # ARYA menanyakan ini setelah menonton: kenapa penyebutnya 2, bukan 3?
         # Jawabannya harus TERTULIS, bukan diandaikan sudah jelas.
         # DUA baris, bukan satu. Versi satu baris terpaksa diperkecil sampai
-        # nyaris tak terbaca supaya muat 5,9 satuan — batasi_lebar menskalakan,
+        # nyaris tak terbaca supaya muat 5,9 satuan, batasi_lebar menskalakan,
         # jadi kalimat panjang justru jadi kecil, bukan terpotong.
         sebab = Text("sisi yang dipakai di atas tidak boleh dipakai lagi di bawah,\n"
                      "karena membagi sisi dengan dirinya sendiri selalu 1",
@@ -191,7 +191,7 @@ class LahirnyaRasio(Scene):
         sorot = SurroundingRectangle(target, color=warna, buff=0.16,
                                      stroke_width=3, corner_radius=0.08)
         label = MathTex(nama, color=warna, font_size=32)
-        # buff 0,26 membuat "sin theta =" menyentuh kotaknya — terlihat ARYA
+        # buff 0,26 membuat "sin theta =" menyentuh kotaknya, terlihat ARYA
         # pada tangkapan layar. Diberi jarak lebih, dan pasangan label-kotak
         # ikut diperiksa qc supaya tindihan seperti ini tidak lolos lagi.
         label.next_to(sorot, LEFT, buff=0.40)

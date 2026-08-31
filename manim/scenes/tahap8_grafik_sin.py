@@ -1,6 +1,6 @@
-"""Tahap 8 — Terbentuknya grafik sinus.
+"""Tahap 8, Terbentuknya grafik sinus.
 
-STORYBOARD (ditulis lebih dulu, kode menyusul — bukan sebaliknya):
+STORYBOARD (ditulis lebih dulu, kode menyusul, bukan sebaliknya):
 
   1. Judul pembuka penuh layar selama kalimat sapaan, lalu MEMUDAR.
   2. Lingkaran digambar, selesai tepat sebelum narator mengucap "berjari-jari satu".
@@ -10,11 +10,11 @@ STORYBOARD (ditulis lebih dulu, kode menyusul — bukan sebaliknya):
      panel angka hidup muncul di atas.
   5. Titik menyapu 0 -> 60 derajat. Garis mendatar membawa tingginya ke papan,
      dan kurva mulai terlukis.
-  6. Berhenti di 90 derajat; nilai +1,00 disorot — setinggi-tingginya.
+  6. Berhenti di 90 derajat; nilai +1,00 disorot, setinggi-tingginya.
   7. Turun ke 180 derajat; tinggi kembali nol.
   8. Menyelam ke 270 derajat; paling dalam, minus satu.
   9. Genap 360 derajat; penanda "satu putaran penuh" muncul.
- 10. Lanjut ke 540 derajat — bentuk yang sama terulang.
+ 10. Lanjut ke 540 derajat, bentuk yang sama terulang.
  11. Penutup: kurva menebal, sebuah titik menyusurinya ulang, kalimat penutup.
 
 ATURAN YANG DIPATUHI BERKAS INI
@@ -23,12 +23,12 @@ ATURAN YANG DIPATUHI BERKAS INI
     `sinema.babak` MENGGAGALKAN render kalau animasinya melewati narasinya.
   * Paling banyak dua blok teks yang harus dibaca. Judul memudar sebelum panel
     angka muncul; penanda putaran dihapus sebelum kalimat penutup ditulis.
-  * `qc.periksa_adegan` dipanggil di tiap babak — render gagal kalau ada yang
+  * `qc.periksa_adegan` dipanggil di tiap babak, render gagal kalau ada yang
     bertindih atau keluar bingkai.
 
 KUNCI GEOMETRI: jari-jari lingkaran dibuat PERSIS sama dengan amplitudo grafik
 (LING_R == PAPAN_T / 2). Tanpa itu garis penghubung tidak benar-benar mendatar,
-dan seluruh gagasan videonya rusak — siswa tidak akan melihat bahwa tinggi di
+dan seluruh gagasan videonya rusak, siswa tidak akan melihat bahwa tinggi di
 lingkaran dan tinggi di grafik adalah besaran yang sama.
 
 KUNCI UPDATER: semua bentuk dihitung langsung dari ValueTracker, tidak ada yang
@@ -67,12 +67,12 @@ Y_PANEL = 2.70          # baris angka hidup
 
 LING_X = -4.90          # pusat lingkaran setelah bergeser ke kiri
 LING_Y = -0.30          # diturunkan agar berat gambar tidak menumpuk di atas
-LING_R = 1.60           # jari-jari akhir — WAJIB = PAPAN_T / 2
+LING_R = 1.60           # jari-jari akhir, WAJIB = PAPAN_T / 2
 AWAL_X, AWAL_Y = 0.0, -0.20
 AWAL_R = 2.45           # lingkaran besar di tengah, sebelum bergeser
 
 PAPAN_X0 = -2.25        # posisi layar untuk sudut 0°
-PAPAN_Y0 = LING_Y       # WAJIB sejajar pusat lingkaran — kalau tidak, garis
+PAPAN_Y0 = LING_Y       # WAJIB sejajar pusat lingkaran, kalau tidak, garis
                         # penghubung berhenti mendatar dan videonya kehilangan
                         # seluruh maksudnya
 PAPAN_L = 8.45          # panjang sumbu mendatar, mewakili 0…540°
@@ -173,7 +173,7 @@ class GrafikSinusLahir(Scene):
     def b02_mulai(self):
         """Lingkaran selesai digambar TEPAT sebelum narator mengucap
         "berjari-jari satu", sehingga saat frasa itu terdengar bentuknya sudah
-        berdiri. Sisa waktu dibiarkan diam — itu jeda yang disengaja, bukan
+        berdiri. Sisa waktu dibiarkan diam, itu jeda yang disengaja, bukan
         waktu mati (permintaan ARYA setelah menonton versi pertama)."""
         gambar = DURASI["mulai"] * 0.70
         with sinema.babak(self, "mulai", DURASI) as b:
@@ -190,7 +190,7 @@ class GrafikSinusLahir(Scene):
 
     def b04_tinggi(self):
         t = self.t
-        # Label menempel pada garis merah lewat updater posisi — bukan
+        # Label menempel pada garis merah lewat updater posisi, bukan
         # always_redraw MathTex, yang memaksa LaTeX dibangun ulang tiap frame.
         self.lab_tinggi = MathTex(r"\sin\theta", color=t.aksen, font_size=36)
         self.lab_tinggi.add_updater(
@@ -214,7 +214,7 @@ class GrafikSinusLahir(Scene):
         self.papan.shift(np.array([PAPAN_X0, PAPAN_Y0, 0.0]) - self.papan.c2p(0, 0))
         # Label sudut ditaruh di BAWAH papan, bukan menempel pada sumbu.
         # Menempel di sumbu membuat kurva memotong tepat melalui angka 180° dan
-        # 360° — terlihat di render uji 31 Agu. Di bawah papan, kurva tidak
+        # 360°, terlihat di render uji 31 Agu. Di bawah papan, kurva tidak
         # pernah sampai ke sana, dan ruang bawah layar jadi terpakai.
         self.lab_x = VGroup(*[
             MathTex(rf"{d}^\circ", font_size=26, color=t.redup)
@@ -230,17 +230,17 @@ class GrafikSinusLahir(Scene):
         self.gugus_papan = VGroup(self.papan, self.lab_x, self.lab_y)
 
         # Panel angka: satu sistem, dua sisi. Yang kiri menempel pada lingkaran,
-        # yang kanan pada papan — supaya mata mengaitkan angka ke gambarnya.
+        # yang kanan pada papan, supaya mata mengaitkan angka ke gambarnya.
         #
         # Panel sudut memakai TINTA, bukan kuning. Kuning #D9A441 di atas krem
-        # hanya 2,04:1 — terlalu pudar untuk teks (batas layak 4,5:1). Kuning
+        # hanya 2,04:1, terlalu pudar untuk teks (batas layak 4,5:1). Kuning
         # tetap dipakai untuk busur sudut, karena bentuk tebal masih terbaca
         # pada kontras rendah sementara huruf tipis tidak.
         self.num_th = Integer(0, font_size=34, color=t.tinta, group_with_commas=False)
         self.num_th.add_updater(lambda m: m.set_value(int(round(self.theta.get_value()))))
         # Tanda derajat dipasang sebagai objek tersendiri. Lewat argumen `unit`
         # DecimalNumber meratakannya ke TENGAH tinggi angka, sehingga "239°"
-        # tampil sebagai "239o" — tertangkap di render uji 31 Agu.
+        # tampil sebagai "239o", tertangkap di render uji 31 Agu.
         self.drj = MathTex(r"{}^{\circ}", font_size=34, color=t.tinta)
         self.drj.add_updater(
             lambda m: m.next_to(self.num_th, RIGHT, buff=0.05).align_to(self.num_th, UP))

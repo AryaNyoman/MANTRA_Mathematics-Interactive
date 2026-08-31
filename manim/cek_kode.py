@@ -7,14 +7,14 @@ Kenapa ada: render satu adegan MATRA makan 8-15 menit. Gagal di menit ke-9
 karena satu kurung LaTeX kurang adalah pemborosan yang bisa dicegah. Berkas
 ini membaca kodenya tanpa menjalankannya, dan melaporkan:
 
-  1. `MathTex("\\theta")` tanpa awalan `r` — Python sudah mengubah `\\t` jadi TAB
+  1. `MathTex("\\theta")` tanpa awalan `r`, Python sudah mengubah `\\t` jadi TAB
      sebelum LaTeX sempat melihatnya. Cacat paling jahat karena diam-diam.
   2. Kurung kurawal, `\\left`/`\\right`, `\\begin`/`\\end` yang tidak berpasangan.
   3. `\\frac`, `\\sqrt`, `\\text` dan kawan-kawan yang kurang argumen.
-  4. Kelas adegan yang tidak pernah memanggil `qc.periksa_adegan` — melanggar
+  4. Kelas adegan yang tidak pernah memanggil `qc.periksa_adegan`, melanggar
      gerbang mutu di CLAUDE.md.
   5. Warna hex yang ditulis langsung di adegan, bukan diambil dari `matra_theme`
-     — itu yang dulu memutus kaitan warna video dengan warna situs.
+    , itu yang dulu memutus kaitan warna video dengan warna situs.
 
 `--dalam` melangkah lebih jauh: tiap potongan LaTeX benar-benar dibangun lewat
 Manim. Lebih lambat (memanggil MiKTeX), tapi memastikan, dan sekalian mengisi
@@ -149,7 +149,7 @@ def kumpulkan_tex(sumber: str, pohon: ast.AST, t: Temuan) -> list[tuple[int, str
         if nama not in PEMBUAT_TEX:
             continue
 
-        # Warna WAJIB disebut. Tanpa `color=`, Manim memakai putih — dan pada
+        # Warna WAJIB disebut. Tanpa `color=`, Manim memakai putih, dan pada
         # latar krem MATRA putih praktis tidak terlihat. Pada tahap 5 (31 Agu)
         # itu membuat semua tanda "=", kurung, dan koma lenyap dari layar,
         # sehingga "(x, y) = (cos t, sin t)" tampil sebagai "x y   cos t sin t".
@@ -157,7 +157,7 @@ def kumpulkan_tex(sumber: str, pohon: ast.AST, t: Temuan) -> list[tuple[int, str
         # bukan warna. Jadi gerbangnya harus di sini.
         if not any(k.arg == "color" for k in simpul.keywords):
             t.salah(simpul.lineno,
-                    f"{nama}(...) tidak menyebut color= — Manim akan memakai "
+                    f"{nama}(...) tidak menyebut color=, Manim akan memakai "
                     f"putih, yang hilang di latar krem. Tulis color=t.tinta "
                     f"(atau warna tema lain), baru warnai bagiannya.")
 
@@ -169,14 +169,14 @@ def kumpulkan_tex(sumber: str, pohon: ast.AST, t: Temuan) -> list[tuple[int, str
             for ch, tampak in KENDALI.items():
                 if ch in nilai:
                     t.salah(baris, f"{nama}(...) mengandung karakter kendali "
-                                   f"'{tampak}' — hampir pasti string lupa awalan "
+                                   f"'{tampak}', hampir pasti string lupa awalan "
                                    f"r. Tulis r\"...\"")
                     break
             else:
                 if "\\" in (ast.get_source_segment(sumber, arg) or "") \
                         and not _literal_mentah(sumber, arg):
                     t.peringatan(baris, f"{nama}(...) memakai backslash tanpa "
-                                        f"awalan r — rawan. Tulis r\"...\"")
+                                        f"awalan r, rawan. Tulis r\"...\"")
             potongan.append((baris, nilai))
 
             for pesan in periksa_kurung(nilai) + periksa_aritas(nilai):
@@ -203,7 +203,7 @@ def periksa_aturan_matra(sumber: str, pohon: ast.AST, t: Temuan) -> None:
         if "periksa_adegan" not in panggil:
             t.salah(simpul.lineno,
                     f"kelas {simpul.name} tidak pernah memanggil "
-                    f"qc.periksa_adegan — gerbang mutu CLAUDE.md dilanggar")
+                    f"qc.periksa_adegan, gerbang mutu CLAUDE.md dilanggar")
 
     for i, baris in enumerate(sumber.splitlines(), start=1):
         if baris.lstrip().startswith("#"):
@@ -262,7 +262,7 @@ def main() -> int:
         try:
             pohon = ast.parse(sumber, filename=str(berkas))
         except SyntaxError as e:
-            print(f"{berkas}: baris {e.lineno}: sintaks Python salah — {e.msg}")
+            print(f"{berkas}: baris {e.lineno}: sintaks Python salah, {e.msg}")
             total_galat += 1
             continue
 
@@ -283,7 +283,7 @@ def main() -> int:
 
     print()
     if total_galat:
-        print(f">>> {total_galat} galat. JANGAN dirender dulu — perbaiki dahulu.")
+        print(f">>> {total_galat} galat. JANGAN dirender dulu, perbaiki dahulu.")
         return 1
     print(">>> tidak ada galat. Boleh dirender.")
     return 0

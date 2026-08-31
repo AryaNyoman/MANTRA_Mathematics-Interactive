@@ -14,7 +14,7 @@ Keluaran:
 
 Mesin suara: edge-tts, memakai suara Indonesia ASLI (id-ID-ArdiNeural).
 ElevenLabs tidak dipakai karena tingkat gratisnya mengunci semua suara
-Indonesia di balik langganan berbayar — terverifikasi 31 Agu 2026, pesan
+Indonesia di balik langganan berbayar, terverifikasi 31 Agu 2026, pesan
 API-nya: "Free users cannot use library voices via the API."
 """
 

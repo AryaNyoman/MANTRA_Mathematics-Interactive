@@ -1,4 +1,4 @@
-"""Pemeriksa video WAJIB — jalankan sebelum video apa pun dinyatakan selesai.
+"""Pemeriksa video WAJIB, jalankan sebelum video apa pun dinyatakan selesai.
 
 Membuat lembar kontak (satu gambar berisi banyak frame) supaya seluruh video
 bisa dinilai sekaligus, plus frame lepasan pada detik-detik tertentu.
@@ -9,7 +9,7 @@ bisa dinilai sekaligus, plus frame lepasan pada detik-detik tertentu.
 Keluaran masuk ke `qc/<nama-adegan>/`.
 
 ATURAN: hasilnya HARUS dilihat satu per satu. "Render sukses" bukan bukti bahwa
-videonya benar — itu cuma bukti tidak ada error Python.
+videonya benar, itu cuma bukti tidak ada error Python.
 """
 
 from __future__ import annotations

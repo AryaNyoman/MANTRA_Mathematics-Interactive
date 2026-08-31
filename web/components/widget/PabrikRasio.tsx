@@ -3,11 +3,11 @@
 import { WARNA } from '@/lib/warna'
 
 /**
- * Widget "Pabrik Rasio" — Trigonometri tahap 4.
+ * Widget "Pabrik Rasio", Trigonometri tahap 4.
  *
  * Siswa memilih sendiri sisi mana dibagi sisi mana. Dari tiga sisi ada enam
  * pasangan berbeda, dan setiap pasangan sudah punya nama resmi. Jadi sin, cos,
- * dan tan bukan rumus ajaib yang jatuh dari langit — ketiganya cuma label
+ * dan tan bukan rumus ajaib yang jatuh dari langit, ketiganya cuma label
  * untuk tiga dari enam pembagian yang mungkin.
  *
  * Segitiga yang dipakai 3-4-5 supaya semua angkanya rapi dan bisa diperiksa
@@ -29,7 +29,7 @@ export type NamaSisi = keyof typeof SISI
 const NAMA_RASIO: Record<string, { nama: string; lambang: string; catatan: string }> = {
   'depan/miring': { nama: 'sinus', lambang: 'sin θ', catatan: 'Salah satu dari tiga yang paling sering dipakai.' },
   'samping/miring': { nama: 'kosinus', lambang: 'cos θ', catatan: 'Namanya berarti “sinus dari sudut pelengkap”.' },
-  'depan/samping': { nama: 'tangen', lambang: 'tan θ', catatan: 'Namanya dari garis singgung — lihat tahap 6.' },
+  'depan/samping': { nama: 'tangen', lambang: 'tan θ', catatan: 'Namanya dari garis singgung, lihat tahap 6.' },
   'miring/depan': { nama: 'kosekan', lambang: 'csc θ', catatan: 'Kebalikan sinus. Jarang dipakai di SMA.' },
   'miring/samping': { nama: 'sekan', lambang: 'sec θ', catatan: 'Kebalikan kosinus. Jarang dipakai di SMA.' },
   'samping/depan': { nama: 'kotangen', lambang: 'cot θ', catatan: 'Kebalikan tangen. Jarang dipakai di SMA.' },

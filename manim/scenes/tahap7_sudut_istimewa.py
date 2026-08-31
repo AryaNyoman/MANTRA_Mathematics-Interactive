@@ -1,4 +1,4 @@
-"""Tahap 7 — Sudut istimewa.
+"""Tahap 7, Sudut istimewa.
 
 STORYBOARD (ditulis lebih dulu, kode menyusul):
 
@@ -16,9 +16,9 @@ STORYBOARD (ditulis lebih dulu, kode menyusul):
 
 INTI YANG HARUS TERTANAM: nilainya lahir dari dua bangun yang bisa digambar
 sendiri di buku tulis. Karena itu babak 3-4 dan 6-7 harus benar-benar terlihat
-DIPOTONG — bukan langsung menyodorkan segitiga hasilnya.
+DIPOTONG, bukan langsung menyodorkan segitiga hasilnya.
 
-ATURAN YANG DIPATUHI — sama dengan tahap 5, 6, 8:
+ATURAN YANG DIPATUHI, sama dengan tahap 5, 6, 8:
   * Lama tiap babak dari durasi suara sebenarnya.
   * `qc.periksa_adegan` di tiap babak.
   * Semua MathTex/Text menyebut warna (gerbang cek_kode.py).
@@ -85,7 +85,7 @@ class SudutIstimewaLahir(Scene):
         """Busur sudut DALAM di `titik`, antara arah ke_a dan ke_b.
 
         `Angle` bawaan Manim memilih sendiri sisi mana yang digambar, dan pada
-        segitiga 30-60-90 ia sempat menggambar sudut refleksnya — busur kuning
+        segitiga 30-60-90 ia sempat menggambar sudut refleksnya, busur kuning
         hampir satu lingkaran penuh. Di sini sudutnya dihitung sendiri dengan
         arctan2 lalu dinormalkan ke selisih terkecil, jadi hasilnya selalu
         sudut dalam.
@@ -119,7 +119,7 @@ class SudutIstimewaLahir(Scene):
 
     def b02_kenapa(self):
         t = self.t
-        # Dua kalimat pendek yang saling menggantikan — bukan dua blok sekaligus.
+        # Dua kalimat pendek yang saling menggantikan, bukan dua blok sekaligus.
         salah = Text("bukan karena angkanya bulat", font_size=30, color=t.redup)
         sinema.batasi_lebar(salah, 7.0)
         salah.move_to([0, -2.05, 0])
@@ -176,7 +176,7 @@ class SudutIstimewaLahir(Scene):
         self.tanda45 = VGroup(self.sudut45, lab45, lab_mir, alas, tegak)
         with sinema.babak(self, "empatlima", DURASI) as b:
             # Diagonal WAJIB ikut dihapus. Versi pertama melupakannya, dan garis
-            # sorot itu tertinggal melintang di layar sampai akhir video —
+            # sorot itu tertinggal melintang di layar sampai akhir video -
             # bahkan menembus lingkaran satuan di babak 9.
             b.main(FadeOut(self.persegi), FadeOut(buang), FadeOut(self.diagonal),
                    Create(self.segi45), run_time=1.8)
@@ -219,7 +219,7 @@ class SudutIstimewaLahir(Scene):
         with sinema.babak(self, "samasisi", DURASI) as b:
             # Yang lama memudar SAMBIL yang baru digambar. Kalau dipisah jadi
             # dua langkah, ada 1,2 detik layar benar-benar kosong di tengah
-            # video — terlihat di render uji sebagai frame nyaris putih.
+            # video, terlihat di render uji sebagai frame nyaris putih.
             b.main(FadeOut(self.segi45), FadeOut(self.tanda45),
                    FadeOut(self.lab_persegi), Create(self.samasisi), run_time=2.4)
             b.main(FadeIn(self.lab_dua), run_time=1.4)
@@ -282,7 +282,7 @@ class SudutIstimewaLahir(Scene):
                          color=t.redup, stroke_width=2)
         self.sumbu = VGroup(self.sb_h, self.sb_v)
 
-        # Derajatnya DITULIS di lingkaran — permintaan ARYA setelah melihat
+        # Derajatnya DITULIS di lingkaran, permintaan ARYA setelah melihat
         # lingkarannya polos. Tanpa label, siswa harus menebak jari-jari itu
         # sedang berhenti di sudut berapa.
         self.tanda_sudut = VGroup()

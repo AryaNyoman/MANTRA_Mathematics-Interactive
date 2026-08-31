@@ -2,7 +2,7 @@
   "adegan": "TigaGrafikBersama",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Tahap 9 — Sin, cos, tan berdampingan. Pola visual meniru referensi 4 (Grafik SIN COS TAN): tiga panel bertumpuk, masing-masing lingkaran kecil di kiri dan grafiknya di kanan, semuanya digerakkan SATU sudut yang sama. Inti yang harus tertanam: ketiga kurva lahir dari satu putaran; yang berbeda hanya apa yang dicatat. Asimtot tangen dijelaskan sebagai akibat pembagian dengan nol, bukan sebagai 'nilainya tak hingga'.",
+  "catatan": "Tahap 9, Sin, cos, tan berdampingan. Pola visual meniru referensi 4 (Grafik SIN COS TAN): tiga panel bertumpuk, masing-masing lingkaran kecil di kiri dan grafiknya di kanan, semuanya digerakkan SATU sudut yang sama. Inti yang harus tertanam: ketiga kurva lahir dari satu putaran; yang berbeda hanya apa yang dicatat. Asimtot tangen dijelaskan sebagai akibat pembagian dengan nol, bukan sebagai 'nilainya tak hingga'.",
   "segmen": [
     {
       "id": "sapa",

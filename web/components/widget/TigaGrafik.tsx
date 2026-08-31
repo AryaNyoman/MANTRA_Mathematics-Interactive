@@ -4,12 +4,12 @@ import { useMemo } from 'react'
 import { WARNA } from '@/lib/warna'
 
 /**
- * Widget "Tiga Grafik Berdampingan" — Trigonometri tahap 9.
+ * Widget "Tiga Grafik Berdampingan", Trigonometri tahap 9.
  *
  * Meniru pola video referensi ARYA `Grafik SIN COS TAN.mp4`: tiga panel
  * bertumpuk, masing-masing punya lingkaran kecil dan grafiknya sendiri, tapi
  * SEMUANYA digerakkan oleh satu sudut yang sama. Dari situ terlihat bahwa
- * ketiga kurva bukan tiga hal terpisah — ketiganya catatan dari satu putaran
+ * ketiga kurva bukan tiga hal terpisah, ketiganya catatan dari satu putaran
  * yang sama, cuma yang dicatat berbeda.
  *
  * Grafik tan sengaja dipotong pada nilai besar dan digambar putus di setiap
@@ -39,7 +39,7 @@ const NILAI: Record<Jenis, (rad: number) => number> = {
 }
 
 /** Ubah nilai fungsi jadi koordinat-y. Fungsi MURNI di luar komponen supaya
- *  tidak dibuat ulang tiap render — kalau di dalam, useMemo di bawah bisa
+ *  tidak dibuat ulang tiap render, kalau di dalam, useMemo di bawah bisa
  *  memakai versi basi (tertangkap aturan react-hooks/exhaustive-deps). */
 function keY(v: number, cy: number, jenis: Jenis): number {
   const jepit = Math.max(-BATAS_TAN, Math.min(BATAS_TAN, v))

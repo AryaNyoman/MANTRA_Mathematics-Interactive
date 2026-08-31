@@ -1,4 +1,4 @@
-"""Trigonometri — animasi utama, bernarasi.
+"""Trigonometri, animasi utama, bernarasi.
 
 Kelas 10, Bab 4. Melawan miskonsepsi resmi Kurikulum Merdeka: siswa mengira
 nilai tan/sin/cos adalah angka mati, padahal ia perbandingan yang tetap sama
@@ -6,11 +6,11 @@ pada segitiga sebangun.
 
 LAMA TIAP TAHAP DIAMBIL DARI DURASI SUARA YANG SEBENARNYA
 (`audio/trigonometri/durasi.json`, dibuat oleh `manim/buat_narasi.py`).
-Tidak ada satu pun angka waktu yang ditebak — kalau naskahnya berubah,
+Tidak ada satu pun angka waktu yang ditebak, kalau naskahnya berubah,
 jalankan ulang buat_narasi.py lalu render ulang, dan sinkronnya tetap terjaga.
 
 RIWAYAT: versi pertama (17 detik, tanpa narasi) punya 7 cacat yang lolos
-karena hanya dicek lognya, bukan ditonton. Sejak itu berlaku dua aturan —
+karena hanya dicek lognya, bukan ditonton. Sejak itu berlaku dua aturan -
 `qc.periksa_adegan` menggagalkan render kalau ada yang bertindih atau keluar
 bingkai, dan `manim/cek_video.py` wajib dijalankan lalu HASILNYA DILIHAT.
 """
@@ -44,7 +44,7 @@ SUDUT = np.arctan(0.75)
 def pecahan(atas: Mobject, bawah: Mobject, warna) -> VGroup:
     """Pecahan dirakit sendiri supaya tiap bagian bisa diwarnai dengan pasti.
 
-    JANGAN mewarnai lewat pengirisan indeks karakter (`rumus[0][3:8]`) — itu
+    JANGAN mewarnai lewat pengirisan indeks karakter (`rumus[0][3:8]`), itu
     penyebab kata "depan" tampil belang setengah merah setengah biru di versi
     pertama.
     """
@@ -91,7 +91,7 @@ class UkuranBedaRasioSama(Scene):
         depan = always_redraw(lambda: Line(b(), c(), color=t.aksen, stroke_width=6))
         miring = always_redraw(lambda: Line(c(), POJOK, color=t.tinta, stroke_width=6))
         # kedua garis berangkat DARI titik siku-siku, supaya tandanya jatuh
-        # di dalam segitiga (versi pertama menaruhnya di luar — salah geometri)
+        # di dalam segitiga (versi pertama menaruhnya di luar, salah geometri)
         siku = always_redraw(lambda: RightAngle(
             Line(b(), POJOK), Line(b(), c()), length=0.34, color=t.redup, stroke_width=3))
 

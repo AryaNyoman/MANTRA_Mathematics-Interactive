@@ -34,6 +34,10 @@ Pemilik: ARYA. Tujuan terdekat: ditunjukkan ke dosen.
   "Sering keliru", dan taruh di BAWAH setelah siswa paham.
 - **Gaya visual terkunci: "Studio Teknis"** — patokannya `mockup/d-studio-teknis.html`,
   daftar warna & font ada di `PROGRESS.md`. Jangan mengarang gaya baru per halaman.
+- **JANGAN pakai tanda em-dash (—).** Aturan tetap dari ARYA, 1 Sep 2026, berlaku
+  di proyek ini DAN proyek berikutnya. Pakai tanda baca lain: titik, koma, titik dua,
+  tanda kurung, atau tanda hubung biasa. Berlaku untuk teks yang dilihat pengguna
+  maupun untuk komentar kode.
 - **Widget tidak boleh memotong gambarnya sendiri.** Bingkai wajib menyesuaikan otomatis
   dan memberi tahu penggunanya lewat penunjuk skala. (Bug temuan ARYA, 31 Agu.)
 

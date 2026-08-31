@@ -5,6 +5,26 @@ const nextConfig: NextConfig = {
   // kiri bawah widget, sehingga mengganggu screenshot verifikasi.
   // Kesalahan kompilasi & runtime tetap ditampilkan.
   devIndicators: false,
+
+  async headers() {
+    return [
+      {
+        // Video, subtitle, poster, dan logo: berkas berat yang isinya tidak
+        // pernah berubah tanpa ganti nama. Tanpa aturan ini Next melayaninya
+        // dengan `max-age=0`, sehingga tiap pindah materi peramban menanyakan
+        // ulang ke server. Dengan `immutable`, video yang sudah pernah dibuka
+        // langsung diambil dari peramban: siswa berkuota terbatas tidak
+        // mengunduh 4 MB dua kali, dan berpindah materi terasa seketika.
+        //
+        // KALAU VIDEO DIGANTI ISINYA: ganti juga nama berkasnya, atau
+        // peramban siswa akan tetap memutar yang lama sampai setahun.
+        source: '/:path(anim|merek|gambar)/:file*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+    ]
+  },
 }
 
 export default nextConfig

@@ -61,8 +61,8 @@ def tidak_bertindih(a, b, nama_a: str = "A", nama_b: str = "B", toleransi: float
 def periksa_adegan(zona: dict, pasangan: list | None = None, margin: float = 0.2):
     """Pemeriksaan sekali jalan.
 
-    zona     : {"nama": mobject} — semua diperiksa agar muat di bingkai
-    pasangan : [("nama_a", "nama_b"), ...] — pasangan yang tidak boleh bertindih
+    zona     : {"nama": mobject}, semua diperiksa agar muat di bingkai
+    pasangan : [("nama_a", "nama_b"), ...], pasangan yang tidak boleh bertindih
     """
     for nama, m in zona.items():
         muat_di_bingkai(m, margin=margin, nama=nama)

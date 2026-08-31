@@ -8,7 +8,7 @@ import { TOPIK, cariTopik } from '@/content/topik'
  * Halaman topik.
  *
  * CATATAN Next 16: `params` adalah Promise dan WAJIB di-await.
- * Ini berbeda dari Next versi lama — lihat peringatan di `web/AGENTS.md`.
+ * Ini berbeda dari Next versi lama, lihat peringatan di `web/AGENTS.md`.
  */
 
 export function generateStaticParams() {
@@ -22,8 +22,8 @@ export async function generateMetadata({
 }) {
   const { slug } = await params
   const topik = cariTopik(slug)
-  if (!topik) return { title: 'Topik tidak ditemukan — MATRA' }
-  return { title: `${topik.nama} — MATRA`, description: topik.pertanyaan }
+  if (!topik) return { title: 'Topik tidak ditemukan | MATRA' }
+  return { title: `${topik.nama} | MATRA`, description: topik.pertanyaan }
 }
 
 export default async function HalamanTopik({
@@ -37,7 +37,7 @@ export default async function HalamanTopik({
 
   return (
     <>
-      <Nav kode={topik.kode} />
+      <Nav label={topik.nama} />
       {topik.siap ? (
         <Trigonometri topik={topik} />
       ) : (

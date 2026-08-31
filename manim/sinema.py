@@ -1,7 +1,7 @@
 """Gerakan kamera dan tata teks bersama untuk SEMUA video MATRA.
 
 Ditulis sekali, dipakai tujuh kali. Tanpa berkas ini tiap adegan menulis ulang
-hal yang sama — dan mengulang cacat yang sama.
+hal yang sama, dan mengulang cacat yang sama.
 
 Aturan yang dipaksakan di sini (dipungut dari membedah dua repo rujukan pada
 31 Agu 2026: Elteoremadebeethoven/AnimationsWithManim dan HarleyCoops/Math-To-Manim):
@@ -12,7 +12,7 @@ Aturan yang dipaksakan di sini (dipungut dari membedah dua repo rujukan pada
 
 2. PALING BANYAK DUA BLOK TEKS YANG HARUS DIBACA.
    Judul pembuka muncul lalu MEMUDAR, jadi ia tidak ikut menghitung setelah
-   detik-detik awal. Label sumbu dan nama sisi bukan "blok teks" — itu bagian
+   detik-detik awal. Label sumbu dan nama sisi bukan "blok teks", itu bagian
    dari gambar; yang dibatasi adalah kalimat yang menuntut dibaca.
 
 3. KETERANGAN MENGGANTI DIRINYA SENDIRI.
@@ -33,7 +33,7 @@ from contextlib import contextmanager
 
 from manim import *
 
-# Batas aman bingkai 14,22 x 8 — sisakan margin supaya qc.py tidak menolak.
+# Batas aman bingkai 14,22 x 8, sisakan margin supaya qc.py tidak menolak.
 LEBAR_JUDUL = 11.0
 LEBAR_KETERANGAN = 10.5
 LEBAR_UMUM = 12.5
@@ -50,7 +50,7 @@ class WaktuTidakMuat(AssertionError):
 
 
 class AngkaKoma(DecimalNumber):
-    """Angka dengan koma desimal — konvensi Indonesia, bukan titik.
+    """Angka dengan koma desimal, konvensi Indonesia, bukan titik.
 
     `edge_to_fix` bawaannya LEFT, jadi tepi kirinya tidak bergeser saat lebar
     angkanya berubah. Itu yang membuat panel angka tidak bergoyang.
@@ -59,7 +59,7 @@ class AngkaKoma(DecimalNumber):
     untuk membuang spasi setelah koma. `DecimalNumber` menghitung posisi tiap
     glyph dari PANJANG STRING-nya: `"+0{,}42"` dibaca sebagai 7 glyph padahal
     LaTeX hanya menggambar 5, jadi ketujuh posisi dijejalkan ke lima bentuk dan
-    angkanya bertumpuk. Terlihat di lembar kontak render uji 31 Agu 2026 —
+    angkanya bertumpuk. Terlihat di lembar kontak render uji 31 Agu 2026 -
     lebarnya terjepit 0,68 satuan dari seharusnya 1,20.
 
     Koma biasa aman: satu karakter, satu glyph. Spasi tipis bawaan LaTeX tidak
@@ -137,7 +137,7 @@ def nilai_hidup(label: Mobject, angka: DecimalNumber, di, buff: float = 0.18) ->
     """Rakit "label + angka berubah" supaya angkanya tidak melayang.
 
     `align_to(..., DOWN)` menyamakan garis dasar keduanya. Tanpa itu angka
-    tampak naik-turun terhadap labelnya — cacat kecil yang terlihat mahal.
+    tampak naik-turun terhadap labelnya, cacat kecil yang terlihat mahal.
     """
     gugus = VGroup(label, angka)
     angka.next_to(label, RIGHT, buff=buff)
@@ -154,7 +154,7 @@ def sorot_bagian(scene: Scene, rumus: MathTex, bagian: Mobject, tema,
                  warna=None, redup: float = 0.28, run_time: float = 0.8):
     """Redupkan seluruh rumus, nyalakan SATU bagian, beri kotak.
 
-    Bagian diambil lewat `rumus.get_part_by_tex(...)` atau indeks argumen —
+    Bagian diambil lewat `rumus.get_part_by_tex(...)` atau indeks argumen -
     JANGAN dengan mengiris karakter (`rumus[0][3:8]`). Pengirisan karakter
     itulah yang dulu membuat kata tampil belang setengah warna.
     """
@@ -192,12 +192,12 @@ class Babak:
         self.terpakai += run_time
 
     def catat(self, lama: float) -> None:
-        """Catat waktu yang dipakai di luar `main` — misalnya `judul_pembuka`,
+        """Catat waktu yang dipakai di luar `main`, misalnya `judul_pembuka`,
         yang menjalankan play-wait-play sendiri."""
         self.terpakai += lama
 
     def jeda(self, lama: float = 0.8) -> None:
-        """Diam yang disengaja — dibatasi supaya tidak jadi waktu mati."""
+        """Diam yang disengaja, dibatasi supaya tidak jadi waktu mati."""
         lama = float(np.clip(lama, JEDA_MIN, JEDA_MAKS))
         self.scene.wait(lama)
         self.terpakai += lama
@@ -212,7 +212,7 @@ class Babak:
             raise WaktuTidakMuat(
                 f"babak '{self.nama}': animasi {self.terpakai:.2f} detik "
                 f"melewati narasi {self.lama:.2f} detik "
-                f"(kelebihan {-sisa:.2f}). Gambar akan mendahului suara — "
+                f"(kelebihan {-sisa:.2f}). Gambar akan mendahului suara, "
                 f"pendekkan animasinya atau panjangkan kalimat narasinya."
             )
         if sisa > 0:

@@ -2,7 +2,7 @@
   "adegan": "SudutIstimewaLahir",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Tahap 7 — Sudut istimewa. Pola visual meniru referensi 2 (Unit Circle Journey): lingkaran berlabel derajat, jari-jari menyapu berhenti di tiap sudut istimewa, juring terisi. Inti yang harus tertanam: 30, 45, dan 60 derajat disebut istimewa BUKAN karena angkanya bulat, melainkan karena nilainya lahir dari dua bangun yang bisa digambar sendiri — persegi dibelah diagonal, dan segitiga sama sisi dibelah dua — sehingga nilainya eksak, bukan desimal dari kalkulator.",
+  "catatan": "Tahap 7, Sudut istimewa. Pola visual meniru referensi 2 (Unit Circle Journey): lingkaran berlabel derajat, jari-jari menyapu berhenti di tiap sudut istimewa, juring terisi. Inti yang harus tertanam: 30, 45, dan 60 derajat disebut istimewa BUKAN karena angkanya bulat, melainkan karena nilainya lahir dari dua bangun yang bisa digambar sendiri, persegi dibelah diagonal, dan segitiga sama sisi dibelah dua, sehingga nilainya eksak, bukan desimal dari kalkulator.",
   "segmen": [
     {
       "id": "sapa",

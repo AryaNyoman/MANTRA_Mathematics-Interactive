@@ -1,11 +1,11 @@
-"""Trigonometri — Kelas 10, Bab 4 (Perbandingan Trigonometri).
+"""Trigonometri, Kelas 10, Bab 4 (Perbandingan Trigonometri).
 
 Miskonsepsi yang dilawan (dikutip dari Buku Panduan Guru Kelas X, Bab 4):
 siswa mengira nilai sin/cos/tan adalah *nilai tetap*, padahal ia adalah
 *perbandingan* yang tetap sama pada semua segitiga siku-siku yang sebangun.
 
 Adegan `SegitigaSebangun*` menunjukkan dua segitiga berbeda ukuran dengan sudut
-yang sama — panjang sisinya beda, perbandingannya identik.
+yang sama, panjang sisinya beda, perbandingannya identik.
 """
 
 import sys
@@ -71,7 +71,7 @@ def susun(t: Tema) -> VGroup:
 
 
 class SegitigaSebangunTerang(Scene):
-    """Versi tinta gelap — untuk situs berlatar terang. Render dengan -t."""
+    """Versi tinta gelap, untuk situs berlatar terang. Render dengan -t."""
 
     def construct(self):
         t = Tema("terang")
@@ -80,7 +80,7 @@ class SegitigaSebangunTerang(Scene):
 
 
 class SegitigaSebangunGelap(Scene):
-    """Versi tinta terang — untuk situs berlatar gelap. Render dengan -t."""
+    """Versi tinta terang, untuk situs berlatar gelap. Render dengan -t."""
 
     def construct(self):
         t = Tema("gelap")

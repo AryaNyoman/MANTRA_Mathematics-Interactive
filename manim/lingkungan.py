@@ -11,7 +11,7 @@ Pesan itu tidak menyebut LaTeX sama sekali, jadi mudah disalahartikan sebagai
 kesalahan kode. Padahal berkas yang "tidak ditemukan" adalah `latex.exe`.
 
 KENAPA CARANYA BEGINI:
-Menambah PATH permanen berarti mengubah setelan Windows milik ARYA — itu di luar
+Menambah PATH permanen berarti mengubah setelan Windows milik ARYA, itu di luar
 wewenang berkas proyek. Sebagai gantinya PATH ditambal hanya untuk proses yang
 sedang berjalan. Adegan meng-import berkas ini di baris paling atas, jadi
 tambalannya sudah terpasang sebelum Manim memanggil LaTeX.
@@ -38,7 +38,7 @@ PERLU = ("latex", "dvisvgm")
 def pastikan_latex(diam: bool = True) -> Path | None:
     """Pastikan `latex` dan `dvisvgm` bisa dipanggil. Kembalikan folder yang ditambahkan.
 
-    Mengembalikan None kalau PATH sistem memang sudah benar — itu keadaan sehat.
+    Mengembalikan None kalau PATH sistem memang sudah benar, itu keadaan sehat.
     """
     if all(shutil.which(p) for p in PERLU):
         return None
@@ -61,7 +61,7 @@ def pastikan_latex(diam: bool = True) -> Path | None:
     )
 
 
-# Dipasang saat berkas ini di-import — itu memang tujuannya.
+# Dipasang saat berkas ini di-import, itu memang tujuannya.
 FOLDER_MIKTEX = pastikan_latex()
 
 

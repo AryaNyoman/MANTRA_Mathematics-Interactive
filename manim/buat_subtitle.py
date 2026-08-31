@@ -7,7 +7,7 @@ Keluaran: `web/public/anim/<topik>.vtt`, langsung dipakai oleh <track> di
 pemutar video situs.
 
 KENAPA BERKAS TERPISAH, BUKAN DIBAKAR KE VIDEO (permintaan ARYA 31 Agu):
-  * Tidak mungkin menindih animasi — peramban menaruhnya di lapisan sendiri,
+  * Tidak mungkin menindih animasi, peramban menaruhnya di lapisan sendiri,
     di luar gambar, dan siswa bisa menggesernya.
   * Bisa dimatikan kalau mengganggu.
   * Naskah berubah cukup jalankan ulang skrip ini (2 detik), tanpa render
@@ -17,7 +17,7 @@ KENAPA BERKAS TERPISAH, BUKAN DIBAKAR KE VIDEO (permintaan ARYA 31 Agu):
 KENAPA TIDAK PERLU MENEBAK WAKTUNYA:
 `buat_narasi.py` sudah mengukur durasi TIAP KALIMAT dan menyimpannya di
 `audio/<topik>/durasi.json`. Waktu mulai tiap subtitle tinggal penjumlahan
-berurutan dari situ — sama persis dengan waktu yang dipakai adegan Manim.
+berurutan dari situ, sama persis dengan waktu yang dipakai adegan Manim.
 Jadi subtitle, suara, dan gambar dijalankan oleh satu sumber angka yang sama.
 
 KALIMAT PANJANG DIPECAH: satu segmen narasi bisa 10 detik dan terlalu panjang
@@ -62,7 +62,7 @@ def tebalkan(teks: str) -> str:
 
 
 def panjang_tampak(teks: str) -> int:
-    """Panjang teks tanpa menghitung tag — dipakai membagi waktu baca."""
+    """Panjang teks tanpa menghitung tag, dipakai membagi waktu baca."""
     return len(re.sub(r"<[^>]+>", "", teks))
 
 

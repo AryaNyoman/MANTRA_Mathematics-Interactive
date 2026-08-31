@@ -1,28 +1,42 @@
 # PROGRESS — MATRA
 
 > **SESI BARU: baca berkas ini dari atas sampai bawah SEBELUM mengerjakan apa pun.**
-> Terakhir diperbarui: **31 Agustus 2026, malam** (akhir sesi 2).
+> Terakhir diperbarui: **1 September 2026, dini hari** (akhir sesi 3).
 
 ## Ringkas
 | | |
 |---|---|
-| Tahap sekarang | **Trigonometri SELESAI** — 10 tahap, 7 video 1080p60 bersubtitle, semuanya tayang |
-| Yang tersisa | **Ketujuh video JADI dan tayang.** Berikutnya: lima topik lain (Limit, Grafik Fungsi, Vektor, Ruang 3D, Statistika) |
-| Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md` |
+| Tahap sekarang | **Trigonometri SELESAI + 22 revisi ARYA selesai** |
+| Yang tersisa | Lima topik lain (Limit, Grafik Fungsi, Vektor, Ruang 3D, Statistika) |
+| Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md` |
 | Tenggat | 12 September 2026 |
-| Menjalankan situs | `cd web && npm run dev` → biasanya `http://localhost:3001` |
+| Menjalankan situs | `cd web && npm run dev` → `http://localhost:3000` |
 | Penghalang | *(tidak ada)* |
 
-### Yang berubah di sesi 2
-1. **Tahap 10 selesai** — 4 contoh (kamera, layar berputar, game, suara) + widget galeri
-   berfoto nyata, contoh kamera bisa digeser jaraknya.
-2. **Video tahap 8 SELESAI** dan sudah tayang: `web/public/anim/tahap8-grafik-sin.webm`,
-   1080p60, 91 detik, 6,14 MB, bernarasi, lolos gerbang mutu 23 frame.
-3. **Tiga perkakas baru** dibangun dari membedah dua repo rujukan — lihat bagian
-   "Perkakas" di bawah. Ketiganya dipakai ulang untuk 6 video berikutnya.
-4. **Pemutar video di situs** akhirnya ada. Sebelumnya tipe `Tahap` menyediakan
-   tempat untuk video tapi tidak ada satu pun bagian situs yang menampilkannya —
-   video jadi pun tidak akan terlihat siswa.
+### Yang berubah di sesi 3 — 22 revisi ARYA
+
+**Aturan tetap yang lahir di sesi ini (berlaku SELAMANYA, semua proyek):**
+- **Tanda pisah panjang DILARANG** di teks mana pun yang dibaca orang. Ganti
+  dengan koma, titik, atau tanda hubung biasa. Sudah dicatat di `~/.claude/CLAUDE.md`
+  dan `CLAUDE.md` proyek ini.
+
+**Halaman depan** dirombak jadi perkenalan, bukan daftar: logo Matra, kalimat
+pembuka, korsel 4 cuplikan video (`components/Demo.tsx`), tiga kolom "apa saja
+isinya", kartu materi urut dari Kelas 10, kaki halaman berisi nama pembuat
+(Nyoman Arya Sejati), logo UNDIKSHA, WhatsApp, dan tombol pasang aplikasi.
+
+**Isi materi** dirapikan: kode `TRIG-10-B4` dibuang, label tab jadi `MATERI 01`,
+pembuka Materi 01 ditulis ulang jadi masalah dulu baru jawaban, tiap materi
+dipecah jadi sesi bernomor, ditambah kotak **YUK BEREKSPERIMEN 🔬**, `BACA CEPAT`
+jadi `RINGKASAN`, dan bagian YouTube dipisah dengan tautan pencarian langsung.
+
+**Latihan** kini pilihan ganda **A sampai E**. **Kuis** terkunci diam-diam sampai
+kesepuluh materi dibuka DAN 10 menit membaca terkumpul (`lib/kemajuan.ts`).
+
+**Perbaikan teknis:** bug zoom (panggung dulu ikut melar mengikuti layar, kini
+dibatasi rem), subtitle tanpa bayangan dan bisa diperbesar siswa, video di-cache
+permanen, PWA siap pasang, dan Materi 10 yang tadinya mati kini keempat contohnya
+punya penggeser hidup.
 
 ---
 
@@ -193,7 +207,16 @@ Patokan visual: `mockup/e-satu-layar.html`
 - `params` pada route dinamis adalah **`Promise`** → wajib `await params`
 - **Tailwind 4**: `@import "tailwindcss"` + `@theme inline`, **tanpa** `tailwind.config.js`
 - **`next lint` sudah dihapus** → pakai `npx eslint .`
-- React 19 melarang `setState` di dalam `useEffect` dan komponen yang dibuat di dalam render
+- React 19 melarang `setState` di dalam `useEffect` dan komponen yang dibuat di dalam render.
+  **Penggantinya sudah terbukti di proyek ini:** kalau nilainya berasal dari
+  `localStorage`, baca lewat `useSyncExternalStore(langgan, ...)` dari
+  `lib/simpanan.ts`. Karena `tulis()` sudah memberi tahu pendengarnya, nilai itu
+  segar sendiri tanpa disalin ke state — sekaligus lolos dari ketidakcocokan
+  hidrasi. Contoh: `components/PemutarVideo.tsx` dan kunci kuis di
+  `components/topik/Trigonometri.tsx`.
+- React 19 juga melarang **mengubah variabel biasa setelah render selesai**.
+  Penghitung yang dinaikkan di dalam `.map()` melanggar ini; hitung dulu ke
+  `Map`, baru dipakai (lihat `components/topik/Penjelasan.tsx`).
 - Dokumen resmi ada **offline** di `web/node_modules/next/dist/docs/` — baca dari situ
 
 ---
@@ -213,13 +236,21 @@ Patokan visual: `mockup/e-satu-layar.html`
 ---
 
 ## ⚠️ Risiko & catatan terbuka
-1. **Belum satu pun video jadi.** Itu sisa pekerjaan terbesar.
-2. Adegan `manim/scenes/trigonometri_anim.py` versi bernarasi **belum berhasil dirender** —
-   terakhir gagal di gerbang mutu: `kalk keluar bingkai: bawah -4.33 < -3.80`.
-   **Jangan ditambal** — adegan itu memang akan dirombak mengikuti rancangan 10 tahap.
-3. Render Manim 113 detik makan ±8 menit → selalu jalankan di latar belakang.
-4. Cache npm lama **11 GB** masih di C: (ARYA memilih tidak dihapus).
-5. Waktu review ARYA jadi leher botol — materi matematika wajib diperiksa dia.
+1. **Kunci kuis BUKAN pengamanan.** Catatannya ada di peramban siswa sendiri dan
+   bisa dihapus siapa pun yang mau. Gunanya mendorong kebiasaan membaca sebelum
+   menguji diri, bukan mencegah kecurangan. **Skor kuis di situs ini tidak sah
+   sebagai nilai.** Kalau dosen menanyakannya, jawab apa adanya.
+2. **Tombol pasang aplikasi belum bisa diuji.** `beforeinstallprompt` hanya
+   menyala di situs yang sudah tayang lewat HTTPS. Di `localhost` tombolnya
+   memang tidak muncul, dan itu perilaku yang benar, bukan kerusakan.
+   Baru bisa dibuktikan setelah situs di-deploy.
+3. `web/public/gambar/game.jpg` **939 KB**, keempat foto Materi 10 totalnya
+   ±1,5 MB. Berat untuk siswa berkuota terbatas. Belum dikompres karena ARYA
+   belum memintanya — tawarkan sebelum deploy.
+4. Render Manim 113 detik makan ±8 menit → selalu jalankan di latar belakang,
+   dan **jangan pernah dua render sekaligus** (lihat Jebakan lingkungan).
+5. Cache npm lama **11 GB** masih di C: (ARYA memilih tidak dihapus).
+6. Waktu review ARYA jadi leher botol — materi matematika wajib diperiksa dia.
 
 ## 🎓 Pelajaran dari dua repo rujukan (dibedah 31 Agu, sesi 2)
 
