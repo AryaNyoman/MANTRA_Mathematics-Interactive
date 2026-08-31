@@ -7,6 +7,14 @@ import Image from 'next/image'
  * Sebelumnya di sini tampil kode seperti "TRIG-10-B4". Kode itu berguna untuk
  * yang membangun situs, tapi bagi siswa ia hanya deretan huruf tanpa arti.
  * (Permintaan ARYA, 1 Sep 2026.)
+ *
+ * REVISI 1 Sep 2026: lambangnya saja, tanpa tulisan "Matra" di sebelahnya,
+ * dan ukurannya dinaikkan supaya terbaca sebagai logo, bukan ikon kecil.
+ * Tulisan "Matra" di situ mengulang apa yang sudah dikatakan lambangnya.
+ *
+ * "Beranda" ditambahkan sebagai menu tersendiri. Dulu satu-satunya jalan
+ * kembali ke halaman perkenalan adalah mengeklik logo, dan itu tidak terlihat
+ * seperti tautan bagi orang yang belum terbiasa.
  */
 export default function Nav({ label }: { label?: string }) {
   return (
@@ -15,13 +23,14 @@ export default function Nav({ label }: { label?: string }) {
         <Image
           src="/merek/matra-simbol.png"
           alt=""
-          width={22}
-          height={24}
+          width={40}
+          height={44}
           className="merk-ikon"
+          priority
         />
-        Matra<i>·</i>
       </Link>
-      <Link href="/" className="on">Topik</Link>
+      <Link href="/" className="on">Beranda</Link>
+      <Link href="/#materi">Topik</Link>
       <Link href="/latihan">Latihan</Link>
       <Link href="/tentang">Tentang</Link>
       <div className="sp" />

@@ -1,12 +1,12 @@
 # PROGRESS — MATRA
 
 > **SESI BARU: baca berkas ini dari atas sampai bawah SEBELUM mengerjakan apa pun.**
-> Terakhir diperbarui: **1 September 2026, dini hari** (akhir sesi 3).
+> Terakhir diperbarui: **1 September 2026, pagi** (akhir sesi 4).
 
 ## Ringkas
 | | |
 |---|---|
-| Tahap sekarang | **Trigonometri SELESAI + 22 revisi ARYA selesai** |
+| Tahap sekarang | **Trigonometri SELESAI + revisi sesi 3 dan 4 selesai** |
 | Yang tersisa | Lima topik lain (Limit, Grafik Fungsi, Vektor, Ruang 3D, Statistika) |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md` |
 | Tenggat | 12 September 2026 |
@@ -38,6 +38,41 @@ dibatasi rem), subtitle tanpa bayangan dan bisa diperbesar siswa, video di-cache
 permanen, PWA siap pasang, dan Materi 10 yang tadinya mati kini keempat contohnya
 punya penggeser hidup.
 
+
+### Yang berubah di sesi 4 (pagi 1 Sep) - revisi lanjutan ARYA
+
+**Bug zoom DIPERBAIKI ULANG, yang pertama belum tuntas.** ARYA menemukan pada
+zoom 100% tombol "Tonton"/"Coba sendiri" dan pengatur ukuran teks hilang.
+Sebabnya `calc(100vh - var(--nav))` menuntut angka `--nav` selalu tepat.
+Sekarang tingginya tidak dihitung sama sekali: `body` jadi kolom flex dan
+panggung memakai `flex: 1 1 0`. Diuji di 5 ukuran layar, 3 ukuran font
+peramban, dan kedua mode.
+
+**Pelajaran yang ARYA minta dicatat:** revisi tampilan WAJIB dicoba sendiri
+lewat Playwright di beberapa tingkat zoom sebelum dilaporkan. Sudah disimpan
+sebagai memory `verifikasi-visual-multi-zoom`.
+
+**Halaman baru:** `/latihan` (bank soal berjenjang, bar kemajuan, 7 lencana)
+dan `/tentang`. Keduanya sudah ditautkan di navigasi sejak lama tetapi
+halamannya tidak pernah dibuat, jadi kedua menu itu selama ini **404**.
+
+**Kuis: bank 32 soal.** Tiap sesi mengambil 8 soal dan menghindari yang sudah
+pernah keluar, jadi empat sesi pertama tidak mengulang satu soal pun (sudah
+dibuktikan lewat pengujian). Semua jawaban numerik diperiksa ulang dengan
+hitungan mesin.
+
+**Materi 10 tidak lagi interaktif.** Penggeser dibuang, fotonya kini tampil
+utuh dua per baris dengan `contain`, tidak dipotong lagi.
+
+**Lain-lain:** tab cukup "MATERI 01", logo nav jadi lambang M saja dan
+diperbesar, menu "Beranda" ditambahkan, bagian "Apa saja isinya" dijadikan
+sorotan (judul serif besar, teks tinta, tiga kartu bernomor), korsel halaman
+depan kini berselang-seling video dan cuplikan layar asli, dan label sin/cos
+di widget lingkaran satuan diberi halo supaya tidak dipotong garis lingkaran.
+
+**Masih menunggu ARYA:** pilihan slogan halaman depan (5 usulan sudah
+diberikan).
+
 ---
 
 ## 📊 Keadaan 10 tahap Trigonometri
@@ -53,9 +88,14 @@ punya penggeser hidup.
 | 7 | Sudut istimewa | ✅ `PerjalananSudut` | ✅ | ✅ **JADI** 1080p60 |
 | 8 | Terbentuknya grafik sinus | ✅ `LingkaranKeGrafik` | ✅ | ✅ **JADI** 1080p60, 96 dtk |
 | 9 | Sin, cos, tan berdampingan | ✅ `TigaGrafik` | ✅ | ✅ **JADI** 1080p60 |
-| 10 | Dipakai di dunia nyata | ✅ `DuniaNyata` | ✅ | — tidak perlu |
+| 10 | Dipakai di dunia nyata | galeri foto (tidak interaktif, keputusan ARYA 1 Sep) | ✅ | — tidak perlu |
 
-Plus: **Latihan 4 soal** + **Kuis 8 soal berskor** — keduanya sudah jalan dan teruji.
+Plus:
+- **Latihan dalam halaman topik**: 4 soal pilihan ganda A-E dengan pembahasan bertahap
+- **Kuis**: 8 soal per sesi, diambil dari **bank 32 soal** (`content/trigonometri/kuis.ts`),
+  menghindari soal yang sudah pernah keluar
+- **Halaman `/latihan`**: bank soal 4 tingkat, bar kemajuan, 7 lencana
+- **Halaman `/tentang`**
 
 ---
 

@@ -2,6 +2,7 @@
 
 import { useCallback, useState, useSyncExternalStore } from 'react'
 import { baca, bacaDiServer, langgan, tulis } from '@/lib/simpanan'
+import { ambilSoal } from '@/lib/soal-acak'
 import type { SoalKuis } from '@/content/trigonometri'
 
 /**
@@ -12,7 +13,25 @@ import type { SoalKuis } from '@/content/trigonometri'
  * kenapa pilihan yang keliru itu terasa masuk akal. Menyalahkan tanpa
  * menjelaskan tidak mengajari apa pun.
  */
-export default function Kuis({ soal, kunciSimpan }: { soal: SoalKuis[]; kunciSimpan: string }) {
+export default function Kuis({
+  bank,
+  jumlah,
+  kunciSimpan,
+  topik,
+}: {
+  /** seluruh bank soal, 32 butir untuk Trigonometri */
+  bank: SoalKuis[]
+  /** berapa soal per sesi */
+  jumlah: number
+  kunciSimpan: string
+  /** slug topik, dipakai mencatat soal mana yang sudah pernah keluar */
+  topik: string
+}) {
+  /* Soal dipilih SEKALI saat kuis dibuka, lewat inisialisasi malas useState.
+     Aman memakai Math.random() di sini: komponen ini baru dipasang setelah
+     siswa menekan tab Kuis, jadi tidak pernah dirender di server dan tidak
+     ada ketidakcocokan hidrasi. */
+  const [soal, setSoal] = useState<SoalKuis[]>(() => ambilSoal(bank, jumlah, topik))
   const [i, setI] = useState(0)
   const [dipilih, setDipilih] = useState<number | null>(null)
   const [benar, setBenar] = useState(0)
@@ -46,7 +65,10 @@ export default function Kuis({ soal, kunciSimpan }: { soal: SoalKuis[]; kunciSim
     }
   }
 
+  /* Mengulang berarti soal BARU, bukan soal yang sama diulang. Itu seluruh
+     alasan bank 32 soal ini ada. */
   function ulang() {
+    setSoal(ambilSoal(bank, jumlah, topik))
     setI(0); setDipilih(null); setBenar(0); setSelesai(false)
   }
 
@@ -66,7 +88,7 @@ export default function Kuis({ soal, kunciSimpan }: { soal: SoalKuis[]; kunciSim
                 : 'Belum nyantol. Mulai lagi dari animasi dan alat interaktifnya, jangan langsung ke soal.'}
         </p>
         {rekor !== null && <p className="catatan">Nilai terbaik Anda di perangkat ini: {rekor} / {soal.length}</p>}
-        <button className="tombol" onClick={ulang}>ULANGI KUIS</button>
+        <button className="tombol" onClick={ulang}>ULANGI DENGAN SOAL BARU</button>
       </div>
     )
   }

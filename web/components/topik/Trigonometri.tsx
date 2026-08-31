@@ -11,7 +11,7 @@ import PerjalananSudut, { ISTIMEWA } from '@/components/widget/PerjalananSudut'
 import LingkaranKeGrafik, { BATAS_SAPU } from '@/components/widget/LingkaranKeGrafik'
 import TigaGrafik from '@/components/widget/TigaGrafik'
 import PemutarVideo from '@/components/PemutarVideo'
-import DuniaNyata, { CONTOH } from '@/components/widget/DuniaNyata'
+import DuniaNyata from '@/components/widget/DuniaNyata'
 import Penjelasan from '@/components/topik/Penjelasan'
 import Latihan from '@/components/topik/Latihan'
 import Kuis from '@/components/topik/Kuis'
@@ -23,6 +23,9 @@ import {
 } from '@/lib/kemajuan'
 
 type Layar = { jenis: 'tahap'; slug: string } | { jenis: 'latihan' } | { jenis: 'kuis' }
+
+/** Berapa soal yang dikerjakan dalam satu sesi kuis, diambil dari bank 32 soal. */
+const SOAL_PER_SESI = 8
 
 /**
  * Halaman topik Trigonometri.
@@ -52,10 +55,6 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
   // Tahap yang punya video menampilkan salah satu saja pada satu waktu,
   // supaya panggung tetap satu layar tanpa gulir atas-bawah.
   const [mode, setMode] = useState<'coba' | 'tonton'>('tonton')
-  const [contoh, setContoh] = useState(0)
-  // Satu nilai penggeser per contoh, supaya pindah kartu tidak menghapus
-  // hasil utak-atik siswa di kartu sebelumnya.
-  const [nilaiContoh, setNilaiContoh] = useState<number[]>([1.4, 20, 45, 440])
 
   const tahap: Tahap | undefined =
     layar.jenis === 'tahap' ? TAHAP.find((t) => t.slug === layar.slug) : undefined
@@ -112,7 +111,11 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
               title={t.siap ? t.judul : `${t.judul} (belum dibangun)`}
               onClick={() => setLayar({ jenis: 'tahap', slug: t.slug })}
             >
-              <b>MATERI {String(t.no).padStart(2, '0')}</b> {t.labelPendek}
+              {/* Nomornya saja. Nama materi ikut ditulis di sini membuat baris
+                  tab jadi panjang dan harus digeser ke samping, padahal judul
+                  lengkapnya sudah terbaca besar di kolom kanan begitu tab
+                  dipilih. (Permintaan ARYA, 1 Sep 2026.) */}
+              MATERI {String(t.no).padStart(2, '0')}
             </button>
           ))}
           <span className="pisah" aria-hidden />
@@ -134,9 +137,17 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
 
           {layar.jenis === 'kuis' && (
             <>
-              <div className="tanda">KUIS · {KUIS.length} SOAL</div>
+              {/* 8 soal per sesi, diambil dari bank 32 soal, dan yang sudah
+                  pernah keluar dihindari. Jadi mengulang kuis berarti bertemu
+                  soal baru. (Permintaan ARYA, 1 Sep 2026.) */}
+              <div className="tanda">KUIS · {SOAL_PER_SESI} SOAL</div>
               <div className="isi-gulir">
-                <Kuis soal={KUIS} kunciSimpan="matra:kuis:trigonometri" />
+                <Kuis
+                  bank={KUIS}
+                  jumlah={SOAL_PER_SESI}
+                  kunciSimpan="matra:kuis:trigonometri"
+                  topik={topik.slug}
+                />
               </div>
             </>
           )}
@@ -148,7 +159,9 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
               <div className="tanda">
                 {adaVideo && mode === 'tonton'
                   ? 'ANIMASI'
-                  : tahap.widget ? 'INTERAKTIF' : 'BACAAN'}
+                  : tahap.widget === 'dunia-nyata'
+                    ? 'CONTOH NYATA'
+                    : tahap.widget ? 'INTERAKTIF' : 'BACAAN'}
               </div>
 
               {/* Tahap yang punya animasi DAN widget: siswa memilih salah satu.
@@ -354,54 +367,15 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 </>
               )}
 
-              {tampilWidget && tahap.widget === 'dunia-nyata' && (
-                <>
-                  <div className="layar">
-                    <DuniaNyata pilih={contoh} nilai={nilaiContoh[contoh]} />
-                  </div>
-                  <div className="kendali">
-                    <div className="pilih-contoh" style={{ gridColumn: '1 / -1' }}>
-                      {CONTOH.map((c, i) => (
-                        <button key={c.id} aria-pressed={contoh === i}
-                                onClick={() => setContoh(i)}>
-                          <b>{c.nomor}</b> {c.judul.split(', ')[0]}
-                        </button>
-                      ))}
-                    </div>
-                    {/* KEEMPAT contoh punya penggesernya sendiri. Sebelumnya hanya
-                        kamera yang punya, sehingga mengklik contoh 02 sampai 04
-                        memang tidak menghasilkan apa-apa dan terasa rusak.
-                        (Temuan ARYA, 1 Sep 2026.) */}
-                    <div style={{ gridColumn: '1 / -1' }}>
-                      <label htmlFor="geserContoh">
-                        <span>{CONTOH[contoh].geser.label}</span>
-                        <span className="mono">
-                          {CONTOH[contoh].geser.langkah < 1
-                            ? nilaiContoh[contoh].toFixed(1).replace('.', ',')
-                            : nilaiContoh[contoh]}{' '}
-                          {CONTOH[contoh].geser.satuan}
-                        </span>
-                      </label>
-                      <input
-                        id="geserContoh"
-                        type="range"
-                        min={CONTOH[contoh].geser.min}
-                        max={CONTOH[contoh].geser.maks}
-                        step={CONTOH[contoh].geser.langkah}
-                        value={nilaiContoh[contoh]}
-                        onChange={(e) => {
-                          const baru = [...nilaiContoh]
-                          baru[contoh] = +e.target.value
-                          setNilaiContoh(baru)
-                        }}
-                      />
-                    </div>
-                    <div className="skala-info">
-                      <span className="titik" />
-                      <span>keempatnya ada di dalam satu ponsel, geser dan lihat angkanya berubah</span>
-                    </div>
-                  </div>
-                </>
+              {/* Materi 10 bukan alat, melainkan galeri. Tugasnya menunjukkan
+                  DI MANA trigonometri berada, dan untuk itu foto utuh sudah
+                  cukup. Penggeser yang dulu ada di sini tidak menjelaskan
+                  apa pun dan memaksa fotonya dipotong.
+                  (Keputusan ARYA, 1 Sep 2026.) */}
+              {tahap.widget === 'dunia-nyata' && (
+                <div className="isi-gulir">
+                  <DuniaNyata />
+                </div>
               )}
 
               {tampilWidget && !tahap.widget && (
@@ -426,7 +400,10 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
             <h1>{tahap.judul}</h1>
             <div className="sub">{tahap.pertanyaan}</div>
 
-            {tahap.intisari && tahap.widget && (
+            {/* Syaratnya cukup `intisari` ada. Dulu ikut menuntut `tahap.widget`,
+                sehingga materi tanpa alat interaktif kehilangan Ringkasannya
+                tanpa alasan. Materi 10 kena persis jebakan itu. */}
+            {tahap.intisari && (
               /* Sengaja dibedakan tampilannya dari daftar poin di dalam
                  penjelasan, kalau markanya sama, keduanya terasa mengulang. */
               <div className="baca-cepat">

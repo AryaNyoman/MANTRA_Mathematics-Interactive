@@ -122,14 +122,24 @@ export default function LingkaranSatuan({
         fontFamily="var(--font-plex-mono), monospace"
       >1</text>
 
-      {/* label komponen */}
+      {/* Label komponen.
+          `halo` memberi garis tepi setebal 3,5 px berwarna kertas di BELAKANG
+          huruf (`paintOrder: stroke`), sehingga angkanya tetap terbaca saat
+          kebetulan dilintasi busur lingkaran atau sumbu. Tanpa ini, pada
+          sudut tertentu lingkaran memotong huruf, terlihat di halaman depan
+          1 Sep 2026. Menggeser labelnya tidak menyelesaikan: pada sudut lain
+          ia akan menabrak garis yang berbeda. */}
       <text x={(CX + px) / 2} y={CY + (sin >= 0 ? 20 : -10)} textAnchor="middle" fontSize={13}
-            fill={WARNA.samping} fontFamily="var(--font-plex-mono), monospace">
+            fill={WARNA.samping} fontFamily="var(--font-plex-mono), monospace"
+            stroke="var(--kartu)" strokeWidth={3.5} paintOrder="stroke"
+            strokeLinejoin="round">
         cos θ = {angka3(cos)}
       </text>
       <text x={px + (cos >= 0 ? 10 : -10)} y={(CY + py) / 2} fontSize={13} fill={WARNA.depan}
             textAnchor={cos >= 0 ? 'start' : 'end'}
-            fontFamily="var(--font-plex-mono), monospace">
+            fontFamily="var(--font-plex-mono), monospace"
+            stroke="var(--kartu)" strokeWidth={3.5} paintOrder="stroke"
+            strokeLinejoin="round">
         sin θ = {angka3(sin)}
       </text>
 

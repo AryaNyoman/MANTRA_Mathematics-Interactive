@@ -26,14 +26,7 @@ export type Soal = {
   benar: number
 }
 
-export type SoalKuis = {
-  pertanyaan: string
-  pilihan: string[]
-  /** indeks jawaban benar */
-  benar: number
-  /** dijelaskan setelah dijawab, termasuk kenapa yang salah itu menggoda */
-  alasan: string
-}
+/* Tipe SoalKuis dan bank soalnya pindah ke ./kuis.ts (1 Sep 2026). */
 
 export type Kanal = {
   nama: string
@@ -163,69 +156,7 @@ export const LATIHAN: Soal[] = [
 /* Kuis, 8 soal pilihan ganda                                          */
 /* ------------------------------------------------------------------ */
 
-export const KUIS: SoalKuis[] = [
-  {
-    pertanyaan: 'Pada segitiga siku-siku, sisi yang menghadap sudut siku-siku disebut sisi…',
-    pilihan: ['depan', 'samping', 'miring', 'alas', 'tegak'],
-    benar: 2,
-    alasan: 'Sisi miring selalu yang menghadap sudut siku-siku, dan selalu sisi terpanjang.',
-  },
-  {
-    pertanyaan: 'tan θ adalah perbandingan antara…',
-    pilihan: ['depan / miring', 'samping / miring', 'depan / samping', 'miring / samping', 'samping / depan'],
-    benar: 2,
-    alasan: 'tan θ = depan / samping. Yang “depan / miring” itu sin, “samping / miring” itu cos.',
-  },
-  {
-    pertanyaan:
-      'Dua segitiga siku-siku sebangun. Yang kedua dua kali lebih besar. Nilai tan θ pada segitiga kedua…',
-    pilihan: ['dua kali lipat', 'setengahnya', 'sama saja', 'tidak bisa ditentukan', 'empat kali lipat'],
-    benar: 2,
-    alasan:
-      'Inti bab ini. Kedua sisi sama-sama dikali 2, jadi hasil baginya tidak berubah - 2a/2b = a/b.',
-  },
-  {
-    pertanyaan: 'Segitiga siku-siku dengan sisi depan 6 cm dan sisi samping 8 cm. Nilai tan θ =',
-    pilihan: ['0,60', '0,75', '0,80', '1,33', '0,48'],
-    benar: 1,
-    alasan:
-      '6/8 = 0,75. Yang menjawab 0,60 memakai depan/miring (itu sin), yang menjawab 1,33 membalik pembilang dan penyebutnya.',
-  },
-  {
-    pertanyaan: 'Sisi depan 6 cm dan sisi miring 10 cm. Nilai sin θ =',
-    pilihan: ['0,60', '0,75', '0,80', '1,67', '0,50'],
-    benar: 0,
-    alasan: 'sin θ = depan/miring = 6/10 = 0,60. (Sisi sampingnya 8 cm, jadi cos θ = 0,80.)',
-  },
-  {
-    pertanyaan: 'Untuk θ antara 0° dan 90°, saat θ diperbesar maka nilai tan θ…',
-    pilihan: ['mengecil', 'membesar', 'tetap', 'mengecil lalu membesar', 'membesar lalu mengecil'],
-    benar: 1,
-    alasan:
-      'Sudut makin curam berarti sisi depan makin panjang dibanding sisi samping, jadi tan θ membesar - dan pertumbuhannya makin cepat mendekati 90°.',
-  },
-  {
-    pertanyaan:
-      'Pada segitiga yang TIDAK siku-siku, bolehkah tan θ dihitung sebagai sisi depan dibagi sisi samping?',
-    pilihan: [
-      'Boleh, asal sudutnya diketahui',
-      'Boleh, asal panjang dua sisi diketahui',
-      'Tidak boleh - perbandingan itu hanya berlaku pada segitiga siku-siku',
-      'Boleh, asal segitiganya sama kaki',
-      'Boleh, hasilnya cuma kurang teliti sedikit',
-    ],
-    benar: 2,
-    alasan:
-      'Istilah “sisi depan”, “sisi samping”, dan “sisi miring” baru punya arti kalau ada sudut siku-siku. Untuk segitiga sembarang dipakai aturan sinus atau kosinus.',
-  },
-  {
-    pertanyaan: 'Nilai sin θ sama dengan…',
-    pilihan: ['cos θ', 'cos(90° − θ)', 'tan θ', 'cos(180° − θ)', 'sin(90° − θ)'],
-    benar: 1,
-    alasan:
-      'Pada segitiga siku-siku, kedua sudut lancipnya berjumlah 90°. Sisi depan sudut yang satu adalah sisi samping sudut yang lain - jadi sin θ = cos(90° − θ).',
-  },
-]
+
 
 /* ------------------------------------------------------------------ */
 /* Belajar lebih lanjut, kanal Indonesia, sudah diverifikasi ada       */

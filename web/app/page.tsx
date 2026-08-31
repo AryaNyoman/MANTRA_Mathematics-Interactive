@@ -40,33 +40,41 @@ export default function Beranda() {
 
         <Demo />
 
+        {/* Ini keterangan terpenting di halaman depan: orang yang baru datang
+            memutuskan di sinilah apakah situs ini layak dicoba. Sebelumnya
+            ditulis dengan label monospace 13px dan teks warna pudar, jadi
+            terbaca seperti catatan kaki. Sekarang dijadikan sorotan.
+            (Permintaan ARYA, 1 Sep 2026.) */}
         <section className="isi-situs" aria-label="Apa saja isi situs ini">
-          <h2 className="tajuk-sesi">Apa saja isinya</h2>
+          <h2 className="isi-tajuk">Apa saja isinya</h2>
           <div className="kisi-isi">
-            <div>
-              <div className="cap">Animasi</div>
+            <article className="kartu-isi">
+              <span className="kartu-no mono">01</span>
+              <h3>Animasi</h3>
               <p>
                 Video pendek yang menurunkan rumus dari awal, dengan suara dan
                 teks terjemahan. Dibuat memakai Manim, alat animasi matematika
                 yang sama dengan yang dipakai 3Blue1Brown.
               </p>
-            </div>
-            <div>
-              <div className="cap">Alat yang bisa dicoba</div>
+            </article>
+            <article className="kartu-isi">
+              <span className="kartu-no mono">02</span>
+              <h3>Alat yang bisa dicoba</h3>
               <p>
                 Segitiga yang bisa ditarik, sudut yang bisa digeser, dan angka
                 yang berubah seketika. Anda menguji sendiri, bukan percaya pada
                 kalimat di buku.
               </p>
-            </div>
-            <div>
-              <div className="cap">Latihan dan kuis</div>
+            </article>
+            <article className="kartu-isi">
+              <span className="kartu-no mono">03</span>
+              <h3>Latihan dan kuis</h3>
               <p>
                 Soal berjenjang dengan pembahasan langkah demi langkah, lalu kuis
                 berskor yang tersimpan di peramban Anda sendiri. Tanpa akun,
                 tanpa mendaftar.
               </p>
-            </div>
+            </article>
           </div>
         </section>
 

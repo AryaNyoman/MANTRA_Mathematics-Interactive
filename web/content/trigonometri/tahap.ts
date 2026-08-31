@@ -784,13 +784,16 @@ export const TAHAP: Tahap[] = [
         ],
       },
       {
+        /* Materi ini tidak lagi punya alat yang bisa digeser, jadi ajakannya
+           diarahkan ke benda sungguhan di tangan siswa, bukan ke penggeser
+           yang sudah tidak ada. (Perubahan 1 Sep 2026.) */
         jenis: 'coba',
-        teks: 'Empat contoh di kiri bisa diklik satu per satu. Mulai dari kamera.',
+        teks: 'Yang ini tidak perlu alat di layar. Ponsel di tangan Anda sudah cukup.',
         langkah: [
-          'Klik contoh 01, lalu geser jaraknya ke objek',
-          'Perhatikan lebar yang muat ikut berubah, itu tangen bekerja',
-          'Klik contoh 02 sampai 04 untuk melihat tiga penerapan lainnya',
-          'Semuanya ada di dalam satu ponsel yang Anda pegang',
+          'Buka kamera, mundur selangkah, lihat berapa banyak yang tiba-tiba muat',
+          'Miringkan ponselnya pelan-pelan sampai layarnya berbalik sendiri',
+          'Perhatikan di sudut berapa kira-kira ia memutuskan berbalik',
+          'Keempat contoh di samping semuanya ada di dalam benda itu',
         ],
       },
       { jenis: 'sorot', teks: 'Kurva yang Anda gambar di tahap 8 itu bukan latihan. Itu bentuk suara yang sedang Anda dengar.' },
