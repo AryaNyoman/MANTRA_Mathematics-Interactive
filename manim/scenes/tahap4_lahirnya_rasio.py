@@ -19,7 +19,7 @@ menerima rumus tanpa tahu dari mana. Karena itu babak 2-3 tidak boleh dipangkas.
 
 ATURAN YANG DIPATUHI — sama dengan tahap 5, 6, 7, 8, 9.
 
-WARNA: biru = samping · merah = depan · tinta = miring · kuning = sudut
+WARNA: biru = samping · merah = depan · tinta = miring · ungu = sudut
 """
 
 import json

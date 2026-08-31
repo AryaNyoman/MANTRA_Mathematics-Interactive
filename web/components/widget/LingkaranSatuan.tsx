@@ -141,7 +141,7 @@ export default function LingkaranSatuan({
 
       <text x={VW / 2} y={VH - 6} textAnchor="middle" fontSize={11} fill={WARNA.redup}
             fontFamily="var(--font-plex-mono), monospace">
-        seret titik kuningnya
+        seret titik ungunya
       </text>
     </svg>
   )

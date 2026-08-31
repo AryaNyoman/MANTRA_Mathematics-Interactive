@@ -23,7 +23,7 @@ ATURAN YANG DIPATUHI — sama dengan tahap 5, 6, 8:
   * `qc.periksa_adegan` di tiap babak.
   * Semua MathTex/Text menyebut warna (gerbang cek_kode.py).
 
-WARNA: biru = alas/samping · merah = tinggi/depan · tinta = miring · kuning = sudut
+WARNA: biru = alas/samping · merah = tinggi/depan · tinta = miring · ungu = sudut
 """
 
 import json
@@ -176,7 +176,7 @@ class SudutIstimewaLahir(Scene):
         self.tanda45 = VGroup(self.sudut45, lab45, lab_mir, alas, tegak)
         with sinema.babak(self, "empatlima", DURASI) as b:
             # Diagonal WAJIB ikut dihapus. Versi pertama melupakannya, dan garis
-            # kuning itu tertinggal melintang di layar sampai akhir video —
+            # sorot itu tertinggal melintang di layar sampai akhir video —
             # bahkan menembus lingkaran satuan di babak 9.
             b.main(FadeOut(self.persegi), FadeOut(buang), FadeOut(self.diagonal),
                    Create(self.segi45), run_time=1.8)

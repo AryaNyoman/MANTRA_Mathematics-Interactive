@@ -342,7 +342,7 @@ export const TAHAP: Tahap[] = [
           'Di kiri sumbu tegak cos jadi negatif, di bawah sumbu mendatar sin jadi negatif. Tandanya mengikuti arah, bukan aturan hafalan',
         ],
       },
-      { jenis: 'paragraf', teks: 'Inilah alasan lingkaran satuan digambar di mana-mana. Ia bukan hiasan — ia mengubah tiga pecahan jadi satu titik yang bisa ditunjuk. Seret titik kuning di sebelah kiri dan perhatikan kedua angkanya bergerak.' },
+      { jenis: 'paragraf', teks: 'Inilah alasan lingkaran satuan digambar di mana-mana. Ia bukan hiasan — ia mengubah tiga pecahan jadi satu titik yang bisa ditunjuk. Seret titik ungu di sebelah kiri dan perhatikan kedua angkanya bergerak.' },
     ],
     seringKeliru: {
       judul: 'Dikira topik terpisah dari segitiga siku-siku',
@@ -495,7 +495,7 @@ export const TAHAP: Tahap[] = [
         butir: [
           'Sumbu mendatar grafik — bukan jarak, melainkan besar sudut yang sudah disapu',
           'Sumbu tegak grafik — tinggi titik di lingkaran pada sudut itu, yaitu sin θ',
-          'Garis putus-putus kuning — penghubung antara tinggi di lingkaran dan titik di grafik',
+          'Garis putus-putus — penghubung antara tinggi di lingkaran dan titik di grafik',
         ],
       },
       { jenis: 'sorot', teks: 'Kurva sinus adalah catatan tinggi sebuah titik yang berputar. Bukan bentuk baru yang perlu dihafal.' },

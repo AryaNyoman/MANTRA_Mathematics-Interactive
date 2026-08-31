@@ -23,7 +23,7 @@ melainkan pembilang dan penyebut dikali angka yang sama. Karena itu babak 7-8
 
 ATURAN YANG DIPATUHI — sama dengan tahap 4-9.
 
-WARNA: biru = samping · merah = depan · tinta = miring · kuning = sudut/hasil
+WARNA: biru = samping · merah = depan · tinta = miring · ungu = sudut/hasil
 """
 
 import json

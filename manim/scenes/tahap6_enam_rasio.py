@@ -18,7 +18,7 @@ STORYBOARD (ditulis lebih dulu, kode menyusul):
 KENAPA SATU PER SATU DISOROT, BUKAN ENAM WARNA SEKALIGUS:
 tema MATRA hanya punya lima warna, dan kuningnya terlalu pudar untuk teks
 (2,04:1 di atas krem). Memaksakan enam warna berbeda akan menghasilkan dua
-warna yang tidak terbaca. Jadi: ruas yang SEDANG dibahas disorot kuning tebal
+warna yang tidak terbaca. Jadi: ruas yang SEDANG dibahas disorot ungu tebal
 (bentuk tebal masih terbaca pada kontras rendah), yang sudah dibahas meredup.
 Di kolom rumus warnanya dikelompokkan menurut MAKNA, bukan sekadar dibedakan:
   biru  = cos dan sec, keduanya soal x
@@ -31,7 +31,7 @@ pada 62° ujung tan berada di y = 1,92 (batas aman 3,80); pada 38° ujung cot
 berada di x = -1,92 (kolom rumus baru mulai di 1,50).
 
 WARNA (sama dengan web/lib/warna.ts):
-  biru = x = cos · merah = y = sin · tinta = jari-jari · kuning = sorot
+  biru = x = cos · merah = y = sin · tinta = jari-jari · ungu = sorot
 """
 
 import json
@@ -146,7 +146,7 @@ class EnamRasioNyata(Scene):
                             self.ruas_x, self.ruas_y, self.busur, self.titik)
 
     def ruas_sorot(self, dari, sampai):
-        """Ruas yang sedang dibahas: kuning tebal, mengikuti sudut."""
+        """Ruas yang sedang dibahas: ungu tebal, mengikuti sudut."""
         return always_redraw(
             lambda: Line(dari(), sampai(), color=self.t.sorot, stroke_width=TEBAL_SOROT))
 
@@ -220,9 +220,10 @@ class EnamRasioNyata(Scene):
     def b04_tan(self):
         t = self.t
         self.ruas_tan = self.ruas_sorot(self.kanan, self.T)
-        # Label memakai TINTA, bukan kuning. Kuning #D9A441 di atas krem hanya
-        # 2,04:1 — cukup untuk garis tebal, tidak cukup untuk huruf. Ruasnya
-        # tetap kuning; namanya yang harus terbaca.
+        # Label memakai TINTA, bukan warna sorot. Ini dulu perlu karena warna
+        # sorot masih kuning (2,04:1). Sejak diganti ungu (6,20:1) alasannya
+        # hilang, tapi tinta tetap dipakai supaya nama ruas dan ruasnya
+        # sendiri tidak berebut perhatian.
         lab = MathTex(r"\tan\theta", color=t.tinta, font_size=30)
         lab.add_updater(lambda o: o.next_to(Line(self.kanan(), self.T()), RIGHT, buff=0.16))
         self.r_tan = self.baris_rumus(2, r"\tan\theta", "=", r"\frac{y}{x}")

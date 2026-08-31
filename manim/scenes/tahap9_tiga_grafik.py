@@ -373,7 +373,7 @@ class TigaGrafikBersama(Scene):
         with sinema.babak(self, "tutup", DURASI) as b:
             b.main(FadeIn(penutup, shift=UP * 0.15), run_time=1.6)
             # Ditebalkan, BUKAN di-Indicate. Indicate mengubah warnanya jadi
-            # kuning serentak, dan ketiga kurva sesaat kehilangan identitas
+            # warna sorot serentak, dan ketiga kurva sesaat kehilangan identitas
             # warnanya — padahal justru warna itu yang membedakan mereka.
             b.main(*[p["kurva"].animate.set_stroke(width=6)
                      for p in (self.p_sin, self.p_cos, self.p_tan)], run_time=1.4)
