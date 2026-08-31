@@ -1,0 +1,52 @@
+{
+  "adegan": "SudutIstimewaLahir",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Tahap 7 — Sudut istimewa. Pola visual meniru referensi 2 (Unit Circle Journey): lingkaran berlabel derajat, jari-jari menyapu berhenti di tiap sudut istimewa, juring terisi. Inti yang harus tertanam: 30, 45, dan 60 derajat disebut istimewa BUKAN karena angkanya bulat, melainkan karena nilainya lahir dari dua bangun yang bisa digambar sendiri — persegi dibelah diagonal, dan segitiga sama sisi dibelah dua — sehingga nilainya eksak, bukan desimal dari kalkulator.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Ada tiga sudut yang di semua buku selalu disebut istimewa. Tiga puluh, empat puluh lima, dan enam puluh derajat."
+    },
+    {
+      "id": "kenapa",
+      "teks": "Istimewanya bukan karena angkanya bulat. Melainkan karena nilainya bisa ditulis persis, tanpa deretan desimal yang tidak pernah habis."
+    },
+    {
+      "id": "persegi",
+      "teks": "Yang pertama lahir dari sebuah persegi. Ambil persegi dengan panjang sisi satu, lalu potong menurut garis diagonalnya."
+    },
+    {
+      "id": "empatlima",
+      "teks": "Yang tersisa adalah segitiga siku-siku dengan dua sudut empat puluh lima derajat. Kedua sisi tegaknya satu, dan sisi miringnya akar dua."
+    },
+    {
+      "id": "nilai45",
+      "teks": "Jadi sinus empat puluh lima derajat adalah satu per akar dua. Sebuah angka pasti, bukan hasil tekan kalkulator."
+    },
+    {
+      "id": "samasisi",
+      "teks": "Yang kedua lahir dari segitiga sama sisi. Ambil segitiga yang ketiga sisinya dua, lalu belah tepat di tengah."
+    },
+    {
+      "id": "tigapuluh",
+      "teks": "Sekarang muncul segitiga siku-siku dengan sudut tiga puluh dan enam puluh derajat. Alasnya satu, miringnya dua, dan sisi tegaknya akar tiga."
+    },
+    {
+      "id": "nilai30",
+      "teks": "Dari situ, sinus tiga puluh derajat adalah satu per dua. Dan sinus enam puluh derajat adalah akar tiga per dua."
+    },
+    {
+      "id": "lingkaran",
+      "teks": "Sekarang taruh ketiganya di lingkaran satuan. Tiap sudut istimewa memberi satu titik yang koordinatnya bisa ditulis persis."
+    },
+    {
+      "id": "sapu",
+      "teks": "Jari-jarinya menyapu, berhenti di tiap sudut istimewa, dan koordinatnya muncul satu per satu."
+    },
+    {
+      "id": "tutup",
+      "teks": "Itulah sebabnya ketiganya disebut istimewa. Bukan karena mudah dihafal, melainkan karena nilainya bisa dihitung sendiri dengan tangan."
+    }
+  ]
+}

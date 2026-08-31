@@ -34,10 +34,10 @@
 | 2 | Perbandingan yang tidak berubah | ✅ `SegitigaSebangun` | ✅ | 🟡 versi lama 17 dtk, tanpa narasi |
 | 3 | Menamai sisi | ✅ `PenamaanSisi` | ✅ | — tidak perlu |
 | 4 | Lahirnya sin, cos, tan | ✅ `PabrikRasio` | ✅ | ⬜ |
-| 5 | Lingkaran satuan | ✅ `LingkaranSatuan` | ✅ | ⬜ |
-| 6 | Enam rasio sebagai panjang nyata | ✅ `EnamRasio` | ✅ | ⬜ |
+| 5 | Lingkaran satuan | ✅ `LingkaranSatuan` | ✅ | 🟡 adegan siap, lolos gerbang; final ditahan |
+| 6 | Enam rasio sebagai panjang nyata | ✅ `EnamRasio` | ✅ | 🟡 adegan siap, sedang diuji |
 | 7 | Sudut istimewa | ✅ `PerjalananSudut` | ✅ | ⬜ |
-| 8 | Terbentuknya grafik sinus | ✅ `LingkaranKeGrafik` | ✅ | ✅ **JADI** 1080p60, 91 dtk |
+| 8 | Terbentuknya grafik sinus | ✅ `LingkaranKeGrafik` | ✅ | ✅ **JADI** 1080p60, 96 dtk |
 | 9 | Sin, cos, tan berdampingan | ✅ `TigaGrafik` | ✅ | ⬜ |
 | 10 | Dipakai di dunia nyata | ✅ `DuniaNyata` | ✅ | — tidak perlu |
 
@@ -239,6 +239,23 @@ yang menyuruh model lain menulis Manim — bukan yang proyek ini butuhkan.
 ---
 
 ## 🔧 Jebakan lingkungan yang sudah diselesaikan
+
+**JANGAN menjalankan dua render Manim bersamaan.** Pada 31 Agu render final
+tahap 8 dijalankan berbarengan dengan render uji tahap 5; yang final terputus
+diam-diam di animasi 34 dari 46, meninggalkan berkas video LAMA di tempatnya.
+Log tidak menunjukkan galat apa pun. Yang menangkapnya adalah `gabung_audio.py`,
+lewat selisih durasi 5,1 detik. Render satu per satu.
+
+**PowerShell `Set-Content -Encoding utf8` menyisipkan BOM** di awal berkas, dan
+Python menolaknya dengan `invalid non-printable character U+FEFF`. Untuk menyunting
+berkas Python, pakai Python atau alat sunting biasa — bukan PowerShell.
+
+**Heredoc bash + string Python biasa bisa memproses escape dua kali.** Menulis
+`"\theta"` di dalam heredoc pernah sampai ke Python sebagai TAB + "heta",
+sehingga pencarian teks gagal tanpa penjelasan. Untuk menyunting kode yang
+mengandung LaTeX, gunakan alat sunting berkas, bukan skrip pengganti teks.
+
+
 
 **MiKTeX terpasang tapi TIDAK terdaftar di PATH Windows.** Gejalanya menyesatkan:
 
