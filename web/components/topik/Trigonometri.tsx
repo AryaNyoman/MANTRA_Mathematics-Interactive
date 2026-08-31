@@ -4,6 +4,7 @@ import { useState } from 'react'
 import SegitigaSebangun, { hitungGeometri, angka } from '@/components/widget/SegitigaSebangun'
 import PenamaanSisi, { type SudutAktif } from '@/components/widget/PenamaanSisi'
 import Bayangan, { BATAS_SUDUT, hitungBayangan } from '@/components/widget/Bayangan'
+import Penjelasan from '@/components/topik/Penjelasan'
 import Latihan from '@/components/topik/Latihan'
 import Kuis from '@/components/topik/Kuis'
 import { TAHAP, LATIHAN, KUIS, KANAL, type Tahap } from '@/content/trigonometri'
@@ -169,17 +170,18 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
             <div className="sub">{tahap.pertanyaan}</div>
 
             {tahap.intisari && tahap.widget && (
-              <div className="blok">
-                <div className="cap">Intisari</div>
-                <ul className="intisari">
+              /* Sengaja dibedakan tampilannya dari daftar poin di dalam
+                 penjelasan — kalau markanya sama, keduanya terasa mengulang. */
+              <div className="baca-cepat">
+                <div className="cap">Baca cepat · {tahap.intisari.length} poin</div>
+                <ol>
                   {tahap.intisari.map((b, i) => <li key={i}>{b}</li>)}
-                </ul>
+                </ol>
               </div>
             )}
 
-            <div className="blok bacaan">
-              <div className="cap">Penjelasan</div>
-              {tahap.penjelasan.map((p, i) => <p key={i}>{p}</p>)}
+            <div className="blok">
+              <Penjelasan blok={tahap.penjelasan} />
             </div>
 
             {/* angka hidup hanya untuk tahap yang punya widget berangka */}

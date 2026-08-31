@@ -363,3 +363,67 @@ h1, h2, h3, .disp {
   width: 6px; height: 6px; border-radius: 99px; background: var(--oker);
 }
 .miskon p { font-size: 14px; line-height: 1.6; }
+
+/* ============================================================
+   Penjelasan bertahap — dipecah supaya bisa dipindai mata,
+   bukan tembok paragraf (permintaan ARYA 31 Agu)
+   ============================================================ */
+.bacaan > * + * { margin-top: 14px; }
+.bacaan p { margin: 0; font-size: 15px; line-height: 1.68; color: #3A3630; }
+
+.bacaan p.sorot {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 17px; line-height: 1.5; color: var(--tinta);
+  border-left: 3px solid var(--oker); padding: 4px 0 4px 15px;
+  margin-top: 18px;
+}
+
+.judul-poin {
+  font-family: var(--font-plex-mono), monospace; font-size: 10.5px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--hijau);
+  font-weight: 600; margin: 0 0 7px;
+}
+ul.poin { list-style: none; padding: 0; margin: 0; }
+ul.poin li {
+  position: relative; padding: 5px 0 5px 19px; font-size: 14.5px; line-height: 1.6;
+  color: #3A3630;
+}
+ul.poin li::before {
+  content: ""; position: absolute; left: 3px; top: 13px;
+  width: 5px; height: 5px; border-radius: 99px; background: var(--oker);
+}
+ul.poin li b { color: var(--tinta); font-weight: 600; }
+
+.contoh {
+  background: #FAF6EF; border: 1px solid var(--garis); border-radius: 10px;
+  padding: 13px 15px;
+}
+.baris-contoh {
+  font-size: 12.5px; line-height: 1.9; color: #3A3630; white-space: pre-wrap;
+  overflow-x: auto;
+}
+.simpul {
+  margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--garis);
+  font-family: var(--font-fraunces), serif; font-style: italic;
+  font-size: 14px; color: var(--bata);
+}
+
+/* --- kartu ringkas di atas penjelasan; dibedakan dari daftar poin --- */
+.baca-cepat {
+  background: #F1EDE4; border: 1px solid var(--garis); border-radius: 10px;
+  padding: 13px 16px; margin: 16px 0 4px;
+}
+.baca-cepat .cap { color: var(--hijau); margin-bottom: 8px; }
+.baca-cepat ol {
+  list-style: none; counter-reset: bc; padding: 0; margin: 0;
+}
+.baca-cepat ol li {
+  counter-increment: bc; position: relative; padding: 4px 0 4px 26px;
+  font-size: 14px; line-height: 1.55; color: #3A3630;
+}
+.baca-cepat ol li::before {
+  content: counter(bc); position: absolute; left: 0; top: 5px;
+  font-family: var(--font-plex-mono), monospace; font-size: 10px; font-weight: 600;
+  color: var(--kartu); background: var(--hijau); width: 16px; height: 16px;
+  border-radius: 4px; display: grid; place-items: center;
+}
