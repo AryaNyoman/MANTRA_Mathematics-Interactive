@@ -28,6 +28,10 @@ Pemilik: ARYA. Tujuan terdekat: ditunjukkan ke dosen.
 - **Bahasa untuk siswa = bahasa SMA.** Stewart & diktat ITB dibaca agar Claude tidak salah konsep —
   bukan untuk diterjemahkan mentah ke siswa.
 - Widget 2D dibuat sendiri (SVG + React). Mafs TIDAK dipakai — tak dirawat 17 bulan.
+- **Penjelasan: pecah jadi blok** (paragraf pendek / daftar poin / kalimat sorot / kotak
+  contoh) — bukan tembok paragraf. Tapi **isinya jangan dipangkas**.
+- **Kata "miskonsepsi" DILARANG muncul di halaman.** Itu istilah guru. Pakai
+  "Sering keliru", dan taruh di BAWAH setelah siswa paham.
 - **Gaya visual terkunci: "Studio Teknis"** — patokannya `mockup/d-studio-teknis.html`,
   daftar warna & font ada di `PROGRESS.md`. Jangan mengarang gaya baru per halaman.
 - **Widget tidak boleh memotong gambarnya sendiri.** Bingkai wajib menyesuaikan otomatis
