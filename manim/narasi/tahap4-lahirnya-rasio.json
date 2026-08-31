@@ -1,0 +1,48 @@
+{
+  "adegan": "LahirnyaRasio",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Tahap 4 — Lahirnya sin, cos, tan. Inti yang harus tertanam: ketiganya bukan rumus yang muncul entah dari mana, melainkan tiga dari ENAM cara membagi dua sisi segitiga siku-siku. Menghitung keenamnya lebih dulu membuat 'kenapa cuma tiga yang terkenal' jadi pertanyaan yang wajar, dan menyiapkan tahap 6.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Sebuah segitiga siku-siku punya tiga sisi. Dari ketiga sisi itu, ada berapa cara membaginya berpasangan?"
+    },
+    {
+      "id": "hitung",
+      "teks": "Ambil satu sisi sebagai pembilang, dan satu sisi lain sebagai penyebut. Ada tiga pilihan untuk yang di atas, dan dua sisa untuk yang di bawah."
+    },
+    {
+      "id": "enam",
+      "teks": "Tiga dikali dua sama dengan enam. Jadi ada enam perbandingan yang mungkin. Tidak lebih, dan tidak kurang."
+    },
+    {
+      "id": "nama",
+      "teks": "Dan keenamnya punya nama. Tiga yang paling sering dipakai diberi nama yang sudah Anda dengar sejak lama."
+    },
+    {
+      "id": "sin",
+      "teks": "Sisi depan dibagi sisi miring. Namanya sinus."
+    },
+    {
+      "id": "cos",
+      "teks": "Sisi samping dibagi sisi miring. Namanya cosinus."
+    },
+    {
+      "id": "tan",
+      "teks": "Dan sisi depan dibagi sisi samping. Namanya tangen."
+    },
+    {
+      "id": "kenapa",
+      "teks": "Ketiganya paling sering dipakai karena sisi miring selalu yang terpanjang. Membaginya dengan sisi miring memberi angka antara nol dan satu, dan angka seperti itu enak dipakai."
+    },
+    {
+      "id": "sisa",
+      "teks": "Tiga sisanya adalah kebalikan dari ketiga tadi. Namanya kosekan, sekan, dan kotangen. Kita akan menemuinya lagi di tahap enam."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi sinus, cosinus, dan tangen bukan rumus yang muncul entah dari mana. Ketiganya hanya tiga dari enam cara membagi dua sisi."
+    }
+  ]
+}

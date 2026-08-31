@@ -33,12 +33,12 @@
 | 1 | Kenapa kita butuh ini | ✅ `Bayangan` | ✅ | ⬜ |
 | 2 | Perbandingan yang tidak berubah | ✅ `SegitigaSebangun` | ✅ | 🟡 versi lama 17 dtk, tanpa narasi |
 | 3 | Menamai sisi | ✅ `PenamaanSisi` | ✅ | — tidak perlu |
-| 4 | Lahirnya sin, cos, tan | ✅ `PabrikRasio` | ✅ | ⬜ |
+| 4 | Lahirnya sin, cos, tan | ✅ `PabrikRasio` | ✅ | 🟡 naskah + suara siap, adegan belum |
 | 5 | Lingkaran satuan | ✅ `LingkaranSatuan` | ✅ | 🟡 adegan siap, lolos gerbang; final ditahan |
 | 6 | Enam rasio sebagai panjang nyata | ✅ `EnamRasio` | ✅ | 🟡 adegan siap, lolos gerbang; final ditahan |
 | 7 | Sudut istimewa | ✅ `PerjalananSudut` | ✅ | 🟡 adegan siap, lolos gerbang; final ditahan |
 | 8 | Terbentuknya grafik sinus | ✅ `LingkaranKeGrafik` | ✅ | ✅ **JADI** 1080p60, 96 dtk |
-| 9 | Sin, cos, tan berdampingan | ✅ `TigaGrafik` | ✅ | 🟡 naskah + suara siap, adegan belum |
+| 9 | Sin, cos, tan berdampingan | ✅ `TigaGrafik` | ✅ | 🟡 adegan siap, lolos gerbang; final ditahan |
 | 10 | Dipakai di dunia nyata | ✅ `DuniaNyata` | ✅ | — tidak perlu |
 
 Plus: **Latihan 4 soal** + **Kuis 8 soal berskor** — keduanya sudah jalan dan teruji.
