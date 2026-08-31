@@ -7,7 +7,7 @@
 | | |
 |---|---|
 | Tahap sekarang | **Trigonometri 10 dari 10 tahap lengkap** teks + widget. **Video pertama JADI.** |
-| Yang tersisa | **6 video Manim lagi** (tahap 2, 4, 5, 6, 7, 9) |
+| Yang tersisa | **Render final 1080p60** untuk tahap 2, 4, 5, 6, 7, 9 — ditahan sampai suara akhir ditetapkan |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md` |
 | Tenggat | 12 September 2026 |
 | Menjalankan situs | `cd web && npm run dev` → biasanya `http://localhost:3001` |
@@ -31,9 +31,9 @@
 | # | Tahap | Widget | Teks | Video |
 |---|---|---|---|---|
 | 1 | Kenapa kita butuh ini | ✅ `Bayangan` | ✅ | ⬜ |
-| 2 | Perbandingan yang tidak berubah | ✅ `SegitigaSebangun` | ✅ | 🟡 versi lama 17 dtk, tanpa narasi |
+| 2 | Perbandingan yang tidak berubah | ✅ `SegitigaSebangun` | ✅ | 🟡 adegan BARU lolos gerbang; versi lama 17 dtk ditinggalkan |
 | 3 | Menamai sisi | ✅ `PenamaanSisi` | ✅ | — tidak perlu |
-| 4 | Lahirnya sin, cos, tan | ✅ `PabrikRasio` | ✅ | 🟡 naskah + suara siap, adegan belum |
+| 4 | Lahirnya sin, cos, tan | ✅ `PabrikRasio` | ✅ | 🟡 adegan siap, lolos gerbang; final ditahan |
 | 5 | Lingkaran satuan | ✅ `LingkaranSatuan` | ✅ | 🟡 adegan siap, lolos gerbang; final ditahan |
 | 6 | Enam rasio sebagai panjang nyata | ✅ `EnamRasio` | ✅ | 🟡 adegan siap, lolos gerbang; final ditahan |
 | 7 | Sudut istimewa | ✅ `PerjalananSudut` | ✅ | 🟡 adegan siap, lolos gerbang; final ditahan |

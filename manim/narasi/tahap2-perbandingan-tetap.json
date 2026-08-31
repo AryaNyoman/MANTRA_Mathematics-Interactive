@@ -1,0 +1,48 @@
+{
+  "adegan": "PerbandinganTetap",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Tahap 2 — Perbandingan yang tidak berubah. MENGGANTIKAN video lama 17 detik tanpa narasi (media lama UkuranBedaRasioSama), yang punya 7 cacat dan dirilis tanpa diperiksa. Inti yang harus tertanam: pada segitiga sebangun, panjang sisinya berubah tapi hasil baginya tidak — karena pembilang dan penyebut dikali angka yang sama, dan pada pembagian keduanya saling menghapus. Itulah alasan nilai sin, cos, tan bisa dibukukan.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Tahap satu berakhir pada satu dugaan. Sudut yang sama selalu memberi perbandingan yang sama. Sekarang kita buktikan."
+    },
+    {
+      "id": "segitiga",
+      "teks": "Ini segitiga siku-siku dengan sudut theta. Sisi depannya satu koma delapan sentimeter, dan sisi sampingnya dua koma empat sentimeter."
+    },
+    {
+      "id": "bagi1",
+      "teks": "Bagi sisi depan dengan sisi samping. Satu koma delapan dibagi dua koma empat. Hasilnya nol koma tujuh lima."
+    },
+    {
+      "id": "besarkan",
+      "teks": "Sekarang segitiganya kita besarkan. Sudut theta tidak kita sentuh sama sekali, hanya ukurannya yang berubah."
+    },
+    {
+      "id": "ukur2",
+      "teks": "Sisi depannya sekarang tiga sentimeter, dan sisi sampingnya empat sentimeter. Keduanya jelas berbeda dari tadi."
+    },
+    {
+      "id": "bagi2",
+      "teks": "Tapi coba bagi lagi. Tiga dibagi empat. Hasilnya nol koma tujuh lima. Sama persis seperti sebelumnya."
+    },
+    {
+      "id": "kenapa",
+      "teks": "Sebabnya sederhana. Waktu segitiganya diperbesar, sisi depan dan sisi samping dikalikan angka yang sama."
+    },
+    {
+      "id": "hapus",
+      "teks": "Dan pada pembagian, angka pengali yang sama di atas dan di bawah saling menghapus. Yang tersisa persis hasil bagi semula."
+    },
+    {
+      "id": "geser",
+      "teks": "Sekarang perhatikan kalau yang diubah sudutnya. Begitu theta bergerak, barulah angkanya ikut berubah."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi perbandingan itu hanya bergantung pada sudut, bukan pada ukuran. Itulah sebabnya nilainya bisa dihitung sekali lalu dibukukan, dan kalkulator sanggup menjawab tanpa pernah tahu segitiga mana yang Anda maksud."
+    }
+  ]
+}
