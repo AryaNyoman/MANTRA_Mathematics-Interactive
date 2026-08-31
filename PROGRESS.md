@@ -6,8 +6,8 @@
 ## Ringkas
 | | |
 |---|---|
-| Tahap sekarang | **Trigonometri 10 dari 10 tahap lengkap** teks + widget. **Video pertama JADI.** |
-| Yang tersisa | **Render final 1080p60** untuk tahap 2, 4, 5, 6, 7, 9 — ditahan sampai suara akhir ditetapkan |
+| Tahap sekarang | **Trigonometri SELESAI** — 10 tahap, 7 video 1080p60 bersubtitle, semuanya tayang |
+| Yang tersisa | **Ketujuh video JADI dan tayang.** Berikutnya: lima topik lain (Limit, Grafik Fungsi, Vektor, Ruang 3D, Statistika) |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md` |
 | Tenggat | 12 September 2026 |
 | Menjalankan situs | `cd web && npm run dev` → biasanya `http://localhost:3001` |
@@ -31,14 +31,14 @@
 | # | Tahap | Widget | Teks | Video |
 |---|---|---|---|---|
 | 1 | Kenapa kita butuh ini | ✅ `Bayangan` | ✅ | ⬜ |
-| 2 | Perbandingan yang tidak berubah | ✅ `SegitigaSebangun` | ✅ | 🟡 adegan BARU lolos gerbang; versi lama 17 dtk ditinggalkan |
+| 2 | Perbandingan yang tidak berubah | ✅ `SegitigaSebangun` | ✅ | ✅ **JADI** 1080p60 |
 | 3 | Menamai sisi | ✅ `PenamaanSisi` | ✅ | — tidak perlu |
-| 4 | Lahirnya sin, cos, tan | ✅ `PabrikRasio` | ✅ | 🟡 adegan siap, lolos gerbang; final ditahan |
-| 5 | Lingkaran satuan | ✅ `LingkaranSatuan` | ✅ | 🟡 adegan siap, lolos gerbang; final ditahan |
-| 6 | Enam rasio sebagai panjang nyata | ✅ `EnamRasio` | ✅ | 🟡 adegan siap, lolos gerbang; final ditahan |
-| 7 | Sudut istimewa | ✅ `PerjalananSudut` | ✅ | 🟡 adegan siap, lolos gerbang; final ditahan |
+| 4 | Lahirnya sin, cos, tan | ✅ `PabrikRasio` | ✅ | ✅ **JADI** 1080p60 |
+| 5 | Lingkaran satuan | ✅ `LingkaranSatuan` | ✅ | ✅ **JADI** 1080p60 |
+| 6 | Enam rasio sebagai panjang nyata | ✅ `EnamRasio` | ✅ | ✅ **JADI** 1080p60 |
+| 7 | Sudut istimewa | ✅ `PerjalananSudut` | ✅ | ✅ **JADI** 1080p60 |
 | 8 | Terbentuknya grafik sinus | ✅ `LingkaranKeGrafik` | ✅ | ✅ **JADI** 1080p60, 96 dtk |
-| 9 | Sin, cos, tan berdampingan | ✅ `TigaGrafik` | ✅ | 🟡 adegan siap, lolos gerbang; final ditahan |
+| 9 | Sin, cos, tan berdampingan | ✅ `TigaGrafik` | ✅ | ✅ **JADI** 1080p60 |
 | 10 | Dipakai di dunia nyata | ✅ `DuniaNyata` | ✅ | — tidak perlu |
 
 Plus: **Latihan 4 soal** + **Kuis 8 soal berskor** — keduanya sudah jalan dan teruji.

@@ -174,6 +174,7 @@ export const TAHAP: Tahap[] = [
       sumber: 'Buku Panduan Guru Matematika Kelas X, Bab 4 — “membuktikan sinus dan cosinus suatu sudut berupa rasio, bukan nilai tetap”',
     },
     widget: 'segitiga-sebangun',
+    video: { berkas: 'tahap2-perbandingan-tetap.webm', poster: 'tahap2-perbandingan-tetap.jpg' },
     siap: true,
   },
 
@@ -296,6 +297,7 @@ export const TAHAP: Tahap[] = [
       isi: 'Ketiganya bukan rumus terpisah, melainkan tiga label untuk tiga pembagian dari kumpulan yang sama. Begitu panjang ketiga sisinya diketahui, keenam nilai itu bisa dihitung tanpa menghafal apa pun. Yang perlu diingat cuma sisi mana dibagi sisi mana.',
     },
     widget: 'pabrik-rasio',
+    video: { berkas: 'tahap4-lahirnya-rasio.webm', poster: 'tahap4-lahirnya-rasio.jpg' },
     siap: true,
   },
   {
@@ -349,6 +351,7 @@ export const TAHAP: Tahap[] = [
       isi: 'Banyak siswa memperlakukan lingkaran satuan sebagai bab baru yang harus dihafal sendiri. Padahal ia segitiga yang sama, hanya dengan sisi miring dipaksa bernilai 1 lalu diletakkan di pusat lingkaran. Tidak ada konsep baru — hanya penyederhanaan.',
     },
     widget: 'lingkaran-satuan',
+    video: { berkas: 'tahap5-lingkaran-satuan.webm', poster: 'tahap5-lingkaran-satuan.jpg' },
     siap: true,
   },
   {
@@ -409,6 +412,7 @@ export const TAHAP: Tahap[] = [
       isi: 'Namanya mirip, jadi sering tertukar. Yang benar: sec adalah kebalikan cos, dan csc kebalikan sin. Cara mengingatnya lewat huruf ketiga — se-C-an berpasangan dengan C-osinus, ko-S-ekan dengan S-inus. Persis terbalik dari dugaan kebanyakan orang.',
     },
     widget: 'enam-rasio',
+    video: { berkas: 'tahap6-enam-rasio.webm', poster: 'tahap6-enam-rasio.jpg' },
     siap: true,
   },
   {
@@ -473,6 +477,7 @@ export const TAHAP: Tahap[] = [
       isi: 'Banyak siswa menghafal tabelnya lalu lupa separuh saat ujian. Padahal cukup ingat dua bangun: persegi dibelah diagonal, dan segitiga sama sisi dibelah dua. Dari dua gambar itu seluruh tabel bisa disusun ulang dalam satu menit — dan kalau lupa, tinggal digambar lagi.',
     },
     widget: 'perjalanan-sudut',
+    video: { berkas: 'tahap7-sudut-istimewa.webm', poster: 'tahap7-sudut-istimewa.jpg' },
     siap: true,
   },
   {
@@ -591,6 +596,7 @@ export const TAHAP: Tahap[] = [
       isi: 'Tak hingga bukan sebuah angka. Yang benar: pada 90° nilai tan tidak terdefinisi — tidak ada bilangan yang bisa ditulis di sana. Kurvanya mendekati garis putus-putus itu sedekat apa pun, tapi tidak pernah menyentuhnya.',
     },
     widget: 'tiga-grafik',
+    video: { berkas: 'tahap9-tiga-grafik.webm', poster: 'tahap9-tiga-grafik.jpg' },
     siap: true,
   },
   {
