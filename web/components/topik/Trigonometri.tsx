@@ -70,7 +70,11 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
           {tab === 'alat' && (
             <>
               <div className="layar">
-                <SegitigaSebangun skala={skala} derajat={derajat} />
+                <SegitigaSebangun
+                  skala={skala}
+                  derajat={derajat}
+                  onUbah={(sk, dj) => { setSkala(sk); setDerajat(dj) }}
+                />
               </div>
               <div className="kendali">
                 <div>
@@ -97,7 +101,8 @@ export default function Trigonometri({ topik }: { topik: Topik }) {
                 </div>
                 <div className="skala-info">
                   <span className="titik" />
-                  <span>skala tampilan: 1 cm = {angka(g.ppc, 1)} px</span>
+                  <span>tarik titik puncaknya, atau geser kendali di atas ·
+                    skala tampilan 1 cm = {angka(g.ppc, 1)} px</span>
                 </div>
               </div>
             </>

@@ -1,0 +1,48 @@
+{
+  "adegan": "UkuranBedaRasioSama",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Satu sumber kebenaran untuk naskah narasi. Dipakai oleh manim/buat_narasi.py (membuat audio + mengukur durasinya) dan oleh adegan Manim (menyetel lama tiap tahap). Jangan menulis ulang naskah ini di tempat lain.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Ini segitiga siku-siku. Ada satu sudut yang kita tandai dengan huruf theta, dan sudut itu yang akan jadi bintang utamanya hari ini."
+    },
+    {
+      "id": "namai",
+      "teks": "Tiga sisinya punya nama, dan namanya tergantung dari mana kita melihat. Yang persis di seberang theta kita sebut sisi depan. Yang menempel di sebelahnya, sisi samping. Dan yang paling panjang, yang menghadap sudut siku-siku, itu sisi miring."
+    },
+    {
+      "id": "ukur",
+      "teks": "Sekarang kita ukur. Sisi depannya satu koma delapan sentimeter. Sisi sampingnya dua koma empat sentimeter."
+    },
+    {
+      "id": "hitung1",
+      "teks": "Bagi sisi depan dengan sisi samping. Satu koma delapan dibagi dua koma empat. Hasilnya nol koma tujuh lima. Angka inilah yang kita sebut tangen theta."
+    },
+    {
+      "id": "besarkan",
+      "teks": "Nah, sekarang perhatikan baik-baik. Segitiganya kita besarkan, tapi sudut theta tidak kita sentuh sama sekali. Lihat angkanya berubah. Sisi depan jadi tiga sentimeter, sisi samping jadi empat sentimeter."
+    },
+    {
+      "id": "hitung2",
+      "teks": "Kedua sisinya berubah. Tapi coba bagi lagi. Tiga dibagi empat. Hasilnya nol koma tujuh lima. Sama persis seperti tadi."
+    },
+    {
+      "id": "salahpaham",
+      "teks": "Di sinilah banyak orang tersesat. Waktu menekan tombol tangen di kalkulator, kita sering mengira jawabannya itu angka mati yang sudah dihafal mesin sejak pabrik."
+    },
+    {
+      "id": "kenapa",
+      "teks": "Padahal bukan. Yang dihitung itu perbandingan. Sisi depan dibagi sisi samping. Dan perbandingan tidak peduli pada ukuran."
+    },
+    {
+      "id": "skala",
+      "teks": "Mau segitiganya sekecil perangko atau sebesar lapangan bola, selama sudutnya tetap theta, hasil baginya tidak bergeser sedikit pun."
+    },
+    {
+      "id": "tutup",
+      "teks": "Itulah sebabnya kalkulator sanggup menjawab, walaupun ia tidak pernah tahu segitiga mana yang sedang kamu maksud."
+    }
+  ]
+}

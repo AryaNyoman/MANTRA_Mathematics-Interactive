@@ -1,20 +1,22 @@
 'use client'
 
-import { useMemo } from 'react'
+import { useCallback, useMemo, useRef } from 'react'
 import { WARNA } from '@/lib/warna'
 
 /**
- * Widget "Segitiga Sebangun" — Trigonometri Kelas 10 Bab 4.
+ * Widget "Segitiga Sebangun" — Trigonometri Kelas 10.
  *
- * Melawan miskonsepsi resmi kurikulum: nilai tan/sin/cos dikira angka mati,
- * padahal ia perbandingan yang tetap sama pada segitiga sebangun.
+ * DUA ATURAN yang lahir dari temuan ARYA:
  *
- * ATURAN WAJIB (bug temuan ARYA 31 Agu 2026): widget TIDAK BOLEH memotong
- * gambarnya sendiri. Saat sudut membesar, sisi depan tumbuh sangat cepat
- * (di 80°, sisi depan jadi 5,7x sisi samping). Bingkai karena itu dihitung
- * dari segitiga TERBESAR pada sudut tersebut, lalu digambar sesuai skala —
- * jadi tidak pernah terpotong, tapi slider ukuran tetap terasa efeknya.
- * Perubahan bingkai itu juga DIBERITAHUKAN ke pengguna lewat `skalaTampilan`.
+ * 1. Widget tidak boleh memotong gambarnya sendiri. Saat sudut membesar, sisi
+ *    depan tumbuh sangat cepat (di 80°, 5,7x sisi samping). Bingkai karena itu
+ *    dihitung dari segitiga TERBESAR pada sudut tersebut, lalu digambar sesuai
+ *    skala — tidak pernah terpotong, tapi slider ukuran tetap terasa efeknya.
+ *    Perubahan bingkai DIBERITAHUKAN lewat `ppc` (skala tampilan).
+ *
+ * 2. Segitiganya harus bisa DITARIK LANGSUNG, bukan cuma lewat slider.
+ *    Titik puncak diberi pegangan: geser ke atas-bawah mengubah sudut,
+ *    ke kiri-kanan mengubah ukuran.
  */
 
 const VW = 460
@@ -23,6 +25,8 @@ const PAD = 40
 const LEBAR = VW - PAD * 2
 const TINGGI = VH - PAD * 2
 const SAMPING_MAKS = 5 // cm saat slider 100%
+
+export const BATAS = { derajatMin: 10, derajatMaks: 80, skalaMin: 35, skalaMaks: 100 }
 
 export type Geometri = {
   sampingCm: number
@@ -53,16 +57,23 @@ export function hitungGeometri(skalaPersen: number, derajat: number): Geometri {
 }
 
 /** Angka gaya Indonesia: pemisah desimal koma. */
-export const angka = (n: number, desimal = 2) =>
-  n.toFixed(desimal).replace('.', ',')
+export const angka = (n: number, desimal = 2) => n.toFixed(desimal).replace('.', ',')
+
+const jepit = (n: number, min: number, maks: number) => Math.min(maks, Math.max(min, n))
 
 export default function SegitigaSebangun({
   skala,
   derajat,
+  onUbah,
 }: {
   skala: number
   derajat: number
+  /** dipanggil saat pengguna menarik segitiganya langsung */
+  onUbah?: (skalaBaru: number, derajatBaru: number) => void
 }) {
+  const svgRef = useRef<SVGSVGElement>(null)
+  const menarik = useRef(false)
+
   const { sampingCm, depanCm, ppc } = hitungGeometri(skala, derajat)
   const rad = (derajat * Math.PI) / 180
 
@@ -77,31 +88,79 @@ export default function SegitigaSebangun({
   const bx = ox + sampingCm * ppc
   const cy = oy - depanCm * ppc
 
+  // ---- menarik langsung: ubah titik puncak jadi sudut + ukuran ----
+  const keSvg = useCallback((e: React.PointerEvent): { x: number; y: number } | null => {
+    const svg = svgRef.current
+    if (!svg) return null
+    const ctm = svg.getScreenCTM()
+    if (!ctm) return null
+    const p = svg.createSVGPoint()
+    p.x = e.clientX
+    p.y = e.clientY
+    const t = p.matrixTransform(ctm.inverse())
+    return { x: t.x, y: t.y }
+  }, [])
+
+  const tarik = useCallback(
+    (e: React.PointerEvent) => {
+      if (!menarik.current || !onUbah) return
+      const t = keSvg(e)
+      if (!t) return
+      const lebarPx = Math.max(t.x - ox, 6)     // sisi samping, dalam piksel
+      const tinggiPx = Math.max(oy - t.y, 4)    // sisi depan, dalam piksel
+      const derajatBaru = jepit(
+        (Math.atan2(tinggiPx, lebarPx) * 180) / Math.PI,
+        BATAS.derajatMin, BATAS.derajatMaks,
+      )
+      const skalaBaru = jepit(
+        (lebarPx / ppc / SAMPING_MAKS) * 100,
+        BATAS.skalaMin, BATAS.skalaMaks,
+      )
+      onUbah(Math.round(skalaBaru), Math.round(derajatBaru))
+    },
+    [keSvg, onUbah, ox, oy, ppc],
+  )
+
+  const mulai = (e: React.PointerEvent) => {
+    if (!onUbah) return
+    menarik.current = true
+    ;(e.target as Element).setPointerCapture?.(e.pointerId)
+    tarik(e)
+  }
+  const selesai = (e: React.PointerEvent) => {
+    menarik.current = false
+    ;(e.target as Element).releasePointerCapture?.(e.pointerId)
+  }
+
   // petak latar ikut merapat saat bingkai menjauh — tanda visual bahwa
   // tampilan sedang "mundur", bukan segitiganya yang mengecil
   const petak = useMemo(() => {
     const garis: { key: string; x1: number; y1: number; x2: number; y2: number }[] = []
-    for (let x = ox, i = 0; x <= VW - 5; x += ppc, i++)
+    const langkah = Math.max(ppc, 6) // jangan menggambar ribuan garis saat ppc kecil
+    for (let x = ox, i = 0; x <= VW - 5; x += langkah, i++)
       garis.push({ key: `v+${i}`, x1: x, y1: 5, x2: x, y2: VH - 5 })
-    for (let x = ox - ppc, i = 0; x >= 5; x -= ppc, i++)
+    for (let x = ox - langkah, i = 0; x >= 5; x -= langkah, i++)
       garis.push({ key: `v-${i}`, x1: x, y1: 5, x2: x, y2: VH - 5 })
-    for (let y = oy, i = 0; y >= 5; y -= ppc, i++)
+    for (let y = oy, i = 0; y >= 5; y -= langkah, i++)
       garis.push({ key: `h-${i}`, x1: 5, y1: y, x2: VW - 5, y2: y })
-    for (let y = oy + ppc, i = 0; y <= VH - 5; y += ppc, i++)
+    for (let y = oy + langkah, i = 0; y <= VH - 5; y += langkah, i++)
       garis.push({ key: `h+${i}`, x1: 5, y1: y, x2: VW - 5, y2: y })
     return garis
   }, [ppc, ox, oy])
 
-  // tanda siku-siku DI DALAM segitiga (kiri-atas dari titik siku).
-  // Versi Manim pertama menaruhnya di luar — salah secara geometri.
+  // tanda siku-siku DI DALAM segitiga (kiri-atas dari titik siku)
   const t = Math.max(5, Math.min(13, (bx - ox) * 0.3, (oy - cy) * 0.3))
   const r = Math.max(16, Math.min(46, (bx - ox) * 0.42))
 
   return (
     <svg
+      ref={svgRef}
       viewBox={`0 0 ${VW} ${VH}`}
       preserveAspectRatio="xMidYMid meet"
-      style={{ width: '100%', height: '100%', display: 'block' }}
+      onPointerMove={tarik}
+      onPointerUp={selesai}
+      onPointerCancel={selesai}
+      style={{ touchAction: 'none' }}
       role="img"
       aria-label={`Segitiga siku-siku dengan sudut ${derajat} derajat, sisi samping ${angka(
         sampingCm,
@@ -132,6 +191,15 @@ export default function SegitigaSebangun({
       >
         θ
       </text>
+
+      {/* pegangan di titik puncak — inilah yang ditarik langsung */}
+      {onUbah && (
+        <g onPointerDown={mulai} style={{ cursor: 'grab' }}>
+          <circle cx={bx} cy={cy} r={16} fill="transparent" />
+          <circle cx={bx} cy={cy} r={7} fill="var(--kartu)" stroke={WARNA.miring} strokeWidth={2.5} />
+          <circle cx={bx} cy={cy} r={2.5} fill={WARNA.miring} />
+        </g>
+      )}
     </svg>
   )
 }

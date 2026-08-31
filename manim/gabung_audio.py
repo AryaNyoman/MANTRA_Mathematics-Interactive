@@ -1,0 +1,102 @@
+"""Menggabungkan narasi ke video Manim, lalu memeriksa hasilnya.
+
+    python manim/gabung_audio.py trigonometri UkuranBedaRasioSama
+
+Yang dilakukan:
+  1. Mencari video hasil render dan berkas `narasi-penuh.mp3`
+  2. Memeriksa selisih durasi keduanya — kalau melenceng > 1,5 detik, BERHENTI
+     dan memberi tahu, bukan diam-diam menghasilkan video yang tidak sinkron
+  3. Menggabungkan jadi satu berkas WebM (video disalin, audio diubah ke Opus)
+  4. Menyalin hasilnya ke `web/public/anim/` supaya langsung dipakai situs
+  5. Melaporkan ukuran berkas — kalau > 4 MB, memperingatkan
+
+Setelah ini WAJIB jalankan `manim/cek_video.py` dan LIHAT lembar kontaknya.
+Berhasil digabung bukan berarti videonya benar.
+"""
+
+from __future__ import annotations
+
+import argparse
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+AKAR = Path(__file__).resolve().parent.parent
+BATAS_SELISIH = 1.5   # detik
+BATAS_UKURAN_MB = 4.0
+
+
+def durasi(berkas: Path) -> float:
+    h = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=noprint_wrappers=1:nokey=1", str(berkas)],
+        capture_output=True, text=True,
+    )
+    if h.returncode != 0:
+        raise SystemExit(f"ffprobe gagal: {berkas}")
+    return float(h.stdout.strip())
+
+
+def cari_video(adegan: str) -> Path:
+    calon = sorted(
+        (AKAR / "media" / "videos").rglob(f"{adegan}.webm"),
+        key=lambda p: p.stat().st_mtime, reverse=True,
+    )
+    calon = [p for p in calon if "partial_movie_files" not in p.parts]
+    if not calon:
+        raise SystemExit(f"video adegan '{adegan}' tidak ditemukan di media/videos/")
+    return calon[0]
+
+
+def main() -> None:
+    p = argparse.ArgumentParser(description="Penggabung narasi + video MATRA")
+    p.add_argument("topik")
+    p.add_argument("adegan")
+    p.add_argument("--keluar", default=None, help="nama berkas hasil (tanpa folder)")
+    a = p.parse_args()
+
+    video = cari_video(a.adegan)
+    suara = AKAR / "audio" / a.topik / "narasi-penuh.mp3"
+    if not suara.exists():
+        raise SystemExit(f"narasi belum dibuat: {suara}\nJalankan dulu: python manim/buat_narasi.py {a.topik}")
+
+    dv, ds = durasi(video), durasi(suara)
+    print(f"video  : {video.relative_to(AKAR)}  {dv:.2f} detik")
+    print(f"narasi : {suara.relative_to(AKAR)}  {ds:.2f} detik")
+    selisih = abs(dv - ds)
+    print(f"selisih: {selisih:.2f} detik")
+    if selisih > BATAS_SELISIH:
+        raise SystemExit(
+            f"\nBERHENTI: selisih {selisih:.2f} detik melebihi batas {BATAS_SELISIH} detik.\n"
+            "Gambar dan suara akan berjalan sendiri-sendiri. Perbaiki dulu:\n"
+            "  - naskah berubah?  -> python manim/buat_narasi.py <topik>, lalu render ulang\n"
+            "  - adegan berubah?  -> pastikan tiap tahap memakai DURASI[...] dari durasi.json"
+        )
+
+    nama = a.keluar or f"{a.topik}.webm"
+    hasil = AKAR / "media" / nama
+    subprocess.run(
+        ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
+         "-c:v", "copy", "-c:a", "libopus", "-b:a", "72k",
+         "-shortest", str(hasil)],
+        check=True,
+    )
+
+    mb = hasil.stat().st_size / 1024 / 1024
+    print(f"\nhasil  : {hasil.relative_to(AKAR)}  {mb:.2f} MB  {durasi(hasil):.2f} detik")
+    if mb > BATAS_UKURAN_MB:
+        print(f"PERINGATAN: > {BATAS_UKURAN_MB} MB. Pertimbangkan turunkan bitrate atau resolusi.")
+
+    tujuan = AKAR / "web" / "public" / "anim" / nama
+    tujuan.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(hasil, tujuan)
+    print(f"disalin: {tujuan.relative_to(AKAR)}")
+
+    print("\n>>> WAJIB berikutnya:")
+    print(f">>>   python manim/cek_video.py {hasil.relative_to(AKAR)} --per-detik 0.25")
+    print(">>> lalu BUKA lembar kontaknya dan nilai tiap frame.")
+
+
+if __name__ == "__main__":
+    sys.exit(main())
