@@ -46,9 +46,11 @@ DURASI: dict[str, float] = json.loads(
 
 # --- ZONA TETAP (bingkai 14,22 x 8; batas aman x +-6,91  y +-3,80) ---
 PUSAT = np.array([-3.70, -0.35, 0.0])
-JARI = 2.35
+JARI = 2.15
 X_KANAN = 3.35
-SUDUT = 38.0        # sudut peraga, cukup besar supaya ketiga daerah terlihat
+SUDUT = 55.0        # sudut peraga. Pada 38 derajat ketiga luasnya nyaris
+                    # sama besar dan yang tergambar cuma satu gumpalan;
+                    # pada 55 derajat perbandingannya kira-kira 1 : 2 : 3.
 
 
 class LimitSinus(Scene):
@@ -170,13 +172,17 @@ class LimitSinus(Scene):
 
     def b06_tiga(self):
         t = self.t
-        self.seg_dalam = Polygon(PUSAT, self.Q, self.P, color=t.aksen,
-                                 fill_opacity=0.22, stroke_width=2.5)
+        # z_index dipaksa: yang paling KECIL harus di lapisan paling atas.
+        # Tanpa itu segitiga luar menimbun segitiga dalam, dan yang tergambar
+        # cuma satu gumpalan warna, padahal narasinya bilang tiga daerah yang
+        # saling bersarang. Cacat itu terlihat di render uji pertama.
+        self.seg_luar = Polygon(PUSAT, self.K, self.S, color=t.aksen2,
+                                fill_opacity=0.14, stroke_width=2.5).set_z_index(1)
         self.juring = Sector(radius=JARI, start_angle=0, angle=np.radians(SUDUT),
                              arc_center=PUSAT, color=t.sorot,
-                             fill_opacity=0.20, stroke_width=0)
-        self.seg_luar = Polygon(PUSAT, self.K, self.S, color=t.aksen2,
-                                fill_opacity=0.18, stroke_width=2.5)
+                             fill_opacity=0.26, stroke_width=2.5).set_z_index(2)
+        self.seg_dalam = Polygon(PUSAT, self.Q, self.P, color=t.aksen,
+                                 fill_opacity=0.42, stroke_width=2.5).set_z_index(3)
         self.daerah = VGroup(self.seg_luar, self.juring, self.seg_dalam)
         with sinema.babak(self, "tiga", DURASI) as b:
             b.main(FadeOut(self.tabel), run_time=0.8)
