@@ -26,6 +26,7 @@ export default function Panah({
   pegangan = false,
   sisiLabel = 1,
   bagian = 0.5,
+  jarakLabel = 13,
   opasitas = 1,
 }: {
   dari: Vek
@@ -46,6 +47,12 @@ export default function Panah({
    * misalnya label vektor utama dengan label komponennya.
    */
   bagian?: number
+  /**
+   * Jarak label dari batang panah, dalam satuan viewBox. Diperbesar untuk panah
+   * yang berimpit dengan sumbu, sebab jalur di sebelah sumbu sudah dipakai
+   * angka sumbu dan labelnya akan bertindih di situ.
+   */
+  jarakLabel?: number
   opasitas?: number
 }) {
   const p = keLayar(jendela, KOTAK)
@@ -79,7 +86,7 @@ export default function Panah({
     `${kx - (nx * lebarKepala) / 2},${ky - (ny * lebarKepala) / 2}`,
   ].join(' ')
 
-  const geser = 13 * sisiLabel
+  const geser = jarakLabel * sisiLabel
   const labelX = x1 + (kx - x1) * bagian + nx * geser
   const labelY = y1 + (ky - y1) * bagian + ny * geser + 3.6
 

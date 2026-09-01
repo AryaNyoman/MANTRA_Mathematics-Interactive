@@ -16,7 +16,7 @@
  */
 import {
   angka, jendelaSeimbang, kali, keLayar, keMatematika, kurang, labelSkala,
-  panjang, panjangProyeksi, petak, satuan, sudutAntara, sudutDerajat, tahan,
+  mataAngin, panjang, panjangProyeksi, petak, satuan, sudutAntara, sudutDerajat, tahan,
   tambah, titik, vektorProyeksi, type Vek,
 } from '../web/components/widget/vektor/geometri.ts'
 
@@ -70,6 +70,16 @@ cekDekat('sudut vektor nol dijawab 0', sudutDerajat({ x: 0, y: 0 }), 0)
 cekDekat('sudut antara tegak lurus', sudutAntara({ x: 1, y: 0 }, { x: 0, y: 1 }), 90)
 cekDekat('sudut antara berlawanan', sudutAntara({ x: 1, y: 0 }, { x: -3, y: 0 }), 180)
 cekDekat('sudut antara searah', sudutAntara({ x: 2, y: 2 }, { x: 5, y: 5 }), 0)
+
+cek('mata angin timur', mataAngin({ x: 3, y: 0 }), 'timur')
+cek('mata angin utara', mataAngin({ x: 0, y: 3 }), 'utara')
+cek('mata angin timur laut', mataAngin({ x: 2, y: 2 }), 'timur laut')
+cek('mata angin barat daya', mataAngin({ x: -2, y: -2 }), 'barat daya')
+cek('mata angin tenggara', mataAngin({ x: 2, y: -2 }), 'tenggara')
+// 359 derajat lebih dekat ke timur daripada ke tenggara, dan pembulatannya
+// harus berputar kembali ke 0, bukan meluber jadi penjuru kesembilan.
+cek('mata angin hampir penuh kembali ke timur', mataAngin({ x: 100, y: -1 }), 'timur')
+cek('vektor nol tidak punya arah', mataAngin({ x: 0, y: 0 }), 'tidak punya arah')
 
 /* ---------------- proyeksi ---------------- */
 

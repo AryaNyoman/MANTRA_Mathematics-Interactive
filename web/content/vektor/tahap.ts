@@ -64,9 +64,72 @@ export const TAHAP: TahapVektor[] = [
     judul: 'Angka saja tidak cukup',
     labelPendek: 'Kenapa',
     pertanyaan: 'Kenapa 3 tambah 4 tidak selalu 7?',
-    penjelasan: BELUM,
+    penjelasan: [
+      {
+        jenis: 'paragraf',
+        teks: 'Sebuah perahu menyeberangi sungai. Pendayungnya menghadap lurus ke tepi seberang dan mendayung sekuat tenaga, tidak sekali pun membelokkan haluan. Namun begitu mendarat, ia tidak berada di seberang tempat ia berangkat. Ia berada jauh di hilir.',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Tidak ada yang salah dengan dayungannya. Yang terjadi adalah sungainya ikut bergerak, dan gerak itu punya arah sendiri yang tidak sama dengan arah dayung.',
+      },
+      { jenis: 'sesi', judul: 'Ada besaran yang tidak selesai dijelaskan satu angka' },
+      {
+        jenis: 'paragraf',
+        teks: 'Sebagian besaran cukup dinyatakan dengan satu angka dan satuannya. Sebagian lagi tidak, dan justru menyesatkan kalau dipaksa begitu.',
+      },
+      {
+        jenis: 'poin',
+        judul: 'Bandingkan keduanya',
+        butir: [
+          'Cukup satu angka - massa 60 kg, suhu 27 derajat, waktu 2 jam. Menyebut arahnya tidak ada gunanya. Massa 60 kg ke utara adalah kalimat yang tidak berarti apa-apa.',
+          'Wajib disertai arah - perpindahan 5 km, kecepatan 60 km per jam, gaya 10 newton. Tanpa arah, ketiganya belum selesai diceritakan.',
+        ],
+      },
+      {
+        jenis: 'sorot',
+        teks: 'Besaran yang butuh arah itulah yang disebut VEKTOR. Yang cukup satu angka disebut skalar.',
+      },
+      {
+        jenis: 'coba',
+        teks: 'Alat di sebelah kiri adalah perahu tadi. Kedua panahnya bisa kamu tarik.',
+        langkah: [
+          'Perbesar panah merah (arus). Titik mendaratnya bergeser makin jauh ke hilir, padahal dayungnya tidak diubah sama sekali.',
+          'Miringkan panah biru (dayung) melawan arus. Perahunya bisa mendarat tepat di seberang, tetapi menyeberangnya jadi lebih lama.',
+          'Arahkan dayung sampai gerak tegaknya habis. Perahu berhenti menyeberang dan hanya terbawa arus.',
+        ],
+      },
+      { jenis: 'sesi', judul: 'Karena itu cara menjumlahkannya ikut berubah' },
+      {
+        jenis: 'paragraf',
+        teks: 'Kalau arah ikut dicatat, penjumlahan tidak bisa lagi dikerjakan dengan menumpuk angkanya. Ambil dua perpindahan, yang satu 3 km dan yang lain 4 km. Hasilnya bergantung pada arah keduanya.',
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Tiga km dan empat km, tiga kemungkinan',
+        baris: [
+          'Searah: 3 tambah 4 memberi 7 km',
+          'Berlawanan arah: sisanya tinggal 1 km',
+          'Saling tegak lurus: hasilnya 5 km, dari akar 3 kuadrat ditambah 4 kuadrat',
+        ],
+        simpul: 'Angkanya sama persis, jawabannya tiga-tiganya berbeda. Yang membedakan hanya arah.',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Perahu tadi persis kasus ketiga. Dayung 3 km ke seberang dan arus 2 km ke hilir dalam satu jam menghasilkan gerak sebenarnya sepanjang akar dari 3 kuadrat ditambah 2 kuadrat, yaitu sekitar 3,61 km, bukan 5 km.',
+      },
+    ],
+    seringKeliru: {
+      judul: 'Menjumlahkan angkanya saja',
+      isi: 'Melihat dayung 3 dan arus 2, banyak yang langsung menulis 5. Itu benar HANYA kalau keduanya searah. Pada perahu tadi keduanya saling tegak lurus, sehingga jawabannya sekitar 3,61. Aturannya sederhana: begitu arah ikut dihitung, angka tidak boleh lagi ditumpuk begitu saja.',
+    },
+    intisari: [
+      'Besaran yang butuh arah disebut vektor. Yang cukup satu angka disebut skalar.',
+      'Perpindahan, kecepatan, dan gaya adalah vektor. Massa, suhu, dan waktu bukan.',
+      'Menjumlahkan vektor bergantung pada arah, jadi 3 tambah 4 bisa menjadi 7, bisa 1, bisa 5.',
+    ],
     widget: 'perahu-sungai',
-    siap: false,
+    siap: true,
   },
   /* ================================================================= */
   {
@@ -75,9 +138,71 @@ export const TAHAP: TahapVektor[] = [
     judul: 'Panah yang boleh dipindah',
     labelPendek: 'Notasi',
     pertanyaan: 'Dua panah di tempat berbeda, apakah vektor yang sama?',
-    penjelasan: BELUM,
+    penjelasan: [
+      {
+        jenis: 'paragraf',
+        teks: 'Vektor digambar sebagai ruas garis berarah: sepotong garis lurus yang salah satu ujungnya diberi mata panah. Pangkalnya tempat berangkat, ujungnya tempat tiba.',
+      },
+      {
+        jenis: 'poin',
+        judul: 'Yang BUKAN vektor, dan alasannya',
+        butir: [
+          'Garis melengkung - vektor harus lurus, sebab satu vektor menyatakan satu arah saja.',
+          'Garis berkepala panah di kedua ujungnya - arahnya jadi dua, dan itu sama saja dengan tidak menyebut arah.',
+          'Garis patah yang berbelok - itu dua vektor yang disambung, bukan satu.',
+        ],
+      },
+      { jenis: 'sesi', judul: 'Tiga cara menuliskannya' },
+      {
+        jenis: 'poin',
+        butir: [
+          'Dua huruf berpanah - AB dengan panah kecil di atasnya, dari titik A ke titik B. Urutannya penting: AB dan BA berlawanan arah.',
+          'Satu huruf tebal - a, b, u, v. Dipakai kalau titik pangkalnya tidak perlu disebut.',
+          'Satu huruf bergaris bawah - dipakai saat menulis tangan, karena huruf tebal sulit dibedakan di buku tulis.',
+        ],
+      },
+      { jenis: 'sesi', judul: 'Yang menentukan hanya panjang dan arah' },
+      {
+        jenis: 'paragraf',
+        teks: 'Inilah sifat vektor yang paling sering mengejutkan: letaknya tidak ikut menentukan. Dua panah yang panjangnya sama dan arahnya sama adalah vektor yang sama, walaupun digambar berjauhan di kertas. Vektor semacam itu disebut EKUIVALEN.',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Masuk akal kalau dipikir dari maknanya. Hujan yang jatuh di halaman depan dan di halaman belakang punya kecepatan jatuh yang sama, walaupun tempatnya berbeda. Yang dicatat vektor adalah seberapa dan ke mana, bukan di mana.',
+      },
+      {
+        jenis: 'coba',
+        teks: 'Alat di sebelah kiri punya panah acuan yang diam dan satu panah yang bisa kamu pindahkan.',
+        langkah: [
+          'Tarik pangkal dan ujungnya bergantian sampai bentuknya sama dengan acuan. Penilaiannya berubah menjadi vektor yang SAMA.',
+          'Sekarang geser keduanya bersama-sama ke pojok lain, jaga bentuknya. Penilaiannya tetap SAMA, walaupun letaknya sudah jauh.',
+          'Balikkan arahnya, jaga panjangnya. Sekarang ia menjadi vektor LAWAN.',
+        ],
+      },
+      { jenis: 'sesi', judul: 'Beberapa jenis yang perlu dikenali' },
+      {
+        jenis: 'poin',
+        butir: [
+          'Vektor ekuivalen - panjang sama, arah sama. Dianggap vektor yang sama.',
+          'Vektor lawan - panjang sama, arah berkebalikan. Lawan dari AB adalah BA, ditulis juga negatif AB.',
+          'Vektor berkebalikan - arahnya sama tetapi panjangnya kebalikannya. Berguna nanti saat membicarakan vektor satuan.',
+          'Vektor nol - pangkal dan ujungnya berimpit. Panjangnya nol, dan ia satu-satunya vektor yang tidak punya arah.',
+        ],
+      },
+    ],
+    seringKeliru: {
+      judul: 'Dua hal yang sering tertukar di sini',
+      isi: 'Pertama, mengira dua panah berbeda hanya karena letaknya berbeda. Yang menentukan cuma panjang dan arah, jadi panah yang digeser ke mana pun tetap vektor yang sama. Kedua, mengira semua panah yang berlawanan arah adalah vektor lawan. Berlawanan arah saja belum cukup, panjangnya harus sama persis juga. Panah sepanjang 2 ke kiri bukan lawan dari panah sepanjang 5 ke kanan.',
+      sumber: 'Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, Bab 3 bagian A, halaman 96 sampai 98.',
+    },
+    intisari: [
+      'Vektor adalah ruas garis berarah: lurus, dan berkepala panah di satu ujung saja.',
+      'Ditulis sebagai dua huruf berpanah, satu huruf tebal, atau satu huruf bergaris bawah.',
+      'Yang menentukan hanya panjang dan arah. Letaknya tidak ikut menentukan.',
+      'Vektor lawan wajib sama panjang sekaligus berlawanan arah.',
+    ],
     widget: 'panah-berpindah',
-    siap: false,
+    siap: true,
   },
   /* ================================================================= */
   {
@@ -173,9 +298,70 @@ export const TAHAP: TahapVektor[] = [
     judul: 'Panjang panah itu Pythagoras',
     labelPendek: 'Panjang',
     pertanyaan: 'Sudah punya dua angka, lalu berapa panjang panahnya?',
-    penjelasan: BELUM,
+    penjelasan: [
+      {
+        jenis: 'paragraf',
+        teks: 'Komponen sudah memberi tahu ke kanan berapa dan ke atas berapa. Yang belum terjawab: panahnya sendiri sepanjang apa? Jawabannya sudah kamu pelajari di SMP, cuma belum dipakai di tempat ini.',
+      },
+      { jenis: 'sesi', judul: 'Segitiga siku-siku yang selalu terbentuk' },
+      {
+        jenis: 'paragraf',
+        teks: 'Perhatikan gambar di sebelah kiri. Langkah mendatar, langkah tegak, dan panah utamanya selalu membentuk segitiga siku-siku, dan panah utamanya selalu menjadi sisi miringnya. Selama itu benar, Pythagoras berlaku.',
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Panjang vektor (4 3)',
+        baris: [
+          'Kuadratkan komponen mendatar: 4 kuadrat sama dengan 16',
+          'Kuadratkan komponen tegak: 3 kuadrat sama dengan 9',
+          'Jumlahkan: 16 ditambah 9 sama dengan 25',
+          'Tarik akarnya: akar 25 sama dengan 5',
+        ],
+        simpul: 'Panjangnya 5 satuan. Ditulis dengan tanda mutlak di kedua sisinya.',
+      },
+      {
+        jenis: 'sorot',
+        teks: 'Panjang vektor tidak pernah negatif. Komponennya boleh minus, tetapi minusnya hilang begitu dikuadratkan.',
+      },
+      {
+        jenis: 'coba',
+        teks: 'Putar panah di sebelah kiri sambil memperhatikan angka di bawah.',
+        langkah: [
+          'Bawa ujungnya ke kiri bawah sehingga kedua komponennya negatif. Panjangnya tetap positif.',
+          'Cari letak yang membuat panjangnya tepat 5. Ada banyak, misalnya (4 3), (3 4), dan (-5 0).',
+          'Perhatikan busur ungunya: itulah arah, diukur dari sumbu mendatar berlawanan arah jarum jam.',
+        ],
+      },
+      { jenis: 'sesi', judul: 'Arah: derajat dan mata angin' },
+      {
+        jenis: 'paragraf',
+        teks: 'Panjang saja belum cukup. Panah sepanjang 5 ke timur dan panah sepanjang 5 ke utara sama panjangnya, tetapi jelas bukan vektor yang sama. Arahnya juga harus disebut.',
+      },
+      {
+        jenis: 'poin',
+        judul: 'Dua cara menyebut arah, keduanya dipakai',
+        butir: [
+          'Dalam derajat - diukur dari sumbu mendatar positif, berputar berlawanan arah jarum jam. Nol derajat menghadap kanan, 90 derajat menghadap atas.',
+          'Dalam mata angin - sumbu mendatar positif dianggap timur dan sumbu tegak positif dianggap utara, mengikuti kebiasaan peta. Ini yang dipakai kalau soalnya tentang kapal, pesawat, atau perjalanan.',
+        ],
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Untuk sekarang, arahnya cukup diukur dengan busur seperti yang dilakukan di kelas. Kalau kamu sudah membaca topik Trigonometri, sudut itu bisa dihitung tanpa busur. Tetapi itu bukan syarat untuk memahami materi ini.',
+      },
+    ],
+    seringKeliru: {
+      judul: 'Menjumlahkan panjang untuk mendapat panjang hasil',
+      isi: 'Diberi dua vektor sepanjang 6 dan 8, lalu ditanya panjang jumlahnya, banyak yang menjawab 14. Angka 14 hanya benar kalau keduanya searah. Kalau saling tegak lurus jawabannya 10, dan kalau berlawanan jawabannya 2. Panjang tidak bisa dijumlahkan sebelum arahnya diperhitungkan, dan cara yang aman adalah menjumlahkan komponennya dulu, baru mencari panjangnya.',
+    },
+    intisari: [
+      'Panjang vektor dicari dengan Pythagoras: akar dari jumlah kuadrat kedua komponennya.',
+      'Panjang tidak pernah negatif, sebab komponennya dikuadratkan lebih dulu.',
+      'Arah dinyatakan dalam derajat dari sumbu mendatar, atau dalam mata angin.',
+      'Dua vektor bisa sama panjang tetapi tetap berbeda, karena arahnya belum tentu sama.',
+    ],
     widget: 'panjang-dan-arah',
-    siap: false,
+    siap: true,
   },
   /* ================================================================= */
   {

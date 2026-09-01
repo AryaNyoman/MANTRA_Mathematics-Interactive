@@ -260,3 +260,21 @@ export function labelSkala(j: Jendela): string {
   const desimal = lebar < 0.01 ? 5 : lebar < 0.1 ? 4 : lebar < 1 ? 3 : 2
   return `lebar tampilan ${angka(lebar, desimal)} satuan`
 }
+
+/**
+ * Arah mata angin dari sebuah vektor, dibulatkan ke delapan penjuru.
+ *
+ * Buku Guru meminta siswa membaca arah vektor dengan busur DAN menyebutnya
+ * dalam arah mata angin, karena itulah bentuk yang mereka temui di peta dan
+ * di soal gerak. Sumbu x positif dianggap timur dan sumbu y positif utara,
+ * mengikuti kebiasaan peta.
+ */
+export function mataAngin(a: Vek): string {
+  if (a.x === 0 && a.y === 0) return 'tidak punya arah'
+  const nama = [
+    'timur', 'timur laut', 'utara', 'barat laut',
+    'barat', 'barat daya', 'selatan', 'tenggara',
+  ]
+  const bagian = Math.round(sudutDerajat(a) / 45) % 8
+  return nama[bagian]
+}

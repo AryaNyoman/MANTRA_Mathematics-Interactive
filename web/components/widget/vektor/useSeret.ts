@@ -67,3 +67,78 @@ export function useSeret(
 
   return { onPointerDown, onPointerMove, onPointerUp }
 }
+
+/**
+ * Seperti `useSeret`, tetapi untuk widget yang punya BEBERAPA titik bisa
+ * ditarik. Saat jari turun, titik yang paling dekat dengan jari itulah yang
+ * dipegang, dan ia tetap dipegang sampai jari diangkat.
+ *
+ * KENAPA TITIKNYA DIKUNCI SAAT JARI TURUN
+ * Kalau titik terdekat dihitung ulang tiap kali jari bergerak, dua panah yang
+ * berpapasan akan saling merebut jari di tengah seretan, dan yang tadinya
+ * ditarik tiba-tiba ditinggalkan. Sekali dipegang, tetap dipegang.
+ */
+export function useSeretTitik(
+  jendela: Jendela,
+  svgRef: RefObject<SVGSVGElement | null>,
+  titik: Vek[],
+  onGeser: (indeks: number, t: Vek) => void,
+) {
+  // Hanya indeks yang sedang dipegang yang disimpan di ref, dan ref itu cuma
+  // ditulis di dalam penangan peristiwa. Senarai titiknya TIDAK disalin ke ref:
+  // React 19 melarang menulis ref saat render, dan membaca `titik` langsung
+  // dari lingkup fungsi sudah benar, sebab penangan ini dibuat ulang tiap kali
+  // titiknya berubah.
+  const dipegang = useRef<number | null>(null)
+
+  const bacaTitik = useCallback(
+    (e: PointerEvent): Vek | null => {
+      const svg = svgRef.current
+      if (!svg) return null
+      const kotak = svg.getBoundingClientRect()
+      if (kotak.width === 0 || kotak.height === 0) return null
+      const vx = ((e.clientX - kotak.left) / kotak.width) * VW
+      const vy = ((e.clientY - kotak.top) / kotak.height) * VH
+      const m = keMatematika(jendela, KOTAK)
+      return { x: m.x(vx), y: m.y(vy) }
+    },
+    [jendela, svgRef],
+  )
+
+  const onPointerDown = useCallback(
+    (e: PointerEvent) => {
+      const t = bacaTitik(e)
+      if (!t) return
+      let terdekat = 0
+      let jarakTerdekat = Infinity
+      titik.forEach((d, i) => {
+        const j = Math.hypot(d.x - t.x, d.y - t.y)
+        if (j < jarakTerdekat) {
+          jarakTerdekat = j
+          terdekat = i
+        }
+      })
+      dipegang.current = terdekat
+      ;(e.currentTarget as Element).setPointerCapture(e.pointerId)
+      onGeser(terdekat, t)
+    },
+    [bacaTitik, onGeser, titik],
+  )
+
+  const onPointerMove = useCallback(
+    (e: PointerEvent) => {
+      if (dipegang.current === null) return
+      const t = bacaTitik(e)
+      if (t) onGeser(dipegang.current, t)
+    },
+    [bacaTitik, onGeser],
+  )
+
+  const onPointerUp = useCallback((e: PointerEvent) => {
+    dipegang.current = null
+    const sasaran = e.currentTarget as Element
+    if (sasaran.hasPointerCapture(e.pointerId)) sasaran.releasePointerCapture(e.pointerId)
+  }, [])
+
+  return { onPointerDown, onPointerMove, onPointerUp }
+}

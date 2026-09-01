@@ -65,7 +65,14 @@ export default function BidangVektor({
       preserveAspectRatio="xMidYMid meet"
       role="img"
       aria-label={aria}
-      style={pointer ? { touchAction: 'none', cursor: 'grab' } : undefined}
+      // userSelect dimatikan supaya menyeret panah tidak ikut menyorot tulisan
+      // di dalam gambar. Tanpa ini, satu tarikan meninggalkan blok biru di
+      // seluruh label dan widgetnya terlihat rusak.
+      style={
+        pointer
+          ? { touchAction: 'none', cursor: 'grab', userSelect: 'none', WebkitUserSelect: 'none' }
+          : undefined
+      }
       onPointerDown={pointer?.onPointerDown}
       onPointerMove={pointer?.onPointerMove}
       onPointerUp={pointer?.onPointerUp}
