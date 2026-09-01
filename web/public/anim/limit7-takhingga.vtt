@@ -1,0 +1,119 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/limit7-takhingga.json
+
+1
+00:00:00.000 --> 00:00:05.040
+Kenapa sebuah grafik bisa mendatar, tapi tidak pernah menyentuh garisnya?
+
+2
+00:00:05.040 --> 00:00:08.848
+Sebuah pabrik punya biaya tetap lima juta rupiah sehari,
+
+3
+00:00:08.848 --> 00:00:11.704
+ditambah dua puluh ribu untuk tiap barang.
+
+4
+00:00:11.704 --> 00:00:14.016
+Berapa biaya rata-rata per barang?
+
+5
+00:00:14.016 --> 00:00:17.821
+Seratus barang, tujuh puluh ribu per barang.
+
+6
+00:00:17.821 --> 00:00:20.848
+Seribu barang, dua puluh lima ribu.
+
+7
+00:00:20.848 --> 00:00:24.912
+Sepuluh ribu barang, dua puluh ribu lima ratus.
+
+8
+00:00:24.912 --> 00:00:29.315
+Angkanya merapat ke dua puluh ribu, tapi tidak pernah sampai.
+
+9
+00:00:29.315 --> 00:00:34.368
+Biaya tetapnya selalu menyisakan sedikit, berapa pun banyaknya barang.
+
+10
+00:00:34.368 --> 00:00:37.862
+Sebelum lanjut, satu hal yang wajib diluruskan.
+
+11
+00:00:37.862 --> 00:00:39.795
+Tak hingga bukan bilangan.
+
+12
+00:00:39.795 --> 00:00:45.816
+Ia tidak bisa dimasukkan ke rumus, sebab tidak ada angka yang bernama tak hingga.
+
+13
+00:00:45.816 --> 00:00:48.293
+Tak hingga adalah keterangan arah.
+
+14
+00:00:48.293 --> 00:00:53.904
+Ia memberi tahu bahwa x dibuat membesar terus menerus, tanpa pernah berhenti.
+
+15
+00:00:53.904 --> 00:00:55.920
+Alat utamanya satu saja.
+
+16
+00:00:55.920 --> 00:01:01.716
+Kalau x membesar, pecahan seperti satu dibagi x menjadi sangat kecil,
+
+17
+00:01:01.716 --> 00:01:02.976
+dan menuju nol.
+
+18
+00:01:02.976 --> 00:01:08.019
+Ambil tiga x kuadrat tambah dua x, dibagi x kuadrat kurang lima.
+
+19
+00:01:08.019 --> 00:01:12.984
+Pangkat tertingginya x kuadrat, jadi semuanya dibagi x kuadrat.
+
+20
+00:01:12.984 --> 00:01:15.926
+Pembilangnya jadi tiga tambah dua per x.
+
+21
+00:01:15.926 --> 00:01:19.456
+Penyebutnya jadi satu kurang lima per x kuadrat.
+
+22
+00:01:19.456 --> 00:01:23.280
+Saat x membesar, kedua pecahan kecil itu menuju nol.
+
+23
+00:01:23.280 --> 00:01:28.560
+Yang tersisa tiga dibagi satu. Jadi limitnya tiga.
+
+24
+00:01:28.560 --> 00:01:30.739
+Karena limitnya sebuah angka,
+
+25
+00:01:30.739 --> 00:01:35.323
+grafiknya makin mendatar merapat ke garis y sama dengan tiga.
+
+26
+00:01:35.323 --> 00:01:37.728
+Garis itu disebut asimtot datar.
+
+27
+00:01:37.728 --> 00:01:42.533
+Perhatikan sampai akhir: kurvanya boleh sedekat apa pun ke garis itu,
+
+28
+00:01:42.533 --> 00:01:45.805
+tetapi selisihnya tidak pernah benar-benar nol.
+
+29
+00:01:45.805 --> 00:01:48.312
+Itulah beda mendekati dan menyentuh.

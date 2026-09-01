@@ -1,0 +1,111 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/limit1-kecepatan.json
+
+1
+00:00:00.000 --> 00:00:03.560
+Speedometer menunjuk enam puluh kilometer per jam.
+
+2
+00:00:03.560 --> 00:00:08.472
+Angka itu terasa biasa, sampai kita memikirkannya sedikit lebih lama.
+
+3
+00:00:08.472 --> 00:00:11.001
+Kecepatan itu jarak dibagi waktu.
+
+4
+00:00:11.001 --> 00:00:17.208
+Tapi jarum tadi menunjukkan kecepatan pada satu saat, bukan sepanjang perjalanan.
+
+5
+00:00:17.208 --> 00:00:22.262
+Dan pada satu saat, waktunya nol, jaraknya juga nol.
+
+6
+00:00:22.262 --> 00:00:23.720
+Nol dibagi nol.
+
+7
+00:00:23.720 --> 00:00:26.928
+Hitungan itu tidak punya jawaban.
+
+8
+00:00:26.928 --> 00:00:29.634
+Jalan keluarnya bukan memaksa waktunya nol,
+
+9
+00:00:29.634 --> 00:00:32.592
+melainkan memperpendek selangnya terus menerus,
+
+10
+00:00:32.592 --> 00:00:34.920
+lalu melihat angkanya menuju ke mana.
+
+11
+00:00:34.920 --> 00:00:37.849
+Kita pakai sebutir kelapa yang jatuh.
+
+12
+00:00:37.849 --> 00:00:42.600
+Setelah t detik, ia sudah turun sejauh lima t kuadrat meter.
+
+13
+00:00:42.600 --> 00:00:48.043
+Dari detik dua sampai detik tiga, ia turun dua puluh lima meter dalam satu detik.
+
+14
+00:00:48.043 --> 00:00:52.008
+Jadi kecepatan rata-ratanya dua puluh lima meter per detik.
+
+15
+00:00:52.008 --> 00:00:55.705
+Sekarang selangnya diperpendek jadi setengah detik.
+
+16
+00:00:55.705 --> 00:00:59.112
+Angkanya turun menjadi dua puluh dua koma lima.
+
+17
+00:00:59.112 --> 00:01:02.335
+Diperpendek lagi jadi sepersepuluh detik.
+
+18
+00:01:02.335 --> 00:01:04.615
+Angkanya dua puluh koma lima.
+
+19
+00:01:04.615 --> 00:01:09.960
+Perhatikan garis potongnya, ia mulai berubah menjadi garis singgung.
+
+20
+00:01:09.960 --> 00:01:14.872
+Semakin pendek selangnya, semakin dekat angkanya ke dua puluh.
+
+21
+00:01:14.872 --> 00:01:17.328
+Tapi tidak pernah tepat sampai.
+
+22
+00:01:17.328 --> 00:01:18.625
+Kenapa dua puluh?
+
+23
+00:01:18.625 --> 00:01:25.032
+Kalau selangnya kita sebut h, kecepatan rata-ratanya adalah dua puluh tambah lima h.
+
+24
+00:01:25.032 --> 00:01:27.959
+Bentuk itu baru muncul setelah h dicoret.
+
+25
+00:01:27.959 --> 00:01:33.312
+Dan mencoret h hanya boleh kalau h bukan nol, sebab kita sedang membaginya.
+
+26
+00:01:33.312 --> 00:01:36.838
+Jadi limit bukan cara berbelit untuk memasukkan angka.
+
+27
+00:01:36.838 --> 00:01:42.192
+Limit adalah cara menjawab pertanyaan yang angkanya justru tidak boleh dimasukkan.

@@ -1,0 +1,115 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/limit8-sinus.json
+
+1
+00:00:00.000 --> 00:00:05.232
+Kenapa sinus x dibagi x menuju tepat satu, bukan sekadar mendekati?
+
+2
+00:00:05.232 --> 00:00:10.035
+Kalau angkanya dimasukkan langsung, sinus nol sama dengan nol,
+
+3
+00:00:10.035 --> 00:00:11.972
+dan penyebutnya juga nol.
+
+4
+00:00:11.972 --> 00:00:14.064
+Bentuk nol dibagi nol lagi.
+
+5
+00:00:14.064 --> 00:00:17.297
+Dicoba dengan angka, semuanya dalam radian.
+
+6
+00:00:17.297 --> 00:00:22.258
+Di nol koma satu hasilnya nol koma sembilan sembilan delapan tiga.
+
+7
+00:00:22.258 --> 00:00:28.272
+Di nol koma nol satu, nol koma sembilan sembilan sembilan sembilan delapan tiga.
+
+8
+00:00:28.272 --> 00:00:29.579
+Merapat ke satu.
+
+9
+00:00:29.579 --> 00:00:35.136
+Tapi kenapa tepat satu, dan bukan nol koma sembilan sembilan sekian?
+
+10
+00:00:35.136 --> 00:00:37.855
+Jawabannya ada di lingkaran satuan.
+
+11
+00:00:37.855 --> 00:00:43.992
+Gambar lingkaran berjari-jari satu, lalu ambil sebuah sudut lancip di pusatnya.
+
+12
+00:00:43.992 --> 00:00:48.331
+Di dalam gambar itu ada tiga daerah yang saling bersarang.
+
+13
+00:00:48.331 --> 00:00:53.568
+Segitiga kecil di dalam, juring lingkaran, dan segitiga besar di luar.
+
+14
+00:00:53.568 --> 00:00:57.915
+Luas segitiga dalam adalah setengah kosinus dikali sinus.
+
+15
+00:00:57.915 --> 00:01:02.186
+Luas juringnya setengah sudut, karena jari-jarinya satu.
+
+16
+00:01:02.186 --> 00:01:05.160
+Dan luas segitiga luar setengah tangen.
+
+17
+00:01:05.160 --> 00:01:10.272
+Karena yang satu termuat di dalam yang lain, urutan luasnya sudah pasti naik.
+
+18
+00:01:10.272 --> 00:01:14.387
+Bagi ketiganya dengan sinus, dan bentuknya menjadi rapi.
+
+19
+00:01:14.387 --> 00:01:17.621
+Kosinus lebih kecil dari sudut dibagi sinus,
+
+20
+00:01:17.621 --> 00:01:20.928
+dan itu lebih kecil dari satu dibagi kosinus.
+
+21
+00:01:20.928 --> 00:01:22.760
+Sekarang kecilkan sudutnya.
+
+22
+00:01:22.760 --> 00:01:25.475
+Kedua penjepitnya sama-sama menuju satu,
+
+23
+00:01:25.475 --> 00:01:30.768
+jadi yang terjepit di tengah tidak punya pilihan lain selain ikut menuju satu.
+
+24
+00:01:30.768 --> 00:01:35.492
+Satu syarat yang tidak boleh dilupakan: sudutnya harus dalam radian.
+
+25
+00:01:35.492 --> 00:01:41.328
+Kalau ditulis dalam derajat, luas juringnya berubah dan seluruh hitungan ini runtuh.
+
+26
+00:01:41.328 --> 00:01:44.708
+Jadi bukan hampir satu, melainkan tepat satu.
+
+27
+00:01:44.708 --> 00:01:47.638
+Dan alasannya bukan tebakan dari tabel,
+
+28
+00:01:47.638 --> 00:01:51.168
+melainkan perbandingan luas di dalam lingkaran.
