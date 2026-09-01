@@ -2,12 +2,16 @@
 
 > **SESI BARU: baca berkas ini dari atas sampai bawah SEBELUM mengerjakan apa pun.**
 > Terakhir diperbarui: **1 September 2026, malam** (akhir sesi 5).
+>
+> **SITUS SUDAH TAYANG: https://matra-eight.vercel.app** (bisa dibuka siapa pun,
+> tanpa login). Baca bagian "Deploy Vercel" di bawah sebelum menyentuh deploy.
 
 ## Ringkas
 | | |
 |---|---|
-| Tahap sekarang | **DUA topik selesai: Trigonometri (dengan 7 video) dan Limit (belum bervideo)** |
-| Yang tersisa | 7 video Limit, lalu empat topik lain (Grafik Fungsi, Vektor, Ruang 3D, Statistika) |
+| Tahap sekarang | **DUA topik selesai. Situs SUDAH TAYANG di Vercel.** |
+| Yang tersisa | 5 video Limit (2 sudah 480p menunggu revisi ARYA), lalu empat topik lain |
+| Alamat tayang | https://matra-eight.vercel.app |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md`<br>`docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`<br>`docs/superpowers/plans/2026-09-01-topik-limit.md` |
 | Tenggat | 12 September 2026 |
 | Menjalankan situs | `cd web && npm run dev` → `http://localhost:3000` |
@@ -115,6 +119,95 @@ beda dengan Tahap 10 Trigonometri: di sana yang ditunjukkan DI MANA segitiga
 berada, dan foto menjawabnya. Di sini yang ditunjukkan BENTUK KURVANYA, dan
 foto roller coaster tidak memperlihatkan itu. Kalau ARYA lebih suka foto,
 tinggal diganti.
+
+
+---
+
+## 🚀 Deploy Vercel (dikerjakan 1 Sep 2026, sesi 5)
+
+**Alamat tayang: https://matra-eight.vercel.app**
+
+| Hal | Keadaan |
+|---|---|
+| Proyek Vercel | `matra` di tim `aryasejati002-4616s-projects` |
+| Vercel CLI | **sudah login** sebagai `aryasejati002-4616`, tidak perlu peramban |
+| Perintah deploy | `vercel deploy --prod --yes --cwd D:/MANIM-MATRA/web` |
+| Vercel Authentication | **DIMATIKAN**, jadi situs bisa dibuka siapa pun yang punya tautannya |
+| Git remote | **TIDAK ADA**. Repo ini lokal saja, deploy lewat unggahan CLI, bukan GitHub |
+| Cabang utama | **`master`**, bukan `main`. Jangan tertukar |
+
+### Dua jebakan yang sudah kena dan sudah diselesaikan
+
+**1. Semua halaman 404 padahal build sukses.** Proyeknya dibuat lewat
+`vercel project add matra`, sehingga preset framework-nya kosong dan Vercel
+memperlakukan folder `web/` sebagai unggahan berkas statis biasa. Gejalanya
+khas: berkas di `public/` tetap bisa diambil (video 200), tetapi semua halaman
+404, dan `vercel inspect` menunjukkan baris `Builds` cuma berisi titik dengan
+durasi 0 milidetik. Sudah ditambal oleh `web/vercel.json` yang menyebut
+`"framework": "nextjs"` secara tegas. Berkas itu **jangan dihapus**.
+
+**2. Alamatnya bukan yang ditebak.** URL produksi yang sebenarnya adalah
+`matra-eight.vercel.app`, muncul di baris `Aliased` pada log deploy.
+Alamat `matra-aryasejati002-4616s-projects.vercel.app` menjawab 404, dan
+`matra.vercel.app` milik ORANG LAIN yang kebetulan namanya sama. Selalu baca
+baris `Aliased` di log, jangan menebak polanya.
+
+### Sebelum deploy berikutnya
+1. `npx next build` harus lolos lokal dulu.
+2. Kalau isi video diganti, **ganti juga nama berkasnya** (aturan `immutable`
+   di `next.config.ts` berlaku setahun).
+3. Perkiraan kuota ada di `docs/2026-09-01-kuota-vercel-matra.md`. Ringkas:
+   100 siswa memakai 4,2 persen transfer dan 2,7 persen request. Aman sampai
+   sekitar 2.400 siswa rajin per bulan, dan turun ke sekitar 465 kalau keenam
+   topik lengkap dengan video.
+
+---
+
+## 🎬 Keadaan tujuh video Limit
+
+| Prioritas | Materi | Naskah | Adegan | 480p | 1080p | Keadaan |
+|---|---|---|---|---|---|---|
+| 1 | 04 Lubang di grafik | ✅ | ✅ | ✅ | ✅ | **TAYANG** |
+| 2 | 01 Kecepatan sesaat | ✅ | ✅ | ✅ | ⬜ | menunggu revisi ARYA |
+| 3 | 08 Limit sinus | ✅ | ✅ | ✅ | ⬜ | menunggu revisi ARYA |
+| 4 | 02 Mendekati | ✅ | ⬜ | ⬜ | ⬜ | adegan belum ditulis |
+| 5 | 09 Kontinuitas | ✅ | ⬜ | ⬜ | ⬜ | adegan belum ditulis |
+| 6 | 06 Nol per nol | ✅ | ⬜ | ⬜ | ⬜ | adegan belum ditulis |
+| 7 | 07 Tak hingga | ✅ | ⬜ | ⬜ | ⬜ | adegan belum ditulis |
+
+Keenam naskah narasinya sudah ditulis DAN suaranya sudah dibuat, ada di
+`manim/narasi/limit*.json` dan `audio/limit*/`. Jadi yang tersisa untuk empat
+video terakhir hanya menulis adegan Manim-nya.
+
+**ATURAN BARU DARI ARYA (1 Sep 2026):** render SEMUA video di 480p dulu untuk
+direvisi, baru render 1080p60 sekaligus di akhir. Jangan render final satu per
+satu sebelum ARYA melihatnya.
+
+---
+
+## 🛠️ Alat yang diperbaiki di sesi 5
+
+**`manim/cek_kode.py` punya DUA lapor palsu dan keduanya sempat menghentikan
+render.** Sekarang sudah benar, dan perbaikannya sudah diuji lewat berkas uji
+yang memuat cacat sungguhan:
+
+1. `Text` dimasukkan ke daftar pembuat LaTeX, padahal `Text` memakai Pango.
+   Kalimat Indonesia yang sah dilaporkan gagal dibangun. Sekarang hanya
+   `MathTex` dan `Tex` yang dibangun lewat MiKTeX.
+2. Newline di dalam `Text` dianggap gejala string lupa awalan `r`, padahal ia
+   pemisah baris yang disengaja. Sekarang dikecualikan khusus untuk pembuat
+   teks biasa; di dalam `MathTex` newline tetap dianggap salah.
+
+**`alat/cek_soal.py`** (dibuat di paruh pertama sesi ini) memeriksa jawaban
+limit dengan sympy dan menolak yang salah.
+
+---
+
+## ⚠️ Cacat kecil yang belum diperbaiki
+- Lencana "Matematika SMA" di pojok kanan atas **terpotong** pada layar sempit
+  (terlihat di lebar 420 piksel). Tidak menghalangi pemakaian.
+- `web/public/anim/trigonometri.webm` (0,54 MB) berkas yatim, tidak dipakai
+  kode mana pun. Aman dihapus.
 
 ---
 
