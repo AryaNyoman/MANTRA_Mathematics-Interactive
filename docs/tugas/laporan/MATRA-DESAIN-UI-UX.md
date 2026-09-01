@@ -180,3 +180,42 @@ alasannya:
    gambar hidup, jadi keputusannya tidak diubah sepihak. Bagian yang benar
    benar penting sudah ditangani: yang menyalakan "kurangi gerak" di
    sistemnya kini mendapat video diam dengan tombol putar.
+
+## Penyelarasan ke master (2 Sep 2026, sore)
+
+MASTER menggabungkan cabang ini ke `master` paling dulu lalu men-deploy,
+karena situs yang tayang sedang rusak di HP. Sesudah itu cabang ini
+diselaraskan kembali ke `master`. Yang diperiksa sesudah penyelarasan:
+
+| Yang dicek | Hasil |
+|---|---|
+| Cabang | `sesi/ui-ux`, folder kerja bersih, HEAD di `32d520f` |
+| Ketujuh commit HP | masih ada, tidak ada yang hilang saat gabung |
+| `PemutarVideo.tsx` | `key={berkas}` dari MASTER dan `playsInline` dari sesi ini berdampingan, keduanya utuh |
+| `globals.css` | lima blok `max-width: 860px` masih ada |
+| `Nav.tsx`, `HalamanTopik.tsx` | tombol tiga garis dan baris tab Latihan/Kuis masih ada |
+| `topik.ts` | keenam topik `siap: true` |
+| `tsc --noEmit` | lolos, exit 0 |
+| Keenam halaman topik di server | 200 semua |
+
+**Pemeriksanya dibuktikan hidup, bukan diasumsikan.** Aturan baru melarang
+`rtk` karena MATRA-STATISTIKA menangkapnya mengarang keluaran. Jadi tsc
+dipanggil langsung lewat `node node_modules/typescript/bin/tsc`, dan sekali
+disisipi kesalahan tipe sengaja untuk memastikan dia benar-benar menolak:
+
+```
+components/Nav.tsx(88,7): error TS2322: Type 'string' is not assignable to type 'number'.
+exit=2
+```
+
+Kesalahan itu langsung dihapus lagi dan tsc kembali lolos. Port sesi ini
+sekarang **3014**, bukan 3005.
+
+### Yang BELUM diperiksa dan perlu diketahui
+
+Empat topik baru (vektor, grafik fungsi, statistika, ruang 3D) sudah ikut
+tayang, tetapi **belum pernah dibuka sesi ini di lebar 375 piksel**. Halaman
+topik memakai kerangka yang sama dengan Limit, jadi tumpukan kolomnya
+seharusnya ikut benar, tapi isi barunya belum tentu: tabel statistika dan
+widget 3D adalah dua hal yang paling sering meluber di HP. Menunggu aba-aba
+ARYA sebelum mengauditnya.
