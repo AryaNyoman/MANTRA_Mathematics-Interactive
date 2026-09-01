@@ -93,7 +93,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menaruh data di atas papan jungkat-jungkit.',
+        teks: 'Alat di sebelah kiri menaruh data di atas papan jungkat-jungkit. Penopangnya adalah mean, median ditandai garis di bawah papan, dan modus terbaca dari tumpukan titik yang paling tinggi.',
         langkah: [
           'Seret satu titik ke kanan. Perhatikan penopang, yaitu mean, ikut bergeser ke kanan.',
           'Perhatikan median sering tidak ikut bergeser sama sekali.',
@@ -352,7 +352,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
         jenis: 'coba',
         teks: 'Alat di sebelah kiri menggambar seluruh langkah tadi sekaligus.',
         langkah: [
-          'Seret satu titik menjauh dari mean. Perhatikan garis putus-putusnya memanjang dan perseginya membesar.',
+          'Seret satu botol menjauh dari mean. Perhatikan sisi bawah perseginya memanjang, dan perseginya membesar mengikuti.',
           'Perhatikan persegi tumbuh jauh lebih cepat daripada garisnya. Jarak dua kali lipat membuat luasnya empat kali lipat.',
           'Itu sebabnya simpangan baku sangat peka terhadap pencilan, jauh lebih peka daripada jangkauan antar kuartil di Tahap 7.',
         ],

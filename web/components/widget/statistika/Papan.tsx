@@ -1,6 +1,6 @@
 'use client'
 
-import type { ReactNode } from 'react'
+import type { ReactNode, RefObject, SVGProps } from 'react'
 import {
   GARIS_PETAK, GARIS_SUMBU, MONO, PERAN,
 } from '@/components/widget/statistika/warna-data'
@@ -44,6 +44,8 @@ export default function Papan({
   keterangan,
   tandaSkala,
   aria,
+  svgRef,
+  propSvg,
   children,
 }: {
   jendela: Jendela
@@ -61,6 +63,17 @@ export default function Papan({
   /** penunjuk skala di kanan bawah. Wajib untuk widget yang bisa berubah lebar */
   tandaSkala?: string
   aria: string
+  /**
+   * Rujukan ke unsur svg dan penanganan peristiwa penunjuk.
+   *
+   * Dibutuhkan widget yang isinya bisa DISERET: seretan menuntut pendengar
+   * pointermove pada svg-nya, sedangkan svg itu dibuat di sini, bukan di
+   * widgetnya. Tanpa jalan tembus ini, widget yang butuh seret terpaksa
+   * menggambar bingkainya sendiri dan bingkainya jadi bercabang dua.
+   */
+  svgRef?: RefObject<SVGSVGElement | null>
+  propSvg?: Pick<SVGProps<SVGSVGElement>,
+    'onPointerMove' | 'onPointerUp' | 'onPointerCancel' | 'onPointerLeave'>
   children?: ReactNode
 }) {
   const p = keLayar(jendela, tepi)
@@ -75,7 +88,8 @@ export default function Papan({
   const sumbuY = jendela.xMin <= 0 && 0 <= jendela.xMax ? p.x(0) : k.x0
 
   return (
-    <svg viewBox={`0 0 ${VW} ${VH}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label={aria}>
+    <svg ref={svgRef} viewBox={`0 0 ${VW} ${VH}`} preserveAspectRatio="xMidYMid meet"
+         role="img" aria-label={aria} {...propSvg}>
       {/* ---------- petak ---------- */}
       {petakX && tikX.map((t) => (
         <line key={`px${t.nilai}`} x1={p.x(t.nilai)} y1={k.y0} x2={p.x(t.nilai)} y2={k.y1}

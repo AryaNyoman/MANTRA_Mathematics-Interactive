@@ -41,19 +41,26 @@ export function GarisBilangan({
 /**
  * Hitung tinggi tumpukan tiap data.
  *
- * Nilai yang sama muncul beberapa kali digambar bertumpuk ke atas, bukan
- * ditimpa. Kalau ditimpa, dua siswa bernilai sama akan terlihat sebagai satu
- * siswa, dan modus jadi mustahil dibaca dari gambarnya.
+ * DITUMPUK MENURUT JARAK DI LAYAR, BUKAN MENURUT NILAI YANG SAMA PERSIS.
+ * Versi pertama cuma menumpuk nilai yang identik, dan itu gagal pada data yang
+ * berdekatan tetapi tidak sama: sembilan gaji antara 4,2 dan 7 juta pada sumbu
+ * selebar 80 juta cuma memakai 14 piksel, sehingga kesembilan titiknya menyatu
+ * jadi satu noda dan tidak ada yang bisa menghitungnya. Itu terlihat di potret
+ * layar Tahap 6.
+ *
+ * Sekarang titik yang letaknya di layar lebih dekat daripada satu diameter
+ * ditumpuk ke atas. Letak mendatarnya tetap sesuai nilainya, jadi tidak ada
+ * yang digeser bohong; yang berubah cuma ketinggiannya.
  *
  * Dihitung sekali menjadi senarai, BUKAN dengan penghitung yang dinaikkan di
  * dalam `map` saat menggambar. React 19 melarang mengubah variabel biasa
  * setelah render selesai, dan larangan itu pernah kena di proyek ini.
  */
-export function tinggiTumpukan(data: number[]): number[] {
+export function tinggiTumpukan(kunci: number[]): number[] {
   const sudah = new Map<number, number>()
-  return data.map((v) => {
-    const n = sudah.get(v) ?? 0
-    sudah.set(v, n + 1)
+  return kunci.map((k) => {
+    const n = sudah.get(k) ?? 0
+    sudah.set(k, n + 1)
     return n
   })
 }
@@ -73,14 +80,21 @@ export function TumpukanTitik({
   propTitik?: (indeks: number, nilai: number) => Record<string, unknown>
   sela?: number
 }): ReactNode {
-  const tumpuk = tinggiTumpukan(data)
+  const lebarSel = jejari * 2 + sela
+  // urutan menentukan siapa yang di bawah, jadi diurutkan dulu supaya
+  // tumpukannya tidak terlihat acak saat titiknya diseret
+  const urutan = data.map((v, i) => i).sort((a, b) => data[a] - data[b])
+  const kunciUrut = urutan.map((i) => Math.round(ke(data[i]) / lebarSel))
+  const tinggiUrut = tinggiTumpukan(kunciUrut)
+  const tumpuk: number[] = []
+  urutan.forEach((i, n) => { tumpuk[i] = tinggiUrut[n] })
   return (
     <>
       {data.map((v, i) => (
         <circle
           key={i}
           cx={ke(v)}
-          cy={dasar - jejari - tumpuk[i] * (jejari * 2 + sela)}
+          cy={dasar - jejari - tumpuk[i] * lebarSel}
           r={jejari}
           fill={warnaKhusus?.(v, i) ?? warna}
           stroke="#FFFDFA"
@@ -94,7 +108,7 @@ export function TumpukanTitik({
 
 /** Penanda tegak berlabel, untuk mean, median, dan kuartil. */
 export function Penanda({
-  x, dariY, sampaiY, warna, label, nilai, sisi = 'atas', putus = false,
+  x, dariY, sampaiY, warna, label, nilai, sisi = 'atas', putus = false, jarak = 0,
 }: {
   x: number
   dariY: number
@@ -105,8 +119,12 @@ export function Penanda({
   /** tulisan di atas garis atau di bawahnya */
   sisi?: 'atas' | 'bawah'
   putus?: boolean
+  /** dorongan tambahan menjauh dari garisnya, untuk menghindari tabrakan */
+  jarak?: number
 }) {
-  const y = sisi === 'atas' ? Math.min(dariY, sampaiY) - 5 : Math.max(dariY, sampaiY) + 12
+  const y = sisi === 'atas'
+    ? Math.min(dariY, sampaiY) - 5 - jarak
+    : Math.max(dariY, sampaiY) + 12 + jarak
   return (
     <>
       <line x1={x} y1={dariY} x2={x} y2={sampaiY} stroke={warna} strokeWidth={2}
