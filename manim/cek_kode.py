@@ -33,7 +33,19 @@ from pathlib import Path
 
 AKAR = Path(__file__).resolve().parent.parent
 
-PEMBUAT_TEX = frozenset({"MathTex", "Tex", "SingleStringMathTex", "Text"})
+# Pembuat yang isinya BENAR-BENAR LaTeX. Ini yang boleh dibangun lewat MiKTeX.
+PEMBUAT_TEX = frozenset({"MathTex", "Tex", "SingleStringMathTex"})
+
+# `Text` memakai Pango, BUKAN LaTeX. Isinya kalimat biasa dan tidak boleh
+# dicoba dibangun sebagai rumus: kalimat Indonesia yang sah seperti
+# "terkurung antara -1 dan 1" akan dilaporkan gagal padahal tidak ada apa-apa.
+# Lapor palsu itu terjadi pada 1 Sep 2026 dan sempat menghentikan render.
+#
+# Isinya TETAP diperiksa untuk karakter kendali dan kewajiban color=, sebab
+# TAB nyasar dan teks putih di latar krem sama merugikannya di Text maupun
+# di MathTex.
+PEMBUAT_TEKS = frozenset({"Text", "MarkupText", "Paragraph"})
+PEMBUAT_SEMUA = PEMBUAT_TEX | PEMBUAT_TEKS
 
 # Perintah LaTeX yang WAJIB diikuti sejumlah argumen berkurung.
 ARITAS = {
@@ -146,7 +158,7 @@ def kumpulkan_tex(sumber: str, pohon: ast.AST, t: Temuan) -> list[tuple[int, str
             continue
         f = simpul.func
         nama = f.attr if isinstance(f, ast.Attribute) else getattr(f, "id", None)
-        if nama not in PEMBUAT_TEX:
+        if nama not in PEMBUAT_SEMUA:
             continue
 
         # Warna WAJIB disebut. Tanpa `color=`, Manim memakai putih, dan pada
@@ -177,10 +189,13 @@ def kumpulkan_tex(sumber: str, pohon: ast.AST, t: Temuan) -> list[tuple[int, str
                         and not _literal_mentah(sumber, arg):
                     t.peringatan(baris, f"{nama}(...) memakai backslash tanpa "
                                         f"awalan r, rawan. Tulis r\"...\"")
-            potongan.append((baris, nilai))
-
-            for pesan in periksa_kurung(nilai) + periksa_aritas(nilai):
-                t.salah(baris, f"LaTeX: {pesan}  →  {nilai[:60]!r}")
+            # Hanya isi LaTeX yang diteruskan. Kalimat di dalam Text() tidak
+            # punya kurung kurawal maupun perintah LaTeX, jadi memeriksanya
+            # dengan aturan LaTeX hanya menghasilkan lapor palsu.
+            if nama in PEMBUAT_TEX:
+                potongan.append((baris, nilai))
+                for pesan in periksa_kurung(nilai) + periksa_aritas(nilai):
+                    t.salah(baris, f"LaTeX: {pesan}  →  {nilai[:60]!r}")
     return potongan
 
 

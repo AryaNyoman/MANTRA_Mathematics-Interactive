@@ -41,8 +41,8 @@ type Klip =
 const KLIP: Klip[] = [
   {
     jenis: 'video',
-    berkas: 'beranda-tiga-grafik.mp4',
-    poster: 'beranda-tiga-grafik.jpg',
+    berkas: 'beranda-tiga-grafik-v2.mp4',
+    poster: 'beranda-tiga-grafik-v2.jpg',
     loop: true,
     judul: 'Tiga kurva yang lahir dari satu lingkaran',
     isi: 'Sinus, kosinus, dan tangen bukan tiga rumus terpisah. Ketiganya catatan dari satu titik yang berputar, dan di sini Anda melihatnya terjadi.',

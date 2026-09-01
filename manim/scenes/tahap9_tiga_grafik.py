@@ -173,25 +173,41 @@ class TigaGrafikBersama(Scene):
         label = MathTex(nama, color=warna, font_size=28)
         label.next_to(sumbu_y, LEFT, buff=0.22).shift(UP * 0.30)
 
-        # Skala sumbu mendatar hanya digambar pada panel PALING BAWAH, supaya
-        # tidak diulang tiga kali dan tidak menyesaki panel di atasnya.
+        # Skala derajat digambar di SETIAP panel, menempel pada sumbunya sendiri.
         #
-        # Derajat DAN radian ditulis berdampingan, permintaan ARYA: "jangan
-        # sampai ilmunya kepisah-pisah". Tahap-tahap sebelumnya memakai derajat,
-        # jadi derajat tetap ada; radian ditambahkan di bawahnya supaya siswa
-        # melihat sendiri bahwa satu putaran penuh sama dengan 2 pi.
+        # Permintaan ARYA 1 Sep 2026: "berikan derajatnya pada setiap garis,
+        # bukan derajatnya ditaruh di paling bawah 3 grafik itu". Versi lama
+        # hanya memasangnya di panel terbawah, sehingga orang yang sedang
+        # melihat grafik sinus harus menurunkan mata dua panel jauhnya cuma
+        # untuk tahu di mana 180 derajat.
+        #
+        # Ditaruh DI DALAM panel, tepat di bawah sumbunya, bukan di bawah
+        # seluruh panel. Cara itu ditunjuk ARYA lewat video rujukan dan memang
+        # muat, sedangkan menaruhnya di bawah tiap panel akan menuntut ketiga
+        # grafiknya dikecilkan.
+        #
+        # Angkanya diberi HALO sewarna kertas. Tanpa itu kurvanya lewat persis
+        # di titik-titik itu (sin, cos, dan tan sama-sama memotong sumbu di
+        # kelipatan 180 derajat) dan garisnya akan mencoret angkanya.
+        #
+        # Radian tetap hanya di panel terbawah, permintaan ARYA yang lama:
+        # "jangan sampai ilmunya kepisah-pisah". Mengulangnya tiga kali hanya
+        # menyesaki panel tanpa menambah keterangan.
         skala = VGroup()
-        if i == len(Y_PANEL) - 1:
-            for d, rad in ((0, "0"), (180, r"\pi"), (360, r"2\pi"), (540, r"3\pi")):
-                x = self.x_dari(d)
-                tik = Line([x, y0 - TINGGI_SATU * 1.35, 0],
-                           [x, y0 - TINGGI_SATU * 1.55, 0],
-                           color=t.redup, stroke_width=1.8)
-                drj = MathTex(rf"{d}^\circ", color=t.redup, font_size=21)
-                drj.next_to(tik, DOWN, buff=0.10)
-                rd_ = MathTex(rad, color=t.aksen2, font_size=21)
-                rd_.next_to(drj, DOWN, buff=0.07)
-                skala.add(VGroup(tik, drj, rd_))
+        for d, rad in ((0, "0"), (180, r"\pi"), (360, r"2\pi"), (540, r"3\pi")):
+            x = self.x_dari(d)
+            tik = Line([x, y0 - 0.11, 0], [x, y0 + 0.11, 0],
+                       color=t.redup, stroke_width=1.6)
+            drj = MathTex(rf"{d}^\circ", color=t.redup, font_size=18)
+            drj.next_to(tik, DOWN, buff=0.05)
+            drj.add_background_rectangle(color=t.latar, opacity=1.0, buff=0.045)
+            bagian = VGroup(tik, drj)
+            if i == len(Y_PANEL) - 1:
+                rd_ = MathTex(rad, color=t.aksen2, font_size=18)
+                rd_.next_to(drj, DOWN, buff=0.05)
+                rd_.add_background_rectangle(color=t.latar, opacity=1.0, buff=0.045)
+                bagian.add(rd_)
+            skala.add(bagian)
 
         return dict(y0=y0, pusat=pusat, lingkaran=lingkaran, sb=sb,
                     sumbu=VGroup(sumbu_x, sumbu_y), jari=jari, titik=titik,
@@ -215,7 +231,10 @@ class TigaGrafikBersama(Scene):
         self.p_sin = self.buat_panel(0, r"\sin\theta", np.sin, t.aksen)
         p = self.p_sin
         with sinema.babak(self, "sin", DURASI) as b:
-            b.main(Create(p["rangka"]), FadeIn(p["label"]), run_time=2.0)
+            # skalanya ikut muncul bersama rangkanya: sejak sekarang tiap panel
+            # punya skala derajatnya sendiri, bukan menumpang panel terbawah
+            b.main(Create(p["rangka"]), FadeIn(p["label"]),
+                   FadeIn(p["skala"]), run_time=2.0)
             b.main(FadeIn(p["jari"]), FadeIn(p["titik"]), run_time=0.9)
             self.add(p["kurva"])
             b.main(self.theta.animate.set_value(AKHIR), run_time=5.4, rate_func=linear)
@@ -229,7 +248,8 @@ class TigaGrafikBersama(Scene):
         self.p_cos = self.buat_panel(1, r"\cos\theta", np.cos, t.aksen2)
         p = self.p_cos
         with sinema.babak(self, "cos", DURASI) as b:
-            b.main(Create(p["rangka"]), FadeIn(p["label"]), run_time=1.8)
+            b.main(Create(p["rangka"]), FadeIn(p["label"]),
+                   FadeIn(p["skala"]), run_time=1.8)
             b.main(FadeIn(p["jari"]), FadeIn(p["titik"]), run_time=0.8)
             self.add(p["kurva"])
             b.main(self.theta.animate.set_value(AKHIR), run_time=5.2, rate_func=linear)
@@ -382,3 +402,58 @@ class TigaGrafikBersama(Scene):
             {"penutup": penutup, "panel_tan": self.p_tan["rangka"],
              "panel_cos": self.p_cos["rangka"], "tanda_ulang": self.tanda_ulang},
             [("penutup", "panel_cos"), ("penutup", "panel_tan")])
+
+
+class TigaGrafikBeranda(TigaGrafikBersama):
+    """Versi halaman depan: hanya grafiknya, tanpa apa pun yang lain.
+
+    Permintaan ARYA 1 Sep 2026. Yang dibuang dari Materi 9: judul pembuka,
+    narasi, subtitle, keterangan kolom kanan, penanda 360 derajat, dan SELURUH
+    jeda. Yang tersisa hanya tiga panel yang tumbuh bersama, digerakkan satu
+    sudut yang sama.
+
+    Tugasnya di beranda bukan mengajar, melainkan membuat pengunjung berhenti
+    sebentar. Karena itu ia berjalan sendiri begitu halaman dimuat, tanpa suara
+    dan tanpa tombol.
+
+    JUJUR SOAL PENGULANGANNYA. Tampilan Materi 9 memang kurvanya TUMBUH dari
+    kosong, dan itulah isinya. Akibatnya saat video mengulang, kurvanya kembali
+    kosong dan lompatan itu terlihat. Itu bawaan bentuknya, bukan cacat yang
+    bisa ditambal: kurva yang tumbuh mustahil menyambung mulus dengan kurva
+    kosong. Kalau ARYA ingin sambungan yang benar-benar mulus, bentuknya harus
+    diganti jadi kurva yang MENGALIR, dan itu bukan lagi tampilan Materi 9.
+
+    Mewarisi TigaGrafikBersama supaya `buat_panel`, `x_dari`, dan seluruh
+    ukurannya persis sama. Kalau Materi 9 diubah, versi ini ikut berubah
+    sendiri, jadi keduanya tidak bisa diam-diam berbeda.
+    """
+
+    LAMA_SAPU = 13.0     # detik satu sapuan penuh 0 sampai 540 derajat
+
+    def construct(self):
+        self.t = Tema(self.tema)
+        self.t.pasang(self)
+        self.theta = ValueTracker(0.0)
+
+        t = self.t
+        panel = [
+            self.buat_panel(0, r"\sin\theta", np.sin, t.aksen),
+            self.buat_panel(1, r"\cos\theta", np.cos, t.aksen2),
+            self.buat_panel(2, r"\tan\theta", np.tan, t.tinta, potong=TAN_MAKS),
+        ]
+
+        rangka = VGroup(*[p["rangka"] for p in panel])
+        label = VGroup(*[p["label"] for p in panel])
+        skala = VGroup(*[p["skala"] for p in panel])
+        qc.periksa_adegan({"rangka": rangka, "label": label, "skala": skala})
+
+        # Semuanya dipasang SEKALIGUS tanpa animasi masuk. Animasi masuk adalah
+        # jeda, dan ARYA meminta tanpa jeda.
+        for p in panel:
+            self.add(p["rangka"], p["label"], p["skala"],
+                     p["kurva"], p["jari"], p["titik"])
+
+        # Satu sapuan penuh, laju TETAP. rate_func bawaan melambat di ujung dan
+        # perlambatan itu terlihat sebagai ragu-ragu di akhir setiap putaran.
+        self.play(self.theta.animate.set_value(AKHIR),
+                  run_time=self.LAMA_SAPU, rate_func=linear)

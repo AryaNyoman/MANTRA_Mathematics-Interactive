@@ -48,6 +48,7 @@ const BAWAAN = 1 // 100%
 
 export default function PemutarVideo({ berkas, poster, judul }: Props) {
   const bungkus = useRef<HTMLDivElement>(null)
+  const video = useRef<HTMLVideoElement>(null)
 
   /* Pilihan ukuran diingat antar materi: siswa yang perlu teks besar tidak
      harus mengaturnya ulang setiap kali berpindah.
@@ -66,6 +67,70 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
     bungkus.current?.style.setProperty('--ukuran-subtitle', `${UKURAN[tingkat]}%`)
   }, [tingkat])
 
+  /* Kontrol bawaan disembunyikan setelah DIAM_DETIK detik menonton tanpa
+     disentuh, lalu muncul lagi begitu mouse digerakkan, layar disentuh, atau
+     tombol papan tik ditekan.
+
+     KENAPA PERLU. ARYA melaporkan (1 Sep 2026) bahwa dalam mode layar penuh
+     baris tombol dan penunjuk waktu bertahan sangat lama dan menutupi
+     animasinya, dan baru hilang setelah keluar dari layar penuh. Peramban
+     memang sengaja menahan kontrol selama videonya berhenti, dan lamanya
+     tidak bisa diatur lewat CSS karena kontrol itu ada di shadow DOM.
+
+     Yang bisa dilakukan hanyalah MENCABUT atribut `controls`, lalu memasangnya
+     kembali. Itu yang dikerjakan di sini.
+
+     Saat video BERHENTI kontrolnya sengaja dibiarkan tampil: orang yang menekan
+     jeda hampir pasti sedang mencari tombol, dan menyembunyikannya justru
+     menyulitkan. Menekan Esc tetap bisa keluar dari layar penuh walaupun
+     kontrolnya sedang tersembunyi. */
+  useEffect(() => {
+    const v = video.current
+    const kotak = bungkus.current
+    if (!v || !kotak) return
+
+    const DIAM_DETIK = 2
+    let jam: number | undefined
+
+    const sembunyikan = () => {
+      // hanya saat sedang berjalan; video yang berhenti tetap perlu tombolnya
+      if (!v.paused && !v.ended) v.removeAttribute('controls')
+    }
+
+    const tampilkan = () => {
+      v.setAttribute('controls', '')
+      window.clearTimeout(jam)
+      jam = window.setTimeout(sembunyikan, DIAM_DETIK * 1000)
+    }
+
+    const berhenti = () => {
+      v.setAttribute('controls', '')
+      window.clearTimeout(jam)
+    }
+
+    // Gerakan ditangkap di PEMBUNGKUS, bukan di elemen video, supaya gerakan
+    // di atas baris kontrol pun ikut terhitung sebagai "masih dipakai".
+    kotak.addEventListener('pointermove', tampilkan)
+    kotak.addEventListener('pointerdown', tampilkan)
+    kotak.addEventListener('keydown', tampilkan)
+    v.addEventListener('play', tampilkan)
+    v.addEventListener('pause', berhenti)
+    v.addEventListener('ended', berhenti)
+
+    return () => {
+      window.clearTimeout(jam)
+      kotak.removeEventListener('pointermove', tampilkan)
+      kotak.removeEventListener('pointerdown', tampilkan)
+      kotak.removeEventListener('keydown', tampilkan)
+      v.removeEventListener('play', tampilkan)
+      v.removeEventListener('pause', berhenti)
+      v.removeEventListener('ended', berhenti)
+      // atribut dikembalikan supaya video berikutnya tidak mewarisi keadaan
+      // tersembunyi kalau komponennya dipakai ulang
+      v.setAttribute('controls', '')
+    }
+  }, [berkas])
+
   const ubah = (arah: -1 | 1) => {
     simpanAngka(
       KUNCI_UKURAN,
@@ -79,6 +144,7 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
           sudah mengatur batas ukuran dalam rem, dan aturan itu sengaja dibuat
           supaya kotaknya ikut mengecil saat pengguna memperkecil zoom. */}
       <video
+        ref={video}
         controls
         preload="metadata"
         poster={poster ? `/anim/${poster}` : undefined}
