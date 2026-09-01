@@ -318,7 +318,7 @@ export const TAHAP: TahapGrafik[] = [
         judul: 'Cara 1: lewat sumbu simetri x = -b/2a',
         baris: [
           'y = 2x² - 4x - 16      jadi a = 2, b = -4, c = -16',
-          'sumbu simetri          x = -(-4) : (2 x 2)  =  4 : 4  =  1',
+          'sumbu simetri          x = -(-4) : (2 × 2)  =  4 : 4  =  1',
           'substitusi x = 1       y = 2(1)² - 4(1) - 16',
           '                       y = 2 - 4 - 16  =  -18',
         ],
@@ -721,13 +721,13 @@ export const TAHAP: TahapGrafik[] = [
         judul: 'Contoh peluruhan dari buku: bola basket memantul',
         baris: [
           'tinggi awal 300 cm, tiap pantulan tinggal 0,6 kalinya',
-          'pantulan 1    300 x 0,6      =  180 cm',
-          'pantulan 2    180 x 0,6      =  108 cm',
-          'pantulan 3    108 x 0,6      =  64,8 cm',
-          'pantulan 4    64,8 x 0,6     =  38,88 cm',
-          'pantulan 5    38,88 x 0,6    =  23,328 cm',
+          'pantulan 1    300 × 0,6      =  180 cm',
+          'pantulan 2    180 × 0,6      =  108 cm',
+          'pantulan 3    108 × 0,6      =  64,8 cm',
+          'pantulan 4    64,8 × 0,6     =  38,88 cm',
+          'pantulan 5    38,88 × 0,6    =  23,328 cm',
         ],
-        simpul: 'Rumusnya y = 300 x 0,6 pangkat x. Selalu berkurang, tetapi tidak pernah benar-benar nol.',
+        simpul: 'Rumusnya y = 300 × 0,6 pangkat x. Selalu berkurang, tetapi tidak pernah benar-benar nol.',
       },
       { jenis: 'paragraf', teks: 'Contoh peluruhan lain yang dipakai buku: kadar obat dalam darah yang berkurang tiap jam, dan itu justru alasan dokter menentukan jadwal minum obat, bukan asal.' },
 
