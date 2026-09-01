@@ -1,0 +1,56 @@
+{
+  "adegan": "FungsiTidakPutus",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Limit Materi 09, Fungsi yang tidak putus. Video prioritas KELIMA. Tugasnya menutup seluruh alur topik Limit: ketiga cara sebuah fungsi gagal sudah pernah ditemui siswa di Materi 03, 04, dan 07, jadi di sini tinggal dikumpulkan dan diberi nama. Sekaligus melunasi janji Materi 05 tentang kenapa substitusi langsung boleh dipakai.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Apa bedanya grafik yang bisa digambar tanpa mengangkat pensil?"
+    },
+    {
+      "id": "rel",
+      "teks": "Bayangkan rel roller coaster. Ia boleh menanjak, boleh menukik, boleh berputar. Yang tidak boleh, ada potongan rel yang hilang."
+    },
+    {
+      "id": "syarat",
+      "teks": "Sebuah fungsi disebut kontinu di titik c kalau tiga hal benar sekaligus. Nilainya ada, limitnya ada, dan keduanya sama."
+    },
+    {
+      "id": "mulus",
+      "teks": "Pada fungsi yang mulus, ketiganya terpenuhi. Titik di x sama dengan dua punya nilai tiga, limitnya juga tiga, dan keduanya berimpit."
+    },
+    {
+      "id": "lubang",
+      "teks": "Sekarang kita rusak. Cara pertama, dibuat berlubang. Nilainya lenyap, jadi syarat pertama gagal. Tapi limitnya tetap tiga, karena limit hanya melihat tetangga."
+    },
+    {
+      "id": "geser",
+      "teks": "Cara kedua, titiknya digeser. Nilainya ada, limitnya ada, tapi keduanya berbeda. Hanya syarat ketiga yang gagal, dan inilah satu-satunya bentuk yang membuat syarat ketiga terasa perlu."
+    },
+    {
+      "id": "lompat",
+      "teks": "Cara ketiga, dibuat melompat. Dari kiri menuju tiga, dari kanan menuju lima. Kedua arah tidak sepakat, jadi limitnya tidak ada."
+    },
+    {
+      "id": "asimtot",
+      "teks": "Cara keempat, dibuat meledak. Penyebutnya nol sedangkan pembilangnya bukan nol, sehingga nilainya membesar tanpa batas. Tidak ada angka yang dituju."
+    },
+    {
+      "id": "kenal",
+      "teks": "Ketiga kerusakan pertama sebenarnya sudah pernah Anda temui. Berlubang di materi keempat, melompat di materi ketiga, dan meledak di materi ketujuh."
+    },
+    {
+      "id": "janji",
+      "teks": "Sekarang janji dari materi kelima bisa dilunasi. Di sana dikatakan substitusi langsung sah untuk suku banyak, tapi alasannya ditunda."
+    },
+    {
+      "id": "sebab",
+      "teks": "Alasannya: suku banyak kontinu di semua titik. Dan kontinu berarti limit sama dengan nilai fungsi. Jadi memasukkan angkanya memang boleh."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi substitusi bukan definisi limit, melainkan akibat dari kekontinuan. Untuk fungsi yang tidak kontinu, jalan pintas itu langsung gugur."
+    }
+  ]
+}

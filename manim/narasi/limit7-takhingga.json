@@ -1,0 +1,56 @@
+{
+  "adegan": "LariKeTakHingga",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Limit Materi 07, Kalau x lari ke tak hingga. Video prioritas KETUJUH, yang terakhir. Tugasnya menjelaskan asimtot datar dan cara membagi dengan pangkat tertinggi. Ditegaskan tak hingga BUKAN bilangan, itu salah paham yang paling sering muncul.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Kenapa sebuah grafik bisa mendatar, tapi tidak pernah menyentuh garisnya?"
+    },
+    {
+      "id": "pabrik",
+      "teks": "Sebuah pabrik punya biaya tetap lima juta rupiah sehari, ditambah dua puluh ribu untuk tiap barang. Berapa biaya rata-rata per barang?"
+    },
+    {
+      "id": "angka",
+      "teks": "Seratus barang, tujuh puluh ribu per barang. Seribu barang, dua puluh lima ribu. Sepuluh ribu barang, dua puluh ribu lima ratus."
+    },
+    {
+      "id": "merapat",
+      "teks": "Angkanya merapat ke dua puluh ribu, tapi tidak pernah sampai. Biaya tetapnya selalu menyisakan sedikit, berapa pun banyaknya barang."
+    },
+    {
+      "id": "bukanbilangan",
+      "teks": "Sebelum lanjut, satu hal yang wajib diluruskan. Tak hingga bukan bilangan. Ia tidak bisa dimasukkan ke rumus, sebab tidak ada angka yang bernama tak hingga."
+    },
+    {
+      "id": "arah",
+      "teks": "Tak hingga adalah keterangan arah. Ia memberi tahu bahwa x dibuat membesar terus menerus, tanpa pernah berhenti."
+    },
+    {
+      "id": "alat",
+      "teks": "Alat utamanya satu saja. Kalau x membesar, pecahan seperti satu dibagi x menjadi sangat kecil, dan menuju nol."
+    },
+    {
+      "id": "soal",
+      "teks": "Ambil tiga x kuadrat tambah dua x, dibagi x kuadrat kurang lima. Pangkat tertingginya x kuadrat, jadi semuanya dibagi x kuadrat."
+    },
+    {
+      "id": "bagi",
+      "teks": "Pembilangnya jadi tiga tambah dua per x. Penyebutnya jadi satu kurang lima per x kuadrat. Saat x membesar, kedua pecahan kecil itu menuju nol."
+    },
+    {
+      "id": "hasil",
+      "teks": "Yang tersisa tiga dibagi satu. Jadi limitnya tiga."
+    },
+    {
+      "id": "asimtot",
+      "teks": "Karena limitnya sebuah angka, grafiknya makin mendatar merapat ke garis y sama dengan tiga. Garis itu disebut asimtot datar."
+    },
+    {
+      "id": "tutup",
+      "teks": "Perhatikan sampai akhir: kurvanya boleh sedekat apa pun ke garis itu, tetapi selisihnya tidak pernah benar-benar nol. Itulah beda mendekati dan menyentuh."
+    }
+  ]
+}

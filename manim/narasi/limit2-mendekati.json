@@ -1,0 +1,56 @@
+{
+  "adegan": "MendekatiBukanMenyentuh",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Limit Materi 02, Mendekati bukan menyentuh. Video prioritas KEEMPAT. Tugasnya merapikan kata 'mendekati' jadi kalimat yang bisa diuji, termasuk permainan tantangan yang gagasannya diambil dari Essence of Calculus bab 7. Satu sumber kebenaran untuk naskah, jangan ditulis ulang di dalam adegan.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Apa artinya mendekati, kalau ternyata tidak pernah sampai?"
+    },
+    {
+      "id": "fungsi",
+      "teks": "Kita pakai fungsi sederhana: f dari x sama dengan x kuadrat tambah satu. Pertanyaannya, ke mana f menuju kalau x didorong mendekati tiga?"
+    },
+    {
+      "id": "kiri",
+      "teks": "Didekati dari kiri. Di dua koma sembilan, nilainya sembilan koma empat satu. Di dua koma sembilan sembilan, sembilan koma sembilan empat."
+    },
+    {
+      "id": "kanan",
+      "teks": "Sekarang dari kanan. Di tiga koma satu, nilainya sepuluh koma enam satu. Di tiga koma nol satu, sepuluh koma nol enam."
+    },
+    {
+      "id": "sepakat",
+      "teks": "Kedua arah menuju angka yang sama, yaitu sepuluh. Karena itulah kita katakan limitnya sepuluh."
+    },
+    {
+      "id": "tekan",
+      "teks": "Perhatikan satu hal. Nilai x tidak pernah diletakkan tepat di tiga. Ia hanya didorong sedekat-dekatnya, dari kiri dan dari kanan."
+    },
+    {
+      "id": "longgar",
+      "teks": "Tapi kalimat mendekati masih terasa longgar. Seberapa dekat itu dekat? Ada satu cara menguji yang membuatnya jadi tegas, dan bentuknya permainan tantangan."
+    },
+    {
+      "id": "tantang1",
+      "teks": "Anda menantang: saya mau f dari x berjarak kurang dari nol koma satu dari sepuluh. Saya menjawab: pakai x yang berjarak kurang dari nol koma nol satu enam dari tiga."
+    },
+    {
+      "id": "tantang2",
+      "teks": "Anda menantang lebih ketat: kurang dari nol koma nol nol satu. Saya menjawab lagi: pakai x yang berjarak kurang dari nol koma nol nol nol satu enam."
+    },
+    {
+      "id": "janji",
+      "teks": "Limitnya sepuluh berarti: berapa pun ketatnya tantangan Anda, saya selalu punya jawabannya. Tidak ada tantangan yang membuat saya kehabisan akal."
+    },
+    {
+      "id": "beda",
+      "teks": "Itulah beda antara kebetulan dekat dan benar-benar menuju. Kalau hanya kebetulan dekat, cepat atau lambat ada tantangan yang tidak bisa dipenuhi."
+    },
+    {
+      "id": "tutup",
+      "teks": "Di bangku kuliah permainan ini ditulis dengan dua huruf Yunani. Anda belum perlu lambangnya. Yang perlu dibawa adalah gagasannya: limit itu janji yang sanggup memenuhi tantangan seketat apa pun."
+    }
+  ]
+}

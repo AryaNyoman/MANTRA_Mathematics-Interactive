@@ -1,0 +1,56 @@
+{
+  "adegan": "NolPerNol",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Limit Materi 06, Kalau hasilnya 0 dibagi 0. Video prioritas KEENAM. Tugasnya mengajarkan dua cara membongkar bentuk tak tentu: memfaktorkan dan mengalikan sekawan. Syarat 'asal x bukan' harus disebut dan ditonjolkan, itu yang paling sering dilupakan siswa.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Angkanya sudah dimasukkan, hasilnya nol dibagi nol. Sekarang bagaimana?"
+    },
+    {
+      "id": "bukan",
+      "teks": "Pertama, luruskan dulu satu hal. Bentuk nol dibagi nol tidak berarti limitnya tidak ada. Ia berarti bentuk yang Anda tulis belum memberi tahu apa-apa."
+    },
+    {
+      "id": "bukti",
+      "teks": "Buktinya begini. Ada dua soal yang sama-sama memberi nol dibagi nol, tetapi jawabannya berbeda: yang satu dua, yang lain empat. Jadi tulisan itu memang belum mengandung keterangan."
+    },
+    {
+      "id": "cara1",
+      "teks": "Cara pertama, memfaktorkan. Kalau pembilang dan penyebut sama-sama nol di titik yang sama, keduanya pasti punya faktor yang sama."
+    },
+    {
+      "id": "faktor",
+      "teks": "Ambil x kuadrat kurang empat, dibagi x kurang dua, saat x mendekati dua. Pembilangnya difaktorkan menjadi x kurang dua, dikali x tambah dua."
+    },
+    {
+      "id": "coret1",
+      "teks": "Faktor x kurang dua di atas dan di bawah bisa dicoret. Tapi hanya boleh kalau x bukan dua, sebab kita sedang membaginya."
+    },
+    {
+      "id": "hasil1",
+      "teks": "Yang tersisa x tambah dua. Masukkan dua, hasilnya empat."
+    },
+    {
+      "id": "cara2",
+      "teks": "Cara kedua dipakai kalau ada tanda akar. Memfaktorkan biasanya buntu, jadi kita pakai sekawan: bentuk yang sama persis, tapi tanda tengahnya dibalik."
+    },
+    {
+      "id": "sekawan",
+      "teks": "Ambil akar dari x tambah empat, dikurangi dua, lalu dibagi x, saat x mendekati nol. Sekawan pembilangnya adalah akar x tambah empat, ditambah dua."
+    },
+    {
+      "id": "kali",
+      "teks": "Kalikan atas dan bawah dengan sekawan itu. Pembilangnya berubah jadi x tambah empat, dikurangi empat, yaitu x saja. Akarnya hilang karena dikuadratkan."
+    },
+    {
+      "id": "hasil2",
+      "teks": "Sekarang x bisa dicoret, sah karena x bukan nol. Yang tersisa satu dibagi akar x tambah empat ditambah dua. Masukkan nol, hasilnya seperempat."
+    },
+    {
+      "id": "tutup",
+      "teks": "Urutannya selalu sama, dan tidak pernah berubah. Masukkan angkanya. Kalau wajar, itu jawabannya. Kalau nol dibagi nol, tulis ulang bentuknya, baru masukkan lagi."
+    }
+  ]
+}
