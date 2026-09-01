@@ -98,30 +98,44 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
         <div className="panggung">
           {/* ======================= KIRI ======================= */}
           <div className="kolom">
+            {/* Deretan tab dibagi dua kelompok. Di layar lebar kedua pembungkus
+                memakai `display: contents`, jadi semua tombol tetap jadi anak
+                langsung `.langkah` dan tampilan laptop tidak berubah sedikit
+                pun. Di layar sempit barulah kelompok kedua turun ke barisnya
+                sendiri.
+
+                Alasannya: di 375 piksel tombol "Latihan" duduk sekitar 550
+                piksel di sebelah kanan, jadi siswa harus menggeser melewati
+                sepuluh tombol MATERI sebelum tahu bahwa Latihan dan Kuis ada.
+                (Keputusan ARYA, 2 Sep 2026.) */}
             <div className="langkah" role="tablist" aria-label="Tahap belajar">
-              {TAHAP.map((t) => (
-                <button
-                  key={t.slug}
-                  role="tab"
-                  aria-selected={layar.jenis === 'tahap' && layar.slug === t.slug}
-                  disabled={!t.siap}
-                  title={t.siap ? t.judul : `${t.judul} (belum dibangun)`}
-                  onClick={() => setLayar({ jenis: 'tahap', slug: t.slug })}
-                >
-                  {/* Nomornya saja. Nama materi ikut ditulis di sini membuat baris
-                      tab jadi panjang dan harus digeser ke samping, padahal judul
-                      lengkapnya sudah terbaca besar di kolom kanan begitu tab
-                      dipilih. (Permintaan ARYA, 1 Sep 2026.) */}
-                  MATERI {String(t.no).padStart(2, '0')}
-                </button>
-              ))}
-              <span className="pisah" aria-hidden />
-              <button role="tab" aria-selected={layar.jenis === 'latihan'}
-                      onClick={() => setLayar({ jenis: 'latihan' })}>Latihan</button>
-              <button role="tab" aria-selected={layar.jenis === 'kuis'}
-                      disabled={!terbuka}
-                      title={terbuka ? 'Kuis' : ajakan()}
-                      onClick={() => terbuka && setLayar({ jenis: 'kuis' })}>Kuis</button>
+              <div className="langkah-gulir" role="presentation">
+                {TAHAP.map((t) => (
+                  <button
+                    key={t.slug}
+                    role="tab"
+                    aria-selected={layar.jenis === 'tahap' && layar.slug === t.slug}
+                    disabled={!t.siap}
+                    title={t.siap ? t.judul : `${t.judul} (belum dibangun)`}
+                    onClick={() => setLayar({ jenis: 'tahap', slug: t.slug })}
+                  >
+                    {/* Nomornya saja. Nama materi ikut ditulis di sini membuat baris
+                        tab jadi panjang dan harus digeser ke samping, padahal judul
+                        lengkapnya sudah terbaca besar di kolom kanan begitu tab
+                        dipilih. (Permintaan ARYA, 1 Sep 2026.) */}
+                    MATERI {String(t.no).padStart(2, '0')}
+                  </button>
+                ))}
+              </div>
+              <div className="langkah-tetap" role="presentation">
+                <span className="pisah" aria-hidden />
+                <button role="tab" aria-selected={layar.jenis === 'latihan'}
+                        onClick={() => setLayar({ jenis: 'latihan' })}>Latihan</button>
+                <button role="tab" aria-selected={layar.jenis === 'kuis'}
+                        disabled={!terbuka}
+                        title={terbuka ? 'Kuis' : ajakan()}
+                        onClick={() => terbuka && setLayar({ jenis: 'kuis' })}>Kuis</button>
+              </div>
             </div>
 
             <div className="wadah">

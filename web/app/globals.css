@@ -1212,3 +1212,42 @@ video::cue(b) { font-weight: 700; }
    Di laptop tidak ada bedanya: `max-width: 1080px` dan `margin: 0 auto`
    yang lama tetap yang menentukan. */
 .beranda { width: 100%; min-width: 0; }
+
+/* ============================================================
+   Deretan tab: "Latihan" dan "Kuis" turun ke baris sendiri di HP
+   (keputusan ARYA, 2 Sep 2026)
+   ============================================================ */
+
+/* Di layar lebar kedua pembungkus tidak menggambar kotak apa pun, jadi
+   semua tombol tetap menjadi anak langsung `.langkah` dan jaraknya tetap
+   diatur `gap` yang lama. Tampilan laptop tidak berubah sedikit pun. */
+.langkah-gulir, .langkah-tetap { display: contents; }
+
+@media (max-width: 860px) {
+  /* Pembungkus luar berhenti jadi baris tunggal yang digeser, dan berubah
+     jadi dua baris bertumpuk. */
+  .langkah { display: block; overflow: visible; }
+
+  /* Baris atas: sepuluh materi, digeser mendatar seperti sebelumnya. */
+  .langkah-gulir {
+    display: flex; gap: 5px;
+    overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin;
+  }
+
+  /* Baris bawah: Latihan dan Kuis, selalu terlihat tanpa perlu digeser,
+     dan lebarnya dibagi rata supaya keduanya jadi sasaran besar. */
+  .langkah-tetap {
+    display: flex; gap: 5px; margin-top: 6px;
+  }
+  .langkah-tetap button {
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+  }
+  /* Garis pemisah tidak berguna lagi kalau kelompoknya sudah pindah baris. */
+  .langkah-tetap .pisah { display: none; }
+
+  /* 44 piksel: ukuran minimum yang nyaman ditekan jempol. Tinggi asalnya
+     sekitar 32 piksel, cukup untuk penunjuk tetikus tapi terlalu kecil
+     untuk jari. */
+  .langkah button { min-height: 44px; }
+}
