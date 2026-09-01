@@ -1,0 +1,56 @@
+{
+  "adegan": "KecepatanSesaat",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Limit Materi 01, Kecepatan pada satu detik. Video prioritas KEDUA untuk topik Limit. Tugasnya menjawab 'kenapa kita butuh limit' sebelum siswa bertemu definisinya. Satu sumber kebenaran untuk naskah, jangan ditulis ulang di dalam adegan.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Speedometer menunjuk enam puluh kilometer per jam. Angka itu terasa biasa, sampai kita memikirkannya sedikit lebih lama."
+    },
+    {
+      "id": "rumus",
+      "teks": "Kecepatan itu jarak dibagi waktu. Tapi jarum tadi menunjukkan kecepatan pada satu saat, bukan sepanjang perjalanan."
+    },
+    {
+      "id": "buntu",
+      "teks": "Dan pada satu saat, waktunya nol, jaraknya juga nol. Nol dibagi nol. Hitungan itu tidak punya jawaban."
+    },
+    {
+      "id": "jalan",
+      "teks": "Jalan keluarnya bukan memaksa waktunya nol, melainkan memperpendek selangnya terus menerus, lalu melihat angkanya menuju ke mana."
+    },
+    {
+      "id": "kelapa",
+      "teks": "Kita pakai sebutir kelapa yang jatuh. Setelah t detik, ia sudah turun sejauh lima t kuadrat meter."
+    },
+    {
+      "id": "satu",
+      "teks": "Dari detik dua sampai detik tiga, ia turun dua puluh lima meter dalam satu detik. Jadi kecepatan rata-ratanya dua puluh lima meter per detik."
+    },
+    {
+      "id": "setengah",
+      "teks": "Sekarang selangnya diperpendek jadi setengah detik. Angkanya turun menjadi dua puluh dua koma lima."
+    },
+    {
+      "id": "sepersepuluh",
+      "teks": "Diperpendek lagi jadi sepersepuluh detik. Angkanya dua puluh koma lima. Perhatikan garis potongnya, ia mulai berubah menjadi garis singgung."
+    },
+    {
+      "id": "menuju",
+      "teks": "Semakin pendek selangnya, semakin dekat angkanya ke dua puluh. Tapi tidak pernah tepat sampai."
+    },
+    {
+      "id": "aljabar",
+      "teks": "Kenapa dua puluh? Kalau selangnya kita sebut h, kecepatan rata-ratanya adalah dua puluh tambah lima h."
+    },
+    {
+      "id": "syarat",
+      "teks": "Bentuk itu baru muncul setelah h dicoret. Dan mencoret h hanya boleh kalau h bukan nol, sebab kita sedang membaginya."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi limit bukan cara berbelit untuk memasukkan angka. Limit adalah cara menjawab pertanyaan yang angkanya justru tidak boleh dimasukkan."
+    }
+  ]
+}

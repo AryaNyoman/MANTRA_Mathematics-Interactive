@@ -1,0 +1,56 @@
+{
+  "adegan": "LubangDiGrafik",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Limit Materi 04, Lubang yang tidak mengubah tujuan. Video prioritas PERTAMA untuk topik Limit, karena inilah yang membunuh salah paham utamanya: limit dikira sama dengan nilai fungsi. Satu sumber kebenaran untuk naskah, jangan ditulis ulang di dalam adegan.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Ada fungsi yang di satu titik sama sekali tidak punya nilai, tapi limitnya tetap ada."
+    },
+    {
+      "id": "fungsi",
+      "teks": "Perhatikan fungsi ini: x kuadrat kurang satu, dibagi x kurang satu."
+    },
+    {
+      "id": "coba",
+      "teks": "Sekarang masukkan x sama dengan satu. Pembilangnya nol, penyebutnya juga nol. Nol dibagi nol."
+    },
+    {
+      "id": "tolak",
+      "teks": "Hitungan itu tidak punya jawaban. Jadi di titik satu, fungsi ini tidak terdefinisi sama sekali. Bukan bernilai nol, bukan bernilai tak hingga."
+    },
+    {
+      "id": "gambar",
+      "teks": "Tapi lihat grafiknya. Ia garis lurus biasa, dengan satu titik yang bolong."
+    },
+    {
+      "id": "kiri",
+      "teks": "Kita dekati dari kiri. Di nol koma sembilan, nilainya satu koma sembilan. Di nol koma sembilan sembilan, nilainya satu koma sembilan sembilan."
+    },
+    {
+      "id": "kanan",
+      "teks": "Sekarang dari kanan. Di satu koma satu, nilainya dua koma satu. Di satu koma nol satu, nilainya dua koma nol satu."
+    },
+    {
+      "id": "sepakat",
+      "teks": "Kedua arah menuju angka yang sama, yaitu dua. Jadi limitnya dua, walaupun titiknya sendiri kosong."
+    },
+    {
+      "id": "kenapa",
+      "teks": "Kenapa bisa serapi itu? Karena pembilangnya bisa difaktorkan menjadi x kurang satu, dikali x tambah satu."
+    },
+    {
+      "id": "coret",
+      "teks": "Faktor x kurang satu di atas dan di bawah bisa dicoret. Tapi hanya boleh kalau x bukan satu, sebab kita sedang membaginya."
+    },
+    {
+      "id": "sisa",
+      "teks": "Yang tersisa adalah x tambah satu. Itulah kenapa grafiknya berupa garis, dan kenapa hanya di titik satu ia berlubang."
+    },
+    {
+      "id": "tutup",
+      "teks": "Nilai fungsi dan limit adalah dua hal yang berbeda. Yang satu bisa ada tanpa yang lain, dan justru karena itulah limit dibuat orang."
+    }
+  ]
+}

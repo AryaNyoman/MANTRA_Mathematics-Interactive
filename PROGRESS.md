@@ -424,6 +424,14 @@ berkas Python, pakai Python atau alat sunting biasa - bukan PowerShell.
 sehingga pencarian teks gagal tanpa penjelasan. Untuk menyunting kode yang
 mengandung LaTeX, gunakan alat sunting berkas, bukan skrip pengganti teks.
 
+JEBAKAN INI KENA LAGI pada 1 Sep 2026 sesi 5, dua kali dalam satu jam.
+Yang pertama: teks tidak ada di tabel video Limit sampai ke Python sebagai
+TAB + ext, dan di video terbaca exttidakada. Yang kedua: pemisah baris di
+dalam Text() berubah jadi baris baru sungguhan sehingga berkasnya rusak
+sintaks. Keduanya lolos dari mata dan baru ketahuan saat MELIHAT frame
+videonya. Aturannya bukan saran: untuk kode ber-escape, pakai alat sunting
+berkas. Kalau terpaksa lewat skrip, susun karakternya dengan chr(92).
+
 
 
 **Pembungkus `rtk` BISA MELAPORKAN LULUS PADAHAL PERINTAHNYA TIDAK JALAN.**

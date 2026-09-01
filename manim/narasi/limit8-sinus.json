@@ -1,0 +1,56 @@
+{
+  "adegan": "LimitSinus",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Limit Materi 08, Limit sinus jadi angka 1. Video prioritas KETIGA. Ini penyambung ke topik Trigonometri, jadi lingkaran satuannya WAJIB memakai warna yang sama dengan widget dan video Trigonometri. Buktinya mengikuti buku Kemendikdasmen halaman 88 dan 89: perbandingan luas segitiga dalam, juring, dan segitiga luar.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Kenapa sinus x dibagi x menuju tepat satu, bukan sekadar mendekati?"
+    },
+    {
+      "id": "coba",
+      "teks": "Kalau angkanya dimasukkan langsung, sinus nol sama dengan nol, dan penyebutnya juga nol. Bentuk nol dibagi nol lagi."
+    },
+    {
+      "id": "angka",
+      "teks": "Dicoba dengan angka, semuanya dalam radian. Di nol koma satu hasilnya nol koma sembilan sembilan delapan tiga. Di nol koma nol satu, nol koma sembilan sembilan sembilan sembilan delapan tiga."
+    },
+    {
+      "id": "tanya",
+      "teks": "Merapat ke satu. Tapi kenapa tepat satu, dan bukan nol koma sembilan sembilan sekian?"
+    },
+    {
+      "id": "lingkaran",
+      "teks": "Jawabannya ada di lingkaran satuan. Gambar lingkaran berjari-jari satu, lalu ambil sebuah sudut lancip di pusatnya."
+    },
+    {
+      "id": "tiga",
+      "teks": "Di dalam gambar itu ada tiga daerah yang saling bersarang. Segitiga kecil di dalam, juring lingkaran, dan segitiga besar di luar."
+    },
+    {
+      "id": "luas",
+      "teks": "Luas segitiga dalam adalah setengah kosinus dikali sinus. Luas juringnya setengah sudut, karena jari-jarinya satu. Dan luas segitiga luar setengah tangen."
+    },
+    {
+      "id": "urut",
+      "teks": "Karena yang satu termuat di dalam yang lain, urutan luasnya sudah pasti naik."
+    },
+    {
+      "id": "bagi",
+      "teks": "Bagi ketiganya dengan sinus, dan bentuknya menjadi rapi. Kosinus lebih kecil dari sudut dibagi sinus, dan itu lebih kecil dari satu dibagi kosinus."
+    },
+    {
+      "id": "jepit",
+      "teks": "Sekarang kecilkan sudutnya. Kedua penjepitnya sama-sama menuju satu, jadi yang terjepit di tengah tidak punya pilihan lain selain ikut menuju satu."
+    },
+    {
+      "id": "radian",
+      "teks": "Satu syarat yang tidak boleh dilupakan: sudutnya harus dalam radian. Kalau ditulis dalam derajat, luas juringnya berubah dan seluruh hitungan ini runtuh."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi bukan hampir satu, melainkan tepat satu. Dan alasannya bukan tebakan dari tabel, melainkan perbandingan luas di dalam lingkaran."
+    }
+  ]
+}
