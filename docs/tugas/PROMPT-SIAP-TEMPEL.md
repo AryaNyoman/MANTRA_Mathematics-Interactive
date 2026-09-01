@@ -5,6 +5,26 @@ Semua prompt di bawah aman diulang berkali-kali.
 
 ---
 
+## 0. Prompt PENDEK (yang biasanya dipakai)
+
+Sesi yang dinyalakan lewat `.bat` atau `alat/nyalakan-sesi.ps1` SUDAH diberi
+identitas dan penunjuk file tugasnya, jadi cukup satu kalimat ini, sama untuk
+kelima sesi:
+
+```
+Mulai kerja. Kerjakan gerbang rancangan dulu: susun rancangan tahap, ajukan ke saya, TUNGGU jawaban saya sebelum membangun apa pun.
+```
+
+Anak kalimat soal gerbang itu SENGAJA ada. Sesi berjalan mode AUTO tanpa
+pengawas per langkah; kalau satu sesi lalai membaca gerbangnya, ia bisa
+membangun sejam sebelum bertanya. Sisa aturannya sudah ada di file tugas
+masing-masing, tidak perlu diulang.
+
+Prompt panjang di bawah dipakai hanya kalau sebuah sesi terbukti melenceng,
+atau saat sesi dimulai dari nol tanpa kalimat pembuka.
+
+---
+
 ## 1. Prompt MULAI (dipakai sekali, saat sesi pertama kali disuruh bekerja)
 
 ### MATRA-VEKTOR
