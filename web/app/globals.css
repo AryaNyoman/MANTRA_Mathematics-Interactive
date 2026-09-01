@@ -1201,3 +1201,14 @@ video::cue(b) { font-weight: 700; }
     margin: 12px 0 0; align-self: flex-start;
   }
 }
+
+/* Halaman bank soal meluber sampai 926 piksel di layar 375 piksel.
+   Sebabnya halus: `main.beranda` adalah anak langsung `body`, dan `body`
+   itu kolom flex. Anak kolom flex secara bawaan menolak menyusut di bawah
+   lebar isinya, jadi kisi "pilih tingkat" merasa boleh menjajarkan empat
+   kartu sekaligus dan menyeret seluruh halaman ikut melebar.
+   `width: 100%` memberi kisi itu lebar yang pasti sehingga ia mau
+   menumpuk, dan `min-width: 0` mencabut hak menolak menyusut tadi.
+   Di laptop tidak ada bedanya: `max-width: 1080px` dan `margin: 0 auto`
+   yang lama tetap yang menentukan. */
+.beranda { width: 100%; min-width: 0; }
