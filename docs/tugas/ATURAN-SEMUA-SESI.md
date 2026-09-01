@@ -12,12 +12,51 @@ PENTING: ingatan lintas-sesi Claude TIDAK ikut ke worktree (ingatan menempel
 pada path folder). Sumber kebenaranmu HANYA: `PROGRESS.md`, `CLAUDE.md`,
 file tugasmu, laporanmu, dan isi repo. Jangan mengandalkan "seingat saya".
 
-## Keadaan sekarang (2 Sep 2026)
-Kelima sesi SELESAI gelombang 1 dan menunggu tinjauan ARYA. Urutan berikutnya:
-MASTER menggabungkan semua cabang ke `master`, lalu menyelaraskan tiap cabang
-sesi kembali ke `master` (`git merge master` di worktree-mu, dilakukan MASTER),
-ARYA meninjau, baru gelombang 2 (video) dimulai atas perintah ARYA.
-Jangan memulai gelombang 2 sendiri.
+## Keadaan sekarang (2 Sep 2026, sore)
+Kelima sesi SELESAI gelombang 1. **ARYA menyetujui semuanya dan membuka
+gelombang 2.** Semua cabang sudah tergabung ke `master` dan diselaraskan balik.
+Tinjauan ISI (urutan materi, pedagogi, ketepatan) diserahkan ARYA ke MASTER;
+tinjauan VISUAL tetap oleh ARYA. Revisi isi dari MASTER dan tugas gelombang 2
+ada di file tugas masing-masing, bagian "Gelombang 2". Standar mengajar yang
+dipakai menilai: `docs/tugas/STANDAR-MENGAJAR.md`. Baca itu SEBELUM menulis
+naskah video, sebab narasi video adalah bentuk paling murni dari "guru
+menjelaskan".
+
+## Bergiliran memakai laptop yang sama (BARU, 2 Sep)
+Lima sesi berbagi satu prosesor dan satu peramban Playwright. Tabrakan yang
+sudah terjadi: potret nyasar antar sesi, port saling ambil, render berebut
+prosesor. Aturannya:
+
+1. **Render Manim WAJIB lewat antrean**, jangan pernah memanggil `manim`
+   langsung:
+   ```bash
+   python alat/antre_render.py <nama-sesi> -- manim -ql --disable_caching manim/scenes/<berkas>.py <Adegan>
+   ```
+   Alat itu menunggu kalau sesi lain sedang merender (melapor tiap 20 detik),
+   lalu mengunci giliranmu, dan melepasnya saat selesai. Lihat siapa yang
+   sedang merender: `python alat/antre_render.py --siapa`. Sambil menunggu,
+   kerjakan hal lain (naskah, cek_kode, subtitle), jangan diam.
+2. `next build` jangan dijalankan berbarengan dengan render milikmu sendiri.
+3. Yang TIDAK perlu antre: `buat_narasi.py` (jaringan), `tsc`, `cek_kode.py`,
+   Playwright (asal `-s=<nama>`), dev server (port sendiri).
+4. **Lihat laporan sesi lain** (`docs/tugas/laporan/*.md`, ada di cabangmu
+   setelah sinkron) sebelum menyentuh hal yang bisa bersinggungan, dan tulis di
+   laporanmu kalau kamu akan memakai sesuatu lama (mis. render 6 video berturut).
+
+## Pakai perkakas sampai habis (BARU)
+Jangan mengerjakan dengan tangan apa yang sudah ada alatnya:
+- Angka: pemeriksa dua arah milikmu (`alat/cek_<topik>.py`), sympy.
+- Naskah video: skill `superpowers:brainstorming` untuk storyboard, lalu
+  `manim/buat_narasi.py` (edge-tts, mengukur durasi tiap segmen).
+- Adegan: `manim/sinema.py` (babak yang gagal kalau melewati narasi),
+  `manim/qc.py` (gagal kalau ada yang bertindih atau keluar bingkai),
+  `manim/cek_kode.py --dalam` sebelum render.
+- Setelah render: `manim/cek_video.py` lalu BUKA lembar kontaknya frame per
+  frame; `manim/buat_subtitle.py`; `manim/gabung_audio.py --uji` untuk 480p.
+- Halaman: `playwright-cli -s=<nama>` di 375 dan 1366, skill
+  `web-interface-guidelines` kalau menyentuh tata letak.
+- Sebelum lapor: `superpowers:verification-before-completion`.
+- PDF: PyMuPDF ke PNG, baca sebagai gambar; skill `dataviz` untuk grafik data.
 
 ## Wajib di menit pertama, berurutan
 1. Baca `PROGRESS.md` dari atas sampai bawah. Lalu `CLAUDE.md`.
