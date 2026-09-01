@@ -49,7 +49,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
           'median     keduanya 7',
           'modus      keduanya 7',
         ],
-        simpul: 'Ketiga ukuran pemusatan yang biasa dipakai memberi jawaban yang sama persis. Padahal isi kedua kelas itu berbeda jauh.',
+        simpul: 'Ketiga ukuran pemusatan yang biasa dipakai memberi jawaban yang sama persis. Rata-rata adalah jumlah dibagi banyaknya, median adalah nilai yang di tengah setelah diurutkan, modus adalah nilai yang paling sering muncul; ketiganya dibongkar tuntas di Tahap 5. Padahal isi kedua kelas itu berbeda jauh.',
       },
       { jenis: 'sorot', teks: 'Di Kelas A tidak ada yang tertinggal jauh. Di Kelas B ada yang dapat 3, dan ada yang dapat 11. Kalau Anda guru, kedua kelas itu butuh perlakuan yang sama sekali berbeda.' },
 

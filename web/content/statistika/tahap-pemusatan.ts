@@ -268,7 +268,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
     ],
     seringKeliru: {
       judul: 'Kotak yang lebih lebar berarti datanya lebih banyak',
-      isi: 'Tidak. Setiap bagian dari boxplot selalu berisi tepat seperempat data, berapa pun lebarnya. Kotak yang lebar berarti seperempat sampai setengah data yang di tengah itu tersebar di rentang yang luas, bukan berarti jumlah datanya lebih banyak. Boxplot memang tidak menampilkan banyak data sama sekali, dan itu kelemahannya: dua boxplot yang identik bisa berasal dari 10 data dan dari 10.000 data.',
+      isi: 'Godaannya datang dari histogram. Di sana batang yang lebih besar memang berarti data yang lebih banyak, dan mata membawa kebiasaan itu ke boxplot. Padahal setiap bagian dari boxplot selalu berisi tepat seperempat data, berapa pun lebarnya. Kotak yang lebar berarti seperempat sampai setengah data yang di tengah itu tersebar di rentang yang luas, bukan berarti jumlah datanya lebih banyak. Boxplot memang tidak menampilkan banyak data sama sekali, dan itu kelemahannya: dua boxplot yang identik bisa berasal dari 10 data dan dari 10.000 data.',
       sumber: 'Cara menentukan kuartil mengikuti Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, halaman 227 sampai 228.',
     },
     widget: 'kotak-garis',

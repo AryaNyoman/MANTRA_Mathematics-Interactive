@@ -1,5 +1,5 @@
 # Laporan MATRA-STATISTIKA
-Terakhir: 1 September 2026, malam
+Terakhir: 2 September 2026, gelombang 2 berjalan
 
 Cabang `sesi/statistika`. Gelombang 1, halaman saja, tanpa video.
 Rancangan: `docs/superpowers/specs/2026-09-01-statistika-alur-belajar.md`, sudah
@@ -184,3 +184,138 @@ terlalu berat.
 **3. Cara meninjau.** Dev server sesi ini berjalan di port 3003:
 `http://localhost:3003/topik/statistika`. Kalau jendelanya sudah tertutup,
 hidupkan lagi dengan `cd web && npm run dev -- -p 3003`.
+
+---
+
+# 2 September 2026: gelombang 2
+
+## Potret 375 piksel, dibuka dan dinilai
+
+Diminta MASTER setelah perbaikan HP dari sesi UI/UX masuk ke cabang saya.
+
+**Tampilan HP topik Statistika sudah benar.** `document.scrollWidth` sama
+dengan `clientWidth`, 375 lawan 375, jadi nol luapan mendatar. Satu-satunya
+elemen yang keluar tepi adalah tombol MATERI 05 ke atas di dalam baris tab,
+dan baris itu memang bergulir menyamping dengan sengaja.
+
+**Tabel tiga kolom Materi 01, yang dikhawatirkan, AMAN.** Ketiga kolomnya muat
+utuh, angka rata kanan, kolom "Kelas B" berhenti 16 piksel sebelum tepi layar.
+
+**Dua cacat yang saya temukan sendiri, dan sudah diperbaiki.** Keduanya hanya
+muncul di lebar HP dan tidak menghasilkan galat apa pun di log.
+
+| Materi | Cacat | Perbaikan |
+|---|---|---|
+| 01 | lencana "INTERAKTIF" menutupi separuh atas "Kelas A, tidak bisa digeser" | baris teks turun dari y 20 ke y 42 |
+| 05 | lencana yang sama menutupi kata "sei" pada "seimbang, penopangnya tepat di rata-rata" | baris teks turun dari y 22 ke y 42 |
+
+Sebabnya satu: di layar lebar SVG membesar sehingga baris itu jatuh di bawah
+lencana, di 375 piksel SVG mengecil dan baris itu naik ke belakang lencana.
+Jarak sekarang 12 piksel, diukur ulang di peramban.
+
+Cacat ketiga muncul belakangan di Materi 09 setelah widgetnya diberi kendali
+tambahan, dan itu membuka sebab yang lebih dalam: **seberapa jauh lencana masuk
+ke dalam papan berubah-ubah menurut banyaknya baris kendali sebuah widget.**
+Papan yang kendalinya banyak menyusut sampai batas, dan tepi atasnya lalu
+persis di bawah lencana. Karena itu keterangan papan sekarang digambar MASUK ke
+dalam bingkai dengan halo krem, berlaku untuk kelima widget yang memakainya,
+bukan ditambal satu per satu.
+
+## Revisi isi yang diminta MASTER
+
+| Permintaan | Status |
+|---|---|
+| Huruf x sebagai tanda kali diganti | selesai, 24 tempat, jadi tanda kali sungguhan |
+| Tahap 9 dilengkapi, tidak dipecah | selesai, lihat di bawah |
+| "line plot (diagram titik)" sekali | selesai, di judul sesi saat pertama muncul |
+| Data BPS: tetap data buatan yang jujur | diterima, tidak ada pengambilan data web |
+| Kata "mudah", "gampang", "jelas" | selesai, 13 tempat |
+
+**Tahap 9.** Ditambah paragraf pemanggil ulang sebelum sesi modus, dan `coba`
+kedua khusus modus. Supaya `coba` itu benar-benar bisa dikerjakan, widget
+`DataKelompok` diberi dua penggeser frekuensi tetangga dan penanda modus di
+dalam batang tertinggi. Tiga angka yang dijanjikan teksnya saya jalankan
+sendiri di peramban dan cocok: tetangga kanan 11 memberi modus 67,5, kedua
+tetangga sama memberi 64,5, tetangga kanan 0 memberi 60,27. Ketiganya lalu
+ditambahkan ke `data.json` supaya ikut diperiksa dua pemeriksa, bukan cuma
+dilihat sekali. **Sekarang 152 angka, dua-duanya lolos.**
+
+Kata "jelas" yang tersisa sengaja dibiarkan: "pemotongan itu DIBERITAHUKAN
+dengan jelas" di Tahap 13 dan kata "menjelaskan" di beberapa tempat. Keduanya
+bukan penilaian atas tugas siswa.
+
+## Daftar periksa STANDAR-MENGAJAR bagian 6, per tahap
+
+Butir: 1 pertanyaan pembuka belum terjawab sebelumnya · 2 ada pemanggil ulang ·
+3 benda sebelum lambang · 4 satu sesi satu ide · 5 istilah baru diberi arti ·
+6 contoh prosedur beralasan per baris · 7 ada `coba` berpenuntun · 8
+`seringKeliru` menjelaskan kenapa menggoda · 9 `intisari` hanya yang dibahas ·
+10 bersih dari kata terlarang dan em-dash.
+
+| Tahap | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 Satu angka bisa menipu | ya | ya | ya | ya | ya | n/b | ya | ya | ya | ya |
+| 2 Daftar angka jadi gambar | ya | ya | ya | ya | ya | n/b | ya | ya | ya | ya |
+| 3 Lebar kelas | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 4 Dua kelompok beda jumlah | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 5 Mean, median, modus | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 6 Pencilan | ya | ya | ya | ya | ya | n/b | ya | ya | ya | ya |
+| 7 Kuartil dan boxplot | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 8 Simpangan baku | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 9 Data berkelompok | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 10 Diagram pencar | ya | ya | ya | ya | ya | n/b | ya | ya | ya | ya |
+| 11 Garis regresi | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 12 Korelasi bukan sebab | ya | ya | ya | ya | ya | n/b | ya | ya | ya | ya |
+| 13 Grafik menyesatkan | ya | ya | ya | ya | ya | n/b | ya | ya | ya | ya |
+
+"n/b" pada butir 6 berarti tidak berlaku: tahap itu bukan tahap prosedur.
+Tahap prosedurnya ada enam: 3, 4, 5, 7, 8, 9, 11.
+
+**Empat butir "tidak" ditemukan saat mengisi daftar ini, dan semuanya sudah
+diperbaiki sebelum tabel di atas ditulis.** Daftar periksa ini memang menangkap
+hal yang tidak tertangkap mata:
+
+| Temuan | Butir | Perbaikan |
+|---|---|---|
+| Tahap 6 satu-satunya tahap tanpa kalimat pemanggil ulang | 2 | dibuka dengan menagih kembali bukti Tahap 5, bahwa mean titik seimbang, sebab sifat itu juga yang membuatnya bisa diseret pencilan |
+| Tahap 9 contoh mean berkelompok cuma enam baris perkalian tanpa keterangan | 6 | diberi baris pembuka "banyak siswa kali titik tengah kelasnya" |
+| Tahap 11 contoh rumus regresi melompat dari daftar jumlah ke rumus b lalu ke rumus a | 6 | diberi tiga baris penanda tahap |
+| Tahap 7 `seringKeliru` langsung membantah tanpa menyebut kenapa keliru itu menggoda | 8 | ditambah: godaannya datang dari histogram, di sana batang lebih besar memang berarti data lebih banyak |
+
+Satu lagi yang setengah lolos dan sudah ditutup: mean, median, dan modus
+muncul di Tahap 1 sebagai istilah yang dianggap sudah dikenal dari SMP,
+sementara artinya baru dibongkar di Tahap 5 (butir 5). Sekarang Tahap 1 memberi
+arti singkat ketiganya sambil menunjuk ke Tahap 5.
+
+## Pemeriksaan yang dijalankan hari ini
+
+| Pemeriksaan | Hasil |
+|---|---|
+| `node node_modules/typescript/bin/tsc --noEmit` | lolos, exit 0 |
+| `node node_modules/eslint/bin/eslint.js` wilayah statistika | bersih, exit 0 |
+| `node node_modules/next/dist/bin/next build` | lolos, 19 halaman |
+| `python alat/cek_statistik.py` | 152 angka cocok, 31 kumpulan data |
+| `node alat/cek_statistik_web.mjs` | 152 angka cocok |
+| `python alat/cek_statistik.py --uji-diri` | 13 dari 13 |
+| Potret 375 piksel, ketiga belas materi | dibuka dan dinilai satu per satu |
+| Tiga langkah `coba` modus Tahap 9 | dijalankan di peramban, angkanya cocok |
+
+**eslint seluruh `web/` GAGAL, tetapi bukan di wilayah saya:**
+`components/widget/ruang-3d/Bingkai3D.tsx:139` melanggar `react-hooks/refs`,
+"Cannot access refs during render". Sudah saya laporkan ke MASTER untuk
+diteruskan ke MATRA-RUANG 3D. Saya tidak menyentuhnya.
+
+## Untuk MASTER
+
+**Lencana "INTERAKTIF" adalah jebakan bersama, bukan cuma masalah saya.** Ia
+menumpang di atas pojok kiri atas panel, di atas SVG widget, jadi setiap widget
+di SELURUH situs harus mengosongkan kotak kira-kira 110 kali 25 satuan viewBox
+di sana. Lebih buruk lagi, seberapa dalam ia masuk berubah menurut tinggi baris
+kendali widget, jadi widget yang hari ini aman bisa rusak besok begitu
+kendalinya bertambah satu baris. Kalau lencananya diberi latar tak tembus
+pandang atau dipindah ke luar panel, kelima topik aman sekaligus.
+
+## Berikutnya
+
+Video 480p, urut prioritas di file tugas, mulai Tahap 5 jungkat-jungkit.
+Belum dimulai.
