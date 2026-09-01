@@ -6,21 +6,27 @@ import { KOTAK, MONO, WARNA, angka, jalurFungsi, keLayar, type Jendela } from '@
 /**
  * Widget "Perusak Fungsi", Limit tahap 9.
  *
- * Satu fungsi mulus, dan tiga tombol untuk merusaknya. Tiap kerusakan
- * menampilkan syarat kontinu nomor berapa yang dilanggar.
+ * Satu fungsi mulus, dan empat cara merusaknya. Tiap kerusakan menampilkan
+ * syarat kontinu nomor berapa yang dilanggar.
  *
- * Ketiga kerusakannya sengaja yang SUDAH pernah ditemui siswa: berlubang di
- * Tahap 4, melompat di Tahap 3, dan meledak yang baru diperkenalkan di sini.
- * Jadi tahap ini terasa mengumpulkan, bukan menambah beban baru.
+ * Tiga di antaranya SUDAH pernah ditemui siswa: berlubang di Tahap 4,
+ * melompat di Tahap 3, dan meledak yang baru diperkenalkan di sini. Jadi tahap
+ * ini terasa mengumpulkan, bukan menambah beban baru.
+ *
+ * Yang keempat, "geser satu titik", ditambahkan karena tanpa itu syarat 3 tidak
+ * pernah gagal sendirian: selalu ada syarat 1 atau 2 yang ikut gugur, sehingga
+ * siswa tidak punya kesempatan melihat gunanya syarat 3. Bentuk ini persis
+ * fungsi G(x) di buku Kemendikdasmen halaman 95.
  */
 
-export type Kerusakan = 'mulus' | 'lubang' | 'lompat' | 'asimtot'
+export type Kerusakan = 'mulus' | 'lubang' | 'geser' | 'lompat' | 'asimtot'
 
-export const URUT_RUSAK: Kerusakan[] = ['mulus', 'lubang', 'lompat', 'asimtot']
+export const URUT_RUSAK: Kerusakan[] = ['mulus', 'lubang', 'geser', 'lompat', 'asimtot']
 
 export const NAMA_RUSAK: Record<Kerusakan, string> = {
   mulus: 'Mulus',
   lubang: 'Bikin lubang',
+  geser: 'Geser satu titik',
   lompat: 'Bikin lompat',
   asimtot: 'Bikin asimtot',
 }
@@ -38,6 +44,7 @@ export function periksa(rusak: Kerusakan): Periksa {
   switch (rusak) {
     case 'mulus':   return { nilaiAda: true,  limitAda: true,  samaNilainya: true }
     case 'lubang':  return { nilaiAda: false, limitAda: true,  samaNilainya: false }
+    case 'geser':   return { nilaiAda: true,  limitAda: true,  samaNilainya: false }
     case 'lompat':  return { nilaiAda: true,  limitAda: false, samaNilainya: false }
     case 'asimtot': return { nilaiAda: false, limitAda: false, samaNilainya: false }
   }
@@ -46,6 +53,7 @@ export function periksa(rusak: Kerusakan): Periksa {
 export const KETERANGAN: Record<Kerusakan, string> = {
   mulus: 'Ketiga syarat terpenuhi. Fungsinya kontinu di x = 2.',
   lubang: 'Syarat 1 gagal: f(2) tidak ada. Limitnya tetap 3, karena limit hanya melihat tetangga.',
+  geser: 'Hanya syarat 3 yang gagal: f(2) = 6, padahal limitnya 3. Nilainya ada, limitnya ada, tapi keduanya beda.',
   lompat: 'Syarat 2 gagal: dari kiri menuju 3, dari kanan menuju 5. Nilainya ada, tapi limitnya tidak.',
   asimtot: 'Syarat 1 dan 2 gagal: di x = 2 penyebutnya nol, nilainya membesar tanpa batas.',
 }
@@ -59,6 +67,11 @@ function fungsi(rusak: Kerusakan) {
         return dasar(x)
       case 'lubang':
         return Math.abs(x - C) < 1e-9 ? NaN : dasar(x)
+      case 'geser':
+        // nilainya ADA, tapi dipindah ke tempat lain. Ini contoh G(x) di buku
+        // Kemendikdasmen halaman 95, satu-satunya bentuk yang menggagalkan
+        // syarat 3 saja tanpa menyentuh syarat 1 dan 2.
+        return Math.abs(x - C) < 1e-9 ? 6 : dasar(x)
       case 'lompat':
         return x > C ? dasar(x) + 2 : dasar(x)
       case 'asimtot':
@@ -102,13 +115,26 @@ export default function PerusakFungsi({ rusak }: { rusak: Kerusakan }) {
                   stroke={WARNA.miring} strokeWidth={2.2} />
         </>
       ) : (
-        <path d={jalurFungsi(f, JENDELA, 500)} fill="none" stroke={WARNA.miring}
+        <path d={jalurFungsi(rusak === 'geser' ? dasar : f, JENDELA, 500)} fill="none" stroke={WARNA.miring}
               strokeWidth={2.6} strokeLinejoin="round" />
       )}
 
       {rusak === 'lubang' && (
         <circle cx={p.x(C)} cy={p.y(dasar(C))} r={6} fill="var(--kartu)"
                 stroke={WARNA.sudut} strokeWidth={2.4} />
+      )}
+      {rusak === 'geser' && (
+        <>
+          {/* tempat yang seharusnya, digambar bolong */}
+          <circle cx={p.x(C)} cy={p.y(dasar(C))} r={6} fill="var(--kartu)"
+                  stroke={WARNA.sudut} strokeWidth={2.4} />
+          {/* dan nilainya yang sebenarnya, terpisah jauh di atas */}
+          <circle cx={p.x(C)} cy={p.y(6)} r={5.5} fill={WARNA.depan}
+                  stroke="var(--kartu)" strokeWidth={2} />
+          <text x={p.x(C) + 12} y={p.y(6) + 4} fontSize={11} fill={WARNA.depan} fontFamily={MONO}>
+            f(2) = 6
+          </text>
+        </>
       )}
       {rusak === 'mulus' && (
         <circle cx={p.x(C)} cy={p.y(dasar(C))} r={5} fill={WARNA.sudut}

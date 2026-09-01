@@ -787,6 +787,16 @@ export const TAHAP: TahapLimit[] = [
           'Grafiknya menjulang tegak di dekat garis x = 2',
         ],
       },
+      {
+        jenis: 'poin',
+        judul: 'Gagal syarat ketiga saja: nilainya digeser',
+        butir: [
+          'Bentuknya: f(x) = x + 1 untuk semua x kecuali 2, tetapi f(2) sengaja ditetapkan 5',
+          'Nilainya ada, limitnya juga ada, jadi syarat 1 dan 2 lolos',
+          'Tapi limitnya 3 sedangkan nilainya 5, jadi syarat 3 gagal',
+          'Inilah satu-satunya bentuk yang membuat syarat 3 terasa perlu',
+        ],
+      },
       { jenis: 'paragraf', teks: 'Perhatikan bedanya dengan asimtot datar di Tahap 7. Asimtot datar muncul saat x lari ke tak hingga dan f(x) yang mendatar. Asimtot tegak muncul saat x mendekati satu titik dan f(x) yang meledak. Arahnya kebalikan.' },
 
       { jenis: 'sesi', judul: 'Janji dari Tahap 5 dilunasi di sini' },
@@ -796,10 +806,11 @@ export const TAHAP: TahapLimit[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri memberi Anda sebuah fungsi mulus dan tiga tombol untuk merusaknya.',
+        teks: 'Alat di sebelah kiri memberi Anda sebuah fungsi mulus dan empat cara merusaknya.',
         langkah: [
           'Tekan "bikin lubang". Perhatikan syarat nomor berapa yang menyala merah',
-          'Tekan "bikin lompat". Sekarang syarat yang gagal berbeda',
+          'Tekan "geser satu titik". Sekarang HANYA syarat 3 yang gagal: nilainya ada, limitnya ada, tapi keduanya beda',
+          'Tekan "bikin lompat". Yang gagal syarat 2, karena kiri dan kanan tidak sepakat',
           'Tekan "bikin asimtot". Grafiknya menjulang dan angkanya lepas',
           'Kembalikan ke mulus. Ketiga syaratnya menyala hijau bersamaan',
         ],
