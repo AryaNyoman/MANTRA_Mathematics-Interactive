@@ -197,12 +197,24 @@ baris `Aliased` di log, jangan menebak polanya.
 | Prioritas | Materi | Naskah | Adegan | 480p | 1080p | Keadaan |
 |---|---|---|---|---|---|---|
 | 1 | 04 Lubang di grafik | ✅ | ✅ | ✅ | ✅ | **TAYANG** |
-| 2 | 01 Kecepatan sesaat | ✅ | ✅ | ✅ | ⬜ | menunggu revisi ARYA |
-| 3 | 08 Limit sinus | ✅ | ✅ | ✅ | ⬜ | menunggu revisi ARYA |
-| 4 | 02 Mendekati | ✅ | ✅ | ✅ | ⬜ | menunggu revisi ARYA |
-| 5 | 09 Kontinuitas | ✅ | ✅ | ✅ | ⬜ | menunggu revisi ARYA |
-| 6 | 06 Nol per nol | ✅ | ✅ | ✅ | ⬜ | menunggu revisi ARYA |
-| 7 | 07 Tak hingga | ✅ | ✅ | ✅ | ⬜ | menunggu revisi ARYA |
+| 2 | 01 Kecepatan sesaat | ✅ | ✅ | ✅ | ✅ | siap tayang, belum di-deploy |
+| 3 | 08 Limit sinus | ✅ | ✅ | ✅ | ✅ | siap tayang, belum di-deploy |
+| 4 | 02 Mendekati | ✅ | ✅ | ✅ | ✅ | siap tayang, belum di-deploy |
+| 5 | 09 Kontinuitas | ✅ | ✅ | ✅ | ✅ | siap tayang, belum di-deploy |
+| 6 | 06 Nol per nol | ✅ | ✅ | ✅ | ✅ | siap tayang, belum di-deploy |
+| 7 | 07 Tak hingga | ✅ | ✅ | ✅ | ✅ | siap tayang, belum di-deploy |
+
+**Keadaan 1 Sep malam:** ketujuhnya 1920x1080 60fps, bersuara, bersubtitle,
+berposter, dan SUDAH terdaftar di `web/content/limit/tahap.ts`. Yang belum:
+`vercel deploy --prod`. ARYA memilih "render dulu, risiko diterima" tanpa
+menunggu ia menonton, jadi kalau ia menemukan cacat, video itu dirender ulang.
+
+**Ukuran jadi masalah baru.** Keenam video baru menambah 35,2 MB, sehingga
+`web/public/` naik dari 43,3 MB ke 78,4 MB, dan 96 persen isinya video.
+Kuota Vercel gratis masih aman: 100 siswa menonton semua video sekali kira-kira
+7,7 GB, yaitu 7,7 persen dari jatah 100 GB per bulan. Tapi kalau keenam topik
+nanti punya video, transfer inilah yang akan mentok lebih dulu, bukan request.
+Kalau perlu dipangkas: turunkan bitrate VP9, bukan resolusinya.
 
 Ketujuh adegan sudah ditulis dan dirender. Enam salinan tinjauan bersuara ada
 di `media/uji-480p/` (Materi 04 tidak perlu, sudah tayang 1080p). Folder itu
@@ -227,6 +239,8 @@ ditemukan tanpa membuka gambarnya.
 | 06 Nol per nol | huruf `x` tertutup habis oleh coretannya sendiri, terlihat dihapus bukan dicoret | tebal garis yang pas untuk faktor `(x-2)` kelewat tebal untuk satu huruf. Sekarang tebalnya menyesuaikan lebar sasaran. |
 | 07 Tak hingga | dua baris contoh pecahan menyusut sampai sulit dibaca | satu `MathTex` panjang berisi `\tfrac` dan `\qquad` jadi objek kelewat lebar, lalu dikecilkan seluruhnya. **Pisah jadi beberapa objek lalu `arrange`.** |
 | 07 Tak hingga | keterangan penutup grafik cuma sempat tampil penuh 1,5 detik | langkah menggambar sebelumnya terlalu panjang |
+
+| 06 Nol per nol | rumus lama dan rumus baru bertumpuk hampir 2 detik pada babak hasil1 | `FadeOut` dan `FadeIn` dijalankan BERSAMAAN di tempat yang sama. **Cacat ini lolos dari lembar kontak 480p** sebab sampelnya kebetulan meleset dari detik itu, dan baru ketahuan pada gerbang mutu berkas FINAL. Bukti bahwa langkah 10 di resep bukan formalitas. |
 
 Satu hal yang **sengaja dibiarkan**: ada jeda sekitar 1 detik layar kosong
 antara judul pembuka memudar dan isi pertama muncul, di ketujuh video. Itu
