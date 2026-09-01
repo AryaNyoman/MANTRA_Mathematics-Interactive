@@ -11,6 +11,30 @@ MASTER juga bisa menyalakan kelima sesi sendiri lewat PowerShell
 (jendela terminal terpisah per sesi). Kalau jendelanya tertutup atau
 laptop di-restart, nyalakan ulang dengan baris di bawah.
 
+## Cara tercepat: klik ganda berkas .bat di folder proyek
+
+| Berkas | Gunanya |
+|---|---|
+| `NYALAKAN-5-SESI.bat` | menyalakan kelima sesi topik + UI/UX sekaligus (±40 detik) |
+| `NYALAKAN-MASTER.bat` | menyalakan MATRA-MASTER saja |
+
+Keduanya memanggil `alat/nyalakan-sesi.ps1`, yang sudah:
+- **melewati sesi yang sudah hidup**, jadi klik dua kali tidak bikin dobel,
+- **melanjutkan** sesi lama (`claude --continue`), bukan mengulang dari nol,
+- membersihkan penanda sesi anak dan memberi jeda antar penyalaan.
+
+MASTER sengaja dipisah ke tombolnya sendiri: kalau jendela MASTER sudah
+terbuka, membuka satu lagi di folder yang sama membuat dua sesi saling
+menimpa berkas. Pakai `NYALAKAN-MASTER.bat` hanya kalau tidak ada.
+
+Mau tahu apa yang AKAN dilakukan tanpa menyalakan apa pun:
+
+```bash
+powershell -ExecutionPolicy Bypass -File "D:\MANIM-MATRA\alat\nyalakan-sesi.ps1" -Cek
+```
+
+Ingin sesi benar-benar baru dari nol (jarang perlu): tambahkan `-Baru`.
+
 ## Jendela ditutup / laptop mati: sesinya berhenti, kerjaannya TIDAK hilang
 Menutup jendela mematikan proses sesi (remote control ikut putus), tapi file,
 commit, dan riwayat obrolannya tersimpan. Untuk MELANJUTKAN sesi lama beserta
