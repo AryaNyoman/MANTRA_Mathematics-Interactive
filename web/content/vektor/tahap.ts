@@ -51,11 +51,6 @@ export type WidgetVektor =
  */
 type TahapVektor = Omit<Tahap, 'widget'> & { widget?: WidgetVektor }
 
-/** Penanda sementara untuk materi yang naskahnya belum ditulis. */
-const BELUM = [
-  { jenis: 'paragraf' as const, teks: 'Naskah materi ini sedang ditulis.' },
-]
-
 export const TAHAP: TahapVektor[] = [
   /* ================================================================= */
   {
@@ -736,9 +731,64 @@ export const TAHAP: TahapVektor[] = [
     judul: 'Vektor di dunia nyata',
     labelPendek: 'Dunia nyata',
     pertanyaan: 'Di mana saja panah ini benar-benar dipakai?',
-    penjelasan: BELUM,
+    penjelasan: [
+      {
+        jenis: 'paragraf',
+        teks: 'Sembilan materi sebelumnya membahas caranya. Materi ini menunjukkan tempatnya. Keempat foto di sebelah kiri bukan contoh yang dikarang supaya cocok dengan pelajaran: keempatnya memang dikerjakan dengan vektor oleh orang yang bekerja di bidang itu.',
+      },
+      { jenis: 'sesi', judul: 'Menutup cerita perahu' },
+      {
+        jenis: 'paragraf',
+        teks: 'Materi 01 dibuka dengan perahu yang mendarat di hilir. Sekarang semua alatnya sudah ada di tanganmu, jadi ceritanya bisa dituntaskan dengan hitungan, bukan cuma gambaran.',
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Perahu menyeberang sungai selebar 3 km',
+        baris: [
+          'Dayung memberi perpindahan (0 3) km tiap jam, lurus ke seberang',
+          'Arus memberi perpindahan (2 0) km tiap jam, ke hilir',
+          'Gerak sebenarnya: (0 3) ditambah (2 0) sama dengan (2 3)',
+          'Gerak tegaknya 3 km per jam, jadi menyeberang butuh 1 jam',
+          'Selama 1 jam itu arus membawanya 2 km ke hilir',
+        ],
+        simpul: 'Mendarat 2 km dari titik yang dibidik. Jarak yang benar-benar ditempuh akar 13, sekitar 3,61 km, bukan 3 km.',
+      },
+      { jenis: 'sesi', judul: 'Yang sama, di udara' },
+      {
+        jenis: 'paragraf',
+        teks: 'Pesawat menghadapi persoalan yang identik, hanya medianya udara dan angkanya jauh lebih besar. Pilot yang mengarahkan hidung pesawat lurus ke landasan saat ada angin samping akan melenceng, persis seperti perahu tadi. Karena itu pesawat sengaja dihadapkan sedikit melawan angin, supaya jumlah kedua vektornya kembali menuju landasan.',
+      },
+      { jenis: 'sesi', judul: 'Memecah, bukan menjumlah' },
+      {
+        jenis: 'paragraf',
+        teks: 'Perahu layar memakai arah sebaliknya: bukan menjumlahkan dua vektor, melainkan memecah satu vektor menjadi dua komponen. Gaya angin yang menekan layar dipecah menjadi bagian yang mendorong ke depan dan bagian yang mendorong ke samping. Lunas di bawah perahu menahan yang menyamping, sehingga yang tersisa mendorong perahu maju.',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Itulah kenapa perahu layar bisa melaju menyerong terhadap angin, bukan cuma searah tiupannya. Caranya persis pemecahan komponen di Materi 03, hanya sumbunya bukan mendatar dan tegak, melainkan arah maju dan arah samping perahu.',
+      },
+      { jenis: 'sesi', judul: 'Vektor yang dipakai terang-terangan' },
+      {
+        jenis: 'paragraf',
+        teks: 'Peta lempeng bumi di foto keempat bahkan tidak menyembunyikan vektornya. Tiap anak panah menunjukkan ke mana sebuah lempeng bergerak, dan angka di sebelahnya menunjukkan seberapa cepat dalam milimeter per tahun. Karena arah dan besarnya diketahui, para ilmuwan bisa memperkirakan lempeng mana yang mendekat dan mana yang menjauh.',
+      },
+      {
+        jenis: 'sorot',
+        teks: 'Peta seperti ini yang dipakai Buku Panduan Guru untuk membuka bab vektor, dan alasannya masuk akal: di situ vektor terlihat apa adanya, tanpa perlu diterjemahkan.',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Keempat foto berlisensi terbuka. Sumber, nama pemotret, dan lisensinya dicatat di berkas sumber.json pada situs ini, supaya siapa pun bisa memeriksanya.',
+      },
+    ],
+    intisari: [
+      'Perahu, pesawat, dan layar semuanya persoalan yang sama: dua gerak atau dua gaya yang berlaku bersamaan.',
+      'Kadang yang dibutuhkan menjumlahkan vektor, kadang justru memecahnya jadi komponen.',
+      'Peta lempeng bumi memakai vektor secara langsung: arah panah dan panjangnya bercerita.',
+      'Semua yang dipakai di sini sudah dibahas di Materi 01 sampai 09.',
+    ],
     widget: 'dunia-nyata-vektor',
-    siap: false,
+    siap: true,
   },
   /* ================================================================= */
   {

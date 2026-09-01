@@ -12,6 +12,7 @@ import SelisihPanah from '@/components/widget/vektor/SelisihPanah'
 import KaliSkalar, { BATAS_K } from '@/components/widget/vektor/KaliSkalar'
 import PerkalianTitik from '@/components/widget/vektor/PerkalianTitik'
 import Proyeksi from '@/components/widget/vektor/Proyeksi'
+import DuniaNyataVektor from '@/components/widget/vektor/DuniaNyataVektor'
 import {
   angka, kali, kurang, mataAngin, panjang, panjangProyeksi, satuan, sudutAntara,
   sudutDerajat, tambah, titik, vektorProyeksi, type Vek,
@@ -252,6 +253,12 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
               </div>
             </div>
           </>
+        )}
+
+        {tahap.widget === 'dunia-nyata-vektor' && (
+          <div className="isi-gulir">
+            <DuniaNyataVektor />
+          </div>
         )}
 
         {tampilWidget && tahap.widget === 'perkalian-titik' && (
