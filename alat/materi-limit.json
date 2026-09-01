@@ -1,0 +1,19 @@
+[
+  { "id": "t1-kecepatan-sesaat",  "ekspresi": "(5*(2+h)**2 - 5*4)/h",        "peubah": "h", "menuju": "0", "jawaban": "20" },
+  { "id": "t2-mendekati",         "ekspresi": "x**2 + 1",                    "peubah": "x", "menuju": "3", "jawaban": "10" },
+  { "id": "t3-kiri",              "ekspresi": "Abs(x-3)/(x-3)",              "peubah": "x", "menuju": "3", "jawaban": "-1", "arah": "-" },
+  { "id": "t3-kanan",             "ekspresi": "Abs(x-3)/(x-3)",              "peubah": "x", "menuju": "3", "jawaban": "1",  "arah": "+" },
+  { "id": "t3-tidak-ada",         "ekspresi": "Abs(x-3)/(x-3)",              "peubah": "x", "menuju": "3", "jawaban": "tidak ada" },
+  { "id": "t4-lubang",            "ekspresi": "(x**2 - 1)/(x - 1)",          "peubah": "x", "menuju": "1", "jawaban": "2" },
+  { "id": "t5-substitusi",        "ekspresi": "(3*x**2 - x + 4)/(x + 2)",    "peubah": "x", "menuju": "2", "jawaban": "7/2" },
+  { "id": "t5-buku-hal86",        "ekspresi": "sqrt(x)/(x**2 + 3*x)",        "peubah": "x", "menuju": "4", "jawaban": "1/14" },
+  { "id": "t6-faktor",            "ekspresi": "(x**2 - 4)/(x - 2)",          "peubah": "x", "menuju": "2", "jawaban": "4" },
+  { "id": "t6-sekawan",           "ekspresi": "(sqrt(x + 4) - 2)/x",         "peubah": "x", "menuju": "0", "jawaban": "1/4" },
+  { "id": "t7-takhingga",         "ekspresi": "(3*x**2 + 2*x)/(x**2 - 5)",   "peubah": "x", "menuju": "oo", "jawaban": "3" },
+  { "id": "t7-pangkat-beda",      "ekspresi": "(2*x + 7)/(x**2 + 1)",        "peubah": "x", "menuju": "oo", "jawaban": "0" },
+  { "id": "t8-sinus",             "ekspresi": "sin(x)/x",                    "peubah": "x", "menuju": "0", "jawaban": "1" },
+  { "id": "t8-sinus-kelipatan",   "ekspresi": "sin(3*x)/(5*x)",              "peubah": "x", "menuju": "0", "jawaban": "3/5" },
+  { "id": "t8-tangen",            "ekspresi": "tan(x)/x",                    "peubah": "x", "menuju": "0", "jawaban": "1" },
+  { "id": "t9-asimtot",           "ekspresi": "1/(x - 2)**2",                "peubah": "x", "menuju": "2", "jawaban": "oo" },
+  { "id": "t9-kontinu",           "ekspresi": "x**2 - 3*x + 5",              "peubah": "x", "menuju": "4", "jawaban": "9" }
+]
