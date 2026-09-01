@@ -4,7 +4,7 @@ import type { ReactNode } from 'react'
 import {
   GARIS_PETAK, GARIS_SUMBU, KOTAK, MONO, VH, VW, WARNA,
   keLayar, labelSkala, petak, type Jendela,
-} from '@/components/widget/limit/bidang'
+} from '@/components/widget/limit/koordinat'
 
 /**
  * Bingkai koordinat yang dipakai bersama widget-widget Limit.
