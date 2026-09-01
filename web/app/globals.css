@@ -1308,3 +1308,11 @@ video::cue(b) { font-weight: 700; }
   /* Daftar kanal YouTube di bawah bacaan. */
   .tautan a { display: flex; align-items: center; min-height: 44px; }
 }
+
+@media (max-width: 860px) {
+  /* Judul halaman dikunci 48 piksel, dan di layar 375 piksel judul
+     "Matematika yang bisa dilihat sebabnya" jadi memakan empat baris
+     penuh sebelum satu kalimat isi pun terbaca. Yang diubah cuma
+     ukurannya, bukan hurufnya, jadi gaya Studio Teknis tetap utuh. */
+  .beranda h1 { font-size: clamp(32px, 8.5vw, 48px); }
+}
