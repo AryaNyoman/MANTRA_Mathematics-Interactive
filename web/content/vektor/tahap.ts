@@ -87,7 +87,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri adalah perahu tadi. Kedua panahnya bisa kamu tarik.',
+        teks: 'Alat di sebelah kiri adalah perahu tadi. Kedua panahnya bisa Anda tarik.',
         langkah: [
           'Perbesar panah merah (arus). Titik mendaratnya bergeser makin jauh ke hilir, padahal dayungnya tidak diubah sama sekali.',
           'Miringkan panah biru (dayung) melawan arus. Perahunya bisa mendarat tepat di seberang, tetapi menyeberangnya jadi lebih lama.',
@@ -167,7 +167,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri punya panah acuan yang diam dan satu panah yang bisa kamu pindahkan.',
+        teks: 'Alat di sebelah kiri punya panah acuan yang diam dan satu panah yang bisa Anda pindahkan.',
         langkah: [
           'Tarik pangkal dan ujungnya bergantian sampai bentuknya sama dengan acuan. Penilaiannya berubah menjadi vektor yang SAMA.',
           'Sekarang geser keduanya bersama-sama ke pojok lain, jaga bentuknya. Penilaiannya tetap SAMA, walaupun letaknya sudah jauh.',
@@ -209,7 +209,7 @@ export const TAHAP: TahapVektor[] = [
     penjelasan: [
       {
         jenis: 'paragraf',
-        teks: 'Menggambar panah di kertas berpetak memang jelas. Tetapi begitu panahnya ada sepuluh, menggambar satu per satu jadi melelahkan dan gampang meleset satu dua kotak. Ada cara yang jauh lebih ringkas: catat saja perjalanannya sebagai dua langkah.',
+        teks: 'Menggambar panah di kertas berpetak memang jelas. Tetapi begitu panahnya ada sepuluh, menggambar satu per satu jadi melelahkan dan sering meleset satu dua kotak. Ada cara yang jauh lebih ringkas: catat saja perjalanannya sebagai dua langkah.',
       },
       { jenis: 'sesi', judul: 'Satu panah, dua langkah' },
       {
@@ -274,7 +274,7 @@ export const TAHAP: TahapVektor[] = [
     ],
     seringKeliru: {
       judul: 'Vektor bukan titik koordinat',
-      isi: 'Titik butuh sepasang angka untuk menyatakan LETAK. Vektor butuh dua titik untuk menyatakan PERPINDAHAN, dan hasilnya sepasang angka juga. Karena tulisannya mirip, keduanya sering dikira benda yang sama. Ujinya gampang: titik (4, 3) selamanya berada di tempat yang sama, sedangkan vektor (4 3) boleh digambar di mana saja asalkan panjang dan arahnya tidak berubah.',
+      isi: 'Titik butuh sepasang angka untuk menyatakan LETAK. Vektor butuh dua titik untuk menyatakan PERPINDAHAN, dan hasilnya sepasang angka juga. Karena tulisannya mirip, keduanya sering dikira benda yang sama. Cara memeriksanya begini: titik (4, 3) selamanya berada di tempat yang sama, sedangkan vektor (4 3) boleh digambar di mana saja asalkan panjang dan arahnya tidak berubah.',
       sumber: 'Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, Bab 3, bagian Ayo Berpikir Kritis halaman 106.',
     },
     intisari: [
@@ -296,7 +296,7 @@ export const TAHAP: TahapVektor[] = [
     penjelasan: [
       {
         jenis: 'paragraf',
-        teks: 'Komponen sudah memberi tahu ke kanan berapa dan ke atas berapa. Yang belum terjawab: panahnya sendiri sepanjang apa? Jawabannya sudah kamu pelajari di SMP, cuma belum dipakai di tempat ini.',
+        teks: 'Komponen sudah memberi tahu ke kanan berapa dan ke atas berapa. Yang belum terjawab: panahnya sendiri sepanjang apa? Jawabannya sudah Anda pelajari di SMP, cuma belum dipakai di tempat ini.',
       },
       { jenis: 'sesi', judul: 'Segitiga siku-siku yang selalu terbentuk' },
       {
@@ -330,7 +330,7 @@ export const TAHAP: TahapVektor[] = [
       { jenis: 'sesi', judul: 'Arah: derajat dan mata angin' },
       {
         jenis: 'paragraf',
-        teks: 'Panjang saja belum cukup. Panah sepanjang 5 ke timur dan panah sepanjang 5 ke utara sama panjangnya, tetapi jelas bukan vektor yang sama. Arahnya juga harus disebut.',
+        teks: 'Panjang saja belum cukup. Panah sepanjang 5 ke timur dan panah sepanjang 5 ke utara sama panjangnya, tetapi keduanya bukan vektor yang sama. Arahnya juga harus disebut.',
       },
       {
         jenis: 'poin',
@@ -342,7 +342,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Untuk sekarang, arahnya cukup diukur dengan busur seperti yang dilakukan di kelas. Kalau kamu sudah membaca topik Trigonometri, sudut itu bisa dihitung tanpa busur. Tetapi itu bukan syarat untuk memahami materi ini.',
+        teks: 'Untuk sekarang, arahnya cukup diukur dengan busur seperti yang dilakukan di kelas. Kalau Anda sudah membaca topik Trigonometri, sudut itu bisa dihitung tanpa busur. Tetapi itu bukan syarat untuk memahami materi ini.',
       },
     ],
     seringKeliru: {
@@ -414,7 +414,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Di ruang tiga dimensi ceritanya sama, hanya komponennya bertambah satu dan muncul vektor satuan ketiga bernama k. Semua yang kamu pelajari di halaman ini tetap berlaku, termasuk cara mencari panjangnya.',
+        teks: 'Di ruang tiga dimensi ceritanya sama, hanya komponennya bertambah satu dan muncul vektor satuan ketiga bernama k. Semua yang Anda pelajari di halaman ini tetap berlaku, termasuk cara mencari panjangnya. Ini bocoran saja, tidak diuji sampai topik Ruang Tiga Dimensi.',
       },
       {
         jenis: 'contoh',
@@ -450,7 +450,7 @@ export const TAHAP: TahapVektor[] = [
     penjelasan: [
       {
         jenis: 'paragraf',
-        teks: 'Kamu berjalan ke suatu tempat, lalu dari situ berjalan lagi ke tempat lain. Dilihat dari titik berangkat, ke mana kamu berpindah? Satu panah saja sudah cukup menjawabnya, yaitu panah dari titik awal langsung ke titik akhir.',
+        teks: 'Anda berjalan ke suatu tempat, lalu dari situ berjalan lagi ke tempat lain. Dilihat dari titik berangkat, ke mana Anda berpindah? Satu panah saja sudah cukup menjawabnya, yaitu panah dari titik awal langsung ke titik akhir.',
       },
       { jenis: 'sesi', judul: 'Aturannya: ujung ke pangkal' },
       {
@@ -478,7 +478,7 @@ export const TAHAP: TahapVektor[] = [
       { jenis: 'sesi', judul: 'Dengan komponen, jauh lebih cepat' },
       {
         jenis: 'paragraf',
-        teks: 'Menggambar itu bagus untuk memahami, tetapi lambat dan bergantung ketelitian penggaris. Begitu vektornya sudah berbentuk komponen, penjumlahannya jadi pekerjaan yang sangat mudah: jumlahkan yang mendatar dengan yang mendatar, dan yang tegak dengan yang tegak.',
+        teks: 'Menggambar itu bagus untuk memahami, tetapi lambat dan bergantung ketelitian penggaris. Begitu vektornya sudah berbentuk komponen, penjumlahannya jadi pekerjaan yang sangat singkat: jumlahkan yang mendatar dengan yang mendatar, dan yang tegak dengan yang tegak.',
       },
       {
         jenis: 'contoh',
@@ -713,7 +713,7 @@ export const TAHAP: TahapVektor[] = [
     ],
     seringKeliru: {
       judul: 'Mengira pengali negatif membuat panjangnya negatif',
-      isi: 'Negatif 2 dikali (2 1) menghasilkan (-4 -2), dan panjangnya sekitar 4,47. Bukan negatif 4,47. Panjang adalah ukuran, dan ukuran tidak pernah kurang dari nol. Yang dibalik oleh tanda minus adalah ARAHNYA, bukan panjangnya. Kalau perhitungan panjangmu menghasilkan angka negatif, pasti ada langkah yang keliru.',
+      isi: 'Negatif 2 dikali (2 1) menghasilkan (-4 -2), dan panjangnya sekitar 4,47. Bukan negatif 4,47. Panjang adalah ukuran, dan ukuran tidak pernah kurang dari nol. Yang dibalik oleh tanda minus adalah ARAHNYA, bukan panjangnya. Kalau perhitungan panjang Anda menghasilkan angka negatif, pasti ada langkah yang keliru.',
     },
     intisari: [
       'Vektor dikali bilangan biasa: kalikan tiap komponennya.',
@@ -739,7 +739,7 @@ export const TAHAP: TahapVektor[] = [
       { jenis: 'sesi', judul: 'Menutup cerita perahu' },
       {
         jenis: 'paragraf',
-        teks: 'Materi 01 dibuka dengan perahu yang mendarat di hilir. Sekarang semua alatnya sudah ada di tanganmu, jadi ceritanya bisa dituntaskan dengan hitungan, bukan cuma gambaran.',
+        teks: 'Materi 01 dibuka dengan perahu yang mendarat di hilir. Sekarang semua alatnya sudah ada di tangan Anda, jadi ceritanya bisa dituntaskan dengan hitungan, bukan cuma gambaran.',
       },
       {
         jenis: 'contoh',
@@ -776,10 +776,6 @@ export const TAHAP: TahapVektor[] = [
         jenis: 'sorot',
         teks: 'Peta seperti ini yang dipakai Buku Panduan Guru untuk membuka bab vektor, dan alasannya masuk akal: di situ vektor terlihat apa adanya, tanpa perlu diterjemahkan.',
       },
-      {
-        jenis: 'paragraf',
-        teks: 'Keempat foto berlisensi terbuka. Sumber, nama pemotret, dan lisensinya dicatat di berkas sumber.json pada situs ini, supaya siapa pun bisa memeriksanya.',
-      },
     ],
     intisari: [
       'Perahu, pesawat, dan layar semuanya persoalan yang sama: dua gerak atau dua gaya yang berlaku bersamaan.',
@@ -800,13 +796,17 @@ export const TAHAP: TahapVektor[] = [
     penjelasan: [
       {
         jenis: 'sorot',
-        teks: 'Materi 11 dan 12 di luar Kurikulum Merdeka Kelas 10. Keduanya tidak ada di buku sekolahmu, tetapi masih keluar di UTBK. Boleh dilewati kalau kamu sedang mengejar ulangan sekolah.',
+        teks: 'Materi 11 dan 12 di luar Kurikulum Merdeka Kelas 10. Keduanya tidak ada di buku sekolah Anda, tetapi masih keluar di UTBK. Boleh dilewati kalau Anda sedang mengejar ulangan sekolah.',
       },
       {
         jenis: 'paragraf',
         teks: 'Sampai sini semua operasi menghasilkan vektor lagi. Perkalian titik berbeda: dua vektor masuk, sebuah ANGKA yang keluar. Angka itu mengukur seberapa searah keduanya.',
       },
       { jenis: 'sesi', judul: 'Dua cara menghitungnya, hasilnya sama' },
+      {
+        jenis: 'paragraf',
+        teks: 'Cara kedua memakai kosinus sudut. Kalau belum kenal, baca Trigonometri tahap 4 dulu, atau pakai cara pertama saja.',
+      },
       {
         jenis: 'poin',
         butir: [
@@ -863,7 +863,7 @@ export const TAHAP: TahapVektor[] = [
     ],
     seringKeliru: {
       judul: 'Mengira hasilnya sebuah vektor',
-      isi: 'Kedua yang dikalikan memang vektor, jadi hasilnya sering ikut ditulis sebagai pasangan angka atau diberi tanda panah. Padahal hasil kali titik selalu berupa satu bilangan biasa. Ciri cepat untuk memeriksa: kalau jawabanmu masih punya arah, pasti ada yang keliru.',
+      isi: 'Kedua yang dikalikan memang vektor, jadi hasilnya sering ikut ditulis sebagai pasangan angka atau diberi tanda panah. Padahal hasil kali titik selalu berupa satu bilangan biasa. Ciri cepat untuk memeriksa: kalau jawaban Anda masih punya arah, pasti ada yang keliru.',
     },
     intisari: [
       'Perkalian titik menghasilkan sebuah angka, bukan vektor.',

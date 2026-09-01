@@ -27,7 +27,7 @@ export const KUIS: SoalKuis[] = [
     pertanyaan: 'Besaran berikut yang TERMASUK vektor adalah ...',
     pilihan: ['suhu', 'massa', 'perpindahan', 'waktu', 'panjang tali'],
     benar: 2,
-    alasan: 'Vektor adalah besaran yang butuh arah. Perpindahan jelas butuh arah: berpindah 5 meter ke utara berbeda dengan 5 meter ke selatan. Massa, suhu, waktu, dan panjang tali selesai dijelaskan satu angka saja, jadi keempatnya skalar. Menyebut "massa 60 kg ke utara" tidak berarti apa-apa.',
+    alasan: 'Vektor adalah besaran yang butuh arah. Perpindahan memang butuh arah: berpindah 5 meter ke utara berbeda dengan 5 meter ke selatan. Massa, suhu, waktu, dan panjang tali selesai dijelaskan satu angka saja, jadi keempatnya skalar. Menyebut "massa 60 kg ke utara" tidak berarti apa-apa.',
     tingkat: 'mudah',
   },
   {
