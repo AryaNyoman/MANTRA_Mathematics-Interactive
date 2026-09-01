@@ -1,7 +1,7 @@
 # PROGRESS: MATRA
 
 > **SESI BARU: baca berkas ini dari atas sampai bawah SEBELUM mengerjakan apa pun.**
-> Terakhir diperbarui: **1 September 2026, malam** (akhir sesi 6).
+> Terakhir diperbarui: **2 September 2026** (akhir sesi 6).
 >
 > **SITUS SUDAH TAYANG: https://matra-eight.vercel.app** (bisa dibuka siapa pun,
 > tanpa login). Baca bagian "Deploy Vercel" di bawah sebelum menyentuh deploy.
@@ -13,13 +13,57 @@
 ## Ringkas
 | | |
 |---|---|
-| Tahap sekarang | **DUA topik selesai. Situs SUDAH TAYANG di Vercel.** |
+| Tahap sekarang | **ENAM topik tayang. Trigonometri dan Limit lengkap dengan video.** |
 | Yang tersisa | **Gelombang 2 berjalan di 5 sesi**: revisi isi dari MASTER lalu video 480p. ARYA meninjau visual sambil jalan. Enam topik SUDAH TAYANG |
 | Alamat tayang | https://matra-eight.vercel.app |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md`<br>`docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`<br>`docs/superpowers/plans/2026-09-01-topik-limit.md` |
 | Tenggat | 12 September 2026 |
 | Menjalankan situs | `cd web && npm run dev` → `http://localhost:3000` |
 | Penghalang | *(tidak ada)* |
+
+## 🧭 MULAI DARI SINI (sesi berikutnya, ditulis 2 Sep 2026)
+
+### Keadaan dalam satu tarikan napas
+Enam topik TAYANG di https://matra-eight.vercel.app. Trigonometri dan Limit
+lengkap dengan video (7 video masing-masing). Empat topik baru (Vektor, Grafik
+Fungsi, Statistika, Ruang 3D) halamannya utuh tanpa video, dan kelimanya
+ditambah UI/UX sedang mengerjakan gelombang 2 di sesi paralel.
+
+### Yang berjalan tanpa perlu Anda sentuh
+Lima sesi hidup di worktree masing-masing, sudah dikirimi tugas gelombang 2:
+revisi isi dari MASTER dulu, baru enam video 480p per topik. Kalau jendelanya
+tertutup, hidupkan dengan `NYALAKAN-5-SESI.bat`, lalu kirim prompt bagian D di
+`docs/tugas/PROMPT-SIAP-TEMPEL.md`.
+
+### Tugas MASTER berikutnya, urut
+1. **Terima setoran sesi.** Tiap sesi lapor selesai revisi lalu video. Gabung
+   cabangnya ke `master`, jalankan tsc dan build lewat biner Node langsung,
+   deploy. Konflik yang muncul selalu di `daftar-isi.ts` dan `topik.ts`, dan
+   selalu berjenis "dua sesi menambah baris di tempat yang sama": ambil kedua
+   sisi, LALU periksa kurung penutupnya (pernah hilang, lihat commit 32d520f).
+2. **Lunasi utang MASTER** (daftarnya di bagian Tinjauan isi di atas):
+   jenis blok `rujuk`, alat bingkai bersama, teks widget Limit di HP, hapus
+   `trigonometri.webm` yang yatim.
+3. **Video Limit kedelapan** kalau ARYA mau: Materi 03. Lihat alasannya di
+   bagian Keadaan tujuh video Limit.
+
+### Tiga keputusan visual yang masih milik ARYA
+Foto pesawat berlogo DHL di Vektor Materi 10; galeri Ruang 3D tahap 10 gambar
+sendiri atau foto; bentuk tanda "baris tab bisa digulir" (UI/UX akan mengajukan
+dua pilihan berpotret).
+
+### Jangan diulang, ini sudah pernah memakan waktu
+- **`rtk` mengarang keluaran** tsc dan build. Verifikasi WAJIB lewat
+  `node node_modules/<alat>/bin/...` langsung.
+- **Jangan percaya "Automatic merge went well".** Selalu tsc dan build sebelum
+  deploy; penggabungan pernah menjatuhkan dua kurung penutup dan lolos.
+- **Cacat yang tidur menunggu data bertambah** tidak terlihat di build maupun
+  tsc. Contohnya `<source>` video yang tidak ikut berganti saat pindah tahap,
+  yang baru muncul setelah tujuh tahap punya video. Yang menemukannya: membuka
+  situs yang SUDAH TAYANG dengan Playwright lalu membandingkan alamat yang
+  DITULISKAN dengan alamat yang benar-benar DIMUAT.
+- **Render Manim wajib lewat antrean** `alat/antre_render.py`, sebab lima sesi
+  berbagi satu prosesor.
 
 ### Yang berubah di sesi 3: 22 revisi ARYA
 
@@ -308,7 +352,32 @@ baris `Aliased` di log, jangan menebak polanya.
 | 6 | 06 Nol per nol | ✅ | ✅ | ✅ | ✅ | **TAYANG** |
 | 7 | 07 Tak hingga | ✅ | ✅ | ✅ | ✅ | **TAYANG** |
 
-**Keadaan 1 Sep malam: SUDAH TAYANG.** Ketujuhnya 1920x1080 60fps, bersuara,
+**LIMIT TUNTAS (2 Sep 2026).** Tujuh video dari sepuluh materi, dan itu
+memang sasarannya. Trigonometri pun tujuh dari sepuluh, jadi polanya sama:
+
+| | Limit | Trigonometri |
+|---|---|---|
+| Materi/tahap | 10 | 10 |
+| Video | 7 | 7 |
+| Tanpa video | 03, 05, 10 | 01, 03, 10 |
+
+Alasan ketiganya sengaja tanpa video, bukan tertinggal:
+- **Materi 10 Dunia nyata** galeri, tidak butuh animasi. Tahap 10 Trigonometri
+  sama, dan Vektor serta Ruang 3D juga merencanakan begitu.
+- **Materi 05 Cara cepat** janjinya sengaja ditunda dan dilunasi di Materi 09,
+  dan Materi 09 SUDAH punya video. Jadi bagian yang perlu dianimasikan sudah
+  ada, tinggal ditonton di tempat pelunasannya.
+- **Materi 03 Dua arah harus sepakat** satu-satunya calon yang masih masuk
+  akal. Kalau ARYA mau menambah video Limit kedelapan, inilah yang dipilih:
+  kiri dan kanan tidak sepakat, jadi limitnya tidak ada. Sebagian sudah
+  tergambar di video Materi 02 (dua garis bilangan, mendekat dari dua arah),
+  jadi ini penyempurnaan, bukan lubang.
+
+Berkas naskah dan adegan hanya ada untuk ketujuh video itu
+(`manim/narasi/limit*.json`, `manim/scenes/limit*.py`). Tidak ada adegan yang
+sudah ditulis tetapi belum dirender.
+
+Ketujuhnya 1920x1080 60fps, bersuara,
 bersubtitle, berposter, terdaftar di `web/content/limit/tahap.ts`, dan sudah
 di-deploy. ARYA memilih "render dulu, risiko diterima" tanpa menunggu ia
 menonton, jadi kalau ia menemukan cacat, video itu dirender ulang.
