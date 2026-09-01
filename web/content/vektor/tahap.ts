@@ -209,12 +209,12 @@ export const TAHAP: TahapVektor[] = [
     penjelasan: [
       {
         jenis: 'paragraf',
-        teks: 'Menggambar panah di kertas berpetak memang jelas. Tetapi begitu panahnya ada sepuluh, menggambar satu per satu jadi melelahkan dan sering meleset satu dua kotak. Ada cara yang jauh lebih ringkas: catat saja perjalanannya sebagai dua langkah.',
+        teks: 'Menggambar panah di kertas berpetak memang gamblang. Tetapi begitu panahnya ada sepuluh, menggambar satu per satu jadi melelahkan dan sering meleset satu dua kotak. Ada cara yang jauh lebih ringkas: catat saja perjalanannya sebagai dua langkah.',
       },
       { jenis: 'sesi', judul: 'Satu panah, dua langkah' },
       {
         jenis: 'paragraf',
-        teks: 'Ambil satu panah dari titik asal O ke sebuah titik. Semiring apa pun panah itu, perjalanannya selalu bisa diganti dua langkah yang lebih mudah dibaca: berjalan mendatar dulu, lalu tegak. Titik yang dituju tetap sama persis.',
+        teks: 'Ambil satu panah dari titik asal O ke sebuah titik. Semiring apa pun panah itu, perjalanannya selalu bisa diganti dua langkah yang lebih enak dibaca: berjalan mendatar dulu, lalu tegak. Titik yang dituju tetap sama persis.',
       },
       {
         jenis: 'poin',
@@ -407,11 +407,12 @@ export const TAHAP: TahapVektor[] = [
         jenis: 'paragraf',
         teks: 'Dengan keduanya, vektor bisa ditulis tanpa tanda kurung sama sekali. Vektor (3 4) sama artinya dengan 3i ditambah 4j. Bacanya: tiga langkah ke arah i, lalu empat langkah ke arah j.',
       },
-      { jenis: 'sesi', judul: 'Vektor posisi, dan sedikit tentang ruang' },
+      { jenis: 'sesi', judul: 'Vektor posisi' },
       {
         jenis: 'paragraf',
         teks: 'Vektor yang pangkalnya selalu di titik asal O disebut VEKTOR POSISI. Gunanya menyatakan letak sebuah titik dalam bentuk vektor, sehingga letak pun bisa ikut dihitung. Vektor posisi titik P(3, 4) adalah (3 4).',
       },
+      { jenis: 'sesi', judul: 'Sedikit bocoran tentang ruang' },
       {
         jenis: 'paragraf',
         teks: 'Di ruang tiga dimensi ceritanya sama, hanya komponennya bertambah satu dan muncul vektor satuan ketiga bernama k. Semua yang Anda pelajari di halaman ini tetap berlaku, termasuk cara mencari panjangnya. Ini bocoran saja, tidak diuji sampai topik Ruang Tiga Dimensi.',
@@ -691,7 +692,7 @@ export const TAHAP: TahapVektor[] = [
           'Bandingkan pengali 2 dengan negatif 2. Panjangnya sama persis, cuma arahnya berkebalikan.',
         ],
       },
-      { jenis: 'sesi', judul: 'Dua akibat yang sering ditanyakan' },
+      { jenis: 'sesi', judul: 'Panjangnya berubah seberapa' },
       {
         jenis: 'contoh',
         judul: 'Kalikan a = (2 1) dengan 3 dan dengan negatif 2',
@@ -702,6 +703,7 @@ export const TAHAP: TahapVektor[] = [
         ],
         simpul: 'Panjang barunya adalah panjang lama dikali pengalinya tanpa tanda minus. Panjang tetap tidak pernah negatif.',
       },
+      { jenis: 'sesi', judul: 'Kelipatan berarti sejajar' },
       {
         jenis: 'sorot',
         teks: 'Dua vektor yang salah satunya kelipatan yang lain pasti SEJAJAR. Itu cara paling cepat memeriksa kesejajaran.',

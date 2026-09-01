@@ -66,6 +66,105 @@ Yang TIDAK berubah setelah diulang: semua tetap lolos. Tidak ada temuan baru.
 
 ---
 
+## Gelombang 2 tahap 1: revisi isi SELESAI
+
+Keenam butir revisi dari MASTER dikerjakan sebelum menyentuh video.
+
+| # | Revisi | Hasil |
+|---|---|---|
+| 1 | "kamu" jadi "Anda" | 7 tempat diganti. Ditambah 4 akhiran `-mu` (panjangmu, tanganmu, sekolahmu, jawabanmu) supaya tidak ada kalimat yang setengah "Anda" setengah "-mu". Total 11. |
+| 2 | Prasyarat kosinus di Materi 11 | Kalimat MASTER dipakai apa adanya, ditaruh tepat sesudah judul sesi dan sebelum daftar dua caranya. |
+| 3 | Paragraf lisensi Materi 10 | Dibuang dari `penjelasan`, dipindah jadi keterangan kecil di bawah galeri (`DuniaNyataVektor.tsx`). Sudah dipotret dan dilihat: tampil miring kecil di bawah keempat kartu. |
+| 4 | Bocoran ruang di Materi 05 | Kalimat "Ini bocoran saja, tidak diuji sampai topik Ruang Tiga Dimensi" ditambahkan sebelum contohnya. |
+| 5 | Kata "mudah", "jelas", "gampang" | Lihat di bawah. |
+| 6 | Foto DHL dan nasib Materi 11 dan 12 | Dibiarkan, menunggu ARYA. |
+
+### Butir 5, dan kenapa angkanya jauh lebih kecil daripada dugaan
+
+Hitungan grep mentah 14 + 21 + 2 itu menyesatkan. Sebagian besar bukan kalimat
+siswa: `tingkat: 'mudah'` adalah medan data kuis, dan kata "penjelasan" serta
+"dijelaskan" mengandung "jelas" tanpa ada hubungannya. Setelah disaring ke
+kalimat yang benar-benar dibaca siswa, sisanya **7 kemunculan**.
+
+Ketujuhnya diperiksa satu per satu, dan **ketujuhnya diganti**:
+
+| Semula | Menjadi | Alasan |
+|---|---|---|
+| "gampang meleset satu dua kotak" | "sering meleset satu dua kotak" | lebih tepat, dan tidak menakar kemampuan |
+| "Ujinya gampang: titik (4, 3)..." | "Cara memeriksanya begini: ..." | menilai tugas siswa |
+| "tetapi jelas bukan vektor yang sama" | "tetapi keduanya bukan vektor yang sama" | "jelas" membuat yang bingung merasa bodoh |
+| "pekerjaan yang sangat mudah" | "pekerjaan yang sangat singkat" | menilai tugas siswa |
+| "Perpindahan jelas butuh arah" (kuis) | "Perpindahan memang butuh arah" | sama |
+| "Menggambar ... memang jelas" | "... memang gamblang" | menggambarkan benda, tetapi butir 10 standar melarang tanpa kecuali |
+| "dua langkah yang lebih mudah dibaca" | "... yang lebih enak dibaca" | sama |
+
+Dua yang terakhir sebenarnya menggambarkan benda, bukan menakar siswa, jadi
+menurut pesan MASTER boleh tinggal. Tetap dibuang karena butir 10
+STANDAR-MENGAJAR melarangnya tanpa pengecualian, dan tidak ada ruginya. Semua
+12 materi sekarang bersih dari keempat kata terlarang dan em-dash.
+
+## Daftar periksa 10 butir, dua belas materi
+
+Butir 1 sampai 10 sesuai `docs/tugas/STANDAR-MENGAJAR.md` bagian 6. Diisi dari
+pembacaan struktur tiap materi, bukan dari ingatan: berkasnya dibongkar lewat
+Node dan tiap blok dihitung.
+
+| Materi | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 01 Angka saja tidak cukup | ya | tidak¹ | ya | ya | ya | ya | ya | ya | ya | ya |
+| 02 Panah yang boleh dipindah | ya | tidak | ya | ya | ya | n/a² | ya | ya | ya | ya |
+| 03 Memecah panah jadi dua langkah | ya | tidak | ya | ya | ya | ya | ya | ya | ya | ya |
+| 04 Panjang panah itu Pythagoras | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 05 Arah tanpa panjang | ya | tidak | ya | ya³ | ya | ya | ya | ya | ya | ya |
+| 06 Menjumlah itu menyambung | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 07 Dua yang bekerja bersamaan | ya | tidak | ya | ya | ya | ya | ya | ya | ya | ya |
+| 08 Mengurangi itu menambah lawannya | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 09 Dikali angka | ya | tidak | ya | ya³ | ya | ya | ya | ya | ya | ya |
+| 10 Vektor di dunia nyata | ya | ya | ya | ya | ya | ya | tidak⁴ | tidak⁴ | ya | ya |
+| 11 Seberapa searah? | ya | tidak | ya | ya | ya | ya | ya | ya | ya | ya |
+| 12 Bayangan satu panah pada panah lain | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+
+**Butir 1, 3, 4, dan 6 (yang menentukan kelayakan): dua belas materi menjawab
+YA.** Semua layak.
+
+¹ Materi 01 adalah pembuka topik; belum ada materi sebelumnya untuk dipanggil
+ulang. Ia bersandar pada Pythagoras dari SMP tanpa menyebutnya.
+
+² Materi 02 bukan tahap prosedur, melainkan pengenalan lambang dan jenis, jadi
+butir 6 tidak berlaku. Semua sepuluh tahap prosedur punya `contoh` berikut
+simpulnya.
+
+³ **Diperbaiki hari ini, dan ini temuan daftar periksa ini sendiri.** Keduanya
+semula punya satu sesi berisi DUA ide, dan butir 4 termasuk yang menentukan
+kelayakan:
+- Materi 05: sesi "Vektor posisi, dan sedikit tentang ruang" dipecah menjadi
+  "Vektor posisi" dan "Sedikit bocoran tentang ruang".
+- Materi 09: sesi "Dua akibat yang sering ditanyakan" dipecah menjadi
+  "Panjangnya berubah seberapa" dan "Kelipatan berarti sejajar".
+
+⁴ Materi 10 adalah galeri penerapan, bukan tahap latihan. Tidak ada prosedur
+untuk dicoba dan tidak ada satu kekeliruan khas untuk dikoreksi, jadi `coba`
+dan `seringKeliru` memang tidak ada. Keduanya bukan butir penentu kelayakan.
+Kalau MASTER atau ARYA tetap ingin ada, saya bisa menambahkan `coba` berisi
+tuntunan membaca keempat foto (misalnya "cari panah mana yang menyatakan
+kecepatan pada peta lempeng"). Belum dikerjakan karena tidak ada di daftar
+revisi.
+
+### Satu kelemahan yang saya laporkan, bukan saya tambal diam-diam
+
+**Butir 2 dijawab "tidak" oleh 7 dari 12 materi.** Hanya Materi 04, 06, 08, 10,
+dan 12 yang punya kalimat yang benar-benar memanggil ulang pengetahuan
+sebelumnya (diperiksa dengan mencari rujukan "Materi 0x", "sudah dibahas",
+"di SMP", "topik Trigonometri").
+
+Butir 2 bukan penentu kelayakan, dan instruksi MASTER hanya menyuruh
+memperbaiki yang gagal di butir 1, 3, 4, atau 6. Jadi saya melaporkannya, bukan
+menambalnya sendiri. Perbaikannya murah: satu kalimat pembuka di tiap materi,
+misalnya di Materi 07 "Di Materi 06 kedua panah disambung berurutan; sekarang
+keduanya bekerja pada saat yang sama". Bilang saja kalau mau dikerjakan.
+
+---
+
 ## Selesai
 
 **Gelombang 1 topik Vektor selesai.** Halaman `/topik/vektor` tampil utuh:
