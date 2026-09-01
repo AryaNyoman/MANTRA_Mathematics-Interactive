@@ -494,8 +494,45 @@ Enam contoh, satu untuk tiap jenis fungsi yang dipelajari:
 | Rasional | waktu tempuh terhadap kecepatan, yang tidak pernah nol |
 
 Sumber gambar dicatat di `web/public/gambar/sumber.json`, mengikuti cara yang
-sudah dipakai dua topik sebelumnya. Pilihan foto Wikimedia atau gambar buatan
-sendiri diputuskan ARYA saat tahap ini digarap.
+sudah dipakai dua topik sebelumnya.
+
+**Keputusan ARYA, 1 September 2026: foto saja, tanpa lapisan gambar di atasnya.**
+
+ARYA sebenarnya menginginkan bentuk campur (foto dengan kurva digambar
+menimpanya), tetapi bentuk itu sudah pernah dicoba di tahap 10 Trigonometri dan
+gagal dua kali. Sebabnya ditelusuri ke kodenya, bukan ditebak, dan ada tiga:
+
+1. **Sebagian besar contohnya mati.** Dari empat kartu, hanya satu yang punya
+   penggeser dan lapisan gambar. Tiga sisanya tidak melakukan apa pun saat
+   disentuh, sehingga ARYA melaporkan "interaktifnya tidak bekerja". Laporannya
+   tepat.
+2. **Fotonya harus dipotong.** Bingkainya bertinggi tetap, jadi fotonya dipasang
+   dengan `object-fit: cover` dan terpangkas. Itu melanggar aturan proyek yang
+   melarang widget memotong gambarnya sendiri.
+3. **Lapisan gambarnya melar, jadi salah secara geometri.** SVG di atas foto
+   memakai `preserveAspectRatio="none"`, sehingga sudut dan lingkarannya ditarik
+   mengikuti bentuk kotak foto. Sudut yang ditulis 45 derajat tidak lagi tampil
+   45 derajat. Cacat ini tidak pernah disebut waktu itu.
+
+Akar masalahnya satu kalimat: lapisan gambar dipaku ke bingkai foto yang
+perbandingan sisinya dipaksa, sehingga fotonya terpotong dan gambarnya melar
+pada saat bersamaan.
+
+### Aturan yang lahir dari kegagalan itu, berlaku untuk KESEBELAS widget
+
+Bukan cuma untuk galeri:
+
+- **Tidak boleh ada bagian yang mati.** Kalau sebuah widget punya beberapa
+  contoh atau beberapa tombol, semuanya harus melakukan sesuatu. Satu tombol
+  yang diam membuat seluruh widget terasa rusak.
+- **Yang bisa disentuh harus terlihat bisa disentuh.** Titik yang bisa diseret
+  diberi bentuk dan warna yang membedakannya dari titik biasa, dan tetap
+  terlihat saat sedang diseret.
+- **Tidak ada yang tertindih.** Label, angka, dan garis tidak boleh saling
+  menutupi. Kalau ruangnya kurang, yang mengalah adalah tata letaknya, bukan
+  ukuran hurufnya.
+- **Tidak ada gambar yang dipaksa melar.** Perbandingan sisi bidang gambar tidak
+  boleh diregangkan. `preserveAspectRatio="none"` dilarang di topik ini.
 
 ---
 

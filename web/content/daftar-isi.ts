@@ -1,6 +1,8 @@
 import type { IsiTopik } from '@/components/topik/jenis'
+import PanggungGrafikFungsi from '@/components/topik/PanggungGrafikFungsi'
 import PanggungLimit from '@/components/topik/PanggungLimit'
 import PanggungTrigonometri from '@/components/topik/PanggungTrigonometri'
+import { TAHAP as TAHAP_GRAFIK, LATIHAN as LATIHAN_GRAFIK, KUIS as KUIS_GRAFIK, KANAL as KANAL_GRAFIK } from '@/content/grafik-fungsi'
 import { TAHAP as TAHAP_LIMIT, LATIHAN as LATIHAN_LIMIT, KUIS as KUIS_LIMIT, KANAL as KANAL_LIMIT } from '@/content/limit'
 import { TAHAP, LATIHAN, KUIS, KANAL } from '@/content/trigonometri'
 
@@ -22,6 +24,13 @@ export const ISI_TOPIK: Record<string, IsiTopik | undefined> = {
     kuis: KUIS,
     kanal: KANAL,
     Panggung: PanggungTrigonometri,
+  },
+  'grafik-fungsi': {
+    tahap: TAHAP_GRAFIK,
+    latihan: LATIHAN_GRAFIK,
+    kuis: KUIS_GRAFIK,
+    kanal: KANAL_GRAFIK,
+    Panggung: PanggungGrafikFungsi,
   },
   limit: {
     tahap: TAHAP_LIMIT,
