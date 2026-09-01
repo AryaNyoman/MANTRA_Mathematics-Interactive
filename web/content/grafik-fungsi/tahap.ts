@@ -1,5 +1,5 @@
 /**
- * Grafik Fungsi, 12 tahap belajar. Topik ketiga MATRA.
+ * Grafik Fungsi, 13 tahap belajar. Topik ketiga MATRA.
  *
  * Rancangannya: docs/superpowers/specs/2026-09-01-grafik-fungsi-alur-belajar.md
  *
@@ -44,6 +44,7 @@ export type WidgetGrafikFungsi =
   | 'cermin-yx'
   | 'asimtot-rasional'
   | 'dua-mesin'
+  | 'mesin-balik'
   | 'dunia-nyata-grafik'
 
 /**
@@ -138,6 +139,7 @@ export const TAHAP: TahapGrafik[] = [
     penjelasan: [
       { jenis: 'paragraf', teks: 'Tahap 1 membaca grafik yang sudah jadi. Sekarang kebalikannya: dari mana grafik itu datang?' },
       { jenis: 'paragraf', teks: 'Bayangkan sebuah mesin. Anda masukkan sebuah angka, mesin mengolahnya, lalu mengeluarkan satu angka. Mesin itulah yang disebut fungsi. Aturannya boleh apa saja, misalnya "kalikan dua lalu tambah satu".' },
+      { jenis: 'paragraf', teks: 'Sebelum melangkah, ingat garis lurus yang sudah Anda pelajari di SMP: y = mx + c, dengan m kemiringannya dan c tempat grafiknya memotong sumbu y. Itu fungsi juga, dan mesin di bawah ini persis garis itu.' },
       {
         jenis: 'contoh',
         judul: 'Jalankan mesin f(x) = 2x + 1 lima kali',
@@ -213,7 +215,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Bola basket yang dilempar membentuk lengkung. Air mancur juga. Kabel jembatan gantung juga. Ketiganya bentuk yang sama, namanya parabola, dan itu grafik fungsi kuadrat.' },
-      { jenis: 'paragraf', teks: 'Buku Kelas 10 memperkenalkan fungsi kuadrat lewat lintasan bola basket, dan kita mulai dari tempat yang sama. Tapi rumusnya kita tulis dalam bentuk yang paling gampang dibaca dulu.' },
+      { jenis: 'paragraf', teks: 'Buku Kelas 10 memperkenalkan fungsi kuadrat lewat lintasan bola basket, dan kita mulai dari tempat yang sama. Tapi rumusnya kita tulis dulu dalam bentuk yang puncaknya bisa dibaca langsung.' },
       { jenis: 'sorot', teks: 'y = a(x - h)² + k' },
       { jenis: 'paragraf', teks: 'Bentuk ini namanya bentuk puncak. Alasannya sederhana: puncaknya bisa dibaca langsung dari rumusnya, tanpa satu pun hitungan.' },
 
@@ -572,7 +574,7 @@ export const TAHAP: TahapGrafik[] = [
       'Nilai mutlak adalah jarak dari nol, jadi hasilnya tidak pernah negatif.',
       'y = |f(x)| melipat bagian yang di bawah sumbu x ke atas.',
       'y = f(|x|) membuang bagian kiri, lalu menyalin bagian kanan sebagai cerminnya.',
-      'Keduanya berbeda, dan bedanya terlihat jelas begitu digambar.',
+      'Keduanya berbeda, dan bedanya langsung terlihat begitu digambar.',
     ],
     penjelasan: [
       {
@@ -621,7 +623,7 @@ export const TAHAP: TahapGrafik[] = [
           'mutlak di luar  |f(-1)|  = |-3|      =  3      hasilnya dibalik ke atas',
           'mutlak di dalam f(|-1|) = f(1) = -1  = -1      x nya yang diganti jadi 1',
         ],
-        simpul: 'Satu titik, dua jawaban berbeda: 3 dan -1. Jadi keduanya jelas bukan hal yang sama.',
+        simpul: 'Satu titik, dua jawaban berbeda: 3 dan -1. Jadi keduanya bukan hal yang sama.',
       },
       {
         jenis: 'poin',
@@ -827,7 +829,7 @@ export const TAHAP: TahapGrafik[] = [
           'Coba bilangan pokok antara 0 dan 1. Kedua grafiknya berbalik arah sekaligus',
         ],
       },
-      { jenis: 'paragraf', teks: 'Satu istilah untuk nanti. Pasangan seperti ini, dua fungsi yang saling membatalkan dan grafiknya saling mencerminkan pada garis y = x, punya nama resmi. Namanya akan diberikan di tahap 11, setelah Anda melihatnya bekerja di sini.' },
+      { jenis: 'paragraf', teks: 'Satu istilah untuk nanti. Pasangan seperti ini, dua fungsi yang saling membatalkan dan grafiknya saling mencerminkan pada garis y = x, punya nama resmi. Namanya akan diberikan di tahap 12, setelah Anda melihatnya bekerja di sini.' },
     ],
     seringKeliru: {
       judul: 'Logaritma dari bilangan negatif hasilnya negatif',
@@ -896,7 +898,7 @@ export const TAHAP: TahapGrafik[] = [
       { jenis: 'sorot', teks: 'Sama seperti tahap 8: alasan lengkap kenapa jaraknya mengecil terus tanpa pernah nol, dan cara menghitung perilakunya, ada di topik Limit materi 07. Bukalah materi itu kalau ingin jawabannya, bukan cuma gambarnya.' },
 
       { jenis: 'sesi', judul: 'Menggeser 1 dibagi x, dan asimtotnya ikut pindah' },
-      { jenis: 'paragraf', teks: 'Bagian ini terasa mudah, dan memang begitu, karena aturannya sudah Anda pelajari di tahap 6. Tidak ada yang baru selain nama bentuknya.' },
+      { jenis: 'paragraf', teks: 'Bagian ini tidak menuntut aturan baru sama sekali, karena aturannya sudah dipelajari di tahap 6. Yang baru hanya nama bentuknya.' },
       {
         jenis: 'contoh',
         judul: 'Bandingkan dengan y = 1/(x - 2) + 3',
@@ -933,21 +935,21 @@ export const TAHAP: TahapGrafik[] = [
   /* ================================================================= */
   {
     no: 11,
-    slug: 'komposisi-invers',
-    judul: 'Dua mesin dirangkai, dan mesin yang membatalkan',
+    slug: 'komposisi',
+    judul: 'Dua mesin dirangkai',
     labelPendek: 'Rangkai',
     pertanyaan: 'Kalau keluaran satu mesin dimasukkan ke mesin lain, hasilnya mesin apa?',
     intisari: [
       'Pada f komposisi g, yang bekerja lebih dulu adalah g, yaitu yang paling dekat dengan x.',
       'Menukar urutannya biasanya memberi hasil yang berbeda.',
-      'Fungsi invers membatalkan fungsi aslinya, dan grafiknya dicerminkan terhadap y = x.',
-      'Invers hanya ada kalau fungsinya satu-satu, dan itu diperiksa dengan uji garis mendatar.',
+      'Soal ujian sering membalik arahnya: hasil komposisinya diketahui, koefisien mesinnya yang dicari.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Di tahap 2, fungsi diperkenalkan sebagai mesin. Sekarang kita pasang dua mesin berderet: keluaran mesin pertama langsung masuk ke mesin kedua.' },
+      { jenis: 'paragraf', teks: 'Di tahap 2, fungsi diperkenalkan sebagai mesin: masukkan satu angka, keluar satu angka. Sekarang kita pasang dua mesin berderet, sehingga keluaran mesin pertama langsung masuk ke mesin kedua.' },
       { jenis: 'paragraf', teks: 'Contoh sehari-harinya banyak. Harga barang dikenai diskon dulu, lalu hasilnya dikenai pajak. Dua aturan, dijalankan berurutan.' },
       { jenis: 'sorot', teks: '(f komposisi g)(x) = f(g(x))' },
       { jenis: 'paragraf', teks: 'Yang paling sering salah adalah urutannya, jadi kita tegaskan sekali dan pakai terus: yang bekerja lebih dulu adalah yang paling dekat dengan x. Pada f(g(x)), yang paling dekat dengan x adalah g, jadi g yang jalan duluan.' },
+      { jenis: 'paragraf', teks: 'Sebelum melihat hitungannya, coba tebak dulu. Kalau kedua mesin itu ditukar urutannya, apakah hasilnya tetap sama?' },
       {
         jenis: 'contoh',
         judul: 'f(x) = x² + 1 dan g(x) = 2x - 3, hitung f(g(4))',
@@ -963,6 +965,7 @@ export const TAHAP: TahapGrafik[] = [
       },
 
       { jenis: 'sesi', judul: 'Menyusun rumus komposisinya, bukan cuma nilainya' },
+      { jenis: 'paragraf', teks: 'Menghitung satu angka sudah cukup untuk melihat urutannya berpengaruh. Tapi soal biasanya meminta rumus lengkapnya, bukan satu nilai. Caranya sama persis, hanya saja yang dimasukkan bukan angka melainkan seluruh rumus mesin pertama.' },
       {
         jenis: 'contoh',
         judul: 'Rumus lengkap untuk kedua urutan',
@@ -975,9 +978,12 @@ export const TAHAP: TahapGrafik[] = [
           '        = 2x² + 2 - 3',
           '        = 2x² - 1',
         ],
-        simpul: 'Dua rumus yang jelas berbeda. Cek dengan x = 4: yang pertama memberi 26, yang kedua 31.',
+        simpul: 'Dua rumus yang berbeda. Cek dengan x = 4: yang pertama memberi 26, yang kedua 31.',
       },
-      { jenis: 'paragraf', teks: 'Soal ujian sering membalik pertanyaannya, dan bentuk itu yang biasanya bikin bingung. Contoh dari buku Kelas 11: diketahui f(x) = 2x + b, dan diketahui pula f(f(x)) = 4x + 6. Berapa b?' },
+
+      { jenis: 'sesi', judul: 'Bentuk soal yang arahnya dibalik' },
+      { jenis: 'paragraf', teks: 'Sampai sini rumus kedua mesin diketahui, dan komposisinya yang dicari. Soal ujian sering membalik arahnya: komposisinya yang diketahui, salah satu koefisien mesinnya yang dicari. Contoh dari buku Kelas 11: diketahui f(x) = 2x + b, dan diketahui pula f(f(x)) = 4x + 6. Berapa b?' },
+      { jenis: 'paragraf', teks: 'Kuncinya jangan mencoba membalik. Kerjakan tetap ke arah maju sampai bertemu bentuk yang bisa disamakan.' },
       {
         jenis: 'contoh',
         judul: 'Kerjakan maju dulu, baru samakan',
@@ -992,9 +998,43 @@ export const TAHAP: TahapGrafik[] = [
         simpul: 'Jadi f(x) = 2x + 2. Periksa: f(f(x)) = 2(2x + 2) + 2 = 4x + 6. Cocok.',
       },
 
-      { jenis: 'sesi', judul: 'Mesin yang membatalkan mesin lain' },
-      { jenis: 'paragraf', teks: 'Sekarang pertanyaan yang berbeda. Kalau sebuah mesin mengubah 5 menjadi 13, adakah mesin lain yang mengembalikan 13 menjadi 5?' },
+      {
+        jenis: 'coba',
+        teks: 'Alat di sebelah kiri menggambar KEDUA urutan sekaligus, jadi bedanya terlihat sebagai dua kurva, bukan sebagai kalimat.',
+        langkah: [
+          'Geser angka yang dijalankan ke 4. Baca kedua hasilnya di keterangan atas: 26 dan 31',
+          'Perhatikan ada dua kurva, satu utuh dan satu putus-putus. Itu dua urutan yang berbeda',
+          'Ganti mesin f menjadi f(x) = 2x + 3. Kedua kurva jadi garis lurus, tetapi tetap tidak berimpit',
+          'Geser angkanya pelan-pelan, dan perhatikan kedua bulatan penandanya tidak pernah bertemu',
+        ],
+      },
+      { jenis: 'paragraf', teks: 'Satu pertanyaan sengaja disimpan untuk tahap berikutnya. Kalau sebuah mesin mengubah 5 menjadi 13, adakah mesin lain yang mengembalikan 13 menjadi 5? Mesin itu ada, dan ia yang menutup seluruh isi topik ini.' },
+    ],
+    seringKeliru: {
+      judul: 'f komposisi g sama saja dengan g komposisi f, kan mesinnya itu-itu juga',
+      isi: 'Mesinnya memang sama, tetapi urutan kerjanya berbeda, dan itu mengubah hasilnya. Bandingkan dengan memakai kaus kaki lalu sepatu, dibanding memakai sepatu lalu kaus kaki: bendanya sama, hasilnya tidak. Pada f(x) = x² + 1 dan g(x) = 2x - 3 di titik x = 4, urutan pertama memberi 26 dan urutan kedua memberi 31. Menukar urutan komposisi hanya aman kalau memang sudah diperiksa, bukan diandaikan.',
+    },
+    widget: 'dua-mesin',
+    siap: true,
+  },
+
+  /* ================================================================= */
+  {
+    no: 12,
+    slug: 'invers',
+    judul: 'Mesin yang membatalkan',
+    labelPendek: 'Invers',
+    pertanyaan: 'Kalau sebuah mesin mengubah 5 menjadi 13, adakah mesin yang mengembalikannya?',
+    intisari: [
+      'Fungsi invers membatalkan fungsi aslinya, langkah demi langkah dengan urutan terbalik.',
+      'Grafik inversnya adalah grafik aslinya yang dicerminkan terhadap garis y = x.',
+      'Invers hanya ada kalau fungsinya satu-satu, dan itu diperiksa dengan uji garis mendatar.',
+      'Logaritma di tahap 9 ternyata invers dari eksponen di tahap 8.',
+    ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Tahap 11 merangkai dua mesin supaya bekerja berurutan. Sekarang pertanyaan yang arahnya berbeda: kalau sebuah mesin mengubah 5 menjadi 13, adakah mesin lain yang mengembalikan 13 menjadi 5?' },
       { jenis: 'paragraf', teks: 'Mesin itu ada, dan namanya fungsi invers. Ia membatalkan pekerjaan fungsi aslinya, langkah demi langkah dengan urutan terbalik.' },
+      { jenis: 'paragraf', teks: 'Perhatikan kata terbalik itu, karena di situlah letak seluruh caranya. Kalau memakai kaus kaki lalu sepatu, melepasnya bukan kaus kaki dulu, melainkan sepatu dulu.' },
       {
         jenis: 'contoh',
         judul: 'Bongkar f(x) = 2x + 3',
@@ -1007,10 +1047,13 @@ export const TAHAP: TahapGrafik[] = [
           'periksa maju          f(5) = 2(5) + 3 = 13',
           'periksa balik         (13 - 3) : 2 = 5      kembali ke asal',
         ],
-        simpul: 'Perhatikan urutan pembatalannya terbalik, persis seperti melepas sepatu setelah memakai kaus kaki.',
+        simpul: 'Cara memeriksanya selalu itu: jalankan maju lalu balik, dan angkanya harus kembali ke asal.',
       },
-      { jenis: 'paragraf', teks: 'Di sinilah janji tahap 9 dilunasi. Grafik fungsi invers adalah grafik fungsi aslinya yang dicerminkan terhadap garis y = x, karena masukan dan keluarannya bertukar tempat. Buku Kelas 11 memakai kata pencerminan itu persis.' },
-      { jenis: 'sorot', teks: 'Jadi logaritma di tahap 9 adalah invers dari eksponen di tahap 8. Anda sudah melihat pencerminannya bekerja sebelum tahu namanya.' },
+
+      { jenis: 'sesi', judul: 'Kenapa grafiknya dicerminkan terhadap y = x' },
+      { jenis: 'paragraf', teks: 'Fungsi invers menukar peran masukan dan keluaran: yang tadinya masuk sekarang keluar. Pada grafiknya, itu berarti koordinat x dan y tiap titik ikut bertukar tempat.' },
+      { jenis: 'paragraf', teks: 'Menukar x dengan y sama artinya dengan melipat gambar pada garis y = x. Jadi grafik fungsi invers adalah grafik fungsi aslinya yang dicerminkan terhadap garis itu. Buku Kelas 11 memakai kata pencerminan itu persis.' },
+      { jenis: 'sorot', teks: 'Di sinilah janji tahap 9 dilunasi: logaritma adalah invers dari eksponen. Anda sudah melihat pencerminannya bekerja sebelum tahu namanya.' },
 
       { jenis: 'sesi', judul: 'Tidak semua fungsi punya invers' },
       { jenis: 'paragraf', teks: 'Ada syaratnya, dan syarat itu berpasangan dengan uji garis tegak di tahap 2.' },
@@ -1039,26 +1082,27 @@ export const TAHAP: TahapGrafik[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri memasang dua mesin berderet dan memperlihatkan angkanya mengalir.',
+        teks: 'Alat di sebelah kiri menggambar fungsinya bersama inversnya, dengan garis y = x sebagai cerminnya.',
         langkah: [
-          'Jalankan sebuah angka lewat kedua mesin. Perhatikan mesin mana yang menyala lebih dulu',
-          'Tekan tombol tukar urutan, jalankan angka yang sama, lalu bandingkan hasilnya',
-          'Tekan tombol balik arah untuk melihat inversnya, beserta pencerminan grafiknya',
-          'Ganti mesin pertama menjadi kuadrat, lalu coba uji garis mendatarnya. Alatnya akan memberi tahu kenapa inversnya tidak ada',
+          'Mulai dari f(x) = 2x + 3. Garis biru putus-putus itu inversnya',
+          'Perhatikan keduanya benar-benar cerminan terhadap garis ungu y = x',
+          'Ganti mesin f menjadi f(x) = x² + 1, lalu geser angkanya menjauh dari nol',
+          'Garis mendatarnya kini memotong dua kali, dan alatnya menyebutkan kenapa inversnya tidak ada',
         ],
       },
+      { jenis: 'paragraf', teks: 'Dengan ini lingkaran topik ini tertutup. Tahap 2 menuntut satu masukan satu keluaran; tahap 12 menuntut syarat kebalikannya, satu keluaran satu masukan. Yang pertama membuat sebuah gambar layak disebut fungsi, yang kedua membuat fungsi itu layak dibalik.' },
     ],
     seringKeliru: {
       judul: 'Lambang pangkat minus satu artinya satu per fungsinya',
-      isi: 'Di sini artinya bukan pecahan, melainkan mesin kebalikannya. Pada f(x) = x + 3, inversnya adalah x - 3, bukan 1 dibagi (x + 3). Cara mengeceknya: jalankan maju lalu balik, dan hasilnya harus kembali ke angka semula. Mulai dari 5, f(5) = 8, lalu 8 - 3 = 5. Kembali ke asal, jadi benar. Kalau dipakai 1 dibagi 8, hasilnya 0,125, dan itu jelas tidak kembali ke 5.',
+      isi: 'Di sini artinya bukan pecahan, melainkan mesin kebalikannya. Pada f(x) = x + 3, inversnya adalah x - 3, bukan 1 dibagi (x + 3). Godaannya kuat karena di aljabar biasa pangkat minus satu memang berarti satu per sesuatu. Cara mengeceknya: jalankan maju lalu balik, dan hasilnya harus kembali ke angka semula. Mulai dari 5, f(5) = 8, lalu 8 - 3 = 5, kembali ke asal, jadi benar. Kalau dipakai 1 dibagi 8, hasilnya 0,125, dan itu jelas tidak kembali ke 5.',
     },
-    widget: 'dua-mesin',
+    widget: 'mesin-balik',
     siap: true,
   },
 
   /* ================================================================= */
   {
-    no: 12,
+    no: 13,
     slug: 'dunia-nyata',
     judul: 'Dipakai di dunia nyata',
     labelPendek: 'Nyata',
@@ -1070,7 +1114,7 @@ export const TAHAP: TahapGrafik[] = [
       'Logaritma dipakai untuk memampatkan angka yang jangkauannya raksasa.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Sebelas tahap sebelumnya membahas bentuk dan aturannya. Tahap ini menunjukkan di mana bentuk-bentuk itu benar-benar dipakai orang untuk bekerja, bukan untuk ujian.' },
+      { jenis: 'paragraf', teks: 'Dua belas tahap sebelumnya membahas bentuk dan aturannya. Tahap ini menunjukkan di mana bentuk-bentuk itu benar-benar dipakai orang untuk bekerja, bukan untuk ujian.' },
       { jenis: 'paragraf', teks: 'Tidak ada alat yang perlu dicoba di sini. Yang perlu dilakukan cuma satu: mengenali bentuk yang sudah Anda pelajari saat ia muncul di luar buku pelajaran.' },
       { jenis: 'sorot', teks: 'Kalau setelah membaca bagian ini Anda mulai melihat parabola di air mancur dan grafik eksponen di berita bunga bank, tujuan topik ini sudah tercapai.' },
       {

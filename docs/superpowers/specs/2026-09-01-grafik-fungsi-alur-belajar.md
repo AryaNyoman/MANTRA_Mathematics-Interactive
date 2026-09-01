@@ -701,3 +701,61 @@ satu widget pun jadi.
 8. **Tanpa video di gelombang 1.** Kalau nanti ada video, calon terkuatnya
    tahap 6 (transformasi), karena gerakan grafiknya justru paling cocok untuk
    animasi dan paling sulit ditangkap widget statis.
+
+
+---
+
+# Perubahan 2 September 2026: 12 tahap menjadi 13
+
+Rancangan di atas TIDAK dihapus, karena ia catatan alasan pada saat topik ini
+dibangun. Bagian ini mencatat apa yang berubah sesudahnya dan kenapa.
+
+## Tahap 11 dipecah menjadi dua
+
+**Temuan tinjauan isi MASTER, 2 September 2026.** Tahap 11 memuat dua gagasan
+besar sekaligus: komposisi fungsi, lalu fungsi invers berikut syarat satu-satu
+dan uji garis mendatar. Akibatnya tahap 11 menjadi tahap terberat di seluruh
+topik, melebihi tahap 6 yang justru sengaja dirancang sebagai porosnya. Itu
+melanggar butir 4 daftar periksa `docs/tugas/STANDAR-MENGAJAR.md`: tiap bagian
+hanya boleh memuat satu ide.
+
+Susunannya sekarang:
+
+| # | Tahap | Widget |
+|---|---|---|
+| 11 | Dua mesin dirangkai (komposisi saja) | `dua-mesin` |
+| 12 | Mesin yang membatalkan (invers, satu-satu, uji garis mendatar) | `mesin-balik` |
+| 13 | Dipakai di dunia nyata (galeri) | `dunia-nyata-grafik` |
+
+Keduanya memakai komponen widget yang SAMA, `DuaMesin`, hanya dengan mode yang
+berbeda. Jadi jumlah komponen widget tetap sebelas.
+
+**Tombol pemilih mode dibuang.** Sebelumnya siswa bisa menekan "Invers dan
+cerminnya" saat masih membaca tahap komposisi. Sekarang modenya ditentukan oleh
+tahapnya, bukan oleh tombol. Dua alasan: siswa tidak lagi bisa membuka pelajaran
+tahap berikutnya sebelum waktunya, dan satu kendali yang tidak menjelaskan
+apa-apa di halaman yang sedang dibaca ikut hilang.
+
+**Ikutan yang diperiksa satu per satu:**
+
+- `kuisTerbuka` tidak perlu disentuh: `HalamanTopik` sudah mengirim
+  `TAHAP.length`, jadi jumlahnya ikut sendiri.
+- Janji di tahap 9 ("namanya akan diberikan di tahap 11") diubah menjadi
+  tahap 12.
+- Galeri yang tadinya berbunyi "Sebelas tahap sebelumnya" menjadi "Dua belas".
+- Bank soal dan latihan tidak menyebut nomor tahap mana pun, jadi tidak berubah.
+- `labelPendek` tahap 12 menjadi "Invers", tahap 11 tetap "Rangkai".
+
+## Tiga revisi isi lain
+
+1. **Huruf x tidak lagi dipakai sebagai tanda kali** (9 baris). Di topik yang
+   variabelnya justru bernama x, baris seperti `y = 300 x 0,6 pangkat x`
+   memakai satu huruf untuk dua arti sekaligus.
+2. **Tahap 2 memanggil ulang fungsi linear dari SMP** sebelum memperkenalkan
+   mesin `f(x) = 2x + 1`, sesuai butir 2 daftar periksa. Sebelumnya tahap itu
+   mengandaikan siswa masih ingat `y = mx + c` tanpa menyebutnya.
+3. **Enam kalimat yang menghakimi tugas siswa diganti.** Yang terburuk ada di
+   tahap 10: "Bagian ini terasa mudah, dan memang begitu". Kalimat semacam itu
+   tidak menolong siapa pun: siswa yang justru kesulitan akan menyimpulkan
+   masalahnya ada pada dirinya. Kata yang menggambarkan BENDA tetap dibiarkan,
+   misalnya "jelas bukan nol", karena yang dinilai di situ angkanya.

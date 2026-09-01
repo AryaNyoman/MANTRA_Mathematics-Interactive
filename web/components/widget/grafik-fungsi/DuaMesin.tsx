@@ -101,17 +101,40 @@ function jendelaKomposisi(fg: (x: number) => number, gf: (x: number) => number, 
 }
 
 /**
- * Jendela mode invers: skala kedua sumbu WAJIB sama.
+ * Jendela mode invers saat inversnya MEMANG DIGAMBAR: skala kedua sumbu sama.
  *
  * Tanpa itu, garis y = x tidak tampil miring 45 derajat dan pencerminannya
  * tidak terlihat sebagai pencerminan. Tingginya menyesuaikan nilai yang sedang
  * diuji supaya garis mendatarnya selalu masuk layar.
  */
-function jendelaInvers(yUji: number): Jendela {
+function jendelaCermin(yUji: number): Jendela {
   const nisbah = (KOTAK.x1 - KOTAK.x0) / (KOTAK.y1 - KOTAK.y0)
-  const batas = Math.max(8, Math.abs(yUji) * 1.2)
+  const batas = Math.max(9, Math.abs(yUji) * 1.15)
   const lebar = 2 * batas * nisbah
   return { xMin: -lebar / 2, xMax: lebar / 2, yMin: -batas, yMax: batas }
+}
+
+/**
+ * Jendela mode invers saat fungsinya TIDAK punya invers.
+ *
+ * Di keadaan itu tidak ada kurva invers yang digambar, jadi tidak ada
+ * pencerminan yang perlu terlihat 45 derajat, dan memaksakan skala yang sama
+ * justru merugikan: potret pertama tanggal 2 September 2026 memperlihatkan
+ * parabola tampil sebagai paku sempit di tengah bidang selebar 65 satuan.
+ *
+ * Yang sedang diajarkan di keadaan ini adalah uji garis mendatar, jadi
+ * jendelanya dipaskan ke parabolanya sendiri dan ke garis ujinya. Garis y = x
+ * ikut TIDAK digambar, karena cermin tanpa bayangan hanya menambah satu garis
+ * yang tidak menjelaskan apa pun.
+ */
+function jendelaUji(f: (x: number) => number, yUji: number): Jendela {
+  const titik: Array<[number, number]> = [[0, 0], [-4.5, yUji], [4.5, yUji]]
+  for (let i = 0; i <= 40; i++) {
+    const x = -4.5 + (9 * i) / 40
+    titik.push([x, f(x)])
+  }
+  const j = jendelaMuat(titik, 0.12)
+  return { ...j, xMin: -4.8, xMax: 4.8 }
 }
 
 export default function DuaMesin({
@@ -145,7 +168,7 @@ export default function DuaMesin({
         catatanBawah={{
           teks: Math.abs(jejak.gDulu.akhir - jejak.fDulu.akhir) < 1e-9
             ? 'di sini kebetulan sama. Geser angkanya'
-            : 'dua kurva berbeda: urutan berpengaruh',
+            : 'dua kurva beda: urutan berpengaruh',
         }}
         aria={`Dua urutan komposisi digambar bersamaan. Pada x sama dengan ${angka(masuk, 1)}, f setelah g memberi ${angka(jejak.gDulu.akhir, 2)} dan g setelah f memberi ${angka(jejak.fDulu.akhir, 2)}.`}
       >
@@ -168,7 +191,7 @@ export default function DuaMesin({
 
   // ---------- mode invers ----------
   const yUji = f(masuk)
-  const jendela = jendelaInvers(yUji)
+  const jendela = inv ? jendelaCermin(yUji) : jendelaUji(f, yUji)
   const p = keLayar(jendela)
   const potongMendatar = mesin === 'kuadrat'
     ? (yUji > 1 ? 2 : yUji === 1 ? 1 : 0)
@@ -192,14 +215,21 @@ export default function DuaMesin({
           warna: potongMendatar > 1 ? WARNA.depan : WARNA.samping,
         },
       ]}
-      catatanBawah={{ teks: 'ungu putus-putus = y = x, cerminnya' }}
+      catatanBawah={inv
+        ? { teks: 'ungu putus-putus = y = x, cerminnya' }
+        : { teks: 'tanpa invers, tidak ada cermin digambar' }}
       aria={`Mode invers. ${NAMA_F[mesin]}. Garis mendatar memotong grafiknya ${potongMendatar} kali.`}
       tandaSkala={false}
     >
-      {/* garis cermin */}
-      <line x1={p.x(jendela.yMin)} y1={p.y(jendela.yMin)}
-            x2={p.x(jendela.yMax)} y2={p.y(jendela.yMax)}
-            stroke={WARNA.sudut} strokeWidth={1.4} strokeDasharray="6 5" opacity={0.75} />
+      {/* Garis cermin digambar HANYA kalau inversnya memang ada. Menggambar
+          cermin di sebelah fungsi yang tidak punya bayangan cuma menambah satu
+          garis yang tidak menjelaskan apa pun, dan memaksa skala kedua sumbu
+          disamakan sehingga parabolanya tampil gepeng. */}
+      {inv && (
+        <line x1={p.x(jendela.yMin)} y1={p.y(jendela.yMin)}
+              x2={p.x(jendela.yMax)} y2={p.y(jendela.yMax)}
+              stroke={WARNA.sudut} strokeWidth={1.4} strokeDasharray="6 5" opacity={0.75} />
+      )}
 
       {/* fungsi aslinya */}
       <path d={jalurFungsi(f, jendela, 600)} fill="none" stroke={WARNA.miring} strokeWidth={2.8} />
