@@ -51,7 +51,7 @@ const DAFTAR: Topik[] = [
     urutanKelas: 10,
     pertanyaan: 'Kenapa bentuk grafik berubah saat satu angka digeser?',
     miskonsepsiSingkat: '“setiap grafik pasti sebuah fungsi.”',
-    siap: false,
+    siap: true,
   },
   {
     slug: 'statistika',
