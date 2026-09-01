@@ -58,6 +58,12 @@ ARITAS = {
 KENDALI = {"\t": r"\t", "\n": r"\n", "\r": r"\r", "\x08": r"\b", "\x0c": r"\f",
            "\x07": r"\a", "\v": r"\v"}
 
+# Newline DIKECUALIKAN untuk pembuat teks biasa: di dalam Text() ia
+# pemisah baris yang memang disengaja, bukan gejala string lupa awalan r.
+# Di dalam MathTex ia tetap salah, jadi pengecualiannya hanya untuk Text.
+# Lapor palsu ini muncul dua kali pada 1 Sep 2026 dan menghentikan render.
+KENDALI_TEKS = {k: v for k, v in KENDALI.items() if k != "\n"}
+
 HEX = re.compile(r"#[0-9A-Fa-f]{6}\b")
 
 
@@ -178,7 +184,8 @@ def kumpulkan_tex(sumber: str, pohon: ast.AST, t: Temuan) -> list[tuple[int, str
                 continue
             nilai, baris = arg.value, arg.lineno
 
-            for ch, tampak in KENDALI.items():
+            daftar = KENDALI_TEKS if nama in PEMBUAT_TEKS else KENDALI
+            for ch, tampak in daftar.items():
                 if ch in nilai:
                     t.salah(baris, f"{nama}(...) mengandung karakter kendali "
                                    f"'{tampak}', hampir pasti string lupa awalan "
