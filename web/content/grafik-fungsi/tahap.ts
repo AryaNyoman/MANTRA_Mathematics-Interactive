@@ -69,6 +69,7 @@ export const TAHAP: TahapGrafik[] = [
       'Membaca grafik bisa dilakukan sebelum tahu satu pun rumusnya.',
     ],
     penjelasan: [
+      { jenis: 'paragraf', teks: 'Anda sudah sering melihat grafik, walaupun mungkin tidak pernah menyebutnya begitu: grafik kasus penyakit di berita, grafik langkah harian di ponsel, grafik nilai rapor. Semuanya dibaca dengan cara yang sama, dan cara itu yang kita rapikan di sini.' },
       { jenis: 'paragraf', teks: 'Sebelum bicara rumus, mari lihat gambar dulu. Ini grafik perjalanan Ayu naik motor dari rumah ke sekolah. Sumbu mendatar adalah waktu dalam menit, sumbu tegak adalah jarak dari rumah dalam kilometer.' },
       { jenis: 'paragraf', teks: 'Tidak ada rumus di sini, dan Anda memang tidak butuh rumus untuk membacanya. Yang Anda butuhkan cuma satu kebiasaan: baca grafiknya dari kiri ke kanan, seperti membaca kalimat.' },
       { jenis: 'sorot', teks: 'Bergerak ke kanan artinya waktu berjalan. Naik turunnya garis menceritakan apa yang terjadi pada saat itu.' },
@@ -117,7 +118,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     seringKeliru: {
       judul: 'Grafik yang naik berarti bendanya naik ke atas',
-      isi: 'Yang naik adalah nilai pada sumbu tegak, dan isinya belum tentu ketinggian. Pada grafik perjalanan Ayu, sumbu tegaknya berisi jarak dari rumah. Garis yang menanjak berarti Ayu makin jauh dari rumah, bukan Ayu sedang mendaki. Kalau sumbu tegaknya diganti menjadi ketinggian tanah, gambar yang sama akan bercerita hal yang berbeda.',
+      isi: 'Godaannya kuat karena kata naik memang berarti bergerak ke atas di dunia nyata, dan mata langsung membacanya begitu. Padahal yang naik adalah nilai pada sumbu tegak, dan isinya belum tentu ketinggian. Pada grafik perjalanan Ayu, sumbu tegaknya berisi jarak dari rumah. Garis yang menanjak berarti Ayu makin jauh dari rumah, bukan Ayu sedang mendaki. Kalau sumbu tegaknya diganti menjadi ketinggian tanah, gambar yang sama akan bercerita hal yang berbeda.',
     },
     widget: 'pembaca-grafik',
     siap: true,
@@ -298,7 +299,8 @@ export const TAHAP: TahapGrafik[] = [
       'Diskriminan D = b² - 4ac menentukan berapa kali grafiknya memotong sumbu x.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Di buku dan di soal ujian, fungsi kuadrat lebih sering ditulis begini:' },
+      { jenis: 'paragraf', teks: 'Parabola jembatan gantung dari tahap 3 tidak berubah bentuknya sedikit pun di tahap ini. Yang berubah cuma cara menuliskannya, dan itu penting karena buku dan soal ujian hampir selalu memakai tulisan yang satu lagi.' },
+      { jenis: 'paragraf', teks: 'Bentuk yang dipakai buku dan soal ujian:' },
       { jenis: 'sorot', teks: 'y = ax² + bx + c' },
       { jenis: 'paragraf', teks: 'Namanya bentuk umum. Bentuk ini tidak seramah bentuk puncak, karena puncaknya tidak kelihatan. Tapi ia bukan parabola jenis lain. Ia parabola yang sama, cuma kurungnya sudah dijabarkan.' },
       {
@@ -382,7 +384,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     seringKeliru: {
       judul: 'D negatif berarti grafiknya tidak ada',
-      isi: 'Grafiknya tetap ada, tetap parabola utuh, dan tetap bisa digambar. Yang tidak ada adalah titik potongnya dengan sumbu x. Parabola dengan D negatif melayang seluruhnya di satu sisi sumbu x, entah semuanya di atas atau semuanya di bawah. Contohnya y = x² + 4: D = 0 - 4(1)(4) = -16, dan memang grafiknya ada di atas sumbu x sepenuhnya, dengan puncak di (0, 4).',
+      isi: 'Godaannya masuk akal: di banyak soal, D negatif memang berarti tidak ada jawaban, jadi kata tidak ada terbawa ke grafiknya sekalian. Padahal yang tidak ada cuma akarnya. Grafiknya tetap ada, tetap parabola utuh, dan tetap bisa digambar. Yang tidak ada adalah titik potongnya dengan sumbu x. Parabola dengan D negatif melayang seluruhnya di satu sisi sumbu x, entah semuanya di atas atau semuanya di bawah. Contohnya y = x² + 4: D = 0 - 4(1)(4) = -16, dan memang grafiknya ada di atas sumbu x sepenuhnya, dengan puncak di (0, 4).',
     },
     widget: 'wajah-parabola',
     siap: true,
@@ -475,7 +477,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     seringKeliru: {
       judul: 'Kalau titik potongnya -2 dan 3, rumusnya (x + 2)(x + 3)',
-      isi: 'Yang dikurangkan adalah akarnya, jadi bentuknya (x - p)(x - q). Untuk akar -2 dan 3, hasilnya (x - (-2))(x - 3), yaitu (x + 2)(x - 3). Cara mengeceknya cepat: masukkan x = 3 dan lihat apakah hasilnya nol. Pada (x + 2)(x - 3) hasilnya 5 kali 0 sama dengan nol, jadi benar. Pada (x + 2)(x + 3) hasilnya 5 kali 6 sama dengan 30, jelas bukan nol, jadi salah.',
+      isi: 'Godaannya wajar: akarnya memang tertulis -2, jadi tangan langsung menyalin tanda minusnya menjadi (x - 2), atau menyalin angkanya apa adanya menjadi (x + 2)(x + 3). Padahal yang dikurangkan adalah akarnya, jadi bentuknya (x - p)(x - q). Untuk akar -2 dan 3, hasilnya (x - (-2))(x - 3), yaitu (x + 2)(x - 3). Cara mengeceknya cepat: masukkan x = 3 dan lihat apakah hasilnya nol. Pada (x + 2)(x - 3) hasilnya 5 kali 0 sama dengan nol, jadi benar. Pada (x + 2)(x + 3) hasilnya 5 kali 6 sama dengan 30, jelas bukan nol, jadi salah.',
     },
     widget: 'susun-parabola',
     siap: true,
@@ -557,7 +559,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     seringKeliru: {
       judul: 'f(2x) berarti grafiknya jadi dua kali lebih lebar',
-      isi: 'Justru setengahnya. Angka 2 mengalikan x sebelum masuk mesin, jadi mesinnya mencapai nilai yang sama pada x yang setengahnya, dan seluruh kejadian pada grafik terjadi lebih awal. Cek cepat pada f(x) = x²: nilai 4 muncul di x = 2, tetapi pada f(2x) nilai 4 sudah muncul di x = 1. Yang membuat grafik dua kali lebih lebar justru f(x/2), karena di situ x dibagi dua dulu.',
+      isi: 'Godaannya kuat karena mengalikan dua di mana pun biasanya berarti membesarkan, dan itu benar untuk angka yang di LUAR kurung. Di dalam kurung akibatnya justru terbalik: hasilnya setengahnya. Angka 2 mengalikan x sebelum masuk mesin, jadi mesinnya mencapai nilai yang sama pada x yang setengahnya, dan seluruh kejadian pada grafik terjadi lebih awal. Cek cepat pada f(x) = x²: nilai 4 muncul di x = 2, tetapi pada f(2x) nilai 4 sudah muncul di x = 1. Yang membuat grafik dua kali lebih lebar justru f(x/2), karena di situ x dibagi dua dulu.',
     },
     widget: 'papan-transformasi',
     siap: true,
@@ -668,6 +670,7 @@ export const TAHAP: TahapGrafik[] = [
       'Grafiknya mendekati sumbu x tanpa pernah menyentuhnya.',
     ],
     penjelasan: [
+      { jenis: 'paragraf', teks: 'Sampai tahap 7, semua grafik yang kita temui dibangun dari penjumlahan dan perkalian biasa: garis lurus menambah dengan jumlah tetap, parabola memangkatkan x dengan 2. Sekarang x pindah tempat, dan akibatnya jauh lebih besar daripada yang biasanya diduga.' },
       { jenis: 'paragraf', teks: 'Buku Kelas 10 membuka bab ini dengan penularan virus. Satu orang menulari tiga orang, ketiganya masing-masing menulari tiga lagi, dan seterusnya.' },
       {
         jenis: 'contoh',
@@ -833,7 +836,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     seringKeliru: {
       judul: 'Logaritma dari bilangan negatif hasilnya negatif',
-      isi: 'Tidak ada hasilnya sama sekali. Logaritma menanyakan "pangkat berapa", dan tidak ada satu pun pangkat yang membuat bilangan positif berubah menjadi negatif. Dua pangkat berapa pun, termasuk pangkat negatif dan pangkat pecahan, hasilnya selalu positif. Itu sebabnya domain fungsi logaritma hanya bilangan positif, dan grafiknya berhenti di sumbu y tanpa pernah menyeberang ke kiri.',
+      isi: 'Godaannya masuk akal: di hampir semua hitungan lain, memasukkan bilangan negatif memberi hasil negatif, jadi polanya terasa berlaku di sini juga. Padahal di sini tidak ada hasilnya sama sekali. Logaritma menanyakan "pangkat berapa", dan tidak ada satu pun pangkat yang membuat bilangan positif berubah menjadi negatif. Dua pangkat berapa pun, termasuk pangkat negatif dan pangkat pecahan, hasilnya selalu positif. Itu sebabnya domain fungsi logaritma hanya bilangan positif, dan grafiknya berhenti di sumbu y tanpa pernah menyeberang ke kiri.',
     },
     widget: 'cermin-yx',
     siap: true,
@@ -926,7 +929,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     seringKeliru: {
       judul: 'Kalau ditarik cukup jauh, grafiknya akhirnya menyentuh asimtotnya',
-      isi: 'Tidak pernah. Yang terjadi hanya jaraknya mengecil terus. Pada y = 1 dibagi x, di x sama dengan sejuta nilainya masih 0,000001, dan itu bukan nol. Di x sama dengan semiliar pun ia masih positif. Tidak ada satu pun nilai x yang membuatnya tepat nol, jadi kurvanya tidak pernah menyentuh sumbu x. Kalimat "mendekati tanpa menyentuh" itu bukan kiasan, melainkan pernyataan yang bisa dibuktikan, dan pembuktiannya ada di topik Limit.',
+      isi: 'Godaannya datang dari mata: di layar, jarak sepersejuta satuan memang tidak bisa dibedakan dari nol, jadi kurvanya terlihat menempel. Tetapi menyentuh tidak pernah terjadi. Yang terjadi hanya jaraknya mengecil terus. Pada y = 1 dibagi x, di x sama dengan sejuta nilainya masih 0,000001, dan itu bukan nol. Di x sama dengan semiliar pun ia masih positif. Tidak ada satu pun nilai x yang membuatnya tepat nol, jadi kurvanya tidak pernah menyentuh sumbu x. Kalimat "mendekati tanpa menyentuh" itu bukan kiasan, melainkan pernyataan yang bisa dibuktikan, dan pembuktiannya ada di topik Limit.',
     },
     widget: 'asimtot-rasional',
     siap: true,

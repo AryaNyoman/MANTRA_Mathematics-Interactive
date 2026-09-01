@@ -197,3 +197,88 @@ memakai `useState` untuk hal yang sama, jadi polanya sudah ada contohnya di
 
 **Akibatnya `eslint .` seluruh proyek masih merah**, dan gerbang "eslint bersih"
 belum bisa dinyatakan lolos oleh siapa pun sampai berkas itu diperbaiki.
+
+
+---
+
+# Gelombang 2, tahap revisi isi (2 September 2026)
+
+## Lima revisi tinjauan MASTER: selesai semua
+
+| # | Revisi | Hasil |
+|---|---|---|
+| 1 | Huruf x sebagai tanda kali di 9 baris | diganti lambang kali, sisa nol |
+| 2 | Tahap 2 memanggil ulang fungsi linear SMP | ditambahkan sebelum mesin f(x) = 2x + 1 |
+| 3 | Tahap 11 dipecah jadi komposisi dan invers | jadi 13 tahap, ikutannya diperiksa satu per satu |
+| 4 | Kata yang menghakimi tugas siswa | 6 kalimat diganti |
+| 5 | Kompresi enam foto galeri | semuanya di bawah 150 KB, total 820 KB jadi 531 KB |
+
+## Daftar periksa 10 butir per tahap
+
+Butir 2, 4, 6, 7, 9, dan 10 dijawab MESIN lewat `alat/periksa_tahap.py`, karena
+jawaban mesin lebih dapat dipercaya daripada mata yang sudah membaca berkas
+yang sama belasan kali. Butir 1, 3, 5, dan 8 dinilai sendiri setelah menarik
+pertanyaan pembuka, blok pertama, dan isi `seringKeliru` tiap tahap.
+
+| # | Tahap | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | Grafik itu bercerita | sbg | ya | ya | ya | ya | n/a | ya | ya | ya | ya |
+| 2 | Potret sebuah aturan | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 3 | Parabola dan bentuk puncak | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 4 | Bentuk umum dan diskriminan | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 5 | Menyusun rumus dari gambarnya | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 6 | Geser, cermin, regang | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 7 | Nilai mutlak, cara melipat grafik | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 8 | Eksponen, tumbuh dan meluruh | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 9 | Logaritma yang dicerminkan | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 10 | Fungsi rasional dan asimtotnya | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 11 | Dua mesin dirangkai | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 12 | Mesin yang membatalkan | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 13 | Dipakai di dunia nyata | sbg | ya | ya | n/a | ya | n/a | n/a | n/a | ya | ya |
+
+`sbg` berarti sebagian, `n/a` berarti butirnya memang tidak berlaku.
+
+### Yang TIDAK penuh, dan kenapa dibiarkan begitu
+
+**Butir 1, tahap 1 dan tahap 13: sebagian.** Pertanyaan pembukanya bisa dijawab
+sekilas oleh siswa sebelum membaca. "Apa yang sebenarnya diceritakan sebuah
+grafik?" akan dijawab "ya isinya data", dan "di mana grafik dipakai orang?"
+akan dijawab "di berita". Keduanya sengaja dibiarkan: tahap 1 adalah pintu
+masuk yang tugasnya menurunkan pagar, bukan memasang teka-teki, dan tahap 13
+galeri penutup yang memang merangkum. Sebelas tahap di tengah semuanya penuh.
+
+**Butir 4, tahap 13: tidak berlaku.** Galeri tidak punya penanda `sesi` sama
+sekali, karena isinya satu daftar contoh.
+
+**Butir 6, tahap 1 dan 13: tidak berlaku.** Keduanya bukan tahap prosedur.
+Tahap 1 sengaja tidak memuat satu pun rumus, dan itu keputusan ARYA di gerbang
+rancangan.
+
+**Butir 7 dan 8, tahap 13: tidak berlaku.** Galeri tidak interaktif, dan tidak
+ada kekeliruan khas yang perlu diluruskan di sana.
+
+### Enam perbaikan yang lahir dari daftar periksa ini
+
+Daftar ini bukan formalitas; ia menemukan hal yang belum beres:
+
+1. **Tahap 1 tidak memanggil ulang apa pun** (butir 2). Ditambahkan: grafik
+   kasus penyakit di berita, langkah harian di ponsel, nilai rapor.
+2. **Tahap 8 juga tidak** (butir 2). Ditambahkan penghubung ke tahap 3 sampai 7:
+   sampai sini x selalu dijumlah atau dipangkatkan, sekarang x pindah tempat.
+3. **Tahap 4 membuka langsung dengan lambang** (butir 3). Sekarang dibuka dengan
+   parabola jembatan gantung dari tahap 3 yang bentuknya tidak berubah, baru
+   masuk ke tulisannya.
+4. sampai 6. **Enam `seringKeliru` hanya membetulkan tanpa menyebut KENAPA
+   kekeliruan itu menggoda** (butir 8), yaitu tahap 1, 4, 5, 6, 9, dan 10.
+   Semuanya kini menyebutnya. Contoh tahap 6: godaannya kuat karena mengalikan
+   dua di mana pun biasanya berarti membesarkan, dan itu memang benar untuk
+   angka di LUAR kurung.
+
+## Alat baru
+
+| Berkas | Untuk apa |
+|---|---|
+| `alat/kompres_gambar.py` | Menurunkan berat foto di bawah 150 KB. Mutu diturunkan bertahap dan berhenti begitu batasnya terpenuhi, dan mutu di bawah 55 DITOLAK: lebih baik lapor gagal daripada diam-diam memasang foto berbercak |
+| `alat/periksa_tahap.py` | Menjawab enam butir daftar periksa dari struktur isinya, dan menyiapkan bahan untuk empat butir sisanya |
+
+Keduanya khusus topik ini, jadi tidak menyentuh wilayah sesi lain.
