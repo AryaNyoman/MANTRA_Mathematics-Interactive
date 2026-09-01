@@ -370,9 +370,80 @@ export const TAHAP: TahapVektor[] = [
     judul: 'Arah tanpa panjang',
     labelPendek: 'Satuan',
     pertanyaan: 'Bagaimana menyebut arah saja, tanpa ikut menyebut jauhnya?',
-    penjelasan: BELUM,
+    penjelasan: [
+      {
+        jenis: 'paragraf',
+        teks: 'Kadang yang dibutuhkan hanya arahnya. Petunjuk jalan tidak perlu memberi tahu seberapa jauh untuk menyatakan ke mana. Vektor punya cara rapi untuk itu: buat panah yang arahnya sama persis, tetapi panjangnya dipatok tepat 1.',
+      },
+      { jenis: 'sesi', judul: 'Membagi vektor dengan panjangnya sendiri' },
+      {
+        jenis: 'paragraf',
+        teks: 'Caranya satu langkah saja: bagi tiap komponen dengan panjang vektornya. Hasilnya disebut VEKTOR SATUAN, dan panjangnya selalu 1 berapa pun vektor asalnya.',
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Vektor satuan dari (3 4)',
+        baris: [
+          'Cari panjangnya dulu: akar dari 9 ditambah 16, hasilnya 5',
+          'Bagi komponen mendatarnya: 3 dibagi 5 sama dengan 0,6',
+          'Bagi komponen tegaknya: 4 dibagi 5 sama dengan 0,8',
+          'Periksa: akar dari 0,36 ditambah 0,64 sama dengan akar 1, yaitu 1',
+        ],
+        simpul: 'Vektor satuannya (0,6  0,8), dan panjangnya benar-benar 1.',
+      },
+      {
+        jenis: 'coba',
+        teks: 'Tarik ujung panah hitam di sebelah kiri.',
+        langkah: [
+          'Panjangkan sampai jauh. Panah ungunya tidak ikut memanjang.',
+          'Putar arahnya. Panah ungu ikut berputar, sebab arahnya memang mengikuti.',
+          'Perhatikan baris terakhir di tabel: panjang vektor satuan tidak pernah bergeser dari 1.',
+        ],
+      },
+      { jenis: 'sesi', judul: 'Dua vektor satuan yang punya nama sendiri' },
+      {
+        jenis: 'poin',
+        butir: [
+          'i - vektor satuan yang menghadap sumbu mendatar positif, yaitu (1 0).',
+          'j - vektor satuan yang menghadap sumbu tegak positif, yaitu (0 1).',
+        ],
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Dengan keduanya, vektor bisa ditulis tanpa tanda kurung sama sekali. Vektor (3 4) sama artinya dengan 3i ditambah 4j. Bacanya: tiga langkah ke arah i, lalu empat langkah ke arah j.',
+      },
+      { jenis: 'sesi', judul: 'Vektor posisi, dan sedikit tentang ruang' },
+      {
+        jenis: 'paragraf',
+        teks: 'Vektor yang pangkalnya selalu di titik asal O disebut VEKTOR POSISI. Gunanya menyatakan letak sebuah titik dalam bentuk vektor, sehingga letak pun bisa ikut dihitung. Vektor posisi titik P(3, 4) adalah (3 4).',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Di ruang tiga dimensi ceritanya sama, hanya komponennya bertambah satu dan muncul vektor satuan ketiga bernama k. Semua yang kamu pelajari di halaman ini tetap berlaku, termasuk cara mencari panjangnya.',
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Vektor satuan dari 2i + 2j - k',
+        baris: [
+          'Panjangnya: akar dari 4 ditambah 4 ditambah 1, hasilnya akar 9, yaitu 3',
+          'Bagi tiap komponen dengan 3',
+          'Vektor satuannya: dua per tiga, dua per tiga, dan negatif satu per tiga',
+        ],
+        simpul: 'Gambarnya memang tidak ditampilkan di sini. Bangun ruang dibahas di topik Ruang Tiga Dimensi.',
+      },
+    ],
+    seringKeliru: {
+      judul: 'Vektor satuan dikira selalu i atau j',
+      isi: 'Vektor satuan bukan cuma dua. Setiap vektor yang panjangnya 1 adalah vektor satuan, ke arah mana pun ia menghadap. Vektor (0,6  0,8) panjangnya 1, jadi ia vektor satuan, walaupun ia bukan i maupun j. Yang istimewa dari i dan j hanyalah arahnya yang berimpit dengan sumbu, sehingga enak dipakai sebagai patokan.',
+    },
+    intisari: [
+      'Vektor satuan dibuat dengan membagi tiap komponen dengan panjang vektornya.',
+      'Panjangnya selalu tepat 1, jadi ia menyatakan arah saja.',
+      'i adalah (1 0) dan j adalah (0 1), sehingga (3 4) bisa ditulis 3i ditambah 4j.',
+      'Vektor posisi adalah vektor yang pangkalnya di titik asal.',
+    ],
     widget: 'vektor-satuan',
-    siap: false,
+    siap: true,
   },
   /* ================================================================= */
   {
@@ -381,9 +452,68 @@ export const TAHAP: TahapVektor[] = [
     judul: 'Menjumlah itu menyambung perjalanan',
     labelPendek: 'Jumlah',
     pertanyaan: 'Dua perjalanan berturut-turut, hasilnya perjalanan apa?',
-    penjelasan: BELUM,
+    penjelasan: [
+      {
+        jenis: 'paragraf',
+        teks: 'Kamu berjalan ke suatu tempat, lalu dari situ berjalan lagi ke tempat lain. Dilihat dari titik berangkat, ke mana kamu berpindah? Satu panah saja sudah cukup menjawabnya, yaitu panah dari titik awal langsung ke titik akhir.',
+      },
+      { jenis: 'sesi', judul: 'Aturannya: ujung ke pangkal' },
+      {
+        jenis: 'paragraf',
+        teks: 'Untuk menjumlahkan dua vektor secara gambar, pindahkan vektor kedua sehingga PANGKALNYA menempel di UJUNG vektor pertama. Boleh dipindahkan seperti itu karena letak memang tidak mengubah vektor, seperti yang sudah dibahas di Materi 02.',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Setelah tersambung, tarik panah dari pangkal yang pertama sampai ujung yang terakhir. Panah itulah hasil penjumlahannya, dan namanya RESULTAN. Cara ini disebut metode segitiga, sebab ketiga panahnya membentuk segitiga.',
+      },
+      {
+        jenis: 'coba',
+        teks: 'Alat di sebelah kiri sudah tersambung ujung ke pangkal.',
+        langkah: [
+          'Tarik ujung panah biru. Panah merah ikut berpindah, sebab pangkalnya menempel di situ.',
+          'Tarik ujung panah merah. Panah hitam mengikuti sampai ke titik akhir yang baru.',
+          'Perhatikan panah hitam selalu menutup segitiganya, dari titik awal langsung ke titik akhir.',
+        ],
+      },
+      { jenis: 'sesi', judul: 'Kalau perjalanannya lebih dari dua' },
+      {
+        jenis: 'paragraf',
+        teks: 'Aturannya tidak berubah. Sambung terus ujung ke pangkal, sebanyak apa pun langkahnya, lalu tarik satu panah dari titik awal ke titik akhir. Cara ini disebut metode poligon, dan sebenarnya cuma metode segitiga yang diulang.',
+      },
+      { jenis: 'sesi', judul: 'Dengan komponen, jauh lebih cepat' },
+      {
+        jenis: 'paragraf',
+        teks: 'Menggambar itu bagus untuk memahami, tetapi lambat dan bergantung ketelitian penggaris. Begitu vektornya sudah berbentuk komponen, penjumlahannya jadi pekerjaan yang sangat mudah: jumlahkan yang mendatar dengan yang mendatar, dan yang tegak dengan yang tegak.',
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Jumlahkan (3 1) dan (1 2)',
+        baris: [
+          'Komponen mendatar: 3 ditambah 1 sama dengan 4',
+          'Komponen tegak: 1 ditambah 2 sama dengan 3',
+          'Resultannya (4 3)',
+          'Panjang resultannya: akar dari 16 ditambah 9, yaitu 5',
+        ],
+        simpul: 'Panjang kedua vektor asalnya sekitar 3,16 dan 2,24. Dijumlahkan hasilnya 5,40, bukan 5.',
+      },
+      {
+        jenis: 'sorot',
+        teks: 'Komponen boleh dijumlahkan. Panjang tidak boleh.',
+      },
+    ],
+    seringKeliru: {
+      judul: 'Menyambung pangkal ke pangkal',
+      isi: 'Kesalahan gambar yang paling sering terjadi adalah menempelkan kedua pangkal di satu titik, lalu menarik panah dari ujung ke ujung. Yang terbentuk bukan resultan, melainkan SELISIH kedua vektor itu, dan panjangnya bisa jauh berbeda. Untuk penjumlahan cara segitiga, yang menempel adalah ujung vektor pertama dengan pangkal vektor kedua.',
+      sumber: 'Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, Bab 3 bagian C.1, halaman 111 sampai 114.',
+    },
+    intisari: [
+      'Menjumlahkan vektor secara gambar: sambung ujung ke pangkal, lalu tarik dari awal ke akhir.',
+      'Hasil penjumlahan vektor disebut resultan.',
+      'Lebih dari dua vektor memakai cara yang sama, namanya metode poligon.',
+      'Dengan komponen, cukup jumlahkan yang mendatar dan yang tegak masing-masing.',
+    ],
     widget: 'sambung-panah',
-    siap: false,
+    siap: true,
   },
   /* ================================================================= */
   {
@@ -392,9 +522,70 @@ export const TAHAP: TahapVektor[] = [
     judul: 'Dua yang bekerja bersamaan',
     labelPendek: 'Jajar genjang',
     pertanyaan: 'Kalau keduanya bekerja serentak, bukan bergantian?',
-    penjelasan: BELUM,
+    penjelasan: [
+      {
+        jenis: 'paragraf',
+        teks: 'Dua orang menarik satu peti pada saat yang sama, masing-masing dari arah yang berbeda. Di sini tidak ada yang berurutan: tidak ada tarikan pertama lalu tarikan kedua. Keduanya bekerja serentak dari titik yang sama.',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Menggambarnya dengan cara sambung akan terasa aneh, sebab tidak ada yang perlu disambung. Untuk keadaan semacam ini dipakai METODE JAJAR GENJANG.',
+      },
+      { jenis: 'sesi', judul: 'Cara menggambarnya' },
+      {
+        jenis: 'poin',
+        butir: [
+          'Gambar kedua vektor dari SATU titik pangkal yang sama.',
+          'Lengkapi menjadi jajar genjang: tarik garis sejajar masing-masing vektor lewat ujung vektor yang satunya.',
+          'Tarik diagonal dari titik pangkal ke pojok seberang. Diagonal itulah resultannya.',
+        ],
+      },
+      {
+        jenis: 'coba',
+        teks: 'Alat di sebelah kiri menggambar jajar genjangnya secara otomatis.',
+        langkah: [
+          'Tarik salah satu ujungnya. Sisi putus-putusnya ikut menyesuaikan supaya tetap jajar genjang.',
+          'Dekatkan kedua panah sampai hampir sejajar. Diagonalnya memanjang mendekati jumlah kedua panjangnya.',
+          'Jauhkan sampai hampir berlawanan. Diagonalnya memendek mendekati selisih kedua panjangnya.',
+        ],
+      },
+      { jenis: 'sesi', judul: 'Kapan memakai yang mana' },
+      {
+        jenis: 'poin',
+        judul: 'Bedanya cuma pada ceritanya, bukan pada hasilnya',
+        butir: [
+          'Metode segitiga - untuk yang terjadi BERURUTAN. Berjalan ke sana lalu ke sana lagi.',
+          'Metode jajar genjang - untuk yang bekerja SERENTAK. Dua gaya menarik satu benda pada saat yang sama.',
+        ],
+      },
+      {
+        jenis: 'sorot',
+        teks: 'Kedua cara selalu memberi resultan yang sama persis. Yang berbeda hanya gambarnya, dan gambar dipilih supaya cocok dengan ceritanya.',
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Dua gaya saling tegak lurus',
+        baris: [
+          'Gaya pertama 6 newton ke timur, ditulis (6 0)',
+          'Gaya kedua 8 newton ke utara, ditulis (0 8)',
+          'Resultannya (6 8)',
+          'Besarnya: akar dari 36 ditambah 64, yaitu akar 100, sama dengan 10 newton',
+        ],
+        simpul: 'Enam ditambah delapan memberi sepuluh, bukan empat belas. Sudut antara keduanya yang menentukan.',
+      },
+    ],
+    seringKeliru: {
+      judul: 'Mengira kedua metode memberi jawaban berbeda',
+      isi: 'Karena gambarnya terlihat sangat berlainan, banyak yang mengira harus memilih metode yang benar supaya jawabannya tidak salah. Padahal keduanya selalu memberi resultan yang sama. Jajar genjang sebenarnya berisi segitiga yang sama, cuma digambar lengkap dengan bayangannya. Pilih yang paling cocok dengan ceritanya, jangan takut salah pilih.',
+    },
+    intisari: [
+      'Metode jajar genjang dipakai saat kedua vektor bekerja serentak dari satu titik.',
+      'Resultannya adalah diagonal jajar genjang yang berangkat dari titik pangkal.',
+      'Hasilnya selalu sama dengan metode segitiga.',
+      'Dua gaya 6 N dan 8 N yang tegak lurus memberi resultan 10 N, bukan 14 N.',
+    ],
     widget: 'jajar-genjang',
-    siap: false,
+    siap: true,
   },
   /* ================================================================= */
   {
@@ -403,9 +594,73 @@ export const TAHAP: TahapVektor[] = [
     judul: 'Mengurangi itu menambah lawannya',
     labelPendek: 'Selisih',
     pertanyaan: 'Apa arti mengurangi sebuah panah dengan panah lain?',
-    penjelasan: BELUM,
+    penjelasan: [
+      {
+        jenis: 'paragraf',
+        teks: 'Pengurangan vektor tidak butuh aturan baru sama sekali. Ia cuma penjumlahan yang salah satu vektornya dibalik arahnya.',
+      },
+      {
+        jenis: 'sorot',
+        teks: 'a dikurangi b sama artinya dengan a ditambah lawan b.',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Lawan sebuah vektor sudah dibahas di Materi 02: panjangnya sama, arahnya berkebalikan. Dalam bentuk komponen, membalik arah cukup dengan mengganti tanda kedua komponennya.',
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Kurangi (3 1) dengan (1 2)',
+        baris: [
+          'Lawan dari (1 2) adalah (-1 -2)',
+          'Jumlahkan: 3 ditambah negatif 1 sama dengan 2',
+          'Lalu: 1 ditambah negatif 2 sama dengan negatif 1',
+          'Hasilnya (2 -1)',
+        ],
+        simpul: 'Lebih singkat lagi: kurangi saja komponennya langsung, mendatar dengan mendatar dan tegak dengan tegak.',
+      },
+      { jenis: 'sesi', judul: 'Gambaran kedua yang jauh lebih berguna' },
+      {
+        jenis: 'paragraf',
+        teks: 'Ada cara melihat pengurangan yang lebih sering terpakai di soal. Kalau a dan b sama-sama berangkat dari titik asal, maka a dikurangi b adalah panah DARI UJUNG b MENUJU UJUNG a.',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Perhatikan arahnya: dari b menuju a, mengikuti urutan pengurangannya yang terbalik. Inilah yang menjelaskan aturan di Materi 03 tentang vektor dari satu titik ke titik lain.',
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Vektor dari A(2, 1) ke B(6, 4)',
+        baris: [
+          'Vektor posisi A adalah (2 1), vektor posisi B adalah (6 4)',
+          'Vektor AB adalah posisi B dikurangi posisi A',
+          'Mendatar: 6 dikurangi 2 sama dengan 4',
+          'Tegak: 4 dikurangi 1 sama dengan 3',
+          'Jadi AB sama dengan (4 3), panjangnya 5',
+        ],
+        simpul: 'Ujung dikurangi pangkal. Sekarang alasannya terlihat, bukan sekadar dihafal.',
+      },
+      {
+        jenis: 'coba',
+        teks: 'Alat di sebelah kiri menggambar keduanya sekaligus.',
+        langkah: [
+          'Perhatikan ada dua panah ungu yang bentuknya sama persis: satu dari titik asal, satu dari ujung b menuju ujung a.',
+          'Tarik ujung a. Keduanya berubah bersamaan, sebab keduanya memang vektor yang sama.',
+          'Buat a dan b sama persis. Selisihnya menjadi vektor nol dan panahnya lenyap.',
+        ],
+      },
+    ],
+    seringKeliru: {
+      judul: 'Membalik urutan pengurangan',
+      isi: 'Ditanya vektor dari A ke B, banyak yang menulis A dikurangi B karena A disebut lebih dulu. Yang benar B dikurangi A, yaitu ujung dikurangi pangkal. Salah urutan tidak membuat jawabannya sedikit meleset, melainkan menghasilkan panah yang arahnya berlawanan sama sekali. Cara mengingat yang aman: bayangkan berjalan DARI A, jadi A adalah titik yang ditinggalkan, dan yang ditinggalkan itulah yang dikurangkan.',
+    },
+    intisari: [
+      'a dikurangi b sama dengan a ditambah lawan b.',
+      'Dengan komponen, cukup kurangkan komponennya masing-masing.',
+      'Kalau keduanya dari titik asal, a dikurangi b adalah panah dari ujung b ke ujung a.',
+      'Vektor dari A ke B adalah posisi B dikurangi posisi A, bukan sebaliknya.',
+    ],
     widget: 'selisih-panah',
-    siap: false,
+    siap: true,
   },
   /* ================================================================= */
   {
@@ -414,9 +669,65 @@ export const TAHAP: TahapVektor[] = [
     judul: 'Dikali angka: panjang berubah, arah tetap',
     labelPendek: 'Kali angka',
     pertanyaan: 'Apa yang terjadi kalau sebuah panah dikali bilangan?',
-    penjelasan: BELUM,
+    penjelasan: [
+      {
+        jenis: 'paragraf',
+        teks: 'Vektor dikali sebuah bilangan biasa, bukan dikali vektor lain. Bilangan biasa itu namanya SKALAR, dan operasinya disebut perkalian skalar dengan vektor. Hasilnya tetap sebuah vektor.',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Caranya sederhana: kalikan tiap komponennya dengan bilangan itu. Yang menarik adalah akibatnya pada gambar.',
+      },
+      {
+        jenis: 'poin',
+        judul: 'Tiga hal yang terjadi, bergantung pengalinya',
+        butir: [
+          'Pengali lebih dari 1 - panahnya memanjang, arahnya tidak berubah sedikit pun.',
+          'Pengali antara 0 dan 1 - panahnya memendek, arahnya tetap.',
+          'Pengali negatif - panahnya berbalik arah, dan panjangnya mengikuti nilai pengali tanpa tandanya.',
+        ],
+      },
+      {
+        jenis: 'coba',
+        teks: 'Geser pengali di sebelah kiri, dari negatif tiga sampai tiga.',
+        langkah: [
+          'Mulai dari pengali 2, lalu turunkan pelan-pelan. Panah ungunya menyusut, arahnya tidak bergeser.',
+          'Lewati angka nol perlahan. Panahnya lenyap sesaat, lalu muncul lagi menghadap arah berlawanan.',
+          'Bandingkan pengali 2 dengan negatif 2. Panjangnya sama persis, cuma arahnya berkebalikan.',
+        ],
+      },
+      { jenis: 'sesi', judul: 'Dua akibat yang sering ditanyakan' },
+      {
+        jenis: 'contoh',
+        judul: 'Kalikan a = (2 1) dengan 3 dan dengan negatif 2',
+        baris: [
+          'Panjang a: akar dari 4 ditambah 1, yaitu akar 5, sekitar 2,24',
+          '3 dikali a sama dengan (6 3), panjangnya 3 akar 5, sekitar 6,71',
+          'Negatif 2 dikali a sama dengan (-4 -2), panjangnya 2 akar 5, sekitar 4,47',
+        ],
+        simpul: 'Panjang barunya adalah panjang lama dikali pengalinya tanpa tanda minus. Panjang tetap tidak pernah negatif.',
+      },
+      {
+        jenis: 'sorot',
+        teks: 'Dua vektor yang salah satunya kelipatan yang lain pasti SEJAJAR. Itu cara paling cepat memeriksa kesejajaran.',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Contohnya (2 1) dan (6 3) sejajar, sebab yang kedua adalah tiga kali yang pertama. Begitu juga (2 1) dan (-4 -2): keduanya sejajar walaupun arahnya berlawanan, sebab sejajar hanya bicara tentang garisnya, bukan tentang ke mana menghadapnya.',
+      },
+    ],
+    seringKeliru: {
+      judul: 'Mengira pengali negatif membuat panjangnya negatif',
+      isi: 'Negatif 2 dikali (2 1) menghasilkan (-4 -2), dan panjangnya sekitar 4,47. Bukan negatif 4,47. Panjang adalah ukuran, dan ukuran tidak pernah kurang dari nol. Yang dibalik oleh tanda minus adalah ARAHNYA, bukan panjangnya. Kalau perhitungan panjangmu menghasilkan angka negatif, pasti ada langkah yang keliru.',
+    },
+    intisari: [
+      'Vektor dikali bilangan biasa: kalikan tiap komponennya.',
+      'Pengali positif menjaga arah, pengali negatif membalik arah.',
+      'Panjang barunya adalah panjang lama dikali pengali tanpa tandanya, jadi tetap tidak negatif.',
+      'Pengali nol menghasilkan vektor nol, dan dua vektor yang berkelipatan pasti sejajar.',
+    ],
     widget: 'kali-skalar',
-    siap: false,
+    siap: true,
   },
   /* ================================================================= */
   {
