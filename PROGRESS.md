@@ -197,17 +197,50 @@ baris `Aliased` di log, jangan menebak polanya.
 | Prioritas | Materi | Naskah | Adegan | 480p | 1080p | Keadaan |
 |---|---|---|---|---|---|---|
 | 1 | 04 Lubang di grafik | ✅ | ✅ | ✅ | ✅ | **TAYANG** |
-| 2 | 01 Kecepatan sesaat | ✅ | ✅ | ✅ | ✅ | siap tayang, belum di-deploy |
-| 3 | 08 Limit sinus | ✅ | ✅ | ✅ | ✅ | siap tayang, belum di-deploy |
-| 4 | 02 Mendekati | ✅ | ✅ | ✅ | ✅ | siap tayang, belum di-deploy |
-| 5 | 09 Kontinuitas | ✅ | ✅ | ✅ | ✅ | siap tayang, belum di-deploy |
-| 6 | 06 Nol per nol | ✅ | ✅ | ✅ | ✅ | siap tayang, belum di-deploy |
-| 7 | 07 Tak hingga | ✅ | ✅ | ✅ | ✅ | siap tayang, belum di-deploy |
+| 2 | 01 Kecepatan sesaat | ✅ | ✅ | ✅ | ✅ | **TAYANG** |
+| 3 | 08 Limit sinus | ✅ | ✅ | ✅ | ✅ | **TAYANG** |
+| 4 | 02 Mendekati | ✅ | ✅ | ✅ | ✅ | **TAYANG** |
+| 5 | 09 Kontinuitas | ✅ | ✅ | ✅ | ✅ | **TAYANG** |
+| 6 | 06 Nol per nol | ✅ | ✅ | ✅ | ✅ | **TAYANG** |
+| 7 | 07 Tak hingga | ✅ | ✅ | ✅ | ✅ | **TAYANG** |
 
-**Keadaan 1 Sep malam:** ketujuhnya 1920x1080 60fps, bersuara, bersubtitle,
-berposter, dan SUDAH terdaftar di `web/content/limit/tahap.ts`. Yang belum:
-`vercel deploy --prod`. ARYA memilih "render dulu, risiko diterima" tanpa
-menunggu ia menonton, jadi kalau ia menemukan cacat, video itu dirender ulang.
+**Keadaan 1 Sep malam: SUDAH TAYANG.** Ketujuhnya 1920x1080 60fps, bersuara,
+bersubtitle, berposter, terdaftar di `web/content/limit/tahap.ts`, dan sudah
+di-deploy. ARYA memilih "render dulu, risiko diterima" tanpa menunggu ia
+menonton, jadi kalau ia menemukan cacat, video itu dirender ulang.
+
+Bitrate videonya 340 sampai 490 kbps. Itu SANGAT hemat untuk 1080p60 (YouTube
+menyarankan sekitar 12.000 kbps) sebab isinya warna rata dan teks, bukan
+rekaman kamera. Jadi jangan buru-buru menurunkan mutu kalau ukurannya terasa
+besar; yang besar adalah jumlahnya, bukan tiap berkasnya.
+
+### 🐛 Bug pemutar yang ikut terbongkar saat tujuh video tayang
+
+Elemen `<video>` dipakai ulang saat siswa pindah tahap. Peramban HANYA membaca
+`<source>` ketika elemen videonya pertama dibuat, jadi React mengganti
+alamatnya tetapi videonya TIDAK ikut berganti. Yang tampil poster tahap baru,
+yang terputar video tahap lama. Bukti dari situs yang sudah tayang:
+
+```
+declared=limit9-kontinu.webm | loaded=limit1-kecepatan.webm | durasi=102.1
+```
+
+Cacat ini TIDUR selama cuma Materi 04 yang punya video, dan langsung bangun
+begitu tujuh tahap punya video. Perbaikannya satu baris: `key={berkas}` pada
+elemen `<video>` di `web/components/PemutarVideo.tsx`, supaya elemennya dibuat
+ulang dan pemilihan sumbernya diulang dari nol. Sudah diperbaiki, di-deploy
+ulang, dan diperiksa satu per satu di situs yang tayang: tujuh tahap memuat
+videonya sendiri, termasuk saat kembali ke tahap sebelumnya.
+
+**Pelajarannya:** cacat yang tidur menunggu data bertambah tidak akan terlihat
+di `npm run build` maupun di `tsc`. Yang menemukannya adalah membuka situs yang
+SUDAH TAYANG dengan Playwright lalu membandingkan alamat yang dituliskan dengan
+alamat yang benar-benar dimuat. Lakukan itu setiap kali menambah banyak konten
+sejenis sekaligus.
+
+**Catatan untuk MATRA-DESAIN-UI-UX:** `PemutarVideo.tsx` wilayahmu, tapi MASTER
+menyentuhnya untuk perbaikan darurat ini. Fast-forward cabangmu ke `master`
+sebelum mengedit berkas itu.
 
 **Ukuran jadi masalah baru.** Keenam video baru menambah 35,2 MB, sehingga
 `web/public/` naik dari 43,3 MB ke 78,4 MB, dan 96 persen isinya video.
