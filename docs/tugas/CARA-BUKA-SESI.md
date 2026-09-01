@@ -11,8 +11,24 @@ MASTER juga bisa menyalakan kelima sesi sendiri lewat PowerShell
 (jendela terminal terpisah per sesi). Kalau jendelanya tertutup atau
 laptop di-restart, nyalakan ulang dengan baris di bawah.
 
-## Menyalakan ulang satu sesi secara manual
-Buka PowerShell, lalu (contoh VEKTOR, ganti nama folder + file tugas):
+## Jendela ditutup / laptop mati: sesinya berhenti, kerjaannya TIDAK hilang
+Menutup jendela mematikan proses sesi (remote control ikut putus), tapi file,
+commit, dan riwayat obrolannya tersimpan. Untuk MELANJUTKAN sesi lama beserta
+seluruh ingatannya (contoh VEKTOR, ganti foldernya untuk sesi lain):
+
+```bash
+cd D:\MANIM-MATRA\.claude\worktrees\matra-vektor
+claude --continue
+```
+
+Setelah bangun: ketik "lanjutkan" kalau dia tadi terputus di tengah kerja,
+dan nyalakan lagi remote control kalau dipakai. MASTER juga bisa disuruh
+membangunkan sesi mana pun.
+
+## Memulai sesi BARU dari nol (hanya kalau memang mau mengulang)
+Kalimat pembuka "Kamu sesi MATRA-..." hanya untuk kelahiran pertama. Dipakai
+lagi = lahir sesi baru yang tidak ingat apa-apa (worktree dan laporannya
+masih ada, jadi tidak fatal, tapi buang konteks):
 
 ```bash
 cd D:\MANIM-MATRA\.claude\worktrees\matra-vektor
