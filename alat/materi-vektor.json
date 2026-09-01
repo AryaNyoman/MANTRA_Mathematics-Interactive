@@ -1,0 +1,63 @@
+[
+  { "id": "m01-searah",        "jenis": "ekspresi", "hitung": "3 + 4", "jawaban": 7 },
+  { "id": "m01-berlawanan",    "jenis": "ekspresi", "hitung": "Abs(3 - 4)", "jawaban": 1 },
+  { "id": "m01-tegak-lurus",   "jenis": "panjang", "v": [3, 4], "jawaban": 5 },
+  { "id": "m01-perahu-gerak",  "jenis": "jumlah", "a": [0, 3], "b": [2, 0], "jawaban": [2, 3] },
+  { "id": "m01-perahu-jarak",  "jenis": "panjang", "v": [3, 2], "jawaban": "sqrt(13)" },
+  { "id": "m01-perahu-bundar", "jenis": "pembulatan", "nilai": "sqrt(13)", "desimal": 2, "jawaban": 3.61 },
+
+  { "id": "m03-ab",            "jenis": "dari_dua_titik", "a": [1, 2], "b": [5, 5], "jawaban": [4, 3] },
+
+  { "id": "m04-panjang",       "jenis": "panjang", "v": [4, 3], "jawaban": 5 },
+  { "id": "m04-kuadrat",       "jenis": "ekspresi", "hitung": "4**2 + 3**2", "jawaban": 25 },
+  { "id": "m04-sama-5a",       "jenis": "panjang", "v": [3, 4], "jawaban": 5 },
+  { "id": "m04-sama-5b",       "jenis": "panjang", "v": [-5, 0], "jawaban": 5 },
+  { "id": "m04-68-lurus",      "jenis": "panjang", "v": [6, 8], "jawaban": 10 },
+  { "id": "m04-68-searah",     "jenis": "ekspresi", "hitung": "6 + 8", "jawaban": 14 },
+  { "id": "m04-68-lawan",      "jenis": "ekspresi", "hitung": "Abs(6 - 8)", "jawaban": 2 },
+
+  { "id": "m05-panjang",       "jenis": "panjang", "v": [3, 4], "jawaban": 5 },
+  { "id": "m05-satuan",        "jenis": "satuan", "v": [3, 4], "jawaban": [0.6, 0.8] },
+  { "id": "m05-periksa-1",     "jenis": "ekspresi", "hitung": "sqrt(0.36 + 0.64)", "jawaban": 1 },
+  { "id": "m05-3d-panjang",    "jenis": "panjang", "v": [2, 2, -1], "jawaban": 3 },
+  { "id": "m05-3d-satuan",     "jenis": "satuan", "v": [2, 2, -1], "jawaban": ["2/3", "2/3", "-1/3"] },
+
+  { "id": "m06-jumlah",        "jenis": "jumlah", "a": [3, 1], "b": [1, 2], "jawaban": [4, 3] },
+  { "id": "m06-panjang-hasil", "jenis": "panjang", "v": [4, 3], "jawaban": 5 },
+  { "id": "m06-panjang-a",     "jenis": "pembulatan", "nilai": "sqrt(10)", "desimal": 2, "jawaban": 3.16 },
+  { "id": "m06-panjang-b",     "jenis": "pembulatan", "nilai": "sqrt(5)", "desimal": 2, "jawaban": 2.24 },
+  { "id": "m06-jumlah-panjang","jenis": "pembulatan", "nilai": "sqrt(10) + sqrt(5)", "desimal": 2, "jawaban": 5.4 },
+
+  { "id": "m07-resultan",      "jenis": "jumlah", "a": [6, 0], "b": [0, 8], "jawaban": [6, 8] },
+  { "id": "m07-besar",         "jenis": "panjang", "v": [6, 8], "jawaban": 10 },
+
+  { "id": "m08-lawan",         "jenis": "kali_skalar", "k": -1, "v": [1, 2], "jawaban": [-1, -2] },
+  { "id": "m08-selisih",       "jenis": "selisih", "a": [3, 1], "b": [1, 2], "jawaban": [2, -1] },
+  { "id": "m08-ab",            "jenis": "dari_dua_titik", "a": [2, 1], "b": [6, 4], "jawaban": [4, 3] },
+  { "id": "m08-ab-panjang",    "jenis": "panjang", "v": [4, 3], "jawaban": 5 },
+
+  { "id": "m09-panjang-a",     "jenis": "pembulatan", "nilai": "sqrt(5)", "desimal": 2, "jawaban": 2.24 },
+  { "id": "m09-tiga-a",        "jenis": "kali_skalar", "k": 3, "v": [2, 1], "jawaban": [6, 3] },
+  { "id": "m09-tiga-panjang",  "jenis": "panjang", "v": [6, 3], "jawaban": "3*sqrt(5)" },
+  { "id": "m09-tiga-bundar",   "jenis": "pembulatan", "nilai": "3*sqrt(5)", "desimal": 2, "jawaban": 6.71 },
+  { "id": "m09-min2-a",        "jenis": "kali_skalar", "k": -2, "v": [2, 1], "jawaban": [-4, -2] },
+  { "id": "m09-min2-panjang",  "jenis": "panjang", "v": [-4, -2], "jawaban": "2*sqrt(5)" },
+  { "id": "m09-min2-bundar",   "jenis": "pembulatan", "nilai": "2*sqrt(5)", "desimal": 2, "jawaban": 4.47 },
+  { "id": "m09-sejajar-positif","jenis": "sejajar", "a": [2, 1], "b": [6, 3], "jawaban": true },
+  { "id": "m09-sejajar-negatif","jenis": "sejajar", "a": [2, 1], "b": [-4, -2], "jawaban": true },
+
+  { "id": "m10-perahu-gerak",  "jenis": "jumlah", "a": [0, 3], "b": [2, 0], "jawaban": [2, 3] },
+  { "id": "m10-perahu-jarak",  "jenis": "pembulatan", "nilai": "sqrt(13)", "desimal": 2, "jawaban": 3.61 },
+  { "id": "m10-waktu",         "jenis": "ekspresi", "hitung": "3/3", "jawaban": 1 },
+  { "id": "m10-hanyut",        "jenis": "ekspresi", "hitung": "2*(3/3)", "jawaban": 2 },
+
+  { "id": "m11-titik",         "jenis": "titik", "a": [4, 3], "b": [2, 0], "jawaban": 8 },
+  { "id": "m11-tegak-lurus",   "jenis": "titik", "a": [3, 4], "b": [-4, 3], "jawaban": 0 },
+  { "id": "m11-sudut-90",      "jenis": "sudut", "a": [3, 4], "b": [-4, 3], "jawaban": 90 },
+
+  { "id": "m12-titik",         "jenis": "titik", "a": [4, 3], "b": [2, 0], "jawaban": 8 },
+  { "id": "m12-panjang-b",     "jenis": "panjang", "v": [2, 0], "jawaban": 2 },
+  { "id": "m12-proy-panjang",  "jenis": "proyeksi_panjang", "a": [4, 3], "b": [2, 0], "jawaban": 4 },
+  { "id": "m12-proy-vektor",   "jenis": "proyeksi_vektor", "a": [4, 3], "b": [2, 0], "jawaban": [4, 0] },
+  { "id": "m12-panjang-a",     "jenis": "panjang", "v": [4, 3], "jawaban": 5 }
+]

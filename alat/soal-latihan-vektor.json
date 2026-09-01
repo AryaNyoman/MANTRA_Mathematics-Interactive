@@ -1,0 +1,14 @@
+[
+  { "id": "L1-vektor-ab",     "jenis": "dari_dua_titik", "a": [1, -2], "b": [5, 4], "jawaban": [4, 6] },
+  { "id": "L2-resultan",      "jenis": "jumlah", "a": [5, 0], "b": [0, 12], "jawaban": [5, 12] },
+  { "id": "L2-besar",         "jenis": "panjang", "v": [5, 12], "jawaban": 13 },
+  { "id": "L3-panjang",       "jenis": "panjang", "v": [-6, 8], "jawaban": 10 },
+  { "id": "L3-satuan",        "jenis": "satuan", "v": [-6, 8], "jawaban": [-0.6, 0.8] },
+  { "id": "L4-ab",            "jenis": "dari_dua_titik", "a": [-3, 2], "b": [1, 5], "jawaban": [4, 3] },
+  { "id": "L4-bc",            "jenis": "dari_dua_titik", "a": [1, 5], "b": [9, 11], "jawaban": [8, 6] },
+  { "id": "L4-segaris",       "jenis": "sejajar", "a": [4, 3], "b": [8, 6], "jawaban": true },
+  { "id": "L4-bukan-5",       "jenis": "sejajar", "a": [4, 3], "b": [4, 6], "jawaban": false },
+  { "id": "L4-bukan-8",       "jenis": "sejajar", "a": [4, 3], "b": [7, 6], "jawaban": false },
+  { "id": "L4-bukan-11",      "jenis": "sejajar", "a": [4, 3], "b": [10, 6], "jawaban": false },
+  { "id": "L4-bukan-13",      "jenis": "sejajar", "a": [4, 3], "b": [12, 6], "jawaban": false }
+]
