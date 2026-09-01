@@ -42,7 +42,7 @@ const DAFTAR: Topik[] = [
     urutanKelas: 10,
     pertanyaan: 'Kenapa dua panah bisa dijumlahkan?',
     miskonsepsiSingkat: '“vektor itu cuma panah biasa.”',
-    siap: false,
+    siap: true,
   },
   {
     slug: 'grafik-fungsi',

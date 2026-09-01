@@ -194,6 +194,24 @@ export function keMatematika(j: Jendela, kotak: Kotak) {
   }
 }
 
+/**
+ * Menahan titik supaya tidak keluar batas yang diizinkan, lalu membulatkannya
+ * ke kelipatan tertentu.
+ *
+ * Pembulatan bukan sekadar kerapian. Vektor (2,4831; 3,5107) membuat siswa
+ * sibuk membaca desimal, padahal yang sedang dipelajari caranya, bukan
+ * angkanya. Penahan batasnya juga yang membuat gambar tidak pernah terpotong:
+ * kalau titiknya tidak bisa keluar, bingkainya tidak perlu mengejar.
+ */
+export function tahan(t: Vek, batasX: number, batasY: number, kelipatan = 0.5): Vek {
+  const jepit = (n: number, batas: number) => Math.min(batas, Math.max(-batas, n))
+  const bulat = (n: number) => Math.round(n / kelipatan) * kelipatan
+  return {
+    x: bulat(jepit(t.x, batasX)),
+    y: bulat(jepit(t.y, batasY)),
+  }
+}
+
 /* ------------------------------------------------------------------ */
 /* Angka dan petak                                                     */
 /* ------------------------------------------------------------------ */

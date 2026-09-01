@@ -16,8 +16,8 @@
  */
 import {
   angka, jendelaSeimbang, kali, keLayar, keMatematika, kurang, labelSkala,
-  panjang, panjangProyeksi, petak, satuan, sudutAntara, sudutDerajat, tambah,
-  titik, vektorProyeksi, type Vek,
+  panjang, panjangProyeksi, petak, satuan, sudutAntara, sudutDerajat, tahan,
+  tambah, titik, vektorProyeksi, type Vek,
 } from '../web/components/widget/vektor/geometri.ts'
 
 let gagal = 0
@@ -130,6 +130,33 @@ for (const t of [{ x: 0, y: 0 }, { x: 0.2, y: 9 }]) {
   if (sy < kotak.y0 || sy > kotak.y1) {
     gagal++
     console.error(`GAGAL vektor jangkung terpotong di y: ${sy}`)
+  }
+}
+
+/* ---------------- penahan batas seretan ---------------- */
+
+// Inilah yang membuat gambar tidak pernah terpotong: ujung panah yang diseret
+// jauh keluar bingkai ditahan di batas, bukan dibiarkan lari.
+cek('tahan di dalam batas', tahan({ x: 2.2, y: 1.1 }, 6, 3.5), { x: 2, y: 1 })
+cek('tahan kanan atas jauh', tahan({ x: 99, y: 99 }, 6, 3.5), { x: 6, y: 3.5 })
+cek('tahan kiri bawah jauh', tahan({ x: -99, y: -99 }, 6, 3.5), { x: -6, y: -3.5 })
+cek('tahan membulatkan ke kelipatan', tahan({ x: 1.24, y: -0.26 }, 6, 3.5), { x: 1, y: -0.5 })
+cek('tahan kelipatan satu', tahan({ x: 1.6, y: -1.4 }, 6, 3.5, 1), { x: 2, y: -1 })
+
+// Titik yang sudah ditahan wajib tetap muat di bingkai jangkarnya.
+const jTahan = jendelaSeimbang(
+  [{ x: -6, y: -3.5 }, { x: 6, y: 3.5 }, tahan({ x: 99, y: 99 }, 6, 3.5)],
+  nisbah,
+  0.05,
+)
+const pTahan = keLayar(jTahan, kotak)
+{
+  const t = tahan({ x: 99, y: 99 }, 6, 3.5)
+  const sx = pTahan.x(t.x)
+  const sy = pTahan.y(t.y)
+  if (sx < kotak.x0 || sx > kotak.x1 || sy < kotak.y0 || sy > kotak.y1) {
+    gagal++
+    console.error(`GAGAL titik yang sudah ditahan tetap keluar bingkai: (${sx}, ${sy})`)
   }
 }
 
