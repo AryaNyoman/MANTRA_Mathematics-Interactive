@@ -126,7 +126,7 @@ export default function TarikPencilan({ children }: PropWidget) {
           <tr className="tegas"><td>rata-rata</td><td>{angka(r.mean, 2)} juta</td></tr>
           <tr className="tegas"><td>median</td><td>{angka(r.median, 2)} juta</td></tr>
           <tr><td>selisih keduanya</td><td>{angka(selisih, 2)} juta</td></tr>
-          <tr><td>pagar atas 1,5 x JAK</td><td>{angka(r.pagarAtas, 2)} juta</td></tr>
+          <tr><td>pagar atas 1,5 × JAK</td><td>{angka(r.pagarAtas, 2)} juta</td></tr>
           <tr>
             <td>ditandai pencilan</td>
             <td>{r.pencilan.length > 0 ? r.pencilan.map((v) => angka(v, 1)).join(', ') : 'tidak ada'}</td>
