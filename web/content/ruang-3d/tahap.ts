@@ -33,7 +33,7 @@ export const TAHAP: Tahap[] = [
     slug: 'gambar-boleh-berbohong',
     judul: 'Gambar ruang boleh berbohong',
     pertanyaan:
-      'Dua garis ini jelas berpotongan di gambar. Kenapa di benda aslinya tidak?',
+      'Dua garis ini tampak berpotongan di gambar. Kenapa di benda aslinya tidak?',
     labelPendek: 'Gambar yang menipu',
     widget: 'kubus-putar',
     siap: true,
@@ -130,6 +130,11 @@ export const TAHAP: Tahap[] = [
     siap: true,
     penjelasan: [
       { jenis: 'sesi', judul: 'Tiga kemungkinan untuk dua garis' },
+      {
+        jenis: 'paragraf',
+        teks:
+          'Di tahap 1 kita sudah bertemu satu kedudukan, yaitu bersilangan, lewat BD dan EG yang tampak menyilang padahal terpisah enam satuan. Sekarang kedudukan itu ditaruh berdampingan dengan saudara-saudaranya, supaya bedanya terlihat.',
+      },
       {
         jenis: 'paragraf',
         teks:
@@ -294,9 +299,9 @@ export const TAHAP: Tahap[] = [
       },
     ],
     seringKeliru: {
-      judul: 'Jarak diukur ke titik yang paling gampang dilihat',
+      judul: 'Jarak diukur ke titik yang paling menonjol di gambar',
       isi:
-        'Godaannya besar: menghubungkan B ke ujung A atau ujung C, karena keduanya titik bernama yang jelas kelihatan di gambar. Padahal kaki tegak lurus sering jatuh di tengah-tengah, di titik yang tidak punya nama. Sebelum menghitung, tentukan dulu di mana kakinya jatuh. Kalau kakinya di luar ruas garisnya, barulah ujung terdekat yang dipakai.',
+        'Godaannya besar: menghubungkan B ke ujung A atau ujung C, karena keduanya titik bernama yang langsung kelihatan di gambar. Padahal kaki tegak lurus sering jatuh di tengah-tengah, di titik yang tidak punya nama. Sebelum menghitung, tentukan dulu di mana kakinya jatuh. Kalau kakinya di luar ruas garisnya, barulah ujung terdekat yang dipakai.',
     },
     intisari: [
       'Jarak adalah yang terpendek, dan yang terpendek selalu yang tegak lurus.',
@@ -470,19 +475,26 @@ export const TAHAP: Tahap[] = [
       },
       {
         jenis: 'contoh',
-        judul: 'Soal Ujian Nasional yang setipe',
+        judul: 'Soal Ujian Nasional yang setipe, dikerjakan sampai selesai',
         baris: [
-          'UAN 2003: kubus rusuk 4, P titik tengah EH. Jarak P ke garis CF?',
-          'Jawabannya 3 akar 2, kira-kira 4,243.',
-          'Bentuknya sama: cari kaki tegak lurusnya, lalu pakai segitiga atau jalan pintas luas.',
+          'UAN 2003: kubus rusuk 4, P titik tengah EH. Berapa jarak P ke garis CF?',
+          'Langkah 1, siapkan ketiga sisi segitiga PCF. CF diagonal sisi, jadi 4 akar 2.',
+          'PF seluruhnya ada di bidang tutup EFGH, jadi Pythagoras sekali: PF = akar (4² + 2²) = 2 akar 5.',
+          'PC menembus dalam kubus. Turunkan P ke alas, bayangannya jatuh di tengah AD, dan jaraknya ke C juga 2 akar 5. Lalu PC = akar (20 + 4²) = 6.',
+          'Langkah 2, sebut kaki tegak lurusnya K dan misalkan CK = x. Tinggi PK bisa ditulis dua kali:',
+          'dari segitiga PCK: PK² = 6² - x² = 36 - x²',
+          'dari segitiga PFK: PK² = (2 akar 5)² - (4 akar 2 - x)² = 20 - (4 akar 2 - x)²',
+          'Langkah 3, samakan keduanya. Suku x² saling menghapus, tersisa 36 = -12 + 8 akar 2 kali x, jadi x = 3 akar 2.',
+          'Langkah 4, kembali ke baris pertama: PK² = 36 - 18 = 18, jadi PK = 3 akar 2.',
         ],
-        simpul: 'Sumber: soal UAN 2003.',
+        simpul:
+          'PK = 3 akar 2, kira-kira 4,243. Sumber: soal UAN 2003. Soal yang sama ada di Latihan nomor 3, dikerjakan dengan cara koordinat sebagai pembanding.',
       },
     ],
     seringKeliru: {
       judul: 'Jarak diukur ke ujung garisnya',
       isi:
-        'Karena A dan G adalah titik sudut yang jelas terlihat, banyak yang menghitung BA atau BG lalu menyebutnya jarak. BA = 6 dan BG = 8,485, keduanya lebih besar daripada 4,899. Keduanya memang menghubungkan B ke garis AG, tetapi bukan yang terpendek. Yang terpendek jatuh di titik tanpa nama di tengah, dan justru itulah yang dicari.',
+        'Karena A dan G adalah titik sudut yang menonjol, banyak yang menghitung BA atau BG lalu menyebutnya jarak. BA = 6 dan BG = 8,485, keduanya lebih besar daripada 4,899. Keduanya memang menghubungkan B ke garis AG, tetapi bukan yang terpendek. Yang terpendek jatuh di titik tanpa nama di tengah, dan justru itulah yang dicari.',
     },
     intisari: [
       'Jarak titik ke garis pada kubus rusuk 6, dari B ke AG: 2 akar 6.',
@@ -571,12 +583,18 @@ export const TAHAP: Tahap[] = [
       },
       {
         jenis: 'contoh',
-        judul: 'Sumber soal',
+        judul: 'Soal EBTANAS 1992, dikerjakan sampai selesai',
         baris: [
-          'EBTANAS 1992: Panjang rusuk kubus ABCD.EFGH adalah 6 cm. Jarak titik C ke bidang BDG?',
-          'Jawaban: 2 akar 3 cm.',
+          'EBTANAS 1992: panjang rusuk kubus ABCD.EFGH adalah 6 cm. Berapa jarak titik C ke bidang BDG?',
+          'Pakai jalan pintas volume, persis seperti di atas. Limas C.BDG dihitung dua kali.',
+          'Cara 1, alasnya segitiga BCD yang datar di lantai: luas = setengah kali 6 kali 6 = 18, tingginya CG = 6.',
+          'volume = sepertiga kali 18 kali 6 = 36',
+          'Cara 2, alasnya segitiga BDG yang miring. BD, BG, dan DG ketiganya diagonal sisi, jadi sama panjang 6 akar 2, dan segitiganya sama sisi. Luasnya 18 akar 3.',
+          'Samakan: sepertiga kali 18 akar 3 kali jaraknya = 36, jadi jaraknya = 36 dibagi 6 akar 3 = 2 akar 3.',
+          'Cara simetri juga jalan di sini: CB, CD, dan CG saling tegak lurus dan sama panjang, jadi kakinya jatuh di sepertiga diagonal ruang CE. CE = 6 akar 3, dan sepertiganya 2 akar 3.',
         ],
-        simpul: 'Sumber: soal EBTANAS 1992.',
+        simpul:
+          'Dua cara, satu jawaban: 2 akar 3 cm, kira-kira 3,464. Sumber: soal EBTANAS 1992.',
       },
     ],
     seringKeliru: {
@@ -630,11 +648,11 @@ export const TAHAP: Tahap[] = [
       },
       {
         jenis: 'poin',
-        judul: 'Resepnya, dan pilih titik yang paling memudahkan',
+        judul: 'Resepnya, dan cara memilih titiknya',
         butir: [
           'Jarak garis ke bidang sejajar - ambil satu titik pada garisnya, hitung jaraknya ke bidang.',
           'Jarak dua bidang sejajar - ambil satu titik pada bidang pertama, hitung jaraknya ke bidang kedua.',
-          'Titiknya boleh mana saja, jadi pilih yang paling mudah dihitung. Biasanya titik sudut.',
+          'Titiknya boleh mana saja, jadi pilih yang paling sedikit hitungannya. Biasanya titik sudut.',
         ],
       },
       {
@@ -683,7 +701,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Sudut selalu punya titik sudut. Itu sebabnya sudut antara dua garis yang berpotongan gampang: titik sudutnya ya titik potongnya. Tetapi garis AC dan garis BG bersilangan, jadi tidak punya titik potong sama sekali. Lalu sudutnya diukur di mana?',
+          'Sudut selalu punya titik sudut. Itu sebabnya sudut antara dua garis yang berpotongan tidak pernah menimbulkan pertanyaan: titik sudutnya ya titik potongnya. Tetapi garis AC dan garis BG bersilangan, jadi tidak punya titik potong sama sekali. Lalu sudutnya diukur di mana?',
       },
       {
         jenis: 'sorot',
@@ -736,7 +754,26 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Tidak semua soal sebaik ini. Kalau segitiga yang terbentuk bukan segitiga istimewa, pakai aturan kosinus pada segitiga hasil geseran itu. Langkah pertamanya tetap sama: geser dulu sampai bertemu, baru hitung.',
+          'Tidak semua soal sebaik ini. Kalau segitiga yang terbentuk bukan segitiga istimewa, ketiga sisinya tetap bisa dihitung, tetapi sudutnya tidak lagi bisa ditebak. Alat yang dipakai untuk kasus itu bernama aturan kosinus, dan supaya tidak perlu dicari sendiri, rumusnya dituliskan di sini.',
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Aturan kosinus, dipinjam dari bab Trigonometri',
+        baris: [
+          'Untuk segitiga bersisi a, b, dan c, dengan sudut C menghadap sisi c:',
+          'c² = a² + b² - 2ab cos C',
+          'Dibalik untuk mencari sudutnya: cos C = (a² + b² - c²) dibagi 2ab.',
+          'Coba pada segitiga ACH tadi. Ketiga sisinya 6 akar 2, jadi ketiga kuadratnya 72.',
+          'cos C = (72 + 72 - 72) dibagi (2 kali 72) = 72 dibagi 144 = setengah.',
+          'Sudut yang kosinusnya setengah adalah 60 derajat, sama dengan hasil di atas.',
+        ],
+        simpul:
+          'Aturan kosinus bukan milik topik ini. Ia dipelajari di bab Trigonometri buku sekolah, dan di sini cuma dipinjam sebagai alat hitung.',
+      },
+      {
+        jenis: 'paragraf',
+        teks:
+          'Langkah pertamanya tetap sama, berapa pun angkanya: geser dulu sampai kedua garis bertemu, baru hitung sudut pada segitiga yang terbentuk.',
       },
       {
         jenis: 'poin',
@@ -785,6 +822,11 @@ export const TAHAP: Tahap[] = [
           'Bayangan itu punya nama resmi: proyeksi. Cara mendapatkannya sederhana, yaitu memproyeksikan titik-titik ujung garisnya, lalu menghubungkan hasilnya.',
       },
       {
+        jenis: 'paragraf',
+        teks:
+          'Sebelum masuk ke angka, satu hal dipanggil ulang dari Trigonometri tahap 4. Pada segitiga siku-siku, tan sudut adalah sisi depan dibagi sisi samping, dan sin sudut adalah sisi depan dibagi sisi miring. Dua perbandingan itulah yang dipakai di sepanjang tahap ini.',
+      },
+      {
         jenis: 'contoh',
         judul: 'Diagonal ruang AG terhadap alas ABCD',
         baris: [
@@ -799,7 +841,7 @@ export const TAHAP: Tahap[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Putar kubusnya sampai segitiga ACG terlihat jelas.',
+        teks: 'Putar kubusnya sampai segitiga ACG terlihat utuh.',
         langkah: [
           'Ruas merah AG adalah garisnya.',
           'Ruas ungu AC adalah bayangannya di alas.',
@@ -837,6 +879,17 @@ export const TAHAP: Tahap[] = [
         teks:
           'Kenapa titik P harus di tengah BD? Karena di situlah PC bisa tegak lurus BD. Segitiga BCD sama kaki, jadi garis dari C yang tegak lurus BD pasti mengenai titik tengahnya. Kalau P digeser, PC tidak lagi tegak lurus dan sudut yang terbaca menjadi salah.',
       },
+      {
+        jenis: 'coba',
+        teks:
+          'Buktikan sendiri kalimat barusan. Tekan tombol Bidang dengan bidang, lalu geser titik P di sepanjang garis potong BD.',
+        langkah: [
+          'Tepat di tengah BD, kedua tanda siku-siku menyala dan sudutnya terbaca 54,7 derajat.',
+          'Geser P ke arah B. Tanda siku-sikunya padam, sebab PC sudah tidak tegak lurus BD lagi.',
+          'Angkanya ikut turun. Di seperempat jalan dari B, yang terbaca sekitar 51,7 derajat.',
+          'Geser ke sisi yang lain, dan angkanya turun juga. Yang benar adalah angka terbesar, dan itu hanya muncul tepat di tengah.',
+        ],
+      },
       { jenis: 'sesi', judul: 'Sudut selalu diambil yang tidak tumpul' },
       {
         jenis: 'paragraf',
@@ -845,13 +898,19 @@ export const TAHAP: Tahap[] = [
       },
       {
         jenis: 'contoh',
-        judul: 'Soal Ujian Nasional yang setipe',
+        judul: 'Soal UAN 2005, dikerjakan sampai selesai',
         baris: [
           'UAN 2005: pada kubus ABCD.EFGH, berapa besar sudut antara garis AH dan bidang diagonal BDHF?',
-          'Bayangan AH pada bidang BDHF perlu dicari lebih dulu.',
-          'Jawabannya 30 derajat.',
+          'Langkah 1, cari bayangan AH pada bidang itu. Titik H sudah terletak pada BDHF, jadi bayangan H adalah H sendiri.',
+          'Langkah 2, cari bayangan A. Sebut P titik tengah BD. AP tegak lurus BD, dan AP juga tegak lurus rusuk tegak, jadi AP tegak lurus seluruh bidang BDHF. Berarti bayangan A adalah P.',
+          'Jadi bayangan AH adalah PH, dan yang dicari adalah sudut di H pada segitiga APH.',
+          'Langkah 3, ambil rusuk 6 supaya ada angkanya. AP = 3 akar 2, setengah diagonal alas. AH = 6 akar 2, diagonal sisi.',
+          'Segitiga APH siku-siku di P, dan AP adalah sisi depan sudut yang dicari sedangkan AH sisi miringnya.',
+          'sin sudut = AP dibagi AH = 3 akar 2 dibagi 6 akar 2 = setengah.',
+          'Sudut yang sinusnya setengah adalah 30 derajat.',
         ],
-        simpul: 'Sumber: soal UAN 2005.',
+        simpul:
+          'Jawabannya 30 derajat, dan panjang rusuknya tidak berpengaruh: akar 2 pada pembilang dan penyebut saling menghapus. Sumber: soal UAN 2005.',
       },
     ],
     seringKeliru: {
@@ -904,6 +963,18 @@ export const TAHAP: Tahap[] = [
         jenis: 'paragraf',
         teks:
           'Contoh menara rangka itu bukan cerita karangan. Dua batang penguat yang di gambar tampak bersilang memang sengaja dirancang lewat di bidang yang berbeda, supaya tidak perlu dilubangi atau disambung di titik silangnya. Yang membaca gambarnya sebagai perpotongan akan salah memesan bahan.',
+      },
+      {
+        jenis: 'coba',
+        teks:
+          'Sebelum membaca keterangan tiap kartu, tutup dulu tulisannya dan tebak sendiri: tahap mana yang mengajarkan hitungan di gambar itu.',
+        langkah: [
+          'Lampu kelas: yang dicari ruas terpendek dari sebuah titik ke sebuah bidang. Itu tahap 6.',
+          'Atap rumah: dua bidang bertemu pada satu garis, dan sudutnya diukur dari sana. Itu tahap 9 bagian kedua.',
+          'Menara rangka: dua batang tanpa titik persekutuan dan tanpa bidang yang memuat keduanya. Itu tahap 1 dan tahap 2.',
+          'Tangga bersandar: sebuah garis miring dan bayangannya di lantai. Itu tahap 9 bagian pertama.',
+          'Cocokkan tebakan Anda dengan tulisan di tiap kartu, lalu perhatikan angkanya di baris bawah gambar.',
+        ],
       },
       {
         jenis: 'sorot',
