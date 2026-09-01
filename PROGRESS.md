@@ -1,19 +1,19 @@
-# PROGRESS — MATRA
+# PROGRESS: MATRA
 
 > **SESI BARU: baca berkas ini dari atas sampai bawah SEBELUM mengerjakan apa pun.**
-> Terakhir diperbarui: **1 September 2026, pagi** (akhir sesi 4).
+> Terakhir diperbarui: **1 September 2026, malam** (akhir sesi 5).
 
 ## Ringkas
 | | |
 |---|---|
-| Tahap sekarang | **Trigonometri SELESAI + revisi sesi 3 dan 4 selesai** |
-| Yang tersisa | Lima topik lain (Limit, Grafik Fungsi, Vektor, Ruang 3D, Statistika) |
-| Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md` |
+| Tahap sekarang | **DUA topik selesai: Trigonometri (dengan 7 video) dan Limit (belum bervideo)** |
+| Yang tersisa | 7 video Limit, lalu empat topik lain (Grafik Fungsi, Vektor, Ruang 3D, Statistika) |
+| Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md`<br>`docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`<br>`docs/superpowers/plans/2026-09-01-topik-limit.md` |
 | Tenggat | 12 September 2026 |
 | Menjalankan situs | `cd web && npm run dev` → `http://localhost:3000` |
 | Penghalang | *(tidak ada)* |
 
-### Yang berubah di sesi 3 — 22 revisi ARYA
+### Yang berubah di sesi 3: 22 revisi ARYA
 
 **Aturan tetap yang lahir di sesi ini (berlaku SELAMANYA, semua proyek):**
 - **Tanda pisah panjang DILARANG** di teks mana pun yang dibaca orang. Ganti
@@ -73,6 +73,49 @@ di widget lingkaran satuan diberi halo supaya tidak dipotong garis lingkaran.
 **Masih menunggu ARYA:** pilihan slogan halaman depan (5 usulan sudah
 diberikan).
 
+### Yang berubah di sesi 5 (malam 1 Sep) - topik kedua: LIMIT
+
+**ARYA memilih Limit sebagai topik kedua, lengkap, dengan 6 sampai 7 video.**
+Claude sudah menyampaikan bahwa pilihan itu kemungkinan besar menghabiskan
+seluruh sisa waktu sampai 12 September sehingga empat topik lain tidak
+tergarap. ARYA tetap memilih itu, dan keputusannya dijalankan penuh.
+
+**Rangka halaman topik DIPISAH lebih dulu.** `Trigonometri.tsx` 638 baris
+mencampur rangka halaman dengan penyetelan sepuluh widget, jadi topik kedua
+tidak punya jalan lain selain menyalinnya. Sekarang:
+
+| Berkas | Isi |
+|---|---|
+| `components/topik/HalamanTopik.tsx` | rangka, dipakai semua topik |
+| `components/topik/PanggungTrigonometri.tsx` | penyetelan widget trigonometri |
+| `components/topik/PanggungLimit.tsx` | penyetelan widget limit |
+| `components/topik/jenis.ts` | perjanjian antara rangka dan panggung |
+| `content/tipe.ts` | tipe isi yang dipakai bersama |
+| `content/daftar-isi.ts` | **daftar pusat, menambah topik cukup satu baris di sini** |
+
+**Buktinya Trigonometri tidak rusak:** 36 sidik jari DOM (18 kombinasi tab dan
+mode, dikali kolom kiri dan kanan) diambil dari versi lama dan versi baru
+dengan localStorage dikosongkan sama persis. Hasilnya identik huruf demi huruf.
+
+**Limit selesai: 10 materi, 9 widget, 4 latihan, bank 32 soal kuis,
+halaman `/latihan/limit`.** Yang belum: tujuh videonya.
+
+**Alat baru `alat/cek_soal.py`.** Memeriksa jawaban limit dengan sympy, dan
+menolak jawaban salah dengan menyebutkan yang benar. Dibuat SEBELUM satu soal
+pun ditulis. Hasil pemeriksaan: 17 angka di materi lolos semua, 5 jawaban
+latihan lolos semua, 28 jawaban kuis lolos semua.
+
+**Tiga cacat tampilan ditemukan dengan MELIHAT potret layar**, bukan dari log:
+tulisan bertindih di Materi 01, kalimat yang bertentangan dengan gambarnya
+sendiri di Materi 04, dan tulisan menabrak kurva di Materi 07 dan 08.
+Ketiganya sudah diperbaiki dan diperiksa ulang.
+
+**Keputusan: galeri Materi 10 Limit digambar sendiri, bukan foto.** Alasannya
+beda dengan Tahap 10 Trigonometri: di sana yang ditunjukkan DI MANA segitiga
+berada, dan foto menjawabnya. Di sini yang ditunjukkan BENTUK KURVANYA, dan
+foto roller coaster tidak memperlihatkan itu. Kalau ARYA lebih suka foto,
+tinggal diganti.
+
 ---
 
 ## 📊 Keadaan 10 tahap Trigonometri
@@ -81,14 +124,14 @@ diberikan).
 |---|---|---|---|---|
 | 1 | Kenapa kita butuh ini | ✅ `Bayangan` | ✅ | ⬜ |
 | 2 | Perbandingan yang tidak berubah | ✅ `SegitigaSebangun` | ✅ | ✅ **JADI** 1080p60 |
-| 3 | Menamai sisi | ✅ `PenamaanSisi` | ✅ | — tidak perlu |
+| 3 | Menamai sisi | ✅ `PenamaanSisi` | ✅ | - tidak perlu |
 | 4 | Lahirnya sin, cos, tan | ✅ `PabrikRasio` | ✅ | ✅ **JADI** 1080p60 |
 | 5 | Lingkaran satuan | ✅ `LingkaranSatuan` | ✅ | ✅ **JADI** 1080p60 |
 | 6 | Enam rasio sebagai panjang nyata | ✅ `EnamRasio` | ✅ | ✅ **JADI** 1080p60 |
 | 7 | Sudut istimewa | ✅ `PerjalananSudut` | ✅ | ✅ **JADI** 1080p60 |
 | 8 | Terbentuknya grafik sinus | ✅ `LingkaranKeGrafik` | ✅ | ✅ **JADI** 1080p60, 96 dtk |
 | 9 | Sin, cos, tan berdampingan | ✅ `TigaGrafik` | ✅ | ✅ **JADI** 1080p60 |
-| 10 | Dipakai di dunia nyata | galeri foto (tidak interaktif, keputusan ARYA 1 Sep) | ✅ | — tidak perlu |
+| 10 | Dipakai di dunia nyata | galeri foto (tidak interaktif, keputusan ARYA 1 Sep) | ✅ | - tidak perlu |
 
 Plus:
 - **Latihan dalam halaman topik**: 4 soal pilihan ganda A-E dengan pembahasan bertahap
@@ -99,11 +142,38 @@ Plus:
 
 ---
 
+## 📊 Keadaan 10 materi Limit (BARU, sesi 5)
+
+Urutannya sengaja dibalik dari buku: bentuk yang TIDAK bisa disubstitusi
+diperkenalkan lebih dulu (Materi 01 dan 04), baru cara cepatnya (Materi 05).
+
+| # | Materi | Widget | Teks | Video |
+|---|---|---|---|---|
+| 1 | Kecepatan pada satu detik | ✅ `SelangMenyusut` | ✅ | ⬜ prioritas 2 |
+| 2 | Mendekati, bukan menyentuh | ✅ `GarisMendekati` | ✅ | ⬜ prioritas 4 |
+| 3 | Dua arah harus sepakat | ✅ `TarifMelompat` | ✅ | ⬜ cadangan |
+| 4 | Lubang yang tidak mengubah tujuan | ✅ `LubangGrafik` | ✅ | ⬜ **prioritas 1** |
+| 5 | Cara cepat, masukkan saja angkanya | ✅ `MesinSifat` | ✅ | - tidak perlu |
+| 6 | Kalau hasilnya 0 dibagi 0 | ✅ `BongkarBertahap` | ✅ | ⬜ prioritas 6 |
+| 7 | Kalau x lari ke tak hingga | ✅ `PerkecilTampilan` | ✅ | ⬜ prioritas 7 |
+| 8 | Limit sinus jadi angka 1 | ✅ `BusurLawanTali` | ✅ | ⬜ prioritas 3 |
+| 9 | Fungsi yang tidak putus | ✅ `PerusakFungsi` | ✅ | ⬜ prioritas 5 |
+| 10 | Dipakai di dunia nyata | galeri gambar sendiri (bukan foto) | ✅ | - tidak perlu |
+
+Plus: 4 latihan pilihan ganda A-E, bank **32 soal kuis**, halaman `/latihan/limit`.
+
+**Kalau waktunya habis, potong video DARI BAWAH urutan prioritas, jangan acak.**
+Situsnya sudah utuh dan layak ditunjukkan walaupun tanpa satu pun video Limit.
+
+---
+
 ## 🔜 Yang harus dikerjakan berikutnya
 
-### Enam video Manim sisanya — RESEP SUDAH TERBUKTI, TINGGAL DIULANG
+### Tujuh video Limit. Resepnya sudah terbukti tujuh kali, tinggal diulang.
 
-Video tahap 8 sudah jadi dari nol sampai tayang. Urutan persisnya, ulangi apa adanya:
+Ketujuh video Trigonometri sudah jadi dari nol sampai tayang, jadi resep di
+bawah ini bukan teori. Urutan persisnya, ulangi apa adanya. Sudut pandang
+visual tiap video ada di `docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`.
 
 ```bash
 # 1. Tulis naskah  ->  manim/narasi/<topik>.json  (10 segmen, ±90 detik)
@@ -144,12 +214,17 @@ Pola yang ditiru sudah dibedah jadi lembar kontak di `qc/referensi/`:
 | 8 | `Visualizing Trigonometry_ Fungsi SIN.mp4` | Lingkaran **mengecil ke kiri**, sumbu grafik muncul di kanan, garis mendatar menghubungkan tinggi ke grafik |
 | 9 | `Grafik SIN COS TAN.mp4` | Tiga panel bertumpuk digerakkan satu sudut |
 
-Rujukan tambahan: github.com/adenosie/math-vids (Manim versi lama — **tiru pola visualnya,
+Rujukan tambahan: github.com/adenosie/math-vids (Manim versi lama - **tiru pola visualnya,
 jangan salin kodenya**).
 
-### 3. Setelah Trigonometri mantap
-Lima topik lain (Limit, Grafik Fungsi, Vektor, Ruang 3D, Statistika) masih kosong.
+### Setelah video Limit selesai
+Empat topik lain (Grafik Fungsi, Vektor, Ruang 3D, Statistika) masih kosong.
 Halaman topiknya sudah ada dan menampilkan "belum dibangun" secara jujur.
+
+**Menambah topik ketiga sekarang jauh lebih murah.** Yang perlu dibuat cuma:
+isi di `content/<topik>/`, satu komponen panggung untuk widgetnya, satu baris
+di `content/daftar-isi.ts`, dan `siap: true` di `content/topik.ts`. Rangka
+halaman, halaman latihan, dan daftar latihan sudah bebas topik.
 
 ---
 
@@ -160,7 +235,7 @@ Halaman topiknya sudah ada dan menampilkan "belum dibangun" secara jujur.
 `cek_kode.py` (sebelum render) → render uji `-ql` + lembar kontak → render final `-qh` + lembar kontak lagi.
 
 **"Rendered" di log BUKAN bukti video itu benar.** Pada 31 Agu sebuah video dirilis
-dengan **7 cacat** karena hanya dicek lognya — ARYA yang menemukannya. Sejak itu:
+dengan **7 cacat** karena hanya dicek lognya - ARYA yang menemukannya. Sejak itu:
 1. Adegan wajib memanggil `qc.periksa_adegan()` di tiap tahap → render **GAGAL** kalau
    ada yang bertindih atau keluar bingkai
 2. Jalankan `python manim/cek_video.py <video> --detik <momen>` lalu **BUKA lembar
@@ -171,7 +246,7 @@ dengan **7 cacat** karena hanya dicek lognya — ARYA yang menemukannya. Sejak i
 - **Jangan tembok paragraf.** Pecah jadi blok berselang-seling: paragraf pendek,
   daftar poin berlabel tebal, kalimat sorot, kotak contoh berhitung.
 - **Tapi jangan dipangkas isinya.** Ada siswa yang belajar dengan membaca.
-- Kata **"Miskonsepsi" JANGAN muncul** — itu istilah guru. Pakai **"Sering keliru"**,
+- Kata **"Miskonsepsi" JANGAN muncul** - itu istilah guru. Pakai **"Sering keliru"**,
   dan taruh **di bawah** setelah siswa paham, bukan menyambut di halaman depan.
 
 ### Widget
@@ -181,13 +256,13 @@ dengan **7 cacat** karena hanya dicek lognya — ARYA yang menemukannya. Sejak i
 
 ### Soal
 Kalibrasi dulu ke sumber nyata **sebelum** menulis. Soal buatan Claude cenderung
-terlalu mudah — itu temuan ARYA, bukan dugaan.
+terlalu mudah - itu temuan ARYA, bukan dugaan.
 
-### Warna matematika — satu sumber kebenaran
+### Warna matematika - satu sumber kebenaran
 `manim/matra_theme.py` = `web/lib/warna.ts`:
 samping `#3A6EA5` · depan `#C25E4D` · miring `#1F2430` · sudut `#D9A441`
 **Jangan** pakai aksen situs (hijau `#2F5D50`, oker `#B8863B`, bata `#A6503F`) untuk
-bagian matematika — pernah terjadi dan merusak kaitan video↔widget.
+bagian matematika - pernah terjadi dan merusak kaitan video↔widget.
 
 ---
 
@@ -197,7 +272,7 @@ bagian matematika — pernah terjadi dan merusak kaitan video↔widget.
 | Berkas | Fungsi |
 |---|---|
 | `manim/qc.py` | Gerbang tata letak di dalam adegan. Sudah menangkap 3 cacat nyata |
-| `manim/cek_video.py` | Lembar kontak ffmpeg — wajib dijalankan **dan dilihat** |
+| `manim/cek_video.py` | Lembar kontak ffmpeg - wajib dijalankan **dan dilihat** |
 | `manim/buat_narasi.py` | Bikin suara per kalimat **dan ukur durasinya** → `durasi.json` |
 | `manim/gabung_audio.py` | Gabung narasi ke video; **berhenti** kalau selisih > 1,5 detik |
 | `manim/matra_theme.py` | Warna & tema animasi |
@@ -205,17 +280,26 @@ bagian matematika — pernah terjadi dan merusak kaitan video↔widget.
 | `manim/cek_kode.py` | ⭐ **BARU** Periksa adegan SEBELUM render. Menangkap LaTeX rusak, `MathTex` lupa awalan `r`, kelas adegan tanpa `qc.periksa_adegan`, warna hex ditulis langsung. `--dalam` membangun tiap potongan LaTeX sungguhan |
 | `manim/lingkungan.py` | ⭐ **BARU** Menambal PATH MiKTeX. **WAJIB di-import paling atas di tiap adegan** |
 | `manim/narasi/trigonometri.json` | Naskah narasi, satu sumber kebenaran |
+| `alat/cek_soal.py` | ⭐ **BARU sesi 5** Periksa jawaban limit dengan sympy. Bandingkan selisih yang disederhanakan, bukan teks, jadi `0.25` diakui sama dengan `1/4`. Dukung `oo`, limit sepihak, dan jawaban "tidak ada". Kode keluar bukan nol kalau ada yang salah |
 
 ### Situs (Next.js 16, di `web/`)
 | Berkas | Isi |
 |---|---|
+| `content/tipe.ts` | ⭐ **BARU** Tipe isi yang dipakai SEMUA topik |
+| `content/daftar-isi.ts` | ⭐ **BARU** Daftar pusat topik. Menambah topik = satu baris di sini |
 | `content/trigonometri/tahap.ts` | ⭐ **10 tahap: teks, poin, contoh, sering-keliru** |
+| `content/limit/{tahap,latihan,kuis}.ts` | ⭐ **BARU** Isi topik Limit |
 | `content/trigonometri/latihan.ts` | Naskah narasi, 4 latihan, 8 kuis, 4 kanal YouTube |
 | `content/topik.ts` | Daftar 6 topik + label kelas jujur |
-| `components/topik/Trigonometri.tsx` | Halaman utama, daftar tahap + dua kolom |
+| `components/topik/HalamanTopik.tsx` | ⭐ Rangka halaman topik, BEBAS TOPIK |
+| `components/topik/PanggungTrigonometri.tsx` | Penyetelan 10 widget trigonometri |
+| `components/topik/PanggungLimit.tsx` | Penyetelan 9 widget limit |
+| `components/topik/jenis.ts` | Perjanjian antara rangka dan panggung |
 | `components/topik/Penjelasan.tsx` | Perender blok penjelasan |
 | `components/topik/Latihan.tsx`, `Kuis.tsx` | Latihan & kuis |
-| `components/widget/*.tsx` | 9 widget interaktif |
+| `components/widget/*.tsx` | 10 widget Trigonometri |
+| `components/widget/limit/*.tsx` | ⭐ **BARU** 9 widget Limit + galeri + bingkai bersama |
+| `components/widget/limit/koordinat.ts` | ⭐ Penskalaan, garis petak, penunjuk skala, jalur SVG yang DIPUTUS di asimtot |
 | `lib/warna.ts` | ⭐ Warna matematika |
 | `lib/simpanan.ts` | localStorage lewat `useSyncExternalStore` |
 | `app/globals.css` | Sistem desain "Studio Teknis" + semua tata letak |
@@ -230,20 +314,20 @@ bagian matematika — pernah terjadi dan merusak kaitan video↔widget.
 | **LaTeX**, bukan Typst | Uji banding 31 Agu: spasi & konvensi lebih sesuai buku |
 | **Tanpa database** | Skor kuis di localStorage. Hemat 3-4 hari |
 | **Widget 2D buatan sendiri** | Mafs tak dirawat 17 bulan |
-| **Suara: `edge-tts` `id-ID-ArdiNeural`** | Indonesia asli, gratis, tanpa batas. **ElevenLabs gratis mengunci SEMUA suara Indonesia di balik langganan berbayar** — terverifikasi dari pesan API-nya. Menambah akun gratis TIDAK menolong: yang membatasi tingkat langganan, bukan sisa kredit |
+| **Suara: `edge-tts` `id-ID-ArdiNeural`** | Indonesia asli, gratis, tanpa batas. **ElevenLabs gratis mengunci SEMUA suara Indonesia di balik langganan berbayar** - terverifikasi dari pesan API-nya. Menambah akun gratis TIDAK menolong: yang membatasi tingkat langganan, bukan sisa kredit |
 | **Durasi animasi mengikuti durasi suara** | Bukan ditebak. Lihat `durasi.json` |
-| **Ekspor 1080p60** (`manim -qh`) | Permintaan ARYA 31 Agu. Biayanya ±15 menit render per video dan berkas ±6 MB (720p30 = ±3 MB). Perkiraan awal Claude "60-80 menit" ternyata SALAH — jauh lebih cepat |
-| **Foto Tahap 10 dari Wikimedia Commons** | ARYA minta foto internet HD. Yang terpilih kebetulan semuanya berlisensi terbuka (CC0/CC BY/Public domain) — jadi aman sekaligus. Catatan sumber di `web/public/gambar/sumber.json` |
+| **Ekspor 1080p60** (`manim -qh`) | Permintaan ARYA 31 Agu. Biayanya ±15 menit render per video dan berkas ±6 MB (720p30 = ±3 MB). Perkiraan awal Claude "60-80 menit" ternyata SALAH - jauh lebih cepat |
+| **Foto Tahap 10 dari Wikimedia Commons** | ARYA minta foto internet HD. Yang terpilih kebetulan semuanya berlisensi terbuka (CC0/CC BY/Public domain) - jadi aman sekaligus. Catatan sumber di `web/public/gambar/sumber.json` |
 | **Tahap bervideo: tombol Tonton / Coba sendiri** | Menampilkan video DAN widget sekaligus memaksa panggung digulir. Tata letak satu layar sudah dikunci, jadi siswa memilih salah satu |
 | Semua berkas di **drive D** | C: tinggal ~16 GB dari 376 GB |
 | Tata letak **satu layar** | Kiri visual, kanan penjelasan. Tanpa gulir atas-bawah |
 
-### Gaya terkunci — "Studio Teknis"
+### Gaya terkunci - "Studio Teknis"
 Krem `#F6F2EC` · kartu `#FFFDFA` · tinta `#211E1A` · garis `#E1D9CC`
 Judul **Fraunces** · teks **Inter** · angka & label teknis **IBM Plex Mono**
 Patokan visual: `mockup/e-satu-layar.html`
 
-### Pelajaran Next 16 (beda dari ingatan Claude — sudah diverifikasi)
+### Pelajaran Next 16 (beda dari ingatan Claude - sudah diverifikasi)
 - `params` pada route dinamis adalah **`Promise`** → wajib `await params`
 - **Tailwind 4**: `@import "tailwindcss"` + `@theme inline`, **tanpa** `tailwind.config.js`
 - **`next lint` sudah dihapus** → pakai `npx eslint .`
@@ -251,13 +335,13 @@ Patokan visual: `mockup/e-satu-layar.html`
   **Penggantinya sudah terbukti di proyek ini:** kalau nilainya berasal dari
   `localStorage`, baca lewat `useSyncExternalStore(langgan, ...)` dari
   `lib/simpanan.ts`. Karena `tulis()` sudah memberi tahu pendengarnya, nilai itu
-  segar sendiri tanpa disalin ke state — sekaligus lolos dari ketidakcocokan
+  segar sendiri tanpa disalin ke state - sekaligus lolos dari ketidakcocokan
   hidrasi. Contoh: `components/PemutarVideo.tsx` dan kunci kuis di
   `components/topik/Trigonometri.tsx`.
 - React 19 juga melarang **mengubah variabel biasa setelah render selesai**.
   Penghitung yang dinaikkan di dalam `.map()` melanggar ini; hitung dulu ke
   `Map`, baru dipakai (lihat `components/topik/Penjelasan.tsx`).
-- Dokumen resmi ada **offline** di `web/node_modules/next/dist/docs/` — baca dari situ
+- Dokumen resmi ada **offline** di `web/node_modules/next/dist/docs/` - baca dari situ
 
 ---
 
@@ -268,10 +352,10 @@ Patokan visual: `mockup/e-satu-layar.html`
 | `D:\BAHAN MATEMATIKA\LIMIT.pdf` (320 hal) | topik Limit | teks digital |
 | `D:\BAHAN MATEMATIKA\3 Dimensi.pdf` (352 hal) | topik Ruang 3D | teks digital |
 | `D:\BAHAN MATEMATIKA\Matematika_BS_KLS_XII_Rev.pdf` | Buku Siswa Kelas XII | teks digital |
-| `D:\SEKOLAH S1 & S2\S1\matematika\kalkulus 1.pdf`, `kalkulus 2.pdf` | Diktat ITB — istilah Indonesia yang benar | teks digital |
+| `D:\SEKOLAH S1 & S2\S1\matematika\kalkulus 1.pdf`, `kalkulus 2.pdf` | Diktat ITB - istilah Indonesia yang benar | teks digital |
 | `…\Calculus (9rd Edition) - Solution.pdf` | Pola & tingkat kesulitan soal | teks digital |
 | `…\sb-big-book-matematika-sma-…pdf` | Level & bahasa SMA | **scan** |
-| https://mathcyber1997.com | Soal | **diblokir pemeriksa bot** — jangan diterobos; minta ARYA menempelkan sendiri |
+| https://mathcyber1997.com | Soal | **diblokir pemeriksa bot** - jangan diterobos; minta ARYA menempelkan sendiri |
 
 ---
 
@@ -286,15 +370,29 @@ Patokan visual: `mockup/e-satu-layar.html`
    Baru bisa dibuktikan setelah situs di-deploy.
 3. `web/public/gambar/game.jpg` **939 KB**, keempat foto Materi 10 totalnya
    ±1,5 MB. Berat untuk siswa berkuota terbatas. Belum dikompres karena ARYA
-   belum memintanya — tawarkan sebelum deploy.
+   belum memintanya - tawarkan sebelum deploy.
 4. Render Manim 113 detik makan ±8 menit → selalu jalankan di latar belakang,
    dan **jangan pernah dua render sekaligus** (lihat Jebakan lingkungan).
 5. Cache npm lama **11 GB** masih di C: (ARYA memilih tidak dihapus).
-6. Waktu review ARYA jadi leher botol — materi matematika wajib diperiksa dia.
+6. Waktu review ARYA jadi leher botol, materi matematika wajib diperiksa dia.
+7. **Tujuh video Limit belum ada.** Kalau semuanya dibuat, ukuran
+   `web/public/anim/` bertambah kira-kira 30 MB lagi, jadi total sekitar 60 MB.
+   Bicarakan pengompresan sebelum deploy.
+8. **Materi Limit belum diperiksa ARYA.** Angkanya sudah diperiksa mesin, tapi
+   ketepatan bahasa dan tingkat kesulitannya untuk siswa SMA tetap perlu mata
+   ARYA. Yang paling perlu dicek: Materi 08 (bukti sin x dibagi x) dan
+   delapan soal tingkat "sangat sulit" di bank kuis, apakah terlalu berat.
+
+## ⏳ Masih menunggu keputusan ARYA
+1. **Slogan halaman depan** (5 usulan diberikan pada sesi 4, belum dipilih).
+2. **Galeri Materi 10 Limit**: sekarang gambar buatan sendiri. Kalau ARYA lebih
+   suka foto seperti Materi 10 Trigonometri, tinggal bilang.
+3. **Kompresi gambar dan video sebelum deploy** (`game.jpg` 939 KB, foto Materi
+   10 Trigonometri ±1,5 MB, video ±30 MB).
 
 ## 🎓 Pelajaran dari dua repo rujukan (dibedah 31 Agu, sesi 2)
 
-ARYA menemukan dua repo. **Kodenya tidak bisa disalin** — AnimationsWithManim
+ARYA menemukan dua repo. **Kodenya tidak bisa disalin** - AnimationsWithManim
 berbasis Manim Februari 2019 (`manimlib.imports`, `CONFIG = {}`, `TexMobject`,
 `ShowCreation` semuanya sudah dihapus dari Manim CE 0.21). Yang diambil polanya.
 
@@ -305,7 +403,7 @@ berbasis Manim Februari 2019 (`manimlib.imports`, `CONFIG = {}`, `TexMobject`,
 
 **Jangan menghabiskan waktu di Math-To-Manim lagi**: 788 berkas tapi hanya ~4 yang
 berguna; 577 di antaranya ada di `legacy/` dan `archive/`, sisanya kerangka agen AI
-yang menyuruh model lain menulis Manim — bukan yang proyek ini butuhkan.
+yang menyuruh model lain menulis Manim - bukan yang proyek ini butuhkan.
 
 ---
 
@@ -319,7 +417,7 @@ lewat selisih durasi 5,1 detik. Render satu per satu.
 
 **PowerShell `Set-Content -Encoding utf8` menyisipkan BOM** di awal berkas, dan
 Python menolaknya dengan `invalid non-printable character U+FEFF`. Untuk menyunting
-berkas Python, pakai Python atau alat sunting biasa — bukan PowerShell.
+berkas Python, pakai Python atau alat sunting biasa - bukan PowerShell.
 
 **Heredoc bash + string Python biasa bisa memproses escape dua kali.** Menulis
 `"\theta"` di dalam heredoc pernah sampai ke Python sebagai TAB + "heta",
@@ -328,13 +426,34 @@ mengandung LaTeX, gunakan alat sunting berkas, bukan skrip pengganti teks.
 
 
 
+**Pembungkus `rtk` BISA MELAPORKAN LULUS PADAHAL PERINTAHNYA TIDAK JALAN.**
+Pada sesi 5 `npx tsc --noEmit` dilaporkan "TypeScript: No errors found", padahal
+keluaran aslinya "This is not the tsc command you are looking for" karena
+`node_modules` belum ada. Hal yang sama terjadi pada `npm run build`: pesannya
+`'next' is not recognized`, tetapi kode keluarnya 0 karena disalurkan ke `tail`.
+**Untuk perintah PEMERIKSAAN, selalu pakai `rtk proxy "<perintah>"`** supaya
+keluarannya mentah, dan baca isinya, jangan percaya kode keluarnya saja.
+
+**Worktree git TIDAK punya `node_modules`.** Berkas itu di-gitignore, jadi
+worktree baru harus dijalankan `npm install` sendiri di dalam `web/` (±2 menit,
+361 paket). Gejalanya menyesatkan karena `npx` diam-diam mengunduh paket lain
+yang namanya mirip.
+
+**Jangan pakai `cp` untuk menimpa berkas di skrip.** Ia bertanya "overwrite?",
+tidak mendapat jawaban karena tidak ada masukan, lalu keluar dengan kode 0
+TANPA menyalin apa pun. Pakai Python `shutil.copyfile` atau alat sunting berkas.
+
+**Nama berkas di Windows tidak membedakan huruf besar-kecil.** `bidang.ts` dan
+`Bidang.tsx` dianggap berkas yang sama dan TypeScript menolak keduanya. Yang
+bawah sudah diganti nama jadi `koordinat.ts`.
+
 **MiKTeX terpasang tapi TIDAK terdaftar di PATH Windows.** Gejalanya menyesatkan:
 
     FileNotFoundError: [WinError 2] The system cannot find the file specified
 
 Pesan itu tidak menyebut LaTeX sama sekali, jadi mudah disangka salah kode. Yang
 "tidak ditemukan" sebenarnya `latex.exe`. Sudah ditambal oleh `manim/lingkungan.py`
-— **tiap adegan wajib meng-import `lingkungan` sebelum `from manim import *`.**
+- **tiap adegan wajib meng-import `lingkungan` sebelum `from manim import *`.**
 Tambalannya hanya untuk proses yang berjalan; setelan Windows ARYA tidak disentuh.
 
 ---
