@@ -2,14 +2,13 @@
 
 import Link from 'next/link'
 import { useState, useSyncExternalStore } from 'react'
-import { KUIS, type SoalKuis, type TingkatKuis } from '@/content/trigonometri'
+import type { SoalKuis, TingkatKuis } from '@/content/tipe'
 import { langgan } from '@/lib/simpanan'
 import {
   bacaLatihan, catatJawaban, ringkasPerTingkat, segarkanLencana,
   LENCANA, SYARAT_NAIK, URUT_TINGKAT,
 } from '@/lib/latihan-kemajuan'
 
-const TOPIK = 'trigonometri'
 
 /**
  * Arena latihan: siswa memilih tingkat, lalu mengerjakan soal satu per satu.
@@ -23,8 +22,21 @@ const TOPIK = 'trigonometri'
  * berbeda dengan kunci kuis yang sengaja disembunyikan. Alasannya berbeda:
  * kunci kuis mencegah siswa mengejar angka, sedangkan tangga latihan justru
  * berguna kalau siswa tahu tinggal berapa lagi.
+ *
+ * Bank soalnya masuk lewat properti, bukan diimpor langsung. Sampai
+ * 1 September 2026 berkas ini mengimpor bank soal Trigonometri dan menulis
+ * slug topiknya di dalam kode, sehingga topik kedua harus menyalin seluruh
+ * berkas hanya untuk mengganti dua baris.
  */
-export default function ArenaLatihan() {
+export default function ArenaLatihan({
+  topik, nama, bank,
+}: {
+  /** slug topik, dipakai sebagai kunci penyimpanan kemajuan */
+  topik: string
+  /** nama topik untuk judul halaman, misalnya "Trigonometri" */
+  nama: string
+  bank: SoalKuis[]
+}) {
   const [tingkat, setTingkat] = useState<TingkatKuis | null>(null)
   const [ke, setKe] = useState(0)
   const [dipilih, setDipilih] = useState<number | null>(null)
@@ -32,18 +44,18 @@ export default function ArenaLatihan() {
 
   const kemajuan = useSyncExternalStore(
     langgan,
-    () => JSON.stringify(bacaLatihan(TOPIK)),
+    () => JSON.stringify(bacaLatihan(topik)),
     () => JSON.stringify({ benar: [], dicoba: 0, lencana: [] }),
   )
   const k = JSON.parse(kemajuan) as ReturnType<typeof bacaLatihan>
-  const ringkas = ringkasPerTingkat(KUIS, k)
+  const ringkas = ringkasPerTingkat(bank, k)
   const sudahBenar = new Set(k.benar)
 
   // ---------------------------------------------------- pilih tingkat dulu
   if (tingkat === null) {
     return (
       <main className="beranda">
-        <div className="jalur">Latihan Trigonometri</div>
+        <div className="jalur">Latihan {nama}</div>
         <h1>Pilih tingkatnya</h1>
         <p className="sub" style={{ maxWidth: '44rem' }}>
           Kerjakan {SYARAT_NAIK} soal dengan benar untuk membuka tingkat berikutnya.
@@ -76,14 +88,14 @@ export default function ArenaLatihan() {
   }
 
   // ---------------------------------------------------------- kerjakan soal
-  const soal: SoalKuis[] = KUIS.filter((s) => s.tingkat === tingkat)
+  const soal: SoalKuis[] = bank.filter((s) => s.tingkat === tingkat)
   const s = soal[ke]
 
   function jawab(n: number) {
     if (dipilih !== null) return
     setDipilih(n)
-    catatJawaban(TOPIK, s.id, n === s.benar)
-    setLencanaBaru(segarkanLencana(TOPIK, KUIS))
+    catatJawaban(topik, s.id, n === s.benar)
+    setLencanaBaru(segarkanLencana(topik, bank))
   }
 
   function lanjut() {
