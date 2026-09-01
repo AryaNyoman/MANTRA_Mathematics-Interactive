@@ -124,3 +124,76 @@ topik ini dibuat. Diukur, bukan dikira-kira.
 - **Berat foto galeri.** Enam foto totalnya sekitar 1 MB, yang terberat
   `bakteri.jpg` 265 KB. Belum dikompres. Sejalan dengan catatan lama di
   `PROGRESS.md` soal pengompresan gambar sebelum deploy.
+
+---
+
+# Pemeriksaan ulang setelah penyelarasan ke master (2 September 2026)
+
+Diminta MASTER: potret ulang tampilan HP setelah perbaikan UI/UX masuk, lalu
+laporkan apakah sudah benar. Dikerjakan dengan aturan baru: port 3011,
+`playwright-cli -s=matra-grafik-fungsi`, verifikasi lewat biner Node langsung.
+
+## Tampilan HP 375 piksel: SUDAH BENAR
+
+Dua cacat yang saya laporkan sebelumnya keduanya hilang.
+
+| Yang diukur | Sebelum (1 Sep) | Sekarang (2 Sep) |
+|---|---|---|
+| Lebar isi halaman lawan lebar layar | 432 lawan 375, menggulir menyamping | **375 lawan 375, tidak menggulir** |
+| Kolom kiri dan kanan | saling tumpang tindih, tulisan menimpa tombol | **satu kolom rapi, tidak ada tumpang tindih** |
+
+Tiga tahap dibuka dan DINILAI dengan mata, bukan cuma dipotret:
+
+- **Tahap 1**: satu kolom, menu jadi tombol tiga garis, baris tab bisa digulir,
+  widget di atas dan bacaan di bawah. Keterangan di pita atas tetap terbaca.
+- **Tahap 5**: kedua titik yang bisa diseret tetap terlihat jelas dan berlabel,
+  rumusnya tidak tertimpa apa pun.
+- **Tahap 12**: satu kartu foto per baris, fotonya utuh tidak terpotong,
+  keterangan dan kredit fotonya terbaca.
+
+Delapan elemen memang masih melewati tepi layar, tetapi semuanya tombol MATERI
+di dalam baris tab yang memang `overflow-x: auto`. Itu gulir di dalam wadahnya
+sendiri, bukan halaman yang meluber, dan `document.body.scrollWidth` sudah sama
+dengan lebar layar.
+
+## Verifikasi lewat biner Node langsung
+
+Aturan baru dipatuhi: `rtk` tidak dipakai untuk pemeriksaan.
+
+- **Bukti tsc memang hidup**: satu baris `const sengajaSalah: number = "..."`
+  disisipkan sengaja ke `fungsi.ts`. tsc MENOLAKNYA dengan
+  `error TS2322: Type 'string' is not assignable to type 'number'` dan kode
+  keluar 2. Baris itu lalu dibuang, dan `git diff` kembali kosong, jadi
+  berkasnya persis seperti semula.
+- `node node_modules/typescript/bin/tsc --noEmit` kode keluar **0**.
+- `node node_modules/next/dist/bin/next build` kode keluar **0**.
+- `python alat/cek_grafik_fungsi.py --uji-sendiri` tetap menolak ketujuh kasus
+  yang sengaja dibuat salah; 117 angka materi dan 77 angka soal tetap lolos.
+
+Catatan cara kerja: `cp` untuk mengembalikan berkas GAGAL diam-diam karena ia
+bertanya "overwrite?" dan tidak mendapat jawaban. Itu jebakan yang sudah
+tercatat di `PROGRESS.md`, dan saya masuk ke dalamnya. Pengembaliannya dikerjakan
+ulang dengan alat sunting berkas.
+
+## Satu cacat ditemukan, BUKAN milik sesi ini
+
+`node node_modules/eslint/bin/eslint.js .` gagal dengan kode keluar **1**:
+
+```
+web/components/widget/ruang-3d/Bingkai3D.tsx
+  139:27  error  Cannot access refs during render   react-hooks/refs
+  cursor: onUbah ? (seret.current ? 'grabbing' : 'grab') : 'default',
+```
+
+Berkas itu berasal dari commit `d179cc0` milik **MATRA-RUANG-TIGA-DIMENSI**,
+jadi tidak saya sentuh sesuai aturan kepemilikan. Perlu diteruskan ke sesi itu.
+
+Dampaknya nyata, bukan sekadar keluhan pemeriksa: membaca `seret.current` saat
+render membuat kursor tidak berubah menjadi "grabbing" pada saat yang tepat,
+karena mengubah `ref` tidak memicu render ulang. Perbaikannya biasanya
+memindahkan keadaan "sedang menyeret" dari `useRef` ke `useState`. Widget saya
+memakai `useState` untuk hal yang sama, jadi polanya sudah ada contohnya di
+`components/widget/grafik-fungsi/SusunParabola.tsx`.
+
+**Akibatnya `eslint .` seluruh proyek masih merah**, dan gerbang "eslint bersih"
+belum bisa dinyatakan lolos oleh siapa pun sampai berkas itu diperbaiki.
