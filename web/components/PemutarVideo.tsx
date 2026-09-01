@@ -146,6 +146,11 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
       <video
         ref={video}
         controls
+        /* Tanpa `playsInline`, Safari di iPhone merebut video ke layar penuh
+           begitu ditekan. Siswa jadi kehilangan penjelasan di sebelahnya,
+           dan harus keluar dulu untuk membacanya. (Temuan audit HP,
+           2 Sep 2026.) */
+        playsInline
         preload="metadata"
         poster={poster ? `/anim/${poster}` : undefined}
         aria-label={judul}

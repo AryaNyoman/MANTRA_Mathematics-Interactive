@@ -1316,3 +1316,28 @@ video::cue(b) { font-weight: 700; }
      ukurannya, bukan hurufnya, jadi gaya Studio Teknis tetap utuh. */
   .beranda h1 { font-size: clamp(32px, 8.5vw, 48px); }
 }
+
+/* ============================================================
+   Aksesibilitas dasar, temuan audit /web-interface-guidelines
+   (sesi UI/UX, 2 Sep 2026)
+   ============================================================ */
+
+/* Tanpa ini peramban HP menunggu sekitar 300 milidetik tiap kali sesuatu
+   ditekan, berjaga kalau-kalau ketukan kedua datang untuk memperbesar
+   halaman. Akibatnya seluruh situs terasa lambat menanggapi jempol,
+   padahal tidak ada yang lambat. */
+button, a, input, select, summary, [role="button"] { touch-action: manipulation; }
+
+/* Sebagian orang menyalakan "kurangi gerak" di HP atau laptopnya karena
+   gerakan berulang membuat mereka pusing atau mual. Setelan itu wajib
+   dipatuhi, bukan disarankan. Animasi tidak dimatikan sampai hilang,
+   melainkan dipercepat sampai praktis langsung selesai, supaya perubahan
+   keadaan tetap terlihat terjadi. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
