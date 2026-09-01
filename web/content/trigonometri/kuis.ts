@@ -26,19 +26,12 @@
  * (skrip periksa di manim/../ tidak diperlukan: lihat catatan PROGRESS.md).
  */
 
-export type TingkatKuis = 'mudah' | 'sedang' | 'sulit' | 'sangat sulit'
-
-export type SoalKuis = {
-  /** dipakai untuk mengingat soal mana yang sudah pernah keluar */
-  id: string
-  pertanyaan: string
-  pilihan: string[]
-  /** indeks jawaban benar */
-  benar: number
-  /** dijelaskan setelah dijawab, termasuk kenapa yang salah itu menggoda */
-  alasan: string
-  tingkat: TingkatKuis
-}
+/*
+ * Bentuk `TingkatKuis` dan `SoalKuis` dipakai bersama semua topik, jadi tinggal
+ * di `content/tipe.ts` sejak 1 September 2026.
+ */
+export type { TingkatKuis, SoalKuis } from '@/content/tipe'
+import type { SoalKuis } from '@/content/tipe'
 
 export const KUIS: SoalKuis[] = [
   // ---------------------------------------------------------------- mudah

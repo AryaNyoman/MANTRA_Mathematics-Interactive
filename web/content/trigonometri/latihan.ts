@@ -10,31 +10,14 @@
  * Tanpa kalibrasi ini soal buatan Claude cenderung satu langkah dan terlalu mudah.
  */
 
-export type Soal = {
-  no: number
-  label: string
-  pertanyaan: string
-  pembahasan: string[]
-  jawaban: string
-  /**
-   * Lima pilihan, A sampai E (permintaan ARYA 1 Sep 2026).
-   * Pengecohnya bukan asal salah: tiap butir adalah kekeliruan yang benar-benar
-   * sering terjadi, sehingga siswa yang memilihnya belajar sesuatu.
-   */
-  pilihan: string[]
-  /** indeks jawaban benar pada `pilihan` */
-  benar: number
-}
+/*
+ * Bentuk `Soal` dan `Kanal` dipakai bersama semua topik, jadi tinggal di
+ * `content/tipe.ts` sejak 1 September 2026.
+ */
+export type { Soal, Kanal } from '@/content/tipe'
+import type { Soal, Kanal } from '@/content/tipe'
 
 /* Tipe SoalKuis dan bank soalnya pindah ke ./kuis.ts (1 Sep 2026). */
-
-export type Kanal = {
-  nama: string
-  handle: string
-  url: string
-  /** kata kunci yang disarankan untuk dicari di kanal itu */
-  cari: string
-}
 
 /* ------------------------------------------------------------------ */
 /* Narasi audio, dibaca mesin TTS, mengiringi animasi Manim            */

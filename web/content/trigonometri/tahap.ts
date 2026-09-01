@@ -24,37 +24,13 @@ export type Widget =
   | 'tiga-grafik'
   | 'dunia-nyata'
 
-/** Satu potongan penjelasan. Bentuknya sengaja beragam supaya tidak monoton. */
-export type Blok =
-  | { jenis: 'paragraf'; teks: string }
-  /** daftar poin; tiap butir boleh diawali "Label - isi" untuk ditebalkan */
-  | { jenis: 'poin'; judul?: string; butir: string[] }
-  /** satu kalimat kunci yang ditonjolkan */
-  | { jenis: 'sorot'; teks: string }
-  /** kotak contoh berhitung, tiap baris satu langkah */
-  | { jenis: 'contoh'; judul: string; baris: string[]; simpul?: string }
-  /**
-   * Penanda pergantian bagian, dengan garis pemisah dan nomor urut.
-   * Ditambahkan 1 Sep 2026: sub judul lama terbaca seperti paragraf biasa,
-   * sehingga siswa tidak sadar sudah berpindah topik.
-   */
-  | { jenis: 'sesi'; judul: string }
-  /** ajakan mencoba alat di sebelah kiri, ditaruh di TENGAH materi */
-  | { jenis: 'coba'; teks: string; langkah?: string[] }
-
-export type Tahap = {
-  no: number
-  slug: string
-  judul: string
-  pertanyaan: string
-  labelPendek: string
-  penjelasan: Blok[]
-  seringKeliru?: { judul: string; isi: string; sumber?: string }
-  intisari?: string[]
-  widget?: Widget
-  video?: { berkas: string; poster: string }
-  siap: boolean
-}
+/*
+ * Bentuk `Blok` dan `Tahap` dipakai bersama semua topik, jadi tinggal di
+ * `content/tipe.ts` sejak 1 September 2026. Diekspor ulang dari sini supaya
+ * berkas yang sudah mengimpor dari `@/content/trigonometri` tidak perlu diubah.
+ */
+export type { Blok, Tahap } from '@/content/tipe'
+import type { Tahap } from '@/content/tipe'
 
 export const TAHAP: Tahap[] = [
   /* ================================================================= */
