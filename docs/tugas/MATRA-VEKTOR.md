@@ -10,7 +10,7 @@ penempatan kelasnya di Buku Guru, jangan percaya ingatan): materi bertahap
 terbimbing, dan kuis. Gelombang 1 = halaman saja, tanpa video.
 
 ## Sumber utama
-- `D:\BAHAN MATEMATIKA\Buku Matematika Kelas 10 & 11 - Guru.pdf` (cari bab vektor)
+- `D:\BAHAN MATEMATIKA\Buku Matematika Kelas 10 - Guru.pdf` dan `Kelas 11 - Guru.pdf` (cari bab vektor)
 - `D:\SEKOLAH S1 & S2\S1\matematika\kalkulus 2.pdf` (istilah Indonesia yang benar)
 - Big book SMA (level bahasa) dan https://mathcyber1997.com (kalibrasi soal)
 

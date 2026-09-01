@@ -78,7 +78,8 @@ Sebelum video APA PUN dinyatakan selesai atau dikirim ke ARYA:
 ## Bahan referensi (di luar folder proyek)
 | Berkas / sumber | Untuk apa | Bisa dibaca? |
 |---|---|---|
-| `D:\BAHAN MATEMATIKA\Buku Matematika Kelas 10 & 11 - Guru.pdf` | ⭐ Kurikulum Merdeka, miskonsepsi | teks digital |
+| `D:\BAHAN MATEMATIKA\Buku Matematika Kelas 10 - Guru.pdf` dan `...Kelas 11 - Guru.pdf` (DUA berkas) | ⭐ Kurikulum Merdeka, miskonsepsi | teks digital |
+| `D:\BAHAN MATEMATIKA\3 Dimensi.pdf`, `Matematika_BS_KLS_XII_Rev.pdf`, `LIMIT.pdf` | bahan tambahan per topik | teks digital |
 | `D:\SEKOLAH S1 & S2\S1\matematika\kalkulus 1.pdf`, `kalkulus 2.pdf` | Diktat ITB - istilah Indonesia yang benar | teks digital |
 | `…\Calculus (9rd Edition) - Solution.pdf` | Pola & tingkat kesulitan soal | teks digital |
 | `…\sb-big-book-matematika-sma-ke-tim-bbm.pdf` | Level & bahasa SMA | **scan** - baca halaman terpilih |

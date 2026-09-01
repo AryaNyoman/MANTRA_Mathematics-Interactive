@@ -9,6 +9,7 @@ Topik **Ruang Tiga Dimensi** (geometri ruang SMA) utuh: materi bertahap
 Gelombang 1 = halaman saja, tanpa video.
 
 ## Sumber utama
+- `D:\BAHAN MATEMATIKA\3 Dimensi.pdf` dan `D:\BAHAN MATEMATIKA\Matematika_BS_KLS_XII_Rev.pdf` (khusus topikmu, cek dulu isinya)
 - Buku Guru 10 & 11 kalau babnya ada; kalau topik ini ternyata kelas 12,
   pakai big book SMA + https://mathcyber1997.com + diktat ITB, dan catat
   sumber tiap soal. Verifikasi penempatan kurikulum sendiri, jangan menebak.

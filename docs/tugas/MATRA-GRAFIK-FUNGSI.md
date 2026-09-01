@@ -9,7 +9,7 @@ tahap), widget interaktif, latihan terbimbing, kuis. Gelombang 1 = halaman
 saja, tanpa video.
 
 ## Sumber utama
-- `D:\BAHAN MATEMATIKA\Buku Matematika Kelas 10 & 11 - Guru.pdf`
+- `D:\BAHAN MATEMATIKA\Buku Matematika Kelas 10 - Guru.pdf` dan `Kelas 11 - Guru.pdf`
   (fungsi kuadrat, eksponen, transformasi; verifikasi sendiri babnya)
 - Diktat ITB kalkulus 1 (fungsi dan grafiknya)
 - Big book SMA dan https://mathcyber1997.com (kalibrasi soal)
