@@ -9,7 +9,9 @@ Topik **Ruang Tiga Dimensi** (geometri ruang SMA) utuh: materi bertahap
 Gelombang 1 = halaman saja, tanpa video.
 
 ## Sumber utama
-- `D:\BAHAN MATEMATIKA\3 Dimensi.pdf` dan `D:\BAHAN MATEMATIKA\Matematika_BS_KLS_XII_Rev.pdf` (khusus topikmu, cek dulu isinya)
+- AWAS: `3 Dimensi.pdf` ternyata Buku Siswa Kelas XI (bilangan kompleks,
+  polinomial, matriks), BUKAN geometri ruang. Sudah diperiksa sesi ini.
+  Sumber yang benar-benar dipakai ada di laporanmu.
 - Buku Guru 10 & 11 kalau babnya ada; kalau topik ini ternyata kelas 12,
   pakai big book SMA + https://mathcyber1997.com + diktat ITB, dan catat
   sumber tiap soal. Verifikasi penempatan kurikulum sendiri, jangan menebak.
@@ -42,3 +44,27 @@ laporan `docs/tugas/laporan/MATRA-RUANG-TIGA-DIMENSI.md`.
 - Jarak titik ke bidang: garis tegak lurusnya digambar, bukan cuma angkanya.
 - Irisan bidang pada kubus (kalau masuk rancangan; berat, boleh ditunda).
 Semua jarak/sudut contoh dicek sympy. Ingat aturan bingkai + penunjuk skala.
+
+## Keadaan 2 Sep 2026 (ditulis MASTER dari laporanmu)
+
+**Gelombang 1 SELESAI**: 10 materi, 9 widget 3D dengan SVG dan matriks putar
+buatan sendiri, galeri 4 adegan, 4 latihan, 32 soal kuis, 70 angka lolos
+`cek_ruang.py`, dikalibrasi ke lima soal UN/EBTANAS asli. Menunggu tinjauan
+ARYA. Jangan memulai video.
+
+Koreksi dari temuanmu, sudah dibetulkan MASTER: `3 Dimensi.pdf` ternyata Buku
+Siswa Kelas XI, bukan geometri ruang. Rujukan di `CLAUDE.md` dan file tugasmu
+sudah diperbaiki supaya sesi berikutnya tidak tertipu judul berkas itu.
+
+Yang MASTER ambil alih: `topik.ts` baris `ruang-3d` kini resmi wilayahmu,
+silakan ubah ke `siap: true` dan commit (kamu sempat mengembalikannya).
+Tampilan HP diperbaiki UI/UX; setelah cabangmu diselaraskan, potret ulang 375.
+
+Yang menunggu keputusan ARYA (dari laporanmu): galeri tahap 10 gambar sendiri
+atau foto; tinjau tahap 6 dan enam soal sangat sulit.
+
+Gelombang 2 nanti: enam video kandidat sudah di rancanganmu, dipimpin tahap 1
+dan tahap 3, memakai Manim `ThreeDScene` sesuai keputusan ARYA.
+
+Pengingat teknis untuk sesi berikutnya: port **3013**, Playwright
+`-s=matra-ruang-3d`, verifikasi lewat biner Node langsung (bukan rtk).

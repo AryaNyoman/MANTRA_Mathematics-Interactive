@@ -36,3 +36,24 @@ laporan `docs/tugas/laporan/MATRA-GRAFIK-FUNGSI.md`.
 - Eksponen vs linear: balapan pertumbuhan pada sumbu yang sama.
 Baca skill `dataviz` sebelum menggambar grafik apa pun.
 Ingat aturan bingkai: gambar tidak boleh terpotong, penunjuk skala wajib.
+
+## Keadaan 2 Sep 2026 (ditulis MASTER dari laporanmu)
+
+**Gelombang 1 SELESAI**: 12 tahap, 11 widget, 4 latihan, 32 soal kuis, 194
+angka lolos pemeriksa dua arah, enam foto galeri berlisensi dan beratribusi.
+Menunggu tinjauan ARYA. Jangan memulai video.
+
+Yang MASTER ambil alih dari daftar "Butuh MASTER"-mu:
+- `topik.ts` dan `latihan/grafik-fungsi/page.tsx`: kini RESMI wilayahmu.
+- Usulmu menaikkan `koordinat.ts` dan `Bidang.tsx` versimu ke folder bersama:
+  DITERIMA sebagai rencana, dikerjakan MASTER setelah semua topik tergabung.
+  Versimu yang dipakai (pita keterangan di luar kotak, pemotongan pada batas).
+- Jenis blok `rujuk` untuk tautan antartopik: dicatat, menunggu MASTER.
+- Impor tipe `Blok` yang basi di `Penjelasan.tsx`: dicatat untuk UI/UX.
+
+Yang menunggu keputusan ARYA (dari laporanmu): tinjau tahap 6 dan enam soal
+sangat sulit; soal pembanding mathcyber; kompresi foto galeri (1 MB, terberat
+`bakteri.jpg` 265 KB, kompres di bawah 150 KB seperti yang dilakukan VEKTOR).
+
+Pengingat teknis untuk sesi berikutnya: port **3011**, Playwright
+`-s=matra-grafik-fungsi`, verifikasi lewat biner Node langsung (bukan rtk).

@@ -14,7 +14,7 @@
 | | |
 |---|---|
 | Tahap sekarang | **DUA topik selesai. Situs SUDAH TAYANG di Vercel.** |
-| Yang tersisa | review 6 video Limit; 4 topik + UI/UX berjalan paralel di 5 sesi (lihat `docs/tugas/`) |
+| Yang tersisa | **Kelima sesi selesai gelombang 1** (2 Sep). MASTER menggabung + deploy, ARYA meninjau 4 topik baru, lalu gelombang 2 (video) |
 | Alamat tayang | https://matra-eight.vercel.app |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md`<br>`docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`<br>`docs/superpowers/plans/2026-09-01-topik-limit.md` |
 | Tenggat | 12 September 2026 |
@@ -152,6 +152,47 @@ Aturan main lengkap: `docs/tugas/ATURAN-SEMUA-SESI.md`. Intinya:
   catatan basi tersisa.
 - Jangan percaya ingatan soal keadaan git. Periksa: `git worktree list` dan
   `git log --oneline -1 master`.
+## 🏁 Keadaan lima sesi paralel (2 Sep 2026, dibaca dari laporan masing-masing)
+
+| Sesi | Hasil gelombang 1 | Angka diperiksa | Menunggu |
+|---|---|---|---|
+| VEKTOR | 12 materi, 11 widget, 4 latihan, 32 kuis | 116, dua arah | tinjauan ARYA |
+| GRAFIK-FUNGSI | 12 tahap, 11 widget, 4 latihan, 32 kuis, 6 foto beratribusi | 194, dua arah | tinjauan ARYA |
+| STATISTIKA | 13 materi, 13 widget, 4 latihan, 32 kuis, semua data dinyatakan buatan | 146, dua pemeriksa | tinjauan ARYA |
+| RUANG-3D | 10 materi, 9 widget 3D SVG, 4 latihan, 32 kuis, kalibrasi 5 soal UN asli | 70 | tinjauan ARYA |
+| UI-UX | tampilan HP diperbaiki: tumpukan kolom, nav tiga garis, tab, target sentuh 44px | 7 layar x 5 zoom | penggabungan MASTER |
+
+Semua laporan lengkap ada di `docs/tugas/laporan/` pada cabang masing-masing.
+
+**Empat temuan sesi yang mengubah aturan bersama** (sudah masuk
+`docs/tugas/ATURAN-SEMUA-SESI.md`):
+1. **`rtk` mengarang keluaran.** `rtk proxy "npx tsc --version"` menjawab
+   "TypeScript: No errors found"; `next build` lewat rtk mengaku 2 rute dalam
+   1,2 detik padahal situsnya 15 halaman (STATISTIKA). Verifikasi sekarang
+   memanggil `node node_modules/<alat>/bin/...` langsung. Catatan sesi 5 yang
+   menyuruh memakai `rtk proxy` DICABUT.
+2. **Playwright dipakai bersama antar sesi** tanpa nama sesi: potret nyasar ke
+   folder sesi lain. Wajib `playwright-cli -s=<nama>`.
+3. **Port 3000-3009 dikosongkan.** `npm run dev` tanpa `-p` naik diam-diam ke
+   port sesi lain. Sesi sekarang di 3010 sampai 3014.
+4. **`3 Dimensi.pdf` bukan geometri ruang**, isinya Buku Siswa Kelas XI
+   (RUANG-3D memeriksa isinya, bukan judulnya).
+
+**Temuan yang paling mendesak, dilaporkan EMPAT sesi secara terpisah:** halaman
+topik rusak di lebar 375 piksel di SELURUH situs, termasuk Limit dan
+Trigonometri yang sudah tayang. Di HP siswa tidak bisa membuka Latihan maupun
+Kuis sama sekali. UI-UX sudah memperbaikinya di cabangnya; prioritas
+penggabungan pertama.
+
+**Utang MASTER dari laporan sesi:**
+- Naikkan alat bingkai ke `components/widget/bersama/` (versi GRAFIK-FUNGSI
+  paling lengkap) setelah semua topik tergabung; tiga topik menyalinnya.
+- Jenis blok `rujuk` di `tipe.ts` untuk tautan antartopik yang bisa diklik.
+- Teks widget Limit mengecil di HP (ARYA menyerahkannya ke MASTER, 2 Sep).
+- Hapus `web/public/anim/trigonometri.webm` (yatim, 0,54 MB).
+- Kompres foto galeri GRAFIK-FUNGSI (1 MB, di bawah 150 KB per foto).
+- `Penjelasan.tsx` masih mengimpor tipe `Blok` dari tempat lama.
+
 ## 🚀 Deploy Vercel (dikerjakan 1 Sep 2026, sesi 5)
 
 **Alamat tayang: https://matra-eight.vercel.app**
@@ -473,7 +514,7 @@ terlalu mudah - itu temuan ARYA, bukan dugaan.
 
 ### Warna matematika - satu sumber kebenaran
 `manim/matra_theme.py` = `web/lib/warna.ts`:
-samping `#3A6EA5` · depan `#C25E4D` · miring `#1F2430` · sudut `#D9A441`
+samping `#3A6EA5` · depan `#C25E4D` · miring `#1F2430` · sudut `#6A4C93`
 **Jangan** pakai aksen situs (hijau `#2F5D50`, oker `#B8863B`, bata `#A6503F`) untuk
 bagian matematika - pernah terjadi dan merusak kaitan video↔widget.
 

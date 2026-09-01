@@ -46,3 +46,33 @@ mengubah wataknya. Kamu sesi kualitas tampilan, BUKAN sesi redesign.
 `web/app/` (layout, globals), komponen bersama di `web/components/`
 (KECUALI folder `widget/<topik>/` milik sesi topik),
 laporan `docs/tugas/laporan/MATRA-DESAIN-UI-UX.md`.
+
+## Keadaan 2 Sep 2026 (ditulis MASTER dari laporanmu)
+
+**Gelombang 1 SELESAI**, dan ini yang paling mendesak dari semua sesi: tanpa
+perbaikanmu, siswa di HP sama sekali tidak bisa membuka Latihan maupun Kuis.
+Tujuh commit: tumpukan kolom di 375, navigasi tiga garis, bank soal, tab
+Latihan/Kuis di baris sendiri, target sentuh 44 piksel, judul HP, empat temuan
+audit pedoman. Diuji di tujuh ukuran layar dan lima tingkat zoom.
+
+Yang MASTER kerjakan: cabangmu digabung ke master LEBIH DULU dari yang lain
+dan langsung di-deploy, sebab situs yang tayang sedang rusak di HP.
+`PemutarVideo.tsx` disentuh MASTER juga (`key={berkas}`, memaksa elemen video
+dibuat ulang saat pindah tahap); MASTER yang menyelesaikan konfliknya.
+
+Tugasmu berikutnya, setelah cabangmu diselaraskan ke master dan ARYA memberi
+aba-aba:
+1. Empat topik baru (vektor, grafik fungsi, statistika, ruang 3D) akan masuk
+   master. Audit ulang keempatnya di 375 dan 1366 seperti yang kamu lakukan
+   pada Limit. Kemungkinan besar ada tabel lebar dan widget yang mengecil.
+2. Teks widget Limit yang mengecil di HP: ARYA menyerahkannya ke MASTER, jadi
+   bukan tugasmu, tapi laporkan kalau melihat pola yang sama di topik lain.
+3. Impor tipe `Blok` yang basi di `Penjelasan.tsx` (temuan GRAFIK-FUNGSI).
+4. Jenis blok `rujuk` (tautan antartopik yang bisa diklik): perendernya di
+   `Penjelasan.tsx` milikmu, tipenya di `tipe.ts` milik MASTER. Tunggu MASTER.
+
+Yang menunggu keputusan ARYA (dari laporanmu): tautan lompat ke isi (skip
+link) ditunda; tombol jeda korsel sengaja tidak dipasang.
+
+Pengingat teknis untuk sesi berikutnya: port **3014** (bukan 3005 lagi),
+Playwright `-s=matra-ui-ux`, verifikasi lewat biner Node langsung (bukan rtk).

@@ -38,3 +38,27 @@ laporan `docs/tugas/laporan/MATRA-STATISTIKA.md`.
 - Histogram: lebar kelas diubah, bentuk cerita berubah.
 - Grafik menyesatkan: sumbu dipotong vs sumbu jujur, berdampingan.
 Semua angka contoh tetap dicek sympy/python. Ingat aturan bingkai.
+
+## Keadaan 2 Sep 2026 (ditulis MASTER dari laporanmu)
+
+**Gelombang 1 SELESAI**: 13 materi, 13 widget, 4 latihan, 32 soal kuis, 146
+angka lolos DUA pemeriksa (Python eksak dan Node dari kode situs), palet lolos
+validator dataviz, semua widget bisa diseret dan dijalankan papan ketik.
+Menunggu tinjauan ARYA. Jangan memulai video.
+
+Tiga temuanmu mengubah aturan SEMUA sesi, terima kasih:
+1. `rtk` mengarang keluaran: aturan verifikasi diganti ke biner Node langsung.
+2. Playwright dipakai bersama: sekarang wajib `-s=<nama-worktree>`.
+3. Jebakan `papan.ts` vs `Papan.tsx` dicatat di aturan bersama.
+
+Yang MASTER ambil alih: `topik.ts` dan `latihan/statistika/page.tsx` kini
+resmi wilayahmu. Alat skala kembar akan dinaikkan ke folder bersama setelah
+semua tergabung. Tampilan HP diperbaiki UI/UX; setelah cabangmu diselaraskan,
+potret ulang 375 piksel, terutama tabel tiga kolom di Materi 01.
+
+Yang menunggu keputusan ARYA (dari laporanmu): data BPS sungguhan atau tetap
+data buatan yang jujur; tinjau Materi 09 (interpolasi) dan delapan soal
+sangat sulit.
+
+Pengingat teknis untuk sesi berikutnya: port **3012** (bukan 3003 lagi),
+Playwright `-s=matra-statistika`, verifikasi lewat biner Node langsung.

@@ -34,3 +34,24 @@ ruang. Ragu soal batas? Tulis di laporan bagian "Butuh MASTER", jangan rebutan.
 - Perkalian titik: sudut diputar, nilai a.b dan proyeksinya hidup.
 - Komponen: vektor dipecah ke sumbu, segitiga siku-sikunya terlihat.
 Ingat aturan bingkai: gambar tidak boleh terpotong, penunjuk skala wajib.
+
+## Keadaan 2 Sep 2026 (ditulis MASTER dari laporanmu)
+
+**Gelombang 1 SELESAI**: 12 materi, 11 widget, 4 latihan, 32 soal kuis, 116
+angka lolos pemeriksa dua arah. Menunggu tinjauan ARYA. Jangan memulai video.
+
+Yang MASTER ambil alih dari daftar "Butuh MASTER"-mu:
+- `topik.ts` dan `latihan/vektor/page.tsx`: keduanya kini RESMI wilayahmu
+  (lihat tabel kepemilikan yang baru). Tidak dianggap pelanggaran.
+- Alat bingkai kembar (`limit/koordinat.ts` vs `vektor/geometri.ts`): akan
+  dinaikkan ke folder bersama SETELAH semua topik tergabung, oleh MASTER.
+- Tampilan HP: sudah diperbaiki sesi UI/UX di cabangnya, masuk master lewat
+  penggabungan. Setelah cabangmu diselaraskan ke master, potret ulang 375
+  piksel dan nilai lagi; itu satu-satunya syarat gelombang 1 yang belum
+  terpenuhi secara berarti.
+
+Yang menunggu keputusan ARYA (dari laporanmu): foto pesawat berlogo DHL, dan
+nasib Materi 11 dan 12 yang di luar kurikulum.
+
+Pengingat teknis untuk sesi berikutnya: port **3010**, Playwright
+`-s=matra-vektor`, verifikasi lewat biner Node langsung (bukan rtk).
