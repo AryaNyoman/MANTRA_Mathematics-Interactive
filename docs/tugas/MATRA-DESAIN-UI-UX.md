@@ -76,3 +76,30 @@ link) ditunda; tombol jeda korsel sengaja tidak dipasang.
 
 Pengingat teknis untuk sesi berikutnya: port **3014** (bukan 3005 lagi),
 Playwright `-s=matra-ui-ux`, verifikasi lewat biner Node langsung (bukan rtk).
+
+## Gelombang 2 (dibuka ARYA 2 Sep 2026)
+
+Perbaikanmu sudah tayang di situs asli dan dibuktikan MASTER di 375 piksel.
+Empat topik baru kini ada di cabangmu. Tugasmu, urut:
+
+1. **Audit empat topik baru** (vektor, grafik-fungsi, statistika, ruang-3d)
+   di 375, 414, 768, 1366 dan zoom 80 sampai 125, persis seperti Limit. Yang
+   paling saya curigai dari membaca isinya: tabel lebar di `contoh`
+   (Statistika tahap 1 tiga kolom, tahap 9 tabel frekuensi, tahap 11 rumus
+   regresi; Grafik tahap 8 tabel "adu tiga fungsi" empat kolom), widget 3D
+   Ruang 3D di layar sempit, dan 13 tab Statistika. Catat temuan DULU di
+   laporan, urut dari yang paling parah, baru perbaiki.
+2. **Baris tab perlu tanda bisa digulir.** Dua sesi melaporkan tab ke-10 dan
+   seterusnya praktis tidak ditemukan siswa. Ini keputusan VISUAL, jadi
+   ajukan ke ARYA dua pilihan dengan potret layar (misalnya: gradien pudar di
+   tepi kanan plus panah kecil; atau tab dibuat dua baris di laptop). Jangan
+   pilih sendiri.
+3. `components/topik/Penjelasan.tsx` masih mengimpor tipe `Blok` dari
+   `@/content/trigonometri`; ganti ke `@/content/tipe`.
+4. Kalau menemukan teks di dalam widget yang mengecil di HP seperti kasus
+   Limit, LAPORKAN per topik (itu wilayah sesi topik), jangan perbaiki sendiri.
+5. Jenis blok `rujuk`: MASTER belum menambah tipenya. Jangan menunggu; ini
+   bukan bagian gelombang 2.
+
+Bukti seperti biasa: potret sebelum dan sesudah, dibuka dan dinilai mata,
+`playwright-cli -s=matra-ui-ux`, commit kecil per perbaikan.

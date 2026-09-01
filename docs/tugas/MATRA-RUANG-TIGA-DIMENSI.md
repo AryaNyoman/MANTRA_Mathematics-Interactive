@@ -68,3 +68,49 @@ dan tahap 3, memakai Manim `ThreeDScene` sesuai keputusan ARYA.
 
 Pengingat teknis untuk sesi berikutnya: port **3013**, Playwright
 `-s=matra-ruang-3d`, verifikasi lewat biner Node langsung (bukan rtk).
+
+## Gelombang 2 (dibuka ARYA 2 Sep 2026; tinjauan isi oleh MASTER)
+
+### Vonis MASTER: LAYAK
+Satu gagasan payung ("setiap soal jarak adalah soal mencari kaki tegak
+lurus") diulang konsisten tahap 3 sampai 7, dan tahap 1 yang menyuruh mencoba
+dulu baru membahas adalah pedagogi yang tepat untuk membongkar tipuan gambar.
+Kalibrasi ke lima soal UN asli itu kekuatan, tetapi cara memakainya di halaman
+belum seperti guru (revisi 1).
+
+### Revisi isi (wajib, urut)
+1. **Tiga soal UN hanya diberi jawabannya** tanpa jalan: tahap 5 ("Jawabannya
+   3 akar 2"), tahap 6 ("Jawaban: 2 akar 3 cm"), tahap 9 ("Jawabannya 30
+   derajat", bahkan bayangannya belum dicari). Guru tidak berhenti di jawaban.
+   Tambah 3 sampai 4 baris pengerjaan tiap soal: kakinya di mana, segitiga
+   mana yang dipakai, hitungannya. Atau pindahkan ke `latihan.ts` dengan
+   pembahasan penuh. Angkanya lewat `cek_ruang.py`.
+2. **Tahap 9 memakai tan tanpa pemanggil ulang** (STANDAR butir 1). Sebelum
+   contoh AG terhadap alas, tambah satu kalimat: "Ingat dari Trigonometri
+   tahap 4: tan sudut = sisi depan dibagi sisi samping pada segitiga
+   siku-siku."
+3. **Tahap 8 menyebut "aturan kosinus"** untuk segitiga tidak istimewa tanpa
+   menuliskannya. Tuliskan rumusnya satu baris dalam `contoh` kecil beserta
+   catatan sumbernya (bab Trigonometri di buku sekolah), atau ubah kalimatnya
+   jadi rujukan eksplisit ke sana. Jangan menyebut alat yang tidak diberikan.
+4. **Tahap 9 memuat dua ide besar** (garis-bidang, bidang-bidang) tetapi
+   `coba` hanya untuk yang pertama. Tambah `coba` kedua untuk bidang-bidang
+   memakai mode kedua widgetmu (geser titik P di garis potong, lihat PC tidak
+   lagi tegak lurus dan sudutnya salah).
+5. **Kata "mudah", "jelas", "gampang"** (12 + 4 + 2): periksa satu per satu,
+   hapus yang menilai tugas siswa.
+6. Galeri tahap 10 gambar sendiri atau foto: keputusan VISUAL milik ARYA.
+   Biarkan seperti sekarang sampai ia bilang.
+
+### Daftar periksa
+Isi 10 butir `docs/tugas/STANDAR-MENGAJAR.md` bagian 6 untuk TIAP tahap di
+laporanmu.
+
+### Video (setelah revisi selesai)
+Enam kandidat sesuai rancanganmu, urut prioritas: tahap 1, 3, 4, 6, 8, 9.
+Memakai Manim `ThreeDScene` sesuai keputusan ARYA. Peringatan khusus 3D:
+`qc.periksa_adegan` tetap wajib di tiap babak; label huruf sudut mudah
+bertindih saat kamera berputar, jadi beri halo dan periksa lembar kontak pada
+sudut kamera awal DAN akhir tiap babak. Satu per satu lewat
+`python alat/antre_render.py matra-ruang-3d -- manim -ql ...`, 480p saja.
+Naskah ikuti `manim/narasi/limit*.json` dan bagian 5 STANDAR-MENGAJAR.

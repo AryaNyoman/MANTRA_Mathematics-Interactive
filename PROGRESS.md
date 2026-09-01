@@ -14,7 +14,7 @@
 | | |
 |---|---|
 | Tahap sekarang | **DUA topik selesai. Situs SUDAH TAYANG di Vercel.** |
-| Yang tersisa | **ARYA meninjau 4 topik baru di PRATINJAU** (tautan di bawah), lalu promosi ke situs asli, lalu gelombang 2 (video) |
+| Yang tersisa | **Gelombang 2 berjalan di 5 sesi**: revisi isi dari MASTER lalu video 480p. ARYA meninjau visual sambil jalan. Enam topik SUDAH TAYANG |
 | Alamat tayang | https://matra-eight.vercel.app |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md`<br>`docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`<br>`docs/superpowers/plans/2026-09-01-topik-limit.md` |
 | Tenggat | 12 September 2026 |
@@ -192,6 +192,48 @@ penggabungan pertama.
 - Hapus `web/public/anim/trigonometri.webm` (yatim, 0,54 MB).
 - Kompres foto galeri GRAFIK-FUNGSI (1 MB, di bawah 150 KB per foto).
 - `Penjelasan.tsx` masih mengimpor tipe `Blok` dari tempat lama.
+
+## 🎓 Tinjauan isi empat topik baru (MASTER, 2 Sep 2026)
+
+ARYA (2 Sep): "semua kerjaan hingga saat ini saya anggap selesai, setuju,
+lanjut", dan menyerahkan tinjauan ISI ke MASTER; tinjauan VISUAL tetap ARYA.
+Keenam topik SUDAH TAYANG di situs asli.
+
+MASTER membaca utuh keempat `tahap.ts` (sekitar 4.000 baris) dan keempat
+rancangan, lalu menilainya dengan `docs/tugas/STANDAR-MENGAJAR.md`.
+
+| Topik | Vonis | Kekuatan | Revisi utama |
+|---|---|---|---|
+| Vektor | LAYAK | urutan beralasan (Pythagoras, bukan trig), contoh + coba lengkap | "kamu" jadi "Anda"; prasyarat kosinus di Materi 11 |
+| Grafik Fungsi | LAYAK, suara guru terkuat | alasan selalu sebelum aturan, tahap 6 sebagai poros | huruf x sebagai tanda kali (9 baris); pecah tahap 11 jadi komposisi dan invers |
+| Statistika | LAYAK, "kenapa dulu" terbaik | mean titik seimbang DIBUKTIKAN, simpangan baku 4 langkah beralasan | huruf x sebagai tanda kali (13 baris); tahap 9 tambah coba modus |
+| Ruang 3D | LAYAK | satu gagasan payung, tahap 1 coba dulu | tiga soal UN cuma jawaban tanpa jalan; tan dan aturan kosinus tanpa pemanggil ulang |
+
+Aturan lintas topik yang lahir dari tinjauan ini (masuk file tugas tiap sesi):
+1. Kata ganti siswa **"Anda"** (lima topik memakainya; Vektor menyesuaikan).
+2. Tanda kali di baris `contoh`: **×** atau "kali", JANGAN huruf x.
+3. Kata "mudah", "jelas", "gampang", "tentu saja" diperiksa satu per satu:
+   boleh menggambarkan benda, dilarang menilai tugas siswa.
+4. Tiap tahap prosedural wajib `contoh` beralasan + `coba` berpenuntun; tahap
+   dua ide besar wajib `coba` untuk keduanya.
+5. Daftar periksa 10 butir STANDAR-MENGAJAR diisi per tahap di laporan.
+
+Keputusan MASTER atas pertanyaan sesi: data BPS tidak diambil (tetap data
+buatan yang jujur); galeri Ruang 3D dan foto DHL adalah keputusan visual ARYA.
+
+Gelombang 2 per sesi: revisi isi dulu, lalu enam video 480p, satu per satu
+lewat `alat/antre_render.py`, narasi mengikuti bagian 5 STANDAR-MENGAJAR.
+Daftar videonya ada di tiap `docs/tugas/MATRA-*.md` bagian "Gelombang 2".
+
+### Utang MASTER (jangan hilang)
+- Jenis blok `rujuk` di `content/tipe.ts` (tautan antartopik yang bisa
+  diklik); perendernya nanti UI/UX. Diminta tiga sesi.
+- Naikkan alat bingkai ke `components/widget/bersama/` (versi GRAFIK-FUNGSI
+  paling lengkap); tiga topik menyalinnya.
+- Teks widget Limit mengecil di HP (ARYA menyerahkannya ke MASTER).
+- Hapus `web/public/anim/trigonometri.webm` (yatim, 0,54 MB).
+- Kalau GRAFIK memecah tahap 11, `daftar-isi.ts` tidak berubah; cukup
+  gabung ulang.
 
 ## 🔗 Pratinjau untuk tinjauan ARYA (2 Sep 2026)
 

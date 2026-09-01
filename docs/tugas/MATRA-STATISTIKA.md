@@ -62,3 +62,48 @@ sangat sulit.
 
 Pengingat teknis untuk sesi berikutnya: port **3012** (bukan 3003 lagi),
 Playwright `-s=matra-statistika`, verifikasi lewat biner Node langsung.
+
+## Gelombang 2 (dibuka ARYA 2 Sep 2026; tinjauan isi oleh MASTER)
+
+### Vonis MASTER: LAYAK, contoh terbaik "kenapa dulu, bagaimana kemudian"
+Mean sebagai titik seimbang DIBUKTIKAN (jumlah simpangan nol), simpangan baku
+dibangun empat langkah dan tiap langkah punya alasan, tahap 13 membalik
+siswa jadi pembaca kritis. Kejujuran data konsisten. Revisi di bawah kecil.
+
+### Revisi isi (wajib, urut)
+1. **Huruf x dipakai sebagai tanda kali di 13 baris `contoh`** (tahap 3, 7, 9,
+   11). Di tahap 10 sampai 12 x adalah VARIABEL, jadi "n x 4814" rancu. Ganti
+   dengan tanda × atau kata "kali" di SEMUA tahap supaya seragam. Cari:
+   `grep -nE "[0-9)] x [0-9(]" tahap-*.ts`.
+2. **Tahap 9 memuat lima prosedur** (tepi kelas, mean, median, kuartil, modus).
+   Tiap sesi sudah punya `contoh`, bagus, tetapi `coba` hanya untuk median.
+   Jangan dipecah; lengkapi: (a) tambah `coba` kedua untuk modus memakai
+   widget yang sama (ubah frekuensi tetangga kiri/kanan, lihat modus condong),
+   (b) sebelum sesi modus tambah satu kalimat pemanggil ulang "ingat, tiap
+   kelas diwakili titik tengahnya, dan batang tertinggi belum tentu modusnya
+   tepat di tengah".
+3. **Tahap 2 "line plot"** beri padanan sekali saat pertama muncul: "line plot
+   (diagram titik)". Istilah buku dipertahankan, siswa dapat kata Indonesianya.
+4. **Data BPS: keputusan MASTER, tetap data buatan yang jujur** untuk gelombang
+   ini. Tidak mengambil data web sekarang. Kalau ARYA nanti minta, itu
+   permintaan terpisah.
+5. **Kata "mudah", "gampang", "jelas"** (11 + 8 + 5, paling banyak di antara
+   topik): periksa satu per satu, hapus yang menilai tugas siswa.
+
+### Daftar periksa
+Isi 10 butir `docs/tugas/STANDAR-MENGAJAR.md` bagian 6 untuk TIAP tahap di
+laporanmu. Tahap 9 dan 11 yang paling perlu dicek butir 4 dan 6.
+
+### Video (setelah revisi selesai)
+Enam kandidat, urut prioritas. Satu per satu, lembar kontak dibuka. Baca
+skill `dataviz` lagi sebelum menggambar data di Manim:
+1. Tahap 5 jungkat-jungkit: penopang di mean, papan miring kalau bukan
+2. Tahap 8 simpangan baku: empat langkah, persegi tumbuh kuadrat
+3. Tahap 6 pencilan: satu titik ditarik, mean lari, median diam
+4. Tahap 9 interpolasi median: garis digeser sampai luas kiri sama dengan kanan
+5. Tahap 11 residu: ruas tegak ke garis, jumlah kuadrat mengecil ke garis terbaik
+6. Tahap 13 sumbu dipotong: data sama, dua kesan berbeda
+
+Naskah 10 sampai 12 segmen, 90 sampai 125 detik, ikuti pola
+`manim/narasi/limit*.json` dan bagian 5 STANDAR-MENGAJAR. Render 480p saja
+lewat `python alat/antre_render.py matra-statistika -- manim -ql ...`.
