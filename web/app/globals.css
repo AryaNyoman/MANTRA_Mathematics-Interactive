@@ -1059,3 +1059,75 @@ video::cue(b) { font-weight: 700; }
    khusus untuk sisi, sumbu, dan besaran; mencampurnya merusak kaitan yang
    sedang dibangun antara video dan widget. */
 .sorot-slogan { color: var(--hijau); font-weight: 700; }
+
+/* ============================================================
+   LAYAR SEMPIT: HP dan tablet tegak (di bawah 860 piksel)
+
+   Kenapa 860 dan bukan angka bulat seperti 768: dihitung dari kebutuhan
+   tata letak lamanya sendiri. Kolom kanan minta minimal 384 piksel, kolom
+   kiri baru layak dipakai di sekitar 400, ditambah jarak 22 dan tepi 52,
+   totalnya 858. Di bawah itu dua kolom memang tidak muat, dan memaksanya
+   muat berarti keduanya diperas sampai nol.
+
+   Yang rusak sebelum blok ini ada (diukur di peramban pada 375 piksel):
+   kolom kiri lebarnya 0 piksel sehingga widget terlempar keluar dan
+   menimpa teks kolom kanan, tiap paragraf kehilangan kata terakhirnya,
+   dan tombol tab "Latihan" mendarat di x=937 alias di luar layar,
+   sehingga siswa HP tidak bisa membuka Latihan dan Kuis sama sekali.
+
+   Aturannya ditaruh di AKHIR berkas dan hanya menimpa, bukan menyunting
+   aturan lama. Empat sesi lain sedang menyunting berkas yang sama, dan
+   menambah di akhir jauh lebih jarang bentrok saat digabung.
+
+   Di atas 860 piksel tidak ada satu pun yang berubah. Tata letak satu
+   layar tanpa gulir tetap utuh di laptop.
+   ============================================================ */
+@media (max-width: 860px) {
+  /* Dua kolom jadi satu tumpukan: visual dulu, penjelasan di bawahnya.
+     `flex: none` melepas panggung dari paksaan mengisi tinggi layar,
+     jadi halaman boleh memanjang dan digulir seperti bacaan biasa.
+     (Keputusan ARYA, 1 Sep 2026.) */
+  .panggung {
+    display: block;
+    flex: none;
+    min-height: 0;
+    max-height: none;
+    padding: 14px 16px;
+  }
+
+  /* Kotak visual diberi tinggi yang cukup untuk dipakai, tapi dibatasi
+     dalam rem, BUKAN persen layar saja. Kalau murni persen layar, saat
+     pengguna memperkecil zoom kotak ini justru membesar sementara
+     teksnya mengecil. Itu bug yang sudah pernah ARYA temukan, jadi pola
+     batas-rem yang sama dipakai lagi di sini. */
+  .wadah {
+    flex: none;
+    min-height: clamp(18rem, 60dvh, 30rem);
+    max-width: none;
+  }
+
+  /* Latihan, Kuis, dan Intisari isinya teks, bukan gambar. Menggulir di
+     dalam kotak kecil sambil halamannya juga bisa digulir membingungkan
+     di layar sentuh, jadi di sini isinya dibiarkan memanjang dan yang
+     digulir cukup halamannya. */
+  .isi-gulir {
+    flex: none;
+    overflow: visible;
+    padding: 26px 16px 14px;
+  }
+
+  /* Kolom kanan berhenti jadi kotak bergulir sendiri dan ikut mengalir
+     bersama halaman. Batas 46rem dilepas karena di layar sempit yang
+     membatasi panjang baris sudah layarnya sendiri. */
+  .kanan {
+    overflow: visible;
+    padding-right: 0;
+    margin-top: 20px;
+  }
+  .kanan > * { max-width: none; }
+  .kanan h1 { font-size: 27px; }
+
+  /* Dua penggeser bersebelahan di lebar 320 piksel menyisakan sekitar
+     150 piksel per penggeser, terlalu sempit untuk diatur dengan jempol. */
+  .kendali { grid-template-columns: 1fr; gap: 12px; }
+}
