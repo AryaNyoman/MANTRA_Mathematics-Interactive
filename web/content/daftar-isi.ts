@@ -51,12 +51,14 @@ export const ISI_TOPIK: Record<string, IsiTopik | undefined> = {
     kuis: KUIS_VEKTOR,
     kanal: KANAL_VEKTOR,
     Panggung: PanggungVektor,
+  },
   statistika: {
     tahap: TAHAP_STATISTIKA,
     latihan: LATIHAN_STATISTIKA,
     kuis: KUIS_STATISTIKA,
     kanal: KANAL_STATISTIKA,
     Panggung: PanggungStatistika,
+  },
   'ruang-3d': {
     tahap: TAHAP_RUANG,
     latihan: LATIHAN_RUANG,
