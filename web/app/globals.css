@@ -1059,3 +1059,285 @@ video::cue(b) { font-weight: 700; }
    khusus untuk sisi, sumbu, dan besaran; mencampurnya merusak kaitan yang
    sedang dibangun antara video dan widget. */
 .sorot-slogan { color: var(--hijau); font-weight: 700; }
+
+/* ============================================================
+   LAYAR SEMPIT: HP dan tablet tegak (di bawah 860 piksel)
+
+   Kenapa 860 dan bukan angka bulat seperti 768: dihitung dari kebutuhan
+   tata letak lamanya sendiri. Kolom kanan minta minimal 384 piksel, kolom
+   kiri baru layak dipakai di sekitar 400, ditambah jarak 22 dan tepi 52,
+   totalnya 858. Di bawah itu dua kolom memang tidak muat, dan memaksanya
+   muat berarti keduanya diperas sampai nol.
+
+   Yang rusak sebelum blok ini ada (diukur di peramban pada 375 piksel):
+   kolom kiri lebarnya 0 piksel sehingga widget terlempar keluar dan
+   menimpa teks kolom kanan, tiap paragraf kehilangan kata terakhirnya,
+   dan tombol tab "Latihan" mendarat di x=937 alias di luar layar,
+   sehingga siswa HP tidak bisa membuka Latihan dan Kuis sama sekali.
+
+   Aturannya ditaruh di AKHIR berkas dan hanya menimpa, bukan menyunting
+   aturan lama. Empat sesi lain sedang menyunting berkas yang sama, dan
+   menambah di akhir jauh lebih jarang bentrok saat digabung.
+
+   Di atas 860 piksel tidak ada satu pun yang berubah. Tata letak satu
+   layar tanpa gulir tetap utuh di laptop.
+   ============================================================ */
+@media (max-width: 860px) {
+  /* Dua kolom jadi satu tumpukan: visual dulu, penjelasan di bawahnya.
+     `flex: none` melepas panggung dari paksaan mengisi tinggi layar,
+     jadi halaman boleh memanjang dan digulir seperti bacaan biasa.
+     (Keputusan ARYA, 1 Sep 2026.) */
+  .panggung {
+    display: block;
+    flex: none;
+    min-height: 0;
+    max-height: none;
+    padding: 14px 16px;
+  }
+
+  /* Kotak visual diberi tinggi yang cukup untuk dipakai, tapi dibatasi
+     dalam rem, BUKAN persen layar saja. Kalau murni persen layar, saat
+     pengguna memperkecil zoom kotak ini justru membesar sementara
+     teksnya mengecil. Itu bug yang sudah pernah ARYA temukan, jadi pola
+     batas-rem yang sama dipakai lagi di sini. */
+  .wadah {
+    flex: none;
+    min-height: clamp(18rem, 60dvh, 30rem);
+    max-width: none;
+  }
+
+  /* Latihan, Kuis, dan Intisari isinya teks, bukan gambar. Menggulir di
+     dalam kotak kecil sambil halamannya juga bisa digulir membingungkan
+     di layar sentuh, jadi di sini isinya dibiarkan memanjang dan yang
+     digulir cukup halamannya. */
+  .isi-gulir {
+    flex: none;
+    overflow: visible;
+    padding: 26px 16px 14px;
+  }
+
+  /* Kolom kanan berhenti jadi kotak bergulir sendiri dan ikut mengalir
+     bersama halaman. Batas 46rem dilepas karena di layar sempit yang
+     membatasi panjang baris sudah layarnya sendiri. */
+  .kanan {
+    overflow: visible;
+    padding-right: 0;
+    margin-top: 20px;
+  }
+  .kanan > * { max-width: none; }
+  .kanan h1 { font-size: 27px; }
+
+  /* Dua penggeser bersebelahan di lebar 320 piksel menyisakan sekitar
+     150 piksel per penggeser, terlalu sempit untuk diatur dengan jempol. */
+  .kendali { grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* ============================================================
+   NAVIGASI: logo yang tidak lagi diperas, dan menu tiga garis di HP
+   (sesi UI/UX, 2 Sep 2026)
+   ============================================================ */
+
+/* Logo hilang di layar sempit BUKAN karena berkasnya tidak ada dan bukan
+   karena layarnya kurang lebar. `.merk-ikon` diberi `width: auto`, dan
+   ketika isi nav kelebaran peramban memerasnya sampai lebar NOL piksel
+   (diukur: lebar 0, tinggi 40, gambar aslinya berhasil dimuat).
+   `flex: none` melarang pemerasan itu, dan berlaku di semua ukuran layar. */
+.merk { flex: none; }
+.merk-ikon { flex: none; }
+
+/* Di layar lebar pembungkus menu sengaja tidak menggambar kotak apa pun,
+   jadi keempat tautan tetap jadi anak langsung baris nav dan jaraknya
+   tetap diatur oleh `gap` milik `.nav`. Tampilan laptop tidak berubah. */
+.nav-menu { display: contents; }
+.nav-menu .kode { margin-left: auto; }
+.nav-tombol { display: none; }
+
+@media (max-width: 860px) {
+  .nav {
+    position: relative;
+    gap: 12px;
+    padding: 0 16px;
+  }
+
+  /* Tombol tiga garis: 44 piksel, ukuran minimum yang nyaman untuk jempol. */
+  .nav-tombol {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 4px; flex: none; margin-left: auto;
+    width: 44px; height: 44px; padding: 0;
+    background: transparent; border: 1px solid var(--garis);
+    border-radius: 9px; cursor: pointer;
+  }
+  .nav-tombol span {
+    display: block; width: 18px; height: 2px;
+    background: var(--tinta); border-radius: 2px;
+  }
+
+  /* Panel menu turun tepat di bawah baris nav dan menutupi isi halaman,
+     bukan mendorongnya. Mendorong isi halaman membuat panggung ikut
+     bergeser tiap kali menu dibuka, dan itu terasa seperti halaman
+     melompat. */
+  .nav-menu {
+    display: none;
+    position: absolute; top: 100%; left: 0; right: 0; z-index: 50;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--kartu);
+    border-bottom: 1px solid var(--garis);
+    padding: 4px 16px 12px;
+    box-shadow: 0 12px 26px rgba(33, 30, 26, 0.09);
+  }
+  .nav-menu[data-buka="true"] { display: flex; }
+
+  /* Tiap tautan setinggi 48 piksel supaya tidak meleset saat ditekan. */
+  .nav-menu a {
+    display: flex; align-items: center;
+    min-height: 48px; font-size: 16px;
+    border-bottom: 1px solid var(--garis);
+  }
+  .nav-menu a:last-of-type { border-bottom: 0; }
+
+  /* Lencana nama topik tidak dibuang, cuma pindah ke dalam panel. Di baris
+     nav ia yang membuat situs bisa digeser ke samping. */
+  .nav-menu .kode {
+    margin: 12px 0 0; align-self: flex-start;
+  }
+}
+
+/* Halaman bank soal meluber sampai 926 piksel di layar 375 piksel.
+   Sebabnya halus: `main.beranda` adalah anak langsung `body`, dan `body`
+   itu kolom flex. Anak kolom flex secara bawaan menolak menyusut di bawah
+   lebar isinya, jadi kisi "pilih tingkat" merasa boleh menjajarkan empat
+   kartu sekaligus dan menyeret seluruh halaman ikut melebar.
+   `width: 100%` memberi kisi itu lebar yang pasti sehingga ia mau
+   menumpuk, dan `min-width: 0` mencabut hak menolak menyusut tadi.
+   Di laptop tidak ada bedanya: `max-width: 1080px` dan `margin: 0 auto`
+   yang lama tetap yang menentukan. */
+.beranda { width: 100%; min-width: 0; }
+
+/* ============================================================
+   Deretan tab: "Latihan" dan "Kuis" turun ke baris sendiri di HP
+   (keputusan ARYA, 2 Sep 2026)
+   ============================================================ */
+
+/* Di layar lebar kedua pembungkus tidak menggambar kotak apa pun, jadi
+   semua tombol tetap menjadi anak langsung `.langkah` dan jaraknya tetap
+   diatur `gap` yang lama. Tampilan laptop tidak berubah sedikit pun. */
+.langkah-gulir, .langkah-tetap { display: contents; }
+
+@media (max-width: 860px) {
+  /* Pembungkus luar berhenti jadi baris tunggal yang digeser, dan berubah
+     jadi dua baris bertumpuk. */
+  .langkah { display: block; overflow: visible; }
+
+  /* Baris atas: sepuluh materi, digeser mendatar seperti sebelumnya. */
+  .langkah-gulir {
+    display: flex; gap: 5px;
+    overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin;
+  }
+
+  /* Baris bawah: Latihan dan Kuis, selalu terlihat tanpa perlu digeser,
+     dan lebarnya dibagi rata supaya keduanya jadi sasaran besar. */
+  .langkah-tetap {
+    display: flex; gap: 5px; margin-top: 6px;
+  }
+  .langkah-tetap button {
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+  }
+  /* Garis pemisah tidak berguna lagi kalau kelompoknya sudah pindah baris. */
+  .langkah-tetap .pisah { display: none; }
+
+  /* 44 piksel: ukuran minimum yang nyaman ditekan jempol. Tinggi asalnya
+     sekitar 32 piksel, cukup untuk penunjuk tetikus tapi terlalu kecil
+     untuk jari. */
+  .langkah button { min-height: 44px; }
+}
+
+/* ============================================================
+   Target sentuh di layar sempit: minimal 44 piksel
+   (sesi UI/UX, 2 Sep 2026)
+
+   Ukuran ini bukan selera. Penunjuk tetikus presisi satu piksel, jempol
+   tidak, jadi tombol yang nyaman diklik di laptop sering meleset di HP.
+   Semua diukur dulu di peramban pada lebar 375 piksel, dan yang disentuh
+   hanya yang memang kurang dari 44.
+
+   Yang ditemukan kurang: panah korsel 32x32, titik korsel 8x8, penggeser
+   widget setinggi 16, tautan kanal YouTube setinggi 22, tombol WhatsApp
+   35, tombol utama 42, dan logo nav 36x40.
+
+   Semuanya dikurung di layar sempit saja supaya tampilan laptop, yang
+   memang dipakai dengan tetikus, tidak ikut berubah bentuk.
+   ============================================================ */
+@media (max-width: 860px) {
+  .merk { min-width: 44px; min-height: 44px; }
+
+  .tombol {
+    min-height: 44px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .tombol-utama, .tombol-pasang, .tombol-wa { min-height: 44px; }
+
+  /* Panah korsel halaman depan. */
+  .demo-kendali > button { width: 44px; height: 44px; }
+
+  /* Titik korsel: yang TERLIHAT tetap sebesar 8 piksel supaya tampilannya
+     tidak berubah, tapi daerah yang bisa ditekan dibesarkan jadi 28x44.
+     Titiknya digambar oleh `::before`, jadi tombolnya sendiri boleh besar
+     tanpa ikut kelihatan besar. */
+  .demo-titik { gap: 0; }
+  .demo-titik button {
+    width: 28px; height: 44px; padding: 0;
+    border: 0; border-radius: 0; background: transparent;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .demo-titik button[aria-selected="true"] {
+    background: transparent; border-color: transparent;
+  }
+  .demo-titik button::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    border: 1px solid var(--redup); background: transparent;
+  }
+  .demo-titik button[aria-selected="true"]::before {
+    background: var(--tegas); border-color: var(--tegas);
+  }
+
+  /* Penggeser widget. Batangnya tetap tipis, yang membesar cuma daerah
+     tangkapnya. */
+  .kendali input[type="range"] { height: 44px; }
+
+  /* Daftar kanal YouTube di bawah bacaan. */
+  .tautan a { display: flex; align-items: center; min-height: 44px; }
+}
+
+@media (max-width: 860px) {
+  /* Judul halaman dikunci 48 piksel, dan di layar 375 piksel judul
+     "Matematika yang bisa dilihat sebabnya" jadi memakan empat baris
+     penuh sebelum satu kalimat isi pun terbaca. Yang diubah cuma
+     ukurannya, bukan hurufnya, jadi gaya Studio Teknis tetap utuh. */
+  .beranda h1 { font-size: clamp(32px, 8.5vw, 48px); }
+}
+
+/* ============================================================
+   Aksesibilitas dasar, temuan audit /web-interface-guidelines
+   (sesi UI/UX, 2 Sep 2026)
+   ============================================================ */
+
+/* Tanpa ini peramban HP menunggu sekitar 300 milidetik tiap kali sesuatu
+   ditekan, berjaga kalau-kalau ketukan kedua datang untuk memperbesar
+   halaman. Akibatnya seluruh situs terasa lambat menanggapi jempol,
+   padahal tidak ada yang lambat. */
+button, a, input, select, summary, [role="button"] { touch-action: manipulation; }
+
+/* Sebagian orang menyalakan "kurangi gerak" di HP atau laptopnya karena
+   gerakan berulang membuat mereka pusing atau mual. Setelan itu wajib
+   dipatuhi, bukan disarankan. Animasi tidak dimatikan sampai hilang,
+   melainkan dipercepat sampai praktis langsung selesai, supaya perubahan
+   keadaan tetap terlihat terjadi. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

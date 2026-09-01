@@ -1,6 +1,28 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+
+/**
+ * Apakah pengguna minta gerakan dikurangi (Pengaturan sistem, bukan situs).
+ *
+ * Dipakai untuk slide pertama yang berjalan sendiri berulang-ulang. Bagi
+ * sebagian orang gerakan berulang di tepi pandangan bikin pusing, dan
+ * mereka sudah menyalakan setelan itu di HP atau laptopnya. Kalau menyala,
+ * slide pertama diam dan diberi tombol putar supaya tetap bisa ditonton.
+ *
+ * Memakai `useSyncExternalStore`, pola yang sama dengan pembacaan
+ * localStorage di proyek ini: nilainya segar sendiri tanpa disalin ke state,
+ * sekaligus lolos dari ketidakcocokan hidrasi.
+ */
+const KUERI_GERAK = '(prefers-reduced-motion: reduce)'
+function langganGerak(ubah: () => void) {
+  const m = window.matchMedia(KUERI_GERAK)
+  m.addEventListener('change', ubah)
+  return () => m.removeEventListener('change', ubah)
+}
+function bacaGerak() {
+  return window.matchMedia(KUERI_GERAK).matches
+}
 
 /**
  * Pratinjau isi situs di halaman depan, bergaya manim.community: satu panel
@@ -79,6 +101,9 @@ const KLIP: Klip[] = [
 export default function Demo() {
   const [ke, setKe] = useState(0)
   const video = useRef<HTMLVideoElement>(null)
+  // Nilai ketiga (`() => false`) adalah jawaban saat halaman masih dirakit di
+  // server, di mana tidak ada peramban untuk ditanyai.
+  const kurangiGerak = useSyncExternalStore(langganGerak, bacaGerak, () => false)
   const klip = KLIP[ke]
 
   // Klip diganti berarti sumbernya berganti; video harus dimuat ulang, kalau
@@ -99,9 +124,9 @@ export default function Demo() {
                `muted` WAJIB ada bersama `autoPlay`: tanpa itu peramban menolak
                memutar sendiri, dan slide pertama akan diam membeku.
                Slide lain tetap pakai tombol, karena ada suaranya. */
-            controls={!klip.loop}
-            autoPlay={klip.loop}
-            loop={klip.loop}
+            controls={!klip.loop || kurangiGerak}
+            autoPlay={klip.loop && !kurangiGerak}
+            loop={klip.loop && !kurangiGerak}
             muted={klip.loop}
             playsInline
             /* Slide pertama dimuat lebih dulu karena memang langsung diputar.
