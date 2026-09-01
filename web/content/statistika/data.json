@@ -285,6 +285,38 @@
     "klaim": { "n": 8, "mean": 5, "varian": 4, "simpangan_baku": "2,0", "median": "4,5" }
   },
   {
+    "id": "kuis-asal",
+    "jenis": "tunggal",
+    "judul": "Kuis: data asal, untuk soal pengubahan data",
+    "buatan": true,
+    "data": [2, 4, 6, 8, 10],
+    "klaim": { "n": 5, "mean": 6, "median": 6, "jangkauan": 8, "varian": 8, "simpangan_baku": "2,83" }
+  },
+  {
+    "id": "kuis-tambah5",
+    "jenis": "tunggal",
+    "judul": "Kuis: data asal setelah setiap nilainya ditambah 5",
+    "buatan": true,
+    "data": [7, 9, 11, 13, 15],
+    "klaim": { "n": 5, "mean": 11, "median": 11, "jangkauan": 8, "varian": 8, "simpangan_baku": "2,83" }
+  },
+  {
+    "id": "kuis-kali3",
+    "jenis": "tunggal",
+    "judul": "Kuis: data asal setelah setiap nilainya dikali 3",
+    "buatan": true,
+    "data": [6, 12, 18, 24, 30],
+    "klaim": { "n": 5, "mean": 18, "median": 18, "jangkauan": 24, "varian": 72, "simpangan_baku": "8,49" }
+  },
+  {
+    "id": "kuis-kali2tambah5",
+    "jenis": "tunggal",
+    "judul": "Kuis: data asal dikali 2 lalu ditambah 5",
+    "buatan": true,
+    "data": [9, 13, 17, 21, 25],
+    "klaim": { "n": 5, "mean": 17, "median": 17, "simpangan_baku": "5,66" }
+  },
+  {
     "id": "t13-kunjungan",
     "jenis": "tunggal",
     "judul": "Pengunjung perpustakaan sekolah, lima bulan",
