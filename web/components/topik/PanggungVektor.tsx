@@ -10,8 +10,11 @@ import SambungPanah from '@/components/widget/vektor/SambungPanah'
 import JajarGenjang from '@/components/widget/vektor/JajarGenjang'
 import SelisihPanah from '@/components/widget/vektor/SelisihPanah'
 import KaliSkalar, { BATAS_K } from '@/components/widget/vektor/KaliSkalar'
+import PerkalianTitik from '@/components/widget/vektor/PerkalianTitik'
+import Proyeksi from '@/components/widget/vektor/Proyeksi'
 import {
-  angka, kali, kurang, mataAngin, panjang, satuan, sudutDerajat, tambah, type Vek,
+  angka, kali, kurang, mataAngin, panjang, panjangProyeksi, satuan, sudutAntara,
+  sudutDerajat, tambah, titik, vektorProyeksi, type Vek,
 } from '@/components/widget/vektor/geometri'
 import type { PropPanggung } from '@/components/topik/jenis'
 
@@ -43,6 +46,10 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
   const [bSelisih, setBSelisih] = useState<Vek>({ x: 1, y: 2 })
   const [aKali, setAKali] = useState<Vek>({ x: 2, y: 1 })
   const [k, setK] = useState(2)
+  const [aTitik, setATitik] = useState<Vek>({ x: 4, y: 1 })
+  const [bTitik, setBTitik] = useState<Vek>({ x: 1, y: 3 })
+  const [aProyeksi, setAProyeksi] = useState<Vek>({ x: 2, y: 3 })
+  const [bProyeksi, setBProyeksi] = useState<Vek>({ x: 4, y: 1 })
 
   let kiri: ReactNode = null
   let kanan: ReactNode = null
@@ -62,6 +69,10 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
     const hasilJajar = tambah(aJajar, bJajar)
     const hasilSelisih = kurang(aSelisih, bSelisih)
     const hasilKali = kali(k, aKali)
+    const hasilTitik = titik(aTitik, bTitik)
+    const sudutTitik = sudutAntara(aTitik, bTitik)
+    const bayangan = vektorProyeksi(aProyeksi, bProyeksi)
+    const panjangBayangan = panjangProyeksi(aProyeksi, bProyeksi)
 
     kiri = (
       <>
@@ -242,6 +253,46 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
             </div>
           </>
         )}
+
+        {tampilWidget && tahap.widget === 'perkalian-titik' && (
+          <>
+            <div className="layar">
+              <PerkalianTitik
+                a={aTitik} b={bTitik}
+                onUbah={(a, b) => { setATitik(a); setBTitik(b) }}
+              />
+            </div>
+            <div className="kendali">
+              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
+                <span className="titik" />
+                <span>
+                  putar salah satu panah melewati sudut siku-siku. Angkanya berganti tanda tepat
+                  saat kedua panah tegak lurus
+                </span>
+              </div>
+            </div>
+          </>
+        )}
+
+        {tampilWidget && tahap.widget === 'proyeksi' && (
+          <>
+            <div className="layar">
+              <Proyeksi
+                a={aProyeksi} b={bProyeksi}
+                onUbah={(a, b) => { setAProyeksi(a); setBProyeksi(b) }}
+              />
+            </div>
+            <div className="kendali">
+              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
+                <span className="titik" />
+                <span>
+                  putar panah biru sampai melewati garis panah merah. Bayangannya menyusut, lenyap,
+                  lalu muncul di sisi yang berlawanan dengan panjang bertanda negatif
+                </span>
+              </div>
+            </div>
+          </>
+        )}
       </>
     )
 
@@ -417,6 +468,46 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
                 : k < 0
                   ? 'Pengali negatif membalik arahnya, dan panjangnya mengikuti nilai pengali tanpa tandanya. Panjang tetap tidak negatif.'
                   : 'Pengali nol memberi vektor nol: panjangnya nol dan arahnya tidak ada.'}
+            </div>
+          </div>
+        )}
+
+        {tampilWidget && tahap.widget === 'perkalian-titik' && (
+          <div className="blok">
+            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <table className="tabel-angka">
+              <tbody>
+                <tr><td>a</td><td>({angka(aTitik.x, 1)}  {angka(aTitik.y, 1)})</td></tr>
+                <tr><td>b</td><td>({angka(bTitik.x, 1)}  {angka(bTitik.y, 1)})</td></tr>
+                <tr><td>lewat komponen</td><td>{angka(aTitik.x, 1)}({angka(bTitik.x, 1)}) + {angka(aTitik.y, 1)}({angka(bTitik.y, 1)})</td></tr>
+                <tr><td>sudut antara keduanya</td><td>{angka(sudutTitik, 1)}°</td></tr>
+                <tr className="tegas"><td>a . b</td><td>{Math.abs(hasilTitik) < 0.005 ? '0' : angka(hasilTitik, 2)}</td></tr>
+              </tbody>
+            </table>
+            <div className="catatan">
+              Lewat panjang dan sudut hasilnya sama: {angka(panjang(aTitik), 2)} dikali{' '}
+              {angka(panjang(bTitik), 2)} dikali kosinus {angka(sudutTitik, 1)} derajat. Perhatikan
+              hasilnya sebuah angka, bukan panah.
+            </div>
+          </div>
+        )}
+
+        {tampilWidget && tahap.widget === 'proyeksi' && (
+          <div className="blok">
+            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <table className="tabel-angka">
+              <tbody>
+                <tr><td>a</td><td>({angka(aProyeksi.x, 1)}  {angka(aProyeksi.y, 1)})</td></tr>
+                <tr><td>b</td><td>({angka(bProyeksi.x, 1)}  {angka(bProyeksi.y, 1)})</td></tr>
+                <tr><td>a . b dibagi panjang b</td><td>{angka(titik(aProyeksi, bProyeksi), 2)} dibagi {angka(panjang(bProyeksi), 2)}</td></tr>
+                <tr><td>panjang proyeksinya</td><td>{angka(panjangBayangan, 3)}</td></tr>
+                <tr className="tegas"><td>vektor proyeksinya</td><td>({angka(bayangan.x, 2)}  {angka(bayangan.y, 2)})</td></tr>
+              </tbody>
+            </table>
+            <div className="catatan">
+              {panjangBayangan < 0
+                ? 'Panjang proyeksinya negatif, dan itu benar: bayangannya jatuh ke arah yang berlawanan dengan b, sebab sudut keduanya tumpul.'
+                : 'Baris keempat sebuah angka, baris kelima sebuah panah. Keduanya disebut proyeksi, jadi bacalah soalnya baik-baik: yang diminta panjangnya atau vektornya.'}
             </div>
           </div>
         )}

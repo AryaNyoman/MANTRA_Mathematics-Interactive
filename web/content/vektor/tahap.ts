@@ -747,9 +747,82 @@ export const TAHAP: TahapVektor[] = [
     judul: 'Seberapa searah?',
     labelPendek: 'Kali titik',
     pertanyaan: 'Bagaimana mengukur seberapa searah dua panah?',
-    penjelasan: BELUM,
+    penjelasan: [
+      {
+        jenis: 'sorot',
+        teks: 'Materi 11 dan 12 di luar Kurikulum Merdeka Kelas 10. Keduanya tidak ada di buku sekolahmu, tetapi masih keluar di UTBK. Boleh dilewati kalau kamu sedang mengejar ulangan sekolah.',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Sampai sini semua operasi menghasilkan vektor lagi. Perkalian titik berbeda: dua vektor masuk, sebuah ANGKA yang keluar. Angka itu mengukur seberapa searah keduanya.',
+      },
+      { jenis: 'sesi', judul: 'Dua cara menghitungnya, hasilnya sama' },
+      {
+        jenis: 'poin',
+        butir: [
+          'Lewat komponen - kalikan yang mendatar dengan yang mendatar, kalikan yang tegak dengan yang tegak, lalu jumlahkan keduanya.',
+          'Lewat panjang dan sudut - kalikan panjang a, panjang b, dan kosinus sudut antara keduanya.',
+        ],
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Cara pertama dipakai kalau komponennya diketahui, dan itu yang paling sering. Cara kedua dipakai kalau yang diketahui panjang dan sudutnya, atau justru kalau sudutnya yang dicari.',
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Hasil kali titik (4 3) dengan (2 0)',
+        baris: [
+          'Lewat komponen: 4 dikali 2 sama dengan 8',
+          'Lalu: 3 dikali 0 sama dengan 0',
+          'Jumlahkan: 8 ditambah 0 sama dengan 8',
+        ],
+        simpul: 'Hasilnya 8. Sebuah angka, tanpa arah, jadi ia bukan vektor.',
+      },
+      { jenis: 'sesi', judul: 'Tandanya bercerita tentang sudutnya' },
+      {
+        jenis: 'poin',
+        butir: [
+          'Hasilnya positif - sudutnya lancip, kurang dari 90 derajat. Keduanya cenderung searah.',
+          'Hasilnya nol - keduanya tegak lurus, tepat 90 derajat.',
+          'Hasilnya negatif - sudutnya tumpul, lebih dari 90 derajat. Keduanya cenderung berlawanan.',
+        ],
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Membuktikan (3 4) tegak lurus dengan (-4 3)',
+        baris: [
+          'Mendatar: 3 dikali negatif 4 sama dengan negatif 12',
+          'Tegak: 4 dikali 3 sama dengan 12',
+          'Jumlahkan: negatif 12 ditambah 12 sama dengan 0',
+        ],
+        simpul: 'Nol, jadi keduanya tegak lurus. Tidak perlu busur, tidak perlu menggambar.',
+      },
+      {
+        jenis: 'coba',
+        teks: 'Putar salah satu panah di sebelah kiri melewati sudut siku-siku.',
+        langkah: [
+          'Perhatikan angkanya mengecil saat kedua panah saling menjauh.',
+          'Tepat saat keduanya tegak lurus, angkanya menjadi nol.',
+          'Teruskan memutarnya. Angkanya berubah tanda menjadi negatif.',
+        ],
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Kegunaan yang paling sering dipakai adalah mencari sudut: susun ulang rumus keduanya, sehingga kosinus sudutnya sama dengan hasil kali titik dibagi hasil kali kedua panjangnya.',
+      },
+    ],
+    seringKeliru: {
+      judul: 'Mengira hasilnya sebuah vektor',
+      isi: 'Kedua yang dikalikan memang vektor, jadi hasilnya sering ikut ditulis sebagai pasangan angka atau diberi tanda panah. Padahal hasil kali titik selalu berupa satu bilangan biasa. Ciri cepat untuk memeriksa: kalau jawabanmu masih punya arah, pasti ada yang keliru.',
+    },
+    intisari: [
+      'Perkalian titik menghasilkan sebuah angka, bukan vektor.',
+      'Lewat komponen: kalikan yang sejenis lalu jumlahkan.',
+      'Lewat panjang dan sudut: panjang a dikali panjang b dikali kosinus sudutnya.',
+      'Tandanya menunjukkan lancip, siku-siku, atau tumpul. Nol berarti tegak lurus.',
+    ],
     widget: 'perkalian-titik',
-    siap: false,
+    siap: true,
   },
   /* ================================================================= */
   {
@@ -758,8 +831,67 @@ export const TAHAP: TahapVektor[] = [
     judul: 'Bayangan satu panah pada panah lain',
     labelPendek: 'Proyeksi',
     pertanyaan: 'Berapa bagian dari panah ini yang benar-benar searah?',
-    penjelasan: BELUM,
+    penjelasan: [
+      {
+        jenis: 'sorot',
+        teks: 'Sama seperti Materi 11, bagian ini di luar Kurikulum Merdeka Kelas 10 dan ditujukan untuk persiapan UTBK.',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Bayangkan matahari tepat di atas sebuah tongkat miring. Bayangan tongkat di tanah lebih pendek daripada tongkatnya. Panjang bayangan itulah yang disebut proyeksi, dan pada vektor idenya persis sama.',
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Proyeksi a pada b menjawab pertanyaan: dari vektor a, seberapa banyak yang benar-benar menuju arah b?',
+      },
+      { jenis: 'sesi', judul: 'Dua jawaban berbeda untuk satu pertanyaan' },
+      {
+        jenis: 'poin',
+        butir: [
+          'Panjang proyeksi - sebuah ANGKA. Dihitung dengan hasil kali titik dibagi panjang b.',
+          'Vektor proyeksi - sebuah PANAH, lengkap dengan arahnya. Dihitung dengan hasil kali titik dibagi kuadrat panjang b, lalu dikalikan b.',
+        ],
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Keduanya sama-sama disebut proyeksi di soal, jadi bacalah pertanyaannya baik-baik. Yang diminta angkanya atau panahnya?',
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Proyeksi (4 3) pada (2 0)',
+        baris: [
+          'Hasil kali titiknya: 4 dikali 2 ditambah 3 dikali 0, sama dengan 8',
+          'Panjang b: akar dari 4 ditambah 0, yaitu 2',
+          'Panjang proyeksinya: 8 dibagi 2, sama dengan 4',
+          'Vektor proyeksinya: 8 dibagi 4, lalu dikali (2 0), hasilnya (4 0)',
+        ],
+        simpul: 'Vektor a sepanjang 5, tetapi bayangannya pada b cuma 4. Selalu lebih pendek, kecuali kalau keduanya sudah searah.',
+      },
+      {
+        jenis: 'coba',
+        teks: 'Putar panah biru di sebelah kiri, perlahan.',
+        langkah: [
+          'Dekatkan ke panah merah. Bayangannya memanjang mendekati panjang panah birunya sendiri.',
+          'Buat tegak lurus. Bayangannya lenyap, sebab tidak ada bagian a yang menuju arah b.',
+          'Teruskan sampai melewatinya. Bayangannya muncul di sisi berlawanan, dan panjangnya bertanda negatif.',
+        ],
+      },
+      {
+        jenis: 'paragraf',
+        teks: 'Panjang proyeksi yang negatif bukan kesalahan hitung. Tanda minusnya memberi tahu bahwa bayangannya jatuh berlawanan arah dengan b, dan itu keterangan yang berguna. Kalau yang diminta jaraknya saja, barulah tanda minusnya dibuang.',
+      },
+    ],
+    seringKeliru: {
+      judul: 'Tertukar antara proyeksi pada b dan proyeksi pada a',
+      isi: 'Proyeksi a pada b dan proyeksi b pada a adalah dua hal yang berbeda, dan angkanya hampir selalu berbeda. Pembaginya yang menentukan: kalau diproyeksikan PADA b, yang jadi pembagi adalah panjang b. Kalimat "proyeksi a pada b" dibaca sebagai bayangan a yang jatuh di atas b, jadi b yang berperan sebagai lantainya.',
+    },
+    intisari: [
+      'Proyeksi menjawab seberapa banyak dari a yang menuju arah b.',
+      'Panjang proyeksi adalah angka: hasil kali titik dibagi panjang b.',
+      'Vektor proyeksi adalah panah, arahnya mengikuti b.',
+      'Panjang proyeksi boleh negatif, artinya bayangannya jatuh berlawanan arah dengan b.',
+    ],
     widget: 'proyeksi',
-    siap: false,
+    siap: true,
   },
 ]

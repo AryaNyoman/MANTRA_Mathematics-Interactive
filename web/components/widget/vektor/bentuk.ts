@@ -1,4 +1,4 @@
-import { keLayar, sudutDerajat, type Jendela, type Kotak, type Vek } from './geometri'
+import { keLayar, panjang, sudutDerajat, type Jendela, type Kotak, type Vek } from './geometri'
 
 /**
  * Bentuk bantu yang digambar dalam KOORDINAT LAYAR, bukan koordinat matematika.
@@ -55,4 +55,38 @@ export function busurDariSumbu(
   // sapuan 0 berarti berlawanan arah jarum jam di layar, dan itu yang benar
   // karena sudut positif diukur berlawanan arah jarum jam
   return `M ${x1} ${y1} A ${jari} ${jari} 0 ${besar} 0 ${x2} ${y2}`
+}
+
+/**
+ * Busur sudut ANTARA dua vektor, berpusat di `pusat`.
+ *
+ * Selalu menggambar busur yang pendek, tidak pernah yang memutar lebih dari
+ * setengah lingkaran. Sudut antara dua vektor memang hanya sampai 180 derajat,
+ * jadi busur panjang akan menggambarkan sudut yang bukan itu.
+ */
+export function busurAntara(
+  pusat: Vek, v1: Vek, v2: Vek, jendela: Jendela, kotak: Kotak, jari = 30,
+): string | null {
+  if (panjang(v1) === 0 || panjang(v2) === 0) return null
+  const a1 = sudutDerajat(v1)
+  let beda = sudutDerajat(v2) - a1
+  while (beda <= -180) beda += 360
+  while (beda > 180) beda -= 360
+  if (Math.abs(beda) < 0.5) return null
+
+  const p = keLayar(jendela, kotak)
+  const cx = p.x(pusat.x)
+  const cy = p.y(pusat.y)
+  const titikPada = (derajat: number): [number, number] => {
+    const r = (derajat * Math.PI) / 180
+    // sumbu y layar terbalik, jadi sinusnya dikurangkan
+    return [cx + jari * Math.cos(r), cy - jari * Math.sin(r)]
+  }
+
+  const [x1, y1] = titikPada(a1)
+  const [x2, y2] = titikPada(a1 + beda)
+  // Berlawanan arah jarum jam secara matematika berarti sapuan 0 di layar,
+  // sebab sumbu y layar terbalik.
+  const sapuan = beda > 0 ? 0 : 1
+  return `M ${x1} ${y1} A ${jari} ${jari} 0 0 ${sapuan} ${x2} ${y2}`
 }
