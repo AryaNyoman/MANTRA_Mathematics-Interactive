@@ -36,7 +36,14 @@ export type WidgetLimit =
 
 import type { Tahap } from '@/content/tipe'
 
-export const TAHAP: Tahap[] = [
+/**
+ * Bentuk Tahap dengan nama widget yang DIKETATKAN ke senarai di atas.
+ * Tanpa ini, salah ketik nama widget baru ketahuan saat halamannya dibuka dan
+ * panggungnya diam saja. Dengan ini, TypeScript menolaknya sebelum dijalankan.
+ */
+type TahapLimit = Omit<Tahap, 'widget'> & { widget?: WidgetLimit }
+
+export const TAHAP: TahapLimit[] = [
   /* ================================================================= */
   {
     no: 1,
@@ -448,6 +455,401 @@ export const TAHAP: Tahap[] = [
       isi: 'Substitusi berhasil pada banyak soal, jadi wajar kalau lama-lama orang mengira memang begitulah cara kerja limit. Padahal urutannya terbalik. Limit didefinisikan lewat pendekatan dari dua arah, dan substitusi hanya jalan pintas yang kebetulan sah untuk fungsi yang tidak punya kejutan di titik itu. Alasan lengkapnya baru dilunasi di Tahap 9, saat kata "kontinu" diperkenalkan. Buktinya bahwa substitusi bukan definisi: pada Tahap 4 substitusi gagal total, sedangkan limitnya ada dan rapi.',
     },
     widget: 'mesin-sifat',
+    siap: true,
+  },
+
+  /* ================================================================= */
+  {
+    no: 6,
+    slug: 'nol-per-nol',
+    judul: 'Kalau hasilnya 0 dibagi 0',
+    labelPendek: '0 per 0',
+    pertanyaan: 'Substitusi buntu. Sekarang bagaimana?',
+    intisari: [
+      'Bentuk 0 dibagi 0 bukan jawaban, melainkan tanda bahwa bentuknya harus ditulis ulang.',
+      'Tiga cara menulis ulang: memfaktorkan, mengalikan sekawan, membagi pangkat tertinggi.',
+      'Yang dicari selalu sama: coret bagian yang membuat penyebutnya nol.',
+      'Setelah tercoret, barulah angkanya dimasukkan.',
+    ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Tahap 5 berakhir pada satu simpul: masukkan angkanya dulu. Kalau hasilnya wajar, selesai. Kalau muncul 0 dibagi 0, pekerjaan yang sebenarnya baru dimulai. Materi ini tentang pekerjaan itu.' },
+      { jenis: 'sorot', teks: 'Bentuk 0 dibagi 0 tidak berarti limitnya tidak ada. Ia berarti bentuk yang Anda tulis belum memberi tahu apa-apa.' },
+      { jenis: 'paragraf', teks: 'Buktinya begini. Bentuk (x² - 1) : (x - 1) limitnya 2, sedangkan (x² - 4) : (x - 2) limitnya 4. Keduanya sama-sama memberi 0 dibagi 0 kalau angkanya dipaksakan masuk, tetapi jawabannya berbeda. Jadi tulisan 0 dibagi 0 memang belum mengandung keterangan apa pun.' },
+
+      { jenis: 'sesi', judul: 'Cara pertama: memfaktorkan' },
+      { jenis: 'paragraf', teks: 'Kalau pembilang dan penyebut sama-sama bernilai nol di titik yang sama, keduanya pasti punya faktor yang sama. Temukan faktor itu, lalu coret.' },
+      {
+        jenis: 'contoh',
+        judul: 'Limit (x² - 4) : (x - 2) saat x mendekati 2',
+        baris: [
+          'coba masukkan dulu       (4 - 4) : (2 - 2)   =  0 : 0',
+          'faktorkan pembilangnya   (x - 2)(x + 2)',
+          'coret, asal x bukan 2    x + 2',
+          'baru masukkan            2 + 2               =  4',
+        ],
+        simpul: 'Limitnya 4.',
+      },
+      { jenis: 'paragraf', teks: 'Perhatikan bahwa langkah mencoret hanya sah untuk x yang bukan 2. Untungnya limit memang tidak pernah meletakkan x tepat di 2, jadi syarat itu selalu terpenuhi dengan sendirinya.' },
+
+      { jenis: 'sesi', judul: 'Cara kedua: mengalikan dengan sekawan' },
+      { jenis: 'paragraf', teks: 'Kalau ada tanda akar, memfaktorkan biasanya buntu. Yang dipakai adalah sekawan, yaitu bentuk yang sama persis tetapi tanda tengahnya dibalik. Mengalikan sebuah bentuk dengan sekawannya membuat akarnya hilang.' },
+      {
+        jenis: 'contoh',
+        judul: 'Limit (√(x + 4) - 2) : x saat x mendekati 0',
+        baris: [
+          'coba masukkan dulu     (2 - 2) : 0            =  0 : 0',
+          'sekawan pembilangnya   √(x + 4) + 2',
+          'kalikan atas dan bawah dengan sekawan itu',
+          'pembilangnya jadi      (x + 4) - 4            =  x',
+          'coret x                1 : (√(x + 4) + 2)',
+          'baru masukkan          1 : (2 + 2)            =  1/4',
+        ],
+        simpul: 'Limitnya 1/4, atau 0,25.',
+      },
+      {
+        jenis: 'poin',
+        judul: 'Kenapa sekawan bekerja',
+        butir: [
+          'Bentuk (a - b) dikali (a + b) selalu menghasilkan a² - b²',
+          'Mengkuadratkan akar berarti akarnya hilang',
+          'Akar yang hilang itulah yang tadi menghalangi pencoretan',
+        ],
+      },
+
+      { jenis: 'sesi', judul: 'Cara ketiga: membagi dengan pangkat tertinggi' },
+      { jenis: 'paragraf', teks: 'Cara ini dipakai kalau x tidak menuju sebuah angka, melainkan menuju tak hingga. Karena itu ia dibahas tuntas di materi berikutnya. Namanya disebut di sini supaya ketiga cara itu terkumpul di satu tempat dan mudah diingat sebagai satu kelompok.' },
+
+      {
+        jenis: 'coba',
+        teks: 'Alat di sebelah kiri membongkar soal selangkah demi selangkah. Anda yang menekan majunya.',
+        langkah: [
+          'Pilih soalnya. Langkah pertama selalu sama: coba masukkan angkanya',
+          'Kalau muncul 0 dibagi 0, alat menawarkan cara mana yang cocok',
+          'Tekan maju satu langkah, dan perhatikan nama caranya di sebelah tiap baris',
+          'Di langkah pencoretan ada catatan kecil "asal x bukan ...". Itu syarat yang membuat langkahnya sah',
+        ],
+      },
+
+      { jenis: 'sesi', judul: 'Ringkasan urutan kerjanya' },
+      {
+        jenis: 'poin',
+        judul: 'Empat langkah ini, dan urutannya tidak pernah berubah',
+        butir: [
+          'Masukkan angkanya, lihat apa yang terjadi',
+          'Kalau hasilnya wajar, itu jawabannya, selesai',
+          'Kalau 0 dibagi 0, tulis ulang bentuknya: faktorkan, atau kalikan sekawan',
+          'Setelah faktor pengganggunya tercoret, masukkan lagi angkanya',
+        ],
+      },
+    ],
+    seringKeliru: {
+      judul: 'Mencoret dianggap boleh kapan saja',
+      isi: 'Mencoret (x - 2) dari atas dan bawah terasa seperti aturan aljabar biasa, padahal ia hanya sah kalau (x - 2) bukan nol, yaitu kalau x bukan 2. Kalau syarat itu dilupakan, orang menyimpulkan bahwa fungsi asli dan fungsi hasil coretan sama persis. Padahal keduanya berbeda tepat di satu titik: yang asli berlubang di x = 2, hasil coretannya tidak. Gambar di Tahap 4 memperlihatkan bedanya.',
+    },
+    widget: 'bongkar-bertahap',
+    siap: true,
+  },
+
+  /* ================================================================= */
+  {
+    no: 7,
+    slug: 'tak-hingga',
+    judul: 'Kalau x lari ke tak hingga',
+    labelPendek: 'Tak hingga',
+    pertanyaan: 'Kenapa grafik bisa mendatar tapi tidak pernah menyentuh garisnya?',
+    intisari: [
+      'Tak hingga bukan bilangan, jadi ia tidak bisa disubstitusi.',
+      'Ia keterangan arah: x dibuat sebesar-besarnya tanpa batas.',
+      'Caranya membagi pembilang dan penyebut dengan pangkat tertinggi.',
+      'Garis yang didekati tapi tidak pernah disentuh disebut asimtot datar.',
+    ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Sampai sekarang x selalu didorong ke sebuah angka: ke 2, ke 1, ke 0. Sekarang pertanyaannya berbeda. Ke mana f(x) menuju kalau x dibuat besar terus menerus, tanpa pernah berhenti?' },
+      { jenis: 'paragraf', teks: 'Contohnya nyata. Sebuah pabrik punya biaya tetap Rp 5.000.000 per hari, ditambah Rp 20.000 untuk tiap barang. Kalau barangnya dibuat semakin banyak, berapa biaya rata-rata per barang?' },
+      {
+        jenis: 'contoh',
+        judul: 'Biaya rata-rata per barang',
+        baris: [
+          '100 barang       (5.000.000 + 2.000.000) : 100        =  70.000',
+          '1.000 barang     (5.000.000 + 20.000.000) : 1.000     =  25.000',
+          '10.000 barang    (5.000.000 + 200.000.000) : 10.000   =  20.500',
+          '100.000 barang   ...                                  =  20.050',
+        ],
+        simpul: 'Merapat ke 20.000, tapi tidak pernah sampai. Biaya tetapnya selalu menyisakan sedikit.',
+      },
+      { jenis: 'sorot', teks: 'Tak hingga bukan bilangan. Ia tidak bisa dimasukkan ke rumus, karena tidak ada angka yang bernama tak hingga.' },
+
+      { jenis: 'sesi', judul: 'Caranya: bagi dengan pangkat tertinggi' },
+      { jenis: 'paragraf', teks: 'Kalau x menuju tak hingga, pecahan seperti 1 : x menjadi sangat kecil. Semakin besar x, semakin dekat pecahan itu ke nol. Itulah alat utamanya, dan seluruh cara ini dibangun di atasnya.' },
+      {
+        jenis: 'contoh',
+        judul: 'Limit (3x² + 2x) : (x² - 5) saat x menuju tak hingga',
+        baris: [
+          'pangkat tertinggi         x²',
+          'bagi semuanya dengan x²',
+          'pembilangnya jadi         3 + (2 : x)',
+          'penyebutnya jadi          1 - (5 : x²)',
+          'saat x membesar           2 : x menuju 0,  5 : x² menuju 0',
+          'yang tersisa              3 : 1',
+        ],
+        simpul: 'Limitnya 3.',
+      },
+      {
+        jenis: 'poin',
+        judul: 'Tiga kemungkinan, semuanya bisa ditebak dari pangkatnya',
+        butir: [
+          'Pangkat atas sama dengan pangkat bawah - limitnya hasil bagi angka di depannya',
+          'Pangkat atas lebih kecil - limitnya 0, karena penyebutnya tumbuh jauh lebih cepat',
+          'Pangkat atas lebih besar - limitnya tak hingga, karena pembilangnya menang',
+        ],
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Contoh yang pangkat atasnya lebih kecil',
+        baris: [
+          'limit (2x + 7) : (x² + 1) saat x menuju tak hingga',
+          'pangkat atas 1, pangkat bawah 2',
+          'penyebutnya tumbuh jauh lebih cepat daripada pembilangnya',
+        ],
+        simpul: 'Limitnya 0.',
+      },
+
+      { jenis: 'sesi', judul: 'Asimtot datar' },
+      { jenis: 'paragraf', teks: 'Kalau limit sebuah fungsi saat x menuju tak hingga adalah sebuah angka, katakanlah 3, maka grafiknya akan semakin mendatar dan merapat ke garis mendatar y = 3. Garis itu disebut asimtot datar.' },
+      { jenis: 'paragraf', teks: 'Kurvanya boleh sedekat apa pun ke garis itu. Pada contoh biaya pabrik tadi ia bahkan tidak pernah menyentuhnya, karena selalu ada sisa kecil dari biaya tetap yang tidak bisa dihilangkan berapa pun banyaknya barang.' },
+
+      {
+        jenis: 'coba',
+        teks: 'Alat di sebelah kiri adalah kebalikan dari alat Tahap 4. Di sana Anda memperbesar, di sini Anda memperkecil.',
+        langkah: [
+          'Mulai dari tampilan biasa. Kurvanya masih terlihat jelas melengkung',
+          'Perkecil tampilannya. Kurvanya makin lama makin terlihat mendatar',
+          'Pada tampilan yang sangat kecil, kurva dan garis asimtotnya nyaris berimpit',
+          'Sekarang lihat tabel angkanya. Selisihnya masih ada, hanya terlalu kecil untuk digambar',
+        ],
+      },
+    ],
+    seringKeliru: {
+      judul: 'Tak hingga dikira sebuah bilangan yang sangat besar',
+      isi: 'Kalau tak hingga dianggap bilangan, muncul godaan memasukkannya ke rumus lalu menulis hal seperti tak hingga dibagi tak hingga sama dengan 1. Itu tidak sah, karena tak hingga bukan bilangan dan tidak bisa dibagi. Yang benar, tak hingga adalah keterangan arah: ia memberi tahu bahwa x dibuat membesar tanpa batas. Karena itu jawabannya dicari dari kecenderungan bentuknya, bukan dari substitusi.',
+    },
+    widget: 'perkecil-tampilan',
+    siap: true,
+  },
+
+  /* ================================================================= */
+  {
+    no: 8,
+    slug: 'limit-sinus',
+    judul: 'Limit sinus jadi angka 1',
+    labelPendek: 'Sinus',
+    pertanyaan: 'Kenapa sin x dibagi x menuju tepat 1, bukan sekadar mendekati?',
+    intisari: [
+      'Untuk sudut kecil, panjang busur dan panjang sin hampir sama.',
+      'Perbandingannya terjepit di antara cos θ dan 1 : cos θ.',
+      'Kedua penjepitnya menuju 1, jadi yang di tengah ikut menuju 1.',
+      'Syarat mutlak: sudutnya dalam radian, bukan derajat.',
+    ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Materi ini menyambung langsung ke topik Trigonometri. Kalau lingkaran satuan di topik itu sudah terasa akrab, bagian ini akan terasa seperti melanjutkan cerita yang sama, bukan memulai cerita baru.' },
+      { jenis: 'paragraf', teks: 'Pertanyaannya: berapa limit sin x : x saat x mendekati 0? Kalau dimasukkan langsung, sin 0 sama dengan 0 dan penyebutnya juga 0. Bentuk 0 dibagi 0 lagi.' },
+      {
+        jenis: 'contoh',
+        judul: 'Coba dengan angka, semuanya dalam radian',
+        baris: [
+          'x = 0,5       sin x : x   =  0,9589',
+          'x = 0,1       sin x : x   =  0,9983',
+          'x = 0,01      sin x : x   =  0,999983',
+          'x = 0,001     sin x : x   =  0,99999983',
+        ],
+        simpul: 'Merapat ke 1. Tapi kenapa tepat 1, dan bukan 0,9999 sekian?',
+      },
+
+      { jenis: 'sesi', judul: 'Buktinya ada di lingkaran satuan' },
+      { jenis: 'paragraf', teks: 'Gambar lingkaran berjari-jari 1, lalu ambil sudut lancip θ di pusatnya. Di dalam gambar itu ada tiga daerah yang saling bersarang, dan luas ketiganya bisa dibandingkan.' },
+      {
+        jenis: 'poin',
+        judul: 'Tiga daerah, dari yang terkecil ke yang terbesar',
+        butir: [
+          'Segitiga di dalam juring - luasnya ½ · cos θ · sin θ',
+          'Juring lingkaran itu sendiri - luasnya ½ · θ, karena jari-jarinya 1',
+          'Segitiga di luar juring - luasnya ½ · tan θ',
+        ],
+      },
+      { jenis: 'paragraf', teks: 'Karena yang pertama termuat di dalam yang kedua, dan yang kedua termuat di dalam yang ketiga, urutan luasnya sudah pasti naik. Bagi ketiganya dengan sin θ, dan bentuknya menjadi rapi.' },
+      { jenis: 'sorot', teks: 'cos θ  <  θ : sin θ  <  1 : cos θ' },
+      { jenis: 'paragraf', teks: 'Sekarang kecilkan θ menuju 0. Nilai cos θ menuju 1, dan 1 : cos θ juga menuju 1. Jadi bentuk yang di tengah terjepit di antara dua hal yang sama-sama menuju 1. Ia tidak punya pilihan lain selain ikut menuju 1.' },
+      { jenis: 'paragraf', teks: 'Karena θ : sin θ menuju 1, maka kebalikannya, sin θ : θ, juga menuju 1. Selesai. Bukan hampir 1, melainkan tepat 1, dan sekarang alasannya jelas.' },
+
+      { jenis: 'sesi', judul: 'Radian, bukan derajat' },
+      { jenis: 'paragraf', teks: 'Bukti tadi memakai luas juring sama dengan ½ · θ. Rumus itu hanya benar kalau θ diukur dalam radian. Kalau sudutnya ditulis dalam derajat, luas juringnya bukan ½ · θ, dan seluruh rangkaian tadi runtuh.' },
+      { jenis: 'sorot', teks: 'Kalau sudutnya dalam derajat, limit sin x : x BUKAN 1. Ini kekeliruan yang sering terjadi dan jarang dijelaskan.' },
+
+      { jenis: 'sesi', judul: 'Yang langsung ikut ketahuan' },
+      {
+        jenis: 'poin',
+        judul: 'Sekali sin x : x diketahui, yang lain menyusul',
+        butir: [
+          'tan x : x juga menuju 1, karena tan x = sin x : cos x, dan cos x menuju 1',
+          'sin 3x : 5x menuju 3/5, yaitu perbandingan angka di depan sudutnya',
+          'Aturan umumnya: sin ax : bx menuju a : b',
+        ],
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Dipakai langsung',
+        baris: [
+          'limit sin 3x : 5x saat x mendekati 0',
+          'angka di depan sudut atas    3',
+          'angka di depan sudut bawah   5',
+        ],
+        simpul: 'Limitnya 3/5, atau 0,6.',
+      },
+
+      {
+        jenis: 'coba',
+        teks: 'Alat di sebelah kiri adalah lingkaran satuan yang sama seperti di topik Trigonometri, dengan warna yang sama pula.',
+        langkah: [
+          'Mulai dari sudut besar. Busur dan ruas sin terlihat jelas berbeda panjangnya',
+          'Kecilkan sudutnya. Keduanya makin lama makin mirip',
+          'Perhatikan angka perbandingannya: 0,95 lalu 0,998 lalu 0,99998',
+          'Perhatikan juga bahwa busurnya selalu sedikit lebih panjang. Itu sebabnya perbandingannya selalu sedikit di bawah 1',
+        ],
+      },
+    ],
+    seringKeliru: {
+      judul: 'Dikira sin x : x bisa dicoret jadi sin',
+      isi: 'Tulisan sin x terlihat seperti perkalian antara sin dan x, sehingga muncul godaan mencoret x di atas dan di bawah lalu menyimpulkan hasilnya sin. Itu keliru, karena sin bukan bilangan yang dikalikan melainkan nama sebuah fungsi. Menulis sin tanpa sudut sama tidak bermaknanya dengan menulis tanda akar tanpa isi. Karena itu bentuk ini harus dikerjakan lewat perbandingan luas tadi, bukan lewat pencoretan.',
+    },
+    widget: 'busur-lawan-tali',
+    siap: true,
+  },
+
+  /* ================================================================= */
+  {
+    no: 9,
+    slug: 'kontinu',
+    judul: 'Fungsi yang tidak putus',
+    labelPendek: 'Kontinu',
+    pertanyaan: 'Apa bedanya grafik yang bisa digambar tanpa mengangkat pensil?',
+    intisari: [
+      'Fungsi kontinu di suatu titik kalau tiga syarat terpenuhi sekaligus.',
+      'Nilainya ada, limitnya ada, dan keduanya sama.',
+      'Ada tiga cara sebuah fungsi gagal: berlubang, melompat, atau meledak.',
+      'Inilah alasan sebenarnya kenapa substitusi langsung boleh dipakai.',
+    ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Bayangkan rel roller coaster. Relnya boleh menanjak, boleh menukik, boleh berputar. Yang tidak boleh: ada potongan rel yang hilang, atau dua ujung rel yang tidak nyambung. Kereta yang melaju di rel seperti itu tidak akan sampai ke ujung.' },
+      { jenis: 'paragraf', teks: 'Fungsi kontinu adalah fungsi yang grafiknya seperti rel yang benar: bisa digambar dari ujung ke ujung tanpa sekali pun mengangkat pensil.' },
+
+      { jenis: 'sesi', judul: 'Tiga syarat kontinu' },
+      { jenis: 'paragraf', teks: 'Untuk memastikan sebuah fungsi kontinu di titik c, ketiga hal berikut harus benar sekaligus. Kalau satu saja gagal, fungsinya tidak kontinu di titik itu.' },
+      {
+        jenis: 'poin',
+        judul: 'Ketiganya wajib, bukan pilih salah satu',
+        butir: [
+          'Nilainya ada - f(c) memang punya hasil, bukan bentuk 0 dibagi 0',
+          'Limitnya ada - kiri dan kanan sepakat menuju satu angka',
+          'Keduanya sama - angka yang dituju itu persis sama dengan f(c)',
+        ],
+      },
+      { jenis: 'sorot', teks: 'Syarat ketiga inilah yang menyambung dua hal yang selama ini dipisah: kontinu berarti limit dan nilai kebetulan berimpit.' },
+
+      { jenis: 'sesi', judul: 'Tiga cara sebuah fungsi bisa gagal' },
+      { jenis: 'paragraf', teks: 'Menariknya, Anda sudah bertemu ketiganya di materi sebelumnya. Sekarang ketiganya dikumpulkan dan diberi nama.' },
+      {
+        jenis: 'poin',
+        judul: 'Gagal syarat pertama: berlubang',
+        butir: [
+          'Contohnya (x² - 1) : (x - 1) di titik x = 1',
+          'Limitnya ada dan rapi, yaitu 2',
+          'Tapi nilainya tidak ada sama sekali, jadi syarat pertama gagal',
+          'Grafiknya garis lurus dengan satu titik bolong, sudah dibahas di Tahap 4',
+        ],
+      },
+      {
+        jenis: 'poin',
+        judul: 'Gagal syarat kedua: melompat',
+        butir: [
+          'Contohnya tarif parkir yang berubah tepat pada jam kedua',
+          'Nilainya ada, papan tarifnya jelas menyebutkan satu angka',
+          'Tapi limit kiri dan limit kanan berbeda, jadi syarat kedua gagal',
+          'Grafiknya patah tegak, sudah dibahas di Tahap 3',
+        ],
+      },
+      {
+        jenis: 'poin',
+        judul: 'Gagal karena meledak: asimtot tegak',
+        butir: [
+          'Contohnya 1 : (x - 2)² di titik x = 2',
+          'Penyebutnya nol, tetapi pembilangnya bukan nol',
+          'Nilainya membesar tanpa batas, jadi tidak ada angka yang dituju',
+          'Grafiknya menjulang tegak di dekat garis x = 2',
+        ],
+      },
+      { jenis: 'paragraf', teks: 'Perhatikan bedanya dengan asimtot datar di Tahap 7. Asimtot datar muncul saat x lari ke tak hingga dan f(x) yang mendatar. Asimtot tegak muncul saat x mendekati satu titik dan f(x) yang meledak. Arahnya kebalikan.' },
+
+      { jenis: 'sesi', judul: 'Janji dari Tahap 5 dilunasi di sini' },
+      { jenis: 'paragraf', teks: 'Pada Tahap 5 dikatakan bahwa substitusi langsung sah untuk suku banyak, tetapi alasannya sengaja ditunda. Sekarang alasannya bisa disebutkan utuh.' },
+      { jenis: 'sorot', teks: 'Suku banyak kontinu di semua titik. Karena kontinu berarti limit sama dengan nilai fungsi, maka menghitung limitnya boleh dilakukan dengan memasukkan angkanya.' },
+      { jenis: 'paragraf', teks: 'Jadi substitusi bukan definisi limit, melainkan akibat dari kontinuitas. Untuk fungsi yang tidak kontinu di titik itu, jalan pintasnya langsung gugur, persis seperti yang terjadi di Tahap 4 dan Tahap 6. Sekarang seluruh alurnya tertutup rapi.' },
+
+      {
+        jenis: 'coba',
+        teks: 'Alat di sebelah kiri memberi Anda sebuah fungsi mulus dan tiga tombol untuk merusaknya.',
+        langkah: [
+          'Tekan "bikin lubang". Perhatikan syarat nomor berapa yang menyala merah',
+          'Tekan "bikin lompat". Sekarang syarat yang gagal berbeda',
+          'Tekan "bikin asimtot". Grafiknya menjulang dan angkanya lepas',
+          'Kembalikan ke mulus. Ketiga syaratnya menyala hijau bersamaan',
+        ],
+      },
+    ],
+    seringKeliru: {
+      judul: 'Kontinu dikira sama dengan mulus tanpa sudut tajam',
+      isi: 'Kontinu hanya menuntut grafiknya tidak putus, bukan tidak bersudut. Grafik nilai mutlak, yang bentuknya seperti huruf V, tetap kontinu di titik sudutnya karena pensilnya tidak perlu diangkat. Yang gagal di titik itu bukan kontinuitas, melainkan sifat lain yang baru dipelajari saat masuk ke turunan. Jadi bersudut tetap kontinu, sedangkan berlubang, melompat, dan meledak tidak.',
+    },
+    widget: 'perusak-fungsi',
+    siap: true,
+  },
+
+  /* ================================================================= */
+  {
+    no: 10,
+    slug: 'dunia-nyata',
+    judul: 'Dipakai di dunia nyata',
+    labelPendek: 'Dunia nyata',
+    pertanyaan: 'Di mana limit benar-benar bekerja di luar buku pelajaran?',
+    intisari: [
+      'Rel wahana harus kontinu, kalau tidak keretanya menghantam ujung rel.',
+      'Kadar obat dalam darah mendekati satu tingkat tetap.',
+      'Biaya rata-rata produksi punya batas bawah yang tidak bisa ditembus.',
+      'Populasi berhenti tumbuh di daya dukung lingkungannya.',
+    ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Empat contoh berikut bukan soal buatan. Semuanya persoalan nyata yang jawabannya memang dicari dengan limit, dan bentuk grafiknya bisa dilihat di sebelah kiri.' },
+
+      { jenis: 'sesi', judul: 'Rel wahana yang harus nyambung' },
+      { jenis: 'paragraf', teks: 'Perancang roller coaster menyusun lintasan dari beberapa potongan rumus: bagian menanjak, bagian melengkung, bagian menukik. Di tiap titik sambungan, tinggi rel dari potongan kiri dan potongan kanan harus sama persis.' },
+      { jenis: 'paragraf', teks: 'Kalau tidak sama, ada lompatan di rel. Di atas kertas itu hanya selisih angka kecil. Pada wahana sungguhan itu berarti kereta menghantam ujung rel. Jadi syarat kontinu di sini bukan urusan matematika saja.' },
+
+      { jenis: 'sesi', judul: 'Kadar obat dalam darah' },
+      { jenis: 'paragraf', teks: 'Obat yang diminum berulang pada jarak waktu tetap akan menumpuk di dalam darah, tetapi tidak selamanya, karena tubuh juga membuangnya. Lama-lama kadarnya mendekati satu tingkat tetap yang disebut kadar mantap.' },
+      { jenis: 'paragraf', teks: 'Dokter memakai nilai limit itu untuk menentukan dosis: cukup tinggi supaya obatnya bekerja, cukup rendah supaya tidak meracuni. Yang dihitung adalah limit kadar obat saat banyaknya dosis menuju tak hingga.' },
+
+      { jenis: 'sesi', judul: 'Biaya rata-rata produksi' },
+      { jenis: 'paragraf', teks: 'Contoh pabrik di Tahap 7 adalah kasus nyata. Biaya tetap dibagi rata ke seluruh barang, jadi semakin banyak barang yang dibuat, semakin kecil bagian biaya tetap yang ditanggung tiap barang.' },
+      { jenis: 'paragraf', teks: 'Tapi ada batasnya. Biaya bahan per barang tidak bisa dihilangkan. Limitnya itulah biaya rata-rata terendah yang mungkin dicapai, dan angka itu dipakai untuk menentukan harga jual paling murah yang masih tidak merugi.' },
+
+      { jenis: 'sesi', judul: 'Populasi yang berhenti tumbuh' },
+      { jenis: 'paragraf', teks: 'Populasi ikan di sebuah danau tidak tumbuh selamanya. Awalnya cepat, lalu melambat, lalu hampir berhenti di satu jumlah tertentu. Jumlah itu disebut daya dukung lingkungan.' },
+      { jenis: 'paragraf', teks: 'Grafiknya berbentuk huruf S yang mendatar di bagian atas. Garis datar yang didekatinya adalah asimtot datar, dan nilainya adalah limit populasi saat waktu menuju tak hingga.' },
+
+      { jenis: 'sesi', judul: 'Satu benang merah' },
+      { jenis: 'sorot', teks: 'Keempatnya menanyakan hal yang sama: ke mana sesuatu menuju, bukan berapa nilainya sekarang.' },
+      { jenis: 'paragraf', teks: 'Itulah yang membuat limit berguna. Ia menjawab pertanyaan tentang tujuan, bukan tentang keadaan. Dan sering kali tujuan itulah yang perlu diketahui sebelum keputusan diambil: sebelum wahananya dibangun, sebelum dosisnya ditetapkan, sebelum harganya dipasang.' },
+    ],
+    widget: 'dunia-nyata-limit',
     siap: true,
   },
 ]
