@@ -78,7 +78,7 @@ const DAFTAR: Topik[] = [
     urutanKelas: 12,
     pertanyaan: 'Kenapa yang terlihat berpotongan belum tentu berpotongan?',
     miskonsepsiSingkat: 'intuisi datar dipakai di ruang.',
-    siap: false,
+    siap: true,
   },
 ]
 
