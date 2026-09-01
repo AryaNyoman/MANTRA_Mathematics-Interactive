@@ -1,0 +1,1125 @@
+[
+  {
+    "nama": "kalibrasi: soal Ujian Nasional asli (kubus rusuk 8)",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 8
+    },
+    "soal": [
+      {
+        "id": "UN 2004 - panjang proyeksi DE pada bidang BDHF",
+        "tanya": "panjang_proyeksi_garis_bidang",
+        "garis": [
+          "D",
+          "E"
+        ],
+        "bidang": [
+          "B",
+          "D",
+          "H"
+        ],
+        "jawaban": "4*sqrt(6)"
+      }
+    ]
+  },
+  {
+    "nama": "kalibrasi: soal Ujian Nasional asli (kubus rusuk 6)",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 6
+    },
+    "soal": [
+      {
+        "id": "EBTANAS 1999 - panjang proyeksi AF pada bidang ACGE",
+        "tanya": "panjang_proyeksi_garis_bidang",
+        "garis": [
+          "A",
+          "F"
+        ],
+        "bidang": [
+          "A",
+          "C",
+          "G"
+        ],
+        "jawaban": "3*sqrt(6)"
+      },
+      {
+        "id": "EBTANAS 1992 - jarak titik C ke bidang BDG",
+        "tanya": "jarak_titik_bidang",
+        "titik": "C",
+        "bidang": [
+          "B",
+          "D",
+          "G"
+        ],
+        "jawaban": "2*sqrt(3)"
+      },
+      {
+        "id": "UAN 2005 - sudut garis AH dengan bidang BDHF",
+        "tanya": "sudut_garis_bidang",
+        "garis": [
+          "A",
+          "H"
+        ],
+        "bidang": [
+          "B",
+          "D",
+          "H"
+        ],
+        "jawaban": "30"
+      }
+    ]
+  },
+  {
+    "nama": "kalibrasi: soal Ujian Nasional asli (kubus rusuk 4, titik tengah)",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 4,
+      "tambahan": {
+        "P": [
+          "E",
+          "H"
+        ]
+      }
+    },
+    "soal": [
+      {
+        "id": "UAN 2003 - jarak titik P (tengah EH) ke garis CF",
+        "tanya": "jarak_titik_garis",
+        "titik": "P",
+        "garis": [
+          "C",
+          "F"
+        ],
+        "jawaban": "3*sqrt(2)"
+      }
+    ]
+  },
+  {
+    "nama": "angka yang dipakai materi tahap 1 sampai 9 (kubus rusuk 6)",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 6
+    },
+    "soal": [
+      {
+        "id": "tahap 1 - BD dan EG bersilangan",
+        "tanya": "kedudukan_garis",
+        "garis1": [
+          "B",
+          "D"
+        ],
+        "garis2": [
+          "E",
+          "G"
+        ],
+        "jawaban": "bersilangan"
+      },
+      {
+        "id": "tahap 1 - jarak BD ke EG",
+        "tanya": "jarak_garis_garis",
+        "garis1": [
+          "B",
+          "D"
+        ],
+        "garis2": [
+          "E",
+          "G"
+        ],
+        "jawaban": "6"
+      },
+      {
+        "id": "tahap 2 - AB dan CG bersilangan",
+        "tanya": "kedudukan_garis",
+        "garis1": [
+          "A",
+          "B"
+        ],
+        "garis2": [
+          "C",
+          "G"
+        ],
+        "jawaban": "bersilangan"
+      },
+      {
+        "id": "tahap 2 - AB dan HG sejajar",
+        "tanya": "kedudukan_garis",
+        "garis1": [
+          "A",
+          "B"
+        ],
+        "garis2": [
+          "H",
+          "G"
+        ],
+        "jawaban": "sejajar"
+      },
+      {
+        "id": "tahap 2 - AC dan BD berpotongan",
+        "tanya": "kedudukan_garis",
+        "garis1": [
+          "A",
+          "C"
+        ],
+        "garis2": [
+          "B",
+          "D"
+        ],
+        "jawaban": "berpotongan"
+      },
+      {
+        "id": "tahap 2 - AG menembus alas",
+        "tanya": "kedudukan_garis_bidang",
+        "garis": [
+          "A",
+          "G"
+        ],
+        "bidang": [
+          "A",
+          "B",
+          "C"
+        ],
+        "jawaban": "menembus"
+      },
+      {
+        "id": "tahap 3 - jarak B ke garis AC",
+        "tanya": "jarak_titik_garis",
+        "titik": "B",
+        "garis": [
+          "A",
+          "C"
+        ],
+        "jawaban": "3*sqrt(2)"
+      },
+      {
+        "id": "tahap 4 - diagonal sisi AC",
+        "tanya": "jarak_titik",
+        "dari": "A",
+        "ke": "C",
+        "jawaban": "6*sqrt(2)"
+      },
+      {
+        "id": "tahap 4 - diagonal ruang AG",
+        "tanya": "jarak_titik",
+        "dari": "A",
+        "ke": "G",
+        "jawaban": "6*sqrt(3)"
+      },
+      {
+        "id": "tahap 5 - jarak B ke garis AG",
+        "tanya": "jarak_titik_garis",
+        "titik": "B",
+        "garis": [
+          "A",
+          "G"
+        ],
+        "jawaban": "2*sqrt(6)"
+      },
+      {
+        "id": "tahap 5 - jarak D ke garis AG",
+        "tanya": "jarak_titik_garis",
+        "titik": "D",
+        "garis": [
+          "A",
+          "G"
+        ],
+        "jawaban": "2*sqrt(6)"
+      },
+      {
+        "id": "tahap 5 - jarak E ke garis AG",
+        "tanya": "jarak_titik_garis",
+        "titik": "E",
+        "garis": [
+          "A",
+          "G"
+        ],
+        "jawaban": "2*sqrt(6)"
+      },
+      {
+        "id": "tahap 6 - jarak A ke bidang BDE",
+        "tanya": "jarak_titik_bidang",
+        "titik": "A",
+        "bidang": [
+          "B",
+          "D",
+          "E"
+        ],
+        "jawaban": "2*sqrt(3)"
+      },
+      {
+        "id": "tahap 7 - AE sejajar bidang BCGF",
+        "tanya": "kedudukan_garis_bidang",
+        "garis": [
+          "A",
+          "E"
+        ],
+        "bidang": [
+          "B",
+          "C",
+          "G"
+        ],
+        "jawaban": "sejajar"
+      },
+      {
+        "id": "tahap 7 - jarak AE ke bidang BCGF",
+        "tanya": "jarak_garis_bidang",
+        "garis": [
+          "A",
+          "E"
+        ],
+        "bidang": [
+          "B",
+          "C",
+          "G"
+        ],
+        "jawaban": "6"
+      },
+      {
+        "id": "tahap 7 - alas sejajar tutup",
+        "tanya": "jarak_bidang_bidang",
+        "bidang1": [
+          "A",
+          "B",
+          "C"
+        ],
+        "bidang2": [
+          "E",
+          "F",
+          "G"
+        ],
+        "jawaban": "6"
+      },
+      {
+        "id": "tahap 8 - AC dan BG bersilangan",
+        "tanya": "kedudukan_garis",
+        "garis1": [
+          "A",
+          "C"
+        ],
+        "garis2": [
+          "B",
+          "G"
+        ],
+        "jawaban": "bersilangan"
+      },
+      {
+        "id": "tahap 8 - sudut AC dengan BG",
+        "tanya": "sudut_garis_garis",
+        "garis1": [
+          "A",
+          "C"
+        ],
+        "garis2": [
+          "B",
+          "G"
+        ],
+        "jawaban": "60"
+      },
+      {
+        "id": "tahap 8 - AH sejajar BG (geseran mendarat)",
+        "tanya": "kedudukan_garis",
+        "garis1": [
+          "A",
+          "H"
+        ],
+        "garis2": [
+          "B",
+          "G"
+        ],
+        "jawaban": "sejajar"
+      },
+      {
+        "id": "tahap 8 - sudut AC dengan AH sama dengan sudut AC dengan BG",
+        "tanya": "sudut_garis_garis",
+        "garis1": [
+          "A",
+          "C"
+        ],
+        "garis2": [
+          "A",
+          "H"
+        ],
+        "jawaban": "60"
+      },
+      {
+        "id": "tahap 9 - sudut AG dengan alas",
+        "tanya": "sudut_garis_bidang",
+        "garis": [
+          "A",
+          "G"
+        ],
+        "bidang": [
+          "A",
+          "B",
+          "C"
+        ],
+        "jawaban": "35.264390"
+      },
+      {
+        "id": "tahap 9 - sudut bidang BDG dengan alas",
+        "tanya": "sudut_bidang_bidang",
+        "bidang1": [
+          "B",
+          "D",
+          "G"
+        ],
+        "bidang2": [
+          "A",
+          "B",
+          "C"
+        ],
+        "jawaban": "54.735610"
+      },
+      {
+        "id": "tahap 9 - bayangan AG pada alas adalah AC",
+        "tanya": "panjang_proyeksi_garis_bidang",
+        "garis": [
+          "A",
+          "G"
+        ],
+        "bidang": [
+          "A",
+          "B",
+          "C"
+        ],
+        "jawaban": "6*sqrt(2)"
+      }
+    ]
+  },
+  {
+    "nama": "galeri tahap 10 - ruang kelas 8 kali 6 kali 4 meter",
+    "bangun": {
+      "jenis": "balok",
+      "p": 8,
+      "l": 6,
+      "t": 4,
+      "tambahan": {
+        "L": [
+          4,
+          3,
+          4
+        ]
+      }
+    },
+    "soal": [
+      {
+        "id": "tinggi lampu ke lantai",
+        "tanya": "jarak_titik_bidang",
+        "titik": "L",
+        "bidang": [
+          "A",
+          "B",
+          "C"
+        ],
+        "jawaban": "4"
+      }
+    ]
+  },
+  {
+    "nama": "galeri tahap 10 - atap limas alas 8 tinggi 3",
+    "bangun": {
+      "jenis": "limas",
+      "alas": 8,
+      "tinggi": 3
+    },
+    "soal": [
+      {
+        "id": "kemiringan atap terhadap bidang datar",
+        "tanya": "sudut_bidang_bidang",
+        "bidang1": [
+          "A",
+          "B",
+          "T"
+        ],
+        "bidang2": [
+          "A",
+          "B",
+          "C"
+        ],
+        "jawaban": "36.869898"
+      }
+    ]
+  },
+  {
+    "nama": "galeri tahap 10 - menara rangka 5 kali 5 kali 9",
+    "bangun": {
+      "jenis": "balok",
+      "p": 5,
+      "l": 5,
+      "t": 9
+    },
+    "soal": [
+      {
+        "id": "dua batang silang AF dan BG",
+        "tanya": "kedudukan_garis",
+        "garis1": [
+          "A",
+          "F"
+        ],
+        "garis2": [
+          "B",
+          "G"
+        ],
+        "jawaban": "bersilangan"
+      }
+    ]
+  },
+  {
+    "nama": "galeri tahap 10 - tangga bersandar",
+    "bangun": {
+      "jenis": "balok",
+      "p": 6,
+      "l": 6,
+      "t": 6,
+      "tambahan": {
+        "K": [
+          1.5,
+          0,
+          0
+        ],
+        "P": [
+          0,
+          0,
+          5.6
+        ]
+      }
+    },
+    "soal": [
+      {
+        "id": "sudut tangga dengan lantai",
+        "tanya": "sudut_garis_bidang",
+        "garis": [
+          "K",
+          "P"
+        ],
+        "bidang": [
+          "A",
+          "B",
+          "C"
+        ],
+        "jawaban": "75.004921"
+      }
+    ]
+  },
+  {
+    "nama": "latihan halaman topik",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 8
+    },
+    "soal": [
+      {
+        "id": "latihan 1 - diagonal ruang rusuk 8",
+        "tanya": "jarak_titik",
+        "dari": "A",
+        "ke": "G",
+        "jawaban": "8*sqrt(3)"
+      },
+      {
+        "id": "latihan 4 - UN 2004 proyeksi DE pada BDHF",
+        "tanya": "panjang_proyeksi_garis_bidang",
+        "garis": [
+          "D",
+          "E"
+        ],
+        "bidang": [
+          "B",
+          "D",
+          "H"
+        ],
+        "jawaban": "4*sqrt(6)"
+      }
+    ]
+  },
+  {
+    "nama": "latihan 2 dan 3",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 6
+    },
+    "soal": [
+      {
+        "id": "latihan 2 - kedudukan AE dan BG",
+        "tanya": "kedudukan_garis",
+        "garis1": [
+          "A",
+          "E"
+        ],
+        "garis2": [
+          "B",
+          "G"
+        ],
+        "jawaban": "bersilangan"
+      }
+    ]
+  },
+  {
+    "nama": "latihan 3 - UAN 2003",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 4,
+      "tambahan": {
+        "P": [
+          "E",
+          "H"
+        ]
+      }
+    },
+    "soal": [
+      {
+        "id": "latihan 3 - jarak P ke garis CF",
+        "tanya": "jarak_titik_garis",
+        "titik": "P",
+        "garis": [
+          "C",
+          "F"
+        ],
+        "jawaban": "3*sqrt(2)"
+      }
+    ]
+  },
+  {
+    "nama": "kuis mudah",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 10
+    },
+    "soal": [
+      {
+        "id": "r01 diagonal sisi rusuk 10",
+        "tanya": "jarak_titik",
+        "dari": "A",
+        "ke": "C",
+        "jawaban": "10*sqrt(2)"
+      }
+    ]
+  },
+  {
+    "nama": "kuis r02",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 5
+    },
+    "soal": [
+      {
+        "id": "r02 diagonal ruang rusuk 5",
+        "tanya": "jarak_titik",
+        "dari": "A",
+        "ke": "G",
+        "jawaban": "5*sqrt(3)"
+      }
+    ]
+  },
+  {
+    "nama": "kuis r03 r04 r07 r08 r15",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 6
+    },
+    "soal": [
+      {
+        "id": "r03 AB dan HG",
+        "tanya": "kedudukan_garis",
+        "garis1": [
+          "A",
+          "B"
+        ],
+        "garis2": [
+          "H",
+          "G"
+        ],
+        "jawaban": "sejajar"
+      },
+      {
+        "id": "r04 AB dan CG",
+        "tanya": "kedudukan_garis",
+        "garis1": [
+          "A",
+          "B"
+        ],
+        "garis2": [
+          "C",
+          "G"
+        ],
+        "jawaban": "bersilangan"
+      },
+      {
+        "id": "r07 AG terhadap alas",
+        "tanya": "kedudukan_garis_bidang",
+        "garis": [
+          "A",
+          "G"
+        ],
+        "bidang": [
+          "A",
+          "B",
+          "C"
+        ],
+        "jawaban": "menembus"
+      },
+      {
+        "id": "r08 EF terhadap alas",
+        "tanya": "kedudukan_garis_bidang",
+        "garis": [
+          "E",
+          "F"
+        ],
+        "bidang": [
+          "A",
+          "B",
+          "C"
+        ],
+        "jawaban": "sejajar"
+      },
+      {
+        "id": "r15 AC dan BG",
+        "tanya": "kedudukan_garis",
+        "garis1": [
+          "A",
+          "C"
+        ],
+        "garis2": [
+          "B",
+          "G"
+        ],
+        "jawaban": "bersilangan"
+      },
+      {
+        "id": "r09 jarak B ke AC",
+        "tanya": "jarak_titik_garis",
+        "titik": "B",
+        "garis": [
+          "A",
+          "C"
+        ],
+        "jawaban": "3*sqrt(2)"
+      },
+      {
+        "id": "r10 jarak A ke BDE",
+        "tanya": "jarak_titik_bidang",
+        "titik": "A",
+        "bidang": [
+          "B",
+          "D",
+          "E"
+        ],
+        "jawaban": "2*sqrt(3)"
+      },
+      {
+        "id": "r11 sudut AH dan AF",
+        "tanya": "sudut_garis_garis",
+        "garis1": [
+          "A",
+          "H"
+        ],
+        "garis2": [
+          "A",
+          "F"
+        ],
+        "jawaban": "60"
+      },
+      {
+        "id": "r13 sudut AG dengan alas",
+        "tanya": "sudut_garis_bidang",
+        "garis": [
+          "A",
+          "G"
+        ],
+        "bidang": [
+          "A",
+          "B",
+          "C"
+        ],
+        "jawaban": "35.264390"
+      },
+      {
+        "id": "r16 jarak E ke AG",
+        "tanya": "jarak_titik_garis",
+        "titik": "E",
+        "garis": [
+          "A",
+          "G"
+        ],
+        "jawaban": "2*sqrt(6)"
+      },
+      {
+        "id": "r17 sudut BDG dengan alas",
+        "tanya": "sudut_bidang_bidang",
+        "bidang1": [
+          "B",
+          "D",
+          "G"
+        ],
+        "bidang2": [
+          "A",
+          "B",
+          "C"
+        ],
+        "jawaban": "54.735610"
+      },
+      {
+        "id": "r18 proyeksi AG pada alas",
+        "tanya": "panjang_proyeksi_garis_bidang",
+        "garis": [
+          "A",
+          "G"
+        ],
+        "bidang": [
+          "A",
+          "B",
+          "C"
+        ],
+        "jawaban": "6*sqrt(2)"
+      },
+      {
+        "id": "r21 EBTANAS 1999 proyeksi AF pada ACGE",
+        "tanya": "panjang_proyeksi_garis_bidang",
+        "garis": [
+          "A",
+          "F"
+        ],
+        "bidang": [
+          "A",
+          "C",
+          "G"
+        ],
+        "jawaban": "3*sqrt(6)"
+      },
+      {
+        "id": "r22 UAN 2005 sudut AH dengan BDHF",
+        "tanya": "sudut_garis_bidang",
+        "garis": [
+          "A",
+          "H"
+        ],
+        "bidang": [
+          "B",
+          "D",
+          "H"
+        ],
+        "jawaban": "30"
+      },
+      {
+        "id": "r24 jarak AE ke BG",
+        "tanya": "jarak_garis_garis",
+        "garis1": [
+          "A",
+          "E"
+        ],
+        "garis2": [
+          "B",
+          "G"
+        ],
+        "jawaban": "6"
+      },
+      {
+        "id": "r25 sudut AF dan BG",
+        "tanya": "sudut_garis_garis",
+        "garis1": [
+          "A",
+          "F"
+        ],
+        "garis2": [
+          "B",
+          "G"
+        ],
+        "jawaban": "60"
+      },
+      {
+        "id": "r26 jarak G ke ACF",
+        "tanya": "jarak_titik_bidang",
+        "titik": "G",
+        "bidang": [
+          "A",
+          "C",
+          "F"
+        ],
+        "jawaban": "2*sqrt(3)"
+      },
+      {
+        "id": "r29 sudut ACF dengan alas",
+        "tanya": "sudut_bidang_bidang",
+        "bidang1": [
+          "A",
+          "C",
+          "F"
+        ],
+        "bidang2": [
+          "A",
+          "B",
+          "C"
+        ],
+        "jawaban": "54.735610"
+      },
+      {
+        "id": "r32 jarak F ke ACH",
+        "tanya": "jarak_titik_bidang",
+        "titik": "F",
+        "bidang": [
+          "A",
+          "C",
+          "H"
+        ],
+        "jawaban": "4*sqrt(3)"
+      },
+      {
+        "id": "r32 pembanding: jarak B ke ACH",
+        "tanya": "jarak_titik_bidang",
+        "titik": "B",
+        "bidang": [
+          "A",
+          "C",
+          "H"
+        ],
+        "jawaban": "2*sqrt(3)"
+      }
+    ]
+  },
+  {
+    "nama": "kuis r05",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 7
+    },
+    "soal": [
+      {
+        "id": "r05 jarak alas ke tutup rusuk 7",
+        "tanya": "jarak_bidang_bidang",
+        "bidang1": [
+          "A",
+          "B",
+          "C"
+        ],
+        "bidang2": [
+          "E",
+          "F",
+          "G"
+        ],
+        "jawaban": "7"
+      }
+    ]
+  },
+  {
+    "nama": "kuis r06",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 3
+    },
+    "soal": [
+      {
+        "id": "r06 jarak A ke G rusuk 3",
+        "tanya": "jarak_titik",
+        "dari": "A",
+        "ke": "G",
+        "jawaban": "3*sqrt(3)"
+      }
+    ]
+  },
+  {
+    "nama": "kuis r12",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 9
+    },
+    "soal": [
+      {
+        "id": "r12 jarak AE ke BCGF rusuk 9",
+        "tanya": "jarak_garis_bidang",
+        "garis": [
+          "A",
+          "E"
+        ],
+        "bidang": [
+          "B",
+          "C",
+          "G"
+        ],
+        "jawaban": "9"
+      }
+    ]
+  },
+  {
+    "nama": "kuis r14",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 12
+    },
+    "soal": [
+      {
+        "id": "r14 jarak C ke BDG rusuk 12",
+        "tanya": "jarak_titik_bidang",
+        "titik": "C",
+        "bidang": [
+          "B",
+          "D",
+          "G"
+        ],
+        "jawaban": "4*sqrt(3)"
+      }
+    ]
+  },
+  {
+    "nama": "kuis r19",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 4,
+      "tambahan": {
+        "P": [
+          "E",
+          "H"
+        ]
+      }
+    },
+    "soal": [
+      {
+        "id": "r19 UAN 2003",
+        "tanya": "jarak_titik_garis",
+        "titik": "P",
+        "garis": [
+          "C",
+          "F"
+        ],
+        "jawaban": "3*sqrt(2)"
+      }
+    ]
+  },
+  {
+    "nama": "kuis r20",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 8
+    },
+    "soal": [
+      {
+        "id": "r20 UN 2004",
+        "tanya": "panjang_proyeksi_garis_bidang",
+        "garis": [
+          "D",
+          "E"
+        ],
+        "bidang": [
+          "B",
+          "D",
+          "H"
+        ],
+        "jawaban": "4*sqrt(6)"
+      }
+    ]
+  },
+  {
+    "nama": "kuis r23",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 6,
+      "tambahan": {
+        "M": [
+          "E",
+          "F"
+        ]
+      }
+    },
+    "soal": [
+      {
+        "id": "r23 jarak M tengah EF ke BD",
+        "tanya": "jarak_titik_garis",
+        "titik": "M",
+        "garis": [
+          "B",
+          "D"
+        ],
+        "jawaban": "9*sqrt(2)/2"
+      }
+    ]
+  },
+  {
+    "nama": "kuis r31",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 6,
+      "tambahan": {
+        "M": [
+          "A",
+          "E"
+        ]
+      }
+    },
+    "soal": [
+      {
+        "id": "r31 jarak M tengah AE ke BDG",
+        "tanya": "jarak_titik_bidang",
+        "titik": "M",
+        "bidang": [
+          "B",
+          "D",
+          "G"
+        ],
+        "jawaban": "3*sqrt(3)"
+      },
+      {
+        "id": "r31 pembanding: jarak E ke BDG",
+        "tanya": "jarak_titik_bidang",
+        "titik": "E",
+        "bidang": [
+          "B",
+          "D",
+          "G"
+        ],
+        "jawaban": "4*sqrt(3)"
+      }
+    ]
+  },
+  {
+    "nama": "kuis r27 dan r30",
+    "bangun": {
+      "jenis": "balok",
+      "p": 8,
+      "l": 6,
+      "t": 4
+    },
+    "soal": [
+      {
+        "id": "r27 diagonal ruang balok",
+        "tanya": "jarak_titik",
+        "dari": "A",
+        "ke": "G",
+        "jawaban": "2*sqrt(29)"
+      },
+      {
+        "id": "r30 jarak A ke bidang BDHF",
+        "tanya": "jarak_titik_bidang",
+        "titik": "A",
+        "bidang": [
+          "B",
+          "D",
+          "H"
+        ],
+        "jawaban": "4.8"
+      }
+    ]
+  },
+  {
+    "nama": "kuis r28 limas",
+    "bangun": {
+      "jenis": "limas",
+      "alas": 6,
+      "tinggi": 4
+    },
+    "soal": [
+      {
+        "id": "r28 sudut TAB dengan alas",
+        "tanya": "sudut_bidang_bidang",
+        "bidang1": [
+          "A",
+          "B",
+          "T"
+        ],
+        "bidang2": [
+          "A",
+          "B",
+          "C"
+        ],
+        "jawaban": "53.130102"
+      }
+    ]
+  }
+]
