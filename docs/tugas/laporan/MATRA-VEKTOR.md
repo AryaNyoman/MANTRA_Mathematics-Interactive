@@ -1,5 +1,70 @@
 # Laporan MATRA-VEKTOR
-Terakhir: 2 September 2026, 00.45
+Terakhir: 2 September 2026, 04.30
+
+## Pemeriksaan ulang 2 Sep setelah cabang diselaraskan ke master
+
+Diminta MASTER. Cabang sudah berisi kerja saya, empat topik lain, perbaikan HP
+dari sesi UI/UX, dan tujuh video Limit. Dev server pindah ke port **3010**,
+Playwright memakai sesi bernama **`-s=matra-vektor`**.
+
+### Tampilan HP: SUDAH BENAR
+
+Satu-satunya syarat gelombang 1 yang belum terpenuhi, sekarang terpenuhi.
+Potret 375 piksel dibuka dan dinilai dengan mata, dua kali: sekali pada HEAD
+saat itu, sekali lagi setelah cabang maju ke `f9e6a05`, supaya yang dinilai
+benar-benar kode terkini.
+
+| Sebelum perbaikan UI/UX | Sesudah |
+|---|---|
+| Teks meluber keluar layar dan terpotong | Menumpuk satu kolom, semua terbaca |
+| Kolom widget menyusut jadi sisa tipis | Widget punya kartu sendiri, tampil utuh |
+| Tulisan panel kendali menembus kolom bacaan | Panel kendali rapi di bawah widget |
+| Lencana INTERAKTIF menimpa judul materi | Lencana di atas kartu, tidak menimpa |
+| Navigasi memenuhi lebar | Tombol menu, tab membungkus jadi beberapa baris |
+
+Diperiksa dua materi yang bentuknya paling berbeda:
+- **Materi 01** (widget SVG bisa diseret): bidangnya utuh, kotak keterangan
+  warna terbaca, angka sumbu terbaca, tidak ada yang terpotong.
+- **Materi 10** (galeri empat foto): foto tampil utuh tanpa terpotong,
+  keterangan dan kotak hitungannya terbaca.
+
+Lebar 1366 juga dipotret ulang dan tetap bersih.
+
+**Satu catatan jujur, bukan penghalang**: pada 375 piksel, tulisan DI DALAM
+gambar SVG mengecil sampai kira-kira 6 sampai 7 piksel, misalnya penunjuk skala
+"lebar tampilan 11 satuan". Masih terbaca, tetapi kecil. Ini akibat bidang
+gambar selebar 460 satuan diperkecil mengikuti lebar layar, jadi berlaku untuk
+semua topik, bukan khusus vektor. Kalau ARYA merasa terlalu kecil, perbaikannya
+ada di sesi UI/UX, bukan di sini.
+
+### Verifikasi diulang dengan biner Node langsung
+
+Aturan baru: `rtk` terbukti mengarang keluaran (temuan MATRA-STATISTIKA).
+Semua klaim "lolos" saya pada 1 September dibuat lewat `rtk proxy`, jadi
+semuanya saya jalankan ulang tanpa pembungkus.
+
+```
+node node_modules/typescript/bin/tsc --noEmit          -> kode keluar 0
+node node_modules/eslint/bin/eslint.js <berkas vektor> -> kode keluar 0
+node node_modules/next/dist/bin/next build             -> 19 halaman, TypeScript 25,0 detik
+node alat/uji-geometri-vektor.mts                      -> SEMUA LOLOS
+python alat/cek_vektor.py alat/uji-cek-vektor.json     -> 13 dari 13 DITOLAK (memang harus)
+python alat/cek_vektor.py materi + latihan + kuis      -> SEMUA LOLOS: 116 soal
+```
+
+**tsc dibuktikan hidup**, bukan sekadar menjawab aman: disisipkan galat tipe
+sengaja, tsc menolaknya dengan `error TS2322` dan kode keluar 2; setelah galat
+dihapus, kode keluar kembali 0.
+
+**Bukti rtk memang mengarang, dari kasus saya sendiri**: pada 1 September rtk
+melaporkan build "Compiled successfully in 1624ms". Build sungguhan hari ini
+memakan 25 detik hanya untuk tahap TypeScript-nya saja dan menghasilkan 19
+halaman. Angka 1,6 detik itu mustahil. Hasil akhirnya kebetulan sama-sama
+lolos, tetapi angkanya tidak bisa dipercaya, dan itu justru yang berbahaya.
+
+Yang TIDAK berubah setelah diulang: semua tetap lolos. Tidak ada temuan baru.
+
+---
 
 ## Selesai
 
@@ -117,6 +182,11 @@ Tidak ada. Gelombang 1 selesai, menunggu tinjauan ARYA.
 
 ## Butuh MASTER
 
+> **Diperbarui 2 Sep**: butir 1 dan 2 di bawah SUDAH SELESAI. Tabel kepemilikan
+> yang baru menyatakan baris `siap: true` di `topik.ts` dan berkas
+> `web/app/latihan/<topik>/page.tsx` resmi menjadi wilayah sesi topik. Keduanya
+> tidak lagi dianggap pelanggaran. Dibiarkan tertulis sebagai catatan riwayat.
+
 1. **`web/content/topik.ts` diubah satu kata**: `siap: false` menjadi
    `siap: true` pada baris vektor. Tanpa itu halaman topiknya menampilkan kartu
    "Belum dibangun" dan mustahil diperiksa dengan mata. Hanya baris vektor yang
@@ -148,7 +218,9 @@ Tidak ada. Gelombang 1 selesai, menunggu tinjauan ARYA.
    Fotonya sah dan berlisensi terbuka, tetapi logonya besar. Kalau ARYA merasa
    itu mengganggu, tinggal bilang dan diganti gambar buatan sendiri.
 
-2. **Tampilan HP masih rusak, dan itu BUKAN dari topik ini.** Sudah dilaporkan
+2. ~~**Tampilan HP masih rusak.**~~ **SUDAH BERES 2 Sep**, diperbaiki sesi
+   MATRA-DESAIN-UI-UX dan sudah saya potret ulang serta nilai sendiri. Catatan
+   lamanya: Sudah dilaporkan
    sebelumnya dan ARYA sudah memutuskan itu urusan sesi MATRA-DESAIN-UI-UX.
    Dicatat ulang di sini supaya MASTER tidak mengira vektor yang merusaknya:
    topik Limit yang sudah tayang rusak dengan cara yang sama persis pada lebar
