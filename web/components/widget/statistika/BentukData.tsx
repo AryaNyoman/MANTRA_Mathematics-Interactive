@@ -73,14 +73,22 @@ export default function BentukData({ children }: PropWidget) {
 
   if (bentuk === 'lingkaran') {
     const cx = 150, cy = 158, r = 96
-    let sudut = -Math.PI / 2
-    const potongan = (jenis === 'kategori' ? nilaiKat : kelas.map((k) => k.f)).map((v, i) => {
-      const total = jenis === 'kategori' ? totalKat : ANGKA.data.length
-      const lebar = (v / total) * Math.PI * 2
-      const mulai = sudut
-      sudut += lebar
-      return { i, v, mulai, akhir: sudut, persen: (v / total) * 100 }
-    })
+    const total = jenis === 'kategori' ? totalKat : ANGKA.data.length
+    /*
+     * Sudut awal tiap potongan dihitung dengan reduce, BUKAN dengan penghitung
+     * yang dinaikkan di dalam map. React 19 melarang mengubah variabel biasa
+     * setelah render selesai, dan larangan itu sudah pernah kena di proyek ini
+     * (lihat PROGRESS.md). Kena lagi di sini, dan ditangkap eslint.
+     */
+    const potongan = (jenis === 'kategori' ? nilaiKat : kelas.map((k) => k.f))
+      .reduce<Array<{ i: number; v: number; mulai: number; akhir: number; persen: number }>>(
+        (kumpul, v, i) => {
+          const mulai = kumpul.length > 0 ? kumpul[kumpul.length - 1].akhir : -Math.PI / 2
+          const akhir = mulai + (v / total) * Math.PI * 2
+          return [...kumpul, { i, v, mulai, akhir, persen: (v / total) * 100 }]
+        },
+        [],
+      )
     const nama = jenis === 'kategori' ? KAT.kategori.map((k) => k.nama) : kelas.map((k) => k.label)
 
     gambar = (
@@ -93,7 +101,7 @@ export default function BentukData({ children }: PropWidget) {
         {/* angka ditulis langsung di potongannya. Ini bukan hiasan: palet
             kategori punya satu warna yang kontrasnya di bawah ambang, dan
             label langsung itulah tebusannya. */}
-        {potongan.filter((p) => p.persen >= 7).map((p) => {
+        {potongan.filter((pt) => pt.persen >= 7).map((p) => {
           const t = (p.mulai + p.akhir) / 2
           return (
             <text key={p.i} x={cx + Math.cos(t) * r * 0.66} y={cy + Math.sin(t) * r * 0.66 + 4}

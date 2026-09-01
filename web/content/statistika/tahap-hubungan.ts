@@ -313,9 +313,9 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
         jenis: 'coba',
         teks: 'Alat di sebelah kiri menampilkan kedua versi berdampingan.',
         langkah: [
-          'Tekan tombol untuk memotong sumbu tegaknya.',
+          'Geser batas bawah sumbu pada grafik kanan, dari 0 sampai 412.',
           'Perhatikan angkanya tidak berubah sama sekali, cuma sumbunya.',
-          'Perhatikan seberapa berbeda kesan yang ditimbulkan keduanya.',
+          'Perhatikan seberapa berbeda kesan yang ditimbulkan kedua grafik itu, padahal datanya satu.',
         ],
       },
       { jenis: 'paragraf', teks: 'Memotong sumbu tidak selalu curang. Untuk data seperti suhu tubuh, mulai dari nol justru membuang seluruh informasinya. Yang membedakan curang dan tidak adalah apakah pemotongan itu DIBERITAHUKAN dengan jelas, atau disembunyikan supaya pembaca salah menduga.' },

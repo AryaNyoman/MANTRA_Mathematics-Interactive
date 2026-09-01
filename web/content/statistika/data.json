@@ -199,6 +199,32 @@
     }
   },
   {
+    "id": "t10-tanpa-hubungan",
+    "jenis": "bivariat",
+    "judul": "Nomor absen dan nilai ujian, 10 siswa",
+    "satuanX": "nomor absen",
+    "satuanY": "nilai",
+    "buatan": true,
+    "pasangan": [
+      [1, 72], [2, 85], [3, 64], [4, 79], [5, 68],
+      [6, 88], [7, 70], [8, 62], [9, 83], [10, 74]
+    ],
+    "klaim": { "n": 10, "r": "-0,03", "mean_y": "74,5" }
+  },
+  {
+    "id": "t10-main-game",
+    "jenis": "bivariat",
+    "judul": "Jam main gim seminggu dan nilai ujian, 10 siswa",
+    "satuanX": "jam per minggu",
+    "satuanY": "nilai",
+    "buatan": true,
+    "pasangan": [
+      [1, 88], [2, 85], [3, 80], [4, 82], [5, 75],
+      [6, 72], [7, 70], [8, 65], [9, 66], [10, 60]
+    ],
+    "klaim": { "n": 10, "gradien": "-3,02", "konstanta": "90,93", "r": "-0,98" }
+  },
+  {
     "id": "t12-kuat-naik",
     "jenis": "bivariat",
     "judul": "Contoh hubungan kuat dan naik",

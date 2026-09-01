@@ -256,3 +256,48 @@ export function kelompokkan(data: number[], lebar: number): Kelas[] {
   }
   return hasil
 }
+
+export type Trend = {
+  arah: 'naik' | 'turun' | 'tidak ada arah'
+  bentuk: 'mendekati lurus' | 'melengkung'
+  kekuatan: 'kuat' | 'sedang' | 'lemah'
+  r: number
+}
+
+/**
+ * Baca arah, bentuk, dan kekuatan sebaran titik.
+ *
+ * BENTUK MELENGKUNG TIDAK BISA DIBACA DARI r SAJA.
+ * Itu justru inti Tahap 12: data yang mengikuti kurva sempurna bisa punya
+ * r nol. Jadi bentuknya diperiksa terpisah, dengan cara yang sederhana dan
+ * bisa dijelaskan ke siswa: data dibelah tiga menurut x, lalu rata-rata y tiap
+ * bagian dibandingkan. Kalau bagian tengah menonjol jauh ke atas atau ke bawah
+ * dibandingkan kedua ujungnya, polanya melengkung.
+ *
+ * Cara ini sengaja dipilih daripada mencocokkan kurva kuadrat, sebab hasilnya
+ * bisa dibaca siswa dari gambarnya sendiri, bukan cuma dipercaya.
+ */
+export function bentukTrend(pasangan: Array<[number, number]>): Trend {
+  const { r } = regresi(pasangan)
+  const urut = [...pasangan].sort((a, b) => a[0] - b[0])
+  const n = urut.length
+  const potong = Math.max(1, Math.floor(n / 3))
+  const rata = (bagian: Array<[number, number]>) =>
+    bagian.reduce((a, p) => a + p[1], 0) / bagian.length
+
+  const kiri = rata(urut.slice(0, potong))
+  const tengah = rata(urut.slice(potong, n - potong))
+  const kanan = rata(urut.slice(n - potong))
+  const rentangY = Math.max(...urut.map((p) => p[1])) - Math.min(...urut.map((p) => p[1])) || 1
+  // menonjol berarti bagian tengah keluar dari kisaran kedua ujungnya
+  const tonjolan = tengah - (kiri + kanan) / 2
+  const melengkung = Math.abs(tonjolan) > rentangY * 0.18
+
+  const besar = Math.abs(r)
+  return {
+    arah: melengkung || besar < 0.25 ? 'tidak ada arah' : r > 0 ? 'naik' : 'turun',
+    bentuk: melengkung ? 'melengkung' : 'mendekati lurus',
+    kekuatan: besar >= 0.8 ? 'kuat' : besar >= 0.5 ? 'sedang' : 'lemah',
+    r,
+  }
+}
