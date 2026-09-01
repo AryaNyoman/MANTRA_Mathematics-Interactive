@@ -335,9 +335,12 @@ laporan, tidak dikerjakan sendiri.
 `widget/statistika/papan.ts`, tidak mengimpor `widget/limit/koordinat.ts`,
 supaya folder Limit tidak jadi ketergantungan dan MASTER bebas memindahkannya.
 
-**Palet warna.** Empat warna matematika terkunci (`#3A6EA5`, `#C25E4D`,
-`#1F2430`, `#D9A441`) dipakai untuk peran tetap: biru untuk data utama, bata
-untuk pembanding atau pencilan, kuning untuk sorotan seperti mean. Kategori
+**Palet warna.** Warna matematika terkunci di `lib/warna.ts` dipakai untuk peran
+tetap: biru `#3A6EA5` untuk data utama, bata `#C25E4D` untuk pembanding atau
+pencilan, ungu `#6A4C93` untuk yang sedang disorot seperti mean, tinta `#1F2430`
+untuk garis utama, dan `#8B8378` untuk garis bantu. Kuning `#D9A441` yang masih
+tertulis di `CLAUDE.md` sudah dibuang pada 31 Agustus 2026 karena kontrasnya di
+atas krem cuma 2,04:1, jadi jangan dipakai. Kategori
 tambahan pada diagram batang dan lingkaran mengambil palet terpisah di
 `warna-data.ts`, yang diturunkan dari gaya Studio Teknis, bukan warna baru
 yang dikarang. Skill `dataviz` dibaca sebelum widget pertama digambar.

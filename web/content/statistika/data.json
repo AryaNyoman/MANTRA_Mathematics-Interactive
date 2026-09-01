@@ -1,0 +1,226 @@
+[
+  {
+    "id": "t01-kelas-a",
+    "jenis": "tunggal",
+    "judul": "Nilai ulangan Kelas A",
+    "satuan": "nilai",
+    "buatan": true,
+    "data": [6, 6, 7, 7, 7, 7, 8, 8],
+    "klaim": {
+      "n": 8, "mean": 7, "median": 7, "modus": [7],
+      "jangkauan": 2, "varian": "0,5", "simpangan_baku": "0,71"
+    }
+  },
+  {
+    "id": "t01-kelas-b",
+    "jenis": "tunggal",
+    "judul": "Nilai ulangan Kelas B",
+    "satuan": "nilai",
+    "buatan": true,
+    "data": [3, 4, 5, 7, 7, 9, 10, 11],
+    "klaim": {
+      "n": 8, "mean": 7, "median": 7, "modus": [7],
+      "jangkauan": 8, "varian": "7,25", "simpangan_baku": "2,69"
+    }
+  },
+  {
+    "id": "t02-cara-ke-sekolah",
+    "jenis": "kategori",
+    "judul": "Cara 40 siswa berangkat ke sekolah",
+    "buatan": true,
+    "kategori": [
+      { "nama": "Jalan kaki", "f": 8 },
+      { "nama": "Sepeda", "f": 6 },
+      { "nama": "Sepeda motor", "f": 12 },
+      { "nama": "Angkot", "f": 5 },
+      { "nama": "Diantar", "f": 9 }
+    ],
+    "klaim": { "n": 40, "persen": [20, 15, 30, "12,5", "22,5"] }
+  },
+  {
+    "id": "t03-tinggi",
+    "jenis": "tunggal",
+    "judul": "Tinggi badan 40 siswa",
+    "satuan": "cm",
+    "buatan": true,
+    "data": [
+      152, 155, 156, 158, 158, 159, 160, 160, 161, 161,
+      162, 162, 163, 163, 163, 164, 164, 165, 165, 165,
+      166, 166, 167, 167, 168, 168, 169, 169, 170, 170,
+      171, 172, 172, 173, 174, 175, 176, 177, 178, 180
+    ],
+    "klaim": {
+      "n": 40, "mean": "166,1", "median": "165,5", "modus": [163, 165],
+      "min": 152, "maks": 180, "jangkauan": 28
+    }
+  },
+  {
+    "id": "t04-kelas-a",
+    "jenis": "tunggal",
+    "judul": "Nilai 25 siswa Kelas A",
+    "satuan": "nilai",
+    "buatan": true,
+    "data": [
+      55, 58, 60, 62, 64, 66, 68, 70, 71, 72, 74, 75, 76, 78, 80,
+      82, 84, 85, 86, 88, 90, 91, 93, 95, 97
+    ],
+    "klaim": { "n": 25, "mean": "76,8", "median": 76 }
+  },
+  {
+    "id": "t04-kelas-b",
+    "jenis": "tunggal",
+    "judul": "Nilai 40 siswa Kelas B",
+    "satuan": "nilai",
+    "buatan": true,
+    "data": [
+      50, 52, 54, 55, 56, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67,
+      68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
+      81, 82, 83, 84, 85, 86, 87, 88, 90, 92, 94, 96
+    ],
+    "klaim": { "n": 40, "mean": "72,55", "median": "72,5" }
+  },
+  {
+    "id": "t05-ulangan",
+    "jenis": "tunggal",
+    "judul": "Nilai ulangan 8 siswa",
+    "satuan": "nilai",
+    "buatan": true,
+    "data": [4, 5, 6, 7, 7, 8, 8, 11],
+    "klaim": {
+      "n": 8, "jumlah": 56, "mean": 7, "median": 7, "modus": [7, 8],
+      "varian": 4, "simpangan_baku": "2,0"
+    }
+  },
+  {
+    "id": "t06-tanpa-direktur",
+    "jenis": "tunggal",
+    "judul": "Gaji 9 karyawan",
+    "satuan": "juta rupiah",
+    "buatan": true,
+    "data": [4.2, 4.5, 4.8, 5.0, 5.0, 5.2, 5.5, 6.0, 7.0],
+    "klaim": { "n": 9, "mean": "5,24", "median": 5, "modus": [5] }
+  },
+  {
+    "id": "t06-dengan-direktur",
+    "jenis": "tunggal",
+    "judul": "Gaji 9 karyawan dan 1 direktur",
+    "satuan": "juta rupiah",
+    "buatan": true,
+    "data": [4.2, 4.5, 4.8, 5.0, 5.0, 5.2, 5.5, 6.0, 7.0, 75.0],
+    "klaim": {
+      "n": 10, "mean": "12,22", "median": "5,1",
+      "q1": "4,8", "q3": 6, "jak": "1,2", "pagar_atas": "7,8", "pencilan": [75]
+    }
+  },
+  {
+    "id": "t07-waktu",
+    "jenis": "tunggal",
+    "judul": "Waktu tempuh 15 siswa ke sekolah",
+    "satuan": "menit",
+    "buatan": true,
+    "data": [5, 7, 8, 10, 10, 12, 15, 15, 18, 20, 22, 25, 30, 35, 60],
+    "klaim": {
+      "n": 15, "mean": "19,47", "min": 5, "maks": 60,
+      "q1": 10, "q2": 15, "q3": 25, "jak": 15, "jangkauan": 55,
+      "pagar_bawah": "-12,5", "pagar_atas": "47,5", "pencilan": [60]
+    }
+  },
+  {
+    "id": "t08-mesin-a",
+    "jenis": "tunggal",
+    "judul": "Isi 5 botol dari Mesin A",
+    "satuan": "ml",
+    "buatan": true,
+    "data": [498, 499, 500, 501, 502],
+    "klaim": {
+      "n": 5, "mean": 500, "jangkauan": 4, "varian": 2, "simpangan_baku": "1,41"
+    }
+  },
+  {
+    "id": "t08-mesin-b",
+    "jenis": "tunggal",
+    "judul": "Isi 5 botol dari Mesin B",
+    "satuan": "ml",
+    "buatan": true,
+    "data": [490, 495, 500, 505, 510],
+    "klaim": {
+      "n": 5, "mean": 500, "jangkauan": 20, "varian": 50, "simpangan_baku": "7,07"
+    }
+  },
+  {
+    "id": "t09-nilai-kelompok",
+    "jenis": "kelompok",
+    "judul": "Nilai ujian 40 siswa, tersaji sebagai tabel",
+    "satuan": "nilai",
+    "buatan": true,
+    "kelas": [
+      { "label": "40 - 49", "bawah": 39.5, "atas": 49.5, "f": 3 },
+      { "label": "50 - 59", "bawah": 49.5, "atas": 59.5, "f": 8 },
+      { "label": "60 - 69", "bawah": 59.5, "atas": 69.5, "f": 12 },
+      { "label": "70 - 79", "bawah": 69.5, "atas": 79.5, "f": 9 },
+      { "label": "80 - 89", "bawah": 79.5, "atas": 89.5, "f": 6 },
+      { "label": "90 - 99", "bawah": 89.5, "atas": 99.5, "f": 2 }
+    ],
+    "klaim": {
+      "n": 40, "mean": "67,75", "median": 67, "modus": "65,21",
+      "q1": "58,25", "q3": "77,28"
+    }
+  },
+  {
+    "id": "t10-belajar",
+    "jenis": "bivariat",
+    "judul": "Jam belajar seminggu dan nilai ujian, 10 siswa",
+    "satuanX": "jam per minggu",
+    "satuanY": "nilai",
+    "buatan": true,
+    "pasangan": [
+      [2, 55], [3, 58], [4, 64], [5, 63], [6, 70],
+      [7, 72], [8, 75], [9, 80], [10, 78], [11, 85]
+    ],
+    "klaim": {
+      "n": 10, "mean_x": "6,5", "mean_y": 70,
+      "gradien": "3,2", "konstanta": "49,2", "r": "0,98", "r2": "0,97"
+    }
+  },
+  {
+    "id": "t12-kuat-naik",
+    "jenis": "bivariat",
+    "judul": "Contoh hubungan kuat dan naik",
+    "buatan": true,
+    "pasangan": [
+      [1, 3], [2, 4], [3, 7], [4, 7], [5, 11],
+      [6, 10], [7, 14], [8, 16], [9, 17], [10, 20]
+    ],
+    "klaim": { "n": 10, "r": "0,99" }
+  },
+  {
+    "id": "t12-lemah",
+    "jenis": "bivariat",
+    "judul": "Contoh hubungan lemah",
+    "buatan": true,
+    "pasangan": [
+      [1, 8], [2, 4], [3, 11], [4, 6], [5, 13],
+      [6, 5], [7, 12], [8, 9], [9, 15], [10, 7]
+    ],
+    "klaim": { "n": 10, "r": "0,34" }
+  },
+  {
+    "id": "t12-melengkung",
+    "jenis": "bivariat",
+    "judul": "Hubungan sempurna yang angka r nya justru nol",
+    "buatan": true,
+    "pasangan": [
+      [-3, 9], [-2, 4], [-1, 1], [0, 0], [1, 1], [2, 4], [3, 9]
+    ],
+    "klaim": { "n": 7, "gradien": 0, "r": "0,00" }
+  },
+  {
+    "id": "t13-kunjungan",
+    "jenis": "tunggal",
+    "judul": "Pengunjung perpustakaan sekolah, lima bulan",
+    "satuan": "orang",
+    "buatan": true,
+    "data": [412, 418, 425, 421, 430],
+    "klaim": { "n": 5, "mean": "421,2", "min": 412, "maks": 430, "jangkauan": 18 }
+  }
+]
