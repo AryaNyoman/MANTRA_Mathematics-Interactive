@@ -53,6 +53,11 @@ export default function JarakKeRata({ children }: PropWidget) {
   const { aktif, propSvg, mulai } = useSeret(svgRef, (i, x) => pindah(i, dari(x)))
   const r = ringkasTunggal(data)
   const xMean = ke(r.mean)
+  // Garis rata-rata dibuat setinggi persegi terbesar, bukan setinggi tetap.
+  // Dengan tinggi tetap, Mesin A yang perseginya kecil menyisakan garis panjang
+  // yang menjulang ke ruang kosong dan terlihat seperti kesalahan gambar.
+  const sisiTerbesar = Math.max(...data.map((v) => Math.abs(ke(v) - xMean)), 0)
+  const puncakGaris = DASAR - Math.max(sisiTerbesar + 26, 52)
 
   const kiri = (
     <>
@@ -80,16 +85,16 @@ export default function JarakKeRata({ children }: PropWidget) {
           })}
 
           {/* garis mean */}
-          <line x1={xMean} y1={DASAR - 132} x2={xMean} y2={DASAR + 8}
+          <line x1={xMean} y1={puncakGaris} x2={xMean} y2={DASAR + 8}
                 stroke={PERAN.sorot} strokeWidth={2} />
-          <text x={xMean} y={DASAR - 138} textAnchor="middle" fontSize={10}
+          <text x={xMean} y={puncakGaris - 7} textAnchor="middle" fontSize={10}
                 fontFamily={MONO} fill={PERAN.sorot}>
             rata-rata {angka(r.mean, 1)}
           </text>
 
           {/* titik data, bisa diseret */}
           {data.map((v, i) => (
-            <circle key={i} cx={ke(v)} cy={DASAR} r={7}
+            <circle key={i} cx={ke(v)} cy={DASAR} r={5.5}
                     fill={PERAN.data} stroke="#FFFDFA"
                     strokeWidth={aktif === i ? 3 : 1.5}
                     {...propTitikSeret({

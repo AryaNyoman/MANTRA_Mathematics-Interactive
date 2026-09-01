@@ -30,8 +30,9 @@ const KANAN = VW - 26
 const ke = (v: number) => KIRI + ((v - MIN) / (MAKS - MIN)) * (KANAN - KIRI)
 const dari = (px: number) => MIN + ((px - KIRI) / (KANAN - KIRI)) * (MAKS - MIN)
 const TIK = petak(MIN, MAKS, 8)
-// Ditaruh lebih ke atas: pada 232 sepertiga atas bingkainya kosong.
-const DASAR = 186
+// Letaknya dicari dua kali. Pada 232 sepertiga ATAS bingkainya kosong, pada 186
+// giliran sepertiga BAWAH yang kosong. 210 membuat isinya duduk di tengah.
+const DASAR = 210
 
 export default function TarikPencilan({ children }: PropWidget) {
   const svgRef = useRef<SVGSVGElement | null>(null)
@@ -66,7 +67,7 @@ export default function TarikPencilan({ children }: PropWidget) {
           {/* Garis rata-rata ditarik sampai dekat puncak bingkai, dan labelnya
               ikut naik ke situ. Pada susunan sebelumnya labelnya jatuh setinggi
               tumpukan sembilan titik karyawan dan menembusnya. */}
-          <Penanda x={ke(r.mean)} dariY={52} sampaiY={DASAR} warna={PERAN.sorot}
+          <Penanda x={ke(r.mean)} dariY={62} sampaiY={DASAR} warna={PERAN.sorot}
                    label="rata-rata" nilai={r.mean} putus />
           {/* label median didorong ke bawah angka sumbu. Tanpa dorongan itu ia
               duduk tepat di atas angka nol dan keduanya jadi tak terbaca. */}
