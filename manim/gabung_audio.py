@@ -38,15 +38,26 @@ def durasi(berkas: Path) -> float:
     return float(h.stdout.strip())
 
 
-def cari_video(adegan: str) -> Path:
-    calon = sorted(
-        (AKAR / "media" / "videos").rglob(f"{adegan}.webm"),
-        key=lambda p: p.stat().st_mtime, reverse=True,
-    )
+def cari_video(adegan: str, uji: bool = False) -> Path:
+    """Cari hasil render adegan. Mode `uji` mencari versi 480p bikinan `-ql`.
+
+    Versi uji dirender sebagai mp4, versi tayang sebagai webm, jadi kedua
+    akhiran dicari. Aturan ARYA: semua video dibuat 480p dulu untuk direvisi,
+    baru dirender 1080p sekaligus di akhir.
+    """
+    calon = []
+    for akhiran in ("webm", "mp4"):
+        calon += list((AKAR / "media" / "videos").rglob(f"{adegan}.{akhiran}"))
     calon = [p for p in calon if "partial_movie_files" not in p.parts]
+    if uji:
+        calon = [p for p in calon if any("480p" in b for b in p.parts)]
+    else:
+        calon = [p for p in calon if not any("480p" in b for b in p.parts)]
     if not calon:
-        raise SystemExit(f"video adegan '{adegan}' tidak ditemukan di media/videos/")
-    return calon[0]
+        mutu = "480p (versi uji)" if uji else "mutu tayang"
+        raise SystemExit(
+            f"video adegan '{adegan}' {mutu} tidak ditemukan di media/videos/")
+    return max(calon, key=lambda p: p.stat().st_mtime)
 
 
 def main() -> None:
@@ -54,9 +65,12 @@ def main() -> None:
     p.add_argument("topik")
     p.add_argument("adegan")
     p.add_argument("--keluar", default=None, help="nama berkas hasil (tanpa folder)")
+    p.add_argument("--uji", action="store_true",
+                   help="gabungkan versi 480p untuk ditinjau ARYA, "
+                        "hasilnya ke media/uji-480p/ dan TIDAK disalin ke situs")
     a = p.parse_args()
 
-    video = cari_video(a.adegan)
+    video = cari_video(a.adegan, uji=a.uji)
     suara = AKAR / "audio" / a.topik / "narasi-penuh.mp3"
     if not suara.exists():
         raise SystemExit(f"narasi belum dibuat: {suara}\nJalankan dulu: python manim/buat_narasi.py {a.topik}")
@@ -74,24 +88,35 @@ def main() -> None:
             "  - adegan berubah?  -> pastikan tiap tahap memakai DURASI[...] dari durasi.json"
         )
 
-    nama = a.keluar or f"{a.topik}.webm"
-    hasil = AKAR / "media" / nama
+    if a.uji:
+        nama = a.keluar or f"{a.topik}.mp4"
+        hasil = AKAR / "media" / "uji-480p" / nama
+        hasil.parent.mkdir(parents=True, exist_ok=True)
+        suara_kode = ["-c:a", "aac", "-b:a", "96k"]
+    else:
+        nama = a.keluar or f"{a.topik}.webm"
+        hasil = AKAR / "media" / nama
+        suara_kode = ["-c:a", "libopus", "-b:a", "72k"]
     subprocess.run(
         ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
-         "-c:v", "copy", "-c:a", "libopus", "-b:a", "72k",
-         "-shortest", str(hasil)],
+         "-c:v", "copy"] + suara_kode + ["-shortest", str(hasil)],
         check=True,
     )
 
     mb = hasil.stat().st_size / 1024 / 1024
     print(f"\nhasil  : {hasil.relative_to(AKAR)}  {mb:.2f} MB  {durasi(hasil):.2f} detik")
-    if mb > BATAS_UKURAN_MB:
+    if mb > BATAS_UKURAN_MB and not a.uji:
         print(f"PERINGATAN: > {BATAS_UKURAN_MB} MB. Pertimbangkan turunkan bitrate atau resolusi.")
 
-    tujuan = AKAR / "web" / "public" / "anim" / nama
-    tujuan.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(hasil, tujuan)
-    print(f"disalin: {tujuan.relative_to(AKAR)}")
+    if a.uji:
+        # Versi uji SENGAJA tidak disalin ke web/public/anim. Kalau disalin,
+        # situs akan menayangkan video 480p yang belum disetujui ARYA.
+        print("versi uji: tidak disalin ke situs, memang begitu")
+    else:
+        tujuan = AKAR / "web" / "public" / "anim" / nama
+        tujuan.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(hasil, tujuan)
+        print(f"disalin: {tujuan.relative_to(AKAR)}")
 
     print("\n>>> WAJIB berikutnya:")
     print(f">>>   python manim/cek_video.py {hasil.relative_to(AKAR)} --per-detik 0.25")

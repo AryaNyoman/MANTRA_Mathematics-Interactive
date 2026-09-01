@@ -10,7 +10,7 @@
 | | |
 |---|---|
 | Tahap sekarang | **DUA topik selesai. Situs SUDAH TAYANG di Vercel.** |
-| Yang tersisa | 5 video Limit (2 sudah 480p menunggu revisi ARYA), lalu empat topik lain |
+| Yang tersisa | ARYA meninjau 6 video Limit 480p, lalu render 1080p60 sekaligus, lalu empat topik lain |
 | Alamat tayang | https://matra-eight.vercel.app |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md`<br>`docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`<br>`docs/superpowers/plans/2026-09-01-topik-limit.md` |
 | Tenggat | 12 September 2026 |
@@ -170,18 +170,39 @@ baris `Aliased` di log, jangan menebak polanya.
 | 1 | 04 Lubang di grafik | ✅ | ✅ | ✅ | ✅ | **TAYANG** |
 | 2 | 01 Kecepatan sesaat | ✅ | ✅ | ✅ | ⬜ | menunggu revisi ARYA |
 | 3 | 08 Limit sinus | ✅ | ✅ | ✅ | ⬜ | menunggu revisi ARYA |
-| 4 | 02 Mendekati | ✅ | ⬜ | ⬜ | ⬜ | adegan belum ditulis |
-| 5 | 09 Kontinuitas | ✅ | ⬜ | ⬜ | ⬜ | adegan belum ditulis |
-| 6 | 06 Nol per nol | ✅ | ⬜ | ⬜ | ⬜ | adegan belum ditulis |
-| 7 | 07 Tak hingga | ✅ | ⬜ | ⬜ | ⬜ | adegan belum ditulis |
+| 4 | 02 Mendekati | ✅ | ✅ | ✅ | ⬜ | menunggu revisi ARYA |
+| 5 | 09 Kontinuitas | ✅ | ✅ | ✅ | ⬜ | menunggu revisi ARYA |
+| 6 | 06 Nol per nol | ✅ | ✅ | ✅ | ⬜ | menunggu revisi ARYA |
+| 7 | 07 Tak hingga | ✅ | ✅ | ✅ | ⬜ | menunggu revisi ARYA |
 
-Keenam naskah narasinya sudah ditulis DAN suaranya sudah dibuat, ada di
-`manim/narasi/limit*.json` dan `audio/limit*/`. Jadi yang tersisa untuk empat
-video terakhir hanya menulis adegan Manim-nya.
+Ketujuh adegan sudah ditulis dan dirender. Enam salinan tinjauan bersuara ada
+di `media/uji-480p/` (Materi 04 tidak perlu, sudah tayang 1080p). Folder itu
+tidak masuk git sebab `media/` diabaikan; buat ulang dengan
+`python manim/gabung_audio.py <topik> <NamaAdegan> --uji`.
 
 **ATURAN BARU DARI ARYA (1 Sep 2026):** render SEMUA video di 480p dulu untuk
 direvisi, baru render 1080p60 sekaligus di akhir. Jangan render final satu per
 satu sebelum ARYA melihatnya.
+
+### Cacat yang ditemukan dengan MELIHAT lembar kontak, sesi 6
+
+Semuanya lolos dari log render tanpa satu pun galat. Tidak ada yang bisa
+ditemukan tanpa membuka gambarnya.
+
+| Video | Cacat | Sebabnya |
+|---|---|---|
+| 09 Kontinuitas | semua keterangan menyusut sampai tak terbaca | kalimat panjang satu baris dipaksa muat lebar 5,6 satuan oleh `batasi_lebar`, hurufnya tinggal 40 persen. **Pecah kalimat jadi baris pendek secara manual, jangan andalkan `batasi_lebar`.** |
+| 09 Kontinuitas | 50 detik terakhir menayangkan grafik meledak sementara narasinya bilang "suku banyak kontinu di SEMUA titik" | gambar tidak ikut diganti saat babak berpindah, jadi layar membantah ucapannya |
+| 09 Kontinuitas | keterangan lama dan baru tumpang tindih 1,4 detik | `FadeOut` dan `FadeIn` dijalankan bersamaan di posisi yang sama. Pakai berurutan. |
+| 06 Nol per nol | tiga peralihan rumus jadi coretan tak terbaca 2 detik | `ReplacementTransform` antara dua rumus yang jumlah lambangnya jauh berbeda. **Untuk rumus, tukar berurutan, jangan di-morph.** |
+| 06 Nol per nol | huruf `x` tertutup habis oleh coretannya sendiri, terlihat dihapus bukan dicoret | tebal garis yang pas untuk faktor `(x-2)` kelewat tebal untuk satu huruf. Sekarang tebalnya menyesuaikan lebar sasaran. |
+| 07 Tak hingga | dua baris contoh pecahan menyusut sampai sulit dibaca | satu `MathTex` panjang berisi `\tfrac` dan `\qquad` jadi objek kelewat lebar, lalu dikecilkan seluruhnya. **Pisah jadi beberapa objek lalu `arrange`.** |
+| 07 Tak hingga | keterangan penutup grafik cuma sempat tampil penuh 1,5 detik | langkah menggambar sebelumnya terlalu panjang |
+
+Satu hal yang **sengaja dibiarkan**: ada jeda sekitar 1 detik layar kosong
+antara judul pembuka memudar dan isi pertama muncul, di ketujuh video. Itu
+bawaan `sinema.judul_pembuka` yang memakai 80 persen jatah babak `sapa`. Kalau
+ARYA merasa itu mengganggu, ubah pengali 0,80 di semua adegan sekaligus.
 
 ---
 
