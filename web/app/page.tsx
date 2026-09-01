@@ -22,15 +22,23 @@ export default function Beranda() {
             priority
             className="merek-besar"
           />
+          {/* Slogan baru, permintaan ARYA 1 Sep 2026. Tanpa titik di akhir
+              baris: ini ajakan, bukan pernyataan yang ditutup. Tiga kata kerja
+              utamanya ditebalkan dan diberi warna aksen situs supaya mata
+              langsung menangkap apa yang ditawarkan tempat ini. */}
           <h1>
-            Bukan menghafal rumus.
+            Matematika tidak hanya dipelajari
             <br />
-            Melihat kenapa rumusnya begitu.
+            Matematika bisa dijelajahi
           </h1>
           <p className="sub">
-            Tiap materi dimulai dari animasi yang menjelaskan sebabnya, lalu alat
-            yang bisa Anda geser sendiri, supaya bedanya terasa bukan sekadar
-            dibaca.
+            Eksplorasi konsep matematika melalui <b className="sorot-slogan">animasi</b>,{' '}
+            <b className="sorot-slogan">visualisasi</b>, dan{' '}
+            <b className="sorot-slogan">interaksi</b>
+            <br />
+            yang membuat setiap rumus tidak hanya dipahami
+            <br />
+            tetapi dapat Anda lihat dan rasakan cara kerjanya
           </p>
           <div className="sambutan-aksi">
             <a href="#materi" className="tombol-utama">Mulai dari Kelas 10</a>

@@ -7,43 +7,60 @@ import { useEffect, useRef, useState } from 'react'
  * besar dengan tombol geser kiri-kanan.
  *
  * Yang ditampilkan adalah ISI ASLI, bukan gambar promosi. Video diambil dari
- * berkas yang benar-benar dipakai di materi, dan ketiga cuplikan layar dipotret
+ * berkas yang benar-benar dipakai di materi, dan kedua cuplikan layar dipotret
  * langsung dari halaman situs ini. Halaman depan yang menjanjikan sesuatu yang
  * tidak ada di dalam adalah cara tercepat kehilangan kepercayaan.
  *
- * REVISI 1 Sep 2026 (ARYA): dulu keempat klipnya video semua, sehingga
- * pengunjung hanya melihat sisi animasi dan sama sekali tidak tahu bahwa ada
- * alat yang bisa dicoba, latihan, dan kuis. Sekarang isinya berselang-seling:
- * animasi, lalu bukti bahwa situs ini juga bisa dikerjakan, bukan cuma ditonton.
+ * REVISI 1 Sep 2026 (ARYA), susunan lima slide:
+ *   1. Animasi tiga grafik yang BERJALAN SENDIRI, bisu, mengulang tanpa henti.
+ *      Tugasnya membuat pengunjung berhenti sebentar, bukan mengajar.
+ *   2. Rekaman alat interaktif yang dibuat ARYA sendiri.
+ *   3. Animasi lahirnya kurva sinus, lengkap dengan suara dan teks terjemahan.
+ *   4. Latihan, dipotret dengan jawaban SUDAH terbuka.
+ *   5. Bank soal, dipotret dengan kemajuan dan lencana SUDAH menyala.
  *
- * `preload="none"`: halaman depan tidak boleh menyeret video di kuota siswa.
- * Hanya klip yang sedang tampil yang dimuat, dan baru sampai metadatanya.
+ * Syarat potret di slide 4 dan 5 itu permintaan ARYA dan bukan hiasan: kartu
+ * kosong tidak membuktikan apa pun, sedangkan kartu berisi menunjukkan bahwa
+ * kemajuannya memang dicatat dan lencananya memang bisa didapat.
  */
 
 type Klip =
-  | { jenis: 'video'; berkas: string; poster: string; judul: string; isi: string }
+  | {
+      jenis: 'video'
+      berkas: string
+      poster: string
+      judul: string
+      isi: string
+      /** true untuk slide pertama: jalan sendiri, bisu, mengulang, tanpa tombol */
+      loop?: boolean
+      /** berkas subtitle hanya ada untuk video materi */
+      teks?: boolean
+    }
   | { jenis: 'gambar'; berkas: string; judul: string; isi: string }
 
 const KLIP: Klip[] = [
   {
     jenis: 'video',
-    berkas: 'tahap8-grafik-sin.webm',
-    poster: 'tahap8-grafik-sin.jpg',
-    judul: 'Animasi yang menjelaskan sebabnya',
-    isi: 'Titik berputar di lingkaran, tingginya dicatat, dan kurva sinus lahir di depan mata. Bukan rumus yang disodorkan, melainkan asal-usulnya.',
+    berkas: 'beranda-tiga-grafik.mp4',
+    poster: 'beranda-tiga-grafik.jpg',
+    loop: true,
+    judul: 'Tiga kurva yang lahir dari satu lingkaran',
+    isi: 'Sinus, kosinus, dan tangen bukan tiga rumus terpisah. Ketiganya catatan dari satu titik yang berputar, dan di sini Anda melihatnya terjadi.',
   },
   {
-    jenis: 'gambar',
-    berkas: 'demo-interaktif.jpg',
+    jenis: 'video',
+    berkas: 'beranda-interaktif.mp4',
+    poster: 'beranda-interaktif.jpg',
     judul: 'Alat yang bisa Anda geser sendiri',
     isi: 'Sudutnya Anda yang tentukan, dan angkanya berubah saat itu juga. Bukan membaca hasil orang lain, melainkan menguji sendiri sampai yakin.',
   },
   {
     jenis: 'video',
-    berkas: 'tahap6-enam-rasio.webm',
-    poster: 'tahap6-enam-rasio.jpg',
-    judul: 'Rumus yang bisa ditunjuk',
-    isi: 'Sekan dan kosekan bukan hafalan. Keenam perbandingan trigonometri ditunjukkan sebagai ruas garis yang benar-benar ada di gambar.',
+    berkas: 'tahap8-grafik-sin.webm',
+    poster: 'tahap8-grafik-sin.jpg',
+    teks: true,
+    judul: 'Animasi yang menjelaskan sebabnya',
+    isi: 'Titik berputar di lingkaran, tingginya dicatat, dan kurva sinus lahir di depan mata. Bukan rumus yang disodorkan, melainkan asal-usulnya.',
   },
   {
     jenis: 'gambar',
@@ -52,17 +69,10 @@ const KLIP: Klip[] = [
     isi: 'Soal pilihan ganda A sampai E. Setelah menjawab, Anda melihat langkah penyelesaiannya, bukan sekadar benar atau salah.',
   },
   {
-    jenis: 'video',
-    berkas: 'tahap7-sudut-istimewa.webm',
-    poster: 'tahap7-sudut-istimewa.jpg',
-    judul: 'Nilai yang bisa dihitung sendiri',
-    isi: 'Persegi dipotong diagonalnya, segitiga sama sisi dibelah dua. Dari situ nilai sudut istimewa muncul tanpa kalkulator.',
-  },
-  {
     jenis: 'gambar',
-    berkas: 'demo-kuis.jpg',
-    judul: 'Kuis berskor, tanpa akun',
-    isi: 'Menguji diri setelah materinya selesai dibaca. Nilainya tersimpan di peramban Anda sendiri, tidak dikirim ke mana pun.',
+    berkas: 'demo-banksoal.jpg',
+    judul: 'Bank soal berjenjang, dengan lencana',
+    isi: 'Empat tingkat kesulitan yang terbuka bertahap. Kemajuan dan lencananya tersimpan di peramban Anda sendiri, tanpa perlu akun.',
   },
 ]
 
@@ -84,19 +94,36 @@ export default function Demo() {
           <video
             key={klip.berkas}
             ref={video}
-            controls
-            preload="none"
+            /* Slide pertama sengaja TANPA tombol dan berjalan sendiri, supaya
+               terasa seperti gambar hidup, bukan video yang harus ditekan dulu.
+               `muted` WAJIB ada bersama `autoPlay`: tanpa itu peramban menolak
+               memutar sendiri, dan slide pertama akan diam membeku.
+               Slide lain tetap pakai tombol, karena ada suaranya. */
+            controls={!klip.loop}
+            autoPlay={klip.loop}
+            loop={klip.loop}
+            muted={klip.loop}
+            playsInline
+            /* Slide pertama dimuat lebih dulu karena memang langsung diputar.
+               Sisanya `none`: halaman depan tidak boleh menyeret video di kuota
+               siswa sebelum ia memilih menontonnya. */
+            preload={klip.loop ? 'auto' : 'none'}
             poster={`/anim/${klip.poster}`}
             aria-label={klip.judul}
           >
-            <source src={`/anim/${klip.berkas}`} type="video/webm" />
-            <track
-              kind="subtitles"
-              src={`/anim/${klip.berkas.replace(/\.webm$/, '.vtt')}`}
-              srcLang="id"
-              label="Bahasa Indonesia"
-              default
+            <source
+              src={`/anim/${klip.berkas}`}
+              type={klip.berkas.endsWith('.webm') ? 'video/webm' : 'video/mp4'}
             />
+            {klip.teks && (
+              <track
+                kind="subtitles"
+                src={`/anim/${klip.berkas.replace(/\.webm$/, '.vtt')}`}
+                srcLang="id"
+                label="Bahasa Indonesia"
+                default
+              />
+            )}
           </video>
         ) : (
           /* Cuplikan layar dipotret dari halaman situs ini sendiri.

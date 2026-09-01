@@ -537,7 +537,18 @@ ul.poin li b { color: var(--tinta); font-weight: 600; }
 .pilih-mode {
   flex: none; display: flex; gap: 5px; justify-content: flex-end;
   padding: 1px 2px 9px 170px;
+  /* Dinaikkan lapisannya supaya TIDAK BISA ditutupi apa pun, terutama video
+     di bawahnya yang pada layar pendek bisa meluber ke atas karena `.layar`
+     memusatkan isinya. ARYA melaporkan tombol ini terpotong pada zoom 90 persen
+     (1 Sep 2026); cacatnya tidak bisa ditirukan di lima ukuran layar pengujian,
+     jadi yang diperbaiki adalah penyebab yang paling mungkin sekaligus membuat
+     seluruh golongan bug ini mustahil terjadi lagi. */
+  position: relative; z-index: 3;
 }
+/* Pasangannya: video tidak boleh meluber keluar kotaknya sendiri. Tanpa ini,
+   pada layar pendek video tetap digambar setinggi aslinya dan menyembul ke
+   atas maupun ke bawah, walaupun tombolnya sekarang aman di lapisan atas. */
+.layar { overflow: hidden; }
 
 /* ===== Subtitle video: tanpa kotak hitam, ukurannya bisa diatur =====
    Bawaan peramban menaruh teks di atas kotak hitam pekat yang menutupi
@@ -580,10 +591,18 @@ video::cue(b) { font-weight: 700; }
    HALAMAN DEPAN: sambutan, demo, isi situs, kaki
    ============================================================ */
 
-.sambutan { max-width: 46rem; margin: 0 auto 34px; text-align: center; }
+.sambutan { max-width: 52rem; margin: 0 auto 34px; text-align: center; }
 .merek-besar { width: min(320px, 62%); height: auto; margin: 0 auto 18px; display: block; }
 .sambutan h1 { font-size: clamp(26px, 4vw, 40px); line-height: 1.18; margin: 0 0 14px; }
-.sambutan .sub { margin: 0 auto; max-width: 34rem; color: var(--redup); border: 0; }
+/* Lebarnya dilonggarkan supaya baris pertama slogan MUAT UTUH.
+   Dengan 34rem kata "interaksi" jatuh sendirian ke baris kedua, dan
+   pemenggalan itu memutus kalimatnya persis di tengah tiga kata kuncinya.
+   Baris kedua dan ketiga tetap dipatah sendiri lewat <br>, jadi bentuk tiga
+   barisnya sama persis dengan yang ARYA tulis. */
+.sambutan .sub {
+  margin: 0 auto; max-width: 48rem; color: var(--redup); border: 0;
+  text-wrap: balance;
+}
 .sambutan-aksi {
   display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 22px;
 }
@@ -1034,3 +1053,9 @@ video::cue(b) { font-weight: 700; }
 .galeri-limit figcaption span {
   font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--hijau);
 }
+
+/* Tiga kata kerja di slogan beranda: ditebalkan dan diberi warna aksen situs.
+   Memakai --hijau, aksen SITUS, bukan warna matematika. Warna matematika
+   khusus untuk sisi, sumbu, dan besaran; mencampurnya merusak kaitan yang
+   sedang dibangun antara video dan widget. */
+.sorot-slogan { color: var(--hijau); font-weight: 700; }

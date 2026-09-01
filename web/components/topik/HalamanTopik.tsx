@@ -205,20 +205,6 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                 <h1>{tahap.judul}</h1>
                 <div className="sub">{tahap.pertanyaan}</div>
 
-                {/* Syaratnya cukup `intisari` ada. Dulu ikut menuntut `tahap.widget`,
-                    sehingga materi tanpa alat interaktif kehilangan Ringkasannya
-                    tanpa alasan. Materi 10 kena persis jebakan itu. */}
-                {tahap.intisari && (
-                  /* Sengaja dibedakan tampilannya dari daftar poin di dalam
-                     penjelasan, kalau markanya sama, keduanya terasa mengulang. */
-                  <div className="baca-cepat">
-                    <div className="cap">Ringkasan</div>
-                    <ol>
-                      {tahap.intisari.map((b, i) => <li key={i}>{b}</li>)}
-                    </ol>
-                  </div>
-                )}
-
                 <div className="blok">
                   <Penjelasan blok={tahap.penjelasan} />
                 </div>
@@ -255,6 +241,27 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                   </p>
                 </div>
               </>
+            )}
+
+            {/* RINGKASAN ditaruh di BAWAH, tepat sebelum kotak YouTube.
+
+                Permintaan ARYA, dan ia menyatakan sudah berkali-kali memintanya.
+                Alasannya pedagogis: rangkuman berguna sebagai penutup SETELAH
+                siswa membaca materinya, bukan sebagai pembuka yang membocorkan
+                isinya sebelum dibaca.
+
+                Syaratnya cukup `intisari` ada. Dulu ikut menuntut `tahap.widget`,
+                sehingga materi tanpa alat interaktif kehilangan Ringkasannya
+                tanpa alasan. Materi 10 kena persis jebakan itu. */}
+            {tahap && tahap.intisari && (
+              /* Sengaja dibedakan tampilannya dari daftar poin di dalam
+                 penjelasan, kalau markanya sama, keduanya terasa mengulang. */
+              <div className="baca-cepat">
+                <div className="cap">Ringkasan</div>
+                <ol>
+                  {tahap.intisari.map((b, i) => <li key={i}>{b}</li>)}
+                </ol>
+              </div>
             )}
 
             {/* Bagian ini SENGAJA dipisah tegas dari materi: sebelumnya ia menyatu
