@@ -258,8 +258,13 @@ class NolPerNol(Scene):
         sisa.move_to([0, Y_RUMUS, 0])
         self.hasil1 = sisa
         with sinema.babak(self, "hasil1", DURASI) as b:
-            b.main(FadeOut(self.coretan1), FadeOut(self.rumus),
-                   FadeIn(sisa), run_time=1.8)
+            # Berurutan, BUKAN bersamaan. Rumus lama dan rumus baru menempati
+            # tempat yang sama; kalau memudar bersamaan, selama hampir dua
+            # detik layar menampilkan dua rumus bertumpuk. Cacat ini lolos dari
+            # lembar kontak 480p (kebetulan tidak tersampel) dan baru ketahuan
+            # pada gerbang mutu berkas final.
+            b.main(FadeOut(self.coretan1), FadeOut(self.rumus), run_time=0.7)
+            b.main(FadeIn(sisa), run_time=1.1)
             b.jeda(2.0)
         qc.periksa_adegan({"tajuk": self.tajuk, "sisa": sisa,
                            "syarat": self.syarat1},
