@@ -60,7 +60,7 @@ const DAFTAR: Topik[] = [
     urutanKelas: 10,
     pertanyaan: 'Kenapa satu data bisa mengubah kesimpulan?',
     miskonsepsiSingkat: '“rata-rata dan median sama saja.”',
-    siap: false,
+    siap: true,
   },
   {
     slug: 'limit',

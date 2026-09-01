@@ -33,3 +33,6 @@ audio/trigonometri/
 
 # artefak pemeriksaan Playwright
 .playwright-cli/
+
+# artefak pemeriksaan playwright-cli
+.playwright-cli/

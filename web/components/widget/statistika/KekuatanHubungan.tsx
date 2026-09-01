@@ -1,0 +1,146 @@
+'use client'
+
+import { useRef, useState } from 'react'
+import Papan from '@/components/widget/statistika/Papan'
+import { PERAN } from '@/components/widget/statistika/warna-data'
+import { TEPI, angka, angkaTetap, keData, keLayar, rentangMuat } from '@/components/widget/statistika/skala'
+import { useSeret } from '@/components/widget/statistika/seret'
+import { bentukTrend, regresi } from '@/components/widget/statistika/statistik'
+import { bivariat, keterangan } from '@/content/statistika/data'
+import type { PropWidget } from '@/components/widget/statistika/jenis'
+
+/**
+ * Tahap 12. Angka r, dan batasnya.
+ *
+ * Contoh melengkung adalah bagian terpentingnya: setiap y bisa ditebak dengan
+ * sempurna dari x, tetapi r nya tepat nol. Kalau siswa cuma membaca angka, ia
+ * akan melaporkan "tidak ada hubungan" untuk hubungan yang justru sempurna.
+ */
+
+const CONTOH = [
+  { kunci: 'kuat', nama: 'Kuat naik', butir: bivariat('t12-kuat-naik') },
+  { kunci: 'turun', nama: 'Kuat turun', butir: bivariat('t10-main-game') },
+  { kunci: 'lemah', nama: 'Lemah', butir: bivariat('t12-lemah') },
+  { kunci: 'lengkung', nama: 'Melengkung', butir: bivariat('t12-melengkung') },
+] as const
+
+export default function KekuatanHubungan({ children }: PropWidget) {
+  const svgRef = useRef<SVGSVGElement | null>(null)
+  const [pilih, setPilih] = useState(0)
+  const [titik, setTitik] = useState<Array<[number, number]>>(
+    () => CONTOH[0].butir.pasangan.map((p) => [p[0], p[1]]),
+  )
+
+  const contoh = CONTOH[pilih]
+  const rx = rentangMuat(titik.map((p) => p[0]), 0.12)
+  const ry = rentangMuat(titik.map((p) => p[1]), 0.18)
+  const j = { xMin: rx.min, xMax: rx.maks, yMin: ry.min, yMax: ry.maks }
+  const p = keLayar(j, TEPI)
+  const balik = keData(j, TEPI)
+
+  const { aktif, propSvg, mulai } = useSeret(svgRef, (i, px, py) => {
+    setTitik((lama) => {
+      const baru = lama.map((t) => [...t] as [number, number])
+      baru[i] = [Math.round(balik.x(px) * 10) / 10, Math.round(balik.y(py) * 10) / 10]
+      return baru
+    })
+  })
+
+  const h = regresi(titik)
+  const trend = bentukTrend(titik)
+  const menyesatkan = trend.bentuk === 'melengkung'
+
+  const gantiContoh = (n: number) => {
+    setPilih(n)
+    setTitik(CONTOH[n].butir.pasangan.map((q) => [q[0], q[1]]))
+  }
+
+  const kiri = (
+    <>
+      <div className="layar">
+        <Papan
+          jendela={j}
+          petakX
+          labelX={contoh.butir.satuanX ?? 'x'}
+          labelY={contoh.butir.satuanY ?? 'y'}
+          keterangan={`r = ${angkaTetap(h.r, 2)} · r kuadrat = ${angkaTetap(h.r2, 2)}`}
+          aria={`Diagram pencar dengan koefisien korelasi ${angkaTetap(h.r, 2)}`}
+          svgRef={svgRef}
+          propSvg={propSvg}
+        >
+          {/* garis regresi ditampilkan tipis, sebagai pengingat bahwa r mengukur
+              kedekatan titik ke GARIS LURUS, bukan ke pola apa pun */}
+          <line x1={p.x(j.xMin)} y1={p.y(h.konstanta + h.gradien * j.xMin)}
+                x2={p.x(j.xMax)} y2={p.y(h.konstanta + h.gradien * j.xMax)}
+                stroke={menyesatkan ? PERAN.banding : PERAN.sorot}
+                strokeWidth={2} strokeDasharray="6 4" />
+
+          {titik.map(([x, y], i) => (
+            <circle key={i} cx={p.x(x)} cy={p.y(y)} r={7}
+                    fill={PERAN.data} stroke="#FFFDFA" strokeWidth={aktif === i ? 3 : 1.5}
+                    role="slider" tabIndex={0}
+                    aria-label={`Titik ke-${i + 1}, x ${angka(x, 1)}, y ${angka(y, 1)}`}
+                    aria-valuenow={y}
+                    style={{ cursor: 'grab', touchAction: 'none' }}
+                    onPointerDown={mulai(i)}
+                    onKeyDown={(e) => {
+                      const arah = e.key === 'ArrowUp' ? 1 : e.key === 'ArrowDown' ? -1 : 0
+                      if (arah === 0) return
+                      e.preventDefault()
+                      const langkah = (j.yMax - j.yMin) / 40
+                      setTitik((lama) => {
+                        const baru = lama.map((t) => [...t] as [number, number])
+                        baru[i] = [x, Math.round((y + arah * langkah) * 10) / 10]
+                        return baru
+                      })
+                    }} />
+          ))}
+        </Papan>
+      </div>
+      <div className="kendali">
+        <div style={{ gridColumn: '1 / -1' }}>
+          <label><span>Contoh siap pakai</span></label>
+          <div className="pilih-sisi" style={{ flexWrap: 'wrap' }}>
+            {CONTOH.map((c, n) => (
+              <button key={c.kunci} aria-pressed={pilih === n} onClick={() => gantiContoh(n)}
+                      style={{ flex: '1 1 44%' }}>
+                {c.nama}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="skala-info">
+          <span className="titik" />
+          <span>
+            {menyesatkan
+              ? `r = ${angkaTetap(h.r, 2)}, seolah tidak ada hubungan. Padahal setiap y bisa ditebak sempurna dari x nya. Inilah sebabnya angka r tidak boleh dibaca tanpa gambarnya`
+              : `tanda r menunjukkan arah, besarnya menunjukkan kerapatan titik ke garis`}
+          </span>
+        </div>
+      </div>
+    </>
+  )
+
+  const kanan = (
+    <div className="blok">
+      <div className="cap">{contoh.butir.judul}</div>
+      <table className="tabel-angka">
+        <tbody>
+          <tr className="tegas"><td>koefisien korelasi r</td><td>{angkaTetap(h.r, 3)}</td></tr>
+          <tr><td>koefisien determinasi r kuadrat</td><td>{angkaTetap(h.r2, 3)}</td></tr>
+          <tr><td>arah</td><td>{trend.arah}</td></tr>
+          <tr><td>bentuk</td><td>{trend.bentuk}</td></tr>
+        </tbody>
+      </table>
+      <div className="catatan">
+        {menyesatkan
+          ? 'Contoh ini yang paling penting di seluruh materi ini. Angka r nol berarti tidak ada hubungan LURUS, bukan berarti tidak ada hubungan sama sekali.'
+          : `Bacaan r kuadrat: sekitar ${angka(h.r2 * 100, 0)} persen keragaman y bisa dijelaskan oleh garis yang memakai x. Sisanya berasal dari hal lain yang tidak masuk hitungan.`}
+        {' '}Dan sekuat apa pun angkanya, ia tetap tidak membuktikan bahwa yang satu
+        menyebabkan yang lain. {keterangan(contoh.butir)}
+      </div>
+    </div>
+  )
+
+  return <>{children({ kiri, kanan })}</>
+}
