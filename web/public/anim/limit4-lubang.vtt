@@ -1,0 +1,107 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/limit4-lubang.json
+
+1
+00:00:00.000 --> 00:00:03.977
+Ada fungsi yang di satu titik sama sekali tidak punya nilai,
+
+2
+00:00:03.977 --> 00:00:05.568
+tapi limitnya tetap ada.
+
+3
+00:00:05.568 --> 00:00:10.944
+Perhatikan fungsi ini: x kuadrat kurang satu, dibagi x kurang satu.
+
+4
+00:00:10.944 --> 00:00:14.486
+Sekarang masukkan x sama dengan satu.
+
+5
+00:00:14.486 --> 00:00:18.220
+Pembilangnya nol, penyebutnya juga nol.
+
+6
+00:00:18.220 --> 00:00:19.656
+Nol dibagi nol.
+
+7
+00:00:19.656 --> 00:00:22.371
+Hitungan itu tidak punya jawaban.
+
+8
+00:00:22.371 --> 00:00:27.391
+Jadi di titik satu, fungsi ini tidak terdefinisi sama sekali.
+
+9
+00:00:27.391 --> 00:00:31.176
+Bukan bernilai nol, bukan bernilai tak hingga.
+
+10
+00:00:31.176 --> 00:00:37.896
+Tapi lihat grafiknya. Ia garis lurus biasa, dengan satu titik yang bolong.
+
+11
+00:00:37.896 --> 00:00:39.687
+Kita dekati dari kiri.
+
+12
+00:00:39.687 --> 00:00:43.759
+Di nol koma sembilan, nilainya satu koma sembilan.
+
+13
+00:00:43.759 --> 00:00:49.296
+Di nol koma sembilan sembilan, nilainya satu koma sembilan sembilan.
+
+14
+00:00:49.296 --> 00:00:51.199
+Sekarang dari kanan.
+
+15
+00:00:51.199 --> 00:00:55.195
+Di satu koma satu, nilainya dua koma satu.
+
+16
+00:00:55.195 --> 00:00:59.952
+Di satu koma nol satu, nilainya dua koma nol satu.
+
+17
+00:00:59.952 --> 00:01:03.793
+Kedua arah menuju angka yang sama, yaitu dua.
+
+18
+00:01:03.793 --> 00:01:08.232
+Jadi limitnya dua, walaupun titiknya sendiri kosong.
+
+19
+00:01:08.232 --> 00:01:10.053
+Kenapa bisa serapi itu?
+
+20
+00:01:10.053 --> 00:01:16.464
+Karena pembilangnya bisa difaktorkan menjadi x kurang satu, dikali x tambah satu.
+
+21
+00:01:16.464 --> 00:01:20.468
+Faktor x kurang satu di atas dan di bawah bisa dicoret.
+
+22
+00:01:20.468 --> 00:01:25.272
+Tapi hanya boleh kalau x bukan satu, sebab kita sedang membaginya.
+
+23
+00:01:25.272 --> 00:01:27.818
+Yang tersisa adalah x tambah satu.
+
+24
+00:01:27.818 --> 00:01:33.960
+Itulah kenapa grafiknya berupa garis, dan kenapa hanya di titik satu ia berlubang.
+
+25
+00:01:33.960 --> 00:01:37.464
+Nilai fungsi dan limit adalah dua hal yang berbeda.
+
+26
+00:01:37.464 --> 00:01:42.960
+Yang satu bisa ada tanpa yang lain, dan justru karena itulah limit dibuat orang.

@@ -359,6 +359,7 @@ export const TAHAP: TahapLimit[] = [
       judul: 'Dikira 0 dibagi 0 sama dengan 0, atau sama dengan 1',
       isi: 'Bentuk 0 dibagi 0 bukan sebuah bilangan, dan tidak bernilai 0 maupun 1. Ia disebut bentuk tak tentu, artinya bentuk itu belum memberi tahu apa-apa. Fungsi yang berbeda bisa sama-sama menghasilkan 0 dibagi 0 tetapi punya limit yang berbeda: (x² - 1) dibagi (x - 1) limitnya 2, sedangkan (x² - 4) dibagi (x - 2) limitnya 4, padahal keduanya 0 dibagi 0 kalau dipaksakan. Karena itu bentuknya harus ditulis ulang dulu, bukan dijawab langsung.',
     },
+    video: { berkas: 'limit4-lubang.webm', poster: 'limit4-lubang.jpg' },
     widget: 'lubang-grafik',
     siap: true,
   },
