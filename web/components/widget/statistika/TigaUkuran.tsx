@@ -107,7 +107,9 @@ export default function TigaUkuran({ children }: PropWidget) {
                    label="median" nilai={r.median} sisi="atas" />
           <GarisBilangan ke={ke} y={GARIS_Y} tik={TIK} dariX={MIN} sampaiX={MAKS} />
 
-          <text x={KIRI} y={22} fontSize={11} fontFamily={MONO} fill={PERAN.tinta}>
+          {/* y 42, bukan lebih atas: lencana "INTERAKTIF" menempel di pojok
+              kiri atas panel dan pada layar HP ia menutupi baris ini. */}
+          <text x={KIRI} y={42} fontSize={11} fontFamily={MONO} fill={PERAN.tinta}>
             {seimbang ? 'seimbang, penopangnya tepat di rata-rata' : 'miring, penopangnya bukan di rata-rata'}
           </text>
         </svg>
