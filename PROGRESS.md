@@ -14,7 +14,7 @@
 | | |
 |---|---|
 | Tahap sekarang | **DUA topik selesai. Situs SUDAH TAYANG di Vercel.** |
-| Yang tersisa | **Kelima sesi selesai gelombang 1** (2 Sep). MASTER menggabung + deploy, ARYA meninjau 4 topik baru, lalu gelombang 2 (video) |
+| Yang tersisa | **ARYA meninjau 4 topik baru di PRATINJAU** (tautan di bawah), lalu promosi ke situs asli, lalu gelombang 2 (video) |
 | Alamat tayang | https://matra-eight.vercel.app |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md`<br>`docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`<br>`docs/superpowers/plans/2026-09-01-topik-limit.md` |
 | Tenggat | 12 September 2026 |
@@ -192,6 +192,27 @@ penggabungan pertama.
 - Hapus `web/public/anim/trigonometri.webm` (yatim, 0,54 MB).
 - Kompres foto galeri GRAFIK-FUNGSI (1 MB, di bawah 150 KB per foto).
 - `Penjelasan.tsx` masih mengimpor tipe `Blok` dari tempat lama.
+
+## 🔗 Pratinjau untuk tinjauan ARYA (2 Sep 2026)
+
+**https://matra-8c3pwiiis-aryasejati002-4616s-projects.vercel.app**
+
+Berisi master seutuhnya: empat topik baru, tujuh video Limit, perbaikan HP.
+Kesembilan halaman baru (4 topik + 4 latihan + limit) dicek menjawab HTTP 200.
+Situs asli (matra-eight.vercel.app) HANYA memuat perbaikan HP dan video Limit;
+empat topik baru SENGAJA belum dipromosikan sampai ARYA meninjau.
+
+Aturan mulai sekarang: **master = tergabung, situs asli = disetujui ARYA.**
+Deploy ke situs asli (dengan --prod) hanya setelah ARYA bilang setuju. Sebelum
+itu pakai: vercel deploy --yes --cwd D:/MANIM-MATRA/web (TANPA --prod) untuk
+tautan pratinjau baru.
+
+Keadaan cabang: kelima cabang sesi selaras dengan master di commit yang sama.
+Kelima sesi sudah dikirimi prompt A (potret ulang HP, jangan bangun yang baru).
+Penggabungan menyisakan satu pelajaran: penyelesai konflik ambil-keduanya
+menjatuhkan penutup entri di daftar-isi.ts dan sumber.json; tsc dan pemeriksa
+JSON yang menangkapnya. Selalu tsc + build SEBELUM deploy, jangan percaya
+"Automatic merge went well".
 
 ## 🚀 Deploy Vercel (dikerjakan 1 Sep 2026, sesi 5)
 
