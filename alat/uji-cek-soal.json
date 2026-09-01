@@ -1,0 +1,12 @@
+[
+  { "id": "u1-faktor",      "ekspresi": "(x**2 - 1)/(x - 1)",        "peubah": "x", "menuju": "1",  "jawaban": "2" },
+  { "id": "u2-sekawan",     "ekspresi": "(sqrt(x + 4) - 2)/x",       "peubah": "x", "menuju": "0",  "jawaban": "1/4" },
+  { "id": "u3-sinus",       "ekspresi": "sin(x)/x",                  "peubah": "x", "menuju": "0",  "jawaban": "1" },
+  { "id": "u4-takhingga",   "ekspresi": "(3*x**2 + 2*x)/(x**2 - 5)", "peubah": "x", "menuju": "oo", "jawaban": "3" },
+  { "id": "u5-desimal",     "ekspresi": "(sqrt(x + 4) - 2)/x",       "peubah": "x", "menuju": "0",  "jawaban": "0.25" },
+  { "id": "u6-lompat",      "ekspresi": "Abs(x)/x",                  "peubah": "x", "menuju": "0",  "jawaban": "tidak ada" },
+  { "id": "u7-sepihak",     "ekspresi": "Abs(x)/x",                  "peubah": "x", "menuju": "0",  "jawaban": "-1", "arah": "-" },
+  { "id": "u8-asimtot",     "ekspresi": "1/x**2",                    "peubah": "x", "menuju": "0",  "jawaban": "oo" },
+  { "id": "u9-sengaja-salah","ekspresi": "(x**2 - 4)/(x - 2)",       "peubah": "x", "menuju": "2",  "jawaban": "2" },
+  { "id": "u10-palsu-tidak-ada","ekspresi": "(x**2 - 1)/(x - 1)",    "peubah": "x", "menuju": "1",  "jawaban": "tidak ada" }
+]

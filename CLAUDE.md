@@ -18,6 +18,7 @@ Pemilik: ARYA. Tujuan terdekat: ditunjukkan ke dosen.
 | `web/` | Situs Next.js 16 + TypeScript |
 | `web/public/anim/` | Video hasil render (WebM) |
 | `docs/superpowers/specs/` | Dokumen desain |
+| `alat/` | Alat bantu proyek di luar Manim, mis. pemeriksa jawaban soal |
 
 ## Aturan proyek (jangan dilanggar)
 - **6 topik**: trigonometri⭐, limit⭐, grafik fungsi, vektor, ruang 3D, statistika (⭐ = unggulan)
