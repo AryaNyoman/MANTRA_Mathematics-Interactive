@@ -21,6 +21,112 @@
 | Menjalankan situs | `cd web && npm run dev` → `http://localhost:3000` |
 | Penghalang | *(tidak ada)* |
 
+### Yang berubah di sesi 3: 22 revisi ARYA
+
+**Aturan tetap yang lahir di sesi ini (berlaku SELAMANYA, semua proyek):**
+- **Tanda pisah panjang DILARANG** di teks mana pun yang dibaca orang. Ganti
+  dengan koma, titik, atau tanda hubung biasa. Sudah dicatat di `~/.claude/CLAUDE.md`
+  dan `CLAUDE.md` proyek ini.
+
+**Halaman depan** dirombak jadi perkenalan, bukan daftar: logo Matra, kalimat
+pembuka, korsel 4 cuplikan video (`components/Demo.tsx`), tiga kolom "apa saja
+isinya", kartu materi urut dari Kelas 10, kaki halaman berisi nama pembuat
+(Nyoman Arya Sejati), logo UNDIKSHA, WhatsApp, dan tombol pasang aplikasi.
+
+**Isi materi** dirapikan: kode `TRIG-10-B4` dibuang, label tab jadi `MATERI 01`,
+pembuka Materi 01 ditulis ulang jadi masalah dulu baru jawaban, tiap materi
+dipecah jadi sesi bernomor, ditambah kotak **YUK BEREKSPERIMEN 🔬**, `BACA CEPAT`
+jadi `RINGKASAN`, dan bagian YouTube dipisah dengan tautan pencarian langsung.
+
+**Latihan** kini pilihan ganda **A sampai E**. **Kuis** terkunci diam-diam sampai
+kesepuluh materi dibuka DAN 10 menit membaca terkumpul (`lib/kemajuan.ts`).
+
+**Perbaikan teknis:** bug zoom (panggung dulu ikut melar mengikuti layar, kini
+dibatasi rem), subtitle tanpa bayangan dan bisa diperbesar siswa, video di-cache
+permanen, PWA siap pasang, dan Materi 10 yang tadinya mati kini keempat contohnya
+punya penggeser hidup.
+
+
+### Yang berubah di sesi 4 (pagi 1 Sep) - revisi lanjutan ARYA
+
+**Bug zoom DIPERBAIKI ULANG, yang pertama belum tuntas.** ARYA menemukan pada
+zoom 100% tombol "Tonton"/"Coba sendiri" dan pengatur ukuran teks hilang.
+Sebabnya `calc(100vh - var(--nav))` menuntut angka `--nav` selalu tepat.
+Sekarang tingginya tidak dihitung sama sekali: `body` jadi kolom flex dan
+panggung memakai `flex: 1 1 0`. Diuji di 5 ukuran layar, 3 ukuran font
+peramban, dan kedua mode.
+
+**Pelajaran yang ARYA minta dicatat:** revisi tampilan WAJIB dicoba sendiri
+lewat Playwright di beberapa tingkat zoom sebelum dilaporkan. Sudah disimpan
+sebagai memory `verifikasi-visual-multi-zoom`.
+
+**Halaman baru:** `/latihan` (bank soal berjenjang, bar kemajuan, 7 lencana)
+dan `/tentang`. Keduanya sudah ditautkan di navigasi sejak lama tetapi
+halamannya tidak pernah dibuat, jadi kedua menu itu selama ini **404**.
+
+**Kuis: bank 32 soal.** Tiap sesi mengambil 8 soal dan menghindari yang sudah
+pernah keluar, jadi empat sesi pertama tidak mengulang satu soal pun (sudah
+dibuktikan lewat pengujian). Semua jawaban numerik diperiksa ulang dengan
+hitungan mesin.
+
+**Materi 10 tidak lagi interaktif.** Penggeser dibuang, fotonya kini tampil
+utuh dua per baris dengan `contain`, tidak dipotong lagi.
+
+**Lain-lain:** tab cukup "MATERI 01", logo nav jadi lambang M saja dan
+diperbesar, menu "Beranda" ditambahkan, bagian "Apa saja isinya" dijadikan
+sorotan (judul serif besar, teks tinta, tiga kartu bernomor), korsel halaman
+depan kini berselang-seling video dan cuplikan layar asli, dan label sin/cos
+di widget lingkaran satuan diberi halo supaya tidak dipotong garis lingkaran.
+
+**Masih menunggu ARYA:** pilihan slogan halaman depan (5 usulan sudah
+diberikan).
+
+### Yang berubah di sesi 5 (malam 1 Sep) - topik kedua: LIMIT
+
+**ARYA memilih Limit sebagai topik kedua, lengkap, dengan 6 sampai 7 video.**
+Claude sudah menyampaikan bahwa pilihan itu kemungkinan besar menghabiskan
+seluruh sisa waktu sampai 12 September sehingga empat topik lain tidak
+tergarap. ARYA tetap memilih itu, dan keputusannya dijalankan penuh.
+
+**Rangka halaman topik DIPISAH lebih dulu.** `Trigonometri.tsx` 638 baris
+mencampur rangka halaman dengan penyetelan sepuluh widget, jadi topik kedua
+tidak punya jalan lain selain menyalinnya. Sekarang:
+
+| Berkas | Isi |
+|---|---|
+| `components/topik/HalamanTopik.tsx` | rangka, dipakai semua topik |
+| `components/topik/PanggungTrigonometri.tsx` | penyetelan widget trigonometri |
+| `components/topik/PanggungLimit.tsx` | penyetelan widget limit |
+| `components/topik/jenis.ts` | perjanjian antara rangka dan panggung |
+| `content/tipe.ts` | tipe isi yang dipakai bersama |
+| `content/daftar-isi.ts` | **daftar pusat, menambah topik cukup satu baris di sini** |
+
+**Buktinya Trigonometri tidak rusak:** 36 sidik jari DOM (18 kombinasi tab dan
+mode, dikali kolom kiri dan kanan) diambil dari versi lama dan versi baru
+dengan localStorage dikosongkan sama persis. Hasilnya identik huruf demi huruf.
+
+**Limit selesai: 10 materi, 9 widget, 4 latihan, bank 32 soal kuis,
+halaman `/latihan/limit`.** Yang belum: tujuh videonya.
+
+**Alat baru `alat/cek_soal.py`.** Memeriksa jawaban limit dengan sympy, dan
+menolak jawaban salah dengan menyebutkan yang benar. Dibuat SEBELUM satu soal
+pun ditulis. Hasil pemeriksaan: 17 angka di materi lolos semua, 5 jawaban
+latihan lolos semua, 28 jawaban kuis lolos semua.
+
+**Tiga cacat tampilan ditemukan dengan MELIHAT potret layar**, bukan dari log:
+tulisan bertindih di Materi 01, kalimat yang bertentangan dengan gambarnya
+sendiri di Materi 04, dan tulisan menabrak kurva di Materi 07 dan 08.
+Ketiganya sudah diperbaiki dan diperiksa ulang.
+
+**Keputusan: galeri Materi 10 Limit digambar sendiri, bukan foto.** Alasannya
+beda dengan Tahap 10 Trigonometri: di sana yang ditunjukkan DI MANA segitiga
+berada, dan foto menjawabnya. Di sini yang ditunjukkan BENTUK KURVANYA, dan
+foto roller coaster tidak memperlihatkan itu. Kalau ARYA lebih suka foto,
+tinggal diganti.
+
+
+---
+
 ## 📁 Folder kembar = sesi paralel yang DISENGAJA (rezim 1 Sep malam)
 
 Di `.claude\worktrees\` ada worktree: satu gudang git dibuka di beberapa meja
