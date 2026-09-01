@@ -6,6 +6,9 @@ import type { PropWidget } from '@/components/widget/statistika/jenis'
 import type { WidgetStatistika } from '@/content/statistika/widget'
 
 import DuaKelompok from '@/components/widget/statistika/DuaKelompok'
+import BentukData from '@/components/widget/statistika/BentukData'
+import LebarKelas from '@/components/widget/statistika/LebarKelas'
+import FrekuensiRelatif from '@/components/widget/statistika/FrekuensiRelatif'
 
 /**
  * Panggung Statistika: memilih widget mana yang dipasang, dan tidak lebih.
@@ -20,6 +23,9 @@ import DuaKelompok from '@/components/widget/statistika/DuaKelompok'
 
 const DAFTAR: Partial<Record<WidgetStatistika, ComponentType<PropWidget>>> = {
   'dua-kelompok': DuaKelompok,
+  'bentuk-data': BentukData,
+  'lebar-kelas': LebarKelas,
+  'frekuensi-relatif': FrekuensiRelatif,
 }
 
 export default function PanggungStatistika({ tahap, tampilWidget, children }: PropPanggung) {

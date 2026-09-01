@@ -2,6 +2,12 @@
  * Penskalaan dan tata letak bidang gambar untuk widget Statistika.
  *
  * KENAPA BUKAN MEMAKAI PUNYA LIMIT
+ * NAMANYA `skala.ts`, BUKAN `papan.ts`. Nama Papan sudah dipakai komponen
+ * bingkainya, dan Windows tidak membedakan huruf besar-kecil pada nama
+ * berkas, sehingga `papan.ts` dan `Papan.tsx` dianggap berkas yang sama lalu
+ * TypeScript menolak keduanya. Jebakan yang sama pernah kena di proyek ini
+ * pada pasangan `bidang.ts` dan `Bidang.tsx`.
+ *
  * `components/widget/limit/koordinat.ts` mengerjakan hal yang mirip, tetapi
  * berkas itu milik topik lain dan aturan sesi paralel melarang saya
  * mengubahnya. Mengimpornya juga bukan jalan keluar yang baik: itu membuat
@@ -28,6 +34,15 @@ export type Tepi = { kiri: number; kanan: number; atas: number; bawah: number }
 
 /** Ruang tepi baku. Kiri paling lebar sebab angka sumbu tegak ditulis di situ. */
 export const TEPI: Tepi = { kiri: 46, kanan: 18, atas: 22, bawah: 34 }
+
+/**
+ * Ruang tepi untuk sumbu kategori yang namanya panjang.
+ *
+ * Nama seperti "Sepeda motor" dipecah jadi dua baris oleh bingkainya, dan baris
+ * keduanya menabrak judul sumbu kalau ruang bawahnya cuma 34. Ini bukan dugaan:
+ * tabrakannya terlihat di potret layar sebelum angka ini dinaikkan.
+ */
+export const TEPI_KATEGORI: Tepi = { kiri: 46, kanan: 18, atas: 22, bawah: 50 }
 
 export type Kotak = { x0: number; y0: number; x1: number; y1: number }
 

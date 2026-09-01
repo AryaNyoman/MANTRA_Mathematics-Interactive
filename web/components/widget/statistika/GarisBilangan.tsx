@@ -2,7 +2,7 @@
 
 import { Fragment, type ReactNode } from 'react'
 import { GARIS_SUMBU, MONO, PERAN } from '@/components/widget/statistika/warna-data'
-import { angka, type Petak } from '@/components/widget/statistika/papan'
+import { angka, type Petak } from '@/components/widget/statistika/skala'
 
 /**
  * Garis bilangan mendatar, dan tumpukan titik di atasnya.

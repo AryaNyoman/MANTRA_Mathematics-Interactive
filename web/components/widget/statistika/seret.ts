@@ -6,7 +6,7 @@ import {
   type PointerEvent as ReactPointerEvent,
   type RefObject,
 } from 'react'
-import { VH, VW } from '@/components/widget/statistika/papan'
+import { VH, VW } from '@/components/widget/statistika/skala'
 
 /**
  * Menyeret titik data di dalam gambar SVG.

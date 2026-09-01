@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react'
 import { GarisBilangan, Penanda, TumpukanTitik } from '@/components/widget/statistika/GarisBilangan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
-import { VH, VW, angka, petak } from '@/components/widget/statistika/papan'
+import { VH, VW, angka, petak } from '@/components/widget/statistika/skala'
 import { propTitikSeret, useSeret } from '@/components/widget/statistika/seret'
 import { ringkasTunggal } from '@/components/widget/statistika/statistik'
 import { tunggal } from '@/content/statistika/data'

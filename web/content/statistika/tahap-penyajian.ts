@@ -201,7 +201,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
         langkah: [
           'Pada lebar 1, hampir tiap batang cuma berisi satu atau dua siswa. Gambarnya bergerigi dan polanya tenggelam.',
           'Pada lebar 4 atau 5, terlihat kumpulan siswa menumpuk di sekitar 160 sampai 170.',
-          'Pada lebar 10, seluruh data cuma jadi tiga batang. Rapi, tetapi hampir tidak memberi tahu apa-apa.',
+          'Pada lebar 10, seluruh data cuma jadi empat batang, dan yang paling kanan cuma berisi satu siswa. Rapi, tetapi tumpukan di sekitar 160 sampai 170 sudah tidak terlihat lagi.',
           'Perhatikan tabel frekuensi di sebelahnya ikut berubah, sebab tabel dan histogram itu benda yang sama dalam dua bentuk.',
         ],
       },
@@ -249,7 +249,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
     slug: 'frekuensi-relatif',
     judul: 'Membandingkan dua kelompok yang jumlahnya beda',
     labelPendek: 'Frekuensi relatif',
-    pertanyaan: 'Kelas A 25 siswa, Kelas B 40 siswa. Kelas mana yang lebih banyak siswanya bernilai di atas 80?',
+    pertanyaan: 'Kelas A 25 siswa, Kelas B 40 siswa. Kelas mana yang lebih banyak siswanya bernilai 80 ke atas?',
     intisari: [
       'Membandingkan frekuensi mentah antar kelompok berbeda ukuran hampir selalu menyesatkan.',
       'Frekuensi relatif adalah frekuensi dibagi banyak data, jadi takarannya disamakan.',
@@ -262,20 +262,20 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
         jenis: 'contoh',
         judul: 'Hitungan mentah',
         baris: [
-          'Kelas A    10 siswa bernilai di atas 80    dari 25 siswa',
-          'Kelas B    12 siswa bernilai di atas 80    dari 40 siswa',
+          'Kelas A    11 siswa bernilai 80 ke atas    dari 25 siswa',
+          'Kelas B    13 siswa bernilai 80 ke atas    dari 40 siswa',
         ],
-        simpul: 'Dua belas lebih banyak daripada sepuluh. Jadi Kelas B menang. Begitu?',
+        simpul: 'Tiga belas lebih banyak daripada sebelas. Jadi Kelas B menang. Begitu?',
       },
       { jenis: 'paragraf', teks: 'Sekarang bagi dengan banyak siswanya masing-masing.' },
       {
         jenis: 'contoh',
         judul: 'Hitungan yang takarannya disamakan',
         baris: [
-          'Kelas A    10 : 25 = 0,4     yaitu 40%',
-          'Kelas B    12 : 40 = 0,3     yaitu 30%',
+          'Kelas A    11 : 25 = 0,44    yaitu 44%',
+          'Kelas B    13 : 40 = 0,325   yaitu 32,5%',
         ],
-        simpul: 'Kesimpulannya berbalik. Di Kelas A, 4 dari 10 siswa bernilai di atas 80. Di Kelas B cuma 3 dari 10.',
+        simpul: 'Kesimpulannya berbalik. Di Kelas A hampir separuh siswa bernilai 80 ke atas, di Kelas B cuma sekitar sepertiga.',
       },
       { jenis: 'sorot', teks: 'Kedua hitungan itu sama-sama benar sebagai hitungan. Yang berbeda adalah pertanyaan yang dijawabnya. Kalau yang ditanya "kelas mana yang lebih berhasil", membandingkan jumlah mentah dari kelompok berbeda ukuran adalah jawaban yang salah.' },
 

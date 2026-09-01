@@ -7,7 +7,7 @@ import {
 import {
   TEPI, VH, VW, keLayar, kotak, petak, pita,
   type Jendela, type Tepi,
-} from '@/components/widget/statistika/papan'
+} from '@/components/widget/statistika/skala'
 
 /**
  * Bingkai gambar yang dipakai bersama widget Statistika.
