@@ -10,6 +10,10 @@ Pemilik: ARYA. Tujuan terdekat: ditunjukkan ke dosen.
 ## Cara menjalankan
 - Animasi: `manim -qm manim/scenes/<file>.py <NamaScene>`
 - Situs: `cd web && npm run dev` → http://localhost:3000
+- **Folder kerja yang benar: `D:\MANIM-MATRA` (cabang `master`).** Folder di
+  `.claude\worktrees\` adalah salinan proyek yang sama pada cabang lain, dan
+  `PROGRESS.md` di dalamnya bisa basi. Ragu? `git worktree list`. Selesai pakai
+  worktree? Gabungkan ke `master` lalu hapus worktree-nya.
 
 ## Susunan folder
 | Folder | Isi |
@@ -59,6 +63,14 @@ Sebelum video APA PUN dinyatakan selesai atau dikirim ke ARYA:
    - rumus tampil separuh saat sedang ditulis?
    - kotak sorot meleset dari angkanya?
    - **tanda siku-siku dan busur sudut ada di posisi yang benar secara geometri?**
+   - **ada teks yang menyusut sampai sulit dibaca?** (sebabnya hampir selalu
+     satu baris kelewat panjang, atau satu `MathTex` kelewat lebar, lalu
+     dikecilkan seluruhnya oleh `batasi_lebar`)
+   - **gambar di layar masih cocok dengan yang sedang diucapkan?** Gambar yang
+     lupa diganti saat babak berpindah akan MEMBANTAH narasinya sendiri, dan
+     itu lebih merusak daripada layar kosong.
+   - **coretan menutup habis lambang yang dicoret?** Kalau ya, pembaca tidak
+     tahu apa yang barusan dicoret.
 3. Adegan wajib memanggil `qc.periksa_adegan(...)` di tiap tahap - render harus GAGAL
    kalau ada yang bertindih atau keluar bingkai, bukan lolos diam-diam.
 4. Baru boleh bilang "selesai". Kalau ada cacat tersisa, **sebutkan** - jangan diamkan.

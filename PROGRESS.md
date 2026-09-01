@@ -1,10 +1,13 @@
 # PROGRESS: MATRA
 
 > **SESI BARU: baca berkas ini dari atas sampai bawah SEBELUM mengerjakan apa pun.**
-> Terakhir diperbarui: **1 September 2026, malam** (akhir sesi 5).
+> Terakhir diperbarui: **1 September 2026, malam** (akhir sesi 6).
 >
 > **SITUS SUDAH TAYANG: https://matra-eight.vercel.app** (bisa dibuka siapa pun,
 > tanpa login). Baca bagian "Deploy Vercel" di bawah sebelum menyentuh deploy.
+>
+> **Kerja di `D:\MANIM-MATRA` saja.** Kalau Anda menemukan folder lain di
+> `.claude\worktrees\`, baca bagian "Folder kembar" di bawah dulu.
 
 ## Ringkas
 | | |
@@ -16,6 +19,37 @@
 | Tenggat | 12 September 2026 |
 | Menjalankan situs | `cd web && npm run dev` → `http://localhost:3000` |
 | Penghalang | *(tidak ada)* |
+
+## 📁 Folder kembar (BACA DULU, ini pernah menyesatkan)
+
+Di `D:\MANIM-MATRA\.claude\worktrees\` ada folder-folder berisi salinan seluruh
+proyek. Itu **worktree**: satu gudang git yang sama, dibuka di beberapa meja
+kerja sekaligus, tiap meja memegang cabang berbeda. Jadi tiap folder memang
+punya `PROGRESS.md` dan `CLAUDE.md` sendiri, dan **isinya bisa berbeda-beda**.
+
+| Folder | Cabang | Isi |
+|---|---|---|
+| `D:\MANIM-MATRA` | `master` | **Ini yang benar.** Sumber untuk deploy. |
+| `.claude\worktrees\progress-md-lanjutan-5704dc` | `claude/progress-md-lanjutan-5704dc` | meja kerja sesi 6, sudah digabung ke master |
+| `.claude\worktrees\progress-md-review-4f1d42` | `claude/progress-md-review-4f1d42` | **basi**, tertinggal 27 commit, kerjaannya sudah lama masuk master |
+
+**Bahaya nyatanya, dan ini sudah terjadi:** di akhir sesi 6 rangkuman Claude
+menyatakan "semua sudah digabung ke master", padahal `master` masih tertinggal
+dua commit. Ketahuan waktu ARYA bertanya kenapa foldernya ada dua. Jadi jangan
+percaya ingatan soal ini, **periksa**:
+
+```bash
+git worktree list          # folder mana memegang cabang apa
+git log --oneline -1 master
+```
+
+**Aturannya:** kerjakan semuanya di `D:\MANIM-MATRA`. Kalau terpaksa memakai
+worktree, gabungkan kembali ke `master` di akhir sesi, lalu hapus worktree-nya
+supaya tidak ada `PROGRESS.md` basi yang menyesatkan sesi berikutnya:
+
+```bash
+git worktree remove .claude/worktrees/<nama> && git branch -d claude/<nama>
+```
 
 ### Yang berubah di sesi 3: 22 revisi ARYA
 
@@ -283,7 +317,30 @@ Situsnya sudah utuh dan layak ditunjukkan walaupun tanpa satu pun video Limit.
 
 ## 🔜 Yang harus dikerjakan berikutnya
 
-### Tujuh video Limit. Resepnya sudah terbukti tujuh kali, tinggal diulang.
+### LANGKAH 1: tunggu ARYA menonton enam video 480p
+
+Enam berkas sudah dikirim ke ARYA pada akhir sesi 6, ada juga di
+`media/uji-480p/` (folder itu tidak masuk git). Jangan render 1080p sebelum ARYA
+menyebut mana yang perlu diperbaiki atau bilang sudah oke. Itu aturan ARYA,
+bukan tebakan.
+
+Kalau `media/uji-480p/` sudah terhapus, buat lagi tanpa render ulang:
+
+```bash
+python manim/gabung_audio.py limit1-kecepatan  KecepatanSesaat        --uji
+python manim/gabung_audio.py limit2-mendekati  MendekatiBukanMenyentuh --uji
+python manim/gabung_audio.py limit6-nolpernol  NolPerNol              --uji
+python manim/gabung_audio.py limit7-takhingga  TakHingga              --uji
+python manim/gabung_audio.py limit8-sinus      LimitSinus             --uji
+python manim/gabung_audio.py limit9-kontinu    FungsiTidakPutus       --uji
+```
+
+### LANGKAH 2: kalau ARYA sudah setuju, render enam-enamnya 1080p60 sekaligus
+
+Pakai langkah 7 sampai 10 dari resep di bawah, enam kali. Materi 04 dilewati,
+sudah tayang. Perkiraan waktu: sekitar 1,5 jam render, bisa ditinggal.
+
+### Resep lengkap. Sudah terbukti tiga belas kali, tinggal diulang.
 
 Ketujuh video Trigonometri sudah jadi dari nol sampai tayang, jadi resep di
 bawah ini bukan teori. Urutan persisnya, ulangi apa adanya. Sudut pandang
@@ -623,3 +680,11 @@ Tambalannya hanya untuk proses yang berjalan; setelan Windows ARYA tidak disentu
   Sudah dua kali Claude salah menyimpulkan dan ARYA yang mengoreksi
   (skill `/teach` yang ternyata ada, dan suara Indonesia di ElevenLabs yang ternyata ada
   tapi terkunci berbayar).
+- **Periksa keadaan git, jangan mengandalkan ingatan.** Di akhir sesi 6 Claude
+  menyatakan kerjaannya sudah masuk `master`, padahal belum. Perintahnya cuma
+  `git worktree list` dan `git log --oneline -1 master`, dua detik. Lihat bagian
+  "Folder kembar" di atas.
+- **Kalau kalimat di layar terasa panjang, hitung hurufnya.** `batasi_lebar`
+  tidak memotong baris, ia mengecilkan seluruh objek. Satu baris 78 huruf
+  menyusut jadi sekitar 40 persen dan hilang terbaca, tapi render tetap lolos
+  tanpa peringatan apa pun. Pecah sendiri dengan `\n`, sekitar 26 huruf per baris.
