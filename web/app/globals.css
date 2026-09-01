@@ -935,3 +935,86 @@ video::cue(b) { font-weight: 700; }
   background: var(--kartu); border: 1px solid var(--garis);
   border-radius: 14px; padding: 20px; max-width: 42rem;
 }
+
+/* ============================================================
+   Widget topik Limit yang berupa susunan langkah, bukan gambar
+   (Mesin Sifat di Materi 05, Bongkar Bertahap di Materi 06)
+   Ditaruh di dalam .isi-gulir, seperti widget Dunia Nyata.
+   ============================================================ */
+
+.mesin, .bongkar { font-size: 14px; }
+
+.mesin-soal, .bongkar-soal {
+  font-family: var(--font-plex-mono), monospace; font-size: 15px;
+  color: var(--tinta); background: var(--petak);
+  border: 1px solid var(--garis); border-radius: 9px; padding: 11px 14px;
+}
+
+.bongkar-atas { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.bongkar-atas .bongkar-soal { flex: 1 1 20rem; }
+.bongkar-cara {
+  font-family: var(--font-plex-mono), monospace; font-size: 10.5px;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--hijau);
+}
+
+.mesin-langkah, .bongkar-baris { list-style: none; margin: 14px 0 0; padding: 0; }
+.mesin-langkah > li + li, .bongkar-baris > li + li { margin-top: 10px; }
+
+.mesin-langkah > li {
+  border-left: 3px solid var(--hijau); padding: 2px 0 2px 12px;
+}
+.mesin-cap {
+  font-family: var(--font-plex-mono), monospace; font-size: 10px;
+  letter-spacing: 0.09em; text-transform: uppercase; color: var(--hijau);
+}
+.mesin-bentuk {
+  font-family: var(--font-plex-mono), monospace; font-size: 14px;
+  margin: 3px 0 4px; color: var(--tinta); overflow-wrap: anywhere;
+}
+.mesin-catatan { font-size: 13px; line-height: 1.55; color: #3A3630; }
+
+.mesin-tanya { margin: 14px 0 8px; font-size: 14px; color: #3A3630; }
+
+.mesin-tolak {
+  margin-top: 14px; border-left: 3px solid var(--bata); background: #FBF3EF;
+  border-radius: 0 9px 9px 0; padding: 11px 14px;
+}
+.mesin-tolak p { margin: 5px 0 0; font-size: 13.5px; line-height: 1.6; }
+
+.mesin-selesai {
+  margin-top: 14px; border-left: 3px solid var(--hijau); background: #EFF4F1;
+  border-radius: 0 9px 9px 0; padding: 11px 14px; font-size: 14px;
+}
+
+.mesin-pilihan { margin-top: 4px; }
+
+/* --- Bongkar Bertahap --- */
+.bongkar-baris > li {
+  display: grid; grid-template-columns: 8.5rem 1fr; gap: 4px 12px;
+  align-items: baseline;
+}
+.bongkar-nama {
+  font-family: var(--font-plex-mono), monospace; font-size: 10px;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--redup);
+  text-align: right;
+}
+.bongkar-teks {
+  font-family: var(--font-plex-mono), monospace; font-size: 14px;
+  color: var(--tinta); overflow-wrap: anywhere;
+}
+.bongkar-syarat {
+  grid-column: 2; font-size: 12.5px; line-height: 1.5; color: var(--sisi-sudut);
+  border-left: 2px solid var(--sisi-sudut); padding-left: 9px;
+}
+.bongkar-sisa {
+  margin-top: 14px; font-family: var(--font-plex-mono), monospace;
+  font-size: 10.5px; letter-spacing: 0.08em; color: var(--redup);
+}
+
+/* Layar sempit: kolom nama langkah pindah ke atas supaya rumusnya tidak
+   terjepit jadi satu huruf per baris. */
+@media (max-width: 640px) {
+  .bongkar-baris > li { grid-template-columns: 1fr; }
+  .bongkar-nama { text-align: left; }
+  .bongkar-syarat { grid-column: 1; }
+}
