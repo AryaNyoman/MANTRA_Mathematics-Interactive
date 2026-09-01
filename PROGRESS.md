@@ -6,157 +6,46 @@
 > **SITUS SUDAH TAYANG: https://matra-eight.vercel.app** (bisa dibuka siapa pun,
 > tanpa login). Baca bagian "Deploy Vercel" di bawah sebelum menyentuh deploy.
 >
-> **Kerja di `D:\MANIM-MATRA` saja.** Kalau Anda menemukan folder lain di
-> `.claude\worktrees\`, baca bagian "Folder kembar" di bawah dulu.
+> **Rezim SESI PARALEL aktif sejak 1 Sep malam.** MASTER kerja di
+> `D:\MANIM-MATRA` (master); lima sesi lain di worktree masing-masing.
+> Baca bagian "Folder kembar" di bawah dan `docs/tugas/ATURAN-SEMUA-SESI.md`.
 
 ## Ringkas
 | | |
 |---|---|
 | Tahap sekarang | **DUA topik selesai. Situs SUDAH TAYANG di Vercel.** |
-| Yang tersisa | ARYA meninjau 6 video Limit 480p, lalu render 1080p60 sekaligus, lalu empat topik lain |
+| Yang tersisa | review 6 video Limit; 4 topik + UI/UX berjalan paralel di 5 sesi (lihat `docs/tugas/`) |
 | Alamat tayang | https://matra-eight.vercel.app |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md`<br>`docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`<br>`docs/superpowers/plans/2026-09-01-topik-limit.md` |
 | Tenggat | 12 September 2026 |
 | Menjalankan situs | `cd web && npm run dev` → `http://localhost:3000` |
 | Penghalang | *(tidak ada)* |
 
-## 📁 Folder kembar (BACA DULU, ini pernah menyesatkan)
+## 📁 Folder kembar = sesi paralel yang DISENGAJA (rezim 1 Sep malam)
 
-Di `D:\MANIM-MATRA\.claude\worktrees\` ada folder-folder berisi salinan seluruh
-proyek. Itu **worktree**: satu gudang git yang sama, dibuka di beberapa meja
-kerja sekaligus, tiap meja memegang cabang berbeda. Jadi tiap folder memang
-punya `PROGRESS.md` dan `CLAUDE.md` sendiri, dan **isinya bisa berbeda-beda**.
+Di `.claude\worktrees\` ada worktree: satu gudang git dibuka di beberapa meja
+kerja, tiap meja memegang cabang berbeda, masing-masing punya `PROGRESS.md`
+sendiri yang bisa beda isi. Dulu ini pernah menyesatkan (Claude sempat bilang
+"sudah digabung ke master" padahal belum, ARYA yang menemukannya). Sekarang
+worktree justru dipakai resmi, dengan aturan tertulis.
 
-| Folder | Cabang | Isi |
-|---|---|---|
-| `D:\MANIM-MATRA` | `master` | **Ini yang benar.** Sumber untuk deploy. |
-| `.claude\worktrees\progress-md-lanjutan-5704dc` | `claude/progress-md-lanjutan-5704dc` | meja kerja sesi 6, sudah digabung ke master |
-| `.claude\worktrees\progress-md-review-4f1d42` | `claude/progress-md-review-4f1d42` | **basi**, tertinggal 27 commit, kerjaannya sudah lama masuk master |
+| Sesi | Folder | Cabang | Tugas |
+|---|---|---|---|
+| MATRA-MASTER | `D:\MANIM-MATRA` | `master` | Limit, integrasi, deploy, PROGRESS.md |
+| MATRA-VEKTOR | `.claude\worktrees\matra-vektor` | `sesi/vektor` | topik vektor |
+| MATRA-GRAFIK-FUNGSI | `.claude\worktrees\matra-grafik-fungsi` | `sesi/grafik-fungsi` | topik grafik fungsi |
+| MATRA-STATISTIKA | `.claude\worktrees\matra-statistika` | `sesi/statistika` | topik statistika |
+| MATRA-RUANG-TIGA-DIMENSI | `.claude\worktrees\matra-ruang-3d` | `sesi/ruang-3d` | topik ruang 3D |
+| MATRA-DESAIN-UI-UX | `.claude\worktrees\matra-ui-ux` | `sesi/ui-ux` | tampilan laptop + HP |
 
-**Bahaya nyatanya, dan ini sudah terjadi:** di akhir sesi 6 rangkuman Claude
-menyatakan "semua sudah digabung ke master", padahal `master` masih tertinggal
-dua commit. Ketahuan waktu ARYA bertanya kenapa foldernya ada dua. Jadi jangan
-percaya ingatan soal ini, **periksa**:
-
-```bash
-git worktree list          # folder mana memegang cabang apa
-git log --oneline -1 master
-```
-
-**Aturannya:** kerjakan semuanya di `D:\MANIM-MATRA`. Kalau terpaksa memakai
-worktree, gabungkan kembali ke `master` di akhir sesi, lalu hapus worktree-nya
-supaya tidak ada `PROGRESS.md` basi yang menyesatkan sesi berikutnya:
-
-```bash
-git worktree remove .claude/worktrees/<nama> && git branch -d claude/<nama>
-```
-
-### Yang berubah di sesi 3: 22 revisi ARYA
-
-**Aturan tetap yang lahir di sesi ini (berlaku SELAMANYA, semua proyek):**
-- **Tanda pisah panjang DILARANG** di teks mana pun yang dibaca orang. Ganti
-  dengan koma, titik, atau tanda hubung biasa. Sudah dicatat di `~/.claude/CLAUDE.md`
-  dan `CLAUDE.md` proyek ini.
-
-**Halaman depan** dirombak jadi perkenalan, bukan daftar: logo Matra, kalimat
-pembuka, korsel 4 cuplikan video (`components/Demo.tsx`), tiga kolom "apa saja
-isinya", kartu materi urut dari Kelas 10, kaki halaman berisi nama pembuat
-(Nyoman Arya Sejati), logo UNDIKSHA, WhatsApp, dan tombol pasang aplikasi.
-
-**Isi materi** dirapikan: kode `TRIG-10-B4` dibuang, label tab jadi `MATERI 01`,
-pembuka Materi 01 ditulis ulang jadi masalah dulu baru jawaban, tiap materi
-dipecah jadi sesi bernomor, ditambah kotak **YUK BEREKSPERIMEN 🔬**, `BACA CEPAT`
-jadi `RINGKASAN`, dan bagian YouTube dipisah dengan tautan pencarian langsung.
-
-**Latihan** kini pilihan ganda **A sampai E**. **Kuis** terkunci diam-diam sampai
-kesepuluh materi dibuka DAN 10 menit membaca terkumpul (`lib/kemajuan.ts`).
-
-**Perbaikan teknis:** bug zoom (panggung dulu ikut melar mengikuti layar, kini
-dibatasi rem), subtitle tanpa bayangan dan bisa diperbesar siswa, video di-cache
-permanen, PWA siap pasang, dan Materi 10 yang tadinya mati kini keempat contohnya
-punya penggeser hidup.
-
-
-### Yang berubah di sesi 4 (pagi 1 Sep) - revisi lanjutan ARYA
-
-**Bug zoom DIPERBAIKI ULANG, yang pertama belum tuntas.** ARYA menemukan pada
-zoom 100% tombol "Tonton"/"Coba sendiri" dan pengatur ukuran teks hilang.
-Sebabnya `calc(100vh - var(--nav))` menuntut angka `--nav` selalu tepat.
-Sekarang tingginya tidak dihitung sama sekali: `body` jadi kolom flex dan
-panggung memakai `flex: 1 1 0`. Diuji di 5 ukuran layar, 3 ukuran font
-peramban, dan kedua mode.
-
-**Pelajaran yang ARYA minta dicatat:** revisi tampilan WAJIB dicoba sendiri
-lewat Playwright di beberapa tingkat zoom sebelum dilaporkan. Sudah disimpan
-sebagai memory `verifikasi-visual-multi-zoom`.
-
-**Halaman baru:** `/latihan` (bank soal berjenjang, bar kemajuan, 7 lencana)
-dan `/tentang`. Keduanya sudah ditautkan di navigasi sejak lama tetapi
-halamannya tidak pernah dibuat, jadi kedua menu itu selama ini **404**.
-
-**Kuis: bank 32 soal.** Tiap sesi mengambil 8 soal dan menghindari yang sudah
-pernah keluar, jadi empat sesi pertama tidak mengulang satu soal pun (sudah
-dibuktikan lewat pengujian). Semua jawaban numerik diperiksa ulang dengan
-hitungan mesin.
-
-**Materi 10 tidak lagi interaktif.** Penggeser dibuang, fotonya kini tampil
-utuh dua per baris dengan `contain`, tidak dipotong lagi.
-
-**Lain-lain:** tab cukup "MATERI 01", logo nav jadi lambang M saja dan
-diperbesar, menu "Beranda" ditambahkan, bagian "Apa saja isinya" dijadikan
-sorotan (judul serif besar, teks tinta, tiga kartu bernomor), korsel halaman
-depan kini berselang-seling video dan cuplikan layar asli, dan label sin/cos
-di widget lingkaran satuan diberi halo supaya tidak dipotong garis lingkaran.
-
-**Masih menunggu ARYA:** pilihan slogan halaman depan (5 usulan sudah
-diberikan).
-
-### Yang berubah di sesi 5 (malam 1 Sep) - topik kedua: LIMIT
-
-**ARYA memilih Limit sebagai topik kedua, lengkap, dengan 6 sampai 7 video.**
-Claude sudah menyampaikan bahwa pilihan itu kemungkinan besar menghabiskan
-seluruh sisa waktu sampai 12 September sehingga empat topik lain tidak
-tergarap. ARYA tetap memilih itu, dan keputusannya dijalankan penuh.
-
-**Rangka halaman topik DIPISAH lebih dulu.** `Trigonometri.tsx` 638 baris
-mencampur rangka halaman dengan penyetelan sepuluh widget, jadi topik kedua
-tidak punya jalan lain selain menyalinnya. Sekarang:
-
-| Berkas | Isi |
-|---|---|
-| `components/topik/HalamanTopik.tsx` | rangka, dipakai semua topik |
-| `components/topik/PanggungTrigonometri.tsx` | penyetelan widget trigonometri |
-| `components/topik/PanggungLimit.tsx` | penyetelan widget limit |
-| `components/topik/jenis.ts` | perjanjian antara rangka dan panggung |
-| `content/tipe.ts` | tipe isi yang dipakai bersama |
-| `content/daftar-isi.ts` | **daftar pusat, menambah topik cukup satu baris di sini** |
-
-**Buktinya Trigonometri tidak rusak:** 36 sidik jari DOM (18 kombinasi tab dan
-mode, dikali kolom kiri dan kanan) diambil dari versi lama dan versi baru
-dengan localStorage dikosongkan sama persis. Hasilnya identik huruf demi huruf.
-
-**Limit selesai: 10 materi, 9 widget, 4 latihan, bank 32 soal kuis,
-halaman `/latihan/limit`.** Yang belum: tujuh videonya.
-
-**Alat baru `alat/cek_soal.py`.** Memeriksa jawaban limit dengan sympy, dan
-menolak jawaban salah dengan menyebutkan yang benar. Dibuat SEBELUM satu soal
-pun ditulis. Hasil pemeriksaan: 17 angka di materi lolos semua, 5 jawaban
-latihan lolos semua, 28 jawaban kuis lolos semua.
-
-**Tiga cacat tampilan ditemukan dengan MELIHAT potret layar**, bukan dari log:
-tulisan bertindih di Materi 01, kalimat yang bertentangan dengan gambarnya
-sendiri di Materi 04, dan tulisan menabrak kurva di Materi 07 dan 08.
-Ketiganya sudah diperbaiki dan diperiksa ulang.
-
-**Keputusan: galeri Materi 10 Limit digambar sendiri, bukan foto.** Alasannya
-beda dengan Tahap 10 Trigonometri: di sana yang ditunjukkan DI MANA segitiga
-berada, dan foto menjawabnya. Di sini yang ditunjukkan BENTUK KURVANYA, dan
-foto roller coaster tidak memperlihatkan itu. Kalau ARYA lebih suka foto,
-tinggal diganti.
-
-
----
-
+Aturan main lengkap: `docs/tugas/ATURAN-SEMUA-SESI.md`. Intinya:
+- Tiap sesi HANYA di foldernya, HANYA di cabangnya, dilarang menyentuh master.
+- Hanya MASTER yang menggabungkan, deploy, dan menulis `PROGRESS.md`;
+  sesi lain menulis `docs/tugas/laporan/<NAMA>.md` di cabangnya.
+- Selesai digabung, MASTER menghapus worktree + cabangnya supaya tidak ada
+  catatan basi tersisa.
+- Jangan percaya ingatan soal keadaan git. Periksa: `git worktree list` dan
+  `git log --oneline -1 master`.
 ## 🚀 Deploy Vercel (dikerjakan 1 Sep 2026, sesi 5)
 
 **Alamat tayang: https://matra-eight.vercel.app**
