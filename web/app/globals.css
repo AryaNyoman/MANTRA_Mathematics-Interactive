@@ -1251,3 +1251,60 @@ video::cue(b) { font-weight: 700; }
      untuk jari. */
   .langkah button { min-height: 44px; }
 }
+
+/* ============================================================
+   Target sentuh di layar sempit: minimal 44 piksel
+   (sesi UI/UX, 2 Sep 2026)
+
+   Ukuran ini bukan selera. Penunjuk tetikus presisi satu piksel, jempol
+   tidak, jadi tombol yang nyaman diklik di laptop sering meleset di HP.
+   Semua diukur dulu di peramban pada lebar 375 piksel, dan yang disentuh
+   hanya yang memang kurang dari 44.
+
+   Yang ditemukan kurang: panah korsel 32x32, titik korsel 8x8, penggeser
+   widget setinggi 16, tautan kanal YouTube setinggi 22, tombol WhatsApp
+   35, tombol utama 42, dan logo nav 36x40.
+
+   Semuanya dikurung di layar sempit saja supaya tampilan laptop, yang
+   memang dipakai dengan tetikus, tidak ikut berubah bentuk.
+   ============================================================ */
+@media (max-width: 860px) {
+  .merk { min-width: 44px; min-height: 44px; }
+
+  .tombol {
+    min-height: 44px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .tombol-utama, .tombol-pasang, .tombol-wa { min-height: 44px; }
+
+  /* Panah korsel halaman depan. */
+  .demo-kendali > button { width: 44px; height: 44px; }
+
+  /* Titik korsel: yang TERLIHAT tetap sebesar 8 piksel supaya tampilannya
+     tidak berubah, tapi daerah yang bisa ditekan dibesarkan jadi 28x44.
+     Titiknya digambar oleh `::before`, jadi tombolnya sendiri boleh besar
+     tanpa ikut kelihatan besar. */
+  .demo-titik { gap: 0; }
+  .demo-titik button {
+    width: 28px; height: 44px; padding: 0;
+    border: 0; border-radius: 0; background: transparent;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .demo-titik button[aria-selected="true"] {
+    background: transparent; border-color: transparent;
+  }
+  .demo-titik button::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    border: 1px solid var(--redup); background: transparent;
+  }
+  .demo-titik button[aria-selected="true"]::before {
+    background: var(--tegas); border-color: var(--tegas);
+  }
+
+  /* Penggeser widget. Batangnya tetap tipis, yang membesar cuma daerah
+     tangkapnya. */
+  .kendali input[type="range"] { height: 44px; }
+
+  /* Daftar kanal YouTube di bawah bacaan. */
+  .tautan a { display: flex; align-items: center; min-height: 44px; }
+}
