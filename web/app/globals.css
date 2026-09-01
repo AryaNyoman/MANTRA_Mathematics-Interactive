@@ -1131,3 +1131,73 @@ video::cue(b) { font-weight: 700; }
      150 piksel per penggeser, terlalu sempit untuk diatur dengan jempol. */
   .kendali { grid-template-columns: 1fr; gap: 12px; }
 }
+
+/* ============================================================
+   NAVIGASI: logo yang tidak lagi diperas, dan menu tiga garis di HP
+   (sesi UI/UX, 2 Sep 2026)
+   ============================================================ */
+
+/* Logo hilang di layar sempit BUKAN karena berkasnya tidak ada dan bukan
+   karena layarnya kurang lebar. `.merk-ikon` diberi `width: auto`, dan
+   ketika isi nav kelebaran peramban memerasnya sampai lebar NOL piksel
+   (diukur: lebar 0, tinggi 40, gambar aslinya berhasil dimuat).
+   `flex: none` melarang pemerasan itu, dan berlaku di semua ukuran layar. */
+.merk { flex: none; }
+.merk-ikon { flex: none; }
+
+/* Di layar lebar pembungkus menu sengaja tidak menggambar kotak apa pun,
+   jadi keempat tautan tetap jadi anak langsung baris nav dan jaraknya
+   tetap diatur oleh `gap` milik `.nav`. Tampilan laptop tidak berubah. */
+.nav-menu { display: contents; }
+.nav-menu .kode { margin-left: auto; }
+.nav-tombol { display: none; }
+
+@media (max-width: 860px) {
+  .nav {
+    position: relative;
+    gap: 12px;
+    padding: 0 16px;
+  }
+
+  /* Tombol tiga garis: 44 piksel, ukuran minimum yang nyaman untuk jempol. */
+  .nav-tombol {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 4px; flex: none; margin-left: auto;
+    width: 44px; height: 44px; padding: 0;
+    background: transparent; border: 1px solid var(--garis);
+    border-radius: 9px; cursor: pointer;
+  }
+  .nav-tombol span {
+    display: block; width: 18px; height: 2px;
+    background: var(--tinta); border-radius: 2px;
+  }
+
+  /* Panel menu turun tepat di bawah baris nav dan menutupi isi halaman,
+     bukan mendorongnya. Mendorong isi halaman membuat panggung ikut
+     bergeser tiap kali menu dibuka, dan itu terasa seperti halaman
+     melompat. */
+  .nav-menu {
+    display: none;
+    position: absolute; top: 100%; left: 0; right: 0; z-index: 50;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--kartu);
+    border-bottom: 1px solid var(--garis);
+    padding: 4px 16px 12px;
+    box-shadow: 0 12px 26px rgba(33, 30, 26, 0.09);
+  }
+  .nav-menu[data-buka="true"] { display: flex; }
+
+  /* Tiap tautan setinggi 48 piksel supaya tidak meleset saat ditekan. */
+  .nav-menu a {
+    display: flex; align-items: center;
+    min-height: 48px; font-size: 16px;
+    border-bottom: 1px solid var(--garis);
+  }
+  .nav-menu a:last-of-type { border-bottom: 0; }
+
+  /* Lencana nama topik tidak dibuang, cuma pindah ke dalam panel. Di baris
+     nav ia yang membuat situs bisa digeser ke samping. */
+  .nav-menu .kode {
+    margin: 12px 0 0; align-self: flex-start;
+  }
+}
