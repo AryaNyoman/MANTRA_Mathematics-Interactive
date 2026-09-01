@@ -17,6 +17,14 @@
  * dengan memasukkan angka, sehingga siswa mengira limit adalah substitusi
  * yang dibuat berbelit.
  *
+ * GAGASAN TAMBAHAN dari Essence of Calculus bab 7 (3Blue1Brown), 1 Sep 2026:
+ * permainan tantangan di Materi 02 (epsilon-delta tanpa lambangnya), penegasan
+ * di Materi 01 bahwa h itu angka biasa dan bukan bilangan gaib, dan peringatan
+ * lingkaran setan L Hopital di Materi 08. Yang diambil GAGASANNYA saja; contoh,
+ * angka, dan kalimatnya ditulis sendiri. Repo 3b1b berlisensi CC BY-NC-SA 4.0
+ * yang menular, jadi menyalin kode atau naskahnya akan memaksa MATRA ikut
+ * berlisensi sama dan non-komersial selamanya.
+ *
  * SELURUH ANGKA DI BERKAS INI SUDAH DIPERIKSA MESIN dengan sympy, lewat
  * `python alat/cek_soal.py alat/materi-limit.json`. Kalau ada angka yang
  * diubah, jalankan lagi alat itu sebelum menyatakan selesai.
@@ -101,6 +109,8 @@ export const TAHAP: TahapLimit[] = [
         ],
       },
       { jenis: 'sorot', teks: 'Limit bukan cara berbelit untuk memasukkan angka. Limit adalah cara menjawab pertanyaan yang angkanya justru tidak boleh dimasukkan.' },
+      { jenis: 'paragraf', teks: 'Satu hal lagi yang perlu diluruskan sejak awal. Huruf h di atas BUKAN benda ajaib yang "sangat kecil tak berhingga". Ia angka biasa: 1, lalu 0,5, lalu 0,1, lalu 0,001. Angka yang bisa Anda tulis dan hitung sendiri.' },
+      { jenis: 'paragraf', teks: 'Yang kita lakukan hanyalah mengecilkan angka biasa itu terus menerus, lalu memperhatikan ke mana hasilnya menuju. Tidak ada satu pun langkah yang memakai bilangan gaib. Membayangkan h sebagai sesuatu yang mistis justru membuat limit terasa jauh lebih sulit daripada yang sebenarnya.' },
 
       {
         jenis: 'coba',
@@ -189,6 +199,22 @@ export const TAHAP: TahapLimit[] = [
           'Coba letakkan x tepat di titiknya. Alat itu menolak, dan penolakan itu memang bagian dari definisinya',
         ],
       },
+
+      { jenis: 'sesi', judul: 'Seberapa dekat yang Anda mau?' },
+      { jenis: 'paragraf', teks: 'Kalimat "f(x) mendekati L" masih terasa longgar. Seberapa dekat itu dekat? Ada satu cara menguji yang membuatnya jadi tegas, dan caranya berbentuk permainan tantangan.' },
+      {
+        jenis: 'poin',
+        judul: 'Aturan permainannya',
+        butir: [
+          'Anda menantang: saya mau f(x) berjarak kurang dari 0,1 dari 10',
+          'Saya menjawab: pakai x yang berjarak kurang dari 0,016 dari 3, pasti terpenuhi',
+          'Anda menantang lebih ketat: kurang dari 0,001',
+          'Saya menjawab lagi: pakai x yang berjarak kurang dari 0,00016',
+        ],
+      },
+      { jenis: 'sorot', teks: 'Limitnya 10 berarti: berapa pun ketatnya tantangan Anda, saya SELALU punya jawabannya. Tidak ada tantangan yang membuat saya kehabisan akal.' },
+      { jenis: 'paragraf', teks: 'Itulah beda antara "kebetulan dekat" dan "benar-benar menuju". Kalau f(x) hanya kebetulan dekat, cepat atau lambat ada tantangan yang tidak bisa dipenuhi. Kalau ia benar-benar menuju L, jawabannya selalu ada.' },
+      { jenis: 'paragraf', teks: 'Di bangku kuliah permainan ini ditulis dengan dua huruf Yunani dan disebut definisi epsilon-delta. Anda belum perlu lambangnya sekarang. Yang perlu Anda bawa adalah gagasannya: limit itu janji yang sanggup memenuhi tantangan seketat apa pun.' },
 
       { jenis: 'sesi', judul: 'Kenapa tidak boleh berhenti di satu arah saja' },
       { jenis: 'paragraf', teks: 'Kalau kita hanya memeriksa dari kiri, kita bisa tertipu. Ada fungsi yang dari kiri menuju satu angka, tapi dari kanan menuju angka yang berbeda. Fungsi seperti itu tidak punya limit di titik tersebut, walaupun kedua sisinya masing-masing rapi.' },
@@ -706,6 +732,21 @@ export const TAHAP: TahapLimit[] = [
         ],
         simpul: 'Limitnya 3/5, atau 0,6.',
       },
+
+      { jenis: 'sesi', judul: 'Kalau Anda pernah dengar aturan L Hopital' },
+      { jenis: 'paragraf', teks: 'Sebagian siswa sudah pernah mendengar jalan pintas untuk bentuk 0 dibagi 0: turunkan pembilang dan penyebutnya masing-masing, lalu masukkan angkanya. Namanya aturan L Hopital, dan ia memang bekerja pada banyak soal.' },
+      { jenis: 'paragraf', teks: 'Ada godaan besar untuk memakainya di sini. Turunan sin x adalah cos x, turunan x adalah 1, jadi hasilnya cos 0 dibagi 1 sama dengan 1. Cepat, rapi, dan jawabannya benar.' },
+      { jenis: 'sorot', teks: 'Tetapi sebagai BUKTI, langkah itu berputar-putar. Rumus turunan sin x justru diperoleh dari limit yang sedang kita buktikan ini.' },
+      {
+        jenis: 'poin',
+        judul: 'Urutan sebenarnya, dan urutan itu tidak boleh dibalik',
+        butir: [
+          'Perbandingan luas di lingkaran satuan membuktikan sin x dibagi x menuju 1',
+          'Hasil itu dipakai untuk membuktikan bahwa turunan sin x adalah cos x',
+          'Baru setelah itu aturan L Hopital boleh memakai turunan sin x',
+        ],
+      },
+      { jenis: 'paragraf', teks: 'Jadi memakai L Hopital untuk membuktikan limit ini sama saja dengan meminjam uang dari orang yang belum punya uang. Sebagai alat hitung cepat ia sah dipakai di soal lain, tetapi sebagai bukti untuk limit ini ia tidak berlaku. Karena itulah buktinya harus lewat gambar lingkaran tadi.' },
 
       {
         jenis: 'coba',
