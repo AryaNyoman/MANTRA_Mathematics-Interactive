@@ -282,3 +282,78 @@ Daftar ini bukan formalitas; ia menemukan hal yang belum beres:
 | `alat/periksa_tahap.py` | Menjawab enam butir daftar periksa dari struktur isinya, dan menyiapkan bahan untuk empat butir sisanya |
 
 Keduanya khusus topik ini, jadi tidak menyentuh wilayah sesi lain.
+
+
+---
+
+# Gelombang 2, video 1 dari 6: tahap 6 transformasi (2 September 2026)
+
+**Selesai 480p, siap ditonton ARYA.**
+Berkas: `media/uji-480p/grafik6-transformasi.mp4`, 2,43 MB, 123,96 detik.
+Belum disalin ke situs, memang begitu untuk versi tinjauan.
+
+| Bagian | Keadaan |
+|---|---|
+| Naskah | `manim/narasi/grafik6-transformasi.json`, 12 segmen, 123,98 detik |
+| Adegan | `manim/scenes/grafik6_transformasi.py`, 12 babak, 75 animasi |
+| Suara | `audio/grafik6-transformasi/`, edge-tts id-ID-ArdiNeural |
+| Selisih gambar dan suara | 0,15 detik (batas berhenti 1,5 detik) |
+
+## Rancangannya
+
+Tahap 6 dipilih pertama karena ia poros topik ini, dan karena dua kekeliruan
+terbesarnya (arah geser dan arah regang) adalah hal yang paling sulit
+ditangkap dari halaman diam.
+
+Dua babak sengaja BERHENTI sebelum menjawab, babak 4 dan babak 9. Rumusnya
+ditulis, pertanyaannya diajukan, lalu diam beberapa detik. Alasannya: kedua
+kekeliruan itu hanya menempel kalau penonton sempat menebak salah lebih dulu.
+
+Tiga fungsi dasar dipakai berurutan, parabola lalu akar lalu kurva sinus,
+dengan perlakuan yang sama persis. Kalau cuma parabola yang dipakai, aturannya
+akan terlihat seperti sifat parabola, padahal justru itu yang mau dibantah.
+Kurva sinus hanya DIPINJAM; pembentukannya milik Trigonometri tahap 8, dan
+narasinya menyebut itu.
+
+## Gerbang mutu: tiga cacat ditemukan, tidak satu pun terlihat dari log
+
+Render pertama lolos semua pemeriksaan mesin: `cek_kode.py` bersih,
+`qc.periksa_adegan` lolos di tiap babak, gerbang waktu `sinema.babak` lolos,
+kode keluar 0, 63 animasi. Ketiga cacat di bawah ini baru ketahuan setelah
+lembar kontaknya DIBUKA dan frame-nya dinilai satu per satu.
+
+| Cacat | Sebabnya | Perbaikan |
+|---|---|---|
+| Rumus jadi coretan kembar tak terbaca sepanjang 2 detik tiap berganti (terlihat di detik 70) | `ReplacementTransform` antara dua `MathTex` yang jumlah lambangnya berbeda | rumus keluar dulu baru masuk, tidak pernah di-morph |
+| Angka pada sumbu tidak terbaca di 480p | ukuran 20 dengan warna redup, di kedua sumbu | ukuran 26, warna tinta, dan hanya di sumbu x karena video ini soal perpindahan mendatar |
+| Keterangan tertinggal satu babak: narasi bicara sinus, layar masih menampilkan keterangan babak akar | keterangannya dipasang di AKHIR babak | dipasang di AWAL babak |
+| Potongan `x dikali 2 dulu` masih setengah tertulis di detik 102 | `Write` 1,8 detik terlalu cepat untuk dua baris | dinaikkan menjadi 2,4 detik |
+
+**Cacat pertama itu sudah pernah terjadi dan sudah tercatat** di `PROGRESS.md`
+untuk video Limit materi 06, lengkap dengan aturannya: untuk rumus, tukar
+berurutan, jangan di-morph. Saya tetap mengulanginya. Sekarang aturan itu
+ditulis ulang sebagai docstring `ganti_panel` di dalam berkas adegannya
+sendiri, supaya terbaca oleh siapa pun yang menyunting berkas itu, bukan cuma
+oleh yang sempat membaca PROGRESS.md sampai habis.
+
+Render kedua diperiksa dengan cara yang sama: lembar kontak 32 frame dibuka,
+plus frame lepas di detik 70 dan 102 yang tadi cacat. Ketiganya bersih.
+
+## Catatan jujur yang tersisa
+
+- **Bagian statis cukup panjang di beberapa babak**, sampai sekitar 7 detik.
+  Layarnya tidak kosong (grafik, rumus, dan keterangan tetap tampil) dan
+  narasinya tetap berjalan, jadi ini bukan waktu mati seperti cacat yang
+  dulu ditemukan ARYA. Tetapi kalau ARYA merasa temponya melambat, yang
+  dipendekkan adalah narasinya, bukan animasinya.
+- **Sinusnya beramplitudo 2, bukan 1**, dan labelnya ditulis apa adanya
+  `f(x) = 2 sin x`. Pada bidang setinggi 7,6 satuan, sin x biasa cuma jadi
+  riak setipis 0,6 satuan layar dan pergeserannya tidak terlihat.
+- **Jeda sekitar 1 detik setelah judul pembuka memudar** masih ada. Itu
+  bawaan `sinema.judul_pembuka` dan berlaku untuk SEMUA video MATRA, jadi
+  perbaikannya milik MASTER, bukan sesi ini.
+
+## Sisa lima video, urut prioritas file tugas
+
+2. Tahap 3 bentuk puncak, 3. Tahap 4 melengkapkan kuadrat, 4. Tahap 9 lipat
+ke y = x, 5. Tahap 8 balapan tiga kurva, 6. Tahap 10 asimtot bergeser.

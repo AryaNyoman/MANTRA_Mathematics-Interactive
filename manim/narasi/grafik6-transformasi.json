@@ -1,0 +1,56 @@
+{
+  "adegan": "GeserCerminRegang",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Grafik Fungsi Tahap 06, Geser, cermin, regang. Video prioritas PERTAMA. Tahap ini poros seluruh topik: lima tahap sebelumnya membangun bahan, lima sesudahnya memanen. Tugas video ini satu saja, membuat dua kalimat aturan itu tertanam, dan membuat jebakan f(2x) ketahuan sebelum siswa telanjur salah. Tiga fungsi dasar dipakai berurutan supaya terlihat aturannya tidak peduli bentuk grafiknya.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Di tahap tiga, satu angka memindahkan seluruh parabola. Apakah itu sifat khusus parabola?"
+    },
+    {
+      "id": "parabola",
+      "teks": "Kita mulai dari yang sudah dikenal. Ini grafik y sama dengan x kuadrat, dan untuk sementara ia kita sebut f saja."
+    },
+    {
+      "id": "geseratas",
+      "teks": "Sekarang perhatikan. Kita tulis f dari x, lalu tambah satu, di luar kurung. Seluruh grafiknya naik satu satuan, dan bentuknya tidak berubah."
+    },
+    {
+      "id": "tanya",
+      "teks": "Sekarang giliran yang di dalam kurung. Kita tulis f dari x kurang satu. Coba tebak dulu: grafiknya bergeser ke kiri, atau ke kanan?"
+    },
+    {
+      "id": "jawab",
+      "teks": "Ke kanan, padahal tandanya minus. Ini bagian yang paling sering keliru, jadi kita pelankan."
+    },
+    {
+      "id": "kenapa",
+      "teks": "Alasannya begini. Titik terendah parabola terjadi saat isi kurungnya nol. Isi kurungnya nol ketika x bernilai satu. Jadi titik itu memang pindah ke kanan."
+    },
+    {
+      "id": "akar",
+      "teks": "Sekarang fungsi dasarnya kita ganti menjadi akar x. Bentuknya jauh berbeda. Kita kenakan dua perlakuan yang sama persis."
+    },
+    {
+      "id": "sinus",
+      "teks": "Sekali lagi, kali ini pada kurva sinus dari topik trigonometri. Perhatikan, perpindahannya sama saja. Aturannya tidak peduli bentuk grafiknya."
+    },
+    {
+      "id": "mampat",
+      "teks": "Satu perlakuan terakhir, dan ini yang paling menjebak. Kita tulis f dari dua x. Coba tebak lagi: grafiknya jadi dua kali lebih lebar, atau setengahnya?"
+    },
+    {
+      "id": "setengah",
+      "teks": "Setengahnya. Lihat titik ini. Nilai empat yang tadinya muncul di x sama dengan dua, sekarang sudah muncul di x sama dengan satu."
+    },
+    {
+      "id": "kenapamampat",
+      "teks": "Sebabnya, x sudah dikalikan dua sebelum masuk mesin. Jadi mesinnya sampai ke nilai yang sama pada x yang setengahnya, dan semua kejadian pada grafik terjadi lebih awal."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi seluruh tahap ini muat dalam dua kalimat. Angka yang ada di luar kurung mengerjakan apa yang tertulis. Angka yang masuk ke dalam kurung mengerjakan kebalikannya."
+    }
+  ]
+}
