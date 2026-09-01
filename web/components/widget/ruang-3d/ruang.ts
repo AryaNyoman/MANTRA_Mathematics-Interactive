@@ -208,7 +208,7 @@ export function bulat(n: number, desimal = 2): string {
 /* Sisi: menghadap kita atau membelakangi                              */
 /* ------------------------------------------------------------------ */
 
-function kurang(a: Titik3, b: Titik3): Titik3 {
+export function kurang(a: Titik3, b: Titik3): Titik3 {
   return [a[0] - b[0], a[1] - b[1], a[2] - b[2]]
 }
 
@@ -275,6 +275,34 @@ export function balok(p: number, l: number, t: number): Bangun {
 
 export function kubus(rusuk: number): Bangun {
   return balok(rusuk, rusuk, rusuk)
+}
+
+/**
+ * Limas segi empat T.ABCD, alas persegi, puncak T tepat di atas titik potong
+ * diagonal alasnya. Urutan titik sisinya sama aturannya dengan balok:
+ * berlawanan arah jarum jam dilihat dari LUAR.
+ *
+ * Dipakai tahap 10 untuk atap rumah dan piramida. Penamaannya sama dengan
+ * `alat/cek_ruang.py` supaya angka dan gambar tidak pernah berbeda.
+ */
+export function limas(alas: number, tinggi: number): Bangun {
+  return {
+    titik: {
+      A: [0, 0, 0], B: [alas, 0, 0], C: [alas, alas, 0], D: [0, alas, 0],
+      T: [alas / 2, alas / 2, tinggi],
+    },
+    rusuk: [
+      ['A', 'B'], ['B', 'C'], ['C', 'D'], ['D', 'A'],
+      ['A', 'T'], ['B', 'T'], ['C', 'T'], ['D', 'T'],
+    ],
+    sisi: [
+      { nama: 'alas', titik: ['A', 'D', 'C', 'B'] },
+      { nama: 'depan', titik: ['A', 'B', 'T'] },
+      { nama: 'kanan', titik: ['B', 'C', 'T'] },
+      { nama: 'belakang', titik: ['C', 'D', 'T'] },
+      { nama: 'kiri', titik: ['D', 'A', 'T'] },
+    ],
+  }
 }
 
 export const RUSUK_BALOK = [
@@ -348,6 +376,82 @@ export function jarakDuaGaris(
     return panjang(c) / (panjang(u) || 1)
   }
   return Math.abs(w[0] * n[0] + w[1] * n[1] + w[2] * n[2]) / besar
+}
+
+export function tambah(a: Titik3, b: Titik3): Titik3 {
+  return [a[0] + b[0], a[1] + b[1], a[2] + b[2]]
+}
+
+export function kali(a: Titik3, k: number): Titik3 {
+  return [a[0] * k, a[1] * k, a[2] * k]
+}
+
+export function kaliTitik(a: Titik3, b: Titik3): number {
+  return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
+}
+
+/** Titik pada ruas ab, dengan t = 0 di a dan t = 1 di b. */
+export function sepanjang(a: Titik3, b: Titik3, t: number): Titik3 {
+  return tambah(a, kali(kurang(b, a), t))
+}
+
+/**
+ * Kaki tegak lurus dari titik p pada garis ab.
+ *
+ * Inilah satu gagasan yang memayungi tahap 3 sampai 7: setiap soal jarak
+ * adalah soal mencari kaki tegak lurus. Fungsi ini dan saudaranya di bawah
+ * dipakai oleh lima widget sekaligus.
+ */
+export function kakiPadaGaris(p: Titik3, a: Titik3, b: Titik3): Titik3 {
+  const u = kurang(b, a)
+  const t = kaliTitik(kurang(p, a), u) / (kaliTitik(u, u) || 1)
+  return sepanjang(a, b, t)
+}
+
+/** Kaki tegak lurus dari titik p pada bidang yang memuat a, b, dan c. */
+export function kakiPadaBidang(p: Titik3, a: Titik3, b: Titik3, c: Titik3): Titik3 {
+  const n = silang(kurang(b, a), kurang(c, a))
+  const t = kaliTitik(kurang(p, a), n) / (kaliTitik(n, n) || 1)
+  return kurang(p, kali(n, t))
+}
+
+export function jarakTitik(a: Titik3, b: Titik3): number {
+  return panjang(kurang(a, b))
+}
+
+export function jarakTitikGaris(p: Titik3, a: Titik3, b: Titik3): number {
+  return jarakTitik(p, kakiPadaGaris(p, a, b))
+}
+
+export function jarakTitikBidang(p: Titik3, a: Titik3, b: Titik3, c: Titik3): number {
+  return jarakTitik(p, kakiPadaBidang(p, a, b, c))
+}
+
+/**
+ * Sudut antara dua ARAH, dalam derajat, selalu yang tidak tumpul.
+ *
+ * Sudut antara dua garis tidak peduli arah panahnya: garis yang sama boleh
+ * ditulis dari A ke B atau dari B ke A. Karena itu nilai mutlaknya diambil,
+ * sehingga hasilnya selalu antara 0 dan 90 derajat.
+ */
+export function sudutDuaArah(u: Titik3, v: Titik3): number {
+  const kos = Math.abs(kaliTitik(u, v)) / ((panjang(u) * panjang(v)) || 1)
+  return (Math.acos(Math.min(1, kos)) * 180) / Math.PI
+}
+
+/** Sudut garis ab dengan bidang pqr, dalam derajat. */
+export function sudutGarisBidang(
+  a: Titik3, b: Titik3, p: Titik3, q: Titik3, r: Titik3,
+): number {
+  const n = silang(kurang(q, p), kurang(r, p))
+  const u = kurang(b, a)
+  const sin = Math.abs(kaliTitik(u, n)) / ((panjang(u) * panjang(n)) || 1)
+  return (Math.asin(Math.min(1, sin)) * 180) / Math.PI
+}
+
+/** Kamera untuk sekumpulan titik bernama, dibingkai otomatis. */
+export function kameraTitik(daftar: Record<string, Titik3>, sudut: Sudut): Kamera {
+  return kamera(bolaMuat(Object.values(daftar)), sudut)
 }
 
 export type Kedudukan = 'berpotongan' | 'sejajar' | 'bersilangan' | 'berimpit'
