@@ -1,0 +1,56 @@
+{
+  "adegan": "PerahuMenyeberang",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Vektor Materi 01, Angka saja tidak cukup. Video prioritas PERTAMA untuk topik Vektor: ia membuka seluruh topik. Tugasnya membuat siswa merasa perlu vektor SEBELUM bertemu lambangnya, lewat perahu yang mendarat di hilir. Segmen penutup mengulang kalimat sorot tahapnya kata per kata. Satu sumber kebenaran untuk naskah, jangan ditulis ulang di dalam adegan.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Sebuah perahu akan menyeberangi sungai. Pendayungnya menghadap lurus ke tepi seberang, dan ia tidak akan sekali pun membelokkan haluan."
+    },
+    {
+      "id": "dayung",
+      "teks": "Inilah dayungnya, panah biru, tegak lurus menuju seberang. Dalam satu jam ia memindahkan perahu tiga kilometer."
+    },
+    {
+      "id": "arus",
+      "teks": "Tapi sungainya tidak diam. Panah merah ini arusnya, dua kilometer tiap jam, mengalir ke hilir."
+    },
+    {
+      "id": "hilir",
+      "teks": "Sekarang perhatikan tempat perahu itu mendarat. Bukan tepat di seberang, melainkan dua kilometer ke hilir. Padahal dayungnya tidak pernah dibelokkan."
+    },
+    {
+      "id": "jawab",
+      "teks": "Sebabnya ada pada panah hitam ini. Gerak yang sebenarnya bukan dayung saja, melainkan dayung ditambah arus."
+    },
+    {
+      "id": "besaran",
+      "teks": "Coba lihat dua kelompok besaran ini. Di kiri, massa, suhu, dan waktu selesai dijelaskan satu angka saja. Menyebut arahnya tidak ada gunanya."
+    },
+    {
+      "id": "arah",
+      "teks": "Sebelah kanan berbeda. Perpindahan, kecepatan, dan gaya belum selesai diceritakan sebelum arahnya ikut disebut."
+    },
+    {
+      "id": "tanya",
+      "teks": "Sekarang satu pertanyaan. Ada dua perpindahan, yang satu tiga kilometer dan yang lain empat kilometer. Kalau digabung, hasilnya berapa?"
+    },
+    {
+      "id": "searah",
+      "teks": "Kalau keduanya searah, seperti di panel kiri, hasilnya tujuh kilometer."
+    },
+    {
+      "id": "lawan",
+      "teks": "Kalau keduanya berlawanan arah, seperti di panel tengah, sisanya tinggal satu kilometer."
+    },
+    {
+      "id": "tegak",
+      "teks": "Dan kalau keduanya saling tegak lurus, seperti di panel kanan, hasilnya lima kilometer. Dari akar tiga kuadrat ditambah empat kuadrat."
+    },
+    {
+      "id": "tutup",
+      "teks": "Angkanya sama persis, jawabannya tiga-tiganya berbeda. Besaran yang butuh arah itulah yang disebut vektor. Yang cukup satu angka disebut skalar."
+    }
+  ]
+}
