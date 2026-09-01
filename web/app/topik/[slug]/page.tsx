@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Nav from '@/components/Nav'
-import Trigonometri from '@/components/topik/Trigonometri'
+import HalamanTopik from '@/components/topik/HalamanTopik'
 import { TOPIK, cariTopik } from '@/content/topik'
 
 /**
@@ -26,7 +26,7 @@ export async function generateMetadata({
   return { title: `${topik.nama} | MATRA`, description: topik.pertanyaan }
 }
 
-export default async function HalamanTopik({
+export default async function RuteTopik({
   params,
 }: {
   params: Promise<{ slug: string }>
@@ -39,7 +39,7 @@ export default async function HalamanTopik({
     <>
       <Nav label={topik.nama} />
       {topik.siap ? (
-        <Trigonometri topik={topik} />
+        <HalamanTopik topik={topik} />
       ) : (
         <main className="beranda">
           <div className="jalur">{topik.kelas}</div>
