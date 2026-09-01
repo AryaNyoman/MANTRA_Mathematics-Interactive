@@ -357,3 +357,47 @@ plus frame lepas di detik 70 dan 102 yang tadi cacat. Ketiganya bersih.
 
 2. Tahap 3 bentuk puncak, 3. Tahap 4 melengkapkan kuadrat, 4. Tahap 9 lipat
 ke y = x, 5. Tahap 8 balapan tiga kurva, 6. Tahap 10 asimtot bergeser.
+
+
+---
+
+# Butuh MASTER: tiga cacat video yang kemungkinan besar ada juga di sesi lain
+
+Ditulis di sini karena pesan antar-sesi ke MASTER kedaluwarsa tanpa sampai.
+Berkas laporan adalah jalur resminya, jadi ini yang dipakai.
+
+Render uji pertama video saya **lolos SEMUA pemeriksaan mesin** dan tetap punya
+tiga cacat. Kalau tiga pola di bawah ini juga dipakai sesi lain, cacatnya ikut
+terbawa, dan tidak akan tertangkap oleh pemeriksa mana pun.
+
+### 1. Rumus jangan pernah di-morph
+`ReplacementTransform` antara dua `MathTex` yang jumlah lambangnya berbeda
+menghasilkan tulisan kembar buram selama seluruh animasinya. Aturan ini SUDAH
+tercatat di `PROGRESS.md` untuk Limit materi 06, dan saya tetap mengulanginya.
+
+Pelajaran yang lebih penting daripada cacatnya sendiri: **aturan yang cuma
+hidup di `PROGRESS.md` tidak cukup.** Saya tulis ulang aturan itu sebagai
+docstring `ganti_panel` di dalam berkas adegan saya sendiri, supaya terbaca
+oleh siapa pun yang menyunting berkas itu. Usul: sesi lain yang menulis adegan
+melakukan hal yang sama, atau `sinema.py` diberi fungsi `ganti_rumus()` resmi
+oleh MASTER supaya polanya tidak bisa salah.
+
+### 2. Angka pada sumbu tidak terbaca di 480p
+Ukuran 20 dengan warna redup tinggal bayangan pada lembar kontak 480p. Diubah
+ke ukuran 26, warna tinta, dan hanya di sumbu yang memang dipakai. Layak
+diperiksa di adegan sesi lain, karena ukuran 20 itu saya tiru dari adegan yang
+sudah ada.
+
+### 3. Keterangan jangan dipasang di AKHIR babak
+Kalau `sinema.keterangan()` dipanggil di akhir babak, sepanjang babak itu layar
+masih menampilkan keterangan babak SEBELUMNYA. Akibatnya narasi bicara satu
+hal dan tulisan di layar bicara hal lain, dan itu masuk kategori "gambar yang
+membantah narasinya" di gerbang video `CLAUDE.md`. Pasang di awal babak.
+
+### Masih terbuka, bukan wilayah saya
+`web/components/widget/ruang-3d/Bingkai3D.tsx` baris 139 membaca `ref` saat
+render. `node node_modules/eslint/bin/eslint.js .` gagal kode keluar 1 karena
+itu, jadi gerbang "eslint bersih" belum bisa dinyatakan lolos oleh sesi mana
+pun. Perbaikannya memindahkan keadaan sedang-menyeret dari `useRef` ke
+`useState`; contoh polanya ada di
+`web/components/widget/grafik-fungsi/SusunParabola.tsx`.
