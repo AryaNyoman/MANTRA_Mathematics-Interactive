@@ -43,7 +43,11 @@ export default function PerkecilTampilan({ tingkat }: { tingkat: number }) {
       {/* garis asimtot datar */}
       <line x1={KOTAK.x0} y1={p.y(ASIMTOT)} x2={KOTAK.x1} y2={p.y(ASIMTOT)}
             stroke={WARNA.sudut} strokeWidth={1.8} strokeDasharray="7 5" />
-      <text x={KOTAK.x0 + 5} y={p.y(ASIMTOT) - 7} fontSize={11.5} fill={WARNA.sudut} fontFamily={MONO}>
+      {/* Label ditaruh DI BAWAH garisnya. Di atas garis ia tertimpa kurva yang
+          sedang menukik, dan itu terlihat pada potret layar 1 Sep 2026.
+          Daerah di bawah asimtot selalu kosong, karena kurvanya tidak pernah
+          turun melewati garis itu. */}
+      <text x={KOTAK.x0 + 5} y={p.y(ASIMTOT) + 16} fontSize={11.5} fill={WARNA.sudut} fontFamily={MONO}>
         y = 3, asimtot datar
       </text>
 
@@ -57,17 +61,22 @@ export default function PerkecilTampilan({ tingkat }: { tingkat: number }) {
       <circle cx={p.x(xUjung) - 2} cy={p.y(yUjung)} r={4.5} fill={WARNA.depan}
               stroke="var(--kartu)" strokeWidth={1.8} />
 
-      {/* angka */}
-      <text x={KOTAK.x0 + 5} y={KOTAK.y0 + 32} fontSize={12} fill={WARNA.miring} fontFamily={MONO}>
+      {/* Angka ditaruh di POJOK KANAN ATAS, bukan kiri atas dan bukan bawah.
+          Di kiri atas kurvanya sedang tinggi sehingga tulisannya tertimpa, dan
+          di bawah ia bertabrakan dengan penunjuk skala milik bingkai.
+          (Dua cacat yang tertangkap saat memeriksa potret layar, 1 Sep 2026.) */}
+      <text x={KOTAK.x1 - 6} y={KOTAK.y0 + 20} textAnchor="end" fontSize={12}
+            fill={WARNA.miring} fontFamily={MONO}>
         di x = {angka(xUjung, 0)} nilainya {angka(yUjung, 5)}
       </text>
-      <text x={KOTAK.x0 + 5} y={KOTAK.y0 + 50} fontSize={12} fill={WARNA.depan} fontFamily={MONO}>
+      <text x={KOTAK.x1 - 6} y={KOTAK.y0 + 38} textAnchor="end" fontSize={12}
+            fill={WARNA.depan} fontFamily={MONO}>
         selisih ke garis {angka(selisih, 5)}
       </text>
-      <text x={KOTAK.x1} y={KOTAK.y1 + 26} textAnchor="end" fontSize={10.5}
+      <text x={KOTAK.x1 - 6} y={KOTAK.y0 + 58} textAnchor="end" fontSize={10.5}
             fill={WARNA.redup} fontFamily={MONO}>
         {lebar >= 700
-          ? 'kurvanya nyaris berimpit, tapi selisihnya belum nol'
+          ? 'nyaris berimpit, tapi selisihnya belum nol'
           : 'perkecil lagi tampilannya'}
       </text>
     </Bidang>

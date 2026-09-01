@@ -69,7 +69,7 @@ const DAFTAR: Topik[] = [
     urutanKelas: 12,
     pertanyaan: 'Apa artinya “mendekati” kalau tidak pernah sampai?',
     miskonsepsiSingkat: '“limit itu ya nilai fungsi di titik itu.”',
-    siap: false,
+    siap: true,
   },
   {
     slug: 'ruang-3d',

@@ -29,6 +29,24 @@ export const NAMA_SIFAT: Record<Sifat, string> = {
 
 export const URUT_SIFAT: Sifat[] = ['dasar', 'kelipatan', 'jumlah', 'kali', 'bagi', 'pangkat', 'akar']
 
+/**
+ * Keterangan saat pilihannya keliru.
+ *
+ * Sengaja TIDAK menyebutkan sifat mana yang benar. Kalau jawabannya langsung
+ * dibocorkan, siswa tinggal menekan tombol sampai kena, dan yang dilatih jadi
+ * kesabaran menekan tombol, bukan cara membaca bentuk. Yang diberikan di sini
+ * adalah ciri kapan sebuah sifat memang waktunya dipakai.
+ */
+export const PETUNJUK_SALAH: Record<Sifat, string> = {
+  dasar: 'Sifat dasar dipakai paling akhir, saat yang tersisa tinggal limit dari x dan limit dari angka tetap. Selama masih ada bentuk yang bisa dipecah, belum waktunya.',
+  kelipatan: 'Sifat kelipatan dipakai saat sudah terlihat sebuah angka pengali di depan bentuk yang mengandung x. Kalau bentuknya masih tergabung, angkanya belum kelihatan.',
+  jumlah: 'Sifat jumlah dan selisih dipakai saat bentuknya berupa suku-suku yang dipisahkan tanda tambah atau kurang, bukan saat masih berupa pecahan atau akar.',
+  kali: 'Sifat hasil kali dipakai saat bentuknya dua hal yang dikalikan, dan keduanya sama-sama mengandung x. Angka pengali biasa itu urusan sifat kelipatan.',
+  bagi: 'Sifat hasil bagi dipakai saat bentuknya masih satu pecahan utuh yang belum dipisah, DAN limit penyebutnya bukan nol. Periksa penyebutnya lebih dulu.',
+  pangkat: 'Sifat pangkat dipakai saat ada bentuk berpangkat yang isinya mengandung x, misalnya x kuadrat, bukan saat pangkatnya sudah lepas.',
+  akar: 'Sifat akar dipakai saat ada tanda akar yang isinya mengandung x, dan isinya tidak negatif di titik itu.',
+}
+
 type Langkah = { sifat: Sifat; tampil: string; catatan: string }
 
 export type SoalSifat = {

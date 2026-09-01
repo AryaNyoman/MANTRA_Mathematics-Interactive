@@ -43,7 +43,7 @@ export default function SelangMenyusut({ indeks }: { indeks: number }) {
   return (
     <Bidang
       jendela={JENDELA}
-      keterangan={`s(t) = 5t²   ·   selang h = ${angka(h, 3)} detik`}
+      keterangan={'s(t) = 5t², jarak kelapa jatuh setelah t detik'}
       tandaSkala={false}
       aria={`Grafik jarak kelapa jatuh dengan selang waktu ${angka(h, 3)} detik, kecepatan rata-rata ${angka(kemiringan, 3)} meter per detik`}
     >
@@ -72,13 +72,17 @@ export default function SelangMenyusut({ indeks }: { indeks: number }) {
       <circle cx={p.x(t0)} cy={p.y(y0)} r={5} fill={WARNA.sudut} stroke="var(--kartu)" strokeWidth={2} />
       <circle cx={p.x(t1)} cy={p.y(y1)} r={5} fill={WARNA.depan} stroke="var(--kartu)" strokeWidth={2} />
 
-      {/* angka hasilnya, ditaruh di kanan atas supaya tidak menimpa kurva */}
-      <text x={KOTAK.x1} y={KOTAK.y0 - 7} textAnchor="end" fontSize={12.5} fill={WARNA.sudut}
-            fontFamily={MONO}>
+      {/* Angka hasilnya ditaruh di dalam bingkai, pojok kiri atas, karena di
+          situ kurvanya masih rendah sehingga tidak ada yang tertimpa. Sebelumnya
+          ia di kanan atas dan bertindih dengan keterangan rumus di kiri atas.
+          (Cacat yang tertangkap saat memeriksa potret layar, 1 Sep 2026.) */}
+      <text x={KOTAK.x0 + 6} y={KOTAK.y0 + 20} fontSize={12} fill={WARNA.redup} fontFamily={MONO}>
+        selang h = {angka(h, 3)} detik
+      </text>
+      <text x={KOTAK.x0 + 6} y={KOTAK.y0 + 40} fontSize={14} fill={WARNA.sudut} fontFamily={MONO}>
         kecepatan rata-rata {angka(kemiringan, 3)} m/s
       </text>
-      <text x={KOTAK.x1} y={KOTAK.y1 + 26} textAnchor="end" fontSize={9.5} fill={WARNA.redup}
-            fontFamily={MONO}>
+      <text x={KOTAK.x0 + 6} y={KOTAK.y0 + 58} fontSize={10.5} fill={WARNA.redup} fontFamily={MONO}>
         {h <= 0.05 ? 'garisnya sudah nyaris menyinggung kurva' : 'garisnya masih memotong kurva di dua titik'}
       </text>
     </Bidang>

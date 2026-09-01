@@ -72,8 +72,8 @@ export default function LubangGrafik({ tingkat }: { tingkat: number }) {
 
       <text x={KOTAK.x0 + 4} y={KOTAK.y0 + 32} fontSize={11} fill={WARNA.redup} fontFamily={MONO}>
         {dekat
-          ? 'terlihat: garisnya benar-benar terputus di satu titik'
-          : 'pada tampilan selebar ini, lubangnya belum terlihat'}
+          ? 'sekarang jelas: garisnya benar-benar terputus di satu titik'
+          : 'lubangnya digambar lebih besar dari ukuran sebenarnya supaya terlihat'}
       </text>
       <text x={KOTAK.x0 + 4} y={KOTAK.y0 + 50} fontSize={11} fill={WARNA.miring} fontFamily={MONO}>
         kiri menuju 2 · kanan menuju 2 · f(1) tidak ada
