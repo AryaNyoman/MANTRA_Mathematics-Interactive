@@ -401,6 +401,39 @@ berbasis Manim Februari 2019 (`manimlib.imports`, `CONFIG = {}`, `TexMobject`,
 | Elteoremadebeethoven/AnimationsWithManim | Storyboard sebagai komentar bernomor di kepala berkas, ditulis SEBELUM kode · `construct()` cuma memanggil sub-adegan bernama · "urutan updater itu penting" · `clear_updaters()` sebelum frame terakhir · `align_to(label, DOWN)` untuk angka berubah |
 | HarleyCoops/Math-To-Manim (bagian `mythos/`) | Tata bahasa kamera: judul → tampilkan → zoom → **tarik mundur** · **maksimal dua blok teks yang harus dibaca** · keterangan yang menghapus dirinya sendiri · `MathTex` multi-bagian + `get_part_by_tex` alih-alih mengiris karakter · batasi lebar teks (mencegah, bukan mendeteksi) · pemeriksa statis sebelum render |
 
+### 3Blue1Brown, Essence of Calculus bab 7 (dibedah 1 Sep 2026, sesi 5)
+
+ARYA menunjuk `3b1b/videos/_2017/eoc/chapter7.py`. Hasil pembedahannya:
+
+**LISENSINYA MENULAR, DAN INI YANG PALING PENTING.** Repo itu berlisensi
+CC BY-NC-SA 4.0. Menyalin kode atau naskahnya memaksa MATRA ikut berlisensi
+sama: non-komersial selamanya, dan turunannya wajib dibuka dengan lisensi yang
+sama. Karena itu yang boleh diambil hanya GAGASANNYA, sebab ide tidak berhak
+cipta, lalu ditulis ulang dengan contoh, angka, dan kalimat sendiri.
+JANGAN menyalin kodenya, dan JANGAN menerjemahkan naskahnya.
+
+**Kodenya juga tidak bisa dipakai**: Manim 2017 dengan `manim_imports_ext`,
+`CONFIG`, `OldTex`, dan `ShowCreation`. Persis jebakan yang sama dengan
+AnimationsWithManim yang sudah dicatat di sesi 2.
+
+**Sebagian besar isinya tidak cocok untuk SMA.** Bab itu bab KETUJUH dari
+Essence of Calculus, jadi ia menganggap penontonnya sudah paham turunan. Dari
+22 adegannya: 8 soal notasi dx, 5 soal epsilon-delta formal, 4 soal aturan
+L Hopital, 3 soal tokoh pi-creature dan kredit. Memaksakan semuanya masuk akan
+merusak materi, bukan memperbaikinya.
+
+**Tiga gagasan yang diambil, dan sudah masuk ke materi:**
+
+| Ke materi | Gagasan | Kenapa berharga |
+|---|---|---|
+| Materi 02 | Permainan tantangan, yaitu epsilon-delta tanpa lambangnya | Kalimat "f x mendekati L" tadinya berhenti sebagai kalimat longgar tanpa cara mengujinya |
+| Materi 01 | h itu angka biasa yang dikecilkan, bukan bilangan gaib | Membayangkannya mistis membuat limit terasa lebih sulit daripada sebenarnya |
+| Materi 08 | Peringatan lingkaran setan aturan L Hopital | Paling berharga. Banyak siswa bimbel memakai L Hopital untuk membuktikan sin x dibagi x menuju 1, padahal rumus turunan sin x justru DIPEROLEH dari limit itu |
+
+**Kalau mau menggali 3b1b lagi**, yang paling mungkin berguna untuk MATRA
+adalah bab turunan dan integral untuk topik lain nanti, BUKAN bab limit ini.
+Bab limitnya sudah habis diperas.
+
 **Jangan menghabiskan waktu di Math-To-Manim lagi**: 788 berkas tapi hanya ~4 yang
 berguna; 577 di antaranya ada di `legacy/` dan `archive/`, sisanya kerangka agen AI
 yang menyuruh model lain menulis Manim - bukan yang proyek ini butuhkan.
