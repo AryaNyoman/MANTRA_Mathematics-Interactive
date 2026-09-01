@@ -152,7 +152,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       { jenis: 'paragraf', teks: 'Bandingkan dengan kantor yang sama tanpa direkturnya. Sembilan karyawan itu saja punya mean 5,24 juta dan median 5 juta. Kedua angka itu berdekatan, dan keduanya masuk akal sebagai gambaran.' },
 
       { jenis: 'sesi', judul: 'Kenapa mean tertarik tetapi median tidak' },
-      { jenis: 'paragraf', teks: 'Mean memakai NILAI setiap data. Satu data yang nilainya raksasa ikut masuk ke dalam penjumlahan dengan bobot penuh, jadi ia menyeret hasilnya.' },
+      { jenis: 'paragraf', teks: 'Di Tahap 5 kita membuktikan mean adalah titik seimbang: jumlah simpangan ke kirinya sama besar dengan jumlah simpangan ke kanannya. Sifat itu juga yang membuatnya bisa diseret. Mean memakai NILAI setiap data. Satu data yang nilainya raksasa ikut masuk ke dalam penjumlahan dengan bobot penuh, jadi ia menyeret hasilnya.' },
       { jenis: 'paragraf', teks: 'Median hanya memakai POSISI. Bagi median, gaji direktur itu cuma "satu data yang ada di paling kanan". Mau 75 juta atau 750 juta, posisinya tetap sama, dan mediannya tidak berubah sedikit pun.' },
       {
         jenis: 'coba',
@@ -419,6 +419,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
         jenis: 'contoh',
         judul: 'Mean data berkelompok',
         baris: [
+          'banyak siswa × titik tengah kelasnya:',
           '3 × 44,5  = 133,5',
           '8 × 54,5  = 436',
           '12 × 64,5 = 774',
