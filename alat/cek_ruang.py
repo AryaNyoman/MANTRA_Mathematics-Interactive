@@ -37,6 +37,12 @@ Bentuk `bangun` yang dikenal:
     { "jenis": "limas",  "alas": 6, "tinggi": 9 }     titik A sampai D dan T
     { "jenis": "titik",  "titik": { "A": [0,0,0] } }  koordinat ditulis sendiri
 
+Titik bantu ditambahkan lewat kunci "tambahan" di dalam "bangun":
+
+    "tambahan": { "P": ["E", "H"], "Q": [1, 2, 3] }
+
+Dua nama titik berarti titik tengah ruasnya, tiga angka berarti koordinat.
+
 Penamaan kubus dan balok mengikuti kebiasaan buku Indonesia: ABCD.EFGH, alas
 ABCD berlawanan arah jarum jam dilihat dari atas, dan A tepat di bawah E.
 
@@ -48,6 +54,7 @@ Jenis pertanyaan yang dikenal:
     jarak_garis_bidang   "garis", "bidang"     wajib sejajar
     jarak_bidang_bidang  "bidang1", "bidang2"  wajib sejajar
     jarak_garis_garis    "garis1", "garis2"    untuk garis bersilangan
+    panjang_proyeksi_garis_bidang  "garis", "bidang"
     sudut_garis_garis    "garis1", "garis2"        jawaban dalam DERAJAT
     sudut_garis_bidang   "garis", "bidang"         jawaban dalam DERAJAT
     sudut_bidang_bidang  "bidang1", "bidang2"      jawaban dalam DERAJAT
@@ -138,6 +145,27 @@ def bangun_limas(alas, tinggi) -> dict[str, Matrix]:
     }
 
 
+def tambah_titik(daftar: dict[str, Matrix], tambahan: dict) -> dict[str, Matrix]:
+    """
+    Titik bantu di luar titik sudut bangunnya.
+
+    Soal ujian sering memakai titik tengah rusuk, misalnya "P titik tengah EH".
+    Dua bentuk dikenal:
+
+        "P": ["E", "H"]        titik tengah ruas EH
+        "Q": [1, 2, 3]         koordinat ditulis sendiri
+    """
+    for nama, isi in tambahan.items():
+        if len(isi) == 2 and all(isinstance(x, str) for x in isi):
+            a, b = titik(daftar, isi[0]), titik(daftar, isi[1])
+            daftar[nama] = (a + b) / 2
+        elif len(isi) == 3:
+            daftar[nama] = Matrix([nsimplify(k) for k in isi])
+        else:
+            raise Salah(f"titik tambahan {nama!r} tidak dikenali bentuknya")
+    return daftar
+
+
 def buat_titik(bangun: dict) -> dict[str, Matrix]:
     jenis = bangun.get("jenis")
     if jenis == "kubus":
@@ -152,6 +180,14 @@ def buat_titik(bangun: dict) -> dict[str, Matrix]:
             for nama, koordinat in bangun["titik"].items()
         }
     raise Salah(f"jenis bangun tidak dikenal: {jenis!r}")
+
+
+def siapkan(bangun: dict) -> dict[str, Matrix]:
+    """Titik bangunnya, ditambah titik bantu kalau soalnya memakai."""
+    daftar = buat_titik(bangun)
+    if bangun.get("tambahan"):
+        daftar = tambah_titik(daftar, bangun["tambahan"])
+    return daftar
 
 
 # ------------------------------------------------------------------ #
@@ -197,6 +233,26 @@ def jarak_garis_garis(a1, a2, b1, b2):
     if simplify(n.norm()) == 0:
         return jarak_titik_garis(b1, a1, a2)
     return simplify(sympy.Abs((b1 - a1).dot(n)) / n.norm())
+
+
+def proyeksi_titik_bidang(p, a, b, c) -> Matrix:
+    """Kaki tegak lurus dari titik p pada bidang abc."""
+    n = normal_bidang(a, b, c)
+    t = (p - a).dot(n) / n.dot(n)
+    return sympy.simplify(p - t * n)
+
+
+def panjang_proyeksi_garis_bidang(a, b, p, q, r):
+    """
+    Panjang bayangan ruas AB pada bidang pqr.
+
+    Soal ujian menanyakan ini dengan kalimat "panjang proyeksi garis ... pada
+    bidang ...". Caranya memproyeksikan kedua ujungnya, lalu mengukur jarak
+    kedua bayangan itu.
+    """
+    return simplify(
+        (proyeksi_titik_bidang(a, p, q, r) - proyeksi_titik_bidang(b, p, q, r)).norm()
+    )
 
 
 def sudut_dua_arah(u: Matrix, v: Matrix):
@@ -337,6 +393,11 @@ def hitung(soal: dict, p: dict[str, Matrix]):
         b1, b2 = dua(p, soal["garis2"], "garis2")
         return jarak_garis_garis(a1, a2, b1, b2)
 
+    if tanya == "panjang_proyeksi_garis_bidang":
+        a, b = dua(p, soal["garis"], "garis")
+        q, r, s = tiga(p, soal["bidang"], "bidang")
+        return panjang_proyeksi_garis_bidang(a, b, q, r, s)
+
     if tanya == "sudut_garis_garis":
         a1, a2 = dua(p, soal["garis1"], "garis1")
         b1, b2 = dua(p, soal["garis2"], "garis2")
@@ -372,7 +433,7 @@ def hitung(soal: dict, p: dict[str, Matrix]):
 
 def periksa(bangun: dict, daftar_soal: list[dict]) -> int:
     """Kembalikan jumlah soal yang jawabannya salah. Laporan dicetak di sini."""
-    p = buat_titik(bangun)
+    p = siapkan(bangun)
     salah = 0
 
     for soal in daftar_soal:
@@ -509,21 +570,32 @@ def main() -> int:
         print(f"Berkas tidak bisa dibaca: {e}")
         return 2
 
-    try:
-        bangun = isi["bangun"]
-        daftar = isi["soal"]
-    except (KeyError, TypeError):
-        print("Berkas harus berisi objek dengan kunci 'bangun' dan 'soal'.")
-        return 2
+    # Dua bentuk diterima: satu kelompok, atau senarai kelompok. Bentuk senarai
+    # dibutuhkan sebab satu berkas soal biasanya memakai beberapa kubus dengan
+    # panjang rusuk berbeda, dan memaksa satu berkas per kubus membuat
+    # pemeriksaannya terpecah pecah tanpa alasan.
+    kelompok = isi if isinstance(isi, list) else [isi]
 
-    print(f"Memeriksa {len(daftar)} soal pada {bangun.get('jenis')}")
-    try:
-        salah = periksa(bangun, daftar)
-    except Salah as e:
-        print(f"Bangunnya tidak bisa dibuat: {e}")
-        return 2
+    total = 0
+    salah = 0
+    for k in kelompok:
+        try:
+            bangun = k["bangun"]
+            daftar = k["soal"]
+        except (KeyError, TypeError):
+            print("Tiap kelompok harus punya kunci 'bangun' dan 'soal'.")
+            return 2
 
-    print(f"\n{len(daftar) - salah} lolos, {salah} salah")
+        judul = k.get("nama", bangun.get("jenis", "?"))
+        print(f"\n[{judul}] {len(daftar)} soal")
+        try:
+            salah += periksa(bangun, daftar)
+        except Salah as e:
+            print(f"Bangunnya tidak bisa dibuat: {e}")
+            return 2
+        total += len(daftar)
+
+    print(f"\n{total - salah} lolos, {salah} salah")
     return 1 if salah else 0
 
 
