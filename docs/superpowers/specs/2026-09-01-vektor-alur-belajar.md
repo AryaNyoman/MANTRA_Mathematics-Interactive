@@ -135,16 +135,22 @@ Baris `siap: true` untuk vektor dicatat sebagai permintaan ke MASTER. Entri
   resultan, hasil kali skalar, dan (kalau materi 11-12 jadi) hasil kali titik
   serta proyeksi. Kode keluar bukan nol kalau ada yang salah.
 
-## 6. Tiga keputusan yang ditunggu dari ARYA
+## 6. Keputusan ARYA (1 September 2026, gerbang rancangan lolos)
 
-1. **Cakupan.** Berhenti persis di Kurikulum Merdeka Kelas 10 (10 materi), atau
-   tambah dua materi lanjutan perkalian titik dan proyeksi (12 materi)?
-2. **Pembuka Materi 01.** Perahu menyeberang sungai, pesawat melawan angin,
-   atau peta gerak lempeng bumi seperti Buku Guru?
-3. **Materi penutup.** Galeri gambar buatan sendiri seperti Limit, atau foto
-   nyata seperti Trigonometri?
-
-Sampai ketiganya dijawab, tidak ada kode yang ditulis.
+1. **Cakupan: 12 materi.** Sepuluh materi inti Kelas 10, ditambah dua materi
+   lanjutan (perkalian titik dan proyeksi) yang **ditandai jelas** sebagai di
+   luar Kurikulum Merdeka dan ditujukan untuk persiapan UTBK. Penandanya ditulis
+   di dalam materi itu sendiri, bukan cuma di judul, supaya siswa yang
+   mencocokkan dengan buku sekolahnya tidak bingung.
+2. **Pembuka Materi 01: perahu menyeberang sungai.** Didayung lurus ke seberang,
+   mendarat jauh di hilir.
+3. **Materi penutup: foto nyata**, seperti Materi 10 Trigonometri. Konsekuensi
+   yang diterima sejak awal, bukan ditunda:
+   - Foto diambil dari Wikimedia Commons dengan lisensi terbuka, sumber dan
+     lisensinya dicatat di `web/public/gambar/sumber.json` (pola yang sudah ada).
+   - **Dikompres sejak awal**, sasaran di bawah 150 KB per foto. PROGRESS
+     mencatat foto Materi 10 Trigonometri menumpuk sampai sekitar 1,5 MB dan
+     belum dikompres. Utang itu tidak ditambah dari sini.
 
 ## 7. Batas dengan MATRA-RUANG-TIGA-DIMENSI
 
