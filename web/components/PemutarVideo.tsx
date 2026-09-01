@@ -143,7 +143,16 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
       {/* Tanpa pembungkus tambahan di dalam: `.layar video` di globals.css
           sudah mengatur batas ukuran dalam rem, dan aturan itu sengaja dibuat
           supaya kotaknya ikut mengecil saat pengguna memperkecil zoom. */}
+      {/* `key` WAJIB. Peramban hanya membaca <source> dan <track> saat elemen
+          videonya pertama dibuat. Kalau elemennya dipakai ulang saat siswa
+          pindah tahap, React memang mengganti alamatnya, tetapi videonya TIDAK
+          ikut berganti: yang tampil poster tahap baru, yang terputar video
+          tahap lama. Cacat ini tidak terlihat selama cuma satu tahap yang
+          punya video, dan langsung muncul begitu Limit punya tujuh (1 Sep
+          2026). `key` memaksa elemennya dibuat ulang, jadi pemilihan sumbernya
+          diulang dari nol. */}
       <video
+        key={berkas}
         ref={video}
         controls
         preload="metadata"
