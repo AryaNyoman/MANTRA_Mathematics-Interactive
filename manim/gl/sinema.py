@@ -15,7 +15,7 @@ from contextlib import contextmanager
 
 from manimlib import *
 
-from .tema import teks, REDUP, SOROT, UKURAN_JUDUL, UKURAN_KETERANGAN
+from .tema import teks, LATAR, REDUP, SOROT, UKURAN_JUDUL, UKURAN_KETERANGAN
 
 # Batas aman bingkai 14,22 x 8, sisakan margin supaya qc tidak menolak.
 LEBAR_JUDUL = 11.0
@@ -55,10 +55,18 @@ def batasi_lebar(mob, maks: float = LEBAR_UMUM):
     return mob
 
 
-def judul_pembuka(scene, kalimat: str, lama: float, ukuran: float = UKURAN_JUDUL) -> None:
+def alas_teks(mob, buff: float = 0.16, opacity: float = 0.82):
+    """Alas krem tembus pandang di belakang teks supaya terbaca di atas dunia 3D apa pun."""
+    alas = BackgroundRectangle(mob, color=LATAR, fill_opacity=opacity, buff=buff)
+    return VGroup(alas, mob)
+
+
+def judul_pembuka(scene, kalimat: str, lama: float, ukuran: float = UKURAN_JUDUL,
+                  y: float = 0.0) -> None:
     """Pernyataan pembuka satu layar, lalu MEMUDAR. `lama` = muncul + tahan + memudar.
 
     Menempel di layar, jadi boleh dipakai walau kamera sedang di sudut 3D.
+    `y` menggeser judul (mis. 2,4) supaya tidak menusuk benda di tengah layar.
     Catat waktunya ke babak dengan `b.catat(lama)`.
     """
     naik = min(1.0, lama * 0.30)
@@ -69,7 +77,7 @@ def judul_pembuka(scene, kalimat: str, lama: float, ukuran: float = UKURAN_JUDUL
     garis = Line(LEFT * t.get_width() * 0.30, RIGHT * t.get_width() * 0.30)
     garis.set_stroke(SOROT, width=3)
     garis.next_to(t, DOWN, buff=0.42)
-    gugus = VGroup(t, garis).move_to(ORIGIN)
+    gugus = alas_teks(VGroup(t, garis), buff=0.3).move_to([0, y, 0])
     gugus.fix_in_frame()
 
     scene.play(FadeIn(gugus, shift=UP * 0.25), run_time=naik)
@@ -84,16 +92,14 @@ def keterangan(scene, kalimat: str, y: float = -3.30, ukuran: float = UKURAN_KET
     Disimpan pada objek adegan (`scene._matra_keterangan`), satu-satunya cara
     mencegah teks menumpuk tanpa disadari. Catat waktunya: `b.catat(run_time)`.
     """
-    baru = batasi_lebar(teks(kalimat, ukuran, warna), LEBAR_KETERANGAN)
+    baru = alas_teks(batasi_lebar(teks(kalimat, ukuran, warna), LEBAR_KETERANGAN))
     baru.move_to([0, y, 0]).fix_in_frame()
-    baru.set_opacity(0)
-    scene.add(baru)
 
     lama = getattr(scene, "_matra_keterangan", None)
     if lama is not None:
-        scene.play(FadeOut(lama), baru.animate.set_opacity(1), run_time=run_time)
+        scene.play(FadeOut(lama), FadeIn(baru), run_time=run_time)
     else:
-        scene.play(baru.animate.set_opacity(1), run_time=run_time)
+        scene.play(FadeIn(baru), run_time=run_time)
     scene._matra_keterangan = baru
     return baru
 
