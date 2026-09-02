@@ -3,93 +3,121 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/ruang-3d-03.json
 
 1
-00:00:00.000 --> 00:00:06.139
-Dari materi sebelumnya kita sudah tahu tiga kedudukan dua garis: berpotongan,
+00:00:00.000 --> 00:00:02.649
+Dari materi sebelumnya kita sudah
 
 2
-00:00:06.139 --> 00:00:08.133
-sejajar, dan bersilangan.
+00:00:02.649 --> 00:00:05.057
+tahu tiga kedudukan dua garis:
 
 3
-00:00:08.133 --> 00:00:11.880
-Sekarang materi 3, <b>jarak selalu yang terpendek</b>.
+00:00:05.057 --> 00:00:08.107
+berpotongan, sejajar, dan bersilangan.
 
 4
-00:00:11.880 --> 00:00:15.595
-Ini titik B, dan ini garis A̅C̅ di lantai kubus.
+00:00:08.107 --> 00:00:11.880
+Sekarang materi 3, <b>jarak selalu yang terpendek</b>.
 
 5
-00:00:15.595 --> 00:00:20.316
-Dari B ke garis itu bisa ditarik ruas sebanyak yang kita mau,
+00:00:11.880 --> 00:00:15.617
+Ini titik B, dan ini garis A̅C̅ di lantai kubus.
 
 6
-00:00:20.316 --> 00:00:23.102
-dan semuanya sah disebut penghubung.
+00:00:15.617 --> 00:00:17.486
+Dari B ke garis itu bisa
 
 7
-00:00:23.102 --> 00:00:24.960
-Panjangnya berbeda-beda.
+00:00:17.486 --> 00:00:20.289
+ditarik ruas sebanyak yang kita mau,
 
 8
-00:00:24.960 --> 00:00:29.964
-Jadi kata <b>jarak</b> belum punya arti sampai kita memilih yang mana.
+00:00:20.289 --> 00:00:23.091
+dan semuanya sah disebut penghubung.
 
 9
-00:00:29.964 --> 00:00:32.903
-Kita geser titik Q di sepanjang A̅C̅,
+00:00:23.091 --> 00:00:24.960
+Panjangnya berbeda-beda.
 
 10
-00:00:32.903 --> 00:00:34.809
-dan perhatikan angkanya.
+00:00:24.960 --> 00:00:27.116
+Jadi kata <b>jarak</b> belum punya
 
 11
-00:00:34.809 --> 00:00:36.556
-Turun, lalu naik lagi.
+00:00:27.116 --> 00:00:29.912
+arti sampai kita memilih yang mana.
 
 12
-00:00:36.556 --> 00:00:39.336
-Ada satu tempat yang paling pendek.
+00:00:29.912 --> 00:00:32.867
+Kita geser titik Q di sepanjang A̅C̅,
 
 13
+00:00:32.867 --> 00:00:34.784
+dan perhatikan angkanya.
+
+14
+00:00:34.784 --> 00:00:36.541
+Turun, lalu naik lagi.
+
+15
+00:00:36.541 --> 00:00:39.336
+Ada satu tempat yang paling pendek.
+
+16
 00:00:39.336 --> 00:00:45.146
 Di situ, dan hanya di situ, muncul tanda <b>siku-siku</b>.
 
-14
+17
 00:00:45.146 --> 00:00:48.792
 Panjangnya 3√2, kira-kira 4,243.
 
-15
-00:00:48.792 --> 00:00:52.245
+18
+00:00:48.792 --> 00:00:52.261
 Kenapa yang terpendek pasti yang siku-siku?
 
-16
-00:00:52.245 --> 00:00:54.333
+19
+00:00:52.261 --> 00:00:54.359
 Ambil titik lain, sebut R.
 
-17
-00:00:54.333 --> 00:00:56.581
+20
+00:00:54.359 --> 00:00:56.619
 Segitiga BQR siku-siku di Q,
 
-18
-00:00:56.581 --> 00:00:59.071
+21
+00:00:56.619 --> 00:00:59.120
 dan B̅R̅ adalah sisi miringnya.
 
-19
-00:00:59.071 --> 00:01:03.568
-Sisi miring <b>selalu</b> lebih panjang daripada sisi tegaknya.
-
-20
-00:01:03.568 --> 00:01:05.736
-Itu saja seluruh alasannya.
-
-21
-00:01:05.736 --> 00:01:09.942
-Jadi tegak lurus bukan aturan tambahan yang harus dihafal.
-
 22
-00:01:09.942 --> 00:01:12.698
-Ia akibat dari memilih yang terpendek.
+00:00:59.120 --> 00:01:01.056
+Sisi miring <b>selalu</b> lebih
 
 23
-00:01:12.698 --> 00:01:19.224
-Ingat kalimat ini sampai materi 7: <b>setiap soal jarak adalah soal mencari kaki tegak lurus</b>.
+00:01:01.056 --> 00:01:03.557
+panjang daripada sisi tegaknya.
+
+24
+00:01:03.557 --> 00:01:05.736
+Itu saja seluruh alasannya.
+
+25
+00:01:05.736 --> 00:01:07.340
+Jadi tegak lurus bukan
+
+26
+00:01:07.340 --> 00:01:09.892
+aturan tambahan yang harus dihafal.
+
+27
+00:01:09.892 --> 00:01:12.662
+Ia akibat dari memilih yang terpendek.
+
+28
+00:01:12.662 --> 00:01:15.141
+Ingat kalimat ini sampai materi 7:
+
+29
+00:01:15.141 --> 00:01:16.964
+*setiap soal jarak adalah
+
+30
+00:01:16.964 --> 00:01:19.224
+soal mencari kaki tegak lurus*.

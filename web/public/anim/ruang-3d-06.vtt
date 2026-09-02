@@ -27,89 +27,109 @@ hanya bentuk sasarannya yang berganti.
 Ini bidang BDE.
 
 7
-00:00:14.016 --> 00:00:18.538
-Ketiga sisinya diagonal sisi yang bertemu di sekitar titik A,
+00:00:14.016 --> 00:00:16.497
+Ketiga sisinya diagonal sisi yang
 
 8
-00:00:18.538 --> 00:00:23.640
-dan bidang itu memotong pojok kubus seperti pisau memotong ujung tahu.
+00:00:16.497 --> 00:00:18.526
+bertemu di sekitar titik A,
 
 9
+00:00:18.526 --> 00:00:20.706
+dan bidang itu memotong pojok
+
+10
+00:00:20.706 --> 00:00:23.640
+kubus seperti pisau memotong ujung tahu.
+
+11
 00:00:23.640 --> 00:00:26.413
 Berapa jarak titik A ke bidang itu?
 
-10
+12
 00:00:26.413 --> 00:00:29.979
 Seperti biasa, kita cari <b>kaki tegak lurusnya</b>.
 
-11
+13
 00:00:29.979 --> 00:00:33.307
 Tarik ruas dari A yang tegak lurus bidang,
 
-12
+14
 00:00:33.307 --> 00:00:35.367
 lalu ukur sampai menembus.
 
-13
+15
 00:00:35.367 --> 00:00:37.348
 Kakinya jatuh di titik K,
 
-14
+16
 00:00:37.348 --> 00:00:40.200
 dan K tidak punya nama di kubus ini.
 
-15
+17
 00:00:40.200 --> 00:00:42.812
 Ada satu hal yang membantu.
 
-16
+18
 00:00:42.812 --> 00:00:44.012
 A̅B̅, A̅D̅,
 
-17
+19
 00:00:44.012 --> 00:00:48.366
 dan A̅E̅ sama panjang dan saling tegak lurus,
 
-18
+20
 00:00:48.366 --> 00:00:53.397
 jadi K jatuh tepat di <b>sepertiga</b> diagonal ruang A̅G̅.
 
-19
+21
 00:00:53.397 --> 00:00:57.268
 Karena AG sama dengan 6√3, jaraknya <b>2√3</b>,
 
-20
+22
 00:00:57.268 --> 00:00:58.680
 kira-kira 3,464.
 
-21
-00:00:58.680 --> 00:00:59.984
+23
+00:00:58.680 --> 00:00:59.997
 Cara tadi cepat,
 
-22
-00:00:59.984 --> 00:01:04.383
+24
+00:00:59.997 --> 00:01:04.444
 tetapi hanya jalan kalau bangunnya kebetulan simetris.
 
-23
-00:01:04.383 --> 00:01:10.820
-Cara yang selalu jalan: hitung volume limas A.BDE dengan <b>dua</b> alas yang berbeda,
-
-24
-00:01:10.820 --> 00:01:12.612
-lalu samakan keduanya.
-
 25
-00:01:12.612 --> 00:01:14.160
-Hasilnya sama, 2√3.
+00:01:04.444 --> 00:01:06.338
+Cara yang selalu jalan:
 
 26
-00:01:14.160 --> 00:01:19.416
-Jadi jarak titik ke bidang sama dengan 3 kali volume dibagi luas alasnya.
+00:01:06.338 --> 00:01:08.396
+hitung volume limas A.BDE
 
 27
-00:01:19.416 --> 00:01:21.936
-Sekali lagi itu bukan hafalan baru,
+00:01:08.396 --> 00:01:10.784
+dengan <b>dua</b> alas yang berbeda,
 
 28
-00:01:21.936 --> 00:01:24.096
+00:01:10.784 --> 00:01:12.596
+lalu samakan keduanya.
+
+29
+00:01:12.596 --> 00:01:14.160
+Hasilnya sama, 2√3.
+
+30
+00:01:14.160 --> 00:01:16.408
+Jadi jarak titik ke bidang sama
+
+31
+00:01:16.408 --> 00:01:19.382
+dengan 3 kali volume dibagi luas alasnya.
+
+32
+00:01:19.382 --> 00:01:21.920
+Sekali lagi itu bukan hafalan baru,
+
+33
+00:01:21.920 --> 00:01:24.096
 itu rumus volume yang <b>dibalik</b>.

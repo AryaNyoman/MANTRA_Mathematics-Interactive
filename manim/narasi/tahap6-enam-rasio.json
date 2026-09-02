@@ -6,11 +6,13 @@
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Selain sinus dan cosinus, masih ada empat perbandingan lagi. Dan keempatnya bisa ditunjuk sebagai ruas garis."
+      "teks": "Selain sinus dan cosinus, masih ada empat perbandingan lagi. Dan keempatnya bisa ditunjuk sebagai ruas garis.",
+      "tulis": "Selain sin dan cos, masih ada 4 perbandingan lagi. Dan keempatnya bisa ditunjuk sebagai ruas garis."
     },
     {
       "id": "ulang",
-      "teks": "Kita mulai dari lingkaran satuan yang tadi. Cosinus theta adalah x, dan sinus theta adalah y."
+      "teks": "Kita mulai dari lingkaran satuan yang tadi. Cosinus theta adalah x, dan sinus theta adalah y.",
+      "tulis": "Kita mulai dari lingkaran satuan yang tadi. cos θ = x, dan sin θ = y."
     },
     {
       "id": "singgung",
@@ -18,11 +20,13 @@
     },
     {
       "id": "tan",
-      "teks": "Perpanjang jari-jarinya sampai mengenai garis singgung tadi. Ruas dari sumbu mendatar sampai titik potong itu panjangnya persis *tangen theta*."
+      "teks": "Perpanjang jari-jarinya sampai mengenai garis singgung tadi. Ruas dari sumbu mendatar sampai titik potong itu panjangnya persis *tangen theta*.",
+      "tulis": "Perpanjang jari-jarinya sampai mengenai garis singgung tadi. Ruas dari sumbu mendatar sampai titik potong itu panjangnya persis *tan θ*."
     },
     {
       "id": "sec",
-      "teks": "Dan ruas dari pusat lingkaran sampai titik potong yang sama panjangnya *sekan theta*."
+      "teks": "Dan ruas dari pusat lingkaran sampai titik potong yang sama panjangnya *sekan theta*.",
+      "tulis": "Dan ruas dari pusat lingkaran sampai titik potong yang sama panjangnya *sec θ*."
     },
     {
       "id": "singgung2",
@@ -30,23 +34,28 @@
     },
     {
       "id": "cot",
-      "teks": "Perpanjang lagi jari-jarinya ke arah itu. Ruas dari sumbu tegak sampai titik potongnya panjangnya *kotangen theta*."
+      "teks": "Perpanjang lagi jari-jarinya ke arah itu. Ruas dari sumbu tegak sampai titik potongnya panjangnya *kotangen theta*.",
+      "tulis": "Perpanjang lagi jari-jarinya ke arah itu. Ruas dari sumbu tegak sampai titik potongnya panjangnya *cot θ*."
     },
     {
       "id": "csc",
-      "teks": "Dan ruas dari pusat sampai titik potong itu panjangnya *kosekan theta*."
+      "teks": "Dan ruas dari pusat sampai titik potong itu panjangnya *kosekan theta*.",
+      "tulis": "Dan ruas dari pusat sampai titik potong itu panjangnya *csc θ*."
     },
     {
       "id": "enam",
-      "teks": "Enam ruas, enam nama. Semuanya lahir dari satu lingkaran dan satu sudut yang sama."
+      "teks": "Enam ruas, enam nama. Semuanya lahir dari satu lingkaran dan satu sudut yang sama.",
+      "tulis": "6 ruas, 6 nama. Semuanya lahir dari satu lingkaran dan satu sudut yang sama."
     },
     {
       "id": "putar",
-      "teks": "Geser sudutnya, dan keenamnya berubah bersama-sama. Yang satu memanjang, yang lain memendek."
+      "teks": "Geser sudutnya, dan keenamnya berubah bersama-sama. Yang satu memanjang, yang lain memendek.",
+      "tulis": "Geser sudutnya, dan keenamnya berubah bersama-sama. Yang satu memanjang, yang lain memendek."
     },
     {
       "id": "tutup",
-      "teks": "Jadi sekan dan kosekan bukan rumus yang harus dihafal. Keduanya panjang yang bisa Anda tunjuk langsung di gambar."
+      "teks": "Jadi sekan dan kosekan bukan rumus yang harus dihafal. Keduanya panjang yang bisa Anda tunjuk langsung di gambar.",
+      "tulis": "Jadi sec dan csc bukan rumus yang harus dihafal. Keduanya panjang yang bisa Anda tunjuk langsung di gambar."
     }
   ]
 }

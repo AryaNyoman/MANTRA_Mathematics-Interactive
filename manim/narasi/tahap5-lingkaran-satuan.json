@@ -6,47 +6,58 @@
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Perhatikan apa yang terjadi kalau sisi miring sebuah segitiga dibuat tepat berukuran satu."
+      "teks": "Perhatikan apa yang terjadi kalau sisi miring sebuah segitiga dibuat tepat berukuran satu.",
+      "tulis": "Perhatikan apa yang terjadi kalau sisi miring sebuah segitiga dibuat tepat berukuran 1."
     },
     {
       "id": "segitiga",
-      "teks": "Ini segitiga siku-siku yang sudah kita kenal sejak tahap tiga. Sudutnya theta, dan sisi miringnya kita beri nama r."
+      "teks": "Ini segitiga siku-siku yang sudah kita kenal sejak tahap tiga. Sudutnya theta, dan sisi miringnya kita beri nama r.",
+      "tulis": "Ini segitiga siku-siku yang sudah kita kenal sejak tahap 3. Sudutnya θ, dan sisi miringnya kita beri nama r."
     },
     {
       "id": "rumus",
-      "teks": "Dari tahap empat kita sudah tahu. Cosinus theta adalah sisi samping dibagi sisi miring, dan sinus theta adalah sisi depan dibagi sisi miring."
+      "teks": "Dari tahap empat kita sudah tahu. Cosinus theta adalah sisi samping dibagi sisi miring, dan sinus theta adalah sisi depan dibagi sisi miring.",
+      "tulis": "Dari tahap 4 kita sudah tahu. cos θ = sisi samping : sisi miring, dan sin θ = sisi depan : sisi miring."
     },
     {
       "id": "kecilkan",
-      "teks": "Sekarang segitiganya kita perkecil pelan-pelan, sampai sisi miringnya tepat berukuran satu."
+      "teks": "Sekarang segitiganya kita perkecil pelan-pelan, sampai sisi miringnya tepat berukuran satu.",
+      "tulis": "Sekarang segitiganya kita perkecil pelan-pelan, sampai sisi miringnya tepat berukuran 1."
     },
     {
       "id": "lingkaran",
-      "teks": "Kalau titik ujungnya kita putar mengelilingi titik asal, jejaknya membentuk sebuah lingkaran berjari-jari satu. Inilah yang disebut *lingkaran satuan*."
+      "teks": "Kalau titik ujungnya kita putar mengelilingi titik asal, jejaknya membentuk sebuah lingkaran berjari-jari satu. Inilah yang disebut *lingkaran satuan*.",
+      "tulis": "Kalau titik ujungnya kita putar mengelilingi titik asal, jejaknya membentuk sebuah lingkaran berjari-jari 1. Inilah yang disebut *lingkaran satuan*."
     },
     {
       "id": "bagi",
-      "teks": "Sekarang perhatikan baik-baik rumusnya. Sisi miringnya bukan lagi r, melainkan satu. Jadi *cosinus theta sama dengan x* dibagi satu."
+      "teks": "Sekarang perhatikan baik-baik rumusnya. Sisi miringnya bukan lagi r, melainkan satu. Jadi *cosinus theta sama dengan x* dibagi satu.",
+      "tulis": "Sekarang perhatikan baik-baik rumusnya. Sisi miringnya bukan lagi r, melainkan 1. Jadi *cos θ = x* : 1."
     },
     {
       "id": "hilang",
-      "teks": "Dan dibagi satu tidak mengubah apa pun. Penyebutnya boleh dicoret. Yang tersisa hanya x."
+      "teks": "Dan dibagi satu tidak mengubah apa pun. Penyebutnya boleh dicoret. Yang tersisa hanya x.",
+      "tulis": "Dan dibagi 1 tidak mengubah apa pun. Penyebutnya boleh dicoret. Yang tersisa hanya x."
     },
     {
       "id": "sinus",
-      "teks": "Dengan cara yang persis sama, *sinus theta sama dengan y* dibagi satu, yang berarti sinus theta sama dengan y."
+      "teks": "Dengan cara yang persis sama, *sinus theta sama dengan y* dibagi satu, yang berarti sinus theta sama dengan y.",
+      "tulis": "Dengan cara yang persis sama, *sin θ = y* : 1, yang berarti sin θ = y."
     },
     {
       "id": "koordinat",
-      "teks": "Perhatikan apa yang baru saja terjadi. Koordinat titik itu bukan sekadar x dan y. Koordinatnya adalah cosinus theta dan sinus theta."
+      "teks": "Perhatikan apa yang baru saja terjadi. Koordinat titik itu bukan sekadar x dan y. Koordinatnya adalah cosinus theta dan sinus theta.",
+      "tulis": "Perhatikan apa yang baru saja terjadi. Koordinat titik itu bukan sekadar x dan y. Koordinatnya adalah (cos θ, sin θ)."
     },
     {
       "id": "putar",
-      "teks": "Geser sudutnya, dan kedua angka itu bergerak bersama titiknya. Satu sudut, satu pasang koordinat."
+      "teks": "Geser sudutnya, dan kedua angka itu bergerak bersama titiknya. Satu sudut, satu pasang koordinat.",
+      "tulis": "Geser sudutnya, dan kedua angka itu bergerak bersama titiknya. 1 sudut, 1 pasang koordinat."
     },
     {
       "id": "tutup",
-      "teks": "Sinus dan cosinus tidak lagi sekadar hasil bagi dua sisi. Sekarang keduanya adalah *posisi sebuah titik* yang sedang berputar."
+      "teks": "Sinus dan cosinus tidak lagi sekadar hasil bagi dua sisi. Sekarang keduanya adalah *posisi sebuah titik* yang sedang berputar.",
+      "tulis": "sin dan cos tidak lagi sekadar hasil bagi dua sisi. Sekarang keduanya adalah *posisi sebuah titik* yang sedang berputar."
     }
   ]
 }

@@ -3,89 +3,101 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/ruang-3d-08.json
 
 1
-00:00:00.000 --> 00:00:03.911
+00:00:00.000 --> 00:00:03.936
 Materi 8, <b>sudut dua garis yang tidak pernah bertemu</b>.
 
 2
-00:00:03.911 --> 00:00:09.476
-Banyak yang mengira sudut hanya bisa diukur kalau kedua garis berpotongan.
+00:00:03.936 --> 00:00:06.282
+Banyak yang mengira sudut hanya
 
 3
-00:00:09.476 --> 00:00:11.808
-Coba kita uji dengan kubus ini.
+00:00:06.282 --> 00:00:09.462
+bisa diukur kalau kedua garis berpotongan.
 
 4
+00:00:09.462 --> 00:00:11.808
+Coba kita uji dengan kubus ini.
+
+5
 00:00:11.808 --> 00:00:15.821
 Ini A̅C̅ di lantai, dan ini B̅G̅ di sisi kanan.
 
-5
+6
 00:00:15.821 --> 00:00:18.895
 Keduanya <b>bersilangan</b>: tidak sejajar,
 
-6
+7
 00:00:18.895 --> 00:00:22.226
 dan tidak punya satu pun titik bersama.
 
-7
+8
 00:00:22.226 --> 00:00:25.556
 Padahal sudut selalu butuh titik sudut.
 
-8
+9
 00:00:25.556 --> 00:00:28.032
 Jadi sudutnya diukur di mana?
 
-9
-00:00:28.032 --> 00:00:31.144
+10
+00:00:28.032 --> 00:00:31.164
 Jalan keluarnya: kita geser salah satunya,
 
-10
-00:00:31.144 --> 00:00:34.775
+11
+00:00:31.164 --> 00:00:34.818
 <b>sejajar dirinya sendiri</b>, sampai keduanya bertemu.
 
-11
-00:00:34.775 --> 00:00:39.888
-Perhatikan garis merah ini berjalan pelan tanpa berputar sedikit pun.
-
 12
+00:00:34.818 --> 00:00:37.427
+Perhatikan garis merah ini berjalan
+
+13
+00:00:37.427 --> 00:00:39.888
+pelan tanpa berputar sedikit pun.
+
+14
 00:00:39.888 --> 00:00:43.874
 Pada geseran penuh, B̅G̅ mendarat tepat menjadi A̅H̅,
 
-13
+15
 00:00:43.874 --> 00:00:47.258
 diagonal sisi yang memang sudah ada di kubus.
 
-14
+16
 00:00:47.258 --> 00:00:50.040
 Sekarang keduanya bertemu di titik A.
 
-15
+17
 00:00:50.040 --> 00:00:52.454
 Sekarang lihat segitiga ACH.
 
-16
+18
 00:00:52.454 --> 00:00:56.678
 A̅C̅ diagonal sisi alas, A̅H̅ diagonal sisi kiri,
 
-17
+19
 00:00:56.678 --> 00:00:59.091
 C̅H̅ diagonal sisi belakang.
 
-18
+20
 00:00:59.091 --> 00:01:02.712
 Ketiganya <b>6√2</b>, jadi segitiganya <b>sama sisi</b>.
 
-19
-00:01:02.712 --> 00:01:05.683
+21
+00:01:02.712 --> 00:01:05.701
 Semua sudut segitiga sama sisi adalah <b>60°</b>,
 
-20
-00:01:05.683 --> 00:01:10.211
-dan kita mendapatkannya tanpa satu pun perhitungan trigonometri.
+22
+00:01:05.701 --> 00:01:07.764
+dan kita mendapatkannya tanpa
 
-21
-00:01:10.211 --> 00:01:12.333
+23
+00:01:07.764 --> 00:01:10.184
+satu pun perhitungan trigonometri.
+
+24
+00:01:10.184 --> 00:01:12.318
 Menggeser tidak mengubah arah,
 
-22
-00:01:12.333 --> 00:01:14.880
+25
+00:01:12.318 --> 00:01:14.880
 dan karena itu tidak mengubah sudut.

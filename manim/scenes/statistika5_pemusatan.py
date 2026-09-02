@@ -14,11 +14,11 @@ membantah pelajarannya sendiri. Bendanya tetap 3D bercahaya.
 TATA LETAK, keputusan ARYA 2 Sep 2026 malam:
 - Tidak ada keterangan di bawah layar. Jalur itu milik subtitle, dan menulis
   ulang kalimat di sana berarti dua kalimat berbeda untuk satu maksud sama.
-- Kiri atas: PAPAN TEMUAN. Tiap jawaban yang sudah didapat ditumpuk di sana
+- Kanan atas: PAPAN TEMUAN. Tiap jawaban yang sudah didapat ditumpuk di sana
   dalam bentuk matematika, bukan kalimat. Materi ini bukan satu rantai rumus
   seperti Materi 08, melainkan tiga jawaban untuk satu pertanyaan, jadi
   papannya MENUMPUK, bukan membungkus.
-- Kanan atas: daftar nilai dan angka hidup.
+- Kanan atas: papan temuan (zona rumus standar v2). Kiri atas: identitas benda.
 - Seluruh panel diperiksa SILANG terhadap seluruh benda dunia oleh qc, lewat
   kamus DUNIA dan HUD yang dipelihara sepanjang adegan. Daftar pasangan yang
   ditulis tangan selalu punya lubang; perkalian silang tidak.
@@ -114,6 +114,7 @@ class Pemusatan5(AdeganMatra):
         # babak. Menyerahkan sebagian daftar adalah sumber semua tabrakan yang
         # lolos sejauh ini.
         DUNIA, HUD = {}, {}
+        HUD["identitas"] = sinema.identitas(self, "8 siswa, nilai 4 sampai 11")
 
         def periksa(pasangan=None):
             hidup_d = {k: v for k, v in DUNIA.items() if v is not None}
@@ -157,16 +158,11 @@ class Pemusatan5(AdeganMatra):
         self.add(garis)
         DUNIA.update({"garis": garis, "siswa": siswa, "angka": angka_lantai})
 
-        daftar = rumus(r"4,\ 5,\ 6,\ 7,\ 7,\ 8,\ 8,\ 11", 32, AKSEN2).to_corner(UR, buff=0.5)
         with sinema.babak(self, "sapa", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 05: Mean, median, modus", lama=3.4, y=2.6)
             b.catat(3.4)
             b.main(LaggedStartMap(FadeIn, siswa, lag_ratio=0.35), run_time=3.0)
             b.main(LaggedStartMap(FadeIn, angka_lantai, lag_ratio=0.25), run_time=1.8)
-            HUD["daftar"] = daftar
-            self.hud_tambah(daftar)
-            daftar.set_opacity(0)
-            b.main(daftar.animate.set_opacity(1), run_time=0.8)
             b.jeda(1.6)
         periksa()
 
@@ -278,22 +274,10 @@ class Pemusatan5(AdeganMatra):
         # ------------------------------------------------------------------
         # Babak 8: tumpuan digeser sampai papan mendatar, angkanya hidup.
         # ------------------------------------------------------------------
-        jejak = ValueTracker(tumpu)
-        angka_tumpu = sinema.AngkaKoma(tumpu, num_decimal_places=1, font_size=32).set_color(AKSEN)
-        l_tumpu = teks("tumpuan di", 24, AKSEN)
-        panel_tumpu = sinema.nilai_hidup(l_tumpu, angka_tumpu,
-                                         daftar.get_center() + DOWN * 0.85)
-        panel_tumpu.align_to(daftar, RIGHT)
-        angka_tumpu.add_updater(lambda m: m.set_value(jejak.get_value()))
-        HUD["panel tumpuan"] = panel_tumpu
-        self.hud_tambah(panel_tumpu)
-
         with sinema.babak(self, "geser", DURASI) as b:
-            b.main(FadeIn(panel_tumpu), run_time=0.8)
             for singgah in (7.5, 7.2, MEAN):
                 b.main(penopang.animate.move_to([xw(singgah), 0, TINGGI_TUMPU / 2]),
-                       jejak.animate.set_value(singgah),
-                       ke_sudut(miring(singgah), singgah), run_time=2.6)
+                       ke_sudut(miring(singgah), singgah), run_time=3.0)
             b.jeda(1.6)
         periksa()
 

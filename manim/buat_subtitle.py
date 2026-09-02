@@ -84,28 +84,62 @@ def bentuk_tulis(seg: dict) -> str:
     return seg.get("tulis") or seg.get("layar") or seg.get("subtitle") or seg["teks"]
 
 
+def _gabung_potongan(potongan: list[str]) -> list[str]:
+    """Rangkai potongan berurutan selama muat MAKS_HURUF; yang tidak muat mulai baris baru."""
+    hasil: list[str] = []
+    gabung = ""
+    for c in potongan:
+        if gabung and panjang_tampak(gabung) + panjang_tampak(c) + 1 > MAKS_HURUF:
+            hasil.append(gabung)
+            gabung = c
+        else:
+            gabung = f"{gabung} {c}".strip()
+    if gabung:
+        hasil.append(gabung)
+    return hasil
+
+
+def _pecah_kata(b: str) -> list[str]:
+    """Jalan terakhir: pecah di spasi kata, tiap baris paling banyak MAKS_HURUF.
+
+    Dipilih titik potong yang paling dekat ke tengah supaya dua barisnya
+    seimbang, bukan satu panjang satu pendek.
+    """
+    if panjang_tampak(b) <= MAKS_HURUF:
+        return [b]
+    kata = b.split(" ")
+    # Coba dari tengah ke luar, cari pemotongan yang membuat kedua sisi muat
+    # sebanyak mungkin; kalau sisi kanan masih panjang, ia dipecah lagi (rekursif).
+    tengah = len(kata) // 2
+    for jarak in range(0, len(kata)):
+        for i in (tengah - jarak, tengah + jarak):
+            if 0 < i < len(kata):
+                kiri = " ".join(kata[:i])
+                if panjang_tampak(kiri) <= MAKS_HURUF:
+                    kanan = " ".join(kata[i:])
+                    return [kiri] + _pecah_kata(kanan)
+    return [b]
+
+
 def pecah(teks: str) -> list[str]:
-    """Pecah satu segmen jadi beberapa baris yang enak dibaca."""
+    """Pecah satu segmen jadi baris-baris yang MASING-MASING muat MAKS_HURUF.
+
+    Urutan: batas kalimat (. ! ?), lalu tanda jeda (, ; :), lalu kalau masih
+    panjang, di spasi kata. Temuan UI/UX 3 Sep 2026: versi lama hanya memotong
+    di titik dan koma, sehingga 38 persen baris melewati 56 huruf dan yang
+    terpanjang 101 huruf. Sekarang batasnya DITEGAKKAN, bukan diharapkan.
+    """
     teks = " ".join(teks.split())
     if panjang_tampak(teks) <= MAKS_HURUF:
         return [teks]
-    # Pecah di batas kalimat lebih dulu; kalau masih panjang, di koma.
-    bagian = [b.strip() for b in re.split(r"(?<=[.!?])\s+", teks) if b.strip()]
     hasil: list[str] = []
-    for b in bagian:
+    for b in (x.strip() for x in re.split(r"(?<=[.!?])\s+", teks) if x.strip()):
         if panjang_tampak(b) <= MAKS_HURUF:
             hasil.append(b)
             continue
-        potong = [c.strip() for c in re.split(r"(?<=,)\s+", b) if c.strip()]
-        gabung = ""
-        for c in potong:
-            if gabung and panjang_tampak(gabung) + panjang_tampak(c) + 1 > MAKS_HURUF:
-                hasil.append(gabung)
-                gabung = c
-            else:
-                gabung = f"{gabung} {c}".strip()
-        if gabung:
-            hasil.append(gabung)
+        potong = [c.strip() for c in re.split(r"(?<=[,;:])\s+", b) if c.strip()]
+        for baris in _gabung_potongan(potong):
+            hasil.extend(_pecah_kata(baris))
     return hasil or [teks]
 
 
