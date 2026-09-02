@@ -35,8 +35,11 @@ Dasar ilmunya: `ILMU-3B1B.md`. Contoh yang sudah lolos: `manim/contoh/contoh_per
    dan label ("dayung 3 km"; karakter `%`, `&`, `#`, `_`, `$` diloloskan
    otomatis), `rumus()` untuk angka berdiri sendiri, nilai hidup, dan rumus.
    Jangan memakai `Text(...)` (Pango) sama sekali. Keterangan lewat
-   `sinema.keterangan` (satu baris, mengganti dirinya, beralas krem). Paling
-   banyak dua blok teks yang harus dibaca sekaligus. Satuan di rumus: `\mathrm{km}`.
+   `sinema.keterangan` (satu baris, mengganti dirinya, **tulisan saja tanpa
+   alas atau kotak**, seperti Trigonometri; warna tinta gelap). Kata yang
+   dipertegas ditandai `*kata*`, tampil tebal di keterangan DAN di subtitle
+   situs (penanda yang sama di naskah narasi). Paling banyak dua blok teks yang
+   harus dibaca sekaligus. Satuan di rumus: `\mathrm{km}`.
 7. **Waktu terikat narasi.** Semua animasi di dalam `with sinema.babak(...)`,
    durasi dari `audio/<topik>/durasi.json`. Kalimat pertama narasi menyebut yang
    sedang tampil. Jeda sengaja 0,6 sampai 1,6 detik setelah pertanyaan. Tidak ada

@@ -138,6 +138,11 @@ Berlaku untuk semua naskah `manim/narasi/*.json`:
    sedang tampil (aturan 2), dan boleh langsung disambung pertanyaan pembuka
    yang dijawab sepanjang video. Kalimat pengumuman materi tidak dihitung
    sebagai "gagasan" segmen; gagasannya tetap masalah yang dibuka.
+9. **Kata yang dipertegas ditandai `*kata*`** di naskah (aturan ARYA sejak
+   Trigonometri). Penanda itu jadi tebal di subtitle situs (`buat_subtitle.py`)
+   dan di keterangan layar (`gl.teks`), dan dibuang oleh mesin suara. Satu
+   sampai dua penegasan per segmen; kalau semua ditebalkan, tidak ada yang tegas.
+   Subtitle dan keterangan: tulisan saja, tanpa latar atau kotak.
 
 ## 6. Daftar periksa per tahap (isi sendiri sebelum lapor)
 

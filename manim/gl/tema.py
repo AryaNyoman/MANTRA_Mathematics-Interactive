@@ -5,6 +5,7 @@ MiKTeX, dan menyediakan `self.t` (palet) serta `self.hud` (objek yang menempel
 di layar walau kamera terbang).
 """
 
+import re
 import sys
 from pathlib import Path
 
@@ -50,6 +51,9 @@ def teks(s: str, ukuran: float = UKURAN_LABEL, warna: str = TINTA, mentah: bool 
     """
     if not mentah:
         s = "".join(_KHUSUS.get(c, c) for c in s)
+        # `*kata*` = TEBAL, penanda yang sama dengan subtitle di naskah narasi
+        # (aturan ARYA: kata yang dipertegas dicetak tebal).
+        s = re.sub(r"\*([^*]+)\*", r"\\textbf{\1}", s)
     return TexText(s, font_size=ukuran).set_color(warna)
 
 

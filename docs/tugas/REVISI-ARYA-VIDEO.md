@@ -51,6 +51,13 @@ tadi ternyata SALAH DIAGNOSIS; sebabnya cache LaTeX ManimGL menyimpan hasil
 kosong saat MiKTeX sedang memasang font cm-super. Tambalan 3 di
 `tambal_manimgl.py` menolak SVG kosong supaya tidak terulang.
 
+### 5. Subtitle dan keterangan: tulisan saja, kata tegas ditebalkan (SELESAI)
+ARYA (2 Sep sore): seperti Trigonometri, tanpa latar/kotak, hanya tulisan;
+kata yang dipertegas ditebalkan. Alas krem yang sempat ditambah MASTER dibuang
+dari `keterangan` dan `judul_pembuka`; warna keterangan jadi tinta gelap supaya
+tetap terbaca di atas tepi. Penanda `*kata*` kini tebal di keterangan (`gl.teks`)
+dan di subtitle (`buat_subtitle.py`). Aturan 9 di STANDAR-MENGAJAR bagian 5.
+
 ### 4. Suara: ditunda ke tahap akhir (finishing), keputusan ARYA
 Berkas punya jalur suara (terukur), tetapi di pemutar ARYA tidak terdengar.
 Tidak dikejar sekarang; dicatat untuk gelombang 3.

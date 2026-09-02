@@ -60,9 +60,14 @@ tertutup, hidupkan dengan `NYALAKAN-5-SESI.bat`, lalu kirim prompt bagian D di
 `docs/tugas/PROMPT-SIAP-TEMPEL.md`.
 
 ### Tugas MASTER berikutnya, urut
-1. **Terima setoran sesi.** Tiap sesi lapor selesai revisi lalu video. Gabung
-   cabangnya ke `master`, jalankan tsc dan build lewat biner Node langsung,
-   deploy. Konflik yang muncul selalu di `daftar-isi.ts` dan `topik.ts`, dan
+**Peran MASTER dipersempit ARYA (2 Sep sore, berlaku tetap): MASTER TIDAK
+menerima atau meninjau setoran video. Sesi merevisi sendiri dari tinjauan ARYA.
+MASTER hanya (1) menyatukan cabang ke `master` dan (2) menyampaikan aturan dan
+larangan global ke semua sesi (lewat SendMessage, lihat memori
+`kirim-pesan-antar-sesi`).**
+1. **Satukan cabang sesi ke `master`** saat sesi lapor siap gabung. Jalankan
+   tsc dan build lewat biner Node langsung (pemeriksaan teknis penggabungan,
+   bukan penilaian isi), deploy. Konflik yang muncul selalu di `daftar-isi.ts` dan `topik.ts`, dan
    selalu berjenis "dua sesi menambah baris di tempat yang sama": ambil kedua
    sisi, LALU periksa kurung penutupnya (pernah hilang, lihat commit 32d520f).
 2. **Lunasi utang MASTER** (daftarnya di bagian Tinjauan isi di atas):
