@@ -15,61 +15,85 @@ Di materi sebelumnya kita berhenti pada kaki tegak lurus.
 Sekarang pertanyaannya lebih pendek tetapi sering salah: berapa panjang diagonal kubus ini?
 
 4
-00:00:13.296 --> 00:00:16.030
+00:00:13.296 --> 00:00:16.061
 Mulai dari yang tampak lebih dulu.
 
 5
-00:00:16.030 --> 00:00:21.819
-A̅C̅ menghubungkan dua sudut pada satu sisi, jadi namanya <b>diagonal sisi</b>.
+00:00:16.061 --> 00:00:19.639
+A̅C̅ menghubungkan dua sudut pada satu sisi,
 
 6
-00:00:21.819 --> 00:00:27.528
-Segitiga ABC siku-siku di B, dan kedua sisi tegaknya rusuk sepanjang 6.
+00:00:19.639 --> 00:00:21.835
+jadi namanya <b>diagonal sisi</b>.
 
 7
+00:00:21.835 --> 00:00:24.112
+Segitiga ABC siku-siku di B,
+
+8
+00:00:24.112 --> 00:00:27.528
+dan kedua sisi tegaknya rusuk sepanjang 6.
+
+9
 00:00:27.528 --> 00:00:32.496
 Jadi AC² sama dengan 36 ditambah 36, yaitu <b>72</b>.
 
-8
+10
 00:00:32.496 --> 00:00:38.112
 Jangan diakarkan dulu, angka itu masih akan dipakai.
 
-9
-00:00:38.112 --> 00:00:39.733
+11
+00:00:38.112 --> 00:00:39.742
 Sekarang yang sulit.
 
-10
-00:00:39.733 --> 00:00:44.758
-A̅G̅ menembus bagian dalam kubus, jadi namanya <b>diagonal ruang</b>.
-
-11
-00:00:44.758 --> 00:00:46.866
-Segitiga penolongnya, ACG,
-
 12
-00:00:46.866 --> 00:00:52.296
-berdiri tegak di dalam kubus dan tidak menempel pada sisi mana pun.
+00:00:39.742 --> 00:00:42.432
+A̅G̅ menembus bagian dalam kubus,
 
 13
-00:00:52.296 --> 00:01:00.010
-Alasnya A̅C̅ tadi, sisi tegaknya rusuk C̅G̅, dan siku-sikunya di C.
+00:00:42.432 --> 00:00:44.715
+jadi namanya <b>diagonal ruang</b>.
 
 14
-00:01:00.010 --> 00:01:05.421
-Jadi AG² sama dengan 72 ditambah 36, yaitu 108.
+00:00:44.715 --> 00:00:46.834
+Segitiga penolongnya, ACG,
 
 15
-00:01:05.421 --> 00:01:07.608
-AG sama dengan <b>6√3</b>.
+00:00:46.834 --> 00:00:52.296
+berdiri tegak di dalam kubus dan tidak menempel pada sisi mana pun.
 
 16
-00:01:07.608 --> 00:01:10.871
-Angka 3 di dalam akar itu bukan kebetulan.
+00:00:52.296 --> 00:00:57.400
+Alasnya A̅C̅ tadi, sisi tegaknya rusuk C̅G̅,
 
 17
-00:01:10.871 --> 00:01:16.465
-Ia menghitung ada berapa arah yang dilewati: panjang, lebar, dan tinggi.
+00:00:57.400 --> 00:00:59.952
+dan siku-sikunya di C.
 
 18
-00:01:16.465 --> 00:01:22.680
-Diagonal ruang bukan rumus baru, ia Pythagoras yang dipakai untuk <b>kedua kalinya</b>.
+00:00:59.952 --> 00:01:05.404
+Jadi AG² sama dengan 72 ditambah 36, yaitu 108.
+
+19
+00:01:05.404 --> 00:01:07.608
+AG sama dengan <b>6√3</b>.
+
+20
+00:01:07.608 --> 00:01:10.905
+Angka 3 di dalam akar itu bukan kebetulan.
+
+21
+00:01:10.905 --> 00:01:15.065
+Ia menghitung ada berapa arah yang dilewati: panjang,
+
+22
+00:01:15.065 --> 00:01:16.478
+lebar, dan tinggi.
+
+23
+00:01:16.478 --> 00:01:18.990
+Diagonal ruang bukan rumus baru,
+
+24
+00:01:18.990 --> 00:01:22.680
+ia Pythagoras yang dipakai untuk <b>kedua kalinya</b>.

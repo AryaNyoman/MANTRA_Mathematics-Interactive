@@ -31,57 +31,65 @@ dan semuanya sah disebut penghubung.
 Panjangnya berbeda-beda.
 
 8
-00:00:24.960 --> 00:00:29.936
+00:00:24.960 --> 00:00:29.964
 Jadi kata <b>jarak</b> belum punya arti sampai kita memilih yang mana.
 
 9
-00:00:29.936 --> 00:00:34.834
-Kita geser titik Q di sepanjang A̅C̅, dan perhatikan angkanya.
+00:00:29.964 --> 00:00:32.903
+Kita geser titik Q di sepanjang A̅C̅,
 
 10
-00:00:34.834 --> 00:00:36.571
-Turun, lalu naik lagi.
+00:00:32.903 --> 00:00:34.809
+dan perhatikan angkanya.
 
 11
-00:00:36.571 --> 00:00:39.336
-Ada satu tempat yang paling pendek.
+00:00:34.809 --> 00:00:36.556
+Turun, lalu naik lagi.
 
 12
+00:00:36.556 --> 00:00:39.336
+Ada satu tempat yang paling pendek.
+
+13
 00:00:39.336 --> 00:00:45.146
 Di situ, dan hanya di situ, muncul tanda <b>siku-siku</b>.
 
-13
+14
 00:00:45.146 --> 00:00:48.792
 Panjangnya 3√2, kira-kira 4,243.
 
-14
-00:00:48.792 --> 00:00:52.229
+15
+00:00:48.792 --> 00:00:52.245
 Kenapa yang terpendek pasti yang siku-siku?
 
-15
-00:00:52.229 --> 00:00:54.307
+16
+00:00:52.245 --> 00:00:54.333
 Ambil titik lain, sebut R.
 
-16
-00:00:54.307 --> 00:00:59.102
-Segitiga BQR siku-siku di Q, dan B̅R̅ adalah sisi miringnya.
-
 17
-00:00:59.102 --> 00:01:03.578
-Sisi miring <b>selalu</b> lebih panjang daripada sisi tegaknya.
+00:00:54.333 --> 00:00:56.581
+Segitiga BQR siku-siku di Q,
 
 18
-00:01:03.578 --> 00:01:05.736
-Itu saja seluruh alasannya.
+00:00:56.581 --> 00:00:59.071
+dan B̅R̅ adalah sisi miringnya.
 
 19
+00:00:59.071 --> 00:01:03.568
+Sisi miring <b>selalu</b> lebih panjang daripada sisi tegaknya.
+
+20
+00:01:03.568 --> 00:01:05.736
+Itu saja seluruh alasannya.
+
+21
 00:01:05.736 --> 00:01:09.942
 Jadi tegak lurus bukan aturan tambahan yang harus dihafal.
 
-20
+22
 00:01:09.942 --> 00:01:12.698
 Ia akibat dari memilih yang terpendek.
 
-21
+23
 00:01:12.698 --> 00:01:19.224
 Ingat kalimat ini sampai materi 7: <b>setiap soal jarak adalah soal mencari kaki tegak lurus</b>.

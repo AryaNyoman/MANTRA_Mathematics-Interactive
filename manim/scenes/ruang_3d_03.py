@@ -45,7 +45,8 @@ class JarakSelaluTerpendek(AdeganMatra):
         rangka = rangka_kubus()
         ac = Line(T["A"], T["C"]).set_stroke(AKSEN2, 6)
 
-        papan = papan_koordinat(frame)
+        papan_koor = papan_koordinat(frame)
+        papan = sinema.PapanRumus(self)
 
         # Titik Q dikendalikan satu angka saja. Semua yang bergantung padanya
         # digambar ulang tiap frame, jadi ruas, penanda, dan angka di panel tidak
@@ -68,21 +69,18 @@ class JarakSelaluTerpendek(AdeganMatra):
         panel_hidup = sinema.nilai_hidup(teks("BQ", 28, AKSEN), angka, di=[4.6, 3.15, 0])
 
         lab = huruf_sudut(frame, {"A": TINTA, "B": AKSEN, "C": AKSEN2})
-        jati = identitas_kubus()
 
         # --- Babak 1: pengumuman materi, sumbu z ikut memperkenalkan arah tinggi.
         kamera.pasang_awal(frame, theta=-38, phi=72, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
-        self.add(lantai(), *papan["datar"], *papan["tinggi"], kubus)
+        self.add(lantai(), *papan_koor["datar"], *papan_koor["tinggi"], kubus)
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 03: Jarak selalu yang terpendek",
                                  lama=3.4, y=3.0)
             b.catat(3.4)
-            self.hud_tambah(jati)
-            jati.set_opacity(0)
-            b.main(jati.animate.set_opacity(1), run_time=0.7)
-            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=1.8)
+            # Babak pertama HANYA judul materi (standar v2, Waktu dan sinkron).
+            # Kubus dibuat tembus pandang di babak berikutnya.
             isi_sisa(b, kamera.sudut(frame, -26, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-        qc.periksa_adegan(self, {"kubus": kubus, "identitas": jati})
+        qc.periksa_adegan(self, {"kubus": kubus})
 
         # --- Babak 2: masalahnya dulu. Sumbu z pamit di sini, sebab seluruh sisa
         #     video terjadi di lantai kubus.
@@ -90,8 +88,10 @@ class JarakSelaluTerpendek(AdeganMatra):
             Line(T["B"], di_ac(x)).set_stroke(REDUP, 2.4)
             for x in (0.16, 0.30, 0.44, 0.62, 0.80)
         ])
+        jati = sinema.identitas(self, "p = l = t = 6 satuan")
         with sinema.babak(self, "masalah", DURASI) as b:
-            sumbu_z_pamit(b, papan, 0.8)
+            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=1.6)
+            sumbu_z_pamit(b, papan_koor, 0.8)
             b.main(ShowCreation(ac), *[FadeIn(x) for x in lab.values()], run_time=1.4)
             b.main(ShowCreation(coba_coba, lag_ratio=0.25), run_time=2.0)
             isi_sisa(b, kamera.sudut(frame, -14, 62, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
@@ -118,7 +118,6 @@ class JarakSelaluTerpendek(AdeganMatra):
                            + np.array([-0.55, 0.30, 0.35]), AKSEN2, 28, rumus_latex=True)
         n_bq = label_hadap(frame, "3\\sqrt{2}", sepanjang3(T["B"], KAKI, 0.5)
                            + np.array([0.35, -0.35, 0.40]), SOROT, 30, rumus_latex=True)
-        jawab = rumus(r"BQ = 3\sqrt{2} \approx 4{,}243", 32, SOROT).to_corner(UR, buff=0.5)
         with sinema.babak(self, "temu", DURASI) as b:
             b.main(t.animate.set_value(T_KAKI), run_time=1.6)
             b.main(ShowCreation(tanda_siku), run_time=0.8)
@@ -126,11 +125,10 @@ class JarakSelaluTerpendek(AdeganMatra):
             b.main(FadeIn(n_bq), run_time=0.7)
             self.hud.remove(panel_hidup)
             b.main(FadeOut(panel_hidup), run_time=0.4)
-            self.hud_tambah(jawab)
-            jawab.set_opacity(0)
-            b.main(jawab.animate.set_opacity(1), run_time=0.7)
+            sinema.lahir_rumus(self, r"BQ = 3\sqrt{2} \approx 4{,}243", dekat=bq,
+                               papan=papan, b=b, warna=SOROT)
             isi_sisa(b, kamera.putar_pelan(frame, 16), sisakan=0.6)
-        qc.periksa_adegan(self, {"siku": tanda_siku, "jawab": jawab, "nilai AC": n_ac,
+        qc.periksa_adegan(self, {"siku": tanda_siku, "jawab": papan.semua(), "nilai AC": n_ac,
                                  "nilai BQ": n_bq, "identitas": jati},
                           [("jawab", "identitas"), ("nilai AC", "nilai BQ")])
 
@@ -139,27 +137,25 @@ class JarakSelaluTerpendek(AdeganMatra):
         br = Line(T["B"], r_letak).set_stroke(REDUP, 4)
         qr = Line(KAKI, r_letak).set_stroke(REDUP, 4)
         lab_r = label_hadap(frame, "R", r_letak + np.array([0.35, 0.35, 0.40]), REDUP)
-        pyth = rumus(r"BR^2 = BQ^2 + QR^2", 30, TINTA)
-        pyth.next_to(jawab, DOWN, buff=0.35).align_to(jawab, RIGHT)
         with sinema.babak(self, "kenapa", DURASI) as b:
             b.main(ShowCreation(br), ShowCreation(qr), FadeIn(lab_r), run_time=1.6)
-            self.hud_tambah(pyth)
-            pyth.set_opacity(0)
-            b.main(pyth.animate.set_opacity(1), run_time=0.7)
+            papan.baris(r"BR^2 = BQ^2 + QR^2")
+            b.catat(0.8)
             isi_sisa(b, kamera.sudut(frame, -46, 70, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-        qc.periksa_adegan(self, {"BR": br, "pythagoras": pyth, "jawab": jawab,
-                                 "identitas": jati},
-                          [("pythagoras", "jawab"), ("pythagoras", "identitas")])
+        qc.periksa_adegan(self, {"BR": br, "panel": papan.semua(), "identitas": jati},
+                          [("panel", "identitas")])
 
         # --- Babak 6: kalimat payung topik, ditempelkan pada kaki tegak lurusnya
         #     sendiri, bukan ditulis di kaki layar tempat subtitle berada.
-        payung = label_hadap(frame, "kaki tegak lurus",
+        # Dua kata, batas standar v2 butir 4. "Kaki tegak lurus" tiga kata dan
+        # ditolak mesin; intinya tetap terbawa, kalimat penuhnya milik narasi.
+        payung = label_hadap(frame, "tegak lurus",
                              KAKI + np.array([-2.3, 0.0, 0.55]), SOROT, 30)
         with sinema.babak(self, "tutup", DURASI) as b:
             b.main(FadeOut(br), FadeOut(qr), FadeOut(lab_r), run_time=0.8)
             b.main(FadeIn(payung), run_time=0.9)
             isi_sisa(b, kamera.putar_pelan(frame, 24), sisakan=1.4)
             b.jeda(1.2)
-        qc.periksa_adegan(self, {"BQ": bq, "siku": tanda_siku, "jawab": jawab,
+        qc.periksa_adegan(self, {"BQ": bq, "siku": tanda_siku, "panel": papan.semua(),
                                  "payung": payung, "identitas": jati},
-                          [("payung", "identitas"), ("payung", "jawab")])
+                          [("payung", "identitas"), ("payung", "panel")])

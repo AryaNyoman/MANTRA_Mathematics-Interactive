@@ -16,7 +16,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from gl import *  # noqa: E402,F403
-from gl import ilustrasi  # noqa: E402
+from gl import ilustrasi, sinema  # noqa: E402
 
 AKAR = Path(__file__).resolve().parents[2]
 
@@ -111,7 +111,10 @@ def label_hadap(frame, isi, titik, warna=TINTA, ukuran=30, acuan=ACUAN_SKALA,
     elif rumus_latex:
         asli = rumus(isi, ukuran, warna)
     else:
-        asli = teks(isi, ukuran, warna)
+        # Lewat `sinema.label`, bukan `teks`, supaya batas DUA KATA untuk label
+        # di dalam gambar dijaga mesin (STANDAR-ILUSTRASI v2 butir 4). Render
+        # gagal kalau dilanggar, jadi tidak bisa lolos karena saya lupa.
+        asli = sinema.label(isi, ukuran, warna)
 
     def perbarui(m):
         b = asli.copy()
@@ -245,20 +248,6 @@ def sumbu_z_pamit(b, papan, lama=0.8):
     """
     b.main(papan["garis_z"].animate.set_opacity(0),
            papan["kaca_z"].animate.set_value(0.0), run_time=lama)
-
-
-def identitas_kubus():
-    """Keterangan menetap di KIRI ATAS: ukuran kubusnya, dalam bahasa matematika.
-
-    Revisi ARYA 2 Sep malam. Sebelumnya kalimat "panjang, lebar, dan tingginya
-    sama" ditulis di kaki layar, tepat di zona subtitle, sehingga maknanya dobel
-    dengan subtitle yang sudah memuat kalimat narator secara utuh.
-
-    Kiri atas sengaja dipilih, bukan kanan atas: kanan atas milik panel rumus.
-    Mata jadi punya satu aturan yang sama di keenam video, yaitu kiri adalah
-    identitas bendanya dan kanan adalah hitungannya.
-    """
-    return rumus(r"p = l = t = 6\ \mathrm{satuan}", 30, TINTA).to_corner(UL, buff=0.5)
 
 
 def penanda(scene, frame, titik, warna=SOROT, jari=0.24, acuan=ACUAN_SKALA):
