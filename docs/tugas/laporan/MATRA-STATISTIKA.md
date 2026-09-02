@@ -521,8 +521,23 @@ Penyelesaiannya satu baris di `manim/buat_subtitle.py` (commit tersendiri
 Naskah tanpa medan `tulis` berjalan persis seperti sebelumnya. Tujuh segmen
 naskah saya sudah diberi `tulis`.
 
+ARYA menegaskan lagi (2 Sep malam) bahwa ini BUKAN cuma soal angka, melainkan
+soal LAMBANG matematika: subtitle tidak boleh jadi salinan mentah ucapan.
+
+| Yang diucapkan narator | Yang SALAH ditulis | Yang benar |
+|---|---|---|
+| "titik dua koma empat" | Titik dua koma empat | Titik (2,4) |
+| "f dari x kurang 1" | f dari x kurang 1 | f(x-1) |
+| "lima puluh enam dibagi delapan" | lima puluh enam dibagi delapan | 56 : 8 |
+| "akar dua" | akar dua | akar 2 atau lambang akarnya |
+
+Ini paling berdampak pada sesi Grafik Fungsi, Vektor, dan Limit, yang naskahnya
+penuh notasi fungsi dan koordinat. Berkas vtt menerima Unicode, jadi lambang
+seperti akar dan pangkat dua bisa ditulis langsung.
+
 **Permintaan ke MASTER:** kalau setuju, tambahkan aturan 10 di STANDAR-MENGAJAR
-bagian 5 supaya sesi lain tahu medan ini ada.
+bagian 5, dan sebutkan tabel di atas sebagai contohnya supaya sesi lain tidak
+menyalin ucapan mentah-mentah.
 
 ## Keadaan video Tahap 5 sekarang
 

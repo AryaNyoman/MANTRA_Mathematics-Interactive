@@ -2,7 +2,7 @@
   "adegan": "Pemusatan5",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Tahap 5 Statistika. Inti video: mean bukan sekadar jumlah dibagi banyaknya, melainkan titik tempat data seimbang. Pembuka mengumumkan materinya (STANDAR-MENGAJAR bagian 5 aturan 8). Penanda *kata* jadi tebal (aturan 9). Medan `tulis` adalah bentuk TERTULIS untuk subtitle: mesin suara butuh angka dieja, pembaca subtitle lebih cepat menangkap lambangnya. Permintaan ARYA 2 Sep 2026. Kalau `tulis` tidak ada, subtitle memakai `teks`.",
+  "catatan": "Tahap 5 Statistika. Inti video: mean bukan sekadar jumlah dibagi banyaknya, melainkan titik tempat data seimbang. Pembuka mengumumkan materinya (STANDAR-MENGAJAR bagian 5 aturan 8). Penanda *kata* jadi tebal (aturan 9). Medan `tulis` adalah bentuk TERTULIS untuk subtitle: mesin suara butuh angka dieja, pembaca subtitle lebih cepat menangkap lambangnya. Permintaan ARYA 2 Sep 2026: subtitle memakai LAMBANG matematika, bukan salinan mentah ucapan. \"lima puluh enam dibagi delapan\" ditulis \"56 : 8\", \"titik dua koma empat\" ditulis \"Titik (2,4)\", \"f dari x kurang 1\" ditulis \"f(x-1)\". Kalau `tulis` tidak ada, subtitle memakai `teks`.",
   "segmen": [
     {
       "id": "sapa",
@@ -44,12 +44,13 @@
     },
     {
       "id": "bukti",
-      "teks": "Sekarang ketiga jarak ke kiri kita jajarkan jadi satu batang, dan ketiga jarak ke kanan jadi batang kedua. Dua batang ini *sama panjang*. Itulah sebabnya papan tadi seimbang."
+      "teks": "Sekarang ketiga jarak ke kiri kita jajarkan jadi satu batang, dan ketiga jarak ke kanan jadi batang kedua. Dua batang ini *sama panjang*. Itulah sebabnya papan tadi seimbang.",
+      "tulis": "Sekarang ketiga jarak ke kiri kita jajarkan jadi satu batang, dan ketiga jarak ke kanan jadi batang kedua. 3 + 2 + 1 = 1 + 1 + 4. Dua batang ini *sama panjang*. Itulah sebabnya papan tadi seimbang."
     },
     {
       "id": "rumus",
       "teks": "Barulah rumus yang dihafal masuk akal. Lima puluh enam dibagi delapan, hasilnya tujuh. Rumus itu *bukan arti* rata-rata, cuma cara cepat menemukannya.",
-      "tulis": "Barulah rumus yang dihafal masuk akal. 56 dibagi 8, hasilnya 7. Rumus itu *bukan arti* rata-rata, cuma cara cepat menemukannya."
+      "tulis": "Barulah rumus yang dihafal masuk akal. 56 : 8 = 7. Rumus itu *bukan arti* rata-rata, cuma cara cepat menemukannya."
     },
     {
       "id": "tutup",
