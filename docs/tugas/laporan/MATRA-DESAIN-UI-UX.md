@@ -275,3 +275,62 @@ sekarang berupa harapan, bukan batas yang ditegakkan. Perbaikannya ada di
 
 Ketiganya ada di wilayah MASTER (`buat_subtitle.py`, isi video, dan keputusan
 ARYA soal bawaan), jadi tidak kuubah sendiri.
+
+## Bukti kedua: subtitle diuji ulang di PRODUKSI (3 Sep 2026)
+
+MASTER menegakkan batas 56 huruf di `buat_subtitle.py` dan membuat ulang
+semua `.vtt` (master `e437654`). Diminta mengulang potretnya di situs yang
+tayang sebagai bukti kedua. Ini hasilnya, dan klaimnya diperiksa sendiri
+lebih dulu, tidak ditelan mentah.
+
+### Angka 56 sekarang benar-benar ditegakkan
+
+Dihitung ulang di cabang ini atas 977 baris subtitle yang benar-benar
+tampil, dengan markup `<b>` dan tanda gabung (seperti garis atas A̅G̅)
+dibuang lebih dulu supaya yang dihitung adalah huruf yang TERLIHAT:
+
+| | Sebelum (2 Sep) | Sesudah (3 Sep) |
+|---|---|---|
+| Baris tampil | 780 | 977 |
+| Lewat 56 huruf | 296 (38%) | **0** |
+| Terpanjang | 101 huruf | **56 huruf, tepat di batas** |
+
+Catatan cara menghitung: kalau markup tidak dibuang, akan terlihat seolah
+ada 18 baris yang melanggar. Itu keliru. Baris terpanjang mentahnya 61
+huruf, tetapi 7 di antaranya adalah `<b>` dan `</b>` yang tidak tampil.
+
+Produksi juga diperiksa langsung, bukan lewat cabang: berkas
+`matra-eight.vercel.app/anim/limit2-mendekati.vtt` diunduh dan diukur,
+terpanjang **56 huruf**. Jadi yang tayang memang sudah versi baru.
+
+### Potret di situs yang tayang
+
+Halaman `/topik/limit` Materi 02, video `limit2-mendekati.webm` detik 88,5,
+kalimat 56 huruf "Limitnya 10 berarti: berapa pun ketatnya tantangan Anda,".
+
+| Lebar layar | Lebar pemutar | Ukuran | Hasil |
+|---|---|---|---|
+| 1366 | 766 piksel | 85% | satu baris, longgar, terbaca jelas |
+| 375 | 321 piksel | 85% | satu baris, tetapi kecil sekali |
+| 375 | 321 piksel | 100% | **tetap satu baris**, jelas lebih terbaca |
+
+Gulir mendatar di 375 tetap 375/375, tidak ada yang meluber.
+
+### Kesimpulan untuk keputusan bawaan 85% atau 100%
+
+Baris terakhir tabel itu yang menentukan, dan sekarang sudah dibuktikan di
+situs sungguhan, bukan dihitung di atas kertas: **dengan batas 56 yang sudah
+ditegakkan, ukuran 100% pun tetap muat satu baris di layar 375 piksel.**
+Alasan asli memilih 85% adalah supaya subtitle selalu satu baris, dan alasan
+itu kini sudah dipenuhi oleh pemotong barunya, bukan oleh pengecilan huruf.
+
+Di 375 piksel satu baris 56 huruf memenuhi hampir seluruh lebar pemutar 321
+piksel, jadi tiap huruf kebagian di bawah 6 piksel. Itu huruf yang kecil
+untuk dibaca sambil menonton. Usulanku tetap: kembalikan bawaan ke 100%.
+Keputusan di tangan ARYA, dan sesi ini tidak mengubahnya sendiri.
+
+### Yang sengaja dibiarkan
+
+Tabrakan subtitle dengan keterangan yang sudah dibakar ke video Trigonometri
+dan Limit lama masih ada, dan ARYA sudah memutuskan videonya tidak dirender
+ulang sekarang. Dicatat di sini supaya tidak dikira terlewat.
