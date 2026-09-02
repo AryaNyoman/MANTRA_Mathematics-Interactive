@@ -29,6 +29,26 @@ lengkap dengan video (7 video masing-masing). Empat topik baru (Vektor, Grafik
 Fungsi, Statistika, Ruang 3D) halamannya utuh tanpa video, dan kelimanya
 ditambah UI/UX sedang mengerjakan gelombang 2 di sesi paralel.
 
+### YANG BERUBAH 2 SEP SIANG: pindah ke ManimGL (baca ini dulu)
+ARYA menolak video perahu gelombang 1 (perahu = titik, sungai = kotak diam) dan
+menuntut level 3b1b. Keputusannya, dijalankan penuh hari itu juga:
+- **Manim Community DICABUT, ManimGL 1.7.2 100%.** 14 video Trigonometri dan
+  Limit dibiarkan apa adanya; kodenya diarsipkan di `manim/arsip-manim-ce/`.
+- Perkakas baru `manim/gl/` (tema, sinema, kamera, ilustrasi, qc), semua
+  diuji: `manim/uji/uji_*_gl.py`, `manim/gl/uji_qc.py`. Contoh rujukan lengkap
+  yang lolos gerbang: `manim/contoh/contoh_perahu.py` (narasi, air hidup,
+  perahu 3D, kamera dunia ke peta, panah, suara latar air dengan ducking).
+- Dokumen sesi: `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md`, `docs/tugas/ILMU-3B1B.md`.
+  Spec: `docs/superpowers/specs/2026-09-02-pindah-manimgl-dan-standar-ilustrasi-design.md`.
+- Huruf: Constantia untuk kata, LaTeX untuk angka dan rumus. Latar krem, satu versi.
+- Render paralel BOLEH (8 serentak terbukti aman); antrean tidak wajib.
+- Jebakan ManimGL yang sudah ditambal/dilarang: `latex -no-pdf` (MiKTeX),
+  argv saat impor, `Text(color=)` diabaikan, `\text{}` dibuang diam-diam.
+- Suara latar `manim/suara/air.ogg` masih SINTETIS; ganti rekaman CC0 setelah
+  ARYA menyetujui unduhan.
+- Utang MASTER baru: pesan pembangunan ke 5 sesi (lihat `PROMPT-SIAP-TEMPEL.md`
+  bagian E), lalu terima setoran video ManimGL pertama tiap sesi.
+
 ### Yang berjalan tanpa perlu Anda sentuh
 Lima sesi hidup di worktree masing-masing, sudah dikirimi tugas gelombang 2:
 revisi isi dari MASTER dulu, baru enam video 480p per topik. Kalau jendelanya
@@ -62,8 +82,8 @@ dua pilihan berpotret).
   yang baru muncul setelah tujuh tahap punya video. Yang menemukannya: membuka
   situs yang SUDAH TAYANG dengan Playwright lalu membandingkan alamat yang
   DITULISKAN dengan alamat yang benar-benar DIMUAT.
-- **Render Manim wajib lewat antrean** `alat/antre_render.py`, sebab lima sesi
-  berbagi satu prosesor.
+- **Render ManimGL boleh paralel** (sejak 2 Sep siang; kartu grafis yang
+  menggambar). Antrean `alat/antre_render.py` tinggal pilihan untuk 1080p.
 
 ### Yang berubah di sesi 3: 22 revisi ARYA
 
@@ -561,22 +581,31 @@ Ketujuh video Trigonometri sudah jadi dari nol sampai tayang, jadi resep di
 bawah ini bukan teori. Urutan persisnya, ulangi apa adanya. Sudut pandang
 visual tiap video ada di `docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`.
 
+**DIPERBARUI 2 Sep siang: resep ini kini memakai ManimGL** (Manim Community
+dicabut, keputusan ARYA). Langkah dan gerbangnya sama, perkakasnya `manim/gl/`.
+Baca dulu `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md` dan `docs/tugas/ILMU-3B1B.md`.
+
 ```bash
-# 1. Tulis naskah  ->  manim/narasi/<topik>.json  (10 segmen, ±90 detik)
+# 0. Storyboard: benda nyata apa, kamera mulai dari mana, terbang ke mana,
+#    warna apa untuk besaran apa (STANDAR-ILUSTRASI-VIDEO.md, 8 aturan)
+# 1. Tulis naskah  ->  manim/narasi/<topik>.json  (6-10 segmen, ±90 detik; "latar": "air" kalau di air)
 # 2. Buat suara + ukur durasinya
 python manim/buat_narasi.py <topik>
 # 3. Tulis adegan  ->  manim/scenes/<berkas>.py
-#    Tiru manim/scenes/tahap8_grafik_sin.py: storyboard di kepala berkas,
-#    sub-adegan bernama b01_/b02_..., sinema.babak untuk waktu.
-# 4. Periksa SEBELUM render  (2 detik, bukan 10 menit)
+#    Tiru manim/contoh/contoh_perahu.py: class X(AdeganMatra), from gl import *,
+#    gl.ilustrasi untuk benda, gl.kamera untuk gerakan, sinema.babak untuk waktu,
+#    teks() untuk kata, rumus() untuk angka/rumus, qc.periksa_adegan tiap babak.
+# 4. Periksa SEBELUM render  (detik, bukan menit)
 python manim/cek_kode.py manim/scenes/<berkas>.py --dalam
-# 5. Render UJI kualitas rendah dulu  (±3 menit)
-manim -ql --disable_caching manim/scenes/<berkas>.py <NamaAdegan>
+# 5. Render UJI 480p  (paralel antar sesi BOLEH; adegan berat ±5 fps)
+manimgl manim/scenes/<berkas>.py <NamaAdegan> -w -l
 # 6. Gerbang mutu: LIHAT lembar kontaknya, nilai tiap frame
-python manim/cek_video.py media/videos/<berkas>/480p15/<NamaAdegan>.mp4 --per-detik 0.25
-# 7. Baru render final 1080p60  (±15 menit)
-manim -qh --format=webm manim/scenes/<berkas>.py <NamaAdegan>
-# 8. Gabung narasi -> otomatis tersalin ke web/public/anim/
+python manim/cek_video.py media/gl/<NamaAdegan>.mp4 --per-detik 0.25
+# 6b. Gabung narasi versi uji (+ suara latar dari naskah) -> media/uji-480p/<topik>.mp4, kirim ke ARYA
+python manim/gabung_audio.py <topik> <NamaAdegan> --uji
+# 7. Baru render final 1080p60 setelah ARYA setuju (gelombang 3)
+manimgl manim/scenes/<berkas>.py <NamaAdegan> -w --hd --fps 60
+# 8. Gabung narasi -> WebM, otomatis tersalin ke web/public/anim/
 python manim/gabung_audio.py <topik> <NamaAdegan> --keluar <topik>.webm
 # 9. Poster + daftarkan ke tahap.ts
 ffmpeg -y -ss 62 -i web/public/anim/<topik>.webm -frames:v 1 -q:v 3 web/public/anim/<topik>.jpg
