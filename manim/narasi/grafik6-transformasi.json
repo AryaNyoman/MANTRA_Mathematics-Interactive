@@ -2,15 +2,15 @@
   "adegan": "GeserCerminRegang",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Grafik Fungsi Tahap 06, Geser, cermin, regang. Video prioritas PERTAMA. Tahap ini poros seluruh topik: lima tahap sebelumnya membangun bahan, lima sesudahnya memanen. Tugas video ini satu saja, membuat dua kalimat aturan itu tertanam, dan membuat jebakan f(2x) ketahuan sebelum siswa telanjur salah. Tiga fungsi dasar dipakai berurutan supaya terlihat aturannya tidak peduli bentuk grafiknya.",
+  "catatan": "Grafik Fungsi Tahap 06, Geser, cermin, regang. Video prioritas PERTAMA. Versi ManimGL 2 Sep 2026. Benda nyatanya BOLA YANG MENGGELINDING DI DASAR LEMBAH, bukan bola yang dilempar: lintasan lemparan itu parabola terbuka ke BAWAH, sedangkan tahap ini memakai f(x) = x kuadrat yang terbuka ke ATAS. Gambar yang membantah rumusnya adalah cacat terburuk menurut gerbang video. Bola terus mengayun di lembah sepanjang video sebagai updater, jadi dunia tidak membeku dan tiap kurva selalu punya benda yang diwakilinya.",
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Di tahap tiga, satu angka memindahkan seluruh parabola. Apakah itu sifat khusus parabola?"
+      "teks": "Bola ini menggelinding di dasar lembah, dan bentuk lembahnya persis grafik y sama dengan x kuadrat."
     },
     {
       "id": "parabola",
-      "teks": "Kita mulai dari yang sudah dikenal. Ini grafik y sama dengan x kuadrat, dan untuk sementara ia kita sebut f saja."
+      "teks": "Kita lihat dari samping, supaya lembahnya terbaca sebagai grafik. Di tahap tiga, satu angka memindahkan seluruh lembah ini. Kita sebut f saja."
     },
     {
       "id": "geseratas",
@@ -26,7 +26,7 @@
     },
     {
       "id": "kenapa",
-      "teks": "Alasannya begini. Titik terendah parabola terjadi saat isi kurungnya nol. Isi kurungnya nol ketika x bernilai satu. Jadi titik itu memang pindah ke kanan."
+      "teks": "Alasannya begini. Titik terendah terjadi saat isi kurungnya nol, dan itu terjadi ketika x bernilai satu. Jadi titik itu memang pindah ke kanan."
     },
     {
       "id": "akar",
