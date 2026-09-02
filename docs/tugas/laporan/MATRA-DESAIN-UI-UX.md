@@ -219,3 +219,59 @@ topik memakai kerangka yang sama dengan Limit, jadi tumpukan kolomnya
 seharusnya ikut benar, tapi isi barunya belum tentu: tabel statistika dan
 widget 3D adalah dua hal yang paling sering meluber di HP. Menunggu aba-aba
 ARYA sebelum mengauditnya.
+
+## Uji subtitle setelah empat topik masuk (3 Sep 2026)
+
+Diminta MASTER: buktikan 56 huruf muat satu baris. Diuji di Chrome sungguhan
+lewat `playwright-cli -s=matra-ui-ux`, video `limit2-mendekati.webm` pada
+detik 113,5, yaitu baris subtitle TERPANJANG di seluruh proyek (101 huruf).
+Kedua potret dibuka dan dinilai mata.
+
+### Jawabannya: 56 huruf muat, dan aman di kedua lebar
+
+| Lebar layar | Lebar pemutar | Ukuran subtitle | Huruf yang muat satu baris |
+|---|---|---|---|
+| 1366 | 766 piksel | 85% | sekitar 74 |
+| 375 | 321 piksel | 85% | sekitar 74 |
+| 375 | 321 piksel | 100% | sekitar 64 |
+
+Yang mengejutkan tapi masuk akal: jumlah huruf per baris TIDAK berubah
+antara 1366 dan 375. Peramban menghitung ukuran huruf subtitle dari tinggi
+videonya, jadi huruf ikut mengecil bersama kotaknya dan titik patahnya sama.
+Artinya 56 huruf aman di lebar berapa pun, bahkan pada 100%. Angka 56 tidak
+perlu diubah.
+
+### Tapi berkas subtitle yang ada TIDAK menuruti angka itu
+
+`MAKS_HURUF = 56` memang tertulis di `manim/buat_subtitle.py`, tetapi berkas
+`.vtt` yang sekarang ada di `web/public/anim/` tidak mematuhinya:
+
+| | |
+|---|---|
+| Baris teks seluruhnya | 780 |
+| Lebih dari 56 huruf | **296 baris, 38%** |
+| Terpanjang | **101 huruf** (`limit2-mendekati.vtt`) |
+| Berkas baru dari sesi lain | `vektor1-perahu.vtt` sudah 80 huruf |
+
+Sebabnya terlihat di kodenya: `pecah()` hanya memotong pada titik lalu koma.
+Kalimat panjang yang tidak berkoma tidak bisa dipotong sama sekali. Contoh
+yang 101 huruf itu memakai titik dua, bukan koma, jadi lolos utuh. Jadi 56
+sekarang berupa harapan, bukan batas yang ditegakkan. Perbaikannya ada di
+`manim/buat_subtitle.py`, milik MASTER.
+
+### Dua temuan lain dari potret yang sama
+
+1. **Subtitle bertabrakan dengan tulisan yang sudah dibakar ke videonya.**
+   Di 375 piksel kalimat subtitle menimpa teks ungu milik animasi yang
+   isinya kalimat yang SAMA. Keduanya jadi tidak terbaca. Ini tidak
+   kelihatan sebelum 2 Sep karena subtitle-nya masih putih di atas krem,
+   alias tidak terlihat sama sekali. Warna baru yang benar justru
+   memunculkan tabrakan yang selama ini tersembunyi.
+2. **Bawaan 85% memperkecil teks justru di layar terkecil.** Alasan
+   penggantian ke 85% adalah supaya selalu satu baris, padahal 100% pun
+   sudah muat 64 huruf, di atas batas 56. Jadi 85% membayar keterbacaan di
+   HP tanpa mendapat apa-apa, ASALKAN berkasnya patuh 56. Usulanku: kembali
+   ke 100% dan tegakkan pemotongan di `buat_subtitle.py`.
+
+Ketiganya ada di wilayah MASTER (`buat_subtitle.py`, isi video, dan keputusan
+ARYA soal bawaan), jadi tidak kuubah sendiri.
