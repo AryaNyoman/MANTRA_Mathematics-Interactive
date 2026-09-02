@@ -114,7 +114,11 @@ def buat(topik: str, diam: bool = False) -> Path:
             raise SystemExit(
                 f"segmen '{seg['id']}' ada di naskah tapi tidak di durasi.json. "
                 f"Jalankan ulang buat_narasi.py {topik}.")
-        potongan = [tebalkan(x) for x in pecah(seg["teks"])]
+        # `tulis` (opsional) dipakai kalau ada, `teks` kalau tidak: mesin suara
+        # butuh angka dieja ("lima puluh enam"), pembaca subtitle justru lebih
+        # cepat menangkap lambangnya ("56"). Permintaan ARYA 2 Sep 2026.
+        # Naskah tanpa `tulis` berjalan persis seperti sebelumnya.
+        potongan = [tebalkan(x) for x in pecah(seg.get("tulis") or seg["teks"])]
         total_huruf = sum(panjang_tampak(p) for p in potongan) or 1
         mulai = jalan
         for p in potongan:
