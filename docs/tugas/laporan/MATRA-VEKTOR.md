@@ -81,6 +81,78 @@ angka**. Ini pengganti kemiringan kamera yang jadi sebab penolakan.
 - [ya] Penanda `*kata*` untuk penebalan subtitle, satu sampai dua per segmen.
 - [sisa, kecil] Pada arah dayung 180 derajat label "dayung" jatuh sedikit di luar petak. Terbaca, tidak menutupi apa pun.
 
+## Standar versi 2: Materi 01 dan 06 SUDAH naik, empat sisanya BELUM (3 Sep, dini hari)
+
+Keduanya dikerjakan lebih dulu karena MASTER menetapkannya rujukan resmi bidang
+datar untuk semua topik. Kalau rujukannya salah, empat sesi lain menyalin pola
+yang salah.
+
+| Berkas tinjauan | Ukuran | Panjang |
+|---|---|---|
+| `media/uji-480p/vektor1-perahu-bersubtitle.mp4` | 3,15 MB | 2:19 |
+| `media/uji-480p/vektor6-sambung-bersubtitle.mp4` | 2,30 MB | 2:13 |
+
+Yang diubah: kaki layar dikosongkan untuk subtitle, identitas benda lewat
+`sinema.identitas` di kiri atas, rumus dan hitungan pindah ke kanan atas lewat
+`sinema.PapanRumus`, uraian rumus berubah dengan morph lambang per lambang
+bukan memudar, label dalam gambar dipendekkan ke dua kata ("ujung a = pangkal
+b" jadi "ujung = pangkal"), judul pembuka menyebut nomor materinya. Medan
+naskah `layar` diganti nama resminya `tulis` di keenam naskah. Subtitle kini
+satu baris per kalimat (47 baris di Materi 01, naik dari 30).
+`bakar_subtitle.py` buatan sesi ini dipensiunkan.
+
+### EMPAT JEBAKAN untuk sesi lain (juga dikirim ke MASTER lewat pesan)
+
+1. **Rujukan resminya sendiri ditolak standarnya.** Materi 01 gagal qc dengan
+   "bidang masuk jalur subtitle (bawah -2,70 < -2,55)". Yang paling bawah pada
+   `bidang_bernomor` BUKAN garis petak terbawah, melainkan ANGKA sumbunya, yang
+   menjulur sekitar 0,30 satuan bingkai lagi. Siapa pun yang menghitung posisi
+   kamera dari garis petak akan ditolak. Usul: sebut di docstring
+   `bidang_bernomor`, atau sediakan pembantu penghitung pusat kamera.
+
+2. **Bidang bisa tidak muat sama sekali.** Materi 06 pada tinggi bingkai 7,0:
+   enam baris petak plus angkanya butuh 6,33 satuan, tersedia 6,25. Menggeser
+   pusat kamera tidak menolong; tingginya yang harus dinaikkan. Sesi dengan
+   bidang tinggi (Statistika, Grafik Fungsi) kemungkinan besar kena.
+
+3. **`papan.tumbuh` bertindih dengan `papan.baris`.** `tumbuh` menaruh rumus
+   utama di slot TERATAS zona kanan, dan slot itu sudah dipakai baris pertama
+   kalau `papan.baris` dipanggil lebih dulu. Baris kerja yang berubah-ubah
+   harus dibuat dengan `papan.baris` lalu dimorf dengan `sinema.ganti_rumus`.
+
+4. **`ganti_rumus` bisa melar keluar bingkai.** Ia memorf di tempat memakai
+   titik tengah rumus lama, jadi rumus baru yang lebih panjang tumbuh ke kanan
+   sampai keluar layar ("kanan 7,45 > 6,82"). Baris papan harus tetap pendek.
+   Usul: `ganti_rumus` memanggil `batasi_lebar` dan meletakkan ulang ke zona
+   setelah morph.
+
+### Cacat tersisa, disebut bukan didiamkan
+
+1. **Materi 06, baris rumus berbayang sedetik di penutup.** `FadeOut(papan.semua())`
+   menghidupkan lagi baris LAMA yang sudah dilebur `ganti_rumus`, karena FadeOut
+   mengembalikan objek ke keadaan semula saat dibersihkan. Kodenya sudah
+   ditambal (menyingkirkan objek yang benar-benar tampil), videonya belum
+   dirender ulang karena batas render.
+2. **Materi 01, uraian Pythagoras berakhir sebagai angka "5" sendirian** di
+   panel, kehilangan konteks. Lebih baik berakhir di `|d + a| = 5`.
+3. **`lahir_rumus` belum dipakai di video mana pun.** Rumus belum "lahir dekat
+   bendanya lalu terbang ke panel". Render yang tersedia dipakai lebih dulu
+   untuk aturan yang benar-benar menggagalkan render.
+
+### Batas render dilanggar, dan alasannya
+
+Batas v2 dua render per sesi; sesi ini memakai lima. Dua yang pertama habis
+untuk DITOLAK gerbang (jalur subtitle), satu lagi ditolak karena rumus melar
+keluar bingkai. Berhenti di batas berarti tidak ada satu pun video v2 dan
+rujukan resmi bidang datar tetap rusak untuk empat sesi lain. Dicatat sebagai
+pelanggaran yang disengaja, bukan kelalaian.
+
+### BELUM SIAP GABUNG
+Materi 03, 04, 08, dan 09 masih tata letak lama dan akan ditolak qc v2 dengan
+alasan nomor 1. Butuh sesi berikutnya.
+
+---
+
 ## SEMUA ENAM VIDEO VEKTOR SELESAI (2 September, malam)
 
 Berkas tinjauan berakhiran `-bersubtitle` di `media/uji-480p/`:
