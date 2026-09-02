@@ -681,3 +681,41 @@ bukan cuma Ruang 3D. Grafik Fungsi dan Statistika kemungkinan besar kena butir
 yang sama. Ongkosnya sudah saya ukur, bukan ditebak: 29 label yang harus
 diputar mengikuti kamera tiap frame membuat render berjalan 5,5 frame per
 detik, jadi video 85 detik selesai sekitar 9 menit di 480p. Masih murah.
+
+## Hasil akhir revisi, keenam video dirender ulang
+
+| Materi | Durasi | Ukuran | Selisih suara | Sumbu z |
+|---|---|---|---|---|
+| 01 Gambar ruang boleh berbohong | 84,7 dtk | 4,7 MB | 0,15 dtk | ada |
+| 03 Jarak selalu yang terpendek | 79,2 dtk | 3,6 MB | 0,14 dtk | tidak |
+| 04 Dua kali Pythagoras | 82,7 dtk | 4,6 MB | 0,09 dtk | ada |
+| 06 Jarak titik ke bidang | 84,1 dtk | 4,2 MB | 0,14 dtk | ada |
+| 08 Sudut dua garis bersilangan | 74,9 dtk | 3,7 MB | 0,15 dtk | tidak |
+| 09 Sudut dengan bidang | 93,8 dtk | 4,8 MB | 0,11 dtk | ada |
+
+Berkas `.vtt` ada di `web/public/anim/` untuk situs, dan disalin juga ke
+`media/uji-480p/` di sebelah mp4-nya supaya subtitle ikut muncul saat ARYA
+menonton di pemutar biasa.
+
+### Cacat yang ditemukan di putaran revisi ini
+
+| Cacat | Sebabnya | Keadaan |
+|---|---|---|
+| Angka sumbu y dan z bertumpuk jadi dua deret berdempetan di tepi kiri, paling parah di materi 03 | arah keluar keduanya hampir sama, benar secara ruang tetapi saling menimpa di layar | diperbaiki, arah keluar sumbu z diganti, dan materi 03 serta 08 tidak lagi memakai sumbu z sama sekali |
+| Garis pandu dari puncak tiang ke sumbu z tidak terlihat sedikit pun (materi 01) | titik (0, 0, 6) itu titik E, jadi garis pandunya berimpit persis dengan ruas EG yang merah | diganti dua penanda: angka 6 di sumbu z disorot ungu, dan tinggi tiang diberi label di sampingnya |
+| Kedelapan huruf HILANG di bagian kedua materi 09 | huruf ide pertama saya hapus saat pindah ide, padahal revisi ARYA justru mewajibkan semua titik tetap tertulis | diperbaiki dengan DUA set huruf yang ditukar, bukan dihapus. Sorotnya berpindah dari A, C, G ke B, D, G mengikuti ide yang dibahas |
+| Babak "turun" materi 01 kelebihan 0,20 detik | animasi garis pandu ditambahkan tanpa menambah jatah waktunya | ditangkap gerbang waktu `sinema.babak`, bukan mata saya |
+
+### Cacat yang tersisa, disebut apa adanya
+
+1. **Angka sumbu z berbaur dengan badan kubus** di materi 01, 04, 06, dan 09.
+   Sumbu z berdiri di rusuk AE, dan angkanya harus keluar ke salah satu sisi.
+   Ke sisi mana pun ia keluar, pada sebagian sudut kamera ia akan berada di
+   depan kubus yang tembus pandang. Masih terbaca dan tidak menabrak teks mana
+   pun. Menurut saya ini pilihan terbaik dari dua yang sama-sama tidak
+   sempurna, bukan sesuatu yang layak dikejar dengan render ulang lagi.
+2. Empat cacat tersisa dari putaran sebelumnya masih berlaku: huruf B dan D
+   sedikit lebih kecil daripada E dan G pada pandangan atas, huruf C agak pudar
+   saat tertutup bidang tembus pandang, dua tanda siku-siku di titik P
+   bertumpuk pada sudut kamera penutup, dan satu segmen narasi materi 06
+   berdurasi 18,5 detik.

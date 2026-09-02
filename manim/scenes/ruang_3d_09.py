@@ -51,7 +51,15 @@ class SudutDenganBidang(AdeganMatra):
         siku_p2 = siku(T["D"], P, T["G"], ukuran=0.45)
         busur_p = busur(T["C"], P, T["G"], warna=SOROT, jari=1.1, tebal=4)
 
+        # DUA set huruf, bukan satu yang dihapus. Video ini punya dua ide besar
+        # dengan titik sorot yang berbeda: bagian pertama menyorot A, C, G
+        # (garis AG dan bayangannya AC), bagian kedua menyorot B, D, G (bidang
+        # BDG dan garis potongnya BD). Warna label tidak bisa diubah di tengah
+        # jalan sebab updater menggambarnya ulang dari bentuk aslinya tiap
+        # frame, jadi setnya yang ditukar. Kedelapan huruf tetap ada di kedua
+        # bagian, sesuai revisi ARYA: titik yang tidak dipakai pun tetap ditulis.
         lab = huruf_sudut(frame, {"A": TINTA, "C": AKSEN2, "G": AKSEN})
+        lab2 = huruf_sudut(frame, {"B": SOROT, "D": SOROT, "G": AKSEN, "C": AKSEN2})
 
         # --- Babak 1: pengumuman materi.
         kamera.pasang_awal(frame, theta=-42, phi=72, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
@@ -117,13 +125,16 @@ class SudutDenganBidang(AdeganMatra):
         lab_p = label_hadap(frame, "P", P + np.array([-0.85, -0.55, 0.15]), SOROT)
         tanda_p = penanda(self, frame, P)
         with sinema.babak(self, "potong", DURASI) as b:
-            # Huruf A, C, G ikut dihapus. Ketiganya milik ide PERTAMA, dan
-            # membiarkannya berarti layar menyimpan sisa gagasan yang sudah
-            # selesai. Huruf A juga yang paling dekat tepi bawah, jadi ini
-            # sekaligus membebaskan ruang untuk baris keterangan.
+            # Set huruf ditukar, bukan dihapus: sorotnya berpindah dari A, C, G
+            # ke B, D, G mengikuti ide yang sedang dibahas, dan kedelapan huruf
+            # tetap terbaca di layar sepanjang video.
             b.main(FadeOut(ag), FadeOut(ac), FadeOut(cg), FadeOut(siku_c),
                    FadeOut(busur_a), *[FadeOut(x) for x in lab.values()],
                    run_time=1.0)
+            for x in lab2.values():
+                x.set_opacity(0)
+            self.add(*lab2.values())
+            b.main(*[x.animate.set_opacity(1) for x in lab2.values()], run_time=0.6)
             self.hud.remove(p1, p2)
             b.main(FadeOut(p1), FadeOut(p2), run_time=0.5)
             b.main(FadeIn(bidang_bdg), run_time=1.4)
@@ -131,9 +142,9 @@ class SudutDenganBidang(AdeganMatra):
             sinema.keterangan(self, "persekutuannya satu *garis penuh*, yaitu BD", warna=SOROT)
             b.catat(0.6)
             isi_sisa(b, kamera.sudut(frame, -14, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-        qc.periksa_adegan(self, {"bidang": bidang_bdg, "BD": bd,
+        qc.periksa_adegan(self, {"bidang": bidang_bdg, "BD": bd, "huruf A": lab2["A"],
                                  "keterangan": self._matra_keterangan},
-                          [("BD", "keterangan")])
+                          [("BD", "keterangan"), ("huruf A", "keterangan")])
 
         # --- Babak 6: dua garis bantu, keduanya tegak lurus BD, DARI SATU TITIK.
         #     Kedua tanda siku-siku sengaja digambar bertumpu di P, sebab justru
