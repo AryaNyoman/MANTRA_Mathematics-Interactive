@@ -30,7 +30,7 @@ Bukti yang mendasari keputusan (semua dari sesi 2 Sep):
 | Pustaka animasi | **ManimGL 1.7.2, 100%.** Manim Community dicabut | satu perkakas, 3D kapan pun perlu |
 | 14 video Trigonometri dan Limit | dibiarkan apa adanya (kode CE diarsipkan, tidak dijalankan lagi) | keputusan ARYA, 2 topik lebih kecil dari 4 topik + topik baru |
 | Latar video | krem Studio Teknis `#F7F3EE`, satu versi | situs tidak punya mode gelap |
-| Huruf | **Constantia** untuk kata; **LaTeX (`Tex`)** untuk angka berdiri sendiri, nilai hidup, dan rumus; angka di dalam kalimat ikut Constantia | pilihan ARYA; label pendek tidak dijahit dari dua mesin huruf |
+| Huruf | **Semua LaTeX** (amandemen ARYA 2 Sep siang): kata lewat `TexText` (`gl.teks`), angka dan rumus lewat `Tex` (`gl.rumus`). Constantia sempat dipilih pagi harinya lalu dibatalkan | satu mesin huruf untuk semuanya |
 | Render | paralel boleh, antrean `alat/antre_render.py` tidak wajib | terbukti 8 serentak aman |
 | Suara latar | boleh, tipis, otomatis merendah saat narator bicara | "pemanis, jangan menindih suara orang" |
 | Palet | tetap `matra_theme` (tinta, redup, aksen, aksen2, sorot) | gaya terkunci |

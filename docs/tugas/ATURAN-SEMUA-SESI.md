@@ -27,8 +27,8 @@ Keputusan ARYA: Manim Community DICABUT dari laptop ini. Semua video baru dibuat
 dengan **ManimGL 1.7.2** lewat perkakas bersama `manim/gl/`. Sebelum menyentuh
 video, baca berurutan:
 1. `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md`: delapan aturan ya/tidak (benda nyata
-   3D bercahaya, kamera dari dunia ke peta, rumus di atas gambar, Constantia +
-   LaTeX, gerbang mutu).
+   3D bercahaya, kamera dari dunia ke peta, rumus di atas gambar, semua huruf
+   LaTeX lewat `teks()`/`rumus()`, gerbang mutu).
 2. `docs/tugas/ILMU-3B1B.md`: enam prinsip 3b1b dan PETA NAMA dari Manim
    Community ke ManimGL (`MathTex` jadi `rumus()`, `Create` jadi `ShowCreation`, dst).
 3. `manim/contoh/contoh_perahu.py`: contoh rujukan yang sudah lolos gerbang.

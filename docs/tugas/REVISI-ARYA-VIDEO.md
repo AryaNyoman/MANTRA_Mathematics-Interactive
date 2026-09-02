@@ -44,10 +44,13 @@ Perlu diputar di pemutar biasa (klik dua kali di Explorer) sebelum disimpulkan.
 Kalau di pemutar biasa narasi terdengar tapi air tidak: naikkan `volume=0.12`
 di `gabung_audio.py` ke 0,2 dan `threshold` ducking ke 0,03, lalu dengarkan lagi.
 
-### 3. Font
-ARYA melihat "masih ada tulisan font default". Semua teks di video ini lewat
-`gl.teks` (Constantia) atau `gl.rumus` (LaTeX Computer Modern, sesuai pilihan
-ARYA "angka dan rumus pakai LaTeX"). Menunggu ARYA menunjuk tulisan mana yang
-dimaksud. Kalau yang dimaksud rumus LaTeX: hurufnya bisa diganti ke serif yang
-mirip Constantia lewat template LaTeX (`\usepackage{newpxtext,newpxmath}` atau
-`fourier`), satu baris di `custom_config.yml` / `tex_templates`.
+### 3. Font: SELESAI, keputusan ARYA berubah jadi "semua LaTeX"
+ARYA memutuskan (2 Sep siang) kata, angka, dan rumus semuanya LaTeX. `gl.teks`
+kini `TexText`. Temuan sampingan yang penting: "`\text{}` dibuang ManimGL" pagi
+tadi ternyata SALAH DIAGNOSIS; sebabnya cache LaTeX ManimGL menyimpan hasil
+kosong saat MiKTeX sedang memasang font cm-super. Tambalan 3 di
+`tambal_manimgl.py` menolak SVG kosong supaya tidak terulang.
+
+### 4. Suara: ditunda ke tahap akhir (finishing), keputusan ARYA
+Berkas punya jalur suara (terukur), tetapi di pemutar ARYA tidak terdengar.
+Tidak dikejar sekarang; dicatat untuk gelombang 3.

@@ -40,10 +40,14 @@ menuntut level 3b1b. Keputusannya, dijalankan penuh hari itu juga:
   perahu 3D, kamera dunia ke peta, panah, suara latar air dengan ducking).
 - Dokumen sesi: `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md`, `docs/tugas/ILMU-3B1B.md`.
   Spec: `docs/superpowers/specs/2026-09-02-pindah-manimgl-dan-standar-ilustrasi-design.md`.
-- Huruf: Constantia untuk kata, LaTeX untuk angka dan rumus. Latar krem, satu versi.
+- Huruf: SEMUA LaTeX (`teks()` = TexText untuk kata, `rumus()` = Tex untuk
+  angka dan rumus; Constantia dicoba lalu dibatalkan ARYA). Latar krem, satu versi.
 - Render paralel BOLEH (8 serentak terbukti aman); antrean tidak wajib.
 - Jebakan ManimGL yang sudah ditambal/dilarang: `latex -no-pdf` (MiKTeX),
-  argv saat impor, `Text(color=)` diabaikan, `\text{}` dibuang diam-diam.
+  argv saat impor, `Text(color=)` diabaikan, dan **cache LaTeX yang menyimpan
+  hasil kosong** saat MiKTeX sedang memasang font (tampak seperti teks "dibuang
+  diam-diam"; tambalan menolak SVG kosong; kalau terjadi lagi hapus
+  `%LOCALAPPDATA%\manim\manim\Cache`).
 - Suara latar `manim/suara/air.ogg` masih SINTETIS; ganti rekaman CC0 setelah
   ARYA menyetujui unduhan.
 - Utang MASTER baru: pesan pembangunan ke 5 sesi (lihat `PROMPT-SIAP-TEMPEL.md`

@@ -32,7 +32,21 @@ class _SubprocessTanpaNoPdf:
     def run(self, args, *a, **kw):
         if args and str(args[0]) == "latex":
             args = [x for x in args if x != "-no-pdf"]
-        return _subprocess.run(args, *a, **kw)
+        hasil = _subprocess.run(args, *a, **kw)
+        # Tambalan 3: ManimGL menyimpan hasil LaTeX ke cache disk, TERMASUK hasil
+        # kosong. Terbukti 2 Sep 2026: saat MiKTeX sedang memasang font cm-super
+        # pada kompilasi pertama, dvisvgm jatuh ke Metafont dan mengeluarkan SVG
+        # tanpa satu pun glyph; SVG kosong itu masuk cache dan dipakai ulang, jadi
+        # `\\text{}` dan `TexText` tampak "dibuang diam-diam" sampai cache dihapus.
+        # Di sini SVG kosong ditolak sebelum sempat masuk cache.
+        if args and str(args[0]) == "dvisvgm" and hasil.returncode == 0:
+            keluaran = hasil.stdout if isinstance(hasil.stdout, bytes) else (hasil.stdout or "").encode()
+            if b"<path" not in keluaran and b"<use" not in keluaran:
+                raise RuntimeError(
+                    "dvisvgm menghasilkan SVG tanpa glyph (font belum terpasang atau Metafont "
+                    "gagal). Hasil TIDAK disimpan ke cache. Jalankan lagi; kalau berulang, "
+                    "periksa mfput.log dan `kpsewhich sfrm1000.pfb`.")
+        return hasil
 
 
 _tfw.subprocess = _SubprocessTanpaNoPdf()
