@@ -1,5 +1,187 @@
 # Laporan MATRA-VEKTOR
-Terakhir: 2 September 2026, 15.30
+Terakhir: 2 September 2026, 18.00
+
+> **Bagian di bawah "Catatan lama" SUDAH TIDAK BERLAKU.** Di situ video 1 dan
+> video 2 dinyatakan selesai. ARYA menonton keduanya dan MENOLAKNYA. Keduanya
+> dibuat ulang; hasil yang berlaku adalah bagian ini.
+
+## Kenapa dua video pertama ditolak, dan apa akar masalahnya
+
+Penilaian ARYA: gambar 3D-nya pecah, panahnya "sembarang tidak akurat", tidak
+ada koordinat tertulis, perahunya tidak stabil. Kesimpulannya: "mending 2D aja
+kalau gitu, yang penting pesan ke siswanya tersampaikan".
+
+Akar masalahnya bukan 3D-nya, melainkan **kamera yang dimiringkan 14 sampai 26
+derajat**. Kemiringan itu dipakai supaya panah yang segaris tidak saling
+menutupi. Akibatnya perspektif memendekkan satu arah lebih banyak daripada arah
+lain, sehingga **segitiga 3-4-5 tidak lagi terlihat seperti 3-4-5**. Untuk
+pelajaran vektor itu fatal: gambarnya membantah hitungannya. Ditambah tidak ada
+satu pun angka di sumbunya, jadi siswa tidak bisa memeriksa "3 ke kanan, 1 ke
+atas".
+
+Ironisnya widget web topik ini sudah punya `jendelaSeimbang` yang khusus dibuat
+untuk memaksa skala x dan y sama, dengan alasan yang sama persis. Aturan itu
+saya buang begitu pindah ke video.
+
+Rancangan penggantinya, disetujui ARYA:
+`docs/superpowers/specs/2026-09-02-video-vektor-bidang-bernomor.md`. Prinsipnya:
+matematika di bidang datar bernomor, kamera tegak lurus, 3D hanya di babak
+pembuka. Usul mengubah aturan 1 STANDAR-ILUSTRASI-VIDEO untuk SEMUA topik sudah
+ditulis di PROGRESS.md; Grafik Fungsi dan Statistika berisiko mengulang
+kesalahan yang sama.
+
+## Yang ditambahkan ke perkakas bersama
+
+`bidang_bernomor()` di AKHIR `manim/gl/ilustrasi.py`: bidang koordinat berangka
+dengan skala x dan y terkunci sama. Empat sesi lain langsung bisa memakainya.
+
+**Jebakan yang sudah ditambal di dalamnya, dan MASTER perlu tahu:** `NumberPlane`
+ManimGL menempatkan dirinya di TENGAH LAYAR, bukan pada titik asal koordinatnya.
+Untuk jangkauan tidak simetris seperti x dari -4 sampai 8, garis "0" tidak jatuh
+di titik (0, 0) adegan, dan SELURUH panah meleset dari petaknya. Ditambal dengan
+`bidang.shift(-bidang.c2p(0, 0))`. Uji pertama saya lolos justru karena memakai
+jangkauan simetris (-6, 6), yang persis menyembunyikan bug ini.
+
+## Video 1 Materi 01 SELESAI (versi baru): `media/uji-480p/vektor1-perahu.mp4`
+
+2,82 MB, 118,35 detik, 11 segmen. Beda panjang narasi dan gambar 0,27 detik.
+
+Isinya: perahu di sungai (3D, dekat) sebagai pengait, lalu satu gerakan turun ke
+pandangan tegak lurus dan bidang berangka muncul. Dayung (0, 3) biru, arus
+(4, 0) merah, perpindahan sebenarnya (4, 3) ungu, dan ujungnya diberi koordinat
+tertulis. Perahunya berlayar menyusuri panah ungu sementara angka panjangnya
+hidup di pojok. Lalu arah dayung diputar: 7, lalu 1, lalu kembali 5, dengan
+angka yang sama persis. Angkanya sejalan dengan halaman Materi 01 (arus 4,
+hasilnya 5) dan sudah lolos `alat/cek_vektor.py`.
+
+**Panah segaris tanpa memiringkan kamera:** panah arus digeser tegak lurus 0,22
+satuan, tetap, di semua sudut. Pada panah sepanjang 3 sampai 4 satuan itu di
+bawah 6 persen. Tidak mengubah arah yang terbaca, dan **tidak mengubah satu pun
+angka**. Ini pengganti kemiringan kamera yang jadi sebab penolakan.
+
+### Tiga cacat ditangkap gerbang video, semuanya diperbaiki
+
+| Cacat | Perbaikannya |
+|---|---|
+| Angka sumbu "-2" jatuh persis di jalur keterangan layar; keduanya bertindih di dua baris lembar kontak. | Batas bawah bidang dinaikkan ke -1. Baris itu memang tidak pernah dipakai panah mana pun. |
+| Bidang kelewat longgar: seperempatnya tidak tersentuh, jadi panahnya terlihat kecil. | Jangkauan dipangkas ke daerah yang benar-benar dipakai, tinggi bingkai 9,6 ke 7,6. |
+| Label "dayung" menempel di angka sumbu, dan perahu menutupi ujung panah. | Label digeser 1,3 satuan tegak lurus; perahu dikecilkan 1,4 ke 0,9. |
+
+### Daftar periksa STANDAR-ILUSTRASI-VIDEO
+
+- [ya] Benda nyata dari `gl.ilustrasi` (`perahu`, `air_hidup`, `tanah`), tidak ada benda berupa titik.
+- [ya] Latar hidup: air beriak lewat updater di babak pembuka.
+- [ya] Kamera satu gerakan panjang dari miring dekat ke tegak lurus, lalu TIDAK PERNAH miring lagi.
+- [ya] Panah dan label di dunia, rumus di HUD. Layar bersih hanya di babak penutup (diizinkan aturan 4).
+- [ya] Satu warna satu makna: biru dayung, merah arus, ungu perpindahan sebenarnya. Tidak ada kode heksa.
+- [ya] `teks()` untuk kata, `rumus()` untuk angka.
+- [ya] Semua animasi di dalam `sinema.babak`; jeda 1,6 detik setelah pertanyaan.
+- [ya] `cek_kode` bersih; `periksa_adegan` di sebelas babak; lembar kontak 30 frame dibuka dan dinilai satu per satu; `gabung_audio --uji` jalan.
+- [ya] Narasi pembuka mengumumkan materinya ("Materi satu, angka saja tidak cukup").
+- [ya] Penanda `*kata*` untuk penebalan subtitle, satu sampai dua per segmen.
+- [sisa, kecil] Pada arah dayung 180 derajat label "dayung" jatuh sedikit di luar petak. Terbaca, tidak menutupi apa pun.
+
+## Video 2 Materi 06 SELESAI (versi baru): `media/uji-480p/vektor6-sambung.mp4`
+
+2,18 MB, 118,20 detik, 11 segmen. Beda panjang narasi dan gambar 0,68 detik
+(gambarnya lebih panjang, jadi kalimat penutup sempat terbaca dalam diam).
+Tanpa suara latar, dan itu pilihan: satu-satunya berkas yang tersedia `air.ogg`,
+dan suara air jelas tidak cocok untuk orang berjalan di lapangan.
+
+Isinya: seseorang berdiri di lapangan berpetak (3D, dekat), lalu kamera turun ke
+pandangan tegak lurus dan bidang berangka muncul. Orangnya BERJALAN dua kali dan
+panah biru lalu merah tumbuh mengikuti langkahnya, jadi aturan "ujung ke pangkal"
+masuk akal: siswa melihat perjalanan kedua memang berangkat dari tempat yang
+pertama berhenti. Ada babak khusus yang menggambar susunan SALAH (kedua pangkal
+ditempelkan) dengan panah hitam, sementara susunan yang benar diredupkan.
+Ditutup jebakan panjangnya: 3,16 tambah 2,24 sama dengan 5,4, padahal
+resultannya tepat 5. Angkanya sama persis dengan contoh di halaman Materi 06.
+
+### Dua cacat ditangkap gerbang video, keduanya diperbaiki
+
+| Cacat | Perbaikannya |
+|---|---|
+| **Gambar membantah narasinya.** Di babak "susunan keliru" gambar sudah kembali ke susunan yang BENAR setelah 5 detik, padahal narator menjelaskan susunan yang salah selama 9 detik. Sebabnya `sinema.babak` menambal sisa waktu SESUDAH blok selesai, jadi pemulihan yang ditaruh di dalam blok terjadi kelewat awal. | Pemulihannya dipindah ke awal babak berikutnya, dan keterangannya dimajukan ke depan blok supaya cocok sejak detik pertama. Sekarang tiga frame lembar kontak menampilkan susunan salah, bukan satu. |
+| Babak pembuka kelewat kosong: cuma garis petak samar dan satu orang di latar polos, selama 14 detik. | Ditambah alas `ilustrasi.tanah` di bawah petaknya, jadi terbaca sebagai lapangan sungguhan. |
+
+### Daftar periksa STANDAR-ILUSTRASI-VIDEO
+
+- [ya] Benda nyata dari `gl.ilustrasi` (`orang`, `lantai_kisi`, `tanah`), tidak ada benda berupa titik.
+- [ya] Kamera satu gerakan panjang dari miring dekat ke tegak lurus, lalu TIDAK PERNAH miring lagi.
+- [ya] Panah dan label di dunia, rumus di HUD. Layar bersih hanya di babak penutup (diizinkan aturan 4).
+- [ya] Satu warna satu makna: biru perjalanan pertama, merah kedua, ungu resultan, hitam susunan keliru.
+- [ya] `teks()` untuk kata, `rumus()` untuk angka.
+- [ya] Semua animasi di dalam `sinema.babak`; jeda 1,6 detik setelah pertanyaan.
+- [ya] `cek_kode` bersih; `periksa_adegan` di sebelas babak; lembar kontak 30 frame dibuka dan dinilai satu per satu (dua kali, karena render pertama masih cacat); `gabung_audio --uji` jalan.
+- [ya] Narasi pembuka mengumumkan materinya ("Materi enam, menjumlah itu menyambung perjalanan").
+- [ya] Penanda `*kata*` untuk penebalan subtitle.
+- [ya] Subtitle: 30 baris, 118,22 detik, nol tumpang-tindih, seluruh kata naskah muncul, dan bentuknya tertulis ("3 + 1 = 4", "3,16", bukan ejaan).
+- [sisa, kecil] Dilihat tegak lurus dari atas, orangnya menjadi bentuk gelap kecil di ujung panah. Ia bergerak mengikuti panah jadi perannya jelas, tapi bukan gambar orang yang jelas. Kalau ARYA lebih suka penanda yang tegas, tinggal diganti.
+
+## Subtitle: permintaan ARYA sudah dipenuhi, dan alat bersama disentuh satu baris
+
+**Temuan pertama:** keluhan "subtitle tidak tampil 100%" TERNYATA bukan cacat
+`pecah()` di `buat_subtitle.py`. Fungsi itu tidak membuang apa pun, sudah saya
+uji per kata. Sebab sebenarnya **kedua video vektor belum pernah punya berkas
+`.vtt` sama sekali**, karena `buat_subtitle.py` memang belum pernah dijalankan
+untuk topik ini. Sekarang sudah.
+
+**Temuan kedua:** subtitle memakai teks yang sama dengan yang dikirim ke mesin
+suara, dan mesin suara butuh ejaan. Jadi siswa membaca "tiga kilometer", bukan
+"3 km". Terbukti juga di subtitle yang sudah tayang:
+`web/public/anim/limit1-kecepatan.vtt` menulis "enam puluh kilometer per jam".
+
+**Perubahannya satu baris di `manim/buat_subtitle.py`:**
+
+```
+potongan = [tebalkan(x) for x in pecah(seg.get("layar") or seg["teks"])]
+```
+
+Naskah menyediakan medan opsional `layar` (bentuk tertulis) di samping `teks`
+(bentuk terucap). Naskah tanpa `layar` berjalan persis seperti dulu, jadi
+sembilan naskah topik lain tidak tersentuh. Saya menyentuh berkas bersama ini
+karena tanpa itu permintaan ARYA tidak bisa dipenuhi sama sekali; kalau MASTER
+menolaknya, cukup kembalikan satu baris itu.
+
+**Diperiksa, bukan diperkirakan.** `vektor1-perahu.vtt`: 30 baris, 118,37 detik,
+nol baris tumpang-tindih, nol baris di bawah 0,6 detik, dan setiap kata naskah
+muncul di subtitle. Baris pertamanya
+`Materi 01, <b>Angka saja tidak cukup</b>.` dan baris ketiga
+`Sungainya selebar 3 km, ...`.
+
+## Catatan proses: tiga kali tertipu, semuanya sudah dibetulkan
+
+1. `antre_render.py ... | tail` dilaporkan berhasil padahal rendernya gagal.
+   Pipa mengembalikan kode keluar `tail`. Sempat saya kira alatnya yang cacat,
+   dan saya periksa dulu sebelum melapor ke MASTER.
+2. `manimgl ... ; grep -c galat` dilaporkan GAGAL padahal rendernya berhasil.
+   `grep` keluar dengan kode 1 justru karena tidak menemukan galat apa pun.
+3. `rtk` mengarang keluaran. Build yang diakuinya "1624 ms" ternyata 25 detik
+   TypeScript dan 19 halaman. Semua verifikasi diulang dengan binari Node
+   langsung.
+
+Sejak itu keberhasilan render dinilai dari BERKAS dan WAKTUNYA, bukan kode
+keluar.
+
+**Kesalahan urutan yang saya buat sendiri hari ini:** naskah video 2 saya ubah
+SESUDAH suaranya dibuat, jadi render pertamanya memakai `durasi.json` basi.
+Saya hentikan rendernya dan ulang dengan urutan benar (naskah, suara, subtitle,
+render). Rugi sekitar 8 menit render, tidak ada kerusakan.
+
+**Jebakan `lantai_kisi` untuk sesi lain:** memanggilnya dengan `tinggi_z=0`
+untuk membuang sumbu tegak TIDAK bisa. Jangkauan sumbu z jadi nol dan ManimGL
+membagi dengan nol (`ZeroDivisionError` di `number_line.py`). Yang benar ambil
+indeks `[0]` dari VGroup-nya, itu petaknya saja.
+
+## Sisa empat video, urut prioritas
+Materi 08 selisih, Materi 03 komponen, Materi 09 kali skalar, Materi 04
+Pythagoras. **Sengaja BELUM dimulai**: arah visual barunya baru sekali jadi
+video, dan ARYA belum menontonnya. Membuat empat lagi sebelum ia menilai satu
+adalah kesalahan yang persis menyebabkan dua video pertama harus dibuang.
+
+---
+
+# Catatan lama (sebelum ARYA menolak, TIDAK BERLAKU)
 
 ## Video 2 Materi 06 SELESAI: `media/uji-480p/vektor6-sambung.mp4`
 

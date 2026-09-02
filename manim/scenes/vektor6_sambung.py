@@ -87,7 +87,8 @@ class SambungPerjalanan(AdeganMatra):
         # Sumbu 3D-nya dibuang: batang tegaknya menjulur ke langit tanpa guna,
         # dan `tinggi_z=0` bukan jalan keluarnya (jangkauan sumbu z jadi nol,
         # lalu ManimGL membagi dengan nol).
-        lapangan = ilustrasi.lantai_kisi(9.0, 1.0)[0]
+        alas = ilustrasi.tanah(11.0, 11.0, 0.0, z=-0.02)
+        lapangan = VGroup(ilustrasi.lantai_kisi(9.0, 1.0)[0])
         pejalan = ilustrasi.orang(1.15)
         pusat0 = pejalan.get_center().copy()
 
@@ -96,7 +97,7 @@ class SambungPerjalanan(AdeganMatra):
         pejalan.add_updater(lambda m: m.move_to(pusat0 + self.langkah()))
 
         kamera.pasang_awal(frame, theta=-32, phi=68, pusat=(0.5, 0.1, 0.55), tinggi=4.6)
-        self.add(lapangan, pejalan)
+        self.add(alas, lapangan, pejalan)
         with sinema.babak(self, "sapa", DURASI) as b:
             sinema.judul_pembuka(self, "Menyambung perjalanan", lama=3.2, y=2.4)
             b.catat(3.2)
@@ -117,7 +118,8 @@ class SambungPerjalanan(AdeganMatra):
         with sinema.babak(self, "terbang", DURASI) as b:
             lama = max(2.0, DURASI["terbang"] - 2.2)
             b.main(kamera.sudut(frame, **PETA), run_time=lama)
-            b.main(FadeOut(lapangan), bidang.animate.set_opacity(1), run_time=1.4)
+            b.main(FadeOut(lapangan), FadeOut(alas),
+                   bidang.animate.set_opacity(1), run_time=1.4)
             sinema.keterangan(self, "sekarang langkahnya bisa dihitung")
             b.catat(0.6)
         qc.periksa_adegan(self, {"bidang": bidang, "keterangan": self._matra_keterangan})
@@ -231,18 +233,21 @@ class SambungPerjalanan(AdeganMatra):
         p_salah = panah(ASAL + V1, ASAL + V2, TINTA, tebal=5)
         benar = VGroup(pa, pb, pr, la, lb, sambung, l_sambung, titik, koord)
 
+        # Susunan yang salah TIDAK dikembalikan di dalam babak ini. `sinema.babak`
+        # menambal sisa waktu narasinya SESUDAH blok selesai, jadi kalau gambarnya
+        # dipulihkan di sini, empat detik terakhir narator masih menjelaskan
+        # susunan yang salah sementara layar sudah menampilkan yang benar. Gambar
+        # yang membantah narasinya lebih merusak daripada layar kosong.
+        # (Cacat ini tertangkap lembar kontak render pertama.)
         with sinema.babak(self, "keliru", DURASI) as b:
-            b.main(benar.animate.set_opacity(0.22), run_time=0.8)
-            b.main(GrowArrow(pb_salah), run_time=0.9)
-            b.main(GrowArrow(p_salah), run_time=1.0)
             sinema.keterangan(self, "dua pangkal ditempelkan: hasilnya lain sama sekali",
                               warna=TINTA)
             b.catat(0.6)
+            b.main(benar.animate.set_opacity(0.22), run_time=0.8)
+            b.main(GrowArrow(pb_salah), run_time=0.9)
+            b.main(GrowArrow(p_salah), run_time=1.0)
             b.jeda(1.0)
-            b.main(FadeOut(pb_salah), FadeOut(p_salah),
-                   benar.animate.set_opacity(1.0), run_time=0.9)
-        qc.periksa_adegan(self, {"panah a": pa, "resultan": pr,
-                                 "keterangan": self._matra_keterangan})
+        qc.periksa_adegan(self, {"salah": p_salah, "keterangan": self._matra_keterangan})
 
         # ==============================================================
         # Babak 9: komponen dijumlahkan
@@ -253,6 +258,8 @@ class SambungPerjalanan(AdeganMatra):
         hitung.to_corner(UL, buff=0.45)
 
         with sinema.babak(self, "hitung", DURASI) as b:
+            b.main(FadeOut(pb_salah), FadeOut(p_salah),
+                   benar.animate.set_opacity(1.0), run_time=0.8)
             self.hud_tambah(hitung)
             hitung.set_opacity(0)
             b.main(hitung.animate.set_opacity(1), run_time=0.8)
