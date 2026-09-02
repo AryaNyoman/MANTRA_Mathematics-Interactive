@@ -1,0 +1,68 @@
+{
+  "adegan": "SambungPerjalanan",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Vektor Materi 06, Menjumlah itu menyambung perjalanan. Arah visual: 3D hanya di babak pembuka, sisanya bidang koordinat bernomor dengan kamera tegak lurus. Medan `layar` berisi bentuk TERTULIS, medan `teks` berisi bentuk TERUCAP untuk mesin suara. Angkanya sama persis dengan halaman Materi 06: (3, 1) tambah (1, 2) sama dengan (4, 3), panjangnya 5. Revisi 2 Sep malam atas catatan ARYA: keterangan pita bawah DIHAPUS seluruhnya (pita itu milik subtitle), identitas cerita pindah ke pojok kiri atas, dan segmen `komponen` ditambahkan supaya angka 4 dan 3 diperlihatkan asal-usulnya lewat garis bantu ke sumbu.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Materi enam, menjumlah itu menyambung perjalanan. Seseorang berdiri di sebuah lapangan berpetak. Ia akan berjalan dua kali, dan kita ingin tahu di mana ia berakhir.",
+      "layar": "Materi 06, *menjumlah itu menyambung perjalanan*. Seseorang berdiri di sebuah lapangan berpetak. Ia akan berjalan dua kali, dan kita ingin tahu di mana ia berakhir."
+    },
+    {
+      "id": "terbang",
+      "teks": "Supaya langkahnya bisa kita hitung, lapangan itu kita lihat dari atas, lengkap dengan angka pada kedua sumbunya. Satu petak sama dengan satu langkah.",
+      "layar": "Supaya langkahnya bisa kita *hitung*, lapangan itu kita lihat dari atas, lengkap dengan angka pada kedua sumbunya. *1 petak = 1 langkah*."
+    },
+    {
+      "id": "jalan1",
+      "teks": "Perjalanan pertama: tiga petak ke kanan dan satu petak ke atas. Panah biru ini merekam jejaknya, dan ujungnya jatuh di titik tiga koma satu.",
+      "layar": "Perjalanan pertama: *3 petak ke kanan* dan *1 petak ke atas*. Panah biru ini merekam jejaknya, dan ujungnya jatuh di titik (3, 1)."
+    },
+    {
+      "id": "jalan2",
+      "teks": "Dari tempat ia berhenti itu juga, ia berjalan lagi. Satu petak ke kanan dan dua petak ke atas. Panah merah berangkat dari ujung panah biru, dan berhenti di titik empat koma tiga.",
+      "layar": "Dari tempat ia berhenti itu juga, ia berjalan lagi. *1 petak ke kanan* dan *2 petak ke atas*. Panah merah berangkat dari ujung panah biru, dan berhenti di titik (4, 3)."
+    },
+    {
+      "id": "tanya",
+      "teks": "Sekarang lupakan sejenak jalurnya. Dilihat dari titik ia berangkat tadi, ke mana sebenarnya ia berpindah?",
+      "layar": "Sekarang lupakan sejenak jalurnya. Dilihat dari titik ia *berangkat* tadi, ke mana sebenarnya ia berpindah?"
+    },
+    {
+      "id": "resultan",
+      "teks": "Inilah jawabannya. Panah ungu, dari titik nol koma nol langsung ke titik empat koma tiga. Panah itu namanya resultan.",
+      "layar": "Inilah jawabannya. Panah ungu, dari titik (0, 0) langsung ke titik (4, 3). Panah itu namanya *resultan*."
+    },
+    {
+      "id": "aturan",
+      "teks": "Perhatikan bentuknya. Pangkal panah merah menempel di ujung panah biru, dan resultannya menutup segitiga itu. Ujung ke pangkal, begitu aturannya.",
+      "layar": "Perhatikan bentuknya. Pangkal panah merah menempel di ujung panah biru, dan resultannya menutup segitiga itu. *Ujung ke pangkal*, begitu aturannya."
+    },
+    {
+      "id": "keliru",
+      "teks": "Kalau kedua pangkalnya yang ditempelkan, yang terbentuk bukan resultan. Perhatikan panah hitam ini jauh lebih pendek, dan arahnya pun berbeda.",
+      "layar": "Kalau kedua *pangkalnya* yang ditempelkan, yang terbentuk bukan resultan. Perhatikan panah hitam ini jauh lebih pendek, dan arahnya pun berbeda."
+    },
+    {
+      "id": "komponen",
+      "teks": "Sebelum kita menghitung, lihat dulu dari mana angkanya datang. Kita jatuhkan garis bantu dari tiap ujung panah ke sumbu mendatar. Perjalanan pertama mengisi petak nol sampai tiga, perjalanan kedua menyambungnya dari tiga sampai empat.",
+      "layar": "Sebelum kita menghitung, lihat dulu dari mana angkanya datang. Kita jatuhkan garis bantu dari tiap ujung panah ke sumbu mendatar. Perjalanan pertama mengisi petak *0 sampai 3*, perjalanan kedua menyambungnya dari *3 sampai 4*."
+    },
+    {
+      "id": "hitung",
+      "teks": "Itulah sebabnya yang mendatar dijumlahkan dengan yang mendatar: tiga tambah satu sama dengan empat. Dan dengan cara yang sama pada sumbu tegak: satu tambah dua sama dengan tiga.",
+      "layar": "Itulah sebabnya yang mendatar dijumlahkan dengan yang mendatar: *3 + 1 = 4*. Dan dengan cara yang sama pada sumbu tegak: *1 + 2 = 3*."
+    },
+    {
+      "id": "panjang",
+      "teks": "Tetapi hati-hati pada panjangnya. Perjalanan pertama sekitar tiga koma satu enam, yang kedua dua koma dua empat. Dijumlahkan menjadi lima koma empat, padahal resultannya tepat lima.",
+      "layar": "Tetapi hati-hati pada *panjangnya*. Perjalanan pertama sekitar 3,16, yang kedua 2,24. Dijumlahkan menjadi 5,4, padahal resultannya tepat *5*."
+    },
+    {
+      "id": "tutup",
+      "teks": "Selisih itu bukan kesalahan hitung. Komponen boleh dijumlahkan. Panjang tidak boleh.",
+      "layar": "Selisih itu bukan kesalahan hitung. *Komponen boleh dijumlahkan. Panjang tidak boleh.*"
+    }
+  ]
+}

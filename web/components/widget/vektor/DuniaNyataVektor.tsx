@@ -88,6 +88,13 @@ export default function DuniaNyataVektor() {
           </figcaption>
         </figure>
       ))}
+      {/* Keterangan lisensi ditaruh DI SINI, bukan di dalam penjelasan materi.
+          Ini teks meta, bukan pelajaran: guru tidak membacakan catatan kaki di
+          tengah kelas. Tetap wajib ada, sebab foto salinan harus bersumber. */}
+      <p className="sumber">
+        Keempat foto berlisensi terbuka. Sumber, nama pemotret, dan lisensinya
+        dicatat di berkas sumber.json pada situs ini.
+      </p>
     </div>
   )
 }

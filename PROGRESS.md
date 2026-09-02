@@ -308,6 +308,96 @@ Daftar videonya ada di tiap `docs/tugas/MATRA-*.md` bagian "Gelombang 2".
 - Kalau GRAFIK memecah tahap 11, `daftar-isi.ts` tidak berubah; cukup
   gabung ulang.
 
+## 🎥 Keputusan ARYA 2 Sep sore: video vektor pindah ke bidang bernomor
+
+Ditulis sesi MATRA-VEKTOR atas perintah ARYA, untuk dilaporkan ke MASTER.
+Rinciannya di `docs/superpowers/specs/2026-09-02-video-vektor-bidang-bernomor.md`.
+
+ARYA menonton `vektor1-perahu.mp4` dan `vektor6-sambung.mp4` (ManimGL penuh 3D)
+lalu MENOLAK keduanya: gambar 3D-nya pecah, panahnya "sembarang tidak akurat",
+tidak ada koordinat tertulis, perahunya tidak stabil.
+
+**Akar masalahnya bukan 3D, melainkan kamera yang dimiringkan.** Supaya panah
+yang segaris tidak saling menutupi, pandangan peta dimiringkan 14 sampai 26
+derajat. Perspektif lalu memendekkan satu arah lebih banyak daripada arah lain,
+sehingga segitiga 3-4-5 TIDAK lagi terlihat seperti 3-4-5. Untuk pelajaran
+vektor itu fatal: gambarnya membantah hitungannya. Widget web topik yang sama
+punya `jendelaSeimbang` yang dibuat khusus untuk mencegah itu, dan aturannya
+dibuang begitu pindah ke video.
+
+Arah barunya, disetujui ARYA:
+> Matematika digambar di bidang datar bernomor, kamera tegak lurus dari atas,
+> tidak pernah dimiringkan lagi. 3D hanya di babak pembuka, sekadar menjawab
+> "kenapa ini penting", lalu ditinggalkan.
+
+Panah yang segaris dipisahkan dengan geseran tegak lurus 0,15 satuan (di bawah
+5 persen panjang panahnya, tidak mengubah satu pun angka), BUKAN dengan
+mengangkatnya di sumbu z lalu memiringkan kamera.
+
+### Untuk MASTER: usul mengubah aturan 1 STANDAR-ILUSTRASI-VIDEO
+Keputusan ARYA: diubah untuk SEMUA topik, bukan pengecualian vektor saja.
+Aturan 1 sekarang mewajibkan semua benda nyata dibuat 3D. Usulnya diganti jadi:
+
+> 3D dipakai HANYA kalau memperlihatkan sesuatu yang tidak terlihat di 2D.
+> Matematika yang butuh panjang atau sudut yang akurat WAJIB digambar dengan
+> kamera tegak lurus, tanpa kemiringan.
+
+Alasannya bukan selera: kesalahan ini sudah menghasilkan dua video ditolak, dan
+Grafik Fungsi serta Statistika berisiko mengulanginya.
+
+### Untuk MASTER: fungsi baru menunggu digabung
+`bidang_bernomor()` akan ditambahkan sesi vektor di akhir `manim/gl/ilustrasi.py`
+(bidang koordinat berangka, skala terkunci sama), sesuai aturan 1 standar yang
+menyuruh benda baru ditaruh di situ dengan nama unik.
+
+### Untuk MASTER: subtitle harus memakai angka dan lambang, bukan ejaan
+Permintaan ARYA 2 Sep sore. Dua bagian, dan hanya SATU yang benar-benar bug:
+
+**a. "Tampilkan 100%, jangan setengah-setengah" TIDAK perlu diperbaiki.**
+Diperiksa di `manim/buat_subtitle.py`: `pecah()` memecah segmen panjang jadi
+beberapa baris bertimestamp di batas kalimat lalu koma, dan tidak ada yang
+dibuang (`hasil or [teks]` menjaga sisa). Yang ARYA lihat kosong kemungkinan
+besar karena dua video vektor BELUM punya berkas `.vtt` sama sekali; sesi
+vektor belum pernah menjalankan alatnya. Itu kelalaian sesi, bukan cacat alat.
+
+**b. Angka dan lambang masih dieja: INI yang perlu diperbaiki.**
+Bukti dari subtitle yang sudah tayang, `web/public/anim/limit1-kecepatan.vtt`
+baris 1: "Speedometer menunjuk enam puluh kilometer per jam." Seharusnya
+"60 km/jam". Sebabnya subtitle memakai teks yang sama dengan yang dikirim ke
+mesin suara, dan mesin suara memang butuh ejaan.
+
+Usul perubahan, kecil dan tidak merusak naskah lama: tambahkan medan opsional
+`"layar"` per segmen di `manim/narasi/<topik>.json`.
+- `buat_narasi.py` tetap memakai `teks` (ejaan, untuk mesin suara).
+- `buat_subtitle.py` memakai `layar` kalau ada, kalau tidak ada jatuh kembali
+  ke `teks`. Naskah lama tetap jalan tanpa diubah.
+
+Contoh: `"teks": "panjangnya akar tiga belas, sekitar tiga koma enam satu"`,
+`"layar": "panjangnya √13, sekitar 3,61"`.
+
+**SUDAH DIKERJAKAN sesi vektor, tinggal ditinjau MASTER.** Perubahannya satu
+baris di `manim/buat_subtitle.py`:
+
+```
+potongan = [tebalkan(x) for x in pecah(seg.get("layar") or seg["teks"])]
+```
+
+Naskah tanpa `layar` berjalan persis seperti dulu, jadi sembilan naskah topik
+lain tidak tersentuh. Sesi vektor menyentuh berkas bersama ini karena tanpa itu
+permintaan ARYA tidak bisa dipenuhi sama sekali; kalau MASTER mau menolaknya,
+cukup kembalikan satu baris itu.
+
+Hasilnya sudah diperiksa, bukan diperkirakan. `vektor1-perahu.vtt`: 30 baris,
+118,37 detik, nol baris tumpang-tindih, dan setiap kata naskah muncul di
+subtitle (jawaban untuk keluhan ARYA "tidak setengah-setengah"). Baris pertama
+berbunyi `Materi 01, <b>Angka saja tidak cukup</b>.` dan baris ketiga
+`Sungainya selebar 3 km, ...`, bukan "tiga kilometer".
+
+Catatan terpisah: keluhan "subtitle tidak tampil 100%" TERNYATA bukan cacat
+`pecah()`. Fungsi itu tidak membuang apa pun, sudah diuji per kata. Sebab
+sebenarnya kedua video vektor belum pernah punya berkas `.vtt` sama sekali,
+karena `buat_subtitle.py` memang belum pernah dijalankan untuk topik ini.
+
 ## 🔗 Pratinjau untuk tinjauan ARYA (2 Sep 2026)
 
 **https://matra-8c3pwiiis-aryasejati002-4616s-projects.vercel.app**
