@@ -15,125 +15,157 @@ Ada satu sudut yang kita tandai dengan huruf theta,
 dan sudut itu yang akan jadi bintang utamanya hari ini.
 
 4
-00:00:09.000 --> 00:00:14.262
-Tiga sisinya punya nama, dan namanya tergantung dari mana kita melihat.
+00:00:09.000 --> 00:00:10.794
+Tiga sisinya punya nama,
 
 5
-00:00:14.262 --> 00:00:18.116
-Yang persis di seberang theta kita sebut sisi depan.
+00:00:10.794 --> 00:00:14.232
+dan namanya tergantung dari mana kita melihat.
 
 6
-00:00:18.116 --> 00:00:21.229
-Yang menempel di sebelahnya, sisi samping.
+00:00:14.232 --> 00:00:18.119
+Yang persis di seberang theta kita sebut sisi depan.
 
 7
-00:00:21.229 --> 00:00:26.640
-Dan yang paling panjang, yang menghadap sudut siku-siku, itu sisi miring.
+00:00:18.119 --> 00:00:21.258
+Yang menempel di sebelahnya, sisi samping.
 
 8
+00:00:21.258 --> 00:00:25.444
+Dan yang paling panjang, yang menghadap sudut siku-siku,
+
+9
+00:00:25.444 --> 00:00:26.640
+itu sisi miring.
+
+10
 00:00:26.640 --> 00:00:28.262
 Sekarang kita ukur.
 
-9
+11
 00:00:28.262 --> 00:00:31.934
 Sisi depannya satu koma delapan sentimeter.
 
-10
+12
 00:00:31.934 --> 00:00:35.520
 Sisi sampingnya dua koma empat sentimeter.
 
-11
+13
 00:00:35.520 --> 00:00:38.565
 Bagi sisi depan dengan sisi samping.
 
-12
+14
 00:00:38.565 --> 00:00:41.947
 Satu koma delapan dibagi dua koma empat.
 
-13
+15
 00:00:41.947 --> 00:00:44.400
 Hasilnya nol koma tujuh lima.
 
-14
+16
 00:00:44.400 --> 00:00:47.952
 Angka inilah yang kita sebut tangen theta.
 
-15
-00:00:47.952 --> 00:00:50.758
+17
+00:00:47.952 --> 00:00:50.786
 Nah, sekarang perhatikan baik-baik.
 
-16
-00:00:50.758 --> 00:00:56.689
-Segitiganya kita besarkan, tapi sudut theta tidak kita sentuh sama sekali.
-
-17
-00:00:56.689 --> 00:00:58.533
-Lihat angkanya berubah.
-
 18
-00:00:58.533 --> 00:01:03.984
-Sisi depan jadi tiga sentimeter, sisi samping jadi empat sentimeter.
+00:00:50.786 --> 00:00:52.891
+Segitiganya kita besarkan,
 
 19
+00:00:52.891 --> 00:00:56.697
+tapi sudut theta tidak kita sentuh sama sekali.
+
+20
+00:00:56.697 --> 00:00:58.559
+Lihat angkanya berubah.
+
+21
+00:00:58.559 --> 00:01:01.150
+Sisi depan jadi tiga sentimeter,
+
+22
+00:01:01.150 --> 00:01:03.984
+sisi samping jadi empat sentimeter.
+
+23
 00:01:03.984 --> 00:01:06.351
 Kedua sisinya berubah.
 
-20
+24
 00:01:06.351 --> 00:01:08.502
 Tapi coba bagi lagi.
 
-21
+25
 00:01:08.502 --> 00:01:10.439
 Tiga dibagi empat.
 
-22
+26
 00:01:10.439 --> 00:01:13.559
 Hasilnya nol koma tujuh lima.
 
-23
+27
 00:01:13.559 --> 00:01:16.248
 Sama persis seperti tadi.
 
-24
-00:01:16.248 --> 00:01:18.350
+28
+00:01:16.248 --> 00:01:18.363
 Di sinilah banyak orang tersesat.
 
-25
-00:01:18.350 --> 00:01:21.025
+29
+00:01:18.363 --> 00:01:21.056
 Waktu menekan tombol tangen di kalkulator,
 
-26
-00:01:21.025 --> 00:01:26.376
-kita sering mengira jawabannya itu angka mati yang sudah dihafal mesin sejak pabrik.
+30
+00:01:21.056 --> 00:01:23.620
+kita sering mengira jawabannya itu angka
 
-27
+31
+00:01:23.620 --> 00:01:26.376
+mati yang sudah dihafal mesin sejak pabrik.
+
+32
 00:01:26.376 --> 00:01:27.672
 Padahal bukan.
 
-28
+33
 00:01:27.672 --> 00:01:30.540
 Yang dihitung itu perbandingan.
 
-29
+34
 00:01:30.540 --> 00:01:33.409
 Sisi depan dibagi sisi samping.
 
-30
+35
 00:01:33.409 --> 00:01:37.296
 Dan perbandingan tidak peduli pada ukuran.
 
-31
-00:01:37.296 --> 00:01:41.206
-Mau segitiganya sekecil perangko atau sebesar lapangan bola,
+36
+00:01:37.296 --> 00:01:39.414
+Mau segitiganya sekecil perangko
 
-32
-00:01:41.206 --> 00:01:45.768
-selama sudutnya tetap theta, hasil baginya tidak bergeser sedikit pun.
+37
+00:01:39.414 --> 00:01:41.201
+atau sebesar lapangan bola,
 
-33
-00:01:45.768 --> 00:01:48.531
+38
+00:01:41.201 --> 00:01:43.054
+selama sudutnya tetap theta,
+
+39
+00:01:43.054 --> 00:01:45.768
+hasil baginya tidak bergeser sedikit pun.
+
+40
+00:01:45.768 --> 00:01:48.555
 Itulah sebabnya kalkulator sanggup menjawab,
 
-34
-00:01:48.531 --> 00:01:52.800
-walaupun ia tidak pernah tahu segitiga mana yang sedang kamu maksud.
+41
+00:01:48.555 --> 00:01:50.393
+walaupun ia tidak pernah tahu
+
+42
+00:01:50.393 --> 00:01:52.800
+segitiga mana yang sedang kamu maksud.

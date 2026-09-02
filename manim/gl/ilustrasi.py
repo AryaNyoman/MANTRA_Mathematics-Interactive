@@ -208,6 +208,13 @@ def bidang_bernomor(x_range=(-6.0, 6.0, 1.0), y_range=(-4.0, 4.0, 1.0),
     CATATAN PEMAKAIAN: bidang ini hanya benar kalau kamera TEGAK LURUS dari atas
     (`kamera.dunia_ke_peta`). Kamera yang dimiringkan mengembalikan persoalan
     yang sama lewat perspektif, betapapun benar bidangnya.
+
+    TEPI BAWAHNYA ADALAH ANGKA SUMBU, bukan garis petak terbawah: angka itu
+    menjulur sekitar 0,30 satuan lagi ke bawah (dan ke kiri). Menghitung posisi
+    kamera dari garis petak membuat qc menolak "bidang masuk jalur subtitle"
+    (temuan Vektor 3 Sep). Pakai `kamera.muat_datar(bidang)` atau
+    `kamera.dunia_ke_peta_muat(frame, bidang)`: keduanya membaca kotak batas
+    yang sebenarnya dan memilih pusat serta tinggi kamera yang muat.
     """
     # Tanpa sub-petak (`faded_line_ratio=1`): pada uji pertama sub-petak halus
     # membuat bidangnya ramai dan angkanya makin sulit dibaca. Satu petak satu

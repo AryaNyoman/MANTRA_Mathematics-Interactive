@@ -14,39 +14,48 @@
     },
     {
       "id": "syarat",
-      "teks": "Sebuah fungsi disebut kontinu di titik c kalau tiga hal benar sekaligus. Nilainya ada, limitnya ada, dan keduanya sama."
+      "teks": "Sebuah fungsi disebut kontinu di titik c kalau tiga hal benar sekaligus. Nilainya ada, limitnya ada, dan keduanya sama.",
+      "tulis": "Sebuah fungsi disebut kontinu di titik c kalau 3 hal benar sekaligus. Nilainya ada, limitnya ada, dan keduanya sama."
     },
     {
       "id": "mulus",
-      "teks": "Pada fungsi yang mulus, ketiganya terpenuhi. Titik di x sama dengan dua punya nilai tiga, limitnya juga tiga, dan keduanya berimpit."
+      "teks": "Pada fungsi yang mulus, ketiganya terpenuhi. Titik di x sama dengan dua punya nilai tiga, limitnya juga tiga, dan keduanya berimpit.",
+      "tulis": "Pada fungsi yang mulus, ketiganya terpenuhi. Titik di x = 2 punya nilai 3, limitnya juga 3, dan keduanya berimpit."
     },
     {
       "id": "lubang",
-      "teks": "Sekarang kita rusak. Cara pertama, dibuat berlubang. Nilainya lenyap, jadi syarat pertama gagal. Tapi limitnya tetap tiga, karena limit hanya melihat tetangga."
+      "teks": "Sekarang kita rusak. Cara pertama, dibuat berlubang. Nilainya lenyap, jadi syarat pertama gagal. Tapi limitnya tetap tiga, karena limit hanya melihat tetangga.",
+      "tulis": "Sekarang kita rusak. Cara pertama, dibuat berlubang. Nilainya lenyap, jadi syarat pertama gagal. Tapi limitnya tetap 3, karena limit hanya melihat tetangga."
     },
     {
       "id": "geser",
-      "teks": "Cara kedua, titiknya digeser. Nilainya ada, limitnya ada, tapi keduanya berbeda. Hanya syarat ketiga yang gagal, dan inilah satu-satunya bentuk yang membuat syarat ketiga terasa perlu."
+      "teks": "Cara kedua, titiknya digeser. Nilainya ada, limitnya ada, tapi keduanya berbeda. Hanya syarat ketiga yang gagal, dan inilah satu-satunya bentuk yang membuat syarat ketiga terasa perlu.",
+      "tulis": "Cara kedua, titiknya digeser. Nilainya ada, limitnya ada, tapi keduanya berbeda. Hanya syarat ketiga yang gagal, dan inilah satu-satunya bentuk yang membuat syarat ketiga terasa perlu."
     },
     {
       "id": "lompat",
-      "teks": "Cara ketiga, dibuat melompat. Dari kiri menuju tiga, dari kanan menuju lima. Kedua arah tidak sepakat, jadi limitnya tidak ada."
+      "teks": "Cara ketiga, dibuat melompat. Dari kiri menuju tiga, dari kanan menuju lima. Kedua arah tidak sepakat, jadi limitnya tidak ada.",
+      "tulis": "Cara ketiga, dibuat melompat. Dari kiri menuju 3, dari kanan menuju 5. Kedua arah tidak sepakat, jadi limitnya tidak ada."
     },
     {
       "id": "asimtot",
-      "teks": "Cara keempat, dibuat meledak. Penyebutnya nol sedangkan pembilangnya bukan nol, sehingga nilainya membesar tanpa batas. Tidak ada angka yang dituju."
+      "teks": "Cara keempat, dibuat meledak. Penyebutnya nol sedangkan pembilangnya bukan nol, sehingga nilainya membesar tanpa batas. Tidak ada angka yang dituju.",
+      "tulis": "Cara keempat, dibuat meledak. Penyebutnya 0 sedangkan pembilangnya bukan 0, sehingga nilainya membesar tanpa batas. Tidak ada angka yang dituju."
     },
     {
       "id": "kenal",
-      "teks": "Ketiga kerusakan pertama sebenarnya sudah pernah Anda temui. Berlubang di materi keempat, melompat di materi ketiga, dan meledak di materi ketujuh."
+      "teks": "Ketiga kerusakan pertama sebenarnya sudah pernah Anda temui. Berlubang di materi keempat, melompat di materi ketiga, dan meledak di materi ketujuh.",
+      "tulis": "Ketiga kerusakan pertama sebenarnya sudah pernah Anda temui. Berlubang di Materi 04, melompat di Materi 03, dan meledak di Materi 07."
     },
     {
       "id": "janji",
-      "teks": "Sekarang janji dari materi kelima bisa dilunasi. Di sana dikatakan substitusi langsung sah untuk suku banyak, tapi alasannya ditunda."
+      "teks": "Sekarang janji dari materi kelima bisa dilunasi. Di sana dikatakan substitusi langsung sah untuk suku banyak, tapi alasannya ditunda.",
+      "tulis": "Sekarang janji dari Materi 05 bisa dilunasi. Di sana dikatakan substitusi langsung sah untuk suku banyak, tapi alasannya ditunda."
     },
     {
       "id": "sebab",
-      "teks": "Alasannya: suku banyak kontinu di semua titik. Dan kontinu berarti limit sama dengan nilai fungsi. Jadi memasukkan angkanya memang boleh."
+      "teks": "Alasannya: suku banyak kontinu di semua titik. Dan kontinu berarti limit sama dengan nilai fungsi. Jadi memasukkan angkanya memang boleh.",
+      "tulis": "Alasannya: suku banyak kontinu di semua titik. Dan kontinu berarti limit = nilai fungsi. Jadi memasukkan angkanya memang boleh."
     },
     {
       "id": "tutup",

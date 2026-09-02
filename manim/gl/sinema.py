@@ -205,10 +205,11 @@ class PapanRumus:
       papan.semua()                                     untuk diserahkan ke qc
     """
 
-    def __init__(self, scene, ukuran: float = 34, warna: str = TINTA):
+    def __init__(self, scene, ukuran: float = 34, warna: str = TINTA, tanpa_utama: bool = False):
         self.scene = scene
         self.ukuran = ukuran
         self.warna = warna
+        self.tanpa_utama = tanpa_utama
         self.utama = None
         self.baris_lain = []
 
@@ -220,9 +221,17 @@ class PapanRumus:
         return mob.fix_in_frame()
 
     def tempat_baris(self, mob, ke_berapa: int):
+        """Slot 0 (paling atas) SELALU dipesan untuk rumus utama, baris mulai slot 1.
+
+        Temuan Vektor dan Statistika 3 Sep: dulu baris pertama menempati slot
+        teratas selama utama masih kosong, lalu `tumbuh()` menaruh utama di slot
+        yang sama dan keduanya bertindih. Papan yang memang tanpa rumus utama
+        boleh memakai `PapanRumus(scene, tanpa_utama=True)` supaya slot 0 dipakai.
+        """
         kiri, kanan, bawah, atas = ZONA_RUMUS
         batasi_lebar(mob, kanan - kiri - 0.2)
-        y = atas - 0.12 - 0.62 * (ke_berapa + (1 if self.utama is not None else 0)) - mob.get_height() / 2
+        geser = 0 if self.tanpa_utama else 1
+        y = atas - 0.12 - 0.62 * (ke_berapa + geser) - mob.get_height() / 2
         mob.move_to([kanan - mob.get_width() / 2 - 0.12, y, 0])
         return mob.fix_in_frame()
 
@@ -272,6 +281,13 @@ class PapanRumus:
             self.baris_lain.append(mob)
         return mob
 
+    def ganti(self, lama, baru):
+        """Catat bahwa `lama` di panel sudah diganti `baru` (dipanggil ganti_rumus)."""
+        if self.utama is lama:
+            self.utama = baru
+        self.baris_lain = [baru if m is lama else m for m in self.baris_lain]
+        return baru
+
     def semua(self):
         isi = list(self.baris_lain)
         if self.utama is not None:
@@ -320,7 +336,8 @@ def lahir_rumus(scene, isi: str, dekat, papan: PapanRumus, b=None,
 
 
 def ganti_rumus(scene, lama, isi_baru: str, b=None, run_time: float = 1.2,
-                key_map: dict | None = None, warna: str | None = None, ukuran: float | None = None):
+                key_map: dict | None = None, warna: str | None = None, ukuran: float | None = None,
+                papan: "PapanRumus | None" = None):
     """Ubah rumus DI TEMPATNYA dengan morph lambang per lambang (gaya 3b1b).
 
     `sin x` jadi `cos x`: huruf yang sama diam, `sin` melebur jadi `cos`.
@@ -334,6 +351,11 @@ def ganti_rumus(scene, lama, isi_baru: str, b=None, run_time: float = 1.2,
     baru = rumus(isi_baru, ukuran, warna or lama.get_color())
     baru.move_to(lama)
     if lama.is_fixed_in_frame():
+        # Di panel kanan atas yang dijaga adalah TEPI KANAN, bukan pusat: rumus
+        # yang lebih lebar dari yang lama pernah melebar keluar layar (qc menolak).
+        kiri_z, kanan_z, _, _ = ZONA_RUMUS
+        batasi_lebar(baru, kanan_z - kiri_z - 0.2)
+        baru.align_to(lama, RIGHT).align_to(lama, UP)
         baru.fix_in_frame()
     scene.play(TransformMatchingStrings(lama, baru, key_map=key_map or {}), run_time=run_time)
     # Pastikan yang tinggal di adegan hanya rumus baru, apa pun cara ManimGL
@@ -344,6 +366,8 @@ def ganti_rumus(scene, lama, isi_baru: str, b=None, run_time: float = 1.2,
     if lama in scene.hud:
         scene.hud.remove(lama)
     scene.hud.add(baru)
+    if papan is not None:
+        papan.ganti(lama, baru)
     if b is not None:
         b.catat(run_time)
     return baru

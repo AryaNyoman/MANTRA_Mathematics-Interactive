@@ -89,7 +89,7 @@ def jalur_bawah_kosong(frame, zona: dict, batas_atas: float = -2.55):
             raise CacatTataLetak(
                 f"{nama} masuk jalur subtitle di bawah layar "
                 f"(bawah {k[2]:.2f} < {batas_atas:.2f}). Jalur itu milik subtitle; "
-                f"pindahkan ke papan rumus kiri atas atau panel kanan atas.")
+                f"pindahkan: rumus ke panel KANAN atas, identitas ke KIRI atas, atau geser dunianya ke atas.")
 
 
 def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: float = 0.3,

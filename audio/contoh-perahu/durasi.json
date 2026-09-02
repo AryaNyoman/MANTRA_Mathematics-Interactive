@@ -1,11 +1,10 @@
 {
-  "total": 51.168,
+  "total": 29.904,
   "segmen": {
     "buka": 7.416,
-    "sapa": 8.808,
-    "terbang": 6.288,
-    "dayung": 9.48,
-    "arus": 10.296,
-    "tutup": 8.88
+    "dunia": 4.392,
+    "peta": 5.76,
+    "panah": 5.424,
+    "tutup": 6.912
   }
 }

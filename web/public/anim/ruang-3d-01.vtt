@@ -3,89 +3,117 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/ruang-3d-01.json
 
 1
-00:00:00.000 --> 00:00:04.541
-Sekarang kita masuk ke materi baru: <b>ruang tiga dimensi</b>.
+00:00:00.000 --> 00:00:02.919
+Sekarang kita masuk ke materi baru:
 
 2
-00:00:04.541 --> 00:00:08.256
-Materi pertama, <b>gambar ruang boleh berbohong</b>.
+00:00:02.919 --> 00:00:04.503
+<b>ruang tiga dimensi</b>.
 
 3
-00:00:08.256 --> 00:00:13.206
-Di depan kita ada sebuah kotak, berdiri di atas lantai.
+00:00:04.503 --> 00:00:08.256
+Materi pertama, <b>gambar ruang boleh berbohong</b>.
 
 4
-00:00:13.206 --> 00:00:18.336
-Panjang, lebar, dan tingginya sama, jadi bentuknya <b>kubus</b>.
+00:00:08.256 --> 00:00:13.251
+Di depan kita ada sebuah kotak, berdiri di atas lantai.
 
 5
-00:00:18.336 --> 00:00:24.329
-Supaya bagian dalamnya ikut terlihat, dinding kotak ini kita buat <b>tembus pandang</b>.
+00:00:13.251 --> 00:00:16.429
+Panjang, lebar, dan tingginya sama,
 
 6
-00:00:24.329 --> 00:00:28.176
-Kedelapan titik sudutnya kita beri nama, A sampai H.
+00:00:16.429 --> 00:00:18.336
+jadi bentuknya <b>kubus</b>.
 
 7
-00:00:28.176 --> 00:00:31.573
-Sekarang kita tarik dua ruas garis.
+00:00:18.336 --> 00:00:21.094
+Supaya bagian dalamnya ikut terlihat,
 
 8
-00:00:31.573 --> 00:00:35.844
-Yang biru, B̅D̅, tergeletak di <b>lantai</b> kubus.
+00:00:21.094 --> 00:00:24.300
+dinding kotak ini kita buat <b>tembus pandang</b>.
 
 9
-00:00:35.844 --> 00:00:41.280
-Yang merah, E̅G̅, ada di <b>atapnya</b>, 6 satuan lebih tinggi.
+00:00:24.300 --> 00:00:28.176
+Kedelapan titik sudutnya kita beri nama, A sampai H.
 
 10
-00:00:41.280 --> 00:00:46.652
-Sekarang kamera kita naikkan, dan kita lihat kubus ini dari atas.
+00:00:28.176 --> 00:00:31.599
+Sekarang kita tarik dua ruas garis.
 
 11
-00:00:46.652 --> 00:00:48.884
-Perhatikan kedua ruas tadi.
+00:00:31.599 --> 00:00:35.901
+Yang biru, B̅D̅, tergeletak di <b>lantai</b> kubus.
 
 12
-00:00:48.884 --> 00:00:51.777
-Keduanya <b>menyilang tepat di tengah</b>.
+00:00:35.901 --> 00:00:39.129
+Yang merah, E̅G̅, ada di <b>atapnya</b>,
 
 13
-00:00:51.777 --> 00:00:55.414
-Apakah keduanya benar-benar bertemu di situ?
+00:00:39.129 --> 00:00:41.280
+6 satuan lebih tinggi.
 
 14
-00:00:55.414 --> 00:00:56.736
-Coba tebak dulu.
+00:00:41.280 --> 00:00:43.690
+Sekarang kamera kita naikkan,
 
 15
-00:00:56.736 --> 00:01:01.050
-Kamera kita turunkan lagi, dan jawabannya kelihatan.
+00:00:43.690 --> 00:00:46.598
+dan kita lihat kubus ini dari atas.
 
 16
-00:01:01.050 --> 00:01:02.250
-Tidak.
+00:00:46.598 --> 00:00:48.842
+Perhatikan kedua ruas tadi.
 
 17
-00:01:02.250 --> 00:01:06.565
-Yang biru tetap di lantai, yang merah tetap di atap.
+00:00:48.842 --> 00:00:51.750
+Keduanya <b>menyilang tepat di tengah</b>.
 
 18
-00:01:06.565 --> 00:01:12.168
-Titik silang tadi ternyata <b>dua titik yang berbeda</b>, terpisah sejauh 6 satuan.
+00:00:51.750 --> 00:00:55.406
+Apakah keduanya benar-benar bertemu di situ?
 
 19
-00:01:12.168 --> 00:01:15.121
-Jadi yang berubah cuma sudut pandangnya.
+00:00:55.406 --> 00:00:56.736
+Coba tebak dulu.
 
 20
-00:01:15.121 --> 00:01:18.296
-Kubusnya sendiri sama sekali tidak berubah.
+00:00:56.736 --> 00:01:01.074
+Kamera kita turunkan lagi, dan jawabannya kelihatan.
 
 21
-00:01:18.296 --> 00:01:23.243
-Dua garis seperti ini, yang tidak sejajar dan tidak pernah bertemu,
+00:01:01.074 --> 00:01:02.274
+Tidak.
 
 22
-00:01:23.243 --> 00:01:24.720
+00:01:02.274 --> 00:01:06.611
+Yang biru tetap di lantai, yang merah tetap di atap.
+
+23
+00:01:06.611 --> 00:01:10.782
+Titik silang tadi ternyata <b>dua titik yang berbeda</b>,
+
+24
+00:01:10.782 --> 00:01:12.168
+terpisah sejauh 6 satuan.
+
+25
+00:01:12.168 --> 00:01:15.139
+Jadi yang berubah cuma sudut pandangnya.
+
+26
+00:01:15.139 --> 00:01:18.333
+Kubusnya sendiri sama sekali tidak berubah.
+
+27
+00:01:18.333 --> 00:01:19.967
+Dua garis seperti ini,
+
+28
+00:01:19.967 --> 00:01:23.235
+yang tidak sejajar dan tidak pernah bertemu,
+
+29
+00:01:23.235 --> 00:01:24.720
 namanya <b>bersilangan</b>.
