@@ -3,101 +3,121 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/tahap7-sudut-istimewa.json
 
 1
-00:00:00.000 --> 00:00:06.740
-Ada tiga sudut yang di semua buku selalu disebut <b>istimewa</b>.
+00:00:00.000 --> 00:00:02.591
+Ada tiga sudut yang di
 
 2
-00:00:06.740 --> 00:00:08.832
-30°, 45°, dan 60°.
+00:00:02.591 --> 00:00:06.712
+semua buku selalu disebut <b>istimewa</b>.
 
 3
+00:00:06.712 --> 00:00:08.832
+30°, 45°, dan 60°.
+
+4
 00:00:08.832 --> 00:00:11.617
 Istimewanya bukan karena angkanya bulat.
 
-4
+5
 00:00:11.617 --> 00:00:14.821
 Melainkan karena nilainya bisa <b>ditulis persis</b>,
 
-5
+6
 00:00:14.821 --> 00:00:18.024
 tanpa deretan desimal yang tidak pernah habis.
 
-6
+7
 00:00:18.024 --> 00:00:21.023
 Yang pertama lahir dari sebuah persegi.
 
-7
+8
 00:00:21.023 --> 00:00:23.790
 Ambil persegi dengan panjang sisi 1,
 
-8
+9
 00:00:23.790 --> 00:00:26.712
 lalu potong menurut garis diagonalnya.
 
-9
-00:00:26.712 --> 00:00:32.198
-Yang tersisa adalah segitiga siku-siku dengan dua sudut 45°.
-
 10
-00:00:32.198 --> 00:00:36.312
-Kedua sisi tegaknya 1, dan sisi miringnya <b>√2</b>.
+00:00:26.712 --> 00:00:29.297
+Yang tersisa adalah segitiga
 
 11
+00:00:29.297 --> 00:00:32.158
+siku-siku dengan dua sudut 45°.
+
+12
+00:00:32.158 --> 00:00:36.312
+Kedua sisi tegaknya 1, dan sisi miringnya <b>√2</b>.
+
+13
 00:00:36.312 --> 00:00:38.761
 Jadi sin 45° = 1/√2.
 
-12
+14
 00:00:38.761 --> 00:00:44.760
 Sebuah angka pasti, bukan hasil tekan kalkulator.
 
-13
+15
 00:00:44.760 --> 00:00:47.965
 Yang kedua lahir dari segitiga sama sisi.
 
-14
+16
 00:00:47.965 --> 00:00:50.857
 Ambil segitiga yang ketiga sisinya 2,
 
-15
+17
 00:00:50.857 --> 00:00:52.968
 lalu belah tepat di tengah.
 
-16
-00:00:52.968 --> 00:00:58.893
-Sekarang muncul segitiga siku-siku dengan sudut 30° dan 60°.
+18
+00:00:52.968 --> 00:00:56.358
+Sekarang muncul segitiga siku-siku
 
-17
-00:00:58.893 --> 00:01:03.336
+19
+00:00:56.358 --> 00:00:58.850
+dengan sudut 30° dan 60°.
+
+20
+00:00:58.850 --> 00:01:03.336
 Alasnya 1, miringnya 2, dan sisi tegaknya <b>√3</b>.
 
-18
+21
 00:01:03.336 --> 00:01:11.808
 Dari situ, sin 30° = 1/2. Dan sin 60° = √3/2.
 
-19
-00:01:11.808 --> 00:01:14.975
+22
+00:01:11.808 --> 00:01:15.002
 Sekarang taruh ketiganya di lingkaran satuan.
 
-20
-00:01:14.975 --> 00:01:20.184
-Tiap sudut istimewa memberi 1 titik yang koordinatnya bisa ditulis persis.
+23
+00:01:15.002 --> 00:01:17.061
+Tiap sudut istimewa memberi 1
 
-21
+24
+00:01:17.061 --> 00:01:20.184
+titik yang koordinatnya bisa ditulis persis.
+
+25
 00:01:20.184 --> 00:01:24.241
 Jari-jarinya menyapu, berhenti di tiap sudut istimewa,
 
-22
+26
 00:01:24.241 --> 00:01:27.096
 dan koordinatnya muncul satu per satu.
 
-23
-00:01:27.096 --> 00:01:30.176
+27
+00:01:27.096 --> 00:01:30.200
 Itulah sebabnya ketiganya disebut istimewa.
 
-24
-00:01:30.176 --> 00:01:32.111
+28
+00:01:30.200 --> 00:01:32.149
 Bukan karena mudah dihafal,
 
-25
-00:01:32.111 --> 00:01:36.552
-melainkan karena nilainya bisa dihitung sendiri dengan tangan.
+29
+00:01:32.149 --> 00:01:34.314
+melainkan karena nilainya bisa
+
+30
+00:01:34.314 --> 00:01:36.552
+dihitung sendiri dengan tangan.

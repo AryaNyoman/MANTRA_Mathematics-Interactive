@@ -19,65 +19,97 @@ Kita mulai dari lingkaran satuan yang tadi.
 cos θ = x, dan sin θ = y.
 
 5
-00:00:16.104 --> 00:00:21.108
-Sekarang tarik sebuah garis tegak yang menyentuh lingkaran di sebelah kanan.
+00:00:16.104 --> 00:00:18.296
+Sekarang tarik sebuah garis tegak
 
 6
-00:00:21.108 --> 00:00:23.808
-Garis seperti ini disebut <b>garis singgung</b>.
+00:00:18.296 --> 00:00:21.085
+yang menyentuh lingkaran di sebelah kanan.
 
 7
-00:00:23.808 --> 00:00:27.955
-Perpanjang jari-jarinya sampai mengenai garis singgung tadi.
+00:00:21.085 --> 00:00:23.808
+Garis seperti ini disebut <b>garis singgung</b>.
 
 8
-00:00:27.955 --> 00:00:33.000
-Ruas dari sumbu mendatar sampai titik potong itu panjangnya persis <b>tan θ</b>.
+00:00:23.808 --> 00:00:25.913
+Perpanjang jari-jarinya sampai
 
 9
-00:00:33.000 --> 00:00:38.160
-Dan ruas dari pusat lingkaran sampai titik potong yang sama panjangnya <b>sec θ</b>.
+00:00:25.913 --> 00:00:27.948
+mengenai garis singgung tadi.
 
 10
+00:00:27.948 --> 00:00:30.544
+Ruas dari sumbu mendatar sampai titik
+
+11
+00:00:30.544 --> 00:00:33.000
+potong itu panjangnya persis <b>tan θ</b>.
+
+12
+00:00:33.000 --> 00:00:35.444
+Dan ruas dari pusat lingkaran sampai
+
+13
+00:00:35.444 --> 00:00:38.160
+titik potong yang sama panjangnya <b>sec θ</b>.
+
+14
 00:00:38.160 --> 00:00:41.236
 Sekarang tarik garis singgung yang kedua.
 
-11
+15
 00:00:41.236 --> 00:00:45.288
 Kali ini mendatar, menyentuh lingkaran di bagian atas.
 
-12
-00:00:45.288 --> 00:00:48.441
+16
+00:00:45.288 --> 00:00:48.472
 Perpanjang lagi jari-jarinya ke arah itu.
 
-13
-00:00:48.441 --> 00:00:53.208
-Ruas dari sumbu tegak sampai titik potongnya panjangnya <b>cot θ</b>.
+17
+00:00:48.472 --> 00:00:50.646
+Ruas dari sumbu tegak sampai
 
-14
-00:00:53.208 --> 00:00:57.816
-Dan ruas dari pusat sampai titik potong itu panjangnya <b>csc θ</b>.
+18
+00:00:50.646 --> 00:00:53.208
+titik potongnya panjangnya <b>cot θ</b>.
 
-15
-00:00:57.816 --> 00:00:59.222
+19
+00:00:53.208 --> 00:00:55.205
+Dan ruas dari pusat sampai
+
+20
+00:00:55.205 --> 00:00:57.816
+titik potong itu panjangnya <b>csc θ</b>.
+
+21
+00:00:57.816 --> 00:00:59.241
 6 ruas, 6 nama.
 
-16
-00:00:59.222 --> 00:01:04.848
-Semuanya lahir dari satu lingkaran dan satu sudut yang sama.
+22
+00:00:59.241 --> 00:01:02.472
+Semuanya lahir dari satu lingkaran
 
-17
+23
+00:01:02.472 --> 00:01:04.848
+dan satu sudut yang sama.
+
+24
 00:01:04.848 --> 00:01:09.300
 Geser sudutnya, dan keenamnya berubah bersama-sama.
 
-18
+25
 00:01:09.300 --> 00:01:12.792
 Yang satu memanjang, yang lain memendek.
 
-19
-00:01:12.792 --> 00:01:16.335
+26
+00:01:12.792 --> 00:01:16.369
 Jadi sec dan csc bukan rumus yang harus dihafal.
 
-20
-00:01:16.335 --> 00:01:20.616
-Keduanya panjang yang bisa Anda tunjuk langsung di gambar.
+27
+00:01:16.369 --> 00:01:18.306
+Keduanya panjang yang bisa
+
+28
+00:01:18.306 --> 00:01:20.616
+Anda tunjuk langsung di gambar.

@@ -95,37 +95,45 @@ Bagi ketiganya dengan sin x, dan bentuknya menjadi rapi.
 cos x < x : sin x < 1 : cos x.
 
 24
-00:01:20.928 --> 00:01:22.839
+00:01:20.928 --> 00:01:22.853
 Sekarang kecilkan sudutnya.
 
 25
-00:01:22.839 --> 00:01:25.459
+00:01:22.853 --> 00:01:25.491
 Kedua penjepitnya sama-sama menuju 1,
 
 26
-00:01:25.459 --> 00:01:30.768
-jadi yang terjepit di tengah tidak punya pilihan lain selain ikut menuju 1.
+00:01:25.491 --> 00:01:27.916
+jadi yang terjepit di tengah tidak
 
 27
-00:01:30.768 --> 00:01:35.401
-Satu syarat yang tidak boleh dilupakan: sudutnya harus dalam radian.
+00:01:27.916 --> 00:01:30.768
+punya pilihan lain selain ikut menuju 1.
 
 28
-00:01:35.401 --> 00:01:37.581
-Kalau ditulis dalam derajat (°),
+00:01:30.768 --> 00:01:33.442
+Satu syarat yang tidak boleh dilupakan:
 
 29
-00:01:37.581 --> 00:01:41.328
-luas juringnya berubah dan seluruh hitungan ini runtuh.
+00:01:33.442 --> 00:01:35.362
+sudutnya harus dalam radian.
 
 30
+00:01:35.362 --> 00:01:37.557
+Kalau ditulis dalam derajat (°),
+
+31
+00:01:37.557 --> 00:01:41.328
+luas juringnya berubah dan seluruh hitungan ini runtuh.
+
+32
 00:01:41.328 --> 00:01:44.398
 Jadi bukan hampir 1, melainkan tepat 1.
 
-31
+33
 00:01:44.398 --> 00:01:47.468
 Dan alasannya bukan tebakan dari tabel,
 
-32
+34
 00:01:47.468 --> 00:01:51.168
 melainkan perbandingan luas di dalam lingkaran.

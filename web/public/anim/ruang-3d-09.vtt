@@ -3,93 +3,137 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/ruang-3d-09.json
 
 1
-00:00:00.000 --> 00:00:03.971
+00:00:00.000 --> 00:00:04.004
 Materi 9, <b>sudut dengan bidang dan sudut antarbidang</b>.
 
 2
-00:00:03.971 --> 00:00:09.240
-Ini materi terakhir sebelum kita melihat pemakaiannya di dunia nyata.
+00:00:04.004 --> 00:00:06.468
+Ini materi terakhir sebelum kita
 
 3
+00:00:06.468 --> 00:00:09.240
+melihat pemakaiannya di dunia nyata.
+
+4
 00:00:09.240 --> 00:00:10.440
 Bagian pertama.
 
-4
-00:00:10.440 --> 00:00:15.539
-Ini diagonal ruang A̅G̅, sebuah garis miring yang menembus lantai di titik A.
-
 5
-00:00:15.539 --> 00:00:18.452
-Sudut yang dimaksud bukan sudut sembarangan,
+00:00:10.440 --> 00:00:12.046
+Ini diagonal ruang A̅G̅,
 
 6
-00:00:18.452 --> 00:00:22.152
-melainkan sudut antara garis itu dan <b>bayangannya</b> di lantai.
+00:00:12.046 --> 00:00:15.525
+sebuah garis miring yang menembus lantai di titik A.
 
 7
-00:00:22.152 --> 00:00:25.679
-Bayangan A tetap A, sebab A memang di lantai.
+00:00:15.525 --> 00:00:18.468
+Sudut yang dimaksud bukan sudut sembarangan,
 
 8
-00:00:25.679 --> 00:00:29.833
-Bayangan G jatuh di C, sebab G̅C̅ tegak lurus lantai.
+00:00:18.468 --> 00:00:20.341
+melainkan sudut antara garis
 
 9
-00:00:29.833 --> 00:00:32.263
-Jadi bayangan A̅G̅ adalah <b>A̅C̅</b>.
+00:00:20.341 --> 00:00:22.152
+itu dan <b>bayangannya</b> di lantai.
 
 10
-00:00:32.263 --> 00:00:38.376
-Ingat dari trigonometri: tan sudut sama dengan sisi depan dibagi sisi samping.
+00:00:22.152 --> 00:00:25.696
+Bayangan A tetap A, sebab A memang di lantai.
 
 11
-00:00:38.376 --> 00:00:46.486
-Pada segitiga ACG yang siku-siku di C, tan sudutnya sama dengan 6 dibagi 6√2.
+00:00:25.696 --> 00:00:29.870
+Bayangan G jatuh di C, sebab G̅C̅ tegak lurus lantai.
 
 12
-00:00:46.486 --> 00:00:49.224
-Sudutnya kira-kira <b>35,26°</b>.
+00:00:29.870 --> 00:00:32.312
+Jadi bayangan A̅G̅ adalah <b>A̅C̅</b>.
 
 13
-00:00:49.224 --> 00:00:52.147
-Bagian kedua, sudut antara dua <b>bidang</b>.
+00:00:32.312 --> 00:00:34.202
+Ingat dari trigonometri:
 
 14
-00:00:52.147 --> 00:00:54.223
-Bidang BDG memotong lantai,
+00:00:34.202 --> 00:00:38.376
+tan sudut sama dengan sisi depan dibagi sisi samping.
 
 15
-00:00:54.223 --> 00:00:59.992
-dan persekutuannya bukan satu titik melainkan satu garis penuh, yaitu B̅D̅.
+00:00:38.376 --> 00:00:42.417
+Pada segitiga ACG yang siku-siku di C,
 
 16
-00:00:59.992 --> 00:01:02.376
-Garis itu namanya <b>garis potong</b>.
+00:00:42.417 --> 00:00:46.459
+tan sudutnya sama dengan 6 dibagi 6√2.
 
 17
-00:01:02.376 --> 00:01:05.391
-Ambil titik P tepat di tengah B̅D̅.
+00:00:46.459 --> 00:00:49.224
+Sudutnya kira-kira <b>35,26°</b>.
 
 18
-00:01:05.391 --> 00:01:11.938
-Dari P kita tarik dua garis yang sama-sama tegak lurus B̅D̅: P̅C̅ di lantai,
+00:00:49.224 --> 00:00:52.181
+Bagian kedua, sudut antara dua <b>bidang</b>.
 
 19
-00:01:11.938 --> 00:01:14.178
-dan P̅G̅ di bidang miring.
+00:00:52.181 --> 00:00:54.282
+Bidang BDG memotong lantai,
 
 20
-00:01:14.178 --> 00:01:20.208
-Sudut di antara keduanya, kira-kira <b>54,74°</b>, itulah sudut kedua bidang.
+00:00:54.282 --> 00:00:56.539
+dan persekutuannya bukan satu
 
 21
-00:01:20.208 --> 00:01:25.167
-Syaratnya dua dan harus dipenuhi bersamaan: tegak lurus garis potong,
+00:00:56.539 --> 00:00:59.107
+titik melainkan satu garis penuh,
 
 22
-00:01:25.167 --> 00:01:27.827
-dan bertumpu di <b>satu titik yang sama</b>.
+00:00:59.107 --> 00:01:00.307
+yaitu B̅D̅.
 
 23
-00:01:27.827 --> 00:01:33.792
-Kalau P digeser, P̅C̅ tidak lagi tegak lurus, dan angka yang terbaca menjadi salah.
+00:01:00.307 --> 00:01:02.376
+Garis itu namanya <b>garis potong</b>.
+
+24
+00:01:02.376 --> 00:01:05.420
+Ambil titik P tepat di tengah B̅D̅.
+
+25
+00:01:05.420 --> 00:01:07.247
+Dari P kita tarik dua
+
+26
+00:01:07.247 --> 00:01:10.553
+garis yang sama-sama tegak lurus B̅D̅:
+
+27
+00:01:10.553 --> 00:01:14.206
+P̅C̅ di lantai, dan P̅G̅ di bidang miring.
+
+28
+00:01:14.206 --> 00:01:17.946
+Sudut di antara keduanya, kira-kira <b>54,74°</b>,
+
+29
+00:01:17.946 --> 00:01:20.208
+itulah sudut kedua bidang.
+
+30
+00:01:20.208 --> 00:01:23.332
+Syaratnya dua dan harus dipenuhi bersamaan:
+
+31
+00:01:23.332 --> 00:01:25.148
+tegak lurus garis potong,
+
+32
+00:01:25.148 --> 00:01:27.835
+dan bertumpu di <b>satu titik yang sama</b>.
+
+33
+00:01:27.835 --> 00:01:31.104
+Kalau P digeser, P̅C̅ tidak lagi tegak lurus,
+
+34
+00:01:31.104 --> 00:01:33.792
+dan angka yang terbaca menjadi salah.

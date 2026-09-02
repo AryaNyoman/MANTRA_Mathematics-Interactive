@@ -3,125 +3,133 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/limit4-lubang.json
 
 1
-00:00:00.000 --> 00:00:03.977
-Ada fungsi yang di satu titik sama sekali tidak punya nilai,
+00:00:00.000 --> 00:00:01.543
+Ada fungsi yang di satu
 
 2
-00:00:03.977 --> 00:00:05.568
-tapi limitnya tetap ada.
+00:00:01.543 --> 00:00:03.958
+titik sama sekali tidak punya nilai,
 
 3
+00:00:03.958 --> 00:00:05.568
+tapi limitnya tetap ada.
+
+4
 00:00:05.568 --> 00:00:10.944
 Perhatikan fungsi ini: (x² - 1) : (x - 1).
 
-4
+5
 00:00:10.944 --> 00:00:14.161
 Sekarang masukkan x = 1.
 
-5
+6
 00:00:14.161 --> 00:00:18.852
 Pembilangnya 0, penyebutnya juga 0.
 
-6
+7
 00:00:18.852 --> 00:00:19.656
 0 : 0.
 
-7
+8
 00:00:19.656 --> 00:00:22.697
 Hitungan itu tidak punya jawaban.
 
-8
+9
 00:00:22.697 --> 00:00:24.172
 Jadi di titik 1,
 
-9
+10
 00:00:24.172 --> 00:00:27.950
 fungsi ini tidak terdefinisi sama sekali.
 
-10
+11
 00:00:27.950 --> 00:00:31.176
 Bukan bernilai 0, bukan bernilai ∞.
 
-11
+12
 00:00:31.176 --> 00:00:33.192
 Tapi lihat grafiknya.
 
-12
+13
 00:00:33.192 --> 00:00:37.896
 Ia garis lurus biasa, dengan 1 titik yang bolong.
 
-13
+14
 00:00:37.896 --> 00:00:41.696
 Kita dekati dari kiri.
 
-14
+15
 00:00:41.696 --> 00:00:45.323
 Di 0,9, nilainya 1,9.
 
-15
+16
 00:00:45.323 --> 00:00:49.296
 Di 0,99, nilainya 1,99.
 
-16
+17
 00:00:49.296 --> 00:00:52.626
 Sekarang dari kanan.
 
-17
+18
 00:00:52.626 --> 00:00:56.122
 Di 1,1, nilainya 2,1.
 
-18
+19
 00:00:56.122 --> 00:00:59.952
 Di 1,01, nilainya 2,01.
 
-19
+20
 00:00:59.952 --> 00:01:03.780
 Kedua arah menuju angka yang sama, yaitu 2.
 
-20
+21
 00:01:03.780 --> 00:01:08.232
 Jadi limitnya 2, walaupun titiknya sendiri kosong.
 
-21
-00:01:08.232 --> 00:01:10.513
+22
+00:01:08.232 --> 00:01:10.541
 Kenapa bisa serapi itu?
 
-22
-00:01:10.513 --> 00:01:16.464
-Karena pembilangnya bisa difaktorkan menjadi (x - 1)(x + 1).
-
 23
+00:01:10.541 --> 00:01:14.958
+Karena pembilangnya bisa difaktorkan menjadi
+
+24
+00:01:14.958 --> 00:01:16.464
+(x - 1)(x + 1).
+
+25
 00:01:16.464 --> 00:01:20.498
 Faktor (x - 1) di atas dan di bawah bisa dicoret.
 
-24
+26
 00:01:20.498 --> 00:01:22.885
 Tapi hanya boleh kalau x ≠ 1,
 
-25
+27
 00:01:22.885 --> 00:01:25.272
 sebab kita sedang membaginya.
 
-26
+28
 00:01:25.272 --> 00:01:27.444
 Yang tersisa adalah x + 1.
 
-27
+29
 00:01:27.444 --> 00:01:30.535
 Itulah kenapa grafiknya berupa garis,
 
-28
+30
 00:01:30.535 --> 00:01:33.960
 dan kenapa hanya di titik 1 ia berlubang.
 
-29
+31
 00:01:33.960 --> 00:01:37.491
 Nilai fungsi dan limit adalah dua hal yang berbeda.
 
-30
+32
 00:01:37.491 --> 00:01:39.914
 Yang satu bisa ada tanpa yang lain,
 
-31
+33
 00:01:39.914 --> 00:01:42.960
 dan justru karena itulah limit dibuat orang.

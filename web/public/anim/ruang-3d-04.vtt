@@ -3,73 +3,109 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/ruang-3d-04.json
 
 1
-00:00:00.000 --> 00:00:02.241
+00:00:00.000 --> 00:00:02.266
 Materi 4, <b>dua kali Pythagoras</b>.
 
 2
-00:00:02.241 --> 00:00:06.499
-Di materi sebelumnya kita berhenti pada kaki tegak lurus.
+00:00:02.266 --> 00:00:04.155
+Di materi sebelumnya kita
 
 3
-00:00:06.499 --> 00:00:13.296
-Sekarang pertanyaannya lebih pendek tetapi sering salah: berapa panjang diagonal kubus ini?
+00:00:04.155 --> 00:00:06.497
+berhenti pada kaki tegak lurus.
 
 4
-00:00:13.296 --> 00:00:16.030
-Mulai dari yang tampak lebih dulu.
+00:00:06.497 --> 00:00:10.727
+Sekarang pertanyaannya lebih pendek tetapi sering salah:
 
 5
-00:00:16.030 --> 00:00:21.819
-A̅C̅ menghubungkan dua sudut pada satu sisi, jadi namanya <b>diagonal sisi</b>.
+00:00:10.727 --> 00:00:13.296
+berapa panjang diagonal kubus ini?
 
 6
-00:00:21.819 --> 00:00:27.528
-Segitiga ABC siku-siku di B, dan kedua sisi tegaknya rusuk sepanjang 6.
+00:00:13.296 --> 00:00:16.061
+Mulai dari yang tampak lebih dulu.
 
 7
+00:00:16.061 --> 00:00:19.639
+A̅C̅ menghubungkan dua sudut pada satu sisi,
+
+8
+00:00:19.639 --> 00:00:21.835
+jadi namanya <b>diagonal sisi</b>.
+
+9
+00:00:21.835 --> 00:00:24.112
+Segitiga ABC siku-siku di B,
+
+10
+00:00:24.112 --> 00:00:27.528
+dan kedua sisi tegaknya rusuk sepanjang 6.
+
+11
 00:00:27.528 --> 00:00:32.496
 Jadi AC² sama dengan 36 ditambah 36, yaitu <b>72</b>.
 
-8
+12
 00:00:32.496 --> 00:00:38.112
 Jangan diakarkan dulu, angka itu masih akan dipakai.
 
-9
-00:00:38.112 --> 00:00:39.733
+13
+00:00:38.112 --> 00:00:39.752
 Sekarang yang sulit.
 
-10
-00:00:39.733 --> 00:00:44.758
-A̅G̅ menembus bagian dalam kubus, jadi namanya <b>diagonal ruang</b>.
-
-11
-00:00:44.758 --> 00:00:46.866
-Segitiga penolongnya, ACG,
-
-12
-00:00:46.866 --> 00:00:52.296
-berdiri tegak di dalam kubus dan tidak menempel pada sisi mana pun.
-
-13
-00:00:52.296 --> 00:01:00.010
-Alasnya A̅C̅ tadi, sisi tegaknya rusuk C̅G̅, dan siku-sikunya di C.
-
 14
-00:01:00.010 --> 00:01:05.421
-Jadi AG² sama dengan 72 ditambah 36, yaitu 108.
+00:00:39.752 --> 00:00:42.457
+A̅G̅ menembus bagian dalam kubus,
 
 15
-00:01:05.421 --> 00:01:07.608
-AG sama dengan <b>6√3</b>.
+00:00:42.457 --> 00:00:44.753
+jadi namanya <b>diagonal ruang</b>.
 
 16
-00:01:07.608 --> 00:01:10.871
-Angka 3 di dalam akar itu bukan kebetulan.
+00:00:44.753 --> 00:00:46.885
+Segitiga penolongnya, ACG,
 
 17
-00:01:10.871 --> 00:01:16.465
-Ia menghitung ada berapa arah yang dilewati: panjang, lebar, dan tinggi.
+00:00:46.885 --> 00:00:49.508
+berdiri tegak di dalam kubus dan
 
 18
-00:01:16.465 --> 00:01:22.680
-Diagonal ruang bukan rumus baru, ia Pythagoras yang dipakai untuk <b>kedua kalinya</b>.
+00:00:49.508 --> 00:00:52.296
+tidak menempel pada sisi mana pun.
+
+19
+00:00:52.296 --> 00:00:57.400
+Alasnya A̅C̅ tadi, sisi tegaknya rusuk C̅G̅,
+
+20
+00:00:57.400 --> 00:00:59.952
+dan siku-sikunya di C.
+
+21
+00:00:59.952 --> 00:01:05.404
+Jadi AG² sama dengan 72 ditambah 36, yaitu 108.
+
+22
+00:01:05.404 --> 00:01:07.608
+AG sama dengan <b>6√3</b>.
+
+23
+00:01:07.608 --> 00:01:10.905
+Angka 3 di dalam akar itu bukan kebetulan.
+
+24
+00:01:10.905 --> 00:01:15.065
+Ia menghitung ada berapa arah yang dilewati: panjang,
+
+25
+00:01:15.065 --> 00:01:16.478
+lebar, dan tinggi.
+
+26
+00:01:16.478 --> 00:01:18.990
+Diagonal ruang bukan rumus baru,
+
+27
+00:01:18.990 --> 00:01:22.680
+ia Pythagoras yang dipakai untuk <b>kedua kalinya</b>.

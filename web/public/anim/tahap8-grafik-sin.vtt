@@ -7,129 +7,137 @@ NOTE Dibuat otomatis dari manim/narasi/tahap8-grafik-sin.json
 Perhatikan bagaimana terbentuknya <b>grafik sinus</b>.
 
 2
-00:00:03.672 --> 00:00:07.968
-Semuanya dimulai dari sebuah lingkaran yang berjari-jari 1.
+00:00:03.672 --> 00:00:05.746
+Semuanya dimulai dari sebuah
 
 3
+00:00:05.746 --> 00:00:07.968
+lingkaran yang berjari-jari 1.
+
+4
 00:00:07.968 --> 00:00:10.326
 Sebuah titik berjalan di tepinya,
 
-4
+5
 00:00:10.326 --> 00:00:14.328
 berlawanan arah jarum jam, berangkat dari sebelah kanan.
 
-5
+6
 00:00:14.328 --> 00:00:17.128
 Yang kita perhatikan cuma satu hal.
 
-6
+7
 00:00:17.128 --> 00:00:21.048
 Seberapa tinggi titik itu di atas garis mendatar.
 
-7
+8
 00:00:21.048 --> 00:00:23.928
 Tinggi itulah yang kita sebut <b>sin θ</b>.
 
-8
+9
 00:00:23.928 --> 00:00:26.832
 Sekarang lingkarannya kita geser ke kiri,
 
-9
+10
 00:00:26.832 --> 00:00:30.162
 dan di sebelah kanan kita siapkan papan kosong.
 
-10
+11
 00:00:30.162 --> 00:00:32.287
 Sumbu mendatarnya besar sudut,
 
-11
+12
 00:00:32.287 --> 00:00:34.200
 sumbu tegaknya tinggi tadi.
 
-12
+13
 00:00:34.200 --> 00:00:36.087
 Titiknya mulai berjalan.
 
-13
+14
 00:00:36.087 --> 00:00:37.973
 Setiap kali ia bergerak,
 
-14
+15
 00:00:37.973 --> 00:00:40.724
 tingginya kita bawa lurus ke kanan,
 
-15
+16
 00:00:40.724 --> 00:00:42.768
 lalu kita tandai di papan.
 
-16
+17
 00:00:42.768 --> 00:00:45.938
 Di 90° titiknya berada paling atas.
 
-17
+18
 00:00:45.938 --> 00:00:47.138
 Tingginya 1,
 
-18
+19
 00:00:47.138 --> 00:00:51.192
 dan itu setinggi-tingginya yang bisa ia capai.
 
-19
+20
 00:00:51.192 --> 00:00:54.367
 Lewat 90°, titiknya mulai turun.
 
-20
+21
 00:00:54.367 --> 00:00:58.732
 Di 180° ia kembali menyentuh garis mendatar,
 
-21
+22
 00:00:58.732 --> 00:01:00.816
 dan tingginya 0 lagi.
 
-22
+23
 00:01:00.816 --> 00:01:05.362
 Setelah itu titiknya masuk ke bawah garis.
 
-23
+24
 00:01:05.362 --> 00:01:08.177
 Tingginya menjadi negatif.
 
-24
+25
 00:01:08.177 --> 00:01:11.208
 Di 270° ia paling dalam, -1.
 
-25
+26
 00:01:11.208 --> 00:01:16.105
 Di 360° titiknya sampai lagi di tempat ia berangkat.
 
-26
+27
 00:01:16.105 --> 00:01:18.648
 Satu putaran penuh selesai.
 
-27
+28
 00:01:18.648 --> 00:01:20.592
 Kalau titiknya jalan terus,
 
-28
+29
 00:01:20.592 --> 00:01:23.112
 ia hanya mengulang jalan yang sama.
 
-29
+30
 00:01:23.112 --> 00:01:26.352
 Maka kurvanya pun mengulang bentuk yang sama,
 
-30
+31
 00:01:26.352 --> 00:01:27.936
 tanpa pernah berhenti.
 
-31
-00:01:27.936 --> 00:01:29.455
+32
+00:01:27.936 --> 00:01:29.469
 Inilah grafik sinus.
 
-32
-00:01:29.455 --> 00:01:31.886
+33
+00:01:29.469 --> 00:01:31.923
 Bukan gambar yang harus dihafal,
 
-33
-00:01:31.886 --> 00:01:36.216
-melainkan <b>jejak tinggi</b> sebuah titik yang sedang berputar.
+34
+00:01:31.923 --> 00:01:34.146
+melainkan <b>jejak tinggi</b> sebuah
+
+35
+00:01:34.146 --> 00:01:36.216
+titik yang sedang berputar.

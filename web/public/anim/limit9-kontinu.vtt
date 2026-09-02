@@ -3,153 +3,173 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/limit9-kontinu.json
 
 1
-00:00:00.000 --> 00:00:04.128
-Apa bedanya grafik yang bisa digambar tanpa mengangkat pensil?
+00:00:00.000 --> 00:00:01.556
+Apa bedanya grafik yang
 
 2
+00:00:01.556 --> 00:00:04.128
+bisa digambar tanpa mengangkat pensil?
+
+3
 00:00:04.128 --> 00:00:06.656
 Bayangkan rel roller coaster.
 
-3
+4
 00:00:06.656 --> 00:00:10.927
 Ia boleh menanjak, boleh menukik, boleh berputar.
 
-4
+5
 00:00:10.927 --> 00:00:15.024
 Yang tidak boleh, ada potongan rel yang hilang.
 
-5
-00:00:15.024 --> 00:00:19.632
-Sebuah fungsi disebut kontinu di titik c kalau 3 hal benar sekaligus.
-
 6
-00:00:19.632 --> 00:00:22.704
-Nilainya ada, limitnya ada, dan keduanya sama.
+00:00:15.024 --> 00:00:17.584
+Sebuah fungsi disebut kontinu di titik
 
 7
+00:00:17.584 --> 00:00:19.605
+c kalau 3 hal benar sekaligus.
+
+8
+00:00:19.605 --> 00:00:22.704
+Nilainya ada, limitnya ada, dan keduanya sama.
+
+9
 00:00:22.704 --> 00:00:26.673
 Pada fungsi yang mulus, ketiganya terpenuhi.
 
-8
+10
 00:00:26.673 --> 00:00:30.823
 Titik di x = 2 punya nilai 3, limitnya juga 3,
 
-9
+11
 00:00:30.823 --> 00:00:32.808
 dan keduanya berimpit.
 
-10
+12
 00:00:32.808 --> 00:00:34.630
 Sekarang kita rusak.
 
-11
+13
 00:00:34.630 --> 00:00:37.454
 Cara pertama, dibuat berlubang.
 
-12
+14
 00:00:37.454 --> 00:00:41.372
 Nilainya lenyap, jadi syarat pertama gagal.
 
-13
+15
 00:00:41.372 --> 00:00:43.376
 Tapi limitnya tetap 3,
 
-14
+16
 00:00:43.376 --> 00:00:46.656
 karena limit hanya melihat tetangga.
 
-15
-00:00:46.656 --> 00:00:48.944
+17
+00:00:46.656 --> 00:00:48.957
 Cara kedua, titiknya digeser.
 
-16
-00:00:48.944 --> 00:00:52.889
+18
+00:00:48.957 --> 00:00:52.923
 Nilainya ada, limitnya ada, tapi keduanya berbeda.
 
-17
-00:00:52.889 --> 00:00:55.334
+19
+00:00:52.923 --> 00:00:55.383
 Hanya syarat ketiga yang gagal,
 
-18
-00:00:55.334 --> 00:01:00.936
-dan inilah satu-satunya bentuk yang membuat syarat ketiga terasa perlu.
+20
+00:00:55.383 --> 00:00:58.159
+dan inilah satu-satunya bentuk yang
 
-19
+21
+00:00:58.159 --> 00:01:00.936
+membuat syarat ketiga terasa perlu.
+
+22
 00:01:00.936 --> 00:01:03.697
 Cara ketiga, dibuat melompat.
 
-20
+23
 00:01:03.697 --> 00:01:07.504
 Dari kiri menuju 3, dari kanan menuju 5.
 
-21
+24
 00:01:07.504 --> 00:01:12.264
 Kedua arah tidak sepakat, jadi limitnya tidak ada.
 
-22
+25
 00:01:12.264 --> 00:01:14.594
 Cara keempat, dibuat meledak.
 
-23
+26
 00:01:14.594 --> 00:01:18.209
 Penyebutnya 0 sedangkan pembilangnya bukan 0,
 
-24
+27
 00:01:18.209 --> 00:01:21.342
 sehingga nilainya membesar tanpa batas.
 
-25
+28
 00:01:21.342 --> 00:01:23.592
 Tidak ada angka yang dituju.
 
-26
-00:01:23.592 --> 00:01:28.275
-Ketiga kerusakan pertama sebenarnya sudah pernah Anda temui.
-
-27
-00:01:28.275 --> 00:01:31.865
-Berlubang di Materi 04, melompat di Materi 03,
-
-28
-00:01:31.865 --> 00:01:33.816
-dan meledak di Materi 07.
-
 29
-00:01:33.816 --> 00:01:37.125
-Sekarang janji dari Materi 05 bisa dilunasi.
+00:01:23.592 --> 00:01:26.345
+Ketiga kerusakan pertama sebenarnya
 
 30
-00:01:37.125 --> 00:01:41.638
-Di sana dikatakan substitusi langsung sah untuk suku banyak,
+00:01:26.345 --> 00:01:28.232
+sudah pernah Anda temui.
 
 31
-00:01:41.638 --> 00:01:43.368
-tapi alasannya ditunda.
+00:01:28.232 --> 00:01:31.850
+Berlubang di Materi 04, melompat di Materi 03,
 
 32
+00:01:31.850 --> 00:01:33.816
+dan meledak di Materi 07.
+
+33
+00:01:33.816 --> 00:01:37.152
+Sekarang janji dari Materi 05 bisa dilunasi.
+
+34
+00:01:37.152 --> 00:01:39.274
+Di sana dikatakan substitusi
+
+35
+00:01:39.274 --> 00:01:41.624
+langsung sah untuk suku banyak,
+
+36
+00:01:41.624 --> 00:01:43.368
+tapi alasannya ditunda.
+
+37
 00:01:43.368 --> 00:01:47.334
 Alasannya: suku banyak kontinu di semua titik.
 
-33
+38
 00:01:47.334 --> 00:01:50.868
 Dan kontinu berarti limit = nilai fungsi.
 
-34
+39
 00:01:50.868 --> 00:01:54.144
 Jadi memasukkan angkanya memang boleh.
 
-35
+40
 00:01:54.144 --> 00:01:56.913
 Jadi substitusi bukan definisi limit,
 
-36
+41
 00:01:56.913 --> 00:01:59.458
 melainkan akibat dari kekontinuan.
 
-37
+42
 00:01:59.458 --> 00:02:01.853
 Untuk fungsi yang tidak kontinu,
 
-38
+43
 00:02:01.853 --> 00:02:04.248
 jalan pintas itu langsung gugur.

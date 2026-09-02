@@ -205,10 +205,11 @@ class PapanRumus:
       papan.semua()                                     untuk diserahkan ke qc
     """
 
-    def __init__(self, scene, ukuran: float = 34, warna: str = TINTA):
+    def __init__(self, scene, ukuran: float = 34, warna: str = TINTA, tanpa_utama: bool = False):
         self.scene = scene
         self.ukuran = ukuran
         self.warna = warna
+        self.tanpa_utama = tanpa_utama
         self.utama = None
         self.baris_lain = []
 
@@ -220,9 +221,17 @@ class PapanRumus:
         return mob.fix_in_frame()
 
     def tempat_baris(self, mob, ke_berapa: int):
+        """Slot 0 (paling atas) SELALU dipesan untuk rumus utama, baris mulai slot 1.
+
+        Temuan Vektor dan Statistika 3 Sep: dulu baris pertama menempati slot
+        teratas selama utama masih kosong, lalu `tumbuh()` menaruh utama di slot
+        yang sama dan keduanya bertindih. Papan yang memang tanpa rumus utama
+        boleh memakai `PapanRumus(scene, tanpa_utama=True)` supaya slot 0 dipakai.
+        """
         kiri, kanan, bawah, atas = ZONA_RUMUS
         batasi_lebar(mob, kanan - kiri - 0.2)
-        y = atas - 0.12 - 0.62 * (ke_berapa + (1 if self.utama is not None else 0)) - mob.get_height() / 2
+        geser = 0 if self.tanpa_utama else 1
+        y = atas - 0.12 - 0.62 * (ke_berapa + geser) - mob.get_height() / 2
         mob.move_to([kanan - mob.get_width() / 2 - 0.12, y, 0])
         return mob.fix_in_frame()
 
