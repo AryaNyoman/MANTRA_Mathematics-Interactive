@@ -1,0 +1,32 @@
+{
+  "adegan": "GambarBolehBerbohong",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Ruang Tiga Dimensi materi 01: gambar ruang boleh berbohong. Gagasannya satu, dan seluruh video melayaninya: yang menentukan kedudukan adalah bendanya, bukan gambarnya. Kamera sengaja jadi tokoh utama, sebab kameralah yang berbohong. Segmen naik dan turun adalah pasangan: yang satu menciptakan tipuan, yang lain membongkarnya.",
+  "segmen": [
+    {
+      "id": "kotak",
+      "teks": "Di depan kita ada sebuah kotak, berdiri di atas lantai. Panjang, lebar, dan tingginya sama, jadi bentuknya kubus."
+    },
+    {
+      "id": "rangka",
+      "teks": "Supaya bagian dalamnya ikut terlihat, dinding kotak ini kita buat tembus pandang. Kedelapan titik sudutnya kita beri nama, A sampai H."
+    },
+    {
+      "id": "dua-ruas",
+      "teks": "Sekarang kita tarik dua ruas garis. Yang biru, B D, tergeletak di lantai kubus. Yang merah, E G, ada di atapnya, enam satuan lebih tinggi."
+    },
+    {
+      "id": "naik",
+      "teks": "Sekarang kamera kita naikkan, dan kita lihat kubus ini dari atas. Perhatikan kedua ruas tadi. Keduanya menyilang tepat di tengah. Apakah keduanya benar-benar bertemu di situ? Coba tebak dulu."
+    },
+    {
+      "id": "turun",
+      "teks": "Kamera kita turunkan lagi, dan jawabannya kelihatan. Tidak. Yang biru tetap di lantai, yang merah tetap di atap. Titik silang tadi ternyata dua titik yang berbeda, terpisah sejauh enam satuan."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi yang berubah cuma sudut pandangnya. Kubusnya sendiri sama sekali tidak berubah. Dua garis seperti ini, yang tidak sejajar dan tidak pernah bertemu, namanya bersilangan."
+    }
+  ]
+}

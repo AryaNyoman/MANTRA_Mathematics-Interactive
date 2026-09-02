@@ -330,3 +330,139 @@ dimulai. Menunggu revisi isi ini dinilai.
    penuh. Apakah masih enak dibaca, atau sudah terasa berat.
 3. **Video.** Begitu revisi ini disetujui, urutannya: tahap 1, 3, 4, 6, 8, 9,
    memakai Manim `ThreeDScene`, 480p, satu per satu lewat `alat/antre_render.py`.
+
+---
+
+# Gelombang 2, video pertama: materi 01 "Gambar ruang boleh berbohong"
+
+2 September 2026, malam. ManimGL 1.7.2. Cabang sudah diselaraskan ke master
+(51c7c53) lebih dulu, merge bersih tanpa konflik.
+
+## Pemanasan perkakas di worktree ini
+
+| Perintah | Hasil |
+|---|---|
+| `manimgl manim/uji/uji_cahaya_gl.py UjiCahayaTerang -w -l` | jalan, 10 detik, lembar kontak dibuka: permukaan bercahaya, jala, kamera terbang, latar krem, tidak ada tindihan |
+| `manimgl manim/uji/uji_ilustrasi_gl.py Etalase -w -l` | jalan, kedelapan benda tampil (perahu, mobil, orang, bola, balok, silinder, air, lantai kisi) |
+
+Perkakas `manim/gl/` bekerja penuh di worktree ini.
+
+## Berkas yang dibuat
+
+- `manim/narasi/ruang-3d-01.json`: 6 segmen, 941 huruf, 76,46 detik.
+- `audio/ruang-3d-01/`: enam potongan suara + `durasi.json` (edge-tts, id-ID-ArdiNeural).
+- `manim/scenes/ruang_3d_01.py`: adegan `GambarBolehBerbohong`, 6 babak.
+- `media/uji-480p/ruang-3d-01.mp4`: 3,62 MB, 76,44 detik, selisih suara 0,14 detik.
+
+## Kenapa video ini memang layak 3D
+
+Bukan karena topiknya kebetulan tiga dimensi. Seluruh isi materi 01 adalah
+tentang KAMERA yang berbohong: di halaman siswa membongkarnya dengan menarik
+kubusnya sendiri, dan di video kamera itulah tokoh utamanya. Kamera naik ke
+pandangan atas selama 8 detik dan tipuan lahir di depan mata; lalu turun 8,5
+detik dan tipuan itu runtuh. Gambar diam tidak bisa melakukan itu, dan itulah
+alasan 3D-nya.
+
+## EMPAT RENDER, dan apa yang ditemukan di tiap lembar kontak
+
+Keempatnya keluar dengan kode 0 dan tulisan "File ready". Tidak satu pun cacat
+di bawah ini yang bisa ditemukan dari log.
+
+### Render 1: empat cacat
+
+| Cacat | Sebabnya |
+|---|---|
+| **Empat detik pembuka layarnya kosong** padahal narator berkata "di depan kita ada sebuah kotak" | kubus baru di-`FadeIn` sesudah judul selesai. Gambar membantah narasinya sendiri, persis yang dilarang gerbang video |
+| **Tulisan "6 satuan" TERCERMIN**, terbaca terbalik di layar | `apply_matrix(frame.get_inverse_camera_rotation_matrix())` ternyata ikut memantulkan |
+| Huruf B dan D menyusut sampai tidak terbaca di pandangan atas | huruf berukuran DUNIA. B dan D di lantai berjarak enam satuan lebih jauh dari kamera daripada E dan G di atap |
+| Penanda titik silang jadi coretan lonjong saat kamera turun | lingkaran datar di bidang xy: sempurna dari atas, memipih dari samping |
+
+Perbaikannya: kubus ada sejak frame pertama; huruf diputar dengan dua putaran
+yang bisa dibaca maksudnya (miringkan sebesar phi, lalu putar sebesar theta)
+dan diperbesar sebanding jaraknya ke kamera sehingga ukurannya di LAYAR tetap;
+lingkaran diganti bola.
+
+### Render 2: satu cacat lama sembuh, satu cacat BARU yang lebih parah
+
+Huruf tidak lagi tercermin dan ukurannya seragam. Tetapi penanda titik silang
+BAWAH hilang sama sekali, sehingga keterangan "satu titik silang ternyata dua
+titik" muncul dengan cuma SATU titik di layar. Ini lebih parah daripada cacat
+yang diperbaiki, sebab gambarnya membantah kalimatnya sendiri.
+
+### Render 3: tebakan yang salah, dan diakui
+
+Dugaan saya: bola tenggelam di alas kubus. Penanda diangkat 0,1 satuan.
+Hasilnya bola tetap hilang. Tebakan itu mengobati gejala yang salah.
+
+### Diagnosa, bukan tebakan ketiga
+
+Aturan ARYA: gagal tiga kali pada hal yang sama, berhenti. Jadi saya berhenti
+menebak dan membuat adegan uji sekali pakai yang mengadu tiga penanda di dalam
+satu kubus tembus pandang. Rendernya 30 detik, bukan 12 menit.
+
+| Penanda | Hasil |
+|---|---|
+| bola (Surface) | **HILANG** |
+| lingkaran datar (VMobject) | terlihat, tetapi memipih |
+| lingkaran menghadap kamera (VMobject) | terlihat, dan tetap bulat |
+
+Sebabnya: ManimGL menggambar Surface (bola, prisma) dan VMobject (garis,
+lingkaran) lewat jalur berbeda, dan sisi kubus yang tembus pandang TETAP
+menulis kedalaman. Surface di belakangnya dibuang; VMobject tetap tergambar.
+Itu juga menjelaskan kenapa tiang ungu dan ruas BD terlihat menembus kubus
+sejak awal, sementara bola tidak.
+
+**Catatan untuk sesi lain dan untuk MASTER: siapa pun yang menaruh benda
+`gl.ilustrasi` (bola, balok, silinder) DI DALAM benda tembus pandang akan kena
+hal yang sama.** Ini bukan khas topik saya.
+
+### Render 4: bersih
+
+Penanda diganti lingkaran yang diputar menghadap kamera dan diskalakan menurut
+jarak, cara yang sudah terbukti untuk huruf titik sudut. Titik silang bawah
+dikembalikan ke z = 0 tepat, sebab pergeseran 0,1 tadi mengobati gejala yang
+salah. Di detik 66 sekarang terlihat DUA titik ungu yang dihubungkan tiang,
+dan keterangannya cocok dengan gambarnya.
+
+## Daftar periksa STANDAR-ILUSTRASI-VIDEO.md
+
+- [ya] Benda nyata dari `gl.ilustrasi`, tidak ada benda berupa titik atau garis.
+  Kubus dari `ilustrasi.balok` (prisma bercahaya), lantai dari `lantai_kisi`.
+  Titik ungu adalah titik MATEMATIKA, yaitu titik silang, bukan benda.
+- [ya] Latar hidup dan updater menjaga dunia bergerak saat narator diam. Sisa
+  waktu terbesar tanpa animasi adalah 4,05 detik di babak penutup, dan di situ
+  dua penanda sedang berdenyut. Sisa di babak 1 sampai 3 semuanya di bawah 1,6
+  detik, jadi tidak ada waktu mati.
+- [ya] Kamera mulai dari dunia, satu gerakan panjang per babak, tidak ada
+  sentakan: 5,2 / 4,0 / 7,5 / 8,0 / 8,5 / 6,5 detik.
+- [ya] Huruf dan penanda di dunia, rumus di panel HUD, gambar tidak pernah
+  diganti layar kosong.
+- [ya] Satu warna satu makna sepanjang video: AKSEN2 biru = BD di lantai,
+  AKSEN merah = EG di atap, SOROT ungu = kesimpulan. Tidak ada kode heksa,
+  `cek_kode` bersih.
+- [ya] `teks()` untuk kata, `rumus()` untuk angka. Satuan memakai `\\mathrm`.
+  Percobaan pertama memakai `\\perp\\!\\!\\!/` dan `cek_kode` menolaknya sebelum
+  render, persis fungsinya.
+- [ya] Semua animasi di dalam `sinema.babak`. Jeda 1,6 detik sesudah pertanyaan
+  "benar-benar bertemu?".
+- [ya] `cek_kode` bersih, `qc.periksa_adegan` di keenam babak, lembar kontak
+  DIBUKA dan dinilai tiap render, `gabung_audio --uji` jalan dengan selisih
+  0,14 detik.
+- [ya] Cacat yang tersisa disebutkan di bawah, tidak didiamkan.
+
+## Cacat yang MASIH tersisa, disebut apa adanya
+
+**Huruf B dan D sedikit lebih kecil daripada E dan G pada pandangan atas.**
+Skala menurut jarak sudah sangat mengurangi bedanya (di render 1 keduanya tidak
+terbaca sama sekali, sekarang terbaca jelas), tetapi belum menyamakannya persis.
+Sebabnya perspektif ManimGL tidak sepenuhnya sebanding dengan jarak lurus.
+Menyamakannya berarti menghitung proyeksi layar sungguhan, dan menurut saya
+itu tidak sepadan untuk beda yang sekarang tinggal sedikit. Kalau ARYA melihat
+ini mengganggu, silakan bilang dan akan saya kerjakan.
+
+## Berikutnya
+
+Kandidat video sisa, urut prioritas: tahap 3, 4, 6, 8, 9. Pola yang sudah
+terbukti di video ini bisa dipakai ulang: kubus `ilustrasi.balok` yang dibuat
+tembus pandang, rangka `Line`, huruf menghadap kamera dengan skala tetap, dan
+penanda titik berupa lingkaran menghadap kamera.
