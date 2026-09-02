@@ -1,12 +1,13 @@
 {
-  "total": 118.368,
+  "total": 138.696,
   "segmen": {
     "sapa": 12.072,
-    "terbang": 6.768,
+    "terbang": 12.672,
     "dayung": 12.12,
     "arus": 13.992,
     "resultan": 11.808,
-    "hilir": 12.624,
+    "hilir": 8.016,
+    "pythagoras": 19.032,
     "tanya": 11.28,
     "searah": 8.088,
     "lawan": 8.856,

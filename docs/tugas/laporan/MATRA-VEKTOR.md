@@ -81,6 +81,123 @@ angka**. Ini pengganti kemiringan kamera yang jadi sebab penolakan.
 - [ya] Penanda `*kata*` untuk penebalan subtitle, satu sampai dua per segmen.
 - [sisa, kecil] Pada arah dayung 180 derajat label "dayung" jatuh sedikit di luar petak. Terbaca, tidak menutupi apa pun.
 
+## Revisi putaran kedua (2 Sep malam): empat catatan ARYA, semuanya dipenuhi
+
+ARYA menonton kedua video dan memberi empat catatan. Berkas tinjauan yang
+berlaku sekarang **berakhiran `-bersubtitle`**:
+
+| Berkas | Ukuran | Panjang |
+|---|---|---|
+| `media/uji-480p/vektor1-perahu-bersubtitle.mp4` | 3,35 MB | 138,7 detik |
+| `media/uji-480p/vektor6-sambung-bersubtitle.mp4` | 2,55 MB | 132,7 detik |
+
+### 1. Transisi 3D ke 2D: sungainya yang salah tempat, bukan perahunya
+
+Keluhan ARYA: "kapalnya tiba-tiba teleport ke atas".
+
+Sebabnya dua lapis. Yang terlihat: selama 3D perahu dipaku di tengah sungai
+(`y = -1,5`), lalu berpindah ke titik asal (`y = 0`) begitu kamera sampai di
+atas. Loncat 1,5 petak dalam satu frame.
+
+Yang tidak terlihat, dan lebih parah: **sungai membentang y = -1,5 sampai +1,5
+sementara perahu diminta menyeberang dari y = 0 ke y = 3**, jadi perahunya
+mendarat 1,5 petak di DARAT. Gambarnya membantah ceritanya, dan tidak ada yang
+melaporkannya karena tidak ada angka di layar untuk memeriksanya.
+
+Perbaikannya bukan menambal loncatan itu, tetapi memindahkan sungainya:
+sekarang sungai menempati **petak 0 sampai 3 persis**. Perahu berangkat dari
+(0, 0) di tepi dekat dan posisinya selalu dibaca dari dua tracker yang sama,
+sebelum maupun sesudah kamera turun. Loncatannya hilang dengan sendirinya, dan
+lebar "3 km" jadi bisa dihitung siswa dari petaknya.
+
+Airnya tidak dihilangkan sepenuhnya: setelah kamera tegak lurus ia jadi pita
+biru semu (isian 0,09) yang tetap menempati petak 0 sampai 3.
+
+### 2. Subtitle: masalahnya cara ARYA menerimanya, bukan isinya
+
+Keluhan: "anda tidak mengisi subtitle sepanjang menjelaskan".
+
+Subtitlenya sebenarnya sudah lengkap. Yang tidak ada adalah CARA ARYA
+melihatnya: ia menonton `.mp4` langsung, dan `.mp4` tidak membawa berkas
+`.vtt` terpisah. Alat baru `manim/bakar_subtitle.py` membakar subtitle ke satu
+salinan khusus tinjauan berakhiran `-bersubtitle`. Versi yang TAYANG tetap
+bersih dengan `.vtt` terpisah, sesuai keputusan ARYA 31 Agustus, dan berkas
+`-bersubtitle` tidak pernah disalin ke `web/public/anim/`. `gabung_audio.py`
+milik MASTER tidak disentuh.
+
+**Tidak menutupi matematikanya, dan itu DIUKUR, bukan dikira.** Salinan
+bersubtitle dibandingkan piksel demi piksel dengan salinan polos di 28 titik
+sampel per video. Jarak terkecil antara huruf subtitle dan tinta gambar: 33
+piksel di Materi 01, 14 piksel di Materi 06. Nol tumpang-tindih.
+
+Ukuran dan posisinya juga bukan selera. Percobaan pertama (FontSize 19,
+MarginV 14) membuat subtitle DUA BARIS menyentuh angka "-1" sumbu. Sekarang
+FontSize 15, MarginV 3.
+
+### 3. Keterangan pita bawah dihapus, identitas cerita pindah ke pojok
+
+Semua `sinema.keterangan` dibuang dari kedua adegan. Isinya memang mengulang
+ucapan narator, dan aturan proyek melarang itu. Pita bawah sekarang milik
+subtitle sendirian.
+
+Gantinya satu blok tetap di pojok kiri atas. Materi 01: `sungai = 3 km` dan
+`1 petak = 1 km`. Materi 06: `1 petak = 1 langkah`.
+
+Catatan atas usul ARYA: ia mengusulkan "sungai = 3 satuan". Saya pakai "km"
+karena naratornya mengucapkan "tiga kilometer", dan "satuan" akan membantah
+suaranya. Masalah yang ARYA tunjuk (satuannya hilang saat pindah ke 2D)
+dijawab baris kedua, `1 petak = 1 km`.
+
+### 4. Gaya 3B1B: asal rumus diperlihatkan lebih dulu
+
+**Materi 01, babak `pythagoras` baru.** Panah arus dirapatkan ke ujung panah
+dayung (geserannya dinolkan sementara) supaya segitiganya tertutup rapat,
+tanda siku-siku muncul, lalu uraiannya ditulis tiga baris bertumpuk:
+akar(4^2 + 3^2), lalu akar(16 + 9) = akar(25), lalu 5.
+
+**Materi 06, babak `komponen` baru.** Garis putus-putus dijatuhkan dari tiap
+ujung panah ke sumbu mendatar, ruas 0 sampai 3 diwarnai biru dan 3 sampai 4
+merah, angkanya muncul di bawah sumbu, BARU ditulis 3 + 1 = 4. Babak `hitung`
+mengulang hal yang sama di sumbu tegak.
+
+### Cacat yang tertangkap gerbang video pada putaran ini
+
+| Cacat | Ketahuan dari | Perbaikannya |
+|---|---|---|
+| Uraian Pythagoras melar keluar layar (`kiri -9.15 < -6.82`). | `qc.periksa_adegan` MENGGAGALKAN rendernya. | `Transform` antar rumus dengan jumlah lambang berbeda meninggalkan lambang sisa di posisi liar. Diganti tiga baris bertumpuk. Kebetulan lebih baik untuk diajarkan: langkah sebelumnya tetap terlihat. |
+| Pita sungai jadi biru PEKAT, menelan petak, angka sumbu, dan panah birunya sendiri. | Lembar kontak. | `set_opacity(1)` menimpa kepekatan isian yang sudah disetel. Diatur lewat `set_fill(AKSEN2, 0.09)`. |
+| Panah berkedip KUNING saat disorot. | Lembar kontak. | `Indicate` bawaan ManimGL memakai `#FFFF00`, di luar palet MATRA, dan terbaca seperti kerusakan gambar. Diganti warna palet. `scale_factor` juga dijadikan 1.0: membesarkan panah walau sekejap membuat ujungnya melewati petaknya sendiri, dan di bidang bernomor itu berarti gambar membantah angkanya. |
+| Subtitle dua baris menyentuh angka "-1" sumbu. | Frame salinan bersubtitle. | Ukuran dan margin dikecilkan, lalu diukur ulang di 28 titik sampel. |
+
+### Yang sempat saya kira cacat, ternyata bukan
+
+Ujung video 6 terlihat hitam di lembar kontak. Saya tarik frame terakhirnya
+dan ternyata kalimat penutup di latar terang; yang hitam itu slot kosong
+lembar kontaknya sendiri. Dilaporkan supaya tidak jadi "perbaikan" yang
+mengejar hantu.
+
+### Sisa kecil yang saya biarkan, dan alasannya
+
+1. Materi 01, saat dayung diputar 180 derajat, label "dayung" jatuh sedikit di
+   luar petak. Terbaca, tidak menutupi apa pun.
+2. Materi 06, dilihat tegak lurus dari atas orangnya jadi bentuk gelap kecil
+   di ujung panah. Ia bergerak mengikuti panah jadi perannya jelas, tapi bukan
+   gambar orang yang jelas. Kalau ARYA mau penanda yang lebih tegas, tinggal
+   diganti.
+
+### Catatan lingkungan untuk MASTER
+
+Render sesi ini beberapa kali melambat drastis karena sesi MATRA-RUANG-3D
+menjalankan empat render ManimGL bersamaan di mesin yang sama
+(`ruang_3d_06.py`, `ruang_3d_09.py`, masing-masing dengan ffmpeg sendiri).
+Tidak ada proses sesi lain yang saya hentikan. Render paralel memang aman
+secara hasil, hanya lambat. Kalau dua sesi sering berbenturan, mungkin perlu
+aturan giliran render.
+
+---
+
+# Putaran pertama (sebelum revisi malam)
+
 ## Video 2 Materi 06 SELESAI (versi baru): `media/uji-480p/vektor6-sambung.mp4`
 
 2,18 MB, 118,20 detik, 11 segmen. Beda panjang narasi dan gambar 0,68 detik

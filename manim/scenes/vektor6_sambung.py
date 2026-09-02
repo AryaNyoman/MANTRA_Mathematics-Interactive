@@ -1,30 +1,38 @@
-"""Vektor Materi 06, Menjumlah itu menyambung perjalanan. ManimGL, arah visual BARU.
+"""Vektor Materi 06, Menjumlah itu menyambung perjalanan. ManimGL.
 
-Ditulis ulang 2 Sep sore setelah ARYA menolak versi 3D penuh. Rancangannya:
+Rancangan arah visual:
 `docs/superpowers/specs/2026-09-02-video-vektor-bidang-bernomor.md`.
 
 PRINSIP POKOK
 Matematika digambar di bidang datar bernomor, kamera TEGAK LURUS dari atas,
 tidak pernah dimiringkan lagi. 3D hanya di babak pembuka.
 
+REVISI 2 SEPTEMBER MALAM, dua catatan ARYA setelah menonton:
+
+1. PITA BAWAH MILIK SUBTITLE SENDIRIAN. Semua `sinema.keterangan` dibuang.
+   Isinya memang mengulang ucapan narator, dan aturan proyek melarang itu.
+   Gantinya satu baris tetap di pojok kiri atas sebagai satuan cerita, karena
+   begitu pindah ke 2D tidak ada lagi yang memberi tahu satu petak itu apa.
+
+2. ASAL RUMUS DIPERLIHATKAN DULU. Babak `komponen` baru: garis putus-putus
+   dijatuhkan dari tiap ujung panah ke sumbu mendatar, lalu ruas yang terbentuk
+   di sumbu itu diwarnai. Siswa MELIHAT petak 0 sampai 3 disambung petak 3
+   sampai 4 sebelum ditulis 3 + 1 = 4. Babak `hitung` melakukan hal yang sama
+   pada sumbu tegak.
+
 STORYBOARD
-  1. sapa      3D miring DEKAT: orang berdiri di lapangan berpetak. Judul, dan
-               narasinya mengumumkan materinya.
-  2. terbang   Satu gerakan turun ke tegak lurus; kisi 3D memudar, bidang
-               koordinat bernomor muncul menggantikannya.
-  3. jalan1    Orangnya BERJALAN (3, 1). Panah biru tumbuh mengikuti langkahnya.
-  4. jalan2    Dari tempat ia berhenti, berjalan lagi (1, 2). Panah merah, dan
-               pangkalnya menempel di ujung panah biru karena memang di situ
-               perjalanan kedua berangkat.
-  5. tanya     Pertanyaan, lalu diam.
-  6. resultan  Panah ungu dari (0, 0) langsung ke (4, 3).
-  7. aturan    Segitiganya disorot: ujung ke pangkal.
-  8. keliru    Susunan yang SALAH: kedua pangkal ditempelkan. Panah hitam dari
-               ujung ke ujung, jelas lebih pendek dan arahnya lain. Susunan yang
-               benar diredupkan supaya yang salah menonjol.
-  9. hitung    Komponen dijumlahkan: 3 + 1 = 4, dan 1 + 2 = 3.
- 10. panjang   Jebakannya: 3,16 + 2,24 = 5,4, padahal resultannya tepat 5.
- 11. tutup     Layar bersih, kalimat sorot Materi 06.
+   1. sapa       3D miring DEKAT: orang berdiri di lapangan berpetak.
+   2. terbang    Turun ke tegak lurus; bidang koordinat bernomor muncul.
+   3. jalan1     Orangnya BERJALAN (3, 1). Panah biru tumbuh mengikuti langkah.
+   4. jalan2     Dari tempat ia berhenti, berjalan lagi (1, 2). Panah merah.
+   5. tanya      Pertanyaan, lalu diam.
+   6. resultan   Panah ungu dari (0, 0) langsung ke (4, 3).
+   7. aturan     Segitiganya disorot: ujung ke pangkal.
+   8. keliru     Susunan yang SALAH: kedua pangkal ditempelkan.
+   9. komponen   Garis bantu ke sumbu mendatar; ruas 0-3 dan 3-4 diwarnai.
+  10. hitung     Hal yang sama di sumbu tegak, lalu 3 + 1 = 4 dan 1 + 2 = 3.
+  11. panjang    Jebakannya: 3,16 + 2,24 = 5,4, padahal resultannya tepat 5.
+  12. tutup      Layar bersih, kalimat sorot Materi 06.
 
 KENAPA BERANGKAT DARI (0, 0) BIDANG
 Sama dengan Materi 01: koordinat di layar SAMA dengan komponen vektornya, jadi
@@ -33,7 +41,7 @@ siswa bisa memeriksa sendiri dengan menghitung petak, tanpa mengurangi apa pun.
 KENAPA PANAHNYA DIBEKUKAN SETELAH BABAK 4
 Selama orangnya berjalan, panah digambar ulang tiap frame (`always_redraw`)
 supaya tumbuh mengikuti langkah. Sesudah berhenti, panah yang sama diganti
-salinan diam. Sebabnya babak "keliru" perlu MEREDUPKAN susunan yang benar, dan
+salinan diam. Sebabnya babak `keliru` perlu MEREDUPKAN susunan yang benar, dan
 benda `always_redraw` mengembalikan kepekatannya sendiri tiap frame.
 
 WARNA: biru perjalanan pertama, merah perjalanan kedua, ungu resultan,
@@ -61,8 +69,7 @@ AKHIR = ASAL + V1 + V2
 
 # Jangkauan dipilih dari daerah yang benar-benar dipakai: x sampai 4, y sampai 3,
 # ditambah satu petak longgar untuk label koordinat. Batas bawah -1, bukan -2:
-# angka "-2" jatuh persis di jalur keterangan layar dan keduanya bertindih
-# (cacat yang tertangkap lembar kontak Materi 01).
+# angka "-2" jatuh persis di pita subtitle.
 BIDANG_X, BIDANG_Y = (-2.0, 7.0, 1.0), (-1.0, 4.0, 1.0)
 PETA = dict(theta=0, phi=0, pusat=(2.5, 1.3, 0.0), tinggi=7.0)
 
@@ -101,11 +108,8 @@ class SambungPerjalanan(AdeganMatra):
         with sinema.babak(self, "sapa", DURASI) as b:
             sinema.judul_pembuka(self, "Menyambung perjalanan", lama=3.2, y=2.4)
             b.catat(3.2)
-            sinema.keterangan(self, "ia akan berjalan dua kali")
-            b.catat(0.6)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"pejalan": pejalan, "keterangan": self._matra_keterangan},
-                          [("pejalan", "keterangan")])
+        qc.periksa_adegan(self, {"pejalan": pejalan})
 
         # ==============================================================
         # Babak 2: turun ke tegak lurus, lapangan jadi peta bernomor
@@ -115,14 +119,17 @@ class SambungPerjalanan(AdeganMatra):
         self.add(bidang)
         self.bring_to_front(pejalan)
 
+        identitas = teks("1 petak = 1 langkah", 23, REDUP).to_corner(UL, buff=0.42)
+
         with sinema.babak(self, "terbang", DURASI) as b:
-            lama = max(2.0, DURASI["terbang"] - 2.2)
+            lama = max(2.0, DURASI["terbang"] - 3.0)
             b.main(kamera.sudut(frame, **PETA), run_time=lama)
             b.main(FadeOut(lapangan), FadeOut(alas),
                    bidang.animate.set_opacity(1), run_time=1.4)
-            sinema.keterangan(self, "sekarang langkahnya bisa dihitung")
-            b.catat(0.6)
-        qc.periksa_adegan(self, {"bidang": bidang, "keterangan": self._matra_keterangan})
+            self.hud_tambah(identitas)
+            identitas.set_opacity(0)
+            b.main(identitas.animate.set_opacity(1), run_time=0.8)
+        qc.periksa_adegan(self, {"bidang": bidang, "identitas": identitas})
 
         # ==============================================================
         # Babak 3: perjalanan pertama, panah tumbuh mengikuti langkah
@@ -133,16 +140,13 @@ class SambungPerjalanan(AdeganMatra):
         with sinema.babak(self, "jalan1", DURASI) as b:
             self.add(p1)
             self.bring_to_front(pejalan)
-            b.main(self.t1.animate.set_value(1.0), run_time=max(2.0, DURASI["jalan1"] - 2.4))
+            b.main(self.t1.animate.set_value(1.0), run_time=max(2.0, DURASI["jalan1"] - 1.8))
             self.hud_tambah(panel_a)
             panel_a.set_opacity(0)
             b.main(panel_a.animate.set_opacity(1), run_time=0.6)
-            sinema.keterangan(self, "3 ke kanan, 1 ke atas: berhenti di (3, 1)", warna=AKSEN2)
-            b.catat(0.6)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"panah a": p1, "panel a": panel_a,
-                                 "keterangan": self._matra_keterangan},
-                          [("panel a", "keterangan")])
+        qc.periksa_adegan(self, {"panah a": p1, "panel a": panel_a, "identitas": identitas},
+                          [("panel a", "identitas")])
 
         # ==============================================================
         # Babak 4: perjalanan kedua, berangkat dari tempat ia berhenti
@@ -154,12 +158,10 @@ class SambungPerjalanan(AdeganMatra):
         with sinema.babak(self, "jalan2", DURASI) as b:
             self.add(p2)
             self.bring_to_front(pejalan)
-            b.main(self.t2.animate.set_value(1.0), run_time=max(2.0, DURASI["jalan2"] - 2.4))
+            b.main(self.t2.animate.set_value(1.0), run_time=max(2.0, DURASI["jalan2"] - 1.8))
             self.hud_tambah(panel_b)
             panel_b.set_opacity(0)
             b.main(panel_b.animate.set_opacity(1), run_time=0.6)
-            sinema.keterangan(self, "1 ke kanan, 2 ke atas: berhenti di (4, 3)", warna=AKSEN)
-            b.catat(0.6)
             b.jeda(0.8)
 
         # Panah dan orangnya dibekukan. Alasannya di catatan kepala berkas.
@@ -180,10 +182,14 @@ class SambungPerjalanan(AdeganMatra):
         # Babak 5: pertanyaan
         # ==============================================================
         with sinema.babak(self, "tanya", DURASI) as b:
-            sinema.keterangan(self, "dari titik berangkat, ke mana ia berpindah?", warna=SOROT)
-            b.catat(0.6)
+        # `Indicate` bawaan ManimGL berkedip KUNING (#FFFF00), warna yang tidak ada
+        # di palet MATRA dan terlihat seperti kerusakan gambar. Warnanya diganti
+        # warna palet, dan `scale_factor` dibuat 1.0: membesarkan panah walau
+        # sekejap membuat ujungnya melewati petaknya sendiri, dan di bidang
+        # bernomor itu berarti gambar membantah angkanya.
+            b.main(Indicate(pa, scale_factor=1.0, color=SOROT), run_time=1.0)
             b.jeda(1.6)
-        qc.periksa_adegan(self, {"panah a": pa, "keterangan": self._matra_keterangan})
+        qc.periksa_adegan(self, {"panah a": pa, "identitas": identitas})
 
         # ==============================================================
         # Babak 6: resultan
@@ -201,8 +207,7 @@ class SambungPerjalanan(AdeganMatra):
             self.hud_tambah(panel_r)
             panel_r.set_opacity(0)
             b.main(panel_r.animate.set_opacity(1), run_time=0.6)
-            sinema.keterangan(self, "panah ungu ini namanya resultan", warna=SOROT)
-            b.catat(0.6)
+            b.jeda(0.6)
         qc.periksa_adegan(self, {"resultan": pr, "koordinat": koord, "panel r": panel_r,
                                  "panel b": panel_b},
                           [("panel b", "panel r"), ("koordinat", "panel r")])
@@ -217,13 +222,11 @@ class SambungPerjalanan(AdeganMatra):
         with sinema.babak(self, "aturan", DURASI) as b:
             b.main(FadeIn(sambung, scale=2.5), run_time=0.6)
             b.main(FadeIn(l_sambung), run_time=0.5)
-            b.main(Indicate(pa, scale_factor=1.06), Indicate(pb, scale_factor=1.06), run_time=1.2)
-            sinema.keterangan(self, "ujung ke pangkal, lalu resultan menutup segitiga")
-            b.catat(0.6)
+            b.main(Indicate(pa, scale_factor=1.0, color=SOROT),
+                   Indicate(pb, scale_factor=1.0, color=SOROT), run_time=1.2)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"sambung": l_sambung, "koordinat": koord,
-                                 "keterangan": self._matra_keterangan},
-                          [("sambung", "koordinat"), ("sambung", "keterangan")])
+        qc.periksa_adegan(self, {"sambung": l_sambung, "koordinat": koord},
+                          [("sambung", "koordinat")])
 
         # ==============================================================
         # Babak 8: susunan yang keliru
@@ -235,61 +238,99 @@ class SambungPerjalanan(AdeganMatra):
 
         # Susunan yang salah TIDAK dikembalikan di dalam babak ini. `sinema.babak`
         # menambal sisa waktu narasinya SESUDAH blok selesai, jadi kalau gambarnya
-        # dipulihkan di sini, empat detik terakhir narator masih menjelaskan
+        # dipulihkan di sini, detik-detik terakhir narator masih menjelaskan
         # susunan yang salah sementara layar sudah menampilkan yang benar. Gambar
         # yang membantah narasinya lebih merusak daripada layar kosong.
-        # (Cacat ini tertangkap lembar kontak render pertama.)
         with sinema.babak(self, "keliru", DURASI) as b:
-            sinema.keterangan(self, "dua pangkal ditempelkan: hasilnya lain sama sekali",
-                              warna=TINTA)
-            b.catat(0.6)
             b.main(benar.animate.set_opacity(0.22), run_time=0.8)
             b.main(GrowArrow(pb_salah), run_time=0.9)
             b.main(GrowArrow(p_salah), run_time=1.0)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"salah": p_salah, "keterangan": self._matra_keterangan})
+        qc.periksa_adegan(self, {"salah": p_salah, "identitas": identitas})
 
         # ==============================================================
-        # Babak 9: komponen dijumlahkan
+        # Babak 9: dari mana angka mendatarnya datang
         # ==============================================================
-        h1 = rumus(r"\mathrm{mendatar:}\ 3 + 1 = 4", 32, TINTA)
-        h2 = rumus(r"\mathrm{tegak:}\ 1 + 2 = 3", 32, TINTA)
-        hitung = VGroup(h1, h2).arrange(DOWN, buff=0.22, aligned_edge=LEFT)
-        hitung.to_corner(UL, buff=0.45)
+        # Garis bantu dijatuhkan ke sumbu mendatar, lalu ruas yang terbentuk di
+        # sumbu itu diwarnai. Angkanya ditaruh di y = -0,72: di bawah deretan
+        # angka sumbu (yang berhenti di sekitar -0,42) tetapi masih di dalam
+        # petak (batas bawah -1), jadi tidak menabrak apa pun.
+        Y_LABEL = -0.72
+        bantu_x = VGroup(
+            DashedLine(SIMPANG, [SIMPANG[0], 0, Z]).set_stroke(AKSEN2, 2),
+            DashedLine(AKHIR, [AKHIR[0], 0, Z]).set_stroke(SOROT, 2),
+        )
+        ruas_a = Line([0, 0, Z], [3, 0, Z]).set_stroke(AKSEN2, 7)
+        ruas_b = Line([3, 0, Z], [4, 0, Z]).set_stroke(AKSEN, 7)
+        n_a = rumus("3", 30, AKSEN2).move_to([1.5, Y_LABEL, 0])
+        n_b = rumus("1", 30, AKSEN).move_to([3.5, Y_LABEL, 0])
 
-        with sinema.babak(self, "hitung", DURASI) as b:
+        with sinema.babak(self, "komponen", DURASI) as b:
             b.main(FadeOut(pb_salah), FadeOut(p_salah),
                    benar.animate.set_opacity(1.0), run_time=0.8)
+            b.main(ShowCreation(bantu_x), run_time=1.0)
+            b.main(ShowCreation(ruas_a), run_time=0.7)
+            b.main(FadeIn(n_a), run_time=0.4)
+            b.main(ShowCreation(ruas_b), run_time=0.5)
+            b.main(FadeIn(n_b), run_time=0.4)
+            b.jeda(0.8)
+        qc.periksa_adegan(self, {"angka a": n_a, "angka b": n_b, "identitas": identitas},
+                          [("angka a", "angka b")])
+
+        # ==============================================================
+        # Babak 10: hal yang sama di sumbu tegak, lalu angkanya ditulis
+        # ==============================================================
+        X_LABEL = -0.95
+        bantu_y = VGroup(
+            DashedLine(SIMPANG, [0, SIMPANG[1], Z]).set_stroke(AKSEN2, 2),
+            DashedLine(AKHIR, [0, AKHIR[1], Z]).set_stroke(SOROT, 2),
+        )
+        ruas_c = Line([0, 0, Z], [0, 1, Z]).set_stroke(AKSEN2, 7)
+        ruas_d = Line([0, 1, Z], [0, 3, Z]).set_stroke(AKSEN, 7)
+        n_c = rumus("1", 30, AKSEN2).move_to([X_LABEL, 0.5, 0])
+        n_d = rumus("2", 30, AKSEN).move_to([X_LABEL, 2.0, 0])
+
+        h1 = rumus(r"3 + 1 = 4", 32, TINTA)
+        h2 = rumus(r"1 + 2 = 3", 32, TINTA)
+        hitung = VGroup(h1, h2).arrange(DOWN, buff=0.22, aligned_edge=LEFT)
+        hitung.next_to(identitas, DOWN, buff=0.34).align_to(identitas, LEFT)
+
+        with sinema.babak(self, "hitung", DURASI) as b:
             self.hud_tambah(hitung)
             hitung.set_opacity(0)
-            b.main(hitung.animate.set_opacity(1), run_time=0.8)
-            b.main(Indicate(panel_r, scale_factor=1.08), run_time=1.0)
-            sinema.keterangan(self, "menggambar untuk paham, komponen untuk cepat")
-            b.catat(0.6)
+            b.main(h1.animate.set_opacity(1), run_time=0.6)
+            b.main(ShowCreation(bantu_y), run_time=0.9)
+            b.main(ShowCreation(ruas_c), FadeIn(n_c), run_time=0.6)
+            b.main(ShowCreation(ruas_d), FadeIn(n_d), run_time=0.6)
+            b.main(h2.animate.set_opacity(1), run_time=0.6)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"hitung": hitung, "panel a": panel_a,
-                                 "keterangan": self._matra_keterangan},
-                          [("hitung", "panel a")])
+        qc.periksa_adegan(self, {"hitung": hitung, "identitas": identitas,
+                                 "angka c": n_c, "angka d": n_d},
+                          [("hitung", "identitas"), ("angka c", "angka d")])
 
         # ==============================================================
-        # Babak 10: jebakan panjang
+        # Babak 11: jebakan panjang
         # ==============================================================
-        jebak = rumus(r"3{,}16 + 2{,}24 = 5{,}4 \ne 5", 34, AKSEN)
+        jebak = rumus(r"3{,}16 + 2{,}24 = 5{,}4 \ne 5", 32, AKSEN)
         jebak.next_to(hitung, DOWN, buff=0.34).align_to(hitung, LEFT)
+        bantu = VGroup(bantu_x, bantu_y, ruas_a, ruas_b, ruas_c, ruas_d, n_a, n_b, n_c, n_d)
 
         with sinema.babak(self, "panjang", DURASI) as b:
+            # Garis bantu disingkirkan: mulai sekarang yang dibicarakan panjang
+            # panahnya, bukan komponennya, dan garis komponen yang tertinggal
+            # akan menarik mata ke tempat yang salah.
+            b.main(FadeOut(bantu), run_time=0.6)
             self.hud_tambah(jebak)
             jebak.set_opacity(0)
             b.main(jebak.animate.set_opacity(1), run_time=0.8)
-            b.main(Indicate(pr, scale_factor=1.06), run_time=1.0)
-            sinema.keterangan(self, "panjang resultan tepat 5, bukan 5,4", warna=AKSEN)
-            b.catat(0.6)
+            # Resultannya sendiri sudah ungu, jadi disorot dengan tinta.
+            b.main(Indicate(pr, scale_factor=1.0, color=TINTA), run_time=1.0)
             b.jeda(1.0)
         qc.periksa_adegan(self, {"jebak": jebak, "hitung": hitung, "panel a": panel_a},
                           [("jebak", "hitung"), ("jebak", "panel a")])
 
         # ==============================================================
-        # Babak 11: layar bersih, kalimat sorot
+        # Babak 12: layar bersih, kalimat sorot
         # ==============================================================
         tutup1 = teks("Komponen boleh dijumlahkan.", 34, TINTA)
         sinema.batasi_lebar(tutup1, 11.4)
@@ -302,9 +343,7 @@ class SambungPerjalanan(AdeganMatra):
         # mengizinkan layar bersih untuk penutup, paling banyak satu babak.
         semua = Group(bidang, pejalan, benar)
         with sinema.babak(self, "tutup", DURASI) as b:
-            sinema.hapus_keterangan(self, run_time=0.4)
-            b.catat(0.4)
-            b.main(FadeOut(semua), FadeOut(hitung), FadeOut(jebak),
+            b.main(FadeOut(semua), FadeOut(hitung), FadeOut(jebak), FadeOut(identitas),
                    FadeOut(panel_a), FadeOut(panel_b), FadeOut(panel_r), run_time=1.4)
             self.hud_tambah(tutup)
             tutup.set_opacity(0)

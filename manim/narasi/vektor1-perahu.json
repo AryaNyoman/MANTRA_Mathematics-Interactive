@@ -3,7 +3,7 @@
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
   "latar": "air",
-  "catatan": "Vektor Materi 01, Angka saja tidak cukup. Arah visual BARU (2 Sep sore, setelah ARYA menolak versi 3D penuh): 3D hanya di babak pembuka, sisanya bidang koordinat bernomor dengan kamera tegak lurus. Medan `layar` berisi bentuk TERTULIS (angka dan lambang), medan `teks` berisi bentuk TERUCAP untuk mesin suara. buat_subtitle.py belum membaca `layar`; usulnya sudah dicatat di PROGRESS.md untuk MASTER.",
+  "catatan": "Vektor Materi 01, Angka saja tidak cukup. Arah visual: 3D hanya di babak pembuka, sisanya bidang koordinat bernomor dengan kamera tegak lurus. Medan `layar` berisi bentuk TERTULIS (angka dan lambang), medan `teks` berisi bentuk TERUCAP untuk mesin suara. Revisi 2 Sep malam atas catatan ARYA: keterangan pita bawah DIHAPUS seluruhnya (pita itu milik subtitle), identitas cerita pindah ke pojok kiri atas, dan segmen `pythagoras` ditambahkan supaya angka 5 diperlihatkan asal-usulnya lebih dulu.",
   "segmen": [
     {
       "id": "sapa",
@@ -12,8 +12,8 @@
     },
     {
       "id": "terbang",
-      "teks": "Supaya bisa kita ukur, sungai itu kita lihat dari atas, dan kita pasang petak koordinat di atasnya.",
-      "layar": "Supaya bisa kita *ukur*, sungai itu kita lihat dari atas, dan kita pasang petak koordinat di atasnya."
+      "teks": "Supaya bisa kita ukur, sungai itu kita lihat dari atas, dan kita pasang petak koordinat di atasnya. Satu petak sama dengan satu kilometer, jadi sungainya menempati petak nol sampai tiga.",
+      "layar": "Supaya bisa kita *ukur*, sungai itu kita lihat dari atas, dan kita pasang petak koordinat di atasnya. *1 petak = 1 km*, jadi sungainya menempati petak 0 sampai 3."
     },
     {
       "id": "dayung",
@@ -32,8 +32,13 @@
     },
     {
       "id": "hilir",
-      "teks": "Hitung sendiri dari petaknya. Perahu mendarat empat kilometer di hilir, padahal haluannya tidak pernah dibelokkan. Dan jarak yang benar-benar ditempuh lima kilometer, bukan tujuh.",
-      "layar": "Hitung sendiri dari petaknya. Perahu mendarat *4 km di hilir*, padahal haluannya tidak pernah dibelokkan. Dan jarak yang benar-benar ditempuh 5 km, bukan 7 km."
+      "teks": "Hitung sendiri dari petaknya. Perahu mendarat empat kilometer di hilir, padahal haluannya tidak pernah dibelokkan.",
+      "layar": "Hitung sendiri dari petaknya. Perahu mendarat *4 km di hilir*, padahal haluannya tidak pernah dibelokkan."
+    },
+    {
+      "id": "pythagoras",
+      "teks": "Lalu dari mana angka lima ini? Panah biru dan panah merah bertemu siku-siku. Sisi mendatarnya empat, sisi tegaknya tiga. Jadi panjangnya akar dari empat kuadrat tambah tiga kuadrat, sama dengan akar dua puluh lima, yaitu lima. Bukan tujuh.",
+      "layar": "Lalu dari mana angka 5 ini? Panah biru dan panah merah bertemu *siku-siku*. Sisi mendatarnya 4, sisi tegaknya 3. Jadi panjangnya √(4² + 3²) = √25 = *5*. Bukan 7."
     },
     {
       "id": "tanya",

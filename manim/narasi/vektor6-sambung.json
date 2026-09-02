@@ -2,7 +2,7 @@
   "adegan": "SambungPerjalanan",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Vektor Materi 06, Menjumlah itu menyambung perjalanan. Arah visual BARU (2 Sep sore): 3D hanya di babak pembuka, sisanya bidang koordinat bernomor dengan kamera tegak lurus. Medan `layar` berisi bentuk TERTULIS (angka dan lambang), medan `teks` berisi bentuk TERUCAP untuk mesin suara. Angkanya sama persis dengan contoh di halaman Materi 06: (3, 1) tambah (1, 2) sama dengan (4, 3), panjangnya 5.",
+  "catatan": "Vektor Materi 06, Menjumlah itu menyambung perjalanan. Arah visual: 3D hanya di babak pembuka, sisanya bidang koordinat bernomor dengan kamera tegak lurus. Medan `layar` berisi bentuk TERTULIS, medan `teks` berisi bentuk TERUCAP untuk mesin suara. Angkanya sama persis dengan halaman Materi 06: (3, 1) tambah (1, 2) sama dengan (4, 3), panjangnya 5. Revisi 2 Sep malam atas catatan ARYA: keterangan pita bawah DIHAPUS seluruhnya (pita itu milik subtitle), identitas cerita pindah ke pojok kiri atas, dan segmen `komponen` ditambahkan supaya angka 4 dan 3 diperlihatkan asal-usulnya lewat garis bantu ke sumbu.",
   "segmen": [
     {
       "id": "sapa",
@@ -11,8 +11,8 @@
     },
     {
       "id": "terbang",
-      "teks": "Supaya langkahnya bisa kita hitung, lapangan itu kita lihat dari atas, lengkap dengan angka pada kedua sumbunya.",
-      "layar": "Supaya langkahnya bisa kita *hitung*, lapangan itu kita lihat dari atas, lengkap dengan angka pada kedua sumbunya."
+      "teks": "Supaya langkahnya bisa kita hitung, lapangan itu kita lihat dari atas, lengkap dengan angka pada kedua sumbunya. Satu petak sama dengan satu langkah.",
+      "layar": "Supaya langkahnya bisa kita *hitung*, lapangan itu kita lihat dari atas, lengkap dengan angka pada kedua sumbunya. *1 petak = 1 langkah*."
     },
     {
       "id": "jalan1",
@@ -45,9 +45,14 @@
       "layar": "Kalau kedua *pangkalnya* yang ditempelkan, yang terbentuk bukan resultan. Perhatikan panah hitam ini jauh lebih pendek, dan arahnya pun berbeda."
     },
     {
+      "id": "komponen",
+      "teks": "Sebelum kita menghitung, lihat dulu dari mana angkanya datang. Kita jatuhkan garis bantu dari tiap ujung panah ke sumbu mendatar. Perjalanan pertama mengisi petak nol sampai tiga, perjalanan kedua menyambungnya dari tiga sampai empat.",
+      "layar": "Sebelum kita menghitung, lihat dulu dari mana angkanya datang. Kita jatuhkan garis bantu dari tiap ujung panah ke sumbu mendatar. Perjalanan pertama mengisi petak *0 sampai 3*, perjalanan kedua menyambungnya dari *3 sampai 4*."
+    },
+    {
       "id": "hitung",
-      "teks": "Menggambar memang membuat kita paham, tetapi lambat. Dengan komponen, jumlahkan yang mendatar dengan yang mendatar: tiga tambah satu sama dengan empat. Lalu yang tegak dengan yang tegak: satu tambah dua sama dengan tiga.",
-      "layar": "Menggambar memang membuat kita paham, tetapi lambat. Dengan komponen, jumlahkan yang mendatar dengan yang mendatar: *3 + 1 = 4*. Lalu yang tegak dengan yang tegak: *1 + 2 = 3*."
+      "teks": "Itulah sebabnya yang mendatar dijumlahkan dengan yang mendatar: tiga tambah satu sama dengan empat. Dan dengan cara yang sama pada sumbu tegak: satu tambah dua sama dengan tiga.",
+      "layar": "Itulah sebabnya yang mendatar dijumlahkan dengan yang mendatar: *3 + 1 = 4*. Dan dengan cara yang sama pada sumbu tegak: *1 + 2 = 3*."
     },
     {
       "id": "panjang",
