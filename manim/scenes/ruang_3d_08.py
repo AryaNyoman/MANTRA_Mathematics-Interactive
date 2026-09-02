@@ -2,20 +2,22 @@
 
 Naskah   : manim/narasi/ruang-3d-08.json
 Render   : manimgl manim/scenes/ruang_3d_08.py SudutGarisBersilangan -w -l
-Periksa  : python manim/cek_video.py media/gl/SudutGarisBersilangan.mp4
 Gabung   : python manim/gabung_audio.py ruang-3d-08 SudutGarisBersilangan --uji
 
-KENAPA VIDEO INI PERLU 3D, DAN KENAPA GESERANNYA HARUS PELAN
+KENAPA GESERANNYA HARUS PELAN
 Kekeliruan yang paling sering di materi ini bukan salah hitung, melainkan
 garisnya ikut DIPUTAR sedikit supaya "pas" ke titik yang diinginkan. Begitu
 arahnya berubah, sudutnya berubah. Maka geserannya dianimasikan pelan dan
 posisi asalnya ditinggal sebagai bayangan samar, supaya mata sendiri yang
 memastikan garisnya tetap sejajar dengan dirinya yang dulu.
 
-SATU WARNA SATU MAKNA:
-  AKSEN2 biru = AC, garis yang diam
-  AKSEN merah = BG, garis yang digeser, dan AH tempat ia mendarat
-  SOROT ungu  = sudut 60 derajat, yaitu jawabannya
+ASAL ANGKA DITUNJUKKAN DULU, BARU RUMUSNYA (cara 3b1b, permintaan ARYA)
+Sebelum panel "AC = AH = CH = 6 akar 2" muncul di kanan atas, 6 akar 2 diberi
+label pada KETIGA sisi segitiga di gambarnya. Sudut 60 derajat lalu jadi
+kesimpulan yang bisa dilihat, bukan angka yang diumumkan.
+
+SUMBU Z cuma muncul di pembuka: seluruh hitungan materi ini memakai panjang
+diagonal sisi, bukan tinggi.
 """
 
 import sys
@@ -50,94 +52,89 @@ class SudutGarisBersilangan(AdeganMatra):
             T["B"] + GESER * s.get_value(), T["G"] + GESER * s.get_value()
         ).set_stroke(AKSEN, 6))
 
+        papan = papan_koordinat(frame)
         lab = huruf_sudut(frame, {"A": AKSEN2, "B": AKSEN, "C": AKSEN2, "G": AKSEN, "H": AKSEN})
+        jati = identitas_kubus()
 
         # --- Babak 1: pengumuman materi.
         kamera.pasang_awal(frame, theta=-46, phi=72, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
-        # Papan koordinat berangka: tanpa ini kalimat "enam satuan" di narasi
-        # tidak punya sandaran apa pun di layar (revisi ARYA 2 Sep malam).
-        # Tanpa sumbu z: materi ini tidak membicarakan tinggi sama sekali,
-        # dan tiga deret angka sekaligus membuat tepi kiri layar penuh.
-        sumbu, angka_sumbu = papan_koordinat(frame, sumbu_z=False)
-        self.add(lantai(), sumbu, *angka_sumbu, kubus)
+        self.add(lantai(), *papan["datar"], *papan["tinggi"], kubus)
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 08: Sudut dua garis bersilangan",
                                  lama=3.4, y=3.0)
             b.catat(3.4)
-            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=2.0)
+            self.hud_tambah(jati)
+            jati.set_opacity(0)
+            b.main(jati.animate.set_opacity(1), run_time=0.7)
+            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=1.8)
             isi_sisa(b, kamera.sudut(frame, -34, 68, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-        qc.periksa_adegan(self, {"kubus": kubus})
+        qc.periksa_adegan(self, {"kubus": kubus, "identitas": jati})
 
         # --- Babak 2: kedua garis, dan masalahnya: tidak punya titik bersama.
         with sinema.babak(self, "masalah", DURASI) as b:
+            sumbu_z_pamit(b, papan, 1.0)
             b.main(*[FadeIn(x) for x in lab.values()], run_time=0.8)
             b.main(ShowCreation(ac), run_time=1.2)
             b.main(ShowCreation(bg), run_time=1.2)
-            sinema.keterangan(self, "AC dan BG *bersilangan*: tidak ada titik bersama")
-            b.catat(0.6)
             isi_sisa(b, kamera.sudut(frame, -68, 70, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"AC": ac, "huruf C": lab["C"], "huruf G": lab["G"],
-                                 "keterangan": self._matra_keterangan},
-                          [("huruf C", "keterangan")])
+                                 "identitas": jati})
 
         # --- Babak 3: geseran sejajar, PELAN, dengan bayangan posisi asalnya.
         with sinema.babak(self, "geser", DURASI) as b:
             b.main(FadeIn(bg_asal), run_time=0.6)
-            sinema.keterangan(self, "digeser *sejajar dirinya sendiri*, tanpa diputar",
-                              warna=AKSEN)
-            b.catat(0.6)
             b.main(s.animate.set_value(1.0), run_time=max(3.5, b.sisa - 1.0),
                    rate_func=smooth)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"BG": bg, "AC": ac,
-                                 "keterangan": self._matra_keterangan},
-                          [("AC", "keterangan")])
+        qc.periksa_adegan(self, {"BG": bg, "AC": ac, "identitas": jati})
 
         # --- Babak 4: mendarat tepat di AH, diagonal sisi yang memang sudah ada.
         with sinema.babak(self, "mendarat", DURASI) as b:
             b.main(lab["H"].animate.scale(1.25), run_time=0.7)
-            sinema.keterangan(self, "mendarat tepat menjadi *AH*, diagonal sisi kiri",
-                              warna=AKSEN)
-            b.catat(0.6)
             isi_sisa(b, kamera.sudut(frame, -24, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"BG": bg, "huruf H": lab["H"], "huruf A": lab["A"],
-                                 "keterangan": self._matra_keterangan},
-                          [("huruf H", "keterangan")])
+                                 "identitas": jati})
 
-        # --- Babak 5: segitiga ACH, ketiga sisinya diagonal sisi yang sama panjang.
+        # --- Babak 5: ASAL ANGKANYA DITUNJUKKAN DULU. Ketiga sisi segitiga ACH
+        #     diberi label 6 akar 2 di gambarnya, baru panel muncul.
         ch = Line(T["C"], T["H"]).set_stroke(REDUP, 5)
         muka = Polygon(T["A"], T["C"], T["H"]).set_fill(SOROT, 0.16).set_stroke(width=0)
-        # Jari-jarinya sengaja besar. Pada percobaan pertama busurnya jari 1,1 dan
-        # titik A yang jauh dari kamera membuatnya menyusut jadi coretan kecil di
-        # pojok, padahal sudut 60 derajat itulah yang sedang diajarkan.
+        # Jari-jari busur sengaja besar: pada percobaan sebelumnya jari 1,1 dan
+        # titik A yang jauh dari kamera membuatnya menyusut jadi coretan kecil.
         busur_a = busur(T["C"], T["A"], T["H"], warna=SOROT, jari=2.0, tebal=4.5)
-        p1 = rumus(r"AC = AH = CH = 6\sqrt{2}", 32, TINTA).to_corner(UR, buff=0.5)
+        n_ac = label_hadap(frame, "6\\sqrt{2}", sepanjang3(T["A"], T["C"], 0.62)
+                           + np.array([0.55, -0.30, 0.35]), AKSEN2, 26, rumus_latex=True)
+        n_ah = label_hadap(frame, "6\\sqrt{2}", sepanjang3(T["A"], T["H"], 0.62)
+                           + np.array([-0.75, 0.15, 0.0]), AKSEN, 26, rumus_latex=True)
+        n_ch = label_hadap(frame, "6\\sqrt{2}", sepanjang3(T["C"], T["H"], 0.5)
+                           + np.array([0.0, 0.85, 0.30]), REDUP, 26, rumus_latex=True)
+        p1 = rumus(r"AC = AH = CH = 6\sqrt{2}", 30, TINTA).to_corner(UR, buff=0.5)
         with sinema.babak(self, "segitiga", DURASI) as b:
             b.main(ShowCreation(ch), FadeIn(muka), run_time=1.4)
-            b.main(ShowCreation(busur_a), run_time=0.8)
+            b.main(FadeIn(n_ac), FadeIn(n_ah), FadeIn(n_ch), run_time=1.0)
             self.hud_tambah(p1)
             p1.set_opacity(0)
             b.main(p1.animate.set_opacity(1), run_time=0.7)
-            sinema.keterangan(self, "ketiganya sama panjang, jadi segitiga *sama sisi*")
-            b.catat(0.6)
+            b.main(ShowCreation(busur_a), run_time=0.8)
             isi_sisa(b, kamera.sudut(frame, -58, 62, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-        qc.periksa_adegan(self, {"CH": ch, "panel": p1,
-                                 "keterangan": self._matra_keterangan},
-                          [("panel", "keterangan")])
+        qc.periksa_adegan(self, {"CH": ch, "panel": p1, "nilai AC": n_ac, "nilai AH": n_ah,
+                                 "nilai CH": n_ch, "identitas": jati},
+                          [("panel", "identitas"), ("nilai AC", "nilai AH"),
+                           ("nilai AH", "nilai CH")])
 
         # --- Babak 6: jawabannya, tanpa satu pun perhitungan trigonometri.
-        p2 = rumus(r"\angle(AC, BG) = 60^\circ", 36, SOROT)
+        n_sudut = label_hadap(frame, "60^\\circ", T["A"] + np.array([1.3, 1.3, 0.55]),
+                              SOROT, 32, rumus_latex=True)
+        p2 = rumus(r"\angle(AC, BG) = 60^\circ", 32, SOROT)
         p2.next_to(p1, DOWN, buff=0.35).align_to(p1, RIGHT)
         with sinema.babak(self, "tutup", DURASI) as b:
+            b.main(FadeIn(n_sudut), run_time=0.8)
             self.hud_tambah(p2)
             p2.set_opacity(0)
             b.main(p2.animate.set_opacity(1), run_time=0.8)
-            sinema.keterangan(self, "menggeser tidak mengubah arah, jadi tidak mengubah *sudut*",
-                              warna=SOROT)
-            b.catat(0.6)
             isi_sisa(b, kamera.putar_pelan(frame, 26), sisakan=1.6)
             b.jeda(1.2)
         qc.periksa_adegan(self, {"panel 1": p1, "panel 2": p2, "busur": busur_a,
-                                 "huruf A": lab["A"], "keterangan": self._matra_keterangan},
-                          [("panel 1", "panel 2"), ("panel 2", "keterangan"),
-                           ("huruf A", "keterangan"), ("busur", "keterangan")])
+                                 "nilai sudut": n_sudut, "identitas": jati},
+                          [("panel 1", "panel 2"), ("panel 2", "identitas"),
+                           ("nilai sudut", "identitas")])

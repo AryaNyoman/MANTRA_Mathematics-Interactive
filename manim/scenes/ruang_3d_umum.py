@@ -84,7 +84,8 @@ def lantai():
         np.array([RUSUK / 2, RUSUK / 2, 0.0]))
 
 
-def label_hadap(frame, isi, titik, warna=TINTA, ukuran=30, acuan=ACUAN_SKALA):
+def label_hadap(frame, isi, titik, warna=TINTA, ukuran=30, acuan=ACUAN_SKALA,
+                rumus_latex=False, kaca=None):
     """Huruf yang SELALU menghadap kamera DAN selalu sebesar itu juga di layar.
 
     Dua cacat nyata yang diperbaikinya, keduanya ditemukan dengan melihat
@@ -102,7 +103,15 @@ def label_hadap(frame, isi, titik, warna=TINTA, ukuran=30, acuan=ACUAN_SKALA):
        titik di atap, dan huruf lantai menyusut sampai tidak terbaca. Karena itu
        huruf diperbesar sebanding jaraknya ke kamera.
     """
-    asli = teks(isi, ukuran, warna) if isinstance(isi, str) else isi.copy()
+    # `rumus_latex=True` untuk nilai yang memuat lambang matematika, misalnya
+    # akar. `teks()` meloloskan karakter khusus LaTeX supaya kalimat biasa aman,
+    # jadi lambang akar di sana akan tercetak apa adanya, bukan sebagai akar.
+    if not isinstance(isi, str):
+        asli = isi.copy()
+    elif rumus_latex:
+        asli = rumus(isi, ukuran, warna)
+    else:
+        asli = teks(isi, ukuran, warna)
 
     def perbarui(m):
         b = asli.copy()
@@ -111,6 +120,13 @@ def label_hadap(frame, isi, titik, warna=TINTA, ukuran=30, acuan=ACUAN_SKALA):
         jarak = np.linalg.norm(frame.get_implied_camera_location() - np.array(titik))
         b.scale(max(jarak, 1e-3) / acuan)
         b.move_to(titik)
+        # `kaca` adalah pengendali kepekatan dari luar. Tanpa ini label yang
+        # punya updater TIDAK BISA dipudarkan: `FadeOut` mengubah kepekatan,
+        # lalu updater menggambar ulang dari bentuk aslinya pada frame yang
+        # sama dan kepekatan itu hilang. Bug nyata, ketahuan saat sumbu z yang
+        # sudah "dipudarkan" ternyata masih terlihat di materi 04.
+        if kaca is not None:
+            b.set_opacity(float(np.clip(kaca.get_value(), 0.0, 1.0)))
         m.become(b)
 
     lab = asli.copy()
@@ -146,60 +162,103 @@ def huruf_sudut(frame, sorot=None, dorong=0.92, naik=0.38):
     return hasil
 
 
-def papan_koordinat(frame, sumbu_z=True, sampai=None, tekan=None):
-    """Sumbu x, y (dan z) DENGAN ANGKA di tiap satuan.
+def papan_koordinat(frame, sampai=None, tekan=None):
+    """Sumbu x, y, z DENGAN ANGKA, dikembalikan dalam dua bagian terpisah.
 
     Revisi ARYA 2 Sep malam: "Wajib memberikan satuan angka pada titik koordinat
     X Y nya, jangan dibiarkan polos, siswa sulit melihatnya" dan "bila perlu
     buatkan sumbu Z beserta satuan angkanya jika suatu saat membicarakan masalah
-    tinggi". Tanpa angka, kalimat "enam satuan" di narasi tidak punya sandaran
-    apa pun di layar; siswa hanya diminta percaya.
+    tinggi". Lalu disempurnakan malam itu juga: sumbu z ditampilkan di awal saja
+    untuk memperkenalkan arah tinggi, lalu dihilangkan, dan dimunculkan lagi
+    HANYA saat tinggi benar-benar dipakai menghitung.
 
-    Sumbunya sengaja digambar TIPIS dan REDUP, berimpit dengan rusuk AB, AD, dan
-    AE yang lebih tebal. Menggesernya keluar kubus akan lebih rapi dipandang
-    tetapi salah: sumbu harus lewat titik asal, dan titik asal adalah A.
+    Karena itu kembaliannya dua bagian:
+        datar  = sumbu x dan y beserta angkanya, menetap sepanjang video
+        tinggi = sumbu z beserta angkanya, dimunculkan dan dihilangkan sesuai
+                 kebutuhan babak
 
-    Mengembalikan (gambar_sumbu, daftar_label). Labelnya perlu dipisah sebab
-    masing-masing memakai updater sendiri dan harus ditambahkan ke adegan.
+    Sumbunya sengaja digambar tipis dan redup, berimpit dengan rusuk AB, AD, dan
+    AE. Menggesernya keluar kubus akan lebih rapi dipandang tetapi salah: sumbu
+    harus lewat titik asal, dan titik asal adalah A.
     """
     ujung = SUMBU_UJUNG if sampai is None else sampai
     tekan = tekan or {}
-    bagian = [
-        (np.array([1.0, 0.0, 0.0]), np.array([0.0, -1.0, 0.0]), "x"),
-        (np.array([0.0, 1.0, 0.0]), np.array([-1.0, 0.0, 0.0]), "y"),
-    ]
-    if sumbu_z:
-        # Angka sumbu z sengaja dikeluarkan ke arah yang BERBEDA dari sumbu y.
-        # Percobaan pertama memakai (-0,7, -0,7): arah itu benar secara ruang
-        # (menjauh dari kubus) tetapi di layar kolom angkanya bertumpuk dengan
-        # kolom angka sumbu y, dan di materi 03 hasilnya dua deret angka yang
-        # berdempetan di tepi kiri sampai tidak terbaca.
-        arah_keluar = np.array([-0.45, -0.9, 0.0])
-        bagian.append((np.array([0.0, 0.0, 1.0]),
-                       arah_keluar / np.linalg.norm(arah_keluar), "z"))
 
-    gambar = VGroup()
-    label = []
-    for arah, keluar, nama in bagian:
-        gambar.add(Arrow(ORIGIN, arah * ujung, buff=0, thickness=2.4).set_color(REDUP))
-        for k in range(1, int(RUSUK) + 1):
+    def satu_sumbu(arah, keluar, nama, langkah=1, jauh=0.95, kaca=None):
+        gambar = VGroup(Arrow(ORIGIN, arah * ujung, buff=0, thickness=2.4).set_color(REDUP))
+        label = []
+        for k in range(langkah, int(RUSUK) + 1, langkah):
             titik = arah * k
             ditekan = k in tekan.get(nama, ())
             gambar.add(Line(titik, titik + keluar * 0.26).set_stroke(
                 SOROT if ditekan else REDUP, 3 if ditekan else 2))
-            # Angkanya sengaja didorong jauh keluar (0,95) dan berukuran 26.
-            # Percobaan pertama memakai 0,52 dan ukuran 22: angkanya berdesakan
-            # dengan huruf titik sudut di pojok kubus, dan terlalu kecil untuk
-            # dibaca di 480p, padahal justru keterbacaan itu yang diminta.
+            # Angkanya didorong jauh keluar (0,95) dan berukuran 26. Percobaan
+            # pertama memakai 0,52 dan ukuran 22: angkanya berdesakan dengan
+            # huruf titik sudut, dan terlalu kecil untuk dibaca di 480p.
             label.append(label_hadap(
-                frame, str(k), titik + keluar * 0.95,
-                SOROT if ditekan else REDUP, 34 if ditekan else 26))
-        # Nama sumbu diangkat sedikit dari bidang alas: tanpa itu ia berdesakan
-        # dengan huruf titik sudut B dan D yang juga ada di dekat ujung sumbu.
+                frame, str(k), titik + keluar * jauh,
+                SOROT if ditekan else REDUP, 34 if ditekan else 26, kaca=kaca))
+        # Nama sumbu diangkat dari bidang alas supaya tidak berdesakan dengan
+        # huruf titik sudut B dan D yang juga ada di dekat ujung sumbu.
         label.append(label_hadap(
-            frame, nama, arah * (ujung + 0.55) + np.array([0.0, 0.0, 0.62]), REDUP, 28))
-    label.append(label_hadap(frame, "0", np.array([-0.62, -0.62, 0.0]), REDUP, 26))
-    return gambar, label
+            frame, nama, arah * (ujung + 0.55) + np.array([0.0, 0.0, 0.62]), REDUP, 28,
+            kaca=kaca))
+        return gambar, label
+
+    gx, lx = satu_sumbu(np.array([1.0, 0.0, 0.0]), np.array([0.0, -1.0, 0.0]), "x")
+    gy, ly = satu_sumbu(np.array([0.0, 1.0, 0.0]), np.array([-1.0, 0.0, 0.0]), "y")
+    # Angka sumbu z dikeluarkan ke arah yang BERBEDA dari sumbu y. Percobaan
+    # pertama memakai (-0,7, -0,7): benar secara ruang, tetapi di layar kolom
+    # angkanya bertumpuk dengan kolom sumbu y sampai tidak terbaca.
+    keluar_z = np.array([-0.45, -0.9, 0.0])
+    # Sumbu z sengaja hanya diberi angka setiap TIGA satuan, dan angkanya
+    # didorong lebih jauh. Ketiga sumbu bertemu di titik A, jadi angka-angka
+    # kecil dari ketiganya berkumpul di pojok yang sama sampai tidak terbaca.
+    # Yang benar-benar dibutuhkan dari sumbu z cuma rasa skala dan angka 6 di
+    # puncaknya, bukan enam angka berjejer.
+    kaca_z = ValueTracker(1.0)
+    gz, lz = satu_sumbu(np.array([0.0, 0.0, 1.0]), keluar_z / np.linalg.norm(keluar_z),
+                        "z", langkah=3, jauh=1.35, kaca=kaca_z)
+
+    nol = label_hadap(frame, "0", np.array([-0.62, -0.62, 0.0]), REDUP, 26)
+    return {
+        "datar": [gx, gy, *lx, *ly, nol],
+        "tinggi": [gz, *lz],
+        "garis_z": gz,
+        "kaca_z": kaca_z,
+    }
+
+
+def sumbu_z_muncul(b, papan, lama=0.8):
+    """Munculkan sumbu z dengan halus, garis dan angkanya sekaligus."""
+    papan["garis_z"].set_opacity(0)
+    b.main(papan["garis_z"].animate.set_opacity(1),
+           papan["kaca_z"].animate.set_value(1.0), run_time=lama)
+
+
+def sumbu_z_pamit(b, papan, lama=0.8):
+    """Hilangkan sumbu z dengan halus.
+
+    Angkanya WAJIB lewat `kaca_z`, bukan `FadeOut`: label yang punya updater
+    menggambar ulang dirinya tiap frame, jadi kepekatan yang diubah `FadeOut`
+    langsung ditimpa dan sumbunya tidak pernah benar-benar hilang.
+    """
+    b.main(papan["garis_z"].animate.set_opacity(0),
+           papan["kaca_z"].animate.set_value(0.0), run_time=lama)
+
+
+def identitas_kubus():
+    """Keterangan menetap di KIRI ATAS: ukuran kubusnya, dalam bahasa matematika.
+
+    Revisi ARYA 2 Sep malam. Sebelumnya kalimat "panjang, lebar, dan tingginya
+    sama" ditulis di kaki layar, tepat di zona subtitle, sehingga maknanya dobel
+    dengan subtitle yang sudah memuat kalimat narator secara utuh.
+
+    Kiri atas sengaja dipilih, bukan kanan atas: kanan atas milik panel rumus.
+    Mata jadi punya satu aturan yang sama di keenam video, yaitu kiri adalah
+    identitas bendanya dan kanan adalah hitungannya.
+    """
+    return rumus(r"p = l = t = 6\ \mathrm{satuan}", 30, TINTA).to_corner(UL, buff=0.5)
 
 
 def penanda(scene, frame, titik, warna=SOROT, jari=0.24, acuan=ACUAN_SKALA):
@@ -297,3 +356,14 @@ def isi_sisa(b, *animasi, minimum=2.0, maksimum=10.0, sisakan=1.0):
     """
     lama = float(np.clip(b.sisa - sisakan, minimum, maksimum))
     b.main(*animasi, run_time=lama)
+
+
+def sepanjang3(a, b, t):
+    """Titik pada ruas ab, pada pecahan t dari a ke b.
+
+    Dipakai untuk menempelkan label pada ruas yang sedang dibahas. Sengaja tidak
+    selalu di tengah: dua ruas yang bersilangan akan bertabrakan labelnya kalau
+    keduanya diberi label tepat di tengah.
+    """
+    a, b = np.array(a, dtype=float), np.array(b, dtype=float)
+    return a + (b - a) * t

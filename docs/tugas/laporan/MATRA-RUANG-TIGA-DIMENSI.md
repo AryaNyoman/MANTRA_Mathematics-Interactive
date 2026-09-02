@@ -719,3 +719,100 @@ menonton di pemutar biasa.
    saat tertutup bidang tembus pandang, dua tanda siku-siku di titik P
    bertumpuk pada sudut kamera penutup, dan satu segmen narasi materi 06
    berdurasi 18,5 detik.
+
+---
+
+# Revisi tata letak layar dari ARYA, 2 September 2026 malam (putaran kedua)
+
+ARYA menonton video hasil putaran pertama dan memberi lima revisi. Empat di
+antaranya berlaku UNIVERSAL untuk semua topik, bukan cuma Ruang 3D, jadi
+MASTER perlu meneruskannya.
+
+## Yang diminta, apa adanya
+
+1. Sumbu Z ditampilkan di awal saja untuk memberi tahu siswa, lalu dihilangkan,
+   dan dimunculkan lagi hanya saat tinggi benar-benar dipakai menghitung.
+2. Keterangan di kaki layar dihapus sebab maknanya dobel dengan subtitle.
+   Diganti label yang menempel pada bendanya.
+3. Identitas kubus dipindah ke sudut layar, dengan bahasa matematika:
+   "panjang = lebar = tinggi = 6 satuan".
+4. Panel rumus jangan menindih subtitle, dan pakai cara 3b1b: sebelum
+   pernyataan matematika muncul, tunjukkan dulu rumusnya berasal dari mana.
+5. Pinggiran gambar kurang halus (anti-aliasing).
+
+## Tata letak layar yang disepakati, berlaku di keenam video
+
+| Bagian | Isinya |
+|---|---|
+| kiri atas | identitas benda, menetap: `p = l = t = 6 satuan` |
+| kanan atas | hitungan, muncul saat dipakai |
+| kaki layar | MILIK SUBTITLE, tidak ditempati apa pun |
+| dalam gambar | label yang menempel pada benda yang dibahas |
+
+Kiri atas dipilih untuk identitas, bukan kanan atas, sebab kanan atas sudah
+milik panel rumus. Mata jadi punya satu aturan yang sama di keenam video: kiri
+adalah bendanya, kanan adalah hitungannya.
+
+## Koordinat kubus dibetulkan lebih dulu
+
+Tidak diminta, tetapi wajib dikerjakan sebelum angka sumbu dipasang. Versi
+sebelumnya memusatkan kubus di titik asal sehingga titik A jatuh di (-3, -3, 0),
+padahal di halaman dan di `alat/cek_ruang.py` titik A ada di (0, 0, 0). Memasang
+angka tanpa membetulkan ini akan membuat siswa membaca dua koordinat yang saling
+bertentangan, dan itu lebih buruk daripada tidak ada angka sama sekali.
+
+## Anti-aliasing: sebabnya ditemukan, dan hasilnya diukur
+
+`Scene.samples` bawaan ManimGL adalah 0, artinya penghalusan pinggiran memang
+MATI. ManimGL sendiri memakai 4 untuk adegan tiga dimensi bawaannya;
+`AdeganMatra` cuma kebetulan mewarisi angka nol.
+
+Perbaikannya satu baris di `manim/gl/tema.py`, dan itu berkas MASTER, jadi
+commit tersendiri. **Semua topik ikut membaik, bukan cuma Ruang 3D.**
+
+Jebakan yang perlu diketahui sesi lain: `samples` adalah atribut kelas Scene,
+BUKAN bagian `default_camera_config`. Menaruhnya di config kamera menghasilkan
+galat "got multiple values for keyword argument 'samples'".
+
+Hasilnya diukur, bukan dirasakan: lompatan warna tajam antar piksel turun dari
+1332 ke 1241 (sekitar 7 persen), dan piksel peralihan bertambah, tanda
+penghalusan bekerja. **Tetapi jujur: penyebab utama kekasaran adalah resolusi
+480p itu sendiri.** Gelombang 3 di 1080p akan jauh lebih berpengaruh daripada
+setelan ini.
+
+## Cacat yang ditemukan di putaran ini
+
+| Cacat | Sebabnya | Keadaan |
+|---|---|---|
+| **Sumbu z tidak pernah benar-benar hilang** walau sudah dipudarkan | label sumbu punya updater yang menggambar ulang dirinya dari bentuk asli tiap frame, jadi kepekatan yang diubah `FadeOut` langsung ditimpa pada frame yang sama | diperbaiki: kepekatan dikendalikan DARI DALAM updater lewat `ValueTracker`. Ini jenis bug yang tidak mungkin ketahuan dari log dan tidak mungkin ketahuan dari membaca kode, sebab kodenya terbaca benar |
+| Garis pandu ke sumbu z tidak terlihat sedikit pun | titik (0, 0, 6) itu titik E, jadi garis pandunya berimpit persis dengan ruas EG yang merah | diganti dua penanda yang saling menguatkan: angka 6 di sumbu z disorot ungu, dan tinggi tiang diberi label |
+| Angka ketiga sumbu berkumpul dan bertumpuk di sekitar titik A | ketiga sumbu bertemu di A, jadi angka-angka kecilnya berdesakan di pojok yang sama | sumbu z hanya diberi angka setiap TIGA satuan dan didorong lebih jauh. Yang dibutuhkan dari sumbu z cuma rasa skala dan angka 6 di puncak |
+| Label diagonal AC terbaca "akar 2" saja di materi 04 | angka 6-nya tertutup rangka kubus pada sudut kamera penutup | diperbaiki, digeser ke sisi depan. Ini BUKAN cacat kosmetik: siswa bisa mengira AC panjangnya akar 2 |
+
+## Kendala teknis yang perlu diketahui sesi lain
+
+Tugas latar Claude Code memotong render yang terlalu lama, tanpa pesan galat:
+tracebacknya terpotong di tengah dan prosesnya mati dengan pipa tertutup. Sejak
+tiap video punya 29 label sumbu, 8 huruf sudut, dan label nilai yang menempel,
+dua video paralel sudah melewati batas itu.
+
+Jalan keluarnya: lepas prosesnya dari tugas latar.
+
+    Start-Process -FilePath "manimgl" -ArgumentList "manim/scenes/<berkas>.py","<Adegan>","-w","-l" `
+        -RedirectStandardOutput "$env:TEMP\<nama>.log" -NoNewWindow -PassThru
+
+Proses yang dilepas tidak terikat batas waktu tugas latar, dan hasilnya
+diperiksa belakangan lewat berkas keluarannya.
+
+## Yang perlu diteruskan MASTER ke sesi lain
+
+1. `samples = 4` sudah dipasang di `manim/gl/tema.py`, jadi semua topik ikut
+   membaik. Jebakan atribut kelas versus config kamera ada di komentarnya.
+2. Satu baris di `manim/buat_subtitle.py` supaya naskah boleh punya bentuk
+   TULIS terpisah dari bentuk UCAP.
+3. Tata letak layar empat bagian di atas layak jadi aturan bersama, bukan cuma
+   milik Ruang 3D. Kalau tiap topik menaruh keterangannya di tempat berbeda,
+   siswa harus belajar tata letak baru di tiap topik.
+4. Label yang punya updater TIDAK BISA dipudarkan dengan `FadeOut`. Sesi mana
+   pun yang memakai `always_redraw` atau updater `become` akan kena hal yang
+   sama.

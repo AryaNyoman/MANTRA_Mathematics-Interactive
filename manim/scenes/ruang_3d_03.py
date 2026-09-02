@@ -2,20 +2,21 @@
 
 Naskah   : manim/narasi/ruang-3d-03.json
 Render   : manimgl manim/scenes/ruang_3d_03.py JarakSelaluTerpendek -w -l
-Periksa  : python manim/cek_video.py media/gl/JarakSelaluTerpendek.mp4
 Gabung   : python manim/gabung_audio.py ruang-3d-03 JarakSelaluTerpendek --uji
 
 DI SINILAH GAGASAN PAYUNG SELURUH TOPIK LAHIR
-"Setiap soal jarak adalah soal mencari kaki tegak lurus." Buku biasanya
-memberikan empat rumus jarak yang terpisah, dan itulah sebabnya siswa menghafal
-empat hal padahal cuma ada satu. Video ini tidak MEMBERI TAHU kalimat itu, ia
-membuat siswa melihatnya: titik Q digeser, angkanya turun lalu naik lagi, dan
-tepat di dasar lembah tanda siku-siku menyala sendiri.
+"Setiap soal jarak adalah soal mencari kaki tegak lurus." Video ini tidak
+MEMBERI TAHU kalimat itu, ia membuat siswa melihatnya: titik Q digeser, angkanya
+turun lalu naik lagi, dan tepat di dasar lembah tanda siku-siku menyala sendiri.
 
-SATU WARNA SATU MAKNA:
-  AKSEN2 biru = garis AC, yaitu sasaran yang jaraknya diukur
-  AKSEN merah = ruas BQ yang panjangnya berubah-ubah
-  SOROT ungu  = jawaban, yaitu kaki tegak lurus dan panjang terpendeknya
+ASAL ANGKA DITUNJUKKAN DULU, BARU RUMUSNYA (cara 3b1b, permintaan ARYA)
+Sebelum panel "BQ = 3 akar 2" muncul di kanan atas, panjang AC diberi label di
+ruasnya sendiri dan titik Q terlihat berhenti tepat di tengahnya. Jadi angka
+3 akar 2 itu setengah dari 6 akar 2 yang sudah terbaca di layar, bukan angka
+yang jatuh dari langit.
+
+SUMBU Z hanya muncul di babak pembuka sebagai perkenalan arah tinggi, lalu
+dihilangkan dan tidak kembali: seluruh materi ini terjadi di lantai kubus.
 """
 
 import sys
@@ -29,7 +30,7 @@ TOPIK = "ruang-3d-03"
 DURASI = durasi(TOPIK)
 
 KAKI = kaki_pada_garis(T["B"], T["A"], T["C"])   # tepat di tengah alas
-T_KAKI = 0.5                                      # letak kaki di sepanjang AC
+T_KAKI = 0.5
 
 
 def di_ac(t):
@@ -44,18 +45,17 @@ class JarakSelaluTerpendek(AdeganMatra):
         rangka = rangka_kubus()
         ac = Line(T["A"], T["C"]).set_stroke(AKSEN2, 6)
 
+        papan = papan_koordinat(frame)
+
         # Titik Q dikendalikan satu angka saja. Semua yang bergantung padanya
-        # digambar ulang tiap frame, jadi ruas, tanda siku-siku, dan angka di
-        # panel tidak mungkin berbeda pendapat (prinsip 5 ILMU-3B1B).
+        # digambar ulang tiap frame, jadi ruas, penanda, dan angka di panel tidak
+        # mungkin berbeda pendapat (prinsip 5 ILMU-3B1B).
         t = ValueTracker(0.14)
 
         def panjang():
             return float(np.linalg.norm(T["B"] - di_ac(t.get_value())))
 
         bq = always_redraw(lambda: Line(T["B"], di_ac(t.get_value())).set_stroke(AKSEN, 5))
-        # Titik Q berubah warna sendiri begitu ia TEPAT di kaki tegak lurus.
-        # Siswa jadi punya dua petunjuk yang saling menguatkan: angkanya paling
-        # kecil, dan warnanya berganti jadi warna jawaban.
         titik_q = always_redraw(
             lambda: lingkaran_hadap(
                 frame, di_ac(t.get_value()),
@@ -63,107 +63,103 @@ class JarakSelaluTerpendek(AdeganMatra):
                 0.20 + 0.04 * np.sin(3.0 * self.time))
         )
 
-        angka = sinema.AngkaKoma(0, num_decimal_places=3, font_size=34).set_color(AKSEN)
+        angka = sinema.AngkaKoma(0, num_decimal_places=3, font_size=32).set_color(AKSEN)
         angka.add_updater(lambda m: m.set_value(panjang()))
-        label_bq = teks("panjang BQ", 28, AKSEN)
-        panel = sinema.nilai_hidup(label_bq, angka, di=[4.4, 3.1, 0])
+        panel_hidup = sinema.nilai_hidup(teks("BQ", 28, AKSEN), angka, di=[4.6, 3.15, 0])
 
-        lab = huruf_sudut(frame, {"A": TINTA, "B": AKSEN, "C": TINTA})
+        lab = huruf_sudut(frame, {"A": TINTA, "B": AKSEN, "C": AKSEN2})
+        jati = identitas_kubus()
 
-        # --- Babak 1: pengumuman materi, kubus pejal dulu.
+        # --- Babak 1: pengumuman materi, sumbu z ikut memperkenalkan arah tinggi.
         kamera.pasang_awal(frame, theta=-38, phi=72, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
-        # Papan koordinat berangka: tanpa ini kalimat "enam satuan" di narasi
-        # tidak punya sandaran apa pun di layar (revisi ARYA 2 Sep malam).
-        # Tanpa sumbu z: materi ini tidak membicarakan tinggi sama sekali,
-        # dan tiga deret angka sekaligus membuat tepi kiri layar penuh.
-        sumbu, angka_sumbu = papan_koordinat(frame, sumbu_z=False)
-        self.add(lantai(), sumbu, *angka_sumbu, kubus)
+        self.add(lantai(), *papan["datar"], *papan["tinggi"], kubus)
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 03: Jarak selalu yang terpendek",
                                  lama=3.4, y=3.0)
             b.catat(3.4)
-            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=2.0)
+            self.hud_tambah(jati)
+            jati.set_opacity(0)
+            b.main(jati.animate.set_opacity(1), run_time=0.7)
+            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=1.8)
             isi_sisa(b, kamera.sudut(frame, -26, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-        qc.periksa_adegan(self, {"kubus": kubus})
+        qc.periksa_adegan(self, {"kubus": kubus, "identitas": jati})
 
-        # --- Babak 2: masalahnya dulu. Banyak ruas yang sama sahnya.
+        # --- Babak 2: masalahnya dulu. Sumbu z pamit di sini, sebab seluruh sisa
+        #     video terjadi di lantai kubus.
         coba_coba = VGroup(*[
             Line(T["B"], di_ac(x)).set_stroke(REDUP, 2.4)
             for x in (0.16, 0.30, 0.44, 0.62, 0.80)
         ])
         with sinema.babak(self, "masalah", DURASI) as b:
+            sumbu_z_pamit(b, papan, 0.8)
             b.main(ShowCreation(ac), *[FadeIn(x) for x in lab.values()], run_time=1.4)
             b.main(ShowCreation(coba_coba, lag_ratio=0.25), run_time=2.0)
-            sinema.keterangan(self, "semuanya sah, tetapi panjangnya *berbeda-beda*")
-            b.catat(0.6)
             isi_sisa(b, kamera.sudut(frame, -14, 62, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"AC": ac, "huruf A": lab["A"], "huruf C": lab["C"],
-                                 "keterangan": self._matra_keterangan},
-                          [("huruf A", "keterangan")])
+                                 "identitas": jati})
 
         # --- Babak 3: satu ruas saja yang tinggal, lalu digeser. Angkanya hidup.
         with sinema.babak(self, "geser", DURASI) as b:
             b.main(FadeOut(coba_coba), FadeIn(bq), FadeIn(titik_q), run_time=1.0)
-            self.hud_tambah(panel)
-            panel.set_opacity(0)
-            b.main(panel.animate.set_opacity(1), run_time=0.6)
-            sinema.keterangan(self, "geser Q, dan awasi angkanya")
-            b.catat(0.6)
+            self.hud_tambah(panel_hidup)
+            panel_hidup.set_opacity(0)
+            b.main(panel_hidup.animate.set_opacity(1), run_time=0.6)
             b.main(t.animate.set_value(0.86), run_time=max(3.0, b.sisa - 1.0),
                    rate_func=there_and_back_with_pause)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"BQ": bq, "panel": panel,
-                                 "keterangan": self._matra_keterangan},
-                          [("panel", "keterangan")])
+        qc.periksa_adegan(self, {"BQ": bq, "panel hidup": panel_hidup, "identitas": jati},
+                          [("panel hidup", "identitas")])
 
-        # --- Babak 4: berhenti tepat di dasar lembah. Tanda siku-siku menyala.
-        #     Kesikuan ini bukan hiasan: BQ memang tegak lurus AC di sana, sebab
-        #     Q adalah kaki tegak lurusnya (dihitung `kaki_pada_garis`).
+        # --- Babak 4: berhenti tepat di dasar lembah. ASAL ANGKANYA DITUNJUKKAN
+        #     DULU: panjang AC diberi label di ruasnya, dan Q terlihat berhenti
+        #     tepat di tengah. Baru sesudah itu panel jawabannya muncul.
         tanda_siku = siku(T["B"], KAKI, T["C"], warna=SOROT, ukuran=0.5, tebal=2.6)
-        jawab = rumus(r"BQ = 3\sqrt{2} \approx 4{,}243", 34, SOROT).to_corner(UR, buff=0.5)
+        n_ac = label_hadap(frame, "6\\sqrt{2}", sepanjang3(T["A"], T["C"], 0.26)
+                           + np.array([-0.55, 0.30, 0.35]), AKSEN2, 28, rumus_latex=True)
+        n_bq = label_hadap(frame, "3\\sqrt{2}", sepanjang3(T["B"], KAKI, 0.5)
+                           + np.array([0.35, -0.35, 0.40]), SOROT, 30, rumus_latex=True)
+        jawab = rumus(r"BQ = 3\sqrt{2} \approx 4{,}243", 32, SOROT).to_corner(UR, buff=0.5)
         with sinema.babak(self, "temu", DURASI) as b:
             b.main(t.animate.set_value(T_KAKI), run_time=1.6)
-            b.main(ShowCreation(tanda_siku), run_time=0.9)
-            self.hud.remove(panel)
-            b.main(FadeOut(panel), run_time=0.4)
+            b.main(ShowCreation(tanda_siku), run_time=0.8)
+            b.main(FadeIn(n_ac), run_time=0.7)
+            b.main(FadeIn(n_bq), run_time=0.7)
+            self.hud.remove(panel_hidup)
+            b.main(FadeOut(panel_hidup), run_time=0.4)
             self.hud_tambah(jawab)
             jawab.set_opacity(0)
             b.main(jawab.animate.set_opacity(1), run_time=0.7)
-            sinema.keterangan(self, "hanya di sini muncul tanda *siku-siku*", warna=SOROT)
-            b.catat(0.6)
             isi_sisa(b, kamera.putar_pelan(frame, 16), sisakan=0.6)
-        qc.periksa_adegan(self, {"siku": tanda_siku, "jawab": jawab,
-                                 "keterangan": self._matra_keterangan},
-                          [("jawab", "keterangan")])
+        qc.periksa_adegan(self, {"siku": tanda_siku, "jawab": jawab, "nilai AC": n_ac,
+                                 "nilai BQ": n_bq, "identitas": jati},
+                          [("jawab", "identitas"), ("nilai AC", "nilai BQ")])
 
         # --- Babak 5: kenapa yang siku-siku pasti yang terpendek.
         r_letak = di_ac(0.80)
         br = Line(T["B"], r_letak).set_stroke(REDUP, 4)
         qr = Line(KAKI, r_letak).set_stroke(REDUP, 4)
-        lab_r = label_hadap(frame, "R", r_letak + np.array([0.3, 0.3, 0.35]), REDUP)
-        pyth = rumus(r"BR^2 = BQ^2 + QR^2", 32, TINTA)
+        lab_r = label_hadap(frame, "R", r_letak + np.array([0.35, 0.35, 0.40]), REDUP)
+        pyth = rumus(r"BR^2 = BQ^2 + QR^2", 30, TINTA)
         pyth.next_to(jawab, DOWN, buff=0.35).align_to(jawab, RIGHT)
         with sinema.babak(self, "kenapa", DURASI) as b:
             b.main(ShowCreation(br), ShowCreation(qr), FadeIn(lab_r), run_time=1.6)
             self.hud_tambah(pyth)
             pyth.set_opacity(0)
             b.main(pyth.animate.set_opacity(1), run_time=0.7)
-            sinema.keterangan(self, "sisi miring *selalu* lebih panjang daripada sisi tegaknya")
-            b.catat(0.6)
             isi_sisa(b, kamera.sudut(frame, -46, 70, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"BR": br, "pythagoras": pyth, "jawab": jawab,
-                                 "keterangan": self._matra_keterangan},
-                          [("pythagoras", "jawab"), ("BR", "keterangan")])
+                                 "identitas": jati},
+                          [("pythagoras", "jawab"), ("pythagoras", "identitas")])
 
-        # --- Babak 6: kalimat payung topik, diucapkan kata per kata.
+        # --- Babak 6: kalimat payung topik, ditempelkan pada kaki tegak lurusnya
+        #     sendiri, bukan ditulis di kaki layar tempat subtitle berada.
+        payung = label_hadap(frame, "kaki tegak lurus",
+                             KAKI + np.array([-2.3, 0.0, 0.55]), SOROT, 30)
         with sinema.babak(self, "tutup", DURASI) as b:
             b.main(FadeOut(br), FadeOut(qr), FadeOut(lab_r), run_time=0.8)
-            sinema.keterangan(self,
-                              "setiap soal jarak adalah soal mencari *kaki tegak lurus*",
-                              warna=SOROT)
-            b.catat(0.6)
-            isi_sisa(b, kamera.putar_pelan(frame, 24), sisakan=1.6)
+            b.main(FadeIn(payung), run_time=0.9)
+            isi_sisa(b, kamera.putar_pelan(frame, 24), sisakan=1.4)
             b.jeda(1.2)
         qc.periksa_adegan(self, {"BQ": bq, "siku": tanda_siku, "jawab": jawab,
-                                 "huruf A": lab["A"], "keterangan": self._matra_keterangan},
-                          [("jawab", "keterangan"), ("huruf A", "keterangan")])
+                                 "payung": payung, "identitas": jati},
+                          [("payung", "identitas"), ("payung", "jawab")])
