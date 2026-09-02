@@ -31,7 +31,9 @@ import type { PropPanggung } from '@/components/topik/jenis'
  */
 export default function PanggungVektor({ tahap, tampilWidget, children }: PropPanggung) {
   const [dayung, setDayung] = useState<Vek>({ x: 0, y: 3 })
-  const [arus, setArus] = useState<Vek>({ x: 2, y: 0 })
+  // Arus 4, bukan 2: sama dengan angka di video Materi 01, sehingga kasus
+  // sungainya sendiri sudah kasus tegak lurus yang hasilnya tepat 5.
+  const [arus, setArus] = useState<Vek>({ x: 4, y: 0 })
   const [pangkalCoba, setPangkalCoba] = useState<Vek>({ x: 1, y: -1 })
   const [ujungCoba, setUjungCoba] = useState<Vek>({ x: 4, y: 1 })
   const [vKomponen, setVKomponen] = useState<Vek>({ x: 4, y: 3 })

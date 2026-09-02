@@ -111,12 +111,12 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Perahu tadi persis kasus ketiga. Dayung 3 km ke seberang dan arus 2 km ke hilir dalam satu jam menghasilkan gerak sebenarnya sepanjang akar dari 3 kuadrat ditambah 2 kuadrat, yaitu sekitar 3,61 km, bukan 5 km.',
+        teks: 'Perahu tadi persis kasus ketiga. Dayung 3 km ke seberang dan arus 4 km ke hilir dalam satu jam menghasilkan gerak sebenarnya sepanjang akar dari 3 kuadrat ditambah 4 kuadrat, yaitu tepat 5 km, bukan 7 km.',
       },
     ],
     seringKeliru: {
       judul: 'Menjumlahkan angkanya saja',
-      isi: 'Melihat dayung 3 dan arus 2, banyak yang langsung menulis 5. Itu benar HANYA kalau keduanya searah. Pada perahu tadi keduanya saling tegak lurus, sehingga jawabannya sekitar 3,61. Aturannya sederhana: begitu arah ikut dihitung, angka tidak boleh lagi ditumpuk begitu saja.',
+      isi: 'Melihat dayung 3 dan arus 4, banyak yang langsung menulis 7. Itu benar HANYA kalau keduanya searah. Pada perahu tadi keduanya saling tegak lurus, sehingga jawabannya 5. Aturannya sederhana: begitu arah ikut dihitung, angka tidak boleh lagi ditumpuk begitu saja.',
     },
     intisari: [
       'Besaran yang butuh arah disebut vektor. Yang cukup satu angka disebut skalar.',
@@ -748,12 +748,12 @@ export const TAHAP: TahapVektor[] = [
         judul: 'Perahu menyeberang sungai selebar 3 km',
         baris: [
           'Dayung memberi perpindahan (0 3) km tiap jam, lurus ke seberang',
-          'Arus memberi perpindahan (2 0) km tiap jam, ke hilir',
-          'Gerak sebenarnya: (0 3) ditambah (2 0) sama dengan (2 3)',
+          'Arus memberi perpindahan (4 0) km tiap jam, ke hilir',
+          'Gerak sebenarnya: (0 3) ditambah (4 0) sama dengan (4 3)',
           'Gerak tegaknya 3 km per jam, jadi menyeberang butuh 1 jam',
-          'Selama 1 jam itu arus membawanya 2 km ke hilir',
+          'Selama 1 jam itu arus membawanya 4 km ke hilir',
         ],
-        simpul: 'Mendarat 2 km dari titik yang dibidik. Jarak yang benar-benar ditempuh akar 13, sekitar 3,61 km, bukan 3 km.',
+        simpul: 'Mendarat 4 km dari titik yang dibidik. Jarak yang benar-benar ditempuh tepat 5 km, bukan 3 km.',
       },
       { jenis: 'sesi', judul: 'Yang sama, di udara' },
       {

@@ -1,56 +1,53 @@
 {
-  "adegan": "PerahuMenyeberang",
+  "adegan": "PerahuVektor",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Vektor Materi 01, Angka saja tidak cukup. Video prioritas PERTAMA untuk topik Vektor: ia membuka seluruh topik. Tugasnya membuat siswa merasa perlu vektor SEBELUM bertemu lambangnya, lewat perahu yang mendarat di hilir. Segmen penutup mengulang kalimat sorot tahapnya kata per kata. Satu sumber kebenaran untuk naskah, jangan ditulis ulang di dalam adegan.",
+  "latar": "air",
+  "catatan": "Vektor Materi 01, Angka saja tidak cukup. Video prioritas PERTAMA topik Vektor: ia membuka seluruh topik. Dikembangkan dari manim/contoh/contoh_perahu.py (lima segmen pertama) menjadi video penuh. SATU pasang angka dipakai sepanjang video, yaitu dayung 3 dan arus 4, supaya kasus sungainya sendiri sudah kasus tegak lurus yang hasilnya 5. Memutar arah dayung lalu memberi 7 dan 1 tanpa mengganti angkanya sama sekali. Segmen penutup mengulang kalimat sorot tahapnya kata per kata.",
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Sebuah perahu akan menyeberangi sungai. Pendayungnya menghadap lurus ke tepi seberang, dan ia tidak akan sekali pun membelokkan haluan."
+      "teks": "Bayangkan sebuah perahu kecil di tepi sungai. Sungainya selebar tiga kilometer, dan kita ingin menyeberang ke tepi di seberang sana."
+    },
+    {
+      "id": "terbang",
+      "teks": "Supaya jelas ke mana perahu ini bergerak, coba kita lihat dari atas, seperti membaca peta."
     },
     {
       "id": "dayung",
-      "teks": "Inilah dayungnya, panah biru, tegak lurus menuju seberang. Dalam satu jam ia memindahkan perahu tiga kilometer."
+      "teks": "Kita mendayung lurus ke seberang, sejauh tiga kilometer. Perhatikan panah biru ini: arahnya melintang, panjangnya tiga."
     },
     {
       "id": "arus",
-      "teks": "Tapi sungainya tidak diam. Panah merah ini arusnya, dua kilometer tiap jam, mengalir ke hilir."
+      "teks": "Tetapi sungai punya arus. Arus mendorong perahu ke hilir sejauh empat kilometer. Panah merah ini searah sungai, panjangnya empat."
+    },
+    {
+      "id": "resultan",
+      "teks": "Kedua dorongan itu bekerja bersamaan. Jadi perahu tidak menempuh panah biru saja, dan tidak panah merah saja, melainkan panah ungu ini."
     },
     {
       "id": "hilir",
-      "teks": "Sekarang perhatikan tempat perahu itu mendarat. Bukan tepat di seberang, melainkan dua kilometer ke hilir. Padahal dayungnya tidak pernah dibelokkan."
-    },
-    {
-      "id": "jawab",
-      "teks": "Sebabnya ada pada panah hitam ini. Gerak yang sebenarnya bukan dayung saja, melainkan dayung ditambah arus."
-    },
-    {
-      "id": "besaran",
-      "teks": "Coba lihat dua kelompok besaran ini. Di kiri, massa, suhu, dan waktu selesai dijelaskan satu angka saja. Menyebut arahnya tidak ada gunanya."
-    },
-    {
-      "id": "arah",
-      "teks": "Sebelah kanan berbeda. Perpindahan, kecepatan, dan gaya belum selesai diceritakan sebelum arahnya ikut disebut."
+      "teks": "Lihat tempat mendaratnya, empat kilometer ke hilir, padahal haluannya tidak pernah dibelokkan. Dan jarak yang benar-benar ditempuh lima kilometer, bukan tujuh."
     },
     {
       "id": "tanya",
-      "teks": "Sekarang satu pertanyaan. Ada dua perpindahan, yang satu tiga kilometer dan yang lain empat kilometer. Kalau digabung, hasilnya berapa?"
+      "teks": "Sekarang perhatikan baik-baik. Angkanya tetap tiga dan empat, tetapi arah dayung kita putar. Menurut Anda, hasilnya ikut berubah atau tidak?"
     },
     {
       "id": "searah",
-      "teks": "Kalau keduanya searah, seperti di panel kiri, hasilnya tujuh kilometer."
+      "teks": "Kalau dayung diputar sampai searah arus, keduanya saling menambah. Panah ungunya memanjang menjadi tujuh kilometer."
     },
     {
       "id": "lawan",
-      "teks": "Kalau keduanya berlawanan arah, seperti di panel tengah, sisanya tinggal satu kilometer."
+      "teks": "Kalau dayung diputar sampai melawan arus, keduanya saling mengurangi. Panah ungunya menyusut, sisanya tinggal satu kilometer."
     },
     {
       "id": "tegak",
-      "teks": "Dan kalau keduanya saling tegak lurus, seperti di panel kanan, hasilnya lima kilometer. Dari akar tiga kuadrat ditambah empat kuadrat."
+      "teks": "Dan kalau dayung kembali tegak lurus seperti semula, hasilnya lima kilometer. Angka yang sama, tiga dan empat, ternyata bisa memberi tujuh, satu, atau lima."
     },
     {
       "id": "tutup",
-      "teks": "Angkanya sama persis, jawabannya tiga-tiganya berbeda. Besaran yang butuh arah itulah yang disebut vektor. Yang cukup satu angka disebut skalar."
+      "teks": "Yang membedakan hanya arah. Besaran yang butuh arah itulah yang disebut vektor. Yang cukup satu angka disebut skalar."
     }
   ]
 }
