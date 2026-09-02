@@ -23,161 +23,165 @@ Bola ini menggelinding sekali di dasar lembah,
 dan bentuk lembahnya persis grafik y = x².
 
 6
-00:00:17.712 --> 00:00:20.282
+00:00:17.712 --> 00:00:20.483
 Sekarang lembahnya kita tinggalkan.
 
 7
-00:00:20.282 --> 00:00:23.587
+00:00:20.483 --> 00:00:24.045
 Yang tersisa cuma <b>gambarnya</b>, di bidang datar,
 
 8
-00:00:23.587 --> 00:00:27.552
+00:00:24.045 --> 00:00:28.319
 dengan sumbu mendatar untuk x dan sumbu tegak untuk y.
 
 9
-00:00:27.552 --> 00:00:30.038
-Kenapa bentuknya begitu?
+00:00:28.319 --> 00:00:31.248
+Aturannya kita tulis dulu: f(x) = x².
 
 10
-00:00:30.038 --> 00:00:32.834
-Bukan sihir, tapi <b>dihitung</b>.
+00:00:31.248 --> 00:00:33.734
+Kenapa bentuknya begitu?
 
 11
-00:00:32.834 --> 00:00:34.595
-x = -2 memberi 4.
+00:00:33.734 --> 00:00:36.530
+Bukan sihir, tapi <b>dihitung</b>.
 
 12
-00:00:34.595 --> 00:00:36.356
-x = -1 memberi 1.
+00:00:36.530 --> 00:00:38.291
+x = -2 memberi 4.
 
 13
-00:00:36.356 --> 00:00:38.013
-x = 0 memberi 0.
+00:00:38.291 --> 00:00:40.052
+x = -1 memberi 1.
 
 14
-00:00:38.013 --> 00:00:39.670
-x = 1 memberi 1.
+00:00:40.052 --> 00:00:41.709
+x = 0 memberi 0.
 
 15
-00:00:39.670 --> 00:00:41.327
-x = 2 memberi 4.
+00:00:41.709 --> 00:00:43.366
+x = 1 memberi 1.
 
 16
-00:00:41.327 --> 00:00:45.884
-Lima titik inilah yang menentukan bentuknya,
+00:00:43.366 --> 00:00:45.023
+x = 2 memberi 4.
 
 17
-00:00:45.884 --> 00:00:50.856
-dan kurvanya cuma <b>menghubungkan</b> titik-titik itu.
+00:00:45.023 --> 00:00:49.580
+Lima titik inilah yang menentukan bentuknya,
 
 18
-00:00:50.856 --> 00:00:53.423
-Sekarang perhatikan rumusnya.
+00:00:49.580 --> 00:00:54.552
+dan kurvanya cuma <b>menghubungkan</b> titik-titik itu.
 
 19
-00:00:53.423 --> 00:00:57.938
-Kita tulis f(x) + 1, dengan angka 1 <b>di luar kurung</b>.
+00:00:54.552 --> 00:00:57.119
+Sekarang perhatikan rumusnya.
 
 20
-00:00:57.938 --> 00:01:03.604
-Seluruh grafiknya naik satu satuan, dan bentuknya tidak berubah.
+00:00:57.119 --> 00:01:01.634
+Kita tulis f(x) + 1, dengan angka 1 <b>di luar kurung</b>.
 
 21
-00:01:03.604 --> 00:01:07.056
-Titik (2, 4) tadi sekarang jadi (2, 5).
+00:01:01.634 --> 00:01:07.300
+Seluruh grafiknya naik satu satuan, dan bentuknya tidak berubah.
 
 22
-00:01:07.056 --> 00:01:10.533
-Sekarang giliran yang <b>di dalam kurung</b>.
+00:01:07.300 --> 00:01:10.752
+Titik (2, 4) tadi sekarang jadi (2, 5).
 
 23
-00:01:10.533 --> 00:01:12.362
-Kita tulis f(x - 1).
+00:01:10.752 --> 00:01:14.229
+Sekarang giliran yang <b>di dalam kurung</b>.
 
 24
-00:01:12.362 --> 00:01:17.760
-Coba tebak dulu: grafiknya bergeser ke kiri, atau ke kanan?
+00:01:14.229 --> 00:01:16.058
+Kita tulis f(x - 1).
 
 25
-00:01:17.760 --> 00:01:24.312
-Jawabannya ke <b>kanan</b>, walaupun tandanya minus. Ini yang paling sering terbalik.
+00:01:16.058 --> 00:01:21.456
+Coba tebak dulu: grafiknya bergeser ke kiri, atau ke kanan?
 
 26
-00:01:24.312 --> 00:01:25.612
-Kenapa ke kanan?
+00:01:21.456 --> 00:01:28.008
+Jawabannya ke <b>kanan</b>, walaupun tandanya minus. Ini yang paling sering terbalik.
 
 27
-00:01:25.612 --> 00:01:29.351
-Karena isi kurungnya baru jadi nol saat x = 1.
+00:01:28.008 --> 00:01:29.308
+Kenapa ke kanan?
 
 28
-00:01:29.351 --> 00:01:33.984
-Titik terendah selalu pindah ke tempat isi kurungnya <b>nol</b>.
+00:01:29.308 --> 00:01:33.047
+Karena isi kurungnya baru jadi nol saat x = 1.
 
 29
-00:01:33.984 --> 00:01:35.623
-Sekarang bentuk lain.
+00:01:33.047 --> 00:01:37.680
+Titik terendah selalu pindah ke tempat isi kurungnya <b>nol</b>.
 
 30
-00:01:35.623 --> 00:01:41.320
-Kita ganti f menjadi f(x) = 2√x, lalu kenakan perlakuan yang sama persis.
+00:01:37.680 --> 00:01:39.319
+Sekarang bentuk lain.
 
 31
-00:01:41.320 --> 00:01:44.520
-Perpindahannya <b>tidak berubah</b> sedikit pun.
+00:01:39.319 --> 00:01:45.016
+Kita ganti f menjadi f(x) = 2√x, lalu kenakan perlakuan yang sama persis.
 
 32
-00:01:44.520 --> 00:01:47.295
-Sekali lagi, sekarang gelombang sinus.
+00:01:45.016 --> 00:01:48.216
+Perpindahannya <b>tidak berubah</b> sedikit pun.
 
 33
-00:01:47.295 --> 00:01:50.728
-Aturannya memang <b>tidak peduli</b> bentuk grafiknya.
+00:01:48.216 --> 00:01:50.991
+Sekali lagi, sekarang gelombang sinus.
 
 34
-00:01:50.728 --> 00:01:56.352
-Yang di luar kurung menggeser tegak, yang di dalam kurung menggeser mendatar.
+00:01:50.991 --> 00:01:54.424
+Aturannya memang <b>tidak peduli</b> bentuk grafiknya.
 
 35
-00:01:56.352 --> 00:01:58.133
-Sekarang jebakannya.
+00:01:54.424 --> 00:02:00.048
+Yang di luar kurung menggeser tegak, yang di dalam kurung menggeser mendatar.
 
 36
-00:01:58.133 --> 00:02:03.121
-Kita kembali ke parabola, dan kali ini kita tulis f(2x).
+00:02:00.048 --> 00:02:01.829
+Sekarang jebakannya.
 
 37
-00:02:03.121 --> 00:02:09.000
-Tebak dulu: grafiknya jadi dua kali lebih lebar, atau setengahnya?
+00:02:01.829 --> 00:02:06.817
+Kita kembali ke parabola, dan kali ini kita tulis f(2x).
 
 38
-00:02:09.000 --> 00:02:10.880
-Jawabannya <b>setengah</b>.
+00:02:06.817 --> 00:02:12.696
+Tebak dulu: grafiknya jadi dua kali lebih lebar, atau setengahnya?
 
 39
-00:02:10.880 --> 00:02:17.928
-Nilai 4 yang tadi baru tercapai di x = 2, sekarang sudah tercapai di x = 1.
+00:02:12.696 --> 00:02:14.576
+Jawabannya <b>setengah</b>.
 
 40
-00:02:17.928 --> 00:02:22.091
-Alasannya, x sudah dikalikan 2 sebelum masuk mesin.
+00:02:14.576 --> 00:02:21.624
+Nilai 4 yang tadi baru tercapai di x = 2, sekarang sudah tercapai di x = 1.
 
 41
-00:02:22.091 --> 00:02:26.581
-Waktu kita isi 1, mesinnya sebenarnya mengerjakan f(2).
+00:02:21.624 --> 00:02:25.787
+Alasannya, x sudah dikalikan 2 sebelum masuk mesin.
 
 42
-00:02:26.581 --> 00:02:31.152
-Jadi mesinnya <b>sampai lebih awal</b>, dan grafiknya memampat.
+00:02:25.787 --> 00:02:30.277
+Waktu kita isi 1, mesinnya sebenarnya mengerjakan f(2).
 
 43
-00:02:31.152 --> 00:02:32.989
-Jadi aturannya cuma dua.
+00:02:30.277 --> 00:02:34.848
+Jadi mesinnya <b>sampai lebih awal</b>, dan grafiknya memampat.
 
 44
-00:02:32.989 --> 00:02:38.424
-Angka <b>di luar kurung</b> mengerjakan apa yang tertulis: + 1 berarti naik 1.
+00:02:34.848 --> 00:02:36.685
+Jadi aturannya cuma dua.
 
 45
-00:02:38.424 --> 00:02:42.864
+00:02:36.685 --> 00:02:42.120
+Angka <b>di luar kurung</b> mengerjakan apa yang tertulis: + 1 berarti naik 1.
+
+46
+00:02:42.120 --> 00:02:46.560
 Angka yang masuk <b>ke dalam kurung</b> mengerjakan kebalikannya.

@@ -943,3 +943,136 @@ bolanya tidak ada lagi yang mengisi kekosongan. Menurut saya itu bukan cacat:
 diam sambil narator menjelaskan adalah tempo yang wajar, dan justru itu yang
 diminta ARYA. Tapi aturan 7 (waktu mati) masih melarangnya di atas kertas, jadi
 saya sebutkan supaya tidak dianggap kelalaian.
+
+
+---
+
+# Gambar mendahului suara, urutan terbalik, dan alat pemeriksa baru (ronde 4)
+
+ARYA menemukan dua hal, dan menyuruh saya berhenti mengandalkan mata sendiri:
+"mohon lebih teliti lagi dalam melakukan pembuatan grafik, mohon di crosscheck
+ulang lagi menggunakan playwright atau tools sejenisnya". Ronde ini isinya
+membangun alat pemeriksanya, dan alat itu langsung menemukan cacat yang sudah
+lolos tiga ronde.
+
+## 1. Gambar mendahului suara, terukur
+
+ARYA: "subtitle dan suaranya telat saat menyebutkan titik-titik itu, sekitar
+mulai detik ke 36." Diukur, ia benar dan lebih parah dari kedengarannya:
+
+| yang terjadi | gambar | suara | selisih |
+|---|---|---|---|
+| titik x = -2 mendarat | 30,95 | 32,83 | 1,9 detik terlalu cepat |
+| titik x = 2 mendarat | 39,10 | 39,67 | 1,7 detik terlalu cepat |
+| kurva ditarik | 40,10 | 45,88 | 5,8 detik terlalu cepat |
+
+**Sebab yang sebenarnya, dan ini penting untuk semua sesi.** Waktu animasi saya
+susun sendiri dari `run_time` dan `jeda`, dan susunan itu tidak pernah tahu
+kapan sebuah kalimat diucapkan. Ia cuma tahu panjang SELURUH segmen. Untuk
+segmen berisi satu gagasan itu cukup. Untuk segmen yang menyebut lima angka
+berurutan, tidak, dan tidak akan pernah cukup berapa kali pun ditebak ulang.
+
+**Perbaikannya: animasi diikat ke JAM SUBTITLE.** `buat_subtitle.py` sudah
+memecah tiap segmen per kalimat dan membagi waktunya menurut panjang hurufnya.
+Angka itu dibaca balik oleh adegannya (`waktu_kalimat`, `mulai_kalimat`,
+`self.tunggu_sampai`), jadi gambar, subtitle, dan suara sekarang dijalankan
+oleh satu sumber waktu yang sama. Tiap titik mendarat tepat saat kalimatnya
+mulai diucapkan, dan kurvanya ditarik tepat saat narator sampai di kata
+"kurvanya cuma menghubungkan".
+
+## 2. Urutannya terbalik
+
+ARYA: "urutan pembuatan grafiknya kebalik, harusnya diberi fungsi f(x) = x^2,
+lalu mengapa bentuknya seperti itu? barulah kita jelaskan dengan memasukkan
+x = -2 s.d x = 2."
+
+Betul, dan itu kesalahan mengajar, bukan kesalahan teknis. Versi sebelumnya
+menghitung dulu, menggambar kurvanya, dan BARU menampilkan rumusnya di akhir.
+Artinya penonton disuruh menghitung sesuatu yang aturannya belum diberitahukan.
+Rumus `f(x) = x^2` sekarang ditulis di babak `datar`, sebelum pertanyaan
+"kenapa bentuknya begitu" diajukan.
+
+## 3. Alat baru: `alat/cek_sinkron_video.py`
+
+Gerbang yang ada tidak mungkin menangkap cacat nomor 1. `cek_kode` memeriksa
+tulisan, `qc.periksa_adegan` memeriksa tabrakan dan potongan, `sinema.babak`
+memeriksa apakah animasi MELEBIHI narasi. Tidak ada yang memeriksa apakah
+animasi MENDAHULUI narasi, padahal itu yang merusak: penonton melihat
+jawabannya sebelum pertanyaannya selesai diucapkan.
+
+Alat ini membaca `.vtt`, mengambil frame tepat sebelum tiap kalimat MULAI dan
+tepat sebelum ia SELESAI, lalu MENGHITUNG bendanya lewat warna. Kalau kalimat
+ke-3 disebut, di layar harus ada 2 benda sebelumnya dan 3 sesudahnya. Kalau
+tidak, ia berteriak.
+
+```
+kalimat                      mulai  sebelum  sesudah  hasil
+x = -2 memberi 4.            36.53        0        1  ok
+x = -1 memberi 1.            38.29        1        2  ok
+x = 0 memberi 0.             40.05        2        3  ok
+x = 1 memberi 1.             41.71        3        4  ok
+x = 2 memberi 4.             43.37        4        5  ok
+>>> 5 kalimat sinkron: tiap benda muncul saat disebut.
+```
+
+**Percobaan pertama alat ini SALAH, dan itu layak dicatat.** Ia memakai ambang
+jarak warna, dan abu hangat `REDUP` (139, 131, 120) ternyata jaraknya cuma 115
+dari ungu `SOROT`, di bawah ambang 150. Jadi angka-angka sumbu ikut terhitung
+sebagai benda dan alatnya melaporkan empat kesalahan palsu. Sekarang ia
+MEMILAH ke warna terdekat dari seluruh papan warna tema, bukan sekadar
+membandingkan dengan satu warna. Alat pemeriksa yang salah lebih berbahaya
+daripada tidak punya alat, karena ia meyakinkan.
+
+## 4. Cacat yang sudah lolos TIGA ronde, ketahuan dari satu frame
+
+Saat mengambil frame di detik 31 untuk memeriksa urutan rumus, saya menemukan
+coretan kecil melenceng di tepi kiri bawah. Itu rumus yang sedang terbang ke
+panel, menuju tempat yang salah.
+
+Sebabnya `besar` dikunci ke layar (`fix_in_frame`) sedangkan sasaran terbangnya
+belum, jadi koordinat sasarannya masih koordinat DUNIA. Keadaan akhirnya tetap
+benar karena panelnya diganti objek yang benar setelah animasi, jadi cacat ini
+HANYA terlihat kalau frame diambil di tengah terbangnya yang cuma 1,2 detik.
+Lembar kontak berjarak sepuluh detik melewatkannya tiga ronde berturut-turut.
+
+Pelajarannya untuk sesi lain: **ambil frame di tengah animasi pendek, bukan
+cuma di tengah babak.** Momen paling rawan justru yang paling singkat.
+
+## 5. Pemeriksaan di peramban sungguhan (permintaan ARYA)
+
+Subtitle situs dibuka di Chrome lewat Playwright, memakai berkas `.vtt` asli
+dan gaya `::cue` yang sama dengan situs. Dua hasil:
+
+**Posisi: aman, dan sekarang terbukti bukan terkira.** Chrome menaruh subtitle
+di piksel 448 sampai 478 dari 480. Grafik berhenti di piksel 389. Jarak 59
+piksel, tidak bersentuhan. Selama tiga ronde angka ini cuma perkiraan saya;
+sekarang ia hasil ukuran.
+
+**Warna: CACAT, dan mengenai semua video MATRA.** `video::cue` di
+`web/app/globals.css` memakai `color: #FFFFFF` dengan garis tepi hitam. Putih
+di atas latar krem hampir tidak terbaca, dan SEMUA video MATRA berlatar krem
+(`LATAR` #F7F3EE). Di tangkapan layarnya, kata "Materi enam:" praktis hilang;
+cuma bagian tebalnya yang terbaca, itu pun karena bayangannya.
+
+Sudah diperbaiki: tinta gelap #1F2430 dengan garis tepi krem, lalu dibuka lagi
+di Chrome untuk membuktikan. **Ini menyentuh berkas bersama
+`web/app/globals.css`, jadi MASTER perlu tahu.** Perubahannya dua nilai warna,
+dan sebelum ini berlaku untuk video Trigonometri dan Limit yang sudah tayang.
+
+## Angka ronde ini
+
+| | ronde 3 | ronde 4 |
+|---|---|---|
+| durasi | 162,9 detik | 166,5 detik |
+| urutan | hitung, kurva, baru rumus | rumus, pertanyaan, hitung, kurva |
+| sinkron titik dengan suara | 1,7 sampai 5,8 detik terlalu cepat | terverifikasi mesin, 5 dari 5 |
+| rumus terbang | menuju titik yang salah | benar, diperiksa di tengah animasi |
+| subtitle di peramban | diperkirakan | diukur: 448-478 px, jarak 59 px |
+| warna subtitle situs | putih, nyaris tak terbaca di krem | tinta gelap, terbukti terbaca |
+| selisih suara | | 0,34 detik |
+
+## Cacat tersisa
+
+Beberapa babak punya lima sampai delapan detik layar diam karena bolanya sudah
+tidak ada. Menurut saya itu tempo yang wajar, bukan cacat, tapi aturan 7
+(waktu mati) masih melarangnya di atas kertas jadi saya sebutkan.

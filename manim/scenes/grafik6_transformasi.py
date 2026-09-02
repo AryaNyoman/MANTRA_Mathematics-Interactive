@@ -111,6 +111,49 @@ DASAR = {
 }
 
 
+def waktu_kalimat():
+    """Detik mulai TIAP KALIMAT subtitle, dibaca dari berkas .vtt topik ini.
+
+    Dipakai supaya gambar tidak pernah mendahului suara. ARYA menemukan
+    titik-titik hasil hitungan mendarat sekitar dua detik sebelum narator
+    menyebut angkanya, dan kurvanya ditarik lima detik sebelum kalimatnya.
+
+    Sebabnya: waktu animasi disusun sendiri dari `run_time` dan `jeda`, dan
+    susunan itu memang tidak pernah tahu kapan sebuah kalimat diucapkan. Ia
+    cuma tahu panjang seluruh segmen. Untuk segmen berisi satu gagasan itu
+    cukup; untuk segmen yang menyebut lima angka berurutan, tidak.
+
+    `buat_subtitle.py` sudah memecah tiap segmen per kalimat dan membagi
+    waktunya menurut panjang hurufnya. Angka itu yang dipakai di sini, jadi
+    gambar, subtitle, dan suara dijalankan oleh satu sumber waktu yang sama.
+
+    Kosong kalau berkas .vtt belum dibuat; adegannya tetap jalan memakai
+    waktu susunan sendiri sebagai cadangan.
+    """
+    p = AKAR / "web" / "public" / "anim" / (TOPIK + ".vtt")
+    if not p.exists():
+        return []
+    hasil, baris = [], p.read_text(encoding="utf-8").splitlines()
+    for i, b in enumerate(baris):
+        if "-->" not in b or i + 1 >= len(baris):
+            continue
+        j, m, d = b.split("-->")[0].strip().split(":")
+        kalimat = baris[i + 1].replace("<b>", "").replace("</b>", "").strip()
+        hasil.append((int(j) * 3600 + int(m) * 60 + float(d), kalimat))
+    return hasil
+
+
+KALIMAT = waktu_kalimat()
+
+
+def mulai_kalimat(awalan):
+    """Detik saat kalimat yang diawali `awalan` mulai diucapkan, atau None."""
+    for t, kalimat in KALIMAT:
+        if kalimat.startswith(awalan):
+            return t
+    return None
+
+
 def tegak(mob):
     """Putar teks supaya terbaca dari pandangan samping (bidang xz)."""
     return mob.rotate(PI / 2, RIGHT)
@@ -249,7 +292,17 @@ class GeserCerminRegang(AdeganMatra):
         coretan kembar tak terbaca.
         """
         tujuan = self.panel(potongan, warna_akhir)
+        # Panel dikunci ke layar LEBIH DULU, baru sasaran terbangnya disalin
+        # dan ikut dikunci. Kalau tidak, `besar` yang terkunci ke layar
+        # diterbangkan menuju sasaran yang koordinatnya masih koordinat DUNIA,
+        # jadi ia melenceng ke tepi kiri bawah selama 1,2 detik sebelum
+        # menghilang. Keadaan akhirnya tetap benar, jadi cacat ini cuma
+        # terlihat kalau frame diambil di TENGAH terbangnya. Lembar kontak
+        # berjarak sepuluh detik melewatkannya tiga ronde berturut-turut.
+        self.hud_tambah(tujuan)
+        tujuan.set_opacity(0)
         sasaran = tujuan[-1].copy()
+        sasaran.fix_in_frame()
 
         besar = rumus(potongan[-1], 66, warna_akhir or TINTA)
         sinema.batasi_lebar(besar, 9.0)
@@ -287,8 +340,6 @@ class GeserCerminRegang(AdeganMatra):
                *[gelap(m, 0.18) for m in redup], run_time=lahir)
         b.jeda(tahan)
 
-        self.hud_tambah(tujuan)
-        tujuan.set_opacity(0)
         gerak = [Transform(besar, sasaran)]
         gerak += [gelap(m, 1.0) for m in redup]
         if self.pnl is not None:
@@ -337,6 +388,21 @@ class GeserCerminRegang(AdeganMatra):
         bk.set_stroke(opacity=0.5)
         self.add(bk)
         return bk
+
+    def tunggu_sampai(self, b, detik, cadangan=0.0):
+        """Diam sampai detik `detik` pada jam video, lalu lanjut.
+
+        Ini yang menjaga gambar tidak mendahului suara. `self.wait` langsung,
+        BUKAN `b.jeda`: jeda dibatasi 1,6 detik oleh gl.sinema tanpa peringatan
+        apa pun, dan pembatasan diam-diam itu sudah sekali meloloskan cacat ke
+        video jadi.
+        """
+        if detik is None:
+            detik = self.time + cadangan
+        sisa = detik - self.time
+        if sisa > 0.02:
+            self.wait(sisa)
+            b.catat(sisa)
 
     def periksa(self, tambahan=None, pasangan=None):
         zona = {"panel": self.pnl,
@@ -406,8 +472,16 @@ class GeserCerminRegang(AdeganMatra):
             b.main(kamera.sudut(self.frame_, **SUDUT_GRAFIK), run_time=3.2)
             b.main(FadeOut(self.lembah), FadeOut(self.bola),
                    FadeIn(self.sumbu), run_time=1.6)
-            b.jeda(0.5)
-        qc.periksa_adegan(self, {"sumbu": self.sumbu})
+            # ATURANNYA DITULIS DI SINI, sebelum pertanyaannya diajukan.
+            # ARYA: "urutan pembuatan grafiknya kebalik, harusnya diberi fungsi
+            # f(x) = x^2, lalu mengapa bentuknya seperti itu? barulah kita
+            # jelaskan dengan memasukkan x = -2 s.d x = 2". Versi sebelumnya
+            # menaruh rumusnya paling akhir, sesudah kurvanya jadi, sehingga
+            # penonton disuruh menghitung sesuatu yang aturannya belum
+            # diberitahukan.
+            self.tunggu_sampai(b, mulai_kalimat("Aturannya kita tulis"), 0.4)
+            self.rumus_terbang(b, [DASAR["parabola"]["rumus"]])
+        qc.periksa_adegan(self, {"sumbu": self.sumbu, "panel": self.pnl})
 
     # ==================================================================
     def b04_titik(self):
@@ -420,6 +494,11 @@ class GeserCerminRegang(AdeganMatra):
 
         Lima titik, bukan tiga. Dengan tiga, bentuk parabola masih terasa
         ditebak; dengan lima, kesetangkupannya kelihatan.
+
+        Aturannya sudah ditulis di babak sebelumnya. Urutannya: rumus dulu,
+        lalu pertanyaan "kenapa bentuknya begitu", baru jawabannya dengan
+        memasukkan angka. Sebelumnya rumusnya justru paling akhir, dan ARYA
+        menyebutnya kebalik.
         """
         d = DASAR["parabola"]
         self.kurva = self.buat_kurva(d["f"], d["dari"], d["sampai"])
@@ -440,23 +519,18 @@ class GeserCerminRegang(AdeganMatra):
             self.hud_tambah(hitungan)
             for baris in hitungan:
                 baris.set_opacity(0)
-            # Narator bertanya dulu ("kenapa bentuknya begitu?") sebelum angka
-            # pertama disebut. Tanpa tunggu ini, titik pertama mendarat saat
-            # narator masih bertanya, dan jawabannya mendahului pertanyaannya.
-            #
-            # `self.wait` langsung, BUKAN `b.jeda`: jeda dibatasi 1,6 detik oleh
-            # gl.sinema (JEDA_MAKS) tanpa peringatan, jadi 3,4 diam-diam jadi
-            # 1,6. `b.catat` yang memberi tahu babak berapa waktu terpakai.
-            self.wait(3.4)
-            b.catat(3.4)
-            for baris, tt in zip(hitungan, self.titik):
-                b.main(baris.animate.set_opacity(1), FadeIn(tt), run_time=1.15)
-                b.jeda(0.6)
-            b.jeda(0.4)
-            b.main(ShowCreation(self.kurva), run_time=2.0)
-            b.jeda(0.5)
+            # TIAP titik mendarat saat kalimatnya MULAI diucapkan, bukan
+            # menurut hitungan run_time saya sendiri. Sebelumnya semuanya
+            # sekitar dua detik terlalu cepat dan ARYA yang menemukannya.
+            for (x, _), baris, tt in zip(NILAI_HITUNG, hitungan, self.titik):
+                self.tunggu_sampai(b, mulai_kalimat("x = %d memberi" % x), 1.7)
+                b.main(baris.animate.set_opacity(1), FadeIn(tt), run_time=1.0)
+            # Kurvanya ditarik tepat saat narator sampai di kata
+            # "kurvanya cuma menghubungkan", bukan lima detik sebelumnya.
+            self.tunggu_sampai(b, mulai_kalimat("dan kurvanya cuma"), 1.0)
+            b.main(ShowCreation(self.kurva), run_time=2.4)
+            b.jeda(0.8)
             b.main(FadeOut(hitungan), run_time=0.7)
-            self.rumus_terbang(b, [d["rumus"]])
         # Titiknya ikut digeser di babak berikutnya. Kalau tidak, titik hasil
         # hitungan tertinggal di tempat lama dan MEMBANTAH kurvanya sendiri.
         self.ikutan = [self.titik]
