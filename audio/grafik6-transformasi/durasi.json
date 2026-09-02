@@ -1,10 +1,11 @@
 {
-  "total": 132.696,
+  "total": 160.488,
   "segmen": {
     "sapa": 8.568,
     "lembah": 8.856,
     "parabola": 8.568,
-    "geseratas": 12.072,
+    "titik": 23.304,
+    "geseratas": 16.56,
     "tanya": 10.704,
     "jawab": 7.584,
     "kenapa": 11.184,

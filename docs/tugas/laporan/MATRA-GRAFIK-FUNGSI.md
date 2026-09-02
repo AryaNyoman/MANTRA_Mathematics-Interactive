@@ -657,3 +657,138 @@ lalu jarak terdekat. Itu yang menghasilkan tabel di butir 1.
 | `audio/grafik6-transformasi/` | suara dan `durasi.json` dibuat ulang, 132,70 detik |
 | `manim/scenes/grafik6_transformasi.py` | 13 babak, dua ValueTracker geseran, `SUDUT_GRAFIK` dan `Z_BAWAH` diubah, `alas_teks` dibuang |
 | `media/uji-480p/grafik6-transformasi.mp4` | 2,63 MB, 132,67 detik, selisih suara 0,40 detik |
+
+
+---
+
+# Sumbu y, titik yang dihitung, dan pita subtitle (2 September 2026, malam)
+
+Ronde koreksi kedua dari ARYA. **Butir 3 di bawah ini yang paling penting untuk
+MASTER dan untuk semua sesi lain**, karena ia mengenai setiap video MATRA, bukan
+cuma topik ini.
+
+## 1. Sumbu y tidak ada sama sekali. Kesalahan saya.
+
+ARYA: "kenapa garis y tidak dimunculkan? grafik fungsi wajib banget menampilkan
+2 sumbu x dan y". Benar. `buat_sumbu` di adegan ini cuma menggambar satu garis
+mendatar dengan angkanya. Tidak ada garis tegak, tidak ada angka y, tidak ada
+huruf sumbu. Tidak ada alasan teknis; saya memang kelewat, dan tidak ada gerbang
+yang memeriksanya.
+
+Yang membuat ini lebih dari sekadar kurang rapi: tanpa sumbu tegak, kalimat
+"naik satu satuan" tidak punya alat ukur di layar. Penonton disuruh percaya
+narator. Widget di situs sudah benar sejak awal (dua sumbu, `Bidang.tsx` baris
+110 dan 111), jadi videonya yang tertinggal dari widgetnya sendiri.
+
+Sekarang: dua garis, angka x dari -3 sampai 4, angka y dari 1 sampai 5, dan
+huruf `x` dan `y` di ujung masing-masing.
+
+## 2. Kurvanya tidak boleh muncul begitu saja
+
+ARYA: "wajib juga diberikan titik koordinatnya jika bisa, dimana koordinatnya
+didapatkan setelah menghitung nilai fungsi. jadi siswa paham kenapa bisa
+bentuknya seperti itu, tidak secara ajaib langsung menjadi seperti itu".
+
+Babak baru `titik` (23,3 detik) disisipkan sebelum grafiknya dipakai:
+
+1. Lima nilai dihitung di layar satu per satu, ditulis penuh:
+   `f(-2) = (-2)^2 = 4`, lalu `f(-1)`, `f(0)`, `f(1)`, `f(2)`.
+2. Tiap hasil langsung menurunkan satu titik ungu ke bidangnya, pada saat yang
+   sama dengan barisnya muncul.
+3. Baru SESUDAH kelima titik berdiri sendiri, kurvanya ditarik melewatinya.
+
+Lima titik, bukan tiga. Dengan tiga titik bentuk parabola masih terasa ditebak;
+dengan lima, kesetangkupannya kelihatan.
+
+**Titiknya tidak dibuang setelah kurvanya jadi.** Ia ikut bergeser bersama
+grafiknya di babak-babak berikutnya, jadi ketika seluruh grafik naik satu
+satuan, penonton melihat titik (2, 4) menjadi (2, 5), dan setelah geseran ke
+kanan menjadi (3, 5). Transformasinya terbaca sebagai ANGKA yang berubah, bukan
+cuma gambar yang bergerak. Titiknya baru dilepas saat bentuk fungsinya berganti
+ke akar dan sinus, karena `2^2 = 4` memang tidak berlaku lagi di sana.
+
+**Jebakan ManimGL yang hampir saya lepas ke video.** `FadeOut` di ManimGL
+MENGEMBALIKAN objeknya ke keadaan semula saat ia dibersihkan dari adegan. Jadi
+kalau objek yang sudah di-`FadeOut` disentuh lagi oleh animasi berikutnya
+(`geser_dunia` menggeser semua yang ada di daftar `self.ikutan`), ia masuk lagi
+ke layar TERANG BENDERANG. Ketahuan saat membaca ulang urutan babak, bukan dari
+gerbang mana pun. Sesi lain yang memakai pola "fade out lalu masih dianimasikan"
+kena hal yang sama.
+
+## 3. UNTUK MASTER: pita keterangan menempati tempat subtitle
+
+Ini temuan yang berlaku untuk SEMUA video MATRA, bukan topik ini saja.
+
+**Keadaannya.** `gl.sinema.keterangan` menaruh tulisan di y = -3,30, yang pada
+video 480p jatuh di piksel 429 sampai 446 dari 480. Peramban menaruh subtitle
+`<track>` dari `web/public/anim/<topik>.vtt` di pita yang kira-kira sama, 420
+sampai 470. Jadi di situs, keterangan di dalam gambar dan subtitle saling
+menimpa. Ini kemungkinan besar yang dilihat ARYA waktu bilang "subtitle
+menghalangi grafik".
+
+Tidak ada gerbang yang bisa menangkapnya, karena keduanya hidup di dunia yang
+berbeda: satu dirender Manim, satu digambar peramban. Lembar kontak video tidak
+pernah memperlihatkan subtitle sama sekali.
+
+**Yang saya kerjakan di topik ini** (tambalan lokal, bukan perbaikan perkakas):
+dunianya dikecilkan (`tinggi` 8,4 ke 10,2, pusat z ke 2,28) dan keterangan
+dinaikkan ke y = -2,55 lewat satu pintu `self.ket`. Hasilnya tiga pita yang
+tidak pernah bersentuhan, diukur di tujuh frame:
+
+| pita | piksel |
+|---|---|
+| panel rumus | 26 sampai 50 |
+| grafik | 62 sampai 375 |
+| keterangan | 384 sampai 401 |
+| KOSONG untuk subtitle | 402 sampai 479 |
+
+**Usul untuk MASTER.** Ini pantas jadi keputusan perkakas, bukan tambalan tiap
+sesi: naikkan bawaan `keterangan` dan sediakan tinggi baku "pita subtitle" yang
+tidak boleh dimasuki adegan mana pun. Kalau tidak, tiap topik menyelesaikannya
+sendiri-sendiri dengan angka berbeda, dan lima sesi lain akan menemukan cacat
+yang sama satu per satu.
+
+**Percobaan pertama saya GAGAL dan itu ada gunanya.** Keterangan saya naikkan
+lebih dulu tanpa mengecilkan dunianya, dan ia mendarat tepat di atas garis sumbu
+x. Render tetap lolos: `qc.periksa_adegan` tidak pernah mengadu sumbu dengan
+keterangan. Sekarang pasangan itu diperiksa OTOMATIS di tiap babak topik ini,
+jadi kalau terulang rendernya gagal. **Sesi lain sebaiknya menambahkan
+pasangan yang sama.**
+
+## 4. Subtitle: sudah 100%, dan salinan uji sekarang membawanya
+
+ARYA minta "subtitle tampilkan 100%, semua apa yang dikatakan narator, tidak
+setengah-setengah". Setelah ditelusuri, subtitlenya MEMANG sudah 100%:
+`buat_subtitle.py` menyalin seluruh naskah kata per kata, 48 baris untuk video
+ini, dan `<track>` di `PemutarVideo.tsx` menyalakannya secara bawaan.
+
+Yang salah adalah alur peninjauannya: berkas uji yang saya kirim ke ARYA adalah
+mp4 polos tanpa jalur subtitle, jadi satu-satunya tulisan yang ia lihat di bawah
+layar adalah KETERANGAN, yang memang cuma sorotan pendek. Wajar ia menyimpulkan
+subtitlenya setengah-setengah.
+
+Sekarang ada berkas kedua khusus untuk ditinjau,
+`media/uji-480p/grafik6-transformasi-dengan-subtitle.mp4`, dengan subtitle
+dibakar ke gambar supaya pasti terlihat di pemutar mana pun. **Versi yang tayang
+di situs TETAP memakai berkas .vtt terpisah** sesuai keputusan ARYA 31 Agustus,
+jadi masih bisa dimatikan, digeser, dan dibaca pembaca layar.
+
+Usul untuk MASTER: `gabung_audio.py --uji` sebaiknya selalu membuat salinan
+berbakar-subtitle ini. Peninjau tidak bisa menilai apa yang tidak ia lihat.
+
+## Angka akhir ronde ini
+
+| | sebelum | sesudah |
+|---|---|---|
+| babak | 13 | 14 |
+| durasi | 132,7 detik | 160,5 detik |
+| sumbu | 1 (x saja) | 2, berangka, berhuruf |
+| kurva | langsung digambar | 5 nilai dihitung, diplot, baru disambung |
+| pita bebas untuk subtitle | 34 piksel, DIPAKAI keterangan | 78 piksel, kosong |
+| selisih suara | | 0,48 detik |
+
+Cacat yang tersisa dan tidak saya diamkan: pada babak `titik`, keterangan yang
+tampil selama 15 detik pertama masih milik babak sebelumnya ("dari samping,
+lembahnya terbaca sebagai grafik"). Tidak salah, tapi juga tidak membantu.
+Diperbaiki di ronde berikutnya bersama revisi isi dari ARYA, supaya tidak
+menghabiskan satu render penuh sendirian.

@@ -1,0 +1,195 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/grafik6-transformasi.json
+
+1
+00:00:00.000 --> 00:00:03.797
+Materi enam: <b>geser, cermin, dan regang</b>.
+
+2
+00:00:03.797 --> 00:00:08.568
+Satu angka kecil bisa memindahkan seluruh grafik.
+
+3
+00:00:08.568 --> 00:00:10.481
+Kita mulai dari yang <b>nyata</b>.
+
+4
+00:00:10.481 --> 00:00:13.244
+Bola ini menggelinding di dasar lembah,
+
+5
+00:00:13.244 --> 00:00:17.424
+dan bentuk lembahnya persis grafik y sama dengan x kuadrat.
+
+6
+00:00:17.424 --> 00:00:22.843
+Sekarang kita lihat dari <b>samping</b>, supaya lembahnya terbaca sebagai grafik.
+
+7
+00:00:22.843 --> 00:00:25.992
+Mulai di sini lembah itu kita sebut f saja.
+
+8
+00:00:25.992 --> 00:00:28.168
+Kenapa bentuknya begitu?
+
+9
+00:00:28.168 --> 00:00:30.617
+Bukan sihir, tapi <b>dihitung</b>.
+
+10
+00:00:30.617 --> 00:00:34.062
+x sama dengan minus dua memberi empat.
+
+11
+00:00:34.062 --> 00:00:36.239
+Minus satu memberi satu.
+
+12
+00:00:36.239 --> 00:00:37.689
+Nol memberi nol.
+
+13
+00:00:37.689 --> 00:00:39.322
+Satu memberi satu.
+
+14
+00:00:39.322 --> 00:00:40.954
+Dua memberi empat.
+
+15
+00:00:40.954 --> 00:00:44.944
+Lima titik inilah yang menentukan bentuknya,
+
+16
+00:00:44.944 --> 00:00:49.296
+dan kurvanya cuma <b>menghubungkan</b> titik-titik itu.
+
+17
+00:00:49.296 --> 00:00:50.960
+Sekarang perhatikan.
+
+18
+00:00:50.960 --> 00:00:55.454
+Kita tulis f dari x, lalu tambah satu, di luar kurung.
+
+19
+00:00:55.454 --> 00:01:00.780
+Seluruh grafiknya naik <b>satu satuan</b>, dan bentuknya tidak berubah.
+
+20
+00:01:00.780 --> 00:01:05.856
+Lihat titik dua koma empat tadi: sekarang jadi dua koma lima.
+
+21
+00:01:05.856 --> 00:01:09.009
+Sekarang giliran yang di dalam kurung.
+
+22
+00:01:09.009 --> 00:01:11.664
+Kita tulis f dari x kurang satu.
+
+23
+00:01:11.664 --> 00:01:16.560
+Coba tebak dulu: grafiknya bergeser ke kiri, atau ke kanan?
+
+24
+00:01:16.560 --> 00:01:19.341
+Ke kanan, padahal tandanya minus.
+
+25
+00:01:19.341 --> 00:01:24.144
+Ini bagian yang paling sering keliru, jadi kita pelankan.
+
+26
+00:01:24.144 --> 00:01:25.502
+Alasannya begini.
+
+27
+00:01:25.502 --> 00:01:29.177
+Titik terendah terjadi saat isi kurungnya nol,
+
+28
+00:01:29.177 --> 00:01:32.292
+dan itu terjadi ketika x bernilai satu.
+
+29
+00:01:32.292 --> 00:01:35.328
+Jadi titik itu memang pindah ke kanan.
+
+30
+00:01:35.328 --> 00:01:39.062
+Sekarang fungsi dasarnya kita ganti menjadi akar x.
+
+31
+00:01:39.062 --> 00:01:40.746
+Bentuknya jauh berbeda.
+
+32
+00:01:40.746 --> 00:01:43.968
+Kita kenakan dua perlakuan yang sama persis.
+
+33
+00:01:43.968 --> 00:01:49.217
+Sekali lagi, kali ini pada kurva sinus dari topik trigonometri.
+
+34
+00:01:49.217 --> 00:01:52.299
+Perhatikan, perpindahannya sama saja.
+
+35
+00:01:52.299 --> 00:01:55.632
+Aturannya tidak peduli bentuk grafiknya.
+
+36
+00:01:55.632 --> 00:02:00.016
+Satu perlakuan terakhir, dan ini yang paling menjebak.
+
+37
+00:02:00.016 --> 00:02:01.964
+Kita tulis f dari dua x.
+
+38
+00:02:01.964 --> 00:02:07.728
+Coba tebak lagi: grafiknya jadi dua kali lebih lebar, atau setengahnya?
+
+39
+00:02:07.728 --> 00:02:08.928
+Setengahnya.
+
+40
+00:02:08.928 --> 00:02:10.227
+Lihat titik ini.
+
+41
+00:02:10.227 --> 00:02:14.532
+Nilai empat yang tadinya muncul di x sama dengan dua,
+
+42
+00:02:14.532 --> 00:02:17.880
+sekarang sudah muncul di x sama dengan satu.
+
+43
+00:02:17.880 --> 00:02:21.451
+Sebabnya, x sudah dikalikan dua sebelum masuk mesin.
+
+44
+00:02:21.451 --> 00:02:25.846
+Jadi mesinnya sampai ke nilai yang sama pada x yang setengahnya,
+
+45
+00:02:25.846 --> 00:02:29.280
+dan semua kejadian pada grafik terjadi lebih awal.
+
+46
+00:02:29.280 --> 00:02:32.424
+Jadi seluruh tahap ini muat dalam dua kalimat.
+
+47
+00:02:32.424 --> 00:02:36.524
+Angka yang ada di luar kurung mengerjakan apa yang tertulis.
+
+48
+00:02:36.524 --> 00:02:40.488
+Angka yang masuk ke dalam kurung mengerjakan kebalikannya.

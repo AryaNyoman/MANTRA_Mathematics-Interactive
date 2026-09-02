@@ -2,7 +2,7 @@
   "adegan": "GeserCerminRegang",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Grafik Fungsi Tahap 06, Geser, cermin, regang. Video prioritas PERTAMA. Versi ManimGL 2 Sep 2026. Benda nyatanya BOLA YANG MENGGELINDING DI DASAR LEMBAH, bukan bola yang dilempar: lintasan lemparan itu parabola terbuka ke BAWAH, sedangkan tahap ini memakai f(x) = x kuadrat yang terbuka ke ATAS. Gambar yang membantah rumusnya adalah cacat terburuk menurut gerbang video. Bola terus mengayun di lembah sepanjang video sebagai updater, jadi dunia tidak membeku dan tiap kurva selalu punya benda yang diwakilinya. Revisi ARYA 2 Sep sore: babak 1 kini JUDUL SAJA di layar bersih (pola Trigonometri), dunianya dibangun di babak 2 yang bernama lembah. Judul dan grafik yang muncul bersamaan dinilai terlalu ramai.",
+  "catatan": "Grafik Fungsi Tahap 06, Geser, cermin, regang. Video prioritas PERTAMA. Versi ManimGL 2 Sep 2026. Benda nyatanya BOLA YANG MENGGELINDING DI DASAR LEMBAH, bukan bola yang dilempar: lintasan lemparan itu parabola terbuka ke BAWAH, sedangkan tahap ini memakai f(x) = x kuadrat yang terbuka ke ATAS. Gambar yang membantah rumusnya adalah cacat terburuk menurut gerbang video. Bola terus mengayun di lembah sepanjang video sebagai updater, jadi dunia tidak membeku dan tiap kurva selalu punya benda yang diwakilinya. Revisi ARYA 2 Sep sore: babak 1 kini JUDUL SAJA di layar bersih (pola Trigonometri), dunianya dibangun di babak 2 yang bernama lembah. Judul dan grafik yang muncul bersamaan dinilai terlalu ramai. Revisi ARYA 2 Sep malam: sumbu y WAJIB ada, dan kurvanya tidak boleh muncul begitu saja. Segmen \"titik\" menghitung lima nilai f(x) di layar lalu memplotnya; kurvanya baru ditarik melewati kelima titik itu.",
   "segmen": [
     {
       "id": "sapa",
@@ -17,8 +17,12 @@
       "teks": "Sekarang kita lihat dari *samping*, supaya lembahnya terbaca sebagai grafik. Mulai di sini lembah itu kita sebut f saja."
     },
     {
+      "id": "titik",
+      "teks": "Kenapa bentuknya begitu? Bukan sihir, tapi *dihitung*. x sama dengan minus dua memberi empat. Minus satu memberi satu. Nol memberi nol. Satu memberi satu. Dua memberi empat. Lima titik inilah yang menentukan bentuknya, dan kurvanya cuma *menghubungkan* titik-titik itu."
+    },
+    {
       "id": "geseratas",
-      "teks": "Sekarang perhatikan. Kita tulis f dari x, lalu tambah satu, di luar kurung. Seluruh grafiknya naik satu satuan, dan bentuknya tidak berubah."
+      "teks": "Sekarang perhatikan. Kita tulis f dari x, lalu tambah satu, di luar kurung. Seluruh grafiknya naik *satu satuan*, dan bentuknya tidak berubah. Lihat titik dua koma empat tadi: sekarang jadi dua koma lima."
     },
     {
       "id": "tanya",

@@ -55,7 +55,12 @@ DURASI = json.loads((AKAR / "audio" / TOPIK / "durasi.json").read_text(encoding=
 X_MIN, X_MAX = -3.4, 4.8
 Y_LEMBAH = 1.5          # lembah membentang dari -Y_LEMBAH sampai +Y_LEMBAH
 Y_KURVA = -1.72         # lapisan matematika, tepat DI DEPAN lembah dari sisi kamera
-Z_BAWAH = -0.8         # dangkal, supaya garis putus-putus tidak masuk pita subtitle
+# Ujung bawah sumbu y dan garis putus-putus. Dangkal SEKALI, karena keduanya
+# tegak dan pita keterangan mendatar: pada -0,8 garis sumbu y turun sampai 452
+# piksel dan MEMOTONG tulisan keterangan di 429 sampai 446. Terlihat di lembar
+# kontak detik 90 (kata "pindah") dan detik 100 (kata "lain").
+Z_BAWAH = -0.20
+Z_ATAS = 5.2           # ujung atas sumbu y, setinggi puncak tertinggi yang pernah digambar
 
 # Sudut pandang: dunia dulu, lalu samping tempat grafiknya terbaca.
 #
@@ -73,7 +78,18 @@ SUDUT_DUNIA = dict(theta=-42, phi=66, pusat=(0.4, 0.0, 1.7), tinggi=9.2)
 # sesatuan ke atas. Angkanya dipilih dari UKURAN, bukan kira-kira: pada 2,0
 # sisa tepi atas cuma 19 piksel sedangkan celah ke pita keterangan 51 piksel,
 # jadi dunianya diturunkan 0,3 satuan supaya kedua sisi sama lapangnya.
-SUDUT_GRAFIK = dict(theta=0, phi=90, pusat=(0.7, 0.0, 2.3), tinggi=8.4)
+# Dunianya sengaja dikecilkan sampai grafiknya berhenti di sekitar 374 piksel
+# dari 480, meninggalkan DUA pita kosong di bawahnya: satu untuk keterangan di
+# dalam gambar, satu lagi untuk subtitle yang ditaruh peramban. Di 480p ini
+# terasa sempit; di 1080p semuanya 2,25 kali lebih besar.
+SUDUT_GRAFIK = dict(theta=0, phi=90, pusat=(0.7, 0.0, 2.28), tinggi=10.2)
+
+# Tinggi pita keterangan di dalam gambar. TIDAK memakai bawaan -3,30 dari
+# gl.sinema, dan itu disengaja: pada -3,30 keterangan duduk di 429 sampai 446
+# piksel dari 480, persis tempat peramban menaruh subtitle <track> milik
+# `web/public/anim/<topik>.vtt`. Di situs keduanya akan saling menimpa.
+# Pita paling bawah layar dikosongkan untuk subtitle, keterangan naik ke sini.
+Y_KET = -2.55
 
 RESOLUSI = (48, 10)     # cukup halus untuk lembah, tetap ringan dirender
 
@@ -96,6 +112,12 @@ DASAR = {
     "akar": dict(f=f_akar, rumus=r"f(x) = 2\sqrt{x}", dari=0.0, sampai=4.3),
     "sinus": dict(f=f_sinus, rumus=r"f(x) = 1{,}6\sin x + 1{,}6", dari=-3.2, sampai=4.4),
 }
+
+
+# Lima nilai yang dihitung di depan penonton sebelum kurvanya ditarik.
+# Simetris di sekitar nol supaya bentuk parabolanya keluar dari angkanya
+# sendiri, bukan dari kepercayaan penonton kepada narator.
+NILAI_HITUNG = [(-2, 4), (-1, 1), (0, 0), (1, 1), (2, 4)]
 
 
 def tegak(mob):
@@ -135,16 +157,17 @@ class GeserCerminRegang(AdeganMatra):
         self.b01_sapa()
         self.b02_lembah()
         self.b03_parabola()
-        self.b04_geseratas()
-        self.b05_tanya()
-        self.b06_jawab()
-        self.b07_kenapa()
-        self.b08_akar()
-        self.b09_sinus()
-        self.b10_mampat()
-        self.b11_setengah()
-        self.b12_kenapamampat()
-        self.b13_tutup()
+        self.b04_titik()
+        self.b05_geseratas()
+        self.b06_tanya()
+        self.b07_jawab()
+        self.b08_kenapa()
+        self.b09_akar()
+        self.b10_sinus()
+        self.b11_mampat()
+        self.b12_setengah()
+        self.b13_kenapamampat()
+        self.b14_tutup()
 
     # ------------------------------------------------------------------
     # Alat bantu
@@ -260,9 +283,18 @@ class GeserCerminRegang(AdeganMatra):
         self.campur.set_value(0.0)
 
     def buat_sumbu(self):
-        """Sumbu x dan angkanya, di lapisan matematika, menghadap kamera samping."""
-        garis = Line([X_MIN, Y_KURVA, 0], [X_MAX, Y_KURVA, 0])
-        garis.set_stroke(REDUP, width=2)
+        """DUA sumbu, x dan y, lengkap dengan angka dan hurufnya.
+
+        Sumbu y sempat tidak ada sama sekali di video ini, dan ARYA yang
+        menemukannya: "grafik fungsi wajib banget menampilkan 2 sumbu x dan y".
+        Tanpa sumbu tegak, tinggi sebuah titik tidak bisa dibaca, jadi kalimat
+        seperti "naik satu satuan" tidak punya alat ukur di layar.
+        """
+        gx = Line([X_MIN, Y_KURVA, 0], [X_MAX, Y_KURVA, 0])
+        gy = Line([0, Y_KURVA, Z_BAWAH], [0, Y_KURVA, Z_ATAS])
+        for g in (gx, gy):
+            g.set_stroke(REDUP, width=2)
+
         angka = Group()
         for n in (-3, -2, -1, 1, 2, 3, 4):
             a = tegak(rumus(str(n), 22, REDUP))
@@ -272,7 +304,18 @@ class GeserCerminRegang(AdeganMatra):
             # terpenting di video ini. Terlihat di lembar kontak render kedua.
             a.move_to([n, Y_KURVA, 0.34])
             angka.add(a)
-        return Group(garis, angka)
+        for n in (1, 2, 3, 4, 5):
+            # Di KIRI sumbu tegak. Di kanan, angkanya jatuh ke dalam cekungan
+            # parabola justru di tempat kurvanya lewat setelah digeser.
+            a = tegak(rumus(str(n), 22, REDUP))
+            a.move_to([-0.34, Y_KURVA, n])
+            angka.add(a)
+
+        huruf = Group(
+            tegak(rumus("x", 24, REDUP)).move_to([X_MAX - 0.25, Y_KURVA, 0.42]),
+            tegak(rumus("y", 24, REDUP)).move_to([0.42, Y_KURVA, Z_ATAS - 0.1]),
+        )
+        return Group(gx, gy, angka, huruf)
 
     def panel(self, potongan, warna_akhir=None):
         """Tumpukan rumus di pojok kanan atas layar, menempel walau kamera terbang."""
@@ -303,15 +346,34 @@ class GeserCerminRegang(AdeganMatra):
         b.main(panel_baru.animate.set_opacity(1), run_time=lama * 0.58)
         self.pnl = panel_baru
 
-    def periksa(self, tambahan=None, pasangan=None):
+    def ket(self, kalimat, **k):
+        """Keterangan di dalam gambar, di atas pita yang dipakai subtitle.
+
+        Satu pintu untuk seluruh adegan supaya tingginya tidak tercecer.
+        """
+        k.setdefault("y", Y_KET)
+        return sinema.keterangan(self, kalimat, **k)
+
+    def periksa(self, tambahan=None, pasangan=None, tanpa_kurva=False):
         # Lembah ikut diperiksa. Pada render pertama ia tidak diperiksa, dan
         # dinding lembahnya terpotong tepi atas layar tanpa satu pun gerbang
         # berbunyi.
-        zona = {"lembah": self.lembah, "kurva": self.kurva, "panel": self.pnl,
+        zona = {"lembah": self.lembah, "panel": self.pnl,
+                "sumbu": getattr(self, "sumbu", None),
                 "keterangan": getattr(self, "_matra_keterangan", None)}
+        if not tanpa_kurva:
+            zona["kurva"] = self.kurva
         zona.update(tambahan or {})
         zona = {k: v for k, v in zona.items() if v is not None}
-        qc.periksa_adegan(self, zona, pasangan or [])
+
+        # Keterangan diadu dengan sumbu SELALU. Pita keterangan pernah
+        # dinaikkan tanpa mengecilkan dunianya lebih dulu, mendarat tepat di
+        # atas garis sumbu x, dan lolos render tanpa satu pun peringatan
+        # karena pasangan ini tidak pernah diperiksa.
+        adu = list(pasangan or [])
+        if "sumbu" in zona and "keterangan" in zona:
+            adu.append(("sumbu", "keterangan"))
+        qc.periksa_adegan(self, zona, adu)
 
     # ==================================================================
     def b01_sapa(self):
@@ -346,7 +408,7 @@ class GeserCerminRegang(AdeganMatra):
         with sinema.babak(self, "lembah", DURASI) as b:
             b.main(FadeIn(self.lembah), run_time=1.5)
             b.main(FadeIn(self.bola), run_time=0.9)
-            sinema.keterangan(self, "bolanya mengayun di dasar lembah")
+            self.ket("bolanya mengayun di dasar lembah")
             b.catat(0.6)
             b.jeda(0.9)
         qc.periksa_adegan(self, {"lembah": self.lembah, "bola": self.bola,
@@ -356,25 +418,73 @@ class GeserCerminRegang(AdeganMatra):
     def b03_parabola(self):
         """SATU gerakan kamera panjang: dari dunia ke sudut tempat grafiknya terbaca.
 
-        Garis kurvanya baru ditarik SESUDAH kamera mendarat. Dari sudut miring
-        ia cuma coretan gelap di punggung lembah; dari samping barulah ia
-        berarti sebagai grafik.
+        Kurvanya BELUM ditarik di sini. Babak berikutnya menghitung dulu lima
+        nilai f(x) dan memplotnya; kurvanya baru menyusul sebagai penghubung
+        kelima titik itu.
         """
         self.sumbu = self.buat_sumbu()
 
         with sinema.babak(self, "parabola", DURASI) as b:
             lama_terbang = max(2.4, DURASI["parabola"] - 5.4)
             b.main(kamera.sudut(self.frame_, **SUDUT_GRAFIK), run_time=lama_terbang)
-            b.main(FadeIn(self.sumbu), run_time=0.7)
-            b.main(ShowCreation(self.kurva), run_time=1.0)
+            b.main(FadeIn(self.sumbu), run_time=0.9)
             self.hud_tambah(self.pnl)
             self.pnl.set_opacity(0)
             b.main(self.pnl.animate.set_opacity(1), run_time=0.7)
-            sinema.keterangan(self, "dari samping, lembahnya terbaca sebagai grafik")
+            self.ket("dari samping, lembahnya terbaca sebagai grafik")
             b.catat(0.6)
             b.jeda(0.5)
         self.periksa({"bola": self.bola, "sumbu": self.sumbu},
-                     [("panel", "keterangan")])
+                     [("panel", "keterangan")], tanpa_kurva=True)
+
+    # ==================================================================
+    def b04_titik(self):
+        """Kurvanya TIDAK muncul begitu saja: dihitung, diplot, baru disambung.
+
+        ARYA, 2 September: "siswa paham kenapa bisa bentuknya seperti itu,
+        tidak secara ajaib langsung menjadi seperti itu". Jadi tiap nilai
+        dihitung di layar, titiknya mendarat di bidang pada saat yang sama,
+        dan kurvanya baru ditarik SESUDAH kelima titik berdiri sendiri.
+
+        Lima titik, bukan tiga. Dengan tiga titik bentuk parabola masih terasa
+        ditebak; dengan lima, kesetangkupannya kelihatan dan kurvanya benar
+        benar terbaca sebagai hasil hitungan.
+        """
+        hitungan = VGroup(*[
+            rumus(r"f(%d) = (%d)^{2} = %d" % (x, x, y) if x < 0
+                  else r"f(%d) = %d^{2} = %d" % (x, x, y), 26)
+            for x, y in NILAI_HITUNG
+        ])
+        hitungan.arrange(DOWN, buff=0.30, aligned_edge=LEFT)
+        sinema.batasi_lebar(hitungan, 4.4)
+        hitungan.to_corner(UR, buff=0.45)
+
+        self.titik = Group(*[penanda([x, Y_KURVA, y], SOROT, 0.13)
+                             for x, y in NILAI_HITUNG])
+
+        with sinema.babak(self, "titik", DURASI) as b:
+            self.hud_tambah(hitungan)
+            for baris in hitungan:
+                baris.set_opacity(0)
+            # Narator bertanya dulu ("kenapa bentuknya begitu?") sebelum angka
+            # pertama disebut. Tanpa jeda ini, titik pertama mendarat saat
+            # narator masih bertanya, dan jawabannya mendahului pertanyaannya.
+            b.jeda(3.4)
+            for baris, tt in zip(hitungan, self.titik):
+                b.main(baris.animate.set_opacity(1), FadeIn(tt), run_time=1.15)
+                b.jeda(0.6)
+            b.jeda(0.4)
+            b.main(ShowCreation(self.kurva), run_time=2.0)
+            self.ket("kurvanya cuma *menghubungkan* titik yang dihitung")
+            b.catat(0.6)
+            b.jeda(0.6)
+            b.main(FadeOut(hitungan), run_time=0.7)
+        # Titiknya ikut digeser bersama grafiknya di babak-babak berikutnya.
+        # Kalau tidak, titik hasil hitungan akan tertinggal di tempat lama dan
+        # MEMBANTAH kurvanya sendiri, cacat terburuk menurut gerbang video.
+        self.ikutan = [self.titik]
+        self.periksa({"bola": self.bola, "sumbu": self.sumbu,
+                      "titik": self.titik})
 
     # ==================================================================
     def geser_dunia(self, b, dx, dz, lama=1.8):
@@ -391,11 +501,14 @@ class GeserCerminRegang(AdeganMatra):
         """
         self.geser_x.set_value(0.0)
         self.geser_z.set_value(0.0)
+        pindah = np.array([dx, 0.0, dz])
+        ikut = [m.animate.shift(pindah) for m in getattr(self, "ikutan", [])]
         b.main(
-            self.lembah.animate.shift(np.array([dx, 0.0, dz])),
-            self.kurva.animate.shift(np.array([dx, 0.0, dz])),
+            self.lembah.animate.shift(pindah),
+            self.kurva.animate.shift(pindah),
             self.geser_x.animate.set_value(dx),
             self.geser_z.animate.set_value(dz),
+            *ikut,
             run_time=lama,
         )
         f_lama = self.f_kini
@@ -405,14 +518,14 @@ class GeserCerminRegang(AdeganMatra):
         self.geser_x.set_value(0.0)
         self.geser_z.set_value(0.0)
 
-    def b04_geseratas(self):
+    def b05_geseratas(self):
         d = DASAR["parabola"]
         self.bayang = self.buat_kurva(d["f"], d["dari"], d["sampai"], REDUP, 2.6)
         self.bayang.set_stroke(opacity=0.5)
         self.add(self.bayang)
 
         with sinema.babak(self, "geseratas", DURASI) as b:
-            sinema.keterangan(self, "di LUAR kurung: naik satu, bentuknya utuh", warna=AKSEN)
+            self.ket("di LUAR kurung: naik satu, bentuknya utuh", warna=AKSEN)
             b.catat(0.6)
             self.ganti_panel(b, self.panel([d["rumus"], r"y = f(x) + 1"], AKSEN))
             self.geser_dunia(b, 0.0, 1.0)
@@ -420,7 +533,7 @@ class GeserCerminRegang(AdeganMatra):
         self.periksa({"bola": self.bola, "bayang": self.bayang})
 
     # ==================================================================
-    def b05_tanya(self):
+    def b06_tanya(self):
         """Pertanyaan tebakan lewat pita keterangan, BUKAN teks di dunia.
 
         Pada render pertama ia teks di dunia dan menimpa bola yang sedang
@@ -430,22 +543,22 @@ class GeserCerminRegang(AdeganMatra):
         d = DASAR["parabola"]
         with sinema.babak(self, "tanya", DURASI) as b:
             self.ganti_panel(b, self.panel([d["rumus"], r"y = f(x - 1) + 1"], AKSEN2))
-            sinema.keterangan(self, "tebak dulu: ke kiri, atau ke kanan?", warna=AKSEN2)
+            self.ket("tebak dulu: ke kiri, atau ke kanan?", warna=AKSEN2)
             b.catat(0.6)
             b.jeda(1.6)
         self.periksa({"bola": self.bola, "lembah": self.lembah})
 
     # ==================================================================
-    def b06_jawab(self):
+    def b07_jawab(self):
         with sinema.babak(self, "jawab", DURASI) as b:
-            sinema.keterangan(self, "tandanya minus, pindahnya ke KANAN", warna=AKSEN2)
+            self.ket("tandanya minus, pindahnya ke KANAN", warna=AKSEN2)
             b.catat(0.6)
             self.geser_dunia(b, 1.0, 0.0, lama=2.0)
             b.jeda(1.2)
         self.periksa({"bola": self.bola, "bayang": self.bayang})
 
     # ==================================================================
-    def b07_kenapa(self):
+    def b08_kenapa(self):
         garis = DashedLine([1.0, Y_KURVA, Z_BAWAH], [1.0, Y_KURVA, 1.0])
         garis.set_stroke(AKSEN2, width=3)
         titik = penanda([1.0, Y_KURVA, 1.0], AKSEN2, 0.09)
@@ -453,7 +566,7 @@ class GeserCerminRegang(AdeganMatra):
         label.move_to([1.75, Y_KURVA, -0.75])
 
         with sinema.babak(self, "kenapa", DURASI) as b:
-            sinema.keterangan(self, "titik terendah pindah ke tempat kurungnya nol")
+            self.ket("titik terendah pindah ke tempat kurungnya nol")
             b.catat(0.6)
             b.main(ShowCreation(garis), FadeIn(titik), run_time=1.4)
             b.main(FadeIn(label), run_time=0.7)
@@ -469,15 +582,27 @@ class GeserCerminRegang(AdeganMatra):
         penonton tidak kehilangan jejak benda yang mana yang tadi mana.
         """
         d = DASAR[nama]
-        sinema.keterangan(self, kalimat, warna=SOROT)
+        self.ket(kalimat, warna=SOROT)
         b.catat(0.6)
+
+        # Titik hasil hitungan dilepas SEKALI, tepat saat bentuk fungsinya
+        # berganti: nilai 2 kuadrat sama dengan 4 tidak berlaku lagi untuk akar
+        # maupun sinus, jadi titiknya akan membantah kurvanya sendiri.
+        # Daftar ikutan dikosongkan pada saat yang sama. Kalau tidak, geseran
+        # sesudah ini menganimasikan titik yang sudah di-FadeOut, dan ManimGL
+        # MENGEMBALIKAN objek yang di-FadeOut ke keadaan semula saat ia
+        # dibersihkan, jadi kelima titik itu akan muncul lagi terang benderang.
+        lepas = [FadeOut(self.bayang)]
+        if getattr(self, "ikutan", None):
+            lepas.append(FadeOut(self.titik))
+            self.ikutan = []
 
         self.ubah_bentuk(
             b, d["f"], d["dari"], d["sampai"],
             self.buat_lembah(d["f"], d["dari"], d["sampai"]),
             self.buat_kurva(d["f"], d["dari"], d["sampai"]),
             panel_baru=self.panel([d["rumus"], r"y = f(x - 1) + 1"], SOROT),
-            ikut=[FadeOut(self.bayang)], lama=1.5,
+            ikut=lepas, lama=1.5,
         )
 
         self.bayang = self.buat_kurva(d["f"], d["dari"], d["sampai"], REDUP, 2.6)
@@ -486,19 +611,19 @@ class GeserCerminRegang(AdeganMatra):
 
         self.geser_dunia(b, 1.0, 1.0, lama=1.6)
 
-    def b08_akar(self):
+    def b09_akar(self):
         with sinema.babak(self, "akar", DURASI) as b:
             self.ganti_bentuk(b, "akar", "bentuk lain, perpindahan sama")
         self.periksa({"bola": self.bola, "bayang": self.bayang})
 
-    def b09_sinus(self):
+    def b10_sinus(self):
         with sinema.babak(self, "sinus", DURASI) as b:
             self.ganti_bentuk(b, "sinus", "aturannya tidak peduli bentuk grafiknya")
             b.jeda(1.0)
         self.periksa({"bola": self.bola, "bayang": self.bayang})
 
     # ==================================================================
-    def b10_mampat(self):
+    def b11_mampat(self):
         d = DASAR["parabola"]
         lembah_baru = self.buat_lembah(d["f"], d["dari"], d["sampai"])
         kurva_baru = self.buat_kurva(d["f"], d["dari"], d["sampai"])
@@ -506,14 +631,14 @@ class GeserCerminRegang(AdeganMatra):
             self.ubah_bentuk(b, d["f"], d["dari"], d["sampai"], lembah_baru, kurva_baru,
                              panel_baru=self.panel([d["rumus"], r"y = f(2x)"], AKSEN2),
                              ikut=[FadeOut(self.bayang)], lama=1.6)
-            sinema.keterangan(self, "tebak dulu: dua kali lebar, atau setengah?",
+            self.ket("tebak dulu: dua kali lebar, atau setengah?",
                               warna=AKSEN2)
             b.catat(0.6)
             b.jeda(1.5)
         self.periksa({"bola": self.bola, "lembah": self.lembah})
 
     # ==================================================================
-    def b11_setengah(self):
+    def b12_setengah(self):
         d = DASAR["parabola"]
         self.bayang = self.buat_kurva(d["f"], d["dari"], d["sampai"], REDUP, 2.6)
         self.bayang.set_stroke(opacity=0.5)
@@ -530,7 +655,7 @@ class GeserCerminRegang(AdeganMatra):
         panah.set_color(AKSEN2)
 
         with sinema.babak(self, "setengah", DURASI) as b:
-            sinema.keterangan(self, "nilai 4 pindah dari x = 2 ke x = 1", warna=AKSEN2)
+            self.ket("nilai 4 pindah dari x = 2 ke x = 1", warna=AKSEN2)
             b.catat(0.6)
             self.add(self.bayang)
             self.ubah_bentuk(b, f_mampat, -1.03, 1.03, lembah_baru, kurva_baru, lama=1.8)
@@ -540,12 +665,12 @@ class GeserCerminRegang(AdeganMatra):
         self.periksa({"bola": self.bola, "bayang": self.bayang, "panah": panah})
 
     # ==================================================================
-    def b12_kenapamampat(self):
+    def b13_kenapamampat(self):
         alasan = tegak(rumus(r"f(2 \cdot 1) = f(2)", 30, AKSEN2))
         alasan.move_to([2.6, Y_KURVA, 2.1])
 
         with sinema.babak(self, "kenapamampat", DURASI) as b:
-            sinema.keterangan(self, "mesinnya sampai lebih awal, jadi grafiknya memampat")
+            self.ket("mesinnya sampai lebih awal, jadi grafiknya memampat")
             b.catat(0.6)
             b.main(Write(alasan), run_time=2.2)
             b.jeda(1.4)
@@ -553,7 +678,7 @@ class GeserCerminRegang(AdeganMatra):
         self.periksa({"bola": self.bola, "bayang": self.bayang})
 
     # ==================================================================
-    def b13_tutup(self):
+    def b14_tutup(self):
         """Satu-satunya babak yang boleh berupa layar teks, sesuai aturan 4."""
         luar = teks("Angka di LUAR kurung\nmengerjakan apa yang tertulis.", 30, AKSEN)
         dalam = teks("Angka yang masuk ke DALAM kurung\nmengerjakan kebalikannya.", 30, AKSEN2)
