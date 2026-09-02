@@ -533,3 +533,127 @@ Tahap 3 bentuk puncak, tahap 4 melengkapkan kuadrat, tahap 9 lipat ke y = x,
 tahap 8 balapan tiga kurva, tahap 10 asimtot bergeser. Menunggu ARYA menonton
 yang pertama dulu, supaya kalau temponya perlu diubah, tidak lima video yang
 harus diulang.
+
+
+---
+
+# Empat koreksi ARYA atas video tahap 6 (2 September 2026, sore)
+
+ARYA menonton `media/uji-480p/grafik6-transformasi.mp4` dan menyebut empat hal.
+Semuanya nyata, semuanya sudah diperbaiki, dan tiga di antaranya TIDAK bisa
+ditangkap gerbang mesin mana pun yang ada sekarang.
+
+## 1. "Bolanya terlihat seperti teleport ketika grafiknya berpindah"
+
+**Sebabnya.** `geser_dunia` menggeser permukaan dan kurvanya dengan `shift`,
+lalu baru MENCATAT geseran itu ke `self.f_kini` SESUDAH animasinya selesai.
+Updater bola membaca `self.f_kini`, jadi selama 1,6 sampai 2 detik ia
+menggelinding di tempat lamanya sementara lembahnya sudah pindah, lalu pindah
+sendiri dalam satu frame.
+
+Yang menyesatkan: peralihan BENTUK (`ubah_bentuk`) sudah punya obat untuk
+masalah yang sama, yaitu `self.campur`. Saya membuat obatnya lalu tidak
+memakainya di jalur satunya.
+
+**Perbaikannya.** Dua `ValueTracker` baru, `self.geser_x` dan `self.geser_z`,
+berjalan 0 ke dx dan 0 ke dz BERSAMAAN dengan `shift`. Updater bola membaca
+keduanya: `f_kini(x - gx) + gz`. Karena keduanya memakai perlambatan bawaan
+yang sama, posisi bola cocok dengan permukaannya di setiap frame, bukan cuma
+di frame awal dan akhir. Ini bukan pencampuran kira-kira: geseran kaku memang
+tepat sama dengan menggeser argumen fungsinya.
+
+**Buktinya, diukur bukan dikira.** Sepuluh frame diambil di tengah kedua
+geseran, lalu jarak piksel dari pusat bola ke kurva terdekat dihitung:
+
+| detik | jari-jari bola | celah bola ke kurva |
+|---|---|---|
+| 28,8 sampai 30,4 (geser ke atas) | 17 px | -7,6 sampai +5,1 px |
+| 49,6 sampai 51,2 (geser ke kanan) | 17 px | -7,7 sampai -3,4 px |
+
+Angka negatif berarti kurvanya masuk ke dalam bola, jadi bolanya menempel.
+Celah terburuk +5,1 px, kira-kira sepertiga jari-jari bola dan sekitar 1
+persen tinggi layar. Sebelum diperbaiki bola tertinggal SATU SATUAN penuh,
+sekitar 57 piksel, selama hampir dua detik.
+
+## 2. "Subtitle menghalangi grafik, mungkin grafiknya bisa dibuat ke atas"
+
+**Sebabnya.** Dua hal bertumpuk. Pertama, pusat kamera pandangan samping ada di
+z = 2,7 sehingga garis sumbu jatuh di 394 piksel dari 480, cuma 11 piksel di
+atas pita keterangan. Kedua, garis putus-putus penanda x = 1 turun sampai
+z = -1,3, yang di layar MASUK ke pita itu.
+
+**Perbaikannya.** `Z_BAWAH` dinaikkan dari -1,3 ke -0,8, dan pusat kamera
+diturunkan (dunia naik di layar) dari z = 2,7 ke z = 2,3. Angka 2,3 dipilih
+dari pengukuran, bukan kira-kira: pada percobaan pertama saya pakai 2,0, lalu
+lembar kontaknya diukur dan ternyata sisa tepi atas tinggal 19 piksel
+sedangkan celah ke keterangan jadi 51 piksel. Timpang. Pada 2,3 keduanya
+seimbang.
+
+| | sebelum | percobaan 2,0 | dipakai: 2,3 |
+|---|---|---|---|
+| sisa tepi atas | 58 px | 19 px | 24 sampai 26 px |
+| celah grafik ke keterangan | 11 px | 51 px | 29 sampai 30 px |
+
+## 3. "Judul dulu baru grafiknya, jangan sekaligus, terlalu rame dan berantakan"
+
+**Sebabnya.** Babak 1 memasang lembah, kurva, dan bola lebih dulu, LALU
+menaruh judul di atasnya. Judul yang menumpuk di atas permukaan 3D bercahaya
+memang ramai.
+
+**Perbaikannya, sesudah membaca ulang Trigonometri.** `arsip-manim-ce/scenes/
+tahap8_grafik_sin.py` memperlihatkan polanya dengan jelas: babak pertama HANYA
+judul, mengisi seluruh segmen narasi, di layar yang benar-benar kosong;
+gambarnya dibangun di babak berikutnya. Pola itu yang dipakai sekarang.
+
+Ini menuntut naskahnya ikut diubah, bukan cuma kodenya. Narasi lama segmen 1
+berbunyi "Bola ini menggelinding di dasar lembah ...", padahal layarnya kini
+kosong, dan menyebut benda yang belum ada melanggar aturan 2 STANDAR-MENGAJAR.
+Jadi:
+
+| segmen | isi baru |
+|---|---|
+| 1 `sapa` (BARU, judul saja) | pengumuman materi sesuai aturan 8: "Materi enam: geser, cermin, dan regang ..." |
+| 2 `lembah` (SEGMEN BARU) | kalimat bola dan lembah pindah ke sini, tempat dunianya memang sedang dibangun |
+| 3 `parabola` | tinggal soal terbang ke pandangan samping |
+
+Videonya jadi 13 babak, 132,7 detik (sebelumnya 12 babak, 124,8 detik).
+Garis kurvanya juga baru ditarik SESUDAH kamera mendarat: dari sudut miring ia
+cuma coretan gelap di punggung lembah, dari samping barulah ia jadi grafik.
+
+Segmen 1 sempat 10,3 detik, dan judul diam selama itu terlalu lama. Naskahnya
+dipotong jadi 8,6 detik sebelum render.
+
+## 4. "Subtitlenya masih ada background, harusnya dihapus"
+
+Sudah dikerjakan MASTER di `8d7491e` untuk `keterangan` dan `judul_pembuka`,
+jadi adegan ini ikut kena begitu `master` digabung. Yang tersisa milik saya
+sendiri: babak penutup masih memanggil `sinema.alas_teks` untuk dua kalimat
+kesimpulannya. Panggilan itu dibuang. Sekarang tidak ada satu pun alas krem di
+video ini.
+
+## Yang perlu diketahui sesi lain
+
+**Tiga dari empat cacat ini lolos SEMUA gerbang mesin.** `cek_kode` bersih,
+`qc.periksa_adegan` lolos di tiap babak, gerbang waktu `sinema.babak` lolos,
+kode keluar 0, dan lembar kontak ronde 5 saya nilai bersih. Yang menemukan
+ketiganya adalah ARYA, menonton videonya utuh.
+
+Pelajarannya bukan "lembar kontak tidak berguna", tetapi bahwa lembar kontak
+menangkap cacat DIAM (bertindih, terpotong, salah tulis) dan buta terhadap
+cacat GERAK. Bola yang teleport hanya kelihatan kalau dua frame berurutan
+dibandingkan, dan frame-frame lembar kontak saya berjarak belasan detik.
+
+Karena itu ronde ini saya tambah satu langkah yang bisa dipakai sesi mana pun:
+**ambil frame rapat (0,4 detik) tepat di tengah tiap perpindahan, lalu ukur
+jarak piksel benda ke kurvanya**, bukan cuma dilihat. Cara mengukurnya sudah
+terbukti sederhana: topeng warna untuk bendanya, topeng gelap untuk kurvanya,
+lalu jarak terdekat. Itu yang menghasilkan tabel di butir 1.
+
+## Berkas yang berubah
+
+| Berkas | Perubahan |
+|---|---|
+| `manim/narasi/grafik6-transformasi.json` | 13 segmen, segmen `lembah` disisipkan, 3 segmen pembuka ditulis ulang |
+| `audio/grafik6-transformasi/` | suara dan `durasi.json` dibuat ulang, 132,70 detik |
+| `manim/scenes/grafik6_transformasi.py` | 13 babak, dua ValueTracker geseran, `SUDUT_GRAFIK` dan `Z_BAWAH` diubah, `alas_teks` dibuang |
+| `media/uji-480p/grafik6-transformasi.mp4` | 2,63 MB, 132,67 detik, selisih suara 0,40 detik |
