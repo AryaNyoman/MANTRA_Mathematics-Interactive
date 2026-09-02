@@ -1,0 +1,32 @@
+{
+  "adegan": "DuaKaliPythagoras",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Ruang Tiga Dimensi materi 04. Diagonal ruang dibangun DI DALAM kubus supaya siswa melihat segitiga penolongnya berdiri, bukan membayangkannya.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi empat, *dua kali Pythagoras*. Di materi sebelumnya kita berhenti pada kaki tegak lurus. Sekarang pertanyaannya lebih pendek tetapi sering salah: berapa panjang diagonal kubus ini?"
+    },
+    {
+      "id": "sisi",
+      "teks": "Mulai dari yang tampak lebih dulu. A C menghubungkan dua sudut pada satu sisi, jadi namanya *diagonal sisi*. Segitiga A B C siku-siku di B, dan kedua sisi tegaknya rusuk sepanjang enam."
+    },
+    {
+      "id": "hitung1",
+      "teks": "Jadi A C kuadrat sama dengan tiga puluh enam ditambah tiga puluh enam, yaitu *tujuh puluh dua*. Jangan diakarkan dulu, angka itu masih akan dipakai."
+    },
+    {
+      "id": "ruang",
+      "teks": "Sekarang yang sulit. A G menembus bagian dalam kubus, jadi namanya *diagonal ruang*. Segitiga penolongnya, A C G, berdiri tegak di dalam kubus dan tidak menempel pada sisi mana pun."
+    },
+    {
+      "id": "hitung2",
+      "teks": "Alasnya A C tadi, sisi tegaknya rusuk C G, dan siku-sikunya di C. Jadi A G kuadrat sama dengan tujuh puluh dua ditambah tiga puluh enam, yaitu seratus delapan. A G sama dengan *enam akar tiga*."
+    },
+    {
+      "id": "tutup",
+      "teks": "Angka tiga di dalam akar itu bukan kebetulan. Ia menghitung ada berapa arah yang dilewati: panjang, lebar, dan tinggi. Diagonal ruang bukan rumus baru, ia Pythagoras yang dipakai untuk *kedua kalinya*."
+    }
+  ]
+}

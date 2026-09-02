@@ -1,0 +1,32 @@
+{
+  "adegan": "SudutGarisBersilangan",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Ruang Tiga Dimensi materi 08. Geseran sejajar dianimasikan pelan supaya terlihat bahwa arah garisnya tidak berubah sedikit pun, sebab di situlah letak sahnya cara ini.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi delapan, *sudut dua garis yang tidak pernah bertemu*. Banyak yang mengira sudut hanya bisa diukur kalau kedua garis berpotongan. Coba kita uji dengan kubus ini."
+    },
+    {
+      "id": "masalah",
+      "teks": "Ini A C di lantai, dan ini B G di sisi kanan. Keduanya *bersilangan*: tidak sejajar, dan tidak punya satu pun titik bersama. Padahal sudut selalu butuh titik sudut. Jadi sudutnya diukur di mana?"
+    },
+    {
+      "id": "geser",
+      "teks": "Jalan keluarnya: kita geser salah satunya, *sejajar dirinya sendiri*, sampai keduanya bertemu. Perhatikan garis merah ini berjalan pelan tanpa berputar sedikit pun."
+    },
+    {
+      "id": "mendarat",
+      "teks": "Pada geseran penuh, B G mendarat tepat menjadi A H, diagonal sisi yang memang sudah ada di kubus. Sekarang keduanya bertemu di titik A."
+    },
+    {
+      "id": "segitiga",
+      "teks": "Sekarang lihat segitiga A C H. A C diagonal sisi alas, A H diagonal sisi kiri, C H diagonal sisi belakang. Ketiganya *enam akar dua*, jadi segitiganya *sama sisi*."
+    },
+    {
+      "id": "tutup",
+      "teks": "Semua sudut segitiga sama sisi adalah *enam puluh derajat*, dan kita mendapatkannya tanpa satu pun perhitungan trigonometri. Menggeser tidak mengubah arah, dan karena itu tidak mengubah sudut."
+    }
+  ]
+}

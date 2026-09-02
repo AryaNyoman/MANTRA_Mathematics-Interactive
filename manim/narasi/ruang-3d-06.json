@@ -1,0 +1,32 @@
+{
+  "adegan": "JarakTitikKeBidang",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Ruang Tiga Dimensi materi 06. Bidang BDE digambar sebagai bidang sungguhan yang memotong pojok kubus, dan ruas tegak lurusnya benar-benar menembus permukaan itu.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi enam, *jarak titik ke bidang*. Kalau tadi sasarannya sebuah garis, sekarang sasarannya sebuah bidang. Aturannya sama persis, hanya bentuk sasarannya yang berganti."
+    },
+    {
+      "id": "bidang",
+      "teks": "Ini bidang B D E. Ketiga sisinya diagonal sisi yang bertemu di sekitar titik A, dan bidang itu memotong pojok kubus seperti pisau memotong ujung tahu."
+    },
+    {
+      "id": "tegak",
+      "teks": "Berapa jarak titik A ke bidang itu? Seperti biasa, kita cari *kaki tegak lurusnya*. Tarik ruas dari A yang tegak lurus bidang, lalu ukur sampai menembus. Kakinya jatuh di titik K, dan K tidak punya nama di kubus ini."
+    },
+    {
+      "id": "sepertiga",
+      "teks": "Ada satu hal yang membantu. A B, A D, dan A E sama panjang dan saling tegak lurus, jadi K jatuh tepat di *sepertiga* diagonal ruang A G. Karena A G sama dengan enam akar tiga, jaraknya *dua akar tiga*, kira-kira tiga koma empat enam empat."
+    },
+    {
+      "id": "volume",
+      "teks": "Cara tadi cepat, tetapi hanya jalan kalau bangunnya kebetulan simetris. Cara yang selalu jalan: hitung volume limas A B D E dengan *dua* alas yang berbeda, lalu samakan keduanya. Hasilnya sama, dua akar tiga."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi jarak titik ke bidang sama dengan tiga kali volume dibagi luas alasnya. Sekali lagi itu bukan hafalan baru, itu rumus volume yang *dibalik*."
+    }
+  ]
+}

@@ -466,3 +466,125 @@ Kandidat video sisa, urut prioritas: tahap 3, 4, 6, 8, 9. Pola yang sudah
 terbukti di video ini bisa dipakai ulang: kubus `ilustrasi.balok` yang dibuat
 tembus pandang, rangka `Line`, huruf menghadap kamera dengan skala tetap, dan
 penanda titik berupa lingkaran menghadap kamera.
+
+---
+
+# Gelombang 2: KEENAM video Ruang 3D selesai (ManimGL)
+
+2 September 2026, malam. Cabang diselaraskan ke master (8d7491e) lebih dulu,
+merge bersih tanpa konflik.
+
+## Hasil
+
+| Materi | Berkas | Durasi | Ukuran | Selisih suara |
+|---|---|---|---|---|
+| 01 Gambar ruang boleh berbohong | `media/uji-480p/ruang-3d-01.mp4` | 84,7 dtk | 4,2 MB | 0,11 dtk |
+| 03 Jarak selalu yang terpendek | `ruang-3d-03.mp4` | 79,2 dtk | 3,3 MB | 0,14 dtk |
+| 04 Dua kali Pythagoras | `ruang-3d-04.mp4` | 82,7 dtk | 4,1 MB | 0,09 dtk |
+| 06 Jarak titik ke bidang | `ruang-3d-06.mp4` | 84,1 dtk | 3,8 MB | 0,14 dtk |
+| 08 Sudut dua garis bersilangan | `ruang-3d-08.mp4` | 74,9 dtk | 3,4 MB | 0,15 dtk |
+| 09 Sudut dengan bidang | `ruang-3d-09.mp4` | 93,8 dtk | 4,3 MB | 0,11 dtk |
+
+Total 8 menit 20 detik. Semua 480p, semua sudah bersuara.
+
+## Tiga aturan baru dari master, semuanya dipenuhi
+
+1. **Semua huruf LaTeX** (keputusan ARYA 2 Sep siang). Video 01 yang sudah jadi
+   pagi tadi DIRENDER ULANG, sebab `gl.teks` sudah berganti dari Constantia ke
+   `TexText`.
+2. **Pembuka wajib mengumumkan materinya** (STANDAR-MENGAJAR bagian 5 aturan 8).
+   Tiap naskah dapat segmen `buka` baru, dan judul di layar memuat nomor yang
+   sama dengan yang diucapkan: "Materi 04: Dua kali Pythagoras". Pembukanya
+   dipilih menurut POSISI materi, tidak seragam: materi 01 memakai bentuk
+   "materi pertama sebuah topik", materi 03 dan 04 mengaitkan ke materi
+   sebelumnya, materi 08 memakai bentuk "membalik dugaan" sebab tahap itu punya
+   `seringKeliru` yang kuat, materi 09 menyebut dirinya materi terakhir sebelum
+   penerapan.
+3. **`*kata*` jadi tebal.** Satu sampai dua penegasan per segmen, dan penanda
+   yang sama dipakai di keterangan layar.
+
+## Perkakas bersama topik ini: `manim/scenes/ruang_3d_umum.py`
+
+Ditulis supaya kelima video baru tidak mengulang kesalahan yang sudah dibayar
+mahal di video pertama. Isinya bukan rancangan di atas kertas, semuanya hasil
+percobaan yang gagal lebih dulu:
+
+- `label_hadap`: huruf yang selalu menghadap kamera DAN berukuran tetap di layar.
+- `penanda` dan `lingkaran_hadap`: penanda titik yang tidak hilang di balik
+  benda tembus pandang.
+- `huruf_sudut`: dorongan huruf MENDATAR saja, tidak pernah ke bawah.
+- `siku` dan `busur`: tanda siku-siku dan busur sudut yang benar-benar berdiri
+  di bidang segitiganya, jadi tetap benar dari sudut kamera mana pun.
+- `isi_sisa`: sisa waktu babak dipakai untuk gerakan kamera panjang, bukan untuk
+  diam. Ini yang menghapus waktu mati tanpa harus menebak durasi narasi.
+
+## Cacat yang ditemukan, dan bagaimana ditemukannya
+
+### Ditemukan oleh gerbang mutu (render GAGAL, bukan lolos diam-diam)
+
+**`qc.periksa_adegan` menggagalkan render materi 03**: huruf A menindih baris
+keterangan, irisan 0,13 kali 0,08 satuan layar. Sebabnya huruf titik sudut
+didorong keluar mengikuti arah tiga dimensi dari pusat kubus, sehingga huruf
+titik ALAS ikut terdorong TURUN ke kaki layar. Diperbaiki di perkakas bersama,
+dorongan sekarang mendatar saja, dan kelima video lain ikut sembuh sebelum
+sempat salah.
+
+### Ditemukan dengan MELIHAT lembar kontak
+
+| Cacat | Video | Sebabnya |
+|---|---|---|
+| Titik sudut A jatuh tepat di baris keterangan, dan garis diagonal serta busur sudut MENEMBUS tulisannya | 04, 06, 08 | keterangan sekarang tanpa alas (keputusan ARYA sore), jadi apa pun yang lewat di belakangnya terlihat menembus huruf. Diperbaiki: kamera dipusatkan lebih rendah (z = 2,6) dan bingkai dilebarkan (13,5), memberi ruang kosong di kaki layar |
+| Huruf A, C, G ide pertama masih tertinggal saat ide kedua dibahas, dan huruf A terpotong tepi bawah | 09 | layar menyimpan sisa gagasan yang sudah selesai. Diperbaiki: ketiganya dihapus saat masuk babak garis potong |
+| Huruf P tertutup penanda bulatnya sendiri | 09 | labelnya ditaruh tepat di bawah titiknya. Digeser menyamping |
+| Busur 60 derajat menyusut jadi coretan kecil di pojok | 08 | titik A jauh dari kamera. Jari-jari busur dinaikkan dari 1,1 ke 2,0 |
+
+Setelah itu saya menambahkan pemeriksaan pasangan **"huruf A lawan keterangan"**
+di empat video, supaya kalau cacat ini terulang, rendernya GAGAL dan ketahuan,
+bukan lolos seperti sebelumnya.
+
+## Daftar periksa STANDAR-ILUSTRASI-VIDEO.md, berlaku untuk keenam video
+
+- [ya] Benda nyata dari `gl.ilustrasi`: kubus dari `ilustrasi.balok` (prisma
+  bercahaya) di atas `lantai_kisi`. Tiap video dibuka dengan kubus PEJAL, baru
+  dibuat tembus pandang, supaya siswa melihat benda dulu baru matematikanya.
+  Lingkaran ungu adalah titik MATEMATIKA, bukan benda.
+- [ya] Latar hidup, dan updater menjaga dunia bergerak saat narator diam.
+  `isi_sisa` memberikan sisa waktu tiap babak kepada gerakan kamera, jadi tidak
+  ada babak yang berakhir dengan layar diam.
+- [ya] Kamera mulai dari dunia, satu gerakan panjang per babak, tidak ada
+  sentakan. Gerakan terpanjang 10 detik (batas atas anjuran ILMU-3B1B).
+- [ya] Huruf, penanda, panah di dunia; rumus di panel HUD. Tidak ada layar
+  kosong berisi rumus saja.
+- [ya] Satu warna satu makna, ditetapkan di kepala tiap berkas adegan dan
+  dipatuhi sampai frame terakhir. Tidak ada kode heksa, `cek_kode` bersih.
+- [ya] `teks()` untuk kata, `rumus()` untuk angka. Satuan `\mathrm`.
+- [ya] Semua animasi di dalam `sinema.babak`; jeda 1,6 detik sesudah pertanyaan
+  di materi 01.
+- [ya] `cek_kode` bersih untuk keenamnya; `qc.periksa_adegan` di TIAP babak
+  (37 pemeriksaan seluruhnya); lembar kontak dibuka dan dinilai tiap render;
+  `gabung_audio --uji` jalan dengan selisih 0,09 sampai 0,15 detik.
+- [ya] Cacat tersisa disebut di bawah.
+
+## Cacat yang MASIH tersisa, disebut apa adanya
+
+1. **Huruf B dan D sedikit lebih kecil daripada E dan G pada pandangan atas**
+   (materi 01). Skala menurut jarak sudah sangat mengurangi bedanya, tetapi
+   belum menyamakannya persis, sebab perspektif ManimGL tidak sepenuhnya
+   sebanding dengan jarak lurus.
+2. **Huruf C pudar** di materi 04 dan 08, sebab tertutup bidang segitiga yang
+   tembus pandang di depannya. Masih terbaca, tetapi tidak setegas huruf lain.
+3. **Dua tanda siku-siku di titik P** (materi 09) bertumpuk jadi satu bentuk
+   kecil pada sudut kamera penutup. Keduanya benar secara geometri, tetapi mata
+   sulit membedakan mana yang milik PC dan mana yang milik PG.
+4. **Segmen "volume" materi 06 berdurasi 18,5 detik**, di atas anjuran 6 sampai
+   15 detik walau masih di bawah batas 20. Memecahnya berarti menambah satu
+   babak lagi; menurut saya lebih baik dibiarkan sampai ARYA menilai apakah
+   terasa panjang saat ditonton.
+
+## Butuh keputusan ARYA
+
+1. **Tonton keenamnya**, lalu putuskan mana yang perlu diulang. Yang paling
+   perlu dinilai menurut saya: materi 03 (apakah geseran titik Q cukup pelan
+   untuk diikuti) dan materi 09 (isinya dua ide besar dalam satu video 94 detik,
+   paling panjang di antara keenamnya).
+2. Kalau semuanya lolos, langkah berikutnya gelombang 3: render 1080p60.

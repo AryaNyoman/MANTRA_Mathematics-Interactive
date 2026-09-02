@@ -1,0 +1,36 @@
+{
+  "adegan": "SudutDenganBidang",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Ruang Tiga Dimensi materi 09. Dua ide besar, masing-masing dapat babaknya sendiri: sudut garis dengan bidang lewat bayangan, dan sudut antarbidang lewat garis potong.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi sembilan, *sudut dengan bidang dan sudut antarbidang*. Ini materi terakhir sebelum kita melihat pemakaiannya di dunia nyata."
+    },
+    {
+      "id": "bayangan",
+      "teks": "Bagian pertama. Ini diagonal ruang A G, sebuah garis miring yang menembus lantai di titik A. Sudut yang dimaksud bukan sudut sembarangan, melainkan sudut antara garis itu dan *bayangannya* di lantai."
+    },
+    {
+      "id": "proyeksi",
+      "teks": "Bayangan A tetap A, sebab A memang di lantai. Bayangan G jatuh di C, sebab G C tegak lurus lantai. Jadi bayangan A G adalah *A C*. Ingat dari trigonometri: tangen sudut sama dengan sisi depan dibagi sisi samping."
+    },
+    {
+      "id": "sudut1",
+      "teks": "Pada segitiga A C G yang siku-siku di C, tangen sudutnya sama dengan enam dibagi enam akar dua. Sudutnya kira-kira *tiga puluh lima koma dua enam* derajat."
+    },
+    {
+      "id": "potong",
+      "teks": "Bagian kedua, sudut antara dua *bidang*. Bidang B D G memotong lantai, dan persekutuannya bukan satu titik melainkan satu garis penuh, yaitu B D. Garis itu namanya *garis potong*."
+    },
+    {
+      "id": "sudut2",
+      "teks": "Ambil titik P tepat di tengah B D. Dari P kita tarik dua garis yang sama-sama tegak lurus B D: P C di lantai, dan P G di bidang miring. Sudut di antara keduanya, kira-kira *lima puluh empat koma tujuh empat* derajat, itulah sudut kedua bidang."
+    },
+    {
+      "id": "tutup",
+      "teks": "Syaratnya dua dan harus dipenuhi bersamaan: tegak lurus garis potong, dan bertumpu di *satu titik yang sama*. Kalau P digeser, P C tidak lagi tegak lurus, dan angka yang terbaca menjadi salah."
+    }
+  ]
+}
