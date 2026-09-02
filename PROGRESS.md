@@ -350,6 +350,34 @@ Grafik Fungsi serta Statistika berisiko mengulanginya.
 (bidang koordinat berangka, skala terkunci sama), sesuai aturan 1 standar yang
 menyuruh benda baru ditaruh di situ dengan nama unik.
 
+### Untuk MASTER: subtitle harus memakai angka dan lambang, bukan ejaan
+Permintaan ARYA 2 Sep sore. Dua bagian, dan hanya SATU yang benar-benar bug:
+
+**a. "Tampilkan 100%, jangan setengah-setengah" TIDAK perlu diperbaiki.**
+Diperiksa di `manim/buat_subtitle.py`: `pecah()` memecah segmen panjang jadi
+beberapa baris bertimestamp di batas kalimat lalu koma, dan tidak ada yang
+dibuang (`hasil or [teks]` menjaga sisa). Yang ARYA lihat kosong kemungkinan
+besar karena dua video vektor BELUM punya berkas `.vtt` sama sekali; sesi
+vektor belum pernah menjalankan alatnya. Itu kelalaian sesi, bukan cacat alat.
+
+**b. Angka dan lambang masih dieja: INI yang perlu diperbaiki.**
+Bukti dari subtitle yang sudah tayang, `web/public/anim/limit1-kecepatan.vtt`
+baris 1: "Speedometer menunjuk enam puluh kilometer per jam." Seharusnya
+"60 km/jam". Sebabnya subtitle memakai teks yang sama dengan yang dikirim ke
+mesin suara, dan mesin suara memang butuh ejaan.
+
+Usul perubahan, kecil dan tidak merusak naskah lama: tambahkan medan opsional
+`"layar"` per segmen di `manim/narasi/<topik>.json`.
+- `buat_narasi.py` tetap memakai `teks` (ejaan, untuk mesin suara).
+- `buat_subtitle.py` memakai `layar` kalau ada, kalau tidak ada jatuh kembali
+  ke `teks`. Naskah lama tetap jalan tanpa diubah.
+
+Contoh: `"teks": "panjangnya akar tiga belas, sekitar tiga koma enam satu"`,
+`"layar": "panjangnya √13, sekitar 3,61"`.
+
+Sesi vektor memakai medan `layar` mulai sekarang; sampai `buat_subtitle.py`
+diperbarui MASTER, medan itu diabaikan dan subtitlenya masih berupa ejaan.
+
 ## 🔗 Pratinjau untuk tinjauan ARYA (2 Sep 2026)
 
 **https://matra-8c3pwiiis-aryasejati002-4616s-projects.vercel.app**
