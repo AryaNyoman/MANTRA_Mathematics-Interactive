@@ -114,7 +114,13 @@ def buat(topik: str, diam: bool = False) -> Path:
             raise SystemExit(
                 f"segmen '{seg['id']}' ada di naskah tapi tidak di durasi.json. "
                 f"Jalankan ulang buat_narasi.py {topik}.")
-        potongan = [tebalkan(x) for x in pecah(seg["teks"])]
+        # Naskah boleh memberi bentuk TULIS yang berbeda dari bentuk UCAP.
+        # Permintaan ARYA 2 Sep malam: yang diucapkan "tujuh puluh dua" ditulis
+        # "72", "akar dua" ditulis dengan lambang akar, dan "ruas AB" ditulis
+        # dengan garis di atas hurufnya. Isinya tetap UTUH, seluruh kalimat
+        # narator tetap muncul; yang berubah cuma cara menuliskannya. Naskah
+        # tanpa field `subtitle` berjalan seperti sebelumnya.
+        potongan = [tebalkan(x) for x in pecah(seg.get("subtitle") or seg["teks"])]
         total_huruf = sum(panjang_tampak(p) for p in potongan) or 1
         mulai = jalan
         for p in potongan:
