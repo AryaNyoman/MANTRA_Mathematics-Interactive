@@ -98,6 +98,46 @@ Berlaku untuk semua naskah `manim/narasi/*.json`:
 6. Segmen penutup mengulang kalimat `sorot` tahapnya, kata per kata.
 7. Jangan menyebut sesuatu yang tidak digambar. Kalau narasi bilang "tiga
    daerah bersarang", ketiganya harus terlihat terpisah di layar.
+8. **Pembuka WAJIB mengumumkan materinya** (permintaan ARYA, 2 Sep 2026).
+   Segmen pertama tiap video terdengar seperti guru membuka sub-bab baru:
+   menyebut nomor dan nama materi, lalu mengaitkan dengan materi sebelumnya
+   atau langsung masuk ke masalahnya. Di layar, `sinema.judul_pembuka` memuat
+   nomor dan nama materi yang sama ("Materi 03: Komponen vektor"), supaya yang
+   didengar dan yang dibaca sama. Pilih pembuka menurut POSISI materi; jangan
+   memakai kalimat yang sama untuk semua video satu topik.
+
+   Materi pertama sebuah topik (belum ada yang bisa diingatkan):
+   - "Sekarang kita masuk ke materi baru: [nama topik]. Materi pertama, [nama
+     materi]. Bayangkan ..."
+   - "Kita mulai [nama topik] dari materi pertama, [nama materi]. Perhatikan ..."
+   - "Materi pertama [nama topik]. Sebelum ada rumus apa pun, coba lihat ini ..."
+
+   Materi lanjutan (yang paling sering dipakai; ambil kalimat inti materi
+   sebelumnya dari `intisari` tahapnya, kata per kata kalau bisa):
+   - "Dari materi sebelumnya tentang [materi sebelumnya], kita sudah tahu bahwa
+     [inti]. Sekarang, materi [nomor]: [nama materi]."
+   - "Materi [nomor], [nama materi]. Di materi sebelumnya kita berhenti di
+     [inti]. Pertanyaannya sekarang: ..."
+   - "Saatnya masuk ke materi yang baru: [nama materi]. Sekarang perhatikan ..."
+   - "Kita lanjut ke materi [nomor]. Kalau tadi [materi sebelumnya] menjawab
+     [pertanyaan lama], materi ini menjawab [pertanyaan baru]."
+
+   Materi yang membalik dugaan (untuk tahap yang punya `seringKeliru` kuat):
+   - "Materi [nomor], [nama materi]. Banyak yang mengira [dugaan keliru].
+     Coba kita uji dengan gambar ini ..."
+
+   Materi setelah latihan atau di tengah topik:
+   - "Setelah berlatih [hal yang dilatih], sekarang kita naik satu tingkat:
+     materi [nomor], [nama materi]."
+
+   Materi terakhir topik:
+   - "Materi terakhir [nama topik]: [nama materi]. Semua yang sudah kita
+     kumpulkan, dari [materi 1] sampai [materi sebelumnya], dipakai di sini."
+
+   Aturan pembuka: tetap 6 sampai 15 detik (aturan 1), tetap menyebut yang
+   sedang tampil (aturan 2), dan boleh langsung disambung pertanyaan pembuka
+   yang dijawab sepanjang video. Kalimat pengumuman materi tidak dihitung
+   sebagai "gagasan" segmen; gagasannya tetap masalah yang dibuka.
 
 ## 6. Daftar periksa per tahap (isi sendiri sebelum lapor)
 

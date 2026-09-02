@@ -6,6 +6,10 @@
   "catatan": "CONTOH RUJUKAN alur ManimGL (2 Sep 2026): perahu 3D di air, kamera terbang dari dunia ke peta, panah muncul di atas gambar. Bukan video materi; sesi Vektor boleh memakainya sebagai dasar Materi 01.",
   "segmen": [
     {
+      "id": "buka",
+      "teks": "Sekarang kita masuk ke materi baru: vektor. Materi pertama, angka saja tidak cukup."
+    },
+    {
       "id": "sapa",
       "teks": "Bayangkan sebuah perahu kecil di tepi sungai. Sungainya lebar tiga kilometer, dan kita ingin menyeberang ke tepi di seberang sana."
     },
