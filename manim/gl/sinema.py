@@ -15,7 +15,7 @@ from contextlib import contextmanager
 
 from manimlib import *
 
-from .tema import teks, LATAR, REDUP, SOROT, UKURAN_JUDUL, UKURAN_KETERANGAN
+from .tema import teks, LATAR, TINTA, REDUP, SOROT, UKURAN_JUDUL, UKURAN_KETERANGAN
 
 # Batas aman bingkai 14,22 x 8, sisakan margin supaya qc tidak menolak.
 LEBAR_JUDUL = 11.0
@@ -77,7 +77,8 @@ def judul_pembuka(scene, kalimat: str, lama: float, ukuran: float = UKURAN_JUDUL
     garis = Line(LEFT * t.get_width() * 0.30, RIGHT * t.get_width() * 0.30)
     garis.set_stroke(SOROT, width=3)
     garis.next_to(t, DOWN, buff=0.42)
-    gugus = alas_teks(VGroup(t, garis), buff=0.3).move_to([0, y, 0])
+    # Tanpa alas (keputusan ARYA 2 Sep sore: tulisan saja, seperti Trigonometri).
+    gugus = VGroup(t, garis).move_to([0, y, 0])
     gugus.fix_in_frame()
 
     scene.play(FadeIn(gugus, shift=UP * 0.25), run_time=naik)
@@ -86,13 +87,16 @@ def judul_pembuka(scene, kalimat: str, lama: float, ukuran: float = UKURAN_JUDUL
 
 
 def keterangan(scene, kalimat: str, y: float = -3.30, ukuran: float = UKURAN_KETERANGAN,
-               warna: str = REDUP, run_time: float = 0.6):
-    """Satu baris keterangan di bawah layar. Keterangan lama dihapus otomatis.
+               warna: str = TINTA, run_time: float = 0.6):
+    """Satu baris keterangan di bawah layar, tulisan saja tanpa alas (seperti Trigonometri).
 
-    Disimpan pada objek adegan (`scene._matra_keterangan`), satu-satunya cara
-    mencegah teks menumpuk tanpa disadari. Catat waktunya: `b.catat(run_time)`.
+    Kata yang dipertegas ditandai `*kata*` di kalimatnya, tampil TEBAL (sama
+    dengan penanda subtitle di naskah). Warna bawaan tinta gelap supaya tetap
+    terbaca di atas tepi sungai atau lantai. Keterangan lama dihapus otomatis:
+    disimpan pada objek adegan (`scene._matra_keterangan`). Catat waktunya:
+    `b.catat(run_time)`.
     """
-    baru = alas_teks(batasi_lebar(teks(kalimat, ukuran, warna), LEBAR_KETERANGAN))
+    baru = batasi_lebar(teks(kalimat, ukuran, warna), LEBAR_KETERANGAN)
     baru.move_to([0, y, 0]).fix_in_frame()
 
     lama = getattr(scene, "_matra_keterangan", None)
