@@ -1,5 +1,17 @@
 # Laporan MATRA-STATISTIKA
-Terakhir: 2 September 2026 malam, dua video jadi dan tata letak teksnya dirombak
+Terakhir: 3 September 2026 dini hari.
+
+> **SIAP GABUNG.** Cabang `sesi/statistika`, commit `4092718`, pohon kerja
+> bersih, sudah `git merge master` (standar video v2) tanpa konflik. Dua video
+> selesai dan sudah disesuaikan ke zona baru. Pesan ke MATRA-MASTER dua kali
+> tidak sampai (kedaluwarsa menunggu persetujuan), jadi statusnya dicatat di
+> sini saja.
+>
+> Catatan untuk MASTER, bukan permintaan: `PapanRumus.tempat_baris` menaruh
+> baris pertama di slot paling atas selama `utama` masih kosong, dan `tumbuh()`
+> nanti menaruh utama di slot yang sama. Adegan yang memakai `baris()` SEBELUM
+> `tumbuh()` akan bertindih sendiri. Kedua video saya kebetulan aman, sesi lain
+> belum tentu.
 
 Cabang `sesi/statistika`. Gelombang 1, halaman saja, tanpa video.
 Rancangan: `docs/superpowers/specs/2026-09-01-statistika-alur-belajar.md`, sudah
