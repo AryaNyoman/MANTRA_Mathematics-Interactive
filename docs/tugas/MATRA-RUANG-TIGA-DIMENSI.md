@@ -108,9 +108,15 @@ laporanmu.
 
 ### Video (setelah revisi selesai)
 Enam kandidat sesuai rancanganmu, urut prioritas: tahap 1, 3, 4, 6, 8, 9.
-Memakai Manim `ThreeDScene` sesuai keputusan ARYA. Peringatan khusus 3D:
-`qc.periksa_adegan` tetap wajib di tiap babak; label huruf sudut mudah
-bertindih saat kamera berputar, jadi beri halo dan periksa lembar kontak pada
-sudut kamera awal DAN akhir tiap babak. Satu per satu lewat
-`python alat/antre_render.py matra-ruang-3d -- manim -ql ...`, 480p saja.
-Naskah ikuti `manim/narasi/limit*.json` dan bagian 5 STANDAR-MENGAJAR.
+DIPERBARUI 2 Sep siang: memakai **ManimGL** lewat `manim/gl/` (Manim Community
+dicabut; `ThreeDScene` tidak ada lagi, semua adegan `AdeganMatra` dan kameranya
+`self.frame`). Baca `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md` dan
+`docs/tugas/ILMU-3B1B.md` dulu; contoh: `manim/contoh/contoh_perahu.py` dan
+`manim/uji/uji_cahaya_gl.py` (permukaan bercahaya + jala + kamera terbang).
+Topikmu adalah yang paling diuntungkan: bidang, balok, bola, dan irisan
+(`Surface.set_clip_plane`) semuanya bercahaya dan kamera `kamera.putar_pelan`
+memberi rasa ruang. Peringatan khusus 3D: `qc.periksa_adegan(self, ...)` wajib
+di tiap babak pada sudut kamera awal DAN akhir; label huruf sudut menempel di
+layar lewat `self.hud_tambah` atau ditempatkan dengan `Z` di atas benda supaya
+tidak tertutup. Render `manimgl ... -w -l`, boleh paralel, 480p saja.
+Naskah ikuti `manim/narasi/contoh-perahu.json` dan bagian 5 STANDAR-MENGAJAR.

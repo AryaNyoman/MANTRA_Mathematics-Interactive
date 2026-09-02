@@ -36,3 +36,10 @@ audio/trigonometri/
 
 # artefak pemeriksaan playwright-cli
 .playwright-cli/
+
+# Folder keluaran bawaan ManimGL kalau lupa --video_dir
+videos/
+
+# Log MiKTeX nyasar saat cek_kode --dalam
+mfput.log
+*.aux

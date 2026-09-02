@@ -92,7 +92,15 @@ narasi video. Revisi di bawah ini kecil kecuali nomor 3.
 Isi 10 butir `docs/tugas/STANDAR-MENGAJAR.md` bagian 6 untuk TIAP tahap di
 laporanmu.
 
-### Video (setelah revisi selesai)
+### Video (setelah revisi selesai). DIPERBARUI 2 Sep siang: ManimGL
+Sejak 2 Sep siang semua video dibuat dengan ManimGL lewat `manim/gl/`; baca
+`docs/tugas/STANDAR-ILUSTRASI-VIDEO.md` dan `docs/tugas/ILMU-3B1B.md` dulu,
+contoh: `manim/contoh/contoh_perahu.py`. Untuk topikmu: kurva tetap 2D, tetapi
+setiap video dibuka dengan benda nyata yang kurvanya menggambarkan sesuatu
+(mobil dari `gl.ilustrasi.mobil` untuk gerak, bola dilempar untuk parabola,
+permukaan bercahaya `ParametricSurface` + `SurfaceMesh` kalau perlu z = f(x, y)).
+Transformasi grafik: geser dengan `Transform`, jangan hapus lalu gambar ulang.
+
 Enam kandidat, urut prioritas. Satu per satu, lembar kontak dibuka:
 1. Tahap 6 transformasi: grafik bergerak, bayangan tertinggal, dua kalimat luar/dalam kurung
 2. Tahap 3 bentuk puncak: h dibesarkan, parabola ke KANAN walau tandanya minus

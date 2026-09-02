@@ -1,7 +1,7 @@
 # PROGRESS: MATRA
 
 > **SESI BARU: baca berkas ini dari atas sampai bawah SEBELUM mengerjakan apa pun.**
-> Terakhir diperbarui: **1 September 2026, malam** (akhir sesi 6).
+> Terakhir diperbarui: **2 September 2026** (akhir sesi 6).
 >
 > **SITUS SUDAH TAYANG: https://matra-eight.vercel.app** (bisa dibuka siapa pun,
 > tanpa login). Baca bagian "Deploy Vercel" di bawah sebelum menyentuh deploy.
@@ -13,13 +13,77 @@
 ## Ringkas
 | | |
 |---|---|
-| Tahap sekarang | **DUA topik selesai. Situs SUDAH TAYANG di Vercel.** |
+| Tahap sekarang | **ENAM topik tayang. Trigonometri dan Limit lengkap dengan video.** |
 | Yang tersisa | **Gelombang 2 berjalan di 5 sesi**: revisi isi dari MASTER lalu video 480p. ARYA meninjau visual sambil jalan. Enam topik SUDAH TAYANG |
 | Alamat tayang | https://matra-eight.vercel.app |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md`<br>`docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`<br>`docs/superpowers/plans/2026-09-01-topik-limit.md` |
 | Tenggat | 12 September 2026 |
 | Menjalankan situs | `cd web && npm run dev` → `http://localhost:3000` |
 | Penghalang | *(tidak ada)* |
+
+## 🧭 MULAI DARI SINI (sesi berikutnya, ditulis 2 Sep 2026)
+
+### Keadaan dalam satu tarikan napas
+Enam topik TAYANG di https://matra-eight.vercel.app. Trigonometri dan Limit
+lengkap dengan video (7 video masing-masing). Empat topik baru (Vektor, Grafik
+Fungsi, Statistika, Ruang 3D) halamannya utuh tanpa video, dan kelimanya
+ditambah UI/UX sedang mengerjakan gelombang 2 di sesi paralel.
+
+### YANG BERUBAH 2 SEP SIANG: pindah ke ManimGL (baca ini dulu)
+ARYA menolak video perahu gelombang 1 (perahu = titik, sungai = kotak diam) dan
+menuntut level 3b1b. Keputusannya, dijalankan penuh hari itu juga:
+- **Manim Community DICABUT, ManimGL 1.7.2 100%.** 14 video Trigonometri dan
+  Limit dibiarkan apa adanya; kodenya diarsipkan di `manim/arsip-manim-ce/`.
+- Perkakas baru `manim/gl/` (tema, sinema, kamera, ilustrasi, qc), semua
+  diuji: `manim/uji/uji_*_gl.py`, `manim/gl/uji_qc.py`. Contoh rujukan lengkap
+  yang lolos gerbang: `manim/contoh/contoh_perahu.py` (narasi, air hidup,
+  perahu 3D, kamera dunia ke peta, panah, suara latar air dengan ducking).
+- Dokumen sesi: `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md`, `docs/tugas/ILMU-3B1B.md`.
+  Spec: `docs/superpowers/specs/2026-09-02-pindah-manimgl-dan-standar-ilustrasi-design.md`.
+- Huruf: Constantia untuk kata, LaTeX untuk angka dan rumus. Latar krem, satu versi.
+- Render paralel BOLEH (8 serentak terbukti aman); antrean tidak wajib.
+- Jebakan ManimGL yang sudah ditambal/dilarang: `latex -no-pdf` (MiKTeX),
+  argv saat impor, `Text(color=)` diabaikan, `\text{}` dibuang diam-diam.
+- Suara latar `manim/suara/air.ogg` masih SINTETIS; ganti rekaman CC0 setelah
+  ARYA menyetujui unduhan.
+- Utang MASTER baru: pesan pembangunan ke 5 sesi (lihat `PROMPT-SIAP-TEMPEL.md`
+  bagian E), lalu terima setoran video ManimGL pertama tiap sesi.
+
+### Yang berjalan tanpa perlu Anda sentuh
+Lima sesi hidup di worktree masing-masing, sudah dikirimi tugas gelombang 2:
+revisi isi dari MASTER dulu, baru enam video 480p per topik. Kalau jendelanya
+tertutup, hidupkan dengan `NYALAKAN-5-SESI.bat`, lalu kirim prompt bagian D di
+`docs/tugas/PROMPT-SIAP-TEMPEL.md`.
+
+### Tugas MASTER berikutnya, urut
+1. **Terima setoran sesi.** Tiap sesi lapor selesai revisi lalu video. Gabung
+   cabangnya ke `master`, jalankan tsc dan build lewat biner Node langsung,
+   deploy. Konflik yang muncul selalu di `daftar-isi.ts` dan `topik.ts`, dan
+   selalu berjenis "dua sesi menambah baris di tempat yang sama": ambil kedua
+   sisi, LALU periksa kurung penutupnya (pernah hilang, lihat commit 32d520f).
+2. **Lunasi utang MASTER** (daftarnya di bagian Tinjauan isi di atas):
+   jenis blok `rujuk`, alat bingkai bersama, teks widget Limit di HP, hapus
+   `trigonometri.webm` yang yatim.
+3. **Video Limit kedelapan** kalau ARYA mau: Materi 03. Lihat alasannya di
+   bagian Keadaan tujuh video Limit.
+
+### Tiga keputusan visual yang masih milik ARYA
+Foto pesawat berlogo DHL di Vektor Materi 10; galeri Ruang 3D tahap 10 gambar
+sendiri atau foto; bentuk tanda "baris tab bisa digulir" (UI/UX akan mengajukan
+dua pilihan berpotret).
+
+### Jangan diulang, ini sudah pernah memakan waktu
+- **`rtk` mengarang keluaran** tsc dan build. Verifikasi WAJIB lewat
+  `node node_modules/<alat>/bin/...` langsung.
+- **Jangan percaya "Automatic merge went well".** Selalu tsc dan build sebelum
+  deploy; penggabungan pernah menjatuhkan dua kurung penutup dan lolos.
+- **Cacat yang tidur menunggu data bertambah** tidak terlihat di build maupun
+  tsc. Contohnya `<source>` video yang tidak ikut berganti saat pindah tahap,
+  yang baru muncul setelah tujuh tahap punya video. Yang menemukannya: membuka
+  situs yang SUDAH TAYANG dengan Playwright lalu membandingkan alamat yang
+  DITULISKAN dengan alamat yang benar-benar DIMUAT.
+- **Render ManimGL boleh paralel** (sejak 2 Sep siang; kartu grafis yang
+  menggambar). Antrean `alat/antre_render.py` tinggal pilihan untuk 1080p.
 
 ### Yang berubah di sesi 3: 22 revisi ARYA
 
@@ -308,7 +372,32 @@ baris `Aliased` di log, jangan menebak polanya.
 | 6 | 06 Nol per nol | ✅ | ✅ | ✅ | ✅ | **TAYANG** |
 | 7 | 07 Tak hingga | ✅ | ✅ | ✅ | ✅ | **TAYANG** |
 
-**Keadaan 1 Sep malam: SUDAH TAYANG.** Ketujuhnya 1920x1080 60fps, bersuara,
+**LIMIT TUNTAS (2 Sep 2026).** Tujuh video dari sepuluh materi, dan itu
+memang sasarannya. Trigonometri pun tujuh dari sepuluh, jadi polanya sama:
+
+| | Limit | Trigonometri |
+|---|---|---|
+| Materi/tahap | 10 | 10 |
+| Video | 7 | 7 |
+| Tanpa video | 03, 05, 10 | 01, 03, 10 |
+
+Alasan ketiganya sengaja tanpa video, bukan tertinggal:
+- **Materi 10 Dunia nyata** galeri, tidak butuh animasi. Tahap 10 Trigonometri
+  sama, dan Vektor serta Ruang 3D juga merencanakan begitu.
+- **Materi 05 Cara cepat** janjinya sengaja ditunda dan dilunasi di Materi 09,
+  dan Materi 09 SUDAH punya video. Jadi bagian yang perlu dianimasikan sudah
+  ada, tinggal ditonton di tempat pelunasannya.
+- **Materi 03 Dua arah harus sepakat** satu-satunya calon yang masih masuk
+  akal. Kalau ARYA mau menambah video Limit kedelapan, inilah yang dipilih:
+  kiri dan kanan tidak sepakat, jadi limitnya tidak ada. Sebagian sudah
+  tergambar di video Materi 02 (dua garis bilangan, mendekat dari dua arah),
+  jadi ini penyempurnaan, bukan lubang.
+
+Berkas naskah dan adegan hanya ada untuk ketujuh video itu
+(`manim/narasi/limit*.json`, `manim/scenes/limit*.py`). Tidak ada adegan yang
+sudah ditulis tetapi belum dirender.
+
+Ketujuhnya 1920x1080 60fps, bersuara,
 bersubtitle, berposter, terdaftar di `web/content/limit/tahap.ts`, dan sudah
 di-deploy. ARYA memilih "render dulu, risiko diterima" tanpa menunggu ia
 menonton, jadi kalau ia menemukan cacat, video itu dirender ulang.
@@ -492,22 +581,31 @@ Ketujuh video Trigonometri sudah jadi dari nol sampai tayang, jadi resep di
 bawah ini bukan teori. Urutan persisnya, ulangi apa adanya. Sudut pandang
 visual tiap video ada di `docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`.
 
+**DIPERBARUI 2 Sep siang: resep ini kini memakai ManimGL** (Manim Community
+dicabut, keputusan ARYA). Langkah dan gerbangnya sama, perkakasnya `manim/gl/`.
+Baca dulu `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md` dan `docs/tugas/ILMU-3B1B.md`.
+
 ```bash
-# 1. Tulis naskah  ->  manim/narasi/<topik>.json  (10 segmen, ±90 detik)
+# 0. Storyboard: benda nyata apa, kamera mulai dari mana, terbang ke mana,
+#    warna apa untuk besaran apa (STANDAR-ILUSTRASI-VIDEO.md, 8 aturan)
+# 1. Tulis naskah  ->  manim/narasi/<topik>.json  (6-10 segmen, ±90 detik; "latar": "air" kalau di air)
 # 2. Buat suara + ukur durasinya
 python manim/buat_narasi.py <topik>
 # 3. Tulis adegan  ->  manim/scenes/<berkas>.py
-#    Tiru manim/scenes/tahap8_grafik_sin.py: storyboard di kepala berkas,
-#    sub-adegan bernama b01_/b02_..., sinema.babak untuk waktu.
-# 4. Periksa SEBELUM render  (2 detik, bukan 10 menit)
+#    Tiru manim/contoh/contoh_perahu.py: class X(AdeganMatra), from gl import *,
+#    gl.ilustrasi untuk benda, gl.kamera untuk gerakan, sinema.babak untuk waktu,
+#    teks() untuk kata, rumus() untuk angka/rumus, qc.periksa_adegan tiap babak.
+# 4. Periksa SEBELUM render  (detik, bukan menit)
 python manim/cek_kode.py manim/scenes/<berkas>.py --dalam
-# 5. Render UJI kualitas rendah dulu  (±3 menit)
-manim -ql --disable_caching manim/scenes/<berkas>.py <NamaAdegan>
+# 5. Render UJI 480p  (paralel antar sesi BOLEH; adegan berat ±5 fps)
+manimgl manim/scenes/<berkas>.py <NamaAdegan> -w -l
 # 6. Gerbang mutu: LIHAT lembar kontaknya, nilai tiap frame
-python manim/cek_video.py media/videos/<berkas>/480p15/<NamaAdegan>.mp4 --per-detik 0.25
-# 7. Baru render final 1080p60  (±15 menit)
-manim -qh --format=webm manim/scenes/<berkas>.py <NamaAdegan>
-# 8. Gabung narasi -> otomatis tersalin ke web/public/anim/
+python manim/cek_video.py media/gl/<NamaAdegan>.mp4 --per-detik 0.25
+# 6b. Gabung narasi versi uji (+ suara latar dari naskah) -> media/uji-480p/<topik>.mp4, kirim ke ARYA
+python manim/gabung_audio.py <topik> <NamaAdegan> --uji
+# 7. Baru render final 1080p60 setelah ARYA setuju (gelombang 3)
+manimgl manim/scenes/<berkas>.py <NamaAdegan> -w --hd --fps 60
+# 8. Gabung narasi -> WebM, otomatis tersalin ke web/public/anim/
 python manim/gabung_audio.py <topik> <NamaAdegan> --keluar <topik>.webm
 # 9. Poster + daftarkan ke tahap.ts
 ffmpeg -y -ss 62 -i web/public/anim/<topik>.webm -frames:v 1 -q:v 3 web/public/anim/<topik>.jpg
