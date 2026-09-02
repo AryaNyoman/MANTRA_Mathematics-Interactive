@@ -6,6 +6,7 @@ Pakai dari adegan:
     from gl import *
     from gl import sinema, kamera, ilustrasi, qc
 """
+from manimlib import *  # noqa: F401,F403  (satu impor untuk sesi: `from gl import *`)
 from .tema import (AdeganMatra, Tema, teks, rumus, FONT, LATAR, TINTA, REDUP,  # noqa: F401
                    AKSEN, AKSEN2, SOROT, UKURAN_JUDUL, UKURAN_RUMUS, UKURAN_LABEL,
                    UKURAN_KETERANGAN)
