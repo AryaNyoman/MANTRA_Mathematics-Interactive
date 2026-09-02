@@ -1,5 +1,5 @@
 # Laporan MATRA-STATISTIKA
-Terakhir: 2 September 2026, gelombang 2 berjalan
+Terakhir: 2 September 2026, video pertama selesai
 
 Cabang `sesi/statistika`. Gelombang 1, halaman saja, tanpa video.
 Rancangan: `docs/superpowers/specs/2026-09-01-statistika-alur-belajar.md`, sudah
@@ -317,5 +317,108 @@ pandang atau dipindah ke luar panel, kelima topik aman sekaligus.
 
 ## Berikutnya
 
-Video 480p, urut prioritas di file tugas, mulai Tahap 5 jungkat-jungkit.
-Belum dimulai.
+Video 480p, urut prioritas di file tugas. Video pertama selesai, lihat bagian
+di bawah.
+
+---
+
+# Video 1 dari 6: Tahap 5, jungkat-jungkit (ManimGL)
+
+Berkas: `media/uji-480p/statistika5-pemusatan.mp4`, 123,3 detik, 480p, narasi
+tergabung. Adegan `manim/scenes/statistika5_pemusatan.py`, naskah
+`manim/narasi/statistika5-pemusatan.json`, storyboard
+`docs/superpowers/specs/2026-09-02-statistika-video-5-storyboard.md`.
+
+## Gagasan videonya
+
+Halaman Tahap 5 sudah membuktikan mean adalah titik seimbang lewat widget yang
+bisa digeser. Yang TIDAK bisa dilakukan halaman: memperlihatkan papan itu
+benar-benar jatuh ke satu sisi karena beban. Itu pekerjaan video, dan itulah
+seluruh isinya. Rumus mean sengaja ditahan sampai babak kesepuluh, setelah
+papannya mendatar sendiri di angka 7.
+
+Modus tidak diberi warna, tetapi ditandai BENTUK: siswa yang nilainya sama
+berdiri berjajar ke belakang, jadi barisan 7 dan 8 terlihat paling tebal.
+Dengan begitu tiga warna cukup untuk tiga peran, dan aturan satu warna satu
+makna tetap utuh: biru data, bata mean, ungu median.
+
+## Daftar periksa STANDAR-ILUSTRASI-VIDEO.md
+
+| Butir | Nilai |
+|---|---|
+| Benda nyata dari `gl.ilustrasi`, tidak ada benda berupa titik atau garis | ya. Delapan `orang`, papan `balok`, tumpuan `penopang`, lantai `tanah` |
+| Latar hidup dan updater menjaga dunia bergerak saat diam | ya. Tiap siswa bernapas lewat updater yang tetap jalan selama jeda |
+| Kamera mulai dari dunia, satu gerakan panjang, tidak ada sentakan | ya. Lima gerakan di lima babak berbeda, terpendek 2,4 detik, tidak ada potongan mendadak |
+| Panah dan label di dunia, rumus di HUD, gambar tidak pernah diganti layar kosong | ya. Tidak ada satu pun babak berisi rumus di layar kosong |
+| Satu warna satu makna, tidak ada kode heksa di adegan | ya, SETELAH diperbaiki. Lihat cacat nomor 8 di bawah |
+| `teks()` untuk kata, `rumus()` untuk angka | ya. Tidak ada satuan di video ini, jadi `\mathrm` tidak terpakai |
+| Semua animasi di dalam `sinema.babak`, jeda setelah pertanyaan, tidak ada waktu mati | ya dengan catatan. Tiap babak menyisakan 2 sampai 4 detik yang isinya cuma napas siswa. Bukan layar beku, tetapi juga bukan babak yang penuh |
+| `cek_kode` bersih, `periksa_adegan` tiap babak, lembar kontak dibuka, `gabung_audio --uji` jalan | ya. `cek_kode --dalam` bersih, sebelas `periksa_adegan`, lembar kontak 124 frame dibuka dua kali, selisih suara dan gambar 0,15 detik |
+| Cacat yang tersisa disebut di laporan | ya, di bawah |
+
+## Enam render, dan apa yang ditemukan tiap kali
+
+**Render 1 MATI di tengah, dan exit code-nya tetap 0.** `lantai_kisi` dengan
+`tinggi_z = 0` membuat `ThreeDAxes` membagi nol. Kalau saya percaya kode keluar,
+saya akan melaporkan video yang tidak pernah jadi. Ini bukti kedua bulan ini
+bahwa "Rendered" bukan bukti apa-apa.
+
+**Render 2 ditolak gerbang waktu `sinema.babak`:** saya memakai durasi naskah
+sebelum dipangkas, jadi animasi babak `sapa` 13,0 detik sedangkan narasinya
+9,26 detik. Gerbangnya bekerja persis seperti seharusnya.
+
+**Render 3 sampai 6: sembilan cacat, semuanya cuma terlihat dengan MEMBUKA
+lembar kontak.** Tidak satu pun muncul sebagai galat.
+
+| # | Cacat | Perbaikan |
+|---|---|---|
+| 1 | kamera terlalu jauh, isi cuma memenuhi sepertiga tengah bingkai | tinggi bingkai 8,4 turun ke 6,4 dan pusatnya dinaikkan |
+| 2 | panah simpangan melayang tanpa penghubung ke siswa pemiliknya | tiap panah diberi tali putus tegak ke kepala pemiliknya |
+| 3 | label modus menabrak angka 7, 8, 9 di lantai | kurung dan labelnya dipindah ke atas kepala |
+| 4 | lantai sempit sehingga tepinya terlihat dan terbaca sebagai meja | lantai dibuat 30 kali 18, tepinya di luar bingkai |
+| 5 | angka lantai abu di atas garis bilangan abu, nyaris tak terbaca | warnanya jadi TINTA |
+| 6 | angka 7 hilang di balik penopang, tepat pada momen terpenting video | penopang diramping dari 0,9 x 1,3 jadi 0,7 x 0,85 |
+| 7 | siswa tidak segaris dengan angkanya | angka didekatkan dari y -1,75 ke -1,15; kamera memandang agak dari atas, jadi angka yang lebih dekat tergeser ke tepi |
+| 8 | `Indicate` bawaan ManimGL mewarnai siswa KUNING dan HIJAU | `color=` disebut tegas: TINTA untuk modus, SOROT untuk median |
+| 9 | keterangan babak sebelumnya bertahan selama tumpuan bergeser, membantah gambarnya | keterangan babak `geser` dipasang di AWAL babak, bukan di akhir |
+
+Dua lagi yang lebih halus dan ikut diperbaiki: satu frame kosong saat judul
+memudar (papan sekarang sudah ada sejak frame pertama), dan putaran kamera
+penutup 16 derajat yang membuat papan yang SEIMBANG terlihat miring, persis
+membantah kalimat penutupnya (diturunkan jadi 6 derajat).
+
+Cacat nomor 8 layak diingat semua sesi: **`Indicate` tanpa `color=` memakai
+kuning**, warna di luar palet Studio Teknis. `cek_kode` tidak menangkapnya
+sebab ia hanya mencari kode heksa yang ditulis langsung.
+
+## Cacat yang TERSISA, disebut bukan didiamkan
+
+**Panah ManimGL meruncing ke pangkal.** Akibatnya pangkal panah terpanjang, si
+4 yang berangkat dari nilai 11, nyaris tak terlihat di 480p: yang terbaca cuma
+paruh dekat kepalanya. Geometrinya benar, sudah saya buktikan terpisah bahwa
+panahnya membentang penuh 0 sampai 4 satuan. Artinya di 1080p ia akan jauh
+lebih baik. Kalau ARYA tetap ingin pangkalnya tegas, penyelesaiannya memakai
+garis biasa plus kepala panah terpisah, dan itu perubahan kecil.
+
+**Tiap babak menyisakan 2 sampai 4 detik tanpa animasi baru.** Layarnya tidak
+beku (siswa terus bernapas), tetapi juga tidak berkembang. Sebabnya narasi
+saya lebih panjang daripada gerak yang saya rancang. Untuk video berikutnya
+saya akan merancang gerak dulu, baru menulis narasi sepanjang geraknya.
+
+## Yang perlu diketahui MASTER
+
+Berkas tugas saya masih menulis perintah render lama di baris terakhir bagian
+Video: `python alat/antre_render.py matra-statistika -- manim -ql ...`. Itu
+bertentangan dengan aturan baru (ManimGL, `manimgl ... -w -l`, antrean tidak
+wajib). Saya mengikuti aturan yang baru. Baris itu sebaiknya diperbarui supaya
+sesi lain tidak tertipu.
+
+Satu benda baru saya tambahkan ke berkas bersama `manim/gl/ilustrasi.py`:
+`penopang()`, prisma segitiga untuk tumpuan jungkat-jungkit. Dibuat sebagai
+commit tersendiri (`0d39981`) supaya gampang ditahan. Balok biasa tidak terbaca
+sebagai tumpuan, dan seluruh gagasan video ini ada pada papan yang bisa jatuh.
+
+## Berikutnya
+
+Video kedua: Tahap 8, simpangan baku, empat langkah dengan persegi yang tumbuh
+kuadrat. Belum dimulai.
