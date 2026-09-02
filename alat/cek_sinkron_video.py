@@ -123,6 +123,9 @@ def utama() -> int:
     p.add_argument("--warna", default="SOROT", choices=sorted(WARNA))
     p.add_argument("--pola", default=r"^x = (-?\d+) memberi",
                    help="kalimat yang tiap kemunculannya menambah satu benda")
+    p.add_argument("--awal", type=int, default=0,
+                   help="berapa benda sewarna yang SUDAH ada sebelum kalimat "
+                        "pertama (mis. titik puncak yang ditandai lebih dulu)")
     a = p.parse_args()
 
     video = Path(a.video)
@@ -152,11 +155,13 @@ def utama() -> int:
             sebelum = hitung_bercak(frame(video, max(0.0, mulai - 0.20), png), rgb)
             sesudah = hitung_bercak(frame(video, max(0.0, selesai - 0.15), png), rgb)
             # Sebelum kalimat ke-i diucapkan harus ada i-1 benda; sesudahnya i.
-            ok = (sebelum == i - 1) and (sesudah == i)
+            harus_sebelum, harus_sesudah = a.awal + i - 1, a.awal + i
+            ok = (sebelum == harus_sebelum) and (sesudah == harus_sesudah)
             if not ok:
                 salah += 1
-            print(f"{teks[:26]:<26} {mulai:7.2f} {sebelum:8d} {sesudah:8d}  "
-                  f"{'ok' if ok else 'SALAH, harusnya %d lalu %d' % (i - 1, i)}")
+            kabar = "ok" if ok else (
+                "SALAH, harusnya %d lalu %d" % (harus_sebelum, harus_sesudah))
+            print(f"{teks[:26]:<26} {mulai:7.2f} {sebelum:8d} {sesudah:8d}  {kabar}")
 
     print()
     if salah:
