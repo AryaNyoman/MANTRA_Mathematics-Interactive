@@ -35,137 +35,161 @@ Dan rumusnya kita tulis dalam bentuk yang paling berguna: y = a(x - h)² + k.
 Namanya <b>bentuk puncak</b>.
 
 9
-00:00:33.624 --> 00:00:36.359
+00:00:33.624 --> 00:00:36.375
 Kenapa disebut bentuk puncak?
 
 10
-00:00:36.359 --> 00:00:38.905
+00:00:36.375 --> 00:00:38.936
 Perhatikan bagian (x - h)².
 
 11
-00:00:38.905 --> 00:00:43.808
+00:00:38.936 --> 00:00:43.869
 Apa pun isinya, dikuadratkan pasti nol atau positif.
 
 12
-00:00:43.808 --> 00:00:49.560
-Jadi nilai terkecilnya <b>nol</b>, dan itu hanya terjadi saat x = h.
+00:00:43.869 --> 00:00:46.430
+Jadi nilai terkecilnya <b>nol</b>,
 
 13
+00:00:46.430 --> 00:00:49.560
+dan itu hanya terjadi saat x = h.
+
+14
 00:00:49.560 --> 00:00:55.038
 Lemparan tadi rumusnya y = -(x - 1)² + 4.
 
-14
+15
 00:00:55.038 --> 00:00:57.844
 Jadi h = 1 dan k = 4.
 
-15
+16
 00:00:57.844 --> 00:01:02.520
 Puncaknya <b>langsung terbaca</b>: (1, 4).
 
-16
+17
 00:01:02.520 --> 00:01:06.528
 Tidak ada yang perlu dihitung.
 
-17
+18
 00:01:06.528 --> 00:01:11.046
 Sekarang uji ke kiri dan ke kanannya.
 
-18
+19
 00:01:11.046 --> 00:01:12.999
 x = 0 memberi 3.
 
-19
+20
 00:01:12.999 --> 00:01:14.953
 x = 2 memberi 3.
 
-20
+21
 00:01:14.953 --> 00:01:17.029
 x = -1 memberi 0.
 
-21
+22
 00:01:17.029 --> 00:01:18.982
 x = 3 memberi 0.
 
-22
+23
 00:01:18.982 --> 00:01:26.064
 Yang <b>sama jauhnya</b> dari x = 1 selalu punya nilai yang sama.
 
-23
-00:01:26.064 --> 00:01:31.116
+24
+00:01:26.064 --> 00:01:31.142
 Kesamaan berpasangan itulah yang membuat parabola terlihat setangkup.
 
-24
-00:01:31.116 --> 00:01:35.875
+25
+00:01:31.142 --> 00:01:35.925
 Garis tegak x = 1 membelahnya jadi dua sisi yang saling bayangan.
 
-25
-00:01:35.875 --> 00:01:40.488
-Garis itu namanya <b>sumbu simetri</b>, dan ia selalu lewat puncaknya.
-
 26
+00:01:35.925 --> 00:01:38.280
+Garis itu namanya <b>sumbu simetri</b>,
+
+27
+00:01:38.280 --> 00:01:40.488
+dan ia selalu lewat puncaknya.
+
+28
 00:01:40.488 --> 00:01:43.394
 Tinggal satu huruf yang belum dibahas: a.
 
-27
+29
 00:01:43.394 --> 00:01:46.583
 Supaya jelas, puncaknya kita kunci di (1, 1),
 
-28
+30
 00:01:46.583 --> 00:01:49.560
 dan mulai sekarang <b>hanya a yang kita ubah</b>.
 
-29
-00:01:49.560 --> 00:01:51.416
+31
+00:01:49.560 --> 00:01:51.428
 Kita besarkan a jadi 3.
 
-30
-00:01:51.416 --> 00:01:57.631
-Puncaknya tidak bergeser sedikit pun, tapi parabolanya jadi <b>sempit dan curam</b>.
-
-31
-00:01:57.631 --> 00:02:02.232
-Masuk akal: tiap langkah menjauh dari puncak dikalikan 3.
-
 32
-00:02:02.232 --> 00:02:05.240
-Sekarang kita kecilkan a jadi 0,3.
+00:01:51.428 --> 00:01:54.434
+Puncaknya tidak bergeser sedikit pun,
 
 33
-00:02:05.240 --> 00:02:11.875
-Puncaknya tetap di tempat yang sama, tapi parabolanya <b>melebar dan melandai</b>.
+00:01:54.434 --> 00:01:57.602
+tapi parabolanya jadi <b>sempit dan curam</b>.
 
 34
-00:02:11.875 --> 00:02:14.352
-Makin kecil a, makin landai.
+00:01:57.602 --> 00:02:02.232
+Masuk akal: tiap langkah menjauh dari puncak dikalikan 3.
 
 35
-00:02:14.352 --> 00:02:16.507
-Terakhir, a dibuat negatif.
+00:02:02.232 --> 00:02:05.262
+Sekarang kita kecilkan a jadi 0,3.
 
 36
-00:02:16.507 --> 00:02:19.620
-Parabolanya <b>berbalik</b>, terbuka ke bawah,
+00:02:05.262 --> 00:02:08.470
+Puncaknya tetap di tempat yang sama,
 
 37
-00:02:19.620 --> 00:02:25.606
-dan puncaknya berubah peran: tadi titik terendah, sekarang titik tertinggi.
+00:02:08.470 --> 00:02:11.857
+tapi parabolanya <b>melebar dan melandai</b>.
 
 38
-00:02:25.606 --> 00:02:28.320
-Persis seperti lemparan bola tadi.
+00:02:11.857 --> 00:02:14.352
+Makin kecil a, makin landai.
 
 39
-00:02:28.320 --> 00:02:33.365
-Jadi dari satu rumus, tiga hal bisa dibaca tanpa menghitung.
+00:02:14.352 --> 00:02:16.519
+Terakhir, a dibuat negatif.
 
 40
-00:02:33.365 --> 00:02:36.055
-h dan k memberi letak puncaknya.
+00:02:16.519 --> 00:02:19.650
+Parabolanya <b>berbalik</b>, terbuka ke bawah,
 
 41
-00:02:36.055 --> 00:02:38.661
-Tanda a memberi arah bukaannya.
+00:02:19.650 --> 00:02:23.584
+dan puncaknya berubah peran: tadi titik terendah,
 
 42
-00:02:38.661 --> 00:02:41.688
+00:02:23.584 --> 00:02:25.591
+sekarang titik tertinggi.
+
+43
+00:02:25.591 --> 00:02:28.320
+Persis seperti lemparan bola tadi.
+
+44
+00:02:28.320 --> 00:02:30.097
+Jadi dari satu rumus,
+
+45
+00:02:30.097 --> 00:02:33.312
+tiga hal bisa dibaca tanpa menghitung.
+
+46
+00:02:33.312 --> 00:02:36.019
+h dan k memberi letak puncaknya.
+
+47
+00:02:36.019 --> 00:02:38.642
+Tanda a memberi arah bukaannya.
+
+48
+00:02:38.642 --> 00:02:41.688
 Dan besar a memberi lebar sempitnya.
