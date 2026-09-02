@@ -1121,5 +1121,213 @@
         "jawaban": "53.130102"
       }
     ]
+  },
+  {
+    "nama": "revisi 2 Sep: jalan pengerjaan UAN 2003 (kubus rusuk 4, P tengah EH)",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 4,
+      "tambahan": {
+        "P": [
+          "E",
+          "H"
+        ]
+      }
+    },
+    "soal": [
+      {
+        "id": "PC, sisi segitiga PCF",
+        "tanya": "jarak_titik",
+        "dari": "P",
+        "ke": "C",
+        "jawaban": "6"
+      },
+      {
+        "id": "PF, sisi segitiga PCF",
+        "tanya": "jarak_titik",
+        "dari": "P",
+        "ke": "F",
+        "jawaban": "2*sqrt(5)"
+      },
+      {
+        "id": "CF, alas segitiga PCF",
+        "tanya": "jarak_titik",
+        "dari": "C",
+        "ke": "F",
+        "jawaban": "4*sqrt(2)"
+      },
+      {
+        "id": "PK, tinggi yang dicari",
+        "tanya": "jarak_titik_garis",
+        "titik": "P",
+        "garis": [
+          "C",
+          "F"
+        ],
+        "jawaban": "3*sqrt(2)"
+      }
+    ]
+  },
+  {
+    "nama": "revisi 2 Sep: jalan pengerjaan EBTANAS 1992 (kubus rusuk 6)",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 6
+    },
+    "soal": [
+      {
+        "id": "CE, diagonal ruang dari C",
+        "tanya": "jarak_titik",
+        "dari": "C",
+        "ke": "E",
+        "jawaban": "6*sqrt(3)"
+      },
+      {
+        "id": "BD, sisi segitiga BDG",
+        "tanya": "jarak_titik",
+        "dari": "B",
+        "ke": "D",
+        "jawaban": "6*sqrt(2)"
+      },
+      {
+        "id": "BG, sisi segitiga BDG",
+        "tanya": "jarak_titik",
+        "dari": "B",
+        "ke": "G",
+        "jawaban": "6*sqrt(2)"
+      },
+      {
+        "id": "jarak C ke bidang BDG",
+        "tanya": "jarak_titik_bidang",
+        "titik": "C",
+        "bidang": [
+          "B",
+          "D",
+          "G"
+        ],
+        "jawaban": "2*sqrt(3)"
+      }
+    ]
+  },
+  {
+    "nama": "revisi 2 Sep: jalan pengerjaan UAN 2005 (kubus rusuk 6, P tengah BD)",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 6,
+      "tambahan": {
+        "P": [
+          "B",
+          "D"
+        ]
+      }
+    },
+    "soal": [
+      {
+        "id": "AP, setengah diagonal alas",
+        "tanya": "jarak_titik",
+        "dari": "A",
+        "ke": "P",
+        "jawaban": "3*sqrt(2)"
+      },
+      {
+        "id": "AH, diagonal sisi",
+        "tanya": "jarak_titik",
+        "dari": "A",
+        "ke": "H",
+        "jawaban": "6*sqrt(2)"
+      },
+      {
+        "id": "PH, bayangan AH pada BDHF",
+        "tanya": "jarak_titik",
+        "dari": "P",
+        "ke": "H",
+        "jawaban": "3*sqrt(6)"
+      },
+      {
+        "id": "jarak A ke bidang BDHF, sama dengan AP",
+        "tanya": "jarak_titik_bidang",
+        "titik": "A",
+        "bidang": [
+          "B",
+          "D",
+          "H"
+        ],
+        "jawaban": "3*sqrt(2)"
+      },
+      {
+        "id": "sudut AH dengan bidang BDHF",
+        "tanya": "sudut_garis_bidang",
+        "garis": [
+          "A",
+          "H"
+        ],
+        "bidang": [
+          "B",
+          "D",
+          "H"
+        ],
+        "jawaban": "30"
+      }
+    ]
+  },
+  {
+    "nama": "revisi 2 Sep: tahap 9 coba kedua, titik P digeser di garis potong BD",
+    "bangun": {
+      "jenis": "kubus",
+      "rusuk": 6,
+      "tambahan": {
+        "P": [
+          "B",
+          "D"
+        ],
+        "R": [
+          4.5,
+          1.5,
+          0
+        ]
+      }
+    },
+    "soal": [
+      {
+        "id": "PC tegak lurus BD, panjangnya",
+        "tanya": "jarak_titik",
+        "dari": "P",
+        "ke": "C",
+        "jawaban": "3*sqrt(2)"
+      },
+      {
+        "id": "sudut CPG, nilai yang benar",
+        "tanya": "sudut_garis_garis",
+        "garis1": [
+          "P",
+          "C"
+        ],
+        "garis2": [
+          "P",
+          "G"
+        ],
+        "jawaban": "54.7356103172454"
+      },
+      {
+        "id": "RC saat P digeser seperempat ke arah B",
+        "tanya": "jarak_titik",
+        "dari": "R",
+        "ke": "C",
+        "jawaban": "3*sqrt(10)/2"
+      },
+      {
+        "id": "sudut CRG yang terbaca, lebih kecil dari yang benar",
+        "tanya": "sudut_garis_garis",
+        "garis1": [
+          "R",
+          "C"
+        ],
+        "garis2": [
+          "R",
+          "G"
+        ],
+        "jawaban": "180*acos(sqrt(65)/13)/pi"
+      }
+    ]
   }
 ]

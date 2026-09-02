@@ -1,0 +1,91 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/ruang-3d-01.json
+
+1
+00:00:00.000 --> 00:00:04.541
+Sekarang kita masuk ke materi baru: <b>ruang tiga dimensi</b>.
+
+2
+00:00:04.541 --> 00:00:08.256
+Materi pertama, <b>gambar ruang boleh berbohong</b>.
+
+3
+00:00:08.256 --> 00:00:13.206
+Di depan kita ada sebuah kotak, berdiri di atas lantai.
+
+4
+00:00:13.206 --> 00:00:18.336
+Panjang, lebar, dan tingginya sama, jadi bentuknya <b>kubus</b>.
+
+5
+00:00:18.336 --> 00:00:24.329
+Supaya bagian dalamnya ikut terlihat, dinding kotak ini kita buat <b>tembus pandang</b>.
+
+6
+00:00:24.329 --> 00:00:28.176
+Kedelapan titik sudutnya kita beri nama, A sampai H.
+
+7
+00:00:28.176 --> 00:00:31.573
+Sekarang kita tarik dua ruas garis.
+
+8
+00:00:31.573 --> 00:00:35.844
+Yang biru, B̅D̅, tergeletak di <b>lantai</b> kubus.
+
+9
+00:00:35.844 --> 00:00:41.280
+Yang merah, E̅G̅, ada di <b>atapnya</b>, 6 satuan lebih tinggi.
+
+10
+00:00:41.280 --> 00:00:46.652
+Sekarang kamera kita naikkan, dan kita lihat kubus ini dari atas.
+
+11
+00:00:46.652 --> 00:00:48.884
+Perhatikan kedua ruas tadi.
+
+12
+00:00:48.884 --> 00:00:51.777
+Keduanya <b>menyilang tepat di tengah</b>.
+
+13
+00:00:51.777 --> 00:00:55.414
+Apakah keduanya benar-benar bertemu di situ?
+
+14
+00:00:55.414 --> 00:00:56.736
+Coba tebak dulu.
+
+15
+00:00:56.736 --> 00:01:01.050
+Kamera kita turunkan lagi, dan jawabannya kelihatan.
+
+16
+00:01:01.050 --> 00:01:02.250
+Tidak.
+
+17
+00:01:02.250 --> 00:01:06.565
+Yang biru tetap di lantai, yang merah tetap di atap.
+
+18
+00:01:06.565 --> 00:01:12.168
+Titik silang tadi ternyata <b>dua titik yang berbeda</b>, terpisah sejauh 6 satuan.
+
+19
+00:01:12.168 --> 00:01:15.121
+Jadi yang berubah cuma sudut pandangnya.
+
+20
+00:01:15.121 --> 00:01:18.296
+Kubusnya sendiri sama sekali tidak berubah.
+
+21
+00:01:18.296 --> 00:01:23.243
+Dua garis seperti ini, yang tidak sejajar dan tidak pernah bertemu,
+
+22
+00:01:23.243 --> 00:01:24.720
+namanya <b>bersilangan</b>.

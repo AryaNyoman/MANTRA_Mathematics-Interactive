@@ -1,0 +1,79 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/ruang-3d-08.json
+
+1
+00:00:00.000 --> 00:00:03.911
+Materi 8, <b>sudut dua garis yang tidak pernah bertemu</b>.
+
+2
+00:00:03.911 --> 00:00:09.476
+Banyak yang mengira sudut hanya bisa diukur kalau kedua garis berpotongan.
+
+3
+00:00:09.476 --> 00:00:11.808
+Coba kita uji dengan kubus ini.
+
+4
+00:00:11.808 --> 00:00:15.800
+Ini A̅C̅ di lantai, dan ini B̅G̅ di sisi kanan.
+
+5
+00:00:15.800 --> 00:00:22.256
+Keduanya <b>bersilangan</b>: tidak sejajar, dan tidak punya satu pun titik bersama.
+
+6
+00:00:22.256 --> 00:00:25.569
+Padahal sudut selalu butuh titik sudut.
+
+7
+00:00:25.569 --> 00:00:28.032
+Jadi sudutnya diukur di mana?
+
+8
+00:00:28.032 --> 00:00:32.997
+Jalan keluarnya: kita geser salah satunya, <b>sejajar dirinya sendiri</b>,
+
+9
+00:00:32.997 --> 00:00:34.775
+sampai keduanya bertemu.
+
+10
+00:00:34.775 --> 00:00:39.888
+Perhatikan garis merah ini berjalan pelan tanpa berputar sedikit pun.
+
+11
+00:00:39.888 --> 00:00:43.874
+Pada geseran penuh, B̅G̅ mendarat tepat menjadi A̅H̅,
+
+12
+00:00:43.874 --> 00:00:47.258
+diagonal sisi yang memang sudah ada di kubus.
+
+13
+00:00:47.258 --> 00:00:50.040
+Sekarang keduanya bertemu di titik A.
+
+14
+00:00:50.040 --> 00:00:52.437
+Sekarang lihat segitiga ACH.
+
+15
+00:00:52.437 --> 00:00:59.116
+A̅C̅ diagonal sisi alas, A̅H̅ diagonal sisi kiri, C̅H̅ diagonal sisi belakang.
+
+16
+00:00:59.116 --> 00:01:02.712
+Ketiganya <b>6√2</b>, jadi segitiganya <b>sama sisi</b>.
+
+17
+00:01:02.712 --> 00:01:05.666
+Semua sudut segitiga sama sisi adalah <b>60°</b>,
+
+18
+00:01:05.666 --> 00:01:10.168
+dan kita mendapatkannya tanpa satu pun perhitungan trigonometri.
+
+19
+00:01:10.168 --> 00:01:14.880
+Menggeser tidak mengubah arah, dan karena itu tidak mengubah sudut.

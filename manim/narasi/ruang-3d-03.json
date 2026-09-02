@@ -1,0 +1,38 @@
+{
+  "adegan": "JarakSelaluTerpendek",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Ruang Tiga Dimensi materi 03. Gagasan payung topik ini lahir di sini: setiap soal jarak adalah soal mencari kaki tegak lurus. Titik Q digeser supaya siswa MELIHAT panjangnya naik-turun, bukan diberi tahu.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Dari materi sebelumnya kita sudah tahu tiga kedudukan dua garis: berpotongan, sejajar, dan bersilangan. Sekarang materi tiga, *jarak selalu yang terpendek*.",
+      "subtitle": "Dari materi sebelumnya kita sudah tahu tiga kedudukan dua garis: berpotongan, sejajar, dan bersilangan. Sekarang materi 3, *jarak selalu yang terpendek*."
+    },
+    {
+      "id": "masalah",
+      "teks": "Ini titik B, dan ini garis A C di lantai kubus. Dari B ke garis itu bisa ditarik ruas sebanyak yang kita mau, dan semuanya sah disebut penghubung. Panjangnya berbeda-beda.",
+      "subtitle": "Ini titik B, dan ini garis A̅C̅ di lantai kubus. Dari B ke garis itu bisa ditarik ruas sebanyak yang kita mau, dan semuanya sah disebut penghubung. Panjangnya berbeda-beda."
+    },
+    {
+      "id": "geser",
+      "teks": "Jadi kata *jarak* belum punya arti sampai kita memilih yang mana. Kita geser titik Q di sepanjang A C, dan perhatikan angkanya. Turun, lalu naik lagi. Ada satu tempat yang paling pendek.",
+      "subtitle": "Jadi kata *jarak* belum punya arti sampai kita memilih yang mana. Kita geser titik Q di sepanjang A̅C̅, dan perhatikan angkanya. Turun, lalu naik lagi. Ada satu tempat yang paling pendek."
+    },
+    {
+      "id": "temu",
+      "teks": "Di situ, dan hanya di situ, muncul tanda *siku-siku*. Panjangnya tiga akar dua, kira-kira empat koma dua empat tiga.",
+      "subtitle": "Di situ, dan hanya di situ, muncul tanda *siku-siku*. Panjangnya 3√2, kira-kira 4,243."
+    },
+    {
+      "id": "kenapa",
+      "teks": "Kenapa yang terpendek pasti yang siku-siku? Ambil titik lain, sebut R. Segitiga B Q R siku-siku di Q, dan B R adalah sisi miringnya. Sisi miring *selalu* lebih panjang daripada sisi tegaknya. Itu saja seluruh alasannya.",
+      "subtitle": "Kenapa yang terpendek pasti yang siku-siku? Ambil titik lain, sebut R. Segitiga BQR siku-siku di Q, dan B̅R̅ adalah sisi miringnya. Sisi miring *selalu* lebih panjang daripada sisi tegaknya. Itu saja seluruh alasannya."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi tegak lurus bukan aturan tambahan yang harus dihafal. Ia akibat dari memilih yang terpendek. Ingat kalimat ini sampai materi tujuh: *setiap soal jarak adalah soal mencari kaki tegak lurus*.",
+      "subtitle": "Jadi tegak lurus bukan aturan tambahan yang harus dihafal. Ia akibat dari memilih yang terpendek. Ingat kalimat ini sampai materi 7: *setiap soal jarak adalah soal mencari kaki tegak lurus*."
+    }
+  ]
+}
