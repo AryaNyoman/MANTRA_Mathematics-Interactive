@@ -1,19 +1,19 @@
 {
-  "total": 160.488,
+  "total": 162.864,
   "segmen": {
     "sapa": 8.568,
-    "lembah": 8.856,
-    "parabola": 8.568,
+    "lembah": 9.144,
+    "datar": 9.84,
     "titik": 23.304,
-    "geseratas": 16.56,
+    "geseratas": 16.2,
     "tanya": 10.704,
-    "jawab": 7.584,
-    "kenapa": 11.184,
-    "akar": 8.64,
-    "sinus": 11.664,
-    "mampat": 12.096,
-    "setengah": 10.152,
-    "kenapamampat": 11.4,
-    "tutup": 11.208
+    "jawab": 6.552,
+    "kenapa": 9.672,
+    "akar": 10.536,
+    "sinus": 11.832,
+    "mampat": 12.648,
+    "setengah": 8.928,
+    "kenapamampat": 13.224,
+    "tutup": 11.712
   }
 }

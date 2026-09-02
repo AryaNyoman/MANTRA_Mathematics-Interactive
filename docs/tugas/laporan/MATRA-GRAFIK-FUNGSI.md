@@ -792,3 +792,154 @@ tampil selama 15 detik pertama masih milik babak sebelumnya ("dari samping,
 lembahnya terbaca sebagai grafik"). Tidak salah, tapi juga tidak membantu.
 Diperbaiki di ronde berikutnya bersama revisi isi dari ARYA, supaya tidak
 menghabiskan satu render penuh sendirian.
+
+
+---
+
+# Dirombak jadi dua dimensi, dan lima aturan baru dari ARYA (2 September, malam)
+
+Ronde ketiga. **Bagian "Untuk MASTER" di bawah membatalkan dua aturan yang
+sekarang sedang dipakai lima sesi lain**, jadi itu yang perlu dibaca lebih dulu.
+
+## Keputusan besar: panggung 3D dibatalkan untuk materi yang datar
+
+ARYA, setelah bertanya "bolanya gunanya buat apa?":
+
+> "kalau grafiknya tidak menunjukkan tanda-tanda 3 dimensi, ya jangan
+> dipaksakan untuk seolah-olah dia berada di 3 dimensi. Gunakan 3 dimensi jika
+> memang dibutuhkan, bukan dipaksakan harus semua mengandung scene 3 dimensi."
+
+Saya membaca aturan 1 dan 2 `STANDAR-ILUSTRASI-VIDEO.md` ("benda nyata 3D
+bercahaya", "dunia tidak boleh membeku") sebagai "tiap video wajib berpanggung
+3D", lalu membungkus grafik y = x kuadrat jadi lembah 3D dengan bola
+menggelinding tanpa henti di dasarnya. Grafik fungsi itu materi dua dimensi.
+Bolanya bukan cuma mubazir, ia MENGGANGGU: gerakan bolak-balik terus-menerus
+menarik mata menjauh dari yang sedang dijelaskan.
+
+Sekarang benda nyatanya tinggal PEMBUKA sembilan detik: bola menggelinding
+SATU kali dari tepi kiri ke tepi kanan, lalu berhenti. Sesudah itu lembah dan
+bolanya pergi dan video sepenuhnya bidang datar. Kebetulan yang enak:
+perlambatan bawaan `smooth` justru tepat secara fisika, pelan di tepi dan cepat
+di dasar, persis bola sungguhan di lembah.
+
+## Lima aturan ARYA yang sekarang mengatur tulisan di layar
+
+### 1. Subtitle memakai notasi TERTULIS, bukan transkrip ucapan
+Narator mengucapkan "titik dua koma empat", subtitle harus menulis "titik
+(2, 4)". Narator "f dari x kurang satu", subtitle "f(x - 1)".
+
+Saat ditelusuri, ternyata **tidak ada satu pun dari 17 naskah MATRA yang punya
+bentuk tertulis terpisah**: semuanya cuma punya medan `teks`, dipakai mesin
+suara DAN subtitle sekaligus. Jadi cacat ini ada di semua video, termasuk
+Trigonometri dan Limit yang sudah tayang.
+
+Naskah topik ini sekarang punya dua medan per segmen: `teks` (terucap) dan
+`layar` (tertulis, opsional). `buat_subtitle.py` memakai `layar` kalau ada dan
+jatuh kembali ke `teks` kalau tidak, jadi 16 naskah lain tetap jalan tanpa
+diubah. Lambangnya memakai huruf Unicode (x kuadrat, tanda akar), BUKAN LaTeX:
+subtitle digambar peramban dari berkas .vtt dan peramban tidak bisa membaca
+LaTeX.
+
+Sepuluh dari empat belas segmen sekarang punya bentuk tertulis sendiri.
+
+### 2. Rumus baru LAHIR di tempat mata menatap, lalu terbang ke panel
+ARYA: "mata kita saat ini terlalu fokus sama grafik, padahal ada penambahan
+fungsi di pojok kiri atas". Rumus yang langsung terbit di pojok memang tidak
+pernah terlihat, dan narasi sesudahnya jadi terasa tidak nyambung.
+
+ARYA mengusulkan kotak merah berkedip. Saya tawarkan cara 3Blue1Brown sebagai
+pilihan lain: rumusnya dibuat BESAR di tengah layar, ditahan setengah detik,
+lalu mengecil dan berpindah ke panel. ARYA memilih yang itu, dan minta dicatat
+sebagai pedoman tetap untuk semua grafik: mata mengikuti gerak yang menyambung,
+ia tidak mengikuti benda yang tiba-tiba ada.
+
+Ada satu tambahan yang tidak diminta tapi ternyata perlu: **selama rumusnya
+besar, dunianya diredupkan ke 18 persen.** Tanpa itu rumus merah besar
+bertumpuk dengan kurva dan angka sumbu, dan angka "3" mengintip dari sela huruf
+f(x) sehingga terbaca seperti salah cetak. Meredupkan lebih baik daripada
+memberi alas (alas dilarang ARYA) dan sekalian mengerjakan tugasnya lebih baik:
+menyisakan SATU benda terang di layar.
+
+### 3. Jangan menulis di layar apa yang sudah diucapkan
+Versi lama menuliskan "tebak dulu: ke kiri, atau ke kanan?" padahal narator
+mengucapkan kalimat itu dan subtitle sudah menampilkannya. Kata ARYA: "biar gak
+rame dan fokusnya gak terbelah". Pita keterangan di dasar layar DIHAPUS
+seluruhnya dari video ini.
+
+### 4. Tulisan di dalam gambar = label, maksimal dua kata, menempel di bendanya
+Pilihan ARYA sendiri saat ditanya: "singkat-singkat saja, dan padat, 2 kata
+maksimal". Sekarang cuma tiga label di seluruh video: "naik 1", "ke KANAN",
+"sampai duluan".
+
+Batasnya dijaga mesin, bukan ingatan saya: `self.label` menggagalkan render
+kalau lebih dari dua kata. Ia langsung menangkap satu kesalahan saya sendiri di
+render pertama. Rumus tidak lewat sana, karena "x = 1" itu satu lambang utuh
+dan bukan tiga kata.
+
+### 5. Grafik fungsi wajib punya dua sumbu (dari ronde sebelumnya)
+Tetap berlaku, dan sekarang sumbu itu jadi satu-satunya alat ukur di layar
+setelah lembahnya pergi.
+
+## Jebakan perkakas yang menghabiskan satu ronde render
+
+**`b.jeda()` DIBATASI maksimum 1,6 detik oleh `gl.sinema` (`JEDA_MAKS`), tanpa
+peringatan apa pun.** Jadi `b.jeda(6.4)` diam-diam jadi 1,6 dan `b.jeda(3.4)`
+juga jadi 1,6. Akibatnya dua hal yang sudah saya tulis dengan benar tetap salah
+di videonya:
+
+- tulisan babak 13 menghilang di detik 142 padahal babaknya sampai detik 151,
+  menyisakan sembilan detik layar beku;
+- titik pertama di babak `titik` mendarat saat narator masih bertanya "kenapa
+  bentuknya begitu", jadi jawabannya mendahului pertanyaannya.
+
+Ketahuan dari lembar kontak, bukan dari galat. Untuk tunggu yang panjang dan
+disengaja, pakai `self.wait(n)` lalu `b.catat(n)`; `b.jeda` hanya untuk jeda
+pendek. Kalau sebuah tulisan memang harus bertahan sampai akhir babak, jangan
+dipadamkan di babaknya sendiri: bawa ke babak berikutnya.
+
+**Usul untuk MASTER:** `b.jeda` sebaiknya BERBUNYI kalau angkanya dipotong,
+bukan memotong diam-diam. Satu baris peringatan sudah cukup.
+
+## UNTUK MASTER: dua aturan proyek perlu diubah
+
+Lima sesi lain (Limit, Statistika, Vektor, Ruang 3D, Trigonometri) sedang
+membangun video di bawah aturan yang baru saja dibatalkan ARYA untuk materi
+datar. Sebaiknya diteruskan sebelum mereka terlanjur:
+
+1. **Aturan 1 dan 2 STANDAR-ILUSTRASI-VIDEO tidak berlaku mutlak.** Benda nyata
+   3D dipakai kalau materinya memang tiga dimensi (Ruang 3D, Vektor), atau
+   sebagai pembuka pendek untuk menunjukkan asal masalahnya. Bukan sebagai
+   panggung seluruh video pada materi datar. "Dunia tidak boleh membeku" juga
+   tidak boleh dipakai membenarkan benda yang bergerak terus-menerus tanpa
+   makna: itu yang justru mencuri perhatian.
+2. **Semua naskah perlu medan `layar`.** Subtitle yang mengeja "f dari x kurang
+   satu" ada di semua topik. Alatnya sudah mendukung (jatuh kembali ke `teks`
+   kalau tidak ada), tinggal naskahnya ditambahi.
+3. **Pedoman "rumus lahir di fokus lalu terbang" berlaku untuk semua topik**,
+   bukan cuma Grafik Fungsi. ARYA menyebutnya "wajib kita ingat selamanya".
+   Layak dijadikan fungsi di `gl.sinema` supaya tidak ditulis ulang lima kali.
+
+## Angka ronde ini
+
+| | ronde 2 | ronde 3 |
+|---|---|---|
+| panggung | 3D sepanjang video | 2D, kecuali pembuka 9 detik |
+| bola | mengayun tanpa henti | sekali jalan, lalu pergi |
+| babak | 14 | 14 |
+| durasi | 160,5 detik | 162,9 detik |
+| pita keterangan | 384 sampai 401 px | dihapus |
+| tulisan di gambar | kalimat penuh | 3 label, maksimal 2 kata |
+| subtitle | ejaan ucapan | notasi tertulis, 45 baris |
+| ruang bebas untuk subtitle | 78 px | 90 px |
+| selisih suara | | 0,34 detik |
+
+Diukur di enam frame salinan berbakar-subtitle: grafik berhenti di 389 piksel,
+subtitle di 438 sampai 459. Jarak 49 piksel, tidak ada yang bersentuhan.
+
+## Cacat tersisa, disebut bukan didiamkan
+
+Beberapa babak sekarang punya lima sampai delapan detik layar diam, karena
+bolanya tidak ada lagi yang mengisi kekosongan. Menurut saya itu bukan cacat:
+diam sambil narator menjelaskan adalah tempo yang wajar, dan justru itu yang
+diminta ARYA. Tapi aturan 7 (waktu mati) masih melarangnya di atas kertas, jadi
+saya sebutkan supaya tidak dianggap kelalaian.

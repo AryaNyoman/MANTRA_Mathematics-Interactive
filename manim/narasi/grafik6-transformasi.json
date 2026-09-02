@@ -2,7 +2,7 @@
   "adegan": "GeserCerminRegang",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Grafik Fungsi Tahap 06, Geser, cermin, regang. Video prioritas PERTAMA. Versi ManimGL 2 Sep 2026. Benda nyatanya BOLA YANG MENGGELINDING DI DASAR LEMBAH, bukan bola yang dilempar: lintasan lemparan itu parabola terbuka ke BAWAH, sedangkan tahap ini memakai f(x) = x kuadrat yang terbuka ke ATAS. Gambar yang membantah rumusnya adalah cacat terburuk menurut gerbang video. Bola terus mengayun di lembah sepanjang video sebagai updater, jadi dunia tidak membeku dan tiap kurva selalu punya benda yang diwakilinya. Revisi ARYA 2 Sep sore: babak 1 kini JUDUL SAJA di layar bersih (pola Trigonometri), dunianya dibangun di babak 2 yang bernama lembah. Judul dan grafik yang muncul bersamaan dinilai terlalu ramai. Revisi ARYA 2 Sep malam: sumbu y WAJIB ada, dan kurvanya tidak boleh muncul begitu saja. Segmen \"titik\" menghitung lima nilai f(x) di layar lalu memplotnya; kurvanya baru ditarik melewati kelima titik itu.",
+  "catatan": "Grafik Fungsi Tahap 06, Geser, cermin, regang. Video prioritas PERTAMA. DUA DIMENSI sejak 2 Sep malam, keputusan ARYA: panggung 3D dipaksakan untuk materi yang datar. Benda nyatanya tinggal pembuka delapan detik (bola menggelinding SEKALI di lembah x kuadrat), sesudah itu bidang datar sepenuhnya. Tiap segmen punya dua bentuk: `teks` yang diucapkan mesin suara, dan `layar` yang ditulis di subtitle memakai notasi matematika. Narator bilang \"f dari x kurang satu\", subtitle menulis \"f(x - 1)\".",
   "segmen": [
     {
       "id": "sapa",
@@ -10,55 +10,65 @@
     },
     {
       "id": "lembah",
-      "teks": "Kita mulai dari yang *nyata*. Bola ini menggelinding di dasar lembah, dan bentuk lembahnya persis grafik y sama dengan x kuadrat."
+      "teks": "Kita mulai dari yang *nyata*. Bola ini menggelinding sekali di dasar lembah, dan bentuk lembahnya persis grafik y sama dengan x kuadrat.",
+      "layar": "Kita mulai dari yang *nyata*. Bola ini menggelinding sekali di dasar lembah, dan bentuk lembahnya persis grafik y = x²."
     },
     {
-      "id": "parabola",
-      "teks": "Sekarang kita lihat dari *samping*, supaya lembahnya terbaca sebagai grafik. Mulai di sini lembah itu kita sebut f saja."
+      "id": "datar",
+      "teks": "Sekarang lembahnya kita tinggalkan. Yang tersisa cuma *gambarnya*, di bidang datar, dengan sumbu mendatar untuk x dan sumbu tegak untuk y."
     },
     {
       "id": "titik",
-      "teks": "Kenapa bentuknya begitu? Bukan sihir, tapi *dihitung*. x sama dengan minus dua memberi empat. Minus satu memberi satu. Nol memberi nol. Satu memberi satu. Dua memberi empat. Lima titik inilah yang menentukan bentuknya, dan kurvanya cuma *menghubungkan* titik-titik itu."
+      "teks": "Kenapa bentuknya begitu? Bukan sihir, tapi *dihitung*. x sama dengan minus dua memberi empat. Minus satu memberi satu. Nol memberi nol. Satu memberi satu. Dua memberi empat. Lima titik inilah yang menentukan bentuknya, dan kurvanya cuma *menghubungkan* titik-titik itu.",
+      "layar": "Kenapa bentuknya begitu? Bukan sihir, tapi *dihitung*. x = -2 memberi 4. x = -1 memberi 1. x = 0 memberi 0. x = 1 memberi 1. x = 2 memberi 4. Lima titik inilah yang menentukan bentuknya, dan kurvanya cuma *menghubungkan* titik-titik itu."
     },
     {
       "id": "geseratas",
-      "teks": "Sekarang perhatikan. Kita tulis f dari x, lalu tambah satu, di luar kurung. Seluruh grafiknya naik *satu satuan*, dan bentuknya tidak berubah. Lihat titik dua koma empat tadi: sekarang jadi dua koma lima."
+      "teks": "Sekarang perhatikan rumusnya. Kita tulis f dari x, lalu tambah satu, di luar kurung. Seluruh grafiknya naik *satu satuan*, dan bentuknya tidak berubah. Titik dua koma empat tadi sekarang jadi dua koma lima.",
+      "layar": "Sekarang perhatikan rumusnya. Kita tulis f(x) + 1, dengan angka 1 *di luar kurung*. Seluruh grafiknya naik satu satuan, dan bentuknya tidak berubah. Titik (2, 4) tadi sekarang jadi (2, 5)."
     },
     {
       "id": "tanya",
-      "teks": "Sekarang giliran yang di dalam kurung. Kita tulis f dari x kurang satu. Coba tebak dulu: grafiknya bergeser ke kiri, atau ke kanan?"
+      "teks": "Sekarang giliran yang di dalam kurung. Kita tulis f dari x kurang satu. Coba tebak dulu: grafiknya bergeser ke kiri, atau ke kanan?",
+      "layar": "Sekarang giliran yang *di dalam kurung*. Kita tulis f(x - 1). Coba tebak dulu: grafiknya bergeser ke kiri, atau ke kanan?"
     },
     {
       "id": "jawab",
-      "teks": "Ke kanan, padahal tandanya minus. Ini bagian yang paling sering keliru, jadi kita pelankan."
+      "teks": "Jawabannya ke *kanan*, walaupun tandanya minus. Ini yang paling sering terbalik."
     },
     {
       "id": "kenapa",
-      "teks": "Alasannya begini. Titik terendah terjadi saat isi kurungnya nol, dan itu terjadi ketika x bernilai satu. Jadi titik itu memang pindah ke kanan."
+      "teks": "Kenapa ke kanan? Karena isi kurungnya baru jadi nol saat x sama dengan satu. Titik terendah selalu pindah ke tempat isi kurungnya *nol*.",
+      "layar": "Kenapa ke kanan? Karena isi kurungnya baru jadi nol saat x = 1. Titik terendah selalu pindah ke tempat isi kurungnya *nol*."
     },
     {
       "id": "akar",
-      "teks": "Sekarang fungsi dasarnya kita ganti menjadi akar x. Bentuknya jauh berbeda. Kita kenakan dua perlakuan yang sama persis."
+      "teks": "Sekarang bentuk lain. Kita ganti f jadi dua akar x, lalu kenakan perlakuan yang sama persis. Perpindahannya *tidak berubah* sedikit pun.",
+      "layar": "Sekarang bentuk lain. Kita ganti f menjadi f(x) = 2√x, lalu kenakan perlakuan yang sama persis. Perpindahannya *tidak berubah* sedikit pun."
     },
     {
       "id": "sinus",
-      "teks": "Sekali lagi, kali ini pada kurva sinus dari topik trigonometri. Perhatikan, perpindahannya sama saja. Aturannya tidak peduli bentuk grafiknya."
+      "teks": "Sekali lagi, sekarang gelombang sinus. Aturannya memang *tidak peduli* bentuk grafiknya. Yang di luar kurung menggeser tegak, yang di dalam kurung menggeser mendatar."
     },
     {
       "id": "mampat",
-      "teks": "Satu perlakuan terakhir, dan ini yang paling menjebak. Kita tulis f dari dua x. Coba tebak lagi: grafiknya jadi dua kali lebih lebar, atau setengahnya?"
+      "teks": "Sekarang jebakannya. Kita kembali ke parabola, dan kali ini x dikalikan dua di dalam kurung. Tebak dulu: grafiknya jadi dua kali lebih lebar, atau setengahnya?",
+      "layar": "Sekarang jebakannya. Kita kembali ke parabola, dan kali ini kita tulis f(2x). Tebak dulu: grafiknya jadi dua kali lebih lebar, atau setengahnya?"
     },
     {
       "id": "setengah",
-      "teks": "Setengahnya. Lihat titik ini. Nilai empat yang tadinya muncul di x sama dengan dua, sekarang sudah muncul di x sama dengan satu."
+      "teks": "Jawabannya *setengah*. Nilai empat yang tadi baru tercapai di x sama dengan dua, sekarang sudah tercapai di x sama dengan satu.",
+      "layar": "Jawabannya *setengah*. Nilai 4 yang tadi baru tercapai di x = 2, sekarang sudah tercapai di x = 1."
     },
     {
       "id": "kenapamampat",
-      "teks": "Sebabnya, x sudah dikalikan dua sebelum masuk mesin. Jadi mesinnya sampai ke nilai yang sama pada x yang setengahnya, dan semua kejadian pada grafik terjadi lebih awal."
+      "teks": "Alasannya, x sudah dikalikan dua sebelum masuk mesin. Waktu kita isi satu, mesinnya sebenarnya mengerjakan dua. Jadi mesinnya *sampai lebih awal*, dan grafiknya memampat.",
+      "layar": "Alasannya, x sudah dikalikan 2 sebelum masuk mesin. Waktu kita isi 1, mesinnya sebenarnya mengerjakan f(2). Jadi mesinnya *sampai lebih awal*, dan grafiknya memampat."
     },
     {
       "id": "tutup",
-      "teks": "Jadi seluruh tahap ini muat dalam dua kalimat. Angka yang ada di luar kurung mengerjakan apa yang tertulis. Angka yang masuk ke dalam kurung mengerjakan kebalikannya."
+      "teks": "Jadi aturannya cuma dua. Angka di luar kurung mengerjakan apa yang tertulis: tambah satu berarti naik satu. Angka yang masuk ke dalam kurung mengerjakan *kebalikannya*.",
+      "layar": "Jadi aturannya cuma dua. Angka *di luar kurung* mengerjakan apa yang tertulis: + 1 berarti naik 1. Angka yang masuk *ke dalam kurung* mengerjakan kebalikannya."
     }
   ]
 }

@@ -114,7 +114,11 @@ def buat(topik: str, diam: bool = False) -> Path:
             raise SystemExit(
                 f"segmen '{seg['id']}' ada di naskah tapi tidak di durasi.json. "
                 f"Jalankan ulang buat_narasi.py {topik}.")
-        potongan = [tebalkan(x) for x in pecah(seg["teks"])]
+        # Medan `layar` = bentuk TERTULIS, dipakai kalau ada.
+        # Aturan ARYA 2 Sep: subtitle tidak boleh menyalin mentah apa
+        # yang diucapkan. Narator "f dari x kurang satu", subtitle
+        # "f(x - 1)". Naskah tanpa `layar` tetap jalan seperti dulu.
+        potongan = [tebalkan(x) for x in pecah(seg.get("layar") or seg["teks"])]
         total_huruf = sum(panjang_tampak(p) for p in potongan) or 1
         mulai = jalan
         for p in potongan:
