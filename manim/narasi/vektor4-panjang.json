@@ -7,62 +7,62 @@
     {
       "id": "sapa",
       "teks": "Materi empat, panjang panah itu Pythagoras. Dua tiang berdiri di lapangan, dan kita harus membentang kabel lurus di antara keduanya. Pertanyaannya: berapa meter kabel yang perlu disiapkan?",
-      "layar": "Materi 04, *panjang panah itu Pythagoras*. Dua tiang berdiri di lapangan, dan kita harus membentang kabel lurus di antara keduanya. Pertanyaannya: *berapa meter kabel* yang perlu disiapkan?"
+      "tulis": "Materi 04, *panjang panah itu Pythagoras*. Dua tiang berdiri di lapangan, dan kita harus membentang kabel lurus di antara keduanya. Pertanyaannya: *berapa meter kabel* yang perlu disiapkan?"
     },
     {
       "id": "terbang",
       "teks": "Kita lihat dari atas. Satu petak sama dengan satu meter.",
-      "layar": "Kita lihat dari atas. *1 petak = 1 meter*."
+      "tulis": "Kita lihat dari atas. *1 petak = 1 meter*."
     },
     {
       "id": "komponen",
       "teks": "Komponennya sudah kita tahu caranya dari materi sebelumnya. Tiang kedua berada empat petak ke kanan dan dua petak ke atas dari tiang pertama. Jadi vektornya empat dua.",
-      "layar": "Komponennya sudah kita tahu caranya dari materi sebelumnya. Tiang kedua berada *4 petak ke kanan* dan *2 petak ke atas* dari tiang pertama. Jadi vektornya *(4 2)*."
+      "tulis": "Komponennya sudah kita tahu caranya dari materi sebelumnya. Tiang kedua berada *4 petak ke kanan* dan *2 petak ke atas* dari tiang pertama. Jadi vektornya *(4 2)*."
     },
     {
       "id": "segitiga",
       "teks": "Tapi empat dan dua bukan jawabannya. Perhatikan: langkah mendatar, langkah tegak, dan kabelnya sendiri selalu membentuk segitiga siku-siku. Dan kabelnya selalu jadi sisi miringnya.",
-      "layar": "Tapi 4 dan 2 bukan jawabannya. Perhatikan: langkah mendatar, langkah tegak, dan kabelnya sendiri selalu membentuk *segitiga siku-siku*. Dan kabelnya selalu jadi *sisi miringnya*."
+      "tulis": "Tapi 4 dan 2 bukan jawabannya. Perhatikan: langkah mendatar, langkah tegak, dan kabelnya sendiri selalu membentuk *segitiga siku-siku*. Dan kabelnya selalu jadi *sisi miringnya*."
     },
     {
       "id": "hitung",
       "teks": "Selama itu benar, Pythagoras berlaku. Kuadratkan yang mendatar: empat kuadrat sama dengan enam belas. Kuadratkan yang tegak: dua kuadrat sama dengan empat. Jumlahkan jadi dua puluh. Lalu tarik akarnya: akar dua puluh, atau dua akar lima, sekitar empat koma empat tujuh meter.",
-      "layar": "Selama itu benar, Pythagoras berlaku. Kuadratkan yang mendatar: *4² = 16*. Kuadratkan yang tegak: *2² = 4*. Jumlahkan jadi *20*. Lalu tarik akarnya: *√20 = 2√5 ≈ 4,47* meter."
+      "tulis": "Selama itu benar, Pythagoras berlaku. Kuadratkan yang mendatar: *4² = 16*. Kuadratkan yang tegak: *2² = 4*. Jumlahkan jadi *20*. Lalu tarik akarnya: *√20 = 2√5 ≈ 4,47* meter."
     },
     {
       "id": "bulat",
       "teks": "Perhatikan hasilnya bukan bilangan bulat. Itu justru yang biasa. Panjang yang bulat rapi seperti lima itu kebetulan yang jarang, bukan aturan.",
-      "layar": "Perhatikan hasilnya *bukan bilangan bulat*. Itu justru yang biasa. Panjang yang bulat rapi seperti 5 itu *kebetulan yang jarang*, bukan aturan."
+      "tulis": "Perhatikan hasilnya *bukan bilangan bulat*. Itu justru yang biasa. Panjang yang bulat rapi seperti 5 itu *kebetulan yang jarang*, bukan aturan."
     },
     {
       "id": "tanya",
       "teks": "Sekarang pertanyaannya. Kalau komponennya bertanda negatif, apakah panjangnya ikut jadi negatif?",
-      "layar": "Sekarang pertanyaannya. Kalau komponennya *bertanda negatif*, apakah panjangnya ikut jadi negatif?"
+      "tulis": "Sekarang pertanyaannya. Kalau komponennya *bertanda negatif*, apakah panjangnya ikut jadi negatif?"
     },
     {
       "id": "negatif",
       "teks": "Kita coba dengan panah lain: negatif tiga, empat. Komponen mendatarnya negatif, artinya bergeser ke kiri. Kuadratkan: negatif tiga kuadrat sama dengan sembilan, bukan negatif sembilan. Lalu empat kuadrat sama dengan enam belas. Jumlahnya dua puluh lima, akarnya lima.",
-      "layar": "Kita coba dengan panah lain: *(-3 4)*. Komponen mendatarnya negatif, artinya bergeser ke kiri. Kuadratkan: *(-3)² = 9*, bukan -9. Lalu *4² = 16*. Jumlahnya *25*, akarnya *5*."
+      "tulis": "Kita coba dengan panah lain: *(-3 4)*. Komponen mendatarnya negatif, artinya bergeser ke kiri. Kuadratkan: *(-3)² = 9*, bukan -9. Lalu *4² = 16*. Jumlahnya *25*, akarnya *5*."
     },
     {
       "id": "mutlak",
       "teks": "Jadi jawabannya tidak. Minusnya hilang begitu dikuadratkan. Panjang vektor tidak pernah negatif, sebab panjang itu ukuran, dan ukuran tidak pernah kurang dari nol.",
-      "layar": "Jadi jawabannya tidak. Minusnya *hilang begitu dikuadratkan*. Panjang vektor *tidak pernah negatif*, sebab panjang itu ukuran, dan ukuran tidak pernah kurang dari nol."
+      "tulis": "Jadi jawabannya tidak. Minusnya *hilang begitu dikuadratkan*. Panjang vektor *tidak pernah negatif*, sebab panjang itu ukuran, dan ukuran tidak pernah kurang dari nol."
     },
     {
       "id": "arah",
       "teks": "Panjang saja belum cukup untuk menyebut sebuah vektor. Arahnya juga perlu, dan arah diukur sebagai sudut dari sumbu mendatar, berlawanan arah jarum jam. Untuk empat dua, sudutnya sekitar dua puluh enam koma enam derajat.",
-      "layar": "Panjang saja belum cukup untuk menyebut sebuah vektor. Arahnya juga perlu, dan arah diukur sebagai sudut dari *sumbu mendatar*, *berlawanan arah jarum jam*. Untuk (4 2), sudutnya sekitar *26,6°*."
+      "tulis": "Panjang saja belum cukup untuk menyebut sebuah vektor. Arahnya juga perlu, dan arah diukur sebagai sudut dari *sumbu mendatar*, *berlawanan arah jarum jam*. Untuk (4 2), sudutnya sekitar *26,6°*."
     },
     {
       "id": "sama",
       "teks": "Dan inilah sebabnya keduanya harus disebut bersama. Tiga empat, empat tiga, dan negatif lima nol panjangnya sama persis, yaitu lima. Tetapi ketiganya menunjuk ke arah yang sama sekali berbeda.",
-      "layar": "Dan inilah sebabnya keduanya harus disebut bersama. *(3 4)*, *(4 3)*, dan *(-5 0)* panjangnya sama persis, yaitu *5*. Tetapi ketiganya menunjuk ke arah yang *sama sekali berbeda*."
+      "tulis": "Dan inilah sebabnya keduanya harus disebut bersama. *(3 4)*, *(4 3)*, dan *(-5 0)* panjangnya sama persis, yaitu *5*. Tetapi ketiganya menunjuk ke arah yang *sama sekali berbeda*."
     },
     {
       "id": "tutup",
       "teks": "Jadi ingat dua hal. Panjang panah adalah akar dari jumlah kuadrat komponennya. Dan panjang saja tidak pernah cukup untuk menyebut sebuah vektor.",
-      "layar": "Jadi ingat dua hal. *Panjang panah adalah akar dari jumlah kuadrat komponennya.* Dan *panjang saja tidak pernah cukup* untuk menyebut sebuah vektor."
+      "tulis": "Jadi ingat dua hal. *Panjang panah adalah akar dari jumlah kuadrat komponennya.* Dan *panjang saja tidak pernah cukup* untuk menyebut sebuah vektor."
     }
   ]
 }

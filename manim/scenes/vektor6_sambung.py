@@ -71,7 +71,16 @@ AKHIR = ASAL + V1 + V2
 # ditambah satu petak longgar untuk label koordinat. Batas bawah -1, bukan -2:
 # angka "-2" jatuh persis di pita subtitle.
 BIDANG_X, BIDANG_Y = (-2.0, 7.0, 1.0), (-1.0, 4.0, 1.0)
-PETA = dict(theta=0, phi=0, pusat=(2.5, 1.3, 0.0), tinggi=7.0)
+# Pusat y 1,12, bukan 1,30: pada 1,30 baris paling bawah bidang jatuh di
+# -2,63 pada bingkai, masuk jalur subtitle yang dipesan v2 (batas -2,55),
+# dan `qc.jalur_bawah_kosong` menggagalkan rendernya. Pada 1,12 baris itu
+# ada di -2,42 dan baris teratas di 3,29, keduanya aman.
+# Pada tinggi 7,0 bidangnya TIDAK MUAT di pita yang tersisa setelah jalur
+# subtitle dipesan: enam baris petak plus angka sumbunya memakan 6,33
+# satuan bingkai, sedangkan yang tersedia 6,25. Tingginya dinaikkan ke
+# 7,6 (sama dengan Materi 01) supaya muat, dan pusatnya diletakkan di
+# tengah pita itu. Diukur, bukan dihitung di kepala.
+PETA = dict(theta=0, phi=0, pusat=(2.5, 0.96, 0.0), tinggi=7.6)
 
 
 def panah(a, b, warna, tebal=5):
@@ -106,7 +115,8 @@ class SambungPerjalanan(AdeganMatra):
         kamera.pasang_awal(frame, theta=-32, phi=68, pusat=(0.5, 0.1, 0.55), tinggi=4.6)
         self.add(alas, lapangan, pejalan)
         with sinema.babak(self, "sapa", DURASI) as b:
-            sinema.judul_pembuka(self, "Menyambung perjalanan", lama=3.2, y=2.4)
+            sinema.judul_pembuka(self, "Materi 06: Menyambung perjalanan",
+                                 lama=3.2, y=2.4)
             b.catat(3.2)
             b.jeda(1.0)
         qc.periksa_adegan(self, {"pejalan": pejalan})
@@ -119,14 +129,14 @@ class SambungPerjalanan(AdeganMatra):
         self.add(bidang)
         self.bring_to_front(pejalan)
 
-        identitas = teks("1 petak = 1 langkah", 23, REDUP).to_corner(UL, buff=0.42)
+        papan = sinema.PapanRumus(self, ukuran=30)
 
         with sinema.babak(self, "terbang", DURASI) as b:
             lama = max(2.0, DURASI["terbang"] - 3.0)
             b.main(kamera.sudut(frame, **PETA), run_time=lama)
             b.main(FadeOut(lapangan), FadeOut(alas),
                    bidang.animate.set_opacity(1), run_time=1.4)
-            self.hud_tambah(identitas)
+            identitas = sinema.identitas(self, "1 petak = 1 langkah")
             identitas.set_opacity(0)
             b.main(identitas.animate.set_opacity(1), run_time=0.8)
         qc.periksa_adegan(self, {"bidang": bidang, "identitas": identitas})
@@ -135,33 +145,26 @@ class SambungPerjalanan(AdeganMatra):
         # Babak 3: perjalanan pertama, panah tumbuh mengikuti langkah
         # ==============================================================
         p1 = always_redraw(lambda: panah(ASAL, ASAL + V1 * self.t1.get_value(), AKSEN2))
-        panel_a = rumus(r"\vec{a} = (3,\ 1)", 34, AKSEN2).to_corner(UR, buff=0.45)
-
         with sinema.babak(self, "jalan1", DURASI) as b:
             self.add(p1)
             self.bring_to_front(pejalan)
             b.main(self.t1.animate.set_value(1.0), run_time=max(2.0, DURASI["jalan1"] - 1.8))
-            self.hud_tambah(panel_a)
-            panel_a.set_opacity(0)
-            b.main(panel_a.animate.set_opacity(1), run_time=0.6)
+            panel_a = papan.baris(r"\vec{a} = (3,\ 1)", AKSEN2)
+            b.catat(0.8)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"panah a": p1, "panel a": panel_a, "identitas": identitas},
-                          [("panel a", "identitas")])
+        qc.periksa_adegan(self, {"panah a": p1},
+                          hud={"panel a": panel_a, "identitas": identitas})
 
         # ==============================================================
         # Babak 4: perjalanan kedua, berangkat dari tempat ia berhenti
         # ==============================================================
         p2 = always_redraw(lambda: panah(SIMPANG, SIMPANG + V2 * self.t2.get_value(), AKSEN))
-        panel_b = rumus(r"\vec{b} = (1,\ 2)", 34, AKSEN)
-        panel_b.next_to(panel_a, DOWN, buff=0.25).align_to(panel_a, RIGHT)
-
         with sinema.babak(self, "jalan2", DURASI) as b:
             self.add(p2)
             self.bring_to_front(pejalan)
             b.main(self.t2.animate.set_value(1.0), run_time=max(2.0, DURASI["jalan2"] - 1.8))
-            self.hud_tambah(panel_b)
-            panel_b.set_opacity(0)
-            b.main(panel_b.animate.set_opacity(1), run_time=0.6)
+            panel_b = papan.baris(r"\vec{b} = (1,\ 2)", AKSEN)
+            b.catat(0.8)
             b.jeda(0.8)
 
         # Panah dan orangnya dibekukan. Alasannya di catatan kepala berkas.
@@ -174,9 +177,10 @@ class SambungPerjalanan(AdeganMatra):
         self.add(pa, pb, la, lb)
         self.bring_to_front(pejalan)
         self.play(FadeIn(la), FadeIn(lb), run_time=0.4)
-        qc.periksa_adegan(self, {"panah a": pa, "panah b": pb, "label a": la, "label b": lb,
-                                 "panel a": panel_a, "panel b": panel_b},
-                          [("label a", "label b"), ("panel a", "panel b")])
+        qc.periksa_adegan(self, {"panah a": pa, "panah b": pb, "label a": la, "label b": lb},
+                          [("label a", "label b")],
+                          hud={"panel a": panel_a, "panel b": panel_b,
+                               "identitas": identitas})
 
         # ==============================================================
         # Babak 5: pertanyaan
@@ -197,26 +201,24 @@ class SambungPerjalanan(AdeganMatra):
         pr = panah(ASAL, AKHIR, SOROT, tebal=7)
         titik = Dot(radius=0.09).set_color(SOROT).move_to(AKHIR)
         koord = rumus(r"(4,\ 3)", 30, SOROT).move_to(AKHIR + np.array([0.85, 0.42, 0.0]))
-        panel_r = rumus(r"\vec{a} + \vec{b} = (4,\ 3)", 34, SOROT)
-        panel_r.next_to(panel_b, DOWN, buff=0.25).align_to(panel_b, RIGHT)
-
         with sinema.babak(self, "resultan", DURASI) as b:
             b.main(GrowArrow(pr), run_time=1.8)
             self.bring_to_front(pejalan)
             b.main(FadeIn(titik, scale=2.0), FadeIn(koord), run_time=0.7)
-            self.hud_tambah(panel_r)
-            panel_r.set_opacity(0)
-            b.main(panel_r.animate.set_opacity(1), run_time=0.6)
+            panel_r = papan.baris(r"\vec{a} + \vec{b} = (4,\ 3)", SOROT)
+            b.catat(0.8)
             b.jeda(0.6)
-        qc.periksa_adegan(self, {"resultan": pr, "koordinat": koord, "panel r": panel_r,
-                                 "panel b": panel_b},
-                          [("panel b", "panel r"), ("koordinat", "panel r")])
+        qc.periksa_adegan(self, {"resultan": pr, "koordinat": koord},
+                          hud={"panel a": panel_a, "panel b": panel_b,
+                               "panel r": panel_r, "identitas": identitas})
 
         # ==============================================================
         # Babak 7: aturannya, ujung ke pangkal
         # ==============================================================
         sambung = Dot(radius=0.11).set_color(TINTA).move_to(SIMPANG)
-        l_sambung = teks("ujung a = pangkal b", 24, TINTA)
+        # "ujung a = pangkal b" berisi empat kata dan `sinema.label`
+        # menggagalkan render. Dipendekkan; tanda sama dengan tidak dihitung.
+        l_sambung = sinema.label("ujung = pangkal", 24, TINTA)
         l_sambung.move_to(SIMPANG + np.array([1.15, -0.55, 0.0]))
 
         with sinema.babak(self, "aturan", DURASI) as b:
@@ -290,29 +292,24 @@ class SambungPerjalanan(AdeganMatra):
         n_c = rumus("1", 30, AKSEN2).move_to([X_LABEL, 0.5, 0])
         n_d = rumus("2", 30, AKSEN).move_to([X_LABEL, 2.0, 0])
 
-        h1 = rumus(r"3 + 1 = 4", 32, TINTA)
-        h2 = rumus(r"1 + 2 = 3", 32, TINTA)
-        hitung = VGroup(h1, h2).arrange(DOWN, buff=0.22, aligned_edge=LEFT)
-        hitung.next_to(identitas, DOWN, buff=0.34).align_to(identitas, LEFT)
-
+        # Hitungan pindah ke papan rumus kanan atas (zona v2), dan barisnya
+        # BERUBAH DENGAN MORPH, bukan dua baris yang muncul memudar.
         with sinema.babak(self, "hitung", DURASI) as b:
-            self.hud_tambah(hitung)
-            hitung.set_opacity(0)
-            b.main(h1.animate.set_opacity(1), run_time=0.6)
+            hitung = papan.baris(r"3 + 1 = 4", TINTA)
+            b.catat(0.8)
             b.main(ShowCreation(bantu_y), run_time=0.9)
             b.main(ShowCreation(ruas_c), FadeIn(n_c), run_time=0.6)
             b.main(ShowCreation(ruas_d), FadeIn(n_d), run_time=0.6)
-            b.main(h2.animate.set_opacity(1), run_time=0.6)
+            hitung = sinema.ganti_rumus(self, hitung, r"1 + 2 = 3", b=b)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"hitung": hitung, "identitas": identitas,
-                                 "angka c": n_c, "angka d": n_d},
-                          [("hitung", "identitas"), ("angka c", "angka d")])
+        qc.periksa_adegan(self, {"angka c": n_c, "angka d": n_d},
+                          [("angka c", "angka d")],
+                          hud={"hitung": hitung, "identitas": identitas,
+                               "panel r": panel_r})
 
         # ==============================================================
         # Babak 11: jebakan panjang
         # ==============================================================
-        jebak = rumus(r"3{,}16 + 2{,}24 = 5{,}4 \ne 5", 32, AKSEN)
-        jebak.next_to(hitung, DOWN, buff=0.34).align_to(hitung, LEFT)
         bantu = VGroup(bantu_x, bantu_y, ruas_a, ruas_b, ruas_c, ruas_d, n_a, n_b, n_c, n_d)
 
         with sinema.babak(self, "panjang", DURASI) as b:
@@ -320,14 +317,19 @@ class SambungPerjalanan(AdeganMatra):
             # panahnya, bukan komponennya, dan garis komponen yang tertinggal
             # akan menarik mata ke tempat yang salah.
             b.main(FadeOut(bantu), run_time=0.6)
-            self.hud_tambah(jebak)
-            jebak.set_opacity(0)
-            b.main(jebak.animate.set_opacity(1), run_time=0.8)
+            # Barisnya PENDEK, hanya kesimpulannya. `ganti_rumus` memorf di
+            # tempat memakai titik tengah rumus lama, jadi rumus baru yang lebih
+            # panjang melar ke kanan sampai keluar bingkai (qc menolaknya dengan
+            # "kanan 7.45 > 6.82"). Angka lengkap "3,16 + 2,24 = 5,4" dibawa
+            # narasi dan subtitle; versi 2 memang menetapkan kalimat panjang
+            # milik subtitle, bukan gambar.
+            jebak = sinema.ganti_rumus(self, hitung, r"5{,}4 \ne 5", b=b, warna=AKSEN)
             # Resultannya sendiri sudah ungu, jadi disorot dengan tinta.
             b.main(Indicate(pr, scale_factor=1.0, color=TINTA), run_time=1.0)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"jebak": jebak, "hitung": hitung, "panel a": panel_a},
-                          [("jebak", "hitung"), ("jebak", "panel a")])
+        qc.periksa_adegan(self, {},
+                          hud={"jebak": jebak, "panel a": panel_a,
+                               "panel r": panel_r, "identitas": identitas})
 
         # ==============================================================
         # Babak 12: layar bersih, kalimat sorot
@@ -343,8 +345,15 @@ class SambungPerjalanan(AdeganMatra):
         # mengizinkan layar bersih untuk penutup, paling banyak satu babak.
         semua = Group(bidang, pejalan, benar)
         with sinema.babak(self, "tutup", DURASI) as b:
-            b.main(FadeOut(semua), FadeOut(hitung), FadeOut(jebak), FadeOut(identitas),
-                   FadeOut(panel_a), FadeOut(panel_b), FadeOut(panel_r), run_time=1.4)
+            # JANGAN `FadeOut(papan.semua())`. Papan masih memegang objek baris
+            # yang LAMA, yang sudah dilebur `ganti_rumus` jadi baris baru, dan
+            # `FadeOut` mengembalikan objek ke keadaan semula saat dibersihkan
+            # (jebakan yang dicatat STANDAR-ILUSTRASI-VIDEO v2). Akibatnya
+            # "3 + 1 = 4" muncul lagi menimpa "5,4 = 5" selama satu detik
+            # penutup. Yang disingkirkan harus objek yang BENAR-BENAR tampil.
+            b.main(FadeOut(semua), FadeOut(panel_a), FadeOut(panel_b),
+                   FadeOut(panel_r), FadeOut(jebak), FadeOut(identitas),
+                   run_time=1.4)
             self.hud_tambah(tutup)
             tutup.set_opacity(0)
             b.main(tutup.animate.set_opacity(1), run_time=1.8)
