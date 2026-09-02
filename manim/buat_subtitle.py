@@ -66,6 +66,16 @@ def panjang_tampak(teks: str) -> int:
     return len(re.sub(r"<[^>]+>", "", teks))
 
 
+def bentuk_tulis(seg: dict) -> str:
+    """Teks yang DIBACA siswa: medan `tulis` (angka dan lambang), bukan ejaan ucapan.
+
+    Keputusan ARYA 2 Sep 2026: yang diucapkan "tujuh puluh dua" ditulis 72, "akar dua"
+    ditulis √2, "f dari x kurang satu" ditulis f(x-1). Nama lama `layar` dan `subtitle`
+    (dipakai sesi sebelum disatukan) tetap diterima. Tanpa ketiganya: `teks` apa adanya.
+    """
+    return seg.get("tulis") or seg.get("layar") or seg.get("subtitle") or seg["teks"]
+
+
 def pecah(teks: str) -> list[str]:
     """Pecah satu segmen jadi beberapa baris yang enak dibaca."""
     teks = " ".join(teks.split())
@@ -114,11 +124,9 @@ def buat(topik: str, diam: bool = False) -> Path:
             raise SystemExit(
                 f"segmen '{seg['id']}' ada di naskah tapi tidak di durasi.json. "
                 f"Jalankan ulang buat_narasi.py {topik}.")
-        # `teks` adalah bentuk TERUCAP ("tujuh puluh dua", "akar dua"), disusun
-        # untuk mesin suara. Kalau naskah menyediakan `layar`, itulah bentuk
-        # TERTULIS ("72", "√2") dan subtitle memakainya. Permintaan ARYA
-        # 2 Sep 2026: yang dibaca siswa harus berupa angka dan lambang, bukan
-        # angka yang dieja. Naskah tanpa `layar` berjalan persis seperti dulu.
+        # Bentuk TERTULIS subtitle (angka dan lambang) dibaca dari medan `tulis`;
+        # `layar` dan `subtitle` diterima sebagai nama lama. Tanpa itu jatuh ke `teks`.
+        potongan = [tebalkan(x) for x in pecah(bentuk_tulis(seg))]
         potongan = [tebalkan(x) for x in pecah(seg.get("layar") or seg["teks"])]
         total_huruf = sum(panjang_tampak(p) for p in potongan) or 1
         mulai = jalan

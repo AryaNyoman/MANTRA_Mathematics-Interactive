@@ -227,3 +227,34 @@ def bidang_bernomor(x_range=(-6.0, 6.0, 1.0), y_range=(-4.0, 4.0, 1.0),
     bidang.shift(-bidang.c2p(0, 0))
     bidang.set_z(z)
     return bidang
+
+def lembah_fungsi(f, dari, sampai, lebar=3.0, warna=REDUP,
+                  resolusi=(48, 10), jala=(15, 5)):
+    """Lembah memanjang yang penampangnya mengikuti sebuah fungsi z = f(x).
+
+    Dipakai topik Grafik Fungsi supaya kurvanya punya BENDA yang diwakilinya:
+    bola yang menggelinding di dasar lembah berbentuk x kuadrat memperlihatkan
+    parabola sebagai sesuatu yang nyata, bukan garis di layar kosong.
+
+    Berguna juga untuk topik lain yang butuh penampang: talang air, punggung
+    bukit, lintasan skateboard, potongan jembatan.
+
+    `f` menerima satu angka dan mengembalikan satu angka. Lembahnya membentang
+    dari -lebar/2 sampai +lebar/2 pada sumbu y, jadi dari pandangan samping ia
+    terbaca sebagai grafik. Jala tipisnya yang memberi badan pada permukaan;
+    tanpa itu ia terlihat seperti tempelan warna, bukan benda (prinsip 4
+    ILMU-3B1B).
+
+    Dikembalikan sebagai Group(permukaan, jala) supaya keduanya bisa
+    di-`Transform` bersama saat bentuk fungsinya berganti.
+    """
+    s = ParametricSurface(
+        lambda u, v: np.array([u, v, f(u)]),
+        u_range=(dari, sampai), v_range=(-lebar / 2, lebar / 2),
+        resolution=resolusi,
+    )
+    s.set_color(warna, opacity=0.72)
+    s.set_shading(*BAYANG)
+    m = SurfaceMesh(s, resolution=jala)
+    m.set_stroke(TINTA, width=1, opacity=0.16)
+    return Group(s, m)

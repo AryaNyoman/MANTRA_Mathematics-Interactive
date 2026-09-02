@@ -560,14 +560,20 @@ ul.poin li b { color: var(--tinta); font-weight: 600; }
    pernah menutupi animasi karena ia hidup di lapisan tersendiri. */
 video::cue {
   background: transparent;
-  color: #FFFFFF;
+  /* TINTA gelap, bukan putih. Diperbaiki 2 Sep 2026 setelah subtitle dibuka
+     di Chrome sungguhan lewat Playwright: putih di atas latar krem MATRA
+     hampir tidak terbaca, dan SEMUA video MATRA berlatar krem (LATAR
+     #F7F3EE di gl/tema.py). Warna putih itu masuk akal untuk video gelap,
+     tapi tidak ada video gelap di proyek ini. Garis tepinya ikut dibalik
+     jadi krem supaya teks tetap jelas kalau suatu saat ada video gelap. */
+  color: #1F2430;
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: var(--ukuran-subtitle, 100%);
   line-height: 1.35;
   text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.95),
-    0 0 5px rgba(0, 0, 0, 0.85),
-    0 0 1px rgba(0, 0, 0, 1);
+    0 1px 2px rgba(247, 243, 238, 0.95),
+    0 0 5px rgba(247, 243, 238, 0.9),
+    0 0 2px rgba(247, 243, 238, 1);
 }
 video::cue(b) { font-weight: 700; }
 
