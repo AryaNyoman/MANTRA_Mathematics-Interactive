@@ -138,21 +138,16 @@ class GeserCerminRegang(AdeganMatra):
     # Alat bantu
     # ------------------------------------------------------------------
     def buat_lembah(self, f, dari, sampai):
-        """Permukaan lembah bercahaya plus jala tipis, mengikuti prinsip 4 ILMU-3B1B.
+        """Lembah dari perkakas bersama.
 
-        Jala tipis itu yang memberi 'badan' pada permukaan; tanpa ia permukaan
-        polos terlihat seperti tempelan warna, bukan benda.
+        Bentuknya dipindah ke `gl.ilustrasi.lembah_fungsi` sesuai aturan 1
+        STANDAR-ILUSTRASI-VIDEO: benda nyata yang belum ada ditambahkan ke
+        perkakas bersama, bukan dibuat sendiri di dalam satu adegan. Topik lain
+        yang butuh penampang (talang, punggung bukit, lintasan) memakai fungsi
+        yang sama.
         """
-        s = ParametricSurface(
-            lambda u, v: np.array([u, v, f(u)]),
-            u_range=(dari, sampai), v_range=(-Y_LEMBAH, Y_LEMBAH),
-            resolution=RESOLUSI,
-        )
-        s.set_color(REDUP, opacity=0.72)
-        s.set_shading(0.4, 0.3, 0.5)
-        jala = SurfaceMesh(s, resolution=(15, 5))
-        jala.set_stroke(TINTA, width=1, opacity=0.16)
-        return Group(s, jala)
+        return ilustrasi.lembah_fungsi(f, dari, sampai, lebar=2 * Y_LEMBAH,
+                                       resolusi=RESOLUSI)
 
     def buat_kurva(self, f, dari, sampai, warna=TINTA, tebal=5.0):
         """Garis kurva di lapisan matematika, tepat di depan lembahnya."""
@@ -201,22 +196,41 @@ class GeserCerminRegang(AdeganMatra):
         return bola
 
     def ubah_bentuk(self, b, f_baru, dari, sampai, lembah_baru, kurva_baru,
-                    ikut=None, lama=1.6):
+                    panel_baru=None, ikut=None, lama=1.6):
         """Ubah bentuk lembah dan kurvanya, dengan bolanya ikut menempel.
 
         `self.campur` berjalan 0 ke 1 bersama `Transform`, dan updater bola
         membaca perbandingan yang sama, jadi bola tidak pernah lepas dari
         permukaannya selama peralihan.
+
+        RUMUSNYA BERGANTI BERSAMAAN, BUKAN SESUDAHNYA.
+        Pada render keempat rumusnya diganti setelah bentuknya selesai berubah,
+        sehingga selama 1,6 detik panel menyebut bentuk lama padahal lembahnya
+        sudah berubah. Tulisan yang membantah gambarnya lebih merusak daripada
+        layar kosong, itu aturan gerbang video di CLAUDE.md.
+
+        Rumus lamanya tetap DIKELUARKAN dulu, tidak pernah di-morph menjadi
+        rumus baru: peralihan antar dua rumus yang jumlah lambangnya berbeda
+        menghasilkan coretan kembar tak terbaca.
         """
+        if panel_baru is not None:
+            b.main(FadeOut(self.pnl, shift=UP * 0.12), run_time=0.42)
+            self.hud_tambah(panel_baru)
+            panel_baru.set_opacity(0)
+
         self.f_tuju, self.batas_tuju = f_baru, (dari, sampai)
         self.campur.set_value(0.0)
-        b.main(
+        bareng = [
             Transform(self.lembah, lembah_baru),
             Transform(self.kurva, kurva_baru),
             self.campur.animate.set_value(1.0),
-            *(ikut or []),
-            run_time=lama,
-        )
+        ]
+        if panel_baru is not None:
+            bareng.append(panel_baru.animate.set_opacity(1))
+        b.main(*bareng, *(ikut or []), run_time=lama)
+
+        if panel_baru is not None:
+            self.pnl = panel_baru
         self.f_kini, self.batas_kini = f_baru, (dari, sampai)
         self.campur.set_value(0.0)
 
@@ -396,6 +410,7 @@ class GeserCerminRegang(AdeganMatra):
             b, d["f"], d["dari"], d["sampai"],
             self.buat_lembah(d["f"], d["dari"], d["sampai"]),
             self.buat_kurva(d["f"], d["dari"], d["sampai"]),
+            panel_baru=self.panel([d["rumus"], r"y = f(x - 1) + 1"], SOROT),
             ikut=[FadeOut(self.bayang)], lama=1.5,
         )
 
@@ -403,7 +418,6 @@ class GeserCerminRegang(AdeganMatra):
         self.bayang.set_stroke(opacity=0.5)
         self.add(self.bayang)
 
-        self.ganti_panel(b, self.panel([d["rumus"], r"y = f(x - 1) + 1"], SOROT), lama=1.0)
         self.geser_dunia(b, 1.0, 1.0, lama=1.6)
 
     def b07_akar(self):
@@ -424,8 +438,8 @@ class GeserCerminRegang(AdeganMatra):
         kurva_baru = self.buat_kurva(d["f"], d["dari"], d["sampai"])
         with sinema.babak(self, "mampat", DURASI) as b:
             self.ubah_bentuk(b, d["f"], d["dari"], d["sampai"], lembah_baru, kurva_baru,
+                             panel_baru=self.panel([d["rumus"], r"y = f(2x)"], AKSEN2),
                              ikut=[FadeOut(self.bayang)], lama=1.6)
-            self.ganti_panel(b, self.panel([d["rumus"], r"y = f(2x)"], AKSEN2), lama=1.0)
             sinema.keterangan(self, "tebak dulu: dua kali lebar, atau setengah?",
                               warna=AKSEN2)
             b.catat(0.6)

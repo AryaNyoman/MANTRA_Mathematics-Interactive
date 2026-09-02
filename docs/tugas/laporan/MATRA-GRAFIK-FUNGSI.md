@@ -401,3 +401,135 @@ itu, jadi gerbang "eslint bersih" belum bisa dinyatakan lolos oleh sesi mana
 pun. Perbaikannya memindahkan keadaan sedang-menyeret dari `useRef` ke
 `useState`; contoh polanya ada di
 `web/components/widget/grafik-fungsi/SusunParabola.tsx`.
+
+
+---
+
+# Pindah ke ManimGL, dan video tahap 6 dibangun ulang (2 September 2026)
+
+ARYA mencabut Manim Community. Adegan tahap 6 versi Manim CE yang selesai
+beberapa jam sebelumnya ikut usang dan dipindah ke `manim/arsip-manim-ce/`,
+BUKAN dihapus: storyboard dan catatan tiga cacatnya masih berguna saat menulis
+ulang. Kodenya tidak disalin, API-nya berbeda.
+
+Naskah narasi dan berkas suaranya TIDAK usang dan tetap dipakai, karena
+keduanya tidak bergantung pada pustaka animasi.
+
+## Pemanasan perkakas
+`manimgl manim/uji/uji_ilustrasi_gl.py Etalase -w -l` jalan di worktree ini,
+kode keluar 0. Lembar kontaknya dibuka: perahu, mobil, orang, bola, balok, dan
+silinder tampil sebagai benda 3D bercahaya di atas lantai kisi, kamera bergerak
+halus, label terbaca. Perkakasnya siap dipakai.
+
+## Keputusan isi: bola di lembah, BUKAN bola dilempar
+
+Aturan baru menuntut tiap video dibuka dengan benda nyata, dan rencana pertama
+saya bola yang dilempar. Saya batalkan sendiri sebelum menulis kode:
+
+> Lintasan bola yang dilempar adalah parabola terbuka ke **bawah**, sedangkan
+> tahap ini seluruhnya memakai `f(x) = x²` yang terbuka ke **atas**.
+
+Gambar yang membantah rumusnya sendiri adalah cacat terburuk menurut gerbang
+video di `CLAUDE.md`. Gantinya bola yang menggelinding di dasar lembah: bentuk
+lembahnya memang `x²`, dan bolanya yang terus mengayun sekaligus memenuhi
+aturan 2, dunia tidak boleh membeku saat narator diam.
+
+Lembahnya IKUT bergeser dan ikut berganti bentuk bersama kurvanya, memakai
+`Transform`. Kalau hanya garis kurvanya yang pindah sementara lembahnya diam,
+layar mengatakan dua hal yang berlawanan.
+
+## Daftar periksa delapan aturan STANDAR-ILUSTRASI-VIDEO
+
+| Aturan | Ya/Tidak | Catatan |
+|---|---|---|
+| Benda nyata dari `gl.ilustrasi`, tidak ada benda berupa titik atau garis | **ya** | `ilustrasi.bola` untuk bolanya; lembahnya ditambahkan sebagai `ilustrasi.lembah_fungsi` di AKHIR berkas sesuai aturan 1, bukan dibuat sendiri di dalam adegan |
+| Latar hidup dan updater menjaga dunia bergerak saat diam | **ya** | bola mengayun terus di tiap babak, membaca bentuk yang sedang tampil |
+| Kamera mulai dari dunia, satu gerakan panjang, tanpa sentakan | **ya** | babak 1 miring dan dekat; babak 2 satu terbangan 6,4 detik ke pandangan samping; babak lain kamera diam |
+| Panah dan label di dunia, rumus di HUD, tidak diganti layar kosong | **ya** | penanda dan panah di dunia; panel rumus di HUD kiri atas; layar teks hanya di babak penutup |
+| Satu warna satu makna, tidak ada kode heksa | **ya** | merah = di luar kurung, biru = di dalam kurung, ungu = kesimpulan, abu = bekas bentuk |
+| `teks()` untuk kata, `rumus()` untuk angka dan rumus | **ya** | tidak ada satuan fisik di video ini, jadi `\mathrm` tidak terpakai |
+| Semua animasi di dalam `sinema.babak`, ada jeda setelah pertanyaan | **ya** | dua babak tebakan diberi jeda 1,5 dan 1,6 detik sebelum dijawab |
+| Gerbang mutu tidak dilewati | **ya** | `cek_kode` bersih, `periksa_adegan` di tiap babak, lembar kontak dibuka dan dinilai lima kali, `gabung_audio --uji` jalan |
+| Cacat yang tersisa disebut di laporan | **ya** | ada di bawah |
+
+## Lima ronde render, dan apa yang ditemukan tiap ronde
+
+Ini bagian yang paling layak dibaca sesi lain.
+
+| Ronde | Temuan | Ketahuan dari |
+|---|---|---|
+| 1 | GAGAL: `NameError: Dot3D` | pesan galat |
+| 2 | enam cacat sekaligus (lihat daftar di bawah) | membuka lembar kontak |
+| 3 | angka sumbu masih tertutup pita keterangan di bagian tengah | membuka lembar kontak |
+| 4 | rumus membantah gambar 1,6 detik tiap bentuk berganti | membuka lembar kontak |
+| 5 | bersih | membuka lembar kontak |
+
+**Empat dari lima ronde itu lolos SEMUA pemeriksaan mesin**: `cek_kode` bersih,
+`qc.periksa_adegan` lolos di tiap babak, gerbang waktu `sinema.babak` lolos,
+kode keluar 0. Tidak satu pun cacat di bawah ini bisa ditemukan tanpa membuka
+gambarnya. Kalau gerbang lembar kontak tidak ada, video ini sudah dinyatakan
+selesai empat kali dalam keadaan cacat.
+
+Enam cacat ronde 2, berikut sebab dan perbaikannya:
+
+1. **Dinding lembah terpotong tepi atas layar.** `qc` tidak berbunyi karena
+   lembahnya memang tidak saya masukkan ke daftar yang diperiksa. Sekarang
+   ikut diperiksa, jadi kalau terulang rendernya GAGAL, bukan lolos diam-diam.
+2. **Angka sumbu sebaris dengan pita keterangan.** Sudut kamera dinaikkan, lalu
+   di ronde 3 angkanya dipindah ke ATAS garis sumbu.
+3. **Panel rumus di pojok kanan atas tertimpa kurvanya sendiri** di babak akar.
+   Semua kurva topik ini naik ke kanan, jadi panelnya pindah ke kiri atas.
+4. **Bola lepas dari permukaan** dan melayang di udara 1,5 detik tiap bentuk
+   berganti, sebab bola membaca bentuk lama sementara permukaannya sudah
+   berubah. Sekarang keduanya membaca satu `ValueTracker` yang sama.
+5. **Teks pertanyaan tebakan menimpa bola.** Dipindah ke pita keterangan yang
+   beralas krem dan menempel di layar, jadi tidak mungkin bertabrakan.
+6. **Rumus berganti setelah bentuknya selesai berubah**, sehingga panel sempat
+   menyebut bentuk lama. Sekarang keduanya berganti bersamaan; rumus lamanya
+   tetap dikeluarkan dulu, tidak pernah di-morph jadi rumus baru.
+
+## Celah perkakas yang perlu diketahui sesi lain
+
+**`cek_kode.py` tidak menangkap nama fungsi Manim Community.** Render pertama
+gagal dengan `NameError: Dot3D`, padahal `cek_kode` melaporkan bersih. Alat itu
+memeriksa LaTeX dan pola tulisan, bukan apakah nama yang dipakai benar-benar
+ada di ManimGL. Sesi mana pun yang memindahkan adegan dari Manim CE
+kemungkinan besar kena hal yang sama. Nama yang saya temui: `Dot3D` tidak ada,
+dan `Dot` ManimGL adalah cakram datar di bidang xy yang menipis jadi garis
+kalau dilihat dari samping.
+
+Usul untuk MASTER: tambahkan daftar nama terlarang ke `cek_kode.py`
+(`Dot3D`, `MathTex`, `Create(`, `ThreeDScene`, `add_fixed_in_frame_mobjects`,
+`move_camera`), sama seperti ia sudah menolak `MathTex`. Murah, dan menghemat
+satu ronde render penuh untuk tiap sesi.
+
+## Cacat yang TERSISA, disebutkan bukan didiamkan
+
+1. **Lembah `2 akar x` terbaca sebagai landaian, bukan lembah.** Itu memang
+   bentuk fungsinya, dan justru itu yang mau ditunjukkan (aturannya tidak
+   peduli bentuk grafiknya), tetapi kata "lembah" di narasi babak pembuka jadi
+   kurang pas untuk babak ini. Tidak diperbaiki karena memperbaikinya berarti
+   mengganti benda nyatanya di tengah video.
+2. **Jeda sekitar satu detik setelah judul pembuka memudar.** Bawaan
+   `sinema.judul_pembuka` dan berlaku untuk semua video MATRA, jadi
+   perbaikannya milik MASTER.
+3. **Bagian statis sampai sekitar 6 detik di beberapa babak.** Layarnya tidak
+   pernah kosong dan bolanya tetap mengayun, jadi bukan waktu mati menurut
+   aturan 7. Kalau ARYA merasa temponya melambat, yang dipendekkan narasinya.
+
+## Berkas
+
+| Berkas | Isi |
+|---|---|
+| `manim/narasi/grafik6-transformasi.json` | 12 segmen, 124,8 detik |
+| `audio/grafik6-transformasi/` | suara per segmen dan durasinya |
+| `manim/scenes/grafik6_transformasi.py` | adegan ManimGL, 12 babak |
+| `manim/gl/ilustrasi.py` | ditambah `lembah_fungsi` di akhir berkas (aturan 1) |
+| `media/uji-480p/grafik6-transformasi.mp4` | 2,6 MB, 124,8 detik, untuk ditinjau ARYA |
+
+## Sisa lima video, urut prioritas
+
+Tahap 3 bentuk puncak, tahap 4 melengkapkan kuadrat, tahap 9 lipat ke y = x,
+tahap 8 balapan tiga kurva, tahap 10 asimtot bergeser. Menunggu ARYA menonton
+yang pertama dulu, supaya kalau temponya perlu diubah, tidak lima video yang
+harus diulang.
