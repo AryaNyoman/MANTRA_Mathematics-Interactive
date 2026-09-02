@@ -3,125 +3,141 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/limit6-nolpernol.json
 
 1
-00:00:00.000 --> 00:00:06.528
-Angkanya sudah dimasukkan, hasilnya nol dibagi nol. Sekarang bagaimana?
+00:00:00.000 --> 00:00:04.495
+Angkanya sudah dimasukkan, hasilnya 0 : 0.
 
 2
-00:00:06.528 --> 00:00:08.977
-Pertama, luruskan dulu satu hal.
+00:00:04.495 --> 00:00:06.528
+Sekarang bagaimana?
 
 3
-00:00:08.977 --> 00:00:13.187
-Bentuk nol dibagi nol tidak berarti limitnya tidak ada.
+00:00:06.528 --> 00:00:09.155
+Pertama, luruskan dulu satu hal.
 
 4
-00:00:13.187 --> 00:00:17.856
-Ia berarti bentuk yang Anda tulis belum memberi tahu apa-apa.
+00:00:09.155 --> 00:00:12.931
+Bentuk 0 : 0 tidak berarti limitnya tidak ada.
 
 5
-00:00:17.856 --> 00:00:19.080
-Buktinya begini.
+00:00:12.931 --> 00:00:15.147
+Ia berarti bentuk yang Anda
 
 6
-00:00:19.080 --> 00:00:22.980
-Ada dua soal yang sama-sama memberi nol dibagi nol,
+00:00:15.147 --> 00:00:17.856
+tulis belum memberi tahu apa-apa.
 
 7
-00:00:22.980 --> 00:00:27.415
-tetapi jawabannya berbeda: yang satu dua, yang lain empat.
+00:00:17.856 --> 00:00:19.193
+Buktinya begini.
 
 8
-00:00:27.415 --> 00:00:31.392
-Jadi tulisan itu memang belum mengandung keterangan.
+00:00:19.193 --> 00:00:22.702
+Ada dua soal yang sama-sama memberi 0 : 0,
 
 9
-00:00:31.392 --> 00:00:33.402
-Cara pertama, memfaktorkan.
+00:00:22.702 --> 00:00:27.047
+tetapi jawabannya berbeda: yang satu 2, yang lain 4.
 
 10
-00:00:33.402 --> 00:00:38.019
-Kalau pembilang dan penyebut sama-sama nol di titik yang sama,
+00:00:27.047 --> 00:00:31.392
+Jadi tulisan itu memang belum mengandung keterangan.
 
 11
-00:00:38.019 --> 00:00:40.848
-keduanya pasti punya faktor yang sama.
+00:00:31.392 --> 00:00:33.451
+Cara pertama, memfaktorkan.
 
 12
-00:00:40.848 --> 00:00:46.579
-Ambil x kuadrat kurang empat, dibagi x kurang dua, saat x mendekati dua.
+00:00:33.451 --> 00:00:36.349
+Kalau pembilang dan penyebut sama-sama
 
 13
-00:00:46.579 --> 00:00:51.912
-Pembilangnya difaktorkan menjadi x kurang dua, dikali x tambah dua.
+00:00:36.349 --> 00:00:37.950
+0 di titik yang sama,
 
 14
-00:00:51.912 --> 00:00:55.822
-Faktor x kurang dua di atas dan di bawah bisa dicoret.
+00:00:37.950 --> 00:00:40.848
+keduanya pasti punya faktor yang sama.
 
 15
-00:00:55.822 --> 00:01:00.528
-Tapi hanya boleh kalau x bukan dua, sebab kita sedang membaginya.
+00:00:40.848 --> 00:00:45.664
+Ambil (x² - 4) : (x - 2), saat x → 2.
 
 16
-00:01:00.528 --> 00:01:06.504
-Yang tersisa x tambah dua. Masukkan dua, hasilnya empat.
+00:00:45.664 --> 00:00:51.912
+Pembilangnya difaktorkan menjadi (x - 2)(x + 2).
 
 17
-00:01:06.504 --> 00:01:09.436
-Cara kedua dipakai kalau ada tanda akar.
+00:00:51.912 --> 00:00:55.858
+Faktor (x - 2) di atas dan di bawah bisa dicoret.
 
 18
-00:01:09.436 --> 00:01:15.154
-Memfaktorkan biasanya buntu, jadi kita pakai sekawan: bentuk yang sama persis,
+00:00:55.858 --> 00:00:58.193
+Tapi hanya boleh kalau x ≠ 2,
 
 19
-00:01:15.154 --> 00:01:17.280
-tapi tanda tengahnya dibalik.
+00:00:58.193 --> 00:01:00.528
+sebab kita sedang membaginya.
 
 20
-00:01:17.280 --> 00:01:23.929
-Ambil akar dari x tambah empat, dikurangi dua, lalu dibagi x, saat x mendekati nol.
+00:01:00.528 --> 00:01:06.504
+Yang tersisa x + 2. Masukkan 2, hasilnya 4.
 
 21
-00:01:23.929 --> 00:01:28.896
-Sekawan pembilangnya adalah akar x tambah empat, ditambah dua.
+00:01:06.504 --> 00:01:09.273
+Cara kedua dipakai kalau ada tanda √.
 
 22
-00:01:28.896 --> 00:01:32.279
-Kalikan atas dan bawah dengan sekawan itu.
+00:01:09.273 --> 00:01:13.239
+Memfaktorkan biasanya buntu, jadi kita pakai sekawan:
 
 23
-00:01:32.279 --> 00:01:38.077
-Pembilangnya berubah jadi x tambah empat, dikurangi empat, yaitu x saja.
+00:01:13.239 --> 00:01:17.280
+bentuk yang sama persis, tapi tanda tengahnya dibalik.
 
 24
-00:01:38.077 --> 00:01:40.896
-Akarnya hilang karena dikuadratkan.
+00:01:17.280 --> 00:01:22.790
+Ambil (√(x + 4) - 2) : x, saat x → 0.
 
 25
-00:01:40.896 --> 00:01:44.854
-Sekarang x bisa dicoret, sah karena x bukan nol.
+00:01:22.790 --> 00:01:28.896
+Sekawan pembilangnya adalah √(x + 4) + 2.
 
 26
-00:01:44.854 --> 00:01:49.636
-Yang tersisa satu dibagi akar x tambah empat ditambah dua.
+00:01:28.896 --> 00:01:32.803
+Kalikan atas dan bawah dengan sekawan itu.
 
 27
-00:01:49.636 --> 00:01:52.440
-Masukkan nol, hasilnya seperempat.
+00:01:32.803 --> 00:01:37.640
+Pembilangnya berubah jadi (x + 4) - 4, yaitu x saja.
 
 28
-00:01:52.440 --> 00:01:56.786
-Urutannya selalu sama, dan tidak pernah berubah.
+00:01:37.640 --> 00:01:40.896
+Akarnya hilang karena dikuadratkan.
 
 29
-00:01:56.786 --> 00:01:58.415
-Masukkan angkanya.
+00:01:40.896 --> 00:01:45.793
+Sekarang x bisa dicoret, sah karena x ≠ 0.
 
 30
-00:01:58.415 --> 00:02:00.950
-Kalau wajar, itu jawabannya.
+00:01:45.793 --> 00:01:49.525
+Yang tersisa 1 : (√(x + 4) + 2).
 
 31
-00:02:00.950 --> 00:02:06.744
-Kalau nol dibagi nol, tulis ulang bentuknya, baru masukkan lagi.
+00:01:49.525 --> 00:01:52.440
+Masukkan 0, hasilnya 1/4.
+
+32
+00:01:52.440 --> 00:01:57.048
+Urutannya selalu sama, dan tidak pernah berubah.
+
+33
+00:01:57.048 --> 00:01:58.776
+Masukkan angkanya.
+
+34
+00:01:58.776 --> 00:02:01.464
+Kalau wajar, itu jawabannya.
+
+35
+00:02:01.464 --> 00:02:06.744
+Kalau 0 : 0, tulis ulang bentuknya, baru masukkan lagi.

@@ -3,105 +3,129 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/tahap2-perbandingan-tetap.json
 
 1
-00:00:00.000 --> 00:00:02.999
-Tahap satu berakhir pada satu dugaan.
+00:00:00.000 --> 00:00:02.830
+Tahap 1 berakhir pada satu dugaan.
 
 2
-00:00:02.999 --> 00:00:07.376
+00:00:02.830 --> 00:00:07.325
 Sudut yang sama selalu memberi <b>perbandingan yang sama</b>.
 
 3
-00:00:07.376 --> 00:00:09.240
+00:00:07.325 --> 00:00:09.240
 Sekarang kita buktikan.
 
 4
-00:00:09.240 --> 00:00:12.318
-Ini segitiga siku-siku dengan sudut theta.
+00:00:09.240 --> 00:00:13.433
+Ini segitiga siku-siku dengan sudut θ.
 
 5
-00:00:12.318 --> 00:00:15.469
-Sisi depannya satu koma delapan sentimeter,
+00:00:13.433 --> 00:00:18.840
+Sisi depannya 1,8 cm, dan sisi sampingnya 2,4 cm.
 
 6
-00:00:15.469 --> 00:00:18.840
-dan sisi sampingnya dua koma empat sentimeter.
-
-7
-00:00:18.840 --> 00:00:22.024
+00:00:18.840 --> 00:00:24.413
 Bagi sisi depan dengan sisi samping.
 
+7
+00:00:24.413 --> 00:00:25.961
+1,8 : 2,4.
+
 8
-00:00:22.024 --> 00:00:25.563
-Satu koma delapan dibagi dua koma empat.
+00:00:25.961 --> 00:00:28.128
+Hasilnya <b>0,75</b>.
 
 9
-00:00:25.563 --> 00:00:28.128
-Hasilnya <b>nol koma tujuh lima</b>.
-
-10
-00:00:28.128 --> 00:00:30.742
+00:00:28.128 --> 00:00:30.870
 Sekarang segitiganya kita besarkan.
 
+10
+00:00:30.870 --> 00:00:33.848
+Sudut θ tidak kita sentuh sama sekali,
+
 11
-00:00:30.742 --> 00:00:36.120
-Sudut theta tidak kita sentuh sama sekali, hanya ukurannya yang berubah.
+00:00:33.848 --> 00:00:36.120
+hanya ukurannya yang berubah.
 
 12
-00:00:36.120 --> 00:00:42.017
-Sisi depannya sekarang tiga sentimeter, dan sisi sampingnya empat sentimeter.
+00:00:36.120 --> 00:00:41.349
+Sisi depannya sekarang 3 cm, dan sisi sampingnya 4 cm.
 
 13
-00:00:42.017 --> 00:00:44.544
+00:00:41.349 --> 00:00:44.544
 Keduanya jelas berbeda dari tadi.
 
 14
-00:00:44.544 --> 00:00:46.616
+00:00:44.544 --> 00:00:47.404
 Tapi coba bagi lagi.
 
 15
-00:00:46.616 --> 00:00:48.480
-Tiga dibagi empat.
+00:00:47.404 --> 00:00:48.604
+3 : 4.
 
 16
-00:00:48.480 --> 00:00:51.485
-Hasilnya nol koma tujuh lima.
+00:00:48.604 --> 00:00:50.606
+Hasilnya 0,75.
 
 17
-00:00:51.485 --> 00:00:54.696
+00:00:50.606 --> 00:00:54.696
 Sama persis seperti sebelumnya.
 
 18
-00:00:54.696 --> 00:00:56.210
+00:00:54.696 --> 00:00:56.225
 Sebabnya sederhana.
 
 19
-00:00:56.210 --> 00:01:02.904
-Waktu segitiganya diperbesar, sisi depan dan sisi samping dikalikan angka yang sama.
+00:00:56.225 --> 00:00:58.559
+Waktu segitiganya diperbesar,
 
 20
-00:01:02.904 --> 00:01:08.939
-Dan pada pembagian, angka pengali yang sama di atas dan di bawah <b>saling menghapus</b>.
+00:00:58.559 --> 00:01:02.904
+sisi depan dan sisi samping dikalikan angka yang sama.
 
 21
-00:01:08.939 --> 00:01:11.736
-Yang tersisa persis hasil bagi semula.
+00:01:02.904 --> 00:01:04.326
+Dan pada pembagian,
 
 22
-00:01:11.736 --> 00:01:15.222
-Sekarang perhatikan kalau yang diubah sudutnya.
+00:01:04.326 --> 00:01:06.272
+angka pengali yang sama di
 
 23
-00:01:15.222 --> 00:01:19.152
-Begitu theta bergerak, barulah angkanya ikut berubah.
+00:01:06.272 --> 00:01:08.892
+atas dan di bawah <b>saling menghapus</b>.
 
 24
-00:01:19.152 --> 00:01:23.547
-Jadi perbandingan itu <b>hanya bergantung pada sudut</b>, bukan pada ukuran.
+00:01:08.892 --> 00:01:11.736
+Yang tersisa persis hasil bagi semula.
 
 25
-00:01:23.547 --> 00:01:27.433
-Itulah sebabnya nilainya bisa dihitung sekali lalu dibukukan,
+00:01:11.736 --> 00:01:15.367
+Sekarang perhatikan kalau yang diubah sudutnya.
 
 26
-00:01:27.433 --> 00:01:32.592
-dan kalkulator sanggup menjawab tanpa pernah tahu segitiga mana yang Anda maksud.
+00:01:15.367 --> 00:01:19.152
+Begitu θ bergerak, barulah angkanya ikut berubah.
+
+27
+00:01:19.152 --> 00:01:22.383
+Jadi perbandingan itu <b>hanya bergantung pada sudut</b>,
+
+28
+00:01:22.383 --> 00:01:23.583
+bukan pada ukuran.
+
+29
+00:01:23.583 --> 00:01:25.457
+Itulah sebabnya nilainya bisa
+
+30
+00:01:25.457 --> 00:01:27.460
+dihitung sekali lalu dibukukan,
+
+31
+00:01:27.460 --> 00:01:30.303
+dan kalkulator sanggup menjawab tanpa pernah
+
+32
+00:01:30.303 --> 00:01:32.592
+tahu segitiga mana yang Anda maksud.

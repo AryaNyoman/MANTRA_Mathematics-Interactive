@@ -6,51 +6,63 @@
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Ada fungsi yang di satu titik sama sekali tidak punya nilai, tapi limitnya tetap ada."
+      "teks": "Ada fungsi yang di satu titik sama sekali tidak punya nilai, tapi limitnya tetap ada.",
+      "tulis": "Ada fungsi yang di satu titik sama sekali tidak punya nilai, tapi limitnya tetap ada."
     },
     {
       "id": "fungsi",
-      "teks": "Perhatikan fungsi ini: x kuadrat kurang satu, dibagi x kurang satu."
+      "teks": "Perhatikan fungsi ini: x kuadrat kurang satu, dibagi x kurang satu.",
+      "tulis": "Perhatikan fungsi ini: (x² - 1) : (x - 1)."
     },
     {
       "id": "coba",
-      "teks": "Sekarang masukkan x sama dengan satu. Pembilangnya nol, penyebutnya juga nol. Nol dibagi nol."
+      "teks": "Sekarang masukkan x sama dengan satu. Pembilangnya nol, penyebutnya juga nol. Nol dibagi nol.",
+      "tulis": "Sekarang masukkan x = 1. Pembilangnya 0, penyebutnya juga 0. 0 : 0."
     },
     {
       "id": "tolak",
-      "teks": "Hitungan itu tidak punya jawaban. Jadi di titik satu, fungsi ini tidak terdefinisi sama sekali. Bukan bernilai nol, bukan bernilai tak hingga."
+      "teks": "Hitungan itu tidak punya jawaban. Jadi di titik satu, fungsi ini tidak terdefinisi sama sekali. Bukan bernilai nol, bukan bernilai tak hingga.",
+      "tulis": "Hitungan itu tidak punya jawaban. Jadi di titik 1, fungsi ini tidak terdefinisi sama sekali. Bukan bernilai 0, bukan bernilai ∞."
     },
     {
       "id": "gambar",
-      "teks": "Tapi lihat grafiknya. Ia garis lurus biasa, dengan satu titik yang bolong."
+      "teks": "Tapi lihat grafiknya. Ia garis lurus biasa, dengan satu titik yang bolong.",
+      "tulis": "Tapi lihat grafiknya. Ia garis lurus biasa, dengan 1 titik yang bolong."
     },
     {
       "id": "kiri",
-      "teks": "Kita dekati dari kiri. Di nol koma sembilan, nilainya satu koma sembilan. Di nol koma sembilan sembilan, nilainya satu koma sembilan sembilan."
+      "teks": "Kita dekati dari kiri. Di nol koma sembilan, nilainya satu koma sembilan. Di nol koma sembilan sembilan, nilainya satu koma sembilan sembilan.",
+      "tulis": "Kita dekati dari kiri. Di 0,9, nilainya 1,9. Di 0,99, nilainya 1,99."
     },
     {
       "id": "kanan",
-      "teks": "Sekarang dari kanan. Di satu koma satu, nilainya dua koma satu. Di satu koma nol satu, nilainya dua koma nol satu."
+      "teks": "Sekarang dari kanan. Di satu koma satu, nilainya dua koma satu. Di satu koma nol satu, nilainya dua koma nol satu.",
+      "tulis": "Sekarang dari kanan. Di 1,1, nilainya 2,1. Di 1,01, nilainya 2,01."
     },
     {
       "id": "sepakat",
-      "teks": "Kedua arah menuju angka yang sama, yaitu dua. Jadi limitnya dua, walaupun titiknya sendiri kosong."
+      "teks": "Kedua arah menuju angka yang sama, yaitu dua. Jadi limitnya dua, walaupun titiknya sendiri kosong.",
+      "tulis": "Kedua arah menuju angka yang sama, yaitu 2. Jadi limitnya 2, walaupun titiknya sendiri kosong."
     },
     {
       "id": "kenapa",
-      "teks": "Kenapa bisa serapi itu? Karena pembilangnya bisa difaktorkan menjadi x kurang satu, dikali x tambah satu."
+      "teks": "Kenapa bisa serapi itu? Karena pembilangnya bisa difaktorkan menjadi x kurang satu, dikali x tambah satu.",
+      "tulis": "Kenapa bisa serapi itu? Karena pembilangnya bisa difaktorkan menjadi (x - 1)(x + 1)."
     },
     {
       "id": "coret",
-      "teks": "Faktor x kurang satu di atas dan di bawah bisa dicoret. Tapi hanya boleh kalau x bukan satu, sebab kita sedang membaginya."
+      "teks": "Faktor x kurang satu di atas dan di bawah bisa dicoret. Tapi hanya boleh kalau x bukan satu, sebab kita sedang membaginya.",
+      "tulis": "Faktor (x - 1) di atas dan di bawah bisa dicoret. Tapi hanya boleh kalau x ≠ 1, sebab kita sedang membaginya."
     },
     {
       "id": "sisa",
-      "teks": "Yang tersisa adalah x tambah satu. Itulah kenapa grafiknya berupa garis, dan kenapa hanya di titik satu ia berlubang."
+      "teks": "Yang tersisa adalah x tambah satu. Itulah kenapa grafiknya berupa garis, dan kenapa hanya di titik satu ia berlubang.",
+      "tulis": "Yang tersisa adalah x + 1. Itulah kenapa grafiknya berupa garis, dan kenapa hanya di titik 1 ia berlubang."
     },
     {
       "id": "tutup",
-      "teks": "Nilai fungsi dan limit adalah dua hal yang berbeda. Yang satu bisa ada tanpa yang lain, dan justru karena itulah limit dibuat orang."
+      "teks": "Nilai fungsi dan limit adalah dua hal yang berbeda. Yang satu bisa ada tanpa yang lain, dan justru karena itulah limit dibuat orang.",
+      "tulis": "Nilai fungsi dan limit adalah dua hal yang berbeda. Yang satu bisa ada tanpa yang lain, dan justru karena itulah limit dibuat orang."
     }
   ]
 }

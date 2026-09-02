@@ -75,113 +75,157 @@ Lima titik inilah yang menentukan bentuknya,
 dan kurvanya cuma <b>menghubungkan</b> titik-titik itu.
 
 19
-00:00:54.552 --> 00:00:57.119
+00:00:54.552 --> 00:00:57.133
 Sekarang perhatikan rumusnya.
 
 20
-00:00:57.119 --> 00:01:01.634
+00:00:57.133 --> 00:01:01.673
 Kita tulis f(x) + 1, dengan angka 1 <b>di luar kurung</b>.
 
 21
-00:01:01.634 --> 00:01:07.300
-Seluruh grafiknya naik satu satuan, dan bentuknya tidak berubah.
+00:01:01.673 --> 00:01:04.788
+Seluruh grafiknya naik satu satuan,
 
 22
-00:01:07.300 --> 00:01:10.752
-Titik (2, 4) tadi sekarang jadi (2, 5).
+00:01:04.788 --> 00:01:07.281
+dan bentuknya tidak berubah.
 
 23
-00:01:10.752 --> 00:01:14.229
-Sekarang giliran yang <b>di dalam kurung</b>.
+00:01:07.281 --> 00:01:10.752
+Titik (2, 4) tadi sekarang jadi (2, 5).
 
 24
-00:01:14.229 --> 00:01:16.058
-Kita tulis f(x - 1).
+00:01:10.752 --> 00:01:14.258
+Sekarang giliran yang <b>di dalam kurung</b>.
 
 25
-00:01:16.058 --> 00:01:21.456
-Coba tebak dulu: grafiknya bergeser ke kiri, atau ke kanan?
+00:01:14.258 --> 00:01:16.104
+Kita tulis f(x - 1).
 
 26
-00:01:21.456 --> 00:01:28.008
-Jawabannya ke <b>kanan</b>, walaupun tandanya minus. Ini yang paling sering terbalik.
+00:01:16.104 --> 00:01:20.164
+Coba tebak dulu: grafiknya bergeser ke kiri,
 
 27
-00:01:28.008 --> 00:01:29.308
-Kenapa ke kanan?
+00:01:20.164 --> 00:01:21.456
+atau ke kanan?
 
 28
-00:01:29.308 --> 00:01:33.047
-Karena isi kurungnya baru jadi nol saat x = 1.
+00:01:21.456 --> 00:01:25.285
+Jawabannya ke <b>kanan</b>, walaupun tandanya minus.
 
 29
-00:01:33.047 --> 00:01:37.680
-Titik terendah selalu pindah ke tempat isi kurungnya <b>nol</b>.
+00:01:25.285 --> 00:01:28.008
+Ini yang paling sering terbalik.
 
 30
-00:01:37.680 --> 00:01:39.319
-Sekarang bentuk lain.
+00:01:28.008 --> 00:01:29.319
+Kenapa ke kanan?
 
 31
-00:01:39.319 --> 00:01:45.016
-Kita ganti f menjadi f(x) = 2√x, lalu kenakan perlakuan yang sama persis.
+00:01:29.319 --> 00:01:33.090
+Karena isi kurungnya baru jadi nol saat x = 1.
 
 32
-00:01:45.016 --> 00:01:48.216
-Perpindahannya <b>tidak berubah</b> sedikit pun.
+00:01:33.090 --> 00:01:35.385
+Titik terendah selalu pindah
 
 33
-00:01:48.216 --> 00:01:50.991
-Sekali lagi, sekarang gelombang sinus.
+00:01:35.385 --> 00:01:37.680
+ke tempat isi kurungnya <b>nol</b>.
 
 34
-00:01:50.991 --> 00:01:54.424
-Aturannya memang <b>tidak peduli</b> bentuk grafiknya.
+00:01:37.680 --> 00:01:39.331
+Sekarang bentuk lain.
 
 35
-00:01:54.424 --> 00:02:00.048
-Yang di luar kurung menggeser tegak, yang di dalam kurung menggeser mendatar.
+00:01:39.331 --> 00:01:41.847
+Kita ganti f menjadi f(x) = 2√x,
 
 36
-00:02:00.048 --> 00:02:01.829
-Sekarang jebakannya.
+00:01:41.847 --> 00:01:44.992
+lalu kenakan perlakuan yang sama persis.
 
 37
-00:02:01.829 --> 00:02:06.817
-Kita kembali ke parabola, dan kali ini kita tulis f(2x).
+00:01:44.992 --> 00:01:48.216
+Perpindahannya <b>tidak berubah</b> sedikit pun.
 
 38
-00:02:06.817 --> 00:02:12.696
-Tebak dulu: grafiknya jadi dua kali lebih lebar, atau setengahnya?
+00:01:48.216 --> 00:01:51.009
+Sekali lagi, sekarang gelombang sinus.
 
 39
-00:02:12.696 --> 00:02:14.576
-Jawabannya <b>setengah</b>.
+00:01:51.009 --> 00:01:54.463
+Aturannya memang <b>tidak peduli</b> bentuk grafiknya.
 
 40
-00:02:14.576 --> 00:02:21.624
-Nilai 4 yang tadi baru tercapai di x = 2, sekarang sudah tercapai di x = 1.
+00:01:54.463 --> 00:01:57.108
+Yang di luar kurung menggeser tegak,
 
 41
-00:02:21.624 --> 00:02:25.787
-Alasannya, x sudah dikalikan 2 sebelum masuk mesin.
+00:01:57.108 --> 00:02:00.048
+yang di dalam kurung menggeser mendatar.
 
 42
-00:02:25.787 --> 00:02:30.277
-Waktu kita isi 1, mesinnya sebenarnya mengerjakan f(2).
+00:02:00.048 --> 00:02:01.842
+Sekarang jebakannya.
 
 43
-00:02:30.277 --> 00:02:34.848
-Jadi mesinnya <b>sampai lebih awal</b>, dan grafiknya memampat.
+00:02:01.842 --> 00:02:06.865
+Kita kembali ke parabola, dan kali ini kita tulis f(2x).
 
 44
+00:02:06.865 --> 00:02:11.171
+Tebak dulu: grafiknya jadi dua kali lebih lebar,
+
+45
+00:02:11.171 --> 00:02:12.696
+atau setengahnya?
+
+46
+00:02:12.696 --> 00:02:14.596
+Jawabannya <b>setengah</b>.
+
+47
+00:02:14.596 --> 00:02:18.490
+Nilai 4 yang tadi baru tercapai di x = 2,
+
+48
+00:02:18.490 --> 00:02:21.624
+sekarang sudah tercapai di x = 1.
+
+49
+00:02:21.624 --> 00:02:25.813
+Alasannya, x sudah dikalikan 2 sebelum masuk mesin.
+
+50
+00:02:25.813 --> 00:02:30.330
+Waktu kita isi 1, mesinnya sebenarnya mengerjakan f(2).
+
+51
+00:02:30.330 --> 00:02:32.959
+Jadi mesinnya <b>sampai lebih awal</b>,
+
+52
+00:02:32.959 --> 00:02:34.848
+dan grafiknya memampat.
+
+53
 00:02:34.848 --> 00:02:36.685
 Jadi aturannya cuma dua.
 
-45
-00:02:36.685 --> 00:02:42.120
-Angka <b>di luar kurung</b> mengerjakan apa yang tertulis: + 1 berarti naik 1.
+54
+00:02:36.685 --> 00:02:40.589
+Angka <b>di luar kurung</b> mengerjakan apa yang tertulis:
 
-46
-00:02:42.120 --> 00:02:46.560
-Angka yang masuk <b>ke dalam kurung</b> mengerjakan kebalikannya.
+55
+00:02:40.589 --> 00:02:42.044
++ 1 berarti naik 1.
+
+56
+00:02:42.044 --> 00:02:43.575
+Angka yang masuk *ke
+
+57
+00:02:43.575 --> 00:02:46.560
+dalam kurung* mengerjakan kebalikannya.

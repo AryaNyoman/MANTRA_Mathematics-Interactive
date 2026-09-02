@@ -3,81 +3,133 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/ruang-3d-06.json
 
 1
-00:00:00.000 --> 00:00:02.516
+00:00:00.000 --> 00:00:02.547
 Materi 6, <b>jarak titik ke bidang</b>.
 
 2
-00:00:02.516 --> 00:00:08.020
-Kalau tadi sasarannya sebuah garis, sekarang sasarannya sebuah bidang.
+00:00:02.547 --> 00:00:05.333
+Kalau tadi sasarannya sebuah garis,
 
 3
-00:00:08.020 --> 00:00:12.816
-Aturannya sama persis, hanya bentuk sasarannya yang berganti.
+00:00:05.333 --> 00:00:08.040
+sekarang sasarannya sebuah bidang.
 
 4
+00:00:08.040 --> 00:00:09.791
+Aturannya sama persis,
+
+5
+00:00:09.791 --> 00:00:12.816
+hanya bentuk sasarannya yang berganti.
+
+6
 00:00:12.816 --> 00:00:14.016
 Ini bidang BDE.
 
-5
-00:00:14.016 --> 00:00:18.538
-Ketiga sisinya diagonal sisi yang bertemu di sekitar titik A,
-
-6
-00:00:18.538 --> 00:00:23.640
-dan bidang itu memotong pojok kubus seperti pisau memotong ujung tahu.
-
 7
-00:00:23.640 --> 00:00:26.387
-Berapa jarak titik A ke bidang itu?
+00:00:14.016 --> 00:00:16.497
+Ketiga sisinya diagonal sisi yang
 
 8
-00:00:26.387 --> 00:00:29.919
-Seperti biasa, kita cari <b>kaki tegak lurusnya</b>.
+00:00:16.497 --> 00:00:18.526
+bertemu di sekitar titik A,
 
 9
-00:00:29.919 --> 00:00:35.334
-Tarik ruas dari A yang tegak lurus bidang, lalu ukur sampai menembus.
+00:00:18.526 --> 00:00:20.706
+dan bidang itu memotong pojok
 
 10
-00:00:35.334 --> 00:00:40.200
-Kakinya jatuh di titik K, dan K tidak punya nama di kubus ini.
+00:00:20.706 --> 00:00:23.640
+kubus seperti pisau memotong ujung tahu.
 
 11
-00:00:40.200 --> 00:00:42.785
-Ada satu hal yang membantu.
+00:00:23.640 --> 00:00:26.413
+Berapa jarak titik A ke bidang itu?
 
 12
-00:00:42.785 --> 00:00:48.243
-A̅B̅, A̅D̅, dan A̅E̅ sama panjang dan saling tegak lurus,
+00:00:26.413 --> 00:00:29.979
+Seperti biasa, kita cari <b>kaki tegak lurusnya</b>.
 
 13
-00:00:48.243 --> 00:00:53.222
-jadi K jatuh tepat di <b>sepertiga</b> diagonal ruang A̅G̅.
+00:00:29.979 --> 00:00:33.307
+Tarik ruas dari A yang tegak lurus bidang,
 
 14
-00:00:53.222 --> 00:00:58.680
-Karena AG sama dengan 6√3, jaraknya <b>2√3</b>, kira-kira 3,464.
+00:00:33.307 --> 00:00:35.367
+lalu ukur sampai menembus.
 
 15
-00:00:58.680 --> 00:01:04.434
-Cara tadi cepat, tetapi hanya jalan kalau bangunnya kebetulan simetris.
+00:00:35.367 --> 00:00:37.348
+Kakinya jatuh di titik K,
 
 16
-00:01:04.434 --> 00:01:10.837
-Cara yang selalu jalan: hitung volume limas A.BDE dengan <b>dua</b> alas yang berbeda,
+00:00:37.348 --> 00:00:40.200
+dan K tidak punya nama di kubus ini.
 
 17
-00:01:10.837 --> 00:01:12.620
-lalu samakan keduanya.
+00:00:40.200 --> 00:00:42.812
+Ada satu hal yang membantu.
 
 18
-00:01:12.620 --> 00:01:14.160
-Hasilnya sama, 2√3.
+00:00:42.812 --> 00:00:44.012
+A̅B̅, A̅D̅,
 
 19
-00:01:14.160 --> 00:01:19.378
-Jadi jarak titik ke bidang sama dengan 3 kali volume dibagi luas alasnya.
+00:00:44.012 --> 00:00:48.366
+dan A̅E̅ sama panjang dan saling tegak lurus,
 
 20
-00:01:19.378 --> 00:01:24.096
-Sekali lagi itu bukan hafalan baru, itu rumus volume yang <b>dibalik</b>.
+00:00:48.366 --> 00:00:53.397
+jadi K jatuh tepat di <b>sepertiga</b> diagonal ruang A̅G̅.
+
+21
+00:00:53.397 --> 00:00:57.268
+Karena AG sama dengan 6√3, jaraknya <b>2√3</b>,
+
+22
+00:00:57.268 --> 00:00:58.680
+kira-kira 3,464.
+
+23
+00:00:58.680 --> 00:00:59.997
+Cara tadi cepat,
+
+24
+00:00:59.997 --> 00:01:04.444
+tetapi hanya jalan kalau bangunnya kebetulan simetris.
+
+25
+00:01:04.444 --> 00:01:06.338
+Cara yang selalu jalan:
+
+26
+00:01:06.338 --> 00:01:08.396
+hitung volume limas A.BDE
+
+27
+00:01:08.396 --> 00:01:10.784
+dengan <b>dua</b> alas yang berbeda,
+
+28
+00:01:10.784 --> 00:01:12.596
+lalu samakan keduanya.
+
+29
+00:01:12.596 --> 00:01:14.160
+Hasilnya sama, 2√3.
+
+30
+00:01:14.160 --> 00:01:16.408
+Jadi jarak titik ke bidang sama
+
+31
+00:01:16.408 --> 00:01:19.382
+dengan 3 kali volume dibagi luas alasnya.
+
+32
+00:01:19.382 --> 00:01:21.920
+Sekali lagi itu bukan hafalan baru,
+
+33
+00:01:21.920 --> 00:01:24.096
+itu rumus volume yang <b>dibalik</b>.

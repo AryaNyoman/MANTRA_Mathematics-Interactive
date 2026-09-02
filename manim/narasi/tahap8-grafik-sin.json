@@ -10,7 +10,8 @@
     },
     {
       "id": "mulai",
-      "teks": "Semuanya dimulai dari sebuah lingkaran yang berjari-jari satu."
+      "teks": "Semuanya dimulai dari sebuah lingkaran yang berjari-jari satu.",
+      "tulis": "Semuanya dimulai dari sebuah lingkaran yang berjari-jari 1."
     },
     {
       "id": "buka",
@@ -18,7 +19,8 @@
     },
     {
       "id": "tinggi",
-      "teks": "Yang kita perhatikan cuma satu hal. Seberapa tinggi titik itu di atas garis mendatar. Tinggi itulah yang kita sebut *sinus theta*."
+      "teks": "Yang kita perhatikan cuma satu hal. Seberapa tinggi titik itu di atas garis mendatar. Tinggi itulah yang kita sebut *sinus theta*.",
+      "tulis": "Yang kita perhatikan cuma satu hal. Seberapa tinggi titik itu di atas garis mendatar. Tinggi itulah yang kita sebut *sin θ*."
     },
     {
       "id": "geser",
@@ -30,19 +32,23 @@
     },
     {
       "id": "puncak",
-      "teks": "Di sembilan puluh derajat titiknya berada paling atas. Tingginya satu, dan itu setinggi-tingginya yang bisa ia capai."
+      "teks": "Di sembilan puluh derajat titiknya berada paling atas. Tingginya satu, dan itu setinggi-tingginya yang bisa ia capai.",
+      "tulis": "Di 90° titiknya berada paling atas. Tingginya 1, dan itu setinggi-tingginya yang bisa ia capai."
     },
     {
       "id": "turun",
-      "teks": "Lewat sembilan puluh, titiknya mulai turun. Di seratus delapan puluh derajat ia kembali menyentuh garis mendatar, dan tingginya nol lagi."
+      "teks": "Lewat sembilan puluh, titiknya mulai turun. Di seratus delapan puluh derajat ia kembali menyentuh garis mendatar, dan tingginya nol lagi.",
+      "tulis": "Lewat 90°, titiknya mulai turun. Di 180° ia kembali menyentuh garis mendatar, dan tingginya 0 lagi."
     },
     {
       "id": "bawah",
-      "teks": "Setelah itu titiknya masuk ke bawah garis. Tingginya menjadi negatif. Di dua ratus tujuh puluh derajat ia paling dalam, minus satu."
+      "teks": "Setelah itu titiknya masuk ke bawah garis. Tingginya menjadi negatif. Di dua ratus tujuh puluh derajat ia paling dalam, minus satu.",
+      "tulis": "Setelah itu titiknya masuk ke bawah garis. Tingginya menjadi negatif. Di 270° ia paling dalam, -1."
     },
     {
       "id": "genap",
-      "teks": "Di tiga ratus enam puluh derajat titiknya sampai lagi di tempat ia berangkat. Satu putaran penuh selesai."
+      "teks": "Di tiga ratus enam puluh derajat titiknya sampai lagi di tempat ia berangkat. Satu putaran penuh selesai.",
+      "tulis": "Di 360° titiknya sampai lagi di tempat ia berangkat. Satu putaran penuh selesai."
     },
     {
       "id": "ulang",

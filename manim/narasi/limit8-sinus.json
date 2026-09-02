@@ -6,51 +6,63 @@
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Kenapa sinus x dibagi x menuju tepat satu, bukan sekadar mendekati?"
+      "teks": "Kenapa sinus x dibagi x menuju tepat satu, bukan sekadar mendekati?",
+      "tulis": "Kenapa (sin x) : x menuju tepat 1, bukan sekadar mendekati?"
     },
     {
       "id": "coba",
-      "teks": "Kalau angkanya dimasukkan langsung, sinus nol sama dengan nol, dan penyebutnya juga nol. Bentuk nol dibagi nol lagi."
+      "teks": "Kalau angkanya dimasukkan langsung, sinus nol sama dengan nol, dan penyebutnya juga nol. Bentuk nol dibagi nol lagi.",
+      "tulis": "Kalau angkanya dimasukkan langsung, sin 0 = 0, dan penyebutnya juga 0. Bentuk 0 : 0 lagi."
     },
     {
       "id": "angka",
-      "teks": "Dicoba dengan angka, semuanya dalam radian. Di nol koma satu hasilnya nol koma sembilan sembilan delapan tiga. Di nol koma nol satu, nol koma sembilan sembilan sembilan sembilan delapan tiga."
+      "teks": "Dicoba dengan angka, semuanya dalam radian. Di nol koma satu hasilnya nol koma sembilan sembilan delapan tiga. Di nol koma nol satu, nol koma sembilan sembilan sembilan sembilan delapan tiga.",
+      "tulis": "Dicoba dengan angka, semuanya dalam radian. Di 0,1 hasilnya 0,9983. Di 0,01, 0,999983."
     },
     {
       "id": "tanya",
-      "teks": "Merapat ke satu. Tapi kenapa tepat satu, dan bukan nol koma sembilan sembilan sekian?"
+      "teks": "Merapat ke satu. Tapi kenapa tepat satu, dan bukan nol koma sembilan sembilan sekian?",
+      "tulis": "Merapat ke 1. Tapi kenapa tepat 1, dan bukan 0,99 sekian?"
     },
     {
       "id": "lingkaran",
-      "teks": "Jawabannya ada di lingkaran satuan. Gambar lingkaran berjari-jari satu, lalu ambil sebuah sudut lancip di pusatnya."
+      "teks": "Jawabannya ada di lingkaran satuan. Gambar lingkaran berjari-jari satu, lalu ambil sebuah sudut lancip di pusatnya.",
+      "tulis": "Jawabannya ada di lingkaran satuan. Gambar lingkaran berjari-jari 1, lalu ambil sebuah sudut lancip di pusatnya."
     },
     {
       "id": "tiga",
-      "teks": "Di dalam gambar itu ada tiga daerah yang saling bersarang. Segitiga kecil di dalam, juring lingkaran, dan segitiga besar di luar."
+      "teks": "Di dalam gambar itu ada tiga daerah yang saling bersarang. Segitiga kecil di dalam, juring lingkaran, dan segitiga besar di luar.",
+      "tulis": "Di dalam gambar itu ada 3 daerah yang saling bersarang. Segitiga kecil di dalam, juring lingkaran, dan segitiga besar di luar."
     },
     {
       "id": "luas",
-      "teks": "Luas segitiga dalam adalah setengah kosinus dikali sinus. Luas juringnya setengah sudut, karena jari-jarinya satu. Dan luas segitiga luar setengah tangen."
+      "teks": "Luas segitiga dalam adalah setengah kosinus dikali sinus. Luas juringnya setengah sudut, karena jari-jarinya satu. Dan luas segitiga luar setengah tangen.",
+      "tulis": "Luas segitiga dalam = ½ cos x · sin x. Luas juringnya ½ x, karena jari-jarinya 1. Dan luas segitiga luar = ½ tan x."
     },
     {
       "id": "urut",
-      "teks": "Karena yang satu termuat di dalam yang lain, urutan luasnya sudah pasti naik."
+      "teks": "Karena yang satu termuat di dalam yang lain, urutan luasnya sudah pasti naik.",
+      "tulis": "Karena yang satu termuat di dalam yang lain, urutan luasnya sudah pasti naik."
     },
     {
       "id": "bagi",
-      "teks": "Bagi ketiganya dengan sinus, dan bentuknya menjadi rapi. Kosinus lebih kecil dari sudut dibagi sinus, dan itu lebih kecil dari satu dibagi kosinus."
+      "teks": "Bagi ketiganya dengan sinus, dan bentuknya menjadi rapi. Kosinus lebih kecil dari sudut dibagi sinus, dan itu lebih kecil dari satu dibagi kosinus.",
+      "tulis": "Bagi ketiganya dengan sin x, dan bentuknya menjadi rapi. cos x < x : sin x < 1 : cos x."
     },
     {
       "id": "jepit",
-      "teks": "Sekarang kecilkan sudutnya. Kedua penjepitnya sama-sama menuju satu, jadi yang terjepit di tengah tidak punya pilihan lain selain ikut menuju satu."
+      "teks": "Sekarang kecilkan sudutnya. Kedua penjepitnya sama-sama menuju satu, jadi yang terjepit di tengah tidak punya pilihan lain selain ikut menuju satu.",
+      "tulis": "Sekarang kecilkan sudutnya. Kedua penjepitnya sama-sama menuju 1, jadi yang terjepit di tengah tidak punya pilihan lain selain ikut menuju 1."
     },
     {
       "id": "radian",
-      "teks": "Satu syarat yang tidak boleh dilupakan: sudutnya harus dalam radian. Kalau ditulis dalam derajat, luas juringnya berubah dan seluruh hitungan ini runtuh."
+      "teks": "Satu syarat yang tidak boleh dilupakan: sudutnya harus dalam radian. Kalau ditulis dalam derajat, luas juringnya berubah dan seluruh hitungan ini runtuh.",
+      "tulis": "Satu syarat yang tidak boleh dilupakan: sudutnya harus dalam radian. Kalau ditulis dalam derajat (°), luas juringnya berubah dan seluruh hitungan ini runtuh."
     },
     {
       "id": "tutup",
-      "teks": "Jadi bukan hampir satu, melainkan tepat satu. Dan alasannya bukan tebakan dari tabel, melainkan perbandingan luas di dalam lingkaran."
+      "teks": "Jadi bukan hampir satu, melainkan tepat satu. Dan alasannya bukan tebakan dari tabel, melainkan perbandingan luas di dalam lingkaran.",
+      "tulis": "Jadi bukan hampir 1, melainkan tepat 1. Dan alasannya bukan tebakan dari tabel, melainkan perbandingan luas di dalam lingkaran."
     }
   ]
 }

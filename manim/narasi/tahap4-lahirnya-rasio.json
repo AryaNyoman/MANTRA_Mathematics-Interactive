@@ -6,43 +6,53 @@
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Sebuah segitiga siku-siku punya tiga sisi. Dari ketiga sisi itu, ada berapa cara membaginya berpasangan?"
+      "teks": "Sebuah segitiga siku-siku punya tiga sisi. Dari ketiga sisi itu, ada berapa cara membaginya berpasangan?",
+      "tulis": "Sebuah segitiga siku-siku punya 3 sisi. Dari ketiga sisi itu, ada berapa cara membaginya berpasangan?"
     },
     {
       "id": "hitung",
-      "teks": "Ambil satu sisi sebagai pembilang, dan satu sisi lain sebagai penyebut. Ada tiga pilihan untuk yang di atas, dan dua sisa untuk yang di bawah."
+      "teks": "Ambil satu sisi sebagai pembilang, dan satu sisi lain sebagai penyebut. Ada tiga pilihan untuk yang di atas, dan dua sisa untuk yang di bawah.",
+      "tulis": "Ambil satu sisi sebagai pembilang, dan satu sisi lain sebagai penyebut. Ada 3 pilihan untuk yang di atas, dan 2 sisa untuk yang di bawah."
     },
     {
       "id": "enam",
-      "teks": "Tiga dikali dua sama dengan enam. Jadi ada *enam perbandingan* yang mungkin. Tidak lebih, dan tidak kurang."
+      "teks": "Tiga dikali dua sama dengan enam. Jadi ada *enam perbandingan* yang mungkin. Tidak lebih, dan tidak kurang.",
+      "tulis": "3 × 2 = 6. Jadi ada *6 perbandingan* yang mungkin. Tidak lebih, dan tidak kurang."
     },
     {
       "id": "nama",
-      "teks": "Dan keenamnya punya nama. Tiga yang paling sering dipakai diberi nama yang sudah Anda dengar sejak lama."
+      "teks": "Dan keenamnya punya nama. Tiga yang paling sering dipakai diberi nama yang sudah Anda dengar sejak lama.",
+      "tulis": "Dan keenamnya punya nama. 3 yang paling sering dipakai diberi nama yang sudah Anda dengar sejak lama."
     },
     {
       "id": "sin",
-      "teks": "Sisi depan dibagi sisi miring. Namanya *sinus*."
+      "teks": "Sisi depan dibagi sisi miring. Namanya *sinus*.",
+      "tulis": "depan : miring. Namanya *sinus* (sin)."
     },
     {
       "id": "cos",
-      "teks": "Sisi samping dibagi sisi miring. Namanya *cosinus*."
+      "teks": "Sisi samping dibagi sisi miring. Namanya *cosinus*.",
+      "tulis": "samping : miring. Namanya *cosinus* (cos)."
     },
     {
       "id": "tan",
-      "teks": "Dan sisi depan dibagi sisi samping. Namanya *tangen*."
+      "teks": "Dan sisi depan dibagi sisi samping. Namanya *tangen*.",
+      "tulis": "Dan depan : samping. Namanya *tangen* (tan)."
     },
     {
       "id": "kenapa",
-      "teks": "Ketiganya paling sering dipakai karena sisi miring selalu yang terpanjang. Membaginya dengan sisi miring memberi angka antara nol dan satu, dan angka seperti itu enak dipakai."
+      "teks": "Ketiganya paling sering dipakai karena sisi miring selalu yang terpanjang. Membaginya dengan sisi miring memberi angka antara nol dan satu, dan angka seperti itu enak dipakai.",
+      "tulis": "Ketiganya paling sering dipakai karena sisi miring selalu yang terpanjang. Membaginya dengan sisi miring memberi angka antara 0 dan 1, dan angka seperti itu enak dipakai."
     },
     {
       "id": "sisa",
-      "teks": "Tiga sisanya adalah kebalikan dari ketiga tadi. Namanya *kosekan, sekan, dan kotangen*. Kita akan menemuinya lagi di tahap enam."
+      "teks": "Tiga sisanya adalah kebalikan dari ketiga tadi. Namanya *kosekan, sekan, dan kotangen*. Kita akan menemuinya lagi di tahap enam.",
+      "tulis": "Tiga sisanya adalah kebalikan dari ketiga tadi. Namanya *kosekan, sekan, dan kotangen*. Kita akan menemuinya lagi di tahap 6."
     },
     {
       "id": "tutup",
-      "teks": "Jadi sinus, cosinus, dan tangen bukan rumus yang muncul entah dari mana. Ketiganya hanya tiga dari enam cara membagi dua sisi."
+      "teks": "Jadi sinus, cosinus, dan tangen bukan rumus yang muncul entah dari mana. Ketiganya hanya tiga dari enam cara membagi dua sisi.",
+      "tulis": "Jadi sin, cos, dan tan bukan rumus yang muncul entah dari mana. Ketiganya hanya 3 dari 6 cara membagi dua sisi."
     }
   ]
 }

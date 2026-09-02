@@ -29,7 +29,37 @@ lengkap dengan video (7 video masing-masing). Empat topik baru (Vektor, Grafik
 Fungsi, Statistika, Ruang 3D) halamannya utuh tanpa video, dan kelimanya
 ditambah UI/UX sedang mengerjakan gelombang 2 di sesi paralel.
 
-### YANG BERUBAH 2 SEP SIANG: pindah ke ManimGL (baca ini dulu)
+### YANG BERUBAH 2 SEP MALAM sampai 3 SEP DINI HARI: standar video VERSI 2 (baca ini PALING dulu)
+Empat sesi membuat video dengan standar v1 dan ARYA harus mengulang koreksi yang
+sama empat kali (kamera miring merusak panjang, keterangan bertabrakan subtitle,
+subtitle mengeja angka). MASTER menanyakan sepuluh pilihan, ARYA menjawab,
+hasilnya `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md` VERSI 2 (membatalkan v1 di
+setiap hal yang bertentangan) dan STANDAR-MENGAJAR bagian 5 aturan 9 dan 10.
+- Keempat cabang sesi DIGABUNG ke master (tsc 0, eslint 0, build 43 detik).
+- Perkakas `manim/gl/` v2: zona layar dikunci (identitas kiri atas, rumus kanan
+  atas, kaki layar milik subtitle dan qc menjaganya), `sinema.label` maks 2
+  kata (menggagalkan render), `sinema.keterangan` DIHAPUS, `lahir_rumus` dan
+  `ganti_rumus` (morph lambang), `jam_subtitle` + `b.tunggu_sampai`, medan
+  `tulis` di naskah (lambang, bukan ejaan), subtitle satu baris 56 huruf,
+  `gabung_audio --uji` membuat salinan `-bersubtitle.mp4`, `cek_kode` menolak
+  nama Manim CE dan `Indicate` tanpa warna. Render maks 2 per sesi.
+- Rujukan resmi: `manim/scenes/vektor1_perahu.py` (bidang datar) dan
+  `manim/scenes/ruang_3d_01.py` (3D); `manim/contoh/contoh_perahu.py` kini
+  kerangka 30 detik saja.
+- Subtitle 14 video Trigonometri dan Limit dibetulkan (bentuk tertulis, warna
+  tinta, ukuran bawaan 85%) TANPA render ulang, dan **dideploy ke produksi 3 Sep
+  dini hari** (`vercel deploy --prod`), sekaligus membawa revisi isi keempat
+  topik dari gelombang 2. Videonya sendiri (Manim CE) tidak berubah.
+- Jebakan ManimGL baru: `Tex.font_size` adalah FAKTOR SKALA, bukan poin
+  (`rumus()`/`teks()` menyimpan `ukuran_matra`); cache LaTeX menyimpan hasil kosong
+  saat MiKTeX memasang font (tambalan 3 menolaknya).
+- Peran MASTER (ARYA): hanya menggabung ke master dan menyampaikan aturan;
+  tinjauan dan revisi dari ARYA langsung ke tiap sesi. Sesi lapor "siap gabung".
+- Utang: air masih "longgar" dari pandangan atas (`REVISI-ARYA-VIDEO.md` butir 1,
+  resep sudah ditulis, belum dikerjakan); suara latar ditunda ke tahap akhir;
+  UI/UX memverifikasi 56 huruf subtitle muat satu baris di Chrome.
+
+### YANG BERUBAH 2 SEP SIANG: pindah ke ManimGL
 ARYA menolak video perahu gelombang 1 (perahu = titik, sungai = kotak diam) dan
 menuntut level 3b1b. Keputusannya, dijalankan penuh hari itu juga:
 - **Manim Community DICABUT, ManimGL 1.7.2 100%.** 14 video Trigonometri dan

@@ -19,129 +19,161 @@ Sekarang 8 siswa baru selesai ulangan.
 Nilainya biasanya berapa?
 
 5
-00:00:15.024 --> 00:00:19.839
-Mari mereka berdiri di garis bilangan, tepat di angka nilainya.
+00:00:15.024 --> 00:00:17.957
+Mari mereka berdiri di garis bilangan,
 
 6
-00:00:19.839 --> 00:00:22.896
-Yang nilainya <b>sama</b> berdiri berdampingan.
+00:00:17.957 --> 00:00:19.809
+tepat di angka nilainya.
 
 7
+00:00:19.809 --> 00:00:22.896
+Yang nilainya <b>sama</b> berdiri berdampingan.
+
+8
 00:00:22.896 --> 00:00:27.111
 Jawaban pertama ada di barisan paling tebal.
 
-8
+9
 00:00:27.111 --> 00:00:30.560
 Di angka 7 ada 2 orang, di 8 juga 2.
 
-9
+10
 00:00:30.560 --> 00:00:34.104
 Itulah <b>modus</b>, dan data ini punya dua.
 
-10
+11
 00:00:34.104 --> 00:00:38.964
 Jawaban kedua: belah barisan jadi dua sama banyak.
 
-11
+12
 00:00:38.964 --> 00:00:41.102
 4 di kiri, 4 di kanan.
 
-12
+13
 00:00:41.102 --> 00:00:45.768
 Sekatnya jatuh di angka 7, dan itulah <b>mediannya</b>.
 
-13
-00:00:45.768 --> 00:00:52.219
-Jawaban ketiga paling sering dihafal, tetapi paling jarang dimengerti.
-
 14
-00:00:52.219 --> 00:00:53.419
-<b>Rata-rata</b>.
+00:00:45.768 --> 00:00:49.205
+Jawaban ketiga paling sering dihafal,
 
 15
-00:00:53.419 --> 00:00:55.723
-Semua tahu menghitungnya.
+00:00:49.205 --> 00:00:52.178
+tetapi paling jarang dimengerti.
 
 16
-00:00:55.723 --> 00:00:57.288
-Tetapi ia angka apa?
+00:00:52.178 --> 00:00:53.378
+<b>Rata-rata</b>.
 
 17
-00:00:57.288 --> 00:01:01.278
-Kita ubah garis bilangan ini jadi papan <b>jungkat-jungkit</b>,
+00:00:53.378 --> 00:00:55.701
+Semua tahu menghitungnya.
 
 18
-00:01:01.278 --> 00:01:03.772
-dan berat tiap siswa dianggap sama.
+00:00:55.701 --> 00:00:57.288
+Tetapi ia angka apa?
 
 19
-00:01:03.772 --> 00:01:06.480
-Tumpuannya kita taruh dulu di angka 8.
+00:00:57.288 --> 00:00:59.011
+Kita ubah garis bilangan
 
 20
-00:01:06.480 --> 00:01:08.741
-Papannya langsung <b>jatuh ke kiri</b>.
+00:00:59.011 --> 00:01:01.238
+ini jadi papan <b>jungkat-jungkit</b>,
 
 21
-00:01:08.741 --> 00:01:10.224
-Dilihat dari angka 8,
+00:01:01.238 --> 00:01:03.751
+dan berat tiap siswa dianggap sama.
 
 22
-00:01:10.224 --> 00:01:15.240
-orang di sebelah kiri jaraknya jauh lebih besar daripada yang di kanan.
+00:01:03.751 --> 00:01:06.480
+Tumpuannya kita taruh dulu di angka 8.
 
 23
+00:01:06.480 --> 00:01:08.759
+Papannya langsung <b>jatuh ke kiri</b>.
+
+24
+00:01:08.759 --> 00:01:10.255
+Dilihat dari angka 8,
+
+25
+00:01:10.255 --> 00:01:12.747
+orang di sebelah kiri jaraknya jauh
+
+26
+00:01:12.747 --> 00:01:15.240
+lebih besar daripada yang di kanan.
+
+27
 00:01:15.240 --> 00:01:19.728
 Jadi tumpuannya kita geser pelan ke kiri.
 
-24
+28
 00:01:19.728 --> 00:01:24.982
 8, lalu 7,5, lalu 7,2, lalu berhenti tepat di <b>7</b>.
 
-25
+29
 00:01:24.982 --> 00:01:26.952
 Papannya mendatar.
 
-26
-00:01:26.952 --> 00:01:30.915
-Sekarang ketiga jarak ke kiri kita jajarkan jadi satu batang,
-
-27
-00:01:30.915 --> 00:01:33.773
-dan ketiga jarak ke kanan jadi batang kedua.
-
-28
-00:01:33.773 --> 00:01:35.202
-3 + 2 + 1 = 1 + 1 + 4.
-
-29
-00:01:35.202 --> 00:01:37.021
-Dua batang ini <b>sama panjang</b>.
-
 30
-00:01:37.021 --> 00:01:39.360
-Itulah sebabnya papan tadi seimbang.
+00:01:26.952 --> 00:01:28.846
+Sekarang ketiga jarak ke kiri
 
 31
-00:01:39.360 --> 00:01:43.447
-Barulah rumus yang dihafal masuk akal.
+00:01:28.846 --> 00:01:30.870
+kita jajarkan jadi satu batang,
 
 32
-00:01:43.447 --> 00:01:44.647
-56 : 8 = 7.
+00:01:30.870 --> 00:01:33.744
+dan ketiga jarak ke kanan jadi batang kedua.
 
 33
-00:01:44.647 --> 00:01:51.192
-Rumus itu <b>bukan arti</b> rata-rata, cuma cara cepat menemukannya.
+00:01:33.744 --> 00:01:35.180
+3 + 2 + 1 = 1 + 1 + 4.
 
 34
-00:01:51.192 --> 00:01:56.201
-Tiga angka, satu pertanyaan, dan di sini ketiganya kebetulan sama.
+00:01:35.180 --> 00:01:37.009
+Dua batang ini <b>sama panjang</b>.
 
 35
-00:01:56.201 --> 00:02:00.375
-Di video berikutnya satu nilai <b>jauh sendiri</b> ikut masuk,
+00:01:37.009 --> 00:01:39.360
+Itulah sebabnya papan tadi seimbang.
 
 36
-00:02:00.375 --> 00:02:02.424
+00:01:39.360 --> 00:01:43.485
+Barulah rumus yang dihafal masuk akal.
+
+37
+00:01:43.485 --> 00:01:44.685
+56 : 8 = 7.
+
+38
+00:01:44.685 --> 00:01:48.050
+Rumus itu <b>bukan arti</b> rata-rata,
+
+39
+00:01:48.050 --> 00:01:51.192
+cuma cara cepat menemukannya.
+
+40
+00:01:51.192 --> 00:01:53.346
+Tiga angka, satu pertanyaan,
+
+41
+00:01:53.346 --> 00:01:56.193
+dan di sini ketiganya kebetulan sama.
+
+42
+00:01:56.193 --> 00:01:58.039
+Di video berikutnya satu
+
+43
+00:01:58.039 --> 00:02:00.347
+nilai <b>jauh sendiri</b> ikut masuk,
+
+44
+00:02:00.347 --> 00:02:02.424
 dan papan ini akan berlari.
