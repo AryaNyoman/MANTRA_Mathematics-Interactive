@@ -1,5 +1,102 @@
 # Laporan MATRA-VEKTOR
-Terakhir: 2 September 2026, 04.30
+Terakhir: 2 September 2026, 14.30
+
+## Video 1 Materi 01 SELESAI (ManimGL): `media/uji-480p/vektor1-perahu.mp4`
+
+3,84 MB, 105,9 detik, 11 segmen, sudah bersuara narasi Indonesia dan suara latar
+air yang otomatis merendah saat narator bicara. Versi 480p untuk ditinjau ARYA,
+belum masuk situs.
+
+Dikembangkan dari `manim/contoh/contoh_perahu.py`, bukan ditulis dari nol.
+Adegan Manim Community yang lama sudah ditolak ARYA dan kini ada di
+`manim/arsip-manim-ce/scenes/vektor1_perahu.py`.
+
+### Keputusan rancangan: satu pasang angka untuk seluruh video
+Contoh rujukan memakai arus 2 km, sehingga perpindahannya akar 13. Angka itu
+memaksa video punya DUA pasang angka: satu untuk cerita sungai, satu lagi untuk
+memperlihatkan 7, 1, dan 5. Arus diubah jadi **4**, sehingga kasus sungainya
+sendiri sudah kasus tegak lurus yang hasilnya tepat 5, dan memutar arah dayung
+memberi 7 dan 1 **tanpa mengganti angkanya sama sekali**.
+
+Akibatnya halaman ikut disamakan (Materi 01, Materi 10, dan nilai awal widget
+perahu), sebab kalau tidak, halaman bilang arus 2 sementara video bilang arus 4
+untuk perahu yang sama. 51 angka materi tetap lolos `alat/cek_vektor.py`.
+
+Inti video: satu pasang angka, tiga jawaban. Dayung diputar 90 ke 0 ke 180 dan
+kembali ke 90, sementara angka panjang perpindahan merambat HIDUP mengikutinya:
+5,00 ke 7,00 ke 1,00 dan kembali 5,00.
+
+### Daftar periksa STANDAR-ILUSTRASI-VIDEO
+
+- [ya] **Benda nyata dari `gl.ilustrasi`, tidak ada benda berupa titik/garis.**
+  Perahu 3D dari `ilustrasi.perahu`, air dari `air_hidup`, dua tepi dari
+  `tanah`. Tidak ada `Dot` yang mewakili benda.
+- [ya] **Latar hidup dan updater menjaga dunia bergerak saat diam.** Air beriak
+  terus lewat updater, dan perahu mengangguk mengikuti riak lewat
+  `ilustrasi.ayunkan`. Pada babak 7 (pertanyaan) narator diam tetapi dunianya
+  tidak membeku.
+- [ya] **Kamera mulai dari dunia, satu gerakan panjang, tidak ada sentakan.**
+  Babak 1 pandangan miring dekat (phi 72). Babak 2 satu gerakan ke pandangan
+  peta. Babak 7 satu gerakan melebarkan bingkai untuk babak putaran. Paling
+  banyak satu gerakan per babak, semuanya di dalam `b.main`.
+- [ya] **Panah dan label di dunia, rumus di HUD, gambar tidak pernah diganti
+  layar kosong.** Tiga rumus di HUD kanan atas, angka hidup di HUD kiri atas.
+  Bahkan babak penutup pun masih memperlihatkan sungainya.
+- [ya] **Satu warna satu makna; tidak ada kode heksa di adegan.** Biru dayung,
+  merah arus, ungu perpindahan sebenarnya dan kesimpulan, dari babak 3 sampai
+  babak 11 tanpa bertukar. `cek_kode.py` tidak menemukan kode heksa.
+- [ya] **`teks()` untuk kata, `rumus()` untuk angka/rumus.** Satuan ditulis
+  sebagai bagian teks Constantia ("dayung 3 km"), rumus HUD memakai `rumus()`.
+- [ya] **Semua animasi di dalam `sinema.babak`; jeda setelah pertanyaan; tidak
+  ada waktu mati.** Babak 7 memberi jeda 1,6 detik sesudah pertanyaannya, dan
+  selama jeda itu air tetap bergerak.
+- [ya] **`cek_kode` bersih; `periksa_adegan` tiap babak; lembar kontak dibuka
+  dan dinilai; `gabung_audio --uji` jalan.** Sebelas babak, sebelas pemeriksaan.
+- [ya] **Cacat yang tersisa disebut di laporan.** Ada satu, di bawah.
+
+### Empat cacat yang ditangkap gerbang video, semuanya sudah diperbaiki
+
+Tidak satu pun ketahuan dari log. Semuanya ditemukan dengan MEMBUKA lembar
+kontak dan frame lepasnya.
+
+| Cacat | Perbaikannya |
+|---|---|
+| Keterangan tertinggal di belakang gambar: layar menulis "searah: 3 tambah 4 memberi 7" sementara angkanya sudah turun ke 1,00, dan "berlawanan: sisanya tinggal 1" saat angkanya sudah kembali 5,00. | Keterangan dipindah ke DEPAN putaran. Sekarang kalimatnya mengumumkan dulu, angkanya menyusul, persis cara guru. |
+| Label "dayung 3 km" tercoret garis panah arus sampai tidak terbaca pada 180 derajat. | Geseran label dibuat tegak lurus panahnya sendiri, jadi ikut berputar dan selalu berada di sisi yang kosong. |
+| Bingkai babak putaran terlalu sempit: pangkal panah arus dan kedua nama tepi tergunting. | Bingkai dilebarkan dan digeser (tinggi 8,6, pusat x -3,5). |
+| Arah panah merah tidak terbaca pada 0 dan 180 derajat karena ketiga panah segaris dan saling menutupi. Untuk video tentang arah, ini yang paling merusak. | Panah arus diangkat 0,70 satuan (dari 0,45) dan babak putaran dimiringkan 26 derajat (dari 14), sehingga lapisannya terlihat. |
+
+### Cacat yang MASIH ADA, tidak didiamkan
+Pada babak penutup, panah ungu resultan lewat di belakang kalimat penutup.
+Alas krem di belakang teks tembus pandang 0,82 sehingga panahnya masih terlihat
+samar menembus kata-katanya. Teksnya tetap terbaca, jadi saya tidak merender
+ulang untuk keenam kalinya. Kalau ARYA merasa mengganggu, perbaikannya sebaris:
+naikkan kepekatan alasnya, atau geser kalimat penutup ke bawah sungai.
+
+## Butuh MASTER: `qc` meloloskan bingkai yang ternyata terpotong
+
+`qc.ke_layar` di `manim/gl/qc.py` memproyeksikan titik memakai rotasi kamera dan
+penskalaan tinggi bingkai saja, TANPA pembagian perspektif, padahal kamera
+ManimGL memakai perspektif. Akibatnya benda yang diangkat mendekat ke kamera
+dinilai lebih aman daripada kenyataannya.
+
+Terbukti di sesi ini: render lolos `qc.periksa_adegan` tanpa satu pun keluhan,
+tetapi frame detik ke-84 jelas terpotong di tiga tempat sekaligus (pangkal panah
+arus, "tepi seberang", dan "tepi berangkat"). Yang menangkapnya mata, bukan alat.
+
+Ini kena SEMUA sesi yang memakai kamera miring dengan benda pada ketinggian
+berbeda, bukan cuma vektor. `manim/gl/` perkakas bersama, jadi tidak saya sentuh.
+Penambal sementara di adegan saya: margin bingkai dilebihkan dari hitungan, dan
+alasannya ditulis di komentar kodenya supaya tidak dikira kemalasan.
+
+## Sisa lima video, urut prioritas
+Materi 06 segitiga, Materi 08 selisih, Materi 03 komponen, Materi 09 kali
+skalar, Materi 04 Pythagoras. Belum dimulai: menunggu ARYA menonton video 1
+dulu, sebab kelimanya akan memakai gaya, warna, dan irama yang sama.
+
+---
+
+## Catatan sebelumnya (2 Sep dini hari)
 
 ## Pemeriksaan ulang 2 Sep setelah cabang diselaraskan ke master
 
