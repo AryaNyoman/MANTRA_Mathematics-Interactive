@@ -1,0 +1,52 @@
+{
+  "adegan": "SambungPerjalanan",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Vektor Materi 06, Menjumlah itu menyambung perjalanan. Video prioritas KEDUA topik Vektor. Tugasnya menanam aturan ujung ke pangkal lewat orang yang benar-benar berjalan dua kali, bukan lewat dua panah yang tiba-tiba ada. Angkanya sama persis dengan contoh di halaman Materi 06: (3 1) tambah (1 2) sama dengan (4 3), panjangnya 5. Segmen penutup mengulang kalimat sorot tahapnya kata per kata.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Seseorang berdiri di sebuah lapangan berpetak. Ia akan berjalan dua kali, dan kita ingin tahu di mana ia berakhir."
+    },
+    {
+      "id": "jalan1",
+      "teks": "Perjalanan pertama: tiga petak ke kanan dan satu petak ke atas. Panah biru ini merekam jejaknya."
+    },
+    {
+      "id": "jalan2",
+      "teks": "Dari tempat ia berhenti, ia berjalan lagi. Satu petak ke kanan dan dua petak ke atas. Panah merah ini merekam perjalanan kedua."
+    },
+    {
+      "id": "tanya",
+      "teks": "Sekarang lupakan sejenak jalurnya. Dilihat dari titik ia berangkat tadi, ke mana sebenarnya ia berpindah?"
+    },
+    {
+      "id": "resultan",
+      "teks": "Inilah jawabannya, panah ungu, dari titik berangkat langsung ke titik akhir. Panah itu namanya resultan."
+    },
+    {
+      "id": "aturan",
+      "teks": "Perhatikan bentuknya. Pangkal panah merah menempel di ujung panah biru, dan resultannya menutup segitiga itu. Ujung ke pangkal, begitu aturannya."
+    },
+    {
+      "id": "keliru",
+      "teks": "Kalau kedua pangkalnya yang ditempelkan, yang terbentuk bukan resultan. Perhatikan panah putus-putus ini jauh lebih pendek, dan arahnya pun berbeda."
+    },
+    {
+      "id": "komponen",
+      "teks": "Menggambar memang membuat kita paham, tetapi lambat. Begitu kedua vektor sudah berbentuk komponen, pekerjaannya jauh lebih singkat."
+    },
+    {
+      "id": "hitung",
+      "teks": "Jumlahkan yang mendatar dengan yang mendatar: tiga tambah satu sama dengan empat. Lalu yang tegak dengan yang tegak: satu tambah dua sama dengan tiga."
+    },
+    {
+      "id": "panjang",
+      "teks": "Tetapi hati-hati pada panjangnya. Perjalanan pertama sekitar tiga koma satu enam, yang kedua dua koma dua empat. Dijumlahkan menjadi lima koma empat, padahal resultannya tepat lima."
+    },
+    {
+      "id": "tutup",
+      "teks": "Selisih itu bukan kesalahan hitung. Komponen boleh dijumlahkan. Panjang tidak boleh."
+    }
+  ]
+}
