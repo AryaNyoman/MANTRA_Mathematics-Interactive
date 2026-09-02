@@ -1,4 +1,4 @@
-"""Pemeriksa adegan SEBELUM dirender. Menangkap cacat dalam hitungan detik.
+"""Pemeriksa adegan SEBELUM dirender (versi ManimGL). Menangkap cacat dalam hitungan detik.
 
     python manim/cek_kode.py manim/scenes/tahap8_grafik_sin.py
     python manim/cek_kode.py manim/scenes/tahap8_grafik_sin.py --dalam
@@ -34,7 +34,7 @@ from pathlib import Path
 AKAR = Path(__file__).resolve().parent.parent
 
 # Pembuat yang isinya BENAR-BENAR LaTeX. Ini yang boleh dibangun lewat MiKTeX.
-PEMBUAT_TEX = frozenset({"MathTex", "Tex", "SingleStringMathTex"})
+PEMBUAT_TEX = frozenset({"Tex", "TexText"})   # ManimGL. MathTex = Manim Community, dilarang
 
 # `Text` memakai Pango, BUKAN LaTeX. Isinya kalimat biasa dan tidak boleh
 # dicoba dibangun sebagai rumus: kalimat Indonesia yang sah seperti
@@ -167,17 +167,9 @@ def kumpulkan_tex(sumber: str, pohon: ast.AST, t: Temuan) -> list[tuple[int, str
         if nama not in PEMBUAT_SEMUA:
             continue
 
-        # Warna WAJIB disebut. Tanpa `color=`, Manim memakai putih, dan pada
-        # latar krem MATRA putih praktis tidak terlihat. Pada tahap 5 (31 Agu)
-        # itu membuat semua tanda "=", kurung, dan koma lenyap dari layar,
-        # sehingga "(x, y) = (cos t, sin t)" tampil sebagai "x y   cos t sin t".
-        # `qc.periksa_adegan` TIDAK bisa menangkap ini: ia memeriksa posisi,
-        # bukan warna. Jadi gerbangnya harus di sini.
-        if not any(k.arg == "color" for k in simpul.keywords):
-            t.salah(simpul.lineno,
-                    f"{nama}(...) tidak menyebut color=, Manim akan memakai "
-                    f"putih, yang hilang di latar krem. Tulis color=t.tinta "
-                    f"(atau warna tema lain), baru warnai bagiannya.")
+        # Warna: di ManimGL `color=` pada Text DIABAIKAN, jadi kewajibannya
+        # bukan `color=` melainkan gl.teks()/gl.rumus() atau .set_color();
+        # diperiksa di periksa_aturan_matra.
 
         for arg in simpul.args:
             if not (isinstance(arg, ast.Constant) and isinstance(arg.value, str)):
@@ -216,7 +208,7 @@ def periksa_aturan_matra(sumber: str, pohon: ast.AST, t: Temuan) -> None:
             continue
         induk = {b.attr if isinstance(b, ast.Attribute) else getattr(b, "id", "")
                  for b in simpul.bases}
-        if not any("Scene" in n for n in induk):
+        if not any(("Scene" in n) or ("Adegan" in n) for n in induk):
             continue
         panggil = {
             (n.func.attr if isinstance(n.func, ast.Attribute) else getattr(n.func, "id", ""))
@@ -227,12 +219,33 @@ def periksa_aturan_matra(sumber: str, pohon: ast.AST, t: Temuan) -> None:
                     f"kelas {simpul.name} tidak pernah memanggil "
                     f"qc.periksa_adegan, gerbang mutu CLAUDE.md dilanggar")
 
+    # Jebakan ManimGL yang sudah terbukti (2 Sep 2026), semuanya SALAH, bukan peringatan.
+    for n in ast.walk(pohon):
+        if isinstance(n, (ast.ImportFrom, ast.Import)):
+            nama_modul = n.module if isinstance(n, ast.ImportFrom) else n.names[0].name
+            if nama_modul and (nama_modul == "manim" or nama_modul.startswith("manim.")):
+                t.salah(n.lineno, "impor dari `manim` (Community) dilarang, pustaka itu sudah "
+                                  "dicabut. Pakai `from gl import *` (meneruskan manimlib)")
+        if not isinstance(n, ast.Call):
+            continue
+        nama = n.func.attr if isinstance(n.func, ast.Attribute) else getattr(n.func, "id", "")
+        if nama == "MathTex":
+            t.salah(n.lineno, "MathTex adalah Manim Community. Di ManimGL pakai Tex (gl.rumus)")
+        if nama in PEMBUAT_TEKS and any(k.arg == "color" for k in n.keywords):
+            t.salah(n.lineno, f"{nama}(color=...) DIABAIKAN ManimGL: teks jadi putih. "
+                              f"Pakai gl.teks(...) atau .set_color() setelah dibuat")
+        if nama in PEMBUAT_TEX:
+            for a in n.args:
+                if isinstance(a, ast.Constant) and isinstance(a.value, str) and "\\text{" in a.value:
+                    t.salah(n.lineno, "\\text{...} di Tex ManimGL DIBUANG diam-diam (terbukti 2 Sep). "
+                                      "Pakai \mathrm{...} untuk satuan, atau gl.teks() untuk kalimat")
+
     for i, baris in enumerate(sumber.splitlines(), start=1):
         if baris.lstrip().startswith("#"):
             continue
         for w in HEX.findall(baris):
             t.peringatan(i, f"warna ditulis langsung ({w}). Ambil dari "
-                            f"matra_theme.Tema supaya video dan situs tidak berbeda")
+                            f"gl.tema (TINTA, AKSEN, ...) supaya video dan situs tidak berbeda")
 
 
 # ---------------------------------------------------------------------------
@@ -243,7 +256,8 @@ def periksa_dalam(potongan: list[tuple[int, str]], t: Temuan) -> None:
     try:
         sys.path.insert(0, str(Path(__file__).resolve().parent))
         import lingkungan  # noqa: F401  -- menambal PATH MiKTeX
-        from manim import MathTex
+        import tambal_manimgl  # noqa: F401  -- MiKTeX menolak `latex -no-pdf`
+        from manimlib import Tex as MathTex
     except ImportError as e:                                    # pragma: no cover
         t.peringatan(0, f"tidak bisa memuat Manim untuk pemeriksaan dalam: {e}")
         return
