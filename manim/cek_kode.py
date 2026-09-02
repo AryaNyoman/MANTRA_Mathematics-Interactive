@@ -40,7 +40,6 @@ PEMBUAT_TEX = frozenset({"Tex", "TexText", "rumus"})   # ManimGL + gl.rumus. Mat
 NAMA_CE = {
     "Dot3D": "Sphere kecil (ilustrasi.bola) atau lingkaran menghadap kamera",
     "Create": "ShowCreation",
-    "Uncreate": "Uncreate ada, tetapi periksa; untuk garis pakai FadeOut",
     "ThreeDScene": "AdeganMatra (kamera lewat self.frame dan gl.kamera)",
     "ThreeDAxes3D": "ThreeDAxes",
     "add_fixed_in_frame_mobjects": "self.hud_tambah(...) / mob.fix_in_frame()",
@@ -50,7 +49,6 @@ NAMA_CE = {
     "MathTex": "gl.rumus", "SingleStringMathTex": "gl.rumus",
     "Text": "gl.teks (LaTeX); Text Pango tidak dipakai",
     "Paragraph": "gl.teks per baris",
-    "Write": "Write ada di ManimGL, tetapi untuk rumus pakai sinema.lahir_rumus",
 }
 
 # `Text` memakai Pango, BUKAN LaTeX. Isinya kalimat biasa dan tidak boleh
