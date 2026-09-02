@@ -17,6 +17,7 @@ Berhasil digabung bukan berarti videonya benar.
 from __future__ import annotations
 
 import argparse
+import json
 import shutil
 import subprocess
 import sys
@@ -45,6 +46,10 @@ def cari_video(adegan: str, uji: bool = False) -> Path:
     akhiran dicari. Aturan ARYA: semua video dibuat 480p dulu untuk direvisi,
     baru dirender 1080p sekaligus di akhir.
     """
+    # ManimGL (sejak 2 Sep 2026) menulis ke media/gl/<Adegan>.mp4, satu mutu per render.
+    calon_gl = list((AKAR / "media" / "gl").rglob(f"{adegan}.mp4"))
+    if calon_gl:
+        return max(calon_gl, key=lambda p: p.stat().st_mtime)
     calon = []
     for akhiran in ("webm", "mp4"):
         calon += list((AKAR / "media" / "videos").rglob(f"{adegan}.{akhiran}"))
@@ -68,9 +73,20 @@ def main() -> None:
     p.add_argument("--uji", action="store_true",
                    help="gabungkan versi 480p untuk ditinjau ARYA, "
                         "hasilnya ke media/uji-480p/ dan TIDAK disalin ke situs")
+    p.add_argument("--latar", default=None,
+                   help="suara latar dari manim/suara/<nama>.ogg, tipis dan merendah saat narasi. "
+                        "Kalau kosong, dibaca dari kunci \"latar\" di naskah narasi")
     a = p.parse_args()
 
     video = cari_video(a.adegan, uji=a.uji)
+    latar = a.latar
+    if latar is None:
+        naskah = AKAR / "manim" / "narasi" / f"{a.topik}.json"
+        if naskah.exists():
+            latar = json.loads(naskah.read_text(encoding="utf-8")).get("latar")
+    berkas_latar = (AKAR / "manim" / "suara" / f"{latar}.ogg") if latar else None
+    if berkas_latar is not None and not berkas_latar.exists():
+        raise SystemExit(f"suara latar '{latar}' tidak ada: {berkas_latar}. Lihat manim/suara/README.md")
     suara = AKAR / "audio" / a.topik / "narasi-penuh.mp3"
     if not suara.exists():
         raise SystemExit(f"narasi belum dibuat: {suara}\nJalankan dulu: python manim/buat_narasi.py {a.topik}")
@@ -97,11 +113,24 @@ def main() -> None:
         nama = a.keluar or f"{a.topik}.webm"
         hasil = AKAR / "media" / nama
         suara_kode = ["-c:a", "libopus", "-b:a", "72k"]
-    subprocess.run(
-        ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
-         "-c:v", "copy"] + suara_kode + ["-shortest", str(hasil)],
-        check=True,
-    )
+    if berkas_latar is None:
+        perintah = ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
+                    "-c:v", "copy"] + suara_kode + ["-shortest", str(hasil)]
+    else:
+        # Latar dikecilkan (0,12), lalu DITEKAN lagi tiap kali narasi berbunyi
+        # (sidechaincompress: narasi = pengendali). amix normalize=0 supaya
+        # narasinya tidak ikut dikecilkan. Hasilnya: pemanis, bukan pesaing.
+        saring = (
+            f"[2:a]volume=0.12,atrim=0:{dv:.3f}[bg];"
+            "[bg][1:a]sidechaincompress=threshold=0.015:ratio=6:attack=40:release=700[duck];"
+            "[1:a][duck]amix=inputs=2:duration=first:normalize=0[a]"
+        )
+        perintah = ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
+                    "-stream_loop", "-1", "-i", str(berkas_latar),
+                    "-filter_complex", saring, "-map", "0:v", "-map", "[a]",
+                    "-c:v", "copy"] + suara_kode + ["-shortest", str(hasil)]
+        print(f"latar  : {berkas_latar.relative_to(AKAR)}  (tipis, merendah saat narasi)")
+    subprocess.run(perintah, check=True)
 
     mb = hasil.stat().st_size / 1024 / 1024
     print(f"\nhasil  : {hasil.relative_to(AKAR)}  {mb:.2f} MB  {durasi(hasil):.2f} detik")

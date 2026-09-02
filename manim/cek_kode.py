@@ -34,7 +34,7 @@ from pathlib import Path
 AKAR = Path(__file__).resolve().parent.parent
 
 # Pembuat yang isinya BENAR-BENAR LaTeX. Ini yang boleh dibangun lewat MiKTeX.
-PEMBUAT_TEX = frozenset({"Tex", "TexText"})   # ManimGL. MathTex = Manim Community, dilarang
+PEMBUAT_TEX = frozenset({"Tex", "TexText", "rumus"})   # ManimGL + gl.rumus. MathTex = Manim Community, dilarang
 
 # `Text` memakai Pango, BUKAN LaTeX. Isinya kalimat biasa dan tidak boleh
 # dicoba dibangun sebagai rumus: kalimat Indonesia yang sah seperti
@@ -44,7 +44,7 @@ PEMBUAT_TEX = frozenset({"Tex", "TexText"})   # ManimGL. MathTex = Manim Communi
 # Isinya TETAP diperiksa untuk karakter kendali dan kewajiban color=, sebab
 # TAB nyasar dan teks putih di latar krem sama merugikannya di Text maupun
 # di MathTex.
-PEMBUAT_TEKS = frozenset({"Text", "MarkupText", "Paragraph"})
+PEMBUAT_TEKS = frozenset({"Text", "MarkupText", "Paragraph", "teks"})   # + gl.teks
 PEMBUAT_SEMUA = PEMBUAT_TEX | PEMBUAT_TEKS
 
 # Perintah LaTeX yang WAJIB diikuti sejumlah argumen berkurung.
