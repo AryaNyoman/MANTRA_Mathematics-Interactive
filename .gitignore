@@ -36,3 +36,6 @@ audio/trigonometri/
 
 # artefak pemeriksaan playwright-cli
 .playwright-cli/
+
+# Folder keluaran bawaan ManimGL kalau lupa --video_dir
+videos/
