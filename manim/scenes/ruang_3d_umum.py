@@ -169,7 +169,14 @@ def papan_koordinat(frame, sumbu_z=True, sampai=None, tekan=None):
         (np.array([0.0, 1.0, 0.0]), np.array([-1.0, 0.0, 0.0]), "y"),
     ]
     if sumbu_z:
-        bagian.append((np.array([0.0, 0.0, 1.0]), np.array([-0.7, -0.7, 0.0]), "z"))
+        # Angka sumbu z sengaja dikeluarkan ke arah yang BERBEDA dari sumbu y.
+        # Percobaan pertama memakai (-0,7, -0,7): arah itu benar secara ruang
+        # (menjauh dari kubus) tetapi di layar kolom angkanya bertumpuk dengan
+        # kolom angka sumbu y, dan di materi 03 hasilnya dua deret angka yang
+        # berdempetan di tepi kiri sampai tidak terbaca.
+        arah_keluar = np.array([-0.45, -0.9, 0.0])
+        bagian.append((np.array([0.0, 0.0, 1.0]),
+                       arah_keluar / np.linalg.norm(arah_keluar), "z"))
 
     gambar = VGroup()
     label = []
@@ -187,7 +194,10 @@ def papan_koordinat(frame, sumbu_z=True, sampai=None, tekan=None):
             label.append(label_hadap(
                 frame, str(k), titik + keluar * 0.95,
                 SOROT if ditekan else REDUP, 34 if ditekan else 26))
-        label.append(label_hadap(frame, nama, arah * (ujung + 0.55), REDUP, 28))
+        # Nama sumbu diangkat sedikit dari bidang alas: tanpa itu ia berdesakan
+        # dengan huruf titik sudut B dan D yang juga ada di dekat ujung sumbu.
+        label.append(label_hadap(
+            frame, nama, arah * (ujung + 0.55) + np.array([0.0, 0.0, 0.62]), REDUP, 28))
     label.append(label_hadap(frame, "0", np.array([-0.62, -0.62, 0.0]), REDUP, 26))
     return gambar, label
 

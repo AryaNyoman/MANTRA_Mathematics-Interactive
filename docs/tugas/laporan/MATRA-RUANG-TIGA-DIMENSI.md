@@ -588,3 +588,96 @@ bukan lolos seperti sebelumnya.
    untuk diikuti) dan materi 09 (isinya dua ide besar dalam satu video 94 detik,
    paling panjang di antara keenamnya).
 2. Kalau semuanya lolos, langkah berikutnya gelombang 3: render 1080p60.
+
+---
+
+# Revisi ARYA atas video, 2 September 2026 malam
+
+Catatan berjalan. ARYA menonton keenam video dan memberi revisi yang berlaku
+UNIVERSAL, bukan per video. Ditulis di sini supaya MASTER bisa meneruskannya ke
+sesi lain, sebab tiga dari lima butir mengenai semua topik, bukan cuma Ruang 3D.
+
+## Yang diminta ARYA, apa adanya
+
+1. "Wajib memberikan satuan angka pada titik koordinat X Y nya, jangan dibiarkan
+   polos, siswa sulit melihatnya."
+2. "Bila perlu buatkan sumbu Z beserta satuan angkanya jika suatu saat
+   membicarakan masalah tinggi."
+3. "Wajib juga menuliskan semua titik pada bangun 3 dimensi, walaupun dia tidak
+   dipergunakan, tapi tetap diberikan warna yang berbeda karena dia yang akan
+   disorot saat itu."
+4. Subtitle: harus ada, harus memuat SELURUH kalimat narator, tetapi ditulis
+   dengan lambang, bukan kata. "Tujuh puluh dua" ditulis 72, "akar" ditulis
+   dengan lambang akarnya, "ruas AB" ditulis AB dengan garis di atasnya.
+   Subtitle juga tidak boleh menghalangi gambar atau objek matematika.
+5. Video 01 khusus: "Darimana jarak 6 satuan itu? mohon diperjelas lagi dengan
+   memberikan tinggi 6 satuan misalnya di atas sumbu Z."
+
+## Yang sudah dikerjakan
+
+### Koordinat kubus dibetulkan lebih dulu, sebelum angka dipasang
+
+Ini tidak diminta, tetapi wajib dikerjakan supaya permintaan nomor 1 tidak
+menjadi jebakan. Versi pertama video memusatkan kubus di titik asal, sehingga
+titik A jatuh di (-3, -3, 0). Begitu sumbu diberi angka, siswa akan membaca
+A(-3, -3, 0) padahal di HALAMAN dan di `alat/cek_ruang.py` titik A ada di
+(0, 0, 0). Angka yang saling bertentangan lebih buruk daripada tidak ada angka.
+
+Kubus digeser: A di titik asal, B di enam pada sumbu x, D di enam pada sumbu y,
+E di enam pada sumbu z. Sekarang video, halaman, dan pemeriksa sympy memakai
+koordinat yang sama persis.
+
+### Papan koordinat berangka (`papan_koordinat` di `ruang_3d_umum.py`)
+
+Sumbu x, y, z dengan panah, tanda centang di tiap satuan, dan angka 1 sampai 6
+di ketiganya, plus angka 0 di titik asal. Sumbunya digambar tipis dan redup,
+berimpit dengan rusuk AB, AD, dan AE. Menggesernya keluar kubus akan lebih rapi
+dipandang tetapi salah: sumbu harus lewat titik asal, dan titik asal adalah A.
+
+Ada parameter `tekan` untuk MENYOROT angka tertentu (dipakai video 01 untuk
+angka 6 di sumbu z).
+
+### Kedelapan huruf titik sudut, selalu
+
+`huruf_sudut` sekarang menulis A sampai H tanpa kecuali. Yang sedang dibahas
+diberi warna dan ukuran lebih besar; sisanya redup dan lebih kecil. Persis
+permintaan nomor 3.
+
+### Video 01: dari mana angka enam itu
+
+Garis putus-putus ungu menarik titik silang atas MENDATAR ke sumbu z, tepat di
+angka 6 yang disorot ungu dan diperbesar. Jadi enam satuan tidak diumumkan
+begitu saja lewat panel; siswa bisa membacanya sendiri di sumbu, sejajar dengan
+ujung tiang ungu.
+
+### Subtitle: isi utuh, bentuk ringkas
+
+Naskah narasi sekarang boleh memuat field `subtitle` di tiap segmen: bentuk
+TULIS yang berbeda dari bentuk UCAP. Yang diucapkan "tujuh puluh dua" ditulis
+"72"; "enam akar tiga" ditulis "6√3"; "ruas AC" ditulis dengan garis di atas
+hurufnya memakai U+0305, sehingga bekerja di WebVTT tanpa menyentuh CSS situs
+yang bukan wilayah sesi ini. Isinya UTUH, seluruh kalimat narator muncul.
+
+Keenam berkas `.vtt` dibuat, dan disalin juga ke `media/uji-480p/` di sebelah
+mp4-nya, supaya ARYA melihat subtitle saat menonton di pemutar biasa. Subtitle
+tidak dibakar ke gambar, jadi tidak mungkin menghalangi objek matematika, dan
+bisa dimatikan (alasan yang sama yang dipakai sejak 31 Agustus).
+
+## BUTUH MASTER: satu baris di `manim/buat_subtitle.py`
+
+Berkas itu bukan wilayah saya, jadi perubahannya dibuat sebagai commit
+tersendiri sesuai aturan. Isinya satu baris:
+
+    potongan = [tebalkan(x) for x in pecah(seg.get("subtitle") or seg["teks"])]
+
+Mundur-kompatibel penuh: naskah yang tidak punya field `subtitle` berjalan
+persis seperti sebelumnya. Tanpa baris ini, permintaan ARYA nomor 4 tidak bisa
+dipenuhi oleh sesi mana pun.
+
+## Yang perlu diteruskan MASTER ke sesi lain
+
+Butir 1, 2, dan 4 berlaku untuk SEMUA topik yang menggambar sumbu koordinat,
+bukan cuma Ruang 3D. Grafik Fungsi dan Statistika kemungkinan besar kena butir
+yang sama. Ongkosnya sudah saya ukur, bukan ditebak: 29 label yang harus
+diputar mengikuti kamera tiap frame membuat render berjalan 5,5 frame per
+detik, jadi video 85 detik selesai sekitar 9 menit di 480p. Masih murah.

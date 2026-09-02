@@ -56,7 +56,9 @@ class SudutGarisBersilangan(AdeganMatra):
         kamera.pasang_awal(frame, theta=-46, phi=72, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
         # Papan koordinat berangka: tanpa ini kalimat "enam satuan" di narasi
         # tidak punya sandaran apa pun di layar (revisi ARYA 2 Sep malam).
-        sumbu, angka_sumbu = papan_koordinat(frame)
+        # Tanpa sumbu z: materi ini tidak membicarakan tinggi sama sekali,
+        # dan tiga deret angka sekaligus membuat tepi kiri layar penuh.
+        sumbu, angka_sumbu = papan_koordinat(frame, sumbu_z=False)
         self.add(lantai(), sumbu, *angka_sumbu, kubus)
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 08: Sudut dua garis bersilangan",
