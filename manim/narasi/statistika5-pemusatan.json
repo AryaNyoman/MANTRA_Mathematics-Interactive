@@ -2,11 +2,12 @@
   "adegan": "Pemusatan5",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Tahap 5 Statistika. Inti video: mean bukan sekadar jumlah dibagi banyaknya, melainkan titik tempat data seimbang. Pembuka mengumumkan materinya (STANDAR-MENGAJAR bagian 5 aturan 8). Penanda *kata* jadi tebal di subtitle dan keterangan layar, dibuang mesin suara (aturan 9). Storyboard: docs/superpowers/specs/2026-09-02-statistika-video-5-storyboard.md",
+  "catatan": "Tahap 5 Statistika. Inti video: mean bukan sekadar jumlah dibagi banyaknya, melainkan titik tempat data seimbang. Pembuka mengumumkan materinya (STANDAR-MENGAJAR bagian 5 aturan 8). Penanda *kata* jadi tebal (aturan 9). Medan `tulis` adalah bentuk TERTULIS untuk subtitle: mesin suara butuh angka dieja, pembaca subtitle lebih cepat menangkap lambangnya. Permintaan ARYA 2 Sep 2026. Kalau `tulis` tidak ada, subtitle memakai `teks`.",
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Materi lima Statistika: *rata-rata, median, dan modus*. Materi sebelumnya membandingkan dua kelompok. Sekarang delapan siswa baru selesai ulangan. Nilainya biasanya berapa?"
+      "teks": "Materi lima Statistika: *rata-rata, median, dan modus*. Materi sebelumnya membandingkan dua kelompok. Sekarang delapan siswa baru selesai ulangan. Nilainya biasanya berapa?",
+      "tulis": "Materi 05 Statistika: *rata-rata, median, dan modus*. Materi sebelumnya membandingkan dua kelompok. Sekarang 8 siswa baru selesai ulangan. Nilainya biasanya berapa?"
     },
     {
       "id": "berbaris",
@@ -14,11 +15,13 @@
     },
     {
       "id": "modus",
-      "teks": "Jawaban pertama ada di barisan paling tebal. Di angka tujuh ada dua orang, di delapan juga dua. Itulah *modus*, dan data ini punya dua."
+      "teks": "Jawaban pertama ada di barisan paling tebal. Di angka tujuh ada dua orang, di delapan juga dua. Itulah *modus*, dan data ini punya dua.",
+      "tulis": "Jawaban pertama ada di barisan paling tebal. Di angka 7 ada 2 orang, di 8 juga 2. Itulah *modus*, dan data ini punya dua."
     },
     {
       "id": "median",
-      "teks": "Jawaban kedua: belah barisan jadi dua sama banyak. Empat di kiri, empat di kanan. Sekatnya jatuh di angka tujuh, dan itulah *mediannya*."
+      "teks": "Jawaban kedua: belah barisan jadi dua sama banyak. Empat di kiri, empat di kanan. Sekatnya jatuh di angka tujuh, dan itulah *mediannya*.",
+      "tulis": "Jawaban kedua: belah barisan jadi dua sama banyak. 4 di kiri, 4 di kanan. Sekatnya jatuh di angka 7, dan itulah *mediannya*."
     },
     {
       "id": "tanya",
@@ -26,15 +29,18 @@
     },
     {
       "id": "papan",
-      "teks": "Kita ubah garis bilangan ini jadi papan *jungkat-jungkit*, dan berat tiap siswa dianggap sama. Tumpuannya kita taruh dulu di angka delapan."
+      "teks": "Kita ubah garis bilangan ini jadi papan *jungkat-jungkit*, dan berat tiap siswa dianggap sama. Tumpuannya kita taruh dulu di angka delapan.",
+      "tulis": "Kita ubah garis bilangan ini jadi papan *jungkat-jungkit*, dan berat tiap siswa dianggap sama. Tumpuannya kita taruh dulu di angka 8."
     },
     {
       "id": "miring",
-      "teks": "Papannya langsung *jatuh ke kiri*. Dilihat dari angka delapan, orang di sebelah kiri jaraknya jauh lebih besar daripada yang di kanan."
+      "teks": "Papannya langsung *jatuh ke kiri*. Dilihat dari angka delapan, orang di sebelah kiri jaraknya jauh lebih besar daripada yang di kanan.",
+      "tulis": "Papannya langsung *jatuh ke kiri*. Dilihat dari angka 8, orang di sebelah kiri jaraknya jauh lebih besar daripada yang di kanan."
     },
     {
       "id": "geser",
-      "teks": "Jadi tumpuannya kita geser pelan ke kiri. Delapan, tujuh koma lima, tujuh koma dua, lalu berhenti tepat di *tujuh*. Papannya mendatar."
+      "teks": "Jadi tumpuannya kita geser pelan ke kiri. Delapan, tujuh koma lima, tujuh koma dua, lalu berhenti tepat di *tujuh*. Papannya mendatar.",
+      "tulis": "Jadi tumpuannya kita geser pelan ke kiri. 8, lalu 7,5, lalu 7,2, lalu berhenti tepat di *7*. Papannya mendatar."
     },
     {
       "id": "bukti",
@@ -42,7 +48,8 @@
     },
     {
       "id": "rumus",
-      "teks": "Barulah rumus yang dihafal masuk akal. Lima puluh enam dibagi delapan, hasilnya tujuh. Rumus itu *bukan arti* rata-rata, cuma cara cepat menemukannya."
+      "teks": "Barulah rumus yang dihafal masuk akal. Lima puluh enam dibagi delapan, hasilnya tujuh. Rumus itu *bukan arti* rata-rata, cuma cara cepat menemukannya.",
+      "tulis": "Barulah rumus yang dihafal masuk akal. 56 dibagi 8, hasilnya 7. Rumus itu *bukan arti* rata-rata, cuma cara cepat menemukannya."
     },
     {
       "id": "tutup",

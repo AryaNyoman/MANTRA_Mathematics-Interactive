@@ -111,6 +111,15 @@ def bilah(panjang, tinggi=0.30, warna=AKSEN):
 
 
 class Pemusatan5(AdeganMatra):
+    # Penghalus tepi. Bawaan Scene ManimGL samples = 0, dan komentar di
+    # manimlib/camera/camera.py sendiri berbunyi "for 3d scenes one might want
+    # to set samples to be greater than 0"; ThreeDScene bawaannya memang 4.
+    # AdeganMatra mewarisi Scene, jadi 0, dan itulah sebab tepi papan serta
+    # badan orang bergerigi seperti tangga. Temuan ARYA 2 Sep 2026: "masih
+    # terlihat kotak-kotak". Bukan semata soal 480p; tanpa ini 1080p pun
+    # bergerigi, hanya lebih halus karena pikselnya lebih kecil.
+    samples = 4
+
     def construct(self):
         frame = self.frame
 
