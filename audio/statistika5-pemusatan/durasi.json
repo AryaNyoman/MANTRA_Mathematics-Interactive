@@ -1,16 +1,16 @@
 {
-  "total": 123.312,
+  "total": 122.424,
   "segmen": {
-    "sapa": 9.264,
-    "berbaris": 7.848,
-    "modus": 13.416,
+    "sapa": 15.024,
+    "berbaris": 7.872,
+    "modus": 11.208,
     "median": 11.664,
-    "tanya": 11.784,
+    "tanya": 11.52,
     "papan": 9.192,
     "miring": 8.76,
     "geser": 11.712,
-    "bukti": 14.664,
-    "rumus": 12.528,
-    "tutup": 12.48
+    "bukti": 12.408,
+    "rumus": 11.832,
+    "tutup": 11.232
   }
 }

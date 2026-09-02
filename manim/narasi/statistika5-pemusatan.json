@@ -2,51 +2,51 @@
   "adegan": "Pemusatan5",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Tahap 5 Statistika. Inti video: mean bukan sekadar jumlah dibagi banyaknya, melainkan titik tempat data seimbang. Rumus mean sengaja ditahan sampai segmen kesepuluh, setelah papan jungkat-jungkitnya membuktikan artinya. Modus ditandai bentuk (siswa bertumpuk), bukan warna, supaya aturan satu warna satu makna tetap utuh. Storyboard: docs/superpowers/specs/2026-09-02-statistika-video-5-storyboard.md",
+  "catatan": "Tahap 5 Statistika. Inti video: mean bukan sekadar jumlah dibagi banyaknya, melainkan titik tempat data seimbang. Pembuka mengumumkan materinya (STANDAR-MENGAJAR bagian 5 aturan 8). Penanda *kata* jadi tebal di subtitle dan keterangan layar, dibuang mesin suara (aturan 9). Storyboard: docs/superpowers/specs/2026-09-02-statistika-video-5-storyboard.md",
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Delapan siswa baru selesai ulangan, dan nilainya ada di layar. Kalau ditanya nilainya biasanya berapa, Anda jawab apa?"
+      "teks": "Materi lima Statistika: *rata-rata, median, dan modus*. Materi sebelumnya membandingkan dua kelompok. Sekarang delapan siswa baru selesai ulangan. Nilainya biasanya berapa?"
     },
     {
       "id": "berbaris",
-      "teks": "Mari mereka berdiri di garis bilangan, tepat di angka nilainya. Yang nilainya sama berjajar ke belakang."
+      "teks": "Mari mereka berdiri di garis bilangan, tepat di angka nilainya. Yang nilainya *sama* berdiri berdampingan."
     },
     {
       "id": "modus",
-      "teks": "Jawaban pertama ada di barisan yang paling tebal. Di angka tujuh ada dua orang, di delapan juga dua. Itulah modus. Data ini punya dua modus, dan itu sah."
+      "teks": "Jawaban pertama ada di barisan paling tebal. Di angka tujuh ada dua orang, di delapan juga dua. Itulah *modus*, dan data ini punya dua."
     },
     {
       "id": "median",
-      "teks": "Jawaban kedua: belah barisan jadi dua sama banyak. Empat di kiri, empat di kanan. Sekatnya jatuh di angka tujuh, dan itulah mediannya."
+      "teks": "Jawaban kedua: belah barisan jadi dua sama banyak. Empat di kiri, empat di kanan. Sekatnya jatuh di angka tujuh, dan itulah *mediannya*."
     },
     {
       "id": "tanya",
-      "teks": "Jawaban ketiga paling sering dihafal, tetapi paling jarang dimengerti. Rata-rata. Semua tahu cara menghitungnya. Tetapi ia angka apa?"
+      "teks": "Jawaban ketiga paling sering dihafal, tetapi paling jarang dimengerti. *Rata-rata*. Semua tahu menghitungnya. Tetapi ia angka apa?"
     },
     {
       "id": "papan",
-      "teks": "Kita ubah garis bilangan ini jadi papan jungkat-jungkit, dan berat tiap siswa dianggap sama. Tumpuannya kita taruh dulu di angka delapan."
+      "teks": "Kita ubah garis bilangan ini jadi papan *jungkat-jungkit*, dan berat tiap siswa dianggap sama. Tumpuannya kita taruh dulu di angka delapan."
     },
     {
       "id": "miring",
-      "teks": "Papannya langsung jatuh ke kiri. Dilihat dari angka delapan, orang di sebelah kiri jaraknya jauh lebih besar daripada yang di kanan."
+      "teks": "Papannya langsung *jatuh ke kiri*. Dilihat dari angka delapan, orang di sebelah kiri jaraknya jauh lebih besar daripada yang di kanan."
     },
     {
       "id": "geser",
-      "teks": "Jadi tumpuannya kita geser pelan ke kiri. Delapan, tujuh koma lima, tujuh koma dua, lalu berhenti tepat di tujuh. Papannya mendatar."
+      "teks": "Jadi tumpuannya kita geser pelan ke kiri. Delapan, tujuh koma lima, tujuh koma dua, lalu berhenti tepat di *tujuh*. Papannya mendatar."
     },
     {
       "id": "bukti",
-      "teks": "Lihat kenapa berhenti di situ. Jarak ke kiri: tiga, dua, satu, jumlahnya enam. Jarak ke kanan: satu, satu, empat, jumlahnya juga enam."
+      "teks": "Sekarang ketiga jarak ke kiri kita jajarkan jadi satu batang, dan ketiga jarak ke kanan jadi batang kedua. Dua batang ini *sama panjang*. Itulah sebabnya papan tadi seimbang."
     },
     {
       "id": "rumus",
-      "teks": "Barulah rumus yang dihafal itu masuk akal. Lima puluh enam dibagi delapan, hasilnya tujuh. Rumus itu bukan arti rata-rata, cuma cara cepat menemukan titik seimbangnya."
+      "teks": "Barulah rumus yang dihafal masuk akal. Lima puluh enam dibagi delapan, hasilnya tujuh. Rumus itu *bukan arti* rata-rata, cuma cara cepat menemukannya."
     },
     {
       "id": "tutup",
-      "teks": "Tiga angka, satu pertanyaan, dan di sini ketiganya kebetulan sama. Di video berikutnya satu nilai yang jauh sendiri ikut masuk: papan ini akan berlari, sekat ungunya diam."
+      "teks": "Tiga angka, satu pertanyaan, dan di sini ketiganya kebetulan sama. Di video berikutnya satu nilai *jauh sendiri* ikut masuk, dan papan ini akan berlari."
     }
   ]
 }
