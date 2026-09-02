@@ -54,18 +54,33 @@ def teks(s: str, ukuran: float = UKURAN_LABEL, warna: str = TINTA, mentah: bool 
         # `*kata*` = TEBAL, penanda yang sama dengan subtitle di naskah narasi
         # (aturan ARYA: kata yang dipertegas dicetak tebal).
         s = re.sub(r"\*([^*]+)\*", r"\\textbf{\1}", s)
-    return TexText(s, font_size=ukuran).set_color(warna)
+    m = TexText(s, font_size=ukuran).set_color(warna)
+    m.ukuran_matra = ukuran   # JANGAN baca m.font_size: di ManimGL itu faktor skala, bukan poin
+    return m
 
 
 def rumus(s: str, ukuran: float = UKURAN_RUMUS, warna: str = TINTA) -> Tex:
     """Angka berdiri sendiri dan rumus: LaTeX lewat MiKTeX. Tulis dengan awalan r."""
-    return Tex(s, font_size=ukuran).set_color(warna)
+    m = Tex(s, font_size=ukuran).set_color(warna)
+    m.ukuran_matra = ukuran   # JANGAN baca m.font_size: di ManimGL itu faktor skala, bukan poin
+    return m
 
 
 class AdeganMatra(Scene):
     """Kelas dasar semua adegan MATRA."""
 
     default_camera_config = dict(background_color=LATAR)
+
+    # PENGHALUSAN PINGGIRAN (anti-aliasing multisample).
+    # `Scene.samples` bawaan ManimGL adalah 0, artinya penghalusan MATI, dan
+    # ARYA melihatnya langsung pada 2 Sep malam: "pinggiran luarnya kurang
+    # halus". ManimGL sendiri memakai 4 untuk adegan tiga dimensi bawaannya;
+    # `AdeganMatra` cuma kebetulan mewarisi angka nol.
+    #
+    # Ini atribut KELAS SCENE, bukan bagian `default_camera_config`. Menaruhnya
+    # di config kamera menghasilkan galat "got multiple values for keyword
+    # argument 'samples'", sebab Scene sudah meneruskannya sendiri.
+    samples = 4
 
     def setup(self):
         self.t = Tema()

@@ -35,7 +35,7 @@ import AsimtotRasional, {
 } from '@/components/widget/grafik-fungsi/AsimtotRasional'
 import DuaMesin, {
   BATAS_MASUK, G_RUMUS, INVERS, NAMA_F, RUMUS_FG, RUMUS_GF, jejakAngka,
-  type MesinF, type ModeMesin,
+  type MesinF,
 } from '@/components/widget/grafik-fungsi/DuaMesin'
 import DuniaNyataGrafik from '@/components/widget/grafik-fungsi/DuniaNyataGrafik'
 import { angka } from '@/components/widget/grafik-fungsi/koordinat'
@@ -102,8 +102,12 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
   const [hRas, setHRas] = useState(0)
   const [kRas, setKRas] = useState(0)
 
+  // Sejak tahap 11 dipecah, mode widget mesin TIDAK lagi dipilih siswa lewat
+  // tombol: tahap 11 selalu komposisi dan tahap 12 selalu invers. Tombol
+  // pemilih mode dulu membuat siswa bisa membuka pelajaran tahap berikutnya
+  // sebelum waktunya, dan menambah satu kendali yang tidak menjelaskan apa pun
+  // di halaman yang sedang dibacanya.
   const [mesin, setMesin] = useState<MesinF>('kuadrat')
-  const [modeMesin, setModeMesin] = useState<ModeMesin>('komposisi')
   const [masukMesin, setMasukMesin] = useState(4)
 
   /** Simpan bentuk sekarang sebagai bayangan, tepat sebelum penggeser digerakkan. */
@@ -471,23 +475,16 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
           </>
         )}
 
-        {tampilWidget && tahap.widget === 'dua-mesin' && (
+        {tampilWidget && (tahap.widget === 'dua-mesin' || tahap.widget === 'mesin-balik') && (
           <>
             <div className="layar">
-              <DuaMesin mesin={mesin} mode={modeMesin} masuk={masukMesin} />
+              <DuaMesin
+                mesin={mesin}
+                mode={tahap.widget === 'dua-mesin' ? 'komposisi' : 'invers'}
+                masuk={masukMesin}
+              />
             </div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label><span>Yang ditunjukkan</span></label>
-                <div className="pilih-sisi">
-                  <button aria-pressed={modeMesin === 'komposisi'} onClick={() => setModeMesin('komposisi')}>
-                    Dua urutan komposisi
-                  </button>
-                  <button aria-pressed={modeMesin === 'invers'} onClick={() => setModeMesin('invers')}>
-                    Invers dan cerminnya
-                  </button>
-                </div>
-              </div>
               <div style={{ gridColumn: '1 / -1' }}>
                 <label><span>Mesin f</span></label>
                 <div className="pilih-sisi">
@@ -511,7 +508,7 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
               <div className="skala-info">
                 <span className="titik" />
                 <span>
-                  {modeMesin === 'komposisi'
+                  {tahap.widget === 'dua-mesin'
                     ? 'dua kurva berbeda berarti urutan mesin memang berpengaruh'
                     : INVERS[mesin]
                       ? 'satu-satu, jadi inversnya ada dan grafiknya cerminan terhadap y = x'
@@ -795,7 +792,7 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
           </div>
         )}
 
-        {tampilWidget && tahap.widget === 'dua-mesin' && (
+        {tampilWidget && (tahap.widget === 'dua-mesin' || tahap.widget === 'mesin-balik') && (
           <div className="blok">
             <div className="cap">Perjalanan angka {angka(masukMesin, 1)}</div>
             <table className="tabel-angka">
@@ -813,7 +810,7 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
               </tbody>
             </table>
             <div className="catatan">
-              {modeMesin === 'invers'
+              {tahap.widget === 'mesin-balik'
                 ? INVERS[mesin]
                   ? 'Fungsi ini satu-satu, jadi inversnya ada. Grafik inversnya adalah cerminan grafik aslinya terhadap garis y = x.'
                   : 'Fungsi kuadrat tidak satu-satu: dua masukan berbeda memberi keluaran yang sama, misalnya 3 dan -3 sama-sama memberi 10. Karena itu inversnya tidak ada, kecuali domainnya dibatasi.'

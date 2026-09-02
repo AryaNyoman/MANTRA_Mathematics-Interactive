@@ -85,8 +85,8 @@ export const LATIHAN: Soal[] = [
     benar: 3,
     jawaban: '10 tahun',
     pembahasan: [
-      'Bunga majemuk berarti saldonya DIKALIKAN 1,12 tiap tahun, bukan ditambah jumlah tetap. Jadi rumusnya y = 2.000.000 x 1,12 pangkat x.',
-      'Yang dicari: kapan 2.000.000 x 1,12 pangkat x melewati 6.000.000, yaitu kapan 1,12 pangkat x melewati 3.',
+      'Bunga majemuk berarti saldonya DIKALIKAN 1,12 tiap tahun, bukan ditambah jumlah tetap. Jadi rumusnya y = 2.000.000 × 1,12 pangkat x.',
+      'Yang dicari: kapan 2.000.000 × 1,12 pangkat x melewati 6.000.000, yaitu kapan 1,12 pangkat x melewati 3.',
       'Tahun ke-8: 1,12 pangkat 8 sekitar 2,476, jadi saldonya sekitar Rp4.952.000. Belum cukup.',
       'Tahun ke-9: 1,12 pangkat 9 sekitar 2,773, jadi saldonya sekitar Rp5.546.000. Masih kurang.',
       'Tahun ke-10: 1,12 pangkat 10 sekitar 3,106, jadi saldonya sekitar Rp6.212.000. Sudah lewat, jadi jawabannya 10 tahun.',

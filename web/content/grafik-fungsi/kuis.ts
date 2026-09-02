@@ -12,7 +12,7 @@ import type { SoalKuis } from '@/content/tipe'
  * dan Uji Kompetensi Bab 1 buku Kelas XI halaman cetak 63, yang membalik arah
  * pertanyaan menjadi "diketahui f(f(x)) = 4x + 6, tentukan b".
  *
- * SEBARANNYA: 8 mudah, 10 sedang, 8 sulit, 6 sangat sulit, mencakup kedua belas
+ * SEBARANNYA: 8 mudah, 10 sedang, 8 sulit, 6 sangat sulit, mencakup ketiga belas
  * tahap. Yang bertingkat sangat sulit sengaja menuntut dua langkah berpikir,
  * bukan sekadar angka yang lebih besar.
  *
@@ -325,7 +325,7 @@ export const KUIS: SoalKuis[] = [
     pertanyaan: 'Bilangan x memenuhi 2 pangkat x sama dengan 20. Nilai x terletak di antara?',
     pilihan: ['4 dan 5', '3 dan 4', '9 dan 10', '10 dan 11', '19 dan 20'],
     benar: 0,
-    alasan: 'Cukup mengapit dengan pangkat yang mudah: 2 pangkat 4 sama dengan 16, dan 2 pangkat 5 sama dengan 32. Karena 20 ada di antara 16 dan 32, maka x ada di antara 4 dan 5. Pilihan C adalah jebakan pembagian, yaitu mengira 20 dibagi 2 memberi jawabannya.',
+    alasan: 'Cukup mengapit dengan pangkat yang sudah dikenal: 2 pangkat 4 sama dengan 16, dan 2 pangkat 5 sama dengan 32. Karena 20 ada di antara 16 dan 32, maka x ada di antara 4 dan 5. Pilihan C adalah jebakan pembagian, yaitu mengira 20 dibagi 2 memberi jawabannya.',
     tingkat: 'sangat sulit',
   },
   {

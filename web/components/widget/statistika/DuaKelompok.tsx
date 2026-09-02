@@ -92,7 +92,9 @@ export default function DuaKelompok({ children }: PropWidget) {
         <svg ref={svgRef} viewBox={`0 0 ${VW} ${VH}`} preserveAspectRatio="xMidYMid meet"
              role="img" aria-label="Dua kelompok nilai di atas garis bilangan, kelompok bawah bisa digeser"
              {...propSvg}>
-          <text x={KIRI} y={20} fontSize={11} fontFamily={MONO} fill={PERAN.tinta}>
+          {/* y 42, bukan lebih atas: lencana "INTERAKTIF" menempel di pojok
+              kiri atas panel dan pada layar HP ia menutupi baris ini. */}
+          <text x={KIRI} y={42} fontSize={11} fontFamily={MONO} fill={PERAN.tinta}>
             Kelas A, tidak bisa digeser
           </text>
           <Penanda x={ke(rA.mean)} dariY={DASAR_A - 62} sampaiY={DASAR_A} warna={PERAN.sorot}

@@ -79,7 +79,7 @@ export default function LebarKelas({ children }: PropWidget) {
               ? 'terlalu sempit. Tiap batang cuma berisi satu dua siswa, dan polanya tenggelam di antara gerigi'
               : lebar >= 8
                 ? 'terlalu lebar. Rapi, tetapi tumpukan siswa di sekitar 160 sampai 170 sudah tidak terlihat lagi'
-                : 'di rentang ini polanya paling jelas: siswa menumpuk di sekitar 160 sampai 170 cm'}
+                : 'di rentang ini polanya paling terbaca: siswa menumpuk di sekitar 160 sampai 170 cm'}
           </span>
         </div>
       </div>

@@ -112,4 +112,3 @@ buka dan nilai frame per frame, baru berikutnya:
 Naskah 10 sampai 12 segmen, 90 sampai 125 detik, ikuti pola
 `manim/narasi/limit*.json` dan bagian 5 STANDAR-MENGAJAR (satu gagasan per
 segmen, sebut yang sedang tampil, tanya lalu jeda lalu jawab). Render 480p
-saja lewat `python alat/antre_render.py matra-vektor -- manim -ql ...`.

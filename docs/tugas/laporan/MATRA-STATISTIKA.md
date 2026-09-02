@@ -1,5 +1,5 @@
 # Laporan MATRA-STATISTIKA
-Terakhir: 1 September 2026, malam
+Terakhir: 2 September 2026 malam, dua video jadi dan tata letak teksnya dirombak
 
 Cabang `sesi/statistika`. Gelombang 1, halaman saja, tanpa video.
 Rancangan: `docs/superpowers/specs/2026-09-01-statistika-alur-belajar.md`, sudah
@@ -184,3 +184,478 @@ terlalu berat.
 **3. Cara meninjau.** Dev server sesi ini berjalan di port 3003:
 `http://localhost:3003/topik/statistika`. Kalau jendelanya sudah tertutup,
 hidupkan lagi dengan `cd web && npm run dev -- -p 3003`.
+
+---
+
+# 2 September 2026: gelombang 2
+
+## Potret 375 piksel, dibuka dan dinilai
+
+Diminta MASTER setelah perbaikan HP dari sesi UI/UX masuk ke cabang saya.
+
+**Tampilan HP topik Statistika sudah benar.** `document.scrollWidth` sama
+dengan `clientWidth`, 375 lawan 375, jadi nol luapan mendatar. Satu-satunya
+elemen yang keluar tepi adalah tombol MATERI 05 ke atas di dalam baris tab,
+dan baris itu memang bergulir menyamping dengan sengaja.
+
+**Tabel tiga kolom Materi 01, yang dikhawatirkan, AMAN.** Ketiga kolomnya muat
+utuh, angka rata kanan, kolom "Kelas B" berhenti 16 piksel sebelum tepi layar.
+
+**Dua cacat yang saya temukan sendiri, dan sudah diperbaiki.** Keduanya hanya
+muncul di lebar HP dan tidak menghasilkan galat apa pun di log.
+
+| Materi | Cacat | Perbaikan |
+|---|---|---|
+| 01 | lencana "INTERAKTIF" menutupi separuh atas "Kelas A, tidak bisa digeser" | baris teks turun dari y 20 ke y 42 |
+| 05 | lencana yang sama menutupi kata "sei" pada "seimbang, penopangnya tepat di rata-rata" | baris teks turun dari y 22 ke y 42 |
+
+Sebabnya satu: di layar lebar SVG membesar sehingga baris itu jatuh di bawah
+lencana, di 375 piksel SVG mengecil dan baris itu naik ke belakang lencana.
+Jarak sekarang 12 piksel, diukur ulang di peramban.
+
+Cacat ketiga muncul belakangan di Materi 09 setelah widgetnya diberi kendali
+tambahan, dan itu membuka sebab yang lebih dalam: **seberapa jauh lencana masuk
+ke dalam papan berubah-ubah menurut banyaknya baris kendali sebuah widget.**
+Papan yang kendalinya banyak menyusut sampai batas, dan tepi atasnya lalu
+persis di bawah lencana. Karena itu keterangan papan sekarang digambar MASUK ke
+dalam bingkai dengan halo krem, berlaku untuk kelima widget yang memakainya,
+bukan ditambal satu per satu.
+
+## Revisi isi yang diminta MASTER
+
+| Permintaan | Status |
+|---|---|
+| Huruf x sebagai tanda kali diganti | selesai, 24 tempat, jadi tanda kali sungguhan |
+| Tahap 9 dilengkapi, tidak dipecah | selesai, lihat di bawah |
+| "line plot (diagram titik)" sekali | selesai, di judul sesi saat pertama muncul |
+| Data BPS: tetap data buatan yang jujur | diterima, tidak ada pengambilan data web |
+| Kata "mudah", "gampang", "jelas" | selesai, 13 tempat |
+
+**Tahap 9.** Ditambah paragraf pemanggil ulang sebelum sesi modus, dan `coba`
+kedua khusus modus. Supaya `coba` itu benar-benar bisa dikerjakan, widget
+`DataKelompok` diberi dua penggeser frekuensi tetangga dan penanda modus di
+dalam batang tertinggi. Tiga angka yang dijanjikan teksnya saya jalankan
+sendiri di peramban dan cocok: tetangga kanan 11 memberi modus 67,5, kedua
+tetangga sama memberi 64,5, tetangga kanan 0 memberi 60,27. Ketiganya lalu
+ditambahkan ke `data.json` supaya ikut diperiksa dua pemeriksa, bukan cuma
+dilihat sekali. **Sekarang 152 angka, dua-duanya lolos.**
+
+Kata "jelas" yang tersisa sengaja dibiarkan: "pemotongan itu DIBERITAHUKAN
+dengan jelas" di Tahap 13 dan kata "menjelaskan" di beberapa tempat. Keduanya
+bukan penilaian atas tugas siswa.
+
+## Daftar periksa STANDAR-MENGAJAR bagian 6, per tahap
+
+Butir: 1 pertanyaan pembuka belum terjawab sebelumnya · 2 ada pemanggil ulang ·
+3 benda sebelum lambang · 4 satu sesi satu ide · 5 istilah baru diberi arti ·
+6 contoh prosedur beralasan per baris · 7 ada `coba` berpenuntun · 8
+`seringKeliru` menjelaskan kenapa menggoda · 9 `intisari` hanya yang dibahas ·
+10 bersih dari kata terlarang dan em-dash.
+
+| Tahap | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 Satu angka bisa menipu | ya | ya | ya | ya | ya | n/b | ya | ya | ya | ya |
+| 2 Daftar angka jadi gambar | ya | ya | ya | ya | ya | n/b | ya | ya | ya | ya |
+| 3 Lebar kelas | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 4 Dua kelompok beda jumlah | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 5 Mean, median, modus | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 6 Pencilan | ya | ya | ya | ya | ya | n/b | ya | ya | ya | ya |
+| 7 Kuartil dan boxplot | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 8 Simpangan baku | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 9 Data berkelompok | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 10 Diagram pencar | ya | ya | ya | ya | ya | n/b | ya | ya | ya | ya |
+| 11 Garis regresi | ya | ya | ya | ya | ya | ya | ya | ya | ya | ya |
+| 12 Korelasi bukan sebab | ya | ya | ya | ya | ya | n/b | ya | ya | ya | ya |
+| 13 Grafik menyesatkan | ya | ya | ya | ya | ya | n/b | ya | ya | ya | ya |
+
+"n/b" pada butir 6 berarti tidak berlaku: tahap itu bukan tahap prosedur.
+Tahap prosedurnya ada enam: 3, 4, 5, 7, 8, 9, 11.
+
+**Empat butir "tidak" ditemukan saat mengisi daftar ini, dan semuanya sudah
+diperbaiki sebelum tabel di atas ditulis.** Daftar periksa ini memang menangkap
+hal yang tidak tertangkap mata:
+
+| Temuan | Butir | Perbaikan |
+|---|---|---|
+| Tahap 6 satu-satunya tahap tanpa kalimat pemanggil ulang | 2 | dibuka dengan menagih kembali bukti Tahap 5, bahwa mean titik seimbang, sebab sifat itu juga yang membuatnya bisa diseret pencilan |
+| Tahap 9 contoh mean berkelompok cuma enam baris perkalian tanpa keterangan | 6 | diberi baris pembuka "banyak siswa kali titik tengah kelasnya" |
+| Tahap 11 contoh rumus regresi melompat dari daftar jumlah ke rumus b lalu ke rumus a | 6 | diberi tiga baris penanda tahap |
+| Tahap 7 `seringKeliru` langsung membantah tanpa menyebut kenapa keliru itu menggoda | 8 | ditambah: godaannya datang dari histogram, di sana batang lebih besar memang berarti data lebih banyak |
+
+Satu lagi yang setengah lolos dan sudah ditutup: mean, median, dan modus
+muncul di Tahap 1 sebagai istilah yang dianggap sudah dikenal dari SMP,
+sementara artinya baru dibongkar di Tahap 5 (butir 5). Sekarang Tahap 1 memberi
+arti singkat ketiganya sambil menunjuk ke Tahap 5.
+
+## Pemeriksaan yang dijalankan hari ini
+
+| Pemeriksaan | Hasil |
+|---|---|
+| `node node_modules/typescript/bin/tsc --noEmit` | lolos, exit 0 |
+| `node node_modules/eslint/bin/eslint.js` wilayah statistika | bersih, exit 0 |
+| `node node_modules/next/dist/bin/next build` | lolos, 19 halaman |
+| `python alat/cek_statistik.py` | 152 angka cocok, 31 kumpulan data |
+| `node alat/cek_statistik_web.mjs` | 152 angka cocok |
+| `python alat/cek_statistik.py --uji-diri` | 13 dari 13 |
+| Potret 375 piksel, ketiga belas materi | dibuka dan dinilai satu per satu |
+| Tiga langkah `coba` modus Tahap 9 | dijalankan di peramban, angkanya cocok |
+
+**eslint seluruh `web/` GAGAL, tetapi bukan di wilayah saya:**
+`components/widget/ruang-3d/Bingkai3D.tsx:139` melanggar `react-hooks/refs`,
+"Cannot access refs during render". Sudah saya laporkan ke MASTER untuk
+diteruskan ke MATRA-RUANG 3D. Saya tidak menyentuhnya.
+
+## Untuk MASTER
+
+**Lencana "INTERAKTIF" adalah jebakan bersama, bukan cuma masalah saya.** Ia
+menumpang di atas pojok kiri atas panel, di atas SVG widget, jadi setiap widget
+di SELURUH situs harus mengosongkan kotak kira-kira 110 kali 25 satuan viewBox
+di sana. Lebih buruk lagi, seberapa dalam ia masuk berubah menurut tinggi baris
+kendali widget, jadi widget yang hari ini aman bisa rusak besok begitu
+kendalinya bertambah satu baris. Kalau lencananya diberi latar tak tembus
+pandang atau dipindah ke luar panel, kelima topik aman sekaligus.
+
+## Berikutnya
+
+Video 480p, urut prioritas di file tugas. Video pertama selesai, lihat bagian
+di bawah.
+
+---
+
+# Video 1 dari 6: Tahap 5, jungkat-jungkit (ManimGL)
+
+Berkas: `media/uji-480p/statistika5-pemusatan.mp4`, 123,3 detik, 480p, narasi
+tergabung. Adegan `manim/scenes/statistika5_pemusatan.py`, naskah
+`manim/narasi/statistika5-pemusatan.json`, storyboard
+`docs/superpowers/specs/2026-09-02-statistika-video-5-storyboard.md`.
+
+## Gagasan videonya
+
+Halaman Tahap 5 sudah membuktikan mean adalah titik seimbang lewat widget yang
+bisa digeser. Yang TIDAK bisa dilakukan halaman: memperlihatkan papan itu
+benar-benar jatuh ke satu sisi karena beban. Itu pekerjaan video, dan itulah
+seluruh isinya. Rumus mean sengaja ditahan sampai babak kesepuluh, setelah
+papannya mendatar sendiri di angka 7.
+
+Modus tidak diberi warna, tetapi ditandai BENTUK: siswa yang nilainya sama
+berdiri berjajar ke belakang, jadi barisan 7 dan 8 terlihat paling tebal.
+Dengan begitu tiga warna cukup untuk tiga peran, dan aturan satu warna satu
+makna tetap utuh: biru data, bata mean, ungu median.
+
+## Daftar periksa STANDAR-ILUSTRASI-VIDEO.md
+
+| Butir | Nilai |
+|---|---|
+| Benda nyata dari `gl.ilustrasi`, tidak ada benda berupa titik atau garis | ya. Delapan `orang`, papan `balok`, tumpuan `penopang`, lantai `tanah` |
+| Latar hidup dan updater menjaga dunia bergerak saat diam | ya. Tiap siswa bernapas lewat updater yang tetap jalan selama jeda |
+| Kamera mulai dari dunia, satu gerakan panjang, tidak ada sentakan | ya. Lima gerakan di lima babak berbeda, terpendek 2,4 detik, tidak ada potongan mendadak |
+| Panah dan label di dunia, rumus di HUD, gambar tidak pernah diganti layar kosong | ya. Tidak ada satu pun babak berisi rumus di layar kosong |
+| Satu warna satu makna, tidak ada kode heksa di adegan | ya, SETELAH diperbaiki. Lihat cacat nomor 8 di bawah |
+| `teks()` untuk kata, `rumus()` untuk angka | ya. Tidak ada satuan di video ini, jadi `\mathrm` tidak terpakai |
+| Semua animasi di dalam `sinema.babak`, jeda setelah pertanyaan, tidak ada waktu mati | ya dengan catatan. Tiap babak menyisakan 2 sampai 4 detik yang isinya cuma napas siswa. Bukan layar beku, tetapi juga bukan babak yang penuh |
+| `cek_kode` bersih, `periksa_adegan` tiap babak, lembar kontak dibuka, `gabung_audio --uji` jalan | ya. `cek_kode --dalam` bersih, sebelas `periksa_adegan`, lembar kontak 124 frame dibuka dua kali, selisih suara dan gambar 0,15 detik |
+| Cacat yang tersisa disebut di laporan | ya, di bawah |
+
+## Enam render, dan apa yang ditemukan tiap kali
+
+**Render 1 MATI di tengah, dan exit code-nya tetap 0.** `lantai_kisi` dengan
+`tinggi_z = 0` membuat `ThreeDAxes` membagi nol. Kalau saya percaya kode keluar,
+saya akan melaporkan video yang tidak pernah jadi. Ini bukti kedua bulan ini
+bahwa "Rendered" bukan bukti apa-apa.
+
+**Render 2 ditolak gerbang waktu `sinema.babak`:** saya memakai durasi naskah
+sebelum dipangkas, jadi animasi babak `sapa` 13,0 detik sedangkan narasinya
+9,26 detik. Gerbangnya bekerja persis seperti seharusnya.
+
+**Render 3 sampai 6: sembilan cacat, semuanya cuma terlihat dengan MEMBUKA
+lembar kontak.** Tidak satu pun muncul sebagai galat.
+
+| # | Cacat | Perbaikan |
+|---|---|---|
+| 1 | kamera terlalu jauh, isi cuma memenuhi sepertiga tengah bingkai | tinggi bingkai 8,4 turun ke 6,4 dan pusatnya dinaikkan |
+| 2 | panah simpangan melayang tanpa penghubung ke siswa pemiliknya | tiap panah diberi tali putus tegak ke kepala pemiliknya |
+| 3 | label modus menabrak angka 7, 8, 9 di lantai | kurung dan labelnya dipindah ke atas kepala |
+| 4 | lantai sempit sehingga tepinya terlihat dan terbaca sebagai meja | lantai dibuat 30 kali 18, tepinya di luar bingkai |
+| 5 | angka lantai abu di atas garis bilangan abu, nyaris tak terbaca | warnanya jadi TINTA |
+| 6 | angka 7 hilang di balik penopang, tepat pada momen terpenting video | penopang diramping dari 0,9 x 1,3 jadi 0,7 x 0,85 |
+| 7 | siswa tidak segaris dengan angkanya | angka didekatkan dari y -1,75 ke -1,15; kamera memandang agak dari atas, jadi angka yang lebih dekat tergeser ke tepi |
+| 8 | `Indicate` bawaan ManimGL mewarnai siswa KUNING dan HIJAU | `color=` disebut tegas: TINTA untuk modus, SOROT untuk median |
+| 9 | keterangan babak sebelumnya bertahan selama tumpuan bergeser, membantah gambarnya | keterangan babak `geser` dipasang di AWAL babak, bukan di akhir |
+
+Dua lagi yang lebih halus dan ikut diperbaiki: satu frame kosong saat judul
+memudar (papan sekarang sudah ada sejak frame pertama), dan putaran kamera
+penutup 16 derajat yang membuat papan yang SEIMBANG terlihat miring, persis
+membantah kalimat penutupnya (diturunkan jadi 6 derajat).
+
+Cacat nomor 8 layak diingat semua sesi: **`Indicate` tanpa `color=` memakai
+kuning**, warna di luar palet Studio Teknis. `cek_kode` tidak menangkapnya
+sebab ia hanya mencari kode heksa yang ditulis langsung.
+
+## Cacat yang TERSISA, disebut bukan didiamkan
+
+**Panah ManimGL meruncing ke pangkal.** Akibatnya pangkal panah terpanjang, si
+4 yang berangkat dari nilai 11, nyaris tak terlihat di 480p: yang terbaca cuma
+paruh dekat kepalanya. Geometrinya benar, sudah saya buktikan terpisah bahwa
+panahnya membentang penuh 0 sampai 4 satuan. Artinya di 1080p ia akan jauh
+lebih baik. Kalau ARYA tetap ingin pangkalnya tegas, penyelesaiannya memakai
+garis biasa plus kepala panah terpisah, dan itu perubahan kecil.
+
+**Tiap babak menyisakan 2 sampai 4 detik tanpa animasi baru.** Layarnya tidak
+beku (siswa terus bernapas), tetapi juga tidak berkembang. Sebabnya narasi
+saya lebih panjang daripada gerak yang saya rancang. Untuk video berikutnya
+saya akan merancang gerak dulu, baru menulis narasi sepanjang geraknya.
+
+## Yang perlu diketahui MASTER
+
+Berkas tugas saya masih menulis perintah render lama di baris terakhir bagian
+Video: `python alat/antre_render.py matra-statistika -- manim -ql ...`. Itu
+bertentangan dengan aturan baru (ManimGL, `manimgl ... -w -l`, antrean tidak
+wajib). Saya mengikuti aturan yang baru. Baris itu sebaiknya diperbarui supaya
+sesi lain tidak tertipu.
+
+Satu benda baru saya tambahkan ke berkas bersama `manim/gl/ilustrasi.py`:
+`penopang()`, prisma segitiga untuk tumpuan jungkat-jungkit. Dibuat sebagai
+commit tersendiri (`0d39981`) supaya gampang ditahan. Balok biasa tidak terbaca
+sebagai tumpuan, dan seluruh gagasan video ini ada pada papan yang bisa jatuh.
+
+## Berikutnya
+
+Video kedua: Tahap 8, simpangan baku, empat langkah dengan persegi yang tumbuh
+kuadrat. Belum dimulai.
+
+---
+
+# Tinjauan ARYA atas video Tahap 5, dan tiga temuan untuk SEMUA sesi
+
+Ditulis 2 September 2026 malam, setelah ARYA menonton render keenam dan
+render ketujuh. Bagian ini yang paling perlu dibaca MASTER.
+
+## 1. "3D ini membuat siswa jadi bingung" (ARYA), dan ARYA benar
+
+Kalimat lengkapnya: *"videonya tidak terlalu jelas terutama perbedaan selisih
+antara kelompok nilai 5 dengan nilai 7. Itu saya lihat gambarnya pecah, tidak
+jelas"*, ditambah *"kalau misal tidak perlu 3D juga ga masalah, tidak perlu
+dipaksakan yang penting pesan ke siswanya tersampaikan"*.
+
+Yang saya lewatkan, dan sekarang saya anggap kaidah: **kalau isi sebuah adegan
+adalah MEMBANDINGKAN PANJANG, sudut pandang miring merusaknya.** Pada sudut
+miring, jarak yang sama panjang di dunia digambar tidak sama panjang di layar.
+Saya meminta siswa membandingkan sesuatu yang gambarnya sendiri sudah
+menyimpangkannya. Itu bukan sekadar kurang enak dilihat, itu keliru.
+
+Tiga perubahan, dan bendanya TETAP 3D bercahaya:
+1. Kamera hampir sejajar tanah (phi 85, theta 0) sepanjang bagian yang harus
+   dibaca. Satu satuan nilai = satu jarak layar yang sama di mana pun.
+2. Siswa, angka, papan, dan tumpuan semuanya di y = 0. Sebelumnya angka ada di
+   y -1,15 dan siswa terlihat tidak segaris dengan angkanya. Nilai kembar
+   digeser 0,17 satuan ke SAMPING, bukan ke belakang.
+3. Bukti "enam lawan enam" tidak lagi enam panah tipis di ketinggian berbeda.
+   Ketiga jarak kiri dijajarkan jadi SATU batang (3+2+1), ketiga jarak kanan
+   jadi batang kedua (1+1+4), berpangkal sama. Sama panjang atau tidak kini
+   terlihat sekejap. Ini yang paling menjawab keluhan ARYA.
+
+**Usul untuk STANDAR-ILUSTRASI-VIDEO.md, bagian "Kapan 3D, kapan 2D":**
+tambahkan satu kalimat. *"Kalau yang harus dibandingkan siswa adalah PANJANG
+atau JARAK, ratakan kameranya. Sudut miring membuat panjang yang sama digambar
+tidak sama, dan itu membantah pelajarannya sendiri. Bendanya tetap 3D."*
+
+## 2. Tepi bergerigi BUKAN semata soal 480p: `samples` ManimGL bawaannya 0
+
+ARYA: *"kok masih kurang halus teksturnya ya? masih terlihat kotak-kotak apa
+karena masih 480p 30 fps ya?"*
+
+Diperiksa, bukan ditebak. `manimlib/scene/scene.py` menyetel `Scene.samples = 0`,
+artinya penghalus tepi MATI. Komentar di `manimlib/camera/camera.py` sendiri
+berbunyi *"Although vector graphics handle antialiasing fine without
+multisampling, for 3d scenes one might want to set samples to be greater than
+0"*, dan `ThreeDScene` bawaannya memang `samples = 4`. **`AdeganMatra` mewarisi
+`Scene`, jadi semua adegan MATRA selama ini dirender tanpa penghalus tepi.**
+
+Dipasang `samples = 4` di adegan saya, dan tepi papan yang tadinya bertangga
+jadi mulus PADA RESOLUSI YANG SAMA. Jadi jawabannya: sebagian besar bukan 480p,
+melainkan setelan yang tidak pernah dinyalakan. Di 1080p pun tanpa ini tetap
+bergerigi, hanya lebih halus karena pikselnya lebih kecil. 30 fps tidak ada
+hubungannya, itu soal kehalusan gerak.
+
+**Permintaan ke MASTER: pindahkan `samples = 4` ke `AdeganMatra` di
+`manim/gl/tema.py`.** Semua sesi langsung menikmatinya, dan tidak perlu ada
+yang mengingatnya per adegan. Saya tidak menyentuh berkas itu sendiri karena
+milik MASTER. Catatan: `custom_config.yml` BUKAN tempatnya; menaruh `samples`
+di bawah `camera:` membuat manimgl gagal dengan "got multiple values for
+keyword argument 'samples'". Sudah saya coba dan kembalikan.
+
+## 3. Subtitle: sudah 100 persen, yang kurang adalah cara meninjaunya
+
+ARYA: *"untuk subtitlenya saya minta tampilkan 100%, semua apa yang dikatakan
+narator ditampilkan, tidak setengah-setengah."*
+
+Diperiksa mesin: berkas `web/public/anim/statistika5-pemusatan.vtt` memuat
+**236 kata, naskahnya juga 236 kata, cocok kata per kata.** Jadi subtitle-nya
+memang sudah utuh.
+
+Yang ARYA lihat setengah-setengah adalah `sinema.keterangan`, ringkasan satu
+baris di dalam gambar. Sebabnya sederhana: **mp4 uji tidak memuat subtitle sama
+sekali**, sebab subtitle dibaca pemutar situs dari berkas vtt terpisah. Saat
+meninjau lewat berkas mp4, subtitle itu tidak pernah kelihatan.
+
+Perbaikan: dibuat salinan tinjauan `statistika5-tinjau-bersubtitle.mp4`, video
+yang sama ditambah pita krem 86 piksel di bawahnya berisi subtitle penuh.
+Gambar aslinya tidak tertutup sedikit pun.
+
+**Usul untuk MASTER:** beri `gabung_audio.py` pilihan `--subtitle` yang membuat
+salinan tinjauan seperti ini otomatis. Kalau tidak, setiap sesi akan
+menyimpulkan hal yang sama kelirunya: mengira subtitle-nya kurang.
+
+## 4. Subtitle memakai lambang, bukan ejaan
+
+ARYA: *"kalau dibilang tujuh puluh dua maka tulis aja 72, kalau dibilang akar,
+ya tulis aja lambang akar."*
+
+Ini bertabrakan dengan STANDAR-MENGAJAR bagian 5 aturan 5, yang mewajibkan
+angka DIEJA di naskah supaya mesin suara mengucapkannya seperti guru.
+Dua-duanya benar untuk saluran yang berbeda: telinga butuh "lima puluh enam
+dibagi delapan", mata jauh lebih cepat menangkap "56 dibagi 8".
+
+Penyelesaiannya satu baris di `manim/buat_subtitle.py` (commit tersendiri
+`d0e6377`, berkas bersama, gampang ditahan): `seg.get("tulis") or seg["teks"]`.
+Naskah tanpa medan `tulis` berjalan persis seperti sebelumnya. Tujuh segmen
+naskah saya sudah diberi `tulis`.
+
+ARYA menegaskan lagi (2 Sep malam) bahwa ini BUKAN cuma soal angka, melainkan
+soal LAMBANG matematika: subtitle tidak boleh jadi salinan mentah ucapan.
+
+| Yang diucapkan narator | Yang SALAH ditulis | Yang benar |
+|---|---|---|
+| "titik dua koma empat" | Titik dua koma empat | Titik (2,4) |
+| "f dari x kurang 1" | f dari x kurang 1 | f(x-1) |
+| "lima puluh enam dibagi delapan" | lima puluh enam dibagi delapan | 56 : 8 |
+| "akar dua" | akar dua | akar 2 atau lambang akarnya |
+
+Ini paling berdampak pada sesi Grafik Fungsi, Vektor, dan Limit, yang naskahnya
+penuh notasi fungsi dan koordinat. Berkas vtt menerima Unicode, jadi lambang
+seperti akar dan pangkat dua bisa ditulis langsung.
+
+**Permintaan ke MASTER:** kalau setuju, tambahkan aturan 10 di STANDAR-MENGAJAR
+bagian 5, dan sebutkan tabel di atas sebagai contohnya supaya sesi lain tidak
+menyalin ucapan mentah-mentah.
+
+## Keadaan video Tahap 5 sekarang
+
+Tujuh render. Berkas untuk situs: `media/uji-480p/statistika5-pemusatan.mp4`,
+122,4 detik, selisih suara dan gambar 0,14 detik. Salinan tinjauan bersubtitle:
+`media/uji-480p/statistika5-tinjau-bersubtitle.mp4`. Subtitle situs:
+`web/public/anim/statistika5-pemusatan.vtt`, 35 baris.
+
+Vonis ARYA atas versi datar: *"oke sudah makin bagus lah"*, dan *"sisanya sudah
+bagus, silahkan dilanjutkan"*.
+
+Cacat tersisa yang saya sebut sendiri: tiap babak menyisakan 2 sampai 4 detik
+tanpa animasi baru, sebab narasi ditulis sebelum geraknya dirancang. Untuk
+video kedua urutannya saya balik: rancang gerak dulu, baru tulis narasi
+sepanjang gerak itu.
+
+---
+
+# Aturan teks di video: tiga keputusan ARYA untuk SEMUA sesi
+
+Ditetapkan 2 September 2026 malam sesudah ARYA menonton video Materi 05 dan 08,
+disepakati lewat brainstorming. **Bagian ini yang paling perlu dibaca MASTER**,
+sebab ketiganya mengubah cara semua sesi membuat video, bukan cuma saya.
+
+## 1. Rumus tidak boleh menindih animasinya
+
+ARYA: *"wajib anda perhatikan jika ada rumus yang tertindih dengan animasinya,
+maka jangan letakan disana."*
+
+Buktinya panel `B: Sigma = 250` duduk persis di atas garis Mesin B. Yang penting
+bukan cacatnya, melainkan KENAPA lolos: `qc.periksa_adegan` cuma memeriksa
+pasangan yang saya tuliskan sendiri, dan saya menulis pasangan panel dengan
+botol dan dengan angka, tetapi lupa pasangan panel dengan GARIS. Tiga kali
+berturut-turut tabrakan lolos dengan pola yang sama.
+
+**Daftar yang ditulis tangan selalu punya lubang.** Karena itu `periksa_adegan`
+sekarang menerima `hud=` dan `dunia=` lalu memeriksa SILANG semuanya, dan tiap
+adegan memelihara kamus DUNIA dan HUD sepanjang jalan. Tidak ada lagi yang perlu
+diingat penulis adegan.
+
+Perkakasnya sudah dipasang di `manim/gl/qc.py` (commit `e5a4774`, berkas bersama,
+gampang ditahan). Ia langsung membuktikan dirinya: menolak render Materi 05
+dengan pesan "papan temuan menindih bilah kiri", cacat yang dulu baru ketahuan
+setelah ARYA menonton.
+
+## 2. Jangan menulis keterangan di bawah layar
+
+ARYA: *"karena sudah ada subtitle, jangan sampai anda menulis ulang keterangan
+tambahan lagi dibawah objeknya, karena akan menjadi double makna, membuat siswa
+bingung. Atau jangan ditulis dibawah dekat subtitle, pindahkan di kiri atas,
+dan bahasanya diubah jadi bentuk matematika. Bila perlu pakai gaya 3B1B dimana
+sebelum pernyataan matematika itu muncul, kasitau muncul rumusnya darimana."*
+
+Tiga jalur layar sekarang resmi:
+
+| Jalur | Isi |
+|---|---|
+| kiri atas | papan rumus yang TUMBUH, isinya matematika bukan kalimat |
+| kanan atas | panel angka hasil hitungan |
+| bawah | TERLARANG, itu jalur subtitle |
+
+`sinema.PapanRumus` mengerjakannya. Dua cara pakai:
+- `tumbuh()` untuk rumus yang membungkus dirinya. Materi 08:
+  `x - x-bar` lalu kuadratnya lalu jumlahnya lalu dibagi n lalu akarnya. Tiap
+  langkah memakai `TransformMatchingTex`, jadi potongan yang sudah ada BERPINDAH
+  dan yang benar-benar baru saja yang tumbuh; mata tidak kehilangan jejak.
+  Tiap pertumbuhan diberi dua kata yang menyebut operasinya, lalu memudar.
+- `baris()` untuk temuan yang ditumpuk. Materi 05 bukan satu rantai melainkan
+  tiga jawaban, jadi papannya menumpuk: modus, median, jumlah simpangan nol,
+  baru mean.
+
+`jaga_jalur_bawah=True` di `periksa_adegan` menggagalkan render kalau ada yang
+masuk jalur subtitle. Aturan ini ditegakkan mesin, bukan ingatan.
+
+**Akibat yang harus diterima semua sesi:** begitu jalur atas dipesan untuk teks,
+dunia harus digeser turun dan sering perlu diperkecil skalanya. Di Materi 08
+skala turun dari 0,19 ke 0,17 satuan per ml. Rancang tinggi panggung SEBELUM
+menulis adegan.
+
+## 3. Subtitle memakai lambang matematika
+
+ARYA: *"jangan ditulis mentah-mentah, misal ada yang dia bilang titik dua koma
+empat, artinya anda harus menulis Titik (2,4). Contoh lain, anda tulis f dari x
+kurang 1, yang seharusnya f(x-1)."*
+
+| Yang diucapkan | Yang SALAH ditulis | Yang benar |
+|---|---|---|
+| "titik dua koma empat" | titik dua koma empat | Titik (2,4) |
+| "f dari x kurang 1" | f dari x kurang 1 | f(x-1) |
+| "lima puluh enam dibagi delapan" | lima puluh enam dibagi delapan | 56 : 8 |
+| "akar lima puluh" | akar lima puluh | akar 50 atau lambangnya |
+
+Perkakasnya medan `tulis` di naskah narasi (commit `d0e6377`). `teks` tetap
+dieja untuk mesin suara, `tulis` yang masuk subtitle. **Paling berdampak pada
+sesi Grafik Fungsi, Vektor, dan Limit**, yang naskahnya penuh notasi fungsi dan
+koordinat.
+
+## Permintaan ke MASTER
+
+1. Tambahkan aturan 10 di `STANDAR-MENGAJAR.md` bagian 5 untuk medan `tulis`,
+   dengan tabel di atas sebagai contohnya.
+2. Tambahkan tiga jalur layar ke `STANDAR-ILUSTRASI-VIDEO.md`, dan ganti aturan
+   yang menyuruh memakai `sinema.keterangan`: sejak ada subtitle, keterangan di
+   bawah layar adalah pengulangan.
+3. Pindahkan `samples = 4` ke `AdeganMatra` di `manim/gl/tema.py`. Sampai
+   sekarang setiap sesi harus mengingatnya sendiri per adegan.
+4. Tambahkan satu kalimat di bagian "Kapan 3D, kapan 2D": kalau yang harus
+   dibandingkan siswa adalah PANJANG atau LUAS, ratakan kameranya.
+
+## Keadaan dua video sekarang
+
+| | Materi 05 | Materi 08 |
+|---|---|---|
+| berkas situs | `media/uji-480p/statistika5-pemusatan.mp4` | `statistika8-simpangan.mp4` |
+| salinan tinjauan | `statistika5-tinjau.mp4` | `statistika8-tinjau.mp4` |
+| subtitle | `web/public/anim/statistika5-pemusatan.vtt` | `statistika8-simpangan.vtt` |
+| durasi | 122,4 detik | 124,9 detik |
+| selisih suara dan gambar | 0,14 detik | 0,20 detik |
+| render sampai bersih | 8 kali | 8 kali |
+
+Berikutnya: video ketiga, Materi 06 pencilan. Belum dimulai.

@@ -25,9 +25,17 @@ import {
  *
  * Kekeliruan yang paling sering: mengambil dua garis yang tegak lurus garis
  * potong tetapi bertumpu di titik yang berbeda. Karena itu titik P ditandai
- * jelas, dan kedua tanda siku-sikunya digambar bertumpu di sana.
+ * terang, dan kedua tanda siku-sikunya digambar bertumpu di sana.
  *
- * Kedua angka sudah dicocokkan dengan `alat/cek_ruang.py`.
+ * REVISI 2 Sep: pada mode kedua, titik P sekarang bisa digeser di sepanjang
+ * garis potong BD. Begitu P meninggalkan titik tengah, PC tidak lagi tegak
+ * lurus BD, kedua tanda siku-siku PADAM, dan angka yang terbaca turun. Nilai
+ * yang benar adalah yang terbesar, dan itu cuma muncul tepat di tengah. Siswa
+ * jadi melihat sendiri kenapa syarat tegak lurus itu tidak boleh dilanggar,
+ * bukan cuma diberi tahu.
+ *
+ * Semua angka sudah dicocokkan dengan `alat/cek_ruang.py`, termasuk 51,67
+ * derajat yang terbaca di seperempat jalan dari B.
  */
 
 export const RUSUK = 6
@@ -55,17 +63,32 @@ export const MODE = [
   },
 ] as const
 
+/** Sudut yang terbaca kalau tumpuannya digeser ke titik t di sepanjang BD. */
+export function sudutTerbaca(t: number) {
+  const P = sepanjang(T.B, T.D, t)
+  return sudutDuaArah(kurang(T.C, P), kurang(T.G, P))
+}
+
+/** Tegak lurus hanya terjadi tepat di tengah BD. */
+export function tumpuanBenar(t: number) {
+  return Math.abs(t - 0.5) < 0.01
+}
+
 export default function SudutBidang({
   mode,
+  t = 0.5,
   sudut,
   onUbah,
 }: {
   mode: number
+  t?: number
   sudut: Sudut
   onUbah: (s: Sudut) => void
 }) {
   const m = MODE[Math.min(Math.max(mode, 0), MODE.length - 1)]
-  const P = sepanjang(T.B, T.D, 0.5)
+  const P = sepanjang(T.B, T.D, mode === 1 ? t : 0.5)
+  const benar = mode !== 1 || tumpuanBenar(t)
+  const terbaca = mode === 1 ? sudutTerbaca(t) : m.jawab
 
   return (
     <Bingkai3D
@@ -74,9 +97,16 @@ export default function SudutBidang({
       onUbah={onUbah}
       titikBantu={mode === 1 ? { P } : undefined}
       keterangan={m.ringkas}
-      bawah={`sudutnya ${bulat(m.jawab, 2)}°`}
+      bawah={
+        benar
+          ? `sudutnya ${bulat(m.jawab, 2)}°`
+          : `terbaca ${bulat(terbaca, 1)}°, dan itu bukan sudut antarbidang`
+      }
+      warnaBawah={benar ? undefined : WARNA.depan}
       aria={
-        `Kubus ABCD.EFGH rusuk ${RUSUK}. ${m.nama}: ${m.ringkas}, besarnya ${bulat(m.jawab, 2)} derajat. ${m.catatan}.`
+        benar
+          ? `Kubus ABCD.EFGH rusuk ${RUSUK}. ${m.nama}: ${m.ringkas}, besarnya ${bulat(m.jawab, 2)} derajat. ${m.catatan}.`
+          : `Kubus ABCD.EFGH rusuk ${RUSUK}. Titik tumpu P digeser dari tengah BD, jadi PC tidak lagi tegak lurus BD. Yang terbaca ${bulat(terbaca, 1)} derajat, dan itu bukan sudut antara kedua bidang.`
       }
     >
       {(_kam, layar) => (
@@ -105,16 +135,29 @@ export default function SudutBidang({
               {/* dua garis yang sama sama tegak lurus BD, bertumpu di titik P */}
               <Ruas a={layar.P} b={layar.C} warna={WARNA.sudut} tebal={3.2} />
               <Ruas a={layar.P} b={layar.G} warna={WARNA.depan} tebal={3.2} />
-              <TandaSiku sudut={layar.P} ke1={layar.B} ke2={layar.C} warna={WARNA.redup} ukuran={9} />
-              <TandaSiku sudut={layar.P} ke1={layar.D} ke2={layar.G} warna={WARNA.redup} ukuran={9} />
-              <TitikBantu p={layar.P} nama="P" warna={WARNA.miring} />
+              {/* tanda siku-siku hanya digambar kalau memang siku-siku. Menggambar
+                  tanda yang tidak benar akan mengajarkan yang salah. */}
+              {benar && (
+                <>
+                  <TandaSiku sudut={layar.P} ke1={layar.B} ke2={layar.C} warna={WARNA.redup} ukuran={9} />
+                  <TandaSiku sudut={layar.P} ke1={layar.D} ke2={layar.G} warna={WARNA.redup} ukuran={9} />
+                </>
+              )}
+              <TitikBantu p={layar.P} nama="P" warna={benar ? WARNA.miring : WARNA.depan} />
+              {/* Tanpa angka, alasannya sama seperti mode pertama: titik C duduk
+                  persis di ujung salah satu kaki sudut ini, jadi angka yang
+                  ditaruh di garis bagi akan menempel pada huruf C. Terbukti
+                  bertindih saat P digeser, 2 Sep. Angkanya ada di dua baris
+                  bawah gambar dan di tabel kolom kanan. */}
               <BusurSudut sudut={layar.P} ke1={layar.C} ke2={layar.G}
-                          warna={WARNA.sudut} teks={`${bulat(m.jawab, 1)}°`} jari={26} />
+                          warna={benar ? WARNA.sudut : WARNA.depan} jari={26} />
             </>
           )}
 
-          <text x={KOTAK.x0} y={VH - 21} fontSize={11.5} fontFamily={MONO} fill={WARNA.redup}>
-            {m.catatan}
+          {/* Sebaris dengan penunjuk skala yang rata kanan, jadi wajib pendek. */}
+          <text x={KOTAK.x0} y={VH - 21} fontSize={11.5} fontFamily={MONO}
+                fill={benar ? WARNA.redup : WARNA.depan}>
+            {benar ? m.catatan : 'P digeser, siku-sikunya padam'}
           </text>
         </>
       )}

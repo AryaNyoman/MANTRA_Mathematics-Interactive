@@ -1,0 +1,95 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/ruang-3d-09.json
+
+1
+00:00:00.000 --> 00:00:03.971
+Materi 9, <b>sudut dengan bidang dan sudut antarbidang</b>.
+
+2
+00:00:03.971 --> 00:00:09.240
+Ini materi terakhir sebelum kita melihat pemakaiannya di dunia nyata.
+
+3
+00:00:09.240 --> 00:00:10.440
+Bagian pertama.
+
+4
+00:00:10.440 --> 00:00:15.539
+Ini diagonal ruang A̅G̅, sebuah garis miring yang menembus lantai di titik A.
+
+5
+00:00:15.539 --> 00:00:18.452
+Sudut yang dimaksud bukan sudut sembarangan,
+
+6
+00:00:18.452 --> 00:00:22.152
+melainkan sudut antara garis itu dan <b>bayangannya</b> di lantai.
+
+7
+00:00:22.152 --> 00:00:25.679
+Bayangan A tetap A, sebab A memang di lantai.
+
+8
+00:00:25.679 --> 00:00:29.833
+Bayangan G jatuh di C, sebab G̅C̅ tegak lurus lantai.
+
+9
+00:00:29.833 --> 00:00:32.263
+Jadi bayangan A̅G̅ adalah <b>A̅C̅</b>.
+
+10
+00:00:32.263 --> 00:00:38.376
+Ingat dari trigonometri: tan sudut sama dengan sisi depan dibagi sisi samping.
+
+11
+00:00:38.376 --> 00:00:46.486
+Pada segitiga ACG yang siku-siku di C, tan sudutnya sama dengan 6 dibagi 6√2.
+
+12
+00:00:46.486 --> 00:00:49.224
+Sudutnya kira-kira <b>35,26°</b>.
+
+13
+00:00:49.224 --> 00:00:52.147
+Bagian kedua, sudut antara dua <b>bidang</b>.
+
+14
+00:00:52.147 --> 00:00:54.223
+Bidang BDG memotong lantai,
+
+15
+00:00:54.223 --> 00:00:59.992
+dan persekutuannya bukan satu titik melainkan satu garis penuh, yaitu B̅D̅.
+
+16
+00:00:59.992 --> 00:01:02.376
+Garis itu namanya <b>garis potong</b>.
+
+17
+00:01:02.376 --> 00:01:05.391
+Ambil titik P tepat di tengah B̅D̅.
+
+18
+00:01:05.391 --> 00:01:11.938
+Dari P kita tarik dua garis yang sama-sama tegak lurus B̅D̅: P̅C̅ di lantai,
+
+19
+00:01:11.938 --> 00:01:14.178
+dan P̅G̅ di bidang miring.
+
+20
+00:01:14.178 --> 00:01:20.208
+Sudut di antara keduanya, kira-kira <b>54,74°</b>, itulah sudut kedua bidang.
+
+21
+00:01:20.208 --> 00:01:25.167
+Syaratnya dua dan harus dipenuhi bersamaan: tegak lurus garis potong,
+
+22
+00:01:25.167 --> 00:01:27.827
+dan bertumpu di <b>satu titik yang sama</b>.
+
+23
+00:01:27.827 --> 00:01:33.792
+Kalau P digeser, P̅C̅ tidak lagi tegak lurus, dan angka yang terbaca menjadi salah.

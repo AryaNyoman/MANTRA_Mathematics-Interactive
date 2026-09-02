@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, type ReactNode } from 'react'
+import { useRef, useState, type ReactNode } from 'react'
 import {
   BATAS_MENUNDUK, KOTAK, MONO, VH, VW, WARNA,
   bolaMuat, bulat, jepitMenunduk, kamera, kunciRusuk, rusukTerhalang, sisiMenghadap,
@@ -66,6 +66,10 @@ export default function Bingkai3D({
   children?: (kam: Kamera, layar: Layar) => ReactNode
 }) {
   const seret = useRef<{ x: number; y: number; awal: Sudut } | null>(null)
+  /* Kursor ikut berubah saat gambar sedang ditarik. Nilai ini WAJIB state,
+     bukan ref: ref tidak memicu gambar ulang, jadi kursornya akan tertinggal
+     di bentuk lama. Ditemukan eslint react-hooks/refs, 2 Sep. */
+  const [sedangTarik, setSedangTarik] = useState(false)
 
   const semua: Record<string, Titik3> = { ...bangun.titik, ...(titikBantu ?? {}) }
   const bola = bolaMuat(Object.values(semua))
@@ -105,6 +109,7 @@ export default function Bingkai3D({
     if (!onUbah) return
     e.currentTarget.setPointerCapture(e.pointerId)
     seret.current = { x: e.clientX, y: e.clientY, awal: sudut }
+    setSedangTarik(true)
   }
 
   function gerak(e: React.PointerEvent<SVGSVGElement>) {
@@ -121,6 +126,7 @@ export default function Bingkai3D({
       e.currentTarget.releasePointerCapture(e.pointerId)
     }
     seret.current = null
+    setSedangTarik(false)
   }
 
   return (
@@ -136,7 +142,14 @@ export default function Bingkai3D({
         touchAction: 'none',
         userSelect: 'none',
         WebkitUserSelect: 'none',
-        cursor: onUbah ? (seret.current ? 'grabbing' : 'grab') : 'default',
+        cursor: onUbah ? (sedangTarik ? 'grabbing' : 'grab') : 'default',
+        /* Lencana INTERAKTIF milik rangka panggung menempel di pojok kiri atas
+           dan ukurannya TETAP, sedangkan gambar ini menyusut mengikuti lebar
+           layar. Di layar HP 375 piksel keduanya bertemu dan lencana menutupi
+           baris keterangan. Ruang 18 piksel ini yang mencegahnya, dan karena
+           satuannya piksel CSS, besarnya tidak ikut menyusut. Hanya dipasang
+           kalau memang ada keterangan di baris atas. */
+        marginTop: keterangan ? 18 : 0,
         ...gaya,
       }}
       onPointerDown={mulai}

@@ -1,0 +1,87 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/ruang-3d-03.json
+
+1
+00:00:00.000 --> 00:00:06.139
+Dari materi sebelumnya kita sudah tahu tiga kedudukan dua garis: berpotongan,
+
+2
+00:00:06.139 --> 00:00:08.133
+sejajar, dan bersilangan.
+
+3
+00:00:08.133 --> 00:00:11.880
+Sekarang materi 3, <b>jarak selalu yang terpendek</b>.
+
+4
+00:00:11.880 --> 00:00:15.595
+Ini titik B, dan ini garis A̅C̅ di lantai kubus.
+
+5
+00:00:15.595 --> 00:00:20.316
+Dari B ke garis itu bisa ditarik ruas sebanyak yang kita mau,
+
+6
+00:00:20.316 --> 00:00:23.102
+dan semuanya sah disebut penghubung.
+
+7
+00:00:23.102 --> 00:00:24.960
+Panjangnya berbeda-beda.
+
+8
+00:00:24.960 --> 00:00:29.936
+Jadi kata <b>jarak</b> belum punya arti sampai kita memilih yang mana.
+
+9
+00:00:29.936 --> 00:00:34.834
+Kita geser titik Q di sepanjang A̅C̅, dan perhatikan angkanya.
+
+10
+00:00:34.834 --> 00:00:36.571
+Turun, lalu naik lagi.
+
+11
+00:00:36.571 --> 00:00:39.336
+Ada satu tempat yang paling pendek.
+
+12
+00:00:39.336 --> 00:00:45.146
+Di situ, dan hanya di situ, muncul tanda <b>siku-siku</b>.
+
+13
+00:00:45.146 --> 00:00:48.792
+Panjangnya 3√2, kira-kira 4,243.
+
+14
+00:00:48.792 --> 00:00:52.229
+Kenapa yang terpendek pasti yang siku-siku?
+
+15
+00:00:52.229 --> 00:00:54.307
+Ambil titik lain, sebut R.
+
+16
+00:00:54.307 --> 00:00:59.102
+Segitiga BQR siku-siku di Q, dan B̅R̅ adalah sisi miringnya.
+
+17
+00:00:59.102 --> 00:01:03.578
+Sisi miring <b>selalu</b> lebih panjang daripada sisi tegaknya.
+
+18
+00:01:03.578 --> 00:01:05.736
+Itu saja seluruh alasannya.
+
+19
+00:01:05.736 --> 00:01:09.942
+Jadi tegak lurus bukan aturan tambahan yang harus dihafal.
+
+20
+00:01:09.942 --> 00:01:12.698
+Ia akibat dari memilih yang terpendek.
+
+21
+00:01:12.698 --> 00:01:19.224
+Ingat kalimat ini sampai materi 7: <b>setiap soal jarak adalah soal mencari kaki tegak lurus</b>.

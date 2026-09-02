@@ -49,7 +49,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
           'median     keduanya 7',
           'modus      keduanya 7',
         ],
-        simpul: 'Ketiga ukuran pemusatan yang biasa dipakai memberi jawaban yang sama persis. Padahal kedua kelas itu jelas tidak sama.',
+        simpul: 'Ketiga ukuran pemusatan yang biasa dipakai memberi jawaban yang sama persis. Rata-rata adalah jumlah dibagi banyaknya, median adalah nilai yang di tengah setelah diurutkan, modus adalah nilai yang paling sering muncul; ketiganya dibongkar tuntas di Tahap 5. Padahal isi kedua kelas itu berbeda jauh.',
       },
       { jenis: 'sorot', teks: 'Di Kelas A tidak ada yang tertinggal jauh. Di Kelas B ada yang dapat 3, dan ada yang dapat 11. Kalau Anda guru, kedua kelas itu butuh perlakuan yang sama sekali berbeda.' },
 
@@ -76,7 +76,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
       },
 
       { jenis: 'sesi', judul: 'Angka pertama untuk sebaran' },
-      { jenis: 'paragraf', teks: 'Ukuran sebaran yang paling gampang adalah jangkauan, yaitu nilai terbesar dikurangi nilai terkecil.' },
+      { jenis: 'paragraf', teks: 'Ukuran sebaran yang paling sederhana adalah jangkauan, yaitu nilai terbesar dikurangi nilai terkecil.' },
       {
         jenis: 'contoh',
         judul: 'Jangkauan kedua kelas',
@@ -150,9 +150,9 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
         ],
       },
 
-      { jenis: 'sesi', judul: 'Line plot, gambar yang paling jujur' },
-      { jenis: 'paragraf', teks: 'Untuk data yang sedikit, ada gambar yang tidak menyembunyikan apa pun: line plot, kadang disebut dot plot. Setiap data digambar sebagai satu titik di atas garis bilangan. Nilai yang muncul dua kali membuat dua titik bertumpuk ke atas.' },
-      { jenis: 'paragraf', teks: 'Kelebihannya besar: modus terlihat sebagai tumpukan tertinggi, median bisa dihitung dengan menghitung titik dari kiri, dan pencilan langsung terlihat sebagai titik yang terpencil sendirian. Kekurangannya juga jelas, yaitu jadi berantakan kalau datanya ratusan. Kita akan sering memakainya di Tahap 5 sampai Tahap 7.' },
+      { jenis: 'sesi', judul: 'Line plot (diagram titik), gambar yang paling jujur' },
+      { jenis: 'paragraf', teks: 'Untuk data yang sedikit, ada gambar yang tidak menyembunyikan apa pun: line plot, dalam bahasa Indonesia diagram titik, dan di buku lain kadang disebut dot plot. Setiap data digambar sebagai satu titik di atas garis bilangan. Nilai yang muncul dua kali membuat dua titik bertumpuk ke atas.' },
+      { jenis: 'paragraf', teks: 'Kelebihannya besar: modus terlihat sebagai tumpukan tertinggi, median bisa dihitung dengan menghitung titik dari kiri, dan pencilan langsung terlihat sebagai titik yang terpencil sendirian. Kekurangannya juga nyata, yaitu jadi berantakan kalau datanya ratusan. Kita akan sering memakainya di Tahap 5 sampai Tahap 7.' },
 
       {
         jenis: 'coba',
@@ -170,7 +170,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
     ],
     seringKeliru: {
       judul: 'Diagram batang dan histogram itu sama, cuma beda nama',
-      isi: 'Keduanya memang sama-sama batang, tetapi menjawab jenis data yang berbeda. Ujinya gampang: coba tukar posisi dua batang yang bersebelahan. Kalau artinya tidak berubah, itu diagram batang, sebab kategori tidak punya urutan. Kalau artinya jadi kacau, itu histogram, sebab sumbunya garis bilangan dan angka 160 tidak bisa dipindah ke sebelah kanan angka 170.',
+      isi: 'Keduanya memang sama-sama batang, tetapi menjawab jenis data yang berbeda. Ujinya begini: coba tukar posisi dua batang yang bersebelahan. Kalau artinya tidak berubah, itu diagram batang, sebab kategori tidak punya urutan. Kalau artinya jadi kacau, itu histogram, sebab sumbunya garis bilangan dan angka 160 tidak bisa dipindah ke sebelah kanan angka 170.',
       sumber: 'Pembahasannya mengikuti Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, subbab A halaman 211.',
     },
     widget: 'bentuk-data',
@@ -212,11 +212,11 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
         jenis: 'contoh',
         judul: 'Menggabung dua kelas',
         baris: [
-          'kelas 8 sampai 10    lebar 2   tinggi 12   luas 2 x 12 = 24',
-          'kelas 10 sampai 12   lebar 2   tinggi  4   luas 2 x  4 =  8',
+          'kelas 8 sampai 10    lebar 2   tinggi 12   luas 2 × 12 = 24',
+          'kelas 10 sampai 12   lebar 2   tinggi  4   luas 2 ×  4 =  8',
           '                                        luas gabungan = 32',
           '',
-          'kelas 8 sampai 12    lebar 4   tinggi  8   luas 4 x  8 = 32',
+          'kelas 8 sampai 12    lebar 4   tinggi  8   luas 4 ×  8 = 32',
         ],
         simpul: 'Tinggi gabungannya 8, bukan 16. Yang dipertahankan luasnya, sebab luas itulah yang mewakili banyaknya data.',
       },
@@ -257,7 +257,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
       'Jumlah seluruh frekuensi relatif selalu 1, atau 100 persen.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Pertanyaan di atas terlihat gampang. Hitung saja siapa yang lebih banyak.' },
+      { jenis: 'paragraf', teks: 'Pertanyaan di atas terlihat sederhana. Hitung saja siapa yang lebih banyak.' },
       {
         jenis: 'contoh',
         judul: 'Hitungan mentah',

@@ -15,7 +15,7 @@ import JarakKeGaris, { PILIHAN, hitung as hitungGaris } from '@/components/widge
 import JarakKeBidang, { hitung as hitungBidang } from '@/components/widget/ruang-3d/JarakKeBidang'
 import JarakSejajar, { NAMA_BIDANG, hitung as hitungSejajar } from '@/components/widget/ruang-3d/JarakSejajar'
 import SudutBersilangan, { SUDUT_JAWAB } from '@/components/widget/ruang-3d/SudutBersilangan'
-import SudutBidang, { MODE } from '@/components/widget/ruang-3d/SudutBidang'
+import SudutBidang, { MODE, sudutTerbaca, tumpuanBenar } from '@/components/widget/ruang-3d/SudutBidang'
 import DuniaNyataRuang from '@/components/widget/ruang-3d/DuniaNyataRuang'
 import TombolPilih from '@/components/widget/ruang-3d/TombolPilih'
 import { SUDUT_AWAL, bulat, type Sudut } from '@/components/widget/ruang-3d/ruang'
@@ -56,6 +56,9 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
   const [tSejajar, setTSejajar] = useState(0.35)
   const [geser, setGeser] = useState(0)
   const [modeSudut, setModeSudut] = useState(0)
+  /* Letak titik tumpu P di sepanjang garis potong BD, tahap 9 mode kedua.
+     Mulai dari 0,5 yaitu tepat di tengah, satu satunya letak yang benar. */
+  const [tTumpu, setTTumpu] = useState(0.5)
 
   const namaWidget = tahap?.widget ?? ''
   const sudut = sudutPer[namaWidget] ?? SUDUT_TAHAP[namaWidget] ?? SUDUT_AWAL
@@ -262,7 +265,9 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'sudut-bidang' && (
           <>
-            <div className="layar"><SudutBidang mode={modeSudut} sudut={sudut} onUbah={aturSudut} /></div>
+            <div className="layar">
+              <SudutBidang mode={modeSudut} t={tTumpu} sudut={sudut} onUbah={aturSudut} />
+            </div>
             <div className="kendali">
               <div style={{ gridColumn: '1 / -1', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                 {MODE.map((x, i) => (
@@ -271,6 +276,22 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
                   </TombolPilih>
                 ))}
               </div>
+              {modeSudut === 1 && (
+                <>
+                  <div style={{ gridColumn: '1 / -1' }}>
+                    <label htmlFor="ttumpu">
+                      <span>Geser titik tumpu P sepanjang BD</span>
+                      <span className="mono">{tumpuanBenar(tTumpu) ? 'di tengah' : 'meleset'}</span>
+                    </label>
+                    <input id="ttumpu" type="range" min={0.08} max={0.92} step={0.01} value={tTumpu}
+                           onChange={(e) => setTTumpu(+e.target.value)} />
+                  </div>
+                  <button type="button" className="tombol garis" style={{ gridColumn: '1 / -1' }}
+                          onClick={() => setTTumpu(0.5)}>
+                    KEMBALIKAN P KE TENGAH
+                  </button>
+                </>
+              )}
               {tombolKembali}
             </div>
           </>
@@ -436,9 +457,19 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
                     <td>{x.ringkas}</td><td>{bulat(x.jawab, 2)}°</td>
                   </tr>
                 ))}
+                {modeSudut === 1 && !tumpuanBenar(tTumpu) && (
+                  <tr>
+                    <td>yang terbaca saat P meleset</td>
+                    <td>{bulat(sudutTerbaca(tTumpu), 2)}°</td>
+                  </tr>
+                )}
               </tbody>
             </table>
-            <div className="catatan">{m.catatan}.</div>
+            <div className="catatan">
+              {modeSudut === 1 && !tumpuanBenar(tTumpu)
+                ? 'PC tidak lagi tegak lurus BD, jadi angka yang terbaca turun. Yang benar adalah yang terbesar, dan itu hanya di tengah BD.'
+                : `${m.catatan}.`}
+            </div>
           </div>
         )}
       </>

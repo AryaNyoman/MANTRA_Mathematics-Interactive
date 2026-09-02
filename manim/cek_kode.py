@@ -36,6 +36,21 @@ AKAR = Path(__file__).resolve().parent.parent
 # Pembuat yang isinya BENAR-BENAR LaTeX. Ini yang boleh dibangun lewat MiKTeX.
 PEMBUAT_TEX = frozenset({"Tex", "TexText", "rumus"})   # ManimGL + gl.rumus. MathTex = Manim Community, dilarang
 
+# Nama Manim Community yang TIDAK ADA di ManimGL, dengan padanannya.
+NAMA_CE = {
+    "Dot3D": "Sphere kecil (ilustrasi.bola) atau lingkaran menghadap kamera",
+    "Create": "ShowCreation",
+    "ThreeDScene": "AdeganMatra (kamera lewat self.frame dan gl.kamera)",
+    "ThreeDAxes3D": "ThreeDAxes",
+    "add_fixed_in_frame_mobjects": "self.hud_tambah(...) / mob.fix_in_frame()",
+    "move_camera": "kamera.sudut(self.frame, ...) di dalam b.main(...)",
+    "begin_ambient_camera_rotation": "kamera.putar_pelan(self.frame, derajat)",
+    "set_camera_orientation": "kamera.pasang_awal(self.frame, theta, phi, ...)",
+    "MathTex": "gl.rumus", "SingleStringMathTex": "gl.rumus",
+    "Text": "gl.teks (LaTeX); Text Pango tidak dipakai",
+    "Paragraph": "gl.teks per baris",
+}
+
 # `Text` memakai Pango, BUKAN LaTeX. Isinya kalimat biasa dan tidak boleh
 # dicoba dibangun sebagai rumus: kalimat Indonesia yang sah seperti
 # "terkurung antara -1 dan 1" akan dilaporkan gagal padahal tidak ada apa-apa.
@@ -231,6 +246,27 @@ def periksa_aturan_matra(sumber: str, pohon: ast.AST, t: Temuan) -> None:
         nama = n.func.attr if isinstance(n.func, ast.Attribute) else getattr(n.func, "id", "")
         if nama == "MathTex":
             t.salah(n.lineno, "MathTex adalah Manim Community. Di ManimGL pakai Tex (gl.rumus)")
+        # Nama Manim Community yang tidak ada di ManimGL. Render pertama sesi
+        # Grafik gagal `NameError: Dot3D` padahal cek_kode bilang bersih (2 Sep).
+        if nama in NAMA_CE:
+            t.salah(n.lineno, f"{nama} adalah nama Manim Community, tidak ada di ManimGL. "
+                              f"Padanannya: {NAMA_CE[nama]}")
+        # `Indicate` bawaan ManimGL berwarna KUNING (#FFFF00), di luar palet
+        # (temuan Statistika dan Vektor). Warna wajib disebut.
+        if nama in ("Indicate", "Flash", "CircleIndicate", "ShowPassingFlash") and \
+                not any(k.arg == "color" for k in n.keywords):
+            t.salah(n.lineno, f"{nama}(...) tanpa color= memakai kuning di luar palet MATRA. "
+                              f"Tulis color=SOROT (atau warna tema lain)")
+        # Keterangan di kaki layar DILARANG sejak 2 Sep malam (jalur subtitle).
+        if nama == "keterangan":
+            t.salah(n.lineno, "sinema.keterangan dihapus: kaki layar milik subtitle. Pakai "
+                              "sinema.label (maks 2 kata, menempel di benda) atau sinema.identitas "
+                              "(pojok kiri atas)")
+        # Rumus jangan ditukar dengan ReplacementTransform mentah: lambang beda
+        # jumlah jadi coretan kembar. Pakai sinema.ganti_rumus (TransformMatchingStrings).
+        if nama == "ReplacementTransform":
+            t.peringatan(n.lineno, "ReplacementTransform pada rumus menghasilkan coretan kembar kalau "
+                                   "jumlah lambangnya beda; untuk rumus pakai sinema.ganti_rumus")
         if nama in PEMBUAT_TEKS and any(k.arg == "color" for k in n.keywords):
             t.salah(n.lineno, f"{nama}(color=...) DIABAIKAN ManimGL: teks jadi putih. "
                               f"Pakai gl.teks(...) atau .set_color() setelah dibuat")

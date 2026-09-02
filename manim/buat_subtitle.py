@@ -37,9 +37,17 @@ AKAR = Path(__file__).resolve().parent.parent
 NASKAH = AKAR / "manim" / "narasi"
 TUJUAN = AKAR / "web" / "public" / "anim"
 
-# Satu baris subtitle sebaiknya tidak lebih dari ini; di atasnya dipecah.
-MAKS_HURUF = 84
+# SATU BARIS, selalu (keputusan ARYA 2 Sep 2026 malam: huruf dikecilkan, kalimat
+# dipecah). 56 huruf muat satu baris pada pemutar selebar 700 piksel ke atas
+# dengan ukuran subtitle 90 persen; di layar HP tetap membungkus, itu diterima.
+MAKS_HURUF = 56
 MIN_DETIK = 1.2
+
+# Kata bilangan yang menandakan segmen butuh medan `tulis` (angka, bukan ejaan).
+KATA_BILANGAN = re.compile(
+    r"\b(nol|satu|dua|tiga|empat|lima|enam|tujuh|delapan|sembilan|sepuluh|"
+    r"sebelas|belas|puluh|ratus|ribu|setengah|seperempat|koma|akar|pangkat|"
+    r"kuadrat|derajat|dibagi|dikali|per)\b", re.I)
 
 
 def jam(detik: float) -> str:
@@ -64,6 +72,16 @@ def tebalkan(teks: str) -> str:
 def panjang_tampak(teks: str) -> int:
     """Panjang teks tanpa menghitung tag, dipakai membagi waktu baca."""
     return len(re.sub(r"<[^>]+>", "", teks))
+
+
+def bentuk_tulis(seg: dict) -> str:
+    """Teks yang DIBACA siswa: medan `tulis` (angka dan lambang), bukan ejaan ucapan.
+
+    Keputusan ARYA 2 Sep 2026: yang diucapkan "tujuh puluh dua" ditulis 72, "akar dua"
+    ditulis √2, "f dari x kurang satu" ditulis f(x-1). Nama lama `layar` dan `subtitle`
+    (dipakai sesi sebelum disatukan) tetap diterima. Tanpa ketiganya: `teks` apa adanya.
+    """
+    return seg.get("tulis") or seg.get("layar") or seg.get("subtitle") or seg["teks"]
 
 
 def pecah(teks: str) -> list[str]:
@@ -108,18 +126,22 @@ def buat(topik: str, diam: bool = False) -> Path:
              f"NOTE Dibuat otomatis dari manim/narasi/{topik}.json", ""]
     jalan = 0.0
     nomor = 0
+    tanpa_tulis = [seg["id"] for seg in naskah["segmen"]
+                   if not (seg.get("tulis") or seg.get("layar") or seg.get("subtitle"))
+                   and KATA_BILANGAN.search(seg["teks"])]
+    if tanpa_tulis and not diam:
+        print(f"  PERINGATAN {topik}: segmen {', '.join(tanpa_tulis)} menyebut bilangan atau "
+              f"lambang tetapi tidak punya medan `tulis`. Subtitle akan MENGEJA ucapan "
+              f"(aturan ARYA: tulis 72, √2, f(x-1)). Tambahkan `tulis` di naskahnya.")
     for seg in naskah["segmen"]:
         lama = durasi.get(seg["id"])
         if lama is None:
             raise SystemExit(
                 f"segmen '{seg['id']}' ada di naskah tapi tidak di durasi.json. "
                 f"Jalankan ulang buat_narasi.py {topik}.")
-        # `teks` adalah bentuk TERUCAP ("tujuh puluh dua", "akar dua"), disusun
-        # untuk mesin suara. Kalau naskah menyediakan `layar`, itulah bentuk
-        # TERTULIS ("72", "√2") dan subtitle memakainya. Permintaan ARYA
-        # 2 Sep 2026: yang dibaca siswa harus berupa angka dan lambang, bukan
-        # angka yang dieja. Naskah tanpa `layar` berjalan persis seperti dulu.
-        potongan = [tebalkan(x) for x in pecah(seg.get("layar") or seg["teks"])]
+        # Bentuk TERTULIS subtitle (angka dan lambang) dibaca dari medan `tulis`;
+        # `layar` dan `subtitle` diterima sebagai nama lama. Tanpa itu jatuh ke `teks`.
+        potongan = [tebalkan(x) for x in pecah(bentuk_tulis(seg))]
         total_huruf = sum(panjang_tampak(p) for p in potongan) or 1
         mulai = jalan
         for p in potongan:

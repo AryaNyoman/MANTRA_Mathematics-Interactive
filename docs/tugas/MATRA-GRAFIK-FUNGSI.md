@@ -111,4 +111,3 @@ Enam kandidat, urut prioritas. Satu per satu, lembar kontak dibuka:
 
 Naskah 10 sampai 12 segmen, 90 sampai 125 detik, ikuti pola
 `manim/narasi/limit*.json` dan bagian 5 STANDAR-MENGAJAR. Render 480p saja
-lewat `python alat/antre_render.py matra-grafik-fungsi -- manim -ql ...`.

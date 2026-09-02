@@ -1,0 +1,67 @@
+{
+  "adegan": "BentukPuncak",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Grafik Fungsi Tahap 03, Parabola dan bentuk puncak. DUA DIMENSI penuh (keputusan ARYA 2 Sep: jangan paksakan 3D pada materi datar). Benda nyatanya bola basket yang dilempar SEKALI, dan lintasannya sendiri yang menjadi kurvanya, jadi kurva tidak pernah muncul begitu saja. Contohnya satu saja sepanjang paruh pertama, y = -(x-1)^2 + 4, dipilih karena semua nilainya bulat: puncak (1,4), pasangan setangkup (0,3) dan (2,3), lalu (-1,0) dan (3,0). Paruh kedua mengunci puncak di (1,1) dan HANYA mengubah a. Soal tanda minus di dalam kurung sengaja TIDAK diulang di sini karena video tahap 6 sudah membahasnya panjang; tahap 3 fokus ke kenapa puncaknya bisa dibaca langsung. Tiap segmen punya dua bentuk: `teks` yang diucapkan mesin suara, dan `layar` yang ditulis di subtitle memakai notasi matematika.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Materi tiga: *parabola dan bentuk puncak*. Satu rumus yang puncaknya bisa dibaca tanpa dihitung."
+    },
+    {
+      "id": "lempar",
+      "teks": "Bola basket yang dilempar membentuk lengkung. Air mancur juga, dan kabel jembatan gantung juga. Ketiganya bentuk yang sama, namanya *parabola*.",
+      "layar": "Bola basket yang dilempar membentuk lengkung. Air mancur juga, dan kabel jembatan gantung juga. Ketiganya bentuk yang sama, namanya *parabola*."
+    },
+    {
+      "id": "datar",
+      "teks": "Lintasan tadi kita pindahkan ke bidang datar. Dan rumusnya kita tulis dalam bentuk yang paling berguna: y sama dengan a, kurung x kurang h, kuadrat, tambah k. Namanya *bentuk puncak*.",
+      "layar": "Lintasan tadi kita pindahkan ke bidang datar. Dan rumusnya kita tulis dalam bentuk yang paling berguna: y = a(x - h)² + k. Namanya *bentuk puncak*."
+    },
+    {
+      "id": "kenapa",
+      "teks": "Kenapa disebut bentuk puncak? Perhatikan bagian dalam kurung yang dikuadratkan. Apa pun isinya, dikuadratkan pasti nol atau positif. Jadi nilai terkecilnya *nol*, dan itu hanya terjadi saat x sama dengan h.",
+      "layar": "Kenapa disebut bentuk puncak? Perhatikan bagian (x - h)². Apa pun isinya, dikuadratkan pasti nol atau positif. Jadi nilai terkecilnya *nol*, dan itu hanya terjadi saat x = h."
+    },
+    {
+      "id": "puncak",
+      "teks": "Lemparan tadi rumusnya y sama dengan minus, kurung x kurang satu, kuadrat, tambah empat. Jadi h sama dengan satu dan k sama dengan empat. Puncaknya *langsung terbaca*: satu koma empat. Tidak ada yang perlu dihitung.",
+      "layar": "Lemparan tadi rumusnya y = -(x - 1)² + 4. Jadi h = 1 dan k = 4. Puncaknya *langsung terbaca*: (1, 4). Tidak ada yang perlu dihitung."
+    },
+    {
+      "id": "simetri",
+      "teks": "Sekarang uji ke kiri dan ke kanannya. x sama dengan nol memberi tiga. x sama dengan dua juga memberi tiga. x sama dengan minus satu memberi nol. x sama dengan tiga juga memberi nol. Yang *sama jauhnya* dari x sama dengan satu selalu punya nilai yang sama.",
+      "layar": "Sekarang uji ke kiri dan ke kanannya. x = 0 memberi 3. x = 2 memberi 3. x = -1 memberi 0. x = 3 memberi 0. Yang *sama jauhnya* dari x = 1 selalu punya nilai yang sama."
+    },
+    {
+      "id": "sumbusimetri",
+      "teks": "Kesamaan berpasangan itulah yang membuat parabola terlihat setangkup. Garis tegak x sama dengan satu membelahnya jadi dua sisi yang saling bayangan. Garis itu namanya *sumbu simetri*, dan ia selalu lewat puncaknya.",
+      "layar": "Kesamaan berpasangan itulah yang membuat parabola terlihat setangkup. Garis tegak x = 1 membelahnya jadi dua sisi yang saling bayangan. Garis itu namanya *sumbu simetri*, dan ia selalu lewat puncaknya."
+    },
+    {
+      "id": "peran",
+      "teks": "Tinggal satu huruf yang belum dibahas: a. Supaya jelas, puncaknya kita kunci di satu koma satu, dan mulai sekarang *hanya a yang kita ubah*.",
+      "layar": "Tinggal satu huruf yang belum dibahas: a. Supaya jelas, puncaknya kita kunci di (1, 1), dan mulai sekarang *hanya a yang kita ubah*."
+    },
+    {
+      "id": "sempit",
+      "teks": "Kita besarkan a jadi tiga. Puncaknya tidak bergeser sedikit pun, tapi parabolanya jadi *sempit dan curam*. Masuk akal: tiap langkah menjauh dari puncak dikalikan tiga.",
+      "layar": "Kita besarkan a jadi 3. Puncaknya tidak bergeser sedikit pun, tapi parabolanya jadi *sempit dan curam*. Masuk akal: tiap langkah menjauh dari puncak dikalikan 3."
+    },
+    {
+      "id": "lebar",
+      "teks": "Sekarang kita kecilkan a jadi nol koma tiga. Puncaknya tetap di tempat yang sama, tapi parabolanya *melebar dan melandai*. Makin kecil a, makin landai.",
+      "layar": "Sekarang kita kecilkan a jadi 0,3. Puncaknya tetap di tempat yang sama, tapi parabolanya *melebar dan melandai*. Makin kecil a, makin landai."
+    },
+    {
+      "id": "minus",
+      "teks": "Terakhir, a dibuat negatif. Parabolanya *berbalik*, terbuka ke bawah, dan puncaknya berubah peran: tadi titik terendah, sekarang titik tertinggi. Persis seperti lemparan bola tadi.",
+      "layar": "Terakhir, a dibuat negatif. Parabolanya *berbalik*, terbuka ke bawah, dan puncaknya berubah peran: tadi titik terendah, sekarang titik tertinggi. Persis seperti lemparan bola tadi."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi dari satu rumus, tiga hal bisa dibaca tanpa menghitung. h dan k memberi letak puncaknya. Tanda a memberi arah bukaannya. Dan besar a memberi lebar sempitnya.",
+      "layar": "Jadi dari satu rumus, tiga hal bisa dibaca tanpa menghitung. h dan k memberi letak puncaknya. Tanda a memberi arah bukaannya. Dan besar a memberi lebar sempitnya."
+    }
+  ]
+}

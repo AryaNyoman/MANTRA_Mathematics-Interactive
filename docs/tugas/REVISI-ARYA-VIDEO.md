@@ -61,3 +61,23 @@ dan di subtitle (`buat_subtitle.py`). Aturan 9 di STANDAR-MENGAJAR bagian 5.
 ### 4. Suara: ditunda ke tahap akhir (finishing), keputusan ARYA
 Berkas punya jalur suara (terukur), tetapi di pemutar ARYA tidak terdengar.
 Tidak dikejar sekarang; dicatat untuk gelombang 3.
+
+## 2 Sep 2026 malam: sepuluh keputusan setelah menonton video empat sesi
+Ditanya lewat pilihan, dijawab ARYA satu per satu. Hasilnya jadi
+`STANDAR-ILUSTRASI-VIDEO.md` versi 2. Ringkasan keputusan dan alasannya:
+1. Tata letak dikunci (identitas kiri atas, rumus kanan atas, kaki layar subtitle).
+2. 3D hanya pembuka video pertama tiap topik; Ruang 3D dan Transformasi
+   Geometri (topik berikutnya) boleh bolak-balik 3D-2D.
+3. Layar diam boleh selama narasi tentang yang tampil.
+4. Label ≤2 kata, dijaga mesin, semua topik.
+5. Rumus: morph lambang per lambang (3b1b, seperti Trigonometri Materi 05),
+   dunia diredupkan sebentar, lahir dekat benda lalu terbang ke panel. ARYA
+   sempat mengira ManimGL tidak punya Transform; DIBUKTIKAN punya
+   (`manim/uji/uji_transform_gl.py`), dan `manimlib` adalah nama modul
+   `manimgl` 1.7.2 (repo aktif, commit terakhir 18 Agu 2026), bukan paket
+   PyPI `manimlib` 0.2.0 dari 2018.
+6. Subtitle selalu satu baris, huruf dikecilkan.
+7. Trigonometri dan Limit: subtitle dibetulkan sekarang (warna + `tulis`), tanpa render ulang.
+8. Render maksimal dua per sesi, dilepas dari tugas latar.
+9. Semua lambang ditulis sebagai lambang di subtitle.
+10. Dua rujukan resmi: Vektor 01 (bidang datar) dan Ruang 3D 01 (3D).
