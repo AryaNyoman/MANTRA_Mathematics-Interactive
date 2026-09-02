@@ -30,6 +30,17 @@ ARYA sudah meninjau halamanmu. Revisinya: <tulis di sini>. Kerjakan revisi itu s
 ARYA menyetujui halamanmu. Gelombang 2 dibuka: video 480p untuk direvisi. Ikuti "Resep lengkap" di PROGRESS.md langkah 1 sampai 6, JANGAN langkah 7 ke atas (1080p milik gelombang 3). Mulai dari daftar kandidat video di rancanganmu; kerjakan SATU video sampai lembar kontaknya kamu buka dan nilai frame per frame, baru video berikutnya. Aturan video di CLAUDE.md bagian GERBANG VIDEO berlaku penuh. Render satu per satu, jangan paralel, sebab empat sesi lain juga merender di laptop yang sama.
 ```
 
+### E. PINDAH KE MANIMGL (2 Sep siang, dipakai SEKALI untuk 4 sesi topik)
+
+```
+Keputusan ARYA 2 Sep siang: Manim Community DICABUT, semua video dibuat dengan ManimGL lewat perkakas bersama manim/gl/. Video gelombang 1 gaya lama (benda = titik, latar = kotak) ditolak. Lakukan berurutan: (1) git merge master, lalu git log --oneline -5 dan git status. (2) Baca docs/tugas/ATURAN-SEMUA-SESI.md bagian "VIDEO SEJAK 2 SEP SIANG", docs/tugas/STANDAR-ILUSTRASI-VIDEO.md, docs/tugas/ILMU-3B1B.md, dan bagian "Video" yang DIPERBARUI di file tugasmu. (3) Pemanasan: manimgl manim/uji/uji_ilustrasi_gl.py Etalase -w -l, buka media/gl/Etalase.mp4 lewat cek_video.py, laporkan perkakasnya jalan. (4) Lanjutkan revisi isi yang belum selesai, lalu video PERTAMA dari daftar kandidatmu dengan resep ManimGL di PROGRESS.md "Resep lengkap": storyboard sesuai 8 aturan standar, naskah, buat_narasi, adegan AdeganMatra, cek_kode, render -l (paralel boleh), lembar kontak DIBUKA, gabung_audio --uji. Kode lama di manim/arsip-manim-ce/ jangan dicontoh. Lapor di laporanmu dengan daftar periksa STANDAR-ILUSTRASI-VIDEO.md terisi ya/tidak, commit di cabangmu, jangan sentuh master.
+```
+
+Untuk MATRA-DESAIN-UI-UX (tidak membuat video):
+```
+Info dari MASTER: sejak 2 Sep siang video dibuat dengan ManimGL (manim/gl/); tidak ada yang berubah di situs untukmu, kecuali nanti video baru tetap datang sebagai WebM + VTT + JPG seperti biasa. Lanjutkan tugasmu, git merge master saat sempat.
+```
+
 ### D. Sesi baru dibangunkan (setelah jendela ditutup)
 
 ```

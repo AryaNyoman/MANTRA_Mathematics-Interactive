@@ -1,0 +1,12 @@
+# Konfigurasi ManimGL untuk MATRA. Dibaca otomatis saat `manimgl` dijalankan
+# dari akar proyek (D:\MANIM-MATRA). Jangan taruh keluaran di folder lain.
+directories:
+  base: ""
+  subdirs:
+    output: "media/gl"
+camera:
+  background_color: "#F7F3EE"
+  fps: 30
+text:
+  font: "Constantia"
+  alignment: "LEFT"

@@ -8,7 +8,9 @@ Pemilik: ARYA. Tujuan terdekat: ditunjukkan ke dosen.
 > keputusan yang sudah diambil, dan apa yang harus dikerjakan berikutnya.
 
 ## Cara menjalankan
-- Animasi: `manim -qm manim/scenes/<file>.py <NamaScene>`
+- Animasi (ManimGL, sejak 2 Sep 2026): `manimgl manim/scenes/<file>.py <NamaScene> -w -l`
+  (keluaran `media/gl/`). Perkakas: `manim/gl/`. Contoh rujukan: `manim/contoh/contoh_perahu.py`.
+  Standar visual video: `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md`. Manim Community DICABUT.
 - Situs: `cd web && npm run dev` → http://localhost:3000
 - **Folder kerja yang benar: `D:\MANIM-MATRA` (cabang `master`).** Folder di
   `.claude\worktrees\` adalah salinan proyek yang sama pada cabang lain, dan
@@ -18,7 +20,7 @@ Pemilik: ARYA. Tujuan terdekat: ditunjukkan ke dosen.
 ## Susunan folder
 | Folder | Isi |
 |---|---|
-| `manim/` | Animasi Python (Manim 0.21) |
+| `manim/` | Animasi Python (ManimGL 1.7.2; `gl/` perkakas bersama, `arsip-manim-ce/` kode lama yang tak bisa dijalankan) |
 | `web/` | Situs Next.js 16 + TypeScript |
 | `web/public/anim/` | Video hasil render (WebM) |
 | `docs/superpowers/specs/` | Dokumen desain |
@@ -26,7 +28,12 @@ Pemilik: ARYA. Tujuan terdekat: ditunjukkan ke dosen.
 
 ## Aturan proyek (jangan dilanggar)
 - **6 topik**: trigonometri⭐, limit⭐, grafik fungsi, vektor, ruang 3D, statistika (⭐ = unggulan)
-- **Rumus pakai LaTeX** (`MathTex`), bukan Typst. Typst hanya ban serep kalau MiKTeX rusak.
+- **Rumus dan angka pakai LaTeX** (`gl.rumus`, yaitu `Tex` ManimGL), bukan Typst.
+  Kata-kata pakai font Constantia (`gl.teks`). `MathTex` dan `Text(color=)` dilarang
+  (`cek_kode.py` menolaknya); satuan `\mathrm{km}`, bukan `\text{}`.
+- **Video: benda nyata harus terlihat seperti bendanya** (3D bercahaya dari
+  `gl.ilustrasi`), kamera mulai dari dunia lalu terbang ke tempat matematika
+  terbaca, rumus di atas gambar. Aturan lengkap: `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md`.
 - **Tanpa database, tanpa login.** Skor kuis disimpan di browser siswa (localStorage).
 - **Semua di drive D.** C: tinggal ~16 GB dari 376 GB. Jangan taruh apa pun besar di C.
 - **Soal salinan WAJIB bersumber** (tautan + nama penulis). Soal tanpa keterangan = tulisan sendiri.
@@ -88,5 +95,6 @@ Sebelum video APA PUN dinyatakan selesai atau dikirim ke ARYA:
 
 PDF scan dibaca dengan PyMuPDF → render halaman jadi PNG → dibaca sebagai gambar. **Bedah, jangan borong.**
 
-## Lingkungan (sudah terpasang & terverifikasi 31 Agu 2026)
-Manim 0.21.0 · MiKTeX 25.12 (AutoInstall aktif) · Typst 0.15.0 · FFmpeg 8.1.1 · Python 3.11.9 · Node 24.13
+## Lingkungan (terverifikasi 2 Sep 2026)
+ManimGL 1.7.2 (Manim Community dicabut 2 Sep) · MiKTeX 25.12 (AutoInstall aktif) · Typst 0.15.0 · FFmpeg 8.1.1 · Python 3.11.9 · Node 24.13
+GPU: GeForce MX250 + Intel UHD; render ManimGL tanpa jendela, paralel aman.

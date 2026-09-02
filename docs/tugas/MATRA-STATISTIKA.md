@@ -94,7 +94,15 @@ siswa jadi pembaca kritis. Kejujuran data konsisten. Revisi di bawah kecil.
 Isi 10 butir `docs/tugas/STANDAR-MENGAJAR.md` bagian 6 untuk TIAP tahap di
 laporanmu. Tahap 9 dan 11 yang paling perlu dicek butir 4 dan 6.
 
-### Video (setelah revisi selesai)
+### Video (setelah revisi selesai). DIPERBARUI 2 Sep siang: ManimGL
+Sejak 2 Sep siang semua video dibuat dengan ManimGL lewat `manim/gl/`; baca
+`docs/tugas/STANDAR-ILUSTRASI-VIDEO.md` dan `docs/tugas/ILMU-3B1B.md` dulu,
+contoh: `manim/contoh/contoh_perahu.py`. Untuk topikmu: data adalah orang dan
+benda, bukan titik. Jungkat-jungkit (tahap 5) = papan `balok` di atas penopang,
+beban = `bola` atau `orang` dari `gl.ilustrasi`; pencilan (tahap 6) = satu
+`orang` yang berdiri jauh dari kerumunan; batang histogram boleh `balok` 3D yang
+tumbuh. Palet `dataviz` tetap dipakai untuk warna data.
+
 Enam kandidat, urut prioritas. Satu per satu, lembar kontak dibuka. Baca
 skill `dataviz` lagi sebelum menggambar data di Manim:
 1. Tahap 5 jungkat-jungkit: penopang di mean, papan miring kalau bukan

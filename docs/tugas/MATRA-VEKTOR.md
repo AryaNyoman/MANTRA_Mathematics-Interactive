@@ -90,7 +90,16 @@ SEBELUM video.
 Isi 10 butir `docs/tugas/STANDAR-MENGAJAR.md` bagian 6 untuk TIAP materi di
 laporanmu. Materi yang dapat "tidak" di butir 1, 3, 4, atau 6 diperbaiki dulu.
 
-### Video (setelah revisi selesai)
+### Video (setelah revisi selesai). DIPERBARUI 2 Sep siang: ManimGL
+Video `vektor1-perahu` versi lama (perahu = titik) DITOLAK ARYA dan tidak
+dipakai. Sejak 2 Sep siang semua video dibuat dengan ManimGL lewat `manim/gl/`;
+baca `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md` dan `docs/tugas/ILMU-3B1B.md`
+dulu. Khusus untukmu: `manim/contoh/contoh_perahu.py` adalah adegan pembuka
+Materi 01 yang sudah lolos gerbang (perahu 3D di air, kamera dunia ke peta,
+panah dayung dan arus). Ambil alih dan kembangkan jadi video penuh Materi 01
+(tambahkan resultan, tiga hasil 7, 5, atau 1 dengan sudut dayung yang berubah),
+jangan mulai dari nol. Naskahnya `manim/narasi/contoh-perahu.json` boleh diperluas.
+
 Enam kandidat, urut prioritas. Kerjakan SATU sampai lembar kontaknya kamu
 buka dan nilai frame per frame, baru berikutnya:
 1. Materi 01 perahu: 3 tambah 4 bisa 7, 5, atau 1 (pembuka seluruh topik)
