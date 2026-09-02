@@ -309,14 +309,23 @@ class PerahuVektor(AdeganMatra):
         tutup = VGroup(tutup1, tutup2).arrange(DOWN, buff=0.35).move_to([0, 0.4, 0])
         sinema.alas_teks(tutup)
 
+        # Dunianya disingkirkan lebih dulu. Alas teks TIDAK cukup: benda dunia
+        # tetap tergambar di atas teks HUD, dan pada render pertama panah ungu
+        # terlihat menembus kalimat penutup walau alasnya sudah dipekatkan.
+        # Aturan 4 STANDAR-ILUSTRASI-VIDEO mengizinkan layar bersih untuk
+        # penutup, paling banyak satu babak, dan inilah babak itu.
+        dunia = Group(air, tepi_jauh, tepi_dekat, perahu, p_dayung, p_arus, p_res,
+                      l_dayung, l_arus, n_jauh, n_dekat, mendarat)
         with sinema.babak(self, "tutup", DURASI) as b:
             sinema.hapus_keterangan(self, run_time=0.4)
             b.catat(0.4)
+            b.main(FadeOut(dunia), FadeOut(ukur),
+                   FadeOut(panel_d), FadeOut(panel_a), FadeOut(panel_r), run_time=1.4)
             self.hud_tambah(tutup)
             tutup.set_opacity(0)
             b.main(tutup.animate.set_opacity(1), run_time=1.8)
-            b.jeda(1.6)
-        qc.periksa_adegan(self, {"tutup": tutup, "ukur": ukur}, [("tutup", "ukur")])
+            b.jeda(1.2)
+        qc.periksa_adegan(self, {"tutup": tutup})
 
     # ==================================================================
     # Besaran turunan, semua dihitung dari satu pelacak sudut

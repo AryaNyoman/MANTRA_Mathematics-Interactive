@@ -1,5 +1,78 @@
 # Laporan MATRA-VEKTOR
-Terakhir: 2 September 2026, 14.30
+Terakhir: 2 September 2026, 15.30
+
+## Video 2 Materi 06 SELESAI: `media/uji-480p/vektor6-sambung.mp4`
+
+2,18 MB, 104,7 detik, 11 segmen, narasi Indonesia. **Tanpa suara latar, dan itu
+pilihan**: satu-satunya berkas yang tersedia `air.ogg`, dan suara air jelas
+tidak cocok untuk orang berjalan di lapangan. Menambah suara di luar daftar
+dilarang standar.
+
+Isinya: seseorang benar-benar BERJALAN dua kali di lapangan berpetak, dan panah
+biru lalu merah tumbuh mengikuti langkahnya. Aturan "ujung ke pangkal" jadi
+masuk akal karena siswa melihat perjalanan kedua memang berangkat dari tempat
+yang pertama berhenti. Ada satu babak khusus yang menggambar susunan SALAH
+(kedua pangkal ditempelkan) untuk memperlihatkan hasilnya jauh lebih pendek dan
+arahnya berbeda. Angkanya sama persis dengan contoh di halaman Materi 06.
+
+### Daftar periksa STANDAR-ILUSTRASI-VIDEO
+
+- [ya] Benda nyata dari `gl.ilustrasi` (`orang`, `lantai_kisi`), tidak ada benda berupa titik.
+- [ya] Latar hidup: orangnya bernapas lewat updater, jadi dunia tidak membeku saat narator diam.
+- [ya] Kamera mulai dari pandangan miring dekat, satu gerakan panjang ke pandangan peta, tidak ada sentakan.
+- [ya] Panah dan label di dunia, rumus di HUD. Layar bersih hanya di babak penutup, dan itu diizinkan aturan 4.
+- [ya] Satu warna satu makna: biru perjalanan pertama, merah kedua, ungu resultan, hitam susunan keliru. Tidak ada kode heksa.
+- [ya] `teks()` untuk kata, `rumus()` untuk angka dan rumus.
+- [ya] Semua animasi di dalam `sinema.babak`; jeda 1,6 detik setelah pertanyaan; tidak ada waktu mati.
+- [ya] `cek_kode` bersih; `periksa_adegan` di sebelas babak; lembar kontak dibuka dan dinilai; `gabung_audio --uji` jalan.
+- [ya] Tidak ada cacat tersisa.
+
+### Lima cacat ditangkap gerbang video, semuanya diperbaiki
+
+| Cacat | Perbaikannya |
+|---|---|
+| Kalimat penutup tertimpa panah dan label sampai sulit dibaca. | Dunianya disingkirkan dulu, baru kalimatnya muncul. Lihat koreksi di bawah. |
+| Babak "susunan yang keliru" tenggelam di antara tiga panah terang, padahal itu babak yang mengajarkan kesalahan paling sering. | Susunan yang BENAR diredupkan ke 0,22 selama babak itu, jadi yang salah menonjol. |
+| Bingkai kelewat longgar: kejadiannya cuma mengisi sepertiga layar. | Tinggi bingkai dirapatkan dari 7,2 ke 6,0. |
+| Sumbu tegak lantai menjulur ke langit di babak pembuka, jadi garis nyasar tanpa guna. | Hanya bidang petaknya yang dipakai, sumbunya dibuang. |
+| Di penutup, orangnya tertinggal melayang tanpa lantai. | Orangnya ikut disingkirkan. |
+
+## KOREKSI atas laporan video 1 saya sendiri
+
+Di laporan video 1 saya menulis bahwa cacat kalimat penutup bisa ditambal
+dengan menaikkan kepekatan alas teksnya. **Itu salah diagnosis.** Saya coba di
+video 2 dengan kepekatan 0,96, dan teksnya TETAP tertimpa.
+
+Sebab sebenarnya: benda dunia tetap tergambar di atas teks HUD, berapa pun
+pekat alasnya. Perbaikan yang benar adalah menyingkirkan dunianya lebih dulu,
+dan aturan 4 STANDAR-ILUSTRASI-VIDEO memang mengizinkan layar bersih khusus
+untuk penutup, paling banyak satu babak.
+
+**Video 1 sudah dirender ulang dengan perbaikan yang sama**, jadi keterangan
+"cacat yang masih ada" di laporan video 1 sudah TIDAK berlaku lagi. Kedua
+video sekarang tidak punya cacat tersisa. Berkas video 1 yang baru:
+`media/uji-480p/vektor1-perahu.mp4`, 3,72 MB, 105,9 detik.
+
+## Catatan proses: kode keluar pipa dua kali menipu
+
+Dua kali dalam sesi ini sebuah perintah dilaporkan gagal atau berhasil secara
+keliru, dan dua-duanya bukan salah alatnya:
+1. `antre_render.py ... | tail` dilaporkan berhasil padahal rendernya gagal.
+   Pipa mengembalikan kode keluar `tail`, bukan kode render. Sempat saya kira
+   alatnya yang cacat, dan saya periksa dulu sebelum melapor ke MASTER. Untung.
+2. `manimgl ... ; grep -c galat` dilaporkan GAGAL padahal rendernya berhasil.
+   `grep` keluar dengan kode 1 justru karena tidak menemukan galat apa pun.
+
+Sejak itu keberhasilan render saya nilai dari BERKAS dan WAKTUNYA, bukan dari
+kode keluar perintah.
+
+## Sisa empat video, urut prioritas
+Materi 08 selisih, Materi 03 komponen, Materi 09 kali skalar, Materi 04
+Pythagoras.
+
+---
+
+## Catatan video 1 (2 Sep siang)
 
 ## Video 1 Materi 01 SELESAI (ManimGL): `media/uji-480p/vektor1-perahu.mp4`
 
