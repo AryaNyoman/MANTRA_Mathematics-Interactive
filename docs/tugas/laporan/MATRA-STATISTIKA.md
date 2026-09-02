@@ -1,5 +1,5 @@
 # Laporan MATRA-STATISTIKA
-Terakhir: 2 September 2026 malam, video pertama ditinjau ARYA dan dirombak
+Terakhir: 2 September 2026 malam, dua video jadi dan tata letak teksnya dirombak
 
 Cabang `sesi/statistika`. Gelombang 1, halaman saja, tanpa video.
 Rancangan: `docs/superpowers/specs/2026-09-01-statistika-alur-belajar.md`, sudah
@@ -553,3 +553,109 @@ Cacat tersisa yang saya sebut sendiri: tiap babak menyisakan 2 sampai 4 detik
 tanpa animasi baru, sebab narasi ditulis sebelum geraknya dirancang. Untuk
 video kedua urutannya saya balik: rancang gerak dulu, baru tulis narasi
 sepanjang gerak itu.
+
+---
+
+# Aturan teks di video: tiga keputusan ARYA untuk SEMUA sesi
+
+Ditetapkan 2 September 2026 malam sesudah ARYA menonton video Materi 05 dan 08,
+disepakati lewat brainstorming. **Bagian ini yang paling perlu dibaca MASTER**,
+sebab ketiganya mengubah cara semua sesi membuat video, bukan cuma saya.
+
+## 1. Rumus tidak boleh menindih animasinya
+
+ARYA: *"wajib anda perhatikan jika ada rumus yang tertindih dengan animasinya,
+maka jangan letakan disana."*
+
+Buktinya panel `B: Sigma = 250` duduk persis di atas garis Mesin B. Yang penting
+bukan cacatnya, melainkan KENAPA lolos: `qc.periksa_adegan` cuma memeriksa
+pasangan yang saya tuliskan sendiri, dan saya menulis pasangan panel dengan
+botol dan dengan angka, tetapi lupa pasangan panel dengan GARIS. Tiga kali
+berturut-turut tabrakan lolos dengan pola yang sama.
+
+**Daftar yang ditulis tangan selalu punya lubang.** Karena itu `periksa_adegan`
+sekarang menerima `hud=` dan `dunia=` lalu memeriksa SILANG semuanya, dan tiap
+adegan memelihara kamus DUNIA dan HUD sepanjang jalan. Tidak ada lagi yang perlu
+diingat penulis adegan.
+
+Perkakasnya sudah dipasang di `manim/gl/qc.py` (commit `e5a4774`, berkas bersama,
+gampang ditahan). Ia langsung membuktikan dirinya: menolak render Materi 05
+dengan pesan "papan temuan menindih bilah kiri", cacat yang dulu baru ketahuan
+setelah ARYA menonton.
+
+## 2. Jangan menulis keterangan di bawah layar
+
+ARYA: *"karena sudah ada subtitle, jangan sampai anda menulis ulang keterangan
+tambahan lagi dibawah objeknya, karena akan menjadi double makna, membuat siswa
+bingung. Atau jangan ditulis dibawah dekat subtitle, pindahkan di kiri atas,
+dan bahasanya diubah jadi bentuk matematika. Bila perlu pakai gaya 3B1B dimana
+sebelum pernyataan matematika itu muncul, kasitau muncul rumusnya darimana."*
+
+Tiga jalur layar sekarang resmi:
+
+| Jalur | Isi |
+|---|---|
+| kiri atas | papan rumus yang TUMBUH, isinya matematika bukan kalimat |
+| kanan atas | panel angka hasil hitungan |
+| bawah | TERLARANG, itu jalur subtitle |
+
+`sinema.PapanRumus` mengerjakannya. Dua cara pakai:
+- `tumbuh()` untuk rumus yang membungkus dirinya. Materi 08:
+  `x - x-bar` lalu kuadratnya lalu jumlahnya lalu dibagi n lalu akarnya. Tiap
+  langkah memakai `TransformMatchingTex`, jadi potongan yang sudah ada BERPINDAH
+  dan yang benar-benar baru saja yang tumbuh; mata tidak kehilangan jejak.
+  Tiap pertumbuhan diberi dua kata yang menyebut operasinya, lalu memudar.
+- `baris()` untuk temuan yang ditumpuk. Materi 05 bukan satu rantai melainkan
+  tiga jawaban, jadi papannya menumpuk: modus, median, jumlah simpangan nol,
+  baru mean.
+
+`jaga_jalur_bawah=True` di `periksa_adegan` menggagalkan render kalau ada yang
+masuk jalur subtitle. Aturan ini ditegakkan mesin, bukan ingatan.
+
+**Akibat yang harus diterima semua sesi:** begitu jalur atas dipesan untuk teks,
+dunia harus digeser turun dan sering perlu diperkecil skalanya. Di Materi 08
+skala turun dari 0,19 ke 0,17 satuan per ml. Rancang tinggi panggung SEBELUM
+menulis adegan.
+
+## 3. Subtitle memakai lambang matematika
+
+ARYA: *"jangan ditulis mentah-mentah, misal ada yang dia bilang titik dua koma
+empat, artinya anda harus menulis Titik (2,4). Contoh lain, anda tulis f dari x
+kurang 1, yang seharusnya f(x-1)."*
+
+| Yang diucapkan | Yang SALAH ditulis | Yang benar |
+|---|---|---|
+| "titik dua koma empat" | titik dua koma empat | Titik (2,4) |
+| "f dari x kurang 1" | f dari x kurang 1 | f(x-1) |
+| "lima puluh enam dibagi delapan" | lima puluh enam dibagi delapan | 56 : 8 |
+| "akar lima puluh" | akar lima puluh | akar 50 atau lambangnya |
+
+Perkakasnya medan `tulis` di naskah narasi (commit `d0e6377`). `teks` tetap
+dieja untuk mesin suara, `tulis` yang masuk subtitle. **Paling berdampak pada
+sesi Grafik Fungsi, Vektor, dan Limit**, yang naskahnya penuh notasi fungsi dan
+koordinat.
+
+## Permintaan ke MASTER
+
+1. Tambahkan aturan 10 di `STANDAR-MENGAJAR.md` bagian 5 untuk medan `tulis`,
+   dengan tabel di atas sebagai contohnya.
+2. Tambahkan tiga jalur layar ke `STANDAR-ILUSTRASI-VIDEO.md`, dan ganti aturan
+   yang menyuruh memakai `sinema.keterangan`: sejak ada subtitle, keterangan di
+   bawah layar adalah pengulangan.
+3. Pindahkan `samples = 4` ke `AdeganMatra` di `manim/gl/tema.py`. Sampai
+   sekarang setiap sesi harus mengingatnya sendiri per adegan.
+4. Tambahkan satu kalimat di bagian "Kapan 3D, kapan 2D": kalau yang harus
+   dibandingkan siswa adalah PANJANG atau LUAS, ratakan kameranya.
+
+## Keadaan dua video sekarang
+
+| | Materi 05 | Materi 08 |
+|---|---|---|
+| berkas situs | `media/uji-480p/statistika5-pemusatan.mp4` | `statistika8-simpangan.mp4` |
+| salinan tinjauan | `statistika5-tinjau.mp4` | `statistika8-tinjau.mp4` |
+| subtitle | `web/public/anim/statistika5-pemusatan.vtt` | `statistika8-simpangan.vtt` |
+| durasi | 122,4 detik | 124,9 detik |
+| selisih suara dan gambar | 0,14 detik | 0,20 detik |
+| render sampai bersih | 8 kali | 8 kali |
+
+Berikutnya: video ketiga, Materi 06 pencilan. Belum dimulai.
