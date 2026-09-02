@@ -10,39 +10,48 @@
     },
     {
       "id": "fungsi",
-      "teks": "Kita pakai fungsi sederhana: f dari x sama dengan x kuadrat tambah satu. Pertanyaannya, ke mana f menuju kalau x didorong mendekati tiga?"
+      "teks": "Kita pakai fungsi sederhana: f dari x sama dengan x kuadrat tambah satu. Pertanyaannya, ke mana f menuju kalau x didorong mendekati tiga?",
+      "tulis": "Kita pakai fungsi sederhana: f(x) = x² + 1. Pertanyaannya, ke mana f menuju kalau x didorong mendekati 3?"
     },
     {
       "id": "kiri",
-      "teks": "Didekati dari kiri. Di dua koma sembilan, nilainya sembilan koma empat satu. Di dua koma sembilan sembilan, sembilan koma sembilan empat."
+      "teks": "Didekati dari kiri. Di dua koma sembilan, nilainya sembilan koma empat satu. Di dua koma sembilan sembilan, sembilan koma sembilan empat.",
+      "tulis": "Didekati dari kiri. Di 2,9, nilainya 9,41. Di 2,99, 9,94."
     },
     {
       "id": "kanan",
-      "teks": "Sekarang dari kanan. Di tiga koma satu, nilainya sepuluh koma enam satu. Di tiga koma nol satu, sepuluh koma nol enam."
+      "teks": "Sekarang dari kanan. Di tiga koma satu, nilainya sepuluh koma enam satu. Di tiga koma nol satu, sepuluh koma nol enam.",
+      "tulis": "Sekarang dari kanan. Di 3,1, nilainya 10,61. Di 3,01, 10,06."
     },
     {
       "id": "sepakat",
-      "teks": "Kedua arah menuju angka yang sama, yaitu sepuluh. Karena itulah kita katakan limitnya sepuluh."
+      "teks": "Kedua arah menuju angka yang sama, yaitu sepuluh. Karena itulah kita katakan limitnya sepuluh.",
+      "tulis": "Kedua arah menuju angka yang sama, yaitu 10. Karena itulah kita katakan limitnya 10."
     },
     {
       "id": "tekan",
-      "teks": "Perhatikan satu hal. Nilai x tidak pernah diletakkan tepat di tiga. Ia hanya didorong sedekat-dekatnya, dari kiri dan dari kanan."
+      "teks": "Perhatikan satu hal. Nilai x tidak pernah diletakkan tepat di tiga. Ia hanya didorong sedekat-dekatnya, dari kiri dan dari kanan.",
+      "tulis": "Perhatikan satu hal. Nilai x tidak pernah diletakkan tepat di 3. Ia hanya didorong sedekat-dekatnya, dari kiri dan dari kanan."
     },
     {
       "id": "longgar",
-      "teks": "Tapi kalimat mendekati masih terasa longgar. Seberapa dekat itu dekat? Ada satu cara menguji yang membuatnya jadi tegas, dan bentuknya permainan tantangan."
+      "teks": "Tapi kalimat mendekati masih terasa longgar. Seberapa dekat itu dekat? Ada satu cara menguji yang membuatnya jadi tegas, dan bentuknya permainan tantangan.",
+      "tulis": "Tapi kalimat mendekati masih terasa longgar. Seberapa dekat itu dekat? Ada satu cara menguji yang membuatnya jadi tegas, dan bentuknya permainan tantangan."
     },
     {
       "id": "tantang1",
-      "teks": "Anda menantang: saya mau f dari x berjarak kurang dari nol koma satu dari sepuluh. Saya menjawab: pakai x yang berjarak kurang dari nol koma nol satu enam dari tiga."
+      "teks": "Anda menantang: saya mau f dari x berjarak kurang dari nol koma satu dari sepuluh. Saya menjawab: pakai x yang berjarak kurang dari nol koma nol satu enam dari tiga.",
+      "tulis": "Anda menantang: saya mau f(x) berjarak kurang dari 0,1 dari 10. Saya menjawab: pakai x yang berjarak kurang dari 0,016 dari 3."
     },
     {
       "id": "tantang2",
-      "teks": "Anda menantang lebih ketat: kurang dari nol koma nol nol satu. Saya menjawab lagi: pakai x yang berjarak kurang dari nol koma nol nol nol satu enam."
+      "teks": "Anda menantang lebih ketat: kurang dari nol koma nol nol satu. Saya menjawab lagi: pakai x yang berjarak kurang dari nol koma nol nol nol satu enam.",
+      "tulis": "Anda menantang lebih ketat: kurang dari 0,001. Saya menjawab lagi: pakai x yang berjarak kurang dari 0,00016."
     },
     {
       "id": "janji",
-      "teks": "Limitnya sepuluh berarti: berapa pun ketatnya tantangan Anda, saya selalu punya jawabannya. Tidak ada tantangan yang membuat saya kehabisan akal."
+      "teks": "Limitnya sepuluh berarti: berapa pun ketatnya tantangan Anda, saya selalu punya jawabannya. Tidak ada tantangan yang membuat saya kehabisan akal.",
+      "tulis": "Limitnya 10 berarti: berapa pun ketatnya tantangan Anda, saya selalu punya jawabannya. Tidak ada tantangan yang membuat saya kehabisan akal."
     },
     {
       "id": "beda",
@@ -50,7 +59,8 @@
     },
     {
       "id": "tutup",
-      "teks": "Di bangku kuliah permainan ini ditulis dengan dua huruf Yunani. Anda belum perlu lambangnya. Yang perlu dibawa adalah gagasannya: limit itu janji yang sanggup memenuhi tantangan seketat apa pun."
+      "teks": "Di bangku kuliah permainan ini ditulis dengan dua huruf Yunani. Anda belum perlu lambangnya. Yang perlu dibawa adalah gagasannya: limit itu janji yang sanggup memenuhi tantangan seketat apa pun.",
+      "tulis": "Di bangku kuliah permainan ini ditulis dengan dua huruf Yunani, ε dan δ. Anda belum perlu lambangnya. Yang perlu dibawa adalah gagasannya: limit itu janji yang sanggup memenuhi tantangan seketat apa pun."
     }
   ]
 }

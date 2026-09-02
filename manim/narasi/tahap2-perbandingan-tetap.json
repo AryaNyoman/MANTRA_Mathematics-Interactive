@@ -6,27 +6,33 @@
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Tahap satu berakhir pada satu dugaan. Sudut yang sama selalu memberi *perbandingan yang sama*. Sekarang kita buktikan."
+      "teks": "Tahap satu berakhir pada satu dugaan. Sudut yang sama selalu memberi *perbandingan yang sama*. Sekarang kita buktikan.",
+      "tulis": "Tahap 1 berakhir pada satu dugaan. Sudut yang sama selalu memberi *perbandingan yang sama*. Sekarang kita buktikan."
     },
     {
       "id": "segitiga",
-      "teks": "Ini segitiga siku-siku dengan sudut theta. Sisi depannya satu koma delapan sentimeter, dan sisi sampingnya dua koma empat sentimeter."
+      "teks": "Ini segitiga siku-siku dengan sudut theta. Sisi depannya satu koma delapan sentimeter, dan sisi sampingnya dua koma empat sentimeter.",
+      "tulis": "Ini segitiga siku-siku dengan sudut θ. Sisi depannya 1,8 cm, dan sisi sampingnya 2,4 cm."
     },
     {
       "id": "bagi1",
-      "teks": "Bagi sisi depan dengan sisi samping. Satu koma delapan dibagi dua koma empat. Hasilnya *nol koma tujuh lima*."
+      "teks": "Bagi sisi depan dengan sisi samping. Satu koma delapan dibagi dua koma empat. Hasilnya *nol koma tujuh lima*.",
+      "tulis": "Bagi sisi depan dengan sisi samping. 1,8 : 2,4. Hasilnya *0,75*."
     },
     {
       "id": "besarkan",
-      "teks": "Sekarang segitiganya kita besarkan. Sudut theta tidak kita sentuh sama sekali, hanya ukurannya yang berubah."
+      "teks": "Sekarang segitiganya kita besarkan. Sudut theta tidak kita sentuh sama sekali, hanya ukurannya yang berubah.",
+      "tulis": "Sekarang segitiganya kita besarkan. Sudut θ tidak kita sentuh sama sekali, hanya ukurannya yang berubah."
     },
     {
       "id": "ukur2",
-      "teks": "Sisi depannya sekarang tiga sentimeter, dan sisi sampingnya empat sentimeter. Keduanya jelas berbeda dari tadi."
+      "teks": "Sisi depannya sekarang tiga sentimeter, dan sisi sampingnya empat sentimeter. Keduanya jelas berbeda dari tadi.",
+      "tulis": "Sisi depannya sekarang 3 cm, dan sisi sampingnya 4 cm. Keduanya jelas berbeda dari tadi."
     },
     {
       "id": "bagi2",
-      "teks": "Tapi coba bagi lagi. Tiga dibagi empat. Hasilnya nol koma tujuh lima. Sama persis seperti sebelumnya."
+      "teks": "Tapi coba bagi lagi. Tiga dibagi empat. Hasilnya nol koma tujuh lima. Sama persis seperti sebelumnya.",
+      "tulis": "Tapi coba bagi lagi. 3 : 4. Hasilnya 0,75. Sama persis seperti sebelumnya."
     },
     {
       "id": "kenapa",
@@ -38,7 +44,8 @@
     },
     {
       "id": "geser",
-      "teks": "Sekarang perhatikan kalau yang diubah sudutnya. Begitu theta bergerak, barulah angkanya ikut berubah."
+      "teks": "Sekarang perhatikan kalau yang diubah sudutnya. Begitu theta bergerak, barulah angkanya ikut berubah.",
+      "tulis": "Sekarang perhatikan kalau yang diubah sudutnya. Begitu θ bergerak, barulah angkanya ikut berubah."
     },
     {
       "id": "tutup",

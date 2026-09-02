@@ -3,85 +3,101 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/tahap9-tiga-grafik.json
 
 1
-00:00:00.000 --> 00:00:05.086
-Sekarang kita letakkan sinus, cosinus, dan tangen berdampingan.
+00:00:00.000 --> 00:00:04.748
+Sekarang kita letakkan sin, cos, dan tan berdampingan.
 
 2
-00:00:05.086 --> 00:00:08.880
+00:00:04.748 --> 00:00:08.880
 Ketiganya digerakkan oleh <b>satu sudut yang sama</b>.
 
 3
-00:00:08.880 --> 00:00:12.188
-Yang pertama sudah kita kenal dari tahap delapan.
+00:00:08.880 --> 00:00:12.204
+Yang pertama sudah kita kenal dari tahap 8.
 
 4
-00:00:12.188 --> 00:00:14.079
-Sinus mencatat tinggi titik,
+00:00:12.204 --> 00:00:14.215
+sin mencatat tinggi titik,
 
 5
-00:00:14.079 --> 00:00:19.008
-dan jejaknya melahirkan kurva yang naik turun antara satu dan minus satu.
+00:00:14.215 --> 00:00:19.008
+dan jejaknya melahirkan kurva yang naik turun antara 1 dan -1.
 
 6
-00:00:19.008 --> 00:00:23.108
-Yang kedua, cosinus, mencatat posisi mendatarnya.
+00:00:19.008 --> 00:00:22.948
+Yang kedua, cos, mencatat posisi mendatarnya.
 
 7
-00:00:23.108 --> 00:00:28.464
-Bentuk kurvanya persis sama, hanya saja ia berangkat lebih awal.
+00:00:22.948 --> 00:00:25.400
+Bentuk kurvanya persis sama,
 
 8
-00:00:28.464 --> 00:00:31.822
-Sembilan puluh derajat lebih awal, tepatnya.
+00:00:25.400 --> 00:00:28.464
+hanya saja ia berangkat lebih awal.
 
 9
-00:00:31.822 --> 00:00:36.631
-Masuk akal, karena saat sudutnya nol titik berada paling kanan.
+00:00:28.464 --> 00:00:30.697
+90° lebih awal, tepatnya.
 
 10
-00:00:36.631 --> 00:00:41.592
-Posisi mendatarnya sudah maksimum, sementara tingginya masih nol.
+00:00:30.697 --> 00:00:31.897
+Masuk akal,
 
 11
-00:00:41.592 --> 00:00:47.856
-Yang ketiga berbeda sendiri. Tangen adalah tinggi dibagi posisi mendatar.
+00:00:31.897 --> 00:00:36.273
+karena saat sudutnya 0 titik berada paling kanan.
 
 12
-00:00:47.856 --> 00:00:52.012
-Selama pembaginya tidak nol, hasilnya baik-baik saja.
+00:00:36.273 --> 00:00:39.309
+Posisi mendatarnya sudah maksimum,
 
 13
-00:00:52.012 --> 00:00:56.952
-Tetapi di sembilan puluh derajat, posisi mendatarnya tepat nol.
+00:00:39.309 --> 00:00:41.592
+sementara tingginya masih 0.
 
 14
-00:00:56.952 --> 00:01:00.039
-Dan pembagian dengan nol <b>tidak terdefinisi</b>.
+00:00:41.592 --> 00:00:44.565
+Yang ketiga berbeda sendiri.
 
 15
-00:01:00.039 --> 00:01:04.848
-Kurvanya melesat naik tanpa pernah menyentuh garis putus-putus itu.
+00:00:44.565 --> 00:00:47.856
+tan = tinggi : posisi mendatar.
 
 16
-00:01:04.848 --> 00:01:09.354
-Sinus dan cosinus terkurung rapat antara satu dan minus satu.
+00:00:47.856 --> 00:00:52.844
+Selama pembaginya tidak 0, hasilnya baik-baik saja.
 
 17
-00:01:09.354 --> 00:01:13.416
-Tangen tidak punya batas, baik ke atas maupun ke bawah.
+00:00:52.844 --> 00:00:56.952
+Tetapi di 90°, posisi mendatarnya tepat 0.
 
 18
-00:01:13.416 --> 00:01:17.775
-Sinus dan cosinus mengulang setiap tiga ratus enam puluh derajat.
+00:00:56.952 --> 00:00:59.950
+Dan pembagian dengan 0 <b>tidak terdefinisi</b>.
 
 19
-00:01:17.775 --> 00:01:22.872
-Tangen mengulang dua kali lebih cepat, setiap <b>seratus delapan puluh derajat</b>.
+00:00:59.950 --> 00:01:04.848
+Kurvanya melesat naik tanpa pernah menyentuh garis putus-putus itu.
 
 20
-00:01:22.872 --> 00:01:24.941
-Tiga kurva, satu putaran.
+00:01:04.848 --> 00:01:08.775
+sin dan cos terkurung rapat antara 1 dan -1.
 
 21
-00:01:24.941 --> 00:01:30.072
+00:01:08.775 --> 00:01:13.416
+tan tidak punya batas, baik ke atas maupun ke bawah.
+
+22
+00:01:13.416 --> 00:01:17.337
+sin dan cos mengulang setiap 360°.
+
+23
+00:01:17.337 --> 00:01:22.872
+tan mengulang dua kali lebih cepat, setiap <b>180°</b>.
+
+24
+00:01:22.872 --> 00:01:24.561
+3 kurva, 1 putaran.
+
+25
+00:01:24.561 --> 00:01:30.072
 Yang berbeda hanya apa yang dicatat dari perjalanan yang sama.

@@ -6,7 +6,8 @@
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Ada tiga sudut yang di semua buku selalu disebut *istimewa*. Tiga puluh, empat puluh lima, dan enam puluh derajat."
+      "teks": "Ada tiga sudut yang di semua buku selalu disebut *istimewa*. Tiga puluh, empat puluh lima, dan enam puluh derajat.",
+      "tulis": "Ada tiga sudut yang di semua buku selalu disebut *istimewa*. 30°, 45°, dan 60°."
     },
     {
       "id": "kenapa",
@@ -14,35 +15,43 @@
     },
     {
       "id": "persegi",
-      "teks": "Yang pertama lahir dari sebuah persegi. Ambil persegi dengan panjang sisi satu, lalu potong menurut garis diagonalnya."
+      "teks": "Yang pertama lahir dari sebuah persegi. Ambil persegi dengan panjang sisi satu, lalu potong menurut garis diagonalnya.",
+      "tulis": "Yang pertama lahir dari sebuah persegi. Ambil persegi dengan panjang sisi 1, lalu potong menurut garis diagonalnya."
     },
     {
       "id": "empatlima",
-      "teks": "Yang tersisa adalah segitiga siku-siku dengan dua sudut empat puluh lima derajat. Kedua sisi tegaknya satu, dan sisi miringnya *akar dua*."
+      "teks": "Yang tersisa adalah segitiga siku-siku dengan dua sudut empat puluh lima derajat. Kedua sisi tegaknya satu, dan sisi miringnya *akar dua*.",
+      "tulis": "Yang tersisa adalah segitiga siku-siku dengan dua sudut 45°. Kedua sisi tegaknya 1, dan sisi miringnya *√2*."
     },
     {
       "id": "nilai45",
-      "teks": "Jadi sinus empat puluh lima derajat adalah satu per akar dua. Sebuah angka pasti, bukan hasil tekan kalkulator."
+      "teks": "Jadi sinus empat puluh lima derajat adalah satu per akar dua. Sebuah angka pasti, bukan hasil tekan kalkulator.",
+      "tulis": "Jadi sin 45° = 1/√2. Sebuah angka pasti, bukan hasil tekan kalkulator."
     },
     {
       "id": "samasisi",
-      "teks": "Yang kedua lahir dari segitiga sama sisi. Ambil segitiga yang ketiga sisinya dua, lalu belah tepat di tengah."
+      "teks": "Yang kedua lahir dari segitiga sama sisi. Ambil segitiga yang ketiga sisinya dua, lalu belah tepat di tengah.",
+      "tulis": "Yang kedua lahir dari segitiga sama sisi. Ambil segitiga yang ketiga sisinya 2, lalu belah tepat di tengah."
     },
     {
       "id": "tigapuluh",
-      "teks": "Sekarang muncul segitiga siku-siku dengan sudut tiga puluh dan enam puluh derajat. Alasnya satu, miringnya dua, dan sisi tegaknya *akar tiga*."
+      "teks": "Sekarang muncul segitiga siku-siku dengan sudut tiga puluh dan enam puluh derajat. Alasnya satu, miringnya dua, dan sisi tegaknya *akar tiga*.",
+      "tulis": "Sekarang muncul segitiga siku-siku dengan sudut 30° dan 60°. Alasnya 1, miringnya 2, dan sisi tegaknya *√3*."
     },
     {
       "id": "nilai30",
-      "teks": "Dari situ, sinus tiga puluh derajat adalah satu per dua. Dan sinus enam puluh derajat adalah akar tiga per dua."
+      "teks": "Dari situ, sinus tiga puluh derajat adalah satu per dua. Dan sinus enam puluh derajat adalah akar tiga per dua.",
+      "tulis": "Dari situ, sin 30° = 1/2. Dan sin 60° = √3/2."
     },
     {
       "id": "lingkaran",
-      "teks": "Sekarang taruh ketiganya di lingkaran satuan. Tiap sudut istimewa memberi satu titik yang koordinatnya bisa ditulis persis."
+      "teks": "Sekarang taruh ketiganya di lingkaran satuan. Tiap sudut istimewa memberi satu titik yang koordinatnya bisa ditulis persis.",
+      "tulis": "Sekarang taruh ketiganya di lingkaran satuan. Tiap sudut istimewa memberi 1 titik yang koordinatnya bisa ditulis persis."
     },
     {
       "id": "sapu",
-      "teks": "Jari-jarinya menyapu, berhenti di tiap sudut istimewa, dan koordinatnya muncul satu per satu."
+      "teks": "Jari-jarinya menyapu, berhenti di tiap sudut istimewa, dan koordinatnya muncul satu per satu.",
+      "tulis": "Jari-jarinya menyapu, berhenti di tiap sudut istimewa, dan koordinatnya muncul satu per satu."
     },
     {
       "id": "tutup",

@@ -2,32 +2,32 @@
   "adegan": "ContohPerahu",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "latar": "air",
-  "catatan": "CONTOH RUJUKAN alur ManimGL (2 Sep 2026): perahu 3D di air, kamera terbang dari dunia ke peta, panah muncul di atas gambar. Bukan video materi; sesi Vektor boleh memakainya sebagai dasar Materi 01.",
+  "catatan": "KERANGKA contoh alur ManimGL standar v2 (2 Sep 2026 malam), 20 detik. Bukan video materi. Rujukan resmi: vektor1_perahu.py (bidang datar) dan ruang_3d_01.py (3D). Tiap segmen punya teks (terucap) dan tulis (tertulis, untuk subtitle).",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Sekarang kita masuk ke materi baru: *vektor*. Materi pertama, *angka saja tidak cukup*."
+      "teks": "Sekarang kita masuk ke materi baru: vektor. Materi pertama, *angka saja tidak cukup*.",
+      "tulis": "Sekarang kita masuk ke materi baru: vektor. Materi 01, *angka saja tidak cukup*."
     },
     {
-      "id": "sapa",
-      "teks": "Bayangkan sebuah perahu kecil di tepi sungai. Sungainya lebar *tiga kilometer*, dan kita ingin menyeberang ke tepi di seberang sana."
+      "id": "dunia",
+      "teks": "Perahu kecil ini mau menyeberangi sungai selebar tiga kilometer.",
+      "tulis": "Perahu kecil ini mau menyeberangi sungai selebar 3 km."
     },
     {
-      "id": "terbang",
-      "teks": "Supaya jelas ke mana perahu ini bergerak, coba kita lihat dari atas, seperti membaca peta."
+      "id": "peta",
+      "teks": "Kita lihat dari atas, seperti peta: satu petak sama dengan satu kilometer.",
+      "tulis": "Kita lihat dari atas, seperti peta: 1 petak = 1 km."
     },
     {
-      "id": "dayung",
-      "teks": "Kita mendayung lurus ke seberang, sejauh tiga kilometer. Perhatikan panah biru ini: arahnya *melintang*, panjangnya *tiga*."
-    },
-    {
-      "id": "arus",
-      "teks": "Tetapi sungai punya arus. Arus mendorong perahu ke hilir sejauh dua kilometer. Panah merah ini *searah sungai*, panjangnya *dua*."
+      "id": "panah",
+      "teks": "Dayung mendorong *tiga* ke seberang. Arus mendorong *empat* ke hilir.",
+      "tulis": "Dayung mendorong *3* ke seberang. Arus mendorong *4* ke hilir."
     },
     {
       "id": "tutup",
-      "teks": "Dua dorongan, dua arah. *Ke mana perahu akhirnya mendarat?* Itulah pertanyaan yang dijawab vektor."
+      "teks": "Perahu mendarat di ujung panah ungu: empat ke kanan, tiga ke atas, jaraknya *lima* kilometer.",
+      "tulis": "Perahu mendarat di ujung panah ungu: (4, 3), jaraknya *5* km."
     }
   ]
 }

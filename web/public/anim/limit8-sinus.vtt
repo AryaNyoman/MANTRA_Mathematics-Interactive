@@ -3,113 +3,129 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/limit8-sinus.json
 
 1
-00:00:00.000 --> 00:00:05.232
-Kenapa sinus x dibagi x menuju tepat satu, bukan sekadar mendekati?
+00:00:00.000 --> 00:00:03.067
+Kenapa (sin x) : x menuju tepat 1,
 
 2
-00:00:05.232 --> 00:00:10.035
-Kalau angkanya dimasukkan langsung, sinus nol sama dengan nol,
+00:00:03.067 --> 00:00:05.232
+bukan sekadar mendekati?
 
 3
-00:00:10.035 --> 00:00:11.972
-dan penyebutnya juga nol.
+00:00:05.232 --> 00:00:09.902
+Kalau angkanya dimasukkan langsung, sin 0 = 0,
 
 4
-00:00:11.972 --> 00:00:14.064
-Bentuk nol dibagi nol lagi.
+00:00:09.902 --> 00:00:12.237
+dan penyebutnya juga 0.
 
 5
-00:00:14.064 --> 00:00:17.297
-Dicoba dengan angka, semuanya dalam radian.
+00:00:12.237 --> 00:00:14.064
+Bentuk 0 : 0 lagi.
 
 6
-00:00:17.297 --> 00:00:22.258
-Di nol koma satu hasilnya nol koma sembilan sembilan delapan tiga.
+00:00:14.064 --> 00:00:21.337
+Dicoba dengan angka, semuanya dalam radian.
 
 7
-00:00:22.258 --> 00:00:28.272
-Di nol koma nol satu, nol koma sembilan sembilan sembilan sembilan delapan tiga.
+00:00:21.337 --> 00:00:25.227
+Di 0,1 hasilnya 0,9983.
 
 8
-00:00:28.272 --> 00:00:29.579
-Merapat ke satu.
+00:00:25.227 --> 00:00:28.272
+Di 0,01, 0,999983.
 
 9
-00:00:29.579 --> 00:00:35.136
-Tapi kenapa tepat satu, dan bukan nol koma sembilan sembilan sekian?
+00:00:28.272 --> 00:00:29.865
+Merapat ke 1.
 
 10
-00:00:35.136 --> 00:00:37.855
-Jawabannya ada di lingkaran satuan.
+00:00:29.865 --> 00:00:35.136
+Tapi kenapa tepat 1, dan bukan 0,99 sekian?
 
 11
-00:00:37.855 --> 00:00:43.992
-Gambar lingkaran berjari-jari satu, lalu ambil sebuah sudut lancip di pusatnya.
+00:00:35.136 --> 00:00:37.954
+Jawabannya ada di lingkaran satuan.
 
 12
-00:00:43.992 --> 00:00:48.331
-Di dalam gambar itu ada tiga daerah yang saling bersarang.
+00:00:37.954 --> 00:00:40.530
+Gambar lingkaran berjari-jari 1,
 
 13
-00:00:48.331 --> 00:00:53.568
-Segitiga kecil di dalam, juring lingkaran, dan segitiga besar di luar.
+00:00:40.530 --> 00:00:43.992
+lalu ambil sebuah sudut lancip di pusatnya.
 
 14
-00:00:53.568 --> 00:00:57.915
-Luas segitiga dalam adalah setengah kosinus dikali sinus.
+00:00:43.992 --> 00:00:48.239
+Di dalam gambar itu ada 3 daerah yang saling bersarang.
 
 15
-00:00:57.915 --> 00:01:02.186
-Luas juringnya setengah sudut, karena jari-jarinya satu.
+00:00:48.239 --> 00:00:51.483
+Segitiga kecil di dalam, juring lingkaran,
 
 16
-00:01:02.186 --> 00:01:05.160
-Dan luas segitiga luar setengah tangen.
+00:00:51.483 --> 00:00:53.568
+dan segitiga besar di luar.
 
 17
-00:01:05.160 --> 00:01:10.272
-Karena yang satu termuat di dalam yang lain, urutan luasnya sudah pasti naik.
+00:00:53.568 --> 00:00:57.466
+Luas segitiga dalam = ½ cos x · sin x.
 
 18
-00:01:10.272 --> 00:01:14.387
-Bagi ketiganya dengan sinus, dan bentuknya menjadi rapi.
+00:00:57.466 --> 00:01:01.775
+Luas juringnya ½ x, karena jari-jarinya 1.
 
 19
-00:01:14.387 --> 00:01:17.621
-Kosinus lebih kecil dari sudut dibagi sinus,
+00:01:01.775 --> 00:01:05.160
+Dan luas segitiga luar = ½ tan x.
 
 20
-00:01:17.621 --> 00:01:20.928
-dan itu lebih kecil dari satu dibagi kosinus.
+00:01:05.160 --> 00:01:08.120
+Karena yang satu termuat di dalam yang lain,
 
 21
-00:01:20.928 --> 00:01:22.760
-Sekarang kecilkan sudutnya.
+00:01:08.120 --> 00:01:10.272
+urutan luasnya sudah pasti naik.
 
 22
-00:01:22.760 --> 00:01:25.475
-Kedua penjepitnya sama-sama menuju satu,
+00:01:10.272 --> 00:01:17.211
+Bagi ketiganya dengan sin x, dan bentuknya menjadi rapi.
 
 23
-00:01:25.475 --> 00:01:30.768
-jadi yang terjepit di tengah tidak punya pilihan lain selain ikut menuju satu.
+00:01:17.211 --> 00:01:20.928
+cos x < x : sin x < 1 : cos x.
 
 24
-00:01:30.768 --> 00:01:35.492
-Satu syarat yang tidak boleh dilupakan: sudutnya harus dalam radian.
+00:01:20.928 --> 00:01:22.839
+Sekarang kecilkan sudutnya.
 
 25
-00:01:35.492 --> 00:01:41.328
-Kalau ditulis dalam derajat, luas juringnya berubah dan seluruh hitungan ini runtuh.
+00:01:22.839 --> 00:01:25.459
+Kedua penjepitnya sama-sama menuju 1,
 
 26
-00:01:41.328 --> 00:01:44.708
-Jadi bukan hampir satu, melainkan tepat satu.
+00:01:25.459 --> 00:01:30.768
+jadi yang terjepit di tengah tidak punya pilihan lain selain ikut menuju 1.
 
 27
-00:01:44.708 --> 00:01:47.638
-Dan alasannya bukan tebakan dari tabel,
+00:01:30.768 --> 00:01:35.401
+Satu syarat yang tidak boleh dilupakan: sudutnya harus dalam radian.
 
 28
-00:01:47.638 --> 00:01:51.168
+00:01:35.401 --> 00:01:37.581
+Kalau ditulis dalam derajat (°),
+
+29
+00:01:37.581 --> 00:01:41.328
+luas juringnya berubah dan seluruh hitungan ini runtuh.
+
+30
+00:01:41.328 --> 00:01:44.398
+Jadi bukan hampir 1, melainkan tepat 1.
+
+31
+00:01:44.398 --> 00:01:47.468
+Dan alasannya bukan tebakan dari tabel,
+
+32
+00:01:47.468 --> 00:01:51.168
 melainkan perbandingan luas di dalam lingkaran.

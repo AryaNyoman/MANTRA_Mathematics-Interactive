@@ -6,43 +6,53 @@
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Sekarang kita letakkan sinus, cosinus, dan tangen berdampingan. Ketiganya digerakkan oleh *satu sudut yang sama*."
+      "teks": "Sekarang kita letakkan sinus, cosinus, dan tangen berdampingan. Ketiganya digerakkan oleh *satu sudut yang sama*.",
+      "tulis": "Sekarang kita letakkan sin, cos, dan tan berdampingan. Ketiganya digerakkan oleh *satu sudut yang sama*."
     },
     {
       "id": "sin",
-      "teks": "Yang pertama sudah kita kenal dari tahap delapan. Sinus mencatat tinggi titik, dan jejaknya melahirkan kurva yang naik turun antara satu dan minus satu."
+      "teks": "Yang pertama sudah kita kenal dari tahap delapan. Sinus mencatat tinggi titik, dan jejaknya melahirkan kurva yang naik turun antara satu dan minus satu.",
+      "tulis": "Yang pertama sudah kita kenal dari tahap 8. sin mencatat tinggi titik, dan jejaknya melahirkan kurva yang naik turun antara 1 dan -1."
     },
     {
       "id": "cos",
-      "teks": "Yang kedua, cosinus, mencatat posisi mendatarnya. Bentuk kurvanya persis sama, hanya saja ia berangkat lebih awal."
+      "teks": "Yang kedua, cosinus, mencatat posisi mendatarnya. Bentuk kurvanya persis sama, hanya saja ia berangkat lebih awal.",
+      "tulis": "Yang kedua, cos, mencatat posisi mendatarnya. Bentuk kurvanya persis sama, hanya saja ia berangkat lebih awal."
     },
     {
       "id": "geser",
-      "teks": "Sembilan puluh derajat lebih awal, tepatnya. Masuk akal, karena saat sudutnya nol titik berada paling kanan. Posisi mendatarnya sudah maksimum, sementara tingginya masih nol."
+      "teks": "Sembilan puluh derajat lebih awal, tepatnya. Masuk akal, karena saat sudutnya nol titik berada paling kanan. Posisi mendatarnya sudah maksimum, sementara tingginya masih nol.",
+      "tulis": "90° lebih awal, tepatnya. Masuk akal, karena saat sudutnya 0 titik berada paling kanan. Posisi mendatarnya sudah maksimum, sementara tingginya masih 0."
     },
     {
       "id": "tan",
-      "teks": "Yang ketiga berbeda sendiri. Tangen adalah tinggi dibagi posisi mendatar."
+      "teks": "Yang ketiga berbeda sendiri. Tangen adalah tinggi dibagi posisi mendatar.",
+      "tulis": "Yang ketiga berbeda sendiri. tan = tinggi : posisi mendatar."
     },
     {
       "id": "bagi",
-      "teks": "Selama pembaginya tidak nol, hasilnya baik-baik saja. Tetapi di sembilan puluh derajat, posisi mendatarnya tepat nol."
+      "teks": "Selama pembaginya tidak nol, hasilnya baik-baik saja. Tetapi di sembilan puluh derajat, posisi mendatarnya tepat nol.",
+      "tulis": "Selama pembaginya tidak 0, hasilnya baik-baik saja. Tetapi di 90°, posisi mendatarnya tepat 0."
     },
     {
       "id": "jurang",
-      "teks": "Dan pembagian dengan nol *tidak terdefinisi*. Kurvanya melesat naik tanpa pernah menyentuh garis putus-putus itu."
+      "teks": "Dan pembagian dengan nol *tidak terdefinisi*. Kurvanya melesat naik tanpa pernah menyentuh garis putus-putus itu.",
+      "tulis": "Dan pembagian dengan 0 *tidak terdefinisi*. Kurvanya melesat naik tanpa pernah menyentuh garis putus-putus itu."
     },
     {
       "id": "banding",
-      "teks": "Sinus dan cosinus terkurung rapat antara satu dan minus satu. Tangen tidak punya batas, baik ke atas maupun ke bawah."
+      "teks": "Sinus dan cosinus terkurung rapat antara satu dan minus satu. Tangen tidak punya batas, baik ke atas maupun ke bawah.",
+      "tulis": "sin dan cos terkurung rapat antara 1 dan -1. tan tidak punya batas, baik ke atas maupun ke bawah."
     },
     {
       "id": "ulang",
-      "teks": "Sinus dan cosinus mengulang setiap tiga ratus enam puluh derajat. Tangen mengulang dua kali lebih cepat, setiap *seratus delapan puluh derajat*."
+      "teks": "Sinus dan cosinus mengulang setiap tiga ratus enam puluh derajat. Tangen mengulang dua kali lebih cepat, setiap *seratus delapan puluh derajat*.",
+      "tulis": "sin dan cos mengulang setiap 360°. tan mengulang dua kali lebih cepat, setiap *180°*."
     },
     {
       "id": "tutup",
-      "teks": "Tiga kurva, satu putaran. Yang berbeda hanya apa yang dicatat dari perjalanan yang sama."
+      "teks": "Tiga kurva, satu putaran. Yang berbeda hanya apa yang dicatat dari perjalanan yang sama.",
+      "tulis": "3 kurva, 1 putaran. Yang berbeda hanya apa yang dicatat dari perjalanan yang sama."
     }
   ]
 }

@@ -12,96 +12,116 @@ tapi limitnya tetap ada.
 
 3
 00:00:05.568 --> 00:00:10.944
-Perhatikan fungsi ini: x kuadrat kurang satu, dibagi x kurang satu.
+Perhatikan fungsi ini: (x² - 1) : (x - 1).
 
 4
-00:00:10.944 --> 00:00:14.486
-Sekarang masukkan x sama dengan satu.
+00:00:10.944 --> 00:00:14.161
+Sekarang masukkan x = 1.
 
 5
-00:00:14.486 --> 00:00:18.220
-Pembilangnya nol, penyebutnya juga nol.
+00:00:14.161 --> 00:00:18.852
+Pembilangnya 0, penyebutnya juga 0.
 
 6
-00:00:18.220 --> 00:00:19.656
-Nol dibagi nol.
+00:00:18.852 --> 00:00:19.656
+0 : 0.
 
 7
-00:00:19.656 --> 00:00:22.371
+00:00:19.656 --> 00:00:22.697
 Hitungan itu tidak punya jawaban.
 
 8
-00:00:22.371 --> 00:00:27.391
-Jadi di titik satu, fungsi ini tidak terdefinisi sama sekali.
+00:00:22.697 --> 00:00:24.172
+Jadi di titik 1,
 
 9
-00:00:27.391 --> 00:00:31.176
-Bukan bernilai nol, bukan bernilai tak hingga.
+00:00:24.172 --> 00:00:27.950
+fungsi ini tidak terdefinisi sama sekali.
 
 10
-00:00:31.176 --> 00:00:37.896
-Tapi lihat grafiknya. Ia garis lurus biasa, dengan satu titik yang bolong.
+00:00:27.950 --> 00:00:31.176
+Bukan bernilai 0, bukan bernilai ∞.
 
 11
-00:00:37.896 --> 00:00:39.687
-Kita dekati dari kiri.
+00:00:31.176 --> 00:00:33.192
+Tapi lihat grafiknya.
 
 12
-00:00:39.687 --> 00:00:43.759
-Di nol koma sembilan, nilainya satu koma sembilan.
+00:00:33.192 --> 00:00:37.896
+Ia garis lurus biasa, dengan 1 titik yang bolong.
 
 13
-00:00:43.759 --> 00:00:49.296
-Di nol koma sembilan sembilan, nilainya satu koma sembilan sembilan.
+00:00:37.896 --> 00:00:41.696
+Kita dekati dari kiri.
 
 14
-00:00:49.296 --> 00:00:51.199
-Sekarang dari kanan.
+00:00:41.696 --> 00:00:45.323
+Di 0,9, nilainya 1,9.
 
 15
-00:00:51.199 --> 00:00:55.195
-Di satu koma satu, nilainya dua koma satu.
+00:00:45.323 --> 00:00:49.296
+Di 0,99, nilainya 1,99.
 
 16
-00:00:55.195 --> 00:00:59.952
-Di satu koma nol satu, nilainya dua koma nol satu.
+00:00:49.296 --> 00:00:52.626
+Sekarang dari kanan.
 
 17
-00:00:59.952 --> 00:01:03.793
-Kedua arah menuju angka yang sama, yaitu dua.
+00:00:52.626 --> 00:00:56.122
+Di 1,1, nilainya 2,1.
 
 18
-00:01:03.793 --> 00:01:08.232
-Jadi limitnya dua, walaupun titiknya sendiri kosong.
+00:00:56.122 --> 00:00:59.952
+Di 1,01, nilainya 2,01.
 
 19
-00:01:08.232 --> 00:01:10.053
-Kenapa bisa serapi itu?
+00:00:59.952 --> 00:01:03.780
+Kedua arah menuju angka yang sama, yaitu 2.
 
 20
-00:01:10.053 --> 00:01:16.464
-Karena pembilangnya bisa difaktorkan menjadi x kurang satu, dikali x tambah satu.
+00:01:03.780 --> 00:01:08.232
+Jadi limitnya 2, walaupun titiknya sendiri kosong.
 
 21
-00:01:16.464 --> 00:01:20.468
-Faktor x kurang satu di atas dan di bawah bisa dicoret.
+00:01:08.232 --> 00:01:10.513
+Kenapa bisa serapi itu?
 
 22
-00:01:20.468 --> 00:01:25.272
-Tapi hanya boleh kalau x bukan satu, sebab kita sedang membaginya.
+00:01:10.513 --> 00:01:16.464
+Karena pembilangnya bisa difaktorkan menjadi (x - 1)(x + 1).
 
 23
-00:01:25.272 --> 00:01:27.818
-Yang tersisa adalah x tambah satu.
+00:01:16.464 --> 00:01:20.498
+Faktor (x - 1) di atas dan di bawah bisa dicoret.
 
 24
-00:01:27.818 --> 00:01:33.960
-Itulah kenapa grafiknya berupa garis, dan kenapa hanya di titik satu ia berlubang.
+00:01:20.498 --> 00:01:22.885
+Tapi hanya boleh kalau x ≠ 1,
 
 25
-00:01:33.960 --> 00:01:37.464
-Nilai fungsi dan limit adalah dua hal yang berbeda.
+00:01:22.885 --> 00:01:25.272
+sebab kita sedang membaginya.
 
 26
-00:01:37.464 --> 00:01:42.960
-Yang satu bisa ada tanpa yang lain, dan justru karena itulah limit dibuat orang.
+00:01:25.272 --> 00:01:27.444
+Yang tersisa adalah x + 1.
+
+27
+00:01:27.444 --> 00:01:30.535
+Itulah kenapa grafiknya berupa garis,
+
+28
+00:01:30.535 --> 00:01:33.960
+dan kenapa hanya di titik 1 ia berlubang.
+
+29
+00:01:33.960 --> 00:01:37.491
+Nilai fungsi dan limit adalah dua hal yang berbeda.
+
+30
+00:01:37.491 --> 00:01:39.914
+Yang satu bisa ada tanpa yang lain,
+
+31
+00:01:39.914 --> 00:01:42.960
+dan justru karena itulah limit dibuat orang.

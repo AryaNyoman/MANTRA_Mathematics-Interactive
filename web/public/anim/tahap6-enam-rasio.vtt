@@ -3,20 +3,20 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/tahap6-enam-rasio.json
 
 1
-00:00:00.000 --> 00:00:04.613
-Selain sinus dan cosinus, masih ada empat perbandingan lagi.
+00:00:00.000 --> 00:00:04.237
+Selain sin dan cos, masih ada 4 perbandingan lagi.
 
 2
-00:00:04.613 --> 00:00:08.304
+00:00:04.237 --> 00:00:08.304
 Dan keempatnya bisa ditunjuk sebagai ruas garis.
 
 3
-00:00:08.304 --> 00:00:11.950
+00:00:08.304 --> 00:00:13.236
 Kita mulai dari lingkaran satuan yang tadi.
 
 4
-00:00:11.950 --> 00:00:16.104
-Cosinus theta adalah x, dan sinus theta adalah y.
+00:00:13.236 --> 00:00:16.104
+cos θ = x, dan sin θ = y.
 
 5
 00:00:16.104 --> 00:00:21.108
@@ -27,16 +27,16 @@ Sekarang tarik sebuah garis tegak yang menyentuh lingkaran di sebelah kanan.
 Garis seperti ini disebut <b>garis singgung</b>.
 
 7
-00:00:23.808 --> 00:00:27.747
+00:00:23.808 --> 00:00:27.955
 Perpanjang jari-jarinya sampai mengenai garis singgung tadi.
 
 8
-00:00:27.747 --> 00:00:33.000
-Ruas dari sumbu mendatar sampai titik potong itu panjangnya persis <b>tangen theta</b>.
+00:00:27.955 --> 00:00:33.000
+Ruas dari sumbu mendatar sampai titik potong itu panjangnya persis <b>tan θ</b>.
 
 9
 00:00:33.000 --> 00:00:38.160
-Dan ruas dari pusat lingkaran sampai titik potong yang sama panjangnya <b>sekan theta</b>.
+Dan ruas dari pusat lingkaran sampai titik potong yang sama panjangnya <b>sec θ</b>.
 
 10
 00:00:38.160 --> 00:00:41.236
@@ -47,33 +47,37 @@ Sekarang tarik garis singgung yang kedua.
 Kali ini mendatar, menyentuh lingkaran di bagian atas.
 
 12
-00:00:45.288 --> 00:00:48.187
+00:00:45.288 --> 00:00:48.441
 Perpanjang lagi jari-jarinya ke arah itu.
 
 13
-00:00:48.187 --> 00:00:53.208
-Ruas dari sumbu tegak sampai titik potongnya panjangnya <b>kotangen theta</b>.
+00:00:48.441 --> 00:00:53.208
+Ruas dari sumbu tegak sampai titik potongnya panjangnya <b>cot θ</b>.
 
 14
 00:00:53.208 --> 00:00:57.816
-Dan ruas dari pusat sampai titik potong itu panjangnya <b>kosekan theta</b>.
+Dan ruas dari pusat sampai titik potong itu panjangnya <b>csc θ</b>.
 
 15
-00:00:57.816 --> 00:01:04.848
-Enam ruas, enam nama. Semuanya lahir dari satu lingkaran dan satu sudut yang sama.
+00:00:57.816 --> 00:00:59.222
+6 ruas, 6 nama.
 
 16
+00:00:59.222 --> 00:01:04.848
+Semuanya lahir dari satu lingkaran dan satu sudut yang sama.
+
+17
 00:01:04.848 --> 00:01:09.300
 Geser sudutnya, dan keenamnya berubah bersama-sama.
 
-17
+18
 00:01:09.300 --> 00:01:12.792
 Yang satu memanjang, yang lain memendek.
 
-18
-00:01:12.792 --> 00:01:16.564
-Jadi sekan dan kosekan bukan rumus yang harus dihafal.
-
 19
-00:01:16.564 --> 00:01:20.616
+00:01:12.792 --> 00:01:16.335
+Jadi sec dan csc bukan rumus yang harus dihafal.
+
+20
+00:01:16.335 --> 00:01:20.616
 Keduanya panjang yang bisa Anda tunjuk langsung di gambar.

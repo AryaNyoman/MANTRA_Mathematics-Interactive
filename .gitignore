@@ -43,3 +43,4 @@ videos/
 # Log MiKTeX nyasar saat cek_kode --dalam
 mfput.log
 *.aux
+web/public/anim/contoh-perahu.vtt

@@ -3,81 +3,97 @@ WEBVTT
 NOTE Dibuat otomatis dari manim/narasi/tahap4-lahirnya-rasio.json
 
 1
-00:00:00.000 --> 00:00:03.347
-Sebuah segitiga siku-siku punya tiga sisi.
+00:00:00.000 --> 00:00:03.233
+Sebuah segitiga siku-siku punya 3 sisi.
 
 2
-00:00:03.347 --> 00:00:08.208
-Dari ketiga sisi itu, ada berapa cara membaginya berpasangan?
+00:00:03.233 --> 00:00:04.975
+Dari ketiga sisi itu,
 
 3
-00:00:08.208 --> 00:00:13.320
-Ambil satu sisi sebagai pembilang, dan satu sisi lain sebagai penyebut.
+00:00:04.975 --> 00:00:08.208
+ada berapa cara membaginya berpasangan?
 
 4
-00:00:13.320 --> 00:00:18.360
-Ada tiga pilihan untuk yang di atas, dan dua sisa untuk yang di bawah.
+00:00:08.208 --> 00:00:10.784
+Ambil satu sisi sebagai pembilang,
 
 5
-00:00:18.360 --> 00:00:21.267
-Tiga dikali dua sama dengan enam.
+00:00:10.784 --> 00:00:13.511
+dan satu sisi lain sebagai penyebut.
 
 6
-00:00:21.267 --> 00:00:24.790
-Jadi ada <b>enam perbandingan</b> yang mungkin.
+00:00:13.511 --> 00:00:16.011
+Ada 3 pilihan untuk yang di atas,
 
 7
-00:00:24.790 --> 00:00:27.432
-Tidak lebih, dan tidak kurang.
+00:00:16.011 --> 00:00:18.360
+dan 2 sisa untuk yang di bawah.
 
 8
-00:00:27.432 --> 00:00:29.197
-Dan keenamnya punya nama.
+00:00:18.360 --> 00:00:19.560
+3 × 2 = 6.
 
 9
-00:00:29.197 --> 00:00:34.704
-Tiga yang paling sering dipakai diberi nama yang sudah Anda dengar sejak lama.
+00:00:19.560 --> 00:00:23.919
+Jadi ada <b>6 perbandingan</b> yang mungkin.
 
 10
-00:00:34.704 --> 00:00:39.624
-Sisi depan dibagi sisi miring. Namanya <b>sinus</b>.
+00:00:23.919 --> 00:00:27.432
+Tidak lebih, dan tidak kurang.
 
 11
-00:00:39.624 --> 00:00:44.832
-Sisi samping dibagi sisi miring. Namanya <b>cosinus</b>.
+00:00:27.432 --> 00:00:29.250
+Dan keenamnya punya nama.
 
 12
-00:00:44.832 --> 00:00:50.064
-Dan sisi depan dibagi sisi samping. Namanya <b>tangen</b>.
+00:00:29.250 --> 00:00:34.704
+3 yang paling sering dipakai diberi nama yang sudah Anda dengar sejak lama.
 
 13
-00:00:50.064 --> 00:00:54.797
-Ketiganya paling sering dipakai karena sisi miring selalu yang terpanjang.
+00:00:34.704 --> 00:00:39.624
+depan : miring. Namanya <b>sinus</b> (sin).
 
 14
-00:00:54.797 --> 00:00:58.890
-Membaginya dengan sisi miring memberi angka antara nol dan satu,
+00:00:39.624 --> 00:00:44.832
+samping : miring. Namanya <b>cosinus</b> (cos).
 
 15
-00:00:58.890 --> 00:01:01.128
-dan angka seperti itu enak dipakai.
+00:00:44.832 --> 00:00:50.064
+Dan depan : samping. Namanya <b>tangen</b> (tan).
 
 16
-00:01:01.128 --> 00:01:05.303
-Tiga sisanya adalah kebalikan dari ketiga tadi.
+00:00:50.064 --> 00:00:54.937
+Ketiganya paling sering dipakai karena sisi miring selalu yang terpanjang.
 
 17
-00:01:05.303 --> 00:01:08.590
-Namanya <b>kosekan, sekan, dan kotangen</b>.
+00:00:54.937 --> 00:00:58.823
+Membaginya dengan sisi miring memberi angka antara 0 dan 1,
 
 18
-00:01:08.590 --> 00:01:12.144
-Kita akan menemuinya lagi di tahap enam.
+00:00:58.823 --> 00:01:01.128
+dan angka seperti itu enak dipakai.
 
 19
-00:01:12.144 --> 00:01:17.729
-Jadi sinus, cosinus, dan tangen bukan rumus yang muncul entah dari mana.
+00:01:01.128 --> 00:01:05.407
+Tiga sisanya adalah kebalikan dari ketiga tadi.
 
 20
-00:01:17.729 --> 00:01:21.840
-Ketiganya hanya tiga dari enam cara membagi dua sisi.
+00:01:05.407 --> 00:01:08.775
+Namanya <b>kosekan, sekan, dan kotangen</b>.
+
+21
+00:01:08.775 --> 00:01:12.144
+Kita akan menemuinya lagi di tahap 6.
+
+22
+00:01:12.144 --> 00:01:13.389
+Jadi sin, cos,
+
+23
+00:01:13.389 --> 00:01:17.659
+dan tan bukan rumus yang muncul entah dari mana.
+
+24
+00:01:17.659 --> 00:01:21.840
+Ketiganya hanya 3 dari 6 cara membagi dua sisi.

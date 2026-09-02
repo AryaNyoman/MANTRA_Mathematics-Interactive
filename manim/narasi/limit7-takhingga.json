@@ -10,47 +10,58 @@
     },
     {
       "id": "pabrik",
-      "teks": "Sebuah pabrik punya biaya tetap lima juta rupiah sehari, ditambah dua puluh ribu untuk tiap barang. Berapa biaya rata-rata per barang?"
+      "teks": "Sebuah pabrik punya biaya tetap lima juta rupiah sehari, ditambah dua puluh ribu untuk tiap barang. Berapa biaya rata-rata per barang?",
+      "tulis": "Sebuah pabrik punya biaya tetap Rp5.000.000 sehari, ditambah Rp20.000 untuk tiap barang. Berapa biaya rata-rata per barang?"
     },
     {
       "id": "angka",
-      "teks": "Seratus barang, tujuh puluh ribu per barang. Seribu barang, dua puluh lima ribu. Sepuluh ribu barang, dua puluh ribu lima ratus."
+      "teks": "Seratus barang, tujuh puluh ribu per barang. Seribu barang, dua puluh lima ribu. Sepuluh ribu barang, dua puluh ribu lima ratus.",
+      "tulis": "100 barang, Rp70.000 per barang. 1.000 barang, Rp25.000. 10.000 barang, Rp20.500."
     },
     {
       "id": "merapat",
-      "teks": "Angkanya merapat ke dua puluh ribu, tapi tidak pernah sampai. Biaya tetapnya selalu menyisakan sedikit, berapa pun banyaknya barang."
+      "teks": "Angkanya merapat ke dua puluh ribu, tapi tidak pernah sampai. Biaya tetapnya selalu menyisakan sedikit, berapa pun banyaknya barang.",
+      "tulis": "Angkanya merapat ke Rp20.000, tapi tidak pernah sampai. Biaya tetapnya selalu menyisakan sedikit, berapa pun banyaknya barang."
     },
     {
       "id": "bukanbilangan",
-      "teks": "Sebelum lanjut, satu hal yang wajib diluruskan. Tak hingga bukan bilangan. Ia tidak bisa dimasukkan ke rumus, sebab tidak ada angka yang bernama tak hingga."
+      "teks": "Sebelum lanjut, satu hal yang wajib diluruskan. Tak hingga bukan bilangan. Ia tidak bisa dimasukkan ke rumus, sebab tidak ada angka yang bernama tak hingga.",
+      "tulis": "Sebelum lanjut, satu hal yang wajib diluruskan. ∞ bukan bilangan. Ia tidak bisa dimasukkan ke rumus, sebab tidak ada angka yang bernama tak hingga."
     },
     {
       "id": "arah",
-      "teks": "Tak hingga adalah keterangan arah. Ia memberi tahu bahwa x dibuat membesar terus menerus, tanpa pernah berhenti."
+      "teks": "Tak hingga adalah keterangan arah. Ia memberi tahu bahwa x dibuat membesar terus menerus, tanpa pernah berhenti.",
+      "tulis": "∞ adalah keterangan arah. Ia memberi tahu bahwa x dibuat membesar terus menerus, tanpa pernah berhenti."
     },
     {
       "id": "alat",
-      "teks": "Alat utamanya satu saja. Kalau x membesar, pecahan seperti satu dibagi x menjadi sangat kecil, dan menuju nol."
+      "teks": "Alat utamanya satu saja. Kalau x membesar, pecahan seperti satu dibagi x menjadi sangat kecil, dan menuju nol.",
+      "tulis": "Alat utamanya satu saja. Kalau x membesar, pecahan seperti 1/x menjadi sangat kecil, dan menuju 0."
     },
     {
       "id": "soal",
-      "teks": "Ambil tiga x kuadrat tambah dua x, dibagi x kuadrat kurang lima. Pangkat tertingginya x kuadrat, jadi semuanya dibagi x kuadrat."
+      "teks": "Ambil tiga x kuadrat tambah dua x, dibagi x kuadrat kurang lima. Pangkat tertingginya x kuadrat, jadi semuanya dibagi x kuadrat.",
+      "tulis": "Ambil (3x² + 2x) : (x² - 5). Pangkat tertingginya x², jadi semuanya dibagi x²."
     },
     {
       "id": "bagi",
-      "teks": "Pembilangnya jadi tiga tambah dua per x. Penyebutnya jadi satu kurang lima per x kuadrat. Saat x membesar, kedua pecahan kecil itu menuju nol."
+      "teks": "Pembilangnya jadi tiga tambah dua per x. Penyebutnya jadi satu kurang lima per x kuadrat. Saat x membesar, kedua pecahan kecil itu menuju nol.",
+      "tulis": "Pembilangnya jadi 3 + 2/x. Penyebutnya jadi 1 - 5/x². Saat x membesar, kedua pecahan kecil itu menuju 0."
     },
     {
       "id": "hasil",
-      "teks": "Yang tersisa tiga dibagi satu. Jadi limitnya tiga."
+      "teks": "Yang tersisa tiga dibagi satu. Jadi limitnya tiga.",
+      "tulis": "Yang tersisa 3 : 1. Jadi limitnya 3."
     },
     {
       "id": "asimtot",
-      "teks": "Karena limitnya sebuah angka, grafiknya makin mendatar merapat ke garis y sama dengan tiga. Garis itu disebut asimtot datar."
+      "teks": "Karena limitnya sebuah angka, grafiknya makin mendatar merapat ke garis y sama dengan tiga. Garis itu disebut asimtot datar.",
+      "tulis": "Karena limitnya sebuah angka, grafiknya makin mendatar merapat ke garis y = 3. Garis itu disebut asimtot datar."
     },
     {
       "id": "tutup",
-      "teks": "Perhatikan sampai akhir: kurvanya boleh sedekat apa pun ke garis itu, tetapi selisihnya tidak pernah benar-benar nol. Itulah beda mendekati dan menyentuh."
+      "teks": "Perhatikan sampai akhir: kurvanya boleh sedekat apa pun ke garis itu, tetapi selisihnya tidak pernah benar-benar nol. Itulah beda mendekati dan menyentuh.",
+      "tulis": "Perhatikan sampai akhir: kurvanya boleh sedekat apa pun ke garis itu, tetapi selisihnya tidak pernah benar-benar 0. Itulah beda mendekati dan menyentuh."
     }
   ]
 }
