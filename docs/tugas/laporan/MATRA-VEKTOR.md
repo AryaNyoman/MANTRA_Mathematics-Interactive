@@ -81,6 +81,68 @@ angka**. Ini pengganti kemiringan kamera yang jadi sebab penolakan.
 - [ya] Penanda `*kata*` untuk penebalan subtitle, satu sampai dua per segmen.
 - [sisa, kecil] Pada arah dayung 180 derajat label "dayung" jatuh sedikit di luar petak. Terbaca, tidak menutupi apa pun.
 
+## SEMUA ENAM VIDEO VEKTOR SELESAI (2 September, malam)
+
+Berkas tinjauan berakhiran `-bersubtitle` di `media/uji-480p/`:
+
+| Materi | Berkas | Ukuran | Panjang |
+|---|---|---|---|
+| 01 Angka saja tidak cukup | `vektor1-perahu-bersubtitle.mp4` | 3,35 MB | 2:19 |
+| 03 Memecah panah jadi dua langkah | `vektor3-komponen-bersubtitle.mp4` | 2,45 MB | 2:16 |
+| 04 Panjang panah itu Pythagoras | `vektor4-panjang-bersubtitle.mp4` | 2,54 MB | 2:24 |
+| 06 Menjumlah itu menyambung perjalanan | `vektor6-sambung-bersubtitle.mp4` | 2,55 MB | 2:13 |
+| 08 Mengurangi itu menambah lawannya | `vektor8-selisih-bersubtitle.mp4` | 2,79 MB | 2:32 |
+| 09 Dikali angka: panjang berubah, arah tetap | `vektor9-kali-skalar-bersubtitle.mp4` | 2,79 MB | 2:37 |
+
+Keenamnya memakai aturan yang sama: 3D hanya di babak pembuka, kamera tegak
+lurus sesudahnya dan tidak pernah miring lagi, bidang koordinat berangka,
+keterangan pita bawah dihapus seluruhnya (pita itu milik subtitle), identitas
+cerita plus satuannya di pojok kiri atas, dan asal rumus diperlihatkan sebelum
+rumusnya ditulis.
+
+### Pengait dunia nyata dipilih beda-beda, dan itu disengaja
+
+Perahu (01), mobil yang tidak bisa menembus gedung (03), dua tiang berkabel
+(04), orang berjalan dua kali (06), dua orang di lapangan (08), bola ditendang
+(09). Enam benda berbeda supaya pembukanya tidak terasa berulang, dan tiap
+benda dipilih karena kendalanya memang melahirkan materinya. Mobil yang harus
+lewat jalan mendatar dan tegak, misalnya, ADALAH gagasan komponen.
+
+### Yang dijaga supaya tidak jadi pengulangan
+
+- Video 01 sudah menguraikan akar(4^2 + 3^2) = 5. Karena itu video Materi 04
+  memakai angka lain: (4 2) yang panjangnya akar 20, tidak bulat, supaya siswa
+  tidak menyimpulkan panjang vektor selalu bilangan bulat. Angka 5 tetap muncul
+  lewat (-3 4), yang sekaligus memperlihatkan minus hilang saat dikuadratkan.
+- Aturan "ujung dikurangi pangkal" ada di halaman Materi 03 DAN Materi 08.
+  Diuraikan tuntas sekali saja, di video Materi 08.
+
+### Cacat yang ditangkap gerbang video pada putaran ini
+
+| Video | Cacat | Perbaikannya |
+|---|---|---|
+| 08 | Label -b tercetak menimpa angka "-1" sumbu; label b jatuh di sumbu tegak; label b-a berdesakan dengan blok hitungan. | Ketiganya digeser; koordinat b-a pindah ke panel kanan. |
+| 03 | Mobilnya MERAH, warna yang sama dengan panah komponen tegak. Satu warna dua makna. | Mobil dijadikan REDUP. Benda cerita netral, matematika yang berwarna. |
+| 03 | Panah pembanding (-3 4) memakai biru, warna yang sudah berarti "komponen mendatar". | Dijadikan hitam, sama seperti panah pembanding (4 3). |
+| 03 | Keterangan "letak" dan "perpindahan" berukuran 20, tinggal sekitar sepuluh piksel di 480p. | Dinaikkan ke 23. |
+| 09 | Render GAGAL: `could not broadcast input array from shape (23,3) into shape (81,3)`. | Angka pengali yang hidup ikut dianimasikan kepekatannya. `set_value` membangun ulang angkanya di tengah animasi sehingga jumlah titiknya berubah. Updater-nya dipasang SESUDAH animasi kemunculan. |
+
+### Angka diperiksa ulang, bukan dipercaya
+
+Sepuluh angka yang diklaim keenam video dihitung ulang dengan Python:
+panjang (4 2), (-3 4), (3 4), (4 3), (-5 0), (2 1), 3(2 1), -2(2 1), sudut
+(4 2), dan selisih (3 1) - (1 2). Semuanya cocok. Satu sempat dilaporkan salah,
+tetapi yang keliru alat ukurnya: sudut (4 2) adalah 26,5651 derajat, yang
+dibulatkan satu desimal menjadi 26,6 seperti di video, sedangkan pembandingnya
+membulatkan ke dua desimal.
+
+### Enam materi yang BELUM punya video
+02 Panah yang boleh dipindah, 05 Arah tanpa panjang, 07 Dua yang bekerja
+bersamaan, 10 Vektor di dunia nyata, 11 Seberapa searah, 12 Bayangan satu panah
+pada panah lain. Materi 12 (proyeksi) yang paling butuh animasi.
+
+---
+
 ## Revisi putaran kedua (2 Sep malam): empat catatan ARYA, semuanya dipenuhi
 
 ARYA menonton kedua video dan memberi empat catatan. Berkas tinjauan yang

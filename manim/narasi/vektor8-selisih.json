@@ -1,0 +1,68 @@
+{
+  "adegan": "SelisihPerjalanan",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Vektor Materi 08, Mengurangi itu menambah lawannya. Arah visual sama dengan Materi 01 dan 06: 3D hanya di babak pembuka, sisanya bidang koordinat bernomor dengan kamera tegak lurus, keterangan pita bawah TIDAK dipakai (pita itu milik subtitle), identitas cerita di pojok kiri atas. Medan `layar` bentuk TERTULIS, medan `teks` bentuk TERUCAP. Angkanya sama persis dengan halaman Materi 08: a = (3, 1), b = (1, 2), a - b = (2, -1).",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Materi delapan, mengurangi itu menambah lawannya. Dua orang berdiri di lapangan berpetak, di tempat yang berbeda. Pertanyaannya sederhana: dari orang yang satu ke orang yang lain, ke mana arahnya dan sejauh apa?",
+      "layar": "Materi 08, *mengurangi itu menambah lawannya*. Dua orang berdiri di lapangan berpetak, di tempat yang berbeda. Pertanyaannya sederhana: dari orang yang satu ke orang yang lain, ke mana arahnya dan sejauh apa?"
+    },
+    {
+      "id": "terbang",
+      "teks": "Supaya bisa dihitung, lapangan itu kita lihat dari atas. Satu petak sama dengan satu langkah.",
+      "layar": "Supaya bisa *dihitung*, lapangan itu kita lihat dari atas. *1 petak = 1 langkah*."
+    },
+    {
+      "id": "dua",
+      "teks": "Posisi keduanya kita ukur dari titik asal. Panah biru menuju orang pertama, tiga koma satu, kita sebut a. Panah merah menuju orang kedua, satu koma dua, kita sebut b.",
+      "layar": "Posisi keduanya kita ukur dari titik asal. Panah biru menuju orang pertama, (3, 1), kita sebut *a*. Panah merah menuju orang kedua, (1, 2), kita sebut *b*."
+    },
+    {
+      "id": "lawan",
+      "teks": "Pengurangan vektor tidak butuh aturan baru sama sekali. A dikurangi b sama artinya dengan a ditambah lawan b. Lawan sebuah panah adalah panah yang sama panjangnya tetapi berkebalikan arah. Jadi lawan dari satu koma dua adalah negatif satu koma negatif dua.",
+      "layar": "Pengurangan vektor tidak butuh aturan baru sama sekali. *a - b = a + (-b)*. Lawan sebuah panah adalah panah yang sama panjangnya tetapi berkebalikan arah. Jadi lawan dari (1, 2) adalah *(-1, -2)*."
+    },
+    {
+      "id": "jumlah",
+      "teks": "Sekarang tinggal menjumlahkan seperti biasa. Pangkal panah lawannya ditempelkan di ujung panah a, lalu resultannya menutup segitiga.",
+      "layar": "Sekarang tinggal menjumlahkan seperti biasa. Pangkal panah lawannya ditempelkan di *ujung panah a*, lalu resultannya menutup segitiga."
+    },
+    {
+      "id": "hitung",
+      "teks": "Hitung komponennya. Yang mendatar: tiga ditambah negatif satu sama dengan dua. Yang tegak: satu ditambah negatif dua sama dengan negatif satu. Jadi a dikurangi b sama dengan dua koma negatif satu. Lebih singkat lagi, kurangi saja langsung komponennya.",
+      "layar": "Hitung komponennya. Yang mendatar: *3 + (-1) = 2*. Yang tegak: *1 + (-2) = -1*. Jadi *a - b = (2, -1)*. Lebih singkat lagi, kurangi saja langsung komponennya."
+    },
+    {
+      "id": "tanya",
+      "teks": "Sekarang perhatikan baik-baik. Adakah cara melihat selisih ini tanpa menggambar panah lawan sama sekali?",
+      "layar": "Sekarang perhatikan baik-baik. Adakah cara melihat selisih ini *tanpa menggambar panah lawan* sama sekali?"
+    },
+    {
+      "id": "kedua",
+      "teks": "Ada. Panah yang sama persis muncul kalau kita tarik garis dari ujung b langsung menuju ujung a. Perhatikan panjangnya sama, arahnya sama, hanya tempatnya yang berbeda. Dan panah memang boleh dipindah selama panjang dan arahnya tidak berubah.",
+      "layar": "Ada. Panah yang sama persis muncul kalau kita tarik garis *dari ujung b langsung menuju ujung a*. Perhatikan panjangnya sama, arahnya sama, hanya tempatnya yang berbeda. Dan panah memang boleh dipindah selama panjang dan arahnya tidak berubah."
+    },
+    {
+      "id": "arah",
+      "teks": "Perhatikan arahnya baik-baik: dari b menuju a. Terbalik dari urutan membacanya. Itulah jawaban pertanyaan di awal tadi: inilah panah dari orang kedua ke orang pertama.",
+      "layar": "Perhatikan arahnya baik-baik: *dari b menuju a*. Terbalik dari urutan membacanya. Itulah jawaban pertanyaan di awal tadi: inilah panah dari orang kedua ke orang pertama."
+    },
+    {
+      "id": "titik",
+      "teks": "Dari sinilah aturan yang sering dihafal itu berasal. Vektor dari titik A ke titik B adalah posisi B dikurangi posisi A. Ujung dikurangi pangkal. Sekarang alasannya terlihat, bukan sekadar dihafal.",
+      "layar": "Dari sinilah aturan yang sering dihafal itu berasal. Vektor dari A ke B adalah *posisi B dikurangi posisi A*. Ujung dikurangi pangkal. Sekarang alasannya terlihat, bukan sekadar dihafal."
+    },
+    {
+      "id": "keliru",
+      "teks": "Dan inilah yang terjadi kalau urutannya terbalik. B dikurangi a memberi panah yang panjangnya sama tetapi arahnya berlawanan sama sekali. Bukan meleset sedikit, melainkan menunjuk ke tempat yang salah.",
+      "layar": "Dan inilah yang terjadi kalau urutannya terbalik. *b - a* memberi panah yang panjangnya sama tetapi arahnya *berlawanan sama sekali*. Bukan meleset sedikit, melainkan menunjuk ke tempat yang salah."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi ingat dua hal saja. Mengurangi itu menambah lawannya. Dan panah selisihnya berjalan dari ujung yang dikurangkan menuju ujung yang mengurangi.",
+      "layar": "Jadi ingat dua hal saja. *Mengurangi itu menambah lawannya.* Dan panah selisihnya berjalan *dari ujung yang dikurangkan menuju ujung yang mengurangi*."
+    }
+  ]
+}

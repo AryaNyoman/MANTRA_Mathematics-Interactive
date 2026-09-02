@@ -1,0 +1,68 @@
+{
+  "adegan": "PecahJadiKomponen",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Vektor Materi 03, Memecah panah jadi dua langkah. Arah visual sama dengan Materi 01, 06, dan 08. Pengaitnya mobil yang hanya bisa lewat jalan mendatar dan tegak, jadi jalur miring terpaksa jadi dua langkah: itu persis gagasan komponen. Bagian 'ujung dikurangi pangkal' SENGAJA tidak diulang di sini karena sudah dibahas tuntas di video Materi 08.",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Materi tiga, memecah panah jadi dua langkah. Sebuah mobil hendak menuju satu tempat di seberang kota. Masalahnya, mobil tidak bisa menembus gedung. Ia hanya boleh lewat jalan yang mendatar dan jalan yang tegak.",
+      "layar": "Materi 03, *memecah panah jadi dua langkah*. Sebuah mobil hendak menuju satu tempat di seberang kota. Masalahnya, mobil tidak bisa menembus gedung. Ia hanya boleh lewat jalan yang *mendatar* dan jalan yang *tegak*."
+    },
+    {
+      "id": "terbang",
+      "teks": "Kita lihat kotanya dari atas. Satu petak sama dengan satu blok jalan.",
+      "layar": "Kita lihat kotanya dari atas. *1 petak = 1 blok*."
+    },
+    {
+      "id": "miring",
+      "teks": "Kalau mobil itu bisa terbang, jalurnya cukup satu panah miring seperti ini, langsung dari titik asal menuju tujuannya.",
+      "layar": "Kalau mobil itu bisa terbang, jalurnya cukup *satu panah miring* seperti ini, langsung dari titik asal menuju tujuannya."
+    },
+    {
+      "id": "jalan",
+      "teks": "Tetapi ia tidak bisa terbang. Jadi mobil itu berjalan tiga blok ke kanan lebih dulu, lalu berbelok dan naik empat blok.",
+      "layar": "Tetapi ia tidak bisa terbang. Jadi mobil itu berjalan *3 blok ke kanan* lebih dulu, lalu berbelok dan naik *4 blok*."
+    },
+    {
+      "id": "sama",
+      "teks": "Perhatikan baik-baik: mobilnya berhenti di titik yang sama persis dengan ujung panah miring tadi. Jalurnya berbeda, tetapi perpindahannya sama.",
+      "layar": "Perhatikan baik-baik: mobilnya berhenti di *titik yang sama persis* dengan ujung panah miring tadi. Jalurnya berbeda, tetapi perpindahannya sama."
+    },
+    {
+      "id": "komponen",
+      "teks": "Jadi satu panah miring, semiring apa pun, selalu bisa diganti dua langkah: berapa jauh ke kanan, lalu berapa jauh ke atas. Dua angka itu namanya komponen. Kita tulis tiga empat.",
+      "layar": "Jadi satu panah miring, semiring apa pun, selalu bisa diganti dua langkah: berapa jauh ke kanan, lalu berapa jauh ke atas. Dua angka itu namanya *komponen*. Kita tulis (3 4)."
+    },
+    {
+      "id": "tanya",
+      "teks": "Sekarang pertanyaannya. Kalau kedua angka itu ditukar tempatnya, apakah tujuannya tetap sama?",
+      "layar": "Sekarang pertanyaannya. Kalau kedua angka itu *ditukar tempatnya*, apakah tujuannya tetap sama?"
+    },
+    {
+      "id": "tukar",
+      "teks": "Tidak. Empat tiga berarti empat blok ke kanan lalu tiga blok ke atas, dan itu tempat yang sama sekali berbeda. Panjangnya memang kebetulan sama, tetapi arahnya lain. Jadi urutannya tidak boleh ditukar.",
+      "layar": "Tidak. (4 3) berarti *4 blok ke kanan* lalu *3 blok ke atas*, dan itu tempat yang sama sekali berbeda. Panjangnya memang kebetulan sama, tetapi arahnya lain. Jadi *urutannya tidak boleh ditukar*."
+    },
+    {
+      "id": "tanda",
+      "teks": "Komponen juga boleh bertanda negatif. Negatif tiga empat berarti bergeser tiga blok ke kiri, bukan ke kanan, lalu tetap naik empat blok. Tandanya yang memberi tahu arahnya.",
+      "layar": "Komponen juga boleh bertanda negatif. *(-3 4)* berarti bergeser *3 blok ke kiri*, bukan ke kanan, lalu tetap naik 4 blok. *Tandanya yang memberi tahu arahnya*."
+    },
+    {
+      "id": "tulis",
+      "teks": "Ada dua cara menuliskannya, dan artinya sama persis. Mendatar disebut vektor baris. Bertumpuk disebut vektor kolom, angka mendatar di atas dan angka tegak di bawah. Keduanya dipakai di sekolah.",
+      "layar": "Ada dua cara menuliskannya, dan artinya sama persis. Mendatar disebut *vektor baris*. Bertumpuk disebut *vektor kolom*, angka mendatar di atas dan angka tegak di bawah. Keduanya dipakai di sekolah."
+    },
+    {
+      "id": "koma",
+      "teks": "Satu hal kecil yang sering luput. Titik koordinat memakai koma, misalnya A kurung tiga koma empat. Vektor baris ditulis tanpa koma. Bedanya disengaja: yang satu menyatakan letak, yang lain menyatakan perpindahan.",
+      "layar": "Satu hal kecil yang sering luput. Titik koordinat *memakai koma*: A(3, 4). Vektor baris ditulis *tanpa koma*: (3 4). Bedanya disengaja: yang satu menyatakan *letak*, yang lain menyatakan *perpindahan*."
+    },
+    {
+      "id": "tutup",
+      "teks": "Dua angka sudah cukup mewakili satu panah. Itulah sebabnya vektor bisa dihitung, bukan cuma digambar.",
+      "layar": "*Dua angka sudah cukup mewakili satu panah.* Itulah sebabnya vektor bisa *dihitung*, bukan cuma digambar."
+    }
+  ]
+}

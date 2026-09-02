@@ -1,0 +1,68 @@
+{
+  "adegan": "KaliSkalar",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Vektor Materi 09, Dikali angka: panjang berubah, arah tetap. Arah visual sama dengan Materi 01, 03, 06, dan 08. Pengalinya dibuat BERGERAK TERUS dari 3 turun melewati nol sampai -2, bukan tiga gambar terpisah, supaya siswa melihat panahnya menyusut, lenyap sesaat, lalu berbalik. Angkanya sama persis dengan halaman Materi 09: a = (2 1), 3a = (6 3), -2a = (-4 -2).",
+  "segmen": [
+    {
+      "id": "sapa",
+      "teks": "Materi sembilan, dikali angka: panjang berubah, arah tetap. Sebuah bola ditendang di lapangan berpetak. Kita akan menendangnya ke arah yang sama terus, hanya tenaganya yang diubah-ubah.",
+      "layar": "Materi 09, *dikali angka: panjang berubah, arah tetap*. Sebuah bola ditendang di lapangan berpetak. Kita akan menendangnya ke arah yang *sama* terus, hanya *tenaganya* yang diubah-ubah."
+    },
+    {
+      "id": "terbang",
+      "teks": "Kita lihat dari atas supaya bisa dihitung. Satu petak sama dengan satu langkah.",
+      "layar": "Kita lihat dari atas supaya bisa dihitung. *1 petak = 1 langkah*."
+    },
+    {
+      "id": "satu",
+      "teks": "Tendangan pertama membawa bola dua petak ke kanan dan satu petak ke atas. Panah itu kita sebut a, yaitu dua satu. Pengalinya satu.",
+      "layar": "Tendangan pertama membawa bola *2 petak ke kanan* dan *1 petak ke atas*. Panah itu kita sebut *a*, yaitu (2 1). Pengalinya 1."
+    },
+    {
+      "id": "tiga",
+      "teks": "Sekarang tendangan tiga kali lebih kuat. Kalikan tiap komponennya dengan tiga: dua kali tiga sama dengan enam, satu kali tiga sama dengan tiga. Bolanya mendarat di enam tiga. Perhatikan arahnya tidak bergeser sedikit pun.",
+      "layar": "Sekarang tendangan *3 kali lebih kuat*. Kalikan tiap komponennya dengan 3: *2 × 3 = 6*, *1 × 3 = 3*. Bolanya mendarat di (6 3). Perhatikan *arahnya tidak bergeser sedikit pun*."
+    },
+    {
+      "id": "kecil",
+      "teks": "Sekarang sebaliknya, tendangan setengah kekuatan. Panahnya menyusut jadi setengahnya. Arahnya, sekali lagi, sama sekali tidak berubah. Yang berubah cuma panjangnya.",
+      "layar": "Sekarang sebaliknya, tendangan *setengah* kekuatan. Panahnya menyusut jadi setengahnya. Arahnya, sekali lagi, *sama sekali tidak berubah*. Yang berubah cuma panjangnya."
+    },
+    {
+      "id": "tanya",
+      "teks": "Sekarang perhatikan baik-baik. Kita turunkan pengalinya pelan-pelan sampai melewati nol. Menurut Anda, apa yang terjadi pada panahnya?",
+      "layar": "Sekarang perhatikan baik-baik. Kita turunkan pengalinya pelan-pelan sampai *melewati nol*. Menurut Anda, apa yang terjadi pada panahnya?"
+    },
+    {
+      "id": "nol",
+      "teks": "Di pengali nol, panahnya lenyap. Bolanya tidak berpindah sama sekali. Itulah yang disebut vektor nol.",
+      "layar": "Di pengali *0*, panahnya lenyap. Bolanya tidak berpindah sama sekali. Itulah yang disebut *vektor nol*."
+    },
+    {
+      "id": "negatif",
+      "teks": "Dan begitu pengalinya jadi negatif, panahnya muncul lagi menghadap arah yang berlawanan. Negatif dua kali a sama dengan negatif empat, negatif dua. Bolanya ditendang ke belakang.",
+      "layar": "Dan begitu pengalinya jadi *negatif*, panahnya muncul lagi menghadap arah yang *berlawanan*. *-2 × a = (-4 -2)*. Bolanya ditendang ke belakang."
+    },
+    {
+      "id": "panjang",
+      "teks": "Sekarang panjangnya. Panjang a adalah akar dari empat ditambah satu, yaitu akar lima, sekitar dua koma dua empat. Tiga a panjangnya tiga akar lima, sekitar enam koma tujuh satu. Dan negatif dua a panjangnya dua akar lima, sekitar empat koma empat tujuh.",
+      "layar": "Sekarang panjangnya. Panjang a adalah √(4 + 1) = √5, sekitar *2,24*. 3a panjangnya 3√5, sekitar *6,71*. Dan -2a panjangnya 2√5, sekitar *4,47*."
+    },
+    {
+      "id": "keliru",
+      "teks": "Perhatikan angka terakhir itu baik-baik. Empat koma empat tujuh, bukan negatif empat koma empat tujuh. Panjang adalah ukuran, dan ukuran tidak pernah kurang dari nol. Yang dibalik oleh tanda minus adalah arahnya, bukan panjangnya.",
+      "layar": "Perhatikan angka terakhir itu baik-baik. *4,47*, bukan -4,47. Panjang adalah ukuran, dan ukuran *tidak pernah kurang dari nol*. Yang dibalik oleh tanda minus adalah *arahnya*, bukan panjangnya."
+    },
+    {
+      "id": "sejajar",
+      "teks": "Satu hal terakhir, dan ini yang paling sering dipakai di soal. Perhatikan semua panah tadi terletak pada satu garis yang sama. Dua vektor yang salah satunya kelipatan yang lain pasti sejajar, walaupun arahnya berlawanan.",
+      "layar": "Satu hal terakhir, dan ini yang paling sering dipakai di soal. Perhatikan semua panah tadi terletak pada *satu garis yang sama*. Dua vektor yang salah satunya *kelipatan* yang lain pasti *sejajar*, walaupun arahnya berlawanan."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi ingat ini. Dikali angka positif, arahnya tetap. Dikali angka negatif, arahnya berbalik. Panjangnya mengikuti angkanya tanpa tanda minus.",
+      "layar": "Jadi ingat ini. Dikali angka *positif*, arahnya tetap. Dikali angka *negatif*, arahnya berbalik. Panjangnya mengikuti angkanya *tanpa tanda minus*."
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/vektor4-panjang.json
+
+1
+00:00:00.000 --> 00:00:02.996
+Materi 04, <b>panjang panah itu Pythagoras</b>.
+
+2
+00:00:02.996 --> 00:00:05.243
+Dua tiang berdiri di lapangan,
+
+3
+00:00:05.243 --> 00:00:09.512
+dan kita harus membentang kabel lurus di antara keduanya.
+
+4
+00:00:09.512 --> 00:00:13.632
+Pertanyaannya: <b>berapa meter kabel</b> yang perlu disiapkan?
+
+5
+00:00:13.632 --> 00:00:18.960
+Kita lihat dari atas. <b>1 petak = 1 meter</b>.
+
+6
+00:00:18.960 --> 00:00:23.345
+Komponennya sudah kita tahu caranya dari materi sebelumnya.
+
+7
+00:00:23.345 --> 00:00:28.919
+Tiang kedua berada <b>4 petak ke kanan</b> dan <b>2 petak ke atas</b> dari tiang pertama.
+
+8
+00:00:28.919 --> 00:00:30.480
+Jadi vektornya <b>(4 2)</b>.
+
+9
+00:00:30.480 --> 00:00:32.893
+Tapi 4 dan 2 bukan jawabannya.
+
+10
+00:00:32.893 --> 00:00:36.431
+Perhatikan: langkah mendatar, langkah tegak,
+
+11
+00:00:36.431 --> 00:00:41.015
+dan kabelnya sendiri selalu membentuk <b>segitiga siku-siku</b>.
+
+12
+00:00:41.015 --> 00:00:44.232
+Dan kabelnya selalu jadi <b>sisi miringnya</b>.
+
+13
+00:00:44.232 --> 00:00:49.231
+Selama itu benar, Pythagoras berlaku.
+
+14
+00:00:49.231 --> 00:00:53.825
+Kuadratkan yang mendatar: <b>4² = 16</b>.
+
+15
+00:00:53.825 --> 00:00:57.878
+Kuadratkan yang tegak: <b>2² = 4</b>.
+
+16
+00:00:57.878 --> 00:01:00.310
+Jumlahkan jadi <b>20</b>.
+
+17
+00:01:00.310 --> 00:01:06.120
+Lalu tarik akarnya: <b>√20 = 2√5 ≈ 4,47</b> meter.
+
+18
+00:01:06.120 --> 00:01:09.331
+Perhatikan hasilnya <b>bukan bilangan bulat</b>.
+
+19
+00:01:09.331 --> 00:01:11.053
+Itu justru yang biasa.
+
+20
+00:01:11.053 --> 00:01:16.848
+Panjang yang bulat rapi seperti 5 itu <b>kebetulan yang jarang</b>, bukan aturan.
+
+21
+00:01:16.848 --> 00:01:18.655
+Sekarang pertanyaannya.
+
+22
+00:01:18.655 --> 00:01:24.312
+Kalau komponennya <b>bertanda negatif</b>, apakah panjangnya ikut jadi negatif?
+
+23
+00:01:24.312 --> 00:01:25.797
+Kita coba dengan panah lain: <b>(-3 4)</b>.
+
+24
+00:01:25.797 --> 00:01:28.066
+Komponen mendatarnya negatif, artinya bergeser ke kiri.
+
+25
+00:01:28.066 --> 00:01:29.386
+Kuadratkan: <b>(-3)² = 9</b>, bukan -9.
+
+26
+00:01:29.386 --> 00:01:30.586
+Lalu <b>4² = 16</b>.
+
+27
+00:01:30.586 --> 00:01:30.912
+Jumlahnya <b>25</b>, akarnya <b>5</b>.
+
+28
+00:01:30.912 --> 00:01:32.615
+Jadi jawabannya tidak.
+
+29
+00:01:32.615 --> 00:01:35.401
+Minusnya <b>hilang begitu dikuadratkan</b>.
+
+30
+00:01:35.401 --> 00:01:40.200
+Panjang vektor <b>tidak pernah negatif</b>, sebab panjang itu ukuran,
+
+31
+00:01:40.200 --> 00:01:43.296
+dan ukuran tidak pernah kurang dari nol.
+
+32
+00:01:43.296 --> 00:01:47.860
+Panjang saja belum cukup untuk menyebut sebuah vektor.
+
+33
+00:01:47.860 --> 00:01:53.776
+Arahnya juga perlu, dan arah diukur sebagai sudut dari <b>sumbu mendatar</b>,
+
+34
+00:01:53.776 --> 00:01:55.973
+<b>berlawanan arah jarum jam</b>.
+
+35
+00:01:55.973 --> 00:01:59.016
+Untuk (4 2), sudutnya sekitar <b>26,6°</b>.
+
+36
+00:01:59.016 --> 00:02:03.443
+Dan inilah sebabnya keduanya harus disebut bersama.
+
+37
+00:02:03.443 --> 00:02:08.391
+<b>(3 4)</b>, <b>(4 3)</b>, dan <b>(-5 0)</b> panjangnya sama persis, yaitu <b>5</b>.
+
+38
+00:02:08.391 --> 00:02:13.512
+Tetapi ketiganya menunjuk ke arah yang <b>sama sekali berbeda</b>.
+
+39
+00:02:13.512 --> 00:02:14.941
+Jadi ingat dua hal.
+
+40
+00:02:14.941 --> 00:02:24.264
+<b>Panjang panah adalah akar dari jumlah kuadrat komponennya.</b> Dan <b>panjang saja tidak pernah cukup</b> untuk menyebut sebuah vektor.
