@@ -237,8 +237,8 @@ def periksa_aturan_matra(sumber: str, pohon: ast.AST, t: Temuan) -> None:
         if nama in PEMBUAT_TEX:
             for a in n.args:
                 if isinstance(a, ast.Constant) and isinstance(a.value, str) and "\\text{" in a.value:
-                    t.salah(n.lineno, "\\text{...} di Tex ManimGL DIBUANG diam-diam (terbukti 2 Sep). "
-                                      "Pakai \mathrm{...} untuk satuan, atau gl.teks() untuk kalimat")
+                    t.peringatan(n.lineno, "\\text{...} di rumus: untuk satuan lebih lazim \\mathrm{...}; "
+                                           "kalimat utuh lebih baik lewat gl.teks()")
 
     for i, baris in enumerate(sumber.splitlines(), start=1):
         if baris.lstrip().startswith("#"):

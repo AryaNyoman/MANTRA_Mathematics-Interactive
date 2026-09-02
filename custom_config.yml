@@ -7,6 +7,4 @@ directories:
 camera:
   background_color: "#F7F3EE"
   fps: 30
-text:
-  font: "Constantia"
-  alignment: "LEFT"
+# text.font tidak dipakai: semua huruf LaTeX (gl.teks = TexText, gl.rumus = Tex).

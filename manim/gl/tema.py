@@ -5,6 +5,7 @@ MiKTeX, dan menyediakan `self.t` (palet) serta `self.hud` (objek yang menempel
 di layar walau kamera terbang).
 """
 
+import re
 import sys
 from pathlib import Path
 
@@ -13,9 +14,14 @@ from manimlib import *
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import tambal_manimgl  # noqa: E402,F401  (MiKTeX menolak `latex -no-pdf`)
 
-# Kata-kata memakai Constantia (pilihan ARYA, 2 Sep 2026). Angka yang berdiri
-# sendiri dan rumus memakai LaTeX lewat `rumus()`.
-FONT = "Constantia"
+# Keputusan ARYA 2 Sep 2026 (siang): SEMUA huruf memakai LaTeX. Kata-kata lewat
+# `teks()` (TexText, mode teks), angka dan rumus lewat `rumus()` (Tex, mode
+# matematika). Constantia dicoba lalu dibatalkan ARYA pada hari yang sama.
+FONT = "LaTeX (Computer Modern)"
+
+# Karakter yang punya arti khusus di LaTeX. Diloloskan otomatis oleh `teks()`
+# supaya kalimat biasa seperti "naik 25%" tidak menggagalkan kompilasi.
+_KHUSUS = {"%": r"\%", "&": r"\&", "#": r"\#", "_": r"\_", "$": r"\$"}
 
 # Palet Studio Teknis, sama dengan situs. Jangan menambah warna di luar ini.
 LATAR = "#F7F3EE"   # krem kertas
@@ -36,9 +42,19 @@ class Tema:
     latar, tinta, redup, aksen, aksen2, sorot = LATAR, TINTA, REDUP, AKSEN, AKSEN2, SOROT
 
 
-def teks(s: str, ukuran: float = UKURAN_LABEL, warna: str = TINTA) -> Text:
-    """Kata-kata dalam Constantia. `Text(color=)` DIABAIKAN ManimGL, maka `.set_color()`."""
-    return Text(s, font=FONT, font_size=ukuran).set_color(warna)
+def teks(s: str, ukuran: float = UKURAN_LABEL, warna: str = TINTA, mentah: bool = False) -> TexText:
+    """Kata-kata dalam LaTeX (mode teks). Karakter khusus LaTeX diloloskan otomatis.
+
+    `mentah=True` kalau kamu sengaja menulis perintah LaTeX di dalamnya
+    (mis. `teks(r"jarak \\emph{selalu} positif", mentah=True)`).
+    Warna lewat `.set_color()`: `color=` pada pembuat teks ManimGL tidak dapat diandalkan.
+    """
+    if not mentah:
+        s = "".join(_KHUSUS.get(c, c) for c in s)
+        # `*kata*` = TEBAL, penanda yang sama dengan subtitle di naskah narasi
+        # (aturan ARYA: kata yang dipertegas dicetak tebal).
+        s = re.sub(r"\*([^*]+)\*", r"\\textbf{\1}", s)
+    return TexText(s, font_size=ukuran).set_color(warna)
 
 
 def rumus(s: str, ukuran: float = UKURAN_RUMUS, warna: str = TINTA) -> Tex:

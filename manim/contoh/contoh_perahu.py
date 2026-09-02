@@ -8,7 +8,8 @@ Yang dicontohkan:
 - benda nyata dari `gl.ilustrasi` (air hidup, tepi, perahu yang mengangguk),
 - kamera mulai dari dunia nyata lalu terbang ke pandangan peta (`gl.kamera`),
 - matematika (panah, rumus) muncul DI ATAS gambar, bukan di layar kosong,
-- kata dalam Constantia (`teks`), angka dan rumus dalam LaTeX (`rumus`),
+- semua huruf LaTeX: kata lewat `teks` (TexText), angka dan rumus lewat `rumus` (Tex),
+- pembuka mengumumkan materinya (babak "buka"), judul di layar = yang diucapkan,
 - tiap babak terikat durasi narasi (`sinema.babak`) dan diperiksa `qc`.
 """
 
@@ -46,11 +47,15 @@ class ContohPerahu(AdeganMatra):
         # --- Babak 1: pandangan samping dekat, judul pembuka memudar, keterangan.
         kamera.pasang_awal(frame, theta=-32, phi=72, pusat=(X0 + 0.4, Y0 + 0.5, 0.35), tinggi=5.0)
         self.add(tepi_jauh, tepi_dekat, air, perahu)
+        # Babak "buka": guru mengumumkan materinya; judul di layar memuat nomor dan
+        # nama materi yang sama dengan yang diucapkan (STANDAR-MENGAJAR bagian 5,
+        # aturan 8). y=2,4: di atas, supaya tidak menusuk tiang perahu di tengah layar.
+        with sinema.babak(self, "buka", DURASI) as b:
+            lama_judul = max(3.0, DURASI["buka"] - 0.8)
+            sinema.judul_pembuka(self, "Materi 01: Angka saja tidak cukup", lama=lama_judul, y=2.4)
+            b.catat(lama_judul)
         with sinema.babak(self, "sapa", DURASI) as b:
-            # y=2,4: judul di atas, supaya tidak menusuk tiang perahu yang ada di tengah layar.
-            sinema.judul_pembuka(self, "Angka saja tidak cukup", lama=3.0, y=2.4)
-            b.catat(3.0)
-            sinema.keterangan(self, "sungai selebar 3 km, kita mau menyeberang")
+            sinema.keterangan(self, "sungai selebar *3 km*, kita mau menyeberang")
             b.catat(0.6)
             b.jeda(1.0)
         qc.periksa_adegan(self, {"perahu": perahu, "keterangan": self._matra_keterangan},
@@ -79,7 +84,7 @@ class ContohPerahu(AdeganMatra):
             self.hud_tambah(panel_d)
             panel_d.set_opacity(0)
             b.main(panel_d.animate.set_opacity(1), run_time=0.6)
-            sinema.keterangan(self, "melintang sungai, sejauh 3 km")
+            sinema.keterangan(self, "*melintang* sungai, sejauh 3 km")
             b.catat(0.6)
             b.jeda(1.0)
         qc.periksa_adegan(self, {"perahu": perahu, "dayung": p_dayung, "label dayung": l_dayung,
@@ -95,7 +100,7 @@ class ContohPerahu(AdeganMatra):
             self.hud_tambah(panel_a)
             panel_a.set_opacity(0)
             b.main(panel_a.animate.set_opacity(1), run_time=0.6)
-            sinema.keterangan(self, "searah sungai, sejauh 2 km")
+            sinema.keterangan(self, "*searah sungai*, sejauh 2 km")
             b.catat(0.6)
             b.jeda(1.0)
         qc.periksa_adegan(self, {"perahu": perahu, "label dayung": l_dayung, "label arus": l_arus,
@@ -104,7 +109,7 @@ class ContohPerahu(AdeganMatra):
 
         # --- Babak 5: pertanyaan penutup, gambar dibiarkan hidup (air terus beriak).
         with sinema.babak(self, "tutup", DURASI) as b:
-            sinema.keterangan(self, "dua dorongan, dua arah: ke mana perahu mendarat?", warna=SOROT)
+            sinema.keterangan(self, "dua dorongan, dua arah: *ke mana perahu mendarat?*", warna=SOROT)
             b.catat(0.6)
             b.jeda(1.2)
         qc.periksa_adegan(self, {"keterangan": self._matra_keterangan, "panel a": panel_a},

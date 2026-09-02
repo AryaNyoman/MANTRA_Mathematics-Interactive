@@ -6,8 +6,12 @@
   "catatan": "CONTOH RUJUKAN alur ManimGL (2 Sep 2026): perahu 3D di air, kamera terbang dari dunia ke peta, panah muncul di atas gambar. Bukan video materi; sesi Vektor boleh memakainya sebagai dasar Materi 01.",
   "segmen": [
     {
+      "id": "buka",
+      "teks": "Sekarang kita masuk ke materi baru: *vektor*. Materi pertama, *angka saja tidak cukup*."
+    },
+    {
       "id": "sapa",
-      "teks": "Bayangkan sebuah perahu kecil di tepi sungai. Sungainya lebar tiga kilometer, dan kita ingin menyeberang ke tepi di seberang sana."
+      "teks": "Bayangkan sebuah perahu kecil di tepi sungai. Sungainya lebar *tiga kilometer*, dan kita ingin menyeberang ke tepi di seberang sana."
     },
     {
       "id": "terbang",
@@ -15,15 +19,15 @@
     },
     {
       "id": "dayung",
-      "teks": "Kita mendayung lurus ke seberang, sejauh tiga kilometer. Perhatikan panah biru ini: arahnya melintang, panjangnya tiga."
+      "teks": "Kita mendayung lurus ke seberang, sejauh tiga kilometer. Perhatikan panah biru ini: arahnya *melintang*, panjangnya *tiga*."
     },
     {
       "id": "arus",
-      "teks": "Tetapi sungai punya arus. Arus mendorong perahu ke hilir sejauh dua kilometer. Panah merah ini searah sungai, panjangnya dua."
+      "teks": "Tetapi sungai punya arus. Arus mendorong perahu ke hilir sejauh dua kilometer. Panah merah ini *searah sungai*, panjangnya *dua*."
     },
     {
       "id": "tutup",
-      "teks": "Dua dorongan, dua arah. Ke mana perahu akhirnya mendarat? Itulah pertanyaan yang dijawab vektor."
+      "teks": "Dua dorongan, dua arah. *Ke mana perahu akhirnya mendarat?* Itulah pertanyaan yang dijawab vektor."
     }
   ]
 }

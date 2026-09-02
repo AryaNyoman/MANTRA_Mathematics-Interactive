@@ -40,10 +40,14 @@ menuntut level 3b1b. Keputusannya, dijalankan penuh hari itu juga:
   perahu 3D, kamera dunia ke peta, panah, suara latar air dengan ducking).
 - Dokumen sesi: `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md`, `docs/tugas/ILMU-3B1B.md`.
   Spec: `docs/superpowers/specs/2026-09-02-pindah-manimgl-dan-standar-ilustrasi-design.md`.
-- Huruf: Constantia untuk kata, LaTeX untuk angka dan rumus. Latar krem, satu versi.
+- Huruf: SEMUA LaTeX (`teks()` = TexText untuk kata, `rumus()` = Tex untuk
+  angka dan rumus; Constantia dicoba lalu dibatalkan ARYA). Latar krem, satu versi.
 - Render paralel BOLEH (8 serentak terbukti aman); antrean tidak wajib.
 - Jebakan ManimGL yang sudah ditambal/dilarang: `latex -no-pdf` (MiKTeX),
-  argv saat impor, `Text(color=)` diabaikan, `\text{}` dibuang diam-diam.
+  argv saat impor, `Text(color=)` diabaikan, dan **cache LaTeX yang menyimpan
+  hasil kosong** saat MiKTeX sedang memasang font (tampak seperti teks "dibuang
+  diam-diam"; tambalan menolak SVG kosong; kalau terjadi lagi hapus
+  `%LOCALAPPDATA%\manim\manim\Cache`).
 - Suara latar `manim/suara/air.ogg` masih SINTETIS; ganti rekaman CC0 setelah
   ARYA menyetujui unduhan.
 - Utang MASTER baru: pesan pembangunan ke 5 sesi (lihat `PROMPT-SIAP-TEMPEL.md`
@@ -56,9 +60,14 @@ tertutup, hidupkan dengan `NYALAKAN-5-SESI.bat`, lalu kirim prompt bagian D di
 `docs/tugas/PROMPT-SIAP-TEMPEL.md`.
 
 ### Tugas MASTER berikutnya, urut
-1. **Terima setoran sesi.** Tiap sesi lapor selesai revisi lalu video. Gabung
-   cabangnya ke `master`, jalankan tsc dan build lewat biner Node langsung,
-   deploy. Konflik yang muncul selalu di `daftar-isi.ts` dan `topik.ts`, dan
+**Peran MASTER dipersempit ARYA (2 Sep sore, berlaku tetap): MASTER TIDAK
+menerima atau meninjau setoran video. Sesi merevisi sendiri dari tinjauan ARYA.
+MASTER hanya (1) menyatukan cabang ke `master` dan (2) menyampaikan aturan dan
+larangan global ke semua sesi (lewat SendMessage, lihat memori
+`kirim-pesan-antar-sesi`).**
+1. **Satukan cabang sesi ke `master`** saat sesi lapor siap gabung. Jalankan
+   tsc dan build lewat biner Node langsung (pemeriksaan teknis penggabungan,
+   bukan penilaian isi), deploy. Konflik yang muncul selalu di `daftar-isi.ts` dan `topik.ts`, dan
    selalu berjenis "dua sesi menambah baris di tempat yang sama": ambil kedua
    sisi, LALU periksa kurung penutupnya (pernah hilang, lihat commit 32d520f).
 2. **Lunasi utang MASTER** (daftarnya di bagian Tinjauan isi di atas):
