@@ -12,11 +12,20 @@ PENTING: ingatan lintas-sesi Claude TIDAK ikut ke worktree (ingatan menempel
 pada path folder). Sumber kebenaranmu HANYA: `PROGRESS.md`, `CLAUDE.md`,
 file tugasmu, laporanmu, dan isi repo. Jangan mengandalkan "seingat saya".
 
+## Peran MASTER sejak 2 Sep sore (keputusan ARYA, berlaku tetap)
+MASTER **tidak menerima atau meninjau setoran video**. Tiap sesi merevisi
+kerjaannya sendiri berdasarkan tinjauan ARYA langsung, dan bertanggung jawab
+atas gerbang mutunya sendiri (cek_kode, qc, lembar kontak, daftar periksa
+STANDAR-ILUSTRASI-VIDEO.md). Tugas MASTER hanya dua: (1) **menyatukan** semua
+cabang ke `master` (dengan tsc dan build sebagai pemeriksaan teknis
+penggabungan, bukan penilaian isi), dan (2) **menyampaikan aturan dan larangan
+global** ke semua sesi. Kalau kamu butuh keputusan isi atau visual, tanyakan
+ke ARYA, bukan ke MASTER.
+
 ## Keadaan sekarang (2 Sep 2026, sore)
 Kelima sesi SELESAI gelombang 1. **ARYA menyetujui semuanya dan membuka
 gelombang 2.** Semua cabang sudah tergabung ke `master` dan diselaraskan balik.
-Tinjauan ISI (urutan materi, pedagogi, ketepatan) diserahkan ARYA ke MASTER;
-tinjauan VISUAL tetap oleh ARYA. Revisi isi dari MASTER dan tugas gelombang 2
+Tinjauan VISUAL dan revisi video oleh ARYA langsung ke tiap sesi. Revisi isi dari MASTER dan tugas gelombang 2
 ada di file tugas masing-masing, bagian "Gelombang 2". Standar mengajar yang
 dipakai menilai: `docs/tugas/STANDAR-MENGAJAR.md`. Baca itu SEBELUM menulis
 naskah video, sebab narasi video adalah bentuk paling murni dari "guru
@@ -27,8 +36,8 @@ Keputusan ARYA: Manim Community DICABUT dari laptop ini. Semua video baru dibuat
 dengan **ManimGL 1.7.2** lewat perkakas bersama `manim/gl/`. Sebelum menyentuh
 video, baca berurutan:
 1. `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md`: delapan aturan ya/tidak (benda nyata
-   3D bercahaya, kamera dari dunia ke peta, rumus di atas gambar, Constantia +
-   LaTeX, gerbang mutu).
+   3D bercahaya, kamera dari dunia ke peta, rumus di atas gambar, semua huruf
+   LaTeX lewat `teks()`/`rumus()`, gerbang mutu).
 2. `docs/tugas/ILMU-3B1B.md`: enam prinsip 3b1b dan PETA NAMA dari Manim
    Community ke ManimGL (`MathTex` jadi `rumus()`, `Create` jadi `ShowCreation`, dst).
 3. `manim/contoh/contoh_perahu.py`: contoh rujukan yang sudah lolos gerbang.

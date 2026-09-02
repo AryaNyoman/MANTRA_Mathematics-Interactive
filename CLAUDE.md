@@ -28,9 +28,12 @@ Pemilik: ARYA. Tujuan terdekat: ditunjukkan ke dosen.
 
 ## Aturan proyek (jangan dilanggar)
 - **6 topik**: trigonometri⭐, limit⭐, grafik fungsi, vektor, ruang 3D, statistika (⭐ = unggulan)
-- **Rumus dan angka pakai LaTeX** (`gl.rumus`, yaitu `Tex` ManimGL), bukan Typst.
-  Kata-kata pakai font Constantia (`gl.teks`). `MathTex` dan `Text(color=)` dilarang
-  (`cek_kode.py` menolaknya); satuan `\mathrm{km}`, bukan `\text{}`.
+- **Semua huruf pakai LaTeX** (keputusan ARYA 2 Sep): rumus dan angka lewat
+  `gl.rumus` (`Tex`), kata-kata lewat `gl.teks` (`TexText`). Bukan Typst, bukan
+  `Text` Pango. `MathTex` dan `Text(color=)` dilarang (`cek_kode.py` menolaknya).
+- **Cache LaTeX ManimGL bisa keracunan**: hasil kosong saat font baru dipasang
+  ikut tersimpan. `tambal_manimgl.py` menolak SVG kosong; kalau teks pernah
+  "hilang", hapus `%LOCALAPPDATA%\manim\manim\Cache`.
 - **Video: benda nyata harus terlihat seperti bendanya** (3D bercahaya dari
   `gl.ilustrasi`), kamera mulai dari dunia lalu terbang ke tempat matematika
   terbaca, rumus di atas gambar. Aturan lengkap: `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md`.

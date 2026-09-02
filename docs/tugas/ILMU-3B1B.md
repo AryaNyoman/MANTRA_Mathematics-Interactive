@@ -91,8 +91,8 @@ diam sejenak, baru dijawab.
 |---|---|
 | `from manim import *` | `from gl import *` (meneruskan manimlib) |
 | `MathTex(r"...", color=..)` | `rumus(r"...")` (Tex + set_color) |
-| `Text("...", color=..)` | `teks("...")` (Constantia + set_color); `Text(color=)` DIABAIKAN |
-| `\text{km}` di rumus | `\mathrm{km}` (`\text{}` DIBUANG diam-diam oleh ManimGL) |
+| `Text("...", color=..)` | `teks("...")` (TexText LaTeX + set_color); `Text(color=)` DIABAIKAN, dan `Text` (Pango) tidak dipakai lagi |
+| `\text{km}` di rumus | `\mathrm{km}` (kebiasaan LaTeX untuk satuan) |
 | `Create` | `ShowCreation` |
 | `config.frame_width` | `FRAME_WIDTH` |
 | `ThreeDScene`, `self.camera.frame` | `AdeganMatra`, `self.frame` |
