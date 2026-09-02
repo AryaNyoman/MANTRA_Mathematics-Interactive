@@ -67,6 +67,17 @@ class AdeganMatra(Scene):
 
     default_camera_config = dict(background_color=LATAR)
 
+    # PENGHALUSAN PINGGIRAN (anti-aliasing multisample).
+    # `Scene.samples` bawaan ManimGL adalah 0, artinya penghalusan MATI, dan
+    # ARYA melihatnya langsung pada 2 Sep malam: "pinggiran luarnya kurang
+    # halus". ManimGL sendiri memakai 4 untuk adegan tiga dimensi bawaannya;
+    # `AdeganMatra` cuma kebetulan mewarisi angka nol.
+    #
+    # Ini atribut KELAS SCENE, bukan bagian `default_camera_config`. Menaruhnya
+    # di config kamera menghasilkan galat "got multiple values for keyword
+    # argument 'samples'", sebab Scene sudah meneruskannya sendiri.
+    samples = 4
+
     def setup(self):
         self.t = Tema()
         self.hud = Group()
