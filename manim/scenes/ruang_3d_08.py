@@ -50,11 +50,14 @@ class SudutGarisBersilangan(AdeganMatra):
             T["B"] + GESER * s.get_value(), T["G"] + GESER * s.get_value()
         ).set_stroke(AKSEN, 6))
 
-        lab = huruf_sudut(frame, {"A": AKSEN2, "B": AKSEN, "C": AKSEN2, "G": AKSEN})
+        lab = huruf_sudut(frame, {"A": AKSEN2, "B": AKSEN, "C": AKSEN2, "G": AKSEN, "H": AKSEN})
 
         # --- Babak 1: pengumuman materi.
         kamera.pasang_awal(frame, theta=-46, phi=72, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
-        self.add(lantai(), kubus)
+        # Papan koordinat berangka: tanpa ini kalimat "enam satuan" di narasi
+        # tidak punya sandaran apa pun di layar (revisi ARYA 2 Sep malam).
+        sumbu, angka_sumbu = papan_koordinat(frame)
+        self.add(lantai(), sumbu, *angka_sumbu, kubus)
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 08: Sudut dua garis bersilangan",
                                  lama=3.4, y=3.0)
@@ -89,14 +92,13 @@ class SudutGarisBersilangan(AdeganMatra):
                           [("AC", "keterangan")])
 
         # --- Babak 4: mendarat tepat di AH, diagonal sisi yang memang sudah ada.
-        lab_h = huruf_sudut(frame, {"H": AKSEN})
         with sinema.babak(self, "mendarat", DURASI) as b:
-            b.main(FadeIn(lab_h["H"]), run_time=0.7)
+            b.main(lab["H"].animate.scale(1.25), run_time=0.7)
             sinema.keterangan(self, "mendarat tepat menjadi *AH*, diagonal sisi kiri",
                               warna=AKSEN)
             b.catat(0.6)
             isi_sisa(b, kamera.sudut(frame, -24, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-        qc.periksa_adegan(self, {"BG": bg, "huruf H": lab_h["H"], "huruf A": lab["A"],
+        qc.periksa_adegan(self, {"BG": bg, "huruf H": lab["H"], "huruf A": lab["A"],
                                  "keterangan": self._matra_keterangan},
                           [("huruf H", "keterangan")])
 

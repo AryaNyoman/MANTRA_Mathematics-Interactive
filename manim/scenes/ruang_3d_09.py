@@ -55,7 +55,10 @@ class SudutDenganBidang(AdeganMatra):
 
         # --- Babak 1: pengumuman materi.
         kamera.pasang_awal(frame, theta=-42, phi=72, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
-        self.add(lantai(), kubus)
+        # Papan koordinat berangka: tanpa ini kalimat "enam satuan" di narasi
+        # tidak punya sandaran apa pun di layar (revisi ARYA 2 Sep malam).
+        sumbu, angka_sumbu = papan_koordinat(frame)
+        self.add(lantai(), sumbu, *angka_sumbu, kubus)
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 09: Sudut dengan bidang", lama=3.4, y=3.0)
             b.catat(3.4)

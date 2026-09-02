@@ -21,17 +21,18 @@ from gl import ilustrasi  # noqa: E402
 AKAR = Path(__file__).resolve().parents[2]
 
 RUSUK = 6.0
-S = RUSUK / 2
 
-# Penamaan titik sudut SAMA PERSIS dengan widget di halaman dan dengan
-# `alat/cek_ruang.py`: A di pojok dekat, B ke arah x, D ke arah y, E di atas A.
-# Kubusnya digeser supaya berpusat pada sumbu tegak, sehingga diagonal alas dan
-# diagonal tutup sama-sama melewati garis x = y = 0.
+# KOORDINAT SAMA PERSIS DENGAN HALAMAN DAN DENGAN `alat/cek_ruang.py`.
+# Titik A duduk di titik asal, jadi angka pada sumbu benar-benar bisa dibaca
+# siswa: B ada di enam pada sumbu x, D di enam pada sumbu y, E di enam pada
+# sumbu z. Versi pertama video memusatkan kubus di titik asal sehingga A jatuh
+# di (-3, -3, 0); begitu sumbu diberi angka (revisi ARYA 2 Sep malam), angka
+# minus itu justru akan membingungkan, dan tidak cocok dengan halaman.
 T = {
-    "A": np.array([-S, -S, 0.0]), "B": np.array([S, -S, 0.0]),
-    "C": np.array([S, S, 0.0]), "D": np.array([-S, S, 0.0]),
-    "E": np.array([-S, -S, RUSUK]), "F": np.array([S, -S, RUSUK]),
-    "G": np.array([S, S, RUSUK]), "H": np.array([-S, S, RUSUK]),
+    "A": np.array([0.0, 0.0, 0.0]), "B": np.array([RUSUK, 0.0, 0.0]),
+    "C": np.array([RUSUK, RUSUK, 0.0]), "D": np.array([0.0, RUSUK, 0.0]),
+    "E": np.array([0.0, 0.0, RUSUK]), "F": np.array([RUSUK, 0.0, RUSUK]),
+    "G": np.array([RUSUK, RUSUK, RUSUK]), "H": np.array([0.0, RUSUK, RUSUK]),
 }
 PASANGAN_RUSUK = [
     ("A", "B"), ("B", "C"), ("C", "D"), ("D", "A"),
@@ -39,16 +40,16 @@ PASANGAN_RUSUK = [
     ("A", "E"), ("B", "F"), ("C", "G"), ("D", "H"),
 ]
 
-# Kamera sengaja dipusatkan LEBIH RENDAH daripada tengah kubus, dan bingkainya
-# dibuat lebih tinggi daripada yang pas. Keduanya untuk satu hal: memberi ruang
-# kosong di kaki layar. Percobaan pertama memakai pusat di tengah kubus dan
-# bingkai 12, dan akibatnya titik sudut A yang paling dekat kamera jatuh tepat
-# di baris keterangan; di materi 04 dan 08 garis AG dan busur sudut bahkan
-# menembus tulisannya. Keterangan sekarang tanpa alas (keputusan ARYA 2 Sep),
-# jadi apa pun yang lewat di belakangnya terlihat menembus huruf.
-PUSAT = np.array([0.0, 0.0, 2.6])
-TINGGI_BINGKAI = 13.5
-ACUAN_SKALA = 14.0   # jarak kamera acuan, lihat `label_hadap`
+# Kamera dipusatkan LEBIH RENDAH daripada tengah kubus, dan bingkainya dibuat
+# lebih tinggi daripada yang pas. Keduanya untuk memberi ruang kosong di kaki
+# layar: percobaan sebelumnya membuat titik sudut A jatuh tepat di baris
+# keterangan, dan garis diagonal menembus tulisannya. Keterangan tanpa alas
+# (keputusan ARYA 2 Sep sore) membuat apa pun di belakangnya terlihat menembus.
+PUSAT = np.array([RUSUK / 2, RUSUK / 2, 2.5])
+TINGGI_BINGKAI = 15.0
+ACUAN_SKALA = 15.5   # jarak kamera acuan, lihat `label_hadap`
+
+SUMBU_UJUNG = RUSUK + 1.4   # sumbu menjulur sedikit melewati kubus
 
 
 def durasi(topik: str) -> dict:
@@ -62,7 +63,10 @@ def kubus_pejal(warna=REDUP, opacity=0.92):
     baru bangun matematikanya (STANDAR-ILUSTRASI aturan 1, dan "konkret sebelum
     abstrak" di STANDAR-MENGAJAR).
     """
-    return ilustrasi.balok(RUSUK, RUSUK, RUSUK, warna=warna).set_opacity(opacity)
+    b = ilustrasi.balok(RUSUK, RUSUK, RUSUK, warna=warna).set_opacity(opacity)
+    # `ilustrasi.balok` lahir berpusat di sumbu tegak dengan alas di z = 0.
+    # Kubus kita berjalan dari titik A di titik asal, jadi digeser setengah rusuk.
+    return b.shift(np.array([RUSUK / 2, RUSUK / 2, 0.0]))
 
 
 def rangka_kubus(warna=TINTA, tebal=2.2):
@@ -75,7 +79,9 @@ def lantai():
     Sumbu 3D bawaan `lantai_kisi` menembus kubus dan mudah tertukar dengan
     rusuk, jadi hanya kisinya yang dipakai.
     """
-    return ilustrasi.lantai_kisi(ukuran=16.0, langkah=1.0)[0]
+    # Digeser supaya kubus duduk di tengah kisinya, bukan di pojok.
+    return ilustrasi.lantai_kisi(ukuran=18.0, langkah=1.0)[0].shift(
+        np.array([RUSUK / 2, RUSUK / 2, 0.0]))
 
 
 def label_hadap(frame, isi, titik, warna=TINTA, ukuran=30, acuan=ACUAN_SKALA):
@@ -113,23 +119,77 @@ def label_hadap(frame, isi, titik, warna=TINTA, ukuran=30, acuan=ACUAN_SKALA):
     return lab
 
 
-def huruf_sudut(frame, nama_ke_warna, dorong=0.68, naik=0.30):
-    """Huruf titik sudut untuk beberapa titik sekaligus, didorong keluar kubus.
+def huruf_sudut(frame, sorot=None, dorong=0.92, naik=0.38):
+    """KEDELAPAN huruf titik sudut, selalu, walau yang dibahas cuma sebagian.
+
+    Revisi ARYA 2 Sep malam: "Wajib juga menuliskan semua titik pada bangun 3
+    dimensi, walaupun dia tidak dipergunakan, tapi tetap diberikan warna yang
+    berbeda karena dia yang akan disorot saat itu." Jadi `sorot` adalah peta
+    nama ke warna untuk titik yang sedang dibahas; sisanya otomatis REDUP.
 
     Dorongannya MENDATAR saja, mengikuti arah dari sumbu tegak kubus ke titik
     itu, lalu ditambah sedikit ke atas. Sengaja tidak pernah ke bawah: percobaan
     pertama memakai arah tiga dimensi dari pusat kubus, dan huruf titik alas
     ikut terdorong TURUN sampai menindih baris keterangan di kaki layar.
-    `qc.periksa_adegan` yang menangkapnya (irisan 0,13 kali 0,08 satuan layar),
-    dan render materi 03 gagal seperti seharusnya, bukan lolos diam-diam.
+    `qc.periksa_adegan` yang menangkapnya, dan render materi 03 gagal seperti
+    seharusnya, bukan lolos diam-diam.
     """
+    sorot = sorot or {}
     hasil = {}
-    for nama, warna in nama_ke_warna.items():
-        arah = np.array([T[nama][0], T[nama][1], 0.0])
+    for nama in "ABCDEFGH":
+        arah = np.array([T[nama][0] - PUSAT[0], T[nama][1] - PUSAT[1], 0.0])
         arah = arah / max(np.linalg.norm(arah), 1e-6)
         letak = T[nama] + arah * dorong + np.array([0.0, 0.0, naik])
-        hasil[nama] = label_hadap(frame, nama, letak, warna)
+        warna = sorot.get(nama, REDUP)
+        ukuran = 30 if nama in sorot else 26
+        hasil[nama] = label_hadap(frame, nama, letak, warna, ukuran)
     return hasil
+
+
+def papan_koordinat(frame, sumbu_z=True, sampai=None, tekan=None):
+    """Sumbu x, y (dan z) DENGAN ANGKA di tiap satuan.
+
+    Revisi ARYA 2 Sep malam: "Wajib memberikan satuan angka pada titik koordinat
+    X Y nya, jangan dibiarkan polos, siswa sulit melihatnya" dan "bila perlu
+    buatkan sumbu Z beserta satuan angkanya jika suatu saat membicarakan masalah
+    tinggi". Tanpa angka, kalimat "enam satuan" di narasi tidak punya sandaran
+    apa pun di layar; siswa hanya diminta percaya.
+
+    Sumbunya sengaja digambar TIPIS dan REDUP, berimpit dengan rusuk AB, AD, dan
+    AE yang lebih tebal. Menggesernya keluar kubus akan lebih rapi dipandang
+    tetapi salah: sumbu harus lewat titik asal, dan titik asal adalah A.
+
+    Mengembalikan (gambar_sumbu, daftar_label). Labelnya perlu dipisah sebab
+    masing-masing memakai updater sendiri dan harus ditambahkan ke adegan.
+    """
+    ujung = SUMBU_UJUNG if sampai is None else sampai
+    tekan = tekan or {}
+    bagian = [
+        (np.array([1.0, 0.0, 0.0]), np.array([0.0, -1.0, 0.0]), "x"),
+        (np.array([0.0, 1.0, 0.0]), np.array([-1.0, 0.0, 0.0]), "y"),
+    ]
+    if sumbu_z:
+        bagian.append((np.array([0.0, 0.0, 1.0]), np.array([-0.7, -0.7, 0.0]), "z"))
+
+    gambar = VGroup()
+    label = []
+    for arah, keluar, nama in bagian:
+        gambar.add(Arrow(ORIGIN, arah * ujung, buff=0, thickness=2.4).set_color(REDUP))
+        for k in range(1, int(RUSUK) + 1):
+            titik = arah * k
+            ditekan = k in tekan.get(nama, ())
+            gambar.add(Line(titik, titik + keluar * 0.26).set_stroke(
+                SOROT if ditekan else REDUP, 3 if ditekan else 2))
+            # Angkanya sengaja didorong jauh keluar (0,95) dan berukuran 26.
+            # Percobaan pertama memakai 0,52 dan ukuran 22: angkanya berdesakan
+            # dengan huruf titik sudut di pojok kubus, dan terlalu kecil untuk
+            # dibaca di 480p, padahal justru keterbacaan itu yang diminta.
+            label.append(label_hadap(
+                frame, str(k), titik + keluar * 0.95,
+                SOROT if ditekan else REDUP, 34 if ditekan else 26))
+        label.append(label_hadap(frame, nama, arah * (ujung + 0.55), REDUP, 28))
+    label.append(label_hadap(frame, "0", np.array([-0.62, -0.62, 0.0]), REDUP, 26))
+    return gambar, label
 
 
 def penanda(scene, frame, titik, warna=SOROT, jari=0.24, acuan=ACUAN_SKALA):

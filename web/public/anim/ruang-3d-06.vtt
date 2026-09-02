@@ -1,0 +1,83 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/ruang-3d-06.json
+
+1
+00:00:00.000 --> 00:00:02.516
+Materi 6, <b>jarak titik ke bidang</b>.
+
+2
+00:00:02.516 --> 00:00:08.020
+Kalau tadi sasarannya sebuah garis, sekarang sasarannya sebuah bidang.
+
+3
+00:00:08.020 --> 00:00:12.816
+Aturannya sama persis, hanya bentuk sasarannya yang berganti.
+
+4
+00:00:12.816 --> 00:00:14.016
+Ini bidang BDE.
+
+5
+00:00:14.016 --> 00:00:18.538
+Ketiga sisinya diagonal sisi yang bertemu di sekitar titik A,
+
+6
+00:00:18.538 --> 00:00:23.640
+dan bidang itu memotong pojok kubus seperti pisau memotong ujung tahu.
+
+7
+00:00:23.640 --> 00:00:26.387
+Berapa jarak titik A ke bidang itu?
+
+8
+00:00:26.387 --> 00:00:29.919
+Seperti biasa, kita cari <b>kaki tegak lurusnya</b>.
+
+9
+00:00:29.919 --> 00:00:35.334
+Tarik ruas dari A yang tegak lurus bidang, lalu ukur sampai menembus.
+
+10
+00:00:35.334 --> 00:00:40.200
+Kakinya jatuh di titik K, dan K tidak punya nama di kubus ini.
+
+11
+00:00:40.200 --> 00:00:42.785
+Ada satu hal yang membantu.
+
+12
+00:00:42.785 --> 00:00:48.243
+A̅B̅, A̅D̅, dan A̅E̅ sama panjang dan saling tegak lurus,
+
+13
+00:00:48.243 --> 00:00:53.222
+jadi K jatuh tepat di <b>sepertiga</b> diagonal ruang A̅G̅.
+
+14
+00:00:53.222 --> 00:00:58.680
+Karena AG sama dengan 6√3, jaraknya <b>2√3</b>, kira-kira 3,464.
+
+15
+00:00:58.680 --> 00:01:04.434
+Cara tadi cepat, tetapi hanya jalan kalau bangunnya kebetulan simetris.
+
+16
+00:01:04.434 --> 00:01:10.837
+Cara yang selalu jalan: hitung volume limas A.BDE dengan <b>dua</b> alas yang berbeda,
+
+17
+00:01:10.837 --> 00:01:12.620
+lalu samakan keduanya.
+
+18
+00:01:12.620 --> 00:01:14.160
+Hasilnya sama, 2√3.
+
+19
+00:01:14.160 --> 00:01:19.378
+Jadi jarak titik ke bidang sama dengan 3 kali volume dibagi luas alasnya.
+
+20
+00:01:19.378 --> 00:01:24.096
+Sekali lagi itu bukan hafalan baru, itu rumus volume yang <b>dibalik</b>.

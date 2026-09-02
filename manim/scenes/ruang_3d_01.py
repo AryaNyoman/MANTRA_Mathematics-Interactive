@@ -29,8 +29,10 @@ from gl import kamera, qc, sinema  # noqa: E402
 TOPIK = "ruang-3d-01"
 DURASI = durasi(TOPIK)
 
-SILANG_BAWAH = np.array([0.0, 0.0, 0.0])   # BD melewati titik ini
-SILANG_ATAS = np.array([0.0, 0.0, RUSUK])  # EG melewati titik ini
+# BD dan EG sama-sama melewati sumbu tegak di tengah kubus, dan itulah yang
+# membuat keduanya tampak menyilang kalau dilihat dari atas.
+SILANG_BAWAH = np.array([RUSUK / 2, RUSUK / 2, 0.0])
+SILANG_ATAS = np.array([RUSUK / 2, RUSUK / 2, RUSUK])
 
 
 class GambarBolehBerbohong(AdeganMatra):
@@ -48,7 +50,12 @@ class GambarBolehBerbohong(AdeganMatra):
         #     sebuah kotak". Gambar yang membantah narasi lebih merusak daripada
         #     layar kosong (gerbang video di CLAUDE.md).
         kamera.pasang_awal(frame, theta=-40, phi=74, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
-        self.add(lantai(), kubus)
+        # Papan koordinat berangka: tanpa ini kalimat "enam satuan" di narasi
+        # tidak punya sandaran apa pun di layar (revisi ARYA 2 Sep malam).
+        # Angka 6 pada sumbu z DITEKAN sejak awal: itu tinggi kubus, dan nanti
+        # angka itulah yang menjawab "dari mana enam satuan" di babak penutup.
+        sumbu, angka_sumbu = papan_koordinat(frame, tekan={"z": (6,)})
+        self.add(lantai(), sumbu, *angka_sumbu, kubus)
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 01: Gambar ruang boleh berbohong",
                                  lama=3.4, y=3.0)
@@ -65,9 +72,11 @@ class GambarBolehBerbohong(AdeganMatra):
         qc.periksa_adegan(self, {"kubus": kubus, "keterangan": self._matra_keterangan},
                           [("kubus", "keterangan")])
 
-        # --- Babak 3: dinding dibuat tembus pandang, empat titik sudut diberi nama.
-        #     Hanya empat, bukan delapan: yang dipakai video ini cuma B, D, E, G,
-        #     dan delapan huruf akan berdesakan di pandangan atas nanti.
+        # --- Babak 3: dinding dibuat tembus pandang, KEDELAPAN titik sudut diberi
+        #     nama. Yang dibahas video ini cuma B, D, E, G, dan keempatnya diberi
+        #     warna; sisanya tetap ditulis dengan warna redup. Revisi ARYA 2 Sep
+        #     malam: titik yang tidak dipakai pun tetap harus ada namanya, sebab
+        #     siswa membaca kubus itu secara utuh, bukan cuma bagian yang disorot.
         lab = huruf_sudut(frame, {"B": AKSEN2, "D": AKSEN2, "E": AKSEN, "G": AKSEN})
         with sinema.babak(self, "rangka", DURASI) as b:
             b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=2.2)
@@ -113,11 +122,26 @@ class GambarBolehBerbohong(AdeganMatra):
         # --- Babak 6: turun lagi, dan satu titik silang ternyata DUA titik.
         tanda_bawah = penanda(self, frame, SILANG_BAWAH)
         tiang = Line(SILANG_BAWAH, SILANG_ATAS).set_stroke(SOROT, 5)
+        # DARI MANA ANGKA ENAM ITU (pertanyaan ARYA 2 Sep malam).
+        # Percobaan pertama menarik garis putus-putus mendatar dari puncak tiang
+        # ke sumbu z. Ternyata sia-sia: titik (0, 0, 6) itu titik E, jadi garis
+        # pandunya berimpit persis dengan ruas EG yang merah dan tidak terlihat
+        # sama sekali. Yang dipakai sekarang dua hal yang saling menguatkan:
+        # angka 6 di sumbu z disorot ungu dan diperbesar (lewat `tekan`), dan
+        # tinggi tiangnya sendiri diberi label di sampingnya. Tiang itu berdiri
+        # dari lantai sampai atap, jadi siswa bisa membaca 6 di dua tempat.
+        lab_enam = label_hadap(frame, "6", SILANG_BAWAH + np.array([0.85, 0.0, RUSUK / 2]),
+                               SOROT, 36)
         panel = rumus(r"\mathrm{jarak} = 6\ \mathrm{satuan}", 34, SOROT).to_corner(UR, buff=0.5)
         with sinema.babak(self, "turun", DURASI) as b:
+            # Sisakan 6,4 detik: babak ini sekarang memuat garis pandu ke sumbu z
+            # dan angka 6 di sana, jadi butuh satu detik lebih banyak daripada
+            # sebelumnya. Gerbang waktu `sinema.babak` yang menangkap kelebihan
+            # 0,20 detik pada percobaan pertama, bukan mata saya.
             isi_sisa(b, kamera.sudut(frame, -30, 72, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
-                     sisakan=5.5)
-            b.main(FadeIn(tanda_bawah), ShowCreation(tiang), run_time=1.8)
+                     sisakan=6.4)
+            b.main(FadeIn(tanda_bawah), ShowCreation(tiang), run_time=1.6)
+            b.main(FadeIn(lab_enam), run_time=1.0)
             self.hud.remove(tanya)
             b.main(FadeOut(tanya), run_time=0.5)
             self.hud_tambah(panel)
@@ -126,9 +150,10 @@ class GambarBolehBerbohong(AdeganMatra):
             sinema.keterangan(self, "satu titik silang ternyata *dua titik*")
             b.catat(0.6)
             b.jeda(1.2)
-        qc.periksa_adegan(self, {"tiang": tiang, "panel": panel,
+        qc.periksa_adegan(self, {"tiang": tiang, "panel": panel, "angka tinggi": lab_enam,
                                  "keterangan": self._matra_keterangan},
-                          [("tiang", "keterangan"), ("panel", "keterangan")])
+                          [("tiang", "keterangan"), ("panel", "keterangan"),
+                           ("angka tinggi", "keterangan")])
 
         # --- Babak 7: kubus diputar pelan supaya bentuknya terbaca, lalu kalimat
         #     sorot tahap ini diucapkan kata per kata (STANDAR-MENGAJAR bagian 5).

@@ -6,27 +6,33 @@
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi delapan, *sudut dua garis yang tidak pernah bertemu*. Banyak yang mengira sudut hanya bisa diukur kalau kedua garis berpotongan. Coba kita uji dengan kubus ini."
+      "teks": "Materi delapan, *sudut dua garis yang tidak pernah bertemu*. Banyak yang mengira sudut hanya bisa diukur kalau kedua garis berpotongan. Coba kita uji dengan kubus ini.",
+      "subtitle": "Materi 8, *sudut dua garis yang tidak pernah bertemu*. Banyak yang mengira sudut hanya bisa diukur kalau kedua garis berpotongan. Coba kita uji dengan kubus ini."
     },
     {
       "id": "masalah",
-      "teks": "Ini A C di lantai, dan ini B G di sisi kanan. Keduanya *bersilangan*: tidak sejajar, dan tidak punya satu pun titik bersama. Padahal sudut selalu butuh titik sudut. Jadi sudutnya diukur di mana?"
+      "teks": "Ini A C di lantai, dan ini B G di sisi kanan. Keduanya *bersilangan*: tidak sejajar, dan tidak punya satu pun titik bersama. Padahal sudut selalu butuh titik sudut. Jadi sudutnya diukur di mana?",
+      "subtitle": "Ini A̅C̅ di lantai, dan ini B̅G̅ di sisi kanan. Keduanya *bersilangan*: tidak sejajar, dan tidak punya satu pun titik bersama. Padahal sudut selalu butuh titik sudut. Jadi sudutnya diukur di mana?"
     },
     {
       "id": "geser",
-      "teks": "Jalan keluarnya: kita geser salah satunya, *sejajar dirinya sendiri*, sampai keduanya bertemu. Perhatikan garis merah ini berjalan pelan tanpa berputar sedikit pun."
+      "teks": "Jalan keluarnya: kita geser salah satunya, *sejajar dirinya sendiri*, sampai keduanya bertemu. Perhatikan garis merah ini berjalan pelan tanpa berputar sedikit pun.",
+      "subtitle": "Jalan keluarnya: kita geser salah satunya, *sejajar dirinya sendiri*, sampai keduanya bertemu. Perhatikan garis merah ini berjalan pelan tanpa berputar sedikit pun."
     },
     {
       "id": "mendarat",
-      "teks": "Pada geseran penuh, B G mendarat tepat menjadi A H, diagonal sisi yang memang sudah ada di kubus. Sekarang keduanya bertemu di titik A."
+      "teks": "Pada geseran penuh, B G mendarat tepat menjadi A H, diagonal sisi yang memang sudah ada di kubus. Sekarang keduanya bertemu di titik A.",
+      "subtitle": "Pada geseran penuh, B̅G̅ mendarat tepat menjadi A̅H̅, diagonal sisi yang memang sudah ada di kubus. Sekarang keduanya bertemu di titik A."
     },
     {
       "id": "segitiga",
-      "teks": "Sekarang lihat segitiga A C H. A C diagonal sisi alas, A H diagonal sisi kiri, C H diagonal sisi belakang. Ketiganya *enam akar dua*, jadi segitiganya *sama sisi*."
+      "teks": "Sekarang lihat segitiga A C H. A C diagonal sisi alas, A H diagonal sisi kiri, C H diagonal sisi belakang. Ketiganya *enam akar dua*, jadi segitiganya *sama sisi*.",
+      "subtitle": "Sekarang lihat segitiga ACH. A̅C̅ diagonal sisi alas, A̅H̅ diagonal sisi kiri, C̅H̅ diagonal sisi belakang. Ketiganya *6√2*, jadi segitiganya *sama sisi*."
     },
     {
       "id": "tutup",
-      "teks": "Semua sudut segitiga sama sisi adalah *enam puluh derajat*, dan kita mendapatkannya tanpa satu pun perhitungan trigonometri. Menggeser tidak mengubah arah, dan karena itu tidak mengubah sudut."
+      "teks": "Semua sudut segitiga sama sisi adalah *enam puluh derajat*, dan kita mendapatkannya tanpa satu pun perhitungan trigonometri. Menggeser tidak mengubah arah, dan karena itu tidak mengubah sudut.",
+      "subtitle": "Semua sudut segitiga sama sisi adalah *60°*, dan kita mendapatkannya tanpa satu pun perhitungan trigonometri. Menggeser tidak mengubah arah, dan karena itu tidak mengubah sudut."
     }
   ]
 }
