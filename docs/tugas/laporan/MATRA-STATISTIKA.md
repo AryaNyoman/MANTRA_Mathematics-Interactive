@@ -1,5 +1,5 @@
 # Laporan MATRA-STATISTIKA
-Terakhir: 2 September 2026, video pertama selesai
+Terakhir: 2 September 2026 malam, video pertama ditinjau ARYA dan dirombak
 
 Cabang `sesi/statistika`. Gelombang 1, halaman saja, tanpa video.
 Rancangan: `docs/superpowers/specs/2026-09-01-statistika-alur-belajar.md`, sudah
@@ -422,3 +422,119 @@ sebagai tumpuan, dan seluruh gagasan video ini ada pada papan yang bisa jatuh.
 
 Video kedua: Tahap 8, simpangan baku, empat langkah dengan persegi yang tumbuh
 kuadrat. Belum dimulai.
+
+---
+
+# Tinjauan ARYA atas video Tahap 5, dan tiga temuan untuk SEMUA sesi
+
+Ditulis 2 September 2026 malam, setelah ARYA menonton render keenam dan
+render ketujuh. Bagian ini yang paling perlu dibaca MASTER.
+
+## 1. "3D ini membuat siswa jadi bingung" (ARYA), dan ARYA benar
+
+Kalimat lengkapnya: *"videonya tidak terlalu jelas terutama perbedaan selisih
+antara kelompok nilai 5 dengan nilai 7. Itu saya lihat gambarnya pecah, tidak
+jelas"*, ditambah *"kalau misal tidak perlu 3D juga ga masalah, tidak perlu
+dipaksakan yang penting pesan ke siswanya tersampaikan"*.
+
+Yang saya lewatkan, dan sekarang saya anggap kaidah: **kalau isi sebuah adegan
+adalah MEMBANDINGKAN PANJANG, sudut pandang miring merusaknya.** Pada sudut
+miring, jarak yang sama panjang di dunia digambar tidak sama panjang di layar.
+Saya meminta siswa membandingkan sesuatu yang gambarnya sendiri sudah
+menyimpangkannya. Itu bukan sekadar kurang enak dilihat, itu keliru.
+
+Tiga perubahan, dan bendanya TETAP 3D bercahaya:
+1. Kamera hampir sejajar tanah (phi 85, theta 0) sepanjang bagian yang harus
+   dibaca. Satu satuan nilai = satu jarak layar yang sama di mana pun.
+2. Siswa, angka, papan, dan tumpuan semuanya di y = 0. Sebelumnya angka ada di
+   y -1,15 dan siswa terlihat tidak segaris dengan angkanya. Nilai kembar
+   digeser 0,17 satuan ke SAMPING, bukan ke belakang.
+3. Bukti "enam lawan enam" tidak lagi enam panah tipis di ketinggian berbeda.
+   Ketiga jarak kiri dijajarkan jadi SATU batang (3+2+1), ketiga jarak kanan
+   jadi batang kedua (1+1+4), berpangkal sama. Sama panjang atau tidak kini
+   terlihat sekejap. Ini yang paling menjawab keluhan ARYA.
+
+**Usul untuk STANDAR-ILUSTRASI-VIDEO.md, bagian "Kapan 3D, kapan 2D":**
+tambahkan satu kalimat. *"Kalau yang harus dibandingkan siswa adalah PANJANG
+atau JARAK, ratakan kameranya. Sudut miring membuat panjang yang sama digambar
+tidak sama, dan itu membantah pelajarannya sendiri. Bendanya tetap 3D."*
+
+## 2. Tepi bergerigi BUKAN semata soal 480p: `samples` ManimGL bawaannya 0
+
+ARYA: *"kok masih kurang halus teksturnya ya? masih terlihat kotak-kotak apa
+karena masih 480p 30 fps ya?"*
+
+Diperiksa, bukan ditebak. `manimlib/scene/scene.py` menyetel `Scene.samples = 0`,
+artinya penghalus tepi MATI. Komentar di `manimlib/camera/camera.py` sendiri
+berbunyi *"Although vector graphics handle antialiasing fine without
+multisampling, for 3d scenes one might want to set samples to be greater than
+0"*, dan `ThreeDScene` bawaannya memang `samples = 4`. **`AdeganMatra` mewarisi
+`Scene`, jadi semua adegan MATRA selama ini dirender tanpa penghalus tepi.**
+
+Dipasang `samples = 4` di adegan saya, dan tepi papan yang tadinya bertangga
+jadi mulus PADA RESOLUSI YANG SAMA. Jadi jawabannya: sebagian besar bukan 480p,
+melainkan setelan yang tidak pernah dinyalakan. Di 1080p pun tanpa ini tetap
+bergerigi, hanya lebih halus karena pikselnya lebih kecil. 30 fps tidak ada
+hubungannya, itu soal kehalusan gerak.
+
+**Permintaan ke MASTER: pindahkan `samples = 4` ke `AdeganMatra` di
+`manim/gl/tema.py`.** Semua sesi langsung menikmatinya, dan tidak perlu ada
+yang mengingatnya per adegan. Saya tidak menyentuh berkas itu sendiri karena
+milik MASTER. Catatan: `custom_config.yml` BUKAN tempatnya; menaruh `samples`
+di bawah `camera:` membuat manimgl gagal dengan "got multiple values for
+keyword argument 'samples'". Sudah saya coba dan kembalikan.
+
+## 3. Subtitle: sudah 100 persen, yang kurang adalah cara meninjaunya
+
+ARYA: *"untuk subtitlenya saya minta tampilkan 100%, semua apa yang dikatakan
+narator ditampilkan, tidak setengah-setengah."*
+
+Diperiksa mesin: berkas `web/public/anim/statistika5-pemusatan.vtt` memuat
+**236 kata, naskahnya juga 236 kata, cocok kata per kata.** Jadi subtitle-nya
+memang sudah utuh.
+
+Yang ARYA lihat setengah-setengah adalah `sinema.keterangan`, ringkasan satu
+baris di dalam gambar. Sebabnya sederhana: **mp4 uji tidak memuat subtitle sama
+sekali**, sebab subtitle dibaca pemutar situs dari berkas vtt terpisah. Saat
+meninjau lewat berkas mp4, subtitle itu tidak pernah kelihatan.
+
+Perbaikan: dibuat salinan tinjauan `statistika5-tinjau-bersubtitle.mp4`, video
+yang sama ditambah pita krem 86 piksel di bawahnya berisi subtitle penuh.
+Gambar aslinya tidak tertutup sedikit pun.
+
+**Usul untuk MASTER:** beri `gabung_audio.py` pilihan `--subtitle` yang membuat
+salinan tinjauan seperti ini otomatis. Kalau tidak, setiap sesi akan
+menyimpulkan hal yang sama kelirunya: mengira subtitle-nya kurang.
+
+## 4. Subtitle memakai lambang, bukan ejaan
+
+ARYA: *"kalau dibilang tujuh puluh dua maka tulis aja 72, kalau dibilang akar,
+ya tulis aja lambang akar."*
+
+Ini bertabrakan dengan STANDAR-MENGAJAR bagian 5 aturan 5, yang mewajibkan
+angka DIEJA di naskah supaya mesin suara mengucapkannya seperti guru.
+Dua-duanya benar untuk saluran yang berbeda: telinga butuh "lima puluh enam
+dibagi delapan", mata jauh lebih cepat menangkap "56 dibagi 8".
+
+Penyelesaiannya satu baris di `manim/buat_subtitle.py` (commit tersendiri
+`d0e6377`, berkas bersama, gampang ditahan): `seg.get("tulis") or seg["teks"]`.
+Naskah tanpa medan `tulis` berjalan persis seperti sebelumnya. Tujuh segmen
+naskah saya sudah diberi `tulis`.
+
+**Permintaan ke MASTER:** kalau setuju, tambahkan aturan 10 di STANDAR-MENGAJAR
+bagian 5 supaya sesi lain tahu medan ini ada.
+
+## Keadaan video Tahap 5 sekarang
+
+Tujuh render. Berkas untuk situs: `media/uji-480p/statistika5-pemusatan.mp4`,
+122,4 detik, selisih suara dan gambar 0,14 detik. Salinan tinjauan bersubtitle:
+`media/uji-480p/statistika5-tinjau-bersubtitle.mp4`. Subtitle situs:
+`web/public/anim/statistika5-pemusatan.vtt`, 35 baris.
+
+Vonis ARYA atas versi datar: *"oke sudah makin bagus lah"*, dan *"sisanya sudah
+bagus, silahkan dilanjutkan"*.
+
+Cacat tersisa yang saya sebut sendiri: tiap babak menyisakan 2 sampai 4 detik
+tanpa animasi baru, sebab narasi ditulis sebelum geraknya dirancang. Untuk
+video kedua urutannya saya balik: rancang gerak dulu, baru tulis narasi
+sepanjang gerak itu.
