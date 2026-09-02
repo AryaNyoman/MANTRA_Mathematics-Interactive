@@ -143,8 +143,16 @@ export default function Papan({
           {labelX}
         </text>
       )}
+      {/* Keterangan sengaja diturunkan MASUK ke dalam bingkai, tidak di tepi
+          atasnya. Lencana "INTERAKTIF" milik panel menempel di pojok kiri atas
+          dan berada di atas SVG ini, jadi apa pun yang digambar di sana bisa
+          tertutup. Seberapa dalam lencana itu masuk berubah-ubah: kalau baris
+          kendali sebuah widget banyak, papannya menyusut sampai batas dan
+          tepinya persis di bawah lencana. Ditemukan di Tahap 9 pada 2 Sep 2026.
+          Halo krem dipakai supaya garis petak di belakangnya tidak mengganggu. */}
       {keterangan && (
-        <text x={k.x0} y={k.y0 - 8} fontSize={11} fill={PERAN.tinta} fontFamily={MONO}>
+        <text x={k.x0 + 6} y={k.y0 + 12} fontSize={11} fill={PERAN.tinta} fontFamily={MONO}
+              stroke="#FFFDFA" strokeWidth={3} paintOrder="stroke" strokeLinejoin="round">
           {keterangan}
         </text>
       )}

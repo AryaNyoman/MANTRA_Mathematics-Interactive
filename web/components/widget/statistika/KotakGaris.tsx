@@ -103,7 +103,7 @@ export default function KotakGaris({ children }: PropWidget) {
             </text>
           ))}
 
-          {/* pagar 1,5 x JAK */}
+          {/* pagar 1,5 × JAK */}
           {pagar && (
             <>
               {[r.pagarBawah, r.pagarAtas].filter((v) => v >= MIN && v <= MAKS).map((v) => (
@@ -137,7 +137,7 @@ export default function KotakGaris({ children }: PropWidget) {
       </div>
       <div className="kendali">
         <div>
-          <label><span>Pagar 1,5 x JAK</span></label>
+          <label><span>Pagar 1,5 × JAK</span></label>
           <div className="pilih-sisi">
             <button aria-pressed={pagar} onClick={() => setPagar((p) => !p)}>
               {pagar ? 'Sembunyikan' : 'Tampilkan'}

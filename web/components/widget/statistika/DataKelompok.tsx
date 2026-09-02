@@ -7,6 +7,7 @@ import { TEPI, angka, keLayar, kotak } from '@/components/widget/statistika/skal
 import { useSeret } from '@/components/widget/statistika/seret'
 import { ringkasKelompok } from '@/components/widget/statistika/statistik'
 import { kelompok, keterangan } from '@/content/statistika/data'
+import type { Kelas } from '@/components/widget/statistika/statistik'
 import type { PropWidget } from '@/components/widget/statistika/jenis'
 
 /**
@@ -22,13 +23,27 @@ import type { PropWidget } from '@/components/widget/statistika/jenis'
  * kecurangan yang membuat keduanya cocok dengan sendirinya, melainkan justru
  * yang sedang ditunjukkan: rumus interpolasi tidak lain adalah anggapan itu,
  * ditulis sebagai hitungan.
+ *
+ * BAGIAN KEDUA: MODUS
+ * Frekuensi kedua tetangga batang tertinggi bisa diubah siswa. Modusnya
+ * bergeser sendiri di dalam batang tertinggi, condong ke tetangga yang lebih
+ * tinggi, dan jatuh tepat di tengah kelas kalau kedua tetangganya sama.
+ * Itulah isi rumus kesebangunan, tanpa perlu dihafal lebih dulu.
+ *
+ * Kedua tetangga dibatasi paling tinggi satu di bawah puncak. Kalau tetangga
+ * boleh menyamai atau melewati puncak, kelas modusnya sendiri yang berpindah,
+ * dan pelajaran "modus bergeser DI DALAM batang tertinggi" jadi kabur.
  */
 
 const D = kelompok('t09-nilai-kelompok')
-const R = ringkasKelompok(D.kelas)
-const MIN = D.kelas[0].bawah
-const MAKS = D.kelas[D.kelas.length - 1].atas
-const PUNCAK = Math.max(...D.kelas.map((k) => k.f))
+const ASLI = D.kelas
+const MIN = ASLI[0].bawah
+const MAKS = ASLI[ASLI.length - 1].atas
+const PUNCAK = Math.max(...ASLI.map((k) => k.f))
+const I_PUNCAK = ASLI.findIndex((k) => k.f === PUNCAK)
+const I_KIRI = I_PUNCAK - 1
+const I_KANAN = I_PUNCAK + 1
+const BATAS_TETANGGA = PUNCAK - 1
 
 const J = { xMin: MIN, xMax: MAKS, yMin: 0, yMax: PUNCAK * 1.2 }
 const P = keLayar(J, TEPI)
@@ -36,9 +51,9 @@ const K = kotak(TEPI)
 const dari = (px: number) => MIN + ((px - K.x0) / (K.x1 - K.x0)) * (MAKS - MIN)
 
 /** Banyak data di sebelah kiri sebuah nilai, dengan anggapan sebaran merata. */
-function banyakDiKiri(x: number): number {
+function banyakDiKiri(kelas: Kelas[], x: number): number {
   let jumlah = 0
-  for (const kl of D.kelas) {
+  for (const kl of kelas) {
     if (x >= kl.atas) jumlah += kl.f
     else if (x > kl.bawah) jumlah += kl.f * ((x - kl.bawah) / (kl.atas - kl.bawah))
   }
@@ -49,20 +64,38 @@ export default function DataKelompok({ children }: PropWidget) {
   const svgRef = useRef<SVGSVGElement | null>(null)
   const [garis, setGaris] = useState(MIN + (MAKS - MIN) * 0.3)
   const [terpilih, setTerpilih] = useState<number | null>(null)
+  const [fKiri, setFKiri] = useState(ASLI[I_KIRI].f)
+  const [fKanan, setFKanan] = useState(ASLI[I_KANAN].f)
+
+  const diubah = fKiri !== ASLI[I_KIRI].f || fKanan !== ASLI[I_KANAN].f
+  const kelas: Kelas[] = ASLI.map((kl, i) =>
+    i === I_KIRI ? { ...kl, f: fKiri } : i === I_KANAN ? { ...kl, f: fKanan } : kl,
+  )
+  const R = ringkasKelompok(kelas)
+
+  const d1 = PUNCAK - fKiri
+  const d2 = PUNCAK - fKanan
+  const tengahPuncak = (ASLI[I_PUNCAK].bawah + ASLI[I_PUNCAK].atas) / 2
+  const condong =
+    Math.abs(R.modus - tengahPuncak) < 0.005
+      ? 'tepat di tengah kelas, sebab kedua tetangganya sama tinggi'
+      : R.modus > tengahPuncak
+        ? 'condong ke kanan, sebab tetangga kanannya lebih tinggi'
+        : 'condong ke kiri, sebab tetangga kirinya lebih tinggi'
 
   const geser = (_i: number, nilai: number) =>
     setGaris(Math.min(MAKS, Math.max(MIN, Math.round(nilai * 100) / 100)))
 
   const { propSvg, mulai } = useSeret(svgRef, (i, x) => geser(i, dari(x)))
 
-  const kiriJumlah = banyakDiKiri(garis)
+  const kiriJumlah = banyakDiKiri(kelas, garis)
   const kananJumlah = R.n - kiriJumlah
   const selisih = kiriJumlah - kananJumlah
   const seimbang = Math.abs(selisih) < 0.05
 
   const isi = (
     <>
-      {D.kelas.map((kl, i) => (
+      {kelas.map((kl, i) => (
         <g key={i} onPointerDown={() => setTerpilih(i === terpilih ? null : i)}
            style={{ cursor: 'pointer' }}>
           <rect x={P.x(kl.bawah) + 1} y={P.y(kl.f)}
@@ -75,13 +108,18 @@ export default function DataKelompok({ children }: PropWidget) {
         </g>
       ))}
 
+      {/* modus: garis putus di dalam batang tertinggi */}
+      <line x1={P.x(R.modus)} y1={P.y(PUNCAK)} x2={P.x(R.modus)} y2={K.y1}
+            stroke={PERAN.banding} strokeWidth={2} strokeDasharray="5 3" />
+
       {/* garis yang digeser siswa */}
-      <line x1={P.x(garis)} y1={K.y0 + 7} x2={P.x(garis)} y2={K.y1 + 6}
-            stroke={seimbang ? PERAN.sorot : PERAN.banding} strokeWidth={2.5} />
-      {/* bulatan penarik diturunkan ke dalam bingkai: pada K.y0 - 4 ia
-          menyentuh baris keterangan di atasnya */}
-      <circle cx={P.x(garis)} cy={K.y0 + 7} r={7}
-              fill={seimbang ? PERAN.sorot : PERAN.banding} stroke="#FFFDFA" strokeWidth={1.5}
+      <line x1={P.x(garis)} y1={K.y0 + 30} x2={P.x(garis)} y2={K.y1 + 6}
+            stroke={seimbang ? PERAN.sorot : PERAN.tinta} strokeWidth={2.5} />
+      {/* Bulatan penarik ditaruh di K.y0 + 30, di BAWAH baris keterangan papan.
+          Pada K.y0 - 4 ia menyentuh keterangan yang dulu di tepi atas, dan pada
+          K.y0 + 7 ia menindih keterangan yang sekarang sudah masuk bingkai. */}
+      <circle cx={P.x(garis)} cy={K.y0 + 30} r={7}
+              fill={seimbang ? PERAN.sorot : PERAN.tinta} stroke="#FFFDFA" strokeWidth={1.5}
               role="slider" tabIndex={0}
               aria-label={`Garis pembelah, sekarang di nilai ${angka(garis, 2)}`}
               aria-valuenow={garis}
@@ -93,6 +131,23 @@ export default function DataKelompok({ children }: PropWidget) {
                 e.preventDefault()
                 geser(0, garis + arah * 0.5)
               }} />
+
+      {/* Label modus digambar PALING AKHIR dan diberi halo krem. Letaknya di
+          dalam batang tertinggi, bukan di atasnya: di atas bingkai ada bulatan
+          penarik garis median, dan pada susunan sebelumnya bulatan hitam itu
+          menutupi huruf "modus" begitu garis median digeser mendekat. Halo
+          membuat tulisannya tetap terbaca walau garis putus atau garis median
+          lewat di belakangnya.
+
+          Letaknya dipatok di TENGAH batang, bukan mengikuti garis putusnya.
+          Lebar tulisannya hampir selebar batang, jadi kalau ia ikut bergeser
+          ia akan menjulur keluar dan menabrak angka frekuensi batang sebelah.
+          Yang menunjukkan letak persis modus adalah garis putusnya. */}
+      <text x={P.x(tengahPuncak)} y={P.y(PUNCAK) + 17} textAnchor="middle" fontSize={9.5}
+            fontFamily={MONO} fill={PERAN.banding}
+            stroke="#FFFDFA" strokeWidth={3} paintOrder="stroke" strokeLinejoin="round">
+        modus {angka(R.modus, 2)}
+      </text>
     </>
   )
 
@@ -107,7 +162,7 @@ export default function DataKelompok({ children }: PropWidget) {
           keterangan={seimbang
             ? `garis ${angka(garis, 2)} · seimbang, sama dengan rumus interpolasi`
             : `garis ${angka(garis, 2)} · kiri ${angka(kiriJumlah, 1)} kanan ${angka(kananJumlah, 1)}`}
-          aria="Histogram nilai 40 siswa dengan garis pembelah yang bisa digeser"
+          aria="Histogram nilai 40 siswa dengan garis pembelah yang bisa digeser dan penanda modus"
           svgRef={svgRef}
           propSvg={propSvg}
         >
@@ -122,6 +177,30 @@ export default function DataKelompok({ children }: PropWidget) {
           </label>
           <input id="garis" type="range" min={MIN} max={MAKS} step={0.25} value={garis}
                  onChange={(e) => geser(0, +e.target.value)} />
+        </div>
+        <div>
+          <label htmlFor="f-kiri">
+            <span>Tetangga kiri {ASLI[I_KIRI].label}</span>
+            <span className="mono">{fKiri}</span>
+          </label>
+          <input id="f-kiri" type="range" min={0} max={BATAS_TETANGGA} step={1} value={fKiri}
+                 onChange={(e) => setFKiri(+e.target.value)} />
+        </div>
+        <div>
+          <label htmlFor="f-kanan">
+            <span>Tetangga kanan {ASLI[I_KANAN].label}</span>
+            <span className="mono">{fKanan}</span>
+          </label>
+          <input id="f-kanan" type="range" min={0} max={BATAS_TETANGGA} step={1} value={fKanan}
+                 onChange={(e) => setFKanan(+e.target.value)} />
+        </div>
+        <div style={{ gridColumn: '1 / -1' }}>
+          <label><span>Tabel asli</span></label>
+          <div className="pilih-sisi">
+            <button onClick={() => { setFKiri(ASLI[I_KIRI].f); setFKanan(ASLI[I_KANAN].f) }}>
+              Kembalikan semula
+            </button>
+          </div>
         </div>
         <div className="skala-info">
           <span className="titik" />
@@ -142,7 +221,7 @@ export default function DataKelompok({ children }: PropWidget) {
       <div className="cap">Tabel frekuensi, klik barisnya untuk menyorot batangnya</div>
       <table className="tabel-angka">
         <tbody>
-          {D.kelas.map((kl, i) => (
+          {kelas.map((kl, i) => (
             <tr key={i} className={terpilih === i ? 'tegas' : undefined}
                 onClick={() => setTerpilih(i === terpilih ? null : i)}
                 style={{ cursor: 'pointer' }}>
@@ -158,15 +237,19 @@ export default function DataKelompok({ children }: PropWidget) {
         <tbody>
           <tr><td>mean</td><td>{angka(R.mean, 2)}</td></tr>
           <tr className="tegas"><td>median</td><td>{angka(R.median, 2)}</td></tr>
-          <tr><td>modus</td><td>{angka(R.modus, 2)}</td></tr>
+          <tr className="tegas"><td>modus</td><td>{angka(R.modus, 2)}</td></tr>
+          <tr><td>selisih tetangga kiri d1</td><td>{d1}</td></tr>
+          <tr><td>selisih tetangga kanan d2</td><td>{d2}</td></tr>
+          <tr><td>tengah kelas modus</td><td>{angka(tengahPuncak, 1)}</td></tr>
           <tr><td>Q1</td><td>{angka(R.q1, 2)}</td></tr>
           <tr><td>Q3</td><td>{angka(R.q3, 2)}</td></tr>
         </tbody>
       </table>
       <div className="catatan">
-        Angka aslinya keempat puluh siswa itu sebenarnya masih ada, dan mean sesungguhnya
-        68 sedangkan mediannya 67,5. Hampiran dari tabel meleset sedikit, dan itu memang
-        sifatnya: titik tengah kelas adalah tebakan yang masuk akal, bukan kebenaran.
+        Modus {angka(R.modus, 2)} jatuh {condong}.
+        {' '}{diubah
+          ? 'Tabel ini sudah Anda ubah, jadi angkanya bukan lagi angka contoh di bacaan. Modusnya tetap berada di dalam batang tertinggi, tetapi letaknya di dalam batang itu ditarik oleh tetangga yang lebih tinggi. Tekan "Kembalikan semula" untuk kembali ke tabel 40 siswa.'
+          : 'Angka aslinya keempat puluh siswa itu sebenarnya masih ada, dan mean sesungguhnya 68 sedangkan mediannya 67,5. Hampiran dari tabel meleset sedikit, dan itu memang sifatnya: titik tengah kelas adalah tebakan yang masuk akal, bukan kebenaran.'}
         {' '}{keterangan(D)}
       </div>
     </div>

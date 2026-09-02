@@ -167,6 +167,54 @@
     }
   },
   {
+    "id": "t09-modus-kanan-tinggi",
+    "jenis": "kelompok",
+    "judul": "Tabel Tahap 9 dengan tetangga kanan dinaikkan jadi 11",
+    "satuan": "nilai",
+    "buatan": true,
+    "kelas": [
+      { "label": "40 - 49", "bawah": 39.5, "atas": 49.5, "f": 3 },
+      { "label": "50 - 59", "bawah": 49.5, "atas": 59.5, "f": 8 },
+      { "label": "60 - 69", "bawah": 59.5, "atas": 69.5, "f": 12 },
+      { "label": "70 - 79", "bawah": 69.5, "atas": 79.5, "f": 11 },
+      { "label": "80 - 89", "bawah": 79.5, "atas": 89.5, "f": 6 },
+      { "label": "90 - 99", "bawah": 89.5, "atas": 99.5, "f": 2 }
+    ],
+    "klaim": { "n": 42, "modus": "67,5" }
+  },
+  {
+    "id": "t09-modus-tetangga-sama",
+    "jenis": "kelompok",
+    "judul": "Tabel Tahap 9 dengan kedua tetangga sama tinggi, 11 dan 11",
+    "satuan": "nilai",
+    "buatan": true,
+    "kelas": [
+      { "label": "40 - 49", "bawah": 39.5, "atas": 49.5, "f": 3 },
+      { "label": "50 - 59", "bawah": 49.5, "atas": 59.5, "f": 11 },
+      { "label": "60 - 69", "bawah": 59.5, "atas": 69.5, "f": 12 },
+      { "label": "70 - 79", "bawah": 69.5, "atas": 79.5, "f": 11 },
+      { "label": "80 - 89", "bawah": 79.5, "atas": 89.5, "f": 6 },
+      { "label": "90 - 99", "bawah": 89.5, "atas": 99.5, "f": 2 }
+    ],
+    "klaim": { "n": 45, "modus": "64,5" }
+  },
+  {
+    "id": "t09-modus-kiri-tinggi",
+    "jenis": "kelompok",
+    "judul": "Tabel Tahap 9 dengan tetangga kanan diturunkan jadi 0",
+    "satuan": "nilai",
+    "buatan": true,
+    "kelas": [
+      { "label": "40 - 49", "bawah": 39.5, "atas": 49.5, "f": 3 },
+      { "label": "50 - 59", "bawah": 49.5, "atas": 59.5, "f": 11 },
+      { "label": "60 - 69", "bawah": 59.5, "atas": 69.5, "f": 12 },
+      { "label": "70 - 79", "bawah": 69.5, "atas": 79.5, "f": 0 },
+      { "label": "80 - 89", "bawah": 79.5, "atas": 89.5, "f": 6 },
+      { "label": "90 - 99", "bawah": 89.5, "atas": 99.5, "f": 2 }
+    ],
+    "klaim": { "n": 34, "modus": "60,27" }
+  },
+  {
     "id": "t09-nilai-asli",
     "jenis": "tunggal",
     "judul": "Nilai ujian 40 siswa, angka aslinya sebelum dikelompokkan",

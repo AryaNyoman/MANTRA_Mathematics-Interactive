@@ -1,0 +1,63 @@
+{
+  "adegan": "Simpangan8",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Materi 08 Statistika. Naskah ditulis SESUDAH storyboard geraknya, supaya panjang kalimat mengikuti panjang gerak, bukan sebaliknya. Medan `tulis` adalah bentuk tertulis untuk subtitle: lambang matematika, bukan salinan mentah ucapan (permintaan ARYA 2 Sep 2026). Penanda *kata* jadi tebal.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi delapan Statistika: *simpangan baku*. Sebuah pabrik menguji dua mesin pengisi botol, lalu mengukur lima botol dari masing-masing. Ini hasilnya.",
+      "tulis": "Materi 08 Statistika: *simpangan baku*. Sebuah pabrik menguji dua mesin pengisi botol, lalu mengukur lima botol dari masing-masing. Ini hasilnya."
+    },
+    {
+      "id": "sama",
+      "teks": "Rata-rata keduanya lima ratus mililiter, sama persis. Kalau pabrik cuma melihat rata-rata, kedua mesin ini *lulus dua-duanya*. Tetapi lihat sebarannya.",
+      "tulis": "Rata-rata keduanya 500 ml, sama persis. Kalau pabrik cuma melihat rata-rata, kedua mesin ini *lulus dua-duanya*. Tetapi lihat sebarannya."
+    },
+    {
+      "id": "simpangan",
+      "teks": "Jadi yang harus diukur bukan pusatnya, melainkan *jaraknya ke pusat*. Kita gambar jarak tiap botol ke lima ratus. Punya Mesin B jelas jauh lebih panjang.",
+      "tulis": "Jadi yang harus diukur bukan pusatnya, melainkan *jaraknya ke pusat*. Kita gambar jarak tiap botol ke 500. Punya Mesin B jelas jauh lebih panjang."
+    },
+    {
+      "id": "nol",
+      "teks": "Cara paling wajar: jumlahkan semua jarak itu. Gagal total. Yang di kiri bertanda minus, yang di kanan plus, dan mereka *saling menghapus*. Dua-duanya nol.",
+      "tulis": "Cara paling wajar: jumlahkan semua jarak itu. Gagal total. Yang di kiri bertanda minus, yang di kanan plus, dan mereka *saling menghapus*. Dua-duanya 0."
+    },
+    {
+      "id": "kuadrat",
+      "teks": "Yang merusak adalah tanda minusnya. Jadi tanda itu kita buang dengan *mengkuadratkan*. Dan kuadrat punya arti gambar: tiap jarak jadi sisi sebuah persegi.",
+      "tulis": "Yang merusak adalah tanda minusnya. Jadi tanda itu kita buang dengan *mengkuadratkan*. Dan kuadrat punya arti gambar: tiap jarak jadi sisi sebuah persegi."
+    },
+    {
+      "id": "luas",
+      "teks": "Sekarang bandingkan luasnya. Mesin A mengumpulkan sepuluh, Mesin B dua ratus lima puluh. Bedanya bukan lagi tipis, tetapi *dua puluh lima kali lipat*.",
+      "tulis": "Sekarang bandingkan luasnya. Mesin A mengumpulkan 10, Mesin B 250. Bedanya bukan lagi tipis, tetapi *25 kali lipat*."
+    },
+    {
+      "id": "varian",
+      "teks": "Dibagi banyak botolnya, tersisa satu persegi rata-rata untuk tiap mesin. Angka inilah yang disebut *varian*: dua untuk Mesin A, lima puluh untuk Mesin B.",
+      "tulis": "Dibagi banyak botolnya, tersisa satu persegi rata-rata untuk tiap mesin. Angka inilah yang disebut *varian*: 2 untuk Mesin A, 50 untuk Mesin B."
+    },
+    {
+      "id": "empatkali",
+      "teks": "Perhatikan satu hal. Botol yang meleset sepuluh jaraknya cuma dua kali botol yang meleset lima. Tetapi perseginya *empat kali lipat*.",
+      "tulis": "Perhatikan satu hal. Botol yang meleset 10 jaraknya cuma 2 kali botol yang meleset 5. Tetapi perseginya *empat kali lipat*."
+    },
+    {
+      "id": "akar",
+      "teks": "Tinggal satu cacat. Varian bersatuan mililiter kuadrat, dan tidak ada yang bisa membayangkan itu. Jadi kita *akarkan*, kembali ke sisi perseginya.",
+      "tulis": "Tinggal satu cacat. Varian bersatuan ml², dan tidak ada yang bisa membayangkan itu. Jadi kita *akarkan*, kembali ke sisi perseginya. √2 = 1,41 dan √50 = 7,07."
+    },
+    {
+      "id": "baca",
+      "teks": "Barulah angkanya bisa dibaca sebagai kalimat. Isi botol Mesin A biasanya meleset satu koma empat satu mililiter dari lima ratus, Mesin B tujuh koma nol tujuh.",
+      "tulis": "Barulah angkanya bisa dibaca sebagai kalimat. Isi botol Mesin A biasanya meleset 1,41 ml dari 500, Mesin B 7,07 ml."
+    },
+    {
+      "id": "tutup",
+      "teks": "Dan itulah jawabannya. Botol berlabel lima ratus dari Mesin B bisa berisi empat ratus sembilan puluh, dan pembeli menerima *botol yang kurang isi*.",
+      "tulis": "Dan itulah jawabannya. Botol berlabel 500 ml dari Mesin B bisa berisi 490 ml, dan pembeli menerima *botol yang kurang isi*."
+    }
+  ]
+}

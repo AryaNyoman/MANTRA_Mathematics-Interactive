@@ -258,3 +258,36 @@ def lembah_fungsi(f, dari, sampai, lebar=3.0, warna=REDUP,
     m = SurfaceMesh(s, resolution=jala)
     m.set_stroke(TINTA, width=1, opacity=0.16)
     return Group(s, m)
+
+def penopang(lebar=0.9, tinggi=0.55, tebal=1.2, warna=AKSEN):
+    """Tumpuan jungkat-jungkit: prisma segitiga, alas di z = 0, puncak sepanjang y.
+
+    Ditambahkan sesi MATRA-STATISTIKA (2 Sep 2026) untuk video Tahap 5. Balok
+    biasa tidak terbaca sebagai tumpuan: papan yang bertumpu pada kotak terlihat
+    seperti papan di atas meja, bukan jungkat-jungkit. Puncaknya sengaja sepanjang
+    sumbu y supaya papan berputar rapi terhadap sumbu itu.
+    """
+    a, h, b = lebar / 2, tinggi, tebal / 2
+
+    def sisi(tanda):
+        """Bidang miring: dari kaki (tanda*a, y, 0) naik ke puncak (0, y, h)."""
+        return ParametricSurface(
+            lambda u, v: np.array([tanda * a * (1 - u), v, h * u]),
+            u_range=(0.0, 1.0), v_range=(-b, b), resolution=(2, 2),
+        )
+
+    def tutup(y):
+        """Segitiga penutup di ujung y: lebarnya menyusut ke nol di puncak."""
+        return ParametricSurface(
+            lambda u, v: np.array([(2 * v - 1) * a * (1 - u), y, h * u]),
+            u_range=(0.0, 1.0), v_range=(0.0, 1.0), resolution=(2, 2),
+        )
+
+    alas = ParametricSurface(
+        lambda u, v: np.array([(2 * u - 1) * a, v, 0.0]),
+        u_range=(0.0, 1.0), v_range=(-b, b), resolution=(2, 2),
+    )
+    g = Group(sisi(1), sisi(-1), tutup(-b), tutup(b), alas)
+    g.set_color(warna)
+    g.set_shading(*BAYANG)
+    return g

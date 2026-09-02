@@ -127,7 +127,6 @@ def buat(topik: str, diam: bool = False) -> Path:
         # Bentuk TERTULIS subtitle (angka dan lambang) dibaca dari medan `tulis`;
         # `layar` dan `subtitle` diterima sebagai nama lama. Tanpa itu jatuh ke `teks`.
         potongan = [tebalkan(x) for x in pecah(bentuk_tulis(seg))]
-        potongan = [tebalkan(x) for x in pecah(seg.get("layar") or seg["teks"])]
         total_huruf = sum(panjang_tampak(p) for p in potongan) or 1
         mulai = jalan
         for p in potongan:

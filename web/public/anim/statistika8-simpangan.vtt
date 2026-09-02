@@ -1,0 +1,139 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/statistika8-simpangan.json
+
+1
+00:00:00.000 --> 00:00:03.184
+Materi 08 Statistika: <b>simpangan baku</b>.
+
+2
+00:00:03.184 --> 00:00:07.143
+Sebuah pabrik menguji dua mesin pengisi botol,
+
+3
+00:00:07.143 --> 00:00:10.929
+lalu mengukur lima botol dari masing-masing.
+
+4
+00:00:10.929 --> 00:00:12.048
+Ini hasilnya.
+
+5
+00:00:12.048 --> 00:00:15.503
+Rata-rata keduanya 500 ml, sama persis.
+
+6
+00:00:15.503 --> 00:00:21.706
+Kalau pabrik cuma melihat rata-rata, kedua mesin ini <b>lulus dua-duanya</b>.
+
+7
+00:00:21.706 --> 00:00:23.832
+Tetapi lihat sebarannya.
+
+8
+00:00:23.832 --> 00:00:29.211
+Jadi yang harus diukur bukan pusatnya, melainkan <b>jaraknya ke pusat</b>.
+
+9
+00:00:29.211 --> 00:00:32.101
+Kita gambar jarak tiap botol ke 500.
+
+10
+00:00:32.101 --> 00:00:35.232
+Punya Mesin B jelas jauh lebih panjang.
+
+11
+00:00:35.232 --> 00:00:39.398
+Cara paling wajar: jumlahkan semua jarak itu.
+
+12
+00:00:39.398 --> 00:00:40.598
+Gagal total.
+
+13
+00:00:40.598 --> 00:00:47.726
+Yang di kiri bertanda minus, yang di kanan plus, dan mereka <b>saling menghapus</b>.
+
+14
+00:00:47.726 --> 00:00:48.840
+Dua-duanya 0.
+
+15
+00:00:48.840 --> 00:00:51.506
+Yang merusak adalah tanda minusnya.
+
+16
+00:00:51.506 --> 00:00:55.161
+Jadi tanda itu kita buang dengan <b>mengkuadratkan</b>.
+
+17
+00:00:55.161 --> 00:01:00.264
+Dan kuadrat punya arti gambar: tiap jarak jadi sisi sebuah persegi.
+
+18
+00:01:00.264 --> 00:01:03.144
+Sekarang bandingkan luasnya.
+
+19
+00:01:03.144 --> 00:01:06.950
+Mesin A mengumpulkan 10, Mesin B 250.
+
+20
+00:01:06.950 --> 00:01:11.784
+Bedanya bukan lagi tipis, tetapi <b>25 kali lipat</b>.
+
+21
+00:01:11.784 --> 00:01:17.548
+Dibagi banyak botolnya, tersisa satu persegi rata-rata untuk tiap mesin.
+
+22
+00:01:17.548 --> 00:01:22.992
+Angka inilah yang disebut <b>varian</b>: 2 untuk Mesin A, 50 untuk Mesin B.
+
+23
+00:01:22.992 --> 00:01:24.650
+Perhatikan satu hal.
+
+24
+00:01:24.650 --> 00:01:29.955
+Botol yang meleset 10 jaraknya cuma 2 kali botol yang meleset 5.
+
+25
+00:01:29.955 --> 00:01:32.856
+Tetapi perseginya <b>empat kali lipat</b>.
+
+26
+00:01:32.856 --> 00:01:34.260
+Tinggal satu cacat.
+
+27
+00:01:34.260 --> 00:01:38.914
+Varian bersatuan ml², dan tidak ada yang bisa membayangkan itu.
+
+28
+00:01:38.914 --> 00:01:42.313
+Jadi kita <b>akarkan</b>, kembali ke sisi perseginya.
+
+29
+00:01:42.313 --> 00:01:44.160
+√2 = 1,41 dan √50 = 7,07.
+
+30
+00:01:44.160 --> 00:01:48.518
+Barulah angkanya bisa dibaca sebagai kalimat.
+
+31
+00:01:48.518 --> 00:01:55.200
+Isi botol Mesin A biasanya meleset 1,41 ml dari 500, Mesin B 7,07 ml.
+
+32
+00:01:55.200 --> 00:01:56.993
+Dan itulah jawabannya.
+
+33
+00:01:56.993 --> 00:02:01.392
+Botol berlabel 500 ml dari Mesin B bisa berisi 490 ml,
+
+34
+00:02:01.392 --> 00:02:04.896
+dan pembeli menerima <b>botol yang kurang isi</b>.

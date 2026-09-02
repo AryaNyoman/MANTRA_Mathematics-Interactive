@@ -1,0 +1,147 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/statistika5-pemusatan.json
+
+1
+00:00:00.000 --> 00:00:04.819
+Materi 05 Statistika: <b>rata-rata, median, dan modus</b>.
+
+2
+00:00:04.819 --> 00:00:09.071
+Materi sebelumnya membandingkan dua kelompok.
+
+3
+00:00:09.071 --> 00:00:12.662
+Sekarang 8 siswa baru selesai ulangan.
+
+4
+00:00:12.662 --> 00:00:15.024
+Nilainya biasanya berapa?
+
+5
+00:00:15.024 --> 00:00:19.839
+Mari mereka berdiri di garis bilangan, tepat di angka nilainya.
+
+6
+00:00:19.839 --> 00:00:22.896
+Yang nilainya <b>sama</b> berdiri berdampingan.
+
+7
+00:00:22.896 --> 00:00:27.111
+Jawaban pertama ada di barisan paling tebal.
+
+8
+00:00:27.111 --> 00:00:30.560
+Di angka 7 ada 2 orang, di 8 juga 2.
+
+9
+00:00:30.560 --> 00:00:34.104
+Itulah <b>modus</b>, dan data ini punya dua.
+
+10
+00:00:34.104 --> 00:00:38.964
+Jawaban kedua: belah barisan jadi dua sama banyak.
+
+11
+00:00:38.964 --> 00:00:41.102
+4 di kiri, 4 di kanan.
+
+12
+00:00:41.102 --> 00:00:45.768
+Sekatnya jatuh di angka 7, dan itulah <b>mediannya</b>.
+
+13
+00:00:45.768 --> 00:00:52.219
+Jawaban ketiga paling sering dihafal, tetapi paling jarang dimengerti.
+
+14
+00:00:52.219 --> 00:00:53.419
+<b>Rata-rata</b>.
+
+15
+00:00:53.419 --> 00:00:55.723
+Semua tahu menghitungnya.
+
+16
+00:00:55.723 --> 00:00:57.288
+Tetapi ia angka apa?
+
+17
+00:00:57.288 --> 00:01:01.278
+Kita ubah garis bilangan ini jadi papan <b>jungkat-jungkit</b>,
+
+18
+00:01:01.278 --> 00:01:03.772
+dan berat tiap siswa dianggap sama.
+
+19
+00:01:03.772 --> 00:01:06.480
+Tumpuannya kita taruh dulu di angka 8.
+
+20
+00:01:06.480 --> 00:01:08.741
+Papannya langsung <b>jatuh ke kiri</b>.
+
+21
+00:01:08.741 --> 00:01:10.224
+Dilihat dari angka 8,
+
+22
+00:01:10.224 --> 00:01:15.240
+orang di sebelah kiri jaraknya jauh lebih besar daripada yang di kanan.
+
+23
+00:01:15.240 --> 00:01:19.728
+Jadi tumpuannya kita geser pelan ke kiri.
+
+24
+00:01:19.728 --> 00:01:24.982
+8, lalu 7,5, lalu 7,2, lalu berhenti tepat di <b>7</b>.
+
+25
+00:01:24.982 --> 00:01:26.952
+Papannya mendatar.
+
+26
+00:01:26.952 --> 00:01:30.915
+Sekarang ketiga jarak ke kiri kita jajarkan jadi satu batang,
+
+27
+00:01:30.915 --> 00:01:33.773
+dan ketiga jarak ke kanan jadi batang kedua.
+
+28
+00:01:33.773 --> 00:01:35.202
+3 + 2 + 1 = 1 + 1 + 4.
+
+29
+00:01:35.202 --> 00:01:37.021
+Dua batang ini <b>sama panjang</b>.
+
+30
+00:01:37.021 --> 00:01:39.360
+Itulah sebabnya papan tadi seimbang.
+
+31
+00:01:39.360 --> 00:01:43.447
+Barulah rumus yang dihafal masuk akal.
+
+32
+00:01:43.447 --> 00:01:44.647
+56 : 8 = 7.
+
+33
+00:01:44.647 --> 00:01:51.192
+Rumus itu <b>bukan arti</b> rata-rata, cuma cara cepat menemukannya.
+
+34
+00:01:51.192 --> 00:01:56.201
+Tiga angka, satu pertanyaan, dan di sini ketiganya kebetulan sama.
+
+35
+00:01:56.201 --> 00:02:00.375
+Di video berikutnya satu nilai <b>jauh sendiri</b> ikut masuk,
+
+36
+00:02:00.375 --> 00:02:02.424
+dan papan ini akan berlari.
