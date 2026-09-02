@@ -1,1 +1,184 @@
-"""ilustrasi: diisi di task berikutnya (rencana 2026-09-02-perkakas-manimgl.md)."""
+"""Benda dunia nyata bercahaya, dibuat sekali dan dipakai semua sesi.
+
+Aturan bentuk (dari uji perahu 2 Sep 2026):
+- Setiap benda mengembalikan Group dengan alas di z = 0 dan pusat di x = y = 0
+  (perahu: garis air di z = 0, haluan menghadap +x). Geser dengan `.shift()`.
+- Benda apung punya badan DI ATAS garis air, kalau tidak ia tertutup permukaan air.
+- Bidang tipis (layar, kertas) dilihat dari atas jadi garis: dimiringkan sedikit.
+- Jangan menumpuk rotasi tiap frame: `ayunkan()` membangun ulang dari salinan asli.
+- Warna hanya dari palet tema. Cahaya lewat `set_shading(pantulan, kilap, bayangan)`.
+"""
+
+from manimlib import *
+
+from .tema import TINTA, REDUP, AKSEN, AKSEN2, SOROT, LATAR
+
+BAYANG = (0.4, 0.3, 0.5)       # benda padat
+BAYANG_AIR = (0.5, 0.5, 0.3)   # air lebih berkilap
+BAYANG_DATAR = (0.0, 0.0, 0.0)  # tanah, kertas
+
+
+# ---------------------------------------------------------------------------
+# Latar: air, tanah, lantai
+# ---------------------------------------------------------------------------
+
+def tinggi_air(x, y, t):
+    """Tiga riak kecil yang saling silang, semuanya hanyut ke arah +x (arus)."""
+    return (0.06 * np.sin(1.4 * x - 1.6 * t) * np.cos(0.9 * y + 0.5 * t)
+            + 0.035 * np.sin(2.3 * x - 1.1 * y - 2.2 * t)
+            + 0.025 * np.sin(0.8 * x + 1.7 * y - 1.3 * t))
+
+
+def air(panjang=16.0, lebar=6.0, t=0.0, warna=AKSEN2, resolusi=(121, 61), pusat=(0.0, 0.0)):
+    """Permukaan air pada saat `t`, berpusat di `pusat` (x, y). Untuk air bergerak pakai `air_hidup`.
+
+    Posisi diberikan lewat `pusat`, BUKAN `.shift()` setelahnya: `always_redraw`
+    membangun ulang permukaan tiap frame dan membuang pergeseran luar.
+    """
+    x0, y0 = pusat
+    s = ParametricSurface(
+        lambda u, v: np.array([x0 + u, y0 + v, tinggi_air(x0 + u, y0 + v, t)]),
+        u_range=(-panjang / 2, panjang / 2), v_range=(-lebar / 2, lebar / 2),
+        resolution=resolusi,
+    )
+    s.set_color(warna, opacity=0.95)
+    s.set_shading(*BAYANG_AIR)
+    return s
+
+
+def air_hidup(scene, panjang=16.0, lebar=6.0, warna=AKSEN2, resolusi=(121, 61), pusat=(0.0, 0.0)):
+    """Air yang digambar ulang tiap frame mengikuti waktu adegan (`scene.time`)."""
+    return always_redraw(lambda: air(panjang, lebar, scene.time, warna, resolusi, pusat))
+
+
+def tanah(panjang=16.0, lebar=2.4, y_tengah=0.0, z=0.18, warna=REDUP):
+    """Bidang pasir/tanah datar, sedikit di atas muka air."""
+    b = Square3D(side_length=1.0)
+    b.stretch_to_fit_width(panjang).stretch_to_fit_height(lebar)
+    b.move_to([0, y_tengah, z])
+    b.set_color(warna, opacity=0.35)
+    b.set_shading(*BAYANG_DATAR)
+    return b
+
+
+def lantai_kisi(ukuran=8.0, langkah=1.0, warna=REDUP, tinggi_z=3.0):
+    """Bidang koordinat tipis plus sumbu 3D: memberi rasa ruang pada adegan 3D."""
+    r = ukuran / 2
+    kisi = NumberPlane(
+        x_range=(-r, r, langkah), y_range=(-r, r, langkah),
+        background_line_style=dict(stroke_color=warna, stroke_width=1, stroke_opacity=0.35),
+        faded_line_style=dict(stroke_color=warna, stroke_width=0.5, stroke_opacity=0.12),
+    )
+    sumbu = ThreeDAxes(x_range=(-r, r, langkah), y_range=(-r, r, langkah), z_range=(0, tinggi_z, langkah))
+    sumbu.set_stroke(warna, width=2)
+    return VGroup(kisi, sumbu)
+
+
+# ---------------------------------------------------------------------------
+# Primitif padat berpalet, alas di z = 0
+# ---------------------------------------------------------------------------
+
+def bola(r=0.5, warna=AKSEN):
+    b = Sphere(radius=r).set_color(warna)
+    b.set_shading(*BAYANG)
+    return b.shift(OUT * r)
+
+
+def balok(p=1.0, l=1.0, t=1.0, warna=AKSEN2):
+    """Balok: p sepanjang x, l sepanjang y, t sepanjang z."""
+    b = Prism(width=p, height=l, depth=t).set_color(warna)
+    b.set_shading(*BAYANG)
+    return b.shift(OUT * t / 2)
+
+
+def silinder(r=0.5, t=1.0, warna=SOROT, sumbu=OUT):
+    s = Cylinder(height=t, radius=r, axis=sumbu).set_color(warna)
+    s.set_shading(*BAYANG)
+    if np.allclose(sumbu, OUT):
+        s.shift(OUT * t / 2)
+    return s
+
+
+# ---------------------------------------------------------------------------
+# Benda dunia nyata
+# ---------------------------------------------------------------------------
+
+def perahu(panjang=2.0, warna_lambung=TINTA, warna_geladak=REDUP):
+    """Perahu di titik asal: garis air di z = 0, haluan menghadap +x."""
+    L, W, D, F = panjang, 0.30 * panjang, 0.175 * panjang, 0.125 * panjang
+
+    def lambung_uv(u, v):
+        g = max(0.0, 1 - u * u) ** 0.7        # lebar mengecil ke ujung, ujungnya lancip
+        h = 1 - u ** 4                        # kedalaman mengecil ke ujung
+        return np.array([L * u, W * g * v, F - (D + F) * h * (1 - v * v)])
+
+    lambung = ParametricSurface(lambung_uv, u_range=(-1, 1), v_range=(-1, 1), resolution=(51, 25))
+    lambung.set_color(warna_lambung, opacity=1.0)
+    lambung.set_shading(*BAYANG)
+    # Geladak sedikit lebih sempit dari lambung supaya bibir lambung terlihat dari atas.
+    geladak = ParametricSurface(
+        lambda u, v: np.array([L * u, 0.9 * W * max(0.0, 1 - u * u) ** 0.7 * v, F]),
+        u_range=(-1, 1), v_range=(-1, 1), resolution=(51, 7),
+    )
+    geladak.set_color(warna_geladak, opacity=1.0)
+    geladak.set_shading(0.2, 0.1, 0.3)
+    tiang = Cylinder(height=0.575 * L, radius=0.0175 * L).set_color(warna_lambung)
+    tiang.move_to([0.075 * L, 0, F + 0.2875 * L])
+    layar = Polygon([0.075 * L, 0, F + 0.525 * L], [0.075 * L, 0, F + 0.15 * L],
+                    [0.475 * L, 0, F + 0.175 * L])
+    layar.set_fill(LATAR, 1.0).set_stroke(warna_lambung, 1.5)
+    layar.rotate(45 * DEGREES, axis=OUT, about_point=np.array([0.075 * L, 0, 0]))
+    return Group(lambung, geladak, tiang, layar)
+
+
+def ayunkan(asli, benda, x, y, t, tinggi=tinggi_air, eps=0.15):
+    """Letakkan `benda` di (x, y) di atas air pada saat `t`, mengangguk mengikuti riak.
+
+    `asli` = salinan benda di titik asal yang TIDAK pernah diubah. Tiap frame
+    benda dibangun ulang darinya (`become`), jadi rotasi tidak menumpuk.
+    Pakai: `perahu.add_updater(lambda m: ilustrasi.ayunkan(asli, m, X, Y, scene.time))`.
+    """
+    z = tinggi(x, y, t)
+    angguk = -np.arctan((tinggi(x + eps, y, t) - tinggi(x - eps, y, t)) / (2 * eps))
+    oleng = np.arctan((tinggi(x, y + eps, t) - tinggi(x, y - eps, t)) / (2 * eps))
+    baru = asli.copy()
+    baru.rotate(angguk, axis=UP, about_point=ORIGIN)
+    baru.rotate(oleng, axis=RIGHT, about_point=ORIGIN)
+    baru.shift([x, y, z])
+    benda.become(baru)
+    return benda
+
+
+def mobil(panjang=2.0, warna=AKSEN, warna_roda=TINTA):
+    """Mobil sederhana: badan, kabin, empat roda. Alas roda di z = 0, depan +x."""
+    p = panjang
+    r = 0.12 * p
+    badan = balok(p, 0.45 * p, 0.26 * p, warna).shift(OUT * r)
+    kabin = balok(0.46 * p, 0.40 * p, 0.20 * p, warna).shift(OUT * (r + 0.26 * p) + LEFT * 0.08 * p)
+    roda = Group()
+    for sx in (-0.32, 0.32):
+        for sy in (-0.24, 0.24):
+            w = Cylinder(height=0.08 * p, radius=r, axis=UP).set_color(warna_roda)
+            w.set_shading(*BAYANG)
+            w.move_to([sx * p, sy * p, r])
+            roda.add(w)
+    return Group(badan, kabin, roda)
+
+
+def orang(tinggi=1.7, warna=TINTA):
+    """Orang batang bervolume: kepala, badan, dua lengan, dua kaki. Alas di z = 0."""
+    t = tinggi
+    kepala = Sphere(radius=0.11 * t).set_color(warna).move_to([0, 0, t - 0.11 * t])
+    badan = Cylinder(height=0.40 * t, radius=0.09 * t).set_color(warna).move_to([0, 0, 0.65 * t])
+    bagian = [kepala, badan]
+    for sy in (-0.06, 0.06):
+        kaki = Cylinder(height=0.45 * t, radius=0.045 * t).set_color(warna).move_to([0, sy * t, 0.225 * t])
+        bagian.append(kaki)
+    for sy in (-1, 1):
+        lengan = Cylinder(height=0.36 * t, radius=0.035 * t).set_color(warna)
+        lengan.rotate(sy * 15 * DEGREES, axis=RIGHT)
+        lengan.move_to([0, sy * 0.15 * t, 0.66 * t])
+        bagian.append(lengan)
+    g = Group(*bagian)
+    g.set_shading(*BAYANG)
+    return g
