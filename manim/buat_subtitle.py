@@ -37,9 +37,17 @@ AKAR = Path(__file__).resolve().parent.parent
 NASKAH = AKAR / "manim" / "narasi"
 TUJUAN = AKAR / "web" / "public" / "anim"
 
-# Satu baris subtitle sebaiknya tidak lebih dari ini; di atasnya dipecah.
-MAKS_HURUF = 84
+# SATU BARIS, selalu (keputusan ARYA 2 Sep 2026 malam: huruf dikecilkan, kalimat
+# dipecah). 56 huruf muat satu baris pada pemutar selebar 700 piksel ke atas
+# dengan ukuran subtitle 90 persen; di layar HP tetap membungkus, itu diterima.
+MAKS_HURUF = 56
 MIN_DETIK = 1.2
+
+# Kata bilangan yang menandakan segmen butuh medan `tulis` (angka, bukan ejaan).
+KATA_BILANGAN = re.compile(
+    r"\b(nol|satu|dua|tiga|empat|lima|enam|tujuh|delapan|sembilan|sepuluh|"
+    r"sebelas|belas|puluh|ratus|ribu|setengah|seperempat|koma|akar|pangkat|"
+    r"kuadrat|derajat|dibagi|dikali|per)\b", re.I)
 
 
 def jam(detik: float) -> str:
@@ -118,6 +126,13 @@ def buat(topik: str, diam: bool = False) -> Path:
              f"NOTE Dibuat otomatis dari manim/narasi/{topik}.json", ""]
     jalan = 0.0
     nomor = 0
+    tanpa_tulis = [seg["id"] for seg in naskah["segmen"]
+                   if not (seg.get("tulis") or seg.get("layar") or seg.get("subtitle"))
+                   and KATA_BILANGAN.search(seg["teks"])]
+    if tanpa_tulis and not diam:
+        print(f"  PERINGATAN {topik}: segmen {', '.join(tanpa_tulis)} menyebut bilangan atau "
+              f"lambang tetapi tidak punya medan `tulis`. Subtitle akan MENGEJA ucapan "
+              f"(aturan ARYA: tulis 72, √2, f(x-1)). Tambahkan `tulis` di naskahnya.")
     for seg in naskah["segmen"]:
         lama = durasi.get(seg["id"])
         if lama is None:

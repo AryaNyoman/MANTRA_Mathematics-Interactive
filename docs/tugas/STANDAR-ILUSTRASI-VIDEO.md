@@ -1,90 +1,125 @@
-# Standar ilustrasi video MATRA (ManimGL, sejak 2 Sep 2026)
+# Standar ilustrasi video MATRA, VERSI 2 (2 September 2026 malam)
 
-Keputusan ARYA: "Kalau yang dibahas perahu, videonya perahu yang mengapung di
-air, bukan dua garis tepi dan warna biru. Kalau perlu 3D, buat 3D-nya. 3D
-dipakai kapan pun membantu siswa, walau hanya beberapa detik." Standar ini
-mengubah keinginan itu menjadi aturan yang bisa dinilai ya/tidak per adegan.
-Dasar ilmunya: `ILMU-3B1B.md`. Contoh yang sudah lolos: `manim/contoh/contoh_perahu.py`
-(tonton `media/uji-480p/contoh-perahu.mp4` kalau ada).
+Versi 1 (siang) menuntut "benda nyata 3D bercahaya" dan "keterangan di kaki
+layar". Empat sesi mematuhinya, dan ARYA harus mengulang koreksi yang sama
+empat kali: kamera miring merusak panjang dan sudut, bola yang terus bergerak
+mencuri perhatian, keterangan bertabrakan dengan subtitle. Versi 2 ini lahir
+dari sepuluh keputusan ARYA setelah menonton semua video. **Versi 2 membatalkan
+versi 1 di setiap hal yang bertentangan.**
 
-## Delapan aturan (semua wajib, nilai ya/tidak di laporan)
+Perkakasnya `manim/gl/` (sinema v2, qc, ilustrasi, kamera). Rujukan resmi:
+- **bidang datar**: Vektor Materi 01 (`manim/scenes/vektor1_perahu.py`, bidang bernomor);
+- **3D**: Ruang 3D Materi 01 (`manim/scenes/ruang_3d_01.py` + `ruang_3d_umum.py`).
 
-1. **Benda nyata dibangun 3D bercahaya, bukan titik atau garis.** Perahu, mobil,
-   orang, bola, gedung: dari `gl.ilustrasi` (perahu, mobil, orang, bola, balok,
-   silinder, air, tanah, lantai_kisi). Benda yang belum ada dibuat sebagai fungsi
-   baru di `manim/gl/ilustrasi.py` DI AKHIR berkas, dengan nama unik, mengikuti
-   aturan di kepala berkas (alas di z = 0, warna palet, `set_shading`). MASTER
-   menggabungnya. Titik `Dot` hanya untuk titik matematika, bukan untuk benda.
-2. **Latar ikut hidup.** Ada air, ada riak (`air_hidup`); ada tanah atau lantai
-   (`tanah`, `lantai_kisi`). Benda nyata tidak melayang di layar kosong.
-   Dunia tetap bergerak saat narator diam (updater), bukan membeku.
-3. **Kamera mulai dari dunia, lalu terbang ke tempat matematika terbaca.** Babak
-   pertama: pandangan miring dan dekat (`kamera.pasang_awal`). Lalu SATU gerakan
-   panjang (minimal 2 detik, `kamera.dunia_ke_peta`/`sudut`/`dekati`) di dalam
-   `b.main(...)`. Tidak ada potongan mendadak; paling banyak satu gerakan kamera
-   per babak. Setiap gerakan harus menjawab "apa yang jadi terlihat setelah ini".
-4. **Matematika muncul DI ATAS gambar, tidak menggantikannya.** Panah dan label
-   digambar di dunia (z di atas benda, mis. `Z_PANAH = 1.6`), rumus di panel HUD
-   (`self.hud_tambah(rumus(...))`). Gambar dunia tetap ada saat rumus dibahas.
-   Layar kosong berisi rumus saja hanya boleh untuk penutup, maksimal satu babak.
-5. **Satu warna satu makna, sepanjang video.** Tetapkan di storyboard:
-   `AKSEN2` biru = besaran pertama, `AKSEN` merah = besaran kedua, `SOROT` ungu =
-   kesimpulan. Panah, label, dan rumus besaran yang sama memakai warna yang sama.
-   Tidak ada kode heksa di adegan (`cek_kode` memperingatkan).
-6. **Semua huruf LaTeX** (keputusan ARYA 2 Sep siang). `teks()` untuk kalimat
-   dan label ("dayung 3 km"; karakter `%`, `&`, `#`, `_`, `$` diloloskan
-   otomatis), `rumus()` untuk angka berdiri sendiri, nilai hidup, dan rumus.
-   Jangan memakai `Text(...)` (Pango) sama sekali. Keterangan lewat
-   `sinema.keterangan` (satu baris, mengganti dirinya, **tulisan saja tanpa
-   alas atau kotak**, seperti Trigonometri; warna tinta gelap). Kata yang
-   dipertegas ditandai `*kata*`, tampil tebal di keterangan DAN di subtitle
-   situs (penanda yang sama di naskah narasi). Paling banyak dua blok teks yang
-   harus dibaca sekaligus. Satuan di rumus: `\mathrm{km}`.
-7. **Waktu terikat narasi.** Semua animasi di dalam `with sinema.babak(...)`,
-   durasi dari `audio/<topik>/durasi.json`. Kalimat pertama narasi menyebut yang
-   sedang tampil. Jeda sengaja 0,6 sampai 1,6 detik setelah pertanyaan. Tidak ada
-   waktu mati (layar diam tanpa updater lebih dari 1,6 detik).
-8. **Gerbang mutu tidak dilewati.** Urutannya: `cek_kode.py` bersih,
-   `qc.periksa_adegan` di akhir tiap babak (dan di sudut awal DAN akhir kalau
-   kamera bergerak), render `-l`, `cek_video.py` dan lembar kontak DIBUKA lalu
-   dinilai per aturan CLAUDE.md, `gabung_audio.py --uji`, laporan menyebut cacat
-   yang tersisa. "Rendered" bukan bukti.
+## Sepuluh keputusan ARYA (nilai ya/tidak di laporan)
 
-## Kapan 3D, kapan 2D
-Bukan "3D kalau matematikanya 3D". Pertanyaannya: "apa yang siswa jadi LIHAT
-kalau kamera miring?" Perahu di sungai: 3D memperlihatkan perahu itu benda di
-atas air, lalu pandangan peta memperlihatkan arah. Grafik fungsi: kurva 2D tetap
-2D, tetapi mobil yang kecepatannya digambarkan boleh 3D di babak pembuka.
-Statistika: batang bisa balok 3D yang tumbuh; pencilan bisa orang yang berdiri
-menjauh dari kerumunan. Ruang 3D: seluruh video 3D dengan kamera berputar pelan
-(`putar_pelan`) supaya bentuk terbaca. 3D yang tidak memperlihatkan apa pun
-yang baru = hiasan, dan hiasan yang memperlambat render tidak dipakai.
+1. **Tata letak layar dikunci, semua topik sama.** Kiri atas = identitas benda
+   (`sinema.identitas`: "p = l = t = 6 satuan", "1 petak = 1 km"). Kanan atas =
+   rumus dan hitungan (`sinema.PapanRumus`, `lahir_rumus`, `ganti_rumus`). Kaki
+   layar = milik SUBTITLE, kosong (qc menggagalkan render kalau ada yang masuk).
+   Dalam gambar = label pendek yang menempel di bendanya. Kalau kurva naik ke
+   kanan dan menabrak panel, dunianya yang digeser atau dikecilkan, bukan panelnya.
 
-## Suara latar (pemanis)
-Tulis `"latar": "air"` di naskah narasi kalau adegannya di air; daftar suara di
-`manim/suara/README.md`. `gabung_audio.py` mencampurnya tipis dan otomatis
-merendah saat narator bicara. Jangan menambah suara yang tidak ada di daftar.
+2. **3D hanya di video PERTAMA tiap topik** sebagai pembuka 8 sampai 10 detik
+   (perahu di air, orang di lapangan), lalu satu gerakan kamera turun ke bidang
+   datar dan TIDAK PERNAH miring lagi. Video lain boleh langsung bidang datar.
+   Pengecualian: topik yang matematikanya memang ruang (Ruang 3D, dan nanti
+   Transformasi Geometri) boleh bolak-balik 3D dan 2D. Prinsipnya: matematika
+   yang butuh PANJANG atau SUDUT yang akurat wajib kamera tegak lurus, sebab
+   perspektif memendekkan satu arah lebih banyak daripada arah lain, dan gambar
+   yang membantah hitungannya lebih merusak daripada gambar sederhana.
 
-## Kinerja render (supaya tidak kaget)
-Adegan dengan air hidup dan perahu yang mengangguk dirender sekitar 5 frame per
-detik: video 2 menit 480p sekitar 8 menit. Render paralel antar sesi BOLEH
-(terbukti 8 serentak aman). Air dengan resolusi (121, 61) sudah cukup halus;
-jangan menaikkannya tanpa alasan.
+3. **Layar boleh diam selama narasi masih membahas yang tampil.** Tidak ada
+   batas detik. Yang dilarang: layar kosong, gambar yang membantah narasinya,
+   dan gerakan tanpa makna yang mencuri perhatian (bola mengayun terus, "napas").
+
+4. **Label di dalam gambar maksimal dua kata**, dijaga mesin (`sinema.label`
+   menggagalkan render). Rumus seperti `x = 1` dihitung satu lambang. Contoh
+   yang lolos: "naik 1", "ke KANAN", "dayung 3 km". Kalimat panjang milik
+   narasi dan subtitle.
+
+5. **Rumus baru lahir di tempat mata menatap, lalu terbang ke panel.**
+   `sinema.lahir_rumus(self, r"f(x)=x^2", dekat=kurva, papan=papan, b=b)`:
+   rumus muncul besar dekat bendanya, dunia diredupkan sebentar, lalu terbang
+   mengecil ke kanan atas. **Rumus berubah dengan morph lambang per lambang**
+   (`sinema.ganti_rumus` / `papan.tumbuh`, TransformMatchingStrings): `sin x`
+   melebur jadi `cos x`, huruf lain diam. DILARANG: fade out lalu fade in untuk
+   rumus, dan `ReplacementTransform` mentah (coretan kembar). Sebelum sebuah
+   pernyataan matematika muncul, tunjukkan dari mana ia datang.
+
+6. **Subtitle selalu satu baris, hurufnya dikecilkan.** `buat_subtitle.py`
+   memecah kalimat sampai 56 huruf per baris; naskah ditulis dengan kalimat
+   pendek supaya pecahannya wajar. Gambar wajib menyisakan kaki layar kosong
+   (zona y < -2,55 satuan, sekitar 90 piksel di 480p). Subtitle tidak dibakar
+   ke video yang tayang (berkas .vtt terpisah), tetapi `gabung_audio.py --uji`
+   membuat salinan `-bersubtitle.mp4` untuk ditonton ARYA, sebab mp4 polos
+   tidak memperlihatkan subtitle.
+
+7. **Subtitle memakai LAMBANG, bukan ejaan ucapan.** Tiap segmen naskah punya
+   `teks` (terucap, untuk mesin suara: "tujuh puluh dua") dan `tulis` (tertulis,
+   untuk subtitle: "72"). Semua lambang ditulis sebagai lambang: √2, 72°,
+   (2, 4), f(x-1), AB bergaris atas, 3/4, x². `buat_subtitle.py` memperingatkan
+   segmen berbilangan yang tidak punya `tulis`. Aturan lengkap di
+   STANDAR-MENGAJAR bagian 5 aturan 10.
+
+8. **Render paralel: maksimal DUA per sesi**, dan render di atas 5 menit
+   dilepas dari tugas latar Claude Code (`Start-Process`, lihat ATURAN-SEMUA-SESI)
+   supaya tidak dipotong tanpa pesan.
+
+9. **Sumbu wajib berangka.** Setiap bidang koordinat memakai `ilustrasi.bidang_bernomor`
+   (skala x dan y terkunci sama, angka di kedua sumbu, huruf sumbu). Grafik
+   fungsi wajib dua sumbu. Sumbu z hanya ditampilkan saat tinggi benar-benar
+   dipakai. Titik yang dibahas diberi koordinatnya; kurva dibangun dari titik
+   yang dihitung, tidak muncul jadi. Angka di video WAJIB sama dengan angka di
+   halaman dan lolos pemeriksa topiknya (`alat/cek_<topik>.py`).
+
+10. **Satu warna satu makna sepanjang video**, dari palet: AKSEN2 biru =
+    besaran pertama, AKSEN merah = kedua, SOROT ungu = kesimpulan, REDUP =
+    bantu, TINTA = tulisan. `Indicate`/`Flash` wajib diberi `color=` (bawaannya
+    kuning, di luar palet; `cek_kode` menolak). Tidak ada kode heksa di adegan.
+
+## Waktu dan sinkron
+- Semua animasi di dalam `sinema.babak`; render gagal kalau melewati narasi.
+- Segmen yang menyebut beberapa hal berurutan (lima titik, tiga langkah) WAJIB
+  mengikat animasinya ke jam kalimat subtitle: `jam = sinema.jam_subtitle(TOPIK)`,
+  `b.tunggu_sampai(sinema.mulai(jam, "x = -2"))`. Urutan kerja wajib:
+  `buat_narasi.py`, lalu `buat_subtitle.py`, BARU render. `alat/cek_sinkron_video.py`
+  membuktikan benda muncul saat disebut, bukan sebelumnya.
+- `b.jeda` hanya untuk jeda pendek (0,6 sampai 1,6 detik) dan kini berbunyi
+  kalau dipotong; tunggu panjang lewat `b.tunggu_sampai` atau `scene.wait` + `b.catat`.
+- Pembuka: babak pertama HANYA judul materi (`judul_pembuka`, "Materi 03: ...")
+  yang sama dengan yang diucapkan narator (STANDAR-MENGAJAR bagian 5 aturan 8).
+
+## Jebakan ManimGL yang sudah dibayar mahal (jangan diulang)
+- `FadeOut` MENGEMBALIKAN objek ke keadaan semula saat dibersihkan; objek yang
+  sudah di-FadeOut lalu disentuh animasi lain muncul lagi terang (Grafik).
+- Objek ber-updater (`always_redraw`, `become`) TIDAK BISA dipudarkan dengan
+  `FadeOut`; kendalikan kepekatannya dari dalam updater lewat `ValueTracker` (Ruang 3D).
+- Surface (bola, balok) DI DALAM benda tembus pandang hilang; VMobject tidak.
+  Penanda titik di dalam kubus: lingkaran menghadap kamera (Ruang 3D).
+- `NumberPlane` menempatkan diri di tengah layar, bukan di titik asalnya;
+  `bidang_bernomor` sudah menambalnya (Vektor).
+- `lantai_kisi(tinggi_z=0)` dulu membagi nol dan render mati dengan kode keluar
+  0; sudah diperbaiki, tetapi ingat: **kode keluar 0 bukan bukti**.
+- Panah ManimGL meruncing ke pangkal; pangkal panah panjang samar di 480p.
+- Lembar kontak buta terhadap cacat GERAK (teleport, rumus terbang ke tempat
+  salah): ambil frame rapat (0,4 detik) di tengah tiap perpindahan.
+- `qc` memproyeksikan tanpa perspektif: benda yang diangkat mendekat ke kamera
+  dinilai lebih aman daripada kenyataan; beri margin lebih untuk kamera miring.
 
 ## Daftar periksa per video (salin ke laporan, isi ya/tidak)
-- [ ] Benda nyata dari `gl.ilustrasi`, tidak ada benda berupa titik/garis
-- [ ] Latar hidup (air/tanah/lantai) dan updater menjaga dunia bergerak saat diam
-- [ ] Kamera: mulai dari dunia, satu gerakan panjang ke sudut matematika, tidak ada sentakan
-- [ ] Panah/label di dunia, rumus di HUD, gambar tidak pernah diganti layar kosong (kecuali penutup)
-- [ ] Satu warna satu makna; tidak ada kode heksa di adegan
-- [ ] `teks()` untuk kata, `rumus()` untuk angka/rumus; `\mathrm` untuk satuan
-- [ ] Semua animasi di dalam `sinema.babak`; jeda setelah pertanyaan; tidak ada waktu mati
-- [ ] `cek_kode` bersih; `periksa_adegan` tiap babak; lembar kontak dibuka dan dinilai; `gabung_audio --uji` jalan
+- [ ] Tata letak: identitas kiri atas, rumus kanan atas, kaki layar kosong, label ≤2 kata (qc dan sinema menggagalkan render kalau tidak)
+- [ ] 3D hanya di pembuka video pertama topik (kecuali Ruang 3D / Transformasi Geometri); matematika di kamera tegak lurus
+- [ ] Rumus lahir dekat benda lalu terbang ke panel; perubahan rumus lewat morph, bukan fade
+- [ ] Sumbu berangka dua-duanya, skala sama, titik berkoordinat, kurva dari titik yang dihitung
+- [ ] Angka video = angka halaman, lolos `alat/cek_<topik>.py`
+- [ ] Naskah punya `tulis` untuk tiap segmen berbilangan; `buat_subtitle.py` tanpa peringatan; subtitle satu baris
+- [ ] Segmen berurutan diikat jam kalimat; `alat/cek_sinkron_video.py` lolos kalau ada benda yang bisa dihitung
+- [ ] Satu warna satu makna; `Indicate` berwarna palet; tidak ada kode heksa
+- [ ] `cek_kode` bersih; `periksa_adegan` tiap babak (awal DAN akhir bila kamera bergerak); lembar kontak DIBUKA; frame rapat di tiap perpindahan; `gabung_audio --uji` + salinan `-bersubtitle` ditonton
 - [ ] Cacat yang tersisa disebut di laporan, bukan didiamkan
 
-## Rujukan kode
-- `manim/contoh/contoh_perahu.py`: alur lengkap 5 babak (dunia, terbang, dua panah, penutup).
-- `manim/uji/uji_cahaya_gl.py`: permukaan fungsi bercahaya + jala + kamera terbang.
-- `manim/uji/uji_ilustrasi_gl.py`: etalase semua benda `ilustrasi`.
-- `manim/uji/uji_sinema_gl.py`: babak, keterangan, AngkaKoma, HUD saat kamera miring.
-- `manim/gl/uji_qc.py`: cara `qc` menilai bertindih dan keluar bingkai di 3D.
+## Yang tetap dari versi 1
+Benda nyata dari `gl.ilustrasi` (bukan titik) untuk pembuka; kamera satu
+gerakan panjang tanpa sentakan; semua huruf LaTeX (`teks`, `rumus`); palet
+terkunci; gerbang mutu CLAUDE.md berlaku penuh.

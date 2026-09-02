@@ -141,6 +141,25 @@ def main() -> None:
         # Versi uji SENGAJA tidak disalin ke web/public/anim. Kalau disalin,
         # situs akan menayangkan video 480p yang belum disetujui ARYA.
         print("versi uji: tidak disalin ke situs, memang begitu")
+        # Salinan TINJAUAN bersubtitle (keputusan ARYA 2 Sep malam): mp4 polos
+        # tidak membawa .vtt, jadi peninjau mengira subtitlenya tidak ada. Subtitle
+        # dibakar HANYA ke salinan ini; versi tayang tetap memakai .vtt terpisah.
+        vtt = AKAR / "web" / "public" / "anim" / f"{a.topik}.vtt"
+        if not vtt.exists():
+            subprocess.run([sys.executable, str(AKAR / "manim" / "buat_subtitle.py"), a.topik], check=False)
+        if vtt.exists():
+            tinjau = hasil.with_name(hasil.stem + "-bersubtitle.mp4")
+            vtt_rel = vtt.relative_to(AKAR).as_posix()
+            gaya = "FontName=DejaVu Sans,FontSize=15,PrimaryColour=&H00302421,OutlineColour=&H00EEF3F7,Outline=1,Shadow=0,MarginV=6,Alignment=2"
+            subprocess.run(
+                ["ffmpeg", "-y", "-v", "error", "-i", str(hasil),
+                 "-vf", f"subtitles={vtt_rel}:force_style='{gaya}'",
+                 "-c:a", "copy", str(tinjau)],
+                cwd=str(AKAR), check=True,
+            )
+            print(f"tinjau : {tinjau.relative_to(AKAR)}  (subtitle dibakar, untuk ditonton ARYA)")
+        else:
+            print("PERINGATAN: .vtt tidak ada, salinan bersubtitle tidak dibuat. Jalankan buat_subtitle.py.")
     else:
         tujuan = AKAR / "web" / "public" / "anim" / nama
         tujuan.parent.mkdir(parents=True, exist_ok=True)

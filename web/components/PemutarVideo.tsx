@@ -44,7 +44,10 @@ const berkasSubtitle = (berkas: string) => berkas.replace(/\.webm$/, '.vtt')
 
 const KUNCI_UKURAN = 'matra:subtitle:ukuran'
 const UKURAN = [85, 100, 125, 155] as const
-const BAWAAN = 1 // 100%
+// Bawaan 85%: keputusan ARYA 2 Sep 2026 malam, subtitle selalu SATU BARIS dengan
+// huruf dikecilkan (buat_subtitle.py memecah kalimat sampai 56 huruf). Siswa
+// tetap bisa memperbesarnya lewat tombol di bawah pemutar.
+const BAWAAN = 0 // 85%
 
 export default function PemutarVideo({ berkas, poster, judul }: Props) {
   const bungkus = useRef<HTMLDivElement>(null)

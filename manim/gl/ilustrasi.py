@@ -69,7 +69,13 @@ def lantai_kisi(ukuran=8.0, langkah=1.0, warna=REDUP, tinggi_z=3.0):
         background_line_style=dict(stroke_color=warna, stroke_width=1, stroke_opacity=0.35),
         faded_line_style=dict(stroke_color=warna, stroke_width=0.5, stroke_opacity=0.12),
     )
-    sumbu = ThreeDAxes(x_range=(-r, r, langkah), y_range=(-r, r, langkah), z_range=(0, tinggi_z, langkah))
+    # `tinggi_z <= 0` = tanpa sumbu tegak. Dulu `ThreeDAxes(z_range=(0, 0, 1))`
+    # membagi nol dan render MATI dengan kode keluar 0 (temuan Vektor dan
+    # Statistika, 2 Sep 2026). Sekarang dipilih sumbu datar saja.
+    if tinggi_z <= 0:
+        sumbu = Axes(x_range=(-r, r, langkah), y_range=(-r, r, langkah))
+    else:
+        sumbu = ThreeDAxes(x_range=(-r, r, langkah), y_range=(-r, r, langkah), z_range=(0, tinggi_z, langkah))
     sumbu.set_stroke(warna, width=2)
     return VGroup(kisi, sumbu)
 

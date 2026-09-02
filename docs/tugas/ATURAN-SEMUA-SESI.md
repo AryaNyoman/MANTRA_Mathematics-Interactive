@@ -31,7 +31,19 @@ dipakai menilai: `docs/tugas/STANDAR-MENGAJAR.md`. Baca itu SEBELUM menulis
 naskah video, sebab narasi video adalah bentuk paling murni dari "guru
 menjelaskan".
 
-## VIDEO SEJAK 2 SEP SIANG: ManimGL, bukan Manim Community (BARU, WAJIB)
+## STANDAR VIDEO VERSI 2 (2 Sep MALAM, membatalkan yang bertentangan di bawah)
+Setelah menonton semua video, ARYA mengunci sepuluh keputusan di
+`docs/tugas/STANDAR-ILUSTRASI-VIDEO.md` (versi 2). Ringkasnya: tata letak layar
+sama untuk semua topik (identitas kiri atas, rumus kanan atas, kaki layar milik
+subtitle, label ≤2 kata di gambar); 3D hanya pembuka video pertama tiap topik
+(kecuali Ruang 3D dan Transformasi Geometri); rumus lahir dekat benda lalu
+terbang ke panel, berubah lewat morph lambang (`sinema.ganti_rumus`); subtitle
+satu baris memakai lambang (`tulis` di naskah); sumbu berangka; maksimal dua
+render per sesi. `sinema.keterangan` DIHAPUS dan menggagalkan render. Peran
+MASTER: hanya menggabung ke `master` dan menyampaikan aturan; revisi isi dan
+visual datang dari ARYA langsung ke tiap sesi.
+
+## VIDEO SEJAK 2 SEP SIANG: ManimGL, bukan Manim Community (WAJIB)
 Keputusan ARYA: Manim Community DICABUT dari laptop ini. Semua video baru dibuat
 dengan **ManimGL 1.7.2** lewat perkakas bersama `manim/gl/`. Sebelum menyentuh
 video, baca berurutan:
@@ -49,12 +61,17 @@ lalu buka `media/gl/Etalase.mp4`, supaya kamu tahu perkakasnya jalan di worktree
 Lima sesi berbagi satu laptop dan satu peramban Playwright. Tabrakan yang
 sudah terjadi: potret nyasar antar sesi, port saling ambil. Aturannya:
 
-1. **Render ManimGL boleh paralel.** Terbukti 2 Sep: 1 render 15 detik, 5
-   serentak 27 detik, 8 serentak 43 detik, semua sukses (kartu grafis yang
-   menggambar). Antrean `alat/antre_render.py` TIDAK wajib lagi; panggil
-   `manimgl` langsung: `manimgl manim/scenes/<berkas>.py <Adegan> -w -l`.
-   Adegan berat (air hidup) sekitar 5 frame per detik: video 2 menit sekitar
-   8 menit sendirian, mungkin 15 sampai 20 menit kalau lima sesi bersamaan.
+1. **Render ManimGL boleh paralel, MAKSIMAL DUA per sesi sekaligus** (keputusan
+   ARYA 2 Sep malam, setelah empat render serentak satu sesi membuat sesi lain
+   merayap). Antrean `alat/antre_render.py` tidak wajib; panggil `manimgl`
+   langsung: `manimgl manim/scenes/<berkas>.py <Adegan> -w -l`. Render yang
+   diperkirakan lebih dari 5 menit WAJIB dilepas dari tugas latar Claude Code
+   (yang memotong proses panjang tanpa pesan), lewat PowerShell:
+   ```powershell
+   Start-Process -FilePath "manimgl" -ArgumentList "manim/scenes/<berkas>.py","<Adegan>","-w","-l" -RedirectStandardOutput "$env:TEMP\<nama>.log" -NoNewWindow -PassThru
+   ```
+   lalu keberhasilan dinilai dari BERKAS dan WAKTU berkasnya di `media/gl/`,
+   bukan dari kode keluar (pipa ke `tail`/`grep` mengembalikan kode alat lain).
 2. `next build` jangan dijalankan berbarengan dengan render milikmu sendiri.
 3. Yang TIDAK perlu antre: `buat_narasi.py` (jaringan), `tsc`, `cek_kode.py`,
    Playwright (asal `-s=<nama>`), dev server (port sendiri).

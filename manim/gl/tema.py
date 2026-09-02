@@ -54,12 +54,16 @@ def teks(s: str, ukuran: float = UKURAN_LABEL, warna: str = TINTA, mentah: bool 
         # `*kata*` = TEBAL, penanda yang sama dengan subtitle di naskah narasi
         # (aturan ARYA: kata yang dipertegas dicetak tebal).
         s = re.sub(r"\*([^*]+)\*", r"\\textbf{\1}", s)
-    return TexText(s, font_size=ukuran).set_color(warna)
+    m = TexText(s, font_size=ukuran).set_color(warna)
+    m.ukuran_matra = ukuran   # JANGAN baca m.font_size: di ManimGL itu faktor skala, bukan poin
+    return m
 
 
 def rumus(s: str, ukuran: float = UKURAN_RUMUS, warna: str = TINTA) -> Tex:
     """Angka berdiri sendiri dan rumus: LaTeX lewat MiKTeX. Tulis dengan awalan r."""
-    return Tex(s, font_size=ukuran).set_color(warna)
+    m = Tex(s, font_size=ukuran).set_color(warna)
+    m.ukuran_matra = ukuran   # JANGAN baca m.font_size: di ManimGL itu faktor skala, bukan poin
+    return m
 
 
 class AdeganMatra(Scene):

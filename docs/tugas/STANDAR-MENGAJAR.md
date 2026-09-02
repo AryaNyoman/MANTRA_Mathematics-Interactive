@@ -138,6 +138,34 @@ Berlaku untuk semua naskah `manim/narasi/*.json`:
    sedang tampil (aturan 2), dan boleh langsung disambung pertanyaan pembuka
    yang dijawab sepanjang video. Kalimat pengumuman materi tidak dihitung
    sebagai "gagasan" segmen; gagasannya tetap masalah yang dibuka.
+9. **Kata yang dipertegas ditandai `*kata*`** di naskah (satu sampai dua per
+   segmen). Penanda itu dibuang oleh mesin suara, jadi tebal di subtitle dan
+   di label layar. Jangan menebalkan lebih dari dua hal dalam satu segmen.
+10. **Tiap segmen punya DUA bentuk: `teks` (terucap) dan `tulis` (tertulis).**
+   Keputusan ARYA 2 Sep malam. Mesin suara butuh ejaan ("lima puluh enam dibagi
+   delapan", "f dari x kurang satu"); mata siswa butuh lambang. Subtitle dibuat
+   dari `tulis`; kalau `tulis` tidak ada, dari `teks` apa adanya, dan
+   `buat_subtitle.py` memperingatkan segmen berbilangan yang tidak punya `tulis`.
+   Semua lambang ditulis sebagai lambang (Unicode, bukan LaTeX, sebab subtitle
+   digambar peramban):
+
+   | Diucapkan (`teks`) | Ditulis (`tulis`) |
+   |---|---|
+   | "tujuh puluh dua" | 72 |
+   | "lima puluh enam dibagi delapan" | 56 : 8 |
+   | "akar dua", "enam akar tiga" | √2, 6√3 |
+   | "x pangkat dua", "x kuadrat" | x² |
+   | "tiga per empat" | 3/4 |
+   | "tujuh puluh dua derajat" | 72° |
+   | "titik dua koma empat" | titik (2, 4) |
+   | "f dari x kurang satu" | f(x-1) |
+   | "ruas AB" | AB dengan garis di atas (U+0305 tiap huruf) |
+   | "vektor a" | a dengan panah di atas, atau **a** tebal |
+
+   Isinya tetap UTUH: seluruh kalimat narator muncul; yang berubah hanya cara
+   menuliskannya. Subtitle SELALU SATU BARIS (maksimal 56 huruf per potongan),
+   jadi tulislah kalimat pendek; kalimat panjang dipecah `buat_subtitle.py` di
+   titik dan koma, dan pecahan yang canggung adalah tanda kalimatnya kepanjangan.
 9. **Kata yang dipertegas ditandai `*kata*`** di naskah (aturan ARYA sejak
    Trigonometri). Penanda itu jadi tebal di subtitle situs (`buat_subtitle.py`)
    dan di keterangan layar (`gl.teks`), dan dibuang oleh mesin suara. Satu

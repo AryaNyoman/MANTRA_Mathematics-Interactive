@@ -94,7 +94,7 @@ def jalur_bawah_kosong(frame, zona: dict, batas_atas: float = -2.55):
 
 def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: float = 0.3,
                    hud: dict | None = None, dunia: dict | None = None,
-                   jaga_jalur_bawah: bool = False):
+                   jaga_jalur_bawah: bool = True):
     """Pemeriksaan sekali jalan dari sudut kamera adegan saat ini.
 
     zona      : {"nama": mobject}, semua diperiksa agar muat di bingkai

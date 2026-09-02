@@ -114,4 +114,3 @@ skill `dataviz` lagi sebelum menggambar data di Manim:
 
 Naskah 10 sampai 12 segmen, 90 sampai 125 detik, ikuti pola
 `manim/narasi/limit*.json` dan bagian 5 STANDAR-MENGAJAR. Render 480p saja
-lewat `python alat/antre_render.py matra-statistika -- manim -ql ...`.

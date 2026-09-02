@@ -23,8 +23,12 @@ grafik meluncur ke posisi baru, kamera meluncur ke sudut baru. Penonton tidak
 pernah kehilangan jejak "yang ini tadi yang mana".
 - Bukti: `_2023/convolutions2/continuous.py` (grafik yang digeser, bukan diganti);
   seluruh repo memakai `Transform`, `ReplacementTransform`, `frame.animate`.
-- Di MATRA: pakai `Transform`/`ReplacementTransform`, `.animate`, `always_redraw`.
-  `FadeOut` lalu `FadeIn` benda yang sama di tempat lain = dilarang kalau bisa digeser.
+- Di MATRA: untuk RUMUS pakai `sinema.ganti_rumus` / `papan.tumbuh`
+  (TransformMatchingStrings: `sin` melebur jadi `cos`, huruf lain diam); untuk
+  benda pakai `Transform`, `.animate`, `always_redraw`. DILARANG: fade out lalu
+  fade in untuk rumus, dan `ReplacementTransform` mentah antara dua rumus yang
+  jumlah lambangnya beda (coretan kembar). Rumus baru lahir dekat bendanya lalu
+  terbang ke panel (`sinema.lahir_rumus`), keputusan ARYA 2 Sep malam.
 
 ### 2. Satu warna, satu makna, sepanjang video
 Di video Gaussian, f selalu biru dan g selalu kuning, dari rumus pertama sampai
