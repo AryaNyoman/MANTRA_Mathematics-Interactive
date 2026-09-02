@@ -39,3 +39,7 @@ audio/trigonometri/
 
 # Folder keluaran bawaan ManimGL kalau lupa --video_dir
 videos/
+
+# Log MiKTeX nyasar saat cek_kode --dalam
+mfput.log
+*.aux
