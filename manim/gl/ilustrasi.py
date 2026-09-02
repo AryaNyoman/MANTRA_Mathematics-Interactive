@@ -182,3 +182,40 @@ def orang(tinggi=1.7, warna=TINTA):
     g = Group(*bagian)
     g.set_shading(*BAYANG)
     return g
+
+
+def bidang_bernomor(x_range=(-6.0, 6.0, 1.0), y_range=(-4.0, 4.0, 1.0),
+                    warna=REDUP, ukuran_angka=26, z=0.0):
+    """Bidang koordinat BERANGKA dengan skala x dan y terkunci sama.
+
+    KENAPA ADA
+    Untuk pelajaran yang panjang dan sudutnya harus akurat (vektor, grafik
+    fungsi), gambar wajib bisa diperiksa siswa: segitiga 3-4-5 harus benar-benar
+    terlihat 3-4-5, dan tiap petak harus punya angkanya. Video vektor gelombang
+    pertama gagal justru di dua hal itu, dan ARYA menolaknya (2 Sep 2026).
+
+    KENAPA `unit_size=1.0`, BUKAN `width`/`height`
+    Menyetel lebar dan tinggi terpisah membuat satu satuan mendatar tidak sama
+    dengan satu satuan tegak, dan sejak itu semua panjang di layar berbohong.
+    `unit_size` mengunci keduanya ke angka yang sama.
+
+    CATATAN PEMAKAIAN: bidang ini hanya benar kalau kamera TEGAK LURUS dari atas
+    (`kamera.dunia_ke_peta`). Kamera yang dimiringkan mengembalikan persoalan
+    yang sama lewat perspektif, betapapun benar bidangnya.
+    """
+    # Tanpa sub-petak (`faded_line_ratio=1`): pada uji pertama sub-petak halus
+    # membuat bidangnya ramai dan angkanya makin sulit dibaca. Satu petak satu
+    # satuan sudah cukup untuk membaca vektor.
+    bidang = NumberPlane(
+        x_range=x_range, y_range=y_range, unit_size=1.0, faded_line_ratio=1,
+        background_line_style=dict(stroke_color=warna, stroke_width=1.2, stroke_opacity=0.45),
+        faded_line_style=dict(stroke_color=warna, stroke_width=0.5, stroke_opacity=0.0),
+        axis_config=dict(stroke_color=warna, stroke_width=2.4),
+    )
+    # Angkanya diwarnai TINTA, bukan warna petak. Pada uji pertama angka
+    # sewarna petak praktis tidak terbaca, padahal justru angka itu yang
+    # membuat gambarnya bisa diperiksa siswa.
+    angka = bidang.add_coordinate_labels(font_size=ukuran_angka, num_decimal_places=0)
+    angka.set_color(TINTA).set_opacity(0.75)
+    bidang.set_z(z)
+    return bidang
