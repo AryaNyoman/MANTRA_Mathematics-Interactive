@@ -1,16 +1,16 @@
 {
-  "total": 105.936,
+  "total": 118.368,
   "segmen": {
-    "sapa": 8.928,
-    "terbang": 6.288,
-    "dayung": 9.48,
-    "arus": 10.368,
-    "resultan": 9.912,
-    "hilir": 11.088,
-    "tanya": 11.16,
-    "searah": 8.328,
-    "lawan": 9.072,
-    "tegak": 12.264,
+    "sapa": 12.072,
+    "terbang": 6.768,
+    "dayung": 12.12,
+    "arus": 13.992,
+    "resultan": 11.808,
+    "hilir": 12.624,
+    "tanya": 11.28,
+    "searah": 8.088,
+    "lawan": 8.856,
+    "tegak": 11.712,
     "tutup": 9.048
   }
 }

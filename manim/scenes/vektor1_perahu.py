@@ -1,46 +1,45 @@
-"""Vektor Materi 01, Angka saja tidak cukup. ManimGL.
+"""Vektor Materi 01, Angka saja tidak cukup. ManimGL, arah visual BARU.
 
-Dikembangkan dari `manim/contoh/contoh_perahu.py` (lima babak pertamanya),
-bukan ditulis dari nol. Versi Manim Community yang lama sudah ditolak ARYA
-karena perahunya digambar sebagai titik; kodenya diarsipkan di
-`manim/arsip-manim-ce/`.
+Ditulis ulang 2 Sep sore setelah ARYA menolak versi 3D penuh. Rancangannya:
+`docs/superpowers/specs/2026-09-02-video-vektor-bidang-bernomor.md`.
+
+PRINSIP POKOK
+Matematika digambar di bidang datar bernomor, kamera TEGAK LURUS dari atas,
+tidak pernah dimiringkan lagi. 3D hanya di babak pembuka.
+
+Versi sebelumnya memiringkan kamera 14 sampai 26 derajat supaya panah yang
+segaris tidak saling menutupi. Akibatnya perspektif memendekkan satu arah lebih
+banyak daripada arah lain, sehingga segitiga 3-4-5 TIDAK terlihat seperti
+3-4-5. Untuk pelajaran vektor itu fatal: gambarnya membantah hitungannya.
 
 STORYBOARD
-  1. sapa      Pandangan miring dekat: perahu 3D mengangguk di air hidup,
-               dua tepi tanah. Judul pembuka.
-  2. terbang   SATU gerakan kamera panjang ke pandangan peta yang sedikit
-               dimiringkan (phi 14 derajat, bukan tegak lurus).
-  3. dayung    Panah biru dari perahu, 3 km melintang sungai. Rumus di HUD.
-  4. arus      Panah merah dari UJUNG panah biru, 4 km ke hilir. Rumus di HUD.
-  5. resultan  Panah ungu menutup dari titik berangkat ke ujung merah.
-  6. hilir     Perahu benar-benar berlayar menyusuri panah ungu, mendarat 4 km
-               di hilir. Angka panjang perpindahan hidup di HUD: 5.
-  7. tanya     Pertanyaan, lalu diam. Dunia tetap hidup (air terus beriak).
-  8. searah    Dayung diputar 90 ke 0 derajat. Angka merambat 5 ke 7.
-  9. lawan     Diputar 0 ke 180 derajat. Angka merambat 7 ke 1.
+  1. sapa      3D miring DEKAT: perahu di air beriak. Judul, dan narasinya
+               mengumumkan materinya.
+  2. terbang   Satu gerakan turun ke tegak lurus; air dan tepi memudar,
+               bidang koordinat bernomor muncul menggantikannya.
+  3. dayung    Panah biru (0, 3) dari titik asal.
+  4. arus      Panah merah (4, 0) dari ujung biru.
+  5. resultan  Panah ungu dari titik asal, ujungnya diberi koordinat (4, 3).
+  6. hilir     Perahu berlayar menyusuri panah ungu. Panjangnya hidup: 5.
+  7. tanya     Pertanyaan, lalu diam.
+  8. searah    Dayung diputar ke 0 derajat. Angka merambat 5 ke 7.
+  9. lawan     Diputar ke 180 derajat. Angka merambat 7 ke 1.
  10. tegak     Kembali ke 90 derajat. Angka kembali ke 5.
- 11. tutup     Kalimat sorot Materi 01, kata per kata, di atas dunia yang hidup.
+ 11. tutup     Layar bersih, kalimat sorot Materi 01 kata per kata.
 
-KENAPA SATU PASANG ANGKA SAJA (3 dan 4)
-Contoh rujukan memakai arus 2, sehingga perpindahannya akar 13. Angka itu
-memaksa video punya DUA pasang angka: satu untuk cerita sungai, satu lagi untuk
-memperlihatkan 7, 1, dan 5. Dengan arus 4, kasus sungainya SENDIRI sudah kasus
-tegak lurus yang hasilnya 5, dan memutar arah dayung memberi 7 dan 1 tanpa
-mengganti angkanya sama sekali. Satu pasang angka, tiga jawaban: itu inti
-Materi 01.
+TITIK ASAL PERAHU = (0, 0) BIDANG
+Disengaja. Dengan begitu koordinat di layar SAMA dengan komponen vektornya:
+ujung panah ungu benar-benar berada di petak (4, 3). Kalau perahunya ditaruh di
+tempat lain, siswa harus mengurangi dulu sebelum bisa memeriksa, dan seluruh
+gunanya bidang bernomor hilang.
 
-KENAPA PANAH ARUS DIANGKAT SEDIKIT (Z_ARUS)
-Pada 0 dan 180 derajat, panah dayung dan panah arus segaris. Kalau digambar
-pada ketinggian yang sama, keduanya saling menutupi dan siswa tidak bisa
-melihat mana yang menambah dan mana yang mengurangi. Mengangkat panah arus
-0,45 satuan tidak mengubah satu pun angka (tinggi tidak ikut dihitung di peta
-datar), tetapi membuat ketiga kasus terbaca. Karena itu kameranya dimiringkan
-14 derajat, bukan tegak lurus dari atas: kemiringan itulah yang membuat
-selisih tinggi terlihat.
+GESERAN PANAH ARUS
+Pada 0 dan 180 derajat panah dayung dan panah arus segaris. Panah arus digeser
+0,22 satuan ke atas supaya keduanya tetap terbaca. Pada panah sepanjang 3 sampai
+4 satuan itu di bawah 6 persen, tidak mengubah arah yang terbaca, dan tidak
+mengubah satu pun angka. Ini pengganti kemiringan kamera yang dulu dipakai.
 
-WARNA, SATU MAKNA SEPANJANG VIDEO
-  AKSEN2 biru = dayung        AKSEN merah = arus
-  SOROT ungu  = perpindahan sebenarnya dan kesimpulan
+WARNA: biru dayung, merah arus, ungu perpindahan sebenarnya dan kesimpulan.
 """
 
 import json
@@ -55,34 +54,24 @@ AKAR = Path(__file__).resolve().parents[2]
 TOPIK = "vektor1-perahu"
 DURASI = json.loads((AKAR / "audio" / TOPIK / "durasi.json").read_text(encoding="utf-8"))["segmen"]
 
-# Sungai: x searah aliran (hilir ke kanan), y melintang, z ke atas.
-LEBAR, PANJANG = 3.0, 18.0          # lebar 3 km, sesuai naskah
-X0, Y0 = -5.0, -LEBAR / 2           # perahu berangkat dari tepi dekat
-Z_PANAH = 1.6                       # di atas puncak tiang
-Z_ARUS = Z_PANAH + 0.70             # panah arus digambar selapis di atasnya
-
-DAYUNG_KM = 3.0
-ARUS_KM = 4.0
+DAYUNG_KM, ARUS_KM = 3.0, 4.0
 V_ARUS = ARUS_KM * RIGHT
+GESER = 0.22 * UP          # pemisah panah arus, lihat catatan di atas
+Z = 0.02                   # tepat di atas bidang, supaya tidak beradu gambar
 
-# Pandangan peta: sengaja dimiringkan supaya selisih tinggi panah terlihat.
-PETA = dict(theta=0, phi=14, pusat=(-2.0, 0.6, 0.0), tinggi=10.0)
+LEBAR_SUNGAI, PANJANG_SUNGAI = 3.0, 18.0
+Y_SUNGAI = -LEBAR_SUNGAI / 2
 
-# Bingkai babak putaran: dibuat memuat ketiga kasus sekaligus. Ujung terjauh ke
-# kiri adalah ujung dayung pada 180 derajat (x = -8), terjauh ke kanan adalah
-# ujung resultan pada 0 derajat (x = +2). Nama kedua tepi menjulur sampai x = -9.
-#
-# MARGINNYA SENGAJA LEBIH LEBAR DARIPADA HITUNGAN, dan ini bukan kemalasan:
-# `qc.ke_layar` memproyeksikan tanpa pembagian perspektif, sedangkan kamera
-# ManimGL memakai perspektif. Benda yang diangkat mendekat ke kamera (panah arus
-# di sini) terlempar lebih jauh ke tepi daripada yang dihitung qc, sehingga qc
-# meloloskan bingkai yang ternyata terpotong. Sudah terbukti sekali pada
-# tinggi 7,6: pangkal panah arus dan kedua nama tepi tergunting.
-# Kemiringannya 26 derajat, bukan 14 seperti babak peta. Pada 0 dan 180 derajat
-# ketiga panah segaris, dan pada kemiringan 14 derajat angkat 0,45 satuan belum
-# cukup: panah merah tertutup panah biru dan perahu, sehingga ARAHNYA tidak
-# terbaca. Untuk video tentang arah, itu kekurangan yang tidak boleh dibiarkan.
-PUTARAN = dict(theta=0, phi=26, pusat=(-3.5, 0.1, 0.0), tinggi=8.6)
+# Jangkauan dipangkas ke daerah yang BENAR-BENAR dipakai. Versi pertama memakai
+# x dari -5 sampai 8 dan y dari -4 sampai 4, dan seperempat bidangnya tidak
+# pernah tersentuh sehingga panahnya terlihat kecil. Ujung terjauh: dayung pada
+# 180 derajat di x = -3, ujung arus pada 0 derajat di x = 7, dayung pada
+# 90 derajat di y = 3.
+# Batas bawah dinaikkan ke -1: baris y = -2 tidak pernah dipakai panah mana pun,
+# dan angka "-2" di situ jatuh persis di jalur keterangan layar sehingga
+# keduanya bertindih. Terlihat di lembar kontak render sebelumnya.
+BIDANG_X, BIDANG_Y = (-4.0, 8.0, 1.0), (-1.0, 4.0, 1.0)
+PETA = dict(theta=0, phi=0, pusat=(2.0, 1.5, 0.0), tinggi=7.6)
 
 
 class PerahuVektor(AdeganMatra):
@@ -90,31 +79,28 @@ class PerahuVektor(AdeganMatra):
         frame = self.frame
 
         # ==============================================================
-        # Dunia dan besaran hidup
+        # Babak 1: dunia nyata, 3D, dari dekat
         # ==============================================================
-        air = ilustrasi.air_hidup(self, PANJANG, LEBAR)
-        tepi_jauh = ilustrasi.tanah(PANJANG, 2.4, LEBAR / 2 + 1.2)
-        tepi_dekat = ilustrasi.tanah(PANJANG, 2.4, -LEBAR / 2 - 1.2)
+        air = ilustrasi.air_hidup(self, PANJANG_SUNGAI, LEBAR_SUNGAI)
+        tepi_jauh = ilustrasi.tanah(PANJANG_SUNGAI, 2.4, LEBAR_SUNGAI / 2 + 1.2)
+        tepi_dekat = ilustrasi.tanah(PANJANG_SUNGAI, 2.4, -LEBAR_SUNGAI / 2 - 1.2)
 
-        asli = ilustrasi.perahu(1.6)
+        asli = ilustrasi.perahu(0.9)
         perahu = asli.copy()
-        # Letak perahu diikat ke dua pelacak, supaya babak 6 bisa MENGGERAKKAN
-        # perahunya, bukan memindahkannya diam-diam.
-        self.bx = ValueTracker(X0)
-        self.by = ValueTracker(Y0)
-        ilustrasi.ayunkan(asli, perahu, X0, Y0, 0.0)
-        perahu.add_updater(
-            lambda m: ilustrasi.ayunkan(asli, m, self.bx.get_value(), self.by.get_value(), self.time))
+        self.bx = ValueTracker(0.0)
+        self.by = ValueTracker(0.0)
+        # Sebelum babak 2 perahu mengikuti permukaan air; sesudahnya ia berada
+        # di atas bidang datar, jadi ayunannya dimatikan.
+        self.di_air = True
+        ilustrasi.ayunkan(asli, perahu, 0.0, Y_SUNGAI, 0.0)
+        perahu.add_updater(lambda m: ilustrasi.ayunkan(
+            asli, m, self.bx.get_value(),
+            Y_SUNGAI if self.di_air else self.by.get_value(),
+            self.time if self.di_air else 0.0))
 
-        # Arah dayung dalam derajat dari sumbu x positif. 90 = melintang sungai.
         self.th = ValueTracker(90.0)
-        self.asal = np.array([X0, Y0, Z_PANAH])
 
-        # ==============================================================
-        # Babak 1: dunia nyata dulu, matematikanya belakangan
-        # ==============================================================
-        kamera.pasang_awal(frame, theta=-32, phi=72,
-                           pusat=(X0 + 0.4, Y0 + 0.5, 0.35), tinggi=5.0)
+        kamera.pasang_awal(frame, theta=-34, phi=70, pusat=(0.4, Y_SUNGAI + 0.4, 0.35), tinggi=4.6)
         self.add(tepi_jauh, tepi_dekat, air, perahu)
         with sinema.babak(self, "sapa", DURASI) as b:
             sinema.judul_pembuka(self, "Angka saja tidak cukup", lama=3.2, y=2.4)
@@ -126,233 +112,190 @@ class PerahuVektor(AdeganMatra):
                           [("perahu", "keterangan")])
 
         # ==============================================================
-        # Babak 2: satu gerakan panjang, dunia ke peta
+        # Babak 2: turun ke tegak lurus, dunia jadi peta bernomor
         # ==============================================================
-        n_jauh = teks("tepi seberang", 28).move_to([-8.0, LEBAR / 2 + 1.2, Z_PANAH])
-        n_dekat = teks("tepi berangkat", 28).move_to([-8.0, -LEBAR / 2 - 1.2, Z_PANAH])
+        bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
+        bidang.set_opacity(0)
+        self.add(bidang)
+        dunia3d = Group(air, tepi_jauh, tepi_dekat)
+
         with sinema.babak(self, "terbang", DURASI) as b:
-            lama = max(2.0, DURASI["terbang"] - 1.6)
+            lama = max(2.0, DURASI["terbang"] - 2.2)
             b.main(kamera.sudut(frame, **PETA), run_time=lama)
-            b.main(FadeIn(n_jauh), FadeIn(n_dekat), run_time=0.6)
-            sinema.keterangan(self, "dilihat dari atas, seperti peta")
+            self.di_air = False
+            b.main(FadeOut(dunia3d), bidang.animate.set_opacity(1), run_time=1.4)
+            sinema.keterangan(self, "sekarang kita ukur di petak koordinat")
             b.catat(0.6)
-        qc.periksa_adegan(self, {"perahu": perahu, "tepi jauh": n_jauh, "tepi dekat": n_dekat,
-                                 "keterangan": self._matra_keterangan},
-                          [("tepi dekat", "keterangan"), ("tepi jauh", "tepi dekat")])
+        qc.periksa_adegan(self, {"bidang": bidang, "keterangan": self._matra_keterangan})
 
         # ==============================================================
-        # Babak 3: panah dayung, digambar hidup supaya bisa diputar nanti
+        # Babak 3: panah dayung
         # ==============================================================
+        asal = np.array([0.0, 0.0, Z])
         p_dayung = always_redraw(
-            lambda: Arrow(self.asal, self.asal + self.v_dayung(), buff=0, thickness=5).set_color(AKSEN2))
-        l_dayung = teks("dayung 3 km", 26, AKSEN2)
-        # Digeser TEGAK LURUS terhadap panahnya, bukan selalu ke kiri. Versi
-        # pertama memakai geseran tetap ke kiri, dan pada 180 derajat label ini
-        # jatuh persis di garis panah arus sampai tercoret merah dan tidak
-        # terbaca. Geseran tegak lurus ikut berputar bersama panahnya, jadi ia
-        # selalu berada di sisi yang kosong.
-        l_dayung.add_updater(
-            lambda m: m.move_to(self.asal + self.v_dayung() * 0.55 + 0.8 * self.tegak_dayung()))
+            lambda: Arrow(asal, asal + self.v_dayung(), buff=0, thickness=5).set_color(AKSEN2))
+        l_dayung = teks("dayung", 26, AKSEN2)
+        l_dayung.add_updater(lambda m: m.move_to(
+            asal + self.v_dayung() * 0.5 + 1.3 * self.tegak_dayung()))
         panel_d = rumus(r"\vec{d} = (0,\ 3)", 34, AKSEN2).to_corner(UR, buff=0.45)
 
         with sinema.babak(self, "dayung", DURASI) as b:
-            b.main(GrowArrow(p_dayung), run_time=1.3)
+            b.main(GrowArrow(p_dayung), run_time=1.4)
             self.add(l_dayung)
-            b.main(FadeIn(l_dayung), run_time=0.6)
+            b.main(FadeIn(l_dayung), run_time=0.5)
             self.hud_tambah(panel_d)
             panel_d.set_opacity(0)
             b.main(panel_d.animate.set_opacity(1), run_time=0.6)
-            sinema.keterangan(self, "melintang sungai, sejauh 3 km")
+            sinema.keterangan(self, "naik 3 petak, tidak bergeser ke samping")
             b.catat(0.6)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"perahu": perahu, "dayung": p_dayung, "label dayung": l_dayung,
-                                 "panel d": panel_d, "keterangan": self._matra_keterangan},
-                          [("label dayung", "perahu"), ("panel d", "keterangan")])
+        qc.periksa_adegan(self, {"dayung": p_dayung, "label d": l_dayung, "panel d": panel_d,
+                                 "keterangan": self._matra_keterangan},
+                          [("panel d", "keterangan")])
 
         # ==============================================================
-        # Babak 4: panah arus, berangkat dari UJUNG panah dayung
+        # Babak 4: panah arus, dari ujung panah dayung
         # ==============================================================
         p_arus = always_redraw(
-            lambda: Arrow(self.ujung_dayung(), self.ujung_arus(), buff=0, thickness=5).set_color(AKSEN))
-        l_arus = teks("arus 4 km", 26, AKSEN)
-        l_arus.add_updater(lambda m: m.move_to(self.ujung_dayung() + V_ARUS * 0.5 + 0.62 * UP
-                                               + np.array([0.0, 0.0, Z_ARUS - Z_PANAH])))
+            lambda: Arrow(self.ujung_dayung(), self.ujung_arus(), buff=0,
+                          thickness=5).set_color(AKSEN))
+        l_arus = teks("arus", 26, AKSEN)
+        l_arus.add_updater(lambda m: m.move_to(self.ujung_dayung() + V_ARUS * 0.5 + 0.55 * UP))
         panel_a = rumus(r"\vec{a} = (4,\ 0)", 34, AKSEN)
         panel_a.next_to(panel_d, DOWN, buff=0.25).align_to(panel_d, RIGHT)
 
         with sinema.babak(self, "arus", DURASI) as b:
-            b.main(GrowArrow(p_arus), run_time=1.3)
+            b.main(GrowArrow(p_arus), run_time=1.4)
             self.add(l_arus)
-            b.main(FadeIn(l_arus), run_time=0.6)
+            b.main(FadeIn(l_arus), run_time=0.5)
             self.hud_tambah(panel_a)
             panel_a.set_opacity(0)
             b.main(panel_a.animate.set_opacity(1), run_time=0.6)
-            sinema.keterangan(self, "searah sungai, sejauh 4 km")
+            sinema.keterangan(self, "bergeser 4 petak ke kanan, tidak naik")
             b.catat(0.6)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"dayung": p_dayung, "arus": p_arus, "label dayung": l_dayung,
-                                 "label arus": l_arus, "panel d": panel_d, "panel a": panel_a},
-                          [("label dayung", "label arus"), ("panel d", "panel a")])
+        qc.periksa_adegan(self, {"dayung": p_dayung, "arus": p_arus, "label d": l_dayung,
+                                 "label a": l_arus, "panel d": panel_d, "panel a": panel_a},
+                          [("label d", "label a"), ("panel d", "panel a")])
 
         # ==============================================================
-        # Babak 5: resultan menutup segitiganya
+        # Babak 5: resultan, koordinat ujungnya ditulis di bidang
         # ==============================================================
         p_res = always_redraw(
-            lambda: Arrow(self.asal, self.ujung_arus_datar(), buff=0, thickness=7).set_color(SOROT))
+            lambda: Arrow(asal, self.ujung_res(), buff=0, thickness=7).set_color(SOROT))
+        titik_ujung = Dot(radius=0.09).set_color(SOROT)
+        titik_ujung.add_updater(lambda m: m.move_to(self.ujung_res()))
+        l_koord = always_redraw(lambda: rumus(
+            r"(%d,\ %d)" % (round(self.v_dayung()[0] + ARUS_KM), round(self.v_dayung()[1])),
+            30, SOROT).move_to(self.ujung_res() + np.array([0.9, 0.45, 0.0])))
         panel_r = rumus(r"\vec{d} + \vec{a} = (4,\ 3)", 34, SOROT)
         panel_r.next_to(panel_a, DOWN, buff=0.25).align_to(panel_a, RIGHT)
 
         with sinema.babak(self, "resultan", DURASI) as b:
-            b.main(GrowArrow(p_res), run_time=1.6)
+            b.main(GrowArrow(p_res), run_time=1.8)
+            self.add(titik_ujung, l_koord)
+            b.main(FadeIn(titik_ujung, scale=2.0), FadeIn(l_koord), run_time=0.7)
             self.hud_tambah(panel_r)
             panel_r.set_opacity(0)
             b.main(panel_r.animate.set_opacity(1), run_time=0.6)
             sinema.keterangan(self, "inilah perpindahan yang sebenarnya", warna=SOROT)
             b.catat(0.6)
-            b.jeda(1.0)
-        qc.periksa_adegan(self, {"resultan": p_res, "panel d": panel_d, "panel a": panel_a,
-                                 "panel r": panel_r, "keterangan": self._matra_keterangan},
-                          [("panel a", "panel r"), ("panel r", "keterangan")])
+        qc.periksa_adegan(self, {"resultan": p_res, "koordinat": l_koord, "panel r": panel_r,
+                                 "panel a": panel_a},
+                          [("panel a", "panel r")])
 
         # ==============================================================
-        # Babak 6: perahunya benar-benar berlayar, angkanya hidup
+        # Babak 6: perahunya berlayar, panjangnya hidup
         # ==============================================================
         label_p = teks("panjang perpindahan", 24, SOROT)
         angka_p = sinema.AngkaKoma(5.0, num_decimal_places=2, font_size=38).set_color(SOROT)
         angka_p.add_updater(lambda m: m.set_value(self.panjang_res()))
-        satuan = teks("km", 24, SOROT)
-        ukur = VGroup(label_p, angka_p, satuan).arrange(RIGHT, buff=0.18)
-        ukur.to_corner(UL, buff=0.45)
-
-        mendarat = Dot(radius=0.10).set_color(SOROT)
-        mendarat.add_updater(lambda m: m.move_to(self.ujung_arus_datar()))
+        ukur = VGroup(label_p, angka_p).arrange(RIGHT, buff=0.20).to_corner(UL, buff=0.45)
 
         with sinema.babak(self, "hilir", DURASI) as b:
             self.hud_tambah(ukur)
             ukur.set_opacity(0)
             b.main(ukur.animate.set_opacity(1), run_time=0.6)
-            self.add(mendarat)
-            b.main(self.bx.animate.set_value(X0 + ARUS_KM),
-                   self.by.animate.set_value(Y0 + DAYUNG_KM), run_time=3.4)
-            sinema.keterangan(self, "mendarat 4 km di hilir, menempuh 5 km", warna=SOROT)
+            b.main(self.bx.animate.set_value(ARUS_KM),
+                   self.by.animate.set_value(DAYUNG_KM), run_time=3.6)
+            sinema.keterangan(self, "mendarat 4 petak di hilir, menempuh 5", warna=SOROT)
             b.catat(0.6)
             b.jeda(1.2)
-        qc.periksa_adegan(self, {"ukur": ukur, "panel d": panel_d, "resultan": p_res,
-                                 "keterangan": self._matra_keterangan},
-                          [("ukur", "panel d"), ("ukur", "keterangan")])
+        qc.periksa_adegan(self, {"ukur": ukur, "panel d": panel_d, "resultan": p_res},
+                          [("ukur", "panel d")])
 
         # ==============================================================
-        # Babak 7: pertanyaan, lalu diam. Air tetap beriak, bukan waktu mati.
+        # Babak 7 sampai 10: satu pasang angka, tiga jawaban
         # ==============================================================
         with sinema.babak(self, "tanya", DURASI) as b:
             sinema.keterangan(self, "angkanya tetap 3 dan 4, arah dayungnya diputar", warna=SOROT)
             b.catat(0.6)
-            # Satu gerakan kamera, dan ia menjawab pertanyaan "apa yang jadi
-            # terlihat setelah ini": bingkai PUTARAN memuat ketiga kasus
-            # sekaligus. Tanpa ini, pada 180 derajat semua panah berdesakan di
-            # sepertiga kiri layar sementara dua pertiga sisanya air kosong.
-            b.main(kamera.sudut(frame, **PUTARAN),
-                   run_time=max(2.0, DURASI["tanya"] - 2.4))
             b.jeda(1.6)
-        qc.periksa_adegan(self, {"ukur": ukur, "keterangan": self._matra_keterangan},
-                          [("ukur", "keterangan")])
+        qc.periksa_adegan(self, {"ukur": ukur, "keterangan": self._matra_keterangan})
+
+        for nama, sudut, kalimat in (
+            ("searah", 0.0, "searah: 3 tambah 4 memberi 7"),
+            ("lawan", 180.0, "berlawanan: sisanya tinggal 1"),
+            ("tegak", 90.0, "tegak lurus lagi: kembali 5"),
+        ):
+            with sinema.babak(self, nama, DURASI) as b:
+                # Keterangan mendahului putarannya. Kalau menyusul, selama
+                # seluruh putaran layar masih menampilkan kalimat babak
+                # sebelumnya sementara angkanya sudah berubah.
+                sinema.keterangan(self, kalimat, warna=SOROT)
+                b.catat(0.6)
+                gerak = [self.th.animate.set_value(sudut)]
+                if nama == "searah":
+                    gerak += [self.bx.animate.set_value(0.0), self.by.animate.set_value(0.0)]
+                b.main(*gerak, run_time=max(2.0, DURASI[nama] - 2.6))
+                b.jeda(1.0)
+            qc.periksa_adegan(self, {"dayung": p_dayung, "arus": p_arus, "ukur": ukur,
+                                     "koordinat": l_koord})
 
         # ==============================================================
-        # Babak 8 sampai 10: satu pasang angka, tiga jawaban
-        #
-        # Keterangan ditulis SEBELUM panahnya diputar, bukan sesudah. Versi
-        # pertama memutar dulu baru mengganti keterangan, dan akibatnya selama
-        # seluruh putaran layar masih menampilkan kalimat babak sebelumnya
-        # sementara angka panjangnya sudah berubah. Terlihat di lembar kontak:
-        # "searah: 3 tambah 4 memberi 7" terbaca bersamaan dengan angka 1,00.
+        # Babak 11: layar bersih, kalimat sorot
         # ==============================================================
-        with sinema.babak(self, "searah", DURASI) as b:
-            # Perahu dikembalikan ke titik berangkat bersamaan dengan panahnya
-            # berputar, supaya tidak ada benda yang "hilang lalu muncul".
-            sinema.keterangan(self, "searah: 3 tambah 4 memberi 7", warna=SOROT)
-            b.catat(0.6)
-            b.main(self.th.animate.set_value(0.0),
-                   self.bx.animate.set_value(X0), self.by.animate.set_value(Y0),
-                   run_time=max(2.0, DURASI["searah"] - 2.4))
-            b.jeda(1.0)
-        qc.periksa_adegan(self, {"dayung": p_dayung, "arus": p_arus, "ukur": ukur,
-                                 "keterangan": self._matra_keterangan},
-                          [("ukur", "keterangan")])
-
-        with sinema.babak(self, "lawan", DURASI) as b:
-            sinema.keterangan(self, "berlawanan: sisanya tinggal 1", warna=SOROT)
-            b.catat(0.6)
-            b.main(self.th.animate.set_value(180.0),
-                   run_time=max(2.0, DURASI["lawan"] - 2.2))
-            b.jeda(1.0)
-        qc.periksa_adegan(self, {"dayung": p_dayung, "arus": p_arus, "ukur": ukur,
-                                 "keterangan": self._matra_keterangan},
-                          [("ukur", "keterangan")])
-
-        with sinema.babak(self, "tegak", DURASI) as b:
-            sinema.keterangan(self, "tegak lurus lagi: kembali 5", warna=SOROT)
-            b.catat(0.6)
-            b.main(self.th.animate.set_value(90.0),
-                   run_time=max(2.0, DURASI["tegak"] - 3.0))
-            b.jeda(1.4)
-        qc.periksa_adegan(self, {"dayung": p_dayung, "arus": p_arus, "resultan": p_res,
-                                 "ukur": ukur, "keterangan": self._matra_keterangan},
-                          [("ukur", "keterangan")])
-
-        # ==============================================================
-        # Babak 11: penutup, dunia tetap terlihat di belakangnya
-        # ==============================================================
-        tutup1 = teks("Besaran yang butuh arah itulah yang disebut VEKTOR.", 30, TINTA)
-        sinema.batasi_lebar(tutup1, 11.0)
-        tutup2 = teks("Yang cukup satu angka disebut skalar.", 30, SOROT)
-        sinema.batasi_lebar(tutup2, 11.0)
-        tutup = VGroup(tutup1, tutup2).arrange(DOWN, buff=0.35).move_to([0, 0.4, 0])
-        sinema.alas_teks(tutup)
+        tutup1 = teks("Besaran yang butuh arah itulah yang disebut VEKTOR.", 32, TINTA)
+        sinema.batasi_lebar(tutup1, 11.4)
+        tutup2 = teks("Yang cukup satu angka disebut skalar.", 32, SOROT)
+        sinema.batasi_lebar(tutup2, 11.4)
+        tutup = VGroup(tutup1, tutup2).arrange(DOWN, buff=0.34).move_to([0, 0.3, 0])
 
         # Dunianya disingkirkan lebih dulu. Alas teks TIDAK cukup: benda dunia
-        # tetap tergambar di atas teks HUD, dan pada render pertama panah ungu
-        # terlihat menembus kalimat penutup walau alasnya sudah dipekatkan.
-        # Aturan 4 STANDAR-ILUSTRASI-VIDEO mengizinkan layar bersih untuk
-        # penutup, paling banyak satu babak, dan inilah babak itu.
-        dunia = Group(air, tepi_jauh, tepi_dekat, perahu, p_dayung, p_arus, p_res,
-                      l_dayung, l_arus, n_jauh, n_dekat, mendarat)
+        # tetap tergambar di atas teks HUD. Aturan 4 STANDAR-ILUSTRASI-VIDEO
+        # mengizinkan layar bersih untuk penutup, paling banyak satu babak.
+        semua = Group(bidang, perahu, p_dayung, p_arus, p_res, l_dayung, l_arus,
+                      titik_ujung, l_koord)
         with sinema.babak(self, "tutup", DURASI) as b:
             sinema.hapus_keterangan(self, run_time=0.4)
             b.catat(0.4)
-            b.main(FadeOut(dunia), FadeOut(ukur),
+            b.main(FadeOut(semua), FadeOut(ukur),
                    FadeOut(panel_d), FadeOut(panel_a), FadeOut(panel_r), run_time=1.4)
             self.hud_tambah(tutup)
             tutup.set_opacity(0)
             b.main(tutup.animate.set_opacity(1), run_time=1.8)
-            b.jeda(1.2)
+            b.jeda(1.4)
         qc.periksa_adegan(self, {"tutup": tutup})
 
-    # ==================================================================
-    # Besaran turunan, semua dihitung dari satu pelacak sudut
     # ==================================================================
     def v_dayung(self):
         a = self.th.get_value() * DEGREES
         return DAYUNG_KM * np.array([np.cos(a), np.sin(a), 0.0])
 
     def tegak_dayung(self):
-        """Arah tegak lurus panah dayung, menjauh dari panah arus."""
         a = self.th.get_value() * DEGREES
         return np.array([-np.sin(a), np.cos(a), 0.0])
 
     def ujung_dayung(self):
-        """Ujung panah dayung, sudah dinaikkan ke lapis panah arus."""
-        return self.asal + self.v_dayung() + np.array([0.0, 0.0, Z_ARUS - Z_PANAH])
+        """Ujung panah dayung, sudah digeser ke jalur panah arus."""
+        return np.array([0.0, 0.0, Z]) + self.v_dayung() + GESER
 
     def ujung_arus(self):
         return self.ujung_dayung() + V_ARUS
 
-    def ujung_arus_datar(self):
-        """Ujung yang sama, dikembalikan ke lapis panah dayung.
-
-        Resultan digambar di lapis bawah supaya ia menutup segitiga terhadap
-        panah dayung, bukan melayang mengikuti panah arus yang sengaja diangkat.
-        """
-        return self.asal + self.v_dayung() + V_ARUS
+    def ujung_res(self):
+        """Ujung resultan, di jalur yang SEBENARNYA, tanpa geseran."""
+        return np.array([0.0, 0.0, Z]) + self.v_dayung() + V_ARUS
 
     def panjang_res(self):
         return float(np.linalg.norm(self.v_dayung() + V_ARUS))

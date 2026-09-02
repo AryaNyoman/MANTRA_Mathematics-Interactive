@@ -375,8 +375,28 @@ Usul perubahan, kecil dan tidak merusak naskah lama: tambahkan medan opsional
 Contoh: `"teks": "panjangnya akar tiga belas, sekitar tiga koma enam satu"`,
 `"layar": "panjangnya √13, sekitar 3,61"`.
 
-Sesi vektor memakai medan `layar` mulai sekarang; sampai `buat_subtitle.py`
-diperbarui MASTER, medan itu diabaikan dan subtitlenya masih berupa ejaan.
+**SUDAH DIKERJAKAN sesi vektor, tinggal ditinjau MASTER.** Perubahannya satu
+baris di `manim/buat_subtitle.py`:
+
+```
+potongan = [tebalkan(x) for x in pecah(seg.get("layar") or seg["teks"])]
+```
+
+Naskah tanpa `layar` berjalan persis seperti dulu, jadi sembilan naskah topik
+lain tidak tersentuh. Sesi vektor menyentuh berkas bersama ini karena tanpa itu
+permintaan ARYA tidak bisa dipenuhi sama sekali; kalau MASTER mau menolaknya,
+cukup kembalikan satu baris itu.
+
+Hasilnya sudah diperiksa, bukan diperkirakan. `vektor1-perahu.vtt`: 30 baris,
+118,37 detik, nol baris tumpang-tindih, dan setiap kata naskah muncul di
+subtitle (jawaban untuk keluhan ARYA "tidak setengah-setengah"). Baris pertama
+berbunyi `Materi 01, <b>Angka saja tidak cukup</b>.` dan baris ketiga
+`Sungainya selebar 3 km, ...`, bukan "tiga kilometer".
+
+Catatan terpisah: keluhan "subtitle tidak tampil 100%" TERNYATA bukan cacat
+`pecah()`. Fungsi itu tidak membuang apa pun, sudah diuji per kata. Sebab
+sebenarnya kedua video vektor belum pernah punya berkas `.vtt` sama sekali,
+karena `buat_subtitle.py` memang belum pernah dijalankan untuk topik ini.
 
 ## 🔗 Pratinjau untuk tinjauan ARYA (2 Sep 2026)
 

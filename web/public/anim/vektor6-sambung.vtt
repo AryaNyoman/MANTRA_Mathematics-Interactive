@@ -1,0 +1,123 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/vektor6-sambung.json
+
+1
+00:00:00.000 --> 00:00:03.581
+Materi 06, <b>menjumlah itu menyambung perjalanan</b>.
+
+2
+00:00:03.581 --> 00:00:07.087
+Seseorang berdiri di sebuah lapangan berpetak.
+
+3
+00:00:07.087 --> 00:00:12.192
+Ia akan berjalan dua kali, dan kita ingin tahu di mana ia berakhir.
+
+4
+00:00:12.192 --> 00:00:16.702
+Supaya langkahnya bisa kita <b>hitung</b>, lapangan itu kita lihat dari atas,
+
+5
+00:00:16.702 --> 00:00:19.344
+lengkap dengan angka pada kedua sumbunya.
+
+6
+00:00:19.344 --> 00:00:24.039
+Perjalanan pertama: <b>3 petak ke kanan</b> dan <b>1 petak ke atas</b>.
+
+7
+00:00:24.039 --> 00:00:29.640
+Panah biru ini merekam jejaknya, dan ujungnya jatuh di titik (3, 1).
+
+8
+00:00:29.640 --> 00:00:33.705
+Dari tempat ia berhenti itu juga, ia berjalan lagi.
+
+9
+00:00:33.705 --> 00:00:36.654
+<b>1 petak ke kanan</b> dan <b>2 petak ke atas</b>.
+
+10
+00:00:36.654 --> 00:00:42.552
+Panah merah berangkat dari ujung panah biru, dan berhenti di titik (4, 3).
+
+11
+00:00:42.552 --> 00:00:45.102
+Sekarang lupakan sejenak jalurnya.
+
+12
+00:00:45.102 --> 00:00:50.352
+Dilihat dari titik ia <b>berangkat</b> tadi, ke mana sebenarnya ia berpindah?
+
+13
+00:00:50.352 --> 00:00:52.123
+Inilah jawabannya.
+
+14
+00:00:52.123 --> 00:00:57.535
+Panah ungu, dari titik (0, 0) langsung ke titik (4, 3).
+
+15
+00:00:57.535 --> 00:01:00.192
+Panah itu namanya <b>resultan</b>.
+
+16
+00:01:00.192 --> 00:01:01.889
+Perhatikan bentuknya.
+
+17
+00:01:01.889 --> 00:01:05.847
+Pangkal panah merah menempel di ujung panah biru,
+
+18
+00:01:05.847 --> 00:01:08.836
+dan resultannya menutup segitiga itu.
+
+19
+00:01:08.836 --> 00:01:11.664
+<b>Ujung ke pangkal</b>, begitu aturannya.
+
+20
+00:01:11.664 --> 00:01:16.716
+Kalau kedua <b>pangkalnya</b> yang ditempelkan, yang terbentuk bukan resultan.
+
+21
+00:01:16.716 --> 00:01:21.696
+Perhatikan panah hitam ini jauh lebih pendek, dan arahnya pun berbeda.
+
+22
+00:01:21.696 --> 00:01:26.402
+Menggambar memang membuat kita paham, tetapi lambat.
+
+23
+00:01:26.402 --> 00:01:33.008
+Dengan komponen, jumlahkan yang mendatar dengan yang mendatar: <b>3 + 1 = 4</b>.
+
+24
+00:01:33.008 --> 00:01:37.080
+Lalu yang tegak dengan yang tegak: <b>1 + 2 = 3</b>.
+
+25
+00:01:37.080 --> 00:01:40.330
+Tetapi hati-hati pada <b>panjangnya</b>.
+
+26
+00:01:40.330 --> 00:01:45.156
+Perjalanan pertama sekitar 3,16, yang kedua 2,24.
+
+27
+00:01:45.156 --> 00:01:50.376
+Dijumlahkan menjadi 5,4, padahal resultannya tepat <b>5</b>.
+
+28
+00:01:50.376 --> 00:01:53.646
+Selisih itu bukan kesalahan hitung.
+
+29
+00:01:53.646 --> 00:01:56.262
+*Komponen boleh dijumlahkan.
+
+30
+00:01:56.262 --> 00:01:58.224
+Panjang tidak boleh.*

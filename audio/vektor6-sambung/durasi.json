@@ -1,15 +1,15 @@
 {
-  "total": 104.712,
+  "total": 118.224,
   "segmen": {
-    "sapa": 8.184,
-    "jalan1": 7.632,
-    "jalan2": 10.296,
+    "sapa": 12.192,
+    "terbang": 7.152,
+    "jalan1": 10.296,
+    "jalan2": 12.912,
     "tanya": 7.8,
-    "resultan": 8.232,
+    "resultan": 9.84,
     "aturan": 11.472,
-    "keliru": 10.344,
-    "komponen": 9.552,
-    "hitung": 10.056,
+    "keliru": 10.032,
+    "hitung": 15.384,
     "panjang": 13.296,
     "tutup": 7.848
   }

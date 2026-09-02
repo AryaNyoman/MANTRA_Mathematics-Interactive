@@ -114,7 +114,12 @@ def buat(topik: str, diam: bool = False) -> Path:
             raise SystemExit(
                 f"segmen '{seg['id']}' ada di naskah tapi tidak di durasi.json. "
                 f"Jalankan ulang buat_narasi.py {topik}.")
-        potongan = [tebalkan(x) for x in pecah(seg["teks"])]
+        # `teks` adalah bentuk TERUCAP ("tujuh puluh dua", "akar dua"), disusun
+        # untuk mesin suara. Kalau naskah menyediakan `layar`, itulah bentuk
+        # TERTULIS ("72", "√2") dan subtitle memakainya. Permintaan ARYA
+        # 2 Sep 2026: yang dibaca siswa harus berupa angka dan lambang, bukan
+        # angka yang dieja. Naskah tanpa `layar` berjalan persis seperti dulu.
+        potongan = [tebalkan(x) for x in pecah(seg.get("layar") or seg["teks"])]
         total_huruf = sum(panjang_tampak(p) for p in potongan) or 1
         mulai = jalan
         for p in potongan:

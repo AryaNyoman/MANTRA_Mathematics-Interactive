@@ -3,51 +3,62 @@
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
   "latar": "air",
-  "catatan": "Vektor Materi 01, Angka saja tidak cukup. Video prioritas PERTAMA topik Vektor: ia membuka seluruh topik. Dikembangkan dari manim/contoh/contoh_perahu.py (lima segmen pertama) menjadi video penuh. SATU pasang angka dipakai sepanjang video, yaitu dayung 3 dan arus 4, supaya kasus sungainya sendiri sudah kasus tegak lurus yang hasilnya 5. Memutar arah dayung lalu memberi 7 dan 1 tanpa mengganti angkanya sama sekali. Segmen penutup mengulang kalimat sorot tahapnya kata per kata.",
+  "catatan": "Vektor Materi 01, Angka saja tidak cukup. Arah visual BARU (2 Sep sore, setelah ARYA menolak versi 3D penuh): 3D hanya di babak pembuka, sisanya bidang koordinat bernomor dengan kamera tegak lurus. Medan `layar` berisi bentuk TERTULIS (angka dan lambang), medan `teks` berisi bentuk TERUCAP untuk mesin suara. buat_subtitle.py belum membaca `layar`; usulnya sudah dicatat di PROGRESS.md untuk MASTER.",
   "segmen": [
     {
       "id": "sapa",
-      "teks": "Bayangkan sebuah perahu kecil di tepi sungai. Sungainya selebar tiga kilometer, dan kita ingin menyeberang ke tepi di seberang sana."
+      "teks": "Materi satu, angka saja tidak cukup. Bayangkan sebuah perahu kecil di tepi sungai. Sungainya selebar tiga kilometer, dan kita ingin menyeberang ke tepi seberang.",
+      "layar": "Materi 01, *Angka saja tidak cukup*. Bayangkan sebuah perahu kecil di tepi sungai. Sungainya selebar 3 km, dan kita ingin menyeberang ke tepi seberang."
     },
     {
       "id": "terbang",
-      "teks": "Supaya jelas ke mana perahu ini bergerak, coba kita lihat dari atas, seperti membaca peta."
+      "teks": "Supaya bisa kita ukur, sungai itu kita lihat dari atas, dan kita pasang petak koordinat di atasnya.",
+      "layar": "Supaya bisa kita *ukur*, sungai itu kita lihat dari atas, dan kita pasang petak koordinat di atasnya."
     },
     {
       "id": "dayung",
-      "teks": "Kita mendayung lurus ke seberang, sejauh tiga kilometer. Perhatikan panah biru ini: arahnya melintang, panjangnya tiga."
+      "teks": "Perahu didayung lurus ke seberang, sejauh tiga kilometer. Panah biru ini naik tiga petak, dan tidak bergeser ke samping sedikit pun. Kita tulis nol koma tiga.",
+      "layar": "Perahu didayung lurus ke seberang, sejauh 3 km. Panah biru ini naik *3 petak*, dan tidak bergeser ke samping sedikit pun. Kita tulis (0, 3)."
     },
     {
       "id": "arus",
-      "teks": "Tetapi sungai punya arus. Arus mendorong perahu ke hilir sejauh empat kilometer. Panah merah ini searah sungai, panjangnya empat."
+      "teks": "Tetapi sungai punya arus. Arus mendorong perahu ke hilir sejauh empat kilometer. Panah merah ini bergeser empat petak ke kanan, dan tidak naik sama sekali. Kita tulis empat koma nol.",
+      "layar": "Tetapi sungai punya arus. Arus mendorong perahu ke hilir sejauh 4 km. Panah merah ini bergeser *4 petak* ke kanan, dan tidak naik sama sekali. Kita tulis (4, 0)."
     },
     {
       "id": "resultan",
-      "teks": "Kedua dorongan itu bekerja bersamaan. Jadi perahu tidak menempuh panah biru saja, dan tidak panah merah saja, melainkan panah ungu ini."
+      "teks": "Keduanya bekerja bersamaan. Jadi perahu tidak menempuh panah biru saja, dan tidak panah merah saja, melainkan panah ungu ini: empat ke kanan, tiga ke atas.",
+      "layar": "Keduanya bekerja bersamaan. Jadi perahu tidak menempuh panah biru saja, dan tidak panah merah saja, melainkan *panah ungu* ini: 4 ke kanan, 3 ke atas."
     },
     {
       "id": "hilir",
-      "teks": "Lihat tempat mendaratnya, empat kilometer ke hilir, padahal haluannya tidak pernah dibelokkan. Dan jarak yang benar-benar ditempuh lima kilometer, bukan tujuh."
+      "teks": "Hitung sendiri dari petaknya. Perahu mendarat empat kilometer di hilir, padahal haluannya tidak pernah dibelokkan. Dan jarak yang benar-benar ditempuh lima kilometer, bukan tujuh.",
+      "layar": "Hitung sendiri dari petaknya. Perahu mendarat *4 km di hilir*, padahal haluannya tidak pernah dibelokkan. Dan jarak yang benar-benar ditempuh 5 km, bukan 7 km."
     },
     {
       "id": "tanya",
-      "teks": "Sekarang perhatikan baik-baik. Angkanya tetap tiga dan empat, tetapi arah dayung kita putar. Menurut Anda, hasilnya ikut berubah atau tidak?"
+      "teks": "Sekarang perhatikan baik-baik. Angkanya tetap tiga dan empat, tetapi arah dayungnya kita putar. Menurut Anda, hasilnya ikut berubah atau tidak?",
+      "layar": "Sekarang perhatikan baik-baik. Angkanya *tetap 3 dan 4*, tetapi arah dayungnya kita putar. Menurut Anda, hasilnya ikut berubah atau tidak?"
     },
     {
       "id": "searah",
-      "teks": "Kalau dayung diputar sampai searah arus, keduanya saling menambah. Panah ungunya memanjang menjadi tujuh kilometer."
+      "teks": "Kalau dayung diputar sampai searah arus, keduanya saling menambah. Panah ungunya memanjang menjadi tujuh petak.",
+      "layar": "Kalau dayung diputar sampai *searah* arus, keduanya saling menambah. Panah ungunya memanjang menjadi 7 petak."
     },
     {
       "id": "lawan",
-      "teks": "Kalau dayung diputar sampai melawan arus, keduanya saling mengurangi. Panah ungunya menyusut, sisanya tinggal satu kilometer."
+      "teks": "Kalau dayung diputar sampai melawan arus, keduanya saling mengurangi. Panah ungunya menyusut, sisanya tinggal satu petak.",
+      "layar": "Kalau dayung diputar sampai *melawan* arus, keduanya saling mengurangi. Panah ungunya menyusut, sisanya tinggal 1 petak."
     },
     {
       "id": "tegak",
-      "teks": "Dan kalau dayung kembali tegak lurus seperti semula, hasilnya lima kilometer. Angka yang sama, tiga dan empat, ternyata bisa memberi tujuh, satu, atau lima."
+      "teks": "Dan kalau dayung kembali tegak lurus seperti semula, hasilnya lima. Angka yang sama, tiga dan empat, ternyata bisa memberi tujuh, satu, atau lima.",
+      "layar": "Dan kalau dayung kembali *tegak lurus* seperti semula, hasilnya 5. Angka yang sama, 3 dan 4, ternyata bisa memberi 7, 1, atau 5."
     },
     {
       "id": "tutup",
-      "teks": "Yang membedakan hanya arah. Besaran yang butuh arah itulah yang disebut vektor. Yang cukup satu angka disebut skalar."
+      "teks": "Yang membedakan hanya arah. Besaran yang butuh arah itulah yang disebut vektor. Yang cukup satu angka disebut skalar.",
+      "layar": "Yang membedakan hanya *arah*. Besaran yang butuh arah itulah yang disebut *VEKTOR*. Yang cukup satu angka disebut *skalar*."
     }
   ]
 }

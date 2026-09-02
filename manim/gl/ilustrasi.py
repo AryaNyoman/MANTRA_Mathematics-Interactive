@@ -217,5 +217,13 @@ def bidang_bernomor(x_range=(-6.0, 6.0, 1.0), y_range=(-4.0, 4.0, 1.0),
     # membuat gambarnya bisa diperiksa siswa.
     angka = bidang.add_coordinate_labels(font_size=ukuran_angka, num_decimal_places=0)
     angka.set_color(TINTA).set_opacity(0.75)
+
+    # WAJIB: NumberPlane menempatkan dirinya di TENGAH layar, bukan pada titik
+    # asal koordinatnya. Untuk jangkauan yang tidak simetris, misalnya x dari -5
+    # sampai 8, petak berlabel 0 jadi TIDAK berada di titik (0, 0) layar, dan
+    # semua panah yang digambar memakai koordinat layar akan meleset dari
+    # petaknya. Digeser di sini supaya koordinat bidang SAMA DENGAN koordinat
+    # layar, sehingga adegan boleh menulis np.array([4, 3, 0]) apa adanya.
+    bidang.shift(-bidang.c2p(0, 0))
     bidang.set_z(z)
     return bidang

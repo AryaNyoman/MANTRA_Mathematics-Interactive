@@ -1,0 +1,123 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/vektor1-perahu.json
+
+1
+00:00:00.000 --> 00:00:02.792
+Materi 01, <b>Angka saja tidak cukup</b>.
+
+2
+00:00:02.792 --> 00:00:06.488
+Bayangkan sebuah perahu kecil di tepi sungai.
+
+3
+00:00:06.488 --> 00:00:12.072
+Sungainya selebar 3 km, dan kita ingin menyeberang ke tepi seberang.
+
+4
+00:00:12.072 --> 00:00:15.870
+Supaya bisa kita <b>ukur</b>, sungai itu kita lihat dari atas,
+
+5
+00:00:15.870 --> 00:00:18.840
+dan kita pasang petak koordinat di atasnya.
+
+6
+00:00:18.840 --> 00:00:23.029
+Perahu didayung lurus ke seberang, sejauh 3 km.
+
+7
+00:00:23.029 --> 00:00:29.356
+Panah biru ini naik <b>3 petak</b>, dan tidak bergeser ke samping sedikit pun.
+
+8
+00:00:29.356 --> 00:00:30.960
+Kita tulis (0, 3).
+
+9
+00:00:30.960 --> 00:00:33.202
+Tetapi sungai punya arus.
+
+10
+00:00:33.202 --> 00:00:37.059
+Arus mendorong perahu ke hilir sejauh 4 km.
+
+11
+00:00:37.059 --> 00:00:43.338
+Panah merah ini bergeser <b>4 petak</b> ke kanan, dan tidak naik sama sekali.
+
+12
+00:00:43.338 --> 00:00:44.952
+Kita tulis (4, 0).
+
+13
+00:00:44.952 --> 00:00:47.136
+Keduanya bekerja bersamaan.
+
+14
+00:00:47.136 --> 00:00:52.878
+Jadi perahu tidak menempuh panah biru saja, dan tidak panah merah saja,
+
+15
+00:00:52.878 --> 00:00:56.760
+melainkan <b>panah ungu</b> ini: 4 ke kanan, 3 ke atas.
+
+16
+00:00:56.760 --> 00:00:59.122
+Hitung sendiri dari petaknya.
+
+17
+00:00:59.122 --> 00:01:05.067
+Perahu mendarat <b>4 km di hilir</b>, padahal haluannya tidak pernah dibelokkan.
+
+18
+00:01:05.067 --> 00:01:09.384
+Dan jarak yang benar-benar ditempuh 5 km, bukan 7 km.
+
+19
+00:01:09.384 --> 00:01:11.909
+Sekarang perhatikan baik-baik.
+
+20
+00:01:11.909 --> 00:01:16.708
+Angkanya <b>tetap 3 dan 4</b>, tetapi arah dayungnya kita putar.
+
+21
+00:01:16.708 --> 00:01:20.664
+Menurut Anda, hasilnya ikut berubah atau tidak?
+
+22
+00:01:20.664 --> 00:01:25.700
+Kalau dayung diputar sampai <b>searah</b> arus, keduanya saling menambah.
+
+23
+00:01:25.700 --> 00:01:28.752
+Panah ungunya memanjang menjadi 7 petak.
+
+24
+00:01:28.752 --> 00:01:33.975
+Kalau dayung diputar sampai <b>melawan</b> arus, keduanya saling mengurangi.
+
+25
+00:01:33.975 --> 00:01:37.608
+Panah ungunya menyusut, sisanya tinggal 1 petak.
+
+26
+00:01:37.608 --> 00:01:43.605
+Dan kalau dayung kembali <b>tegak lurus</b> seperti semula, hasilnya 5.
+
+27
+00:01:43.605 --> 00:01:49.320
+Angka yang sama, 3 dan 4, ternyata bisa memberi 7, 1, atau 5.
+
+28
+00:01:49.320 --> 00:01:51.444
+Yang membedakan hanya <b>arah</b>.
+
+29
+00:01:51.444 --> 00:01:55.457
+Besaran yang butuh arah itulah yang disebut <b>VEKTOR</b>.
+
+30
+00:01:55.457 --> 00:01:58.368
+Yang cukup satu angka disebut <b>skalar</b>.
