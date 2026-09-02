@@ -19,121 +19,149 @@ lalu mengukur lima botol dari masing-masing.
 Ini hasilnya.
 
 5
-00:00:12.048 --> 00:00:15.503
+00:00:12.048 --> 00:00:15.530
 Rata-rata keduanya 500 ml, sama persis.
 
 6
-00:00:15.503 --> 00:00:21.706
-Kalau pabrik cuma melihat rata-rata, kedua mesin ini <b>lulus dua-duanya</b>.
+00:00:15.530 --> 00:00:18.743
+Kalau pabrik cuma melihat rata-rata,
 
 7
-00:00:21.706 --> 00:00:23.832
-Tetapi lihat sebarannya.
+00:00:18.743 --> 00:00:21.689
+kedua mesin ini <b>lulus dua-duanya</b>.
 
 8
-00:00:23.832 --> 00:00:29.211
-Jadi yang harus diukur bukan pusatnya, melainkan <b>jaraknya ke pusat</b>.
+00:00:21.689 --> 00:00:23.832
+Tetapi lihat sebarannya.
 
 9
-00:00:29.211 --> 00:00:32.101
-Kita gambar jarak tiap botol ke 500.
+00:00:23.832 --> 00:00:26.904
+Jadi yang harus diukur bukan pusatnya,
 
 10
-00:00:32.101 --> 00:00:35.232
-Punya Mesin B jelas jauh lebih panjang.
+00:00:26.904 --> 00:00:29.168
+melainkan <b>jaraknya ke pusat</b>.
 
 11
-00:00:35.232 --> 00:00:39.398
-Cara paling wajar: jumlahkan semua jarak itu.
+00:00:29.168 --> 00:00:32.079
+Kita gambar jarak tiap botol ke 500.
 
 12
-00:00:39.398 --> 00:00:40.598
-Gagal total.
+00:00:32.079 --> 00:00:35.232
+Punya Mesin B jelas jauh lebih panjang.
 
 13
-00:00:40.598 --> 00:00:47.726
-Yang di kiri bertanda minus, yang di kanan plus, dan mereka <b>saling menghapus</b>.
+00:00:35.232 --> 00:00:39.426
+Cara paling wajar: jumlahkan semua jarak itu.
 
 14
-00:00:47.726 --> 00:00:48.840
-Dua-duanya 0.
+00:00:39.426 --> 00:00:40.626
+Gagal total.
 
 15
+00:00:40.626 --> 00:00:45.100
+Yang di kiri bertanda minus, yang di kanan plus,
+
+16
+00:00:45.100 --> 00:00:47.710
+dan mereka <b>saling menghapus</b>.
+
+17
+00:00:47.710 --> 00:00:48.840
+Dua-duanya 0.
+
+18
 00:00:48.840 --> 00:00:51.506
 Yang merusak adalah tanda minusnya.
 
-16
+19
 00:00:51.506 --> 00:00:55.161
 Jadi tanda itu kita buang dengan <b>mengkuadratkan</b>.
 
-17
+20
 00:00:55.161 --> 00:01:00.264
 Dan kuadrat punya arti gambar: tiap jarak jadi sisi sebuah persegi.
 
-18
+21
 00:01:00.264 --> 00:01:03.144
 Sekarang bandingkan luasnya.
 
-19
+22
 00:01:03.144 --> 00:01:06.950
 Mesin A mengumpulkan 10, Mesin B 250.
 
-20
+23
 00:01:06.950 --> 00:01:11.784
 Bedanya bukan lagi tipis, tetapi <b>25 kali lipat</b>.
 
-21
-00:01:11.784 --> 00:01:17.548
-Dibagi banyak botolnya, tersisa satu persegi rata-rata untuk tiap mesin.
+24
+00:01:11.784 --> 00:01:13.652
+Dibagi banyak botolnya,
 
-22
-00:01:17.548 --> 00:01:22.992
-Angka inilah yang disebut <b>varian</b>: 2 untuk Mesin A, 50 untuk Mesin B.
+25
+00:01:13.652 --> 00:01:17.550
+tersisa satu persegi rata-rata untuk tiap mesin.
 
-23
+26
+00:01:17.550 --> 00:01:21.611
+Angka inilah yang disebut <b>varian</b>: 2 untuk Mesin A,
+
+27
+00:01:21.611 --> 00:01:22.992
+50 untuk Mesin B.
+
+28
 00:01:22.992 --> 00:01:24.650
 Perhatikan satu hal.
 
-24
+29
 00:01:24.650 --> 00:01:29.955
 Botol yang meleset 10 jaraknya cuma 2 kali botol yang meleset 5.
 
-25
+30
 00:01:29.955 --> 00:01:32.856
 Tetapi perseginya <b>empat kali lipat</b>.
 
-26
-00:01:32.856 --> 00:01:34.260
+31
+00:01:32.856 --> 00:01:34.269
 Tinggal satu cacat.
 
-27
-00:01:34.260 --> 00:01:38.914
-Varian bersatuan ml², dan tidak ada yang bisa membayangkan itu.
+32
+00:01:34.269 --> 00:01:35.831
+Varian bersatuan ml²,
 
-28
-00:01:38.914 --> 00:01:42.313
+33
+00:01:35.831 --> 00:01:38.880
+dan tidak ada yang bisa membayangkan itu.
+
+34
+00:01:38.880 --> 00:01:42.301
 Jadi kita <b>akarkan</b>, kembali ke sisi perseginya.
 
-29
-00:01:42.313 --> 00:01:44.160
+35
+00:01:42.301 --> 00:01:44.160
 √2 = 1,41 dan √50 = 7,07.
 
-30
-00:01:44.160 --> 00:01:48.518
+36
+00:01:44.160 --> 00:01:48.556
 Barulah angkanya bisa dibaca sebagai kalimat.
 
-31
-00:01:48.518 --> 00:01:55.200
-Isi botol Mesin A biasanya meleset 1,41 ml dari 500, Mesin B 7,07 ml.
+37
+00:01:48.556 --> 00:01:53.637
+Isi botol Mesin A biasanya meleset 1,41 ml dari 500,
 
-32
+38
+00:01:53.637 --> 00:01:55.200
+Mesin B 7,07 ml.
+
+39
 00:01:55.200 --> 00:01:56.993
 Dan itulah jawabannya.
 
-33
+40
 00:01:56.993 --> 00:02:01.392
 Botol berlabel 500 ml dari Mesin B bisa berisi 490 ml,
 
-34
+41
 00:02:01.392 --> 00:02:04.896
 dan pembeli menerima <b>botol yang kurang isi</b>.

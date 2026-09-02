@@ -11,11 +11,11 @@ dipakai untuk mengembalikan satuannya.
 TATA LETAK, keputusan ARYA 2 Sep 2026 malam:
 - Tidak ada keterangan di bawah layar. Jalur itu milik subtitle, dan menulis
   ulang kalimat di sana berarti dua kalimat berbeda untuk satu maksud yang sama.
-- Kiri atas: PAPAN RUMUS yang tumbuh. Rumus dibangun di depan mata, sepotong
+- Kanan atas: PAPAN RUMUS yang tumbuh (zona rumus standar v2). Rumus dibangun di depan mata, sepotong
   demi sepotong, dan tiap pertumbuhan diberi satu kata yang menyebut operasinya
   supaya siswa tahu potongan baru itu datang dari mana. Rantainya:
       x - x̄  →  Σ(x - x̄) = 0  →  (x - x̄)²  →  Σ(x - x̄)²  →  Σ(x - x̄)²/n  →  akarnya
-- Kanan atas: panel ANGKA hasil hitungan.
+- Kiri atas: identitas benda, menetap sepanjang video.
 - Dunia digeser turun supaya jalur teks di atas benar-benar kosong, dan seluruh
   panel diperiksa SILANG terhadap seluruh benda dunia oleh qc.
 
@@ -116,6 +116,8 @@ class Simpangan8(AdeganMatra):
         # pasangannya tidak saya tuliskan. Yang ditambahkan ke sini akan diperiksa
         # silang terhadap segalanya, tanpa perlu diingat lagi.
         DUNIA, HUD = {}, {}
+        HUD["identitas"] = sinema.identitas(self, "5 botol tiap mesin",
+                                            "botol berlabel 500 ml")
 
         def periksa(pasangan=None):
             hidup_d = {k: v for k, v in DUNIA.items() if v is not None}
@@ -161,7 +163,8 @@ class Simpangan8(AdeganMatra):
         nama_b = tegak(teks("Mesin B", 23, AKSEN)).move_to([-2.15, 0, Z_GARIS_B + 0.22])
 
         garis_mean = ilustrasi.balok(0.05, 0.4, 1.30, SOROT).shift([0, 0, Z_ANGKA + 0.16])
-        l_mean = tegak(teks("500", 21, SOROT)).move_to([0.58, 0, Z_GARIS_A + 0.26])
+        l_mean = tegak(rumus(r"\bar{x}_A = \bar{x}_B = 500", 22, SOROT))
+        l_mean.move_to([1.35, 0, Z_GARIS_A + 0.30])
 
         # ------------------------------------------------------------------
         # Babak 1: dunia dulu, miring dan dekat, lalu SATU gerakan ke pandangan datar.
@@ -186,17 +189,12 @@ class Simpangan8(AdeganMatra):
         # ------------------------------------------------------------------
         # Babak 2: pusatnya sama. Inilah jebakan soalnya.
         # ------------------------------------------------------------------
-        panel_mean = rumus(r"\bar{x}_A = \bar{x}_B = 500", 30, SOROT).to_corner(UR, buff=0.5)
         with sinema.babak(self, "sama", DURASI) as b:
             garis_mean.set_opacity(0)
             self.add(garis_mean)
             b.main(garis_mean.animate.set_opacity(1), run_time=1.2)
             DUNIA["label 500"] = l_mean
             b.main(FadeIn(l_mean), run_time=0.8)
-            HUD["panel mean"] = panel_mean
-            self.hud_tambah(panel_mean)
-            panel_mean.set_opacity(0)
-            b.main(panel_mean.animate.set_opacity(1), run_time=0.8)
             b.main(Indicate(botol_a[2], scale_factor=1.6, color=SOROT),
                    Indicate(botol_b[2], scale_factor=1.6, color=SOROT), run_time=1.4)
             b.main(kamera.dekati(frame, [0, 0, 1.45], 6.2), run_time=2.4)
@@ -224,7 +222,7 @@ class Simpangan8(AdeganMatra):
             t.move_to(g.get_center() + OUT * 0.26)
 
         with sinema.babak(self, "simpangan", DURASI) as b:
-            papan.tumbuh(r"x - \bar{x}", "jarak ke rata-rata")
+            papan.tumbuh(r"x - \bar{x}", "jaraknya")
             b.catat(LAMA_TUMBUH)
             DUNIA.update({"bilah A": bilah_a, "bilah B": bilah_b})
             b.main(LaggedStartMap(FadeIn, bilah_a, lag_ratio=0.2), run_time=1.7)
@@ -248,7 +246,7 @@ class Simpangan8(AdeganMatra):
             return gerak
 
         with sinema.babak(self, "nol", DURASI) as b:
-            papan.tumbuh(r"\sum (x - \bar{x}) = 0", "dijumlahkan: selalu nol")
+            papan.tumbuh(r"\sum (x - \bar{x}) = 0", "dijumlahkan")
             b.catat(LAMA_TUMBUH)
             b.main(*hapus_pasangan(bilah_a, tanda_a, Z_BARIS_A),
                    *hapus_pasangan(bilah_b, tanda_b, Z_BARIS_B), run_time=3.4)
@@ -284,21 +282,15 @@ class Simpangan8(AdeganMatra):
         # ------------------------------------------------------------------
         # Babak 6: luasnya dijumlahkan.
         # ------------------------------------------------------------------
-        panel_jum_a = rumus(r"A:\ 10", 30, AKSEN2)
-        panel_jum_b = rumus(r"B:\ 250", 30, AKSEN)
-        panel_jum_a.next_to(panel_mean, DOWN, buff=0.34).align_to(panel_mean, RIGHT)
-        panel_jum_b.next_to(panel_jum_a, DOWN, buff=0.30).align_to(panel_mean, RIGHT)
 
         with sinema.babak(self, "luas", DURASI) as b:
             papan.tumbuh(r"\sum (x - \bar{x})^2", "luasnya dijumlahkan")
             b.catat(LAMA_TUMBUH)
             b.main(FadeIn(nilai_a), FadeIn(nilai_b), run_time=1.2)
-            HUD.update({"panel A": panel_jum_a, "panel B": panel_jum_b})
-            for p in (panel_jum_a, panel_jum_b):
-                self.hud_tambah(p)
-                p.set_opacity(0)
-            b.main(panel_jum_a.animate.set_opacity(1), run_time=1.0)
-            b.main(panel_jum_b.animate.set_opacity(1), run_time=1.0)
+            papan.baris(r"A:\ 10", AKSEN2)
+            b.catat(0.8)
+            papan.baris(r"B:\ 250", AKSEN)
+            b.catat(0.8)
             b.jeda(1.6)
         periksa()
 
@@ -314,7 +306,7 @@ class Simpangan8(AdeganMatra):
         l_var_b = tegak(rumus("50", 24, LATAR)).move_to(var_b.get_center())
 
         with sinema.babak(self, "varian", DURASI) as b:
-            papan.tumbuh(r"\frac{\sum (x - \bar{x})^2}{n}", "dibagi n: varian")
+            papan.tumbuh(r"\frac{\sum (x - \bar{x})^2}{n}", "dibagi n")
             b.catat(LAMA_TUMBUH)
             b.main(FadeOut(nilai_a), FadeOut(nilai_b), run_time=0.6)
             b.main(ReplacementTransform(persegi_a, VGroup(var_a)),
@@ -352,28 +344,23 @@ class Simpangan8(AdeganMatra):
         # ------------------------------------------------------------------
         # Babak 9: akar. Satuannya kembali ke ml.
         # ------------------------------------------------------------------
-        panel_akar = rumus(r"\sqrt{2} = 1{,}41", 28, AKSEN2)
-        panel_akar2 = rumus(r"\sqrt{50} = 7{,}07", 28, AKSEN)
-        panel_akar.to_corner(UR, buff=0.5).shift(DOWN * 1.15)
-        panel_akar2.to_corner(UR, buff=0.5).shift(DOWN * 1.85)
         sd_a = kotak(1.41 * SKALA, AKSEN2).move_to([-1.5, 0, Z_BARIS_A + 1.41 * SKALA / 2])
         sd_b = kotak(7.07 * SKALA, AKSEN).move_to([1.5, 0, Z_BARIS_B + 7.07 * SKALA / 2])
+        l_sd_a = tegak(rumus(r"\sqrt{2} = 1{,}41", 21, AKSEN2))
+        l_sd_a.move_to(sd_a.get_center() + OUT * (1.41 * SKALA / 2 + 0.30))
+        l_sd_b = tegak(rumus(r"\sqrt{50} = 7{,}07", 21, AKSEN))
+        l_sd_b.move_to(sd_b.get_center() + OUT * (7.07 * SKALA / 2 + 0.30))
 
         with sinema.babak(self, "akar", DURASI) as b:
-            papan.tumbuh(r"\sqrt{\frac{\sum (x - \bar{x})^2}{n}}", "diakarkan: satuan ml")
+            papan.tumbuh(r"\sqrt{\frac{\sum (x - \bar{x})^2}{n}}", "diakarkan")
             b.catat(LAMA_TUMBUH)
             b.main(FadeOut(VGroup(*kecil)), FadeOut(awal), FadeOut(l_s5),
                    FadeOut(besar), FadeOut(l_s10), run_time=1.0)
             DUNIA["persegi besar"] = None
-            DUNIA.update({"kotak A": sd_a, "kotak B": sd_b})
-            b.main(FadeIn(sd_a), FadeIn(sd_b), run_time=1.2)
-            for p in (panel_akar, panel_akar2):
-                self.hud_tambah(p)
-                p.set_opacity(0)
-            b.main(panel_akar.animate.set_opacity(1), panel_akar2.animate.set_opacity(1),
-                   FadeOut(panel_jum_a), FadeOut(panel_jum_b), run_time=1.2)
-            HUD["panel A"] = HUD["panel B"] = None
-            HUD.update({"panel akar": panel_akar, "panel akar 2": panel_akar2})
+            DUNIA.update({"kotak A": sd_a, "kotak B": sd_b,
+                          "label akar A": l_sd_a, "label akar B": l_sd_b})
+            b.main(FadeIn(sd_a), FadeIn(sd_b), run_time=1.4)
+            b.main(FadeIn(l_sd_a), FadeIn(l_sd_b), run_time=1.2)
             b.jeda(1.6)
         periksa()
 
@@ -384,12 +371,14 @@ class Simpangan8(AdeganMatra):
         pita_b = pita_datar(2 * 7.07 * SKALA, 0.48, AKSEN).move_to([0, 0, Z_GARIS_B + 0.19])
 
         with sinema.babak(self, "baca", DURASI) as b:
-            b.main(FadeOut(sd_a), FadeOut(sd_b), FadeOut(l_mean), run_time=0.8)
+            b.main(FadeOut(sd_a), FadeOut(sd_b), FadeOut(l_mean),
+                   FadeOut(l_sd_a), FadeOut(l_sd_b), run_time=0.8)
             # Persegi sudah selesai tugasnya dan separuh bawah layar jadi kosong.
             # Kamera turun ke kedua garis supaya lebar kedua pita bisa dibandingkan
             # dengan mata, bukan dengan mengingat angka di panel.
             b.main(kamera.dekati(frame, [0, 0, 2.72], 3.6), run_time=3.4)
             DUNIA["kotak A"] = DUNIA["kotak B"] = DUNIA["label 500"] = None
+            DUNIA["label akar A"] = DUNIA["label akar B"] = None
             DUNIA.update({"pita A": pita_a, "pita B": pita_b})
             b.main(GrowFromCenter(pita_a), run_time=1.4)
             b.main(GrowFromCenter(pita_b), run_time=1.4)
