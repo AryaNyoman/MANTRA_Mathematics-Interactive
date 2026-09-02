@@ -22,20 +22,30 @@ dipakai menilai: `docs/tugas/STANDAR-MENGAJAR.md`. Baca itu SEBELUM menulis
 naskah video, sebab narasi video adalah bentuk paling murni dari "guru
 menjelaskan".
 
-## Bergiliran memakai laptop yang sama (BARU, 2 Sep)
-Lima sesi berbagi satu prosesor dan satu peramban Playwright. Tabrakan yang
-sudah terjadi: potret nyasar antar sesi, port saling ambil, render berebut
-prosesor. Aturannya:
+## VIDEO SEJAK 2 SEP SIANG: ManimGL, bukan Manim Community (BARU, WAJIB)
+Keputusan ARYA: Manim Community DICABUT dari laptop ini. Semua video baru dibuat
+dengan **ManimGL 1.7.2** lewat perkakas bersama `manim/gl/`. Sebelum menyentuh
+video, baca berurutan:
+1. `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md`: delapan aturan ya/tidak (benda nyata
+   3D bercahaya, kamera dari dunia ke peta, rumus di atas gambar, Constantia +
+   LaTeX, gerbang mutu).
+2. `docs/tugas/ILMU-3B1B.md`: enam prinsip 3b1b dan PETA NAMA dari Manim
+   Community ke ManimGL (`MathTex` jadi `rumus()`, `Create` jadi `ShowCreation`, dst).
+3. `manim/contoh/contoh_perahu.py`: contoh rujukan yang sudah lolos gerbang.
+Kode lama di `manim/arsip-manim-ce/` TIDAK bisa dijalankan dan JANGAN dicontoh.
+Pemanasan wajib sekali: `manimgl manim/uji/uji_ilustrasi_gl.py Etalase -w -l`
+lalu buka `media/gl/Etalase.mp4`, supaya kamu tahu perkakasnya jalan di worktree-mu.
 
-1. **Render Manim WAJIB lewat antrean**, jangan pernah memanggil `manim`
-   langsung:
-   ```bash
-   python alat/antre_render.py <nama-sesi> -- manim -ql --disable_caching manim/scenes/<berkas>.py <Adegan>
-   ```
-   Alat itu menunggu kalau sesi lain sedang merender (melapor tiap 20 detik),
-   lalu mengunci giliranmu, dan melepasnya saat selesai. Lihat siapa yang
-   sedang merender: `python alat/antre_render.py --siapa`. Sambil menunggu,
-   kerjakan hal lain (naskah, cek_kode, subtitle), jangan diam.
+## Bergiliran memakai laptop yang sama (2 Sep, DIPERBARUI siang)
+Lima sesi berbagi satu laptop dan satu peramban Playwright. Tabrakan yang
+sudah terjadi: potret nyasar antar sesi, port saling ambil. Aturannya:
+
+1. **Render ManimGL boleh paralel.** Terbukti 2 Sep: 1 render 15 detik, 5
+   serentak 27 detik, 8 serentak 43 detik, semua sukses (kartu grafis yang
+   menggambar). Antrean `alat/antre_render.py` TIDAK wajib lagi; panggil
+   `manimgl` langsung: `manimgl manim/scenes/<berkas>.py <Adegan> -w -l`.
+   Adegan berat (air hidup) sekitar 5 frame per detik: video 2 menit sekitar
+   8 menit sendirian, mungkin 15 sampai 20 menit kalau lima sesi bersamaan.
 2. `next build` jangan dijalankan berbarengan dengan render milikmu sendiri.
 3. Yang TIDAK perlu antre: `buat_narasi.py` (jaringan), `tsc`, `cek_kode.py`,
    Playwright (asal `-s=<nama>`), dev server (port sendiri).
@@ -48,11 +58,14 @@ Jangan mengerjakan dengan tangan apa yang sudah ada alatnya:
 - Angka: pemeriksa dua arah milikmu (`alat/cek_<topik>.py`), sympy.
 - Naskah video: skill `superpowers:brainstorming` untuk storyboard, lalu
   `manim/buat_narasi.py` (edge-tts, mengukur durasi tiap segmen).
-- Adegan: `manim/sinema.py` (babak yang gagal kalau melewati narasi),
-  `manim/qc.py` (gagal kalau ada yang bertindih atau keluar bingkai),
-  `manim/cek_kode.py --dalam` sebelum render.
-- Setelah render: `manim/cek_video.py` lalu BUKA lembar kontaknya frame per
-  frame; `manim/buat_subtitle.py`; `manim/gabung_audio.py --uji` untuk 480p.
+- Adegan (ManimGL): `manim/gl/` = `tema` (AdeganMatra, teks, rumus), `sinema`
+  (babak yang gagal kalau melewati narasi, keterangan, AngkaKoma), `kamera`
+  (dunia_ke_peta, dekati, putar_pelan), `ilustrasi` (air, tanah, perahu, mobil,
+  orang, bola, balok, silinder), `qc` (gagal kalau bertindih atau keluar bingkai,
+  sadar sudut kamera). `manim/cek_kode.py --dalam` sebelum render.
+- Setelah render: `manim/cek_video.py media/gl/<Adegan>.mp4` lalu BUKA lembar
+  kontaknya frame per frame; `manim/buat_subtitle.py`; `manim/gabung_audio.py
+  <topik> <Adegan> --uji` untuk 480p (suara latar dari kunci `"latar"` di naskah).
 - Halaman: `playwright-cli -s=<nama>` di 375 dan 1366, skill
   `web-interface-guidelines` kalau menyentuh tata letak.
 - Sebelum lapor: `superpowers:verification-before-completion`.
@@ -97,10 +110,11 @@ Butuh perubahan di file yang bukan milikmu? Tulis di laporanmu bagian
 ## Alur gelombang (keputusan ARYA, 1 Sep 2026)
 1. **Gelombang 1: halaman.** SELESAI untuk kelima sesi.
 2. ARYA meninjau, MASTER menggabungkan dan deploy.
-3. **Gelombang 2: video 480p** untuk direvisi ARYA. Hanya atas perintah ARYA.
-   Resepnya di `PROGRESS.md` bagian "Resep lengkap": naskah, `buat_narasi.py`,
-   adegan Manim dengan `sinema.babak`, `cek_kode.py`, render `-ql`, lalu
-   BUKA lembar kontak `cek_video.py` dan nilai tiap frame.
+3. **Gelombang 2: video 480p** untuk direvisi ARYA, dengan ManimGL (sejak 2 Sep
+   siang). Resepnya di `PROGRESS.md` bagian "Resep lengkap": storyboard sesuai
+   `STANDAR-ILUSTRASI-VIDEO.md`, naskah, `buat_narasi.py`, adegan `AdeganMatra`
+   dengan `sinema.babak`, `cek_kode.py`, render `manimgl -w -l`, lalu BUKA
+   lembar kontak `cek_video.py` dan nilai tiap frame, `gabung_audio.py --uji`.
 4. **Gelombang 3: render 1080p60 sekaligus** setelah revisi video beres.
 
 ## Perkakas wajib (BARU: tiga aturan diperbaiki)
