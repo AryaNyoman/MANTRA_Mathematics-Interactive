@@ -1,7 +1,7 @@
-# PROGRESS: MATRA
+# PROGRESS: MANTRA (dulu MATRA)
 
 > **SESI BARU: baca berkas ini dari atas sampai bawah SEBELUM mengerjakan apa pun.**
-> Terakhir diperbarui: **2 September 2026** (akhir sesi 6).
+> Terakhir diperbarui: **3 September 2026 sore**.
 >
 > **SITUS SUDAH TAYANG: https://matra-eight.vercel.app** (bisa dibuka siapa pun,
 > tanpa login). Baca bagian "Deploy Vercel" di bawah sebelum menyentuh deploy.
@@ -13,8 +13,8 @@
 ## Ringkas
 | | |
 |---|---|
-| Tahap sekarang | **ENAM topik tayang. Trigonometri dan Limit lengkap dengan video.** |
-| Yang tersisa | **Gelombang 2 berjalan di 5 sesi**: revisi isi dari MASTER lalu video 480p. ARYA meninjau visual sambil jalan. Enam topik SUDAH TAYANG |
+| Tahap sekarang | **ENAM topik tayang** (Trigonometri dan Limit lengkap dengan video). Topik ketujuh, Transformasi Geometri, baru dimulai. Tampilan sedang dirombak jadi MANTRA di cabang `sesi/mantra` |
+| Yang tersisa | **Gelombang 2 berjalan di 6 sesi**: revisi isi dari MASTER lalu video 480p. MASTER mengerjakan rombakan tampilan MANTRA. ARYA meninjau sambil jalan |
 | Alamat tayang | https://matra-eight.vercel.app |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md`<br>`docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`<br>`docs/superpowers/plans/2026-09-01-topik-limit.md` |
 | Tenggat | 12 September 2026 |
@@ -22,6 +22,53 @@
 | Penghalang | *(tidak ada)* |
 
 ## 🧭 MULAI DARI SINI (sesi berikutnya, ditulis 2 Sep 2026)
+
+### ⚠️ 3 SEP SORE: nama situs jadi MANTRA, dan ada topik ketujuh
+
+**Baca tiga butir ini sebelum menyentuh apa pun.**
+
+**1. Situsnya sekarang bernama MANTRA, bukan MATRA.** Yang berganti hanya nama
+yang DILIHAT pengguna: judul halaman, logo, nav, metadata. Yang SENGAJA tidak
+diganti: nama folder `D:\MANIM-MATRA`, nama cabang `sesi/*`, alamat Vercel
+`matra-eight.vercel.app`, dan kunci localStorage `matra:*`. Mengganti kunci
+localStorage menghapus kemajuan siswa yang sudah tersimpan, dan mengganti
+alamat Vercel memutus tautan yang sudah disebar. Jangan "merapikan" ini.
+
+**2. Topik KETUJUH: Transformasi Geometri.** ARYA membuat worktree
+`.claude/worktrees/mantra-transformasi-geometri` pada cabang
+`sesi/transformasi-geometri`. Topik baru wajib didaftarkan di TIGA berkas:
+`web/content/topik.ts`, `web/content/daftar-isi.ts`, dan `web/content/subbab.ts`
+(pemetaan Bab dan Sub-bab). Kalau `subbab.ts` terlewat, topiknya tidak akan
+muncul di Peta Materi walaupun halamannya jadi.
+
+**3. JANGAN SENTUH berkas tampilan berikut sampai `sesi/mantra` digabung.**
+Perombakan rancangan MANTRA sedang berjalan di worktree `mantra`, dan berkas
+di bawah ditulis ulang seluruhnya. Mengubahnya sekarang berarti konflik besar
+yang harus diselesaikan tangan:
+
+| Berkas | Milik |
+|---|---|
+| `web/app/globals.css` | MASTER (sesi/mantra) |
+| `web/app/page.tsx`, `web/app/tentang/page.tsx`, `web/app/peta-materi/page.tsx` | MASTER |
+| `web/app/layout.tsx`, `web/components/Nav.tsx`, `web/components/Demo.tsx` | MASTER |
+| `web/components/mantra/*` (termasuk `Kaki.tsx`) | MASTER |
+| `web/components/topik/HalamanTopik.tsx` | MASTER |
+| `web/components/latihan/*` | MASTER |
+| `web/content/subbab.ts` | MASTER, KECUALI menambah satu entri Bab untuk topik baru |
+
+Yang tetap milik tiap sesi: `manim/scenes/<topik>*.py`, `web/content/<topik>/`,
+widget topiknya sendiri, dan `web/public/anim/` untuk berkas videonya.
+
+**Aturan tata letak baru yang berlaku untuk SEMUA halaman:** lebar wadah
+halaman DILARANG dipatok piksel (`max-width: 1120px` dan sejenisnya). Pakai
+`padding: 0 var(--tepi)`. Patokan piksel tidak ikut berubah saat peramban
+di-zoom keluar, sehingga isi halaman menciut ke tengah dan kiri kanan layar
+kosong. ARYA menemukannya 3 Sep 2026 di halaman materi.
+
+**Kebersihan worktree:** worktree liar `lokasi-kerja-eca82e` dihapus 3 Sep
+(bersih, cabangnya nol commit unik terhadap `sesi/ruang-3d`). Foldernya masih
+tertinggal kosong karena ada proses yang memegangnya; hapus manual kalau
+mengganggu. Empat cabang `claude/*` sisa sesi lama masih ada dan tidak dipakai.
 
 ### Keadaan dalam satu tarikan napas
 Enam topik TAYANG di https://matra-eight.vercel.app. Trigonometri dan Limit

@@ -1,8 +1,14 @@
-# MATRA: Matematika Interaktif
+# MANTRA: Matematika Interaktif
 
 Situs belajar matematika SMA: **animasi Manim** (menjelaskan *kenapa*) + **widget interaktif**
-(siswa mencoba sendiri). Terinspirasi anatomyatelier.vercel.app.
-Pemilik: ARYA. Tujuan terdekat: ditunjukkan ke dosen.
+(siswa mencoba sendiri). Pemilik: ARYA. Tujuan terdekat: ditunjukkan ke dosen.
+
+> **Namanya MANTRA sejak 3 Sep 2026, bukan lagi MATRA.** Yang berganti adalah
+> nama yang DILIHAT pengguna: judul halaman, logo, nav, metadata. Nama folder
+> (`D:\MANIM-MATRA`), nama cabang `sesi/*`, alamat Vercel `matra-eight`, dan
+> kunci localStorage `matra:*` SENGAJA dibiarkan. Mengganti kunci localStorage
+> akan menghapus kemajuan siswa yang sudah tersimpan, dan mengganti alamat
+> Vercel memutus tautan yang sudah disebar.
 
 > **Tenggat: 12 September 2026.** Baca `PROGRESS.md` DULU tiap sesi baru - di situ status harian,
 > keputusan yang sudah diambil, dan apa yang harus dikerjakan berikutnya.
@@ -27,7 +33,12 @@ Pemilik: ARYA. Tujuan terdekat: ditunjukkan ke dosen.
 | `alat/` | Alat bantu proyek di luar Manim, mis. pemeriksa jawaban soal |
 
 ## Aturan proyek (jangan dilanggar)
-- **6 topik**: trigonometri⭐, limit⭐, grafik fungsi, vektor, ruang 3D, statistika (⭐ = unggulan)
+- **7 topik**: trigonometri⭐, limit⭐, grafik fungsi, vektor, ruang 3D, statistika,
+  transformasi geometri (⭐ = unggulan). Transformasi geometri ditambahkan ARYA
+  3 Sep 2026 dan dikerjakan di worktree `mantra-transformasi-geometri`.
+  Topik baru WAJIB didaftarkan di TIGA tempat: `web/content/topik.ts`,
+  `web/content/daftar-isi.ts`, dan `web/content/subbab.ts` (pemetaan bab dan
+  sub-bab). Kalau `subbab.ts` terlewat, topiknya tidak muncul di Peta Materi.
 - **Semua huruf pakai LaTeX** (keputusan ARYA 2 Sep): rumus dan angka lewat
   `gl.rumus` (`Tex`), kata-kata lewat `gl.teks` (`TexText`). Bukan Typst, bukan
   `Text` Pango. `MathTex` dan `Text(color=)` dilarang (`cek_kode.py` menolaknya).
@@ -47,8 +58,16 @@ Pemilik: ARYA. Tujuan terdekat: ditunjukkan ke dosen.
   contoh) - bukan tembok paragraf. Tapi **isinya jangan dipangkas**.
 - **Kata "miskonsepsi" DILARANG muncul di halaman.** Itu istilah guru. Pakai
   "Sering keliru", dan taruh di BAWAH setelah siswa paham.
-- **Gaya visual terkunci: "Studio Teknis"** - patokannya `mockup/d-studio-teknis.html`,
-  daftar warna & font ada di `PROGRESS.md`. Jangan mengarang gaya baru per halaman.
+- **Gaya visual terkunci: rancangan MANTRA** (sejak 3 Sep 2026, menggantikan
+  "Studio Teknis"). Patokannya `docs/desain-mantra/MANTRA.dc.html` dan
+  `HANDOFF.md`. Huruf Newsreader (serif) + Space Grotesk (sans). Emas #B08A3E,
+  navy #101A2B, kertas #FAF9F5. Jangan mengarang gaya baru per halaman.
+- **Lebar halaman TIDAK BOLEH dipatok piksel.** Dilarang `max-width: <n>px`
+  pada wadah halaman. Pakai `padding: 0 var(--tepi)`. Sebabnya: patokan piksel
+  tidak ikut berubah saat peramban di-zoom keluar, sehingga isinya menciut ke
+  tengah dan kiri kanan layar kosong. (Temuan ARYA, 3 Sep 2026.)
+- **Kaki halaman satu komponen**: `web/components/mantra/Kaki.tsx`, dipasang
+  sebagai SAUDARA `<main>` di tiap halaman, bukan di dalamnya.
 - **JANGAN pakai tanda em-dash (-).** Aturan tetap dari ARYA, 1 Sep 2026, berlaku
   di proyek ini DAN proyek berikutnya. Pakai tanda baca lain: titik, koma, titik dua,
   tanda kurung, atau tanda hubung biasa. Berlaku untuk teks yang dilihat pengguna
