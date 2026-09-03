@@ -172,13 +172,25 @@ def mobil(panjang=2.0, warna=AKSEN, warna_roda=TINTA):
 
 
 def orang(tinggi=1.7, warna=TINTA):
-    """Orang batang bervolume: kepala, badan, dua lengan, dua kaki. Alas di z = 0."""
+    """Orang batang bervolume: kepala, badan, dua lengan, dua kaki. Alas di z = 0.
+
+    KAKI DIPERBAIKI 3 Sep 2026 (sesi Statistika, bukti `qc/uji-kaki*.png`).
+    Sebelumnya jari-jari kaki 0,045 x tinggi dan keduanya digeser ke arah
+    KEDALAMAN. Dua akibatnya, keduanya terlihat di 480p:
+      1. silinder setipis itu pecah jadi belasan helai di jala ManimGL, jadi
+         kaki terbaca seperti rumbai pel, bukan kaki;
+      2. digeser ke kedalaman berarti dari kamera depan kedua kaki bertumpuk,
+         padahal kaki orang berjajar kiri kanan.
+    Diuji tiga tebal kali dua arah: 0,060 berjajar KE SAMPING yang bersih dan
+    masih terbaca dua kaki. Lebar benda praktis tidak berubah (lengan di
+    +-0,185 t tetap yang terlebar), jadi qc adegan lama tidak terpengaruh.
+    """
     t = tinggi
     kepala = Sphere(radius=0.11 * t).set_color(warna).move_to([0, 0, t - 0.11 * t])
     badan = Cylinder(height=0.40 * t, radius=0.09 * t).set_color(warna).move_to([0, 0, 0.65 * t])
     bagian = [kepala, badan]
-    for sy in (-0.06, 0.06):
-        kaki = Cylinder(height=0.45 * t, radius=0.045 * t).set_color(warna).move_to([0, sy * t, 0.225 * t])
+    for sx in (-0.06, 0.06):
+        kaki = Cylinder(height=0.45 * t, radius=0.060 * t).set_color(warna).move_to([sx * t, 0, 0.225 * t])
         bagian.append(kaki)
     for sy in (-1, 1):
         lengan = Cylinder(height=0.36 * t, radius=0.035 * t).set_color(warna)
