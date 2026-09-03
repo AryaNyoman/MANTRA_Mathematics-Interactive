@@ -65,7 +65,18 @@ export function GarisCermin({
     ke = { x: x1, y: -x1 }
   }
 
-  const tengah = { x: (dari.x + ke.x) / 2, y: (dari.y + ke.y) / 2 }
+  // Label ditaruh dekat PANGKAL garisnya, bukan di tengahnya.
+  //
+  // Versi pertama menaruhnya di tengah, dan di tengah itulah bendanya berada:
+  // pada Materi 04 tulisan "y = x" jatuh tepat di atas tepi prapeta. Pangkal
+  // garis selalu di tepi bawah bidang (untuk garis tegak dan garis miring)
+  // atau di tepi kiri (untuk garis mendatar), dan kedua tempat itu yang paling
+  // sering kosong, sebab bentuknya cenderung berada di tengah ke atas.
+  const label_t = 0.14
+  const dekatPangkal = {
+    x: dari.x + (ke.x - dari.x) * label_t,
+    y: dari.y + (ke.y - dari.y) * label_t,
+  }
 
   return (
     <g>
@@ -75,7 +86,7 @@ export function GarisCermin({
       />
       {label && (
         <text
-          x={p.x(tengah.x) + 8} y={p.y(tengah.y) - 8}
+          x={p.x(dekatPangkal.x) + 8} y={p.y(dekatPangkal.y) - 8}
           fontSize={11} fontWeight={600} fill={warna} fontFamily={MONO}
           stroke={KERTAS} strokeWidth={2.8} paintOrder="stroke"
         >
@@ -170,6 +181,7 @@ export function RuasBerangka({
   warna = BANTU,
   desimal = 1,
   tampilkanAngka = true,
+  sisi = 1,
 }: {
   dari: Titik
   ke: Titik
@@ -177,6 +189,21 @@ export function RuasBerangka({
   warna?: string
   desimal?: number
   tampilkanAngka?: boolean
+  /**
+   * Sisi mana angkanya ditaruh, TEGAK LURUS terhadap ruasnya: 1 satu sisi,
+   * -1 sisi seberangnya.
+   *
+   * KENAPA PERLU DIATUR DARI LUAR
+   * Materi 03 dan 05 menggambar DUA ruas yang berjajar pada satu garis lurus,
+   * yaitu dari prapeta ke cerminnya lalu dari cerminnya ke peta. Kalau kedua
+   * angkanya ditaruh di sisi yang sama, keduanya berdesakan di dekat titik
+   * cerminnya. Pada pemeriksaan visual 3 Sep 2026 hasilnya lebih buruk lagi:
+   * kedua angka itu bertumpuk dengan angka sumbu dan dengan angka nol di titik
+   * asal, menjadi gumpalan "1,4 0 -1 1,4" yang tidak terbaca.
+   *
+   * Dengan sisi yang berlawanan, keduanya terpisah oleh lebar ruasnya sendiri.
+   */
+  sisi?: 1 | -1
 }) {
   const panjangNyata = Math.hypot(ke.x - dari.x, ke.y - dari.y)
   if (panjangNyata < 1e-9) return null
@@ -186,6 +213,13 @@ export function RuasBerangka({
   const x2 = p.x(ke.x)
   const y2 = p.y(ke.y)
 
+  // Arah tegak lurus ruasnya di koordinat layar. Untuk ruas mendatar hasilnya
+  // ke atas atau ke bawah, untuk ruas tegak ke kiri atau ke kanan, dan untuk
+  // ruas miring ikut miring. Itu yang membuatnya selalu menjauh dari ruasnya.
+  const panjangLayar = Math.hypot(x2 - x1, y2 - y1) || 1
+  const tegakX = (-(y2 - y1) / panjangLayar) * 16 * sisi
+  const tegakY = ((x2 - x1) / panjangLayar) * 16 * sisi
+
   return (
     <g>
       <line
@@ -194,7 +228,7 @@ export function RuasBerangka({
       />
       {tampilkanAngka && (
         <text
-          x={(x1 + x2) / 2} y={(y1 + y2) / 2 - 4}
+          x={(x1 + x2) / 2 + tegakX} y={(y1 + y2) / 2 + tegakY + 3.4}
           textAnchor="middle"
           fontSize={9.5} fill={warna} fontFamily={MONO}
           stroke={KERTAS} strokeWidth={2.6} paintOrder="stroke"

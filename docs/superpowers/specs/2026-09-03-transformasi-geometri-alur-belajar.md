@@ -28,10 +28,40 @@ Keputusan yang diambil Claude sendiri dan disampaikan ke ARYA:
 ## 2. Sumber kurikulum (diperiksa, bukan diingat)
 
 Sumber utama: `D:\BAHAN MATEMATIKA\3 Dimensi.pdf`. **Nama berkasnya menyesatkan**:
-isinya Buku Siswa Matematika SMA Kelas XI (Kurikulum Sekolah Penggerak, Tim
-Penulis, Oktober 2021), bukan geometri ruang.
+isinya Buku Siswa **Matematika Tingkat Lanjut** untuk SMA Kelas XI (Kurikulum
+Sekolah Penggerak, Tim Penulis, Oktober 2021), bukan geometri ruang.
 
-Transformasi Geometri di situ adalah **Bab 4, halaman buku 175 sampai 227**
+### Koreksi penting: ini bukan Matematika wajib
+
+Ditemukan 3 Sep 2026 saat mengalibrasi soal, setelah bagian ini pertama kali
+ditulis. Kepala halaman bukunya berbunyi "Matematika Tingkat Lanjut untuk SMA
+Kelas XI", dan susunan babnya menegaskan itu: Bab 1 Bilangan Kompleks, Bab 2
+Polinomial, Bab 3 Matriks, Bab 4 Transformasi Geometri, Bab 5 Fungsi dan
+Pemodelan.
+
+Diperiksa pada buku wajibnya: **Buku Panduan Guru Matematika Kelas XI
+Kurikulum Merdeka hanya memuat TIGA bab**, yaitu Komposisi Fungsi dan Fungsi
+Invers, Lingkaran, dan Statistika. Transformasi Geometri tidak ada di sana.
+
+Akibatnya untuk topik ini:
+
+1. **Labelnya tetap "Kelas 11"** di `topik.ts`. Itu bukan kelalaian: komentar
+   di berkas itu mencatat permintaan ARYA 1 Sep 2026 supaya label kelas berisi
+   kelasnya saja, tanpa nomor bab dan tanpa nama kurikulum, sebab siswa
+   mencari "kelas berapa".
+2. **Keterangan kurikulumnya masuk ke BADAN TEKS**, di blok `poin` berjudul
+   "Sebelum mulai" pada Materi 01. Itu yang diwajibkan `STANDAR-MENGAJAR.md`
+   pada kompetensi "Jujur", dan perlakuan yang sama pernah dipakai untuk
+   Materi 11 dan 12 topik Vektor.
+3. **Topiknya tetap layak dibuat.** Di Kurikulum 2013, yang masih dipakai
+   banyak sekolah dan masih mendasari sebagian besar bahan latihan UTBK,
+   Transformasi Geometri adalah materi Kelas XI wajib.
+4. **Jurang prasyarat matriksnya lebih dalam daripada dugaan awal.** Matriks
+   juga bukan Matematika wajib, jadi siswa jalur wajib belum pernah bertemu
+   matriks sama sekali. Keputusan ARYA untuk mengajarkannya secukupnya di
+   dalam topik ini jadi makin tepat, bukan makin longgar.
+
+Transformasi Geometri di buku itu adalah **Bab 4, halaman buku 175 sampai 227**
 (halaman PDF 191 sampai 243). Susunan resminya:
 
 | Bagian buku | Halaman buku | Isi |

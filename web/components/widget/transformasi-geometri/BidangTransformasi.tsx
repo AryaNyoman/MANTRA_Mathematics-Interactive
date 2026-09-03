@@ -97,12 +97,24 @@ export default function BidangTransformasi({
       <line x1={KOTAK.x0} y1={sumbuX} x2={KOTAK.x1} y2={sumbuX} stroke={GARIS_SUMBU} strokeWidth={1.8} />
       <line x1={sumbuY} y1={KOTAK.y0} x2={sumbuY} y2={KOTAK.y1} stroke={GARIS_SUMBU} strokeWidth={1.8} />
 
+      {/* ---------- isi gambarnya ---------- */}
+      {children}
+
       {/* ---------- angka pada sumbu ----------
           Angkanya ditempel DI SEBELAH sumbunya, bukan di tepi bingkai. Titik
           asal di topik ini hampir selalu ada di tengah gambar, jadi angka yang
-          ditaruh di tepi bawah akan terlihat lepas dari sumbunya. Halo berwarna
-          kertas dipasang supaya angkanya tidak terpotong garis petak atau
-          tertimpa bentuknya. */}
+          ditaruh di tepi bawah akan terlihat lepas dari sumbunya.
+
+          DIGAMBAR SESUDAH `children`, BUKAN SEBELUMNYA
+          Diperbaiki 3 Sep 2026 setelah pemeriksaan visual. Bentuk di topik ini
+          berisi warna, bukan panah tipis seperti di topik Vektor, jadi bentuk
+          yang melintasi sumbu MENUTUPI angka sumbunya. Pada Materi 01 dengan
+          translasi (4, -2), angka 5 dan 10 pada sumbu X tertimpa isian bentuk
+          petanya sampai tidak terbaca.
+
+          Digambar sesudah isi gambar, angkanya berada di lapisan paling atas,
+          dan halo berwarna kertas di sekelilingnya membuat angkanya tetap
+          terbaca walau melintang di atas bentuknya. */}
       {petakX.map((t) => (
         t.nilai === 0 ? null : (
           <text key={`tx${t.nilai}`} x={p.x(t.nilai)} y={labelXPadaY} textAnchor="middle"
@@ -126,9 +138,6 @@ export default function BidangTransformasi({
               fontSize={9.5} fill={WARNA.redup} fontFamily={MONO}
               stroke={KERTAS} strokeWidth={2.6} paintOrder="stroke">0</text>
       )}
-
-      {/* ---------- isi gambarnya ---------- */}
-      {children}
 
       {/* ---------- keterangan dan penunjuk skala ---------- */}
       {keterangan && (

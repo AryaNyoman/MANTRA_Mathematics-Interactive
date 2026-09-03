@@ -20,6 +20,7 @@ export function Bentuk({
   putus = false,
   petik = '',
   labelSudut = true,
+  tulisSudut,
 }: {
   titik: Titik[]
   p: Pemeta
@@ -32,6 +33,22 @@ export function Bentuk({
   /** tanda petik pada nama sudut: '' untuk prapeta, "'" untuk peta */
   petik?: string
   labelSudut?: boolean
+  /**
+   * Penulis nama sudut yang bisa diganti pemakainya. Kembalikan `null` untuk
+   * TIDAK menulis label pada sudut itu sama sekali.
+   *
+   * KENAPA PERLU
+   * Titik yang berada tepat di garis cermin tidak berpindah, sehingga prapeta
+   * dan petanya menempati satu titik yang sama. Dua label di satu titik
+   * bertindih menjadi tulisan yang tidak terbaca. Itu benar-benar terjadi pada
+   * Materi 04: sudut A(1, 1) berada di garis y = x, dan labelnya tampil
+   * sebagai "A' ((1,11)" saat pemeriksaan visual 3 Sep 2026.
+   *
+   * Menggeser salah satu label tidak menyelesaikannya, sebab kedua titiknya
+   * memang di tempat yang sama dan label yang digeser jadi menunjuk ke tempat
+   * yang salah. Yang benar: satu label saja, bertuliskan "A = A'".
+   */
+  tulisSudut?: (nama: string, indeks: number) => string | null
 }) {
   if (titik.length === 0) return null
 
@@ -64,8 +81,26 @@ export function Bentuk({
       {labelSudut && SUDUT_BERNAMA.map((s) => {
         const t = titik[s.indeks]
         if (!t) return null
-        const arahX = t.x - tengah.x
-        const arahY = t.y - tengah.y
+        const tulisan = tulisSudut ? tulisSudut(s.nama, s.indeks) : `${s.nama}${petik}`
+        if (tulisan === null) return null
+
+        let arahX = t.x - tengah.x
+        let arahY = t.y - tengah.y
+
+        // SUDUT YANG JATUH TEPAT DI SUMBU: labelnya dipaksa menjauh dari sumbu.
+        //
+        // Angka sumbu tegak ditulis di KIRI sumbunya, dan angka sumbu mendatar
+        // di BAWAH sumbunya. Kalau sebuah sudut kebetulan berada di sumbu dan
+        // labelnya condong ke arah yang sama, keduanya bertumpuk.
+        //
+        // Ini bukan kemungkinan yang jauh. Di topik ini sudut yang mendarat di
+        // sumbu justru sering: setiap pencerminan, rotasi, dan dilatasi bisa
+        // menaruhnya di sana. Pada pemeriksaan visual 3 Sep 2026, sudut C'
+        // Materi 05 mendarat di (0, 4) dan labelnya bertumpuk dengan angka
+        // sumbu 4, terbaca sebagai "C'4".
+        if (Math.abs(t.x) < 1e-6) arahX = Math.abs(arahX) + 0.5
+        if (Math.abs(t.y) < 1e-6) arahY = Math.abs(arahY) + 0.5
+
         const panjang = Math.hypot(arahX, arahY) || 1
         const sx = p.x(t.x) + (arahX / panjang) * 13
         // Sumbu y layar terbalik, jadi arah menjauh di layar berlawanan tanda.
@@ -85,7 +120,7 @@ export function Bentuk({
             strokeWidth={2.8}
             paintOrder="stroke"
           >
-            {s.nama}{petik}
+            {tulisan}
           </text>
         )
       })}

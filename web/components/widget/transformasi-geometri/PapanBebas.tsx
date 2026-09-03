@@ -9,12 +9,22 @@ import { BANTU, KOTAK, NISBAH, PETA, PRAPETA } from './gaya'
 
 /**
  * Jendela paling kecil yang dipertahankan, supaya gambarnya tidak melompat
- * ukuran setiap kali siswa berganti pilihan transformasi. Nisbahnya dibuat
- * sama dengan nisbah papan, jadi jangkar ini tidak ikut melebarkan apa pun.
+ * ukuran setiap kali siswa berganti pilihan transformasi.
+ *
+ * Angkanya bukan tebakan. Ini kotak terkecil yang memuat kelima pilihan di
+ * `PILIHAN_MATERI_1` sekaligus: translasi mendorong bentuknya sampai x = 10,
+ * cermin sumbu Y sampai x = -6, rotasi 90 derajat sampai y = 6, dan cermin
+ * sumbu X sampai y = -3.
+ *
+ * Jangkar yang lebih longgar (dicoba lebih dulu dengan x dan y sebesar 7 dan
+ * 4,3) membuat jendelanya selebar 19 satuan, dan bentuknya tinggal seperempat
+ * lebar layar padahal ruangnya tidak terpakai. Jangkar yang lebih ketat
+ * daripada ini membuat gambarnya melompat ukuran tiap kali pilihannya
+ * berganti, dan lompatan itu membuat kelima pilihan sulit dibandingkan.
  */
 const JANGKAR: Titik[] = [
-  { x: -7, y: -4.3 },
-  { x: 7, y: 4.3 },
+  { x: -6.5, y: -3.5 },
+  { x: 10, y: 6 },
 ]
 
 /**
@@ -49,11 +59,10 @@ export default function PapanBebas({ transformasi }: { transformasi: Transformas
       <Bentuk titik={peta} p={p} warna={PETA} isian={0.14} petik="'" />
 
       <Legenda
-        sudut="kanan-atas"
         entri={[
-          { warna: PRAPETA, teks: 'prapeta, bentuk asal', putus: true },
-          { warna: PETA, teks: 'peta, hasilnya' },
-          { warna: BANTU, teks: 'tiap titik ke pasangannya', putus: true },
+          { warna: PRAPETA, teks: 'prapeta', putus: true },
+          { warna: PETA, teks: 'peta' },
+          { warna: BANTU, teks: 'pasangannya', putus: true },
         ]}
       />
     </BidangTransformasi>

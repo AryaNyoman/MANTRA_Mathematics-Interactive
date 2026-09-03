@@ -1,54 +1,58 @@
 'use client'
 
-import { KERTAS, KOTAK, MONO, WARNA } from './gaya'
+import { KOTAK, MONO, VH, WARNA } from './gaya'
 
 /**
- * Kotak keterangan warna, letaknya TETAP di salah satu pojok bidang.
+ * Keterangan warna, SATU BARIS di pita bawah gambar.
  *
- * Disalin dari `widget/vektor/Legenda.tsx`, alasan penyalinan ada di kepala
- * `papan.ts`.
+ * KENAPA DI PITA BAWAH, BUKAN DI POJOK DALAM BIDANG
+ * Versi pertama berupa kotak melayang di salah satu pojok bidang, disalin dari
+ * topik Vektor. Itu berhasil di sana sebab widget vektor menggambar panah
+ * tipis yang jarang mengisi pojok. Di topik ini gagal, dan gagalnya
+ * tertangkap saat pemeriksaan visual 3 Sep 2026: pada Materi 03, prapeta
+ * berada tepat di kanan atas bidang, dan kotak keterangannya MENUTUPI seluruh
+ * sisi atas prapeta beserta label sudut C.
  *
- * KENAPA LEBIH BAIK DARIPADA LABEL DI BADAN GAMBAR
- * Widget di topik ini menampilkan dua bentuk sekaligus, prapeta dan peta, dan
- * siswa bebas memindahkan garis cermin atau pusat putarnya. Label yang
- * menempel di badan gambar ikut berpindah, jadi susunan yang hari ini rapi
- * akan bertindih begitu pusatnya digeser. Kotak keterangan memutus masalah itu
- * di akarnya: letaknya tidak bergantung pada isi gambar sama sekali.
+ * Memindahkan kotaknya ke pojok lain hanya memindahkan masalahnya, sebab isi
+ * gambar di topik ini memang berpindah-pindah pojok: prapeta di kanan atas,
+ * petanya bisa di mana saja tergantung transformasinya. Menaruh keterangan
+ * yang bisa menutupi gambar sama saja dengan widget yang memotong gambarnya
+ * sendiri, dan itu dilarang aturan proyek.
+ *
+ * Pita bawah berada DI LUAR `KOTAK`, yaitu di luar daerah gambar, jadi
+ * tabrakan itu mustahil terjadi lagi. Harganya: ruangnya sempit.
+ *
+ * MAKSIMAL TIGA ENTRI, DAN TIAP TULISANNYA PENDEK
+ * Pita bawah dibagi dengan penunjuk skala di sisi kanan, yang memakai kira-kira
+ * 145 piksel. Sisanya kira-kira 240 piksel, cukup untuk tiga entri bertulisan
+ * pendek. Entri keempat akan menabrak penunjuk skala. Kalau sebuah widget
+ * terasa butuh entri keempat, biasanya yang dibutuhkan bukan keterangan
+ * tambahan melainkan gambar yang lebih sederhana.
  */
 export default function Legenda({
   entri,
-  sudut = 'kiri-bawah',
 }: {
   entri: Array<{ warna: string; teks: string; putus?: boolean }>
-  sudut?: 'kiri-bawah' | 'kanan-bawah' | 'kiri-atas' | 'kanan-atas'
 }) {
-  const tinggiBaris = 15
-  const tinggi = entri.length * tinggiBaris + 8
-  const lebar = 8 + 22 + Math.max(...entri.map((e) => e.teks.length)) * 6.1
-
-  const diKiri = sudut === 'kiri-bawah' || sudut === 'kiri-atas'
-  const diAtas = sudut === 'kiri-atas' || sudut === 'kanan-atas'
-  const x = diKiri ? KOTAK.x0 + 5 : KOTAK.x1 - lebar - 5
-  const y = diAtas ? KOTAK.y0 + 5 : KOTAK.y1 - tinggi - 5
+  const y = VH - 9
+  let x = KOTAK.x0
 
   return (
     <g>
-      <rect
-        x={x} y={y} width={lebar} height={tinggi} rx={5}
-        fill={KERTAS} opacity={0.88} stroke={WARNA.redup} strokeOpacity={0.35}
-      />
-      {entri.map((e, i) => {
-        const garisY = y + 4 + tinggiBaris * i + tinggiBaris / 2
+      {entri.slice(0, 3).map((e) => {
+        const dashX = x
+        const teksX = x + 18
+        // 5,6 piksel per huruf pada ukuran 9,5 piksel huruf mono, ditambah
+        // jarak antar entri.
+        x = teksX + e.teks.length * 5.6 + 12
         return (
           <g key={e.teks}>
             <line
-              x1={x + 6} y1={garisY} x2={x + 22} y2={garisY}
-              stroke={e.warna} strokeWidth={2.6} strokeLinecap="round"
+              x1={dashX} y1={y - 3} x2={dashX + 13} y2={y - 3}
+              stroke={e.warna} strokeWidth={2.4} strokeLinecap="round"
               strokeDasharray={e.putus ? '4 3' : undefined}
             />
-            <text
-              x={x + 27} y={garisY + 3.4} fontSize={10} fontFamily={MONO} fill={WARNA.miring}
-            >
+            <text x={teksX} y={y} fontSize={9.5} fontFamily={MONO} fill={WARNA.redup}>
               {e.teks}
             </text>
           </g>

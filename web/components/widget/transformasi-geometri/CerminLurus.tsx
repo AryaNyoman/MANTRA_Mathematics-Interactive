@@ -103,18 +103,16 @@ export default function CerminLurus({
 
       {/* Kedua potongan pada titik A, dengan angkanya, supaya kesamaan
           jaraknya bisa DIPERIKSA siswa dan bukan cuma dipercaya. */}
-      <RuasBerangka dari={A} ke={kaki} p={p} warna={ALAT} />
-      <RuasBerangka dari={kaki} ke={Aksen} p={p} warna={ALAT} />
+      <RuasBerangka dari={A} ke={kaki} p={p} warna={ALAT} sisi={1} />
+      <RuasBerangka dari={kaki} ke={Aksen} p={p} warna={ALAT} sisi={-1} />
 
       <Pegangan titik={pegangan} p={p} warna={ALAT} />
 
       <Legenda
-        sudut="kanan-atas"
         entri={[
           { warna: PRAPETA, teks: 'prapeta', putus: true },
           { warna: PETA, teks: 'peta' },
-          { warna: ALAT, teks: 'garis cermin, bisa ditarik', putus: true },
-          { warna: BANTU, teks: 'tegak lurus ke cermin', putus: true },
+          { warna: ALAT, teks: 'garis cermin', putus: true },
         ]}
       />
     </BidangTransformasi>

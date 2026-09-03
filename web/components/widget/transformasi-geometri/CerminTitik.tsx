@@ -63,7 +63,7 @@ export default function CerminTitik({
       keterangan={
         diTitikAsal
           ? 'cermin pada titik asal, sama dengan rotasi 180 derajat'
-          : `cermin pada titik (${angka(pusat.x, 1)}  ${angka(pusat.y, 1)})`
+          : `cermin pada titik (${angka(pusat.x, 1)}, ${angka(pusat.y, 1)})`
       }
       svgRef={svgRef}
       pointer={pointer}
@@ -76,18 +76,16 @@ export default function CerminTitik({
       <Bentuk titik={prapeta} p={p} warna={PRAPETA} isian={0.08} putus />
       <Bentuk titik={peta} p={p} warna={PETA} isian={0.14} petik="'" />
 
-      <RuasBerangka dari={A} ke={pusat} p={p} warna={ALAT} />
-      <RuasBerangka dari={pusat} ke={Aksen} p={p} warna={ALAT} />
+      <RuasBerangka dari={A} ke={pusat} p={p} warna={ALAT} sisi={1} />
+      <RuasBerangka dari={pusat} ke={Aksen} p={p} warna={ALAT} sisi={-1} />
 
       <Pegangan titik={pusat} p={p} warna={ALAT} label={diTitikAsal ? 'O' : 'M'} />
 
       <Legenda
-        sudut="kanan-atas"
         entri={[
           { warna: PRAPETA, teks: 'prapeta', putus: true },
           { warna: PETA, teks: 'peta' },
-          { warna: ALAT, teks: 'pusat cermin, bisa ditarik' },
-          { warna: BANTU, teks: 'lurus melewati pusatnya', putus: true },
+          { warna: ALAT, teks: 'pusat cermin' },
         ]}
       />
     </BidangTransformasi>

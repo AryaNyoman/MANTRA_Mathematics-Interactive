@@ -4,9 +4,9 @@ import BidangTransformasi from './BidangTransformasi'
 import Legenda from './Legenda'
 import { Bentuk } from './Bentuk'
 import { GarisCermin, RuasBerangka } from './Garis'
-import { BENTUK_L, SUDUT_BERNAMA, cerminYSamaMinX, cerminYSamaX, type Titik } from './matriks'
-import { angka, jendelaSeimbang, keLayar } from './papan'
-import { ALAT, BANTU, KERTAS, KOTAK, MONO, NISBAH, PETA, PRAPETA } from './gaya'
+import { BENTUK_L, cerminYSamaMinX, cerminYSamaX, type Titik } from './matriks'
+import { jendelaSeimbang, keLayar } from './papan'
+import { ALAT, BANTU, KOTAK, NISBAH, PETA, PRAPETA } from './gaya'
 
 /** Titik asal wajib terlihat, sebab kedua garis cerminnya melewatinya. */
 const JANGKAR: Titik[] = [
@@ -17,15 +17,26 @@ const JANGKAR: Titik[] = [
 /**
  * Widget Materi 04: pencerminan pada garis y = x dan y = -x.
  *
- * Yang harus TERLIHAT di sini bukan bentuk barunya, melainkan koordinat yang
- * bertukar. Karena itu tiap sudut bernama diberi tulisan koordinatnya, prapeta
- * dan petanya, berdampingan di gambar. Siswa yang membaca A (1, 1) lalu
- * A' (1, 1) tidak belajar apa-apa; yang membaca B (6, 1) lalu B' (1, 6)
- * melihat pertukarannya sendiri.
- *
  * Garis cerminnya TIDAK bisa digeser, dan itu memang benar: y = x dan y = -x
  * adalah dua garis tertentu, bukan keluarga garis seperti x = k di Materi 03.
  * Menyediakan penggeser di sini akan mengajarkan hal yang salah.
+ *
+ * KOORDINATNYA TIDAK DITULIS DI ATAS GAMBAR
+ * Versi pertama menuliskan koordinat prapeta dan peta di sebelah tiap sudut,
+ * supaya pertukarannya terlihat langsung. Itu gagal, dan gagalnya tertangkap
+ * saat pemeriksaan visual 3 Sep 2026: tulisannya bertindih menjadi bubur.
+ * "B' (1, 6)" dan "C' (2, 6)" tampil sebagai "B' (1C'6(2, 6)", dan yang
+ * paling parah "A' (1, 1)" bertumpuk dengan "A (1, 1)" menjadi "A' ((1,11)".
+ *
+ * Sebab yang terakhir bukan kelalaian tata letak, melainkan matematika:
+ * sudut A(1, 1) berada TEPAT di garis y = x, jadi ia tidak berpindah dan
+ * kedua labelnya memang menempati satu titik. Menggeser salah satunya membuat
+ * label itu menunjuk tempat yang salah.
+ *
+ * Sekarang gambarnya hanya memberi nama sudut, dan angkanya dibaca di tabel
+ * panel kanan yang memang sudah menyandingkan prapeta dengan petanya. Sudut
+ * yang tidak berpindah diberi satu label bertuliskan "A = A'", sehingga
+ * ketetapannya justru jadi terlihat, bukan jadi kekacauan.
  */
 export default function CerminMiring({ naik }: { naik: boolean }) {
   const prapeta = BENTUK_L
@@ -36,10 +47,14 @@ export default function CerminMiring({ naik }: { naik: boolean }) {
 
   const namaGaris = naik ? 'y = x' : 'y = -x'
 
+  /** Sudut yang berada di garis cerminnya sendiri, jadi tidak berpindah. */
+  const tetap = (i: number) =>
+    Math.abs(prapeta[i].x - peta[i].x) < 1e-9 && Math.abs(prapeta[i].y - peta[i].y) < 1e-9
+
   return (
     <BidangTransformasi
       jendela={jendela}
-      aria={`Bentuk huruf L dicerminkan pada garis ${namaGaris}. Koordinat tiap sudut ditulis untuk prapeta dan petanya.`}
+      aria={`Bentuk huruf L dicerminkan pada garis ${namaGaris}. Angka koordinatnya ada di tabel sebelah kanan.`}
       keterangan={`cermin pada ${namaGaris}`}
     >
       {prapeta.map((t, i) => (
@@ -48,41 +63,20 @@ export default function CerminMiring({ naik }: { naik: boolean }) {
 
       <GarisCermin arah={{ jenis: 'miring', naik }} jendela={jendela} p={p} label={namaGaris} />
 
-      <Bentuk titik={prapeta} p={p} warna={PRAPETA} isian={0.08} putus labelSudut={false} />
-      <Bentuk titik={peta} p={p} warna={PETA} isian={0.14} petik="'" labelSudut={false} />
-
-      {/* Koordinat ketiga sudut bernama, prapeta dan petanya. Label bawaan
-          `Bentuk` dimatikan supaya tidak ada dua tulisan di satu titik. */}
-      {SUDUT_BERNAMA.map((s) => {
-        const t = prapeta[s.indeks]
-        const q = peta[s.indeks]
-        if (!t || !q) return null
-        return (
-          <g key={`k${s.indeks}`}>
-            <text
-              x={p.x(t.x) + 9} y={p.y(t.y) - 7}
-              fontSize={10.5} fontWeight={600} fill={PRAPETA} fontFamily={MONO}
-              stroke={KERTAS} strokeWidth={2.8} paintOrder="stroke"
-            >
-              {s.nama} ({angka(t.x, 0)}, {angka(t.y, 0)})
-            </text>
-            <text
-              x={p.x(q.x) + 9} y={p.y(q.y) - 7}
-              fontSize={10.5} fontWeight={600} fill={PETA} fontFamily={MONO}
-              stroke={KERTAS} strokeWidth={2.8} paintOrder="stroke"
-            >
-              {s.nama}&#39; ({angka(q.x, 0)}, {angka(q.y, 0)})
-            </text>
-          </g>
-        )
-      })}
+      <Bentuk
+        titik={prapeta} p={p} warna={PRAPETA} isian={0.08} putus
+        tulisSudut={(nama, i) => (tetap(i) ? `${nama} = ${nama}'` : nama)}
+      />
+      <Bentuk
+        titik={peta} p={p} warna={PETA} isian={0.14}
+        tulisSudut={(nama, i) => (tetap(i) ? null : `${nama}'`)}
+      />
 
       <Legenda
-        sudut="kanan-bawah"
         entri={[
           { warna: PRAPETA, teks: 'prapeta', putus: true },
           { warna: PETA, teks: 'peta' },
-          { warna: ALAT, teks: `garis cermin ${namaGaris}`, putus: true },
+          { warna: ALAT, teks: `cermin ${namaGaris}`, putus: true },
         ]}
       />
     </BidangTransformasi>

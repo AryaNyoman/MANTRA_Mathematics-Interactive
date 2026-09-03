@@ -58,7 +58,7 @@ export default function GeserBentuk({
     <BidangTransformasi
       jendela={jendela}
       aria={`Bentuk huruf L digeser sejauh ${angka(geser.x, 1)} mendatar dan ${angka(geser.y, 1)} tegak. Ujung panah geserannya bisa ditarik.`}
-      keterangan={`translasi (${angka(geser.x, 1)}  ${angka(geser.y, 1)})`}
+      keterangan={`translasi (${angka(geser.x, 1)}, ${angka(geser.y, 1)})`}
       svgRef={svgRef}
       pointer={pointer}
     >
@@ -80,11 +80,10 @@ export default function GeserBentuk({
       <Pegangan titik={Aksen} p={p} warna={GESER} />
 
       <Legenda
-        sudut="kanan-atas"
         entri={[
           { warna: PRAPETA, teks: 'prapeta', putus: true },
           { warna: PETA, teks: 'peta' },
-          { warna: GESER, teks: 'vektor geseran, bisa ditarik' },
+          { warna: GESER, teks: 'vektor geseran' },
         ]}
       />
     </BidangTransformasi>
