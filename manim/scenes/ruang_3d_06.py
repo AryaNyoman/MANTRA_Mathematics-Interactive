@@ -47,27 +47,27 @@ class JarakTitikKeBidang(AdeganMatra):
         ak = Line(T["A"], K).set_stroke(SOROT, 6)
         ae = Line(T["A"], T["E"]).set_stroke(AKSEN2, 5)
 
-        papan = papan_koordinat(frame)
+        papan_koor = papan_koordinat(frame)
+        papan = sinema.PapanRumus(self)
         lab = huruf_sudut(frame, {"A": SOROT, "B": AKSEN, "D": AKSEN, "E": AKSEN})
         lab_k = label_hadap(frame, "K", K + np.array([0.60, -0.20, 0.50]), SOROT)
-        jati = identitas_kubus()
 
         # --- Babak 1: pengumuman materi.
         kamera.pasang_awal(frame, theta=-44, phi=72, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
-        self.add(lantai(), *papan["datar"], *papan["tinggi"], kubus)
+        self.add(lantai(), *papan_koor["datar"], *papan_koor["tinggi"], kubus)
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 06: Jarak titik ke bidang", lama=3.4, y=3.0)
             b.catat(3.4)
-            self.hud_tambah(jati)
-            jati.set_opacity(0)
-            b.main(jati.animate.set_opacity(1), run_time=0.7)
-            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=1.8)
+            # Babak pertama HANYA judul materi (standar v2, Waktu dan sinkron).
+            # Kubus dibuat tembus pandang di babak berikutnya.
             isi_sisa(b, kamera.sudut(frame, -30, 68, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-        qc.periksa_adegan(self, {"kubus": kubus, "identitas": jati})
+        qc.periksa_adegan(self, {"kubus": kubus})
 
         # --- Babak 2: bidangnya muncul sebagai BIDANG, lalu diputari.
+        jati = sinema.identitas(self, "p = l = t = 6 satuan")
         with sinema.babak(self, "bidang", DURASI) as b:
-            sumbu_z_pamit(b, papan, 1.0)
+            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=1.6)
+            sumbu_z_pamit(b, papan_koor, 1.0)
             b.main(*[FadeIn(x) for x in lab.values()], run_time=0.8)
             b.main(FadeIn(bidang), run_time=1.6)
             isi_sisa(b, kamera.sudut(frame, -78, 64, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
@@ -87,17 +87,14 @@ class JarakTitikKeBidang(AdeganMatra):
         #     Panjangnya diberi label di ruasnya SEBELUM naik ke panel.
         n_ag = label_hadap(frame, "6\\sqrt{3}", sepanjang3(T["A"], T["G"], 0.72)
                            + np.array([0.75, -0.35, 0.0]), AKSEN2, 28, rumus_latex=True)
-        p1 = rumus(r"AK = \tfrac{1}{3} AG = 2\sqrt{3} \approx 3{,}464", 30, SOROT)
-        p1.to_corner(UR, buff=0.5)
         with sinema.babak(self, "sepertiga", DURASI) as b:
-            sumbu_z_muncul(b, papan, 0.8)
+            sumbu_z_muncul(b, papan_koor, 0.8)
             b.main(ShowCreation(ag), run_time=1.3)
             b.main(FadeIn(n_ag), run_time=0.7)
-            self.hud_tambah(p1)
-            p1.set_opacity(0)
-            b.main(p1.animate.set_opacity(1), run_time=0.8)
+            sinema.lahir_rumus(self, r"AK = \tfrac{1}{3} AG = 2\sqrt{3}", dekat=ak,
+                               papan=papan, b=b, warna=SOROT)
             isi_sisa(b, kamera.putar_pelan(frame, 22))
-        qc.periksa_adegan(self, {"AG": ag, "AK": ak, "panel": p1, "nilai AG": n_ag,
+        qc.periksa_adegan(self, {"AG": ag, "AK": ak, "panel": papan.semua(), "nilai AG": n_ag,
                                  "identitas": jati},
                           [("panel", "identitas")])
 
@@ -107,25 +104,19 @@ class JarakTitikKeBidang(AdeganMatra):
         alas_datar = Polygon(T["A"], T["B"], T["D"]).set_fill(AKSEN2, 0.30).set_stroke(AKSEN2, 3)
         n_ae = label_hadap(frame, "6", sepanjang3(T["A"], T["E"], 0.55)
                            + np.array([-0.70, -0.35, 0.0]), AKSEN2, 28)
-        p2 = rumus(r"V = \tfrac{1}{3}\cdot 18 \cdot 6 = 36", 30, AKSEN2)
-        p2.next_to(p1, DOWN, buff=0.3).align_to(p1, RIGHT)
-        p3 = rumus(r"36 = \tfrac{1}{3}\cdot 18\sqrt{3}\cdot AK", 30, AKSEN)
-        p3.next_to(p2, DOWN, buff=0.3).align_to(p1, RIGHT)
         with sinema.babak(self, "volume", DURASI) as b:
             b.main(FadeIn(alas_datar), ShowCreation(ae), run_time=1.2)
             b.main(FadeIn(n_ae), run_time=0.7)
-            self.hud_tambah(p2)
-            p2.set_opacity(0)
-            b.main(p2.animate.set_opacity(1), run_time=0.7)
+            papan.baris(r"V = \tfrac{1}{3}\cdot 18 \cdot 6 = 36", AKSEN2)
+            b.catat(0.8)
             b.main(alas_datar.animate.set_fill(AKSEN2, 0.10),
                    bidang.animate.set_fill(AKSEN, 0.42), run_time=1.0)
-            self.hud_tambah(p3)
-            p3.set_opacity(0)
-            b.main(p3.animate.set_opacity(1), run_time=0.7)
+            papan.baris(r"36 = \tfrac{1}{3}\cdot 18\sqrt{3}\cdot AK", AKSEN)
+            b.catat(0.8)
             isi_sisa(b, kamera.sudut(frame, -18, 70, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-        qc.periksa_adegan(self, {"panel 1": p1, "panel 2": p2, "panel 3": p3,
+        qc.periksa_adegan(self, {"panel": papan.semua(),
                                  "nilai AE": n_ae, "identitas": jati},
-                          [("panel 2", "panel 3"), ("panel 3", "identitas")])
+                          [("panel", "identitas")])
 
         # --- Babak 6: rumus volume yang dibalik, bukan hafalan baru. Katanya
         #     ditempelkan pada ruas jaraknya sendiri.
@@ -136,6 +127,6 @@ class JarakTitikKeBidang(AdeganMatra):
             b.main(FadeIn(simpul), run_time=0.9)
             isi_sisa(b, kamera.putar_pelan(frame, 26), sisakan=1.6)
             b.jeda(1.2)
-        qc.periksa_adegan(self, {"AK": ak, "bidang": bidang, "panel 1": p1,
+        qc.periksa_adegan(self, {"AK": ak, "bidang": bidang, "panel": papan.semua(),
                                  "simpul": simpul, "identitas": jati},
-                          [("panel 1", "identitas"), ("simpul", "identitas")])
+                          [("panel", "identitas"), ("simpul", "identitas")])

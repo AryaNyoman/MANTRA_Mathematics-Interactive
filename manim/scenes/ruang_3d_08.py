@@ -52,27 +52,27 @@ class SudutGarisBersilangan(AdeganMatra):
             T["B"] + GESER * s.get_value(), T["G"] + GESER * s.get_value()
         ).set_stroke(AKSEN, 6))
 
-        papan = papan_koordinat(frame)
+        papan_koor = papan_koordinat(frame)
+        papan = sinema.PapanRumus(self)
         lab = huruf_sudut(frame, {"A": AKSEN2, "B": AKSEN, "C": AKSEN2, "G": AKSEN, "H": AKSEN})
-        jati = identitas_kubus()
 
         # --- Babak 1: pengumuman materi.
         kamera.pasang_awal(frame, theta=-46, phi=72, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
-        self.add(lantai(), *papan["datar"], *papan["tinggi"], kubus)
+        self.add(lantai(), *papan_koor["datar"], *papan_koor["tinggi"], kubus)
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 08: Sudut dua garis bersilangan",
                                  lama=3.4, y=3.0)
             b.catat(3.4)
-            self.hud_tambah(jati)
-            jati.set_opacity(0)
-            b.main(jati.animate.set_opacity(1), run_time=0.7)
-            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=1.8)
+            # Babak pertama HANYA judul materi (standar v2, Waktu dan sinkron).
+            # Kubus dibuat tembus pandang di babak berikutnya.
             isi_sisa(b, kamera.sudut(frame, -34, 68, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-        qc.periksa_adegan(self, {"kubus": kubus, "identitas": jati})
+        qc.periksa_adegan(self, {"kubus": kubus})
 
         # --- Babak 2: kedua garis, dan masalahnya: tidak punya titik bersama.
+        jati = sinema.identitas(self, "p = l = t = 6 satuan")
         with sinema.babak(self, "masalah", DURASI) as b:
-            sumbu_z_pamit(b, papan, 1.0)
+            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=1.6)
+            sumbu_z_pamit(b, papan_koor, 1.0)
             b.main(*[FadeIn(x) for x in lab.values()], run_time=0.8)
             b.main(ShowCreation(ac), run_time=1.2)
             b.main(ShowCreation(bg), run_time=1.2)
@@ -108,16 +108,14 @@ class SudutGarisBersilangan(AdeganMatra):
                            + np.array([-0.75, 0.15, 0.0]), AKSEN, 26, rumus_latex=True)
         n_ch = label_hadap(frame, "6\\sqrt{2}", sepanjang3(T["C"], T["H"], 0.5)
                            + np.array([0.0, 0.85, 0.30]), REDUP, 26, rumus_latex=True)
-        p1 = rumus(r"AC = AH = CH = 6\sqrt{2}", 30, TINTA).to_corner(UR, buff=0.5)
         with sinema.babak(self, "segitiga", DURASI) as b:
             b.main(ShowCreation(ch), FadeIn(muka), run_time=1.4)
             b.main(FadeIn(n_ac), FadeIn(n_ah), FadeIn(n_ch), run_time=1.0)
-            self.hud_tambah(p1)
-            p1.set_opacity(0)
-            b.main(p1.animate.set_opacity(1), run_time=0.7)
+            sinema.lahir_rumus(self, r"AC = AH = CH = 6\sqrt{2}", dekat=ch,
+                               papan=papan, b=b)
             b.main(ShowCreation(busur_a), run_time=0.8)
             isi_sisa(b, kamera.sudut(frame, -58, 62, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-        qc.periksa_adegan(self, {"CH": ch, "panel": p1, "nilai AC": n_ac, "nilai AH": n_ah,
+        qc.periksa_adegan(self, {"CH": ch, "panel": papan.semua(), "nilai AC": n_ac, "nilai AH": n_ah,
                                  "nilai CH": n_ch, "identitas": jati},
                           [("panel", "identitas"), ("nilai AC", "nilai AH"),
                            ("nilai AH", "nilai CH")])
@@ -125,16 +123,12 @@ class SudutGarisBersilangan(AdeganMatra):
         # --- Babak 6: jawabannya, tanpa satu pun perhitungan trigonometri.
         n_sudut = label_hadap(frame, "60^\\circ", T["A"] + np.array([1.3, 1.3, 0.55]),
                               SOROT, 32, rumus_latex=True)
-        p2 = rumus(r"\angle(AC, BG) = 60^\circ", 32, SOROT)
-        p2.next_to(p1, DOWN, buff=0.35).align_to(p1, RIGHT)
         with sinema.babak(self, "tutup", DURASI) as b:
             b.main(FadeIn(n_sudut), run_time=0.8)
-            self.hud_tambah(p2)
-            p2.set_opacity(0)
-            b.main(p2.animate.set_opacity(1), run_time=0.8)
+            papan.baris(r"\angle(AC, BG) = 60^\circ", SOROT)
+            b.catat(0.8)
             isi_sisa(b, kamera.putar_pelan(frame, 26), sisakan=1.6)
             b.jeda(1.2)
-        qc.periksa_adegan(self, {"panel 1": p1, "panel 2": p2, "busur": busur_a,
+        qc.periksa_adegan(self, {"panel": papan.semua(), "busur": busur_a,
                                  "nilai sudut": n_sudut, "identitas": jati},
-                          [("panel 1", "panel 2"), ("panel 2", "identitas"),
-                           ("nilai sudut", "identitas")])
+                          [("panel", "identitas"), ("nilai sudut", "identitas")])

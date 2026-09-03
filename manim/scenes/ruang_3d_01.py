@@ -1,25 +1,30 @@
 """Ruang Tiga Dimensi, materi 01: "Gambar ruang boleh berbohong" (ManimGL).
 
+RUJUKAN RESMI 3D untuk semua sesi (STANDAR-ILUSTRASI-VIDEO versi 2).
+Berkas ini dan `ruang_3d_umum.py` dipakai sesi lain sebagai contoh, jadi
+kodenya dijaga bersih dari aturan versi 1 yang sudah dibatalkan.
+
 Naskah   : manim/narasi/ruang-3d-01.json
 Render   : manimgl manim/scenes/ruang_3d_01.py GambarBolehBerbohong -w -l
-Periksa  : python manim/cek_video.py media/gl/GambarBolehBerbohong.mp4
 Gabung   : python manim/gabung_audio.py ruang-3d-01 GambarBolehBerbohong --uji
 
-KENAPA VIDEO INI MEMBUTUHKAN 3D, BUKAN SEKADAR MEMPERINDAH
-Seluruh isi materi 01 adalah tentang KAMERA yang berbohong. Di halaman, siswa
-membongkarnya sendiri dengan menarik kubusnya. Di video, kamera itulah tokoh
-utamanya: dari pandangan miring kita naik ke pandangan atas dan tipuan lahir di
-depan mata, lalu turun lagi dan tipuan itu runtuh.
+KENAPA TOPIK INI BOLEH BOLAK-BALIK 3D DAN 2D
+Standar v2 butir 2 mengunci kamera tegak lurus untuk topik lain, sebab
+perspektif memendekkan satu arah lebih banyak daripada arah lain sehingga
+gambar bisa membantah hitungannya. Ruang 3D dikecualikan ARYA, dan materi 01
+adalah alasannya: seluruh isinya justru tentang KAMERA yang berbohong. Kamera
+naik ke pandangan atas dan tipuan lahir di depan mata, lalu turun lagi dan
+tipuan itu runtuh. Di sini perspektif bukan gangguan, ia bahan ajarnya.
 
-TATA LETAK LAYAR (revisi ARYA 2 Sep malam, berlaku di keenam video)
-  kiri atas       identitas benda, menetap: p = l = t = 6 satuan
-  kanan atas      hitungan, muncul saat dipakai
-  kaki layar      MILIK SUBTITLE, tidak ditempati apa pun
-  dalam gambar    label yang menempel pada benda yang sedang dibahas
+TATA LETAK LAYAR (standar v2 butir 1)
+  kiri atas       `sinema.identitas`, menetap
+  kanan atas      `sinema.PapanRumus`, hitungan
+  kaki layar      MILIK SUBTITLE, kosong (dijaga qc)
+  dalam gambar    `sinema.label`, maksimal dua kata, menempel pada bendanya
 
-SATU WARNA SATU MAKNA:
-  AKSEN2 biru  = ruas BD, yang tergeletak di LANTAI kubus
-  AKSEN merah  = ruas EG, yang ada di ATAP kubus
+SATU WARNA SATU MAKNA (butir 10):
+  AKSEN2 biru  = ruas BD, di LANTAI kubus
+  AKSEN merah  = ruas EG, di ATAP kubus
   SOROT ungu   = kesimpulan: jarak 6 satuan, dan kata "bersilangan"
 """
 
@@ -50,35 +55,33 @@ class GambarBolehBerbohong(AdeganMatra):
 
         # Angka 6 pada sumbu z ditekan: itu tinggi kubus, dan nanti angka itulah
         # yang menjawab "dari mana enam satuan" di babak penutup.
-        papan = papan_koordinat(frame, tekan={"z": (6,)})
+        papan_koor = papan_koordinat(frame, tekan={"z": (6,)})
+        papan = sinema.PapanRumus(self)
 
-        # --- Babak 1: pengumuman materi. Kubus SUDAH ada di frame pertama, dan
-        #     sumbu z ikut tampil untuk memperkenalkan arah tinggi.
+        # --- Babak 1: HANYA judul materi (standar v2, bagian Waktu dan sinkron).
         kamera.pasang_awal(frame, theta=-40, phi=74, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
-        self.add(lantai(), *papan["datar"], *papan["tinggi"], kubus)
-        jati = identitas_kubus()
+        self.add(lantai(), *papan_koor["datar"], *papan_koor["tinggi"], kubus)
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 01: Gambar ruang boleh berbohong",
                                  lama=3.4, y=3.0)
             b.catat(3.4)
-            self.hud_tambah(jati)
-            jati.set_opacity(0)
-            b.main(jati.animate.set_opacity(1), run_time=0.8)
             isi_sisa(b, kamera.sudut(frame, -30, 70, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-        qc.periksa_adegan(self, {"kubus": kubus, "identitas": jati})
+        qc.periksa_adegan(self, {"kubus": kubus})
 
-        # --- Babak 2: sumbu z sudah selesai tugasnya memperkenalkan arah tinggi,
-        #     jadi dihilangkan. Ia kembali di babak "turun", saat tinggi
-        #     benar-benar dipakai menghitung (permintaan ARYA 2 Sep malam).
+        # --- Babak 2: identitas benda muncul, dan sumbu z pamit setelah selesai
+        #     memperkenalkan arah tinggi. Ia kembali di babak "turun", saat
+        #     tinggi benar-benar dipakai menghitung (standar v2 butir 9).
+        jati = sinema.identitas(self, "p = l = t = 6 satuan")
         with sinema.babak(self, "kotak", DURASI) as b:
-            sumbu_z_pamit(b, papan, 1.0)
+            b.catat(0.0)
+            sumbu_z_pamit(b, papan_koor, 1.0)
             isi_sisa(b, kamera.sudut(frame, -18, 64, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
             b.jeda(0.8)
         qc.periksa_adegan(self, {"kubus": kubus, "identitas": jati})
 
         # --- Babak 3: dinding dibuat tembus pandang, KEDELAPAN titik sudut diberi
-        #     nama. Yang dibahas video ini cuma B, D, E, G, dan keempatnya diberi
-        #     warna; sisanya tetap ditulis dengan warna redup.
+        #     nama. Yang dibahas cuma B, D, E, G, dan keempatnya diberi warna;
+        #     sisanya tetap ditulis dengan warna redup.
         lab = huruf_sudut(frame, {"B": AKSEN2, "D": AKSEN2, "E": AKSEN, "G": AKSEN})
         with sinema.babak(self, "rangka", DURASI) as b:
             b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=2.2)
@@ -87,9 +90,7 @@ class GambarBolehBerbohong(AdeganMatra):
         qc.periksa_adegan(self, {"kubus": kubus, "huruf B": lab["B"], "huruf G": lab["G"],
                                  "identitas": jati})
 
-        # --- Babak 4: dua ruas, masing-masing dengan warnanya sendiri, dan
-        #     namanya MENEMPEL pada ruasnya. Sebelumnya nama itu ditulis di kaki
-        #     layar, tempat yang kini milik subtitle.
+        # --- Babak 4: dua ruas, namanya MENEMPEL pada ruasnya.
         n_bd = label_hadap(frame, "BD", sepanjang3(T["B"], T["D"], 0.28)
                            + np.array([0.0, -0.60, 0.32]), AKSEN2, 28)
         n_eg = label_hadap(frame, "EG", sepanjang3(T["E"], T["G"], 0.74)
@@ -106,58 +107,46 @@ class GambarBolehBerbohong(AdeganMatra):
 
         # --- Babak 5: SATU gerakan panjang naik ke pandangan atas. Di situlah
         #     tipuannya lahir: dua ruas yang terpisah enam satuan bertumpuk.
+        #     Pertanyaannya diucapkan narator dan tampil di subtitle; layar tidak
+        #     mengulanginya (standar v2 butir 4: kalimat panjang bukan milik gambar).
         tanda_atas = penanda(self, frame, SILANG_ATAS)
-        tanya = teks("benar-benar bertemu?", 30, SOROT).to_corner(UR, buff=0.5)
         with sinema.babak(self, "naik", DURASI) as b:
             isi_sisa(b, kamera.dunia_ke_peta(frame, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
-                     sisakan=4.2)
+                     sisakan=3.0)
             b.main(FadeIn(tanda_atas), run_time=1.2)
-            self.hud_tambah(tanya)
-            tanya.set_opacity(0)
-            b.main(tanya.animate.set_opacity(1), run_time=1.0)
             b.jeda(1.6)
         qc.periksa_adegan(self, {"BD": bd, "EG": eg, "penunjuk": tanda_atas,
-                                 "tanya": tanya, "identitas": jati},
-                          [("tanya", "identitas")])
+                                 "identitas": jati})
 
         # --- Babak 6: turun lagi, dan satu titik silang ternyata DUA titik.
-        #     DARI MANA ANGKA ENAM ITU (pertanyaan ARYA): sumbu z dimunculkan
-        #     kembali di sini, angka 6 di sana disorot ungu sejajar tutup kubus,
-        #     dan tinggi tiangnya sendiri diberi label. Dua penanda yang saling
-        #     menguatkan, jadi enam satuan bisa DIBACA, bukan diumumkan.
+        #     DARI MANA ANGKA ENAM ITU: sumbu z kembali dengan angka 6 tersorot
+        #     sejajar tutup kubus, tinggi tiangnya diberi label, dan rumusnya
+        #     LAHIR di dekat tiang lalu terbang ke panel (standar v2 butir 5).
         tanda_bawah = penanda(self, frame, SILANG_BAWAH)
         tiang = Line(SILANG_BAWAH, SILANG_ATAS).set_stroke(SOROT, 5)
         lab_enam = label_hadap(frame, "6", SILANG_BAWAH + np.array([0.85, 0.0, RUSUK / 2]),
                                SOROT, 36)
-        panel = rumus(r"\mathrm{jarak} = 6\ \mathrm{satuan}", 32, SOROT).to_corner(UR, buff=0.5)
         with sinema.babak(self, "turun", DURASI) as b:
             isi_sisa(b, kamera.sudut(frame, -30, 72, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
-                     sisakan=6.4)
-            sumbu_z_muncul(b, papan, 0.9)
+                     sisakan=6.6)
+            sumbu_z_muncul(b, papan_koor, 0.9)
             b.main(FadeIn(tanda_bawah), ShowCreation(tiang), run_time=1.4)
-            b.main(FadeIn(lab_enam), run_time=0.8)
-            self.hud.remove(tanya)
-            b.main(FadeOut(tanya), run_time=0.5)
-            self.hud_tambah(panel)
-            panel.set_opacity(0)
-            b.main(panel.animate.set_opacity(1), run_time=0.8)
-            b.jeda(1.0)
-        qc.periksa_adegan(self, {"tiang": tiang, "panel": panel, "angka tinggi": lab_enam,
-                                 "identitas": jati},
-                          [("panel", "identitas"), ("angka tinggi", "panel")])
+            b.main(FadeIn(lab_enam), run_time=0.7)
+            sinema.lahir_rumus(self, r"\mathrm{jarak} = 6", dekat=tiang, papan=papan, b=b,
+                               warna=SOROT)
+        qc.periksa_adegan(self, {"tiang": tiang, "panel": papan.semua(),
+                                 "angka tinggi": lab_enam, "identitas": jati},
+                          [("panel", "identitas")])
 
-        # --- Babak 7: kata "bersilangan" muncul MENEMPEL pada tempat kejadian,
-        #     bukan di kaki layar, lalu kubus diputar pelan supaya bentuknya
-        #     terbaca dari sudut lain.
-        # Ditaruh di ATAS kubus, sejajar ruas EG: di dalam kubus ia berdesakan
-        # dengan deret angka sumbu, dan di kaki layar ia akan mengambil tempat
-        # yang kini milik subtitle.
+        # --- Babak 7: kata "bersilangan" muncul MENEMPEL di atas tempat
+        #     kejadian, lalu kubus diputar pelan supaya bentuknya terbaca.
         vonis = label_hadap(frame, "bersilangan",
                             SILANG_ATAS + np.array([0.0, 0.0, 1.05]), SOROT, 30)
         with sinema.babak(self, "tutup", DURASI) as b:
             b.main(FadeIn(vonis), run_time=0.9)
             isi_sisa(b, kamera.putar_pelan(frame, 26), sisakan=1.6)
             b.jeda(1.2)
-        qc.periksa_adegan(self, {"BD": bd, "EG": eg, "tiang": tiang, "panel": panel,
-                                 "vonis": vonis, "identitas": jati},
+        qc.periksa_adegan(self, {"BD": bd, "EG": eg, "tiang": tiang,
+                                 "panel": papan.semua(), "vonis": vonis,
+                                 "identitas": jati},
                           [("vonis", "identitas"), ("vonis", "panel")])
