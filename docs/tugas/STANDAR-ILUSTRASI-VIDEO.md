@@ -63,6 +63,18 @@ Perkakasnya `manim/gl/` (sinema v2, qc, ilustrasi, kamera). Rujukan resmi:
    di dalam `LaggedStartMap`. Pakai `GrowFromPoint` dari alas batang
    (`tumbuh_batang` di `statistika3_lebar_kelas.py`).
 
+   BANGUN RUANG PEJAL (temuan Ruang 3D 4 Sep, terukur): `set_shading` ManimGL
+   LEMAH ARAH, memindah sumber cahaya saja tidak membuat kubus terlihat
+   bervolume (atap 200, muka kanan 190, beda 10 tidak terbaca). Yang bekerja:
+   terang TIAP MUKA ditentukan sendiri (`Prism` = 6 `Square3D`, warna dasar
+   dicampur LATAR untuk atap dan TINTA untuk muka samping; hasil 200/173/122,
+   tiga tingkat jelas), cahaya rendah di sisi kamera (mis. (-2, -12, 12))
+   supaya bayangan lantai wajar, dan bayangan DIHITUNG: titik sudut
+   diproyeksikan dari titik cahaya ke z = 0 lalu diambil lambung cembungnya,
+   jadi ikut bergeser kalau cahayanya digeser. Kode: `kubus_pejal` dan
+   `bayangan_kubus` di `manim/scenes/ruang_3d_umum.py`, akan dinaikkan ke
+   `gl.ilustrasi.balok`. Transformasi Geometri: pakai ini, jangan uji ulang.
+
 4. **Label di dalam gambar maksimal dua kata**, dijaga mesin (`sinema.label`
    menggagalkan render). Rumus seperti `x = 1` dihitung satu lambang. Contoh
    yang lolos: "naik 1", "ke KANAN", "dayung 3 km". Kalimat panjang milik
