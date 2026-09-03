@@ -62,7 +62,7 @@
     {
       "id": "tutup",
       "teks": "Selisih itu bukan kesalahan hitung. Komponen boleh dijumlahkan. Panjang tidak boleh.",
-      "tulis": "Selisih itu bukan kesalahan hitung. *Komponen boleh dijumlahkan. Panjang tidak boleh.*"
+      "tulis": "Selisih itu bukan kesalahan hitung. *Komponen* boleh dijumlahkan. *Panjang* tidak boleh."
     }
   ]
 }

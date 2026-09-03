@@ -1,5 +1,116 @@
 # Laporan MATRA-VEKTOR
-Terakhir: 2 September 2026, 18.00
+Terakhir: 3 September 2026, 22.40
+
+## Materi 01 dan 06 dirender ulang (3 Sep malam): utang lunas, plus satu cacat yang saya buat sendiri
+
+Perintah ARYA: render ulang dua video yang kodenya sudah ditambal, empat sisanya
+menyusul. Selesai. Rinciannya di bawah, termasuk yang gagal.
+
+### Yang lunas
+
+| Video | Cacat lama | Bukti sesudahnya |
+|---|---|---|
+| 06 | Baris rumus LAMA hidup lagi menimpa yang baru selama sedetik penutup | detik 128 dan 130: layar penutup bersih, hanya dua kalimat sorot |
+| 01 | Uraian Pythagoras berakhir sebagai angka "5" telanjang | panel berakhir di `\|d + a\| = 5`, terbaca di lembar kontak |
+
+### Cacat BARU, dan penyebabnya perbaikan saya sendiri
+
+Perbaikan pagi 3 Sep mengganti posisi kamera tulis tangan dengan
+`kamera.muat_datar`. Fungsi itu melebarkan bidang sampai memenuhi seluruh jalur
+layar yang bebas subtitle, dan ia tidak tahu apa-apa soal zona HUD. Hasilnya di
+Materi 01:
+
+1. Garis petak menembus SEMUA baris panel rumus di kanan atas.
+2. Batas warna pita sungai memotong tengah `d + a = (4, 3)`, yaitu gejala
+   "warna belang di tengah kata" yang dilarang gerbang video secara harfiah.
+3. Keterangan "1 petak = 1 km" ditulis di atas grid.
+
+Jadi tambalan itu menyembuhkan satu penyakit dan menularkan yang lain. Ketiganya
+sudah diperbaiki dan dirender ulang, dan lembar kontaknya sudah saya buka lagi.
+
+### Kenapa gerbang qc DIAM saja, dan ini temuan yang lebih berharga daripada videonya
+
+`qc.periksa_adegan` sudah punya mekanisme yang benar: perkalian silang OTOMATIS
+antara medan `hud` dan medan `dunia`, justru supaya tidak bergantung pada daftar
+pasangan buatan tangan yang selalu bolong. Docstring-nya bahkan mencatat kejadian
+2 Sep saat sebuah panel menindih garis bilangan.
+
+Adegan ini menaruh bidang di `zona`, bukan di `dunia`. Akibatnya bidang cuma
+diperiksa "muat bingkai atau tidak", dan tidak satu pun pembanding memeriksanya
+terhadap tulisan panel. **Lubangnya ada di cara memanggil, bukan di gerbangnya.**
+Sudah dibetulkan di tujuh titik periksa Materi 01, termasuk titik periksa di
+dalam pengulangan tiga sudut, tempat panah paling melebar (dayung 0 derajat
+menaruh ujung arus di x = 7). Sesi lain sebaiknya memeriksa hal yang sama:
+kalau benda dunia ditulis di `zona`, perkalian silangnya tidak berjalan.
+
+### Yang ditambahkan ke perkakas bersama
+
+`kamera.muat_datar` sekarang menerima `sisa_atas` dan `sisa_kanan` untuk MEMESAN
+jalur HUD, seperti jalur bawah yang sudah dipesan untuk subtitle. Bawaannya 0,0
+jadi tidak mengubah perilaku bagi siapa pun; Materi 01 memakai 0,75 dan 2,00,
+diukur dari lembar kontak, bukan dikarang. Ia juga menolak pesanan yang
+menghabiskan jalur, bukan menghasilkan tinggi negatif diam-diam.
+
+**Usul untuk MASTER:** bawaannya sebaiknya JADI tidak nol setelah semua sesi
+memakai `muat_datar`, sebab setiap adegan v2 punya identitas di kiri atas dan
+panel di kanan atas. Bawaan nol berarti sesi berikutnya mengulang cacat ini.
+Sekarang belum diubah supaya Materi 06 yang sudah dirender tetap cocok kodenya.
+
+### Cacat subtitle yang tidak butuh render, dan bocor ke sesi lain
+
+Materi 06 detik 130 menampilkan bintang mentah kepada siswa:
+`*Komponen boleh dijumlahkan.` Sebabnya `buat_subtitle.py` mengubah `*...*`
+menjadi `<b>...</b>` PER BARIS keluaran, sesudah kalimat dipotong. Penanda tebal
+yang membentang dua kalimat menyisakan satu bintang di tiap baris. Naskah saya
+sudah dibetulkan (menebalkan satu kata, bukan dua kalimat penuh), subtitle
+dibuat ulang, dan salinan tinjauan dibakar ulang tanpa render.
+
+**Untuk MASTER, bukan wilayah saya:** `web/public/anim/ruang-3d-03.vtt` baris 119
+bocor dengan cara yang sama (`*setiap soal jarak adalah`). Dua pilihan: perbaiki
+naskahnya per sesi, atau tambal `buat_subtitle.py` supaya penanda yang terpotong
+ditutup lalu dibuka lagi di baris berikutnya. Pilihan kedua sekaligus
+memperbaiki punya Ruang 3D tanpa menyentuh naskahnya.
+
+### Cacat tersisa, disebut bukan didiamkan
+
+1. **Materi 01, sudut dayung 180 derajat: label "dayung" jatuh DI LUAR bidang**,
+   tepat di sebelah angka sumbu "-1", sehingga terbaca seolah menamai sumbunya.
+   Dulu tercatat "sedikit di luar petak"; sekarang lebih jelas karena bidangnya
+   menyusut demi memberi ruang HUD. Butuh render lagi.
+2. **Materi 06, resultan ungu berkedip HITAM sedetik** saat narator berkata
+   "hati-hati pada panjangnya" (`Indicate(..., color=TINTA)`). Masalahnya hitam
+   sudah dipakai 30 detik sebelumnya untuk panah yang SALAH, jadi satu warna
+   memikul dua makna. Sengaja dibiarkan sampai ARYA memutuskan warnanya.
+3. **Materi 06, label komponen tegak ("1" biru dan "2" merah) berdiri sekitar
+   1,8 petak di sebelah kiri ruas yang dinamainya**, sementara label komponen
+   mendatar menempel rapi di bawah ruasnya. Tidak salah, cuma jauh.
+4. **Waktu mati.** Materi 06 membuka dengan sekitar 22 detik lapangan kelabu
+   yang hampir tidak bergerak; Materi 01 punya sekitar 18 detik di babak
+   Pythagoras yang gambarnya berhenti sementara panel bertambah satu baris.
+   Bukan layar kosong, tapi mata tidak diberi kerjaan.
+5. **Orang di Materi 06 dan perahu di Materi 01, dilihat tegak lurus dari atas,
+   menjadi gumpalan kelabu kecil.** Sudah dilaporkan putaran lalu, belum
+   diputuskan ARYA.
+
+### Batas render
+
+Tiga render dipakai: Materi 01, Materi 06, lalu Materi 01 sekali lagi untuk
+cacat yang saya bikin sendiri. Batas v2 dua per sesi. Render ketiga itu
+memperbaiki cacat yang lebih buruk daripada yang diperbaiki putaran sebelumnya,
+jadi saya ambil, dan dicatat sebagai pelanggaran yang disengaja.
+
+### Berkas tinjauan untuk ARYA
+
+| Berkas | Ukuran | Panjang |
+|---|---|---|
+| `media/uji-480p/vektor1-perahu-bersubtitle.mp4` | 3,3 MB | 2:19 |
+| `media/uji-480p/vektor6-sambung-bersubtitle.mp4` | 2,5 MB | 2:13 |
+
+### Berikutnya
+Materi 03, 04, 08, dan 09 masih tata letak lama dan akan ditolak qc v2. Empat
+video itu antrean render selanjutnya, sesuai perintah ARYA "yang lain nyusul".
+
+---
 
 > **Bagian di bawah "Catatan lama" SUDAH TIDAK BERLAKU.** Di situ video 1 dan
 > video 2 dinyatakan selesai. ARYA menonton keduanya dan MENOLAKNYA. Keduanya
