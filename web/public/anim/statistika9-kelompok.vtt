@@ -1,0 +1,163 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/statistika9-kelompok.json
+
+1
+00:00:00.000 --> 00:00:03.395
+Materi 09 Statistika: <b>data berkelompok</b>.
+
+2
+00:00:03.395 --> 00:00:05.572
+40 siswa mengikuti ujian,
+
+3
+00:00:05.572 --> 00:00:09.142
+lalu nilainya dikelompokkan jadi 6 kelas.
+
+4
+00:00:09.142 --> 00:00:12.624
+Tabel inilah yang sampai ke tangan kita.
+
+5
+00:00:12.624 --> 00:00:14.675
+Perhatikan apa yang <b>hilang</b>.
+
+6
+00:00:14.675 --> 00:00:17.562
+Kita tahu ada 12 siswa bernilai 60-an,
+
+7
+00:00:17.562 --> 00:00:19.841
+tetapi tidak tahu nilai persis
+
+8
+00:00:19.841 --> 00:00:21.816
+satu pun di antara mereka.
+
+9
+00:00:21.816 --> 00:00:23.634
+Kelas 40-49 dan kelas
+
+10
+00:00:23.634 --> 00:00:26.751
+berikutnya seolah berlubang di 49,5.
+
+11
+00:00:26.751 --> 00:00:29.955
+Padahal nilai itu harus punya tempat,
+
+12
+00:00:29.955 --> 00:00:33.072
+jadi yang dipakai adalah <b>tepi kelas</b>.
+
+13
+00:00:33.072 --> 00:00:36.978
+Tiap kelas lalu diwakili <b>titik tengahnya</b>.
+
+14
+00:00:36.978 --> 00:00:40.121
+Kita berpura-pura ketiga siswa di
+
+15
+00:00:40.121 --> 00:00:43.646
+kelas pertama semuanya bernilai 44,5.
+
+16
+00:00:43.646 --> 00:00:45.456
+Meannya jadi 67,75.
+
+17
+00:00:45.456 --> 00:00:47.379
+Sekarang mediannya.
+
+18
+00:00:47.379 --> 00:00:52.540
+Median membelah luas histogram jadi dua sama besar:
+
+19
+00:00:52.540 --> 00:00:55.576
+20 siswa di kiri, 20 di kanan.
+
+20
+00:00:55.576 --> 00:00:59.928
+Kita hitung dari kiri: 3, lalu 11, lalu 23.
+
+21
+00:00:59.928 --> 00:01:02.224
+20 terlampaui di kelas ketiga.
+
+22
+00:01:02.224 --> 00:01:05.209
+Jadi mediannya ada <b>di dalam</b> batang itu,
+
+23
+00:01:05.209 --> 00:01:07.428
+dan kita masih kurang 9 siswa
+
+24
+00:01:07.428 --> 00:01:09.648
+dari 12 yang berdiri di sana.
+
+25
+00:01:09.648 --> 00:01:14.727
+9 dari 12 berarti masuk <b>tiga perempat</b> lebar kelas.
+
+26
+00:01:14.727 --> 00:01:19.704
+Lebar kelasnya 10, jadi 7,5 dari tepi bawah 59,5.
+
+27
+00:01:19.704 --> 00:01:21.688
+Garisnya berhenti di 67.
+
+28
+00:01:21.688 --> 00:01:22.888
+Dan lihat,
+
+29
+00:01:22.888 --> 00:01:27.185
+luas di kirinya <b>sama persis</b> dengan luas di kanannya.
+
+30
+00:01:27.185 --> 00:01:29.252
+Rumus tadi bukan hafalan,
+
+31
+00:01:29.252 --> 00:01:32.184
+ia cuma cara menghitung letak garis ini.
+
+32
+00:01:32.184 --> 00:01:34.615
+Modus ada di batang tertinggi,
+
+33
+00:01:34.615 --> 00:01:37.208
+tetapi belum tentu di tengahnya.
+
+34
+00:01:37.208 --> 00:01:40.531
+Ia <b>condong ke tetangga yang lebih tinggi</b>.
+
+35
+00:01:40.531 --> 00:01:43.367
+Karena tetangga kanan lebih tinggi,
+
+36
+00:01:43.367 --> 00:01:45.312
+modusnya jatuh di 65,21.
+
+37
+00:01:45.312 --> 00:01:47.483
+Dan semua ini <b>hampiran</b>.
+
+38
+00:01:47.483 --> 00:01:52.297
+Median asli keempat puluh siswa itu 67,5, bukan 67.
+
+39
+00:01:52.297 --> 00:01:56.450
+Titik tengah adalah tebakan yang masuk akal,
+
+40
+00:01:56.450 --> 00:01:57.960
+bukan kebenaran.
