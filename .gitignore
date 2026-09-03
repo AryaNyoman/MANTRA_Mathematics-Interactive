@@ -67,3 +67,4 @@ graphify-out/.rantai.log
 graphify-out/cost.json
 graphify-out/memory/
 .graphify_cache/
+graphify-out/cache/
