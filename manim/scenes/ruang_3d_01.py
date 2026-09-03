@@ -58,13 +58,29 @@ class GambarBolehBerbohong(AdeganMatra):
         papan_koor = papan_koordinat(frame, tekan={"z": (6,)})
         papan = sinema.PapanRumus(self)
 
-        # --- Babak 1: HANYA judul materi (standar v2, bagian Waktu dan sinkron).
+        # --- Babak 1: judul, lalu kubusnya DATANG dan cahaya menyapunya.
         kamera.pasang_awal(frame, theta=-40, phi=74, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
-        self.add(lantai(), *papan_koor["datar"], *papan_koor["tinggi"], kubus)
+        # Cahaya dipindah ke sisi kamera dan kubus diberi bayangan lantai. Tanpa
+        # keduanya kubusnya terbaca sebagai balok gelap datar yang melayang.
+        # Cahaya MULAI menyerong, lalu disapukan ke tempatnya di babak pembuka.
+        pasang_cahaya(self, CAHAYA + np.array([16.0, 4.0, -6.0]))
+        bayangan = bayangan_kubus().set_opacity(0.0)
+        self.add(lantai(), bayangan, *papan_koor["datar"], *papan_koor["tinggi"])
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 01: Gambar ruang boleh berbohong",
                                  lama=3.4, y=3.0)
             b.catat(3.4)
+            # Pembuka WAJIB ada kejadiannya, bukan kubus diam yang berputar
+            # pelan (STANDAR butir 2, dipertegas 4 Sep). Kubusnya tumbuh dari
+            # lantai bersama bayangannya, lalu sumber cahaya digeser menyapu
+            # sehingga ketiga mukanya bergantian terang. Menyapukan cahaya,
+            # bukan memutar kubus, sebab yang ingin ditunjukkan justru bahwa
+            # benda ini PADAT dan menempel di lantai. Sapuannya SEKALI jalan,
+            # berakhir pada arah cahaya yang benar: babak ini cuma 8,26 detik
+            # dan sapuan pulang-pergi ditolak gerbang waktu, bukan diloloskan.
+            b.main(FadeIn(kubus, scale=0.72), bayangan.animate.set_opacity(0.20),
+                   run_time=1.2)
+            b.main(self.camera.light_source.animate.move_to(CAHAYA), run_time=1.6)
             isi_sisa(b, kamera.sudut(frame, -30, 70, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"kubus": kubus})
 
@@ -72,11 +88,19 @@ class GambarBolehBerbohong(AdeganMatra):
         #     memperkenalkan arah tinggi. Ia kembali di babak "turun", saat
         #     tinggi benar-benar dipakai menghitung (standar v2 butir 9).
         jati = sinema.identitas(self, "panjang = lebar = tinggi = 6 satuan")
+        tiga_rusuk = VGroup(*[Line(T["A"], T[n]).set_stroke(SOROT, 7)
+                              for n in ("B", "D", "E")])
         with sinema.babak(self, "kotak", DURASI) as b:
             b.catat(0.0)
+            # Narasinya menyebut "panjang, lebar, dan tingginya sama", jadi
+            # ketiganya DITUNJUKKAN satu per satu di kubusnya, bukan cuma
+            # dikatakan lalu kamera berputar pada gambar yang tidak berubah.
+            for r in tiga_rusuk:
+                b.main(ShowCreation(r), run_time=0.9)
             sumbu_z_pamit(b, papan_koor, 1.0)
-            isi_sisa(b, kamera.sudut(frame, -18, 64, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-            b.jeda(0.8)
+            isi_sisa(b, kamera.sudut(frame, -18, 64, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
+                     sisakan=1.4)
+            b.main(FadeOut(tiga_rusuk), run_time=0.7)
         qc.periksa_adegan(self, {"kubus": kubus, "identitas": jati})
 
         # --- Babak 3: dinding dibuat tembus pandang, KEDELAPAN titik sudut diberi
@@ -84,7 +108,8 @@ class GambarBolehBerbohong(AdeganMatra):
         #     sisanya tetap ditulis dengan warna redup.
         lab = huruf_sudut(frame, {"B": AKSEN2, "D": AKSEN2, "E": AKSEN, "G": AKSEN})
         with sinema.babak(self, "rangka", DURASI) as b:
-            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=2.2)
+            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka),
+                   FadeOut(bayangan), run_time=2.2)
             b.main(*[FadeIn(x) for x in lab.values()], run_time=1.0)
             isi_sisa(b, kamera.putar_pelan(frame, 14))
         qc.periksa_adegan(self, {"kubus": kubus, "huruf B": lab["B"], "huruf G": lab["G"],
