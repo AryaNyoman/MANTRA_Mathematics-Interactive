@@ -462,16 +462,36 @@ class GeserCerminRegang(AdeganMatra):
         """Lembahnya pergi, tinggal bidang datar. Mulai di sini semuanya 2D.
 
         Bentuk yang tadi ada sebagai benda kini tinggal sebagai gambar, dan itu
-        memang isi kalimat narasinya. Bola dan permukaannya memudar bersamaan
-        dengan sumbu yang datang, jadi tidak ada satu detik pun layar kosong.
+        memang isi kalimat narasinya.
+
+        SUMBUNYA DIGAMBAR MENGIKUTI KALIMATNYA, bukan muncul sekaligus. Versi
+        sebelumnya memunculkan kedua sumbu di detik 22, padahal narator baru
+        menyebut "sumbu mendatar untuk x dan sumbu tegak untuk y" di detik 24.
+        Akibatnya detik 23 sampai 29 layarnya beku pada sumbu kosong: terukur
+        0,56 persen isi layar, tidak ada satu piksel pun berubah selama tujuh
+        detik. Sekarang sumbu mendatar ditarik saat namanya disebut, lalu
+        sumbu tegak menyusul, jadi gerak di layar cocok dengan yang diucapkan.
         """
         self.sumbu = self.buat_sumbu()
+        gx, gy, angka, huruf = self.sumbu
+        # `buat_sumbu` menyusun angka sumbu x lebih dulu (tujuh angka), baru
+        # angka sumbu y (lima angka); hurufnya x dulu, lalu y.
         self.bola.clear_updaters()
 
         with sinema.babak(self, "datar", DURASI) as b:
             b.main(kamera.sudut(self.frame_, **SUDUT_GRAFIK), run_time=3.2)
-            b.main(FadeOut(self.lembah), FadeOut(self.bola),
-                   FadeIn(self.sumbu), run_time=1.6)
+            # Lembahnya memudar PERSIS sampai kalimat sumbu dimulai. Angkanya
+            # bukan kira-kira: babak ini mulai detik 17,71, kamera memakai 3,2
+            # detik, dan kalimat "dengan sumbu mendatar" mulai detik 24,05,
+            # jadi sisanya 3,1 detik. Dengan 2,4 detik, layarnya sempat KOSONG
+            # 0,00 persen di detik 24 dan 25, dan itu justru cacat yang sedang
+            # diperbaiki di sini.
+            b.main(FadeOut(self.lembah), FadeOut(self.bola), run_time=3.1)
+            self.tunggu_sampai(b, mulai_kalimat("dengan sumbu mendatar"), 0.3)
+            b.main(ShowCreation(gx), FadeIn(angka[:7]), FadeIn(huruf[0]),
+                   run_time=1.8)
+            b.main(ShowCreation(gy), FadeIn(angka[7:]), FadeIn(huruf[1]),
+                   run_time=1.8)
             # ATURANNYA DITULIS DI SINI, sebelum pertanyaannya diajukan.
             # ARYA: "urutan pembuatan grafiknya kebalik, harusnya diberi fungsi
             # f(x) = x^2, lalu mengapa bentuknya seperti itu? barulah kita
@@ -509,22 +529,45 @@ class GeserCerminRegang(AdeganMatra):
             for x, y in NILAI_HITUNG
         ])
         hitungan.arrange(DOWN, buff=0.30, aligned_edge=LEFT)
+        lebar_sebelum = hitungan.get_width()
         sinema.batasi_lebar(hitungan, 4.4)
+        skala = hitungan.get_width() / lebar_sebelum
         hitungan.to_corner(UR, buff=0.45)
+
+        # SLOT KOSONG. Narator bertanya "Kenapa bentuknya begitu? Bukan sihir,
+        # tapi dihitung" di detik 31,25 sampai 36,53, dan versi sebelumnya
+        # menjawabnya dengan layar beku: sumbu kosong plus satu label kecil,
+        # terukur 0,70 persen isi layar selama enam detik. Sekarang lima slot
+        # ruas kirinya muncul satu per satu selama kalimat itu, jadi mata tahu
+        # akan ada lima hitungan sebelum angka pertamanya datang. Ruas
+        # KANANNYA sengaja belum ada: jawabannya tidak boleh bocor sebelum
+        # dihitung, itu justru inti babak ini.
+        slot = VGroup(*[rumus(r"f(%d) =" % x, 26) for x, _ in NILAI_HITUNG])
+        for s, baris in zip(slot, hitungan):
+            s.scale(skala)
+            s.move_to(baris.get_left(), aligned_edge=LEFT)
 
         self.titik = Group(*[penanda([x, Y_KURVA, y], SOROT, 0.13)
                              for x, y in NILAI_HITUNG])
 
         with sinema.babak(self, "titik", DURASI) as b:
+            self.hud_tambah(slot)
             self.hud_tambah(hitungan)
             for baris in hitungan:
                 baris.set_opacity(0)
+            for s in slot:
+                s.set_opacity(0)
+            self.tunggu_sampai(b, mulai_kalimat("Kenapa bentuknya begitu"), 0.3)
+            for s in slot:
+                b.main(s.animate.set_opacity(0.32), run_time=0.85)
             # TIAP titik mendarat saat kalimatnya MULAI diucapkan, bukan
             # menurut hitungan run_time saya sendiri. Sebelumnya semuanya
             # sekitar dua detik terlalu cepat dan ARYA yang menemukannya.
-            for (x, _), baris, tt in zip(NILAI_HITUNG, hitungan, self.titik):
+            for (x, _), baris, s, tt in zip(NILAI_HITUNG, hitungan, slot,
+                                            self.titik):
                 self.tunggu_sampai(b, mulai_kalimat("x = %d memberi" % x), 1.7)
-                b.main(baris.animate.set_opacity(1), FadeIn(tt), run_time=1.0)
+                b.main(FadeOut(s), baris.animate.set_opacity(1), FadeIn(tt),
+                       run_time=1.0)
             # Kurvanya ditarik tepat saat narator sampai di kata
             # "kurvanya cuma menghubungkan", bukan lima detik sebelumnya.
             self.tunggu_sampai(b, mulai_kalimat("dan kurvanya cuma"), 1.0)
@@ -672,8 +715,18 @@ class GeserCerminRegang(AdeganMatra):
     # ==================================================================
     def b14_tutup(self):
         """Satu-satunya babak yang boleh berupa layar teks, sesuai aturan 4."""
-        luar = teks("Angka di LUAR kurung\nmengerjakan apa yang tertulis.", 30, AKSEN)
-        dalam = teks("Angka yang masuk ke DALAM kurung\nmengerjakan kebalikannya.", 30, AKSEN2)
+        # Tiap baris satu objek teks. LaTeX memperlakukan pergantian baris di
+        # dalam sumber sebagai spasi biasa, jadi penanda baris baru di dalam
+        # `teks()` TIDAK memutus baris; kalimatnya menyambung jadi satu baris
+        # panjang lalu dikecilkan seluruhnya oleh `batasi_lebar`.
+        luar = VGroup(
+            teks("Angka di LUAR kurung", 30, AKSEN),
+            teks("mengerjakan apa yang tertulis.", 30, AKSEN),
+        ).arrange(DOWN, buff=0.22)
+        dalam = VGroup(
+            teks("Angka yang masuk ke DALAM kurung", 30, AKSEN2),
+            teks("mengerjakan kebalikannya.", 30, AKSEN2),
+        ).arrange(DOWN, buff=0.22)
         dua = VGroup(luar, dalam).arrange(DOWN, buff=0.6)
         sinema.batasi_lebar(dua, 11.0)
         dua.move_to([0, 0.1, 0])
