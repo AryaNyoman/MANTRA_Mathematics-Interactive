@@ -163,6 +163,75 @@ export function Panah({
 }
 
 /* ------------------------------------------------------------------ */
+/* Busur sudut                                                         */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Busur yang menunjukkan sudut putaran, dari sebuah titik ke petanya.
+ *
+ * DIGAMBAR DARI TITIK-TITIK, BUKAN DENGAN PERINTAH BUSUR SVG
+ * Perintah `A` pada SVG butuh dua bendera, `large-arc` dan `sweep`, dan
+ * keduanya menyatakan arah dalam koordinat LAYAR yang sumbu tegaknya terbalik
+ * terhadap koordinat matematika. Rotasi berlawanan arah jarum jam di
+ * matematika tergambar searah jarum jam di layar, dan bendera yang keliru
+ * memberi busur yang memutar ke arah yang salah tanpa satu pun pesan galat.
+ * Di materi yang justru mengajarkan arah putar, kesalahan itu tidak boleh
+ * mungkin terjadi.
+ *
+ * Menyusunnya dari titik yang dihitung satu per satu membuat arahnya mengikuti
+ * angka sudutnya apa adanya: sudut menaik menggambar busur menaik.
+ */
+export function Busur({
+  pusat,
+  jariMatematika,
+  dariDerajat,
+  keDerajat,
+  p,
+  warna = ALAT,
+  label,
+}: {
+  pusat: Titik
+  jariMatematika: number
+  dariDerajat: number
+  keDerajat: number
+  p: Pemeta
+  warna?: string
+  label?: string
+}) {
+  if (Math.abs(keDerajat - dariDerajat) < 0.5 || jariMatematika <= 0) return null
+
+  const langkah = 40
+  const jalur: string[] = []
+  for (let i = 0; i <= langkah; i++) {
+    const d = dariDerajat + ((keDerajat - dariDerajat) * i) / langkah
+    const r = (d * Math.PI) / 180
+    const x = p.x(pusat.x + jariMatematika * Math.cos(r))
+    const y = p.y(pusat.y + jariMatematika * Math.sin(r))
+    jalur.push(`${i === 0 ? 'M' : 'L'} ${x} ${y}`)
+  }
+
+  const tengahDerajat = (dariDerajat + keDerajat) / 2
+  const rTengah = (tengahDerajat * Math.PI) / 180
+  const labelX = p.x(pusat.x + jariMatematika * 1.15 * Math.cos(rTengah))
+  const labelY = p.y(pusat.y + jariMatematika * 1.15 * Math.sin(rTengah))
+
+  return (
+    <g>
+      <path d={jalur.join(' ')} fill="none" stroke={warna} strokeWidth={1.8} />
+      {label && (
+        <text
+          x={labelX} y={labelY + 3.4} textAnchor="middle"
+          fontSize={10.5} fontWeight={600} fill={warna} fontFamily={MONO}
+          stroke={KERTAS} strokeWidth={2.8} paintOrder="stroke"
+        >
+          {label}
+        </text>
+      )}
+    </g>
+  )
+}
+
+/* ------------------------------------------------------------------ */
 /* Ruas berangka                                                       */
 /* ------------------------------------------------------------------ */
 

@@ -99,10 +99,15 @@ const DAFTAR: Topik[] = [
     urutanKelas: 11,
     pertanyaan: 'Kenapa bayangan di kaca dan stiker yang digeser itu matematika yang sama?',
     miskonsepsiSingkat: '“yang dipindah kan gambarnya, bukan titiknya.”',
-    // Masih dibangun. Dinyalakan setelah ketiga belas materinya lengkap dan
-    // seluruh gerbang mutunya lolos. Dibiarkan false supaya penggabungan
-    // cabang ini di tengah kerja tidak menayangkan topik setengah jadi.
-    siap: false,
+    // Dinyalakan 4 September 2026, setelah ketiga belas materinya lengkap dan
+    // seluruh gerbangnya lolos: uji matematika (alat/uji-matriks-transformasi.mts),
+    // pemeriksa angka (alat/cek_transformasi.py, 99 klaim), daftar periksa
+    // mengajar (alat/periksa_tahap.py transformasi-geometri), tsc, build, dan
+    // pemeriksaan visual tiap materi satu per satu lewat Playwright.
+    //
+    // Selama pengerjaan berkas ini sengaja dibiarkan false, supaya penggabungan
+    // cabang ini ke master di tengah kerja tidak menayangkan topik setengah jadi.
+    siap: true,
   },
 ]
 

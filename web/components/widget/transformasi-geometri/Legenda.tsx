@@ -22,19 +22,30 @@ import { KOTAK, MONO, VH, WARNA } from './gaya'
  * Pita bawah berada DI LUAR `KOTAK`, yaitu di luar daerah gambar, jadi
  * tabrakan itu mustahil terjadi lagi. Harganya: ruangnya sempit.
  *
- * MAKSIMAL TIGA ENTRI, DAN TIAP TULISANNYA PENDEK
- * Pita bawah dibagi dengan penunjuk skala di sisi kanan, yang memakai kira-kira
- * 145 piksel. Sisanya kira-kira 240 piksel, cukup untuk tiga entri bertulisan
- * pendek. Entri keempat akan menabrak penunjuk skala. Kalau sebuah widget
- * terasa butuh entri keempat, biasanya yang dibutuhkan bukan keterangan
- * tambahan melainkan gambar yang lebih sederhana.
+ * BARISNYA SENDIRI, TIDAK DIBAGI DENGAN PENUNJUK SKALA
+ * Versi pertama menaruh keterangan dan penunjuk skala pada satu baris yang
+ * sama, keterangan di kiri dan penunjuk skala rata kanan. Itu memindahkan
+ * masalahnya, bukan menyelesaikannya: pada Materi 09 tulisan
+ * "kolom 2, peta (0,1)" memanjang sampai menabrak "lebar tampilan 7,22 satuan",
+ * dan keduanya jadi tak terbaca. Tertangkap pada pemeriksaan visual 3 Sep 2026.
+ *
+ * Sekarang keterangan memakai baris sendiri di atas penunjuk skala, sehingga
+ * seluruh lebar bidang tersedia untuknya. Panjang tulisan tidak lagi bisa
+ * merusak tulisan lain, dan pemakai widget tidak perlu menghitung piksel.
+ *
+ * MAKSIMAL TIGA ENTRI
+ * Batas ini tetap, dan alasannya sekarang soal membaca, bukan soal ruang.
+ * Keterangan berisi empat warna berarti gambarnya memuat empat hal sekaligus,
+ * dan gambar seperti itu jarang mengajar dengan baik. Kalau sebuah widget
+ * terasa butuh entri keempat, yang dibutuhkan biasanya gambar yang lebih
+ * sederhana, bukan keterangan yang lebih panjang.
  */
 export default function Legenda({
   entri,
 }: {
   entri: Array<{ warna: string; teks: string; putus?: boolean }>
 }) {
-  const y = VH - 9
+  const y = VH - 19
   let x = KOTAK.x0
 
   return (

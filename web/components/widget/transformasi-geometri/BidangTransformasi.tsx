@@ -140,8 +140,24 @@ export default function BidangTransformasi({
       )}
 
       {/* ---------- keterangan dan penunjuk skala ---------- */}
+      {/* Ukuran hurufnya menyesuaikan panjang tulisannya.
+          Keterangan di topik ini bisa panjang, sebab ia menyebutkan
+          transformasinya lengkap dengan pusat dan sudutnya. Pada Materi 12
+          tulisan "cermin pada sumbu X, lalu rotasi 90 derajat terhadap titik
+          asal" TERPOTONG di tepi kanan, dan potongannya tidak terlihat sebagai
+          galat: kalimatnya cuma berhenti. Tertangkap pada pemeriksaan visual
+          3 Sep 2026.
+
+          Huruf mono selebar kira-kira 0,6 kali tingginya, jadi lebar yang
+          tersedia dibagi jumlah hurufnya memberi ukuran yang pasti muat.
+          Dibatasi 12 di atas supaya tulisan pendek tidak jadi besar sekali,
+          dan 8,5 di bawah supaya tulisan panjang tetap terbaca. */}
       {keterangan && (
-        <text x={KOTAK.x0} y={KOTAK.y0 - 8} fontSize={12} fill={WARNA.miring} fontFamily={MONO}>
+        <text
+          x={KOTAK.x0} y={KOTAK.y0 - 8}
+          fontSize={Math.max(8.5, Math.min(12, (KOTAK.x1 - KOTAK.x0) / (0.62 * keterangan.length)))}
+          fill={WARNA.miring} fontFamily={MONO}
+        >
           {keterangan}
         </text>
       )}
