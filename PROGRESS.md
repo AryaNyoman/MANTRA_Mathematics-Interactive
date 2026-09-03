@@ -29,7 +29,29 @@ lengkap dengan video (7 video masing-masing). Empat topik baru (Vektor, Grafik
 Fungsi, Statistika, Ruang 3D) halamannya utuh tanpa video, dan kelimanya
 ditambah UI/UX sedang mengerjakan gelombang 2 di sesi paralel.
 
-### YANG BERUBAH 2 SEP MALAM sampai 3 SEP DINI HARI: standar video VERSI 2 (baca ini PALING dulu)
+### 3 SEP SIANG: laptop mati, sesi dinyalakan ulang, empat cabang digabung
+- Laptop ARYA mati. Kelima sesi dinyalakan ulang dengan `NYALAKAN-5-SESI.bat`
+  (skripnya MELANJUTKAN, bukan mengulang: tiap worktree tetap satu berkas
+  transkrip, 1.600 sampai 5.600 baris, hanya ditambahi). Nama MATRA di daftar
+  aplikasi TIDAK ikut kembali, sebab sesi terminal didaftarkan sebagai baris
+  baru bernama acak; ini hiasan, lapisan antar-sesi tetap mengenali MATRA-*.
+  ARYA memutuskan lain kali membuka sesi manual dari aplikasi per worktree.
+- Keempat cabang digabung ke `master` tanpa konflik: Vektor (empat video
+  terakhir 08, 03, 09, 04, plus Materi 01 dan 06 dinaikkan ke standar v2),
+  Grafik Fungsi (Tahap 3 versi v2, `manim/gl/grafik.py` dipindah keluar ke
+  wilayah topiknya), Ruang 3D (keenam video disesuaikan ke v2), UI/UX (bukti
+  kedua subtitle di produksi). Statistika sudah tergabung sebelumnya.
+- Verifikasi setelah gabung: `gl` utuh, uji qc lolos, `cek_kode` bersih untuk
+  19 adegan, tsc 0, eslint 0, build sukses. BELUM dideploy: perubahan web-nya
+  hanya berkas `.vtt` Vektor, dan ARYA belum menonton videonya.
+- Perbaikan perkakas dari temuan sesi (commit e437654): pemotong subtitle
+  menegakkan 56 huruf (985 baris, nol yang lewat), slot teratas `PapanRumus`
+  dipesan untuk rumus utama, `kamera.muat_datar` untuk bidang yang tidak muat,
+  `ganti_rumus(..., papan=papan)`.
+- Menunggu keputusan ARYA: ukuran bawaan subtitle 85% (pilihan ARYA) atau 100%
+  (usul UI/UX, dengan bukti 64 huruf masih muat satu baris).
+
+### YANG BERUBAH 2 SEP MALAM sampai 3 SEP DINI HARI: standar video VERSI 2
 Empat sesi membuat video dengan standar v1 dan ARYA harus mengulang koreksi yang
 sama empat kali (kamera miring merusak panjang, keterangan bertabrakan subtitle,
 subtitle mengeja angka). MASTER menanyakan sepuluh pilihan, ARYA menjawab,

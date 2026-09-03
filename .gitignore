@@ -44,3 +44,6 @@ videos/
 mfput.log
 *.aux
 web/public/anim/contoh-perahu.vtt
+
+# Salinan buku rujukan (65 MB). Aslinya di D:\BAHAN MATEMATIKA, jangan masuk repo.
+BAHAN MATEMATIKA/
