@@ -98,15 +98,15 @@ export default function PerjalananSudut({ indeks }: { indeks: number }) {
 
       {/* nilai eksak di bawah */}
       <text x={VW / 2} y={VH - 46} textAnchor="middle" fontSize={17} fill="#211E1A"
-            fontFamily="var(--font-plex-mono), monospace">
+            fontFamily="var(--font-mono), sans-serif">
         θ = {s.derajat}° = {s.radian}
       </text>
       <text x={VW / 2 - 96} y={VH - 22} textAnchor="middle" fontSize={14} fill={WARNA.depan}
-            fontFamily="var(--font-plex-mono), monospace">sin θ = {s.sin}</text>
+            fontFamily="var(--font-mono), sans-serif">sin θ = {s.sin}</text>
       <text x={VW / 2 + 96} y={VH - 22} textAnchor="middle" fontSize={14} fill={WARNA.samping}
-            fontFamily="var(--font-plex-mono), monospace">cos θ = {s.cos}</text>
+            fontFamily="var(--font-mono), sans-serif">cos θ = {s.cos}</text>
       <text x={VW / 2} y={VH - 4} textAnchor="middle" fontSize={13} fill={WARNA.sudut}
-            fontFamily="var(--font-plex-mono), monospace">tan θ = {s.tan}</text>
+            fontFamily="var(--font-mono), sans-serif">tan θ = {s.tan}</text>
     </svg>
   )
 }

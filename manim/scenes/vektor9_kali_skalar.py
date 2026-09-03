@@ -53,7 +53,13 @@ ASAL = np.array([0.0, 0.0, Z])
 VA = np.array([2.0, 1.0, 0.0])          # a = (2 1)
 
 BIDANG_X, BIDANG_Y = (-5.0, 7.0, 1.0), (-2.0, 3.0, 1.0)
-PETA = dict(theta=0, phi=0, pusat=(1.0, 0.3, 0.0), tinggi=7.6)
+# Kamera peta dihitung `kamera.muat_datar`, tidak ditulis tangan: yang
+# paling bawah pada `bidang_bernomor` adalah ANGKA sumbunya.
+#
+# SISA JALUR HUD DIUKUR: baris panel terlebar di sini
+# "-2 x (2 1) = (-4 -2)" selebar 2,94 satuan, rata kanan ke 6,73, jadi
+# tepi kirinya 3,79. Identitas satu baris berakhir sekitar y = 3,35.
+SISA_ATAS, SISA_KANAN = 0.40, 3.05
 
 
 class KaliSkalar(AdeganMatra):
@@ -87,17 +93,24 @@ class KaliSkalar(AdeganMatra):
         bidang.set_opacity(0)
         self.add(bidang)
         self.bring_to_front(bola)
-        identitas = teks("1 petak = 1 langkah", 23, REDUP).to_corner(UL, buff=0.42)
+        # `tanpa_utama=True`: semua isinya baris, tidak ada rumus utama.
+        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True)
 
         with sinema.babak(self, "terbang", DURASI) as b:
             lama = max(2.0, DURASI["terbang"] - 3.0)
-            b.main(kamera.sudut(frame, **PETA), run_time=lama)
+            pusat, tinggi = kamera.muat_datar(bidang, sisa_atas=SISA_ATAS,
+                                              sisa_kanan=SISA_KANAN)
+            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
+                                tinggi=tinggi), run_time=lama)
             b.main(FadeOut(lapangan), FadeOut(alas),
                    bidang.animate.set_opacity(1), run_time=1.4)
-            self.hud_tambah(identitas)
+            identitas = sinema.identitas(self, "1 petak = 1 langkah")
             identitas.set_opacity(0)
             b.main(identitas.animate.set_opacity(1), run_time=0.8)
-        qc.periksa_adegan(self, {"bidang": bidang, "identitas": identitas})
+        # Bidang ke `dunia`, identitas ke `hud`: hanya begitu perkalian
+        # silang hud x dunia di `periksa_adegan` berjalan.
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"identitas": identitas})
 
         # ==============================================================
         # Babak 3: panah a yang asli
@@ -108,7 +121,6 @@ class KaliSkalar(AdeganMatra):
         p_asal = Arrow(ASAL, ASAL + VA, buff=0, thickness=4).set_color(AKSEN2)
         p_asal.set_opacity(0.45)
         l_a = rumus(r"\vec{a}", 28, AKSEN2).move_to(ASAL + VA * 0.55 + 0.45 * DOWN)
-        panel_a = rumus(r"\vec{a} = (2\ \ 1)", 32, AKSEN2).to_corner(UR, buff=0.45)
 
         label_k = teks("pengali", 24, AKSEN)
         angka_k = sinema.AngkaKoma(1.0, num_decimal_places=1, font_size=40).set_color(AKSEN)
@@ -117,38 +129,46 @@ class KaliSkalar(AdeganMatra):
         # lama dan bentuk baru punya jumlah titik berbeda lalu render gagal
         # dengan "could not broadcast input array from shape (23,3) into shape
         # (81,3)". Dipasang setelah animasi kemunculannya selesai.
+        # Angka pengali yang hidup ini adalah HITUNGAN, jadi tempatnya sisi
+        # KANAN di bawah papan rumus, bukan menumpuk di bawah identitas.
+        # Kiri atas milik identitas benda saja. Letaknya sama persis dengan
+        # baris "panjang" di Materi 01, yang jadi rujukan bidang datar.
         ukur_k = VGroup(label_k, angka_k).arrange(RIGHT, buff=0.22)
-        ukur_k.next_to(identitas, DOWN, buff=0.34).align_to(identitas, LEFT)
+        sinema.batasi_lebar(ukur_k, 4.5)
+        # Digeser 0,35 satuan lagi ke kiri, TIDAK seperti Materi 01. Di sana
+        # angkanya selalu empat huruf ("5,00"), di sini "1,0" berubah jadi
+        # "-2,0" dan DecimalNumber menahan tepi KIRI-nya, jadi ia tumbuh ke
+        # kanan sampai keluar bingkai. Diukur dari pesan gerbang: kelebihan
+        # 0,21 satuan.
+        ukur_k.move_to([6.85 - ukur_k.get_width() / 2 - 0.47, 0.62, 0]).fix_in_frame()
 
         with sinema.babak(self, "satu", DURASI) as b:
             self.add(p_asal, p_hasil)
             self.bring_to_front(bola)
             b.main(self.k.animate.set_value(1.0), run_time=1.4)
             b.main(FadeIn(l_a), run_time=0.4)
-            self.hud_tambah(panel_a, ukur_k)
-            panel_a.set_opacity(0)
+            panel_a = papan.baris(r"\vec{a} = (2\ \ 1)", AKSEN2)
+            self.hud_tambah(ukur_k)
             ukur_k.set_opacity(0)
-            b.main(panel_a.animate.set_opacity(1), ukur_k.animate.set_opacity(1), run_time=0.6)
+            b.main(ukur_k.animate.set_opacity(1), run_time=0.6)
             angka_k.add_updater(lambda m: m.set_value(self.k.get_value()))
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"label a": l_a, "panel a": panel_a, "ukur k": ukur_k,
-                                 "identitas": identitas},
-                          [("ukur k", "identitas"), ("ukur k", "panel a")])
+        qc.periksa_adegan(self, {},
+                          dunia={"bidang": bidang, "label a": l_a},
+                          hud={"panel a": panel_a, "ukur k": ukur_k,
+                               "identitas": identitas})
 
         # ==============================================================
         # Babak 4: pengali 3
         # ==============================================================
-        hit3 = rumus(r"3 \times (2\ \ 1) = (6\ \ 3)", 30, SOROT)
-        hit3.next_to(ukur_k, DOWN, buff=0.34).align_to(ukur_k, LEFT)
-
         with sinema.babak(self, "tiga", DURASI) as b:
             b.main(self.k.animate.set_value(3.0), run_time=2.2)
-            self.hud_tambah(hit3)
-            hit3.set_opacity(0)
-            b.main(hit3.animate.set_opacity(1), run_time=0.7)
+            hit = papan.baris(r"3 \times (2\ \ 1) = (6\ \ 3)", SOROT)
+            b.catat(0.8)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"hitung 3": hit3, "ukur k": ukur_k, "panel a": panel_a},
-                          [("hitung 3", "ukur k"), ("hitung 3", "panel a")])
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"panel a": panel_a, "ukur k": ukur_k,
+                               "hitung": hit, "identitas": identitas})
 
         # ==============================================================
         # Babak 5: pengali setengah
@@ -157,70 +177,83 @@ class KaliSkalar(AdeganMatra):
             b.main(self.k.animate.set_value(0.5), run_time=2.4)
             b.main(Indicate(p_asal, scale_factor=1.0, color=SOROT), run_time=1.0)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"ukur k": ukur_k, "identitas": identitas})
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"panel a": panel_a, "ukur k": ukur_k,
+                               "hitung": hit, "identitas": identitas})
 
         # ==============================================================
         # Babak 6: pertanyaan
         # ==============================================================
         with sinema.babak(self, "tanya", DURASI) as b:
             b.jeda(1.6)
-        qc.periksa_adegan(self, {"ukur k": ukur_k, "hitung 3": hit3})
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"panel a": panel_a, "ukur k": ukur_k,
+                               "hitung": hit, "identitas": identitas})
 
         # ==============================================================
         # Babak 7: pengali nol
         # ==============================================================
-        nol_label = teks("vektor nol", 24, REDUP).move_to(ASAL + np.array([1.0, -0.75, 0.0]))
+        # `sinema.label` menggagalkan render kalau label gambar lebih dari
+        # dua kata. Dipakai supaya aturan itu dijaga mesin, bukan ingatan.
+        nol_label = sinema.label("vektor nol", 24, REDUP)
+        nol_label.move_to(ASAL + np.array([1.0, -0.75, 0.0]))
 
         with sinema.babak(self, "nol", DURASI) as b:
             b.main(self.k.animate.set_value(0.0), run_time=1.8)
             b.main(FadeIn(nol_label), run_time=0.5)
             b.jeda(1.0)
             b.main(FadeOut(nol_label), run_time=0.4)
-        qc.periksa_adegan(self, {"ukur k": ukur_k, "panel a": panel_a})
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"panel a": panel_a, "ukur k": ukur_k,
+                               "hitung": hit, "identitas": identitas})
 
         # ==============================================================
         # Babak 8: pengali negatif
         # ==============================================================
-        hitn = rumus(r"-2 \times (2\ \ 1) = (-4\ \ -2)", 30, SOROT)
-        hitn.next_to(hit3, DOWN, buff=0.26).align_to(hit3, LEFT)
-
+        # Baris yang SAMA dimorf, bukan baris kedua ditumpuk: pengalinya
+        # yang berubah, dan v2 meminta rumus berubah di tempatnya.
         with sinema.babak(self, "negatif", DURASI) as b:
             b.main(self.k.animate.set_value(-2.0), run_time=2.4)
-            self.hud_tambah(hitn)
-            hitn.set_opacity(0)
-            b.main(hitn.animate.set_opacity(1), run_time=0.7)
+            hit = sinema.ganti_rumus(
+                self, hit, r"-2 \times (2\ \ 1) = (-4\ \ -2)",
+                b=b, papan=papan, warna=SOROT)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"hitung negatif": hitn, "hitung 3": hit3,
-                                 "panel a": panel_a},
-                          [("hitung negatif", "hitung 3"), ("hitung negatif", "panel a")])
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"panel a": panel_a, "ukur k": ukur_k,
+                               "hitung": hit, "identitas": identitas})
 
         # ==============================================================
         # Babak 9: panjangnya
         # ==============================================================
-        pj1 = rumus(r"|\vec{a}| = \sqrt{5} \approx 2{,}24", 28, TINTA)
-        pj2 = rumus(r"|3\vec{a}| = 3\sqrt{5} \approx 6{,}71", 28, TINTA)
-        pj3 = rumus(r"|-2\vec{a}| = 2\sqrt{5} \approx 4{,}47", 28, TINTA)
-        panjang = VGroup(pj1, pj2, pj3).arrange(DOWN, buff=0.18, aligned_edge=LEFT)
-        panjang.next_to(hitn, DOWN, buff=0.34).align_to(hitn, LEFT)
-
+        # Dulu tiga baris ditumpuk di KIRI. Zona rumus kanan memuat empat
+        # baris, dan tiga slot sudah terpakai, jadi panjang a diberi satu
+        # slot tetap dan panjang kelipatannya satu slot yang DIMORF dari
+        # 3a ke -2a, mengikuti pengali yang sedang dibahas narator.
         with sinema.babak(self, "panjang", DURASI) as b:
-            self.hud_tambah(panjang)
-            panjang.set_opacity(0)
-            for baris in panjang:
-                b.main(baris.animate.set_opacity(1), run_time=0.8)
+            pj_a = papan.baris(r"|\vec{a}| = \sqrt{5} \approx 2{,}24", TINTA)
+            b.catat(1.0)
+            pj_k = papan.baris(r"|3\vec{a}| = 3\sqrt{5} \approx 6{,}71", TINTA)
+            b.catat(1.0)
+            pj_k = sinema.ganti_rumus(
+                self, pj_k, r"|-2\vec{a}| = 2\sqrt{5} \approx 4{,}47",
+                b=b, papan=papan, warna=TINTA)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"panjang": panjang, "hitung negatif": hitn,
-                                 "panel a": panel_a},
-                          [("panjang", "hitung negatif"), ("panjang", "panel a")])
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"panel a": panel_a, "ukur k": ukur_k,
+                               "hitung": hit, "panjang a": pj_a,
+                               "panjang k": pj_k, "identitas": identitas})
 
         # ==============================================================
         # Babak 10: panjang tidak pernah negatif
         # ==============================================================
         with sinema.babak(self, "keliru", DURASI) as b:
-            b.main(Indicate(pj3, scale_factor=1.0, color=AKSEN), run_time=1.2)
+            b.main(Indicate(pj_k, scale_factor=1.0, color=AKSEN), run_time=1.2)
             b.main(Indicate(p_hasil, scale_factor=1.0, color=TINTA), run_time=1.2)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"panjang": panjang, "identitas": identitas})
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"panel a": panel_a, "ukur k": ukur_k,
+                               "hitung": hit, "panjang a": pj_a,
+                               "panjang k": pj_k, "identitas": identitas})
 
         # ==============================================================
         # Babak 11: kelipatan berarti sejajar
@@ -230,7 +263,9 @@ class KaliSkalar(AdeganMatra):
         arah = VA / np.linalg.norm(VA)
         garis = DashedLine(ASAL - arah * 4.6, ASAL + arah * 7.0)
         garis.set_stroke(REDUP, 3)
-        l_sejajar = teks("semua kelipatan a ada di garis ini", 23, REDUP)
+        # Enam kata di dalam gambar melanggar aturan 4 v2, dan kalimat
+        # selengkapnya memang diucapkan narator dan ditulis subtitle.
+        l_sejajar = sinema.label("kelipatan a", 23, REDUP)
         l_sejajar.move_to(ASAL + np.array([2.4, -1.3, 0.0]))
 
         with sinema.babak(self, "sejajar", DURASI) as b:
@@ -239,9 +274,11 @@ class KaliSkalar(AdeganMatra):
             b.main(self.k.animate.set_value(3.0), run_time=1.6)
             b.main(self.k.animate.set_value(-2.0), run_time=1.6)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"garis": l_sejajar, "identitas": identitas,
-                                 "panjang": panjang},
-                          [("garis", "panjang")])
+        qc.periksa_adegan(self, {},
+                          dunia={"bidang": bidang, "garis": l_sejajar},
+                          hud={"panel a": panel_a, "ukur k": ukur_k,
+                               "hitung": hit, "panjang a": pj_a,
+                               "panjang k": pj_k, "identitas": identitas})
 
         # ==============================================================
         # Babak 12: layar bersih, kalimat sorot
@@ -255,9 +292,12 @@ class KaliSkalar(AdeganMatra):
         tutup = VGroup(tutup1, tutup2, tutup3).arrange(DOWN, buff=0.30).move_to([0, 0.3, 0])
 
         semua = Group(bidang, bola, p_hasil, p_asal, l_a, garis, l_sejajar)
+        # `papan.semua()` menyingkirkan baris yang BENAR-BENAR tampil,
+        # termasuk pengganti hasil morph, sebab `ganti_rumus` diberi
+        # `papan=papan`.
         with sinema.babak(self, "tutup", DURASI) as b:
-            b.main(FadeOut(semua), FadeOut(hit3), FadeOut(hitn), FadeOut(panjang),
-                   FadeOut(ukur_k), FadeOut(identitas), FadeOut(panel_a), run_time=1.4)
+            b.main(FadeOut(semua), FadeOut(papan.semua()),
+                   FadeOut(ukur_k), FadeOut(identitas), run_time=1.4)
             self.hud_tambah(tutup)
             tutup.set_opacity(0)
             b.main(tutup.animate.set_opacity(1), run_time=1.8)

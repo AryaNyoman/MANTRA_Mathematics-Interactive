@@ -53,7 +53,7 @@ function TombolSudut({
       <text
         x={cx} y={cy + 4} textAnchor="middle" fontSize={12} fontWeight={600}
         fill={aktif ? '#FFFDFA' : '#7C7469'}
-        fontFamily="var(--font-plex-mono), monospace"
+        fontFamily="var(--font-mono), sans-serif"
         style={{ pointerEvents: 'none' }}
       >
         {id}
@@ -101,24 +101,24 @@ export default function PenamaanSisi({
 
       {/* nama sisi */}
       <text x={(A.x + B.x) / 2} y={B.y + 26} textAnchor="middle" fontSize={16} fill={warnaAlas}
-            fontFamily="var(--font-inter), sans-serif">{namaAlas}</text>
+            fontFamily="var(--font-sans), sans-serif">{namaAlas}</text>
       <text x={B.x + 12} y={(B.y + C.y) / 2} fontSize={16} fill={warnaTegak}
-            fontFamily="var(--font-inter), sans-serif">{namaTegak}</text>
+            fontFamily="var(--font-sans), sans-serif">{namaTegak}</text>
       {/* digeser tegak lurus terhadap sisi miring supaya tidak menindih garisnya */}
       <text x={(A.x + C.x) / 2 - 14} y={(A.y + C.y) / 2 - 22} textAnchor="middle"
             fontSize={16} fill={WARNA.miring}
-            fontFamily="var(--font-inter), sans-serif">sisi miring</text>
+            fontFamily="var(--font-sans), sans-serif">sisi miring</text>
 
       {/* label titik sudut */}
       <text x={B.x + 14} y={B.y + 6} fontSize={13} fill="#7C7469"
-            fontFamily="var(--font-plex-mono), monospace">B</text>
+            fontFamily="var(--font-mono), sans-serif">B</text>
 
       {/* dua sudut lancip yang bisa diklik */}
       <TombolSudut id="A" cx={A.x} cy={A.y} aktif={aktif === 'A'} onPilih={onPilih} />
       <TombolSudut id="C" cx={C.x} cy={C.y} aktif={aktif === 'C'} onPilih={onPilih} />
 
       <text x={VW / 2} y={VH - 10} textAnchor="middle" fontSize={11} fill="#7C7469"
-            fontFamily="var(--font-plex-mono), monospace">
+            fontFamily="var(--font-mono), sans-serif">
         klik sudut A atau C
       </text>
     </svg>

@@ -65,6 +65,31 @@ def cari_video(adegan: str, uji: bool = False) -> Path:
     return max(calon, key=lambda p: p.stat().st_mtime)
 
 
+def periksa_kesegaran(video: Path, adegan: str) -> None:
+    """BERHENTI kalau videonya lebih tua daripada berkas adegannya.
+
+    Temuan Vektor 3 Sep malam: `manimgl` keluar dengan kode 0 WALAUPUN
+    `qc.periksa_adegan` menggagalkan render. Video lama tetap tergeletak di
+    `media/gl/`, dan alat ini dulu menggabungnya tanpa protes, sehingga
+    lembar kontak yang diperiksa adalah lembar kontak video LAMA. Dua dari
+    empat render malam itu lolos pemeriksaan dengan cara ini.
+    """
+    sumber = [p for p in (AKAR / "manim" / "scenes").glob("*.py")
+              if ("class %s(" % adegan) in p.read_text(encoding="utf-8")]
+    if not sumber:
+        return
+    berkas = sumber[0]
+    if video.stat().st_mtime < berkas.stat().st_mtime:
+        raise SystemExit(
+            "\nBERHENTI: video lebih TUA daripada adegannya.\n"
+            "  video  : %s\n"
+            "  adegan : %s\n"
+            "Rendernya gagal, kemungkinan besar ditolak qc, dan `manimgl`\n"
+            "tetap keluar dengan kode 0. Baca log rendernya, cari\n"
+            "CacatTataLetak, perbaiki, lalu render ulang."
+            % (video.relative_to(AKAR), berkas.relative_to(AKAR)))
+
+
 def main() -> None:
     p = argparse.ArgumentParser(description="Penggabung narasi + video MATRA")
     p.add_argument("topik")
@@ -79,6 +104,7 @@ def main() -> None:
     a = p.parse_args()
 
     video = cari_video(a.adegan, uji=a.uji)
+    periksa_kesegaran(video, a.adegan)
     latar = a.latar
     if latar is None:
         naskah = AKAR / "manim" / "narasi" / f"{a.topik}.json"

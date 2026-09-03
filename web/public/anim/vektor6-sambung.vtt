@@ -35,137 +35,153 @@ lengkap dengan angka pada kedua sumbunya.
 <b>1 petak = 1 langkah</b>.
 
 9
-00:00:22.272 --> 00:00:27.005
-Perjalanan pertama: <b>3 petak ke kanan</b> dan <b>1 petak ke atas</b>.
+00:00:22.272 --> 00:00:23.862
+Perjalanan pertama:
 
 10
-00:00:27.005 --> 00:00:29.662
-Panah biru ini merekam jejaknya,
+00:00:23.862 --> 00:00:26.960
+<b>3 petak ke kanan</b> dan <b>1 petak ke atas</b>.
 
 11
-00:00:29.662 --> 00:00:32.568
-dan ujungnya jatuh di titik (3, 1).
+00:00:26.960 --> 00:00:29.638
+Panah biru ini merekam jejaknya,
 
 12
+00:00:29.638 --> 00:00:32.568
+dan ujungnya jatuh di titik (3, 1).
+
+13
 00:00:32.568 --> 00:00:36.658
 Dari tempat ia berhenti itu juga, ia berjalan lagi.
 
-13
+14
 00:00:36.658 --> 00:00:39.625
 <b>1 petak ke kanan</b> dan <b>2 petak ke atas</b>.
 
-14
+15
 00:00:39.625 --> 00:00:43.154
 Panah merah berangkat dari ujung panah biru,
 
-15
+16
 00:00:43.154 --> 00:00:45.480
 dan berhenti di titik (4, 3).
 
-16
+17
 00:00:45.480 --> 00:00:48.055
 Sekarang lupakan sejenak jalurnya.
 
-17
+18
 00:00:48.055 --> 00:00:50.857
 Dilihat dari titik ia <b>berangkat</b> tadi,
 
-18
+19
 00:00:50.857 --> 00:00:53.280
 ke mana sebenarnya ia berpindah?
 
-19
+20
 00:00:53.280 --> 00:00:55.051
 Inilah jawabannya.
 
-20
+21
 00:00:55.051 --> 00:01:00.463
 Panah ungu, dari titik (0, 0) langsung ke titik (4, 3).
 
-21
+22
 00:01:00.463 --> 00:01:03.120
 Panah itu namanya <b>resultan</b>.
 
-22
+23
 00:01:03.120 --> 00:01:04.817
 Perhatikan bentuknya.
 
-23
+24
 00:01:04.817 --> 00:01:08.775
 Pangkal panah merah menempel di ujung panah biru,
 
-24
+25
 00:01:08.775 --> 00:01:11.764
 dan resultannya menutup segitiga itu.
 
-25
+26
 00:01:11.764 --> 00:01:14.592
 <b>Ujung ke pangkal</b>, begitu aturannya.
 
-26
+27
 00:01:14.592 --> 00:01:17.479
 Kalau kedua <b>pangkalnya</b> yang ditempelkan,
 
-27
+28
 00:01:17.479 --> 00:01:19.644
 yang terbentuk bukan resultan.
 
-28
+29
 00:01:19.644 --> 00:01:22.892
 Perhatikan panah hitam ini jauh lebih pendek,
 
-29
+30
 00:01:22.892 --> 00:01:24.624
 dan arahnya pun berbeda.
 
-30
-00:01:24.624 --> 00:01:26.328
+31
+00:01:24.624 --> 00:01:26.336
 Sebelum kita menghitung,
 
-31
-00:01:26.328 --> 00:01:28.956
+32
+00:01:26.336 --> 00:01:28.976
 lihat dulu dari mana angkanya datang.
 
-32
-00:01:28.956 --> 00:01:33.642
-Kita jatuhkan garis bantu dari tiap ujung panah ke sumbu mendatar.
-
 33
-00:01:33.642 --> 00:01:36.767
-Perjalanan pertama mengisi petak <b>0 sampai 3</b>,
+00:01:28.976 --> 00:01:31.116
+Kita jatuhkan garis bantu dari
 
 34
-00:01:36.767 --> 00:01:40.104
-perjalanan kedua menyambungnya dari <b>3 sampai 4</b>.
+00:01:31.116 --> 00:01:33.612
+tiap ujung panah ke sumbu mendatar.
 
 35
-00:01:40.104 --> 00:01:46.708
-Itulah sebabnya yang mendatar dijumlahkan dengan yang mendatar: <b>3 + 1 = 4</b>.
+00:01:33.612 --> 00:01:36.751
+Perjalanan pertama mengisi petak <b>0 sampai 3</b>,
 
 36
-00:01:46.708 --> 00:01:51.528
-Dan dengan cara yang sama pada sumbu tegak: <b>1 + 2 = 3</b>.
+00:01:36.751 --> 00:01:40.104
+perjalanan kedua menyambungnya dari <b>3 sampai 4</b>.
 
 37
+00:01:40.104 --> 00:01:42.733
+Itulah sebabnya yang mendatar
+
+38
+00:01:42.733 --> 00:01:45.725
+dijumlahkan dengan yang mendatar:
+
+39
+00:01:45.725 --> 00:01:46.925
+<b>3 + 1 = 4</b>.
+
+40
+00:01:46.925 --> 00:01:51.528
+Dan dengan cara yang sama pada sumbu tegak: <b>1 + 2 = 3</b>.
+
+41
 00:01:51.528 --> 00:01:54.778
 Tetapi hati-hati pada <b>panjangnya</b>.
 
-38
+42
 00:01:54.778 --> 00:01:59.604
 Perjalanan pertama sekitar 3,16, yang kedua 2,24.
 
-39
+43
 00:01:59.604 --> 00:02:04.824
 Dijumlahkan menjadi 5,4, padahal resultannya tepat <b>5</b>.
 
-40
-00:02:04.824 --> 00:02:08.094
+44
+00:02:04.824 --> 00:02:08.174
 Selisih itu bukan kesalahan hitung.
 
-41
-00:02:08.094 --> 00:02:10.710
-*Komponen boleh dijumlahkan.
+45
+00:02:08.174 --> 00:02:10.758
+<b>Komponen</b> boleh dijumlahkan.
 
-42
-00:02:10.710 --> 00:02:12.672
-Panjang tidak boleh.*
+46
+00:02:10.758 --> 00:02:12.672
+<b>Panjang</b> tidak boleh.

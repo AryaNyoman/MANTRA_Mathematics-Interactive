@@ -167,7 +167,7 @@ export default function DuaKelompok({ children }: PropWidget) {
         <thead>
           <tr>
             <td />
-            <td style={{ textAlign: 'right', fontFamily: 'var(--font-plex-mono), monospace' }}>Kelas A</td>
+            <td style={{ textAlign: 'right', fontFamily: 'var(--font-mono), sans-serif' }}>Kelas A</td>
             <td style={{ textAlign: 'right' }}>Kelas B</td>
           </tr>
         </thead>
@@ -183,7 +183,7 @@ export default function DuaKelompok({ children }: PropWidget) {
               */}
               <td style={{
                 textAlign: 'right',
-                fontFamily: 'var(--font-plex-mono), monospace',
+                fontFamily: 'var(--font-mono), sans-serif',
                 ...(tegas ? { color: 'var(--bata)', fontSize: 20 } : null),
               }}>{a}</td>
               <td style={{ textAlign: 'right' }}>{b}</td>

@@ -26,7 +26,19 @@ import sys
 from pathlib import Path
 
 AKAR = Path(__file__).resolve().parent.parent
-TAHAP_TS = AKAR / 'web' / 'content' / 'grafik-fungsi' / 'tahap.ts'
+
+# Topik yang diperiksa. Bawaannya tetap `grafik-fungsi` supaya perintah lama
+# `python alat/periksa_tahap.py` berperilaku persis seperti sebelumnya dan
+# kebiasaan sesi lain tidak terganggu. Topik lain diperiksa dengan menyebut
+# slug-nya, misalnya:
+#     python alat/periksa_tahap.py transformasi-geometri
+#     python alat/periksa_tahap.py transformasi-geometri --rinci
+TOPIK_BAWAAN = 'grafik-fungsi'
+
+
+def jalur_tahap() -> Path:
+    slug = next((a for a in sys.argv[1:] if not a.startswith('--')), TOPIK_BAWAAN)
+    return AKAR / 'web' / 'content' / slug / 'tahap.ts'
 
 TERLARANG = ['miskonsepsi', 'tentu saja', 'gampang']
 # "mudah" dan "jelas" diperiksa terpisah: keduanya sah kalau menggambarkan
@@ -43,7 +55,7 @@ def baca_tahap() -> list[dict]:
     blok contoh atau tidak, ada kata terlarang atau tidak), dan itu hilang
     begitu berkasnya diubah menjadi data.
     """
-    teks = TAHAP_TS.read_text(encoding='utf-8')
+    teks = jalur_tahap().read_text(encoding="utf-8")
     potongan = re.split(r'\n  \{\n    no: (\d+),', teks)
     hasil = []
     for i in range(1, len(potongan), 2):
@@ -67,7 +79,21 @@ def nilai(t: dict) -> dict:
     return {
         'no': t['no'],
         'judul': judul_tahap.group(1) if judul_tahap else '?',
-        'b2_panggil_ulang': bool(re.search(r'tahap \d|di SMP|sudah sering|sudah pernah|sudah (Anda )?(pelajari|kenal|lihat|melihat)', s)),
+        # Butir 2: apakah tahap ini memanggil ulang pengetahuan sebelumnya.
+        #
+        # Pola "Materi \d" dan "topik X" ditambahkan 3 Sep 2026. Sebabnya
+        # bukan pelonggaran: pemeriksa ini semula hanya mengenali kata
+        # "tahap 3", padahal antarmuka MANTRA menyebut tiap tahap sebagai
+        # "MATERI 03", dan topik yang ditulis belakangan mengikuti sebutan itu.
+        # Akibatnya seluruh 13 tahap topik Transformasi Geometri dilaporkan
+        # TIDAK memanggil ulang, padahal isinya penuh rujukan ke Materi
+        # sebelumnya dan ke topik Vektor serta Trigonometri. Itu kesalahan
+        # alatnya, dan kesalahan yang berbahaya: laporan "TDK" yang salah
+        # membuat pembacanya berhenti memercayai kolom ini.
+        'b2_panggil_ulang': bool(re.search(
+            r'tahap \d|Materi \d|di SMP|topik (Vektor|Trigonometri|Grafik Fungsi|Limit|Statistika)'
+            r'|sudah sering|sudah pernah|sudah kita|sudah kamu'
+            r'|sudah (Anda )?(pelajari|kenal|lihat|melihat)', s)),
         'b4_sesi': len(sesi),
         'b4_blok_per_sesi': panjang,
         'b6_contoh': blok.count('contoh'),

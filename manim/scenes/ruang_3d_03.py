@@ -88,7 +88,7 @@ class JarakSelaluTerpendek(AdeganMatra):
             Line(T["B"], di_ac(x)).set_stroke(REDUP, 2.4)
             for x in (0.16, 0.30, 0.44, 0.62, 0.80)
         ])
-        jati = sinema.identitas(self, "p = l = t = 6 satuan")
+        jati = sinema.identitas(self, "panjang = lebar = tinggi = 6 satuan")
         with sinema.babak(self, "masalah", DURASI) as b:
             b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=1.6)
             sumbu_z_pamit(b, papan_koor, 0.8)

@@ -94,13 +94,20 @@ def jalur_bawah_kosong(frame, zona: dict, batas_atas: float = -2.55):
 
 def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: float = 0.3,
                    hud: dict | None = None, dunia: dict | None = None,
-                   jaga_jalur_bawah: bool = True):
+                   jaga_jalur_bawah: bool = True, tulisan: dict | None = None,
+                   periksa_isi: bool = True):
     """Pemeriksaan sekali jalan dari sudut kamera adegan saat ini.
 
     zona      : {"nama": mobject}, semua diperiksa agar muat di bingkai
     pasangan  : [("nama_a", "nama_b"), ...], pasangan yang tidak boleh bertindih
     hud       : {"nama": panel}, panel yang menempel di layar
     dunia     : {"nama": benda}, benda di dunia 3D
+    tulisan   : {"nama": teks}, TULISAN di dunia. Diperiksa silang satu sama lain
+                dan terhadap HUD. Benda dunia boleh bersentuhan (orang berdiri
+                di papan, label menempel di bendanya), tetapi tulisan yang
+                menindih tulisan selalu cacat.
+    periksa_isi : kelompok HUD yang bertanda `_qc_isi` (mis. `PapanRumus.semua()`)
+                diperiksa ISINYA satu sama lain, baris lawan baris.
     jaga_jalur_bawah : gagalkan render kalau ada objek masuk jalur subtitle
 
     `hud` dan `dunia` diperiksa SILANG semuanya, tidak perlu disebut satu per
@@ -108,11 +115,22 @@ def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: floa
     bilangan dan lolos, semata karena penulis adegan lupa menuliskan pasangan
     "panel B" dengan "garis B". Daftar pasangan manual selalu punya lubang;
     perkalian silang tidak.
+
+    DUA LUBANG yang ditutup 4 Sep 2026, ditemukan terpisah oleh sesi Statistika
+    dan Ruang 3D:
+    1. Dunia lawan dunia tidak diperiksa, jadi label "9 karyawan" yang duduk
+       persis di atas label x-bar lolos. Sekarang ada `tulisan=`.
+    2. Apa pun yang diserahkan sebagai SATU benda tidak diperiksa isinya, jadi
+       dua baris papan rumus yang bertindih persis lolos. Sekarang kelompok
+       yang bertanda `_qc_isi` diperiksa baris demi baris. Tanda itu dipasang
+       otomatis oleh `PapanRumus.semua()`; kelompok HUD buatan sendiri boleh
+       memasangnya juga: `g._qc_isi = True`.
     """
     frame = scene.frame
     semua = dict(zona)
     semua.update(hud or {})
     semua.update(dunia or {})
+    semua.update(tulisan or {})
     for nama, m in semua.items():
         muat_di_bingkai(frame, m, margin=margin, nama=nama)
     for a, b in pasangan or []:
@@ -120,5 +138,19 @@ def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: floa
     for na, pa in (hud or {}).items():
         for nd, pd in (dunia or {}).items():
             tidak_bertindih(frame, pa, pd, na, nd)
+    daftar_tulisan = list((tulisan or {}).items())
+    for i, (na, ta) in enumerate(daftar_tulisan):
+        for nb, tb in daftar_tulisan[i + 1:]:
+            tidak_bertindih(frame, ta, tb, f"tulisan {na}", f"tulisan {nb}")
+        for nh, ph in (hud or {}).items():
+            tidak_bertindih(frame, ta, ph, f"tulisan {na}", nh)
+    if periksa_isi:
+        for nama, g in (hud or {}).items():
+            if not getattr(g, "_qc_isi", False):
+                continue
+            anak = list(getattr(g, "submobjects", []))
+            for i, a in enumerate(anak):
+                for j in range(i + 1, len(anak)):
+                    tidak_bertindih(frame, a, anak[j], f"{nama} baris {i + 1}", f"{nama} baris {j + 1}")
     if jaga_jalur_bawah:
         jalur_bawah_kosong(frame, semua)

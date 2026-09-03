@@ -58,7 +58,15 @@ TUJUAN = np.array([MX, MY, Z])
 SUDUT = np.array([MX, 0.0, Z])          # tempat mobil berbelok
 
 BIDANG_X, BIDANG_Y = (-4.0, 6.0, 1.0), (-1.0, 5.0, 1.0)
-PETA = dict(theta=0, phi=0, pusat=(1.0, 1.8, 0.0), tinggi=8.0)
+# Kamera peta dihitung `kamera.muat_datar`, tidak ditulis tangan. Yang paling
+# bawah pada `bidang_bernomor` bukan garis petak terbawah melainkan ANGKA
+# sumbunya, dan hitungan tangan sudah berkali-kali ditolak qc karenanya.
+#
+# SISA JALUR HUD, dibaca dari ZONA_IDENTITAS dan ZONA_RUMUS di gl/sinema.py,
+# bukan dikarang: identitas satu baris berakhir sekitar y = 3,35 sehingga
+# 0,40 cukup di atas; baris panel terlebar di sini sekitar 2,5 satuan dan
+# barisnya rata kanan ke 6,73, jadi tepi kirinya sekitar 4,2.
+SISA_ATAS, SISA_KANAN = 0.40, 2.51
 
 
 def panah(a, b, warna, tebal=5):
@@ -111,17 +119,27 @@ class PecahJadiKomponen(AdeganMatra):
         bidang.set_opacity(0)
         self.add(bidang)
         self.bring_to_front(mobil)
-        identitas = teks("1 petak = 1 blok", 23, REDUP).to_corner(UL, buff=0.42)
+        # `tanpa_utama=True`: video ini tidak memakai rumus utama, semua
+        # isinya baris. Tanpa penanda itu slot teratas dipesan percuma.
+        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True)
 
         with sinema.babak(self, "terbang", DURASI) as b:
             lama = max(2.0, DURASI["terbang"] - 3.0)
-            b.main(kamera.sudut(frame, **PETA), run_time=lama)
+            pusat, tinggi = kamera.muat_datar(bidang, sisa_atas=SISA_ATAS,
+                                              sisa_kanan=SISA_KANAN)
+            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
+                                tinggi=tinggi), run_time=lama)
             b.main(FadeOut(jalan), FadeOut(alas),
                    bidang.animate.set_opacity(1), run_time=1.4)
-            self.hud_tambah(identitas)
+            identitas = sinema.identitas(self, "1 petak = 1 blok")
             identitas.set_opacity(0)
             b.main(identitas.animate.set_opacity(1), run_time=0.8)
-        qc.periksa_adegan(self, {"bidang": bidang, "identitas": identitas})
+        # Bidang ke medan `dunia` dan identitas ke medan `hud`, BUKAN keduanya
+        # ke `zona`. Hanya begitu perkalian silang hud x dunia berjalan.
+        # Materi 01 pernah lolos dengan tulisan panel di atas garis petak
+        # justru karena salah medan di sini.
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"identitas": identitas})
 
         # ==============================================================
         # Babak 3: jalur kalau bisa terbang
@@ -129,18 +147,17 @@ class PecahJadiKomponen(AdeganMatra):
         p_miring = panah(ASAL, TUJUAN, SOROT, tebal=7)
         titik_tujuan = Dot(radius=0.09).set_color(SOROT).move_to(TUJUAN)
         l_tujuan = rumus(r"(3,\ 4)", 28, SOROT).move_to(TUJUAN + np.array([0.9, 0.35, 0.0]))
-        panel_v = rumus(r"\vec{v} = (3\ \ 4)", 32, SOROT).to_corner(UR, buff=0.45)
 
         with sinema.babak(self, "miring", DURASI) as b:
             b.main(GrowArrow(p_miring), run_time=1.6)
             self.bring_to_front(mobil)
             b.main(FadeIn(titik_tujuan, scale=2.0), FadeIn(l_tujuan), run_time=0.6)
-            self.hud_tambah(panel_v)
-            panel_v.set_opacity(0)
-            b.main(panel_v.animate.set_opacity(1), run_time=0.6)
+            panel_v = papan.baris(r"\vec{v} = (3\ \ 4)", SOROT)
+            b.catat(0.8)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"miring": p_miring, "titik": l_tujuan, "panel v": panel_v},
-                          [("titik", "panel v")])
+        qc.periksa_adegan(self, {"miring": p_miring},
+                          dunia={"bidang": bidang, "titik": l_tujuan},
+                          hud={"panel v": panel_v, "identitas": identitas})
 
         # ==============================================================
         # Babak 4: mobilnya benar-benar berjalan, dua langkah
@@ -161,10 +178,12 @@ class PecahJadiKomponen(AdeganMatra):
             b.main(self.my.animate.set_value(MY), run_time=2.0)
             b.main(FadeIn(l_tegak), run_time=0.4)
             b.jeda(0.6)
-        qc.periksa_adegan(self, {"datar": p_datar, "tegak": p_tegak,
-                                 "label datar": l_datar, "label tegak": l_tegak,
-                                 "identitas": identitas},
-                          [("label datar", "label tegak")])
+        qc.periksa_adegan(self, {},
+                          [("label datar", "label tegak")],
+                          dunia={"bidang": bidang, "datar": p_datar,
+                                 "tegak": p_tegak, "label datar": l_datar,
+                                 "label tegak": l_tegak},
+                          hud={"identitas": identitas, "panel v": panel_v})
 
         # ==============================================================
         # Babak 5: kedua jalur berakhir di titik yang sama
@@ -175,25 +194,28 @@ class PecahJadiKomponen(AdeganMatra):
             b.main(Indicate(p_datar, scale_factor=1.0, color=SOROT),
                    Indicate(p_tegak, scale_factor=1.0, color=SOROT), run_time=1.2)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"miring": p_miring, "titik": l_tujuan})
+        qc.periksa_adegan(self, {},
+                          dunia={"bidang": bidang, "miring": p_miring,
+                                 "titik": l_tujuan},
+                          hud={"identitas": identitas, "panel v": panel_v})
 
         # ==============================================================
         # Babak 6: dua angka itu namanya komponen
         # ==============================================================
-        k1 = rumus(r"\mathrm{mendatar} = 3", 28, AKSEN2)
-        k2 = rumus(r"\mathrm{tegak} = 4", 28, AKSEN)
-        blok = VGroup(k1, k2).arrange(DOWN, buff=0.18, aligned_edge=LEFT)
-        blok.next_to(identitas, DOWN, buff=0.34).align_to(identitas, LEFT)
-
+        # Dulu dua baris ini ditumpuk di KIRI, di bawah identitas. Zona kiri
+        # atas milik identitas benda saja; hitungan milik panel kanan.
+        # Keduanya jadi baris panel supaya jarak antarbarisnya diatur papan,
+        # bukan ditumpuk tangan.
         with sinema.babak(self, "komponen", DURASI) as b:
-            self.hud_tambah(blok)
-            blok.set_opacity(0)
-            for baris in blok:
-                b.main(baris.animate.set_opacity(1), run_time=0.7)
+            k1 = papan.baris(r"\mathrm{mendatar} = 3", AKSEN2)
+            b.catat(0.8)
+            k2 = papan.baris(r"\mathrm{tegak} = 4", AKSEN)
+            b.catat(0.8)
             b.main(Indicate(panel_v, scale_factor=1.0, color=TINTA), run_time=1.0)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"blok": blok, "identitas": identitas, "panel v": panel_v},
-                          [("blok", "identitas"), ("blok", "panel v")])
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"identitas": identitas, "panel v": panel_v,
+                               "mendatar": k1, "tegak": k2})
 
         # ==============================================================
         # Babak 7: pertanyaan
@@ -202,7 +224,10 @@ class PecahJadiKomponen(AdeganMatra):
             b.main(Indicate(l_datar, scale_factor=1.0, color=SOROT),
                    Indicate(l_tegak, scale_factor=1.0, color=SOROT), run_time=1.2)
             b.jeda(1.6)
-        qc.periksa_adegan(self, {"identitas": identitas, "titik": l_tujuan})
+        qc.periksa_adegan(self, {},
+                          dunia={"bidang": bidang, "titik": l_tujuan},
+                          hud={"identitas": identitas, "panel v": panel_v,
+                               "mendatar": k1, "tegak": k2})
 
         # ==============================================================
         # Babak 8: kalau urutannya ditukar
@@ -218,9 +243,12 @@ class PecahJadiKomponen(AdeganMatra):
             b.main(Indicate(titik_tujuan, scale_factor=1.0, color=SOROT),
                    Indicate(titik_tukar, scale_factor=1.0, color=SOROT), run_time=1.2)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"tukar": p_tukar, "label tukar": l_tukar,
-                                 "titik": l_tujuan, "panel v": panel_v},
-                          [("label tukar", "titik"), ("label tukar", "panel v")])
+        qc.periksa_adegan(self, {},
+                          [("label tukar", "titik")],
+                          dunia={"bidang": bidang, "tukar": p_tukar,
+                                 "label tukar": l_tukar, "titik": l_tujuan},
+                          hud={"identitas": identitas, "panel v": panel_v,
+                               "mendatar": k1, "tegak": k2})
 
         # ==============================================================
         # Babak 9: komponen yang bertanda negatif
@@ -237,50 +265,44 @@ class PecahJadiKomponen(AdeganMatra):
             b.main(GrowArrow(p_kiri), run_time=1.4)
             b.main(FadeIn(l_kiri), run_time=0.5)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"kiri": p_kiri, "label kiri": l_kiri,
-                                 "identitas": identitas, "blok": blok},
-                          [("label kiri", "blok")])
+        qc.periksa_adegan(self, {},
+                          dunia={"bidang": bidang, "kiri": p_kiri,
+                                 "label kiri": l_kiri},
+                          hud={"identitas": identitas, "panel v": panel_v,
+                               "mendatar": k1, "tegak": k2})
 
         # ==============================================================
         # Babak 10: baris atau kolom
         # ==============================================================
-        baris_v = rumus(r"(3\ \ 4)", 30, SOROT)
-        atau = teks("atau", 22, REDUP)
-        kolom_v = rumus(r"\begin{pmatrix} 3 \\ 4 \end{pmatrix}", 30, SOROT)
-        tulis = VGroup(baris_v, atau, kolom_v).arrange(RIGHT, buff=0.32)
-        tulis.next_to(blok, DOWN, buff=0.40).align_to(blok, LEFT)
-
+        # Baris dan kolom ditulis SEBAGAI SATU PERSAMAAN, bukan dua bentuk
+        # berdampingan dengan kata "atau" di tengah. Tanda sama dengan itu
+        # sendiri yang mengatakan artinya sama.
         with sinema.babak(self, "tulis", DURASI) as b:
             b.main(FadeOut(p_kiri), FadeOut(l_kiri), run_time=0.6)
-            self.hud_tambah(tulis)
-            tulis.set_opacity(0)
-            b.main(tulis.animate.set_opacity(1), run_time=1.0)
+            tulis = papan.baris(
+                r"(3\ \ 4) = \begin{pmatrix} 3 \\ 4 \end{pmatrix}", SOROT)
+            b.catat(1.0)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"tulis": tulis, "blok": blok, "identitas": identitas},
-                          [("tulis", "blok")])
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"identitas": identitas, "panel v": panel_v,
+                               "mendatar": k1, "tegak": k2, "tulis": tulis})
 
         # ==============================================================
         # Babak 11: koma atau tanpa koma
         # ==============================================================
         # Ukurannya dinaikkan: pada 480p, huruf 20 tinggal sekitar sepuluh
         # piksel dan praktis tidak terbaca. Terlihat di lembar kontak pertama.
-        beda1 = rumus(r"A(3,\ 4)", 30, TINTA)
-        beda2 = teks("letak", 23, REDUP)
-        beda3 = rumus(r"(3\ \ 4)", 30, SOROT)
-        beda4 = teks("perpindahan", 23, REDUP)
-        kiri_kol = VGroup(beda1, beda2).arrange(DOWN, buff=0.12)
-        kanan_kol = VGroup(beda3, beda4).arrange(DOWN, buff=0.12)
-        beda = VGroup(kiri_kol, kanan_kol).arrange(RIGHT, buff=0.75)
-        beda.next_to(tulis, DOWN, buff=0.40).align_to(tulis, LEFT)
-
+        # Baris panel yang SAMA dimorf, bukan blok kelima ditumpuk. Zona rumus
+        # cuma memuat empat baris, dan v2 memang meminta rumus BERUBAH di
+        # tempatnya, bukan memudar lalu muncul lagi di tempat lain.
         with sinema.babak(self, "koma", DURASI) as b:
-            self.hud_tambah(beda)
-            beda.set_opacity(0)
-            b.main(kiri_kol.animate.set_opacity(1), run_time=0.8)
-            b.main(kanan_kol.animate.set_opacity(1), run_time=0.8)
-            b.jeda(1.0)
-        qc.periksa_adegan(self, {"beda": beda, "tulis": tulis, "blok": blok},
-                          [("beda", "tulis")])
+            tulis = sinema.ganti_rumus(
+                self, tulis, r"A(3,\ 4) \ne (3\ \ 4)", b=b, papan=papan,
+                warna=TINTA)
+            b.jeda(1.4)
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"identitas": identitas, "panel v": panel_v,
+                               "mendatar": k1, "tegak": k2, "beda": tulis})
 
         # ==============================================================
         # Babak 12: layar bersih, kalimat sorot
@@ -293,9 +315,12 @@ class PecahJadiKomponen(AdeganMatra):
 
         semua = Group(bidang, mobil, p_miring, p_datar, p_tegak, titik_tujuan,
                       l_tujuan, l_datar, l_tegak)
+        # `papan.semua()` aman karena `ganti_rumus` diberi `papan=papan`:
+        # papan mencatat penggantinya, jadi yang disingkirkan objek yang
+        # benar-benar tampil, bukan baris lama yang sudah dilebur.
         with sinema.babak(self, "tutup", DURASI) as b:
-            b.main(FadeOut(semua), FadeOut(blok), FadeOut(tulis), FadeOut(beda),
-                   FadeOut(identitas), FadeOut(panel_v), run_time=1.4)
+            b.main(FadeOut(semua), FadeOut(papan.semua()),
+                   FadeOut(identitas), run_time=1.4)
             self.hud_tambah(tutup)
             tutup.set_opacity(0)
             b.main(tutup.animate.set_opacity(1), run_time=1.8)

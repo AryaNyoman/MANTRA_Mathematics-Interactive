@@ -1,145 +1,123 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import Nav from '@/components/Nav'
 import Demo from '@/components/Demo'
 import TombolPasang from '@/components/TombolPasang'
-import { TOPIK } from '@/content/topik'
+import PitaKurva from '@/components/mantra/PitaKurva'
+import KartuBayang from '@/components/mantra/KartuBayang'
+import LogoParalaks from '@/components/mantra/LogoParalaks'
+import Kaki from '@/components/mantra/Kaki'
 
-/** Nomor WhatsApp ARYA, dipakai untuk tautan wa.me (tanpa 0 di depan, +62). */
-const WA = '6282247933752'
+/**
+ * Beranda MANTRA (rancangan 3 Sep 2026).
+ *
+ * Tugas halaman ini BUKAN mendaftar materi, melainkan menjelaskan tempat ini
+ * apa, bisa apa, dibangun dengan apa, lalu mengantar siswa ke Peta Materi.
+ * Daftar bab pindah ke rutenya sendiri, `/peta-materi`. Sebelumnya daftar itu
+ * ada di sini dan membuat halaman depan terbaca seperti daftar isi, bukan
+ * perkenalan.
+ *
+ * Kaki halaman sengaja berbahasa Inggris, permintaan ARYA.
+ */
+
+const ISI_SITUS = [
+  {
+    no: '01',
+    kelas: 'sorot-animasi',
+    judul: 'Animasi',
+    isi: 'Video pendek yang menurunkan rumus dari awal, bersuara dan bersubtitle Bahasa Indonesia. Dibuat memakai Manim, alat yang sama dengan yang dipakai 3Blue1Brown.',
+  },
+  {
+    no: '02',
+    kelas: 'sorot-visual',
+    judul: 'Alat yang bisa dicoba',
+    isi: 'Segitiga yang bisa ditarik, sudut yang bisa digeser, dan angka yang berubah seketika. Anda menguji sendiri, bukan percaya pada kalimat di buku.',
+  },
+  {
+    no: '03',
+    kelas: 'sorot-interaksi',
+    judul: 'Latihan dan kuis',
+    isi: 'Soal berjenjang dengan pembahasan langkah demi langkah, lalu kuis berskor yang tersimpan di peramban Anda sendiri. Tanpa akun, tanpa mendaftar.',
+  },
+] as const
 
 export default function Beranda() {
   return (
     <>
       <Nav />
-      <main className="beranda">
-        <header className="sambutan">
-          <Image
-            src="/merek/matra-penuh.png"
-            alt="MATRA, Matematika Interaktif"
-            width={680}
-            height={205}
-            priority
-            className="merek-besar"
-          />
-          {/* Slogan baru, permintaan ARYA 1 Sep 2026. Tanpa titik di akhir
-              baris: ini ajakan, bukan pernyataan yang ditutup. Tiga kata kerja
-              utamanya ditebalkan dan diberi warna aksen situs supaya mata
-              langsung menangkap apa yang ditawarkan tempat ini. */}
-          <h1>
-            Matematika tidak hanya dipelajari
-            <br />
-            Matematika bisa dijelajahi
-          </h1>
-          <p className="sub">
-            Eksplorasi konsep matematika melalui <b className="sorot-slogan">animasi</b>,{' '}
-            <b className="sorot-slogan">visualisasi</b>, dan{' '}
-            <b className="sorot-slogan">interaksi</b>
-            <br />
-            yang membuat setiap rumus tidak hanya dipahami
-            <br />
-            tetapi dapat Anda lihat dan rasakan cara kerjanya
-          </p>
-          <div className="sambutan-aksi">
-            <a href="#materi" className="tombol-utama">Mulai dari Kelas 10</a>
-            <TombolPasang />
+      <main>
+        <header className="hero">
+          <PitaKurva />
+          <div className="hero-isi">
+            <span className="hero-lencana naik">Matematika SMA · Kelas 10–12</span>
+            <LogoParalaks />
+            <h1 className="naik naik-2">
+              <span>Matematika tidak hanya dipelajari</span>
+              <i>Matematika bisa dijelajahi</i>
+            </h1>
+            <p className="hero-sub naik naik-3">
+              Eksplorasi konsep matematika melalui{' '}
+              <b className="sorot-animasi">animasi</b>,{' '}
+              <b className="sorot-visual">visualisasi</b>, dan{' '}
+              <b className="sorot-interaksi">interaksi</b>
+              <br />
+              yang membuat setiap rumus tidak hanya dipahami
+              <br />
+              tetapi dapat Anda lihat dan rasakan cara kerjanya
+            </p>
+            <div className="hero-aksi naik naik-4">
+              <Link href="/peta-materi" className="pil-emas">
+                Mulai dari Kelas 10
+              </Link>
+              <TombolPasang />
+            </div>
           </div>
         </header>
 
-        <Demo />
-
-        {/* Ini keterangan terpenting di halaman depan: orang yang baru datang
-            memutuskan di sinilah apakah situs ini layak dicoba. Sebelumnya
-            ditulis dengan label monospace 13px dan teks warna pudar, jadi
-            terbaca seperti catatan kaki. Sekarang dijadikan sorotan.
-            (Permintaan ARYA, 1 Sep 2026.) */}
-        <section className="isi-situs" aria-label="Apa saja isi situs ini">
-          <h2 className="isi-tajuk">Apa saja isinya</h2>
-          <div className="kisi-isi">
-            <article className="kartu-isi">
-              <span className="kartu-no mono">01</span>
-              <h3>Animasi</h3>
-              <p>
-                Video pendek yang menurunkan rumus dari awal, dengan suara dan
-                teks terjemahan. Dibuat memakai Manim, alat animasi matematika
-                yang sama dengan yang dipakai 3Blue1Brown.
-              </p>
-            </article>
-            <article className="kartu-isi">
-              <span className="kartu-no mono">02</span>
-              <h3>Alat yang bisa dicoba</h3>
-              <p>
-                Segitiga yang bisa ditarik, sudut yang bisa digeser, dan angka
-                yang berubah seketika. Anda menguji sendiri, bukan percaya pada
-                kalimat di buku.
-              </p>
-            </article>
-            <article className="kartu-isi">
-              <span className="kartu-no mono">03</span>
-              <h3>Latihan dan kuis</h3>
-              <p>
-                Soal berjenjang dengan pembahasan langkah demi langkah, lalu kuis
-                berskor yang tersimpan di peramban Anda sendiri. Tanpa akun,
-                tanpa mendaftar.
-              </p>
-            </article>
+        <section className="mantra" style={{ paddingTop: 44 }} aria-label="Cuplikan">
+          <div className="garis-label">
+            <span>Berganti sendiri</span>
           </div>
+          <Demo />
         </section>
 
-        <section id="materi" aria-label="Daftar materi">
-          <h2 className="tajuk-sesi">Materi</h2>
-          <div className="kisi">
-            {TOPIK.map((t) => (
-              <Link
-                key={t.slug}
-                href={`/topik/${t.slug}`}
-                className="kartu-topik"
-                data-siap={t.siap}
-              >
-                <div className="jalur">{t.kelas}</div>
-                <h2>{t.nama}</h2>
-                <p>{t.pertanyaan}</p>
-                <p style={{ marginTop: 10, fontStyle: 'italic' }}>
-                  Melawan: {t.miskonsepsiSingkat}
-                </p>
-                {!t.siap && <span className="belum">belum dibangun</span>}
-              </Link>
+        <section className="mantra" style={{ paddingTop: 48 }} aria-labelledby="fitur-unggulan">
+          {/* Judul ini sebelumnya tidak ada, jadi tiga kartu di bawah muncul
+              tanpa keterangan apa pun (temuan ARYA, 3 Sep 2026). Label kanan
+              memakai istilah yang ia usulkan, judulnya menyebutkan apa yang
+              sebenarnya didapat siswa. */}
+          <div className="tajuk-baris">
+            <h2 id="fitur-unggulan">Tiga hal yang Anda dapat di sini</h2>
+            <span className="rel" />
+            <span className="kanan">Fitur unggulan</span>
+          </div>
+          <div className="kisi-tiga">
+            {ISI_SITUS.map((i) => (
+              <KartuBayang key={i.no} className="kartu-mantra kartu-fitur">
+                <div className={`no ${i.kelas}`}>{i.no}</div>
+                <h3>{i.judul}</h3>
+                <p>{i.isi}</p>
+              </KartuBayang>
             ))}
           </div>
         </section>
 
-        <footer className="kaki">
-          <div className="kaki-kiri">
-            <p className="kaki-nama">Dibuat oleh Nyoman Arya Sejati</p>
-            <p className="kaki-kecil">
-              Dibangun dengan <b>Manim</b> dan <b>Claude</b>, memakai Next.js.
-            </p>
-            <a
-              className="tombol-wa"
-              href={`https://wa.me/${WA}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 8.24 8.24c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z" />
-              </svg>
-              082247933752
-            </a>
+        <section className="mantra" style={{ paddingTop: 52 }}>
+          <div className="ajakan">
+            <div>
+              <h2>Enam bab, tersusun seperti buku</h2>
+              <p>
+                Tiap bab dipecah jadi sub-bab, tiap sub-bab berisi beberapa materi.
+                Peta lengkapnya beserta kemajuan Anda ada di tab Peta Materi.
+              </p>
+            </div>
+            <Link href="/peta-materi" className="pil-gelap">
+              Buka Peta Materi →
+            </Link>
           </div>
-
-          <div className="kaki-kanan">
-            <Image
-              src="/merek/undiksha.png"
-              alt="Universitas Pendidikan Ganesha"
-              width={44}
-              height={44}
-            />
-            <span className="kaki-kecil">
-              Universitas Pendidikan Ganesha
-            </span>
-          </div>
-        </footer>
+        </section>
+        <div style={{ height: 40 }} />
       </main>
+      <Kaki />
     </>
   )
 }

@@ -235,5 +235,5 @@ export function jalurParametrik(
 /** Warna yang dipakai bersama, supaya kaitannya dengan video dan topik lain utuh. */
 export const GARIS_PETAK = '#D6CDBC'
 export const GARIS_SUMBU = '#C9BFAE'
-export const MONO = 'var(--font-plex-mono), monospace'
+export const MONO = 'var(--font-mono), sans-serif'
 export { WARNA }

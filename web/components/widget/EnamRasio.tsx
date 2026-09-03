@@ -68,9 +68,9 @@ export default function EnamRasio({ derajat, sorot }: { derajat: number; sorot: 
       <line x1={Tx} y1={CY + 16} x2={Tx} y2={12} stroke={WARNA.redup} strokeWidth={1} strokeDasharray="4 4" opacity={0.7} />
       <line x1={CX - 16} y1={Ky} x2={VW - 10} y2={Ky} stroke={WARNA.redup} strokeWidth={1} strokeDasharray="4 4" opacity={0.7} />
       <text x={Tx + 4} y={CY + 15} fontSize={10} fill={WARNA.redup}
-            fontFamily="var(--font-plex-mono), monospace">x=1</text>
+            fontFamily="var(--font-mono), sans-serif">x=1</text>
       <text x={CX - 34} y={Ky + 4} fontSize={10} fill={WARNA.redup}
-            fontFamily="var(--font-plex-mono), monospace">y=1</text>
+            fontFamily="var(--font-mono), sans-serif">y=1</text>
 
       {/* jari-jari = 1 */}
       <line x1={CX} y1={CY} x2={px} y2={py} stroke={WARNA.miring} strokeWidth={2} opacity={0.55} />
@@ -93,17 +93,17 @@ export default function EnamRasio({ derajat, sorot }: { derajat: number; sorot: 
       <path d={`M ${CX + 26} ${CY} A 26 26 0 0 0 ${CX + 26 * Math.cos(e.rad)} ${CY - 26 * Math.sin(e.rad)}`}
             fill="none" stroke={WARNA.sudut} strokeWidth={2} />
       <text x={CX + 32} y={CY - 12} fontSize={14} fill={WARNA.sudut} fontStyle="italic"
-            fontFamily="var(--font-fraunces), Georgia, serif">θ</text>
+            fontFamily="var(--font-serif), Georgia, serif">θ</text>
 
       <circle cx={px} cy={py} r={4.5} fill={WARNA.miring} />
 
       {/* keterangan ruas yang sedang disorot */}
       <text x={VW - 10} y={VH - 26} textAnchor="end" fontSize={15} fill="#211E1A"
-            fontFamily="var(--font-plex-mono), monospace">
+            fontFamily="var(--font-mono), sans-serif">
         {RASIO[sorot].lambang} = {e[sorot].toFixed(3).replace('.', ',')}
       </text>
       <text x={VW - 10} y={VH - 9} textAnchor="end" fontSize={11} fill={WARNA.redup}
-            fontFamily="var(--font-plex-mono), monospace">
+            fontFamily="var(--font-mono), sans-serif">
         {RASIO[sorot].rumus}
       </text>
     </svg>

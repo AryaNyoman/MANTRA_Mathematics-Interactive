@@ -64,7 +64,7 @@ class JarakTitikKeBidang(AdeganMatra):
         qc.periksa_adegan(self, {"kubus": kubus})
 
         # --- Babak 2: bidangnya muncul sebagai BIDANG, lalu diputari.
-        jati = sinema.identitas(self, "p = l = t = 6 satuan")
+        jati = sinema.identitas(self, "panjang = lebar = tinggi = 6 satuan")
         with sinema.babak(self, "bidang", DURASI) as b:
             b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=1.6)
             sumbu_z_pamit(b, papan_koor, 1.0)

@@ -93,9 +93,9 @@ export default function LingkaranSatuan({
       <line x1={CX - R - 34} y1={CY} x2={CX + R + 34} y2={CY} stroke={sumbu} strokeWidth={1.5} />
       <line x1={CX} y1={CY - R - 26} x2={CX} y2={CY + R + 26} stroke={sumbu} strokeWidth={1.5} />
       <text x={CX + R + 8} y={CY - 7} fontSize={11} fill={WARNA.redup}
-            fontFamily="var(--font-plex-mono), monospace">1</text>
+            fontFamily="var(--font-mono), sans-serif">1</text>
       <text x={CX + 7} y={CY - R - 8} fontSize={11} fill={WARNA.redup}
-            fontFamily="var(--font-plex-mono), monospace">1</text>
+            fontFamily="var(--font-mono), sans-serif">1</text>
 
       {/* lingkaran berjari-jari 1 */}
       <circle cx={CX} cy={CY} r={R} fill="none" stroke={WARNA.redup} strokeWidth={2} opacity={0.55} />
@@ -119,7 +119,7 @@ export default function LingkaranSatuan({
       <text
         x={CX + (px - CX) / 2 - 12} y={CY + (py - CY) / 2 - 8}
         fontSize={13} fill={WARNA.miring}
-        fontFamily="var(--font-plex-mono), monospace"
+        fontFamily="var(--font-mono), sans-serif"
       >1</text>
 
       {/* Label komponen.
@@ -130,14 +130,14 @@ export default function LingkaranSatuan({
           1 Sep 2026. Menggeser labelnya tidak menyelesaikan: pada sudut lain
           ia akan menabrak garis yang berbeda. */}
       <text x={(CX + px) / 2} y={CY + (sin >= 0 ? 20 : -10)} textAnchor="middle" fontSize={13}
-            fill={WARNA.samping} fontFamily="var(--font-plex-mono), monospace"
+            fill={WARNA.samping} fontFamily="var(--font-mono), sans-serif"
             stroke="var(--kartu)" strokeWidth={3.5} paintOrder="stroke"
             strokeLinejoin="round">
         cos θ = {angka3(cos)}
       </text>
       <text x={px + (cos >= 0 ? 10 : -10)} y={(CY + py) / 2} fontSize={13} fill={WARNA.depan}
             textAnchor={cos >= 0 ? 'start' : 'end'}
-            fontFamily="var(--font-plex-mono), monospace"
+            fontFamily="var(--font-mono), sans-serif"
             stroke="var(--kartu)" strokeWidth={3.5} paintOrder="stroke"
             strokeLinejoin="round">
         sin θ = {angka3(sin)}
@@ -150,7 +150,7 @@ export default function LingkaranSatuan({
       </g>
 
       <text x={VW / 2} y={VH - 6} textAnchor="middle" fontSize={11} fill={WARNA.redup}
-            fontFamily="var(--font-plex-mono), monospace">
+            fontFamily="var(--font-mono), sans-serif">
         seret titik ungunya
       </text>
     </svg>

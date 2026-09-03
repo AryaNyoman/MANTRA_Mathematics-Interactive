@@ -47,3 +47,24 @@ web/public/anim/contoh-perahu.vtt
 
 # Salinan buku rujukan (65 MB). Aslinya di D:\BAHAN MATEMATIKA, jangan masuk repo.
 BAHAN MATEMATIKA/
+
+# Dependensi worktree perombakan: dipasang sendiri dengan `npm ci`.
+web/node_modules/
+
+# graphify: yang di-commit hanya graph.json, GRAPH_REPORT.md, manifest.json, .graphify_labels.json
+# (bekal worktree lain). HTML bisa dibuat ulang, sisanya jejak mesin atau log percobaan.
+graphify-out/graph.html
+graphify-out/.graphify_python
+graphify-out/.graphify_root
+graphify-out/.graphify_detect.json
+graphify-out/.graphify_extract.json
+graphify-out/.graphify_ast.json
+graphify-out/.graphify_semantic.json
+graphify-out/.graphify_analysis.json
+graphify-out/.graphify_chunk_*.json
+graphify-out/.semantik*.log
+graphify-out/.rantai.log
+graphify-out/cost.json
+graphify-out/memory/
+.graphify_cache/
+graphify-out/cache/

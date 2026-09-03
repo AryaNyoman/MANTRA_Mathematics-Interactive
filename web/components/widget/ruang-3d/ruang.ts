@@ -43,7 +43,7 @@ export const KOTAK = {
 }
 
 export const GARIS_PETAK = '#D6CDBC'
-export const MONO = 'var(--font-plex-mono), monospace'
+export const MONO = 'var(--font-mono), sans-serif'
 export { WARNA }
 
 /* ------------------------------------------------------------------ */

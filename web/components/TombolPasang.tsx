@@ -45,7 +45,7 @@ export default function TombolPasang() {
   return (
     <button
       type="button"
-      className="tombol-pasang"
+      className="pil-garis"
       onClick={async () => {
         await tawaran.prompt()
         await tawaran.userChoice
