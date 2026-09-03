@@ -1,0 +1,163 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/statistika11-regresi.json
+
+1
+00:00:00.000 --> 00:00:03.260
+Materi 11 Statistika: <b>garis regresi</b>.
+
+2
+00:00:03.260 --> 00:00:07.788
+10 siswa, jam belajar seminggu dan nilai ujiannya.
+
+3
+00:00:07.788 --> 00:00:12.768
+Titiknya jelas naik, tetapi garis mana yang paling pas?
+
+4
+00:00:12.768 --> 00:00:15.554
+Tiga orang menarik tiga garis berbeda,
+
+5
+00:00:15.554 --> 00:00:18.120
+dan ketiganya kelihatan masuk akal.
+
+6
+00:00:18.120 --> 00:00:19.513
+Supaya ada jawaban,
+
+7
+00:00:19.513 --> 00:00:21.273
+kita butuh cara <b>mengukur</b>
+
+8
+00:00:21.273 --> 00:00:23.472
+seberapa meleset sebuah garis.
+
+9
+00:00:23.472 --> 00:00:24.672
+Untuk satu titik,
+
+10
+00:00:24.672 --> 00:00:28.055
+ukurannya adalah jarak <b>tegak</b> dari titik ke garis.
+
+11
+00:00:28.055 --> 00:00:30.540
+Bukan tegak lurus terhadap garisnya,
+
+12
+00:00:30.540 --> 00:00:32.404
+sebab yang ingin diperkecil
+
+13
+00:00:32.404 --> 00:00:34.656
+adalah kesalahan menebak nilai y.
+
+14
+00:00:34.656 --> 00:00:36.447
+Jarak itu namanya <b>residu</b>.
+
+15
+00:00:36.447 --> 00:00:37.807
+Titik di atas garis
+
+16
+00:00:37.807 --> 00:00:40.672
+berarti garisnya menebak terlalu rendah,
+
+17
+00:00:40.672 --> 00:00:43.824
+titik di bawah garis berarti terlalu tinggi.
+
+18
+00:00:43.824 --> 00:00:45.728
+Menjumlah semuanya gagal,
+
+19
+00:00:45.728 --> 00:00:48.621
+persis seperti simpangan di Materi 08.
+
+20
+00:00:48.621 --> 00:00:52.200
+Yang positif dan yang negatif <b>saling menghapus</b>.
+
+21
+00:00:52.200 --> 00:00:54.765
+Jadi tiap residu <b>dikuadratkan</b> dulu,
+
+22
+00:00:54.765 --> 00:00:56.963
+persis seperti simpangan baku,
+
+23
+00:00:56.963 --> 00:00:58.868
+lalu semuanya dijumlahkan.
+
+24
+00:00:58.868 --> 00:01:01.432
+Sekarang seluruh kemelesetan sebuah
+
+25
+00:01:01.432 --> 00:01:03.264
+garis tinggal <b>satu angka</b>.
+
+26
+00:01:03.264 --> 00:01:06.619
+Sekarang garisnya kita putar,
+
+27
+00:01:06.619 --> 00:01:12.865
+dan angka itu ikut berubah: 146, lalu 56,9, lalu <b>27,2</b>.
+
+28
+00:01:12.865 --> 00:01:16.104
+Diputar terus, ia naik lagi.
+
+29
+00:01:16.104 --> 00:01:20.550
+Jadi ada satu garis yang jumlah kuadratnya paling kecil,
+
+30
+00:01:20.550 --> 00:01:21.750
+dan cuma satu.
+
+31
+00:01:21.750 --> 00:01:24.211
+Itulah <b>metode kuadrat terkecil</b>,
+
+32
+00:01:24.211 --> 00:01:26.673
+dan rumusnya memberi kemiringan
+
+33
+00:01:26.673 --> 00:01:28.728
+3,2 serta perpotongan 49,2.
+
+34
+00:01:28.728 --> 00:01:31.055
+Kemiringan 3,2 itu punya arti:
+
+35
+00:01:31.055 --> 00:01:34.079
+tiap tambahan <b>1 jam</b> belajar per minggu,
+
+36
+00:01:34.079 --> 00:01:37.104
+nilai diramalkan naik sekitar 3,2 poin.
+
+37
+00:01:37.104 --> 00:01:38.776
+Tetapi hati-hati.
+
+38
+00:01:38.776 --> 00:01:43.991
+Diteruskan sampai 40 jam, garis ini meramalkan 177,2.
+
+39
+00:01:43.991 --> 00:01:47.237
+Nilai ujian tidak bisa lewat 100,
+
+40
+00:01:47.237 --> 00:01:49.992
+dan <b>garisnya tidak tahu itu</b>.
