@@ -40,7 +40,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from gl import *  # noqa: E402,F403
-from gl import kamera, qc, sinema  # noqa: E402
+from gl import ilustrasi, kamera, qc, sinema  # noqa: E402
 
 AKAR = Path(__file__).resolve().parents[2]
 TOPIK = "statistika3-lebar-kelas"
@@ -63,8 +63,9 @@ Z_KAMERA = 0.50
 TINGGI_BINGKAI = 6.4
 # Batang tertinggi di seluruh video 22 siswa (lebar 10). Puncaknya harus
 # berhenti di bawah layar y = 1,10, jadi z <= 1,38.
-SKALA_F = 0.100
-JARI_TITIK = 0.052
+# Dinaikkan 4 Sep: tengah atas layar bebas.
+SKALA_F = 0.135
+JARI_TITIK = 0.062
 
 
 def tegak(mob):
@@ -78,13 +79,6 @@ def xc(cm):
 
 def zf(frekuensi):
     return Z_DASAR + frekuensi * SKALA_F
-
-
-def tumbuh_batang(m, **kw):
-    """Batang tumbuh dari ALASNYA. Animasi bawaan `GrowFromEdge` butuh argumen
-    tepi dan tepinya di bidang xy, sedangkan batang di sini berdiri di sumbu z."""
-    dasar = m.get_center() + np.array([0.0, 0.0, -m.get_depth() / 2])
-    return GrowFromPoint(m, dasar, **kw)
 
 
 def kelompokkan(lebar):
@@ -122,12 +116,9 @@ class LebarKelas3(AdeganMatra):
             hidup_h = {k: v for k, v in HUD.items() if v is not None}
             if papan.semua() is not None:
                 hidup_h["papan rumus"] = papan.semua()
+            hidup_t = {k: v for k, v in TULISAN.items() if v is not None}
             qc.periksa_adegan(self, {}, pasangan=pasangan, hud=hidup_h,
-                              dunia=hidup_d, jaga_jalur_bawah=True)
-            hidup_t = [k for k, v in TULISAN.items() if v is not None]
-            for i, a in enumerate(hidup_t):
-                for c in hidup_t[i + 1:]:
-                    qc.tidak_bertindih(frame, TULISAN[a], TULISAN[c], a, c)
+                              dunia=hidup_d, tulisan=hidup_t, jaga_jalur_bawah=True)
 
         # ------------------------------------------------------------------
         # Panggung: dua sumbu berangka.
@@ -194,7 +185,7 @@ class LebarKelas3(AdeganMatra):
         # ==================================================================
         with sinema.babak(self, "kelompok", DURASI) as b:
             taruh("histogram", hist5)
-            b.main(FadeOut(titik), LaggedStartMap(tumbuh_batang, hist5,
+            b.main(FadeOut(titik), LaggedStartMap(ilustrasi.tumbuh_batang, hist5,
                                                   lag_ratio=0.12), run_time=3.4,
                    )
             buang("titik")
@@ -234,7 +225,7 @@ class LebarKelas3(AdeganMatra):
         with sinema.babak(self, "sempit", DURASI) as b:
             sinema.lahir_rumus(self, r"\text{lebar } 2", hist5[3], papan, b=b, warna=TINTA)
             taruh("histogram", hist2)
-            b.main(FadeOut(hist5), LaggedStartMap(tumbuh_batang, hist2, lag_ratio=0.06),
+            b.main(FadeOut(hist5), LaggedStartMap(ilustrasi.tumbuh_batang, hist2, lag_ratio=0.06),
                    run_time=3.4)
             taruh("label gerigi", l_gerigi, tulisan=True)
             b.main(FadeIn(l_gerigi), run_time=1.0)
@@ -256,7 +247,7 @@ class LebarKelas3(AdeganMatra):
             sinema.ganti_rumus(self, papan.utama, r"\text{lebar } 10", b=b,
                                run_time=1.4, papan=papan)
             taruh("histogram", hist10)
-            b.main(FadeOut(hist2), LaggedStartMap(tumbuh_batang, hist10, lag_ratio=0.16),
+            b.main(FadeOut(hist2), LaggedStartMap(ilustrasi.tumbuh_batang, hist10, lag_ratio=0.16),
                    run_time=3.2)
             taruh("label satu", l_satu, tulisan=True)
             b.main(FadeIn(l_satu), Indicate(hist10[3], scale_factor=1.2, color=AKSEN),
@@ -274,7 +265,7 @@ class LebarKelas3(AdeganMatra):
             sinema.ganti_rumus(self, papan.utama, r"\text{lebar } 5", b=b,
                                run_time=1.4, papan=papan)
             taruh("histogram", hist5)
-            b.main(FadeOut(hist10), LaggedStartMap(tumbuh_batang, hist5, lag_ratio=0.1),
+            b.main(FadeOut(hist10), LaggedStartMap(ilustrasi.tumbuh_batang, hist5, lag_ratio=0.1),
                    run_time=2.8)
             b.main(LaggedStartMap(
                 lambda m, **kw: Indicate(m, scale_factor=1.05, color=AKSEN2, **kw),
@@ -288,7 +279,7 @@ class LebarKelas3(AdeganMatra):
         # histogram tinggi badan tadi.
         # ==================================================================
         LEBAR_KOTAK = 1.15               # satu satuan lebar kelas contoh
-        TINGGI_KOTAK = 0.13              # satu satuan tinggi kelas contoh
+        TINGGI_KOTAK = 0.175             # satu satuan tinggi kelas contoh
         X_KIRI = -2.30
 
         # Contoh gabung kelas punya sumbunya SENDIRI. Tanpa itu penonton tidak

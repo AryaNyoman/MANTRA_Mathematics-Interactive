@@ -325,3 +325,20 @@ def penopang(lebar=0.9, tinggi=0.55, tebal=1.2, warna=AKSEN):
     g.set_color(warna)
     g.set_shading(*BAYANG)
     return g
+
+
+def tumbuh_batang(m, **kw):
+    """Batang tumbuh dari ALASNYA, untuk histogram dan diagram batang.
+
+    `GrowFromEdge` bawaan ManimGL butuh argumen tepi dan tepinya diberikan di
+    bidang xy, sedangkan batang adegan MATRA berdiri di sumbu z. Dipakai lewat
+    `LaggedStartMap(GrowFromEdge, batang)` ia gagal sebab argumen tepinya tidak
+    terisi. Yang ini menghitung alasnya sendiri, jadi bisa dipakai langsung:
+
+        b.main(LaggedStartMap(ilustrasi.tumbuh_batang, hist, lag_ratio=0.12),
+               run_time=3.0)
+
+    Ditemukan sesi Statistika 3 Sep 2026, dinaikkan ke berkas bersama 4 Sep.
+    """
+    dasar = m.get_center() + np.array([0.0, 0.0, -m.get_depth() / 2])
+    return GrowFromPoint(m, dasar, **kw)
