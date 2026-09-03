@@ -173,11 +173,24 @@ def hapus_keterangan(*args, **kwargs):
     raise AturanDilanggar("sinema.keterangan sudah dihapus, tidak ada yang perlu dihapus.")
 
 
-def nilai_hidup(label_mob, angka: DecimalNumber, di, buff: float = 0.18) -> VGroup:
-    """Rakit "label + angka berubah" supaya angkanya tidak melayang dari labelnya."""
-    gugus = VGroup(label_mob, angka)
-    angka.next_to(label_mob, RIGHT, buff=buff)
+def nilai_hidup(label_mob, angka: DecimalNumber, di, buff: float = 0.18,
+                tanda: str | None = "=") -> VGroup:
+    """Rakit "label = angka berubah" supaya angkanya tidak melayang dari labelnya.
+
+    Tanda "=" disisipkan sejak 4 Sep 2026: tanpa itu "BQ 5,160" terbaca seperti
+    dua hal yang kebetulan berdampingan, bukan satu besaran dengan nilainya
+    (temuan Ruang 3D materi 03). Beri `tanda=None` untuk tanpa tanda.
+    Label SELALU elemen pertama gugus dan angka SELALU elemen terakhir.
+    """
+    bagian = [label_mob]
+    if tanda:
+        t = rumus(tanda, getattr(label_mob, "ukuran_matra", 28), label_mob.get_color())
+        t.next_to(label_mob, RIGHT, buff=buff)
+        bagian.append(t)
+    angka.next_to(bagian[-1], RIGHT, buff=buff)
     angka.align_to(label_mob, DOWN)
+    bagian.append(angka)
+    gugus = VGroup(*bagian)
     gugus.move_to(di)
     return gugus
 
@@ -319,7 +332,14 @@ class PapanRumus:
         isi = list(self.baris_lain)
         if self.utama is not None:
             isi.append(self.utama)
-        return VGroup(*isi) if isi else None
+        if not isi:
+            return None
+        g = VGroup(*isi)
+        # Tanda untuk qc: baris-baris di dalam papan diperiksa satu sama lain.
+        # Sebelum 4 Sep 2026 papan diserahkan ke qc sebagai satu benda, dan dua
+        # baris yang bertindih persis lolos (temuan Ruang 3D dan Statistika).
+        g._qc_isi = True
+        return g
 
 
 def lahir_rumus(scene, isi: str, dekat, papan: PapanRumus, b=None,

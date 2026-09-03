@@ -14,15 +14,26 @@ Perkakasnya `manim/gl/` (sinema v2, qc, ilustrasi, kamera). Rujukan resmi:
 ## Sepuluh keputusan ARYA (nilai ya/tidak di laporan)
 
 1. **Tata letak layar dikunci, semua topik sama.** Kiri atas = identitas benda
-   (`sinema.identitas`: "p = l = t = 6 satuan", "1 petak = 1 km"). Kanan atas =
+   (`sinema.identitas`: "rusuk 6 satuan", "1 petak = 1 km"; JANGAN memakai huruf l sendirian sebagai lambang, di LaTeX ia terbaca angka 1, tulis "lebar" atau pakai ell). Kanan atas =
    rumus dan hitungan (`sinema.PapanRumus`, `lahir_rumus`, `ganti_rumus`). Kaki
    layar = milik SUBTITLE, kosong (qc menggagalkan render kalau ada yang masuk).
    Dalam gambar = label pendek yang menempel di bendanya. Kalau kurva naik ke
    kanan dan menabrak panel, dunianya yang digeser atau dikecilkan, bukan panelnya.
+   ZONA HUD HANYA DUA POJOK ATAS: identitas di kiri (x < -2,1), rumus di kanan
+   (x > 2,1). TENGAH ATAS BEBAS untuk dunia, dan `qc` memeriksa tabrakan yang
+   NYATA, bukan kotak yang dipesan. Membaca 'jalur panel' sebagai seluruh
+   lebar layar lalu memampatkan dunia ke separuh tinggi (Statistika 06,
+   Vektor 03 sampai 09, 3 Sep) adalah salah baca: garis bilangan, bidang, dan
+   batang boleh naik sampai atas di tengah layar.
 
 2. **3D hanya di video PERTAMA tiap topik** sebagai pembuka 8 sampai 10 detik
    (perahu di air, orang di lapangan), lalu satu gerakan kamera turun ke bidang
-   datar dan TIDAK PERNAH miring lagi. Video lain boleh langsung bidang datar.
+   datar dan TIDAK PERNAH miring lagi. Video lain LANGSUNG ke matematika. Kalau tetap ingin pembuka 3D, maksimal
+   5 detik dan HARUS ada yang terjadi (benda bergerak, kamera terbang), bukan
+   lapangan kosong dengan satu benda kecil. Temuan 4 Sep: Vektor 03, 04, 06,
+   08, 09 dan Ruang 3D 01 sampai 09 membuka dengan 15 sampai 20 detik hampir
+   tanpa isi, dan itu 20 persen dari tiap video. Pengecualian Ruang 3D
+   berlaku untuk kamera 3D-nya, BUKAN untuk pembuka yang lama dan kosong.
    Pengecualian: topik yang matematikanya memang ruang (Ruang 3D, dan nanti
    Transformasi Geometri) boleh bolak-balik 3D dan 2D. Prinsipnya: matematika
    yang butuh PANJANG atau SUDUT yang akurat wajib kamera tegak lurus, sebab
