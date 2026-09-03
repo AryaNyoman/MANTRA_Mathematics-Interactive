@@ -19,7 +19,12 @@ class CacatTataLetak(AssertionError):
 
 
 def _titik(mob):
-    fam = [m for m in mob.get_family() if len(m.get_points())]
+    # Alas kertas HUD (`sinema.alas_hud`) ditandai `dekorasi` dan TIDAK ikut
+    # diukur: ia sengaja dirapatkan sampai tepi bingkai supaya terbaca
+    # sebagai panel sudut, bukan stiker melayang. Yang diukur gerbang tetap
+    # tulisannya, dan tulisan itu selalu di dalam zona HUD.
+    fam = [m for m in mob.get_family()
+           if len(m.get_points()) and not getattr(m, "dekorasi", False)]
     if not fam:
         return np.zeros((0, 3))
     return np.vstack([m.get_points() for m in fam])
@@ -118,6 +123,14 @@ def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: floa
     for a, b in pasangan or []:
         tidak_bertindih(frame, semua.get(a), semua.get(b), a, b)
     for na, pa in (hud or {}).items():
+        # HUD yang punya alas kertas (lihat `sinema.alas_hud`) memang BOLEH
+        # berdiri di atas bidang: alasnya menutup garis petak di belakangnya,
+        # jadi tulisannya tetap bersih. Tanpa pengecualian ini, satu-satunya
+        # cara melewati gerbang adalah memesan jalur layar lewat
+        # `muat_datar(sisa_atas=, sisa_kanan=)`, dan itu menyusutkan bidang
+        # 12 sampai 15 persen. Yang TELANJANG tetap dilarang bertindih.
+        if getattr(pa, "beralas", False):
+            continue
         for nd, pd in (dunia or {}).items():
             tidak_bertindih(frame, pa, pd, na, nd)
     if jaga_jalur_bawah:
