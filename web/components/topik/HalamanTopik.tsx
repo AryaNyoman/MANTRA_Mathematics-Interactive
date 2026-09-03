@@ -96,8 +96,22 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   // supaya panggung tetap satu layar tanpa gulir atas-bawah.
   const [mode, setMode] = useState<'coba' | 'tonton'>('tonton')
   const [rel, setRel] = useState(false)
+  /* Laci daftar materi, HANYA berlaku di layar HP.
+     Sebelum ini sidebar ditumpuk di atas isi materi dan tingginya dipatok
+     60% layar, sehingga daftarnya terpotong di tengah baris dan baris Latihan
+     serta Kuis terlihat menindih materi yang terpotong itu (temuan ARYA di
+     HP, 3 Sep 2026). Rancangannya memang bukan tumpukan: "sidebar pohon
+     berubah jadi laci yang digeser dari kiri" (HANDOFF bagian tampilan HP). */
+  const [laci, setLaci] = useState(false)
   // Materi yang centangnya sedang meletup. Sekali saja, saat pertama dibuka.
   const [letup, setLetup] = useState<string | null>(null)
+
+  /* Memilih layar SEKALIGUS menutup laci. Di HP, laci yang tetap terbuka
+     setelah materi dipilih menutupi materi yang baru saja dibuka. */
+  const pilihLayar = (l: Layar) => {
+    setLayar(l)
+    setLaci(false)
+  }
 
   /* --- kemajuan, dibaca sebagai "external store" ------------------------
      BUKAN useState yang diperbarui di dalam useEffect. Dua alasan:
@@ -174,6 +188,24 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
     }
   }, [layar, topik.slug])
 
+  /* Selama laci terbuka, halaman di belakangnya dikunci supaya tidak ikut
+     bergulir saat jari menggeser di atas tirai. Esc menutupnya, sama seperti
+     menu nav. Keduanya dibersihkan saat laci ditutup, jadi tidak ada kunci
+     yang tertinggal kalau siswa berpindah halaman selagi laci terbuka. */
+  useEffect(() => {
+    if (!laci) return
+    const semula = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const saatTekan = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLaci(false)
+    }
+    window.addEventListener('keydown', saatTekan)
+    return () => {
+      document.body.style.overflow = semula
+      window.removeEventListener('keydown', saatTekan)
+    }
+  }, [laci])
+
   // Waktu hanya bertambah selama tab benar-benar terlihat: meninggalkan
   // halaman semalaman tidak boleh dihitung sebagai membaca.
   useEffect(() => {
@@ -206,6 +238,18 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
       <div className="materi-panel">
         {/* Remah roti: kelas, bab, sub-bab, materi, lalu kemajuan di kanan. */}
         <div className="remah">
+          {/* Pembuka laci daftar materi, HANYA tampil di layar HP. Di layar
+              lebar sidebar-nya memang selalu terlihat, jadi tombol ini tidak
+              ada gunanya di sana. */}
+          <button
+            type="button"
+            className="buka-laci"
+            aria-expanded={laci}
+            aria-controls="pohon-materi"
+            onClick={() => setLaci(true)}
+          >
+            <span aria-hidden="true">☰</span> Materi
+          </button>
           {/* Dua remah pertama disembunyikan di layar HP. Remah tidak boleh
               membungkus, dan rantai lengkapnya butuh 676 piksel: di layar 375
               ia mendorong seluruh halaman keluar 333 piksel (terukur 3 Sep).
@@ -236,8 +280,20 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
         </div>
 
         <div className="materi-badan" data-rel={rel}>
+          {/* Tirai gelap di belakang laci. Sebuah tombol, bukan div: menutup
+              laci harus bisa dilakukan tanpa tetikus, dan tombol sudah bisa
+              ditekan lewat papan ketik tanpa tambahan apa pun. */}
+          {laci && (
+            <button
+              type="button"
+              className="tirai-laci"
+              aria-label="Tutup daftar materi"
+              onClick={() => setLaci(false)}
+            />
+          )}
+
           {/* ======================= SIDEBAR POHON ======================= */}
-          <aside className="pohon">
+          <aside className="pohon" id="pohon-materi" data-laci={laci}>
             <div className="pohon-kepala">
               {!rel && (
                 <div style={{ flex: 1, minWidth: 0 }}>
@@ -247,6 +303,10 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                   <div className="nama">{topik.nama}</div>
                 </div>
               )}
+              {/* Dua tombol berbeda tugas, dan CSS yang memilih mana yang
+                  tampil. Di layar lebar sidebar dikuncupkan jadi rel sempit;
+                  di HP sidebar adalah laci, dan yang dibutuhkan adalah
+                  menutupnya. Satu tombol dengan dua arti hanya membingungkan. */}
               <button
                 type="button"
                 className="pohon-togel"
@@ -255,6 +315,14 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                 onClick={() => setRel((r) => !r)}
               >
                 {rel ? '»' : '«'}
+              </button>
+              <button
+                type="button"
+                className="laci-tutup"
+                aria-label="Tutup daftar materi"
+                onClick={() => setLaci(false)}
+              >
+                ✕
               </button>
             </div>
 
@@ -291,7 +359,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                         disabled={!t.siap}
                         title={t.siap ? t.judul : `${t.judul} (belum dibangun)`}
                         aria-current={aktif ? 'true' : undefined}
-                        onClick={() => setLayar({ jenis: 'tahap', slug: t.slug })}
+                        onClick={() => pilihLayar({ jenis: 'tahap', slug: t.slug })}
                       >
                         <span className="no">{dua(t.no)}</span>
                         {!rel && <span className="judul">{t.judul}</span>}
@@ -309,7 +377,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
 
             {!rel && (
               <div className="pohon-kaki">
-                <button type="button" onClick={() => setLayar({ jenis: 'latihan' })}>
+                <button type="button" onClick={() => pilihLayar({ jenis: 'latihan' })}>
                   <span className="ikon" aria-hidden="true">✎</span>
                   <span className="nama">Latihan</span>
                   <span className="hitung" style={{ fontSize: 11, color: 'var(--tinta-50)' }}>
@@ -319,7 +387,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                 <button
                   type="button"
                   disabled={!terbuka}
-                  onClick={() => terbuka && setLayar({ jenis: 'kuis' })}
+                  onClick={() => terbuka && pilihLayar({ jenis: 'kuis' })}
                 >
                   <span className="ikon" aria-hidden="true">★</span>
                   <span>

@@ -1795,10 +1795,17 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .judul-merk { font-size: 54px; letter-spacing: 0.06em; margin-bottom: 4px; }
 /* Lambang MANTRA, ditengahkan setinggi kolom penjelasan di sebelahnya.
    `align-self: center` yang melakukannya; tanpa itu ia menempel di atas
-   karena baris grid-nya memakai `align-items: start`. */
+   karena baris grid-nya memakai `align-items: start`.
+
+   LATARNYA PUTIH PEKAT, dan itu bukan hiasan. Berkas lambangnya PNG dengan
+   72 persen piksel tembus pandang, sedangkan latar halaman bergaris kisi.
+   Tanpa alas, garis kisi itu menembus sela-sela huruf lambang dan membuatnya
+   terlihat kotor (temuan ARYA, 3 Sep 2026). */
 .plat-merk {
   align-self: center; display: flex; align-items: center; justify-content: center;
-  padding: 26px 20px;
+  padding: 30px 26px; background: var(--kartu);
+  border: 1px solid var(--garis); border-radius: 20px;
+  box-shadow: 0 22px 50px -40px rgba(16, 26, 43, 0.7);
 }
 .plat-merk img { display: block; width: 100%; max-width: 26rem; height: auto; }
 @media (max-width: 860px) {
@@ -1824,11 +1831,18 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 }
 .kartu-alat:hover { transform: translateY(-4px); }
 /* Kotak berbingkai untuk logo pihak lain: `object-fit:contain` supaya lambang
-   tidak pernah terpotong atau melar, apa pun perbandingan sisinya. */
+   tidak pernah terpotong atau melar, apa pun perbandingan sisinya.
+
+   Latarnya PUTIH PEKAT, bukan krem. Logo Manim dan Claude sama-sama PNG
+   tembus pandang, dan di atas krem yang hampir sewarna kartunya keduanya
+   terlihat pudar seperti tempelan yang gagal dimuat. Putih memberi mereka
+   alas yang jelas, dan bingkainya yang membuat kotaknya tetap terbaca
+   sebagai kotak. */
 .plat-logo {
   box-sizing: border-box; width: 132px; height: 74px;
   display: flex; align-items: center; justify-content: center; padding: 9px 13px;
-  border: 1px solid rgba(16, 26, 43, 0.1); border-radius: 14px; background: var(--cekung);
+  border: 1px solid rgba(16, 26, 43, 0.16); border-radius: 14px;
+  background: #FFFFFF;
 }
 .plat-logo img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
 .kartu-alat h3 { font-size: 19px; font-weight: 600; margin: 0 0 6px; }
@@ -2077,13 +2091,58 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 
+/* Tombol pembuka laci dan tirainya HANYA ada di layar HP. Di layar lebar
+   sidebar memang selalu terlihat, jadi keduanya disembunyikan. */
+.buka-laci, .laci-tutup { display: none; }
+
 @media (max-width: 860px) {
+  /* SIDEBAR JADI LACI, BUKAN TUMPUKAN.
+     Sebelum ini sidebar ditaruh di atas isi materi dan dipatok setinggi 60%
+     layar. Akibatnya daftar materi terpotong di TENGAH BARIS, dan baris
+     Latihan serta Kuis di bawahnya terbaca seolah menindih materi yang
+     terpotong itu (temuan ARYA di HP, 3 Sep 2026). Menaikkan batas tingginya
+     tidak menyelesaikan apa pun: berapa pun angkanya, daftar sepuluh materi
+     ditambah kepala dan kaki tidak akan muat bersama isi materinya.
+     Rancangannya sendiri sudah menjawab: "sidebar pohon berubah jadi laci
+     yang digeser dari kiri". Dengan begitu daftarnya dapat SELURUH tinggi
+     layar saat dibuka, dan nol tinggi saat ditutup. */
   .materi-badan, .materi-badan[data-rel='true'] { grid-template-columns: 1fr; }
-  /* 60vh, bukan 260 piksel. Pada 260 piksel kepala sidebar dan baris Latihan
-     serta Kuis memakan hampir seluruhnya, sehingga daftar materinya sendiri
-     tinggal 53 piksel dan tidak ada satu pun judul materi yang terlihat
-     (terukur 3 Sep 2026). */
-  .pohon { border-right: none; border-bottom: 1px solid rgba(16, 26, 43, 0.1); max-height: 60vh; }
+  .pohon {
+    position: fixed; z-index: 60; top: 0; bottom: 0; left: 0;
+    width: min(86vw, 330px); max-height: none;
+    background: var(--kartu);
+    border-right: 1px solid var(--garis); border-bottom: none;
+    box-shadow: 0 0 60px -10px rgba(16, 26, 43, 0.45);
+    transform: translateX(-101%);
+    transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+    /* `visibility` ikut dimatikan supaya laci yang tertutup tidak bisa
+       dijangkau Tab. Tanpa ini papan ketik nyasar ke daftar materi yang
+       sedang berada di luar layar. */
+    visibility: hidden;
+  }
+  .pohon[data-laci='true'] { transform: none; visibility: visible; }
+  .tirai-laci {
+    display: block; position: fixed; inset: 0; z-index: 55;
+    border: 0; padding: 0; cursor: pointer;
+    background: rgba(16, 26, 43, 0.45);
+  }
+  /* Di laci, sidebar SELALU lebar penuh: rel sempit tidak ada gunanya di sini. */
+  .materi-badan[data-rel='true'] .pohon-baris { grid-template-columns: 22px 1fr 15px; padding: 8px 10px; justify-items: stretch; }
+  .pohon-togel { display: none; }
+  .laci-tutup {
+    display: grid; place-items: center; flex: none;
+    width: 34px; height: 34px; border: 1px solid var(--garis-tegas);
+    border-radius: 9px; background: var(--kartu); color: var(--tinta);
+    font: inherit; font-size: 13px; cursor: pointer;
+  }
+  .buka-laci {
+    display: inline-flex; align-items: center; gap: 7px; flex: none;
+    font: inherit; font-size: 12px; font-weight: 600;
+    padding: 7px 12px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(176, 138, 62, 0.5); background: var(--emas-10);
+    color: var(--emas-tua); white-space: nowrap;
+  }
+  .buka-laci:active { transform: scale(0.96); }
   .remah { font-size: 11.5px; gap: 8px; }
   .remah .kanan .bar { width: 70px; }
   /* Rantai remah lengkap butuh 676 piksel; di layar 375 ia mendorong seluruh
@@ -2143,10 +2202,17 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .materi-badan .panggung > .kolom { min-height: 0; }
 .materi-badan .panggung .kolom.kanan { max-height: 100%; }
 @media (max-width: 860px) {
-  /* Di layar sempit sidebar dan isi bertumpuk, jadi mengunci tinggi panel
-     justru membuat dua daerah gulir bersarang. Biarkan halaman yang menggulir. */
-  .materi-badan { max-height: none; }
-  .materi-badan .panggung .kolom.kanan { max-height: none; }
+  /* `height: auto`, BUKAN sekadar `max-height: none`. Tinggi pasti
+     `calc(100dvh - 132px)` di atas tetap berlaku kalau hanya `max-height`
+     yang dibatalkan, dan itulah yang memeras isi materi di HP sampai
+     terpotong. Di layar sempit yang menggulir cukup HALAMANNYA saja; daerah
+     gulir bersarang di dalam layar 375 piksel selalu berakhir sebagai isi
+     yang terpotong tanpa pemberitahuan. */
+  .materi-badan { height: auto; max-height: none; min-height: 0; }
+  .materi-badan .panggung { min-height: 0; max-height: none; }
+  .materi-badan .panggung .kolom.kanan { max-height: none; overflow-y: visible; }
+  .materi-badan .panggung .layar,
+  .materi-badan .panggung .wadah { max-height: none; }
 }
 
 /* ============================================================
@@ -2308,7 +2374,16 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
    halaman dimuat ulang.
    ============================================================ */
 @keyframes tab-masuk { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-main { animation: tab-masuk 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+/* `backwards`, BUKAN `both`, dan sebabnya halus tetapi merusak.
+   Dengan `both`, animasi terus menerapkan nilai bingkai terakhirnya selamanya,
+   sehingga `transform` pada `main` bernilai matriks satuan, bukan `none`.
+   Nilai `transform` apa pun selain `none` membuat elemen jadi ACUAN bagi anak
+   yang `position: fixed`. Akibatnya laci daftar materi di HP berpegangan pada
+   panel setinggi 4.700 piksel, bukan pada layar, dan tingginya ikut membengkak
+   (terukur 3 Sep 2026: laci jadi 4.840 piksel).
+   Dengan `backwards`, begitu animasinya selesai `transform` kembali ke `none`,
+   dan `main` berhenti jadi acuan. Gerakan masuknya sendiri tidak berubah. */
+main { animation: tab-masuk 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
 
 /* Label kanan pada tajuk berbaris disembunyikan di layar sangat sempit: pada
    375 piksel ia berimpit dengan judulnya dan garis pemisahnya tinggal
