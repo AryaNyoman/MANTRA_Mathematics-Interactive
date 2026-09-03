@@ -117,6 +117,20 @@ Sebelum video APA PUN dinyatakan selesai atau dikirim ke ARYA:
 
 PDF scan dibaca dengan PyMuPDF → render halaman jadi PNG → dibaca sebagai gambar. **Bedah, jangan borong.**
 
+## Peta struktur (graphify, dibuat 3 Sep 2026)
+`graphify-out/` ada. Sesi baru: baca `graphify-out/GRAPH_REPORT.md`, lalu
+`graphify query "<pertanyaan>"` untuk hal spesifik; jangan menjelajah kode dari nol.
+- **Kode** diperbarui gratis tanpa LLM: `graphify update .` (AST saja).
+- **Dokumen** (`--update` semantik) memakai LLM. Yang terbukti 3 Sep: OpenCode Go
+  (`OPENAI_BASE_URL=https://opencode.ai/zen/go/v1`, model `glm-5.3`, gambar
+  `glm-5.3-flash`) dengan kunci dari env `OPENAI_API_KEY`, backend `openai`.
+  Gemini gratis: model bawaan graphify kena kuota 20 permintaan/hari,
+  `gemini-2.5-flash` sudah ditutup, `gemini-3.6-flash` pernah jalan lalu macet.
+  OpenCode Zen (`/zen/v1`) menolak: saldo kosong. Kunci TIDAK pernah disimpan
+  ke berkas; set lewat env sebelum menjalankan.
+- `audio/` (417 berkas suara narasi) dan poster video SENGAJA dikeluarkan dari
+  peta: naskahnya sudah ada sebagai teks, mentranskrip ulang sia-sia.
+
 ## Lingkungan (terverifikasi 2 Sep 2026)
 ManimGL 1.7.2 (Manim Community dicabut 2 Sep) · MiKTeX 25.12 (AutoInstall aktif) · Typst 0.15.0 · FFmpeg 8.1.1 · Python 3.11.9 · Node 24.13
 GPU: GeForce MX250 + Intel UHD; render ManimGL tanpa jendela, paralel aman.
