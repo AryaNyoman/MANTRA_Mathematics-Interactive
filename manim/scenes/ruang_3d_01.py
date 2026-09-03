@@ -71,7 +71,7 @@ class GambarBolehBerbohong(AdeganMatra):
         # --- Babak 2: identitas benda muncul, dan sumbu z pamit setelah selesai
         #     memperkenalkan arah tinggi. Ia kembali di babak "turun", saat
         #     tinggi benar-benar dipakai menghitung (standar v2 butir 9).
-        jati = sinema.identitas(self, "p = l = t = 6 satuan")
+        jati = sinema.identitas(self, "panjang = lebar = tinggi = 6 satuan")
         with sinema.babak(self, "kotak", DURASI) as b:
             b.catat(0.0)
             sumbu_z_pamit(b, papan_koor, 1.0)

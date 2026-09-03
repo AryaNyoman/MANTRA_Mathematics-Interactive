@@ -816,3 +816,92 @@ diperiksa belakangan lewat berkas keluarannya.
 4. Label yang punya updater TIDAK BISA dipudarkan dengan `FadeOut`. Sesi mana
    pun yang memakai `always_redraw` atau updater `become` akan kena hal yang
    sama.
+
+# Empat cacat yang ketahuan karena videonya DILIHAT, 4 September 2026
+
+Sesi ini dimulai dengan satu utang yang jelas: keenam berkas adegan sudah
+ditulis ulang ke standar video versi 2 pada 3 September, tetapi hanya tiga yang
+sudah dirender ulang, dan versi 480p bersuara yang ada di `media/uji-480p/`
+semuanya masih hasil render 2 September. Artinya kalau ARYA menonton saat itu,
+yang dinilainya adalah versi yang sudah dibatalkan.
+
+Sambil melunasi utang itu, empat cacat tertangkap. Tidak satu pun muncul di
+log render, dan dua di antaranya ada di berkas bersama `manim/gl/`, jadi
+topik lain ikut terbawa.
+
+## 1. Video materi 04 lebih panjang 1,62 detik daripada narasinya
+
+Ketahuan bukan dari melihat, melainkan karena `gabung_audio.py` MENOLAK
+menggabungkan: selisih 1,62 detik melewati batas 1,5 detik. Alat itu bekerja
+persis seperti yang diharapkan.
+
+Sebabnya bukan naskah dan bukan durasi.json. `papan.tumbuh(...)` dengan kata
+alasan memakai 3,2 detik (1,2 untuk morph lambang, lalu 0,5 + 1,0 + 0,5 untuk
+kata alasan yang muncul, ditahan, dan memudar), tetapi kode adegan mencatatnya
+`b.catat(1.7)` dengan tangan.
+
+Yang membuatnya berbahaya: `Babak.tutup()` TIDAK menggagalkan render. Kelebihan
+1,5 detik itu masuk lewat waktu yang tidak tercatat, sehingga bacaan `b.sisa`
+ikut salah dan babak mengira dirinya masih punya sisa waktu, lalu menambah
+diam di ujungnya. Angka yang salah membuat pemeriksanya ikut salah.
+
+Perbaikan di `manim/gl/sinema.py`: `tumbuh()` dan `baris()` sekarang menerima
+`b=` dan mencatat waktunya sendiri, sama seperti `lahir_rumus` yang sudah
+begitu sejak awal. Adegan tidak lagi boleh menebak.
+
+Hasil setelah diperbaiki dan dirender ulang: selisih **0,12 detik**.
+
+## 2. Identitas kubus terbaca "p = 1 = t = 6 satuan"
+
+Ini yang paling lama tidak ketahuan, dan paling memalukan: tampil di SETIAP
+detik di KEENAM video sejak 2 September. Huruf "l" (lebar) pada huruf serif
+ukuran 24 tidak bisa dibedakan dari angka "1". Dipastikan dengan memperbesar
+potongan layarnya, bukan dengan menduga.
+
+Siswa membaca "p = 1", lalu di ujung kalimat yang sama membaca "= 6 satuan".
+Kalimatnya membantah dirinya sendiri.
+
+Sekarang ditulis penuh: **"panjang = lebar = tinggi = 6 satuan"**, yaitu kalimat
+yang ARYA minta di putaran revisi 2 September malam. Versi singkat "p = l = t"
+adalah pemendekan yang dilakukan sendiri, bukan permintaannya. Lebarnya diukur
+dulu sebelum dipakai: 3,86 dari jatah zona identitas 4,55, jadi tidak menyusut.
+
+**Untuk MASTER:** contoh di `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md` butir 1
+menuliskan `"p = l = t = 6 satuan"` sebagai patokan identitas. Sesi mana pun
+yang menyalin contoh itu akan kena hal yang sama. Contohnya perlu diganti.
+
+## 3. Huruf titik A menindih angka 0 di pojok sumbu
+
+Terbaca seperti "A0". Sebabnya keduanya dilempar ke arah diagonal yang sama
+dari titik asal: huruf sudut sejauh 0,92 dan naik 0,38, angka nol sejauh 0,62.
+Jadi keduanya berdiri persis satu di atas yang lain. Angka nolnya sekarang
+didorong ke 1,15.
+
+## 4. Rumus di panel saling menindih, dan qc buta terhadapnya
+
+Yang paling merusak. Di materi 09, baris `theta = 35,26 derajat` jatuh TEPAT DI
+DALAM penyebut pecahan `tan theta = 6 per 6 akar 2` di atasnya. Keduanya jadi
+coretan yang tidak terbaca. Terjadi dua kali di video yang sama, untuk theta
+dan untuk phi.
+
+Sebabnya `PapanRumus.tempat_baris` menaruh tiap baris pada slot berjarak TETAP
+0,62 satuan, padahal rumus pecahan dua tingkat lebih tinggi daripada itu.
+
+Kenapa gerbang mutu tidak menangkapnya: adegan menyerahkan papan ke
+`qc.periksa_adegan` sebagai SATU benda (`"panel": papan.semua()`), jadi yang
+diperiksa adalah tabrakan papan dengan benda LAIN, bukan tabrakan di dalam
+papan itu sendiri. Ini lubang yang perlu diketahui sesi lain: apa pun yang
+diserahkan ke qc sebagai satu kelompok, isinya tidak saling diperiksa.
+
+Sekarang tiap baris ditumpuk dari BAWAH benda yang sudah ada di papan. Diukur
+sebelum render, bukan dikira-kira: dulu bertindih 0,15 satuan, sekarang
+berjarak 0,16 satuan.
+
+## Cara memeriksanya
+
+Tiap video: `gabung_audio.py --uji` (yang juga memeriksa sinkron gambar dan
+suara), lalu `cek_video.py --per-detik 0.25` untuk lembar kontak, lalu lembar
+kontaknya DIBUKA dan dinilai. Untuk hal yang tidak terbaca di lembar kontak
+(huruf identitas, pojok sumbu, panel rumus), frame penuh diambil dengan
+`--detik`, lalu bagian yang diragukan dipotong dan diperbesar 4 kali dengan
+ffmpeg. Tiga dari empat cacat di atas hanya kelihatan setelah diperbesar.
