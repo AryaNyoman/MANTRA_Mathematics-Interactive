@@ -1,0 +1,58 @@
+{
+  "adegan": "Menipu1",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Materi 01 Statistika, video pembuka topik. Gerak dirancang lebih dulu: tulang punggungnya adalah delapan titik tiap kelas yang MERUNTUH jadi satu titik di angka 7, lalu dibuka lagi. Medan `tulis` adalah bentuk tertulis untuk subtitle.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi satu Statistika: *kenapa satu angka bisa menipu*. Dua kelas baru saja ulangan, masing-masing delapan siswa. Ini nilai mereka.",
+      "tulis": "Materi 01 Statistika: *kenapa satu angka bisa menipu*. Dua kelas baru saja ulangan, masing-masing 8 siswa. Ini nilai mereka."
+    },
+    {
+      "id": "lapor",
+      "teks": "Wali kelas melaporkan rata-ratanya. Kelas A tujuh. Kelas B juga tujuh. Kepala sekolah mengangguk: *keduanya sama saja*.",
+      "tulis": "Wali kelas melaporkan rata-ratanya. Kelas A 7. Kelas B juga 7. Kepala sekolah mengangguk: *keduanya sama saja*."
+    },
+    {
+      "id": "runtuh",
+      "teks": "Dan memang begitulah rupa sebuah ringkasan. Delapan angka *diperas jadi satu*, dan sesudah diperas, kedua kelas itu benar-benar terlihat sama persis.",
+      "tulis": "Dan memang begitulah rupa sebuah ringkasan. Delapan angka *diperas jadi satu*, dan sesudah diperas, kedua kelas itu benar-benar terlihat sama persis."
+    },
+    {
+      "id": "sama",
+      "teks": "Bukan cuma rata-ratanya. Mediannya juga tujuh di kedua kelas, dan modusnya juga tujuh. *Ketiga ukuran pemusatan sepakat*.",
+      "tulis": "Bukan cuma rata-ratanya. Mediannya juga 7 di kedua kelas, dan modusnya juga 7. *Ketiga ukuran pemusatan sepakat*."
+    },
+    {
+      "id": "kembali",
+      "teks": "Sekarang kita kembalikan angkanya ke tempat semula. Yang tadi diperas jadi satu, kita tumpahkan lagi.",
+      "tulis": "Sekarang kita kembalikan angkanya ke tempat semula. Yang tadi diperas jadi satu, kita tumpahkan lagi."
+    },
+    {
+      "id": "beda",
+      "teks": "Dan bedanya langsung kelihatan. Kelas A berdesakan rapat di sekitar tujuh. Kelas B *berpencar jauh*, ada yang tiga dan ada yang sebelas.",
+      "tulis": "Dan bedanya langsung kelihatan. Kelas A berdesakan rapat di sekitar 7. Kelas B *berpencar jauh*, ada yang 3 dan ada yang 11."
+    },
+    {
+      "id": "jangkauan",
+      "teks": "Diukur dari ujung ke ujung: Kelas A cuma merentang dua angka, dari enam sampai delapan. Kelas B merentang delapan angka, *empat kali lebih lebar*.",
+      "tulis": "Diukur dari ujung ke ujung: Kelas A cuma merentang 2 angka, dari 6 sampai 8. Kelas B merentang 8 angka, *empat kali lebih lebar*."
+    },
+    {
+      "id": "guru",
+      "teks": "Bagi seorang guru, kedua kelas ini butuh perlakuan yang sama sekali berbeda. Di Kelas B ada anak yang tertinggal jauh, dan ringkasan tadi *menyembunyikannya*.",
+      "tulis": "Bagi seorang guru, kedua kelas ini butuh perlakuan yang sama sekali berbeda. Di Kelas B ada anak yang tertinggal jauh, dan ringkasan tadi *menyembunyikannya*."
+    },
+    {
+      "id": "dua",
+      "teks": "Jadi satu angka tidak pernah cukup. Statistika selalu butuh *dua* jenis ukuran: di mana pusatnya, dan seberapa jauh datanya berpencar.",
+      "tulis": "Jadi satu angka tidak pernah cukup. Statistika selalu butuh *dua* jenis ukuran: di mana pusatnya, dan seberapa jauh datanya berpencar."
+    },
+    {
+      "id": "tutup",
+      "teks": "Meringkas selalu membuang sesuatu, dan itu bukan kesalahan. Yang jadi kesalahan adalah *lupa bahwa ada yang dibuang*.",
+      "tulis": "Meringkas selalu membuang sesuatu, dan itu bukan kesalahan. Yang jadi kesalahan adalah *lupa bahwa ada yang dibuang*."
+    }
+  ]
+}
