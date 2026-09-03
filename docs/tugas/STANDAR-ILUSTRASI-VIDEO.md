@@ -34,6 +34,12 @@ Perkakasnya `manim/gl/` (sinema v2, qc, ilustrasi, kamera). Rujukan resmi:
    08, 09 dan Ruang 3D 01 sampai 09 membuka dengan 15 sampai 20 detik hampir
    tanpa isi, dan itu 20 persen dari tiap video. Pengecualian Ruang 3D
    berlaku untuk kamera 3D-nya, BUKAN untuk pembuka yang lama dan kosong.
+   "Video pertama topik" = video dengan NOMOR TAHAP TERKECIL dalam urutan
+   belajar (yang pertama DITONTON siswa), bukan yang pertama dibuat. Kartu
+   judul `sinema.judul_pembuka` DIKECUALIKAN dari batas 5 detik: panjangnya
+   mengikuti kalimat pembuka narasi (butir 3), dan tidak boleh lebih lama
+   daripada kalimat itu. Peralihan 3D yang BEKERJA (lembah memudar, sumbu
+   ditarik saat disebut) boleh, tetapi bagian 3D-nya tetap sekitar 5 detik.
    Pengecualian: topik yang matematikanya memang ruang (Ruang 3D, dan nanti
    Transformasi Geometri) boleh bolak-balik 3D dan 2D. Prinsipnya: matematika
    yang butuh PANJANG atau SUDUT yang akurat wajib kamera tegak lurus, sebab
@@ -43,6 +49,19 @@ Perkakasnya `manim/gl/` (sinema v2, qc, ilustrasi, kamera). Rujukan resmi:
 3. **Layar boleh diam selama narasi masih membahas yang tampil.** Tidak ada
    batas detik. Yang dilarang: layar kosong, gambar yang membantah narasinya,
    dan gerakan tanpa makna yang mencuri perhatian (bola mengayun terus, "napas").
+
+   JEBAKAN LaTeX (temuan Grafik Fungsi 4 Sep): JANGAN menulis `$...$` di dalam
+   `teks()` atau `sinema.label()`, sebab `teks()` meloloskan `$` sebagai huruf
+   dan tanda dolarnya ikut tercetak di layar; angka dan rumus lewat `rumus()`.
+   JANGAN `
+` di dalam `teks()`: LaTeX membacanya sebagai spasi, hasilnya satu
+   baris panjang yang lalu dikecilkan `batasi_lebar`; satu objek teks per baris.
+   `cek_kode.py` menolak keduanya.
+
+   JEBAKAN ManimGL (temuan Statistika 4 Sep): `GrowFromEdge` butuh tepi di
+   bidang xy, sedangkan batang adegan MATRA berdiri di sumbu z, jadi ia gagal
+   di dalam `LaggedStartMap`. Pakai `GrowFromPoint` dari alas batang
+   (`tumbuh_batang` di `statistika3_lebar_kelas.py`).
 
 4. **Label di dalam gambar maksimal dua kata**, dijaga mesin (`sinema.label`
    menggagalkan render). Rumus seperti `x = 1` dihitung satu lambang. Contoh
