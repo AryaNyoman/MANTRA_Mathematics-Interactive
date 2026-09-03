@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Nav from '@/components/Nav'
+import Kaki from '@/components/mantra/Kaki'
 import ArenaLatihan from '@/components/latihan/ArenaLatihan'
 import { KUIS } from '@/content/statistika'
 
@@ -13,6 +14,7 @@ export default function LatihanStatistika() {
     <>
       <Nav label="Latihan Statistika" />
       <ArenaLatihan topik="statistika" nama="Statistika" bank={KUIS} />
+      <Kaki />
     </>
   )
 }

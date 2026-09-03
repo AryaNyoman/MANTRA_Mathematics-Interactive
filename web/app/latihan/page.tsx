@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Nav from '@/components/Nav'
+import Kaki from '@/components/mantra/Kaki'
 import DaftarLatihan from '@/components/latihan/DaftarLatihan'
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function HalamanLatihan() {
     <>
       <Nav label="Latihan" />
       <DaftarLatihan />
+      <Kaki />
     </>
   )
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Nav from '@/components/Nav'
+import Kaki from '@/components/mantra/Kaki'
 import ArenaLatihan from '@/components/latihan/ArenaLatihan'
 import { KUIS } from '@/content/vektor'
 
@@ -29,6 +30,7 @@ export default function LatihanVektor() {
     <>
       <Nav label="Latihan Vektor" />
       <ArenaLatihan topik="vektor" nama="Vektor" bank={KUIS} />
+      <Kaki />
     </>
   )
 }

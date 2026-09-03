@@ -18,15 +18,37 @@ import KartuBayang from './KartuBayang'
  *
  * `langgan` membuat kartu ikut berubah saat tab lain menyimpan kemajuan baru,
  * jadi dua tab yang terbuka tidak menampilkan angka yang berbeda.
+ *
+ * PEROMBAKAN 3 Sep 2026 (permintaan ARYA):
+ *
+ * 1. TIAP MATERI BISA DIKLIK. Sebelumnya daftar materi hanya tulisan, dan
+ *    satu-satunya jalan masuk adalah tombol di kaki kartu. Halaman ini
+ *    berjudul Peta Materi, jadi materinya sendiri yang harus jadi pintu.
+ *    Tautannya membawa nomor materi (`?materi=`), dan halaman topik membuka
+ *    tepat di materi itu.
+ *
+ * 2. TOMBOL UTAMA MENGIKUTI KEADAAN, bukan selalu menyebut kuis:
+ *      belum pernah dibuka  -> "Mulai"
+ *      baru sebagian        -> "Lanjutkan Materi 07" (materi pertama yang
+ *                              BELUM dibuka menurut urutan sub-bab, bukan
+ *                              sekadar jumlah yang sudah dibuka)
+ *      sudah semua          -> "Ulangi belajar", dan tautan kuis muncul
+ *                              karena syarat kuis otomatis terpenuhi.
  */
+
+export type MateriTampil = {
+  no: number
+  judul: string
+  /** slug tahap, dipakai sebagai alamat `?materi=` */
+  slug: string
+  siap: boolean
+}
 
 export type SubTampil = {
   huruf: string
   nama: string
   jumlah: number
-  /** ringkasan "01 Judul · 02 Judul", sudah dirakit di server */
-  ringkas: string
-  nomor: number[]
+  materi: MateriTampil[]
 }
 
 export type BabTampil = {
@@ -45,6 +67,8 @@ export type BabTampil = {
 
 /** Keliling lingkaran berjari-jari 17 pada viewBox 40, dibulatkan seperti rancangan. */
 const KELILING = 107
+
+const dua = (n: number) => String(n).padStart(2, '0')
 
 export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
   const [dibuka, setDibuka] = useState<Record<string, string[]>>({})
@@ -103,18 +127,31 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
           </div>
           <div className="kisi-dua">
             {k.isi.map((b) => {
-              const sudah = dibuka[b.slug] ?? []
-              const jumlahDibuka = b.slugTahap.filter((s) => sudah.includes(s)).length
+              const sudah = new Set(dibuka[b.slug] ?? [])
+              const jumlahDibuka = b.slugTahap.filter((s) => sudah.has(s)).length
+              const tuntas = jumlahDibuka >= b.jumlahMateri && b.jumlahMateri > 0
               const persen = Math.round((jumlahDibuka / b.jumlahMateri) * 100)
               const tampil = Math.round(persen * maju)
               const offset = (KELILING - (KELILING * persen * maju) / 100).toFixed(1)
-              // Aksi menyesuaikan keadaan: belum mulai, sedang berjalan, atau tuntas.
-              const aksi =
-                jumlahDibuka === 0
+
+              // Materi pertama yang BELUM dibuka, menurut urutan sub-bab.
+              // Bukan `jumlahDibuka + 1`: siswa boleh melompat, dan kalau ia
+              // membuka materi 05 lebih dulu, "lanjutkan" harus tetap
+              // menunjuk materi 01, bukan materi 02.
+              const semuaMateri = b.sub.flatMap((s) => s.materi)
+              const lanjut = semuaMateri.find((m) => !sudah.has(m.slug))
+
+              const aksi = tuntas
+                ? 'Ulangi belajar'
+                : jumlahDibuka === 0
                   ? 'Mulai'
-                  : jumlahDibuka >= b.jumlahMateri
-                    ? 'Ulangi kuis'
-                    : `Lanjut Materi ${String(jumlahDibuka + 1).padStart(2, '0')}`
+                  : `Lanjutkan Materi ${dua(lanjut?.no ?? 1)}`
+              // Ke mana tombolnya membawa: awal saat mengulang, materi
+              // terakhir yang belum dibuka saat melanjutkan.
+              const tujuan =
+                tuntas || !lanjut
+                  ? `/topik/${b.slug}`
+                  : `/topik/${b.slug}?materi=${lanjut.slug}`
 
               return (
                 <KartuBayang key={b.slug} className="kartu-mantra kartu-bab">
@@ -148,22 +185,56 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
                     {b.sub.map((s) => (
                       <div key={s.huruf} className="bab-sub-baris">
                         <span className="huruf">{s.huruf}</span>
-                        <div>
+                        <div className="bab-sub-isi">
                           <div className="nama">{s.nama}</div>
-                          <div className="materi">{s.ringkas}</div>
+                          {/* Tiap materi satu tautan. Yang sudah pernah dibuka
+                              menyala tipis dan diberi centang, jadi siswa tahu
+                              sampai mana ia berjalan tanpa membuka apa pun. */}
+                          <div className="bab-materi">
+                            {s.materi.map((m) =>
+                              m.siap ? (
+                                <Link
+                                  key={m.slug}
+                                  href={`/topik/${b.slug}?materi=${m.slug}`}
+                                  className="taut-materi"
+                                  data-selesai={sudah.has(m.slug)}
+                                >
+                                  <span className="no angka-rata">{dua(m.no)}</span>
+                                  {m.judul}
+                                </Link>
+                              ) : (
+                                <span
+                                  key={m.slug}
+                                  className="taut-materi mati"
+                                  title="Materi ini belum dibangun"
+                                >
+                                  <span className="no angka-rata">{dua(m.no)}</span>
+                                  {m.judul}
+                                </span>
+                              ),
+                            )}
+                          </div>
                         </div>
-                        <span className="jml">{s.jumlah} materi</span>
+                        <span className="jml angka-rata">{s.jumlah} materi</span>
                       </div>
                     ))}
                   </div>
 
                   <div className="bab-aksi">
-                    <Link href={`/topik/${b.slug}`} className="pil-kecil-emas">
+                    <Link href={tujuan} className="pil-kecil-emas">
                       {aksi}
                     </Link>
                     <Link href={`/latihan/${b.slug}`} className="pil-kecil-garis">
                       Latihan bab
                     </Link>
+                    {/* Kuis hanya muncul kalau seluruh materi sudah dibuka.
+                        Syarat kuncinya memang itu, jadi menampilkannya lebih
+                        awal berarti menjanjikan tombol yang akan mati. */}
+                    {tuntas && (
+                      <Link href={`/topik/${b.slug}?materi=kuis`} className="pil-kecil-garis">
+                        Kuis
+                      </Link>
+                    )}
                   </div>
                 </KartuBayang>
               )

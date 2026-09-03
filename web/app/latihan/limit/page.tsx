@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Nav from '@/components/Nav'
+import Kaki from '@/components/mantra/Kaki'
 import ArenaLatihan from '@/components/latihan/ArenaLatihan'
 import { KUIS } from '@/content/limit'
 
@@ -13,6 +14,7 @@ export default function LatihanLimit() {
     <>
       <Nav label="Latihan Limit" />
       <ArenaLatihan topik="limit" nama="Limit" bank={KUIS} />
+      <Kaki />
     </>
   )
 }

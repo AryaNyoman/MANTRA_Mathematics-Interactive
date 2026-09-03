@@ -87,6 +87,16 @@ export type SoalKuis = {
   benar: number
   /** dijelaskan setelah dijawab, termasuk kenapa yang salah itu menggoda */
   alasan: string
+  /**
+   * Langkah penyelesaian, satu butir satu langkah. OPSIONAL.
+   *
+   * Panel Pembahasan di halaman bank soal menampilkan langkah bernomor kalau
+   * medan ini ada, dan jatuh ke `alasan` kalau tidak. Sengaja tidak diwajibkan:
+   * memaksakannya berarti 32 soal kali tujuh topik harus ditulis ulang
+   * sekaligus. Isi `alasan` TIDAK boleh dipecah otomatis jadi langkah;
+   * kalimat penjelasan bukan langkah penyelesaian.
+   */
+  langkah?: string[]
   tingkat: TingkatKuis
 }
 

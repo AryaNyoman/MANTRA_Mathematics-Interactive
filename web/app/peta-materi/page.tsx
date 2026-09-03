@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Nav from '@/components/Nav'
+import Kaki from '@/components/mantra/Kaki'
 import PetaMateri, { type BabTampil } from '@/components/mantra/PetaMateri'
 import { BAB, BAB_SEGERA } from '@/content/subbab'
 import { ISI_TOPIK } from '@/content/daftar-isi'
@@ -45,10 +46,15 @@ export default function HalamanPetaMateri() {
         huruf: s.huruf,
         nama: s.nama,
         jumlah: s.nomor.length,
-        nomor: s.nomor,
-        ringkas: s.nomor
-          .map((n) => `${String(n).padStart(2, '0')} ${judulDari(n)}`)
-          .join(' · '),
+        // Tiap materi dikirim sebagai butir tersendiri, BUKAN satu kalimat
+        // gabungan. Itu yang membuat masing-masing bisa jadi tautan dan bisa
+        // ditandai sudah dibuka atau belum.
+        materi: s.nomor.map((n) => ({
+          no: n,
+          judul: judulDari(n),
+          slug: tahap[n - 1]?.slug ?? String(n),
+          siap: Boolean(tahap[n - 1]?.siap),
+        })),
       })),
     }
   })
@@ -72,10 +78,14 @@ export default function HalamanPetaMateri() {
               Segera
             </div>
             <h3>Bab lain sedang disiapkan</h3>
+            {/* Kalimat dimulai dengan huruf besar walau daftarnya ditulis
+                huruf kecil di `subbab.ts`. Daftar itu dipakai juga di tengah
+                kalimat lain, jadi yang menyesuaikan adalah tempat pemakaian,
+                bukan datanya. */}
             <p>
-              {BAB_SEGERA.slice(0, -1).join(', ')}, dan {BAB_SEGERA.at(-1)} menyusul
-              dengan cara yang sama: animasi dulu, lalu alat yang bisa dicoba, lalu
-              latihan.
+              {BAB_SEGERA.slice(0, -1).join(', ').replace(/^./, (c) => c.toUpperCase())}, dan{' '}
+              {BAB_SEGERA.at(-1)} menyusul dengan cara yang sama: animasi dulu, lalu
+              alat yang bisa dicoba, lalu latihan.
             </p>
           </div>
           <span className="titik" aria-hidden="true">
@@ -85,6 +95,7 @@ export default function HalamanPetaMateri() {
 
         <div style={{ height: 40 }} />
       </main>
+      <Kaki />
     </>
   )
 }

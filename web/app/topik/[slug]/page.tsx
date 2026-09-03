@@ -1,6 +1,8 @@
 import Link from 'next/link'
+import { Suspense } from 'react'
 import { notFound } from 'next/navigation'
 import Nav from '@/components/Nav'
+import Kaki from '@/components/mantra/Kaki'
 import HalamanTopik from '@/components/topik/HalamanTopik'
 import { TOPIK, cariTopik } from '@/content/topik'
 
@@ -39,7 +41,15 @@ export default async function RuteTopik({
     <>
       <Nav label={topik.nama} />
       {topik.siap ? (
-        <HalamanTopik topik={topik} />
+        /* Suspense WAJIB: `HalamanTopik` membaca `?materi=` lewat
+           `useSearchParams`, dan Next 16 menolak merakit halaman statis yang
+           membacanya tanpa batas Suspense. Cadangannya sengaja kotak kosong
+           setinggi panel, bukan tulisan "memuat": panelnya muncul dalam
+           sekejap dan tulisan yang berkedip lebih mengganggu daripada
+           ruang kosong sesaat. */
+        <Suspense fallback={<div style={{ minHeight: '70vh' }} />}>
+          <HalamanTopik topik={topik} />
+        </Suspense>
       ) : (
         <main className="beranda">
           <div className="jalur">{topik.kelas}</div>
@@ -52,11 +62,12 @@ export default async function RuteTopik({
               Rencana pengerjaan ada di <code>PROGRESS.md</code>.
             </div>
           </div>
-          <Link href="/" className="tombol garis" style={{ marginTop: 22, width: 'fit-content' }}>
-            ← KEMBALI KE DAFTAR TOPIK
+          <Link href="/peta-materi" className="pil-garis" style={{ marginTop: 22, width: 'fit-content' }}>
+            ← Kembali ke Peta Materi
           </Link>
         </main>
       )}
+      <Kaki />
     </>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState, useSyncExternalStore } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import PemutarVideo from '@/components/PemutarVideo'
 import Penjelasan from '@/components/topik/Penjelasan'
 import Latihan from '@/components/topik/Latihan'
@@ -67,20 +68,36 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   const tahapDari = (n: number) => TAHAP.find((t) => t.no === n)
   const subDariNomor = (n: number) => subbab.find((s) => s.nomor.includes(n))
 
-  const [layar, setLayar] = useState<Layar>({
-    jenis: 'tahap',
-    slug: tahapDari(urut[0])?.slug ?? TAHAP[0].slug,
-  })
+  /* --- materi mana yang dibuka lebih dulu -------------------------------
+     Peta Materi menautkan langsung ke satu materi lewat `?materi=`, jadi
+     siswa yang mengklik "Materi 07" di sana harus mendarat di materi 07,
+     bukan selalu di materi pertama. Nilai yang diterima:
+       ?materi=<slug tahap>   membuka materi itu
+       ?materi=<nomor>        sama, tetapi memakai nomor yang dilihat siswa
+       ?materi=latihan        membuka layar latihan
+       ?materi=kuis           membuka layar kuis kalau syaratnya sudah lewat
+     Alamat yang tidak dikenali diabaikan diam-diam dan jatuh ke materi
+     pertama: tautan salah ketik tidak boleh membuat halaman kosong. */
+  const awalDari = (minta: string | null): Layar => {
+    const utama: Layar = { jenis: 'tahap', slug: tahapDari(urut[0])?.slug ?? TAHAP[0].slug }
+    if (!minta) return utama
+    if (minta === 'latihan') return { jenis: 'latihan' }
+    if (minta === 'kuis') return { jenis: 'kuis' }
+    const lewatSlug = TAHAP.find((t) => t.slug === minta && t.siap)
+    if (lewatSlug) return { jenis: 'tahap', slug: lewatSlug.slug }
+    const n = Number(minta)
+    const lewatNomor = Number.isFinite(n) ? TAHAP.find((t) => t.no === n && t.siap) : undefined
+    return lewatNomor ? { jenis: 'tahap', slug: lewatNomor.slug } : utama
+  }
+
+  const minta = useSearchParams()?.get('materi') ?? null
+  const [layarPilih, setLayar] = useState<Layar>(() => awalDari(minta))
   // Tahap yang punya video menampilkan salah satu saja pada satu waktu,
   // supaya panggung tetap satu layar tanpa gulir atas-bawah.
   const [mode, setMode] = useState<'coba' | 'tonton'>('tonton')
   const [rel, setRel] = useState(false)
   // Materi yang centangnya sedang meletup. Sekali saja, saat pertama dibuka.
   const [letup, setLetup] = useState<string | null>(null)
-
-  const tahap = layar.jenis === 'tahap' ? TAHAP.find((t) => t.slug === layar.slug) : undefined
-  const adaVideo = Boolean(tahap?.video)
-  const tampilWidget = !adaVideo || mode === 'coba'
 
   /* --- kemajuan, dibaca sebagai "external store" ------------------------
      BUKAN useState yang diperbarui di dalam useEffect. Dua alasan:
@@ -90,7 +107,10 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
         yang sudah memberi tahu semua pendengar, jadi nilai di bawah ikut
         segar sendiri tanpa perlu disalin ke state.
 
-     Nilai server sengaja kosong: localStorage baru terbaca di peramban. */
+     Nilai server sengaja kosong: localStorage baru terbaca di peramban.
+
+     Dibaca SEBELUM `layar` dipakai, sebab `terbuka` ikut menentukan layar
+     mana yang boleh ditampilkan. */
   const kemajuanJson = useSyncExternalStore(
     langgan,
     () => JSON.stringify(bacaKemajuan(topik.slug)),
@@ -102,6 +122,39 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   const jumlahDibuka = urut.filter((n) => dibuka.has(tahapDari(n)?.slug ?? '')).length
   const persen = Math.round((jumlahDibuka / urut.length) * 100)
   const menitKurang = Math.max(0, MENIT_MINIMUM - Math.floor(kemajuan.detik / 60))
+
+  /* Kunci kuis dijaga di SINI, bukan hanya di tombolnya. Alamat `?materi=kuis`
+     bisa diketik sendiri, dan kalau syaratnya belum lewat siswa dilempar ke
+     latihan, bukan diberi kuis lewat pintu belakang. */
+  /* `useMemo` bukan hiasan: `layar` dipakai sebagai kebergantungan effect di
+     bawah. Tanpa memo, cabang kuis-terkunci membuat OBJEK BARU tiap render,
+     jadi effect-nya berjalan terus-menerus. */
+  const layar: Layar = useMemo(
+    () => (layarPilih.jenis === 'kuis' && !terbuka ? { jenis: 'latihan' } : layarPilih),
+    [layarPilih, terbuka],
+  )
+
+  const tahap = layar.jenis === 'tahap' ? TAHAP.find((t) => t.slug === layar.slug) : undefined
+  const adaVideo = Boolean(tahap?.video)
+  const tampilWidget = !adaVideo || mode === 'coba'
+
+  /* Pindah dari Peta Materi ke materi LAIN pada topik yang sama tidak memasang
+     ulang komponen ini, jadi nilai awal di atas tidak dihitung lagi. Tanpa
+     penyelaras ini, mengklik "Materi 07" saat halaman sudah terbuka di materi
+     01 tidak akan mengubah apa pun. `terakhir` menahan supaya penyelaras ini
+     hanya bekerja saat alamatnya benar-benar berganti, bukan tiap kali siswa
+     memilih materi lewat sidebar. */
+  const terakhirMinta = useRef(minta)
+  useEffect(() => {
+    if (terakhirMinta.current === minta) return
+    terakhirMinta.current = minta
+    if (!minta) return
+    // requestAnimationFrame, bukan setLayar langsung: React 19 melarang
+    // setState serentak di badan effect (react-hooks/set-state-in-effect).
+    const id = requestAnimationFrame(() => setLayar(awalDari(minta)))
+    return () => cancelAnimationFrame(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [minta])
 
   useEffect(() => {
     if (layar.jenis !== 'tahap') return

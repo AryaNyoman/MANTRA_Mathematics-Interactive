@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Nav from '@/components/Nav'
+import Kaki from '@/components/mantra/Kaki'
 
 export const metadata: Metadata = {
   title: 'Tentang | MANTRA',
@@ -16,28 +17,44 @@ export default function Tentang() {
     <>
       <Nav />
       <main className="mantra-lebar" style={{ paddingTop: 38 }}>
+        {/* Judulnya MANTRA, bukan kalimat penjelas. Halaman ini berjudul
+            "Tentang", jadi yang harus berdiri paling besar adalah nama yang
+            sedang dijelaskan. Kalimat penjelasnya turun ke bawah nama sebagai
+            anak judul. (Permintaan ARYA, 3 Sep 2026.) */}
         <div className="tentang-atas">
           <div>
             <div className="kicker">Tentang</div>
-            <h1 className="judul-halaman">Matematika yang bisa dilihat sebabnya</h1>
-            <p>
-              MANTRA, Matematika Interaktif, adalah situs belajar matematika SMA
-              yang menggabungkan animasi penjelas dengan alat yang bisa dicoba
-              sendiri. Dibuat untuk siswa yang sudah bisa memakai rumus tetapi
-              belum pernah diperlihatkan dari mana rumus itu datang.
+            <h1 className="judul-halaman judul-merk">MANTRA</h1>
+            <p className="sub-italic" style={{ marginBottom: 18 }}>
+              Matematika Interaktif, matematika yang bisa dilihat sebabnya.
             </p>
             <p>
-              Isinya disusun mengikuti bab buku Kurikulum Merdeka: enam bab,
-              masing-masing dipecah jadi sub-bab dan materi. Bahasanya bahasa
-              SMA, bukan bahasa diktat.
+              MANTRA adalah situs belajar matematika SMA yang menggabungkan
+              animasi penjelas dengan alat yang bisa dicoba sendiri. Dibuat
+              untuk siswa yang sudah bisa memakai rumus tetapi belum pernah
+              diperlihatkan dari mana rumus itu datang.
+            </p>
+            {/* Jumlah bab sengaja TIDAK disebut angkanya. Jumlahnya masih
+                bertambah, dan kalimat yang menyebut angka akan basi diam-diam
+                tanpa ada yang ingat memperbaikinya. */}
+            <p>
+              Isinya disusun mengikuti bab buku Kurikulum Merdeka: tiap bab
+              dipecah jadi sub-bab, tiap sub-bab berisi beberapa materi.
+              Bahasanya bahasa SMA, bukan bahasa diktat.
             </p>
           </div>
-          <div className="plat">
+          {/* Lambang MANTRA, BUKAN cuplikan grafik sinus. Cuplikan animasi
+              sudah tampil di beranda dan di tiap materi; di halaman yang
+              menjelaskan nama situsnya, yang pantas berdiri di sini adalah
+              lambangnya. Ditengahkan setinggi kolom penjelasan di sebelahnya
+              lewat `align-self: center` di `.tentang-atas > .plat-merk`. */}
+          <div className="plat-merk">
             <Image
-              src="/mantra/tahap8-grafik-sin.jpg"
-              alt="Cuplikan animasi grafik sinus"
-              width={960}
-              height={540}
+              src="/mantra/mantra-penuh.png"
+              alt="Lambang MANTRA, Matematika Interaktif"
+              width={1592}
+              height={485}
+              priority
             />
           </div>
         </div>
@@ -49,17 +66,23 @@ export default function Tentang() {
         <div className="kisi-dua" style={{ marginBottom: 20 }}>
           <article className="kartu-alat">
             <span className="plat-logo">
-              <Image src="/mantra/logo-manim.png" alt="Manim Community" width={132} height={74} />
+              <Image src="/mantra/logo-manim.png" alt="Manim" width={132} height={74} />
             </span>
+            {/* Namanya ManimGL, BUKAN Manim Community. Sejak 2 Sep 2026
+                proyek ini memakai ManimGL 1.7.2, pustaka yang ditulis dan
+                dipakai sendiri oleh 3Blue1Brown. Menyebut nama yang keliru di
+                halaman yang justru menjelaskan cara kerjanya adalah kesalahan
+                yang paling mudah ditangkap pembaca yang paham. */}
             <div>
-              <h3>Manim Community</h3>
+              <h3>ManimGL</h3>
               <p>
-                Mesin animasi matematika yang dipakai kanal 3Blue1Brown. Setiap
-                video dirender 1080p 60 fps, bersuara, dan bersubtitle Bahasa
-                Indonesia.
+                Mesin animasi matematika yang ditulis dan dipakai sendiri oleh
+                kanal 3Blue1Brown. Videonya bersuara dan bersubtitle Bahasa
+                Indonesia, dan tiap rumus digambar dari langkah awalnya, bukan
+                ditampilkan jadi.
               </p>
-              <a href="https://www.manim.community/" target="_blank" rel="noreferrer">
-                manim.community →
+              <a href="https://github.com/3b1b/manim" target="_blank" rel="noreferrer">
+                github.com/3b1b/manim →
               </a>
             </div>
           </article>
@@ -116,6 +139,7 @@ export default function Tentang() {
 
         <div style={{ height: 48 }} />
       </main>
+      <Kaki />
     </>
   )
 }

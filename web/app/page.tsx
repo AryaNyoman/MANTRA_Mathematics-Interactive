@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import Nav from '@/components/Nav'
 import Demo from '@/components/Demo'
 import TombolPasang from '@/components/TombolPasang'
 import PitaKurva from '@/components/mantra/PitaKurva'
 import KartuBayang from '@/components/mantra/KartuBayang'
 import LogoParalaks from '@/components/mantra/LogoParalaks'
+import Kaki from '@/components/mantra/Kaki'
 
 /**
  * Beranda MANTRA (rancangan 3 Sep 2026).
@@ -80,7 +80,16 @@ export default function Beranda() {
           <Demo />
         </section>
 
-        <section className="mantra" style={{ paddingTop: 48 }} aria-label="Apa saja isinya">
+        <section className="mantra" style={{ paddingTop: 48 }} aria-labelledby="fitur-unggulan">
+          {/* Judul ini sebelumnya tidak ada, jadi tiga kartu di bawah muncul
+              tanpa keterangan apa pun (temuan ARYA, 3 Sep 2026). Label kanan
+              memakai istilah yang ia usulkan, judulnya menyebutkan apa yang
+              sebenarnya didapat siswa. */}
+          <div className="tajuk-baris">
+            <h2 id="fitur-unggulan">Tiga hal yang Anda dapat di sini</h2>
+            <span className="rel" />
+            <span className="kanan">Fitur unggulan</span>
+          </div>
           <div className="kisi-tiga">
             {ISI_SITUS.map((i) => (
               <KartuBayang key={i.no} className="kartu-mantra kartu-fitur">
@@ -106,23 +115,9 @@ export default function Beranda() {
             </Link>
           </div>
         </section>
-
-        <footer className="kaki-mantra">
-          <span>
-            Built by <b>Nyoman Arya Sejati</b> · with Manim, Claude, and Next.js
-          </span>
-          <span className="lembaga">
-            <Image
-              src="/mantra/undiksha.png"
-              alt=""
-              width={28}
-              height={28}
-              style={{ height: 28, width: 'auto' }}
-            />
-            Universitas Pendidikan Ganesha
-          </span>
-        </footer>
+        <div style={{ height: 40 }} />
       </main>
+      <Kaki />
     </>
   )
 }
