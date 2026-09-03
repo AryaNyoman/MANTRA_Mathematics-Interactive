@@ -40,6 +40,14 @@ Perkakasnya `manim/gl/` (sinema v2, qc, ilustrasi, kamera). Rujukan resmi:
    mengikuti kalimat pembuka narasi (butir 3), dan tidak boleh lebih lama
    daripada kalimat itu. Peralihan 3D yang BEKERJA (lembah memudar, sumbu
    ditarik saat disebut) boleh, tetapi bagian 3D-nya tetap sekitar 5 detik.
+   UKURAN YANG DIPERIKSA: "detik pertama bergerak", yaitu jarak dari akhir kartu
+   judul sampai benda pertama bergerak atau berubah, maksimal 5 detik, di 2D
+   maupun 3D. Temuan Vektor 06 (4 Sep): pembuka 3D dipotong, lalu 25 detik
+   pertama menjadi bidang kosong dengan satu orang diam, sementara narator
+   bercerita tentang orang yang berjalan. Kekosongan cuma pindah dimensi.
+   Tiap kalimat pembuka harus punya kejadian di layar yang sesuai kalimatnya
+   (orang melangkah petak demi petak, lapangan digelar saat disebut). Tulis
+   angka "detik pertama bergerak" tiap video di laporan.
    Pengecualian: topik yang matematikanya memang ruang (Ruang 3D, dan nanti
    Transformasi Geometri) boleh bolak-balik 3D dan 2D. Prinsipnya: matematika
    yang butuh PANJANG atau SUDUT yang akurat wajib kamera tegak lurus, sebab
