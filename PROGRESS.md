@@ -23,6 +23,55 @@
 
 ## 🧭 MULAI DARI SINI (sesi berikutnya, ditulis 2 Sep 2026)
 
+### 🎬 4 SEP PAGI: MASTER menonton, menggabung, menambal gerbang, memberi tugas
+
+- **Peran MASTER berubah atas perintah ARYA 4 Sep**: MASTER MENONTON lembar
+  kontak video sesi, memberi masukan, dan mengirim revisinya (aturan 2 Sep
+  "sesi merevisi sendiri, MASTER tidak menerima setoran" DICABUT).
+- Digabung ke master: `sesi/ruang-3d`, `sesi/statistika`, `sesi/vektor`,
+  `sesi/transformasi-geometri` (konflik satu baris komentar di `topik.ts`).
+  tsc 0, build 22 halaman. Grafik Fungsi dan UI/UX tidak punya commit baru.
+- 16 lembar kontak dinilai (3D enam, Vektor enam, Statistika empat). Dua
+  cacat LINTAS SESI, keduanya pelanggaran STANDAR yang sudah ada: pembuka 3D
+  15 sampai 20 detik hampir kosong di semua video (aturan: 8 sampai 10 detik,
+  hanya video pertama), dan dunia dimampatkan ke separuh tinggi karena zona
+  HUD dibaca sebagai seluruh lebar atas (aturan: hanya dua pojok). STANDAR
+  dipertegas di butir 1 dan 2.
+- Gerbang mutu ditambal (`29b54bc`): `periksa_adegan(..., tulisan={...})`
+  dan pemeriksaan isi `papan.semua()`; `nilai_hidup` memberi "=".
+  `uji_qc.py` 13 ok.
+- Pesan tinjauan + tugas dikirim ke lima sesi hidup (3D, Vektor, Statistika,
+  Grafik Fungsi, Transformasi Geometri). UI/UX TIDAK menyala.
+- **Bentrok yang diketahui**: Vektor punya 70 baris `sinema.py` belum
+  disimpan yang menyentuh `PapanRumus`, sama dengan perubahan 3D yang sudah di
+  master. Vektor diminta commit, merge, dan mempertahankan perubahan 3D.
+- **TUGAS PER SESI (4 Sep pagi), juga dikirim lewat pesan; sesi yang
+  dinyalakan ulang membacanya dari sini:**
+  - **Ruang 3D**: merge master; pembuka 01 maksimal 10 detik dan ada kejadian,
+    03 sampai 09 maksimal 5 detik atau langsung rangka; kubus diberi cahaya dan
+    bayangan (`gl.ilustrasi.balok`); angka sumbu cukup 0, 3, 6; `nilai_hidup`
+    kini otomatis "="; render 01 dan 04 dulu untuk dinilai; 03 tunggu ARYA.
+  - **Vektor**: commit `sinema.py` lalu merge master, pertahankan perubahan 3D
+    di `PapanRumus`; potong pembuka 03/04/06/08/09 ke maksimal 5 detik; bidang
+    boleh naik (tengah atas bebas); label "dayung" 180 derajat dan resultan
+    hitam di 06; render ulang hanya 01 dan 06.
+  - **Statistika**: merge master; 06 kamera didekatkan (garis bilangan penuh,
+    orang terlihat), 11 kamera diperbesar di babak residu saja; pindahkan
+    kamus TULISAN ke `tulisan=`; tujuh video baru ikut aturan zona.
+  - **Grafik Fungsi**: lapor status dua revisi (grafik3, grafik6), commit,
+    merge master; buat `alat/cek_sinkron_video.py` umum untuk topik lain.
+  - **Transformasi Geometri** (sesi TIDAK menyala saat pesan dikirim): merge
+    master, daftarkan bab di `web/content/subbab.ts`, buktikan lewat
+    `/peta-materi`; baca STANDAR versi master sebelum video pertama.
+  - **UI/UX** (tidak menyala; usulan MASTER kalau dinyalakan): audit MANTRA
+    di HP lewat https://mantra-uji.vercel.app, potret ulang `demo-latihan.jpg`
+    dan `demo-banksoal.jpg` untuk korsel (masih tampilan lama), ruang kosong di
+    bawah widget lebar pendek pada layar lebar, langkah bernomor pembahasan.
+- Menunggu keputusan ARYA: (1) Ruang 3D materi 03, kamera sejajar AC
+  (usul: tetap, dengan aba-aba di narasi); (2) Statistika mengerjakan tujuh
+  video di luar rencana enam (usul: boleh, 480p semua); (3) sesi UI/UX
+  dinyalakan lagi atau tidak; (4) foto pesawat ber-livery DHL di Vektor.
+
 ### 🗺️ 4 SEP DINI HARI: peta struktur graphify sudah ada
 
 - `graphify-out/graph.json`: **2.471 simpul, 5.881 hubungan, 167 komunitas

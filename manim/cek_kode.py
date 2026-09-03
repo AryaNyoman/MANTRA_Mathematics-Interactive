@@ -270,6 +270,21 @@ def periksa_aturan_matra(sumber: str, pohon: ast.AST, t: Temuan) -> None:
         if nama in PEMBUAT_TEKS and any(k.arg == "color" for k in n.keywords):
             t.salah(n.lineno, f"{nama}(color=...) DIABAIKAN ManimGL: teks jadi putih. "
                               f"Pakai gl.teks(...) atau .set_color() setelah dibuat")
+        # Dua jebakan LaTeX di dalam teks() dan sinema.label(), temuan Grafik
+        # Fungsi 4 Sep 2026: "$...$" tercetak APA ADANYA berikut tanda dolarnya
+        # (teks() meloloskan "$" sebagai huruf), dan "\n" dibaca LaTeX sebagai
+        # spasi sehingga dua kalimat jadi satu baris panjang yang lalu
+        # dikecilkan batasi_lebar. Keduanya pernah lolos sampai ke video.
+        if nama in PEMBUAT_TEKS or nama == "label":
+            for a in n.args:
+                if not (isinstance(a, ast.Constant) and isinstance(a.value, str)):
+                    continue
+                if "$" in a.value:
+                    t.salah(n.lineno, f"{nama}(...) berisi '$': tanda dolarnya ikut tercetak di layar. "
+                                      f"Angka dan rumus lewat gl.rumus(...), bukan di dalam teks")
+                if "\n" in a.value:
+                    t.salah(n.lineno, f"{nama}(...) berisi baris baru: LaTeX membacanya sebagai spasi, "
+                                      f"hasilnya satu baris panjang yang dikecilkan. Satu objek teks per baris")
         if nama in PEMBUAT_TEX:
             for a in n.args:
                 if isinstance(a, ast.Constant) and isinstance(a.value, str) and "\\text{" in a.value:
