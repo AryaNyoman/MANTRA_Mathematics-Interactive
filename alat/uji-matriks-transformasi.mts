@@ -17,12 +17,13 @@
  * bisa lolos ke halaman siswa lagi.
  */
 import {
-  CERMIN_SUMBU_X, CERMIN_SUMBU_Y, CERMIN_TITIK_ASAL, CERMIN_Y_SAMA_MIN_X,
-  CERMIN_Y_SAMA_X, IDENTITAS,
-  arahPutar, cerminGarisDatar, cerminGarisTegak, cerminSumbuX, cerminSumbuY,
-  cerminTitik, cerminYSamaMinX, cerminYSamaX, determinan, dilatasi, jarak,
-  kaliMatriks, kenakan, kenakanTransformasi, luasSegitiga, matriksDari,
-  matriksDilatasi, matriksRotasi, namaTransformasi, rotasi, sudutDi, translasi,
+  BENTUK_L, CERMIN_SUMBU_X, CERMIN_SUMBU_Y, CERMIN_TITIK_ASAL,
+  CERMIN_Y_SAMA_MIN_X, CERMIN_Y_SAMA_X, IDENTITAS, SUDUT_BERNAMA,
+  arahPutar, arahPutarPoligon, cerminGarisDatar, cerminGarisTegak, cerminSumbuX,
+  cerminSumbuY, cerminTitik, cerminYSamaMinX, cerminYSamaX, determinan,
+  dilatasi, jarak, kaliMatriks, kenakan, kenakanTransformasi, luasPoligon,
+  luasSegitiga, matriksDari, matriksDilatasi, matriksRotasi, namaTransformasi,
+  rotasi, sudutDi, translasi,
   type Matriks, type Titik, type Transformasi,
 } from '../web/components/widget/transformasi-geometri/matriks.ts'
 import {
@@ -373,6 +374,74 @@ for (const t of [...BERMATRIKS, ...TANPA_MATRIKS]) {
   cekTitikDekat('dua rotasi sepusat boleh dibalik urutannya',
     rotasi(rotasi(P, 40, pusat), 70, pusat), rotasi(rotasi(P, 70, pusat), 40, pusat))
 }
+
+/* ================================================================== */
+/* Bentuk L, benda yang ditransformasikan di semua widget              */
+/* ================================================================== */
+
+cek('bentuk L punya enam titik sudut', BENTUK_L.length, 6)
+
+cek('tiga sudut pertama yang diberi nama',
+  SUDUT_BERNAMA.map((s) => s.nama), ['A', 'B', 'C'])
+
+for (const s of SUDUT_BERNAMA) {
+  if (!BENTUK_L[s.indeks]) {
+    gagal++
+    console.error(`GAGAL sudut bernama ${s.nama} menunjuk titik yang tidak ada`)
+  }
+}
+
+cek('semua titiknya bilangan bulat, supaya enak dibaca siswa',
+  BENTUK_L.every((p) => Number.isInteger(p.x) && Number.isInteger(p.y)), true)
+
+cekDekat('luas bentuk L', luasPoligon(BENTUK_L), 6)
+cek('bentuk L digambar berlawanan arah jarum jam', arahPutarPoligon(BENTUK_L), 1)
+
+// Inilah syarat yang membuat bentuknya berguna. Kalau bentuknya simetris,
+// pencerminan menghasilkan gambar yang sama persis dengan prapetanya, dan
+// seluruh Materi 03 sampai 05 jadi tidak terlihat apa-apa di layar.
+{
+  const susun = (titikTitik: Titik[]) =>
+    titikTitik.map((p) => `${p.x},${p.y}`).sort().join(' ')
+
+  const tengahX = (Math.min(...BENTUK_L.map((p) => p.x)) + Math.max(...BENTUK_L.map((p) => p.x))) / 2
+  const tengahY = (Math.min(...BENTUK_L.map((p) => p.y)) + Math.max(...BENTUK_L.map((p) => p.y))) / 2
+
+  const cerminTegak = BENTUK_L.map((p) => cerminGarisTegak(p, tengahX))
+  const cerminDatar = BENTUK_L.map((p) => cerminGarisDatar(p, tengahY))
+  const setengahPutaran = BENTUK_L.map((p) => cerminTitik(p, { x: tengahX, y: tengahY }))
+
+  if (susun(cerminTegak) === susun(BENTUK_L)) {
+    gagal++
+    console.error('GAGAL bentuk L simetris terhadap garis tegak, jadi pencerminan tak terlihat')
+  }
+  if (susun(cerminDatar) === susun(BENTUK_L)) {
+    gagal++
+    console.error('GAGAL bentuk L simetris terhadap garis mendatar')
+  }
+  if (susun(setengahPutaran) === susun(BENTUK_L)) {
+    gagal++
+    console.error('GAGAL bentuk L punya simetri putar, jadi rotasi 180 tak terlihat')
+  }
+}
+
+// Pencerminan membalik arah putar seluruh bentuk, bukan cuma tiga titik yang
+// dipilih. Ini yang membuat pernyataan Materi 08 berlaku untuk gambar utuh.
+cek('cermin membalik arah putar seluruh bentuk',
+  arahPutarPoligon(BENTUK_L.map(cerminSumbuX)), -arahPutarPoligon(BENTUK_L))
+cek('rotasi tidak membalik arah putar seluruh bentuk',
+  arahPutarPoligon(BENTUK_L.map((p) => rotasi(p, 37, O))), arahPutarPoligon(BENTUK_L))
+cek('dilatasi k negatif tidak membalik arah putar seluruh bentuk',
+  arahPutarPoligon(BENTUK_L.map((p) => dilatasi(p, -2, O))), arahPutarPoligon(BENTUK_L))
+
+cekDekat('dilatasi 2 membuat luas bentuk jadi empat kali',
+  luasPoligon(BENTUK_L.map((p) => dilatasi(p, 2, O))), luasPoligon(BENTUK_L) * 4)
+cekDekat('translasi tidak mengubah luas bentuk',
+  luasPoligon(BENTUK_L.map((p) => translasi(p, { x: 7, y: -3 }))), luasPoligon(BENTUK_L))
+cekDekat('rotasi tidak mengubah luas bentuk',
+  luasPoligon(BENTUK_L.map((p) => rotasi(p, 53, { x: 2, y: 2 }))), luasPoligon(BENTUK_L), 1e-9)
+
+cekDekat('luas poligon kurang dari tiga titik adalah nol', luasPoligon([A, B]), 0)
 
 /* ================================================================== */
 /* Papan: penskalaan yang tidak memotong gambar                        */

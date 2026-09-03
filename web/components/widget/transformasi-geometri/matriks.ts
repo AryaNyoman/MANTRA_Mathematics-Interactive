@@ -177,6 +177,42 @@ const silang = (a: Titik, b: Titik, c: Titik): number =>
 export const luasSegitiga = (a: Titik, b: Titik, c: Titik): number => Math.abs(silang(a, b, c)) / 2
 
 /**
+ * Luas bertanda sebuah poligon, rumus tali sepatu. Tandanya arah putarnya.
+ * Dipakai di dalam berkas ini saja; yang keluar adalah `luasPoligon` dan
+ * `arahPutarPoligon`, supaya pemakainya tidak perlu tahu soal tanda.
+ */
+function luasBertanda(titikTitik: Titik[]): number {
+  if (titikTitik.length < 3) return 0
+  let jumlah = 0
+  for (let i = 0; i < titikTitik.length; i++) {
+    const p = titikTitik[i]
+    const q = titikTitik[(i + 1) % titikTitik.length]
+    jumlah += p.x * q.y - q.x * p.y
+  }
+  return jumlah / 2
+}
+
+/**
+ * Luas poligon, tidak pernah negatif. Dipakai widget Materi 08 untuk
+ * menunjukkan luas prapeta dan luas petanya berdampingan.
+ */
+export const luasPoligon = (titikTitik: Titik[]): number => Math.abs(luasBertanda(titikTitik))
+
+/**
+ * Arah putar seluruh poligon: 1 berlawanan arah jarum jam, -1 searah, 0 kalau
+ * luasnya nol.
+ *
+ * Diperlukan di samping `arahPutar` yang hanya melihat tiga titik. Pernyataan
+ * Materi 08 berbunyi "pencerminan membalik arah putar", dan yang dimaksud
+ * adalah arah putar GAMBAR UTUH, bukan tiga titik yang kebetulan dipilih.
+ */
+export function arahPutarPoligon(titikTitik: Titik[]): number {
+  const luas = luasBertanda(titikTitik)
+  if (Math.abs(luas) < 1e-9) return 0
+  return luas > 0 ? 1 : -1
+}
+
+/**
  * Arah putar a ke b ke c: 1 berlawanan arah jarum jam, -1 searah jarum jam,
  * 0 kalau ketiganya segaris.
  *
@@ -208,6 +244,48 @@ export function sudutDi(a: Titik, puncak: Titik, c: Titik): number {
   const bujur = u.x * v.x + u.y * v.y
   return (Math.atan2(lintang, bujur) * 180) / Math.PI
 }
+
+/* ------------------------------------------------------------------ */
+/* Benda yang ditransformasikan                                        */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Huruf L, benda yang dipindahkan di kedua belas widget topik ini.
+ * Titiknya berurutan berlawanan arah jarum jam.
+ *
+ * KENAPA HURUF L, DAN KENAPA TIDAK BOLEH SIMETRIS
+ * Bentuk yang simetris menghasilkan pencerminan yang sama persis dengan
+ * prapetanya. Kalau itu terjadi, Materi 03 sampai 05 tidak menunjukkan apa-apa
+ * di layar: siswa menggeser garis cermin, gambarnya tidak berubah, dan
+ * kesimpulan yang ia tarik adalah pencerminan tidak melakukan apa pun. Huruf L
+ * tidak punya satu pun simetri, jadi setiap transformasi terlihat akibatnya.
+ * Syarat itu diuji, bukan diandalkan pada ingatan.
+ *
+ * Ukurannya 3 satuan mendatar dan 4 satuan tegak, semuanya bilangan bulat,
+ * supaya koordinat di tabel angka enak dibaca tanpa desimal.
+ */
+export const BENTUK_L: Titik[] = [
+  { x: 1, y: 1 },
+  { x: 4, y: 1 },
+  { x: 4, y: 2 },
+  { x: 2, y: 2 },
+  { x: 2, y: 5 },
+  { x: 1, y: 5 },
+]
+
+/**
+ * Tiga sudut yang diberi nama di layar dan di tabel angka.
+ *
+ * Hanya tiga, bukan keenamnya: enam label pada gambar sebesar ini akan
+ * bertindih dengan angka sumbu, dan tiga sudah cukup untuk menunjukkan
+ * pasangan A ke A', B ke B', C ke C'. Ketiganya dipilih yang berdekatan supaya
+ * arah putar A ke B ke C terbaca sekali lihat.
+ */
+export const SUDUT_BERNAMA: { indeks: number; nama: string }[] = [
+  { indeks: 0, nama: 'A' },
+  { indeks: 1, nama: 'B' },
+  { indeks: 2, nama: 'C' },
+]
 
 /* ------------------------------------------------------------------ */
 /* Transformasi sebagai data, untuk widget yang punya pilihan          */

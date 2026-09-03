@@ -111,8 +111,16 @@ export function jendelaSeimbang(titikTitik: Titik[], nisbahLayar: number, tepi =
   return { xMin, xMax, yMin, yMax }
 }
 
+/**
+ * Pengubah satu sumbu, hasil `keLayar` maupun `keMatematika`.
+ *
+ * Diberi nama supaya komponen seperti `Bentuk.tsx` bisa menerimanya sebagai
+ * satu prop bertipe jelas, bukan sebagai dua fungsi lepas.
+ */
+export type Pemeta = { x: (n: number) => number; y: (n: number) => number }
+
 /** Koordinat matematika menjadi koordinat layar SVG. */
-export function keLayar(j: Jendela, kotak: Kotak) {
+export function keLayar(j: Jendela, kotak: Kotak): Pemeta {
   const lebar = kotak.x1 - kotak.x0
   const tinggi = kotak.y1 - kotak.y0
   return {
@@ -127,7 +135,7 @@ export function keLayar(j: Jendela, kotak: Kotak) {
  * atau ujung vektor translasi: yang diketahui letak jarinya di layar, yang
  * dicari nilai matematikanya.
  */
-export function keMatematika(j: Jendela, kotak: Kotak) {
+export function keMatematika(j: Jendela, kotak: Kotak): Pemeta {
   const lebar = kotak.x1 - kotak.x0
   const tinggi = kotak.y1 - kotak.y0
   return {
