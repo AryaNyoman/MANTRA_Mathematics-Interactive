@@ -159,7 +159,7 @@ class PerahuVektor(AdeganMatra):
         # `tanpa_utama=True`: video ini tidak memakai rumus utama, semua
         # isinya baris. Tanpa penanda itu slot teratas dipesan percuma dan
         # baris keempat jatuh keluar zona kanan.
-        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True)
+        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True, alas=True)
 
         with sinema.babak(self, "terbang", DURASI) as b:
             lama = max(2.0, DURASI["terbang"] - 3.0)
@@ -167,19 +167,18 @@ class PerahuVektor(AdeganMatra):
             # SEBENARNYA, termasuk angka sumbunya. Hitungan tangan dari
             # garis petak sudah dua kali ditolak qc.
             #
-            # SISA JALUR HUD, diukur di lembar kontak render 3 Sep malam:
-            # tepi bawah blok identitas dua baris ada di layar y = 3,05, dan
-            # tepi kiri baris panel terlebar ada di layar x = 4,83. Tanpa
-            # pesanan ini bidang melebar sampai penuh dan garis petak menembus
-            # kedua tulisan itu (panel bahkan terbelah batas warna pita sungai,
-            # persis gejala "warna belang" yang dilarang gerbang video).
-            pusat, tinggi = kamera.muat_datar(bidang, sisa_atas=0.75, sisa_kanan=2.00)
+            # Jalur HUD TIDAK dipesan lagi. Memesannya menyusutkan bidang 15
+            # persen, dan sejak 4 Sep tulisan HUD punya alas kertas sendiri
+            # (`sinema.alas_hud`), jadi ia tetap bersih walaupun bidang lewat
+            # di bawahnya. Bidang kembali memenuhi jalur bebas subtitle.
+            pusat, tinggi = kamera.muat_datar(bidang)
             b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
                                 tinggi=tinggi), run_time=lama)
             self.di_air = False
             b.main(FadeOut(dunia3d), bidang.animate.set_opacity(1),
                    pita.animate.set_fill(AKSEN2, PEKAT_PITA), run_time=1.4)
-            identitas = sinema.identitas(self, "sungai = 3 km", "1 petak = 1 km")
+            identitas = sinema.identitas(self, "sungai = 3 km", "1 petak = 1 km",
+                                         alas=True)
             identitas.set_opacity(0)
             b.main(identitas.animate.set_opacity(1), run_time=0.8)
         # Bidang masuk `dunia` dan identitas masuk `hud`, BUKAN keduanya ke
@@ -198,8 +197,22 @@ class PerahuVektor(AdeganMatra):
         p_dayung = always_redraw(
             lambda: Arrow(asal, asal + self.v_dayung(), buff=0, thickness=5).set_color(AKSEN2))
         l_dayung = teks("dayung", 26, AKSEN2)
-        l_dayung.add_updater(lambda m: m.move_to(
-            asal + self.v_dayung() * 0.5 + 1.3 * self.tegak_dayung()))
+
+        def taruh_dayung(m):
+            """Label dayung, digeser tegak lurus dari panahnya TAPI ditahan di
+            dalam bidang.
+
+            Pada sudut 180 derajat arah tegak lurusnya menunjuk ke bawah, dan
+            geseran 1,3 satuan menjatuhkan label ke luar petak, tepat di
+            sebelah angka sumbu "-1" sehingga terbaca seolah menamai sumbunya.
+            Terlihat di lembar kontak 3 Sep. Sekarang tepi bawahnya ditahan di
+            dalam baris terbawah bidang.
+            """
+            p = asal + self.v_dayung() * 0.5 + 1.3 * self.tegak_dayung()
+            p[1] = max(float(p[1]), BIDANG_Y[0] + 0.45)
+            m.move_to(p)
+
+        l_dayung.add_updater(taruh_dayung)
         # Panel vektor kini baris di papan rumus kanan atas, bukan ditaruh
         # sendiri di pojok: zona kanan yang dikunci v2.
 
@@ -273,6 +286,9 @@ class PerahuVektor(AdeganMatra):
         ukur = VGroup(label_p, angka_p).arrange(RIGHT, buff=0.20)
         sinema.batasi_lebar(ukur, 4.5)
         ukur.move_to([6.85 - ukur.get_width() / 2 - 0.12, 0.62, 0]).fix_in_frame()
+        # Baris ini di LUAR papan, tetapi ikut memakai alas papan supaya
+        # tidak ada belang petak terjepit di antara dua alas terpisah.
+        papan.ikut(ukur)
 
         with sinema.babak(self, "hilir", DURASI) as b:
             self.hud_tambah(ukur)

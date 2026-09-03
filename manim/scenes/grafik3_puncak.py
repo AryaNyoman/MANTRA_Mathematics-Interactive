@@ -203,7 +203,10 @@ class BentukPuncak(AdeganMatra):
     def b05_puncak(self):
         """h dan k diisi angka lemparannya, lalu puncaknya ditandai."""
         self.titik = Group(gu.titik([H, Y, K], SOROT, 0.13))
-        lbl = gu.tegak(sinema.label("$(1, 4)$", 26, SOROT))
+        # `sinema.label` memakai `teks()`, dan `teks()` MELOLOSKAN tanda dolar,
+        # jadi "$(1, 4)$" tercetak apa adanya di layar lengkap dengan dolarnya.
+        # Koordinat itu angka, jadi tempatnya memang di `rumus()`.
+        lbl = gu.tegak(rumus(r"(1,\ 4)", 26, SOROT))
         lbl.move_to([H + 0.75, Y, K + 0.40])
 
         with sinema.babak(self, "puncak", DURASI) as b:
