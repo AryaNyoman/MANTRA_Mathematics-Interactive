@@ -13,15 +13,47 @@
 ## Ringkas
 | | |
 |---|---|
-| Tahap sekarang | **ENAM topik tayang** (Trigonometri dan Limit lengkap dengan video). Topik ketujuh, Transformasi Geometri, baru dimulai. Tampilan sedang dirombak jadi MANTRA di cabang `sesi/mantra` |
-| Yang tersisa | **Gelombang 2 berjalan di 6 sesi**: revisi isi dari MASTER lalu video 480p. MASTER mengerjakan rombakan tampilan MANTRA. ARYA meninjau sambil jalan |
-| Alamat tayang | https://matra-eight.vercel.app |
+| Tahap sekarang | **ENAM topik tayang dengan tampilan MANTRA** (Trigonometri dan Limit lengkap dengan video). Topik ketujuh, Transformasi Geometri, baru dimulai |
+| Yang tersisa | **Gelombang 2 berjalan di 6 sesi**: revisi isi dari MASTER lalu video 480p. ARYA meninjau sambil jalan |
+| Alamat tayang | https://matra-eight.vercel.app (produksi) dan https://mantra-uji.vercel.app (uji, alamat tetap) |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md`<br>`docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`<br>`docs/superpowers/plans/2026-09-01-topik-limit.md` |
 | Tenggat | 12 September 2026 |
 | Menjalankan situs | `cd web && npm run dev` → `http://localhost:3000` |
 | Penghalang | *(tidak ada)* |
 
 ## 🧭 MULAI DARI SINI (sesi berikutnya, ditulis 2 Sep 2026)
+
+### ✅ 3 SEP MALAM: rancangan MANTRA TAYANG di produksi
+
+- `sesi/mantra` digabung ke `master` (fast-forward ke `faac773`) setelah ARYA
+  memeriksa di laptop dan HP, lalu build yang PERSIS ia periksa dinaikkan ke
+  produksi lewat `vercel promote` (bukan build ulang). Produksi
+  https://matra-eight.vercel.app sekarang MANTRA. Worktree `mantra` dihapus
+  karena sudah tergabung.
+- **Alamat uji TETAP: https://mantra-uji.vercel.app.** Tiap deploy preview
+  diarahkan ulang ke sini dengan `vercel alias set <deploy> mantra-uji.vercel.app`,
+  supaya ARYA cukup menyimpan satu alamat di HP. Jangan lagi memberi ARYA
+  alamat acak `matra-xxxx-...vercel.app`: ia pernah membuka yang lama dan
+  mengira perbaikannya belum ada (3 Sep).
+- **Cara deploy yang benar mulai sekarang:** dari `D:\MANIM-MATRA\web` di
+  `master`. Preview: `vercel deploy --yes` lalu `vercel alias set ...`.
+  Produksi: hanya atas kata ARYA, dan pakai `vercel promote <deploy>` untuk
+  menaikkan build yang sudah ia periksa, bukan `--prod` yang membangun ulang.
+- Yang berubah di situs (rincian per commit `01b0f5e`, `86b0a22`, `d810649`,
+  `faac773`): huruf Newsreader + Space Grotesk, palet emas-navy, nav lengket,
+  beranda baru dengan korsel 16:9 bergeser, rute baru `/peta-materi` (tiap
+  materi bisa diklik, `?materi=` membuka materi itu), halaman materi dengan
+  sidebar pohon (di HP jadi laci geser), bank soal dengan panel pembahasan di
+  samping, kaki halaman putih di semua halaman, lebar halaman ikut layar.
+- **Sesi topik:** sekarang boleh `git merge master` untuk mendapat tampilan
+  baru. Daftar berkas milik MASTER di bawah TETAP berlaku (jangan diedit di
+  cabang sesi), hanya syarat "sampai `sesi/mantra` digabung"-nya yang sudah
+  lewat.
+- Utang MANTRA yang tersisa: panel pembahasan bank soal memakai satu paragraf
+  `alasan`, belum langkah bernomor (medan `langkah?: string[]` sudah ada di
+  `SoalKuis`, tinggal diisi per soal); cuplikan layar korsel `demo-latihan.jpg`
+  dan `demo-banksoal.jpg` masih memotret tampilan lama; ruang kosong di bawah
+  widget lebar pendek pada layar lebar (milik sesi topik).
 
 ### ⚠️ 3 SEP SORE: nama situs jadi MANTRA, dan ada topik ketujuh
 
