@@ -162,8 +162,19 @@ class TransformasiSetiapTitik(AdeganMatra):
                            pusat=(ORANG_X, 0.0, 0.7), tinggi=8.2)
 
         with sinema.babak(self, "dunia", DURASI) as b:
-            b.main(FadeIn(lapangan), run_time=0.8)
-            b.main(FadeIn(orang), run_time=0.8)
+            # Lapangan dan orangnya muncul BERSAMAAN, dalam satu panggilan.
+            #
+            # Penggabungan ini semula dikira obat untuk selisih durasi video
+            # terhadap narasi. DUGAAN ITU SALAH, dan dibuktikan salah: dua
+            # puluh panggilan dipangkas jadi tiga belas, dan durasinya tidak
+            # bergerak sama sekali (75,43 jadi 75,47 detik). Penyebab
+            # sebenarnya `papan.baris` yang tidak mencatat waktunya, lihat
+            # catatan di babak "peta2".
+            #
+            # Penggabungannya tetap dipertahankan, tetapi dengan alasan yang
+            # jujur: geraknya jadi lebih tenang. Muncul berbarengan lebih enak
+            # ditonton daripada tiga hal yang menyala bergantian tanpa sebab.
+            b.main(FadeIn(lapangan), FadeIn(orang), run_time=1.2)
             b.main(ShowCreation(garis_lipat), run_time=1.2)
         qc.periksa_adegan(self, {"orang": orang}, margin=0.45)
 
@@ -217,10 +228,9 @@ class TransformasiSetiapTitik(AdeganMatra):
             )
             b.main(
                 FadeOut(lapangan), FadeOut(orang), FadeOut(seberang),
-                FadeOut(garis_lipat),
-                run_time=0.7,
+                FadeOut(garis_lipat), FadeIn(bidang),
+                run_time=1.0,
             )
-            b.main(FadeIn(bidang), run_time=0.8)
             ident = sinema.identitas(self, "1 petak = 1 satuan")
         qc.periksa_adegan(self, {"identitas": ident}, dunia={"bidang": bidang})
 
@@ -244,9 +254,12 @@ class TransformasiSetiapTitik(AdeganMatra):
 
         with sinema.babak(self, "bentuk", DURASI) as b:
             b.main(ShowCreation(prapeta), run_time=1.4)
-            b.main(*[FadeIn(d, scale=0.5) for d in titik_asal], run_time=0.7)
-            b.main(*[FadeIn(nama_pra[h]) for h in nama_pra], run_time=0.7)
-            b.main(FadeIn(l_prapeta), run_time=0.6)
+            b.main(
+                *[FadeIn(d, scale=0.5) for d in titik_asal],
+                *[FadeIn(nama_pra[h]) for h in nama_pra],
+                FadeIn(l_prapeta),
+                run_time=1.2,
+            )
         qc.periksa_adegan(
             self,
             {"prapeta": prapeta, "label prapeta": l_prapeta, "nama A": nama_pra["A"]},
@@ -285,8 +298,11 @@ class TransformasiSetiapTitik(AdeganMatra):
         ])
 
         with sinema.babak(self, "enam", DURASI) as b:
-            b.main(*[ShowCreation(g) for g in garis], run_time=1.5)
-            b.main(Indicate(titik_jalan[0], color=SOROT), run_time=0.8)
+            b.main(
+                *[ShowCreation(g) for g in garis],
+                Indicate(titik_jalan[0], color=SOROT),
+                run_time=1.6,
+            )
             rum = sinema.lahir_rumus(
                 self, r"A(1,\ 1) \to A'(1,\ -1)",
                 dekat=titik_jalan[0], papan=papan, b=b, warna=AKSEN2,
@@ -311,8 +327,12 @@ class TransformasiSetiapTitik(AdeganMatra):
         l_peta.next_to(titik3((6.0, -1.5)), RIGHT, buff=0.3)
 
         with sinema.babak(self, "peta2", DURASI) as b:
-            b.main(ShowCreation(peta_bentuk), run_time=1.3)
-            b.main(*[FadeIn(nama_peta[h]) for h in nama_peta], FadeIn(l_peta), run_time=0.8)
+            b.main(
+                ShowCreation(peta_bentuk),
+                *[FadeIn(nama_peta[h]) for h in nama_peta],
+                FadeIn(l_peta),
+                run_time=1.6,
+            )
             # Nama transformasinya ikut ditulis di depan angkanya.
             #
             # Versi tanpa nama menulis "AB = 5 -> A'B' = 5" di sini dan
@@ -326,6 +346,14 @@ class TransformasiSetiapTitik(AdeganMatra):
             # menjadi perbandingan: cermin tidak mengubah jarak, dilatasi
             # mengubahnya. Itu persis pelajaran Materi 08.
             papan.baris(r"\text{cermin: } AB = 5 \to A'B' = 5", warna=AKSEN2)
+            # `papan.baris` MEMAINKAN animasi 0,8 detik tetapi TIDAK
+            # mencatatnya ke babak, tidak seperti `lahir_rumus` dan
+            # `ganti_rumus` yang mencatat sendiri. Tanpa baris ini, waktu itu
+            # tidak terhitung, `tutup()` menambal terlalu banyak, dan videonya
+            # jadi lebih panjang daripada narasinya. Dua panggilan `baris` di
+            # video ini menyumbang 1,6 detik selisih, dan `gabung_audio.py`
+            # menolaknya karena batasnya 1,5 detik.
+            b.catat(0.8)
         qc.periksa_adegan(
             self,
             {"prapeta": prapeta, "peta": peta_bentuk, "label peta": l_peta},
@@ -387,8 +415,7 @@ class TransformasiSetiapTitik(AdeganMatra):
                 FadeOut(bidang), FadeIn(bidang_luas),
                 run_time=max(1.6, DURASI["bukti"] - 5.2),
             )
-            b.main(ShowCreation(garis_besar), run_time=1.0)
-            b.main(ShowCreation(peta_besar), run_time=1.3)
+            b.main(ShowCreation(garis_besar), ShowCreation(peta_besar), run_time=1.6)
         qc.periksa_adegan(self, {"prapeta": prapeta, "peta besar": peta_besar},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_luas})
@@ -401,6 +428,7 @@ class TransformasiSetiapTitik(AdeganMatra):
                 self, rum, r"A(1,\ 1) \to A'(2,\ 2)", b=b, warna=SOROT, papan=papan,
             )
             papan.baris(r"\text{dilatasi: } AB = 5 \to A'B' = 10", warna=SOROT)
+            b.catat(0.8)  # `baris` tidak mencatat sendiri, lihat catatan di babak peta2
         qc.periksa_adegan(self, {"prapeta": prapeta, "peta besar": peta_besar},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_luas})
