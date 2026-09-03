@@ -24,8 +24,9 @@ SATU WARNA SATU MAKNA DI DALAM VIDEO INI:
     SOROT ungu  = garis median            TINTA      = tulisan dan titik tengah
     REDUP       = sumbu dan angkanya
 
-Lubang gerbang yang sama seperti Materi 06 berlaku di sini: `qc.periksa_adegan`
-tidak memeriksa dunia lawan dunia, jadi adegan ini memelihara `TULISAN` sendiri.
+Tulisan di dunia diserahkan ke `qc.periksa_adegan(tulisan=...)`, gerbang
+resmi sejak 4 Sep 2026. Ia memeriksa tulisan silang satu sama lain dan
+terhadap HUD, dan isi `PapanRumus` diperiksa baris demi baris.
 """
 
 import json
@@ -117,12 +118,9 @@ class Kelompok9(AdeganMatra):
             hidup_h = {k: v for k, v in HUD.items() if v is not None}
             if papan.semua() is not None:
                 hidup_h["papan rumus"] = papan.semua()
+            hidup_t = {k: v for k, v in TULISAN.items() if v is not None}
             qc.periksa_adegan(self, {}, pasangan=pasangan, hud=hidup_h,
-                              dunia=hidup_d, jaga_jalur_bawah=True)
-            hidup_t = [k for k, v in TULISAN.items() if v is not None]
-            for i, a in enumerate(hidup_t):
-                for c in hidup_t[i + 1:]:
-                    qc.tidak_bertindih(frame, TULISAN[a], TULISAN[c], a, c)
+                              dunia=hidup_d, tulisan=hidup_t, jaga_jalur_bawah=True)
 
         # ------------------------------------------------------------------
         # Panggung: dua sumbu berangka. Sumbu tegak wajib, sebab yang

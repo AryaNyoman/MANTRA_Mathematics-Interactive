@@ -46,14 +46,15 @@ PARABOLA = [(x, x * x) for x in range(-3, 4)]
 
 # --- Bidang untuk data siswa: jam 0 sampai 12, nilai 51 sampai 89.
 SKALA_X, PUSAT_JAM = 0.7167, 6.0
-SKALA_Y, DASAR_NILAI = 0.0647, 51.0
+# Dinaikkan 4 Sep: tengah atas layar bebas.
+SKALA_Y, DASAR_NILAI = 0.0880, 51.0
 ANGKA_X = [0, 2, 4, 6, 8, 10, 12]
 ANGKA_Y = [55, 65, 75, 85]
 
 # --- Bidang untuk parabola: x dari -4 sampai 4, y dari -1 sampai 10.
 # Puncak parabola y = 9 harus berhenti di bawah jalur panel (layar y = 1,10),
 # jadi satu satuan y tidak boleh lebih dari 0,216 satuan dunia.
-SKALA_PX, SKALA_PY = 1.02, 0.205
+SKALA_PX, SKALA_PY = 1.02, 0.280
 ANGKA_PX = [-3, -2, -1, 0, 1, 2, 3]
 ANGKA_PY = [0, 3, 6, 9]
 
@@ -113,12 +114,9 @@ class Korelasi12(AdeganMatra):
             hidup_h = {k: v for k, v in HUD.items() if v is not None}
             if papan.semua() is not None:
                 hidup_h["papan rumus"] = papan.semua()
+            hidup_t = {k: v for k, v in TULISAN.items() if v is not None}
             qc.periksa_adegan(self, {}, pasangan=pasangan, hud=hidup_h,
-                              dunia=hidup_d, jaga_jalur_bawah=True)
-            hidup_t = [k for k, v in TULISAN.items() if v is not None]
-            for i, a in enumerate(hidup_t):
-                for c in hidup_t[i + 1:]:
-                    qc.tidak_bertindih(frame, TULISAN[a], TULISAN[c], a, c)
+                              dunia=hidup_d, tulisan=hidup_t, jaga_jalur_bawah=True)
 
         # ------------------------------------------------------------------
         # Bidang siswa
@@ -138,7 +136,7 @@ class Korelasi12(AdeganMatra):
             angka.add(t)
             angka_satuan[f"y{v}"] = t
 
-        def awan(pasangan, warna, fx, fz, jari=0.062):
+        def awan(pasangan, warna, fx, fz, jari=0.078):
             g = VGroup()
             for a, c in pasangan:
                 d = Dot(radius=jari).set_fill(warna, 1).set_stroke(LATAR, 1.0)
@@ -185,7 +183,10 @@ class Korelasi12(AdeganMatra):
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 12: Korelasi bukan sebab", lama=3.2, y=2.6)
             b.catat(3.2)
-            taruh("sumbu", VGroup(sumbu_x, sumbu_y))
+            # Dua benda pipih, bukan satu kotak sebesar grafik; lihat
+            # catatan yang sama di statistika11_regresi.py.
+            taruh("sumbu datar", sumbu_x)
+            taruh("sumbu tegak", sumbu_y)
             taruh("angka", angka)
             TULISAN.update(angka_satuan)
             b.main(ShowCreation(sumbu_x), ShowCreation(sumbu_y), FadeIn(angka), run_time=1.6)
@@ -291,7 +292,7 @@ class Korelasi12(AdeganMatra):
                    FadeOut(sumbu_y), FadeOut(papan.semua()),
                    FadeOut(VGroup(skala_r, tanda_r)), FadeOut(l_kiri), FadeOut(l_tengah),
                    FadeOut(l_kanan), run_time=1.4)
-            buang("titik", "garis", "angka", "sumbu", "skala r",
+            buang("titik", "garis", "angka", "sumbu datar", "sumbu tegak", "skala r",
                   "r kiri", "r tengah", "r kanan", *angka_satuan.keys())
             papan.utama = None
             papan.baris_lain = []

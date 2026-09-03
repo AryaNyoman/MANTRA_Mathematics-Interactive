@@ -44,7 +44,8 @@ KATEGORI = [("Jalan kaki", 8), ("Sepeda", 6), ("Motor", 12), ("Angkot", 5), ("Di
 KELAS_CM = [(150, 1), (155, 5), (160, 11), (165, 11), (170, 7), (175, 4), (180, 1)]
 LINE_PLOT = [5, 7, 8, 10, 10, 12, 15, 15, 18, 20]      # sepuluh data kecil, contoh line plot
 
-SKALA_F = 0.180                 # satu siswa = 0,180 satuan tinggi
+# Dinaikkan 4 Sep: tengah atas layar bebas, batang boleh setinggi ini.
+SKALA_F = 0.245                 # satu siswa = 0,245 satuan tinggi
 Z_DASAR = -1.06
 Z_ANGKA = Z_DASAR - 0.30
 Z_KAMERA = 0.50
@@ -89,12 +90,9 @@ class Bentuk2(AdeganMatra):
             hidup_h = {k: v for k, v in HUD.items() if v is not None}
             if papan.semua() is not None:
                 hidup_h["papan rumus"] = papan.semua()
+            hidup_t = {k: v for k, v in TULISAN.items() if v is not None}
             qc.periksa_adegan(self, {}, pasangan=pasangan, hud=hidup_h,
-                              dunia=hidup_d, jaga_jalur_bawah=True)
-            hidup_t = [k for k, v in TULISAN.items() if v is not None]
-            for i, a in enumerate(hidup_t):
-                for c in hidup_t[i + 1:]:
-                    qc.tidak_bertindih(frame, TULISAN[a], TULISAN[c], a, c)
+                              dunia=hidup_d, tulisan=hidup_t, jaga_jalur_bawah=True)
 
         alas = Line([-5.10, 0, Z_DASAR], [5.10, 0, Z_DASAR]).set_stroke(REDUP, 2.4)
         sumbu_f = Line([X_SUMBU_F, 0, Z_DASAR], [X_SUMBU_F, 0, zf(13)]).set_stroke(REDUP, 2.4)
