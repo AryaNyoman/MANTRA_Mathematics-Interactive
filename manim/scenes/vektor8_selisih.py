@@ -7,7 +7,7 @@ tidak pernah dimiringkan lagi. Keterangan pita bawah TIDAK dipakai sama sekali:
 pita itu milik subtitle. Identitas cerita duduk di pojok kiri atas.
 
 STORYBOARD
-   1. sapa     3D miring DEKAT: dua orang berdiri di lapangan berpetak.
+   1. sapa     Bidang bernomor, tegak lurus: dua orang berdiri di lapangan berpetak.
    2. terbang  Turun ke tegak lurus; bidang koordinat bernomor muncul.
    3. dua      Panah biru a = (3, 1) dan panah merah b = (1, 2) dari titik asal.
    4. lawan    Panah b diputar setengah lingkaran jadi -b = (-1, -2).
@@ -63,7 +63,8 @@ BIDANG_X, BIDANG_Y = (-3.0, 5.0, 1.0), (-3.0, 3.0, 1.0)
 # SISA JALUR HUD DIUKUR: baris panel terlebar di sini
 # "(3, 1) - (1, 2) = (2, -1)" selebar 3,01 satuan dan rata kanan ke 6,73,
 # jadi tepi kirinya 3,72. Identitas satu baris berakhir sekitar y = 3,35.
-SISA_ATAS, SISA_KANAN = 0.40, 3.10
+# Pesanan jalur HUD DIHAPUS: sejak `sinema.alas_hud` ada, tulisan HUD
+# punya alas kertas sendiri, jadi bidang boleh memenuhi layar.
 
 
 def panah(a, b, warna, tebal=5):
@@ -79,40 +80,44 @@ class SelisihPerjalanan(AdeganMatra):
         frame = self.frame
 
         # ==============================================================
-        # Babak 1: dunia nyata, 3D, dari dekat
         # ==============================================================
-        alas = ilustrasi.tanah(12.0, 12.0, 0.0, z=-0.02)
-        lapangan = VGroup(ilustrasi.lantai_kisi(10.0, 1.0)[0])
+        # Babak 1: LANGSUNG ke bidang bernomor, tanpa pembuka 3D
+        # ==============================================================
+        # STANDAR butir 2: 3D hanya di video PERTAMA tiap topik, dan untuk
+        # Vektor itu Materi 01 (perahu di air). Video ini dulu membuka dengan
+        # belasan detik lapangan kelabu yang hampir tidak bergerak. Narasinya
+        # tidak diubah; angka sumbu sengaja ditahan sampai babak kedua, tempat
+        # narator memang menyebutnya.
+        bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
+        bidang.angka.set_opacity(0)
+        self.add(bidang)
+
         orang_a = ilustrasi.orang(1.15).shift(VA)
         orang_b = ilustrasi.orang(1.15).shift(VB)
 
-        kamera.pasang_awal(frame, theta=-30, phi=68, pusat=(2.0, 1.4, 0.55), tinggi=5.0)
-        self.add(alas, lapangan, orang_a, orang_b)
+        pusat, tinggi = kamera.muat_datar(bidang)
+        kamera.pasang_awal(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi)
+        # `alas=True`: tulisan HUD diberi alas kertas, jadi bidang boleh
+        # memenuhi layar tanpa garis petak menembus tulisannya.
+        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True, alas=True)
+
         with sinema.babak(self, "sapa", DURASI) as b:
+            self.add(orang_a, orang_b)
+            b.main(FadeIn(orang_a, scale=1.5), FadeIn(orang_b, scale=1.5),
+                   run_time=0.8)
             sinema.judul_pembuka(self, "Mengurangi itu menambah lawannya", lama=3.2, y=2.4)
             b.catat(3.2)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"orang a": orang_a, "orang b": orang_b})
+        qc.periksa_adegan(self, {},
+                          dunia={"bidang": bidang, "orang a": orang_a,
+                                 "orang b": orang_b})
 
         # ==============================================================
-        # Babak 2: turun ke tegak lurus
+        # Babak 2: angka sumbu muncul, identitas dipasang
         # ==============================================================
-        bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
-        bidang.set_opacity(0)
-        self.add(bidang)
-        self.bring_to_front(orang_a, orang_b)
-        # `tanpa_utama=True`: semua isinya baris, tidak ada rumus utama.
-        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True)
-
         with sinema.babak(self, "terbang", DURASI) as b:
-            lama = max(2.0, DURASI["terbang"] - 3.0)
-            pusat, tinggi = kamera.muat_datar(bidang, sisa_atas=SISA_ATAS,
-                                              sisa_kanan=SISA_KANAN)
-            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
-                                tinggi=tinggi), run_time=lama)
-            b.main(FadeOut(lapangan), FadeOut(alas),
-                   bidang.animate.set_opacity(1), run_time=1.4)
-            identitas = sinema.identitas(self, "1 petak = 1 langkah")
+            b.main(bidang.angka.animate.set_opacity(0.75), run_time=1.6)
+            identitas = sinema.identitas(self, "1 petak = 1 langkah", alas=True)
             identitas.set_opacity(0)
             b.main(identitas.animate.set_opacity(1), run_time=0.8)
         # Bidang ke `dunia`, identitas ke `hud`: hanya begitu perkalian
