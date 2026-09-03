@@ -242,6 +242,10 @@ def bidang_bernomor(x_range=(-6.0, 6.0, 1.0), y_range=(-4.0, 4.0, 1.0),
     # membuat gambarnya bisa diperiksa siswa.
     angka = bidang.add_coordinate_labels(font_size=ukuran_angka, num_decimal_places=0)
     angka.set_color(TINTA).set_opacity(0.75)
+    # Disimpan supaya adegan bisa memunculkan angkanya BELAKANGAN, saat
+    # narator berkata "lengkap dengan angka pada kedua sumbunya". Dipakai
+    # sejak pembuka 3D dipotong (STANDAR butir 2, 4 Sep 2026).
+    bidang.angka = angka
 
     # WAJIB: NumberPlane menempatkan dirinya di TENGAH layar, bukan pada titik
     # asal koordinatnya. Untuk jangkauan yang tidak simetris, misalnya x dari -5
