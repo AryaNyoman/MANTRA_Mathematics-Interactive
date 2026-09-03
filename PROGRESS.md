@@ -23,6 +23,33 @@
 
 ## 🧭 MULAI DARI SINI (sesi berikutnya, ditulis 2 Sep 2026)
 
+### 🎬 4 SEP PAGI: MASTER menonton, menggabung, menambal gerbang, memberi tugas
+
+- **Peran MASTER berubah atas perintah ARYA 4 Sep**: MASTER MENONTON lembar
+  kontak video sesi, memberi masukan, dan mengirim revisinya (aturan 2 Sep
+  "sesi merevisi sendiri, MASTER tidak menerima setoran" DICABUT).
+- Digabung ke master: `sesi/ruang-3d`, `sesi/statistika`, `sesi/vektor`,
+  `sesi/transformasi-geometri` (konflik satu baris komentar di `topik.ts`).
+  tsc 0, build 22 halaman. Grafik Fungsi dan UI/UX tidak punya commit baru.
+- 16 lembar kontak dinilai (3D enam, Vektor enam, Statistika empat). Dua
+  cacat LINTAS SESI, keduanya pelanggaran STANDAR yang sudah ada: pembuka 3D
+  15 sampai 20 detik hampir kosong di semua video (aturan: 8 sampai 10 detik,
+  hanya video pertama), dan dunia dimampatkan ke separuh tinggi karena zona
+  HUD dibaca sebagai seluruh lebar atas (aturan: hanya dua pojok). STANDAR
+  dipertegas di butir 1 dan 2.
+- Gerbang mutu ditambal (`29b54bc`): `periksa_adegan(..., tulisan={...})`
+  dan pemeriksaan isi `papan.semua()`; `nilai_hidup` memberi "=".
+  `uji_qc.py` 13 ok.
+- Pesan tinjauan + tugas dikirim ke lima sesi hidup (3D, Vektor, Statistika,
+  Grafik Fungsi, Transformasi Geometri). UI/UX TIDAK menyala.
+- **Bentrok yang diketahui**: Vektor punya 70 baris `sinema.py` belum
+  disimpan yang menyentuh `PapanRumus`, sama dengan perubahan 3D yang sudah di
+  master. Vektor diminta commit, merge, dan mempertahankan perubahan 3D.
+- Menunggu keputusan ARYA: (1) Ruang 3D materi 03, kamera sejajar AC
+  (usul: tetap, dengan aba-aba di narasi); (2) Statistika mengerjakan tujuh
+  video di luar rencana enam (usul: boleh, 480p semua); (3) sesi UI/UX
+  dinyalakan lagi atau tidak; (4) foto pesawat ber-livery DHL di Vektor.
+
 ### 🗺️ 4 SEP DINI HARI: peta struktur graphify sudah ada
 
 - `graphify-out/graph.json`: **2.471 simpul, 5.881 hubungan, 167 komunitas
