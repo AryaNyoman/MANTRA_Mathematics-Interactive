@@ -21,7 +21,7 @@ import { GARIS_PETAK, GARIS_SUMBU, KERTAS, KOTAK, MONO, VH, VW, WARNA } from './
  *    koordinat sebuah titik berubah menjadi apa, dan itu tidak bisa dibaca
  *    dari sumbu yang tidak bernomor.
  */
-export default function Papan({
+export default function BidangTransformasi({
   jendela,
   keterangan,
   aria,

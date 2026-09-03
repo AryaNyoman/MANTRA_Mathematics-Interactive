@@ -261,16 +261,28 @@ export function sudutDi(a: Titik, puncak: Titik, c: Titik): number {
  * tidak punya satu pun simetri, jadi setiap transformasi terlihat akibatnya.
  * Syarat itu diuji, bukan diandalkan pada ingatan.
  *
- * Ukurannya 3 satuan mendatar dan 4 satuan tegak, semuanya bilangan bulat,
+ * KENAPA LEBAR DAN PENDEK, BUKAN TINGGI DAN KURUS
+ * Papannya berbentuk mendatar (nisbah kira-kira 1,63) dan skalanya WAJIB sama
+ * di kedua sumbu, kalau tidak rotasi 90 derajat tidak terlihat tegak lurus.
+ * Akibatnya, benda yang tinggi dan kurus jadi kecil sekali begitu dicerminkan
+ * pada sumbu X: gabungan prapeta dan petanya menjadi tinggi, jendelanya
+ * terpaksa ikut melebar, dan bendanya tinggal seperempat lebar layar.
+ *
+ * Dihitung untuk bentuk 3 kali 4 satuan: 24 persen lebar layar, kira-kira 96
+ * piksel, dan label sudutnya mulai bertindih. Untuk bentuk 5 kali 2 satuan ini:
+ * 40 persen, kira-kira 160 piksel. Rotasi 90 derajat berpusat titik asal
+ * bahkan mengisi papan hampir pas.
+ *
+ * Ukurannya 5 satuan mendatar dan 2 satuan tegak, semuanya bilangan bulat,
  * supaya koordinat di tabel angka enak dibaca tanpa desimal.
  */
 export const BENTUK_L: Titik[] = [
   { x: 1, y: 1 },
-  { x: 4, y: 1 },
-  { x: 4, y: 2 },
+  { x: 6, y: 1 },
+  { x: 6, y: 2 },
   { x: 2, y: 2 },
-  { x: 2, y: 5 },
-  { x: 1, y: 5 },
+  { x: 2, y: 3 },
+  { x: 1, y: 3 },
 ]
 
 /**
