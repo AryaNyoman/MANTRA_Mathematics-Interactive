@@ -1,0 +1,95 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/transformasi1-setiap-titik.json
+
+1
+00:00:00.000 --> 00:00:04.635
+Materi 01 Transformasi Geometri:
+
+2
+00:00:04.635 --> 00:00:08.256
+<b>setiap titik ikut pindah</b>.
+
+3
+00:00:08.256 --> 00:00:10.660
+Orang ini berdiri di tepi air,
+
+4
+00:00:10.660 --> 00:00:13.224
+dan air memantulkan bayangannya.
+
+5
+00:00:13.224 --> 00:00:14.424
+Kaca, air,
+
+6
+00:00:14.424 --> 00:00:19.503
+dan stiker yang digeser ternyata satu hal yang sama.
+
+7
+00:00:19.503 --> 00:00:21.624
+Ada <b>aturan</b> yang bekerja.
+
+8
+00:00:21.624 --> 00:00:28.080
+Kita lihat dari atas, seperti peta. 1 petak = 1 satuan.
+
+9
+00:00:28.080 --> 00:00:32.222
+Bentuk huruf L ini kita sebut <b>prapeta</b>.
+
+10
+00:00:32.222 --> 00:00:35.928
+Tiga sudutnya diberi nama A, B, C.
+
+11
+00:00:35.928 --> 00:00:37.656
+Sekarang perhatikan.
+
+12
+00:00:37.656 --> 00:00:40.248
+Bukan gambarnya yang diangkat,
+
+13
+00:00:40.248 --> 00:00:43.704
+melainkan <b>setiap titik</b> berjalan sendiri.
+
+14
+00:00:43.704 --> 00:00:47.943
+Ada 6 garis, satu untuk tiap sudut.
+
+15
+00:00:47.943 --> 00:00:51.576
+A(1, 1) mendarat di A'(1, -1).
+
+16
+00:00:51.576 --> 00:00:53.700
+Hasilnya kita sebut <b>peta</b>.
+
+17
+00:00:53.700 --> 00:00:58.032
+Gambarnya ikut pindah karena semua titiknya pindah.
+
+18
+00:00:58.032 --> 00:00:59.232
+Belum yakin?
+
+19
+00:00:59.232 --> 00:01:02.201
+Ganti aturannya jadi dilatasi.
+
+20
+00:01:02.201 --> 00:01:06.048
+Sekarang jarak antartitik ikut <b>berubah</b>.
+
+21
+00:01:06.048 --> 00:01:08.096
+Benda utuh yang diangkat
+
+22
+00:01:08.096 --> 00:01:11.083
+tangan tidak bisa berubah jaraknya.
+
+23
+00:01:11.083 --> 00:01:13.728
+Yang bekerja <b>aturan pada titik</b>.

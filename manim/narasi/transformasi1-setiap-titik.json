@@ -1,0 +1,58 @@
+{
+  "adegan": "TransformasiSetiapTitik",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video 01 topik Transformasi Geometri, Materi 01 'Setiap titik ikut pindah'. Standar ilustrasi v2. Pembuka 3D memakai pantulan orang di air, yang memang pencerminan pada garis mendatar, jadi gambarnya tidak cuma menemani melainkan sudah menjadi materinya. Tiap segmen punya teks (terucap) dan tulis (tertulis, berlambang).",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Sekarang kita masuk ke materi baru: transformasi geometri. Materi pertama, *setiap titik ikut pindah*.",
+      "tulis": "Materi 01 Transformasi Geometri: *setiap titik ikut pindah*."
+    },
+    {
+      "id": "dunia",
+      "teks": "Orang ini berdiri di tepi air, dan air memantulkan bayangannya.",
+      "tulis": "Orang ini berdiri di tepi air, dan air memantulkan bayangannya."
+    },
+    {
+      "id": "sama",
+      "teks": "Kaca, air, dan stiker yang kamu geser di layar ternyata satu hal yang sama. Ada *aturan* yang bekerja.",
+      "tulis": "Kaca, air, dan stiker yang digeser ternyata satu hal yang sama. Ada *aturan* yang bekerja."
+    },
+    {
+      "id": "peta",
+      "teks": "Kita lihat dari atas, seperti peta. Satu petak sama dengan satu satuan.",
+      "tulis": "Kita lihat dari atas, seperti peta. 1 petak = 1 satuan."
+    },
+    {
+      "id": "bentuk",
+      "teks": "Bentuk huruf L ini kita sebut *prapeta*. Tiga sudutnya diberi nama A, B, dan C.",
+      "tulis": "Bentuk huruf L ini kita sebut *prapeta*. Tiga sudutnya diberi nama A, B, C."
+    },
+    {
+      "id": "pindah",
+      "teks": "Sekarang perhatikan. Bukan gambarnya yang diangkat, melainkan *setiap titik* berjalan sendiri-sendiri.",
+      "tulis": "Sekarang perhatikan. Bukan gambarnya yang diangkat, melainkan *setiap titik* berjalan sendiri."
+    },
+    {
+      "id": "enam",
+      "teks": "Ada enam garis, satu untuk tiap sudut. Titik A satu koma satu mendarat di satu koma negatif satu.",
+      "tulis": "Ada 6 garis, satu untuk tiap sudut. A(1, 1) mendarat di A'(1, -1)."
+    },
+    {
+      "id": "peta2",
+      "teks": "Hasilnya kita sebut *peta*. Gambarnya ikut pindah hanya karena semua titiknya pindah.",
+      "tulis": "Hasilnya kita sebut *peta*. Gambarnya ikut pindah karena semua titiknya pindah."
+    },
+    {
+      "id": "bukti",
+      "teks": "Belum yakin? Ganti aturannya jadi dilatasi. Sekarang jarak antartitik ikut *berubah*.",
+      "tulis": "Belum yakin? Ganti aturannya jadi dilatasi. Sekarang jarak antartitik ikut *berubah*."
+    },
+    {
+      "id": "tutup",
+      "teks": "Benda utuh yang diangkat tangan tidak mungkin berubah jarak antarbagiannya. Yang bekerja memang *aturan pada titik*.",
+      "tulis": "Benda utuh yang diangkat tangan tidak bisa berubah jaraknya. Yang bekerja *aturan pada titik*."
+    }
+  ]
+}
