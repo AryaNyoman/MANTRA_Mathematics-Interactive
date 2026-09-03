@@ -75,6 +75,14 @@ Perkakasnya `manim/gl/` (sinema v2, qc, ilustrasi, kamera). Rujukan resmi:
    `bayangan_kubus` di `manim/scenes/ruang_3d_umum.py`, akan dinaikkan ke
    `gl.ilustrasi.balok`. Transformasi Geometri: pakai ini, jangan uji ulang.
 
+   JEBAKAN GERBANG (temuan Statistika 4 Sep): `qc` memakai KOTAK BATAS, dan
+   kotak batas sebuah kelompok adalah gabungan seluruh anggotanya. Dua sumbu
+   yang didaftarkan sebagai SATU benda punya kotak sebesar seluruh bidang
+   grafik, jadi panel di pojok dianggap menindihnya walau tidak ada garis yang
+   bersentuhan. Daftarkan sumbu sebagai DUA benda pipih (pita mendatar di
+   bawah, pita tegak di kiri). `alas_hud` + tanda `latar` hanya untuk tulisan
+   yang memang harus menumpang di atas kisi.
+
 4. **Label di dalam gambar maksimal dua kata**, dijaga mesin (`sinema.label`
    menggagalkan render). Rumus seperti `x = 1` dihitung satu lambang. Contoh
    yang lolos: "naik 1", "ke KANAN", "dayung 3 km". Kalimat panjang milik
