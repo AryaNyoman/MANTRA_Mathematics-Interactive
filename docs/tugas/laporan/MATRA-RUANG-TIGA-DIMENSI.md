@@ -905,3 +905,52 @@ kontaknya DIBUKA dan dinilai. Untuk hal yang tidak terbaca di lembar kontak
 (huruf identitas, pojok sumbu, panel rumus), frame penuh diambil dengan
 `--detik`, lalu bagian yang diragukan dipotong dan diperbesar 4 kali dengan
 ffmpeg. Tiga dari empat cacat di atas hanya kelihatan setelah diperbesar.
+
+## Hasil: keenam video dirender ulang dan diperiksa
+
+| Materi | Adegan | Selisih gambar dan suara | Lembar kontak dinilai |
+|---|---|---|---|
+| 01 | GambarBolehBerbohong | 0,11 detik | ya, plus dua potongan diperbesar |
+| 03 | JarakSelaluTerpendek | 0,11 detik | ya, plus frame penuh detik 14 dan 70 |
+| 04 | DuaKaliPythagoras | 0,12 detik (dari 1,62) | ya |
+| 06 | JarakTitikKeBidang | 0,14 detik | ya |
+| 08 | SudutGarisBersilangan | 0,15 detik | ya |
+| 09 | SudutDenganBidang | 0,11 detik | ya, plus panel diperbesar di detik 44 dan 78 |
+
+Semuanya ada di `media/uji-480p/`, berikut salinan `-bersubtitle.mp4` untuk
+ditonton ARYA. Sengaja TIDAK disalin ke `web/public/anim/`: 480p adalah versi
+tinjauan, dan `tahap.ts` baru diisi setelah versi 1080p dibuat.
+
+## Cacat yang MASIH tersisa, disebut apa adanya
+
+1. **Materi 01 membuka dengan sekitar 20 detik kubus pejal yang berputar
+   pelan**, tanpa unsur baru masuk. Bukan layar mati, tetapi lambat untuk
+   pembuka. Keputusan ARYA: dipercepat, atau diberi sesuatu untuk dilihat.
+2. **Materi 03 memandang kubus hampir sejajar diagonal alas AC**, sehingga AC
+   tergambar seperti garis tegak di layar. Ini DISENGAJA, sebab memandang
+   sejajar sebuah garis adalah satu-satunya cara menampilkan sudut siku-siku
+   di titik kaki dalam ukuran sebenarnya. Tetapi tanpa aba-aba, siswa bisa
+   mengira alas kubus berdiri tegak. Perlu penilaian ARYA.
+3. **Penunjuk nilai hidup materi 03 terbaca "BQ 5,160" tanpa tanda sama
+   dengan.** `sinema.nilai_hidup` memang menempelkan label ke angka tanpa
+   tanda hubung. Berkas bersama, jadi tidak diubah sendiri.
+4. **Angka sumbu masih rapat di dekat titik A.** Angka nol sudah tidak
+   menindih huruf A, tetapi kolom angka sumbu y dan sumbu z masih berdekatan
+   di pojok yang sama.
+5. **Huruf titik sudut kecil di 480p.** Akan membaik sendiri di 1080p; jangan
+   dibesarkan sekarang, sebab ukurannya sudah pas terhadap kubusnya.
+6. `manim/cek_video.py` sesekali membuat lembar kontak 1 frame per detik walau
+   diminta 0,25 (terjadi pada materi 01 dan 09). Tidak merusak, hasilnya justru
+   lebih rapat, tetapi ukurannya jadi 4.700 piksel dan perlu diketahui.
+
+## Butuh MASTER
+
+1. Contoh identitas `"p = l = t = 6 satuan"` di `STANDAR-ILUSTRASI-VIDEO.md`
+   butir 1 perlu diganti dengan bentuk yang tidak bisa dibaca sebagai angka.
+   Sesi lain akan menyalin contoh itu apa adanya.
+2. Lubang di gerbang mutu yang perlu diumumkan: apa pun yang diserahkan ke
+   `qc.periksa_adegan` sebagai SATU kelompok, isinya tidak saling diperiksa.
+   Panel rumus lolos dengan dua baris bertindih persis karena ini.
+3. `manim/gl/sinema.py` diubah di commit tersendiri (`04df8e3`), semua topik
+   ikut terbawa: `tumbuh`/`baris` bisa mencatat waktu sendiri lewat `b=`, dan
+   baris papan ditumpuk dari bawah benda sebelumnya.
