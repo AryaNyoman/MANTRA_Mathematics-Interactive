@@ -65,8 +65,12 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
   useEffect(() => {
     const kurangiGerak = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (kurangiGerak) {
-      setMaju(1)
-      return
+      // Lewat requestAnimationFrame, BUKAN setMaju(1) langsung. React 19
+      // melarang setState serentak di dalam effect (react-hooks/set-state-in-effect)
+      // karena memicu gambar ulang berantai; menundanya satu frame membuatnya
+      // jatuh di luar fase itu, dan bagi mata hasilnya sama saja.
+      const id = requestAnimationFrame(() => setMaju(1))
+      return () => cancelAnimationFrame(id)
     }
     const mulai = performance.now()
     let hidup = true

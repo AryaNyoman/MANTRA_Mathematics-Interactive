@@ -1435,8 +1435,15 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
    Ukuran huruf sengaja TETAP, tanpa clamp(), atas permintaan ARYA.
    ============================================================ */
 
-.mantra { max-width: 1120px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 44px); }
-.mantra-lebar { max-width: 1220px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 44px); }
+/* `width: 100%` WAJIB, dan sebabnya halus. Keduanya anak flex dari `body`
+   yang berkolom, jadi biasanya ia melar sendiri selebar induknya. Tetapi
+   `margin: 0 auto` MEMBATALKAN pelebaran itu: margin otomatis menang atas
+   stretch, sehingga lebarnya jatuh ke lebar isi. Pada layar 375 itu membuat
+   `main` jadi 404 piksel dan seluruh halaman bisa digeser menyamping walau
+   panel di dalamnya sudah memotong isinya sendiri (terukur 3 Sep 2026). */
+.mantra, .mantra-lebar { width: 100%; min-width: 0; margin: 0 auto; padding: 0 clamp(16px, 4vw, 44px); }
+.mantra { max-width: 1120px; }
+.mantra-lebar { max-width: 1220px; }
 
 .kicker {
   font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
@@ -1782,4 +1789,219 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 @media (max-width: 860px) {
   .kisi-tingkat { grid-template-columns: repeat(2, 1fr); }
   .latihan-atas { grid-template-columns: 1fr; align-items: start; }
+}
+
+/* ---------- halaman materi: remah roti + sidebar pohon ---------- */
+.materi-panel {
+  border: 1px solid var(--garis); border-radius: 24px; overflow: hidden;
+  background: var(--kartu); box-shadow: 0 28px 64px -44px rgba(16, 26, 43, 0.6);
+  margin-bottom: 10px;
+}
+/* Remah roti TIDAK PERNAH membungkus: kalau nama sub-bab kepanjangan ia
+   dipotong dengan elipsis, sebab baris kedua akan menggeser seluruh panel. */
+.remah {
+  min-height: 54px; white-space: nowrap; display: flex; align-items: center;
+  gap: 10px; padding: 0 18px; border-bottom: 1px solid rgba(16, 26, 43, 0.1);
+  font-size: 12.5px; color: var(--tinta-62); overflow: hidden;
+}
+.remah .remah-pisah { color: var(--emas); }
+.remah .kini { color: var(--emas); font-weight: 600; font-variant-numeric: tabular-nums; }
+.remah .nama-sub { color: var(--tinta); overflow: hidden; text-overflow: ellipsis; }
+.remah .kanan { margin-left: auto; display: flex; align-items: center; gap: 10px; flex: none; }
+.remah .bar {
+  width: 120px; height: 4px; border-radius: 999px;
+  background: rgba(16, 26, 43, 0.12); overflow: hidden; display: block;
+}
+.remah .bar span {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, var(--emas), var(--hijau));
+  transition: width 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Dua kolom: sidebar yang bisa dikuncupkan, lalu isi materi. */
+.materi-badan {
+  display: grid; grid-template-columns: 278px 1fr;
+  transition: grid-template-columns 0.34s cubic-bezier(0.2, 0.7, 0.2, 1);
+  min-height: 470px;
+}
+.materi-badan[data-rel='true'] { grid-template-columns: 62px 1fr; }
+
+.pohon {
+  border-right: 1px solid rgba(16, 26, 43, 0.1); background: var(--cekung);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.pohon-kepala {
+  flex: none; display: flex; align-items: center; gap: 8px;
+  padding: 12px 12px 11px; border-bottom: 1px solid rgba(16, 26, 43, 0.1);
+}
+.materi-badan[data-rel='true'] .pohon-kepala { padding: 12px 8px 11px; justify-content: center; }
+.pohon-kepala .bab {
+  font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--biru);
+}
+.pohon-kepala .nama {
+  font-family: var(--font-serif), Georgia, serif; font-size: 22px; line-height: 1.1; margin-top: 3px;
+}
+.pohon-togel {
+  flex: none; width: 32px; height: 32px; border: 1px solid rgba(16, 26, 43, 0.18);
+  border-radius: 9px; display: grid; place-items: center; cursor: pointer;
+  font-size: 12px; color: var(--emas); background: var(--kartu); transition: border-color 0.2s;
+}
+.pohon-togel:hover { border-color: var(--emas); }
+.pohon-togel:active { transform: scale(0.9); }
+
+.pohon-gulir { flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: thin; padding: 6px 8px 10px; }
+.pohon-sub {
+  display: flex; align-items: baseline; gap: 9px; padding: 12px 10px 5px;
+}
+.pohon-sub .huruf {
+  font-family: var(--font-serif), Georgia, serif; color: var(--emas); font-size: 17px; width: 14px;
+}
+.pohon-sub .nama { flex: 1; font-size: 12.5px; font-weight: 600; }
+.pohon-sub .hitung {
+  font-size: 11px; color: rgba(16, 26, 43, 0.45);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+/* Rel sempit: huruf sub-bab tetap ada supaya siswa tidak kehilangan tempatnya. */
+.pohon-sub-rel {
+  margin: 10px auto 4px; width: 34px; padding-bottom: 4px;
+  border-bottom: 1px solid rgba(16, 26, 43, 0.14); text-align: center;
+  font-family: var(--font-serif), Georgia, serif; font-size: 16px; color: var(--emas);
+}
+
+.pohon-baris {
+  display: grid; grid-template-columns: 22px 1fr 15px; gap: 9px; align-items: center;
+  width: 100%; padding: 8px 10px; border-radius: 11px; cursor: pointer;
+  background: transparent; border: none; border-left: 2px solid transparent;
+  text-align: left; font: inherit; color: inherit; transition: background 0.2s;
+}
+.materi-badan[data-rel='true'] .pohon-baris { grid-template-columns: 1fr; padding: 8px 4px; justify-items: center; }
+.pohon-baris:hover { background: var(--emas-14); }
+.pohon-baris[data-aktif='true'] { background: var(--emas-14); border-left-color: var(--emas); }
+.pohon-baris:disabled { opacity: 0.45; cursor: not-allowed; }
+.pohon-baris .no {
+  font-size: 11px; color: var(--tinta-50); font-variant-numeric: tabular-nums; text-align: center;
+}
+.pohon-baris[data-aktif='true'] .no { color: var(--emas); }
+.pohon-baris .judul { font-size: 13px; line-height: 1.35; }
+.pohon-baris[data-aktif='true'] .judul { font-weight: 600; }
+/* Lingkaran status. Yang sudah dibuka: cincin hijau berisi, dengan centang
+   yang meletup sekali saat materinya pertama kali dibuka. */
+.pohon-baris .status {
+  width: 15px; height: 15px; justify-self: center; border-radius: 50%;
+  border: 1.5px solid rgba(16, 26, 43, 0.25); display: flex;
+  align-items: center; justify-content: center; font-size: 9px; color: #fff;
+}
+.pohon-baris[data-selesai='true'] .status { border-color: var(--hijau); background: var(--hijau); }
+@keyframes letup {
+  0% { transform: scale(0.4); opacity: 0.3; }
+  60% { transform: scale(1.35); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.pohon-baris[data-letup='true'] .status { animation: letup 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+.pohon-kaki { flex: none; border-top: 1px solid rgba(16, 26, 43, 0.1); padding: 9px 8px 11px; }
+.pohon-kaki button {
+  display: grid; grid-template-columns: 20px 1fr auto; gap: 10px; align-items: center;
+  width: 100%; padding: 9px 10px; border-radius: 11px; cursor: pointer;
+  background: transparent; border: none; text-align: left; font: inherit; color: inherit;
+}
+.pohon-kaki button:hover:not(:disabled) { background: var(--emas-14); }
+.pohon-kaki button:disabled { cursor: not-allowed; }
+.pohon-kaki .ikon { color: var(--emas); font-size: 15px; }
+.pohon-kaki .nama { font-size: 13.5px; font-weight: 600; }
+/* Syarat kunci kuis DITULIS, tidak pernah disembunyikan. */
+.pohon-kaki .syarat { font-size: 11px; color: var(--tinta-62); line-height: 1.4; }
+.pohon-kaki .lencana-kunci {
+  font-size: 11px; color: var(--emas); border: 1px solid var(--emas);
+  border-radius: 6px; padding: 2px 6px; white-space: nowrap;
+}
+
+/* Pasangan Kembali dan Lanjut di kaki kolom kanan. */
+.pindah-materi {
+  margin: 18px 0 8px; display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 11px;
+}
+.pindah-materi button {
+  min-width: 0; overflow: hidden; border-radius: 14px; padding: 11px 13px;
+  cursor: pointer; text-align: left; font: inherit; transition: transform 0.2s, border-color 0.2s;
+}
+.pindah-kembali { border: 1px solid rgba(16, 26, 43, 0.18); background: transparent; color: inherit; }
+.pindah-kembali:hover:not(:disabled) { border-color: var(--emas); }
+.pindah-kembali:disabled { opacity: 0.4; cursor: not-allowed; }
+.pindah-lanjut { border: none; background: var(--emas); color: var(--kertas); }
+.pindah-lanjut:hover { transform: translateY(-2px); }
+.pindah-materi button:active { transform: scale(0.97); }
+.pindah-materi .cap-kecil {
+  font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  display: flex; justify-content: space-between; gap: 8px; opacity: 0.85;
+}
+.pindah-materi .judul-kecil {
+  font-size: 14px; font-weight: 600; margin-top: 3px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.pindah-materi .saran {
+  font-size: 12px; margin-top: 3px; opacity: 0.85;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+@media (max-width: 860px) {
+  .materi-badan, .materi-badan[data-rel='true'] { grid-template-columns: 1fr; }
+  /* 60vh, bukan 260 piksel. Pada 260 piksel kepala sidebar dan baris Latihan
+     serta Kuis memakan hampir seluruhnya, sehingga daftar materinya sendiri
+     tinggal 53 piksel dan tidak ada satu pun judul materi yang terlihat
+     (terukur 3 Sep 2026). */
+  .pohon { border-right: none; border-bottom: 1px solid rgba(16, 26, 43, 0.1); max-height: 60vh; }
+  .remah { font-size: 11.5px; gap: 8px; }
+  .remah .kanan .bar { width: 70px; }
+  /* Rantai remah lengkap butuh 676 piksel; di layar 375 ia mendorong seluruh
+     halaman menyamping. Dua remah pertama disembunyikan, sisanya boleh
+     digulir sendiri di dalam bilahnya kalau nama sub-babnya masih panjang. */
+  .remah-awal { display: none; }
+  .remah { overflow-x: auto; scrollbar-width: none; }
+  .remah .nama-sub { max-width: 40vw; }
+}
+
+/* Panggung DI DALAM panel materi. Gaya `.panggung` aslinya dirancang untuk
+   mengisi lebar halaman penuh; begitu ia masuk ke dalam panel bersidebar,
+   kolom kirinya menciut sampai alat interaktifnya tidak terbaca (terukur 200
+   piksel pada layar 1366). Perbandingan di bawah diambil dari rancangan:
+   kolom visual lebih lebar, kolom bacaan diberi lebar terkecil yang masih
+   nyaman dibaca. */
+.materi-badan .panggung {
+  grid-template-columns: minmax(0, 1.15fr) minmax(19rem, 0.9fr);
+  gap: 20px; padding: 18px 20px; max-height: none; min-height: 470px;
+}
+.materi-badan .panggung .kolom.kanan { max-height: 470px; overflow-y: auto; scrollbar-width: thin; }
+.materi-badan .panggung .layar,
+.materi-badan .panggung .wadah { max-height: 330px; }
+@media (max-width: 860px) {
+  .materi-badan .panggung {
+    grid-template-columns: 1fr; padding: 14px 14px 18px;
+  }
+  .materi-badan .panggung .kolom.kanan { max-height: none; }
+}
+
+
+/* Panel materi dikunci setinggi layar, isinya yang menggulir.
+   Sebelum ini tinggi panel ditentukan oleh sidebar (terukur 825 piksel untuk
+   sepuluh materi), sehingga kolom kanan yang dibatasi 470 piksel menyisakan
+   ruang kosong sepertiga layar. Sekarang panelnya yang dibatasi, dan KEDUA
+   kolom menggulir di dalamnya. `min-height: 0` wajib: tanpa itu anak grid
+   memakai tinggi isinya dan tidak pernah mau menggulir. */
+/* TINGGI PASTI, bukan max-height. `max-height` pada wadah grid tidak memaksa
+   barisnya mengecil: barisnya tetap setinggi isi, lalu kelebihannya dipotong
+   diam-diam. Terukur 3 Sep: daftar materi menjadi 3786 piksel dan baris
+   Latihan serta Kuis terdorong ke luar layar tanpa pernah bisa dicapai.
+   Dengan tinggi pasti, kedua kolom mendapat tinggi yang jelas, sehingga
+   `flex: 1; min-height: 0` di dalamnya benar-benar menggulir. */
+.materi-badan { height: calc(100dvh - 132px); min-height: 470px; }
+.materi-badan > * { min-height: 0; }
+.materi-badan .panggung { min-height: 0; max-height: 100%; }
+.materi-badan .panggung > .kolom { min-height: 0; }
+.materi-badan .panggung .kolom.kanan { max-height: 100%; }
+@media (max-width: 860px) {
+  /* Di layar sempit sidebar dan isi bertumpuk, jadi mengunci tinggi panel
+     justru membuat dua daerah gulir bersarang. Biarkan halaman yang menggulir. */
+  .materi-badan { max-height: none; }
+  .materi-badan .panggung .kolom.kanan { max-height: none; }
 }
