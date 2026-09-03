@@ -252,8 +252,11 @@ class Relatif4(AdeganMatra):
         # Babak 8 `nama`: namanya frekuensi relatif.
         # ==================================================================
         with sinema.babak(self, "nama", DURASI) as b:
+            # Bentuk pecahan bertingkat MENINDIH baris di bawahnya, dan tindihan
+            # di DALAM panel tidak diperiksa qc sama sekali (terlihat di render
+            # pertama). Ditulis mendatar supaya panelnya tetap satu baris.
             sinema.ganti_rumus(self, papan.utama,
-                               r"f_{rel} = \frac{f}{n}", b=b, run_time=1.8, papan=papan)
+                               r"f_{rel} = f : n", b=b, run_time=1.8, papan=papan)
             b.main(Indicate(papan.utama, scale_factor=1.2, color=SOROT), run_time=1.6)
             b.main(Indicate(VGroup(bagian_a, bagian_b), scale_factor=1.05, color=SOROT),
                    run_time=1.6)

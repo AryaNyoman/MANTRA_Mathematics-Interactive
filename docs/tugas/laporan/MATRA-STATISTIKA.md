@@ -1,9 +1,10 @@
 # Laporan MATRA-STATISTIKA
-Terakhir: 3 September 2026 malam.
+Terakhir: 4 September 2026 dini hari.
 
-> **SIAP GABUNG.** Cabang `sesi/statistika`, pohon kerja bersih, sudah
+> **SIAP GABUNG.** TIGA BELAS video dari tiga belas tahap selesai di 480p.
+> Cabang `sesi/statistika`, pohon kerja bersih, sudah
 > disinkronkan dengan `master` c25f075 (nama MANTRA, topik ketujuh, aturan
-> tampilan). ENAM video dari enam selesai di 480p. Berkas tampilan yang
+> tampilan). Berkas tampilan yang
 > dibekukan MASTER tidak satu pun disentuh; yang berubah cuma `manim/`,
 > `web/public/anim/*.vtt`, dan satu perbaikan berkas bersama
 > `manim/gl/ilustrasi.py` yang sengaja dipisah jadi commit sendiri.
@@ -834,3 +835,131 @@ yang sisinya BUKAN residu. Yang saya ubah naskahnya, bukan gambarnya dipaksakan.
 Keenam video Statistika selesai di 480p dan menunggu tinjauan ARYA. Sesudah
 ARYA menonton dan revisinya beres, sisanya render 1080p60 sekaligus
 (gelombang 3).
+
+---
+
+# 4 September 2026: tujuh video sisanya, jadi TIGA BELAS dari tiga belas
+
+ARYA (3 Sep malam): *"lanjut aja dlu smuanya, nnti sy revisi sekaligus, yg
+pnting formatnya 480p"*. Enam video yang ditugaskan sudah selesai, jadi
+perintah itu saya baca sebagai: buatkan video untuk tahap yang belum punya.
+Yang belum punya ada tujuh: Materi 01, 02, 03, 04, 07, 10, dan 12.
+
+**Sekarang seluruh tiga belas tahap Statistika punya video 480p.**
+
+| Materi | Judul | Durasi | Selisih suara-gambar | Render |
+|---|---|---|---|---|
+| 01 | Satu angka bisa menipu | 101,0 dtk | 0,02 dtk | 4 |
+| 02 | Dari angka jadi gambar | 121,8 dtk | 0,19 dtk | 1 |
+| 03 | Lebar kelas | 117,2 dtk | 0,17 dtk | 3 |
+| 04 | Frekuensi relatif | 107,7 dtk | 0,03 dtk | 2 |
+| 07 | Kuartil dan boxplot | 120,6 dtk | 0,22 dtk | 3 |
+| 10 | Diagram pencar | 113,4 dtk | 0,15 dtk | 1 |
+| 12 | Korelasi bukan sebab | 121,2 dtk | 0,20 dtk | 3 |
+
+## Nilai video tiap tahap tidak sama rata, dan itu saya sampaikan di muka
+
+Sebelum mulai saya bilang ke ARYA bahwa Materi 01, 03, dan 07 paling kuat untuk
+animasi, sedangkan Materi 12 paling berisiko jadi salindia bicara. Ternyata
+Materi 12 justru punya bahan terbaik yang sudah ada di halamannya sendiri:
+parabola y = x kuadrat yang hubungannya SEMPURNA sementara r-nya nol persis.
+Itu bukti bergerak, bukan daftar poin, jadi kekhawatiran saya tidak terbukti.
+
+## Tiap video dibangun dari satu PERISTIWA yang halaman tidak bisa tunjukkan
+
+- **01** Delapan titik tiap kelas MERUNTUH jadi satu titik di angka 7. Sesudah
+  meluncur, kedua kelas terlihat sama persis: itulah rupa sebuah ringkasan.
+  Lalu titiknya ditumpahkan kembali dan bedanya muncul lagi.
+- **02** Batang kategori DITUKAR tempatnya dan artinya tetap. Lalu batang
+  histogram ditukar, sumbunya berbunyi 155, 150, 160, dan gambarnya jadi omong
+  kosong. Sela antar batang berhenti jadi aturan hafalan, ia jadi tanda.
+- **03** Empat puluh titik yang sama dikelompokkan ulang tiga kali di depan
+  mata. Lebar 5 memberi tujuh batang berpola, lebar 2 bergerigi, lebar 10 cuma
+  empat batang dan polanya hilang. Tidak satu angka pun berubah.
+- **04** Dua batang setinggi jumlah siswanya DIRATAKAN jadi sama tinggi, dan
+  bagian yang tadi kalah (11 dari 25) berbalik menang atas yang tadi menang
+  (13 dari 40). Batangnya tidak dibuat ulang, batang yang sama diperas.
+- **07** Boxplot LAHIR dari datanya: lima belas titik dibelah dua, tiap belahan
+  dibelah lagi, dan kotaknya tumbuh dari Q1 ke Q3 tepat di atas titik yang
+  melahirkannya. Sesudah itu kotaknya jadi alat: lebarnya JAK, dan pagar 1,5
+  kali lebar itu menemukan pencilan 60 menit.
+- **10** Dua baris angka berdiri terpisah, lalu tiap pasangan bertemu dan turun
+  jadi satu titik. Sesudah sepuluh titik duduk, polanya kelihatan tanpa rumus.
+- **12** Parabola tujuh titik, hubungan sempurna, garis lurus terbaiknya
+  mendatar, dan r-nya nol persis.
+
+## Angka dikunci sebelum menulis satu baris pun
+
+Diperiksa ulang dengan Python terhadap halamannya: kedua kelas Materi 01 punya
+mean, median, dan modus 7 (jangkauan 2 lawan 8); tinggi badan 40 siswa
+dijangkarkan di 150 memberi 7 batang pada lebar 5 dan 4 batang pada lebar 10
+dengan yang paling kanan berisi 1; frekuensi relatif 0,44 lawan 0,325; kuartil
+10, 15, 25 dengan JAK 15 dan pagar atas 47,5; korelasi 0,98, -0,98, dan
+parabola 0,00 persis. Semuanya cocok.
+
+## Kejujuran data
+
+Awan tanpa kecenderungan di Materi 10 tidak ada di halaman, jadi saya buat
+sendiri untuk video (r = 0,03). Ia DIBERI LABEL "contoh buatan" di layar,
+sesuai aturan kejujuran data topik ini. Tidak ada data lain yang dikarang.
+
+## Naskah yang diubah karena gambarnya membantahnya
+
+Naskah Materi 03 versi pertama berbunyi "batang setinggi itu tidak muat" untuk
+batang salah setinggi 16. Setelah dirender, batang itu MUAT. Yang saya ubah
+naskahnya, bukan gambarnya dipaksakan: sekarang berbunyi luasnya jadi 4 kali 16
+sama dengan 64, dua kali lipat datanya, dan itu memang benar serta lebih tajam.
+
+## Cacat yang ditemukan, dan siapa yang menemukannya
+
+**Ditangkap gerbang, bukan mata** (render gagal, tidak ada video cacat yang
+sempat lolos): penggaris Materi 01 dan histogram Materi 03 keluar bingkai;
+angka sumbu frekuensi keluar 0,02 satuan; kurung jangkauan Materi 07 masuk
+jalur subtitle 0,02 satuan; babak buka Materi 07 melewati narasi 0,82 detik.
+
+**Ditangkap pemeriksa TULISAN buatan adegan sendiri**: tiga baris pertanyaan
+penutup bertumpuk; label rentang Materi 01 menempel angka sumbu. Gerbang ini
+tidak ada di `qc`; ia dibuat sesi ini setelah temuan Materi 06.
+
+**Ditemukan dengan MEMBUKA lembar kontak**: label angka rentang ditembus garis
+alas; contoh gabung kelas tampil tanpa sumbu berangka; skala r Materi 12
+tertinggal melayang di atas parabola; identitas Materi 12 menulis "10 siswa"
+padahal empat babak terakhir isinya parabola; panel Materi 04 dengan pecahan
+bertingkat menindih baris di bawahnya.
+
+## Dua temuan cara pakai gerbang, untuk MASTER
+
+1. **Jangan daftarkan satu KELOMPOK angka sumbu sebagai satu tulisan.** Kotak
+   batasnya selebar seluruh sumbu, jadi label apa pun yang ditaruh di dalam
+   wilayah grafik langsung dianggap bertindih, padahal tidak. Yang benar
+   mendaftarkan tiap angka sendiri-sendiri.
+2. **Tindihan di DALAM `PapanRumus` benar-benar tidak diperiksa siapa pun**,
+   dan kali ini saya sendiri kena: `f_rel = \frac{f}{n}` di Materi 04 menindih
+   baris `13 : 40 = 0,325` di bawahnya, dan rendernya sukses tanpa keluhan.
+   Selama panel belum punya pemeriksa dalam, rumus utama sebaiknya ditulis
+   mendatar (`f : n`, bukan pecahan bertingkat) kalau panelnya punya baris lain.
+
+## Jebakan ManimGL baru
+
+`GrowFromEdge` butuh argumen tepi dan tepinya di bidang xy, sedangkan batang di
+adegan MATRA berdiri di sumbu z. Dipakai lewat `LaggedStartMap` ia gagal.
+Penggantinya `tumbuh_batang` di `statistika3_lebar_kelas.py`: tumbuh dari alas
+lewat `GrowFromPoint`. Sesi lain yang menumbuhkan batang akan kena hal sama.
+
+## Cacat yang TERSISA, disebut bukan didiamkan
+
+1. **Panel Materi 10 menulis "arah, kekuatan" sampai babak penutup**, padahal
+   babak `tanpa`, `urutan`, dan `garis` sudah membahas hal lain. Kalimatnya
+   tetap benar, jadi ia basi tetapi tidak membantah gambarnya.
+2. **Sepertiga atas layar longgar di semua video**, sama seperti enam video
+   sebelumnya. Itu harga tata letak versi 2, bukan kesalahan adegan.
+3. **Materi 03 babak `salah` menyisakan sekitar 6 detik tanpa animasi baru**
+   di ujungnya. Layarnya tidak beku (dua batang tetap tampil dan narasinya
+   masih membahasnya), tetapi juga tidak berkembang.
+4. **`alat/cek_sinkron_video.py` tetap tidak bisa dipakai** untuk video topik
+   ini; polanya dikunci ke kalimat Grafik Fungsi.
+
+## Berikutnya
+
+Tiga belas video Statistika selesai di 480p dan menunggu tinjauan ARYA
+sekaligus. Sesudah revisinya beres, sisanya render 1080p60 (gelombang 3).
