@@ -1,5 +1,75 @@
 # Laporan MATRA-VEKTOR
-Terakhir: 4 September 2026, 00.30
+Terakhir: 4 September 2026, 08.00
+
+## Cacat diperbaiki, 01 dan 06 dirender ulang (4 Sep pagi)
+
+Perintah ARYA: "anda perbaiki aja dlu cacatnya". Perintah MASTER menyusul:
+kerjakan kodenya untuk semua, render ulang HANYA 01 dan 06 untuk dinilai.
+
+### Yang beres
+
+| Cacat | Cara memperbaikinya |
+|---|---|
+| Label "dayung" jatuh di luar petak pada 180 derajat | Posisinya ditahan di dalam baris terbawah bidang |
+| Bidang menyusut 12 sampai 15 persen | `sinema.alas_hud`: tulisan HUD diberi alas kertas, pesanan jalur dihapus |
+| Resultan Materi 06 berkedip hitam | Bukan sorotannya yang salah, PANAH KELIRUNYA. Hitam di video itu juga dipakai untuk titik sambung dan label, jadi ia tinta netral; panah keliru jadi REDUP |
+| Pembuka 3D kelabu 15 sampai 22 detik | Dipotong di 03, 04, 06, 08, 09. Video pertama topik (Materi 01) tetap punya pembuka 3D |
+
+Pembuka dipotong TANPA mengubah satu kata narasi. `bidang_bernomor` menyimpan
+`bidang.angka`, jadi angka sumbu bisa ditahan lalu dimunculkan persis saat
+narator berkata "lengkap dengan angka pada kedua sumbunya". Panjang video tidak
+berubah, sebab `Babak.tutup()` menutup sisa waktu tiap babak.
+
+### Empat kali gagal sebelum alas kertasnya layak
+
+Semuanya dengan sebab yang jelas dari pesan gerbangnya sendiri, bukan tebakan:
+1. alas menonjol lewat tepi layar ("identitas keluar bingkai: kiri -6,93");
+2. gerbang menolak HUD menindih bidang, padahal itu yang alas izinkan;
+3. alas berhenti 0,34 satuan sebelum tepi, menyisakan pita petak di luarnya
+   sehingga terbaca sebagai stiker. Sisinya dirapatkan sampai tepi;
+4. alas melebar SEBELUM barisnya muncul, jadi ada bidang kertas kosong 0,8
+   detik, empat kali. Pelebarannya dijadikan animasi yang ikut ke `play` yang
+   sama dengan kemunculan barisnya.
+
+### Lubang yang saya buat sendiri, ditangkap MASTER
+
+Pengecualian gerbang versi pertama saya: "HUD beralas, lewati SEMUA pasangan
+hud x dunia". Itu membuka lubang yang lebih buruk daripada yang ditutupnya,
+sebab titik, panah, atau label yang kebetulan berada di bawah panel tidak akan
+pernah ketahuan. Sekarang pasangan dilewati hanya bila HUD-nya `beralas` DAN
+benda dunianya `latar`. Saya sempat menyebut risiko itu sendiri lalu tetap
+melepasnya; seharusnya sempit sejak awal.
+
+### Uji yang tidak pernah gagal tidak membuktikan apa-apa
+
+Render Materi 01 gagal "panel d menindih bidang". Sebabnya `m.beralas = True`
+ikut terhapus dari `_ke_depan` waktu bentrok merge diselesaikan, dan justru
+jalur itu yang dipakai `papan.baris()`. Uji regresi pertama yang saya tulis
+untuk menangkapnya MEMAKAI JALUR YANG SALAH (`perbarui_alas`) sehingga lolos
+walaupun bugnya ada. Sekarang memakai `_anim_alas` dan dibuktikan dua arah:
+dengan perbaikan dimatikan ia berbunyi "GAGAL: baris papan beralas tidak
+bertanda `beralas`".
+
+Sekalian ketemu: `uji_qc.py` mencetak "SEMUA UJI QC LOLOS" dua kali, satu di
+tengah padahal separuh uji belum jalan. Dibuang. Sekarang 16 ok, satu
+pengumuman, di akhir.
+
+### Dua kali nyaris salah lapor, keduanya ketahuan karena MELIHAT
+
+1. Lembar kontak Materi 06 memperlihatkan satu detik yang bidangnya seperti
+   hilang. Diperbesar: bidangnya ada, hanya angkanya sedang memudar masuk dan
+   garis petaknya terlalu pucat untuk terlihat pada gambar sekecil itu. Hampir
+   memperbaiki yang tidak rusak.
+2. Sebelumnya, panah tunggal di penutup Materi 09 juga saya kira cacat;
+   ternyata frame di tengah proses memudar.
+
+### Sisa
+Materi 03, 04, 08, 09 sudah diperbaiki KODENYA, belum dirender, menunggu vonis
+atas bentuk 01 dan 06. Cacat lama yang belum tersentuh: mobil, bola, dan orang
+tetap gumpalan kecil dilihat tegak lurus dari atas, dan sekarang lebih terasa
+karena pembuka 3D-nya sudah tidak ada.
+
+---
 
 ## ENAM video Vektor kini SEMUANYA standar v2 (4 Sep dini hari)
 
