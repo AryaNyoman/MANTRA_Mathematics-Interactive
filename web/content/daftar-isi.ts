@@ -3,6 +3,7 @@ import PanggungGrafikFungsi from '@/components/topik/PanggungGrafikFungsi'
 import PanggungLimit from '@/components/topik/PanggungLimit'
 import PanggungStatistika from '@/components/topik/PanggungStatistika'
 import PanggungRuang3D from '@/components/topik/PanggungRuang3D'
+import PanggungTransformasiGeometri from '@/components/topik/PanggungTransformasiGeometri'
 import PanggungTrigonometri from '@/components/topik/PanggungTrigonometri'
 import PanggungVektor from '@/components/topik/PanggungVektor'
 import { TAHAP as TAHAP_GRAFIK, LATIHAN as LATIHAN_GRAFIK, KUIS as KUIS_GRAFIK, KANAL as KANAL_GRAFIK } from '@/content/grafik-fungsi'
@@ -10,6 +11,7 @@ import { TAHAP as TAHAP_LIMIT, LATIHAN as LATIHAN_LIMIT, KUIS as KUIS_LIMIT, KAN
 import { TAHAP as TAHAP_VEKTOR, LATIHAN as LATIHAN_VEKTOR, KUIS as KUIS_VEKTOR, KANAL as KANAL_VEKTOR } from '@/content/vektor'
 import { TAHAP as TAHAP_STATISTIKA, LATIHAN as LATIHAN_STATISTIKA, KUIS as KUIS_STATISTIKA, KANAL as KANAL_STATISTIKA } from '@/content/statistika'
 import { TAHAP as TAHAP_RUANG, LATIHAN as LATIHAN_RUANG, KUIS as KUIS_RUANG, KANAL as KANAL_RUANG } from '@/content/ruang-3d'
+import { TAHAP as TAHAP_TRANSFORMASI, LATIHAN as LATIHAN_TRANSFORMASI, KUIS as KUIS_TRANSFORMASI, KANAL as KANAL_TRANSFORMASI } from '@/content/transformasi-geometri'
 import { TAHAP, LATIHAN, KUIS, KANAL } from '@/content/trigonometri'
 
 /**
@@ -65,5 +67,12 @@ export const ISI_TOPIK: Record<string, IsiTopik | undefined> = {
     kuis: KUIS_RUANG,
     kanal: KANAL_RUANG,
     Panggung: PanggungRuang3D,
+  },
+  'transformasi-geometri': {
+    tahap: TAHAP_TRANSFORMASI,
+    latihan: LATIHAN_TRANSFORMASI,
+    kuis: KUIS_TRANSFORMASI,
+    kanal: KANAL_TRANSFORMASI,
+    Panggung: PanggungTransformasiGeometri,
   },
 }

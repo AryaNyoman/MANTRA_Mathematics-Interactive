@@ -1,0 +1,67 @@
+[
+  { "id": "M02-contoh-A",        "jenis": "translasi", "titik": [1, 2], "geser": [4, -3], "jawaban": [5, -1] },
+  { "id": "M02-coba-B",          "jenis": "translasi", "titik": [-2, 5], "geser": [3, 1], "jawaban": [1, 6] },
+
+  { "id": "M03-contoh-x5",       "jenis": "cermin_garis_tegak", "titik": [1, 2], "k": 5, "jawaban": [9, 2] },
+  { "id": "M03-coba-y2",         "jenis": "cermin_garis_datar", "titik": [3, -1], "h": 2, "jawaban": [3, 5] },
+  { "id": "M03-sumbuY-k0",       "jenis": "cermin_garis_tegak", "titik": [3, 2], "k": 0, "jawaban": [-3, 2] },
+  { "id": "M03-sumbuX-h0",       "jenis": "cermin_garis_datar", "titik": [3, 2], "h": 0, "jawaban": [3, -2] },
+
+  { "id": "M04-contoh-A",        "jenis": "cermin_y_x", "titik": [2, 5], "jawaban": [5, 2] },
+  { "id": "M04-contoh-B",        "jenis": "cermin_y_x", "titik": [-3, 4], "jawaban": [4, -3] },
+  { "id": "M04-contoh-C-tetap",  "jenis": "cermin_y_x", "titik": [6, 6], "jawaban": [6, 6] },
+  { "id": "M04-coba-B",          "jenis": "cermin_y_min_x", "titik": [-3, 4], "jawaban": [-4, 3] },
+  { "id": "M04-keliru-uji",      "jenis": "cermin_y_min_x", "titik": [1, 9], "jawaban": [-9, -1] },
+
+  { "id": "M05-contoh-M33",      "jenis": "cermin_titik", "titik": [1, 2], "pusat": [3, 3], "jawaban": [5, 4] },
+  { "id": "M05-coba-M12",        "jenis": "cermin_titik", "titik": [4, -1], "pusat": [1, 2], "jawaban": [-2, 5] },
+  { "id": "M05-pusat-asal",      "jenis": "cermin_titik", "titik": [3, 1], "pusat": [0, 0], "jawaban": [-3, -1] },
+
+  { "id": "M06-jarum-jam",       "jenis": "rotasi", "titik": [4, 0], "derajat": 90, "pusat": [0, 0], "jawaban": [0, 4] },
+  { "id": "M06-90-umum",         "jenis": "rotasi", "titik": [3, 1], "derajat": 90, "pusat": [0, 0], "jawaban": [-1, 3] },
+  { "id": "M06-180-sama-cermin", "jenis": "rotasi", "titik": [3, 1], "derajat": 180, "pusat": [0, 0], "jawaban": [-3, -1] },
+  { "id": "M06-270",             "jenis": "rotasi", "titik": [3, 1], "derajat": 270, "pusat": [0, 0], "jawaban": [1, -3] },
+  { "id": "M06-contoh-pusat11",  "jenis": "rotasi", "titik": [2, 1], "derajat": 90, "pusat": [1, 1], "jawaban": [1, 2] },
+  { "id": "M06-keliru-20-rot",   "jenis": "rotasi", "titik": [2, 0], "derajat": 90, "pusat": [0, 0], "jawaban": [0, 2] },
+  { "id": "M06-keliru-20-crm",   "jenis": "cermin_y_x", "titik": [2, 0], "jawaban": [0, 2] },
+  { "id": "M06-keliru-21-rot",   "jenis": "rotasi", "titik": [2, 1], "derajat": 90, "pusat": [0, 0], "jawaban": [-1, 2] },
+  { "id": "M06-keliru-21-crm",   "jenis": "cermin_y_x", "titik": [2, 1], "jawaban": [1, 2] },
+
+  { "id": "M07-contoh-k3",       "jenis": "dilatasi", "titik": [2, 1], "k": 3, "pusat": [1, 1], "jawaban": [4, 1] },
+  { "id": "M07-keliru-lupa-pst", "jenis": "dilatasi", "titik": [2, 1], "k": 3, "pusat": [0, 0], "jawaban": [6, 3] },
+
+  { "id": "M08-persegi-luas",    "jenis": "luas_dilatasi", "luas": 4, "k": 3, "jawaban": 36 },
+  { "id": "M08-nisbah-9",        "jenis": "luas_dilatasi", "luas": 1, "k": 3, "jawaban": 9 },
+
+  { "id": "M09-contoh-rot90",    "jenis": "matriks", "titik": [3, 2], "m": [[0, -1], [1, 0]], "jawaban": [-2, 3] },
+  { "id": "M09-cocok-rot90",     "jenis": "rotasi", "titik": [3, 2], "derajat": 90, "pusat": [0, 0], "jawaban": [-2, 3] },
+  { "id": "M09-keliru-baris",    "jenis": "matriks", "titik": [3, 4], "m": [[1, 2], [0, 1]], "jawaban": [11, 4] },
+  { "id": "M09-kolom1",          "jenis": "matriks", "titik": [1, 0], "m": [[2, -3], [5, 7]], "jawaban": [2, 5] },
+  { "id": "M09-kolom2",          "jenis": "matriks", "titik": [0, 1], "m": [[2, -3], [5, 7]], "jawaban": [-3, 7] },
+  { "id": "M09-kali-matriks",    "jenis": "kali_matriks", "m2": [[0, -1], [1, 0]], "m1": [[1, 0], [0, -1]], "jawaban": [[0, 1], [1, 0]] },
+
+  { "id": "M10-kolom1-crmX",     "jenis": "cermin_sumbu_x", "titik": [1, 0], "jawaban": [1, 0] },
+  { "id": "M10-kolom2-crmX",     "jenis": "cermin_sumbu_x", "titik": [0, 1], "jawaban": [0, -1] },
+  { "id": "M10-matriks-crmX",    "jenis": "matriks", "titik": [3, 5], "m": [[1, 0], [0, -1]], "jawaban": [3, -5] },
+  { "id": "M10-matriks-crmY",    "jenis": "matriks", "titik": [3, 5], "m": [[-1, 0], [0, 1]], "jawaban": [-3, 5] },
+  { "id": "M10-matriks-yx",      "jenis": "matriks", "titik": [3, 5], "m": [[0, 1], [1, 0]], "jawaban": [5, 3] },
+  { "id": "M10-matriks-yminx",   "jenis": "matriks", "titik": [3, 5], "m": [[0, -1], [-1, 0]], "jawaban": [-5, -3] },
+  { "id": "M10-matriks-asal",    "jenis": "matriks", "titik": [3, 5], "m": [[-1, 0], [0, -1]], "jawaban": [-3, -5] },
+  { "id": "M10-matriks-dil-k",   "jenis": "matriks", "titik": [3, 5], "m": [[4, 0], [0, 4]], "jawaban": [12, 20] },
+  { "id": "M10-asal-tetap-1",    "jenis": "matriks", "titik": [0, 0], "m": [[9, -4], [6, 1]], "jawaban": [0, 0] },
+  { "id": "M10-asal-tetap-2",    "jenis": "matriks", "titik": [0, 0], "m": [[0, -1], [-1, 0]], "jawaban": [0, 0] },
+
+  { "id": "M11-langkah-1",       "jenis": "cermin_sumbu_x", "titik": [3, 1], "jawaban": [3, -1] },
+  { "id": "M11-langkah-2",       "jenis": "rotasi", "titik": [3, -1], "derajat": 90, "pusat": [0, 0], "jawaban": [1, 3] },
+  { "id": "M11-urutan-benar",    "jenis": "komposisi", "titik": [3, 1],
+    "langkah": [{ "jenis": "cermin_sumbu_x" }, { "jenis": "rotasi", "derajat": 90, "pusat": [0, 0] }],
+    "jawaban": [1, 3] },
+  { "id": "M11-urutan-dibalik",  "jenis": "komposisi", "titik": [3, 1],
+    "langkah": [{ "jenis": "rotasi", "derajat": 90, "pusat": [0, 0] }, { "jenis": "cermin_sumbu_x" }],
+    "jawaban": [-1, -3] },
+
+  { "id": "M12-M2M1",            "jenis": "kali_matriks", "m2": [[0, -1], [1, 0]], "m1": [[1, 0], [0, -1]], "jawaban": [[0, 1], [1, 0]] },
+  { "id": "M12-M2M1-pada-31",    "jenis": "matriks", "titik": [3, 1], "m": [[0, 1], [1, 0]], "jawaban": [1, 3] },
+  { "id": "M12-M1M2",            "jenis": "kali_matriks", "m2": [[1, 0], [0, -1]], "m1": [[0, -1], [1, 0]], "jawaban": [[0, -1], [-1, 0]] },
+  { "id": "M12-M1M2-pada-31",    "jenis": "matriks", "titik": [3, 1], "m": [[0, -1], [-1, 0]], "jawaban": [-1, -3] }
+]

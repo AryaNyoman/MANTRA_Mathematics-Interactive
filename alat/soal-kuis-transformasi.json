@@ -1,0 +1,60 @@
+[
+  { "id": "K-translasi-dasar",     "jenis": "translasi", "titik": [1, 2], "geser": [3, 4], "jawaban": [4, 6] },
+  { "id": "K-cermin-sumbu-x",      "jenis": "cermin_sumbu_x", "titik": [-3, 7], "jawaban": [-3, -7] },
+  { "id": "K-rotasi-90-dasar",     "jenis": "rotasi", "titik": [2, 0], "derajat": 90, "pusat": [0, 0], "jawaban": [0, 2] },
+  { "id": "K-rotasi-90-searah",    "jenis": "rotasi", "titik": [2, 0], "derajat": -90, "pusat": [0, 0], "jawaban": [0, -2] },
+  { "id": "K-cermin-sumbu-y",      "jenis": "cermin_sumbu_y", "titik": [6, -1], "jawaban": [-6, -1] },
+
+  { "id": "K-cermin-y-sama-x",     "jenis": "cermin_y_x", "titik": [-4, 6], "jawaban": [6, -4] },
+  { "id": "K-dilatasi-pusat-asal", "jenis": "dilatasi", "titik": [-2, 5], "k": 3, "pusat": [0, 0], "jawaban": [-6, 15] },
+  { "id": "K-cermin-garis-datar",  "jenis": "cermin_garis_datar", "titik": [2, 5], "h": 3, "jawaban": [2, 1] },
+  { "id": "K-rotasi-180-berpusat", "jenis": "rotasi", "titik": [5, 3], "derajat": 180, "pusat": [2, 1], "jawaban": [-1, -1] },
+  { "id": "K-rot180-periksa-tgh",  "jenis": "titik_tengah", "a": [5, 3], "b": [-1, -1], "jawaban": [2, 1] },
+  { "id": "K-rot180-pengecoh",     "jenis": "rotasi", "titik": [5, 3], "derajat": 180, "pusat": [0, 0], "jawaban": [-5, -3] },
+
+  { "id": "K-komposisi-jawaban",   "jenis": "komposisi", "titik": [4, 1],
+    "langkah": [{ "jenis": "cermin_sumbu_y" }, { "jenis": "translasi", "geser": [2, -3] }],
+    "jawaban": [-2, -2] },
+  { "id": "K-komposisi-langkah1",  "jenis": "cermin_sumbu_y", "titik": [4, 1], "jawaban": [-4, 1] },
+  { "id": "K-komposisi-dibalik",   "jenis": "komposisi", "titik": [4, 1],
+    "langkah": [{ "jenis": "translasi", "geser": [2, -3] }, { "jenis": "cermin_sumbu_y" }],
+    "jawaban": [-6, -2] },
+
+  { "id": "K-cari-vektor",         "jenis": "vektor_translasi", "a": [-3, 8], "b": [2, 1], "jawaban": [5, -7] },
+  { "id": "K-cari-vektor-maju",    "jenis": "translasi", "titik": [-3, 8], "geser": [5, -7], "jawaban": [2, 1] },
+
+  { "id": "K-kolom-matriks",       "jenis": "cermin_y_x", "titik": [1, 0], "jawaban": [0, 1] },
+
+  { "id": "K-rotasi-90-berpusat",  "jenis": "rotasi", "titik": [3, -2], "derajat": 90, "pusat": [1, -2], "jawaban": [1, 0] },
+  { "id": "K-rot90-pengecoh-asal", "jenis": "rotasi", "titik": [3, -2], "derajat": 90, "pusat": [0, 0], "jawaban": [2, 3] },
+
+  { "id": "K-gabungan-matriks",    "jenis": "kali_matriks", "m2": [[0, -1], [1, 0]], "m1": [[1, 0], [0, -1]], "jawaban": [[0, 1], [1, 0]] },
+  { "id": "K-gabungan-uji-titik",  "jenis": "komposisi", "titik": [3, 1],
+    "langkah": [{ "jenis": "cermin_sumbu_x" }, { "jenis": "rotasi", "derajat": 90, "pusat": [0, 0] }],
+    "jawaban": [1, 3] },
+  { "id": "K-gabungan-sama-yx",    "jenis": "cermin_y_x", "titik": [3, 1], "jawaban": [1, 3] },
+  { "id": "K-gabungan-dibalik",    "jenis": "kali_matriks", "m2": [[1, 0], [0, -1]], "m1": [[0, -1], [1, 0]], "jawaban": [[0, -1], [-1, 0]] },
+
+  { "id": "K-garis-titik1-asal",   "jenis": "titik_pada_garis", "titik": [0, 3], "m": 2, "c": 3, "jawaban": true },
+  { "id": "K-garis-titik1-peta",   "jenis": "cermin_sumbu_x", "titik": [0, 3], "jawaban": [0, -3] },
+  { "id": "K-garis-titik1-cocok",  "jenis": "titik_pada_garis", "titik": [0, -3], "m": -2, "c": -3, "jawaban": true },
+  { "id": "K-garis-titik2-asal",   "jenis": "titik_pada_garis", "titik": [1, 5], "m": 2, "c": 3, "jawaban": true },
+  { "id": "K-garis-titik2-peta",   "jenis": "cermin_sumbu_x", "titik": [1, 5], "jawaban": [1, -5] },
+  { "id": "K-garis-titik2-cocok",  "jenis": "titik_pada_garis", "titik": [1, -5], "m": -2, "c": -3, "jawaban": true },
+
+  { "id": "K-luas-dilatasi",       "jenis": "luas_dilatasi", "luas": 12, "k": -3, "jawaban": 108 },
+  { "id": "K-luas-pengecoh-kali",  "jenis": "luas_dilatasi", "luas": 12, "k": 1, "jawaban": 12 },
+
+  { "id": "K-translasi-boleh-1",   "jenis": "komposisi", "titik": [2, 5],
+    "langkah": [{ "jenis": "translasi", "geser": [2, 1] }, { "jenis": "translasi", "geser": [-3, 4] }],
+    "jawaban": [1, 10] },
+  { "id": "K-translasi-boleh-2",   "jenis": "komposisi", "titik": [2, 5],
+    "langkah": [{ "jenis": "translasi", "geser": [-3, 4] }, { "jenis": "translasi", "geser": [2, 1] }],
+    "jawaban": [1, 10] },
+  { "id": "K-dilatasi-tak-boleh1", "jenis": "komposisi", "titik": [1, 0],
+    "langkah": [{ "jenis": "dilatasi", "k": 2, "pusat": [0, 0] }, { "jenis": "translasi", "geser": [3, 0] }],
+    "jawaban": [5, 0] },
+  { "id": "K-dilatasi-tak-boleh2", "jenis": "komposisi", "titik": [1, 0],
+    "langkah": [{ "jenis": "translasi", "geser": [3, 0] }, { "jenis": "dilatasi", "k": 2, "pusat": [0, 0] }],
+    "jawaban": [8, 0] }
+]
