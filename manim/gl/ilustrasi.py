@@ -246,6 +246,11 @@ def bidang_bernomor(x_range=(-6.0, 6.0, 1.0), y_range=(-4.0, 4.0, 1.0),
     # narator berkata "lengkap dengan angka pada kedua sumbunya". Dipakai
     # sejak pembuka 3D dipotong (STANDAR butir 2, 4 Sep 2026).
     bidang.angka = angka
+    # Tanda untuk `qc.periksa_adegan`: panel HUD beralas boleh berdiri di
+    # atas bidang ini. Benda dunia TANPA tanda ini tetap dilarang tertutup
+    # panel, sebab menyembunyikan panah atau angka jauh lebih merusak
+    # daripada menutupi garis petak.
+    bidang.latar = True
 
     # WAJIB: NumberPlane menempatkan dirinya di TENGAH layar, bukan pada titik
     # asal koordinatnya. Untuk jangkauan yang tidak simetris, misalnya x dari -5

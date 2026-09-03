@@ -141,15 +141,21 @@ def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: floa
     for a, b in pasangan or []:
         tidak_bertindih(frame, semua.get(a), semua.get(b), a, b)
     for na, pa in (hud or {}).items():
-        # HUD yang punya alas kertas (lihat `sinema.alas_hud`) memang BOLEH
-        # berdiri di atas bidang: alasnya menutup garis petak di belakangnya,
-        # jadi tulisannya tetap bersih. Tanpa pengecualian ini, satu-satunya
-        # cara melewati gerbang adalah memesan jalur layar lewat
-        # `muat_datar(sisa_atas=, sisa_kanan=)`, dan itu menyusutkan bidang
-        # 12 sampai 15 persen. Yang TELANJANG tetap dilarang bertindih.
-        if getattr(pa, "beralas", False):
-            continue
         for nd, pd in (dunia or {}).items():
+            # HUD yang punya alas kertas (`sinema.alas_hud`) boleh berdiri di
+            # atas LATAR, dan hanya latar: bidang bernomor, kisi, sumbu.
+            # Alasnya menutup garis petak di belakangnya, jadi tulisannya
+            # tetap bersih, dan bidang tidak perlu menyusut demi memesan
+            # jalur layar.
+            #
+            # Pengecualian ini SENGAJA sempit. Versi pertama melewati SEMUA
+            # pasangan begitu HUD-nya beralas, dan itu membuka lubang yang
+            # lebih buruk daripada yang ditutupnya: sebuah titik, panah, atau
+            # label yang kebetulan berada di bawah panel tidak akan pernah
+            # ketahuan, padahal gambar yang menyembunyikan isinya sendiri
+            # adalah kelas cacat yang paling merusak. Temuan MASTER 4 Sep.
+            if getattr(pa, "beralas", False) and getattr(pd, "latar", False):
+                continue
             tidak_bertindih(frame, pa, pd, na, nd)
     daftar_tulisan = list((tulisan or {}).items())
     for i, (na, ta) in enumerate(daftar_tulisan):
