@@ -4,72 +4,78 @@ import Link from 'next/link'
 import { useSyncExternalStore } from 'react'
 import { ISI_TOPIK } from '@/content/daftar-isi'
 import { TOPIK, type Topik } from '@/content/topik'
+import { cariBab } from '@/content/subbab'
 import type { SoalKuis } from '@/content/tipe'
 import { langgan } from '@/lib/simpanan'
-import {
-  bacaLatihan, persenTopik, ringkasPerTingkat, LENCANA, hitungLencana,
-} from '@/lib/latihan-kemajuan'
+import { bacaLatihan, persenTopik, ringkasPerTingkat } from '@/lib/latihan-kemajuan'
+import KartuBayang from '@/components/mantra/KartuBayang'
 
 /**
- * Daftar topik di halaman /latihan, lengkap dengan bar kemajuan dan lencana.
+ * Halaman /latihan versi MANTRA (3 Sep 2026).
  *
- * Topik yang punya bank soal mendapat kartunya sendiri. Topik yang belum
- * dibangun tetap ditampilkan supaya siswa tahu rencananya, tapi ditandai jelas
- * belum ada soalnya. Menyembunyikannya akan membuat halaman ini terasa lebih
- * lengkap daripada kenyataannya.
+ * Satu kartu ringkasan per bab: persentase besar, satu bar emas-ke-hijau, dan
+ * empat ubin tingkat (mudah, sedang, sulit, sangat sulit) yang masing-masing
+ * punya bar kecil dan hitungan `N / 8`. Tingkat yang belum terbuka ditulis
+ * "terkunci" pada 55% kepekatan, bukan disembunyikan: siswa perlu melihat
+ * jalan yang belum ditempuh.
  *
- * Sampai 1 September 2026 berkas ini hanya mengenal Trigonometri dan menulis
- * slugnya di dalam kode. Sekarang daftarnya dibaca dari `content/daftar-isi.ts`,
- * jadi topik berikutnya ikut muncul sendiri tanpa berkas ini disentuh.
+ * LENCANA DIBUANG atas permintaan ARYA. Aturan kemajuan dan pembukaan tingkat
+ * TIDAK ditulis ulang di sini, tetap dibaca dari `lib/latihan-kemajuan.ts`.
+ *
+ * Topik yang belum punya bank soal tetap ditampilkan dan ditandai terus
+ * terang. Halaman yang berpura-pura penuh lebih merugikan daripada halaman
+ * yang jujur mengatakan apa yang belum ada.
  */
 export default function DaftarLatihan() {
   const siap = TOPIK.filter((t) => ISI_TOPIK[t.slug])
   const belum = TOPIK.filter((t) => !ISI_TOPIK[t.slug])
 
   return (
-    <main className="beranda">
-      <div className="jalur">Latihan</div>
-      <h1>Bank soal berjenjang</h1>
-      <p className="sub" style={{ maxWidth: '46rem' }}>
+    <main className="mantra-lebar" style={{ paddingTop: 38 }}>
+      <div className="kicker">Latihan</div>
+      <h1 className="judul-halaman">Bank soal berjenjang</h1>
+      <p className="sub-italic">
         Mulai dari yang mudah. Tingkat berikutnya terbuka setelah Anda menguasai
         tingkat sebelumnya, jadi urutannya menuntun, bukan menghukum.
       </p>
 
       {siap.map((t) => (
-        <KartuTopik key={t.slug} topik={t} bank={ISI_TOPIK[t.slug]!.kuis} />
+        <KartuBab key={t.slug} topik={t} bank={ISI_TOPIK[t.slug]!.kuis} />
       ))}
 
-      <p className="catatan" style={{ marginTop: 4, maxWidth: '46rem' }}>
-        Kemajuan dan lencana ini tersimpan di peramban Anda sendiri, tidak dikirim
-        ke mana pun. Karena itu ia akan hilang kalau Anda berganti perangkat atau
-        membersihkan riwayat, dan tidak bisa dipakai sebagai nilai resmi.
-      </p>
-
       {belum.length > 0 && (
-        <section className="isi-situs" aria-label="Topik lain">
-          <h2 className="isi-tajuk">Menyusul</h2>
-          <div className="kisi-isi">
-            {belum.map((t) => (
-              <article key={t.slug} className="kartu-isi">
-                <span className="kartu-no mono">{t.kelas}</span>
-                <h3>{t.nama}</h3>
-                <p>{t.pertanyaan}</p>
-                <div className="tanda-kosong mono">BELUM ADA SOAL</div>
-              </article>
-            ))}
+        <div className="kartu-segera">
+          <div>
+            <div className="kicker" style={{ color: 'var(--tinta-50)' }}>
+              Segera
+            </div>
+            <h3>Bank soal yang belum dibuka</h3>
+            <p>{belum.map((t) => t.nama).join(', ')} menyusul setelah materinya selesai.</p>
           </div>
-        </section>
+          <span className="titik" aria-hidden="true">
+            ···
+          </span>
+        </div>
       )}
+
+      <div className="kotak-emas" style={{ maxWidth: '54rem', margin: '28px 0 48px' }}>
+        <b>Nilai di sini bukan penilaian resmi.</b>
+        <p>
+          Kemajuan tersimpan di peramban Anda sendiri, tidak dikirim ke mana pun.
+          Karena itu ia hilang kalau Anda berganti perangkat atau membersihkan
+          riwayat.
+        </p>
+      </div>
     </main>
   )
 }
 
 /**
- * Satu kartu topik. Dipisah jadi komponen sendiri BUKAN demi kerapian, tetapi
+ * Satu kartu bab. Dipisah jadi komponen sendiri BUKAN demi kerapian, tetapi
  * karena hook tidak boleh dipanggil di dalam perulangan. Dengan begini tiap
- * topik punya satu komponen dengan satu hook, dan urutannya tetap.
+ * bab punya satu komponen dengan satu hook, dan urutannya tetap.
  */
-function KartuTopik({ topik, bank }: { topik: Topik; bank: SoalKuis[] }) {
+function KartuBab({ topik, bank }: { topik: Topik; bank: SoalKuis[] }) {
   // Dibaca sebagai external store: kemajuan berubah dari halaman lain, dan
   // React 19 melarang menyalinnya ke state lewat useEffect.
   const kemajuan = useSyncExternalStore(
@@ -78,57 +84,45 @@ function KartuTopik({ topik, bank }: { topik: Topik; bank: SoalKuis[] }) {
     () => JSON.stringify({ benar: [], dicoba: 0, lencana: [] }),
   )
   const k = JSON.parse(kemajuan) as ReturnType<typeof bacaLatihan>
+  const bab = cariBab(topik.slug)
 
   const persen = persenTopik(bank, k)
   const ringkas = ringkasPerTingkat(bank, k)
-  const diraih = new Set(hitungLencana(bank, k))
 
   return (
-    <section className="latihan-utama">
-      <div className="latihan-kepala">
+    <KartuBayang className="kartu-latihan">
+      <div className="latihan-atas">
         <div>
-          <div className="cap">Sedang tersedia · {topik.kelas}</div>
+          <div className="bab-kicker">
+            {bab ? `Bab ${bab.no} · ${bab.kelas} · ` : ''}
+            {bank.length} soal
+          </div>
           <h2>{topik.nama}</h2>
         </div>
-        <div className="latihan-persen mono">{persen}%</div>
+        <div className="latihan-persen">{persen}%</div>
       </div>
 
       <div className="bar-besar" role="img" aria-label={`Kemajuan ${topik.nama} ${persen} persen`}>
         <span style={{ width: `${persen}%` }} />
       </div>
 
-      <div className="tingkat-kisi">
+      <div className="kisi-tingkat">
         {ringkas.map((r) => (
-          <div key={r.tingkat} className={`tingkat-kartu${r.terbuka ? '' : ' terkunci'}`}>
-            <div className="tingkat-nama">{r.tingkat}</div>
-            <div className="bar-kecil">
+          <div key={r.tingkat} className={`ubin-tingkat${r.terbuka ? '' : ' ubin-terkunci'}`}>
+            <div className="nama">{r.tingkat}</div>
+            <div className="bar">
               <span style={{ width: `${r.persen}%` }} />
             </div>
-            <div className="tingkat-angka mono">
+            <div className="angka">
               {r.terbuka ? `${r.selesai} / ${r.total}` : 'terkunci'}
             </div>
           </div>
         ))}
       </div>
 
-      <div className="lencana-kisi" style={{ marginTop: 18 }}>
-        {LENCANA.map((l) => {
-          const punya = diraih.has(l.id)
-          return (
-            <div key={l.id} className={`lencana${punya ? ' punya' : ''}`}>
-              <span className="lencana-ikon" aria-hidden>{l.ikon}</span>
-              <div>
-                <div className="lencana-nama">{l.nama}</div>
-                <div className="lencana-syarat">{l.syarat}</div>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-
-      <Link href={`/latihan/${topik.slug}`} className="tombol" style={{ maxWidth: '18rem', marginTop: 18 }}>
-        {k.benar.length === 0 ? 'MULAI LATIHAN' : 'LANJUTKAN LATIHAN'}
+      <Link href={`/latihan/${topik.slug}`} className="pil-gelap" style={{ marginTop: 18 }}>
+        {k.benar.length === 0 ? 'Mulai latihan' : 'Lanjutkan latihan'}
       </Link>
-    </section>
+    </KartuBayang>
   )
 }

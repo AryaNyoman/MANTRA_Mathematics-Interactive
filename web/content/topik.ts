@@ -1,5 +1,5 @@
 /**
- * Daftar 6 topik MATRA.
+ * Daftar 6 topik MANTRA.
  *
  * Label kelas dicantumkan JUJUR dan SEDERHANA. Permintaan ARYA 1 Sep 2026:
  * cukup kelasnya saja, tanpa nomor bab dan tanpa menyebut kurikulum, karena

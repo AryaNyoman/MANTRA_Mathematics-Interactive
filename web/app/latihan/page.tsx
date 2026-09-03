@@ -3,7 +3,7 @@ import Nav from '@/components/Nav'
 import DaftarLatihan from '@/components/latihan/DaftarLatihan'
 
 export const metadata: Metadata = {
-  title: 'Latihan | MATRA',
+  title: 'Latihan | MANTRA',
   description:
     'Bank soal berjenjang dari mudah sampai sangat sulit, dengan kemajuan dan lencana yang tersimpan di peramban Anda sendiri.',
 }

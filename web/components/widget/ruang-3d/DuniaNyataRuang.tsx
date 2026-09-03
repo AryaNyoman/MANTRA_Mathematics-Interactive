@@ -198,7 +198,7 @@ export default function DuniaNyataRuang() {
           <figcaption style={{ padding: '11px 14px 13px' }}>
             <div
               style={{
-                fontFamily: 'var(--font-plex-mono), monospace',
+                fontFamily: 'var(--font-mono), sans-serif',
                 fontSize: 10,
                 letterSpacing: '0.13em',
                 textTransform: 'uppercase',

@@ -16,15 +16,15 @@ import type { MetadataRoute } from 'next'
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'MATRA - Matematika Interaktif',
-    short_name: 'MATRA',
+    name: 'MANTRA - Matematika Interaktif',
+    short_name: 'MANTRA',
     description:
       'Belajar matematika SMA lewat animasi yang menjelaskan dan alat yang bisa dicoba sendiri.',
     start_url: '/',
     display: 'standalone',
     orientation: 'any',
-    background_color: '#F6F2EC',
-    theme_color: '#211E1A',
+    background_color: '#FAF9F5',
+    theme_color: '#101A2B',
     lang: 'id',
     categories: ['education'],
     icons: [

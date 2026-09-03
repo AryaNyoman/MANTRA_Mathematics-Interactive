@@ -13,7 +13,7 @@ import { KUIS } from '@/content/ruang-3d'
  * 2 Sep 2026 karena sesi RUANG-3D belum membuatnya.
  */
 export const metadata: Metadata = {
-  title: 'Latihan Ruang Tiga Dimensi | MATRA',
+  title: 'Latihan Ruang Tiga Dimensi | MANTRA',
   description: 'Soal geometri ruang berjenjang dari mudah sampai sangat sulit, dengan pembahasan.',
 }
 

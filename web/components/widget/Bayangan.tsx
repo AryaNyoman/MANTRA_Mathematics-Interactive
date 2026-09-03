@@ -91,25 +91,25 @@ export default function Bayangan({ derajat }: { derajat: number }) {
 
       {/* keterangan */}
       <text x={X_POHON - 6} y={yPohon - 30} textAnchor="end" fontSize={14} fill={WARNA.depan}
-            fontFamily="var(--font-inter), sans-serif">{TINGGI_POHON} m</text>
+            fontFamily="var(--font-sans), sans-serif">{TINGGI_POHON} m</text>
       <text x={(bxPohon + X_POHON) / 2} y={TANAH_Y + 20} textAnchor="middle" fontSize={14}
-            fill={WARNA.samping} fontFamily="var(--font-inter), sans-serif">
+            fill={WARNA.samping} fontFamily="var(--font-sans), sans-serif">
         {koma(b.bayanganPohon, 1)} m
       </text>
       <text x={X_ORANG + 10} y={yOrang + 4} fontSize={14} fill={WARNA.depan}
-            fontFamily="var(--font-inter), sans-serif">{koma(TINGGI_ORANG, 1)} m</text>
+            fontFamily="var(--font-sans), sans-serif">{koma(TINGGI_ORANG, 1)} m</text>
       <text x={(bxOrang + X_ORANG) / 2} y={TANAH_Y + 20} textAnchor="middle" fontSize={14}
-            fill={WARNA.samping} fontFamily="var(--font-inter), sans-serif">
+            fill={WARNA.samping} fontFamily="var(--font-sans), sans-serif">
         {koma(b.bayanganOrang, 2)} m
       </text>
 
       {/* dua hasil bagi, ditempel di masing-masing benda */}
       <text x={X_POHON} y={TANAH_Y + 42} textAnchor="end" fontSize={15} fill={WARNA.sudut}
-            fontFamily="var(--font-plex-mono), monospace">
+            fontFamily="var(--font-mono), sans-serif">
         {TINGGI_POHON} ÷ {koma(b.bayanganPohon, 1)} = {koma(b.tan)}
       </text>
       <text x={X_ORANG - 40} y={TANAH_Y + 42} fontSize={15} fill={WARNA.sudut}
-            fontFamily="var(--font-plex-mono), monospace">
+            fontFamily="var(--font-mono), sans-serif">
         {koma(TINGGI_ORANG, 1)} ÷ {koma(b.bayanganOrang, 2)} = {koma(b.tan)}
       </text>
     </svg>

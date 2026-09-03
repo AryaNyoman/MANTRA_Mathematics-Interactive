@@ -47,3 +47,6 @@ web/public/anim/contoh-perahu.vtt
 
 # Salinan buku rujukan (65 MB). Aslinya di D:\BAHAN MATEMATIKA, jangan masuk repo.
 BAHAN MATEMATIKA/
+
+# Dependensi worktree perombakan: dipasang sendiri dengan `npm ci`.
+web/node_modules/

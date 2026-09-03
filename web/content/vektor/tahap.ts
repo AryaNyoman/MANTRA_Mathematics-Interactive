@@ -1,5 +1,5 @@
 /**
- * Vektor, 12 materi belajar. Topik ketiga MATRA.
+ * Vektor, 12 materi belajar. Topik ketiga MANTRA.
  *
  * Rancangannya: docs/superpowers/specs/2026-09-01-vektor-alur-belajar.md
  * Rencana kerjanya: docs/superpowers/plans/2026-09-01-topik-vektor.md

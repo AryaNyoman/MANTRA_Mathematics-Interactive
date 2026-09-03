@@ -1,5 +1,5 @@
 /**
- * Limit, 10 tahap belajar. Topik kedua MATRA.
+ * Limit, 10 tahap belajar. Topik kedua MANTRA.
  *
  * Rancangannya: docs/superpowers/specs/2026-09-01-limit-alur-belajar.md
  *
@@ -22,7 +22,7 @@
  * di Materi 01 bahwa h itu angka biasa dan bukan bilangan gaib, dan peringatan
  * lingkaran setan L Hopital di Materi 08. Yang diambil GAGASANNYA saja; contoh,
  * angka, dan kalimatnya ditulis sendiri. Repo 3b1b berlisensi CC BY-NC-SA 4.0
- * yang menular, jadi menyalin kode atau naskahnya akan memaksa MATRA ikut
+ * yang menular, jadi menyalin kode atau naskahnya akan memaksa MANTRA ikut
  * berlisensi sama dan non-komersial selamanya.
  *
  * SELURUH ANGKA DI BERKAS INI SUDAH DIPERIKSA MESIN dengan sympy, lewat

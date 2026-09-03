@@ -22,8 +22,8 @@ export async function generateMetadata({
 }) {
   const { slug } = await params
   const topik = cariTopik(slug)
-  if (!topik) return { title: 'Topik tidak ditemukan | MATRA' }
-  return { title: `${topik.nama} | MATRA`, description: topik.pertanyaan }
+  if (!topik) return { title: 'Topik tidak ditemukan | MANTRA' }
+  return { title: `${topik.nama} | MANTRA`, description: topik.pertanyaan }
 }
 
 export default async function RuteTopik({

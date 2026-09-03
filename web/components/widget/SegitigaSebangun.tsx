@@ -187,7 +187,7 @@ export default function SegitigaSebangun({
         fontSize={17}
         fill={WARNA.sudut}
         fontStyle="italic"
-        fontFamily="var(--font-fraunces), Georgia, serif"
+        fontFamily="var(--font-serif), Georgia, serif"
       >
         θ
       </text>

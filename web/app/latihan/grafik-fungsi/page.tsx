@@ -4,7 +4,7 @@ import ArenaLatihan from '@/components/latihan/ArenaLatihan'
 import { KUIS } from '@/content/grafik-fungsi'
 
 export const metadata: Metadata = {
-  title: 'Latihan Grafik Fungsi | MATRA',
+  title: 'Latihan Grafik Fungsi | MANTRA',
   description: 'Soal grafik fungsi berjenjang dari mudah sampai sangat sulit, dengan pembahasan.',
 }
 

@@ -87,29 +87,29 @@ export default function PabrikRasio({
       <path d={`M ${A.x + 40} ${A.y} A 40 40 0 0 0 ${A.x + 40 * Math.cos(0.6435)} ${A.y - 40 * Math.sin(0.6435)}`}
             fill="none" stroke={WARNA.sudut} strokeWidth={3} />
       <text x={A.x + 50} y={A.y - 12} fontSize={17} fill={WARNA.sudut} fontStyle="italic"
-            fontFamily="var(--font-fraunces), Georgia, serif">θ</text>
+            fontFamily="var(--font-serif), Georgia, serif">θ</text>
 
       {/* panjang + peran tiap sisi */}
       <text x={(A.x + B.x) / 2} y={B.y + 24} textAnchor="middle" fontSize={15}
             fill={SISI.samping.warna} opacity={buram('samping')}
-            fontFamily="var(--font-inter), sans-serif">samping = 4</text>
+            fontFamily="var(--font-sans), sans-serif">samping = 4</text>
       <text x={(A.x + B.x) / 2} y={B.y + 41} textAnchor="middle" fontSize={11}
             fill={WARNA.redup} opacity={buram('samping')}
-            fontFamily="var(--font-plex-mono), monospace">{peran('samping')}</text>
+            fontFamily="var(--font-mono), sans-serif">{peran('samping')}</text>
 
       <text x={B.x + 12} y={(B.y + C.y) / 2 - 4} fontSize={15}
             fill={SISI.depan.warna} opacity={buram('depan')}
-            fontFamily="var(--font-inter), sans-serif">depan = 3</text>
+            fontFamily="var(--font-sans), sans-serif">depan = 3</text>
       <text x={B.x + 12} y={(B.y + C.y) / 2 + 13} fontSize={11}
             fill={WARNA.redup} opacity={buram('depan')}
-            fontFamily="var(--font-plex-mono), monospace">{peran('depan')}</text>
+            fontFamily="var(--font-mono), sans-serif">{peran('depan')}</text>
 
       <text x={(A.x + C.x) / 2 - 26} y={(A.y + C.y) / 2 - 20} textAnchor="middle" fontSize={15}
             fill={SISI.miring.warna} opacity={buram('miring')}
-            fontFamily="var(--font-inter), sans-serif">miring = 5</text>
+            fontFamily="var(--font-sans), sans-serif">miring = 5</text>
       <text x={(A.x + C.x) / 2 - 26} y={(A.y + C.y) / 2 - 5} textAnchor="middle" fontSize={11}
             fill={WARNA.redup} opacity={buram('miring')}
-            fontFamily="var(--font-plex-mono), monospace">{peran('miring')}</text>
+            fontFamily="var(--font-mono), sans-serif">{peran('miring')}</text>
     </svg>
   )
 }
