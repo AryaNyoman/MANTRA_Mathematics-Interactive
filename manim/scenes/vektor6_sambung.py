@@ -98,53 +98,52 @@ class SambungPerjalanan(AdeganMatra):
         frame = self.frame
 
         # ==============================================================
-        # Babak 1: dunia nyata, 3D, dari dekat
+        # Babak 1: LANGSUNG ke bidang bernomor, tanpa pembuka 3D
         # ==============================================================
-        # Hanya petaknya yang dipakai, indeks [0] dari VGroup(kisi, sumbu).
-        # Sumbu 3D-nya dibuang: batang tegaknya menjulur ke langit tanpa guna,
-        # dan `tinggi_z=0` bukan jalan keluarnya (jangkauan sumbu z jadi nol,
-        # lalu ManimGL membagi dengan nol).
-        alas = ilustrasi.tanah(11.0, 11.0, 0.0, z=-0.02)
-        lapangan = VGroup(ilustrasi.lantai_kisi(9.0, 1.0)[0])
+        # STANDAR butir 2 dipertegas 4 Sep 2026: 3D hanya di video PERTAMA
+        # tiap topik. Video ini dulu membuka dengan 22 detik lapangan kelabu
+        # yang hampir tidak bergerak, seperlima panjang videonya, dan itu
+        # yang dipotong. Narasinya tidak diubah sama sekali: kalimat
+        # "lapangan itu kita lihat dari atas, lengkap dengan angka pada
+        # kedua sumbunya" justru makin cocok, sebab angkanya memang baru
+        # muncul pada babak itu.
+        bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
+        bidang.angka.set_opacity(0)
+        self.add(bidang)
+
         pejalan = ilustrasi.orang(1.15)
         pusat0 = pejalan.get_center().copy()
-
         self.t1 = ValueTracker(0.0)
         self.t2 = ValueTracker(0.0)
         pejalan.add_updater(lambda m: m.move_to(pusat0 + self.langkah()))
 
-        kamera.pasang_awal(frame, theta=-32, phi=68, pusat=(0.5, 0.1, 0.55), tinggi=4.6)
-        self.add(alas, lapangan, pejalan)
+        pusat, tinggi = kamera.muat_datar(bidang)
+        kamera.pasang_awal(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi)
+        # `alas=True`: tulisan HUD diberi alas kertas, jadi bidang boleh
+        # memenuhi layar tanpa garis petak menembus tulisannya.
+        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True, alas=True)
+
         with sinema.babak(self, "sapa", DURASI) as b:
+            self.add(pejalan)
+            b.main(FadeIn(pejalan, scale=1.5), run_time=0.8)
             sinema.judul_pembuka(self, "Materi 06: Menyambung perjalanan",
                                  lama=3.2, y=2.4)
             b.catat(3.2)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"pejalan": pejalan})
+        qc.periksa_adegan(self, {},
+                          dunia={"bidang": bidang, "pejalan": pejalan})
 
         # ==============================================================
-        # Babak 2: turun ke tegak lurus, lapangan jadi peta bernomor
+        # Babak 2: angka sumbu muncul, identitas dipasang
         # ==============================================================
-        bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
-        bidang.set_opacity(0)
-        self.add(bidang)
-        self.bring_to_front(pejalan)
-
-        # `tanpa_utama=True`: semua isinya baris, tidak ada rumus utama.
-        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True)
-
         with sinema.babak(self, "terbang", DURASI) as b:
-            lama = max(2.0, DURASI["terbang"] - 3.0)
-            # Pusat dan tinggi dari kotak batas bidang yang sebenarnya.
-            pusat, tinggi = kamera.muat_datar(bidang)
-            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
-                                tinggi=tinggi), run_time=lama)
-            b.main(FadeOut(lapangan), FadeOut(alas),
-                   bidang.animate.set_opacity(1), run_time=1.4)
-            identitas = sinema.identitas(self, "1 petak = 1 langkah")
+            b.main(bidang.angka.animate.set_opacity(0.75), run_time=1.6)
+            identitas = sinema.identitas(self, "1 petak = 1 langkah", alas=True)
             identitas.set_opacity(0)
             b.main(identitas.animate.set_opacity(1), run_time=0.8)
-        qc.periksa_adegan(self, {"bidang": bidang, "identitas": identitas})
+            b.jeda(1.2)
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"identitas": identitas})
 
         # ==============================================================
         # Babak 3: perjalanan pertama, panah tumbuh mengikuti langkah
@@ -240,7 +239,15 @@ class SambungPerjalanan(AdeganMatra):
         # ==============================================================
         pb_salah = panah(ASAL, ASAL + V2, AKSEN)
         pb_salah.set_opacity(0.55)
-        p_salah = panah(ASAL + V1, ASAL + V2, TINTA, tebal=5)
+        # REDUP, bukan TINTA. Hitam di video ini juga dipakai untuk titik
+        # sambung, label "ujung = pangkal", dan baris hitungan, jadi ia
+        # warna tinta NETRAL. Memberi panah yang salah warna yang sama
+        # membuat satu warna memikul dua makna, dan sorotan tinta di babak
+        # "panjang" jadi terbaca sebagai "ini yang salah". Abu hangat lebih
+        # tepat: ia memang warna garis bantu, dan panah ini memang bukan
+        # jawabannya. Latar sekitarnya diredupkan ke 0,22 pada babak itu,
+        # jadi abu berkepekatan penuh tetap menonjol. (Temuan MASTER 4 Sep.)
+        p_salah = panah(ASAL + V1, ASAL + V2, REDUP, tebal=5)
         benar = VGroup(pa, pb, pr, la, lb, sambung, l_sambung, titik, koord)
 
         # Susunan yang salah TIDAK dikembalikan di dalam babak ini. `sinema.babak`

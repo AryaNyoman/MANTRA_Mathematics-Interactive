@@ -19,7 +19,12 @@ class CacatTataLetak(AssertionError):
 
 
 def _titik(mob):
-    fam = [m for m in mob.get_family() if len(m.get_points())]
+    # Alas kertas HUD (`sinema.alas_hud`) ditandai `dekorasi` dan TIDAK ikut
+    # diukur: ia sengaja dirapatkan sampai tepi bingkai supaya terbaca
+    # sebagai panel sudut, bukan stiker melayang. Yang diukur gerbang tetap
+    # tulisannya, dan tulisan itu selalu di dalam zona HUD.
+    fam = [m for m in mob.get_family()
+           if len(m.get_points()) and not getattr(m, "dekorasi", False)]
     if not fam:
         return np.zeros((0, 3))
     return np.vstack([m.get_points() for m in fam])
@@ -137,6 +142,20 @@ def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: floa
         tidak_bertindih(frame, semua.get(a), semua.get(b), a, b)
     for na, pa in (hud or {}).items():
         for nd, pd in (dunia or {}).items():
+            # HUD yang punya alas kertas (`sinema.alas_hud`) boleh berdiri di
+            # atas LATAR, dan hanya latar: bidang bernomor, kisi, sumbu.
+            # Alasnya menutup garis petak di belakangnya, jadi tulisannya
+            # tetap bersih, dan bidang tidak perlu menyusut demi memesan
+            # jalur layar.
+            #
+            # Pengecualian ini SENGAJA sempit. Versi pertama melewati SEMUA
+            # pasangan begitu HUD-nya beralas, dan itu membuka lubang yang
+            # lebih buruk daripada yang ditutupnya: sebuah titik, panah, atau
+            # label yang kebetulan berada di bawah panel tidak akan pernah
+            # ketahuan, padahal gambar yang menyembunyikan isinya sendiri
+            # adalah kelas cacat yang paling merusak. Temuan MASTER 4 Sep.
+            if getattr(pa, "beralas", False) and getattr(pd, "latar", False):
+                continue
             tidak_bertindih(frame, pa, pd, na, nd)
     daftar_tulisan = list((tulisan or {}).items())
     for i, (na, ta) in enumerate(daftar_tulisan):
@@ -148,7 +167,11 @@ def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: floa
         for nama, g in (hud or {}).items():
             if not getattr(g, "_qc_isi", False):
                 continue
-            anak = list(getattr(g, "submobjects", []))
+            # Alas kertas HUD (`sinema.alas_hud`) memang menindih semua
+            # baris di atasnya, itu tugasnya. Ia bertanda `dekorasi` dan
+            # tidak ikut diadu.
+            anak = [a for a in getattr(g, "submobjects", [])
+                    if not getattr(a, "dekorasi", False)]
             for i, a in enumerate(anak):
                 for j in range(i + 1, len(anak)):
                     tidak_bertindih(frame, a, anak[j], f"{nama} baris {i + 1}", f"{nama} baris {j + 1}")

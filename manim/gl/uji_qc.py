@@ -97,4 +97,24 @@ print("ok: papan rapi lolos")
 bebas = VGroup(r1.copy(), r1.copy())
 qc.periksa_adegan(sc, {}, hud={"legenda": bebas}, jaga_jalur_bawah=False)
 print("ok: kelompok tanpa tanda dibiarkan")
+
+# 3. Panel beralas di atas LATAR harus lolos; di atas benda biasa harus gagal.
+#    Pengecualian ini sengaja sempit: alas kertas boleh menutupi garis petak,
+#    TIDAK boleh menutupi panah, titik, atau label.
+panel = Text("panjang 5,00").fix_in_frame().move_to([4.4, 2.0, 0])
+panel.beralas = True
+latar = Rectangle(width=12, height=7).move_to([0, 0, 0])
+latar.latar = True
+qc.periksa_adegan(sc, {}, hud={"panel": panel}, dunia={"bidang": latar},
+                  jaga_jalur_bawah=False)
+print("ok: panel beralas di atas latar lolos")
+
+titik = Dot(radius=0.12).move_to([4.4, 2.0, 0])
+try:
+    qc.periksa_adegan(sc, {}, hud={"panel": panel}, dunia={"titik": titik},
+                      jaga_jalur_bawah=False)
+    raise SystemExit("GAGAL: titik tertutup panel beralas lolos")
+except qc.CacatTataLetak:
+    print("ok: titik tanpa tanda latar di bawah panel tertangkap")
+
 print("SEMUA UJI QC LOLOS")
