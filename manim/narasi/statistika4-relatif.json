@@ -1,0 +1,58 @@
+{
+  "adegan": "Relatif4",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Materi 04 Statistika. Gerak dirancang lebih dulu: dua batang mentah yang menjawab satu kesimpulan, lalu takarannya disamakan dan kesimpulannya BERBALIK di depan mata. Medan `tulis` adalah bentuk tertulis untuk subtitle.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi empat Statistika: *membandingkan kelompok yang jumlahnya beda*. Kelas A berisi dua puluh lima siswa, Kelas B empat puluh siswa.",
+      "tulis": "Materi 04 Statistika: *membandingkan kelompok yang jumlahnya beda*. Kelas A berisi 25 siswa, Kelas B 40 siswa."
+    },
+    {
+      "id": "tanya",
+      "teks": "Pertanyaannya: kelas mana yang lebih banyak siswanya bernilai delapan puluh ke atas? Di Kelas A ada sebelas orang. Di Kelas B ada tiga belas orang.",
+      "tulis": "Pertanyaannya: kelas mana yang lebih banyak siswanya bernilai 80 ke atas? Di Kelas A ada 11 orang. Di Kelas B ada 13 orang."
+    },
+    {
+      "id": "mentah",
+      "teks": "Digambar sebagai batang, jawabannya kelihatan gamblang. Tiga belas lebih tinggi daripada sebelas, jadi *Kelas B menang*. Begitu?",
+      "tulis": "Digambar sebagai batang, jawabannya kelihatan gamblang. 13 lebih tinggi daripada 11, jadi *Kelas B menang*. Begitu?"
+    },
+    {
+      "id": "curiga",
+      "teks": "Ada yang belum masuk hitungan. Kelas B memang punya lebih banyak siswa yang bernilai tinggi, tetapi Kelas B juga punya *lebih banyak siswa*, titik.",
+      "tulis": "Ada yang belum masuk hitungan. Kelas B memang punya lebih banyak siswa yang bernilai tinggi, tetapi Kelas B juga punya *lebih banyak siswa*, titik."
+    },
+    {
+      "id": "bagi",
+      "teks": "Jadi tiap kelas kita bagi dengan jumlah siswanya sendiri. Sebelas dibagi dua puluh lima sama dengan nol koma empat empat. Tiga belas dibagi empat puluh sama dengan nol koma tiga dua lima.",
+      "tulis": "Jadi tiap kelas kita bagi dengan jumlah siswanya sendiri. 11 : 25 = 0,44. 13 : 40 = 0,325."
+    },
+    {
+      "id": "balik",
+      "teks": "Dan kesimpulannya *berbalik*. Empat puluh empat persen lawan tiga puluh dua koma lima persen. Di Kelas A hampir separuh siswa bernilai delapan puluh ke atas, di Kelas B cuma sekitar sepertiga.",
+      "tulis": "Dan kesimpulannya *berbalik*. 44% lawan 32,5%. Di Kelas A hampir separuh siswa bernilai 80 ke atas, di Kelas B cuma sekitar sepertiga."
+    },
+    {
+      "id": "dua",
+      "teks": "Kedua hitungan tadi sama-sama benar sebagai hitungan. Yang berbeda *pertanyaan yang dijawabnya*. Yang pertama menjawab berapa banyak orangnya, yang kedua menjawab seberapa besar bagiannya.",
+      "tulis": "Kedua hitungan tadi sama-sama benar sebagai hitungan. Yang berbeda *pertanyaan yang dijawabnya*. Yang pertama menjawab berapa banyak orangnya, yang kedua menjawab seberapa besar bagiannya."
+    },
+    {
+      "id": "nama",
+      "teks": "Angka hasil bagi itu namanya *frekuensi relatif*: frekuensi dibagi banyak seluruh data. Karena tiap kelompok dibagi dengan jumlahnya sendiri, takarannya jadi sama.",
+      "tulis": "Angka hasil bagi itu namanya *frekuensi relatif*: frekuensi dibagi banyak seluruh data. Karena tiap kelompok dibagi dengan jumlahnya sendiri, takarannya jadi sama."
+    },
+    {
+      "id": "sifat",
+      "teks": "Nilainya selalu antara nol dan satu, dan kalau seluruh kelasnya dijumlahkan hasilnya selalu satu, atau seratus persen.",
+      "tulis": "Nilainya selalu antara 0 dan 1, dan kalau seluruh kelasnya dijumlahkan hasilnya selalu 1, atau 100%."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi tiap kali dua kelompok yang jumlahnya beda dibandingkan, pertanyaan pertama yang wajib diajukan bukan berapa angkanya, melainkan *dari berapa*.",
+      "tulis": "Jadi tiap kali dua kelompok yang jumlahnya beda dibandingkan, pertanyaan pertama yang wajib diajukan bukan berapa angkanya, melainkan *dari berapa*."
+    }
+  ]
+}

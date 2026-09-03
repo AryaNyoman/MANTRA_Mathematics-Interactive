@@ -1,0 +1,58 @@
+{
+  "adegan": "Bentuk2",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Materi 02 Statistika. Gerak dirancang lebih dulu: batang kategori benar-benar DITUKAR tempatnya dan artinya tetap, lalu batang histogram ditukar dan gambarnya jadi omong kosong. Medan `tulis` adalah bentuk tertulis untuk subtitle.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi dua Statistika: *dari daftar angka jadi gambar*. Empat puluh angka yang berbaris di tabel hampir tidak bisa dibaca manusia. Mata kita jauh lebih cepat menangkap tinggi daripada deretan angka.",
+      "tulis": "Materi 02 Statistika: *dari daftar angka jadi gambar*. 40 angka yang berbaris di tabel hampir tidak bisa dibaca manusia. Mata kita jauh lebih cepat menangkap tinggi daripada deretan angka."
+    },
+    {
+      "id": "jenis",
+      "teks": "Tetapi tidak semua gambar cocok untuk semua data. Yang menentukan bukan selera, melainkan *jenis datanya*. Ada dua: data kategori, dan data angka.",
+      "tulis": "Tetapi tidak semua gambar cocok untuk semua data. Yang menentukan bukan selera, melainkan *jenis datanya*. Ada dua: data kategori, dan data angka."
+    },
+    {
+      "id": "batang",
+      "teks": "Ini data kategori: cara empat puluh siswa berangkat ke sekolah. Jawabannya berupa nama, bukan angka. Digambar sebagai *diagram batang*, dan antar batangnya diberi sela.",
+      "tulis": "Ini data kategori: cara 40 siswa berangkat ke sekolah. Jawabannya berupa nama, bukan angka. Digambar sebagai *diagram batang*, dan antar batangnya diberi sela."
+    },
+    {
+      "id": "tukar",
+      "teks": "Perhatikan apa yang terjadi kalau urutannya ditukar. Sepeda motor pindah ke depan, angkot ke belakang. Gambarnya berubah, tetapi *artinya sama persis*. Kategori memang tidak punya urutan alami.",
+      "tulis": "Perhatikan apa yang terjadi kalau urutannya ditukar. Sepeda motor pindah ke depan, angkot ke belakang. Gambarnya berubah, tetapi *artinya sama persis*. Kategori memang tidak punya urutan alami."
+    },
+    {
+      "id": "angka",
+      "teks": "Sekarang data angka: tinggi badan empat puluh siswa yang sama. Jawabannya bilangan yang bisa diukur dan diurutkan, dan di antara dua angka selalu ada angka lain.",
+      "tulis": "Sekarang data angka: tinggi badan 40 siswa yang sama. Jawabannya bilangan yang bisa diukur dan diurutkan, dan di antara dua angka selalu ada angka lain."
+    },
+    {
+      "id": "histogram",
+      "teks": "Karena itu batangnya digambar *rapat*, tanpa sela. Gambar ini namanya histogram, dan selanya sengaja dihilangkan sebab kelas sebelah menyebelah memang menyambung.",
+      "tulis": "Karena itu batangnya digambar *rapat*, tanpa sela. Gambar ini namanya histogram, dan selanya sengaja dihilangkan sebab kelas sebelah menyebelah memang menyambung."
+    },
+    {
+      "id": "urut",
+      "teks": "Sekarang coba tukar urutannya seperti tadi. Sumbunya jadi seratus enam puluh, seratus lima puluh, seratus tujuh puluh. *Gambarnya jadi omong kosong*, sebab angka punya urutan.",
+      "tulis": "Sekarang coba tukar urutannya seperti tadi. Sumbunya jadi 160, 150, 170. *Gambarnya jadi omong kosong*, sebab angka punya urutan."
+    },
+    {
+      "id": "sela",
+      "teks": "Jadi sela antar batang itu *bukan hiasan*. Ada sela berarti kategori, tidak menyambung, boleh ditukar. Tidak ada sela berarti angka, menyambung, tidak boleh ditukar.",
+      "tulis": "Jadi sela antar batang itu *bukan hiasan*. Ada sela berarti kategori, tidak menyambung, boleh ditukar. Tidak ada sela berarti angka, menyambung, tidak boleh ditukar."
+    },
+    {
+      "id": "lineplot",
+      "teks": "Ada satu gambar lagi yang berguna untuk data sedikit: *line plot*, atau diagram titik. Tiap data jadi satu titik, apa adanya, dan tidak ada satu pun yang disembunyikan di dalam kelompok.",
+      "tulis": "Ada satu gambar lagi yang berguna untuk data sedikit: *line plot*, atau diagram titik. Tiap data jadi satu titik, apa adanya, dan tidak ada satu pun yang disembunyikan di dalam kelompok."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi sebelum menggambar, pertanyaannya bukan gambar mana yang paling bagus, melainkan *data ini jenis apa*.",
+      "tulis": "Jadi sebelum menggambar, pertanyaannya bukan gambar mana yang paling bagus, melainkan *data ini jenis apa*."
+    }
+  ]
+}

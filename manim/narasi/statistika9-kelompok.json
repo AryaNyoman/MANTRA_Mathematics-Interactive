@@ -1,0 +1,58 @@
+{
+  "adegan": "Kelompok9",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Materi 09 Statistika. Gerak dirancang lebih dulu, naskah ditulis sepanjang gerak itu. Medan `tulis` adalah bentuk tertulis untuk subtitle: lambang dan angka, bukan salinan mentah ucapan. Penanda *kata* jadi tebal.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi sembilan Statistika: *data berkelompok*. Empat puluh siswa mengikuti ujian, lalu nilainya dikelompokkan jadi enam kelas. Tabel inilah yang sampai ke tangan kita.",
+      "tulis": "Materi 09 Statistika: *data berkelompok*. 40 siswa mengikuti ujian, lalu nilainya dikelompokkan jadi 6 kelas. Tabel inilah yang sampai ke tangan kita."
+    },
+    {
+      "id": "hilang",
+      "teks": "Perhatikan apa yang *hilang*. Kita tahu ada dua belas siswa bernilai enam puluhan, tetapi tidak tahu nilai persis satu pun di antara mereka.",
+      "tulis": "Perhatikan apa yang *hilang*. Kita tahu ada 12 siswa bernilai 60-an, tetapi tidak tahu nilai persis satu pun di antara mereka."
+    },
+    {
+      "id": "tepi",
+      "teks": "Kelas empat puluh sampai empat puluh sembilan dan kelas berikutnya seolah berlubang di empat puluh sembilan koma lima. Padahal nilai itu harus punya tempat, jadi yang dipakai adalah *tepi kelas*.",
+      "tulis": "Kelas 40-49 dan kelas berikutnya seolah berlubang di 49,5. Padahal nilai itu harus punya tempat, jadi yang dipakai adalah *tepi kelas*."
+    },
+    {
+      "id": "wakil",
+      "teks": "Tiap kelas lalu diwakili *titik tengahnya*. Kita berpura-pura ketiga siswa di kelas pertama semuanya bernilai empat puluh empat koma lima. Meannya jadi enam puluh tujuh koma tujuh lima.",
+      "tulis": "Tiap kelas lalu diwakili *titik tengahnya*. Kita berpura-pura ketiga siswa di kelas pertama semuanya bernilai 44,5. Meannya jadi 67,75."
+    },
+    {
+      "id": "belah",
+      "teks": "Sekarang mediannya. Median membelah luas histogram jadi dua sama besar: dua puluh siswa di kiri, dua puluh di kanan. Kita hitung dari kiri, tiga, lalu sebelas, lalu dua puluh tiga.",
+      "tulis": "Sekarang mediannya. Median membelah luas histogram jadi dua sama besar: 20 siswa di kiri, 20 di kanan. Kita hitung dari kiri: 3, lalu 11, lalu 23."
+    },
+    {
+      "id": "masuk",
+      "teks": "Dua puluh terlampaui di kelas ketiga. Jadi mediannya ada *di dalam* batang itu, dan kita masih kurang sembilan siswa dari dua belas yang berdiri di sana.",
+      "tulis": "20 terlampaui di kelas ketiga. Jadi mediannya ada *di dalam* batang itu, dan kita masih kurang 9 siswa dari 12 yang berdiri di sana."
+    },
+    {
+      "id": "rumus",
+      "teks": "Sembilan dari dua belas berarti masuk *tiga perempat* lebar kelas. Lebar kelasnya sepuluh, jadi tujuh koma lima dari tepi bawah lima puluh sembilan koma lima.",
+      "tulis": "9 dari 12 berarti masuk *tiga perempat* lebar kelas. Lebar kelasnya 10, jadi 7,5 dari tepi bawah 59,5."
+    },
+    {
+      "id": "bukti",
+      "teks": "Garisnya berhenti di enam puluh tujuh. Dan lihat, luas di kirinya *sama persis* dengan luas di kanannya. Rumus tadi bukan hafalan, ia cuma cara menghitung letak garis ini.",
+      "tulis": "Garisnya berhenti di 67. Dan lihat, luas di kirinya *sama persis* dengan luas di kanannya. Rumus tadi bukan hafalan, ia cuma cara menghitung letak garis ini."
+    },
+    {
+      "id": "modus",
+      "teks": "Modus ada di batang tertinggi, tetapi belum tentu di tengahnya. Ia *condong ke tetangga yang lebih tinggi*. Karena tetangga kanan lebih tinggi, modusnya jatuh di enam puluh lima koma dua satu.",
+      "tulis": "Modus ada di batang tertinggi, tetapi belum tentu di tengahnya. Ia *condong ke tetangga yang lebih tinggi*. Karena tetangga kanan lebih tinggi, modusnya jatuh di 65,21."
+    },
+    {
+      "id": "tutup",
+      "teks": "Dan semua ini *hampiran*. Median asli keempat puluh siswa itu enam puluh tujuh koma lima, bukan enam puluh tujuh. Titik tengah adalah tebakan yang masuk akal, bukan kebenaran.",
+      "tulis": "Dan semua ini *hampiran*. Median asli keempat puluh siswa itu 67,5, bukan 67. Titik tengah adalah tebakan yang masuk akal, bukan kebenaran."
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/statistika1-menipu.json
+
+1
+00:00:00.000 --> 00:00:04.805
+Materi 01 Statistika: <b>kenapa satu angka bisa menipu</b>.
+
+2
+00:00:04.805 --> 00:00:09.517
+Dua kelas baru saja ulangan, masing-masing 8 siswa.
+
+3
+00:00:09.517 --> 00:00:11.088
+Ini nilai mereka.
+
+4
+00:00:11.088 --> 00:00:14.820
+Wali kelas melaporkan rata-ratanya.
+
+5
+00:00:14.820 --> 00:00:16.020
+Kelas A 7.
+
+6
+00:00:16.020 --> 00:00:17.620
+Kelas B juga 7.
+
+7
+00:00:17.620 --> 00:00:22.392
+Kepala sekolah mengangguk: <b>keduanya sama saja</b>.
+
+8
+00:00:22.392 --> 00:00:25.438
+Dan memang begitulah rupa sebuah ringkasan.
+
+9
+00:00:25.438 --> 00:00:29.193
+Delapan angka <b>diperas jadi satu</b>, dan sesudah diperas,
+
+10
+00:00:29.193 --> 00:00:32.664
+kedua kelas itu benar-benar terlihat sama persis.
+
+11
+00:00:32.664 --> 00:00:34.873
+Bukan cuma rata-ratanya.
+
+12
+00:00:34.873 --> 00:00:39.751
+Mediannya juga 7 di kedua kelas, dan modusnya juga 7.
+
+13
+00:00:39.751 --> 00:00:42.696
+<b>Ketiga ukuran pemusatan sepakat</b>.
+
+14
+00:00:42.696 --> 00:00:46.613
+Sekarang kita kembalikan angkanya ke tempat semula.
+
+15
+00:00:46.613 --> 00:00:50.376
+Yang tadi diperas jadi satu, kita tumpahkan lagi.
+
+16
+00:00:50.376 --> 00:00:53.191
+Dan bedanya langsung kelihatan.
+
+17
+00:00:53.191 --> 00:00:56.641
+Kelas A berdesakan rapat di sekitar 7.
+
+18
+00:00:56.641 --> 00:01:01.272
+Kelas B <b>berpencar jauh</b>, ada yang 3 dan ada yang 11.
+
+19
+00:01:01.272 --> 00:01:03.543
+Diukur dari ujung ke ujung:
+
+20
+00:01:03.543 --> 00:01:07.579
+Kelas A cuma merentang 2 angka, dari 6 sampai 8.
+
+21
+00:01:07.579 --> 00:01:11.784
+Kelas B merentang 8 angka, <b>empat kali lebih lebar</b>.
+
+22
+00:01:11.784 --> 00:01:13.054
+Bagi seorang guru,
+
+23
+00:01:13.054 --> 00:01:14.537
+kedua kelas ini butuh
+
+24
+00:01:14.537 --> 00:01:17.007
+perlakuan yang sama sekali berbeda.
+
+25
+00:01:17.007 --> 00:01:19.901
+Di Kelas B ada anak yang tertinggal jauh,
+
+26
+00:01:19.901 --> 00:01:22.512
+dan ringkasan tadi <b>menyembunyikannya</b>.
+
+27
+00:01:22.512 --> 00:01:25.213
+Jadi satu angka tidak pernah cukup.
+
+28
+00:01:25.213 --> 00:01:28.377
+Statistika selalu butuh <b>dua</b> jenis ukuran:
+
+29
+00:01:28.377 --> 00:01:32.544
+di mana pusatnya, dan seberapa jauh datanya berpencar.
+
+30
+00:01:32.544 --> 00:01:35.116
+Meringkas selalu membuang sesuatu,
+
+31
+00:01:35.116 --> 00:01:36.931
+dan itu bukan kesalahan.
+
+32
+00:01:36.931 --> 00:01:38.898
+Yang jadi kesalahan adalah
+
+33
+00:01:38.898 --> 00:01:41.016
+<b>lupa bahwa ada yang dibuang</b>.

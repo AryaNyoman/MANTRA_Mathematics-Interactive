@@ -1,0 +1,58 @@
+{
+  "adegan": "Pencar10",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Materi 10 Statistika. Gerak dirancang lebih dulu: dua daftar angka yang terpisah DISATUKAN jadi pasangan, tiap pasangan turun jadi satu titik, dan awan titiknya sendiri yang memperlihatkan arah hubungannya. Medan `tulis` adalah bentuk tertulis untuk subtitle.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi sepuluh Statistika: *diagram pencar*. Sampai sini kita selalu mengurus satu jenis angka saja. Sekarang dua sekaligus: jam belajar seminggu, dan nilai ujian, dari sepuluh siswa yang sama.",
+      "tulis": "Materi 10 Statistika: *diagram pencar*. Sampai sini kita selalu mengurus satu jenis angka saja. Sekarang dua sekaligus: jam belajar seminggu, dan nilai ujian, dari 10 siswa yang sama."
+    },
+    {
+      "id": "pasang",
+      "teks": "Kuncinya kedua angka itu milik *orang yang sama*. Jadi jangan dibaca sebagai dua daftar terpisah, melainkan sepuluh pasangan.",
+      "tulis": "Kuncinya kedua angka itu milik *orang yang sama*. Jadi jangan dibaca sebagai dua daftar terpisah, melainkan 10 pasangan."
+    },
+    {
+      "id": "titik",
+      "teks": "Tiap pasangan jadi satu titik. Jam belajarnya menentukan letak mendatar, nilainya menentukan letak tegak. Siswa yang belajar dua jam dan bernilai lima puluh lima duduk di sini.",
+      "tulis": "Tiap pasangan jadi satu titik. Jam belajarnya menentukan letak mendatar, nilainya menentukan letak tegak. Siswa yang belajar 2 jam dan bernilai 55 duduk di sini."
+    },
+    {
+      "id": "awan",
+      "teks": "Sepuluh titik, dan sekarang polanya kelihatan tanpa dihitung apa pun. Makin ke kanan makin ke atas. Ini yang disebut hubungan *positif*.",
+      "tulis": "10 titik, dan sekarang polanya kelihatan tanpa dihitung apa pun. Makin ke kanan makin ke atas. Ini yang disebut hubungan *positif*."
+    },
+    {
+      "id": "negatif",
+      "teks": "Sekarang data lain dari sepuluh siswa: jam main gim dan nilai ujian. Awannya condong ke arah sebaliknya, makin ke kanan makin ke bawah. Hubungan *negatif*.",
+      "tulis": "Sekarang data lain dari 10 siswa: jam main gim dan nilai ujian. Awannya condong ke arah sebaliknya, makin ke kanan makin ke bawah. Hubungan *negatif*."
+    },
+    {
+      "id": "kuat",
+      "teks": "Selain arah, ada kekuatannya. Titik yang berdesakan rapat di sekitar satu garis berarti hubungannya kuat. Titik yang berserakan berarti lemah, walau arahnya sama.",
+      "tulis": "Selain arah, ada kekuatannya. Titik yang berdesakan rapat di sekitar satu garis berarti hubungannya kuat. Titik yang berserakan berarti lemah, walau arahnya sama."
+    },
+    {
+      "id": "tanpa",
+      "teks": "Dan bisa juga tidak ada kecenderungan sama sekali. Awannya bulat, tidak condong ke mana-mana. Itu bukan kegagalan, itu juga sebuah jawaban.",
+      "tulis": "Dan bisa juga tidak ada kecenderungan sama sekali. Awannya bulat, tidak condong ke mana-mana. Itu bukan kegagalan, itu juga sebuah jawaban."
+    },
+    {
+      "id": "urutan",
+      "teks": "Satu hal yang sering keliru. Titik pada diagram pencar *tidak boleh disambung berurutan* seperti grafik garis. Tidak ada urutan waktu di sini, yang ada sepuluh orang.",
+      "tulis": "Satu hal yang sering keliru. Titik pada diagram pencar *tidak boleh disambung berurutan* seperti grafik garis. Tidak ada urutan waktu di sini, yang ada 10 orang."
+    },
+    {
+      "id": "garis",
+      "teks": "Yang boleh ditarik cuma *satu* garis yang mewakili seluruh awan. Bagaimana memilih garis yang paling pas, itu isi materi sebelas.",
+      "tulis": "Yang boleh ditarik cuma *satu* garis yang mewakili seluruh awan. Bagaimana memilih garis yang paling pas, itu isi Materi 11."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi langkah pertama menghadapi dua jenis angka selalu sama: *gambar dulu awannya*, baru hitung. Gambarnya sering sudah menjawab sebelum satu rumus pun dipakai.",
+      "tulis": "Jadi langkah pertama menghadapi dua jenis angka selalu sama: *gambar dulu awannya*, baru hitung. Gambarnya sering sudah menjawab sebelum satu rumus pun dipakai."
+    }
+  ]
+}

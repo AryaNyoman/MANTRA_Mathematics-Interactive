@@ -1,0 +1,58 @@
+{
+  "adegan": "Pencilan6",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Materi 06 Statistika. GERAKNYA DIRANCANG LEBIH DULU, naskah ditulis sepanjang gerak itu; ini perbaikan atas cacat video 05 dan 08 yang menyisakan detik tanpa animasi baru. Medan `tulis` adalah bentuk tertulis untuk subtitle: lambang dan angka, bukan salinan mentah ucapan. Penanda *kata* jadi tebal.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi enam Statistika: *pencilan*. Sebuah kantor kecil berisi sembilan karyawan. Ini gaji mereka, dalam juta rupiah, dari empat koma dua sampai tujuh.",
+      "tulis": "Materi 06 Statistika: *pencilan*. Sebuah kantor kecil berisi 9 karyawan. Ini gaji mereka, dalam juta rupiah, dari 4,2 sampai 7,0."
+    },
+    {
+      "id": "wajar",
+      "teks": "Rata-ratanya lima koma dua empat juta, mediannya lima juta. Dua ukuran yang cara kerjanya berbeda, tetapi jawabannya *hampir sama*. Keduanya masuk akal.",
+      "tulis": "Rata-ratanya 5,24 juta, mediannya 5,00 juta. Dua ukuran yang cara kerjanya berbeda, tetapi jawabannya *hampir sama*. Keduanya masuk akal."
+    },
+    {
+      "id": "masuk",
+      "teks": "Sekarang direkturnya ikut dihitung. Gajinya tujuh puluh lima juta. Supaya ia muat, penggarisnya ditarik jauh, dan sembilan karyawan tadi berdesakan jadi satu gerombolan.",
+      "tulis": "Sekarang direkturnya ikut dihitung. Gajinya 75 juta. Supaya ia muat, penggarisnya ditarik jauh, dan 9 karyawan tadi berdesakan jadi satu gerombolan."
+    },
+    {
+      "id": "tertarik",
+      "teks": "Perhatikan dua penanda tadi. Mean *berlari* ke kanan, dari lima koma dua empat ke dua belas koma dua dua. Median hanya bergeser sedikit, dari lima koma nol nol ke lima koma satu nol.",
+      "tulis": "Perhatikan dua penanda tadi. Mean *berlari* ke kanan, dari 5,24 ke 12,22. Median hanya bergeser sedikit, dari 5,00 ke 5,10."
+    },
+    {
+      "id": "kosong",
+      "teks": "Dan di dua belas koma dua dua itu *tidak ada siapa-siapa*. Sembilan dari sepuluh orang bergaji tujuh juta atau kurang. Rata-ratanya benar, tetapi tidak mewakili seorang pun.",
+      "tulis": "Dan di 12,22 itu *tidak ada siapa-siapa*. 9 dari 10 orang bergaji 7 juta atau kurang. Rata-ratanya benar, tetapi tidak mewakili seorang pun."
+    },
+    {
+      "id": "nilai",
+      "teks": "Kenapa mean bisa diseret? Karena mean memakai *nilai* setiap data. Jarak gaji direktur ke pusat jauh lebih panjang daripada milik siapa pun.",
+      "tulis": "Kenapa mean bisa diseret? Karena mean memakai *nilai* setiap data. Jarak gaji direktur ke pusat jauh lebih panjang daripada milik siapa pun."
+    },
+    {
+      "id": "posisi",
+      "teks": "Median bekerja lain. Ia hanya memakai *urutan*. Sepuluh data ini dibariskan berjarak sama, dan median adalah yang di tengah. Bagi median, direktur cuma data paling kanan.",
+      "tulis": "Median bekerja lain. Ia hanya memakai *urutan*. 10 data ini dibariskan berjarak sama, dan median adalah yang di tengah. Bagi median, direktur cuma data paling kanan."
+    },
+    {
+      "id": "seret",
+      "teks": "Bagaimana kalau gajinya bukan tujuh puluh lima, melainkan seratus dua puluh juta? Mean lari lagi, jadi enam belas koma tujuh dua. Median *tidak bergerak sedikit pun*.",
+      "tulis": "Bagaimana kalau gajinya bukan 75, melainkan 120 juta? Mean lari lagi, jadi 16,72. Median *tidak bergerak sedikit pun*."
+    },
+    {
+      "id": "buang",
+      "teks": "Godaannya, hapus saja direkturnya supaya angkanya rapi. Jangan. Gajinya memang benar segitu, dan membuangnya berarti *berbohong* tentang kantor ini.",
+      "tulis": "Godaannya, hapus saja direkturnya supaya angkanya rapi. Jangan. Gajinya memang benar segitu, dan membuangnya berarti *berbohong* tentang kantor ini."
+    },
+    {
+      "id": "tutup",
+      "teks": "Yang diganti bukan datanya, melainkan *ukurannya*. Untuk gaji dan harga rumah, median yang dipakai. Itulah sebabnya karyawan tadi tidak merasa bergaji dua belas juta.",
+      "tulis": "Yang diganti bukan datanya, melainkan *ukurannya*. Untuk gaji dan harga rumah, *median* yang dipakai. Itulah sebabnya karyawan tadi tidak merasa bergaji 12 juta."
+    }
+  ]
+}
