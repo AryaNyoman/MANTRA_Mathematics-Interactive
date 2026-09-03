@@ -21,7 +21,7 @@ REVISI 2 SEPTEMBER MALAM, dua catatan ARYA setelah menonton:
    pada sumbu tegak.
 
 STORYBOARD
-   1. sapa       3D miring DEKAT: orang berdiri di lapangan berpetak.
+   1. sapa       Bidang bernomor, tegak lurus: orang berdiri di lapangan berpetak.
    2. terbang    Turun ke tegak lurus; bidang koordinat bernomor muncul.
    3. jalan1     Orangnya BERJALAN (3, 1). Panah biru tumbuh mengikuti langkah.
    4. jalan2     Dari tempat ia berhenti, berjalan lagi (1, 2). Panah merah.

@@ -14,7 +14,7 @@ nol, lalu tumbuh lagi menghadap arah berlawanan. Itu juga persis yang diminta
 alat coba di halamannya.
 
 STORYBOARD
-   1. sapa      3D miring DEKAT: bola di lapangan berpetak.
+   1. sapa      Bidang bernomor, tegak lurus: bola di lapangan berpetak.
    2. terbang   Turun ke tegak lurus; bidang koordinat bernomor muncul.
    3. satu      a = (2, 1), pengali 1. Bolanya di ujung panah.
    4. tiga      Pengali naik ke 3: panah memanjang ke (6, 3), arah tidak bergeser.
@@ -59,7 +59,8 @@ BIDANG_X, BIDANG_Y = (-5.0, 7.0, 1.0), (-2.0, 3.0, 1.0)
 # SISA JALUR HUD DIUKUR: baris panel terlebar di sini
 # "-2 x (2 1) = (-4 -2)" selebar 2,94 satuan, rata kanan ke 6,73, jadi
 # tepi kirinya 3,79. Identitas satu baris berakhir sekitar y = 3,35.
-SISA_ATAS, SISA_KANAN = 0.40, 3.05
+# Pesanan jalur HUD DIHAPUS: sejak `sinema.alas_hud` ada, tulisan HUD
+# punya alas kertas sendiri, jadi bidang boleh memenuhi layar.
 
 
 class KaliSkalar(AdeganMatra):
@@ -67,10 +68,17 @@ class KaliSkalar(AdeganMatra):
         frame = self.frame
 
         # ==============================================================
-        # Babak 1: dunia nyata, 3D, dari dekat
         # ==============================================================
-        alas = ilustrasi.tanah(14.0, 14.0, 0.5, z=-0.02)
-        lapangan = VGroup(ilustrasi.lantai_kisi(12.0, 1.0)[0])
+        # Babak 1: LANGSUNG ke bidang bernomor, tanpa pembuka 3D
+        # ==============================================================
+        # STANDAR butir 2: 3D hanya di video PERTAMA tiap topik, dan untuk
+        # Vektor itu Materi 01 (perahu di air). Video ini dulu membuka dengan
+        # belasan detik lapangan kelabu yang hampir tidak bergerak. Narasinya
+        # tidak diubah; angka sumbu sengaja ditahan sampai babak kedua, tempat
+        # narator memang menyebutnya.
+        bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
+        bidang.angka.set_opacity(0)
+        self.add(bidang)
         self.k = ValueTracker(0.0)
         bola = ilustrasi.bola(0.22, REDUP)
         pusat0 = bola.get_center().copy()
@@ -78,35 +86,27 @@ class KaliSkalar(AdeganMatra):
         # makna matematis di video ini.
         bola.add_updater(lambda m: m.move_to(pusat0 + self.k.get_value() * VA))
 
-        kamera.pasang_awal(frame, theta=-28, phi=66, pusat=(1.0, 0.6, 0.5), tinggi=5.0)
-        self.add(alas, lapangan, bola)
+        pusat, tinggi = kamera.muat_datar(bidang)
+        kamera.pasang_awal(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi)
+        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True, alas=True)
+
         with sinema.babak(self, "sapa", DURASI) as b:
+            self.add(bola)
+            b.main(FadeIn(bola, scale=1.6), run_time=0.8)
             sinema.judul_pembuka(self, "Panjang berubah, arah tetap", lama=3.2, y=2.4)
             b.catat(3.2)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"bola": bola})
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang, "bola": bola})
 
         # ==============================================================
-        # Babak 2: turun ke tegak lurus
+        # Babak 2: angka sumbu muncul, identitas dipasang
         # ==============================================================
-        bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
-        bidang.set_opacity(0)
-        self.add(bidang)
-        self.bring_to_front(bola)
-        # `tanpa_utama=True`: semua isinya baris, tidak ada rumus utama.
-        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True)
-
         with sinema.babak(self, "terbang", DURASI) as b:
-            lama = max(2.0, DURASI["terbang"] - 3.0)
-            pusat, tinggi = kamera.muat_datar(bidang, sisa_atas=SISA_ATAS,
-                                              sisa_kanan=SISA_KANAN)
-            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
-                                tinggi=tinggi), run_time=lama)
-            b.main(FadeOut(lapangan), FadeOut(alas),
-                   bidang.animate.set_opacity(1), run_time=1.4)
-            identitas = sinema.identitas(self, "1 petak = 1 langkah")
+            b.main(bidang.angka.animate.set_opacity(0.75), run_time=1.6)
+            identitas = sinema.identitas(self, "1 petak = 1 langkah", alas=True)
             identitas.set_opacity(0)
             b.main(identitas.animate.set_opacity(1), run_time=0.8)
+            b.jeda(1.2)
         # Bidang ke `dunia`, identitas ke `hud`: hanya begitu perkalian
         # silang hud x dunia di `periksa_adegan` berjalan.
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang},

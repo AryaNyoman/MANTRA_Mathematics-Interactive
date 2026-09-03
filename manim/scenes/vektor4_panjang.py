@@ -14,7 +14,7 @@ selalu bilangan bulat. Angka 5 tetap muncul, tetapi lewat (-3 4), yang sekaligus
 memperlihatkan tanda minus hilang begitu dikuadratkan.
 
 STORYBOARD
-   1. sapa      3D miring DEKAT: dua tiang dengan kabel terbentang di antaranya.
+   1. sapa      Bidang bernomor, tegak lurus: dua tiang dengan kabel terbentang di antaranya.
    2. terbang   Turun ke tegak lurus; bidang koordinat bernomor muncul.
    3. komponen  Komponen (4, 2) digambar sebagai dua langkah.
    4. segitiga  Tanda siku-siku; kabelnya adalah sisi miring.
@@ -63,7 +63,8 @@ BIDANG_X, BIDANG_Y = (-6.0, 6.0, 1.0), (-1.0, 5.0, 1.0)
 # SISA JALUR HUD DIUKUR, bukan dikarang: baris panel terlebar di sini
 # "|w| = akar(9 + 16) = 5" selebar 2,19 satuan, rata kanan ke 6,73, jadi
 # tepi kirinya 4,54. Identitas satu baris berakhir sekitar y = 3,35.
-SISA_ATAS, SISA_KANAN = 0.40, 2.30
+# Pesanan jalur HUD DIHAPUS: sejak `sinema.alas_hud` ada, tulisan HUD
+# punya alas kertas sendiri, jadi bidang boleh memenuhi layar.
 
 
 def panah(a, b, warna, tebal=5):
@@ -79,10 +80,22 @@ class PanjangPanah(AdeganMatra):
         frame = self.frame
 
         # ==============================================================
-        # Babak 1: dunia nyata, 3D, dari dekat
         # ==============================================================
-        alas = ilustrasi.tanah(14.0, 14.0, 1.5, z=-0.02)
-        lapangan = VGroup(ilustrasi.lantai_kisi(12.0, 1.0)[0])
+        # Babak 1: LANGSUNG ke bidang bernomor, tanpa pembuka 3D
+        # ==============================================================
+        # STANDAR butir 2: 3D hanya di video PERTAMA tiap topik, dan untuk
+        # Vektor itu Materi 01 (perahu di air). Video ini dulu membuka dengan
+        # belasan detik lapangan kelabu yang hampir tidak bergerak. Narasinya
+        # tidak diubah; angka sumbu sengaja ditahan sampai babak kedua, tempat
+        # narator memang menyebutnya.
+        bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
+        bidang.angka.set_opacity(0)
+        self.add(bidang)
+
+        # Tiang dan kabelnya DIPERTAHANKAN, hanya dilihat tegak lurus dari
+        # atas: dua bulatan kecil dan sebuah ruas lurus di antaranya. Justru
+        # begitu pengait ceritanya tetap ada ("berapa meter kabel yang perlu
+        # disiapkan?") tanpa belasan detik lapangan kosong.
         TINGGI_TIANG = 1.5
         tiang1 = ilustrasi.silinder(0.10, TINGGI_TIANG, REDUP)
         tiang2 = ilustrasi.silinder(0.10, TINGGI_TIANG, REDUP).shift(VV)
@@ -90,38 +103,32 @@ class PanjangPanah(AdeganMatra):
                      VV + np.array([0.0, 0.0, TINGGI_TIANG]))
         kabel.set_stroke(TINTA, 2.5)
 
-        # Bingkai 5,2 membuat kaki tiang jatuh di -2,57, dua perseratus satuan
-        # di dalam jalur subtitle, dan qc v2 menggagalkan rendernya. 5,5
-        # menaikkannya ke sekitar -2,43. Angka ini dari pesan gerbangnya
-        # sendiri, bukan dikira-kira.
-        kamera.pasang_awal(frame, theta=-30, phi=64, pusat=(2.0, 1.0, 0.9), tinggi=5.5)
-        self.add(alas, lapangan, tiang1, tiang2, kabel)
+        pusat, tinggi = kamera.muat_datar(bidang)
+        kamera.pasang_awal(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi)
+        # `alas=True`: tulisan HUD diberi alas kertas, jadi bidang boleh
+        # memenuhi layar tanpa garis petak menembus tulisannya.
+        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True, alas=True)
+
         with sinema.babak(self, "sapa", DURASI) as b:
+            self.add(tiang1, tiang2, kabel)
+            b.main(FadeIn(tiang1, scale=1.5), FadeIn(tiang2, scale=1.5),
+                   run_time=0.6)
+            b.main(ShowCreation(kabel), run_time=0.8)
             sinema.judul_pembuka(self, "Panjang panah itu Pythagoras", lama=3.2, y=2.4)
             b.catat(3.2)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"tiang 1": tiang1, "tiang 2": tiang2})
+        qc.periksa_adegan(self, {},
+                          dunia={"bidang": bidang, "tiang 1": tiang1,
+                                 "tiang 2": tiang2})
 
         # ==============================================================
-        # Babak 2: turun ke tegak lurus
+        # Babak 2: angka sumbu muncul, identitas dipasang
         # ==============================================================
-        bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
-        bidang.set_opacity(0)
-        self.add(bidang)
-        # `tanpa_utama=True`: tidak ada rumus utama di video ini, semua
-        # isinya baris. Tanpa penanda itu slot teratas dipesan percuma.
-        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True)
-
         with sinema.babak(self, "terbang", DURASI) as b:
-            lama = max(2.0, DURASI["terbang"] - 3.0)
-            pusat, tinggi = kamera.muat_datar(bidang, sisa_atas=SISA_ATAS,
-                                              sisa_kanan=SISA_KANAN)
-            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
-                                tinggi=tinggi), run_time=lama)
-            b.main(FadeOut(lapangan), FadeOut(alas), FadeOut(kabel),
-                   FadeOut(tiang1), FadeOut(tiang2),
-                   bidang.animate.set_opacity(1), run_time=1.4)
-            identitas = sinema.identitas(self, "1 petak = 1 meter")
+            b.main(bidang.angka.animate.set_opacity(0.75), run_time=1.6)
+            b.main(FadeOut(kabel), FadeOut(tiang1), FadeOut(tiang2),
+                   run_time=0.8)
+            identitas = sinema.identitas(self, "1 petak = 1 meter", alas=True)
             identitas.set_opacity(0)
             b.main(identitas.animate.set_opacity(1), run_time=0.8)
         # Bidang ke `dunia`, identitas ke `hud`. Hanya begitu perkalian

@@ -325,6 +325,11 @@ class PapanRumus:
             return
         self.alas.dekorasi = True
         for m in isi:
+            # WAJIB. Tanpa penanda ini gerbang menolak "panel d menindih
+            # bidang": pengecualian hud x dunia hanya berlaku bila HUD-nya
+            # `beralas` DAN dunianya `latar`. Penanda ini sempat hilang saat
+            # bentrok merge 4 Sep diselesaikan, dan render Materi 01 gagal.
+            m.beralas = True
             self.scene.bring_to_front(m)
 
     def _anim_alas(self):
