@@ -45,6 +45,28 @@
 - **Bentrok yang diketahui**: Vektor punya 70 baris `sinema.py` belum
   disimpan yang menyentuh `PapanRumus`, sama dengan perubahan 3D yang sudah di
   master. Vektor diminta commit, merge, dan mempertahankan perubahan 3D.
+- **TUGAS PER SESI (4 Sep pagi), juga dikirim lewat pesan; sesi yang
+  dinyalakan ulang membacanya dari sini:**
+  - **Ruang 3D**: merge master; pembuka 01 maksimal 10 detik dan ada kejadian,
+    03 sampai 09 maksimal 5 detik atau langsung rangka; kubus diberi cahaya dan
+    bayangan (`gl.ilustrasi.balok`); angka sumbu cukup 0, 3, 6; `nilai_hidup`
+    kini otomatis "="; render 01 dan 04 dulu untuk dinilai; 03 tunggu ARYA.
+  - **Vektor**: commit `sinema.py` lalu merge master, pertahankan perubahan 3D
+    di `PapanRumus`; potong pembuka 03/04/06/08/09 ke maksimal 5 detik; bidang
+    boleh naik (tengah atas bebas); label "dayung" 180 derajat dan resultan
+    hitam di 06; render ulang hanya 01 dan 06.
+  - **Statistika**: merge master; 06 kamera didekatkan (garis bilangan penuh,
+    orang terlihat), 11 kamera diperbesar di babak residu saja; pindahkan
+    kamus TULISAN ke `tulisan=`; tujuh video baru ikut aturan zona.
+  - **Grafik Fungsi**: lapor status dua revisi (grafik3, grafik6), commit,
+    merge master; buat `alat/cek_sinkron_video.py` umum untuk topik lain.
+  - **Transformasi Geometri** (sesi TIDAK menyala saat pesan dikirim): merge
+    master, daftarkan bab di `web/content/subbab.ts`, buktikan lewat
+    `/peta-materi`; baca STANDAR versi master sebelum video pertama.
+  - **UI/UX** (tidak menyala; usulan MASTER kalau dinyalakan): audit MANTRA
+    di HP lewat https://mantra-uji.vercel.app, potret ulang `demo-latihan.jpg`
+    dan `demo-banksoal.jpg` untuk korsel (masih tampilan lama), ruang kosong di
+    bawah widget lebar pendek pada layar lebar, langkah bernomor pembahasan.
 - Menunggu keputusan ARYA: (1) Ruang 3D materi 03, kamera sejajar AC
   (usul: tetap, dengan aba-aba di narasi); (2) Statistika mengerjakan tujuh
   video di luar rencana enam (usul: boleh, 480p semua); (3) sesi UI/UX
