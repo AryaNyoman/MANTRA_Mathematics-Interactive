@@ -45,6 +45,9 @@
 - **Bentrok yang diketahui**: Vektor punya 70 baris `sinema.py` belum
   disimpan yang menyentuh `PapanRumus`, sama dengan perubahan 3D yang sudah di
   master. Vektor diminta commit, merge, dan mempertahankan perubahan 3D.
+- **Antrean render bersama: `alat/antre_render.py <nama-worktree>`** (BUKAN di
+  `manim/`; MASTER pernah salah tulis jalurnya 4 Sep). Semua render lewat sini
+  supaya lima sesi tidak berebut kartu grafis.
 - **TUGAS PER SESI (4 Sep pagi), juga dikirim lewat pesan; sesi yang
   dinyalakan ulang membacanya dari sini:**
   - **Ruang 3D**: merge master; pembuka 01 maksimal 10 detik dan ada kejadian,
