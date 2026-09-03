@@ -92,7 +92,9 @@ BIDANG_X, BIDANG_Y = (-4.0, 8.0, 1.0), (-1.0, 4.0, 1.0)
 # bukan garis petak y = -1, melainkan ANGKA sumbunya, yang menjulur
 # sekitar 0,30 satuan lagi ke bawah. Pusat 1,30 ditolak qc dengan bawah
 # -2,70; 0,97 memberi sekitar -2,35, aman dari batas -2,55.
-PETA = dict(theta=0, phi=0, pusat=(2.0, 0.97, 0.0), tinggi=7.6)
+# Pusat dan tinggi kamera peta TIDAK ditulis tangan lagi: `kamera.muat_datar`
+# menghitungnya dari kotak batas bidang, termasuk angka sumbunya yang
+# menjulur di bawah garis petak terbawah.
 
 
 class PerahuVektor(AdeganMatra):
@@ -154,11 +156,19 @@ class PerahuVektor(AdeganMatra):
         self.bring_to_front(perahu)
         dunia3d = Group(air, tepi_jauh, tepi_dekat)
 
-        papan = sinema.PapanRumus(self, ukuran=30)
+        # `tanpa_utama=True`: video ini tidak memakai rumus utama, semua
+        # isinya baris. Tanpa penanda itu slot teratas dipesan percuma dan
+        # baris keempat jatuh keluar zona kanan.
+        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True)
 
         with sinema.babak(self, "terbang", DURASI) as b:
             lama = max(2.0, DURASI["terbang"] - 3.0)
-            b.main(kamera.sudut(frame, **PETA), run_time=lama)
+            # Pusat dan tinggi dihitung dari kotak batas bidang yang
+            # SEBENARNYA, termasuk angka sumbunya. Hitungan tangan dari
+            # garis petak sudah dua kali ditolak qc.
+            pusat, tinggi = kamera.muat_datar(bidang)
+            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
+                                tinggi=tinggi), run_time=lama)
             self.di_air = False
             b.main(FadeOut(dunia3d), bidang.animate.set_opacity(1),
                    pita.animate.set_fill(AKSEN2, PEKAT_PITA), run_time=1.4)
@@ -288,8 +298,12 @@ class PerahuVektor(AdeganMatra):
             # tempatnya, sesuai larangan v2 atas fade untuk rumus.
             uraian = papan.baris(r"\sqrt{4^2 + 3^2}", SOROT)
             b.catat(0.8)
-            for langkah_isi in (r"\sqrt{16 + 9}", r"\sqrt{25}", r"5"):
-                uraian = sinema.ganti_rumus(self, uraian, langkah_isi, b=b)
+            # Langkah terakhir menyebut ulang apa yang dihitung. Berakhir
+            # sebagai angka "5" telanjang membuat panel kehilangan konteks.
+            for langkah_isi in (r"\sqrt{16 + 9}", r"\sqrt{25}",
+                                r"|\vec{d} + \vec{a}| = 5"):
+                uraian = sinema.ganti_rumus(self, uraian, langkah_isi,
+                                            b=b, papan=papan)
             b.jeda(0.8)
         qc.periksa_adegan(self, {"label d": l_dayung},
                           hud={"uraian": uraian, "ukur": ukur, "identitas": identitas,
