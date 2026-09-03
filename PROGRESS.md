@@ -23,6 +23,31 @@
 
 ## 🧭 MULAI DARI SINI (sesi berikutnya, ditulis 2 Sep 2026)
 
+### 🗺️ 4 SEP DINI HARI: peta struktur graphify sudah ada
+
+- `graphify-out/graph.json`: **2.471 simpul, 5.881 hubungan, 167 komunitas
+  bernama**. Isinya seluruh kode (`manim/`, `web/`, `alat/`, termasuk arsip
+  Manim CE), 52 dokumen (spec, standar, PROGRESS, CLAUDE, rancangan MANTRA),
+  dan 43 foto materi. Buka `graphify-out/graph.html` di peramban untuk
+  menjelajah; `GRAPH_REPORT.md` untuk simpul pusat, hubungan tak terduga,
+  dan pertanyaan yang layak ditelusuri.
+- **Cara pakai tiap sesi:** baca `GRAPH_REPORT.md` dulu, lalu
+  `graphify query "<pertanyaan>"`, `graphify path "A" "B"`, atau
+  `graphify explain "X"`. Kode berubah? `graphify update .` (AST, gratis).
+- **Yang dipelajari dengan mahal, jangan diulang** (rincian di CLAUDE.md
+  bagian Peta struktur): Gemini gratis kena kuota harian 20 permintaan;
+  OpenCode Zen saldo kosong; di OpenCode Go `glm-5.3` menghabiskan seluruh
+  keluaran untuk berpikir (JSON kosong) dan `deepseek-v4-flash` butuh opt-in
+  wilayah; yang bekerja: `glm-5.3-flash` lewat `/zen/go/v1`, 42 dokumen
+  dalam 10 menit, 187 ribu token masuk / 38 ribu keluar (sekitar 2 sen
+  dolar). Skrip pemanggil AST di Windows WAJIB punya pagar
+  `if __name__ == "__main__":`, dan jangan pernah menamai skrip `ast.py`
+  (menutupi modul bawaan Python, semua impor pecah).
+- Rantai panjang (lebih dari 10 menit) TIDAK boleh dijalankan sebagai
+  perintah latar belakang alat (batas 10 menit); jalankan lewat
+  `Start-Process bash.exe <skrip>` dan pantau berkas lognya. Log jangan
+  lewat pipa `grep`/`cut` (tertahan sampai selesai), tulis langsung ke berkas.
+
 ### ✅ 3 SEP MALAM: rancangan MANTRA TAYANG di produksi
 
 - `sesi/mantra` digabung ke `master` (fast-forward ke `faac773`) setelah ARYA
