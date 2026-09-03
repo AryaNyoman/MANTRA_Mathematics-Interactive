@@ -40,7 +40,8 @@ _LAYAR_BAWAH, _LAYAR_ATAS = -2.55 + 0.20, 4.0 - 0.30
 _LAYAR_KIRI, _LAYAR_KANAN = -7.11 + 0.45, 7.11 - 0.45
 
 
-def muat_datar(mob, margin: float = 0.25):
+def muat_datar(mob, margin: float = 0.25,
+               sisa_atas: float = 0.0, sisa_kanan: float = 0.0):
     """Hitung (pusat, tinggi) kamera tegak lurus supaya `mob` MUAT di jalur layar
     yang bebas subtitle. Kembalikan (pusat, tinggi), pakai untuk `pasang_awal`
     atau `dunia_ke_peta`.
@@ -50,23 +51,37 @@ def muat_datar(mob, margin: float = 0.25):
     6,3 satuan tidak muat pada bingkai 7,0 berapa pun pusatnya digeser. Fungsi
     ini menghitung keduanya dari kotak batas objek yang sebenarnya, bukan dari
     garis petak.
+
+    `sisa_atas` dan `sisa_kanan` MEMESAN jalur layar untuk HUD, sama seperti
+    jalur bawah yang sudah dipesan untuk subtitle. Standar v2 menaruh identitas
+    benda di KIRI ATAS dan panel rumus di KANAN ATAS, dan fungsi ini tidak tahu
+    apa-apa soal keduanya: tanpa pesanan itu ia melebarkan bidang sampai penuh,
+    lalu garis petak menembus tulisan panel. Temuan Vektor 3 Sep malam, pada
+    videonya sendiri. Ukur dulu tepi kiri tulisan panel dan tepi bawah blok
+    identitas di lembar kontak, jangan mengarang angkanya.
     """
+    layar_atas = _LAYAR_ATAS - sisa_atas
+    layar_kanan = _LAYAR_KANAN - sisa_kanan
     kiri, kanan = mob.get_left()[0] - margin, mob.get_right()[0] + margin
     bawah, atas = mob.get_bottom()[1] - margin, mob.get_top()[1] + margin
-    ruang_y = _LAYAR_ATAS - _LAYAR_BAWAH          # satuan layar yang tersedia tegak
-    ruang_x = _LAYAR_KANAN - _LAYAR_KIRI          # dan mendatar
+    ruang_y = layar_atas - _LAYAR_BAWAH           # satuan layar yang tersedia tegak
+    ruang_x = layar_kanan - _LAYAR_KIRI           # dan mendatar
+    if ruang_y <= 0 or ruang_x <= 0:
+        raise ValueError(
+            f"jalur layar habis dipesan: sisa_atas={sisa_atas}, sisa_kanan={sisa_kanan}")
     tinggi = max((atas - bawah) * FRAME_HEIGHT / ruang_y,
                  (kanan - kiri) * FRAME_HEIGHT / ruang_x)
     skala = tinggi / FRAME_HEIGHT                 # satuan dunia per satuan layar
-    # Pusat kamera: titik dunia yang jatuh di tengah jalur bebas subtitle.
-    tengah_layar_y = (_LAYAR_ATAS + _LAYAR_BAWAH) / 2
-    tengah_layar_x = (_LAYAR_KIRI + _LAYAR_KANAN) / 2
+    # Pusat kamera: titik dunia yang jatuh di tengah jalur yang TERSISA.
+    tengah_layar_y = (layar_atas + _LAYAR_BAWAH) / 2
+    tengah_layar_x = (_LAYAR_KIRI + layar_kanan) / 2
     pusat = (float((kiri + kanan) / 2 - tengah_layar_x * skala),
              float((bawah + atas) / 2 - tengah_layar_y * skala), 0.0)
     return pusat, float(tinggi)
 
 
-def dunia_ke_peta_muat(frame, mob, margin: float = 0.25):
+def dunia_ke_peta_muat(frame, mob, margin: float = 0.25,
+                       sisa_atas: float = 0.0, sisa_kanan: float = 0.0):
     """`dunia_ke_peta` yang pusat dan tingginya dihitung dari `muat_datar(mob)`."""
-    pusat, tinggi = muat_datar(mob, margin)
+    pusat, tinggi = muat_datar(mob, margin, sisa_atas, sisa_kanan)
     return dunia_ke_peta(frame, pusat=pusat, tinggi=tinggi)

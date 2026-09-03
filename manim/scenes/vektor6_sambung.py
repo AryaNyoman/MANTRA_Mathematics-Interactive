@@ -80,7 +80,8 @@ BIDANG_X, BIDANG_Y = (-2.0, 7.0, 1.0), (-1.0, 4.0, 1.0)
 # satuan bingkai, sedangkan yang tersedia 6,25. Tingginya dinaikkan ke
 # 7,6 (sama dengan Materi 01) supaya muat, dan pusatnya diletakkan di
 # tengah pita itu. Diukur, bukan dihitung di kepala.
-PETA = dict(theta=0, phi=0, pusat=(2.5, 0.96, 0.0), tinggi=7.6)
+# Pusat dan tinggi kamera peta dihitung `kamera.muat_datar`, tidak ditulis
+# tangan: bidang setinggi enam baris tidak selalu muat berapa pun pusatnya.
 
 
 def panah(a, b, warna, tebal=5):
@@ -129,11 +130,15 @@ class SambungPerjalanan(AdeganMatra):
         self.add(bidang)
         self.bring_to_front(pejalan)
 
-        papan = sinema.PapanRumus(self, ukuran=30)
+        # `tanpa_utama=True`: semua isinya baris, tidak ada rumus utama.
+        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True)
 
         with sinema.babak(self, "terbang", DURASI) as b:
             lama = max(2.0, DURASI["terbang"] - 3.0)
-            b.main(kamera.sudut(frame, **PETA), run_time=lama)
+            # Pusat dan tinggi dari kotak batas bidang yang sebenarnya.
+            pusat, tinggi = kamera.muat_datar(bidang)
+            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
+                                tinggi=tinggi), run_time=lama)
             b.main(FadeOut(lapangan), FadeOut(alas),
                    bidang.animate.set_opacity(1), run_time=1.4)
             identitas = sinema.identitas(self, "1 petak = 1 langkah")
@@ -300,7 +305,8 @@ class SambungPerjalanan(AdeganMatra):
             b.main(ShowCreation(bantu_y), run_time=0.9)
             b.main(ShowCreation(ruas_c), FadeIn(n_c), run_time=0.6)
             b.main(ShowCreation(ruas_d), FadeIn(n_d), run_time=0.6)
-            hitung = sinema.ganti_rumus(self, hitung, r"1 + 2 = 3", b=b)
+            hitung = sinema.ganti_rumus(self, hitung, r"1 + 2 = 3", b=b,
+                                        papan=papan)
             b.jeda(0.8)
         qc.periksa_adegan(self, {"angka c": n_c, "angka d": n_d},
                           [("angka c", "angka d")],
@@ -323,7 +329,8 @@ class SambungPerjalanan(AdeganMatra):
             # "kanan 7.45 > 6.82"). Angka lengkap "3,16 + 2,24 = 5,4" dibawa
             # narasi dan subtitle; versi 2 memang menetapkan kalimat panjang
             # milik subtitle, bukan gambar.
-            jebak = sinema.ganti_rumus(self, hitung, r"5{,}4 \ne 5", b=b, warna=AKSEN)
+            jebak = sinema.ganti_rumus(self, hitung, r"5{,}4 \ne 5", b=b,
+                                       warna=AKSEN, papan=papan)
             # Resultannya sendiri sudah ungu, jadi disorot dengan tinta.
             b.main(Indicate(pr, scale_factor=1.0, color=TINTA), run_time=1.0)
             b.jeda(1.0)
@@ -345,14 +352,11 @@ class SambungPerjalanan(AdeganMatra):
         # mengizinkan layar bersih untuk penutup, paling banyak satu babak.
         semua = Group(bidang, pejalan, benar)
         with sinema.babak(self, "tutup", DURASI) as b:
-            # JANGAN `FadeOut(papan.semua())`. Papan masih memegang objek baris
-            # yang LAMA, yang sudah dilebur `ganti_rumus` jadi baris baru, dan
-            # `FadeOut` mengembalikan objek ke keadaan semula saat dibersihkan
-            # (jebakan yang dicatat STANDAR-ILUSTRASI-VIDEO v2). Akibatnya
-            # "3 + 1 = 4" muncul lagi menimpa "5,4 = 5" selama satu detik
-            # penutup. Yang disingkirkan harus objek yang BENAR-BENAR tampil.
-            b.main(FadeOut(semua), FadeOut(panel_a), FadeOut(panel_b),
-                   FadeOut(panel_r), FadeOut(jebak), FadeOut(identitas),
+            # `papan.semua()` aman lagi sejak `ganti_rumus` diberi `papan=papan`:
+            # papan mencatat penggantinya, jadi yang disingkirkan objek yang
+            # benar-benar tampil. Sebelum itu baris LAMA yang sudah dilebur
+            # ikut di-FadeOut dan hidup lagi menimpa yang baru.
+            b.main(FadeOut(semua), FadeOut(papan.semua()), FadeOut(identitas),
                    run_time=1.4)
             self.hud_tambah(tutup)
             tutup.set_opacity(0)

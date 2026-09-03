@@ -56,7 +56,14 @@ VLAWAN = -VB                            # -b
 VSEL = VA - VB                          # a - b = (2, -1)
 
 BIDANG_X, BIDANG_Y = (-3.0, 5.0, 1.0), (-3.0, 3.0, 1.0)
-PETA = dict(theta=0, phi=0, pusat=(1.0, -0.2, 0.0), tinggi=8.0)
+# Kamera peta dihitung `kamera.muat_datar`, tidak ditulis tangan: yang
+# paling bawah pada `bidang_bernomor` adalah ANGKA sumbunya, bukan garis
+# petak terbawah.
+#
+# SISA JALUR HUD DIUKUR: baris panel terlebar di sini
+# "(3, 1) - (1, 2) = (2, -1)" selebar 3,01 satuan dan rata kanan ke 6,73,
+# jadi tepi kirinya 3,72. Identitas satu baris berakhir sekitar y = 3,35.
+SISA_ATAS, SISA_KANAN = 0.40, 3.10
 
 
 def panah(a, b, warna, tebal=5):
@@ -94,17 +101,24 @@ class SelisihPerjalanan(AdeganMatra):
         bidang.set_opacity(0)
         self.add(bidang)
         self.bring_to_front(orang_a, orang_b)
-        identitas = teks("1 petak = 1 langkah", 23, REDUP).to_corner(UL, buff=0.42)
+        # `tanpa_utama=True`: semua isinya baris, tidak ada rumus utama.
+        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True)
 
         with sinema.babak(self, "terbang", DURASI) as b:
             lama = max(2.0, DURASI["terbang"] - 3.0)
-            b.main(kamera.sudut(frame, **PETA), run_time=lama)
+            pusat, tinggi = kamera.muat_datar(bidang, sisa_atas=SISA_ATAS,
+                                              sisa_kanan=SISA_KANAN)
+            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
+                                tinggi=tinggi), run_time=lama)
             b.main(FadeOut(lapangan), FadeOut(alas),
                    bidang.animate.set_opacity(1), run_time=1.4)
-            self.hud_tambah(identitas)
+            identitas = sinema.identitas(self, "1 petak = 1 langkah")
             identitas.set_opacity(0)
             b.main(identitas.animate.set_opacity(1), run_time=0.8)
-        qc.periksa_adegan(self, {"bidang": bidang, "identitas": identitas})
+        # Bidang ke `dunia`, identitas ke `hud`: hanya begitu perkalian
+        # silang hud x dunia di `periksa_adegan` berjalan.
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"identitas": identitas})
 
         # ==============================================================
         # Babak 3: dua panah posisi
@@ -115,27 +129,25 @@ class SelisihPerjalanan(AdeganMatra):
         # Label b ditaruh di KANAN panahnya. Di kiri ia jatuh persis di sumbu
         # tegak dan bertindih dengan angka sumbunya.
         lb = rumus(r"\vec{b}", 30, AKSEN).move_to(ASAL + VB * 0.5 + 0.45 * RIGHT)
-        panel_a = rumus(r"\vec{a} = (3,\ 1)", 32, AKSEN2).to_corner(UR, buff=0.45)
-        panel_b = rumus(r"\vec{b} = (1,\ 2)", 32, AKSEN)
-        panel_b.next_to(panel_a, DOWN, buff=0.22).align_to(panel_a, RIGHT)
 
         with sinema.babak(self, "dua", DURASI) as b:
             b.main(GrowArrow(pa), run_time=1.0)
             self.bring_to_front(orang_a, orang_b)
             b.main(FadeIn(la), run_time=0.4)
-            self.hud_tambah(panel_a)
-            panel_a.set_opacity(0)
-            b.main(panel_a.animate.set_opacity(1), run_time=0.5)
+            panel_a = papan.baris(r"\vec{a} = (3,\ 1)", AKSEN2)
+            b.catat(0.8)
             b.main(GrowArrow(pb), run_time=1.0)
             self.bring_to_front(orang_a, orang_b)
             b.main(FadeIn(lb), run_time=0.4)
-            self.hud_tambah(panel_b)
-            panel_b.set_opacity(0)
-            b.main(panel_b.animate.set_opacity(1), run_time=0.5)
+            panel_b = papan.baris(r"\vec{b} = (1,\ 2)", AKSEN)
+            b.catat(0.8)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"a": pa, "b": pb, "label a": la, "label b": lb,
-                                 "panel a": panel_a, "panel b": panel_b},
-                          [("label a", "label b"), ("panel a", "panel b")])
+        qc.periksa_adegan(self, {},
+                          [("label a", "label b")],
+                          dunia={"bidang": bidang, "a": pa, "b": pb,
+                                 "label a": la, "label b": lb},
+                          hud={"panel a": panel_a, "panel b": panel_b,
+                               "identitas": identitas})
 
         # ==============================================================
         # Babak 4: lawan dari b
@@ -147,20 +159,19 @@ class SelisihPerjalanan(AdeganMatra):
         # Digeser ke KIRI panahnya, bukan ke kanan: di kanan ia jatuh di sumbu
         # tegak dan tercetak menimpa angka "-1". Terlihat di render pertama.
         l_lawan = rumus(r"-\vec{b}", 28, AKSEN).move_to(ASAL + VLAWAN * 0.6 + 0.60 * LEFT)
-        panel_l = rumus(r"-\vec{b} = (-1,\ -2)", 32, AKSEN)
-        panel_l.next_to(panel_b, DOWN, buff=0.22).align_to(panel_b, RIGHT)
 
         with sinema.babak(self, "lawan", DURASI) as b:
             self.add(p_lawan)
             b.main(Rotate(p_lawan, PI, about_point=ASAL), run_time=1.6)
             b.main(FadeIn(l_lawan), run_time=0.4)
-            self.hud_tambah(panel_l)
-            panel_l.set_opacity(0)
-            b.main(panel_l.animate.set_opacity(1), run_time=0.5)
+            panel_l = papan.baris(r"-\vec{b} = (-1,\ -2)", AKSEN)
+            b.catat(0.8)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"lawan": p_lawan, "label lawan": l_lawan,
-                                 "panel lawan": panel_l, "panel b": panel_b},
-                          [("panel b", "panel lawan")])
+        qc.periksa_adegan(self, {},
+                          dunia={"bidang": bidang, "lawan": p_lawan,
+                                 "label lawan": l_lawan},
+                          hud={"panel a": panel_a, "panel b": panel_b,
+                               "panel lawan": panel_l, "identitas": identitas})
 
         # ==============================================================
         # Babak 5: dijumlahkan seperti biasa
@@ -176,28 +187,28 @@ class SelisihPerjalanan(AdeganMatra):
             b.main(GrowArrow(p_sel), run_time=1.2)
             b.main(FadeIn(titik_sel, scale=2.0), FadeIn(koord_sel), run_time=0.6)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"selisih": p_sel, "koordinat": koord_sel,
-                                 "panel lawan": panel_l},
-                          [("koordinat", "panel lawan")])
+        qc.periksa_adegan(self, {},
+                          dunia={"bidang": bidang, "selisih": p_sel,
+                                 "koordinat": koord_sel},
+                          hud={"panel a": panel_a, "panel b": panel_b,
+                               "panel lawan": panel_l, "identitas": identitas})
 
         # ==============================================================
         # Babak 6: komponennya
         # ==============================================================
-        h1 = rumus(r"3 + (-1) = 2", 30, TINTA)
-        h2 = rumus(r"1 + (-2) = -1", 30, TINTA)
-        h3 = rumus(r"\vec{a} - \vec{b} = (2,\ -1)", 30, SOROT)
-        hitung = VGroup(h1, h2, h3).arrange(DOWN, buff=0.20, aligned_edge=LEFT)
-        hitung.next_to(identitas, DOWN, buff=0.34).align_to(identitas, LEFT)
-
+        # Dulu tiga baris ditumpuk di KIRI, di bawah identitas. Zona kiri
+        # atas milik identitas benda; hitungan milik panel kanan, dan zona
+        # itu cuma memuat empat baris. Ketiganya jadi SATU baris kerja yang
+        # nanti dimorf dua kali, sebab pengurangan per komponen memang lebih
+        # terbaca sebagai satu persamaan daripada dua baris terpisah.
         with sinema.babak(self, "hitung", DURASI) as b:
-            self.hud_tambah(hitung)
-            hitung.set_opacity(0)
-            for baris in hitung:
-                b.main(baris.animate.set_opacity(1), run_time=0.7)
+            kerja = papan.baris(r"(3,\ 1) - (1,\ 2) = (2,\ -1)", SOROT)
+            b.catat(0.8)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"hitung": hitung, "identitas": identitas,
-                                 "panel a": panel_a},
-                          [("hitung", "identitas"), ("hitung", "panel a")])
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"panel a": panel_a, "panel b": panel_b,
+                               "panel lawan": panel_l, "kerja": kerja,
+                               "identitas": identitas})
 
         # ==============================================================
         # Babak 7: pertanyaan
@@ -207,7 +218,10 @@ class SelisihPerjalanan(AdeganMatra):
             b.main(bantu.animate.set_opacity(0.18), run_time=0.8)
             b.main(Indicate(p_sel, scale_factor=1.0, color=TINTA), run_time=1.0)
             b.jeda(1.6)
-        qc.periksa_adegan(self, {"selisih": p_sel, "identitas": identitas})
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang, "selisih": p_sel},
+                          hud={"panel a": panel_a, "panel b": panel_b,
+                               "panel lawan": panel_l, "kerja": kerja,
+                               "identitas": identitas})
 
         # ==============================================================
         # Babak 8: panah yang sama, di tempat lain
@@ -229,9 +243,14 @@ class SelisihPerjalanan(AdeganMatra):
             b.main(Indicate(p_sel, scale_factor=1.0, color=TINTA),
                    Indicate(p_sel2, scale_factor=1.0, color=TINTA), run_time=1.2)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"selisih 2": p_sel2, "label selisih 2": l_sel2,
+        qc.periksa_adegan(self, {},
+                          [("label selisih 2", "koordinat")],
+                          dunia={"bidang": bidang, "selisih 2": p_sel2,
+                                 "label selisih 2": l_sel2,
                                  "koordinat": koord_sel},
-                          [("label selisih 2", "koordinat")])
+                          hud={"panel a": panel_a, "panel b": panel_b,
+                               "panel lawan": panel_l, "kerja": kerja,
+                               "identitas": identitas})
 
         # ==============================================================
         # Babak 9: arahnya
@@ -241,26 +260,27 @@ class SelisihPerjalanan(AdeganMatra):
             b.main(Indicate(pa, scale_factor=1.0, color=SOROT), run_time=0.9)
             b.main(ShowCreationThenDestruction(p_sel2.copy().set_color(TINTA)), run_time=1.4)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"selisih 2": p_sel2, "identitas": identitas})
+        qc.periksa_adegan(self, {},
+                          dunia={"bidang": bidang, "selisih 2": p_sel2},
+                          hud={"panel a": panel_a, "panel b": panel_b,
+                               "panel lawan": panel_l, "kerja": kerja,
+                               "identitas": identitas})
 
         # ==============================================================
         # Babak 10: dari sinilah aturan AB = B - A berasal
         # ==============================================================
-        aturan = rumus(r"\vec{AB} = B - A", 32, TINTA)
-        aturan.next_to(hitung, DOWN, buff=0.34).align_to(hitung, LEFT)
-        ujung_pangkal = teks("ujung dikurangi pangkal", 22, REDUP)
-        ujung_pangkal.next_to(aturan, DOWN, buff=0.16).align_to(aturan, LEFT)
-
+        # Baris kerja yang SAMA dimorf jadi aturannya. Kalimat "ujung
+        # dikurangi pangkal" DIHAPUS dari gambar: narator mengucapkannya dan
+        # subtitle menuliskannya, jadi menaruhnya lagi di layar berarti satu
+        # maksud ditulis dua kali.
         with sinema.babak(self, "titik", DURASI) as b:
-            self.hud_tambah(aturan, ujung_pangkal)
-            aturan.set_opacity(0)
-            ujung_pangkal.set_opacity(0)
-            b.main(aturan.animate.set_opacity(1), run_time=0.8)
-            b.main(ujung_pangkal.animate.set_opacity(1), run_time=0.6)
-            b.jeda(1.0)
-        qc.periksa_adegan(self, {"aturan": aturan, "ujung pangkal": ujung_pangkal,
-                                 "hitung": hitung},
-                          [("aturan", "hitung"), ("aturan", "ujung pangkal")])
+            kerja = sinema.ganti_rumus(self, kerja, r"\vec{AB} = B - A",
+                                       b=b, papan=papan, warna=TINTA)
+            b.jeda(1.4)
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"panel a": panel_a, "panel b": panel_b,
+                               "panel lawan": panel_l, "kerja": kerja,
+                               "identitas": identitas})
 
         # ==============================================================
         # Babak 11: urutan yang dibalik
@@ -271,23 +291,24 @@ class SelisihPerjalanan(AdeganMatra):
         # dengan blok hitungan di pojok kiri atas.
         l_balik = rumus(r"\vec{b} - \vec{a}", 28, TINTA)
         l_balik.move_to(ASAL - VSEL * 0.62 + np.array([-0.10, 0.55, 0.0]))
-        panel_balik = rumus(r"\vec{b} - \vec{a} = (-2,\ 1)", 32, TINTA)
-        panel_balik.next_to(panel_l, DOWN, buff=0.22).align_to(panel_l, RIGHT)
 
         with sinema.babak(self, "keliru", DURASI) as b:
             b.main(GrowArrow(p_balik), run_time=1.2)
             b.main(FadeIn(l_balik), run_time=0.5)
-            self.hud_tambah(panel_balik)
-            panel_balik.set_opacity(0)
-            b.main(panel_balik.animate.set_opacity(1), run_time=0.5)
+            kerja = sinema.ganti_rumus(self, kerja,
+                                       r"\vec{b} - \vec{a} = (-2,\ 1)",
+                                       b=b, papan=papan, warna=TINTA)
             b.main(Indicate(p_sel, scale_factor=1.0, color=TINTA),
                    Indicate(p_balik, scale_factor=1.0, color=SOROT), run_time=1.2)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"balik": p_balik, "label balik": l_balik,
-                                 "panel balik": panel_balik, "panel lawan": panel_l,
-                                 "hitung": hitung, "koordinat": koord_sel},
-                          [("label balik", "koordinat"), ("label balik", "hitung"),
-                           ("panel lawan", "panel balik")])
+        qc.periksa_adegan(self, {},
+                          [("label balik", "koordinat")],
+                          dunia={"bidang": bidang, "balik": p_balik,
+                                 "label balik": l_balik,
+                                 "koordinat": koord_sel},
+                          hud={"panel a": panel_a, "panel b": panel_b,
+                               "panel lawan": panel_l, "kerja": kerja,
+                               "identitas": identitas})
 
         # ==============================================================
         # Babak 12: layar bersih, kalimat sorot
@@ -300,11 +321,13 @@ class SelisihPerjalanan(AdeganMatra):
 
         semua = Group(bidang, orang_a, orang_b, pa, pb, p_sel, p_sel2, p_balik,
                       la, lb, l_sel2, l_balik, titik_sel, koord_sel, bantu)
+        # `papan.semua()` menyingkirkan baris yang BENAR-BENAR tampil.
+        # Baris kerja sudah dimorf dua kali, dan papan mencatat penggantinya
+        # karena `ganti_rumus` diberi `papan=papan`; tanpa itu baris lama
+        # hidup lagi menimpa yang baru di detik penutup.
         with sinema.babak(self, "tutup", DURASI) as b:
-            b.main(FadeOut(semua), FadeOut(hitung), FadeOut(aturan),
-                   FadeOut(ujung_pangkal), FadeOut(identitas),
-                   FadeOut(panel_a), FadeOut(panel_b), FadeOut(panel_l),
-                   FadeOut(panel_balik), run_time=1.4)
+            b.main(FadeOut(semua), FadeOut(papan.semua()),
+                   FadeOut(identitas), run_time=1.4)
             self.hud_tambah(tutup)
             tutup.set_opacity(0)
             b.main(tutup.animate.set_opacity(1), run_time=1.8)

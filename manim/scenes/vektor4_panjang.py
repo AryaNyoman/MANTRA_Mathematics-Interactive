@@ -56,7 +56,14 @@ SUDUT_V = np.array([VX, 0.0, Z])        # pojok siku-siku
 VW = np.array([-3.0, 4.0, 0.0])         # (-3 4)
 
 BIDANG_X, BIDANG_Y = (-6.0, 6.0, 1.0), (-1.0, 5.0, 1.0)
-PETA = dict(theta=0, phi=0, pusat=(0.0, 1.8, 0.0), tinggi=8.0)
+# Kamera peta dihitung `kamera.muat_datar`, tidak ditulis tangan: yang paling
+# bawah pada `bidang_bernomor` adalah ANGKA sumbunya, bukan garis petak
+# terbawah, dan hitungan tangan berkali-kali ditolak qc karenanya.
+#
+# SISA JALUR HUD DIUKUR, bukan dikarang: baris panel terlebar di sini
+# "|w| = akar(9 + 16) = 5" selebar 2,19 satuan, rata kanan ke 6,73, jadi
+# tepi kirinya 4,54. Identitas satu baris berakhir sekitar y = 3,35.
+SISA_ATAS, SISA_KANAN = 0.40, 2.30
 
 
 def panah(a, b, warna, tebal=5):
@@ -83,7 +90,11 @@ class PanjangPanah(AdeganMatra):
                      VV + np.array([0.0, 0.0, TINGGI_TIANG]))
         kabel.set_stroke(TINTA, 2.5)
 
-        kamera.pasang_awal(frame, theta=-30, phi=64, pusat=(2.0, 1.0, 0.9), tinggi=5.2)
+        # Bingkai 5,2 membuat kaki tiang jatuh di -2,57, dua perseratus satuan
+        # di dalam jalur subtitle, dan qc v2 menggagalkan rendernya. 5,5
+        # menaikkannya ke sekitar -2,43. Angka ini dari pesan gerbangnya
+        # sendiri, bukan dikira-kira.
+        kamera.pasang_awal(frame, theta=-30, phi=64, pusat=(2.0, 1.0, 0.9), tinggi=5.5)
         self.add(alas, lapangan, tiang1, tiang2, kabel)
         with sinema.babak(self, "sapa", DURASI) as b:
             sinema.judul_pembuka(self, "Panjang panah itu Pythagoras", lama=3.2, y=2.4)
@@ -97,18 +108,27 @@ class PanjangPanah(AdeganMatra):
         bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
         bidang.set_opacity(0)
         self.add(bidang)
-        identitas = teks("1 petak = 1 meter", 23, REDUP).to_corner(UL, buff=0.42)
+        # `tanpa_utama=True`: tidak ada rumus utama di video ini, semua
+        # isinya baris. Tanpa penanda itu slot teratas dipesan percuma.
+        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True)
 
         with sinema.babak(self, "terbang", DURASI) as b:
             lama = max(2.0, DURASI["terbang"] - 3.0)
-            b.main(kamera.sudut(frame, **PETA), run_time=lama)
+            pusat, tinggi = kamera.muat_datar(bidang, sisa_atas=SISA_ATAS,
+                                              sisa_kanan=SISA_KANAN)
+            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
+                                tinggi=tinggi), run_time=lama)
             b.main(FadeOut(lapangan), FadeOut(alas), FadeOut(kabel),
                    FadeOut(tiang1), FadeOut(tiang2),
                    bidang.animate.set_opacity(1), run_time=1.4)
-            self.hud_tambah(identitas)
+            identitas = sinema.identitas(self, "1 petak = 1 meter")
             identitas.set_opacity(0)
             b.main(identitas.animate.set_opacity(1), run_time=0.8)
-        qc.periksa_adegan(self, {"bidang": bidang, "identitas": identitas})
+        # Bidang ke `dunia`, identitas ke `hud`. Hanya begitu perkalian
+        # silang hud x dunia di `periksa_adegan` berjalan; menaruh keduanya
+        # di `zona` membuat gerbang diam saat petak menembus tulisan.
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"identitas": identitas})
 
         # ==============================================================
         # Babak 3: komponennya
@@ -117,21 +137,21 @@ class PanjangPanah(AdeganMatra):
         p_tegak = panah(SUDUT_V, SUDUT_V + np.array([0.0, VY, 0.0]), AKSEN, tebal=4)
         l_datar = rumus("4", 28, AKSEN2).move_to([VX / 2, -0.55, 0])
         l_tegak = rumus("2", 28, AKSEN).move_to([VX + 0.55, VY / 2, 0])
-        panel_v = rumus(r"\vec{v} = (4\ \ 2)", 32, SOROT).to_corner(UR, buff=0.45)
 
         with sinema.babak(self, "komponen", DURASI) as b:
             b.main(GrowArrow(p_datar), run_time=1.0)
             b.main(FadeIn(l_datar), run_time=0.4)
             b.main(GrowArrow(p_tegak), run_time=1.0)
             b.main(FadeIn(l_tegak), run_time=0.4)
-            self.hud_tambah(panel_v)
-            panel_v.set_opacity(0)
-            b.main(panel_v.animate.set_opacity(1), run_time=0.6)
+            panel_v = papan.baris(r"\vec{v} = (4\ \ 2)", SOROT)
+            b.catat(0.8)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"datar": p_datar, "tegak": p_tegak,
-                                 "label datar": l_datar, "label tegak": l_tegak,
-                                 "panel v": panel_v},
-                          [("label datar", "label tegak")])
+        qc.periksa_adegan(self, {},
+                          [("label datar", "label tegak")],
+                          dunia={"bidang": bidang, "datar": p_datar,
+                                 "tegak": p_tegak, "label datar": l_datar,
+                                 "label tegak": l_tegak},
+                          hud={"panel v": panel_v, "identitas": identitas})
 
         # ==============================================================
         # Babak 4: segitiga siku-sikunya
@@ -150,38 +170,40 @@ class PanjangPanah(AdeganMatra):
             b.main(ShowCreation(siku), run_time=0.6)
             b.main(FadeIn(l_miring), run_time=0.5)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"v": p_v, "miring": l_miring, "panel v": panel_v,
+        qc.periksa_adegan(self, {},
+                          [("miring", "label tegak")],
+                          dunia={"bidang": bidang, "v": p_v, "miring": l_miring,
                                  "label tegak": l_tegak},
-                          [("miring", "label tegak")])
+                          hud={"panel v": panel_v, "identitas": identitas})
 
         # ==============================================================
         # Babak 5: Pythagoras, langkah demi langkah
         # ==============================================================
-        uraian = VGroup(
-            rumus(r"4^2 = 16", 28, AKSEN2),
-            rumus(r"2^2 = 4", 28, AKSEN),
-            rumus(r"16 + 4 = 20", 28, TINTA),
-            rumus(r"|\vec{v}| = \sqrt{20} = 2\sqrt{5} \approx 4{,}47", 28, SOROT),
-        ).arrange(DOWN, buff=0.18, aligned_edge=LEFT)
-        uraian.next_to(identitas, DOWN, buff=0.34).align_to(identitas, LEFT)
-
+        # Dulu empat baris ditumpuk di KIRI, di bawah identitas. Zona kiri
+        # atas milik identitas benda; hitungan milik panel kanan, dan zona
+        # itu cuma memuat empat baris. Empat langkah dipadatkan jadi dua:
+        # kuadratnya dijumlahkan dalam satu baris, akarnya di baris kedua.
+        # Langkah antaranya tetap diucapkan narator, dan v2 memang menaruh
+        # kalimat panjang di narasi, bukan di gambar.
         with sinema.babak(self, "hitung", DURASI) as b:
-            self.hud_tambah(uraian)
-            uraian.set_opacity(0)
-            for baris in uraian:
-                b.main(baris.animate.set_opacity(1), run_time=0.8)
+            kuadrat = papan.baris(r"4^2 + 2^2 = 20", TINTA)
+            b.catat(0.8)
+            akar = papan.baris(r"|\vec{v}| = \sqrt{20} \approx 4{,}47", SOROT)
+            b.catat(0.8)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"uraian": uraian, "identitas": identitas,
-                                 "panel v": panel_v},
-                          [("uraian", "identitas"), ("uraian", "panel v")])
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"identitas": identitas, "panel v": panel_v,
+                               "kuadrat": kuadrat, "akar": akar})
 
         # ==============================================================
         # Babak 6: hasilnya tidak bulat, dan itu biasa
         # ==============================================================
         with sinema.babak(self, "bulat", DURASI) as b:
-            b.main(Indicate(uraian[3], scale_factor=1.0, color=AKSEN), run_time=1.2)
+            b.main(Indicate(akar, scale_factor=1.0, color=AKSEN), run_time=1.2)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"uraian": uraian, "v": p_v})
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang, "v": p_v},
+                          hud={"identitas": identitas, "panel v": panel_v,
+                               "kuadrat": kuadrat, "akar": akar})
 
         # ==============================================================
         # Babak 7: pertanyaan
@@ -191,7 +213,9 @@ class PanjangPanah(AdeganMatra):
                    FadeOut(p_datar), FadeOut(p_tegak),
                    FadeOut(l_datar), FadeOut(l_tegak), run_time=0.8)
             b.jeda(1.6)
-        qc.periksa_adegan(self, {"v": p_v, "uraian": uraian})
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang, "v": p_v},
+                          hud={"identitas": identitas, "panel v": panel_v,
+                               "kuadrat": kuadrat, "akar": akar})
 
         # ==============================================================
         # Babak 8: komponen yang bertanda negatif
@@ -199,33 +223,31 @@ class PanjangPanah(AdeganMatra):
         p_w = panah(ASAL, ASAL + VW, TINTA, tebal=6)
         l_w = rumus(r"\vec{w} = (-3\ \ 4)", 26, TINTA)
         l_w.move_to(ASAL + VW + np.array([-0.15, 0.60, 0.0]))
-        uraian_w = VGroup(
-            rumus(r"(-3)^2 = 9", 28, TINTA),
-            rumus(r"4^2 = 16", 28, TINTA),
-            rumus(r"|\vec{w}| = \sqrt{25} = 5", 28, TINTA),
-        ).arrange(DOWN, buff=0.18, aligned_edge=LEFT)
-        uraian_w.next_to(uraian, DOWN, buff=0.34).align_to(uraian, LEFT)
-
+        # Satu baris, bukan tiga: kuadrat 9 dan 16 sudah kelihatan di dalam
+        # akarnya, dan slot panel keempat adalah yang terakhir tersedia.
         with sinema.babak(self, "negatif", DURASI) as b:
             b.main(GrowArrow(p_w), run_time=1.4)
             b.main(FadeIn(l_w), run_time=0.5)
-            self.hud_tambah(uraian_w)
-            uraian_w.set_opacity(0)
-            for baris in uraian_w:
-                b.main(baris.animate.set_opacity(1), run_time=0.7)
+            panjang_w = papan.baris(r"|\vec{w}| = \sqrt{9 + 16} = 5", TINTA)
+            b.catat(0.8)
             b.jeda(0.6)
-        qc.periksa_adegan(self, {"w": p_w, "label w": l_w, "uraian w": uraian_w,
-                                 "uraian": uraian, "panel v": panel_v},
-                          [("uraian w", "uraian"), ("label w", "uraian w")])
+        qc.periksa_adegan(self, {},
+                          dunia={"bidang": bidang, "w": p_w, "label w": l_w},
+                          hud={"identitas": identitas, "panel v": panel_v,
+                               "kuadrat": kuadrat, "akar": akar,
+                               "panjang w": panjang_w})
 
         # ==============================================================
         # Babak 9: panjang tidak pernah negatif
         # ==============================================================
         with sinema.babak(self, "mutlak", DURASI) as b:
-            b.main(Indicate(uraian_w[0], scale_factor=1.0, color=AKSEN), run_time=1.2)
-            b.main(Indicate(uraian_w[2], scale_factor=1.0, color=SOROT), run_time=1.2)
+            b.main(Indicate(panjang_w, scale_factor=1.0, color=AKSEN), run_time=1.2)
+            b.main(Indicate(akar, scale_factor=1.0, color=SOROT), run_time=1.2)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"uraian w": uraian_w, "identitas": identitas})
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"identitas": identitas, "panel v": panel_v,
+                               "kuadrat": kuadrat, "akar": akar,
+                               "panjang w": panjang_w})
 
         # ==============================================================
         # Babak 10: arahnya
@@ -243,8 +265,11 @@ class PanjangPanah(AdeganMatra):
             b.main(ShowCreation(busur), run_time=1.0)
             b.main(FadeIn(l_sudut), run_time=0.5)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"sudut": l_sudut, "uraian": uraian, "v": p_v},
-                          [("sudut", "uraian")])
+        qc.periksa_adegan(self, {},
+                          dunia={"bidang": bidang, "sudut": l_sudut, "v": p_v},
+                          hud={"identitas": identitas, "panel v": panel_v,
+                               "kuadrat": kuadrat, "akar": akar,
+                               "panjang w": panjang_w})
 
         # ==============================================================
         # Babak 11: panjang sama, arah berbeda
@@ -257,7 +282,9 @@ class PanjangPanah(AdeganMatra):
             rumus(r"(4\ \ 3)", 24, TINTA).move_to(ASAL + SAMA[1] + np.array([0.95, 0.30, 0.0])),
             rumus(r"(-5\ \ 0)", 24, TINTA).move_to(ASAL + SAMA[2] + np.array([-0.20, 0.55, 0.0])),
         )
-        l_lima = teks("ketiganya panjangnya 5", 23, SOROT)
+        # `sinema.label` menggagalkan render kalau lebih dari dua kata, dan
+        # "ketiganya" memang kata narator, bukan kata gambar.
+        l_lima = sinema.label("panjangnya 5", 23, SOROT)
         l_lima.move_to(ASAL + np.array([-2.6, -0.65, 0.0]))
 
         with sinema.babak(self, "sama", DURASI) as b:
@@ -268,10 +295,14 @@ class PanjangPanah(AdeganMatra):
                 b.main(FadeIn(l), run_time=0.3)
             b.main(FadeIn(l_lima), run_time=0.5)
             b.jeda(0.8)
-        qc.periksa_adegan(self, {"lima": l_lima, "label 3 4": l_sama[0],
-                                 "label 4 3": l_sama[1], "label -5 0": l_sama[2],
-                                 "uraian w": uraian_w},
-                          [("label 3 4", "label 4 3"), ("lima", "uraian w")])
+        qc.periksa_adegan(self, {},
+                          [("label 3 4", "label 4 3")],
+                          dunia={"bidang": bidang, "lima": l_lima,
+                                 "label 3 4": l_sama[0], "label 4 3": l_sama[1],
+                                 "label -5 0": l_sama[2]},
+                          hud={"identitas": identitas, "panel v": panel_v,
+                               "kuadrat": kuadrat, "akar": akar,
+                               "panjang w": panjang_w})
 
         # ==============================================================
         # Babak 12: layar bersih, kalimat sorot
@@ -283,9 +314,12 @@ class PanjangPanah(AdeganMatra):
         tutup = VGroup(tutup1, tutup2).arrange(DOWN, buff=0.34).move_to([0, 0.3, 0])
 
         semua = Group(bidang, p_sama, l_sama, l_lima)
+        # `papan.semua()` menyingkirkan baris yang BENAR-BENAR tampil,
+        # termasuk pengganti hasil morph, jadi tidak ada baris lama yang
+        # hidup lagi di detik penutup.
         with sinema.babak(self, "tutup", DURASI) as b:
-            b.main(FadeOut(semua), FadeOut(uraian), FadeOut(uraian_w),
-                   FadeOut(identitas), FadeOut(panel_v), run_time=1.4)
+            b.main(FadeOut(semua), FadeOut(papan.semua()),
+                   FadeOut(identitas), run_time=1.4)
             self.hud_tambah(tutup)
             tutup.set_opacity(0)
             b.main(tutup.animate.set_opacity(1), run_time=1.8)
