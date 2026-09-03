@@ -125,9 +125,9 @@ function Panel({ jenis, derajat, atas }: { jenis: Jenis; derajat: number; atas: 
       )}
 
       <text x={GX0 + 4} y={atas + 13} fontSize={11} fill={warna}
-            fontFamily="var(--font-plex-mono), monospace">y = {jenis} θ</text>
+            fontFamily="var(--font-mono), sans-serif">y = {jenis} θ</text>
       <text x={GX1} y={atas + 13} textAnchor="end" fontSize={11} fill="#211E1A"
-            fontFamily="var(--font-plex-mono), monospace">
+            fontFamily="var(--font-mono), sans-serif">
         {terpotong ? 'di luar bingkai' : (Math.abs(nilai) < 5e-4 ? 0 : nilai).toFixed(2).replace('.', ',')}
       </text>
     </g>

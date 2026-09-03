@@ -1,0 +1,159 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/statistika13-menyesatkan.json
+
+1
+00:00:00.000 --> 00:00:06.160
+Materi 13 Statistika: <b>grafik yang menyesatkan</b>.
+
+2
+00:00:06.160 --> 00:00:13.392
+Perpustakaan sekolah mencatat pengunjung 5 bulan: 412,
+
+3
+00:00:13.392 --> 00:00:15.936
+418, 425, 421, 430.
+
+4
+00:00:15.936 --> 00:00:19.109
+Digambar dengan sumbu tegak mulai dari 0,
+
+5
+00:00:19.109 --> 00:00:20.735
+garisnya <b>nyaris rata</b>.
+
+6
+00:00:20.735 --> 00:00:22.670
+Memang begitu keadaannya:
+
+7
+00:00:22.670 --> 00:00:25.224
+naik turunnya cuma belasan orang.
+
+8
+00:00:25.224 --> 00:00:27.045
+Sekarang perhatikan.
+
+9
+00:00:27.045 --> 00:00:29.594
+Sumbu tegaknya kita naikkan,
+
+10
+00:00:29.594 --> 00:00:32.962
+tidak lagi dari 0 melainkan dari 410.
+
+11
+00:00:32.962 --> 00:00:35.784
+Satu pun angkanya tidak diubah.
+
+12
+00:00:35.784 --> 00:00:37.428
+Dan grafik yang sama
+
+13
+00:00:37.428 --> 00:00:40.306
+persis berubah jadi <b>lonjakan tajam</b>.
+
+14
+00:00:40.306 --> 00:00:42.608
+Kesannya keberhasilan besar.
+
+15
+00:00:42.608 --> 00:00:46.883
+Padahal titiknya di tempat yang sama, angkanya sama,
+
+16
+00:00:46.883 --> 00:00:47.952
+datanya satu.
+
+17
+00:00:47.952 --> 00:00:52.296
+Berapa besar sebenarnya kenaikannya?
+
+18
+00:00:52.296 --> 00:00:56.038
+Dari 412 ke 430, jadi 18 orang.
+
+19
+00:00:56.038 --> 00:01:00.744
+Dibandingkan sekitar 420, itu <b>4 persen</b>.
+
+20
+00:01:00.744 --> 00:01:03.205
+Memotong sumbu tidak selalu curang.
+
+21
+00:01:03.205 --> 00:01:04.405
+Untuk suhu tubuh,
+
+22
+00:01:04.405 --> 00:01:07.499
+mulai dari 0 justru membuang seluruh isinya:
+
+23
+00:01:07.499 --> 00:01:10.800
+yang penting justru selisih 1 sampai 2 derajat.
+
+24
+00:01:10.800 --> 00:01:14.114
+Yang membedakan curang dan tidak bukan pemotongannya,
+
+25
+00:01:14.114 --> 00:01:16.991
+melainkan apakah pemotongan itu <b>diberitahukan</b>,
+
+26
+00:01:16.991 --> 00:01:19.992
+atau disembunyikan supaya pembaca salah menduga.
+
+27
+00:01:19.992 --> 00:01:22.648
+Cara lain: harga naik 2 kali lipat,
+
+28
+00:01:22.648 --> 00:01:24.773
+digambar sebagai gambar yang
+
+29
+00:01:24.773 --> 00:01:28.113
+tinggi dan lebarnya sama-sama dilipatduakan.
+
+30
+00:01:28.113 --> 00:01:31.680
+Luasnya jadi <b>empat kali</b>, dan mata membaca luas.
+
+31
+00:01:31.680 --> 00:01:36.526
+Cara ketiga: memilih rata-rata yang menguntungkan.
+
+32
+00:01:36.526 --> 00:01:41.565
+Kantor di Materi 06 bisa disebut bergaji 12,22 juta,
+
+33
+00:01:41.565 --> 00:01:42.922
+atau 5,1 juta.
+
+34
+00:01:42.922 --> 00:01:44.376
+<b>Keduanya benar</b>.
+
+35
+00:01:44.376 --> 00:01:47.554
+Jadi tanyakan 3 hal pada setiap grafik.
+
+36
+00:01:47.554 --> 00:01:49.754
+Sumbunya mulai dari berapa.
+
+37
+00:01:49.754 --> 00:01:53.095
+Datanya dari mana dan dari berapa banyak.
+
+38
+00:01:53.095 --> 00:01:55.784
+Dan yang paling sering dilupakan:
+
+39
+00:01:55.784 --> 00:01:57.984
+<b>apa yang tidak ditampilkan</b>.

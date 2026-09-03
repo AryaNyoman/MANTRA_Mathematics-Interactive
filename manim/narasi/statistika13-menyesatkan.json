@@ -1,0 +1,58 @@
+{
+  "adegan": "Menyesatkan13",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Materi 13 Statistika, video penutup topik. Gerak dirancang lebih dulu, naskah ditulis sepanjang gerak itu. Medan `tulis` adalah bentuk tertulis untuk subtitle: lambang dan angka, bukan salinan mentah ucapan. Penanda *kata* jadi tebal.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi tiga belas Statistika: *grafik yang menyesatkan*. Perpustakaan sekolah mencatat pengunjung lima bulan: empat ratus dua belas, empat ratus delapan belas, empat ratus dua puluh lima, empat ratus dua puluh satu, empat ratus tiga puluh.",
+      "tulis": "Materi 13 Statistika: *grafik yang menyesatkan*. Perpustakaan sekolah mencatat pengunjung 5 bulan: 412, 418, 425, 421, 430."
+    },
+    {
+      "id": "jujur",
+      "teks": "Digambar dengan sumbu tegak mulai dari nol, garisnya *nyaris rata*. Memang begitu keadaannya: naik turunnya cuma belasan orang.",
+      "tulis": "Digambar dengan sumbu tegak mulai dari 0, garisnya *nyaris rata*. Memang begitu keadaannya: naik turunnya cuma belasan orang."
+    },
+    {
+      "id": "potong",
+      "teks": "Sekarang perhatikan. Sumbu tegaknya kita naikkan, tidak lagi dari nol melainkan dari empat ratus sepuluh. Satu pun angkanya tidak diubah.",
+      "tulis": "Sekarang perhatikan. Sumbu tegaknya kita naikkan, tidak lagi dari 0 melainkan dari 410. Satu pun angkanya tidak diubah."
+    },
+    {
+      "id": "lonjak",
+      "teks": "Dan grafik yang sama persis berubah jadi *lonjakan tajam*. Kesannya keberhasilan besar. Padahal titiknya di tempat yang sama, angkanya sama, datanya satu.",
+      "tulis": "Dan grafik yang sama persis berubah jadi *lonjakan tajam*. Kesannya keberhasilan besar. Padahal titiknya di tempat yang sama, angkanya sama, datanya satu."
+    },
+    {
+      "id": "berapa",
+      "teks": "Berapa besar sebenarnya kenaikannya? Dari empat ratus dua belas ke empat ratus tiga puluh, jadi delapan belas orang. Dibandingkan sekitar empat ratus dua puluh, itu *empat persen*.",
+      "tulis": "Berapa besar sebenarnya kenaikannya? Dari 412 ke 430, jadi 18 orang. Dibandingkan sekitar 420, itu *4 persen*."
+    },
+    {
+      "id": "kapan",
+      "teks": "Memotong sumbu tidak selalu curang. Untuk suhu tubuh, mulai dari nol justru membuang seluruh isinya: yang penting justru selisih satu dua derajat.",
+      "tulis": "Memotong sumbu tidak selalu curang. Untuk suhu tubuh, mulai dari 0 justru membuang seluruh isinya: yang penting justru selisih 1 sampai 2 derajat."
+    },
+    {
+      "id": "beda",
+      "teks": "Yang membedakan curang dan tidak bukan pemotongannya, melainkan apakah pemotongan itu *diberitahukan*, atau disembunyikan supaya pembaca salah menduga.",
+      "tulis": "Yang membedakan curang dan tidak bukan pemotongannya, melainkan apakah pemotongan itu *diberitahukan*, atau disembunyikan supaya pembaca salah menduga."
+    },
+    {
+      "id": "luas",
+      "teks": "Cara lain: harga naik dua kali lipat, digambar sebagai gambar yang tinggi dan lebarnya sama-sama dilipatduakan. Luasnya jadi *empat kali*, dan mata membaca luas.",
+      "tulis": "Cara lain: harga naik 2 kali lipat, digambar sebagai gambar yang tinggi dan lebarnya sama-sama dilipatduakan. Luasnya jadi *empat kali*, dan mata membaca luas."
+    },
+    {
+      "id": "ratarata",
+      "teks": "Cara ketiga: memilih rata-rata yang menguntungkan. Kantor di Materi enam bisa disebut bergaji dua belas koma dua dua juta, atau lima koma satu juta. *Keduanya benar*.",
+      "tulis": "Cara ketiga: memilih rata-rata yang menguntungkan. Kantor di Materi 06 bisa disebut bergaji 12,22 juta, atau 5,1 juta. *Keduanya benar*."
+    },
+    {
+      "id": "tanya",
+      "teks": "Jadi tanyakan tiga hal pada setiap grafik. Sumbunya mulai dari berapa. Datanya dari mana dan dari berapa banyak. Dan yang paling sering dilupakan: *apa yang tidak ditampilkan*.",
+      "tulis": "Jadi tanyakan 3 hal pada setiap grafik. Sumbunya mulai dari berapa. Datanya dari mana dan dari berapa banyak. Dan yang paling sering dilupakan: *apa yang tidak ditampilkan*."
+    }
+  ]
+}

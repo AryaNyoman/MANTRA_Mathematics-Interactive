@@ -1,118 +1,145 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Nav from '@/components/Nav'
-import { TOPIK } from '@/content/topik'
+import Kaki from '@/components/mantra/Kaki'
 
 export const metadata: Metadata = {
-  title: 'Tentang | MATRA',
-  description: 'Apa itu MATRA, siapa yang membuatnya, dan dengan alat apa dibuatnya.',
+  title: 'Tentang | MANTRA',
+  description:
+    'MANTRA, Matematika Interaktif: situs belajar matematika SMA yang menggabungkan animasi penjelas dengan alat yang bisa dicoba sendiri.',
 }
 
+/** Nomor WhatsApp ARYA. Dipakai untuk tautan, TIDAK pernah ditampilkan. */
 const WA = '6282247933752'
 
-/**
- * Halaman /tentang.
- *
- * Sama seperti /latihan, tautannya sudah ada di navigasi sejak awal tetapi
- * halamannya tidak pernah dibuat, jadi menekannya berujung 404.
- *
- * Isinya sengaja memuat juga hal-hal yang TIDAK bisa dilakukan situs ini.
- * Halaman "tentang" yang hanya memuji diri sendiri tidak menolong siapa pun,
- * apalagi kalau nanti dibaca dosen.
- */
 export default function Tentang() {
-  const siap = TOPIK.filter((t) => t.siap).length
-
   return (
     <>
-      <Nav label="Tentang" />
-      <main className="beranda">
-        <div className="jalur">Tentang</div>
-        <h1>Matematika yang bisa dilihat sebabnya</h1>
-        <p className="sub" style={{ maxWidth: '46rem' }}>
-          MATRA adalah situs belajar matematika SMA yang menggabungkan animasi
-          penjelas dengan alat yang bisa dicoba sendiri. Dibuat untuk siswa yang
-          sudah bisa memakai rumus tetapi belum pernah diperlihatkan dari mana
-          rumus itu datang.
-        </p>
-
-        <section className="isi-situs">
-          <h2 className="isi-tajuk">Bagaimana dibuatnya</h2>
-          <div className="kisi-isi">
-            <article className="kartu-isi">
-              <span className="kartu-no mono">01</span>
-              <h3>Animasi</h3>
-              <p>
-                Dibuat memakai Manim, alat animasi matematika yang sama dengan
-                yang dipakai kanal 3Blue1Brown. Setiap video dirender pada
-                1080p 60 fps, bersuara, dan bersubtitle Bahasa Indonesia.
-              </p>
-            </article>
-            <article className="kartu-isi">
-              <span className="kartu-no mono">02</span>
-              <h3>Alat interaktif</h3>
-              <p>
-                Ditulis sendiri sebagai gambar vektor, bukan memakai pustaka
-                pihak ketiga, supaya warnanya bisa dijaga sama persis dengan
-                warna yang dipakai di dalam animasinya.
-              </p>
-            </article>
-            <article className="kartu-isi">
-              <span className="kartu-no mono">03</span>
-              <h3>Bahan rujukan</h3>
-              <p>
-                Buku Panduan Guru Kurikulum Merdeka dan diktat kalkulus dipakai
-                untuk menjaga ketepatan istilah. Soalnya ditulis sendiri, dan
-                soal salinan selalu disertai sumbernya.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section className="isi-situs">
-          <h2 className="isi-tajuk">Yang perlu Anda tahu</h2>
-          <div className="miskon" style={{ maxWidth: '52rem' }}>
-            <b>Nilai di situs ini bukan penilaian resmi.</b>
-            <p style={{ margin: '8px 0 0' }}>
-              Situs ini tidak memakai akun dan tidak memakai basis data. Semua
-              kemajuan, skor kuis, dan lencana tersimpan di peramban Anda
-              sendiri dan tidak pernah dikirim ke mana pun. Karena itu ia akan
-              hilang kalau Anda berganti perangkat atau membersihkan riwayat,
-              dan siapa pun yang memakai perangkat itu bisa menghapusnya.
-              Gunakan sebagai alat belajar, bukan sebagai bukti nilai.
+      <Nav />
+      <main className="mantra-lebar" style={{ paddingTop: 38 }}>
+        {/* Judulnya MANTRA, bukan kalimat penjelas. Halaman ini berjudul
+            "Tentang", jadi yang harus berdiri paling besar adalah nama yang
+            sedang dijelaskan. Kalimat penjelasnya turun ke bawah nama sebagai
+            anak judul. (Permintaan ARYA, 3 Sep 2026.) */}
+        <div className="tentang-atas">
+          <div>
+            <div className="kicker">Tentang</div>
+            <h1 className="judul-halaman judul-merk">MANTRA</h1>
+            <p className="sub-italic" style={{ marginBottom: 18 }}>
+              Matematika Interaktif, matematika yang bisa dilihat sebabnya.
+            </p>
+            <p>
+              MANTRA adalah situs belajar matematika SMA yang menggabungkan
+              animasi penjelas dengan alat yang bisa dicoba sendiri. Dibuat
+              untuk siswa yang sudah bisa memakai rumus tetapi belum pernah
+              diperlihatkan dari mana rumus itu datang.
+            </p>
+            {/* Jumlah bab sengaja TIDAK disebut angkanya. Jumlahnya masih
+                bertambah, dan kalimat yang menyebut angka akan basi diam-diam
+                tanpa ada yang ingat memperbaikinya. */}
+            <p>
+              Isinya disusun mengikuti bab buku Kurikulum Merdeka: tiap bab
+              dipecah jadi sub-bab, tiap sub-bab berisi beberapa materi.
+              Bahasanya bahasa SMA, bukan bahasa diktat.
             </p>
           </div>
-          <p className="catatan" style={{ marginTop: 16 }}>
-            Dari enam topik yang direncanakan, {siap} sudah bisa dipakai penuh.
-            Sisanya sedang dikerjakan dan ditandai terus terang di halaman depan.
-          </p>
-        </section>
+          {/* Lambang MANTRA, BUKAN cuplikan grafik sinus. Cuplikan animasi
+              sudah tampil di beranda dan di tiap materi; di halaman yang
+              menjelaskan nama situsnya, yang pantas berdiri di sini adalah
+              lambangnya. Ditengahkan setinggi kolom penjelasan di sebelahnya
+              lewat `align-self: center` di `.tentang-atas > .plat-merk`. */}
+          <div className="plat-merk">
+            <Image
+              src="/mantra/mantra-penuh.png"
+              alt="Lambang MANTRA, Matematika Interaktif"
+              width={1592}
+              height={485}
+              priority
+            />
+          </div>
+        </div>
 
-        <section className="isi-situs">
-          <h2 className="isi-tajuk">Pembuat</h2>
-          <div className="tentang-pembuat">
-            <Image src="/merek/undiksha.png" alt="Universitas Pendidikan Ganesha"
-                   width={72} height={71} />
+        <div className="tajuk-baris">
+          <h2>Dibuat dengan</h2>
+          <span className="rel" />
+        </div>
+        <div className="kisi-dua" style={{ marginBottom: 20 }}>
+          <article className="kartu-alat">
+            <span className="plat-logo">
+              <Image src="/mantra/logo-manim.png" alt="Manim" width={132} height={74} />
+            </span>
+            {/* Namanya ManimGL, BUKAN Manim Community. Sejak 2 Sep 2026
+                proyek ini memakai ManimGL 1.7.2, pustaka yang ditulis dan
+                dipakai sendiri oleh 3Blue1Brown. Menyebut nama yang keliru di
+                halaman yang justru menjelaskan cara kerjanya adalah kesalahan
+                yang paling mudah ditangkap pembaca yang paham. */}
             <div>
-              <p style={{ margin: 0, fontSize: 17 }}>
-                <b>Nyoman Arya Sejati</b>
+              <h3>ManimGL</h3>
+              <p>
+                Mesin animasi matematika yang ditulis dan dipakai sendiri oleh
+                kanal 3Blue1Brown. Videonya bersuara dan bersubtitle Bahasa
+                Indonesia, dan tiap rumus digambar dari langkah awalnya, bukan
+                ditampilkan jadi.
               </p>
-              <p style={{ margin: '4px 0 12px', color: 'var(--redup)' }}>
-                Universitas Pendidikan Ganesha
-              </p>
-              <a
-                className="tombol garis"
-                style={{ width: 'auto', display: 'inline-block' }}
-                href={`https://wa.me/${WA}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                HUBUNGI LEWAT WHATSAPP
+              <a href="https://github.com/3b1b/manim" target="_blank" rel="noreferrer">
+                github.com/3b1b/manim →
               </a>
             </div>
+          </article>
+          <article className="kartu-alat">
+            <span className="plat-logo">
+              <Image src="/mantra/logo-claude.png" alt="Claude by Anthropic" width={132} height={74} />
+            </span>
+            <div>
+              <h3>Claude</h3>
+              <p>
+                Dipakai menyusun kode animasi, alat interaktif, dan naskah materi,
+                dengan rujukan Buku Panduan Guru Kurikulum Merdeka dan diktat
+                kalkulus.
+              </p>
+              <a href="https://claude.com/product/overview/" target="_blank" rel="noreferrer">
+                claude.com →
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div className="kotak-emas" style={{ maxWidth: '56rem', marginBottom: 24 }}>
+          <b>Nilai di situs ini bukan penilaian resmi.</b>
+          <p>
+            Situs ini tidak memakai akun dan tidak memakai basis data. Semua
+            kemajuan dan skor kuis tersimpan di peramban Anda sendiri dan tidak
+            pernah dikirim ke mana pun. Gunakan sebagai alat belajar, bukan
+            sebagai bukti nilai.
+          </p>
+        </div>
+
+        <div className="kartu-penulis">
+          <Image
+            src="/mantra/undiksha.png"
+            alt="Universitas Pendidikan Ganesha"
+            width={72}
+            height={72}
+            style={{ height: 72, width: 'auto' }}
+          />
+          <div>
+            <p className="nama">Nyoman Arya Sejati</p>
+            <p className="lembaga">Universitas Pendidikan Ganesha</p>
+            <a
+              className="tombol-wa-mantra"
+              href={`https://wa.me/${WA}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Image src="/mantra/logo-whatsapp.png" alt="" width={20} height={20} />
+              Hubungi WhatsApp
+            </a>
           </div>
-        </section>
+        </div>
+
+        <div style={{ height: 48 }} />
       </main>
+      <Kaki />
     </>
   )
 }

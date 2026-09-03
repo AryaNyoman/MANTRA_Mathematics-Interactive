@@ -1,5 +1,7 @@
 /**
- * Daftar 6 topik MATRA.
+ * Daftar 7 topik MANTRA.
+ *
+ * Topik ketujuh, Transformasi Geometri, ditambahkan ARYA 3 September 2026.
  *
  * Label kelas dicantumkan JUJUR dan SEDERHANA. Permintaan ARYA 1 Sep 2026:
  * cukup kelasnya saja, tanpa nomor bab dan tanpa menyebut kurikulum, karena
@@ -78,6 +80,33 @@ const DAFTAR: Topik[] = [
     urutanKelas: 12,
     pertanyaan: 'Kenapa yang terlihat berpotongan belum tentu berpotongan?',
     miskonsepsiSingkat: 'intuisi datar dipakai di ruang.',
+    siap: true,
+  },
+  {
+    // Topik ketujuh, ditambahkan ARYA 3 September 2026.
+    //
+    // KENAPA LABELNYA CUKUP "KELAS 11"
+    // Materi ini ada di Matematika Tingkat Lanjut Kelas XI, bukan Matematika
+    // wajib. Buku wajib Kelas XI hanya memuat Komposisi Fungsi, Lingkaran, dan
+    // Statistika. Keterangan itu TIDAK ditulis di sini, mengikuti permintaan
+    // ARYA di kepala berkas ini: label kelas berisi kelasnya saja, tanpa nomor
+    // bab dan tanpa nama kurikulum, sebab siswa mencari "kelas berapa".
+    // Keterangan kurikulumnya ada di badan teks Materi 01, sebagaimana
+    // diwajibkan STANDAR-MENGAJAR.md pada kompetensi "Jujur".
+    slug: 'transformasi-geometri',
+    nama: 'Transformasi Geometri',
+    kelas: 'Kelas 11',
+    urutanKelas: 11,
+    pertanyaan: 'Kenapa bayangan di kaca dan stiker yang digeser itu matematika yang sama?',
+    miskonsepsiSingkat: '“yang dipindah kan gambarnya, bukan titiknya.”',
+    // Dinyalakan 4 September 2026, setelah ketiga belas materinya lengkap dan
+    // seluruh gerbangnya lolos: uji matematika (alat/uji-matriks-transformasi.mts),
+    // pemeriksa angka (alat/cek_transformasi.py, 99 klaim), daftar periksa
+    // mengajar (alat/periksa_tahap.py transformasi-geometri), tsc, build, dan
+    // pemeriksaan visual tiap materi satu per satu lewat Playwright.
+    //
+    // Selama pengerjaan berkas ini sengaja dibiarkan false, supaya penggabungan
+    // cabang ini ke master di tengah kerja tidak menayangkan topik setengah jadi.
     siap: true,
   },
 ]

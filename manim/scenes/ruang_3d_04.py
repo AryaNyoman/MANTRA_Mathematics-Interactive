@@ -75,7 +75,7 @@ class DuaKaliPythagoras(AdeganMatra):
                            + np.array([0.0, -0.62, 0.30]), REDUP, 28)
         n_bc = label_hadap(frame, "6", sepanjang3(T["B"], T["C"], 0.5)
                            + np.array([0.62, 0.0, 0.30]), REDUP, 28)
-        jati = sinema.identitas(self, "p = l = t = 6 satuan")
+        jati = sinema.identitas(self, "panjang = lebar = tinggi = 6 satuan")
         with sinema.babak(self, "sisi", DURASI) as b:
             b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=1.6)
             sumbu_z_pamit(b, papan_koor, 1.0)
@@ -126,10 +126,11 @@ class DuaKaliPythagoras(AdeganMatra):
             # Rumus utama BERUBAH dengan morph lambang per lambang, bukan
             # fade out lalu fade in (standar v2 butir 5): angka 72 yang sudah
             # ada tetap di tempatnya, yang lain tumbuh di sekitarnya.
-            papan.tumbuh(r"AG^2 = 72 + 36 = 108", "ditambah")
-            b.catat(1.7)
-            papan.baris(r"AG = 6\sqrt{3} \approx 10{,}392", AKSEN)
-            b.catat(0.8)
+            # Waktunya TIDAK dihitung tangan lagi. Versi sebelumnya mencatat 1,7
+            # detik untuk tumbuh + kata alasan, padahal yang terpakai 3,2, dan
+            # videonya jadi 1,6 detik lebih panjang daripada narasinya.
+            papan.tumbuh(r"AG^2 = 72 + 36 = 108", "ditambah", b=b)
+            papan.baris(r"AG = 6\sqrt{3} \approx 10{,}392", AKSEN, b=b)
             isi_sisa(b, kamera.sudut(frame, -34, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"panel": papan.semua(), "identitas": jati},
                           [("panel", "identitas")])

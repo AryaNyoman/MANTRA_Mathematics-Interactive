@@ -77,13 +77,13 @@ export default function LingkaranKeGrafik({
         <g key={d}>
           <line x1={xGrafik(d)} y1={GY - 4} x2={xGrafik(d)} y2={GY + 4} stroke="#C9BFAE" strokeWidth={1.2} />
           <text x={xGrafik(d)} y={GY + 17} textAnchor="middle" fontSize={9.5} fill={WARNA.redup}
-                fontFamily="var(--font-plex-mono), monospace">{d}°</text>
+                fontFamily="var(--font-mono), sans-serif">{d}°</text>
         </g>
       ))}
       <text x={GX0 - 7} y={GY - AMP + 4} textAnchor="end" fontSize={9.5} fill={WARNA.redup}
-            fontFamily="var(--font-plex-mono), monospace">1</text>
+            fontFamily="var(--font-mono), sans-serif">1</text>
       <text x={GX0 - 7} y={GY + AMP + 4} textAnchor="end" fontSize={9.5} fill={WARNA.redup}
-            fontFamily="var(--font-plex-mono), monospace">−1</text>
+            fontFamily="var(--font-mono), sans-serif">−1</text>
 
       {/* ---------- kurva yang sedang tumbuh ---------- */}
       <path d={jalur} fill="none" stroke={warnaKurva} strokeWidth={2.6} strokeLinejoin="round" />
@@ -97,15 +97,15 @@ export default function LingkaranKeGrafik({
 
       {/* ---------- keterangan ---------- */}
       <text x={GX0 + 4} y={20} fontSize={13} fill={warnaKurva}
-            fontFamily="var(--font-plex-mono), monospace">
+            fontFamily="var(--font-mono), sans-serif">
         y = {fungsi} θ
       </text>
       <text x={GX1} y={20} textAnchor="end" fontSize={13} fill="#211E1A"
-            fontFamily="var(--font-plex-mono), monospace">
+            fontFamily="var(--font-mono), sans-serif">
         θ = {derajat}°   {fungsi} θ = {(Math.abs(nilai) < 5e-4 ? 0 : nilai).toFixed(3).replace('.', ',')}
       </text>
       <text x={LX} y={VH - 8} textAnchor="middle" fontSize={10.5} fill={WARNA.redup}
-            fontFamily="var(--font-plex-mono), monospace">
+            fontFamily="var(--font-mono), sans-serif">
         tinggi titik
       </text>
     </svg>

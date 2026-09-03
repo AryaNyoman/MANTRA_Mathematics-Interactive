@@ -234,11 +234,24 @@ def hapus_keterangan(*args, **kwargs):
     raise AturanDilanggar("sinema.keterangan sudah dihapus, tidak ada yang perlu dihapus.")
 
 
-def nilai_hidup(label_mob, angka: DecimalNumber, di, buff: float = 0.18) -> VGroup:
-    """Rakit "label + angka berubah" supaya angkanya tidak melayang dari labelnya."""
-    gugus = VGroup(label_mob, angka)
-    angka.next_to(label_mob, RIGHT, buff=buff)
+def nilai_hidup(label_mob, angka: DecimalNumber, di, buff: float = 0.18,
+                tanda: str | None = "=") -> VGroup:
+    """Rakit "label = angka berubah" supaya angkanya tidak melayang dari labelnya.
+
+    Tanda "=" disisipkan sejak 4 Sep 2026: tanpa itu "BQ 5,160" terbaca seperti
+    dua hal yang kebetulan berdampingan, bukan satu besaran dengan nilainya
+    (temuan Ruang 3D materi 03). Beri `tanda=None` untuk tanpa tanda.
+    Label SELALU elemen pertama gugus dan angka SELALU elemen terakhir.
+    """
+    bagian = [label_mob]
+    if tanda:
+        t = rumus(tanda, getattr(label_mob, "ukuran_matra", 28), label_mob.get_color())
+        t.next_to(label_mob, RIGHT, buff=buff)
+        bagian.append(t)
+    angka.next_to(bagian[-1], RIGHT, buff=buff)
     angka.align_to(label_mob, DOWN)
+    bagian.append(angka)
+    gugus = VGroup(*bagian)
     gugus.move_to(di)
     return gugus
 
@@ -296,8 +309,48 @@ class PapanRumus:
         self.perbarui_alas()
         return mobs[0] if len(mobs) == 1 else mobs
 
+    def _kotak_target(self):
+        """Ukuran alas yang seharusnya untuk isi papan sekarang."""
+        isi = self._isi()
+        if isi is None:
+            return None
+        return _kotak_alas(isi.get_left()[0] - 0.18, isi.get_right()[0] + 0.18,
+                           isi.get_bottom()[1] - 0.14, isi.get_top()[1] + 0.14)
+
+    def _ke_depan(self):
+        """Alas dibuat SESUDAH baris pertama ada, jadi urutan gambarnya harus
+        dibalik; kalau tidak, ia menutupi barisnya sendiri."""
+        isi = self._isi()
+        if isi is None:
+            return
+        self.alas.dekorasi = True
+        for m in isi:
+            self.scene.bring_to_front(m)
+
+    def _anim_alas(self):
+        """Animasi pelebaran alas, untuk dititipkan ke `scene.play` yang sama
+        dengan kemunculan barisnya. Kembalikan daftar kosong kalau tanpa alas."""
+        if not self.pakai_alas:
+            return []
+        baru = self._kotak_target()
+        if baru is None:
+            return []
+        if self.alas is None:
+            self.alas = baru
+            self.alas.set_opacity(0)
+            self.scene.hud_tambah(self.alas)
+            self._ke_depan()
+            return [self.alas.animate.set_opacity(1)]
+        gerak = (self.alas.animate
+                 .set_width(baru.get_width(), stretch=True)
+                 .set_height(baru.get_height(), stretch=True)
+                 .move_to(baru.get_center()))
+        self._ke_depan()
+        return [gerak]
+
     def perbarui_alas(self):
-        """Lebarkan alas kertas mengikuti baris yang ada sekarang."""
+        """Lebarkan alas kertas SEKETIKA. Dipakai di luar animasi (mis. saat
+        baris luar didaftarkan lewat `ikut`, atau sesudah morph)."""
         if not self.pakai_alas:
             return
         isi = self._isi()
@@ -337,15 +390,35 @@ class PapanRumus:
         """
         kiri, kanan, bawah, atas = ZONA_RUMUS
         batasi_lebar(mob, kanan - kiri - 0.2)
-        geser = 0 if self.tanpa_utama else 1
-        y = atas - 0.12 - 0.62 * (ke_berapa + geser) - mob.get_height() / 2
+        # Ditumpuk dari BAWAH benda yang sudah ada di papan, bukan pada slot
+        # berjarak tetap. Rumus pecahan dua tingkat lebih tinggi daripada satu
+        # baris biasa, dan slot tetap 0,62 menjatuhkan baris berikutnya TEPAT DI
+        # DALAM penyebutnya. Ruang 3D materi 09: "theta = 35,26 derajat" jatuh
+        # menindih penyebut "6 akar 2" sampai keduanya tidak terbaca, dan qc
+        # tidak menangkapnya sebab papan diserahkan ke qc sebagai SATU benda.
+        sudah = ([self.utama] if self.utama is not None else []) + list(self.baris_lain[:ke_berapa])
+        if sudah:
+            batas_atas = min(m.get_bottom()[1] for m in sudah) - 0.16
+        else:
+            # Papan masih kosong: slot teratas tetap dipesan untuk rumus utama
+            # yang akan datang, kecuali papan ini memang tanpa rumus utama.
+            batas_atas = atas - 0.12 - (0 if self.tanpa_utama else 0.62)
+        y = batas_atas - mob.get_height() / 2
         mob.move_to([kanan - mob.get_width() / 2 - 0.12, y, 0])
         return mob.fix_in_frame()
 
     # -- dipakai adegan ----------------------------------------------------
     def tumbuh(self, isi_baru: str, alasan: str | None = None, run_time: float = 1.2,
-               key_map: dict | None = None):
-        """Ganti rumus utama dengan MORPH: lambang lama berpindah, yang baru tumbuh."""
+               key_map: dict | None = None, b=None):
+        """Ganti rumus utama dengan MORPH: lambang lama berpindah, yang baru tumbuh.
+
+        Waktu terpakai = run_time, ditambah waktu kata alasan kalau ada; dicatat
+        otomatis ke `b` kalau diberi. Menghitungnya dengan tangan sudah pernah
+        salah: adegan Ruang 3D 04 mencatat 1,7 detik padahal yang terpakai 3,2,
+        dan videonya jadi 1,6 detik lebih panjang daripada narasinya. Babak
+        tidak menolaknya sebab kelebihannya masuk lewat waktu yang TIDAK
+        tercatat, jadi bacaan `b.sisa` ikut salah.
+        """
         baru = self.tempat_utama(rumus(isi_baru, self.ukuran, self.warna))
         if self.utama is None:
             self.scene.hud_tambah(baru)
@@ -356,6 +429,8 @@ class PapanRumus:
         self.utama = baru
         if alasan:
             self._alasan(alasan)
+        if b is not None:
+            b.catat(run_time + (self.waktu_alasan() if alasan else 0.0))
         return baru
 
     def _alasan(self, kalimat: str, run_time: float = 0.5, lama: float = 1.0):
@@ -371,14 +446,21 @@ class PapanRumus:
     def waktu_alasan(self, run_time: float = 0.5, lama: float = 1.0) -> float:
         return 2 * run_time + lama
 
-    def baris(self, isi: str, warna: str | None = None, run_time: float = 0.8):
-        """Tumpuk satu temuan baru di bawah yang sudah ada."""
+    def baris(self, isi: str, warna: str | None = None, run_time: float = 0.8, b=None):
+        """Tumpuk satu temuan baru di bawah yang sudah ada.
+
+        Waktu terpakai = run_time; dicatat otomatis ke `b` kalau diberi.
+        """
         m = rumus(isi, self.ukuran - 2, warna or self.warna)
         self.tempat_baris(m, len(self.baris_lain))
         self.scene.hud_tambah(m)
         self.baris_lain.append(m)
-        self.perbarui_alas()
-        self.scene.play(FadeIn(m, shift=0.2 * LEFT), run_time=run_time)
+        # Alas melebar SEBARENG barisnya muncul, bukan sebelum. Kalau ia
+        # melebar lebih dulu, penonton melihat bidang kertas kosong dulu.
+        anim_alas = self._anim_alas()
+        self.scene.play(FadeIn(m, shift=0.2 * LEFT), *anim_alas, run_time=run_time)
+        if b is not None:
+            b.catat(run_time)
         return m
 
     def terima(self, mob, sebagai_utama: bool = True):
@@ -398,12 +480,24 @@ class PapanRumus:
         return baru
 
     def semua(self):
-        """Semua yang tampil di panel, alasnya IKUT, supaya `FadeOut(papan.semua())`
-        di babak penutup tidak meninggalkan kotak kertas melayang."""
-        isi = self._isi()
-        if isi is None:
+        """Semua yang tampil di panel, ALASNYA IKUT, supaya
+        `FadeOut(papan.semua())` di babak penutup tidak meninggalkan kotak
+        kertas melayang."""
+        isi = list(self.baris_lain)
+        if self.utama is not None:
+            isi.append(self.utama)
+        if not isi:
             return None
-        return VGroup(self.alas, *isi) if self.alas is not None else isi
+        if self.alas is not None:
+            isi = [self.alas] + isi
+        g = VGroup(*isi)
+        # Tanda untuk qc: baris-baris di dalam papan diperiksa satu sama lain.
+        # Sebelum 4 Sep 2026 papan diserahkan ke qc sebagai satu benda, dan dua
+        # baris yang bertindih persis lolos (temuan Ruang 3D dan Statistika).
+        # Alasnya bertanda `dekorasi` dan dilewati pemeriksaan itu; ia memang
+        # menindih semua barisnya, itu memang tugasnya.
+        g._qc_isi = True
+        return g
 
 
 def lahir_rumus(scene, isi: str, dekat, papan: PapanRumus, b=None,

@@ -1,0 +1,151 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/statistika6-pencilan.json
+
+1
+00:00:00.000 --> 00:00:03.161
+Materi 06 Statistika: <b>pencilan</b>.
+
+2
+00:00:03.161 --> 00:00:07.035
+Sebuah kantor kecil berisi 9 karyawan.
+
+3
+00:00:07.035 --> 00:00:12.744
+Ini gaji mereka, dalam juta rupiah, dari 4,2 sampai 7,0.
+
+4
+00:00:12.744 --> 00:00:16.768
+Rata-ratanya 5,24 juta, mediannya 5,00 juta.
+
+5
+00:00:16.768 --> 00:00:20.243
+Dua ukuran yang cara kerjanya berbeda,
+
+6
+00:00:20.243 --> 00:00:22.987
+tetapi jawabannya <b>hampir sama</b>.
+
+7
+00:00:22.987 --> 00:00:24.816
+Keduanya masuk akal.
+
+8
+00:00:24.816 --> 00:00:27.933
+Sekarang direkturnya ikut dihitung.
+
+9
+00:00:27.933 --> 00:00:29.357
+Gajinya 75 juta.
+
+10
+00:00:29.357 --> 00:00:33.097
+Supaya ia muat, penggarisnya ditarik jauh,
+
+11
+00:00:33.097 --> 00:00:37.728
+dan 9 karyawan tadi berdesakan jadi satu gerombolan.
+
+12
+00:00:37.728 --> 00:00:40.794
+Perhatikan dua penanda tadi.
+
+13
+00:00:40.794 --> 00:00:45.394
+Mean <b>berlari</b> ke kanan, dari 5,24 ke 12,22.
+
+14
+00:00:45.394 --> 00:00:50.760
+Median hanya bergeser sedikit, dari 5,00 ke 5,10.
+
+15
+00:00:50.760 --> 00:00:54.270
+Dan di 12,22 itu <b>tidak ada siapa-siapa</b>.
+
+16
+00:00:54.270 --> 00:00:58.140
+9 dari 10 orang bergaji 7 juta atau kurang.
+
+17
+00:00:58.140 --> 00:01:03.000
+Rata-ratanya benar, tetapi tidak mewakili seorang pun.
+
+18
+00:01:03.000 --> 00:01:04.942
+Kenapa mean bisa diseret?
+
+19
+00:01:04.942 --> 00:01:07.894
+Karena mean memakai <b>nilai</b> setiap data.
+
+20
+00:01:07.894 --> 00:01:10.458
+Jarak gaji direktur ke pusat jauh
+
+21
+00:01:10.458 --> 00:01:13.488
+lebih panjang daripada milik siapa pun.
+
+22
+00:01:13.488 --> 00:01:15.278
+Median bekerja lain.
+
+23
+00:01:15.278 --> 00:01:17.426
+Ia hanya memakai <b>urutan</b>.
+
+24
+00:01:17.426 --> 00:01:20.738
+10 data ini dibariskan berjarak sama,
+
+25
+00:01:20.738 --> 00:01:23.692
+dan median adalah yang di tengah.
+
+26
+00:01:23.692 --> 00:01:27.720
+Bagi median, direktur cuma data paling kanan.
+
+27
+00:01:27.720 --> 00:01:33.444
+Bagaimana kalau gajinya bukan 75, melainkan 120 juta?
+
+28
+00:01:33.444 --> 00:01:36.360
+Mean lari lagi, jadi 16,72.
+
+29
+00:01:36.360 --> 00:01:40.032
+Median <b>tidak bergerak sedikit pun</b>.
+
+30
+00:01:40.032 --> 00:01:44.481
+Godaannya, hapus saja direkturnya supaya angkanya rapi.
+
+31
+00:01:44.481 --> 00:01:45.681
+Jangan.
+
+32
+00:01:45.681 --> 00:01:47.946
+Gajinya memang benar segitu,
+
+33
+00:01:47.946 --> 00:01:51.600
+dan membuangnya berarti <b>berbohong</b> tentang kantor ini.
+
+34
+00:01:51.600 --> 00:01:55.580
+Yang diganti bukan datanya, melainkan <b>ukurannya</b>.
+
+35
+00:01:55.580 --> 00:01:59.559
+Untuk gaji dan harga rumah, <b>median</b> yang dipakai.
+
+36
+00:01:59.559 --> 00:02:01.964
+Itulah sebabnya karyawan tadi
+
+37
+00:02:01.964 --> 00:02:04.368
+tidak merasa bergaji 12 juta.

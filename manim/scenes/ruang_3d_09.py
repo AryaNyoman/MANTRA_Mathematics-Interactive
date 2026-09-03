@@ -73,7 +73,7 @@ class SudutDenganBidang(AdeganMatra):
 
         # --- Babak 2: garis miringnya dulu, tanpa bayangannya. Sumbu z pamit
         #     sebentar, ia kembali saat rusuk tegak CG masuk hitungan.
-        jati = sinema.identitas(self, "p = l = t = 6 satuan")
+        jati = sinema.identitas(self, "panjang = lebar = tinggi = 6 satuan")
         with sinema.babak(self, "bayangan", DURASI) as b:
             b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=1.6)
             sumbu_z_pamit(b, papan_koor, 1.0)

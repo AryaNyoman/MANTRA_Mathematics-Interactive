@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EDEBE3}
+a{color:#B08A3E;text-decoration:none}a:hover{color:#E8582C}
+@keyframes kapur{from{stroke-dashoffset:2200}to{stroke-dashoffset:0}}
+@keyframes apung{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(5deg)}100%{transform:translateY(0) rotate(0deg)}}
+@keyframes naik{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes tabA{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes tabB{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes klipA{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+@keyframes klipB{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+@keyframes kilau{0%{transform:translateX(-130%)}100%{transform:translateX(240%)}}
+@keyframes letup{0%{transform:scale(.4);opacity:.3}60%{transform:scale(1.35)}100%{transform:scale(1);opacity:1}}
+@keyframes kedip{0%,100%{opacity:.35}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail" data-bg-color="#FAF9F5">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#FAF9F5"></rect>
+    <circle cx="600" cy="380" r="210" fill="none" stroke="#B08A3E" stroke-width="6"></circle>
+    <path d="M390 380 H810 M600 170 V590" stroke="#B08A3E" stroke-width="5"></path>
+    <polygon points="600,148 630,206 570,206" fill="#E8582C"></polygon>
+    <circle cx="762" cy="500" r="34" fill="#6E9C7A"></circle>
+    <rect x="404" y="470" width="60" height="60" fill="#2B4B8F"></rect>
+    <text x="600" y="470" font-family="Georgia,serif" font-size="330" fill="#101A2B" text-anchor="middle">M</text>
+    <text x="600" y="700" font-family="Georgia,serif" font-size="86" letter-spacing="18" fill="#101A2B" text-anchor="middle">MANTRA</text>
+  </svg>
+</template>
+<div style="min-height:100vh;background:#FAF9F5;background-image:{{ latar.gambar }};background-size:{{ latar.ukuran }};color:#101A2B;font-family:'Space Grotesk',system-ui,sans-serif;font-size:15px;line-height:1.65;overflow-x:hidden">
+
+  <nav style="position:sticky;top:0;z-index:30;height:70px;display:flex;align-items:center;flex-wrap:nowrap;gap:14px;padding:0 clamp(16px,4vw,44px);background:rgba(250,249,245,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(16,26,43,.12)">
+    <img src="aset/mantra-penuh.png" alt="MANTRA · Matematika Interaktif" style="height:38px;width:auto;flex:none">
+    <div style="display:flex;gap:2px;margin-left:6px;flex:0 1 auto;min-width:0">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+        <div role="button" onClick="{{ t.pilih }}" style="position:relative;font-size:13.5px;font-weight:{{ t.tebal }};color:{{ t.warna }};padding:9px 11px;border-radius:10px;cursor:pointer;background:{{ t.bg }};transition:all .25s;white-space:nowrap" style-hover="background:rgba(176,138,62,.12)" style-active="transform:scale(.96)">{{ t.nama }}
+          <span style="position:absolute;left:11px;right:11px;bottom:4px;height:2px;border-radius:2px;background:#B08A3E;transform:scaleX({{ t.garis }});transform-origin:left;transition:transform .3s cubic-bezier(.2,.7,.2,1)"></span>
+        </div>
+      </sc-for>
+    </div>
+    <span title="Terakhir dibuka · Trigonometri, Materi {{ aktif.no2 }}" style="margin-left:auto;flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;font-size:12px;color:rgba(16,26,43,.5);white-space:nowrap">Materi {{ aktif.no2 }}</span>
+    <span role="button" onClick="{{ keMateri }}" style="position:relative;flex:none;overflow:hidden;display:inline-flex;align-items:center;font-size:13px;font-weight:600;color:#FAF9F5;background:#101A2B;border-radius:999px;padding:10px 20px;white-space:nowrap;cursor:pointer;transition:transform .2s" style-hover="transform:translateY(-2px)" style-active="transform:scale(.96)">Lanjutkan
+      <span style="position:absolute;inset:0;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);animation:kilau {{ gerak.kilau }}"></span>
+    </span>
+  </nav>
+
+  <!-- ================= BERANDA ================= -->
+  <sc-if value="{{ diBeranda }}" hint-placeholder-val="{{ true }}">
+  <div style="animation:{{ animTab }}">
+    <header style="position:relative;padding:clamp(44px,6.5vw,88px) clamp(16px,4vw,44px) 150px;overflow:hidden">
+      <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;overflow:hidden">
+        <svg viewBox="0 0 1400 200" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:132px">
+          <path id="kurvaEmas" pathLength="2200" data-gambar="kapur 3.4s cubic-bezier(.2,.7,.2,1) both" d="M-20 108 C 160 42 340 42 520 108 C 700 174 880 174 1060 108 C 1240 42 1420 42 1600 108" fill="none" stroke="#B08A3E" stroke-opacity=".45" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="2200"></path>
+          <path id="kurvaBiru" pathLength="2200" data-gambar="kapur 4.2s cubic-bezier(.2,.7,.2,1) .35s both" d="M-20 142 C 180 90 360 90 540 142 C 720 194 900 194 1080 142 C 1260 90 1440 90 1620 142" fill="none" stroke="#2B4B8F" stroke-opacity=".3" stroke-width="2" stroke-linecap="round" stroke-dasharray="2200"></path>
+          <circle r="6" fill="#E8582C" opacity=".8"><animateMotion dur="11s" repeatCount="indefinite" rotate="auto"><mpath href="#kurvaEmas"></mpath></animateMotion></circle>
+          <circle r="4.5" fill="#6E9C7A" opacity=".85"><animateMotion dur="16s" begin="1.4s" repeatCount="indefinite" rotate="auto"><mpath href="#kurvaBiru"></mpath></animateMotion></circle>
+        </svg>
+        <span style="position:absolute;left:5%;top:15%;font-family:Newsreader,serif;font-size:78px;color:#B08A3E;opacity:.16;animation:apung {{ gerak.apung1 }}">θ</span>
+        <span style="position:absolute;right:7%;top:10%;font-family:Newsreader,serif;font-size:60px;color:#2B4B8F;opacity:.14;animation:apung {{ gerak.apung2 }}">∑</span>
+        <span style="position:absolute;left:7%;bottom:11%;font-family:Newsreader,serif;font-size:50px;color:#E8582C;opacity:.13;animation:apung {{ gerak.apung3 }}">√</span>
+        <span style="position:absolute;right:15%;bottom:13%;font-family:Newsreader,serif;font-size:66px;color:#6E9C7A;opacity:.16;animation:apung {{ gerak.apung2 }}">π</span>
+        <span style="position:absolute;left:2.5%;top:46%;font-family:Newsreader,serif;font-size:40px;color:#B08A3E;opacity:.14;animation:apung {{ gerak.apung3 }}">∞</span>
+      </div>
+      <div style="position:relative;max-width:1120px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center">
+        <span style="display:inline-flex;align-items:center;gap:9px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#B08A3E;border:1px solid rgba(176,138,62,.4);border-radius:999px;padding:7px 16px;white-space:nowrap;animation:naik .7s cubic-bezier(.2,.7,.2,1) both">Matematika SMA · Kelas 10–12</span>
+        <img src="aset/mantra-penuh.png" alt="MANTRA" style="width:min(430px,80vw);height:auto;margin:26px 0 22px;transform:translateY({{ parallax.logo }}px);animation:naik .7s cubic-bezier(.2,.7,.2,1) .06s both">
+        <h1 style="font-family:Newsreader,serif;font-weight:400;font-size:44px;line-height:1.14;letter-spacing:-0.01em;margin:0 0 20px;animation:naik .7s cubic-bezier(.2,.7,.2,1) .12s both"><span style="display:block;white-space:nowrap">Matematika tidak hanya dipelajari</span><i style="display:block;white-space:nowrap;color:#B08A3E">Matematika bisa dijelajahi</i></h1>
+        <p style="margin:0 0 30px;max-width:44rem;font-size:16.5px;line-height:1.78;color:rgba(16,26,43,.76);animation:naik .7s cubic-bezier(.2,.7,.2,1) .18s both">Eksplorasi konsep matematika melalui <b style="color:#2B4B8F;font-weight:600">animasi</b>, <b style="color:#6E9C7A;font-weight:600">visualisasi</b>, dan <b style="color:#E8582C;font-weight:600">interaksi</b><br>yang membuat setiap rumus tidak hanya dipahami<br>tetapi dapat Anda lihat dan rasakan cara kerjanya</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;animation:naik .7s cubic-bezier(.2,.7,.2,1) .24s both">
+          <span role="button" onClick="{{ kePeta }}" style="font-size:14px;font-weight:600;color:#FAF9F5;background:#B08A3E;border-radius:999px;padding:14px 28px;cursor:pointer;transition:transform .2s" style-hover="transform:translateY(-3px)" style-active="transform:scale(.96)">Mulai dari Kelas 10</span>
+          <span style="font-size:14px;font-weight:500;color:#101A2B;border:1px solid rgba(16,26,43,.22);border-radius:999px;padding:14px 28px;cursor:pointer;transition:all .2s" style-hover="border-color:#B08A3E;color:#B08A3E" style-active="transform:scale(.96)">Pasang di HP</span>
+        </div>
+      </div>
+    </header>
+
+    <section style="max-width:1120px;margin:0 auto;padding:44px clamp(16px,4vw,44px) 0">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:18px">
+        <span style="flex:1;height:1px;background:rgba(16,26,43,.14)"></span>
+        <span style="font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(16,26,43,.5);white-space:nowrap">Berganti sendiri</span>
+        <span style="flex:1;height:1px;background:rgba(16,26,43,.14)"></span>
+      </div>
+      <div onMouseEnter="{{ klipJeda }}" onMouseLeave="{{ klipJalan }}" style="max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+        <div style="animation:{{ klipAnim }}">
+          <div style="border:1px solid rgba(16,26,43,.12);border-radius:20px;background:#fff;box-shadow:0 20px 44px -30px rgba(16,26,43,.5);display:flex;align-items:center;justify-content:center;min-height:320px;padding:12px"><img src="aset/beranda-tiga-grafik-v2.jpg" data-src="{{ klip.gambar }}" alt="" style="display:block;max-width:100%;max-height:440px;border-radius:12px;transform:translateY({{ parallax.klip }}px)"></div>
+        </div>
+        <div style="animation:{{ klipAnim }};text-align:center">
+          <div style="font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#2B4B8F">{{ klip.jenis }} · {{ klip.no }} / 05</div>
+          <h3 style="font-family:Newsreader,serif;font-weight:400;font-size:27px;line-height:1.14;margin:9px 0 12px">{{ klip.judul }}</h3>
+          <p style="margin:0 auto 22px;max-width:54rem;font-size:15px;line-height:1.78;color:rgba(16,26,43,.72)">{{ klip.isi }}</p>
+          <div style="display:flex;align-items:center;gap:14px;padding-top:16px;border-top:1px solid rgba(16,26,43,.14)">
+            <div role="button" onClick="{{ klipMundur }}" style="width:42px;height:42px;border:1px solid rgba(16,26,43,.2);border-radius:50%;display:grid;place-items:center;cursor:pointer;font-size:15px;transition:all .2s" style-hover="border-color:#B08A3E;color:#B08A3E" style-active="transform:scale(.9)">←</div>
+            <div style="display:flex;gap:8px;margin:0 auto">
+              <sc-for list="{{ klipTitik }}" as="kt" hint-placeholder-count="5">
+                <div role="button" onClick="{{ kt.pilih }}" style="width:{{ kt.lebar }};height:8px;border-radius:999px;cursor:pointer;background:{{ kt.bg }};transition:all .35s cubic-bezier(.2,.7,.2,1)"></div>
+              </sc-for>
+            </div>
+            <div role="button" onClick="{{ klipMaju }}" style="width:42px;height:42px;border:1px solid rgba(16,26,43,.2);border-radius:50%;display:grid;place-items:center;cursor:pointer;font-size:15px;transition:all .2s" style-hover="border-color:#B08A3E;color:#B08A3E" style-active="transform:scale(.9)">→</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1120px;margin:0 auto;padding:48px clamp(16px,4vw,44px) 0">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+        <sc-for list="{{ isiSitus }}" as="i" hint-placeholder-count="3">
+          <article onMouseMove="{{ bayangKursor }}" onMouseLeave="{{ bayangLepas }}" style="border:1px solid rgba(16,26,43,.12);border-radius:20px;padding:26px 24px 22px;background:#fff;transition:transform .28s,box-shadow .28s" style-hover="transform:translateY(-6px)">
+            <div style="font-family:Newsreader,serif;font-size:46px;line-height:1;color:{{ i.warna }}">{{ i.no }}</div>
+            <h3 style="font-size:19px;font-weight:600;margin:12px 0 8px">{{ i.judul }}</h3>
+            <p style="margin:0;font-size:14.5px;line-height:1.72;color:rgba(16,26,43,.7)">{{ i.isi }}</p>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="max-width:1120px;margin:0 auto;padding:52px clamp(16px,4vw,44px) 0">
+      <div style="border-top:2px solid #B08A3E;padding-top:22px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center">
+        <div>
+          <h2 style="font-family:Newsreader,serif;font-weight:400;font-size:27px;margin:0 0 6px">Enam bab, tersusun seperti buku</h2>
+          <p style="margin:0;font-size:14.5px;color:rgba(16,26,43,.72);max-width:46rem">Tiap bab dipecah jadi sub-bab, tiap sub-bab berisi beberapa materi. Peta lengkapnya beserta kemajuan Anda ada di tab Peta Materi.</p>
+        </div>
+        <span role="button" onClick="{{ kePeta }}" style="font-size:14px;font-weight:600;color:#FAF9F5;background:#101A2B;border-radius:999px;padding:13px 24px;cursor:pointer;white-space:nowrap;transition:transform .2s" style-hover="transform:translateY(-3px)" style-active="transform:scale(.96)">Buka Peta Materi →</span>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <!-- ================= PETA MATERI ================= -->
+  <sc-if value="{{ diPeta }}" hint-placeholder-val="{{ false }}">
+  <div style="animation:{{ animTab }};max-width:1220px;margin:0 auto;padding:38px clamp(16px,4vw,44px) 0">
+    <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#B08A3E">Peta Materi</div>
+    <h1 style="font-family:Newsreader,serif;font-weight:400;font-size:38px;line-height:1.04;margin:8px 0 10px">Pilih bab, lalu sub-bab, lalu materinya</h1>
+    <p style="margin:0 0 26px;max-width:48rem;font-size:16px;font-style:italic;color:#B08A3E">Susunan sub-bab mengikuti bab buku Kurikulum Merdeka. Kemajuan tersimpan di peramban Anda sendiri.</p>
+
+    <sc-for list="{{ kelasList }}" as="k" hint-placeholder-count="2">
+      <div style="display:flex;align-items:baseline;gap:16px;margin:30px 0 16px">
+        <h2 style="font-family:Newsreader,serif;font-weight:400;font-size:27px;margin:0">{{ k.nama }}</h2>
+        <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(16,26,43,.55);white-space:nowrap">{{ k.jumlah }} bab</span>
+        <span style="flex:1;height:1px;background:rgba(16,26,43,.14)"></span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px">
+        <sc-for list="{{ k.bab }}" as="b" hint-placeholder-count="2">
+          <article onMouseMove="{{ bayangKursor }}" onMouseLeave="{{ bayangLepas }}" style="border:1px solid rgba(16,26,43,.12);border-radius:20px;padding:22px 24px 18px;background:#fff;cursor:pointer;transition:transform .28s,box-shadow .28s" style-hover="transform:translateY(-5px)">
+            <div style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start">
+              <div>
+                <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2B4B8F;font-variant-numeric:tabular-nums">Bab {{ b.no }} · {{ b.kelas }} · {{ b.sumber }}</div>
+                <h3 style="font-family:Newsreader,serif;font-weight:400;font-size:27px;line-height:1.08;margin:6px 0 6px">{{ b.nama }}</h3>
+                <p style="margin:0;font-size:14px;font-style:italic;color:rgba(16,26,43,.66)">{{ b.pertanyaan }}</p>
+              </div>
+              <div style="position:relative;width:66px;height:66px;flex:none">
+                <svg viewBox="0 0 40 40" style="width:66px;height:66px;transform:rotate(-90deg)">
+                  <circle cx="20" cy="20" r="17" fill="none" stroke="rgba(16,26,43,.12)" stroke-width="3.2"></circle>
+                  <circle cx="20" cy="20" r="17" fill="none" stroke="#B08A3E" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="107" stroke-dashoffset="{{ b.offset }}" style="transition:stroke-dashoffset .9s cubic-bezier(.2,.7,.2,1)"></circle>
+                </svg>
+                <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap">{{ b.persen }}%</span>
+              </div>
+            </div>
+            <div style="margin-top:14px;border-top:1px solid rgba(176,138,62,.5)">
+              <sc-for list="{{ b.sub }}" as="s" hint-placeholder-count="4">
+                <div role="button" onClick="{{ b.buka }}" style="display:grid;grid-template-columns:18px 1fr auto;gap:10px;padding:9px 0;border-bottom:1px solid rgba(16,26,43,.09);align-items:baseline;cursor:pointer;transition:padding-left .2s" style-hover="padding-left:6px">
+                  <span style="font-family:Newsreader,serif;font-weight:400;color:#B08A3E;font-size:17px">{{ s.huruf }}</span>
+                  <div>
+                    <div style="font-size:14px;font-weight:600">{{ s.nama }}</div>
+                    <div style="font-size:12.5px;color:rgba(16,26,43,.62);margin-top:2px;line-height:1.5">{{ s.materi }}</div>
+                  </div>
+                  <span style="font-size:11px;color:rgba(16,26,43,.5);font-variant-numeric:tabular-nums;white-space:nowrap">{{ s.jumlah }} materi</span>
+                </div>
+              </sc-for>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:14px">
+              <span role="button" onClick="{{ b.buka }}" style="font-size:13.5px;font-weight:600;color:#FAF9F5;background:#B08A3E;border-radius:999px;padding:8px 16px;cursor:pointer;white-space:nowrap;transition:transform .2s" style-active="transform:scale(.95)">{{ b.aksi }}</span>
+              <span role="button" onClick="{{ keLatihan }}" style="font-size:13.5px;font-weight:600;border:1px solid rgba(16,26,43,.2);border-radius:999px;padding:8px 16px;cursor:pointer;white-space:nowrap;transition:all .2s" style-hover="border-color:#B08A3E;color:#B08A3E" style-active="transform:scale(.95)">Latihan bab</span>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </sc-for>
+
+    <div style="margin:22px 0 0;border:2px dashed rgba(16,26,43,.22);border-radius:20px;padding:26px 28px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;background:rgba(255,255,255,.5)">
+      <div>
+        <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(16,26,43,.5)">Segera</div>
+        <h3 style="font-family:Newsreader,serif;font-weight:400;font-size:26px;margin:6px 0 6px">Bab lain sedang disiapkan</h3>
+        <p style="margin:0;font-size:14px;color:rgba(16,26,43,.66);max-width:52rem">Barisan dan deret, eksponen dan logaritma, peluang, turunan, dan integral menyusul dengan cara yang sama: animasi dulu, lalu alat yang bisa dicoba, lalu latihan.</p>
+      </div>
+      <span style="font-family:Newsreader,serif;font-size:44px;color:rgba(16,26,43,.18);white-space:nowrap">···</span>
+    </div>
+
+    <div style="display:flex;align-items:baseline;gap:16px;margin:44px 0 16px">
+      <h2 style="font-family:Newsreader,serif;font-weight:400;font-size:26px;margin:0">Halaman materi</h2>
+      <span style="flex:1;height:1px;background:rgba(16,26,43,.14)"></span>
+      <span style="font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(16,26,43,.5);white-space:nowrap">Klik materi di kiri</span>
+    </div>
+    <div style="border:1px solid rgba(16,26,43,.12);border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 28px 64px -44px rgba(16,26,43,.6);margin-bottom:10px">
+      <div style="min-height:54px;white-space:nowrap;display:flex;align-items:center;gap:10px;padding:0 18px;border-bottom:1px solid rgba(16,26,43,.1);font-size:12.5px;color:rgba(16,26,43,.6)">
+        <span>Kelas 10</span><span style="color:#B08A3E">/</span><span>Bab 4 · Trigonometri</span><span style="color:#B08A3E">/</span><span style="color:#101A2B">{{ aktif.subNama }}</span><span style="color:#B08A3E">/</span><span style="color:#B08A3E;font-weight:600;font-variant-numeric:tabular-nums">Materi {{ aktif.no2 }}</span>
+        <span style="margin-left:auto;display:flex;align-items:center;gap:10px"><span style="width:120px;height:4px;border-radius:999px;background:rgba(16,26,43,.12);overflow:hidden;display:block"><span style="display:block;height:100%;width:{{ persen }}%;background:linear-gradient(90deg,#B08A3E,#6E9C7A);transition:width .7s cubic-bezier(.2,.7,.2,1)"></span></span><span style="font-weight:600;font-variant-numeric:tabular-nums">{{ persen }}%</span></span>
+      </div>
+      <div style="display:grid;grid-template-columns:{{ rel.kolom }} 1fr;transition:grid-template-columns .34s cubic-bezier(.2,.7,.2,1);min-height:470px">
+        <aside style="border-right:1px solid rgba(16,26,43,.1);background:#FAF9F5;display:flex;flex-direction:column;overflow:hidden">
+          <div style="flex:none;display:flex;align-items:center;gap:8px;padding:{{ rel.pad }};border-bottom:1px solid rgba(16,26,43,.1)">
+            <sc-if value="{{ rel.luas }}" hint-placeholder-val="{{ true }}">
+              <div style="flex:1;min-width:0"><div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#2B4B8F">Bab 4 · Kelas 10</div><div style="font-family:Newsreader,serif;font-size:22px;line-height:1.1;margin-top:3px">Trigonometri</div></div>
+            </sc-if>
+            <div role="button" onClick="{{ rel.togel }}" title="{{ rel.judul }}" style="flex:none;width:32px;height:32px;border:1px solid rgba(16,26,43,.18);border-radius:9px;display:grid;place-items:center;cursor:pointer;font-size:12px;color:#B08A3E;background:#fff;margin:{{ rel.margin }};transition:all .2s" style-hover="border-color:#B08A3E" style-active="transform:scale(.9)">{{ rel.ikon }}</div>
+          </div>
+          <div style="flex:1;min-height:0;overflow-y:auto;scrollbar-width:thin;padding:6px 8px 10px">
+            <sc-for list="{{ subbab }}" as="s" hint-placeholder-count="4">
+              <sc-if value="{{ rel.luas }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;align-items:baseline;gap:9px;padding:12px 10px 5px">
+                  <span style="font-family:Newsreader,serif;color:#B08A3E;font-size:17px;width:14px">{{ s.huruf }}</span>
+                  <span style="flex:1;font-size:12.5px;font-weight:600">{{ s.nama }}</span>
+                  <span style="font-size:11px;color:rgba(16,26,43,.45);font-variant-numeric:tabular-nums;white-space:nowrap">{{ s.selesai }}/{{ s.jumlah }}</span>
+                </div>
+              </sc-if>
+              <sc-if value="{{ rel.sempit }}" hint-placeholder-val="{{ false }}">
+                <div title="{{ s.nama }}" style="margin:10px auto 4px;width:34px;padding-bottom:4px;border-bottom:1px solid rgba(16,26,43,.14);text-align:center;font-family:Newsreader,serif;font-size:16px;color:#B08A3E">{{ s.huruf }}</div>
+              </sc-if>
+              <sc-for list="{{ s.materi }}" as="m" hint-placeholder-count="3">
+                <div role="button" onClick="{{ m.pilih }}" title="{{ m.judul }}" style="display:grid;grid-template-columns:{{ rel.kolomBaris }};gap:9px;align-items:center;padding:{{ rel.padBaris }};border-radius:11px;cursor:pointer;background:{{ m.bg }};border-left:2px solid {{ m.garis }};transition:background .2s" style-hover="background:rgba(176,138,62,.12)">
+                  <span style="font-size:11px;color:{{ m.warnaNo }};font-variant-numeric:tabular-nums;text-align:center">{{ m.no2 }}</span>
+                  <sc-if value="{{ rel.luas }}" hint-placeholder-val="{{ true }}">
+                    <span style="font-size:13px;line-height:1.35;color:{{ m.warna }};font-weight:{{ m.tebal }}">{{ m.judul }}</span>
+                  </sc-if>
+                  <span style="width:15px;height:15px;justify-self:center;border-radius:50%;border:1.5px solid {{ m.ring }};background:{{ m.isi }};display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;animation:{{ m.letup }}">{{ m.centang }}</span>
+                </div>
+              </sc-for>
+            </sc-for>
+          </div>
+          <sc-if value="{{ rel.luas }}" hint-placeholder-val="{{ true }}">
+            <div style="flex:none;border-top:1px solid rgba(16,26,43,.1);padding:9px 8px 11px">
+              <div role="button" onClick="{{ keLatihan }}" style="display:grid;grid-template-columns:20px 1fr auto;gap:10px;align-items:center;padding:9px 10px;border-radius:11px;cursor:pointer" style-hover="background:rgba(176,138,62,.12)"><span style="color:#B08A3E;font-size:15px">✎</span><span style="font-size:13.5px;font-weight:600">Latihan</span><span style="font-size:11px;color:rgba(16,26,43,.5);white-space:nowrap">4 soal</span></div>
+              <div style="display:grid;grid-template-columns:20px 1fr auto;gap:10px;align-items:center;padding:9px 10px;border-radius:11px;opacity:{{ kuis.opasitas }}"><span style="color:#B08A3E;font-size:15px">★</span><div><div style="font-size:13.5px;font-weight:600">Kuis</div><div style="font-size:11px;color:rgba(16,26,43,.6);line-height:1.4">{{ kuis.syarat }}</div></div><span style="font-size:11px;color:#B08A3E;border:1px solid #B08A3E;border-radius:6px;padding:2px 6px;white-space:nowrap">{{ kuis.label }}</span></div>
+            </div>
+          </sc-if>
+        </aside>
+        <div style="display:grid;grid-template-columns:minmax(0,{{ rel.kolomVisual }}) minmax(20rem,.9fr);gap:20px;padding:18px 20px;animation:{{ animIsi }}">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2B4B8F">{{ aktif.tanda }}</span>
+              <span style="flex:1"></span>
+              <span style="display:inline-flex;border:1px solid rgba(16,26,43,.16);border-radius:999px;overflow:hidden;font-size:12.5px;font-weight:600">
+                <span style="padding:6px 14px;background:rgba(176,138,62,.16);color:#8A6A28">Tonton</span>
+                <span style="padding:6px 14px;color:rgba(16,26,43,.7)">Coba sendiri</span>
+              </span>
+            </div>
+            <div style="border:1px solid rgba(16,26,43,.1);border-radius:16px;overflow:hidden;background:#FAF9F5;flex:1;display:flex;align-items:center;justify-content:center;padding:8px">
+              <img src="aset/tahap5-lingkaran-satuan.jpg" data-src="{{ aktif.gambar }}" alt="" style="max-width:100%;max-height:330px;display:block;border-radius:10px">
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(16,26,43,.55);margin-bottom:7px"><span>{{ aktif.kendali }}</span><span style="color:#B08A3E;font-variant-numeric:tabular-nums;white-space:nowrap">{{ aktif.nilai }}</span></div>
+              <div style="height:4px;border-radius:999px;background:rgba(16,26,43,.12);position:relative"><div style="position:absolute;left:0;top:0;height:100%;width:52%;border-radius:999px;background:linear-gradient(90deg,#B08A3E,#E8582C)"></div><div style="position:absolute;left:52%;top:50%;width:15px;height:15px;border-radius:50%;background:#fff;border:2px solid #B08A3E;transform:translate(-50%,-50%);box-shadow:0 5px 14px -6px rgba(176,138,62,.9)"></div></div>
+            </div>
+          </div>
+          <div style="min-width:0;overflow-x:hidden;overflow-y:auto;max-height:470px;scrollbar-width:thin;padding-right:2px">
+            <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#2B4B8F;font-variant-numeric:tabular-nums">{{ aktif.subHuruf }} · Materi {{ aktif.no2 }}</div>
+            <h3 style="font-family:Newsreader,serif;font-weight:400;font-size:30px;line-height:1.08;margin:8px 0 8px">{{ aktif.judul }}</h3>
+            <p style="margin:0 0 14px;padding-bottom:14px;border-bottom:1px solid rgba(176,138,62,.5);font-size:15px;color:#8A6A28;font-style:italic">{{ aktif.pertanyaan }}</p>
+            <p style="margin:0 0 16px;font-size:14.5px;line-height:1.78;color:rgba(16,26,43,.78)">{{ aktif.pembuka }}</p>
+            <sc-for list="{{ aktif.sesi }}" as="se" hint-placeholder-count="3">
+              <div style="border-top:1px solid rgba(16,26,43,.1)">
+                <div role="button" onClick="{{ se.togel }}" style="display:flex;align-items:baseline;gap:11px;padding:11px 0;cursor:pointer">
+                  <span style="font-size:12px;color:#B08A3E;font-variant-numeric:tabular-nums;width:20px">{{ se.no }}</span>
+                  <span style="flex:1;font-size:15px;font-weight:600">{{ se.judul }}</span>
+                  <span style="font-size:11px;color:rgba(16,26,43,.45);display:inline-block;transform:rotate({{ se.putar }}deg);transition:transform .25s">▾</span>
+                </div>
+                <sc-if value="{{ se.buka }}" hint-placeholder-val="{{ true }}">
+                  <div style="padding:0 0 14px 31px;animation:naik .3s ease-out both">
+                    <p style="margin:0 0 9px;font-size:14px;line-height:1.75;color:rgba(16,26,43,.78)">{{ se.isi }}</p>
+                    <p style="margin:0;font-family:Newsreader,serif;font-size:17px;line-height:1.45;border-left:2px solid #B08A3E;padding:2px 0 2px 13px;font-style:italic">{{ se.sorot }}</p>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-for>
+            <div style="margin:16px 0 0;padding:14px 16px;border:1px solid rgba(176,138,62,.6);border-radius:14px;background:rgba(176,138,62,.06)">
+              <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8A6A28;margin-bottom:6px">Yuk bereksperimen</div>
+              <p style="margin:0;font-size:14px">Alat di sebelah kiri adalah kejadian tadi dalam bentuk yang bisa Anda utak-atik. Geser kendalinya dan amati baik-baik.</p>
+            </div>
+            <div style="margin:18px 0 8px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:11px">
+              <div role="button" onClick="{{ kembali.pilih }}" style="min-width:0;overflow:hidden;border:1px solid rgba(16,26,43,.18);border-radius:14px;padding:11px 13px;cursor:pointer;opacity:{{ kembali.opasitas }};transition:all .2s" style-hover="border-color:#B08A3E" style-active="transform:scale(.97)">
+                <div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(16,26,43,.5)">← Kembali</div>
+                <div style="font-size:14px;font-weight:600;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ kembali.judul }}</div>
+              </div>
+              <div role="button" onClick="{{ lanjut.pilih }}" style="min-width:0;overflow:hidden;border-radius:14px;padding:11px 13px;cursor:pointer;background:#B08A3E;color:#FAF9F5;transition:transform .2s" style-hover="transform:translateY(-2px)" style-active="transform:scale(.97)">
+                <div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;gap:8px;opacity:.85"><span style="white-space:nowrap">Lanjut →</span><span style="font-variant-numeric:tabular-nums;white-space:nowrap">Materi {{ lanjut.no2 }}</span></div>
+                <div style="font-size:14px;font-weight:600;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ lanjut.judul }}</div>
+                <div style="font-size:12px;margin-top:3px;opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ lanjut.saran }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ================= LATIHAN ================= -->
+  <sc-if value="{{ diLatihan }}" hint-placeholder-val="{{ false }}">
+  <div style="animation:{{ animTab }};max-width:1220px;margin:0 auto;padding:38px clamp(16px,4vw,44px) 0">
+    <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#B08A3E">Latihan</div>
+    <h1 style="font-family:Newsreader,serif;font-weight:400;font-size:38px;line-height:1.04;margin:8px 0 10px">Bank soal berjenjang</h1>
+    <p style="margin:0 0 28px;max-width:48rem;font-size:16px;font-style:italic;color:#B08A3E">Mulai dari yang mudah. Tingkat berikutnya terbuka setelah Anda menguasai tingkat sebelumnya, jadi urutannya menuntun, bukan menghukum.</p>
+    <sc-for list="{{ latihan }}" as="l" hint-placeholder-count="2">
+      <section onMouseMove="{{ bayangKursor }}" onMouseLeave="{{ bayangLepas }}" style="border:1px solid rgba(16,26,43,.12);border-radius:20px;background:#fff;padding:24px 26px 22px;margin-bottom:18px;transition:box-shadow .28s">
+        <div style="display:grid;grid-template-columns:1fr auto;gap:22px;align-items:end;margin-bottom:14px">
+          <div>
+            <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2B4B8F">Bab {{ l.no }} · {{ l.kelas }} · {{ l.jumlahSoal }} soal</div>
+            <h2 style="font-family:Newsreader,serif;font-weight:400;font-size:30px;margin:5px 0 0">{{ l.nama }}</h2>
+          </div>
+          <div style="font-family:Newsreader,serif;font-size:38px;color:#B08A3E;font-variant-numeric:tabular-nums;white-space:nowrap">{{ l.persen }}%</div>
+        </div>
+        <div style="height:5px;background:rgba(16,26,43,.12);border-radius:999px;overflow:hidden;margin-bottom:20px"><div style="height:100%;width:{{ l.persen }}%;background:linear-gradient(90deg,#B08A3E,#6E9C7A);border-radius:999px;transition:width .9s cubic-bezier(.2,.7,.2,1)"></div></div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+          <sc-for list="{{ l.tingkat }}" as="t" hint-placeholder-count="4">
+            <div style="border:1px solid rgba(16,26,43,.14);border-radius:14px;padding:13px 15px;opacity:{{ t.opasitas }};transition:transform .25s" style-hover="transform:translateY(-3px)">
+              <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600">{{ t.nama }}</div>
+              <div style="height:4px;background:rgba(16,26,43,.12);border-radius:999px;overflow:hidden;margin:9px 0 8px"><div style="height:100%;width:{{ t.persen }}%;background:#B08A3E;border-radius:999px;transition:width .9s cubic-bezier(.2,.7,.2,1)"></div></div>
+              <div style="font-size:12px;color:rgba(16,26,43,.6);font-variant-numeric:tabular-nums;white-space:nowrap">{{ t.angka }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <span role="button" onClick="{{ kePeta }}" style="display:inline-block;margin-top:18px;font-size:14px;font-weight:600;color:#FAF9F5;background:#101A2B;border-radius:999px;padding:11px 22px;cursor:pointer;transition:transform .2s" style-hover="transform:translateY(-2px)" style-active="transform:scale(.96)">{{ l.aksi }}</span>
+      </section>
+    </sc-for>
+    <div style="display:flex;align-items:baseline;gap:16px;margin:34px 0 16px">
+      <h2 style="font-family:Newsreader,serif;font-weight:400;font-size:27px;margin:0">Bank soal · Trigonometri</h2>
+      <span style="flex:1;height:1px;background:rgba(16,26,43,.14)"></span>
+      <span style="font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(16,26,43,.5);white-space:nowrap">Pilih tingkat</span>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:20px;align-items:start;margin-bottom:22px">
+      <div style="border:1px solid rgba(16,26,43,.12);border-radius:20px;background:#fff;padding:20px 22px 22px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">
+          <sc-for list="{{ bank.chips }}" as="c" hint-placeholder-count="4">
+            <div role="button" onClick="{{ c.pilih }}" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;padding:9px 16px;border-radius:999px;cursor:pointer;border:1px solid {{ c.garis }};background:{{ c.bg }};color:{{ c.warna }};transition:all .22s;white-space:nowrap" style-active="transform:scale(.96)">{{ c.nama }}<span style="font-size:11px;opacity:.7;font-variant-numeric:tabular-nums">{{ c.jumlah }}</span></div>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:10px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(16,26,43,.5)">
+          <span style="color:#2B4B8F">Tingkat {{ bank.tingkat }}</span>
+          <span style="flex:1;height:1px;background:rgba(16,26,43,.12)"></span>
+          <span style="font-variant-numeric:tabular-nums;white-space:nowrap">Soal {{ bank.no }} dari {{ bank.dari }}</span>
+        </div>
+        <p style="margin:12px 0 18px;font-size:16.5px;line-height:1.7">{{ bank.teks }}</p>
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <sc-for list="{{ bank.opsi }}" as="o" hint-placeholder-count="5">
+            <div role="button" onClick="{{ o.pilih }}" style="display:grid;grid-template-columns:30px 1fr 20px;gap:12px;align-items:center;min-height:48px;padding:10px 14px;border-radius:14px;cursor:pointer;border:1px solid {{ o.garis }};background:{{ o.bg }};transition:all .22s" style-hover="border-color:#B08A3E" style-active="transform:scale(.99)">
+              <span style="width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;background:{{ o.bgHuruf }};color:{{ o.warnaHuruf }}">{{ o.huruf }}</span>
+              <span style="font-size:15px;line-height:1.5">{{ o.teks }}</span>
+              <span style="font-size:13px;font-weight:600;color:{{ o.garis }};text-align:center">{{ o.tanda }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="margin-top:16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <span role="button" onClick="{{ bank.periksa }}" style="font-size:13.5px;font-weight:600;color:#FAF9F5;background:#101A2B;border-radius:999px;padding:11px 22px;cursor:pointer;opacity:{{ bank.opasitasPeriksa }};transition:transform .2s;white-space:nowrap" style-hover="transform:translateY(-2px)" style-active="transform:scale(.96)">Periksa jawaban</span>
+          <span role="button" onClick="{{ bank.berikut }}" style="font-size:13.5px;font-weight:600;border:1px solid rgba(16,26,43,.2);border-radius:999px;padding:11px 22px;cursor:pointer;transition:all .2s;white-space:nowrap" style-hover="border-color:#B08A3E;color:#B08A3E" style-active="transform:scale(.96)">Soal berikutnya →</span>
+          <span style="font-size:13px;color:{{ bank.warnaKabar }};flex:1;min-width:12rem">{{ bank.kabar }}</span>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(16,26,43,.12);border-radius:20px;background:#FAF9F5;padding:20px 22px 22px;min-height:220px">
+        <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#B08A3E">Pembahasan</div>
+        <sc-if value="{{ bank.sudahPeriksa }}" hint-placeholder-val="{{ false }}">
+          <div style="animation:naik .34s cubic-bezier(.2,.7,.2,1) both">
+            <sc-for list="{{ bank.langkah }}" as="lg" hint-placeholder-count="3">
+              <div style="display:grid;grid-template-columns:26px 1fr;gap:11px;padding:11px 0;border-bottom:1px solid rgba(16,26,43,.1);align-items:baseline">
+                <span style="font-family:Newsreader,serif;font-size:16px;color:#B08A3E;font-variant-numeric:tabular-nums">{{ lg.no }}</span>
+                <span style="font-size:14px;line-height:1.7">{{ lg.teks }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ bank.belumPeriksa }}" hint-placeholder-val="{{ true }}">
+          <p style="margin:12px 0 0;font-size:14px;line-height:1.7;color:rgba(16,26,43,.6)">Langkah penyelesaiannya muncul di sini setelah Anda menekan Periksa jawaban — bukan sekadar benar atau salah, tetapi urutan berpikirnya.</p>
+        </sc-if>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:baseline;gap:16px;margin:34px 0 16px">
+      <h2 style="font-family:Newsreader,serif;font-weight:400;font-size:27px;margin:0">Kuis bab</h2>
+      <span style="flex:1;height:1px;background:rgba(16,26,43,.14)"></span>
+      <span style="font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(16,26,43,.5);white-space:nowrap">Berskor · {{ kuisPanel.dari }} soal</span>
+    </div>
+    <div style="border:1px solid rgba(16,26,43,.12);border-radius:20px;background:#fff;padding:24px 26px;margin-bottom:22px">
+      <sc-if value="{{ kuisPanel.terkunci }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center">
+          <div>
+            <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#B08A3E">Syaratnya terlihat, bukan disembunyikan</div>
+            <h3 style="font-family:Newsreader,serif;font-weight:400;font-size:26px;margin:7px 0 8px">Kuis terbuka setelah sepuluh materi dibuka</h3>
+            <p style="margin:0 0 14px;font-size:14.5px;line-height:1.7;color:rgba(16,26,43,.72);max-width:46rem">Sudah dibuka {{ kuisPanel.syaratNo }} dari 10 materi — sisa {{ kuisPanel.sisa }} lagi. Ini bukan hukuman: kuisnya berisi soal dari seluruh bab, jadi lebih enak dikerjakan setelah petanya utuh.</p>
+            <div style="height:6px;border-radius:999px;background:rgba(16,26,43,.12);overflow:hidden;max-width:26rem"><div style="height:100%;width:{{ persen }}%;background:linear-gradient(90deg,#B08A3E,#6E9C7A);transition:width .8s cubic-bezier(.2,.7,.2,1)"></div></div>
+          </div>
+          <span role="button" onClick="{{ kuisPanel.keMateri }}" style="font-size:13.5px;font-weight:600;border:1px solid rgba(16,26,43,.2);border-radius:999px;padding:12px 22px;cursor:pointer;white-space:nowrap;transition:all .2s" style-hover="border-color:#B08A3E;color:#B08A3E" style-active="transform:scale(.96)">Buka materi dulu →</span>
+        </div>
+      </sc-if>
+      <sc-if value="{{ kuisPanel.belum }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center">
+          <div>
+            <h3 style="font-family:Newsreader,serif;font-weight:400;font-size:26px;margin:0 0 8px">Kuis siap dikerjakan</h3>
+            <p style="margin:0;font-size:14.5px;line-height:1.7;color:rgba(16,26,43,.72);max-width:46rem">{{ kuisPanel.dari }} soal acak dari seluruh bab, tanpa batas waktu. Skornya tersimpan di peramban Anda sendiri dan boleh diulang sesering yang Anda mau.</p>
+          </div>
+          <span role="button" onClick="{{ kuisPanel.mulai }}" style="font-size:14px;font-weight:600;color:#FAF9F5;background:#B08A3E;border-radius:999px;padding:13px 26px;cursor:pointer;white-space:nowrap;transition:transform .2s" style-hover="transform:translateY(-3px)" style-active="transform:scale(.96)">Mulai kuis</span>
+        </div>
+      </sc-if>
+      <sc-if value="{{ kuisPanel.jalan }}" hint-placeholder-val="{{ false }}">
+        <div style="animation:naik .34s cubic-bezier(.2,.7,.2,1) both">
+          <div style="display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(16,26,43,.55)">
+            <span style="white-space:nowrap;font-variant-numeric:tabular-nums">Soal {{ kuisPanel.no }} dari {{ kuisPanel.dari }}</span>
+            <span style="flex:1;height:5px;border-radius:999px;background:rgba(16,26,43,.12);overflow:hidden;display:block"><span style="display:block;height:100%;width:{{ kuisPanel.lebarBar }}%;background:#B08A3E;transition:width .45s cubic-bezier(.2,.7,.2,1)"></span></span>
+            <span style="white-space:nowrap;font-variant-numeric:tabular-nums">Skor {{ kuisPanel.skor }}</span>
+          </div>
+          <p style="margin:14px 0 16px;font-size:17px;line-height:1.65">{{ kuisPanel.teks }}</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:10px">
+            <sc-for list="{{ kuisPanel.opsi }}" as="o" hint-placeholder-count="5">
+              <div role="button" onClick="{{ o.pilih }}" style="display:grid;grid-template-columns:28px 1fr;gap:11px;align-items:center;min-height:48px;padding:10px 14px;border:1px solid rgba(16,26,43,.16);border-radius:14px;cursor:pointer;transition:all .2s" style-hover="border-color:#B08A3E;background:rgba(176,138,62,.08)" style-active="transform:scale(.98)">
+                <span style="width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;background:rgba(16,26,43,.07);color:rgba(16,26,43,.6)">{{ o.huruf }}</span>
+                <span style="font-size:15px">{{ o.teks }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ kuisPanel.selesai }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;animation:naik .34s cubic-bezier(.2,.7,.2,1) both">
+          <div style="position:relative;width:104px;height:104px">
+            <svg viewBox="0 0 40 40" style="width:104px;height:104px;transform:rotate(-90deg)">
+              <circle cx="20" cy="20" r="17" fill="none" stroke="rgba(16,26,43,.12)" stroke-width="3.4"></circle>
+              <circle cx="20" cy="20" r="17" fill="none" stroke="#6E9C7A" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="107" stroke-dashoffset="{{ kuisPanel.offsetNilai }}" style="transition:stroke-dashoffset .9s cubic-bezier(.2,.7,.2,1)"></circle>
+            </svg>
+            <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:Newsreader,serif;font-size:23px;font-variant-numeric:tabular-nums;white-space:nowrap">{{ kuisPanel.nilai }}</span>
+          </div>
+          <div>
+            <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#B08A3E">Hasil kuis</div>
+            <h3 style="font-family:Newsreader,serif;font-weight:400;font-size:26px;margin:7px 0 6px">{{ kuisPanel.skor }} dari {{ kuisPanel.dari }} soal benar</h3>
+            <p style="margin:0;font-size:14.5px;line-height:1.7;color:rgba(16,26,43,.72)">{{ kuisPanel.pesan }}</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <span role="button" onClick="{{ kuisPanel.mulai }}" style="font-size:13.5px;font-weight:600;color:#FAF9F5;background:#B08A3E;border-radius:999px;padding:12px 22px;cursor:pointer;white-space:nowrap;text-align:center;transition:transform .2s" style-hover="transform:translateY(-2px)" style-active="transform:scale(.96)">Ulangi kuis</span>
+            <span role="button" onClick="{{ kuisPanel.keMateri }}" style="font-size:13.5px;font-weight:600;border:1px solid rgba(16,26,43,.2);border-radius:999px;padding:12px 22px;cursor:pointer;white-space:nowrap;text-align:center;transition:all .2s" style-hover="border-color:#B08A3E;color:#B08A3E">Kembali ke materi</span>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="border:1px solid rgba(176,138,62,.6);border-radius:16px;padding:16px 18px;max-width:54rem;background:rgba(176,138,62,.06)">
+      <b style="font-family:Newsreader,serif;font-size:18px;font-weight:400">Nilai di sini bukan penilaian resmi.</b>
+      <p style="margin:6px 0 0;font-size:14px;line-height:1.7">Kemajuan tersimpan di peramban Anda sendiri, tidak dikirim ke mana pun. Karena itu ia hilang kalau Anda berganti perangkat atau membersihkan riwayat.</p>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ================= TENTANG ================= -->
+  <sc-if value="{{ diTentang }}" hint-placeholder-val="{{ false }}">
+  <div style="animation:{{ animTab }};max-width:1220px;margin:0 auto;padding:38px clamp(16px,4vw,44px) 0">
+    <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:42px;align-items:start">
+      <div>
+        <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#B08A3E">Tentang</div>
+        <h1 style="font-family:Newsreader,serif;font-weight:400;font-size:38px;line-height:1.04;margin:8px 0 14px">Matematika yang bisa dilihat sebabnya</h1>
+        <p style="margin:0 0 14px;font-size:16px;line-height:1.8">MANTRA — Matematika Interaktif — adalah situs belajar matematika SMA yang menggabungkan animasi penjelas dengan alat yang bisa dicoba sendiri. Dibuat untuk siswa yang sudah bisa memakai rumus tetapi belum pernah diperlihatkan dari mana rumus itu datang.</p>
+        <p style="margin:0;font-size:15px;line-height:1.8;color:rgba(16,26,43,.76)">Isinya disusun mengikuti bab buku Kurikulum Merdeka: enam bab, masing-masing dipecah jadi sub-bab dan materi. Bahasanya bahasa SMA, bukan bahasa diktat.</p>
+      </div>
+      <div style="border:1px solid rgba(16,26,43,.12);border-radius:20px;overflow:hidden;background:#fff;padding:10px"><img src="aset/tahap8-grafik-sin.jpg" alt="" style="display:block;width:100%;border-radius:12px"></div>
+    </div>
+
+    <div style="display:flex;align-items:baseline;gap:16px;margin:40px 0 18px">
+      <h2 style="font-family:Newsreader,serif;font-weight:400;font-size:26px;margin:0">Dibuat dengan</h2>
+      <span style="flex:1;height:1px;background:rgba(16,26,43,.14)"></span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px">
+      <article style="border:1px solid rgba(16,26,43,.12);border-radius:20px;padding:22px 24px;background:#fff;display:grid;grid-template-columns:132px 1fr;gap:20px;align-items:start;transition:transform .25s" style-hover="transform:translateY(-4px)">
+        <span style="box-sizing:border-box;width:132px;height:74px;display:flex;align-items:center;justify-content:center;padding:9px 13px;border:1px solid rgba(16,26,43,.1);border-radius:14px;background:#FAF9F5"><img src="aset/logo-manim.png" alt="Manim Community" style="max-width:100%;max-height:100%;object-fit:contain;display:block"></span>
+        <div>
+          <h3 style="font-size:19px;font-weight:600;margin:0 0 6px">Manim Community</h3>
+          <p style="margin:0 0 10px;font-size:14px;line-height:1.7;color:rgba(16,26,43,.72)">Mesin animasi matematika yang dipakai kanal 3Blue1Brown. Setiap video dirender 1080p 60 fps, bersuara, dan bersubtitle Bahasa Indonesia.</p>
+          <a href="https://www.manim.community/" target="_blank" rel="noreferrer" style="font-size:13px;font-weight:600">manim.community →</a>
+        </div>
+      </article>
+      <article style="border:1px solid rgba(16,26,43,.12);border-radius:20px;padding:22px 24px;background:#fff;display:grid;grid-template-columns:132px 1fr;gap:20px;align-items:start;transition:transform .25s" style-hover="transform:translateY(-4px)">
+        <span style="box-sizing:border-box;width:132px;height:74px;display:flex;align-items:center;justify-content:center;padding:9px 13px;border:1px solid rgba(16,26,43,.1);border-radius:14px;background:#FAF9F5"><img src="aset/logo-claude.png" alt="Claude by Anthropic" style="max-width:100%;max-height:100%;object-fit:contain;display:block"></span>
+        <div>
+          <h3 style="font-size:19px;font-weight:600;margin:0 0 6px">Claude</h3>
+          <p style="margin:0 0 10px;font-size:14px;line-height:1.7;color:rgba(16,26,43,.72)">Dipakai menyusun kode animasi, alat interaktif, dan naskah materi, dengan rujukan Buku Panduan Guru Kurikulum Merdeka dan diktat kalkulus.</p>
+          <a href="https://claude.com/product/overview/" target="_blank" rel="noreferrer" style="font-size:13px;font-weight:600">claude.com →</a>
+        </div>
+      </article>
+    </div>
+
+    <div style="border:1px solid rgba(176,138,62,.6);border-radius:16px;padding:18px 20px;max-width:56rem;background:rgba(176,138,62,.06);margin-bottom:24px">
+      <b style="font-family:Newsreader,serif;font-size:18px;font-weight:400">Nilai di situs ini bukan penilaian resmi.</b>
+      <p style="margin:8px 0 0;font-size:14.5px;line-height:1.75">Situs ini tidak memakai akun dan tidak memakai basis data. Semua kemajuan, skor kuis, dan lencana tersimpan di peramban Anda sendiri dan tidak pernah dikirim ke mana pun. Gunakan sebagai alat belajar, bukan sebagai bukti nilai.</p>
+    </div>
+
+    <div style="display:flex;gap:22px;align-items:center;border:1px solid rgba(16,26,43,.12);border-radius:20px;padding:22px 24px;max-width:44rem;background:#fff">
+      <img src="aset/undiksha.png" alt="Universitas Pendidikan Ganesha" style="height:72px;width:auto">
+      <div>
+        <p style="margin:0;font-family:Newsreader,serif;font-size:23px">Nyoman Arya Sejati</p>
+        <p style="margin:2px 0 12px;font-size:14px;color:rgba(16,26,43,.65)">Universitas Pendidikan Ganesha</p>
+        <a href="https://wa.me/6282247933752" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:9px;white-space:nowrap;font-size:13.5px;font-weight:600;color:#101A2B;border:1px solid rgba(16,26,43,.2);border-radius:999px;padding:8px 18px;cursor:pointer;transition:all .2s" style-hover="border-color:#25D366;color:#128C4A"><img src="aset/logo-whatsapp.png" alt="" style="width:20px;height:20px;display:block">Hubungi WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ================= TAMPILAN HP ================= -->
+  <sc-if value="{{ diHp }}" hint-placeholder-val="{{ false }}">
+  <div style="animation:{{ animTab }};max-width:1220px;margin:0 auto;padding:38px clamp(16px,4vw,44px) 0">
+    <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#B08A3E">Pratinjau desain</div>
+    <h1 style="font-family:Newsreader,serif;font-weight:400;font-size:34px;line-height:1.04;margin:8px 0 10px">Tampilan HP · 360px</h1>
+    <p style="margin:0 0 26px;max-width:46rem;font-size:15.5px;color:rgba(16,26,43,.72)">Sidebar pohon berubah jadi laci yang digeser dari kiri. Di halaman materi, tombol Lanjut melekat di bawah dan bilah kemajuan sepuluh materi ada di atas.</p>
+    <div style="display:flex;gap:34px;flex-wrap:wrap;align-items:flex-start">
+
+      <div>
+        <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(16,26,43,.55);margin-bottom:10px">Beranda</div>
+        <div style="width:360px;height:760px;border:1px solid rgba(16,26,43,.16);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;background:#FAF9F5;background-image:{{ latar.gambar }};background-size:{{ latar.ukuran }};box-shadow:0 30px 60px -40px rgba(16,26,43,.7)">
+          <div style="flex:none;height:56px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid rgba(16,26,43,.12);background:rgba(250,249,245,.92)">
+            <img src="aset/mantra-penuh.png" alt="MANTRA" style="height:26px;width:auto;flex:none">
+            <span style="margin-left:auto;width:38px;height:38px;border:1px solid rgba(16,26,43,.16);border-radius:11px;display:grid;place-items:center;flex:none"><span style="width:16px;height:9px;border-top:1.5px solid #101A2B;border-bottom:1.5px solid #101A2B;display:block"></span></span>
+          </div>
+          <div style="flex:1;min-height:0;overflow-x:hidden;overflow-y:auto;scrollbar-width:none">
+            <div style="box-sizing:border-box;max-width:100%;min-width:0;position:relative;padding:22px 18px 78px;text-align:center;overflow:hidden">
+              <div aria-hidden="true" style="position:absolute;left:0;right:0;bottom:0;height:74px;pointer-events:none">
+                <svg viewBox="0 0 400 120" preserveAspectRatio="none" style="width:100%;height:100%">
+                  <path pathLength="900" data-gambar="kapur 3s cubic-bezier(.2,.7,.2,1) both" d="M-10 62 C 60 20 130 20 200 62 C 270 104 340 104 410 62" fill="none" stroke="#B08A3E" stroke-opacity=".45" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="900"></path>
+                </svg>
+              </div>
+              <span style="position:absolute;left:6%;top:16%;font-family:Newsreader,serif;font-size:40px;color:#B08A3E;opacity:.14;animation:apung {{ gerak.apung1 }}">θ</span>
+              <span style="position:absolute;right:6%;top:10%;font-family:Newsreader,serif;font-size:34px;color:#2B4B8F;opacity:.13;animation:apung {{ gerak.apung2 }}">π</span>
+              <div style="position:relative">
+                <span style="display:inline-flex;align-items:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#B08A3E;border:1px solid rgba(176,138,62,.4);border-radius:999px;padding:5px 12px;white-space:nowrap">Kelas 10–12</span>
+                <img src="aset/mantra-penuh.png" alt="MANTRA" style="width:230px;height:auto;display:block;margin:16px auto 14px">
+                <h2 style="font-family:Newsreader,serif;font-weight:400;font-size:18.5px;line-height:1.4;margin:0 0 12px;white-space:nowrap"><span style="display:block">Matematika tidak hanya dipelajari</span><i style="display:block;color:#B08A3E">Matematika bisa dijelajahi</i></h2>
+                <p style="margin:0 0 18px;font-size:13.5px;line-height:1.7;color:rgba(16,26,43,.76)">Eksplorasi konsep matematika melalui <b style="color:#2B4B8F;font-weight:600">animasi</b>, <b style="color:#6E9C7A;font-weight:600">visualisasi</b>, dan <b style="color:#E8582C;font-weight:600">interaksi</b> yang membuat setiap rumus tidak hanya dipahami, tetapi dapat Anda lihat cara kerjanya.</p>
+                <div style="display:flex;flex-direction:column;gap:9px">
+                  <span style="font-size:13.5px;font-weight:600;color:#FAF9F5;background:#B08A3E;border-radius:999px;padding:13px 20px;min-height:44px;display:flex;align-items:center;justify-content:center">Mulai dari Kelas 10</span>
+                  <span style="font-size:13.5px;font-weight:500;border:1px solid rgba(16,26,43,.22);border-radius:999px;padding:13px 20px;min-height:44px;display:flex;align-items:center;justify-content:center">Pasang di HP</span>
+                </div>
+              </div>
+            </div>
+            <div style="box-sizing:border-box;max-width:100%;min-width:0;padding:0 16px 18px">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+                <span style="flex:1;height:1px;background:rgba(16,26,43,.14)"></span>
+                <span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(16,26,43,.5);white-space:nowrap">Berganti sendiri</span>
+                <span style="flex:1;height:1px;background:rgba(16,26,43,.14)"></span>
+              </div>
+              <div style="animation:{{ klipAnim }}">
+                <div style="border:1px solid rgba(16,26,43,.12);border-radius:16px;background:#fff;padding:8px;display:flex;align-items:center;justify-content:center;min-height:170px"><img src="aset/beranda-tiga-grafik-v2.jpg" data-src="{{ klip.gambar }}" alt="" style="display:block;max-width:100%;max-height:250px;border-radius:10px"></div>
+                <div style="text-align:center;margin-top:12px">
+                  <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#2B4B8F">{{ klip.jenis }} · {{ klip.no }} / 05</div>
+                  <h3 style="font-family:Newsreader,serif;font-weight:400;font-size:20px;line-height:1.2;margin:7px 0 8px">{{ klip.judul }}</h3>
+                  <p style="margin:0;font-size:13px;line-height:1.7;color:rgba(16,26,43,.72)">{{ klip.isi }}</p>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(16,26,43,.14)">
+                <div role="button" onClick="{{ klipMundur }}" style="width:44px;height:44px;border:1px solid rgba(16,26,43,.2);border-radius:50%;display:grid;place-items:center;font-size:15px;flex:none">←</div>
+                <div style="display:flex;gap:7px;margin:0 auto">
+                  <sc-for list="{{ klipTitik }}" as="kt" hint-placeholder-count="5">
+                    <div role="button" onClick="{{ kt.pilih }}" style="width:{{ kt.lebar }};height:8px;border-radius:999px;background:{{ kt.bg }};transition:all .35s"></div>
+                  </sc-for>
+                </div>
+                <div role="button" onClick="{{ klipMaju }}" style="width:44px;height:44px;border:1px solid rgba(16,26,43,.2);border-radius:50%;display:grid;place-items:center;font-size:15px;flex:none">→</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:12px;margin-top:22px">
+                <sc-for list="{{ isiSitus }}" as="i" hint-placeholder-count="3">
+                  <article style="border:1px solid rgba(16,26,43,.12);border-radius:16px;padding:18px;background:#fff">
+                    <div style="font-family:Newsreader,serif;font-size:32px;line-height:1;color:{{ i.warna }}">{{ i.no }}</div>
+                    <h4 style="font-size:16px;font-weight:600;margin:9px 0 6px">{{ i.judul }}</h4>
+                    <p style="margin:0;font-size:13px;line-height:1.7;color:rgba(16,26,43,.7)">{{ i.isi }}</p>
+                  </article>
+                </sc-for>
+              </div>
+              <div style="margin-top:22px;border-top:2px solid #B08A3E;padding-top:16px">
+                <h4 style="font-family:Newsreader,serif;font-weight:400;font-size:20px;margin:0 0 6px">Enam bab, tersusun seperti buku</h4>
+                <p style="margin:0 0 12px;font-size:13px;color:rgba(16,26,43,.72)">Bab, sub-bab, lalu materi. Peta lengkapnya beserta kemajuan Anda ada di tab Peta Materi.</p>
+                <span style="display:flex;align-items:center;justify-content:center;min-height:44px;font-size:13.5px;font-weight:600;color:#FAF9F5;background:#101A2B;border-radius:999px;padding:12px 18px">Buka Peta Materi →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(16,26,43,.55);margin-bottom:10px">Laci daftar materi</div>
+        <div style="width:360px;height:760px;border:1px solid rgba(16,26,43,.16);border-radius:28px;overflow:hidden;position:relative;background:#FAF9F5;box-shadow:0 30px 60px -40px rgba(16,26,43,.7)">
+          <div style="position:absolute;inset:0;filter:blur(1px);opacity:.5">
+            <div style="height:56px;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid rgba(16,26,43,.12)"><span style="width:38px;height:38px;border:1px solid rgba(16,26,43,.16);border-radius:11px"></span><img src="aset/mantra-penuh.png" alt="MANTRA" style="height:24px;width:auto"></div>
+            <div style="padding:16px"><div style="height:190px;border:1px solid rgba(16,26,43,.12);border-radius:14px;background:#fff"></div></div>
+          </div>
+          <div style="position:absolute;inset:0;background:rgba(16,26,43,.34)"></div>
+          <aside style="position:absolute;top:0;left:0;bottom:0;width:294px;background:#FAF9F5;border-right:1px solid rgba(16,26,43,.14);display:flex;flex-direction:column;box-shadow:0 14px 34px rgba(16,26,43,.28)">
+            <div style="padding:16px 16px 12px;border-bottom:1px solid rgba(16,26,43,.12);display:flex;align-items:flex-start;gap:10px">
+              <div style="flex:1"><div style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#2B4B8F">Bab 4 · Kelas 10</div><div style="font-family:Newsreader,serif;font-size:23px;line-height:1.1;margin:3px 0 9px">Trigonometri</div><div style="height:4px;background:rgba(16,26,43,.12);border-radius:999px;overflow:hidden"><div style="height:100%;width:{{ persen }}%;background:#B08A3E"></div></div><div style="font-size:11.5px;color:rgba(16,26,43,.6);margin-top:5px;font-variant-numeric:tabular-nums">{{ jumlahDibuka }} dari 10 materi · {{ persen }}%</div></div>
+              <span style="width:32px;height:32px;display:grid;place-items:center;border:1px solid rgba(16,26,43,.16);border-radius:9px;font-size:13px">✕</span>
+            </div>
+            <div style="flex:1;min-height:0;overflow-y:auto;scrollbar-width:thin;padding:6px 8px">
+              <sc-for list="{{ subbab }}" as="s" hint-placeholder-count="4">
+                <div style="display:flex;align-items:baseline;gap:9px;padding:11px 10px 5px"><span style="font-family:Newsreader,serif;color:#B08A3E;font-size:16px;width:14px">{{ s.huruf }}</span><span style="flex:1;font-size:12.5px;font-weight:600">{{ s.nama }}</span><span style="font-size:11px;color:rgba(16,26,43,.45);font-variant-numeric:tabular-nums;white-space:nowrap">{{ s.selesai }}/{{ s.jumlah }}</span></div>
+                <sc-for list="{{ s.materi }}" as="m" hint-placeholder-count="3">
+                  <div style="display:grid;grid-template-columns:22px 1fr 16px;gap:9px;align-items:center;min-height:44px;padding:6px 10px;border-radius:11px;background:{{ m.bg }};border-left:2px solid {{ m.garis }}">
+                    <span style="font-size:11px;color:{{ m.warnaNo }};font-variant-numeric:tabular-nums">{{ m.no2 }}</span>
+                    <span style="font-size:13.5px;line-height:1.3;color:{{ m.warna }};font-weight:{{ m.tebal }}">{{ m.judul }}</span>
+                    <span style="width:15px;height:15px;border-radius:50%;border:1.5px solid {{ m.ring }};background:{{ m.isi }};display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff">{{ m.centang }}</span>
+                  </div>
+                </sc-for>
+              </sc-for>
+            </div>
+            <div style="border-top:1px solid rgba(16,26,43,.12);padding:8px 8px 14px">
+              <div style="display:grid;grid-template-columns:20px 1fr auto;gap:10px;align-items:center;min-height:44px;padding:0 10px"><span style="color:#B08A3E;font-size:15px">✎</span><span style="font-size:13.5px;font-weight:600">Latihan</span><span style="font-size:11px;color:rgba(16,26,43,.5);white-space:nowrap">4 soal</span></div>
+              <div style="display:grid;grid-template-columns:20px 1fr auto;gap:10px;align-items:center;min-height:44px;padding:0 10px;opacity:{{ kuis.opasitas }}"><span style="color:#B08A3E;font-size:15px">★</span><div><div style="font-size:13.5px;font-weight:600">Kuis</div><div style="font-size:11px;color:rgba(16,26,43,.6)">{{ kuis.syarat }}</div></div><span style="font-size:11px;color:#B08A3E;border:1px solid #B08A3E;border-radius:6px;padding:2px 6px;white-space:nowrap">{{ kuis.label }}</span></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(16,26,43,.55);margin-bottom:10px">Bank soal dan kuis</div>
+        <div style="width:360px;height:760px;border:1px solid rgba(16,26,43,.16);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;background:#FAF9F5;box-shadow:0 30px 60px -40px rgba(16,26,43,.7)">
+          <div style="flex:none;height:56px;display:flex;align-items:center;gap:11px;padding:0 14px;border-bottom:1px solid rgba(16,26,43,.12)">
+            <span style="width:38px;height:38px;border:1px solid rgba(16,26,43,.16);border-radius:11px;display:grid;place-items:center;flex:none">←</span>
+            <div style="flex:1;min-width:0;font-size:12.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Latihan <span style="color:#B08A3E">/</span> Trigonometri</div>
+            <span style="font-size:11.5px;color:#B08A3E;font-variant-numeric:tabular-nums;white-space:nowrap">{{ bank.no }}/{{ bank.dari }}</span>
+          </div>
+          <div style="box-sizing:border-box;max-width:100%;flex:none;display:flex;flex-wrap:wrap;gap:6px;padding:12px 14px 10px">
+            <sc-for list="{{ bank.chips }}" as="c" hint-placeholder-count="4">
+              <div role="button" onClick="{{ c.pilih }}" style="flex:none;display:inline-flex;align-items:center;gap:6px;min-height:38px;font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid {{ c.garis }};background:{{ c.bg }};color:{{ c.warna }};white-space:nowrap">{{ c.nama }}<span style="font-size:10.5px;opacity:.7;font-variant-numeric:tabular-nums">{{ c.jumlah }}</span></div>
+            </sc-for>
+          </div>
+          <div style="flex:1;min-height:0;overflow-y:auto;scrollbar-width:none;padding:4px 14px 16px">
+            <p style="margin:6px 0 14px;font-size:15px;line-height:1.65">{{ bank.teks }}</p>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <sc-for list="{{ bank.opsi }}" as="o" hint-placeholder-count="5">
+                <div role="button" onClick="{{ o.pilih }}" style="display:grid;grid-template-columns:26px 1fr 18px;gap:10px;align-items:center;min-height:46px;padding:9px 12px;border-radius:13px;border:1px solid {{ o.garis }};background:{{ o.bg }};transition:all .2s">
+                  <span style="width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:600;background:{{ o.bgHuruf }};color:{{ o.warnaHuruf }}">{{ o.huruf }}</span>
+                  <span style="font-size:14px;line-height:1.45">{{ o.teks }}</span>
+                  <span style="font-size:12px;font-weight:600;color:{{ o.garis }};text-align:center">{{ o.tanda }}</span>
+                </div>
+              </sc-for>
+            </div>
+            <p style="margin:12px 0 0;font-size:12.5px;line-height:1.6;color:{{ bank.warnaKabar }}">{{ bank.kabar }}</p>
+            <sc-if value="{{ bank.sudahPeriksa }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:14px;border:1px solid rgba(16,26,43,.12);border-radius:14px;background:#fff;padding:14px 15px;animation:naik .3s ease-out both">
+                <div style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#B08A3E;margin-bottom:4px">Pembahasan</div>
+                <sc-for list="{{ bank.langkah }}" as="lg" hint-placeholder-count="3">
+                  <div style="display:grid;grid-template-columns:22px 1fr;gap:10px;padding:9px 0;border-top:1px solid rgba(16,26,43,.09);align-items:baseline">
+                    <span style="font-family:Newsreader,serif;font-size:15px;color:#B08A3E;font-variant-numeric:tabular-nums">{{ lg.no }}</span>
+                    <span style="font-size:13.5px;line-height:1.65">{{ lg.teks }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+            <div style="margin-top:18px;padding-top:14px;border-top:1px solid rgba(16,26,43,.12)">
+              <div style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(16,26,43,.5)">Kuis bab</div>
+              <sc-if value="{{ kuisPanel.terkunci }}" hint-placeholder-val="{{ true }}">
+                <div style="margin-top:8px">
+                  <div style="font-family:Newsreader,serif;font-size:18px;line-height:1.3">Terbuka setelah 10 materi dibuka</div>
+                  <div style="height:5px;border-radius:999px;background:rgba(16,26,43,.12);overflow:hidden;margin:9px 0 6px"><div style="height:100%;width:{{ persen }}%;background:linear-gradient(90deg,#B08A3E,#6E9C7A)"></div></div>
+                  <div style="font-size:12px;color:rgba(16,26,43,.62);font-variant-numeric:tabular-nums">Sudah {{ kuisPanel.syaratNo }}/10 · sisa {{ kuisPanel.sisa }} materi</div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ kuisPanel.belum }}" hint-placeholder-val="{{ false }}">
+                <div role="button" onClick="{{ kuisPanel.mulai }}" style="margin-top:10px;min-height:48px;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:600;color:#FAF9F5;background:#B08A3E;border-radius:999px;padding:12px 18px">Mulai kuis · {{ kuisPanel.dari }} soal</div>
+              </sc-if>
+              <sc-if value="{{ kuisPanel.jalan }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:10px;animation:naik .3s ease-out both">
+                  <div style="display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(16,26,43,.55)"><span style="white-space:nowrap;font-variant-numeric:tabular-nums">Soal {{ kuisPanel.no }}/{{ kuisPanel.dari }}</span><span style="flex:1;height:4px;border-radius:999px;background:rgba(16,26,43,.12);overflow:hidden;display:block"><span style="display:block;height:100%;width:{{ kuisPanel.lebarBar }}%;background:#B08A3E"></span></span><span style="white-space:nowrap;font-variant-numeric:tabular-nums">{{ kuisPanel.skor }}</span></div>
+                  <p style="margin:10px 0 10px;font-size:14.5px;line-height:1.6">{{ kuisPanel.teks }}</p>
+                  <div style="display:flex;flex-direction:column;gap:7px">
+                    <sc-for list="{{ kuisPanel.opsi }}" as="o" hint-placeholder-count="5">
+                      <div role="button" onClick="{{ o.pilih }}" style="display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:center;min-height:46px;padding:9px 12px;border:1px solid rgba(16,26,43,.16);border-radius:13px;background:#fff">
+                        <span style="width:23px;height:23px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;background:rgba(16,26,43,.07);color:rgba(16,26,43,.6)">{{ o.huruf }}</span>
+                        <span style="font-size:14px">{{ o.teks }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ kuisPanel.selesai }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:10px;border:1px solid rgba(110,156,122,.6);border-radius:14px;background:rgba(110,156,122,.08);padding:14px 15px;animation:naik .3s ease-out both">
+                  <div style="font-family:Newsreader,serif;font-size:20px">{{ kuisPanel.skor }} dari {{ kuisPanel.dari }} benar · {{ kuisPanel.nilai }}</div>
+                  <p style="margin:6px 0 12px;font-size:13px;line-height:1.65;color:rgba(16,26,43,.75)">{{ kuisPanel.pesan }}</p>
+                  <div role="button" onClick="{{ kuisPanel.mulai }}" style="min-height:44px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#FAF9F5;background:#101A2B;border-radius:999px;padding:11px 16px">Ulangi kuis</div>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+          <div style="flex:none;padding:10px 14px 16px;border-top:1px solid rgba(16,26,43,.12);display:grid;grid-template-columns:1fr 1fr;gap:10px;background:#FAF9F5">
+            <div role="button" onClick="{{ bank.periksa }}" style="min-height:50px;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:600;color:#FAF9F5;background:#101A2B;border-radius:13px;opacity:{{ bank.opasitasPeriksa }}">Periksa</div>
+            <div role="button" onClick="{{ bank.berikut }}" style="min-height:50px;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:600;border:1px solid rgba(16,26,43,.2);border-radius:13px">Berikutnya →</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(16,26,43,.55);margin-bottom:10px">Halaman materi</div>
+        <div style="width:360px;height:760px;border:1px solid rgba(16,26,43,.16);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;background:#FAF9F5;box-shadow:0 30px 60px -40px rgba(16,26,43,.7)">
+          <div style="flex:none;height:56px;display:flex;align-items:center;gap:11px;padding:0 14px;border-bottom:1px solid rgba(16,26,43,.12)">
+            <span style="width:38px;height:38px;border:1px solid rgba(16,26,43,.16);border-radius:11px;display:grid;place-items:center"><span style="width:16px;height:9px;border-top:1.5px solid #101A2B;border-bottom:1.5px solid #101A2B;display:block"></span></span>
+            <div style="flex:1;min-width:0;font-size:12px;color:rgba(16,26,43,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Trigonometri <span style="color:#B08A3E">/</span> {{ aktif.subHuruf }} <span style="color:#B08A3E">/</span> <b style="color:#101A2B">{{ aktif.no2 }}</b></div>
+            <span style="font-size:12px;font-variant-numeric:tabular-nums;color:#B08A3E;white-space:nowrap">{{ persen }}%</span>
+          </div>
+          <div style="flex:none;display:flex;gap:3px;padding:10px 14px 0">
+            <sc-for list="{{ titik }}" as="t" hint-placeholder-count="10"><span style="flex:1;height:3px;border-radius:2px;background:{{ t.warna }}"></span></sc-for>
+          </div>
+          <div style="flex:1;min-height:0;overflow-y:auto;scrollbar-width:none;padding:14px 16px 96px;animation:{{ animIsi }}">
+            <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2B4B8F">Materi {{ aktif.no2 }} · {{ aktif.tanda }}</div>
+            <h2 style="font-family:Newsreader,serif;font-weight:400;font-size:28px;line-height:1.08;margin:6px 0 6px">{{ aktif.judul }}</h2>
+            <p style="margin:0 0 14px;font-style:italic;font-size:14.5px;color:#8A6A28;padding-bottom:12px;border-bottom:1px solid rgba(176,138,62,.5)">{{ aktif.pertanyaan }}</p>
+            <div style="border:1px solid rgba(16,26,43,.12);border-radius:14px;overflow:hidden;background:#fff;padding:6px;margin-bottom:14px"><img src="aset/tahap5-lingkaran-satuan.jpg" data-src="{{ aktif.gambar }}" alt="" style="display:block;width:100%;border-radius:9px"></div>
+            <p style="margin:0 0 12px;font-size:14px;line-height:1.75;color:rgba(16,26,43,.78)">{{ aktif.pembuka }}</p>
+            <sc-for list="{{ aktif.sesi }}" as="se" hint-placeholder-count="3">
+              <div style="border-top:1px solid rgba(16,26,43,.1);display:flex;align-items:baseline;gap:10px;padding:12px 0;min-height:44px"><span style="font-size:12px;color:#B08A3E;width:20px;font-variant-numeric:tabular-nums">{{ se.no }}</span><span style="flex:1;font-size:14.5px;font-weight:600">{{ se.judul }}</span><span style="font-size:11px;color:rgba(16,26,43,.45)">▾</span></div>
+            </sc-for>
+          </div>
+          <div style="flex:none;position:relative;margin-top:-80px;padding:12px 14px 16px;background:linear-gradient(to bottom,rgba(250,249,245,0),#FAF9F5 32%);display:grid;grid-template-columns:48px 1fr;gap:10px">
+            <div role="button" onClick="{{ kembali.pilih }}" style="border:1px solid rgba(16,26,43,.18);border-radius:13px;display:grid;place-items:center;font-size:16px;min-height:54px;opacity:{{ kembali.opasitas }};background:#fff">←</div>
+            <div role="button" onClick="{{ lanjut.pilih }}" style="border-radius:13px;padding:9px 14px;background:#B08A3E;color:#FAF9F5;display:flex;flex-direction:column;justify-content:center;min-height:54px">
+              <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;gap:8px;opacity:.85"><span style="white-space:nowrap">Lanjut →</span><span style="font-variant-numeric:tabular-nums;white-space:nowrap">Materi {{ lanjut.no2 }}</span></div>
+              <div style="font-size:14.5px;font-weight:600;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ lanjut.judul }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <footer style="max-width:1220px;margin:0 auto;padding:54px clamp(16px,4vw,44px) 56px">
+    <div style="padding-top:22px;border-top:1px solid rgba(16,26,43,.14);display:flex;gap:22px;align-items:center;flex-wrap:wrap;font-size:13px;color:rgba(16,26,43,.6)">
+      <span>Built by <b style="color:#101A2B;font-weight:600">Nyoman Arya Sejati</b> · with Manim, Claude, and Next.js</span>
+      <span style="margin-left:auto;display:inline-flex;align-items:center;gap:10px"><img src="aset/undiksha.png" alt="" style="height:30px;width:auto;opacity:.85">Universitas Pendidikan Ganesha</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;kecepatan&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Kencang&quot;,&quot;options&quot;:[&quot;Diam&quot;,&quot;Lembut&quot;,&quot;Sedang&quot;,&quot;Kencang&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Gerak&quot;},&quot;bentukLatar&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Kisi papan&quot;,&quot;options&quot;:[&quot;Kisi papan&quot;,&quot;Titik&quot;,&quot;Polos&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Latar&quot;},&quot;tebalKisi&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:8,&quot;min&quot;:3,&quot;max&quot;:16,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Latar&quot;},&quot;jarakKisi&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:60,&quot;min&quot;:40,&quot;max&quot;:100,&quot;step&quot;:10,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Latar&quot;}}">
+class Component extends DCLogic {
+  state = { tab: 'Beranda', tabTick: 0, aktif: 4, dibuka: [1, 2, 3, 4], tick: 0, tutup: {},
+            klip: 0, klipTick: 0, jeda: false, rel: false, y: 0, maju: 0, pop: null,
+            tingkat: 'mudah', idx: 0, opsi: null, periksa: false,
+            kuisJalan: false, kuisIdx: 0, kuisJawab: [], kuisSelesai: false };
+
+  componentDidMount() {
+    this.jam = setInterval(() => { if (!this.state.jeda) this.geserKlip(1); }, 7000);
+    this.onScroll = () => {
+      if (this.rafScroll) return;
+      this.rafScroll = requestAnimationFrame(() => {
+        this.rafScroll = null;
+        const y = window.scrollY || 0;
+        if (Math.abs(y - this.state.y) > 4) this.setState({ y });
+      });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.hitung();
+    this.pasangGambar();
+    this.pasangSumber();
+  }
+
+  componentDidUpdate() { this.pasangGambar(); this.pasangSumber(); }
+
+  pasangSumber() {
+    document.querySelectorAll('img[data-src]').forEach(el => {
+      const s = el.getAttribute('data-src');
+      if (s && s.indexOf('{') === -1 && el.getAttribute('src') !== s) el.setAttribute('src', s);
+    });
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.jam);
+    clearTimeout(this.jamPop);
+    cancelAnimationFrame(this.rafScroll);
+    cancelAnimationFrame(this.rafHitung);
+    window.removeEventListener('scroll', this.onScroll);
+  }
+
+  pasangGambar() {
+    if (typeof IntersectionObserver === 'undefined') return;
+    if (!this.pengamat) {
+      this.pengamat = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.style.animation = e.target.dataset.gambar; this.pengamat.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -10% 0px' });
+    }
+    document.querySelectorAll('[data-gambar]').forEach(el => {
+      if (el.dataset.sudah) return;
+      el.dataset.sudah = '1';
+      this.pengamat.observe(el);
+    });
+  }
+
+  hitung() {
+    const mulai = performance.now();
+    const langkah = t => {
+      const p = Math.min(1, (t - mulai) / 900);
+      this.setState({ maju: p < 1 ? 1 - Math.pow(1 - p, 3) : 1 });
+      if (p < 1) this.rafHitung = requestAnimationFrame(langkah);
+    };
+    this.setState({ maju: 0 });
+    this.rafHitung = requestAnimationFrame(langkah);
+  }
+
+  keTab(t) { this.setState(s => ({ tab: t, tabTick: s.tabTick + 1 })); this.hitung(); }
+  geserKlip(a) { this.setState(s => ({ klip: (s.klip + a + 5) % 5, klipTick: s.klipTick + 1 })); }
+
+  pilih(no) {
+    const baru = !this.state.dibuka.includes(no);
+    this.setState(s => ({ aktif: no, dibuka: baru ? [...s.dibuka, no] : s.dibuka, tick: s.tick + 1, tutup: {}, pop: baru ? no : null }));
+    if (baru) { clearTimeout(this.jamPop); this.jamPop = setTimeout(() => this.setState({ pop: null }), 600); }
+  }
+
+  pilihTingkat(t) { this.setState({ tingkat: t, idx: 0, opsi: null, periksa: false }); }
+  pilihOpsi(i) { if (!this.state.periksa) this.setState({ opsi: i }); }
+  periksaJawab() { if (this.state.opsi !== null) this.setState({ periksa: true }); }
+  soalBerikut(n) { this.setState(s => ({ idx: (s.idx + 1) % n, opsi: null, periksa: false })); }
+
+  mulaiKuis() { this.setState({ kuisJalan: true, kuisIdx: 0, kuisJawab: [], kuisSelesai: false }); }
+  jawabKuis(i, n) {
+    this.setState(s => {
+      const jawab = [...s.kuisJawab, i];
+      const habis = jawab.length >= n;
+      return { kuisJawab: jawab, kuisIdx: habis ? s.kuisIdx : s.kuisIdx + 1, kuisSelesai: habis };
+    });
+  }
+  ulangKuis() { this.setState({ kuisJalan: false, kuisIdx: 0, kuisJawab: [], kuisSelesai: false }); }
+
+  bayangKursor(e) {
+    const el = e.currentTarget, r = el.getBoundingClientRect();
+    const dx = (e.clientX - r.left - r.width / 2) / r.width, dy = (e.clientY - r.top - r.height / 2) / r.height;
+    el.style.boxShadow = (-dx * 26).toFixed(1) + 'px ' + (18 - dy * 14).toFixed(1) + 'px 42px -26px rgba(16,26,43,.55)';
+  }
+  bayangLepas(e) { e.currentTarget.style.boxShadow = ''; }
+
+  renderVals() {
+    const p = this.props;
+    const { tab, tabTick, aktif, dibuka, tick, tutup, klip, klipTick, y, maju, pop } = this.state;
+    const rel = this.state.rel;
+    const pad = n => String(n).padStart(2, '0');
+    const EMAS = '#B08A3E', BIRU = '#2B4B8F', JINGGA = '#E8582C', HIJAU = '#6E9C7A';
+
+    const FAKTOR = { Diam: 0, Lembut: 1.8, Sedang: 1, Kencang: 0.45 };
+    const f = FAKTOR[p.kecepatan ?? 'Kencang'] ?? 0.45;
+    const d = (s, t) => f === 0 ? 'none' : (s * f).toFixed(1) + 's ' + t;
+    const gerak = { apung1: d(13, 'ease-in-out infinite'), apung2: d(17, 'ease-in-out infinite'), apung3: d(21, 'ease-in-out infinite'),
+      kedip: d(3.2, 'ease-in-out infinite'), kilau: d(4.5, 'ease-in-out infinite') };
+
+    const tebalKisi = p.tebalKisi ?? 8, jarakKisi = p.jarakKisi ?? 60;
+    const g = 'rgba(16,26,43,' + (tebalKisi / 100).toFixed(3) + ')';
+    const LATAR = {
+      'Kisi papan': { gambar: 'repeating-linear-gradient(0deg,' + g + ' 0 1px,transparent 1px ' + jarakKisi + 'px),repeating-linear-gradient(90deg,' + g + ' 0 1px,transparent 1px ' + jarakKisi + 'px)', ukuran: 'auto' },
+      'Titik': { gambar: 'radial-gradient(' + g + ' 1.6px, transparent 1.7px)', ukuran: jarakKisi / 2 + 'px ' + jarakKisi / 2 + 'px' },
+      'Polos': { gambar: 'none', ukuran: 'auto' },
+    };
+    const latar = LATAR[p.bentukLatar ?? 'Kisi papan'] || LATAR['Kisi papan'];
+
+    const NAMA_TAB = ['Beranda', 'Peta Materi', 'Latihan', 'Tentang', 'Tampilan HP'];
+    const tabs = NAMA_TAB.map(n => ({ nama: n, pilih: () => this.keTab(n), garis: n === tab ? 1 : 0,
+      tebal: n === tab ? 600 : 400, warna: n === tab ? '#101A2B' : 'rgba(16,26,43,.62)',
+      bg: n === tab ? 'rgba(176,138,62,.1)' : 'transparent' }));
+
+    const M = [
+      { no: 1, judul: 'Kenapa kita butuh trigonometri', pertanyaan: 'Bagaimana mengukur sesuatu yang tidak bisa kita sentuh?', tanda: 'Interaktif', gambar: 'aset/tahap2-perbandingan-tetap.jpg', kendali: 'Sudut sinar matahari', nilai: '51°' },
+      { no: 2, judul: 'Perbandingan yang tidak berubah', pertanyaan: 'Kenapa sudut yang sama selalu memberi angka yang sama?', tanda: 'Animasi + interaktif', gambar: 'aset/tahap2-perbandingan-tetap.jpg', kendali: 'Besar segitiga', nilai: '100%' },
+      { no: 3, judul: 'Menamai sisi', pertanyaan: 'Kenapa sisi yang sama bisa berganti nama?', tanda: 'Interaktif', gambar: 'aset/tahap2-perbandingan-tetap.jpg', kendali: 'Sudut yang dilihat', nilai: 'A' },
+      { no: 4, judul: 'Lahirnya sin, cos, dan tan', pertanyaan: 'Dari mana ketiga nama itu datang?', tanda: 'Animasi + interaktif', gambar: 'aset/tahap5-lingkaran-satuan.jpg', kendali: 'Pembilang / penyebut', nilai: 'depan : miring' },
+      { no: 5, judul: 'Lingkaran satuan', pertanyaan: 'Kenapa jari-jari 1 menyederhanakan segalanya?', tanda: 'Animasi + interaktif', gambar: 'aset/tahap5-lingkaran-satuan.jpg', kendali: 'Sudut θ', nilai: '52°' },
+      { no: 6, judul: 'Enam rasio sebagai panjang nyata', pertanyaan: 'Di mana letak tan, cot, sec, dan csc pada gambarnya?', tanda: 'Animasi + interaktif', gambar: 'aset/tahap5-lingkaran-satuan.jpg', kendali: 'Sudut θ', nilai: '45°' },
+      { no: 7, judul: 'Sudut istimewa', pertanyaan: 'Kenapa 30°, 45°, dan 60° disebut istimewa?', tanda: 'Animasi + interaktif', gambar: 'aset/tahap5-lingkaran-satuan.jpg', kendali: 'Langkah', nilai: '45°' },
+      { no: 8, judul: 'Terbentuknya grafik sinus', pertanyaan: 'Bagaimana putaran berubah menjadi gelombang?', tanda: 'Animasi + interaktif', gambar: 'aset/tahap8-grafik-sin.jpg', kendali: 'Sudut yang disapu', nilai: '200°' },
+      { no: 9, judul: 'Sin, cos, dan tan berdampingan', pertanyaan: 'Kenapa grafik tan punya jurang, sedangkan sin dan cos tidak?', tanda: 'Animasi + interaktif', gambar: 'aset/beranda-tiga-grafik-v2.jpg', kendali: 'Sudut yang disapu', nilai: '200°' },
+      { no: 10, judul: 'Dipakai di dunia nyata', pertanyaan: 'Di gawai yang Anda pegang sekarang, di mana trigonometrinya?', tanda: 'Contoh nyata', gambar: 'aset/demo-latihan.jpg', kendali: 'Contoh', nilai: '1 dari 4' },
+    ];
+    const SUB = [
+      { huruf: 'A', nama: 'Perbandingan Trigonometri', nomor: [1, 2, 3, 4] },
+      { huruf: 'B', nama: 'Lingkaran Satuan dan Sudut Istimewa', nomor: [5, 6, 7] },
+      { huruf: 'C', nama: 'Grafik Fungsi Trigonometri', nomor: [8, 9] },
+      { huruf: 'D', nama: 'Penerapan', nomor: [10] },
+    ];
+    const subDari = n => SUB.find(s => s.nomor.includes(n));
+    const subbab = SUB.map(s => ({ huruf: s.huruf, nama: s.nama, jumlah: s.nomor.length, selesai: s.nomor.filter(n => dibuka.includes(n)).length,
+      materi: s.nomor.map(n => {
+        const m = M[n - 1], on = n === aktif, sudah = dibuka.includes(n);
+        return { no2: pad(n), judul: m.judul, pilih: () => this.pilih(n),
+          bg: on ? 'rgba(176,138,62,.14)' : 'transparent', garis: on ? EMAS : 'transparent',
+          warna: on ? '#101A2B' : 'rgba(16,26,43,.72)', warnaNo: on ? '#8A6A28' : 'rgba(16,26,43,.42)',
+          tebal: on ? 600 : 400, ring: sudah ? HIJAU : 'rgba(16,26,43,.28)',
+          isi: sudah && !on ? HIJAU : 'transparent', centang: sudah && !on ? '✓' : '',
+          letup: pop === n ? 'letup .5s cubic-bezier(.2,.7,.2,1) both' : 'none' };
+      }) }));
+
+    const a = M[aktif - 1], sa = subDari(aktif);
+    const ISI = {
+      1: { pembuka: 'Di depan rumah Anda ada pohon kelapa. Berapa tingginya? Meteran Anda cuma tiga meter, dan memanjat jelas bukan pilihan. Pertanyaannya terdengar sepele, tapi jawabannya butuh cara yang sama sekali berbeda dari sekadar mengukur.', sesi: [
+        { judul: 'Ada panjang yang tidak bisa disentuh', isi: 'Pohon tadi bukan kasus khusus. Begitu Anda mulai memperhatikan, panjang yang tidak terjangkau ada di mana-mana: tinggi gedung, lebar sungai, jarak kapal dari pantai.', sorot: 'Trigonometri adalah ilmu yang menukar sudut menjadi panjang.' },
+        { judul: 'Kenapa cara bayangan tadi boleh dipakai', isi: 'Matahari sangat jauh, sehingga sinarnya sampai ke Anda dan ke pohon dengan kemiringan yang praktis sama. Sudutnya sama, jadi perbandingannya pun sama.', sorot: 'Sudut yang sama selalu memberi perbandingan yang sama.' },
+        { judul: 'Cara memakainya', isi: 'Ukur bayangan benda, ukur tinggi dan bayangan Anda sendiri, bagi, lalu kalikan. Empat angka, tanpa memanjat.', sorot: 'Yang mudah diukur ditukar dengan yang tidak bisa dijangkau.' } ] },
+      2: { pembuka: 'Materi 01 berakhir pada satu dugaan: sudut yang sama memberi perbandingan yang sama. Sekarang kita buktikan.', sesi: [
+        { judul: 'Dua segitiga sebangun', isi: 'Sudutnya sama persis, bentuknya identik seperti foto yang sama dicetak di dua ukuran kertas. Hanya ukurannya yang berbeda.', sorot: 'Panjangnya berbeda jauh. Hasil baginya sama persis.' },
+        { judul: 'Kenapa hasil baginya tidak berubah', isi: 'Pembilang dan penyebut dikali angka yang sama, jadi angka itu saling menghapus.', sorot: 'Maka perbandingan hanya bergantung pada sudut.' } ] },
+    };
+    const isiAktif = ISI[aktif] || { pembuka: 'Isi materi ' + pad(aktif) + ' diambil apa adanya dari berkas materi situs; di sini baru bungkus tampilannya.', sesi: [
+      { judul: 'Sesi 1', isi: 'Blok penjelasan materi ' + pad(aktif) + ' dipindahkan tanpa ditulis ulang.', sorot: a.pertanyaan },
+      { judul: 'Sesi 2', isi: 'Sesi berikutnya, bisa dilipat.', sorot: 'Kalimat sorot materi ini.' } ] };
+    const sesi = isiAktif.sesi.map((s, i) => {
+      const buka = tutup[i] === undefined ? i === 0 : !tutup[i];
+      return { ...s, no: pad(i + 1), buka, putar: buka ? 0 : -90, togel: () => this.setState(st => ({ tutup: { ...st.tutup, [i]: buka } })) };
+    });
+    const aktifV = { ...a, no2: pad(a.no), subNama: sa.nama, subHuruf: sa.huruf, sesi, pembuka: isiAktif.pembuka };
+
+    const next = M[aktif], prev = M[aktif - 2];
+    const lanjut = next ? { no2: pad(next.no), judul: next.judul, pilih: () => this.pilih(next.no),
+      saran: subDari(next.no) === sa ? 'Masih di sub-bab ' + sa.huruf : 'Masuk sub-bab ' + subDari(next.no).huruf }
+      : { no2: '—', judul: 'Latihan bab ini', pilih: () => this.keTab('Latihan'), saran: 'Semua materi sudah dibuka' };
+    const kembali = prev ? { judul: prev.judul, pilih: () => this.pilih(prev.no), opasitas: 1 } : { judul: 'Awal bab', pilih: () => {}, opasitas: .45 };
+
+    const jumlahDibuka = dibuka.length, persen = jumlahDibuka * 10;
+    const kuis = jumlahDibuka < 10
+      ? { opasitas: .8, syarat: 'Buka 10 materi (' + jumlahDibuka + '/10) dan baca 10 menit', label: 'Terkunci' }
+      : { opasitas: 1, syarat: '8 soal dari bank 32 soal', label: 'Mulai' };
+    const titik = M.map(m => ({ warna: m.no === aktif ? EMAS : dibuka.includes(m.no) ? 'rgba(110,156,122,.6)' : 'rgba(16,26,43,.12)' }));
+
+    const klipList = [
+      { jenis: 'Animasi', media: 'GIF · tanpa suara', judul: 'Tiga kurva yang lahir dari satu lingkaran', isi: 'Sinus, kosinus, dan tangen bukan tiga rumus terpisah. Ketiganya catatan dari satu titik yang berputar, dan di sini Anda melihatnya terjadi.', gambar: 'aset/beranda-tiga-grafik-v2.jpg' },
+      { jenis: 'Alat interaktif', media: 'Video · demo situs', judul: 'Alat yang bisa Anda geser sendiri', isi: 'Sudutnya Anda yang tentukan, dan angkanya berubah saat itu juga. Bukan membaca hasil orang lain, melainkan menguji sendiri sampai yakin.', gambar: 'aset/demo-interaktif.jpg' },
+      { jenis: 'Animasi bersubtitle', media: 'Video · bersuara', judul: 'Animasi yang menjelaskan sebabnya', isi: 'Titik berputar di lingkaran, tingginya dicatat, dan kurva sinus lahir di depan mata. Bukan rumus yang disodorkan, melainkan asal-usulnya.', gambar: 'aset/tahap8-grafik-sin.jpg' },
+      { jenis: 'Latihan', media: 'Video · rekaman layar', judul: 'Latihan dengan pembahasan bertahap', isi: 'Soal pilihan ganda A sampai E. Setelah menjawab, Anda melihat langkah penyelesaiannya, bukan sekadar benar atau salah.', gambar: 'aset/demo-latihan.jpg' },
+      { jenis: 'Animasi bersubtitle', media: 'Video · bersuara', judul: 'Kecepatan pada satu detik', isi: 'Materi Limit dibuka dengan pertanyaan yang tidak bisa dijawab dengan pembagian biasa, lalu dijawab dengan memperpendek selangnya terus-menerus.', gambar: 'aset/limit1-kecepatan.jpg' },
+    ];
+    const klipV = { ...klipList[klip], no: pad(klip + 1) };
+    const klipTitik = klipList.map((k, i) => ({ bg: i === klip ? EMAS : 'rgba(16,26,43,.18)', lebar: i === klip ? '30px' : '8px',
+      pilih: () => this.setState(s => ({ klip: i, klipTick: s.klipTick + 1 })) }));
+
+    const bulat = n => Math.round(n * maju);
+    const angka = [
+      { nilai: bulat(6), label: 'Bab', warna: EMAS },
+      { nilai: bulat(21), label: 'Sub-bab', warna: BIRU },
+      { nilai: bulat(69), label: 'Materi', warna: HIJAU },
+      { nilai: bulat(190), label: 'Soal latihan', warna: JINGGA },
+    ];
+    const isiSitus = [
+      { no: '01', warna: BIRU, judul: 'Animasi', isi: 'Video pendek yang menurunkan rumus dari awal, bersuara dan bersubtitle Bahasa Indonesia. Dibuat memakai Manim, alat yang sama dengan yang dipakai 3Blue1Brown.' },
+      { no: '02', warna: HIJAU, judul: 'Alat yang bisa dicoba', isi: 'Segitiga yang bisa ditarik, sudut yang bisa digeser, dan angka yang berubah seketika. Anda menguji sendiri, bukan percaya pada kalimat di buku.' },
+      { no: '03', warna: JINGGA, judul: 'Latihan dan kuis', isi: 'Soal berjenjang dengan pembahasan langkah demi langkah, lalu kuis berskor yang tersimpan di peramban Anda sendiri. Tanpa akun, tanpa mendaftar.' },
+    ];
+
+    const cincin = pc => (107 - 107 * pc / 100).toFixed(1);
+    const babPeta = [
+      { no: 4, kelas: 'Kelas 10', sumber: 'Buku K10 Bab 4', nama: 'Trigonometri', pertanyaan: 'Kenapa sudut yang sama selalu memberi angka yang sama?', target: persen, total: 10, aksi: 'Lanjut Materi ' + pad(Math.min(aktif + 1, 10)), kls: 10,
+        sub: SUB.map(s => ({ huruf: s.huruf, nama: s.nama, jumlah: s.nomor.length, materi: s.nomor.map(n => pad(n) + ' ' + M[n - 1].judul).join(' · ') })) },
+      { no: 3, kelas: 'Kelas 10', sumber: 'Buku K10 Bab 3', nama: 'Vektor dan Operasinya', pertanyaan: 'Kenapa dua panah bisa dijumlahkan?', target: 0, total: 12, aksi: 'Mulai', kls: 10, sub: [
+        { huruf: 'A', nama: 'Pengertian, notasi, jenis vektor', jumlah: 2, materi: '01 Angka saja tidak cukup · 02 Panah yang boleh dipindah' },
+        { huruf: 'B', nama: 'Vektor dan sistem koordinat', jumlah: 3, materi: '03 Komponen · 04 Panjang panah itu Pythagoras · 05 Arah tanpa panjang' },
+        { huruf: 'C', nama: 'Operasi vektor', jumlah: 4, materi: '06 Penjumlahan · 07 Jajar genjang · 08 Selisih · 09 Kali angka' },
+        { huruf: 'D', nama: 'Perkalian titik dan proyeksi', jumlah: 2, materi: '11 Seberapa searah · 12 Proyeksi' },
+        { huruf: 'E', nama: 'Penerapan', jumlah: 1, materi: '10 Vektor di dunia nyata' } ] },
+      { no: 6, kelas: 'Kelas 10–11', sumber: 'K10 Bab 1 & 6, K11 Bab 1 & 4', nama: 'Grafik Fungsi', pertanyaan: 'Kenapa bentuk grafik berubah saat satu angka digeser?', target: 23, total: 13, aksi: 'Lanjut Materi 04', kls: 10, sub: [
+        { huruf: 'A', nama: 'Fungsi dan grafiknya', jumlah: 2, materi: '01 Grafik itu bercerita · 02 Potret sebuah aturan' },
+        { huruf: 'B', nama: 'Fungsi kuadrat', jumlah: 3, materi: '03 Bentuk puncak · 04 Bentuk umum dan diskriminan · 05 Menyusun rumus' },
+        { huruf: 'C', nama: 'Transformasi fungsi', jumlah: 2, materi: '06 Geser, cermin, regang · 07 Nilai mutlak' },
+        { huruf: 'D', nama: 'Eksponen dan logaritma', jumlah: 2, materi: '08 Eksponen · 09 Logaritma' },
+        { huruf: 'E', nama: 'Rasional, komposisi, invers', jumlah: 3, materi: '10 Asimtot · 11 Dua mesin dirangkai · 12 Mesin yang membatalkan' },
+        { huruf: 'F', nama: 'Penerapan', jumlah: 1, materi: '13 Dipakai di dunia nyata' } ] },
+      { no: 7, kelas: 'Kelas 10–11', sumber: 'K10 Bab 7, K11 Bab 3', nama: 'Statistika', pertanyaan: 'Kenapa satu data bisa mengubah kesimpulan?', target: 0, total: 13, aksi: 'Mulai', kls: 10, sub: [
+        { huruf: 'A', nama: 'Penyajian data', jumlah: 4, materi: '01 Kenapa satu angka menipu · 02 Dari daftar jadi gambar · 03 Lebar kelas · 04 Frekuensi relatif' },
+        { huruf: 'B', nama: 'Ukuran pemusatan dan penyebaran', jumlah: 5, materi: '05 Mean median modus · 06 Pencilan · 07 Kuartil dan boxplot · 08 Simpangan baku · 09 Data berkelompok' },
+        { huruf: 'C', nama: 'Hubungan dua variabel', jumlah: 4, materi: '10 Diagram pencar · 11 Regresi · 12 Korelasi · 13 Grafik menyesatkan' } ] },
+      { no: 1, kelas: 'Kelas 12', sumber: 'Buku K12 Bab 1', nama: 'Dimensi Tiga', pertanyaan: 'Kenapa yang terlihat berpotongan belum tentu berpotongan?', target: 0, total: 10, aksi: 'Mulai', kls: 12, sub: [
+        { huruf: 'A', nama: 'Kedudukan titik, garis, bidang', jumlah: 2, materi: '01 Gambar ruang boleh berbohong · 02 Kosakata kedudukan' },
+        { huruf: 'B', nama: 'Jarak dalam ruang', jumlah: 5, materi: '03 Jarak terpendek · 04 Dua kali Pythagoras · 05 Titik ke garis · 06 Titik ke bidang · 07 Garis dan bidang sejajar' },
+        { huruf: 'C', nama: 'Sudut dalam ruang', jumlah: 2, materi: '08 Sudut bersilangan · 09 Sudut bidang' },
+        { huruf: 'D', nama: 'Penerapan', jumlah: 1, materi: '10 Dipakai di dunia nyata' } ] },
+      { no: 4, kelas: 'Kelas 12', sumber: 'Buku K12, LIMIT.pdf', nama: 'Limit Fungsi', pertanyaan: 'Apa artinya “mendekati” kalau tidak pernah sampai?', target: 100, total: 10, aksi: 'Ulangi kuis', kls: 12, sub: [
+        { huruf: 'A', nama: 'Konsep limit', jumlah: 4, materi: '01 Kecepatan pada satu detik · 02 Mendekati · 03 Dua arah · 04 Lubang' },
+        { huruf: 'B', nama: 'Sifat dan cara menghitung', jumlah: 3, materi: '05 Substitusi · 06 Nol per nol · 07 Tak hingga' },
+        { huruf: 'C', nama: 'Limit trigonometri dan kekontinuan', jumlah: 2, materi: '08 Sinus jadi 1 · 09 Fungsi yang tidak putus' },
+        { huruf: 'D', nama: 'Penerapan', jumlah: 1, materi: '10 Dipakai di dunia nyata' } ] },
+    ].map(b => ({ ...b, persen: bulat(b.target), offset: cincin(b.target * maju), buka: () => this.keTab('Peta Materi') }));
+    const kelasList = [
+      { nama: 'Kelas 10 dan 11', jumlah: 4, bab: babPeta.filter(b => b.kls === 10) },
+      { nama: 'Kelas 12', jumlah: 2, bab: babPeta.filter(b => b.kls === 12) },
+    ];
+
+    const TINGKAT = ['mudah', 'sedang', 'sulit', 'sangat sulit'];
+    const buatLatihan = (bab, pc, selesai, aksi) => ({
+      no: bab.no, kelas: bab.kelas, nama: bab.nama, persen: bulat(pc), jumlahSoal: 32, aksi,
+      tingkat: TINGKAT.map((t, i) => {
+        const terbuka = i === 0 || selesai[i - 1] >= 4;
+        return { nama: t, persen: Math.round(selesai[i] / 8 * 100 * maju), angka: terbuka ? selesai[i] + ' / 8' : 'terkunci', opasitas: terbuka ? 1 : .55 };
+      }),
+    });
+    const latihan = [
+      buatLatihan(babPeta[0], 41, [8, 5, 0, 0], 'Lanjutkan latihan'),
+      buatLatihan(babPeta[5], 100, [8, 8, 8, 8], 'Ulangi latihan'),
+    ];
+
+    const BANK = {
+      mudah: [
+        { teks: 'Pada segitiga siku-siku, sisi di depan sudut 30° panjangnya 5 cm dan sisi miringnya 10 cm. Berapa nilai sin 30°?',
+          opsi: ['0,5', '2', '0,866', '1', '5'], benar: 0,
+          langkah: ['sin sudut = sisi depan dibagi sisi miring.', 'sin 30° = 5 / 10.', 'Hasilnya 0,5 — dan angka ini tidak berubah walau segitiganya diperbesar.'] },
+        { teks: 'Pada sudut 45°, nilai sin dan cos sama besar. Berapa nilainya?',
+          opsi: ['½√2', '½', '½√3', '1', '√2'], benar: 0,
+          langkah: ['Segitiga siku-siku bersudut 45° punya dua sisi tegak yang sama panjang, misalnya 1 dan 1.', 'Sisi miringnya √(1² + 1²) = √2.', 'sin 45° = 1/√2 = ½√2 ≈ 0,707.'] },
+        { teks: 'Sisi manakah yang disebut sisi miring pada segitiga siku-siku?',
+          opsi: ['Sisi di depan sudut siku-siku', 'Sisi terpendek', 'Sisi di depan sudut yang ditanya', 'Sisi yang menempel sudut siku-siku', 'Sisi mana saja'], benar: 0,
+          langkah: ['Sisi miring selalu berada di depan sudut 90°.', 'Ia juga selalu sisi terpanjang.', 'Nama “depan” dan “samping” baru bergantung pada sudut yang sedang dilihat.'] },
+      ],
+      sedang: [
+        { teks: 'Diketahui tan θ = 3/4 dengan θ sudut lancip. Berapa nilai sin θ?',
+          opsi: ['3/5', '4/5', '5/3', '3/4', '4/3'], benar: 0,
+          langkah: ['tan θ = depan/samping = 3/4, jadi ambil depan 3 dan samping 4.', 'Sisi miring = √(3² + 4²) = 5.', 'sin θ = depan/miring = 3/5.'] },
+        { teks: 'Bayangan sebuah pohon 8 m. Tinggi Anda 1,6 m dengan bayangan 1,28 m pada saat yang sama. Berapa tinggi pohon itu?',
+          opsi: ['10 m', '6,4 m', '12,8 m', '9,6 m', '8 m'], benar: 0,
+          langkah: ['Sudut sinar matahari sama, jadi perbandingannya sama.', 'Tinggi dibagi bayangan = 1,6 / 1,28 = 1,25.', 'Tinggi pohon = 8 × 1,25 = 10 m.'] },
+        { teks: 'Sebuah tangga bersandar dengan sudut 60° terhadap tanah dan panjangnya 4 m. Berapa tinggi ujung atas tangga dari tanah?',
+          opsi: ['2√3 m', '2 m', '4√3 m', '√3 m', '3 m'], benar: 0,
+          langkah: ['Tinggi = panjang tangga × sin 60°.', 'sin 60° = ½√3.', 'Tinggi = 4 × ½√3 = 2√3 ≈ 3,46 m.'] },
+      ],
+      sulit: [
+        { teks: 'Berapa nilai sin 150°?',
+          opsi: ['½', '−½', '½√3', '−½√3', '1'], benar: 0,
+          langkah: ['150° berada di kuadran II, dan di kuadran II nilai sin positif.', 'Sudut acuannya 180° − 150° = 30°.', 'Jadi sin 150° = sin 30° = ½.'] },
+        { teks: 'Jika sin x = 3/5 dan x sudut tumpul, berapa nilai cos x?',
+          opsi: ['−4/5', '4/5', '−3/5', '3/4', '−5/4'], benar: 0,
+          langkah: ['Pakai sin²x + cos²x = 1, maka cos²x = 1 − 9/25 = 16/25.', 'Jadi cos x = ±4/5.', 'Karena x tumpul (kuadran II), cos bernilai negatif: −4/5.'] },
+      ],
+      'sangat sulit': [
+        { teks: 'Berapa nilai dari sin²25° + sin²65°?',
+          opsi: ['1', '0', '½', '2', 'tidak dapat ditentukan'], benar: 0,
+          langkah: ['65° = 90° − 25°, dan sin(90° − a) = cos a.', 'Jadi sin 65° = cos 25°.', 'Bentuknya menjadi sin²25° + cos²25° = 1.'] },
+        { teks: 'Berapa nilai tan 15° jika dihitung dengan rumus selisih dua sudut?',
+          opsi: ['2 − √3', '2 + √3', '√3 − 1', '½√3', '1 − √3'], benar: 0,
+          langkah: ['15° = 45° − 30°.', 'tan(45° − 30°) = (tan45 − tan30) / (1 + tan45·tan30) = (1 − ⅓√3) / (1 + ⅓√3).', 'Setelah dirasionalkan hasilnya 2 − √3 ≈ 0,268.'] },
+      ],
+    };
+    const NAMA_TINGKAT = ['mudah', 'sedang', 'sulit', 'sangat sulit'];
+    const tkAktif = this.state.tingkat, daftarSoal = BANK[tkAktif] || BANK.mudah;
+    const iSoal = Math.min(this.state.idx, daftarSoal.length - 1);
+    const s0 = daftarSoal[iSoal], opsiPilih = this.state.opsi, sudahPeriksa = this.state.periksa;
+    const HURUF = ['A', 'B', 'C', 'D', 'E'];
+    const bank = {
+      chips: NAMA_TINGKAT.map(n => ({ nama: n, jumlah: (BANK[n] || []).length, pilih: () => this.pilihTingkat(n),
+        bg: n === tkAktif ? '#101A2B' : '#fff', warna: n === tkAktif ? '#FAF9F5' : 'rgba(16,26,43,.75)',
+        garis: n === tkAktif ? '#101A2B' : 'rgba(16,26,43,.18)' })),
+      no: pad(iSoal + 1), dari: daftarSoal.length, tingkat: tkAktif, teks: s0.teks,
+      opsi: s0.opsi.map((o, i) => {
+        const dipilih = opsiPilih === i, benar = i === s0.benar;
+        const tampilBenar = sudahPeriksa && benar, tampilSalah = sudahPeriksa && dipilih && !benar;
+        return { huruf: HURUF[i], teks: o, pilih: () => this.pilihOpsi(i),
+          bg: tampilBenar ? 'rgba(110,156,122,.16)' : tampilSalah ? 'rgba(232,88,44,.12)' : dipilih ? 'rgba(176,138,62,.14)' : '#fff',
+          garis: tampilBenar ? HIJAU : tampilSalah ? JINGGA : dipilih ? EMAS : 'rgba(16,26,43,.16)',
+          bgHuruf: tampilBenar ? HIJAU : tampilSalah ? JINGGA : dipilih ? EMAS : 'rgba(16,26,43,.07)',
+          warnaHuruf: tampilBenar || tampilSalah || dipilih ? '#fff' : 'rgba(16,26,43,.6)',
+          tanda: tampilBenar ? '✓' : tampilSalah ? '✕' : '' };
+      }),
+      langkah: s0.langkah.map((l, i) => ({ no: pad(i + 1), teks: l })),
+      belumPilih: opsiPilih === null, sudahPeriksa, belumPeriksa: !sudahPeriksa,
+      benar: sudahPeriksa && opsiPilih === s0.benar,
+      kabar: !sudahPeriksa ? 'Pilih satu jawaban, lalu tekan Periksa.'
+        : opsiPilih === s0.benar ? 'Tepat. Perhatikan langkahnya sekali lagi supaya polanya menempel.'
+        : 'Belum tepat. Jawaban yang benar ditandai hijau; ikuti langkahnya di bawah.',
+      warnaKabar: !sudahPeriksa ? 'rgba(16,26,43,.6)' : opsiPilih === s0.benar ? '#3F7A55' : '#B8431F',
+      periksa: () => this.periksaJawab(), berikut: () => this.soalBerikut(daftarSoal.length),
+      opasitasPeriksa: opsiPilih === null ? .45 : 1,
+    };
+
+    const SOAL_KUIS = [
+      { teks: 'Nilai cos 60° adalah …', opsi: ['½', '½√3', '1', '0', '2'], benar: 0 },
+      { teks: 'Pada segitiga siku-siku, tan sudut sama dengan …', opsi: ['depan / samping', 'depan / miring', 'samping / miring', 'miring / depan', 'samping / depan'], benar: 0 },
+      { teks: 'Titik pada lingkaran satuan untuk sudut θ berkoordinat …', opsi: ['(cos θ, sin θ)', '(sin θ, cos θ)', '(tan θ, 1)', '(1, tan θ)', '(θ, sin θ)'], benar: 0 },
+      { teks: 'Grafik y = sin x memiliki nilai terbesar …', opsi: ['1', '0', '½', '2', 'tak terbatas'], benar: 0 },
+    ];
+    const kj = this.state.kuisJawab;
+    const skor = kj.reduce((a, v, i) => a + (v === SOAL_KUIS[i].benar ? 1 : 0), 0);
+    const iKuis = Math.min(this.state.kuisIdx, SOAL_KUIS.length - 1);
+    const sk = SOAL_KUIS[iKuis];
+    const kuisTerbuka = jumlahDibuka >= 10;
+    const kuisPanel = {
+      terkunci: !kuisTerbuka,
+      jalan: this.state.kuisJalan && kuisTerbuka && !this.state.kuisSelesai,
+      selesai: kuisTerbuka && this.state.kuisSelesai,
+      belum: kuisTerbuka && !this.state.kuisJalan && !this.state.kuisSelesai,
+      syaratNo: jumlahDibuka, sisa: 10 - jumlahDibuka,
+      no: pad(iKuis + 1), dari: SOAL_KUIS.length, teks: sk.teks,
+      opsi: sk.opsi.map((o, i) => ({ huruf: HURUF[i], teks: o, pilih: () => this.jawabKuis(i, SOAL_KUIS.length) })),
+      lebarBar: Math.round(kj.length / SOAL_KUIS.length * 100),
+      skor, nilai: Math.round(skor / SOAL_KUIS.length * 100),
+      offsetNilai: (107 - 107 * skor / SOAL_KUIS.length).toFixed(1),
+      pesan: skor === SOAL_KUIS.length ? 'Sempurna. Lanjut ke bab berikutnya.'
+        : skor >= SOAL_KUIS.length - 1 ? 'Bagus. Satu soal masih perlu diulang.'
+        : 'Belum aman. Buka lagi materi yang berkaitan, lalu ulangi kuisnya.',
+      mulai: () => this.mulaiKuis(), ulang: () => this.ulangKuis(), keMateri: () => this.keTab('Peta Materi'),
+    };
+
+    const parallax = { logo: Math.max(-26, -y * 0.05).toFixed(1), klip: Math.max(-18, Math.min(18, (y - 700) * 0.025)).toFixed(1) };
+    const relV = { luas: !rel, sempit: rel, togel: () => this.setState({ rel: !rel }),
+      ikon: rel ? '»' : '«', judul: rel ? 'Buka daftar materi' : 'Lipat jadi rel',
+      kolom: rel ? '62px' : '278px', pad: rel ? '11px 0' : '16px 16px 12px', margin: rel ? '0 auto' : '0',
+      kolomBaris: rel ? '1fr' : '22px 1fr 16px', padBaris: rel ? '9px 4px' : '9px 10px',
+      kolomVisual: rel ? '1.4fr' : '1.12fr' };
+
+    return { tabs, latar, gerak, parallax, angka, isiSitus, kelasList, latihan, subbab, titik, kuis, persen, jumlahDibuka,
+      bank, kuisPanel,
+      aktif: aktifV, lanjut, kembali, rel: relV,
+      klip: klipV, klipTitik, klipAnim: (klipTick % 2 ? 'klipB' : 'klipA') + ' .5s cubic-bezier(.2,.7,.2,1) both',
+      klipMaju: () => this.geserKlip(1), klipMundur: () => this.geserKlip(-1),
+      klipJeda: () => this.setState({ jeda: true }), klipJalan: () => this.setState({ jeda: false }),
+      bayangKursor: e => this.bayangKursor(e), bayangLepas: e => this.bayangLepas(e),
+      kePeta: () => this.keTab('Peta Materi'), keLatihan: () => this.keTab('Latihan'), keMateri: () => this.keTab('Peta Materi'),
+      diBeranda: tab === 'Beranda', diPeta: tab === 'Peta Materi', diLatihan: tab === 'Latihan', diTentang: tab === 'Tentang', diHp: tab === 'Tampilan HP',
+      animTab: (tabTick % 2 ? 'tabB' : 'tabA') + ' .42s cubic-bezier(.2,.7,.2,1) both',
+      animIsi: (tick % 2 ? 'klipB' : 'klipA') + ' .38s cubic-bezier(.2,.7,.2,1) both' };
+  }
+}
+</script>
+</body>
+</html>

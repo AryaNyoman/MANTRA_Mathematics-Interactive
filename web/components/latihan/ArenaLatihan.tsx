@@ -3,30 +3,46 @@
 import Link from 'next/link'
 import { useState, useSyncExternalStore } from 'react'
 import type { SoalKuis, TingkatKuis } from '@/content/tipe'
+import { ISI_TOPIK } from '@/content/daftar-isi'
+import { cariBab } from '@/content/subbab'
 import { langgan } from '@/lib/simpanan'
+import { bacaKemajuan, kuisTerbuka } from '@/lib/kemajuan'
 import {
-  bacaLatihan, catatJawaban, ringkasPerTingkat, segarkanLencana,
-  LENCANA, SYARAT_NAIK, URUT_TINGKAT,
+  bacaLatihan, catatJawaban, persenTopik, ringkasPerTingkat,
+  segarkanLencana, SYARAT_NAIK, URUT_TINGKAT,
 } from '@/lib/latihan-kemajuan'
-
+import Kuis from '@/components/topik/Kuis'
+import KartuBayang from '@/components/mantra/KartuBayang'
 
 /**
- * Arena latihan: siswa memilih tingkat, lalu mengerjakan soal satu per satu.
+ * Halaman bank soal satu topik, rancangan MANTRA (3 Sep 2026).
  *
- * Berbeda dari Kuis, di sini TIDAK ada skor akhir dan tidak ada batas jumlah
- * soal. Salah boleh diulang sampai benar. Yang dicatat hanya soal yang pernah
- * benar, dan itulah yang menggerakkan bar kemajuan.
+ * PEROMBAKAN dari versi sebelumnya, dan alasan tiap perubahan:
  *
- * Tingkat dibuka bertahap: harus benar `SYARAT_NAIK` soal di satu tingkat
- * sebelum tingkat berikutnya bisa dimasuki. Syarat ini sengaja DIUMUMKAN,
- * berbeda dengan kunci kuis yang sengaja disembunyikan. Alasannya berbeda:
- * kunci kuis mencegah siswa mengejar angka, sedangkan tangga latihan justru
- * berguna kalau siswa tahu tinggal berapa lagi.
+ * 1. TINGKAT TIDAK LAGI JADI HALAMAN TERSENDIRI. Dulu siswa harus memilih
+ *    tingkat di satu layar, lalu layar itu hilang diganti soal, dan untuk
+ *    pindah tingkat ia harus menekan "Ganti tingkat" lebih dulu. Sekarang
+ *    keempat tingkat selalu terlihat sebagai keping di atas soal, jadi pindah
+ *    tingkat satu ketukan dan siswa selalu tahu ada berapa tingkat lagi.
  *
- * Bank soalnya masuk lewat properti, bukan diimpor langsung. Sampai
- * 1 September 2026 berkas ini mengimpor bank soal Trigonometri dan menulis
- * slug topiknya di dalam kode, sehingga topik kedua harus menyalin seluruh
- * berkas hanya untuk mengganti dua baris.
+ * 2. MENJAWAB JADI DUA LANGKAH: pilih, lalu tekan Periksa. Dulu sekali
+ *    menyentuh pilihan langsung terkunci dan tercatat, jadi salah pencet
+ *    dihitung sebagai jawaban. Sekarang pilihan boleh diubah sampai diperiksa.
+ *
+ * 3. PEMBAHASAN PINDAH KE PANEL DI SAMPING, bukan menyembul di bawah soal.
+ *    Dengan begitu soal, pilihan, dan penjelasannya terlihat bersamaan, dan
+ *    halaman tidak melompat saat pembahasan muncul.
+ *
+ * 4. KUIS BAB IKUT DI HALAMAN INI, dengan syarat kuncinya DITULIS. Tombol mati
+ *    tanpa keterangan membuat siswa mengira situsnya rusak.
+ *
+ * Aturan kemajuan TIDAK ditulis ulang di sini: `lib/latihan-kemajuan.ts` yang
+ * memegangnya. Yang dicatat tetap hanya soal yang pernah BENAR, jadi salah
+ * tidak pernah menghukum.
+ *
+ * Lencana sudah dibuang dari tampilan atas permintaan ARYA, tetapi tetap
+ * dihitung di penyimpanan (`segarkanLencana`) supaya kemajuan lama tidak
+ * rusak kalau lencana dihidupkan lagi nanti.
  */
 export default function ArenaLatihan({
   topik, nama, bank,
@@ -37,144 +53,325 @@ export default function ArenaLatihan({
   nama: string
   bank: SoalKuis[]
 }) {
-  const [tingkat, setTingkat] = useState<TingkatKuis | null>(null)
+  const [tingkat, setTingkat] = useState<TingkatKuis>('mudah')
   const [ke, setKe] = useState(0)
-  const [dipilih, setDipilih] = useState<number | null>(null)
-  const [lencanaBaru, setLencanaBaru] = useState<string[]>([])
+  const [pilih, setPilih] = useState<number | null>(null)
+  const [periksa, setPeriksa] = useState(false)
+  const [kuisJalan, setKuisJalan] = useState(false)
 
-  const kemajuan = useSyncExternalStore(
+  const kemajuanJson = useSyncExternalStore(
     langgan,
     () => JSON.stringify(bacaLatihan(topik)),
     () => JSON.stringify({ benar: [], dicoba: 0, lencana: [] }),
   )
-  const k = JSON.parse(kemajuan) as ReturnType<typeof bacaLatihan>
-  const ringkas = ringkasPerTingkat(bank, k)
+  const k = JSON.parse(kemajuanJson) as ReturnType<typeof bacaLatihan>
   const sudahBenar = new Set(k.benar)
+  const ringkas = ringkasPerTingkat(bank, k)
+  const persen = persenTopik(bank, k)
+  const bab = cariBab(topik)
 
-  // ---------------------------------------------------- pilih tingkat dulu
-  if (tingkat === null) {
-    return (
-      <main className="beranda">
-        <div className="jalur">Latihan {nama}</div>
-        <h1>Pilih tingkatnya</h1>
-        <p className="sub" style={{ maxWidth: '44rem' }}>
-          Kerjakan {SYARAT_NAIK} soal dengan benar untuk membuka tingkat berikutnya.
-          Salah tidak dihitung, jadi tidak ada ruginya mencoba.
-        </p>
+  /* Kemajuan MATERI, terpisah dari kemajuan latihan. Dipakai hanya untuk
+     mengetahui apakah kuis babnya sudah boleh dibuka. */
+  const materiJson = useSyncExternalStore(
+    langgan,
+    () => JSON.stringify(bacaKemajuan(topik)),
+    () => JSON.stringify({ dibuka: [], detik: 0 }),
+  )
+  const materi = JSON.parse(materiJson) as ReturnType<typeof bacaKemajuan>
+  const jumlahTahap = ISI_TOPIK[topik]?.tahap.length ?? 0
+  const kuisSiap = jumlahTahap > 0 && kuisTerbuka(materi, jumlahTahap)
+  const sudahBuka = materi.dibuka.length
+  const sisaMateri = Math.max(0, jumlahTahap - sudahBuka)
 
-        <div className="tingkat-pilih">
-          {ringkas.map((r) => (
-            <button
-              key={r.tingkat}
-              className={`tingkat-tombol${r.terbuka ? '' : ' terkunci'}`}
-              disabled={!r.terbuka || r.total === 0}
-              title={r.terbuka ? `Latihan tingkat ${r.tingkat}` : `Selesaikan ${SYARAT_NAIK} soal tingkat sebelumnya dulu`}
-              onClick={() => { setTingkat(r.tingkat); setKe(0); setDipilih(null) }}
-            >
-              <span className="tingkat-nama">{r.tingkat}</span>
-              <span className="bar-kecil"><span style={{ width: `${r.persen}%` }} /></span>
-              <span className="tingkat-angka mono">
-                {r.terbuka ? `${r.selesai} / ${r.total} benar` : 'terkunci'}
-              </span>
-            </button>
-          ))}
-        </div>
+  const soal = bank.filter((s) => s.tingkat === tingkat)
+  const s: SoalKuis | undefined = soal[ke]
+  const barisTingkat = ringkas.find((r) => r.tingkat === tingkat)
+  const terkunci = barisTingkat ? !barisTingkat.terbuka : false
 
-        <Link href="/latihan" className="tombol garis" style={{ maxWidth: '16rem', marginTop: 26 }}>
-          &#8592; KEMBALI
-        </Link>
-      </main>
-    )
+  function gantiTingkat(t: TingkatKuis) {
+    setTingkat(t)
+    setKe(0)
+    setPilih(null)
+    setPeriksa(false)
   }
 
-  // ---------------------------------------------------------- kerjakan soal
-  const soal: SoalKuis[] = bank.filter((s) => s.tingkat === tingkat)
-  const s = soal[ke]
-
-  function jawab(n: number) {
-    if (dipilih !== null) return
-    setDipilih(n)
-    catatJawaban(topik, s.id, n === s.benar)
-    setLencanaBaru(segarkanLencana(topik, bank))
+  function periksaJawaban() {
+    if (pilih === null || !s || periksa) return
+    setPeriksa(true)
+    catatJawaban(topik, s.id, pilih === s.benar)
+    segarkanLencana(topik, bank)
   }
 
-  function lanjut() {
-    setDipilih(null)
-    setLencanaBaru([])
+  function berikutnya() {
+    if (soal.length === 0) return
     setKe((n) => (n + 1) % soal.length)
+    setPilih(null)
+    setPeriksa(false)
   }
 
-  const nomorTingkat = URUT_TINGKAT.indexOf(tingkat) + 1
+  // Kabar di sebelah tombol: satu kalimat yang selalu memberi tahu keadaan
+  // sekarang, jadi siswa tidak perlu menebak kenapa tombolnya mati.
+  const kabar = terkunci
+    ? `Tingkat ini terbuka setelah ${SYARAT_NAIK} soal tingkat sebelumnya benar.`
+    : !periksa
+      ? pilih === null
+        ? 'Pilih satu jawaban dulu.'
+        : 'Tekan Periksa jawaban.'
+      : pilih === s?.benar
+        ? 'Benar. Langkahnya ada di panel Pembahasan.'
+        : 'Belum tepat. Baca panel Pembahasan, lalu coba lagi.'
+  const warnaKabar = periksa
+    ? pilih === s?.benar
+      ? 'var(--hijau)'
+      : 'var(--jingga)'
+    : 'var(--tinta-50)'
 
   return (
-    <main className="beranda">
-      <div className="latihan-atas" style={{ marginBottom: 14 }}>
-        <div>
-          <div className="jalur">Tingkat {nomorTingkat} dari 4 &middot; {tingkat}</div>
-          <h1 style={{ margin: '4px 0 0' }}>Soal {ke + 1} dari {soal.length}</h1>
-        </div>
-        <button className="tombol garis" style={{ width: 'auto' }}
-                onClick={() => { setTingkat(null); setDipilih(null) }}>
-          GANTI TINGKAT
-        </button>
-      </div>
-
-      <div className="arena">
-        {/* Hanya ditampilkan SEBELUM dijawab. Tanpa syarat `dipilih === null`,
-            tanda ini ikut muncul begitu siswa baru saja menjawab benar, dan
-            terbaca seolah ia mengulang soal lama padahal baru mengerjakannya. */}
-        {dipilih === null && sudahBenar.has(s.id) && (
-          <div className="sudah-benar mono">✓ soal ini sudah pernah Anda jawab benar</div>
-        )}
-
-        <p className="soal-teks">{s.pertanyaan}</p>
-
-        <div className="pilihan">
-          {s.pilihan.map((p, n) => {
-            const terpilih = dipilih === n
-            const iniBenar = n === s.benar
-            const kelas = dipilih === null ? '' : iniBenar ? 'benar' : terpilih ? 'salah' : 'redam'
-            return (
-              <button key={n} className={`opsi ${kelas}`} onClick={() => jawab(n)}
-                      disabled={dipilih !== null}>
-                <span className="huruf">{String.fromCharCode(65 + n)}</span>
-                {p}
-              </button>
-            )
-          })}
+    <>
+      <main className="mantra-lebar" style={{ paddingTop: 38 }}>
+        <div className="remah-latihan">
+          <Link href="/latihan">Latihan</Link>
+          <span className="remah-pisah">/</span>
+          <span className="kini">{nama}</span>
         </div>
 
-        {dipilih !== null && (
-          <div className="pembahasan">
-            <div className="cap">{dipilih === s.benar ? 'Benar' : 'Belum tepat, coba pahami ini'}</div>
-            <p style={{ margin: 0 }}>{s.alasan}</p>
+        <div className="kicker">Bank soal</div>
+        <h1 className="judul-halaman">{nama}</h1>
+        <p className="sub-italic">
+          Mulai dari yang mudah. Tingkat berikutnya terbuka setelah {SYARAT_NAIK} soal
+          tingkat sebelumnya benar, jadi urutannya menuntun, bukan menghukum.
+        </p>
+
+        {/* Kemajuan seluruh topik, satu bar. Ditaruh sebelum soal supaya siswa
+            tahu posisinya sebelum mulai, bukan setelah selesai. */}
+        <KartuBayang className="kartu-latihan">
+          <div className="latihan-atas">
+            <div>
+              <div className="bab-kicker">
+                {bab ? `Bab ${bab.no} · ${bab.kelas} · ` : ''}
+                {bank.length} soal
+              </div>
+              <h2>Kemajuan Anda di topik ini</h2>
+            </div>
+            <div className="latihan-persen">{persen}%</div>
           </div>
-        )}
-
-        {lencanaBaru.length > 0 && (
-          <div className="lencana-baru">
-            {lencanaBaru.map((id) => {
-              const l = LENCANA.find((x) => x.id === id)
-              if (!l) return null
-              return (
-                <div key={id} className="lencana punya">
-                  <span className="lencana-ikon" aria-hidden>{l.ikon}</span>
-                  <div>
-                    <div className="lencana-nama">Lencana baru: {l.nama}</div>
-                    <div className="lencana-syarat">{l.syarat}</div>
-                  </div>
+          <div className="bar-besar" role="img" aria-label={`Kemajuan ${persen} persen`}>
+            <span style={{ width: `${persen}%` }} />
+          </div>
+          <div className="kisi-tingkat">
+            {ringkas.map((r) => (
+              <div key={r.tingkat} className={`ubin-tingkat${r.terbuka ? '' : ' ubin-terkunci'}`}>
+                <div className="nama">{r.tingkat}</div>
+                <div className="bar">
+                  <span style={{ width: `${r.persen}%` }} />
                 </div>
-              )
-            })}
+                <div className="angka">
+                  {r.terbuka ? `${r.selesai} / ${r.total}` : 'terkunci'}
+                </div>
+              </div>
+            ))}
           </div>
-        )}
+        </KartuBayang>
 
-        <div className="latihan-bawah" style={{ justifyContent: 'flex-end' }}>
-          <button className="tombol" disabled={dipilih === null} onClick={lanjut}>
-            SOAL BERIKUTNYA &#8594;
-          </button>
+        <div className="tajuk-baris">
+          <h2>Kerjakan soalnya</h2>
+          <span className="rel" />
+          <span className="kanan">Pilih tingkat</span>
         </div>
-      </div>
-    </main>
+
+        <div className="kisi-soal">
+          <div className="kartu-soal">
+            {/* Keempat tingkat selalu terlihat. Yang terkunci tetap ditampilkan,
+                tidak disembunyikan: siswa perlu melihat jalan yang belum
+                ditempuh, dan syaratnya tertulis di kabar bawah. */}
+            <div className="keping-tingkat" role="group" aria-label="Tingkat kesulitan">
+              {ringkas.map((r) => (
+                <button
+                  key={r.tingkat}
+                  type="button"
+                  className="keping"
+                  data-pilih={r.tingkat === tingkat}
+                  data-kunci={!r.terbuka}
+                  disabled={!r.terbuka || r.total === 0}
+                  aria-pressed={r.tingkat === tingkat}
+                  title={
+                    r.terbuka
+                      ? `Soal tingkat ${r.tingkat}`
+                      : `Selesaikan ${SYARAT_NAIK} soal tingkat sebelumnya dulu`
+                  }
+                  onClick={() => gantiTingkat(r.tingkat)}
+                >
+                  {r.tingkat}
+                  <span className="jml angka-rata">
+                    {r.terbuka ? `${r.selesai}/${r.total}` : '🔒'}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            <div className="soal-kepala">
+              <span className="tingkat-kini">
+                Tingkat {URUT_TINGKAT.indexOf(tingkat) + 1} dari {URUT_TINGKAT.length}
+              </span>
+              <span className="rel" />
+              <span className="angka-rata">
+                {soal.length === 0 ? 'Belum ada soal' : `Soal ${ke + 1} dari ${soal.length}`}
+              </span>
+            </div>
+
+            {!s ? (
+              <p className="soal-kosong">
+                Bank soal tingkat ini belum diisi. Pilih tingkat lain dulu.
+              </p>
+            ) : (
+              <>
+                {/* Hanya sebelum diperiksa. Kalau ditampilkan setelah menjawab,
+                    tandanya terbaca seolah siswa sedang mengulang soal lama
+                    padahal ia baru saja mengerjakannya. */}
+                {!periksa && sudahBenar.has(s.id) && (
+                  <div className="pernah-benar">✓ Soal ini pernah Anda jawab benar</div>
+                )}
+
+                <p className="soal-teks">{s.pertanyaan}</p>
+
+                <div className="opsi-daftar">
+                  {s.pilihan.map((p, n) => {
+                    const iniBenar = n === s.benar
+                    const keadaan = !periksa
+                      ? pilih === n
+                        ? 'pilih'
+                        : ''
+                      : iniBenar
+                        ? 'benar'
+                        : pilih === n
+                          ? 'salah'
+                          : 'redam'
+                    return (
+                      <button
+                        key={n}
+                        type="button"
+                        className="opsi-mantra"
+                        data-keadaan={keadaan}
+                        disabled={periksa || terkunci}
+                        aria-pressed={pilih === n}
+                        onClick={() => setPilih(n)}
+                      >
+                        <span className="huruf">{String.fromCharCode(65 + n)}</span>
+                        <span className="isi">{p}</span>
+                        <span className="tanda" aria-hidden="true">
+                          {periksa ? (iniBenar ? '✓' : pilih === n ? '✕' : '') : ''}
+                        </span>
+                      </button>
+                    )
+                  })}
+                </div>
+
+                <div className="soal-aksi">
+                  <button
+                    type="button"
+                    className="pil-gelap"
+                    disabled={pilih === null || periksa}
+                    onClick={periksaJawaban}
+                  >
+                    Periksa jawaban
+                  </button>
+                  <button type="button" className="pil-garis" onClick={berikutnya}>
+                    Soal berikutnya →
+                  </button>
+                  <span className="kabar" style={{ color: warnaKabar }}>
+                    {kabar}
+                  </span>
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* ---------------- panel pembahasan, di SAMPING soal ------------- */}
+          <aside className="kartu-bahas" aria-live="polite">
+            <div className="kicker">Pembahasan</div>
+            {periksa && s ? (
+              <div className="bahas-isi">
+                <div className="bahas-jawab">
+                  Jawaban benar: <b>{String.fromCharCode(65 + s.benar)}</b>
+                </div>
+                {s.langkah && s.langkah.length > 0 ? (
+                  s.langkah.map((lg, i) => (
+                    <div key={i} className="bahas-langkah">
+                      <span className="no angka-rata">{i + 1}</span>
+                      <span>{lg}</span>
+                    </div>
+                  ))
+                ) : (
+                  <p className="bahas-alasan">{s.alasan}</p>
+                )}
+              </div>
+            ) : (
+              <p className="bahas-kosong">
+                Langkah penyelesaiannya muncul di sini setelah Anda menekan Periksa
+                jawaban. Bukan sekadar benar atau salah, tetapi urutan berpikirnya.
+              </p>
+            )}
+          </aside>
+        </div>
+
+        {/* ---------------------------- kuis bab -------------------------- */}
+        <div className="tajuk-baris">
+          <h2>Kuis bab</h2>
+          <span className="rel" />
+          <span className="kanan">Berskor</span>
+        </div>
+
+        <div className="kartu-kuis-bab">
+          {!kuisSiap ? (
+            <div className="kuis-baris">
+              <div>
+                <div className="kicker">Syaratnya terlihat, bukan disembunyikan</div>
+                <h3>Kuis terbuka setelah seluruh materi dibuka</h3>
+                <p>
+                  Sudah dibuka {sudahBuka} dari {jumlahTahap} materi, sisa {sisaMateri} lagi.
+                  Ini bukan hukuman: kuisnya berisi soal dari seluruh bab, jadi lebih
+                  enak dikerjakan setelah petanya utuh.
+                </p>
+                <div className="bar-besar" style={{ maxWidth: '26rem', marginBottom: 0 }}>
+                  <span
+                    style={{
+                      width: `${jumlahTahap === 0 ? 0 : Math.round((sudahBuka / jumlahTahap) * 100)}%`,
+                    }}
+                  />
+                </div>
+              </div>
+              <Link href={`/topik/${topik}`} className="pil-garis">
+                Buka materi dulu →
+              </Link>
+            </div>
+          ) : !kuisJalan ? (
+            <div className="kuis-baris">
+              <div>
+                <h3>Kuis siap dikerjakan</h3>
+                <p>
+                  Delapan soal acak dari seluruh bab, tanpa batas waktu. Skornya
+                  tersimpan di peramban Anda sendiri dan boleh diulang sesering yang
+                  Anda mau. Mengulang berarti bertemu soal baru, bukan soal yang sama.
+                </p>
+              </div>
+              <button type="button" className="pil-emas" onClick={() => setKuisJalan(true)}>
+                Mulai kuis
+              </button>
+            </div>
+          ) : (
+            <Kuis bank={bank} jumlah={8} kunciSimpan={`matra:kuis:${topik}`} topik={topik} />
+          )}
+        </div>
+
+        <div className="kotak-emas" style={{ maxWidth: '54rem', margin: '24px 0 44px' }}>
+          <b>Nilai di sini bukan penilaian resmi.</b>
+          <p>
+            Kemajuan tersimpan di peramban Anda sendiri, tidak dikirim ke mana pun.
+            Karena itu ia hilang kalau Anda berganti perangkat atau membersihkan
+            riwayat.
+          </p>
+        </div>
+      </main>
+    </>
   )
 }

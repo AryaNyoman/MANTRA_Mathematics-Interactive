@@ -1,0 +1,2516 @@
+{
+  "alat/antre_render.py": {
+    "mtime": 1788297111.0431216,
+    "seen": 1788447000.0838597,
+    "ast_hash": "4da6b6eea0bd1546948bf1f76cdc407a",
+    "semantic_hash": "4da6b6eea0bd1546948bf1f76cdc407a"
+  },
+  "alat/cek_grafik_fungsi.py": {
+    "mtime": 1788295112.931987,
+    "seen": 1788447000.0838597,
+    "ast_hash": "3a8539d6688c0c7d3080d49f2af26e85",
+    "semantic_hash": "3a8539d6688c0c7d3080d49f2af26e85"
+  },
+  "alat/cek_ruang.py": {
+    "mtime": 1788295264.4740162,
+    "seen": 1788447000.0838597,
+    "ast_hash": "6618ec078ec7b670a37dadc5127f230f",
+    "semantic_hash": "6618ec078ec7b670a37dadc5127f230f"
+  },
+  "alat/cek_sinkron_video.py": {
+    "mtime": 1788363555.3988497,
+    "seen": 1788447000.0838597,
+    "ast_hash": "de68d36dbc2045724b116bef42d94bd8",
+    "semantic_hash": "de68d36dbc2045724b116bef42d94bd8"
+  },
+  "alat/cek_soal.py": {
+    "mtime": 1788254991.6568868,
+    "seen": 1788447000.0838597,
+    "ast_hash": "ef80df26db220c5a7d0acfd057efa28e",
+    "semantic_hash": "ef80df26db220c5a7d0acfd057efa28e"
+  },
+  "alat/cek_statistik.py": {
+    "mtime": 1788295263.0011797,
+    "seen": 1788447000.0838597,
+    "ast_hash": "f59b52e2052ef686dcc5e393d89666f5",
+    "semantic_hash": "f59b52e2052ef686dcc5e393d89666f5"
+  },
+  "alat/cek_statistik_web.mjs": {
+    "mtime": 1788295263.002178,
+    "seen": 1788447000.0838597,
+    "ast_hash": "38229c99af039623785e5d2cfc0a3884",
+    "semantic_hash": "38229c99af039623785e5d2cfc0a3884"
+  },
+  "alat/cek_vektor.py": {
+    "mtime": 1788295076.981636,
+    "seen": 1788447000.084853,
+    "ast_hash": "18a1b45e0ac350dc32bb51618e34e049",
+    "semantic_hash": "18a1b45e0ac350dc32bb51618e34e049"
+  },
+  "alat/kompres_gambar.py": {
+    "mtime": 1788363555.3988497,
+    "seen": 1788447000.084853,
+    "ast_hash": "5f192792cb28dc16c158ddde8989e7c4",
+    "semantic_hash": "5f192792cb28dc16c158ddde8989e7c4"
+  },
+  "alat/materi-grafik-fungsi.json": {
+    "mtime": 1788295112.9329872,
+    "seen": 1788447000.084853,
+    "ast_hash": "676975f6a5234b7b8b382806fb8b8902",
+    "semantic_hash": "676975f6a5234b7b8b382806fb8b8902"
+  },
+  "alat/materi-limit.json": {
+    "mtime": 1788254991.6579027,
+    "seen": 1788447000.084853,
+    "ast_hash": "5b142ee298d1e3e16fc118886df77896",
+    "semantic_hash": "5b142ee298d1e3e16fc118886df77896"
+  },
+  "alat/materi-vektor.json": {
+    "mtime": 1788363554.0432198,
+    "seen": 1788447000.084853,
+    "ast_hash": "0bc2a89e562e3fd820a936512ff29638",
+    "semantic_hash": "0bc2a89e562e3fd820a936512ff29638"
+  },
+  "alat/nyalakan-sesi.ps1": {
+    "mtime": 1788266510.0625257,
+    "seen": 1788447000.084853,
+    "ast_hash": "ba0744008499c51d4e4aad69d0da34ee",
+    "semantic_hash": "ba0744008499c51d4e4aad69d0da34ee"
+  },
+  "alat/periksa_tahap.py": {
+    "mtime": 1788363555.4000733,
+    "seen": 1788447000.084853,
+    "ast_hash": "6d942bbf4807bafa028fe74f0ab1ac6d",
+    "semantic_hash": "6d942bbf4807bafa028fe74f0ab1ac6d"
+  },
+  "alat/soal-grafik-fungsi.json": {
+    "mtime": 1788295112.9339876,
+    "seen": 1788447000.084853,
+    "ast_hash": "7ad89caad90788448ee0ff331d0322e4",
+    "semantic_hash": "7ad89caad90788448ee0ff331d0322e4"
+  },
+  "alat/soal-kuis-limit.json": {
+    "mtime": 1788254991.6579027,
+    "seen": 1788447000.084853,
+    "ast_hash": "576cee03b5b30a4cf80526b441bbf827",
+    "semantic_hash": "576cee03b5b30a4cf80526b441bbf827"
+  },
+  "alat/soal-kuis-vektor.json": {
+    "mtime": 1788295076.9830685,
+    "seen": 1788447000.084853,
+    "ast_hash": "6638cb6bf491ea16535ae343da1bb652",
+    "semantic_hash": "6638cb6bf491ea16535ae343da1bb652"
+  },
+  "alat/soal-latihan-limit.json": {
+    "mtime": 1788254991.6579027,
+    "seen": 1788447000.084853,
+    "ast_hash": "e14c41c2d82d31e5493675f3e3a8708b",
+    "semantic_hash": "e14c41c2d82d31e5493675f3e3a8708b"
+  },
+  "alat/soal-latihan-vektor.json": {
+    "mtime": 1788295076.9840617,
+    "seen": 1788447000.084853,
+    "ast_hash": "cbc7a403d1318a379f705426a1f58684",
+    "semantic_hash": "cbc7a403d1318a379f705426a1f58684"
+  },
+  "alat/soal-ruang-3d.json": {
+    "mtime": 1788363617.7076933,
+    "seen": 1788447000.084853,
+    "ast_hash": "ad31e9e296f6a80150b5352de68016cf",
+    "semantic_hash": "ad31e9e296f6a80150b5352de68016cf"
+  },
+  "alat/uji-cek-soal.json": {
+    "mtime": 1788254991.6589026,
+    "seen": 1788447000.084853,
+    "ast_hash": "c1177ce4e7e411c07edee307256b67e4",
+    "semantic_hash": "c1177ce4e7e411c07edee307256b67e4"
+  },
+  "alat/uji-cek-vektor.json": {
+    "mtime": 1788295076.9850683,
+    "seen": 1788447000.084853,
+    "ast_hash": "1a55620c4d2c170c549a38d1919cb949",
+    "semantic_hash": "1a55620c4d2c170c549a38d1919cb949"
+  },
+  "alat/uji-geometri-vektor.mts": {
+    "mtime": 1788295076.986078,
+    "seen": 1788447000.084853,
+    "ast_hash": "ef7d54a068eb3b9ab01d4fd892709ad1",
+    "semantic_hash": "ef7d54a068eb3b9ab01d4fd892709ad1"
+  },
+  "audio/contoh-perahu/durasi.json": {
+    "mtime": 1788364690.908279,
+    "seen": 1788447000.084853,
+    "ast_hash": "cf640ef944664595adf63d042fa56ef6",
+    "semantic_hash": "cf640ef944664595adf63d042fa56ef6"
+  },
+  "audio/grafik3-puncak/durasi.json": {
+    "mtime": 1788363555.4243217,
+    "seen": 1788447000.084853,
+    "ast_hash": "5edd3b24c0abeb76a337cce5450c6f0e",
+    "semantic_hash": "5edd3b24c0abeb76a337cce5450c6f0e"
+  },
+  "audio/grafik6-transformasi/durasi.json": {
+    "mtime": 1788363555.4786606,
+    "seen": 1788447000.084853,
+    "ast_hash": "f2d67c1320533c4552bd84ee44ca70c8",
+    "semantic_hash": "f2d67c1320533c4552bd84ee44ca70c8"
+  },
+  "audio/limit1-kecepatan/durasi.json": {
+    "mtime": 1788254991.6682394,
+    "seen": 1788447000.084853,
+    "ast_hash": "c4d121ab1bea953190abc3aace19a86e",
+    "semantic_hash": "c4d121ab1bea953190abc3aace19a86e"
+  },
+  "audio/limit2-mendekati/durasi.json": {
+    "mtime": 1788254991.6839736,
+    "seen": 1788447000.084853,
+    "ast_hash": "1caa65890343955ffd448307633a42c7",
+    "semantic_hash": "1caa65890343955ffd448307633a42c7"
+  },
+  "audio/limit4-lubang/durasi.json": {
+    "mtime": 1788254991.6982615,
+    "seen": 1788447000.084853,
+    "ast_hash": "ed9a43db4e7df30e3df8061a809736af",
+    "semantic_hash": "ed9a43db4e7df30e3df8061a809736af"
+  },
+  "audio/limit6-nolpernol/durasi.json": {
+    "mtime": 1788254991.7132633,
+    "seen": 1788447000.084853,
+    "ast_hash": "93e6d954db12e0df284789aea61d8956",
+    "semantic_hash": "93e6d954db12e0df284789aea61d8956"
+  },
+  "audio/limit7-takhingga/durasi.json": {
+    "mtime": 1788254991.7296233,
+    "seen": 1788447000.084853,
+    "ast_hash": "7a29ffeb0fa8ef1f42c63cdab9b0feac",
+    "semantic_hash": "7a29ffeb0fa8ef1f42c63cdab9b0feac"
+  },
+  "audio/limit8-sinus/durasi.json": {
+    "mtime": 1788254991.7461312,
+    "seen": 1788447000.084853,
+    "ast_hash": "604d4d72d4ff7f4b806cff536962f6b3",
+    "semantic_hash": "604d4d72d4ff7f4b806cff536962f6b3"
+  },
+  "audio/limit9-kontinu/durasi.json": {
+    "mtime": 1788254991.7626817,
+    "seen": 1788447000.084853,
+    "ast_hash": "e8b12b94b79804eb23ff9824f3f03c08",
+    "semantic_hash": "e8b12b94b79804eb23ff9824f3f03c08"
+  },
+  "audio/ruang-3d-01/durasi.json": {
+    "mtime": 1788363617.7202427,
+    "seen": 1788447000.084853,
+    "ast_hash": "198a0bc2c2c132f6a87ec481de4f0452",
+    "semantic_hash": "198a0bc2c2c132f6a87ec481de4f0452"
+  },
+  "audio/ruang-3d-03/durasi.json": {
+    "mtime": 1788363617.7313678,
+    "seen": 1788447000.084853,
+    "ast_hash": "9d86e4068b4e86c3eceb03b760acd1af",
+    "semantic_hash": "9d86e4068b4e86c3eceb03b760acd1af"
+  },
+  "audio/ruang-3d-04/durasi.json": {
+    "mtime": 1788363617.7428894,
+    "seen": 1788447000.084853,
+    "ast_hash": "9723e0e83102e161d02d22715e67e30d",
+    "semantic_hash": "9723e0e83102e161d02d22715e67e30d"
+  },
+  "audio/ruang-3d-06/durasi.json": {
+    "mtime": 1788363617.7532685,
+    "seen": 1788447000.084853,
+    "ast_hash": "b887bfa68e3c527e67581be84366731c",
+    "semantic_hash": "b887bfa68e3c527e67581be84366731c"
+  },
+  "audio/ruang-3d-08/durasi.json": {
+    "mtime": 1788363617.7636478,
+    "seen": 1788447000.084853,
+    "ast_hash": "43d0fb832c539b74a0fabe942ecac758",
+    "semantic_hash": "43d0fb832c539b74a0fabe942ecac758"
+  },
+  "audio/ruang-3d-09/durasi.json": {
+    "mtime": 1788363617.775196,
+    "seen": 1788447000.084853,
+    "ast_hash": "56c1640909bfa3c5a027fe0355dce3e3",
+    "semantic_hash": "56c1640909bfa3c5a027fe0355dce3e3"
+  },
+  "audio/statistika5-pemusatan/durasi.json": {
+    "mtime": 1788363592.280614,
+    "seen": 1788447000.084853,
+    "ast_hash": "1daeee676edc8c2defa9fa2999ffd953",
+    "semantic_hash": "1daeee676edc8c2defa9fa2999ffd953"
+  },
+  "audio/statistika8-simpangan/durasi.json": {
+    "mtime": 1788363592.2982037,
+    "seen": 1788447000.084853,
+    "ast_hash": "915e73c9cbea3191bc587c10d20feaf0",
+    "semantic_hash": "915e73c9cbea3191bc587c10d20feaf0"
+  },
+  "audio/tahap2-perbandingan-tetap/durasi.json": {
+    "mtime": 1788185209.4446125,
+    "seen": 1788447000.084853,
+    "ast_hash": "95bbce13dedd5f164cf2fc096dd7da71",
+    "semantic_hash": "95bbce13dedd5f164cf2fc096dd7da71"
+  },
+  "audio/tahap4-lahirnya-rasio/durasi.json": {
+    "mtime": 1788184667.4454732,
+    "seen": 1788447000.084853,
+    "ast_hash": "693ad923844dfb34417e2e0476882726",
+    "semantic_hash": "693ad923844dfb34417e2e0476882726"
+  },
+  "audio/tahap5-lingkaran-satuan/durasi.json": {
+    "mtime": 1788179501.8532407,
+    "seen": 1788447000.084853,
+    "ast_hash": "66495a40be03352b4f9e9efb3f913a97",
+    "semantic_hash": "66495a40be03352b4f9e9efb3f913a97"
+  },
+  "audio/tahap6-enam-rasio/durasi.json": {
+    "mtime": 1788182636.710279,
+    "seen": 1788447000.084853,
+    "ast_hash": "d02e6881c212a4c8ee79c9801cfd5e96",
+    "semantic_hash": "d02e6881c212a4c8ee79c9801cfd5e96"
+  },
+  "audio/tahap7-sudut-istimewa/durasi.json": {
+    "mtime": 1788183054.636926,
+    "seen": 1788447000.084853,
+    "ast_hash": "b7d46d31a0b032e60fb0d804fa5328f1",
+    "semantic_hash": "b7d46d31a0b032e60fb0d804fa5328f1"
+  },
+  "audio/tahap8-grafik-sin/durasi.json": {
+    "mtime": 1788178250.3457088,
+    "seen": 1788447000.084853,
+    "ast_hash": "0c6363bfb463ec767a79e5dd6ffbf9db",
+    "semantic_hash": "0c6363bfb463ec767a79e5dd6ffbf9db"
+  },
+  "audio/tahap9-tiga-grafik/durasi.json": {
+    "mtime": 1788183513.1164136,
+    "seen": 1788447000.084853,
+    "ast_hash": "36d38d9bfaec33f98452f0ca03681a22",
+    "semantic_hash": "36d38d9bfaec33f98452f0ca03681a22"
+  },
+  "audio/vektor1-perahu/durasi.json": {
+    "mtime": 1788363554.0746906,
+    "seen": 1788447000.084853,
+    "ast_hash": "3d335255178fa9523823be64f524577e",
+    "semantic_hash": "3d335255178fa9523823be64f524577e"
+  },
+  "audio/vektor3-komponen/durasi.json": {
+    "mtime": 1788412476.7985444,
+    "seen": 1788447000.084853,
+    "ast_hash": "6a577ad2ef7a971ba8136439dd209190",
+    "semantic_hash": "6a577ad2ef7a971ba8136439dd209190"
+  },
+  "audio/vektor4-panjang/durasi.json": {
+    "mtime": 1788412476.867266,
+    "seen": 1788447000.084853,
+    "ast_hash": "8e24ebe8d56fb68804088124dda81ee7",
+    "semantic_hash": "8e24ebe8d56fb68804088124dda81ee7"
+  },
+  "audio/vektor6-sambung/durasi.json": {
+    "mtime": 1788363554.1359406,
+    "seen": 1788447000.084853,
+    "ast_hash": "6276e84495e4918b0aa465c03a0cf008",
+    "semantic_hash": "6276e84495e4918b0aa465c03a0cf008"
+  },
+  "audio/vektor8-selisih/durasi.json": {
+    "mtime": 1788412476.9459515,
+    "seen": 1788447000.084853,
+    "ast_hash": "981024089c65bbcbf38ae649f0add868",
+    "semantic_hash": "981024089c65bbcbf38ae649f0add868"
+  },
+  "audio/vektor9-kali-skalar/durasi.json": {
+    "mtime": 1788412477.0217638,
+    "seen": 1788447000.084853,
+    "ast_hash": "f8911d6d065885682f73476143db940d",
+    "semantic_hash": "f8911d6d065885682f73476143db940d"
+  },
+  "docs/desain-mantra/support.js": {
+    "mtime": 1788443468.367605,
+    "seen": 1788447000.084853,
+    "ast_hash": "79a00a888581bb1e5ca5d64252898d88",
+    "semantic_hash": "79a00a888581bb1e5ca5d64252898d88"
+  },
+  "manim/arsip-manim-ce/matra_theme.py": {
+    "mtime": 1788200862.5855858,
+    "seen": 1788447000.084853,
+    "ast_hash": "44341f34edb345eaa6831e72bd44a0bf",
+    "semantic_hash": "44341f34edb345eaa6831e72bd44a0bf"
+  },
+  "manim/arsip-manim-ce/qc.py": {
+    "mtime": 1788200862.586586,
+    "seen": 1788447000.084853,
+    "ast_hash": "6d0dce508949a56483a35f2a61970639",
+    "semantic_hash": "6d0dce508949a56483a35f2a61970639"
+  },
+  "manim/arsip-manim-ce/scenes/beranda_tiga_grafik.py": {
+    "mtime": 1788254991.775479,
+    "seen": 1788447000.084853,
+    "ast_hash": "e5526664ed71abc32a23a14d14132643",
+    "semantic_hash": "e5526664ed71abc32a23a14d14132643"
+  },
+  "manim/arsip-manim-ce/scenes/grafik6_transformasi.py": {
+    "mtime": 1788363555.4976714,
+    "seen": 1788447000.084853,
+    "ast_hash": "254887f2c0c85392b451c290096f59b2",
+    "semantic_hash": "254887f2c0c85392b451c290096f59b2"
+  },
+  "manim/arsip-manim-ce/scenes/limit1_kecepatan.py": {
+    "mtime": 1788254991.775479,
+    "seen": 1788447000.084853,
+    "ast_hash": "90d91ba9a6487a19140ea965c72a5981",
+    "semantic_hash": "90d91ba9a6487a19140ea965c72a5981"
+  },
+  "manim/arsip-manim-ce/scenes/limit2_mendekati.py": {
+    "mtime": 1788261757.0363388,
+    "seen": 1788447000.084853,
+    "ast_hash": "10c04bf6bcdfb7cd042dde7e469500d8",
+    "semantic_hash": "10c04bf6bcdfb7cd042dde7e469500d8"
+  },
+  "manim/arsip-manim-ce/scenes/limit4_lubang.py": {
+    "mtime": 1788254991.776484,
+    "seen": 1788447000.084853,
+    "ast_hash": "ffd409705405ae3986da1abb9fd35b27",
+    "semantic_hash": "ffd409705405ae3986da1abb9fd35b27"
+  },
+  "manim/arsip-manim-ce/scenes/limit6_nolpernol.py": {
+    "mtime": 1788270911.081381,
+    "seen": 1788447000.084853,
+    "ast_hash": "1f966809795c2926b378a03966061b8c",
+    "semantic_hash": "1f966809795c2926b378a03966061b8c"
+  },
+  "manim/arsip-manim-ce/scenes/limit7_takhingga.py": {
+    "mtime": 1788261757.0415137,
+    "seen": 1788447000.084853,
+    "ast_hash": "56887d51bd0ef733b73b0bb6da8f25e1",
+    "semantic_hash": "56887d51bd0ef733b73b0bb6da8f25e1"
+  },
+  "manim/arsip-manim-ce/scenes/limit8_sinus.py": {
+    "mtime": 1788261757.0438857,
+    "seen": 1788447000.084853,
+    "ast_hash": "b66d76a32b94b6c101e8f25ee245b57e",
+    "semantic_hash": "b66d76a32b94b6c101e8f25ee245b57e"
+  },
+  "manim/arsip-manim-ce/scenes/limit9_kontinu.py": {
+    "mtime": 1788261757.0456018,
+    "seen": 1788447000.084853,
+    "ast_hash": "f217dbc13fead48b962af3ca04a7ee70",
+    "semantic_hash": "f217dbc13fead48b962af3ca04a7ee70"
+  },
+  "manim/arsip-manim-ce/scenes/tahap2_perbandingan_tetap.py": {
+    "mtime": 1788200862.586586,
+    "seen": 1788447000.084853,
+    "ast_hash": "76d5581cf5067ee1cee2e91e67f93c65",
+    "semantic_hash": "76d5581cf5067ee1cee2e91e67f93c65"
+  },
+  "manim/arsip-manim-ce/scenes/tahap4_lahirnya_rasio.py": {
+    "mtime": 1788200862.587586,
+    "seen": 1788447000.084853,
+    "ast_hash": "781df7ef97f23734a5f30b844b380174",
+    "semantic_hash": "781df7ef97f23734a5f30b844b380174"
+  },
+  "manim/arsip-manim-ce/scenes/tahap5_lingkaran_satuan.py": {
+    "mtime": 1788200862.587586,
+    "seen": 1788447000.084853,
+    "ast_hash": "122d5c232310623f56ea8032c89d17c5",
+    "semantic_hash": "122d5c232310623f56ea8032c89d17c5"
+  },
+  "manim/arsip-manim-ce/scenes/tahap6_enam_rasio.py": {
+    "mtime": 1788200862.601672,
+    "seen": 1788447000.084853,
+    "ast_hash": "35e504fbcccea044aa071c2553f352e0",
+    "semantic_hash": "35e504fbcccea044aa071c2553f352e0"
+  },
+  "manim/arsip-manim-ce/scenes/tahap7_sudut_istimewa.py": {
+    "mtime": 1788200862.601672,
+    "seen": 1788447000.084853,
+    "ast_hash": "4d2b7c7bd92eb2969b7edcf1a5b4c1e9",
+    "semantic_hash": "4d2b7c7bd92eb2969b7edcf1a5b4c1e9"
+  },
+  "manim/arsip-manim-ce/scenes/tahap8_grafik_sin.py": {
+    "mtime": 1788200862.602672,
+    "seen": 1788447000.084853,
+    "ast_hash": "deb057e9e1fbfb02251162631d1b1bd6",
+    "semantic_hash": "deb057e9e1fbfb02251162631d1b1bd6"
+  },
+  "manim/arsip-manim-ce/scenes/tahap9_tiga_grafik.py": {
+    "mtime": 1788254991.7774837,
+    "seen": 1788447000.084853,
+    "ast_hash": "c1a8c7f29d47f64b5f3922f2113fb255",
+    "semantic_hash": "c1a8c7f29d47f64b5f3922f2113fb255"
+  },
+  "manim/arsip-manim-ce/scenes/trigonometri.py": {
+    "mtime": 1788200862.6036835,
+    "seen": 1788447000.084853,
+    "ast_hash": "e644208179f2af484fd3c7d370422678",
+    "semantic_hash": "e644208179f2af484fd3c7d370422678"
+  },
+  "manim/arsip-manim-ce/scenes/trigonometri_anim.py": {
+    "mtime": 1788200862.6046913,
+    "seen": 1788447000.084853,
+    "ast_hash": "9330aac1af930b7a4727c21962cdb5ef",
+    "semantic_hash": "9330aac1af930b7a4727c21962cdb5ef"
+  },
+  "manim/arsip-manim-ce/scenes/vektor1_perahu.py": {
+    "mtime": 1788363554.1559918,
+    "seen": 1788447000.084853,
+    "ast_hash": "29d4d46b23d4d1f8a91fc7294f3a5967",
+    "semantic_hash": "29d4d46b23d4d1f8a91fc7294f3a5967"
+  },
+  "manim/arsip-manim-ce/sinema.py": {
+    "mtime": 1788200862.6046913,
+    "seen": 1788447000.084853,
+    "ast_hash": "2a8b536b46b72e17b1ab90a691a5974d",
+    "semantic_hash": "2a8b536b46b72e17b1ab90a691a5974d"
+  },
+  "manim/buat_narasi.py": {
+    "mtime": 1788200862.5825863,
+    "seen": 1788447000.084853,
+    "ast_hash": "e56d22d7a193bb8af34553743f2c4287",
+    "semantic_hash": "e56d22d7a193bb8af34553743f2c4287"
+  },
+  "manim/buat_subtitle.py": {
+    "mtime": 1788389987.7006466,
+    "seen": 1788447000.084853,
+    "ast_hash": "7ac2821b0a4571b7dc9380c7b8a4817f",
+    "semantic_hash": "7ac2821b0a4571b7dc9380c7b8a4817f"
+  },
+  "manim/cek_kode.py": {
+    "mtime": 1788364512.7739964,
+    "seen": 1788447000.084853,
+    "ast_hash": "d183e21598a54170f57b64a6e1460d8e",
+    "semantic_hash": "d183e21598a54170f57b64a6e1460d8e"
+  },
+  "manim/cek_video.py": {
+    "mtime": 1788200862.5845869,
+    "seen": 1788447000.084853,
+    "ast_hash": "fbc8655cc5d64f915ed6d2aa02233331",
+    "semantic_hash": "fbc8655cc5d64f915ed6d2aa02233331"
+  },
+  "manim/contoh/contoh_perahu.py": {
+    "mtime": 1788365510.645807,
+    "seen": 1788447000.084853,
+    "ast_hash": "3822804b6fd7c350495098c83339c023",
+    "semantic_hash": "3822804b6fd7c350495098c83339c023"
+  },
+  "manim/gabung_audio.py": {
+    "mtime": 1788364087.3640149,
+    "seen": 1788447000.084853,
+    "ast_hash": "9f0a5d16ccaf58e29cd3fe662056f778",
+    "semantic_hash": "9f0a5d16ccaf58e29cd3fe662056f778"
+  },
+  "manim/gl/__init__.py": {
+    "mtime": 1788317981.1665204,
+    "seen": 1788447000.084853,
+    "ast_hash": "22d582fdfa5ba27d35fdd6ed7e816c9a",
+    "semantic_hash": "22d582fdfa5ba27d35fdd6ed7e816c9a"
+  },
+  "manim/gl/ilustrasi.py": {
+    "mtime": 1788390017.3668108,
+    "seen": 1788447000.084853,
+    "ast_hash": "bb82a22fbcc8b4a2c516d2d2608d13bd",
+    "semantic_hash": "bb82a22fbcc8b4a2c516d2d2608d13bd"
+  },
+  "manim/gl/kamera.py": {
+    "mtime": 1788390267.8013158,
+    "seen": 1788447000.084853,
+    "ast_hash": "55dae319d7261a4d230c07a2cbbb5dad",
+    "semantic_hash": "55dae319d7261a4d230c07a2cbbb5dad"
+  },
+  "manim/gl/qc.py": {
+    "mtime": 1788365149.0092442,
+    "seen": 1788447000.084853,
+    "ast_hash": "5c94d1be41343573aeb138dcee024bd4",
+    "semantic_hash": "5c94d1be41343573aeb138dcee024bd4"
+  },
+  "manim/gl/sinema.py": {
+    "mtime": 1788389999.894634,
+    "seen": 1788447000.084853,
+    "ast_hash": "3ea39f46e7098ca9026ae05fe4d6a5a0",
+    "semantic_hash": "3ea39f46e7098ca9026ae05fe4d6a5a0"
+  },
+  "manim/gl/tema.py": {
+    "mtime": 1788364421.413431,
+    "seen": 1788447000.084853,
+    "ast_hash": "ba06a0876c2bb09d447a2538ce5131f7",
+    "semantic_hash": "ba06a0876c2bb09d447a2538ce5131f7"
+  },
+  "manim/gl/uji_qc.py": {
+    "mtime": 1788317917.4978876,
+    "seen": 1788447000.084853,
+    "ast_hash": "12da91d067868b7a0bd3a8d35c3ffab6",
+    "semantic_hash": "12da91d067868b7a0bd3a8d35c3ffab6"
+  },
+  "manim/lingkungan.py": {
+    "mtime": 1788200862.5855858,
+    "seen": 1788447000.084853,
+    "ast_hash": "54c5fb24b8af679cba1dd5025278d8ed",
+    "semantic_hash": "54c5fb24b8af679cba1dd5025278d8ed"
+  },
+  "manim/narasi/contoh-perahu.json": {
+    "mtime": 1788364652.8065064,
+    "seen": 1788447000.084853,
+    "ast_hash": "c4b81fe0a701d46280a4c0f33de0508b",
+    "semantic_hash": "c4b81fe0a701d46280a4c0f33de0508b"
+  },
+  "manim/narasi/grafik3-puncak.json": {
+    "mtime": 1788412478.0718687,
+    "seen": 1788447000.084853,
+    "ast_hash": "9cfce54d981dcc66d8ee3a049a92c72e",
+    "semantic_hash": "9cfce54d981dcc66d8ee3a049a92c72e"
+  },
+  "manim/narasi/grafik6-transformasi.json": {
+    "mtime": 1788363555.5041091,
+    "seen": 1788447000.084853,
+    "ast_hash": "c4f5eb0274f38c7820b824e292b72f25",
+    "semantic_hash": "c4f5eb0274f38c7820b824e292b72f25"
+  },
+  "manim/narasi/limit1-kecepatan.json": {
+    "mtime": 1788365476.8462937,
+    "seen": 1788447000.084853,
+    "ast_hash": "2512eb63f7372b3a16b6e19ef06cee19",
+    "semantic_hash": "2512eb63f7372b3a16b6e19ef06cee19"
+  },
+  "manim/narasi/limit2-mendekati.json": {
+    "mtime": 1788365476.8462937,
+    "seen": 1788447000.084853,
+    "ast_hash": "a35a1f60ff20e1fcab34831e8743a8af",
+    "semantic_hash": "a35a1f60ff20e1fcab34831e8743a8af"
+  },
+  "manim/narasi/limit4-lubang.json": {
+    "mtime": 1788365476.8481665,
+    "seen": 1788447000.084853,
+    "ast_hash": "afe9de8005a2392b626f321db0e6a8d8",
+    "semantic_hash": "afe9de8005a2392b626f321db0e6a8d8"
+  },
+  "manim/narasi/limit6-nolpernol.json": {
+    "mtime": 1788365476.8491807,
+    "seen": 1788447000.084853,
+    "ast_hash": "2f804f801c4f092e634b65b67f6a41ca",
+    "semantic_hash": "2f804f801c4f092e634b65b67f6a41ca"
+  },
+  "manim/narasi/limit7-takhingga.json": {
+    "mtime": 1788365261.118269,
+    "seen": 1788447000.084853,
+    "ast_hash": "c7f780d20d8ae9323eb2957bc55cd61a",
+    "semantic_hash": "c7f780d20d8ae9323eb2957bc55cd61a"
+  },
+  "manim/narasi/limit8-sinus.json": {
+    "mtime": 1788365476.8511798,
+    "seen": 1788447000.084853,
+    "ast_hash": "d08ac7b173b9bf57f2a771f341d4e043",
+    "semantic_hash": "d08ac7b173b9bf57f2a771f341d4e043"
+  },
+  "manim/narasi/limit9-kontinu.json": {
+    "mtime": 1788365476.853692,
+    "seen": 1788447000.084853,
+    "ast_hash": "a60e0a42fa51984618e24680c326ae19",
+    "semantic_hash": "a60e0a42fa51984618e24680c326ae19"
+  },
+  "manim/narasi/ruang-3d-01.json": {
+    "mtime": 1788412478.6721087,
+    "seen": 1788447000.084853,
+    "ast_hash": "510edf32d25d2e0c7b3509c14e2698da",
+    "semantic_hash": "510edf32d25d2e0c7b3509c14e2698da"
+  },
+  "manim/narasi/ruang-3d-03.json": {
+    "mtime": 1788412478.673102,
+    "seen": 1788447000.084853,
+    "ast_hash": "edcf4d21a72c60bb9fbc81dc3f2facc5",
+    "semantic_hash": "edcf4d21a72c60bb9fbc81dc3f2facc5"
+  },
+  "manim/narasi/ruang-3d-04.json": {
+    "mtime": 1788412478.6754737,
+    "seen": 1788447000.084853,
+    "ast_hash": "d20a3688e70ab355052628776f6a0e15",
+    "semantic_hash": "d20a3688e70ab355052628776f6a0e15"
+  },
+  "manim/narasi/ruang-3d-06.json": {
+    "mtime": 1788412478.6784718,
+    "seen": 1788447000.084853,
+    "ast_hash": "4d57cc49d23163f98b4b66a93a40b628",
+    "semantic_hash": "4d57cc49d23163f98b4b66a93a40b628"
+  },
+  "manim/narasi/ruang-3d-08.json": {
+    "mtime": 1788412478.6804705,
+    "seen": 1788447000.084853,
+    "ast_hash": "18982d1358f0b79165e6ba2411558cc9",
+    "semantic_hash": "18982d1358f0b79165e6ba2411558cc9"
+  },
+  "manim/narasi/ruang-3d-09.json": {
+    "mtime": 1788412478.681472,
+    "seen": 1788447000.084853,
+    "ast_hash": "b4dd4bd6b25b0d07346e9679a0ef7c98",
+    "semantic_hash": "b4dd4bd6b25b0d07346e9679a0ef7c98"
+  },
+  "manim/narasi/statistika5-pemusatan.json": {
+    "mtime": 1788363592.3097901,
+    "seen": 1788447000.084853,
+    "ast_hash": "47d422c5adc989dc75e2dffdc06d0309",
+    "semantic_hash": "47d422c5adc989dc75e2dffdc06d0309"
+  },
+  "manim/narasi/statistika8-simpangan.json": {
+    "mtime": 1788363592.3097901,
+    "seen": 1788447000.084853,
+    "ast_hash": "35416fce27b1bc49d6057793ec9232f8",
+    "semantic_hash": "35416fce27b1bc49d6057793ec9232f8"
+  },
+  "manim/narasi/tahap2-perbandingan-tetap.json": {
+    "mtime": 1788364983.1346238,
+    "seen": 1788447000.084853,
+    "ast_hash": "461ada81f38ca51db8f36d412e708607",
+    "semantic_hash": "461ada81f38ca51db8f36d412e708607"
+  },
+  "manim/narasi/tahap4-lahirnya-rasio.json": {
+    "mtime": 1788365476.8387346,
+    "seen": 1788447000.084853,
+    "ast_hash": "32a16ed1eeeb9454ba0188690d76b7ed",
+    "semantic_hash": "32a16ed1eeeb9454ba0188690d76b7ed"
+  },
+  "manim/narasi/tahap5-lingkaran-satuan.json": {
+    "mtime": 1788365476.8402438,
+    "seen": 1788447000.084853,
+    "ast_hash": "4bfcb909edef82c4c73a764a6dc9ff28",
+    "semantic_hash": "4bfcb909edef82c4c73a764a6dc9ff28"
+  },
+  "manim/narasi/tahap6-enam-rasio.json": {
+    "mtime": 1788365476.8432715,
+    "seen": 1788447000.084853,
+    "ast_hash": "1e1ccb51676f3d2cc76682dfe4043c1c",
+    "semantic_hash": "1e1ccb51676f3d2cc76682dfe4043c1c"
+  },
+  "manim/narasi/tahap7-sudut-istimewa.json": {
+    "mtime": 1788365476.8447502,
+    "seen": 1788447000.084853,
+    "ast_hash": "71b65d4fe52f144cd9f4fa7360e2ffed",
+    "semantic_hash": "71b65d4fe52f144cd9f4fa7360e2ffed"
+  },
+  "manim/narasi/tahap8-grafik-sin.json": {
+    "mtime": 1788364983.1386354,
+    "seen": 1788447000.084853,
+    "ast_hash": "8575fe771905699e9b468f2af2100a01",
+    "semantic_hash": "8575fe771905699e9b468f2af2100a01"
+  },
+  "manim/narasi/tahap9-tiga-grafik.json": {
+    "mtime": 1788364983.139635,
+    "seen": 1788447000.084853,
+    "ast_hash": "0f1cbb9a5b1fa8adef91ef77b86471aa",
+    "semantic_hash": "0f1cbb9a5b1fa8adef91ef77b86471aa"
+  },
+  "manim/narasi/trigonometri.json": {
+    "mtime": 1788162517.4960828,
+    "seen": 1788447000.084853,
+    "ast_hash": "b8a49ec8eec45700e5a32497bf4ce836",
+    "semantic_hash": "b8a49ec8eec45700e5a32497bf4ce836"
+  },
+  "manim/narasi/vektor1-perahu.json": {
+    "mtime": 1788412477.0530267,
+    "seen": 1788447000.084853,
+    "ast_hash": "f4642cd364ff5683f5d726f630043e4b",
+    "semantic_hash": "f4642cd364ff5683f5d726f630043e4b"
+  },
+  "manim/narasi/vektor3-komponen.json": {
+    "mtime": 1788412477.0547788,
+    "seen": 1788447000.084853,
+    "ast_hash": "00659a9bd469a596a848787275e34e55",
+    "semantic_hash": "00659a9bd469a596a848787275e34e55"
+  },
+  "manim/narasi/vektor4-panjang.json": {
+    "mtime": 1788412477.0567966,
+    "seen": 1788447000.084853,
+    "ast_hash": "13f8c49dfa4b4bfc89f60b7fa4d83df2",
+    "semantic_hash": "13f8c49dfa4b4bfc89f60b7fa4d83df2"
+  },
+  "manim/narasi/vektor6-sambung.json": {
+    "mtime": 1788412477.0602512,
+    "seen": 1788447000.084853,
+    "ast_hash": "ee47b876ab6dec17e922265e4cebbe96",
+    "semantic_hash": "ee47b876ab6dec17e922265e4cebbe96"
+  },
+  "manim/narasi/vektor8-selisih.json": {
+    "mtime": 1788412477.062251,
+    "seen": 1788447000.084853,
+    "ast_hash": "945e1fb15975edf6fafe3ea3953b0b1c",
+    "semantic_hash": "945e1fb15975edf6fafe3ea3953b0b1c"
+  },
+  "manim/narasi/vektor9-kali-skalar.json": {
+    "mtime": 1788412477.0647469,
+    "seen": 1788447000.084853,
+    "ast_hash": "812dbf7d879c87f195a9cacf8f8e46f2",
+    "semantic_hash": "812dbf7d879c87f195a9cacf8f8e46f2"
+  },
+  "manim/render_semua.sh": {
+    "mtime": 1788188570.9328675,
+    "seen": 1788447000.084853,
+    "ast_hash": "ab3fca3d6d553e1c210bb9b246927e50",
+    "semantic_hash": "ab3fca3d6d553e1c210bb9b246927e50"
+  },
+  "manim/scenes/grafik3_puncak.py": {
+    "mtime": 1788412478.0742066,
+    "seen": 1788447000.084853,
+    "ast_hash": "c513d74a177bc7a313e79fdec7acad6e",
+    "semantic_hash": "c513d74a177bc7a313e79fdec7acad6e"
+  },
+  "manim/scenes/grafik6_transformasi.py": {
+    "mtime": 1788363555.5092916,
+    "seen": 1788447000.084853,
+    "ast_hash": "d0cc79cec5b86dd0fae6bc008f8d1836",
+    "semantic_hash": "d0cc79cec5b86dd0fae6bc008f8d1836"
+  },
+  "manim/scenes/grafik_umum.py": {
+    "mtime": 1788412478.0774572,
+    "seen": 1788447000.084853,
+    "ast_hash": "18d59bd9a389be8bc5734c6381788d0f",
+    "semantic_hash": "18d59bd9a389be8bc5734c6381788d0f"
+  },
+  "manim/scenes/ruang_3d_01.py": {
+    "mtime": 1788412478.6844718,
+    "seen": 1788447000.084853,
+    "ast_hash": "0f3de4703a4eb8ace18cba5491a16a3d",
+    "semantic_hash": "0f3de4703a4eb8ace18cba5491a16a3d"
+  },
+  "manim/scenes/ruang_3d_03.py": {
+    "mtime": 1788412478.686471,
+    "seen": 1788447000.084853,
+    "ast_hash": "5754106968bd22a35e3b06de42f3c545",
+    "semantic_hash": "5754106968bd22a35e3b06de42f3c545"
+  },
+  "manim/scenes/ruang_3d_04.py": {
+    "mtime": 1788412478.6884818,
+    "seen": 1788447000.084853,
+    "ast_hash": "6eafa2d3d61bf543a8e55a8506a34208",
+    "semantic_hash": "6eafa2d3d61bf543a8e55a8506a34208"
+  },
+  "manim/scenes/ruang_3d_06.py": {
+    "mtime": 1788412478.6904817,
+    "seen": 1788447000.084853,
+    "ast_hash": "e59f4e7b695732e6ce68da7aa982c922",
+    "semantic_hash": "e59f4e7b695732e6ce68da7aa982c922"
+  },
+  "manim/scenes/ruang_3d_08.py": {
+    "mtime": 1788412478.6914806,
+    "seen": 1788447000.084853,
+    "ast_hash": "0061d8b61aed6aefa82882c495fde442",
+    "semantic_hash": "0061d8b61aed6aefa82882c495fde442"
+  },
+  "manim/scenes/ruang_3d_09.py": {
+    "mtime": 1788412478.6938472,
+    "seen": 1788447000.084853,
+    "ast_hash": "52c0121b3503164b6fe010f9e2ab145a",
+    "semantic_hash": "52c0121b3503164b6fe010f9e2ab145a"
+  },
+  "manim/scenes/ruang_3d_umum.py": {
+    "mtime": 1788412478.6952002,
+    "seen": 1788447000.084853,
+    "ast_hash": "5862f16bb5cecbc2068d74e460ae213c",
+    "semantic_hash": "5862f16bb5cecbc2068d74e460ae213c"
+  },
+  "manim/scenes/statistika5_pemusatan.py": {
+    "mtime": 1788389914.7811248,
+    "seen": 1788447000.084853,
+    "ast_hash": "24ff7d5e303f74ca9ec483e5c40145de",
+    "semantic_hash": "24ff7d5e303f74ca9ec483e5c40145de"
+  },
+  "manim/scenes/statistika8_simpangan.py": {
+    "mtime": 1788389914.7831268,
+    "seen": 1788447000.084853,
+    "ast_hash": "63398e41135df7d00c0a6dfa26253bf4",
+    "semantic_hash": "63398e41135df7d00c0a6dfa26253bf4"
+  },
+  "manim/scenes/vektor1_perahu.py": {
+    "mtime": 1788412477.068819,
+    "seen": 1788447000.084853,
+    "ast_hash": "7bf313f868b171f22c89d030fa8132fc",
+    "semantic_hash": "7bf313f868b171f22c89d030fa8132fc"
+  },
+  "manim/scenes/vektor3_komponen.py": {
+    "mtime": 1788412477.0707328,
+    "seen": 1788447000.084853,
+    "ast_hash": "77e1ff66ec5d8099be3a1eada08da8cf",
+    "semantic_hash": "77e1ff66ec5d8099be3a1eada08da8cf"
+  },
+  "manim/scenes/vektor4_panjang.py": {
+    "mtime": 1788412477.0737605,
+    "seen": 1788447000.084853,
+    "ast_hash": "ee222b2eb314a3324b6fcf0e2b342b25",
+    "semantic_hash": "ee222b2eb314a3324b6fcf0e2b342b25"
+  },
+  "manim/scenes/vektor6_sambung.py": {
+    "mtime": 1788412477.0777514,
+    "seen": 1788447000.084853,
+    "ast_hash": "dbc36dd70f970e14f6eb183448f18a7b",
+    "semantic_hash": "dbc36dd70f970e14f6eb183448f18a7b"
+  },
+  "manim/scenes/vektor8_selisih.py": {
+    "mtime": 1788412477.0807648,
+    "seen": 1788447000.084853,
+    "ast_hash": "6309dac58ca827ed35e8a77fcfea795a",
+    "semantic_hash": "6309dac58ca827ed35e8a77fcfea795a"
+  },
+  "manim/scenes/vektor9_kali_skalar.py": {
+    "mtime": 1788412477.0827663,
+    "seen": 1788447000.084853,
+    "ast_hash": "219df4822eacb7458063bdf667e1e0a7",
+    "semantic_hash": "219df4822eacb7458063bdf667e1e0a7"
+  },
+  "manim/tambal_manimgl.py": {
+    "mtime": 1788322139.8139558,
+    "seen": 1788447000.084853,
+    "ast_hash": "a638746fb22ba0addc886d7e997327b6",
+    "semantic_hash": "a638746fb22ba0addc886d7e997327b6"
+  },
+  "manim/uji/uji_cahaya_gl.py": {
+    "mtime": 1788315323.4356947,
+    "seen": 1788447000.084853,
+    "ast_hash": "28ba28420e836da30d90d2ba43a48bbe",
+    "semantic_hash": "28ba28420e836da30d90d2ba43a48bbe"
+  },
+  "manim/uji/uji_font_gl.py": {
+    "mtime": 1788316935.2351909,
+    "seen": 1788447000.084853,
+    "ast_hash": "e1385acd209dfa4b8a5179d2e08300f9",
+    "semantic_hash": "e1385acd209dfa4b8a5179d2e08300f9"
+  },
+  "manim/uji/uji_ilustrasi_gl.py": {
+    "mtime": 1788318425.9206874,
+    "seen": 1788447000.084853,
+    "ast_hash": "540dddebeeb3daa33519d776b77d33bf",
+    "semantic_hash": "540dddebeeb3daa33519d776b77d33bf"
+  },
+  "manim/uji/uji_morph_gl.py": {
+    "mtime": 1788364341.3875062,
+    "seen": 1788447000.084853,
+    "ast_hash": "1e62a7f8dc113ada764597d10cae19cc",
+    "semantic_hash": "1e62a7f8dc113ada764597d10cae19cc"
+  },
+  "manim/uji/uji_perahu_gl.py": {
+    "mtime": 1788316161.1483362,
+    "seen": 1788447000.084853,
+    "ast_hash": "1863ad7773e711083396f03ecd58a2e3",
+    "semantic_hash": "1863ad7773e711083396f03ecd58a2e3"
+  },
+  "manim/uji/uji_sinema_gl.py": {
+    "mtime": 1788364108.662789,
+    "seen": 1788447000.084853,
+    "ast_hash": "20c73f150a5ebb80d14f33f844dff28d",
+    "semantic_hash": "20c73f150a5ebb80d14f33f844dff28d"
+  },
+  "manim/uji/uji_tema_gl.py": {
+    "mtime": 1788318159.1098955,
+    "seen": 1788447000.084853,
+    "ast_hash": "e5211c4a2150123fc7e01d4321689415",
+    "semantic_hash": "e5211c4a2150123fc7e01d4321689415"
+  },
+  "manim/uji/uji_transform_gl.py": {
+    "mtime": 1788363146.661179,
+    "seen": 1788447000.084853,
+    "ast_hash": "484adf62021056c9a46c2368b6eb265e",
+    "semantic_hash": "484adf62021056c9a46c2368b6eb265e"
+  },
+  "web/app/latihan/grafik-fungsi/page.tsx": {
+    "mtime": 1788443468.3785439,
+    "seen": 1788447000.084853,
+    "ast_hash": "e2b7729a889abb75c5ee7f251c5e454c",
+    "semantic_hash": "e2b7729a889abb75c5ee7f251c5e454c"
+  },
+  "web/app/latihan/limit/page.tsx": {
+    "mtime": 1788443468.3795578,
+    "seen": 1788447000.084853,
+    "ast_hash": "a6955f7c453d14573509b0bec0edb673",
+    "semantic_hash": "a6955f7c453d14573509b0bec0edb673"
+  },
+  "web/app/latihan/page.tsx": {
+    "mtime": 1788443468.3795578,
+    "seen": 1788447000.084853,
+    "ast_hash": "bf387e5e1569997f5e2bfa98a9366d43",
+    "semantic_hash": "bf387e5e1569997f5e2bfa98a9366d43"
+  },
+  "web/app/latihan/ruang-3d/page.tsx": {
+    "mtime": 1788443468.3805604,
+    "seen": 1788447000.084853,
+    "ast_hash": "14cd04d829d33b9da8f8094c5b61e0e0",
+    "semantic_hash": "14cd04d829d33b9da8f8094c5b61e0e0"
+  },
+  "web/app/latihan/statistika/page.tsx": {
+    "mtime": 1788443468.3805604,
+    "seen": 1788447000.084853,
+    "ast_hash": "c255e88e8f1ced4d732f04f14f1a90db",
+    "semantic_hash": "c255e88e8f1ced4d732f04f14f1a90db"
+  },
+  "web/app/latihan/trigonometri/page.tsx": {
+    "mtime": 1788443468.3805604,
+    "seen": 1788447000.084853,
+    "ast_hash": "640ef947697ab17846bf7bf0ff943e13",
+    "semantic_hash": "640ef947697ab17846bf7bf0ff943e13"
+  },
+  "web/app/latihan/vektor/page.tsx": {
+    "mtime": 1788443468.3815837,
+    "seen": 1788447000.084853,
+    "ast_hash": "342f7f40605d500b0df39ae78123f9a8",
+    "semantic_hash": "342f7f40605d500b0df39ae78123f9a8"
+  },
+  "web/app/layout.tsx": {
+    "mtime": 1788443468.3815837,
+    "seen": 1788447000.084853,
+    "ast_hash": "075f23eaf508c4fdfa2986e024f15ae2",
+    "semantic_hash": "075f23eaf508c4fdfa2986e024f15ae2"
+  },
+  "web/app/manifest.ts": {
+    "mtime": 1788443468.3815837,
+    "seen": 1788447000.084853,
+    "ast_hash": "f78c30cbae32add8d06879cb27eba11e",
+    "semantic_hash": "f78c30cbae32add8d06879cb27eba11e"
+  },
+  "web/app/page.tsx": {
+    "mtime": 1788443468.382583,
+    "seen": 1788447000.084853,
+    "ast_hash": "801067415e61fe14713a15d032ee71fb",
+    "semantic_hash": "801067415e61fe14713a15d032ee71fb"
+  },
+  "web/app/peta-materi/page.tsx": {
+    "mtime": 1788443468.382583,
+    "seen": 1788447000.084853,
+    "ast_hash": "76e93925e40efc8b9ded393edb3e0a11",
+    "semantic_hash": "76e93925e40efc8b9ded393edb3e0a11"
+  },
+  "web/app/tentang/page.tsx": {
+    "mtime": 1788443468.3835838,
+    "seen": 1788447000.084853,
+    "ast_hash": "4637972c77bc0a26a823ebe39d42eb63",
+    "semantic_hash": "4637972c77bc0a26a823ebe39d42eb63"
+  },
+  "web/app/topik/[slug]/page.tsx": {
+    "mtime": 1788443468.3835838,
+    "seen": 1788447000.084853,
+    "ast_hash": "3ecb5f01d74b3bd14fcb1f7d67b08380",
+    "semantic_hash": "3ecb5f01d74b3bd14fcb1f7d67b08380"
+  },
+  "web/components/Demo.tsx": {
+    "mtime": 1788443468.384578,
+    "seen": 1788447000.084853,
+    "ast_hash": "8a24d60afad9d83de2ca1dc30c020dde",
+    "semantic_hash": "8a24d60afad9d83de2ca1dc30c020dde"
+  },
+  "web/components/Nav.tsx": {
+    "mtime": 1788443468.384578,
+    "seen": 1788447000.084853,
+    "ast_hash": "6b5b277c8d58ad4d12d7e54c927b2671",
+    "semantic_hash": "6b5b277c8d58ad4d12d7e54c927b2671"
+  },
+  "web/components/PemutarVideo.tsx": {
+    "mtime": 1788364163.2887585,
+    "seen": 1788447000.084853,
+    "ast_hash": "51ad5a705a62abaf0e2275412ae2c602",
+    "semantic_hash": "51ad5a705a62abaf0e2275412ae2c602"
+  },
+  "web/components/TombolPasang.tsx": {
+    "mtime": 1788443468.3855839,
+    "seen": 1788447000.084853,
+    "ast_hash": "5bd521fd7964798494830b3c4631158a",
+    "semantic_hash": "5bd521fd7964798494830b3c4631158a"
+  },
+  "web/components/latihan/ArenaLatihan.tsx": {
+    "mtime": 1788443468.3860993,
+    "seen": 1788447000.084853,
+    "ast_hash": "2e08e3de9980cb96b81ccf22de5d79ad",
+    "semantic_hash": "2e08e3de9980cb96b81ccf22de5d79ad"
+  },
+  "web/components/latihan/DaftarLatihan.tsx": {
+    "mtime": 1788443468.3860993,
+    "seen": 1788447000.084853,
+    "ast_hash": "a4d95a0dbdeede2a6d511921136b5b60",
+    "semantic_hash": "a4d95a0dbdeede2a6d511921136b5b60"
+  },
+  "web/components/mantra/Kaki.tsx": {
+    "mtime": 1788443468.3860993,
+    "seen": 1788447000.084853,
+    "ast_hash": "1ba3d25474fa2b9af446ffa9cdd0f329",
+    "semantic_hash": "1ba3d25474fa2b9af446ffa9cdd0f329"
+  },
+  "web/components/mantra/KartuBayang.tsx": {
+    "mtime": 1788443468.3871121,
+    "seen": 1788447000.084853,
+    "ast_hash": "bfc84368cf5c496a562edf66f07bf6a1",
+    "semantic_hash": "bfc84368cf5c496a562edf66f07bf6a1"
+  },
+  "web/components/mantra/LogoParalaks.tsx": {
+    "mtime": 1788443468.3871121,
+    "seen": 1788447000.084853,
+    "ast_hash": "9ada17beed73f2ef071bf8ef5dcff5ed",
+    "semantic_hash": "9ada17beed73f2ef071bf8ef5dcff5ed"
+  },
+  "web/components/mantra/PetaMateri.tsx": {
+    "mtime": 1788443468.3871121,
+    "seen": 1788447000.084853,
+    "ast_hash": "aa68de5816d4b9c8b84675a32936af01",
+    "semantic_hash": "aa68de5816d4b9c8b84675a32936af01"
+  },
+  "web/components/mantra/PitaKurva.tsx": {
+    "mtime": 1788443468.3871121,
+    "seen": 1788447000.084853,
+    "ast_hash": "f3a97c9818c67689154cb82543bfb9e8",
+    "semantic_hash": "f3a97c9818c67689154cb82543bfb9e8"
+  },
+  "web/components/topik/HalamanTopik.tsx": {
+    "mtime": 1788443468.3881266,
+    "seen": 1788447000.084853,
+    "ast_hash": "37e829a983d776d5908e4b2dcabb36ce",
+    "semantic_hash": "37e829a983d776d5908e4b2dcabb36ce"
+  },
+  "web/components/topik/Kuis.tsx": {
+    "mtime": 1788216268.216403,
+    "seen": 1788447000.084853,
+    "ast_hash": "b5b0a245c0e2ffe9652af0fcf0dbcd1f",
+    "semantic_hash": "b5b0a245c0e2ffe9652af0fcf0dbcd1f"
+  },
+  "web/components/topik/Latihan.tsx": {
+    "mtime": 1788200758.1216865,
+    "seen": 1788447000.084853,
+    "ast_hash": "aab5ecb1266e106afcfe7a73a2bfa982",
+    "semantic_hash": "aab5ecb1266e106afcfe7a73a2bfa982"
+  },
+  "web/components/topik/PanggungGrafikFungsi.tsx": {
+    "mtime": 1788363555.5133972,
+    "seen": 1788447000.084853,
+    "ast_hash": "422848e08e89e10da9233b91af933b9e",
+    "semantic_hash": "422848e08e89e10da9233b91af933b9e"
+  },
+  "web/components/topik/PanggungLimit.tsx": {
+    "mtime": 1788254991.7831097,
+    "seen": 1788447000.084853,
+    "ast_hash": "4272f12928712e2a69784e29e09fa1a1",
+    "semantic_hash": "4272f12928712e2a69784e29e09fa1a1"
+  },
+  "web/components/topik/PanggungRuang3D.tsx": {
+    "mtime": 1788363617.7881286,
+    "seen": 1788447000.084853,
+    "ast_hash": "d3767f4abbdbba82ed194c162e28b5af",
+    "semantic_hash": "d3767f4abbdbba82ed194c162e28b5af"
+  },
+  "web/components/topik/PanggungStatistika.tsx": {
+    "mtime": 1788295263.0061672,
+    "seen": 1788447000.084853,
+    "ast_hash": "1ccf08357b294deb891941ea4341c1f0",
+    "semantic_hash": "1ccf08357b294deb891941ea4341c1f0"
+  },
+  "web/components/topik/PanggungTrigonometri.tsx": {
+    "mtime": 1788254991.7841182,
+    "seen": 1788447000.084853,
+    "ast_hash": "7f7507b16fc1b8cc28a2efd297c5d39b",
+    "semantic_hash": "7f7507b16fc1b8cc28a2efd297c5d39b"
+  },
+  "web/components/topik/PanggungVektor.tsx": {
+    "mtime": 1788363554.1700978,
+    "seen": 1788447000.084853,
+    "ast_hash": "2f1069cbd90b26b5a84dc30e7a183d1d",
+    "semantic_hash": "2f1069cbd90b26b5a84dc30e7a183d1d"
+  },
+  "web/components/topik/Penjelasan.tsx": {
+    "mtime": 1788201715.7399793,
+    "seen": 1788447000.084853,
+    "ast_hash": "c4406ae1b82a9dc6f6258de181d8757b",
+    "semantic_hash": "c4406ae1b82a9dc6f6258de181d8757b"
+  },
+  "web/components/topik/jenis.ts": {
+    "mtime": 1788254991.7841182,
+    "seen": 1788447000.084853,
+    "ast_hash": "926f1f50ccdf51213dce7efb083928d3",
+    "semantic_hash": "926f1f50ccdf51213dce7efb083928d3"
+  },
+  "web/components/widget/Bayangan.tsx": {
+    "mtime": 1788443468.3891275,
+    "seen": 1788447000.084853,
+    "ast_hash": "329f2256ef91eb2755ba0fc42af351b1",
+    "semantic_hash": "329f2256ef91eb2755ba0fc42af351b1"
+  },
+  "web/components/widget/DuniaNyata.tsx": {
+    "mtime": 1788215440.8429933,
+    "seen": 1788447000.084853,
+    "ast_hash": "756e9335cbb406197ab185cec35bc3da",
+    "semantic_hash": "756e9335cbb406197ab185cec35bc3da"
+  },
+  "web/components/widget/EnamRasio.tsx": {
+    "mtime": 1788443468.3891275,
+    "seen": 1788447000.084853,
+    "ast_hash": "d5c763206fad38dea1b6026bc204e050",
+    "semantic_hash": "d5c763206fad38dea1b6026bc204e050"
+  },
+  "web/components/widget/LingkaranKeGrafik.tsx": {
+    "mtime": 1788443468.3891275,
+    "seen": 1788447000.084853,
+    "ast_hash": "72e9a2cba285f3756684a5084ba75655",
+    "semantic_hash": "72e9a2cba285f3756684a5084ba75655"
+  },
+  "web/components/widget/LingkaranSatuan.tsx": {
+    "mtime": 1788443468.3901262,
+    "seen": 1788447000.084853,
+    "ast_hash": "5c08c890e5e29f148d7681c7c21aba32",
+    "semantic_hash": "5c08c890e5e29f148d7681c7c21aba32"
+  },
+  "web/components/widget/PabrikRasio.tsx": {
+    "mtime": 1788443468.3901262,
+    "seen": 1788447000.084853,
+    "ast_hash": "6dd04078a1d9ecf470c801023bbd82bc",
+    "semantic_hash": "6dd04078a1d9ecf470c801023bbd82bc"
+  },
+  "web/components/widget/PenamaanSisi.tsx": {
+    "mtime": 1788443468.3901262,
+    "seen": 1788447000.084853,
+    "ast_hash": "3f5f65297a8025e9fab4cd36091e068c",
+    "semantic_hash": "3f5f65297a8025e9fab4cd36091e068c"
+  },
+  "web/components/widget/PerjalananSudut.tsx": {
+    "mtime": 1788443468.3911266,
+    "seen": 1788447000.084853,
+    "ast_hash": "b0d6bb49579049f24f91344a66925796",
+    "semantic_hash": "b0d6bb49579049f24f91344a66925796"
+  },
+  "web/components/widget/SegitigaSebangun.tsx": {
+    "mtime": 1788443468.3911266,
+    "seen": 1788447000.084853,
+    "ast_hash": "e580387ba3a1846c94d42ada020af418",
+    "semantic_hash": "e580387ba3a1846c94d42ada020af418"
+  },
+  "web/components/widget/TigaGrafik.tsx": {
+    "mtime": 1788443468.392128,
+    "seen": 1788447000.084853,
+    "ast_hash": "3161841386822c027a794afa5b587a9d",
+    "semantic_hash": "3161841386822c027a794afa5b587a9d"
+  },
+  "web/components/widget/grafik-fungsi/AsimtotRasional.tsx": {
+    "mtime": 1788295112.9399881,
+    "seen": 1788447000.084853,
+    "ast_hash": "4e983e0a9975ae538d5e10256fd25bfb",
+    "semantic_hash": "4e983e0a9975ae538d5e10256fd25bfb"
+  },
+  "web/components/widget/grafik-fungsi/BalapanTumbuh.tsx": {
+    "mtime": 1788295112.9409852,
+    "seen": 1788447000.084853,
+    "ast_hash": "574f60e1a42e09a713ac94dee983682c",
+    "semantic_hash": "574f60e1a42e09a713ac94dee983682c"
+  },
+  "web/components/widget/grafik-fungsi/BentukPuncak.tsx": {
+    "mtime": 1788295112.9409852,
+    "seen": 1788447000.084853,
+    "ast_hash": "b946aed953a78676f3614e72f47af8ab",
+    "semantic_hash": "b946aed953a78676f3614e72f47af8ab"
+  },
+  "web/components/widget/grafik-fungsi/Bidang.tsx": {
+    "mtime": 1788295112.9434364,
+    "seen": 1788447000.084853,
+    "ast_hash": "b1a81a52464e2b057cefd533087d54a3",
+    "semantic_hash": "b1a81a52464e2b057cefd533087d54a3"
+  },
+  "web/components/widget/grafik-fungsi/CerminYX.tsx": {
+    "mtime": 1788295112.9444373,
+    "seen": 1788447000.084853,
+    "ast_hash": "7f674a1761381c79275d370d7173ee48",
+    "semantic_hash": "7f674a1761381c79275d370d7173ee48"
+  },
+  "web/components/widget/grafik-fungsi/DuaMesin.tsx": {
+    "mtime": 1788363555.5155723,
+    "seen": 1788447000.084853,
+    "ast_hash": "0cba6fd3e0b49f2ccd1faee958eac16b",
+    "semantic_hash": "0cba6fd3e0b49f2ccd1faee958eac16b"
+  },
+  "web/components/widget/grafik-fungsi/DuniaNyataGrafik.tsx": {
+    "mtime": 1788443468.392128,
+    "seen": 1788447000.084853,
+    "ast_hash": "c7453a9166b9f3d0d2b8ea5ec23fa92d",
+    "semantic_hash": "c7453a9166b9f3d0d2b8ea5ec23fa92d"
+  },
+  "web/components/widget/grafik-fungsi/LipatMutlak.tsx": {
+    "mtime": 1788295112.946479,
+    "seen": 1788447000.084853,
+    "ast_hash": "d995c3ae8341f627d2df32a3a7cbbef7",
+    "semantic_hash": "d995c3ae8341f627d2df32a3a7cbbef7"
+  },
+  "web/components/widget/grafik-fungsi/PapanTransformasi.tsx": {
+    "mtime": 1788295112.9474437,
+    "seen": 1788447000.084853,
+    "ast_hash": "fb7818775eb77cb29406bc1e54238079",
+    "semantic_hash": "fb7818775eb77cb29406bc1e54238079"
+  },
+  "web/components/widget/grafik-fungsi/PembacaGrafik.tsx": {
+    "mtime": 1788295112.948443,
+    "seen": 1788447000.084853,
+    "ast_hash": "9c4f8113fe822e35e003db7b5719ac1e",
+    "semantic_hash": "9c4f8113fe822e35e003db7b5719ac1e"
+  },
+  "web/components/widget/grafik-fungsi/SusunParabola.tsx": {
+    "mtime": 1788295112.9494789,
+    "seen": 1788447000.084853,
+    "ast_hash": "847f49f3f0731e4cc1fe3167e340a748",
+    "semantic_hash": "847f49f3f0731e4cc1fe3167e340a748"
+  },
+  "web/components/widget/grafik-fungsi/UjiGarisTegak.tsx": {
+    "mtime": 1788295112.949992,
+    "seen": 1788447000.084853,
+    "ast_hash": "bcc68349592881d40f68bc6660e9d274",
+    "semantic_hash": "bcc68349592881d40f68bc6660e9d274"
+  },
+  "web/components/widget/grafik-fungsi/WajahParabola.tsx": {
+    "mtime": 1788295112.9520137,
+    "seen": 1788447000.084853,
+    "ast_hash": "8d43dcb39a37ec6cda6dbe77b25175b6",
+    "semantic_hash": "8d43dcb39a37ec6cda6dbe77b25175b6"
+  },
+  "web/components/widget/grafik-fungsi/fungsi.ts": {
+    "mtime": 1788295112.9520137,
+    "seen": 1788447000.084853,
+    "ast_hash": "2a2794b4616f716e824b2b505d81529d",
+    "semantic_hash": "2a2794b4616f716e824b2b505d81529d"
+  },
+  "web/components/widget/grafik-fungsi/koordinat.ts": {
+    "mtime": 1788443468.3931277,
+    "seen": 1788447000.084853,
+    "ast_hash": "27aac38d3c6d25316d508b8c41779679",
+    "semantic_hash": "27aac38d3c6d25316d508b8c41779679"
+  },
+  "web/components/widget/grafik-fungsi/seret.ts": {
+    "mtime": 1788295112.9541142,
+    "seen": 1788447000.084853,
+    "ast_hash": "7439796024b136dcaf82dcc71b9661a6",
+    "semantic_hash": "7439796024b136dcaf82dcc71b9661a6"
+  },
+  "web/components/widget/grafik-fungsi/transformasi.ts": {
+    "mtime": 1788295112.9559882,
+    "seen": 1788447000.084853,
+    "ast_hash": "fbe1f929e1a728103b121eaaa164a117",
+    "semantic_hash": "fbe1f929e1a728103b121eaaa164a117"
+  },
+  "web/components/widget/limit/Bidang.tsx": {
+    "mtime": 1788254991.785615,
+    "seen": 1788447000.084853,
+    "ast_hash": "5150cc88150cbf1adef6feb37daf4540",
+    "semantic_hash": "5150cc88150cbf1adef6feb37daf4540"
+  },
+  "web/components/widget/limit/BongkarBertahap.tsx": {
+    "mtime": 1788254991.785615,
+    "seen": 1788447000.084853,
+    "ast_hash": "df557428e3e92b715f26497ad8d6938c",
+    "semantic_hash": "df557428e3e92b715f26497ad8d6938c"
+  },
+  "web/components/widget/limit/BusurLawanTali.tsx": {
+    "mtime": 1788254991.785615,
+    "seen": 1788447000.084853,
+    "ast_hash": "b41e46a1f2948863e5d0e7f32f4a7acd",
+    "semantic_hash": "b41e46a1f2948863e5d0e7f32f4a7acd"
+  },
+  "web/components/widget/limit/DuniaNyataLimit.tsx": {
+    "mtime": 1788254991.7867582,
+    "seen": 1788447000.084853,
+    "ast_hash": "378cfb4b600d2680180d82049e72c686",
+    "semantic_hash": "378cfb4b600d2680180d82049e72c686"
+  },
+  "web/components/widget/limit/GarisMendekati.tsx": {
+    "mtime": 1788254991.7867582,
+    "seen": 1788447000.084853,
+    "ast_hash": "0a8df63595ca35e2a5066eb9db8aa40e",
+    "semantic_hash": "0a8df63595ca35e2a5066eb9db8aa40e"
+  },
+  "web/components/widget/limit/LubangGrafik.tsx": {
+    "mtime": 1788254991.787861,
+    "seen": 1788447000.084853,
+    "ast_hash": "8cdc6c147453677f5289bb474f19e8ee",
+    "semantic_hash": "8cdc6c147453677f5289bb474f19e8ee"
+  },
+  "web/components/widget/limit/MesinSifat.tsx": {
+    "mtime": 1788254991.787861,
+    "seen": 1788447000.084853,
+    "ast_hash": "1ee6c5b2da2251a9c3941264b3035b40",
+    "semantic_hash": "1ee6c5b2da2251a9c3941264b3035b40"
+  },
+  "web/components/widget/limit/PerkecilTampilan.tsx": {
+    "mtime": 1788254991.787861,
+    "seen": 1788447000.084853,
+    "ast_hash": "4be96cdeeb6c0ecd344b48c0bb9973f4",
+    "semantic_hash": "4be96cdeeb6c0ecd344b48c0bb9973f4"
+  },
+  "web/components/widget/limit/PerusakFungsi.tsx": {
+    "mtime": 1788254991.789157,
+    "seen": 1788447000.084853,
+    "ast_hash": "f90012831a52625f4be1da2f5a8df181",
+    "semantic_hash": "f90012831a52625f4be1da2f5a8df181"
+  },
+  "web/components/widget/limit/SelangMenyusut.tsx": {
+    "mtime": 1788254991.789157,
+    "seen": 1788447000.084853,
+    "ast_hash": "af244f03878bb87d07526770c7ab4a03",
+    "semantic_hash": "af244f03878bb87d07526770c7ab4a03"
+  },
+  "web/components/widget/limit/TarifMelompat.tsx": {
+    "mtime": 1788254991.790158,
+    "seen": 1788447000.084853,
+    "ast_hash": "c9c80aae47f345fcc257cbd0d4986002",
+    "semantic_hash": "c9c80aae47f345fcc257cbd0d4986002"
+  },
+  "web/components/widget/limit/koordinat.ts": {
+    "mtime": 1788443468.3931277,
+    "seen": 1788447000.084853,
+    "ast_hash": "d4f8d69869ded47bacadf3cb15be0546",
+    "semantic_hash": "d4f8d69869ded47bacadf3cb15be0546"
+  },
+  "web/components/widget/ruang-3d/Bingkai3D.tsx": {
+    "mtime": 1788363617.7897074,
+    "seen": 1788447000.084853,
+    "ast_hash": "f44c3f098c51db356c74353716cca9fb",
+    "semantic_hash": "f44c3f098c51db356c74353716cca9fb"
+  },
+  "web/components/widget/ruang-3d/DiagonalKubus.tsx": {
+    "mtime": 1788295264.4800124,
+    "seen": 1788447000.084853,
+    "ast_hash": "3bec509e506b22258e91d9449b9caaa0",
+    "semantic_hash": "3bec509e506b22258e91d9449b9caaa0"
+  },
+  "web/components/widget/ruang-3d/DuniaNyataRuang.tsx": {
+    "mtime": 1788443468.3941247,
+    "seen": 1788447000.084853,
+    "ast_hash": "c2f70e32da5fcf5afae8d0edf593fa76",
+    "semantic_hash": "c2f70e32da5fcf5afae8d0edf593fa76"
+  },
+  "web/components/widget/ruang-3d/JarakKeBidang.tsx": {
+    "mtime": 1788295264.4810143,
+    "seen": 1788447000.084853,
+    "ast_hash": "e91e4bb9497e04fd29eceef80b71c686",
+    "semantic_hash": "e91e4bb9497e04fd29eceef80b71c686"
+  },
+  "web/components/widget/ruang-3d/JarakKeGaris.tsx": {
+    "mtime": 1788295264.4810143,
+    "seen": 1788447000.084853,
+    "ast_hash": "408523f73bc75bf9f45ff0c0807dfea6",
+    "semantic_hash": "408523f73bc75bf9f45ff0c0807dfea6"
+  },
+  "web/components/widget/ruang-3d/JarakSejajar.tsx": {
+    "mtime": 1788295264.482012,
+    "seen": 1788447000.084853,
+    "ast_hash": "cc1b7b6700d6f64de5b693c2ce5859c3",
+    "semantic_hash": "cc1b7b6700d6f64de5b693c2ce5859c3"
+  },
+  "web/components/widget/ruang-3d/KakiTegakLurus.tsx": {
+    "mtime": 1788295264.4830208,
+    "seen": 1788447000.084853,
+    "ast_hash": "4833c06a41371486abec9934b9de95ca",
+    "semantic_hash": "4833c06a41371486abec9934b9de95ca"
+  },
+  "web/components/widget/ruang-3d/KubusPutar.tsx": {
+    "mtime": 1788295264.4840212,
+    "seen": 1788447000.084853,
+    "ast_hash": "31f47f585174b405927a96902de2bc54",
+    "semantic_hash": "31f47f585174b405927a96902de2bc54"
+  },
+  "web/components/widget/ruang-3d/PemilihKedudukan.tsx": {
+    "mtime": 1788295264.4840212,
+    "seen": 1788447000.084853,
+    "ast_hash": "648cbe2636a8566dd59a895e9d18f86e",
+    "semantic_hash": "648cbe2636a8566dd59a895e9d18f86e"
+  },
+  "web/components/widget/ruang-3d/SudutBersilangan.tsx": {
+    "mtime": 1788295264.485272,
+    "seen": 1788447000.084853,
+    "ast_hash": "721179b0d135cdd49d2b28437e63c4ca",
+    "semantic_hash": "721179b0d135cdd49d2b28437e63c4ca"
+  },
+  "web/components/widget/ruang-3d/SudutBidang.tsx": {
+    "mtime": 1788363617.7897074,
+    "seen": 1788447000.084853,
+    "ast_hash": "1fdebfa3ff6d91cd0601a3cf0618f2bf",
+    "semantic_hash": "1fdebfa3ff6d91cd0601a3cf0618f2bf"
+  },
+  "web/components/widget/ruang-3d/TombolPilih.tsx": {
+    "mtime": 1788443468.3951209,
+    "seen": 1788447000.084853,
+    "ast_hash": "2a35d6948595a0c3f34f92c70dda13fb",
+    "semantic_hash": "2a35d6948595a0c3f34f92c70dda13fb"
+  },
+  "web/components/widget/ruang-3d/ruang.ts": {
+    "mtime": 1788443468.3961225,
+    "seen": 1788447000.084853,
+    "ast_hash": "2b41126aa206ceac96b65104f82a85aa",
+    "semantic_hash": "2b41126aa206ceac96b65104f82a85aa"
+  },
+  "web/components/widget/statistika/BentukData.tsx": {
+    "mtime": 1788295263.0081787,
+    "seen": 1788447000.084853,
+    "ast_hash": "1843537bbe1689d7ef92c95e2ba8c365",
+    "semantic_hash": "1843537bbe1689d7ef92c95e2ba8c365"
+  },
+  "web/components/widget/statistika/DataKelompok.tsx": {
+    "mtime": 1788363592.311319,
+    "seen": 1788447000.084853,
+    "ast_hash": "1507d5bc6de779845208821018bda742",
+    "semantic_hash": "1507d5bc6de779845208821018bda742"
+  },
+  "web/components/widget/statistika/DiagramPencar.tsx": {
+    "mtime": 1788295263.0091796,
+    "seen": 1788447000.084853,
+    "ast_hash": "4a97408d6404c76696624ba13f178aff",
+    "semantic_hash": "4a97408d6404c76696624ba13f178aff"
+  },
+  "web/components/widget/statistika/DuaKelompok.tsx": {
+    "mtime": 1788443468.3971207,
+    "seen": 1788447000.084853,
+    "ast_hash": "689fe9e44a5b8414648295edc01167d7",
+    "semantic_hash": "689fe9e44a5b8414648295edc01167d7"
+  },
+  "web/components/widget/statistika/FrekuensiRelatif.tsx": {
+    "mtime": 1788295263.0111752,
+    "seen": 1788447000.084853,
+    "ast_hash": "b40f861947f6c743a3dc0ad316486981",
+    "semantic_hash": "b40f861947f6c743a3dc0ad316486981"
+  },
+  "web/components/widget/statistika/GarisBilangan.tsx": {
+    "mtime": 1788295263.012211,
+    "seen": 1788447000.084853,
+    "ast_hash": "8928a2e38a3f80de9da8bfb10c357d45",
+    "semantic_hash": "8928a2e38a3f80de9da8bfb10c357d45"
+  },
+  "web/components/widget/statistika/GarisRegresi.tsx": {
+    "mtime": 1788295263.013168,
+    "seen": 1788447000.084853,
+    "ast_hash": "e74810d898832fe521eda2e965a6cb49",
+    "semantic_hash": "e74810d898832fe521eda2e965a6cb49"
+  },
+  "web/components/widget/statistika/JarakKeRata.tsx": {
+    "mtime": 1788295263.014166,
+    "seen": 1788447000.084853,
+    "ast_hash": "19bf27b96768ada2bb8e84a8b9fb2c35",
+    "semantic_hash": "19bf27b96768ada2bb8e84a8b9fb2c35"
+  },
+  "web/components/widget/statistika/KekuatanHubungan.tsx": {
+    "mtime": 1788295263.0151775,
+    "seen": 1788447000.084853,
+    "ast_hash": "bcb5236a50b5d4606bedf6f69228d77f",
+    "semantic_hash": "bcb5236a50b5d4606bedf6f69228d77f"
+  },
+  "web/components/widget/statistika/KotakGaris.tsx": {
+    "mtime": 1788363592.3123257,
+    "seen": 1788447000.084853,
+    "ast_hash": "d86aee3129448939ac73979d54b2b665",
+    "semantic_hash": "d86aee3129448939ac73979d54b2b665"
+  },
+  "web/components/widget/statistika/LebarKelas.tsx": {
+    "mtime": 1788363592.3123257,
+    "seen": 1788447000.084853,
+    "ast_hash": "0e839f47bc0661934cd163d641e66b75",
+    "semantic_hash": "0e839f47bc0661934cd163d641e66b75"
+  },
+  "web/components/widget/statistika/Papan.tsx": {
+    "mtime": 1788363592.3133266,
+    "seen": 1788447000.084853,
+    "ast_hash": "f10ba37cf9b327bd6566e698805aee6c",
+    "semantic_hash": "f10ba37cf9b327bd6566e698805aee6c"
+  },
+  "web/components/widget/statistika/SumbuJujur.tsx": {
+    "mtime": 1788295263.0177736,
+    "seen": 1788447000.084853,
+    "ast_hash": "0f13fd82fe09d0824e692ff512092cd5",
+    "semantic_hash": "0f13fd82fe09d0824e692ff512092cd5"
+  },
+  "web/components/widget/statistika/TarikPencilan.tsx": {
+    "mtime": 1788363592.3133266,
+    "seen": 1788447000.084853,
+    "ast_hash": "63aa2f24cdc373e9dbbaacb1d95a0589",
+    "semantic_hash": "63aa2f24cdc373e9dbbaacb1d95a0589"
+  },
+  "web/components/widget/statistika/TigaUkuran.tsx": {
+    "mtime": 1788363592.3133266,
+    "seen": 1788447000.084853,
+    "ast_hash": "2dbfd65b0da46ac745161e1beceb42d2",
+    "semantic_hash": "2dbfd65b0da46ac745161e1beceb42d2"
+  },
+  "web/components/widget/statistika/jenis.ts": {
+    "mtime": 1788295263.0190759,
+    "seen": 1788447000.084853,
+    "ast_hash": "28d23058b7e3ab43d82a65596ec61c97",
+    "semantic_hash": "28d23058b7e3ab43d82a65596ec61c97"
+  },
+  "web/components/widget/statistika/seret.ts": {
+    "mtime": 1788295263.0204985,
+    "seen": 1788447000.084853,
+    "ast_hash": "f9fe2645edd78fb0bcd746b9c9619a31",
+    "semantic_hash": "f9fe2645edd78fb0bcd746b9c9619a31"
+  },
+  "web/components/widget/statistika/skala.ts": {
+    "mtime": 1788295263.0216925,
+    "seen": 1788447000.084853,
+    "ast_hash": "e3c20fb236488f50f2a0fb00cd463df5",
+    "semantic_hash": "e3c20fb236488f50f2a0fb00cd463df5"
+  },
+  "web/components/widget/statistika/statistik.ts": {
+    "mtime": 1788295263.022695,
+    "seen": 1788447000.084853,
+    "ast_hash": "ec73093590edfa0f126e56258219a21a",
+    "semantic_hash": "ec73093590edfa0f126e56258219a21a"
+  },
+  "web/components/widget/statistika/warna-data.ts": {
+    "mtime": 1788443468.3971207,
+    "seen": 1788447000.084853,
+    "ast_hash": "07f660e96ad593bd73f636aba6dd4262",
+    "semantic_hash": "07f660e96ad593bd73f636aba6dd4262"
+  },
+  "web/components/widget/vektor/BidangVektor.tsx": {
+    "mtime": 1788295076.993069,
+    "seen": 1788447000.084853,
+    "ast_hash": "c379eb32432797394ee8950f72e1ac05",
+    "semantic_hash": "c379eb32432797394ee8950f72e1ac05"
+  },
+  "web/components/widget/vektor/DuniaNyataVektor.tsx": {
+    "mtime": 1788363554.1732435,
+    "seen": 1788447000.084853,
+    "ast_hash": "fb50d38102e80de2e91cd3b321f8744a",
+    "semantic_hash": "fb50d38102e80de2e91cd3b321f8744a"
+  },
+  "web/components/widget/vektor/JajarGenjang.tsx": {
+    "mtime": 1788295076.9940786,
+    "seen": 1788447000.084853,
+    "ast_hash": "2f1299f6d0f355703cc62171102b86be",
+    "semantic_hash": "2f1299f6d0f355703cc62171102b86be"
+  },
+  "web/components/widget/vektor/KaliSkalar.tsx": {
+    "mtime": 1788295076.9950798,
+    "seen": 1788447000.084853,
+    "ast_hash": "6711be76b413170416bf60373840ec37",
+    "semantic_hash": "6711be76b413170416bf60373840ec37"
+  },
+  "web/components/widget/vektor/Legenda.tsx": {
+    "mtime": 1788295076.9960773,
+    "seen": 1788447000.084853,
+    "ast_hash": "7348b1e739e0c5b6f98636d36322e027",
+    "semantic_hash": "7348b1e739e0c5b6f98636d36322e027"
+  },
+  "web/components/widget/vektor/Panah.tsx": {
+    "mtime": 1788295076.9980686,
+    "seen": 1788447000.084853,
+    "ast_hash": "1235fce3fb2ad568a7314c3ec28110d7",
+    "semantic_hash": "1235fce3fb2ad568a7314c3ec28110d7"
+  },
+  "web/components/widget/vektor/PanahBerpindah.tsx": {
+    "mtime": 1788295076.9990711,
+    "seen": 1788447000.084853,
+    "ast_hash": "c7eb59978eda2f594222e7e7dd36ff23",
+    "semantic_hash": "c7eb59978eda2f594222e7e7dd36ff23"
+  },
+  "web/components/widget/vektor/PanjangDanArah.tsx": {
+    "mtime": 1788295077.0000684,
+    "seen": 1788447000.084853,
+    "ast_hash": "919b20aac2cb86b26230ebb50c1ce457",
+    "semantic_hash": "919b20aac2cb86b26230ebb50c1ce457"
+  },
+  "web/components/widget/vektor/PecahKomponen.tsx": {
+    "mtime": 1788295077.0010734,
+    "seen": 1788447000.084853,
+    "ast_hash": "2f824bb20bc9d3f777f21b63314883fc",
+    "semantic_hash": "2f824bb20bc9d3f777f21b63314883fc"
+  },
+  "web/components/widget/vektor/PerahuSungai.tsx": {
+    "mtime": 1788295077.0010734,
+    "seen": 1788447000.084853,
+    "ast_hash": "b9f56692517263fdb68ff4fecd27f4a6",
+    "semantic_hash": "b9f56692517263fdb68ff4fecd27f4a6"
+  },
+  "web/components/widget/vektor/PerkalianTitik.tsx": {
+    "mtime": 1788295077.002081,
+    "seen": 1788447000.084853,
+    "ast_hash": "9ac0e0e322221b61b45fe8d3ee83ce56",
+    "semantic_hash": "9ac0e0e322221b61b45fe8d3ee83ce56"
+  },
+  "web/components/widget/vektor/Proyeksi.tsx": {
+    "mtime": 1788295077.0030792,
+    "seen": 1788447000.084853,
+    "ast_hash": "3b94fadb4cf5e74812b9a0f816b0f8b7",
+    "semantic_hash": "3b94fadb4cf5e74812b9a0f816b0f8b7"
+  },
+  "web/components/widget/vektor/SambungPanah.tsx": {
+    "mtime": 1788295077.0041068,
+    "seen": 1788447000.084853,
+    "ast_hash": "6d6ddd59de86b93e463955a66204f22d",
+    "semantic_hash": "6d6ddd59de86b93e463955a66204f22d"
+  },
+  "web/components/widget/vektor/SelisihPanah.tsx": {
+    "mtime": 1788295077.0041068,
+    "seen": 1788447000.084853,
+    "ast_hash": "f1397edcb3df2db6b46c9930204dbac3",
+    "semantic_hash": "f1397edcb3df2db6b46c9930204dbac3"
+  },
+  "web/components/widget/vektor/VektorSatuan.tsx": {
+    "mtime": 1788295077.0051072,
+    "seen": 1788447000.084853,
+    "ast_hash": "0ab30dcb6b2d26ab6486791359abd7ea",
+    "semantic_hash": "0ab30dcb6b2d26ab6486791359abd7ea"
+  },
+  "web/components/widget/vektor/bentuk.ts": {
+    "mtime": 1788295077.0051072,
+    "seen": 1788447000.084853,
+    "ast_hash": "f9e9d03b9b4430a806e25e153a9c0a9d",
+    "semantic_hash": "f9e9d03b9b4430a806e25e153a9c0a9d"
+  },
+  "web/components/widget/vektor/gaya.ts": {
+    "mtime": 1788443468.3981197,
+    "seen": 1788447000.084853,
+    "ast_hash": "245d20314da8b724f2cbac1a2bb689a3",
+    "semantic_hash": "245d20314da8b724f2cbac1a2bb689a3"
+  },
+  "web/components/widget/vektor/geometri.ts": {
+    "mtime": 1788295077.0070927,
+    "seen": 1788447000.084853,
+    "ast_hash": "b834a3f2bd752aa4c9039cc13708b4ca",
+    "semantic_hash": "b834a3f2bd752aa4c9039cc13708b4ca"
+  },
+  "web/components/widget/vektor/useSeret.ts": {
+    "mtime": 1788295077.0080926,
+    "seen": 1788447000.084853,
+    "ast_hash": "600c21b433819c3aaf375c59d8a27818",
+    "semantic_hash": "600c21b433819c3aaf375c59d8a27818"
+  },
+  "web/content/daftar-isi.ts": {
+    "mtime": 1788295312.4909127,
+    "seen": 1788447000.084853,
+    "ast_hash": "efad0d93ae445eb667fee0e0df2af4fe",
+    "semantic_hash": "efad0d93ae445eb667fee0e0df2af4fe"
+  },
+  "web/content/grafik-fungsi/index.ts": {
+    "mtime": 1788295112.9595025,
+    "seen": 1788447000.084853,
+    "ast_hash": "fa383fe91d163cf5b6b4f6952f88894b",
+    "semantic_hash": "fa383fe91d163cf5b6b4f6952f88894b"
+  },
+  "web/content/grafik-fungsi/kuis.ts": {
+    "mtime": 1788363555.5165699,
+    "seen": 1788447000.084853,
+    "ast_hash": "6bea911ba1332dff3c2d16cce05f39bd",
+    "semantic_hash": "6bea911ba1332dff3c2d16cce05f39bd"
+  },
+  "web/content/grafik-fungsi/latihan.ts": {
+    "mtime": 1788363555.5165699,
+    "seen": 1788447000.084853,
+    "ast_hash": "340ce5e16abf1f6a2f0807fff80cd75c",
+    "semantic_hash": "340ce5e16abf1f6a2f0807fff80cd75c"
+  },
+  "web/content/grafik-fungsi/tahap.ts": {
+    "mtime": 1788443468.39912,
+    "seen": 1788447000.084853,
+    "ast_hash": "cb9c19d43f7c1d4425a3a883f24831dd",
+    "semantic_hash": "cb9c19d43f7c1d4425a3a883f24831dd"
+  },
+  "web/content/limit/index.ts": {
+    "mtime": 1788254991.7911592,
+    "seen": 1788447000.084853,
+    "ast_hash": "fa383fe91d163cf5b6b4f6952f88894b",
+    "semantic_hash": "fa383fe91d163cf5b6b4f6952f88894b"
+  },
+  "web/content/limit/kuis.ts": {
+    "mtime": 1788254991.7921593,
+    "seen": 1788447000.084853,
+    "ast_hash": "ac4a22a6a4a08033311ab5a1742c79b7",
+    "semantic_hash": "ac4a22a6a4a08033311ab5a1742c79b7"
+  },
+  "web/content/limit/latihan.ts": {
+    "mtime": 1788254991.7921593,
+    "seen": 1788447000.084853,
+    "ast_hash": "7f04c964600ef847d7b8b20761ddf2b4",
+    "semantic_hash": "7f04c964600ef847d7b8b20761ddf2b4"
+  },
+  "web/content/limit/tahap.ts": {
+    "mtime": 1788443468.39912,
+    "seen": 1788447000.084853,
+    "ast_hash": "30c612ca2b925ed19552220433b2b5f1",
+    "semantic_hash": "30c612ca2b925ed19552220433b2b5f1"
+  },
+  "web/content/ruang-3d/index.ts": {
+    "mtime": 1788295264.4901164,
+    "seen": 1788447000.084853,
+    "ast_hash": "fa383fe91d163cf5b6b4f6952f88894b",
+    "semantic_hash": "fa383fe91d163cf5b6b4f6952f88894b"
+  },
+  "web/content/ruang-3d/kuis.ts": {
+    "mtime": 1788295264.4901164,
+    "seen": 1788447000.084853,
+    "ast_hash": "0e827e12786d78288e5e90ed1e85f445",
+    "semantic_hash": "0e827e12786d78288e5e90ed1e85f445"
+  },
+  "web/content/ruang-3d/latihan.ts": {
+    "mtime": 1788295264.4914737,
+    "seen": 1788447000.084853,
+    "ast_hash": "733c2c48e5d011679fdc521d98a7d97e",
+    "semantic_hash": "733c2c48e5d011679fdc521d98a7d97e"
+  },
+  "web/content/ruang-3d/tahap.ts": {
+    "mtime": 1788363617.790723,
+    "seen": 1788447000.084853,
+    "ast_hash": "de4b6677dc41977698ce8f5e07e179dd",
+    "semantic_hash": "de4b6677dc41977698ce8f5e07e179dd"
+  },
+  "web/content/statistika/data.json": {
+    "mtime": 1788363592.3148403,
+    "seen": 1788447000.084853,
+    "ast_hash": "5665a52d8b328124ef175ffb030858e3",
+    "semantic_hash": "5665a52d8b328124ef175ffb030858e3"
+  },
+  "web/content/statistika/data.ts": {
+    "mtime": 1788295263.027725,
+    "seen": 1788447000.084853,
+    "ast_hash": "6a4c65b86cd69a3ae4ff7995085078ac",
+    "semantic_hash": "6a4c65b86cd69a3ae4ff7995085078ac"
+  },
+  "web/content/statistika/index.ts": {
+    "mtime": 1788295263.027725,
+    "seen": 1788447000.084853,
+    "ast_hash": "fa383fe91d163cf5b6b4f6952f88894b",
+    "semantic_hash": "fa383fe91d163cf5b6b4f6952f88894b"
+  },
+  "web/content/statistika/kuis.ts": {
+    "mtime": 1788295263.028687,
+    "seen": 1788447000.084853,
+    "ast_hash": "6c81a9381eb98ec1260da8bfe7dd4372",
+    "semantic_hash": "6c81a9381eb98ec1260da8bfe7dd4372"
+  },
+  "web/content/statistika/latihan.ts": {
+    "mtime": 1788295263.0296926,
+    "seen": 1788447000.084853,
+    "ast_hash": "e904b7ef6dc80309ff0c37f2b7210226",
+    "semantic_hash": "e904b7ef6dc80309ff0c37f2b7210226"
+  },
+  "web/content/statistika/tahap-hubungan.ts": {
+    "mtime": 1788443468.4001198,
+    "seen": 1788447000.084853,
+    "ast_hash": "82d5147b30fb0315d6b044d2b28a5408",
+    "semantic_hash": "82d5147b30fb0315d6b044d2b28a5408"
+  },
+  "web/content/statistika/tahap-pemusatan.ts": {
+    "mtime": 1788363592.3148403,
+    "seen": 1788447000.084853,
+    "ast_hash": "e040905d8fd77b8d941c96413c1f23af",
+    "semantic_hash": "e040905d8fd77b8d941c96413c1f23af"
+  },
+  "web/content/statistika/tahap-penyajian.ts": {
+    "mtime": 1788363592.3148403,
+    "seen": 1788447000.084853,
+    "ast_hash": "e703edeb325701e1748d0e2a11479b66",
+    "semantic_hash": "e703edeb325701e1748d0e2a11479b66"
+  },
+  "web/content/statistika/tahap.ts": {
+    "mtime": 1788443468.4001198,
+    "seen": 1788447000.084853,
+    "ast_hash": "7ec74a0b6598ed81168a6aa606690136",
+    "semantic_hash": "7ec74a0b6598ed81168a6aa606690136"
+  },
+  "web/content/statistika/widget.ts": {
+    "mtime": 1788295263.0346951,
+    "seen": 1788447000.084853,
+    "ast_hash": "ed7381b4ab3fcc4b1f86f0ca7b29141e",
+    "semantic_hash": "ed7381b4ab3fcc4b1f86f0ca7b29141e"
+  },
+  "web/content/subbab.ts": {
+    "mtime": 1788443468.40112,
+    "seen": 1788447000.084853,
+    "ast_hash": "638740aa4101872b324a4ffd5d549e0d",
+    "semantic_hash": "638740aa4101872b324a4ffd5d549e0d"
+  },
+  "web/content/tipe.ts": {
+    "mtime": 1788443468.40112,
+    "seen": 1788447000.084853,
+    "ast_hash": "13687cdcd1ebba795b7135b4315b6377",
+    "semantic_hash": "13687cdcd1ebba795b7135b4315b6377"
+  },
+  "web/content/topik.ts": {
+    "mtime": 1788443468.40112,
+    "seen": 1788447000.084853,
+    "ast_hash": "37e36c3fa9a956ab8a24c59a01c8644d",
+    "semantic_hash": "37e36c3fa9a956ab8a24c59a01c8644d"
+  },
+  "web/content/trigonometri/index.ts": {
+    "mtime": 1788216284.5479825,
+    "seen": 1788447000.084853,
+    "ast_hash": "fa383fe91d163cf5b6b4f6952f88894b",
+    "semantic_hash": "fa383fe91d163cf5b6b4f6952f88894b"
+  },
+  "web/content/trigonometri/kuis.ts": {
+    "mtime": 1788254991.7941563,
+    "seen": 1788447000.084853,
+    "ast_hash": "946faa97606bd87edb309206c33532e4",
+    "semantic_hash": "946faa97606bd87edb309206c33532e4"
+  },
+  "web/content/trigonometri/latihan.ts": {
+    "mtime": 1788254991.7954023,
+    "seen": 1788447000.084853,
+    "ast_hash": "a74ad37b7ae4019c7d30e18820b63fc1",
+    "semantic_hash": "a74ad37b7ae4019c7d30e18820b63fc1"
+  },
+  "web/content/trigonometri/tahap.ts": {
+    "mtime": 1788254991.7959082,
+    "seen": 1788447000.084853,
+    "ast_hash": "2f0a39736af432687e0e1df8af118f69",
+    "semantic_hash": "2f0a39736af432687e0e1df8af118f69"
+  },
+  "web/content/vektor/index.ts": {
+    "mtime": 1788295077.0110981,
+    "seen": 1788447000.084853,
+    "ast_hash": "fa383fe91d163cf5b6b4f6952f88894b",
+    "semantic_hash": "fa383fe91d163cf5b6b4f6952f88894b"
+  },
+  "web/content/vektor/kuis.ts": {
+    "mtime": 1788363554.1742396,
+    "seen": 1788447000.084853,
+    "ast_hash": "a8b2743f9b230cc545555e9216e0dd42",
+    "semantic_hash": "a8b2743f9b230cc545555e9216e0dd42"
+  },
+  "web/content/vektor/latihan.ts": {
+    "mtime": 1788295077.013234,
+    "seen": 1788447000.084853,
+    "ast_hash": "fef9469947a877dfe1480db591bbd78e",
+    "semantic_hash": "fef9469947a877dfe1480db591bbd78e"
+  },
+  "web/content/vektor/tahap.ts": {
+    "mtime": 1788443468.402119,
+    "seen": 1788447000.084853,
+    "ast_hash": "5a51e6a3d18927d54df1d60a2dc40b05",
+    "semantic_hash": "5a51e6a3d18927d54df1d60a2dc40b05"
+  },
+  "web/eslint.config.mjs": {
+    "mtime": 1788155535.8319252,
+    "seen": 1788447000.084853,
+    "ast_hash": "dfa1f5f6a7037bf39dc510f30b180002",
+    "semantic_hash": "dfa1f5f6a7037bf39dc510f30b180002"
+  },
+  "web/lib/kemajuan.ts": {
+    "mtime": 1788200783.9906003,
+    "seen": 1788447000.084853,
+    "ast_hash": "da6bcea764b4e5ad2bb23ab3141cdb70",
+    "semantic_hash": "da6bcea764b4e5ad2bb23ab3141cdb70"
+  },
+  "web/lib/latihan-kemajuan.ts": {
+    "mtime": 1788216469.34961,
+    "seen": 1788447000.084853,
+    "ast_hash": "424f8a130706b7edf069af70fbc36e5a",
+    "semantic_hash": "424f8a130706b7edf069af70fbc36e5a"
+  },
+  "web/lib/simpanan.ts": {
+    "mtime": 1788195099.7301054,
+    "seen": 1788447000.084853,
+    "ast_hash": "0f333479b5d7765d68b4e35d7c5d2de2",
+    "semantic_hash": "0f333479b5d7765d68b4e35d7c5d2de2"
+  },
+  "web/lib/soal-acak.ts": {
+    "mtime": 1788216239.4207768,
+    "seen": 1788447000.084853,
+    "ast_hash": "fab2927c1ca9c894b2502d251322199d",
+    "semantic_hash": "fab2927c1ca9c894b2502d251322199d"
+  },
+  "web/lib/warna.ts": {
+    "mtime": 1788195099.7301054,
+    "seen": 1788447000.084853,
+    "ast_hash": "447fea0e118f4544dcb52b255e782920",
+    "semantic_hash": "447fea0e118f4544dcb52b255e782920"
+  },
+  "web/next.config.ts": {
+    "mtime": 1788194549.5843337,
+    "seen": 1788447000.084853,
+    "ast_hash": "7eacbc383e7c737072e6450c0532eecf",
+    "semantic_hash": "7eacbc383e7c737072e6450c0532eecf"
+  },
+  "web/package.json": {
+    "mtime": 1788155536.9207928,
+    "seen": 1788447000.084853,
+    "ast_hash": "3e41b4ab924c84e47b4426bb990fcc82",
+    "semantic_hash": "3e41b4ab924c84e47b4426bb990fcc82"
+  },
+  "web/postcss.config.mjs": {
+    "mtime": 1788155535.9096293,
+    "seen": 1788447000.084853,
+    "ast_hash": "239f3ebf717465dc636818a1a619398d",
+    "semantic_hash": "239f3ebf717465dc636818a1a619398d"
+  },
+  "web/public/gambar/sumber.json": {
+    "mtime": 1788295261.5731752,
+    "seen": 1788447000.084853,
+    "ast_hash": "8e8c6d46b4a3135b83a314ac67c78472",
+    "semantic_hash": "8e8c6d46b4a3135b83a314ac67c78472"
+  },
+  "web/public/merek/sumber.json": {
+    "mtime": 1788194498.7387192,
+    "seen": 1788447000.084853,
+    "ast_hash": "ffce563dcd762b3fdd82008b366813f7",
+    "semantic_hash": "ffce563dcd762b3fdd82008b366813f7"
+  },
+  "web/tsconfig.json": {
+    "mtime": 1788155536.9197795,
+    "seen": 1788447000.084853,
+    "ast_hash": "02fc19ad21338c2ab820a70136310db4",
+    "semantic_hash": "02fc19ad21338c2ab820a70136310db4"
+  },
+  "web/vercel.json": {
+    "mtime": 1788255437.5863502,
+    "seen": 1788447000.084853,
+    "ast_hash": "70803fcfe0c0ffd5294dcb2199bf820b",
+    "semantic_hash": "70803fcfe0c0ffd5294dcb2199bf820b"
+  },
+  "CLAUDE.md": {
+    "mtime": 1788446472.9004085,
+    "seen": 1788447000.084853,
+    "ast_hash": "1e01492a00e48a388326f5a33b917a62",
+    "semantic_hash": "1e01492a00e48a388326f5a33b917a62"
+  },
+  "PROGRESS.md": {
+    "mtime": 1788443671.875043,
+    "seen": 1788447000.084853,
+    "ast_hash": "be53e880a2695c3eb69f41577c936ce1",
+    "semantic_hash": "be53e880a2695c3eb69f41577c936ce1"
+  },
+  "alat/lingkungan/pip-freeze-2026-09-02-sebelum-manimgl.txt": {
+    "mtime": 1788314173.8256333,
+    "seen": 1788447000.084853,
+    "ast_hash": "54ea8df297ae7e5c16f77361f72b8e3e",
+    "semantic_hash": "54ea8df297ae7e5c16f77361f72b8e3e"
+  },
+  "custom_config.yml": {
+    "mtime": 1788322191.0830789,
+    "seen": 1788447000.084853,
+    "ast_hash": "8bb0a5961d22f32502106ca56b2997b2",
+    "semantic_hash": "8bb0a5961d22f32502106ca56b2997b2"
+  },
+  "docs/2026-09-01-kuota-vercel-matra.md": {
+    "mtime": 1788254991.7697177,
+    "seen": 1788447000.084853,
+    "ast_hash": "6454837fc9e3f05b6dd744cf6482f95a",
+    "semantic_hash": "6454837fc9e3f05b6dd744cf6482f95a"
+  },
+  "docs/desain-mantra/HANDOFF.md": {
+    "mtime": 1788443468.3656056,
+    "seen": 1788447000.084853,
+    "ast_hash": "7e765cae1ab647992d4bd058e9271450",
+    "semantic_hash": "7e765cae1ab647992d4bd058e9271450"
+  },
+  "docs/desain-mantra/MANTRA.dc.html": {
+    "mtime": 1788443468.3666039,
+    "seen": 1788447000.084853,
+    "ast_hash": "d4b0833cf589a6f45e560f0c2a3988b8",
+    "semantic_hash": "d4b0833cf589a6f45e560f0c2a3988b8"
+  },
+  "docs/desain-mantra/RENCANA.md": {
+    "mtime": 1788443468.3666039,
+    "seen": 1788447000.084853,
+    "ast_hash": "2e538faf66e985a5ece20407513739e3",
+    "semantic_hash": "2e538faf66e985a5ece20407513739e3"
+  },
+  "docs/superpowers/plans/2026-09-01-topik-limit.md": {
+    "mtime": 1788254991.7706802,
+    "seen": 1788447000.084853,
+    "ast_hash": "c790308793e45a90706828d948280fc4",
+    "semantic_hash": "c790308793e45a90706828d948280fc4"
+  },
+  "docs/superpowers/plans/2026-09-01-topik-vektor.md": {
+    "mtime": 1788295076.987079,
+    "seen": 1788447000.084853,
+    "ast_hash": "99bfff7df1acd3da05a53d92dfa95c80",
+    "semantic_hash": "99bfff7df1acd3da05a53d92dfa95c80"
+  },
+  "docs/superpowers/plans/2026-09-02-perkakas-manimgl.md": {
+    "mtime": 1788317797.6383162,
+    "seen": 1788447000.084853,
+    "ast_hash": "09550398fab486a81e75a472c8153e0b",
+    "semantic_hash": "09550398fab486a81e75a472c8153e0b"
+  },
+  "docs/superpowers/specs/2026-08-31-matra-design.md": {
+    "mtime": 1788153499.3641112,
+    "seen": 1788447000.084853,
+    "ast_hash": "c5e91f041bdd5b9ae3448aa8af31cfce",
+    "semantic_hash": "c5e91f041bdd5b9ae3448aa8af31cfce"
+  },
+  "docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md": {
+    "mtime": 1788165113.512133,
+    "seen": 1788447000.084853,
+    "ast_hash": "f6ef277bc3ac74f445cfb36c242b7b3e",
+    "semantic_hash": "f6ef277bc3ac74f445cfb36c242b7b3e"
+  },
+  "docs/superpowers/specs/2026-09-01-enam-sesi-paralel-design.md": {
+    "mtime": 1788264599.213646,
+    "seen": 1788447000.084853,
+    "ast_hash": "bb68ba62222a556f4786f20bb5fb0e8d",
+    "semantic_hash": "bb68ba62222a556f4786f20bb5fb0e8d"
+  },
+  "docs/superpowers/specs/2026-09-01-grafik-fungsi-alur-belajar.md": {
+    "mtime": 1788363555.4936728,
+    "seen": 1788447000.084853,
+    "ast_hash": "5901751945614d059fe9113f587cb12a",
+    "semantic_hash": "5901751945614d059fe9113f587cb12a"
+  },
+  "docs/superpowers/specs/2026-09-01-limit-alur-belajar.md": {
+    "mtime": 1788254991.7719462,
+    "seen": 1788447000.084853,
+    "ast_hash": "ec92fda1d8ba2ba3d2c2a0d1fce69919",
+    "semantic_hash": "ec92fda1d8ba2ba3d2c2a0d1fce69919"
+  },
+  "docs/superpowers/specs/2026-09-01-revisi-besar-situs.md": {
+    "mtime": 1788194158.4979746,
+    "seen": 1788447000.084853,
+    "ast_hash": "88bcfccf8807071c64aff7f57f08e884",
+    "semantic_hash": "88bcfccf8807071c64aff7f57f08e884"
+  },
+  "docs/superpowers/specs/2026-09-01-ruang-3d-alur-belajar.md": {
+    "mtime": 1788295264.476013,
+    "seen": 1788447000.084853,
+    "ast_hash": "cbc32b1668a254009b3cd70ead8f2fee",
+    "semantic_hash": "cbc32b1668a254009b3cd70ead8f2fee"
+  },
+  "docs/superpowers/specs/2026-09-01-statistika-alur-belajar.md": {
+    "mtime": 1788295263.0031793,
+    "seen": 1788447000.084853,
+    "ast_hash": "3bcbeba49f748a645ac4d0cc22099f9c",
+    "semantic_hash": "3bcbeba49f748a645ac4d0cc22099f9c"
+  },
+  "docs/superpowers/specs/2026-09-01-ui-ux-responsif-design.md": {
+    "mtime": 1788294855.4133537,
+    "seen": 1788447000.084853,
+    "ast_hash": "d73042b48aec9fa529aed938955ce731",
+    "semantic_hash": "d73042b48aec9fa529aed938955ce731"
+  },
+  "docs/superpowers/specs/2026-09-01-vektor-alur-belajar.md": {
+    "mtime": 1788295076.9880779,
+    "seen": 1788447000.084853,
+    "ast_hash": "dbf682a0c77ac7f5d109f12f5a174fc0",
+    "semantic_hash": "dbf682a0c77ac7f5d109f12f5a174fc0"
+  },
+  "docs/superpowers/specs/2026-09-02-pindah-manimgl-dan-standar-ilustrasi-design.md": {
+    "mtime": 1788322597.9669316,
+    "seen": 1788447000.084853,
+    "ast_hash": "4a381a7a3f852f851678dac85a27ab0e",
+    "semantic_hash": "4a381a7a3f852f851678dac85a27ab0e"
+  },
+  "docs/superpowers/specs/2026-09-02-statistika-video-5-storyboard.md": {
+    "mtime": 1788363592.3037148,
+    "seen": 1788447000.084853,
+    "ast_hash": "30734de1167f8dc56fa348ab6f117b8a",
+    "semantic_hash": "30734de1167f8dc56fa348ab6f117b8a"
+  },
+  "docs/superpowers/specs/2026-09-02-statistika-video-8-storyboard.md": {
+    "mtime": 1788363592.304718,
+    "seen": 1788447000.084853,
+    "ast_hash": "cd56300102a57e23d528cd27962662a5",
+    "semantic_hash": "cd56300102a57e23d528cd27962662a5"
+  },
+  "docs/superpowers/specs/2026-09-02-video-vektor-bidang-bernomor.md": {
+    "mtime": 1788363554.1484725,
+    "seen": 1788447000.084853,
+    "ast_hash": "4fdac124de32fda57772d962928b795e",
+    "semantic_hash": "4fdac124de32fda57772d962928b795e"
+  },
+  "docs/tugas/ATURAN-SEMUA-SESI.md": {
+    "mtime": 1788364034.4256291,
+    "seen": 1788447000.084853,
+    "ast_hash": "029b45711824a7c1b8d9eaeda891f04a",
+    "semantic_hash": "029b45711824a7c1b8d9eaeda891f04a"
+  },
+  "docs/tugas/CARA-BUKA-SESI.md": {
+    "mtime": 1788266582.4907582,
+    "seen": 1788447000.084853,
+    "ast_hash": "ec95588ce3c2b0725f4e4eae9ceb26cd",
+    "semantic_hash": "ec95588ce3c2b0725f4e4eae9ceb26cd"
+  },
+  "docs/tugas/ILMU-3B1B.md": {
+    "mtime": 1788364038.2272317,
+    "seen": 1788447000.084853,
+    "ast_hash": "de474aae37e10f3ec5c189625952fae1",
+    "semantic_hash": "de474aae37e10f3ec5c189625952fae1"
+  },
+  "docs/tugas/MATRA-DESAIN-UI-UX.md": {
+    "mtime": 1788297587.7753003,
+    "seen": 1788447000.084853,
+    "ast_hash": "5709ed5405745a96451df9b878dd1c40",
+    "semantic_hash": "5709ed5405745a96451df9b878dd1c40"
+  },
+  "docs/tugas/MATRA-GRAFIK-FUNGSI.md": {
+    "mtime": 1788364055.9478774,
+    "seen": 1788447000.084853,
+    "ast_hash": "985e26703f7d209ac75be55f6ee83f37",
+    "semantic_hash": "985e26703f7d209ac75be55f6ee83f37"
+  },
+  "docs/tugas/MATRA-RUANG-TIGA-DIMENSI.md": {
+    "mtime": 1788319703.3875232,
+    "seen": 1788447000.084853,
+    "ast_hash": "759b4ff02d7d40d93f55030114d83f61",
+    "semantic_hash": "759b4ff02d7d40d93f55030114d83f61"
+  },
+  "docs/tugas/MATRA-STATISTIKA.md": {
+    "mtime": 1788364055.9453185,
+    "seen": 1788447000.084853,
+    "ast_hash": "70692d64ccb6b933b054a9a7a92f64a2",
+    "semantic_hash": "70692d64ccb6b933b054a9a7a92f64a2"
+  },
+  "docs/tugas/MATRA-VEKTOR.md": {
+    "mtime": 1788364055.9494264,
+    "seen": 1788447000.084853,
+    "ast_hash": "104f92cc51265c1c62405eee58601243",
+    "semantic_hash": "104f92cc51265c1c62405eee58601243"
+  },
+  "docs/tugas/PROMPT-SIAP-TEMPEL.md": {
+    "mtime": 1788319714.7009065,
+    "seen": 1788447000.084853,
+    "ast_hash": "e22fda567998a778a1adff3e4a8ccbc9",
+    "semantic_hash": "e22fda567998a778a1adff3e4a8ccbc9"
+  },
+  "docs/tugas/REVISI-ARYA-VIDEO.md": {
+    "mtime": 1788364049.484445,
+    "seen": 1788447000.084853,
+    "ast_hash": "4cf1e4005c11d88f9fc525c71a5e2096",
+    "semantic_hash": "4cf1e4005c11d88f9fc525c71a5e2096"
+  },
+  "docs/tugas/STANDAR-ILUSTRASI-VIDEO.md": {
+    "mtime": 1788363999.849942,
+    "seen": 1788447000.084853,
+    "ast_hash": "6dcf9372b40ceb964baa37e38b9355f8",
+    "semantic_hash": "6dcf9372b40ceb964baa37e38b9355f8"
+  },
+  "docs/tugas/STANDAR-MENGAJAR.md": {
+    "mtime": 1788364014.1081479,
+    "seen": 1788447000.084853,
+    "ast_hash": "e9b4e90abfc7cb76f31c7ceef548a33f",
+    "semantic_hash": "e9b4e90abfc7cb76f31c7ceef548a33f"
+  },
+  "docs/tugas/laporan/MATRA-DESAIN-UI-UX.md": {
+    "mtime": 1788412479.2878358,
+    "seen": 1788447000.084853,
+    "ast_hash": "1d893b8fa7fbce30f73def96eb14f7ce",
+    "semantic_hash": "1d893b8fa7fbce30f73def96eb14f7ce"
+  },
+  "docs/tugas/laporan/MATRA-GRAFIK-FUNGSI.md": {
+    "mtime": 1788363555.4956732,
+    "seen": 1788447000.084853,
+    "ast_hash": "fd3972848f639fec67d7f413ad790399",
+    "semantic_hash": "fd3972848f639fec67d7f413ad790399"
+  },
+  "docs/tugas/laporan/MATRA-RUANG-TIGA-DIMENSI.md": {
+    "mtime": 1788363617.7802,
+    "seen": 1788447000.084853,
+    "ast_hash": "470b9d3d582115768460948348e98324",
+    "semantic_hash": "470b9d3d582115768460948348e98324"
+  },
+  "docs/tugas/laporan/MATRA-STATISTIKA.md": {
+    "mtime": 1788389914.7778637,
+    "seen": 1788447000.084853,
+    "ast_hash": "c311889df96e5d5e001f867b9625fbe2",
+    "semantic_hash": "c311889df96e5d5e001f867b9625fbe2"
+  },
+  "docs/tugas/laporan/MATRA-VEKTOR.md": {
+    "mtime": 1788412477.0494943,
+    "seen": 1788447000.084853,
+    "ast_hash": "af8bf7bf2a329e3d6780327c322b735d",
+    "semantic_hash": "af8bf7bf2a329e3d6780327c322b735d"
+  },
+  "manim/arsip-manim-ce/README.md": {
+    "mtime": 1788317855.549046,
+    "seen": 1788447000.084853,
+    "ast_hash": "86d94d95d7ca8b6e43ed2ac8b2473c7b",
+    "semantic_hash": "86d94d95d7ca8b6e43ed2ac8b2473c7b"
+  },
+  "manim/suara/README.md": {
+    "mtime": 1788318539.8344376,
+    "seen": 1788447000.084853,
+    "ast_hash": "94c09b5debcdf774d001a781a0b3fae8",
+    "semantic_hash": "94c09b5debcdf774d001a781a0b3fae8"
+  },
+  "mockup/a-studio.html": {
+    "mtime": 1788153260.4855733,
+    "seen": 1788447000.084853,
+    "ast_hash": "73d665002b302616b90de7b675476da9",
+    "semantic_hash": "73d665002b302616b90de7b675476da9"
+  },
+  "mockup/b-papan-tulis.html": {
+    "mtime": 1788153314.5243416,
+    "seen": 1788447000.084853,
+    "ast_hash": "57180890f0581501da4ca7006ed6d0ee",
+    "semantic_hash": "57180890f0581501da4ca7006ed6d0ee"
+  },
+  "mockup/c-kertas-grafik.html": {
+    "mtime": 1788153372.3450344,
+    "seen": 1788447000.084853,
+    "ast_hash": "bbcab802bb4efa92e5c55bd88e3f3e7a",
+    "semantic_hash": "bbcab802bb4efa92e5c55bd88e3f3e7a"
+  },
+  "mockup/d-studio-teknis.html": {
+    "mtime": 1788154371.8317437,
+    "seen": 1788447000.084853,
+    "ast_hash": "52e9c56de2914768b7fb331526d04fef",
+    "semantic_hash": "52e9c56de2914768b7fb331526d04fef"
+  },
+  "mockup/e-satu-layar.html": {
+    "mtime": 1788157759.1550112,
+    "seen": 1788447000.084853,
+    "ast_hash": "ccdfbd5bc1235171afa3291c1b933722",
+    "semantic_hash": "ccdfbd5bc1235171afa3291c1b933722"
+  },
+  "web/AGENTS.md": {
+    "mtime": 1788155701.3720984,
+    "seen": 1788447000.084853,
+    "ast_hash": "01e8142356e15c3404e0d84c48187cd0",
+    "semantic_hash": "01e8142356e15c3404e0d84c48187cd0"
+  },
+  "web/CLAUDE.md": {
+    "mtime": 1788155701.3730972,
+    "seen": 1788447000.084853,
+    "ast_hash": "5c27369b226fcf2be8a6cfe52224e767",
+    "semantic_hash": "5c27369b226fcf2be8a6cfe52224e767"
+  },
+  "web/README.md": {
+    "mtime": 1788155535.7765808,
+    "seen": 1788447000.084853,
+    "ast_hash": "f15aaa42d5d299d091b1171097ea56ad",
+    "semantic_hash": "f15aaa42d5d299d091b1171097ea56ad"
+  },
+  "mockup/img/segitiga-gelap.png": {
+    "mtime": 1788153206.6769605,
+    "seen": 1788449925.9346235,
+    "ast_hash": "b6e5bbcb8457cac5abda079a6802e664",
+    "semantic_hash": "b6e5bbcb8457cac5abda079a6802e664"
+  },
+  "mockup/img/segitiga-terang.png": {
+    "mtime": 1788153206.4775138,
+    "seen": 1788449925.9346235,
+    "ast_hash": "7097d6e84f81fcad17cb823bddf79daa",
+    "semantic_hash": "7097d6e84f81fcad17cb823bddf79daa"
+  },
+  "web/public/file.svg": {
+    "mtime": 1788155535.9286685,
+    "seen": 1788449925.9346235,
+    "ast_hash": "d09f95206c3fa0bb9bd9fefabfd0ea71",
+    "semantic_hash": "d09f95206c3fa0bb9bd9fefabfd0ea71"
+  },
+  "web/public/gambar/antena.jpg": {
+    "mtime": 1788363555.5228362,
+    "seen": 1788449925.9346235,
+    "ast_hash": "fafb96a2eb0ced2ab14c947624d7c5c2",
+    "semantic_hash": "fafb96a2eb0ced2ab14c947624d7c5c2"
+  },
+  "web/public/gambar/bakteri.jpg": {
+    "mtime": 1788363555.527311,
+    "seen": 1788449925.9346235,
+    "ast_hash": "0ad628a50988f412cd8590c2a1837c63",
+    "semantic_hash": "0ad628a50988f412cd8590c2a1837c63"
+  },
+  "web/public/gambar/basket.jpg": {
+    "mtime": 1788363555.530859,
+    "seen": 1788449925.9346235,
+    "ast_hash": "d22b42628656a2b226730cc5ac2f278c",
+    "semantic_hash": "d22b42628656a2b226730cc5ac2f278c"
+  },
+  "web/public/gambar/demo-banksoal.jpg": {
+    "mtime": 1788254991.917288,
+    "seen": 1788449925.9346235,
+    "ast_hash": "b613304aa6b3b688f9cdcb72d133dba5",
+    "semantic_hash": "b613304aa6b3b688f9cdcb72d133dba5"
+  },
+  "web/public/gambar/demo-interaktif.jpg": {
+    "mtime": 1788216032.08952,
+    "seen": 1788449925.9346235,
+    "ast_hash": "0967e0b3577a2b0879e824c4dc754a43",
+    "semantic_hash": "0967e0b3577a2b0879e824c4dc754a43"
+  },
+  "web/public/gambar/demo-kuis.jpg": {
+    "mtime": 1788215796.367635,
+    "seen": 1788449925.9346235,
+    "ast_hash": "ef769b5d6a71b1376e667214cc4fc8e0",
+    "semantic_hash": "ef769b5d6a71b1376e667214cc4fc8e0"
+  },
+  "web/public/gambar/demo-latihan.jpg": {
+    "mtime": 1788254991.9182863,
+    "seen": 1788449925.9346235,
+    "ast_hash": "789b99c63ddddccb538429ee49eed2b1",
+    "semantic_hash": "789b99c63ddddccb538429ee49eed2b1"
+  },
+  "web/public/gambar/game.jpg": {
+    "mtime": 1788175834.5015733,
+    "seen": 1788449925.9346235,
+    "ast_hash": "9d72c2129c03084fd4e5f34ec861a8c3",
+    "semantic_hash": "9d72c2129c03084fd4e5f34ec861a8c3"
+  },
+  "web/public/gambar/jembatan.jpg": {
+    "mtime": 1788363555.532867,
+    "seen": 1788449925.9346235,
+    "ast_hash": "dcd173e67d7a5beb45fb797e7fe86f9c",
+    "semantic_hash": "dcd173e67d7a5beb45fb797e7fe86f9c"
+  },
+  "web/public/gambar/kamera.jpg": {
+    "mtime": 1788175621.3147235,
+    "seen": 1788449925.9346235,
+    "ast_hash": "09e093914b53cc6401764b71a243d6a7",
+    "semantic_hash": "09e093914b53cc6401764b71a243d6a7"
+  },
+  "web/public/gambar/miring.jpg": {
+    "mtime": 1788175891.1160824,
+    "seen": 1788449925.9346235,
+    "ast_hash": "1aa4664ccf35f66d88b1e10cc2713f3a",
+    "semantic_hash": "1aa4664ccf35f66d88b1e10cc2713f3a"
+  },
+  "web/public/gambar/obat.jpg": {
+    "mtime": 1788363555.5358763,
+    "seen": 1788449925.9346235,
+    "ast_hash": "103d088024843f8b833fa514d5e246ba",
+    "semantic_hash": "103d088024843f8b833fa514d5e246ba"
+  },
+  "web/public/gambar/seismograf.jpg": {
+    "mtime": 1788363555.5368738,
+    "seen": 1788449925.9346235,
+    "ast_hash": "459a088e9a27487d444cdbb33911288f",
+    "semantic_hash": "459a088e9a27487d444cdbb33911288f"
+  },
+  "web/public/gambar/suara.jpg": {
+    "mtime": 1788176381.1874425,
+    "seen": 1788449925.9346235,
+    "ast_hash": "b7075cabeb054f31826d33c9156d7936",
+    "semantic_hash": "b7075cabeb054f31826d33c9156d7936"
+  },
+  "web/public/gambar/vektor/lempeng-bumi.jpg": {
+    "mtime": 1788295077.0237813,
+    "seen": 1788449925.9346235,
+    "ast_hash": "c8dbc43655bcd3c65e4bf1fb6330f677",
+    "semantic_hash": "c8dbc43655bcd3c65e4bf1fb6330f677"
+  },
+  "web/public/gambar/vektor/perahu-layar.jpg": {
+    "mtime": 1788295077.0271049,
+    "seen": 1788449925.9346235,
+    "ast_hash": "628a9ee751b50bc38504b1b42272566d",
+    "semantic_hash": "628a9ee751b50bc38504b1b42272566d"
+  },
+  "web/public/gambar/vektor/perahu-sungai.jpg": {
+    "mtime": 1788295077.0291069,
+    "seen": 1788449925.9346235,
+    "ast_hash": "ad6223eca4526f235fbbbc967a159ab2",
+    "semantic_hash": "ad6223eca4526f235fbbbc967a159ab2"
+  },
+  "web/public/gambar/vektor/pesawat-angin.jpg": {
+    "mtime": 1788295077.031104,
+    "seen": 1788449925.9346235,
+    "ast_hash": "d8a462cd47be710c0ce48af7b9d7c9f5",
+    "semantic_hash": "d8a462cd47be710c0ce48af7b9d7c9f5"
+  },
+  "web/public/globe.svg": {
+    "mtime": 1788155535.9643998,
+    "seen": 1788449925.9346235,
+    "ast_hash": "2aaafa6a49b6563925fe440891e32717",
+    "semantic_hash": "2aaafa6a49b6563925fe440891e32717"
+  },
+  "web/public/mantra/beranda-tiga-grafik-v2.jpg": {
+    "mtime": 1788443468.40312,
+    "seen": 1788449925.9346235,
+    "ast_hash": "5974ab5f3e265605f9dfc779e31e0a2d",
+    "semantic_hash": "5974ab5f3e265605f9dfc779e31e0a2d"
+  },
+  "web/public/mantra/demo-interaktif.jpg": {
+    "mtime": 1788443468.40312,
+    "seen": 1788449925.9346235,
+    "ast_hash": "94556e4e898f27d944e3bb9f89e4f956",
+    "semantic_hash": "94556e4e898f27d944e3bb9f89e4f956"
+  },
+  "web/public/mantra/demo-latihan.jpg": {
+    "mtime": 1788443468.4051192,
+    "seen": 1788449925.9346235,
+    "ast_hash": "de60a2f5f96dbb6130f92de7668613d8",
+    "semantic_hash": "de60a2f5f96dbb6130f92de7668613d8"
+  },
+  "web/public/mantra/limit1-kecepatan.jpg": {
+    "mtime": 1788443468.4051192,
+    "seen": 1788449925.9346235,
+    "ast_hash": "8e29442de56df3f7f01a2cfc491a7700",
+    "semantic_hash": "8e29442de56df3f7f01a2cfc491a7700"
+  },
+  "web/public/mantra/logo-claude.png": {
+    "mtime": 1788443468.4061196,
+    "seen": 1788449925.9346235,
+    "ast_hash": "bd3f5287d3d222d9b5077bdab1e5897a",
+    "semantic_hash": "bd3f5287d3d222d9b5077bdab1e5897a"
+  },
+  "web/public/mantra/logo-manim.png": {
+    "mtime": 1788443468.4071193,
+    "seen": 1788449925.9346235,
+    "ast_hash": "f01891360be395f4143528a5a0e7d9c5",
+    "semantic_hash": "f01891360be395f4143528a5a0e7d9c5"
+  },
+  "web/public/mantra/logo-whatsapp.png": {
+    "mtime": 1788443468.4081554,
+    "seen": 1788449925.9346235,
+    "ast_hash": "b4f29e2c13c75c8dc4d0811e74c3733f",
+    "semantic_hash": "b4f29e2c13c75c8dc4d0811e74c3733f"
+  },
+  "web/public/mantra/mantra-penuh.png": {
+    "mtime": 1788443468.4091556,
+    "seen": 1788449925.9346235,
+    "ast_hash": "9678aefdf41efa740fa58dc45a13c51f",
+    "semantic_hash": "9678aefdf41efa740fa58dc45a13c51f"
+  },
+  "web/public/mantra/mantra-simbol.png": {
+    "mtime": 1788443468.410121,
+    "seen": 1788449925.9346235,
+    "ast_hash": "e45ea030f201b8a6b25648fb5430d315",
+    "semantic_hash": "e45ea030f201b8a6b25648fb5430d315"
+  },
+  "web/public/mantra/tahap2-perbandingan-tetap.jpg": {
+    "mtime": 1788443468.4120667,
+    "seen": 1788449925.9346235,
+    "ast_hash": "cfc786fbdaa3c37c1520fa6abcbc120f",
+    "semantic_hash": "cfc786fbdaa3c37c1520fa6abcbc120f"
+  },
+  "web/public/mantra/tahap5-lingkaran-satuan.jpg": {
+    "mtime": 1788443468.4132495,
+    "seen": 1788449925.9346235,
+    "ast_hash": "c7b54edb70b7359ee084d3eb19337ecb",
+    "semantic_hash": "c7b54edb70b7359ee084d3eb19337ecb"
+  },
+  "web/public/mantra/tahap8-grafik-sin.jpg": {
+    "mtime": 1788443468.4132495,
+    "seen": 1788449925.9346235,
+    "ast_hash": "9d96ac10055518a60ba832523eb8015a",
+    "semantic_hash": "9d96ac10055518a60ba832523eb8015a"
+  },
+  "web/public/mantra/undiksha.png": {
+    "mtime": 1788443468.4142504,
+    "seen": 1788449925.9346235,
+    "ast_hash": "07bdde8a7fa2959fb808a15f21c1120a",
+    "semantic_hash": "07bdde8a7fa2959fb808a15f21c1120a"
+  },
+  "web/public/merek/ikon-192.png": {
+    "mtime": 1788194457.0376697,
+    "seen": 1788449925.9346235,
+    "ast_hash": "cdfe475bdfe99222b59058045dad6eed",
+    "semantic_hash": "cdfe475bdfe99222b59058045dad6eed"
+  },
+  "web/public/merek/ikon-512.png": {
+    "mtime": 1788194457.1321156,
+    "seen": 1788449925.9346235,
+    "ast_hash": "7ffd43da06f96b09ca63b5251c250060",
+    "semantic_hash": "7ffd43da06f96b09ca63b5251c250060"
+  },
+  "web/public/merek/matra-penuh.png": {
+    "mtime": 1788201070.8457878,
+    "seen": 1788449925.9346235,
+    "ast_hash": "8b3cdaaa41bbe01df5f76a449c1f2de0",
+    "semantic_hash": "8b3cdaaa41bbe01df5f76a449c1f2de0"
+  },
+  "web/public/merek/matra-simbol.png": {
+    "mtime": 1788201071.2600522,
+    "seen": 1788449925.9346235,
+    "ast_hash": "b885321b48db39e8f2db6212ce34b429",
+    "semantic_hash": "b885321b48db39e8f2db6212ce34b429"
+  },
+  "web/public/merek/undiksha.png": {
+    "mtime": 1788194498.736725,
+    "seen": 1788449925.9346235,
+    "ast_hash": "09129e049875aa59444c0b92d9284399",
+    "semantic_hash": "09129e049875aa59444c0b92d9284399"
+  },
+  "web/public/next.svg": {
+    "mtime": 1788155535.9981458,
+    "seen": 1788449925.9346235,
+    "ast_hash": "8e061864f388b47f33a1c3780831193e",
+    "semantic_hash": "8e061864f388b47f33a1c3780831193e"
+  },
+  "web/public/vercel.svg": {
+    "mtime": 1788155536.0214994,
+    "seen": 1788449925.9346235,
+    "ast_hash": "c0af2f507b369b085b35ef4bbe3bcf1e",
+    "semantic_hash": "c0af2f507b369b085b35ef4bbe3bcf1e"
+  },
+  "web/public/window.svg": {
+    "mtime": 1788155536.0539722,
+    "seen": 1788449925.9346235,
+    "ast_hash": "a2760511c65806022ad20adf74370ff3",
+    "semantic_hash": "a2760511c65806022ad20adf74370ff3"
+  }
+}

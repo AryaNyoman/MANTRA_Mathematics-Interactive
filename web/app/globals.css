@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
 /* ============================================================
-   MATRA, sistem desain "Studio Teknis"
-   Patokan visual: mockup/e-satu-layar.html (disetujui ARYA 31 Agu 2026)
-   Kehangatan krem + serif dari gaya A; penomoran, label monospace,
-   dan tabel angka rata kolom dari gaya C.
+   MANTRA, sistem desain (3 Sep 2026)
+   Patokan: docs/desain-mantra/HANDOFF.md dan MANTRA.dc.html.
+   Nilai di bawah FINAL dan pasti; jangan dikira-kira ulang.
+
+   Nama peubah sengaja dipertahankan dari sistem lama ("Studio Teknis")
+   supaya 1300 baris gaya dan puluhan komponen ikut berganti kulit tanpa
+   disentuh satu per satu. Yang berubah NILAINYA, bukan namanya.
+
+   Warna MATEMATIKA di bawah TIDAK ikut berubah: warnanya disamakan dengan
+   video Manim, dan mengubahnya membuat gambar di situs membantah gambar di
+   video.
    ============================================================ */
 
 :root {
   /* --- permukaan & tinta --- */
-  --kertas: #F6F2EC;
-  --kartu: #FFFDFA;
-  --garis: #E1D9CC;
-  --tegas: #211E1A;
-  --petak: #EDE6DA;
-  --tinta: #211E1A;
-  --redup: #7C7469;
+  --kertas: #FAF9F5;          /* dasar halaman, putih kehangatan */
+  --kartu: #FFFFFF;           /* kartu, panel, isi nav */
+  --cekung: #FAF9F5;          /* sidebar, sumur visual, panel pembahasan */
+  --garis: rgba(16, 26, 43, 0.12);
+  --garis-tegas: rgba(16, 26, 43, 0.18);
+  --tegas: #101A2B;
+  --petak: rgba(16, 26, 43, 0.08);   /* garis kisi latar */
+  --tinta: #101A2B;
+  --tinta-72: rgba(16, 26, 43, 0.72);
+  --tinta-62: rgba(16, 26, 43, 0.62);
+  --tinta-50: rgba(16, 26, 43, 0.5);
+  --redup: rgba(16, 26, 43, 0.62);
 
   /* --- aksen SITUS: tombol, tautan, penanda. BUKAN untuk matematika --- */
-  --hijau: #2F5D50;
-  --oker: #B8863B;
-  --bata: #A6503F;
+  --emas: #B08A3E;            /* aksen utama: tombol, garis tab aktif, cincin */
+  --emas-tua: #8A6A28;        /* emas di atas isian terang, aman kontrasnya */
+  --emas-10: rgba(176, 138, 62, 0.1);
+  --emas-14: rgba(176, 138, 62, 0.14);
+  --biru: #2B4B8F;            /* kicker, kata "animasi" */
+  --hijau: #6E9C7A;           /* selesai, ekor bar kemajuan, cincin nilai */
+  --jingga: #E8582C;          /* jawaban salah, kata "interaksi" */
+  --wa-hijau: #25D366;
+  --wa-hijau-tua: #128C4A;
+
+  /* Nama lama, dipetakan ke palet baru supaya gaya lama tetap hidup. */
+  --oker: var(--emas);
+  --bata: var(--jingga);
+
+  /* --- jarak kisi latar --- */
+  --kisi: 60px;
 
   /* --- warna MATEMATIKA: wajib sama dengan lib/warna.ts & manim/matra_theme.py --- */
   --sisi-samping: #3A6EA5;
@@ -30,7 +55,14 @@
      WAJIB sama dengan lib/warna.ts dan manim/matra_theme.py */
   --sisi-sudut: #6A4C93;
 
-  --nav: 57px;
+  --nav: 70px;
+
+  /* Tepi kiri-kanan halaman. Satu-satunya yang membatasi lebar isi, dan
+     satuannya `vw` supaya ikut tumbuh bersama layar. Inilah pengganti
+     `max-width` berpatokan piksel yang membuat halaman berhenti melebar saat
+     peramban diperkecil. Batas atas 108px supaya pada layar yang benar-benar
+     lebar tepinya tetap terasa sebagai margin, bukan sebagai kekosongan. */
+  --tepi: clamp(16px, 4vw, 108px);
 }
 
 @theme inline {
@@ -39,9 +71,12 @@
   --color-garis: var(--garis);
   --color-tinta: var(--tinta);
   --color-redup: var(--redup);
-  --font-serif: var(--font-fraunces);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-plex-mono);
+  --font-serif: var(--font-newsreader);
+  --font-sans: var(--font-space-grotesk);
+  /* Monospace dipensiunkan. Label kecil yang dulu monospace kini memakai
+     Space Grotesk berjarak huruf lebar; nama peubahnya dipertahankan supaya
+     gaya lama tidak perlu disentuh. */
+  --font-mono: var(--font-space-grotesk);
 }
 
 * { box-sizing: border-box; }
@@ -52,13 +87,22 @@ html { height: 100%; }
 
 body {
   margin: 0;
+  /* Kisi latar: garis 1px pada 8% tinta, jarak 60px, DIAM (tidak pernah
+     dianimasikan). Ditaruh di body supaya seluruh rute dapat, dan memakai
+     `background-attachment: fixed` supaya kisinya tidak ikut bergulir dan
+     terlihat seperti kertas milimeter di belakang halaman. */
+  background-color: var(--kertas);
+  background-image:
+    repeating-linear-gradient(to right, var(--petak) 0 1px, transparent 1px var(--kisi)),
+    repeating-linear-gradient(to bottom, var(--petak) 0 1px, transparent 1px var(--kisi));
+  background-attachment: fixed;
   /* Kolom flex: nav memakai ruang seperlunya, panggung mengambil sisanya.
      Ini yang membuat tinggi panggung tidak perlu dihitung dari --nav. */
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   color: var(--tinta);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 15px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
@@ -69,56 +113,100 @@ body {
 }
 
 h1, h2, h3, .disp {
-  font-family: var(--font-fraunces), Georgia, serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-weight: 400;
   letter-spacing: -0.012em;
 }
 .mono {
-  font-family: var(--font-plex-mono), monospace;
+  font-family: var(--font-mono), system-ui, sans-serif;
   font-variant-numeric: tabular-nums;
 }
 
 /* ---------- navigasi ---------- */
+/* ---------- nav MANTRA ----------
+   Lengket di atas, tinggi 70px, isian tembus pandang berkabut. Satu baris,
+   TIDAK PERNAH membungkus: logo tetap, deretan tab boleh menyusut, label
+   materi boleh terpotong dengan elipsis, tombol Lanjutkan tetap utuh. */
 .nav {
-  /* `min-height`, bukan `height`: kalau pengguna menaikkan ukuran font
-     peramban, nav ikut tinggi sedikit dan isinya tetap muat, tidak meluap. */
+  position: sticky; top: 0; z-index: 30;
   flex: none;
   min-height: var(--nav);
-  background: var(--kartu);
+  display: flex; align-items: center; flex-wrap: nowrap;
+  gap: 14px; padding: 0 var(--tepi);
+  background: rgba(250, 249, 245, 0.9);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--garis);
-  display: flex; align-items: center; gap: 24px; padding: 0 26px;
 }
-/* Lambang saja, tanpa tulisan "Matra" di sebelahnya. Ukurannya dinaikkan
-   supaya terbaca sebagai logo. (Permintaan ARYA, 1 Sep 2026.) */
-.merk { display: flex; align-items: center; line-height: 0; }
-.merk-ikon { width: auto; height: 40px; }
-.nav a { color: var(--redup); text-decoration: none; font-size: 14px; }
-.nav a.on { color: var(--tinta); font-weight: 500; }
+.merk { display: flex; align-items: center; line-height: 0; flex: none; }
+.merk-ikon { width: auto; height: 38px; }
+
+/* Deretan tab. Garis bawah emas tumbuh dari kiri (scaleX 0 ke 1), bukan
+   muncul jadi, supaya perpindahan tab terbaca sebagai gerak, bukan kedip. */
+.nav-tab {
+  position: relative; display: inline-block;
+  font-size: 13.5px; padding: 9px 11px; border-radius: 10px;
+  color: var(--tinta-62); text-decoration: none; white-space: nowrap;
+  transition: background 0.25s, color 0.25s;
+}
+.nav-tab:hover { background: var(--emas-14); color: var(--tinta); }
+.nav-tab:active { transform: scale(0.96); }
+.nav-tab[data-aktif='true'] { background: var(--emas-10); color: var(--tinta); font-weight: 600; }
+.nav-tab::after {
+  content: ''; position: absolute; left: 11px; right: 11px; bottom: 4px;
+  height: 2px; border-radius: 2px; background: var(--emas);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.nav-tab[data-aktif='true']::after { transform: scaleX(1); }
+
+.nav-meta {
+  margin-left: auto; flex: 0 1 auto; min-width: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: 12px; color: var(--tinta-50);
+}
+/* Pil gelap dengan kilau yang menyapu berulang. `overflow:hidden` menahan
+   kilaunya di dalam pil. */
+.nav-lanjut {
+  position: relative; overflow: hidden; flex: none;
+  display: inline-flex; align-items: center;
+  font-size: 13px; font-weight: 600; color: var(--kertas);
+  background: var(--tinta); border-radius: 999px; padding: 10px 20px;
+  white-space: nowrap; text-decoration: none; transition: transform 0.2s;
+}
+.nav-lanjut:hover { transform: translateY(-2px); color: var(--kertas); }
+.nav-lanjut:active { transform: scale(0.96); }
+.nav-lanjut::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: kilau 4.5s linear infinite;
+}
+@keyframes kilau { from { transform: translateX(-130%); } to { transform: translateX(240%); } }
+
 .sp { margin-left: auto; }
 .kode {
-  font-family: var(--font-plex-mono), monospace; font-size: 11px; color: var(--redup);
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 11px; color: var(--redup);
   border: 1px solid var(--garis); border-radius: 4px; padding: 3px 8px;
 }
 
 /* ---------- label & penanda ---------- */
 .jalur {
-  font-family: var(--font-plex-mono), monospace; font-size: 10.5px; letter-spacing: 0.13em;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10.5px; letter-spacing: 0.13em;
   text-transform: uppercase; color: var(--bata); font-weight: 600;
 }
 .cap {
-  font-family: var(--font-plex-mono), monospace; font-size: 10px; letter-spacing: 0.13em;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10px; letter-spacing: 0.13em;
   text-transform: uppercase; color: var(--redup); font-weight: 600; margin-bottom: 6px;
 }
 .cap.merah { color: var(--bata); }
 .sumber {
-  font-family: var(--font-fraunces), serif; font-style: italic;
+  font-family: var(--font-serif), serif; font-style: italic;
   font-size: 12px; color: var(--redup); margin-top: 7px;
 }
 
 /* ---------- tombol ---------- */
 .tombol {
   background: var(--tegas); color: var(--kartu); border: 0; padding: 11px;
-  border-radius: 8px; font-family: var(--font-plex-mono), monospace;
+  border-radius: 8px; font-family: var(--font-mono), system-ui, sans-serif;
   font-size: 11px; letter-spacing: 0.07em; cursor: pointer; text-align: center;
   display: block; text-decoration: none;
 }
@@ -131,7 +219,7 @@ h1, h2, h3, .disp {
 .tabel-angka { width: 100%; border-collapse: collapse; font-size: 14px; }
 .tabel-angka td { padding: 6px 0; border-bottom: 1px solid var(--garis); }
 .tabel-angka td:last-child {
-  text-align: right; font-family: var(--font-plex-mono), monospace;
+  text-align: right; font-family: var(--font-mono), system-ui, sans-serif;
   font-variant-numeric: tabular-nums; font-weight: 500;
 }
 .tabel-angka tr.tegas td {
@@ -187,7 +275,9 @@ h1, h2, h3, .disp {
   flex: 1 1 0;
   min-height: 34rem;
   max-height: 54rem;
-  max-width: 100rem;
+  /* Tanpa patokan piksel: lebar diatur oleh wadah halaman (`--tepi`), supaya
+     panggung ikut penuh saat peramban diperkecil. */
+  max-width: none;
   width: 100%;
   margin: 0 auto;
   display: grid;
@@ -204,7 +294,7 @@ h1, h2, h3, .disp {
 /* --- panggung visual + tab --- */
 .tab { display: flex; gap: 6px; margin-bottom: 10px; flex: none; }
 .tab button {
-  font-family: var(--font-plex-mono), monospace; font-size: 11px; letter-spacing: 0.09em;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 11px; letter-spacing: 0.09em;
   text-transform: uppercase; background: transparent; border: 1px solid var(--garis);
   border-radius: 7px; padding: 8px 14px; cursor: pointer; color: var(--redup);
 }
@@ -215,14 +305,15 @@ h1, h2, h3, .disp {
   flex: 1; min-height: 0; border: 1px solid var(--garis); border-radius: 14px;
   background: var(--kartu); padding: 10px; position: relative;
   display: flex; flex-direction: column;
-  /* Diukur dalam rem, BUKAN persen layar. Kalau pakai persen, saat pengguna
-     zoom out kotak ini justru membesar sementara teks mengecil, terasa
-     terbalik. (Bug temuan ARYA.) */
-  max-width: 62rem; width: 100%; align-self: center;
+  /* Mengisi kolomnya. Isi kotak ini SVG dan video yang tingginya sudah
+     dibatasi `min(100%, 34rem)` di bawah, jadi melebarkan kotaknya tidak
+     membuat gambarnya melar: gambarnya tetap seukuran tingginya dan berada di
+     tengah. Yang hilang justru ruang kosong di kiri kanan saat layar lebar. */
+  max-width: 100%; width: 100%; align-self: center;
 }
 .tanda {
   position: absolute; top: 0; left: 0; z-index: 2;
-  font-family: var(--font-plex-mono), monospace; font-size: 10px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10px;
   background: var(--tegas); color: var(--kartu); padding: 2px 8px;
   letter-spacing: 0.06em; border-radius: 14px 0 5px 0;
 }
@@ -242,12 +333,12 @@ h1, h2, h3, .disp {
 }
 .kendali label {
   display: flex; justify-content: space-between;
-  font-family: var(--font-plex-mono), monospace; font-size: 10.5px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10.5px;
   letter-spacing: 0.1em; text-transform: uppercase; color: var(--redup); margin-bottom: 5px;
 }
 .kendali input[type="range"] { width: 100%; accent-color: var(--hijau); margin: 0; }
 .skala-info {
-  grid-column: 1 / -1; font-family: var(--font-plex-mono), monospace;
+  grid-column: 1 / -1; font-family: var(--font-mono), system-ui, sans-serif;
   font-size: 10.5px; color: var(--redup); display: flex; align-items: center; gap: 7px;
 }
 .titik { width: 6px; height: 6px; border-radius: 99px; background: var(--oker); flex: none; }
@@ -255,12 +346,12 @@ h1, h2, h3, .disp {
 /* --- kolom kanan --- */
 .kanan h1 { font-size: 33px; line-height: 1.08; margin: 8px 0 6px; }
 .sub {
-  font-family: var(--font-fraunces), serif; font-style: italic; font-size: 16px;
+  font-family: var(--font-serif), serif; font-style: italic; font-size: 16px;
   color: var(--hijau); padding-bottom: 14px; border-bottom: 2px solid var(--tegas);
 }
 .blok { padding: 15px 0; border-bottom: 1px solid var(--garis); }
 .rumus {
-  font-family: var(--font-fraunces), serif; font-size: 17px; padding: 7px 0;
+  font-family: var(--font-serif), serif; font-size: 17px; padding: 7px 0;
   display: flex; justify-content: space-between; align-items: baseline;
 }
 .rumus + .rumus { border-top: 1px solid var(--garis); }
@@ -287,10 +378,10 @@ h1, h2, h3, .disp {
 .kartu-topik p { font-size: 13.5px; color: var(--redup); margin: 0; }
 .bintang {
   position: absolute; top: 16px; right: 16px; font-size: 11px;
-  font-family: var(--font-plex-mono), monospace; color: var(--oker);
+  font-family: var(--font-mono), system-ui, sans-serif; color: var(--oker);
 }
 .belum {
-  display: inline-block; margin-top: 12px; font-family: var(--font-plex-mono), monospace;
+  display: inline-block; margin-top: 12px; font-family: var(--font-mono), system-ui, sans-serif;
   font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--redup); border: 1px solid var(--garis); border-radius: 4px; padding: 2px 7px;
 }
@@ -306,7 +397,7 @@ h1, h2, h3, .disp {
   padding-bottom: 10px; border-bottom: 2px solid var(--tegas);
 }
 .label-soal {
-  margin-left: auto; font-family: var(--font-plex-mono), monospace;
+  margin-left: auto; font-family: var(--font-mono), system-ui, sans-serif;
   font-size: 10.5px; letter-spacing: 0.08em; color: var(--redup);
 }
 .soal-teks { font-size: 16px; line-height: 1.65; margin: 0 0 18px; }
@@ -346,7 +437,7 @@ h1, h2, h3, .disp {
 .opsi:hover:not(:disabled) { border-color: var(--tegas); }
 .opsi:disabled { cursor: default; }
 .opsi .huruf {
-  font-family: var(--font-plex-mono), monospace; font-size: 11px; font-weight: 600;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 11px; font-weight: 600;
   color: var(--redup); border: 1px solid var(--garis); border-radius: 4px;
   padding: 1px 6px; flex: none; margin-top: 2px;
 }
@@ -358,7 +449,7 @@ h1, h2, h3, .disp {
 
 .kuis-selesai { text-align: center; padding: 30px 10px; }
 .kuis-selesai .skor {
-  font-family: var(--font-fraunces), serif; font-size: 56px;
+  font-family: var(--font-serif), serif; font-size: 56px;
   color: var(--bata); line-height: 1.1; margin: 6px 0 10px;
 }
 .kuis-selesai p { max-width: 420px; margin: 0 auto 12px; }
@@ -384,7 +475,7 @@ h1, h2, h3, .disp {
   overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin;
 }
 .langkah button {
-  flex: none; font-family: var(--font-plex-mono), monospace; font-size: 10.5px;
+  flex: none; font-family: var(--font-mono), system-ui, sans-serif; font-size: 10.5px;
   letter-spacing: 0.04em; background: transparent; border: 1px solid var(--garis);
   border-radius: 7px; padding: 7px 11px; cursor: pointer; color: var(--redup);
   white-space: nowrap;
@@ -427,14 +518,14 @@ h1, h2, h3, .disp {
 .bacaan p { margin: 0; font-size: 15px; line-height: 1.68; color: #3A3630; }
 
 .bacaan p.sorot {
-  font-family: var(--font-fraunces), Georgia, serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-size: 17px; line-height: 1.5; color: var(--tinta);
   border-left: 3px solid var(--oker); padding: 4px 0 4px 15px;
   margin-top: 18px;
 }
 
 .judul-poin {
-  font-family: var(--font-plex-mono), monospace; font-size: 10.5px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10.5px;
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--hijau);
   font-weight: 600; margin: 0 0 7px;
 }
@@ -459,7 +550,7 @@ ul.poin li b { color: var(--tinta); font-weight: 600; }
 }
 .simpul {
   margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--garis);
-  font-family: var(--font-fraunces), serif; font-style: italic;
+  font-family: var(--font-serif), serif; font-style: italic;
   font-size: 14px; color: var(--bata);
 }
 
@@ -478,7 +569,7 @@ ul.poin li b { color: var(--tinta); font-weight: 600; }
 }
 .baca-cepat ol li::before {
   content: counter(bc); position: absolute; left: 0; top: 5px;
-  font-family: var(--font-plex-mono), monospace; font-size: 10px; font-weight: 600;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10px; font-weight: 600;
   color: var(--kartu); background: var(--hijau); width: 16px; height: 16px;
   border-radius: 4px; display: grid; place-items: center;
 }
@@ -486,7 +577,7 @@ ul.poin li b { color: var(--tinta); font-weight: 600; }
 /* --- pemilih sisi (widget Pabrik Rasio, tahap 4) --- */
 .pilih-sisi { display: flex; gap: 5px; }
 .pilih-sisi button {
-  flex: 1; font-family: var(--font-inter), sans-serif; font-size: 12.5px;
+  flex: 1; font-family: var(--font-sans), sans-serif; font-size: 12.5px;
   background: transparent; border: 1px solid var(--garis); border-radius: 7px;
   padding: 7px 4px; cursor: pointer; color: var(--redup);
 }
@@ -506,7 +597,7 @@ ul.poin li b { color: var(--tinta); font-weight: 600; }
   align-self: center;
 }
 .nama-resmi .nama {
-  font-family: var(--font-fraunces), serif; font-size: 17px; color: var(--tinta);
+  font-family: var(--font-serif), serif; font-size: 17px; color: var(--tinta);
 }
 .nama-resmi .catatan-resmi { font-size: 12.5px; color: var(--redup); line-height: 1.45; }
 
@@ -521,7 +612,7 @@ ul.poin li b { color: var(--tinta); font-weight: 600; }
 /* Pemilih contoh (tahap 10) dan pemilih tonton/coba (tahap bervideo) */
 .pilih-contoh { display: flex; flex-wrap: wrap; gap: 6px; }
 .pilih-contoh button, .pilih-mode button {
-  font-family: var(--font-plex-mono), monospace; font-size: 10.5px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10.5px;
   letter-spacing: 0.04em; padding: 6px 10px; cursor: pointer;
   border: 1px solid var(--garis); border-radius: 6px;
   background: var(--kertas); color: var(--redup);
@@ -567,7 +658,7 @@ video::cue {
      tapi tidak ada video gelap di proyek ini. Garis tepinya ikut dibalik
      jadi krem supaya teks tetap jelas kalau suatu saat ada video gelap. */
   color: #1F2430;
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--ukuran-subtitle, 100%);
   line-height: 1.35;
   text-shadow:
@@ -580,7 +671,7 @@ video::cue(b) { font-weight: 700; }
 /* Pengatur ukuran subtitle, di bawah pemutar */
 .atur-subtitle {
   flex: none; display: flex; align-items: center; gap: 8px;
-  font-family: var(--font-plex-mono), monospace; font-size: 10.5px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10.5px;
   letter-spacing: 0.08em; text-transform: uppercase; color: var(--redup);
   padding: 8px 2px 0;
 }
@@ -614,7 +705,7 @@ video::cue(b) { font-weight: 700; }
 }
 .tombol-utama, .tombol-pasang {
   display: inline-flex; align-items: center; gap: 7px; text-decoration: none;
-  font-family: var(--font-plex-mono), monospace; font-size: 11.5px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 11.5px;
   letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
   padding: 11px 18px; border-radius: 8px;
 }
@@ -622,19 +713,64 @@ video::cue(b) { font-weight: 700; }
 .tombol-pasang { background: transparent; color: var(--tinta); border: 1px solid var(--garis); }
 .tombol-pasang:hover { border-color: var(--tegas); }
 
-/* --- pratinjau isi situs --- */
+/* --- pratinjau isi situs (korsel beranda) ---
+   REVISI 3 Sep 2026 atas tiga temuan ARYA:
+   1. Kotaknya melompat ukuran tiap ganti klip, sebab berkasnya bermacam
+      perbandingan sisi (16:9, 2,38:1, potret 0,79:1). Sekarang kotaknya
+      DIKUNCI 16:9 dan isinya `object-fit: contain`, jadi ukurannya persis
+      sama di semua klip dan mata tidak perlu menyesuaikan ulang.
+   2. Perpindahan klip terjadi seketika tanpa gerak. Sekarang kelima klip
+      berjajar di satu rel yang digeser, jadi perpindahannya terlihat.
+   3. Kotaknya sempat KOSONG saat isi klip baru masih dimuat. Sekarang ada
+      penanda memuat yang berputar di atas kotak selama isinya belum siap. */
 .demo {
-  max-width: 60rem; margin: 0 auto 40px; background: var(--kartu);
+  max-width: none; margin: 0 auto 40px; background: var(--kartu);
   border: 1px solid var(--garis); border-radius: 16px; padding: 14px 14px 10px;
 }
 .demo-panggung {
-  background: var(--kertas); border-radius: 10px; overflow: hidden;
+  position: relative; aspect-ratio: 16 / 9; overflow: hidden;
+  background: var(--cekung); border-radius: 10px;
+}
+/* Rel berisi SEMUA klip. Dibiarkan terpasang, tidak dibongkar pasang, supaya
+   klip yang pernah dibuka tidak perlu dimuat ulang saat dikunjungi lagi. */
+.demo-rel {
+  display: flex; height: 100%; width: 100%;
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+}
+.demo-slide {
+  flex: 0 0 100%; width: 100%; height: 100%;
   display: flex; align-items: center; justify-content: center;
 }
-.demo-panggung video { width: 100%; max-height: 30rem; display: block; }
-.demo-teks { padding: 14px 6px 4px; }
+.demo-slide video, .demo-slide img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+}
+.demo-muat {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  background: var(--cekung); z-index: 2;
+}
+/* Teks yang hanya dibacakan pembaca layar, tidak terlihat mata. Dipakai untuk
+   memberi tahu bahwa cuplikan sedang dimuat, sebab lingkaran berputar tidak
+   berarti apa-apa bagi yang tidak melihatnya. */
+.hanya-pembaca {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+@keyframes putar { to { transform: rotate(360deg); } }
+.demo-muat i {
+  display: block; width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid var(--emas-14); border-top-color: var(--emas);
+  animation: putar 0.8s linear infinite;
+}
+/* Tinggi dipesan lebih dulu supaya baris di bawah panggung tidak ikut
+   melompat saat judul klip berikutnya lebih pendek atau lebih panjang. */
+.demo-teks { padding: 14px 6px 4px; min-height: 7.5rem; }
+@keyframes demo-masuk { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
+.demo-teks > * { animation: demo-masuk 0.42s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.demo-teks p { animation-delay: 0.06s; }
 .demo-teks h3 { margin: 0 0 5px; font-size: 18px; }
 .demo-teks p { margin: 0; font-size: 14px; color: var(--redup); max-width: 44rem; }
+@media (max-width: 860px) { .demo-teks { min-height: 9.5rem; } }
 .demo-kendali {
   display: flex; align-items: center; gap: 12px; padding: 8px 6px 2px;
 }
@@ -653,7 +789,7 @@ video::cue(b) { font-weight: 700; }
 
 /* --- apa saja isinya --- */
 .tajuk-sesi {
-  font-size: 13px; font-family: var(--font-plex-mono), monospace;
+  font-size: 13px; font-family: var(--font-mono), system-ui, sans-serif;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--redup);
   font-weight: 600; margin: 0 0 16px; padding-bottom: 8px;
   border-bottom: 1px solid var(--garis);
@@ -709,7 +845,7 @@ video::cue(b) { font-weight: 700; }
   display: inline-flex; align-items: center; gap: 7px; margin-top: 12px;
   text-decoration: none; color: #0E7A54; border: 1px solid #BFE0D0;
   background: #F2FAF6; border-radius: 8px; padding: 7px 12px;
-  font-family: var(--font-plex-mono), monospace; font-size: 12px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 12px;
 }
 .tombol-wa:hover { border-color: #0E7A54; }
 .kaki-kanan { display: flex; align-items: center; gap: 10px; opacity: 0.75; }
@@ -756,7 +892,7 @@ video::cue(b) { font-weight: 700; }
 }
 .sesi-judul {
   margin: 0; font-size: 19px; line-height: 1.25;
-  font-family: var(--font-fraunces), Georgia, serif; font-weight: 400;
+  font-family: var(--font-serif), Georgia, serif; font-weight: 400;
 }
 
 .kotak-coba {
@@ -765,7 +901,7 @@ video::cue(b) { font-weight: 700; }
   border-radius: 0 10px 10px 0; background: #FBF6EC;
 }
 .coba-cap {
-  font-family: var(--font-plex-mono), monospace; font-size: 11px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 11px;
   letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
   color: #7A5A22; margin-bottom: 7px;
 }
@@ -782,7 +918,7 @@ video::cue(b) { font-weight: 700; }
   font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
   margin-right: 5px;
 }
-.coba-cap { font-family: var(--font-plex-mono), monospace; }
+.coba-cap { font-family: var(--font-mono), system-ui, sans-serif; }
 .coba-cap::first-letter {
   font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
 }
@@ -848,14 +984,9 @@ video::cue(b) { font-weight: 700; }
   border-radius: 6px; padding: 7px 9px; white-space: normal;
 }
 
-/* Cuplikan layar di korsel halaman depan diperlakukan sama seperti video di
-   sebelahnya, supaya panelnya tidak melompat-lompat saat klip berganti. */
-.demo-panggung img {
-  /* batasnya disamakan dengan .demo-panggung video supaya panel tidak
-     melompat tingginya saat klip berganti dari video ke cuplikan layar */
-  width: 100%; max-height: 30rem;
-  object-fit: contain; display: block;
-}
+/* Aturan lama untuk cuplikan layar di korsel DIHAPUS. Ukuran klip sekarang
+   diatur oleh `.demo-panggung` yang dikunci 16:9 beserta `.demo-slide` di
+   atas, jadi video dan cuplikan layar mendapat kotak yang sama persis. */
 
 /* ============================================================
    Halaman Latihan: bank soal berjenjang, kemajuan, dan lencana
@@ -901,7 +1032,7 @@ video::cue(b) { font-weight: 700; }
 }
 .tingkat-kartu.terkunci { opacity: 0.55; }
 .tingkat-nama {
-  font-family: var(--font-plex-mono), monospace; font-size: 11px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 11px;
   letter-spacing: 0.1em; text-transform: uppercase; color: var(--tinta);
   font-weight: 600;
 }
@@ -970,7 +1101,7 @@ video::cue(b) { font-weight: 700; }
 .mesin, .bongkar { font-size: 14px; }
 
 .mesin-soal, .bongkar-soal {
-  font-family: var(--font-plex-mono), monospace; font-size: 15px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 15px;
   color: var(--tinta); background: var(--petak);
   border: 1px solid var(--garis); border-radius: 9px; padding: 11px 14px;
 }
@@ -978,7 +1109,7 @@ video::cue(b) { font-weight: 700; }
 .bongkar-atas { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .bongkar-atas .bongkar-soal { flex: 1 1 20rem; }
 .bongkar-cara {
-  font-family: var(--font-plex-mono), monospace; font-size: 10.5px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10.5px;
   letter-spacing: 0.08em; text-transform: uppercase; color: var(--hijau);
 }
 
@@ -989,11 +1120,11 @@ video::cue(b) { font-weight: 700; }
   border-left: 3px solid var(--hijau); padding: 2px 0 2px 12px;
 }
 .mesin-cap {
-  font-family: var(--font-plex-mono), monospace; font-size: 10px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10px;
   letter-spacing: 0.09em; text-transform: uppercase; color: var(--hijau);
 }
 .mesin-bentuk {
-  font-family: var(--font-plex-mono), monospace; font-size: 14px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 14px;
   margin: 3px 0 4px; color: var(--tinta); overflow-wrap: anywhere;
 }
 .mesin-catatan { font-size: 13px; line-height: 1.55; color: #3A3630; }
@@ -1019,12 +1150,12 @@ video::cue(b) { font-weight: 700; }
   align-items: baseline;
 }
 .bongkar-nama {
-  font-family: var(--font-plex-mono), monospace; font-size: 10px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10px;
   letter-spacing: 0.08em; text-transform: uppercase; color: var(--redup);
   text-align: right;
 }
 .bongkar-teks {
-  font-family: var(--font-plex-mono), monospace; font-size: 14px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 14px;
   color: var(--tinta); overflow-wrap: anywhere;
 }
 .bongkar-syarat {
@@ -1032,7 +1163,7 @@ video::cue(b) { font-weight: 700; }
   border-left: 2px solid var(--sisi-sudut); padding-left: 9px;
 }
 .bongkar-sisa {
-  margin-top: 14px; font-family: var(--font-plex-mono), monospace;
+  margin-top: 14px; font-family: var(--font-mono), system-ui, sans-serif;
   font-size: 10.5px; letter-spacing: 0.08em; color: var(--redup);
 }
 
@@ -1347,3 +1478,914 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================================
+   MANTRA: gaya halaman baru (3 Sep 2026)
+   Nilai diambil apa adanya dari docs/desain-mantra/HANDOFF.md.
+   Ukuran huruf sengaja TETAP, tanpa clamp(), atas permintaan ARYA.
+   ============================================================ */
+
+/* `width: 100%` WAJIB, dan sebabnya halus. Keduanya anak flex dari `body`
+   yang berkolom, jadi biasanya ia melar sendiri selebar induknya. Tetapi
+   `margin: 0 auto` MEMBATALKAN pelebaran itu: margin otomatis menang atas
+   stretch, sehingga lebarnya jatuh ke lebar isi. Pada layar 375 itu membuat
+   `main` jadi 404 piksel dan seluruh halaman bisa digeser menyamping walau
+   panel di dalamnya sudah memotong isinya sendiri (terukur 3 Sep 2026). */
+/* LEBAR ISI MENGIKUTI LAYAR, BUKAN DIPATOK PIKSEL.
+   Sebelum ini `.mantra` dipatok 1120 piksel dan `.mantra-lebar` 1220 piksel.
+   Patokan piksel itu tidak ikut berubah saat peramban diperkecil (zoom out):
+   lebar layar dalam satuan CSS justru bertambah, sedangkan kotak isinya tetap,
+   sehingga isinya menciut ke tengah dan kiri kanannya kosong melompong.
+   (Temuan ARYA, 3 Sep 2026, terlihat jelas di halaman materi.)
+   Sekarang tidak ada patokan piksel sama sekali. Yang mengatur hanya tepi
+   kiri-kanan `--tepi`, dan tepi itu tumbuh bersama layar, jadi halaman selalu
+   penuh pada tingkat zoom berapa pun. */
+.mantra, .mantra-lebar {
+  width: 100%; min-width: 0; max-width: none; margin: 0 auto;
+  padding: 0 var(--tepi);
+}
+
+.kicker {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--emas);
+}
+.kicker-biru { color: var(--biru); }
+.judul-halaman {
+  font-family: var(--font-serif), Georgia, serif; font-weight: 400;
+  font-size: 38px; line-height: 1.04; margin: 8px 0 10px;
+}
+.sub-italic {
+  margin: 0 0 26px; max-width: 48rem; font-size: 16px;
+  font-style: italic; color: var(--emas);
+}
+.angka-rata { font-variant-numeric: tabular-nums; }
+
+/* Tombol */
+/* Dipakai untuk `a` MAUPUN `button`. `border: 0` dan `font: inherit` wajib:
+   tanpa itu tombol mewarisi bingkai dan huruf bawaan peramban, dan pil yang
+   sama terlihat berbeda tergantung ia tautan atau tombol. */
+.pil-emas, .pil-gelap, .pil-garis {
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; font: inherit; font-weight: 600;
+  border-radius: 999px; cursor: pointer; text-decoration: none;
+  white-space: nowrap; transition: transform 0.2s, border-color 0.2s, color 0.2s, opacity 0.2s;
+}
+.pil-emas:disabled, .pil-gelap:disabled, .pil-garis:disabled {
+  opacity: 0.4; cursor: not-allowed; transform: none;
+}
+.pil-emas { font-size: 14px; color: var(--kertas); background: var(--emas); padding: 14px 28px; }
+.pil-emas:hover { transform: translateY(-3px); color: var(--kertas); }
+.pil-gelap { font-size: 14px; color: var(--kertas); background: var(--tinta); padding: 13px 24px; }
+.pil-gelap:hover { transform: translateY(-3px); color: var(--kertas); }
+.pil-garis {
+  font-size: 14px; font-weight: 500; color: var(--tinta);
+  border: 1px solid rgba(16, 26, 43, 0.22); padding: 14px 28px; background: transparent;
+}
+.pil-garis:hover { border-color: var(--emas); color: var(--emas); }
+.pil-emas:active, .pil-gelap:active, .pil-garis:active { transform: scale(0.96); }
+
+/* ---------- hero beranda ---------- */
+.hero {
+  position: relative; overflow: hidden;
+  padding: clamp(44px, 6.5vw, 88px) var(--tepi) 150px;
+}
+.hero-hias { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.hero-isi {
+  position: relative; max-width: none; margin: 0 auto; text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+}
+.hero-lencana {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--emas); border: 1px solid rgba(176, 138, 62, 0.4);
+  border-radius: 999px; padding: 7px 16px; white-space: nowrap;
+}
+.hero-logo { width: min(430px, 80vw); height: auto; margin: 26px 0 22px; }
+.hero h1 {
+  font-family: var(--font-serif), Georgia, serif; font-weight: 400;
+  font-size: 44px; line-height: 1.14; letter-spacing: -0.01em; margin: 0 0 20px;
+}
+.hero h1 span, .hero h1 i { display: block; white-space: nowrap; }
+.hero h1 i { color: var(--emas); }
+.hero-sub {
+  margin: 0 0 30px; max-width: 44rem; font-size: 16.5px;
+  line-height: 1.78; color: var(--tinta-72);
+}
+.hero-sub b { font-weight: 600; }
+.sorot-animasi { color: var(--biru); }
+.sorot-visual { color: var(--hijau); }
+.sorot-interaksi { color: var(--jingga); }
+.hero-aksi { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+/* Masuk bertahap: kicker, logo, judul, paragraf, tombol. */
+@keyframes naik { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.naik { animation: naik 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.naik-1 { animation-delay: 0.06s; }
+.naik-2 { animation-delay: 0.12s; }
+.naik-3 { animation-delay: 0.18s; }
+.naik-4 { animation-delay: 0.24s; }
+
+/* Kurva hias: digambar sekali lalu tinggal. `both` menahan keadaan akhir,
+   jadi peramban yang melewatkan animasinya tetap melihat kurva utuh. */
+@keyframes kapur { from { stroke-dashoffset: 2200; } to { stroke-dashoffset: 0; } }
+.kurva-emas { animation: kapur 3.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.kurva-biru { animation: kapur 4.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.35s both; }
+@keyframes apung {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+.glif {
+  position: absolute; font-family: var(--font-serif), Georgia, serif;
+  animation: apung 17s ease-in-out infinite;
+}
+
+/* ---------- kartu ---------- */
+.kartu-mantra {
+  border: 1px solid var(--garis); border-radius: 20px; background: var(--kartu);
+  transition: transform 0.28s, box-shadow 0.28s;
+}
+.kartu-mantra:hover { transform: translateY(-6px); }
+.kartu-fitur { padding: 26px 24px 22px; }
+.kartu-fitur .no {
+  font-family: var(--font-serif), Georgia, serif; font-size: 46px; line-height: 1;
+}
+.kartu-fitur h3 { font-size: 19px; font-weight: 600; margin: 12px 0 8px; }
+.kartu-fitur p { margin: 0; font-size: 14.5px; line-height: 1.72; color: rgba(16, 26, 43, 0.7); }
+.kisi-tiga { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.kisi-dua { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+
+/* ---------- pemisah bertulisan ---------- */
+.garis-label { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+.garis-label::before, .garis-label::after {
+  content: ''; flex: 1; height: 1px; background: rgba(16, 26, 43, 0.14);
+}
+.garis-label span {
+  font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--tinta-50); white-space: nowrap;
+}
+.tajuk-baris { display: flex; align-items: baseline; gap: 16px; margin: 34px 0 16px; }
+.tajuk-baris h2 {
+  font-family: var(--font-serif), Georgia, serif; font-weight: 400;
+  font-size: 27px; margin: 0;
+}
+.tajuk-baris .rel { flex: 1; height: 1px; background: rgba(16, 26, 43, 0.14); }
+.tajuk-baris .kanan {
+  font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--tinta-50); white-space: nowrap;
+}
+
+/* ---------- ajakan penutup dan kaki halaman ---------- */
+.ajakan {
+  border-top: 2px solid var(--emas); padding-top: 22px;
+  display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
+}
+.ajakan h2 {
+  font-family: var(--font-serif), Georgia, serif; font-weight: 400;
+  font-size: 27px; margin: 0 0 6px;
+}
+.ajakan p { margin: 0; font-size: 14.5px; color: var(--tinta-72); max-width: 46rem; }
+/* Kaki halaman: satu pita putih selebar layar, dipakai SEMUA halaman lewat
+   komponen `Kaki`. Latar putih atas permintaan ARYA (3 Sep 2026), supaya
+   barisnya terbaca sebagai penutup halaman, bukan sebagai teks yang
+   mengambang di atas kertas berkisi. `margin-top: auto` menempelkannya ke
+   dasar layar pada halaman yang isinya pendek. */
+.kaki-mantra {
+  margin-top: auto; border-top: 1px solid var(--garis);
+  padding: 22px var(--tepi) 30px;
+  background: var(--kartu);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap; font-size: 13px; color: var(--tinta-62);
+}
+.kaki-mantra b { font-weight: 600; color: var(--tinta); }
+.kaki-mantra .lembaga { display: flex; align-items: center; gap: 10px; }
+
+@media (max-width: 860px) {
+  .kisi-tiga, .kisi-dua { grid-template-columns: 1fr; }
+  .hero { padding-bottom: 110px; }
+  .hero h1 { font-size: 26px; }
+  .hero h1 span, .hero h1 i { white-space: normal; }
+  .hero-sub { font-size: 15px; }
+  .hero-sub br { display: none; }
+  .judul-halaman { font-size: 28px; }
+  .ajakan { grid-template-columns: 1fr; }
+}
+
+/* ---------- peta materi ---------- */
+.kelas-tajuk { display: flex; align-items: baseline; gap: 16px; margin: 30px 0 16px; }
+.kelas-tajuk h2 {
+  font-family: var(--font-serif), Georgia, serif; font-weight: 400; font-size: 27px; margin: 0;
+}
+.kelas-tajuk .jml {
+  font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(16, 26, 43, 0.55); white-space: nowrap;
+}
+.kelas-tajuk .rel { flex: 1; height: 1px; background: rgba(16, 26, 43, 0.14); }
+
+/* Kolom flex, bukan blok. Kartu dalam satu baris kisi selalu setinggi kartu
+   tertinggi; kalau isinya blok, kartu yang lebih pendek meninggalkan lubang
+   kosong di bawah tombolnya. Dengan `margin-top: auto` pada `.bab-aksi`,
+   tombolnya menempel ke dasar kartu dan barisnya terbaca rata. */
+.kartu-bab {
+  padding: 22px 24px 18px; text-decoration: none; color: inherit;
+  display: flex; flex-direction: column;
+}
+.kartu-bab:hover { transform: translateY(-5px); }
+.bab-atas { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; }
+.bab-kicker {
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--biru); font-variant-numeric: tabular-nums;
+}
+.kartu-bab h3 {
+  font-family: var(--font-serif), Georgia, serif; font-weight: 400;
+  font-size: 27px; line-height: 1.08; margin: 6px 0;
+}
+.bab-tanya { margin: 0; font-size: 14px; font-style: italic; color: rgba(16, 26, 43, 0.66); }
+
+/* Cincin kemajuan 66px. `stroke-dasharray:107` adalah keliling lingkaran
+   berjari-jari 17 pada viewBox 40; offset-nya yang dianimasikan. */
+.cincin { position: relative; width: 66px; height: 66px; flex: none; }
+.cincin svg { width: 66px; height: 66px; transform: rotate(-90deg); }
+.cincin .isi {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.cincin .maju { transition: stroke-dashoffset 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+.bab-sub { margin-top: 14px; border-top: 1px solid rgba(176, 138, 62, 0.5); }
+.bab-sub-baris {
+  display: grid; grid-template-columns: 18px 1fr auto; gap: 10px;
+  padding: 9px 0; border-bottom: 1px solid rgba(16, 26, 43, 0.09);
+  align-items: baseline;
+}
+/* Baris TIDAK lagi bergeser saat disentuh tetikus. Dulu seluruh baris digeser
+   6 piksel ke kanan; sekarang materinya sendiri yang bisa diklik, dan sasaran
+   yang bergerak saat kursor mendekat justru membuat sulit ditekan. */
+.bab-sub-baris .huruf {
+  font-family: var(--font-serif), Georgia, serif; color: var(--emas); font-size: 17px;
+}
+.bab-sub-baris .nama { font-size: 14px; font-weight: 600; }
+.bab-sub-isi { min-width: 0; }
+.bab-sub-baris .jml {
+  font-size: 11px; color: var(--tinta-50);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+
+/* Tiap materi jadi satu keping yang bisa diklik, bukan sekadar tulisan.
+   Latarnya MENYALA saat disentuh, ditekan, atau saat sedang dituju papan
+   ketik (permintaan ARYA 3 Sep 2026), supaya jelas mana yang sedang dipilih.
+   Yang sudah pernah dibuka menyala tipis sepanjang waktu dan diberi centang. */
+.bab-materi { display: flex; flex-wrap: wrap; gap: 5px 6px; margin-top: 6px; }
+.taut-materi {
+  display: inline-flex; align-items: baseline; gap: 6px;
+  max-width: 100%; padding: 4px 9px; border-radius: 9px;
+  font-size: 12.5px; line-height: 1.35; color: var(--tinta-72);
+  text-decoration: none; border: 1px solid transparent;
+  background: transparent;
+  transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.18s;
+}
+.taut-materi .no { color: var(--tinta-50); font-size: 11px; flex: none; }
+.taut-materi:hover, .taut-materi:focus-visible {
+  background: var(--emas-14); border-color: rgba(176, 138, 62, 0.45);
+  color: var(--tinta); transform: translateY(-1px); outline: none;
+}
+.taut-materi:hover .no, .taut-materi:focus-visible .no { color: var(--emas-tua); }
+.taut-materi:active { transform: scale(0.97); }
+.taut-materi[data-selesai='true'] {
+  background: rgba(110, 156, 122, 0.13); color: var(--tinta);
+}
+.taut-materi[data-selesai='true'] .no { color: var(--hijau); }
+.taut-materi[data-selesai='true']::after { content: '✓'; font-size: 10px; color: var(--hijau); }
+.taut-materi[data-selesai='true']:hover { background: var(--emas-14); }
+/* Materi yang belum dibangun tetap ditampilkan, tidak disembunyikan: siswa
+   perlu melihat jalan yang masih akan datang. Tetapi ia tidak bisa diklik. */
+.taut-materi.mati { color: var(--tinta-50); cursor: not-allowed; }
+.taut-materi.mati::after { content: '·  belum dibangun'; font-size: 10.5px; }
+.bab-aksi { display: flex; gap: 10px; margin-top: auto; padding-top: 14px; flex-wrap: wrap; }
+.pil-kecil-emas, .pil-kecil-garis {
+  font-size: 13.5px; font-weight: 600; border-radius: 999px; padding: 8px 16px;
+  cursor: pointer; white-space: nowrap; text-decoration: none;
+  display: inline-flex; align-items: center; transition: transform 0.2s, border-color 0.2s, color 0.2s;
+}
+.pil-kecil-emas { color: var(--kertas); background: var(--emas); }
+.pil-kecil-emas:hover { color: var(--kertas); }
+.pil-kecil-garis { border: 1px solid rgba(16, 26, 43, 0.2); color: var(--tinta); }
+.pil-kecil-garis:hover { border-color: var(--emas); color: var(--emas); }
+.pil-kecil-emas:active, .pil-kecil-garis:active { transform: scale(0.95); }
+
+.kartu-segera {
+  margin: 22px 0 0; border: 2px dashed rgba(16, 26, 43, 0.22); border-radius: 20px;
+  padding: 26px 28px; display: grid; grid-template-columns: 1fr auto;
+  gap: 20px; align-items: center; background: rgba(255, 255, 255, 0.5);
+}
+.kartu-segera h3 {
+  font-family: var(--font-serif), Georgia, serif; font-weight: 400; font-size: 26px; margin: 6px 0;
+}
+.kartu-segera p { margin: 0; font-size: 14px; color: rgba(16, 26, 43, 0.66); max-width: 52rem; }
+.kartu-segera .titik {
+  font-family: var(--font-serif), Georgia, serif; font-size: 44px;
+  color: rgba(16, 26, 43, 0.18); white-space: nowrap;
+}
+@media (max-width: 860px) { .kartu-segera { grid-template-columns: 1fr; } }
+
+/* ---------- tentang ---------- */
+.tentang-atas { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 42px; align-items: start; }
+/* Nama situs berdiri sebagai judul halaman, jadi ia boleh lebih besar dan
+   berjarak huruf lebar seperti pada lambangnya. */
+.judul-merk { font-size: 54px; letter-spacing: 0.06em; margin-bottom: 4px; }
+/* Lambang MANTRA, ditengahkan setinggi kolom penjelasan di sebelahnya.
+   `align-self: center` yang melakukannya; tanpa itu ia menempel di atas
+   karena baris grid-nya memakai `align-items: start`.
+
+   LATARNYA PUTIH PEKAT, dan itu bukan hiasan. Berkas lambangnya PNG dengan
+   72 persen piksel tembus pandang, sedangkan latar halaman bergaris kisi.
+   Tanpa alas, garis kisi itu menembus sela-sela huruf lambang dan membuatnya
+   terlihat kotor (temuan ARYA, 3 Sep 2026). */
+.plat-merk {
+  align-self: center; display: flex; align-items: center; justify-content: center;
+  padding: 30px 26px; background: var(--kartu);
+  border: 1px solid var(--garis); border-radius: 20px;
+  box-shadow: 0 22px 50px -40px rgba(16, 26, 43, 0.7);
+}
+.plat-merk img { display: block; width: 100%; max-width: 26rem; height: auto; }
+@media (max-width: 860px) {
+  .judul-merk { font-size: 38px; }
+  .plat-merk { padding: 6px 0 10px; }
+  .plat-merk img { max-width: 18rem; }
+}
+.tentang-atas p { margin: 0 0 14px; font-size: 16px; line-height: 1.8; }
+/* Jarak antarparagraf DITULIS di sini, bukan diserahkan ke `margin: 0`.
+   Dengan margin nol keduanya menempel dan terbaca sebagai satu blok, padahal
+   isinya dua hal berbeda (terlihat 3 Sep 2026). */
+.tentang-atas p + p { margin: 14px 0 0; font-size: 15px; color: var(--tinta-72); }
+.plat {
+  border: 1px solid var(--garis); border-radius: 20px; overflow: hidden;
+  background: var(--kartu); padding: 10px;
+}
+.plat img { display: block; width: 100%; height: auto; border-radius: 12px; }
+
+.kartu-alat {
+  border: 1px solid var(--garis); border-radius: 20px; padding: 22px 24px;
+  background: var(--kartu); display: grid; grid-template-columns: 132px 1fr;
+  gap: 20px; align-items: start; transition: transform 0.25s;
+}
+.kartu-alat:hover { transform: translateY(-4px); }
+/* Kotak berbingkai untuk logo pihak lain: `object-fit:contain` supaya lambang
+   tidak pernah terpotong atau melar, apa pun perbandingan sisinya.
+
+   Latarnya PUTIH PEKAT, bukan krem. Logo Manim dan Claude sama-sama PNG
+   tembus pandang, dan di atas krem yang hampir sewarna kartunya keduanya
+   terlihat pudar seperti tempelan yang gagal dimuat. Putih memberi mereka
+   alas yang jelas, dan bingkainya yang membuat kotaknya tetap terbaca
+   sebagai kotak. */
+.plat-logo {
+  box-sizing: border-box; width: 132px; height: 74px;
+  display: flex; align-items: center; justify-content: center; padding: 9px 13px;
+  border: 1px solid rgba(16, 26, 43, 0.16); border-radius: 14px;
+  background: #FFFFFF;
+}
+.plat-logo img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+.kartu-alat h3 { font-size: 19px; font-weight: 600; margin: 0 0 6px; }
+.kartu-alat p { margin: 0 0 10px; font-size: 14px; line-height: 1.7; color: var(--tinta-72); }
+.kartu-alat a { font-size: 13px; font-weight: 600; }
+
+.kotak-emas {
+  border: 1px solid rgba(176, 138, 62, 0.6); border-radius: 16px;
+  padding: 18px 20px; background: rgba(176, 138, 62, 0.06);
+}
+.kotak-emas b {
+  font-family: var(--font-serif), Georgia, serif; font-size: 18px; font-weight: 400;
+}
+.kotak-emas p { margin: 8px 0 0; font-size: 14.5px; line-height: 1.75; }
+
+.kartu-penulis {
+  display: flex; gap: 22px; align-items: center; border: 1px solid var(--garis);
+  border-radius: 20px; padding: 22px 24px; max-width: 44rem; background: var(--kartu);
+}
+.kartu-penulis .nama {
+  margin: 0; font-family: var(--font-serif), Georgia, serif; font-size: 23px;
+}
+.kartu-penulis .lembaga { margin: 2px 0 12px; font-size: 14px; color: rgba(16, 26, 43, 0.65); }
+/* Nomornya sengaja TIDAK ditampilkan, hanya tombolnya. */
+.tombol-wa-mantra {
+  display: inline-flex; align-items: center; gap: 9px; white-space: nowrap;
+  font-size: 13.5px; font-weight: 600; color: var(--tinta);
+  border: 1px solid rgba(16, 26, 43, 0.2); border-radius: 999px;
+  padding: 8px 18px; text-decoration: none; transition: border-color 0.2s, color 0.2s;
+}
+.tombol-wa-mantra:hover { border-color: var(--wa-hijau); color: var(--wa-hijau-tua); }
+
+@media (max-width: 860px) {
+  .tentang-atas { grid-template-columns: 1fr; gap: 24px; }
+  .kartu-alat { grid-template-columns: 1fr; }
+  .kartu-penulis { flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------- latihan ---------- */
+.kartu-latihan {
+  border: 1px solid var(--garis); border-radius: 20px; background: var(--kartu);
+  padding: 24px 26px 22px; margin-bottom: 18px; transition: box-shadow 0.28s;
+}
+.latihan-atas {
+  display: grid; grid-template-columns: 1fr auto; gap: 22px;
+  align-items: end; margin-bottom: 14px;
+}
+.latihan-atas h2 {
+  font-family: var(--font-serif), Georgia, serif; font-weight: 400;
+  font-size: 30px; margin: 5px 0 0;
+}
+.latihan-persen {
+  font-family: var(--font-serif), Georgia, serif; font-size: 38px; color: var(--emas);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+/* Bar besar: emas ke hijau, jadi ujungnya terbaca sebagai "selesai".
+   `border: 0` MEMBATALKAN bingkai 1px dari aturan `.bar-besar` lama di atas.
+   Tanpa itu bar setinggi 5px ini punya garis tepi di keempat sisinya dan
+   terbaca sebagai garis kosong, bukan sebagai palung yang terisi. */
+.bar-besar {
+  height: 5px; background: rgba(16, 26, 43, 0.12); border: 0; border-radius: 999px;
+  overflow: hidden; margin-bottom: 20px;
+}
+.bar-besar span {
+  display: block; height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--emas), var(--hijau));
+  transition: width 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.kisi-tingkat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.ubin-tingkat {
+  border: 1px solid rgba(16, 26, 43, 0.14); border-radius: 14px;
+  padding: 13px 15px; transition: transform 0.25s;
+}
+.ubin-tingkat:hover { transform: translateY(-3px); }
+.ubin-tingkat .nama {
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+}
+.ubin-tingkat .bar {
+  height: 4px; background: rgba(16, 26, 43, 0.12); border-radius: 999px;
+  overflow: hidden; margin: 9px 0 8px;
+}
+.ubin-tingkat .bar span {
+  display: block; height: 100%; background: var(--emas); border-radius: 999px;
+  transition: width 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.ubin-tingkat .angka {
+  font-size: 12px; color: var(--tinta-62);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.ubin-terkunci { opacity: 0.55; }
+@media (max-width: 860px) {
+  .kisi-tingkat { grid-template-columns: repeat(2, 1fr); }
+  .latihan-atas { grid-template-columns: 1fr; align-items: start; }
+}
+
+/* ---------- halaman materi: remah roti + sidebar pohon ---------- */
+.materi-panel {
+  border: 1px solid var(--garis); border-radius: 24px; overflow: hidden;
+  background: var(--kartu); box-shadow: 0 28px 64px -44px rgba(16, 26, 43, 0.6);
+  margin-bottom: 10px;
+}
+/* Remah roti TIDAK PERNAH membungkus: kalau nama sub-bab kepanjangan ia
+   dipotong dengan elipsis, sebab baris kedua akan menggeser seluruh panel. */
+.remah {
+  min-height: 54px; white-space: nowrap; display: flex; align-items: center;
+  gap: 10px; padding: 0 18px; border-bottom: 1px solid rgba(16, 26, 43, 0.1);
+  font-size: 12.5px; color: var(--tinta-62); overflow: hidden;
+}
+.remah .remah-pisah { color: var(--emas); }
+.remah .kini { color: var(--emas); font-weight: 600; font-variant-numeric: tabular-nums; }
+.remah .nama-sub { color: var(--tinta); overflow: hidden; text-overflow: ellipsis; }
+.remah .kanan { margin-left: auto; display: flex; align-items: center; gap: 10px; flex: none; }
+.remah .bar {
+  width: 120px; height: 4px; border-radius: 999px;
+  background: rgba(16, 26, 43, 0.12); overflow: hidden; display: block;
+}
+.remah .bar span {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, var(--emas), var(--hijau));
+  transition: width 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Dua kolom: sidebar yang bisa dikuncupkan, lalu isi materi. */
+.materi-badan {
+  display: grid; grid-template-columns: 278px 1fr;
+  transition: grid-template-columns 0.34s cubic-bezier(0.2, 0.7, 0.2, 1);
+  min-height: 470px;
+}
+.materi-badan[data-rel='true'] { grid-template-columns: 62px 1fr; }
+
+.pohon {
+  border-right: 1px solid rgba(16, 26, 43, 0.1); background: var(--cekung);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.pohon-kepala {
+  flex: none; display: flex; align-items: center; gap: 8px;
+  padding: 12px 12px 11px; border-bottom: 1px solid rgba(16, 26, 43, 0.1);
+}
+.materi-badan[data-rel='true'] .pohon-kepala { padding: 12px 8px 11px; justify-content: center; }
+.pohon-kepala .bab {
+  font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--biru);
+}
+.pohon-kepala .nama {
+  font-family: var(--font-serif), Georgia, serif; font-size: 22px; line-height: 1.1; margin-top: 3px;
+}
+.pohon-togel {
+  flex: none; width: 32px; height: 32px; border: 1px solid rgba(16, 26, 43, 0.18);
+  border-radius: 9px; display: grid; place-items: center; cursor: pointer;
+  font-size: 12px; color: var(--emas); background: var(--kartu); transition: border-color 0.2s;
+}
+.pohon-togel:hover { border-color: var(--emas); }
+.pohon-togel:active { transform: scale(0.9); }
+
+.pohon-gulir { flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: thin; padding: 6px 8px 10px; }
+.pohon-sub {
+  display: flex; align-items: baseline; gap: 9px; padding: 12px 10px 5px;
+}
+.pohon-sub .huruf {
+  font-family: var(--font-serif), Georgia, serif; color: var(--emas); font-size: 17px; width: 14px;
+}
+.pohon-sub .nama { flex: 1; font-size: 12.5px; font-weight: 600; }
+.pohon-sub .hitung {
+  font-size: 11px; color: rgba(16, 26, 43, 0.45);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+/* Rel sempit: huruf sub-bab tetap ada supaya siswa tidak kehilangan tempatnya. */
+.pohon-sub-rel {
+  margin: 10px auto 4px; width: 34px; padding-bottom: 4px;
+  border-bottom: 1px solid rgba(16, 26, 43, 0.14); text-align: center;
+  font-family: var(--font-serif), Georgia, serif; font-size: 16px; color: var(--emas);
+}
+
+.pohon-baris {
+  display: grid; grid-template-columns: 22px 1fr 15px; gap: 9px; align-items: center;
+  width: 100%; padding: 8px 10px; border-radius: 11px; cursor: pointer;
+  background: transparent; border: none; border-left: 2px solid transparent;
+  text-align: left; font: inherit; color: inherit; transition: background 0.2s;
+}
+.materi-badan[data-rel='true'] .pohon-baris { grid-template-columns: 1fr; padding: 8px 4px; justify-items: center; }
+.pohon-baris:hover { background: var(--emas-14); }
+.pohon-baris[data-aktif='true'] { background: var(--emas-14); border-left-color: var(--emas); }
+.pohon-baris:disabled { opacity: 0.45; cursor: not-allowed; }
+.pohon-baris .no {
+  font-size: 11px; color: var(--tinta-50); font-variant-numeric: tabular-nums; text-align: center;
+}
+.pohon-baris[data-aktif='true'] .no { color: var(--emas); }
+.pohon-baris .judul { font-size: 13px; line-height: 1.35; }
+.pohon-baris[data-aktif='true'] .judul { font-weight: 600; }
+/* Lingkaran status. Yang sudah dibuka: cincin hijau berisi, dengan centang
+   yang meletup sekali saat materinya pertama kali dibuka. */
+.pohon-baris .status {
+  width: 15px; height: 15px; justify-self: center; border-radius: 50%;
+  border: 1.5px solid rgba(16, 26, 43, 0.25); display: flex;
+  align-items: center; justify-content: center; font-size: 9px; color: #fff;
+}
+.pohon-baris[data-selesai='true'] .status { border-color: var(--hijau); background: var(--hijau); }
+@keyframes letup {
+  0% { transform: scale(0.4); opacity: 0.3; }
+  60% { transform: scale(1.35); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.pohon-baris[data-letup='true'] .status { animation: letup 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+.pohon-kaki { flex: none; border-top: 1px solid rgba(16, 26, 43, 0.1); padding: 9px 8px 11px; }
+.pohon-kaki button {
+  display: grid; grid-template-columns: 20px 1fr auto; gap: 10px; align-items: center;
+  width: 100%; padding: 9px 10px; border-radius: 11px; cursor: pointer;
+  background: transparent; border: none; text-align: left; font: inherit; color: inherit;
+}
+.pohon-kaki button:hover:not(:disabled) { background: var(--emas-14); }
+.pohon-kaki button:disabled { cursor: not-allowed; }
+.pohon-kaki .ikon { color: var(--emas); font-size: 15px; }
+.pohon-kaki .nama { font-size: 13.5px; font-weight: 600; }
+/* Syarat kunci kuis DITULIS, tidak pernah disembunyikan. */
+.pohon-kaki .syarat { font-size: 11px; color: var(--tinta-62); line-height: 1.4; }
+.pohon-kaki .lencana-kunci {
+  font-size: 11px; color: var(--emas); border: 1px solid var(--emas);
+  border-radius: 6px; padding: 2px 6px; white-space: nowrap;
+}
+
+/* Pasangan Kembali dan Lanjut di kaki kolom kanan. */
+.pindah-materi {
+  margin: 18px 0 8px; display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 11px;
+}
+.pindah-materi button {
+  min-width: 0; overflow: hidden; border-radius: 14px; padding: 11px 13px;
+  cursor: pointer; text-align: left; font: inherit; transition: transform 0.2s, border-color 0.2s;
+}
+.pindah-kembali { border: 1px solid rgba(16, 26, 43, 0.18); background: transparent; color: inherit; }
+.pindah-kembali:hover:not(:disabled) { border-color: var(--emas); }
+.pindah-kembali:disabled { opacity: 0.4; cursor: not-allowed; }
+.pindah-lanjut { border: none; background: var(--emas); color: var(--kertas); }
+.pindah-lanjut:hover { transform: translateY(-2px); }
+.pindah-materi button:active { transform: scale(0.97); }
+.pindah-materi .cap-kecil {
+  font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  display: flex; justify-content: space-between; gap: 8px; opacity: 0.85;
+}
+.pindah-materi .judul-kecil {
+  font-size: 14px; font-weight: 600; margin-top: 3px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.pindah-materi .saran {
+  font-size: 12px; margin-top: 3px; opacity: 0.85;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+/* Tombol pembuka laci dan tirainya HANYA ada di layar HP. Di layar lebar
+   sidebar memang selalu terlihat, jadi keduanya disembunyikan. */
+.buka-laci, .laci-tutup { display: none; }
+
+@media (max-width: 860px) {
+  /* SIDEBAR JADI LACI, BUKAN TUMPUKAN.
+     Sebelum ini sidebar ditaruh di atas isi materi dan dipatok setinggi 60%
+     layar. Akibatnya daftar materi terpotong di TENGAH BARIS, dan baris
+     Latihan serta Kuis di bawahnya terbaca seolah menindih materi yang
+     terpotong itu (temuan ARYA di HP, 3 Sep 2026). Menaikkan batas tingginya
+     tidak menyelesaikan apa pun: berapa pun angkanya, daftar sepuluh materi
+     ditambah kepala dan kaki tidak akan muat bersama isi materinya.
+     Rancangannya sendiri sudah menjawab: "sidebar pohon berubah jadi laci
+     yang digeser dari kiri". Dengan begitu daftarnya dapat SELURUH tinggi
+     layar saat dibuka, dan nol tinggi saat ditutup. */
+  .materi-badan, .materi-badan[data-rel='true'] { grid-template-columns: 1fr; }
+  .pohon {
+    position: fixed; z-index: 60; top: 0; bottom: 0; left: 0;
+    width: min(86vw, 330px); max-height: none;
+    background: var(--kartu);
+    border-right: 1px solid var(--garis); border-bottom: none;
+    box-shadow: 0 0 60px -10px rgba(16, 26, 43, 0.45);
+    transform: translateX(-101%);
+    transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+    /* `visibility` ikut dimatikan supaya laci yang tertutup tidak bisa
+       dijangkau Tab. Tanpa ini papan ketik nyasar ke daftar materi yang
+       sedang berada di luar layar. */
+    visibility: hidden;
+  }
+  .pohon[data-laci='true'] { transform: none; visibility: visible; }
+  .tirai-laci {
+    display: block; position: fixed; inset: 0; z-index: 55;
+    border: 0; padding: 0; cursor: pointer;
+    background: rgba(16, 26, 43, 0.45);
+  }
+  /* Di laci, sidebar SELALU lebar penuh: rel sempit tidak ada gunanya di sini. */
+  .materi-badan[data-rel='true'] .pohon-baris { grid-template-columns: 22px 1fr 15px; padding: 8px 10px; justify-items: stretch; }
+  .pohon-togel { display: none; }
+  .laci-tutup {
+    display: grid; place-items: center; flex: none;
+    width: 34px; height: 34px; border: 1px solid var(--garis-tegas);
+    border-radius: 9px; background: var(--kartu); color: var(--tinta);
+    font: inherit; font-size: 13px; cursor: pointer;
+  }
+  .buka-laci {
+    display: inline-flex; align-items: center; gap: 7px; flex: none;
+    font: inherit; font-size: 12px; font-weight: 600;
+    padding: 7px 12px; border-radius: 999px; cursor: pointer;
+    border: 1px solid rgba(176, 138, 62, 0.5); background: var(--emas-10);
+    color: var(--emas-tua); white-space: nowrap;
+  }
+  .buka-laci:active { transform: scale(0.96); }
+  .remah { font-size: 11.5px; gap: 8px; }
+  .remah .kanan .bar { width: 70px; }
+  /* Rantai remah lengkap butuh 676 piksel; di layar 375 ia mendorong seluruh
+     halaman menyamping. Dua remah pertama disembunyikan, sisanya boleh
+     digulir sendiri di dalam bilahnya kalau nama sub-babnya masih panjang. */
+  .remah-awal { display: none; }
+  .remah { overflow-x: auto; scrollbar-width: none; }
+  .remah .nama-sub { max-width: 40vw; }
+}
+
+/* Panggung DI DALAM panel materi. Gaya `.panggung` aslinya dirancang untuk
+   mengisi lebar halaman penuh; begitu ia masuk ke dalam panel bersidebar,
+   kolom kirinya menciut sampai alat interaktifnya tidak terbaca (terukur 200
+   piksel pada layar 1366). Perbandingan di bawah diambil dari rancangan:
+   kolom visual lebih lebar, kolom bacaan diberi lebar terkecil yang masih
+   nyaman dibaca. */
+/* Kolom kanan (bacaan) dibatasi 46rem, kolom kiri (gambar) mengambil SISANYA.
+   Bukan dua pecahan yang sama-sama melar. Alasannya: baris teks yang makin
+   panjang makin sulit dibaca, sedangkan gambar yang makin besar makin jelas.
+   Jadi saat layar melebar, ruang tambahannya diberikan ke gambar. */
+.materi-badan .panggung {
+  grid-template-columns: minmax(0, 1fr) clamp(19rem, 32%, 46rem);
+  gap: 20px; padding: 18px 20px; max-height: none; min-height: 470px;
+}
+/* `position: relative` WAJIB. Label sudut (`.tanda`, misalnya "INTERAKTIF")
+   diposisikan `absolute; top:0; left:0`, dan tanpa induk berposisi ia
+   berpegangan pada JENDELA: labelnya melayang di pojok kiri atas layar, jauh
+   dari kotak yang seharusnya ditandainya. Terlihat jelas begitu panggung
+   melebar mengikuti layar (terukur 3 Sep 2026 pada lebar 2560). */
+.materi-badan .panggung .kolom { position: relative; }
+.materi-badan .panggung .kolom.kanan { max-height: 470px; overflow-y: auto; scrollbar-width: thin; }
+.materi-badan .panggung .layar,
+.materi-badan .panggung .wadah { max-height: 330px; }
+@media (max-width: 860px) {
+  .materi-badan .panggung {
+    grid-template-columns: 1fr; padding: 14px 14px 18px;
+  }
+  .materi-badan .panggung .kolom.kanan { max-height: none; }
+}
+
+
+/* Panel materi dikunci setinggi layar, isinya yang menggulir.
+   Sebelum ini tinggi panel ditentukan oleh sidebar (terukur 825 piksel untuk
+   sepuluh materi), sehingga kolom kanan yang dibatasi 470 piksel menyisakan
+   ruang kosong sepertiga layar. Sekarang panelnya yang dibatasi, dan KEDUA
+   kolom menggulir di dalamnya. `min-height: 0` wajib: tanpa itu anak grid
+   memakai tinggi isinya dan tidak pernah mau menggulir. */
+/* TINGGI PASTI, bukan max-height. `max-height` pada wadah grid tidak memaksa
+   barisnya mengecil: barisnya tetap setinggi isi, lalu kelebihannya dipotong
+   diam-diam. Terukur 3 Sep: daftar materi menjadi 3786 piksel dan baris
+   Latihan serta Kuis terdorong ke luar layar tanpa pernah bisa dicapai.
+   Dengan tinggi pasti, kedua kolom mendapat tinggi yang jelas, sehingga
+   `flex: 1; min-height: 0` di dalamnya benar-benar menggulir. */
+.materi-badan { height: calc(100dvh - 132px); min-height: 470px; }
+.materi-badan > * { min-height: 0; }
+.materi-badan .panggung { min-height: 0; max-height: 100%; }
+.materi-badan .panggung > .kolom { min-height: 0; }
+.materi-badan .panggung .kolom.kanan { max-height: 100%; }
+@media (max-width: 860px) {
+  /* `height: auto`, BUKAN sekadar `max-height: none`. Tinggi pasti
+     `calc(100dvh - 132px)` di atas tetap berlaku kalau hanya `max-height`
+     yang dibatalkan, dan itulah yang memeras isi materi di HP sampai
+     terpotong. Di layar sempit yang menggulir cukup HALAMANNYA saja; daerah
+     gulir bersarang di dalam layar 375 piksel selalu berakhir sebagai isi
+     yang terpotong tanpa pemberitahuan. */
+  .materi-badan { height: auto; max-height: none; min-height: 0; }
+  .materi-badan .panggung { min-height: 0; max-height: none; }
+  .materi-badan .panggung .kolom.kanan { max-height: none; overflow-y: visible; }
+  .materi-badan .panggung .layar,
+  .materi-badan .panggung .wadah { max-height: none; }
+}
+
+/* ============================================================
+   BANK SOAL versi MANTRA (3 Sep 2026)
+   Patokan: bagian LATIHAN di docs/desain-mantra/MANTRA.dc.html.
+
+   Susunannya dua kolom: soal di kiri, PEMBAHASAN di panel kanan. Sebelumnya
+   pembahasan menyembul di bawah soal, sehingga halaman melompat tepat pada
+   saat siswa sedang membaca. Dengan panel di samping, soal, pilihan, dan
+   penjelasannya terlihat bersamaan.
+   ============================================================ */
+
+.remah-latihan {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12.5px; color: var(--tinta-62); margin-bottom: 10px;
+}
+.remah-latihan a { color: var(--tinta-62); text-decoration: none; }
+.remah-latihan a:hover { color: var(--emas-tua); }
+.remah-latihan .kini { color: var(--emas); font-weight: 600; }
+
+.kisi-soal {
+  display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 20px; align-items: start; margin-bottom: 6px;
+}
+.kartu-soal, .kartu-bahas {
+  border: 1px solid var(--garis); border-radius: 20px;
+  padding: 20px 22px 22px; min-width: 0;
+}
+.kartu-soal { background: var(--kartu); }
+/* Panel pembahasan sengaja BERBEDA warnanya dari kartu soal: ia bukan
+   kelanjutan soal, melainkan jawaban atasnya. */
+.kartu-bahas { background: var(--cekung); min-height: 15rem; }
+
+/* --- keping tingkat --- */
+.keping-tingkat { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+.keping {
+  display: inline-flex; align-items: center; gap: 7px;
+  font: inherit; font-size: 13px; font-weight: 600; text-transform: capitalize;
+  padding: 9px 16px; border-radius: 999px; cursor: pointer; white-space: nowrap;
+  border: 1px solid var(--garis-tegas); background: transparent; color: var(--tinta-72);
+  transition: background 0.22s, border-color 0.22s, color 0.22s, transform 0.22s;
+}
+.keping .jml { font-size: 11px; opacity: 0.7; }
+.keping:hover:not(:disabled) { border-color: var(--emas); color: var(--emas-tua); }
+.keping:active:not(:disabled) { transform: scale(0.96); }
+.keping[data-pilih='true'] {
+  background: var(--emas); border-color: var(--emas); color: var(--kertas);
+}
+.keping[data-pilih='true'] .jml { opacity: 0.85; }
+/* Tingkat terkunci TETAP TERLIHAT, tidak disembunyikan: siswa perlu tahu
+   jalan yang belum ditempuh. Syaratnya tertulis di kabar bawah soal. */
+.keping[data-kunci='true'] { opacity: 0.45; cursor: not-allowed; }
+
+.soal-kepala {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--tinta-50);
+}
+.soal-kepala .tingkat-kini { color: var(--biru); white-space: nowrap; }
+.soal-kepala .rel { flex: 1; height: 1px; background: var(--garis); }
+.soal-kepala .angka-rata { white-space: nowrap; }
+
+.pernah-benar {
+  margin-top: 12px; font-size: 11.5px; letter-spacing: 0.05em; color: var(--hijau);
+}
+.kartu-soal .soal-teks {
+  margin: 12px 0 18px; font-size: 16.5px; line-height: 1.7; color: var(--tinta);
+}
+.soal-kosong { margin: 16px 0 0; font-size: 14.5px; color: var(--tinta-62); }
+
+/* --- pilihan jawaban --- */
+.opsi-daftar { display: flex; flex-direction: column; gap: 9px; }
+.opsi-mantra {
+  display: grid; grid-template-columns: 30px minmax(0, 1fr) 20px; gap: 12px;
+  align-items: center; min-height: 48px; padding: 10px 14px;
+  border-radius: 14px; cursor: pointer; text-align: left; font: inherit;
+  border: 1px solid var(--garis-tegas); background: var(--kartu);
+  transition: border-color 0.22s, background 0.22s, transform 0.12s, opacity 0.22s;
+}
+.opsi-mantra:hover:not(:disabled) { border-color: var(--emas); }
+.opsi-mantra:active:not(:disabled) { transform: scale(0.99); }
+.opsi-mantra .huruf {
+  width: 26px; height: 26px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; font-size: 12px; font-weight: 600;
+  background: rgba(16, 26, 43, 0.07); color: var(--tinta-62);
+}
+.opsi-mantra .isi { font-size: 15px; line-height: 1.5; }
+.opsi-mantra .tanda { font-size: 13px; font-weight: 600; text-align: center; }
+/* Sebelum diperiksa: yang dipilih hanya DITANDAI, belum dinilai. Itu yang
+   membuat siswa boleh berganti pikiran tanpa jawabannya terlanjur tercatat. */
+.opsi-mantra[data-keadaan='pilih'] { border-color: var(--emas); background: var(--emas-10); }
+.opsi-mantra[data-keadaan='pilih'] .huruf { background: var(--emas); color: var(--kertas); }
+.opsi-mantra[data-keadaan='benar'] { border-color: var(--hijau); background: rgba(110, 156, 122, 0.12); }
+.opsi-mantra[data-keadaan='benar'] .huruf { background: var(--hijau); color: #fff; }
+.opsi-mantra[data-keadaan='benar'] .tanda { color: var(--hijau); }
+.opsi-mantra[data-keadaan='salah'] { border-color: var(--jingga); background: rgba(232, 88, 44, 0.09); }
+.opsi-mantra[data-keadaan='salah'] .huruf { background: var(--jingga); color: #fff; }
+.opsi-mantra[data-keadaan='salah'] .tanda { color: var(--jingga); }
+.opsi-mantra[data-keadaan='redam'] { opacity: 0.5; }
+.opsi-mantra:disabled { cursor: default; }
+
+.soal-aksi {
+  margin-top: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.soal-aksi .pil-gelap, .soal-aksi .pil-garis { font-size: 13.5px; padding: 11px 22px; }
+.soal-aksi .kabar { font-size: 13px; flex: 1; min-width: 12rem; }
+
+/* --- panel pembahasan --- */
+.bahas-isi { animation: naik 0.34s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.bahas-jawab {
+  margin: 12px 0 6px; font-size: 14px; color: var(--tinta-72);
+}
+.bahas-jawab b { color: var(--hijau); font-size: 15px; }
+.bahas-langkah {
+  display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 11px;
+  padding: 11px 0; border-bottom: 1px solid rgba(16, 26, 43, 0.1);
+  align-items: baseline; font-size: 14px; line-height: 1.7;
+}
+.bahas-langkah .no {
+  font-family: var(--font-serif), Georgia, serif; font-size: 16px; color: var(--emas);
+}
+.bahas-alasan { margin: 10px 0 0; font-size: 14.5px; line-height: 1.75; }
+.bahas-kosong { margin: 12px 0 0; font-size: 14px; line-height: 1.7; color: var(--tinta-62); }
+
+/* --- kuis bab --- */
+.kartu-kuis-bab {
+  border: 1px solid var(--garis); border-radius: 20px; background: var(--kartu);
+  padding: 24px 26px; margin-bottom: 22px;
+}
+.kuis-baris { display: grid; grid-template-columns: 1fr auto; gap: 22px; align-items: center; }
+.kuis-baris h3 {
+  font-family: var(--font-serif), Georgia, serif; font-weight: 400;
+  font-size: 26px; margin: 7px 0 8px;
+}
+.kuis-baris p {
+  margin: 0 0 14px; font-size: 14.5px; line-height: 1.7;
+  color: var(--tinta-72); max-width: 46rem;
+}
+.kuis-baris .bar-besar { height: 6px; }
+
+@media (max-width: 980px) {
+  .kisi-soal { grid-template-columns: 1fr; }
+  /* Di layar sempit pembahasan turun ke bawah soal. Tidak apa-apa: di sana
+     halaman memang digulir satu kolom, jadi tidak ada yang melompat. */
+  .kartu-bahas { min-height: 0; }
+}
+@media (max-width: 860px) {
+  .kuis-baris { grid-template-columns: 1fr; }
+  .soal-aksi .kabar { min-width: 100%; }
+}
+
+/* ============================================================
+   Perpindahan halaman (rancangan: `animTab`)
+   Di berkas rancangan tiap tampilan dibungkus animasi masuk yang dijalankan
+   ulang setiap kali tab berganti. Di Next.js tidak perlu pembungkus khusus:
+   berpindah rute membuat elemen `main` yang BARU, dan animasi CSS memang
+   berjalan saat elemen dibuat. Nav sengaja tidak ikut, sebab ia tetap di
+   tempatnya saat halaman berganti dan menganimasikannya justru terasa seperti
+   halaman dimuat ulang.
+   ============================================================ */
+@keyframes tab-masuk { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+/* `backwards`, BUKAN `both`, dan sebabnya halus tetapi merusak.
+   Dengan `both`, animasi terus menerapkan nilai bingkai terakhirnya selamanya,
+   sehingga `transform` pada `main` bernilai matriks satuan, bukan `none`.
+   Nilai `transform` apa pun selain `none` membuat elemen jadi ACUAN bagi anak
+   yang `position: fixed`. Akibatnya laci daftar materi di HP berpegangan pada
+   panel setinggi 4.700 piksel, bukan pada layar, dan tingginya ikut membengkak
+   (terukur 3 Sep 2026: laci jadi 4.840 piksel).
+   Dengan `backwards`, begitu animasinya selesai `transform` kembali ke `none`,
+   dan `main` berhenti jadi acuan. Gerakan masuknya sendiri tidak berubah. */
+main { animation: tab-masuk 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
+
+/* Label kanan pada tajuk berbaris disembunyikan di layar sangat sempit: pada
+   375 piksel ia berimpit dengan judulnya dan garis pemisahnya tinggal
+   beberapa piksel. Judulnya sendiri sudah cukup menjelaskan. */
+@media (max-width: 520px) { .tajuk-baris .kanan { display: none; } }

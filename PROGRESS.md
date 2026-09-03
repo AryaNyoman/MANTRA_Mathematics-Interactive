@@ -13,15 +13,72 @@
 ## Ringkas
 | | |
 |---|---|
-| Tahap sekarang | **ENAM topik tayang** (Trigonometri dan Limit lengkap dengan video). Topik ketujuh, Transformasi Geometri, baru dimulai. Tampilan sedang dirombak jadi MANTRA di cabang `sesi/mantra` |
-| Yang tersisa | **Gelombang 2 berjalan di 6 sesi**: revisi isi dari MASTER lalu video 480p. MASTER mengerjakan rombakan tampilan MANTRA. ARYA meninjau sambil jalan |
-| Alamat tayang | https://matra-eight.vercel.app |
+| Tahap sekarang | **ENAM topik tayang dengan tampilan MANTRA** (Trigonometri dan Limit lengkap dengan video). Topik ketujuh, Transformasi Geometri, baru dimulai |
+| Yang tersisa | **Gelombang 2 berjalan di 6 sesi**: revisi isi dari MASTER lalu video 480p. ARYA meninjau sambil jalan |
+| Alamat tayang | https://matra-eight.vercel.app (produksi) dan https://mantra-uji.vercel.app (uji, alamat tetap) |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md`<br>`docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`<br>`docs/superpowers/plans/2026-09-01-topik-limit.md` |
 | Tenggat | 12 September 2026 |
 | Menjalankan situs | `cd web && npm run dev` → `http://localhost:3000` |
 | Penghalang | *(tidak ada)* |
 
 ## 🧭 MULAI DARI SINI (sesi berikutnya, ditulis 2 Sep 2026)
+
+### 🗺️ 4 SEP DINI HARI: peta struktur graphify sudah ada
+
+- `graphify-out/graph.json`: **2.471 simpul, 5.881 hubungan, 167 komunitas
+  bernama**. Isinya seluruh kode (`manim/`, `web/`, `alat/`, termasuk arsip
+  Manim CE), 52 dokumen (spec, standar, PROGRESS, CLAUDE, rancangan MANTRA),
+  dan 43 foto materi. Buka `graphify-out/graph.html` di peramban untuk
+  menjelajah; `GRAPH_REPORT.md` untuk simpul pusat, hubungan tak terduga,
+  dan pertanyaan yang layak ditelusuri.
+- **Cara pakai tiap sesi:** baca `GRAPH_REPORT.md` dulu, lalu
+  `graphify query "<pertanyaan>"`, `graphify path "A" "B"`, atau
+  `graphify explain "X"`. Kode berubah? `graphify update .` (AST, gratis).
+- **Yang dipelajari dengan mahal, jangan diulang** (rincian di CLAUDE.md
+  bagian Peta struktur): Gemini gratis kena kuota harian 20 permintaan;
+  OpenCode Zen saldo kosong; di OpenCode Go `glm-5.3` menghabiskan seluruh
+  keluaran untuk berpikir (JSON kosong) dan `deepseek-v4-flash` butuh opt-in
+  wilayah; yang bekerja: `glm-5.3-flash` lewat `/zen/go/v1`, 42 dokumen
+  dalam 10 menit, 187 ribu token masuk / 38 ribu keluar (sekitar 2 sen
+  dolar). Skrip pemanggil AST di Windows WAJIB punya pagar
+  `if __name__ == "__main__":`, dan jangan pernah menamai skrip `ast.py`
+  (menutupi modul bawaan Python, semua impor pecah).
+- Rantai panjang (lebih dari 10 menit) TIDAK boleh dijalankan sebagai
+  perintah latar belakang alat (batas 10 menit); jalankan lewat
+  `Start-Process bash.exe <skrip>` dan pantau berkas lognya. Log jangan
+  lewat pipa `grep`/`cut` (tertahan sampai selesai), tulis langsung ke berkas.
+
+### ✅ 3 SEP MALAM: rancangan MANTRA TAYANG di produksi
+
+- `sesi/mantra` digabung ke `master` (fast-forward ke `faac773`) setelah ARYA
+  memeriksa di laptop dan HP, lalu build yang PERSIS ia periksa dinaikkan ke
+  produksi lewat `vercel promote` (bukan build ulang). Produksi
+  https://matra-eight.vercel.app sekarang MANTRA. Worktree `mantra` dihapus
+  karena sudah tergabung.
+- **Alamat uji TETAP: https://mantra-uji.vercel.app.** Tiap deploy preview
+  diarahkan ulang ke sini dengan `vercel alias set <deploy> mantra-uji.vercel.app`,
+  supaya ARYA cukup menyimpan satu alamat di HP. Jangan lagi memberi ARYA
+  alamat acak `matra-xxxx-...vercel.app`: ia pernah membuka yang lama dan
+  mengira perbaikannya belum ada (3 Sep).
+- **Cara deploy yang benar mulai sekarang:** dari `D:\MANIM-MATRA\web` di
+  `master`. Preview: `vercel deploy --yes` lalu `vercel alias set ...`.
+  Produksi: hanya atas kata ARYA, dan pakai `vercel promote <deploy>` untuk
+  menaikkan build yang sudah ia periksa, bukan `--prod` yang membangun ulang.
+- Yang berubah di situs (rincian per commit `01b0f5e`, `86b0a22`, `d810649`,
+  `faac773`): huruf Newsreader + Space Grotesk, palet emas-navy, nav lengket,
+  beranda baru dengan korsel 16:9 bergeser, rute baru `/peta-materi` (tiap
+  materi bisa diklik, `?materi=` membuka materi itu), halaman materi dengan
+  sidebar pohon (di HP jadi laci geser), bank soal dengan panel pembahasan di
+  samping, kaki halaman putih di semua halaman, lebar halaman ikut layar.
+- **Sesi topik:** sekarang boleh `git merge master` untuk mendapat tampilan
+  baru. Daftar berkas milik MASTER di bawah TETAP berlaku (jangan diedit di
+  cabang sesi), hanya syarat "sampai `sesi/mantra` digabung"-nya yang sudah
+  lewat.
+- Utang MANTRA yang tersisa: panel pembahasan bank soal memakai satu paragraf
+  `alasan`, belum langkah bernomor (medan `langkah?: string[]` sudah ada di
+  `SoalKuis`, tinggal diisi per soal); cuplikan layar korsel `demo-latihan.jpg`
+  dan `demo-banksoal.jpg` masih memotret tampilan lama; ruang kosong di bawah
+  widget lebar pendek pada layar lebar (milik sesi topik).
 
 ### ⚠️ 3 SEP SORE: nama situs jadi MANTRA, dan ada topik ketujuh
 

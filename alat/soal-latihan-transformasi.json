@@ -1,0 +1,24 @@
+[
+  { "id": "L1-jawaban",       "jenis": "translasi", "titik": [-2, 5], "geser": [4, -7], "jawaban": [2, -2] },
+
+  { "id": "L2-jawaban",       "jenis": "cermin_garis_tegak", "titik": [1, 4], "k": -2, "jawaban": [-5, 4] },
+
+  { "id": "L3-jawaban",       "jenis": "cermin_y_min_x", "titik": [5, -2], "jawaban": [2, -5] },
+  { "id": "L3-pengecoh-yx",   "jenis": "cermin_y_x", "titik": [5, -2], "jawaban": [-2, 5] },
+
+  { "id": "L4-jawaban",       "jenis": "titik_tengah", "a": [3, -1], "b": [7, 5], "jawaban": [5, 2] },
+  { "id": "L4-periksa-maju",  "jenis": "cermin_titik", "titik": [3, -1], "pusat": [5, 2], "jawaban": [7, 5] },
+
+  { "id": "L5-jawaban",       "jenis": "komposisi", "titik": [6, 5],
+    "langkah": [{ "jenis": "cermin_y_min_x" }, { "jenis": "rotasi", "derajat": 90, "pusat": [0, 0] }],
+    "jawaban": [6, -5] },
+  { "id": "L5-langkah-satu",  "jenis": "cermin_y_min_x", "titik": [6, 5], "jawaban": [-5, -6] },
+  { "id": "L5-pengecoh-balik", "jenis": "komposisi", "titik": [6, 5],
+    "langkah": [{ "jenis": "rotasi", "derajat": 90, "pusat": [0, 0] }, { "jenis": "cermin_y_min_x" }],
+    "jawaban": [-6, 5] },
+
+  { "id": "L6-jawaban",       "jenis": "dilatasi", "titik": [2, 3], "k": -2, "pusat": [-1, 1], "jawaban": [-7, -3] },
+  { "id": "L6-pengecoh-lupa", "jenis": "dilatasi", "titik": [2, 3], "k": -2, "pusat": [0, 0], "jawaban": [-4, -6] },
+  { "id": "L6-pengecoh-tanda", "jenis": "dilatasi", "titik": [2, 3], "k": 2, "pusat": [-1, 1], "jawaban": [5, 5] },
+  { "id": "L6-pengecoh-henti", "jenis": "dilatasi", "titik": [3, 2], "k": -2, "pusat": [0, 0], "jawaban": [-6, -4] }
+]

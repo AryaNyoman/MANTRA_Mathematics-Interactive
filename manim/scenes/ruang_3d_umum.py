@@ -223,7 +223,10 @@ def papan_koordinat(frame, sampai=None, tekan=None):
     gz, lz = satu_sumbu(np.array([0.0, 0.0, 1.0]), keluar_z / np.linalg.norm(keluar_z),
                         "z", langkah=3, jauh=1.35, kaca=kaca_z)
 
-    nol = label_hadap(frame, "0", np.array([-0.62, -0.62, 0.0]), REDUP, 26)
+    # Angka nol didorong lebih jauh daripada huruf titik sudut. Huruf A juga
+    # dilempar ke arah diagonal yang sama sejauh 0,92, jadi pada jarak 0,62
+    # keduanya berdiri persis satu di atas yang lain dan terbaca "A0".
+    nol = label_hadap(frame, "0", np.array([-1.15, -1.15, 0.0]), REDUP, 26)
     return {
         "datar": [gx, gy, *lx, *ly, nol],
         "tinggi": [gz, *lz],

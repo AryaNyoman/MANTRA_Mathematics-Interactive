@@ -1,0 +1,163 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/statistika10-pencar.json
+
+1
+00:00:00.000 --> 00:00:03.138
+Materi 10 Statistika: <b>diagram pencar</b>.
+
+2
+00:00:03.138 --> 00:00:07.802
+Sampai sini kita selalu mengurus satu jenis angka saja.
+
+3
+00:00:07.802 --> 00:00:11.619
+Sekarang dua sekaligus: jam belajar seminggu,
+
+4
+00:00:11.619 --> 00:00:15.096
+dan nilai ujian, dari 10 siswa yang sama.
+
+5
+00:00:15.096 --> 00:00:18.616
+Kuncinya kedua angka itu milik <b>orang yang sama</b>.
+
+6
+00:00:18.616 --> 00:00:22.136
+Jadi jangan dibaca sebagai dua daftar terpisah,
+
+7
+00:00:22.136 --> 00:00:23.784
+melainkan 10 pasangan.
+
+8
+00:00:23.784 --> 00:00:26.145
+Tiap pasangan jadi satu titik.
+
+9
+00:00:26.145 --> 00:00:29.371
+Jam belajarnya menentukan letak mendatar,
+
+10
+00:00:29.371 --> 00:00:31.888
+nilainya menentukan letak tegak.
+
+11
+00:00:31.888 --> 00:00:36.216
+Siswa yang belajar 2 jam dan bernilai 55 duduk di sini.
+
+12
+00:00:36.216 --> 00:00:37.416
+10 titik,
+
+13
+00:00:37.416 --> 00:00:41.911
+dan sekarang polanya kelihatan tanpa dihitung apa pun.
+
+14
+00:00:41.911 --> 00:00:44.325
+Makin ke kanan makin ke atas.
+
+15
+00:00:44.325 --> 00:00:46.704
+Ini yang disebut hubungan <b>positif</b>.
+
+16
+00:00:46.704 --> 00:00:49.432
+Sekarang data lain dari 10 siswa:
+
+17
+00:00:49.432 --> 00:00:51.829
+jam main gim dan nilai ujian.
+
+18
+00:00:51.829 --> 00:00:54.723
+Awannya condong ke arah sebaliknya,
+
+19
+00:00:54.723 --> 00:00:57.203
+makin ke kanan makin ke bawah.
+
+20
+00:00:57.203 --> 00:00:58.608
+Hubungan <b>negatif</b>.
+
+21
+00:00:58.608 --> 00:01:00.845
+Selain arah, ada kekuatannya.
+
+22
+00:01:00.845 --> 00:01:03.159
+Titik yang berdesakan rapat di
+
+23
+00:01:03.159 --> 00:01:06.553
+sekitar satu garis berarti hubungannya kuat.
+
+24
+00:01:06.553 --> 00:01:10.872
+Titik yang berserakan berarti lemah, walau arahnya sama.
+
+25
+00:01:10.872 --> 00:01:15.006
+Dan bisa juga tidak ada kecenderungan sama sekali.
+
+26
+00:01:15.006 --> 00:01:18.479
+Awannya bulat, tidak condong ke mana-mana.
+
+27
+00:01:18.479 --> 00:01:22.200
+Itu bukan kegagalan, itu juga sebuah jawaban.
+
+28
+00:01:22.200 --> 00:01:24.267
+Satu hal yang sering keliru.
+
+29
+00:01:24.267 --> 00:01:26.629
+Titik pada diagram pencar *tidak
+
+30
+00:01:26.629 --> 00:01:30.173
+boleh disambung berurutan* seperti grafik garis.
+
+31
+00:01:30.173 --> 00:01:33.864
+Tidak ada urutan waktu di sini, yang ada 10 orang.
+
+32
+00:01:33.864 --> 00:01:35.931
+Yang boleh ditarik cuma <b>satu</b>
+
+33
+00:01:35.931 --> 00:01:38.367
+garis yang mewakili seluruh awan.
+
+34
+00:01:38.367 --> 00:01:41.319
+Bagaimana memilih garis yang paling pas,
+
+35
+00:01:41.319 --> 00:01:42.648
+itu isi Materi 11.
+
+36
+00:01:42.648 --> 00:01:44.822
+Jadi langkah pertama menghadapi
+
+37
+00:01:44.822 --> 00:01:46.786
+dua jenis angka selalu sama:
+
+38
+00:01:46.786 --> 00:01:49.100
+<b>gambar dulu awannya</b>, baru hitung.
+
+39
+00:01:49.100 --> 00:01:51.274
+Gambarnya sering sudah menjawab
+
+40
+00:01:51.274 --> 00:01:53.448
+sebelum satu rumus pun dipakai.
