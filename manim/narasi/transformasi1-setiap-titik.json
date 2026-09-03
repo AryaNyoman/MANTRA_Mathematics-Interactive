@@ -2,7 +2,7 @@
   "adegan": "TransformasiSetiapTitik",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Video 01 topik Transformasi Geometri, Materi 01 'Setiap titik ikut pindah'. Standar ilustrasi v2. Pembuka 3D memakai pantulan orang di air, yang memang pencerminan pada garis mendatar, jadi gambarnya tidak cuma menemani melainkan sudah menjadi materinya. Tiap segmen punya teks (terucap) dan tulis (tertulis, berlambang).",
+  "catatan": "Video 01 topik Transformasi Geometri, Materi 01 'Setiap titik ikut pindah'. Standar ilustrasi v2. Pembuka 3D memakai LAPANGAN YANG DILIPAT pada sebuah garis, bukan pantulan di air. Versi air sudah dirender 4 September dan dibuang: pantulannya ditaruh di bawah permukaan air, dan permukaan air ManimGL menelan benda di bawahnya, sehingga layar tidak menampilkan pantulan apa pun sementara narasi menyebutnya. Melipat bidang pada garis adalah definisi pencerminan, dan kedua orangnya berdiri di atas tanah sehingga tidak ada yang bisa tertelan. Tiap segmen punya teks (terucap) dan tulis (tertulis, berlambang).",
   "segmen": [
     {
       "id": "buka",
@@ -11,13 +11,13 @@
     },
     {
       "id": "dunia",
-      "teks": "Orang ini berdiri di tepi air, dan air memantulkan bayangannya.",
-      "tulis": "Orang ini berdiri di tepi air, dan air memantulkan bayangannya."
+      "teks": "Bayangkan lapangan ini bisa dilipat, tepat pada garis putus-putus itu.",
+      "tulis": "Bayangkan lapangan ini bisa dilipat, tepat pada garis putus-putus itu."
     },
     {
       "id": "sama",
-      "teks": "Kaca, air, dan stiker yang kamu geser di layar ternyata satu hal yang sama. Ada *aturan* yang bekerja.",
-      "tulis": "Kaca, air, dan stiker yang digeser ternyata satu hal yang sama. Ada *aturan* yang bekerja."
+      "teks": "Orang ini akan mendarat di seberang garis lipatan. Ada *aturan* yang bekerja, dan aturannya berlaku untuk tiap titik.",
+      "tulis": "Orang ini mendarat di seberang garis lipatan. Ada *aturan* yang bekerja untuk tiap titik."
     },
     {
       "id": "peta",

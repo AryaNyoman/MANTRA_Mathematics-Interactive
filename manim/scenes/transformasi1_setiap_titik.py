@@ -10,21 +10,48 @@ petanya, melainkan enam garis yang menghubungkan tiap sudut ke pasangannya, dan
 babak "bukti" yang memperlihatkan jarak antartitik BERUBAH. Benda utuh yang
 diangkat tangan tidak bisa berubah jarak antarbagiannya.
 
-KENAPA PEMBUKANYA PANTULAN DI AIR
+KENAPA PEMBUKANYA LAPANGAN YANG DILIPAT
 Topik ini termasuk yang boleh memakai 3D di luar pembuka (keputusan ARYA,
-STANDAR-ILUSTRASI-VIDEO butir 2). Pantulan orang di air BUKAN sekadar hiasan:
-ia benar-benar pencerminan, dan garis airnya berperan sebagai garis cermin yang
-nanti menjadi sumbu X. Jadi gambar pembukanya sudah menjadi materinya.
+STANDAR-ILUSTRASI-VIDEO butir 2). Yang ditampilkan sebuah lapangan dengan garis
+lipatan, dan seorang yang mendarat di seberang garis itu. Melipat bidang pada
+sebuah garis adalah DEFINISI pencerminan, bukan perumpamaan yang mirip-mirip:
+garis lipatannya benar-benar garis cermin, dan nanti benar-benar menjadi sumbu
+X. Jadi gambar pembukanya sudah menjadi materinya.
 
-Batasnya jujur: pantulan di air adalah pencerminan terhadap BIDANG mendatar di
-ruang, sedangkan matematikanya pencerminan terhadap GARIS di bidang. Kamera
-dipasang hampir dari samping (phi 78 derajat) supaya permukaan airnya terbaca
-sebagai sebuah garis, dan peralihan ke sumbu X terasa sebagai kelanjutan, bukan
-lompatan.
+VERSI PERTAMA MEMAKAI PANTULAN ORANG DI AIR, DAN DIBUANG 4 SEPTEMBER 2026.
+Dua sebabnya, keduanya baru terlihat saat frame diperiksa satu per satu, bukan
+dari lembar kontak dan bukan dari log:
+
+1. Pantulannya ditaruh di bawah permukaan air, dan permukaan air ManimGL
+   MENELAN benda di bawahnya. Selama 13 detik narasi berbicara tentang
+   pantulan sementara layar tidak menampilkan pantulan apa pun. Jebakan ini
+   bahkan sudah tertulis di STANDAR-ILUSTRASI-VIDEO ("Surface DI DALAM benda
+   tembus pandang hilang") dan tetap terlewat.
+2. Label "pantulan" tergambar TERBALIK dan tercermin, sebab teks yang ditaruh
+   di ruang 3D ikut dimiringkan kameranya. Karena itu babak pembuka sekarang
+   tidak memakai tulisan sama sekali.
 
 ANGKA YANG DIKLAIM DI VIDEO INI DIPERIKSA MESIN
     python alat/cek_transformasi.py alat/materi-transformasi-geometri.json
 Klaimnya berawalan `V01-`.
+
+JANGAN MEMAKAI `b.catat()` SEBAGAI PENGGANTI JEDA
+Pelajaran mahal dari render keempat video ini, dicatat supaya lima video
+berikutnya tidak mengulanginya. `b.catat(n)` hanya MENGAKU bahwa n detik sudah
+terpakai; ia tidak menjalankan `wait` apa pun. Ia disediakan untuk pembantu yang
+memang menggerakkan jam adegan sendiri, seperti `judul_pembuka` dan
+`lahir_rumus`.
+
+Memanggilnya untuk "menahan layar sebentar" justru MEMENDEKKAN videonya, sebab
+`Babak.tutup()` menutup sisa waktu tiap babak dengan `wait(sisa)`, dan `catat`
+palsu mengecilkan sisa itu. Enam panggilan seperti itu membuat video ini
+berdurasi 63,3 detik padahal narasinya 73,7 detik: sepuluh detik terakhir
+narasi akan berbunyi di atas layar yang sudah habis.
+
+Cara yang benar menahan layar: TIDAK MELAKUKAN APA-APA. `tutup()` sudah
+menutup sisanya sendiri sampai pas dengan narasi. Kalau memang butuh diam di
+tengah babak, pakai `scene.wait(n)` DAN `b.catat(n)` berpasangan, atau
+`b.tunggu_sampai(...)`.
 
 Alur berkas:
     python manim/buat_narasi.py transformasi1-setiap-titik
@@ -97,43 +124,61 @@ class TransformasiSetiapTitik(AdeganMatra):
             b.catat(lama)
 
         # ---------------------------------------------------------------- #
-        # dunia: orang di tepi air, dan pantulannya. Kamera hampir samping. #
+        # dunia: lapangan dan garis lipatannya. Kamera miring.              #
         # ---------------------------------------------------------------- #
-        air = ilustrasi.air_hidup(self, panjang=16.0, lebar=7.0, pusat=(ORANG_X, ORANG_Y - 2.6))
-        tepi = ilustrasi.tanah(16.0, 3.0, ORANG_Y + 1.0)
+        # VERSI PERTAMA MEMAKAI PANTULAN ORANG DI AIR, DAN ITU GAGAL TOTAL.
+        #
+        # Pantulannya ditaruh di bawah permukaan air pada z negatif, dan
+        # permukaan air ManimGL MENELAN benda di bawahnya. Jebakan itu bahkan
+        # sudah tertulis di STANDAR-ILUSTRASI-VIDEO ("Surface DI DALAM benda
+        # tembus pandang hilang"), dan tetap terlewat. Hasilnya: selama 13
+        # detik narasi berbicara tentang pantulan sementara layar tidak
+        # menampilkan pantulan apa pun. Terlihat pada pemeriksaan frame
+        # 4 September 2026, bukan pada lembar kontak dan bukan pada log.
+        #
+        # Penggantinya lebih jujur SEKALIGUS lebih aman dirender. Melipat
+        # bidang pada sebuah garis adalah definisi pencerminan, bukan
+        # perumpamaan yang mirip-mirip: garis lipatannya benar-benar garis
+        # cermin, dan nanti benar-benar menjadi sumbu X. Kedua orangnya
+        # berdiri di atas tanah yang sama, jadi tidak ada yang bisa tertelan
+        # permukaan apa pun.
+        lapangan = ilustrasi.tanah(panjang=15.0, lebar=11.0, y_tengah=0.0, z=0.0)
+
+        garis_lipat = DashedLine(
+            np.array([-4.0, 0.0, 0.03]), np.array([11.0, 0.0, 0.03]),
+        ).set_stroke(SOROT, 3.0)
 
         orang = ilustrasi.orang(tinggi=1.7)
         orang.shift(np.array([ORANG_X, ORANG_Y, 0.0]))
 
-        # Pantulannya: salinan yang dibalik terhadap permukaan air (z = 0),
-        # dibuat samar supaya terbaca sebagai bayangan, bukan sebagai orang kedua.
-        pantul = orang.copy()
-        pantul.stretch(-1, 2, about_point=np.array([ORANG_X, ORANG_Y, 0.0]))
-        pantul.set_opacity(0.32)
+        # Orang seberangnya: salinan yang dicerminkan pada garis y = 0, yaitu
+        # transformasi yang sama persis dengan yang dikerjakan matematikanya
+        # nanti. Dibuat samar supaya terbaca sebagai hasil, bukan orang kedua.
+        seberang = ilustrasi.orang(tinggi=1.7)
+        seberang.shift(np.array([ORANG_X, -ORANG_Y, 0.0]))
+        seberang.set_opacity(0.34)
 
-        kamera.pasang_awal(frame, theta=-18, phi=78,
-                           pusat=(ORANG_X, ORANG_Y - 0.6, 0.1), tinggi=6.2)
+        kamera.pasang_awal(frame, theta=-24, phi=62,
+                           pusat=(ORANG_X, 0.0, 0.7), tinggi=8.2)
 
         with sinema.babak(self, "dunia", DURASI) as b:
-            b.main(FadeIn(tepi), FadeIn(air), run_time=0.7)
+            b.main(FadeIn(lapangan), run_time=0.8)
             b.main(FadeIn(orang), run_time=0.8)
-            b.main(FadeIn(pantul), run_time=1.0)
-        qc.periksa_adegan(self, {"orang": orang, "pantulan": pantul}, margin=0.45)
+            b.main(ShowCreation(garis_lipat), run_time=1.2)
+        qc.periksa_adegan(self, {"orang": orang}, margin=0.45)
 
         # ---------------------------------------------------------------- #
-        # sama: garis pasangan dari kepala ke kepala. Benih seluruh topik.  #
+        # sama: orangnya mendarat di seberang garis lipatan.                #
         # ---------------------------------------------------------------- #
-        kepala_atas = np.array([ORANG_X, ORANG_Y, 1.7])
-        kepala_bawah = np.array([ORANG_X, ORANG_Y, -1.7])
-        garis_pasang = DashedLine(kepala_atas, kepala_bawah).set_stroke(SOROT, 2.5)
-        l_pantul = sinema.label("pantulan", warna=SOROT)
-        l_pantul.move_to(np.array([ORANG_X + 1.5, ORANG_Y, -1.1]))
-
+        # Tidak ada tulisan apa pun di babak ini, dan itu disengaja. Teks
+        # ManimGL yang ditaruh di ruang 3D ikut dimiringkan kameranya: pada
+        # versi pertama label "pantulan" tergambar TERBALIK dan tercermin,
+        # sehingga tidak terbaca sama sekali. Narasi sudah menyebutkan apa
+        # yang terjadi, dan standar proyek memang mengizinkan layar diam
+        # selama narasinya masih membahas yang tampil.
         with sinema.babak(self, "sama", DURASI) as b:
-            b.main(ShowCreation(garis_pasang), run_time=1.2)
-            b.main(FadeIn(l_pantul), run_time=0.7)
-            b.catat(min(2.0, max(0.4, DURASI["sama"] - 3.2)))
-        qc.periksa_adegan(self, {"orang": orang, "label pantulan": l_pantul}, margin=0.45)
+            b.main(FadeIn(seberang), run_time=1.4)
+        qc.periksa_adegan(self, {"orang": orang, "seberang": seberang}, margin=0.45)
 
         # ---------------------------------------------------------------- #
         # peta: satu gerakan turun ke tegak lurus. Air jadi sumbu X.        #
@@ -171,8 +216,8 @@ class TransformasiSetiapTitik(AdeganMatra):
                 run_time=max(2.2, DURASI["peta"] - 2.0),
             )
             b.main(
-                FadeOut(air), FadeOut(tepi), FadeOut(orang), FadeOut(pantul),
-                FadeOut(garis_pasang), FadeOut(l_pantul),
+                FadeOut(lapangan), FadeOut(orang), FadeOut(seberang),
+                FadeOut(garis_lipat),
                 run_time=0.7,
             )
             b.main(FadeIn(bidang), run_time=0.8)
@@ -202,7 +247,6 @@ class TransformasiSetiapTitik(AdeganMatra):
             b.main(*[FadeIn(d, scale=0.5) for d in titik_asal], run_time=0.7)
             b.main(*[FadeIn(nama_pra[h]) for h in nama_pra], run_time=0.7)
             b.main(FadeIn(l_prapeta), run_time=0.6)
-            b.catat(min(2.0, max(0.3, DURASI["bentuk"] - 4.4)))
         qc.periksa_adegan(
             self,
             {"prapeta": prapeta, "label prapeta": l_prapeta, "nama A": nama_pra["A"]},
@@ -229,7 +273,6 @@ class TransformasiSetiapTitik(AdeganMatra):
                 ],
                 run_time=max(2.0, DURASI["pindah"] - 4.6),
             )
-            b.catat(min(2.2, max(0.4, DURASI["pindah"] - 2.4)))
         qc.periksa_adegan(self, {"prapeta": prapeta}, hud={"identitas": ident},
                           dunia={"bidang": bidang})
 
@@ -270,8 +313,19 @@ class TransformasiSetiapTitik(AdeganMatra):
         with sinema.babak(self, "peta2", DURASI) as b:
             b.main(ShowCreation(peta_bentuk), run_time=1.3)
             b.main(*[FadeIn(nama_peta[h]) for h in nama_peta], FadeIn(l_peta), run_time=0.8)
-            papan.baris(r"AB = 5 \to A'B' = 5", warna=AKSEN2)
-            b.catat(min(2.0, max(0.4, DURASI["peta2"] - 3.1)))
+            # Nama transformasinya ikut ditulis di depan angkanya.
+            #
+            # Versi tanpa nama menulis "AB = 5 -> A'B' = 5" di sini dan
+            # "AB = 5 -> A'B' = 10" di babak dilatasi, lalu KEDUANYA tampil
+            # bersamaan di panel pada detik terakhir video. Dua pernyataan yang
+            # saling membantah di layar yang sama, dan tak satu pun menyebut
+            # sedang membicarakan transformasi yang mana. Terlihat pada
+            # pemeriksaan frame 4 September 2026.
+            #
+            # Dengan namanya ditulis, keduanya berhenti bertengkar dan justru
+            # menjadi perbandingan: cermin tidak mengubah jarak, dilatasi
+            # mengubahnya. Itu persis pelajaran Materi 08.
+            papan.baris(r"\text{cermin: } AB = 5 \to A'B' = 5", warna=AKSEN2)
         qc.periksa_adegan(
             self,
             {"prapeta": prapeta, "peta": peta_bentuk, "label peta": l_peta},
@@ -307,8 +361,17 @@ class TransformasiSetiapTitik(AdeganMatra):
         ])
 
         with sinema.babak(self, "bukti", DURASI) as b:
+            # Label "prapeta" ikut dipadamkan di sini, bukan dibiarkan.
+            #
+            # Kamera babak ini mundur dan bergeser, dan peta dilatasi TUMBUH
+            # menutupi daerah tempat label itu berdiri. Hasilnya label
+            # "prapeta" jatuh di dalam bentuk ungu dan seolah menamai bentuk
+            # yang salah. Terlihat pada pemeriksaan frame 4 September 2026.
+            # Pada titik ini siswa sudah mengenal bentuk hitamnya, jadi
+            # labelnya memang sudah selesai tugasnya.
             b.main(
                 FadeOut(peta_bentuk), FadeOut(garis), FadeOut(l_peta),
+                FadeOut(l_prapeta),
                 *[FadeOut(nama_peta[h]) for h in nama_peta],
                 *[FadeOut(d) for d in titik_jalan],
                 run_time=0.7,
@@ -326,7 +389,6 @@ class TransformasiSetiapTitik(AdeganMatra):
             )
             b.main(ShowCreation(garis_besar), run_time=1.0)
             b.main(ShowCreation(peta_besar), run_time=1.3)
-            b.catat(min(1.6, max(0.3, DURASI["bukti"] - 4.6)))
         qc.periksa_adegan(self, {"prapeta": prapeta, "peta besar": peta_besar},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_luas})
@@ -338,8 +400,7 @@ class TransformasiSetiapTitik(AdeganMatra):
             rum = sinema.ganti_rumus(
                 self, rum, r"A(1,\ 1) \to A'(2,\ 2)", b=b, warna=SOROT, papan=papan,
             )
-            papan.baris(r"AB = 5 \to A'B' = 10", warna=SOROT)
-            b.catat(min(2.4, max(0.5, DURASI["tutup"] - 2.6)))
+            papan.baris(r"\text{dilatasi: } AB = 5 \to A'B' = 10", warna=SOROT)
         qc.periksa_adegan(self, {"prapeta": prapeta, "peta besar": peta_besar},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_luas})
