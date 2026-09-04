@@ -480,7 +480,7 @@ h1, h2, h3, .disp {
   border-radius: 10px; padding: 15px 18px; margin-bottom: 16px;
 }
 .pembahasan ol { margin: 0; padding-left: 20px; font-size: 14.5px; line-height: 1.6; }
-.pembahasan ol li { padding: 4px 0; }
+.pembahasan ol li { padding: 4px 0; animation: naik var(--d-sedang) var(--kurva) both; }
 .jawaban {
   display: flex; align-items: baseline; gap: 10px; margin-top: 12px;
   padding-top: 10px; border-top: 1px solid var(--garis);
@@ -1955,6 +1955,22 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   margin: 0 0 14px; font-size: 13.5px; line-height: 1.6; color: var(--kertas-72);
 }
 .video-galat .pil-emas { min-height: 40px; padding: 0 18px; font-size: 13px; }
+
+/* ---------- keadaan memuat ---------- */
+.memuat-panel {
+  border: 1px solid var(--garis); border-radius: var(--r-kartu);
+  background: var(--kartu); padding: 26px 24px;
+}
+.memuat-cap {
+  font-size: var(--t-kicker); letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--tinta-50); margin-bottom: 14px;
+}
+.memuat-baris { display: flex; flex-direction: column; gap: 10px; }
+.memuat-baris span {
+  display: block; border-radius: 6px; background: rgba(16, 26, 43, 0.08);
+  animation: napas 1.4s ease-in-out infinite;
+}
+.memuat-kabar { margin: 14px 0 0; font-size: 12.5px; color: var(--tinta-50); }
 
 /* ---------- halaman 404 ---------- */
 .galat-404 {

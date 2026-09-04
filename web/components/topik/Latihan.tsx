@@ -61,9 +61,18 @@ export default function Latihan({ soal }: { soal: Soal[] }) {
           <div className="cap">
             {dipilih === s.benar ? 'Benar' : 'Belum tepat, ini langkahnya'}
           </div>
+          {/* Langkah muncul BERURUTAN, 120 milidetik jarak antarnya, bukan
+              serentak. Pembahasan adalah urutan berpikir, dan urutan yang
+              muncul sekaligus terbaca sebagai daftar, bukan sebagai jalan.
+              Tundaannya kecil, jadi yang sudah tahu jawabannya tidak
+              menunggu. `prefers-reduced-motion` mematikan animasinya lewat
+              aturan menyeluruh di globals.css, dan `both` menahan keadaan
+              akhir sehingga langkahnya tetap terbaca. */}
           <ol>
             {s.pembahasan.map((baris, n) => (
-              <li key={n}>{baris}</li>
+              <li key={n} style={{ animationDelay: `${n * 120}ms` }}>
+                {baris}
+              </li>
             ))}
           </ol>
           <div className="jawaban">
