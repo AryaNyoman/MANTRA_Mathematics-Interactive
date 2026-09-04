@@ -266,13 +266,22 @@ class PecahJadiKomponen(AdeganMatra):
         # atas milik identitas benda saja; hitungan milik panel kanan.
         # Keduanya jadi baris panel supaya jarak antarbarisnya diatur papan,
         # bukan ditumpuk tangan.
+        # Dulu dua baris ini ditulis beruntun lalu layar diam 20,1 detik,
+        # sementara narator masih menyebut "berapa jauh ke kanan", "lalu
+        # berapa jauh ke atas", "dua angka itu namanya komponen", dan
+        # "kita tulis (3 4)". Empat kalimat, satu kejadian.
         with sinema.babak(self, "komponen", DURASI) as b:
+            b.tunggu_sampai(saat("ke kanan"))
             k1 = papan.baris(r"\mathrm{mendatar} = 3", AKSEN2)
             b.catat(0.8)
+            b.tunggu_sampai(saat("ke atas"))
             k2 = papan.baris(r"\mathrm{tegak} = 4", AKSEN)
             b.catat(0.8)
-            b.main(Indicate(panel_v, scale_factor=1.0, color=TINTA), run_time=1.0)
-            b.jeda(0.8)
+            b.tunggu_sampai(saat("namanya komponen"))
+            b.main(Indicate(k1, scale_factor=1.0, color=SOROT),
+                   Indicate(k2, scale_factor=1.0, color=SOROT), run_time=1.2)
+            b.tunggu_sampai(saat("Kita tulis"))
+            b.main(Indicate(panel_v, scale_factor=1.0, color=TINTA), run_time=1.2)
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
                           hud={"identitas": identitas, "panel v": panel_v,
                                "mendatar": k1, "tegak": k2})

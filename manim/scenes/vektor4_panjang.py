@@ -232,15 +232,28 @@ class PanjangPanah(AdeganMatra):
         # kuadratnya dijumlahkan dalam satu baris, akarnya di baris kedua.
         # Langkah antaranya tetap diucapkan narator, dan v2 memang menaruh
         # kalimat panjang di narasi, bukan di gambar.
+        # PADATAN SAYA SENDIRI YANG SALAH. Empat langkah narasi (4^2 = 16,
+        # 2^2 = 4, jumlahkan 20, tarik akarnya) saya padatkan jadi dua baris
+        # supaya muat di empat slot panel. Harganya 31,3 detik layar beku,
+        # terukur alat MASTER. Sekarang tiap langkah punya kejadiannya, dan
+        # baris kedua DIMORF supaya slotnya tetap dua.
         with sinema.babak(self, "hitung", DURASI) as b:
-            kuadrat = papan.baris(r"4^2 + 2^2 = 20", TINTA)
+            b.tunggu_sampai(saat("Kuadratkan yang mendatar"))
+            kuadrat = papan.baris(r"4^2 = 16", AKSEN2)
             b.catat(0.8)
+            b.tunggu_sampai(saat("Kuadratkan yang tegak"))
+            jumlah = papan.baris(r"2^2 = 4", AKSEN)
+            b.catat(0.8)
+            b.tunggu_sampai(saat("Jumlahkan"))
+            jumlah = sinema.ganti_rumus(self, jumlah, r"16 + 4 = 20", b=b,
+                                        papan=papan, warna=TINTA)
+            b.tunggu_sampai(saat("tarik akarnya"))
             akar = papan.baris(r"|\vec{v}| = \sqrt{20} \approx 4{,}47", SOROT)
             b.catat(0.8)
-            b.jeda(0.8)
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
                           hud={"identitas": identitas, "panel v": panel_v,
-                               "kuadrat": kuadrat, "akar": akar})
+                               "kuadrat": kuadrat, "jumlah": jumlah,
+                               "akar": akar})
 
         # ==============================================================
         # Babak 6: hasilnya tidak bulat, dan itu biasa
@@ -250,7 +263,8 @@ class PanjangPanah(AdeganMatra):
             b.jeda(1.0)
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang, "v": p_v},
                           hud={"identitas": identitas, "panel v": panel_v,
-                               "kuadrat": kuadrat, "akar": akar})
+                               "kuadrat": kuadrat, "jumlah": jumlah,
+                               "akar": akar})
 
         # ==============================================================
         # Babak 7: pertanyaan
@@ -262,7 +276,8 @@ class PanjangPanah(AdeganMatra):
             b.jeda(1.6)
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang, "v": p_v},
                           hud={"identitas": identitas, "panel v": panel_v,
-                               "kuadrat": kuadrat, "akar": akar})
+                               "kuadrat": kuadrat, "jumlah": jumlah,
+                               "akar": akar})
 
         # ==============================================================
         # Babak 8: komponen yang bertanda negatif
@@ -272,12 +287,16 @@ class PanjangPanah(AdeganMatra):
         l_w.move_to(ASAL + VW + np.array([-0.15, 0.60, 0.0]))
         # Satu baris, bukan tiga: kuadrat 9 dan 16 sudah kelihatan di dalam
         # akarnya, dan slot panel keempat adalah yang terakhir tersedia.
+        # Baris "16 + 4 = 20" DIMORF jadi panjang w: hitungan antara untuk v
+        # sudah selesai dipakai, dan zona rumus cuma memuat empat baris.
+        # Yang tinggal berdampingan justru dua yang mau dibandingkan,
+        # panjang v dan panjang w.
         with sinema.babak(self, "negatif", DURASI) as b:
             b.main(GrowArrow(p_w), run_time=1.4)
             b.main(FadeIn(l_w), run_time=0.5)
-            panjang_w = papan.baris(r"|\vec{w}| = \sqrt{9 + 16} = 5", TINTA)
-            b.catat(0.8)
-            b.jeda(0.6)
+            panjang_w = sinema.ganti_rumus(
+                self, jumlah, r"|\vec{w}| = \sqrt{9 + 16} = 5", b=b,
+                papan=papan, warna=TINTA)
         qc.periksa_adegan(self, {},
                           dunia={"bidang": bidang, "w": p_w, "label w": l_w},
                           hud={"identitas": identitas, "panel v": panel_v,

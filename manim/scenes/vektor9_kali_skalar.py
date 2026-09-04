@@ -228,10 +228,14 @@ class KaliSkalar(AdeganMatra):
         # ==============================================================
         # Babak 5: pengali setengah
         # ==============================================================
+        # Panahnya menyusut TEPAT saat narator berkata "panahnya menyusut",
+        # bukan tiga detik sebelumnya. Dulu keduanya dimainkan di awal babak
+        # lalu layar beku 22 detik.
         with sinema.babak(self, "kecil", DURASI) as b:
+            b.tunggu_sampai(saat("menyusut"))
             b.main(self.k.animate.set_value(0.5), run_time=2.4)
-            b.main(Indicate(p_asal, scale_factor=1.0, color=SOROT), run_time=1.0)
-            b.jeda(0.8)
+            b.tunggu_sampai(saat("Arahnya"))
+            b.main(Indicate(p_asal, scale_factor=1.0, color=SOROT), run_time=1.4)
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
                           hud={"panel a": panel_a, "ukur k": ukur_k,
                                "hitung": hit, "identitas": identitas})
@@ -254,8 +258,12 @@ class KaliSkalar(AdeganMatra):
         nol_label.move_to(ASAL + np.array([1.0, -0.75, 0.0]))
 
         with sinema.babak(self, "nol", DURASI) as b:
-            b.main(self.k.animate.set_value(0.0), run_time=1.8)
-            b.main(FadeIn(nol_label), run_time=0.5)
+            # "Kita turunkan pengalinya pelan-pelan sampai melewati nol."
+            b.tunggu_sampai(saat("melewati nol"))
+            b.main(self.k.animate.set_value(0.0), run_time=3.2)
+            # "Di pengali 0, panahnya lenyap."
+            b.tunggu_sampai(saat("lenyap"))
+            b.main(FadeIn(nol_label), run_time=0.6)
             b.jeda(1.0)
             b.main(FadeOut(nol_label), run_time=0.4)
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang},

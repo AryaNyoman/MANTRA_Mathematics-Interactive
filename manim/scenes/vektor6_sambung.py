@@ -335,15 +335,20 @@ class SambungPerjalanan(AdeganMatra):
         n_a = rumus("3", 30, AKSEN2).move_to([1.5, Y_LABEL, 0])
         n_b = rumus("1", 30, AKSEN).move_to([3.5, Y_LABEL, 0])
 
+        # Dulu keenam animasi ini dimainkan beruntun lalu layar diam 13,6
+        # detik, tepat sementara narator berkata "kita jatuhkan garis bantu"
+        # dan menyebut kedua ruasnya. Gambarnya MENDAHULUI narasinya.
         with sinema.babak(self, "komponen", DURASI) as b:
             b.main(FadeOut(pb_salah), FadeOut(p_salah),
                    benar.animate.set_opacity(1.0), run_time=0.8)
-            b.main(ShowCreation(bantu_x), run_time=1.0)
-            b.main(ShowCreation(ruas_a), run_time=0.7)
-            b.main(FadeIn(n_a), run_time=0.4)
-            b.main(ShowCreation(ruas_b), run_time=0.5)
-            b.main(FadeIn(n_b), run_time=0.4)
-            b.jeda(0.8)
+            b.tunggu_sampai(saat("garis bantu"))
+            b.main(ShowCreation(bantu_x), run_time=1.6)
+            b.tunggu_sampai(saat("mengisi petak"))
+            b.main(ShowCreation(ruas_a), run_time=1.0)
+            b.main(FadeIn(n_a), run_time=0.5)
+            b.tunggu_sampai(saat("menyambungnya"))
+            b.main(ShowCreation(ruas_b), run_time=1.0)
+            b.main(FadeIn(n_b), run_time=0.5)
         qc.periksa_adegan(self, {"angka a": n_a, "angka b": n_b, "identitas": identitas},
                           [("angka a", "angka b")])
 
@@ -363,14 +368,17 @@ class SambungPerjalanan(AdeganMatra):
         # Hitungan pindah ke papan rumus kanan atas (zona v2), dan barisnya
         # BERUBAH DENGAN MORPH, bukan dua baris yang muncul memudar.
         with sinema.babak(self, "hitung", DURASI) as b:
+            # "3 + 1 = 4" ditulis saat angkanya diucapkan, bukan sebelumnya.
+            b.tunggu_sampai(saat("3 + 1"))
             hitung = papan.baris(r"3 + 1 = 4", TINTA)
             b.catat(0.8)
-            b.main(ShowCreation(bantu_y), run_time=0.9)
-            b.main(ShowCreation(ruas_c), FadeIn(n_c), run_time=0.6)
-            b.main(ShowCreation(ruas_d), FadeIn(n_d), run_time=0.6)
+            # "Dan dengan cara yang sama pada sumbu tegak: 1 + 2 = 3."
+            b.tunggu_sampai(saat("sumbu tegak"))
+            b.main(ShowCreation(bantu_y), run_time=1.0)
+            b.main(ShowCreation(ruas_c), FadeIn(n_c), run_time=0.7)
+            b.main(ShowCreation(ruas_d), FadeIn(n_d), run_time=0.7)
             hitung = sinema.ganti_rumus(self, hitung, r"1 + 2 = 3", b=b,
                                         papan=papan)
-            b.jeda(0.8)
         qc.periksa_adegan(self, {"angka c": n_c, "angka d": n_d},
                           [("angka c", "angka d")],
                           hud={"hitung": hitung, "identitas": identitas,

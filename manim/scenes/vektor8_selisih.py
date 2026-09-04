@@ -256,10 +256,24 @@ class SelisihPerjalanan(AdeganMatra):
         # itu cuma memuat empat baris. Ketiganya jadi SATU baris kerja yang
         # nanti dimorf dua kali, sebab pengurangan per komponen memang lebih
         # terbaca sebagai satu persamaan daripada dua baris terpisah.
+        # Dulu SATU baris untuk tiga langkah narasi, lalu 19,3 detik layar
+        # beku. Sekarang baris kerjanya dimorf mengikuti kalimat: komponen
+        # mendatar, komponen tegak, hasilnya, lalu bentuk singkatnya.
         with sinema.babak(self, "hitung", DURASI) as b:
-            kerja = papan.baris(r"(3,\ 1) - (1,\ 2) = (2,\ -1)", SOROT)
+            b.tunggu_sampai(saat("Yang mendatar"))
+            kerja = papan.baris(r"3 + (-1) = 2", AKSEN2)
             b.catat(0.8)
-            b.jeda(0.8)
+            b.tunggu_sampai(saat("Yang tegak"))
+            kerja = sinema.ganti_rumus(self, kerja, r"1 + (-2) = -1", b=b,
+                                       papan=papan, warna=AKSEN)
+            b.tunggu_sampai(saat("Jadi a"))
+            kerja = sinema.ganti_rumus(self, kerja,
+                                       r"\vec{a} - \vec{b} = (2,\ -1)", b=b,
+                                       papan=papan, warna=SOROT)
+            b.tunggu_sampai(saat("Lebih singkat"))
+            kerja = sinema.ganti_rumus(self, kerja,
+                                       r"(3,\ 1) - (1,\ 2) = (2,\ -1)", b=b,
+                                       papan=papan, warna=SOROT)
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
                           hud={"panel a": panel_a, "panel b": panel_b,
                                "panel lawan": panel_l, "kerja": kerja,
