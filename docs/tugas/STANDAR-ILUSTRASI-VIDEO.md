@@ -60,6 +60,12 @@ Perkakasnya `manim/gl/` (sinema v2, qc, ilustrasi, kamera). Rujukan resmi:
    tetapi tiap kalimat harus punya kejadian pada benda yang DISEBUTNYA, diikat
    ke jam kalimat; denyut berkala tanpa kaitan kalimat adalah "napas" yang
    dilarang butir 3.
+   Sejak 4 Sep `sinema.Babak.tutup()` BERBUNYI (peringatan, bukan gagal) kalau
+   animasi kurang dari 60 persen narasi dan sisanya lebih dari 3 detik: angka
+   diamnya terlihat saat render, bukan ditemukan alat ukur dua hari kemudian.
+   Statistika menemukan gerbang lama hanya menjaga satu arah (menolak
+   animasi kelebihan, diam saja kalau animasi kependekan): 49 rentang beku
+   lolos ke 13 video, terpanjang 18,5 detik.
    Pengecualian: topik yang matematikanya memang ruang (Ruang 3D, dan nanti
    Transformasi Geometri) boleh bolak-balik 3D dan 2D. Prinsipnya: matematika
    yang butuh PANJANG atau SUDUT yang akurat wajib kamera tegak lurus, sebab
