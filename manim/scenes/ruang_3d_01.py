@@ -120,8 +120,14 @@ class GambarBolehBerbohong(AdeganMatra):
             # dalam satu detik. Sisa babak ini dulu habis untuk satu putaran
             # kamera pelan 5,6 detik, dan pada beda piksel antarframe itu
             # terbaca sebagai layar berhenti walaupun kameranya bergerak.
+            # Kameranya TETAP bergeser pelan sementara hurufnya muncul. Diukur:
+            # kedelapan huruf yang muncul sendirian tidak terbaca sebagai
+            # gerakan sama sekali (masing-masing terlalu kecil), sehingga
+            # babak ini justru tercatat beku 7,8 detik walaupun ada delapan
+            # animasi di dalamnya.
             for nama in sorted(lab):
-                b.main(FadeIn(lab[nama]), run_time=0.5)
+                b.main(FadeIn(lab[nama]), kamera.putar_pelan(frame, 0.9),
+                       run_time=0.5)
             isi_sisa(b, kamera.putar_pelan(frame, 14))
         qc.periksa_adegan(self, {"kubus": kubus, "huruf B": lab["B"], "huruf G": lab["G"],
                                  "identitas": jati})

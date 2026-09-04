@@ -405,13 +405,18 @@ def isi_sisa(b, *animasi, minimum=2.0, maksimum=10.0, sisakan=1.0):
     """
     tersedia = b.sisa - sisakan
     if tersedia < minimum:
-        # TIDAK cukup waktu. Diam sebentar lebih baik daripada gerakan
-        # tersentak, dan jauh lebih baik daripada melewati batas babak.
-        # Sebelum ini `minimum` tetap dipaksakan walaupun sisanya kurang, dan
-        # begitu kejadian diikat ke jam kalimat (4 Sep) dua adegan langsung
-        # melewati narasinya: materi 03 babak 'masalah' kelebihan 1,39 detik
-        # dan materi 04 babak 'hitung2' kelebihan 0,38 detik. Gerbang waktu
-        # menolak keduanya, dan itu memang tugasnya.
+        # TIDAK cukup waktu untuk gerakan yang diminta. Memaksakan `minimum`
+        # membuat adegan melewati batas babak (materi 03 kelebihan 1,39 detik,
+        # materi 04 kelebihan 0,38 detik, keduanya ditolak gerbang waktu 4 Sep),
+        # dan memampatkannya ke waktu yang tersisa membuat kamera menyentak,
+        # sebab `kamera.sudut` selalu sampai ke tujuan dalam `run_time` berapa
+        # pun. Jadi yang dipakai geseran latar berlaju TETAP: lamanya boleh
+        # sependek apa pun tanpa menyentak, dan layarnya tetap hidup.
+        # Diukur: tanpa ini materi 04 punya 2,8 detik beku antara "tidak
+        # menempel pada sisi mana pun" dan "Alasnya AC tadi".
+        if tersedia > 0.4:
+            b.main(kamera.putar_pelan(b.scene.frame, LAJU_LATAR * tersedia),
+                   run_time=tersedia)
         return
     b.main(*animasi, run_time=float(np.clip(tersedia, minimum, maksimum)))
 
