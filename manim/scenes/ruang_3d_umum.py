@@ -12,6 +12,7 @@ yang memindahkannya ke `manim/gl/`.
 
 import json
 import sys
+import unicodedata
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -380,6 +381,38 @@ def isi_sisa(b, *animasi, minimum=2.0, maksimum=10.0, sisakan=1.0):
     """
     lama = float(np.clip(b.sisa - sisakan, minimum, maksimum))
     b.main(*animasi, run_time=lama)
+
+
+def saat_kalimat(jam, awalan: str) -> float:
+    """Detik saat kalimat berawalan `awalan` MULAI diucapkan narator.
+
+    Dipakai dengan `b.tunggu_sampai(...)` supaya kejadian di layar jatuh tepat
+    pada kalimat yang menyebut bendanya, bukan pada jarak tetap dari awal
+    babak. Syarat MASTER 4 Sep, dan alasannya benar: denyut berkala yang tidak
+    peduli apa yang sedang dikatakan adalah "napas" yang dilarang STANDAR butir
+    3, dan cuma mengejar angka alat ukur. Ujinya sederhana: untuk tiap kejadian
+    harus bisa disebut kalimat narasi mana yang memicunya.
+
+    GAGAL kalau kalimatnya tidak ada. `sinema.mulai` mengembalikan None, dan
+    `tunggu_sampai(None)` diam-diam tidak menunggu apa pun, jadi satu salah
+    ketik akan mengembalikan adegannya ke perilaku lama TANPA memberi tahu.
+
+    Tanda di atas huruf diabaikan saat mencocokkan, jadi awalan boleh ditulis
+    "AC menghubungkan" walaupun subtitlenya berbunyi "A̅C̅ menghubungkan".
+    """
+    def polos(t: str) -> str:
+        return "".join(c for c in unicodedata.normalize("NFD", t)
+                       if not unicodedata.combining(c)).casefold()
+
+    cari = polos(awalan)
+    for detik, kalimat in jam:
+        if polos(kalimat).startswith(cari):
+            return detik
+    tersedia = "\n  ".join(k for _, k in jam[:40])
+    raise KeyError(
+        f"tidak ada kalimat subtitle yang diawali {awalan!r}.\n"
+        f"Ingat urutannya: buat_narasi.py, buat_subtitle.py, BARU render.\n"
+        f"Kalimat yang ada:\n  {tersedia}")
 
 
 def sepanjang3(a, b, t):

@@ -28,6 +28,10 @@ from gl import kamera, qc, sinema  # noqa: E402
 
 TOPIK = "ruang-3d-03"
 DURASI = durasi(TOPIK)
+# Jam kalimat dari .vtt: dipakai supaya kejadian di layar jatuh tepat pada
+# kalimat yang menyebutnya. URUTAN WAJIB: buat_narasi.py, buat_subtitle.py,
+# BARU render.
+JAM = sinema.jam_subtitle(TOPIK)
 
 KAKI = kaki_pada_garis(T["B"], T["A"], T["C"])   # tepat di tengah alas
 T_KAKI = 0.5
@@ -86,8 +90,13 @@ class JarakSelaluTerpendek(AdeganMatra):
             # belasan detik. Sebelum ini babak pembuka dan babak berikutnya
             # sama-sama menampilkan kubus abu-abu pejal, dan itu 20 persen
             # video habis tanpa satu pun hal baru masuk layar.
-            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka),
-                   FadeOut(bayangan), run_time=1.6)
+            # Rusuknya digambar SATU PER SATU (lag_ratio), bukan kedua belasnya
+            # sekaligus dalam 1,6 detik. Ukuran baru MASTER 4 Sep, 'detik
+            # pertama bergerak': yang dihitung bukan ada tidaknya animasi,
+            # melainkan apakah layarnya benar-benar berubah di mata penonton.
+            b.main(kubus.animate.set_opacity(0.14),
+                   ShowCreation(rangka, lag_ratio=0.16),
+                   FadeOut(bayangan), run_time=3.2)
             isi_sisa(b, kamera.sudut(frame, -26, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"kubus": kubus})
 
@@ -100,8 +109,15 @@ class JarakSelaluTerpendek(AdeganMatra):
         jati = sinema.identitas(self, "panjang = lebar = tinggi = 6 satuan")
         with sinema.babak(self, "masalah", DURASI) as b:
             sumbu_z_pamit(b, papan_koor, 0.8)
+            # "Ini titik B, dan ini garis AC di lantai kubus."
             b.main(ShowCreation(ac), *[FadeIn(x) for x in lab.values()], run_time=1.4)
-            b.main(ShowCreation(coba_coba, lag_ratio=0.25), run_time=2.0)
+            # "Dari B ke garis itu bisa ditarik ruas sebanyak yang kita mau":
+            # ruas-ruas coba-coba itu digambar TEPAT saat kalimatnya berjalan.
+            b.tunggu_sampai(saat_kalimat(JAM, "Dari B ke garis itu"))
+            b.main(ShowCreation(coba_coba, lag_ratio=0.25), run_time=2.6)
+            # "Panjangnya berbeda-beda." -> yang disorot memang berkas ruasnya.
+            b.tunggu_sampai(saat_kalimat(JAM, "Panjangnya berbeda-beda"))
+            b.main(Indicate(coba_coba, color=SOROT), run_time=1.3)
             isi_sisa(b, kamera.sudut(frame, -14, 62, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"AC": ac, "huruf A": lab["A"], "huruf C": lab["C"],
                                  "identitas": jati})
@@ -146,9 +162,14 @@ class JarakSelaluTerpendek(AdeganMatra):
         qr = Line(KAKI, r_letak).set_stroke(REDUP, 4)
         lab_r = label_hadap(frame, "R", r_letak + np.array([0.35, 0.35, 0.40]), REDUP)
         with sinema.babak(self, "kenapa", DURASI) as b:
+            # "Ambil titik lain, sebut R."
+            b.tunggu_sampai(saat_kalimat(JAM, "Ambil titik lain"))
             b.main(ShowCreation(br), ShowCreation(qr), FadeIn(lab_r), run_time=1.6)
             papan.baris(r"BR^2 = BQ^2 + QR^2")
             b.catat(0.8)
+            # "dan BR adalah sisi miringnya" -> sisi miring itu yang disorot.
+            b.tunggu_sampai(saat_kalimat(JAM, "dan BR adalah sisi miringnya"))
+            b.main(Indicate(br, color=SOROT), run_time=1.3)
             isi_sisa(b, kamera.sudut(frame, -46, 70, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"BR": br, "panel": papan.semua(), "identitas": jati},
                           [("panel", "identitas")])
@@ -162,7 +183,31 @@ class JarakSelaluTerpendek(AdeganMatra):
         with sinema.babak(self, "tutup", DURASI) as b:
             b.main(FadeOut(br), FadeOut(qr), FadeOut(lab_r), run_time=0.8)
             b.main(FadeIn(payung), run_time=0.9)
-            isi_sisa(b, kamera.putar_pelan(frame, 24), sisakan=1.4)
+            # Narasi babak ini kini MENJANJIKAN "kita putar pelan ke arah A C,
+            # dari arah ini A C tampak berdiri tegak" (syarat ARYA lewat MASTER
+            # supaya pandangan itu boleh dipertahankan). Kameranya harus
+            # benar-benar sampai ke sana, kalau tidak videonya membantah
+            # narasinya sendiri, dan itu cacat yang lebih parah daripada
+            # pandangan yang membingungkan.
+            #
+            # theta = -135 berarti kamera berdiri di seberang A memandang ke C,
+            # jadi arah pandang sejajar AC: AC memendek jadi garis tegak dan
+            # sudut siku-siku di Q terlihat dalam ukuran sebenarnya. Putarannya
+            # 7 detik supaya PERPUTARANNYA yang terlihat, bukan lompatannya.
+            # Putarannya MULAI tepat saat naratornya menyuruh memutar, dan
+            # berlangsung sampai kalimat berikutnya selesai, jadi yang dilihat
+            # penonton adalah perputarannya, bukan hasilnya saja.
+            b.tunggu_sampai(saat_kalimat(JAM, "Sekarang kameranya kita putar"))
+            b.main(kamera.sudut(frame, -135, 68, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
+                   run_time=7.4)
+            # "dan justru karena itu sudut siku-siku di Q terlihat dalam ukuran
+            # yang sebenarnya" -> tanda siku-sikunya yang disorot.
+            b.tunggu_sampai(saat_kalimat(JAM, "dan justru karena itu sudut"))
+            b.main(Indicate(tanda_siku, scale_factor=1.7, color=SOROT), run_time=1.4)
+            # "Ingat kalimat ini sampai materi 7" -> kalimat payungnya sendiri.
+            b.tunggu_sampai(saat_kalimat(JAM, "Ingat kalimat ini"))
+            b.main(Indicate(payung, scale_factor=1.15, color=SOROT), run_time=1.4)
+            isi_sisa(b, kamera.putar_pelan(frame, 8), sisakan=1.4)
             b.jeda(1.2)
         qc.periksa_adegan(self, {"BQ": bq, "siku": tanda_siku, "panel": papan.semua(),
                                  "payung": payung, "identitas": jati},
