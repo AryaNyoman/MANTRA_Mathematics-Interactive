@@ -114,7 +114,7 @@ export const TAHAP: TahapLimit[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri adalah kejadian tadi. Geser panjang selang waktunya dan amati dua hal sekaligus.',
+        teks: 'Alat interaktifnya adalah kejadian tadi. Geser panjang selang waktunya dan amati dua hal sekaligus.',
         langkah: [
           'Mulai dari selang 1 detik. Garis pada grafik memotong kurva di dua titik yang berjauhan',
           'Perpendek selangnya. Kedua titik itu saling mendekat',
@@ -192,7 +192,7 @@ export const TAHAP: TahapLimit[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri adalah garis bilangan dengan satu titik tujuan. Tarik titik x mendekat dan perhatikan tabelnya.',
+        teks: 'Alat interaktifnya adalah garis bilangan dengan satu titik tujuan. Tarik titik x mendekat dan perhatikan tabelnya.',
         langkah: [
           'Tarik x dari sebelah kiri, dekatkan ke titik bertanda',
           'Perhatikan kolom f(x) di tabel: angkanya menyempit ke satu nilai',
@@ -284,7 +284,7 @@ export const TAHAP: TahapLimit[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri adalah grafik tarif tadi. Dua penunjuk merayap dari kiri dan dari kanan.',
+        teks: 'Alat interaktifnya adalah grafik tarif tadi. Dua penunjuk merayap dari kiri dan dari kanan.',
         langkah: [
           'Jalankan penunjuk kiri. Angkanya berhenti di 3.000',
           'Jalankan penunjuk kanan. Angkanya berhenti di 8.000',
@@ -374,7 +374,7 @@ export const TAHAP: TahapLimit[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menggambar fungsi tadi. Perbesar tampilannya ke sekitar x = 1.',
+        teks: 'Alat interaktifnya menggambar fungsi tadi. Perbesar tampilannya ke sekitar x = 1.',
         langkah: [
           'Pada tampilan biasa, grafiknya terlihat seperti garis lurus polos',
           'Perbesar terus ke arah titik (1, 2)',
@@ -470,7 +470,7 @@ export const TAHAP: TahapLimit[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri adalah mesin sifat limit. Anda memilih sifat mana yang dipakai di tiap langkah.',
+        teks: 'Alat interaktifnya adalah mesin sifat limit. Anda memilih sifat mana yang dipakai di tiap langkah.',
         langkah: [
           'Pilih soalnya, lalu pilih sifat untuk langkah pertama',
           'Kalau sifatnya tepat, langkahnya terbuka dan soalnya menyusut',
@@ -550,7 +550,7 @@ export const TAHAP: TahapLimit[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri membongkar soal selangkah demi selangkah. Anda yang menekan majunya.',
+        teks: 'Alat interaktifnya membongkar soal selangkah demi selangkah. Anda yang menekan majunya.',
         langkah: [
           'Pilih soalnya. Langkah pertama selalu sama: coba masukkan angkanya',
           'Kalau muncul 0 dibagi 0, alat menawarkan cara mana yang cocok',
@@ -650,7 +650,7 @@ export const TAHAP: TahapLimit[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri adalah kebalikan dari alat Tahap 4. Di sana Anda memperbesar, di sini Anda memperkecil.',
+        teks: 'Alat interaktifnya adalah kebalikan dari alat Tahap 4. Di sana Anda memperbesar, di sini Anda memperkecil.',
         langkah: [
           'Mulai dari tampilan biasa. Kurvanya masih terlihat jelas melengkung',
           'Perkecil tampilannya. Kurvanya makin lama makin terlihat mendatar',
@@ -754,7 +754,7 @@ export const TAHAP: TahapLimit[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri adalah lingkaran satuan yang sama seperti di topik Trigonometri, dengan warna yang sama pula.',
+        teks: 'Alat interaktifnya adalah lingkaran satuan yang sama seperti di topik Trigonometri, dengan warna yang sama pula.',
         langkah: [
           'Mulai dari sudut besar. Busur dan ruas sin terlihat jelas berbeda panjangnya',
           'Kecilkan sudutnya. Keduanya makin lama makin mirip',
@@ -853,7 +853,7 @@ export const TAHAP: TahapLimit[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri memberi Anda sebuah fungsi mulus dan empat cara merusaknya.',
+        teks: 'Alat interaktifnya memberi Anda sebuah fungsi mulus dan empat cara merusaknya.',
         langkah: [
           'Tekan "bikin lubang". Perhatikan syarat nomor berapa yang menyala merah',
           'Tekan "geser satu titik". Sekarang HANYA syarat 3 yang gagal: nilainya ada, limitnya ada, tapi keduanya beda',
@@ -886,7 +886,7 @@ export const TAHAP: TahapLimit[] = [
       'Populasi berhenti tumbuh di daya dukung lingkungannya.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Empat contoh berikut bukan soal buatan. Semuanya persoalan nyata yang jawabannya memang dicari dengan limit, dan bentuk grafiknya bisa dilihat di sebelah kiri.' },
+      { jenis: 'paragraf', teks: 'Empat contoh berikut bukan soal buatan. Semuanya persoalan nyata yang jawabannya memang dicari dengan limit, dan bentuk grafiknya bisa dilihat di alatnya.' },
 
       { jenis: 'sesi', judul: 'Rel wahana yang harus nyambung' },
       { jenis: 'paragraf', teks: 'Perancang roller coaster menyusun lintasan dari beberapa potongan rumus: bagian menanjak, bagian melengkung, bagian menukik. Di tiap titik sambungan, tinggi rel dari potongan kiri dan potongan kanan harus sama persis.' },

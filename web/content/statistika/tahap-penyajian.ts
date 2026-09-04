@@ -67,7 +67,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menampilkan kedua kelas sebagai titik di garis bilangan.',
+        teks: 'Alat interaktifnya menampilkan kedua kelas sebagai titik di garis bilangan.',
         langkah: [
           'Seret titik di Kelas B menjauh ke kiri atau ke kanan.',
           'Perhatikan rata-ratanya sering tidak berubah banyak, tetapi jangkauannya melompat.',
@@ -157,7 +157,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menampilkan satu kumpulan data dalam empat bentuk gambar.',
+        teks: 'Alat interaktifnya menampilkan satu kumpulan data dalam empat bentuk gambar.',
         langkah: [
           'Tekan bergantian: line plot, diagram batang, histogram, diagram lingkaran.',
           'Perhatikan tampilan yang tidak cocok dengan jenis datanya diberi tanda peringatan, bukan disembunyikan.',
@@ -199,7 +199,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
 
       {
         jenis: 'coba',
-        teks: 'Geser penggeser lebar kelas di sebelah kiri, dari 1 sampai 10.',
+        teks: 'Geser penggeser lebar kelas di alatnya, dari 1 sampai 10.',
         langkah: [
           'Pada lebar 1, hampir tiap batang cuma berisi satu atau dua siswa. Gambarnya bergerigi dan polanya tenggelam.',
           'Pada lebar 4 atau 5, terlihat kumpulan siswa menumpuk di sekitar 160 sampai 170.',
@@ -296,7 +296,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menampilkan kedua kelas berdampingan.',
+        teks: 'Alat interaktifnya menampilkan kedua kelas berdampingan.',
         langkah: [
           'Mulai dengan tampilan frekuensi asli. Kelas B terlihat menang hampir di semua kelompok nilai, dan memang wajar, siswanya lebih banyak.',
           'Tekan tombol untuk beralih ke frekuensi relatif.',

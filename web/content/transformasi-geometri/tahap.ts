@@ -136,7 +136,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri memuat bentuk huruf L dan petanya. Pilihan transformasinya ada di bawah gambar.',
+        teks: 'Alat interaktifnya memuat bentuk huruf L dan petanya. Pilihan transformasinya ada di bawah gambar.',
         langkah: [
           'Perhatikan garis putus-putus tipis. Ada enam, satu untuk setiap titik sudut. Setiap titik punya tujuannya sendiri.',
           'Ganti pilihannya ke pencerminan pada sumbu Y. Keenam garis itu berubah arah semuanya sekaligus, sebab aturannya yang berganti.',
@@ -161,7 +161,7 @@ export const TAHAP: TahapTransformasi[] = [
     ],
     seringKeliru: {
       judul: 'Yang dipindah kan gambarnya, bukan titiknya',
-      isi: 'Ini menggoda karena di layar memang gambar yang terlihat bergerak, dan tangan kita memang biasa memindahkan benda utuh. Cara membedakannya ada di alat di sebelah kiri: pilih dilatasi, lalu perhatikan jarak antara dua titik sudut ikut berubah. Benda utuh yang dipindahkan tangan tidak bisa berubah jarak antarbagiannya. Yang bisa hanya aturan yang bekerja pada setiap titik satu per satu.',
+      isi: 'Ini menggoda karena di layar memang gambar yang terlihat bergerak, dan tangan kita memang biasa memindahkan benda utuh. Cara membedakannya ada di alat interaktifnya: pilih dilatasi, lalu perhatikan jarak antara dua titik sudut ikut berubah. Benda utuh yang dipindahkan tangan tidak bisa berubah jarak antarbagiannya. Yang bisa hanya aturan yang bekerja pada setiap titik satu per satu.',
     },
     intisari: [
       'Transformasi memasangkan setiap titik dengan satu titik tujuan.',
@@ -210,7 +210,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri punya panah geseran yang ujungnya bisa Anda tarik. Bentuk L abu-abu putus-putus adalah prapetanya.',
+        teks: 'Alat interaktifnya punya panah geseran yang ujungnya bisa Anda tarik. Bentuk L abu-abu putus-putus adalah prapetanya.',
         langkah: [
           'Tarik ujung panahnya ke kanan atas. Bentuk birunya ikut pindah, dan keenam garis tipis penghubungnya tetap sejajar satu sama lain.',
           'Sekarang kerjakan sendiri: titik B(-2, 5) digeser sejauh (3, 1). Jumlahkan x dengan 3, lalu y dengan 1.',
@@ -311,7 +311,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri punya garis cermin ungu yang bisa Anda tarik. Bulatan ungunya pegangannya.',
+        teks: 'Alat interaktifnya punya garis cermin ungu yang bisa Anda tarik. Bulatan ungunya pegangannya.',
         langkah: [
           'Tarik garis cerminnya ke tempat lain. Perhatikan kedua angka ungu pada titik A selalu sama, ke mana pun garisnya dipindah.',
           'Geser garisnya sampai tepat memotong bentuk L. Sebagian bentuknya sekarang bercermin ke dalam dirinya sendiri, dan itu sah.',
@@ -388,7 +388,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menuliskan koordinat ketiga sudut bernama, prapeta dan petanya berdampingan. Pilihan garisnya ada di bawah gambar.',
+        teks: 'Alat interaktifnya menuliskan koordinat ketiga sudut bernama, prapeta dan petanya berdampingan. Pilihan garisnya ada di bawah gambar.',
         langkah: [
           'Baca titik B dan B aksen pada pilihan y = x. Angkanya bertukar tempat, dan itu terlihat langsung dari tulisannya.',
           'Ganti ke y = -x. Sekarang angkanya bertukar tempat dan kedua tandanya jadi negatif.',
@@ -457,7 +457,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri punya pusat cermin yang bisa Anda tarik ke mana saja.',
+        teks: 'Alat interaktifnya punya pusat cermin yang bisa Anda tarik ke mana saja.',
         langkah: [
           'Tarik pusatnya. Perhatikan garis dari tiap titik prapeta selalu MELEWATI pusatnya sebelum sampai ke petanya.',
           'Perhatikan juga kedua angka ungu di titik A selalu sama, di mana pun pusatnya diletakkan.',
@@ -534,7 +534,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri punya penggeser sudut, dan pusat putarnya bisa ditarik.',
+        teks: 'Alat interaktifnya punya penggeser sudut, dan pusat putarnya bisa ditarik.',
         langkah: [
           'Setel sudutnya ke 90, lalu ke 180, lalu ke 270. Perhatikan kedua angka jaraknya di layar SELALU sama, berapa pun sudutnya.',
           'Setel ke 180 dengan pusat di titik asal, lalu bandingkan dengan gambar Materi 05 yang pusatnya juga di titik asal. Keduanya sama persis.',
@@ -670,7 +670,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri punya penggeser faktor dari -3 sampai 3, dan pusatnya bisa ditarik.',
+        teks: 'Alat interaktifnya punya penggeser faktor dari -3 sampai 3, dan pusatnya bisa ditarik.',
         langkah: [
           'Geser faktornya melewati angka 1. Di situ petanya menempel tepat pada prapetanya, lalu berpisah lagi.',
           'Lewati angka 0 perlahan. Bentuknya menciut ke satu titik, lalu muncul kembali di sisi seberang pusatnya.',
@@ -767,7 +767,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menandai sisi AB dan sudut di B pada kedua bentuk sekaligus. Pilihan transformasinya ada di bawah gambar.',
+        teks: 'Alat interaktifnya menandai sisi AB dan sudut di B pada kedua bentuk sekaligus. Pilihan transformasinya ada di bawah gambar.',
         langkah: [
           'Bandingkan ketebalan sisi AB pada prapeta dan peta untuk translasi, rotasi, dan kedua pencerminan. Panjangnya sama.',
           'Ganti ke dilatasi 2. Sekarang sisi AB petanya jelas lebih panjang, tetapi busur sudut di B tetap menunjukkan angka yang sama.',
@@ -883,7 +883,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri punya empat kotak isian a, b, c, dan d. Persegi satuan digambar bersama petanya.',
+        teks: 'Alat interaktifnya punya empat kotak isian a, b, c, dan d. Persegi satuan digambar bersama petanya.',
         langkah: [
           'Ubah angka a saja. Perhatikan panah biru bergerak, sedangkan panah merah diam. Panah biru adalah kolom pertama.',
           'Sekarang ubah b saja. Sekarang panah merah yang bergerak. Kedua angka di kolom yang sama menggerakkan panah yang sama.',
@@ -1010,7 +1010,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menggambar kedua panah kolom bersama bentuknya. Pilihan transformasinya ada di bawah gambar.',
+        teks: 'Alat interaktifnya menggambar kedua panah kolom bersama bentuknya. Pilihan transformasinya ada di bawah gambar.',
         langkah: [
           'Pilih cermin sumbu Y. Baca ujung panah birunya, lalu ujung panah merahnya. Kedua angka itu adalah kedua kolom matriksnya, dan bisa kamu baca sebelum melihat tabel di kanan.',
           'Pilih rotasi 53 derajat. Kedua panahnya tidak lagi menunjuk ke arah yang bulat, dan matriksnya berisi cos dan sin.',
@@ -1110,7 +1110,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menggambar tiga bentuk: prapeta, hasil langkah pertama yang paling samar, dan hasil akhir.',
+        teks: 'Alat interaktifnya menggambar tiga bentuk: prapeta, hasil langkah pertama yang paling samar, dan hasil akhir.',
         langkah: [
           'Perhatikan bentuk yang paling samar. Itu persinggahan, bukan jawaban. Soal yang menanyakan hasil akhir tidak berhenti di situ.',
           'Tekan tombol tukar urutan. Bentuk hasil akhirnya berpindah tempat, padahal kedua transformasinya sama persis.',
@@ -1187,7 +1187,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menggambar KEDUA urutan sekaligus, dengan warna berbeda.',
+        teks: 'Alat interaktifnya menggambar KEDUA urutan sekaligus, dengan warna berbeda.',
         langkah: [
           'Perhatikan bentuk biru dan bentuk merah. Keduanya dari dua transformasi yang sama persis, hanya berbeda urutan.',
           'Baca kedua matriks gabungannya di tabel sebelah kanan. Keempat angkanya bertukar tempat dan berganti tanda.',
@@ -1229,7 +1229,7 @@ export const TAHAP: TahapTransformasi[] = [
     penjelasan: [
       {
         jenis: 'paragraf',
-        teks: 'Ketiga gambar di sebelah kiri bukan foto, dan bukan pula ilustrasi yang digambar tangan. Ketiganya dihitung oleh rumus yang baru saja kamu pelajari, memakai fungsi yang sama persis dengan yang dipakai kedua belas alat di materi sebelumnya.',
+        teks: 'Ketiga gambar di panel Alat bukan foto, dan bukan pula ilustrasi yang digambar tangan. Ketiganya dihitung oleh rumus yang baru saja kamu pelajari, memakai fungsi yang sama persis dengan yang dipakai kedua belas alat di materi sebelumnya.',
       },
       {
         jenis: 'paragraf',

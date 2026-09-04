@@ -315,7 +315,7 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
       <>
         {tampilWidget && tahap.widget === 'selang-menyusut' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>panjang selang h</td><td>{angka(h, 3)} detik</td></tr>
@@ -332,7 +332,7 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
 
         {tampilWidget && tahap.widget === 'garis-mendekati' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>x</td><td>{angka(xDekat, 3)}</td></tr>

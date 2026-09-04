@@ -710,7 +710,7 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               <div className="catatan">
                 {naik
                   ? 'Kedua koordinatnya bertukar tempat, dan tandanya ikut pindah bersama angkanya. Titik yang kebetulan berada DI garis cerminnya tidak berpindah sama sekali, sama seperti kaca tidak memindahkan dirinya sendiri.'
-                  : 'Kedua koordinatnya bertukar tempat, LALU kedua tandanya berbalik. Dua pekerjaan, bukan satu. Bandingkan sendiri dengan pilihan y = x di sebelah kiri: angkanya sama, tandanya yang berbeda.'}
+                  : 'Kedua koordinatnya bertukar tempat, LALU kedua tandanya berbalik. Dua pekerjaan, bukan satu. Bandingkan sendiri dengan pilihan y = x di alatnya: angkanya sama, tandanya yang berbeda.'}
               </div>
             </div>
           </>

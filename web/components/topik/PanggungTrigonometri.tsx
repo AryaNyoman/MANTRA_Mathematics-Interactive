@@ -247,7 +247,7 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
         {/* angka hidup hanya untuk tahap yang punya widget berangka */}
         {tampilWidget && tahap.widget === 'segitiga-sebangun' && (
           <div className="blok">
-            <div className="cap">Angka dari segitiga di sebelah kiri</div>
+            <div className="cap">Angka dari segitiga</div>
             <AngkaSegitiga skala={skala} derajat={derajat} />
           </div>
         )}

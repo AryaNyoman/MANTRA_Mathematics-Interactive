@@ -211,7 +211,7 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
           default
         />
         Peramban Anda tidak bisa memutar video ini. Penjelasan lengkapnya tetap
-        tersedia sebagai teks di sebelah kanan.
+        tersedia sebagai teks di bawahnya.
       </video>
 
       <div className="atur-subtitle">

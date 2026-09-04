@@ -152,7 +152,7 @@ export default function TigaUkuran({ children }: PropWidget) {
   const simpangan = data.map((v) => v - r.mean)
   const kanan = (
     <div className="blok">
-      <div className="cap">Angka dari alat di sebelah kiri</div>
+      <div className="cap">Angka dari alat</div>
       <table className="tabel-angka">
         <tbody>
           <tr><td>data terurut</td><td>{[...data].sort((a, b) => a - b).join('  ')}</td></tr>

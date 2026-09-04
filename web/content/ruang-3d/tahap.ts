@@ -947,7 +947,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Empat gambar di sebelah kiri bukan soal buatan. Semuanya benda yang biasa dijumpai, dan di dalam tiap benda itu ada bangun ruang yang sedang dihitung orang sungguhan.',
+          'Empat gambar di panel Alat bukan soal buatan. Semuanya benda yang biasa dijumpai, dan di dalam tiap benda itu ada bangun ruang yang sedang dihitung orang sungguhan.',
       },
       {
         jenis: 'poin',

@@ -233,7 +233,7 @@ export default function BentukData({ children }: PropWidget) {
       <div className="catatan">
         {peringatan
           ? `Gambar yang sedang tampil TIDAK cocok untuk data ini. ${peringatan}`
-          : 'Tabel dan gambar di sebelah kiri adalah benda yang sama dalam dua bentuk. Kalau salah satunya bercerita lain, ada yang salah.'}
+          : 'Tabel dan gambar di panel Alat adalah benda yang sama dalam dua bentuk. Kalau salah satunya bercerita lain, ada yang salah.'}
         {' '}{keterangan(jenis === 'kategori' ? KAT : ANGKA)}
       </div>
     </div>

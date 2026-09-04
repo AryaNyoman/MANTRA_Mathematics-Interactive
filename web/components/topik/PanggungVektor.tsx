@@ -309,7 +309,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
       <>
         {tampilWidget && tahap.widget === 'perahu-sungai' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>dayung dalam 1 jam</td><td>({angka(dayung.x, 1)}  {angka(dayung.y, 1)}) km</td></tr>
@@ -349,7 +349,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
 
         {tampilWidget && tahap.widget === 'pecah-komponen' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>komponen mendatar</td><td>{angka(vKomponen.x, 1)}</td></tr>
@@ -368,7 +368,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
 
         {tampilWidget && tahap.widget === 'panjang-dan-arah' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>komponen</td><td>({angka(vArah.x, 1)}  {angka(vArah.y, 1)})</td></tr>
@@ -386,7 +386,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
 
         {tampilWidget && tahap.widget === 'vektor-satuan' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>v</td><td>({angka(vSatuan.x, 1)}  {angka(vSatuan.y, 1)})</td></tr>
@@ -459,7 +459,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
 
         {tampilWidget && tahap.widget === 'kali-skalar' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>a</td><td>({angka(aKali.x, 1)}  {angka(aKali.y, 1)})</td></tr>
@@ -483,7 +483,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
 
         {tampilWidget && tahap.widget === 'perkalian-titik' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>a</td><td>({angka(aTitik.x, 1)}  {angka(aTitik.y, 1)})</td></tr>
@@ -503,7 +503,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
 
         {tampilWidget && tahap.widget === 'proyeksi' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>a</td><td>({angka(aProyeksi.x, 1)}  {angka(aProyeksi.y, 1)})</td></tr>

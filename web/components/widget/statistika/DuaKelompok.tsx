@@ -162,7 +162,7 @@ export default function DuaKelompok({ children }: PropWidget) {
 
   const kanan = (
     <div className="blok">
-      <div className="cap">Angka dari alat di sebelah kiri</div>
+      <div className="cap">Angka dari alat</div>
       <table className="tabel-angka">
         <thead>
           <tr>

@@ -102,7 +102,7 @@ export const TAHAP: TahapGrafik[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri adalah grafik perjalanan Ayu tadi. Seret penunjuknya menyusuri garisnya.',
+        teks: 'Alat interaktifnya adalah grafik perjalanan Ayu tadi. Seret penunjuknya menyusuri garisnya.',
         langkah: [
           'Tarik penunjuk pelan-pelan dari kiri ke kanan',
           'Perhatikan keterangan di bawah gambar berganti sendiri saat Anda melewati batas potongan cerita',
@@ -174,7 +174,7 @@ export const TAHAP: TahapGrafik[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri berisi lima gambar. Seret garis tegaknya ke kiri dan ke kanan pada tiap gambar.',
+        teks: 'Alat interaktifnya berisi lima gambar. Seret garis tegaknya ke kiri dan ke kanan pada tiap gambar.',
         langkah: [
           'Mulai dari garis lurus. Ke mana pun digeser, potongnya selalu satu',
           'Pindah ke lingkaran. Cari posisi yang memotong dua kali, lalu perhatikan vonisnya berubah',
@@ -253,7 +253,7 @@ export const TAHAP: TahapGrafik[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri punya tiga penggeser: a, h, dan k. Kurva sebelumnya tertinggal sebagai bayangan supaya Anda melihat perpindahannya, bukan cuma hasil akhirnya.',
+        teks: 'Alat interaktifnya punya tiga penggeser: a, h, dan k. Kurva sebelumnya tertinggal sebagai bayangan supaya Anda melihat perpindahannya, bukan cuma hasil akhirnya.',
         langkah: [
           'Geser k saja. Seluruh parabola naik dan turun, bentuknya tidak berubah sedikit pun',
           'Geser h saja. Seluruh parabola bergerak ke kiri dan ke kanan',
@@ -374,7 +374,7 @@ export const TAHAP: TahapGrafik[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menampilkan bentuk umum dan bentuk puncak berdampingan pada satu parabola yang sama.',
+        teks: 'Alat interaktifnya menampilkan bentuk umum dan bentuk puncak berdampingan pada satu parabola yang sama.',
         langkah: [
           'Tekan tombol maju untuk menjalankan melengkapkan kuadrat selangkah demi selangkah',
           'Perhatikan bagian rumus yang sedang disorot dan bagian grafik yang ikut menyala',
@@ -466,7 +466,7 @@ export const TAHAP: TahapGrafik[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri membalik arahnya: Anda yang menentukan gambarnya, rumusnya yang mengikuti.',
+        teks: 'Alat interaktifnya membalik arahnya: Anda yang menentukan gambarnya, rumusnya yang mengikuti.',
         langkah: [
           'Seret titik puncaknya ke mana saja. Perhatikan ketiga rumus di sampingnya ikut berubah',
           'Seret titik kedua untuk mengubah lebar dan arah parabolanya',
@@ -543,7 +543,7 @@ export const TAHAP: TahapGrafik[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri berisi tiga fungsi dasar dan enam tombol transformasi. Bentuk aslinya tertinggal sebagai bayangan.',
+        teks: 'Alat interaktifnya berisi tiga fungsi dasar dan enam tombol transformasi. Bentuk aslinya tertinggal sebagai bayangan.',
         langkah: [
           'Mulai dari parabola. Tekan geser kanan, lalu geser atas. Perhatikan rumus di bawahnya ikut tersusun',
           'Tekan tombol bersihkan, lalu ganti fungsi dasarnya menjadi akar. Ulangi kedua tombol tadi',
@@ -640,7 +640,7 @@ export const TAHAP: TahapGrafik[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri punya satu grafik dan dua tombol. Bentuk aslinya tetap membayang supaya perubahannya terlihat.',
+        teks: 'Alat interaktifnya punya satu grafik dan dua tombol. Bentuk aslinya tetap membayang supaya perubahannya terlihat.',
         langkah: [
           'Tekan tombol pertama, mutlak di luar. Perhatikan bagian bawah sumbu terlipat ke atas',
           'Bersihkan, lalu tekan tombol kedua, mutlak di dalam. Perhatikan bagian kiri diganti salinan bagian kanan',
@@ -740,7 +740,7 @@ export const TAHAP: TahapGrafik[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri mengadu ketiga fungsi tadi pada satu bidang, sebagai balapan.',
+        teks: 'Alat interaktifnya mengadu ketiga fungsi tadi pada satu bidang, sebagai balapan.',
         langkah: [
           'Jalankan balapannya dari awal. Perhatikan siapa yang memimpin di beberapa langkah pertama',
           'Perhatikan penunjuk skala di pojok. Tampilannya terpaksa diperkecil terus supaya kurva eksponennya tetap muat',
@@ -826,7 +826,7 @@ export const TAHAP: TahapGrafik[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menggambar garis y = x sebagai garis putus-putus, lalu melipat grafik eksponen ke seberangnya.',
+        teks: 'Alat interaktifnya menggambar garis y = x sebagai garis putus-putus, lalu melipat grafik eksponen ke seberangnya.',
         langkah: [
           'Jalankan pelipatannya pelan-pelan. Perhatikan titik (0, 1) mendarat tepat di (1, 0)',
           'Perhatikan asimtot mendatarnya ikut terlipat menjadi asimtot tegak',
@@ -920,7 +920,7 @@ export const TAHAP: TahapGrafik[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri punya dua penggeser untuk memindahkan grafik 1 dibagi x. Kedua asimtotnya digambar putus-putus dan ikut bergeser.',
+        teks: 'Alat interaktifnya punya dua penggeser untuk memindahkan grafik 1 dibagi x. Kedua asimtotnya digambar putus-putus dan ikut bergeser.',
         langkah: [
           'Geser ke kanan dan ke kiri. Perhatikan asimtot tegaknya menempel mengikuti',
           'Geser ke atas dan ke bawah. Perhatikan asimtot datarnya ikut pindah',
@@ -1005,7 +1005,7 @@ export const TAHAP: TahapGrafik[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menggambar KEDUA urutan sekaligus, jadi bedanya terlihat sebagai dua kurva, bukan sebagai kalimat.',
+        teks: 'Alat interaktifnya menggambar KEDUA urutan sekaligus, jadi bedanya terlihat sebagai dua kurva, bukan sebagai kalimat.',
         langkah: [
           'Geser angka yang dijalankan ke 4. Baca kedua hasilnya di keterangan atas: 26 dan 31',
           'Perhatikan ada dua kurva, satu utuh dan satu putus-putus. Itu dua urutan yang berbeda',
@@ -1087,7 +1087,7 @@ export const TAHAP: TahapGrafik[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menggambar fungsinya bersama inversnya, dengan garis y = x sebagai cerminnya.',
+        teks: 'Alat interaktifnya menggambar fungsinya bersama inversnya, dengan garis y = x sebagai cerminnya.',
         langkah: [
           'Mulai dari f(x) = 2x + 3. Garis biru putus-putus itu inversnya',
           'Perhatikan keduanya benar-benar cerminan terhadap garis ungu y = x',
@@ -1124,7 +1124,7 @@ export const TAHAP: TahapGrafik[] = [
       { jenis: 'sorot', teks: 'Kalau setelah membaca bagian ini Anda mulai melihat parabola di air mancur dan grafik eksponen di berita bunga bank, tujuan topik ini sudah tercapai.' },
       {
         jenis: 'poin',
-        judul: 'Yang ditunjukkan di sebelah kiri',
+        judul: 'Yang ditunjukkan di alatnya',
         butir: [
           'Parabola pada lintasan - bola basket yang dilempar dan kabel jembatan gantung, dua contoh yang dipakai buku Kelas 10',
           'Parabola pada pemantul - antena parabola dan lampu sorot, bentuk itu mengumpulkan semua sinar sejajar ke satu titik',

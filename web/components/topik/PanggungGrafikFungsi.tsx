@@ -531,7 +531,7 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
       <>
         {tampilWidget && tahap.widget === 'pembaca-grafik' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>waktu</td><td>{angka(waktu, 1)} menit</td></tr>

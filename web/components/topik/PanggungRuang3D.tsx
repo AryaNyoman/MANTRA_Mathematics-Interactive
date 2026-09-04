@@ -305,7 +305,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
       <>
         {w === 'kubus-putar' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>sudut putar</td><td>{bulat(sudut.mendatar, 0)}°</td></tr>
@@ -325,7 +325,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'pemilih-kedudukan' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>ruas biru</td><td>{r1.nama} ({r1.jenis})</td></tr>
@@ -339,7 +339,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'kaki-tegak-lurus' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>letak Q pada AC</td><td>{bulat(tKaki * 100, 0)}%</td></tr>
@@ -358,7 +358,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'diagonal-kubus' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>rusuk kubus</td><td>6</td></tr>
@@ -377,7 +377,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'jarak-ke-garis' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 {PILIHAN.map((n) => (
@@ -398,7 +398,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'jarak-ke-bidang' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>titik yang diukur</td><td>{bidang.titik}</td></tr>
@@ -415,7 +415,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'jarak-sejajar' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>letak P pada AE</td><td>{bulat(tSejajar * 100, 0)}%</td></tr>
@@ -432,7 +432,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'sudut-bersilangan' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>geseran BG</td><td>{bulat(geser * 100, 0)}%</td></tr>
@@ -449,7 +449,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'sudut-bidang' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 {MODE.map((x, i) => (

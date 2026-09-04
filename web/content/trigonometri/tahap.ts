@@ -95,7 +95,7 @@ export const TAHAP: Tahap[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri adalah kejadian tadi dalam bentuk yang bisa Anda utak-atik. Geser sudut sinar mataharinya dan amati baik-baik.',
+        teks: 'Alat interaktifnya adalah kejadian tadi dalam bentuk yang bisa Anda utak-atik. Geser sudut sinar mataharinya dan amati baik-baik.',
         langkah: [
           'Geser ke sudut kecil: kedua bayangan memanjang jauh',
           'Geser ke sudut besar: kedua bayangan memendek',
@@ -394,7 +394,7 @@ export const TAHAP: Tahap[] = [
           'Di kiri sumbu tegak cos jadi negatif, di bawah sumbu mendatar sin jadi negatif. Tandanya mengikuti arah, bukan aturan hafalan',
         ],
       },
-      { jenis: 'paragraf', teks: 'Inilah alasan lingkaran satuan digambar di mana-mana. Ia bukan hiasan, ia mengubah tiga pecahan jadi satu titik yang bisa ditunjuk. Seret titik ungu di sebelah kiri dan perhatikan kedua angkanya bergerak.' },
+      { jenis: 'paragraf', teks: 'Inilah alasan lingkaran satuan digambar di mana-mana. Ia bukan hiasan, ia mengubah tiga pecahan jadi satu titik yang bisa ditunjuk. Seret titik ungu di alatnya dan perhatikan kedua angkanya bergerak.' },
     ],
     seringKeliru: {
       judul: 'Dikira topik terpisah dari segitiga siku-siku',
@@ -465,7 +465,7 @@ export const TAHAP: Tahap[] = [
         ],
         simpul: 'Di 45° semuanya berpasangan kembar, karena segitiganya sama kaki.',
       },
-      { jenis: 'paragraf', teks: 'Geser sudutnya di sebelah kiri, lalu klik nama rasio yang ingin disorot. Perhatikan tan memanjang tak terkendali saat sudut mendekati 90°, sementara cot justru menyusut, dan sebaliknya saat sudut mengecil.' },
+      { jenis: 'paragraf', teks: 'Geser sudutnya di alatnya, lalu klik nama rasio yang ingin disorot. Perhatikan tan memanjang tak terkendali saat sudut mendekati 90°, sementara cot justru menyusut, dan sebaliknya saat sudut mengecil.' },
     ],
     seringKeliru: {
       judul: 'sec dikira kebalikan sin',
@@ -540,7 +540,7 @@ export const TAHAP: Tahap[] = [
           'Nilai di kuadran lain tinggal dicerminkan - tandanya berubah, besarnya tidak',
         ],
       },
-      { jenis: 'paragraf', teks: 'Telusuri perjalanannya di sebelah kiri. Jari-jari berhenti di tiap sudut istimewa, dan nilai eksaknya muncul di bawah, lengkap dengan asal-usul bangunnya.' },
+      { jenis: 'paragraf', teks: 'Telusuri perjalanannya di alatnya. Jari-jari berhenti di tiap sudut istimewa, dan nilai eksaknya muncul di bawah, lengkap dengan asal-usul bangunnya.' },
     ],
     seringKeliru: {
       judul: 'Tabel sudut istimewa dihafal mentah',
@@ -604,7 +604,7 @@ export const TAHAP: Tahap[] = [
         ],
         simpul: 'Di puncak, titik sedang bergerak menyamping, bukan naik. Karena itu kurvanya melandai.',
       },
-      { jenis: 'paragraf', teks: 'Geser sudutnya di sebelah kiri dan perhatikan kurvanya tumbuh sendiri. Naikkan sampai lewat 360°, kurva mengulang persis, karena putarannya memang mengulang.' },
+      { jenis: 'paragraf', teks: 'Geser sudutnya di alatnya dan perhatikan kurvanya tumbuh sendiri. Naikkan sampai lewat 360°, kurva mengulang persis, karena putarannya memang mengulang.' },
     ],
     seringKeliru: {
       judul: 'Grafik sinus dikira gambar bentuk sesuatu',
@@ -627,7 +627,7 @@ export const TAHAP: Tahap[] = [
       'tan meledak setiap 90° karena penyebutnya menjadi nol.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Ketiga panel di sebelah kiri digerakkan oleh satu sudut yang sama. Yang berbeda hanya apa yang dicatat dari putaran itu.' },
+      { jenis: 'paragraf', teks: 'Ketiga panel di alatnya digerakkan oleh satu sudut yang sama. Yang berbeda hanya apa yang dicatat dari putaran itu.' },
       { jenis: 'sesi', judul: 'Apa yang dicatat masing-masing' },
       {
         jenis: 'poin',
