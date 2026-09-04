@@ -91,6 +91,14 @@ Perkakasnya `manim/gl/` (sinema v2, qc, ilustrasi, kamera). Rujukan resmi:
    bawah, pita tegak di kiri). `alas_hud` + tanda `latar` hanya untuk tulisan
    yang memang harus menumpang di atas kisi.
 
+   MORPH RUMUS (temuan Transformasi Geometri 4 Sep): `ganti_rumus` memakai
+   TransformMatchingStrings, jadi dua rumus yang nyaris tidak punya lambang
+   sama tidak dimorph, melainkan jadi tumpukan coretan tak terbaca selama
+   satu setengah detik. Untuk rumus yang isinya beda jauh, pakai
+   `papan.baris(..., b=b)` (menumpuk), bukan `ganti_rumus` (mengganti).
+   `papan.baris` dan `papan.tumbuh` mencatat waktunya sendiri lewat `b=`;
+   tanpa itu video memanjang 0,8 detik per baris dan `gabung_audio` menolak.
+
 4. **Label di dalam gambar maksimal dua kata**, dijaga mesin (`sinema.label`
    menggagalkan render). Rumus seperti `x = 1` dihitung satu lambang. Contoh
    yang lolos: "naik 1", "ke KANAN", "dayung 3 km". Kalimat panjang milik
