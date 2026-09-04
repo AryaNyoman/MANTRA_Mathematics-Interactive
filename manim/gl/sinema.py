@@ -41,6 +41,12 @@ JEDA_MIN, JEDA_MAKS = 0.6, 1.6
 # Toleransi kelebihan waktu sebelum render digagalkan (detik).
 TOLERANSI_LEBIH = 0.15
 
+# Babak berbunyi kalau sisa waktunya yang akan diam lebih dari ini (detik) DAN
+# animasinya kurang dari bagian ini dari narasinya. Dua syarat supaya babak
+# pendek yang wajar diam sebentar tidak berisik.
+DIAM_BERBUNYI = 3.0
+BAGIAN_DIAM_BERBUNYI = 0.6
+
 # ---------------------------------------------------------------------------
 # ZONA LAYAR (keputusan ARYA 2 Sep 2026 malam, berlaku SEMUA topik)
 # ---------------------------------------------------------------------------
@@ -697,6 +703,19 @@ class Babak:
                 f"panjangkan kalimat narasinya."
             )
         if sisa > 0:
+            # Gerbang ini menolak animasi yang MELEWATI narasi, tetapi dulu diam
+            # saja kalau animasinya jauh lebih PENDEK: sisanya ditambal `wait`
+            # tanpa sepatah kata, dan penulis adegan baru tahu layarnya beku dari
+            # alat ukur dua hari kemudian (Statistika 4 Sep: 49 rentang beku di
+            # 13 video, terpanjang 18,5 detik). Sekarang berbunyi. Bukan
+            # menggagalkan render: diam yang disengaja sah menurut STANDAR butir
+            # 3 selama narasi membahas yang tampil, tetapi angkanya harus
+            # terlihat saat render, bukan ditemukan belakangan.
+            if sisa > DIAM_BERBUNYI and self.terpakai < BAGIAN_DIAM_BERBUNYI * self.lama:
+                print(f"PERINGATAN babak '{self.nama}': animasi {self.terpakai:.1f} detik dari "
+                      f"narasi {self.lama:.1f} detik, {sisa:.1f} detik akan DIAM. Boleh hanya "
+                      f"kalau narasi membahas yang tampil; kalau tidak, beri kejadian pada benda "
+                      f"yang disebut narator (ikat ke jam kalimat).")
             self.scene.wait(sisa)
 
 
