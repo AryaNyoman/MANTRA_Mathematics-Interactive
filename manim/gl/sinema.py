@@ -661,6 +661,10 @@ class Babak:
     def __init__(self, scene, nama: str, lama: float):
         self.scene, self.nama, self.lama = scene, nama, lama
         self.terpakai = 0.0
+        # Waktu MENUNGGU (jeda, tunggu_sampai): layar diam. Dipisah dari
+        # `terpakai` supaya peringatan diam tidak dibutakan oleh babak yang
+        # mengikat kejadiannya ke jam kalimat (temuan Ruang 3D 4 Sep).
+        self.menunggu = 0.0
 
     def main(self, *animasi, run_time: float = 1.0, **kw) -> None:
         self.scene.play(*animasi, run_time=run_time, **kw)
@@ -679,6 +683,7 @@ class Babak:
                   f"Untuk tunggu panjang pakai b.tunggu_sampai(...) atau scene.wait(n) + b.catat(n).")
         self.scene.wait(dipotong)
         self.terpakai += dipotong
+        self.menunggu += dipotong
 
     def tunggu_sampai(self, detik, cadangan: float = 0.0) -> None:
         """Diam sampai `detik` pada jam video (dari `jam_subtitle`), lalu lanjut."""
@@ -688,6 +693,7 @@ class Babak:
         if sisa > 0.02:
             self.scene.wait(sisa)
             self.terpakai += sisa
+            self.menunggu += sisa
 
     @property
     def sisa(self) -> float:
@@ -702,7 +708,7 @@ class Babak:
                 f"Gambar akan mendahului suara: pendekkan animasinya atau "
                 f"panjangkan kalimat narasinya."
             )
-        if sisa > 0:
+        if True:
             # Gerbang ini menolak animasi yang MELEWATI narasi, tetapi dulu diam
             # saja kalau animasinya jauh lebih PENDEK: sisanya ditambal `wait`
             # tanpa sepatah kata, dan penulis adegan baru tahu layarnya beku dari
@@ -711,12 +717,18 @@ class Babak:
             # menggagalkan render: diam yang disengaja sah menurut STANDAR butir
             # 3 selama narasi membahas yang tampil, tetapi angkanya harus
             # terlihat saat render, bukan ditemukan belakangan.
-            if sisa > DIAM_BERBUNYI and self.terpakai < BAGIAN_DIAM_BERBUNYI * self.lama:
-                print(f"PERINGATAN babak '{self.nama}': animasi {self.terpakai:.1f} detik dari "
-                      f"narasi {self.lama:.1f} detik, {sisa:.1f} detik akan DIAM. Boleh hanya "
+            # `animasi` = waktu yang benar-benar menggerakkan gambar; waktu menunggu
+            # kalimat tidak dihitung, sebab selama itu layar diam juga.
+            animasi = self.terpakai - self.menunggu
+            diam = self.lama - animasi
+            if diam > DIAM_BERBUNYI and animasi < BAGIAN_DIAM_BERBUNYI * self.lama:
+                print(f"PERINGATAN babak '{self.nama}': animasi {animasi:.1f} detik dari "
+                      f"narasi {self.lama:.1f} detik, {diam:.1f} detik DIAM (termasuk "
+                      f"{self.menunggu:.1f} detik menunggu kalimat). Boleh hanya "
                       f"kalau narasi membahas yang tampil; kalau tidak, beri kejadian pada benda "
                       f"yang disebut narator (ikat ke jam kalimat).")
-            self.scene.wait(sisa)
+            if sisa > 0:
+                self.scene.wait(sisa)
 
 
 @contextmanager
