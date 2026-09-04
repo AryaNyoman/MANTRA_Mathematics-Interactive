@@ -17,6 +17,11 @@ BAYANG = (0.4, 0.3, 0.5)       # benda padat
 BAYANG_AIR = (0.5, 0.5, 0.3)   # air lebih berkilap
 BAYANG_DATAR = (0.0, 0.0, 0.0)  # tanah, kertas
 
+# Cahaya bawaan ManimGL ada di (-10, 10, 10), yaitu di BELAKANG benda untuk
+# kamera yang biasa dipakai topik ruang (theta sekitar -40). Titik ini di sisi
+# kamera dan cukup rendah, supaya bayangan lantainya punya panjang yang wajar.
+CAHAYA_BAKU = np.array([-2.0, -12.0, 12.0])
+
 
 # ---------------------------------------------------------------------------
 # Latar: air, tanah, lantai
@@ -90,11 +95,89 @@ def bola(r=0.5, warna=AKSEN):
     return b.shift(OUT * r)
 
 
-def balok(p=1.0, l=1.0, t=1.0, warna=AKSEN2):
-    """Balok: p sepanjang x, l sepanjang y, t sepanjang z."""
+def balok(p=1.0, l=1.0, t=1.0, warna=AKSEN2, tiga_terang=True):
+    """Balok: p sepanjang x, l sepanjang y, t sepanjang z.
+
+    `tiga_terang` menentukan terang tiap muka SENDIRI, tidak menyerahkannya ke
+    pencahayaan ManimGL. Alasannya diukur, bukan dikira-kira (Ruang 3D, 4 Sep
+    2026): `set_shading` lemah arah, jadi memindahkan sumber cahaya saja tidak
+    cukup. Pada satu frame uji, dengan cahaya saja ketiganya nyaris sewarna
+    (atap 200, muka -y 190, muka +x 124 pada skala terang 0 sampai 255) dan
+    baloknya terbaca sebagai kotak gelap datar. Dengan tiga terang ini: 200,
+    173, 122, tiga tingkat yang jelas berbeda.
+
+    Kamera topik ruang selalu di theta sekitar -40, dan pada sudut itu muka +x
+    jatuh di kiri layar, muka -y di kanan. Matikan dengan `tiga_terang=False`
+    kalau baloknya dipakai sebagai pelat tipis yang memang harus rata.
+    """
     b = Prism(width=p, height=l, depth=t).set_color(warna)
     b.set_shading(*BAYANG)
+    if tiga_terang:
+        pusat = b.get_center()
+        for muka in b.submobjects:
+            arah = muka.get_center() - pusat
+            sumbu = int(np.argmax(np.abs(arah)))
+            naik = arah[sumbu] > 0
+            if sumbu == 2 and naik:            # atap: paling terang
+                campur, kuat = LATAR, 0.42
+            elif sumbu == 1 and not naik:      # muka -y, di kanan layar: sedang
+                campur, kuat = TINTA, 0.15
+            elif sumbu == 0 and naik:          # muka +x, di kiri layar: gelap
+                campur, kuat = TINTA, 0.34
+            else:                              # muka yang membelakangi kamera
+                campur, kuat = TINTA, 0.20
+            muka.set_color(interpolate_color(Color(warna), Color(campur), kuat))
     return b.shift(OUT * t / 2)
+
+
+def _lambung_cembung(titik):
+    """Lambung cembung sekumpulan titik di bidang datar (rantai monoton Andrew)."""
+    q = sorted({(round(float(x), 6), round(float(y), 6)) for x, y in titik})
+    if len(q) < 3:
+        return q
+
+    def putar(o, a, b):
+        return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+
+    bawah = []
+    for r in q:
+        while len(bawah) >= 2 and putar(bawah[-2], bawah[-1], r) <= 0:
+            bawah.pop()
+        bawah.append(r)
+    atas = []
+    for r in reversed(q):
+        while len(atas) >= 2 and putar(atas[-2], atas[-1], r) <= 0:
+            atas.pop()
+        atas.append(r)
+    return bawah[:-1] + atas[:-1]
+
+
+def bayangan_lantai(titik_sudut, cahaya=None, warna=TINTA, opacity=0.20, z=0.01):
+    """Bayangan sebuah bangun di lantai z = 0, DIHITUNG dari titik cahaya.
+
+    Tiap titik sudut diproyeksikan dari `cahaya` ke bidang z = 0, lalu diambil
+    lambung cembungnya. Jadi kalau cahayanya digeser, bayangannya ikut bergeser,
+    dan bangun apa pun boleh dipakai, bukan cuma kubus.
+
+    Tanpa bayangan, benda 3D tampak melayang: mata memakai bayangan untuk
+    memutuskan sebuah benda menyentuh lantai atau tidak. Pudarkan bayangannya
+    begitu bendanya jadi tembus pandang; benda kaca tidak menjatuhkan bayangan
+    pekat, dan bayangan yang tertinggal terbaca sebagai lembar kertas nyasar
+    (cacat nyata di Ruang 3D materi 04, 4 Sep 2026).
+    """
+    L = np.array(CAHAYA_BAKU if cahaya is None else cahaya, dtype=float)
+    datar = []
+    for titik in titik_sudut:
+        P = np.array(titik, dtype=float)
+        if abs(L[2] - P[2]) < 1e-6:
+            continue
+        s = L + (L[2] / (L[2] - P[2])) * (P - L)
+        datar.append((s[0], s[1]))
+    tepi = _lambung_cembung(datar)
+    if len(tepi) < 3:
+        return VGroup()
+    poli = Polygon(*[np.array([x, y, z]) for x, y in tepi])
+    return poli.set_fill(warna, opacity).set_stroke(width=0)
 
 
 def silinder(r=0.5, t=1.0, warna=SOROT, sumbu=OUT):
@@ -172,13 +255,25 @@ def mobil(panjang=2.0, warna=AKSEN, warna_roda=TINTA):
 
 
 def orang(tinggi=1.7, warna=TINTA):
-    """Orang batang bervolume: kepala, badan, dua lengan, dua kaki. Alas di z = 0."""
+    """Orang batang bervolume: kepala, badan, dua lengan, dua kaki. Alas di z = 0.
+
+    KAKI DIPERBAIKI 3 Sep 2026 (sesi Statistika, bukti `qc/uji-kaki*.png`).
+    Sebelumnya jari-jari kaki 0,045 x tinggi dan keduanya digeser ke arah
+    KEDALAMAN. Dua akibatnya, keduanya terlihat di 480p:
+      1. silinder setipis itu pecah jadi belasan helai di jala ManimGL, jadi
+         kaki terbaca seperti rumbai pel, bukan kaki;
+      2. digeser ke kedalaman berarti dari kamera depan kedua kaki bertumpuk,
+         padahal kaki orang berjajar kiri kanan.
+    Diuji tiga tebal kali dua arah: 0,060 berjajar KE SAMPING yang bersih dan
+    masih terbaca dua kaki. Lebar benda praktis tidak berubah (lengan di
+    +-0,185 t tetap yang terlebar), jadi qc adegan lama tidak terpengaruh.
+    """
     t = tinggi
     kepala = Sphere(radius=0.11 * t).set_color(warna).move_to([0, 0, t - 0.11 * t])
     badan = Cylinder(height=0.40 * t, radius=0.09 * t).set_color(warna).move_to([0, 0, 0.65 * t])
     bagian = [kepala, badan]
-    for sy in (-0.06, 0.06):
-        kaki = Cylinder(height=0.45 * t, radius=0.045 * t).set_color(warna).move_to([0, sy * t, 0.225 * t])
+    for sx in (-0.06, 0.06):
+        kaki = Cylinder(height=0.45 * t, radius=0.060 * t).set_color(warna).move_to([sx * t, 0, 0.225 * t])
         bagian.append(kaki)
     for sy in (-1, 1):
         lengan = Cylinder(height=0.36 * t, radius=0.035 * t).set_color(warna)
@@ -230,6 +325,15 @@ def bidang_bernomor(x_range=(-6.0, 6.0, 1.0), y_range=(-4.0, 4.0, 1.0),
     # membuat gambarnya bisa diperiksa siswa.
     angka = bidang.add_coordinate_labels(font_size=ukuran_angka, num_decimal_places=0)
     angka.set_color(TINTA).set_opacity(0.75)
+    # Disimpan supaya adegan bisa memunculkan angkanya BELAKANGAN, saat
+    # narator berkata "lengkap dengan angka pada kedua sumbunya". Dipakai
+    # sejak pembuka 3D dipotong (STANDAR butir 2, 4 Sep 2026).
+    bidang.angka = angka
+    # Tanda untuk `qc.periksa_adegan`: panel HUD beralas boleh berdiri di
+    # atas bidang ini. Benda dunia TANPA tanda ini tetap dilarang tertutup
+    # panel, sebab menyembunyikan panah atau angka jauh lebih merusak
+    # daripada menutupi garis petak.
+    bidang.latar = True
 
     # WAJIB: NumberPlane menempatkan dirinya di TENGAH layar, bukan pada titik
     # asal koordinatnya. Untuk jangkauan yang tidak simetris, misalnya x dari -5
@@ -304,3 +408,20 @@ def penopang(lebar=0.9, tinggi=0.55, tebal=1.2, warna=AKSEN):
     g.set_color(warna)
     g.set_shading(*BAYANG)
     return g
+
+
+def tumbuh_batang(m, **kw):
+    """Batang tumbuh dari ALASNYA, untuk histogram dan diagram batang.
+
+    `GrowFromEdge` bawaan ManimGL butuh argumen tepi dan tepinya diberikan di
+    bidang xy, sedangkan batang adegan MATRA berdiri di sumbu z. Dipakai lewat
+    `LaggedStartMap(GrowFromEdge, batang)` ia gagal sebab argumen tepinya tidak
+    terisi. Yang ini menghitung alasnya sendiri, jadi bisa dipakai langsung:
+
+        b.main(LaggedStartMap(ilustrasi.tumbuh_batang, hist, lag_ratio=0.12),
+               run_time=3.0)
+
+    Ditemukan sesi Statistika 3 Sep 2026, dinaikkan ke berkas bersama 4 Sep.
+    """
+    dasar = m.get_center() + np.array([0.0, 0.0, -m.get_depth() / 2])
+    return GrowFromPoint(m, dasar, **kw)

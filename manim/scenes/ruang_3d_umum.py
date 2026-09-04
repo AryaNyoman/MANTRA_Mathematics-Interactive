@@ -56,6 +56,30 @@ def durasi(topik: str) -> dict:
     return json.loads((AKAR / "audio" / topik / "durasi.json").read_text(encoding="utf-8"))["segmen"]
 
 
+# Sumber cahaya ManimGL bawaannya di (-10, 10, 10), yaitu di BELAKANG kubus
+# dilihat dari kamera kita (theta sekitar -40 berarti kamera duduk di sisi +x
+# dan -y). Akibatnya kedua muka yang terlihat sama-sama kena cahaya serong dan
+# jadi hampir sewarna: kubusnya terbaca sebagai balok gelap datar, bukan benda.
+# Cahaya dipindah ke sisi KAMERA supaya muka depan terang, muka kanan sedang,
+# dan atap paling terang. (Temuan MASTER 4 Sep, keenam video.)
+# Titik cahayanya milik `gl.ilustrasi` sekarang, supaya topik lain memakai
+# yang sama. Alasan letaknya ada di sana.
+CAHAYA = ilustrasi.CAHAYA_BAKU
+
+
+def pasang_cahaya(scene, di=None):
+    """Pindahkan sumber cahaya ke sisi kamera. Panggil sebelum babak pertama."""
+    scene.camera.light_source.move_to(CAHAYA if di is None else di)
+    return scene.camera.light_source
+
+
+def bayangan_kubus(cahaya=None, warna=TINTA, opacity=0.20):
+    """Bayangan kubus topik ini di lantai. Perhitungannya di `gl.ilustrasi`."""
+    return ilustrasi.bayangan_lantai([T[n] for n in "ABCDEFGH"],
+                                     CAHAYA if cahaya is None else cahaya,
+                                     warna=warna, opacity=opacity)
+
+
 def kubus_pejal(warna=REDUP, opacity=0.92):
     """Kubus sebagai BENDA: prisma bercahaya, bukan rangka kawat.
 
@@ -63,6 +87,7 @@ def kubus_pejal(warna=REDUP, opacity=0.92):
     baru bangun matematikanya (STANDAR-ILUSTRASI aturan 1, dan "konkret sebelum
     abstrak" di STANDAR-MENGAJAR).
     """
+    # Tiga terang tiap muka diurus `ilustrasi.balok`, bersama topik lain.
     b = ilustrasi.balok(RUSUK, RUSUK, RUSUK, warna=warna).set_opacity(opacity)
     # `ilustrasi.balok` lahir berpusat di sumbu tegak dengan alas di z = 0.
     # Kubus kita berjalan dari titik A di titik asal, jadi digeser setengah rusuk.
@@ -187,14 +212,21 @@ def papan_koordinat(frame, sampai=None, tekan=None):
     ujung = SUMBU_UJUNG if sampai is None else sampai
     tekan = tekan or {}
 
-    def satu_sumbu(arah, keluar, nama, langkah=1, jauh=0.95, kaca=None):
+    def satu_sumbu(arah, keluar, nama, langkah=3, jauh=0.95, kaca=None):
         gambar = VGroup(Arrow(ORIGIN, arah * ujung, buff=0, thickness=2.4).set_color(REDUP))
         label = []
-        for k in range(langkah, int(RUSUK) + 1, langkah):
+        # Garis kecil penanda tetap tiap SATU satuan supaya skalanya terasa,
+        # tetapi ANGKANYA hanya tiap `langkah`. Versi sebelumnya memberi angka
+        # pada tiap satuan di sumbu x dan y; ketiga sumbu bertemu di titik A,
+        # jadi angka-angkanya berdesakan di pojok yang sama sampai sulit dibaca.
+        # (Temuan MASTER 4 Sep: cukup 0, 3, dan 6 di tiap sumbu.)
+        for k in range(1, int(RUSUK) + 1):
             titik = arah * k
             ditekan = k in tekan.get(nama, ())
             gambar.add(Line(titik, titik + keluar * 0.26).set_stroke(
                 SOROT if ditekan else REDUP, 3 if ditekan else 2))
+            if k % langkah and not ditekan:
+                continue
             # Angkanya didorong jauh keluar (0,95) dan berukuran 26. Percobaan
             # pertama memakai 0,52 dan ukuran 22: angkanya berdesakan dengan
             # huruf titik sudut, dan terlalu kecil untuk dibaca di 480p.
@@ -223,7 +255,10 @@ def papan_koordinat(frame, sampai=None, tekan=None):
     gz, lz = satu_sumbu(np.array([0.0, 0.0, 1.0]), keluar_z / np.linalg.norm(keluar_z),
                         "z", langkah=3, jauh=1.35, kaca=kaca_z)
 
-    nol = label_hadap(frame, "0", np.array([-0.62, -0.62, 0.0]), REDUP, 26)
+    # Angka nol didorong lebih jauh daripada huruf titik sudut. Huruf A juga
+    # dilempar ke arah diagonal yang sama sejauh 0,92, jadi pada jarak 0,62
+    # keduanya berdiri persis satu di atas yang lain dan terbaca "A0".
+    nol = label_hadap(frame, "0", np.array([-1.15, -1.15, 0.0]), REDUP, 26)
     return {
         "datar": [gx, gy, *lx, *ly, nol],
         "tinggi": [gz, *lz],

@@ -92,7 +92,9 @@ BIDANG_X, BIDANG_Y = (-4.0, 8.0, 1.0), (-1.0, 4.0, 1.0)
 # bukan garis petak y = -1, melainkan ANGKA sumbunya, yang menjulur
 # sekitar 0,30 satuan lagi ke bawah. Pusat 1,30 ditolak qc dengan bawah
 # -2,70; 0,97 memberi sekitar -2,35, aman dari batas -2,55.
-PETA = dict(theta=0, phi=0, pusat=(2.0, 0.97, 0.0), tinggi=7.6)
+# Pusat dan tinggi kamera peta TIDAK ditulis tangan lagi: `kamera.muat_datar`
+# menghitungnya dari kotak batas bidang, termasuk angka sumbunya yang
+# menjulur di bawah garis petak terbawah.
 
 
 class PerahuVektor(AdeganMatra):
@@ -154,18 +156,39 @@ class PerahuVektor(AdeganMatra):
         self.bring_to_front(perahu)
         dunia3d = Group(air, tepi_jauh, tepi_dekat)
 
-        papan = sinema.PapanRumus(self, ukuran=30)
+        # `tanpa_utama=True`: video ini tidak memakai rumus utama, semua
+        # isinya baris. Tanpa penanda itu slot teratas dipesan percuma dan
+        # baris keempat jatuh keluar zona kanan.
+        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True, alas=True)
 
         with sinema.babak(self, "terbang", DURASI) as b:
             lama = max(2.0, DURASI["terbang"] - 3.0)
-            b.main(kamera.sudut(frame, **PETA), run_time=lama)
+            # Pusat dan tinggi dihitung dari kotak batas bidang yang
+            # SEBENARNYA, termasuk angka sumbunya. Hitungan tangan dari
+            # garis petak sudah dua kali ditolak qc.
+            #
+            # Jalur HUD TIDAK dipesan lagi. Memesannya menyusutkan bidang 15
+            # persen, dan sejak 4 Sep tulisan HUD punya alas kertas sendiri
+            # (`sinema.alas_hud`), jadi ia tetap bersih walaupun bidang lewat
+            # di bawahnya. Bidang kembali memenuhi jalur bebas subtitle.
+            pusat, tinggi = kamera.muat_datar(bidang)
+            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
+                                tinggi=tinggi), run_time=lama)
             self.di_air = False
             b.main(FadeOut(dunia3d), bidang.animate.set_opacity(1),
                    pita.animate.set_fill(AKSEN2, PEKAT_PITA), run_time=1.4)
-            identitas = sinema.identitas(self, "sungai = 3 km", "1 petak = 1 km")
+            identitas = sinema.identitas(self, "sungai = 3 km", "1 petak = 1 km",
+                                         alas=True)
             identitas.set_opacity(0)
             b.main(identitas.animate.set_opacity(1), run_time=0.8)
-        qc.periksa_adegan(self, {"bidang": bidang, "identitas": identitas})
+        # Bidang masuk `dunia` dan identitas masuk `hud`, BUKAN keduanya ke
+        # `zona`. Cuma dengan begitu perkalian silang hud x dunia di
+        # `periksa_adegan` berjalan. Versi sebelumnya menaruh keduanya di
+        # `zona` tanpa daftar pasangan, jadi gerbangnya diam saja waktu garis
+        # petak menembus tulisan identitas. Lubangnya ada di cara memanggil,
+        # bukan di gerbangnya.
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"identitas": identitas})
 
         # ==============================================================
         # Babak 3: panah dayung
@@ -174,8 +197,22 @@ class PerahuVektor(AdeganMatra):
         p_dayung = always_redraw(
             lambda: Arrow(asal, asal + self.v_dayung(), buff=0, thickness=5).set_color(AKSEN2))
         l_dayung = teks("dayung", 26, AKSEN2)
-        l_dayung.add_updater(lambda m: m.move_to(
-            asal + self.v_dayung() * 0.5 + 1.3 * self.tegak_dayung()))
+
+        def taruh_dayung(m):
+            """Label dayung, digeser tegak lurus dari panahnya TAPI ditahan di
+            dalam bidang.
+
+            Pada sudut 180 derajat arah tegak lurusnya menunjuk ke bawah, dan
+            geseran 1,3 satuan menjatuhkan label ke luar petak, tepat di
+            sebelah angka sumbu "-1" sehingga terbaca seolah menamai sumbunya.
+            Terlihat di lembar kontak 3 Sep. Sekarang tepi bawahnya ditahan di
+            dalam baris terbawah bidang.
+            """
+            p = asal + self.v_dayung() * 0.5 + 1.3 * self.tegak_dayung()
+            p[1] = max(float(p[1]), BIDANG_Y[0] + 0.45)
+            m.move_to(p)
+
+        l_dayung.add_updater(taruh_dayung)
         # Panel vektor kini baris di papan rumus kanan atas, bukan ditaruh
         # sendiri di pojok: zona kanan yang dikunci v2.
 
@@ -187,6 +224,7 @@ class PerahuVektor(AdeganMatra):
             b.catat(0.8)
             b.jeda(1.0)
         qc.periksa_adegan(self, {"dayung": p_dayung, "label d": l_dayung},
+                          dunia={"bidang": bidang},
                           hud={"panel d": panel_d, "identitas": identitas})
 
         # ==============================================================
@@ -207,6 +245,7 @@ class PerahuVektor(AdeganMatra):
         qc.periksa_adegan(self, {"dayung": p_dayung, "arus": p_arus, "label d": l_dayung,
                                  "label a": l_arus},
                           [("label d", "label a")],
+                          dunia={"bidang": bidang},
                           hud={"panel d": panel_d, "panel a": panel_a,
                                "identitas": identitas})
 
@@ -228,13 +267,18 @@ class PerahuVektor(AdeganMatra):
             b.catat(0.8)
             b.jeda(0.8)
         qc.periksa_adegan(self, {"resultan": p_res, "koordinat": l_koord},
+                          dunia={"bidang": bidang},
                           hud={"panel d": panel_d, "panel a": panel_a,
                                "panel r": panel_r, "identitas": identitas})
 
         # ==============================================================
         # Babak 6: perahunya berlayar, panjangnya hidup
         # ==============================================================
-        label_p = teks("panjang perpindahan", 24, SOROT)
+        # "panjang perpindahan" selebar 3,1 satuan layar membuat baris HUD ini
+        # yang PALING kiri, dan itulah yang memaksa bidang menyusut. Satu kata
+        # sudah cukup: barisnya berdiri di bawah panel rumus yang isinya
+        # |d + a|, jadi "panjang" apa tidak pernah ambigu.
+        label_p = teks("panjang", 24, SOROT)
         angka_p = sinema.AngkaKoma(5.0, num_decimal_places=2, font_size=38).set_color(SOROT)
         angka_p.add_updater(lambda m: m.set_value(self.panjang_res()))
         # Angka hidup ini termasuk "hitungan", jadi ikut ke sisi KANAN, tepat di
@@ -242,6 +286,9 @@ class PerahuVektor(AdeganMatra):
         ukur = VGroup(label_p, angka_p).arrange(RIGHT, buff=0.20)
         sinema.batasi_lebar(ukur, 4.5)
         ukur.move_to([6.85 - ukur.get_width() / 2 - 0.12, 0.62, 0]).fix_in_frame()
+        # Baris ini di LUAR papan, tetapi ikut memakai alas papan supaya
+        # tidak ada belang petak terjepit di antara dua alas terpisah.
+        papan.ikut(ukur)
 
         with sinema.babak(self, "hilir", DURASI) as b:
             self.hud_tambah(ukur)
@@ -251,6 +298,7 @@ class PerahuVektor(AdeganMatra):
                    self.by.animate.set_value(DAYUNG_KM), run_time=3.4)
             b.jeda(0.8)
         qc.periksa_adegan(self, {"resultan": p_res},
+                          dunia={"bidang": bidang},
                           hud={"ukur": ukur, "identitas": identitas,
                                "panel r": panel_r})
 
@@ -288,10 +336,15 @@ class PerahuVektor(AdeganMatra):
             # tempatnya, sesuai larangan v2 atas fade untuk rumus.
             uraian = papan.baris(r"\sqrt{4^2 + 3^2}", SOROT)
             b.catat(0.8)
-            for langkah_isi in (r"\sqrt{16 + 9}", r"\sqrt{25}", r"5"):
-                uraian = sinema.ganti_rumus(self, uraian, langkah_isi, b=b)
+            # Langkah terakhir menyebut ulang apa yang dihitung. Berakhir
+            # sebagai angka "5" telanjang membuat panel kehilangan konteks.
+            for langkah_isi in (r"\sqrt{16 + 9}", r"\sqrt{25}",
+                                r"|\vec{d} + \vec{a}| = 5"):
+                uraian = sinema.ganti_rumus(self, uraian, langkah_isi,
+                                            b=b, papan=papan)
             b.jeda(0.8)
         qc.periksa_adegan(self, {"label d": l_dayung},
+                          dunia={"bidang": bidang},
                           hud={"uraian": uraian, "ukur": ukur, "identitas": identitas,
                                "panel d": panel_d})
 
@@ -307,8 +360,9 @@ class PerahuVektor(AdeganMatra):
                    self.geser.animate.set_value(GESER_AWAL), run_time=0.8)
             papan.utama = None
             b.jeda(1.6)
-        qc.periksa_adegan(self, {}, hud={"ukur": ukur, "identitas": identitas,
-                                          "panel r": panel_r})
+        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
+                          hud={"ukur": ukur, "identitas": identitas,
+                               "panel r": panel_r})
 
         for nama, sudut in (("searah", 0.0), ("lawan", 180.0), ("tegak", 90.0)):
             with sinema.babak(self, nama, DURASI) as b:
@@ -317,8 +371,14 @@ class PerahuVektor(AdeganMatra):
                     gerak += [self.bx.animate.set_value(0.0), self.by.animate.set_value(0.0)]
                 b.main(*gerak, run_time=max(2.0, DURASI[nama] - 1.4))
                 b.jeda(1.0)
-            qc.periksa_adegan(self, {"dayung": p_dayung, "arus": p_arus, "ukur": ukur,
-                                     "koordinat": l_koord})
+            # Titik periksa PALING PENTING dari seluruh adegan: di sinilah panah
+            # paling melebar (dayung 0 derajat menaruh ujung arus di x = 7).
+            # Dulu `ukur` ikut ke `zona`, jadi ia cuma diperiksa muat bingkai,
+            # dan tidak seorang pun membandingkannya dengan panah atau bidang.
+            qc.periksa_adegan(self, {},
+                              dunia={"bidang": bidang, "dayung": p_dayung,
+                                     "arus": p_arus, "koordinat": l_koord},
+                              hud={"ukur": ukur, "identitas": identitas})
 
         # ==============================================================
         # Babak 12: layar bersih, kalimat sorot

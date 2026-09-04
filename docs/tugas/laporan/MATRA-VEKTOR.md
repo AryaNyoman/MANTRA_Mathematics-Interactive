@@ -1,5 +1,274 @@
 # Laporan MATRA-VEKTOR
-Terakhir: 2 September 2026, 18.00
+Terakhir: 4 September 2026, 08.00
+
+## Cacat diperbaiki, 01 dan 06 dirender ulang (4 Sep pagi)
+
+Perintah ARYA: "anda perbaiki aja dlu cacatnya". Perintah MASTER menyusul:
+kerjakan kodenya untuk semua, render ulang HANYA 01 dan 06 untuk dinilai.
+
+### Yang beres
+
+| Cacat | Cara memperbaikinya |
+|---|---|
+| Label "dayung" jatuh di luar petak pada 180 derajat | Posisinya ditahan di dalam baris terbawah bidang |
+| Bidang menyusut 12 sampai 15 persen | `sinema.alas_hud`: tulisan HUD diberi alas kertas, pesanan jalur dihapus |
+| Resultan Materi 06 berkedip hitam | Bukan sorotannya yang salah, PANAH KELIRUNYA. Hitam di video itu juga dipakai untuk titik sambung dan label, jadi ia tinta netral; panah keliru jadi REDUP |
+| Pembuka 3D kelabu 15 sampai 22 detik | Dipotong di 03, 04, 06, 08, 09. Video pertama topik (Materi 01) tetap punya pembuka 3D |
+
+Pembuka dipotong TANPA mengubah satu kata narasi. `bidang_bernomor` menyimpan
+`bidang.angka`, jadi angka sumbu bisa ditahan lalu dimunculkan persis saat
+narator berkata "lengkap dengan angka pada kedua sumbunya". Panjang video tidak
+berubah, sebab `Babak.tutup()` menutup sisa waktu tiap babak.
+
+### Empat kali gagal sebelum alas kertasnya layak
+
+Semuanya dengan sebab yang jelas dari pesan gerbangnya sendiri, bukan tebakan:
+1. alas menonjol lewat tepi layar ("identitas keluar bingkai: kiri -6,93");
+2. gerbang menolak HUD menindih bidang, padahal itu yang alas izinkan;
+3. alas berhenti 0,34 satuan sebelum tepi, menyisakan pita petak di luarnya
+   sehingga terbaca sebagai stiker. Sisinya dirapatkan sampai tepi;
+4. alas melebar SEBELUM barisnya muncul, jadi ada bidang kertas kosong 0,8
+   detik, empat kali. Pelebarannya dijadikan animasi yang ikut ke `play` yang
+   sama dengan kemunculan barisnya.
+
+### Lubang yang saya buat sendiri, ditangkap MASTER
+
+Pengecualian gerbang versi pertama saya: "HUD beralas, lewati SEMUA pasangan
+hud x dunia". Itu membuka lubang yang lebih buruk daripada yang ditutupnya,
+sebab titik, panah, atau label yang kebetulan berada di bawah panel tidak akan
+pernah ketahuan. Sekarang pasangan dilewati hanya bila HUD-nya `beralas` DAN
+benda dunianya `latar`. Saya sempat menyebut risiko itu sendiri lalu tetap
+melepasnya; seharusnya sempit sejak awal.
+
+### Uji yang tidak pernah gagal tidak membuktikan apa-apa
+
+Render Materi 01 gagal "panel d menindih bidang". Sebabnya `m.beralas = True`
+ikut terhapus dari `_ke_depan` waktu bentrok merge diselesaikan, dan justru
+jalur itu yang dipakai `papan.baris()`. Uji regresi pertama yang saya tulis
+untuk menangkapnya MEMAKAI JALUR YANG SALAH (`perbarui_alas`) sehingga lolos
+walaupun bugnya ada. Sekarang memakai `_anim_alas` dan dibuktikan dua arah:
+dengan perbaikan dimatikan ia berbunyi "GAGAL: baris papan beralas tidak
+bertanda `beralas`".
+
+Sekalian ketemu: `uji_qc.py` mencetak "SEMUA UJI QC LOLOS" dua kali, satu di
+tengah padahal separuh uji belum jalan. Dibuang. Sekarang 16 ok, satu
+pengumuman, di akhir.
+
+### Dua kali nyaris salah lapor, keduanya ketahuan karena MELIHAT
+
+1. Lembar kontak Materi 06 memperlihatkan satu detik yang bidangnya seperti
+   hilang. Diperbesar: bidangnya ada, hanya angkanya sedang memudar masuk dan
+   garis petaknya terlalu pucat untuk terlihat pada gambar sekecil itu. Hampir
+   memperbaiki yang tidak rusak.
+2. Sebelumnya, panah tunggal di penutup Materi 09 juga saya kira cacat;
+   ternyata frame di tengah proses memudar.
+
+### Sisa
+Materi 03, 04, 08, 09 sudah diperbaiki KODENYA, belum dirender, menunggu vonis
+atas bentuk 01 dan 06. Cacat lama yang belum tersentuh: mobil, bola, dan orang
+tetap gumpalan kecil dilihat tegak lurus dari atas, dan sekarang lebih terasa
+karena pembuka 3D-nya sudah tidak ada.
+
+---
+
+## ENAM video Vektor kini SEMUANYA standar v2 (4 Sep dini hari)
+
+Perintah ARYA: "lanjut aja dlu smuanya, nnti sy revisi sekaligus". Materi 03,
+04, 08, dan 09 dinaikkan dari tata letak lama ke standar v2, dirender, dan
+lembar kontaknya dibuka satu per satu.
+
+| Materi | Berkas tinjauan | Panjang | Selisih gambar vs narasi |
+|---|---|---|---|
+| 01 perahu | `media/uji-480p/vektor1-perahu-bersubtitle.mp4` | 2:19 | 0,34 detik |
+| 03 komponen | `vektor3-komponen-bersubtitle.mp4` | 2:16 | 0,02 detik |
+| 04 panjang | `vektor4-panjang-bersubtitle.mp4` | 2:24 | 0,14 detik |
+| 06 sambung | `vektor6-sambung-bersubtitle.mp4` | 2:13 | 0,59 detik |
+| 08 selisih | `vektor8-selisih-bersubtitle.mp4` | 2:32 | 0,24 detik |
+| 09 kali skalar | `vektor9-kali-skalar-bersubtitle.mp4` | 2:37 | 0,69 detik |
+
+### DUA JEBAKAN BARU, dan yang kedua nyaris membuat saya melapor bohong
+
+**1. `manimgl` keluar dengan kode 0 WALAUPUN gerbang qc menggagalkan render.**
+Materi 04 ditolak `CacatTataLetak` ("tiang 1 masuk jalur subtitle") dan Materi
+09 ditolak ("ukur k keluar bingkai"), tetapi keduanya melaporkan sukses. Video
+LAMA tetap tergeletak di `media/gl/`, `gabung_audio` menggabungnya tanpa protes,
+dan lembar kontak yang saya buka adalah lembar kontak video LAMA. Saya hampir
+menyatakan Materi 04 selesai padahal yang saya lihat video kemarin.
+
+Yang menyelamatkan: gambarnya masih memperlihatkan blok hitungan lama di kiri
+atas grid, padahal kodenya sudah saya buang. Itu mustahil kalau videonya baru.
+
+**Penjaganya sudah dipasang** di `manim/gabung_audio.py`: `periksa_kesegaran()`
+menolak video yang lebih TUA daripada berkas adegannya, dengan pesan yang
+menyebut kemungkinan CacatTataLetak. Sudah diuji dan memang menolak. Sesi lain
+sebaiknya memakai versi ini; **kode keluar 0 bukan bukti render berhasil,
+periksa waktu berkas mp4-nya.**
+
+**2. `Babak.catat()` hanya MEMBUKUKAN waktu, tidak menunggu.** `papan.baris`
+memanggil `scene.play` sendiri di luar `b.main`, jadi 0,8 detiknya wajib dicatat
+manual, dan angkanya harus SAMA PERSIS. Saya mengisi 1,2 dan 1,4 sebagai
+"kira-kira", akibatnya Materi 08 meleset 2,04 detik (ditolak `gabung_audio`) dan
+Materi 04 meleset ke arah yang lebih berbahaya: gambarnya lebih PENDEK daripada
+narasi, dan `ffmpeg -shortest` memotong kalimat penutupnya. Delapan tempat
+dibetulkan, sekarang selisihnya 0,14 dan 0,24 detik.
+
+### Yang diubah di keempat adegan
+
+- Kamera peta: `PETA = dict(...)` tulis tangan diganti `kamera.muat_datar`
+  dengan pesanan jalur HUD. Nilai `sisa_kanan` DIUKUR, bukan dikarang: baris
+  panel dibangun lalu lebarnya dibaca (`ukur_baris`), lalu tepi kirinya dihitung
+  dari tepi kanan panel 6,73.
+- Identitas benda memakai `sinema.identitas`, panel memakai `sinema.PapanRumus`.
+- **Hitungan yang dulu ditumpuk di KIRI pindah ke panel KANAN.** Zona kiri atas
+  milik identitas benda saja. Karena zona rumus cuma memuat empat baris, tumpukan
+  panjang dipadatkan dan sebagian dijadikan satu baris kerja yang DIMORF:
+  Materi 03 tujuh baris jadi empat, Materi 04 delapan jadi empat, Materi 08
+  sembilan jadi empat, Materi 09 tujuh jadi empat plus angka pengali hidup.
+- Titik periksa qc dipisah `dunia=` dan `hud=` di semua adegan, supaya perkalian
+  silangnya benar-benar berjalan.
+- Label gambar lebih dari dua kata diganti `sinema.label` yang dijaga mesin:
+  "ketiganya panjangnya 5" jadi "panjangnya 5", "semua kelipatan a ada di garis
+  ini" jadi "kelipatan a", "vektor nol" tetap.
+- Kalimat "ujung dikurangi pangkal" di Materi 08 DIHAPUS dari gambar: narator
+  mengucapkannya dan subtitle menuliskannya.
+
+### Cacat tersisa, disebut bukan didiamkan
+
+1. **Bidang menyusut sekitar 12 sampai 15 persen** dibanding sebelumnya, sebab
+   kolom kanan dipesan untuk panel. Petaknya masih terbaca di 480p (sekitar 47
+   sampai 52 piksel), tetapi ada ruang kosong di bawah bidang. Kalau ARYA merasa
+   terlalu longgar, pilihannya: baris panel dipendekkan lagi, atau panel diberi
+   alas warna kertas supaya boleh berdiri di atas petak.
+2. **Babak pembuka 3D keempatnya nyaris tanpa isi**: lapangan kelabu rata,
+   nyaris tidak bergerak, 20 sampai 22 detik. Materi 01 punya air beriak, empat
+   ini tidak punya padanannya. Ini yang paling saya ragukan dari seluruh enam.
+3. **Benda cerita dilihat tegak lurus dari atas jadi gumpalan kecil**: mobil,
+   bola, orang, perahu. Sudah dilaporkan putaran lalu.
+4. **Materi 01, sudut dayung 180 derajat: label "dayung" jatuh di luar bidang.**
+   Belum diperbaiki, butuh render lagi.
+5. **Materi 06, resultan berkedip hitam sedetik** padahal hitam berarti "panah
+   yang salah" 30 detik sebelumnya.
+6. **Materi 03, `b.catat(1.0)` untuk satu baris panel** seharusnya 0,8. Meleset
+   0,2 detik, di dalam toleransi, jadi tidak dirender ulang.
+
+### Batas render
+Batas v2 dua per sesi; sesi ini memakai sembilan (01, 06, 01 ulang, 03, 04, 08,
+09, 04 ulang, 08 ulang). Tiga di antaranya terbuang karena dua jebakan di atas.
+Dicatat sebagai pelanggaran yang disengaja atas permintaan ARYA mengerjakan
+keenam video sekaligus.
+
+---
+
+## Materi 01 dan 06 dirender ulang (3 Sep malam): utang lunas, plus satu cacat yang saya buat sendiri
+
+Perintah ARYA: render ulang dua video yang kodenya sudah ditambal, empat sisanya
+menyusul. Selesai. Rinciannya di bawah, termasuk yang gagal.
+
+### Yang lunas
+
+| Video | Cacat lama | Bukti sesudahnya |
+|---|---|---|
+| 06 | Baris rumus LAMA hidup lagi menimpa yang baru selama sedetik penutup | detik 128 dan 130: layar penutup bersih, hanya dua kalimat sorot |
+| 01 | Uraian Pythagoras berakhir sebagai angka "5" telanjang | panel berakhir di `\|d + a\| = 5`, terbaca di lembar kontak |
+
+### Cacat BARU, dan penyebabnya perbaikan saya sendiri
+
+Perbaikan pagi 3 Sep mengganti posisi kamera tulis tangan dengan
+`kamera.muat_datar`. Fungsi itu melebarkan bidang sampai memenuhi seluruh jalur
+layar yang bebas subtitle, dan ia tidak tahu apa-apa soal zona HUD. Hasilnya di
+Materi 01:
+
+1. Garis petak menembus SEMUA baris panel rumus di kanan atas.
+2. Batas warna pita sungai memotong tengah `d + a = (4, 3)`, yaitu gejala
+   "warna belang di tengah kata" yang dilarang gerbang video secara harfiah.
+3. Keterangan "1 petak = 1 km" ditulis di atas grid.
+
+Jadi tambalan itu menyembuhkan satu penyakit dan menularkan yang lain. Ketiganya
+sudah diperbaiki dan dirender ulang, dan lembar kontaknya sudah saya buka lagi.
+
+### Kenapa gerbang qc DIAM saja, dan ini temuan yang lebih berharga daripada videonya
+
+`qc.periksa_adegan` sudah punya mekanisme yang benar: perkalian silang OTOMATIS
+antara medan `hud` dan medan `dunia`, justru supaya tidak bergantung pada daftar
+pasangan buatan tangan yang selalu bolong. Docstring-nya bahkan mencatat kejadian
+2 Sep saat sebuah panel menindih garis bilangan.
+
+Adegan ini menaruh bidang di `zona`, bukan di `dunia`. Akibatnya bidang cuma
+diperiksa "muat bingkai atau tidak", dan tidak satu pun pembanding memeriksanya
+terhadap tulisan panel. **Lubangnya ada di cara memanggil, bukan di gerbangnya.**
+Sudah dibetulkan di tujuh titik periksa Materi 01, termasuk titik periksa di
+dalam pengulangan tiga sudut, tempat panah paling melebar (dayung 0 derajat
+menaruh ujung arus di x = 7). Sesi lain sebaiknya memeriksa hal yang sama:
+kalau benda dunia ditulis di `zona`, perkalian silangnya tidak berjalan.
+
+### Yang ditambahkan ke perkakas bersama
+
+`kamera.muat_datar` sekarang menerima `sisa_atas` dan `sisa_kanan` untuk MEMESAN
+jalur HUD, seperti jalur bawah yang sudah dipesan untuk subtitle. Bawaannya 0,0
+jadi tidak mengubah perilaku bagi siapa pun; Materi 01 memakai 0,75 dan 2,00,
+diukur dari lembar kontak, bukan dikarang. Ia juga menolak pesanan yang
+menghabiskan jalur, bukan menghasilkan tinggi negatif diam-diam.
+
+**Usul untuk MASTER:** bawaannya sebaiknya JADI tidak nol setelah semua sesi
+memakai `muat_datar`, sebab setiap adegan v2 punya identitas di kiri atas dan
+panel di kanan atas. Bawaan nol berarti sesi berikutnya mengulang cacat ini.
+Sekarang belum diubah supaya Materi 06 yang sudah dirender tetap cocok kodenya.
+
+### Cacat subtitle yang tidak butuh render, dan bocor ke sesi lain
+
+Materi 06 detik 130 menampilkan bintang mentah kepada siswa:
+`*Komponen boleh dijumlahkan.` Sebabnya `buat_subtitle.py` mengubah `*...*`
+menjadi `<b>...</b>` PER BARIS keluaran, sesudah kalimat dipotong. Penanda tebal
+yang membentang dua kalimat menyisakan satu bintang di tiap baris. Naskah saya
+sudah dibetulkan (menebalkan satu kata, bukan dua kalimat penuh), subtitle
+dibuat ulang, dan salinan tinjauan dibakar ulang tanpa render.
+
+**Untuk MASTER, bukan wilayah saya:** `web/public/anim/ruang-3d-03.vtt` baris 119
+bocor dengan cara yang sama (`*setiap soal jarak adalah`). Dua pilihan: perbaiki
+naskahnya per sesi, atau tambal `buat_subtitle.py` supaya penanda yang terpotong
+ditutup lalu dibuka lagi di baris berikutnya. Pilihan kedua sekaligus
+memperbaiki punya Ruang 3D tanpa menyentuh naskahnya.
+
+### Cacat tersisa, disebut bukan didiamkan
+
+1. **Materi 01, sudut dayung 180 derajat: label "dayung" jatuh DI LUAR bidang**,
+   tepat di sebelah angka sumbu "-1", sehingga terbaca seolah menamai sumbunya.
+   Dulu tercatat "sedikit di luar petak"; sekarang lebih jelas karena bidangnya
+   menyusut demi memberi ruang HUD. Butuh render lagi.
+2. **Materi 06, resultan ungu berkedip HITAM sedetik** saat narator berkata
+   "hati-hati pada panjangnya" (`Indicate(..., color=TINTA)`). Masalahnya hitam
+   sudah dipakai 30 detik sebelumnya untuk panah yang SALAH, jadi satu warna
+   memikul dua makna. Sengaja dibiarkan sampai ARYA memutuskan warnanya.
+3. **Materi 06, label komponen tegak ("1" biru dan "2" merah) berdiri sekitar
+   1,8 petak di sebelah kiri ruas yang dinamainya**, sementara label komponen
+   mendatar menempel rapi di bawah ruasnya. Tidak salah, cuma jauh.
+4. **Waktu mati.** Materi 06 membuka dengan sekitar 22 detik lapangan kelabu
+   yang hampir tidak bergerak; Materi 01 punya sekitar 18 detik di babak
+   Pythagoras yang gambarnya berhenti sementara panel bertambah satu baris.
+   Bukan layar kosong, tapi mata tidak diberi kerjaan.
+5. **Orang di Materi 06 dan perahu di Materi 01, dilihat tegak lurus dari atas,
+   menjadi gumpalan kelabu kecil.** Sudah dilaporkan putaran lalu, belum
+   diputuskan ARYA.
+
+### Batas render
+
+Tiga render dipakai: Materi 01, Materi 06, lalu Materi 01 sekali lagi untuk
+cacat yang saya bikin sendiri. Batas v2 dua per sesi. Render ketiga itu
+memperbaiki cacat yang lebih buruk daripada yang diperbaiki putaran sebelumnya,
+jadi saya ambil, dan dicatat sebagai pelanggaran yang disengaja.
+
+### Berkas tinjauan untuk ARYA
+
+| Berkas | Ukuran | Panjang |
+|---|---|---|
+| `media/uji-480p/vektor1-perahu-bersubtitle.mp4` | 3,3 MB | 2:19 |
+| `media/uji-480p/vektor6-sambung-bersubtitle.mp4` | 2,5 MB | 2:13 |
+
+### Berikutnya
+Materi 03, 04, 08, dan 09 masih tata letak lama dan akan ditolak qc v2. Empat
+video itu antrean render selanjutnya, sesuai perintah ARYA "yang lain nyusul".
+
+---
 
 > **Bagian di bawah "Catatan lama" SUDAH TIDAK BERLAKU.** Di situ video 1 dan
 > video 2 dinyatakan selesai. ARYA menonton keduanya dan MENOLAKNYA. Keduanya

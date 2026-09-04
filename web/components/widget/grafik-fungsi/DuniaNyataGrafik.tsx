@@ -101,7 +101,7 @@ export default function DuniaNyataGrafik() {
             <p>{c.inti}</p>
             <code className="nyata-rumus mono">{c.bentuk}</code>
             {/* Gayanya ditulis di sini, bukan di globals.css, karena berkas
-                itu milik sesi MATRA-DESAIN-UI-UX dan aturan melarang menyunting
+                itu milik sesi MANTRA-DESAIN-UI-UX dan aturan melarang menyunting
                 wilayah sesi lain. Kalau kelas bersama untuk kredit foto sudah
                 ada nanti, baris ini tinggal diganti. */}
             <span className="mono" style={{

@@ -1,5 +1,5 @@
 /**
- * Grafik Fungsi, 13 tahap belajar. Topik ketiga MATRA.
+ * Grafik Fungsi, 13 tahap belajar. Topik ketiga MANTRA.
  *
  * Rancangannya: docs/superpowers/specs/2026-09-01-grafik-fungsi-alur-belajar.md
  *

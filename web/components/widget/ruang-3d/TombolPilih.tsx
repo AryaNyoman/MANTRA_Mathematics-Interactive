@@ -4,7 +4,7 @@
  * Tombol pilihan kecil untuk panel kendali widget Ruang 3D.
  *
  * KENAPA GAYANYA DITULIS DI SINI, BUKAN DI globals.css
- * Berkas `app/globals.css` milik sesi MATRA-DESAIN-UI-UX, dan aturan sesi
+ * Berkas `app/globals.css` milik sesi MANTRA-DESAIN-UI-UX, dan aturan sesi
  * paralel melarang menyentuh berkas yang bukan wilayah sendiri. Kelas `.tombol`
  * yang sudah ada berupa tombol blok besar, tidak cocok untuk deretan sembilan
  * pilihan pendek seperti AB, CG, AG.
@@ -35,7 +35,7 @@ export default function TombolPilih({
         border: `1px solid ${aktif ? 'var(--tegas)' : 'var(--garis)'}`,
         padding: '7px 11px',
         borderRadius: 8,
-        fontFamily: 'var(--font-plex-mono), monospace',
+        fontFamily: 'var(--font-mono), sans-serif',
         fontSize: 11,
         letterSpacing: '0.07em',
         cursor: 'pointer',

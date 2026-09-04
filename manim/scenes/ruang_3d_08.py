@@ -58,20 +58,28 @@ class SudutGarisBersilangan(AdeganMatra):
 
         # --- Babak 1: pengumuman materi.
         kamera.pasang_awal(frame, theta=-46, phi=72, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
-        self.add(lantai(), *papan_koor["datar"], *papan_koor["tinggi"], kubus)
+        # Cahaya dipindah ke sisi kamera dan kubus diberi bayangan lantai. Tanpa
+        # keduanya kubusnya terbaca sebagai balok gelap datar yang melayang.
+        pasang_cahaya(self)
+        bayangan = bayangan_kubus()
+        self.add(lantai(), bayangan, *papan_koor["datar"], *papan_koor["tinggi"], kubus)
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 08: Sudut dua garis bersilangan",
                                  lama=3.4, y=3.0)
             b.catat(3.4)
-            # Babak pertama HANYA judul materi (standar v2, Waktu dan sinkron).
-            # Kubus dibuat tembus pandang di babak berikutnya.
+            # Pembuka MAKSIMAL 5 detik (STANDAR butir 2, dipertegas 4 Sep):
+            # kubus pejal langsung melebur jadi rangka, bukan diam berputar
+            # belasan detik. Sebelum ini babak pembuka dan babak berikutnya
+            # sama-sama menampilkan kubus abu-abu pejal, dan itu 20 persen
+            # video habis tanpa satu pun hal baru masuk layar.
+            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka),
+                   FadeOut(bayangan), run_time=1.6)
             isi_sisa(b, kamera.sudut(frame, -34, 68, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"kubus": kubus})
 
         # --- Babak 2: kedua garis, dan masalahnya: tidak punya titik bersama.
-        jati = sinema.identitas(self, "p = l = t = 6 satuan")
+        jati = sinema.identitas(self, "panjang = lebar = tinggi = 6 satuan")
         with sinema.babak(self, "masalah", DURASI) as b:
-            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=1.6)
             sumbu_z_pamit(b, papan_koor, 1.0)
             b.main(*[FadeIn(x) for x in lab.values()], run_time=0.8)
             b.main(ShowCreation(ac), run_time=1.2)

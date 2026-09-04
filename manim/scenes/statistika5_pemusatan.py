@@ -54,6 +54,10 @@ def xw(nilai):
 TINGGI_TUMPU = 0.55
 TEBAL_PAPAN = 0.18
 Z_ATAS_PAPAN = TINGGI_TUMPU + TEBAL_PAPAN
+# DICOBA DIBESARKAN 4 Sep lalu DIKEMBALIKAN. Siswa membentang selebar layar
+# dan papan temuan tumbuh ke bawah di pojok kanan, jadi siswa yang lebih
+# tinggi selalu menabraknya (gerbang qc menolak di 1,85 dan di 1,60).
+# Membesarkannya butuh merombak panggung, bukan menyetel angka.
 TINGGI_ORANG = 1.15
 Z_KEPALA = Z_ATAS_PAPAN + TINGGI_ORANG
 PAPAN_PUSAT = 0.5

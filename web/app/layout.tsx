@@ -1,26 +1,32 @@
 import type { Metadata, Viewport } from 'next'
-import { Fraunces, Inter, IBM_Plex_Mono } from 'next/font/google'
+import { Newsreader, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
-const fraunces = Fraunces({
+/**
+ * Dua huruf saja, keputusan rancangan MANTRA (3 Sep 2026).
+ *
+ * Newsreader untuk judul: serif yang tidak pernah ditebalkan, penekanannya
+ * lewat ukuran dan miring. Space Grotesk untuk seluruh antarmuka. Fraunces,
+ * Inter, dan IBM Plex Mono dipensiunkan; label kecil yang dulu monospace kini
+ * memakai Space Grotesk dengan jarak huruf lebar, sehingga tetap terbaca
+ * sebagai label tanpa menambah satu keluarga huruf lagi.
+ */
+const newsreader = Newsreader({
   subsets: ['latin'],
-  variable: '--font-fraunces',
+  weight: ['400', '500'],
+  style: ['normal', 'italic'],
+  variable: '--font-newsreader',
   display: 'swap',
 })
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-const plexMono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-plex-mono',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-space-grotesk',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'MATRA | Matematika Interaktif',
+  title: 'MANTRA | Matematika Interaktif',
   description:
     'Belajar matematika SMA lewat animasi yang menjelaskan dan alat yang bisa dicoba sendiri.',
 }
@@ -28,8 +34,7 @@ export const metadata: Metadata = {
 /**
  * `themeColor` mewarnai bilah atas peramban HP sesuai warna kertas situs,
  * jadi batas antara situs dan peramban tidak terlihat menyambung kasar.
- * Nilainya krem `#F6F2EC`, warna latar "Studio Teknis" yang sama dengan
- * `--kertas` di `globals.css`.
+ * Nilainya `#FAF9F5`, sama dengan `--kertas` di `globals.css`.
  *
  * `width` dan `initialScale` ditulis ulang persis seperti bawaan Next supaya
  * tidak hilang saat blok ini menggantikan yang bawaan. Perbesaran cubit
@@ -38,7 +43,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#F6F2EC',
+  themeColor: '#FAF9F5',
 }
 
 export default function RootLayout({
@@ -47,7 +52,7 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}
+      className={`${newsreader.variable} ${spaceGrotesk.variable}`}
     >
       <body>{children}</body>
     </html>

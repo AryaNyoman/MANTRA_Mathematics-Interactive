@@ -79,4 +79,4 @@ export function warnaKategori(i: number): string {
 export const GARIS_PETAK = '#D6CDBC'
 export const GARIS_SUMBU = '#C9BFAE'
 export const KERTAS = '#FFFDFA'
-export const MONO = 'var(--font-plex-mono), monospace'
+export const MONO = 'var(--font-mono), sans-serif'

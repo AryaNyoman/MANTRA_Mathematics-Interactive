@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import Nav from '@/components/Nav'
+import Kaki from '@/components/mantra/Kaki'
 import ArenaLatihan from '@/components/latihan/ArenaLatihan'
 import { KUIS } from '@/content/vektor'
 
 /**
  * Halaman /latihan/vektor.
  *
- * KENAPA BERKAS INI ADA DI SINI, PADAHAL `web/app/` WILAYAH MATRA-DESAIN-UI-UX
+ * KENAPA BERKAS INI ADA DI SINI, PADAHAL `web/app/` WILAYAH MANTRA-DESAIN-UI-UX
  * Begitu vektor didaftarkan di `content/daftar-isi.ts`, halaman /latihan
  * OTOMATIS menampilkan kartu Vektor beserta tautannya, sebab `DaftarLatihan`
  * membaca daftar itu. Tautannya menuju /latihan/vektor, dan tanpa berkas ini
@@ -20,7 +21,7 @@ import { KUIS } from '@/content/vektor'
  * dianggap salah tempat.
  */
 export const metadata: Metadata = {
-  title: 'Latihan Vektor | MATRA',
+  title: 'Latihan Vektor | MANTRA',
   description: 'Soal vektor berjenjang dari mudah sampai sangat sulit, dengan pembahasan.',
 }
 
@@ -29,6 +30,7 @@ export default function LatihanVektor() {
     <>
       <Nav label="Latihan Vektor" />
       <ArenaLatihan topik="vektor" nama="Vektor" bank={KUIS} />
+      <Kaki />
     </>
   )
 }

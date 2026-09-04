@@ -13,15 +13,145 @@
 ## Ringkas
 | | |
 |---|---|
-| Tahap sekarang | **ENAM topik tayang** (Trigonometri dan Limit lengkap dengan video). Topik ketujuh, Transformasi Geometri, baru dimulai. Tampilan sedang dirombak jadi MANTRA di cabang `sesi/mantra` |
-| Yang tersisa | **Gelombang 2 berjalan di 6 sesi**: revisi isi dari MASTER lalu video 480p. MASTER mengerjakan rombakan tampilan MANTRA. ARYA meninjau sambil jalan |
-| Alamat tayang | https://matra-eight.vercel.app |
+| Tahap sekarang | **ENAM topik tayang dengan tampilan MANTRA** (Trigonometri dan Limit lengkap dengan video). Topik ketujuh, Transformasi Geometri, baru dimulai |
+| Yang tersisa | **Gelombang 2 berjalan di 6 sesi**: revisi isi dari MASTER lalu video 480p. ARYA meninjau sambil jalan |
+| Alamat tayang | https://matra-eight.vercel.app (produksi) dan https://mantra-uji.vercel.app (uji, alamat tetap) |
 | Rancangannya | `docs/superpowers/specs/2026-08-31-trigonometri-alur-belajar.md`<br>`docs/superpowers/specs/2026-09-01-revisi-besar-situs.md`<br>`docs/superpowers/specs/2026-09-01-limit-alur-belajar.md`<br>`docs/superpowers/plans/2026-09-01-topik-limit.md` |
 | Tenggat | 12 September 2026 |
 | Menjalankan situs | `cd web && npm run dev` → `http://localhost:3000` |
 | Penghalang | *(tidak ada)* |
 
 ## 🧭 MULAI DARI SINI (sesi berikutnya, ditulis 2 Sep 2026)
+
+### 🎬 4 SEP PAGI: MASTER menonton, menggabung, menambal gerbang, memberi tugas
+
+- **Peran MASTER berubah atas perintah ARYA 4 Sep**: MASTER MENONTON lembar
+  kontak video sesi, memberi masukan, dan mengirim revisinya (aturan 2 Sep
+  "sesi merevisi sendiri, MASTER tidak menerima setoran" DICABUT).
+- Digabung ke master: `sesi/ruang-3d`, `sesi/statistika`, `sesi/vektor`,
+  `sesi/transformasi-geometri` (konflik satu baris komentar di `topik.ts`).
+  tsc 0, build 22 halaman. Grafik Fungsi dan UI/UX tidak punya commit baru.
+- 16 lembar kontak dinilai (3D enam, Vektor enam, Statistika empat). Dua
+  cacat LINTAS SESI, keduanya pelanggaran STANDAR yang sudah ada: pembuka 3D
+  15 sampai 20 detik hampir kosong di semua video (aturan: 8 sampai 10 detik,
+  hanya video pertama), dan dunia dimampatkan ke separuh tinggi karena zona
+  HUD dibaca sebagai seluruh lebar atas (aturan: hanya dua pojok). STANDAR
+  dipertegas di butir 1 dan 2.
+- Gerbang mutu ditambal (`29b54bc`): `periksa_adegan(..., tulisan={...})`
+  dan pemeriksaan isi `papan.semua()`; `nilai_hidup` memberi "=".
+  `uji_qc.py` 13 ok.
+- Pesan tinjauan + tugas dikirim ke lima sesi hidup (3D, Vektor, Statistika,
+  Grafik Fungsi, Transformasi Geometri). UI/UX TIDAK menyala.
+- **Bentrok yang diketahui**: Vektor punya 70 baris `sinema.py` belum
+  disimpan yang menyentuh `PapanRumus`, sama dengan perubahan 3D yang sudah di
+  master. Vektor diminta commit, merge, dan mempertahankan perubahan 3D.
+- **Antrean render bersama: `alat/antre_render.py <nama-worktree>`** (BUKAN di
+  `manim/`; MASTER pernah salah tulis jalurnya 4 Sep). Semua render lewat sini
+  supaya lima sesi tidak berebut kartu grafis.
+- **TUGAS PER SESI (4 Sep pagi), juga dikirim lewat pesan; sesi yang
+  dinyalakan ulang membacanya dari sini:**
+  - **Ruang 3D**: merge master; pembuka 01 maksimal 10 detik dan ada kejadian,
+    03 sampai 09 maksimal 5 detik atau langsung rangka; kubus diberi cahaya dan
+    bayangan (`gl.ilustrasi.balok`); angka sumbu cukup 0, 3, 6; `nilai_hidup`
+    kini otomatis "="; render 01 dan 04 dulu untuk dinilai; 03 tunggu ARYA.
+  - **Vektor**: commit `sinema.py` lalu merge master, pertahankan perubahan 3D
+    di `PapanRumus`; potong pembuka 03/04/06/08/09 ke maksimal 5 detik; bidang
+    boleh naik (tengah atas bebas); label "dayung" 180 derajat dan resultan
+    hitam di 06; render ulang hanya 01 dan 06.
+  - **Statistika**: merge master; 06 kamera didekatkan (garis bilangan penuh,
+    orang terlihat), 11 kamera diperbesar di babak residu saja; pindahkan
+    kamus TULISAN ke `tulisan=`; tujuh video baru ikut aturan zona.
+  - **Grafik Fungsi**: lapor status dua revisi (grafik3, grafik6), commit,
+    merge master; buat `alat/cek_sinkron_video.py` umum untuk topik lain.
+  - **Transformasi Geometri** (sesi TIDAK menyala saat pesan dikirim): merge
+    master, daftarkan bab di `web/content/subbab.ts`, buktikan lewat
+    `/peta-materi`; baca STANDAR versi master sebelum video pertama.
+  - **UI/UX** (tidak menyala; usulan MASTER kalau dinyalakan): audit MANTRA
+    di HP lewat https://mantra-uji.vercel.app, potret ulang `demo-latihan.jpg`
+    dan `demo-banksoal.jpg` untuk korsel (masih tampilan lama), ruang kosong di
+    bawah widget lebar pendek pada layar lebar, langkah bernomor pembahasan.
+- Menunggu keputusan ARYA: (1) Ruang 3D materi 03, kamera sejajar AC
+  (usul: tetap, dengan aba-aba di narasi); (2) Statistika mengerjakan tujuh
+  video di luar rencana enam (usul: boleh, 480p semua); (3) sesi UI/UX
+  dinyalakan lagi atau tidak; (4) foto pesawat ber-livery DHL di Vektor.
+
+### 🔁 4 SEP PAGI: sesi dimuat ulang, nama berganti lagi, master di `3dd4bae`
+
+- Semua sesi mati dan menyala lagi dengan nama otomatis (`manim-matra-6f`,
+  `-c6`, `-6b`, `-b4`); MASTER kini `manim-matra-65`. Sesi yang mau lapor ke
+  MASTER: `ListAgents`, pilih baris yang **bukan** dirinya dan bukan sesi
+  topik, atau tunggu pesan MASTER yang menyebut namanya.
+- Digabung ke master 4 Sep pagi: Statistika (10 video dirapikan,
+  `gl.ilustrasi.tumbuh_batang`), Ruang 3D (`gl.ilustrasi.balok` bercahaya
+  tiga muka + bayangan lantai, uji `manim/uji/uji_balok_tiga_terang.py`,
+  keenam pembuka punya kejadian), Vektor (laporan), Grafik Fungsi (alat
+  sinkron versi rona, tahap 3 dan 6), Transformasi Geometri (**video 01
+  lolos semua gerbang**, worktree-nya masih punya 18 berkas belum disimpan).
+  `uji_qc.py` 16 uji, tsc 0.
+- Aturan yang lahir hari ini (semua di STANDAR): pembuka 3D hanya video
+  pertama (nomor tahap terkecil), video lain "detik pertama bergerak"
+  maksimal 5 detik di 2D maupun 3D, kartu judul dikecualikan; zona HUD hanya
+  dua pojok; `alas_hud` + tanda `latar`; sumbu didaftarkan sebagai dua pita
+  pipih; `cek_kode` menolak `$` dan baris baru di dalam `teks()`.
+- Masih menunggu ARYA: izin Grafik Fungsi untuk merge master dan render
+  ulang tahap 6 (memadatkan 3D ke 5 detik).
+
+### 🗺️ 4 SEP DINI HARI: peta struktur graphify sudah ada
+
+- `graphify-out/graph.json`: **2.471 simpul, 5.881 hubungan, 167 komunitas
+  bernama**. Isinya seluruh kode (`manim/`, `web/`, `alat/`, termasuk arsip
+  Manim CE), 52 dokumen (spec, standar, PROGRESS, CLAUDE, rancangan MANTRA),
+  dan 43 foto materi. Buka `graphify-out/graph.html` di peramban untuk
+  menjelajah; `GRAPH_REPORT.md` untuk simpul pusat, hubungan tak terduga,
+  dan pertanyaan yang layak ditelusuri.
+- **Cara pakai tiap sesi:** baca `GRAPH_REPORT.md` dulu, lalu
+  `graphify query "<pertanyaan>"`, `graphify path "A" "B"`, atau
+  `graphify explain "X"`. Kode berubah? `graphify update .` (AST, gratis).
+- **Yang dipelajari dengan mahal, jangan diulang** (rincian di CLAUDE.md
+  bagian Peta struktur): Gemini gratis kena kuota harian 20 permintaan;
+  OpenCode Zen saldo kosong; di OpenCode Go `glm-5.3` menghabiskan seluruh
+  keluaran untuk berpikir (JSON kosong) dan `deepseek-v4-flash` butuh opt-in
+  wilayah; yang bekerja: `glm-5.3-flash` lewat `/zen/go/v1`, 42 dokumen
+  dalam 10 menit, 187 ribu token masuk / 38 ribu keluar (sekitar 2 sen
+  dolar). Skrip pemanggil AST di Windows WAJIB punya pagar
+  `if __name__ == "__main__":`, dan jangan pernah menamai skrip `ast.py`
+  (menutupi modul bawaan Python, semua impor pecah).
+- Rantai panjang (lebih dari 10 menit) TIDAK boleh dijalankan sebagai
+  perintah latar belakang alat (batas 10 menit); jalankan lewat
+  `Start-Process bash.exe <skrip>` dan pantau berkas lognya. Log jangan
+  lewat pipa `grep`/`cut` (tertahan sampai selesai), tulis langsung ke berkas.
+
+### ✅ 3 SEP MALAM: rancangan MANTRA TAYANG di produksi
+
+- `sesi/mantra` digabung ke `master` (fast-forward ke `faac773`) setelah ARYA
+  memeriksa di laptop dan HP, lalu build yang PERSIS ia periksa dinaikkan ke
+  produksi lewat `vercel promote` (bukan build ulang). Produksi
+  https://matra-eight.vercel.app sekarang MANTRA. Worktree `mantra` dihapus
+  karena sudah tergabung.
+- **Alamat uji TETAP: https://mantra-uji.vercel.app.** Tiap deploy preview
+  diarahkan ulang ke sini dengan `vercel alias set <deploy> mantra-uji.vercel.app`,
+  supaya ARYA cukup menyimpan satu alamat di HP. Jangan lagi memberi ARYA
+  alamat acak `matra-xxxx-...vercel.app`: ia pernah membuka yang lama dan
+  mengira perbaikannya belum ada (3 Sep).
+- **Cara deploy yang benar mulai sekarang:** dari `D:\MANIM-MATRA\web` di
+  `master`. Preview: `vercel deploy --yes` lalu `vercel alias set ...`.
+  Produksi: hanya atas kata ARYA, dan pakai `vercel promote <deploy>` untuk
+  menaikkan build yang sudah ia periksa, bukan `--prod` yang membangun ulang.
+- Yang berubah di situs (rincian per commit `01b0f5e`, `86b0a22`, `d810649`,
+  `faac773`): huruf Newsreader + Space Grotesk, palet emas-navy, nav lengket,
+  beranda baru dengan korsel 16:9 bergeser, rute baru `/peta-materi` (tiap
+  materi bisa diklik, `?materi=` membuka materi itu), halaman materi dengan
+  sidebar pohon (di HP jadi laci geser), bank soal dengan panel pembahasan di
+  samping, kaki halaman putih di semua halaman, lebar halaman ikut layar.
+- **Sesi topik:** sekarang boleh `git merge master` untuk mendapat tampilan
+  baru. Daftar berkas milik MASTER di bawah TETAP berlaku (jangan diedit di
+  cabang sesi), hanya syarat "sampai `sesi/mantra` digabung"-nya yang sudah
+  lewat.
+- Utang MANTRA yang tersisa: panel pembahasan bank soal memakai satu paragraf
+  `alasan`, belum langkah bernomor (medan `langkah?: string[]` sudah ada di
+  `SoalKuis`, tinggal diisi per soal); cuplikan layar korsel `demo-latihan.jpg`
+  dan `demo-banksoal.jpg` masih memotret tampilan lama; ruang kosong di bawah
+  widget lebar pendek pada layar lebar (milik sesi topik).
 
 ### ⚠️ 3 SEP SORE: nama situs jadi MANTRA, dan ada topik ketujuh
 

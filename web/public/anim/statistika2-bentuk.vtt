@@ -1,0 +1,159 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/statistika2-bentuk.json
+
+1
+00:00:00.000 --> 00:00:03.909
+Materi 02 Statistika: <b>dari daftar angka jadi gambar</b>.
+
+2
+00:00:03.909 --> 00:00:05.788
+40 angka yang berbaris di
+
+3
+00:00:05.788 --> 00:00:08.719
+tabel hampir tidak bisa dibaca manusia.
+
+4
+00:00:08.719 --> 00:00:10.673
+Mata kita jauh lebih cepat
+
+5
+00:00:10.673 --> 00:00:13.680
+menangkap tinggi daripada deretan angka.
+
+6
+00:00:13.680 --> 00:00:17.986
+Tetapi tidak semua gambar cocok untuk semua data.
+
+7
+00:00:17.986 --> 00:00:22.732
+Yang menentukan bukan selera, melainkan <b>jenis datanya</b>.
+
+8
+00:00:22.732 --> 00:00:26.160
+Ada dua: data kategori, dan data angka.
+
+9
+00:00:26.160 --> 00:00:30.814
+Ini data kategori: cara 40 siswa berangkat ke sekolah.
+
+10
+00:00:30.814 --> 00:00:33.916
+Jawabannya berupa nama, bukan angka.
+
+11
+00:00:33.916 --> 00:00:36.674
+Digambar sebagai <b>diagram batang</b>,
+
+12
+00:00:36.674 --> 00:00:39.432
+dan antar batangnya diberi sela.
+
+13
+00:00:39.432 --> 00:00:43.495
+Perhatikan apa yang terjadi kalau urutannya ditukar.
+
+14
+00:00:43.495 --> 00:00:47.323
+Sepeda motor pindah ke depan, angkot ke belakang.
+
+15
+00:00:47.323 --> 00:00:50.917
+Gambarnya berubah, tetapi <b>artinya sama persis</b>.
+
+16
+00:00:50.917 --> 00:00:54.120
+Kategori memang tidak punya urutan alami.
+
+17
+00:00:54.120 --> 00:00:57.911
+Sekarang data angka: tinggi badan 40 siswa yang sama.
+
+18
+00:00:57.911 --> 00:01:01.558
+Jawabannya bilangan yang bisa diukur dan diurutkan,
+
+19
+00:01:01.558 --> 00:01:04.848
+dan di antara dua angka selalu ada angka lain.
+
+20
+00:01:04.848 --> 00:01:08.150
+Karena itu batangnya digambar <b>rapat</b>, tanpa sela.
+
+21
+00:01:08.150 --> 00:01:10.145
+Gambar ini namanya histogram,
+
+22
+00:01:10.145 --> 00:01:12.690
+dan selanya sengaja dihilangkan sebab
+
+23
+00:01:12.690 --> 00:01:15.648
+kelas sebelah menyebelah memang menyambung.
+
+24
+00:01:15.648 --> 00:01:20.164
+Sekarang coba tukar urutannya seperti tadi.
+
+25
+00:01:20.164 --> 00:01:23.105
+Sumbunya jadi 160, 150, 170.
+
+26
+00:01:23.105 --> 00:01:28.776
+<b>Gambarnya jadi omong kosong</b>, sebab angka punya urutan.
+
+27
+00:01:28.776 --> 00:01:32.121
+Jadi sela antar batang itu <b>bukan hiasan</b>.
+
+28
+00:01:32.121 --> 00:01:35.800
+Ada sela berarti kategori, tidak menyambung,
+
+29
+00:01:35.800 --> 00:01:37.000
+boleh ditukar.
+
+30
+00:01:37.000 --> 00:01:40.429
+Tidak ada sela berarti angka, menyambung,
+
+31
+00:01:40.429 --> 00:01:42.072
+tidak boleh ditukar.
+
+32
+00:01:42.072 --> 00:01:45.810
+Ada satu gambar lagi yang berguna untuk data sedikit:
+
+33
+00:01:45.810 --> 00:01:47.926
+<b>line plot</b>, atau diagram titik.
+
+34
+00:01:47.926 --> 00:01:50.607
+Tiap data jadi satu titik, apa adanya,
+
+35
+00:01:50.607 --> 00:01:52.158
+dan tidak ada satu pun
+
+36
+00:01:52.158 --> 00:01:54.768
+yang disembunyikan di dalam kelompok.
+
+37
+00:01:54.768 --> 00:01:56.401
+Jadi sebelum menggambar,
+
+38
+00:01:56.401 --> 00:01:59.803
+pertanyaannya bukan gambar mana yang paling bagus,
+
+39
+00:01:59.803 --> 00:02:01.776
+melainkan <b>data ini jenis apa</b>.

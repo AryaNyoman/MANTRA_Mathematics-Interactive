@@ -34,12 +34,12 @@ export const NISBAH = (KOTAK.x1 - KOTAK.x0) / (KOTAK.y1 - KOTAK.y0)
 
 export const GARIS_PETAK = '#D6CDBC'
 export const GARIS_SUMBU = '#C9BFAE'
-export const MONO = 'var(--font-plex-mono), monospace'
+export const MONO = 'var(--font-mono), sans-serif'
 
 /**
  * Warna latar kartu, dipakai sebagai halo di belakang tulisan supaya label
  * tidak terpotong garis petak. Diambil dari peubah CSS, bukan ditulis ulang,
- * supaya ikut berubah kalau gaya situs disetel MATRA-DESAIN-UI-UX.
+ * supaya ikut berubah kalau gaya situs disetel MANTRA-DESAIN-UI-UX.
  */
 export const KERTAS = 'var(--kartu)'
 

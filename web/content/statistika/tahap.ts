@@ -1,5 +1,5 @@
 /**
- * Statistika, 13 tahap belajar. Topik ketiga MATRA.
+ * Statistika, 13 tahap belajar. Topik ketiga MANTRA.
  *
  * Rancangannya: docs/superpowers/specs/2026-09-01-statistika-alur-belajar.md
  *

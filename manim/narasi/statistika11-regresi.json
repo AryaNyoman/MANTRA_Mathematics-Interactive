@@ -1,0 +1,58 @@
+{
+  "adegan": "Regresi11",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Materi 11 Statistika. Gerak dirancang lebih dulu, naskah ditulis sepanjang gerak itu. Medan `tulis` adalah bentuk tertulis untuk subtitle: lambang dan angka, bukan salinan mentah ucapan. Penanda *kata* jadi tebal.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi sebelas Statistika: *garis regresi*. Sepuluh siswa, jam belajar seminggu dan nilai ujiannya. Titiknya jelas naik, tetapi garis mana yang paling pas?",
+      "tulis": "Materi 11 Statistika: *garis regresi*. 10 siswa, jam belajar seminggu dan nilai ujiannya. Titiknya jelas naik, tetapi garis mana yang paling pas?"
+    },
+    {
+      "id": "banyak",
+      "teks": "Tiga orang menarik tiga garis berbeda, dan ketiganya kelihatan masuk akal. Supaya ada jawaban, kita butuh cara *mengukur* seberapa meleset sebuah garis.",
+      "tulis": "Tiga orang menarik tiga garis berbeda, dan ketiganya kelihatan masuk akal. Supaya ada jawaban, kita butuh cara *mengukur* seberapa meleset sebuah garis."
+    },
+    {
+      "id": "residu",
+      "teks": "Untuk satu titik, ukurannya adalah jarak *tegak* dari titik ke garis. Bukan tegak lurus terhadap garisnya, sebab yang ingin diperkecil adalah kesalahan menebak nilai y.",
+      "tulis": "Untuk satu titik, ukurannya adalah jarak *tegak* dari titik ke garis. Bukan tegak lurus terhadap garisnya, sebab yang ingin diperkecil adalah kesalahan menebak nilai y."
+    },
+    {
+      "id": "tanda",
+      "teks": "Jarak itu namanya *residu*. Titik di atas garis berarti garisnya menebak terlalu rendah, titik di bawah garis berarti terlalu tinggi.",
+      "tulis": "Jarak itu namanya *residu*. Titik di atas garis berarti garisnya menebak terlalu rendah, titik di bawah garis berarti terlalu tinggi."
+    },
+    {
+      "id": "nol",
+      "teks": "Menjumlah semuanya gagal, persis seperti simpangan di Materi delapan. Yang positif dan yang negatif *saling menghapus*.",
+      "tulis": "Menjumlah semuanya gagal, persis seperti simpangan di Materi 08. Yang positif dan yang negatif *saling menghapus*."
+    },
+    {
+      "id": "kuadrat",
+      "teks": "Jadi tiap residu *dikuadratkan* dulu, persis seperti simpangan baku, lalu semuanya dijumlahkan. Sekarang seluruh kemelesetan sebuah garis tinggal *satu angka*.",
+      "tulis": "Jadi tiap residu *dikuadratkan* dulu, persis seperti simpangan baku, lalu semuanya dijumlahkan. Sekarang seluruh kemelesetan sebuah garis tinggal *satu angka*."
+    },
+    {
+      "id": "kecilkan",
+      "teks": "Sekarang garisnya kita putar, dan angka itu ikut berubah: seratus empat puluh enam, lalu lima puluh enam koma sembilan, lalu *dua puluh tujuh koma dua*. Diputar terus, ia naik lagi.",
+      "tulis": "Sekarang garisnya kita putar, dan angka itu ikut berubah: 146, lalu 56,9, lalu *27,2*. Diputar terus, ia naik lagi."
+    },
+    {
+      "id": "rumus",
+      "teks": "Jadi ada satu garis yang jumlah kuadratnya paling kecil, dan cuma satu. Itulah *metode kuadrat terkecil*, dan rumusnya memberi kemiringan tiga koma dua serta perpotongan empat puluh sembilan koma dua.",
+      "tulis": "Jadi ada satu garis yang jumlah kuadratnya paling kecil, dan cuma satu. Itulah *metode kuadrat terkecil*, dan rumusnya memberi kemiringan 3,2 serta perpotongan 49,2."
+    },
+    {
+      "id": "arti",
+      "teks": "Kemiringan tiga koma dua itu punya arti: tiap tambahan *satu jam* belajar per minggu, nilai diramalkan naik sekitar tiga koma dua poin.",
+      "tulis": "Kemiringan 3,2 itu punya arti: tiap tambahan *1 jam* belajar per minggu, nilai diramalkan naik sekitar 3,2 poin."
+    },
+    {
+      "id": "jauh",
+      "teks": "Tetapi hati-hati. Diteruskan sampai empat puluh jam, garis ini meramalkan seratus tujuh puluh tujuh koma dua. Nilai ujian tidak bisa lewat seratus, dan *garisnya tidak tahu itu*.",
+      "tulis": "Tetapi hati-hati. Diteruskan sampai 40 jam, garis ini meramalkan 177,2. Nilai ujian tidak bisa lewat 100, dan *garisnya tidak tahu itu*."
+    }
+  ]
+}

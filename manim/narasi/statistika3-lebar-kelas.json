@@ -1,0 +1,58 @@
+{
+  "adegan": "LebarKelas3",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Materi 03 Statistika. Gerak dirancang lebih dulu: satu kumpulan 40 titik yang sama dikelompokkan ulang tiga kali di depan mata, dan bentuk histogramnya berubah tanpa satu pun angka berubah. Medan `tulis` adalah bentuk tertulis untuk subtitle.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi tiga Statistika: *lebar kelas mengubah cerita*. Empat puluh siswa diukur tinggi badannya, dari seratus lima puluh dua sampai seratus delapan puluh sentimeter.",
+      "tulis": "Materi 03 Statistika: *lebar kelas mengubah cerita*. 40 siswa diukur tinggi badannya, dari 152 sampai 180 cm."
+    },
+    {
+      "id": "kelompok",
+      "teks": "Untuk membuat histogram, tingginya harus dikelompokkan dulu. Kita coba selebar lima sentimeter. Titiknya jatuh ke kotaknya masing-masing, dan lahirlah *tujuh batang*.",
+      "tulis": "Untuk membuat histogram, tingginya harus dikelompokkan dulu. Kita coba selebar 5 cm. Titiknya jatuh ke kotaknya masing-masing, dan lahirlah *7 batang*."
+    },
+    {
+      "id": "pola",
+      "teks": "Polanya terbaca: ada tumpukan siswa di sekitar seratus enam puluh sampai seratus tujuh puluh. Sekarang, siapa yang mewajibkan lebarnya lima?",
+      "tulis": "Polanya terbaca: ada tumpukan siswa di sekitar 160 sampai 170. Sekarang, siapa yang mewajibkan lebarnya 5?"
+    },
+    {
+      "id": "sempit",
+      "teks": "Tidak ada. Kita coba selebar dua. Data yang sama persis, tidak satu pun angka diubah, dan gambarnya jadi *bergerigi*. Tiap batang cuma berisi satu dua siswa.",
+      "tulis": "Tidak ada. Kita coba selebar 2. Data yang sama persis, tidak satu pun angka diubah, dan gambarnya jadi *bergerigi*. Tiap batang cuma berisi 1 sampai 2 siswa."
+    },
+    {
+      "id": "lebar",
+      "teks": "Sekarang selebar sepuluh. Sekarang cuma *empat batang*, rapi sekali, dan yang paling kanan cuma berisi satu siswa. Tetapi tumpukan tadi sudah tidak terlihat lagi.",
+      "tulis": "Sekarang selebar 10. Sekarang cuma *4 batang*, rapi sekali, dan yang paling kanan cuma berisi 1 siswa. Tetapi tumpukan tadi sudah tidak terlihat lagi."
+    },
+    {
+      "id": "pilihan",
+      "teks": "Tiga gambar, satu kumpulan data. Lebar kelas itu *pilihan manusia*, bukan hasil rumus, dan tidak ada satu histogram yang paling benar.",
+      "tulis": "Tiga gambar, satu kumpulan data. Lebar kelas itu *pilihan manusia*, bukan hasil rumus, dan tidak ada satu histogram yang paling benar."
+    },
+    {
+      "id": "luas",
+      "teks": "Sekarang bagian yang paling sering dilewati. Kalau dua kelas bersebelahan digabung, apa yang terjadi pada tingginya?",
+      "tulis": "Sekarang bagian yang paling sering dilewati. Kalau dua kelas bersebelahan digabung, apa yang terjadi pada tingginya?"
+    },
+    {
+      "id": "salah",
+      "teks": "Jawaban cepat yang salah: tingginya dijumlah, dua belas tambah empat jadi enam belas. Tetapi luasnya lalu jadi empat kali enam belas, yaitu enam puluh empat. *Dua kali lipat datanya*.",
+      "tulis": "Jawaban cepat yang salah: tingginya dijumlah, 12 + 4 = 16. Tetapi luasnya lalu jadi 4 × 16 = 64. *Dua kali lipat datanya*."
+    },
+    {
+      "id": "benar",
+      "teks": "Yang dijumlah *luasnya*. Dua kali dua belas sama dengan dua puluh empat, dua kali empat sama dengan delapan, jadi tiga puluh dua. Lebarnya sekarang empat, jadi tingginya delapan.",
+      "tulis": "Yang dijumlah *luasnya*. 2 × 12 = 24, dan 2 × 4 = 8, jadi 32. Lebarnya sekarang 4, jadi tingginya 8."
+    },
+    {
+      "id": "tutup",
+      "teks": "Yang mewakili banyaknya data adalah luas batangnya, bukan tingginya. Selama semua kelas sama lebar, membaca tinggi aman. Begitu ada yang lebih lebar, membaca tinggi *langsung menyesatkan*.",
+      "tulis": "Yang mewakili banyaknya data adalah luas batangnya, bukan tingginya. Selama semua kelas sama lebar, membaca tinggi aman. Begitu ada yang lebih lebar, membaca tinggi *langsung menyesatkan*."
+    }
+  ]
+}

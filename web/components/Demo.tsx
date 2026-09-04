@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react'
 
 /**
  * Apakah pengguna minta gerakan dikurangi (Pengaturan sistem, bukan situs).
@@ -25,25 +25,39 @@ function bacaGerak() {
 }
 
 /**
- * Pratinjau isi situs di halaman depan, bergaya manim.community: satu panel
- * besar dengan tombol geser kiri-kanan.
+ * Pratinjau isi situs di halaman depan: satu panel besar dengan tombol geser
+ * kiri-kanan.
  *
  * Yang ditampilkan adalah ISI ASLI, bukan gambar promosi. Video diambil dari
  * berkas yang benar-benar dipakai di materi, dan kedua cuplikan layar dipotret
  * langsung dari halaman situs ini. Halaman depan yang menjanjikan sesuatu yang
  * tidak ada di dalam adalah cara tercepat kehilangan kepercayaan.
  *
- * REVISI 1 Sep 2026 (ARYA), susunan lima slide:
+ * Susunan lima slide (revisi ARYA 1 Sep 2026):
  *   1. Animasi tiga grafik yang BERJALAN SENDIRI, bisu, mengulang tanpa henti.
- *      Tugasnya membuat pengunjung berhenti sebentar, bukan mengajar.
  *   2. Rekaman alat interaktif yang dibuat ARYA sendiri.
- *   3. Animasi lahirnya kurva sinus, lengkap dengan suara dan teks terjemahan.
+ *   3. Animasi lahirnya kurva sinus, bersuara dan berteks terjemahan.
  *   4. Latihan, dipotret dengan jawaban SUDAH terbuka.
- *   5. Bank soal, dipotret dengan kemajuan dan lencana SUDAH menyala.
+ *   5. Bank soal, dipotret dengan kemajuan SUDAH menyala.
  *
- * Syarat potret di slide 4 dan 5 itu permintaan ARYA dan bukan hiasan: kartu
- * kosong tidak membuktikan apa pun, sedangkan kartu berisi menunjukkan bahwa
- * kemajuannya memang dicatat dan lencananya memang bisa didapat.
+ * PEROMBAKAN 3 Sep 2026, tiga hal yang diminta ARYA:
+ *
+ * a. UKURAN KOTAK SAMA PERSIS. Berkasnya bermacam perbandingan sisi: 16:9,
+ *    2,38:1, bahkan potret 0,79:1. Dulu tiap klip menentukan tingginya
+ *    sendiri, jadi panel melompat-lompat. Sekarang kotaknya dikunci 16:9 dan
+ *    isinya `object-fit: contain`.
+ *
+ * b. PERPINDAHAN BERGERAK. Kelima klip berjajar di satu rel yang digeser,
+ *    bukan satu klip yang ditukar diam-diam. Arah gesernya otomatis mengikuti
+ *    tombol yang ditekan.
+ *
+ * c. PENANDA MEMUAT. Selama isi klip belum siap, kotaknya tidak dibiarkan
+ *    kosong: ada lingkaran berputar di atasnya.
+ *
+ * Semua klip dibiarkan terpasang di rel, tidak dibongkar pasang. Itu yang
+ * membuat klip yang pernah dibuka tidak perlu dimuat ulang. Yang dijaga hanya
+ * satu: video yang tidak sedang tampil DIHENTIKAN, supaya tidak ada dua suara
+ * berbunyi bersamaan.
  */
 
 type Klip =
@@ -93,88 +107,160 @@ const KLIP: Klip[] = [
   {
     jenis: 'gambar',
     berkas: 'demo-banksoal.jpg',
-    judul: 'Bank soal berjenjang, dengan lencana',
-    isi: 'Empat tingkat kesulitan yang terbuka bertahap. Kemajuan dan lencananya tersimpan di peramban Anda sendiri, tanpa perlu akun.',
+    judul: 'Bank soal berjenjang, empat tingkat',
+    isi: 'Empat tingkat kesulitan yang terbuka bertahap. Kemajuannya tersimpan di peramban Anda sendiri, tanpa perlu akun.',
   },
 ]
 
+/** Batas aman penanda memuat. Tanpa ini, klip yang gagal dimuat akan
+ *  meninggalkan lingkaran berputar selamanya, dan itu lebih membingungkan
+ *  daripada kotak kosong. */
+const BATAS_MUAT = 2600
+
 export default function Demo() {
   const [ke, setKe] = useState(0)
-  const video = useRef<HTMLVideoElement>(null)
+  const [siap, setSiap] = useState<number[]>([])
+  const rel = useRef<HTMLDivElement>(null)
   // Nilai ketiga (`() => false`) adalah jawaban saat halaman masih dirakit di
   // server, di mana tidak ada peramban untuk ditanyai.
   const kurangiGerak = useSyncExternalStore(langganGerak, bacaGerak, () => false)
   const klip = KLIP[ke]
 
-  // Klip diganti berarti sumbernya berganti; video harus dimuat ulang, kalau
-  // tidak peramban tetap memutar berkas sebelumnya.
+  const tandai = useCallback((i: number) => {
+    setSiap((s) => (s.includes(i) ? s : [...s, i]))
+  }, [])
+
+  // Hanya video yang sedang tampil yang boleh berbunyi. Yang lain dihentikan
+  // dan dikembalikan ke awal, jadi klip berikutnya selalu mulai dari detik nol.
   useEffect(() => {
-    if (klip.jenis === 'video') video.current?.load()
-  }, [ke, klip.jenis])
+    const semua = rel.current?.querySelectorAll('video')
+    semua?.forEach((v, i) => {
+      if (i === ke) return
+      v.pause()
+      try {
+        v.currentTime = 0
+      } catch {
+        /* peramban boleh menolak sebelum berkasnya punya durasi */
+      }
+    })
+  }, [ke])
+
+  // Penanda memuat tidak boleh berputar selamanya. Kalau dalam 2,6 detik klip
+  // belum melapor siap, ia dianggap siap saja: gambar poster biasanya sudah
+  // tergambar jauh sebelum itu.
+  useEffect(() => {
+    if (siap.includes(ke)) return
+    const id = window.setTimeout(() => tandai(ke), BATAS_MUAT)
+    return () => window.clearTimeout(id)
+  }, [ke, siap, tandai])
+
+  const geser = (arah: -1 | 1) =>
+    setKe((n) => (n + arah + KLIP.length) % KLIP.length)
 
   return (
-    <section className="demo" aria-label="Contoh isi situs">
+    <section
+      className="demo"
+      aria-label="Contoh isi situs"
+      aria-roledescription="korsel"
+      onKeyDown={(e) => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); geser(-1) }
+        if (e.key === 'ArrowRight') { e.preventDefault(); geser(1) }
+      }}
+    >
       <div className="demo-panggung">
-        {klip.jenis === 'video' ? (
-          <video
-            key={klip.berkas}
-            ref={video}
-            /* Slide pertama sengaja TANPA tombol dan berjalan sendiri, supaya
-               terasa seperti gambar hidup, bukan video yang harus ditekan dulu.
-               `muted` WAJIB ada bersama `autoPlay`: tanpa itu peramban menolak
-               memutar sendiri, dan slide pertama akan diam membeku.
-               Slide lain tetap pakai tombol, karena ada suaranya. */
-            controls={!klip.loop || kurangiGerak}
-            autoPlay={klip.loop && !kurangiGerak}
-            loop={klip.loop && !kurangiGerak}
-            muted={klip.loop}
-            playsInline
-            /* Slide pertama dimuat lebih dulu karena memang langsung diputar.
-               Sisanya `none`: halaman depan tidak boleh menyeret video di kuota
-               siswa sebelum ia memilih menontonnya. */
-            preload={klip.loop ? 'auto' : 'none'}
-            poster={`/anim/${klip.poster}`}
-            aria-label={klip.judul}
-          >
-            <source
-              src={`/anim/${klip.berkas}`}
-              type={klip.berkas.endsWith('.webm') ? 'video/webm' : 'video/mp4'}
-            />
-            {klip.teks && (
-              <track
-                kind="subtitles"
-                src={`/anim/${klip.berkas.replace(/\.webm$/, '.vtt')}`}
-                srcLang="id"
-                label="Bahasa Indonesia"
-                default
-              />
-            )}
-          </video>
-        ) : (
-          /* Cuplikan layar dipotret dari halaman situs ini sendiri.
-             `next/image` tidak dipakai supaya perbandingan sisinya bebas
-             mengikuti panel, sama seperti video di sebelahnya. */
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img
-            key={klip.berkas}
-            src={`/gambar/${klip.berkas}`}
-            alt={klip.judul}
-            loading="lazy"
-          />
+        <div
+          className="demo-rel"
+          ref={rel}
+          style={{
+            transform: `translateX(-${ke * 100}%)`,
+            // Gerakan dimatikan kalau pengguna memintanya di setelan sistem.
+            transition: kurangiGerak ? 'none' : undefined,
+          }}
+        >
+          {KLIP.map((k, i) => (
+            <div
+              className="demo-slide"
+              key={k.berkas}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${i + 1} dari ${KLIP.length}: ${k.judul}`}
+              /* Klip yang tidak tampil disembunyikan dari pembaca layar dan
+                 dari urutan Tab, supaya papan ketik tidak nyasar ke tombol
+                 video yang sedang berada di luar kotak. */
+              aria-hidden={i !== ke}
+              inert={i !== ke}
+            >
+              {k.jenis === 'video' ? (
+                <video
+                  /* Slide pertama sengaja TANPA tombol dan berjalan sendiri,
+                     supaya terasa seperti gambar hidup, bukan video yang harus
+                     ditekan dulu. `muted` WAJIB ada bersama `autoPlay`: tanpa
+                     itu peramban menolak memutar sendiri. */
+                  controls={!k.loop || kurangiGerak}
+                  autoPlay={k.loop && !kurangiGerak}
+                  loop={k.loop && !kurangiGerak}
+                  muted={k.loop}
+                  playsInline
+                  /* Slide pertama dimuat lebih dulu karena memang langsung
+                     diputar. Sisanya `metadata`: cukup untuk memunculkan
+                     gambar poster dan durasinya, tanpa menyeret berkas
+                     berukuran megabita di kuota siswa yang belum tentu
+                     menontonnya. */
+                  preload={k.loop ? 'auto' : 'metadata'}
+                  poster={`/anim/${k.poster}`}
+                  aria-label={k.judul}
+                  onLoadedData={() => tandai(i)}
+                  onCanPlay={() => tandai(i)}
+                  onError={() => tandai(i)}
+                >
+                  <source
+                    src={`/anim/${k.berkas}`}
+                    type={k.berkas.endsWith('.webm') ? 'video/webm' : 'video/mp4'}
+                  />
+                  {k.teks && (
+                    <track
+                      kind="subtitles"
+                      src={`/anim/${k.berkas.replace(/\.webm$/, '.vtt')}`}
+                      srcLang="id"
+                      label="Bahasa Indonesia"
+                      default
+                    />
+                  )}
+                </video>
+              ) : (
+                /* Cuplikan layar dipotret dari halaman situs ini sendiri.
+                   `next/image` tidak dipakai supaya perbandingan sisinya bebas
+                   mengikuti kotak, sama seperti video di sebelahnya. */
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  src={`/gambar/${k.berkas}`}
+                  alt={k.judul}
+                  loading={i <= 1 ? 'eager' : 'lazy'}
+                  onLoad={() => tandai(i)}
+                  onError={() => tandai(i)}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+
+        {!siap.includes(ke) && (
+          <div className="demo-muat" role="status" aria-live="polite">
+            <i aria-hidden="true" />
+            <span className="hanya-pembaca">Memuat cuplikan</span>
+          </div>
         )}
       </div>
 
-      <div className="demo-teks">
+      {/* `key` sengaja dipasang: mengganti kuncinya membuat React memasang
+          ulang blok ini, dan animasi masuk di CSS ikut berjalan lagi. */}
+      <div className="demo-teks" key={klip.berkas}>
         <h3>{klip.judul}</h3>
         <p>{klip.isi}</p>
       </div>
 
       <div className="demo-kendali">
-        <button
-          type="button"
-          aria-label="Sebelumnya"
-          onClick={() => setKe((n) => (n - 1 + KLIP.length) % KLIP.length)}
-        >
+        <button type="button" aria-label="Sebelumnya" onClick={() => geser(-1)}>
           &#8592;
         </button>
         <div className="demo-titik" role="tablist" aria-label="Pilih contoh">
@@ -188,11 +274,7 @@ export default function Demo() {
             />
           ))}
         </div>
-        <button
-          type="button"
-          aria-label="Berikutnya"
-          onClick={() => setKe((n) => (n + 1) % KLIP.length)}
-        >
+        <button type="button" aria-label="Berikutnya" onClick={() => geser(1)}>
           &#8594;
         </button>
       </div>

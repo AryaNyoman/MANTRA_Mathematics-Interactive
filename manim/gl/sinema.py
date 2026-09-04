@@ -121,7 +121,62 @@ def label(kalimat: str, ukuran: float = UKURAN_LABEL, warna: str = TINTA):
     return teks(kalimat, ukuran, warna)
 
 
-def identitas(scene, *baris: str, ukuran: float = 24, warna: str = REDUP):
+_TEPI_X, _TEPI_Y = FRAME_WIDTH / 2, FRAME_HEIGHT / 2
+# Sisi alas yang jaraknya kurang dari ini dari tepi layar DIRAPATKAN sampai
+# tepi. Tanpa itu tersisa pita petak tipis di luar alas, dan alasnya terbaca
+# sebagai stiker yang ditempel, bukan panel sudut. Terlihat di lembar kontak
+# 4 Sep.
+_RAPAT = 0.85
+
+
+def _kotak_alas(kiri, kanan, bawah, atas):
+    """Persegi panjang warna kertas, sisinya dirapatkan ke tepi layar.
+
+    Ditandai `dekorasi` supaya `qc` tidak ikut mengukurnya: yang diukur
+    gerbang adalah tulisannya, dan tulisan itu selalu di dalam zona HUD.
+    """
+    if kiri - (-_TEPI_X) < _RAPAT:
+        kiri = -_TEPI_X
+    if _TEPI_X - kanan < _RAPAT:
+        kanan = _TEPI_X
+    if bawah - (-_TEPI_Y) < _RAPAT:
+        bawah = -_TEPI_Y
+    if _TEPI_Y - atas < _RAPAT:
+        atas = _TEPI_Y
+    r = Rectangle(width=max(kanan - kiri, 0.05), height=max(atas - bawah, 0.05))
+    r.set_stroke(width=0).set_fill(LATAR, 1.0)
+    r.move_to([(kiri + kanan) / 2, (bawah + atas) / 2, 0])
+    r.dekorasi = True
+    return r
+
+
+def alas_hud(scene, mob, pad_x: float = 0.18, pad_y: float = 0.14):
+    """Alas warna kertas di BELAKANG tulisan HUD, supaya ia tetap terbaca
+    walaupun bidang koordinat lewat di bawahnya.
+
+    Kenapa ada: tanpa ini, satu-satunya cara menjaga tulisan HUD dari garis
+    petak adalah MEMESAN jalur layar lewat `kamera.muat_datar(sisa_atas=,
+    sisa_kanan=)`, dan pesanan itu menyusutkan bidangnya 12 sampai 15
+    persen. Dengan alas, bidang boleh kembali memenuhi layar dan tulisannya
+    tetap bersih. Temuan Vektor 4 Sep.
+
+    Kepekatannya PENUH, bukan setengah: yang setengah masih meloloskan garis
+    petak samar di belakang angka, dan itu persis keluhan yang mau dihapus.
+    Warnanya sama dengan latar, jadi di tempat kosong ia tak terlihat.
+    """
+    r = _kotak_alas(mob.get_left()[0] - pad_x, mob.get_right()[0] + pad_x,
+                    mob.get_bottom()[1] - pad_y, mob.get_top()[1] + pad_y)
+    scene.hud_tambah(r)
+    scene.bring_to_front(mob)
+    # Penanda untuk `qc.periksa_adegan`: yang beralas boleh berdiri di atas
+    # benda dunia, sebab alasnya menutup petak di belakangnya.
+    mob.beralas = True
+    r.beralas = True
+    return r
+
+
+def identitas(scene, *baris: str, ukuran: float = 24, warna: str = REDUP,
+              alas: bool = False):
     """Identitas benda di pojok KIRI ATAS, kecil, menetap sepanjang video.
 
     Contoh: `identitas(self, "p = l = t = 6 satuan")` atau
@@ -134,6 +189,12 @@ def identitas(scene, *baris: str, ukuran: float = 24, warna: str = REDUP):
     batasi_lebar(g, kanan - kiri - 0.2)
     g.move_to([kiri + g.get_width() / 2 + 0.1, atas - g.get_height() / 2 - 0.1, 0])
     scene.hud_tambah(g)
+    if alas:
+        # Dikembalikan sebagai SATU kelompok supaya `set_opacity` dan
+        # `FadeOut` di adegan mengenai alas dan tulisannya sekaligus.
+        kelompok = VGroup(alas_hud(scene, g), g)
+        kelompok.beralas = True
+        return kelompok
     return g
 
 
@@ -173,11 +234,24 @@ def hapus_keterangan(*args, **kwargs):
     raise AturanDilanggar("sinema.keterangan sudah dihapus, tidak ada yang perlu dihapus.")
 
 
-def nilai_hidup(label_mob, angka: DecimalNumber, di, buff: float = 0.18) -> VGroup:
-    """Rakit "label + angka berubah" supaya angkanya tidak melayang dari labelnya."""
-    gugus = VGroup(label_mob, angka)
-    angka.next_to(label_mob, RIGHT, buff=buff)
+def nilai_hidup(label_mob, angka: DecimalNumber, di, buff: float = 0.18,
+                tanda: str | None = "=") -> VGroup:
+    """Rakit "label = angka berubah" supaya angkanya tidak melayang dari labelnya.
+
+    Tanda "=" disisipkan sejak 4 Sep 2026: tanpa itu "BQ 5,160" terbaca seperti
+    dua hal yang kebetulan berdampingan, bukan satu besaran dengan nilainya
+    (temuan Ruang 3D materi 03). Beri `tanda=None` untuk tanpa tanda.
+    Label SELALU elemen pertama gugus dan angka SELALU elemen terakhir.
+    """
+    bagian = [label_mob]
+    if tanda:
+        t = rumus(tanda, getattr(label_mob, "ukuran_matra", 28), label_mob.get_color())
+        t.next_to(label_mob, RIGHT, buff=buff)
+        bagian.append(t)
+    angka.next_to(bagian[-1], RIGHT, buff=buff)
     angka.align_to(label_mob, DOWN)
+    bagian.append(angka)
+    gugus = VGroup(*bagian)
     gugus.move_to(di)
     return gugus
 
@@ -205,13 +279,104 @@ class PapanRumus:
       papan.semua()                                     untuk diserahkan ke qc
     """
 
-    def __init__(self, scene, ukuran: float = 34, warna: str = TINTA, tanpa_utama: bool = False):
+    def __init__(self, scene, ukuran: float = 34, warna: str = TINTA,
+                 tanpa_utama: bool = False, alas: bool = False):
         self.scene = scene
         self.ukuran = ukuran
         self.warna = warna
         self.tanpa_utama = tanpa_utama
+        self.pakai_alas = alas
+        self.alas = None
+        self.ikutan = []
         self.utama = None
         self.baris_lain = []
+
+    def _isi(self):
+        """Barisnya saja, TANPA alas. Dipakai untuk mengukur alasnya sendiri."""
+        isi = list(self.baris_lain) + list(self.ikutan)
+        if self.utama is not None:
+            isi.append(self.utama)
+        return VGroup(*isi) if isi else None
+
+    def ikut(self, *mobs):
+        """Baris HUD di LUAR papan yang ikut memakai alas papan.
+
+        Dipakai untuk angka hidup seperti "panjang 5,00" yang letaknya di
+        bawah papan. Kalau ia diberi alas sendiri, tersisa belang petak
+        terjepit di antara dua alas, dan itu terlihat seperti cacat.
+        """
+        self.ikutan.extend(mobs)
+        self.perbarui_alas()
+        return mobs[0] if len(mobs) == 1 else mobs
+
+    def _kotak_target(self):
+        """Ukuran alas yang seharusnya untuk isi papan sekarang."""
+        isi = self._isi()
+        if isi is None:
+            return None
+        return _kotak_alas(isi.get_left()[0] - 0.18, isi.get_right()[0] + 0.18,
+                           isi.get_bottom()[1] - 0.14, isi.get_top()[1] + 0.14)
+
+    def _ke_depan(self):
+        """Alas dibuat SESUDAH baris pertama ada, jadi urutan gambarnya harus
+        dibalik; kalau tidak, ia menutupi barisnya sendiri."""
+        isi = self._isi()
+        if isi is None:
+            return
+        self.alas.dekorasi = True
+        for m in isi:
+            # WAJIB. Tanpa penanda ini gerbang menolak "panel d menindih
+            # bidang": pengecualian hud x dunia hanya berlaku bila HUD-nya
+            # `beralas` DAN dunianya `latar`. Penanda ini sempat hilang saat
+            # bentrok merge 4 Sep diselesaikan, dan render Materi 01 gagal.
+            m.beralas = True
+            self.scene.bring_to_front(m)
+
+    def _anim_alas(self):
+        """Animasi pelebaran alas, untuk dititipkan ke `scene.play` yang sama
+        dengan kemunculan barisnya. Kembalikan daftar kosong kalau tanpa alas."""
+        if not self.pakai_alas:
+            return []
+        baru = self._kotak_target()
+        if baru is None:
+            return []
+        if self.alas is None:
+            self.alas = baru
+            self.alas.set_opacity(0)
+            self.scene.hud_tambah(self.alas)
+            self._ke_depan()
+            return [self.alas.animate.set_opacity(1)]
+        gerak = (self.alas.animate
+                 .set_width(baru.get_width(), stretch=True)
+                 .set_height(baru.get_height(), stretch=True)
+                 .move_to(baru.get_center()))
+        self._ke_depan()
+        return [gerak]
+
+    def perbarui_alas(self):
+        """Lebarkan alas kertas SEKETIKA. Dipakai di luar animasi (mis. saat
+        baris luar didaftarkan lewat `ikut`, atau sesudah morph)."""
+        if not self.pakai_alas:
+            return
+        isi = self._isi()
+        if isi is None:
+            return
+        baru = _kotak_alas(isi.get_left()[0] - 0.18, isi.get_right()[0] + 0.18,
+                           isi.get_bottom()[1] - 0.14, isi.get_top()[1] + 0.14)
+        if self.alas is None:
+            self.alas = baru
+            self.scene.hud_tambah(self.alas)
+        else:
+            self.alas.set_width(baru.get_width(), stretch=True)
+            self.alas.set_height(baru.get_height(), stretch=True)
+            self.alas.move_to(baru.get_center())
+        self.alas.dekorasi = True
+        # Alas dibuat SESUDAH baris pertama ada, jadi urutan gambarnya harus
+        # dibalik secara eksplisit; kalau tidak, ia menutupi barisnya sendiri.
+        self.alas.beralas = True
+        for m in isi:
+            m.beralas = True
+            self.scene.bring_to_front(m)
 
     # -- letak -------------------------------------------------------------
     def tempat_utama(self, mob):
@@ -230,15 +395,35 @@ class PapanRumus:
         """
         kiri, kanan, bawah, atas = ZONA_RUMUS
         batasi_lebar(mob, kanan - kiri - 0.2)
-        geser = 0 if self.tanpa_utama else 1
-        y = atas - 0.12 - 0.62 * (ke_berapa + geser) - mob.get_height() / 2
+        # Ditumpuk dari BAWAH benda yang sudah ada di papan, bukan pada slot
+        # berjarak tetap. Rumus pecahan dua tingkat lebih tinggi daripada satu
+        # baris biasa, dan slot tetap 0,62 menjatuhkan baris berikutnya TEPAT DI
+        # DALAM penyebutnya. Ruang 3D materi 09: "theta = 35,26 derajat" jatuh
+        # menindih penyebut "6 akar 2" sampai keduanya tidak terbaca, dan qc
+        # tidak menangkapnya sebab papan diserahkan ke qc sebagai SATU benda.
+        sudah = ([self.utama] if self.utama is not None else []) + list(self.baris_lain[:ke_berapa])
+        if sudah:
+            batas_atas = min(m.get_bottom()[1] for m in sudah) - 0.16
+        else:
+            # Papan masih kosong: slot teratas tetap dipesan untuk rumus utama
+            # yang akan datang, kecuali papan ini memang tanpa rumus utama.
+            batas_atas = atas - 0.12 - (0 if self.tanpa_utama else 0.62)
+        y = batas_atas - mob.get_height() / 2
         mob.move_to([kanan - mob.get_width() / 2 - 0.12, y, 0])
         return mob.fix_in_frame()
 
     # -- dipakai adegan ----------------------------------------------------
     def tumbuh(self, isi_baru: str, alasan: str | None = None, run_time: float = 1.2,
-               key_map: dict | None = None):
-        """Ganti rumus utama dengan MORPH: lambang lama berpindah, yang baru tumbuh."""
+               key_map: dict | None = None, b=None):
+        """Ganti rumus utama dengan MORPH: lambang lama berpindah, yang baru tumbuh.
+
+        Waktu terpakai = run_time, ditambah waktu kata alasan kalau ada; dicatat
+        otomatis ke `b` kalau diberi. Menghitungnya dengan tangan sudah pernah
+        salah: adegan Ruang 3D 04 mencatat 1,7 detik padahal yang terpakai 3,2,
+        dan videonya jadi 1,6 detik lebih panjang daripada narasinya. Babak
+        tidak menolaknya sebab kelebihannya masuk lewat waktu yang TIDAK
+        tercatat, jadi bacaan `b.sisa` ikut salah.
+        """
         baru = self.tempat_utama(rumus(isi_baru, self.ukuran, self.warna))
         if self.utama is None:
             self.scene.hud_tambah(baru)
@@ -249,6 +434,8 @@ class PapanRumus:
         self.utama = baru
         if alasan:
             self._alasan(alasan)
+        if b is not None:
+            b.catat(run_time + (self.waktu_alasan() if alasan else 0.0))
         return baru
 
     def _alasan(self, kalimat: str, run_time: float = 0.5, lama: float = 1.0):
@@ -264,13 +451,21 @@ class PapanRumus:
     def waktu_alasan(self, run_time: float = 0.5, lama: float = 1.0) -> float:
         return 2 * run_time + lama
 
-    def baris(self, isi: str, warna: str | None = None, run_time: float = 0.8):
-        """Tumpuk satu temuan baru di bawah yang sudah ada."""
+    def baris(self, isi: str, warna: str | None = None, run_time: float = 0.8, b=None):
+        """Tumpuk satu temuan baru di bawah yang sudah ada.
+
+        Waktu terpakai = run_time; dicatat otomatis ke `b` kalau diberi.
+        """
         m = rumus(isi, self.ukuran - 2, warna or self.warna)
         self.tempat_baris(m, len(self.baris_lain))
         self.scene.hud_tambah(m)
-        self.scene.play(FadeIn(m, shift=0.2 * LEFT), run_time=run_time)
         self.baris_lain.append(m)
+        # Alas melebar SEBARENG barisnya muncul, bukan sebelum. Kalau ia
+        # melebar lebih dulu, penonton melihat bidang kertas kosong dulu.
+        anim_alas = self._anim_alas()
+        self.scene.play(FadeIn(m, shift=0.2 * LEFT), *anim_alas, run_time=run_time)
+        if b is not None:
+            b.catat(run_time)
         return m
 
     def terima(self, mob, sebagai_utama: bool = True):
@@ -286,13 +481,28 @@ class PapanRumus:
         if self.utama is lama:
             self.utama = baru
         self.baris_lain = [baru if m is lama else m for m in self.baris_lain]
+        self.perbarui_alas()
         return baru
 
     def semua(self):
+        """Semua yang tampil di panel, ALASNYA IKUT, supaya
+        `FadeOut(papan.semua())` di babak penutup tidak meninggalkan kotak
+        kertas melayang."""
         isi = list(self.baris_lain)
         if self.utama is not None:
             isi.append(self.utama)
-        return VGroup(*isi) if isi else None
+        if not isi:
+            return None
+        if self.alas is not None:
+            isi = [self.alas] + isi
+        g = VGroup(*isi)
+        # Tanda untuk qc: baris-baris di dalam papan diperiksa satu sama lain.
+        # Sebelum 4 Sep 2026 papan diserahkan ke qc sebagai satu benda, dan dua
+        # baris yang bertindih persis lolos (temuan Ruang 3D dan Statistika).
+        # Alasnya bertanda `dekorasi` dan dilewati pemeriksaan itu; ia memang
+        # menindih semua barisnya, itu memang tugasnya.
+        g._qc_isi = True
+        return g
 
 
 def lahir_rumus(scene, isi: str, dekat, papan: PapanRumus, b=None,

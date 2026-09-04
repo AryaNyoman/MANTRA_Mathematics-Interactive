@@ -1,17 +1,151 @@
 # Laporan MATRA-STATISTIKA
-Terakhir: 3 September 2026 dini hari.
+Terakhir: 4 September 2026 pagi. **Bagian terbaru di paling atas** (permintaan MASTER).
 
-> **SIAP GABUNG.** Cabang `sesi/statistika`, commit `4092718`, pohon kerja
-> bersih, sudah `git merge master` (standar video v2) tanpa konflik. Dua video
-> selesai dan sudah disesuaikan ke zona baru. Pesan ke MATRA-MASTER dua kali
-> tidak sampai (kedaluwarsa menunggu persetujuan), jadi statusnya dicatat di
-> sini saja.
->
-> Catatan untuk MASTER, bukan permintaan: `PapanRumus.tempat_baris` menaruh
-> baris pertama di slot paling atas selama `utama` masih kosong, dan `tumbuh()`
-> nanti menaruh utama di slot yang sama. Adegan yang memakai `baris()` SEBELUM
-> `tumbuh()` akan bertindih sendiri. Kedua video saya kebetulan aman, sesi lain
-> belum tentu.
+> **SIAP GABUNG.** TIGA BELAS video dari tiga belas tahap selesai di 480p, dan
+> sepuluh di antaranya sudah dirapikan tata letaknya sesudah koreksi MASTER.
+> Cabang `sesi/statistika`, pohon kerja bersih, sudah disinkronkan dengan
+> `master` c223dc9. Berkas tampilan yang dibekukan MASTER tidak satu pun
+> disentuh; yang berubah `manim/`, `web/public/anim/*.vtt`, dan dua perbaikan
+> berkas bersama `manim/gl/ilustrasi.py` yang masing-masing jadi commit sendiri.
+
+---
+
+# 4 September 2026: tata letak dirapikan, dan satu kesalahan baca yang saya buat
+
+## Kesalahan saya, dan MASTER yang menemukannya
+
+Saya mengira jalur panel memesan SELURUH pita atas layar, jadi saya mengunci
+dunia di bawah layar y = 1,10 dan menulis di laporan bahwa "dunia cuma boleh
+46 persen tinggi layar, itu harga tata letak versi 2". **Itu salah, dan saya
+mengarangnya sendiri.** Tidak ada di kode maupun di standar.
+
+Yang sebenarnya dipesan cuma DUA POJOK: identitas di kiri (layar x < -2,1) dan
+papan rumus di kanan (x > 2,1). Tengah atas bebas, dan `qc.periksa_adegan`
+memang cuma memeriksa tabrakan NYATA, bukan kotak yang dipesan. Saya memeriksa
+sendiri kode `qc` sesudah MASTER mengoreksi: tidak ada satu baris pun yang
+membatasi tinggi dunia.
+
+Akibatnya semua adegan saya menyisakan sepertiga atas layar kosong dan bendanya
+mungil. MASTER menemukannya lewat lembar kontak Materi 06 ("garis bilangan tipis
+di tengah layar yang hampir kosong, orang-orangnya mungil").
+
+## Yang dirapikan
+
+| Materi | Yang diubah |
+|---|---|
+| 01 | tumpukan titik 0,20 jadi 0,28, titik 0,078 jadi 0,105, angka sumbu 20 jadi 25, kamera turun ke 0,30 |
+| 02 | tinggi per siswa 0,180 jadi 0,245 |
+| 03 | tinggi per siswa 0,100 jadi 0,135, kotak contoh gabung kelas 0,13 jadi 0,175 |
+| 04 | tinggi per siswa 0,050 jadi 0,072, batang rata 2,00 jadi 2,85 |
+| 06 | orang 1,00 jadi 1,70, penggaris 0,42x0,05 jadi 0,70x0,10, kamera turun ke 0,35, pembuka jadi datar penuh |
+| 07 | titik naik ke 0,34, tumpukan 0,30, kotak boxplot 0,46 jadi 0,60, kurung jangkauan biasa naik ke 1,55 |
+| 10, 11, 12 | satu satuan nilai 0,0647 jadi 0,0880; parabola 12 dari 0,205 jadi 0,280; skala jauh 11 dari 0,0164 jadi 0,0223 |
+| 13 | langit-langit 1,42 jadi 2,10 |
+
+Materi 11 juga mendapat perbaikan yang diusulkan MASTER: kamera didekatkan dari
+6,4 ke 4,8 selama empat babak residu, jadi residu terbesar naik dari 15 piksel
+ke 32 piksel. Sumbu dan kelompok garis tebakan dilepas dari daftar periksa DI
+BABAK ITU SAJA, dan garis yang masih terlihat didaftarkan menggantikannya, jadi
+tidak ada benda yang lolos periksa diam-diam.
+
+Materi 06 pembukanya dibuat datar penuh (phi 90 sejak frame pertama). Pembuka
+miring cuma boleh di video pertama topik, dan video pertama Statistika adalah
+Materi 01, yang memang datar.
+
+## Tiga yang DIBIARKAN, dengan alasan
+
+1. **Materi 05, alasan struktural, sudah disetujui ARYA.** Dicoba dua kali dan
+   ditolak gerbang dua kali: orang 1,85 memberi irisan 0,21 x 0,33 dengan papan
+   temuan, lalu 1,60 dengan kamera dinaikkan justru memberi irisan 0,17 x 0,82.
+   Sebabnya bukan angka: siswa membentang selebar layar sampai ke pojok kanan,
+   sementara papan temuan Materi 05 TUMBUH ke bawah sepanjang video. Siswa yang
+   lebih tinggi pasti menabraknya, dan menaikkan kamera untuk menghindarinya
+   mendorong angka sumbu masuk jalur subtitle. Membesarkannya berarti merombak
+   panggung, bukan merapikan tata letak. MASTER menyetujui dibiarkan.
+2. **Materi 08 dan 09 dibiarkan atas keputusan MASTER.** Materi 08 sudah
+   merentang 3,45 satuan; Materi 09 batangnya sampai layar y 2,08 dan MASTER
+   menyebutnya acuan komposisi. Mengubah yang sudah benar hanya berisiko.
+3. **Pembuka miring Materi 05 dan 08 dibiarkan, pengecualian dengan persetujuan
+   ARYA.** Keduanya sudah disetujui sebelum Materi 01 ada, isinya bekerja
+   (jungkat-jungkit dan botol, bukan lapangan kosong), dan 8 sampai 10 detik
+   masih dalam batas pembuka yang bermakna.
+
+## Detik pertama bergerak, ketiga belas video diukur
+
+Aturan STANDAR baru (MASTER, 4 Sep, lahir dari Vektor 06): jarak dari akhir
+kartu judul sampai benda pertama bergerak atau berubah maksimal LIMA detik.
+Materi 06 saya berisiko persis begitu sebab pembukanya baru saya buat datar
+penuh, jadi diukur, bukan ditebak.
+
+| Jeda | Materi |
+|---|---|
+| 0,12 detik | 08 |
+| 0,25 detik | 01, 02, 03, 05, 06 |
+| 0,38 detik | 04, 07, 09, 10, 13 |
+| 0,50 detik | 12 |
+| 3,00 detik | 11 |
+
+**Ketiga belas lolos**, terburuk 3,00 detik di Materi 11 yang pembukanya memang
+paling lambat. Tidak ada yang perlu diperbaiki. Materi 06 ternyata aman: kartu
+judulnya berakhir dan penggarisnya langsung tumbuh 0,25 detik kemudian.
+
+Alatnya `alat/ukur_detik_pertama.py`, dipakai sesi lain dengan
+`python alat/ukur_detik_pertama.py --judul 3.2 media/uji-480p/*.mp4`.
+
+**Versi pertama alat itu SALAH dan saya sempat memakainya.** Ia menebak panjang
+kartu judul dari pita atas layar, dan meleset di Materi 06: sesudah orangnya
+dibesarkan, kepala mereka masuk pita judul, jadi pita itu tidak pernah kosong
+dan alatnya melapor "judul selesai 19,50 detik" lalu "gerak pertama 0,12 detik".
+Angka itu omong kosong, dan kalau saya percaya begitu saja saya akan melaporkan
+video ini lolos tanpa dasar. Versi sekarang tidak menebak apa pun: panjang judul
+diberikan lewat bendera.
+
+Alat itu juga diuji supaya terbukti BISA gagal (`--uji-alatnya`): ia membuat dua
+video bikinan, satu beku sembilan detik sesudah judul dan satu bergerak langsung,
+lalu memastikan yang beku tertangkap dan yang bergerak dibiarkan. Alat mutu yang
+tidak pernah dibuktikan bisa gagal tidak membuktikan apa pun.
+
+## Jebakan gerbang yang ditemukan hari ini
+
+**Kotak batas sebuah KELOMPOK adalah gabungan seluruh anggotanya.** Materi 11
+ditolak dengan "papan rumus menindih sumbu, irisan 1,48 x 0,32" padahal tidak
+ada satu garis pun yang bersentuhan: sumbu mendatar dan sumbu tegak saya
+daftarkan sebagai satu kelompok, dan kotak batas kelompok itu sebesar seluruh
+bidang grafik, jadi panel di pojok kanan atas dianggap masuk ke dalamnya.
+
+Perbaikannya tidak butuh mekanisme baru: sumbu didaftarkan sebagai DUA benda
+pipih, pita mendatar di bawah dan pita tegak di kiri. Diterapkan juga ke Materi
+10 dan 12 yang berpola sama dan lolos tipis. MASTER menjadikannya cara baku
+untuk sumbu polos; `alas_hud` + tanda `latar` tetap untuk tulisan yang memang
+harus menumpang di atas kisi.
+
+## Perkakas bersama yang bertambah
+
+- `qc.periksa_adegan(..., tulisan=...)` sudah resmi (MASTER, dari usul sesi ini
+  dan sesi Ruang 3D). Sepuluh adegan Statistika dipindahkan dari kamus `TULISAN`
+  buatan sendiri ke parameter itu. Materi 05 dan 08 tidak punya `TULISAN` sebab
+  dibuat sebelum pola itu ada.
+- `ilustrasi.tumbuh_batang` dinaikkan ke berkas bersama (commit tersendiri):
+  batang tumbuh dari alasnya. `GrowFromEdge` bawaan butuh argumen tepi dan
+  tepinya di bidang xy, sedangkan batang adegan MATRA berdiri di sumbu z, jadi
+  ia gagal lewat `LaggedStartMap`.
+- `ilustrasi.orang` berkaki bersih (commit 8e464e8, 3 Sep) sudah dipakai semua sesi.
+
+## Yang masih tersisa sesudah dirapikan
+
+1. Materi 07 masih menyisakan sekitar sepertiga atas layar kosong pada babak
+   awal; ruang itu baru terpakai di babak `jak` oleh kurung jangkauan biasa.
+   Menaikkannya lagi akan mendorong kurung itu ke jalur panel.
+2. Panel Materi 10 menulis "arah, kekuatan" sampai babak penutup. Kalimatnya
+   tetap benar, jadi basi tetapi tidak membantah gambarnya.
+3. Materi 03 babak `salah` menyisakan sekitar 6 detik tanpa animasi baru.
+4. `alat/cek_sinkron_video.py` versi rona sudah masuk master c223dc9 dan belum
+   saya pakai; sinkron sementara dijaga lewat `sinema.babak` dan selisih
+   suara-gambar 0,02 sampai 0,24 detik.
+
+---
+
+# Catatan lebih lama, urut mundur
 
 Cabang `sesi/statistika`. Gelombang 1, halaman saja, tanpa video.
 Rancangan: `docs/superpowers/specs/2026-09-01-statistika-alur-belajar.md`, sudah
@@ -671,3 +805,295 @@ koordinat.
 | render sampai bersih | 8 kali | 8 kali |
 
 Berikutnya: video ketiga, Materi 06 pencilan. Belum dimulai.
+
+---
+
+# 3 September 2026: empat video terakhir, Materi 06, 09, 11, 13
+
+Topik Statistika sekarang punya **enam video dari enam**. Semuanya 480p,
+narasinya tergabung, subtitle terpisah, dan tiap satu dibuka lembar kontaknya
+lalu dinilai frame demi frame sebelum dinyatakan selesai.
+
+| | Materi 06 | Materi 09 | Materi 11 | Materi 13 |
+|---|---|---|---|---|
+| judul | Pencilan | Data berkelompok | Garis regresi | Grafik menyesatkan |
+| berkas | `media/uji-480p/statistika6-pencilan.mp4` | `statistika9-kelompok.mp4` | `statistika11-regresi.mp4` | `statistika13-menyesatkan.mp4` |
+| durasi | 124,4 detik | 117,9 detik | 110,0 detik | 118,0 detik |
+| selisih suara dan gambar | 0,23 detik | 0,17 detik | 0,24 detik | 0,18 detik |
+| render sampai bersih | 5 | 5 | 4 | 4 |
+
+## Yang saya ubah dari cara kerja dua video pertama
+
+**Gerak dirancang lebih dulu, naskah menyusul.** Video 05 dan 08 ditulis
+naskahnya dulu lalu geraknya dipaksa muat, dan tiap babak menyisakan 2 sampai 4
+detik tanpa animasi baru. Keempat video ini dibalik urutannya: sepuluh babak
+dirancang dulu, masing-masing dengan satu gerakan besar, baru narasi ditulis
+sepanjang gerak itu dan dipangkas sampai muat. Hasilnya waktu mati tinggal
+sekitar satu detik per babak, dan itu pun jeda yang disengaja.
+
+**Angka dikunci sebelum menulis satu baris pun.** Keempat kumpulan angka
+diperiksa ulang dengan Python terhadap halamannya: gaji sepuluh orang
+(mean 12,22 median 5,1), nilai 40 siswa berkelompok (mean 67,75 median 67
+modus 65,21 Q1 58,25 Q3 77,28), jam belajar sepuluh siswa (b 3,2 a 49,2 dan
+jumlah kuadrat residu 146 / 56,9 / 27,2 / 56,9), pengunjung perpustakaan
+(412 sampai 430, naik 18 orang atau 4 persen). Semuanya cocok.
+
+## Gagasan tiap video, yaitu bagian yang tidak bisa dilakukan halaman
+
+**Materi 06.** Halaman sudah bilang mean tertarik dan median tidak. Yang tidak
+bisa ditunjukkan halaman: PENGGARISNYA sendiri harus ditarik jauh supaya
+direktur bergaji 75 juta muat, dan sembilan karyawan berdesakan jadi satu
+gerombolan karenanya. Empat keadaan penggaris dipakai, semuanya jujur, tidak
+ada sumbu yang dipotong. Sumbu urutan 1 sampai 10 dipakai untuk memperlihatkan
+median cuma memakai POSISI.
+
+**Materi 09.** Rumus median data berkelompok terlihat seperti hafalan berlapis.
+Videonya membuktikan ia bukan hafalan: garis median adalah garis yang membelah
+LUAS histogram jadi dua sama besar, dan itu benar-benar diarsir, 20 siswa biru
+di kiri dan 20 siswa bata di kanan. Batangnya dibangun dari 40 lembar jawaban
+yang berjatuhan, supaya penonton melihat angka aslinya ADA sebelum ia hilang.
+
+**Materi 11.** Garisnya benar-benar diputar di depan mata dan angka jumlah
+kuadrat residunya turun lalu naik lagi. Babak penutup mengganti penggaris
+sampai 40 jam dan 190 poin, dan datanya sendiri menciut jadi gerombolan di
+pojok. Itu gambaran paling jujur soal ekstrapolasi.
+
+**Materi 13.** Satu grafik berubah kesan tanpa satu pun angkanya berubah.
+Titik datanya tidak pernah dibuat ulang: titik yang sama dipindahkan oleh
+sumbunya sendiri, dan angkanya tetap tertulis di sampingnya sepanjang
+perubahan itu.
+
+## Lubang gerbang yang ditemukan, untuk MASTER
+
+**`qc.periksa_adegan` memeriksa silang HUD lawan dunia, tetapi TIDAK dunia
+lawan dunia.** Akibatnya tulisan di dunia yang menindih tulisan lain di dunia
+lolos diam-diam. Buktinya: label "9 karyawan" duduk persis di atas label
+`x-bar` di Materi 06 dan render tetap sukses; saya menemukannya dengan mata,
+bukan dengan gerbang.
+
+Memeriksa silang SELURUH benda dunia tidak bisa jadi bawaan, sebab benda dunia
+memang saling bersentuhan (orang berdiri di atas papan, label menempel di
+bendanya). Tetapi **tulisan lawan tulisan selalu cacat**. Karena itu keempat
+adegan ini memelihara kamus `TULISAN` sendiri dan memeriksanya silang di
+`periksa()`. Usul: naikkan pola itu ke `qc` sebagai bawaan, misalnya
+`periksa_adegan(..., tulisan={...})`. Ia langsung membuktikan diri: gerbang
+buatan sendiri itu yang menangkap tiga baris pertanyaan penutup Materi 13
+bertumpuk di render kedua.
+
+**Tindihan di DALAM `PapanRumus` tidak diperiksa siapa pun.** `papan.semua()`
+diserahkan ke qc sebagai SATU benda, jadi rumus utama yang tinggi menindih
+baris di bawahnya tidak akan pernah ketahuan. Di Materi 09 saya menghindarinya
+dengan memindahkan `p = 10`, `x-bar` dan `Mo` ke dunia dan menyisakan panel
+untuk satu rantai rumus saja. Sesi lain sebaiknya tahu.
+
+## Perbaikan berkas bersama: kaki `ilustrasi.orang`
+
+Begitu orang-orangan dibesarkan supaya terbaca, kakinya muncul sebagai belasan
+helai seperti rumbai pel. Diuji terpisah (`manim/uji/uji_kaki_orang.py`, bukti
+`qc/uji-kaki*.png`): jari-jari kaki 0,045 x tinggi terlalu tipis untuk jala
+silinder ManimGL, dan rumbainya TETAP ada walau kakinya digeser ke samping,
+jadi penyebabnya ketipisan bukan tumpukan. Sekarang 0,060 dan berjajar kiri
+kanan, bukan ke kedalaman. Lebar benda praktis tidak berubah, jadi adegan sesi
+lain tidak terpengaruh. Commit sendiri (`8e464e8`) supaya gampang ditahan.
+
+## Cacat yang ditemukan dengan MEMBUKA lembar kontak
+
+Tidak satu pun dari yang berikut muncul sebagai galat. Semuanya lolos render.
+
+**Materi 06, 15 cacat.** Penggaris keluar bingkai (ini ditangkap qc); orang
+terlalu kecil sampai terbaca seperti jarum pentul; `Indicate` ungu mencuci
+badan orang jadi pucat; angka sumbu tidak seragam (5 di antara 4,2 dan 5,2);
+label "9 karyawan" menindih label x-bar; penggaris tanpa garis skala; ruas
+jarak rebah di penggaris sehingga terbaca seperti goresan kayu; jejak mean
+tertinggal di sumbu urutan dan membantah gambarnya sendiri; jejak mean sejajar
+angka sumbu sehingga terbaca seperti garis bawah "15"; panah direktur dibangun
+dari titik xz sehingga terlihat dari sisinya dan tinggal segaris rambut; dua
+titik bergaji 5,0 bertumpuk persis sehingga penonton menghitung delapan bukan
+sembilan; panel masih menulis 16,72 padahal direktur sudah kembali ke 75; pita
+penutup tak terlihat karena diarsir di skala jauh; silang menutup habis titik
+yang dicoret; label x-bar menyentuh ujung segitiga Me.
+
+**Materi 09, 10 cacat.** Angka sumbu frekuensi keluar bingkai 0,02 satuan (qc);
+babak `rumus` kelebihan 0,74 detik (gerbang waktu); **kamera phi 80 memiringkan
+bidang gambar 10 derajat sehingga garis tegak terlihat rebah dan tinggi batang
+kena keystone**, dinaikkan ke 90; batang cuma mengisi separuh bawah layar;
+identitas menulis "1 kotak = 1 siswa" padahal kotaknya cuma ada di babak 1;
+angka kumulatif "23" tertinggal sampai babak terakhir; angka "20" ditulis di
+dalam daerah arsir dengan warna arsirnya sendiri; titik tengah menempel di
+puncak batang dan bertabrakan dengan angka median; garis median terkubur di
+balik arsiran; label penutup terlalu jauh dari garis yang dijelaskannya.
+
+**Materi 11, 6 cacat.** Yang terbesar: sumbu tegak 45 sampai 105 membuat data
+cuma mengisi separuh tinggi, dan residu yang besarnya 0,2 sampai 3,2 poin
+tinggal 2 sampai 8 piksel. Seluruh isi video ini residu, dan residunya tidak
+kelihatan. Lalu: residu digambar sebagai garis (diganti bilah berisi); babak
+yang MEMPERKENALKAN residu justru memakai titik yang residunya cuma +0,6 poin;
+label "tegak" menindih titik data tetangga; garis sampai 40 jam jauh di luar
+bingkai (qc); bingkai bawah masih longgar.
+
+**Materi 13, 8 cacat.** Yang terburuk: babak `beda` memadamkan grafiknya lalu
+menyisakan LIMA DETIK LAYAR KOSONG. Lalu: sumbu bulan tertinggal sampai babak
+dua persegi dan babak tiga pertanyaan, membantah gambarnya; panel masih menulis
+rumus babak sebelumnya; label "2 kali" di bawah persegi kecil terbaca seolah
+persegi kecil itu yang dua kali lipat; tiga pertanyaan penutup ditulis sebagai
+kalimat penuh, yaitu pengulangan mentah subtitle; tiga baris itu bertumpuk
+karena grup diputar SESUDAH ditaruh; grafik suhu tampil tanpa sumbu berangka;
+label "harus disebut" ditembus garis sumbu.
+
+## Naskah yang diubah karena gambarnya tidak jujur
+
+Naskah Materi 11 versi pertama menjanjikan "tiap residu jadi sisi sebuah
+persegi", meniru Materi 08. Di sini residunya terlalu kecil: persegi bersisi
+segitu cuma beberapa piksel, dan menggambarnya di skala lain berarti persegi
+yang sisinya BUKAN residu. Yang saya ubah naskahnya, bukan gambarnya dipaksakan.
+
+## Cacat yang TERSISA, disebut bukan didiamkan
+
+1. **Bingkai bagian atas longgar di keempat video.** Jalur panel memakan layar
+   y di atas 1,10 dan jalur subtitle memakan y di bawah -2,55, jadi dunia cuma
+   boleh memakai 46 persen tinggi layar. Gambarnya benar, tetapi komposisinya
+   berat ke bawah. Ini harga tata letak versi 2, bukan kesalahan adegan.
+2. **Residu di Materi 11 tetap cuma 15 piksel.** Itu memang kenyataan datanya
+   (korelasinya 0,98, garisnya sangat pas). Dibuat sebagai bilah berisi supaya
+   terbaca; kalau ARYA ingin lebih besar, jalannya memperbesar kamera untuk
+   babak residu saja, dan itu berarti sumbunya keluar bingkai sebentar.
+3. **`alat/cek_sinkron_video.py` tidak bisa dipakai untuk keempat video ini.**
+   Polanya dikunci ke kalimat Grafik Fungsi. Sinkron dijaga lewat `sinema.babak`
+   dan selisih suara-gambar di bawah 0,25 detik.
+4. **`cek_kode` memperingatkan `ReplacementTransform` di Materi 09** pada baris
+   yang melebarkan BATANG ke tepi kelas. Peringatan itu tentang rumus, dan yang
+   ditransformasi di situ persegi panjang, jadi peringatannya tidak berlaku.
+
+## Berikutnya
+
+Keenam video Statistika selesai di 480p dan menunggu tinjauan ARYA. Sesudah
+ARYA menonton dan revisinya beres, sisanya render 1080p60 sekaligus
+(gelombang 3).
+
+---
+
+# 4 September 2026: tujuh video sisanya, jadi TIGA BELAS dari tiga belas
+
+ARYA (3 Sep malam): *"lanjut aja dlu smuanya, nnti sy revisi sekaligus, yg
+pnting formatnya 480p"*. Enam video yang ditugaskan sudah selesai, jadi
+perintah itu saya baca sebagai: buatkan video untuk tahap yang belum punya.
+Yang belum punya ada tujuh: Materi 01, 02, 03, 04, 07, 10, dan 12.
+
+**Sekarang seluruh tiga belas tahap Statistika punya video 480p.**
+
+| Materi | Judul | Durasi | Selisih suara-gambar | Render |
+|---|---|---|---|---|
+| 01 | Satu angka bisa menipu | 101,0 dtk | 0,02 dtk | 4 |
+| 02 | Dari angka jadi gambar | 121,8 dtk | 0,19 dtk | 1 |
+| 03 | Lebar kelas | 117,2 dtk | 0,17 dtk | 3 |
+| 04 | Frekuensi relatif | 107,7 dtk | 0,03 dtk | 2 |
+| 07 | Kuartil dan boxplot | 120,6 dtk | 0,22 dtk | 3 |
+| 10 | Diagram pencar | 113,4 dtk | 0,15 dtk | 1 |
+| 12 | Korelasi bukan sebab | 121,2 dtk | 0,20 dtk | 3 |
+
+## Nilai video tiap tahap tidak sama rata, dan itu saya sampaikan di muka
+
+Sebelum mulai saya bilang ke ARYA bahwa Materi 01, 03, dan 07 paling kuat untuk
+animasi, sedangkan Materi 12 paling berisiko jadi salindia bicara. Ternyata
+Materi 12 justru punya bahan terbaik yang sudah ada di halamannya sendiri:
+parabola y = x kuadrat yang hubungannya SEMPURNA sementara r-nya nol persis.
+Itu bukti bergerak, bukan daftar poin, jadi kekhawatiran saya tidak terbukti.
+
+## Tiap video dibangun dari satu PERISTIWA yang halaman tidak bisa tunjukkan
+
+- **01** Delapan titik tiap kelas MERUNTUH jadi satu titik di angka 7. Sesudah
+  meluncur, kedua kelas terlihat sama persis: itulah rupa sebuah ringkasan.
+  Lalu titiknya ditumpahkan kembali dan bedanya muncul lagi.
+- **02** Batang kategori DITUKAR tempatnya dan artinya tetap. Lalu batang
+  histogram ditukar, sumbunya berbunyi 155, 150, 160, dan gambarnya jadi omong
+  kosong. Sela antar batang berhenti jadi aturan hafalan, ia jadi tanda.
+- **03** Empat puluh titik yang sama dikelompokkan ulang tiga kali di depan
+  mata. Lebar 5 memberi tujuh batang berpola, lebar 2 bergerigi, lebar 10 cuma
+  empat batang dan polanya hilang. Tidak satu angka pun berubah.
+- **04** Dua batang setinggi jumlah siswanya DIRATAKAN jadi sama tinggi, dan
+  bagian yang tadi kalah (11 dari 25) berbalik menang atas yang tadi menang
+  (13 dari 40). Batangnya tidak dibuat ulang, batang yang sama diperas.
+- **07** Boxplot LAHIR dari datanya: lima belas titik dibelah dua, tiap belahan
+  dibelah lagi, dan kotaknya tumbuh dari Q1 ke Q3 tepat di atas titik yang
+  melahirkannya. Sesudah itu kotaknya jadi alat: lebarnya JAK, dan pagar 1,5
+  kali lebar itu menemukan pencilan 60 menit.
+- **10** Dua baris angka berdiri terpisah, lalu tiap pasangan bertemu dan turun
+  jadi satu titik. Sesudah sepuluh titik duduk, polanya kelihatan tanpa rumus.
+- **12** Parabola tujuh titik, hubungan sempurna, garis lurus terbaiknya
+  mendatar, dan r-nya nol persis.
+
+## Angka dikunci sebelum menulis satu baris pun
+
+Diperiksa ulang dengan Python terhadap halamannya: kedua kelas Materi 01 punya
+mean, median, dan modus 7 (jangkauan 2 lawan 8); tinggi badan 40 siswa
+dijangkarkan di 150 memberi 7 batang pada lebar 5 dan 4 batang pada lebar 10
+dengan yang paling kanan berisi 1; frekuensi relatif 0,44 lawan 0,325; kuartil
+10, 15, 25 dengan JAK 15 dan pagar atas 47,5; korelasi 0,98, -0,98, dan
+parabola 0,00 persis. Semuanya cocok.
+
+## Kejujuran data
+
+Awan tanpa kecenderungan di Materi 10 tidak ada di halaman, jadi saya buat
+sendiri untuk video (r = 0,03). Ia DIBERI LABEL "contoh buatan" di layar,
+sesuai aturan kejujuran data topik ini. Tidak ada data lain yang dikarang.
+
+## Naskah yang diubah karena gambarnya membantahnya
+
+Naskah Materi 03 versi pertama berbunyi "batang setinggi itu tidak muat" untuk
+batang salah setinggi 16. Setelah dirender, batang itu MUAT. Yang saya ubah
+naskahnya, bukan gambarnya dipaksakan: sekarang berbunyi luasnya jadi 4 kali 16
+sama dengan 64, dua kali lipat datanya, dan itu memang benar serta lebih tajam.
+
+## Cacat yang ditemukan, dan siapa yang menemukannya
+
+**Ditangkap gerbang, bukan mata** (render gagal, tidak ada video cacat yang
+sempat lolos): penggaris Materi 01 dan histogram Materi 03 keluar bingkai;
+angka sumbu frekuensi keluar 0,02 satuan; kurung jangkauan Materi 07 masuk
+jalur subtitle 0,02 satuan; babak buka Materi 07 melewati narasi 0,82 detik.
+
+**Ditangkap pemeriksa TULISAN buatan adegan sendiri**: tiga baris pertanyaan
+penutup bertumpuk; label rentang Materi 01 menempel angka sumbu. Gerbang ini
+tidak ada di `qc`; ia dibuat sesi ini setelah temuan Materi 06.
+
+**Ditemukan dengan MEMBUKA lembar kontak**: label angka rentang ditembus garis
+alas; contoh gabung kelas tampil tanpa sumbu berangka; skala r Materi 12
+tertinggal melayang di atas parabola; identitas Materi 12 menulis "10 siswa"
+padahal empat babak terakhir isinya parabola; panel Materi 04 dengan pecahan
+bertingkat menindih baris di bawahnya.
+
+## Dua temuan cara pakai gerbang, untuk MASTER
+
+1. **Jangan daftarkan satu KELOMPOK angka sumbu sebagai satu tulisan.** Kotak
+   batasnya selebar seluruh sumbu, jadi label apa pun yang ditaruh di dalam
+   wilayah grafik langsung dianggap bertindih, padahal tidak. Yang benar
+   mendaftarkan tiap angka sendiri-sendiri.
+2. **Tindihan di DALAM `PapanRumus` benar-benar tidak diperiksa siapa pun**,
+   dan kali ini saya sendiri kena: `f_rel = \frac{f}{n}` di Materi 04 menindih
+   baris `13 : 40 = 0,325` di bawahnya, dan rendernya sukses tanpa keluhan.
+   Selama panel belum punya pemeriksa dalam, rumus utama sebaiknya ditulis
+   mendatar (`f : n`, bukan pecahan bertingkat) kalau panelnya punya baris lain.
+
+## Jebakan ManimGL baru
+
+`GrowFromEdge` butuh argumen tepi dan tepinya di bidang xy, sedangkan batang di
+adegan MATRA berdiri di sumbu z. Dipakai lewat `LaggedStartMap` ia gagal.
+Penggantinya `tumbuh_batang` di `statistika3_lebar_kelas.py`: tumbuh dari alas
+lewat `GrowFromPoint`. Sesi lain yang menumbuhkan batang akan kena hal sama.
+
+## Cacat yang TERSISA, disebut bukan didiamkan
+
+1. **Panel Materi 10 menulis "arah, kekuatan" sampai babak penutup**, padahal
+   babak `tanpa`, `urutan`, dan `garis` sudah membahas hal lain. Kalimatnya
+   tetap benar, jadi ia basi tetapi tidak membantah gambarnya.
+2. **Sepertiga atas layar longgar di semua video**, sama seperti enam video
+   sebelumnya. Itu harga tata letak versi 2, bukan kesalahan adegan.
+3. **Materi 03 babak `salah` menyisakan sekitar 6 detik tanpa animasi baru**
+   di ujungnya. Layarnya tidak beku (dua batang tetap tampil dan narasinya
+   masih membahasnya), tetapi juga tidak berkembang.
+4. **`alat/cek_sinkron_video.py` tetap tidak bisa dipakai** untuk video topik
+   ini; polanya dikunci ke kalimat Grafik Fungsi.
+
+## Berikutnya
+
+Tiga belas video Statistika selesai di 480p dan menunggu tinjauan ARYA
+sekaligus. Sesudah revisinya beres, sisanya render 1080p60 (gelombang 3).

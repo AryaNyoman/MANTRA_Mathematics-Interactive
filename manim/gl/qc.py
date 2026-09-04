@@ -19,7 +19,12 @@ class CacatTataLetak(AssertionError):
 
 
 def _titik(mob):
-    fam = [m for m in mob.get_family() if len(m.get_points())]
+    # Alas kertas HUD (`sinema.alas_hud`) ditandai `dekorasi` dan TIDAK ikut
+    # diukur: ia sengaja dirapatkan sampai tepi bingkai supaya terbaca
+    # sebagai panel sudut, bukan stiker melayang. Yang diukur gerbang tetap
+    # tulisannya, dan tulisan itu selalu di dalam zona HUD.
+    fam = [m for m in mob.get_family()
+           if len(m.get_points()) and not getattr(m, "dekorasi", False)]
     if not fam:
         return np.zeros((0, 3))
     return np.vstack([m.get_points() for m in fam])
@@ -94,13 +99,20 @@ def jalur_bawah_kosong(frame, zona: dict, batas_atas: float = -2.55):
 
 def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: float = 0.3,
                    hud: dict | None = None, dunia: dict | None = None,
-                   jaga_jalur_bawah: bool = True):
+                   jaga_jalur_bawah: bool = True, tulisan: dict | None = None,
+                   periksa_isi: bool = True):
     """Pemeriksaan sekali jalan dari sudut kamera adegan saat ini.
 
     zona      : {"nama": mobject}, semua diperiksa agar muat di bingkai
     pasangan  : [("nama_a", "nama_b"), ...], pasangan yang tidak boleh bertindih
     hud       : {"nama": panel}, panel yang menempel di layar
     dunia     : {"nama": benda}, benda di dunia 3D
+    tulisan   : {"nama": teks}, TULISAN di dunia. Diperiksa silang satu sama lain
+                dan terhadap HUD. Benda dunia boleh bersentuhan (orang berdiri
+                di papan, label menempel di bendanya), tetapi tulisan yang
+                menindih tulisan selalu cacat.
+    periksa_isi : kelompok HUD yang bertanda `_qc_isi` (mis. `PapanRumus.semua()`)
+                diperiksa ISINYA satu sama lain, baris lawan baris.
     jaga_jalur_bawah : gagalkan render kalau ada objek masuk jalur subtitle
 
     `hud` dan `dunia` diperiksa SILANG semuanya, tidak perlu disebut satu per
@@ -108,17 +120,60 @@ def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: floa
     bilangan dan lolos, semata karena penulis adegan lupa menuliskan pasangan
     "panel B" dengan "garis B". Daftar pasangan manual selalu punya lubang;
     perkalian silang tidak.
+
+    DUA LUBANG yang ditutup 4 Sep 2026, ditemukan terpisah oleh sesi Statistika
+    dan Ruang 3D:
+    1. Dunia lawan dunia tidak diperiksa, jadi label "9 karyawan" yang duduk
+       persis di atas label x-bar lolos. Sekarang ada `tulisan=`.
+    2. Apa pun yang diserahkan sebagai SATU benda tidak diperiksa isinya, jadi
+       dua baris papan rumus yang bertindih persis lolos. Sekarang kelompok
+       yang bertanda `_qc_isi` diperiksa baris demi baris. Tanda itu dipasang
+       otomatis oleh `PapanRumus.semua()`; kelompok HUD buatan sendiri boleh
+       memasangnya juga: `g._qc_isi = True`.
     """
     frame = scene.frame
     semua = dict(zona)
     semua.update(hud or {})
     semua.update(dunia or {})
+    semua.update(tulisan or {})
     for nama, m in semua.items():
         muat_di_bingkai(frame, m, margin=margin, nama=nama)
     for a, b in pasangan or []:
         tidak_bertindih(frame, semua.get(a), semua.get(b), a, b)
     for na, pa in (hud or {}).items():
         for nd, pd in (dunia or {}).items():
+            # HUD yang punya alas kertas (`sinema.alas_hud`) boleh berdiri di
+            # atas LATAR, dan hanya latar: bidang bernomor, kisi, sumbu.
+            # Alasnya menutup garis petak di belakangnya, jadi tulisannya
+            # tetap bersih, dan bidang tidak perlu menyusut demi memesan
+            # jalur layar.
+            #
+            # Pengecualian ini SENGAJA sempit. Versi pertama melewati SEMUA
+            # pasangan begitu HUD-nya beralas, dan itu membuka lubang yang
+            # lebih buruk daripada yang ditutupnya: sebuah titik, panah, atau
+            # label yang kebetulan berada di bawah panel tidak akan pernah
+            # ketahuan, padahal gambar yang menyembunyikan isinya sendiri
+            # adalah kelas cacat yang paling merusak. Temuan MASTER 4 Sep.
+            if getattr(pa, "beralas", False) and getattr(pd, "latar", False):
+                continue
             tidak_bertindih(frame, pa, pd, na, nd)
+    daftar_tulisan = list((tulisan or {}).items())
+    for i, (na, ta) in enumerate(daftar_tulisan):
+        for nb, tb in daftar_tulisan[i + 1:]:
+            tidak_bertindih(frame, ta, tb, f"tulisan {na}", f"tulisan {nb}")
+        for nh, ph in (hud or {}).items():
+            tidak_bertindih(frame, ta, ph, f"tulisan {na}", nh)
+    if periksa_isi:
+        for nama, g in (hud or {}).items():
+            if not getattr(g, "_qc_isi", False):
+                continue
+            # Alas kertas HUD (`sinema.alas_hud`) memang menindih semua
+            # baris di atasnya, itu tugasnya. Ia bertanda `dekorasi` dan
+            # tidak ikut diadu.
+            anak = [a for a in getattr(g, "submobjects", [])
+                    if not getattr(a, "dekorasi", False)]
+            for i, a in enumerate(anak):
+                for j in range(i + 1, len(anak)):
+                    tidak_bertindih(frame, a, anak[j], f"{nama} baris {i + 1}", f"{nama} baris {j + 1}")
     if jaga_jalur_bawah:
         jalur_bawah_kosong(frame, semua)

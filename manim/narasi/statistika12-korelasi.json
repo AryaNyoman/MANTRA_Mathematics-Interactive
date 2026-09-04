@@ -1,0 +1,58 @@
+{
+  "adegan": "Korelasi12",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Materi 12 Statistika. Gerak dirancang lebih dulu, dan puncaknya PARABOLA: hubungan sempurna yang r-nya nol persis. Itu bukti bergerak bahwa angka r saja tidak pernah cukup. Medan `tulis` adalah bentuk tertulis untuk subtitle.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi dua belas Statistika: *korelasi bukan sebab-akibat*. Di materi sepuluh kekuatan hubungan dibaca dengan mata. Sekarang kekuatan itu diberi angka, namanya r.",
+      "tulis": "Materi 12 Statistika: *korelasi bukan sebab-akibat*. Di Materi 10 kekuatan hubungan dibaca dengan mata. Sekarang kekuatan itu diberi angka, namanya r."
+    },
+    {
+      "id": "kuat",
+      "teks": "Ini data jam belajar dan nilai ujian dari materi sebelas. Titiknya rapat sekali ke garis, dan r nya nol koma sembilan delapan. Hampir satu, jadi hubungannya sangat kuat.",
+      "tulis": "Ini data jam belajar dan nilai ujian dari Materi 11. Titiknya rapat sekali ke garis, dan r-nya 0,98. Hampir 1, jadi hubungannya sangat kuat."
+    },
+    {
+      "id": "arah",
+      "teks": "Sekarang data lain: jam main gim dan nilai ujian. Titiknya sama rapatnya, tetapi garisnya *turun*, dan r nya minus nol koma sembilan delapan.",
+      "tulis": "Sekarang data lain: jam main gim dan nilai ujian. Titiknya sama rapatnya, tetapi garisnya *turun*, dan r-nya -0,98."
+    },
+    {
+      "id": "baca",
+      "teks": "Jadi cara membacanya begini. *Tandanya arah*, plus berarti naik dan minus berarti turun. *Besarnya kekuatan*, makin dekat ke satu makin rapat titiknya ke garis.",
+      "tulis": "Jadi cara membacanya begini. *Tandanya arah*, plus berarti naik dan minus berarti turun. *Besarnya kekuatan*, makin dekat ke 1 makin rapat titiknya ke garis."
+    },
+    {
+      "id": "kuadrat",
+      "teks": "Kuadratkan r, dan artinya jadi lebih langsung terpakai. Nol koma sembilan delapan dikuadratkan jadi nol koma sembilan tujuh. Artinya sekitar sembilan puluh tujuh persen keragaman nilai bisa dijelaskan garis itu.",
+      "tulis": "Kuadratkan r, dan artinya jadi lebih langsung terpakai. 0,98² = 0,97. Artinya sekitar 97% keragaman nilai bisa dijelaskan garis itu."
+    },
+    {
+      "id": "sisa",
+      "teks": "Sisa tiga persennya datang dari hal lain yang tidak masuk hitungan: cara belajarnya, kondisi saat ujian, soal yang kebetulan cocok. *Selalu ada yang tidak dijelaskan*.",
+      "tulis": "Sisa 3%-nya datang dari hal lain yang tidak masuk hitungan: cara belajarnya, kondisi saat ujian, soal yang kebetulan cocok. *Selalu ada yang tidak dijelaskan*."
+    },
+    {
+      "id": "jebakan",
+      "teks": "Sekarang jebakannya. Lihat tujuh titik ini: y selalu persis sama dengan x kuadrat. Tidak ada satu pun titik yang meleset. Ini hubungan yang *benar-benar sempurna*.",
+      "tulis": "Sekarang jebakannya. Lihat 7 titik ini: y selalu persis sama dengan x². Tidak ada satu pun titik yang meleset. Ini hubungan yang *benar-benar sempurna*."
+    },
+    {
+      "id": "nol",
+      "teks": "Tetapi r nya *nol*. Nol persis. Garis lurus terbaiknya mendatar, sebab r cuma mengukur kelurusan, dan pola ini melengkung setangkup.",
+      "tulis": "Tetapi r-nya *0*. Nol persis. Garis lurus terbaiknya mendatar, sebab r cuma mengukur kelurusan, dan pola ini melengkung setangkup."
+    },
+    {
+      "id": "lihat",
+      "teks": "Kalau yang dibaca cuma angkanya, hubungan sempurna ini akan dilaporkan sebagai tidak ada hubungan. Jadi aturannya: *selalu lihat gambarnya*.",
+      "tulis": "Kalau yang dibaca cuma angkanya, hubungan sempurna ini akan dilaporkan sebagai tidak ada hubungan. Jadi aturannya: *selalu lihat gambarnya*."
+    },
+    {
+      "id": "sebab",
+      "teks": "Dan yang terpenting. Korelasi sekuat apa pun *tidak membuktikan sebab-akibat*. Bisa jadi arahnya terbalik, bisa jadi ada hal ketiga yang menyebabkan keduanya, bisa jadi cuma kebetulan.",
+      "tulis": "Dan yang terpenting. Korelasi sekuat apa pun *tidak membuktikan sebab-akibat*. Bisa jadi arahnya terbalik, bisa jadi ada hal ketiga yang menyebabkan keduanya, bisa jadi cuma kebetulan."
+    }
+  ]
+}

@@ -72,13 +72,22 @@ class JarakSelaluTerpendek(AdeganMatra):
 
         # --- Babak 1: pengumuman materi, sumbu z ikut memperkenalkan arah tinggi.
         kamera.pasang_awal(frame, theta=-38, phi=72, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
-        self.add(lantai(), *papan_koor["datar"], *papan_koor["tinggi"], kubus)
+        # Cahaya dipindah ke sisi kamera dan kubus diberi bayangan lantai. Tanpa
+        # keduanya kubusnya terbaca sebagai balok gelap datar yang melayang.
+        pasang_cahaya(self)
+        bayangan = bayangan_kubus()
+        self.add(lantai(), bayangan, *papan_koor["datar"], *papan_koor["tinggi"], kubus)
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 03: Jarak selalu yang terpendek",
                                  lama=3.4, y=3.0)
             b.catat(3.4)
-            # Babak pertama HANYA judul materi (standar v2, Waktu dan sinkron).
-            # Kubus dibuat tembus pandang di babak berikutnya.
+            # Pembuka MAKSIMAL 5 detik (STANDAR butir 2, dipertegas 4 Sep):
+            # kubus pejal langsung melebur jadi rangka, bukan diam berputar
+            # belasan detik. Sebelum ini babak pembuka dan babak berikutnya
+            # sama-sama menampilkan kubus abu-abu pejal, dan itu 20 persen
+            # video habis tanpa satu pun hal baru masuk layar.
+            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka),
+                   FadeOut(bayangan), run_time=1.6)
             isi_sisa(b, kamera.sudut(frame, -26, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"kubus": kubus})
 
@@ -88,9 +97,8 @@ class JarakSelaluTerpendek(AdeganMatra):
             Line(T["B"], di_ac(x)).set_stroke(REDUP, 2.4)
             for x in (0.16, 0.30, 0.44, 0.62, 0.80)
         ])
-        jati = sinema.identitas(self, "p = l = t = 6 satuan")
+        jati = sinema.identitas(self, "panjang = lebar = tinggi = 6 satuan")
         with sinema.babak(self, "masalah", DURASI) as b:
-            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka), run_time=1.6)
             sumbu_z_pamit(b, papan_koor, 0.8)
             b.main(ShowCreation(ac), *[FadeIn(x) for x in lab.values()], run_time=1.4)
             b.main(ShowCreation(coba_coba, lag_ratio=0.25), run_time=2.0)

@@ -2,38 +2,36 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 /**
- * `label` diisi nama topik, misalnya "Trigonometri".
+ * Nav MANTRA (rancangan 3 Sep 2026, `docs/desain-mantra/HANDOFF.md`).
  *
- * Sebelumnya di sini tampil kode seperti "TRIG-10-B4". Kode itu berguna untuk
- * yang membangun situs, tapi bagi siswa ia hanya deretan huruf tanpa arti.
- * (Permintaan ARYA, 1 Sep 2026.)
+ * Satu baris yang TIDAK PERNAH membungkus: logo tetap, deretan tab boleh
+ * menyusut, label materi terakhir boleh terpotong dengan elipsis (teks
+ * lengkapnya ada di `title`), dan pil "Lanjutkan" selalu utuh. Urutan itu
+ * sengaja: yang paling berguna bagi siswa yang sedang belajar adalah tombol
+ * untuk kembali ke tempat terakhir, jadi ia tidak boleh pernah terpotong.
  *
- * REVISI 1 Sep 2026: lambangnya saja, tanpa tulisan "Matra" di sebelahnya,
- * dan ukurannya dinaikkan supaya terbaca sebagai logo, bukan ikon kecil.
- * Tulisan "Matra" di situ mengulang apa yang sudah dikatakan lambangnya.
+ * Tab aktif ditentukan dari alamat halaman, bukan dari prop, supaya tidak ada
+ * dua sumber kebenaran saat pengguna membuka tautan langsung.
  *
- * "Beranda" ditambahkan sebagai menu tersendiri. Dulu satu-satunya jalan
- * kembali ke halaman perkenalan adalah mengeklik logo, dan itu tidak terlihat
- * seperti tautan bagi orang yang belum terbiasa.
- *
- * REVISI 2 Sep 2026 (sesi UI/UX): di layar sempit isinya butuh 428 piksel
- * padahal layar HP cuma 375, jadi seluruh situs bisa digeser ke samping dan
- * lencana nama topik terpotong. Sekarang di bawah 860 piksel tautan dan
- * lencana pindah ke balik tombol tiga garis. (Keputusan ARYA, 1 Sep 2026.)
- *
- * Komponen ini jadi komponen klien karena menyimpan keadaan buka atau tutup.
- * Tanpa pustaka tambahan: satu `useState` dan satu pendengar tombol Esc.
- *
- * Di layar lebar `.nav-menu` memakai `display: contents`, artinya kotaknya
- * sendiri tidak ikut menggambar apa pun dan keempat tautan tetap menjadi
- * anak langsung baris nav persis seperti sebelumnya. Itu sebabnya tampilan
- * laptop tidak berubah sedikit pun oleh pembungkus baru ini.
+ * Di bawah 860 piksel tab pindah ke balik tombol tiga garis. Aturan itu
+ * warisan dari sesi UI/UX (2 Sep) yang menemukan isi nav butuh 428 piksel
+ * padahal layar HP 375, sehingga seluruh situs bisa digeser menyamping.
  */
-export default function Nav({ label }: { label?: string }) {
+
+const TAB = [
+  { href: '/', nama: 'Beranda' },
+  { href: '/peta-materi', nama: 'Peta Materi' },
+  { href: '/latihan', nama: 'Latihan' },
+  { href: '/tentang', nama: 'Tentang' },
+] as const
+
+export default function Nav({ label, lanjut }: { label?: string; lanjut?: string }) {
   const [buka, setBuka] = useState(false)
+  const jalur = usePathname() ?? '/'
 
   // Esc menutup menu. Tanpa ini, di layar sentuh yang memakai papan ketik
   // luar menu hanya bisa ditutup dengan menekan tombolnya lagi.
@@ -47,27 +45,48 @@ export default function Nav({ label }: { label?: string }) {
   }, [buka])
 
   const tutup = () => setBuka(false)
+  const aktif = (href: string) =>
+    href === '/' ? jalur === '/' : jalur.startsWith(href)
 
   return (
     <nav className="nav">
-      <Link href="/" className="merk" aria-label="MATRA, halaman depan" onClick={tutup}>
+      <Link
+        href="/"
+        className="merk"
+        aria-label="MANTRA, Matematika Interaktif, halaman depan"
+        onClick={tutup}
+      >
         <Image
-          src="/merek/matra-simbol.png"
+          src="/mantra/mantra-penuh.png"
           alt=""
-          width={40}
-          height={44}
+          width={160}
+          height={49}
           className="merk-ikon"
           priority
         />
       </Link>
 
       <div className="nav-menu" id="nav-menu" data-buka={buka}>
-        <Link href="/" className="on" onClick={tutup}>Beranda</Link>
-        <Link href="/#materi" onClick={tutup}>Topik</Link>
-        <Link href="/latihan" onClick={tutup}>Latihan</Link>
-        <Link href="/tentang" onClick={tutup}>Tentang</Link>
-        <span className="kode">{label ?? 'Matematika SMA'}</span>
+        {TAB.map((t) => (
+          <Link
+            key={t.href}
+            href={t.href}
+            className="nav-tab"
+            data-aktif={aktif(t.href)}
+            aria-current={aktif(t.href) ? 'page' : undefined}
+            onClick={tutup}
+          >
+            {t.nama}
+          </Link>
+        ))}
+        <span className="nav-meta" title={label ?? 'Matematika SMA · Kelas 10–12'}>
+          {label ?? 'Matematika SMA'}
+        </span>
       </div>
+
+      <Link href={lanjut ?? '/peta-materi'} className="nav-lanjut" onClick={tutup}>
+        Lanjutkan
+      </Link>
 
       <button
         type="button"

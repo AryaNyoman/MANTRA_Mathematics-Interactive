@@ -14,7 +14,7 @@
  * (halaman 168), jadi keduanya di sini selalu disebut namanya, bukan hurufnya
  * saja.
  *
- * Tahap 13 di luar kurikulum, atas permintaan file tugas MATRA-STATISTIKA.
+ * Tahap 13 di luar kurikulum, atas permintaan file tugas MANTRA-STATISTIKA.
  *
  * SELURUH ANGKA berasal dari `content/statistika/data.json` dan sudah diperiksa
  * mesin lewat `alat/cek_statistik.py` dan `alat/cek_statistik_web.mjs`.
