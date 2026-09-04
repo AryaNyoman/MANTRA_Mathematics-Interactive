@@ -48,6 +48,18 @@ Perkakasnya `manim/gl/` (sinema v2, qc, ilustrasi, kamera). Rujukan resmi:
    Tiap kalimat pembuka harus punya kejadian di layar yang sesuai kalimatnya
    (orang melangkah petak demi petak, lapangan digelar saat disebut). Tulis
    angka "detik pertama bergerak" tiap video di laporan.
+   UKURAN KEDUA, "diam terpanjang" (temuan Ruang 3D 4 Sep): jeda terpanjang
+   ketika perubahan piksel di bawah 0,5 persen DAN di bawah 300 piksel (skala
+   480p). Alatnya `alat/ukur_detik_pertama.py` (kedua ukuran, `--uji-alatnya`
+   membuktikan alatnya bisa gagal). Diam lebih dari 3 detik adalah CALON, bukan
+   vonis: layar boleh diam selama narasi membahas yang tampil, tetapi tiap
+   calon ditulis di laporan berikut kalimat narasinya. POLA YANG HARUS
+   DIHINDARI: `isi_sisa` yang menyerahkan seluruh sisa babak (5 sampai 10
+   detik) kepada SATU geseran kamera pelan tanpa kejadian; Ruang 3D
+   menemukan 25 dari 40 babaknya begitu. Kamera boleh bergeser sebagai latar,
+   tetapi tiap kalimat harus punya kejadian pada benda yang DISEBUTNYA, diikat
+   ke jam kalimat; denyut berkala tanpa kaitan kalimat adalah "napas" yang
+   dilarang butir 3.
    Pengecualian: topik yang matematikanya memang ruang (Ruang 3D, dan nanti
    Transformasi Geometri) boleh bolak-balik 3D dan 2D. Prinsipnya: matematika
    yang butuh PANJANG atau SUDUT yang akurat wajib kamera tegak lurus, sebab
