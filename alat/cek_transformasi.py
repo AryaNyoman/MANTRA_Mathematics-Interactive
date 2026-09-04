@@ -227,6 +227,18 @@ def periksa(klaim: dict) -> tuple[bool, str]:
         ok = dapat == harap
         return ok, f'dapat ({dapat[0]}, {dapat[1]})'
 
+    if j == 'jarak':
+        # Jarak antara dua titik. Dipakai untuk klaim di VIDEO, yang menyebut
+        # panjang sisi AB berubah atau tidak berubah. Angka yang diucapkan
+        # narator dan yang tertulis di panel rumus wajib lolos di sini juga,
+        # sebab video dan halaman harus menyebut angka yang sama.
+        a = titik(klaim['a'])
+        b = titik(klaim['b'])
+        kuadrat = (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2
+        dapat = math.sqrt(float(kuadrat))
+        ok = dekat(dapat, float(F(klaim['jawaban'])), 1e-9)
+        return ok, f'dapat {dapat}'
+
     if j == 'titik_pada_garis':
         # Memeriksa apakah sebuah titik benar-benar terletak pada garis
         # y = m x + c. Dipakai untuk soal yang mentransformasi GARIS, bukan

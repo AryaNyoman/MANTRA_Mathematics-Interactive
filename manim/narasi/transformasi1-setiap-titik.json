@@ -1,0 +1,58 @@
+{
+  "adegan": "TransformasiSetiapTitik",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video 01 topik Transformasi Geometri, Materi 01 'Setiap titik ikut pindah'. Standar ilustrasi v2. Pembuka 3D memakai LAPANGAN YANG DILIPAT pada sebuah garis, bukan pantulan di air. Versi air sudah dirender 4 September dan dibuang: pantulannya ditaruh di bawah permukaan air, dan permukaan air ManimGL menelan benda di bawahnya, sehingga layar tidak menampilkan pantulan apa pun sementara narasi menyebutnya. Melipat bidang pada garis adalah definisi pencerminan, dan kedua orangnya berdiri di atas tanah sehingga tidak ada yang bisa tertelan. Tiap segmen punya teks (terucap) dan tulis (tertulis, berlambang).",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Sekarang kita masuk ke materi baru: transformasi geometri. Materi pertama, *setiap titik ikut pindah*.",
+      "tulis": "Materi 01 Transformasi Geometri: *setiap titik ikut pindah*."
+    },
+    {
+      "id": "dunia",
+      "teks": "Bayangkan lapangan ini bisa dilipat, tepat pada garis putus-putus itu.",
+      "tulis": "Bayangkan lapangan ini bisa dilipat, tepat pada garis putus-putus itu."
+    },
+    {
+      "id": "sama",
+      "teks": "Orang ini akan mendarat di seberang garis lipatan. Ada *aturan* yang bekerja, dan aturannya berlaku untuk tiap titik.",
+      "tulis": "Orang ini mendarat di seberang garis lipatan. Ada *aturan* yang bekerja untuk tiap titik."
+    },
+    {
+      "id": "peta",
+      "teks": "Kita lihat dari atas, seperti peta. Satu petak sama dengan satu satuan.",
+      "tulis": "Kita lihat dari atas, seperti peta. 1 petak = 1 satuan."
+    },
+    {
+      "id": "bentuk",
+      "teks": "Bentuk huruf L ini kita sebut *prapeta*. Tiga sudutnya diberi nama A, B, dan C.",
+      "tulis": "Bentuk huruf L ini kita sebut *prapeta*. Tiga sudutnya diberi nama A, B, C."
+    },
+    {
+      "id": "pindah",
+      "teks": "Sekarang perhatikan. Bukan gambarnya yang diangkat, melainkan *setiap titik* berjalan sendiri-sendiri.",
+      "tulis": "Sekarang perhatikan. Bukan gambarnya yang diangkat, melainkan *setiap titik* berjalan sendiri."
+    },
+    {
+      "id": "enam",
+      "teks": "Ada enam garis, satu untuk tiap sudut. Titik A satu koma satu mendarat di satu koma negatif satu.",
+      "tulis": "Ada 6 garis, satu untuk tiap sudut. A(1, 1) mendarat di A'(1, -1)."
+    },
+    {
+      "id": "peta2",
+      "teks": "Hasilnya kita sebut *peta*. Gambarnya ikut pindah hanya karena semua titiknya pindah.",
+      "tulis": "Hasilnya kita sebut *peta*. Gambarnya ikut pindah karena semua titiknya pindah."
+    },
+    {
+      "id": "bukti",
+      "teks": "Belum yakin? Ganti aturannya jadi dilatasi. Sekarang jarak antartitik ikut *berubah*.",
+      "tulis": "Belum yakin? Ganti aturannya jadi dilatasi. Sekarang jarak antartitik ikut *berubah*."
+    },
+    {
+      "id": "tutup",
+      "teks": "Benda utuh yang diangkat tangan tidak mungkin berubah jarak antarbagiannya. Yang bekerja memang *aturan pada titik*.",
+      "tulis": "Benda utuh yang diangkat tangan tidak bisa berubah jaraknya. Yang bekerja *aturan pada titik*."
+    }
+  ]
+}
