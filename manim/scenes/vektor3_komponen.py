@@ -58,6 +58,16 @@ TUJUAN = np.array([MX, MY, Z])
 SUDUT = np.array([MX, 0.0, Z])          # tempat mobil berbelok
 
 BIDANG_X, BIDANG_Y = (-4.0, 6.0, 1.0), (-1.0, 5.0, 1.0)
+
+# Pembuka: garis petak naik dua tahap mengikuti kalimat narator, dan kamera
+# mulai miring TIPIS lalu mendatar tepat pada kalimat "kita lihat dari atas".
+# Sesudah pembuka 3D dipotong, kalimat itu tidak lagi menggambarkan
+# perubahan apa pun, dan gambar yang membantah narasinya dilarang STANDAR
+# butir 3. 6 derajat memendekkan satu arah 1 - cos 6 = 0,55 persen, jauh di
+# bawah yang bisa dilihat mata, dan tidak ada angka sumbu maupun panah yang
+# tampil selama kamera masih miring (syarat MASTER 4 Sep).
+GARIS_SAMAR, GARIS_SEDANG, GARIS_PENUH = 0.30, 0.55, 1.0
+MIRING_AWAL = 6.0          # derajat
 # Kamera peta dihitung `kamera.muat_datar`, tidak ditulis tangan. Yang paling
 # bawah pada `bidang_bernomor` bukan garis petak terbawah melainkan ANGKA
 # sumbunya, dan hitungan tangan sudah berkali-kali ditolak qc karenanya.
@@ -92,6 +102,7 @@ class PecahJadiKomponen(AdeganMatra):
         # tidak diubah; angka sumbu sengaja ditahan sampai babak kedua, tempat
         # narator memang menyebutnya.
         bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
+        bidang.set_stroke(opacity=GARIS_SAMAR)
         bidang.angka.set_opacity(0)
         self.add(bidang)
         # Mobilnya REDUP, bukan merah bawaannya. Merah sudah dipakai untuk
@@ -113,18 +124,55 @@ class PecahJadiKomponen(AdeganMatra):
         mobil.add_updater(taruh)
 
         pusat, tinggi = kamera.muat_datar(bidang)
-        kamera.pasang_awal(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi)
+        kamera.pasang_awal(frame, theta=0, phi=MIRING_AWAL, pusat=pusat,
+                           tinggi=tinggi * 1.06)
+
+        # Jam kalimat: tiap kejadian pembuka dipatok ke detik kalimat yang
+        # menyebutkannya. Tanpa ini `run_time` menumpuk dan gambarnya
+        # meleset beberapa detik dari narasinya.
+        JAM = sinema.jam_subtitle(TOPIK)
+
+        def saat(potongan):
+            for detik, kalimat in JAM:
+                if potongan in kalimat:
+                    return detik
+            return None
         self.add(mobil)
         # `alas=True`: tulisan HUD diberi alas kertas, jadi bidang boleh
         # memenuhi layar tanpa garis petak menembus tulisannya.
         papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True, alas=True)
 
+        # Mobilnya TIDAK bisa di-FadeIn maupun di-Indicate: pembaruannya
+        # memanggil `become`, yang menyetel ulang warna dan kepekatan tiap
+        # frame. Jadi kejadian pembukanya dipikul benda LAIN: penanda
+        # tujuan, jalur lurus yang tidak boleh dilewati, dan kedua sumbu.
+        tanda_tujuan = Circle(radius=0.20).set_stroke(REDUP, 3)
+        tanda_tujuan.move_to(TUJUAN)
+        l_tujuan_awal = sinema.label("tujuan", 22, REDUP)
+        l_tujuan_awal.move_to(TUJUAN + np.array([0.95, 0.30, 0.0]))
+        lurus = DashedLine(ASAL, TUJUAN).set_stroke(REDUP, 3)
+
         with sinema.babak(self, "sapa", DURASI) as b:
-            # Mobilnya TIDAK di-FadeIn: pembaruannya memanggil `become`, yang
-            # menyetel ulang kepekatan tiap frame, jadi FadeIn tidak terlihat.
             sinema.judul_pembuka(self, "Memecah panah jadi dua langkah", lama=3.2, y=2.4)
             b.catat(3.2)
-            b.jeda(1.0)
+            # "Sebuah mobil hendak menuju satu tempat di seberang kota."
+            b.tunggu_sampai(saat("seberang kota"))
+            b.main(bidang.animate.set_stroke(opacity=GARIS_SEDANG), run_time=1.2)
+            b.main(FadeIn(tanda_tujuan, scale=1.6), FadeIn(l_tujuan_awal),
+                   run_time=0.8)
+            # "Masalahnya, mobil tidak bisa menembus gedung." Jalur lurusnya
+            # ditarik putus-putus: itulah yang TIDAK boleh dilewati.
+            b.tunggu_sampai(saat("menembus gedung"))
+            b.main(ShowCreation(lurus), run_time=1.4)
+            # "Ia hanya boleh lewat jalan yang mendatar dan jalan yang tegak."
+            # Dua kejadian untuk dua hal yang disebut, dan warnanya sudah
+            # warna komponennya nanti: biru mendatar, merah tegak.
+            b.tunggu_sampai(saat("mendatar"))
+            b.main(FadeOut(lurus), run_time=0.5)
+            b.main(Indicate(bidang.axes[0], scale_factor=1.0, color=AKSEN2),
+                   run_time=1.1)
+            b.main(Indicate(bidang.axes[1], scale_factor=1.0, color=AKSEN),
+                   run_time=1.1)
         qc.periksa_adegan(self, {},
                           dunia={"bidang": bidang, "mobil": mobil})
 
@@ -132,11 +180,20 @@ class PecahJadiKomponen(AdeganMatra):
         # Babak 2: angka sumbu muncul, identitas dipasang
         # ==============================================================
         with sinema.babak(self, "terbang", DURASI) as b:
-            b.main(bidang.angka.animate.set_opacity(0.75), run_time=1.6)
+            # "Kita lihat kotanya dari atas": kamera mendatar, sekali, dan
+            # tidak pernah miring lagi sesudah ini.
+            b.tunggu_sampai(saat("dari atas"))
+            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
+                                tinggi=tinggi), run_time=2.0)
+            # Angka sumbu baru muncul SESUDAH kamera mendatar. Sumbu x dulu,
+            # lalu sumbu y.
+            b.main(bidang.animate.set_stroke(opacity=GARIS_PENUH), run_time=0.6)
+            b.main(bidang.angka[0].animate.set_opacity(0.75), run_time=0.8)
+            b.main(bidang.angka[1].animate.set_opacity(0.75), run_time=0.8)
+            b.main(FadeOut(tanda_tujuan), FadeOut(l_tujuan_awal), run_time=0.5)
             identitas = sinema.identitas(self, "1 petak = 1 blok", alas=True)
             identitas.set_opacity(0)
             b.main(identitas.animate.set_opacity(1), run_time=0.8)
-            b.jeda(1.2)
         # Bidang ke medan `dunia` dan identitas ke medan `hud`, BUKAN keduanya
         # ke `zona`. Hanya begitu perkalian silang hud x dunia berjalan.
         # Materi 01 pernah lolos dengan tulisan panel di atas garis petak

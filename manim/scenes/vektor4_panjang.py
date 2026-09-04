@@ -56,6 +56,16 @@ SUDUT_V = np.array([VX, 0.0, Z])        # pojok siku-siku
 VW = np.array([-3.0, 4.0, 0.0])         # (-3 4)
 
 BIDANG_X, BIDANG_Y = (-6.0, 6.0, 1.0), (-1.0, 5.0, 1.0)
+
+# Pembuka: garis petak naik dua tahap mengikuti kalimat narator, dan kamera
+# mulai miring TIPIS lalu mendatar tepat pada kalimat "kita lihat dari atas".
+# Sesudah pembuka 3D dipotong, kalimat itu tidak lagi menggambarkan
+# perubahan apa pun, dan gambar yang membantah narasinya dilarang STANDAR
+# butir 3. 6 derajat memendekkan satu arah 1 - cos 6 = 0,55 persen, jauh di
+# bawah yang bisa dilihat mata, dan tidak ada angka sumbu maupun panah yang
+# tampil selama kamera masih miring (syarat MASTER 4 Sep).
+GARIS_SAMAR, GARIS_SEDANG, GARIS_PENUH = 0.30, 0.55, 1.0
+MIRING_AWAL = 6.0          # derajat
 # Kamera peta dihitung `kamera.muat_datar`, tidak ditulis tangan: yang paling
 # bawah pada `bidang_bernomor` adalah ANGKA sumbunya, bukan garis petak
 # terbawah, dan hitungan tangan berkali-kali ditolak qc karenanya.
@@ -89,6 +99,7 @@ class PanjangPanah(AdeganMatra):
         # tidak diubah; angka sumbu sengaja ditahan sampai babak kedua, tempat
         # narator memang menyebutnya.
         bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
+        bidang.set_stroke(opacity=GARIS_SAMAR)
         bidang.angka.set_opacity(0)
         self.add(bidang)
 
@@ -104,19 +115,42 @@ class PanjangPanah(AdeganMatra):
         kabel.set_stroke(TINTA, 2.5)
 
         pusat, tinggi = kamera.muat_datar(bidang)
-        kamera.pasang_awal(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi)
+        kamera.pasang_awal(frame, theta=0, phi=MIRING_AWAL, pusat=pusat,
+                           tinggi=tinggi * 1.06)
+
+        # Jam kalimat: tiap kejadian pembuka dipatok ke detik kalimat yang
+        # menyebutkannya. Tanpa ini `run_time` menumpuk dan gambarnya
+        # meleset beberapa detik dari narasinya.
+        JAM = sinema.jam_subtitle(TOPIK)
+
+        def saat(potongan):
+            for detik, kalimat in JAM:
+                if potongan in kalimat:
+                    return detik
+            return None
         # `alas=True`: tulisan HUD diberi alas kertas, jadi bidang boleh
         # memenuhi layar tanpa garis petak menembus tulisannya.
         papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True, alas=True)
 
         with sinema.babak(self, "sapa", DURASI) as b:
-            self.add(tiang1, tiang2, kabel)
-            b.main(FadeIn(tiang1, scale=1.5), FadeIn(tiang2, scale=1.5),
-                   run_time=0.6)
-            b.main(ShowCreation(kabel), run_time=0.8)
             sinema.judul_pembuka(self, "Panjang panah itu Pythagoras", lama=3.2, y=2.4)
             b.catat(3.2)
-            b.jeda(1.0)
+            # "Dua tiang berdiri di lapangan."
+            b.tunggu_sampai(saat("Dua tiang"))
+            b.main(bidang.animate.set_stroke(opacity=GARIS_SEDANG), run_time=1.0)
+            self.add(tiang1, tiang2)
+            b.main(FadeIn(tiang1, scale=1.5), FadeIn(tiang2, scale=1.5),
+                   run_time=0.8)
+            # "dan kita harus membentang kabel lurus di antara keduanya."
+            b.tunggu_sampai(saat("membentang kabel"))
+            self.add(kabel)
+            b.main(ShowCreation(kabel), run_time=1.6)
+            # "Pertanyaannya: berapa meter kabel yang perlu disiapkan?"
+            # Kabelnya berdenyut: yang ditanya panjang BENDA itu.
+            b.tunggu_sampai(saat("berapa meter"))
+            for _ in range(2):
+                b.main(Indicate(kabel, scale_factor=1.0, color=SOROT),
+                       run_time=1.0)
         qc.periksa_adegan(self, {},
                           dunia={"bidang": bidang, "tiang 1": tiang1,
                                  "tiang 2": tiang2})
@@ -125,12 +159,18 @@ class PanjangPanah(AdeganMatra):
         # Babak 2: angka sumbu muncul, identitas dipasang
         # ==============================================================
         with sinema.babak(self, "terbang", DURASI) as b:
-            b.main(bidang.angka.animate.set_opacity(0.75), run_time=1.6)
+            # "Kita lihat dari atas": kamera mendatar sekali, lalu angka.
+            b.tunggu_sampai(saat("dari atas"))
+            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
+                                tinggi=tinggi), run_time=1.8)
+            b.main(bidang.animate.set_stroke(opacity=GARIS_PENUH), run_time=0.5)
+            b.main(bidang.angka[0].animate.set_opacity(0.75), run_time=0.7)
+            b.main(bidang.angka[1].animate.set_opacity(0.75), run_time=0.7)
             b.main(FadeOut(kabel), FadeOut(tiang1), FadeOut(tiang2),
-                   run_time=0.8)
+                   run_time=0.6)
             identitas = sinema.identitas(self, "1 petak = 1 meter", alas=True)
             identitas.set_opacity(0)
-            b.main(identitas.animate.set_opacity(1), run_time=0.8)
+            b.main(identitas.animate.set_opacity(1), run_time=0.7)
         # Bidang ke `dunia`, identitas ke `hud`. Hanya begitu perkalian
         # silang hud x dunia di `periksa_adegan` berjalan; menaruh keduanya
         # di `zona` membuat gerbang diam saat petak menembus tulisan.
