@@ -40,7 +40,8 @@ type Props = {
  * Berkasnya dibuat otomatis dari durasi suara yang sudah terukur, jadi
  * waktunya sama persis dengan narasi dan animasinya.
  */
-const berkasSubtitle = (berkas: string) => berkas.replace(/\.webm$/, '.vtt')
+// Video tinjauan 480p berformat .mp4 (4 Sep 2026); subtitle-nya tetap .vtt.
+const berkasSubtitle = (berkas: string) => berkas.replace(/\.(webm|mp4)$/, '.vtt')
 
 const KUNCI_UKURAN = 'matra:subtitle:ukuran'
 const UKURAN = [85, 100, 125, 155] as const
@@ -167,7 +168,9 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
         poster={poster ? `/anim/${poster}` : undefined}
         aria-label={judul}
       >
-        <source src={`/anim/${berkas}`} type="video/webm" />
+        {/* Jenis MIME mengikuti ekstensinya. Kalau dipatok "video/webm" untuk
+            berkas .mp4, peramban menolak sumbernya sebelum mencoba memutar. */}
+        <source src={`/anim/${berkas}`} type={berkas.endsWith('.mp4') ? 'video/mp4' : 'video/webm'} />
         <track
           kind="subtitles"
           src={`/anim/${berkasSubtitle(berkas)}`}

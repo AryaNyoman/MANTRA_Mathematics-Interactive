@@ -169,6 +169,7 @@ export const TAHAP: TahapTransformasi[] = [
       'Gambar ikut pindah karena semua titiknya pindah, bukan sebaliknya.',
     ],
     widget: 'papan-bebas',
+    video: { berkas: 'transformasi1-setiap-titik.mp4', poster: 'transformasi1-setiap-titik.jpg' },
     siap: true,
   },
 
@@ -329,6 +330,7 @@ export const TAHAP: TahapTransformasi[] = [
       'Angka 2k datang dari menghitung jaraknya lalu menambahkannya kembali, bukan dari hafalan.',
     ],
     widget: 'cermin-lurus',
+    video: { berkas: 'transformasi2-cermin-garis.mp4', poster: 'transformasi2-cermin-garis.jpg' },
     siap: true,
   },
 
@@ -607,6 +609,7 @@ export const TAHAP: TahapTransformasi[] = [
       'Pusat yang bukan titik asal dikerjakan tiga langkah: geser, putar, geser kembali.',
     ],
     widget: 'putar-bentuk',
+    video: { berkas: 'transformasi3-rotasi.mp4', poster: 'transformasi3-rotasi.jpg' },
     siap: true,
   },
 
@@ -696,6 +699,7 @@ export const TAHAP: TahapTransformasi[] = [
       'Ini satu-satunya dari lima transformasi yang mengubah ukuran.',
     ],
     widget: 'perbesar-bentuk',
+    video: { berkas: 'transformasi4-dilatasi.mp4', poster: 'transformasi4-dilatasi.jpg' },
     siap: true,
   },
 
@@ -1211,6 +1215,7 @@ export const TAHAP: TahapTransformasi[] = [
       'Translasi tidak bisa digabungkan lewat perkalian, sebab ia penjumlahan.',
     ],
     widget: 'urutan-matriks',
+    video: { berkas: 'transformasi6-urutan.mp4', poster: 'transformasi6-urutan.jpg' },
     siap: true,
   },
 

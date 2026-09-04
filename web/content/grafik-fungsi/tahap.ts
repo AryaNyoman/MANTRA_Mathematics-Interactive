@@ -282,6 +282,7 @@ export const TAHAP: TahapGrafik[] = [
       isi: 'Justru ke kanan. Yang menentukan letak puncak bukan tanda yang tertulis, melainkan nilai x yang membuat isi kurungnya menjadi nol. Pada (x - 3)², isi kurungnya nol saat x = 3, jadi puncaknya di kanan. Pada (x + 3)², isi kurungnya nol saat x = -3, jadi puncaknya di kiri. Aturan ini akan muncul lagi di tahap 6 dalam bentuk yang lebih umum, dan berlaku untuk semua fungsi, bukan cuma parabola.',
     },
     widget: 'bentuk-puncak',
+    video: { berkas: 'grafik3-puncak.mp4', poster: 'grafik3-puncak.jpg' },
     siap: true,
   },
 
@@ -562,6 +563,7 @@ export const TAHAP: TahapGrafik[] = [
       isi: 'Godaannya kuat karena mengalikan dua di mana pun biasanya berarti membesarkan, dan itu benar untuk angka yang di LUAR kurung. Di dalam kurung akibatnya justru terbalik: hasilnya setengahnya. Angka 2 mengalikan x sebelum masuk mesin, jadi mesinnya mencapai nilai yang sama pada x yang setengahnya, dan seluruh kejadian pada grafik terjadi lebih awal. Cek cepat pada f(x) = x²: nilai 4 muncul di x = 2, tetapi pada f(2x) nilai 4 sudah muncul di x = 1. Yang membuat grafik dua kali lebih lebar justru f(x/2), karena di situ x dibagi dua dulu.',
     },
     widget: 'papan-transformasi',
+    video: { berkas: 'grafik6-transformasi.mp4', poster: 'grafik6-transformasi.jpg' },
     siap: true,
   },
 
