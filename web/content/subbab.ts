@@ -125,6 +125,29 @@ export const BAB: Bab[] = [
       { huruf: 'D', nama: 'Penerapan', nomor: [10] },
     ],
   },
+  {
+    // Topik ketujuh, ditambahkan ARYA 3 Sep 2026. Pemetaan dari sesi
+    // Transformasi Geometri (4 Sep): bagian A buku (transformasi pada bidang
+    // Kartesius) jadi sub-bab A, B, C; bagian B (kaitan matriks) jadi D; bagian
+    // C (komposisi dengan matriks) jadi E. Urutannya sengaja mulai dari
+    // TRANSLASI, bukan pencerminan seperti buku, supaya menyambung ke Vektor
+    // yang sudah dimiliki siswa. Sumbernya Buku Siswa Kelas XI Kurikulum
+    // Sekolah Penggerak (2021) Bab 4; berkasnya di komputer ARYA bernama
+    // "3 Dimensi.pdf", nama yang menyesatkan.
+    slug: 'transformasi-geometri',
+    no: 4,
+    kelas: 'Kelas 11',
+    urutanKelas: 10,
+    sumber: 'Buku K11 Bab 4',
+    sub: [
+      { huruf: 'A', nama: 'Prapeta, Peta, dan Translasi', nomor: [1, 2] },
+      { huruf: 'B', nama: 'Pencerminan', nomor: [3, 4, 5] },
+      { huruf: 'C', nama: 'Rotasi, Dilatasi, dan Sifatnya', nomor: [6, 7, 8] },
+      { huruf: 'D', nama: 'Matriks Transformasi', nomor: [9, 10] },
+      { huruf: 'E', nama: 'Komposisi Transformasi', nomor: [11, 12] },
+      { huruf: 'F', nama: 'Penerapan', nomor: [13] },
+    ],
+  },
 ]
 
 export const cariBab = (slug: string) => BAB.find((b) => b.slug === slug)
