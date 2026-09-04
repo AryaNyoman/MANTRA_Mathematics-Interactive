@@ -33,6 +33,8 @@ TIGA JEBAKAN YANG SUDAH DIBAYAR MAHAL, JANGAN DIULANG
    bukan `ganti_rumus` (mengganti).
 """
 
+import math
+
 import numpy as np
 
 # `gl` sengaja TIDAK diimpor di puncak berkas.
@@ -120,6 +122,22 @@ def letak_peta(x0, x1, y0, y1):
     Label huruf kira-kira 0,4 satuan, jadi lebihkan segitu di tiap sisi yang
     berlabel.
     """
+    # KOTAKNYA DIBULATKAN KELUAR LEBIH DULU, SAMA PERSIS SEPERTI `bidang_untuk`.
+    #
+    # Ini bug yang sungguh terjadi dan lolos sampai render: video 05 memakai
+    # kotak pecahan (-1,8 sampai 1,8), `bidang_untuk` membulatkannya jadi
+    # -2 sampai 2, sedangkan fungsi ini menghitung kamera dari angka aslinya.
+    # Bidangnya jadi melebar 0,7 satuan lebih jauh daripada yang diperhitungkan
+    # kamera, masuk jalur subtitle, dan qc menggagalkan rendernya.
+    #
+    # Video 01 sampai 04 lolos bukan karena benar, melainkan karena kotaknya
+    # kebetulan sudah bulat. Kedua fungsi ini WAJIB memakai pembulatan yang
+    # sama; kalau tidak, keduanya berbicara tentang bidang yang berbeda.
+    x0, x1 = math.floor(x0), math.ceil(x1)
+    y0, y1 = math.floor(y0), math.ceil(y1)
+
+
+
     lebar = float(x1 - x0)
     tinggi_isi = float(y1 - y0)
     if lebar <= 0 or tinggi_isi <= 0:
@@ -143,8 +161,13 @@ def letak_peta(x0, x1, y0, y1):
 
 
 def bidang_untuk(x0, x1, y0, y1, langkah=1.0):
-    """Bidang bernomor yang menutupi kotak dunia, dibulatkan ke petak penuh."""
-    import math
+    """Bidang bernomor yang menutupi kotak dunia, dibulatkan ke petak penuh.
+
+    Pembulatannya WAJIB sama dengan yang dipakai `letak_peta`. Kalau berbeda,
+    kamera dan bidang berbicara tentang kotak yang berbeda, dan bidangnya bisa
+    menjorok ke jalur subtitle tanpa terdeteksi sampai render. Itu sungguh
+    terjadi pada video 05.
+    """
     from gl import ilustrasi
     return ilustrasi.bidang_bernomor(
         (math.floor(x0), math.ceil(x1), langkah),
@@ -164,16 +187,33 @@ def uji_letak():
         (-1, 7, -1, 7),      # video 03: rotasi, empat kuadran
         (0, 12, 0, 6),       # video 04: dilatasi faktor 2
         (-2, 3, -2, 3),      # video 05: persegi satuan dan kolomnya
-        (-4, 7, -4, 5),      # video 06: dua urutan komposisi
+        (-3, 4, -4, 4),      # video 06: dua urutan komposisi
+        (-1.8, 1.8, -1.3, 1.8),   # video 05 apa adanya: kotak PECAHAN
+        (0.2, 5.7, -2.4, 3.1),    # pecahan di keempat sisinya
     ]
     gagal = 0
     for x0, x1, y0, y1 in kasus:
         pusat, tinggi = letak_peta(x0, x1, y0, y1)
         s = LAYAR_TINGGI / tinggi
-        kiri = (x0 - pusat[0]) * s
-        kanan = (x1 - pusat[0]) * s
-        bawah = (y0 - pusat[1]) * s
-        atas = (y1 - pusat[1]) * s
+
+        # TEPI YANG DIUKUR ADALAH TEPI BIDANG YANG SUNGGUH DIBUAT, bukan tepi
+        # kotak yang dikirim pemanggil.
+        #
+        # Ini kekeliruan yang SAMA untuk kedua kalinya di berkas ini. Yang
+        # pertama: uji ini mengukur garis petak padahal yang keluar bingkai
+        # adalah angka sumbunya. Yang kedua: uji ini mengukur kotak pecahan
+        # yang dikirim padahal `bidang_untuk` membulatkannya keluar, sehingga
+        # bidang yang sungguh tergambar lebih lebar. Keduanya membuat uji ini
+        # melaporkan SEMUA LOLOS untuk kotak yang justru ditolak qc saat render.
+        #
+        # Pelajarannya: pemeriksa harus mengukur BENDA YANG SUNGGUH ADA di
+        # layar, bukan angka yang dipakai untuk memintanya.
+        bx0, bx1 = math.floor(x0), math.ceil(x1)
+        by0, by1 = math.floor(y0), math.ceil(y1)
+        kiri = (bx0 - pusat[0]) * s
+        kanan = (bx1 - pusat[0]) * s
+        bawah = (by0 - pusat[1]) * s
+        atas = (by1 - pusat[1]) * s
         # Yang diperiksa TEPI ANGKANYA, bukan tepi garis petaknya.
         #
         # Versi pertama uji ini memeriksa garis petak saja, dan karena itu

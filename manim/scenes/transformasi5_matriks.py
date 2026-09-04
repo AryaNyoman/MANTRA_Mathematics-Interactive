@@ -59,6 +59,23 @@ class TransformasiMatriks(AdeganMatra):
 
         asal = np.array([0.0, 0.0, 0.03])
 
+        def hud_kini():
+            """Isi HUD yang BENAR-BENAR ADA saat ini, untuk diserahkan ke qc.
+
+            `papan.semua()` mengembalikan None selama panelnya masih kosong,
+            dan qc menabrak None itu. Di video ini panelnya memang kosong
+            sampai babak "baca", sebab semua keterangan sebelum itu digambar
+            di dunia, bukan ditumpuk di panel.
+
+            Ditulis sebagai fungsi, bukan diperiksa di tiap pemanggilan qc,
+            supaya urutan babak boleh berubah tanpa menimbulkan galat ini lagi.
+            """
+            isi = {"identitas": ident}
+            papan_isi = papan.semua()
+            if papan_isi is not None:
+                isi["papan"] = papan_isi
+            return isi
+
         # --- buka -------------------------------------------------------- #
         with sinema.babak(self, "buka", DURASI) as b:
             lama = max(3.0, DURASI["buka"] - 0.6)
@@ -66,18 +83,42 @@ class TransformasiMatriks(AdeganMatra):
             b.catat(lama)
 
         # --- tumpuk dan susun: empat aturan berbentuk sama ---------------- #
+        # PANELNYA CUMA MUAT SATU RUMUS UTAMA PLUS EMPAT BARIS.
+        #
+        # Versi pertama menaruh ENAM baris di sini, dan qc menggagalkan
+        # rendernya: "papan baris 1 menindih papan baris 4". Zona rumus setinggi
+        # 2,6 satuan layar dengan jarak antarbaris 0,62, jadi baris kelima dan
+        # seterusnya jatuh keluar zona dan menimpa yang di atasnya.
+        #
+        # Kedua aturan pembuka ini sekarang tampil BESAR DI TENGAH DUNIA lalu
+        # memudar, bukan menumpuk di panel. Itu juga lebih benar sebagai
+        # sinema: keduanya keadaan "sebelum", bukan temuan yang perlu bertahan
+        # di layar sampai video habis. Panel disimpan untuk yang memang harus
+        # bertahan.
+        aturan1 = rumus(r"\text{cermin } X:\ (1)x + (0)y,\ \ (0)x + (-1)y", 32, REDUP)
+        aturan1.move_to(np.array([0.0, 0.9, 0.05]))
+        aturan2 = rumus(r"\text{rotasi } 90^\circ:\ (0)x + (-1)y,\ \ (1)x + (0)y", 32, REDUP)
+        aturan2.move_to(np.array([0.0, 0.2, 0.05]))
+        sinema.batasi_lebar(aturan1, 9.0)
+        sinema.batasi_lebar(aturan2, 9.0)
+
         with sinema.babak(self, "tumpuk", DURASI) as b:
             b.main(FadeIn(bidang), run_time=0.8)
             ident = sinema.identitas(self, "1 petak = 1 satuan")
-            papan.baris(r"\text{cermin } X:\ (1)x + (0)y,\ (0)x + (-1)y", warna=REDUP, b=b)
-        qc.periksa_adegan(self, {"identitas": ident},
-                          hud={"papan": papan.semua()}, dunia={"bidang": bidang})
+            b.main(FadeIn(aturan1, shift=0.3 * UP), run_time=1.2)
+            b.main(FadeIn(aturan2, shift=0.3 * UP), run_time=1.2)
+        qc.periksa_adegan(self, {"identitas": ident, "aturan1": aturan1},
+                          dunia={"bidang": bidang})
 
         with sinema.babak(self, "susun", DURASI) as b:
-            papan.baris(r"\text{rotasi } 90^\circ:\ (0)x + (-1)y,\ (1)x + (0)y", warna=REDUP, b=b)
-            papan.baris(r"\text{yang beda hanya empat angkanya}", warna=TINTA, b=b)
-        qc.periksa_adegan(self, {"identitas": ident},
-                          hud={"papan": papan.semua()}, dunia={"bidang": bidang})
+            # Keempat angka pengalinya disorot satu per satu, lalu kedua
+            # aturannya memudar. Sorotan itu kejadian untuk kalimat "yang beda
+            # hanya empat angkanya"; tanpanya babak ini diam 7,5 detik, dan
+            # peringatan `Babak.tutup()` menyebutkannya dengan angka.
+            b.main(Indicate(aturan1, color=AKSEN2), run_time=1.0)
+            b.main(Indicate(aturan2, color=AKSEN2), run_time=1.0)
+            b.main(FadeOut(aturan1), FadeOut(aturan2), run_time=1.2)
+        qc.periksa_adegan(self, {"identitas": ident}, dunia={"bidang": bidang})
 
         # --- persegi: bendanya muncul ------------------------------------ #
         persegi = poligon(PERSEGI, TINTA, tebal=3.2, isian=0.08)
@@ -87,7 +128,7 @@ class TransformasiMatriks(AdeganMatra):
         with sinema.babak(self, "persegi", DURASI) as b:
             b.main(ShowCreation(persegi), FadeIn(l_persegi), run_time=1.6)
         qc.periksa_adegan(self, {"persegi": persegi, "label": l_persegi},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_kini(),
                           dunia={"bidang": bidang})
 
         # --- kolom1: panah biru, peta dari (1, 0) ------------------------- #
@@ -103,7 +144,7 @@ class TransformasiMatriks(AdeganMatra):
                 run_time=1.6,
             )
         qc.periksa_adegan(self, {"persegi": persegi, "label kolom1": l_kolom1},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_kini(),
                           dunia={"bidang": bidang})
 
         # --- kolom2: panah merah, peta dari (0, 1) ------------------------ #
@@ -122,7 +163,7 @@ class TransformasiMatriks(AdeganMatra):
             self,
             {"persegi": persegi, "label kolom1": l_kolom1, "label kolom2": l_kolom2},
             [("label kolom1", "label kolom2")],
-            hud={"identitas": ident, "papan": papan.semua()},
+            hud=hud_kini(),
             dunia={"bidang": bidang},
         )
 
@@ -136,26 +177,48 @@ class TransformasiMatriks(AdeganMatra):
                 dekat=peta_persegi, papan=papan, b=b, warna=SOROT,
             )
         qc.periksa_adegan(self, {"persegi": persegi, "peta": peta_persegi},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_kini(),
                           dunia={"bidang": bidang})
 
         # --- kali: yang bertemu koordinat adalah BARIS -------------------- #
+        # Tanpa baris panel: slotnya sudah dipakai rumus utama dan tiga baris
+        # yang memang harus bertahan sampai akhir. Kalimatnya digambarkan
+        # dengan menyorot kedua panah kolom bergantian, yang justru lebih tepat
+        # daripada tulisan: yang sedang dibedakan memang kedua arah itu.
         with sinema.babak(self, "kali", DURASI) as b:
-            papan.baris(r"\text{baris} \times \text{koordinat, bukan kolom}", warna=AKSEN2, b=b)
+            b.main(Indicate(panah1_awal, color=AKSEN2), run_time=1.0)
+            b.main(Indicate(panah2_awal, color=AKSEN), run_time=1.0)
+            b.main(Indicate(persegi, color=TINTA), run_time=1.0)
         qc.periksa_adegan(self, {"persegi": persegi, "peta": peta_persegi},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_kini(),
                           dunia={"bidang": bidang})
 
         # --- kenal dan tutup: matriksnya ternyata rotasi 90 derajat ------- #
+        # PANEL DISISAKAN UNTUK MATRIKSNYA SAJA. Uji angkanya ditulis DI DUNIA.
+        #
+        # Rumus utama video ini matriks DUA BARIS, dan matriks dua baris jauh
+        # lebih tinggi daripada jarak antarslot panel yang cuma 0,62 satuan
+        # layar. Baris apa pun yang ditumpuk di bawahnya akan tertindih, dan qc
+        # menggagalkan render DUA KALI karena itu sebelum sebabnya ketemu.
+        #
+        # Panel ini memang dirancang untuk potongan pendek satu baris. Lihat
+        # cara topik lain memakainya: "modus = 7, 8", "A: 10", "13 : 40 =
+        # 0,325". Bukan untuk matriks ditambah kalimat.
+        uji = rumus(r"(3,\ 2) \to (-2,\ 3)", 34, SOROT)
+        uji.move_to(np.array([0.0, -1.05, 0.05]))
+        sinema.batasi_lebar(uji, 6.0)
+
         with sinema.babak(self, "kenal", DURASI) as b:
-            papan.baris(r"(3,\ 2) \to (-2,\ 3)", warna=SOROT, b=b)
+            b.main(FadeIn(uji, shift=0.25 * UP), run_time=1.2)
+            b.main(Indicate(uji, color=SOROT), run_time=1.0)
         qc.periksa_adegan(self, {"persegi": persegi, "peta": peta_persegi},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_kini(),
                           dunia={"bidang": bidang})
 
         with sinema.babak(self, "tutup", DURASI) as b:
             b.main(Indicate(peta_persegi, color=SOROT), run_time=1.0)
-            papan.baris(r"\text{itu rotasi } 90^\circ \text{ dari Materi 06}", warna=SOROT, b=b)
+            b.main(Indicate(uji, color=AKSEN2), run_time=1.0)
+            b.main(FadeOut(uji), run_time=0.8)
         qc.periksa_adegan(self, {"persegi": persegi, "peta": peta_persegi},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_kini(),
                           dunia={"bidang": bidang})
