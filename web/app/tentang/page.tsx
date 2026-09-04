@@ -115,26 +115,29 @@ export default function Tentang() {
         </div>
 
         <div className="kartu-penulis">
-          <Image
-            src="/mantra/undiksha.png"
-            alt="Universitas Pendidikan Ganesha"
-            width={72}
-            height={72}
-            style={{ height: 72, width: 'auto' }}
-          />
           <div>
-            <p className="nama">Nyoman Arya Sejati</p>
-            <p className="lembaga">Universitas Pendidikan Ganesha</p>
-            <a
-              className="tombol-wa-mantra"
-              href={`https://wa.me/${WA}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image src="/mantra/logo-whatsapp.png" alt="" width={20} height={20} />
-              Hubungi WhatsApp
-            </a>
+            <Image
+              src="/mantra/undiksha.png"
+              alt="Universitas Pendidikan Ganesha"
+              width={72}
+              height={72}
+              style={{ height: 56, width: 'auto' }}
+            />
+            <div>
+              <div className="kicker" style={{ color: 'var(--tinta-50)' }}>Dibuat oleh</div>
+              <p className="nama">Nyoman Arya Sejati</p>
+              <p className="lembaga">Universitas Pendidikan Ganesha</p>
+            </div>
           </div>
+          <a
+            className="tombol-wa-mantra"
+            href={`https://wa.me/${WA}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image src="/mantra/logo-whatsapp.png" alt="" width={20} height={20} />
+            Hubungi lewat WhatsApp
+          </a>
         </div>
 
         <div style={{ height: 48 }} />

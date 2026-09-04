@@ -14,6 +14,8 @@ import { langgan } from '@/lib/simpanan'
 import {
   bacaKemajuan, catatDibuka, tambahDetik, kuisTerbuka, MENIT_MINIMUM,
 } from '@/lib/kemajuan'
+import { aturSesi, lepasSesi, useSesiBelajar } from '@/lib/sesi-belajar'
+import PenggeserEmas from '@/components/mantra/PenggeserEmas'
 
 type Layar = { jenis: 'tahap'; slug: string } | { jenis: 'latihan' } | { jenis: 'kuis' }
 
@@ -102,7 +104,13 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
      serta Kuis terlihat menindih materi yang terpotong itu (temuan ARYA di
      HP, 3 Sep 2026). Rancangannya memang bukan tumpukan: "sidebar pohon
      berubah jadi laci yang digeser dari kiri" (HANDOFF bagian tampilan HP). */
-  const [laci, setLaci] = useState(false)
+  /* Laci daftar materi dan mode fokus TIDAK disimpan di sini, melainkan di
+     `lib/sesi-belajar`. Sebabnya: keduanya dikendalikan dari nav, dan nav
+     adalah komponen SAUDARA, bukan anak. Lihat catatan di berkas itu. */
+  const sesi = useSesiBelajar()
+  const laci = sesi.laci
+  const fokus = sesi.fokus
+  const setLaci = (buka: boolean) => aturSesi({ laci: buka })
   // Materi yang centangnya sedang meletup. Sekali saja, saat pertama dibuka.
   const [letup, setLetup] = useState<string | null>(null)
 
@@ -206,6 +214,41 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
     }
   }, [laci])
 
+  /* Nav perlu tahu tiga hal dari halaman ini: bahwa ia sedang di halaman
+     belajar, nomor materi yang sedang dibuka (untuk pil "Materi 03" di HP),
+     dan ke mana tombol Lanjutkan harus membawa. Diterbitkan dari sini karena
+     hanya di sini semuanya diketahui. */
+  useEffect(() => {
+    const no = tahap ? dua(tahap.no) : layar.jenis === 'latihan' ? 'LT' : 'KS'
+    const nama =
+      tahap ? `Materi ${dua(tahap.no)}` : layar.jenis === 'latihan' ? 'Latihan' : 'Kuis'
+    aturSesi({
+      aktif: true,
+      no,
+      judul: `${topik.nama} · ${nama}`,
+      judulPanjang: tahap
+        ? `${topik.nama}, Materi ${dua(tahap.no)}: ${tahap.judul}`
+        : `${topik.nama}, ${nama}`,
+      lanjut: `/topik/${topik.slug}`,
+    })
+  }, [tahap, layar, topik.nama, topik.slug])
+
+  // Saat halaman belajar ditinggalkan, nav harus kembali normal. Tanpa ini
+  // pil "Mode fokus" ikut terbawa ke Peta Materi dan beranda.
+  useEffect(() => lepasSesi, [])
+
+  // Esc keluar dari mode fokus. Ini SATU-SATUNYA jalan keluar yang selalu
+  // ada: dalam mode fokus nav tidak tergambar, jadi tombol di sana tidak
+  // bisa dipakai untuk membatalkannya.
+  useEffect(() => {
+    if (!fokus) return
+    const saatTekan = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') aturSesi({ fokus: false })
+    }
+    window.addEventListener('keydown', saatTekan)
+    return () => window.removeEventListener('keydown', saatTekan)
+  }, [fokus])
+
   // Waktu hanya bertambah selama tab benar-benar terlihat: meninggalkan
   // halaman semalaman tidak boleh dihitung sebagai membaca.
   useEffect(() => {
@@ -239,8 +282,24 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   // halaman belajar cukup satu layar. Di HP aturan ini dilepas, sebab di
   // sana kolom bertumpuk dan halaman memang harus menggulir.
   return (
-    <main className="mantra-lebar materi-satu-layar">
+    <main className="mantra-lebar materi-satu-layar" data-fokus={fokus}>
+      {/* Dipasang DI SINI, bukan di `layout.tsx`. Halaman ini dirakit di
+          balik batas Suspense, jadi komponen yang berada di luarnya sempat
+          menyentuh penggeser sebelum widgetnya selesai dihidupkan di
+          peramban, dan React melaporkannya sebagai ketidakcocokan hidrasi.
+          Dari dalam sini efeknya baru berjalan setelah widget hidup. */}
+      <PenggeserEmas />
       <div className="materi-panel">
+        {fokus && (
+          <button
+            type="button"
+            className="keluar-fokus"
+            title="Keluar mode fokus (Esc)"
+            onClick={() => aturSesi({ fokus: false })}
+          >
+            <span aria-hidden="true">✕</span>Keluar fokus <span className="tuts">Esc</span>
+          </button>
+        )}
         {/* Remah roti: kelas, bab, sub-bab, materi, lalu kemajuan di kanan. */}
         <div className="remah">
           {/* Pembuka laci daftar materi, HANYA tampil di layar HP. Di layar
@@ -495,8 +554,12 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
 
                       {tahap.seringKeliru && (
                         <div className="blok">
-                          <div className="cap merah">Sering keliru</div>
+                          {/* Label ada DI DALAM kotak, bukan di atasnya.
+                              Di luar kotak ia terbaca sebagai judul bagian
+                              baru; di dalam ia terbaca sebagai peringatan
+                              milik kotak itu. */}
                           <div className="miskon">
+                            <div className="cap merah">Sering keliru</div>
                             <b>{tahap.seringKeliru.judul}</b>
                             <p style={{ margin: '6px 0 0' }}>{tahap.seringKeliru.isi}</p>
                             {tahap.seringKeliru.sumber && (

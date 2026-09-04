@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useSyncExternalStore } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { bacaAngka, langgan, simpanAngka } from '@/lib/simpanan'
 
 /**
@@ -142,6 +142,37 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
     )
   }
 
+  /* Kalau videonya gagal dimuat, kotaknya TIDAK dibiarkan hitam tanpa
+     keterangan. Sampai 4 Sep 2026 tidak ada penanganan galat sama sekali:
+     video yang gagal meninggalkan kotak kosong, dan siswa tidak punya cara
+     tahu apakah ia harus menunggu, memuat ulang, atau memang tidak ada
+     videonya. `percobaan` dipakai sebagai `key` supaya "Coba lagi" benar
+     benar membuat elemen video baru; menyetel ulang `src` pada elemen yang
+     sama tidak selalu memicu pemuatan ulang. */
+  const [galat, setGalat] = useState(false)
+  const [percobaan, setPercobaan] = useState(0)
+
+  if (galat) {
+    return (
+      <div className="video-galat" role="alert">
+        <div>
+          <div className="judul">Videonya belum bisa diputar</div>
+          <p>Biasanya karena jaringan. Bacaannya tetap lengkap tanpa video.</p>
+          <button
+            type="button"
+            className="pil-emas"
+            onClick={() => {
+              setGalat(false)
+              setPercobaan((n) => n + 1)
+            }}
+          >
+            Coba lagi
+          </button>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div ref={bungkus} className="pemutar-bungkus">
       {/* Tanpa pembungkus tambahan di dalam: `.layar video` di globals.css
@@ -156,8 +187,9 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
           2026). `key` memaksa elemennya dibuat ulang, jadi pemilihan sumbernya
           diulang dari nol. */}
       <video
-        key={berkas}
+        key={`${berkas}-${percobaan}`}
         ref={video}
+        onError={() => setGalat(true)}
         controls
         /* Tanpa `playsInline`, Safari di iPhone merebut video ke layar penuh
            begitu ditekan. Siswa jadi kehilangan penjelasan di sebelahnya,

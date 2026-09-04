@@ -151,7 +151,7 @@ export default function ArenaLatihan({
                 {bab ? `Bab ${bab.no} · ${bab.kelas} · ` : ''}
                 {bank.length} soal
               </div>
-              <h2>Kemajuan Anda di topik ini</h2>
+              <h2>Kemajuanmu di topik ini</h2>
             </div>
             <div className="latihan-persen">{persen}%</div>
           </div>

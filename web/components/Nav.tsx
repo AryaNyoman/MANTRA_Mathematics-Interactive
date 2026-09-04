@@ -4,22 +4,30 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { aturSesi, useSesiBelajar } from '@/lib/sesi-belajar'
 
 /**
- * Nav MANTRA (rancangan 3 Sep 2026, `docs/desain-mantra/HANDOFF.md`).
+ * Nav MANTRA v2, arah "Panggung Sinema" (4 Sep 2026).
+ * Patokan: `docs/desain-mantra/MANTRA-v2.dc.html` baris 46 sampai 82.
+ *
+ * Yang berubah dari v1: nav bukan lagi kertas tembus pandang, melainkan
+ * PERMUKAAN navy. Itu keputusan rancangan yang paling menentukan rasa
+ * seluruh situs, karena nav ada di tiap halaman. Kilau yang menyapu
+ * berulang di tombol Lanjutkan dibuang: gerak berulang tanpa alasan
+ * melanggar aturan gerak v2.
  *
  * Satu baris yang TIDAK PERNAH membungkus: logo tetap, deretan tab boleh
  * menyusut, label materi terakhir boleh terpotong dengan elipsis (teks
- * lengkapnya ada di `title`), dan pil "Lanjutkan" selalu utuh. Urutan itu
- * sengaja: yang paling berguna bagi siswa yang sedang belajar adalah tombol
- * untuk kembali ke tempat terakhir, jadi ia tidak boleh pernah terpotong.
+ * lengkapnya ada di `title`), dan pil "Lanjutkan" selalu utuh.
  *
- * Tab aktif ditentukan dari alamat halaman, bukan dari prop, supaya tidak ada
- * dua sumber kebenaran saat pengguna membuka tautan langsung.
+ * Di halaman belajar isinya berbeda: pil "Lanjutkan" berganti jadi
+ * "Mode fokus", dan di HP muncul pil "Materi 03" yang membuka laci daftar
+ * materi. Nomor materinya datang dari `HalamanTopik` lewat `sesi-belajar`.
  *
- * Di bawah 860 piksel tab pindah ke balik tombol tiga garis. Aturan itu
- * warisan dari sesi UI/UX (2 Sep) yang menemukan isi nav butuh 428 piksel
- * padahal layar HP 375, sehingga seluruh situs bisa digeser menyamping.
+ * Di bawah 860 piksel tab pindah ke balik tombol dua garis yang berubah
+ * jadi tanda silang. Aturan itu warisan sesi UI/UX (2 Sep) yang menemukan
+ * isi nav butuh 428 piksel padahal layar HP 375, sehingga seluruh situs
+ * bisa digeser menyamping.
  */
 
 const TAB = [
@@ -32,6 +40,7 @@ const TAB = [
 export default function Nav({ label, lanjut }: { label?: string; lanjut?: string }) {
   const [buka, setBuka] = useState(false)
   const jalur = usePathname() ?? '/'
+  const sesi = useSesiBelajar()
 
   // Esc menutup menu. Tanpa ini, di layar sentuh yang memakai papan ketik
   // luar menu hanya bisa ditutup dengan menekan tombolnya lagi.
@@ -44,12 +53,33 @@ export default function Nav({ label, lanjut }: { label?: string; lanjut?: string
     return () => window.removeEventListener('keydown', saatTekan)
   }, [buka])
 
+  // Menu HP ditutup tiap kali alamat berubah. Tanpa ini menu tetap terbuka
+  // menutupi halaman baru yang barusan dibuka dari dalam menu itu sendiri.
+  //
+  // Lewat requestAnimationFrame, BUKAN setBuka(false) langsung: React 19
+  // melarang setState serentak di badan effect (react-hooks/set-state-in-effect)
+  // karena memicu gambar ulang berantai. Pola yang sama dipakai di
+  // `PetaMateri` dan `HalamanTopik`.
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setBuka(false))
+    return () => cancelAnimationFrame(id)
+  }, [jalur])
+
   const tutup = () => setBuka(false)
   const aktif = (href: string) =>
     href === '/' ? jalur === '/' : jalur.startsWith(href)
 
+  const diBelajar = sesi.aktif
+  const tujuanLanjut = lanjut ?? (sesi.lanjut || '/peta-materi')
+  const labelTerakhir = sesi.judul || label || 'Matematika SMA'
+  const judulTerakhir = sesi.judulPanjang || label || 'Matematika SMA, Kelas 10 sampai 12'
+
+  // Mode fokus menyembunyikan nav itu sendiri. Tombol keluarnya ada di
+  // halaman belajar, ditambah tombol Esc.
+  if (diBelajar && sesi.fokus) return null
+
   return (
-    <nav className="nav">
+    <nav className="nav" data-belajar={diBelajar} aria-label="Navigasi utama">
       <Link
         href="/"
         className="merk"
@@ -57,10 +87,10 @@ export default function Nav({ label, lanjut }: { label?: string; lanjut?: string
         onClick={tutup}
       >
         <Image
-          src="/mantra/mantra-penuh.png"
+          src="/mantra/mantra-penuh-gelap.png"
           alt=""
-          width={160}
-          height={49}
+          width={1592}
+          height={485}
           className="merk-ikon"
           priority
         />
@@ -77,26 +107,63 @@ export default function Nav({ label, lanjut }: { label?: string; lanjut?: string
             onClick={tutup}
           >
             {t.nama}
+            <span className="nav-tab-garis" aria-hidden />
           </Link>
         ))}
-        <span className="nav-meta" title={label ?? 'Matematika SMA · Kelas 10–12'}>
-          {label ?? 'Matematika SMA'}
-        </span>
+        <Link href={tujuanLanjut} className="nav-lanjut-hp" onClick={tutup}>
+          Lanjutkan{sesi.judul ? ` · ${sesi.judul}` : ''}
+        </Link>
       </div>
 
-      <Link href={lanjut ?? '/peta-materi'} className="nav-lanjut" onClick={tutup}>
-        Lanjutkan
-      </Link>
+      <span className="nav-meta" title={judulTerakhir}>
+        {labelTerakhir}
+      </span>
+
+      {diBelajar ? (
+        <button
+          type="button"
+          className="nav-lanjut nav-fokus"
+          title="Sembunyikan nav dan daftar materi (Esc untuk keluar)"
+          onClick={() => aturSesi({ fokus: true, laci: false })}
+        >
+          <span aria-hidden>&#9974;</span>Mode fokus
+        </button>
+      ) : (
+        <Link href={tujuanLanjut} className="nav-lanjut" onClick={tutup}>
+          Lanjutkan
+        </Link>
+      )}
+
+      {diBelajar && (
+        <>
+          <button
+            type="button"
+            className="nav-materi"
+            aria-label="Buka daftar materi"
+            onClick={() => aturSesi({ laci: true })}
+          >
+            Materi <span className="nav-materi-no">{sesi.no}</span>
+          </button>
+          <button
+            type="button"
+            className="nav-fokus-kecil"
+            aria-label="Mode fokus"
+            onClick={() => aturSesi({ fokus: true, laci: false })}
+          >
+            <span aria-hidden>&#9974;</span>
+          </button>
+        </>
+      )}
 
       <button
         type="button"
         className="nav-tombol"
+        data-buka={buka}
         aria-expanded={buka}
         aria-controls="nav-menu"
         aria-label={buka ? 'Tutup menu' : 'Buka menu'}
         onClick={() => setBuka((b) => !b)}
       >
-        <span aria-hidden />
         <span aria-hidden />
         <span aria-hidden />
       </button>
