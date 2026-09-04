@@ -1971,6 +1971,28 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 }
 .video-galat .pil-emas { min-height: 40px; padding: 0 18px; font-size: 13px; }
 
+/* Kisi kartu "Dibuat dengan". Dua kolom tetap memaksa kartu ketiga berdiri
+   sendirian di baris kedua; `auto-fit` membiarkan jumlah kolomnya menyesuaikan. */
+.kisi-alat {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 18px; margin-bottom: 20px;
+}
+
+/* Tulisan merek ElevenLabs, digambar dari huruf situs ini. Dua batang tegak
+   lalu namanya, tanpa jarak di antaranya, seperti lambang aslinya. */
+.merk-elevenlabs {
+  display: inline-flex; align-items: center; gap: 2.5px;
+  font-family: var(--font-sans), system-ui, sans-serif; font-weight: 700;
+  font-size: 19px; letter-spacing: -0.02em; color: var(--tinta);
+  white-space: nowrap;
+}
+.merk-elevenlabs i {
+  display: block; width: 4px; height: 17px;
+  background: currentColor; border-radius: 1px;
+}
+.merk-elevenlabs i + i { margin-right: 2px; }
+
 /* ---------- bank soal: kartu per bab (v2) ----------
    Patokan: MANTRA-v2.dc.html baris 500 sampai 512.
    Kartu ringkas, disusun dalam kisi. Versi sebelumnya satu kartu selebar
@@ -2641,8 +2663,17 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
    melebar mengikuti layar (terukur 3 Sep 2026 pada lebar 2560). */
 .materi-badan .panggung .kolom { position: relative; }
 .materi-badan .panggung .kolom.kanan { max-height: 470px; overflow-y: auto; scrollbar-width: thin; }
-.materi-badan .panggung .layar,
-.materi-badan .panggung .wadah { max-height: 330px; }
+/* Batas 330 piksel DICABUT 5 Sep 2026, bukan ditambal.
+
+   Aturan ini warisan tata letak v1, tempat kotak gambar memang harus muat
+   di panggung setinggi tetap. Di v2 kolomnya menggulir sendiri, jadi kotak
+   boleh setinggi isinya. Selama masih ada, ia menggigit dua kali: pertama
+   membuat gambar widget tumpah menimpa panel penggeser (4 Sep), lalu
+   membuat video tumpah menimpa judul materi (5 Sep, foto ARYA). Keduanya
+   sama persis polanya: kotaknya dipatok 330, isinya butuh lebih, dan
+   kotaknya tidak memotong apa pun.
+
+   Menambal satu per satu berarti menunggu gigitan ketiga. */
 @media (max-width: 860px) {
   .materi-badan .panggung {
     grid-template-columns: 1fr; padding: 14px 14px 18px;

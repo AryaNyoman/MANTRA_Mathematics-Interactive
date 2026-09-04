@@ -63,7 +63,7 @@ export default function Tentang() {
           <h2>Dibuat dengan</h2>
           <span className="rel" />
         </div>
-        <div className="kisi-dua" style={{ marginBottom: 20 }}>
+        <div className="kisi-alat">
           <article className="kartu-alat">
             <span className="plat-logo">
               <Image src="/mantra/logo-manim.png" alt="Manim" width={132} height={74} />
@@ -81,8 +81,13 @@ export default function Tentang() {
                 Indonesia, dan tiap rumus digambar dari langkah awalnya, bukan
                 ditampilkan jadi.
               </p>
-              <a href="https://github.com/3b1b/manim" target="_blank" rel="noreferrer">
-                github.com/3b1b/manim →
+              {/* Tautan ke manim.community, permintaan ARYA 5 Sep 2026.
+                  CATATAN: yang dipakai proyek ini ManimGL milik 3Blue1Brown
+                  (github.com/3b1b/manim), bukan Manim Community. Keduanya
+                  proyek berbeda dengan sejarah yang sama. ARYA mengetahui
+                  bedanya dan tetap memilih tautan ini. */}
+              <a href="https://www.manim.community/" target="_blank" rel="noreferrer">
+                manim.community →
               </a>
             </div>
           </article>
@@ -99,6 +104,36 @@ export default function Tentang() {
               </p>
               <a href="https://claude.com/product/overview/" target="_blank" rel="noreferrer">
                 claude.com →
+              </a>
+            </div>
+          </article>
+          {/* PENANDA UNTUK SESI BERIKUTNYA: sampai 5 Sep 2026 seluruh berkas
+              narasi di `manim/narasi/*.json` masih mencatat `id-ID-ArdiNeural`,
+              yaitu edge-tts milik Microsoft, BUKAN ElevenLabs. Kartu ini
+              ditulis lebih dulu atas keputusan ARYA: ia akan mengganti suara
+              videonya ke ElevenLabs, dan halaman Tentang dirapikan sekarang.
+              Begitu video dirender ulang, kartu ini jadi benar apa adanya dan
+              catatan ini boleh dihapus. */}
+          <article className="kartu-alat">
+            <span className="plat-logo">
+              {/* Tulisan merek digambar sendiri dari huruf situs ini, bukan
+                  berkas logo mereka: hasilnya tajam di layar mana pun dan
+                  tidak ada berkas pihak lain yang perlu ikut disimpan. */}
+              <span className="merk-elevenlabs" aria-hidden="true">
+                <i />
+                <i />
+                ElevenLabs
+              </span>
+            </span>
+            <div>
+              <h3>ElevenLabs</h3>
+              <p>
+                Suara narasi Bahasa Indonesia di tiap video, supaya penjelasannya
+                bisa diikuti sambil memperhatikan gambarnya, bukan sambil membaca
+                teks di layar.
+              </p>
+              <a href="https://elevenlabs.io" target="_blank" rel="noreferrer">
+                elevenlabs.io →
               </a>
             </div>
           </article>
