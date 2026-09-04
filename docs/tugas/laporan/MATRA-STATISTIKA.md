@@ -70,6 +70,55 @@ Materi 01, yang memang datar.
    (jungkat-jungkit dan botol, bukan lapangan kosong), dan 8 sampai 10 detik
    masih dalam batas pembuka yang bermakna.
 
+## Diam terpanjang: 49 calon, dan koreksi atas klaim saya sendiri
+
+Diukur 4 Sep dengan `alat/ukur_detik_pertama.py --diam 3` (versi dua ukuran dari
+sesi Ruang 3D). Daftar lengkap berikut kalimat narasinya:
+`docs/tugas/laporan/calon-diam-statistika.md`.
+
+**Ketiga belas video punya calon diam lebih dari 3 detik, empat puluh sembilan
+seluruhnya. Tidak ada satu pun yang bersih.**
+
+| Video | Diam terpanjang |
+|---|---|
+| 12 korelasi | 18,5 detik @ 30s |
+| 13 menyesatkan | 15,5 detik @ 4s |
+| 10 pencar | 10,9 detik @ 4s |
+| 07 boxplot | 9,5 detik @ 86s |
+| 02 bentuk | 9,0 detik @ 18s |
+| 03 lebar kelas | 8,4 detik @ 82s |
+| 11 regresi | 8,2 detik @ 82s |
+| 04 relatif | 8,1 detik @ 15s |
+| 09 kelompok | 7,4 detik @ 63s |
+| 01 menipu | 7,0 detik @ 65s |
+| 08 simpangan | 6,9 detik @ 18s |
+| 05 pemusatan | 6,8 detik @ 8s |
+| 06 pencilan | 5,1 detik @ 8s |
+
+**Bukan tuduhan alat.** Frame Materi 12 detik 40 dan detik 47 saya buka: identik
+piksel per piksel. Layarnya memang beku 18,5 detik sementara narator bicara.
+
+**Koreksi atas klaim saya sendiri.** Sesudah video 05 saya menulis di laporan ini
+bahwa tiap babak menyisakan "2 sampai 4 detik tanpa animasi baru", dan bahwa
+mulai video 06 saya memperbaikinya dengan merancang gerak lebih dulu. Diukur,
+ternyata TIDAK diperbaiki: video 06 masih 5,1 detik, dan video yang dibuat
+sesudahnya (02, 03, 04, 07) justru lebih buruk, 8 sampai 9,5 detik. Merancang
+gerak lebih dulu tidak cukup kalau panjangnya tidak pernah diukur terhadap
+panjang narasinya.
+
+**Akar masalahnya di `sinema.babak`, dan mengenai semua sesi.** `Babak.tutup()`
+menggagalkan render kalau animasi MELEWATI narasi, tetapi diam saja kalau
+animasi jauh lebih pendek: sisanya ditambal `wait` tanpa sepatah kata pun.
+Gerbangnya menjaga satu arah dan buta ke arah sebaliknya. Itulah kenapa cacat
+ini lolos ke tiga belas video tanpa satu pun peringatan saat render. Sudah
+diusulkan ke MASTER: peringatan (bukan penolakan) kalau animasi kurang dari
+sekitar 60 persen panjang narasi.
+
+**Perbaikannya belum dikerjakan, menunggu keputusan ARYA.** Menambal ini berarti
+menambah gerak di sebagian besar babak di tiga belas video lalu merender semuanya
+ulang. Sebagian calon memang sah menurut STANDAR butir 3 (narasi masih membahas
+yang tampil), tetapi yang di atas 8 detik sulit dibela dengan alasan itu.
+
 ## Detik pertama bergerak, ketiga belas video diukur
 
 Aturan STANDAR baru (MASTER, 4 Sep, lahir dari Vektor 06): jarak dari akhir
