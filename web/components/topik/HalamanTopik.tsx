@@ -233,8 +233,13 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
     : `Buka ${TAHAP.length} materi (${jumlahDibuka}/${TAHAP.length})` +
       (menitKurang > 0 ? ` dan baca ${MENIT_MINIMUM} menit` : '')
 
+  // `materi-satu-layar`: halaman ini TIDAK menggulir. Kotak materi mengisi
+  // sisa layar di bawah nav, dan yang menggulir hanya isi di dalamnya
+  // (daftar materi di kiri, bacaan di kanan). Permintaan ARYA 4 Sep 2026:
+  // halaman belajar cukup satu layar. Di HP aturan ini dilepas, sebab di
+  // sana kolom bertumpuk dan halaman memang harus menggulir.
   return (
-    <main className="mantra-lebar" style={{ paddingTop: 24 }}>
+    <main className="mantra-lebar materi-satu-layar">
       <div className="materi-panel">
         {/* Remah roti: kelas, bab, sub-bab, materi, lalu kemajuan di kanan. */}
         <div className="remah">
@@ -612,7 +617,6 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
           </Panggung>
         </div>
       </div>
-      <div style={{ height: 30 }} />
     </main>
   )
 }
