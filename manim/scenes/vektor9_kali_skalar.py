@@ -187,6 +187,13 @@ class KaliSkalar(AdeganMatra):
         # kanan sampai keluar bingkai. Diukur dari pesan gerbang: kelebihan
         # 0,21 satuan.
         ukur_k.move_to([6.85 - ukur_k.get_width() / 2 - 0.47, 0.62, 0]).fix_in_frame()
+        # Alasnya dipasang SENDIRI, sama seperti baris "panjang" di Materi 01.
+        # Baris ini berdiri di luar papan, jadi ia tidak ikut alas papan. Tanpa
+        # ini gerbang menolak "ukur k menindih bidang (irisan 1,48 x 0,33)":
+        # sejak bidang boleh memenuhi layar, baris ini duduk tepat di atas garis
+        # petak. Bantalan mendatar dilebihkan sebab angkanya HIDUP dan melebar
+        # satu huruf saat pengalinya negatif ("-2,0" lawan "1,0").
+        alas_ukur = sinema.alas_hud(self, ukur_k, pad_x=0.42)
 
         with sinema.babak(self, "satu", DURASI) as b:
             self.add(p_asal, p_hasil)
@@ -196,7 +203,9 @@ class KaliSkalar(AdeganMatra):
             panel_a = papan.baris(r"\vec{a} = (2\ \ 1)", AKSEN2)
             self.hud_tambah(ukur_k)
             ukur_k.set_opacity(0)
-            b.main(ukur_k.animate.set_opacity(1), run_time=0.6)
+            alas_ukur.set_opacity(0)
+            b.main(ukur_k.animate.set_opacity(1),
+                   alas_ukur.animate.set_opacity(1), run_time=0.6)
             angka_k.add_updater(lambda m: m.set_value(self.k.get_value()))
             b.jeda(0.8)
         qc.periksa_adegan(self, {},
@@ -343,7 +352,8 @@ class KaliSkalar(AdeganMatra):
         # `papan=papan`.
         with sinema.babak(self, "tutup", DURASI) as b:
             b.main(FadeOut(semua), FadeOut(papan.semua()),
-                   FadeOut(ukur_k), FadeOut(identitas), run_time=1.4)
+                   FadeOut(ukur_k), FadeOut(alas_ukur),
+                   FadeOut(identitas), run_time=1.4)
             self.hud_tambah(tutup)
             tutup.set_opacity(0)
             b.main(tutup.animate.set_opacity(1), run_time=1.8)

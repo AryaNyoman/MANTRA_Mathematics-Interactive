@@ -326,7 +326,14 @@ class PanjangPanah(AdeganMatra):
         p_sama = VGroup(*[panah(ASAL, ASAL + v, TINTA, tebal=5) for v in SAMA])
         l_sama = VGroup(
             rumus(r"(3\ \ 4)", 24, TINTA).move_to(ASAL + SAMA[0] + np.array([0.15, 0.50, 0.0])),
-            rumus(r"(4\ \ 3)", 24, TINTA).move_to(ASAL + SAMA[1] + np.array([0.95, 0.30, 0.0])),
+            # Digeser ke BAWAH ujungnya, bukan ke kanan atas. Sejak bidang
+            # boleh memenuhi layar, pojok kanan atas dunia jatuh persis di
+            # bawah plat panel rumus, dan gerbang menolaknya: "panjang w
+            # menindih label 4 3". Dihitung, bukan ditebak: pada tinggi
+            # bingkai 9,06 satuan dunia per satuan layar 1,13, tepi bawah
+            # plat ada di layar y = 1,42, sedangkan label di (4,60, 2,30)
+            # berpuncak di 1,21. Sisa 0,21 satuan.
+            rumus(r"(4\ \ 3)", 24, TINTA).move_to(ASAL + SAMA[1] + np.array([0.60, -0.70, 0.0])),
             rumus(r"(-5\ \ 0)", 24, TINTA).move_to(ASAL + SAMA[2] + np.array([-0.20, 0.55, 0.0])),
         )
         # `sinema.label` menggagalkan render kalau lebih dari dua kata, dan
