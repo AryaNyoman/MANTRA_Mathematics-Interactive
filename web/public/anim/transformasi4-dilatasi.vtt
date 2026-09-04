@@ -1,0 +1,83 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/transformasi4-dilatasi.json
+
+1
+00:00:00.000 --> 00:00:04.032
+Materi 07: memperbesar dan memperkecil.
+
+2
+00:00:04.032 --> 00:00:07.668
+Kamu memperbesar foto dengan dua jari.
+
+3
+00:00:07.668 --> 00:00:11.016
+Ada satu titik yang tidak bergerak.
+
+4
+00:00:11.016 --> 00:00:12.885
+Titik itu pusatnya.
+
+5
+00:00:12.885 --> 00:00:18.000
+Tanpa pusat, perintah <b>perbesar 2 kali</b> belum lengkap.
+
+6
+00:00:18.000 --> 00:00:20.108
+Garis tipis ini berpangkal di
+
+7
+00:00:20.108 --> 00:00:23.016
+pusat dan melewati tiap sudut bentuknya.
+
+8
+00:00:23.016 --> 00:00:27.229
+Setiap titik meluncur sepanjang garisnya sendiri,
+
+9
+00:00:27.229 --> 00:00:29.808
+tidak pernah keluar dari situ.
+
+10
+00:00:29.808 --> 00:00:35.280
+Dengan k = 2, jarak tiap titik ke pusat jadi 2 kali.
+
+11
+00:00:35.280 --> 00:00:38.016
+Sisi AB dari 5 menjadi 10.
+
+12
+00:00:38.016 --> 00:00:40.445
+Tapi luasnya bukan 2 kali.
+
+13
+00:00:40.445 --> 00:00:41.847
+Luasnya <b>4</b> kali,
+
+14
+00:00:41.847 --> 00:00:45.864
+sebab panjang dan lebar sama-sama dikali 2.
+
+15
+00:00:45.864 --> 00:00:48.915
+Ini alasan pizza berdiameter 2 kali
+
+16
+00:00:48.915 --> 00:00:51.792
+lipat berisi 4 kali lebih banyak.
+
+17
+00:00:51.792 --> 00:00:54.175
+Faktor 0,5 bekerja sebaliknya:
+
+18
+00:00:54.175 --> 00:00:57.432
+bentuknya mengecil dan mendekat ke pusat.
+
+19
+00:00:57.432 --> 00:01:01.460
+Faktor negatif melempar bentuknya menyeberangi pusat,
+
+20
+00:01:01.460 --> 00:01:02.904
+ke sisi berlawanan.

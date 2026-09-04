@@ -1,0 +1,83 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/transformasi2-cermin-garis.json
+
+1
+00:00:00.000 --> 00:00:04.440
+Materi 03: cermin pada garis tegak dan mendatar.
+
+2
+00:00:04.440 --> 00:00:07.814
+Kamu berdiri 2 meter di depan kaca.
+
+3
+00:00:07.814 --> 00:00:10.032
+Bayanganmu ada di mana?
+
+4
+00:00:10.032 --> 00:00:12.593
+2 meter di belakang kaca.
+
+5
+00:00:12.593 --> 00:00:17.304
+Bukan menempel di kacanya, bukan pula 4 meter.
+
+6
+00:00:17.304 --> 00:00:19.352
+Bentuk ini prapetanya.
+
+7
+00:00:19.352 --> 00:00:22.237
+Garis ungu tegak itu cerminnya,
+
+8
+00:00:22.237 --> 00:00:24.936
+kini berimpit dengan sumbu Y.
+
+9
+00:00:24.936 --> 00:00:28.488
+Setiap titik menyeberang ke sisi lain garis itu.
+
+10
+00:00:28.488 --> 00:00:33.148
+Dua angka yang sama di kiri dan kanan garis.
+
+11
+00:00:33.148 --> 00:00:36.960
+Jaraknya sama, jalannya <b>tegak lurus</b>.
+
+12
+00:00:36.960 --> 00:00:40.316
+Cerminnya digeser ke garis x = 5.
+
+13
+00:00:40.316 --> 00:00:45.096
+Petanya ikut pindah, kedua jaraknya tetap sama.
+
+14
+00:00:45.096 --> 00:00:47.513
+Aturannya: x menjadi 2k - x,
+
+15
+00:00:47.513 --> 00:00:50.880
+sedangkan y tidak disentuh sama sekali.
+
+16
+00:00:50.880 --> 00:00:55.280
+A(1, 2) pada garis x = 5.
+
+17
+00:00:55.280 --> 00:01:00.032
+Dua kali 5 dikurangi 1 = 9.
+
+18
+00:01:00.032 --> 00:01:02.496
+Jadi A'(9, 2).
+
+19
+00:01:02.496 --> 00:01:06.258
+Sumbu Y hanyalah kasus k = 0.
+
+20
+00:01:06.258 --> 00:01:11.448
+Untuk cermin mendatar: y menjadi 2h - y.
