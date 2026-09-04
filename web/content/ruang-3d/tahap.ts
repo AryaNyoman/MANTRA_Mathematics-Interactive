@@ -36,6 +36,7 @@ export const TAHAP: Tahap[] = [
       'Dua garis ini tampak berpotongan di gambar. Kenapa di benda aslinya tidak?',
     labelPendek: 'Gambar yang menipu',
     widget: 'kubus-putar',
+    video: { berkas: 'ruang-3d-01.mp4', poster: 'ruang-3d-01.jpg' },
     siap: true,
     penjelasan: [
       { jenis: 'sesi', judul: 'Coba dulu, baru dibahas' },
@@ -227,6 +228,7 @@ export const TAHAP: Tahap[] = [
     pertanyaan: 'Kenapa jarak harus tegak lurus? Kenapa bukan yang miring sedikit?',
     labelPendek: 'Kaki tegak lurus',
     widget: 'kaki-tegak-lurus',
+    video: { berkas: 'ruang-3d-03.mp4', poster: 'ruang-3d-03.jpg' },
     siap: true,
     penjelasan: [
       { jenis: 'sesi', judul: 'Masalahnya dulu' },
@@ -319,6 +321,7 @@ export const TAHAP: Tahap[] = [
       'Kenapa diagonal ruang kubus rusuk 1 panjangnya akar 3, bukan akar 2 ditambah 1?',
     labelPendek: 'Diagonal',
     widget: 'diagonal-kubus',
+    video: { berkas: 'ruang-3d-04.mp4', poster: 'ruang-3d-04.jpg' },
     siap: true,
     penjelasan: [
       { jenis: 'sesi', judul: 'Langkah pertama: diagonal sisi' },
@@ -512,6 +515,7 @@ export const TAHAP: Tahap[] = [
     pertanyaan: 'Bidangnya miring dan tidak menyentuh titik itu sama sekali.',
     labelPendek: 'Titik ke bidang',
     widget: 'jarak-ke-bidang',
+    video: { berkas: 'ruang-3d-06.mp4', poster: 'ruang-3d-06.jpg' },
     siap: true,
     penjelasan: [
       { jenis: 'sesi', judul: 'Soalnya' },
@@ -695,6 +699,7 @@ export const TAHAP: Tahap[] = [
       'Bagaimana mengukur sudut antara dua garis yang tidak punya titik potong?',
     labelPendek: 'Sudut bersilangan',
     widget: 'sudut-bersilangan',
+    video: { berkas: 'ruang-3d-08.mp4', poster: 'ruang-3d-08.jpg' },
     siap: true,
     penjelasan: [
       { jenis: 'sesi', judul: 'Masalahnya' },
@@ -808,6 +813,7 @@ export const TAHAP: Tahap[] = [
     pertanyaan: 'Kenapa memiringkan penggaris sedikit saja mengubah sudutnya?',
     labelPendek: 'Sudut bidang',
     widget: 'sudut-bidang',
+    video: { berkas: 'ruang-3d-09.mp4', poster: 'ruang-3d-09.jpg' },
     siap: true,
     penjelasan: [
       { jenis: 'sesi', judul: 'Bagian pertama: garis dengan bidang' },

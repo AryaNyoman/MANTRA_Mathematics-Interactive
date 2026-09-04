@@ -68,3 +68,10 @@ graphify-out/cost.json
 graphify-out/memory/
 .graphify_cache/
 graphify-out/cache/
+
+# Video 480p untuk PREVIEW Vercel: disalin dari media/uji-480p, TIDAK di-commit
+# (repo membengkak tiap render ulang). Vercel mengunggahnya dari disk lewat
+# web/.vercelignore yang menggantikan .gitignore. Berkas yang sudah dilacak
+# (beranda-*.mp4, poster lama) tidak terpengaruh.
+web/public/anim/*.mp4
+web/public/anim/*.jpg
