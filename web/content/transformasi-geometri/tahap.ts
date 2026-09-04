@@ -1129,7 +1129,6 @@ export const TAHAP: TahapTransformasi[] = [
       'Dua translasi, atau dua rotasi sepusat, boleh dibalik urutannya.',
     ],
     widget: 'dua-langkah',
-    video: { berkas: 'transformasi6-urutan.mp4', poster: 'transformasi6-urutan.jpg' },
     siap: true,
   },
 
@@ -1216,6 +1215,7 @@ export const TAHAP: TahapTransformasi[] = [
       'Translasi tidak bisa digabungkan lewat perkalian, sebab ia penjumlahan.',
     ],
     widget: 'urutan-matriks',
+    video: { berkas: 'transformasi6-urutan.mp4', poster: 'transformasi6-urutan.jpg' },
     siap: true,
   },
 
