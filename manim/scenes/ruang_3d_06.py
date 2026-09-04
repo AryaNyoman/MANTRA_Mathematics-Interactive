@@ -91,7 +91,7 @@ class JarakTitikKeBidang(AdeganMatra):
             # "dan bidang itu memotong pojok kubus seperti pisau memotong ujung
             # tahu": kameranya baru berpindah di kalimat itu, sebab justru
             # perpindahan sudutlah yang memperlihatkan potongannya.
-            b.tunggu_sampai(saat_kalimat(JAM, "dan bidang itu memotong pojok"))
+            tunggu_bergeser(b, frame, JAM, "dan bidang itu memotong pojok")
             isi_sisa(b, kamera.sudut(frame, -78, 64, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"bidang": bidang, "huruf B": lab["B"], "huruf E": lab["E"],
                                  "identitas": jati})
@@ -100,14 +100,14 @@ class JarakTitikKeBidang(AdeganMatra):
         tanda_k = penanda(self, frame, K)
         with sinema.babak(self, "tegak", DURASI) as b:
             # "Tarik ruas dari A yang tegak lurus bidang, lalu ukur sampai menembus."
-            b.tunggu_sampai(saat_kalimat(JAM, "Tarik ruas dari A"))
+            tunggu_bergeser(b, frame, JAM, "Tarik ruas dari A")
             b.main(ShowCreation(ak), run_time=1.5)
             # "Kakinya jatuh di titik K"
-            b.tunggu_sampai(saat_kalimat(JAM, "Kakinya jatuh di titik K"))
+            tunggu_bergeser(b, frame, JAM, "Kakinya jatuh di titik K")
             b.main(FadeIn(tanda_k), FadeIn(lab_k), run_time=0.9)
             # "dan K tidak punya nama di kubus ini" -> K disorot, sebab itu
             # justru pokok masalahnya.
-            b.tunggu_sampai(saat_kalimat(JAM, "dan K tidak punya nama"))
+            tunggu_bergeser(b, frame, JAM, "dan K tidak punya nama")
             b.main(Indicate(lab_k, scale_factor=1.5, color=SOROT), run_time=1.2)
             isi_sisa(b, kamera.sudut(frame, -40, 74, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"AK": ak, "huruf K": lab_k, "identitas": jati},
@@ -121,11 +121,11 @@ class JarakTitikKeBidang(AdeganMatra):
             sumbu_z_muncul(b, papan_koor, 0.8)
             # "AB, AD, dan AE sama panjang dan saling tegak lurus" -> diagonal
             # ruangnya digambar saat alasan itu diucapkan.
-            b.tunggu_sampai(saat_kalimat(JAM, "dan AE sama panjang"))
+            tunggu_bergeser(b, frame, JAM, "dan AE sama panjang")
             b.main(ShowCreation(ag), run_time=1.3)
             b.main(FadeIn(n_ag), run_time=0.7)
             # "jadi K jatuh tepat di sepertiga diagonal ruang AG"
-            b.tunggu_sampai(saat_kalimat(JAM, "jadi K jatuh tepat"))
+            tunggu_bergeser(b, frame, JAM, "jadi K jatuh tepat")
             sinema.lahir_rumus(self, r"AK = \tfrac{1}{3} AG = 2\sqrt{3}", dekat=ak,
                                papan=papan, b=b, warna=SOROT)
             isi_sisa(b, kamera.putar_pelan(frame, 22))
@@ -142,11 +142,11 @@ class JarakTitikKeBidang(AdeganMatra):
         with sinema.babak(self, "volume", DURASI) as b:
             # "hitung volume limas A.BDE dengan dua alas yang berbeda": alas
             # pertama muncul saat kalimat itu, alas kedua saat "lalu samakan".
-            b.tunggu_sampai(saat_kalimat(JAM, "hitung volume limas"))
+            tunggu_bergeser(b, frame, JAM, "hitung volume limas")
             b.main(FadeIn(alas_datar), ShowCreation(ae), run_time=1.2)
             b.main(FadeIn(n_ae), run_time=0.7)
             papan.baris(r"V = \tfrac{1}{3}\cdot 18 \cdot 6 = 36", AKSEN2, b=b)
-            b.tunggu_sampai(saat_kalimat(JAM, "lalu samakan keduanya"))
+            tunggu_bergeser(b, frame, JAM, "lalu samakan keduanya")
             b.main(alas_datar.animate.set_fill(AKSEN2, 0.10),
                    bidang.animate.set_fill(AKSEN, 0.42), run_time=1.0)
             papan.baris(r"36 = \tfrac{1}{3}\cdot 18\sqrt{3}\cdot AK", AKSEN, b=b)
@@ -163,7 +163,7 @@ class JarakTitikKeBidang(AdeganMatra):
             b.main(FadeOut(alas_datar), FadeOut(ae), FadeOut(n_ae), run_time=0.7)
             b.main(FadeIn(simpul), run_time=0.9)
             # "itu rumus volume yang dibalik" -> panel hitungannya yang disorot.
-            b.tunggu_sampai(saat_kalimat(JAM, "itu rumus volume yang dibalik"))
+            tunggu_bergeser(b, frame, JAM, "itu rumus volume yang dibalik")
             b.main(Indicate(papan.semua(), scale_factor=1.08, color=SOROT), run_time=1.3)
             isi_sisa(b, kamera.putar_pelan(frame, 16), sisakan=1.6)
             b.jeda(1.2)

@@ -51,7 +51,10 @@ def periksa(berkas: Path) -> int:
         print(f"{berkas.name}: subtitle {topik.group(1)}.vtt belum ada. "
               "Jalankan buat_subtitle.py dulu.")
         return 1
-    awalan = re.findall(r'saat_kalimat\(JAM,\s*"([^"]+)"\)', teks)
+    # Dua bentuk pemakaian: `saat_kalimat(JAM, "...")` langsung, dan
+    # pembungkusnya `tunggu_bergeser(b, frame, JAM, "...")` yang mengisi tunggu
+    # dengan geseran kamera pelan.
+    awalan = re.findall(r'(?:saat_kalimat|tunggu_bergeser)\([^)"]*"([^"]+)"\)', teks)
     if not awalan:
         print(f"{berkas.name}: tidak ada saat_kalimat, tidak ada yang diperiksa")
         return 0

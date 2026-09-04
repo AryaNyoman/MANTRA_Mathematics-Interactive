@@ -133,11 +133,11 @@ class GambarBolehBerbohong(AdeganMatra):
                            + np.array([0.0, 0.60, 0.38]), AKSEN, 28)
         with sinema.babak(self, "dua-ruas", DURASI) as b:
             # "Yang biru, BD, tergeletak di lantai kubus."
-            b.tunggu_sampai(saat_kalimat(JAM, "Yang biru"))
+            tunggu_bergeser(b, frame, JAM, "Yang biru")
             b.main(ShowCreation(bd), run_time=1.4)
             b.main(FadeIn(n_bd), run_time=0.6)
             # "Yang merah, EG, ada di atapnya, 6 satuan lebih tinggi."
-            b.tunggu_sampai(saat_kalimat(JAM, "Yang merah"))
+            tunggu_bergeser(b, frame, JAM, "Yang merah")
             b.main(ShowCreation(eg), run_time=1.4)
             b.main(FadeIn(n_eg), run_time=0.6)
             isi_sisa(b, kamera.sudut(frame, -52, 74, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
@@ -153,14 +153,14 @@ class GambarBolehBerbohong(AdeganMatra):
         with sinema.babak(self, "naik", DURASI) as b:
             # "Sekarang kamera kita naikkan, dan kita lihat kubus ini dari atas":
             # naiknya kamera dimulai TEPAT di kalimat itu.
-            b.tunggu_sampai(saat_kalimat(JAM, "Sekarang kamera kita naikkan"))
+            tunggu_bergeser(b, frame, JAM, "Sekarang kamera kita naikkan")
             isi_sisa(b, kamera.dunia_ke_peta(frame, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
                      sisakan=5.6)
             # "Perhatikan kedua ruas tadi." -> keduanya disorot saat disebut.
-            b.tunggu_sampai(saat_kalimat(JAM, "Perhatikan kedua ruas"))
+            tunggu_bergeser(b, frame, JAM, "Perhatikan kedua ruas")
             b.main(Indicate(bd, color=AKSEN2), Indicate(eg, color=AKSEN), run_time=1.3)
             # "Keduanya menyilang tepat di tengah." -> penunjuk silangnya muncul.
-            b.tunggu_sampai(saat_kalimat(JAM, "Keduanya menyilang"))
+            tunggu_bergeser(b, frame, JAM, "Keduanya menyilang")
             b.main(FadeIn(tanda_atas), run_time=1.2)
             b.jeda(1.6)
         qc.periksa_adegan(self, {"BD": bd, "EG": eg, "penunjuk": tanda_atas,
@@ -176,7 +176,7 @@ class GambarBolehBerbohong(AdeganMatra):
                                SOROT, 36)
         with sinema.babak(self, "turun", DURASI) as b:
             # "Kamera kita turunkan lagi, dan jawabannya kelihatan."
-            b.tunggu_sampai(saat_kalimat(JAM, "Kamera kita turunkan"))
+            tunggu_bergeser(b, frame, JAM, "Kamera kita turunkan")
             isi_sisa(b, kamera.sudut(frame, -30, 72, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
                      sisakan=6.6)
             sumbu_z_muncul(b, papan_koor, 0.9)
@@ -196,10 +196,10 @@ class GambarBolehBerbohong(AdeganMatra):
             b.main(FadeIn(vonis), run_time=0.9)
             # "Kubusnya sendiri sama sekali tidak berubah." -> kubusnya yang
             # disorot, sebab justru itu pokok kalimatnya.
-            b.tunggu_sampai(saat_kalimat(JAM, "Kubusnya sendiri"))
+            tunggu_bergeser(b, frame, JAM, "Kubusnya sendiri")
             b.main(Indicate(rangka, color=SOROT), run_time=1.4)
             # "yang tidak sejajar dan tidak pernah bertemu" -> kedua ruasnya.
-            b.tunggu_sampai(saat_kalimat(JAM, "yang tidak sejajar"))
+            tunggu_bergeser(b, frame, JAM, "yang tidak sejajar")
             b.main(Indicate(bd, color=AKSEN2), Indicate(eg, color=AKSEN), run_time=1.4)
             isi_sisa(b, kamera.putar_pelan(frame, 16), sisakan=1.6)
             b.jeda(1.2)

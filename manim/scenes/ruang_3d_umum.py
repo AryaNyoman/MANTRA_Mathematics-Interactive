@@ -371,6 +371,30 @@ def kaki_pada_garis(p, a, b):
     return a + t * d
 
 
+LAJU_LATAR = 1.6   # derajat per detik: geseran latar, bukan gerakan yang mencuri perhatian
+
+
+def tunggu_bergeser(b, frame, jam, awalan: str, laju: float = LAJU_LATAR):
+    """Tunggu sampai kalimat itu mulai, TETAPI kameranya bergeser pelan selama
+    menunggu, bukan layar berhenti.
+
+    `b.tunggu_sampai` diam betul-betul. Waktu kejadian mulai diikat ke jam
+    kalimat (4 Sep), diam itu justru MEMBURUKKAN keadaan: materi 01 diam
+    terpanjangnya naik dari 4,2 detik jadi 9,0 detik, sebab geseran kamera yang
+    dulu mengisi ekor babak diganti tunggu mati. Angkanya diukur dari video
+    jadi, bukan diperkirakan.
+
+    Aturan MASTER 4 Sep: geseran kamera pelan sendiri bukan dosa, yang salah
+    adalah menjadikannya SATU-SATUNYA isi 5 sampai 10 detik. Jadi kamera boleh
+    jalan sebagai latar, asal tiap kalimat tetap punya kejadian pada benda yang
+    disebutnya. Lajunya sengaja kecil (1,6 derajat per detik): cukup untuk
+    memberi rasa ruang, tidak cukup untuk mencuri perhatian dari yang dibahas.
+    """
+    sisa = saat_kalimat(jam, awalan) - b.scene.time
+    if sisa > 0.15:
+        b.main(kamera.putar_pelan(frame, laju * sisa), run_time=sisa)
+
+
 def isi_sisa(b, *animasi, minimum=2.0, maksimum=10.0, sisakan=1.0):
     """Pakai SISA waktu babak untuk satu gerakan panjang, bukan untuk diam.
 
@@ -379,8 +403,17 @@ def isi_sisa(b, *animasi, minimum=2.0, maksimum=10.0, sisakan=1.0):
     ujung. Gerakan kamera yang panjang justru dianjurkan (empat sampai sepuluh
     detik menurut ILMU-3B1B), jadi sisa itu diberikan kepadanya.
     """
-    lama = float(np.clip(b.sisa - sisakan, minimum, maksimum))
-    b.main(*animasi, run_time=lama)
+    tersedia = b.sisa - sisakan
+    if tersedia < minimum:
+        # TIDAK cukup waktu. Diam sebentar lebih baik daripada gerakan
+        # tersentak, dan jauh lebih baik daripada melewati batas babak.
+        # Sebelum ini `minimum` tetap dipaksakan walaupun sisanya kurang, dan
+        # begitu kejadian diikat ke jam kalimat (4 Sep) dua adegan langsung
+        # melewati narasinya: materi 03 babak 'masalah' kelebihan 1,39 detik
+        # dan materi 04 babak 'hitung2' kelebihan 0,38 detik. Gerbang waktu
+        # menolak keduanya, dan itu memang tugasnya.
+        return
+    b.main(*animasi, run_time=float(np.clip(tersedia, minimum, maksimum)))
 
 
 def saat_kalimat(jam, awalan: str) -> float:

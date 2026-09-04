@@ -99,7 +99,7 @@ class SudutDenganBidang(AdeganMatra):
             b.main(ShowCreation(ag), run_time=1.4)
             # "melainkan sudut antara garis itu dan bayangannya di lantai":
             # diagonalnya disorot lagi saat kalimat yang menentukan itu jalan.
-            b.tunggu_sampai(saat_kalimat(JAM, "melainkan sudut antara garis"))
+            tunggu_bergeser(b, frame, JAM, "melainkan sudut antara garis")
             b.main(Indicate(ag, color=AKSEN), run_time=1.3)
             isi_sisa(b, kamera.sudut(frame, -20, 74, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"AG": ag, "huruf G": lab["G"], "identitas": jati})
@@ -114,11 +114,11 @@ class SudutDenganBidang(AdeganMatra):
         with sinema.babak(self, "proyeksi", DURASI) as b:
             sumbu_z_muncul(b, papan_koor, 0.8)
             # "Bayangan G jatuh di C, sebab GC tegak lurus lantai."
-            b.tunggu_sampai(saat_kalimat(JAM, "Bayangan G jatuh di C"))
+            tunggu_bergeser(b, frame, JAM, "Bayangan G jatuh di C")
             b.main(ShowCreation(cg), run_time=0.9)
             b.main(ShowCreation(siku_c), run_time=0.6)
             # "Jadi bayangan AG adalah AC."
-            b.tunggu_sampai(saat_kalimat(JAM, "Jadi bayangan AG"))
+            tunggu_bergeser(b, frame, JAM, "Jadi bayangan AG")
             b.main(ShowCreation(ac), run_time=1.1)
             b.main(FadeIn(n_cg), FadeIn(n_ac), run_time=0.9)
             isi_sisa(b, kamera.sudut(frame, -52, 70, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
@@ -131,11 +131,11 @@ class SudutDenganBidang(AdeganMatra):
             # "Pada segitiga ACG yang siku-siku di C" -> busur sudutnya muncul.
             b.main(ShowCreation(busur_a), run_time=0.9)
             # "tan sudutnya sama dengan 6 dibagi 6 akar 2"
-            b.tunggu_sampai(saat_kalimat(JAM, "tan sudutnya sama dengan"))
+            tunggu_bergeser(b, frame, JAM, "tan sudutnya sama dengan")
             sinema.lahir_rumus(self, r"\tan\theta = \frac{6}{6\sqrt{2}}", dekat=cg,
                                papan=papan, b=b, warna=SOROT)
             # "Sudutnya kira-kira 35,26 derajat."
-            b.tunggu_sampai(saat_kalimat(JAM, "Sudutnya kira-kira"))
+            tunggu_bergeser(b, frame, JAM, "Sudutnya kira-kira")
             papan.baris(r"\theta \approx 35{,}26^\circ", SOROT, b=b)
             isi_sisa(b, kamera.putar_pelan(frame, 20))
         qc.periksa_adegan(self, {"panel": papan.semua(), "busur": busur_a,
@@ -160,12 +160,12 @@ class SudutDenganBidang(AdeganMatra):
             b.main(FadeOut(lama), run_time=0.5)
             papan.utama, papan.baris_lain = None, []
             # "Bidang BDG memotong lantai."
-            b.tunggu_sampai(saat_kalimat(JAM, "Bidang BDG memotong lantai"))
+            tunggu_bergeser(b, frame, JAM, "Bidang BDG memotong lantai")
             b.main(FadeIn(bidang_bdg), run_time=1.3)
             # "yaitu BD" lalu "Garis itu namanya garis potong".
-            b.tunggu_sampai(saat_kalimat(JAM, "yaitu BD"))
+            tunggu_bergeser(b, frame, JAM, "yaitu BD")
             b.main(ShowCreation(bd), run_time=0.9)
-            b.tunggu_sampai(saat_kalimat(JAM, "Garis itu namanya garis potong"))
+            tunggu_bergeser(b, frame, JAM, "Garis itu namanya garis potong")
             b.main(Indicate(bd, color=SOROT), run_time=1.2)
             isi_sisa(b, kamera.sudut(frame, -14, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"bidang": bidang_bdg, "BD": bd, "huruf A": lab2["A"],
@@ -179,12 +179,12 @@ class SudutDenganBidang(AdeganMatra):
             # "Ambil titik P tepat di tengah BD."
             b.main(FadeIn(tanda_p), FadeIn(lab_p), run_time=0.8)
             # "PC di lantai, dan PG di bidang miring."
-            b.tunggu_sampai(saat_kalimat(JAM, "PC di lantai"))
+            tunggu_bergeser(b, frame, JAM, "PC di lantai")
             b.main(ShowCreation(pc), ShowCreation(pg), run_time=1.3)
             b.main(ShowCreation(siku_p1), ShowCreation(siku_p2), run_time=0.8)
             b.main(FadeIn(n_pc), run_time=0.7)
             # "Sudut di antara keduanya, kira-kira 54,74 derajat."
-            b.tunggu_sampai(saat_kalimat(JAM, "Sudut di antara keduanya"))
+            tunggu_bergeser(b, frame, JAM, "Sudut di antara keduanya")
             b.main(ShowCreation(busur_p), run_time=0.7)
             sinema.lahir_rumus(self, r"\tan\varphi = \frac{6}{3\sqrt{2}}", dekat=pc,
                                papan=papan, b=b, warna=SOROT)
@@ -204,10 +204,10 @@ class SudutDenganBidang(AdeganMatra):
             b.main(FadeIn(syarat), run_time=0.9)
             # "tegak lurus garis potong" dan "bertumpu di satu titik yang sama":
             # dua syarat, dua sorotan, masing-masing pada kalimatnya sendiri.
-            b.tunggu_sampai(saat_kalimat(JAM, "tegak lurus garis potong"))
+            tunggu_bergeser(b, frame, JAM, "tegak lurus garis potong")
             b.main(Indicate(siku_p1, scale_factor=1.6, color=SOROT),
                    Indicate(siku_p2, scale_factor=1.6, color=SOROT), run_time=1.3)
-            b.tunggu_sampai(saat_kalimat(JAM, "dan bertumpu di satu titik"))
+            tunggu_bergeser(b, frame, JAM, "dan bertumpu di satu titik")
             b.main(Indicate(lab_p, scale_factor=1.6, color=SOROT), run_time=1.2)
             isi_sisa(b, kamera.putar_pelan(frame, 16), sisakan=1.6)
             b.jeda(1.2)

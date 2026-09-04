@@ -113,10 +113,10 @@ class JarakSelaluTerpendek(AdeganMatra):
             b.main(ShowCreation(ac), *[FadeIn(x) for x in lab.values()], run_time=1.4)
             # "Dari B ke garis itu bisa ditarik ruas sebanyak yang kita mau":
             # ruas-ruas coba-coba itu digambar TEPAT saat kalimatnya berjalan.
-            b.tunggu_sampai(saat_kalimat(JAM, "Dari B ke garis itu"))
+            tunggu_bergeser(b, frame, JAM, "Dari B ke garis itu")
             b.main(ShowCreation(coba_coba, lag_ratio=0.25), run_time=2.6)
             # "Panjangnya berbeda-beda." -> yang disorot memang berkas ruasnya.
-            b.tunggu_sampai(saat_kalimat(JAM, "Panjangnya berbeda-beda"))
+            tunggu_bergeser(b, frame, JAM, "Panjangnya berbeda-beda")
             b.main(Indicate(coba_coba, color=SOROT), run_time=1.3)
             isi_sisa(b, kamera.sudut(frame, -14, 62, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"AC": ac, "huruf A": lab["A"], "huruf C": lab["C"],
@@ -163,12 +163,12 @@ class JarakSelaluTerpendek(AdeganMatra):
         lab_r = label_hadap(frame, "R", r_letak + np.array([0.35, 0.35, 0.40]), REDUP)
         with sinema.babak(self, "kenapa", DURASI) as b:
             # "Ambil titik lain, sebut R."
-            b.tunggu_sampai(saat_kalimat(JAM, "Ambil titik lain"))
+            tunggu_bergeser(b, frame, JAM, "Ambil titik lain")
             b.main(ShowCreation(br), ShowCreation(qr), FadeIn(lab_r), run_time=1.6)
             papan.baris(r"BR^2 = BQ^2 + QR^2")
             b.catat(0.8)
             # "dan BR adalah sisi miringnya" -> sisi miring itu yang disorot.
-            b.tunggu_sampai(saat_kalimat(JAM, "dan BR adalah sisi miringnya"))
+            tunggu_bergeser(b, frame, JAM, "dan BR adalah sisi miringnya")
             b.main(Indicate(br, color=SOROT), run_time=1.3)
             isi_sisa(b, kamera.sudut(frame, -46, 70, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"BR": br, "panel": papan.semua(), "identitas": jati},
@@ -197,15 +197,15 @@ class JarakSelaluTerpendek(AdeganMatra):
             # Putarannya MULAI tepat saat naratornya menyuruh memutar, dan
             # berlangsung sampai kalimat berikutnya selesai, jadi yang dilihat
             # penonton adalah perputarannya, bukan hasilnya saja.
-            b.tunggu_sampai(saat_kalimat(JAM, "Sekarang kameranya kita putar"))
+            tunggu_bergeser(b, frame, JAM, "Sekarang kameranya kita putar")
             b.main(kamera.sudut(frame, -135, 68, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
                    run_time=7.4)
             # "dan justru karena itu sudut siku-siku di Q terlihat dalam ukuran
             # yang sebenarnya" -> tanda siku-sikunya yang disorot.
-            b.tunggu_sampai(saat_kalimat(JAM, "dan justru karena itu sudut"))
+            tunggu_bergeser(b, frame, JAM, "dan justru karena itu sudut")
             b.main(Indicate(tanda_siku, scale_factor=1.7, color=SOROT), run_time=1.4)
             # "Ingat kalimat ini sampai materi 7" -> kalimat payungnya sendiri.
-            b.tunggu_sampai(saat_kalimat(JAM, "Ingat kalimat ini"))
+            tunggu_bergeser(b, frame, JAM, "Ingat kalimat ini")
             b.main(Indicate(payung, scale_factor=1.15, color=SOROT), run_time=1.4)
             isi_sisa(b, kamera.putar_pelan(frame, 8), sisakan=1.4)
             b.jeda(1.2)
