@@ -12,7 +12,7 @@ dua langkah, mendatar lalu tegak. Dengan pengait itu siswa melihat komponen
 sebagai sesuatu yang memang terjadi, bukan aturan yang tiba-tiba ada.
 
 STORYBOARD
-   1. sapa      3D miring DEKAT: mobil di persimpangan jalan berpetak.
+   1. sapa      Bidang bernomor, tegak lurus: mobil di persimpangan jalan berpetak.
    2. terbang   Turun ke tegak lurus; bidang koordinat bernomor muncul.
    3. miring    Panah miring dari titik asal ke (3, 4): jalur kalau bisa terbang.
    4. jalan     Mobilnya benar-benar berjalan 3 ke kanan lalu 4 ke atas.
@@ -66,7 +66,8 @@ BIDANG_X, BIDANG_Y = (-4.0, 6.0, 1.0), (-1.0, 5.0, 1.0)
 # bukan dikarang: identitas satu baris berakhir sekitar y = 3,35 sehingga
 # 0,40 cukup di atas; baris panel terlebar di sini sekitar 2,5 satuan dan
 # barisnya rata kanan ke 6,73, jadi tepi kirinya sekitar 4,2.
-SISA_ATAS, SISA_KANAN = 0.40, 2.51
+# Pesanan jalur HUD DIHAPUS: sejak `sinema.alas_hud` ada, tulisan HUD
+# punya alas kertas sendiri, jadi bidang boleh memenuhi layar.
 
 
 def panah(a, b, warna, tebal=5):
@@ -82,10 +83,17 @@ class PecahJadiKomponen(AdeganMatra):
         frame = self.frame
 
         # ==============================================================
-        # Babak 1: dunia nyata, 3D, dari dekat
         # ==============================================================
-        alas = ilustrasi.tanah(14.0, 14.0, 2.0, z=-0.02)
-        jalan = VGroup(ilustrasi.lantai_kisi(12.0, 1.0)[0])
+        # Babak 1: LANGSUNG ke bidang bernomor, tanpa pembuka 3D
+        # ==============================================================
+        # STANDAR butir 2: 3D hanya di video PERTAMA tiap topik, dan untuk
+        # Vektor itu Materi 01 (perahu di air). Video ini dulu membuka dengan
+        # belasan detik lapangan kelabu yang hampir tidak bergerak. Narasinya
+        # tidak diubah; angka sumbu sengaja ditahan sampai babak kedua, tempat
+        # narator memang menyebutnya.
+        bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
+        bidang.angka.set_opacity(0)
+        self.add(bidang)
         # Mobilnya REDUP, bukan merah bawaannya. Merah sudah dipakai untuk
         # komponen tegak, dan satu warna tidak boleh punya dua makna.
         # Benda cerita netral, matematika yang berwarna.
@@ -104,36 +112,31 @@ class PecahJadiKomponen(AdeganMatra):
             m.move_to(pusat0 + np.array([self.mx.get_value(), self.my.get_value(), 0.0]))
         mobil.add_updater(taruh)
 
-        kamera.pasang_awal(frame, theta=-28, phi=66, pusat=(1.2, 1.2, 0.5), tinggi=5.2)
-        self.add(alas, jalan, mobil)
+        pusat, tinggi = kamera.muat_datar(bidang)
+        kamera.pasang_awal(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi)
+        self.add(mobil)
+        # `alas=True`: tulisan HUD diberi alas kertas, jadi bidang boleh
+        # memenuhi layar tanpa garis petak menembus tulisannya.
+        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True, alas=True)
+
         with sinema.babak(self, "sapa", DURASI) as b:
+            # Mobilnya TIDAK di-FadeIn: pembaruannya memanggil `become`, yang
+            # menyetel ulang kepekatan tiap frame, jadi FadeIn tidak terlihat.
             sinema.judul_pembuka(self, "Memecah panah jadi dua langkah", lama=3.2, y=2.4)
             b.catat(3.2)
             b.jeda(1.0)
-        qc.periksa_adegan(self, {"mobil": mobil})
+        qc.periksa_adegan(self, {},
+                          dunia={"bidang": bidang, "mobil": mobil})
 
         # ==============================================================
-        # Babak 2: turun ke tegak lurus
+        # Babak 2: angka sumbu muncul, identitas dipasang
         # ==============================================================
-        bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
-        bidang.set_opacity(0)
-        self.add(bidang)
-        self.bring_to_front(mobil)
-        # `tanpa_utama=True`: video ini tidak memakai rumus utama, semua
-        # isinya baris. Tanpa penanda itu slot teratas dipesan percuma.
-        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True)
-
         with sinema.babak(self, "terbang", DURASI) as b:
-            lama = max(2.0, DURASI["terbang"] - 3.0)
-            pusat, tinggi = kamera.muat_datar(bidang, sisa_atas=SISA_ATAS,
-                                              sisa_kanan=SISA_KANAN)
-            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
-                                tinggi=tinggi), run_time=lama)
-            b.main(FadeOut(jalan), FadeOut(alas),
-                   bidang.animate.set_opacity(1), run_time=1.4)
-            identitas = sinema.identitas(self, "1 petak = 1 blok")
+            b.main(bidang.angka.animate.set_opacity(0.75), run_time=1.6)
+            identitas = sinema.identitas(self, "1 petak = 1 blok", alas=True)
             identitas.set_opacity(0)
             b.main(identitas.animate.set_opacity(1), run_time=0.8)
+            b.jeda(1.2)
         # Bidang ke medan `dunia` dan identitas ke medan `hud`, BUKAN keduanya
         # ke `zona`. Hanya begitu perkalian silang hud x dunia berjalan.
         # Materi 01 pernah lolos dengan tulisan panel di atas garis petak

@@ -40,6 +40,14 @@ Perkakasnya `manim/gl/` (sinema v2, qc, ilustrasi, kamera). Rujukan resmi:
    mengikuti kalimat pembuka narasi (butir 3), dan tidak boleh lebih lama
    daripada kalimat itu. Peralihan 3D yang BEKERJA (lembah memudar, sumbu
    ditarik saat disebut) boleh, tetapi bagian 3D-nya tetap sekitar 5 detik.
+   UKURAN YANG DIPERIKSA: "detik pertama bergerak", yaitu jarak dari akhir kartu
+   judul sampai benda pertama bergerak atau berubah, maksimal 5 detik, di 2D
+   maupun 3D. Temuan Vektor 06 (4 Sep): pembuka 3D dipotong, lalu 25 detik
+   pertama menjadi bidang kosong dengan satu orang diam, sementara narator
+   bercerita tentang orang yang berjalan. Kekosongan cuma pindah dimensi.
+   Tiap kalimat pembuka harus punya kejadian di layar yang sesuai kalimatnya
+   (orang melangkah petak demi petak, lapangan digelar saat disebut). Tulis
+   angka "detik pertama bergerak" tiap video di laporan.
    Pengecualian: topik yang matematikanya memang ruang (Ruang 3D, dan nanti
    Transformasi Geometri) boleh bolak-balik 3D dan 2D. Prinsipnya: matematika
    yang butuh PANJANG atau SUDUT yang akurat wajib kamera tegak lurus, sebab
@@ -62,6 +70,26 @@ Perkakasnya `manim/gl/` (sinema v2, qc, ilustrasi, kamera). Rujukan resmi:
    bidang xy, sedangkan batang adegan MATRA berdiri di sumbu z, jadi ia gagal
    di dalam `LaggedStartMap`. Pakai `GrowFromPoint` dari alas batang
    (`tumbuh_batang` di `statistika3_lebar_kelas.py`).
+
+   BANGUN RUANG PEJAL (temuan Ruang 3D 4 Sep, terukur): `set_shading` ManimGL
+   LEMAH ARAH, memindah sumber cahaya saja tidak membuat kubus terlihat
+   bervolume (atap 200, muka kanan 190, beda 10 tidak terbaca). Yang bekerja:
+   terang TIAP MUKA ditentukan sendiri (`Prism` = 6 `Square3D`, warna dasar
+   dicampur LATAR untuk atap dan TINTA untuk muka samping; hasil 200/173/122,
+   tiga tingkat jelas), cahaya rendah di sisi kamera (mis. (-2, -12, 12))
+   supaya bayangan lantai wajar, dan bayangan DIHITUNG: titik sudut
+   diproyeksikan dari titik cahaya ke z = 0 lalu diambil lambung cembungnya,
+   jadi ikut bergeser kalau cahayanya digeser. Kode: `kubus_pejal` dan
+   `bayangan_kubus` di `manim/scenes/ruang_3d_umum.py`, akan dinaikkan ke
+   `gl.ilustrasi.balok`. Transformasi Geometri: pakai ini, jangan uji ulang.
+
+   JEBAKAN GERBANG (temuan Statistika 4 Sep): `qc` memakai KOTAK BATAS, dan
+   kotak batas sebuah kelompok adalah gabungan seluruh anggotanya. Dua sumbu
+   yang didaftarkan sebagai SATU benda punya kotak sebesar seluruh bidang
+   grafik, jadi panel di pojok dianggap menindihnya walau tidak ada garis yang
+   bersentuhan. Daftarkan sumbu sebagai DUA benda pipih (pita mendatar di
+   bawah, pita tegak di kiri). `alas_hud` + tanda `latar` hanya untuk tulisan
+   yang memang harus menumpang di atas kisi.
 
 4. **Label di dalam gambar maksimal dua kata**, dijaga mesin (`sinema.label`
    menggagalkan render). Rumus seperti `x = 1` dihitung satu lambang. Contoh

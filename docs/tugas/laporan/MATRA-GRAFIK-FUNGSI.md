@@ -1,5 +1,105 @@
 # Laporan MATRA-GRAFIK-FUNGSI
-Terakhir: 2 September 2026, dini hari
+Terakhir: 4 September 2026, dini hari. Bagian TERBARU di paling atas.
+
+## 4 Sep 2026: video tahap 3 dan tahap 6 dirender ulang, tiga cacat ditutup
+
+Kedua video hilang berkasnya saat laptop mati (`media/` diabaikan git, jadi
+hanya `.vtt`-nya yang selamat di git). Dirender ulang 480p, dan dalam prosesnya
+tiga cacat ditemukan lalu diperbaiki.
+
+### DUA JEBAKAN YANG BERLAKU UNTUK SEMUA SESI, BUKAN CUMA TOPIK INI
+
+**1. JANGAN menulis `$...$` di dalam `teks()` atau `sinema.label()`.**
+`teks()` meloloskan tanda dolar lewat `_KHUSUS` supaya kalimat biasa tidak
+menggagalkan kompilasi, jadi mode matematika TIDAK PERNAH aktif dan tanda
+dolarnya ikut tercetak di layar. Di `grafik3_puncak.py` label puncak tertulis
+`$(1, 4)$` lengkap dengan dolarnya, dan itu lolos ke video jadi. Angka dan
+koordinat memang tempatnya di `rumus()`, bukan `teks()`.
+
+**2. JANGAN menulis pergantian baris di dalam `teks()`.**
+LaTeX memperlakukan pergantian baris di dalam sumber sebagai spasi biasa, jadi
+`teks("baris satu\nbaris dua")` menghasilkan SATU baris panjang, bukan dua.
+Akibatnya seluruh kelompok dikecilkan oleh `batasi_lebar` sampai sulit dibaca.
+Di `grafik6_transformasi.py` babak penutup kena ini. Cara yang benar: satu
+objek `teks()` per baris, lalu `VGroup(...).arrange(DOWN)`, sama seperti babak
+penutup `grafik3_puncak.py`.
+
+**3. Jebakan `--awal` pada `cek_sinkron_video.py`: TULISAN sewarna ikut
+terhitung sebagai benda.** Pada `grafik3-puncak`, label puncak `(1, 4)`
+berwarna SOROT sama seperti titiknya, jadi `--awal 2`, bukan 1. Tandanya
+mudah dikenali: kalau SEMUA baris meleset dengan selisih yang sama, yang salah
+angka `--awal`, bukan videonya.
+
+### Cacat waktu mati di tahap 6, diukur bukan ditaksir
+Detik 23-29 layarnya BEKU pada sumbu kosong (0,56 persen isi layar, nol piksel
+berubah selama 7 detik) dan detik 32-37 beku pada sumbu + satu label kecil
+(0,70 persen, 6 detik). Total 15 detik gambar tidak bergerak sementara narator
+bicara. Sebabnya animasi diikat ke jam subtitle dengan benar, tapi tidak ada
+apa pun yang mengisi jeda ANTAR kalimat.
+
+Diperbaiki dua tempat:
+- `b03_datar`: kedua sumbu tadinya muncul sekaligus di detik 22, padahal
+  narator baru menyebut "dengan sumbu mendatar untuk x dan sumbu tegak untuk y"
+  di detik 24,05. Sekarang lembah memudar 3,1 detik (angkanya dihitung: babak
+  mulai 17,71 + kamera 3,2 = 20,91, kalimat sumbu mulai 24,05) lalu tiap sumbu
+  ditarik saat namanya disebut.
+- `b04_titik`: lima slot ruas kiri `f(-2) =` sampai `f(2) =` muncul satu per
+  satu selama narator bertanya "Kenapa bentuknya begitu? Bukan sihir, tapi
+  dihitung". Ruas kanannya sengaja dikosongkan supaya jawabannya tidak bocor
+  sebelum dihitung, lalu tiap slot diganti hitungan penuhnya saat titiknya
+  mendarat.
+
+Percobaan pertama perbaikan ini MALAH membuat layar kosong 0,00 persen di detik
+24 dan 25, karena lembahnya habis memudar sebelum sumbunya mulai digambar.
+Ketahuan hanya karena diukur per detik sesudah render, bukan karena ditonton
+sekilas. Itu sebabnya durasi memudarnya dihitung, bukan dikira-kira.
+
+### `alat/cek_sinkron_video.py`: ALARM PALSU, dan sudah begitu sejak awal
+Alat itu menggolongkan tiap piksel ke warna palet TERDEKAT. Cara itu gagal pada
+benda bercahaya: bola `penanda` memakai `set_shading`, jadi mayoritas pikselnya
+ungu gelap, dan ungu gelap lebih dekat ke TINTA (31, 36, 48) daripada ke SOROT
+(106, 76, 147). Terukur pada `grafik6-transformasi` detik 38,14: satu titik ungu
+JELAS TERLIHAT di layar, terhitung NOL. Alat itu melaporkan video yang sinkron
+sebagai 4 dari 5 tidak sinkron. Diuji dengan palet lama dan palet baru pada
+frame yang sama, keduanya nol, jadi ini bukan akibat perubahan hari ini.
+
+Yang diperbaiki:
+- Penghitungan pindah ke RONA (hue). Pencahayaan mengubah gelap terangnya,
+  bukan ronanya. Diuji pada tujuh detik `grafik6-transformasi`: 0, 1, 1, 2, 3,
+  4, 5 titik, semuanya tepat.
+- Palet TIDAK LAGI disalin sebagai angka, melainkan dibaca dari
+  `manim/gl/tema.py` sebagai teks (tanpa `import manimlib`). Salinan lamanya
+  sudah meleset: LATAR tertulis (245, 241, 234) padahal tema memakai `#F7F3EE`
+  = (247, 243, 238).
+- `--pola` tidak lagi punya nilai bawaan kalimat Grafik Fungsi. Kosong berarti
+  menolak sambil mencontohkan pola Grafik Fungsi dan Statistika.
+- Tambahan `--vtt` untuk berkas subtitle di luar tempat biasa.
+- `--warna` menerima SOROT, AKSEN, AKSEN2. TINTA sengaja tidak: ia hampir
+  kelabu (ronanya goyah) dan dipakai semua tulisan.
+- `durasi.json` sengaja TIDAK dibaca. Ia cuma tahu panjang tiap segmen,
+  sedangkan yang dibutuhkan adalah detik mulai tiap KALIMAT, dan itu sudah ada
+  sebagai waktu mutlak di `.vtt`. MASTER menyetujui alasan ini.
+
+### Hasil gerbang
+| | tahap 3 | tahap 6 |
+|---|---|---|
+| durasi | 161,67 detik | 166,54 detik |
+| selisih suara | 0,45 detik | 0,41 detik |
+| `cek_kode` | bersih | bersih |
+| lembar kontak | 41 frame, dibuka dan dinilai | 42 frame, dibuka dan dinilai |
+| beku + nyaris kosong | tinggal kartu judul | tinggal kartu judul |
+| `cek_sinkron_video` | 4 dari 4 sinkron (`--awal 2`) | 5 dari 5 sinkron |
+
+### Belum selesai
+- Video belum dipasang ke halaman dan belum di-commit: ARYA sedang menonton.
+- Keputusan MASTER 4 Sep: bagian 3D tahap 6 (sekarang 14 detik) dipadatkan jadi
+  sekitar 5 detik sebelum kamera turun ke bidang, sebab video pertama topik ini
+  adalah tahap 3, bukan tahap 6. Menunggu jawaban ARYA sebelum render lagi.
+- Tahap 3 detik 14-17: busur bola yang sudah mendarat diam 4 detik. Ringan.
+- Panel rumus tahap 6 di KIRI atas, menyalahi STANDAR butir 111 (rumus di kanan
+  atas). Disengaja dan beralasan: semua kurva topik ini naik ke kanan, dan pada
+  render pertama rumus akar x tertimpa kurvanya sendiri di pojok kanan.
+  Keputusan mau dibiarkan atau standarnya yang menyesuaikan ada di ARYA.
 
 ## Selesai
 
