@@ -160,7 +160,7 @@ export const TAHAP: Tahap[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Sekarang buktikan sendiri di alat sebelah kiri, jangan percaya begitu saja.',
+        teks: 'Sekarang buktikan sendiri di alatnya, jangan percaya begitu saja.',
         langkah: [
           'Tarik puncak segitiga menyamping: dua angka pertama berubah',
           'Perhatikan angka hasil bagi di bawah: tidak ikut berubah',
@@ -178,7 +178,7 @@ export const TAHAP: Tahap[] = [
           'Satu sudut, satu angka - berlaku untuk semua segitiga siku-siku di dunia',
         ],
       },
-      { jenis: 'sesi', judul: 'Coba sendiri di gambar sebelah kiri' },
+      { jenis: 'sesi', judul: 'Coba sendiri di alatnya' },
       {
         jenis: 'poin',
         butir: [
@@ -224,7 +224,7 @@ export const TAHAP: Tahap[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Nama sisi bergantung sudut mana yang sedang dilihat. Buktikan di alat sebelah kiri.',
+        teks: 'Nama sisi bergantung sudut mana yang sedang dilihat. Buktikan di alatnya.',
         langkah: [
           'Klik sudut A, perhatikan nama tiap sisinya',
           'Sekarang klik sudut B pada segitiga yang sama',
@@ -252,7 +252,7 @@ export const TAHAP: Tahap[] = [
           'Kesalahan ini paling sering terjadi dan paling sering luput, karena kelihatannya sepele',
         ],
       },
-      { jenis: 'paragraf', teks: 'Klik sudut A atau C di gambar sebelah kiri untuk merasakan pertukaran itu sendiri.' },
+      { jenis: 'paragraf', teks: 'Klik sudut A atau C di alatnya untuk merasakan pertukaran itu sendiri.' },
     ],
     seringKeliru: {
       judul: 'Nama sisi dikira melekat pada garisnya',
@@ -289,7 +289,7 @@ export const TAHAP: Tahap[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di kiri adalah pabrik perbandingan. Pilih sendiri pembilang dan penyebutnya.',
+        teks: 'Alat interaktifnya adalah pabrik perbandingan. Pilih sendiri pembilang dan penyebutnya.',
         langkah: [
           'Pilih depan dibagi miring, lihat namanya muncul: sinus',
           'Ganti jadi samping dibagi miring, itu cosinus',
@@ -330,7 +330,7 @@ export const TAHAP: Tahap[] = [
           'Tangen - dari kata Latin tangens, yang menyentuh. Di tahap 6 Anda akan melihat ia benar-benar berupa garis yang menyentuh lingkaran',
         ],
       },
-      { jenis: 'paragraf', teks: 'Coba sendiri di gambar sebelah kiri: pilih sisi mana yang jadi pembilang dan mana yang jadi penyebut, lalu lihat nama resminya muncul.' },
+      { jenis: 'paragraf', teks: 'Coba sendiri di alatnya: pilih sisi mana yang jadi pembilang dan mana yang jadi penyebut, lalu lihat nama resminya muncul.' },
     ],
     seringKeliru: {
       judul: 'Dikira tiga rumus terpisah yang harus dihafal',

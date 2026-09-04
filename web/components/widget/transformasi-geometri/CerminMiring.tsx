@@ -54,7 +54,7 @@ export default function CerminMiring({ naik }: { naik: boolean }) {
   return (
     <BidangTransformasi
       jendela={jendela}
-      aria={`Bentuk huruf L dicerminkan pada garis ${namaGaris}. Angka koordinatnya ada di tabel sebelah kanan.`}
+      aria={`Bentuk huruf L dicerminkan pada garis ${namaGaris}. Angka koordinatnya ada di tabel angkanya.`}
       keterangan={`cermin pada ${namaGaris}`}
     >
       {prapeta.map((t, i) => (

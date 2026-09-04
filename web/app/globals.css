@@ -2383,6 +2383,12 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
    layar dikurangi nav melainkan seluruh layar. Tanpa baris ini panel
    berhenti 68 piksel sebelum dasar layar dan meninggalkan pita kosong. */
 .materi-satu-layar[data-fokus='true'] { height: 100dvh; }
+
+/* Celah di atas bacaan saat mode fokus. Di keadaan biasa celah itu datang
+   dari baris remah roti setinggi 54 piksel; mode fokus menyembunyikan remah
+   itu, jadi video menempel mentah ke tepi layar. (Temuan ARYA, 5 Sep 2026.) */
+.materi-satu-layar[data-fokus='true'] .kolom.baca { padding-top: 18px; }
+
 /* Saat benar-benar layar penuh, peramban memberi elemennya latar HITAM
    bawaan. Tanpa baris ini, tepi kiri kanan halaman jadi pita hitam. */
 .materi-satu-layar:fullscreen { background: var(--kartu); overflow: hidden; }
@@ -3071,4 +3077,25 @@ main { animation: tab-masuk 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
   .materi-satu-layar .materi-panel { display: block; }
   .materi-satu-layar .kolom.baca { overflow: visible; padding: 0 var(--tepi); }
   .materi-satu-layar .panggung { display: block; }
+
+  /* MODE FOKUS DI HP: halamannya sendiri yang menggulir.
+     Di layar lebar yang menggulir adalah kolom bacaan, dan halamannya
+     dikunci setinggi layar. Di HP kolom itu sengaja `overflow: visible`
+     supaya tidak ada daerah gulir bersarang di layar 375 piksel. Begitu
+     mode fokus mengunci tinggi halaman jadi 100dvh, tidak ada satu pun
+     yang tersisa sebagai wadah gulir, dan isinya berhenti di layar
+     pertama. Persis yang dilaporkan ARYA 5 Sep 2026.
+
+     `overflow-y: auto` di sini yang mengembalikan gulirnya, dan ia berlaku
+     untuk kedua bentuk mode fokus: layar penuh sungguhan maupun mode fokus
+     CSS di peramban yang menolak layar penuh (Safari iPhone). */
+  .materi-satu-layar[data-fokus='true'],
+  .materi-satu-layar:fullscreen {
+    height: 100dvh; overflow-y: auto; overflow-x: hidden;
+  }
+  /* Tombol "Keluar fokus" mengapung di sudut kanan atas. Di layar lebar ia
+     mendarat di kepala kolom alat yang memang kosong; di HP kolom itu tidak
+     ada, dan ia menimpa segmen Tonton / Coba sendiri. Isian atas ini yang
+     memberinya baris sendiri. */
+  .materi-satu-layar[data-fokus='true'] .kolom.baca { padding-top: 54px; }
 }

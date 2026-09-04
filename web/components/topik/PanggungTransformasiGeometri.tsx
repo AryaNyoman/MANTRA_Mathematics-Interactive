@@ -543,7 +543,7 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
                 <span className="titik" />
                 <span>
                   baca ujung kedua panahnya, lalu tulis keduanya sebagai kolom. Itu matriksnya,
-                  dan bisa Anda baca sebelum melihat tabel di kanan
+                  dan bisa Anda baca sebelum melihat tabel angkanya
                 </span>
               </div>
             </div>

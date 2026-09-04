@@ -15,7 +15,7 @@ import type { Blok } from '@/content/trigonometri'
  *         yang lega, jadi batasnya tidak mungkin terlewat.
  *
  * `coba`  Kotak "Yuk bereksperimen" yang disorot, mengajak siswa memakai alat
- *         di sebelah kiri sebelum lanjut membaca. Ditaruh di tengah materi,
+ *         di panel Alat sebelum lanjut membaca. Ditaruh di tengah materi,
  *         bukan di akhir, supaya siswa mencoba selagi penasaran.
  *
  * Butir daftar boleh ditulis "Label - isi"; bagian sebelum tanda pisah akan

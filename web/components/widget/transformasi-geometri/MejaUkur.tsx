@@ -67,7 +67,7 @@ function SudutDiB({
  * Sisi AB digambar tebal pada kedua bentuk, dan sudut di B diberi busur pada
  * keduanya. Dua hal itu yang dibandingkan siswa langsung dari gambar, tanpa
  * membaca satu angka pun: panjangnya berubah atau tidak, sudutnya berubah
- * atau tidak. Angka lengkapnya ada di tabel panel kanan, untuk yang ingin
+ * atau tidak. Angka lengkapnya ada di tabel angkanya, untuk yang ingin
  * memeriksa.
  *
  * PILIHAN "DILATASI -2" WAJIB ADA DI DAFTARNYA

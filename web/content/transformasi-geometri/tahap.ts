@@ -771,7 +771,7 @@ export const TAHAP: TahapTransformasi[] = [
         langkah: [
           'Bandingkan ketebalan sisi AB pada prapeta dan peta untuk translasi, rotasi, dan kedua pencerminan. Panjangnya sama.',
           'Ganti ke dilatasi 2. Sekarang sisi AB petanya jelas lebih panjang, tetapi busur sudut di B tetap menunjukkan angka yang sama.',
-          'Ganti ke cermin sumbu X, lalu baca baris arah putar di tabel sebelah kanan. Baris itu satu-satunya yang berubah.',
+          'Ganti ke cermin sumbu X, lalu baca baris arah putar di tabel angkanya. Baris itu satu-satunya yang berubah.',
           'Terakhir ganti ke dilatasi -2. Bentuknya terjungkir, tetapi baris arah putar TETAP. Inilah baris yang paling sering ditulis salah.',
         ],
       },
@@ -919,7 +919,7 @@ export const TAHAP: TahapTransformasi[] = [
     ],
     seringKeliru: {
       judul: 'Baris matriks dikalikan dengan baris koordinatnya',
-      isi: 'Yang menggoda: koordinat (x, y) dan baris matriks sama-sama deretan dua angka, jadi keduanya terlihat sejenis. Cara membedakannya: hitung sekali dengan matriks yang tidak simetris, misalnya baris pertama 1 dan 2, baris kedua 0 dan 1, pada titik (3, 4). Cara yang benar memberi (1 dikali 3 ditambah 2 dikali 4, 0 dikali 3 ditambah 1 dikali 4), yaitu (11, 4). Lalu periksa di alat sebelah kiri dengan angka yang sama. Kalau jawabanmu tidak cocok dengan gambarnya, caranya yang perlu diperbaiki, bukan gambarnya.',
+      isi: 'Yang menggoda: koordinat (x, y) dan baris matriks sama-sama deretan dua angka, jadi keduanya terlihat sejenis. Cara membedakannya: hitung sekali dengan matriks yang tidak simetris, misalnya baris pertama 1 dan 2, baris kedua 0 dan 1, pada titik (3, 4). Cara yang benar memberi (1 dikali 3 ditambah 2 dikali 4, 0 dikali 3 ditambah 1 dikali 4), yaitu (11, 4). Lalu periksa di alatnya dengan angka yang sama. Kalau jawabanmu tidak cocok dengan gambarnya, caranya yang perlu diperbaiki, bukan gambarnya.',
     },
     intisari: [
       'Matriks 2x2 adalah empat angka pengali, disusun dua baris dua kolom.',
@@ -1012,7 +1012,7 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'coba',
         teks: 'Alat interaktifnya menggambar kedua panah kolom bersama bentuknya. Pilihan transformasinya ada di bawah gambar.',
         langkah: [
-          'Pilih cermin sumbu Y. Baca ujung panah birunya, lalu ujung panah merahnya. Kedua angka itu adalah kedua kolom matriksnya, dan bisa kamu baca sebelum melihat tabel di kanan.',
+          'Pilih cermin sumbu Y. Baca ujung panah birunya, lalu ujung panah merahnya. Kedua angka itu adalah kedua kolom matriksnya, dan bisa kamu baca sebelum melihat tabel angkanya.',
           'Pilih rotasi 53 derajat. Kedua panahnya tidak lagi menunjuk ke arah yang bulat, dan matriksnya berisi cos dan sin.',
           'Pilih translasi. Layar berkata terus terang bahwa transformasi itu tidak punya matriks 2x2, dan kedua panahnya pun tidak lagi berpangkal di titik asal.',
         ],
@@ -1190,7 +1190,7 @@ export const TAHAP: TahapTransformasi[] = [
         teks: 'Alat interaktifnya menggambar KEDUA urutan sekaligus, dengan warna berbeda.',
         langkah: [
           'Perhatikan bentuk biru dan bentuk merah. Keduanya dari dua transformasi yang sama persis, hanya berbeda urutan.',
-          'Baca kedua matriks gabungannya di tabel sebelah kanan. Keempat angkanya bertukar tempat dan berganti tanda.',
+          'Baca kedua matriks gabungannya di tabel angkanya. Keempat angkanya bertukar tempat dan berganti tanda.',
           'Ganti pilihannya ke dua translasi. Sekarang bentuk biru dan merahnya menempel jadi satu, sebab dua translasi memang boleh dibalik urutannya.',
         ],
       },

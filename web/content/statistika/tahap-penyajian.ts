@@ -167,7 +167,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
 
       { jenis: 'sesi', judul: 'Diagram lingkaran, dan kenapa harus hati-hati' },
       { jenis: 'paragraf', teks: 'Diagram lingkaran menjawab satu pertanyaan saja dengan baik: berapa bagian tiap kategori dari keseluruhan. Ia gagal untuk hal lain, sebab mata manusia buruk sekali membandingkan luas juring yang mirip.' },
-      { jenis: 'paragraf', teks: 'Coba tebak mana yang lebih besar antara 22,5 persen dan 20 persen hanya dengan melihat dua juring tanpa angka. Hampir mustahil. Itu sebabnya tiap potongan di alat sebelah kiri selalu diberi label angkanya, dan itu bukan hiasan melainkan syarat supaya gambarnya bisa dibaca.' },
+      { jenis: 'paragraf', teks: 'Coba tebak mana yang lebih besar antara 22,5 persen dan 20 persen hanya dengan melihat dua juring tanpa angka. Hampir mustahil. Itu sebabnya tiap potongan di alatnya selalu diberi label angkanya, dan itu bukan hiasan melainkan syarat supaya gambarnya bisa dibaca.' },
     ],
     seringKeliru: {
       judul: 'Diagram batang dan histogram itu sama, cuma beda nama',
