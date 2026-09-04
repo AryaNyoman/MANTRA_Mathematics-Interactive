@@ -70,6 +70,41 @@ Materi 01, yang memang datar.
    (jungkat-jungkit dan botol, bukan lapangan kosong), dan 8 sampai 10 detik
    masih dalam batas pembuka yang bermakna.
 
+## Detik pertama bergerak, ketiga belas video diukur
+
+Aturan STANDAR baru (MASTER, 4 Sep, lahir dari Vektor 06): jarak dari akhir
+kartu judul sampai benda pertama bergerak atau berubah maksimal LIMA detik.
+Materi 06 saya berisiko persis begitu sebab pembukanya baru saya buat datar
+penuh, jadi diukur, bukan ditebak.
+
+| Jeda | Materi |
+|---|---|
+| 0,12 detik | 08 |
+| 0,25 detik | 01, 02, 03, 05, 06 |
+| 0,38 detik | 04, 07, 09, 10, 13 |
+| 0,50 detik | 12 |
+| 3,00 detik | 11 |
+
+**Ketiga belas lolos**, terburuk 3,00 detik di Materi 11 yang pembukanya memang
+paling lambat. Tidak ada yang perlu diperbaiki. Materi 06 ternyata aman: kartu
+judulnya berakhir dan penggarisnya langsung tumbuh 0,25 detik kemudian.
+
+Alatnya `alat/ukur_detik_pertama.py`, dipakai sesi lain dengan
+`python alat/ukur_detik_pertama.py --judul 3.2 media/uji-480p/*.mp4`.
+
+**Versi pertama alat itu SALAH dan saya sempat memakainya.** Ia menebak panjang
+kartu judul dari pita atas layar, dan meleset di Materi 06: sesudah orangnya
+dibesarkan, kepala mereka masuk pita judul, jadi pita itu tidak pernah kosong
+dan alatnya melapor "judul selesai 19,50 detik" lalu "gerak pertama 0,12 detik".
+Angka itu omong kosong, dan kalau saya percaya begitu saja saya akan melaporkan
+video ini lolos tanpa dasar. Versi sekarang tidak menebak apa pun: panjang judul
+diberikan lewat bendera.
+
+Alat itu juga diuji supaya terbukti BISA gagal (`--uji-alatnya`): ia membuat dua
+video bikinan, satu beku sembilan detik sesudah judul dan satu bergerak langsung,
+lalu memastikan yang beku tertangkap dan yang bergerak dibiarkan. Alat mutu yang
+tidak pernah dibuktikan bisa gagal tidak membuktikan apa pun.
+
 ## Jebakan gerbang yang ditemukan hari ini
 
 **Kotak batas sebuah KELOMPOK adalah gabungan seluruh anggotanya.** Materi 11
