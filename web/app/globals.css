@@ -2841,21 +2841,8 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .bahas-alasan { margin: 10px 0 0; font-size: 14.5px; line-height: 1.75; }
 .bahas-kosong { margin: 12px 0 0; font-size: 14px; line-height: 1.7; color: var(--tinta-62); }
 
-/* --- kuis bab --- */
-.kartu-kuis-bab {
-  border: 1px solid var(--garis); border-radius: 20px; background: var(--kartu);
-  padding: 24px 26px; margin-bottom: 22px;
-}
-.kuis-baris { display: grid; grid-template-columns: 1fr auto; gap: 22px; align-items: center; }
-.kuis-baris h3 {
-  font-family: var(--font-serif), Georgia, serif; font-weight: 400;
-  font-size: 26px; margin: 7px 0 8px;
-}
-.kuis-baris p {
-  margin: 0 0 14px; font-size: 14.5px; line-height: 1.7;
-  color: var(--tinta-72); max-width: 46rem;
-}
-.kuis-baris .bar-besar { height: 6px; }
+/* Gaya "kuis bab" DIBUANG bersama bagiannya, 5 Sep 2026. Kuis tinggal di
+   dalam halaman bab; menu Latihan berisi bank soal saja. */
 
 @media (max-width: 980px) {
   .kisi-soal { grid-template-columns: 1fr; }
