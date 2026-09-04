@@ -278,8 +278,23 @@ class PecahJadiKomponen(AdeganMatra):
             k2 = papan.baris(r"\mathrm{tegak} = 4", AKSEN)
             b.catat(0.8)
             b.tunggu_sampai(saat("namanya komponen"))
-            b.main(Indicate(k1, scale_factor=1.0, color=SOROT),
-                   Indicate(k2, scale_factor=1.0, color=SOROT), run_time=1.2)
+            # Versi sebelumnya cuma mengubah WARNA sesaat, dan itu praktis tidak
+            # terlihat di 480p: saya bandingkan sendiri frame 58,5 dan 61,5, dan
+            # kedua baris panel tampak sama persis. Kejadian yang tidak terlihat
+            # sama dengan tidak ada.
+            #
+            # Sekarang dua kejadian, satu untuk tiap angka, dan tiap baris panel
+            # MEMBESAR sambil angka pasangannya DI BIDANG ikut membesar. Jadi
+            # mata tahu baris mana milik angka mana, bukan cuma berkedip.
+            #
+            # Yang dibesarkan `l_datar` dan `l_tegak`, BUKAN `p_datar` dan
+            # `p_tegak`: kedua panah itu `always_redraw`, digambar ulang tiap
+            # frame, jadi Indicate padanya tertimpa dan tidak pernah tampak.
+            # Jebakan yang sama sudah menggigit mobilnya di babak pembuka.
+            b.main(Indicate(k1, scale_factor=1.22, color=AKSEN2),
+                   Indicate(l_datar, scale_factor=1.6, color=AKSEN2), run_time=1.0)
+            b.main(Indicate(k2, scale_factor=1.22, color=AKSEN),
+                   Indicate(l_tegak, scale_factor=1.6, color=AKSEN), run_time=1.0)
             b.tunggu_sampai(saat("Kita tulis"))
             b.main(Indicate(panel_v, scale_factor=1.0, color=TINTA), run_time=1.2)
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
