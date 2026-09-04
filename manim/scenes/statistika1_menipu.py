@@ -26,8 +26,9 @@ SATU WARNA SATU MAKNA DI DALAM VIDEO INI:
 Kamera phi 90, tegak lurus: yang dibandingkan JARAK antar titik, dan perspektif
 sekecil apa pun akan membantah hitungannya.
 
-Lubang gerbang yang sama seperti Materi 06 berlaku di sini: `qc.periksa_adegan`
-tidak memeriksa dunia lawan dunia, jadi adegan ini memelihara `TULISAN` sendiri.
+Tulisan di dunia diserahkan ke `qc.periksa_adegan(tulisan=...)`, gerbang
+resmi sejak 4 Sep 2026. Ia memeriksa tulisan silang satu sama lain dan
+terhadap HUD, dan isi `PapanRumus` diperiksa baris demi baris.
 """
 
 import json
@@ -52,13 +53,15 @@ ANGKA_X = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 # --- Dua baris dot plot. Kelas A menumpuk sampai empat titik (empat siswa
 #     bernilai 7), Kelas B paling tinggi dua titik.
-Z_ALAS_A = 0.55
-Z_ALAS_B = -0.55
-TINGGI_TUMPUK = 0.20
-JARI_TITIK = 0.078
-Z_ANGKA = -0.95
+# Diperbesar 4 Sep: zona HUD cuma dua pojok atas, jadi dunia boleh
+# jauh lebih tinggi daripada yang saya kira.
+Z_ALAS_A = 0.80
+Z_ALAS_B = -0.62
+TINGGI_TUMPUK = 0.28
+JARI_TITIK = 0.105
+Z_ANGKA = -1.06
 X_NAMA = -4.62
-Z_KAMERA = 0.50
+Z_KAMERA = 0.30
 TINGGI_BINGKAI = 6.4
 
 
@@ -106,12 +109,9 @@ class Menipu1(AdeganMatra):
             hidup_h = {k: v for k, v in HUD.items() if v is not None}
             if papan.semua() is not None:
                 hidup_h["papan rumus"] = papan.semua()
+            hidup_t = {k: v for k, v in TULISAN.items() if v is not None}
             qc.periksa_adegan(self, {}, pasangan=pasangan, hud=hidup_h,
-                              dunia=hidup_d, jaga_jalur_bawah=True)
-            hidup_t = [k for k, v in TULISAN.items() if v is not None]
-            for i, a in enumerate(hidup_t):
-                for c in hidup_t[i + 1:]:
-                    qc.tidak_bertindih(frame, TULISAN[a], TULISAN[c], a, c)
+                              dunia=hidup_d, tulisan=hidup_t, jaga_jalur_bawah=True)
 
         # ------------------------------------------------------------------
         # Panggung: satu penggaris nilai, dua garis alas, dua dot plot.
@@ -126,7 +126,7 @@ class Menipu1(AdeganMatra):
         for v in ANGKA_X:
             angka.add(Line([xn(v), 0, Z_ALAS_B], [xn(v), 0, Z_ALAS_B - 0.10])
                       .set_stroke(REDUP, 1.4))
-            t = tegak(rumus(str(v), 20, REDUP)).move_to([xn(v), 0, Z_ANGKA])
+            t = tegak(rumus(str(v), 25, REDUP)).move_to([xn(v), 0, Z_ANGKA])
             angka.add(t)
             angka_satuan[f"angka {v}"] = t
 
@@ -142,8 +142,8 @@ class Menipu1(AdeganMatra):
         asal_a = [m.get_center().copy() for m in titik_a]
         asal_b = [m.get_center().copy() for m in titik_b]
 
-        nama_a = tegak(sinema.label("Kelas A", 22, AKSEN2)).move_to([X_NAMA, 0, Z_ALAS_A + 0.30])
-        nama_b = tegak(sinema.label("Kelas B", 22, AKSEN)).move_to([X_NAMA, 0, Z_ALAS_B + 0.30])
+        nama_a = tegak(sinema.label("Kelas A", 27, AKSEN2)).move_to([X_NAMA, 0, Z_ALAS_A + 0.30])
+        nama_b = tegak(sinema.label("Kelas B", 27, AKSEN)).move_to([X_NAMA, 0, Z_ALAS_B + 0.30])
 
         # ==================================================================
         # Babak 1 `buka`: dua garis, lalu enam belas titik nilai.
@@ -260,12 +260,12 @@ class Menipu1(AdeganMatra):
             return g.set_stroke(warna, 2.6)
 
         rentang_a = rentang(6, 8, Z_ALAS_A - 0.26, AKSEN2)
-        Z_KURUNG_B = -1.20        # di bawah angka sumbu, satu-satunya pita yang bersih
+        Z_KURUNG_B = -1.44        # di bawah angka sumbu, satu-satunya pita yang bersih
         rentang_b = rentang(3, 11, Z_KURUNG_B, AKSEN)
-        l_ra = tegak(rumus("2", 21, AKSEN2)).move_to([xn(8.9), 0, Z_ALAS_A - 0.26])
+        l_ra = tegak(rumus("2", 26, AKSEN2)).move_to([xn(8.9), 0, Z_ALAS_A - 0.26])
         # Di bawah kurung, angka ini menempel pada angka sumbu 12 (ditangkap
         # gerbang tulisan). Dinaikkan ke ruang antara kurung dan titik data.
-        l_rb = tegak(rumus("8", 21, AKSEN)).move_to([xn(11.85), 0, Z_KURUNG_B])
+        l_rb = tegak(rumus("8", 26, AKSEN)).move_to([xn(11.85), 0, Z_KURUNG_B])
 
         with sinema.babak(self, "jangkauan", DURASI) as b:
             b.main(FadeOut(l_rapat), FadeOut(l_pencar), run_time=0.8)

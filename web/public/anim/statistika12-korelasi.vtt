@@ -1,0 +1,171 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/statistika12-korelasi.json
+
+1
+00:00:00.000 --> 00:00:04.381
+Materi 12 Statistika: <b>korelasi bukan sebab-akibat</b>.
+
+2
+00:00:04.381 --> 00:00:08.762
+Di Materi 10 kekuatan hubungan dibaca dengan mata.
+
+3
+00:00:08.762 --> 00:00:12.792
+Sekarang kekuatan itu diberi angka, namanya r.
+
+4
+00:00:12.792 --> 00:00:17.567
+Ini data jam belajar dan nilai ujian dari Materi 11.
+
+5
+00:00:17.567 --> 00:00:21.883
+Titiknya rapat sekali ke garis, dan r-nya 0,98.
+
+6
+00:00:21.883 --> 00:00:25.464
+Hampir 1, jadi hubungannya sangat kuat.
+
+7
+00:00:25.464 --> 00:00:30.221
+Sekarang data lain: jam main gim dan nilai ujian.
+
+8
+00:00:30.221 --> 00:00:34.687
+Titiknya sama rapatnya, tetapi garisnya <b>turun</b>,
+
+9
+00:00:34.687 --> 00:00:36.240
+dan r-nya -0,98.
+
+10
+00:00:36.240 --> 00:00:38.522
+Jadi cara membacanya begini.
+
+11
+00:00:38.522 --> 00:00:39.722
+<b>Tandanya arah</b>,
+
+12
+00:00:39.722 --> 00:00:43.145
+plus berarti naik dan minus berarti turun.
+
+13
+00:00:43.145 --> 00:00:44.612
+<b>Besarnya kekuatan</b>,
+
+14
+00:00:44.612 --> 00:00:48.384
+makin dekat ke 1 makin rapat titiknya ke garis.
+
+15
+00:00:48.384 --> 00:00:54.534
+Kuadratkan r, dan artinya jadi lebih langsung terpakai.
+
+16
+00:00:54.534 --> 00:00:55.987
+0,98² = 0,97.
+
+17
+00:00:55.987 --> 00:00:59.230
+Artinya sekitar 97% keragaman
+
+18
+00:00:59.230 --> 00:01:02.808
+nilai bisa dijelaskan garis itu.
+
+19
+00:01:02.808 --> 00:01:04.849
+Sisa 3%-nya datang dari hal
+
+20
+00:01:04.849 --> 00:01:07.193
+lain yang tidak masuk hitungan:
+
+21
+00:01:07.193 --> 00:01:09.915
+cara belajarnya, kondisi saat ujian,
+
+22
+00:01:09.915 --> 00:01:11.881
+soal yang kebetulan cocok.
+
+23
+00:01:11.881 --> 00:01:14.376
+<b>Selalu ada yang tidak dijelaskan</b>.
+
+24
+00:01:14.376 --> 00:01:16.126
+Sekarang jebakannya.
+
+25
+00:01:16.126 --> 00:01:20.502
+Lihat 7 titik ini: y selalu persis sama dengan x².
+
+26
+00:01:20.502 --> 00:01:23.827
+Tidak ada satu pun titik yang meleset.
+
+27
+00:01:23.827 --> 00:01:27.240
+Ini hubungan yang <b>benar-benar sempurna</b>.
+
+28
+00:01:27.240 --> 00:01:28.587
+Tetapi r-nya <b>0</b>.
+
+29
+00:01:28.587 --> 00:01:29.787
+Nol persis.
+
+30
+00:01:29.787 --> 00:01:32.661
+Garis lurus terbaiknya mendatar,
+
+31
+00:01:32.661 --> 00:01:35.535
+sebab r cuma mengukur kelurusan,
+
+32
+00:01:35.535 --> 00:01:38.376
+dan pola ini melengkung setangkup.
+
+33
+00:01:38.376 --> 00:01:40.737
+Kalau yang dibaca cuma angkanya,
+
+34
+00:01:40.737 --> 00:01:42.655
+hubungan sempurna ini akan
+
+35
+00:01:42.655 --> 00:01:45.459
+dilaporkan sebagai tidak ada hubungan.
+
+36
+00:01:45.459 --> 00:01:48.336
+Jadi aturannya: <b>selalu lihat gambarnya</b>.
+
+37
+00:01:48.336 --> 00:01:49.809
+Dan yang terpenting.
+
+38
+00:01:49.809 --> 00:01:51.207
+Korelasi sekuat apa
+
+39
+00:01:51.207 --> 00:01:53.784
+pun <b>tidak membuktikan sebab-akibat</b>.
+
+40
+00:01:53.784 --> 00:01:55.772
+Bisa jadi arahnya terbalik,
+
+41
+00:01:55.772 --> 00:01:59.527
+bisa jadi ada hal ketiga yang menyebabkan keduanya,
+
+42
+00:01:59.527 --> 00:02:01.368
+bisa jadi cuma kebetulan.

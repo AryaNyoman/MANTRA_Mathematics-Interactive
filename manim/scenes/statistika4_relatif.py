@@ -45,8 +45,9 @@ N_B, TINGGI_B = 40, 13        # Kelas B: 13 dari 40
 BAGIAN_A = TINGGI_A / N_A     # 0,44
 BAGIAN_B = TINGGI_B / N_B     # 0,325
 
-SKALA_SISWA = 0.050           # satu siswa = 0,050 satuan tinggi (fase mentah)
-TINGGI_RATA = 2.00            # tinggi seragam sesudah takarannya disamakan
+# Dinaikkan 4 Sep: tengah atas layar bebas.
+SKALA_SISWA = 0.072           # satu siswa = 0,072 satuan tinggi (fase mentah)
+TINGGI_RATA = 2.85            # tinggi seragam sesudah takarannya disamakan
 LEBAR_BATANG = 1.30
 X_A, X_B = -1.85, 1.85
 Z_DASAR = -1.10
@@ -91,12 +92,9 @@ class Relatif4(AdeganMatra):
             hidup_h = {k: v for k, v in HUD.items() if v is not None}
             if papan.semua() is not None:
                 hidup_h["papan rumus"] = papan.semua()
+            hidup_t = {k: v for k, v in TULISAN.items() if v is not None}
             qc.periksa_adegan(self, {}, pasangan=pasangan, hud=hidup_h,
-                              dunia=hidup_d, jaga_jalur_bawah=True)
-            hidup_t = [k for k, v in TULISAN.items() if v is not None]
-            for i, a in enumerate(hidup_t):
-                for c in hidup_t[i + 1:]:
-                    qc.tidak_bertindih(frame, TULISAN[a], TULISAN[c], a, c)
+                              dunia=hidup_d, tulisan=hidup_t, jaga_jalur_bawah=True)
 
         alas = Line([-4.60, 0, Z_DASAR], [4.60, 0, Z_DASAR]).set_stroke(REDUP, 2.2)
         nama_a = tegak(sinema.label("Kelas A", 22, AKSEN2)).move_to([X_A, 0, Z_DASAR - 0.34])
@@ -252,8 +250,11 @@ class Relatif4(AdeganMatra):
         # Babak 8 `nama`: namanya frekuensi relatif.
         # ==================================================================
         with sinema.babak(self, "nama", DURASI) as b:
+            # Bentuk pecahan bertingkat MENINDIH baris di bawahnya, dan tindihan
+            # di DALAM panel tidak diperiksa qc sama sekali (terlihat di render
+            # pertama). Ditulis mendatar supaya panelnya tetap satu baris.
             sinema.ganti_rumus(self, papan.utama,
-                               r"f_{rel} = \frac{f}{n}", b=b, run_time=1.8, papan=papan)
+                               r"f_{rel} = f : n", b=b, run_time=1.8, papan=papan)
             b.main(Indicate(papan.utama, scale_factor=1.2, color=SOROT), run_time=1.6)
             b.main(Indicate(VGroup(bagian_a, bagian_b), scale_factor=1.05, color=SOROT),
                    run_time=1.6)

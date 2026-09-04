@@ -71,31 +71,35 @@ ANGKA_SUMBU = {
 }
 DESIMAL = {"dekat": 1, "jauh": 0, "sedang": 0, "urutan": 0}
 
-# --- Tinggi tiap lapis. Bingkai 6,4 satuan berarti dunia diperbesar 8/6,4 =
-#     1,25 kali di layar. Dua batas yang mengunci semuanya: kepala orang harus
-#     berhenti di bawah layar y = 1,10 (jalur panel), dan label median harus
-#     berhenti di atas layar y = -2,55 (jalur subtitle).
+# --- Tinggi tiap lapis. KOREKSI 4 Sep 2026 dari MASTER, dan MASTER benar.
+#     Saya kira jalur panel memesan seluruh pita atas layar, jadi dunia saya
+#     kunci di 46 persen tinggi dan orang-orangnya jadi mungil. Yang sebenarnya
+#     dipesan cuma DUA POJOK: identitas di kiri (layar x < -2,1) dan papan rumus
+#     di kanan (x > 2,1). Tengah atas bebas, dan `qc` memang cuma memeriksa
+#     tabrakan nyata. Jadi dunianya dibesarkan: orang dari 1,00 jadi 1,70
+#     satuan, penggaris ditebalkan, angka sumbu diperbesar, dan kamera
+#     diturunkan ke 0,35 supaya ruang di bawah penggaris cukup untuk dua baris
+#     penunjuk yang ikut membesar.
+#
+#     Dua baris penunjuk tetap perlu jarak: di penggaris `jauh`, mean 5,24 dan
+#     median 5,00 cuma 0,03 satuan berjauhan, jadi keduanya praktis bertumpuk.
 Z_GARIS = 0.30
-Z_ORANG = 0.33
-Z_TITIK = 0.40
-Z_TICK_ATAS, Z_TICK_BAWAH = 0.26, 0.15
-Z_ANGKA = -0.02
-# Dua baris penunjuk. Di penggaris `jauh`, mean 5,24 dan median 5,00 cuma
-# 0,03 satuan berjauhan, jadi kedua penunjuk praktis bertumpuk dan label
-# x-bar sempat menyentuh ujung segitiga Me (render keempat). Segitiganya
-# dipendekkan dan jarak antar barisnya dilebarkan.
-Z_PTR_MEAN, Z_LBL_MEAN = -0.42, -0.66
-Z_PTR_MED, Z_LBL_MED = -1.00, -1.24
-Z_RUAS = 0.85                      # ruas jarak, panah, semuanya MELAYANG di atas
-Z_KURUNG, Z_LBL_KURUNG = 0.72, 1.00
-Z_KAMERA = 0.50
+Z_ORANG = 0.35
+Z_TITIK = 0.46
+Z_TICK_ATAS, Z_TICK_BAWAH = 0.24, 0.10
+Z_ANGKA = -0.12
+Z_PTR_MEAN, Z_LBL_MEAN = -0.56, -0.86
+Z_PTR_MED, Z_LBL_MED = -1.20, -1.52
+Z_RUAS = 1.24                      # ruas jarak, panah, semuanya MELAYANG di atas
+Z_KURUNG, Z_LBL_KURUNG = 0.98, 1.34
+Z_KAMERA = 0.35
 TINGGI_BINGKAI = 6.4
 # Setengah panjang penggaris tidak boleh lewat 6,82/1,25 = 5,45 satuan. Render
 # pertama gagal persis di sini, dan gerbang qc yang menangkapnya.
 PANJANG_GARIS = 10.8
-TINGGI_ORANG = 1.00
-JARI_TITIK = 0.055
-MUNDUR = 0.34                      # geseran KEDALAMAN untuk gaji yang kembar
+TINGGI_ORANG = 1.70
+JARI_TITIK = 0.082
+MUNDUR = 0.52                      # geseran KEDALAMAN untuk gaji yang kembar
 
 
 def tegak(mob):
@@ -166,7 +170,7 @@ class Pencilan6(AdeganMatra):
             for v in ANGKA_SUMBU[nama]:
                 x = x_urutan(v) if nama == "urutan" else X(v, nama)
                 g.add(Line([x, 0, Z_TICK_ATAS], [x, 0, Z_TICK_BAWAH]).set_stroke(REDUP, 1.6))
-                g.add(tegak(rumus(koma(v, DESIMAL[nama]), 21, REDUP)).move_to([x, 0, Z_ANGKA]))
+                g.add(tegak(rumus(koma(v, DESIMAL[nama]), 25, REDUP)).move_to([x, 0, Z_ANGKA]))
             return g
 
         # ------------------------------------------------------------------
@@ -174,7 +178,7 @@ class Pencilan6(AdeganMatra):
         # hanya angkanya yang berganti. Itu yang membuat perubahan skala
         # terbaca sebagai "penggaris ditarik", bukan sebagai potongan sumbu.
         # ------------------------------------------------------------------
-        garis = ilustrasi.balok(PANJANG_GARIS, 0.42, 0.05, REDUP).shift([0, 0, Z_GARIS])
+        garis = ilustrasi.balok(PANJANG_GARIS, 0.70, 0.10, REDUP).shift([0, 0, Z_GARIS])
         angka = sumbu("dekat")
 
         # Dua karyawan bergaji sama persis. Yang kedua berdiri agak ke BELAKANG,
@@ -216,10 +220,10 @@ class Pencilan6(AdeganMatra):
 
         def penunjuk(x, z_ptr, z_lbl, isi, warna):
             """Segitiga penunjuk di bawah penggaris, plus satu lambang di bawahnya."""
-            seg = Polygon([x, 0, z_ptr + 0.13], [x - 0.09, 0, z_ptr - 0.03],
-                          [x + 0.09, 0, z_ptr - 0.03])
+            seg = Polygon([x, 0, z_ptr + 0.17], [x - 0.12, 0, z_ptr - 0.04],
+                          [x + 0.12, 0, z_ptr - 0.04])
             seg.set_fill(warna, 1).set_stroke(warna, 1.5)
-            lbl = tegak(rumus(isi, 24, warna)).move_to([x, 0, z_lbl])
+            lbl = tegak(rumus(isi, 27, warna)).move_to([x, 0, z_lbl])
             return VGroup(seg, lbl)
 
         def geser_penunjuk(p, x_baru):
@@ -232,16 +236,18 @@ class Pencilan6(AdeganMatra):
         # ==================================================================
         # Babak 1 `buka`: penggaris, lalu sembilan karyawan berdiri di gajinya.
         # ==================================================================
-        kamera.pasang_awal(frame, theta=0, phi=66, pusat=(0, 0, Z_KAMERA), tinggi=7.4)
+        # Kamera DATAR sejak frame pertama. Pembuka miring cuma boleh di video
+        # pertama topik, dan video pertama Statistika adalah Materi 01, yang
+        # memang datar penuh (aturan 2 standar, dipertegas MASTER 4 Sep).
+        kamera.pasang_awal(frame, theta=0, phi=90, pusat=(0, 0, Z_KAMERA),
+                           tinggi=TINGGI_BINGKAI)
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 06: Pencilan", lama=3.2, y=2.6)
             b.catat(3.2)
             taruh("penggaris", garis)
             b.main(FadeIn(garis), run_time=1.2)
             taruh("orang", orang)
-            b.main(kamera.sudut(frame, theta=0, phi=80, pusat=(0, 0, Z_KAMERA),
-                                tinggi=TINGGI_BINGKAI),
-                   LaggedStartMap(FadeIn, orang, lag_ratio=0.18), run_time=3.8)
+            b.main(LaggedStartMap(FadeIn, orang, lag_ratio=0.18), run_time=3.8)
             taruh("angka sumbu", angka)
             b.main(LaggedStartMap(FadeIn, angka, lag_ratio=0.10), run_time=2.6)
             b.jeda(1.4)

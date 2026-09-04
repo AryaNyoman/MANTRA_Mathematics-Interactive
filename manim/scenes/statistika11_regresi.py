@@ -47,7 +47,11 @@ SATU WARNA SATU MAKNA DI DALAM VIDEO INI:
     TINTA       = titik data dan tulisan
     REDUP       = sumbu, angka, dan garis tebakan yang belum terbukti
 
-Kamera phi 90, tegak lurus, tidak pernah dimiringkan.
+Kamera phi 90, tegak lurus, tidak pernah dimiringkan. Bingkainya DIDEKATKAN
+dari 6,4 ke 4,2 selama empat babak residu (disetujui MASTER 4 Sep 2026): di
+bingkai 6,4 residu terbesar cuma 15 piksel, di 4,2 ia 24 piksel. Selama itu
+sumbu keluar bingkai, jadi ia dikeluarkan dari daftar periksa untuk babak-babak
+itu saja; benda lain tetap diperiksa penuh.
 """
 
 import json
@@ -74,12 +78,12 @@ RAMAL_JAUH = 177.2         # 49,2 + 3,2 x 40
 # --- Dua keadaan penggaris. `dekat` dipakai sembilan babak pertama, `jauh`
 #     cuma babak terakhir. Keduanya: (skala x, pusat jam, skala y, dasar nilai)
 SKALA = {
-    "dekat": (0.7167, 6.0, 0.0647, 51.0),
+    "dekat": (0.7167, 6.0, 0.0880, 51.0),
     # Sumbu mendatar harus memuat 40 jam, sebab di situlah ramalannya
     # dihitung. Akibatnya data yang cuma 2 sampai 11 jam menciut jadi
     # gerombolan selebar 1,8 satuan di pojok kiri, dan itu memang
     # gambaran paling jujur tentang ekstrapolasi.
-    "jauh": (0.1955, 22.0, 0.0164, 40.0),
+    "jauh": (0.1955, 22.0, 0.0223, 40.0),
 }
 ANGKA_X = {"dekat": [0, 2, 4, 6, 8, 10, 12], "jauh": [0, 10, 20, 30, 40]}
 ANGKA_Y = {"dekat": [55, 65, 75, 85], "jauh": [40, 80, 120, 160]}
@@ -89,7 +93,7 @@ Z_ANGKA = Z_DASAR - 0.32
 X_SUMBU_Y = -4.72
 Z_KAMERA = 0.50
 TINGGI_BINGKAI = 6.4
-LEBAR_BILAH = 0.12         # residu digambar sebagai bilah, bukan garis
+LEBAR_BILAH = 0.15         # residu digambar sebagai bilah, bukan garis
 
 
 def tegak(mob):
@@ -128,12 +132,9 @@ class Regresi11(AdeganMatra):
             hidup_h = {k: v for k, v in HUD.items() if v is not None}
             if papan.semua() is not None:
                 hidup_h["papan rumus"] = papan.semua()
+            hidup_t = {k: v for k, v in TULISAN.items() if v is not None}
             qc.periksa_adegan(self, {}, pasangan=pasangan, hud=hidup_h,
-                              dunia=hidup_d, jaga_jalur_bawah=True)
-            hidup_t = [k for k, v in TULISAN.items() if v is not None]
-            for i, a in enumerate(hidup_t):
-                for c in hidup_t[i + 1:]:
-                    qc.tidak_bertindih(frame, TULISAN[a], TULISAN[c], a, c)
+                              dunia=hidup_d, tulisan=hidup_t, jaga_jalur_bawah=True)
 
         keadaan = {"nama": "dekat"}
 
@@ -149,23 +150,33 @@ class Regresi11(AdeganMatra):
         # Panggung: dua sumbu berangka, dibangun ulang untuk tiap keadaan.
         # ------------------------------------------------------------------
         def buat_sumbu(nama):
-            g = VGroup()
-            g.add(Line([xj(-0.8, nama), 0, Z_DASAR], [xj(ANGKA_X[nama][-1] + 0.8, nama), 0, Z_DASAR])
-                  .set_stroke(REDUP, 2.4))
-            g.add(Line([X_SUMBU_Y, 0, Z_DASAR], [X_SUMBU_Y, 0, zn(ANGKA_Y[nama][-1] + 3, nama)])
-                  .set_stroke(REDUP, 2.4))
+            """Kembalikan (gabungan, bagian mendatar, bagian tegak).
+
+            Didaftarkan ke gerbang sebagai DUA benda pipih, bukan satu kotak
+            sebesar grafik: kotak batas gabungan mencakup seluruh bidang, jadi
+            papan rumus di pojok kanan atas dianggap menindihnya padahal tidak
+            ada garis yang bersentuhan (gerbang menolak render 4 Sep).
+            """
+            datar, tegak_g = VGroup(), VGroup()
+            datar.add(Line([xj(-0.8, nama), 0, Z_DASAR],
+                           [xj(ANGKA_X[nama][-1] + 0.8, nama), 0, Z_DASAR])
+                      .set_stroke(REDUP, 2.4))
+            tegak_g.add(Line([X_SUMBU_Y, 0, Z_DASAR],
+                             [X_SUMBU_Y, 0, zn(ANGKA_Y[nama][-1] + 3, nama)])
+                        .set_stroke(REDUP, 2.4))
             for j in ANGKA_X[nama]:
                 x = xj(j, nama)
-                g.add(Line([x, 0, Z_DASAR], [x, 0, Z_DASAR - 0.10]).set_stroke(REDUP, 1.6))
-                g.add(tegak(rumus(str(j), 20, REDUP)).move_to([x, 0, Z_ANGKA]))
+                datar.add(Line([x, 0, Z_DASAR], [x, 0, Z_DASAR - 0.10]).set_stroke(REDUP, 1.6))
+                datar.add(tegak(rumus(str(j), 20, REDUP)).move_to([x, 0, Z_ANGKA]))
             for v in ANGKA_Y[nama]:
                 z = zn(v, nama)
-                g.add(Line([X_SUMBU_Y, 0, z], [X_SUMBU_Y - 0.10, 0, z]).set_stroke(REDUP, 1.6))
-                g.add(tegak(rumus(str(v), 20, REDUP)).move_to([X_SUMBU_Y - 0.38, 0, z]))
-            return g
+                tegak_g.add(Line([X_SUMBU_Y, 0, z], [X_SUMBU_Y - 0.10, 0, z])
+                            .set_stroke(REDUP, 1.6))
+                tegak_g.add(tegak(rumus(str(v), 20, REDUP)).move_to([X_SUMBU_Y - 0.38, 0, z]))
+            return VGroup(datar, tegak_g), datar, tegak_g
 
-        sumbu_dekat = buat_sumbu("dekat")
-        sumbu_jauh = buat_sumbu("jauh")
+        sumbu_dekat, sumbu_dekat_x, sumbu_dekat_y = buat_sumbu("dekat")
+        sumbu_jauh, sumbu_jauh_x, sumbu_jauh_y = buat_sumbu("jauh")
 
         def buat_titik(nama):
             g = VGroup()
@@ -205,7 +216,8 @@ class Regresi11(AdeganMatra):
         with sinema.babak(self, "buka", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 11: Garis regresi", lama=3.2, y=2.6)
             b.catat(3.2)
-            taruh("sumbu", sumbu_dekat)
+            taruh("sumbu datar", sumbu_dekat_x)
+            taruh("sumbu tegak", sumbu_dekat_y)
             b.main(FadeIn(sumbu_dekat), run_time=1.6)
             taruh("titik", titik)
             b.main(LaggedStartMap(FadeIn, titik, lag_ratio=0.14), run_time=3.6)
@@ -252,19 +264,28 @@ class Regresi11(AdeganMatra):
         ruas_serong = Line([_p[0], 0, _p[1]], [_kaki[0], 0, _kaki[1]]).set_stroke(REDUP, 2.6)
 
         with sinema.babak(self, "residu", DURASI) as b:
-            b.main(Indicate(titik[8], scale_factor=2.2, color=TINTA), run_time=1.4)
+            # Sumbu keluar bingkai selama empat babak ini, jadi ia dilepas dari
+            # daftar periksa. Kelompok `tebakan` juga: dua anggotanya sudah
+            # dipadamkan tetapi kotak batasnya masih menjulur ke jalur subtitle
+            # begitu kamera didekatkan. Yang masih terlihat cuma garis tengahnya,
+            # dan ITU didaftarkan menggantikannya, jadi tidak ada yang lolos
+            # periksa: titik, bilah, garis, dan tulisan semuanya tetap dijaga.
+            buang("sumbu datar", "sumbu tegak", "tebakan")
+            taruh("garis", garis_uji)
+            b.main(kamera.dekati(frame, [0.35, 0, 0.59], 4.8), run_time=2.0)
+            b.main(Indicate(titik[8], scale_factor=2.2, color=TINTA), run_time=1.2)
             taruh("bilah contoh", bilah_contoh)
             b.main(GrowFromCenter(bilah_contoh), run_time=1.6)
             taruh("label tegak", l_tegak, tulisan=True)
             b.main(FadeIn(l_tegak), run_time=1.0)
             taruh("ruas serong", ruas_serong)
-            b.main(ShowCreation(ruas_serong), run_time=1.4)
-            b.main(FadeOut(ruas_serong), run_time=1.2)
+            b.main(ShowCreation(ruas_serong), run_time=1.2)
+            b.main(FadeOut(ruas_serong), run_time=1.0)
             buang("ruas serong")
-            b.main(Indicate(bilah_contoh, scale_factor=1.3, color=AKSEN), run_time=1.4)
+            b.main(Indicate(bilah_contoh, scale_factor=1.3, color=AKSEN), run_time=1.2)
             b.main(FadeOut(l_tegak), run_time=0.8)
             buang("label tegak")
-            b.jeda(1.4)
+            b.jeda(1.2)
         periksa()
 
         # ==================================================================
@@ -323,12 +344,15 @@ class Regresi11(AdeganMatra):
         # dan angkanya turun lalu naik lagi. Inilah kuadrat terkecil.
         # ==================================================================
         with sinema.babak(self, "kecilkan", DURASI) as b:
+            taruh("sumbu datar", sumbu_dekat_x)
+            taruh("sumbu tegak", sumbu_dekat_y)
+            b.main(kamera.dekati(frame, [0, 0, Z_KAMERA], TINGGI_BINGKAI), run_time=1.6)
             for miring in (2.0, 2.6, 3.2, 3.8):
                 b.main(Transform(garis_uji, garis_dari(miring)),
-                       Transform(bilah, bilah_residu(miring)), run_time=1.4)
+                       Transform(bilah, bilah_residu(miring)), run_time=1.2)
                 sinema.ganti_rumus(self, papan.utama,
                                    rf"\sum r^2 = {koma(JKR[miring], 1)}", b=b,
-                                   run_time=0.9, papan=papan)
+                                   run_time=0.8, papan=papan)
             b.jeda(1.2)
         periksa()
 
@@ -400,7 +424,8 @@ class Regresi11(AdeganMatra):
                    FadeOut(l_naik), run_time=0.8)
             buang("tangga", "label satu jam", "label naik")
             keadaan["nama"] = "jauh"
-            taruh("sumbu", sumbu_jauh)
+            taruh("sumbu datar", sumbu_jauh_x)
+            taruh("sumbu tegak", sumbu_jauh_y)
             taruh("titik", titik_jauh)
             b.main(FadeOut(sumbu_dekat), FadeIn(sumbu_jauh),
                    *[Transform(a, c) for a, c in zip(titik, titik_jauh)],

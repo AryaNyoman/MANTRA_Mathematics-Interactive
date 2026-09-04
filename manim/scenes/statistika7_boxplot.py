@@ -51,13 +51,14 @@ PENCILAN = 60
 SKALA_X, PUSAT_MENIT = 0.148, 32.0
 ANGKA_X = [0, 10, 20, 30, 40, 50, 60]
 
-Z_TITIK = 0.10               # baris titik data
-Z_KOTAK = -0.72              # sumbu boxplot, di bawah titiknya
-TINGGI_KOTAK = 0.46
+# Dilebarkan 4 Sep: tengah atas layar bebas.
+Z_TITIK = 0.34               # baris titik data
+Z_KOTAK = -0.70              # sumbu boxplot, di bawah titiknya
+TINGGI_KOTAK = 0.60
 Z_ANGKA = -1.34
 Z_KAMERA = 0.50
 TINGGI_BINGKAI = 6.4
-JARI_TITIK = 0.070
+JARI_TITIK = 0.086
 
 
 def tegak(mob):
@@ -103,12 +104,9 @@ class Boxplot7(AdeganMatra):
             hidup_h = {k: v for k, v in HUD.items() if v is not None}
             if papan.semua() is not None:
                 hidup_h["papan rumus"] = papan.semua()
+            hidup_t = {k: v for k, v in TULISAN.items() if v is not None}
             qc.periksa_adegan(self, {}, pasangan=pasangan, hud=hidup_h,
-                              dunia=hidup_d, jaga_jalur_bawah=True)
-            hidup_t = [k for k, v in TULISAN.items() if v is not None]
-            for i, a in enumerate(hidup_t):
-                for c in hidup_t[i + 1:]:
-                    qc.tidak_bertindih(frame, TULISAN[a], TULISAN[c], a, c)
+                              dunia=hidup_d, tulisan=hidup_t, jaga_jalur_bawah=True)
 
         # ------------------------------------------------------------------
         # Panggung: satu penggaris menit, lima belas titik data di atasnya.
@@ -124,7 +122,7 @@ class Boxplot7(AdeganMatra):
         titik = VGroup()
         for v, tingkat in zip(DATA, tumpuk(DATA)):
             d = Dot(radius=JARI_TITIK).set_fill(TINTA, 1).set_stroke(LATAR, 1.2)
-            titik.add(tegak(d).move_to([xm(v), 0, Z_TITIK + tingkat * 0.20]))
+            titik.add(tegak(d).move_to([xm(v), 0, Z_TITIK + tingkat * 0.30]))
 
         def penggaris_tegak(menit, z_bawah, z_atas, warna, tebal=2.6, putus=False):
             kelas = DashedLine if putus else Line
@@ -310,8 +308,8 @@ class Boxplot7(AdeganMatra):
         # Kedua kurung dipisah ke atas dan ke bawah. Ditumpuk berdua di bawah
         # kotak, yang paling bawah masuk jalur subtitle (ditangkap gerbang qc),
         # sebab di sana sudah ada sumbu dan angkanya.
-        Z_JAK = -0.22                 # antara kotak dan titik data
-        Z_BIASA = 0.86                # di atas titik data, ruang yang masih kosong
+        Z_JAK = -0.16                 # antara kotak dan titik data
+        Z_BIASA = 1.55                # di atas titik data, ruang yang masih kosong
         rentang_jak = VGroup(
             Line([xm(Q1), 0, Z_JAK], [xm(Q3), 0, Z_JAK]),
             Line([xm(Q1), 0, Z_JAK - 0.08], [xm(Q1), 0, Z_JAK + 0.08]),

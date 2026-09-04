@@ -51,7 +51,8 @@ ATAS_POTONG = 434
 
 # --- Panggung. Sumbu mendatar tetap; hanya sumbu tegaknya yang berubah.
 X_KIRI, X_KANAN = -3.20, 2.60
-Z_DASAR, Z_ATAS = -1.10, 1.42
+# Langit-langit dinaikkan 4 Sep: tengah atas layar bebas.
+Z_DASAR, Z_ATAS = -1.10, 2.10
 Z_ANGKA = Z_DASAR - 0.34
 Z_KAMERA = 0.50
 TINGGI_BINGKAI = 6.4
@@ -93,12 +94,9 @@ class Menyesatkan13(AdeganMatra):
             hidup_h = {k: v for k, v in HUD.items() if v is not None}
             if papan.semua() is not None:
                 hidup_h["papan rumus"] = papan.semua()
+            hidup_t = {k: v for k, v in TULISAN.items() if v is not None}
             qc.periksa_adegan(self, {}, pasangan=pasangan, hud=hidup_h,
-                              dunia=hidup_d, jaga_jalur_bawah=True)
-            hidup_t = [k for k, v in TULISAN.items() if v is not None]
-            for i, a in enumerate(hidup_t):
-                for c in hidup_t[i + 1:]:
-                    qc.tidak_bertindih(frame, TULISAN[a], TULISAN[c], a, c)
+                              dunia=hidup_d, tulisan=hidup_t, jaga_jalur_bawah=True)
 
         # Keadaan sumbu tegak yang sedang dipakai. Titik datanya dihitung dari
         # sini, jadi tidak ada satu pun angka yang ditulis dua kali.
