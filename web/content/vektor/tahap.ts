@@ -124,6 +124,7 @@ export const TAHAP: TahapVektor[] = [
       'Menjumlahkan vektor bergantung pada arah, jadi 3 tambah 4 bisa menjadi 7, bisa 1, bisa 5.',
     ],
     widget: 'perahu-sungai',
+    video: { berkas: 'vektor1-perahu.mp4', poster: 'vektor1-perahu.jpg' },
     siap: true,
   },
   /* ================================================================= */
@@ -284,6 +285,7 @@ export const TAHAP: TahapVektor[] = [
       'Vektor dari A ke B dicari dengan ujung dikurangi pangkal.',
     ],
     widget: 'pecah-komponen',
+    video: { berkas: 'vektor3-komponen.mp4', poster: 'vektor3-komponen.jpg' },
     siap: true,
   },
   /* ================================================================= */
@@ -356,6 +358,7 @@ export const TAHAP: TahapVektor[] = [
       'Dua vektor bisa sama panjang tetapi tetap berbeda, karena arahnya belum tentu sama.',
     ],
     widget: 'panjang-dan-arah',
+    video: { berkas: 'vektor4-panjang.mp4', poster: 'vektor4-panjang.jpg' },
     siap: true,
   },
   /* ================================================================= */
@@ -509,6 +512,7 @@ export const TAHAP: TahapVektor[] = [
       'Dengan komponen, cukup jumlahkan yang mendatar dan yang tegak masing-masing.',
     ],
     widget: 'sambung-panah',
+    video: { berkas: 'vektor6-sambung.mp4', poster: 'vektor6-sambung.jpg' },
     siap: true,
   },
   /* ================================================================= */
@@ -656,6 +660,7 @@ export const TAHAP: TahapVektor[] = [
       'Vektor dari A ke B adalah posisi B dikurangi posisi A, bukan sebaliknya.',
     ],
     widget: 'selisih-panah',
+    video: { berkas: 'vektor8-selisih.mp4', poster: 'vektor8-selisih.jpg' },
     siap: true,
   },
   /* ================================================================= */
@@ -724,6 +729,7 @@ export const TAHAP: TahapVektor[] = [
       'Pengali nol menghasilkan vektor nol, dan dua vektor yang berkelipatan pasti sejajar.',
     ],
     widget: 'kali-skalar',
+    video: { berkas: 'vektor9-kali-skalar.mp4', poster: 'vektor9-kali-skalar.jpg' },
     siap: true,
   },
   /* ================================================================= */

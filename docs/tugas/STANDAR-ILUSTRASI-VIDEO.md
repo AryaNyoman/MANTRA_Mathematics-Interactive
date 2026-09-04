@@ -66,6 +66,14 @@ Perkakasnya `manim/gl/` (sinema v2, qc, ilustrasi, kamera). Rujukan resmi:
    Statistika menemukan gerbang lama hanya menjaga satu arah (menolak
    animasi kelebihan, diam saja kalau animasi kependekan): 49 rentang beku
    lolos ke 13 video, terpanjang 18,5 detik.
+   BENTUK KETIGA (temuan Vektor 4 Sep): animasi yang dimainkan BERUNTUN di awal
+   babak membuat gambar MENDAHULUI narasinya lalu menganggur; Vektor 04 beku
+   31 detik saat narator menyebut 4^2 = 16, 2^2 = 4, jumlah 20, akar 4,47,
+   padahal semua animasinya ada di kode. Tiap kejadian dipatok ke kalimatnya
+   dengan `b.tunggu_sampai`, bukan dimainkan lalu ditunggu. Dan JANGAN
+   memadatkan langkah hitungan demi muat empat baris panel: langkah yang
+   disebut narator harus punya kejadiannya; kalau panel penuh, baris
+   DIMORF (`ganti_rumus` untuk rumus yang mirip), bukan langkah dibuang.
    Pengecualian: topik yang matematikanya memang ruang (Ruang 3D, dan nanti
    Transformasi Geometri) boleh bolak-balik 3D dan 2D. Prinsipnya: matematika
    yang butuh PANJANG atau SUDUT yang akurat wajib kamera tegak lurus, sebab
