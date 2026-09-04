@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 import { notFound } from 'next/navigation'
 import Nav from '@/components/Nav'
-import Kaki from '@/components/mantra/Kaki'
 import HalamanTopik from '@/components/topik/HalamanTopik'
 import { TOPIK, cariTopik } from '@/content/topik'
 
@@ -67,7 +66,6 @@ export default async function RuteTopik({
           </Link>
         </main>
       )}
-      <Kaki />
     </>
   )
 }

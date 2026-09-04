@@ -2389,3 +2389,29 @@ main { animation: tab-masuk 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
    375 piksel ia berimpit dengan judulnya dan garis pemisahnya tinggal
    beberapa piksel. Judulnya sendiri sudah cukup menjelaskan. */
 @media (max-width: 520px) { .tajuk-baris .kanan { display: none; } }
+
+/* ---------- halaman materi: SATU LAYAR, tanpa gulir halaman ----------
+   Permintaan ARYA 4 Sep 2026. Sebelumnya tinggi kotak materi dihitung dengan
+   angka tetap (`calc(100dvh - 132px)`) yang tidak memperhitungkan pengisi bawah
+   dan kaki halaman, jadi halaman tetap menggulir sedikit dan kotaknya bisa lebih
+   tinggi dari layar pendek. Sekarang tidak ada hitungan: `main` setinggi sisa
+   layar di bawah nav, kotak materi mengisi sisanya lewat flex, dan yang
+   menggulir hanya isi di dalam kotak. Kaki halaman dilepas dari rute ini. */
+.materi-satu-layar {
+  height: calc(100dvh - var(--nav));
+  padding-top: 16px; padding-bottom: 16px;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.materi-satu-layar .materi-panel {
+  flex: 1 1 auto; min-height: 0; margin-bottom: 0;
+  display: flex; flex-direction: column;
+}
+.materi-satu-layar .remah { flex: none; }
+/* Tinggi pasti dan batas bawah 470px dibatalkan: kotak mengikuti ruang yang
+   ada. Tanpa ini, pada layar pendek kotaknya lebih tinggi dari layar dan
+   terpotong `overflow: hidden` di atasnya. */
+.materi-satu-layar .materi-badan { flex: 1 1 auto; height: auto; min-height: 0; }
+@media (max-width: 860px) {
+  .materi-satu-layar { height: auto; display: block; overflow: visible; padding-bottom: 24px; }
+  .materi-satu-layar .materi-panel { display: block; }
+}
