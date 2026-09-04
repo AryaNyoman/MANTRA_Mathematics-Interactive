@@ -104,7 +104,10 @@ export default function Tentang() {
           </article>
         </div>
 
-        <div className="kotak-emas" style={{ maxWidth: '56rem', marginBottom: 24 }}>
+        {/* Lebarnya TIDAK dipatok. Kartu di atas dan di bawahnya melebar penuh;
+            satu kotak yang berhenti di tengah terbaca sebagai kesalahan tata
+            letak, bukan sebagai penekanan. */}
+        <div className="kotak-emas" style={{ marginBottom: 24 }}>
           <b>Nilai di situs ini bukan penilaian resmi.</b>
           <p>
             Situs ini tidak memakai akun dan tidak memakai basis data. Semua
