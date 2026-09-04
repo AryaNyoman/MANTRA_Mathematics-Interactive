@@ -202,8 +202,7 @@ class TransformasiRotasi(AdeganMatra):
             rum = sinema.ganti_rumus(
                 self, rum, r"(x,\ y) \to (-x,\ -y)", b=b, warna=SOROT, papan=papan,
             )
-            papan.baris(r"180^\circ = \text{cermin titik asal}", warna=SOROT)
-            b.catat(0.8)  # `papan.baris` tidak mencatat waktunya sendiri
+            papan.baris(r"180^\circ = \text{cermin titik asal}", warna=SOROT, b=b)
         qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_b},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_b})
@@ -222,16 +221,39 @@ class TransformasiRotasi(AdeganMatra):
         # 2. Maknanya juga bukan penggantian. Rumus sudut sembarang MENCAKUP
         #    yang setengah putaran, bukan membatalkannya, dan panel yang
         #    menumpuk keduanya menyampaikan hubungan itu apa adanya.
+        # BENTUKNYA BENAR-BENAR DIPUTAR 37 DERAJAT DI SINI.
+        #
+        # Versi pertama cuma menambahkan satu baris rumus ke panel lalu diam
+        # 9,2 detik sampai video habis, terukur `alat/ukur_detik_pertama.py`.
+        # Narasinya berbicara tentang "sudut yang bukan kelipatan sembilan
+        # puluh", dan satu-satunya cara menunjukkan sudut semacam itu adalah
+        # memutarnya. Rumus di panel menerangkan gerakan; ia tidak bisa
+        # menggantikannya.
+        #
+        # Dipakai 37 derajat, bukan 45. Sudut 45 derajat terlihat seperti
+        # setengah dari sudut siku-siku dan bisa dikira istimewa juga; 37
+        # derajat jelas-jelas sembarang.
+        sudut_bebas = 37.0
+        peta_bebas = poligon(
+            [(p[0] * np.cos(sudut_bebas * DEGREES) - p[1] * np.sin(sudut_bebas * DEGREES),
+              p[0] * np.sin(sudut_bebas * DEGREES) + p[1] * np.cos(sudut_bebas * DEGREES))
+             for p in L],
+            AKSEN2, tebal=3.0, isian=0.12,
+        )
+
         with sinema.babak(self, "sembarang", DURASI) as b:
-            papan.baris(r"(x\cos a - y\sin a,\ x\sin a + y\cos a)", warna=AKSEN2)
-            b.catat(0.8)
-        qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_b},
+            papan.baris(r"(x\cos a - y\sin a,\ x\sin a + y\cos a)", warna=AKSEN2, b=b)
+            b.main(
+                FadeOut(peta_b), *[FadeOut(nama_b[h]) for h in nama_b],
+                run_time=0.7,
+            )
+            b.main(ShowCreation(peta_bebas), run_time=1.8)
+        qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_bebas},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_b})
 
         with sinema.babak(self, "tutup", DURASI) as b:
-            papan.baris(r"a = 90^\circ:\ \cos a = 0,\ \sin a = 1", warna=AKSEN2)
-            b.catat(0.8)
-        qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_b},
+            papan.baris(r"a = 90^\circ:\ \cos a = 0,\ \sin a = 1", warna=AKSEN2, b=b)
+        qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_bebas},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_b})

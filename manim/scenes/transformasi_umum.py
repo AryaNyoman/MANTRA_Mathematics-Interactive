@@ -16,13 +16,21 @@ TIGA JEBAKAN YANG SUDAH DIBAYAR MAHAL, JANGAN DIULANG
    `Babak.tutup()` menambal sisa waktu dan `catat` palsu mengecilkan sisanya.
    Untuk menahan layar: tidak usah melakukan apa-apa, `tutup()` sudah menambal
    sampai pas dengan narasi.
-2. `papan.baris()` memainkan animasi 0,8 detik dan TIDAK mencatatnya sendiri,
-   berbeda dari `lahir_rumus` dan `ganti_rumus` yang mencatat. Setiap
-   `papan.baris(...)` WAJIB diikuti `b.catat(0.8)`. Dua yang terlewat di video
-   01 membuat videonya 1,6 detik lebih panjang daripada narasinya.
+2. `papan.baris(...)` WAJIB diberi `b=b`. Animasinya 0,8 detik, dan tanpa `b=`
+   waktu itu tidak tercatat ke babak: `tutup()` menambal terlalu banyak dan
+   videonya jadi lebih panjang daripada narasinya sampai `gabung_audio.py`
+   menolaknya. Dua yang terlewat di video 01 meleset 1,6 detik.
+   (Parameter `b=` ditambahkan MASTER 4 Sep 2026 setelah temuan ini. Sebelum
+   itu waktunya harus dicatat tangan; jangan lagi memakai `b.catat(0.8)`
+   manual, sebab sekarang akan terhitung DUA KALI.)
 3. Teks yang ditaruh di ruang 3D ikut dimiringkan kameranya dan bisa tergambar
    TERBALIK. Semua tulisan harus muncul setelah kamera tegak lurus, atau
    dipasang ke layar dengan `fix_in_frame`.
+4. `sinema.ganti_rumus` mengganti rumus dengan memindahkan lambang yang SAMA.
+   Antara dua rumus yang nyaris tidak punya lambang bersama, yang terjadi
+   bukan morph melainkan tumpukan coretan tak terbaca selama satu setengah
+   detik. Untuk rumus yang isinya beda jauh, pakai `papan.baris` (menumpuk),
+   bukan `ganti_rumus` (mengganti).
 """
 
 import numpy as np

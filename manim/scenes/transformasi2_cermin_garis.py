@@ -71,17 +71,70 @@ class TransformasiCerminGaris(AdeganMatra):
             np.array([K_AWAL, -0.2, 0.03]), np.array([K_AWAL, 4.2, 0.03]),
         ).set_stroke(SOROT, 3.0)
 
+        # DUA BABAK PERTAMA MENJAWAB PERTANYAAN NARASINYA, BUKAN MENUNGGUNYA.
+        #
+        # Versi pertama cuma menampilkan bidang dan garis cermin, lalu diam
+        # 14,1 detik sementara narator bertanya "bayanganmu ada di mana" dan
+        # menjawabnya sendiri. Terukur oleh `alat/ukur_detik_pertama.py`, dan
+        # bukan cuma angka yang buruk: pertanyaan tentang JARAK dijawab layar
+        # yang tidak memuat satu jarak pun.
+        #
+        # Sekarang orangnya sungguh ada di layar sebagai sebuah titik berjarak
+        # 2 dari kaca, dan bayangannya muncul tepat saat narator menyebutnya.
+        orang = (-2.0, 2.0)
+        bayangan = cermin_tegak(orang, K_AWAL)
+
+        dot_orang = Dot(titik3(orang), radius=0.09).set_color(TINTA)
+        l_orang = sinema.label("kamu", warna=TINTA)
+        l_orang.next_to(titik3(orang), UP, buff=0.24)
+        ruas_orang = Line(titik3(orang), np.array([K_AWAL, orang[1], 0.03])).set_stroke(AKSEN, 3.0)
+        angka_orang = sinema.label("2", warna=AKSEN)
+        angka_orang.next_to(ruas_orang.get_center(), DOWN, buff=0.16)
+
+        dot_bayang = Dot(titik3(bayangan), radius=0.09).set_color(AKSEN2)
+        l_bayang = sinema.label("bayangan", warna=AKSEN2)
+        l_bayang.next_to(titik3(bayangan), UP, buff=0.24)
+        ruas_bayang = Line(np.array([K_AWAL, orang[1], 0.03]), titik3(bayangan)).set_stroke(AKSEN, 3.0)
+        angka_bayang = sinema.label("2", warna=AKSEN)
+        angka_bayang.next_to(ruas_bayang.get_center(), DOWN, buff=0.16)
+
         with sinema.babak(self, "kaca", DURASI) as b:
             b.main(FadeIn(bidang), run_time=0.8)
             b.main(ShowCreation(garis_cermin), run_time=1.0)
             ident = sinema.identitas(self, "1 petak = 1 satuan")
-        qc.periksa_adegan(self, {"identitas": ident}, dunia={"bidang": bidang})
+            b.main(FadeIn(dot_orang, scale=0.4), FadeIn(l_orang), run_time=1.0)
+            b.main(ShowCreation(ruas_orang), FadeIn(angka_orang), run_time=1.2)
+        qc.periksa_adegan(self, {"identitas": ident, "titik orang": dot_orang,
+                                 "label orang": l_orang},
+                          dunia={"bidang": bidang})
 
         with sinema.babak(self, "jarak", DURASI) as b:
+            b.main(FadeIn(dot_bayang, scale=0.4), FadeIn(l_bayang), run_time=1.2)
+            b.main(ShowCreation(ruas_bayang), FadeIn(angka_bayang), run_time=1.2)
+            b.main(
+                Indicate(angka_orang, color=AKSEN), Indicate(angka_bayang, color=AKSEN),
+                run_time=1.2,
+            )
+        qc.periksa_adegan(
+            self,
+            {"titik orang": dot_orang, "titik bayangan": dot_bayang,
+             "label orang": l_orang, "label bayangan": l_bayang},
+            [("label orang", "label bayangan")],
+            hud={"identitas": ident}, dunia={"bidang": bidang},
+        )
+
+        # --- bentuk sungguhan menggantikan kedua titik tadi ---------------- #
+        with sinema.babak(self, "bentuk", DURASI) as b:
+            b.main(
+                FadeOut(dot_orang), FadeOut(l_orang), FadeOut(ruas_orang),
+                FadeOut(angka_orang), FadeOut(dot_bayang), FadeOut(l_bayang),
+                FadeOut(ruas_bayang), FadeOut(angka_bayang),
+                run_time=0.8,
+            )
             b.main(
                 ShowCreation(prapeta),
                 *[FadeIn(nama_pra[h]) for h in nama_pra],
-                run_time=1.4,
+                run_time=1.6,
             )
         qc.periksa_adegan(self, {"prapeta": prapeta}, hud={"identitas": ident},
                           dunia={"bidang": bidang})
@@ -93,11 +146,6 @@ class TransformasiCerminGaris(AdeganMatra):
             t = sinema.label(f"{huruf}'", warna=AKSEN2)
             t.next_to(titik3(peta_awal[i]), DOWN if i < 2 else UP, buff=0.22)
             nama_peta[huruf] = t
-
-        with sinema.babak(self, "bentuk", DURASI) as b:
-            b.main(Indicate(garis_cermin, color=SOROT), run_time=1.0)
-        qc.periksa_adegan(self, {"prapeta": prapeta}, hud={"identitas": ident},
-                          dunia={"bidang": bidang})
 
         with sinema.babak(self, "cermin", DURASI) as b:
             b.main(
@@ -180,8 +228,7 @@ class TransformasiCerminGaris(AdeganMatra):
 
         # --- uji: angka contoh yang sama dengan halamannya ---------------- #
         with sinema.babak(self, "uji", DURASI) as b:
-            papan.baris(r"A(1,\ 2) \to A'(9,\ 2)", warna=AKSEN2)
-            b.catat(0.8)  # `papan.baris` tidak mencatat waktunya sendiri
+            papan.baris(r"A(1,\ 2) \to A'(9,\ 2)", warna=AKSEN2, b=b)
         qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_b},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_b})
@@ -198,8 +245,7 @@ class TransformasiCerminGaris(AdeganMatra):
         # Narasi memang memperkenalkan cermin mendatar sebagai kasus SEJAJAR,
         # bukan sebagai pengganti, jadi panelnya pun harus begitu.
         with sinema.babak(self, "tutup", DURASI) as b:
-            papan.baris(r"\text{mendatar: } (x,\ y) \to (x,\ 2h - y)", warna=SOROT)
-            b.catat(0.8)  # `papan.baris` tidak mencatat waktunya sendiri
+            papan.baris(r"\text{mendatar: } (x,\ y) \to (x,\ 2h - y)", warna=SOROT, b=b)
         qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_b},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_b})

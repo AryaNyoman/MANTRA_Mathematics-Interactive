@@ -187,8 +187,25 @@ class TransformasiSetiapTitik(AdeganMatra):
         # sehingga tidak terbaca sama sekali. Narasi sudah menyebutkan apa
         # yang terjadi, dan standar proyek memang mengizinkan layar diam
         # selama narasinya masih membahas yang tampil.
+        # Garis pasangan dari kepala ke kepala, TANPA tulisan.
+        #
+        # Kalimat kedua babak ini berbunyi "aturannya berlaku untuk tiap
+        # titik", dan versi pertama tidak menggambarkan apa pun untuk kalimat
+        # itu: layarnya diam 7,6 detik, terukur `alat/ukur_detik_pertama.py`.
+        # Garis yang menghubungkan orangnya dengan hasilnya adalah gambar
+        # untuk kalimat itu, dan ia juga benih seluruh topik: transformasi
+        # memasangkan titik dengan titik.
+        #
+        # Tanpa label, sengaja. Teks di ruang 3D ikut dimiringkan kameranya
+        # dan pernah tergambar terbalik di video ini juga.
+        pasangan = DashedLine(
+            np.array([ORANG_X, ORANG_Y, 1.7]),
+            np.array([ORANG_X, -ORANG_Y, 1.7]),
+        ).set_stroke(SOROT, 2.5)
+
         with sinema.babak(self, "sama", DURASI) as b:
             b.main(FadeIn(seberang), run_time=1.4)
+            b.main(ShowCreation(pasangan), run_time=1.6)
         qc.periksa_adegan(self, {"orang": orang, "seberang": seberang}, margin=0.45)
 
         # ---------------------------------------------------------------- #
@@ -228,7 +245,7 @@ class TransformasiSetiapTitik(AdeganMatra):
             )
             b.main(
                 FadeOut(lapangan), FadeOut(orang), FadeOut(seberang),
-                FadeOut(garis_lipat), FadeIn(bidang),
+                FadeOut(garis_lipat), FadeOut(pasangan), FadeIn(bidang),
                 run_time=1.0,
             )
             ident = sinema.identitas(self, "1 petak = 1 satuan")
@@ -345,15 +362,13 @@ class TransformasiSetiapTitik(AdeganMatra):
             # Dengan namanya ditulis, keduanya berhenti bertengkar dan justru
             # menjadi perbandingan: cermin tidak mengubah jarak, dilatasi
             # mengubahnya. Itu persis pelajaran Materi 08.
-            papan.baris(r"\text{cermin: } AB = 5 \to A'B' = 5", warna=AKSEN2)
-            # `papan.baris` MEMAINKAN animasi 0,8 detik tetapi TIDAK
-            # mencatatnya ke babak, tidak seperti `lahir_rumus` dan
-            # `ganti_rumus` yang mencatat sendiri. Tanpa baris ini, waktu itu
-            # tidak terhitung, `tutup()` menambal terlalu banyak, dan videonya
-            # jadi lebih panjang daripada narasinya. Dua panggilan `baris` di
-            # video ini menyumbang 1,6 detik selisih, dan `gabung_audio.py`
-            # menolaknya karena batasnya 1,5 detik.
-            b.catat(0.8)
+            # `b=b` WAJIB. Tanpanya waktu 0,8 detik animasi baris ini tidak
+            # tercatat, `tutup()` menambal terlalu banyak, dan videonya jadi
+            # lebih panjang daripada narasinya. Dua panggilan yang terlewat
+            # membuat video ini meleset 1,6 detik dan ditolak `gabung_audio.py`.
+            # Parameter `b=` ditambahkan MASTER 4 Sep 2026; sebelum itu waktunya
+            # harus dicatat tangan dengan `b.catat(0.8)`.
+            papan.baris(r"\text{cermin: } AB = 5 \to A'B' = 5", warna=AKSEN2, b=b)
         qc.periksa_adegan(
             self,
             {"prapeta": prapeta, "peta": peta_bentuk, "label peta": l_peta},
@@ -427,8 +442,7 @@ class TransformasiSetiapTitik(AdeganMatra):
             rum = sinema.ganti_rumus(
                 self, rum, r"A(1,\ 1) \to A'(2,\ 2)", b=b, warna=SOROT, papan=papan,
             )
-            papan.baris(r"\text{dilatasi: } AB = 5 \to A'B' = 10", warna=SOROT)
-            b.catat(0.8)  # `baris` tidak mencatat sendiri, lihat catatan di babak peta2
+            papan.baris(r"\text{dilatasi: } AB = 5 \to A'B' = 10", warna=SOROT, b=b)
         qc.periksa_adegan(self, {"prapeta": prapeta, "peta besar": peta_besar},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_luas})
