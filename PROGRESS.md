@@ -1,24 +1,39 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
-## 4 SEP SIANG: rancangan MANTRA v2 "Panggung Sinema" ada di cabang `sesi/mantra-v2`
+## 5 SEP: MANTRA v2 "Panggung Sinema" SUDAH DI PRODUKSI
 
-Claude Design menyelesaikan rancangan v2 (9 halaman) dan MASTER sudah
-memindahkannya ke kode di cabang `sesi/mantra-v2`, BELUM digabung ke master.
+Cabang `sesi/mantra-v2` sudah digabung ke `master` dan dinaikkan ke
+produksi. **https://matra-eight.vercel.app** kini memakai rancangan v2.
+Pratinjaunya (`mantra-rancangan-v2.vercel.app`) masih hidup sebagai
+pembanding dan boleh dibuang kapan saja.
 
-- Pratinjau: **https://mantra-rancangan-v2.vercel.app**
-- `mantra-uji.vercel.app` SENGAJA dibiarkan berisi versi lama sebagai pembanding.
-- Sumber rancangan tersimpan di `docs/desain-mantra/MANTRA-v2.dc.html`.
-- Isi perubahan lengkap ada di tiga pesan commit cabang itu, jangan disalin ulang ke sini.
+Isi perubahan ada di pesan commit, jangan disalin ulang ke sini. Ringkasnya:
+nav, hero, dan kaki halaman jadi permukaan navy; halaman belajar jadi tiga
+kolom penuh layar (daftar materi, bacaan, ALAT) dengan pembatas yang bisa
+ditarik dan mode fokus layar penuh; Peta Materi jadi baris sub-bab; menu
+Latihan jadi kartu per bab tanpa kuis; ada halaman 404, keadaan memuat, dan
+kotak galat video.
 
-Yang MASIH terbuka di cabang itu:
-- Bahasa isi materi masih memakai "Anda"; rancangan v2 memilih "kamu" untuk
-  siswa dan "Anda" hanya di halaman Tentang. Itu perubahan ISI di
-  `web/content/**`, bukan perubahan rancangan, jadi tidak ikut dikerjakan.
-- Judul tab tetap "Nama halaman | MANTRA", bukan "MANTRA · ..." seperti di
-  daftar periksa. Nama halaman di depan lebih mudah dibedakan saat banyak tab.
-- Aset `mantra-simbol-gelap.png` disebut di daftar periksa tetapi tidak dipakai
-  di rancangan mana pun, jadi tidak diambil.
+### YANG PERLU DIKETAHUI SESI BERIKUTNYA
 
+1. **Gerbang resolusi video MENOLAK saat promote ini, dan tetap dinaikkan
+   atas keputusan ARYA.** `python alat/cek_resolusi_anim.py` melaporkan 33
+   video masih 480p. Sebelum promote ini produksi TIDAK punya video topik
+   sama sekali (404), jadi menaikkannya membuat video muncul untuk pertama
+   kali, di mutu draf. Begitu render 1080p selesai, jalankan gerbangnya lagi
+   sampai lolos lalu deploy ulang.
+
+2. **Kredit ElevenLabs di halaman Tentang belum sesuai kenyataan.** Seluruh
+   `manim/narasi/*.json` masih mencatat `id-ID-ArdiNeural` (edge-tts).
+   ARYA akan mengganti suaranya; penandanya ada di `app/tentang/page.tsx`.
+
+3. **Bank soal menu Latihan dan kuis bab masih satu kumpulan** (32 soal
+   `kuis.ts`). Yang sudah dikerjakan: kuis kini MENDAHULUKAN soal yang belum
+   pernah dijawab benar di bank soal. Kalau suatu saat mau benar-benar
+   terpisah, perlu bank soal baru.
+
+4. **Kartu ManimGL menaut ke manim.community**, padahal yang dipakai ManimGL
+   milik 3Blue1Brown. ARYA tahu bedanya dan tetap memilih itu.
 
 > **SESI BARU: baca berkas ini dari atas sampai bawah SEBELUM mengerjakan apa pun.**
 > Terakhir diperbarui: **3 September 2026 sore**.
