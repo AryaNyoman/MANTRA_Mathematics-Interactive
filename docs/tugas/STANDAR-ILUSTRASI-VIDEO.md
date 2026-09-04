@@ -74,6 +74,20 @@ Perkakasnya `manim/gl/` (sinema v2, qc, ilustrasi, kamera). Rujukan resmi:
    memadatkan langkah hitungan demi muat empat baris panel: langkah yang
    disebut narator harus punya kejadiannya; kalau panel penuh, baris
    DIMORF (`ganti_rumus` untuk rumus yang mirip), bukan langkah dibuang.
+   TITIK BUTA ALAT UKUR (temuan Vektor 4 Sep, dibuktikan dengan frame): alat
+   tidak melihat garis tipis yang digambar `ShowCreation` pelan (per frame
+   hanya beberapa piksel berubah) dan denyut `Indicate` yang cuma mengubah
+   warna sesaat. Jadi angka "diam terpanjang" cenderung TERLALU BESAR.
+   Jangan mengejar angka nol dengan menambah gerakan tanpa makna; tiap calon
+   dinilai dengan membuka frame-nya, dan yang narasinya membahas apa yang
+   tampil dibiarkan.
+   "ADA ANIMASINYA" BUKAN BUKTI LAYARNYA HIDUP (temuan Ruang 3D 4 Sep): delapan
+   huruf titik sudut yang muncul satu per satu selama 4 detik tetap terbaca
+   beku, sebab huruf kecil di 480p mengubah terlalu sedikit piksel. Yang
+   menentukan bukan jumlah animasi, melainkan berapa banyak yang berubah di
+   mata penonton. Kejadian kecil DITEMANI gerak latar (kamera bergeser pelan,
+   sekitar 1,6 derajat per detik), bukan diganti. Dan sisa babak yang pendek
+   jangan dilewati: isi geseran latar berlaju tetap, sependek apa pun.
    Pengecualian: topik yang matematikanya memang ruang (Ruang 3D, dan nanti
    Transformasi Geometri) boleh bolak-balik 3D dan 2D. Prinsipnya: matematika
    yang butuh PANJANG atau SUDUT yang akurat wajib kamera tegak lurus, sebab

@@ -135,7 +135,9 @@
   mengira perbaikannya belum ada (3 Sep).
 - **Cara deploy yang benar mulai sekarang:** dari `D:\MANIM-MATRA\web` di
   `master`. Preview: `vercel deploy --yes` lalu `vercel alias set ...`.
-  Produksi: hanya atas kata ARYA, dan pakai `vercel promote <deploy>` untuk
+  Produksi: hanya atas kata ARYA, WAJIB lolos `python alat/cek_resolusi_anim.py`
+  dulu (video 480p tinjauan memakai nama yang sama dengan 1080p; temuan 3D
+  4 Sep), lalu pakai `vercel promote <deploy>` untuk
   menaikkan build yang sudah ia periksa, bukan `--prod` yang membangun ulang.
 - Yang berubah di situs (rincian per commit `01b0f5e`, `86b0a22`, `d810649`,
   `faac773`): huruf Newsreader + Space Grotesk, palet emas-navy, nav lengket,
