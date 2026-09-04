@@ -8,24 +8,39 @@ import { cariBab } from '@/content/subbab'
 import type { SoalKuis } from '@/content/tipe'
 import { langgan } from '@/lib/simpanan'
 import { bacaLatihan, persenTopik, ringkasPerTingkat } from '@/lib/latihan-kemajuan'
-import KartuBayang from '@/components/mantra/KartuBayang'
+import MunculSaatGulir from '@/components/mantra/MunculSaatGulir'
 
 /**
- * Halaman /latihan versi MANTRA (3 Sep 2026).
+ * Halaman /latihan versi MANTRA v2 (4 Sep 2026).
+ * Patokan: `docs/desain-mantra/MANTRA-v2.dc.html` baris 500 sampai 512.
  *
- * Satu kartu ringkasan per bab: persentase besar, satu bar emas-ke-hijau, dan
- * empat ubin tingkat (mudah, sedang, sulit, sangat sulit) yang masing-masing
- * punya bar kecil dan hitungan `N / 8`. Tingkat yang belum terbuka ditulis
- * "terkunci" pada 55% kepekatan, bukan disembunyikan: siswa perlu melihat
- * jalan yang belum ditempuh.
+ * Satu kartu ringkas per BAB, disusun dalam kisi. Isinya: kelas dan jumlah
+ * soal, nama bab, persentase besar, lalu EMPAT GARIS TINGKAT (mudah,
+ * sedang, sulit, sangat sulit) beserta penanda ujungnya.
  *
- * LENCANA DIBUANG atas permintaan ARYA. Aturan kemajuan dan pembukaan tingkat
- * TIDAK ditulis ulang di sini, tetap dibaca dari `lib/latihan-kemajuan.ts`.
+ * Keempat garis itu kebetulan cocok persis dengan empat tingkat kesulitan
+ * yang sudah ada di bank soal tiap topik, jadi rancangan ini tidak menuntut
+ * satu soal baru pun. Rancangan aslinya memakai kartu per MATERI dengan bank
+ * sembilan soal masing-masing; ARYA memilih per bab (4 Sep 2026), dan
+ * pilihan itu yang membuat bentuk kartunya bisa dipakai apa adanya.
+ *
+ * Versi sebelumnya memakai satu kartu LEBAR per bab berisi empat ubin
+ * tingkat bertuliskan angka. Kartu selebar halaman untuk tujuh bab berarti
+ * halaman ini harus digulir jauh hanya untuk melihat pilihan yang ada,
+ * padahal tugasnya cuma satu: memilih bab.
+ *
+ * LENCANA DIBUANG atas permintaan ARYA. Aturan kemajuan dan pembukaan
+ * tingkat TIDAK ditulis ulang di sini, tetap dibaca dari
+ * `lib/latihan-kemajuan.ts`.
  *
  * Topik yang belum punya bank soal tetap ditampilkan dan ditandai terus
  * terang. Halaman yang berpura-pura penuh lebih merugikan daripada halaman
  * yang jujur mengatakan apa yang belum ada.
  */
+
+/** Warna tiap tingkat, makin dalam makin sulit. Dari rancangan. */
+const WARNA_TINGKAT = ['#B08A3E', '#B08A3E', '#8A6A28', '#6E9C7A']
+
 export default function DaftarLatihan() {
   const siap = TOPIK.filter((t) => ISI_TOPIK[t.slug])
   const belum = TOPIK.filter((t) => !ISI_TOPIK[t.slug])
@@ -33,15 +48,19 @@ export default function DaftarLatihan() {
   return (
     <main className="mantra-lebar" style={{ paddingTop: 38 }}>
       <div className="kicker">Latihan</div>
-      <h1 className="judul-halaman">Bank soal berjenjang</h1>
+      <h1 className="judul-halaman">Pilih bab yang mau kamu latih</h1>
       <p className="sub-italic">
-        Mulai dari yang mudah. Tingkat berikutnya terbuka setelah Anda menguasai
-        tingkat sebelumnya, jadi urutannya menuntun, bukan menghukum.
+        Tiap bab punya empat tingkat soal. Tingkat berikutnya terbuka setelah
+        tingkat sebelumnya kamu kuasai, jadi urutannya menuntun, bukan menghukum.
       </p>
 
-      {siap.map((t) => (
-        <KartuBab key={t.slug} topik={t} bank={ISI_TOPIK[t.slug]!.kuis} />
-      ))}
+      <div className="kisi-bank">
+        {siap.map((t, i) => (
+          <MunculSaatGulir key={t.slug} tunda={(i % 3) * 70}>
+            <KartuBab topik={t} bank={ISI_TOPIK[t.slug]!.kuis} />
+          </MunculSaatGulir>
+        ))}
+      </div>
 
       {belum.length > 0 && (
         <div className="kartu-segera">
@@ -58,11 +77,11 @@ export default function DaftarLatihan() {
         </div>
       )}
 
-      <div className="kotak-emas" style={{ maxWidth: '54rem', margin: '28px 0 48px' }}>
+      <div className="kotak-emas" style={{ margin: '28px 0 48px' }}>
         <b>Nilai di sini bukan penilaian resmi.</b>
         <p>
-          Kemajuan tersimpan di peramban Anda sendiri, tidak dikirim ke mana pun.
-          Karena itu ia hilang kalau Anda berganti perangkat atau membersihkan
+          Kemajuan tersimpan di peramban kamu sendiri, tidak dikirim ke mana pun.
+          Karena itu ia hilang kalau kamu berganti perangkat atau membersihkan
           riwayat.
         </p>
       </div>
@@ -90,39 +109,43 @@ function KartuBab({ topik, bank }: { topik: Topik; bank: SoalKuis[] }) {
   const ringkas = ringkasPerTingkat(bank, k)
 
   return (
-    <KartuBayang className="kartu-latihan">
-      <div className="latihan-atas">
-        <div>
+    <Link
+      href={`/latihan/${topik.slug}`}
+      className="kartu-bank"
+      aria-label={`Latihan ${topik.nama}, ${persen} persen selesai dari ${bank.length} soal`}
+    >
+      <div className="bank-atas">
+        <div className="bank-judul">
           <div className="bab-kicker">
-            {bab ? `Bab ${bab.no} · ${bab.kelas} · ` : ''}
+            {bab ? `${bab.kelas} · ` : ''}
             {bank.length} soal
           </div>
-          <h2>{topik.nama}</h2>
+          <h3>{topik.nama}</h3>
         </div>
-        <div className="latihan-persen">{persen}%</div>
+        <span className="bank-persen angka-rata">{persen}%</span>
       </div>
 
-      <div className="bar-besar" role="img" aria-label={`Kemajuan ${topik.nama} ${persen} persen`}>
-        <span style={{ width: `${persen}%` }} />
-      </div>
-
-      <div className="kisi-tingkat">
-        {ringkas.map((r) => (
-          <div key={r.tingkat} className={`ubin-tingkat${r.terbuka ? '' : ' ubin-terkunci'}`}>
-            <div className="nama">{r.tingkat}</div>
-            <div className="bar">
-              <span style={{ width: `${r.persen}%` }} />
-            </div>
-            <div className="angka">
-              {r.terbuka ? `${r.selesai} / ${r.total}` : 'terkunci'}
-            </div>
-          </div>
+      <div className="bank-tingkat">
+        {ringkas.map((r, i) => (
+          <span
+            key={r.tingkat}
+            className="bank-bar"
+            title={
+              r.terbuka
+                ? `${r.tingkat}: ${r.selesai} dari ${r.total} benar`
+                : `${r.tingkat}: terkunci`
+            }
+          >
+            <span
+              style={{ width: `${r.persen}%`, background: WARNA_TINGKAT[i] }}
+            />
+          </span>
         ))}
       </div>
-
-      <Link href={`/latihan/${topik.slug}`} className="pil-gelap" style={{ marginTop: 18 }}>
-        {k.benar.length === 0 ? 'Mulai latihan' : 'Lanjutkan latihan'}
-      </Link>
-    </KartuBayang>
+      <div className="bank-ujung">
+        <span>Mudah</span>
+        <span>Sangat sulit</span>
+      </div>
+    </Link>
   )
 }

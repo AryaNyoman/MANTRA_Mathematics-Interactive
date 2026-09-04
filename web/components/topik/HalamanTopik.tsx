@@ -10,11 +10,11 @@ import type { IsiTopik } from '@/components/topik/jenis'
 import { ISI_TOPIK } from '@/content/daftar-isi'
 import type { Topik } from '@/content/topik'
 import { cariBab, type SubBab } from '@/content/subbab'
-import { langgan } from '@/lib/simpanan'
+import { bacaAngka, langgan, simpanAngka } from '@/lib/simpanan'
 import {
   bacaKemajuan, catatDibuka, tambahDetik, kuisTerbuka, MENIT_MINIMUM,
 } from '@/lib/kemajuan'
-import { aturSesi, lepasSesi, useSesiBelajar } from '@/lib/sesi-belajar'
+import { aturSesi, daftarkanAkar, keluarFokus, lepasSesi, useSesiBelajar } from '@/lib/sesi-belajar'
 import PenggeserEmas from '@/components/mantra/PenggeserEmas'
 
 type Layar = { jenis: 'tahap'; slug: string } | { jenis: 'latihan' } | { jenis: 'kuis' }
@@ -38,6 +38,10 @@ function langganPadat(ubah: () => void) {
 function bacaPadat() {
   return window.matchMedia(KUERI_PADAT).matches
 }
+
+/** Lebar awal kolom ALAT, dalam piksel. Sama dengan rancangan. */
+const LEBAR_ALAT_BAWAAN = 380
+const KUNCI_LEBAR = 'matra:lebar-alat'
 
 /** Berapa soal yang dikerjakan dalam satu sesi kuis, diambil dari bank soal. */
 const SOAL_PER_SESI = 8
@@ -188,6 +192,46 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
      Tombol pilihannya tetap ada, TAPI hanya di bawah 1180 piksel, tempat
      kolom alat memang tidak muat. */
   const padat = useSyncExternalStore(langganPadat, bacaPadat, () => false)
+
+  /* Lebar kolom ALAT bisa ditarik siswa, seperti di rancangan. Ada yang mau
+     alatnya besar supaya gambarnya enak dilihat, ada yang mau bacaannya
+     lebar. Nilainya disimpan supaya pilihan itu tidak hilang tiap kali
+     halaman dimuat ulang; kuncinya tetap berawalan `matra:` seperti seluruh
+     simpanan proyek ini. */
+  const lebarAlat = useSyncExternalStore(
+    langgan,
+    () => bacaAngka(KUNCI_LEBAR, LEBAR_ALAT_BAWAAN),
+    () => LEBAR_ALAT_BAWAAN,
+  )
+  const [tarik, setTarik] = useState(false)
+  const acuanPanggung = useRef<HTMLDivElement>(null)
+  const akarHalaman = useRef<HTMLElement>(null)
+
+  /* Penarik dipasang di JENDELA, bukan di gagangnya: jari atau tetikus yang
+     bergerak cepat sering meninggalkan gagang selebar 10 piksel sebelum
+     peristiwa berikutnya sampai, dan kalau pendengarnya menempel di gagang,
+     tarikan berhenti di tengah jalan. */
+  useEffect(() => {
+    if (!tarik) return
+    const geser = (e: PointerEvent) => {
+      const k = acuanPanggung.current?.getBoundingClientRect()
+      if (!k) return
+      // Kolom bacaan dijaga tetap punya 360 piksel: di bawah itu barisnya
+      // terlalu pendek untuk dibaca dengan nyaman.
+      const maks = Math.min(k.width * 0.62, k.width - 360)
+      const lebar = Math.round(Math.max(280, Math.min(maks, k.right - e.clientX)))
+      if (Number.isFinite(lebar)) simpanAngka(KUNCI_LEBAR, lebar)
+    }
+    const lepas = () => setTarik(false)
+    window.addEventListener('pointermove', geser)
+    window.addEventListener('pointerup', lepas)
+    window.addEventListener('pointercancel', lepas)
+    return () => {
+      window.removeEventListener('pointermove', geser)
+      window.removeEventListener('pointerup', lepas)
+      window.removeEventListener('pointercancel', lepas)
+    }
+  }, [tarik])
   const tampilWidget = !padat || !adaVideo || mode === 'coba'
   const tampilVideo = adaVideo && (!padat || mode === 'tonton')
   const pakaiMode = padat && adaVideo && Boolean(tahap?.widget)
@@ -275,11 +319,30 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   useEffect(() => {
     if (!fokus) return
     const saatTekan = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') aturSesi({ fokus: false })
+      if (e.key === 'Escape') keluarFokus()
     }
     window.addEventListener('keydown', saatTekan)
     return () => window.removeEventListener('keydown', saatTekan)
   }, [fokus])
+
+  /* Layar penuh bisa dibatalkan tanpa lewat tombol kita: Esc bawaan
+     peramban, F11, atau berpindah tab. Kalau keadaan fokus tidak ikut
+     dimatikan, nav tetap tersembunyi padahal layarnya sudah kembali normal,
+     dan siswa terjebak di halaman tanpa navigasi. */
+  useEffect(() => {
+    const saatBerubah = () => {
+      if (!document.fullscreenElement) aturSesi({ fokus: false })
+    }
+    document.addEventListener('fullscreenchange', saatBerubah)
+    return () => document.removeEventListener('fullscreenchange', saatBerubah)
+  }, [])
+
+  // Elemen halaman didaftarkan supaya `Nav` bisa meminta layar penuh
+  // langsung di dalam klik, bukan lewat effect yang berjalan belakangan.
+  useEffect(() => {
+    daftarkanAkar(akarHalaman.current)
+    return () => daftarkanAkar(null)
+  }, [])
 
   // Waktu hanya bertambah selama tab benar-benar terlihat: meninggalkan
   // halaman semalaman tidak boleh dihitung sebagai membaca.
@@ -314,7 +377,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   // halaman belajar cukup satu layar. Di HP aturan ini dilepas, sebab di
   // sana kolom bertumpuk dan halaman memang harus menggulir.
   return (
-    <main className="mantra-lebar materi-satu-layar" data-fokus={fokus}>
+    <main ref={akarHalaman} className="mantra-lebar materi-satu-layar" data-fokus={fokus}>
       {/* Dipasang DI SINI, bukan di `layout.tsx`. Halaman ini dirakit di
           balik batas Suspense, jadi komponen yang berada di luarnya sempat
           menyentuh penggeser sebelum widgetnya selesai dihidupkan di
@@ -329,8 +392,8 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
           <button
             type="button"
             className="keluar-fokus"
-            title="Keluar mode fokus (Esc)"
-            onClick={() => aturSesi({ fokus: false })}
+            title="Keluar layar penuh (Esc)"
+            onClick={keluarFokus}
           >
             <span aria-hidden="true">✕</span>Keluar fokus <span className="tuts">Esc</span>
           </button>
@@ -473,7 +536,17 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
           {/* ======================= ISI MATERI ======================= */}
           <Panggung tahap={tahap} tampilWidget={tampilWidget}>
             {({ kiri, kanan, tanda }) => (
-              <div className="panggung" data-alat={!padat && Boolean(tahap)}>
+              <div
+                className="panggung"
+                ref={acuanPanggung}
+                data-alat={!padat && Boolean(tahap)}
+                data-tarik={tarik}
+                style={
+                  !padat && tahap
+                    ? { gridTemplateColumns: `minmax(0, 1fr) 10px ${lebarAlat}px` }
+                    : undefined
+                }
+              >
                 {/* KOLOM BACAAN, di tengah. Di v1 kolom ini di kanan dan alat
                     di kiri; v2 membaliknya, sebab yang paling lama ditatap
                     adalah bacaannya, dan yang paling lama ditatap pantas
@@ -706,6 +779,28 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                     sempit isinya disisipkan ke dalam kolom bacaan. Ia punya
                     gulirnya sendiri, jadi menggeser sudut di sini tidak
                     menggeser bacaan di sebelahnya. */}
+                {/* Gagang penarik antara bacaan dan alat. `role="separator"`
+                    beserta `aria-orientation` membuat pembaca layar
+                    menyebutnya pemisah, bukan tombol tak bernama.
+                    `touch-action: none` di CSS wajib: tanpa itu jari yang
+                    menarik gagang justru menggulir halaman. */}
+                {!padat && tahap && (
+                  <div
+                    className="tarik-alat"
+                    role="separator"
+                    aria-orientation="vertical"
+                    aria-label="Tarik untuk mengubah lebar alat"
+                    title="Tarik untuk memperbesar atau mengecilkan alat"
+                    onPointerDown={(e) => {
+                      e.preventDefault()
+                      setTarik(true)
+                    }}
+                    onDoubleClick={() => simpanAngka(KUNCI_LEBAR, LEBAR_ALAT_BAWAAN)}
+                  >
+                    <span aria-hidden />
+                  </div>
+                )}
+
                 {!padat && tahap && (
                   <aside className="kolom alat" aria-label="Alat interaktif">
                     <div className="alat-kepala">

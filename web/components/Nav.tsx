@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { aturSesi, useSesiBelajar } from '@/lib/sesi-belajar'
+import { aturSesi, masukFokus, useSesiBelajar } from '@/lib/sesi-belajar'
 
 /**
  * Nav MANTRA v2, arah "Panggung Sinema" (4 Sep 2026).
@@ -123,8 +123,8 @@ export default function Nav({ label, lanjut }: { label?: string; lanjut?: string
         <button
           type="button"
           className="nav-lanjut nav-fokus"
-          title="Sembunyikan nav dan daftar materi (Esc untuk keluar)"
-          onClick={() => aturSesi({ fokus: true, laci: false })}
+          title="Layar penuh, tanpa nav dan daftar materi (Esc untuk keluar)"
+          onClick={masukFokus}
         >
           <span aria-hidden>&#9974;</span>Mode fokus
         </button>
@@ -148,7 +148,7 @@ export default function Nav({ label, lanjut }: { label?: string; lanjut?: string
             type="button"
             className="nav-fokus-kecil"
             aria-label="Mode fokus"
-            onClick={() => aturSesi({ fokus: true, laci: false })}
+            onClick={masukFokus}
           >
             <span aria-hidden>&#9974;</span>
           </button>

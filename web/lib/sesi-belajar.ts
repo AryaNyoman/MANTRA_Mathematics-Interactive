@@ -70,6 +70,49 @@ export function aturSesi(sebagian: Partial<SesiBelajar>) {
   siarkan()
 }
 
+/* ---------------------------------------------------------------
+   Mode fokus = LAYAR PENUH sungguhan (setara F11), permintaan ARYA
+   4 Sep 2026. Sebelumnya ia hanya menyembunyikan nav dan daftar materi.
+   --------------------------------------------------------------- */
+
+/** Elemen halaman belajar, didaftarkan `HalamanTopik` saat ia terpasang. */
+let akarBelajar: HTMLElement | null = null
+
+export function daftarkanAkar(el: HTMLElement | null) {
+  akarBelajar = el
+}
+
+/**
+ * Masuk mode fokus.
+ *
+ * `requestFullscreen` HARUS dipanggil di dalam gerakan pengguna, jadi ia
+ * dijalankan langsung di sini, bukan lewat effect yang berjalan setelah
+ * gambar ulang. Itu sebabnya elemennya didaftarkan lebih dulu alih-alih
+ * dicari dari dalam `Nav`.
+ *
+ * Kalau permintaannya ditolak, keadaan fokus TETAP dinyalakan. Safari di
+ * iPhone tidak mengizinkan layar penuh untuk elemen selain video, dan di
+ * sana tombolnya tetap berguna: nav dan daftar materi tetap disembunyikan,
+ * jadi bacaan tetap mendapat seluruh layar yang tersedia.
+ */
+export function masukFokus() {
+  const el = akarBelajar
+  if (el && typeof el.requestFullscreen === 'function' && !document.fullscreenElement) {
+    el.requestFullscreen().catch(() => {
+      /* ditolak peramban: mode fokus tanpa layar penuh sudah cukup */
+    })
+  }
+  aturSesi({ fokus: true, laci: false })
+}
+
+/** Keluar mode fokus, sekaligus keluar dari layar penuh kalau sedang aktif. */
+export function keluarFokus() {
+  if (document.fullscreenElement && typeof document.exitFullscreen === 'function') {
+    document.exitFullscreen().catch(() => {})
+  }
+  aturSesi({ fokus: false })
+}
+
 /** Dipanggil saat halaman belajar dilepas, supaya nav kembali normal. */
 export function lepasSesi() {
   aturSesi(AWAL)

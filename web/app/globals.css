@@ -1971,6 +1971,55 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 }
 .video-galat .pil-emas { min-height: 40px; padding: 0 18px; font-size: 13px; }
 
+/* ---------- bank soal: kartu per bab (v2) ----------
+   Patokan: MANTRA-v2.dc.html baris 500 sampai 512.
+   Kartu ringkas, disusun dalam kisi. Versi sebelumnya satu kartu selebar
+   halaman per bab, jadi memilih di antara tujuh bab menuntut menggulir jauh
+   padahal tugas halaman ini cuma satu: memilih bab. */
+.kisi-bank {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 14px; margin-top: 20px;
+}
+.kartu-bank {
+  display: block; text-decoration: none; color: inherit;
+  border: 1px solid var(--garis); border-radius: var(--r-kartu);
+  background: var(--kartu); padding: 18px 20px 16px;
+  transition: transform var(--d-sedang) var(--kurva),
+              border-color var(--d-sedang) var(--kurva),
+              box-shadow var(--d-sedang) var(--kurva);
+}
+.kartu-bank:hover {
+  transform: translateY(-4px); color: inherit;
+  border-color: rgba(176, 138, 62, 0.6); box-shadow: var(--bayang-kartu);
+}
+.bank-atas { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.bank-judul { min-width: 0; }
+.kartu-bank h3 {
+  font-family: var(--font-serif), Georgia, serif; font-weight: 400;
+  font-size: 21px; line-height: 1.14; margin: 4px 0 0; text-wrap: balance;
+}
+.bank-persen {
+  font-family: var(--font-serif), Georgia, serif; font-size: 26px;
+  color: var(--emas-tua); flex: none;
+}
+/* Empat garis tingkat. Warnanya makin dalam makin sulit, dan garis yang
+   masih kosong tetap tergambar: siswa perlu melihat jalan yang belum
+   ditempuh, bukan cuma yang sudah. */
+.bank-tingkat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 14px; }
+.bank-bar {
+  display: block; height: 4px; border-radius: 2px;
+  background: rgba(16, 26, 43, 0.1); overflow: hidden;
+}
+.bank-bar > span {
+  display: block; height: 100%;
+  transition: width var(--d-lambat) var(--kurva);
+}
+.bank-ujung {
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: var(--tinta-50); margin-top: 6px;
+}
+
 /* ---------- keadaan memuat ---------- */
 .memuat-panel {
   border: 1px solid var(--garis); border-radius: var(--r-kartu);
@@ -2334,6 +2383,13 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
    layar dikurangi nav melainkan seluruh layar. Tanpa baris ini panel
    berhenti 68 piksel sebelum dasar layar dan meninggalkan pita kosong. */
 .materi-satu-layar[data-fokus='true'] { height: 100dvh; }
+/* Saat benar-benar layar penuh, peramban memberi elemennya latar HITAM
+   bawaan. Tanpa baris ini, tepi kiri kanan halaman jadi pita hitam. */
+.materi-satu-layar:fullscreen { background: var(--kartu); overflow: hidden; }
+/* Tombol keluar fokus mendarat tepat di sudut kepala kolom alat. Ajakan
+   "Coba sendiri" di sana disembunyikan supaya keduanya tidak bertindih. */
+.materi-satu-layar[data-fokus='true'] .alat-ajak { visibility: hidden; }
+.materi-satu-layar:fullscreen::backdrop { background: var(--kartu); }
 /* Remah roti TIDAK PERNAH membungkus: kalau nama sub-bab kepanjangan ia
    dipotong dengan elipsis, sebab baris kedua akan menggeser seluruh panel. */
 .remah {
@@ -2863,9 +2919,36 @@ main { animation: tab-masuk 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
 }
 /* Kolom alat hanya ada saat layarnya memang materi. Di layar Latihan dan
    Kuis tidak ada alat apa pun, dan menyisakan kolomnya membuat sepertiga
-   layar kanan kosong melompong. */
+   layar kanan kosong melompong.
+
+   Lebarnya diatur `HalamanTopik` lewat gaya sebaris (nilai yang ditarik
+   siswa); nilai di bawah cuma cadangan kalau gaya itu belum sempat dipasang. */
 .materi-satu-layar .panggung[data-alat='true'] {
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  grid-template-columns: minmax(0, 1fr) 10px 380px;
+  transition: grid-template-columns var(--d-sedang) var(--kurva);
+}
+/* Selama ditarik, transisinya DIMATIKAN. Kalau tidak, kolomnya mengejar
+   jari dengan tertinggal 320 milidetik dan tarikannya terasa seperti karet. */
+.materi-satu-layar .panggung[data-tarik='true'] { transition: none; }
+
+/* Gagang penarik. Selebar 10 piksel, tetapi daerah tangkapnya diperlebar
+   lewat `::before` sampai 18 piksel, sebab 10 piksel terlalu tipis untuk
+   ditangkap tetikus tanpa membidik. */
+.tarik-alat {
+  position: relative; cursor: col-resize;
+  display: grid; place-items: center;
+  background: var(--cekung); border-left: 1px solid rgba(16, 26, 43, 0.1);
+  transition: background var(--d-cepat) var(--kurva);
+  touch-action: none; user-select: none;
+}
+.tarik-alat::before {
+  content: ''; position: absolute; top: 0; bottom: 0; left: -4px; right: -4px;
+}
+.tarik-alat:hover, .tarik-alat:focus-visible { background: rgba(176, 138, 62, 0.18); }
+.panggung[data-tarik='true'] .tarik-alat { background: rgba(176, 138, 62, 0.28); }
+.tarik-alat span {
+  width: 3px; height: 36px; border-radius: 2px;
+  background: rgba(16, 26, 43, 0.28);
 }
 /* Kolom alat tidak ada di layar sempit: isinya turun ke kolom bacaan. */
 @media (max-width: 1180px) {
@@ -2945,18 +3028,37 @@ main { animation: tab-masuk 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
 .materi-satu-layar .alat-kosong,
 .materi-satu-layar .alat-sisip .layar,
 .materi-satu-layar .alat-sisip .kendali {
-  flex: none; display: block; overflow: visible;
+  flex: none; display: block;
   background: var(--kartu); border: 1px solid var(--garis);
   border-radius: var(--r-kontrol); padding: 12px; margin: 0 0 12px;
+}
+/* Kotak gambar widget: tingginya IKUT gambarnya, dan apa pun yang tetap
+   meluber DIPOTONG.
+
+   Sampai 4 Sep 2026 aturan v1 `.materi-badan .panggung .layar` mematok
+   kotak ini setinggi 330 piksel, sedangkan gambarnya dihitung dari lebar
+   kolom. Di antara 861 dan 1180 piksel gambar butuh 463 piksel, kotaknya
+   tetap 330, dan karena kotaknya tidak memotong apa pun, gambar tumpah
+   menimpa panel penggeser di bawahnya. Persis yang dilaporkan ARYA saat
+   halaman di-zoom. */
+.materi-satu-layar .kolom.alat .layar,
+.materi-satu-layar .alat-sisip .layar {
+  max-height: none; overflow: hidden;
 }
 .materi-satu-layar .kolom.alat .kendali,
 .materi-satu-layar .alat-sisip .kendali {
   display: grid; grid-template-columns: 1fr; gap: 14px;
   border-top: 1px solid var(--garis); margin-top: 0; padding-top: 12px;
 }
+/* Batasnya dalam REM, bukan persen atau vh. Rem tidak ikut membesar saat
+   peramban di-zoom keluar, jadi gambar berhenti tumbuh pada ukuran yang
+   sama seperti yang dilihat mata, bukan pada ukuran layar. Aturan proyek
+   sejak temuan zoom 1 Sep 2026. Dengan `preserveAspectRatio` bawaan,
+   gambar yang tersentuh batas ini menyusut di tengah, tidak penyok. */
 .materi-satu-layar .kolom.alat .layar svg,
 .materi-satu-layar .alat-sisip .layar svg {
-  width: 100%; height: auto; max-height: none;
+  width: 100%; height: auto; max-height: 30rem;
+  display: block; margin: 0 auto;
 }
 .materi-satu-layar .alat-kosong .intisari { margin: 0; padding-left: 18px; font-size: 13.5px; }
 
