@@ -1,5 +1,25 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 4 SEP SIANG: rancangan MANTRA v2 "Panggung Sinema" ada di cabang `sesi/mantra-v2`
+
+Claude Design menyelesaikan rancangan v2 (9 halaman) dan MASTER sudah
+memindahkannya ke kode di cabang `sesi/mantra-v2`, BELUM digabung ke master.
+
+- Pratinjau: **https://mantra-rancangan-v2.vercel.app**
+- `mantra-uji.vercel.app` SENGAJA dibiarkan berisi versi lama sebagai pembanding.
+- Sumber rancangan tersimpan di `docs/desain-mantra/MANTRA-v2.dc.html`.
+- Isi perubahan lengkap ada di tiga pesan commit cabang itu, jangan disalin ulang ke sini.
+
+Yang MASIH terbuka di cabang itu:
+- Bahasa isi materi masih memakai "Anda"; rancangan v2 memilih "kamu" untuk
+  siswa dan "Anda" hanya di halaman Tentang. Itu perubahan ISI di
+  `web/content/**`, bukan perubahan rancangan, jadi tidak ikut dikerjakan.
+- Judul tab tetap "Nama halaman | MANTRA", bukan "MANTRA · ..." seperti di
+  daftar periksa. Nama halaman di depan lebih mudah dibedakan saat banyak tab.
+- Aset `mantra-simbol-gelap.png` disebut di daftar periksa tetapi tidak dipakai
+  di rancangan mana pun, jadi tidak diambil.
+
+
 > **SESI BARU: baca berkas ini dari atas sampai bawah SEBELUM mengerjakan apa pun.**
 > Terakhir diperbarui: **3 September 2026 sore**.
 >
