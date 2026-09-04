@@ -75,6 +75,27 @@
   video di luar rencana enam (usul: boleh, 480p semua); (3) sesi UI/UX
   dinyalakan lagi atau tidak; (4) foto pesawat ber-livery DHL di Vektor.
 
+### 🔁 4 SEP PAGI: sesi dimuat ulang, nama berganti lagi, master di `3dd4bae`
+
+- Semua sesi mati dan menyala lagi dengan nama otomatis (`manim-matra-6f`,
+  `-c6`, `-6b`, `-b4`); MASTER kini `manim-matra-65`. Sesi yang mau lapor ke
+  MASTER: `ListAgents`, pilih baris yang **bukan** dirinya dan bukan sesi
+  topik, atau tunggu pesan MASTER yang menyebut namanya.
+- Digabung ke master 4 Sep pagi: Statistika (10 video dirapikan,
+  `gl.ilustrasi.tumbuh_batang`), Ruang 3D (`gl.ilustrasi.balok` bercahaya
+  tiga muka + bayangan lantai, uji `manim/uji/uji_balok_tiga_terang.py`,
+  keenam pembuka punya kejadian), Vektor (laporan), Grafik Fungsi (alat
+  sinkron versi rona, tahap 3 dan 6), Transformasi Geometri (**video 01
+  lolos semua gerbang**, worktree-nya masih punya 18 berkas belum disimpan).
+  `uji_qc.py` 16 uji, tsc 0.
+- Aturan yang lahir hari ini (semua di STANDAR): pembuka 3D hanya video
+  pertama (nomor tahap terkecil), video lain "detik pertama bergerak"
+  maksimal 5 detik di 2D maupun 3D, kartu judul dikecualikan; zona HUD hanya
+  dua pojok; `alas_hud` + tanda `latar`; sumbu didaftarkan sebagai dua pita
+  pipih; `cek_kode` menolak `$` dan baris baru di dalam `teks()`.
+- Masih menunggu ARYA: izin Grafik Fungsi untuk merge master dan render
+  ulang tahap 6 (memadatkan 3D ke 5 detik).
+
 ### 🗺️ 4 SEP DINI HARI: peta struktur graphify sudah ada
 
 - `graphify-out/graph.json`: **2.471 simpul, 5.881 hubungan, 167 komunitas
