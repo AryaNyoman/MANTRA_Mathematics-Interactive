@@ -93,6 +93,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
       isi: 'Ini kesimpulan yang paling sering diambil, dan paling sering salah. Rata-rata hanya memberi tahu di mana pusatnya, sama sekali tidak memberi tahu seberapa jauh data berpencar dari pusat itu. Kelas A dan Kelas B di atas rata-ratanya sama, mediannya sama, modusnya juga sama, tetapi jangkauannya 2 lawan 8. Setiap kali Anda mendengar sebuah rata-rata, pertanyaan berikutnya selalu: sebarannya berapa?',
     },
     widget: 'dua-kelompok',
+    video: { berkas: 'statistika1-menipu.mp4', poster: 'statistika1-menipu.jpg' },
     siap: true,
   },
 
@@ -174,6 +175,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
       sumber: 'Pembahasannya mengikuti Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, subbab A halaman 211.',
     },
     widget: 'bentuk-data',
+    video: { berkas: 'statistika2-bentuk.mp4', poster: 'statistika2-bentuk.jpg' },
     siap: true,
   },
 
@@ -240,6 +242,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
       sumber: 'Perhitungan luas gabungan kelas mengikuti Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, halaman 211.',
     },
     widget: 'lebar-kelas',
+    video: { berkas: 'statistika3-lebar-kelas.mp4', poster: 'statistika3-lebar-kelas.jpg' },
     siap: true,
   },
 
@@ -319,6 +322,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
       sumber: 'Gagasan membandingkan dua kelompok berbeda ukuran mengikuti Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, subbab B halaman 204.',
     },
     widget: 'frekuensi-relatif',
+    video: { berkas: 'statistika4-relatif.mp4', poster: 'statistika4-relatif.jpg' },
     siap: true,
   },
 ]
