@@ -1,5 +1,12 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 5 SEP (malam): SEMUA DI ATAS SUDAH DI PRODUKSI
+
+ARYA mencoba pratinjau (seret di HP lancar, batas terpasang) lalu meminta
+naik produksi. `vercel deploy --prod` dari `master` e27cbf6: matra-eight dan
+mantra-matematika kini berisi kendali bersama, tata letak HP, beranda v3,
+Materi 14 Statistika, batas jendela, dan video perahu 480p.
+
 ## 5 SEP (malam, lanjutan 4): VIDEO PERAHU VEKTOR 01 DIBUAT ULANG (480p)
 
 Keluhan ARYA: perahunya jelek (cakram abu bertiang) dan kurang rapi saat

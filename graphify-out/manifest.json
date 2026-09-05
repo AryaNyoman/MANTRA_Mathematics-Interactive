@@ -420,8 +420,8 @@
     "semantic_hash": "22d582fdfa5ba27d35fdd6ed7e816c9a"
   },
   "manim/gl/ilustrasi.py": {
-    "mtime": 1788490172.012404,
-    "ast_hash": "5cc108c6a97a0afde6110d4e9e175087",
+    "mtime": 1788611912.5784187,
+    "ast_hash": "77d0bdc662bf17daf7ead954bdf9737f",
     "semantic_hash": ""
   },
   "manim/gl/kamera.py": {
@@ -680,8 +680,8 @@
     "semantic_hash": "63398e41135df7d00c0a6dfa26253bf4"
   },
   "manim/scenes/vektor1_perahu.py": {
-    "mtime": 1788476994.0527618,
-    "ast_hash": "2a37d9d5123b04cb1183d71113545e4d",
+    "mtime": 1788611652.8013268,
+    "ast_hash": "c6b2629e60214d2ed3fd5001a3352a67",
     "semantic_hash": ""
   },
   "manim/scenes/vektor3_komponen.py": {
@@ -1625,8 +1625,8 @@
     "semantic_hash": ""
   },
   "PROGRESS.md": {
-    "mtime": 1788610344.865877,
-    "ast_hash": "8e1fbe539261426a68d9451c87c5566e",
+    "mtime": 1788612950.5458972,
+    "ast_hash": "12e1752f4583f289d21675e9e766fbec",
     "semantic_hash": ""
   },
   "alat/lingkungan/pip-freeze-2026-09-02-sebelum-manimgl.txt": {
@@ -2820,8 +2820,8 @@
     "semantic_hash": ""
   },
   "web/public/anim/vektor1-perahu.jpg": {
-    "mtime": 1788493357.8287323,
-    "ast_hash": "704fbdbb5e6c147b7d804a642c23c1b7",
+    "mtime": 1788612950.5014248,
+    "ast_hash": "ea5e204a2e54089aa32be0b2afaaba8e",
     "semantic_hash": ""
   },
   "web/public/anim/vektor3-komponen.jpg": {
