@@ -124,6 +124,10 @@ Di luar itu: JANGAN. Butuh perubahan di berkas bersama (`kendali/`, `tipe.ts`,
 melihat halamanmu selama bekerja, ubah ke `true` di kerja lokal saja dan
 jangan ikut di-commit (`git add -p`, atau kembalikan sebelum commit).
 Materi individu (`siap` di `tahap.ts`) dinyalakan satu per satu begitu lolos.
+Selama sebuah materi masih `siap: false`, `?materi=N` untuk materi itu jatuh
+ke Materi 01 dan tombolnya di daftar kiri nonaktif (perilaku `HalamanTopik`).
+Jadi materi yang SEDANG kamu kerjakan boleh dinyalakan lebih dulu supaya bisa
+dilihat; itu aman di-commit, sebab topiknya sendiri masih `siap: false`.
 
 Commit kecil dan sering di `sesi/turunan`, pesan bahasa Indonesia, akhiri
 dengan baris `Co-Authored-By` yang biasa. JANGAN menyentuh `master`, JANGAN

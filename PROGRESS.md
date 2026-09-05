@@ -1,5 +1,36 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 6 SEP (dini hari): TURUNAN DAN INTEGRAL DIRANCANG, KERANGKA DI `sesi/turunan`
+
+ARYA (5 Sep malam) menyetujui dua topik baru Kelas 12, Turunan dan Integral,
+dikerjakan SATU sesi (MANTRA-TURUNAN-INTEGRAL) di worktree `mantra-turunan`,
+dan mempercayakan rancangannya ke MASTER tanpa konfirmasi. Yang sudah ada:
+- Rancangan: `docs/superpowers/specs/2026-09-06-turunan-alur-belajar.md`
+  (12 materi, 11 widget) dan `...-integral-alur-belajar.md` (11 materi,
+  10 widget), dari Bab 2 dan 3 buku Tingkat Lanjut XII (`LIMIT.pdf` adalah
+  buku utuhnya, PDF = cetak + 16). Tiap materi: pertanyaan, isi pokok dengan
+  halaman buku, rancangan widget (seret, batas, kendali, nyala, petunjuk),
+  sering keliru, prioritas video. Volume benda putar tidak masuk.
+- Kerangka kode di cabang `sesi/turunan` (commit 5774493, BUKAN master):
+  `content/turunan/`, `content/integral/` (materi rintisan, `siap: false`),
+  `PanggungTurunan.tsx`, `PanggungIntegral.tsx` (satu widget contoh sudah
+  berkendali), `widget/{turunan,integral}/Rintisan.tsx`, dua halaman
+  latihan, pendaftaran di `daftar-isi.ts`, `topik.ts` (`siap: false`),
+  `subbab.ts` (Bab 2 dan 3 Kelas 12, dicabut dari `BAB_SEGERA`). tsc dan
+  eslint lolos; halaman dilihat lewat Playwright di port 3015.
+- Berkas tugas `docs/tugas/MANTRA-TURUNAN-INTEGRAL.md`, port 3015 di
+  ATURAN-SEMUA-SESI, `alat/nyalakan-sesi.ps1` dapat saklar `-Hanya <nama>`
+  dan entri sesi baru.
+- Sesi TIDAK dinyalakan MASTER: pengaman mode otomatis menolak MASTER
+  menulis setelan izin `bypassPermissions`, dan itu memang keputusan ARYA.
+  Pesan tugas dikirim ke sesi desktop MANTRA-TURUNAN (menunggu dibuka).
+  Catatan: `.claude/settings.local.json` di SEMUA worktree hilang saat
+  foldernya terhapus 5 Sep; mode AUTO harus dipilih ARYA saat membuka sesi.
+- Setelah sesi lapor SIAP GABUNG: MASTER memeriksa silang materi dan widget
+  (permintaan ARYA), baru video diperintahkan. Video Transformasi 02 sampai
+  06 (2 menit) masih di sesi Transformasi; urutan baru Transformasi (af8c93b)
+  baru di pratinjau, belum produksi.
+
 ## 5 SEP (malam): SEMUA DI ATAS SUDAH DI PRODUKSI
 
 ARYA mencoba pratinjau (seret di HP lancar, batas terpasang) lalu meminta
