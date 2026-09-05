@@ -4,18 +4,11 @@ import { useRef } from 'react'
 import BidangVektor from './BidangVektor'
 import Panah from './Panah'
 import { busurDariSumbu, siku } from './bentuk'
-import {
-  angka, jendelaSeimbang, keLayar, mataAngin, panjang, sudutDerajat, tahan, type Vek,
-} from './geometri'
+import { angka, keLayar, mataAngin, panjang, sudutDerajat, tahan, type Vek, jendelaTetap } from './geometri'
 import { KERTAS, KOTAK, MONO, NISBAH, WARNA } from './gaya'
 import { useSeret } from './useSeret'
 
 export const BATAS = { x: 6, y: 3.5 }
-
-const JANGKAR: Vek[] = [
-  { x: -BATAS.x, y: -BATAS.y },
-  { x: BATAS.x, y: BATAS.y },
-]
 
 /**
  * Widget Materi 04: panjang dan arah sebuah panah.
@@ -33,7 +26,7 @@ export default function PanjangDanArah({
   onUbah: (v: Vek) => void
 }) {
   const svgRef = useRef<SVGSVGElement | null>(null)
-  const jendela = jendelaSeimbang([...JANGKAR, v], NISBAH, 0.05)
+  const jendela = jendelaTetap(BATAS.x, BATAS.y, NISBAH)
   const pointer = useSeret(jendela, svgRef, (t) => onUbah(tahan(t, BATAS.x, BATAS.y)))
 
   const asal: Vek = { x: 0, y: 0 }

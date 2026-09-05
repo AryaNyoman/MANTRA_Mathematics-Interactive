@@ -1,5 +1,27 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 5 SEP (malam, lanjutan 3): JENDELA WIDGET DIKUNCI, SERET DI HP, TABEL DICABUT
+
+Keluhan ARYA: menyeret bola terasa licin sampai keluar daerah (jendela
+melar mengikuti bola), di HP justru bergerak sedikit lalu berhenti, dan tabel
+data ternyata memperumit.
+- Vektor: `jendelaTetap` (geometri.ts) dari kotak BATAS, tidak ikut titik;
+  resultan dijaga di kotak lewat `tahanBersama`; KaliSkalar kotaknya 3 kali;
+  Perahu: titik mendarat di luar kotak digambar di tepi + "di luar gambar".
+- Transformasi: jendela DIBEKUKAN selama diseret (`useSeret` mengembalikan
+  `jendela`), menyesuaikan setelah dilepas; kotak tetap akan membuat bentuk
+  terlalu kecil untuk rotasi dan dilatasi.
+- Statistika 10 dan 12: jendela dari data awal contoh, tidak di bawah nol,
+  seretan dijepit ke jendela. Grafik Fungsi Susun Parabola: jendela tetap
+  dari BATAS_X dan BATAS_Y. Widget penggeser saja (parabola, balapan, dua
+  mesin) sengaja tetap menyesuaikan (persetujuan ARYA).
+- Tombol `Kembalikan` (kendali) di 11 widget Vektor dan 5 Transformasi.
+- Seret di HP: `touch-action: none` dipasang di SVG statistika (sebelumnya
+  hanya di bolanya; WebKit tidak selalu menghormatinya di anak SVG, jadi
+  peramban mengira mau menggulir dan mengirim pointercancel). BELUM
+  terverifikasi di HP sungguhan; hipotesis dari perbedaan dengan Vektor.
+- `TabelData` dihapus lagi (baru dibuat pagi harinya). `TitikPegang` tetap.
+
 ## 5 SEP (malam, lanjutan 2): STATISTIKA MUDAH DIPEGANG, TABEL DATA, MATERI 14
 
 Keluhan ARYA: bola data Statistika di Materi 01, 07, 08, 10, 11, 12 sulit

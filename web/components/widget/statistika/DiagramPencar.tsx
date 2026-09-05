@@ -1,6 +1,6 @@
 'use client'
 
-import { Petunjuk, Pilihan, TabelData } from '@/components/kendali'
+import { Petunjuk, Pilihan } from '@/components/kendali'
 import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import TitikPegang from '@/components/widget/statistika/TitikPegang'
@@ -29,6 +29,30 @@ const CONTOH = [
   { kunci: 'lengkung', nama: 'Melengkung', butir: bivariat('t12-melengkung') },
 ] as const
 
+
+/**
+ * Jendela DIKUNCI pada contoh yang dipilih (keputusan ARYA 5 Sep 2026):
+ * dihitung dari data awal contoh, bukan dari titik yang sedang diseret,
+ * supaya sumbunya diam saat bola ditarik. Untuk data yang memang tidak bisa
+ * negatif (jam belajar, nilai ujian) batas bawahnya tidak turun di bawah nol.
+ */
+function jendelaContoh(
+  pasangan: ReadonlyArray<readonly [number, number]>, tepiX: number, tepiY: number,
+) {
+  const xs = pasangan.map((p) => p[0])
+  const ys = pasangan.map((p) => p[1])
+  const rx = rentangMuat(xs, tepiX)
+  const ry = rentangMuat(ys, tepiY)
+  return {
+    xMin: Math.min(...xs) >= 0 ? Math.max(0, rx.min) : rx.min,
+    xMax: rx.maks,
+    yMin: Math.min(...ys) >= 0 ? Math.max(0, ry.min) : ry.min,
+    yMax: ry.maks,
+  }
+}
+
+const jepit = (n: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, n))
+
 export default function DiagramPencar({ children }: PropWidget) {
   const svgRef = useRef<SVGSVGElement | null>(null)
   const [pilih, setPilih] = useState(0)
@@ -37,9 +61,7 @@ export default function DiagramPencar({ children }: PropWidget) {
   )
 
   const contoh = CONTOH[pilih]
-  const rx = rentangMuat(titik.map((p) => p[0]), 0.12)
-  const ry = rentangMuat(titik.map((p) => p[1]), 0.15)
-  const j = { xMin: rx.min, xMax: rx.maks, yMin: ry.min, yMax: ry.maks }
+  const j = jendelaContoh(contoh.butir.pasangan, 0.12, 0.15)
   const p = keLayar(j, TEPI)
   const balik = keData(j, TEPI)
 
@@ -47,8 +69,8 @@ export default function DiagramPencar({ children }: PropWidget) {
     setTitik((lama) => {
       const baru = lama.map((t) => [...t] as [number, number])
       baru[i] = [
-        Math.round(balik.x(px) * 10) / 10,
-        Math.round(balik.y(py) * 10) / 10,
+        Math.round(jepit(balik.x(px), j.xMin, j.xMax) * 10) / 10,
+        Math.round(jepit(balik.y(py), j.yMin, j.yMax) * 10) / 10,
       ]
       return baru
     })
@@ -97,8 +119,8 @@ export default function DiagramPencar({ children }: PropWidget) {
                       setTitik((lama) => {
                         const baru = lama.map((t) => [...t] as [number, number])
                         baru[i] = [
-                          Math.round((x + samping * langkahX) * 10) / 10,
-                          Math.round((y + naik * langkahY) * 10) / 10,
+                          Math.round(jepit(x + samping * langkahX, j.xMin, j.xMax) * 10) / 10,
+                          Math.round(jepit(y + naik * langkahY, j.yMin, j.yMax) * 10) / 10,
                         ]
                         return baru
                       })
@@ -111,15 +133,6 @@ export default function DiagramPencar({ children }: PropWidget) {
         <Pilihan nama="Contoh siap pakai" arti="atau seret titiknya sendiri di gambar"
           pilihan={CONTOH.map((c, n) => ({ nilai: String(n), label: c.nama }))}
           nilai={String(pilih)} onPilih={(n) => gantiContoh(Number(n))} />
-        <TabelData nama="Titik-titiknya" arti="ketik di sini, atau seret bolanya di gambar" kunci="titik"
-          nilai={titik}
-          onUbah={(i: number, pasang: [number, number]) => setTitik((lama) => {
-            const baru = lama.map((t) => [...t] as [number, number])
-            baru[i] = pasang
-            return baru
-          })}
-          min={[j.xMin, j.yMin]} max={[j.xMax, j.yMax]} langkah={[0.1, 0.1]} desimal={1}
-          label={(i) => `titik ${i + 1}`} />
         <Petunjuk>
             {trend.bentuk === 'melengkung'
               ? 'polanya melengkung. Garis lurus tidak akan cocok untuk data seperti ini, dan angka hubungannya pun akan menyesatkan'

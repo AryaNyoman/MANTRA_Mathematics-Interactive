@@ -65,15 +65,312 @@
   },
   "nodes": [
     {
+      "label": "PanggungStatistika.tsx",
+      "file_type": "code",
+      "source_file": "web/components/topik/PanggungStatistika.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "web_components_topik_panggungstatistika",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "panggungstatistika.tsx"
+    },
+    {
+      "label": "DAFTAR",
+      "file_type": "code",
+      "source_file": "web/components/topik/PanggungStatistika.tsx",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "web_components_topik_panggungstatistika_daftar",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "daftar"
+    },
+    {
+      "label": "PanggungStatistika()",
+      "file_type": "code",
+      "source_file": "web/components/topik/PanggungStatistika.tsx",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "web_components_topik_panggungstatistika_panggungstatistika",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "panggungstatistika()"
+    },
+    {
+      "label": "DuniaNyataStatistika.tsx",
+      "file_type": "code",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "web_components_widget_statistika_dunianyatastatistika",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "dunianyatastatistika.tsx"
+    },
+    {
+      "label": "Bingkai()",
+      "file_type": "code",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "web_components_widget_statistika_dunianyatastatistika_bingkai",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "bingkai()"
+    },
+    {
+      "label": "NilaiRapor()",
+      "file_type": "code",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "web_components_widget_statistika_dunianyatastatistika_nilairapor",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "nilairapor()"
+    },
+    {
+      "label": "CurahHujan()",
+      "file_type": "code",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "web_components_widget_statistika_dunianyatastatistika_curahhujan",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "curahhujan()"
+    },
+    {
+      "label": "DuaPemain()",
+      "file_type": "code",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L103",
+      "_origin": "ast",
+      "id": "web_components_widget_statistika_dunianyatastatistika_duapemain",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "duapemain()"
+    },
+    {
+      "label": "SurveiKantin()",
+      "file_type": "code",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L132",
+      "_origin": "ast",
+      "id": "web_components_widget_statistika_dunianyatastatistika_surveikantin",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "surveikantin()"
+    },
+    {
+      "label": "SumbuDipotong()",
+      "file_type": "code",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L160",
+      "_origin": "ast",
+      "id": "web_components_widget_statistika_dunianyatastatistika_sumbudipotong",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "sumbudipotong()"
+    },
+    {
+      "label": "BelajarNilai()",
+      "file_type": "code",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L186",
+      "_origin": "ast",
+      "id": "web_components_widget_statistika_dunianyatastatistika_belajarnilai",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "belajarnilai()"
+    },
+    {
+      "label": "Kartu",
+      "file_type": "code",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L210",
+      "_origin": "ast",
+      "id": "web_components_widget_statistika_dunianyatastatistika_kartu",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "kartu"
+    },
+    {
+      "label": "DuniaNyataStatistika()",
+      "file_type": "code",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L251",
+      "_origin": "ast",
+      "id": "web_components_widget_statistika_dunianyatastatistika_dunianyatastatistika",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "dunianyatastatistika()"
+    },
+    {
+      "label": "tahap-nyata.ts",
+      "file_type": "code",
+      "source_file": "web/content/statistika/tahap-nyata.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "web_content_statistika_tahap_nyata",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "tahap-nyata.ts"
+    },
+    {
+      "label": "TahapStatistika",
+      "file_type": "code",
+      "source_file": "web/content/statistika/tahap-nyata.ts",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "web_content_statistika_tahap_nyata_tahapstatistika",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "tahapstatistika"
+    },
+    {
+      "label": "TAHAP_NYATA",
+      "file_type": "code",
+      "source_file": "web/content/statistika/tahap-nyata.ts",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "web_content_statistika_tahap_nyata_tahap_nyata",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "tahap_nyata"
+    },
+    {
+      "label": "statistika/tahap.ts",
+      "file_type": "code",
+      "source_file": "web/content/statistika/tahap.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "web_content_statistika_tahap",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "statistika/tahap.ts"
+    },
+    {
+      "label": "TAHAP",
+      "file_type": "code",
+      "source_file": "web/content/statistika/tahap.ts",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "web_content_statistika_tahap_tahap",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "tahap"
+    },
+    {
+      "label": "widget.ts",
+      "file_type": "code",
+      "source_file": "web/content/statistika/widget.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "web_content_statistika_widget",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "widget.ts"
+    },
+    {
+      "label": "WidgetStatistika",
+      "file_type": "code",
+      "source_file": "web/content/statistika/widget.ts",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "web_content_statistika_widget_widgetstatistika",
+      "community": 58,
+      "community_name": "content/statistika: tahap.ts",
+      "norm_label": "widgetstatistika"
+    },
+    {
+      "label": "subbab.ts",
+      "file_type": "code",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "web_content_subbab",
+      "community": 50,
+      "community_name": "Isi materi: page.tsx",
+      "norm_label": "subbab.ts"
+    },
+    {
+      "label": "SubBab",
+      "file_type": "code",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "web_content_subbab_subbab",
+      "community": 50,
+      "community_name": "Isi materi: page.tsx",
+      "norm_label": "subbab"
+    },
+    {
+      "label": "Bab",
+      "file_type": "code",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "web_content_subbab_bab",
+      "community": 50,
+      "community_name": "Isi materi: page.tsx",
+      "norm_label": "bab"
+    },
+    {
+      "label": "cariBab()",
+      "file_type": "code",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L154",
+      "_origin": "ast",
+      "id": "web_content_subbab_caribab",
+      "community": 50,
+      "community_name": "Isi materi: page.tsx",
+      "norm_label": "caribab()"
+    },
+    {
+      "label": "subDari()",
+      "file_type": "code",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L157",
+      "_origin": "ast",
+      "id": "web_content_subbab_subdari",
+      "community": 50,
+      "community_name": "Isi materi: page.tsx",
+      "norm_label": "subdari()"
+    },
+    {
+      "label": "urutanBelajar()",
+      "file_type": "code",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L165",
+      "_origin": "ast",
+      "id": "web_content_subbab_urutanbelajar",
+      "community": 50,
+      "community_name": "Isi materi: page.tsx",
+      "norm_label": "urutanbelajar()"
+    },
+    {
+      "label": "BAB_SEGERA",
+      "file_type": "code",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L169",
+      "_origin": "ast",
+      "id": "web_content_subbab_bab_segera",
+      "community": 50,
+      "community_name": "Isi materi: page.tsx",
+      "norm_label": "bab_segera"
+    },
+    {
       "label": "TabelData.tsx",
       "file_type": "code",
       "source_file": "web/components/kendali/TabelData.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "web_components_kendali_tabeldata",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "tabeldata.tsx"
+      "norm_label": "tabeldata.tsx",
+      "id": "web_components_kendali_tabeldata"
     },
     {
       "label": "Pasangan",
@@ -81,10 +378,10 @@
       "source_file": "web/components/kendali/TabelData.tsx",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "web_components_kendali_tabeldata_pasangan",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "pasangan"
+      "norm_label": "pasangan",
+      "id": "web_components_kendali_tabeldata_pasangan"
     },
     {
       "label": "PropDasar",
@@ -92,10 +389,10 @@
       "source_file": "web/components/kendali/TabelData.tsx",
       "source_location": "L29",
       "_origin": "ast",
-      "id": "web_components_kendali_tabeldata_propdasar",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "propdasar"
+      "norm_label": "propdasar",
+      "id": "web_components_kendali_tabeldata_propdasar"
     },
     {
       "label": "PropSatu",
@@ -103,10 +400,10 @@
       "source_file": "web/components/kendali/TabelData.tsx",
       "source_location": "L42",
       "_origin": "ast",
-      "id": "web_components_kendali_tabeldata_propsatu",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "propsatu"
+      "norm_label": "propsatu",
+      "id": "web_components_kendali_tabeldata_propsatu"
     },
     {
       "label": "PropDua",
@@ -114,10 +411,10 @@
       "source_file": "web/components/kendali/TabelData.tsx",
       "source_location": "L50",
       "_origin": "ast",
-      "id": "web_components_kendali_tabeldata_propdua",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "propdua"
+      "norm_label": "propdua",
+      "id": "web_components_kendali_tabeldata_propdua"
     },
     {
       "label": "tempatDesimal()",
@@ -125,10 +422,10 @@
       "source_file": "web/components/kendali/TabelData.tsx",
       "source_location": "L60",
       "_origin": "ast",
-      "id": "web_components_kendali_tabeldata_tempatdesimal",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "tempatdesimal()"
+      "norm_label": "tempatdesimal()",
+      "id": "web_components_kendali_tabeldata_tempatdesimal"
     },
     {
       "label": "tampilkan()",
@@ -136,10 +433,10 @@
       "source_file": "web/components/kendali/TabelData.tsx",
       "source_location": "L63",
       "_origin": "ast",
-      "id": "web_components_kendali_tabeldata_tampilkan",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "tampilkan()"
+      "norm_label": "tampilkan()",
+      "id": "web_components_kendali_tabeldata_tampilkan"
     },
     {
       "label": "Kotak()",
@@ -147,10 +444,10 @@
       "source_file": "web/components/kendali/TabelData.tsx",
       "source_location": "L66",
       "_origin": "ast",
-      "id": "web_components_kendali_tabeldata_kotak",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "kotak()"
+      "norm_label": "kotak()",
+      "id": "web_components_kendali_tabeldata_kotak"
     },
     {
       "label": "TabelData()",
@@ -158,10 +455,10 @@
       "source_file": "web/components/kendali/TabelData.tsx",
       "source_location": "L121",
       "_origin": "ast",
-      "id": "web_components_kendali_tabeldata_tabeldata",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "tabeldata()"
+      "norm_label": "tabeldata()",
+      "id": "web_components_kendali_tabeldata_tabeldata"
     },
     {
       "label": "kendali/index.ts",
@@ -169,10 +466,10 @@
       "source_file": "web/components/kendali/index.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "web_components_kendali_index",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "kendali/index.ts"
+      "norm_label": "kendali/index.ts",
+      "id": "web_components_kendali_index"
     },
     {
       "label": "DiagramPencar.tsx",
@@ -180,10 +477,10 @@
       "source_file": "web/components/widget/statistika/DiagramPencar.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_diagrampencar",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "diagrampencar.tsx"
+      "norm_label": "diagrampencar.tsx",
+      "id": "web_components_widget_statistika_diagrampencar"
     },
     {
       "label": "CONTOH",
@@ -191,10 +488,10 @@
       "source_file": "web/components/widget/statistika/DiagramPencar.tsx",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_diagrampencar_contoh",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "contoh"
+      "norm_label": "contoh",
+      "id": "web_components_widget_statistika_diagrampencar_contoh"
     },
     {
       "label": "DiagramPencar()",
@@ -202,10 +499,10 @@
       "source_file": "web/components/widget/statistika/DiagramPencar.tsx",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_diagrampencar_diagrampencar",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "diagrampencar()"
+      "norm_label": "diagrampencar()",
+      "id": "web_components_widget_statistika_diagrampencar_diagrampencar"
     },
     {
       "label": "DuaKelompok.tsx",
@@ -213,10 +510,10 @@
       "source_file": "web/components/widget/statistika/DuaKelompok.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_duakelompok",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "duakelompok.tsx"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "duakelompok.tsx",
+      "id": "web_components_widget_statistika_duakelompok"
     },
     {
       "label": "A",
@@ -224,10 +521,10 @@
       "source_file": "web/components/widget/statistika/DuaKelompok.tsx",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_duakelompok_a",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "a"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "a",
+      "id": "web_components_widget_statistika_duakelompok_a"
     },
     {
       "label": "B",
@@ -235,10 +532,10 @@
       "source_file": "web/components/widget/statistika/DuaKelompok.tsx",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_duakelompok_b",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "b"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "b",
+      "id": "web_components_widget_statistika_duakelompok_b"
     },
     {
       "label": "JUMLAH_SASARAN",
@@ -246,10 +543,10 @@
       "source_file": "web/components/widget/statistika/DuaKelompok.tsx",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_duakelompok_jumlah_sasaran",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "jumlah_sasaran"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "jumlah_sasaran",
+      "id": "web_components_widget_statistika_duakelompok_jumlah_sasaran"
     },
     {
       "label": "ke()",
@@ -257,10 +554,10 @@
       "source_file": "web/components/widget/statistika/DuaKelompok.tsx",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_duakelompok_ke",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "ke()"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "ke()",
+      "id": "web_components_widget_statistika_duakelompok_ke"
     },
     {
       "label": "dari()",
@@ -268,10 +565,10 @@
       "source_file": "web/components/widget/statistika/DuaKelompok.tsx",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_duakelompok_dari",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "dari()"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "dari()",
+      "id": "web_components_widget_statistika_duakelompok_dari"
     },
     {
       "label": "TIK",
@@ -279,10 +576,10 @@
       "source_file": "web/components/widget/statistika/DuaKelompok.tsx",
       "source_location": "L39",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_duakelompok_tik",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "tik"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "tik",
+      "id": "web_components_widget_statistika_duakelompok_tik"
     },
     {
       "label": "samakanJumlah()",
@@ -290,10 +587,10 @@
       "source_file": "web/components/widget/statistika/DuaKelompok.tsx",
       "source_location": "L50",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_duakelompok_samakanjumlah",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "samakanjumlah()"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "samakanjumlah()",
+      "id": "web_components_widget_statistika_duakelompok_samakanjumlah"
     },
     {
       "label": "DuaKelompok()",
@@ -301,10 +598,10 @@
       "source_file": "web/components/widget/statistika/DuaKelompok.tsx",
       "source_location": "L70",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_duakelompok_duakelompok",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "duakelompok()"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "duakelompok()",
+      "id": "web_components_widget_statistika_duakelompok_duakelompok"
     },
     {
       "label": "GarisBilangan.tsx",
@@ -312,10 +609,10 @@
       "source_file": "web/components/widget/statistika/GarisBilangan.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_garisbilangan",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "garisbilangan.tsx"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "garisbilangan.tsx",
+      "id": "web_components_widget_statistika_garisbilangan"
     },
     {
       "label": "GarisBilangan()",
@@ -323,10 +620,10 @@
       "source_file": "web/components/widget/statistika/GarisBilangan.tsx",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_garisbilangan_garisbilangan",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "garisbilangan()"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "garisbilangan()",
+      "id": "web_components_widget_statistika_garisbilangan_garisbilangan"
     },
     {
       "label": "tinggiTumpukan()",
@@ -334,10 +631,10 @@
       "source_file": "web/components/widget/statistika/GarisBilangan.tsx",
       "source_location": "L61",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_garisbilangan_tinggitumpukan",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "tinggitumpukan()"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "tinggitumpukan()",
+      "id": "web_components_widget_statistika_garisbilangan_tinggitumpukan"
     },
     {
       "label": "TumpukanTitik()",
@@ -345,10 +642,10 @@
       "source_file": "web/components/widget/statistika/GarisBilangan.tsx",
       "source_location": "L70",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_garisbilangan_tumpukantitik",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "tumpukantitik()"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "tumpukantitik()",
+      "id": "web_components_widget_statistika_garisbilangan_tumpukantitik"
     },
     {
       "label": "Penanda()",
@@ -356,10 +653,10 @@
       "source_file": "web/components/widget/statistika/GarisBilangan.tsx",
       "source_location": "L130",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_garisbilangan_penanda",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "penanda()"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "penanda()",
+      "id": "web_components_widget_statistika_garisbilangan_penanda"
     },
     {
       "label": "GarisRegresi.tsx",
@@ -367,10 +664,10 @@
       "source_file": "web/components/widget/statistika/GarisRegresi.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_garisregresi",
-      "community": 40,
-      "community_name": "Widget Statistika: skala.ts",
-      "norm_label": "garisregresi.tsx"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "garisregresi.tsx",
+      "id": "web_components_widget_statistika_garisregresi"
     },
     {
       "label": "D",
@@ -378,10 +675,10 @@
       "source_file": "web/components/widget/statistika/GarisRegresi.tsx",
       "source_location": "L26",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_garisregresi_d",
-      "community": 40,
-      "community_name": "Widget Statistika: skala.ts",
-      "norm_label": "d"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "d",
+      "id": "web_components_widget_statistika_garisregresi_d"
     },
     {
       "label": "HITUNG",
@@ -389,10 +686,10 @@
       "source_file": "web/components/widget/statistika/GarisRegresi.tsx",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_garisregresi_hitung",
-      "community": 40,
-      "community_name": "Widget Statistika: skala.ts",
-      "norm_label": "hitung"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "hitung",
+      "id": "web_components_widget_statistika_garisregresi_hitung"
     },
     {
       "label": "rx",
@@ -400,10 +697,10 @@
       "source_file": "web/components/widget/statistika/GarisRegresi.tsx",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_garisregresi_rx",
-      "community": 40,
-      "community_name": "Widget Statistika: skala.ts",
-      "norm_label": "rx"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "rx",
+      "id": "web_components_widget_statistika_garisregresi_rx"
     },
     {
       "label": "ry",
@@ -411,10 +708,10 @@
       "source_file": "web/components/widget/statistika/GarisRegresi.tsx",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_garisregresi_ry",
-      "community": 40,
-      "community_name": "Widget Statistika: skala.ts",
-      "norm_label": "ry"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "ry",
+      "id": "web_components_widget_statistika_garisregresi_ry"
     },
     {
       "label": "J",
@@ -422,10 +719,10 @@
       "source_file": "web/components/widget/statistika/GarisRegresi.tsx",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_garisregresi_j",
-      "community": 40,
-      "community_name": "Widget Statistika: skala.ts",
-      "norm_label": "j"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "j",
+      "id": "web_components_widget_statistika_garisregresi_j"
     },
     {
       "label": "P",
@@ -433,10 +730,10 @@
       "source_file": "web/components/widget/statistika/GarisRegresi.tsx",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_garisregresi_p",
-      "community": 40,
-      "community_name": "Widget Statistika: skala.ts",
-      "norm_label": "p"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "p",
+      "id": "web_components_widget_statistika_garisregresi_p"
     },
     {
       "label": "BALIK",
@@ -444,10 +741,10 @@
       "source_file": "web/components/widget/statistika/GarisRegresi.tsx",
       "source_location": "L34",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_garisregresi_balik",
-      "community": 40,
-      "community_name": "Widget Statistika: skala.ts",
-      "norm_label": "balik"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "balik",
+      "id": "web_components_widget_statistika_garisregresi_balik"
     },
     {
       "label": "GarisRegresi()",
@@ -455,10 +752,10 @@
       "source_file": "web/components/widget/statistika/GarisRegresi.tsx",
       "source_location": "L36",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_garisregresi_garisregresi",
-      "community": 40,
-      "community_name": "Widget Statistika: skala.ts",
-      "norm_label": "garisregresi()"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "garisregresi()",
+      "id": "web_components_widget_statistika_garisregresi_garisregresi"
     },
     {
       "label": "JarakKeRata.tsx",
@@ -466,10 +763,10 @@
       "source_file": "web/components/widget/statistika/JarakKeRata.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_jarakkerata",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "jarakkerata.tsx"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "jarakkerata.tsx",
+      "id": "web_components_widget_statistika_jarakkerata"
     },
     {
       "label": "A",
@@ -477,10 +774,10 @@
       "source_file": "web/components/widget/statistika/JarakKeRata.tsx",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_jarakkerata_a",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "a"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "a",
+      "id": "web_components_widget_statistika_jarakkerata_a"
     },
     {
       "label": "B",
@@ -488,10 +785,10 @@
       "source_file": "web/components/widget/statistika/JarakKeRata.tsx",
       "source_location": "L29",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_jarakkerata_b",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "b"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "b",
+      "id": "web_components_widget_statistika_jarakkerata_b"
     },
     {
       "label": "ke()",
@@ -499,10 +796,10 @@
       "source_file": "web/components/widget/statistika/JarakKeRata.tsx",
       "source_location": "L35",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_jarakkerata_ke",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "ke()"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "ke()",
+      "id": "web_components_widget_statistika_jarakkerata_ke"
     },
     {
       "label": "dari()",
@@ -510,10 +807,10 @@
       "source_file": "web/components/widget/statistika/JarakKeRata.tsx",
       "source_location": "L36",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_jarakkerata_dari",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "dari()"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "dari()",
+      "id": "web_components_widget_statistika_jarakkerata_dari"
     },
     {
       "label": "TIK",
@@ -521,10 +818,10 @@
       "source_file": "web/components/widget/statistika/JarakKeRata.tsx",
       "source_location": "L37",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_jarakkerata_tik",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "tik"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "tik",
+      "id": "web_components_widget_statistika_jarakkerata_tik"
     },
     {
       "label": "JarakKeRata()",
@@ -532,10 +829,10 @@
       "source_file": "web/components/widget/statistika/JarakKeRata.tsx",
       "source_location": "L40",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_jarakkerata_jarakkerata",
-      "community": 80,
-      "community_name": "Widget Statistika: DuaKelompok.tsx",
-      "norm_label": "jarakkerata()"
+      "community": 57,
+      "community_name": "Widget Statistika: angka",
+      "norm_label": "jarakkerata()",
+      "id": "web_components_widget_statistika_jarakkerata_jarakkerata"
     },
     {
       "label": "KekuatanHubungan.tsx",
@@ -543,10 +840,10 @@
       "source_file": "web/components/widget/statistika/KekuatanHubungan.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_kekuatanhubungan",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "kekuatanhubungan.tsx"
+      "norm_label": "kekuatanhubungan.tsx",
+      "id": "web_components_widget_statistika_kekuatanhubungan"
     },
     {
       "label": "CONTOH",
@@ -554,10 +851,10 @@
       "source_file": "web/components/widget/statistika/KekuatanHubungan.tsx",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_kekuatanhubungan_contoh",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "contoh"
+      "norm_label": "contoh",
+      "id": "web_components_widget_statistika_kekuatanhubungan_contoh"
     },
     {
       "label": "KekuatanHubungan()",
@@ -565,10 +862,10 @@
       "source_file": "web/components/widget/statistika/KekuatanHubungan.tsx",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_kekuatanhubungan_kekuatanhubungan",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "kekuatanhubungan()"
+      "norm_label": "kekuatanhubungan()",
+      "id": "web_components_widget_statistika_kekuatanhubungan_kekuatanhubungan"
     },
     {
       "label": "KotakGaris.tsx",
@@ -576,10 +873,10 @@
       "source_file": "web/components/widget/statistika/KotakGaris.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_kotakgaris",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "kotakgaris.tsx"
+      "norm_label": "kotakgaris.tsx",
+      "id": "web_components_widget_statistika_kotakgaris"
     },
     {
       "label": "D",
@@ -587,10 +884,10 @@
       "source_file": "web/components/widget/statistika/KotakGaris.tsx",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_kotakgaris_d",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "d"
+      "norm_label": "d",
+      "id": "web_components_widget_statistika_kotakgaris_d"
     },
     {
       "label": "ke()",
@@ -598,10 +895,10 @@
       "source_file": "web/components/widget/statistika/KotakGaris.tsx",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_kotakgaris_ke",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "ke()"
+      "norm_label": "ke()",
+      "id": "web_components_widget_statistika_kotakgaris_ke"
     },
     {
       "label": "dari()",
@@ -609,10 +906,10 @@
       "source_file": "web/components/widget/statistika/KotakGaris.tsx",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_kotakgaris_dari",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "dari()"
+      "norm_label": "dari()",
+      "id": "web_components_widget_statistika_kotakgaris_dari"
     },
     {
       "label": "TIK",
@@ -620,10 +917,10 @@
       "source_file": "web/components/widget/statistika/KotakGaris.tsx",
       "source_location": "L29",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_kotakgaris_tik",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "tik"
+      "norm_label": "tik",
+      "id": "web_components_widget_statistika_kotakgaris_tik"
     },
     {
       "label": "KotakGaris()",
@@ -631,10 +928,10 @@
       "source_file": "web/components/widget/statistika/KotakGaris.tsx",
       "source_location": "L35",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_kotakgaris_kotakgaris",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "kotakgaris()"
+      "norm_label": "kotakgaris()",
+      "id": "web_components_widget_statistika_kotakgaris_kotakgaris"
     },
     {
       "label": "TitikPegang.tsx",
@@ -642,10 +939,10 @@
       "source_file": "web/components/widget/statistika/TitikPegang.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_titikpegang",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "titikpegang.tsx"
+      "norm_label": "titikpegang.tsx",
+      "id": "web_components_widget_statistika_titikpegang"
     },
     {
       "label": "TitikPegang()",
@@ -653,10 +950,10 @@
       "source_file": "web/components/widget/statistika/TitikPegang.tsx",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "web_components_widget_statistika_titikpegang_titikpegang",
       "community": 57,
       "community_name": "Widget Statistika: angka",
-      "norm_label": "titikpegang()"
+      "norm_label": "titikpegang()",
+      "id": "web_components_widget_statistika_titikpegang_titikpegang"
     },
     {
       "label": "manim/scenes/beranda_tiga_grafik.py",
@@ -1610,8 +1907,8 @@
       "source_file": "web/components/widget/statistika/SumbuJujur.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 57,
-      "community_name": "Widget Statistika: angka",
+      "community": 40,
+      "community_name": "Widget Statistika: skala.ts",
       "norm_label": "sumbujujur.tsx",
       "id": "web_components_widget_statistika_sumbujujur"
     },
@@ -1621,8 +1918,8 @@
       "source_file": "web/components/widget/statistika/SumbuJujur.tsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 57,
-      "community_name": "Widget Statistika: angka",
+      "community": 40,
+      "community_name": "Widget Statistika: skala.ts",
       "norm_label": "d",
       "id": "web_components_widget_statistika_sumbujujur_d"
     },
@@ -1632,8 +1929,8 @@
       "source_file": "web/components/widget/statistika/SumbuJujur.tsx",
       "source_location": "L23",
       "_origin": "ast",
-      "community": 57,
-      "community_name": "Widget Statistika: angka",
+      "community": 40,
+      "community_name": "Widget Statistika: skala.ts",
       "norm_label": "bulan",
       "id": "web_components_widget_statistika_sumbujujur_bulan"
     },
@@ -1643,8 +1940,8 @@
       "source_file": "web/components/widget/statistika/SumbuJujur.tsx",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 57,
-      "community_name": "Widget Statistika: angka",
+      "community": 40,
+      "community_name": "Widget Statistika: skala.ts",
       "norm_label": "maks",
       "id": "web_components_widget_statistika_sumbujujur_maks"
     },
@@ -1654,8 +1951,8 @@
       "source_file": "web/components/widget/statistika/SumbuJujur.tsx",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 57,
-      "community_name": "Widget Statistika: angka",
+      "community": 40,
+      "community_name": "Widget Statistika: skala.ts",
       "norm_label": "min_data",
       "id": "web_components_widget_statistika_sumbujujur_min_data"
     },
@@ -1665,8 +1962,8 @@
       "source_file": "web/components/widget/statistika/SumbuJujur.tsx",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 57,
-      "community_name": "Widget Statistika: angka",
+      "community": 40,
+      "community_name": "Widget Statistika: skala.ts",
       "norm_label": "panel()",
       "id": "web_components_widget_statistika_sumbujujur_panel"
     },
@@ -1676,8 +1973,8 @@
       "source_file": "web/components/widget/statistika/SumbuJujur.tsx",
       "source_location": "L83",
       "_origin": "ast",
-      "community": 57,
-      "community_name": "Widget Statistika: angka",
+      "community": 40,
+      "community_name": "Widget Statistika: skala.ts",
       "norm_label": "sumbujujur()",
       "id": "web_components_widget_statistika_sumbujujur_sumbujujur"
     },
@@ -2388,12 +2685,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 27,
+      "community": 84,
       "file_type": "code",
       "norm_label": "sudut",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L62",
-      "community_name": "Widget Ruang 3D: panggung dan diagonal",
+      "community_name": "Widget Ruang 3D: JarakKeBidang.tsx",
       "id": "web_components_widget_ruang_3d_ruang_sudut"
     },
     {
@@ -2531,12 +2828,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 3,
+      "community": 65,
       "file_type": "code",
       "norm_label": "namawarna",
       "source_file": "web/lib/warna.ts",
       "source_location": "L41",
-      "community_name": "Widget Trigonometri: panggung dan bayangan",
+      "community_name": "content/statistika: data.ts",
       "id": "web_lib_warna_namawarna"
     },
     {
@@ -2544,12 +2841,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 30,
+      "community": 17,
       "file_type": "code",
       "norm_label": "tigagrafikberanda",
       "source_file": "manim/arsip-manim-ce/scenes/tahap9_tiga_grafik.py",
       "source_location": "L407",
-      "community_name": "Video lama (Manim CE): TigaGrafikBersama",
+      "community_name": "Video lama (Manim CE): tema dan beranda",
       "id": "manim_arsip_manim_ce_scenes_tahap9_tiga_grafik_tigagrafikberanda"
     },
     {
@@ -2765,12 +3062,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 73,
+      "community": 24,
       "file_type": "code",
       "norm_label": "regresi",
       "source_file": "web/components/widget/statistika/statistik.ts",
       "source_location": "L199",
-      "community_name": "Widget Statistika: statistik.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_components_widget_statistika_statistik_regresi"
     },
     {
@@ -2843,12 +3140,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 43,
+      "community": 53,
       "file_type": "code",
       "norm_label": "bangun",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L249",
-      "community_name": "Widget Ruang 3D: ruang.ts",
+      "community_name": "Widget Ruang 3D: DuniaNyataRuang.tsx",
       "id": "web_components_widget_ruang_3d_ruang_bangun"
     },
     {
@@ -2856,12 +3153,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 43,
+      "community": 69,
       "file_type": "code",
       "norm_label": "bola",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L100",
-      "community_name": "Widget Ruang 3D: ruang.ts",
+      "community_name": "Widget Ruang 3D: jarakTitik",
       "id": "web_components_widget_ruang_3d_ruang_bola"
     },
     {
@@ -2882,12 +3179,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 43,
+      "community": 49,
       "file_type": "code",
       "norm_label": "titik3",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L54",
-      "community_name": "Widget Ruang 3D: ruang.ts",
+      "community_name": "Widget Ruang 3D: SudutBersilangan.tsx",
       "id": "web_components_widget_ruang_3d_ruang_titik3"
     },
     {
@@ -3019,32 +3316,6 @@
       "source_location": "L53",
       "community_name": "Perkakas ManimGL: sinema (babak, rumus, subtitle)",
       "id": "manim_gl_sinema_waktutidakmuat"
-    },
-    {
-      "label": "Bab",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 50,
-      "file_type": "code",
-      "norm_label": "bab",
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L34",
-      "community_name": "Isi materi: page.tsx",
-      "id": "web_content_subbab_bab"
-    },
-    {
-      "label": "SubBab",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 50,
-      "file_type": "code",
-      "norm_label": "subbab",
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L26",
-      "community_name": "Isi materi: page.tsx",
-      "id": "web_content_subbab_subbab"
     },
     {
       "label": "Topik",
@@ -3203,29 +3474,16 @@
       "id": "web_content_statistika_tahap_penyajian_tahapstatistika"
     },
     {
-      "label": "WidgetStatistika",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 58,
-      "file_type": "code",
-      "norm_label": "widgetstatistika",
-      "source_file": "web/content/statistika/widget.ts",
-      "source_location": "L14",
-      "community_name": "content/statistika: tahap.ts",
-      "id": "web_content_statistika_widget_widgetstatistika"
-    },
-    {
       "label": "Tahap",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 58,
+      "community": 7,
       "file_type": "code",
       "norm_label": "tahap",
       "source_file": "web/content/tipe.ts",
       "source_location": "L38",
-      "community_name": "content/statistika: tahap.ts",
+      "community_name": "Isi materi: daftar isi dan jenis panggung",
       "id": "web_content_tipe_tahap"
     },
     {
@@ -3363,12 +3621,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 65,
+      "community": 24,
       "file_type": "code",
       "norm_label": "butir",
       "source_file": "web/content/statistika/data.ts",
       "source_location": "L44",
-      "community_name": "content/statistika: data.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_content_statistika_data_butir"
     },
     {
@@ -3376,12 +3634,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 65,
+      "community": 24,
       "file_type": "code",
       "norm_label": "butirbivariat",
       "source_file": "web/content/statistika/data.ts",
       "source_location": "L37",
-      "community_name": "content/statistika: data.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_content_statistika_data_butirbivariat"
     },
     {
@@ -3389,12 +3647,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 65,
+      "community": 24,
       "file_type": "code",
       "norm_label": "butirkategori",
       "source_file": "web/content/statistika/data.ts",
       "source_location": "L32",
-      "community_name": "content/statistika: data.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_content_statistika_data_butirkategori"
     },
     {
@@ -3402,12 +3660,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 65,
+      "community": 24,
       "file_type": "code",
       "norm_label": "butirkelompok",
       "source_file": "web/content/statistika/data.ts",
       "source_location": "L36",
-      "community_name": "content/statistika: data.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_content_statistika_data_butirkelompok"
     },
     {
@@ -3415,12 +3673,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 65,
+      "community": 24,
       "file_type": "code",
       "norm_label": "butirtunggal",
       "source_file": "web/content/statistika/data.ts",
       "source_location": "L31",
-      "community_name": "content/statistika: data.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_content_statistika_data_butirtunggal"
     },
     {
@@ -3428,12 +3686,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 65,
+      "community": 24,
       "file_type": "code",
       "norm_label": "dasar",
       "source_file": "web/content/statistika/data.ts",
       "source_location": "L23",
-      "community_name": "content/statistika: data.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_content_statistika_data_dasar"
     },
     {
@@ -3597,12 +3855,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 7,
+      "community": 42,
       "file_type": "code",
       "norm_label": "tingkatkuis",
       "source_file": "web/content/tipe.ts",
       "source_location": "L79",
-      "community_name": "Isi materi: daftar isi dan jenis panggung",
+      "community_name": "Pustaka web: ArenaLatihan.tsx",
       "id": "web_content_tipe_tingkatkuis"
     },
     {
@@ -3636,12 +3894,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 73,
+      "community": 24,
       "file_type": "code",
       "norm_label": "kelas",
       "source_file": "web/components/widget/statistika/statistik.ts",
       "source_location": "L22",
-      "community_name": "Widget Statistika: statistik.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_components_widget_statistika_statistik_kelas"
     },
     {
@@ -3649,12 +3907,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 73,
+      "community": 24,
       "file_type": "code",
       "norm_label": "ringkaskelompok",
       "source_file": "web/components/widget/statistika/statistik.ts",
       "source_location": "L129",
-      "community_name": "Widget Statistika: statistik.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_components_widget_statistika_statistik_ringkaskelompok"
     },
     {
@@ -3662,12 +3920,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 73,
+      "community": 24,
       "file_type": "code",
       "norm_label": "ringkastunggal",
       "source_file": "web/components/widget/statistika/statistik.ts",
       "source_location": "L84",
-      "community_name": "Widget Statistika: statistik.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_components_widget_statistika_statistik_ringkastunggal"
     },
     {
@@ -3675,12 +3933,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 73,
+      "community": 24,
       "file_type": "code",
       "norm_label": "trend",
       "source_file": "web/components/widget/statistika/statistik.ts",
       "source_location": "L260",
-      "community_name": "Widget Statistika: statistik.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_components_widget_statistika_statistik_trend"
     },
     {
@@ -3909,12 +4167,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 83,
+      "community": 7,
       "file_type": "code",
       "norm_label": "blok",
       "source_file": "web/content/tipe.ts",
       "source_location": "L25",
-      "community_name": "content/trigonometri: index.ts",
+      "community_name": "Isi materi: daftar isi dan jenis panggung",
       "id": "web_content_tipe_blok"
     },
     {
@@ -3922,12 +4180,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 83,
+      "community": 7,
       "file_type": "code",
       "norm_label": "widget",
       "source_file": "web/content/trigonometri/tahap.ts",
       "source_location": "L15",
-      "community_name": "content/trigonometri: index.ts",
+      "community_name": "Isi materi: daftar isi dan jenis panggung",
       "id": "web_content_trigonometri_tahap_widget"
     },
     {
@@ -3935,12 +4193,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 85,
+      "community": 27,
       "file_type": "code",
       "norm_label": "pilihan",
       "source_file": "web/components/widget/ruang-3d/JarakKeGaris.tsx",
       "source_location": "L29",
-      "community_name": "Widget Ruang 3D: JarakKeGaris.tsx",
+      "community_name": "Widget Ruang 3D: panggung dan diagonal",
       "id": "web_components_widget_ruang_3d_jarakkegaris_pilihan"
     },
     {
@@ -8305,36 +8563,36 @@
       "label": "SudutBidang()",
       "_callable": true,
       "_origin": "ast",
-      "community": 27,
+      "community": 49,
       "file_type": "code",
       "norm_label": "sudutbidang()",
       "source_file": "web/components/widget/ruang-3d/SudutBidang.tsx",
       "source_location": "L77",
-      "community_name": "Widget Ruang 3D: panggung dan diagonal",
+      "community_name": "Widget Ruang 3D: SudutBersilangan.tsx",
       "id": "web_components_widget_ruang_3d_sudutbidang_sudutbidang"
     },
     {
       "label": "sudutTerbaca()",
       "_callable": true,
       "_origin": "ast",
-      "community": 27,
+      "community": 69,
       "file_type": "code",
       "norm_label": "sudutterbaca()",
       "source_file": "web/components/widget/ruang-3d/SudutBidang.tsx",
       "source_location": "L67",
-      "community_name": "Widget Ruang 3D: panggung dan diagonal",
+      "community_name": "Widget Ruang 3D: jarakTitik",
       "id": "web_components_widget_ruang_3d_sudutbidang_sudutterbaca"
     },
     {
       "label": "tumpuanBenar()",
       "_callable": true,
       "_origin": "ast",
-      "community": 27,
+      "community": 49,
       "file_type": "code",
       "norm_label": "tumpuanbenar()",
       "source_file": "web/components/widget/ruang-3d/SudutBidang.tsx",
       "source_location": "L73",
-      "community_name": "Widget Ruang 3D: panggung dan diagonal",
+      "community_name": "Widget Ruang 3D: SudutBersilangan.tsx",
       "id": "web_components_widget_ruang_3d_sudutbidang_tumpuanbenar"
     },
     {
@@ -9193,12 +9451,12 @@
       "label": ".construct()",
       "_callable": true,
       "_origin": "ast",
-      "community": 30,
+      "community": 17,
       "file_type": "code",
       "norm_label": ".construct()",
       "source_file": "manim/arsip-manim-ce/scenes/tahap9_tiga_grafik.py",
       "source_location": "L433",
-      "community_name": "Video lama (Manim CE): TigaGrafikBersama",
+      "community_name": "Video lama (Manim CE): tema dan beranda",
       "id": "manim_arsip_manim_ce_scenes_tahap9_tiga_grafik_tigagrafikberanda_construct"
     },
     {
@@ -11233,12 +11491,12 @@
       "label": "bentukTrend()",
       "_callable": true,
       "_origin": "ast",
-      "community": 73,
+      "community": 24,
       "file_type": "code",
       "norm_label": "bentuktrend()",
       "source_file": "web/components/widget/statistika/statistik.ts",
       "source_location": "L280",
-      "community_name": "Widget Statistika: statistik.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_components_widget_statistika_statistik_bentuktrend"
     },
     {
@@ -11653,12 +11911,12 @@
       "label": "kameraTitik()",
       "_callable": true,
       "_origin": "ast",
-      "community": 43,
+      "community": 68,
       "file_type": "code",
       "norm_label": "kameratitik()",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L453",
-      "community_name": "Widget Ruang 3D: ruang.ts",
+      "community_name": "Widget Ruang 3D: KubusPutar.tsx",
       "id": "web_components_widget_ruang_3d_ruang_kameratitik"
     },
     {
@@ -12373,36 +12631,36 @@
       "label": "TitikBantu()",
       "_callable": true,
       "_origin": "ast",
-      "community": 84,
+      "community": 27,
       "file_type": "code",
       "norm_label": "titikbantu()",
       "source_file": "web/components/widget/ruang-3d/Bingkai3D.tsx",
       "source_location": "L369",
-      "community_name": "Widget Ruang 3D: JarakKeBidang.tsx",
+      "community_name": "Widget Ruang 3D: panggung dan diagonal",
       "id": "web_components_widget_ruang_3d_bingkai3d_titikbantu"
     },
     {
       "label": "kali()",
       "_callable": true,
       "_origin": "ast",
-      "community": 49,
+      "community": 69,
       "file_type": "code",
       "norm_label": "kali()",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L385",
-      "community_name": "Widget Ruang 3D: SudutBersilangan.tsx",
+      "community_name": "Widget Ruang 3D: jarakTitik",
       "id": "web_components_widget_ruang_3d_ruang_kali"
     },
     {
       "label": "sepanjang()",
       "_callable": true,
       "_origin": "ast",
-      "community": 49,
+      "community": 69,
       "file_type": "code",
       "norm_label": "sepanjang()",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L394",
-      "community_name": "Widget Ruang 3D: SudutBersilangan.tsx",
+      "community_name": "Widget Ruang 3D: jarakTitik",
       "id": "web_components_widget_ruang_3d_ruang_sepanjang"
     },
     {
@@ -12824,42 +13082,6 @@
       "source_location": "L46",
       "community_name": "Isi materi: page.tsx",
       "id": "web_components_topik_halamantopik_halamantopik"
-    },
-    {
-      "label": "cariBab()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 50,
-      "file_type": "code",
-      "norm_label": "caribab()",
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L130",
-      "community_name": "Isi materi: page.tsx",
-      "id": "web_content_subbab_caribab"
-    },
-    {
-      "label": "subDari()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 50,
-      "file_type": "code",
-      "norm_label": "subdari()",
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L133",
-      "community_name": "Isi materi: page.tsx",
-      "id": "web_content_subbab_subdari"
-    },
-    {
-      "label": "urutanBelajar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 50,
-      "file_type": "code",
-      "norm_label": "urutanbelajar()",
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L141",
-      "community_name": "Isi materi: page.tsx",
-      "id": "web_content_subbab_urutanbelajar"
     },
     {
       "label": "cariTopik()",
@@ -14281,12 +14503,12 @@
       "label": "kuadratResiduGaris()",
       "_callable": true,
       "_origin": "ast",
-      "community": 73,
+      "community": 24,
       "file_type": "code",
       "norm_label": "kuadratresidugaris()",
       "source_file": "web/components/widget/statistika/statistik.ts",
       "source_location": "L226",
-      "community_name": "Widget Statistika: statistik.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_components_widget_statistika_statistik_kuadratresidugaris"
     },
     {
@@ -14425,72 +14647,72 @@
       "label": "ambil()",
       "_callable": true,
       "_origin": "ast",
-      "community": 65,
+      "community": 24,
       "file_type": "code",
       "norm_label": "ambil()",
       "source_file": "web/content/statistika/data.ts",
       "source_location": "L55",
-      "community_name": "content/statistika: data.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_content_statistika_data_ambil"
     },
     {
       "label": "bivariat()",
       "_callable": true,
       "_origin": "ast",
-      "community": 65,
+      "community": 24,
       "file_type": "code",
       "norm_label": "bivariat()",
       "source_file": "web/content/statistika/data.ts",
       "source_location": "L77",
-      "community_name": "content/statistika: data.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_content_statistika_data_bivariat"
     },
     {
       "label": "kategori()",
       "_callable": true,
       "_origin": "ast",
-      "community": 65,
+      "community": 24,
       "file_type": "code",
       "norm_label": "kategori()",
       "source_file": "web/content/statistika/data.ts",
       "source_location": "L75",
-      "community_name": "content/statistika: data.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_content_statistika_data_kategori"
     },
     {
       "label": "kelompok()",
       "_callable": true,
       "_origin": "ast",
-      "community": 65,
+      "community": 24,
       "file_type": "code",
       "norm_label": "kelompok()",
       "source_file": "web/content/statistika/data.ts",
       "source_location": "L76",
-      "community_name": "content/statistika: data.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_content_statistika_data_kelompok"
     },
     {
       "label": "pastikan()",
       "_callable": true,
       "_origin": "ast",
-      "community": 65,
+      "community": 24,
       "file_type": "code",
       "norm_label": "pastikan()",
       "source_file": "web/content/statistika/data.ts",
       "source_location": "L66",
-      "community_name": "content/statistika: data.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_content_statistika_data_pastikan"
     },
     {
       "label": "tunggal()",
       "_callable": true,
       "_origin": "ast",
-      "community": 65,
+      "community": 24,
       "file_type": "code",
       "norm_label": "tunggal()",
       "source_file": "web/content/statistika/data.ts",
       "source_location": "L74",
-      "community_name": "content/statistika: data.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_content_statistika_data_tunggal"
     },
     {
@@ -14821,25 +15043,13 @@
       "label": "Latihan()",
       "_callable": true,
       "_origin": "ast",
-      "community": 83,
+      "community": 7,
       "file_type": "code",
       "norm_label": "latihan()",
       "source_file": "web/components/topik/Latihan.tsx",
       "source_location": "L18",
-      "community_name": "content/trigonometri: index.ts",
-      "id": "web_components_topik_latihan_latihan"
-    },
-    {
-      "label": "PanggungStatistika()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "panggungstatistika()",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L55",
       "community_name": "Isi materi: daftar isi dan jenis panggung",
-      "id": "web_components_topik_panggungstatistika_panggungstatistika"
+      "id": "web_components_topik_latihan_latihan"
     },
     {
       "label": "_kotak()",
@@ -14965,60 +15175,60 @@
       "label": "kelompokkan()",
       "_callable": true,
       "_origin": "ast",
-      "community": 73,
+      "community": 24,
       "file_type": "code",
       "norm_label": "kelompokkan()",
       "source_file": "web/components/widget/statistika/statistik.ts",
       "source_location": "L242",
-      "community_name": "Widget Statistika: statistik.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_components_widget_statistika_statistik_kelompokkan"
     },
     {
       "label": "kuartil()",
       "_callable": true,
       "_origin": "ast",
-      "community": 73,
+      "community": 24,
       "file_type": "code",
       "norm_label": "kuartil()",
       "source_file": "web/components/widget/statistika/statistik.ts",
       "source_location": "L62",
-      "community_name": "Widget Statistika: statistik.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_components_widget_statistika_statistik_kuartil"
     },
     {
       "label": "median()",
       "_callable": true,
       "_origin": "ast",
-      "community": 73,
+      "community": 24,
       "file_type": "code",
       "norm_label": "median()",
       "source_file": "web/components/widget/statistika/statistik.ts",
       "source_location": "L54",
-      "community_name": "Widget Statistika: statistik.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_components_widget_statistika_statistik_median"
     },
     {
       "label": "modus()",
       "_callable": true,
       "_origin": "ast",
-      "community": 73,
+      "community": 24,
       "file_type": "code",
       "norm_label": "modus()",
       "source_file": "web/components/widget/statistika/statistik.ts",
       "source_location": "L74",
-      "community_name": "Widget Statistika: statistik.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_components_widget_statistika_statistik_modus"
     },
     {
       "label": "terurut()",
       "_callable": true,
       "_origin": "ast",
-      "community": 73,
+      "community": 24,
       "file_type": "code",
       "norm_label": "terurut()",
       "source_file": "web/components/widget/statistika/statistik.ts",
       "source_location": "L52",
-      "community_name": "Widget Statistika: statistik.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_components_widget_statistika_statistik_terurut"
     },
     {
@@ -15265,12 +15475,12 @@
       "label": "hitung()",
       "_callable": true,
       "_origin": "ast",
-      "community": 77,
+      "community": 69,
       "file_type": "code",
       "norm_label": "hitung()",
       "source_file": "web/components/widget/ruang-3d/JarakSejajar.tsx",
       "source_location": "L31",
-      "community_name": "Widget Ruang 3D: JarakSejajar.tsx",
+      "community_name": "Widget Ruang 3D: jarakTitik",
       "id": "web_components_widget_ruang_3d_jaraksejajar_hitung"
     },
     {
@@ -15289,24 +15499,24 @@
       "label": "balok()",
       "_callable": true,
       "_origin": "ast",
-      "community": 77,
+      "community": 49,
       "file_type": "code",
       "norm_label": "balok()",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L265",
-      "community_name": "Widget Ruang 3D: JarakSejajar.tsx",
+      "community_name": "Widget Ruang 3D: SudutBersilangan.tsx",
       "id": "web_components_widget_ruang_3d_ruang_balok"
     },
     {
       "label": "kubus()",
       "_callable": true,
       "_origin": "ast",
-      "community": 77,
+      "community": 49,
       "file_type": "code",
       "norm_label": "kubus()",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L276",
-      "community_name": "Widget Ruang 3D: JarakSejajar.tsx",
+      "community_name": "Widget Ruang 3D: SudutBersilangan.tsx",
       "id": "web_components_widget_ruang_3d_ruang_kubus"
     },
     {
@@ -15685,36 +15895,36 @@
       "label": "Penjelasan()",
       "_callable": true,
       "_origin": "ast",
-      "community": 83,
+      "community": 7,
       "file_type": "code",
       "norm_label": "penjelasan()",
       "source_file": "web/components/topik/Penjelasan.tsx",
       "source_location": "L24",
-      "community_name": "content/trigonometri: index.ts",
+      "community_name": "Isi materi: daftar isi dan jenis panggung",
       "id": "web_components_topik_penjelasan_penjelasan"
     },
     {
       "label": "cariTahap()",
       "_callable": true,
       "_origin": "ast",
-      "community": 83,
+      "community": 7,
       "file_type": "code",
       "norm_label": "caritahap()",
       "source_file": "web/content/trigonometri/tahap.ts",
       "source_location": "L788",
-      "community_name": "content/trigonometri: index.ts",
+      "community_name": "Isi materi: daftar isi dan jenis panggung",
       "id": "web_content_trigonometri_tahap_caritahap"
     },
     {
       "label": "Ruas()",
       "_callable": true,
       "_origin": "ast",
-      "community": 49,
+      "community": 68,
       "file_type": "code",
       "norm_label": "ruas()",
       "source_file": "web/components/widget/ruang-3d/Bingkai3D.tsx",
       "source_location": "L243",
-      "community_name": "Widget Ruang 3D: SudutBersilangan.tsx",
+      "community_name": "Widget Ruang 3D: KubusPutar.tsx",
       "id": "web_components_widget_ruang_3d_bingkai3d_ruas"
     },
     {
@@ -15745,24 +15955,24 @@
       "label": "hitung()",
       "_callable": true,
       "_origin": "ast",
-      "community": 85,
+      "community": 27,
       "file_type": "code",
       "norm_label": "hitung()",
       "source_file": "web/components/widget/ruang-3d/JarakKeGaris.tsx",
       "source_location": "L31",
-      "community_name": "Widget Ruang 3D: JarakKeGaris.tsx",
+      "community_name": "Widget Ruang 3D: panggung dan diagonal",
       "id": "web_components_widget_ruang_3d_jarakkegaris_hitung"
     },
     {
       "label": "JarakKeGaris()",
       "_callable": true,
       "_origin": "ast",
-      "community": 85,
+      "community": 27,
       "file_type": "code",
       "norm_label": "jarakkegaris()",
       "source_file": "web/components/widget/ruang-3d/JarakKeGaris.tsx",
       "source_location": "L39",
-      "community_name": "Widget Ruang 3D: JarakKeGaris.tsx",
+      "community_name": "Widget Ruang 3D: panggung dan diagonal",
       "id": "web_components_widget_ruang_3d_jarakkegaris_jarakkegaris"
     },
     {
@@ -18308,12 +18518,12 @@
     {
       "label": "KUIS",
       "_origin": "ast",
-      "community": 16,
+      "community": 7,
       "file_type": "code",
       "norm_label": "kuis",
       "source_file": "web/content/ruang-3d/kuis.ts",
       "source_location": "L21",
-      "community_name": "Web: rute latihan dan nav",
+      "community_name": "Isi materi: daftar isi dan jenis panggung",
       "id": "web_content_ruang_3d_kuis_kuis"
     },
     {
@@ -18330,12 +18540,12 @@
     {
       "label": "KUIS",
       "_origin": "ast",
-      "community": 16,
+      "community": 7,
       "file_type": "code",
       "norm_label": "kuis",
       "source_file": "web/content/trigonometri/kuis.ts",
       "source_location": "L36",
-      "community_name": "Web: rute latihan dan nav",
+      "community_name": "Isi materi: daftar isi dan jenis panggung",
       "id": "web_content_trigonometri_kuis_kuis"
     },
     {
@@ -21245,23 +21455,23 @@
     {
       "label": "warna.ts",
       "_origin": "ast",
-      "community": 3,
+      "community": 65,
       "file_type": "code",
       "norm_label": "warna.ts",
       "source_file": "web/lib/warna.ts",
       "source_location": "L1",
-      "community_name": "Widget Trigonometri: panggung dan bayangan",
+      "community_name": "content/statistika: data.ts",
       "id": "web_lib_warna"
     },
     {
       "label": "WARNA_GELAP",
       "_origin": "ast",
-      "community": 3,
+      "community": 65,
       "file_type": "code",
       "norm_label": "warna_gelap",
       "source_file": "web/lib/warna.ts",
       "source_location": "L33",
-      "community_name": "Widget Trigonometri: panggung dan bayangan",
+      "community_name": "content/statistika: data.ts",
       "id": "web_lib_warna_warna_gelap"
     },
     {
@@ -21278,12 +21488,12 @@
     {
       "label": "tahap9_tiga_grafik.py",
       "_origin": "ast",
-      "community": 30,
+      "community": 17,
       "file_type": "code",
       "norm_label": "tahap9_tiga_grafik.py",
       "source_file": "manim/arsip-manim-ce/scenes/tahap9_tiga_grafik.py",
       "source_location": "L1",
-      "community_name": "Video lama (Manim CE): TigaGrafikBersama",
+      "community_name": "Video lama (Manim CE): tema dan beranda",
       "id": "manim_arsip_manim_ce_scenes_tahap9_tiga_grafik"
     },
     {
@@ -21311,12 +21521,12 @@
     {
       "label": "Tahap 9, Sin, cos, tan berdampingan. STORYBOARD (ditulis lebih dulu, kode\u2026",
       "_origin": "ast",
-      "community": 30,
+      "community": 17,
       "file_type": "rationale",
       "norm_label": "tahap 9, sin, cos, tan berdampingan. storyboard (ditulis lebih dulu, kode...",
       "source_file": "manim/arsip-manim-ce/scenes/tahap9_tiga_grafik.py",
       "source_location": "L1",
-      "community_name": "Video lama (Manim CE): TigaGrafikBersama",
+      "community_name": "Video lama (Manim CE): tema dan beranda",
       "id": "manim_arsip_manim_ce_scenes_tahap9_tiga_grafik_rationale_1"
     },
     {
@@ -21333,12 +21543,12 @@
     {
       "label": "Versi halaman depan: hanya grafiknya, tanpa apa pun yang lain. Permintaan ARYA\u2026",
       "_origin": "ast",
-      "community": 30,
+      "community": 17,
       "file_type": "rationale",
       "norm_label": "versi halaman depan: hanya grafiknya, tanpa apa pun yang lain. permintaan arya...",
       "source_file": "manim/arsip-manim-ce/scenes/tahap9_tiga_grafik.py",
       "source_location": "L408",
-      "community_name": "Video lama (Manim CE): TigaGrafikBersama",
+      "community_name": "Video lama (Manim CE): tema dan beranda",
       "id": "manim_arsip_manim_ce_scenes_tahap9_tiga_grafik_rationale_408"
     },
     {
@@ -21476,12 +21686,12 @@
     {
       "label": "arsip-manim-ce/scenes/vektor1_perahu.py",
       "_origin": "ast",
-      "community": 33,
+      "community": 17,
       "file_type": "code",
       "norm_label": "arsip-manim-ce/scenes/vektor1_perahu.py",
       "source_file": "manim/arsip-manim-ce/scenes/vektor1_perahu.py",
       "source_location": "L1",
-      "community_name": "Video lama (Manim CE): PerahuMenyeberang",
+      "community_name": "Video lama (Manim CE): tema dan beranda",
       "id": "manim_arsip_manim_ce_scenes_vektor1_perahu"
     },
     {
@@ -21498,12 +21708,12 @@
     {
       "label": "Vektor Materi 01, Angka saja tidak cukup. STORYBOARD (ditulis lebih dulu, kode\u2026",
       "_origin": "ast",
-      "community": 33,
+      "community": 17,
       "file_type": "rationale",
       "norm_label": "vektor materi 01, angka saja tidak cukup. storyboard (ditulis lebih dulu, kode...",
       "source_file": "manim/arsip-manim-ce/scenes/vektor1_perahu.py",
       "source_location": "L1",
-      "community_name": "Video lama (Manim CE): PerahuMenyeberang",
+      "community_name": "Video lama (Manim CE): tema dan beranda",
       "id": "manim_arsip_manim_ce_scenes_vektor1_perahu_rationale_1"
     },
     {
@@ -22587,78 +22797,78 @@
     {
       "label": "components/widget/ruang-3d/ruang.ts",
       "_origin": "ast",
-      "community": 43,
+      "community": 69,
       "file_type": "code",
       "norm_label": "components/widget/ruang-3d/ruang.ts",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L1",
-      "community_name": "Widget Ruang 3D: ruang.ts",
+      "community_name": "Widget Ruang 3D: jarakTitik",
       "id": "web_components_widget_ruang_3d_ruang"
     },
     {
       "label": "BATAS_MENUNDUK",
       "_origin": "ast",
-      "community": 43,
+      "community": 69,
       "file_type": "code",
       "norm_label": "batas_menunduk",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L74",
-      "community_name": "Widget Ruang 3D: ruang.ts",
+      "community_name": "Widget Ruang 3D: jarakTitik",
       "id": "web_components_widget_ruang_3d_ruang_batas_menunduk"
     },
     {
       "label": "GARIS_PETAK",
       "_origin": "ast",
-      "community": 43,
+      "community": 69,
       "file_type": "code",
       "norm_label": "garis_petak",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L45",
-      "community_name": "Widget Ruang 3D: ruang.ts",
+      "community_name": "Widget Ruang 3D: jarakTitik",
       "id": "web_components_widget_ruang_3d_ruang_garis_petak"
     },
     {
       "label": "RUSUK_BALOK",
       "_origin": "ast",
-      "community": 43,
+      "community": 69,
       "file_type": "code",
       "norm_label": "rusuk_balok",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L308",
-      "community_name": "Widget Ruang 3D: ruang.ts",
+      "community_name": "Widget Ruang 3D: jarakTitik",
       "id": "web_components_widget_ruang_3d_ruang_rusuk_balok"
     },
     {
       "label": "SISI_BALOK",
       "_origin": "ast",
-      "community": 43,
+      "community": 69,
       "file_type": "code",
       "norm_label": "sisi_balok",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L314",
-      "community_name": "Widget Ruang 3D: ruang.ts",
+      "community_name": "Widget Ruang 3D: jarakTitik",
       "id": "web_components_widget_ruang_3d_ruang_sisi_balok"
     },
     {
       "label": "TEPI",
       "_origin": "ast",
-      "community": 43,
+      "community": 69,
       "file_type": "code",
       "norm_label": "tepi",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L36",
-      "community_name": "Widget Ruang 3D: ruang.ts",
+      "community_name": "Widget Ruang 3D: jarakTitik",
       "id": "web_components_widget_ruang_3d_ruang_tepi"
     },
     {
       "label": "VW",
       "_origin": "ast",
-      "community": 43,
+      "community": 69,
       "file_type": "code",
       "norm_label": "vw",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L28",
-      "community_name": "Widget Ruang 3D: ruang.ts",
+      "community_name": "Widget Ruang 3D: jarakTitik",
       "id": "web_components_widget_ruang_3d_ruang_vw"
     },
     {
@@ -23511,35 +23721,13 @@
     {
       "label": "ISI_TOPIK",
       "_origin": "ast",
-      "community": 42,
+      "community": 50,
       "file_type": "code",
       "norm_label": "isi_topik",
       "source_file": "web/content/daftar-isi.ts",
       "source_location": "L26",
-      "community_name": "Pustaka web: ArenaLatihan.tsx",
+      "community_name": "Isi materi: page.tsx",
       "id": "web_content_daftar_isi_isi_topik"
-    },
-    {
-      "label": "subbab.ts",
-      "_origin": "ast",
-      "community": 50,
-      "file_type": "code",
-      "norm_label": "subbab.ts",
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L1",
-      "community_name": "Isi materi: page.tsx",
-      "id": "web_content_subbab"
-    },
-    {
-      "label": "BAB_SEGERA",
-      "_origin": "ast",
-      "community": 50,
-      "file_type": "code",
-      "norm_label": "bab_segera",
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L145",
-      "community_name": "Isi materi: page.tsx",
-      "id": "web_content_subbab_bab_segera"
     },
     {
       "label": "topik.ts",
@@ -24081,17 +24269,6 @@
       "id": "web_components_widget_statistika_warna_data_garis_petak"
     },
     {
-      "label": "statistika/tahap.ts",
-      "_origin": "ast",
-      "community": 58,
-      "file_type": "code",
-      "norm_label": "statistika/tahap.ts",
-      "source_file": "web/content/statistika/tahap.ts",
-      "source_location": "L1",
-      "community_name": "content/statistika: tahap.ts",
-      "id": "web_content_statistika_tahap"
-    },
-    {
       "label": "tahap-hubungan.ts",
       "_origin": "ast",
       "community": 58,
@@ -24156,17 +24333,6 @@
       "source_location": "L24",
       "community_name": "content/statistika: tahap.ts",
       "id": "web_content_statistika_tahap_penyajian_tahap_penyajian"
-    },
-    {
-      "label": "widget.ts",
-      "_origin": "ast",
-      "community": 58,
-      "file_type": "code",
-      "norm_label": "widget.ts",
-      "source_file": "web/content/statistika/widget.ts",
-      "source_location": "L1",
-      "community_name": "content/statistika: tahap.ts",
-      "id": "web_content_statistika_widget"
     },
     {
       "label": "vektor/tahap.ts",
@@ -24664,28 +24830,6 @@
       "id": "web_components_tombolpasang"
     },
     {
-      "label": "PanggungStatistika.tsx",
-      "_origin": "ast",
-      "community": 57,
-      "file_type": "code",
-      "norm_label": "panggungstatistika.tsx",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L1",
-      "community_name": "Widget Statistika: angka",
-      "id": "web_components_topik_panggungstatistika"
-    },
-    {
-      "label": "DAFTAR",
-      "_origin": "ast",
-      "community": 57,
-      "file_type": "code",
-      "norm_label": "daftar",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L39",
-      "community_name": "Widget Statistika: angka",
-      "id": "web_components_topik_panggungstatistika_daftar"
-    },
-    {
       "label": "statistika/jenis.ts",
       "_origin": "ast",
       "community": 24,
@@ -24853,23 +24997,23 @@
     {
       "label": "data.ts",
       "_origin": "ast",
-      "community": 65,
+      "community": 24,
       "file_type": "code",
       "norm_label": "data.ts",
       "source_file": "web/content/statistika/data.ts",
       "source_location": "L1",
-      "community_name": "content/statistika: data.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_content_statistika_data"
     },
     {
       "label": "SEMUA",
       "_origin": "ast",
-      "community": 65,
+      "community": 24,
       "file_type": "code",
       "norm_label": "semua",
       "source_file": "web/content/statistika/data.ts",
       "source_location": "L53",
-      "community_name": "content/statistika: data.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_content_statistika_data_semua"
     },
     {
@@ -25106,12 +25250,12 @@
     {
       "label": "VH",
       "_origin": "ast",
-      "community": 68,
+      "community": 77,
       "file_type": "code",
       "norm_label": "vh",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L29",
-      "community_name": "Widget Ruang 3D: KubusPutar.tsx",
+      "community_name": "Widget Ruang 3D: JarakSejajar.tsx",
       "id": "web_components_widget_ruang_3d_ruang_vh"
     },
     {
@@ -25128,12 +25272,12 @@
     {
       "label": "Latihan.tsx",
       "_origin": "ast",
-      "community": 83,
+      "community": 7,
       "file_type": "code",
       "norm_label": "latihan.tsx",
       "source_file": "web/components/topik/Latihan.tsx",
       "source_location": "L1",
-      "community_name": "content/trigonometri: index.ts",
+      "community_name": "Isi materi: daftar isi dan jenis panggung",
       "id": "web_components_topik_latihan"
     },
     {
@@ -25456,17 +25600,6 @@
       "id": "web_content_statistika_latihan_latihan"
     },
     {
-      "label": "TAHAP",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "tahap",
-      "source_file": "web/content/statistika/tahap.ts",
-      "source_location": "L27",
-      "community_name": "Isi materi: daftar isi dan jenis panggung",
-      "id": "web_content_statistika_tahap_tahap"
-    },
-    {
       "label": "tipe.ts",
       "_origin": "ast",
       "community": 7,
@@ -25744,12 +25877,12 @@
     {
       "label": "statistik.ts",
       "_origin": "ast",
-      "community": 73,
+      "community": 24,
       "file_type": "code",
       "norm_label": "statistik.ts",
       "source_file": "web/components/widget/statistika/statistik.ts",
       "source_location": "L1",
-      "community_name": "Widget Statistika: statistik.ts",
+      "community_name": "Widget Statistika: bentuk data dan garis bilangan",
       "id": "web_components_widget_statistika_statistik"
     },
     {
@@ -25986,12 +26119,12 @@
     {
       "label": "MONO",
       "_origin": "ast",
-      "community": 78,
+      "community": 27,
       "file_type": "code",
       "norm_label": "mono",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L46",
-      "community_name": "Widget Ruang 3D: PemilihKedudukan.tsx",
+      "community_name": "Widget Ruang 3D: panggung dan diagonal",
       "id": "web_components_widget_ruang_3d_ruang_mono"
     },
     {
@@ -26349,45 +26482,45 @@
     {
       "label": "Penjelasan.tsx",
       "_origin": "ast",
-      "community": 83,
+      "community": 7,
       "file_type": "code",
       "norm_label": "penjelasan.tsx",
       "source_file": "web/components/topik/Penjelasan.tsx",
       "source_location": "L1",
-      "community_name": "content/trigonometri: index.ts",
+      "community_name": "Isi materi: daftar isi dan jenis panggung",
       "id": "web_components_topik_penjelasan"
     },
     {
       "label": "trigonometri/index.ts",
       "_origin": "ast",
-      "community": 83,
+      "community": 7,
       "file_type": "code",
       "norm_label": "trigonometri/index.ts",
       "source_file": "web/content/trigonometri/index.ts",
       "source_location": "L1",
-      "community_name": "content/trigonometri: index.ts",
+      "community_name": "Isi materi: daftar isi dan jenis panggung",
       "id": "web_content_trigonometri_index"
     },
     {
       "label": "trigonometri/tahap.ts",
       "_origin": "ast",
-      "community": 83,
+      "community": 7,
       "file_type": "code",
       "norm_label": "trigonometri/tahap.ts",
       "source_file": "web/content/trigonometri/tahap.ts",
       "source_location": "L1",
-      "community_name": "content/trigonometri: index.ts",
+      "community_name": "Isi materi: daftar isi dan jenis panggung",
       "id": "web_content_trigonometri_tahap"
     },
     {
       "label": "TAHAP",
       "_origin": "ast",
-      "community": 83,
+      "community": 7,
       "file_type": "code",
       "norm_label": "tahap",
       "source_file": "web/content/trigonometri/tahap.ts",
       "source_location": "L35",
-      "community_name": "content/trigonometri: index.ts",
+      "community_name": "Isi materi: daftar isi dan jenis panggung",
       "id": "web_content_trigonometri_tahap_tahap"
     },
     {
@@ -26448,56 +26581,56 @@
     {
       "label": "JarakKeGaris.tsx",
       "_origin": "ast",
-      "community": 85,
+      "community": 27,
       "file_type": "code",
       "norm_label": "jarakkegaris.tsx",
       "source_file": "web/components/widget/ruang-3d/JarakKeGaris.tsx",
       "source_location": "L1",
-      "community_name": "Widget Ruang 3D: JarakKeGaris.tsx",
+      "community_name": "Widget Ruang 3D: panggung dan diagonal",
       "id": "web_components_widget_ruang_3d_jarakkegaris"
     },
     {
       "label": "BANGUN",
       "_origin": "ast",
-      "community": 85,
+      "community": 27,
       "file_type": "code",
       "norm_label": "bangun",
       "source_file": "web/components/widget/ruang-3d/JarakKeGaris.tsx",
       "source_location": "L26",
-      "community_name": "Widget Ruang 3D: JarakKeGaris.tsx",
+      "community_name": "Widget Ruang 3D: panggung dan diagonal",
       "id": "web_components_widget_ruang_3d_jarakkegaris_bangun"
     },
     {
       "label": "JARAK",
       "_origin": "ast",
-      "community": 85,
+      "community": 27,
       "file_type": "code",
       "norm_label": "jarak",
       "source_file": "web/components/widget/ruang-3d/JarakKeGaris.tsx",
       "source_location": "L37",
-      "community_name": "Widget Ruang 3D: JarakKeGaris.tsx",
+      "community_name": "Widget Ruang 3D: panggung dan diagonal",
       "id": "web_components_widget_ruang_3d_jarakkegaris_jarak"
     },
     {
       "label": "RUSUK",
       "_origin": "ast",
-      "community": 85,
+      "community": 27,
       "file_type": "code",
       "norm_label": "rusuk",
       "source_file": "web/components/widget/ruang-3d/JarakKeGaris.tsx",
       "source_location": "L25",
-      "community_name": "Widget Ruang 3D: JarakKeGaris.tsx",
+      "community_name": "Widget Ruang 3D: panggung dan diagonal",
       "id": "web_components_widget_ruang_3d_jarakkegaris_rusuk"
     },
     {
       "label": "KOTAK",
       "_origin": "ast",
-      "community": 85,
+      "community": 78,
       "file_type": "code",
       "norm_label": "kotak",
       "source_file": "web/components/widget/ruang-3d/ruang.ts",
       "source_location": "L38",
-      "community_name": "Widget Ruang 3D: JarakKeGaris.tsx",
+      "community_name": "Widget Ruang 3D: PemilihKedudukan.tsx",
       "id": "web_components_widget_ruang_3d_ruang_kotak"
     },
     {
@@ -29262,6 +29395,648 @@
   ],
   "links": [
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/topik/PanggungStatistika.tsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_components_topik_panggungstatistika",
+      "target": "web_components_topik_panggungstatistika_daftar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/topik/PanggungStatistika.tsx",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_components_topik_panggungstatistika",
+      "target": "web_components_topik_panggungstatistika_panggungstatistika",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/topik/PanggungStatistika.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_components_topik_panggungstatistika",
+      "target": "web_components_widget_statistika_dunianyatastatistika",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/topik/PanggungStatistika.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_components_topik_panggungstatistika",
+      "target": "web_content_statistika_widget",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/topik/PanggungStatistika.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_components_topik_panggungstatistika",
+      "target": "web_content_statistika_widget_widgetstatistika",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/content/daftar-isi.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "web_content_daftar_isi",
+      "target": "web_components_topik_panggungstatistika"
+    },
+    {
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "collection",
+      "source_file": "web/content/daftar-isi.ts",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "web_content_daftar_isi",
+      "target": "web_components_topik_panggungstatistika_panggungstatistika"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L186",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_components_widget_statistika_dunianyatastatistika",
+      "target": "web_components_widget_statistika_dunianyatastatistika_belajarnilai",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_components_widget_statistika_dunianyatastatistika",
+      "target": "web_components_widget_statistika_dunianyatastatistika_bingkai",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L75",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_components_widget_statistika_dunianyatastatistika",
+      "target": "web_components_widget_statistika_dunianyatastatistika_curahhujan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L103",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_components_widget_statistika_dunianyatastatistika",
+      "target": "web_components_widget_statistika_dunianyatastatistika_duapemain",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L251",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_components_widget_statistika_dunianyatastatistika",
+      "target": "web_components_widget_statistika_dunianyatastatistika_dunianyatastatistika",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L212",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_components_widget_statistika_dunianyatastatistika",
+      "target": "web_components_widget_statistika_dunianyatastatistika_kartu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_components_widget_statistika_dunianyatastatistika",
+      "target": "web_components_widget_statistika_dunianyatastatistika_nilairapor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L160",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_components_widget_statistika_dunianyatastatistika",
+      "target": "web_components_widget_statistika_dunianyatastatistika_sumbudipotong",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/widget/statistika/DuniaNyataStatistika.tsx",
+      "source_location": "L132",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_components_widget_statistika_dunianyatastatistika",
+      "target": "web_components_widget_statistika_dunianyatastatistika_surveikantin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/statistika/tahap.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_statistika_tahap",
+      "target": "web_content_statistika_tahap_nyata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/statistika/tahap-nyata.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_statistika_tahap_nyata",
+      "target": "web_content_statistika_tahap_nyata_tahap_nyata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/statistika/tahap-nyata.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_statistika_tahap_nyata",
+      "target": "web_content_statistika_tahap_nyata_tahapstatistika",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/statistika/tahap-nyata.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_statistika_tahap_nyata",
+      "target": "web_content_statistika_widget",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/statistika/tahap-nyata.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_statistika_tahap_nyata",
+      "target": "web_content_statistika_widget_widgetstatistika",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/statistika/tahap.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_statistika_tahap",
+      "target": "web_content_statistika_tahap_nyata_tahap_nyata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "export",
+      "source_file": "web/content/statistika/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "web_content_statistika_index",
+      "target": "web_content_statistika_tahap"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/statistika/tahap.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_statistika_tahap",
+      "target": "web_content_statistika_tahap_tahap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/statistika/tahap.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_statistika_tahap",
+      "target": "web_content_statistika_widget",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/statistika/tahap.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_statistika_tahap",
+      "target": "web_content_statistika_widget_widgetstatistika",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/content/daftar-isi.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "web_content_daftar_isi",
+      "target": "web_content_statistika_tahap_tahap"
+    },
+    {
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/content/statistika/tahap-hubungan.ts",
+      "source_location": "L24",
+      "type_only": true,
+      "weight": 1.0,
+      "source": "web_content_statistika_tahap_hubungan",
+      "target": "web_content_statistika_widget"
+    },
+    {
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/content/statistika/tahap-pemusatan.ts",
+      "source_location": "L18",
+      "type_only": true,
+      "weight": 1.0,
+      "source": "web_content_statistika_tahap_pemusatan",
+      "target": "web_content_statistika_widget"
+    },
+    {
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/content/statistika/tahap-penyajian.ts",
+      "source_location": "L20",
+      "type_only": true,
+      "weight": 1.0,
+      "source": "web_content_statistika_tahap_penyajian",
+      "target": "web_content_statistika_widget"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/statistika/widget.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_statistika_widget",
+      "target": "web_content_statistika_widget_widgetstatistika",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/content/statistika/tahap-hubungan.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "web_content_statistika_tahap_hubungan",
+      "target": "web_content_statistika_widget_widgetstatistika"
+    },
+    {
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/content/statistika/tahap-pemusatan.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "web_content_statistika_tahap_pemusatan",
+      "target": "web_content_statistika_widget_widgetstatistika"
+    },
+    {
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/content/statistika/tahap-penyajian.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "web_content_statistika_tahap_penyajian",
+      "target": "web_content_statistika_widget_widgetstatistika"
+    },
+    {
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/app/peta-materi/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "web_app_peta_materi_page",
+      "target": "web_content_subbab"
+    },
+    {
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/components/latihan/ArenaLatihan.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "web_components_latihan_arenalatihan",
+      "target": "web_content_subbab"
+    },
+    {
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/components/latihan/DaftarLatihan.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "web_components_latihan_daftarlatihan",
+      "target": "web_content_subbab"
+    },
+    {
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/components/topik/HalamanTopik.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "web_components_topik_halamantopik",
+      "target": "web_content_subbab"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_subbab",
+      "target": "web_content_subbab_bab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L169",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_subbab",
+      "target": "web_content_subbab_bab_segera",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L154",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_subbab",
+      "target": "web_content_subbab_caribab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_subbab",
+      "target": "web_content_subbab_subbab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L157",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_subbab",
+      "target": "web_content_subbab_subdari",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L165",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_subbab",
+      "target": "web_content_subbab_urutanbelajar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/components/topik/HalamanTopik.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "web_components_topik_halamantopik",
+      "target": "web_content_subbab_subbab"
+    },
+    {
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/app/peta-materi/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "web_app_peta_materi_page",
+      "target": "web_content_subbab_bab"
+    },
+    {
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/components/latihan/ArenaLatihan.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "web_components_latihan_arenalatihan",
+      "target": "web_content_subbab_caribab"
+    },
+    {
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "web/components/latihan/ArenaLatihan.tsx",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "web_components_latihan_arenalatihan_arenalatihan",
+      "target": "web_content_subbab_caribab"
+    },
+    {
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/components/latihan/DaftarLatihan.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "web_components_latihan_daftarlatihan",
+      "target": "web_content_subbab_caribab"
+    },
+    {
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "web/components/latihan/DaftarLatihan.tsx",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "web_components_latihan_daftarlatihan_kartubab",
+      "target": "web_content_subbab_caribab"
+    },
+    {
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/components/topik/HalamanTopik.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "web_components_topik_halamantopik",
+      "target": "web_content_subbab_caribab"
+    },
+    {
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "web/components/topik/HalamanTopik.tsx",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "web_components_topik_halamantopik_rangka",
+      "target": "web_content_subbab_caribab"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L158",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_subbab_subdari",
+      "target": "web_content_subbab_caribab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/content/subbab.ts",
+      "source_location": "L166",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "web_content_subbab_urutanbelajar",
+      "target": "web_content_subbab_caribab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "web/app/peta-materi/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "web_app_peta_materi_page",
+      "target": "web_content_subbab_bab_segera"
+    },
+    {
       "relation": "re_exports",
       "context": "export",
       "confidence": "EXTRACTED",
@@ -29269,9 +30044,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_kendali_index",
-      "target": "web_components_kendali_tabeldata",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata"
     },
     {
       "relation": "contains",
@@ -29280,9 +30055,9 @@
       "source_location": "L66",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_kendali_tabeldata",
-      "target": "web_components_kendali_tabeldata_kotak",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_kotak"
     },
     {
       "relation": "contains",
@@ -29291,9 +30066,9 @@
       "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_kendali_tabeldata",
-      "target": "web_components_kendali_tabeldata_pasangan",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_pasangan"
     },
     {
       "relation": "contains",
@@ -29302,9 +30077,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_kendali_tabeldata",
-      "target": "web_components_kendali_tabeldata_propdasar",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_propdasar"
     },
     {
       "relation": "contains",
@@ -29313,9 +30088,9 @@
       "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_kendali_tabeldata",
-      "target": "web_components_kendali_tabeldata_propdua",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_propdua"
     },
     {
       "relation": "contains",
@@ -29324,9 +30099,9 @@
       "source_location": "L42",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_kendali_tabeldata",
-      "target": "web_components_kendali_tabeldata_propsatu",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_propsatu"
     },
     {
       "relation": "contains",
@@ -29335,9 +30110,9 @@
       "source_location": "L121",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_kendali_tabeldata",
-      "target": "web_components_kendali_tabeldata_tabeldata",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_tabeldata"
     },
     {
       "relation": "contains",
@@ -29346,9 +30121,9 @@
       "source_location": "L63",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_kendali_tabeldata",
-      "target": "web_components_kendali_tabeldata_tampilkan",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_tampilkan"
     },
     {
       "relation": "contains",
@@ -29357,9 +30132,9 @@
       "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_kendali_tabeldata",
-      "target": "web_components_kendali_tabeldata_tempatdesimal",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_tempatdesimal"
     },
     {
       "relation": "calls",
@@ -29369,9 +30144,9 @@
       "source_location": "L155",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_kendali_tabeldata_tabeldata",
-      "target": "web_components_kendali_tabeldata_tempatdesimal",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_tempatdesimal"
     },
     {
       "relation": "calls",
@@ -29381,9 +30156,9 @@
       "source_location": "L81",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_kendali_tabeldata_kotak",
-      "target": "web_components_kendali_tabeldata_tampilkan",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_tampilkan"
     },
     {
       "relation": "imports",
@@ -29393,9 +30168,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_diagrampencar",
-      "target": "web_components_kendali_tabeldata_tabeldata",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_tabeldata"
     },
     {
       "relation": "imports",
@@ -29405,9 +30180,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok",
-      "target": "web_components_kendali_tabeldata_tabeldata",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_tabeldata"
     },
     {
       "relation": "imports",
@@ -29417,9 +30192,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_jarakkerata",
-      "target": "web_components_kendali_tabeldata_tabeldata",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_tabeldata"
     },
     {
       "relation": "imports",
@@ -29429,9 +30204,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_kekuatanhubungan",
-      "target": "web_components_kendali_tabeldata_tabeldata",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_tabeldata"
     },
     {
       "relation": "imports",
@@ -29441,9 +30216,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_kotakgaris",
-      "target": "web_components_kendali_tabeldata_tabeldata",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_tabeldata_tabeldata"
     },
     {
       "relation": "imports_from",
@@ -29453,9 +30228,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_diagrampencar",
-      "target": "web_components_kendali_index",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_index"
     },
     {
       "relation": "imports_from",
@@ -29465,9 +30240,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok",
-      "target": "web_components_kendali_index",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_index"
     },
     {
       "relation": "imports_from",
@@ -29477,9 +30252,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisregresi",
-      "target": "web_components_kendali_index",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_index"
     },
     {
       "relation": "imports_from",
@@ -29489,9 +30264,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_jarakkerata",
-      "target": "web_components_kendali_index",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_index"
     },
     {
       "relation": "imports_from",
@@ -29501,9 +30276,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_kekuatanhubungan",
-      "target": "web_components_kendali_index",
-      "confidence_score": 1.0
+      "target": "web_components_kendali_index"
     },
     {
       "relation": "imports_from",
@@ -29513,21 +30288,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "web_components_widget_statistika_kotakgaris",
-      "target": "web_components_kendali_index",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_diagrampencar"
+      "source": "web_components_widget_statistika_kotakgaris",
+      "target": "web_components_kendali_index"
     },
     {
       "relation": "contains",
@@ -29536,9 +30299,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_diagrampencar",
-      "target": "web_components_widget_statistika_diagrampencar_contoh",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_diagrampencar_contoh"
     },
     {
       "relation": "contains",
@@ -29547,9 +30310,9 @@
       "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_diagrampencar",
-      "target": "web_components_widget_statistika_diagrampencar_diagrampencar",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_diagrampencar_diagrampencar"
     },
     {
       "relation": "imports_from",
@@ -29559,33 +30322,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "web_components_widget_statistika_diagrampencar",
-      "target": "web_components_widget_statistika_titikpegang",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L49",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_diagrampencar_diagrampencar"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_duakelompok"
+      "source": "web_components_widget_statistika_diagrampencar",
+      "target": "web_components_widget_statistika_titikpegang"
     },
     {
       "relation": "contains",
@@ -29594,9 +30333,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok",
-      "target": "web_components_widget_statistika_duakelompok_a",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_duakelompok_a"
     },
     {
       "relation": "contains",
@@ -29605,9 +30344,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok",
-      "target": "web_components_widget_statistika_duakelompok_b",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_duakelompok_b"
     },
     {
       "relation": "contains",
@@ -29616,9 +30355,9 @@
       "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok",
-      "target": "web_components_widget_statistika_duakelompok_dari",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_duakelompok_dari"
     },
     {
       "relation": "contains",
@@ -29627,9 +30366,9 @@
       "source_location": "L70",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok",
-      "target": "web_components_widget_statistika_duakelompok_duakelompok",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_duakelompok_duakelompok"
     },
     {
       "relation": "contains",
@@ -29638,9 +30377,9 @@
       "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok",
-      "target": "web_components_widget_statistika_duakelompok_jumlah_sasaran",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_duakelompok_jumlah_sasaran"
     },
     {
       "relation": "contains",
@@ -29649,9 +30388,9 @@
       "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok",
-      "target": "web_components_widget_statistika_duakelompok_ke",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_duakelompok_ke"
     },
     {
       "relation": "contains",
@@ -29660,9 +30399,9 @@
       "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok",
-      "target": "web_components_widget_statistika_duakelompok_samakanjumlah",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_duakelompok_samakanjumlah"
     },
     {
       "relation": "contains",
@@ -29671,9 +30410,9 @@
       "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok",
-      "target": "web_components_widget_statistika_duakelompok_tik",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_duakelompok_tik"
     },
     {
       "relation": "imports_from",
@@ -29683,9 +30422,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok",
-      "target": "web_components_widget_statistika_garisbilangan",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisbilangan"
     },
     {
       "relation": "imports",
@@ -29695,9 +30434,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok",
-      "target": "web_components_widget_statistika_garisbilangan_garisbilangan",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisbilangan_garisbilangan"
     },
     {
       "relation": "imports",
@@ -29707,9 +30446,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok",
-      "target": "web_components_widget_statistika_garisbilangan_penanda",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisbilangan_penanda"
     },
     {
       "relation": "imports",
@@ -29719,9 +30458,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok",
-      "target": "web_components_widget_statistika_garisbilangan_tumpukantitik",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisbilangan_tumpukantitik"
     },
     {
       "relation": "calls",
@@ -29731,9 +30470,9 @@
       "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok_duakelompok",
-      "target": "web_components_widget_statistika_duakelompok_ke",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_duakelompok_ke"
     },
     {
       "relation": "calls",
@@ -29743,9 +30482,9 @@
       "source_location": "L84",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok_duakelompok",
-      "target": "web_components_widget_statistika_duakelompok_dari",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_duakelompok_dari"
     },
     {
       "relation": "calls",
@@ -29755,21 +30494,9 @@
       "source_location": "L131",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_duakelompok_duakelompok",
-      "target": "web_components_widget_statistika_duakelompok_samakanjumlah",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L40",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_duakelompok_duakelompok"
+      "target": "web_components_widget_statistika_duakelompok_samakanjumlah"
     },
     {
       "relation": "imports_from",
@@ -29790,9 +30517,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisbilangan",
-      "target": "web_components_widget_statistika_garisbilangan_garisbilangan",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisbilangan_garisbilangan"
     },
     {
       "relation": "contains",
@@ -29801,9 +30528,9 @@
       "source_location": "L130",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisbilangan",
-      "target": "web_components_widget_statistika_garisbilangan_penanda",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisbilangan_penanda"
     },
     {
       "relation": "contains",
@@ -29812,9 +30539,9 @@
       "source_location": "L61",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisbilangan",
-      "target": "web_components_widget_statistika_garisbilangan_tinggitumpukan",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisbilangan_tinggitumpukan"
     },
     {
       "relation": "contains",
@@ -29823,9 +30550,9 @@
       "source_location": "L70",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisbilangan",
-      "target": "web_components_widget_statistika_garisbilangan_tumpukantitik",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisbilangan_tumpukantitik"
     },
     {
       "relation": "imports_from",
@@ -29835,9 +30562,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisbilangan",
-      "target": "web_components_widget_statistika_titikpegang",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_titikpegang"
     },
     {
       "relation": "imports_from",
@@ -29847,9 +30574,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_jarakkerata",
-      "target": "web_components_widget_statistika_garisbilangan",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisbilangan"
     },
     {
       "relation": "imports_from",
@@ -29859,9 +30586,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_kotakgaris",
-      "target": "web_components_widget_statistika_garisbilangan",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisbilangan"
     },
     {
       "relation": "imports",
@@ -29883,9 +30610,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_jarakkerata",
-      "target": "web_components_widget_statistika_garisbilangan_garisbilangan",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisbilangan_garisbilangan"
     },
     {
       "relation": "imports",
@@ -29895,9 +30622,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_kotakgaris",
-      "target": "web_components_widget_statistika_garisbilangan_garisbilangan",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisbilangan_garisbilangan"
     },
     {
       "relation": "calls",
@@ -29907,9 +30634,9 @@
       "source_location": "L96",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisbilangan_tumpukantitik",
-      "target": "web_components_widget_statistika_garisbilangan_tinggitumpukan",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisbilangan_tinggitumpukan"
     },
     {
       "relation": "imports",
@@ -29931,21 +30658,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "web_components_widget_statistika_kotakgaris",
-      "target": "web_components_widget_statistika_garisbilangan_tumpukantitik",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_garisregresi"
+      "source": "web_components_widget_statistika_kotakgaris",
+      "target": "web_components_widget_statistika_garisbilangan_tumpukantitik"
     },
     {
       "relation": "contains",
@@ -29954,9 +30669,9 @@
       "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisregresi",
-      "target": "web_components_widget_statistika_garisregresi_balik",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisregresi_balik"
     },
     {
       "relation": "contains",
@@ -29965,9 +30680,9 @@
       "source_location": "L26",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisregresi",
-      "target": "web_components_widget_statistika_garisregresi_d",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisregresi_d"
     },
     {
       "relation": "contains",
@@ -29976,9 +30691,9 @@
       "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisregresi",
-      "target": "web_components_widget_statistika_garisregresi_garisregresi",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisregresi_garisregresi"
     },
     {
       "relation": "contains",
@@ -29987,9 +30702,9 @@
       "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisregresi",
-      "target": "web_components_widget_statistika_garisregresi_hitung",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisregresi_hitung"
     },
     {
       "relation": "contains",
@@ -29998,9 +30713,9 @@
       "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisregresi",
-      "target": "web_components_widget_statistika_garisregresi_j",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisregresi_j"
     },
     {
       "relation": "contains",
@@ -30009,9 +30724,9 @@
       "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisregresi",
-      "target": "web_components_widget_statistika_garisregresi_p",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisregresi_p"
     },
     {
       "relation": "contains",
@@ -30020,9 +30735,9 @@
       "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisregresi",
-      "target": "web_components_widget_statistika_garisregresi_rx",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisregresi_rx"
     },
     {
       "relation": "contains",
@@ -30031,9 +30746,9 @@
       "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisregresi",
-      "target": "web_components_widget_statistika_garisregresi_ry",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_garisregresi_ry"
     },
     {
       "relation": "imports_from",
@@ -30043,9 +30758,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_garisregresi",
-      "target": "web_components_widget_statistika_titikpegang",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_titikpegang"
     },
     {
       "relation": "references",
@@ -30072,39 +30787,15 @@
       "target": "web_components_widget_statistika_garisregresi_balik"
     },
     {
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L50",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_garisregresi_garisregresi"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_jarakkerata"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "web/components/widget/statistika/JarakKeRata.tsx",
       "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_jarakkerata",
-      "target": "web_components_widget_statistika_jarakkerata_a",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_jarakkerata_a"
     },
     {
       "relation": "contains",
@@ -30113,9 +30804,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_jarakkerata",
-      "target": "web_components_widget_statistika_jarakkerata_b",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_jarakkerata_b"
     },
     {
       "relation": "contains",
@@ -30124,9 +30815,9 @@
       "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_jarakkerata",
-      "target": "web_components_widget_statistika_jarakkerata_dari",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_jarakkerata_dari"
     },
     {
       "relation": "contains",
@@ -30135,9 +30826,9 @@
       "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_jarakkerata",
-      "target": "web_components_widget_statistika_jarakkerata_jarakkerata",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_jarakkerata_jarakkerata"
     },
     {
       "relation": "contains",
@@ -30146,9 +30837,9 @@
       "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_jarakkerata",
-      "target": "web_components_widget_statistika_jarakkerata_ke",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_jarakkerata_ke"
     },
     {
       "relation": "contains",
@@ -30157,9 +30848,9 @@
       "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_jarakkerata",
-      "target": "web_components_widget_statistika_jarakkerata_tik",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_jarakkerata_tik"
     },
     {
       "relation": "imports_from",
@@ -30169,9 +30860,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_jarakkerata",
-      "target": "web_components_widget_statistika_titikpegang",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_titikpegang"
     },
     {
       "relation": "calls",
@@ -30181,9 +30872,9 @@
       "source_location": "L59",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_jarakkerata_jarakkerata",
-      "target": "web_components_widget_statistika_jarakkerata_ke",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_jarakkerata_ke"
     },
     {
       "relation": "calls",
@@ -30193,33 +30884,9 @@
       "source_location": "L56",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "web_components_widget_statistika_jarakkerata_jarakkerata",
-      "target": "web_components_widget_statistika_jarakkerata_dari",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L47",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_jarakkerata_jarakkerata"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_kekuatanhubungan"
+      "source": "web_components_widget_statistika_jarakkerata_jarakkerata",
+      "target": "web_components_widget_statistika_jarakkerata_dari"
     },
     {
       "relation": "contains",
@@ -30228,9 +30895,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_kekuatanhubungan",
-      "target": "web_components_widget_statistika_kekuatanhubungan_contoh",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_kekuatanhubungan_contoh"
     },
     {
       "relation": "contains",
@@ -30239,9 +30906,9 @@
       "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_kekuatanhubungan",
-      "target": "web_components_widget_statistika_kekuatanhubungan_kekuatanhubungan",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_kekuatanhubungan_kekuatanhubungan"
     },
     {
       "relation": "imports_from",
@@ -30251,33 +30918,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "web_components_widget_statistika_kekuatanhubungan",
-      "target": "web_components_widget_statistika_titikpegang",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L51",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_kekuatanhubungan_kekuatanhubungan"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_kotakgaris"
+      "source": "web_components_widget_statistika_kekuatanhubungan",
+      "target": "web_components_widget_statistika_titikpegang"
     },
     {
       "relation": "contains",
@@ -30286,9 +30929,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_kotakgaris",
-      "target": "web_components_widget_statistika_kotakgaris_d",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_kotakgaris_d"
     },
     {
       "relation": "contains",
@@ -30297,9 +30940,9 @@
       "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_kotakgaris",
-      "target": "web_components_widget_statistika_kotakgaris_dari",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_kotakgaris_dari"
     },
     {
       "relation": "contains",
@@ -30308,9 +30951,9 @@
       "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_kotakgaris",
-      "target": "web_components_widget_statistika_kotakgaris_ke",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_kotakgaris_ke"
     },
     {
       "relation": "contains",
@@ -30319,9 +30962,9 @@
       "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_kotakgaris",
-      "target": "web_components_widget_statistika_kotakgaris_kotakgaris",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_kotakgaris_kotakgaris"
     },
     {
       "relation": "contains",
@@ -30330,9 +30973,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_kotakgaris",
-      "target": "web_components_widget_statistika_kotakgaris_tik",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_kotakgaris_tik"
     },
     {
       "relation": "calls",
@@ -30342,9 +30985,9 @@
       "source_location": "L72",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_kotakgaris_kotakgaris",
-      "target": "web_components_widget_statistika_kotakgaris_ke",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_kotakgaris_ke"
     },
     {
       "relation": "calls",
@@ -30354,21 +30997,9 @@
       "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_kotakgaris_kotakgaris",
-      "target": "web_components_widget_statistika_kotakgaris_dari",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L46",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_kotakgaris_kotakgaris"
+      "target": "web_components_widget_statistika_kotakgaris_dari"
     },
     {
       "relation": "contains",
@@ -30377,9 +31008,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "web_components_widget_statistika_titikpegang",
-      "target": "web_components_widget_statistika_titikpegang_titikpegang",
-      "confidence_score": 1.0
+      "target": "web_components_widget_statistika_titikpegang_titikpegang"
     },
     {
       "relation": "imports_from",
@@ -32021,18 +32652,6 @@
       "target": "web_components_widget_limit_tarifmelompat_tarifmelompat"
     },
     {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_datakelompok"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "web/components/widget/statistika/DataKelompok.tsx",
@@ -32168,30 +32787,6 @@
       "target": "web_components_widget_statistika_datakelompok_banyakdikiri"
     },
     {
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L48",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_datakelompok_datakelompok"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_sumbujujur"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "web/components/widget/statistika/SumbuJujur.tsx",
@@ -32256,30 +32851,6 @@
       "confidence_score": 1.0,
       "source": "web_components_widget_statistika_sumbujujur",
       "target": "web_components_widget_statistika_sumbujujur_sumbujujur"
-    },
-    {
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L52",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_sumbujujur_sumbujujur"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_tarikpencilan"
     },
     {
       "relation": "contains",
@@ -32372,30 +32943,6 @@
       "target": "web_components_widget_statistika_tarikpencilan_dari"
     },
     {
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L45",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_tarikpencilan_tarikpencilan"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_tigaukuran"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "web/components/widget/statistika/TigaUkuran.tsx",
@@ -32473,18 +33020,6 @@
       "confidence_score": 1.0,
       "source": "web_components_widget_statistika_tigaukuran_tigaukuran",
       "target": "web_components_widget_statistika_tigaukuran_dari"
-    },
-    {
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L44",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_tigaukuran_tigaukuran"
     },
     {
       "relation": "contains",
@@ -35957,18 +36492,6 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_topik_jenis_proppanggung"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
       "source_file": "web/components/topik/PanggungTrigonometri.tsx",
       "source_location": "L14",
       "weight": 1.0,
@@ -39165,52 +39688,6 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
-      "source_file": "web/app/peta-materi/page.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "web_app_peta_materi_page",
-      "target": "web_content_subbab_bab"
-    },
-    {
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L47",
-      "weight": 1.0,
-      "source": "web_content_subbab",
-      "target": "web_content_subbab_bab"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/HalamanTopik.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "web_components_topik_halamantopik",
-      "target": "web_content_subbab_subbab"
-    },
-    {
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L26",
-      "weight": 1.0,
-      "source": "web_content_subbab",
-      "target": "web_content_subbab_subbab"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
       "source_file": "web/app/topik/[slug]/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
@@ -39969,77 +40446,6 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_content_statistika_widget_widgetstatistika"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/statistika/tahap.ts",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap",
-      "target": "web_content_statistika_widget_widgetstatistika"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/statistika/tahap-hubungan.ts",
-      "source_location": "L24",
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap_hubungan",
-      "target": "web_content_statistika_widget_widgetstatistika"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/statistika/tahap-pemusatan.ts",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap_pemusatan",
-      "target": "web_content_statistika_widget_widgetstatistika"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/statistika/tahap-penyajian.ts",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap_penyajian",
-      "target": "web_content_statistika_widget_widgetstatistika"
-    },
-    {
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "web/content/statistika/widget.ts",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "web_content_statistika_widget",
-      "target": "web_content_statistika_widget_widgetstatistika"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
       "source_file": "web/components/topik/jenis.ts",
       "source_location": "L2",
       "weight": 1.0,
@@ -40538,18 +40944,6 @@
       "weight": 1.0,
       "source": "web_components_widget_statistika_jenis",
       "target": "web_components_widget_statistika_jenis_isiwidget"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_jenis_propwidget"
     },
     {
       "relation": "imports",
@@ -49023,18 +49417,6 @@
       "weight": 1.0,
       "source": "web_components_topik_halamantopik",
       "target": "web_components_topik_halamantopik_rangka"
-    },
-    {
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "web/components/topik/HalamanTopik.tsx",
-      "source_location": "L59",
-      "weight": 1.0,
-      "source": "web_components_topik_halamantopik_rangka",
-      "target": "web_content_subbab_caribab"
     },
     {
       "relation": "calls",
@@ -65195,18 +65577,6 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "web/components/latihan/ArenaLatihan.tsx",
-      "source_location": "L71",
-      "weight": 1.0,
-      "source": "web_components_latihan_arenalatihan_arenalatihan",
-      "target": "web_content_subbab_caribab"
-    },
-    {
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "web/components/latihan/ArenaLatihan.tsx",
       "source_location": "L64",
       "weight": 1.0,
       "source": "web_components_latihan_arenalatihan_arenalatihan",
@@ -65270,18 +65640,6 @@
       "weight": 1.0,
       "source": "web_components_latihan_daftarlatihan",
       "target": "web_components_latihan_daftarlatihan_kartubab"
-    },
-    {
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "web/components/latihan/DaftarLatihan.tsx",
-      "source_location": "L87",
-      "weight": 1.0,
-      "source": "web_components_latihan_daftarlatihan_kartubab",
-      "target": "web_content_subbab_caribab"
     },
     {
       "relation": "calls",
@@ -68798,99 +69156,6 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
-      "source_file": "web/components/latihan/ArenaLatihan.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "web_components_latihan_arenalatihan",
-      "target": "web_content_subbab_caribab"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/latihan/DaftarLatihan.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "web_components_latihan_daftarlatihan",
-      "target": "web_content_subbab_caribab"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/HalamanTopik.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "web_components_topik_halamantopik",
-      "target": "web_content_subbab_caribab"
-    },
-    {
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L130",
-      "weight": 1.0,
-      "source": "web_content_subbab",
-      "target": "web_content_subbab_caribab"
-    },
-    {
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L134",
-      "weight": 1.0,
-      "source": "web_content_subbab_subdari",
-      "target": "web_content_subbab_caribab"
-    },
-    {
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L142",
-      "weight": 1.0,
-      "source": "web_content_subbab_urutanbelajar",
-      "target": "web_content_subbab_caribab"
-    },
-    {
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L133",
-      "weight": 1.0,
-      "source": "web_content_subbab",
-      "target": "web_content_subbab_subdari"
-    },
-    {
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L141",
-      "weight": 1.0,
-      "source": "web_content_subbab",
-      "target": "web_content_subbab_urutanbelajar"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
       "source_file": "web/app/peta-materi/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
@@ -70421,18 +70686,6 @@
       "target": "mathtex"
     },
     {
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L41",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_bentukdata_bentukdata"
-    },
-    {
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -70503,18 +70756,6 @@
       "target": "web_components_widget_statistika_bentukdata_jalurjuring"
     },
     {
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L43",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_frekuensirelatif_frekuensirelatif"
-    },
-    {
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -70548,18 +70789,6 @@
       "weight": 1.0,
       "source": "web_components_widget_statistika_frekuensirelatif_frekuensirelatif",
       "target": "web_content_statistika_data_keterangan"
-    },
-    {
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L42",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_lebarkelas_lebarkelas"
     },
     {
       "relation": "contains",
@@ -74394,29 +74623,6 @@
       "weight": 1.0,
       "source": "web_components_topik_latihan",
       "target": "web_components_topik_latihan_latihan"
-    },
-    {
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L55",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_topik_panggungstatistika_panggungstatistika"
-    },
-    {
-      "relation": "indirect_call",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "collection",
-      "source_file": "web/content/daftar-isi.ts",
-      "source_location": "L60",
-      "weight": 1.0,
-      "source": "web_content_daftar_isi",
-      "target": "web_components_topik_panggungstatistika_panggungstatistika"
     },
     {
       "relation": "contains",
@@ -80985,18 +81191,6 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "web/components/topik/HalamanTopik.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "web_components_topik_halamantopik",
-      "target": "web_content_subbab"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/HalamanTopik.tsx",
       "source_location": "L11",
       "type_only": true,
       "weight": 1.0,
@@ -85229,18 +85423,6 @@
       "target": "web_components_widget_grafik_fungsi_koordinat_mono"
     },
     {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_bentukdata"
-    },
-    {
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -88217,18 +88399,6 @@
       "target": "manim_uji_uji_transform_gl"
     },
     {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_frekuensirelatif"
-    },
-    {
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -88482,18 +88652,6 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "web/components/latihan/ArenaLatihan.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "web_components_latihan_arenalatihan",
-      "target": "web_content_subbab"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/latihan/ArenaLatihan.tsx",
       "source_location": "L5",
       "type_only": true,
       "weight": 1.0,
@@ -88571,18 +88729,6 @@
       "weight": 1.0,
       "source": "web_components_latihan_daftarlatihan",
       "target": "web_content_daftar_isi_isi_topik"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/latihan/DaftarLatihan.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "web_components_latihan_daftarlatihan",
-      "target": "web_content_subbab"
     },
     {
       "relation": "imports_from",
@@ -89511,30 +89657,6 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "web/app/peta-materi/page.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "web_app_peta_materi_page",
-      "target": "web_content_subbab"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/app/peta-materi/page.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "web_app_peta_materi_page",
-      "target": "web_content_subbab_bab_segera"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/app/peta-materi/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
       "source": "web_app_peta_materi_page",
@@ -89562,17 +89684,6 @@
       "weight": 1.0,
       "source": "web_content_daftar_isi",
       "target": "web_content_daftar_isi_isi_topik"
-    },
-    {
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "web/content/subbab.ts",
-      "source_location": "L145",
-      "weight": 1.0,
-      "source": "web_content_subbab",
-      "target": "web_content_subbab_bab_segera"
     },
     {
       "relation": "contains",
@@ -89884,114 +89995,6 @@
       "target": "manim_cek_kode"
     },
     {
-      "relation": "re_exports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "export",
-      "source_file": "web/content/statistika/index.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "web_content_statistika_index",
-      "target": "web_content_statistika_tahap"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/statistika/tahap.ts",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap",
-      "target": "web_content_statistika_tahap_hubungan"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/statistika/tahap.ts",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap",
-      "target": "web_content_statistika_tahap_hubungan_tahap_hubungan"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/statistika/tahap.ts",
-      "source_location": "L22",
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap",
-      "target": "web_content_statistika_tahap_pemusatan"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/statistika/tahap.ts",
-      "source_location": "L22",
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap",
-      "target": "web_content_statistika_tahap_pemusatan_tahap_pemusatan"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/statistika/tahap.ts",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap",
-      "target": "web_content_statistika_tahap_penyajian"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/statistika/tahap.ts",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap",
-      "target": "web_content_statistika_tahap_penyajian_tahap_penyajian"
-    },
-    {
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "web/content/statistika/tahap.ts",
-      "source_location": "L27",
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap",
-      "target": "web_content_statistika_tahap_tahap"
-    },
-    {
-      "relation": "re_exports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "export",
-      "source_file": "web/content/statistika/tahap.ts",
-      "source_location": "L25",
-      "type_only": true,
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap",
-      "target": "web_content_statistika_widget"
-    },
-    {
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -90001,19 +90004,6 @@
       "weight": 1.0,
       "source": "web_content_statistika_tahap_hubungan",
       "target": "web_content_statistika_tahap_hubungan_tahap_hubungan"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/statistika/tahap-hubungan.ts",
-      "source_location": "L24",
-      "type_only": true,
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap_hubungan",
-      "target": "web_content_statistika_widget"
     },
     {
       "relation": "imports_from",
@@ -90038,19 +90028,6 @@
       "weight": 1.0,
       "source": "web_content_statistika_tahap_pemusatan",
       "target": "web_content_statistika_tahap_pemusatan_tahap_pemusatan"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/statistika/tahap-pemusatan.ts",
-      "source_location": "L18",
-      "type_only": true,
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap_pemusatan",
-      "target": "web_content_statistika_widget"
     },
     {
       "relation": "imports_from",
@@ -90083,37 +90060,11 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "web/content/statistika/tahap-penyajian.ts",
-      "source_location": "L20",
-      "type_only": true,
-      "weight": 1.0,
-      "source": "web_content_statistika_tahap_penyajian",
-      "target": "web_content_statistika_widget"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/statistika/tahap-penyajian.ts",
       "source_location": "L19",
       "type_only": true,
       "weight": 1.0,
       "source": "web_content_statistika_tahap_penyajian",
       "target": "web_content_tipe"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L6",
-      "type_only": true,
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_content_statistika_widget"
     },
     {
       "relation": "imports_from",
@@ -90230,67 +90181,6 @@
       "weight": 1.0,
       "source": "web_app_page",
       "target": "web_components_tombolpasang"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L4",
-      "type_only": true,
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_topik_jenis"
-    },
-    {
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L39",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_topik_panggungstatistika_daftar"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L5",
-      "type_only": true,
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_jenis"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/components/topik/PanggungStatistika.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "web_components_topik_panggungstatistika",
-      "target": "web_components_widget_statistika_lebarkelas"
-    },
-    {
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/daftar-isi.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "web_content_daftar_isi",
-      "target": "web_components_topik_panggungstatistika"
     },
     {
       "relation": "imports_from",
@@ -90788,18 +90678,6 @@
       "weight": 1.0,
       "source": "web_content_daftar_isi",
       "target": "web_content_statistika_latihan_latihan"
-    },
-    {
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "web/content/daftar-isi.ts",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "web_content_daftar_isi",
-      "target": "web_content_statistika_tahap_tahap"
     },
     {
       "relation": "imports_from",
@@ -93425,5 +93303,5 @@
       "source_file": "mockup/d-studio-teknis.html"
     }
   ],
-  "built_at_commit": "cb896f691694b845ac464d21da224aa1e6f9b8b5"
+  "built_at_commit": "86959c6ed51ef7fa2182fab55d79a9fc3cfd3873"
 }

@@ -1,7 +1,7 @@
 # Graph Report - MANIM-MATRA  (2026-09-05)
 
 ## Corpus Check
-- 461 files · ~711,702 words
+- 461 files · ~711,693 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `86959c6e`
+- Built from commit: `b05f53fa`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -604,7 +604,7 @@ Nodes (5): AdeganMatra, BerandaTigaGrafik, Beranda: tiga grafik sin, cos, tan la
   docs/tugas/laporan/MATRA-DESAIN-UI-UX.md · relation: references
 
 ## Knowledge Gaps
-- **394 isolated node(s):** `DAFTAR`, `Kartu`, `TahapStatistika`, `Pasangan`, `PropDasar` (+389 more)
+- **394 isolated node(s):** `Kartu`, `DAFTAR`, `TahapStatistika`, `Pasangan`, `PropDasar` (+389 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **61 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 

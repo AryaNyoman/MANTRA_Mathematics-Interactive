@@ -22,7 +22,7 @@ import {
 } from '@/components/widget/transformasi-geometri/matriks'
 import { angka } from '@/components/widget/transformasi-geometri/papan'
 import type { PropPanggung } from '@/components/topik/jenis'
-import { Angka, Koordinat, Petunjuk, Pilihan } from '@/components/kendali'
+import { Angka, Kembalikan, Koordinat, Petunjuk, Pilihan } from '@/components/kendali'
 
 /**
  * Panggung Transformasi Geometri: penyetelan widgetnya, dan tidak lebih.
@@ -279,6 +279,7 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
             <div className="kendali">
               <Koordinat nama="Geseran" arti="vektor translasi, ke kanan dan ke atas" kunci="geser"
                 nilai={geser} onUbah={setGeser} batas={BATAS_GESER} />
+              <Kembalikan onClick={() => { setGeser({ x: 3, y: -2 }) }} />
               <Petunjuk>
                 ketik geserannya atau tarik bulatan di ujung panah merah. Keenam garis penghubungnya selalu sejajar dan sama panjang.
               </Petunjuk>
@@ -296,6 +297,7 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
                 pilihan={[{ nilai: 'tegak', label: 'garis tegak x = k' }, { nilai: 'datar', label: 'garis mendatar y = h' }]} nilai={arahCermin} onPilih={setArahCermin} />
               <Angka nama={arahCermin === 'tegak' ? 'k' : 'h'} arti="letak garis cerminnya" kunci="cermin"
                 nilai={nilaiCermin} onUbah={setNilaiCermin} min={-BATAS_CERMIN} max={BATAS_CERMIN} langkah={0.5} />
+              <Kembalikan onClick={() => { setArahCermin('tegak'); setNilaiCermin(0) }} />
               <Petunjuk>
                 setel ke nol, lalu perhatikan garisnya jatuh tepat di sumbu. Sumbu memang garis cermin dengan k bernilai nol.
               </Petunjuk>
@@ -326,6 +328,7 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
             <div className="kendali">
               <Koordinat nama="Pusat cermin" arti="titik M, ketik 0 dan 0 untuk titik asal" kunci="pusat" vektor={false}
                 nilai={pusatCermin} onUbah={setPusatCermin} batas={BATAS_PUSAT} />
+              <Kembalikan onClick={() => { setPusatCermin({ x: 3, y: 3 }) }} />
               <Petunjuk>
                 pindahkan pusatnya ke mana saja. Kedua angka ungu di titik A selalu sama, sebab pusatnya selalu tepat di tengah.
               </Petunjuk>
@@ -345,6 +348,7 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
                 pilihan={[90, 180, 270].map((d) => ({ nilai: String(d), label: `${d}°` }))} nilai={String(derajat)} onPilih={(n) => setDerajat(Number(n))} />
               <Koordinat nama="Pusat putar" arti="titik P, ketik 0 dan 0 untuk titik asal" kunci="pusat" vektor={false}
                 nilai={pusatPutar} onUbah={setPusatPutar} batas={BATAS_PUSAT_PUTAR} />
+              <Kembalikan onClick={() => { setDerajat(90); setPusatPutar({ x: 0, y: 0 }) }} />
               <Petunjuk>
                 ubah sudutnya, lalu perhatikan kedua angka jarak di layar SELALU sama. Itu yang membedakan rotasi dari dilatasi.
               </Petunjuk>
@@ -362,6 +366,7 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
                 nilai={k} onUbah={setK} min={BATAS_K.min} max={BATAS_K.maks} langkah={BATAS_K.langkah} />
               <Koordinat nama="Pusat dilatasi" arti="titik P yang diam" kunci="pusat" vektor={false}
                 nilai={pusatDilatasi} onUbah={setPusatDilatasi} batas={BATAS_PUSAT_DILATASI} />
+              <Kembalikan onClick={() => { setK(2); setPusatDilatasi({ x: 3, y: -1 }) }} />
               <Petunjuk>
                 geser k melewati nol perlahan. Bentuknya menciut ke satu titik, lalu muncul lagi di sisi seberang pusatnya.
               </Petunjuk>

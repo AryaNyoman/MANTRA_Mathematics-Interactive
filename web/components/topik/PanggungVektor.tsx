@@ -18,7 +18,7 @@ import {
   sudutDerajat, tambah, titik, vektorProyeksi, type Vek,
 } from '@/components/widget/vektor/geometri'
 import type { PropPanggung } from '@/components/topik/jenis'
-import { Angka, Koordinat, Petunjuk } from '@/components/kendali'
+import { Angka, Kembalikan, Koordinat, Petunjuk } from '@/components/kendali'
 
 /**
  * Panggung Vektor: penyetelan widgetnya, dan tidak lebih.
@@ -30,30 +30,53 @@ import { Angka, Koordinat, Petunjuk } from '@/components/kendali'
  * Keadaan tiap widget dipegang di sini, bukan di dalam widgetnya, supaya tidak
  * hilang saat siswa berpindah materi lalu kembali lagi.
  */
+/** Keadaan awal tiap widget; dipakai lagi oleh tombol Kembalikan semula. */
+const AWAL = {
+  dayung: { x: 0, y: 3 } as Vek,
+  arus: { x: 4, y: 0 } as Vek,
+  pangkalCoba: { x: 1, y: -1 } as Vek,
+  ujungCoba: { x: 4, y: 1 } as Vek,
+  vKomponen: { x: 4, y: 3 } as Vek,
+  vArah: { x: 4, y: 3 } as Vek,
+  vSatuan: { x: 4, y: 3 } as Vek,
+  aSambung: { x: 3, y: 1 } as Vek,
+  bSambung: { x: 1, y: 2 } as Vek,
+  aJajar: { x: 3, y: 0.5 } as Vek,
+  bJajar: { x: 1, y: 2 } as Vek,
+  aSelisih: { x: 3, y: 1 } as Vek,
+  bSelisih: { x: 1, y: 2 } as Vek,
+  aKali: { x: 2, y: 1 } as Vek,
+  aTitik: { x: 4, y: 1 } as Vek,
+  bTitik: { x: 1, y: 3 } as Vek,
+  aProyeksi: { x: 2, y: 3 } as Vek,
+  bProyeksi: { x: 4, y: 1 } as Vek,
+  k: 2,
+}
+
 export default function PanggungVektor({ tahap, tampilWidget, children }: PropPanggung) {
-  const [dayung, setDayung] = useState<Vek>({ x: 0, y: 3 })
+  const [dayung, setDayung] = useState<Vek>(AWAL.dayung)
   // Arus 4, bukan 2: sama dengan angka di video Materi 01, sehingga kasus
   // sungainya sendiri sudah kasus tegak lurus yang hasilnya tepat 5.
-  const [arus, setArus] = useState<Vek>({ x: 4, y: 0 })
-  const [pangkalCoba, setPangkalCoba] = useState<Vek>({ x: 1, y: -1 })
-  const [ujungCoba, setUjungCoba] = useState<Vek>({ x: 4, y: 1 })
-  const [vKomponen, setVKomponen] = useState<Vek>({ x: 4, y: 3 })
-  const [vArah, setVArah] = useState<Vek>({ x: 4, y: 3 })
-  const [vSatuan, setVSatuan] = useState<Vek>({ x: 4, y: 3 })
-  const [aSambung, setASambung] = useState<Vek>({ x: 3, y: 1 })
-  const [bSambung, setBSambung] = useState<Vek>({ x: 1, y: 2 })
-  const [aJajar, setAJajar] = useState<Vek>({ x: 3, y: 0.5 })
-  const [bJajar, setBJajar] = useState<Vek>({ x: 1, y: 2 })
+  const [arus, setArus] = useState<Vek>(AWAL.arus)
+  const [pangkalCoba, setPangkalCoba] = useState<Vek>(AWAL.pangkalCoba)
+  const [ujungCoba, setUjungCoba] = useState<Vek>(AWAL.ujungCoba)
+  const [vKomponen, setVKomponen] = useState<Vek>(AWAL.vKomponen)
+  const [vArah, setVArah] = useState<Vek>(AWAL.vArah)
+  const [vSatuan, setVSatuan] = useState<Vek>(AWAL.vSatuan)
+  const [aSambung, setASambung] = useState<Vek>(AWAL.aSambung)
+  const [bSambung, setBSambung] = useState<Vek>(AWAL.bSambung)
+  const [aJajar, setAJajar] = useState<Vek>(AWAL.aJajar)
+  const [bJajar, setBJajar] = useState<Vek>(AWAL.bJajar)
   // Nilai awalnya sengaja sama dengan contoh berhitung di naskah Materi 08,
   // supaya gambar dan hitungan yang dibaca siswa bercerita hal yang sama.
-  const [aSelisih, setASelisih] = useState<Vek>({ x: 3, y: 1 })
-  const [bSelisih, setBSelisih] = useState<Vek>({ x: 1, y: 2 })
-  const [aKali, setAKali] = useState<Vek>({ x: 2, y: 1 })
-  const [k, setK] = useState(2)
-  const [aTitik, setATitik] = useState<Vek>({ x: 4, y: 1 })
-  const [bTitik, setBTitik] = useState<Vek>({ x: 1, y: 3 })
-  const [aProyeksi, setAProyeksi] = useState<Vek>({ x: 2, y: 3 })
-  const [bProyeksi, setBProyeksi] = useState<Vek>({ x: 4, y: 1 })
+  const [aSelisih, setASelisih] = useState<Vek>(AWAL.aSelisih)
+  const [bSelisih, setBSelisih] = useState<Vek>(AWAL.bSelisih)
+  const [aKali, setAKali] = useState<Vek>(AWAL.aKali)
+  const [k, setK] = useState(AWAL.k)
+  const [aTitik, setATitik] = useState<Vek>(AWAL.aTitik)
+  const [bTitik, setBTitik] = useState<Vek>(AWAL.bTitik)
+  const [aProyeksi, setAProyeksi] = useState<Vek>(AWAL.aProyeksi)
+  const [bProyeksi, setBProyeksi] = useState<Vek>(AWAL.bProyeksi)
 
   let kiri: ReactNode = null
   let kanan: ReactNode = null
@@ -93,6 +116,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
                 nilai={dayung} onUbah={setDayung} batas={PerahuBatas} />
               <Koordinat nama="Arus" arti="perpindahan terbawa arus 1 jam, km" kunci="arus"
                 nilai={arus} onUbah={setArus} batas={PerahuBatas} />
+              <Kembalikan onClick={() => { setDayung(AWAL.dayung); setArus(AWAL.arus) }} />
               <Petunjuk>
                 ketik atau tarik dayung dan arus, lalu perhatikan titik mendaratnya. Coba arahkan dayung melawan arus.
               </Petunjuk>
@@ -113,6 +137,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
                 nilai={pangkalCoba} onUbah={setPangkalCoba} batas={PanahBerpindahBatas} />
               <Koordinat nama="Ujung" arti="titik akhir panah coba" kunci="ujung" vektor={false}
                 nilai={ujungCoba} onUbah={setUjungCoba} batas={PanahBerpindahBatas} />
+              <Kembalikan onClick={() => { setPangkalCoba(AWAL.pangkalCoba); setUjungCoba(AWAL.ujungCoba) }} />
               <Petunjuk>
                 pindahkan pangkal DAN ujung dengan selisih yang sama, lalu lihat penilaiannya tidak berubah: letak memang tidak ikut menentukan.
               </Petunjuk>
@@ -128,6 +153,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
             <div className="kendali">
               <Koordinat nama="v" arti="panah hitam, komponen mendatar dan tegak" kunci="v"
                 nilai={vKomponen} onUbah={setVKomponen} batas={PecahBatas} />
+              <Kembalikan onClick={() => { setVKomponen(AWAL.vKomponen) }} />
               <Petunjuk>
                 ketik x dan y, atau tarik ujung panahnya, lalu perhatikan kedua angka komponennya berubah.
               </Petunjuk>
@@ -143,6 +169,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
             <div className="kendali">
               <Koordinat nama="v" arti="panahnya" kunci="v"
                 nilai={vArah} onUbah={setVArah} batas={ArahBatas} />
+              <Kembalikan onClick={() => { setVArah(AWAL.vArah) }} />
               <Petunjuk>
                 putar panahnya sambil menjaga panjangnya. Panjangnya tidak pernah negatif, seberapa pun arahnya diubah.
               </Petunjuk>
@@ -158,6 +185,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
             <div className="kendali">
               <Koordinat nama="v" arti="panah hitam" kunci="v"
                 nilai={vSatuan} onUbah={setVSatuan} batas={SatuanBatas} />
+              <Kembalikan onClick={() => { setVSatuan(AWAL.vSatuan) }} />
               <Petunjuk>
                 panjangkan dan pendekkan panah hitamnya. Panah ungunya tetap sepanjang 1, yang berubah hanya arahnya.
               </Petunjuk>
@@ -178,6 +206,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
                 nilai={aSambung} onUbah={setASambung} batas={SambungBatas} />
               <Koordinat nama="b" arti="panah merah, berangkat dari ujung a" kunci="b"
                 nilai={bSambung} onUbah={setBSambung} batas={SambungBatas} />
+              <Kembalikan onClick={() => { setASambung(AWAL.aSambung); setBSambung(AWAL.bSambung) }} />
               <Petunjuk>
                 ubah a atau b, lalu perhatikan panah merah selalu berangkat dari tempat panah biru berhenti.
               </Petunjuk>
@@ -198,6 +227,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
                 nilai={aJajar} onUbah={setAJajar} batas={JajarBatas} />
               <Koordinat nama="b" arti="panah merah, berangkat dari titik yang sama" kunci="b"
                 nilai={bJajar} onUbah={setBJajar} batas={JajarBatas} />
+              <Kembalikan onClick={() => { setAJajar(AWAL.aJajar); setBJajar(AWAL.bJajar) }} />
               <Petunjuk>
                 dekatkan keduanya sampai hampir sejajar, lalu jauhkan sampai hampir berlawanan, dan perhatikan panjang resultannya.
               </Petunjuk>
@@ -218,6 +248,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
                 nilai={aSelisih} onUbah={setASelisih} batas={SelisihBatas} />
               <Koordinat nama="b" arti="panah merah" kunci="b"
                 nilai={bSelisih} onUbah={setBSelisih} batas={SelisihBatas} />
+              <Kembalikan onClick={() => { setASelisih(AWAL.aSelisih); setBSelisih(AWAL.bSelisih) }} />
               <Petunjuk>
                 perhatikan panah ungu muncul dua kali: dari titik asal, dan dari ujung b menuju ujung a. Keduanya panah yang sama.
               </Petunjuk>
@@ -236,6 +267,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
               <Angka nama="Pengali" arti="angka k yang mengalikan a" kunci="k"
                 nilai={k} onUbah={setK}
                 min={BATAS_K.min} max={BATAS_K.maks} langkah={BATAS_K.langkah} />
+              <Kembalikan onClick={() => { setAKali(AWAL.aKali); setK(AWAL.k) }} />
               <Petunjuk>
                 geser pengali melewati nol perlahan. Panahnya lenyap sesaat, lalu muncul lagi menghadap arah yang berlawanan.
               </Petunjuk>
@@ -262,6 +294,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
                 nilai={aTitik} onUbah={setATitik} batas={TitikBatas} />
               <Koordinat nama="b" arti="panah merah" kunci="b"
                 nilai={bTitik} onUbah={setBTitik} batas={TitikBatas} />
+              <Kembalikan onClick={() => { setATitik(AWAL.aTitik); setBTitik(AWAL.bTitik) }} />
               <Petunjuk>
                 putar salah satu panah melewati sudut siku-siku. Hasil kalinya berganti tanda tepat saat kedua panah tegak lurus.
               </Petunjuk>
@@ -282,6 +315,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
                 nilai={aProyeksi} onUbah={setAProyeksi} batas={ProyeksiBatas} />
               <Koordinat nama="b" arti="panah merah, arah proyeksinya" kunci="b"
                 nilai={bProyeksi} onUbah={setBProyeksi} batas={ProyeksiBatas} />
+              <Kembalikan onClick={() => { setAProyeksi(AWAL.aProyeksi); setBProyeksi(AWAL.bProyeksi) }} />
               <Petunjuk>
                 putar panah biru sampai melewati garis panah merah. Bayangannya menyusut, lenyap, lalu muncul di sisi berlawanan dengan panjang bertanda negatif.
               </Petunjuk>

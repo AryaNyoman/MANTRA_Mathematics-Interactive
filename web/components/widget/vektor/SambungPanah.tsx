@@ -4,16 +4,11 @@ import { useRef } from 'react'
 import BidangVektor from './BidangVektor'
 import Legenda from './Legenda'
 import Panah from './Panah'
-import { angka, jendelaSeimbang, kurang, tahan, tambah, type Vek } from './geometri'
+import { angka, kurang, tahan, tambah, type Vek, tahanBersama, jendelaTetap } from './geometri'
 import { NISBAH, WARNA } from './gaya'
 import { useSeretTitik } from './useSeret'
 
 export const BATAS = { x: 6, y: 3.5 }
-
-const JANGKAR: Vek[] = [
-  { x: -BATAS.x, y: -BATAS.y },
-  { x: BATAS.x, y: BATAS.y },
-]
 
 /**
  * Widget Materi 06: menjumlah dengan cara menyambung, ujung ke pangkal.
@@ -35,12 +30,13 @@ export default function SambungPanah({
   const asal: Vek = { x: 0, y: 0 }
   const hasil = tambah(a, b)
 
-  const jendela = jendelaSeimbang([...JANGKAR, a, b, hasil], NISBAH, 0.05)
+  const jendela = jendelaTetap(BATAS.x, BATAS.y, NISBAH)
   // Titik yang bisa dipegang: ujung a, dan ujung b yang letaknya di a tambah b.
   const pointer = useSeretTitik(jendela, svgRef, [a, hasil], (i, t) => {
-    const titik = tahan(t, BATAS.x, BATAS.y)
-    if (i === 0) onUbah(titik, b)
-    else onUbah(a, kurang(titik, a))
+    // a ditahan bersama b supaya ujung sambungannya (a + b) tetap di kotak;
+    // ujung sambungan sendiri cukup ditahan di kotak.
+    if (i === 0) onUbah(tahanBersama(t, b, BATAS.x, BATAS.y), b)
+    else onUbah(a, kurang(tahan(t, BATAS.x, BATAS.y), a))
   })
 
   return (

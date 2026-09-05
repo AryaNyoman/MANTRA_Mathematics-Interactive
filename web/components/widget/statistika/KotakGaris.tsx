@@ -1,6 +1,6 @@
 'use client'
 
-import { Petunjuk, Pilihan, TabelData } from '@/components/kendali'
+import { Petunjuk, Pilihan } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import { GarisBilangan, TumpukanTitik } from '@/components/widget/statistika/GarisBilangan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
@@ -147,9 +147,6 @@ export default function KotakGaris({ children }: PropWidget) {
             <button onClick={() => setData(D.data)}>Kembalikan semula</button>
           </div>
         </div>
-        <TabelData nama="Waktu tiap siswa" arti="menit; ketik di sini, atau seret bolanya di gambar" kunci="d"
-          nilai={data} onUbah={pindah} min={MIN} max={MAKS} langkah={1}
-          label={(i) => `siswa ${i + 1}`} />
         <Petunjuk>
             {pagar
               ? r.pencilan.length > 0

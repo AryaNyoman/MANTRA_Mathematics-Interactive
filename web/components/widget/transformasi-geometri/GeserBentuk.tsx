@@ -44,13 +44,14 @@ export default function GeserBentuk({
   const A = prapeta[0]
   const Aksen = peta[0]
 
-  const jendela = jendelaSeimbang([...JANGKAR, ...prapeta, ...peta], NISBAH, 0.06)
+  const jendelaHitung = jendelaSeimbang([...JANGKAR, ...prapeta, ...peta], NISBAH, 0.06)
 
   // Yang diseret adalah ujung panah, jadi nilai geserannya adalah selisih
   // antara jari dan titik A.
-  const pointer = useSeret(jendela, svgRef, (t) =>
+  const pointer = useSeret(jendelaHitung, svgRef, (t) =>
     onUbah(tahan({ x: t.x - A.x, y: t.y - A.y }, BATAS_GESER.x, BATAS_GESER.y)),
   )
+  const jendela = pointer.jendela
 
   const p = keLayar(jendela, KOTAK)
 

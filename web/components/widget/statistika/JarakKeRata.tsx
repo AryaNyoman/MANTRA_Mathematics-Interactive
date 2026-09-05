@@ -1,6 +1,6 @@
 'use client'
 
-import { Petunjuk, Pilihan, TabelData } from '@/components/kendali'
+import { Petunjuk, Pilihan } from '@/components/kendali'
 import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import TitikPegang from '@/components/widget/statistika/TitikPegang'
 import { useRef, useState } from 'react'
@@ -112,9 +112,6 @@ export default function JarakKeRata({ children }: PropWidget) {
         <Pilihan nama="Ambil contoh" arti="dua mesin dengan sebaran botol yang berbeda"
           pilihan={[{ nilai: 'A', label: 'Mesin A' }, { nilai: 'B', label: 'Mesin B' }]}
           nilai={mesin} onPilih={(n) => { setData(n === 'A' ? A.data : B.data); setMesin(n) }} />
-        <TabelData nama="Isi tiap botol" arti="mililiter; ketik di sini, atau seret bolanya di gambar" kunci="botol"
-          nilai={data} onUbah={pindah} min={MIN} max={MAKS} langkah={1}
-          label={(i) => `botol ${i + 1}`} />
         <Petunjuk>
             seret satu botol menjauh dari rata-rata. Perseginya tumbuh jauh lebih cepat
             daripada jaraknya: jarak dua kali lipat membuat luas empat kali lipat

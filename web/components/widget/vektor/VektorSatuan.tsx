@@ -4,16 +4,11 @@ import { useRef } from 'react'
 import BidangVektor from './BidangVektor'
 import Legenda from './Legenda'
 import Panah from './Panah'
-import { angka, jendelaSeimbang, panjang, satuan, tahan, type Vek } from './geometri'
+import { angka, panjang, satuan, tahan, type Vek, jendelaTetap } from './geometri'
 import { NISBAH, WARNA } from './gaya'
 import { useSeret } from './useSeret'
 
 export const BATAS = { x: 6, y: 3.5 }
-
-const JANGKAR: Vek[] = [
-  { x: -BATAS.x, y: -BATAS.y },
-  { x: BATAS.x, y: BATAS.y },
-]
 
 /**
  * Widget Materi 05: vektor satuan.
@@ -30,7 +25,7 @@ export default function VektorSatuan({
   onUbah: (v: Vek) => void
 }) {
   const svgRef = useRef<SVGSVGElement | null>(null)
-  const jendela = jendelaSeimbang([...JANGKAR, v], NISBAH, 0.05)
+  const jendela = jendelaTetap(BATAS.x, BATAS.y, NISBAH)
   const pointer = useSeret(jendela, svgRef, (t) => onUbah(tahan(t, BATAS.x, BATAS.y)))
 
   const asal: Vek = { x: 0, y: 0 }

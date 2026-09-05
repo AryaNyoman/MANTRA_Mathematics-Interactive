@@ -1,6 +1,6 @@
 'use client'
 
-import { Petunjuk, TabelData } from '@/components/kendali'
+import { Petunjuk } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import { GarisBilangan, Penanda, TumpukanTitik } from '@/components/widget/statistika/GarisBilangan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
@@ -139,9 +139,6 @@ export default function DuaKelompok({ children }: PropWidget) {
             <button disabled={utuh} onClick={() => setDataB(B.data)}>Kembalikan semula</button>
           </div>
         </div>
-        <TabelData nama="Nilai siswa Kelas B" arti="ketik di sini, atau seret bolanya di gambar" kunci="b"
-          nilai={dataB} onUbah={pindah} min={MIN} max={MAKS} langkah={1}
-          label={(i) => `siswa ${i + 1}`} />
         <Petunjuk>
             acak dulu titik Kelas B sesuka Anda, lalu tekan samakan. Rata-ratanya kembali 7,
             tetapi bentuk datanya tetap berantakan

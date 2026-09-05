@@ -37,8 +37,6 @@ export const LANGKAH_SERET = 0.5
 export const BATAS_X = { min: -6, maks: 6 }
 export const BATAS_Y = { min: -8, maks: 8 }
 
-/** Setengah lebar bidang di kiri dan kanan puncak. */
-const JANGKAU = 5
 
 export type PosisiSusun = { puncak: TitikXY; titik: TitikXY }
 
@@ -58,21 +56,14 @@ export function parabolaDari(pos: PosisiSusun) {
   return lewatPuncakDanTitik(pos.puncak.x, pos.puncak.y, pos.titik.x, pos.titik.y)
 }
 
-function jendelaUntuk(pos: PosisiSusun): Jendela {
-  const titik: Array<[number, number]> = [
-    [pos.puncak.x, pos.puncak.y],
-    [pos.titik.x, pos.titik.y],
-    [0, 0],
-  ]
-  const par = parabolaDari(pos)
-  if (par) {
-    for (let i = 0; i <= 24; i++) {
-      const x = par.h - JANGKAU + (2 * JANGKAU * i) / 24
-      titik.push([x, nilaiPuncak(par, x)])
-    }
-  }
-  return jendelaMuat(titik, 0.12)
-}
+/* Jendela TETAP sebesar kotak batas seret (keputusan ARYA 5 Sep 2026).
+   Sebelumnya jendela mengikuti parabolanya, jadi tiap kali puncak ditarik
+   seluruh gambar ikut melar dan seretannya terasa licin. Parabola yang
+   lengannya keluar kotak cukup terpotong; kedua titik yang diseret selalu
+   di dalam. */
+const JENDELA_TETAP: Jendela = jendelaMuat(
+  [[BATAS_X.min, BATAS_Y.min], [BATAS_X.maks, BATAS_Y.maks]], 0.06,
+)
 
 export default function SusunParabola({
   pos,
@@ -83,7 +74,7 @@ export default function SusunParabola({
 }) {
   const dipegang = useSedangDiubah()
   const [pegang, setPegang] = useState<number>(-1)
-  const jendela = jendelaUntuk(pos)
+  const jendela = JENDELA_TETAP
   const p = keLayar(jendela)
   const par = parabolaDari(pos)
   const umum = par ? keUmum(par) : null

@@ -73,7 +73,7 @@ export default function Papan({
    */
   svgRef?: RefObject<SVGSVGElement | null>
   propSvg?: Pick<SVGProps<SVGSVGElement>,
-    'onPointerMove' | 'onPointerUp' | 'onPointerCancel' | 'onPointerLeave'>
+    'onPointerMove' | 'onPointerUp' | 'onPointerCancel' | 'onPointerLeave' | 'style'>
   children?: ReactNode
 }) {
   const p = keLayar(jendela, tepi)

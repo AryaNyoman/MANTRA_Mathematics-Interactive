@@ -2089,25 +2089,8 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   transition: background var(--d-sedang) var(--kurva), color var(--d-sedang) var(--kurva);
 }
 .pilihan-segmen button[aria-pressed='true'] { background: var(--panggung); color: var(--kertas); }
-/* Tabel data kecil (TabelData): satu kotak ketik per angka, membungkus
-   sendiri mengikuti lebar kolom. Dua kolom untuk pasangan (x, y). */
-.kendali-tabel { min-width: 0; grid-column: 1 / -1; }
-.tabel-data { display: grid; grid-template-columns: repeat(auto-fill, minmax(4.4em, 1fr)); gap: 6px; }
-.kendali-tabel.dua-kolom .tabel-data { grid-template-columns: repeat(auto-fill, minmax(9.2em, 1fr)); }
-.tabel-sel { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-.tabel-label {
-  font-size: 11px; color: var(--tinta-50); white-space: nowrap;
-  overflow: hidden; text-overflow: ellipsis;
-}
-.tabel-ketik {
-  width: 100%; min-width: 0; box-sizing: border-box; height: 32px; padding: 0 5px;
-  border: 1px solid var(--garis-tegas); border-radius: 8px; background: var(--kartu);
-  font: inherit; font-size: 13px; text-align: center; color: var(--tinta);
-}
-.tabel-ketik:focus { outline: 2px solid var(--emas); outline-offset: 1px; border-color: var(--emas); }
-.tabel-pasangan { display: flex; gap: 4px; }
-.tabel-kolom { display: flex; align-items: center; gap: 3px; min-width: 0; flex: 1; }
-.tabel-kolom > span { font-size: 11px; color: var(--tinta-50); }
+/* Tombol "Kembalikan semula" di widget yang bisa diseret. */
+.kendali-kembali { grid-column: 1 / -1; justify-self: start; }
 
 /* Kalimat petunjuk: menggantikan .skala-info. */
 .kendali-petunjuk {
@@ -2133,7 +2116,7 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   border-radius: 0 0 var(--r-kontrol) var(--r-kontrol);
 }
 /* Kendali baru menumpuk satu kolom: nama + arti butuh lebar penuh. */
-.materi-satu-layar .kendali:has(.kendali-angka, .kendali-koordinat, .kendali-pilihan, .kendali-tabel) {
+.materi-satu-layar .kendali:has(.kendali-angka, .kendali-koordinat, .kendali-pilihan) {
   grid-template-columns: 1fr; gap: 14px;
 }
 /* Di HP, "atas"-nya adalah bawah nav yang ikut lengket. */

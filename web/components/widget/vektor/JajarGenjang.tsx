@@ -4,16 +4,11 @@ import { useRef } from 'react'
 import BidangVektor from './BidangVektor'
 import Legenda from './Legenda'
 import Panah from './Panah'
-import { angka, jendelaSeimbang, keLayar, tahan, tambah, type Vek } from './geometri'
+import { angka, keLayar, tambah, type Vek, tahanBersama, jendelaTetap } from './geometri'
 import { KOTAK, NISBAH, WARNA } from './gaya'
 import { useSeretTitik } from './useSeret'
 
 export const BATAS = { x: 5.5, y: 3.2 }
-
-const JANGKAR: Vek[] = [
-  { x: -BATAS.x, y: -BATAS.y },
-  { x: BATAS.x, y: BATAS.y },
-]
 
 /**
  * Widget Materi 07: metode jajar genjang.
@@ -36,11 +31,12 @@ export default function JajarGenjang({
   const asal: Vek = { x: 0, y: 0 }
   const hasil = tambah(a, b)
 
-  const jendela = jendelaSeimbang([...JANGKAR, a, b, hasil], NISBAH, 0.05)
+  const jendela = jendelaTetap(BATAS.x, BATAS.y, NISBAH)
   const pointer = useSeretTitik(jendela, svgRef, [a, b], (i, t) => {
-    const titik = tahan(t, BATAS.x, BATAS.y)
-    if (i === 0) onUbah(titik, b)
-    else onUbah(a, titik)
+    // Ditahan BERSAMA pasangannya: resultan a + b juga harus tetap di kotak,
+    // sebab jendelanya tidak lagi melebar mengikuti resultan.
+    if (i === 0) onUbah(tahanBersama(t, b, BATAS.x, BATAS.y), b)
+    else onUbah(a, tahanBersama(t, a, BATAS.x, BATAS.y))
   })
 
   const p = keLayar(jendela, KOTAK)
