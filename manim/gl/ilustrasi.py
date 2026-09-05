@@ -56,13 +56,26 @@ def air_hidup(scene, panjang=16.0, lebar=6.0, warna=AKSEN2, resolusi=(121, 61), 
     return always_redraw(lambda: air(panjang, lebar, scene.time, warna, resolusi, pusat))
 
 
-def tanah(panjang=16.0, lebar=2.4, y_tengah=0.0, z=0.18, warna=REDUP):
-    """Bidang pasir/tanah datar, sedikit di atas muka air."""
-    b = Square3D(side_length=1.0)
-    b.stretch_to_fit_width(panjang).stretch_to_fit_height(lebar)
-    b.move_to([0, y_tengah, z])
-    b.set_color(warna, opacity=0.35)
-    b.set_shading(*BAYANG_DATAR)
+def tanah(panjang=16.0, lebar=2.4, y_tengah=0.0, z=0.12, warna=None, opacity=1.0):
+    """Bidang pasir/tanah datar, sedikit di atas muka air.
+
+    PEJAL, bukan 35 persen tembus pandang seperti versi pertama. Tanah yang
+    tembus pandang memperlihatkan latar krem di baliknya, dan di video perahu
+    itu terbaca sebagai CELAH PUTIH antara air dan tepian (temuan ARYA 5 Sep
+    2026). Warna bawaannya REDUP dicampur LATAR: pasir hangat, bukan abu.
+    """
+    if warna is None:
+        # 0,22, bukan 0,45: atap lempengan masih dicerahkan lagi oleh `balok`,
+        # dan pada 0,45 tepiannya nyaris sewarna latar krem (render 5 Sep).
+        warna = interpolate_color(Color(REDUP), Color(LATAR), 0.22)
+    # LEMPENGAN bertebal, bukan lembaran melayang. Lembaran setinggi z di atas
+    # air memperlihatkan latar krem di celah antara tepi air dan tepi lembaran
+    # (garis putih di sepanjang tepian, render 5 Sep). Dinding sisi lempengan
+    # menutup celah itu. Atapnya di z, alasnya di bawah muka air.
+    tebal = z + 0.14
+    b = balok(panjang, lebar, tebal, warna, tiga_terang=True)
+    b.shift([0, y_tengah, z - tebal])
+    b.set_opacity(opacity)
     return b
 
 
@@ -192,32 +205,136 @@ def silinder(r=0.5, t=1.0, warna=SOROT, sumbu=OUT):
 # Benda dunia nyata
 # ---------------------------------------------------------------------------
 
-def perahu(panjang=2.0, warna_lambung=TINTA, warna_geladak=REDUP):
-    """Perahu di titik asal: garis air di z = 0, haluan menghadap +x."""
-    L, W, D, F = panjang, 0.30 * panjang, 0.175 * panjang, 0.125 * panjang
-
-    def lambung_uv(u, v):
-        g = max(0.0, 1 - u * u) ** 0.7        # lebar mengecil ke ujung, ujungnya lancip
+def _lambung(L, W, D, F, u_range, v_range, warna, resolusi=(41, 13)):
+    def uv(u, v):
+        g = max(0.0, 1 - u * u) ** 0.6        # lebar mengecil ke ujung, ujungnya lancip
         h = 1 - u ** 4                        # kedalaman mengecil ke ujung
         return np.array([L * u, W * g * v, F - (D + F) * h * (1 - v * v)])
+    m = ParametricSurface(uv, u_range=u_range, v_range=v_range, resolution=resolusi)
+    m.set_color(warna, opacity=1.0)
+    # Tanpa pencahayaan ManimGL: normal permukaan cekung ini menghadap
+    # menjauhi cahaya dan seluruh lambung jadi hitam (render pertama). Terangnya
+    # sudah ditentukan per belahan oleh pemanggil.
+    m.set_shading(0.0, 0.0, 0.0)
+    return m
 
-    lambung = ParametricSurface(lambung_uv, u_range=(-1, 1), v_range=(-1, 1), resolution=(51, 25))
-    lambung.set_color(warna_lambung, opacity=1.0)
-    lambung.set_shading(*BAYANG)
-    # Geladak sedikit lebih sempit dari lambung supaya bibir lambung terlihat dari atas.
-    geladak = ParametricSurface(
-        lambda u, v: np.array([L * u, 0.9 * W * max(0.0, 1 - u * u) ** 0.7 * v, F]),
-        u_range=(-1, 1), v_range=(-1, 1), resolution=(51, 7),
+
+def perahu(panjang=2.0, warna_kayu=REDUP):
+    """Perahu dayung di titik asal: garis air di z = 0, haluan menghadap +x.
+
+    VERSI 2 (5 Sep 2026). Versi pertama, cakram gelap bertiang dengan segitiga
+    putih, ditolak ARYA: "gambar perahunya kurang bagus". Yang diubah:
+    1. Lambung dibelah dua memanjang dan tiap belahan diberi terang sendiri
+       (dekat kamera terang, jauh gelap). `set_shading` ManimGL lemah arah,
+       jadi bentuk cembungnya baru terbaca kalau terangnya ditentukan sendiri,
+       cara yang sama dengan `balok`.
+    2. Bibir lambung (gunwale) berupa pita gelap tipis, dan lantai dalam yang
+       lebih terang, jadi dari atas pun terlihat sebagai perahu berongga.
+    3. Dua bangku melintang dan SEPASANG DAYUNG. Ceritanya perahu didayung,
+       bukan berlayar; tiang dan layar dibuang.
+    """
+    L, W = panjang, 0.36 * panjang
+    D, F = 0.20 * panjang, 0.16 * panjang            # kedalaman di bawah air, tinggi di atas air
+    kayu = Color(warna_kayu)
+    terang = interpolate_color(kayu, Color(LATAR), 0.32)
+    gelap = interpolate_color(kayu, Color(TINTA), 0.38)
+    lantai = interpolate_color(kayu, Color(LATAR), 0.55)
+    tepi = interpolate_color(kayu, Color(TINTA), 0.6)
+
+    # belahan -y menghadap kamera (theta negatif), jadi ia yang terang
+    lambung = Group(
+        _lambung(L, W, D, F, (-1, 1), (-1, 0), terang),
+        _lambung(L, W, D, F, (-1, 1), (0, 1), gelap),
     )
-    geladak.set_color(warna_geladak, opacity=1.0)
-    geladak.set_shading(0.2, 0.1, 0.3)
-    tiang = Cylinder(height=0.575 * L, radius=0.0175 * L).set_color(warna_lambung)
-    tiang.move_to([0.075 * L, 0, F + 0.2875 * L])
-    layar = Polygon([0.075 * L, 0, F + 0.525 * L], [0.075 * L, 0, F + 0.15 * L],
-                    [0.475 * L, 0, F + 0.175 * L])
-    layar.set_fill(LATAR, 1.0).set_stroke(warna_lambung, 1.5)
-    layar.rotate(45 * DEGREES, axis=OUT, about_point=np.array([0.075 * L, 0, 0]))
-    return Group(lambung, geladak, tiang, layar)
+    lantai_dalam = ParametricSurface(
+        lambda u, v: np.array([L * u, 0.86 * W * max(0.0, 1 - u * u) ** 0.6 * v, F - 0.06 * L]),
+        u_range=(-1, 1), v_range=(-1, 1), resolution=(41, 7),
+    )
+    lantai_dalam.set_color(lantai, opacity=1.0)
+    lantai_dalam.set_shading(0.0, 0.0, 0.0)
+    # Bibir = CINCIN tipis di sepanjang tepi (v dari 0,84 ke 1 di kedua sisi).
+    # Render pertama memakai cakram penuh dan cakram gelap itu menutup seluruh
+    # bagian dalam perahu: yang terlihat cuma elips gelap lagi.
+    def bibir_uv(u, v):
+        return np.array([L * u, W * max(0.0, 1 - u * u) ** 0.6 * v, F + 0.012 * L])
+    bibir = Group(
+        ParametricSurface(bibir_uv, u_range=(-1, 1), v_range=(0.84, 1.0), resolution=(41, 3)),
+        ParametricSurface(bibir_uv, u_range=(-1, 1), v_range=(-1.0, -0.84), resolution=(41, 3)),
+    )
+    for m in bibir:
+        m.set_color(tepi, opacity=1.0)
+        m.set_shading(0.0, 0.0, 0.0)
+
+    bangku = Group()
+    for u in (-0.3, 0.3):
+        lebar_b = 2 * 0.86 * W * (1 - u * u) ** 0.6
+        b = balok(0.09 * L, lebar_b, 0.03 * L, tepi, tiga_terang=False)
+        b.move_to([L * u, 0, F - 0.01 * L])
+        bangku.add(b)
+
+    dayung = Group()
+    for sisi in (-1, 1):
+        r = 0.014 * L
+        gagang = Cylinder(height=0.95 * L, radius=r, axis=UP).set_color(tepi)
+        gagang.set_shading(*BAYANG)
+        bilah = balok(0.07 * L, 0.20 * L, 0.012 * L, tepi, tiga_terang=False)
+        bilah.move_to([0, 0.47 * L, 0])
+        satu = Group(gagang, bilah)
+        # dari bibir lambung menjulur keluar dan turun ke air
+        satu.rotate(-22 * DEGREES, axis=RIGHT, about_point=ORIGIN)
+        satu.rotate(-28 * DEGREES, axis=OUT, about_point=ORIGIN)
+        if sisi < 0:
+            satu.stretch(-1, 1, about_point=ORIGIN)   # cerminkan ke sisi seberang
+        satu.shift([0.02 * L, sisi * 0.55 * W, F + 0.02 * L])
+        dayung.add(satu)
+
+    return Group(lambung, lantai_dalam, bibir, bangku, dayung)
+
+
+def perahu_atas(panjang=2.0, warna_kayu=REDUP):
+    """Perahu yang sama dilihat TEPAT dari atas, sebagai gambar 2D (VGroup).
+
+    Dipakai begitu kamera sudah tegak lurus: lambung 3D yang dilihat dari
+    atas cuma jadi elips abu (temuan ARYA 5 Sep 2026), sedangkan ikon ini
+    tetap terbaca sebagai perahu di peta bernomor. Haluan menghadap +y,
+    searah seberang sungai, sebab di cerita perahunya didayung lurus.
+    """
+    L, W = panjang, 0.36 * panjang
+    kayu = Color(warna_kayu)
+    tepi = interpolate_color(kayu, Color(TINTA), 0.6)
+    badan = interpolate_color(kayu, Color(LATAR), 0.30)
+    lantai = interpolate_color(kayu, Color(LATAR), 0.58)
+
+    def garis_luar(skala):
+        titik = []
+        for k in range(0, 41):
+            t = -1 + 2 * k / 40
+            titik.append([skala * W * max(0.0, 1 - t * t) ** 0.6, L * t, 0])
+        for k in range(40, -1, -1):
+            t = -1 + 2 * k / 40
+            titik.append([-skala * W * max(0.0, 1 - t * t) ** 0.6, L * t, 0])
+        return titik
+
+    lambung = Polygon(*garis_luar(1.0)).set_fill(badan, 1.0).set_stroke(tepi, 2.4)
+    dalam = Polygon(*garis_luar(0.8)).set_fill(lantai, 1.0).set_stroke(tepi, 0.8)
+    bangku = VGroup(*[
+        Line([-0.8 * W * (1 - t * t) ** 0.6, L * t, 0], [0.8 * W * (1 - t * t) ** 0.6, L * t, 0])
+        .set_stroke(tepi, 2.2)
+        for t in (-0.3, 0.3)
+    ])
+    dayung = VGroup()
+    for sisi in (-1, 1):
+        pangkal = np.array([sisi * 0.9 * W, 0.05 * L, 0])
+        ujung = pangkal + np.array([sisi * 0.42 * L, -0.30 * L, 0])
+        gagang = Line(pangkal, ujung).set_stroke(tepi, 2.6)
+        arah = (ujung - pangkal) / np.linalg.norm(ujung - pangkal)
+        tegak = np.array([-arah[1], arah[0], 0])
+        bilah = Polygon(ujung - 0.035 * L * tegak, ujung + 0.035 * L * tegak,
+                        ujung + 0.16 * L * arah + 0.03 * L * tegak,
+                        ujung + 0.16 * L * arah - 0.03 * L * tegak)
+        bilah.set_fill(tepi, 1.0).set_stroke(tepi, 1.0)
+        dayung.add(gagang, bilah)
+    return VGroup(dayung, lambung, dalam, bangku)
 
 
 def ayunkan(asli, benda, x, y, t, tinggi=tinggi_air, eps=0.15):

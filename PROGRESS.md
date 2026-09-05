@@ -1,5 +1,26 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 5 SEP (malam, lanjutan 4): VIDEO PERAHU VEKTOR 01 DIBUAT ULANG (480p)
+
+Keluhan ARYA: perahunya jelek (cakram abu bertiang) dan kurang rapi saat
+beralih ke 2D. Yang diubah, semuanya di `manim/gl/ilustrasi.py` dan
+`manim/scenes/vektor1_perahu.py`:
+- `perahu()` v2: perahu dayung (lambung dua terang, bibir cincin gelap, dua
+  bangku, sepasang dayung, tanpa layar), shading dimatikan sebab permukaan
+  cekung menghitam. `perahu_atas()`: ikon 2D tampak atas, dipasang lewat
+  FadeOut/FadeIn saat kamera sudah tegak lurus, mengikuti tracker bx/by.
+- `tanah()`: lempengan bertebal warna pasir (bukan lembaran melayang 35%
+  tembus pandang): celah putih di tepi air hilang. Air dilebihkan 0,5 ke tiap
+  sisi, tepi dekat mundur 0,35 supaya perahu mengapung di samping tepian.
+- Pembuka 3D diberi kejadian per kalimat (jam subtitle): kamera mendekat,
+  garis ukur "3 km" saat disebut, panah niat ke seberang; gerak pertama 0,12 s.
+- Render 480p, narasi digabung: `media/uji-480p/vektor1-perahu.mp4`,
+  disalin ke `web/public/anim/vektor1-perahu.mp4` (mp4 tidak dilacak git;
+  ikut terunggah ke Vercel). Poster dari detik 4.
+- MASIH: diam terpanjang 12,6 s di babak pythagoras (77 sampai 90 s), 11,4 s
+  di dayung/arus, 10,6 s di tanya; bawaan versi lama, di luar permintaan.
+  1080p belum dirender (aturan: 480p dulu untuk ditinjau ARYA).
+
 ## 5 SEP (malam, lanjutan 3): JENDELA WIDGET DIKUNCI, SERET DI HP, TABEL DICABUT
 
 Keluhan ARYA: menyeret bola terasa licin sampai keluar daerah (jendela

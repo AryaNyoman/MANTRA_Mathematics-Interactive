@@ -915,8 +915,8 @@
     "semantic_hash": ""
   },
   "web/components/topik/PanggungVektor.tsx": {
-    "mtime": 1788579407.2316365,
-    "ast_hash": "86630b458a0c93223306528e6e87f04d",
+    "mtime": 1788609709.7504754,
+    "ast_hash": "30adeed6ba9e6878dd0256243f9050d5",
     "semantic_hash": ""
   },
   "web/components/topik/Penjelasan.tsx": {
@@ -1030,8 +1030,8 @@
     "semantic_hash": ""
   },
   "web/components/widget/grafik-fungsi/SusunParabola.tsx": {
-    "mtime": 1788600857.3220415,
-    "ast_hash": "56d1ceeac1f2db14f46dbfb3cba5a468",
+    "mtime": 1788609709.6080427,
+    "ast_hash": "f79952bb40560babf57b93b4a9ed651a",
     "semantic_hash": ""
   },
   "web/components/widget/grafik-fungsi/UjiGarisTegak.tsx": {
@@ -1200,13 +1200,13 @@
     "semantic_hash": ""
   },
   "web/components/widget/statistika/DiagramPencar.tsx": {
-    "mtime": 1788605958.2792902,
-    "ast_hash": "37ee396613233f79489f31ed50052a6a",
+    "mtime": 1788609709.6679058,
+    "ast_hash": "7144687a78c60a1ac39b5c02d7f1ec87",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/DuaKelompok.tsx": {
-    "mtime": 1788605958.198339,
-    "ast_hash": "289209d3fde0f551c20fa5772e002898",
+    "mtime": 1788609709.2054794,
+    "ast_hash": "a9dca200a793b4f4908473ba0763aee2",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/FrekuensiRelatif.tsx": {
@@ -1225,18 +1225,18 @@
     "semantic_hash": ""
   },
   "web/components/widget/statistika/JarakKeRata.tsx": {
-    "mtime": 1788605958.2410476,
-    "ast_hash": "f9cf714b0d61d837c3899f57b91c46a6",
+    "mtime": 1788609709.3130362,
+    "ast_hash": "0c1d2a681c7c052ad192f2ab6b977e6f",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/KekuatanHubungan.tsx": {
-    "mtime": 1788605958.3099897,
-    "ast_hash": "68803c7674d3fc9a5a62c6eeaa6a752c",
+    "mtime": 1788609709.7399611,
+    "ast_hash": "eaace21ae1465134ff497b5fe8dbc54d",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/KotakGaris.tsx": {
-    "mtime": 1788605958.235784,
-    "ast_hash": "d16da500f8be2e7eac6f9d2c9d7b716e",
+    "mtime": 1788609709.2910347,
+    "ast_hash": "923209ea598815a7f1c6b72b11ef423a",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/LebarKelas.tsx": {
@@ -1245,9 +1245,9 @@
     "semantic_hash": ""
   },
   "web/components/widget/statistika/Papan.tsx": {
-    "mtime": 1788363592.3133266,
-    "ast_hash": "f10ba37cf9b327bd6566e698805aee6c",
-    "semantic_hash": "f10ba37cf9b327bd6566e698805aee6c"
+    "mtime": 1788609709.1420393,
+    "ast_hash": "a5364e11172c043ad72e948899e98bdb",
+    "semantic_hash": ""
   },
   "web/components/widget/statistika/SumbuJujur.tsx": {
     "mtime": 1788600857.330008,
@@ -1270,9 +1270,9 @@
     "semantic_hash": "28d23058b7e3ab43d82a65596ec61c97"
   },
   "web/components/widget/statistika/seret.ts": {
-    "mtime": 1788295263.0204985,
-    "ast_hash": "f9fe2645edd78fb0bcd746b9c9619a31",
-    "semantic_hash": "f9fe2645edd78fb0bcd746b9c9619a31"
+    "mtime": 1788609709.136045,
+    "ast_hash": "0a0a336f2430e318436dddce09e1ae2c",
+    "semantic_hash": ""
   },
   "web/components/widget/statistika/skala.ts": {
     "mtime": 1788579407.250992,
@@ -1300,13 +1300,13 @@
     "semantic_hash": "fb50d38102e80de2e91cd3b321f8744a"
   },
   "web/components/widget/vektor/JajarGenjang.tsx": {
-    "mtime": 1788579407.239986,
-    "ast_hash": "eaefcd668ec3d37b1e2a5ccad3f9aafb",
+    "mtime": 1788609709.5213625,
+    "ast_hash": "3af507aaf7ffe93fac258172d26c1130",
     "semantic_hash": ""
   },
   "web/components/widget/vektor/KaliSkalar.tsx": {
-    "mtime": 1788579407.2419837,
-    "ast_hash": "dc765bc9882b6f86f71f9211fa1c7ddd",
+    "mtime": 1788609709.5439196,
+    "ast_hash": "c68f6d98f65c9fb1d809877fe91e608a",
     "semantic_hash": ""
   },
   "web/components/widget/vektor/Legenda.tsx": {
@@ -1320,48 +1320,48 @@
     "semantic_hash": ""
   },
   "web/components/widget/vektor/PanahBerpindah.tsx": {
-    "mtime": 1788579407.2346485,
-    "ast_hash": "aac132cb6abef5246130702d01549022",
+    "mtime": 1788609709.534381,
+    "ast_hash": "2a3319dbf537300b42995d12fdafd776",
     "semantic_hash": ""
   },
   "web/components/widget/vektor/PanjangDanArah.tsx": {
-    "mtime": 1788579407.2366352,
-    "ast_hash": "b9b7a5526456a038b854ece25d4073ef",
+    "mtime": 1788609709.5368989,
+    "ast_hash": "fd4a5aae6608d1e0a89f7dccb6a0d706",
     "semantic_hash": ""
   },
   "web/components/widget/vektor/PecahKomponen.tsx": {
-    "mtime": 1788579407.2356415,
-    "ast_hash": "4c736a17090ec63b0c2f35b0a3d861dd",
+    "mtime": 1788609709.5399158,
+    "ast_hash": "7cc761b518ed45d12d24c7016c36b9cc",
     "semantic_hash": ""
   },
   "web/components/widget/vektor/PerahuSungai.tsx": {
-    "mtime": 1788579407.2326374,
-    "ast_hash": "1c685ee17eb5b9d9632f72c53f0d36eb",
+    "mtime": 1788610327.108698,
+    "ast_hash": "b4f39ad3ae70d95ed1d8cfed7e6094f9",
     "semantic_hash": ""
   },
   "web/components/widget/vektor/PerkalianTitik.tsx": {
-    "mtime": 1788579407.2429934,
-    "ast_hash": "f11b688cd6c915758da348a8abfc62d2",
+    "mtime": 1788609709.5283804,
+    "ast_hash": "80382c5713d9f0b0fbeafa17f095e8dd",
     "semantic_hash": ""
   },
   "web/components/widget/vektor/Proyeksi.tsx": {
-    "mtime": 1788579407.2439857,
-    "ast_hash": "b19d8b49cdcd360370f72137559e41d7",
+    "mtime": 1788609709.530385,
+    "ast_hash": "2687eb0ff53ad89a25700a9bf548a267",
     "semantic_hash": ""
   },
   "web/components/widget/vektor/SambungPanah.tsx": {
-    "mtime": 1788579407.2386346,
-    "ast_hash": "0aa626930c0659cd5b20ac7ebe5049c5",
+    "mtime": 1788609709.5233827,
+    "ast_hash": "beadbbbfe5837cf81b4ba4c80711dc6f",
     "semantic_hash": ""
   },
   "web/components/widget/vektor/SelisihPanah.tsx": {
-    "mtime": 1788579407.2409844,
-    "ast_hash": "de81493e71220cd4a718701c8337cd06",
+    "mtime": 1788609709.526379,
+    "ast_hash": "60628c152451ca7b24af70365f60e97d",
     "semantic_hash": ""
   },
   "web/components/widget/vektor/VektorSatuan.tsx": {
-    "mtime": 1788579407.2376337,
-    "ast_hash": "698a34c32487501d4c8c9b71b890f3e3",
+    "mtime": 1788609709.5409348,
+    "ast_hash": "46a2211491315087d9806db60391f3bd",
     "semantic_hash": ""
   },
   "web/components/widget/vektor/bentuk.ts": {
@@ -1375,8 +1375,8 @@
     "semantic_hash": "245d20314da8b724f2cbac1a2bb689a3"
   },
   "web/components/widget/vektor/geometri.ts": {
-    "mtime": 1788579407.2459857,
-    "ast_hash": "b9818fc90e6e286831d4b2ff6367c572",
+    "mtime": 1788609709.5065374,
+    "ast_hash": "a8eb26e661c6e676f5b3950c3386a416",
     "semantic_hash": ""
   },
   "web/components/widget/vektor/useSeret.ts": {
@@ -1625,8 +1625,8 @@
     "semantic_hash": ""
   },
   "PROGRESS.md": {
-    "mtime": 1788606725.9801142,
-    "ast_hash": "0a352cf23bc4ced3328f55058f4dfe74",
+    "mtime": 1788610344.865877,
+    "ast_hash": "8e1fbe539261426a68d9451c87c5566e",
     "semantic_hash": ""
   },
   "alat/lingkungan/pip-freeze-2026-09-02-sebelum-manimgl.txt": {
@@ -2355,8 +2355,8 @@
     "semantic_hash": ""
   },
   "web/components/kendali/index.ts": {
-    "mtime": 1788605958.1772118,
-    "ast_hash": "b19732b9ea8fd52e51c59b14fa819b22",
+    "mtime": 1788609709.369913,
+    "ast_hash": "8bebf3e4423493369b9249467c35f9a2",
     "semantic_hash": ""
   },
   "web/components/kendali/sedang-diubah.ts": {
@@ -2380,8 +2380,8 @@
     "semantic_hash": ""
   },
   "web/components/topik/PanggungTransformasiGeometri.tsx": {
-    "mtime": 1788586173.7430904,
-    "ast_hash": "57aec9b1d936e640731f1ca25141b4b4",
+    "mtime": 1788609709.7524922,
+    "ast_hash": "e81c9eae8ee9b3e6b38f2ae7a0b155ba",
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/Bentuk.tsx": {
@@ -2395,8 +2395,8 @@
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/CerminLurus.tsx": {
-    "mtime": 1788586173.738985,
-    "ast_hash": "822ec46e4c8f4b99e4948e5f88ab78ba",
+    "mtime": 1788609709.6009922,
+    "ast_hash": "dfcc3c3ba36555b60d805a820a727497",
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/CerminMiring.tsx": {
@@ -2405,8 +2405,8 @@
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/CerminTitik.tsx": {
-    "mtime": 1788586173.7399971,
-    "ast_hash": "a92449e36e17eca00a1abd5899cad9f2",
+    "mtime": 1788609709.6020432,
+    "ast_hash": "c86e5078def55c73189ce73298399ab7",
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/CocokkanMatriks.tsx": {
@@ -2430,8 +2430,8 @@
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/GeserBentuk.tsx": {
-    "mtime": 1788586173.738985,
-    "ast_hash": "fef99a754cfa86822335c1de4e58ca1a",
+    "mtime": 1788609709.5999923,
+    "ast_hash": "1081a8ebf3a901112fdd2e5eb249efc5",
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/Legenda.tsx": {
@@ -2455,13 +2455,13 @@
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/PerbesarBentuk.tsx": {
-    "mtime": 1788586173.7430904,
-    "ast_hash": "af34370a943b42e5f50d6e90339f3102",
+    "mtime": 1788609709.6050384,
+    "ast_hash": "2275a46daf5708588d63dc95cab5ea06",
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/PutarBentuk.tsx": {
-    "mtime": 1788586173.7421055,
-    "ast_hash": "ac6dec3772401b9906e65f7044bc26c0",
+    "mtime": 1788609709.6030426,
+    "ast_hash": "29ce1f02e5cab27a078d6838cd0fdcd1",
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/gaya.ts": {
@@ -2480,8 +2480,8 @@
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/useSeret.ts": {
-    "mtime": 1788454437.08807,
-    "ast_hash": "45387cc816aef2099b565a146c2b5cf8",
+    "mtime": 1788609709.5979948,
+    "ast_hash": "b437e45d84fb0329aa61f803e7844ca1",
     "semantic_hash": ""
   },
   "web/content/transformasi-geometri/index.ts": {
@@ -5604,11 +5604,6 @@
     "ast_hash": "105d9d11c2cadecd9a1d7e6091db9199",
     "semantic_hash": ""
   },
-  "web/components/kendali/TabelData.tsx": {
-    "mtime": 1788605781.5988986,
-    "ast_hash": "a232ac01690502a8fb279b7fd3aca84b",
-    "semantic_hash": ""
-  },
   "web/components/widget/statistika/TitikPegang.tsx": {
     "mtime": 1788605793.8223524,
     "ast_hash": "e2a54b63fcdb68f16d83e655b531efaf",
@@ -5622,6 +5617,11 @@
   "web/content/statistika/tahap-nyata.ts": {
     "mtime": 1788606515.8846295,
     "ast_hash": "5f0eadb6fdf1b66fe65667a9e40729a2",
+    "semantic_hash": ""
+  },
+  "web/components/kendali/Kembalikan.tsx": {
+    "mtime": 1788609301.5137637,
+    "ast_hash": "0e91de32f765cb0ce63e5239c8079e38",
     "semantic_hash": ""
   }
 }
