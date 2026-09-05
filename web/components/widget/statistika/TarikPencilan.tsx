@@ -1,5 +1,6 @@
 'use client'
 
+import { Angka, Petunjuk } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import { GarisBilangan, Penanda, TumpukanTitik } from '@/components/widget/statistika/GarisBilangan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
@@ -98,21 +99,12 @@ export default function TarikPencilan({ children }: PropWidget) {
         </svg>
       </div>
       <div className="kendali">
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label htmlFor="direktur">
-            <span>Gaji direktur</span>
-            <span className="mono">{angka(direktur, 1)} juta</span>
-          </label>
-          <input id="direktur" type="range" min={7.5} max={MAKS} step={0.5} value={direktur}
-                 onChange={(e) => pindah(0, +e.target.value)} />
-        </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Angka nama="Gaji direktur" arti="satu angka yang jauh dari yang lain" kunci="direktur" satuan=" juta"
+          nilai={direktur} onUbah={(n) => pindah(0, n)} min={7.5} max={MAKS} langkah={0.5} />
+        <Petunjuk>
             median berhenti di {angka(r.median, 2)} juta dan tidak bergerak lagi, berapa pun
             gaji direkturnya. Rata-rata terus mengejar
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )

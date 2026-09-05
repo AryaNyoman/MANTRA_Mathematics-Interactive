@@ -1,5 +1,6 @@
 'use client'
 
+import { Angka, Petunjuk } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import { GarisBilangan, Penanda, TumpukanTitik } from '@/components/widget/statistika/GarisBilangan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
@@ -115,14 +116,8 @@ export default function TigaUkuran({ children }: PropWidget) {
         </svg>
       </div>
       <div className="kendali">
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label htmlFor="tumpu">
-            <span>Letak penopang</span>
-            <span className="mono">{angka(letakTumpu, 2)}</span>
-          </label>
-          <input id="tumpu" type="range" min={MIN} max={MAKS} step={0.25} value={letakTumpu}
-                 onChange={(e) => setTumpu(+e.target.value)} />
-        </div>
+        <Angka nama="Letak penopang" arti="papannya hanya seimbang kalau penopangnya di rata-rata" kunci="tumpu"
+          nilai={letakTumpu} onUbah={setTumpu} min={MIN} max={MAKS} langkah={0.25} desimal={2} />
         <div>
           <label><span>Kembalikan</span></label>
           <div className="pilih-sisi">
@@ -137,14 +132,11 @@ export default function TigaUkuran({ children }: PropWidget) {
             <button onClick={() => { setData(D.data); setTumpu(null) }}>Kembalikan semula</button>
           </div>
         </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Petunjuk>
             {seimbang
               ? 'geser penopangnya sedikit saja, papannya langsung miring'
               : `jumlah simpangan ke penopang ${angka(torsi, 2)}, bukan nol, jadi papannya miring`}
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )

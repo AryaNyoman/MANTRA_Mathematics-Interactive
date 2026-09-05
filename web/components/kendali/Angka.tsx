@@ -31,6 +31,7 @@ export default function Angka({
   satuan = '',
   desimal,
   kunci,
+  onPegang,
 }: {
   /** nama pendek, misalnya "Sudut θ" atau "h" */
   nama: string
@@ -47,10 +48,20 @@ export default function Angka({
   desimal?: number
   /** nama besaran untuk `sedang-diubah`; bawaan `nama` */
   kunci?: string
+  /**
+   * Dipanggil sekali saat kendali mulai dipegang, SEBELUM nilainya berubah.
+   * Dipakai widget yang perlu mengingat keadaan sebelumnya, misalnya parabola
+   * yang meninggalkan bayangan bentuk lamanya.
+   */
+  onPegang?: () => void
 }) {
   const id = useId()
   const k = kunci ?? nama
   const tempat = desimal ?? (langkah < 1 ? Math.max(1, -Math.floor(Math.log10(langkah))) : 0)
+  const mulaiPegang = () => {
+    onPegang?.()
+    pegang(k)
+  }
   const tampil = nilai.toFixed(tempat).replace('.', ',')
 
   // Teks mentah kolom ketik selama disunting. `null` berarti tidak sedang
@@ -62,7 +73,7 @@ export default function Angka({
     if (Number.isFinite(n)) {
       const dijepit = Math.min(max, Math.max(min, n))
       const dibulatkan = Math.round(dijepit / langkah) * langkah
-      onUbah(Number(dibulatkan.toFixed(6)))
+      onUbah(Number(Math.min(max, Math.max(min, dibulatkan)).toFixed(6)))
     }
     setKetik(null)
   }
@@ -89,10 +100,10 @@ export default function Angka({
           value={nilai}
           aria-label={nama}
           onChange={(e) => onUbah(Number(e.target.value))}
-          onPointerDown={() => pegang(k)}
+          onPointerDown={mulaiPegang}
           onPointerUp={() => lepas(k)}
           onPointerCancel={() => lepas(k)}
-          onFocus={() => pegang(k)}
+          onFocus={mulaiPegang}
           onBlur={() => lepas(k)}
         />
         <input
@@ -103,7 +114,7 @@ export default function Angka({
           value={ketik ?? tampil}
           onChange={(e) => setKetik(e.target.value)}
           onFocus={(e) => {
-            pegang(k)
+            mulaiPegang()
             e.target.select()
           }}
           onBlur={(e) => {

@@ -1,5 +1,6 @@
 'use client'
 
+import { Angka, Petunjuk } from '@/components/kendali'
 import { useState } from 'react'
 import { GARIS_PETAK, GARIS_SUMBU, MONO, PERAN } from '@/components/widget/statistika/warna-data'
 import { VH, VW, angka, petak } from '@/components/widget/statistika/skala'
@@ -95,22 +96,13 @@ export default function SumbuJujur({ children }: PropWidget) {
         </svg>
       </div>
       <div className="kendali">
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label htmlFor="potong">
-            <span>Sumbu kanan mulai dari</span>
-            <span className="mono">{potong}</span>
-          </label>
-          <input id="potong" type="range" min={0} max={MIN_DATA} step={5} value={potong}
-                 onChange={(e) => setPotong(+e.target.value)} />
-        </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Angka nama="Sumbu kanan mulai dari" arti="0 berarti jujur, makin besar makin banyak yang dipotong" kunci="potong"
+          nilai={potong} onUbah={setPotong} min={0} max={MIN_DATA} langkah={5} />
+        <Petunjuk>
             {potong === 0
               ? 'kedua grafik sekarang sama. Naikkan angkanya dan perhatikan grafik kanan mulai berlebihan'
               : `naik ${angka(MAKS - MIN_DATA, 0)} orang dari ${angka(MIN_DATA, 0)}, sekitar ${angka(((MAKS - MIN_DATA) / MIN_DATA) * 100, 1)} persen. Di grafik kanan kenaikan itu memenuhi hampir seluruh tingginya`}
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )

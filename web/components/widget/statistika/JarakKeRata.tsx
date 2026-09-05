@@ -1,5 +1,6 @@
 'use client'
 
+import { Petunjuk, Pilihan } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import { GarisBilangan } from '@/components/widget/statistika/GarisBilangan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
@@ -106,24 +107,13 @@ export default function JarakKeRata({ children }: PropWidget) {
         </svg>
       </div>
       <div className="kendali">
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label><span>Ambil contoh</span></label>
-          <div className="pilih-sisi">
-            <button aria-pressed={mesin === 'A'} onClick={() => { setData(A.data); setMesin('A') }}>
-              Mesin A
-            </button>
-            <button aria-pressed={mesin === 'B'} onClick={() => { setData(B.data); setMesin('B') }}>
-              Mesin B
-            </button>
-          </div>
-        </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Pilihan nama="Ambil contoh" arti="dua mesin dengan sebaran botol yang berbeda"
+          pilihan={[{ nilai: 'A', label: 'Mesin A' }, { nilai: 'B', label: 'Mesin B' }]}
+          nilai={mesin} onPilih={(n) => { setData(n === 'A' ? A.data : B.data); setMesin(n) }} />
+        <Petunjuk>
             seret satu botol menjauh dari rata-rata. Perseginya tumbuh jauh lebih cepat
             daripada jaraknya: jarak dua kali lipat membuat luas empat kali lipat
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )

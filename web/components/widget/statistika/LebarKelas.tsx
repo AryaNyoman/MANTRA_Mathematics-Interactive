@@ -1,5 +1,6 @@
 'use client'
 
+import { Petunjuk, Pilihan } from '@/components/kendali'
 import { useState } from 'react'
 import Papan from '@/components/widget/statistika/Papan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
@@ -64,24 +65,16 @@ export default function LebarKelas({ children }: PropWidget) {
         </Papan>
       </div>
       <div className="kendali">
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label htmlFor="lebar">
-            <span>Lebar kelas</span>
-            <span className="mono">{lebar} cm, jadi {kelas.length} kelas</span>
-          </label>
-          <input id="lebar" type="range" min={0} max={LEBAR_PILIHAN.length - 1} value={pilihan}
-                 onChange={(e) => setPilihan(+e.target.value)} />
-        </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Pilihan nama="Lebar kelas" arti={`jadi ${kelas.length} kelas`}
+          pilihan={LEBAR_PILIHAN.map((l, i) => ({ nilai: String(i), label: `${l} cm` }))}
+          nilai={String(pilihan)} onPilih={(n) => setPilihan(Number(n))} />
+        <Petunjuk>
             {lebar <= 2
               ? 'terlalu sempit. Tiap batang cuma berisi satu dua siswa, dan polanya tenggelam di antara gerigi'
               : lebar >= 8
                 ? 'terlalu lebar. Rapi, tetapi tumpukan siswa di sekitar 160 sampai 170 sudah tidak terlihat lagi'
                 : 'di rentang ini polanya paling terbaca: siswa menumpuk di sekitar 160 sampai 170 cm'}
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )

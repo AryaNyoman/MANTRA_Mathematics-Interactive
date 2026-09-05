@@ -17,6 +17,7 @@ import PerusakFungsi, {
 import DuniaNyataLimit from '@/components/widget/limit/DuniaNyataLimit'
 import { angka } from '@/components/widget/limit/koordinat'
 import type { PropPanggung } from '@/components/topik/jenis'
+import { Angka, Petunjuk, Pilihan } from '@/components/kendali'
 
 /**
  * Panggung Limit: penyetelan kesembilan widgetnya, dan tidak lebih.
@@ -84,18 +85,12 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
           <>
             <div className="layar"><SelangMenyusut indeks={selang} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="selang">
-                  <span>Panjang selang waktu</span>
-                  <span className="mono">h = {angka(h, 3)} detik</span>
-                </label>
-                <input id="selang" type="range" min={0} max={LANGKAH_H.length - 1} value={selang}
-                       onChange={(e) => setSelang(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>perpendek terus, dan perhatikan angkanya merapat ke 20 tanpa pernah sampai</span>
-              </div>
+              <Pilihan nama="Panjang selang h" arti="detik, makin ke kanan makin pendek"
+                pilihan={LANGKAH_H.map((v, i) => ({ nilai: String(i), label: angka(v, 3) }))}
+                nilai={String(selang)} onPilih={(n) => setSelang(Number(n))} />
+              <Petunjuk>
+                perpendek terus, dan perhatikan kecepatan rata-ratanya merapat ke 20 tanpa pernah sampai.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -104,19 +99,11 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
           <>
             <div className="layar"><GarisMendekati x={xDekat} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="xdekat">
-                  <span>Letak x</span>
-                  <span className="mono">{angka(xDekat, 3)}</span>
-                </label>
-                <input id="xdekat" type="range"
-                       min={BATAS_X.min} max={BATAS_X.maks} step={BATAS_X.langkah} value={xDekat}
-                       onChange={(e) => setXDekat(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>dekati 3 dari kiri, lalu dari kanan. Coba juga letakkan tepat di 3</span>
-              </div>
+              <Angka nama="Letak x" arti="titik yang sedang diperiksa, tujuannya 3" kunci="x"
+                nilai={xDekat} onUbah={setXDekat} min={BATAS_X.min} max={BATAS_X.maks} langkah={BATAS_X.langkah} desimal={3} />
+              <Petunjuk>
+                dekati 3 dari kiri, lalu dari kanan. Coba juga ketik tepat 3.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -125,29 +112,13 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
           <>
             <div className="layar"><TarifMelompat c={cTarif} jarak={jarakTarif} /></div>
             <div className="kendali">
-              <div>
-                <label htmlFor="ctarif">
-                  <span>Titik tujuan</span>
-                  <span className="mono">{angka(cTarif, 1)} jam</span>
-                </label>
-                <input id="ctarif" type="range"
-                       min={BATAS_C.min} max={BATAS_C.maks} step={BATAS_C.langkah} value={cTarif}
-                       onChange={(e) => setCTarif(+e.target.value)} />
-              </div>
-              <div>
-                <label htmlFor="jaraktarif">
-                  <span>Jarak penunjuk</span>
-                  <span className="mono">{angka(jarakTarif, 2)}</span>
-                </label>
-                <input id="jaraktarif" type="range"
-                       min={BATAS_JARAK.min} max={BATAS_JARAK.maks} step={BATAS_JARAK.langkah}
-                       value={jarakTarif}
-                       onChange={(e) => setJarakTarif(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>geser titik tujuannya jauh dari jam kedua, kedua angka langsung sepakat</span>
-              </div>
+              <Angka nama="Titik tujuan" arti="jam berapa yang didekati" kunci="c" satuan=" jam"
+                nilai={cTarif} onUbah={setCTarif} min={BATAS_C.min} max={BATAS_C.maks} langkah={BATAS_C.langkah} />
+              <Angka nama="Jarak penunjuk" arti="seberapa jauh kedua penunjuk dari tujuan" kunci="jarak"
+                nilai={jarakTarif} onUbah={setJarakTarif} min={BATAS_JARAK.min} max={BATAS_JARAK.maks} langkah={BATAS_JARAK.langkah} />
+              <Petunjuk>
+                geser titik tujuannya jauh dari jam kedua, dan kedua angka langsung sepakat. Tepat di jam kedua, keduanya berselisih.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -156,19 +127,12 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
           <>
             <div className="layar"><LubangGrafik tingkat={tingkatLubang} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="lubang">
-                  <span>Perbesaran</span>
-                  <span className="mono">lebar {angka(LEBAR_TAMPILAN[tingkatLubang], 3)} satuan</span>
-                </label>
-                <input id="lubang" type="range" min={0} max={LEBAR_TAMPILAN.length - 1}
-                       value={tingkatLubang}
-                       onChange={(e) => setTingkatLubang(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>perbesar sampai lubangnya terlihat sebagai lingkaran kosong, bukan titik penuh</span>
-              </div>
+              <Pilihan nama="Lebar tampilan" arti="satuan, makin kecil makin diperbesar"
+                pilihan={LEBAR_TAMPILAN.map((v, i) => ({ nilai: String(i), label: angka(v, 2) }))}
+                nilai={String(tingkatLubang)} onPilih={(n) => setTingkatLubang(Number(n))} />
+              <Petunjuk>
+                perbesar sampai lubangnya terlihat sebagai lingkaran kosong, bukan titik penuh.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -179,24 +143,14 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
               <MesinSifat soal={soalSifat} langkah={langkahSifat} pesan={pesanSifat} onPilih={pilihSifat} />
             </div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label><span>Pilih soal</span></label>
-                <div className="pilih-sisi">
-                  {SOAL_SIFAT.map((_, n) => (
-                    <button key={n} aria-pressed={soalSifat === n} onClick={() => gantiSoalSifat(n)}>
-                      Soal {n + 1}{SOAL_SIFAT[n].buntu ? ' (jebakan)' : ''}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>
-                  {soalSif.buntu
-                    ? 'soal ini memang tidak bisa diselesaikan dengan sifat limit, dan itu yang mau ditunjukkan'
-                    : `langkah ${Math.min(langkahSifat + 1, soalSif.langkah.length)} dari ${soalSif.langkah.length}`}
-                </span>
-              </div>
+              <Pilihan nama="Soal" arti="pilih yang mau dibongkar dengan sifat limit"
+                pilihan={SOAL_SIFAT.map((sf, n) => ({ nilai: String(n), label: `Soal ${n + 1}${sf.buntu ? ' (jebakan)' : ''}` }))}
+                nilai={String(soalSifat)} onPilih={(n) => gantiSoalSifat(Number(n))} />
+              <Petunjuk>
+                {soalSif.buntu
+                  ? 'soal ini memang tidak bisa diselesaikan dengan sifat limit, dan itu yang mau ditunjukkan.'
+                  : `pilih sifat yang tepat di tiap langkah. Sekarang langkah ${Math.min(langkahSifat + 1, soalSif.langkah.length)} dari ${soalSif.langkah.length}.`}
+              </Petunjuk>
             </div>
           </>
         )}
@@ -207,33 +161,15 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
               <BongkarBertahap soal={soalBongkar} langkah={langkahBongkar} />
             </div>
             <div className="kendali">
-              <div>
-                <label><span>Pilih soal</span></label>
-                <div className="pilih-sisi">
-                  {SOAL_BONGKAR.map((_, n) => (
-                    <button key={n} aria-pressed={soalBongkar === n}
-                            onClick={() => { setSoalBongkar(n); setLangkahBongkar(1) }}>
-                      {n + 1}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <label><span>Langkah</span><span className="mono">{Math.min(langkahBongkar, bongkar.baris.length)} / {bongkar.baris.length}</span></label>
-                <div className="pilih-sisi">
-                  <button disabled={langkahBongkar <= 1} onClick={() => setLangkahBongkar((n) => n - 1)}>
-                    ← mundur
-                  </button>
-                  <button disabled={langkahBongkar >= bongkar.baris.length}
-                          onClick={() => setLangkahBongkar((n) => n + 1)}>
-                    maju →
-                  </button>
-                </div>
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>perhatikan syarat berwarna ungu di langkah pencoretan, itu yang membuatnya sah</span>
-              </div>
+              <Pilihan nama="Soal" arti="bentuk 0/0 yang akan dibongkar"
+                pilihan={SOAL_BONGKAR.map((_, n) => ({ nilai: String(n), label: `Soal ${n + 1}` }))}
+                nilai={String(soalBongkar)} onPilih={(n) => { setSoalBongkar(Number(n)); setLangkahBongkar(1) }} />
+              <Angka nama="Langkah" arti="buka pembongkarannya satu baris demi satu baris" kunci="langkah"
+                nilai={Math.min(langkahBongkar, bongkar.baris.length)} onUbah={setLangkahBongkar}
+                min={1} max={bongkar.baris.length} langkah={1} />
+              <Petunjuk>
+                perhatikan syarat berwarna ungu di langkah pencoretan, itu yang membuatnya sah.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -242,18 +178,12 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
           <>
             <div className="layar"><PerkecilTampilan tingkat={tingkatJauh} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="jauh">
-                  <span>Sejauh mana x dilihat</span>
-                  <span className="mono">sampai x = {angka(xJauh, 0)}</span>
-                </label>
-                <input id="jauh" type="range" min={0} max={LEBAR_X.length - 1} value={tingkatJauh}
-                       onChange={(e) => setTingkatJauh(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>kurvanya makin menempel ke garis, tapi selisihnya tidak pernah nol</span>
-              </div>
+              <Pilihan nama="Sejauh mana x dilihat" arti="batas kanan tampilan"
+                pilihan={LEBAR_X.map((v, i) => ({ nilai: String(i), label: `x = ${v}` }))}
+                nilai={String(tingkatJauh)} onPilih={(n) => setTingkatJauh(Number(n))} />
+              <Petunjuk>
+                kurvanya makin menempel ke garis, tapi selisihnya tidak pernah nol.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -262,20 +192,11 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
           <>
             <div className="layar"><BusurLawanTali derajat={derajatBusur} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="busur">
-                  <span>Sudut <span style={{ textTransform: 'none' }}>θ</span></span>
-                  <span className="mono">{derajatBusur}°</span>
-                </label>
-                <input id="busur" type="range"
-                       min={BATAS_DERAJAT.min} max={BATAS_DERAJAT.maks} step={BATAS_DERAJAT.langkah}
-                       value={derajatBusur}
-                       onChange={(e) => setDerajatBusur(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>kecilkan sudutnya, kedua batang makin sama panjang tapi busur selalu menang tipis</span>
-              </div>
+              <Angka nama="Sudut θ" arti="sudut pusat busurnya" kunci="sudut" satuan="°"
+                nilai={derajatBusur} onUbah={setDerajatBusur} min={BATAS_DERAJAT.min} max={BATAS_DERAJAT.maks} langkah={BATAS_DERAJAT.langkah} />
+              <Petunjuk>
+                kecilkan sudutnya, kedua batang makin sama panjang tapi busur selalu menang tipis.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -284,21 +205,10 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
           <>
             <div className="layar"><PerusakFungsi rusak={rusak} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label><span>Rusak bagaimana</span></label>
-                <div className="pilih-sisi" style={{ flexWrap: 'wrap' }}>
-                  {URUT_RUSAK.map((r) => (
-                    <button key={r} aria-pressed={rusak === r} onClick={() => setRusak(r)}
-                            style={{ flex: '1 1 30%' }}>
-                      {NAMA_RUSAK[r]}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>{KETERANGAN[rusak]}</span>
-              </div>
+              <Pilihan nama="Rusak bagaimana" arti="satu fungsi mulus, dirusak dengan empat cara"
+                pilihan={URUT_RUSAK.map((r) => ({ nilai: r, label: NAMA_RUSAK[r] }))}
+                nilai={rusak} onPilih={setRusak} />
+              <Petunjuk>{KETERANGAN[rusak]}</Petunjuk>
             </div>
           </>
         )}

@@ -1,5 +1,6 @@
 'use client'
 
+import { Petunjuk, Pilihan } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import Papan from '@/components/widget/statistika/Papan'
 import { PERAN } from '@/components/widget/statistika/warna-data'
@@ -113,22 +114,14 @@ export default function GarisRegresi({ children }: PropWidget) {
         </Papan>
       </div>
       <div className="kendali">
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label><span>Garis kuadrat terkecil</span></label>
-          <div className="pilih-sisi">
-            <button aria-pressed={tampilTerbaik} onClick={() => setTampilTerbaik((v) => !v)}>
-              {tampilTerbaik ? 'Sembunyikan garis terbaik' : 'Tunjukkan garis terbaik'}
-            </button>
-          </div>
-        </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Pilihan nama="Garis kuadrat terkecil" arti="garis yang jumlah kuadrat jaraknya paling kecil"
+          pilihan={[{ nilai: 'sembunyi', label: 'Sembunyikan' }, { nilai: 'tampil', label: 'Tunjukkan' }]}
+          nilai={tampilTerbaik ? 'tampil' : 'sembunyi'} onPilih={(n) => setTampilTerbaik(n === 'tampil')} />
+        <Petunjuk>
             {selisihLebih <= 0.5
               ? 'garis Anda sudah sedekat itu dengan yang terbaik. Tidak ada garis lain yang bisa lebih kecil lagi'
               : `garis Anda masih ${angka(selisihLebih, 1)} lebih besar daripada yang terbaik. Seret kedua ujungnya`}
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )

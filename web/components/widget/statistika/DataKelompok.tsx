@@ -1,5 +1,6 @@
 'use client'
 
+import { Angka, Petunjuk } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import Papan from '@/components/widget/statistika/Papan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
@@ -170,30 +171,12 @@ export default function DataKelompok({ children }: PropWidget) {
         </Papan>
       </div>
       <div className="kendali">
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label htmlFor="garis">
-            <span>Letak garis</span>
-            <span className="mono">{angka(garis, 2)}</span>
-          </label>
-          <input id="garis" type="range" min={MIN} max={MAKS} step={0.25} value={garis}
-                 onChange={(e) => geser(0, +e.target.value)} />
-        </div>
-        <div>
-          <label htmlFor="f-kiri">
-            <span>Tetangga kiri {ASLI[I_KIRI].label}</span>
-            <span className="mono">{fKiri}</span>
-          </label>
-          <input id="f-kiri" type="range" min={0} max={BATAS_TETANGGA} step={1} value={fKiri}
-                 onChange={(e) => setFKiri(+e.target.value)} />
-        </div>
-        <div>
-          <label htmlFor="f-kanan">
-            <span>Tetangga kanan {ASLI[I_KANAN].label}</span>
-            <span className="mono">{fKanan}</span>
-          </label>
-          <input id="f-kanan" type="range" min={0} max={BATAS_TETANGGA} step={1} value={fKanan}
-                 onChange={(e) => setFKanan(+e.target.value)} />
-        </div>
+        <Angka nama="Letak garis" arti="geser sampai siswa di kiri dan kanan sama banyak" kunci="garis"
+          nilai={garis} onUbah={(n) => geser(0, n)} min={MIN} max={MAKS} langkah={0.25} desimal={2} />
+        <Angka nama={`Tetangga kiri ${ASLI[I_KIRI].label}`} arti="banyak siswa di kelas sebelah kiri" kunci="kiri" satuan=" siswa"
+          nilai={fKiri} onUbah={setFKiri} min={0} max={BATAS_TETANGGA} langkah={1} />
+        <Angka nama={`Tetangga kanan ${ASLI[I_KANAN].label}`} arti="banyak siswa di kelas sebelah kanan" kunci="kanan" satuan=" siswa"
+          nilai={fKanan} onUbah={setFKanan} min={0} max={BATAS_TETANGGA} langkah={1} />
         <div style={{ gridColumn: '1 / -1' }}>
           <label><span>Tabel asli</span></label>
           <div className="pilih-sisi">
@@ -202,16 +185,13 @@ export default function DataKelompok({ children }: PropWidget) {
             </button>
           </div>
         </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Petunjuk>
             {seimbang
               ? `seimbang. Kiri dan kanan sama-sama ${angka(kiriJumlah, 1)} siswa, dan rumus interpolasi memberi angka yang sama`
               : selisih < 0
                 ? `masih ${angka(-selisih, 1)} siswa lebih banyak di kanan, geser ke kanan`
                 : `masih ${angka(selisih, 1)} siswa lebih banyak di kiri, geser ke kiri`}
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )

@@ -1,5 +1,6 @@
 'use client'
 
+import { Petunjuk, Pilihan } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import Papan from '@/components/widget/statistika/Papan'
 import { PERAN } from '@/components/widget/statistika/warna-data'
@@ -102,25 +103,14 @@ export default function DiagramPencar({ children }: PropWidget) {
         </Papan>
       </div>
       <div className="kendali">
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label><span>Contoh siap pakai</span></label>
-          <div className="pilih-sisi" style={{ flexWrap: 'wrap' }}>
-            {CONTOH.map((c, n) => (
-              <button key={c.kunci} aria-pressed={pilih === n} onClick={() => gantiContoh(n)}
-                      style={{ flex: '1 1 44%' }}>
-                {c.nama}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Pilihan nama="Contoh siap pakai" arti="atau seret titiknya sendiri di gambar"
+          pilihan={CONTOH.map((c, n) => ({ nilai: String(n), label: c.nama }))}
+          nilai={String(pilih)} onPilih={(n) => gantiContoh(Number(n))} />
+        <Petunjuk>
             {trend.bentuk === 'melengkung'
               ? 'polanya melengkung. Garis lurus tidak akan cocok untuk data seperti ini, dan angka hubungannya pun akan menyesatkan'
               : `titiknya ${trend.kekuatan === 'kuat' ? 'menempel rapat pada pola' : trend.kekuatan === 'sedang' ? 'agak berpencar dari pola' : 'berpencar jauh, polanya samar'}`}
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )
