@@ -2,7 +2,7 @@
   "adegan": "TransformasiMatriks",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Video 05, Materi 09 'Matriks secukupnya'. Satu-satunya video topik ini yang bendanya BUKAN huruf L, melainkan persegi satuan: yang diajarkan cara membaca empat angka di dalam matriks, dan persegi satuanlah gambar yang membuat aturan kolom terlihat langsung. Tiap segmen punya teks dan tulis.",
+  "catatan": "Video 05, Materi 09 'Matriks secukupnya'. Satu-satunya video topik ini yang bendanya BUKAN huruf L, melainkan persegi satuan: yang diajarkan cara membaca empat angka di dalam matriks, dan persegi satuanlah gambar yang membuat aturan kolom terlihat langsung. Versi 2 (5 Sep 2026): diperpanjang dari 77 ke sekitar 128 detik, dari 10 ke 16 segmen. Yang ditambahkan: matriks satuan, perkalian yang benar-benar dihitung, kekeliruan baris lawan kolom, dan batas jujur bahwa translasi tidak punya matriks dua kali dua. Determinan SENGAJA tidak diberi babak sendiri: halaman Materi 09 menjanjikan ia cuma disinggung sekali dan tidak diujikan, dan video yang membahasnya panjang lebar akan mengingkari janji itu. Materi ini nomor sembilan, jadi istilah yang boleh dipakai prapeta, cermin, translasi, rotasi, dilatasi, faktor skala, arah putar, dan matriks; komposisi masih di depan.",
   "segmen": [
     {
       "id": "buka",
@@ -40,19 +40,49 @@
       "tulis": "Matriks bisa dibaca dari gambar: lihat ke mana kedua titik pergi, tulis sebagai kolom."
     },
     {
+      "id": "satuan",
+      "teks": "Ada satu matriks yang tidak mengubah apa pun. Perseginya tetap di tempatnya, sebab kedua kolomnya persis kedua titik semula.",
+      "tulis": "Matriks (1, 0; 0, 1) tidak mengubah apa pun: kolomnya persis kedua titik semula."
+    },
+    {
       "id": "kali",
       "teks": "Untuk titik lain, yang bertemu koordinatnya adalah *baris* matriksnya, bukan kolomnya.",
       "tulis": "Untuk titik lain, yang bertemu koordinatnya adalah *baris* matriks, bukan kolom."
     },
     {
-      "id": "kenal",
-      "teks": "Matriks ini nol, negatif satu, satu, nol. Coba kenakan pada tiga koma dua: hasilnya negatif dua koma tiga.",
-      "tulis": "Matriks [[0, -1], [1, 0]] dikenakan pada (3, 2): hasilnya (-2, 3)."
+      "id": "uji",
+      "teks": "Begini jalannya. Baris pertama bertemu koordinat titiknya, dan hasilnya nilai x yang baru. Baris kedua bertemu koordinat yang sama, dan hasilnya nilai y yang baru.",
+      "tulis": "Baris pertama bertemu koordinat titik, hasilnya x baru. Baris kedua, hasilnya y baru."
     },
     {
-      "id": "tutup",
+      "id": "kenal",
+      "teks": "Matriks ini nol, negatif satu, satu, nol. Coba kenakan pada tiga koma dua: hasilnya negatif dua koma tiga.",
+      "tulis": "Matriks (0, -1; 1, 0) dikenakan pada (3, 2): hasilnya (-2, 3)."
+    },
+    {
+      "id": "cocok",
       "teks": "Itu persis rotasi sembilan puluh derajat dari Materi keenam. Jadi matriks bukan hal baru, cuma cara lain menuliskannya.",
       "tulis": "Itu persis rotasi 90° dari Materi 06. Matriks bukan hal baru, cuma cara lain menulisnya."
+    },
+    {
+      "id": "keliru",
+      "teks": "Sekarang kekeliruan yang paling sering terjadi. Matriksnya dibaca mendatar, seolah baris pertamanya adalah tempat mendaratnya titik satu koma nol.",
+      "tulis": "Kekeliruan tersering: matriks dibaca mendatar, seolah baris pertama tempat mendarat (1, 0)."
+    },
+    {
+      "id": "betul",
+      "teks": "Yang benar dibaca menurun. Perhatikan perseginya: dibaca mendatar, bayangannya mendarat di tempat yang salah, dan bentuknya pun ikut salah.",
+      "tulis": "Yang benar dibaca menurun. Dibaca mendatar, bayangannya mendarat di tempat yang salah."
+    },
+    {
+      "id": "geser",
+      "teks": "Satu batas yang perlu kamu tahu. Translasi tidak punya matriks dua kali dua, sebab menggeser memindahkan titik asal juga, sedangkan perkalian matriks selalu membiarkan titik asal di tempatnya.",
+      "tulis": "Translasi tidak punya matriks 2x2: menggeser memindahkan titik asal, perkalian matriks tidak."
+    },
+    {
+      "id": "rangkum",
+      "teks": "Rangkumannya satu kalimat: kedua kolom matriks adalah tempat mendaratnya titik satu koma nol dan nol koma satu. Satu pertanyaan: matriks mana yang mengubah persegi satuan menjadi persegi bersisi dua?",
+      "tulis": "Kedua kolom matriks = tempat mendaratnya (1, 0) dan (0, 1). Matriks mana yang membuat sisinya jadi 2?"
     }
   ]
 }

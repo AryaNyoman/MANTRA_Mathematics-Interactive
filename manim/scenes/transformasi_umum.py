@@ -31,6 +31,26 @@ TIGA JEBAKAN YANG SUDAH DIBAYAR MAHAL, JANGAN DIULANG
    bukan morph melainkan tumpukan coretan tak terbaca selama satu setengah
    detik. Untuk rumus yang isinya beda jauh, pakai `papan.baris` (menumpuk),
    bukan `ganti_rumus` (mengganti).
+
+5. TIAP BABAK WAJIB PUNYA KEJADIAN SEUKURAN BENTUKNYA, dan kejadian itu
+   ditaruh di TENGAH babak, bukan di ujung-ujungnya.
+
+   `alat/ukur_detik_pertama.py` menghitung sebuah rentang sebagai DIAM kalau
+   perubahan pikselnya di bawah 300 dari 409.920. Ruas berangka setebal 4,0
+   sepanjang beberapa petak hanya sekitar 100 piksel, dan `Indicate` pada
+   label sehuruf sekitar 150. Keduanya TIDAK terbaca sebagai gerakan.
+
+   Yang terbaca cuma tiga: `ShowCreation` sebuah poligon, `Indicate` pada
+   bentuk utuh, dan gerakan kamera. Menebalkan goresan tidak menolong; sudah
+   dicoba di video 01 dari 3,2 ke 5,0 dan angkanya tidak bergerak sama sekali.
+
+   Dibayar dua kali sebelum jadi aturan: video 01 babak "periksa" dinilai diam
+   8,3 dari 8,3 detik, lalu video 02 babak "tegaklurus" dinilai diam 8,5 dari
+   8,5 detik, keduanya karena isinya cuma ruas berangka.
+
+   Ruas berangka tetap dipakai, sebab ia yang membuat siswa bisa MEMERIKSA
+   angkanya. Ia hanya tidak boleh menjadi satu-satunya kejadian dalam sebuah
+   babak.
 """
 
 import math
@@ -105,6 +125,140 @@ def poligon(titik, warna, tebal=3.0, isian=0.0):
     from gl import Polygon  # noqa: F401
     pts = [titik3(t) for t in titik]
     return Polygon(*pts).set_stroke(warna, tebal).set_fill(warna, isian)
+
+
+def rumus_dunia(isi, ukuran, warna, tinggi_kamera, slot, maks_layar=6.8):
+    """Rumus yang berdiri DI DUNIA, berukuran tetap DI LAYAR.
+
+    DUA HAL YANG SALAH TANPA FUNGSI INI, dan keduanya sungguh terjadi pada
+    render video 05 tanggal 5 September 2026.
+
+    1. UKURANNYA IKUT SKALA KAMERA. `rumus(isi, 32, warna)` membuat benda
+       dunia, dan benda dunia menciut bersama kamera. Pada kotak berskala
+       1,04 huruf 32 tampil 32; pada kotak berskala 0,52 ia tampil 16, dan
+       16 tidak layak dibaca. Fungsi ini membesarkannya balik dengan 1/skala,
+       jadi ukurannya di layar sama berapa pun kotaknya.
+
+       `sinema.batasi_lebar` tidak bisa dipakai untuk ini: ia hanya MENGECILKAN
+       yang kelewat lebar, tidak pernah membesarkan yang kelewat kecil.
+
+    2. BATAS LEBARNYA HARUS DALAM SATUAN LAYAR, bukan satuan dunia. Batas 6
+       satuan dunia berarti 6,2 satuan layar pada satu kotak dan 3,1 pada
+       kotak lain; angka yang sama menghasilkan dua ukuran yang berbeda.
+
+    `slot` tetap dalam satuan dunia, sebab yang ditentukan letaknya di dunia:
+    di bawah petak, bukan di atasnya. Rumus yang berdiri di atas bidang petak
+    akan menindih ANGKA SUMBU, dan `qc.periksa_adegan` tidak menangkapnya
+    dengan sengaja: benda dunia lawan benda dunia memang dibolehkan
+    bersentuhan. Sediakan ruang kosong di bawah petak, jangan menumpuknya.
+    """
+    from gl import rumus as _rumus
+    m = _rumus(isi, ukuran, warna)
+    skala = LAYAR_TINGGI / float(tinggi_kamera)
+    m.scale(1.0 / skala)
+    if m.get_width() * skala > maks_layar:
+        m.set_width(maks_layar / skala)
+    m.move_to(slot)
+    return m
+
+
+def juring(jari, sudut0, sudut1, n=28):
+    """Titik-titik sebuah JURING (potongan pizza) dari pusat (0, 0).
+
+    Dipakai untuk memperlihatkan DAERAH yang disapu sebuah putaran, dan itu
+    bukan hiasan: sebuah juring berisi ribuan piksel, sedangkan busur setebal
+    3,0 hanya sekitar seratus. `alat/ukur_detik_pertama.py` menghitung rentang
+    dengan perubahan di bawah 300 piksel sebagai DIAM, jadi babak yang seluruh
+    isinya cuma busur dan panah akan dinilai diam walaupun ada yang bergerak
+    di layar. Juring menjawab keduanya sekaligus: ia benda yang memang sedang
+    dibicarakan, dan ia cukup besar untuk terbaca alat ukur.
+
+    Sudut dalam RADIAN. Dikembalikan sebagai senarai pasangan, siap dikirim ke
+    `poligon`.
+    """
+    titik = [(0.0, 0.0)]
+    for i in range(n + 1):
+        a = sudut0 + (sudut1 - sudut0) * i / n
+        titik.append((jari * math.cos(a), jari * math.sin(a)))
+    return titik
+
+
+def kosongkan_papan(scene, papan, b=None, run_time=0.6):
+    """Buang semua baris tambahan papan rumus, sisakan rumus utamanya.
+
+    `sinema.PapanRumus` menumpuk baris ke BAWAH tanpa batas, dan zona rumus
+    hanya setinggi 2,60 satuan layar: kira-kira rumus utama ditambah empat
+    baris. Video 05 pernah menumpuk enam dan barisnya merembes keluar panel.
+    Tidak ada gerbang yang menangkap itu, sebab papan diserahkan ke qc sebagai
+    satu benda dan qc hanya mengadu isinya satu sama lain, bukan terhadap
+    tinggi zonanya.
+
+    Karena itu tiap video topik ini MENGOSONGKAN papannya setiap kali contoh
+    berganti, bukan menumpuk terus sampai penuh.
+    """
+    from gl import FadeOut  # noqa: F401
+    if not papan.baris_lain:
+        return
+    anim = [FadeOut(m) for m in papan.baris_lain]
+    papan.baris_lain = []
+    if b is not None:
+        b.main(*anim, run_time=run_time)
+    else:
+        scene.play(*anim, run_time=run_time)
+    papan.perbarui_alas()
+
+
+class LabelTertelan(Exception):
+    """Label yang tergambar DI DALAM benda yang dinamainya."""
+
+
+def _kotak2d(m):
+    return (m.get_left()[0], m.get_right()[0], m.get_bottom()[1], m.get_top()[1])
+
+
+def tempel_label(label, benda, arah, buff=0.24):
+    """Tempelkan label ke TEPI sebuah benda, dan buktikan ia tidak tertelan.
+
+    KENAPA FUNGSI INI ADA
+    Video 02 dirilis dengan label "kamu" dan "bayangan" tergambar DI DALAM
+    sosok yang mereka namai, dan keduanya praktis tidak terbaca. Sebabnya satu
+    baris yang kelihatan benar:
+
+        l_orang.next_to(titik3(orang), UP, buff=0.24)
+
+    `orang` adalah titik PUSAT sosoknya, sedangkan sosoknya menjulur 0,7 satuan
+    ke atas dari situ. `next_to` menaruh labelnya 0,24 di atas PUSAT, yaitu
+    0,46 satuan di bawah puncak sosoknya, lalu isian poligon menutupinya.
+
+    `qc.periksa_adegan` TIDAK menangkap ini, dan itu memang disengaja: label
+    yang menempel pada bendanya adalah hal yang normal, jadi benda dunia lawan
+    benda dunia sengaja dibolehkan bersentuhan. Yang tidak normal adalah label
+    yang tertelan HABIS. Perbedaannya tidak bisa dinyatakan sebagai "tidak
+    boleh bersentuhan", jadi dijaga di sini, di tempat labelnya dipasang.
+
+    Menerima BENDA, bukan koordinat. Itu bagian pentingnya: menempel ke sebuah
+    titik adalah cara membuat kesalahan tadi, dan sekarang caranya tidak ada.
+
+    Label SUDUT (huruf A, B, C di pojok bentuk) bukan urusan fungsi ini. Label
+    sudut memang menempel ke sebuah titik, dan arahnya dipilih tangan supaya
+    keluar dari bentuknya.
+    """
+    if not hasattr(benda, "get_left"):
+        raise TypeError(
+            "tempel_label butuh BENDA, bukan koordinat. Menempel ke titik "
+            "pusat benda menaruh labelnya DI DALAM benda itu sendiri; itu "
+            "yang terjadi pada label 'kamu' dan 'bayangan' di video 02."
+        )
+    label.next_to(benda, arah, buff=buff)
+    lx0, lx1, ly0, ly1 = _kotak2d(label)
+    bx0, bx1, by0, by1 = _kotak2d(benda)
+    if lx0 < bx1 and bx0 < lx1 and ly0 < by1 and by0 < ly1:
+        raise LabelTertelan(
+            f"label bertindih benda yang dinamainya: label x {lx0:.2f}..{lx1:.2f} "
+            f"y {ly0:.2f}..{ly1:.2f}, benda x {bx0:.2f}..{bx1:.2f} "
+            f"y {by0:.2f}..{by1:.2f}. Perbesar buff atau pilih arah lain."
+        )
+    return label
 
 
 def letak_peta(x0, x1, y0, y1):

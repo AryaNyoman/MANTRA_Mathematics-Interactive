@@ -1,5 +1,5 @@
 {
-  "total": 68.352,
+  "total": 130.416,
   "segmen": {
     "buka": 4.032,
     "jarum": 7.92,
@@ -7,9 +7,17 @@
     "bentuk": 4.992,
     "jari": 8.736,
     "rumus": 4.416,
+    "periksa": 8.448,
+    "hitung": 8.088,
+    "kedua": 7.128,
+    "cocok": 7.272,
     "janji": 6.864,
-    "sama": 9.552,
+    "sama": 9.288,
+    "keliru": 7.968,
+    "betul": 9.12,
+    "pusat": 10.296,
     "sembarang": 5.064,
-    "tutup": 10.224
+    "rangkum": 7.104,
+    "tanya": 7.128
   }
 }
