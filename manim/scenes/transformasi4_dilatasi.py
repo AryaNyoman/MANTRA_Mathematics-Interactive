@@ -85,24 +85,46 @@ class TransformasiDilatasi(AdeganMatra):
             t.next_to(titik3(L[i]), DOWN if i < 2 else UP, buff=0.22)
             nama_pra[huruf] = t
 
+        # CUBITAN DUA JARI ITU DIPERAGAKAN, TIDAK CUMA DIUCAPKAN.
+        #
+        # Versi sebelumnya cuma memunculkan bidang dan bentuknya, lalu DIAM
+        # 12,2 detik menembus dua babak sekaligus, sementara narator berbicara
+        # tentang memperbesar foto dan tentang titik yang tidak bergerak.
+        # Terukur `alat/ukur_detik_pertama.py`, dan itu rentang diam terpanjang
+        # di seluruh enam video topik ini.
+        #
+        # Bukan cuma angkanya yang buruk. Kalimat "ada satu titik yang tidak
+        # bergerak" hanya bisa dibuktikan kalau ada yang BERGERAK di sebelahnya;
+        # layar yang diam membuat kalimat itu tidak bisa diperiksa siswa.
+        # Sekarang bentuknya membesar lalu mengecil kembali terhadap titik
+        # asal, persis seperti foto yang dicubit dua jari.
+        #
+        # Label sudut A, B, C ditunda ke babak "sinar". Label adalah benda
+        # dunia yang TIDAK ikut membesar, jadi ia akan lepas dari sudutnya
+        # selama cubitan berlangsung. Ketiga babak awal juga tidak menyebut
+        # satu pun nama sudut.
         with sinema.babak(self, "foto", DURASI) as b:
             b.main(FadeIn(bidang), run_time=0.8)
-            b.main(
-                ShowCreation(prapeta), *[FadeIn(nama_pra[h]) for h in nama_pra],
-                run_time=1.4,
-            )
+            b.main(ShowCreation(prapeta), run_time=1.4)
             ident = sinema.identitas(self, "1 petak = 1 satuan")
-        qc.periksa_adegan(self, {"prapeta": prapeta, "identitas": ident},
-                          dunia={"bidang": bidang})
+            b.main(prapeta.animate.scale(1.3, about_point=asal), run_time=1.2)
+            b.main(prapeta.animate.scale(1.0 / 1.3, about_point=asal), run_time=1.2)
+        qc.periksa_adegan(self, {"prapeta": prapeta},
+                          hud={"identitas": ident}, dunia={"bidang": bidang})
 
         # --- pusat: titik yang tidak bergerak ---------------------------- #
         tanda_pusat = Dot(asal, radius=0.10).set_color(SOROT)
         l_pusat = sinema.label("pusat", warna=SOROT)
         l_pusat.next_to(asal, UP, buff=0.26)
 
+        # Cubitan diulang SESUDAH pusatnya ditandai, dan itu inti babak ini:
+        # sekarang mata punya tempat untuk melihat bahwa satu titik memang
+        # tinggal diam sementara seluruh sisanya bergerak.
         with sinema.babak(self, "pusat", DURASI) as b:
             b.main(FadeIn(tanda_pusat, scale=0.4), FadeIn(l_pusat), run_time=1.0)
-            b.main(Indicate(tanda_pusat, color=SOROT), run_time=0.8)
+            b.main(prapeta.animate.scale(1.3, about_point=asal), run_time=1.3)
+            b.main(prapeta.animate.scale(1.0 / 1.3, about_point=asal), run_time=1.3)
+            b.main(Indicate(prapeta, color=SOROT), run_time=1.2)
         qc.periksa_adegan(self, {"prapeta": prapeta, "label pusat": l_pusat},
                           hud={"identitas": ident}, dunia={"bidang": bidang})
 
@@ -116,8 +138,13 @@ class TransformasiDilatasi(AdeganMatra):
             for i in range(len(L))
         ])
 
+        # Nama sudutnya baru muncul DI SINI, sesudah cubitan selesai. Kalimat
+        # babak ini menyebut "tiap sudut bentuknya", jadi di sinilah nama sudut
+        # pertama kali berguna.
         with sinema.babak(self, "sinar", DURASI) as b:
+            b.main(*[FadeIn(nama_pra[h]) for h in nama_pra], run_time=0.8)
             b.main(*[ShowCreation(s) for s in sinar], run_time=1.8)
+            b.main(Indicate(prapeta, color=AKSEN2), run_time=1.4)
         qc.periksa_adegan(self, {"prapeta": prapeta},
                           hud={"identitas": ident},
                           dunia={"bidang": bidang, "sinar": sinar})
@@ -132,6 +159,7 @@ class TransformasiDilatasi(AdeganMatra):
                 *[d.animate.move_to(titik3(peta2[i])) for i, d in enumerate(titik_jalan)],
                 run_time=max(2.0, DURASI["meluncur"] - 2.6),
             )
+            b.main(Indicate(prapeta, color=AKSEN), run_time=1.4)
         qc.periksa_adegan(self, {"prapeta": prapeta},
                           hud={"identitas": ident},
                           dunia={"bidang": bidang, "sinar": sinar})
@@ -169,12 +197,14 @@ class TransformasiDilatasi(AdeganMatra):
                 rf"\text{{luas}}:\ {luas_pra:.0f} \to {luas_peta:.0f}\ \ (4\times)",
                 warna=SOROT, b=b,
             )
+            b.main(Indicate(peta_besar, color=SOROT), run_time=1.4)
         qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_besar},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang, "sinar": sinar})
 
         with sinema.babak(self, "pizza", DURASI) as b:
             papan.baris(r"4 = 2^2,\ \text{bukan } 2", warna=SOROT, b=b)
+            b.main(Indicate(peta_besar, color=AKSEN), run_time=1.4)
         qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_besar},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang, "sinar": sinar})

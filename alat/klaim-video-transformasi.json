@@ -1,0 +1,241 @@
+[
+  {
+    "id": "V03-jarum-90",
+    "jenis": "rotasi",
+    "titik": [4, 0],
+    "derajat": 90,
+    "jawaban": [0, 4]
+  },
+  {
+    "id": "V03-B-90",
+    "jenis": "rotasi",
+    "titik": [6, 1],
+    "derajat": 90,
+    "jawaban": [-1, 6]
+  },
+  {
+    "id": "V03-B-270",
+    "jenis": "rotasi",
+    "titik": [6, 1],
+    "derajat": 270,
+    "jawaban": [1, -6]
+  },
+  {
+    "id": "V03-B-180",
+    "jenis": "rotasi",
+    "titik": [6, 1],
+    "derajat": 180,
+    "jawaban": [-6, -1]
+  },
+  {
+    "id": "V03-janji-180-sama-dengan-cermin-titik-asal",
+    "jenis": "cermin_titik",
+    "titik": [6, 1],
+    "pusat": [0, 0],
+    "jawaban": [-6, -1]
+  },
+  {
+    "id": "V03-jari-prapeta",
+    "jenis": "jarak",
+    "a": [0, 0],
+    "b": [6, 1],
+    "jawaban": 6.082762530298219
+  },
+  {
+    "id": "V03-jari-peta",
+    "jenis": "jarak",
+    "a": [0, 0],
+    "b": [-1, 6],
+    "jawaban": 6.082762530298219
+  },
+  {
+    "id": "V03-pusat-bukan-titik-asal",
+    "jenis": "rotasi",
+    "titik": [1, 1],
+    "derajat": 90,
+    "pusat": [3, 2],
+    "jawaban": [4, 0]
+  },
+  {
+    "id": "V03-pusat-lewat-tiga-langkah",
+    "jenis": "komposisi",
+    "titik": [1, 1],
+    "langkah": [
+      { "jenis": "translasi", "geser": [-3, -2] },
+      { "jenis": "rotasi", "derajat": 90 },
+      { "jenis": "translasi", "geser": [3, 2] }
+    ],
+    "jawaban": [4, 0]
+  },
+  {
+    "id": "V03-titik-di-pusat-tidak-pindah",
+    "jenis": "rotasi",
+    "titik": [0, 0],
+    "derajat": 90,
+    "jawaban": [0, 0]
+  },
+
+  {
+    "id": "V05-kolom-pertama",
+    "jenis": "matriks",
+    "titik": [1, 0],
+    "m": [[0, -1], [1, 0]],
+    "jawaban": [0, 1]
+  },
+  {
+    "id": "V05-kolom-kedua",
+    "jenis": "matriks",
+    "titik": [0, 1],
+    "m": [[0, -1], [1, 0]],
+    "jawaban": [-1, 0]
+  },
+  {
+    "id": "V05-kenal-32",
+    "jenis": "matriks",
+    "titik": [3, 2],
+    "m": [[0, -1], [1, 0]],
+    "jawaban": [-2, 3]
+  },
+  {
+    "id": "V05-cocok-matriks-itu-rotasi-90",
+    "jenis": "rotasi",
+    "titik": [3, 2],
+    "derajat": 90,
+    "jawaban": [-2, 3]
+  },
+  {
+    "id": "V05-satuan-kolom-pertama",
+    "jenis": "matriks",
+    "titik": [1, 0],
+    "m": [[1, 0], [0, 1]],
+    "jawaban": [1, 0]
+  },
+  {
+    "id": "V05-satuan-kolom-kedua",
+    "jenis": "matriks",
+    "titik": [0, 1],
+    "m": [[1, 0], [0, 1]],
+    "jawaban": [0, 1]
+  },
+  {
+    "id": "V05-keliru-dibaca-mendatar",
+    "jenis": "matriks",
+    "titik": [1, 0],
+    "m": [[0, 1], [-1, 0]],
+    "jawaban": [0, -1]
+  },
+  {
+    "id": "V05-geser-titik-asal-tetap-di-bawah-matriks",
+    "jenis": "matriks",
+    "titik": [0, 0],
+    "m": [[0, -1], [1, 0]],
+    "jawaban": [0, 0]
+  },
+  {
+    "id": "V05-tanya-persegi-bersisi-dua",
+    "jenis": "matriks",
+    "titik": [1, 1],
+    "m": [[2, 0], [0, 2]],
+    "jawaban": [2, 2]
+  },
+
+  {
+    "id": "V06-urutan-benar",
+    "jenis": "komposisi",
+    "titik": [3, 1],
+    "langkah": [
+      { "jenis": "cermin_sumbu_x" },
+      { "jenis": "rotasi", "derajat": 90 }
+    ],
+    "jawaban": [1, 3]
+  },
+  {
+    "id": "V06-urutan-dibalik",
+    "jenis": "komposisi",
+    "titik": [3, 1],
+    "langkah": [
+      { "jenis": "rotasi", "derajat": 90 },
+      { "jenis": "cermin_sumbu_x" }
+    ],
+    "jawaban": [-1, -3]
+  },
+  {
+    "id": "V06-hasil-kali-matriks",
+    "jenis": "kali_matriks",
+    "m2": [[0, -1], [1, 0]],
+    "m1": [[1, 0], [0, -1]],
+    "jawaban": [[0, 1], [1, 0]]
+  },
+  {
+    "id": "V06-hasil-kali-matriks-tertukar",
+    "jenis": "kali_matriks",
+    "m2": [[1, 0], [0, -1]],
+    "m1": [[0, -1], [1, 0]],
+    "jawaban": [[0, -1], [-1, 0]]
+  },
+  {
+    "id": "V06-gabungan-itu-cermin-y-sama-x",
+    "jenis": "cermin_y_x",
+    "titik": [3, 1],
+    "jawaban": [1, 3]
+  },
+  {
+    "id": "V06-gabungan-tertukar-itu-cermin-y-min-x",
+    "jenis": "cermin_y_min_x",
+    "titik": [3, 1],
+    "jawaban": [-1, -3]
+  },
+  {
+    "id": "V06-gabungan-lewat-matriks",
+    "jenis": "matriks",
+    "titik": [3, 1],
+    "m": [[0, 1], [1, 0]],
+    "jawaban": [1, 3]
+  },
+  {
+    "id": "V06-periksa-segitiga-dua-langkah",
+    "jenis": "komposisi",
+    "titik": [2, 1],
+    "langkah": [
+      { "jenis": "cermin_sumbu_x" },
+      { "jenis": "rotasi", "derajat": 90 }
+    ],
+    "jawaban": [1, 2]
+  },
+  {
+    "id": "V06-periksa-segitiga-langsung",
+    "jenis": "cermin_y_x",
+    "titik": [2, 1],
+    "jawaban": [1, 2]
+  },
+  {
+    "id": "V06-sama-30-lalu-60",
+    "jenis": "komposisi",
+    "titik": [2, 0],
+    "langkah": [
+      { "jenis": "rotasi", "derajat": 30 },
+      { "jenis": "rotasi", "derajat": 60 }
+    ],
+    "jawaban": [0, 2]
+  },
+  {
+    "id": "V06-sama-60-lalu-30",
+    "jenis": "komposisi",
+    "titik": [2, 0],
+    "langkah": [
+      { "jenis": "rotasi", "derajat": 60 },
+      { "jenis": "rotasi", "derajat": 30 }
+    ],
+    "jawaban": [0, 2]
+  },
+  {
+    "id": "V06-tanya-cermin-x-dua-kali",
+    "jenis": "komposisi",
+    "titik": [2, 1],
+    "langkah": [
+      { "jenis": "cermin_sumbu_x" },
+      { "jenis": "cermin_sumbu_x" }
+    ],
+    "jawaban": [2, 1]
+  }
+]

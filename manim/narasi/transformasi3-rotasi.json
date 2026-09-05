@@ -2,7 +2,7 @@
   "adegan": "TransformasiRotasi",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Video 03, Materi 06 'Memutar terhadap sebuah pusat'. Tanpa 3D: sudut dan jarak harus akurat. Babak 'janji' menagih janji Materi 05 bahwa rotasi 180 derajat sama dengan pencerminan pada titik. Tiap segmen punya teks dan tulis.",
+  "catatan": "Video 03, Materi 06 'Memutar terhadap sebuah pusat'. Versi 2 (5 Sep 2026): diperpanjang dari 68 ke sekitar 120 detik. Tanpa 3D, sebab sudut dan jarak harus akurat. Materi ini nomor enam, jadi istilah yang boleh dipakai prapeta, peta, cermin, translasi, dan rotasi; dilatasi, arah putar, matriks, dan komposisi semuanya masih di depan. Puncaknya babak 'janji' dan 'sama', yang menagih janji Materi 04 bahwa setengah putaran sama dengan cermin pada sebuah titik. Babak 'keliru' dan 'betul' memakai JARUM JAM, bukan bentuk L: kalimatnya sendiri berbunyi 'searah jarum jam', dan hasil putaran +90 serta -90 pada bentuk L terpisah 12 satuan sehingga kameranya harus mundur sampai bentuknya tinggal sepersepuluh lebar layar.",
   "segmen": [
     {
       "id": "buka",
@@ -35,14 +35,49 @@
       "tulis": "Aturannya pendek: (x, y) menjadi (-y, x)."
     },
     {
+      "id": "periksa",
+      "teks": "Kita uji pada titik B, enam koma satu. Tukar dulu keduanya, lalu beri tanda minus pada yang di depan.",
+      "tulis": "Kita uji pada B(6, 1). Tukar dulu keduanya, lalu beri tanda minus di depan."
+    },
+    {
+      "id": "hitung",
+      "teks": "Hasilnya negatif satu koma enam. Hitung petaknya sendiri di layar: satu ke kiri, enam ke atas.",
+      "tulis": "Hasilnya B'(-1, 6). Hitung petaknya sendiri: 1 ke kiri, 6 ke atas."
+    },
+    {
+      "id": "kedua",
+      "teks": "Contoh kedua, dan sengaja berbeda: sekarang tiga perempat putaran, dua ratus tujuh puluh derajat.",
+      "tulis": "Contoh kedua, sengaja berbeda: 3/4 putaran, yaitu 270°."
+    },
+    {
+      "id": "cocok",
+      "teks": "Aturannya berubah jadi y koma negatif x. Titik B enam koma satu mendarat di satu koma negatif enam.",
+      "tulis": "Aturannya jadi (y, -x). B(6, 1) mendarat di B'(1, -6)."
+    },
+    {
       "id": "janji",
       "teks": "Sekarang setengah putaran. Perhatikan hasilnya: negatif x koma negatif y.",
       "tulis": "Sekarang setengah putaran. Hasilnya: (-x, -y)."
     },
     {
       "id": "sama",
-      "teks": "Itu persis rumus pencerminan pada titik asal di Materi kelima. Jadi keduanya memang satu hal yang sama, dan janji itu sekarang terbukti.",
-      "tulis": "Itu persis rumus pencerminan pada titik asal di Materi 05. Janji itu terbukti."
+      "teks": "Itu persis rumus cermin pada titik asal di Materi keempat. Jadi keduanya memang satu hal yang sama, dan janji itu sekarang terbukti.",
+      "tulis": "Itu persis rumus cermin pada titik asal di Materi 04. Janji itu terbukti."
+    },
+    {
+      "id": "keliru",
+      "teks": "Sekarang kekeliruan yang paling sering terjadi. Jarum merah ini diputar ke arah yang salah, searah jarum jam.",
+      "tulis": "Kekeliruan yang paling sering terjadi: jarum merah ini diputar searah jarum jam."
+    },
+    {
+      "id": "betul",
+      "teks": "Sudut positif selalu berlawanan arah jarum jam. Salah arah membuat jawabannya mendarat di seberang, tepat berlawanan dengan yang benar.",
+      "tulis": "Sudut positif selalu berlawanan jarum jam. Salah arah, jawabannya mendarat di seberang."
+    },
+    {
+      "id": "pusat",
+      "teks": "Kalau pusatnya bukan titik asal, jangan cari rumus baru. Geser dulu supaya pusatnya jatuh di titik asal, putar, lalu geser kembali.",
+      "tulis": "Kalau pusatnya bukan titik asal: geser ke titik asal, putar, lalu geser kembali."
     },
     {
       "id": "sembarang",
@@ -50,9 +85,14 @@
       "tulis": "Untuk sudut bukan kelipatan 90°, sin dan cos yang dipakai."
     },
     {
-      "id": "tutup",
-      "teks": "Uji rumusnya pada sembilan puluh derajat: cos bernilai nol, sin bernilai satu, hasilnya negatif y koma x. Cocok dengan yang tadi kita baca dari gambar.",
-      "tulis": "Uji pada 90°: cos = 0, sin = 1, hasilnya (-y, x). Cocok dengan gambarnya."
+      "id": "rangkum",
+      "teks": "Rangkumannya satu kalimat: rotasi menjaga jarak setiap titik ke pusatnya, dan hanya mengubah arahnya.",
+      "tulis": "Rangkumannya: rotasi menjaga jarak tiap titik ke pusatnya, hanya arahnya yang berubah."
+    },
+    {
+      "id": "tanya",
+      "teks": "Satu pertanyaan. Kalau sebuah titik tepat berada *di* pusat putarannya, ke mana ia pergi?",
+      "tulis": "Satu pertanyaan: kalau titik tepat *di* pusat putarannya, ke mana ia pergi?"
     }
   ]
 }

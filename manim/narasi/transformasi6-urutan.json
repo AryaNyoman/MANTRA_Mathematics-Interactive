@@ -2,7 +2,7 @@
   "adegan": "TransformasiUrutan",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Video 06, Materi 12 'Komposisi lewat perkalian matriks'. Jebakan utamanya: yang dikerjakan PERTAMA ditulis paling KANAN. Video ini menjalankan kedua urutan berdampingan supaya bedanya dilihat, bukan dihafal. Angka yang dipakai sama dengan contoh di halaman Materi 11 dan 12. Tiap segmen punya teks dan tulis.",
+  "catatan": "Video 06, Materi 12 'Komposisi lewat perkalian matriks'. Jebakan utamanya: yang dikerjakan PERTAMA ditulis paling KANAN. Video ini menjalankan kedua urutan berdampingan supaya bedanya dilihat, bukan dihafal. Angka yang dipakai sama dengan contoh di halaman Materi 11 dan 12. Versi 2 (5 Sep 2026): diperpanjang dari 81 ke sekitar 126 detik, dari 10 ke 15 segmen. Yang ditambahkan: perkaliannya benar-benar dihitung sekotak demi sekotak, hasilnya diperiksa ulang pada seluruh bentuk, DAN satu contoh tandingan berupa dua rotasi yang urutannya boleh ditukar. Contoh tandingan itu penting: tanpanya video ini mengajarkan 'urutan selalu penting', dan itu tidak benar.",
   "segmen": [
     {
       "id": "buka",
@@ -45,14 +45,39 @@
       "tulis": "Sebabnya koordinat titiknya di ujung kanan, dan matriks terdekat menyentuhnya dulu."
     },
     {
+      "id": "kalikan",
+      "teks": "Perkaliannya begini. Baris pertama matriks kiri bertemu kolom pertama matriks kanan, dikalikan lalu dijumlahkan, dan hasilnya mengisi kotak kiri atas. Tiga kotak sisanya dengan cara yang sama.",
+      "tulis": "Baris 1 kiri bertemu kolom 1 kanan: 0(1) + (-1)(0) = 0. Itu kotak kiri atas."
+    },
+    {
       "id": "hasil",
       "teks": "Kalikan keduanya dengan urutan yang benar, dan hasilnya matriks cermin pada garis y sama dengan x. Dikenakan pada tiga koma satu memberi satu koma tiga, sama dengan hitungan langkah demi langkah tadi.",
       "tulis": "Urutan yang benar memberi matriks cermin garis y = x. Pada (3, 1) hasilnya (1, 3)."
     },
     {
+      "id": "periksa",
+      "teks": "Jangan percaya begitu saja. Kenakan matriks gabungan itu pada seluruh bentuknya sekaligus, lalu bandingkan dengan hasil dua langkah tadi. Keduanya berimpit.",
+      "tulis": "Kenakan matriks gabungan pada seluruh bentuk, bandingkan dengan hasil dua langkah: berimpit."
+    },
+    {
       "id": "tutup",
       "teks": "Kalau urutan matriksnya tertukar, jawabannya bukan kacau, melainkan jawaban untuk urutan yang sebaliknya. Itu sebabnya jebakan ini berbahaya: hasilnya terlihat masuk akal.",
       "tulis": "Urutan matriks yang tertukar memberi jawaban untuk urutan sebaliknya, bukan yang kacau."
+    },
+    {
+      "id": "sama",
+      "teks": "Tapi urutan tidak selalu penting. Dua putaran terhadap pusat yang sama boleh ditukar, sebab tiga puluh derajat lalu enam puluh derajat sama saja dengan enam puluh lalu tiga puluh.",
+      "tulis": "Urutan tidak selalu penting: 30° lalu 60° sama saja dengan 60° lalu 30°."
+    },
+    {
+      "id": "jaga",
+      "teks": "Cara menjaganya cuma satu: bacalah dari kanan ke kiri, seperti koordinatnya sendiri dibaca. Yang paling dekat dengan koordinat itulah yang dikerjakan lebih dulu.",
+      "tulis": "Bacalah dari kanan ke kiri: yang paling dekat koordinat dikerjakan lebih dulu."
+    },
+    {
+      "id": "rangkum",
+      "teks": "Rangkumannya satu kalimat: perkalian matriks menggabungkan dua transformasi jadi satu, dan urutannya dibaca dari kanan. Satu pertanyaan: kalau sebuah bentuk dicerminkan pada sumbu X dua kali berturut-turut, matriks gabungannya apa?",
+      "tulis": "Perkalian matriks menggabungkan dua transformasi, urutannya dibaca dari kanan. Dicerminkan sumbu X dua kali, gabungannya apa?"
     }
   ]
 }
