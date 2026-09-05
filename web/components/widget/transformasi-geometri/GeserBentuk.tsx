@@ -77,7 +77,7 @@ export default function GeserBentuk({
       <Bentuk titik={peta} p={p} warna={PETA} isian={0.14} petik="'" />
 
       <Panah dari={A} ke={Aksen} p={p} warna={GESER} tebal={2.8} />
-      <Pegangan titik={Aksen} p={p} warna={GESER} />
+      <Pegangan titik={Aksen} p={p} warna={GESER} kunci="geser" />
 
       <Legenda
         entri={[

@@ -116,7 +116,7 @@ export default function PerbesarBentuk({
         <RuasBerangka dari={pusat} ke={petaUkur} p={p} warna={ALAT} desimal={2} sisi={-1} />
       )}
 
-      <Pegangan titik={pusat} p={p} warna={ALAT} label={diTitikAsal ? 'O' : 'P'} />
+      <Pegangan titik={pusat} p={p} warna={ALAT} label={diTitikAsal ? 'O' : 'P'} kunci="pusat" />
 
       <Legenda
         entri={[
