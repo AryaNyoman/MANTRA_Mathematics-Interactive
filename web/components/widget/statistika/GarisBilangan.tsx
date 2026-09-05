@@ -1,5 +1,7 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
+import TitikPegang from '@/components/widget/statistika/TitikPegang'
 import { Fragment, type ReactNode } from 'react'
 import { GARIS_SUMBU, MONO, PERAN } from '@/components/widget/statistika/warna-data'
 import { angka, type Petak } from '@/components/widget/statistika/skala'
@@ -67,6 +69,7 @@ export function tinggiTumpukan(kunci: number[]): number[] {
 
 export function TumpukanTitik({
   data, ke, dasar, jejari = 5.5, warna = PERAN.data, warnaKhusus, propTitik, sela = 2,
+  kunci, aktif = null,
 }: {
   data: number[]
   ke: (v: number) => number
@@ -79,7 +82,12 @@ export function TumpukanTitik({
   /** prop tambahan per titik, misalnya penanganan seret */
   propTitik?: (indeks: number, nilai: number) => Record<string, unknown>
   sela?: number
+  /** awalan kunci `sedang-diubah`: bola ke-i menyala saat `${kunci}-${i}` dipegang di tabel */
+  kunci?: string
+  /** indeks bola yang sedang diseret */
+  aktif?: number | null
 }): ReactNode {
+  const dipegang = useSedangDiubah()
   const lebarSel = jejari * 2 + sela
   // urutan menentukan siapa yang di bawah, jadi diurutkan dulu supaya
   // tumpukannya tidak terlihat acak saat titiknya diseret
@@ -90,7 +98,20 @@ export function TumpukanTitik({
   urutan.forEach((i, n) => { tumpuk[i] = tinggiUrut[n] })
   return (
     <>
-      {data.map((v, i) => (
+      {data.map((v, i) => propTitik ? (
+        // Bola yang bisa diseret memakai sasaran sentuh besar (TitikPegang);
+        // bola pajangan tetap lingkaran biasa.
+        <TitikPegang
+          key={i}
+          cx={ke(v)}
+          cy={dasar - jejari - tumpuk[i] * lebarSel}
+          r={jejari}
+          fill={warnaKhusus?.(v, i) ?? warna}
+          aktif={aktif === i}
+          nyala={kunci !== undefined && dipegang === `${kunci}-${i}`}
+          prop={propTitik(i, v)}
+        />
+      ) : (
         <circle
           key={i}
           cx={ke(v)}
@@ -99,7 +120,6 @@ export function TumpukanTitik({
           fill={warnaKhusus?.(v, i) ?? warna}
           stroke="#FFFDFA"
           strokeWidth={1.5}
-          {...(propTitik?.(i, v) ?? {})}
         />
       ))}
     </>

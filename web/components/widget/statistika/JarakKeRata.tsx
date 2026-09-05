@@ -1,6 +1,8 @@
 'use client'
 
-import { Petunjuk, Pilihan } from '@/components/kendali'
+import { Petunjuk, Pilihan, TabelData } from '@/components/kendali'
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
+import TitikPegang from '@/components/widget/statistika/TitikPegang'
 import { useRef, useState } from 'react'
 import { GarisBilangan } from '@/components/widget/statistika/GarisBilangan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
@@ -52,6 +54,7 @@ export default function JarakKeRata({ children }: PropWidget) {
   }
 
   const { aktif, propSvg, mulai } = useSeret(svgRef, (i, x) => pindah(i, dari(x)))
+  const dipegang = useSedangDiubah()
   const r = ringkasTunggal(data)
   const xMean = ke(r.mean)
   // Garis rata-rata dibuat setinggi persegi terbesar, bukan setinggi tetap.
@@ -95,10 +98,9 @@ export default function JarakKeRata({ children }: PropWidget) {
 
           {/* titik data, bisa diseret */}
           {data.map((v, i) => (
-            <circle key={i} cx={ke(v)} cy={DASAR} r={5.5}
-                    fill={PERAN.data} stroke="#FFFDFA"
-                    strokeWidth={aktif === i ? 3 : 1.5}
-                    {...propTitikSeret({
+            <TitikPegang key={i} cx={ke(v)} cy={DASAR} r={5.5} fill={PERAN.data}
+                    aktif={aktif === i} nyala={dipegang === `botol-${i}`}
+                    prop={propTitikSeret({
                       indeks: i, nilai: v, mulai, geser: pindah,
                       nama: `Isi botol ke-${i + 1}, sekarang ${v} mililiter`,
                     })} />
@@ -110,6 +112,9 @@ export default function JarakKeRata({ children }: PropWidget) {
         <Pilihan nama="Ambil contoh" arti="dua mesin dengan sebaran botol yang berbeda"
           pilihan={[{ nilai: 'A', label: 'Mesin A' }, { nilai: 'B', label: 'Mesin B' }]}
           nilai={mesin} onPilih={(n) => { setData(n === 'A' ? A.data : B.data); setMesin(n) }} />
+        <TabelData nama="Isi tiap botol" arti="mililiter; ketik di sini, atau seret bolanya di gambar" kunci="botol"
+          nilai={data} onUbah={pindah} min={MIN} max={MAKS} langkah={1}
+          label={(i) => `botol ${i + 1}`} />
         <Petunjuk>
             seret satu botol menjauh dari rata-rata. Perseginya tumbuh jauh lebih cepat
             daripada jaraknya: jarak dua kali lipat membuat luas empat kali lipat

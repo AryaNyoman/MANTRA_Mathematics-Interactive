@@ -1,7 +1,9 @@
 'use client'
 
-import { Petunjuk, Pilihan } from '@/components/kendali'
-import { useRef, useState } from 'react'
+import { Petunjuk, Pilihan, TabelData } from '@/components/kendali'
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
+import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
+import TitikPegang from '@/components/widget/statistika/TitikPegang'
 import Papan from '@/components/widget/statistika/Papan'
 import { PERAN } from '@/components/widget/statistika/warna-data'
 import { TEPI, angka, keData, keLayar, rentangMuat } from '@/components/widget/statistika/skala'
@@ -53,6 +55,7 @@ export default function DiagramPencar({ children }: PropWidget) {
   }
 
   const { aktif, propSvg, mulai } = useSeret(svgRef, pindah)
+  const dipegang = useSedangDiubah()
   const trend = bentukTrend(titik)
   // "arah tidak ada arah" janggal dibaca, jadi kata "arah" dilepas untuk keadaan itu
   const arahTertulis = trend.arah === 'tidak ada arah' ? 'tidak ada arah' : `arah ${trend.arah}`
@@ -76,14 +79,15 @@ export default function DiagramPencar({ children }: PropWidget) {
           propSvg={propSvg}
         >
           {titik.map(([x, y], i) => (
-            <circle key={i} cx={p.x(x)} cy={p.y(y)} r={7}
-                    fill={PERAN.data} stroke="#FFFDFA" strokeWidth={aktif === i ? 3 : 1.5}
-                    role="slider" tabIndex={0}
-                    aria-label={`Titik ke-${i + 1}, x ${angka(x, 1)}, y ${angka(y, 1)}`}
-                    aria-valuenow={y}
-                    style={{ cursor: 'grab', touchAction: 'none' }}
-                    onPointerDown={mulai(i)}
-                    onKeyDown={(e) => {
+            <TitikPegang key={i} cx={p.x(x)} cy={p.y(y)} r={7} fill={PERAN.data}
+                    aktif={aktif === i} nyala={dipegang === `titik-${i}`}
+                    prop={{
+                      role: 'slider', tabIndex: 0,
+                      'aria-label': `Titik ke-${i + 1}, x ${angka(x, 1)}, y ${angka(y, 1)}`,
+                      'aria-valuenow': y,
+                      style: { cursor: 'grab', touchAction: 'none' },
+                      onPointerDown: mulai(i),
+                      onKeyDown: (e: ReactKeyboardEvent) => {
                       const naik = e.key === 'ArrowUp' ? 1 : e.key === 'ArrowDown' ? -1 : 0
                       const samping = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0
                       if (naik === 0 && samping === 0) return
@@ -98,6 +102,7 @@ export default function DiagramPencar({ children }: PropWidget) {
                         ]
                         return baru
                       })
+                    },
                     }} />
           ))}
         </Papan>
@@ -106,6 +111,15 @@ export default function DiagramPencar({ children }: PropWidget) {
         <Pilihan nama="Contoh siap pakai" arti="atau seret titiknya sendiri di gambar"
           pilihan={CONTOH.map((c, n) => ({ nilai: String(n), label: c.nama }))}
           nilai={String(pilih)} onPilih={(n) => gantiContoh(Number(n))} />
+        <TabelData nama="Titik-titiknya" arti="ketik di sini, atau seret bolanya di gambar" kunci="titik"
+          nilai={titik}
+          onUbah={(i: number, pasang: [number, number]) => setTitik((lama) => {
+            const baru = lama.map((t) => [...t] as [number, number])
+            baru[i] = pasang
+            return baru
+          })}
+          min={[j.xMin, j.yMin]} max={[j.xMax, j.yMax]} langkah={[0.1, 0.1]} desimal={1}
+          label={(i) => `titik ${i + 1}`} />
         <Petunjuk>
             {trend.bentuk === 'melengkung'
               ? 'polanya melengkung. Garis lurus tidak akan cocok untuk data seperti ini, dan angka hubungannya pun akan menyesatkan'

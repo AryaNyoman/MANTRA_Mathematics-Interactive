@@ -1,6 +1,6 @@
 'use client'
 
-import { Petunjuk } from '@/components/kendali'
+import { Petunjuk, TabelData } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import { GarisBilangan, Penanda, TumpukanTitik } from '@/components/widget/statistika/GarisBilangan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
@@ -114,12 +114,11 @@ export default function DuaKelompok({ children }: PropWidget) {
             dasar={DASAR_B}
             warna={PERAN.banding}
             jejari={6.5}
-            propTitik={(i, v) => ({
-              ...propTitikSeret({
-                indeks: i, nilai: v, mulai, geser: pindah,
-                nama: `Nilai siswa ke-${i + 1} di Kelas B, sekarang ${v}`,
-              }),
-              strokeWidth: aktif === i ? 2.5 : 1.5,
+            kunci="b"
+            aktif={aktif}
+            propTitik={(i, v) => propTitikSeret({
+              indeks: i, nilai: v, mulai, geser: pindah,
+              nama: `Nilai siswa ke-${i + 1} di Kelas B, sekarang ${v}`,
             })}
           />
           <GarisBilangan ke={ke} y={DASAR_B} tik={TIK} dariX={MIN} sampaiX={MAKS} />
@@ -140,6 +139,9 @@ export default function DuaKelompok({ children }: PropWidget) {
             <button disabled={utuh} onClick={() => setDataB(B.data)}>Kembalikan semula</button>
           </div>
         </div>
+        <TabelData nama="Nilai siswa Kelas B" arti="ketik di sini, atau seret bolanya di gambar" kunci="b"
+          nilai={dataB} onUbah={pindah} min={MIN} max={MAKS} langkah={1}
+          label={(i) => `siswa ${i + 1}`} />
         <Petunjuk>
             acak dulu titik Kelas B sesuka Anda, lalu tekan samakan. Rata-ratanya kembali 7,
             tetapi bentuk datanya tetap berantakan

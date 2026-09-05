@@ -1,16 +1,16 @@
 # Graph Report - MANIM-MATRA  (2026-09-05)
 
 ## Corpus Check
-- 456 files · ~704,798 words
+- 457 files · ~707,491 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2458 nodes · 5644 edges · 166 communities (106 shown, 60 thin omitted)
+- 2466 nodes · 5654 edges · 167 communities (107 shown, 60 thin omitted)
 - Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 380 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bfa6db4b`
+- Built from commit: `712dc736`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -132,6 +132,7 @@
 - tugas/laporan: Subtitle dengan lambang matematika
 - tugas/laporan: Tiga jalur layar video
 - Alat video: bakar_subtitle.py
+- manim/scenes/beranda_tiga_grafik.py
 - Alat video: Suara latar README
 - mockup/img: Dark-theme triangle diagram (tan θ = 0.75
 - mockup/img: Light-theme triangle diagram (tan θ = 0.75
@@ -210,7 +211,7 @@
 - **Tiga mockup gaya visual MATRA** — mockup_a_studio_html, mockup_b_papan_tulis_html, mockup_c_kertas_grafik_html [EXTRACTED 1.00]
 - **Interactive triangle widget (sliders → SVG render → live values)** — mockup_d_studio_teknis_gambar, mockup_d_studio_teknis_garis, mockup_d_studio_teknis_set, mockup_e_satu_layar_gambar, mockup_e_satu_layar_garis, mockup_e_satu_layar_set [INFERRED 0.85]
 
-## Communities (166 total, 60 thin omitted)
+## Communities (167 total, 60 thin omitted)
 
 ### Community 0 - "Widget Vektor: geometri dan uji"
 Cohesion: 0.08
@@ -282,7 +283,7 @@ Nodes (15): metadata, metadata, metadata, metadata, metadata, metadata, metadata
 
 ### Community 17 - "Video lama (Manim CE): tema dan beranda"
 Cohesion: 0.07
-Nodes (22): Tema visual bersama untuk semua animasi MATRA. Semua adegan WAJIB memakai warna…, Satu wadah warna supaya adegan tidak perlu tahu tema mana yang dipakai., Tema, BerandaTigaGrafik, Scene, Beranda: tiga grafik sin, cos, tan sebagai loop mulus tanpa suara. Dipakai di…, Ubah sudut u (radian, 0 di penanda) menjadi koordinat mendatar layar., x_layar() (+14 more)
+Nodes (24): Tema visual bersama untuk semua animasi MATRA. Semua adegan WAJIB memakai warna…, Satu wadah warna supaya adegan tidak perlu tahu tema mana yang dipakai., Tema, BerandaTigaGrafik, Scene, Beranda: tiga grafik sin, cos, tan sebagai loop mulus tanpa suara. Dipakai di…, Ubah sudut u (radian, 0 di penanda) menjadi koordinat mendatar layar., x_layar() (+16 more)
 
 ### Community 18 - "Video lama (Manim CE): sinema"
 Cohesion: 0.08
@@ -333,8 +334,8 @@ Cohesion: 0.17
 Nodes (7): dasar(), FungsiTidakPutus, Scene, Limit Materi 09, Fungsi yang tidak putus. STORYBOARD (ditulis lebih dulu, kode…, Tiga baris syarat di kolom kanan, beserta lampu bulatnya., Warnai ketiga lampu dan tulisannya sesuai lolos atau gagal., Satu putaran perusakan: ganti gambarnya, nyalakan lampu, beri catatan.
 
 ### Community 30 - "Video lama (Manim CE): TigaGrafikBersama"
-Cohesion: 0.14
-Nodes (9): Scene, Pasang warna latar. `transparan=True` untuk render dengan flag -t., Scene, Tahap 9, Sin, cos, tan berdampingan. STORYBOARD (ditulis lebih dulu, kode…, Cos berangkat 90 derajat lebih awal, ditunjukkan, bukan diklaim., Versi halaman depan: hanya grafiknya, tanpa apa pun yang lain. Permintaan ARYA…, Satu panel: lingkaran kecil di kiri, papan grafik di kanan. `potong` membatasi…, TigaGrafikBeranda (+1 more)
+Cohesion: 0.18
+Nodes (6): Scene, Pasang warna latar. `transparan=True` untuk render dengan flag -t., Scene, Cos berangkat 90 derajat lebih awal, ditunjukkan, bukan diklaim., Satu panel: lingkaran kecil di kiri, papan grafik di kanan. `potong` membatasi…, TigaGrafikBersama
 
 ### Community 31 - "Video lama (Manim CE): MendekatiBukanMenyentuh"
 Cohesion: 0.16
@@ -345,8 +346,8 @@ Cohesion: 0.16
 Nodes (7): LingkaranSatuanLahir, Scene, Titik ujung sisi miring., Kaki siku-siku pada sumbu mendatar., Tiga nama sisi yang menempel pada garisnya lewat updater posisi., Sisi miring diperkecil sampai satu. Babak ini TIDAK boleh dilewati - inilah…, Sudut digeser; koordinat ikut bergerak. Angka hidup baru muncul di sini, saat…
 
 ### Community 33 - "Video lama (Manim CE): PerahuMenyeberang"
-Cohesion: 0.18
-Nodes (7): PerahuMenyeberang, Scene, Panah di dalam panel kecil, koordinatnya dalam kilometer., Tiga susunan digambar, hasilnya SENGAJA ditahan sampai babak 9., Koordinat layar dari kilometer, diukur dari titik berangkat., Panah lurus. buff nol supaya pangkalnya benar-benar di titik asal., titik()
+Cohesion: 0.16
+Nodes (8): PerahuMenyeberang, Scene, Vektor Materi 01, Angka saja tidak cukup. STORYBOARD (ditulis lebih dulu, kode…, Panah di dalam panel kecil, koordinatnya dalam kilometer., Tiga susunan digambar, hasilnya SENGAJA ditahan sampai babak 9., Koordinat layar dari kilometer, diukur dari titik berangkat., Panah lurus. buff nol supaya pangkalnya benar-benar di titik asal., titik()
 
 ### Community 34 - "Video lama (Manim CE): KecepatanSesaat"
 Cohesion: 0.15
@@ -616,6 +617,10 @@ Nodes (14): BATAS_LANGKAH, PapanTransformasi(), sepertiSemula(), AKIBAT_LANGKAH,
 Cohesion: 0.36
 Nodes (7): BABAK, babakDi(), BATAS_WAKTU, jarak(), JENDELA, PembacaGrafik(), TITIK
 
+### Community 120 - "manim/scenes/beranda_tiga_grafik.py"
+Cohesion: 0.32
+Nodes (5): AdeganMatra, BerandaTigaGrafik, Beranda: tiga grafik sin, cos, tan lahir dari satu putaran. Bisu, mengulang., Satu panel: lingkaran kecil di kiri, papan grafik di kanan., x_dari()
+
 ## Ambiguous Edges - Review These
 - `ManimGL 1.7.2` → `Grafik Fungsi: Alur Belajar 12/13 Tahap`  [AMBIGUOUS]
   docs/superpowers/specs/2026-09-01-grafik-fungsi-alur-belajar.md · relation: references
@@ -634,12 +639,12 @@ _Questions this graph is uniquely positioned to answer:_
   _Edge tagged AMBIGUOUS (relation: references) - confidence is low._
 - **What is the exact relationship between `Gerbang Mutu Video` and `Laporan MATRA-DESAIN-UI-UX`?**
   _Edge tagged AMBIGUOUS (relation: references) - confidence is low._
-- **Why does `kurva()` connect `Video ManimGL: Grafik Fungsi transformasi` to `Video lama (Manim CE): tema dan beranda`, `Video ManimGL: grafik_umum.py`, `Video ManimGL: Grafik Fungsi bentuk puncak`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
 - **Why does `WARNA` connect `Widget Vektor: geometri dan uji` to `Widget Limit: panggung dan bidang`, `Widget Trigonometri: panggung dan bayangan`, `Widget Ruang 3D: KubusPutar.tsx`, `Widget Grafik Fungsi: WajahParabola.tsx`, `Widget Grafik Fungsi: BalapanTumbuh.tsx`, `Widget Ruang 3D: ruang.ts`, `Widget Grafik Fungsi: panggung dan dunia nyata`, `Widget Ruang 3D: JarakSejajar.tsx`, `Widget Ruang 3D: Bingkai3D.tsx`, `Widget Ruang 3D: PemilihKedudukan.tsx`, `Widget Ruang 3D: SudutBersilangan.tsx`, `Widget Grafik Fungsi: DuaMesin.tsx`, `Widget Ruang 3D: DuniaNyataRuang.tsx`, `Widget Ruang 3D: JarakKeBidang.tsx`, `Widget Grafik Fungsi: bentuk puncak dan koordinat`, `Widget Ruang 3D: JarakKeGaris.tsx`, `Widget Statistika: bentuk data dan garis bilangan`, `Widget Ruang 3D: panggung dan diagonal`?**
-  _High betweenness centrality (0.037) - this node is a cross-community bridge._
+  _High betweenness centrality (0.050) - this node is a cross-community bridge._
+- **Why does `kurva()` connect `Video ManimGL: Grafik Fungsi transformasi` to `Video lama (Manim CE): tema dan beranda`, `Video ManimGL: grafik_umum.py`, `Video ManimGL: Grafik Fungsi bentuk puncak`?**
+  _High betweenness centrality (0.043) - this node is a cross-community bridge._
 - **Why does `Tema` connect `Video lama (Manim CE): tema dan beranda` to `Video lama: Trigonometri lingkaran satuan`, `Video lama (Manim CE): PerahuMenyeberang`, `Video lama (Manim CE): KecepatanSesaat`, `Video lama (Manim CE): LubangDiGrafik`, `Video lama (Manim CE): trigonometri_anim.py`, `Video lama (Manim CE): PerbandinganTetap`, `Video lama (Manim CE): SudutIstimewaLahir`, `Video lama (Manim CE): MathTex`, `Video lama: Grafik Fungsi transformasi`, `Video lama (Manim CE): Text`, `Video lama (Manim CE): trigonometri.py`, `Video lama (Manim CE): LahirnyaRasio`, `Video lama: Trigonometri enam rasio`, `Video lama (Manim CE): LimitSinus`, `Video lama: Trigonometri grafik sinus`, `Video lama (Manim CE): FungsiTidakPutus`, `Video lama (Manim CE): TigaGrafikBersama`, `Video lama (Manim CE): MendekatiBukanMenyentuh`?**
-  _High betweenness centrality (0.037) - this node is a cross-community bridge._
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
 - **Are the 94 inferred relationships involving `MathTex` (e.g. with `.construct()` and `.b06_kenapa()`) actually correct?**
   _`MathTex` has 94 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 80 inferred relationships involving `Text` (e.g. with `.b04_tanya()` and `.b09_mampat()`) actually correct?**

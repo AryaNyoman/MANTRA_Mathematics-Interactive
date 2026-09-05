@@ -820,8 +820,8 @@
     "semantic_hash": ""
   },
   "web/components/Demo.tsx": {
-    "mtime": 1788600857.033669,
-    "ast_hash": "986d2d56ebc01cda56a41053fa0ed9dd",
+    "mtime": 1788602526.680895,
+    "ast_hash": "00700d93438be58baa75147a8495e77c",
     "semantic_hash": ""
   },
   "web/components/Nav.tsx": {
@@ -1625,8 +1625,8 @@
     "semantic_hash": ""
   },
   "PROGRESS.md": {
-    "mtime": 1788591330.233122,
-    "ast_hash": "c309dea71f6e6984d3bdc4c4cba7e993",
+    "mtime": 1788602526.684448,
+    "ast_hash": "a1459e49980605c2d3187e8d8cbd677b",
     "semantic_hash": ""
   },
   "alat/lingkungan/pip-freeze-2026-09-02-sebelum-manimgl.txt": {
@@ -5592,6 +5592,16 @@
   "web/public/anim/trigonometri.webm": {
     "mtime": 1788159491.549474,
     "ast_hash": "bdc2cbe2be6e55cdc1a5f0b0eb7d4871",
+    "semantic_hash": ""
+  },
+  "manim/scenes/beranda_tiga_grafik.py": {
+    "mtime": 1788602379.5517173,
+    "ast_hash": "46691cffd737a879c42f4dc67b04851b",
+    "semantic_hash": ""
+  },
+  "web/public/anim/beranda-tiga-grafik-v3.jpg": {
+    "mtime": 1788602599.4263303,
+    "ast_hash": "105d9d11c2cadecd9a1d7e6091db9199",
     "semantic_hash": ""
   }
 }
