@@ -26,6 +26,12 @@ dan mempercayakan rancangannya ke MASTER tanpa konfirmasi. Yang sudah ada:
   Pesan tugas dikirim ke sesi desktop MANTRA-TURUNAN (menunggu dibuka).
   Catatan: `.claude/settings.local.json` di SEMUA worktree hilang saat
   foldernya terhapus 5 Sep; mode AUTO harus dipilih ARYA saat membuka sesi.
+- 6 Sep pagi, permintaan ARYA: worktree kerjanya dipindah ke folder
+  `.claude/worktrees/mantra-integral-materi-505cfc` (folder sesi desktop
+  MANTRA-INTEGRAL yang hidup; tadinya KOSONG dan tidak terdaftar, sehingga
+  perintah git dari sana mengenai master). Sekarang folder itu worktree
+  sungguhan di cabang `sesi/turunan`, node_modules ikut dipindah. Folder
+  `mantra-turunan` dilepas (detached HEAD), dihapus bila tidak dipegang sesi.
 - Setelah sesi lapor SIAP GABUNG: MASTER memeriksa silang materi dan widget
   (permintaan ARYA), baru video diperintahkan. Video Transformasi 02 sampai
   06 (2 menit) masih di sesi Transformasi; urutan baru Transformasi (af8c93b)
