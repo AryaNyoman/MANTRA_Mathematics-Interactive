@@ -233,6 +233,47 @@ bukan pekerjaan yang sudah selesai.
 
 ---
 
+## Berkas pendamping: dua cacat yang ditemukan MASTER, bukan saya
+
+Saat memasang video ke situs (6 Sep), MASTER menemukan dua cacat yang lolos
+dari SELURUH gerbang proyek ini. Keduanya milik saya.
+
+| Cacat | Keadaannya | Sebab |
+|---|---|---|
+| Subtitle basi | `transformasi5-matriks.vtt` berhenti di detik 77 padahal videonya 144 detik; `transformasi6-urutan.vtt` berhenti di 81 padahal 143 | naskah diperpanjang, `buat_subtitle.py` tidak dijalankan ulang |
+| Poster kosong | poster Materi 06 dan 07 berukuran persis sama 2.635 byte, keduanya RATA SATU WARNA; poster Materi 09 tidak ada | frame diambil pada detik yang jatuh di layar kosong, dan tak ada yang memeriksanya |
+
+Keduanya berbentuk sama: **berkas pendamping ketinggalan saat videonya
+berubah**. Video diperiksa berlapis-lapis di proyek ini, berkas pendampingnya
+tidak sama sekali. Itu celah yang saya buka sendiri dengan memperpanjang naskah
+tanpa memeriksa apa lagi yang bergantung padanya.
+
+Yang dikerjakan:
+
+1. Ketiga `.vtt` dibuat ulang. Sekarang isyarat terakhirnya jatuh di 143,7 s
+   (video 143,6), 142,6 s (video 142,6), dan 130,4 s (video 130,4).
+2. Poster 03, 04, dan 05 dibuat dari frame yang dipilih dengan menonton, lalu
+   DILIHAT satu per satu: 03 detik 121 (bentuk 37 derajat beserta busurnya),
+   04 detik 44 (perbesaran dua kali dengan sinar dari pusat, panel menyebut
+   luas empat kali), 05 detik 47 (persegi satuan, kedua panah kolom, dan
+   matriksnya).
+3. **`alat/buat_poster.py`** dibuat: mengambil frame lalu MENOLAK yang kosong.
+   Ambangnya dikalibrasi ke berkas yang sungguh ada, bukan dikarang. Percobaan
+   pertama memakai ambang 1,5 persen tinta dan menolak SELURUH poster proyek
+   ini termasuk yang jelas bagus, sebab video MANTRA memang gambar garis di
+   atas kertas. Angka yang dipakai sekarang: tolak di bawah 0,35 persen,
+   peringatan di bawah 0,60.
+4. **`alat/cek_aset_video.py`** dibuat: satu perintah memeriksa keenam video
+   punya subtitle yang panjangnya masuk akal DAN poster yang tidak kosong.
+   Dibuktikan bisa menolak dengan menanam kedua kerusakan itu kembali.
+
+Satu temuan sampingan yang BUKAN milik topik ini: `vektor6-sambung.jpg`
+posternya bidang petak kosong tanpa satu vektor pun, untuk video tentang
+menyambung vektor. Ia tertangkap alat baru itu dan sengaja dibiarkan
+tertangkap, tetapi perbaikannya milik sesi Vektor.
+
+---
+
 ## Yang belum dikerjakan
 
 - **Video 04 masih 63 detik**, kurang dari separuh panjang lima video lain.
