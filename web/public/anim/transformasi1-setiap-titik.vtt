@@ -107,45 +107,49 @@ Dua contoh tadi memberi satu pola: nilai x tetap,
 nilai y berbalik tanda.
 
 27
-00:01:32.040 --> 00:01:35.215
+00:01:32.040 --> 00:01:35.143
 Satu kekeliruan yang sering terjadi:
 
 28
-00:01:35.215 --> 00:01:39.624
-bentuk merah ini <b>digeser</b> turun, bukan dicerminkan.
+00:01:35.143 --> 00:01:37.815
+bentuk merah ini <b>digeser</b> turun,
 
 29
-00:01:39.624 --> 00:01:43.066
-Bedanya di kaki huruf L-nya.
+00:01:37.815 --> 00:01:40.056
+semuanya sejauh yang sama.
 
 30
-00:01:43.066 --> 00:01:48.720
-Yang dicerminkan terbalik, yang digeser tidak.
+00:01:40.056 --> 00:01:43.663
+Bedanya di kaki huruf L-nya.
 
 31
-00:01:48.720 --> 00:01:50.056
-Belum yakin?
+00:01:43.663 --> 00:01:48.816
+Yang benar terbalik, yang digeser tidak.
 
 32
-00:01:50.056 --> 00:01:53.396
-Ganti aturannya jadi dilatasi.
+00:01:48.816 --> 00:01:50.225
+Belum yakin?
 
 33
-00:01:53.396 --> 00:01:56.736
-Jarak antartitik ikut <b>berubah</b>.
+00:01:50.225 --> 00:01:53.748
+Lihat panjang keenam garisnya.
 
 34
-00:01:56.736 --> 00:01:57.936
-Rangkumannya:
+00:01:53.748 --> 00:01:57.624
+A berjalan 2 petak, C berjalan <b>4</b>.
 
 35
-00:01:57.936 --> 00:02:01.608
-transformasi memberi setiap titik satu tujuan.
+00:01:57.624 --> 00:01:59.977
+Benda utuh mustahil begitu.
 
 36
-00:02:01.608 --> 00:02:06.515
-Satu pertanyaan: kalau titik tepat <b>di</b> sumbu X,
+00:01:59.977 --> 00:02:03.288
+Yang bekerja memang <b>aturan pada titik</b>.
 
 37
-00:02:06.515 --> 00:02:08.328
+00:02:03.288 --> 00:02:08.195
+Satu pertanyaan: kalau titik tepat <b>di</b> sumbu X,
+
+38
+00:02:08.195 --> 00:02:10.008
 ke mana ia pergi?

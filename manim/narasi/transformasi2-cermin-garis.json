@@ -2,12 +2,12 @@
   "adegan": "TransformasiCerminGaris",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Video 02, Materi 03 'Cermin pada garis tegak dan mendatar'. Tanpa 3D: seluruh isinya butuh panjang yang akurat, dan kamera miring memendekkan satu arah lebih banyak daripada arah lain. Tiap segmen punya teks (terucap) dan tulis (tertulis, berlambang).",
+  "catatan": "Video 02, Materi 02 'Cermin pada garis tegak dan mendatar'. Tanpa 3D: seluruh isinya butuh panjang yang akurat, dan kamera miring memendekkan satu arah lebih banyak daripada arah lain. Tiap segmen punya teks (terucap) dan tulis (tertulis, berlambang).",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi ketiga: cermin pada garis tegak dan mendatar.",
-      "tulis": "Materi 03: cermin pada garis tegak dan mendatar."
+      "teks": "Materi kedua: cermin pada garis tegak dan mendatar.",
+      "tulis": "Materi 02: cermin pada garis tegak dan mendatar."
     },
     {
       "id": "kaca",

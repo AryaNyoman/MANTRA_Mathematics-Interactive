@@ -1,5 +1,5 @@
 {
-  "total": 128.328,
+  "total": 130.008,
   "segmen": {
     "buka": 8.256,
     "dunia": 5.04,
@@ -14,10 +14,10 @@
     "kedua": 7.44,
     "cocok": 7.2,
     "aturan": 5.928,
-    "keliru": 7.584,
-    "betul": 9.096,
-    "bukti": 8.016,
-    "rangkum": 4.872,
+    "keliru": 8.016,
+    "betul": 8.76,
+    "bukti": 8.808,
+    "rangkum": 5.664,
     "tanya": 6.72
   }
 }

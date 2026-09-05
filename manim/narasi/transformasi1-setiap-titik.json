@@ -71,23 +71,23 @@
     },
     {
       "id": "keliru",
-      "teks": "Sekarang satu kekeliruan yang sering terjadi. Bentuk merah ini *digeser* turun, bukan dicerminkan.",
-      "tulis": "Satu kekeliruan yang sering terjadi: bentuk merah ini *digeser* turun, bukan dicerminkan."
+      "teks": "Sekarang satu kekeliruan yang sering terjadi. Bentuk merah ini *digeser* turun, semuanya sejauh yang sama.",
+      "tulis": "Satu kekeliruan yang sering terjadi: bentuk merah ini *digeser* turun, semuanya sejauh yang sama."
     },
     {
       "id": "betul",
-      "teks": "Bedanya di kaki huruf L-nya. Yang dicerminkan terbalik, yang digeser tidak. Periksa selalu satu titik.",
-      "tulis": "Bedanya di kaki huruf L-nya. Yang dicerminkan terbalik, yang digeser tidak."
+      "teks": "Bedanya di kaki huruf L-nya. Yang benar terbalik, yang digeser tidak. Periksa selalu satu titik.",
+      "tulis": "Bedanya di kaki huruf L-nya. Yang benar terbalik, yang digeser tidak."
     },
     {
       "id": "bukti",
-      "teks": "Belum yakin? Ganti aturannya jadi dilatasi. Sekarang jarak antartitik ikut *berubah*.",
-      "tulis": "Belum yakin? Ganti aturannya jadi dilatasi. Jarak antartitik ikut *berubah*."
+      "teks": "Belum yakin? Lihat panjang keenam garisnya. Titik A berjalan dua petak, titik C berjalan *empat*.",
+      "tulis": "Belum yakin? Lihat panjang keenam garisnya. A berjalan 2 petak, C berjalan *4*."
     },
     {
       "id": "rangkum",
-      "teks": "Rangkumannya: transformasi memberi setiap titik satu tujuan.",
-      "tulis": "Rangkumannya: transformasi memberi setiap titik satu tujuan."
+      "teks": "Benda utuh mustahil begitu. Yang bekerja memang *aturan pada titik*.",
+      "tulis": "Benda utuh mustahil begitu. Yang bekerja memang *aturan pada titik*."
     },
     {
       "id": "tanya",
