@@ -64,8 +64,8 @@ export default function SelisihPanah({
       <Panah dari={b} ke={a} jendela={jendela} warna={WARNA.sudut} tebal={2.6} />
       <Panah dari={asal} ke={selisih} jendela={jendela} warna={WARNA.sudut} tebal={3} />
 
-      <Panah dari={asal} ke={a} jendela={jendela} warna={WARNA.samping} tebal={2.6} pegangan />
-      <Panah dari={asal} ke={b} jendela={jendela} warna={WARNA.depan} tebal={2.6} pegangan />
+      <Panah dari={asal} ke={a} kunci="a" jendela={jendela} warna={WARNA.samping} tebal={2.6} pegangan />
+      <Panah dari={asal} ke={b} kunci="b" jendela={jendela} warna={WARNA.depan} tebal={2.6} pegangan />
 
       <Legenda
         sudut="kanan-bawah"

@@ -52,8 +52,8 @@ export default function SambungPanah({
       pointer={pointer}
       tandaSkala={false}
     >
-      <Panah dari={asal} ke={a} jendela={jendela} warna={WARNA.samping} tebal={2.6} pegangan />
-      <Panah dari={a} ke={hasil} jendela={jendela} warna={WARNA.depan} tebal={2.6} pegangan />
+      <Panah dari={asal} ke={a} kunci="a" jendela={jendela} warna={WARNA.samping} tebal={2.6} pegangan />
+      <Panah dari={a} ke={hasil} kunci="b" jendela={jendela} warna={WARNA.depan} tebal={2.6} pegangan />
       <Panah dari={asal} ke={hasil} jendela={jendela} warna={WARNA.miring} tebal={3} />
 
       <Legenda

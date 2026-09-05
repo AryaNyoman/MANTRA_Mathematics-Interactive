@@ -29,6 +29,10 @@ from gl import kamera, qc, sinema  # noqa: E402
 
 TOPIK = "ruang-3d-08"
 DURASI = durasi(TOPIK)
+# Jam kalimat dari .vtt: dipakai supaya kejadian di layar jatuh tepat pada
+# kalimat yang menyebutnya. URUTAN WAJIB: buat_narasi.py, buat_subtitle.py,
+# BARU render.
+JAM = sinema.jam_subtitle(TOPIK)
 
 # Geseran sejajar dari BG ke AH: setiap titik bergerak dengan vektor yang SAMA,
 # yaitu A dikurangi B. Ditulis begini, bukan dengan menyebut A dan H langsung,
@@ -72,8 +76,13 @@ class SudutGarisBersilangan(AdeganMatra):
             # belasan detik. Sebelum ini babak pembuka dan babak berikutnya
             # sama-sama menampilkan kubus abu-abu pejal, dan itu 20 persen
             # video habis tanpa satu pun hal baru masuk layar.
-            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka),
-                   FadeOut(bayangan), run_time=1.6)
+            # Rusuknya digambar SATU PER SATU (lag_ratio), bukan kedua belasnya
+            # sekaligus dalam 1,6 detik. Ukuran baru MASTER 4 Sep, 'detik
+            # pertama bergerak': yang dihitung bukan ada tidaknya animasi,
+            # melainkan apakah layarnya benar-benar berubah di mata penonton.
+            b.main(kubus.animate.set_opacity(0.14),
+                   ShowCreation(rangka, lag_ratio=0.16),
+                   FadeOut(bayangan), run_time=3.2)
             isi_sisa(b, kamera.sudut(frame, -34, 68, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"kubus": kubus})
 
@@ -82,8 +91,15 @@ class SudutGarisBersilangan(AdeganMatra):
         with sinema.babak(self, "masalah", DURASI) as b:
             sumbu_z_pamit(b, papan_koor, 1.0)
             b.main(*[FadeIn(x) for x in lab.values()], run_time=0.8)
+            # "Ini AC di lantai, dan ini BG di sisi kanan": dua ruas, dua kejadian.
             b.main(ShowCreation(ac), run_time=1.2)
             b.main(ShowCreation(bg), run_time=1.2)
+            # "Keduanya bersilangan: tidak sejajar" -> keduanya disorot bersama.
+            tunggu_bergeser(b, frame, JAM, "Keduanya bersilangan")
+            b.main(Indicate(ac, color=AKSEN2), Indicate(bg, color=AKSEN), run_time=1.3)
+            # "Padahal sudut selalu butuh titik sudut" -> baru di situ kameranya
+            # berpindah untuk memperlihatkan keduanya memang tidak bertemu.
+            tunggu_bergeser(b, frame, JAM, "Padahal sudut selalu butuh")
             isi_sisa(b, kamera.sudut(frame, -68, 70, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"AC": ac, "huruf C": lab["C"], "huruf G": lab["G"],
                                  "identitas": jati})
@@ -98,7 +114,11 @@ class SudutGarisBersilangan(AdeganMatra):
 
         # --- Babak 4: mendarat tepat di AH, diagonal sisi yang memang sudah ada.
         with sinema.babak(self, "mendarat", DURASI) as b:
+            # "BG mendarat tepat menjadi AH" -> huruf H yang dibesarkan.
             b.main(lab["H"].animate.scale(1.25), run_time=0.7)
+            # "Sekarang keduanya bertemu di titik A." -> titik temunya disorot.
+            tunggu_bergeser(b, frame, JAM, "Sekarang keduanya bertemu")
+            b.main(Indicate(lab["A"], scale_factor=1.6, color=SOROT), run_time=1.2)
             isi_sisa(b, kamera.sudut(frame, -24, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"BG": bg, "huruf H": lab["H"], "huruf A": lab["A"],
                                  "identitas": jati})
@@ -117,8 +137,16 @@ class SudutGarisBersilangan(AdeganMatra):
         n_ch = label_hadap(frame, "6\\sqrt{2}", sepanjang3(T["C"], T["H"], 0.5)
                            + np.array([0.0, 0.85, 0.30]), REDUP, 26, rumus_latex=True)
         with sinema.babak(self, "segitiga", DURASI) as b:
+            # "Sekarang lihat segitiga ACH."
             b.main(ShowCreation(ch), FadeIn(muka), run_time=1.4)
-            b.main(FadeIn(n_ac), FadeIn(n_ah), FadeIn(n_ch), run_time=1.0)
+            # "AC diagonal sisi alas, AH diagonal sisi kiri, CH diagonal sisi
+            # belakang": ketiga namanya muncul di kalimat yang menyebutnya.
+            tunggu_bergeser(b, frame, JAM, "AC diagonal sisi alas")
+            b.main(FadeIn(n_ac), FadeIn(n_ah), run_time=0.8)
+            tunggu_bergeser(b, frame, JAM, "CH diagonal sisi belakang")
+            b.main(FadeIn(n_ch), run_time=0.7)
+            # "Ketiganya 6 akar 2, jadi segitiganya sama sisi."
+            tunggu_bergeser(b, frame, JAM, "Ketiganya 6")
             sinema.lahir_rumus(self, r"AC = AH = CH = 6\sqrt{2}", dekat=ch,
                                papan=papan, b=b)
             b.main(ShowCreation(busur_a), run_time=0.8)
@@ -132,10 +160,14 @@ class SudutGarisBersilangan(AdeganMatra):
         n_sudut = label_hadap(frame, "60^\\circ", T["A"] + np.array([1.3, 1.3, 0.55]),
                               SOROT, 32, rumus_latex=True)
         with sinema.babak(self, "tutup", DURASI) as b:
+            # "Semua sudut segitiga sama sisi adalah 60 derajat."
             b.main(FadeIn(n_sudut), run_time=0.8)
-            papan.baris(r"\angle(AC, BG) = 60^\circ", SOROT)
-            b.catat(0.8)
-            isi_sisa(b, kamera.putar_pelan(frame, 26), sisakan=1.6)
+            papan.baris(r"\angle(AC, BG) = 60^\circ", SOROT, b=b)
+            # "Menggeser tidak mengubah arah" -> ruas yang digeser itu yang
+            # disorot, sebab justru itu inti seluruh materinya.
+            tunggu_bergeser(b, frame, JAM, "Menggeser tidak mengubah arah")
+            b.main(Indicate(bg, color=AKSEN), run_time=1.4)
+            isi_sisa(b, kamera.putar_pelan(frame, 16), sisakan=1.6)
             b.jeda(1.2)
         qc.periksa_adegan(self, {"panel": papan.semua(), "busur": busur_a,
                                  "nilai sudut": n_sudut, "identitas": jati},

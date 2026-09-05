@@ -55,8 +55,8 @@ export default function KaliSkalar({
     >
       {/* hasil kali digambar lebih dulu supaya panah asalnya tetap terlihat
           di atasnya saat pengalinya kecil dan keduanya berimpit */}
-      <Panah dari={asal} ke={hasil} jendela={jendela} warna={WARNA.sudut} tebal={3.4} />
-      <Panah dari={asal} ke={a} jendela={jendela} warna={WARNA.miring} tebal={2.4} pegangan />
+      <Panah dari={asal} ke={hasil} kunci="k" jendela={jendela} warna={WARNA.sudut} tebal={3.4} />
+      <Panah dari={asal} ke={a} kunci="a" jendela={jendela} warna={WARNA.miring} tebal={2.4} pegangan />
 
       {nol && (
         // Pada pengali nol, panahnya memang lenyap. Tanpa keterangan ini,

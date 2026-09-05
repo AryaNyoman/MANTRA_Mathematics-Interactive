@@ -1060,3 +1060,56 @@ dimulai. Menunggu revisi isi ini dinilai.
    memakai Manim `ThreeDScene`, 480p, satu per satu lewat `alat/antre_render.py`.
 
 ---
+
+# BERHENTI SEMENTARA atas permintaan ARYA, 4 September 2026 siang
+
+Ditulis supaya sesi berikutnya tidak perlu menebak. Pohon kerja bersih,
+semua sudah dicommit, kunci antrean render sudah dilepas (kalau tidak, lima
+sesi lain terblokir 45 menit menunggu kunci yang pemiliknya sudah mati).
+
+## Yang sudah selesai
+- Keenam adegan disesuaikan ke tiga cacat tinjauan MASTER (pembuka berisi
+  kejadian, kubus bercahaya tiga tingkat terang, angka sumbu 0/3/6).
+- 58 kejadian diikat ke kalimat narasinya lewat jam subtitle, dan kalimat
+  pemicunya ditulis sebagai komentar di atas tiap baris.
+- Materi 03 dapat aba-aba pandangan sejajar AC (syarat ARYA lewat MASTER),
+  narasi dibuat ulang 79,2 jadi 91,8 detik, kamera penutup benar-benar sampai
+  ke theta -135.
+- Alat: ukuran "diam terpanjang" masuk `alat/ukur_detik_pertama.py`, dan
+  `alat/cek_kalimat_adegan.py` memeriksa awalan kalimat tanpa perlu render.
+
+## Yang TERPUTUS di tengah jalan
+Render ulang keenam video dengan perbaikan terakhir (geseran latar mengisi
+tunggu dan sisa babak yang pendek). Yang SUDAH jadi dengan kode terbaru:
+**materi 01, 03, dan 04**. Yang BELUM: **06, 08, 09**, jadi mp4 keduanya di
+`media/gl/` masih hasil putaran sebelumnya.
+
+Lanjutkan dengan:
+
+    python alat/antre_render.py matra-ruang-3d -- manimgl manim/scenes/ruang_3d_06.py JarakTitikKeBidang -w -l
+    python alat/antre_render.py matra-ruang-3d -- manimgl manim/scenes/ruang_3d_08.py SudutGarisBersilangan -w -l
+    python alat/antre_render.py matra-ruang-3d -- manimgl manim/scenes/ruang_3d_09.py SudutDenganBidang -w -l
+
+lalu untuk keenamnya: `gabung_audio.py <topik> <Adegan> --uji`,
+`alat/ukur_detik_pertama.py --judul 3.4 media/uji-480p/ruang-3d-0*.mp4`,
+`cek_video.py --per-detik 0.25` dan BUKA lembar kontaknya.
+
+## Angka terakhir yang terukur (putaran sebelum perbaikan terakhir)
+
+| Materi | Gerak pertama | Diam terpanjang |
+|---|---|---|
+| 01 | 0,25 detik | 7,8 detik pada detik 21 |
+| 03 | 0,75 detik | 4,4 detik pada detik 30 |
+| 04 | 0,75 detik | 6,0 detik pada detik 49 |
+| 06 | 0,88 detik | 3,4 detik pada detik 37 |
+| 08 | 0,75 detik | 5,4 detik pada detik 69 |
+| 09 | 0,75 detik | 5,6 detik pada detik 18 |
+
+Peringatan `Babak.tutup()` berbunyi NOL kali untuk keenamnya, padahal angka di
+atas menunjukkan masih ada beku 3 sampai 8 detik. MASTER sudah mencatat ini
+sebagai bukti bahwa peringatan yang sunyi bukan bukti bersih.
+
+## Yang menunggu MASTER
+Setelah 06, 08, 09 selesai: salin keenam mp4 ke `web/public/anim/`, buat ulang
+poster (poster yang ada diambil dari video sebelum perbaikan), `git add` jpg-nya
+dan commit, lalu kabari MASTER untuk deploy ulang ke https://mantra-uji.vercel.app.

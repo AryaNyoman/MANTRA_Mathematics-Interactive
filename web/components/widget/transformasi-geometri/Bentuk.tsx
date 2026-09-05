@@ -1,5 +1,6 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import { SUDUT_BERNAMA, type Titik } from './matriks'
 import type { Pemeta } from './papan'
 import { BANTU, KERTAS, MONO } from './gaya'
@@ -184,18 +185,23 @@ export function Pegangan({
   p,
   warna,
   label,
+  kunci,
 }: {
   titik: Titik
   p: Pemeta
   warna: string
   label?: string
+  /** nama besaran pegangan ini; menyala saat kendalinya dipegang */
+  kunci?: string
 }) {
+  const dipegang = useSedangDiubah()
+  const nyala = kunci !== undefined && dipegang === kunci
   const sx = p.x(titik.x)
   const sy = p.y(titik.y)
   return (
-    <g>
-      <circle cx={sx} cy={sy} r={13} fill={warna} opacity={0.12} />
-      <circle cx={sx} cy={sy} r={5} fill={warna} stroke={KERTAS} strokeWidth={1.6} />
+    <g className={nyala ? 'nyala' : undefined}>
+      <circle cx={sx} cy={sy} r={nyala ? 17 : 13} fill={warna} opacity={nyala ? 0.22 : 0.12} />
+      <circle cx={sx} cy={sy} r={nyala ? 6.5 : 5} fill={warna} stroke={KERTAS} strokeWidth={1.6} />
       {label && (
         <text
           x={sx + 10} y={sy - 9}

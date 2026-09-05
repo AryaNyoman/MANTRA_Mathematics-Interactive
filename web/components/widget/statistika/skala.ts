@@ -1,3 +1,4 @@
+import { petakSumbu } from '@/lib/petak-sumbu'
 /**
  * Penskalaan dan tata letak bidang gambar untuk widget Statistika.
  *
@@ -119,21 +120,12 @@ export type Petak = { nilai: number; label: string }
  * pangkat sepuluh, dan jumlahnya wajar.
  */
 export function petak(min: number, maks: number, target = 6): Petak[] {
-  const rentang = maks - min
-  if (!Number.isFinite(rentang) || rentang <= 0) return []
-
-  const kasar = rentang / target
-  const pangkat = Math.pow(10, Math.floor(Math.log10(kasar)))
-  const sisa = kasar / pangkat
-  const langkah = (sisa >= 5 ? 10 : sisa >= 2 ? 5 : sisa >= 1 ? 2 : 1) * pangkat
-  const desimal = Math.max(0, -Math.floor(Math.log10(langkah)))
-
-  const hasil: Petak[] = []
-  for (let n = Math.ceil(min / langkah) * langkah; n <= maks + langkah * 1e-9; n += langkah) {
-    const nilai = Math.abs(n) < langkah * 1e-9 ? 0 : n
-    hasil.push({ nilai, label: angka(nilai, desimal) })
-  }
-  return hasil
+  // `target` tidak dipakai lagi. Sejak 5 Sep 2026 banyaknya label tidak
+  // ditebak, melainkan dihitung dari ruang: lihat lib/petak-sumbu.ts. Angka
+  // 400 adalah panjang kotak gambar yang lazim (viewBox 460 dikurangi tepi);
+  // bidang yang tahu panjang sumbunya persis memanggil petakSumbu langsung.
+  void target
+  return petakSumbu(min, maks, 400)
 }
 
 /**

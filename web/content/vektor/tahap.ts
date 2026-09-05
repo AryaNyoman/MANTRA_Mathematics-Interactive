@@ -87,7 +87,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri adalah perahu tadi. Kedua panahnya bisa Anda tarik.',
+        teks: 'Alat interaktifnya adalah perahu tadi. Kedua panahnya bisa Anda tarik.',
         langkah: [
           'Perbesar panah merah (arus). Titik mendaratnya bergeser makin jauh ke hilir, padahal dayungnya tidak diubah sama sekali.',
           'Miringkan panah biru (dayung) melawan arus. Perahunya bisa mendarat tepat di seberang, tetapi menyeberangnya jadi lebih lama.',
@@ -168,7 +168,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri punya panah acuan yang diam dan satu panah yang bisa Anda pindahkan.',
+        teks: 'Alat interaktifnya punya panah acuan yang diam dan satu panah yang bisa Anda pindahkan.',
         langkah: [
           'Tarik pangkal dan ujungnya bergantian sampai bentuknya sama dengan acuan. Penilaiannya berubah menjadi vektor yang SAMA.',
           'Sekarang geser keduanya bersama-sama ke pojok lain, jaga bentuknya. Penilaiannya tetap SAMA, walaupun letaknya sudah jauh.',
@@ -232,7 +232,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Tarik ujung panah di sebelah kiri, lalu perhatikan kedua angkanya.',
+        teks: 'Tarik ujung panah di alatnya, lalu perhatikan kedua angkanya.',
         langkah: [
           'Tarik ujungnya ke kanan atas. Kedua komponen bertanda positif.',
           'Bawa ke kiri atas. Komponen mendatarnya berubah tanda, komponen tegaknya tidak.',
@@ -303,7 +303,7 @@ export const TAHAP: TahapVektor[] = [
       { jenis: 'sesi', judul: 'Segitiga siku-siku yang selalu terbentuk' },
       {
         jenis: 'paragraf',
-        teks: 'Perhatikan gambar di sebelah kiri. Langkah mendatar, langkah tegak, dan panah utamanya selalu membentuk segitiga siku-siku, dan panah utamanya selalu menjadi sisi miringnya. Selama itu benar, Pythagoras berlaku.',
+        teks: 'Perhatikan gambar di panel Alat. Langkah mendatar, langkah tegak, dan panah utamanya selalu membentuk segitiga siku-siku, dan panah utamanya selalu menjadi sisi miringnya. Selama itu benar, Pythagoras berlaku.',
       },
       {
         jenis: 'contoh',
@@ -322,7 +322,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Putar panah di sebelah kiri sambil memperhatikan angka di bawah.',
+        teks: 'Putar panah di alatnya sambil memperhatikan angka di bawah.',
         langkah: [
           'Bawa ujungnya ke kiri bawah sehingga kedua komponennya negatif. Panjangnya tetap positif.',
           'Cari letak yang membuat panjangnya tepat 5. Ada banyak, misalnya (4 3), (3 4), dan (-5 0).',
@@ -391,7 +391,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Tarik ujung panah hitam di sebelah kiri.',
+        teks: 'Tarik ujung panah hitam di alatnya.',
         langkah: [
           'Panjangkan sampai jauh. Panah ungunya tidak ikut memanjang.',
           'Putar arahnya. Panah ungu ikut berputar, sebab arahnya memang mengikuti.',
@@ -467,7 +467,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri sudah tersambung ujung ke pangkal.',
+        teks: 'Alat interaktifnya sudah tersambung ujung ke pangkal.',
         langkah: [
           'Tarik ujung panah biru. Panah merah ikut berpindah, sebab pangkalnya menempel di situ.',
           'Tarik ujung panah merah. Panah hitam mengikuti sampai ke titik akhir yang baru.',
@@ -542,7 +542,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menggambar jajar genjangnya secara otomatis.',
+        teks: 'Alat interaktifnya menggambar jajar genjangnya secara otomatis.',
         langkah: [
           'Tarik salah satu ujungnya. Sisi putus-putusnya ikut menyesuaikan supaya tetap jajar genjang.',
           'Dekatkan kedua panah sampai hampir sejajar. Diagonalnya memanjang mendekati jumlah kedua panjangnya.',
@@ -641,7 +641,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menggambar keduanya sekaligus.',
+        teks: 'Alat interaktifnya menggambar keduanya sekaligus.',
         langkah: [
           'Perhatikan ada dua panah ungu yang bentuknya sama persis: satu dari titik asal, satu dari ujung b menuju ujung a.',
           'Tarik ujung a. Keduanya berubah bersamaan, sebab keduanya memang vektor yang sama.',
@@ -690,7 +690,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Geser pengali di sebelah kiri, dari negatif tiga sampai tiga.',
+        teks: 'Geser pengali di alatnya, dari negatif tiga sampai tiga.',
         langkah: [
           'Mulai dari pengali 2, lalu turunkan pelan-pelan. Panah ungunya menyusut, arahnya tidak bergeser.',
           'Lewati angka nol perlahan. Panahnya lenyap sesaat, lalu muncul lagi menghadap arah berlawanan.',
@@ -742,7 +742,7 @@ export const TAHAP: TahapVektor[] = [
     penjelasan: [
       {
         jenis: 'paragraf',
-        teks: 'Sembilan materi sebelumnya membahas caranya. Materi ini menunjukkan tempatnya. Keempat foto di sebelah kiri bukan contoh yang dikarang supaya cocok dengan pelajaran: keempatnya memang dikerjakan dengan vektor oleh orang yang bekerja di bidang itu.',
+        teks: 'Sembilan materi sebelumnya membahas caranya. Materi ini menunjukkan tempatnya. Keempat foto di alatnya bukan contoh yang dikarang supaya cocok dengan pelajaran: keempatnya memang dikerjakan dengan vektor oleh orang yang bekerja di bidang itu.',
       },
       { jenis: 'sesi', judul: 'Menutup cerita perahu' },
       {
@@ -857,7 +857,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Putar salah satu panah di sebelah kiri melewati sudut siku-siku.',
+        teks: 'Putar salah satu panah di alatnya melewati sudut siku-siku.',
         langkah: [
           'Perhatikan angkanya mengecil saat kedua panah saling menjauh.',
           'Tepat saat keduanya tegak lurus, angkanya menjadi nol.',
@@ -927,7 +927,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Putar panah biru di sebelah kiri, perlahan.',
+        teks: 'Putar panah biru di alatnya, perlahan.',
         langkah: [
           'Dekatkan ke panah merah. Bayangannya memanjang mendekati panjang panah birunya sendiri.',
           'Buat tegak lurus. Bayangannya lenyap, sebab tidak ada bagian a yang menuju arah b.',

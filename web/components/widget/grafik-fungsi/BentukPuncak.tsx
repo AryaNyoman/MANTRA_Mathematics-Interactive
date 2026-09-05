@@ -1,5 +1,6 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import Bidang from '@/components/widget/grafik-fungsi/Bidang'
 import {
   KOTAK, MONO, WARNA, jalurFungsi, jendelaMuat, keLayar, type Jendela,
@@ -56,6 +57,7 @@ export default function BentukPuncak({
   nilai: Puncak
   bayang?: Puncak
 }) {
+  const dipegang = useSedangDiubah()
   const { a, h, k } = nilai
   const jendela = jendelaUntuk(nilai, bayang)
   const p = keLayar(jendela)
@@ -90,15 +92,15 @@ export default function BentukPuncak({
       )}
 
       {/* ---------- sumbu simetri ---------- */}
-      <line x1={p.x(h)} y1={KOTAK.y0} x2={p.x(h)} y2={KOTAK.y1}
+      <line className={dipegang === 'h' ? 'nyala' : undefined} x1={p.x(h)} y1={KOTAK.y0} x2={p.x(h)} y2={KOTAK.y1}
             stroke={WARNA.sudut} strokeWidth={1.3} strokeDasharray="5 4" opacity={0.7} />
 
       {/* ---------- parabolanya ---------- */}
-      <path d={jalurFungsi((x) => nilaiPuncak(nilai, x), jendela)}
+      <path className={dipegang === 'a' ? 'nyala' : undefined} d={jalurFungsi((x) => nilaiPuncak(nilai, x), jendela)}
             fill="none" stroke={WARNA.miring} strokeWidth={2.8} strokeLinecap="round" />
 
       {/* ---------- puncaknya ---------- */}
-      <circle cx={p.x(h)} cy={p.y(k)} r={6} fill={WARNA.sudut}
+      <circle className={dipegang === 'h' || dipegang === 'k' ? 'nyala' : undefined} cx={p.x(h)} cy={p.y(k)} r={dipegang === 'h' || dipegang === 'k' ? 8 : 6} fill={WARNA.sudut}
               stroke="var(--kartu)" strokeWidth={2.2} />
       <text x={p.x(h) + 11} y={p.y(k) + (a >= 0 ? 16 : -9)} fontSize={11.5}
             fill={WARNA.sudut} fontFamily={MONO}>

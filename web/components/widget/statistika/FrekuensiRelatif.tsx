@@ -1,5 +1,6 @@
 'use client'
 
+import { Petunjuk, Pilihan } from '@/components/kendali'
 import { useState } from 'react'
 import Papan from '@/components/widget/statistika/Papan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
@@ -86,25 +87,14 @@ export default function FrekuensiRelatif({ children }: PropWidget) {
         </Papan>
       </div>
       <div className="kendali">
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label><span>Sumbu tegaknya menampilkan</span></label>
-          <div className="pilih-sisi">
-            <button aria-pressed={!relatif} onClick={() => setRelatif(false)}>
-              Frekuensi asli
-            </button>
-            <button aria-pressed={relatif} onClick={() => setRelatif(true)}>
-              Frekuensi relatif
-            </button>
-          </div>
-        </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Pilihan nama="Sumbu tegaknya menampilkan" arti="banyak siswa, atau bagian dari seluruh kelas"
+          pilihan={[{ nilai: 'asli', label: 'Frekuensi asli' }, { nilai: 'relatif', label: 'Frekuensi relatif' }]}
+          nilai={relatif ? 'relatif' : 'asli'} onPilih={(n) => setRelatif(n === 'relatif')} />
+        <Petunjuk>
             {relatif
               ? 'takarannya sudah disamakan. Sekarang kedua kelas benar-benar bisa diadu'
               : 'Kelas B menang hampir di semua kelompok nilai, dan itu wajar saja: siswanya memang lebih banyak'}
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )

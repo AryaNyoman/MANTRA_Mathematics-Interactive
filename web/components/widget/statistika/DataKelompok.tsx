@@ -1,5 +1,7 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
+import { Angka, Petunjuk } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import Papan from '@/components/widget/statistika/Papan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
@@ -61,6 +63,7 @@ function banyakDiKiri(kelas: Kelas[], x: number): number {
 }
 
 export default function DataKelompok({ children }: PropWidget) {
+  const dipegang = useSedangDiubah()
   const svgRef = useRef<SVGSVGElement | null>(null)
   const [garis, setGaris] = useState(MIN + (MAKS - MIN) * 0.3)
   const [terpilih, setTerpilih] = useState<number | null>(null)
@@ -96,7 +99,8 @@ export default function DataKelompok({ children }: PropWidget) {
   const isi = (
     <>
       {kelas.map((kl, i) => (
-        <g key={i} onPointerDown={() => setTerpilih(i === terpilih ? null : i)}
+        <g key={i} className={(dipegang === 'kiri' && i === I_KIRI) || (dipegang === 'kanan' && i === I_KANAN) ? 'nyala' : undefined}
+           onPointerDown={() => setTerpilih(i === terpilih ? null : i)}
            style={{ cursor: 'pointer' }}>
           <rect x={P.x(kl.bawah) + 1} y={P.y(kl.f)}
                 width={Math.max(P.lebarX(kl.atas - kl.bawah) - 2, 1)}
@@ -113,12 +117,12 @@ export default function DataKelompok({ children }: PropWidget) {
             stroke={PERAN.banding} strokeWidth={2} strokeDasharray="5 3" />
 
       {/* garis yang digeser siswa */}
-      <line x1={P.x(garis)} y1={K.y0 + 30} x2={P.x(garis)} y2={K.y1 + 6}
+      <line className={dipegang === 'garis' ? 'nyala' : undefined} x1={P.x(garis)} y1={K.y0 + 30} x2={P.x(garis)} y2={K.y1 + 6}
             stroke={seimbang ? PERAN.sorot : PERAN.tinta} strokeWidth={2.5} />
       {/* Bulatan penarik ditaruh di K.y0 + 30, di BAWAH baris keterangan papan.
           Pada K.y0 - 4 ia menyentuh keterangan yang dulu di tepi atas, dan pada
           K.y0 + 7 ia menindih keterangan yang sekarang sudah masuk bingkai. */}
-      <circle cx={P.x(garis)} cy={K.y0 + 30} r={7}
+      <circle className={dipegang === 'garis' ? 'nyala' : undefined} cx={P.x(garis)} cy={K.y0 + 30} r={dipegang === 'garis' ? 9 : 7}
               fill={seimbang ? PERAN.sorot : PERAN.tinta} stroke="#FFFDFA" strokeWidth={1.5}
               role="slider" tabIndex={0}
               aria-label={`Garis pembelah, sekarang di nilai ${angka(garis, 2)}`}
@@ -170,30 +174,12 @@ export default function DataKelompok({ children }: PropWidget) {
         </Papan>
       </div>
       <div className="kendali">
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label htmlFor="garis">
-            <span>Letak garis</span>
-            <span className="mono">{angka(garis, 2)}</span>
-          </label>
-          <input id="garis" type="range" min={MIN} max={MAKS} step={0.25} value={garis}
-                 onChange={(e) => geser(0, +e.target.value)} />
-        </div>
-        <div>
-          <label htmlFor="f-kiri">
-            <span>Tetangga kiri {ASLI[I_KIRI].label}</span>
-            <span className="mono">{fKiri}</span>
-          </label>
-          <input id="f-kiri" type="range" min={0} max={BATAS_TETANGGA} step={1} value={fKiri}
-                 onChange={(e) => setFKiri(+e.target.value)} />
-        </div>
-        <div>
-          <label htmlFor="f-kanan">
-            <span>Tetangga kanan {ASLI[I_KANAN].label}</span>
-            <span className="mono">{fKanan}</span>
-          </label>
-          <input id="f-kanan" type="range" min={0} max={BATAS_TETANGGA} step={1} value={fKanan}
-                 onChange={(e) => setFKanan(+e.target.value)} />
-        </div>
+        <Angka nama="Letak garis" arti="geser sampai siswa di kiri dan kanan sama banyak" kunci="garis"
+          nilai={garis} onUbah={(n) => geser(0, n)} min={MIN} max={MAKS} langkah={0.25} desimal={2} />
+        <Angka nama={`Tetangga kiri ${ASLI[I_KIRI].label}`} arti="banyak siswa di kelas sebelah kiri" kunci="kiri" satuan=" siswa"
+          nilai={fKiri} onUbah={setFKiri} min={0} max={BATAS_TETANGGA} langkah={1} />
+        <Angka nama={`Tetangga kanan ${ASLI[I_KANAN].label}`} arti="banyak siswa di kelas sebelah kanan" kunci="kanan" satuan=" siswa"
+          nilai={fKanan} onUbah={setFKanan} min={0} max={BATAS_TETANGGA} langkah={1} />
         <div style={{ gridColumn: '1 / -1' }}>
           <label><span>Tabel asli</span></label>
           <div className="pilih-sisi">
@@ -202,16 +188,13 @@ export default function DataKelompok({ children }: PropWidget) {
             </button>
           </div>
         </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Petunjuk>
             {seimbang
               ? `seimbang. Kiri dan kanan sama-sama ${angka(kiriJumlah, 1)} siswa, dan rumus interpolasi memberi angka yang sama`
               : selisih < 0
                 ? `masih ${angka(-selisih, 1)} siswa lebih banyak di kanan, geser ke kanan`
                 : `masih ${angka(selisih, 1)} siswa lebih banyak di kiri, geser ke kiri`}
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )

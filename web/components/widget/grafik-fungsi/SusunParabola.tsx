@@ -1,5 +1,6 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import { useState, type PointerEvent as ReactPointerEvent } from 'react'
 import Bidang from '@/components/widget/grafik-fungsi/Bidang'
 import {
@@ -80,6 +81,7 @@ export default function SusunParabola({
   pos: PosisiSusun
   onGeser: (pos: PosisiSusun) => void
 }) {
+  const dipegang = useSedangDiubah()
   const [pegang, setPegang] = useState<number>(-1)
   const jendela = jendelaUntuk(pos)
   const p = keLayar(jendela)
@@ -142,7 +144,7 @@ export default function SusunParabola({
 
       {/* ---------- titik puncak, bisa diseret ---------- */}
       <circle cx={layarPuncak.x} cy={layarPuncak.y} r={18} fill="transparent" />
-      <circle cx={layarPuncak.x} cy={layarPuncak.y} r={pegang === 0 ? 9 : 7.5}
+      <circle className={dipegang === 'puncak' ? 'nyala' : undefined} cx={layarPuncak.x} cy={layarPuncak.y} r={pegang === 0 || dipegang === 'puncak' ? 9 : 7.5}
               fill={WARNA.sudut} stroke="var(--kartu)" strokeWidth={2.4} />
       <text x={layarPuncak.x + 13} y={layarPuncak.y - 11} fontSize={11} fill={WARNA.sudut} fontFamily={MONO}>
         puncak {tulisTitik(pos.puncak.x, pos.puncak.y, 1)}
@@ -150,7 +152,7 @@ export default function SusunParabola({
 
       {/* ---------- titik kedua, bisa diseret ---------- */}
       <circle cx={layarTitik.x} cy={layarTitik.y} r={18} fill="transparent" />
-      <circle cx={layarTitik.x} cy={layarTitik.y} r={pegang === 1 ? 9 : 7.5}
+      <circle className={dipegang === 'titik' ? 'nyala' : undefined} cx={layarTitik.x} cy={layarTitik.y} r={pegang === 1 || dipegang === 'titik' ? 9 : 7.5}
               fill={WARNA.depan} stroke="var(--kartu)" strokeWidth={2.4} />
       <text x={layarTitik.x + 13} y={layarTitik.y + 18} fontSize={11} fill={WARNA.depan} fontFamily={MONO}>
         lewat {tulisTitik(pos.titik.x, pos.titik.y, 1)}

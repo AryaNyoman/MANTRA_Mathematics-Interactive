@@ -90,7 +90,7 @@ export default function PecahKomponen({
       {/* panah utama digambar TERAKHIR supaya berada di atas panah bantu.
           Labelnya digeser ke arah ujung supaya tidak berdesakan dengan label
           komponen mendatar saat vektornya hampir berbaring. */}
-      <Panah dari={asal} ke={v} jendela={jendela} warna={WARNA.miring} tebal={2.8} pegangan
+      <Panah dari={asal} ke={v} kunci="v" jendela={jendela} warna={WARNA.miring} tebal={2.8} pegangan
              label="v" sisiLabel={-1} bagian={0.68} />
 
       <text

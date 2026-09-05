@@ -1,5 +1,6 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import { MONO, VH, VW, WARNA, angka } from '@/components/widget/limit/koordinat'
 
 /**
@@ -33,6 +34,7 @@ const KANAN = 200
 const BATANG_MAKS = VW - KANAN - 20
 
 export default function BusurLawanTali({ derajat }: { derajat: number }) {
+  const dipegang = useSedangDiubah()
   const d = Math.min(Math.max(derajat, BATAS_DERAJAT.min), BATAS_DERAJAT.maks)
   const rad = (d * Math.PI) / 180
   const s = Math.sin(rad)
@@ -58,10 +60,10 @@ export default function BusurLawanTali({ derajat }: { derajat: number }) {
 
       {/* jari-jari, dan busur yang panjangnya sama dengan θ */}
       <line x1={CX} y1={CY} x2={px} y2={py} stroke={WARNA.miring} strokeWidth={1.8} />
-      <path d={busur} fill="none" stroke={WARNA.sudut} strokeWidth={4} strokeLinecap="round" />
+      <path className={dipegang === 'sudut' ? 'nyala' : undefined} d={busur} fill="none" stroke={WARNA.sudut} strokeWidth={dipegang === 'sudut' ? 5.5 : 4} strokeLinecap="round" />
 
       {/* ruas sin θ, tegak dari titik ke sumbu mendatar */}
-      <line x1={px} y1={CY} x2={px} y2={py} stroke={WARNA.depan} strokeWidth={4} strokeLinecap="round" />
+      <line className={dipegang === 'sudut' ? 'nyala' : undefined} x1={px} y1={CY} x2={px} y2={py} stroke={WARNA.depan} strokeWidth={dipegang === 'sudut' ? 5.5 : 4} strokeLinecap="round" />
       <circle cx={px} cy={py} r={4} fill={WARNA.miring} stroke="var(--kartu)" strokeWidth={1.6} />
 
       <text x={CX} y={CY + R + 40} textAnchor="middle" fontSize={10} fill={WARNA.redup} fontFamily={MONO}>

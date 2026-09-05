@@ -1,5 +1,6 @@
 'use client'
 
+import { Petunjuk, Pilihan } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import { GarisBilangan, TumpukanTitik } from '@/components/widget/statistika/GarisBilangan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
@@ -136,30 +137,22 @@ export default function KotakGaris({ children }: PropWidget) {
         </svg>
       </div>
       <div className="kendali">
-        <div>
-          <label><span>Pagar 1,5 × JAK</span></label>
-          <div className="pilih-sisi">
-            <button aria-pressed={pagar} onClick={() => setPagar((p) => !p)}>
-              {pagar ? 'Sembunyikan' : 'Tampilkan'}
-            </button>
-          </div>
-        </div>
+        <Pilihan nama="Pagar 1,5 × JAK" arti="batas yang memisahkan pencilan"
+          pilihan={[{ nilai: 'sembunyi', label: 'Sembunyikan' }, { nilai: 'tampil', label: 'Tampilkan' }]}
+          nilai={pagar ? 'tampil' : 'sembunyi'} onPilih={(n) => setPagar(n === 'tampil')} />
         <div>
           <label><span>Data asli</span></label>
           <div className="pilih-sisi">
             <button onClick={() => setData(D.data)}>Kembalikan semula</button>
           </div>
         </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Petunjuk>
             {pagar
               ? r.pencilan.length > 0
                 ? `${r.pencilan.length} titik di luar pagar, ditandai warna bata dan tidak dijangkau kumisnya`
                 : 'tidak ada titik yang jatuh di luar pagar'
               : 'seret titik paling kanan mendekat. Kumisnya memendek, tetapi kotaknya nyaris tidak berubah'}
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )

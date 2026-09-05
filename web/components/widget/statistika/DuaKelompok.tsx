@@ -1,5 +1,6 @@
 'use client'
 
+import { Petunjuk } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import { GarisBilangan, Penanda, TumpukanTitik } from '@/components/widget/statistika/GarisBilangan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
@@ -139,13 +140,10 @@ export default function DuaKelompok({ children }: PropWidget) {
             <button disabled={utuh} onClick={() => setDataB(B.data)}>Kembalikan semula</button>
           </div>
         </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Petunjuk>
             acak dulu titik Kelas B sesuka Anda, lalu tekan samakan. Rata-ratanya kembali 7,
             tetapi bentuk datanya tetap berantakan
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )
@@ -162,7 +160,7 @@ export default function DuaKelompok({ children }: PropWidget) {
 
   const kanan = (
     <div className="blok">
-      <div className="cap">Angka dari alat di sebelah kiri</div>
+      <div className="cap">Angka dari alat</div>
       <table className="tabel-angka">
         <thead>
           <tr>

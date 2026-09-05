@@ -1,9 +1,10 @@
 'use client'
 
+import { petakSumbu } from '@/lib/petak-sumbu'
 import { useId, type PointerEvent as ReactPointerEvent, type ReactNode, type Ref } from 'react'
 import {
   GARIS_PETAK, GARIS_SUMBU, KOTAK, MAKS_HURUF_CATATAN, MONO, VH, VW, WARNA,
-  keLayar, labelSkala, petak, type Jendela,
+  keLayar, labelSkala, type Jendela,
 } from '@/components/widget/grafik-fungsi/koordinat'
 
 /** Satu baris keterangan di pita atas atau bawah. */
@@ -74,8 +75,8 @@ export default function Bidang({
   // ketidakcocokan hidrasi.
   const idKotak = `kotak-${useId().replace(/:/g, '')}`
   const p = keLayar(jendela)
-  const petakX = petak(jendela.xMin, jendela.xMax, 6)
-  const petakY = petak(jendela.yMin, jendela.yMax, 5)
+  const petakX = petakSumbu(jendela.xMin, jendela.xMax, KOTAK.x1 - KOTAK.x0)
+  const petakY = petakSumbu(jendela.yMin, jendela.yMax, KOTAK.y1 - KOTAK.y0)
 
   // Sumbu digambar di dalam bingkai kalau nol memang terlihat. Kalau nol ada di
   // luar jendela, sumbunya ditempel ke tepi supaya angkanya tetap terbaca dan

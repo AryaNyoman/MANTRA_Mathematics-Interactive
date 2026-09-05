@@ -68,8 +68,8 @@ export default function PerkalianTitik({
     >
       {busur && <path d={busur} fill="none" stroke={WARNA.sudut} strokeWidth={1.8} />}
 
-      <Panah dari={asal} ke={a} jendela={jendela} warna={WARNA.samping} tebal={2.8} pegangan />
-      <Panah dari={asal} ke={b} jendela={jendela} warna={WARNA.depan} tebal={2.8} pegangan />
+      <Panah dari={asal} ke={a} kunci="a" jendela={jendela} warna={WARNA.samping} tebal={2.8} pegangan />
+      <Panah dari={asal} ke={b} kunci="b" jendela={jendela} warna={WARNA.depan} tebal={2.8} pegangan />
 
       <text
         x={(KOTAK.x0 + KOTAK.x1) / 2} y={KOTAK.y0 + 15} textAnchor="middle"

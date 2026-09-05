@@ -30,6 +30,10 @@ from gl import kamera, qc, sinema  # noqa: E402
 
 TOPIK = "ruang-3d-04"
 DURASI = durasi(TOPIK)
+# Jam kalimat dari .vtt: dipakai supaya kejadian di layar jatuh tepat pada
+# kalimat yang menyebutnya. URUTAN WAJIB: buat_narasi.py, buat_subtitle.py,
+# BARU render.
+JAM = sinema.jam_subtitle(TOPIK)
 
 
 class DuaKaliPythagoras(AdeganMatra):
@@ -73,8 +77,13 @@ class DuaKaliPythagoras(AdeganMatra):
             # belasan detik. Sebelum ini babak pembuka dan babak berikutnya
             # sama-sama menampilkan kubus abu-abu pejal, dan itu 20 persen
             # video habis tanpa satu pun hal baru masuk layar.
-            b.main(kubus.animate.set_opacity(0.14), ShowCreation(rangka),
-                   FadeOut(bayangan), run_time=1.6)
+            # Rusuknya digambar SATU PER SATU (lag_ratio), bukan kedua belasnya
+            # sekaligus dalam 1,6 detik. Ukuran baru MASTER 4 Sep, 'detik
+            # pertama bergerak': yang dihitung bukan ada tidaknya animasi,
+            # melainkan apakah layarnya benar-benar berubah di mata penonton.
+            b.main(kubus.animate.set_opacity(0.14),
+                   ShowCreation(rangka, lag_ratio=0.16),
+                   FadeOut(bayangan), run_time=3.2)
             isi_sisa(b, kamera.sudut(frame, -28, 68, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"kubus": kubus})
 
@@ -88,10 +97,34 @@ class DuaKaliPythagoras(AdeganMatra):
         with sinema.babak(self, "sisi", DURASI) as b:
             sumbu_z_pamit(b, papan_koor, 1.0)
             b.main(*[FadeIn(x) for x in lab.values()], run_time=0.8)
-            b.main(ShowCreation(ab), ShowCreation(bc), run_time=1.2)
-            b.main(FadeIn(n_ab), FadeIn(n_bc), run_time=0.8)
-            b.main(ShowCreation(ac), FadeIn(muka_alas), ShowCreation(siku_b), run_time=1.6)
-            isi_sisa(b, kamera.sudut(frame, -12, 52, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
+            # URUTAN MENGIKUTI KALIMAT NARASI, bukan urutan menggambar yang
+            # nyaman. Narasinya: "A C menghubungkan dua sudut pada satu sisi,
+            # jadi namanya diagonal sisi. Segitiga A B C siku-siku di B, dan
+            # kedua sisi tegaknya rusuk sepanjang enam." Versi sebelumnya
+            # menggambar AB dan BC lebih dulu lalu AC paling akhir, jadi
+            # gambarnya mendahului kalimatnya.
+            #
+            # Kejadiannya juga DISEBAR, tidak menumpuk di 4,4 detik pertama
+            # lalu meninggalkan satu geseran kamera panjang. Diukur dari video
+            # sebelumnya: detik 13,5 sampai 17,5 cuma 0,25 persen piksel yang
+            # berubah, yaitu huruf titik sudut dan garis tipis. Lima animasi
+            # yang semuanya benda kecil sama saja dengan layar beku.
+            # Tiap kejadian diikat ke KALIMAT yang menyebutnya lewat jam
+            # subtitle, bukan ke jarak tetap dari awal babak (syarat MASTER
+            # 4 Sep). Kalimat pemicunya ditulis di sebelah tiap baris supaya
+            # bisa diperiksa orang lain, dan `saat_kalimat` MENGGAGALKAN render
+            # kalau kalimatnya tidak ada, bukan diam-diam tidak menunggu.
+            tunggu_bergeser(b, frame, JAM, "AC menghubungkan")
+            b.main(ShowCreation(ac), run_time=1.4)
+            tunggu_bergeser(b, frame, JAM, "jadi namanya diagonal sisi")
+            b.main(kamera.sudut(frame, -12, 52, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
+                   run_time=2.0)
+            tunggu_bergeser(b, frame, JAM, "Segitiga ABC siku-siku")
+            b.main(ShowCreation(ab), ShowCreation(bc), FadeIn(muka_alas),
+                   ShowCreation(siku_b), run_time=1.8)
+            tunggu_bergeser(b, frame, JAM, "dan kedua sisi tegaknya")
+            b.main(FadeIn(n_ab), FadeIn(n_bc), run_time=0.9)
+            isi_sisa(b, kamera.putar_pelan(frame, 8))
         qc.periksa_adegan(self, {"AC": ac, "nilai AB": n_ab, "nilai BC": n_bc,
                                  "identitas": jati},
                           [("nilai AB", "nilai BC")])
@@ -108,6 +141,10 @@ class DuaKaliPythagoras(AdeganMatra):
             b.main(FadeIn(n_ac), run_time=0.7)
             sinema.lahir_rumus(self, r"AC^2 = 6^2 + 6^2 = 72", dekat=ac,
                                papan=papan, b=b, warna=AKSEN2)
+            # "Jangan diakarkan dulu, angka itu masih akan dipakai": angka 72
+            # itulah yang disorot, tepat saat kalimat itu diucapkan.
+            tunggu_bergeser(b, frame, JAM, "Jangan diakarkan dulu")
+            b.main(Indicate(papan.utama, scale_factor=1.15, color=SOROT), run_time=1.2)
             isi_sisa(b, kamera.putar_pelan(frame, 18))
             b.jeda(0.8)
         qc.periksa_adegan(self, {"panel": papan.semua(), "nilai AC": n_ac, "identitas": jati},
@@ -121,9 +158,21 @@ class DuaKaliPythagoras(AdeganMatra):
             b.main(FadeOut(ab), FadeOut(bc), FadeOut(muka_alas),
                    FadeOut(n_ab), FadeOut(n_bc), run_time=0.9)
             sumbu_z_muncul(b, papan_koor, 0.8)
+            # "AG menembus bagian dalam kubus" -> AG digambar saat disebut.
+            tunggu_bergeser(b, frame, JAM, "AG menembus")
             b.main(ShowCreation(ag), run_time=1.3)
+            # "jadi namanya diagonal ruang" -> ruas itu yang disorot, sebab
+            # kalimat itu memberi NAMA kepada benda yang baru saja digambar.
+            # Tanpa ini ada 3,7 detik diam di antara dua kalimat.
+            tunggu_bergeser(b, frame, JAM, "jadi namanya diagonal ruang")
+            b.main(Indicate(ag, color=AKSEN), run_time=1.2)
+            # "Segitiga penolongnya, ACG" -> segitiga penolongnya berdiri.
+            tunggu_bergeser(b, frame, JAM, "Segitiga penolongnya")
             b.main(ShowCreation(cg), FadeIn(muka_tegak), ShowCreation(siku_c), run_time=1.5)
             b.main(FadeIn(n_cg), run_time=0.7)
+            # "tidak menempel pada sisi mana pun" -> kameranya yang membuktikan, jadi
+            # geserannya baru mulai di kalimat itu, bukan sebelumnya.
+            tunggu_bergeser(b, frame, JAM, "tidak menempel pada sisi")
             isi_sisa(b, kamera.sudut(frame, -74, 76, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"AG": ag, "CG": cg, "nilai CG": n_cg, "panel": papan.semua(),
                                  "identitas": jati},
@@ -137,7 +186,16 @@ class DuaKaliPythagoras(AdeganMatra):
             # Waktunya TIDAK dihitung tangan lagi. Versi sebelumnya mencatat 1,7
             # detik untuk tumbuh + kata alasan, padahal yang terpakai 3,2, dan
             # videonya jadi 1,6 detik lebih panjang daripada narasinya.
+            # "Alasnya AC tadi, sisi tegaknya rusuk CG" lalu "dan siku-sikunya di
+            # C": benda yang disebut berurutan, disorot berurutan juga.
+            tunggu_bergeser(b, frame, JAM, "Alasnya AC tadi")
+            b.main(Indicate(ac, color=AKSEN2), run_time=1.1)
+            b.main(Indicate(cg, color=SOROT), run_time=1.1)
+            tunggu_bergeser(b, frame, JAM, "dan siku-sikunya di C")
+            b.main(Indicate(siku_c, scale_factor=1.6, color=SOROT), run_time=1.2)
+            tunggu_bergeser(b, frame, JAM, "Jadi AG")
             papan.tumbuh(r"AG^2 = 72 + 36 = 108", "ditambah", b=b)
+            tunggu_bergeser(b, frame, JAM, "AG sama dengan")
             papan.baris(r"AG = 6\sqrt{3} \approx 10{,}392", AKSEN, b=b)
             isi_sisa(b, kamera.sudut(frame, -34, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
         qc.periksa_adegan(self, {"panel": papan.semua(), "identitas": jati},
@@ -149,7 +207,14 @@ class DuaKaliPythagoras(AdeganMatra):
                              + np.array([-1.5, 0.0, 0.0]), SOROT, 30)
         with sinema.babak(self, "tutup", DURASI) as b:
             b.main(FadeIn(alasan), run_time=0.9)
-            isi_sisa(b, kamera.putar_pelan(frame, 30), sisakan=1.6)
+            # "Ia menghitung ada berapa arah yang dilewati: panjang, lebar, dan
+            # tinggi" -> diagonal ruangnya sendiri yang disorot saat itu.
+            tunggu_bergeser(b, frame, JAM, "Ia menghitung ada berapa arah")
+            b.main(Indicate(ag, color=AKSEN), run_time=1.3)
+            # "ia Pythagoras yang dipakai untuk kedua kalinya" -> panel hitungan.
+            tunggu_bergeser(b, frame, JAM, "ia Pythagoras yang dipakai")
+            b.main(Indicate(papan.utama, scale_factor=1.12, color=SOROT), run_time=1.2)
+            isi_sisa(b, kamera.putar_pelan(frame, 20), sisakan=1.6)
             b.jeda(1.2)
         qc.periksa_adegan(self, {"AG": ag, "panel": papan.semua(), "alasan": alasan,
                                  "identitas": jati},

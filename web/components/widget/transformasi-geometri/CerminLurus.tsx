@@ -106,7 +106,7 @@ export default function CerminLurus({
       <RuasBerangka dari={A} ke={kaki} p={p} warna={ALAT} sisi={1} />
       <RuasBerangka dari={kaki} ke={Aksen} p={p} warna={ALAT} sisi={-1} />
 
-      <Pegangan titik={pegangan} p={p} warna={ALAT} />
+      <Pegangan titik={pegangan} p={p} warna={ALAT} kunci="cermin" />
 
       <Legenda
         entri={[

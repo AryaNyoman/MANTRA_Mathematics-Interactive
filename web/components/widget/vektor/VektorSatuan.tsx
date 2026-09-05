@@ -50,7 +50,7 @@ export default function VektorSatuan({
       <Panah dari={asal} ke={{ x: 1, y: 0 }} jendela={jendela} warna={WARNA.redup} tebal={2} />
       <Panah dari={asal} ke={{ x: 0, y: 1 }} jendela={jendela} warna={WARNA.redup} tebal={2} />
 
-      <Panah dari={asal} ke={v} jendela={jendela} warna={WARNA.miring} tebal={2.6} pegangan />
+      <Panah dari={asal} ke={v} kunci="v" jendela={jendela} warna={WARNA.miring} tebal={2.6} pegangan />
       <Panah dari={asal} ke={e} jendela={jendela} warna={WARNA.sudut} tebal={3.4} />
 
       <Legenda

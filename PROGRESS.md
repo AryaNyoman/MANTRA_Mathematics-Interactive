@@ -1,5 +1,96 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 5 SEP (malam, lanjutan): BERANDA DIRAPIKAN, VIDEO BERANDA BARU
+
+Permintaan ARYA 5 Sep sore: korsel jangan berganti sendiri; video slide 1
+harus terus mengulang dan hidup lagi saat kembali ke slide itu; kotak slide
+krem; bola hijau di kurva biru hero dengan irama acak; dan video slide 1
+dirender ulang meniru Materi 09 Trigonometri tanpa suara dan subtitle.
+
+- Video: `manim/scenes/beranda_tiga_grafik.py` (ManimGL, port dari arsip CE).
+  30 detik, 0 sampai 540 derajat, laju tetap, lalu dipudarkan dan diulang
+  dari nol supaya `loop` di peramban tidak berkedip. Render:
+  `manimgl manim/scenes/beranda_tiga_grafik.py BerandaTigaGrafik -w --hd`,
+  lalu ffmpeg ke `web/public/anim/beranda-tiga-grafik-v3.mp4` (30 fps, h264)
+  dan poster `.jpg` dari detik 13,5. Berkas v2 masih ada, tidak dipakai.
+  Video ini TIDAK punya jalur subtitle (`jaga_jalur_bawah=False`), sebab
+  memang tidak bernarasi; pemeriksaan tabrakan dan bingkai tetap jalan.
+- Dua jebakan ManimGL yang ketahuan lewat lembar kontak: `Circle` butuh
+  `stroke_color=` (`color=` kalah oleh bawaan merah), `Dot` butuh
+  `fill_color=` (`color=` kalah oleh bawaan putih).
+
+## 5 SEP (malam): SEMUA WIDGET MEMAKAI SISTEM KENDALI BERSAMA
+
+Permintaan ARYA (5 Sep): widget jangan cuma bisa diseret di gambar; siswa
+harus bisa MENGETIK angkanya, tiap kendali harus menjelaskan gunanya, label
+sumbu harus rinci, dan perubahan harus terlihat langsung di gambar.
+Rancangannya: `docs/superpowers/specs/2026-09-05-sistem-kendali-widget-design.md`.
+
+Yang jadi, di ketujuh topik (56 materi berwidget, semuanya dicek di browser
+desktop dan HP 390 px, tidak ada yang melebar):
+- `web/components/kendali/`: `Angka` (nama + arti, angka tampil, kolom ketik
+  yang DIPOTONG ke batas bukan ditolak, penggeser), `Koordinat` (x, y, plus
+  pratinjau vektor kolom dan i-j), `Pilihan` (tombol bersegmen), `Petunjuk`
+  (kalimat "geser X, perhatikan Y"), dan `sedang-diubah.ts` (kendali yang
+  dipegang melaporkan `kunci`-nya, gambar menyalakan bagiannya: kelas `.nyala`).
+- `web/lib/petak-sumbu.ts`: satu pembuat label sumbu untuk semua papan;
+  jaraknya dipilih supaya labelnya rapat tapi tidak bertumpuk.
+- Gambar lengket (`position: sticky`) di atas kendalinya, jadi saat menggeser
+  perubahan terlihat tanpa menggulir.
+- Kata "tahap" di teks siswa Trigonometri diganti "Materi 0N".
+
+Cara memakai di widget baru: taruh `<Angka nama arti nilai onUbah min max
+langkah kunci>` di dalam `.kendali`; kalau widget punya pegangan yang bisa
+diseret, panggil `useSedangDiubah()` dan beri kelas `nyala` saat kuncinya
+sama. Contoh: `Panah.tsx` (vektor), `Bentuk.tsx` (transformasi),
+`SegitigaSebangun.tsx`.
+
+**Letak alat di layar sempit (keputusan ARYA 5 Sep, sesudahnya):** materi
+TANPA video tidak lagi menyodorkan widget di atas judul. Widgetnya disisipkan
+di bawah kotak "Yuk bereksperimen" pertama (prop `sisipan` di
+`Penjelasan.tsx`), atau di akhir bacaan kalau kotaknya tidak ada (empat galeri
+dunia nyata). Materi dengan video tetap: video dulu, alat lewat "Coba
+sendiri". Desktop tiga kolom tidak berubah.
+
+Yang sengaja BELUM: sorot `.nyala` baru ada di Vektor, Transformasi, dan
+Segitiga sebangun; tombol aksi lama ("Kembalikan semula", "Samakan
+rata-ratanya") di Statistika masih bergaya lama karena memang bukan besaran.
+
+## 5 SEP: MANTRA v2 "Panggung Sinema" SUDAH DI PRODUKSI
+
+Cabang `sesi/mantra-v2` sudah digabung ke `master` dan dinaikkan ke
+produksi. **https://matra-eight.vercel.app** kini memakai rancangan v2.
+Pratinjaunya (`mantra-rancangan-v2.vercel.app`) masih hidup sebagai
+pembanding dan boleh dibuang kapan saja.
+
+Isi perubahan ada di pesan commit, jangan disalin ulang ke sini. Ringkasnya:
+nav, hero, dan kaki halaman jadi permukaan navy; halaman belajar jadi tiga
+kolom penuh layar (daftar materi, bacaan, ALAT) dengan pembatas yang bisa
+ditarik dan mode fokus layar penuh; Peta Materi jadi baris sub-bab; menu
+Latihan jadi kartu per bab tanpa kuis; ada halaman 404, keadaan memuat, dan
+kotak galat video.
+
+### YANG PERLU DIKETAHUI SESI BERIKUTNYA
+
+1. **Gerbang resolusi video MENOLAK saat promote ini, dan tetap dinaikkan
+   atas keputusan ARYA.** `python alat/cek_resolusi_anim.py` melaporkan 33
+   video masih 480p. Sebelum promote ini produksi TIDAK punya video topik
+   sama sekali (404), jadi menaikkannya membuat video muncul untuk pertama
+   kali, di mutu draf. Begitu render 1080p selesai, jalankan gerbangnya lagi
+   sampai lolos lalu deploy ulang.
+
+2. **Kredit ElevenLabs di halaman Tentang belum sesuai kenyataan.** Seluruh
+   `manim/narasi/*.json` masih mencatat `id-ID-ArdiNeural` (edge-tts).
+   ARYA akan mengganti suaranya; penandanya ada di `app/tentang/page.tsx`.
+
+3. **Bank soal menu Latihan dan kuis bab masih satu kumpulan** (32 soal
+   `kuis.ts`). Yang sudah dikerjakan: kuis kini MENDAHULUKAN soal yang belum
+   pernah dijawab benar di bank soal. Kalau suatu saat mau benar-benar
+   terpisah, perlu bank soal baru.
+
+4. **Kartu ManimGL menaut ke manim.community**, padahal yang dipakai ManimGL
+   milik 3Blue1Brown. ARYA tahu bedanya dan tetap memilih itu.
+
 > **SESI BARU: baca berkas ini dari atas sampai bawah SEBELUM mengerjakan apa pun.**
 > Terakhir diperbarui: **3 September 2026 sore**.
 >
@@ -135,7 +226,9 @@
   mengira perbaikannya belum ada (3 Sep).
 - **Cara deploy yang benar mulai sekarang:** dari `D:\MANIM-MATRA\web` di
   `master`. Preview: `vercel deploy --yes` lalu `vercel alias set ...`.
-  Produksi: hanya atas kata ARYA, dan pakai `vercel promote <deploy>` untuk
+  Produksi: hanya atas kata ARYA, WAJIB lolos `python alat/cek_resolusi_anim.py`
+  dulu (video 480p tinjauan memakai nama yang sama dengan 1080p; temuan 3D
+  4 Sep), lalu pakai `vercel promote <deploy>` untuk
   menaikkan build yang sudah ia periksa, bukan `--prod` yang membangun ulang.
 - Yang berubah di situs (rincian per commit `01b0f5e`, `86b0a22`, `d810649`,
   `faac773`): huruf Newsreader + Space Grotesk, palet emas-navy, nav lengket,

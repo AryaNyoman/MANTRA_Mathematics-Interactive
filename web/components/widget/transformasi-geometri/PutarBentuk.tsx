@@ -86,7 +86,7 @@ export default function PutarBentuk({
       <Bentuk titik={prapeta} p={p} warna={PRAPETA} isian={0.08} putus />
       <Bentuk titik={peta} p={p} warna={PETA} isian={0.14} petik="'" />
 
-      <Pegangan titik={pusat} p={p} warna={ALAT} label={diTitikAsal ? 'O' : 'P'} />
+      <Pegangan titik={pusat} p={p} warna={ALAT} label={diTitikAsal ? 'O' : 'P'} kunci="pusat" />
 
       <Legenda
         entri={[

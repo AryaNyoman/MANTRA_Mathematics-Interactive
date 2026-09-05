@@ -8,10 +8,11 @@ import type { Kanal, Soal, SoalKuis, Tahap } from '@/content/tipe'
  * saling menyebut tanpa membentuk lingkaran impor.
  *
  * KENAPA PANGGUNG MENGEMBALIKAN DUA BAGIAN
- * Bagian khusus topik muncul di DUA tempat pada tata letak satu layar: alat
- * interaktifnya di kolom kiri, dan tabel angka hidupnya di kolom kanan di bawah
- * penjelasan. Keduanya membaca keadaan yang sama (sudut yang sedang digeser,
- * misalnya), jadi keadaan itu harus dipegang satu komponen.
+ * Bagian khusus topik muncul di DUA tempat: alat interaktifnya dan tabel
+ * angka hidupnya. Sejak v2 (4 Sep 2026) keduanya berdiri di kolom ALAT di
+ * kanan; sebelumnya alat di kolom kiri dan tabelnya di bawah penjelasan.
+ * Keduanya membaca keadaan yang sama (sudut yang sedang digeser, misalnya),
+ * jadi keadaan itu harus dipegang satu komponen.
  *
  * Karena itu panggung dibuat MEMBUNGKUS tata letak, lalu menyerahkan kedua
  * bagian yang sudah jadi lewat `children`. Cara lain, dua komponen terpisah,
