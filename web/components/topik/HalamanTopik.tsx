@@ -613,8 +613,12 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                   )}
 
                   {/* Di layar sempit alat dan tabelnya ikut turun ke kolom ini,
-                      sebab kolom kanan tidak ada di sana. */}
-                  {padat && tahap && tampilWidget && (
+                      sebab kolom kanan tidak ada di sana. Di ATAS hanya kalau
+                      materinya punya video (siswa memilih "Coba sendiri").
+                      Tanpa video, alatnya disisipkan ke bacaan lewat
+                      `sisipan` Penjelasan, di bawah kotak "Yuk bereksperimen"
+                      (keputusan ARYA 5 Sep 2026). */}
+                  {padat && tahap && tampilWidget && adaVideo && (
                     <div className="alat-sisip">
                       {kiri}
                       {kanan}
@@ -630,7 +634,15 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                       <div className="sub">{tahap.pertanyaan}</div>
 
                       <div className="blok">
-                        <Penjelasan blok={tahap.penjelasan} />
+                        <Penjelasan
+                          blok={tahap.penjelasan}
+                          sisipan={padat && !adaVideo && tampilWidget ? (
+                            <div className="alat-sisip">
+                              {kiri}
+                              {kanan}
+                            </div>
+                          ) : undefined}
+                        />
                       </div>
 
                       {tahap.seringKeliru && (

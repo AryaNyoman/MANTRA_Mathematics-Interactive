@@ -26,6 +26,13 @@ diseret, panggil `useSedangDiubah()` dan beri kelas `nyala` saat kuncinya
 sama. Contoh: `Panah.tsx` (vektor), `Bentuk.tsx` (transformasi),
 `SegitigaSebangun.tsx`.
 
+**Letak alat di layar sempit (keputusan ARYA 5 Sep, sesudahnya):** materi
+TANPA video tidak lagi menyodorkan widget di atas judul. Widgetnya disisipkan
+di bawah kotak "Yuk bereksperimen" pertama (prop `sisipan` di
+`Penjelasan.tsx`), atau di akhir bacaan kalau kotaknya tidak ada (empat galeri
+dunia nyata). Materi dengan video tetap: video dulu, alat lewat "Coba
+sendiri". Desktop tiga kolom tidak berubah.
+
 Yang sengaja BELUM: sorot `.nyala` baru ada di Vektor, Transformasi, dan
 Segitiga sebangun; tombol aksi lama ("Kembalikan semula", "Samakan
 rata-ratanya") di Statistika masih bergaya lama karena memang bukan besaran.

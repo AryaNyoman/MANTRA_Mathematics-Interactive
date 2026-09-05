@@ -2131,6 +2131,9 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
    elemen SVG-nya saat `useSedangDiubah()` sama dengan kuncinya. */
 .nyala { filter: drop-shadow(0 0 3px rgba(176, 138, 62, 0.9)); }
 
+/* Alat yang disisipkan di tengah bacaan (layar sempit, materi tanpa video). */
+.bacaan .alat-sisip { margin: 18px 0 28px; }
+
 /* ---------- keadaan memuat ---------- */
 .memuat-panel {
   border: 1px solid var(--garis); border-radius: var(--r-kartu);
