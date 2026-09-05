@@ -1,0 +1,58 @@
+{
+  "adegan": "TransformasiMatriks",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video 05, Materi 09 'Matriks secukupnya'. Satu-satunya video topik ini yang bendanya BUKAN huruf L, melainkan persegi satuan: yang diajarkan cara membaca empat angka di dalam matriks, dan persegi satuanlah gambar yang membuat aturan kolom terlihat langsung. Tiap segmen punya teks dan tulis.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi kesembilan: matriks secukupnya.",
+      "tulis": "Materi 09: matriks secukupnya."
+    },
+    {
+      "id": "tumpuk",
+      "teks": "Empat aturan yang sudah kita punya ternyata berbentuk sama persis. Yang berbeda cuma empat angka pengalinya.",
+      "tulis": "Empat aturan kita berbentuk sama persis. Yang berbeda cuma 4 angka pengalinya."
+    },
+    {
+      "id": "susun",
+      "teks": "Kalau begitu, keempat angka itulah yang layak dicatat. Kita susun dua baris dua kolom, dan susunan itu disebut matriks.",
+      "tulis": "Keempat angka itulah yang layak dicatat, disusun 2 baris 2 kolom: matriks."
+    },
+    {
+      "id": "persegi",
+      "teks": "Bendanya kali ini bukan huruf L, melainkan persegi satuan. Sisinya tepat satu ke kanan dan satu ke atas.",
+      "tulis": "Bendanya kali ini persegi satuan. Sisinya tepat 1 ke kanan dan 1 ke atas."
+    },
+    {
+      "id": "kolom1",
+      "teks": "Panah biru menunjukkan ke mana titik satu koma nol mendarat. Bacalah ujungnya: itu kolom pertama matriksnya.",
+      "tulis": "Panah biru: ke mana (1, 0) mendarat. Ujungnya adalah kolom pertama matriksnya."
+    },
+    {
+      "id": "kolom2",
+      "teks": "Panah merah menunjukkan ke mana nol koma satu mendarat. Itu kolom keduanya.",
+      "tulis": "Panah merah: ke mana (0, 1) mendarat. Itu kolom keduanya."
+    },
+    {
+      "id": "baca",
+      "teks": "Jadi matriks bisa dibaca langsung dari gambar. Lihat ke mana kedua titik itu pergi, tulis keduanya sebagai kolom, selesai.",
+      "tulis": "Matriks bisa dibaca dari gambar: lihat ke mana kedua titik pergi, tulis sebagai kolom."
+    },
+    {
+      "id": "kali",
+      "teks": "Untuk titik lain, yang bertemu koordinatnya adalah *baris* matriksnya, bukan kolomnya.",
+      "tulis": "Untuk titik lain, yang bertemu koordinatnya adalah *baris* matriks, bukan kolom."
+    },
+    {
+      "id": "kenal",
+      "teks": "Matriks ini nol, negatif satu, satu, nol. Coba kenakan pada tiga koma dua: hasilnya negatif dua koma tiga.",
+      "tulis": "Matriks [[0, -1], [1, 0]] dikenakan pada (3, 2): hasilnya (-2, 3)."
+    },
+    {
+      "id": "tutup",
+      "teks": "Itu persis rotasi sembilan puluh derajat dari Materi keenam. Jadi matriks bukan hal baru, cuma cara lain menuliskannya.",
+      "tulis": "Itu persis rotasi 90° dari Materi 06. Matriks bukan hal baru, cuma cara lain menulisnya."
+    }
+  ]
+}

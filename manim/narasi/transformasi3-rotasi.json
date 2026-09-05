@@ -1,0 +1,58 @@
+{
+  "adegan": "TransformasiRotasi",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video 03, Materi 06 'Memutar terhadap sebuah pusat'. Tanpa 3D: sudut dan jarak harus akurat. Babak 'janji' menagih janji Materi 05 bahwa rotasi 180 derajat sama dengan pencerminan pada titik. Tiap segmen punya teks dan tulis.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi keenam: memutar terhadap sebuah pusat.",
+      "tulis": "Materi 06: memutar terhadap sebuah pusat."
+    },
+    {
+      "id": "jarum",
+      "teks": "Ujung jarum jam ini ada di empat koma nol. Ia berputar seperempat putaran. Ke mana?",
+      "tulis": "Ujung jarum jam ini di (4, 0). Ia berputar seperempat putaran. Ke mana?"
+    },
+    {
+      "id": "jawab",
+      "teks": "Ke nol koma empat. Jaraknya dari pusat tetap empat, yang berubah cuma arahnya.",
+      "tulis": "Ke (0, 4). Jaraknya dari pusat tetap 4, yang berubah cuma arahnya."
+    },
+    {
+      "id": "bentuk",
+      "teks": "Sekarang bentuk yang sama kita putar sembilan puluh derajat terhadap titik asal.",
+      "tulis": "Bentuk yang sama kita putar 90° terhadap titik asal."
+    },
+    {
+      "id": "jari",
+      "teks": "Dua angka di layar itu jarak titik B ke pusat, sebelum dan sesudah. Keduanya sama, dan itu ciri rotasi.",
+      "tulis": "Dua angka itu jarak B ke pusat, sebelum dan sesudah. Sama, dan itu ciri rotasi."
+    },
+    {
+      "id": "rumus",
+      "teks": "Aturannya pendek: x koma y menjadi negatif y koma x.",
+      "tulis": "Aturannya pendek: (x, y) menjadi (-y, x)."
+    },
+    {
+      "id": "janji",
+      "teks": "Sekarang setengah putaran. Perhatikan hasilnya: negatif x koma negatif y.",
+      "tulis": "Sekarang setengah putaran. Hasilnya: (-x, -y)."
+    },
+    {
+      "id": "sama",
+      "teks": "Itu persis rumus pencerminan pada titik asal di Materi kelima. Jadi keduanya memang satu hal yang sama, dan janji itu sekarang terbukti.",
+      "tulis": "Itu persis rumus pencerminan pada titik asal di Materi 05. Janji itu terbukti."
+    },
+    {
+      "id": "sembarang",
+      "teks": "Untuk sudut yang bukan kelipatan sembilan puluh, sin dan cos yang dipakai.",
+      "tulis": "Untuk sudut bukan kelipatan 90°, sin dan cos yang dipakai."
+    },
+    {
+      "id": "tutup",
+      "teks": "Uji rumusnya pada sembilan puluh derajat: cos bernilai nol, sin bernilai satu, hasilnya negatif y koma x. Cocok dengan yang tadi kita baca dari gambar.",
+      "tulis": "Uji pada 90°: cos = 0, sin = 1, hasilnya (-y, x). Cocok dengan gambarnya."
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "adegan": "TransformasiDilatasi",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video 04, Materi 07 'Memperbesar dan memperkecil'. Tanpa 3D. Babak 'luas' menyampaikan bagian yang paling sering ditulis salah: luas berubah k KUADRAT kali, bukan k kali. Tiap segmen punya teks dan tulis.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi ketujuh: memperbesar dan memperkecil.",
+      "tulis": "Materi 07: memperbesar dan memperkecil."
+    },
+    {
+      "id": "foto",
+      "teks": "Kamu memperbesar foto di ponsel dengan dua jari. Ada satu titik yang tidak bergerak sama sekali.",
+      "tulis": "Kamu memperbesar foto dengan dua jari. Ada satu titik yang tidak bergerak."
+    },
+    {
+      "id": "pusat",
+      "teks": "Titik itu pusatnya. Tanpa menyebut pusatnya, perintah *perbesar dua kali* belum lengkap.",
+      "tulis": "Titik itu pusatnya. Tanpa pusat, perintah *perbesar 2 kali* belum lengkap."
+    },
+    {
+      "id": "sinar",
+      "teks": "Garis-garis tipis ini berpangkal di pusat dan melewati tiap sudut bentuknya.",
+      "tulis": "Garis tipis ini berpangkal di pusat dan melewati tiap sudut bentuknya."
+    },
+    {
+      "id": "meluncur",
+      "teks": "Sekarang perhatikan: setiap titik meluncur di sepanjang garisnya sendiri, tidak pernah keluar dari situ.",
+      "tulis": "Setiap titik meluncur sepanjang garisnya sendiri, tidak pernah keluar dari situ."
+    },
+    {
+      "id": "dua",
+      "teks": "Dengan faktor dua, jarak tiap titik ke pusat menjadi dua kali. Sisi AB yang tadinya lima menjadi sepuluh.",
+      "tulis": "Dengan k = 2, jarak tiap titik ke pusat jadi 2 kali. Sisi AB dari 5 menjadi 10."
+    },
+    {
+      "id": "luas",
+      "teks": "Tapi luasnya tidak dua kali. Luasnya *empat* kali, sebab panjang dan lebarnya sama-sama dikalikan dua.",
+      "tulis": "Tapi luasnya bukan 2 kali. Luasnya *4* kali, sebab panjang dan lebar sama-sama dikali 2."
+    },
+    {
+      "id": "pizza",
+      "teks": "Ini alasan pizza berdiameter dua kali lipat berisi empat kali lebih banyak, bukan dua kali.",
+      "tulis": "Ini alasan pizza berdiameter 2 kali lipat berisi 4 kali lebih banyak."
+    },
+    {
+      "id": "kecil",
+      "teks": "Faktor setengah bekerja ke arah sebaliknya: bentuknya mengecil dan mendekat ke pusat.",
+      "tulis": "Faktor 0,5 bekerja sebaliknya: bentuknya mengecil dan mendekat ke pusat."
+    },
+    {
+      "id": "tutup",
+      "teks": "Dan faktor negatif melempar bentuknya menyeberangi pusat, ke sisi yang berlawanan.",
+      "tulis": "Faktor negatif melempar bentuknya menyeberangi pusat, ke sisi berlawanan."
+    }
+  ]
+}

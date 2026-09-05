@@ -1,0 +1,58 @@
+{
+  "adegan": "TransformasiCerminGaris",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video 02, Materi 02 'Cermin pada garis tegak dan mendatar'. Tanpa 3D: seluruh isinya butuh panjang yang akurat, dan kamera miring memendekkan satu arah lebih banyak daripada arah lain. Tiap segmen punya teks (terucap) dan tulis (tertulis, berlambang).",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi kedua: cermin pada garis tegak dan mendatar.",
+      "tulis": "Materi 02: cermin pada garis tegak dan mendatar."
+    },
+    {
+      "id": "kaca",
+      "teks": "Kamu berdiri dua meter di depan kaca. Bayanganmu ada di mana?",
+      "tulis": "Kamu berdiri 2 meter di depan kaca. Bayanganmu ada di mana?"
+    },
+    {
+      "id": "jarak",
+      "teks": "Dua meter di belakang kaca. Bukan menempel di kacanya, dan bukan pula sejauh empat meter.",
+      "tulis": "2 meter di belakang kaca. Bukan menempel di kacanya, bukan pula 4 meter."
+    },
+    {
+      "id": "bentuk",
+      "teks": "Bentuk ini prapetanya. Garis ungu tegak itu cerminnya, dan sekarang ia berimpit dengan sumbu Y.",
+      "tulis": "Bentuk ini prapetanya. Garis ungu tegak itu cerminnya, kini berimpit dengan sumbu Y."
+    },
+    {
+      "id": "cermin",
+      "teks": "Setiap titik menyeberang ke sisi lain garis itu.",
+      "tulis": "Setiap titik menyeberang ke sisi lain garis itu."
+    },
+    {
+      "id": "tegaklurus",
+      "teks": "Perhatikan dua angka yang sama di kiri dan kanan garis. Jaraknya sama, dan jalannya *tegak lurus* terhadap cermin.",
+      "tulis": "Dua angka yang sama di kiri dan kanan garis. Jaraknya sama, jalannya *tegak lurus*."
+    },
+    {
+      "id": "geser",
+      "teks": "Sekarang cerminnya kita geser ke garis x sama dengan lima. Petanya ikut pindah, dan kedua jaraknya tetap sama.",
+      "tulis": "Cerminnya digeser ke garis x = 5. Petanya ikut pindah, kedua jaraknya tetap sama."
+    },
+    {
+      "id": "rumus",
+      "teks": "Aturannya: x menjadi dua k dikurangi x, sedangkan y tidak disentuh sama sekali.",
+      "tulis": "Aturannya: x menjadi 2k - x, sedangkan y tidak disentuh sama sekali."
+    },
+    {
+      "id": "uji",
+      "teks": "Titik A satu koma dua, pada garis x sama dengan lima. Dua kali lima dikurangi satu, sama dengan sembilan. Jadi A aksen sembilan koma dua.",
+      "tulis": "A(1, 2) pada garis x = 5. Dua kali 5 dikurangi 1 = 9. Jadi A'(9, 2)."
+    },
+    {
+      "id": "tutup",
+      "teks": "Sumbu Y hanyalah kasus k sama dengan nol. Untuk cermin mendatar, tukar perannya: y menjadi dua h dikurangi y.",
+      "tulis": "Sumbu Y hanyalah kasus k = 0. Untuk cermin mendatar: y menjadi 2h - y."
+    }
+  ]
+}

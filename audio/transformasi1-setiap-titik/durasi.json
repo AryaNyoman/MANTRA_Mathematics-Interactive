@@ -1,5 +1,5 @@
 {
-  "total": 73.656,
+  "total": 130.008,
   "segmen": {
     "buka": 8.256,
     "dunia": 5.04,
@@ -7,9 +7,17 @@
     "peta": 6.456,
     "bentuk": 7.848,
     "pindah": 7.776,
-    "enam": 7.872,
+    "enam": 6.912,
+    "periksa": 8.256,
+    "hitung": 6.216,
     "peta2": 6.456,
-    "bukti": 8.016,
-    "tutup": 7.68
+    "kedua": 7.44,
+    "cocok": 7.2,
+    "aturan": 5.928,
+    "keliru": 8.016,
+    "betul": 8.76,
+    "bukti": 8.808,
+    "rangkum": 5.664,
+    "tanya": 6.72
   }
 }

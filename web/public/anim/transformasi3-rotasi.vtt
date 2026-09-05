@@ -1,0 +1,75 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/transformasi3-rotasi.json
+
+1
+00:00:00.000 --> 00:00:04.032
+Materi 06: memutar terhadap sebuah pusat.
+
+2
+00:00:04.032 --> 00:00:07.475
+Ujung jarum jam ini di (4, 0).
+
+3
+00:00:07.475 --> 00:00:11.034
+Ia berputar seperempat putaran.
+
+4
+00:00:11.034 --> 00:00:11.952
+Ke mana?
+
+5
+00:00:11.952 --> 00:00:13.152
+Ke (0, 4).
+
+6
+00:00:13.152 --> 00:00:18.504
+Jaraknya dari pusat tetap 4, yang berubah cuma arahnya.
+
+7
+00:00:18.504 --> 00:00:23.496
+Bentuk yang sama kita putar 90° terhadap titik asal.
+
+8
+00:00:23.496 --> 00:00:29.320
+Dua angka itu jarak B ke pusat, sebelum dan sesudah.
+
+9
+00:00:29.320 --> 00:00:32.232
+Sama, dan itu ciri rotasi.
+
+10
+00:00:32.232 --> 00:00:36.648
+Aturannya pendek: (x, y) menjadi (-y, x).
+
+11
+00:00:36.648 --> 00:00:43.512
+Sekarang setengah putaran. Hasilnya: (-x, -y).
+
+12
+00:00:43.512 --> 00:00:47.660
+Itu persis rumus pencerminan pada
+
+13
+00:00:47.660 --> 00:00:50.676
+titik asal di Materi 05.
+
+14
+00:00:50.676 --> 00:00:53.064
+Janji itu terbukti.
+
+15
+00:00:53.064 --> 00:00:55.907
+Untuk sudut bukan kelipatan 90°,
+
+16
+00:00:55.907 --> 00:00:58.128
+sin dan cos yang dipakai.
+
+17
+00:00:58.128 --> 00:01:05.086
+Uji pada 90°: cos = 0, sin = 1, hasilnya (-y, x).
+
+18
+00:01:05.086 --> 00:01:08.352
+Cocok dengan gambarnya.

@@ -1,0 +1,91 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/transformasi6-urutan.json
+
+1
+00:00:00.000 --> 00:00:04.464
+Materi 12: komposisi lewat perkalian matriks.
+
+2
+00:00:04.464 --> 00:00:08.552
+Sebuah bentuk dicerminkan pada sumbu X,
+
+3
+00:00:08.552 --> 00:00:10.333
+lalu diputar 90°.
+
+4
+00:00:10.333 --> 00:00:12.744
+Dua langkah, berurutan.
+
+5
+00:00:12.744 --> 00:00:15.546
+Kita ikuti titik A saja.
+
+6
+00:00:15.546 --> 00:00:19.632
+(3, 1) dicerminkan menjadi (3, -1).
+
+7
+00:00:19.632 --> 00:00:26.304
+Lalu diputar 90° menjadi (1, 3). Itu jawaban akhirnya.
+
+8
+00:00:26.304 --> 00:00:30.965
+Sekarang urutannya dibalik: diputar dulu,
+
+9
+00:00:30.965 --> 00:00:32.898
+baru dicerminkan.
+
+10
+00:00:32.898 --> 00:00:34.944
+Hasilnya (-1, -3).
+
+11
+00:00:34.944 --> 00:00:39.065
+Dua transformasi yang sama, cuma beda urutan,
+
+12
+00:00:39.065 --> 00:00:41.904
+mendarat di kuadran berlawanan.
+
+13
+00:00:41.904 --> 00:00:43.207
+Lewat matriks:
+
+14
+00:00:43.207 --> 00:00:47.302
+kalau langkah pertama dikerjakan lebih dulu,
+
+15
+00:00:47.302 --> 00:00:49.536
+matriksnya paling <b>kanan</b>.
+
+16
+00:00:49.536 --> 00:00:53.224
+Sebabnya koordinat titiknya di ujung kanan,
+
+17
+00:00:53.224 --> 00:00:56.568
+dan matriks terdekat menyentuhnya dulu.
+
+18
+00:00:56.568 --> 00:01:04.388
+Urutan yang benar memberi matriks cermin garis y = x.
+
+19
+00:01:04.388 --> 00:01:08.520
+Pada (3, 1) hasilnya (1, 3).
+
+20
+00:01:08.520 --> 00:01:12.552
+Urutan matriks yang tertukar
+
+21
+00:01:12.552 --> 00:01:18.312
+memberi jawaban untuk urutan sebaliknya,
+
+22
+00:01:18.312 --> 00:01:20.760
+bukan yang kacau.
