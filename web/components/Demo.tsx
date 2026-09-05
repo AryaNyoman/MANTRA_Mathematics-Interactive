@@ -44,24 +44,19 @@ function bacaGerak() {
  * perbandingan sisi: 16:9, 2,38:1, bahkan potret 0,79:1. Kotaknya dikunci
  * 16:9 dan isinya `object-fit: contain`.
  *
- * TAMBAHAN v2 (4 Sep 2026): garis emas tipis di dasar kotak yang menghitung
- * waktu ke slide berikutnya. Garis itu SEKALIGUS jamnya: pergantian slide
- * dipicu oleh `animationend` garis tersebut, bukan oleh penghitung waktu
- * terpisah. Jadi tidak mungkin ada keadaan garisnya sudah penuh tetapi
- * slidenya belum berganti, atau sebaliknya. Menahan kursor di atas korsel
- * menjeda garis dan pergantiannya sekaligus, cukup dengan
- * `animation-play-state`.
- *
- * Kalau pengguna minta gerak dikurangi, pergantian otomatis DIMATIKAN sama
- * sekali dan garisnya tidak digambar. Ini bukan sekadar sopan santun: aturan
- * `prefers-reduced-motion` di `globals.css` memangkas semua durasi animasi
- * jadi hampir nol, dan korsel yang jamnya animasi akan berpacu tanpa henti
- * kalau tidak dijaga di sini.
+ * PERGANTIAN OTOMATIS DICABUT (ARYA, 5 Sep 2026). Versi v2 sempat punya
+ * garis emas penghitung waktu yang mengganti slide sendiri tiap 7 detik.
+ * Akibatnya video slide pertama tidak pernah sempat selesai, dan slide yang
+ * sedang dibaca berpindah di tengah kalimat. Sekarang slide hanya berganti
+ * kalau pengguna menekan panah, titik, atau tombol panah papan ketik.
  *
  * Semua klip dibiarkan terpasang di rel, tidak dibongkar pasang. Itu yang
- * membuat klip yang pernah dibuka tidak perlu dimuat ulang. Yang dijaga hanya
- * satu: video yang tidak sedang tampil DIHENTIKAN, supaya tidak ada dua suara
- * berbunyi bersamaan.
+ * membuat klip yang pernah dibuka tidak perlu dimuat ulang. Yang dijaga:
+ * video yang tidak sedang tampil DIHENTIKAN supaya tidak ada dua suara
+ * berbunyi bersamaan, dan video yang mengulang sendiri (slide pertama)
+ * DIPUTAR LAGI setiap kali slidenya kembali tampil. `autoPlay` hanya bekerja
+ * sekali saat halaman dimuat; tanpa `play()` di sini video itu diam membeku
+ * begitu pengguna kembali ke slide pertama.
  */
 
 type Klip =
@@ -130,13 +125,11 @@ const BATAS_MUAT = 2600
 export default function Demo() {
   const [ke, setKe] = useState(0)
   const [siap, setSiap] = useState<number[]>([])
-  const [jeda, setJeda] = useState(false)
   const rel = useRef<HTMLDivElement>(null)
   // Nilai ketiga (`() => false`) adalah jawaban saat halaman masih dirakit di
   // server, di mana tidak ada peramban untuk ditanyai.
   const kurangiGerak = useSyncExternalStore(langganGerak, bacaGerak, () => false)
   const klip = KLIP[ke]
-  const otomatis = !kurangiGerak
 
   const tandai = useCallback((i: number) => {
     setSiap((s) => (s.includes(i) ? s : [...s, i]))
@@ -144,10 +137,14 @@ export default function Demo() {
 
   // Hanya video yang sedang tampil yang boleh berbunyi. Yang lain dihentikan
   // dan dikembalikan ke awal, jadi klip berikutnya selalu mulai dari detik nol.
+  // Video yang mengulang sendiri diputar lagi begitu slidenya kembali tampil.
   useEffect(() => {
     const semua = rel.current?.querySelectorAll('video')
     semua?.forEach((v, i) => {
-      if (i === ke) return
+      if (i === ke) {
+        if (v.loop) v.play().catch(() => { /* peramban boleh menolak; posternya tetap tampil */ })
+        return
+      }
       v.pause()
       try {
         v.currentTime = 0
@@ -174,15 +171,6 @@ export default function Demo() {
       className="demo"
       aria-label="Cuplikan isi situs"
       aria-roledescription="korsel"
-      onMouseEnter={() => setJeda(true)}
-      onMouseLeave={() => setJeda(false)}
-      /* Jeda juga saat fokus papan ketik masuk ke dalam korsel. Tanpa ini,
-         orang yang menelusuri dengan Tab akan kehilangan tombol yang sedang
-         ia sorot begitu slidenya berganti sendiri. */
-      onFocusCapture={() => setJeda(true)}
-      onBlurCapture={(e) => {
-        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setJeda(false)
-      }}
       onKeyDown={(e) => {
         if (e.key === 'ArrowLeft') { e.preventDefault(); geser(-1) }
         if (e.key === 'ArrowRight') { e.preventDefault(); geser(1) }
@@ -272,15 +260,6 @@ export default function Demo() {
           </div>
         )}
 
-        {otomatis && (
-          <div className="demo-progres" aria-hidden="true">
-            <i
-              key={ke}
-              style={{ animationPlayState: jeda ? 'paused' : 'running' }}
-              onAnimationEnd={() => geser(1)}
-            />
-          </div>
-        )}
       </div>
 
       <div className="demo-bawah">

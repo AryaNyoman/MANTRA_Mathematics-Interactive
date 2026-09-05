@@ -1,5 +1,6 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import { Angka, Petunjuk } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import Papan from '@/components/widget/statistika/Papan'
@@ -62,6 +63,7 @@ function banyakDiKiri(kelas: Kelas[], x: number): number {
 }
 
 export default function DataKelompok({ children }: PropWidget) {
+  const dipegang = useSedangDiubah()
   const svgRef = useRef<SVGSVGElement | null>(null)
   const [garis, setGaris] = useState(MIN + (MAKS - MIN) * 0.3)
   const [terpilih, setTerpilih] = useState<number | null>(null)
@@ -97,7 +99,8 @@ export default function DataKelompok({ children }: PropWidget) {
   const isi = (
     <>
       {kelas.map((kl, i) => (
-        <g key={i} onPointerDown={() => setTerpilih(i === terpilih ? null : i)}
+        <g key={i} className={(dipegang === 'kiri' && i === I_KIRI) || (dipegang === 'kanan' && i === I_KANAN) ? 'nyala' : undefined}
+           onPointerDown={() => setTerpilih(i === terpilih ? null : i)}
            style={{ cursor: 'pointer' }}>
           <rect x={P.x(kl.bawah) + 1} y={P.y(kl.f)}
                 width={Math.max(P.lebarX(kl.atas - kl.bawah) - 2, 1)}
@@ -114,12 +117,12 @@ export default function DataKelompok({ children }: PropWidget) {
             stroke={PERAN.banding} strokeWidth={2} strokeDasharray="5 3" />
 
       {/* garis yang digeser siswa */}
-      <line x1={P.x(garis)} y1={K.y0 + 30} x2={P.x(garis)} y2={K.y1 + 6}
+      <line className={dipegang === 'garis' ? 'nyala' : undefined} x1={P.x(garis)} y1={K.y0 + 30} x2={P.x(garis)} y2={K.y1 + 6}
             stroke={seimbang ? PERAN.sorot : PERAN.tinta} strokeWidth={2.5} />
       {/* Bulatan penarik ditaruh di K.y0 + 30, di BAWAH baris keterangan papan.
           Pada K.y0 - 4 ia menyentuh keterangan yang dulu di tepi atas, dan pada
           K.y0 + 7 ia menindih keterangan yang sekarang sudah masuk bingkai. */}
-      <circle cx={P.x(garis)} cy={K.y0 + 30} r={7}
+      <circle className={dipegang === 'garis' ? 'nyala' : undefined} cx={P.x(garis)} cy={K.y0 + 30} r={dipegang === 'garis' ? 9 : 7}
               fill={seimbang ? PERAN.sorot : PERAN.tinta} stroke="#FFFDFA" strokeWidth={1.5}
               role="slider" tabIndex={0}
               aria-label={`Garis pembelah, sekarang di nilai ${angka(garis, 2)}`}

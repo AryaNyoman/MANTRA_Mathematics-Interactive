@@ -1,5 +1,6 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import { Angka, Petunjuk } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import { GarisBilangan, Penanda, TumpukanTitik } from '@/components/widget/statistika/GarisBilangan'
@@ -40,6 +41,7 @@ const TINGGI_PENOPANG = 26
 const GARIS_Y = 258
 
 export default function TigaUkuran({ children }: PropWidget) {
+  const dipegang = useSedangDiubah()
   const svgRef = useRef<SVGSVGElement | null>(null)
   const [data, setData] = useState<number[]>(D.data)
   const [tumpu, setTumpu] = useState<number | null>(null) // null berarti ikut mean
@@ -95,6 +97,7 @@ export default function TigaUkuran({ children }: PropWidget) {
 
           {/* penopang */}
           <polygon
+            className={dipegang === 'tumpu' ? 'nyala' : undefined}
             points={`${px},${DASAR + 2} ${px - 11},${DASAR + TINGGI_PENOPANG} ${px + 11},${DASAR + TINGGI_PENOPANG}`}
             fill={seimbang ? PERAN.sorot : PERAN.banding}
           />

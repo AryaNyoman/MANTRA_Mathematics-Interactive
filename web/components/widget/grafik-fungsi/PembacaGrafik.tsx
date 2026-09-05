@@ -1,5 +1,6 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import { useState, type PointerEvent as ReactPointerEvent } from 'react'
 import Bidang from '@/components/widget/grafik-fungsi/Bidang'
 import {
@@ -94,6 +95,7 @@ export default function PembacaGrafik({
   waktu: number
   onGeser: (t: number) => void
 }) {
+  const dipegang = useSedangDiubah()
   const [menyeret, setMenyeret] = useState(false)
   const p = keLayar(JENDELA)
   const s = jarak(waktu)
@@ -161,7 +163,7 @@ export default function PembacaGrafik({
           Ia tidak terlihat, tetapi membuat sasaran sentuhnya cukup lebar untuk
           jari, tanpa membuat titiknya sendiri jadi bulatan raksasa. */}
       <circle cx={p.x(waktu)} cy={p.y(s)} r={16} fill="transparent" />
-      <circle cx={p.x(waktu)} cy={p.y(s)} r={menyeret ? 8 : 6.5} fill={WARNA.sudut}
+      <circle className={dipegang === 'waktu' ? 'nyala' : undefined} cx={p.x(waktu)} cy={p.y(s)} r={menyeret || dipegang === 'waktu' ? 8 : 6.5} fill={WARNA.sudut}
               stroke="var(--kartu)" strokeWidth={2.2} />
 
       {/* ---------- angka yang sedang dibaca ----------

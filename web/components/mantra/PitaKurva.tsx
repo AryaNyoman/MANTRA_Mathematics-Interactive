@@ -27,6 +27,11 @@ import { useEffect, useRef } from 'react'
  * menurut lebar layar, jadi kalau `stroke-dasharray` ditebak dari panjang
  * aslinya akan ada sisa garis yang tidak pernah tertutup.
  *
+ * BOLA HIJAU di kurva biru (ARYA, 5 Sep 2026): berjalan bolak-balik dengan
+ * kecepatan, arah, dan titik mulai yang diundi saat halaman dibuka, jadi
+ * tidak pernah seirama dengan bola jingga. Sengaja tanpa tali dan tanpa
+ * denyut: ia pendamping, bukan tokoh utama.
+ *
  * Kenapa DUA svg, bukan satu yang menyesuaikan: geometri HP bukan versi
  * mengecil dari geometri lebar, melainkan kurva lain (satu gelombang, bukan
  * dua). Merendernya berdua lalu menyembunyikan satu lewat CSS membuat
@@ -123,6 +128,7 @@ function Kurva({ g }: { g: Geometri }) {
           kurva emas; ia terpisah supaya animasi garis putus-putus di kurva
           emas tidak ikut mengubah hasil pengukuran panjangnya. */}
       <path data-jalur="" data-puncak={g.puncak} d={g.emas} fill="none" stroke="none" />
+      <path data-jalur-biru="" d={g.biru} fill="none" stroke="none" />
       <line
         data-tali=""
         x1={g.taliX}
@@ -142,6 +148,12 @@ function Kurva({ g }: { g: Geometri }) {
         fill="#F08A66"
         style={{ opacity: 0, transition: 'opacity 300ms' }}
       />
+      <circle
+        data-titik-biru=""
+        r={g.jariJari * 0.85}
+        fill="#7FC29B"
+        style={{ opacity: 0, transition: 'opacity 600ms' }}
+      />
     </svg>
   )
 }
@@ -154,16 +166,56 @@ export default function PitaKurva() {
     if (!wadah) return
 
     let raf = 0
+    let rafBiru = 0
     let lepas = false
 
     /** SVG mana yang sedang tampil. Yang tersembunyi lebarnya nol. */
     const svgTampil = () =>
       Array.from(wadah.querySelectorAll('svg')).find((s) => s.getBoundingClientRect().width > 0) ?? null
 
+    /** Bola hijau: patroli bolak-balik di kurva biru dengan irama acak. */
+    const jalankanBiru = (svg: SVGSVGElement) => {
+      cancelAnimationFrame(rafBiru)
+      const jalur = svg.querySelector<SVGPathElement>('[data-jalur-biru]')
+      const titik = svg.querySelector<SVGCircleElement>('[data-titik-biru]')
+      if (!jalur || !titik) return
+      const total = jalur.getTotalLength()
+      const taruh = (d: number) => {
+        const p = jalur.getPointAtLength(Math.max(0, Math.min(total, d)))
+        titik.setAttribute('cx', String(p.x))
+        titik.setAttribute('cy', String(p.y))
+      }
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        taruh(total * 0.62)
+        titik.style.opacity = '1'
+        return
+      }
+      // Diundi sekali per kunjungan: satu lintasan 9 sampai 17 detik, mulai
+      // di sembarang titik, ke arah sembarang. Muncul setelah kurva birunya
+      // selesai tergambar (tunda + durasi gambar), ditambah jeda acak.
+      const lintasan = 9000 + Math.random() * 8000
+      const fase = Math.random() * 2
+      const arah = Math.random() < 0.5 ? 1 : -1
+      const mulai = performance.now() + 4600 + Math.random() * 1800
+      const halus = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2)
+      const langkah = (kini: number) => {
+        if (lepas) return
+        const t = kini - mulai
+        if (t >= 0) {
+          const u = ((((t / lintasan) * arah + fase) % 2) + 2) % 2
+          taruh(total * halus(u < 1 ? u : 2 - u))
+          titik.style.opacity = '1'
+        }
+        rafBiru = requestAnimationFrame(langkah)
+      }
+      rafBiru = requestAnimationFrame(langkah)
+    }
+
     const jalankan = () => {
       cancelAnimationFrame(raf)
       const svg = svgTampil()
       if (!svg) return
+      jalankanBiru(svg)
       const jalur = svg.querySelector<SVGPathElement>('[data-jalur]')
       const titik = svg.querySelector<SVGCircleElement>('[data-titik]')
       const denyut = svg.querySelector<SVGCircleElement>('[data-denyut]')
@@ -260,6 +312,7 @@ export default function PitaKurva() {
     return () => {
       lepas = true
       cancelAnimationFrame(raf)
+      cancelAnimationFrame(rafBiru)
       media.removeEventListener('change', ganti)
     }
   }, [])

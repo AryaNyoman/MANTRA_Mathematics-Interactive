@@ -818,9 +818,13 @@ video::cue(b) { font-weight: 700; }
 }
 /* Kotak panggung: navy, bukan kertas. Ia menggantung menembus batas hero,
    jadi latarnya harus segelap hero supaya sambungannya tidak terlihat. */
+/* Latar kotak KREM, bukan navy (ARYA, 5 Sep 2026): cuplikan yang tidak
+   memenuhi kotak (tangkapan layar potret, video 2,38:1) tampak seperti
+   ditempel di lubang gelap kalau latarnya navy. Krem menyatu dengan kertas
+   situs, dan video yang memenuhi kotak tidak kelihatan bedanya. */
 .demo-panggung {
   position: relative; aspect-ratio: 16 / 9; overflow: hidden;
-  background: var(--panggung); border-radius: var(--r-kontrol);
+  background: var(--kertas); border-radius: var(--r-kontrol);
   box-shadow: var(--bayang-media);
 }
 /* Rel berisi SEMUA klip. Dibiarkan terpasang, tidak dibongkar pasang, supaya
@@ -839,7 +843,7 @@ video::cue(b) { font-weight: 700; }
 }
 .demo-muat {
   position: absolute; inset: 0; display: grid; place-items: center;
-  background: var(--panggung); z-index: 2;
+  background: var(--kertas); z-index: 2;
 }
 /* Teks yang hanya dibacakan pembaca layar, tidak terlihat mata. Dipakai untuk
    memberi tahu bahwa cuplikan sedang dimuat, sebab lingkaran berputar tidak
@@ -851,19 +855,9 @@ video::cue(b) { font-weight: 700; }
 @keyframes putar { to { transform: rotate(360deg); } }
 .demo-muat i {
   display: block; width: 34px; height: 34px; border-radius: 50%;
-  border: 2px solid rgba(250, 249, 245, 0.18); border-top-color: var(--emas-terang);
+  border: 2px solid rgba(16, 26, 43, 0.14); border-top-color: var(--emas);
   animation: putar 900ms linear infinite;
 }
-/* Garis progres di dasar kotak. Ia SEKALIGUS jam korsel: `Demo.tsx`
-   memanggil slide berikutnya saat animasi garis ini selesai, bukan lewat
-   penghitung waktu terpisah, jadi garis dan slide tidak mungkin berbeda
-   pendapat soal kapan waktunya berganti. */
-.demo-progres {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
-  height: 2px; background: rgba(250, 249, 245, 0.12);
-}
-@keyframes tumbuh { from { width: 0; } to { width: 100%; } }
-.demo-progres i { display: block; height: 100%; background: var(--emas-terang); animation: tumbuh 7s linear both; }
 
 /* Baris bawah: label jenis di kiri, keterangan di tengah, tombol di kanan. */
 .demo-bawah {

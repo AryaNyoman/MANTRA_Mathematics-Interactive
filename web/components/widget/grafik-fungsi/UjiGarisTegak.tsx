@@ -1,5 +1,6 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import { useState, type PointerEvent as ReactPointerEvent } from 'react'
 import Bidang from '@/components/widget/grafik-fungsi/Bidang'
 import {
@@ -132,6 +133,7 @@ export default function UjiGarisTegak({
   x: number
   onGeser: (x: number) => void
 }) {
+  const dipegang = useSedangDiubah()
   const [menyeret, setMenyeret] = useState(false)
   const p = keLayar(JENDELA)
   const potong = potongDi(bentuk, x)
@@ -194,12 +196,12 @@ export default function UjiGarisTegak({
       )}
 
       {/* ---------- garis tegak yang diseret ---------- */}
-      <line x1={p.x(x)} y1={KOTAK.y0} x2={p.x(x)} y2={KOTAK.y1}
+      <line className={dipegang === 'x' ? 'nyala' : undefined} x1={p.x(x)} y1={KOTAK.y0} x2={p.x(x)} y2={KOTAK.y1}
             stroke={gagal ? WARNA.depan : WARNA.samping} strokeWidth={2.2} strokeDasharray="6 4" />
 
       {/* pegangan seret di ujung bawah garis, supaya terlihat memang bisa ditarik */}
       <circle cx={p.x(x)} cy={KOTAK.y1 - 6} r={16} fill="transparent" />
-      <circle cx={p.x(x)} cy={KOTAK.y1 - 6} r={menyeret ? 7.5 : 6}
+      <circle cx={p.x(x)} cy={KOTAK.y1 - 6} r={menyeret || dipegang === 'x' ? 7.5 : 6}
               fill={gagal ? WARNA.depan : WARNA.samping} stroke="var(--kartu)" strokeWidth={2} />
 
       {/* ---------- titik potongnya ---------- */}

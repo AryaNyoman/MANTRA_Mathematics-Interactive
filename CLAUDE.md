@@ -72,6 +72,18 @@ Situs belajar matematika SMA: **animasi Manim** (menjelaskan *kenapa*) + **widge
   di proyek ini DAN proyek berikutnya. Pakai tanda baca lain: titik, koma, titik dua,
   tanda kurung, atau tanda hubung biasa. Berlaku untuk teks yang dilihat pengguna
   maupun untuk komentar kode.
+- **Setiap materi berwidget WAJIB punya kotak "Yuk bereksperimen"** (blok
+  `jenis: 'coba'`), ditaruh di titik siswa sudah cukup membaca untuk mencoba.
+  Sebabnya: di layar sempit, materi TANPA video menyisipkan widgetnya tepat di
+  bawah kotak itu (keputusan ARYA 5 Sep 2026), supaya siswa membaca dulu dan
+  tidak disodori alat di atas judul. Tanpa kotak, widget jatuh ke akhir bacaan.
+  Materi bervideo dan tata letak desktop tidak terpengaruh.
+- **Kendali widget memakai komponen bersama** `web/components/kendali/`
+  (`Angka`, `Koordinat`, `Pilihan`, `Petunjuk`): nama + arti, angka tampil,
+  bisa diketik (dipotong ke batas, bukan ditolak), bisa digeser. Pegangan
+  yang bisa diseret memberi kelas `nyala` saat kuncinya sedang dipegang.
+  Label sumbu lewat `lib/petak-sumbu.ts`. Rancangan:
+  `docs/superpowers/specs/2026-09-05-sistem-kendali-widget-design.md`.
 - **Widget tidak boleh memotong gambarnya sendiri.** Bingkai wajib menyesuaikan otomatis
   dan memberi tahu penggunanya lewat penunjuk skala. (Bug temuan ARYA, 31 Agu.)
 

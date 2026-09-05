@@ -1,5 +1,6 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import { Angka, Petunjuk } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import { GarisBilangan, Penanda, TumpukanTitik } from '@/components/widget/statistika/GarisBilangan'
@@ -36,6 +37,7 @@ const TIK = petak(MIN, MAKS, 8)
 const DASAR = 210
 
 export default function TarikPencilan({ children }: PropWidget) {
+  const dipegang = useSedangDiubah()
   const svgRef = useRef<SVGSVGElement | null>(null)
   const [direktur, setDirektur] = useState<number>(
     DENGAN.data[DENGAN.data.length - 1],
@@ -87,7 +89,8 @@ export default function TarikPencilan({ children }: PropWidget) {
                 indeks: i, nilai: v, mulai, geser: pindah, langkah: 0.5,
                 nama: `Gaji direktur, sekarang ${angka(v, 1)} juta`,
               }),
-              strokeWidth: aktif === i ? 3 : 1.5,
+              className: dipegang === 'direktur' ? 'nyala' : undefined,
+              strokeWidth: aktif === i || dipegang === 'direktur' ? 3 : 1.5,
             })}
           />
           <GarisBilangan ke={ke} y={DASAR} tik={TIK} dariX={MIN} sampaiX={MAKS} />
