@@ -97,6 +97,7 @@ export const BAB: Bab[] = [
       { huruf: 'A', nama: 'Penyajian data', nomor: [1, 2, 3, 4] },
       { huruf: 'B', nama: 'Ukuran pemusatan dan penyebaran', nomor: [5, 6, 7, 8, 9] },
       { huruf: 'C', nama: 'Hubungan dua variabel', nomor: [10, 11, 12, 13] },
+      { huruf: 'D', nama: 'Penerapan', nomor: [14] },
     ],
   },
   {

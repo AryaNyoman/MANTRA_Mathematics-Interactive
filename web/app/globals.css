@@ -1306,19 +1306,19 @@ video::cue(b) { font-weight: 700; }
   .bongkar-syarat { grid-column: 1; }
 }
 
-/* --- galeri Materi 10 Limit: empat bentuk kurva, digambar sendiri --- */
-.galeri-limit {
+/* --- galeri Materi 10 Limit dan Materi 14 Statistika: grafik digambar sendiri --- */
+.galeri-limit , .galeri-statistika {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 18px;
 }
-.galeri-limit figure {
+.galeri-limit figure , .galeri-statistika figure {
   margin: 0; border: 1px solid var(--garis); border-radius: 12px;
   background: var(--kartu); overflow: hidden;
 }
-.galeri-limit svg { display: block; width: 100%; height: auto; background: var(--petak); }
-.galeri-limit figcaption { padding: 11px 14px 13px; }
-.galeri-limit figcaption b { font-size: 14.5px; }
-.galeri-limit figcaption p { margin: 5px 0 7px; font-size: 13px; line-height: 1.55; color: #3A3630; }
-.galeri-limit figcaption span {
+.galeri-limit svg , .galeri-statistika svg { display: block; width: 100%; height: auto; background: var(--petak); }
+.galeri-limit figcaption , .galeri-statistika figcaption { padding: 11px 14px 13px; }
+.galeri-limit figcaption b , .galeri-statistika figcaption b { font-size: 14.5px; }
+.galeri-limit figcaption p , .galeri-statistika figcaption p { margin: 5px 0 7px; font-size: 13px; line-height: 1.55; color: #3A3630; }
+.galeri-limit figcaption span , .galeri-statistika figcaption span {
   font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--hijau);
 }
 

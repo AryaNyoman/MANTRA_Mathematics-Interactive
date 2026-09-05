@@ -1,5 +1,23 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 5 SEP (malam, lanjutan 2): STATISTIKA MUDAH DIPEGANG, TABEL DATA, MATERI 14
+
+Keluhan ARYA: bola data Statistika di Materi 01, 07, 08, 10, 11, 12 sulit
+diambil, dan Statistika belum punya materi contoh nyata.
+- `components/widget/statistika/TitikPegang.tsx`: sasaran sentuh berjari-jari
+  16 di belakang bola 5 sampai 8, bola membesar dan menyala saat dipegang.
+  `TumpukanTitik` memakainya otomatis kalau bolanya bisa diseret.
+- `components/kendali/TabelData.tsx`: satu kotak ketik per angka (dua kolom
+  untuk pasangan x, y), lapor `${kunci}-${indeks}` ke `sedang-diubah` supaya
+  bolanya menyala. Materi 11 memakai dua `Angka` (cuma dua ujung garis).
+- Materi 14 "Statistika di sekitar kita": `content/statistika/tahap-nyata.ts`
+  + `DuniaNyataStatistika.tsx` (enam grafik kecil digambar sendiri, bukan
+  foto). Sub-bab D "Penerapan" di `subbab.ts`. SEMUA ANGKANYA ANGKA CONTOH,
+  dinyatakan di bacaannya. Pemeriksa angka (`alat/cek_statistik_web.mjs`)
+  tetap lolos 152 angka.
+- Tugas video Transformasi 2 menit sudah dikirim ke sesi
+  MANTRA-TRANSFORMASI-GEO (sesi sedang mati; pesannya menunggu dibuka).
+
 ## 5 SEP (malam, lanjutan): BERANDA DIRAPIKAN, VIDEO BERANDA BARU
 
 Permintaan ARYA 5 Sep sore: korsel jangan berganti sendiri; video slide 1

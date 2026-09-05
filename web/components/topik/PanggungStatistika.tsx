@@ -18,6 +18,7 @@ import DiagramPencar from '@/components/widget/statistika/DiagramPencar'
 import GarisRegresi from '@/components/widget/statistika/GarisRegresi'
 import KekuatanHubungan from '@/components/widget/statistika/KekuatanHubungan'
 import SumbuJujur from '@/components/widget/statistika/SumbuJujur'
+import DuniaNyataStatistika from '@/components/widget/statistika/DuniaNyataStatistika'
 
 /**
  * Panggung Statistika: memilih widget mana yang dipasang, dan tidak lebih.
@@ -50,12 +51,13 @@ const DAFTAR: Record<WidgetStatistika, ComponentType<PropWidget>> = {
   'garis-regresi': GarisRegresi,
   'kekuatan-hubungan': KekuatanHubungan,
   'sumbu-jujur': SumbuJujur,
+  'dunia-nyata-statistika': DuniaNyataStatistika,
 }
 
 export default function PanggungStatistika({ tahap, tampilWidget, children }: PropPanggung) {
   const nama = tahap?.widget as WidgetStatistika | undefined
   const Widget = nama ? DAFTAR[nama] : undefined
-  const tanda = nama ? 'INTERAKTIF' : 'BACAAN'
+  const tanda = nama === 'dunia-nyata-statistika' ? 'CONTOH NYATA' : nama ? 'INTERAKTIF' : 'BACAAN'
 
   if (!tampilWidget || !Widget) {
     return <>{children({ kiri: null, kanan: null, tanda })}</>

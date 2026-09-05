@@ -21,6 +21,7 @@ import type { WidgetStatistika } from '@/content/statistika/widget'
 import { TAHAP_PENYAJIAN } from '@/content/statistika/tahap-penyajian'
 import { TAHAP_PEMUSATAN } from '@/content/statistika/tahap-pemusatan'
 import { TAHAP_HUBUNGAN } from '@/content/statistika/tahap-hubungan'
+import { TAHAP_NYATA } from '@/content/statistika/tahap-nyata'
 
 export type { WidgetStatistika }
 
@@ -28,4 +29,5 @@ export const TAHAP = [
   ...TAHAP_PENYAJIAN,   // 1 sampai 4   menyajikan dan membaca data
   ...TAHAP_PEMUSATAN,   // 5 sampai 9   ukuran pemusatan dan penyebaran
   ...TAHAP_HUBUNGAN,    // 10 sampai 13 hubungan dua data, dan membaca kritis
+  ...TAHAP_NYATA,       // 14 statistika di sekitar kita (galeri, tanpa alat)
 ]
