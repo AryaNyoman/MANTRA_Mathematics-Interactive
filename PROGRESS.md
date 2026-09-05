@@ -1,5 +1,35 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 5 SEP (malam): SEMUA WIDGET MEMAKAI SISTEM KENDALI BERSAMA
+
+Permintaan ARYA (5 Sep): widget jangan cuma bisa diseret di gambar; siswa
+harus bisa MENGETIK angkanya, tiap kendali harus menjelaskan gunanya, label
+sumbu harus rinci, dan perubahan harus terlihat langsung di gambar.
+Rancangannya: `docs/superpowers/specs/2026-09-05-sistem-kendali-widget-design.md`.
+
+Yang jadi, di ketujuh topik (56 materi berwidget, semuanya dicek di browser
+desktop dan HP 390 px, tidak ada yang melebar):
+- `web/components/kendali/`: `Angka` (nama + arti, angka tampil, kolom ketik
+  yang DIPOTONG ke batas bukan ditolak, penggeser), `Koordinat` (x, y, plus
+  pratinjau vektor kolom dan i-j), `Pilihan` (tombol bersegmen), `Petunjuk`
+  (kalimat "geser X, perhatikan Y"), dan `sedang-diubah.ts` (kendali yang
+  dipegang melaporkan `kunci`-nya, gambar menyalakan bagiannya: kelas `.nyala`).
+- `web/lib/petak-sumbu.ts`: satu pembuat label sumbu untuk semua papan;
+  jaraknya dipilih supaya labelnya rapat tapi tidak bertumpuk.
+- Gambar lengket (`position: sticky`) di atas kendalinya, jadi saat menggeser
+  perubahan terlihat tanpa menggulir.
+- Kata "tahap" di teks siswa Trigonometri diganti "Materi 0N".
+
+Cara memakai di widget baru: taruh `<Angka nama arti nilai onUbah min max
+langkah kunci>` di dalam `.kendali`; kalau widget punya pegangan yang bisa
+diseret, panggil `useSedangDiubah()` dan beri kelas `nyala` saat kuncinya
+sama. Contoh: `Panah.tsx` (vektor), `Bentuk.tsx` (transformasi),
+`SegitigaSebangun.tsx`.
+
+Yang sengaja BELUM: sorot `.nyala` baru ada di Vektor, Transformasi, dan
+Segitiga sebangun; tombol aksi lama ("Kembalikan semula", "Samakan
+rata-ratanya") di Statistika masih bergaya lama karena memang bukan besaran.
+
 ## 5 SEP: MANTRA v2 "Panggung Sinema" SUDAH DI PRODUKSI
 
 Cabang `sesi/mantra-v2` sudah digabung ke `master` dan dinaikkan ke
