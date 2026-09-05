@@ -125,8 +125,8 @@ export default function PerahuSungai({
       {/* Tanpa label di badan panah. Ketiganya berangkat dari satu titik dan
           bebas diseret siswa, jadi label yang menempel pasti saling menimpa
           pada suatu susunan. Namanya dipindah ke kotak keterangan di bawah. */}
-      <Panah dari={asal} ke={dayung} jendela={jendela} warna={WARNA.samping} pegangan />
-      <Panah dari={asal} ke={arus} jendela={jendela} warna={WARNA.depan} pegangan />
+      <Panah dari={asal} ke={dayung} kunci="dayung" jendela={jendela} warna={WARNA.samping} pegangan />
+      <Panah dari={asal} ke={arus} kunci="arus" jendela={jendela} warna={WARNA.depan} pegangan />
       <Panah dari={asal} ke={gerak} jendela={jendela} warna={WARNA.miring} tebal={2.8} />
 
       {/* Pojok kanan atas, bukan kiri bawah. Sumbu mendatar pada widget ini

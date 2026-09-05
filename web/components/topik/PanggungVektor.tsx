@@ -1,23 +1,24 @@
 'use client'
 
 import { useState, type ReactNode } from 'react'
-import PecahKomponen from '@/components/widget/vektor/PecahKomponen'
-import PerahuSungai, { LEBAR_SUNGAI, hasilSeberang } from '@/components/widget/vektor/PerahuSungai'
-import PanahBerpindah, { ACUAN, nilaiHubungan } from '@/components/widget/vektor/PanahBerpindah'
-import PanjangDanArah from '@/components/widget/vektor/PanjangDanArah'
-import VektorSatuan from '@/components/widget/vektor/VektorSatuan'
-import SambungPanah from '@/components/widget/vektor/SambungPanah'
-import JajarGenjang from '@/components/widget/vektor/JajarGenjang'
-import SelisihPanah from '@/components/widget/vektor/SelisihPanah'
-import KaliSkalar, { BATAS_K } from '@/components/widget/vektor/KaliSkalar'
-import PerkalianTitik from '@/components/widget/vektor/PerkalianTitik'
-import Proyeksi from '@/components/widget/vektor/Proyeksi'
+import PecahKomponen, { BATAS as PecahBatas } from '@/components/widget/vektor/PecahKomponen'
+import PerahuSungai, { BATAS as PerahuBatas, LEBAR_SUNGAI, hasilSeberang } from '@/components/widget/vektor/PerahuSungai'
+import PanahBerpindah, { ACUAN, BATAS as PanahBerpindahBatas, nilaiHubungan } from '@/components/widget/vektor/PanahBerpindah'
+import PanjangDanArah, { BATAS as ArahBatas } from '@/components/widget/vektor/PanjangDanArah'
+import VektorSatuan, { BATAS as SatuanBatas } from '@/components/widget/vektor/VektorSatuan'
+import SambungPanah, { BATAS as SambungBatas } from '@/components/widget/vektor/SambungPanah'
+import JajarGenjang, { BATAS as JajarBatas } from '@/components/widget/vektor/JajarGenjang'
+import SelisihPanah, { BATAS as SelisihBatas } from '@/components/widget/vektor/SelisihPanah'
+import KaliSkalar, { BATAS as KaliBatas, BATAS_K } from '@/components/widget/vektor/KaliSkalar'
+import PerkalianTitik, { BATAS as TitikBatas } from '@/components/widget/vektor/PerkalianTitik'
+import Proyeksi, { BATAS as ProyeksiBatas } from '@/components/widget/vektor/Proyeksi'
 import DuniaNyataVektor from '@/components/widget/vektor/DuniaNyataVektor'
 import {
   angka, kali, kurang, mataAngin, panjang, panjangProyeksi, satuan, sudutAntara,
   sudutDerajat, tambah, titik, vektorProyeksi, type Vek,
 } from '@/components/widget/vektor/geometri'
 import type { PropPanggung } from '@/components/topik/jenis'
+import { Angka, Koordinat, Petunjuk } from '@/components/kendali'
 
 /**
  * Panggung Vektor: penyetelan widgetnya, dan tidak lebih.
@@ -88,13 +89,13 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
               />
             </div>
             <div className="kendali">
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  tarik ujung panah biru (dayung) atau merah (arus). Coba juga arahkan dayung
-                  melawan arus, lalu perhatikan titik mendaratnya bergeser
-                </span>
-              </div>
+              <Koordinat nama="Dayung" arti="perpindahan mendayung 1 jam, km" kunci="dayung"
+                nilai={dayung} onUbah={setDayung} batas={PerahuBatas} />
+              <Koordinat nama="Arus" arti="perpindahan terbawa arus 1 jam, km" kunci="arus"
+                nilai={arus} onUbah={setArus} batas={PerahuBatas} />
+              <Petunjuk>
+                ketik atau tarik dayung dan arus, lalu perhatikan titik mendaratnya. Coba arahkan dayung melawan arus.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -108,13 +109,13 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
               />
             </div>
             <div className="kendali">
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  pangkal DAN ujungnya sama-sama bisa ditarik. Pindahkan seluruh panahnya tanpa
-                  mengubah bentuk, lalu lihat penilaiannya tidak berubah
-                </span>
-              </div>
+              <Koordinat nama="Pangkal" arti="titik awal panah coba" kunci="pangkal" vektor={false}
+                nilai={pangkalCoba} onUbah={setPangkalCoba} batas={PanahBerpindahBatas} />
+              <Koordinat nama="Ujung" arti="titik akhir panah coba" kunci="ujung" vektor={false}
+                nilai={ujungCoba} onUbah={setUjungCoba} batas={PanahBerpindahBatas} />
+              <Petunjuk>
+                pindahkan pangkal DAN ujung dengan selisih yang sama, lalu lihat penilaiannya tidak berubah: letak memang tidak ikut menentukan.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -125,12 +126,11 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
               <PecahKomponen v={vKomponen} onUbah={setVKomponen} />
             </div>
             <div className="kendali">
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  tarik ujung panah hitamnya, lalu perhatikan kedua angka komponennya berubah
-                </span>
-              </div>
+              <Koordinat nama="v" arti="panah hitam, komponen mendatar dan tegak" kunci="v"
+                nilai={vKomponen} onUbah={setVKomponen} batas={PecahBatas} />
+              <Petunjuk>
+                ketik x dan y, atau tarik ujung panahnya, lalu perhatikan kedua angka komponennya berubah.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -141,13 +141,11 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
               <PanjangDanArah v={vArah} onUbah={setVArah} />
             </div>
             <div className="kendali">
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  putar panahnya sambil menjaga panjangnya. Panjangnya tidak pernah negatif,
-                  seberapa pun arahnya diubah
-                </span>
-              </div>
+              <Koordinat nama="v" arti="panahnya" kunci="v"
+                nilai={vArah} onUbah={setVArah} batas={ArahBatas} />
+              <Petunjuk>
+                putar panahnya sambil menjaga panjangnya. Panjangnya tidak pernah negatif, seberapa pun arahnya diubah.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -158,13 +156,11 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
               <VektorSatuan v={vSatuan} onUbah={setVSatuan} />
             </div>
             <div className="kendali">
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  panjangkan dan pendekkan panah hitamnya. Panah ungunya tetap sepanjang 1,
-                  yang berubah hanya arahnya
-                </span>
-              </div>
+              <Koordinat nama="v" arti="panah hitam" kunci="v"
+                nilai={vSatuan} onUbah={setVSatuan} batas={SatuanBatas} />
+              <Petunjuk>
+                panjangkan dan pendekkan panah hitamnya. Panah ungunya tetap sepanjang 1, yang berubah hanya arahnya.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -178,13 +174,13 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
               />
             </div>
             <div className="kendali">
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  tarik ujung panah biru atau ujung panah merah. Panah merah selalu berangkat
-                  dari tempat panah biru berhenti
-                </span>
-              </div>
+              <Koordinat nama="a" arti="panah biru" kunci="a"
+                nilai={aSambung} onUbah={setASambung} batas={SambungBatas} />
+              <Koordinat nama="b" arti="panah merah, berangkat dari ujung a" kunci="b"
+                nilai={bSambung} onUbah={setBSambung} batas={SambungBatas} />
+              <Petunjuk>
+                ubah a atau b, lalu perhatikan panah merah selalu berangkat dari tempat panah biru berhenti.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -198,13 +194,13 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
               />
             </div>
             <div className="kendali">
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  keduanya berangkat dari satu titik. Coba dekatkan sampai hampir sejajar, lalu
-                  jauhkan sampai hampir berlawanan
-                </span>
-              </div>
+              <Koordinat nama="a" arti="panah biru" kunci="a"
+                nilai={aJajar} onUbah={setAJajar} batas={JajarBatas} />
+              <Koordinat nama="b" arti="panah merah, berangkat dari titik yang sama" kunci="b"
+                nilai={bJajar} onUbah={setBJajar} batas={JajarBatas} />
+              <Petunjuk>
+                dekatkan keduanya sampai hampir sejajar, lalu jauhkan sampai hampir berlawanan, dan perhatikan panjang resultannya.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -218,13 +214,13 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
               />
             </div>
             <div className="kendali">
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  perhatikan panah ungu muncul dua kali: dari titik asal, dan dari ujung b menuju
-                  ujung a. Keduanya panah yang sama
-                </span>
-              </div>
+              <Koordinat nama="a" arti="panah biru" kunci="a"
+                nilai={aSelisih} onUbah={setASelisih} batas={SelisihBatas} />
+              <Koordinat nama="b" arti="panah merah" kunci="b"
+                nilai={bSelisih} onUbah={setBSelisih} batas={SelisihBatas} />
+              <Petunjuk>
+                perhatikan panah ungu muncul dua kali: dari titik asal, dan dari ujung b menuju ujung a. Keduanya panah yang sama.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -235,24 +231,14 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
               <KaliSkalar a={aKali} k={k} onUbah={setAKali} />
             </div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="pengali">
-                  <span>Pengali</span>
-                  <span className="mono">{angka(k, 2)}</span>
-                </label>
-                <input
-                  id="pengali" type="range"
-                  min={BATAS_K.min} max={BATAS_K.maks} step={BATAS_K.langkah} value={k}
-                  onChange={(e) => setK(+e.target.value)}
-                />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>
-                  lewati angka nol perlahan. Panahnya lenyap sesaat, lalu muncul lagi menghadap
-                  arah yang berlawanan
-                </span>
-              </div>
+              <Koordinat nama="a" arti="panah yang dikalikan" kunci="a"
+                nilai={aKali} onUbah={setAKali} batas={KaliBatas} />
+              <Angka nama="Pengali" arti="angka k yang mengalikan a" kunci="k"
+                nilai={k} onUbah={setK}
+                min={BATAS_K.min} max={BATAS_K.maks} langkah={BATAS_K.langkah} />
+              <Petunjuk>
+                geser pengali melewati nol perlahan. Panahnya lenyap sesaat, lalu muncul lagi menghadap arah yang berlawanan.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -272,13 +258,13 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
               />
             </div>
             <div className="kendali">
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  putar salah satu panah melewati sudut siku-siku. Angkanya berganti tanda tepat
-                  saat kedua panah tegak lurus
-                </span>
-              </div>
+              <Koordinat nama="a" arti="panah biru" kunci="a"
+                nilai={aTitik} onUbah={setATitik} batas={TitikBatas} />
+              <Koordinat nama="b" arti="panah merah" kunci="b"
+                nilai={bTitik} onUbah={setBTitik} batas={TitikBatas} />
+              <Petunjuk>
+                putar salah satu panah melewati sudut siku-siku. Hasil kalinya berganti tanda tepat saat kedua panah tegak lurus.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -292,16 +278,17 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
               />
             </div>
             <div className="kendali">
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  putar panah biru sampai melewati garis panah merah. Bayangannya menyusut, lenyap,
-                  lalu muncul di sisi yang berlawanan dengan panjang bertanda negatif
-                </span>
-              </div>
+              <Koordinat nama="a" arti="panah biru, yang diproyeksikan" kunci="a"
+                nilai={aProyeksi} onUbah={setAProyeksi} batas={ProyeksiBatas} />
+              <Koordinat nama="b" arti="panah merah, arah proyeksinya" kunci="b"
+                nilai={bProyeksi} onUbah={setBProyeksi} batas={ProyeksiBatas} />
+              <Petunjuk>
+                putar panah biru sampai melewati garis panah merah. Bayangannya menyusut, lenyap, lalu muncul di sisi berlawanan dengan panjang bertanda negatif.
+              </Petunjuk>
             </div>
           </>
         )}
+
       </>
     )
 

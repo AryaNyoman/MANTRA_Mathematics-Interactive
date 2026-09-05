@@ -83,7 +83,7 @@ export default function PanjangDanArah({
         </text>
       )}
 
-      <Panah dari={asal} ke={v} jendela={jendela} warna={WARNA.miring} tebal={2.8} pegangan
+      <Panah dari={asal} ke={v} kunci="v" jendela={jendela} warna={WARNA.miring} tebal={2.8} pegangan
              label={`panjang ${angka(panjang(v), 2)}`} sisiLabel={-1} bagian={0.7}
              jarakLabel={21} />
 

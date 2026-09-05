@@ -2042,6 +2042,91 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   font-size: 11px; color: var(--tinta-50); margin-top: 6px;
 }
 
+/* ============================================================
+   KENDALI BERSAMA widget (5 Sep 2026)
+   Spek: docs/superpowers/specs/2026-09-05-sistem-kendali-widget-design.md
+   Satu bahasa untuk semua topik: nama + arti, angka tampil, kolom ketik,
+   penggeser, tombol segmen, dan kalimat petunjuk.
+   ============================================================ */
+.kendali-angka, .kendali-koordinat, .kendali-pilihan { min-width: 0; }
+.kendali-nama {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+  font-size: 12.5px; color: var(--tinta-72); margin-bottom: 6px; min-width: 0;
+}
+.kendali-nama b { font-weight: 600; color: var(--tinta); }
+.kendali-arti { color: var(--tinta-50); }
+.kendali-nilai { font-size: 13px; font-weight: 600; color: var(--tinta); white-space: nowrap; }
+/* Penggeser dan kolom ketik berdampingan: penggeser mengambil sisa lebar,
+   kolom ketik selebar lima angka. */
+.kendali-baris { display: grid; grid-template-columns: minmax(0, 1fr) 4.6em; gap: 10px; align-items: center; }
+.kendali-ketik {
+  font: inherit; font-size: 13px; text-align: right;
+  min-height: 34px; padding: 0 8px;
+  border: 1px solid var(--garis-tegas); border-radius: 8px;
+  background: var(--kartu); color: var(--tinta);
+}
+.kendali-ketik:focus { outline: 2px solid var(--emas); outline-offset: 1px; border-color: var(--emas); }
+/* Koordinat: dua Angka berdampingan, notasi di kanan namanya. */
+.kendali-dua { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.kendali-dua .kendali-nama { margin-bottom: 4px; }
+.kendali-notasi { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
+.notasi-kolom {
+  display: inline-grid; grid-auto-rows: 1em; line-height: 1;
+  font-family: var(--font-serif), Georgia, serif; font-size: 13px;
+  padding: 2px 5px; border-left: 1.5px solid var(--tinta); border-right: 1.5px solid var(--tinta);
+  border-radius: 4px;
+}
+.notasi-kolom i { font-style: normal; text-align: center; }
+.notasi-ij { font-family: var(--font-serif), Georgia, serif; font-style: italic; font-size: 13px; color: var(--tinta-72); }
+/* Tombol segmen, sama rupa dengan segmen Tonton / Coba sendiri. */
+.pilihan-segmen {
+  display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+  border: 1px solid var(--garis-tegas); border-radius: var(--r-pil);
+  padding: 3px; background: var(--cekung); max-width: 100%;
+}
+.pilihan-segmen button {
+  min-height: 34px; padding: 0 12px; border: 0; border-radius: var(--r-pil);
+  font: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer; white-space: nowrap;
+  background: transparent; color: var(--tinta-62);
+  transition: background var(--d-sedang) var(--kurva), color var(--d-sedang) var(--kurva);
+}
+.pilihan-segmen button[aria-pressed='true'] { background: var(--panggung); color: var(--kertas); }
+/* Kalimat petunjuk: menggantikan .skala-info. */
+.kendali-petunjuk {
+  grid-column: 1 / -1; display: flex; align-items: flex-start; gap: 8px;
+  margin: 2px 0 0; font-size: 12.5px; line-height: 1.55; color: var(--tinta-62);
+}
+.kendali-petunjuk .titik { margin-top: 7px; }
+
+/* ---------- gambar + kendali jadi SATU kartu, gambarnya lengket ----------
+   Keputusan ARYA 5 Sep 2026: "perlihatkan perubahan langsung". Merapatkan
+   penggeser hanya menolong kalau penggesernya dua; widget berkendali empat
+   tetap mendorong gambarnya keluar layar. Gambar yang menempel di atas
+   menjamin ia terlihat berapa pun jumlah kendalinya. */
+.materi-satu-layar .kolom.alat .layar,
+.materi-satu-layar .alat-sisip .layar {
+  position: sticky; top: 0; z-index: 2;
+  margin-bottom: 0; border-bottom: 0;
+  border-radius: var(--r-kontrol) var(--r-kontrol) 0 0;
+}
+.materi-satu-layar .kolom.alat .kendali,
+.materi-satu-layar .alat-sisip .kendali {
+  border-top: 1px solid var(--garis); margin-top: 0;
+  border-radius: 0 0 var(--r-kontrol) var(--r-kontrol);
+}
+/* Kendali baru menumpuk satu kolom: nama + arti butuh lebar penuh. */
+.materi-satu-layar .kendali:has(.kendali-angka, .kendali-koordinat, .kendali-pilihan) {
+  grid-template-columns: 1fr; gap: 14px;
+}
+/* Di HP, "atas"-nya adalah bawah nav yang ikut lengket. */
+@media (max-width: 860px) {
+  .materi-satu-layar .alat-sisip .layar { top: var(--nav); }
+}
+
+/* Bagian gambar yang sedang diubah menyala. Widget memasang kelas ini pada
+   elemen SVG-nya saat `useSedangDiubah()` sama dengan kuncinya. */
+.nyala { filter: drop-shadow(0 0 3px rgba(176, 138, 62, 0.9)); }
+
 /* ---------- keadaan memuat ---------- */
 .memuat-panel {
   border: 1px solid var(--garis); border-radius: var(--r-kartu);

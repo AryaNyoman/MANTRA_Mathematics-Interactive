@@ -90,7 +90,7 @@ export default function PanahBerpindah({
       <Panah dari={ACUAN.pangkal} ke={ACUAN.ujung} jendela={jendela} warna={WARNA.redup}
              label="acuan" sisiLabel={-1} tebal={2.4} />
 
-      <Panah dari={pangkal} ke={ujung} jendela={jendela} warna={warnaNilai}
+      <Panah dari={pangkal} ke={ujung} kunci="ujung" jendela={jendela} warna={warnaNilai}
              label="coba" sisiLabel={-1} tebal={2.8} pegangan />
 
       <text
