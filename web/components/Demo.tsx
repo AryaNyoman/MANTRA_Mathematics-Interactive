@@ -78,8 +78,10 @@ const KLIP: Klip[] = [
   {
     jenis: 'video',
     label: 'Animasi tanpa suara',
-    berkas: 'beranda-tiga-grafik-v2.mp4',
-    poster: 'beranda-tiga-grafik-v2.jpg',
+    /* v3 (5 Sep 2026): render ManimGL `manim/scenes/beranda_tiga_grafik.py`,
+       30 detik, 0 sampai 540 derajat, bisu, sambungan ulangnya dipudarkan. */
+    berkas: 'beranda-tiga-grafik-v3.mp4',
+    poster: 'beranda-tiga-grafik-v3.jpg',
     loop: true,
     judul: 'Tiga kurva yang lahir dari satu lingkaran',
     isi: 'Sinus, kosinus, dan tangen bukan tiga rumus terpisah. Ketiganya catatan dari satu titik yang berputar, dan di sini kamu melihatnya terjadi.',

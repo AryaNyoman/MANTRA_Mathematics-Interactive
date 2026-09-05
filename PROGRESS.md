@@ -1,5 +1,24 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 5 SEP (malam, lanjutan): BERANDA DIRAPIKAN, VIDEO BERANDA BARU
+
+Permintaan ARYA 5 Sep sore: korsel jangan berganti sendiri; video slide 1
+harus terus mengulang dan hidup lagi saat kembali ke slide itu; kotak slide
+krem; bola hijau di kurva biru hero dengan irama acak; dan video slide 1
+dirender ulang meniru Materi 09 Trigonometri tanpa suara dan subtitle.
+
+- Video: `manim/scenes/beranda_tiga_grafik.py` (ManimGL, port dari arsip CE).
+  30 detik, 0 sampai 540 derajat, laju tetap, lalu dipudarkan dan diulang
+  dari nol supaya `loop` di peramban tidak berkedip. Render:
+  `manimgl manim/scenes/beranda_tiga_grafik.py BerandaTigaGrafik -w --hd`,
+  lalu ffmpeg ke `web/public/anim/beranda-tiga-grafik-v3.mp4` (30 fps, h264)
+  dan poster `.jpg` dari detik 13,5. Berkas v2 masih ada, tidak dipakai.
+  Video ini TIDAK punya jalur subtitle (`jaga_jalur_bawah=False`), sebab
+  memang tidak bernarasi; pemeriksaan tabrakan dan bingkai tetap jalan.
+- Dua jebakan ManimGL yang ketahuan lewat lembar kontak: `Circle` butuh
+  `stroke_color=` (`color=` kalah oleh bawaan merah), `Dot` butuh
+  `fill_color=` (`color=` kalah oleh bawaan putih).
+
 ## 5 SEP (malam): SEMUA WIDGET MEMAKAI SISTEM KENDALI BERSAMA
 
 Permintaan ARYA (5 Sep): widget jangan cuma bisa diseret di gambar; siswa
