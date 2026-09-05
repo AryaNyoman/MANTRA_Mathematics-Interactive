@@ -141,9 +141,9 @@ export const BAB: Bab[] = [
     urutanKelas: 10,
     sumber: 'Buku K11 Bab 4',
     sub: [
-      { huruf: 'A', nama: 'Prapeta, Peta, dan Translasi', nomor: [1, 2] },
-      { huruf: 'B', nama: 'Pencerminan', nomor: [3, 4, 5] },
-      { huruf: 'C', nama: 'Rotasi, Dilatasi, dan Sifatnya', nomor: [6, 7, 8] },
+      { huruf: 'A', nama: 'Prapeta, Peta, dan Pencerminan', nomor: [1, 2, 3, 4] },
+      { huruf: 'B', nama: 'Translasi, Rotasi, dan Dilatasi', nomor: [5, 6, 7] },
+      { huruf: 'C', nama: 'Sifat Transformasi', nomor: [8] },
       { huruf: 'D', nama: 'Matriks Transformasi', nomor: [9, 10] },
       { huruf: 'E', nama: 'Komposisi Transformasi', nomor: [11, 12] },
       { huruf: 'F', nama: 'Penerapan', nomor: [13] },
