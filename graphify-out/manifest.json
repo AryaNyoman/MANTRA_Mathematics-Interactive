@@ -905,9 +905,9 @@
     "semantic_hash": ""
   },
   "web/components/topik/PanggungStatistika.tsx": {
-    "mtime": 1788295263.0061672,
-    "ast_hash": "1ccf08357b294deb891941ea4341c1f0",
-    "semantic_hash": "1ccf08357b294deb891941ea4341c1f0"
+    "mtime": 1788606552.630637,
+    "ast_hash": "778f887bd1bcc54e2f0caa55e2bafa54",
+    "semantic_hash": ""
   },
   "web/components/topik/PanggungTrigonometri.tsx": {
     "mtime": 1788587459.6496546,
@@ -1490,18 +1490,18 @@
     "semantic_hash": ""
   },
   "web/content/statistika/tahap.ts": {
-    "mtime": 1788443468.4001198,
-    "ast_hash": "7ec74a0b6598ed81168a6aa606690136",
-    "semantic_hash": "7ec74a0b6598ed81168a6aa606690136"
+    "mtime": 1788606552.6276267,
+    "ast_hash": "1b9ecc436f1b950d22340d29610052ef",
+    "semantic_hash": ""
   },
   "web/content/statistika/widget.ts": {
-    "mtime": 1788295263.0346951,
-    "ast_hash": "ed7381b4ab3fcc4b1f86f0ca7b29141e",
-    "semantic_hash": "ed7381b4ab3fcc4b1f86f0ca7b29141e"
+    "mtime": 1788606552.630637,
+    "ast_hash": "5d92f201b598a9851e8386b13e4dbca9",
+    "semantic_hash": ""
   },
   "web/content/subbab.ts": {
-    "mtime": 1788491015.8903012,
-    "ast_hash": "76260c866fe5e106377baa1596bbd004",
+    "mtime": 1788606552.6329505,
+    "ast_hash": "9291862b0053003c09b02e737846e602",
     "semantic_hash": ""
   },
   "web/content/tipe.ts": {
@@ -1625,8 +1625,8 @@
     "semantic_hash": ""
   },
   "PROGRESS.md": {
-    "mtime": 1788602526.684448,
-    "ast_hash": "a1459e49980605c2d3187e8d8cbd677b",
+    "mtime": 1788606725.9801142,
+    "ast_hash": "0a352cf23bc4ced3328f55058f4dfe74",
     "semantic_hash": ""
   },
   "alat/lingkungan/pip-freeze-2026-09-02-sebelum-manimgl.txt": {
@@ -5612,6 +5612,16 @@
   "web/components/widget/statistika/TitikPegang.tsx": {
     "mtime": 1788605793.8223524,
     "ast_hash": "e2a54b63fcdb68f16d83e655b531efaf",
+    "semantic_hash": ""
+  },
+  "web/components/widget/statistika/DuniaNyataStatistika.tsx": {
+    "mtime": 1788606476.7721992,
+    "ast_hash": "9456f987fe910e4905fd30b17fd9f7aa",
+    "semantic_hash": ""
+  },
+  "web/content/statistika/tahap-nyata.ts": {
+    "mtime": 1788606515.8846295,
+    "ast_hash": "5f0eadb6fdf1b66fe65667a9e40729a2",
     "semantic_hash": ""
   }
 }

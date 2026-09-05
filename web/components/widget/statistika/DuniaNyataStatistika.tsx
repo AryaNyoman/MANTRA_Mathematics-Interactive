@@ -113,7 +113,6 @@ function DuaPemain() {
         <>
           <line x1={12} y1={y(15)} x2={194} y2={y(15)} stroke={PERAN.sorot} strokeWidth={1.2}
                 strokeDasharray="4 3" />
-          <text x={192} y={y(15) - 3} textAnchor="end" fontSize={7.5} fontFamily={MONO} fill={PERAN.sorot}>rata-rata 15, keduanya</text>
           <path d={jalur(b)} fill="none" stroke={PERAN.banding} strokeWidth={2}
                 strokeLinejoin="round" strokeLinecap="round" opacity={0.85} />
           <path d={jalur(a)} fill="none" stroke={PERAN.data} strokeWidth={2.4}
@@ -224,7 +223,7 @@ const KARTU: Kartu[] = [
   },
   {
     judul: 'Memilih pemain untuk laga penentuan',
-    isi: 'Dua pemain sama-sama rata-rata 15 poin. Yang satu selalu 13 sampai 17, yang lain kadang 4 kadang 28. Simpangan bakunya yang membedakan.',
+    isi: 'Garis putus-putus adalah rata-rata 15, sama untuk keduanya. Pemain A selalu 13 sampai 17, pemain B kadang 4 kadang 28. Simpangan bakunya yang membedakan.',
     alat: 'simpangan baku (Materi 08)',
     gambar: <DuaPemain />,
   },

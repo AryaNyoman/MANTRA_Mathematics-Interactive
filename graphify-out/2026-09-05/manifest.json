@@ -1200,13 +1200,13 @@
     "semantic_hash": ""
   },
   "web/components/widget/statistika/DiagramPencar.tsx": {
-    "mtime": 1788587459.2896056,
-    "ast_hash": "1152a1233df4cebe77ae9c01433db82b",
+    "mtime": 1788605958.2792902,
+    "ast_hash": "37ee396613233f79489f31ed50052a6a",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/DuaKelompok.tsx": {
-    "mtime": 1788587459.2835977,
-    "ast_hash": "2815154130d86953be1380488d14d2d9",
+    "mtime": 1788605958.198339,
+    "ast_hash": "289209d3fde0f551c20fa5772e002898",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/FrekuensiRelatif.tsx": {
@@ -1215,28 +1215,28 @@
     "semantic_hash": ""
   },
   "web/components/widget/statistika/GarisBilangan.tsx": {
-    "mtime": 1788295263.012211,
-    "ast_hash": "8928a2e38a3f80de9da8bfb10c357d45",
-    "semantic_hash": "8928a2e38a3f80de9da8bfb10c357d45"
+    "mtime": 1788605958.19734,
+    "ast_hash": "3c22bcc2a14ffa0aee829c24d626829a",
+    "semantic_hash": ""
   },
   "web/components/widget/statistika/GarisRegresi.tsx": {
-    "mtime": 1788587459.2946,
-    "ast_hash": "b639b749e7f294962bdebd4ef44922a6",
+    "mtime": 1788605958.3331723,
+    "ast_hash": "4435450e5aee2d9a0b14aed0ba4d6f70",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/JarakKeRata.tsx": {
-    "mtime": 1788587459.3524005,
-    "ast_hash": "b0786ab70617e83e687ece1a5c129365",
+    "mtime": 1788605958.2410476,
+    "ast_hash": "f9cf714b0d61d837c3899f57b91c46a6",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/KekuatanHubungan.tsx": {
-    "mtime": 1788587459.2915995,
-    "ast_hash": "f6955651e9984937acb6f1d369b7de8e",
+    "mtime": 1788605958.3099897,
+    "ast_hash": "68803c7674d3fc9a5a62c6eeaa6a752c",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/KotakGaris.tsx": {
-    "mtime": 1788587459.3508856,
-    "ast_hash": "0638a0938161b0db59868f9611b6e779",
+    "mtime": 1788605958.235784,
+    "ast_hash": "d16da500f8be2e7eac6f9d2c9d7b716e",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/LebarKelas.tsx": {
@@ -2355,8 +2355,8 @@
     "semantic_hash": ""
   },
   "web/components/kendali/index.ts": {
-    "mtime": 1788579116.377723,
-    "ast_hash": "d6c4e8e010d51d7fbeecce8c2ae1389f",
+    "mtime": 1788605958.1772118,
+    "ast_hash": "b19732b9ea8fd52e51c59b14fa819b22",
     "semantic_hash": ""
   },
   "web/components/kendali/sedang-diubah.ts": {
@@ -5602,6 +5602,16 @@
   "web/public/anim/beranda-tiga-grafik-v3.jpg": {
     "mtime": 1788602599.4263303,
     "ast_hash": "105d9d11c2cadecd9a1d7e6091db9199",
+    "semantic_hash": ""
+  },
+  "web/components/kendali/TabelData.tsx": {
+    "mtime": 1788605781.5988986,
+    "ast_hash": "a232ac01690502a8fb279b7fd3aca84b",
+    "semantic_hash": ""
+  },
+  "web/components/widget/statistika/TitikPegang.tsx": {
+    "mtime": 1788605793.8223524,
+    "ast_hash": "e2a54b63fcdb68f16d83e655b531efaf",
     "semantic_hash": ""
   }
 }
