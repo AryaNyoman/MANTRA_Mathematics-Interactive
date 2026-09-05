@@ -1,5 +1,18 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 6 SEP (pagi): VIDEO TRANSFORMASI 02 SAMPAI 06 DIPERPANJANG, TERPASANG DI MASTER
+
+Sesi Transformasi menyetor 469c850 dan b60e8f5, digabung ke master (37fdc9e,
+237d149). Video 02 sampai 06 dari `media/uji-480p` worktree disalin ke
+`web/public/anim` master: 125, 130, 63, 144, 143 detik (01 sudah 130 detik).
+Subtitle 05 dan 06 sempat basi (berhenti di detik 77 dan 81), dibuat ulang;
+poster 03, 04, 05 dibuat dari frame bermakna. Alat baru dari sesi itu:
+`alat/cek_aset_video.py` (subtitle sepanjang video dan poster tidak kosong)
+dan `alat/buat_poster.py`. Temuan alat itu di luar topiknya:
+`web/public/anim/vektor6-sambung.jpg` poster kosong, milik sesi Vektor.
+Sisa di sesi Transformasi (menunggu ARYA): 04 masih 63 detik, diam 7,2 detik
+di 02 detik 106, render 1080p. BELUM naik Vercel (pratinjau maupun produksi).
+
 ## 6 SEP (dini hari): TURUNAN DAN INTEGRAL DIRANCANG, KERANGKA DI `sesi/turunan`
 
 ARYA (5 Sep malam) menyetujui dua topik baru Kelas 12, Turunan dan Integral,
