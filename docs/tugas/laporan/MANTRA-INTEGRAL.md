@@ -502,8 +502,50 @@ positif; bentuk lensa yang simetris terhadap sumbu membuatnya terbaca sebagai
 pantulan, bukan sebagai daerah ketiga. Kalau MASTER menilai lain, aslinya
 tinggal diredupkan saat salinannya membalik.
 
+## Video 03 "Substitusi, melihat lapisan": SELESAI 480p
+
+`media/uji-480p/integral03-substitusi.mp4`, 135,4 detik, 2,20 MB, plus versi
+bersubtitle. Medan `video:` dipasang, poster dari detik 110,
+`cek_aset_video.py integral` SEMUA LOLOS untuk LIMA video, `tsc --noEmit` 0.
+
+Empat render. Video ini SATU-SATUNYA yang tanpa bidang koordinat, dan itu
+disengaja: seluruh isi materinya aljabar lapisan (pilih u, hitung du, cocokkan),
+tanpa satu pun pernyataan tentang bentuk kurva atau luas. Memaksakan bidang
+hanya akan memberi gambar yang tidak pernah dipakai; aturan proyek "3D hanya
+jika dibutuhkan" berlaku sama untuk bidang dua dimensi.
+
+### Yang ditemukan
+1. **`panel.semua()` mengembalikan None saat panel masih KOSONG**, dan qc
+   memanggil `get_family()` padanya sehingga render mati dengan pesan yang
+   tidak menyebut panel sama sekali. Jebakan lama sesi Turunan; empat video
+   sebelumnya lolos hanya karena panelnya sudah terisi sebelum pemeriksaan
+   pertama. Video ini babak pertamanya belum menulis apa pun ke panel.
+2. **`Indicate` pada benda yang BELUM ada di adegan MENAMBAHKANNYA diam-diam.**
+   ManimGL memasang benda yang dirujuk animasinya, jadi angka "2" merah dari
+   kelompok pembanding masuk ke layar lewat pintu belakang dan tertinggal
+   melayang di kiri layar sampai video habis. Terlihat di frame detik 110.
+   Diperbaiki dengan memasukkan kelompoknya lewat `FadeIn` yang jelas, dan
+   `qc.pastikan_hilang` dipasang di akhir babaknya.
+3. **3,5 detik layar benar-benar kosong** antara daftar empat langkah dan soal
+   berikutnya. Daftarnya sekarang bertahan sampai soal itu masuk.
+4. **Rumusnya terlalu kecil untuk layar sebesar itu**: isi area kerja cuma 0,71
+   persen, seperlima video lain, dan rumusnya cuma mengisi 36 persen lebar
+   layar. Diperbesar (rumus utama 44 jadi 66) sehingga jadi 1,17 persen dan 48
+   persen lebar.
+
+### Yang saya sebutkan, bukan diamkan
+Isi area kerja video ini 1,17 persen, masih jauh di bawah video lain (3,4
+sampai 5,9 persen). Sebabnya melekat pada isinya: video rumus memang cuma garis
+tipis di atas kertas, tidak ada daerah berwarna yang bisa mengisi layar.
+Semua gerbang lolos dan tiap kalimat punya kejadian di layar, tetapi kalau
+ARYA menonton dan merasa layarnya terlalu lengang, jalan keluarnya bukan
+memperbesar lagi (rumusnya sudah 48 persen lebar layar) melainkan menambah
+gambar pendamping, misalnya daftar empat langkah yang bertahan di kiri selama
+contoh dikerjakan. Itu satu render lagi dan saya belum mengerjakannya.
+
 ## Butuh keputusan ARYA
-- Satu video sisanya (03, substitusi) belum dikerjakan. Urutannya dari MASTER.
+- **LIMA VIDEO INTEGRAL 480p SIAP DITONTON ARYA**: 01, 03, 05, 07, 09.
+  Semuanya di `media/uji-480p/`, masing-masing punya versi bersubtitle.
 
 ## Titik rawan matematis yang sudah ditandai
 MASTER menemukan 4 kalimat matematis keliru dari 12 materi Turunan. Untuk

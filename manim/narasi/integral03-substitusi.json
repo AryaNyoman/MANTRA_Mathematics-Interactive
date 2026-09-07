@@ -1,0 +1,68 @@
+{
+  "adegan": "IntegralSubstitusi",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video Integral, Materi 03 'Substitusi, melihat lapisan'. Video terakhir dari lima. BUKAN video bernomor tahap terkecil, jadi tanpa pembuka 3D. Video ini TIDAK BERGRAFIK sama sekali dan itu disengaja: isinya seluruhnya aljabar lapisan, dan memaksakan bidang koordinat hanya akan memberi gambar yang tidak dipakai. Aturan proyek 3d-hanya-jika-dibutuhkan berlaku sama untuk bidang 2D. Angka diperiksa sympy lewat alat/klaim-video-integral03.json, 10 dari 10 lolos, DAN tebakan naif (2x+1)^6/6 dibuktikan DITOLAK alatnya (turunannya 2(2x+1)^5, bukan (2x+1)^5). Warna: AKSEN2 biru = lapisan dalam u, AKSEN merah = faktor du dan angka yang harus disesuaikan, SOROT ungu = jawaban benar dan kesimpulan. Sama dengan widget 'cocokkan-lapisan' di halaman Materi 03.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi ketiga: substitusi, melihat lapisan.",
+      "tulis": "Materi 03: substitusi, melihat lapisan."
+    },
+    {
+      "id": "soal",
+      "teks": "Cari antiturunan dari dua x tambah satu, pangkat lima. Menguraikan pangkat limanya bisa saja, tapi hasilnya enam suku, dan untuk pangkat sepuluh cara itu tidak masuk akal lagi.",
+      "tulis": "Antiturunan dari (2x + 1)⁵. Diuraikan bisa, tapi jadi enam suku."
+    },
+    {
+      "id": "tebak",
+      "teks": "Coba tebak dulu dengan aturan pangkat apa adanya. Pangkatnya naik jadi enam, lalu dibagi enam.",
+      "tulis": "Tebakan dengan aturan pangkat: (2x + 1)⁶ dibagi 6."
+    },
+    {
+      "id": "periksa",
+      "teks": "Sekarang periksa tebakan itu dengan menurunkannya. Lapisan luarnya memberi dua x tambah satu pangkat lima, tapi aturan rantai menuntut satu kali lagi: dikalikan turunan isinya, yaitu dua.",
+      "tulis": "Diturunkan: (2x + 1)⁵ dikali turunan isinya, yaitu *2*."
+    },
+    {
+      "id": "dua",
+      "teks": "Jadi turunan tebakan itu dua kali yang kita cari. Tebakannya kelebihan faktor dua.",
+      "tulis": "Turunannya *2(2x + 1)⁵*, dua kali yang dicari."
+    },
+    {
+      "id": "bagi",
+      "teks": "Perbaikannya sederhana: bagi dua. Jawabannya dua x tambah satu pangkat enam, dibagi dua belas.",
+      "tulis": "Dibagi 2, jadi *(2x + 1)⁶ dibagi 12*."
+    },
+    {
+      "id": "namai",
+      "teks": "Angka dua itu bukan datang dari mana-mana. Ia turunan isi kurungnya. Beri nama isi kurung itu u. Maka u sama dengan dua x tambah satu, dan du sama dengan dua dx.",
+      "tulis": "Namai isinya: *u = 2x + 1*, maka *du = 2 dx*."
+    },
+    {
+      "id": "empat",
+      "teks": "Langkahnya selalu empat, dan urutannya tidak pernah berubah. Pilih u. Hitung du. Cocokkan du dengan yang ada di soal. Kerjakan dalam u, lalu kembalikan ke x.",
+      "tulis": "Pilih u. Hitung du. Cocokkan. Kerjakan lalu kembalikan."
+    },
+    {
+      "id": "contoh2",
+      "teks": "Contoh kedua, dua x kali x kuadrat tambah lima pangkat empat. Pilih u sama dengan x kuadrat tambah lima, maka du sama dengan dua x dx. Bagian dua x dx itu sudah ada di soal, jadi tidak ada yang perlu disesuaikan.",
+      "tulis": "u = x² + 5, du = 2x dx. Bagian 2x dx *sudah ada* di soal."
+    },
+    {
+      "id": "hasil2",
+      "teks": "Tinggal antiturunan u pangkat empat, yaitu u pangkat lima dibagi lima. Kembalikan u, dan selesai.",
+      "tulis": "Jadi *(x² + 5)⁵ dibagi 5*, ditambah C."
+    },
+    {
+      "id": "contoh3",
+      "teks": "Contoh ketiga, x kali akar x kuadrat tambah lima. Dengan u yang sama, soal cuma punya x dx, sedangkan du menuntut dua x dx. Yang kurang cuma sebuah angka, yaitu setengah, dan angka boleh disesuaikan.",
+      "tulis": "Soal punya x dx, du menuntut 2x dx. Yang kurang cuma *angka* ½."
+    },
+    {
+      "id": "gagal",
+      "teks": "Sekarang buang x di depannya, sisakan akarnya saja. Dengan u yang sama, yang kurang bukan angka lagi melainkan bentuk yang memuat x. Kekurangan berupa angka boleh diperbaiki, kekurangan yang memuat x tidak. Di situlah substitusi berhenti bisa dipakai.",
+      "tulis": "Kekurangan berupa *angka* boleh diperbaiki. Yang memuat *x* tidak."
+    }
+  ]
+}

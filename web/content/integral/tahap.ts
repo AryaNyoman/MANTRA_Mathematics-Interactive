@@ -248,6 +248,7 @@ export const TAHAP: TahapIntegral[] = [
   {
     no: 3,
     slug: 'substitusi',
+    video: { berkas: 'integral03-substitusi.mp4', poster: 'integral03-substitusi.jpg' },
     judul: 'Substitusi, melihat lapisan',
     labelPendek: 'Substitusi',
     pertanyaan: 'Bagaimana mengintegralkan (2x + 1)⁵ tanpa menguraikannya?',
