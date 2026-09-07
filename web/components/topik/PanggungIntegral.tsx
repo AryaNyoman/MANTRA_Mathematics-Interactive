@@ -2,15 +2,20 @@
 
 import { useState, type ReactNode } from 'react'
 import Rintisan from '@/components/widget/integral/Rintisan'
+import MesinBalik, {
+  AWAL as AWAL_BALIK, BATAS_C, BATAS_X, SOAL, soalDari,
+} from '@/components/widget/integral/MesinBalik'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Kembalikan, Petunjuk, Pilihan } from '@/components/kendali'
 
 /**
  * Panggung Integral: penyetelan kesepuluh widgetnya, dan tidak lebih.
  *
- * KERANGKA dari MATRA-MASTER (6 Sep 2026), pola sama dengan PanggungTurunan
- * (baca komentar kepala berkas itu). Widget 05 (`persegi-panjang-menumpuk`)
- * dipasangi kendalinya sebagai contoh, sebab ia memakai `Angka` DAN `Pilihan`.
+ * KERANGKA dari MATRA-MASTER (6 Sep 2026), pola sama dengan PanggungTurunan.
+ * Keadaan widget dipegang di sini, komponen widgetnya hanya menggambar (pola
+ * PanggungLimit). Alasannya: kendali dan gambar adalah dua komponen berbeda
+ * yang harus membaca angka yang sama, dan satu-satunya tempat yang bisa dilihat
+ * keduanya adalah panggung ini.
  *
  * Rancangan tiap widget: docs/superpowers/specs/2026-09-06-integral-alur-belajar.md
  */
@@ -25,6 +30,12 @@ const TITIK_SAMPEL = [
 const AWAL = { n: 4, sampel: 'kiri' }
 
 export default function PanggungIntegral({ tahap, tampilWidget, children }: PropPanggung) {
+  // Materi 01: mesin turunan mundur
+  const [soal, setSoal] = useState(AWAL_BALIK.soal)
+  const [calon, setCalon] = useState(String(AWAL_BALIK.calon))
+  const [konstanta, setKonstanta] = useState(AWAL_BALIK.C)
+  const [titikX, setTitikX] = useState(AWAL_BALIK.x)
+
   // Materi 05: jumlahan Riemann
   const [n, setN] = useState(AWAL.n)
   const [sampel, setSampel] = useState(AWAL.sampel)
@@ -37,8 +48,66 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
     if (tahap.widget === 'dunia-nyata-integral') tanda = 'CONTOH NYATA'
     else if (tahap.widget) tanda = 'INTERAKTIF'
 
+    /* Calon jawaban ikut soal yang sedang dipilih, jadi daftarnya dibangun
+       ulang tiap render. Indeksnya disimpan sebagai teks karena `Pilihan`
+       bekerja dengan nilai teks, bukan angka. */
+    const soalIni = soalDari(soal)
+    const calonPilihan = soalIni.calon.map((c, i) => ({ nilai: String(i), label: c.label }))
+
     kiri = (
       <>
+        {tampilWidget && tahap.widget === 'mesin-balik' && (
+          <>
+            <div className="layar">
+              <MesinBalik
+                soal={soal}
+                calon={Number(calon)}
+                C={konstanta}
+                x={titikX}
+                onGeserX={setTitikX}
+              />
+            </div>
+            <div className="kendali">
+              <Pilihan
+                nama="Laju yang diketahui"
+                arti="cari fungsi yang turunannya ini"
+                pilihan={SOAL.map((s) => ({ nilai: s.nilai, label: s.label }))}
+                nilai={soal}
+                onPilih={(v) => { setSoal(v); setCalon('0') }}
+              />
+              <Pilihan
+                nama="Tebakan Anda"
+                arti="mesin memeriksanya dengan menurunkan tebakan itu"
+                pilihan={calonPilihan}
+                nilai={calon}
+                onPilih={setCalon}
+              />
+              <Angka
+                nama="C" arti="menggeser seluruh kurva naik turun" kunci="C"
+                nilai={konstanta} onUbah={setKonstanta}
+                min={BATAS_C.min} max={BATAS_C.maks} langkah={BATAS_C.langkah}
+              />
+              <Angka
+                nama="x" arti="letak titik singgung, bisa juga diseret di gambar" kunci="x"
+                nilai={titikX} onUbah={setTitikX}
+                min={BATAS_X.min} max={BATAS_X.maks} langkah={BATAS_X.langkah}
+              />
+              <Kembalikan
+                onClick={() => {
+                  setSoal(AWAL_BALIK.soal)
+                  setCalon(String(AWAL_BALIK.calon))
+                  setKonstanta(AWAL_BALIK.C)
+                  setTitikX(AWAL_BALIK.x)
+                }}
+              />
+              <Petunjuk>
+                geser C, dan lihat semua kurva punya kemiringan yang sama di tiap x.
+                Itulah sebabnya turunannya tidak berubah.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
         {tampilWidget && tahap.widget === 'persegi-panjang-menumpuk' && (
           <>
             <div className="layar">
@@ -57,7 +126,10 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
           </>
         )}
 
-        {tampilWidget && tahap.widget && tahap.widget !== 'persegi-panjang-menumpuk' && tahap.widget !== 'dunia-nyata-integral' && (
+        {tampilWidget && tahap.widget
+          && tahap.widget !== 'mesin-balik'
+          && tahap.widget !== 'persegi-panjang-menumpuk'
+          && tahap.widget !== 'dunia-nyata-integral' && (
           <>
             <div className="layar">
               <Rintisan nama={tahap.widget} keterangan="lihat rancangan Materi ini di spesifikasi Integral" />
