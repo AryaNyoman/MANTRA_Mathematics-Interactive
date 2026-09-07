@@ -1,0 +1,131 @@
+[
+  {
+    "_kenapa": "kekeliruan paling khas: mengira integral sama dengan turunan",
+    "id": "salah-antiturunan-jadi-turunan",
+    "jenis": "antiturunan",
+    "f": "x**2",
+    "F": "2*x"
+  },
+  {
+    "_kenapa": "aturan pangkat dipakai tapi lupa membagi n+1",
+    "id": "salah-lupa-bagi",
+    "jenis": "antiturunan",
+    "f": "x**5",
+    "F": "x**6"
+  },
+  {
+    "_kenapa": "substitusi tanpa membagi turunan dalam, kekeliruan Materi 03",
+    "id": "salah-lupa-bagi-dua",
+    "jenis": "antiturunan",
+    "f": "(2*x + 1)**5",
+    "F": "(2*x + 1)**6/6"
+  },
+  {
+    "_kenapa": "tanda minus milik integral sinus dipindah ke kosinus",
+    "id": "salah-tanda-trigonometri",
+    "jenis": "antiturunan",
+    "f": "cos(x)",
+    "F": "-sin(x)"
+  },
+  {
+    "_kenapa": "integral tentu dijawab dengan angka yang meleset",
+    "id": "salah-tentu",
+    "jenis": "tentu",
+    "f": "x**2",
+    "a": "1",
+    "b": "3",
+    "jawaban": "9"
+  },
+  {
+    "_kenapa": "batas dibalik tapi tandanya tidak ikut dibalik (Sifat 3.11)",
+    "id": "salah-batas-terbalik",
+    "jenis": "tentu",
+    "f": "x",
+    "a": "3",
+    "b": "0",
+    "jawaban": "9/2"
+  },
+  {
+    "_kenapa": "jumlahan Riemann dijawab dengan nilai integralnya, bukan jumlahnya",
+    "id": "salah-riemann-pakai-integral",
+    "jenis": "riemann",
+    "f": "x",
+    "a": "0",
+    "b": "7",
+    "n": 7,
+    "sampel": "kanan",
+    "jawaban": "49/2"
+  },
+  {
+    "_kenapa": "titik sampel kiri dan kanan dianggap memberi hasil sama",
+    "id": "salah-riemann-kiri-sama-kanan",
+    "jenis": "riemann",
+    "f": "x**2",
+    "a": "0",
+    "b": "2",
+    "n": 4,
+    "sampel": "kiri",
+    "jawaban": "15/4"
+  },
+  {
+    "_kenapa": "kekeliruan utama Materi 09: luas disamakan dengan integral bertanda",
+    "id": "salah-luas-pakai-integral",
+    "jenis": "luas",
+    "f": "x**3 - 4*x",
+    "a": "-2",
+    "b": "2",
+    "jawaban": "0"
+  },
+  {
+    "_kenapa": "lupa memecah di titik potong, jadi dua bagian saling meniadakan",
+    "id": "salah-luas-tak-dipecah",
+    "jenis": "luas",
+    "f": "x**2 - 4*x",
+    "a": "0",
+    "b": "6",
+    "jawaban": "12"
+  },
+  {
+    "_kenapa": "kekeliruan Materi 10: atas dan bawah dibalik, hasilnya negatif",
+    "id": "salah-dua-kurva-terbalik",
+    "jenis": "luas_antara",
+    "atas": "x**2",
+    "bawah": "x + 2",
+    "a": "-1",
+    "b": "2",
+    "jawaban": "-9/2"
+  },
+  {
+    "_kenapa": "hasilnya salah walaupun urutan atas dan bawah sudah benar",
+    "id": "salah-dua-kurva-angka",
+    "jenis": "luas_antara",
+    "atas": "x + 2",
+    "bawah": "x**2",
+    "a": "-1",
+    "b": "2",
+    "jawaban": "9"
+  },
+  {
+    "_kenapa": "titik potong disebutkan salah satu saja",
+    "id": "salah-akar-kurang",
+    "jenis": "akar",
+    "f": "x**2 - x - 2",
+    "a": "-5",
+    "b": "5",
+    "jawaban": ["2"]
+  },
+  {
+    "_kenapa": "hitungan biasa yang dijawab meleset",
+    "id": "salah-nilai",
+    "jenis": "nilai",
+    "ekspresi": "3000*Rational(2,3)*4**Rational(3,2) + 1000*4",
+    "jawaban": "28000"
+  },
+  {
+    "_kenapa": "jenis klaim yang tidak dikenal harus ditolak, bukan didiamkan",
+    "id": "salah-jenis-tak-dikenal",
+    "jenis": "integral-lipat-tiga",
+    "f": "x",
+    "jawaban": "1"
+  }
+]
