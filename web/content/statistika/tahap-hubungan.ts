@@ -103,7 +103,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       sumber: 'Kotak peringatan untuk guru di Buku Panduan Guru Matematika SMA/SMK Kelas XI, Kemendikbudristek 2021, halaman 143, menyebut persis kesalahan ini beserta pemaksaan trend lurus pada data yang melengkung.',
     },
     widget: 'diagram-pencar',
-    video: { berkas: 'statistika10-pencar.webm', poster: 'statistika10-pencar.jpg' },
+    video: { berkas: 'statistika10-pencar.mp4', poster: 'statistika10-pencar.jpg' },
     siap: true,
   },
 
@@ -207,7 +207,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       sumber: 'Kedua kesalahan itu tercatat di kotak peringatan Buku Panduan Guru Matematika SMA/SMK Kelas XI, Kemendikbudristek 2021, halaman 168, termasuk contoh hasil ekstrapolasi yang mustahil.',
     },
     widget: 'garis-regresi',
-    video: { berkas: 'statistika11-regresi.webm', poster: 'statistika11-regresi.jpg' },
+    video: { berkas: 'statistika11-regresi.mp4', poster: 'statistika11-regresi.jpg' },
     siap: true,
   },
 
@@ -291,7 +291,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       sumber: 'Korelasi product moment, koefisien determinasi, dan pembahasan korelasi dibandingkan sebab-akibat ada di Buku Panduan Guru Matematika SMA/SMK Kelas XI, Kemendikbudristek 2021, subbab A dan C, halaman 138 sampai 177.',
     },
     widget: 'kekuatan-hubungan',
-    video: { berkas: 'statistika12-korelasi.webm', poster: 'statistika12-korelasi.jpg' },
+    video: { berkas: 'statistika12-korelasi.mp4', poster: 'statistika12-korelasi.jpg' },
     siap: true,
   },
 
@@ -355,7 +355,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       isi: 'Justru grafik yang paling menyesatkan hampir selalu berisi data yang benar. Yang menyesatkan bukan angkanya, melainkan pilihan cara menampilkannya: dari mana sumbu dimulai, selebar apa kelasnya, rata-rata jenis mana yang disebut, dan bagian mana yang tidak ikut ditampilkan. Menyalahkan angka adalah cara yang salah untuk memeriksa grafik. Periksalah pilihannya.',
     },
     widget: 'sumbu-jujur',
-    video: { berkas: 'statistika13-menyesatkan.webm', poster: 'statistika13-menyesatkan.jpg' },
+    video: { berkas: 'statistika13-menyesatkan.mp4', poster: 'statistika13-menyesatkan.jpg' },
     siap: true,
   },
 ]

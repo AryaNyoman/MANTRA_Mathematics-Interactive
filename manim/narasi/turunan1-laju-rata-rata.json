@@ -1,0 +1,78 @@
+{
+  "adegan": "TurunanLajuRataRata",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video 05 topik Turunan, untuk Materi 01 'Seberapa cepat, rata-ratanya'. Ini video PERTAMA topik menurut urutan belajar, jadi ia yang mendapat pembuka 3D (STANDAR butir 2): pekerja dan mobil yang selesai dirakit, lalu kamera terbang ke tempat matematikanya terbaca. Video ini TIDAK memakai bidang berpetak berskala sama, dan itu disengaja: sumbunya jam lawan barang, dan 6 jam lawan 90 barang tidak bisa diberi satu skala tanpa gambarnya jadi pita tipis. Sumbunya berskala sendiri, dan tiap sisi segitiga DIBERI ANGKANYA (2 jam, 44 barang) supaya yang dibaca siswa adalah angka sumbu, bukan panjang di layar. Kurvanya interpolasi Hermite monoton lewat ketujuh titik catatan, SAMA PERSIS dengan widget Materi 01; kalau video memakai kurva yang cuma mirip, angka di video dan di widget akan beda tipis dan siswa yang teliti akan menyangka salah satunya salah. Istilah 'turunan', 'garis singgung', dan 'kemiringan sesaat' SENGAJA tidak disebut: ketiganya diajarkan Materi 02, dan Materi 01 bertugas membangun gagasannya tanpa nama. Semua angka diperiksa alat/cek_turunan.py lewat klaim berawalan V01.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi pertama: seberapa cepat, rata-ratanya.",
+      "tulis": "Materi 01: seberapa cepat, rata-ratanya."
+    },
+    {
+      "id": "pabrik",
+      "teks": "Sebuah pabrik kecil mencatat berapa barang yang sudah selesai.",
+      "tulis": "Sebuah pabrik mencatat berapa barang yang sudah selesai."
+    },
+    {
+      "id": "catatan",
+      "teks": "Enam jam pertama tercatat begini: nol, dua puluh, empat puluh empat, enam puluh empat, tujuh puluh delapan, delapan puluh enam, sembilan puluh.",
+      "tulis": "Enam jam pertama: 0, 20, 44, 64, 78, 86, 90 barang."
+    },
+    {
+      "id": "lelah",
+      "teks": "Perhatikan tambahannya. Sesudah jam kedua, tambahan tiap jam makin lama makin kecil. Pekerjanya lelah.",
+      "tulis": "Sesudah jam ke-2, tambahan tiap jam makin kecil. Pekerjanya lelah."
+    },
+    {
+      "id": "tanya",
+      "teks": "Pemilik pabrik bertanya. Seberapa cepat pabrik ini bekerja antara jam ke satu dan jam ke tiga?",
+      "tulis": "Seberapa cepat pabrik ini bekerja antara jam ke-1 dan jam ke-3?"
+    },
+    {
+      "id": "hitung",
+      "teks": "Dari jam ke satu ke jam ke tiga, jumlahnya naik dari dua puluh menjadi enam puluh empat. Tambahannya empat puluh empat barang, dan itu terjadi selama dua jam.",
+      "tulis": "Dari 20 menjadi 64: tambahannya 44 barang, selama 2 jam."
+    },
+    {
+      "id": "bagi",
+      "teks": "Empat puluh empat dibagi dua sama dengan dua puluh dua. Jadi rata-rata pabrik ini membuat dua puluh dua barang tiap jam.",
+      "tulis": "44 : 2 = 22. Rata-rata 22 barang tiap jam."
+    },
+    {
+      "id": "gambar",
+      "teks": "Sekarang catatan tadi kita gambar. Waktu ke kanan, jumlah barang ke atas, dan ketujuh titik tadi dihubungkan menjadi sebuah kurva.",
+      "tulis": "Digambar: waktu ke kanan, jumlah barang ke atas, ketujuh titik jadi sebuah kurva."
+    },
+    {
+      "id": "hubung",
+      "teks": "Titik jam ke satu dan titik jam ke tiga kita hubungkan dengan sebuah garis lurus.",
+      "tulis": "Titik jam ke-1 dan jam ke-3 dihubungkan dengan sebuah garis lurus."
+    },
+    {
+      "id": "segitiga",
+      "teks": "Di bawah garis itu ada segitiga. Sisi mendatarnya dua jam, sisi tegaknya empat puluh empat barang.",
+      "tulis": "Segitiga di bawah garis: sisi mendatar 2 jam, sisi tegak 44 barang."
+    },
+    {
+      "id": "sama",
+      "teks": "Selisih tinggi dibagi selisih mendatar. Itu kemiringan garisnya, dan angkanya dua puluh dua. Sama persis dengan hitungan pabrik tadi.",
+      "tulis": "Selisih tinggi dibagi selisih mendatar = 22. Sama persis dengan hitungan pabrik."
+    },
+    {
+      "id": "nama",
+      "teks": "Garis yang menghubungkan dua titik pada sebuah kurva ada namanya: garis potong, atau garis sekan. Disebut potong sebab ia memotong kurva di dua tempat.",
+      "tulis": "Garis penghubung dua titik pada kurva namanya garis potong, atau garis sekan."
+    },
+    {
+      "id": "beda",
+      "teks": "Sekarang bagian pentingnya. Kalau dua titiknya diganti, angkanya ikut berubah. Dari jam satu ke jam dua hasilnya dua puluh empat. Dari jam tiga ke jam lima hasilnya cuma sebelas.",
+      "tulis": "Ganti titiknya, angkanya berubah: jam 1 ke 2 memberi 24; jam 3 ke 5 cuma 11."
+    },
+    {
+      "id": "tutup",
+      "teks": "Kurvanya itu-itu juga, tetapi jawabannya berbeda-beda. Karena itulah angka ini disebut laju perubahan rata-rata, dan bukan kecepatan pada satu saat.",
+      "tulis": "Kurvanya sama, jawabannya berbeda. Karena itu namanya laju perubahan *rata-rata*."
+    }
+  ]
+}
