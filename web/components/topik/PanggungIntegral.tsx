@@ -5,6 +5,10 @@ import Rintisan from '@/components/widget/integral/Rintisan'
 import MesinBalik, {
   AWAL as AWAL_BALIK, BATAS_C, BATAS_X, SOAL, soalDari,
 } from '@/components/widget/integral/MesinBalik'
+import NaikPangkat, {
+  AWAL as AWAL_PANGKAT, BATAS_A, BATAS_C as BATAS_C_PANGKAT,
+  BATAS_X as BATAS_X_PANGKAT, PANGKAT, pangkatDari,
+} from '@/components/widget/integral/NaikPangkat'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Kembalikan, Petunjuk, Pilihan } from '@/components/kendali'
 
@@ -35,6 +39,12 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
   const [calon, setCalon] = useState(String(AWAL_BALIK.calon))
   const [konstanta, setKonstanta] = useState(AWAL_BALIK.C)
   const [titikX, setTitikX] = useState(AWAL_BALIK.x)
+
+  // Materi 02: aturan pangkat pada dua papan
+  const [pangkat, setPangkat] = useState(AWAL_PANGKAT.pangkat)
+  const [koefA, setKoefA] = useState(AWAL_PANGKAT.a)
+  const [konstanta2, setKonstanta2] = useState(AWAL_PANGKAT.C)
+  const [titikX2, setTitikX2] = useState(AWAL_PANGKAT.x)
 
   // Materi 05: jumlahan Riemann
   const [n, setN] = useState(AWAL.n)
@@ -108,6 +118,64 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
           </>
         )}
 
+        {tampilWidget && tahap.widget === 'naik-pangkat' && (
+          <>
+            <div className="layar">
+              <NaikPangkat
+                pangkat={pangkat}
+                a={koefA}
+                C={konstanta2}
+                x={titikX2}
+                onGeserX={setTitikX2}
+              />
+            </div>
+            <div className="kendali">
+              <Pilihan
+                nama="Pangkat n"
+                arti="pangkat pada f(x) = a dikali x pangkat n"
+                pilihan={PANGKAT.map((p) => ({ nilai: p.nilai, label: p.label }))}
+                nilai={pangkat}
+                onPilih={(v) => {
+                  setPangkat(v)
+                  // Titik ditarik masuk ke ranah yang sah: akar dan pangkat
+                  // negatif tidak punya nilai di sebelah kiri nol.
+                  // Titik dipindah ke tempat yang memang ada isinya untuk
+                  // pangkat itu. Pada pangkat negatif, x besar membuat kurvanya
+                  // hampir menempel sumbu dan tidak ada yang bisa dilihat.
+                  setTitikX2(pangkatDari(v).xAwal)
+                }}
+              />
+              <Angka
+                nama="Koefisien a" arti="pengali di depan x pangkat n" kunci="a"
+                nilai={koefA} onUbah={setKoefA}
+                min={BATAS_A.min} max={BATAS_A.maks} langkah={BATAS_A.langkah}
+              />
+              <Angka
+                nama="C" arti="menggeser kurva papan bawah naik turun" kunci="C"
+                nilai={konstanta2} onUbah={setKonstanta2}
+                min={BATAS_C_PANGKAT.min} max={BATAS_C_PANGKAT.maks} langkah={BATAS_C_PANGKAT.langkah}
+              />
+              <Angka
+                nama="x" arti="letak titik, bisa juga diseret di gambar" kunci="x"
+                nilai={titikX2} onUbah={(v) => setTitikX2(Math.max(v, pangkatDari(pangkat).xMinSeret))}
+                min={BATAS_X_PANGKAT.min} max={BATAS_X_PANGKAT.maks} langkah={BATAS_X_PANGKAT.langkah}
+              />
+              <Kembalikan
+                onClick={() => {
+                  setPangkat(AWAL_PANGKAT.pangkat)
+                  setKoefA(AWAL_PANGKAT.a)
+                  setKonstanta2(AWAL_PANGKAT.C)
+                  setTitikX2(AWAL_PANGKAT.x)
+                }}
+              />
+              <Petunjuk>
+                pilih n = -1, dan mesinnya menolak: pangkat naik jadi 0, pembaginya nol.
+                Itu kasus khusus yang tidak dibahas di SMA.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
         {tampilWidget && tahap.widget === 'persegi-panjang-menumpuk' && (
           <>
             <div className="layar">
@@ -128,6 +196,7 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
 
         {tampilWidget && tahap.widget
           && tahap.widget !== 'mesin-balik'
+          && tahap.widget !== 'naik-pangkat'
           && tahap.widget !== 'persegi-panjang-menumpuk'
           && tahap.widget !== 'dunia-nyata-integral' && (
           <>
