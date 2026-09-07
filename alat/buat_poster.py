@@ -86,10 +86,36 @@ def nilai(jalur: Path) -> tuple[str, str]:
     return "ok", ket
 
 
+def cari_sumber(topik: str) -> Path | None:
+    """Video terbaik yang ada untuk diambil posternya.
+
+    Yang TAYANG didahulukan, baru pratinjau 480p. Dua sebabnya:
+
+    1. Poster dari 1080p jelas lebih tajam daripada dari 480p yang diperbesar.
+    2. Pratinjau 480p TIDAK DIJAMIN ADA. Berkasnya masuk .gitignore, jadi
+       worktree yang baru dibuat mulai tanpa satu pun, dan sesi yang langsung
+       merender 1080p (gelombang 3, 7 September 2026) tidak pernah membuatnya.
+       Versi lama alat ini cuma melihat `media/uji-480p/<topik>.mp4` lalu
+       menyerah dengan "tidak ada videonya", padahal videonya ada, cuma di
+       tempat lain.
+    """
+    calon = [
+        AKAR / "media" / f"{topik}.webm",
+        TUJUAN / f"{topik}.webm",
+        AKAR / "media" / f"{topik}.mp4",
+        SUMBER / f"{topik}.mp4",
+    ]
+    for jalur in calon:
+        if jalur.exists():
+            return jalur
+    return None
+
+
 def buat(topik: str, detik: float) -> int:
-    video = SUMBER / f"{topik}.mp4"
-    if not video.exists():
-        print(f"tidak ada videonya: {video}")
+    video = cari_sumber(topik)
+    if video is None:
+        print(f"tidak ada videonya: {topik} (dicari di media/, "
+              f"web/public/anim/, dan media/uji-480p/)")
         return 1
     TUJUAN.mkdir(parents=True, exist_ok=True)
     sementara = TUJUAN / f".{topik}.calon.jpg"
