@@ -1,0 +1,78 @@
+{
+  "adegan": "TurunanGarisSinggung",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video 01 topik Turunan, untuk Materi 02 'Garis potong yang berubah jadi garis singgung'. TANPA 3D: pembuka 3D hanya milik video Materi 01, dan materi ini langsung ke matematika. Kamera tegak lurus sepanjang video, sebab kemiringan garis harus akurat dan perspektif akan membohonginya. Keempat angka kemiringan 3, 2,5, 2,1, dan 2,01 SAMA PERSIS dengan tabel di halaman Materi 02, dan diperiksa alat/cek_turunan.py lewat berkas klaim video. Puncaknya babak 'menuju': angkanya merapat ke 2 tetapi tidak pernah sampai, dan itu yang membedakan limit dari substitusi. Segmen 'nama' dan 'urutan' ditambahkan setelah naskah pertama hanya mencapai 93,5 detik, di bawah rentang 110 sampai 130 detik; keduanya dipilih karena memang mengajarkan sesuatu (penamaan sesudah bendanya dilihat, dan urutan mencoret h), bukan sekadar memanjangkan.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi kedua: garis potong yang berubah jadi garis singgung.",
+      "tulis": "Materi 02: garis potong yang berubah jadi garis singgung."
+    },
+    {
+      "id": "soal",
+      "teks": "Di materi sebelumnya kita menghitung laju rata-rata, dan itu selalu butuh *dua* titik.",
+      "tulis": "Di materi sebelumnya kita menghitung laju rata-rata, dan itu butuh *dua* titik."
+    },
+    {
+      "id": "satu",
+      "teks": "Tapi bagaimana kalau yang ditanya kemiringan tepat di *satu* titik? Selisihnya nol, dan nol dibagi nol tidak punya jawaban.",
+      "tulis": "Bagaimana kalau yang ditanya kemiringan tepat di *satu* titik? 0 dibagi 0 tidak punya jawaban."
+    },
+    {
+      "id": "kurva",
+      "teks": "Kita pakai kurva melengkung paling sederhana, f dari x sama dengan x kuadrat, dan titik P di x sama dengan satu.",
+      "tulis": "Kita pakai f(x) = x², dan titik P di x = 1."
+    },
+    {
+      "id": "potong",
+      "teks": "Sekarang titik kedua, Q, kita taruh satu satuan ke kanan. Garis yang menghubungkan keduanya punya kemiringan *tiga*.",
+      "tulis": "Titik kedua Q, satu satuan ke kanan. Garis penghubungnya berkemiringan *3*."
+    },
+    {
+      "id": "nama",
+      "teks": "Garis yang memotong kurva di dua tempat itu ada namanya sendiri: garis potong.",
+      "tulis": "Garis yang memotong kurva di dua tempat itu namanya *garis potong*."
+    },
+    {
+      "id": "kecil1",
+      "teks": "Sekarang Q kita geser mendekat. Jaraknya nol koma lima, dan kemiringannya turun jadi dua koma lima.",
+      "tulis": "Q digeser mendekat. h = 0,5, dan kemiringannya turun jadi 2,5."
+    },
+    {
+      "id": "kecil2",
+      "teks": "Lebih dekat lagi. Jaraknya nol koma satu, kemiringannya dua koma satu.",
+      "tulis": "Lebih dekat lagi. h = 0,1, kemiringannya 2,1."
+    },
+    {
+      "id": "kecil3",
+      "teks": "Dan sekali lagi. Jaraknya nol koma nol satu, kemiringannya dua koma nol satu.",
+      "tulis": "Sekali lagi. h = 0,01, kemiringannya 2,01."
+    },
+    {
+      "id": "menuju",
+      "teks": "Perhatikan angkanya. Tiga, dua koma lima, dua koma satu, dua koma nol satu. Semuanya merapat ke *dua*, tapi tidak satu pun yang sampai di dua.",
+      "tulis": "3, lalu 2,5, lalu 2,1, lalu 2,01. Semuanya merapat ke *2*, tapi tak satu pun sampai."
+    },
+    {
+      "id": "singgung",
+      "teks": "Garis yang dituju itu hanya menyentuh kurva di satu titik. Namanya *garis singgung*.",
+      "tulis": "Garis yang dituju hanya menyentuh kurva di satu titik. Namanya *garis singgung*."
+    },
+    {
+      "id": "huruf",
+      "teks": "Dikerjakan dengan huruf, selisih tingginya dua h ditambah h kuadrat. Dibagi h menjadi dua ditambah h.",
+      "tulis": "Dengan huruf: selisih tingginya 2h + h². Dibagi h menjadi 2 + h."
+    },
+    {
+      "id": "urutan",
+      "teks": "Tapi urutannya tidak boleh dibalik. Sebelum disederhanakan, mengisi h sama dengan nol memberi nol dibagi nol. Mencoret h hanya sah selama h bukan nol.",
+      "tulis": "Urutannya tak boleh dibalik. Sebelum disederhanakan, h = 0 memberi 0 dibagi 0."
+    },
+    {
+      "id": "tutup",
+      "teks": "Baru sesudah h dicoret, h boleh didekatkan ke nol. Hasilnya *dua*, dan itulah turunan di titik x sama dengan satu.",
+      "tulis": "Sesudah h dicoret, h didekatkan ke nol. Hasilnya *2*, yaitu f′(1)."
+    }
+  ]
+}

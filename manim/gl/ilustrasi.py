@@ -402,6 +402,45 @@ def orang(tinggi=1.7, warna=TINTA):
     return g
 
 
+class BatasSumbuSalah(ValueError):
+    """Batas bawah sumbu tidak jatuh di garis petak."""
+
+
+def _periksa_batas(nama: str, rentang) -> None:
+    """Batas BAWAH sumbu wajib kelipatan langkahnya.
+
+    KENAPA GERBANG INI ADA
+    `NumberPlane` menaruh angka mulai dari batas bawah lalu melangkah satu
+    langkah setiap kali. Kalau batas bawahnya bukan kelipatan langkahnya,
+    SELURUH angka sumbu meleset dari garis petaknya, lalu dibulatkan saat
+    ditampilkan sehingga muncul angka kembar. Itu benar-benar terjadi 7 Sep 2026
+    pada dua video Turunan: batas -1,5 dengan langkah 1 menaruh angka di
+    -1,5 -0,5 0,5 1,5 2,5 3,5 dan menampilkannya sebagai -2 -0 0 2 2 4. Angka 2
+    muncul dua kali dan angka 1 tidak ada sama sekali, di video yang seluruh
+    isinya mengukur kemiringan di x = 1. Semua gerbang otomatis meloloskannya,
+    dan lembar kontak pertama pun melewatkannya karena yang diperiksa tindihan,
+    bukan kebenaran angkanya.
+
+    Yang diperiksa KELIPATAN LANGKAH, bukan "bilangan bulat": langkah 0,5
+    dengan batas -1,5 tetap sah, sebab angkanya jatuh di -1,5 -1,0 -0,5 dan
+    seterusnya, semuanya tepat di garis petak.
+    """
+    bawah, _atas, langkah = (float(rentang[0]), float(rentang[1]), float(rentang[2]))
+    if langkah <= 0:
+        raise BatasSumbuSalah(
+            f"{nama}: langkah sumbu harus positif, yang dipakai {langkah:g}.")
+    rasio = bawah / langkah
+    if abs(rasio - round(rasio)) > 1e-9:
+        dekat = round(rasio) * langkah
+        raise BatasSumbuSalah(
+            f"{nama}: batas bawah {bawah:g} bukan kelipatan langkah {langkah:g}, "
+            f"jadi SEMUA angka sumbu akan meleset dari garis petaknya dan "
+            f"dibulatkan saat ditampilkan (mis. -1,5 -0,5 0,5 tampil sebagai "
+            f"-2 -0 0). Kelipatan terdekat: {dekat:g}. Pakai itu, atau kelipatan "
+            f"{langkah:g} yang lain. Sesi Transformasi memakai `bidang_untuk` "
+            f"yang membulatkan sendiri; contoh yang bisa ditiru.")
+
+
 def bidang_bernomor(x_range=(-6.0, 6.0, 1.0), y_range=(-4.0, 4.0, 1.0),
                     warna=REDUP, ukuran_angka=26, z=0.0):
     """Bidang koordinat BERANGKA dengan skala x dan y terkunci sama.
@@ -428,6 +467,9 @@ def bidang_bernomor(x_range=(-6.0, 6.0, 1.0), y_range=(-4.0, 4.0, 1.0),
     `kamera.dunia_ke_peta_muat(frame, bidang)`: keduanya membaca kotak batas
     yang sebenarnya dan memilih pusat serta tinggi kamera yang muat.
     """
+    _periksa_batas("x_range", x_range)
+    _periksa_batas("y_range", y_range)
+
     # Tanpa sub-petak (`faded_line_ratio=1`): pada uji pertama sub-petak halus
     # membuat bidangnya ramai dan angkanya makin sulit dibaca. Satu petak satu
     # satuan sudah cukup untuk membaca vektor.

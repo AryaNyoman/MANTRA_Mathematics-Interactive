@@ -1,0 +1,123 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/turunan7-aturan-rantai.json
+
+1
+00:00:00.000 --> 00:00:05.040
+Materi 07: fungsi di dalam fungsi, aturan rantai.
+
+2
+00:00:05.040 --> 00:00:10.800
+Selama ini: jabarkan dulu, baru turunkan.
+
+3
+00:00:10.800 --> 00:00:16.560
+Untuk (2x - 5)⁸ cara itu habis kesabaran.
+
+4
+00:00:16.560 --> 00:00:20.545
+Bentuk ini dua mesin berderet:
+
+5
+00:00:20.545 --> 00:00:24.397
+x masuk mesin pertama jadi u,
+
+6
+00:00:24.397 --> 00:00:27.984
+u masuk mesin kedua jadi y.
+
+7
+00:00:27.984 --> 00:00:31.495
+Perubahan digambar jadi batang,
+
+8
+00:00:31.495 --> 00:00:34.552
+satu skala untuk ketiganya.
+
+9
+00:00:34.552 --> 00:00:38.856
+Mesin dalam u = 3x, mesin luar y = 5u.
+
+10
+00:00:38.856 --> 00:00:43.729
+Batang u terisi tepat oleh 3 batang x.
+
+11
+00:00:43.729 --> 00:00:47.448
+Tingkat pertama mengalikan 3.
+
+12
+00:00:47.448 --> 00:00:50.535
+Batang y terisi tepat oleh 5 batang u.
+
+13
+00:00:50.535 --> 00:00:52.728
+Tingkat kedua mengalikan 5.
+
+14
+00:00:52.728 --> 00:00:58.426
+Berapa batang x mengisi batang y?
+
+15
+00:00:58.426 --> 00:01:00.498
+15, bukan 8.
+
+16
+00:01:00.498 --> 00:01:05.160
+Bertingkat, maka <b>dikalikan</b>.
+
+17
+00:01:05.160 --> 00:01:10.420
+Mesin lurus punya pengali tetap.
+
+18
+00:01:10.420 --> 00:01:17.160
+Umumnya pengali ikut berubah mengikuti x.
+
+19
+00:01:17.160 --> 00:01:27.816
+Ambil yang masih mudah: (x² + 1)² = x⁴ + 2x² + 1.
+
+20
+00:01:27.816 --> 00:01:34.920
+Turunkan suku demi suku: 4x³ + 4x.
+
+21
+00:01:34.920 --> 00:01:44.232
+Difaktorkan: 4x(x² + 1). Isi kurungnya muncul lagi.
+
+22
+00:01:44.232 --> 00:01:48.624
+Ditulis ulang: 2(x² + 1) · 2x.
+
+23
+00:01:48.624 --> 00:01:55.944
+Kiri turunan pangkatnya, 2x turunan isi kurungnya.
+
+24
+00:01:55.944 --> 00:02:00.560
+Aturan rantai: turunkan bagian luar,
+
+25
+00:02:00.560 --> 00:02:04.920
+lalu kalikan turunan bagian dalam.
+
+26
+00:02:04.920 --> 00:02:07.774
+Kembali ke (2x - 5)⁸.
+
+27
+00:02:07.774 --> 00:02:12.394
+Bagian dalam 2x - 5, turunannya 2.
+
+28
+00:02:12.394 --> 00:02:15.384
+Bagian luar pangkat 8.
+
+29
+00:02:15.384 --> 00:02:19.022
+Turunkan luar, kalikan 2.
+
+30
+00:02:19.022 --> 00:02:26.880
+Hasilnya 16(2x - 5)⁷, tanpa menjabarkan satu suku pun.
