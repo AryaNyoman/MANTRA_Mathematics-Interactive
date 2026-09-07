@@ -1,0 +1,73 @@
+{
+  "adegan": "IntegralLajuKeJumlah",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video Integral, Materi 01 'Dari laju ke jumlah, membalik turunan'. Video dengan NOMOR TAHAP TERKECIL di topik ini, jadi inilah satu-satunya video Integral yang boleh dibuka 3D (butir 2 STANDAR-ILUSTRASI-VIDEO): koin menumpuk, delapan sampai sepuluh detik, lalu SATU gerakan kamera turun ke bidang datar dan tidak pernah miring lagi. Seluruh angka diperiksa sympy lewat alat/klaim-video-integral01.json: 3, 5, 156 (dua kali, lewat integral dan lewat trapesium), turunan x^2+x, x^2+x+7, x^2+x-3, kemiringan 5, dan selisih dua jalan = 0. HATI-HATI: 2x+1 adalah laju SESAAT, bukan tambahan sebulan penuh. MASTER menemukan kekeliruan itu di halaman Materi 01 pada 7 Sep 2026 (membacanya sebagai tambahan bulanan memberi 168, bukan 156). Karena itu koin di pembuka menumpuk TERUS MENERUS, bukan melompat sekali sebulan, dan tidak ada satu kalimat pun yang menyebut 'bulan ini menambah sekian'. Warna: AKSEN2 biru = laju dan luasnya, SOROT ungu = antiturunan dan keluarga kurvanya, AKSEN merah = tetapan C dan keterangan tambahan.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi pertama: dari laju ke jumlah, membalik turunan.",
+      "tulis": "Materi 01: dari laju ke jumlah, membalik turunan."
+    },
+    {
+      "id": "tumpuk",
+      "teks": "Sebuah keluarga mencatat pengeluarannya. Yang tercatat bukan totalnya, melainkan seberapa cepat pengeluaran itu bertambah.",
+      "tulis": "Yang tercatat bukan totalnya, melainkan seberapa cepat totalnya bertambah."
+    },
+    {
+      "id": "turun",
+      "teks": "Kecepatan bertambah itu namanya laju. Kalau digambar, bulan mendatar dan juta rupiah per bulan tegak, lajunya berupa garis: dua x tambah satu.",
+      "tulis": "Laju digambar: mendatar bulan, tegak juta per bulan. Lajunya 2x + 1."
+    },
+    {
+      "id": "baca",
+      "teks": "Bacanya begini. Pada bulan ke satu lajunya tiga juta per bulan, pada bulan ke dua sudah lima. Ini laju pada satu saat, bukan tambahan sebulan penuh.",
+      "tulis": "Bulan ke-1 lajunya 3, bulan ke-2 lajunya 5. Laju pada satu saat."
+    },
+    {
+      "id": "satubulan",
+      "teks": "Untuk satu bulan saja, pengeluarannya adalah laju dikali lama waktu. Itu persis luas sebuah persegi panjang.",
+      "tulis": "Satu bulan: laju × lama waktu, yaitu luas sebuah persegi panjang."
+    },
+    {
+      "id": "semua",
+      "teks": "Kalau tiap bulan dibuatkan persegi panjangnya lalu dijumlahkan, hasilnya sudah dekat. Baru dekat, sebab di dalam satu bulan lajunya tidak benar-benar tetap.",
+      "tulis": "Dijumlahkan: sudah dekat, belum tepat. Dalam satu bulan lajunya tidak tetap."
+    },
+    {
+      "id": "trapesium",
+      "teks": "Karena grafik lajunya garis lurus, tepi miringnya bisa ditutup rapi oleh trapesium, tanpa sisa. Setengah kali satu tambah dua puluh lima, kali dua belas, hasilnya seratus lima puluh enam.",
+      "tulis": "Grafiknya lurus, jadi trapesium menutup tanpa sisa: ½(1 + 25)(12) = *156*."
+    },
+    {
+      "id": "balik",
+      "teks": "Sekarang jalan yang kedua, dan kelihatannya tidak berhubungan sama sekali. Sebut T total pengeluaran. Laju bertambahnya T adalah turunan T.",
+      "tulis": "Jalan kedua. T = total. Lajunya adalah T'."
+    },
+    {
+      "id": "tebak",
+      "teks": "Jadi kita mencari fungsi yang turunannya dua x tambah satu. Coba x kuadrat tambah x. Periksa dengan menurunkannya: turunan x kuadrat adalah dua x, turunan x adalah satu. Cocok.",
+      "tulis": "Cari T dengan T' = 2x + 1. Coba x² + x, lalu turunkan: 2x + 1. *Cocok*."
+    },
+    {
+      "id": "plusC",
+      "teks": "Tapi periksa juga x kuadrat tambah x tambah tujuh. Turunannya juga dua x tambah satu, sebab turunan sebuah tetapan adalah nol. Begitu pula x kuadrat tambah x kurang tiga.",
+      "tulis": "x² + x + 7 juga. Dan x² + x - 3. Turunan sebuah tetapan adalah nol."
+    },
+    {
+      "id": "geser",
+      "teks": "Jadi jawabannya bukan satu fungsi, melainkan satu keluarga: bentuknya sama persis, cuma digeser naik turun oleh tetapan C. Di titik mana pun, kemiringan semua anggotanya sama.",
+      "tulis": "Bukan satu fungsi, satu *keluarga*: T = x² + x + C, digeser oleh C."
+    },
+    {
+      "id": "pilih",
+      "teks": "Untuk memilih satu anggota, perlu satu keterangan di luar laju. Awal tahun totalnya nol, jadi C sama dengan nol. Setelah dua belas bulan, T dua belas adalah seratus empat puluh empat tambah dua belas.",
+      "tulis": "T(0) = 0 memberi C = 0. Lalu T(12) = 144 + 12 = *156*."
+    },
+    {
+      "id": "tutup",
+      "teks": "Angka yang sama dengan luas tadi. Satu jalan mengukur luas, satu jalan membalik mesin turunan, dan keduanya bertemu. Kenapa bisa bertemu akan kita buktikan di materi ketujuh, dan itu justru puncak topik ini.",
+      "tulis": "Luas 156, antiturunan 156. Kenapa keduanya bertemu, akan kita buktikan di Materi 07."
+    }
+  ]
+}
