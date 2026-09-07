@@ -51,16 +51,35 @@ namanya menyebut integral, dan laporan ini. Di luar itu jangan disentuh.
   pendaftaran di tiga berkas) sudah ada di cabang ini lewat fast-forward.
 - Diperiksa: TIDAK ADA folder integral kembar atau nyasar di `D:\MANIM-MATRA`.
   Yang ada hanya folder milik proyek di atas, ditambah rancangan dan berkas tugas.
+- `git merge master` bersih, nol konflik (commit `40844ae` di atas `8f7927e`).
+- `cd web && npm install` SELESAI: 361 paket, 0 kerentanan.
+- `tsc --noEmit` LOLOS (exit 0), dipanggil lewat biner Node langsung, bukan lewat rtk.
+- Uji kirim pesan dua arah dengan MANTRA-MASTER BERHASIL: kirim, dibalas, dibalas lagi.
 
 ## Sedang dikerjakan
 Belum ada. Menunggu perintah mulai dari ARYA atau MASTER.
 
 ## Butuh MASTER
-- `web/node_modules` BELUM ada di worktree ini. Perlu `cd web && npm install`
-  sebelum tsc, eslint, build, atau dev server bisa dijalankan.
-- Konfirmasi urutan: berkas tugas menulis "Turunan dulu, Integral sesudahnya".
-  Kalau dua sesi jalan bersamaan, aturan itu tidak berlaku lagi. Mohon dipastikan
-  Integral boleh mulai sekarang, tidak menunggu "TURUNAN SIAP GABUNG".
+Sudah dijawab MASTER 7 Sep 2026, tidak ada yang menggantung:
+1. Cabang `sesi/integral-materi` DITERIMA sebagai cabang resmi sesi ini.
+2. Integral BOLEH MULAI SEKARANG. Kalimat "Turunan dulu" di berkas tugas dibatalkan;
+   kepala `docs/tugas/MANTRA-TURUNAN-INTEGRAL.md` kini memuat tabel pembagian dua sesi.
+3. Sesi Turunan sudah dilarang menyentuh berkas integral. Sebaliknya sesi ini dilarang
+   menyentuh `content/turunan/`, `PanggungTurunan.tsx`, `widget/turunan/`,
+   `latihan/turunan/`, dan laporan mereka.
+
+Koreksi MASTER yang saya terima: leluhur bersama cabang ini adalah `cdf3119`,
+bukan `8caec58` seperti yang saya tulis semula.
 
 ## Butuh keputusan ARYA
-- Belum ada.
+- **Lampu hijau tahap 1.** Aturan ARYA mewajibkan estimasi disebut sebelum kerja besar.
+  Estimasi sudah disampaikan: tahap 1 (11 materi) besar, tahap 2 (10 widget) besar,
+  tahap 3 (latihan dan kuis) sedang, tahap 4 (gerbang mutu) sedang. Menunggu jawaban.
+
+## Titik rawan matematis yang sudah ditandai
+MASTER menemukan 4 kalimat matematis keliru dari 12 materi Turunan. Untuk Integral,
+tiga klaim ini TIDAK boleh ditulis sebagai kalimat mutlak:
+1. "Integral kebalikan turunan" hanya benar sampai konstanta.
+2. "Integral tentu sama dengan luas" salah kalau kurva ada di bawah sumbu. Justru itu
+   isi Materi 09.
+3. "Substitusi selalu bisa" tidak benar.
