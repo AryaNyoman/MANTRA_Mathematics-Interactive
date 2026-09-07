@@ -104,19 +104,36 @@ class PerahuVektor(AdeganMatra):
         # ==============================================================
         # Babak 1: dunia nyata, 3D, dari dekat
         # ==============================================================
-        # Air dilebihkan 0,25 ke tiap tepi supaya menyelip DI BAWAH tanah:
-        # versi lama menyisakan celah krem antara air dan tepian (ARYA 5 Sep).
-        air = ilustrasi.air_hidup(self, PANJANG_SUNGAI, LEBAR_SUNGAI + 1.0,
-                                  pusat=(0.0, Y_SUNGAI))
+        # PERAHUNYA TERDAMPAR, dan sebabnya UKURAN, bukan letak (ARYA 7 Sep,
+        # terlihat di render 1080p pertama). Diukur, bukan ditaksir:
+        #   perahu(1,1) membentang y -1,10 sampai +1,10, jadi PANJANGNYA 2,20
+        #   air lama          : y -0,50 sampai 3,50
+        #   tepi dekat lama   : y -2,75 sampai -0,35
+        # Buritan di -1,10 berarti 0,75 satuan MASUK ke dalam daratan dan 0,60
+        # di luar air: lebih dari separuh lambung duduk di pasir.
+        #
+        # Perhatikan `panjang` di `ilustrasi.perahu` sebenarnya SETENGAH
+        # panjang; itu sendiri jebakan namanya.
+        #
+        # Memindahkan perahunya tidak menyelesaikan apa pun. Dengan panjang
+        # 2,20 di sungai selebar 3,00 (73 persen lebar sungai), ia mustahil
+        # berangkat dari tepi dekat DAN mendarat di tepi seberang tanpa
+        # menabrak salah satunya. Narasinya pun menyebut "perahu KECIL".
+        # Jadi yang dikecilkan perahunya, lalu air dan tepian digeser sedikit
+        # supaya ada air yang terlihat di belakang buritan:
+        #   perahu(0,5)  : panjang 1,00 (sepertiga lebar sungai), buritan -0,50
+        #   air baru     : y -0,90 sampai 3,50
+        #   tepi dekat   : y -3,10 sampai -0,70, jadi 0,20 di belakang buritan
+        #   darat menutup air dari -0,90 sampai -0,70: tidak ada celah krem
+        #   mendarat     : haluan di 3,50, pantai seberang mulai 3,00
+        air = ilustrasi.air_hidup(self, PANJANG_SUNGAI, LEBAR_SUNGAI + 1.4,
+                                  pusat=(0.0, 1.3))
         tepi_jauh = ilustrasi.tanah(PANJANG_SUNGAI, 2.4, LEBAR_SUNGAI + 1.2)
-        # Tepi dekat mundur 0,35 dari titik asal: perahu di (0, 0) harus
-        # MENGAPUNG di samping tepian, bukan terkubur separuh di dalam
-        # lempengan tanah yang atapnya di atas garis air (render 5 Sep).
-        tepi_dekat = ilustrasi.tanah(PANJANG_SUNGAI, 2.4, -1.2 - 0.35)
+        tepi_dekat = ilustrasi.tanah(PANJANG_SUNGAI, 2.4, -1.90)
 
         # Perahu dayung v2, haluan diputar ke +y: menghadap seberang, sebab
         # ceritanya ia didayung lurus ke seberang.
-        asli = ilustrasi.perahu(1.1)
+        asli = ilustrasi.perahu(0.5)
         asli.rotate(90 * DEGREES, axis=OUT, about_point=ORIGIN)
         perahu = asli.copy()
         self.bx = ValueTracker(0.0)
@@ -212,7 +229,11 @@ class PerahuVektor(AdeganMatra):
             # abu. Ia ditukar dengan ikon perahu tampak atas (ARYA 5 Sep 2026)
             # yang mengikuti dua tracker yang sama, jadi tidak ada loncatan.
             perahu.clear_updaters()
-            perahu2d = ilustrasi.perahu_atas(1.1).move_to([0, 0, Z])
+            # Ukurannya MENGIKUTI perahu 3D-nya. Kalau tetap 1,1 di sini,
+            # perahunya membesar dua kali lipat tepat pada saat berganti jadi
+            # ikon peta, dan di bidang bernomor ia jadi 2,2 petak untuk
+            # perjalanan sejauh 3 petak.
+            perahu2d = ilustrasi.perahu_atas(0.5).move_to([0, 0, Z])
             perahu2d.add_updater(lambda m: m.move_to(
                 [self.bx.get_value(), self.by.get_value(), Z]))
             b.main(FadeOut(dunia3d), FadeOut(perahu), FadeIn(perahu2d),
