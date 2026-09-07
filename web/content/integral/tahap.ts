@@ -640,6 +640,7 @@ export const TAHAP: TahapIntegral[] = [
   {
     no: 7,
     slug: 'teorema-dasar-kalkulus',
+    video: { berkas: 'integral07-teorema-dasar.mp4', poster: 'integral07-teorema-dasar.jpg' },
     judul: 'Dua dunia yang ternyata satu, Teorema Dasar Kalkulus',
     labelPendek: 'TDK',
     pertanyaan: 'Luas dari persegi panjang dan antiturunan tidak kelihatan berhubungan. Kenapa ternyata sama?',

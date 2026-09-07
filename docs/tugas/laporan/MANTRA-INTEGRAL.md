@@ -358,8 +358,66 @@ video ini banyak memakai garis tipis. Frame-nya dibuka:
   bisa dititipkan ke `b.main` yang sama dengan gerakan gambarnya. Tanpa itu,
   panel selalu tertinggal atau mendahului gambar sekitar satu detik.
 
+## Video 07 "Dua dunia yang ternyata satu, TDK": SELESAI 480p
+
+`media/uji-480p/integral07-teorema-dasar.mp4`, 141,9 detik, 2,17 MB, plus versi
+bersubtitle. Medan `video:` dipasang, poster dari detik 76,
+`cek_aset_video.py integral` SEMUA LOLOS untuk TIGA video, `tsc --noEmit` 0,
+`cek_urutan_integral.py` SEMUA LOLOS, angkanya 12 dari 12 lolos.
+
+Empat kali render, paling sedikit sejauh ini, karena pelajaran dari video 05
+dan 01 dipakai sejak awal: jangkar subtitle dicocokkan dengan berkas .vtt
+SEBELUM render pertama, `sisa_kanan` 1,8 disetel sejak awal, dan waktu tiap
+babak dihitung dengan `cek_waktu_adegan.py` sebelum ManimGL dijalankan sekali pun.
+
+### Satu keputusan yang perlu diketahui: skala sengaja tidak sama
+Papannya lebar dan pendek, sedangkan x membentang 3,2 satuan dan y membentang
+9,5. Kemiringan di layar karena itu TIDAK sama dengan kemiringan sebenarnya.
+Video ini tidak pernah meminta penonton membandingkan kemiringan dengan mata:
+yang dibandingkan ANGKANYA di panel, dan ruas singgungnya cuma penunjuk.
+Ditulis di kepala berkas adegannya supaya tidak terbaca sebagai kelalaian.
+
+### Yang ditemukan dari membuka gambarnya
+1. **Lengkungan tepi atas pita TIDAK TERLIHAT sama sekali.** Pita selebar 0,2
+   di papan setinggi 9,5 satuan cuma beberapa piksel, dan lengkungannya lebih
+   kecil daripada satu piksel: render kedua memperlihatkan pita merah yang
+   sekadar BERGANTI WARNA ketika daerah sebenarnya digambar di atasnya.
+   Narator berkata "tepi atasnya ikut melengkung" dan tidak ada apa pun di
+   layar yang menunjukkannya. Diperbaiki dengan kotak pembesaran (sekitar
+   lima belas kali) di ruang kosong kanan bawah, di bawah zona panel dan di
+   atas jalur subtitle: tepi rata merah, tepi melengkung biru, dan selisihnya
+   diarsir ungu.
+2. **Label "h" bertabrakan dengan angka sumbu "2"**, terbaca "2 h".
+3. **Dua daerah bertumpuk di babak penutup**: daerah "0 sampai x" tertinggal
+   di bawah daerah "1 sampai 3", jadi papannya memuat tiga tingkat warna
+   sementara narator bicara tentang satu daerah saja. Yang perlu diketahui
+   sesi lain: benda `always_redraw` MEMULIHKAN DIRINYA SENDIRI di tengah
+   `FadeOut`, jadi `clear_updaters()` dulu, baru dibuang.
+4. **Jejak kurva A akan MENYUSUT kembali** saat x dikembalikan ke titik
+   pemeriksaan, seolah kurvanya dihapus. Jejaknya dibekukan jadi kurva tetap
+   begitu selesai digambar; daerah di papan atas memang harus tetap hidup,
+   sebab luas sampai x memang mengecil kalau x mengecil. Widget
+   `luas-yang-tumbuh` berperilaku sama, dan itu yang jadi acuan.
+
+### Empat rentang "diam", terpanjang 7,9 detik
+Jauh lebih pendek daripada video 05 (10,5) dan video 01 (21,1), sebab video ini
+banyak memakai daerah berwarna yang tumbuh, bukan garis tipis. Keempatnya
+sudah dinilai lewat frame-nya: 40,6 sampai 48,5 detik adalah babak `tanya`
+(x kembali ke titik pemeriksaan, lalu tiga denyut), 16,6 sampai 23,0 adalah
+`tumbuh` (daerah terisi pelan sepanjang kalimat yang membahasnya), 92,1 sampai
+97,8 adalah `beda` (kurva kedua digambar), dan 3,2 sampai 8,4 adalah `dua`
+(kurva f digambar sesudah kartu judul). Tidak ada yang cacat.
+
+### Angka
+Diperiksa `alat/cek_integral.py`, 12 dari 12, dan alatnya menangkap satu angka
+yang SAYA KARANG: jumlahan Riemann n = 60 saya tulis 78409/9000, padahal yang
+benar 23761/2700. Kalau angka itu lolos, video ini akan menyebut selisih yang
+salah di kalimat penutupnya. 26/3 diperiksa lewat DUA jalan yang berbeda
+(integral tentu dan F(3) - F(1)), dan penghapusan C diperiksa dengan C sebagai
+LAMBANG, bukan angka.
+
 ## Butuh keputusan ARYA
-- Tiga video sisanya (07, 09, 03) belum dikerjakan. Urutannya dari MASTER.
+- Dua video sisanya (09, 03) belum dikerjakan. Urutannya dari MASTER.
 
 ## Titik rawan matematis yang sudah ditandai
 MASTER menemukan 4 kalimat matematis keliru dari 12 materi Turunan. Untuk
