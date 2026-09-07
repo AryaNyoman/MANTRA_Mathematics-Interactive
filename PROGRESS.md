@@ -1,5 +1,22 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 8 SEP (sore): DUA VIDEO INTEGRAL 480p DI PRODUKSI, ALAT BERSAMA BERTAMBAH
+
+Sesi Integral: video 05 jumlahan Riemann (118 s, delapan render) dan 01 dari
+laju ke jumlah (146 s, sepuluh render), keduanya di master (3a44108) dengan
+medan video dan poster, cek_aset_video lolos, naik produksi bersama enam
+video Turunan yang sudah satu wadah mp4. Alat bersama baru dari sesi ini:
+`qc.pastikan_hilang` / `BendaTertinggal` (benda babak lama yang ikut
+terbang saat kamera pindah), `alat/cek_waktu_adegan.py` (waktu babak dari
+teks kode, dicocokkan dengan durasi.json, jangkar subtitle hilang). Klaim
+"Indicate berwarna sama tidak terlihat" DIBANTAH pengukuran sesi Turunan
+(Indicate bawaan membesarkan 1,2 kali); catatan diluruskan. Jebakan baru:
+Cylinder tanpa tutup, set_opacity(0)+FadeIn, identitas ikut berganti bidang,
+%ERRORLEVEL% di cmd selalu 0. Membandingkan dua render: psnr piksel, bukan
+hash. Semua sesi berhenti menunggu ARYA: revisi video Turunan (6) dan
+Integral (2), Transformasi (perbaiki 05/06 atau render 1080p apa adanya),
+Grafik Fungsi (kata "render"), Statistika (49 rentang diam).
+
 ## 8 SEP (siang): ENAM VIDEO TURUNAN 480p LENGKAP, NAIK PRODUKSI
 
 Sesi Turunan menyelesaikan gelombang 2: 01 laju rata-rata (2:03, pembuka 3D
