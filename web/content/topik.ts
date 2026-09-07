@@ -124,7 +124,7 @@ const DAFTAR: Topik[] = [
     urutanKelas: 12,
     pertanyaan: 'Kenapa kemiringan sebuah kurva bisa dihitung, padahal kurva tidak lurus?',
     miskonsepsiSingkat: '“turunan itu rumus pangkat: turunkan pangkatnya, kalikan ke depan.”',
-    siap: false,
+    siap: true,
   },
   {
     // Topik kesembilan, pasangan Turunan; sumbernya Bab 3 buku yang sama.

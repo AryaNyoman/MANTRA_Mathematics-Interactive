@@ -14,9 +14,9 @@ Semuanya terukur pada berkas jadi di `media/uji-480p/`, bukan dikira-kira.
 | Video | Materi | Adegan | Detik | Gerak pertama | Diam terpanjang |
 |---|---|---|---|---|---|
 | 01 setiap titik | 01 | `TransformasiSetiapTitik` | 130,0 | 3,00 s | 5,6 s @ 124 s |
-| 02 cermin garis | 02 | `TransformasiCerminGaris` | 124,9 | 0,75 s | 7,2 s @ 106 s |
+| 02 cermin garis | 02 | `TransformasiCerminGaris` | 124,9 | 0,75 s | 6,5 s @ 11 s |
 | 03 rotasi | 06 | `TransformasiRotasi` | 130,4 | 0,38 s | 4,8 s @ 79 s |
-| 04 dilatasi | 07 | `TransformasiDilatasi` | 62,9 | 0,25 s | 5,1 s @ 41 s |
+| 04 dilatasi | 07 | `TransformasiDilatasi` | 137,0 | 0,25 s | 5,0 s @ 51 s |
 | 05 matriks | 09 | `TransformasiMatriks` | 143,6 | 0,38 s | 5,2 s @ 85 s |
 | 06 urutan | 12 | `TransformasiUrutan` | 142,6 | 0,75 s | 5,4 s @ 30 s |
 
@@ -24,8 +24,11 @@ Enam dari enam memenuhi batas lima detik untuk gerak pertama. Selisih gambar
 dengan suara di bawah 0,35 detik untuk semuanya, jauh di dalam batas 1,5 detik
 `gabung_audio.py`. Tiap video punya pasangan `-bersubtitle` untuk ditonton ARYA.
 
-Video 04 masih 63 detik sementara lima lainnya 125 sampai 144 detik. Naskahnya
-belum diperpanjang; yang diperbaiki sesi ini cuma layar matinya, bukan isinya.
+Rentangnya sekarang 2 menit 5 detik sampai 2 menit 24 detik, selisih 19 detik
+antara yang terpendek dan yang terpanjang. Video 05 dan 06 SENGAJA tidak
+dipangkas ke 2 menit 10 detik: memangkasnya berarti membuang babak yang baru
+saja ditambahkan justru untuk menghilangkan layar mati, dan 2 menit 24 detik
+masih "sekitar dua menit".
 
 ---
 
@@ -233,6 +236,79 @@ bukan pekerjaan yang sudah selesai.
 
 ---
 
+## Video 04 diperpanjang: 63 ke 137 detik, 10 ke 17 babak
+
+Perintah ARYA 6 Sep: "selesaikan semua video saja dulu, rombak semuanya jadi
+sekitar 2 menitan". Yang benar-benar perlu dirombak cuma video 04; lima lainnya
+sudah 2 menit 5 detik sampai 2 menit 24 detik.
+
+YANG DITAMBAHKAN BUKAN BASA-BASI, MELAINKAN SETENGAH ISI HALAMANNYA
+Waktu naskah lama disandingkan dengan halaman Materi 07, empat bagian halaman
+ternyata tidak pernah disentuh video sama sekali:
+
+| Bagian halaman | Babak baru | Isinya |
+|---|---|---|
+| "Dua bentuk rumusnya" | `aturan`, `lain` | (x, y) menjadi (kx, ky) untuk pusat titik asal, dan A' = M + k(A - M) untuk pusat sembarang |
+| Contoh berhitung | `uji` | aturannya diuji pada B(6, 1) dengan k = 2, jadi B'(12, 2) |
+| "Empat watak k" | `satu` | faktor 1 tidak mengubah apa pun; 0 sampai 1 mengecil, lebih dari 1 membesar |
+| "Inilah yang membedakannya dari empat yang lain" | `bentuk` | sudut tetap, perbandingan sisi tetap, cuma ukurannya yang berubah |
+| Kekeliruan halaman | `keliru` | koordinat dikalikan langsung memberi (6, 3), yang benar A'(4, 1) |
+
+ANGKANYA DIAMBIL DARI HALAMAN, TIDAK DIKARANG. Contoh pusat bukan titik asal
+memakai A(2, 1), k = 3, M(1, 1), jawaban A'(4, 1), dan kekeliruannya (6, 3),
+persis seperti tertulis di halaman. Sepuluh klaim angka video ini dimasukkan ke
+`alat/klaim-video-transformasi.json` dengan awalan V04, jadi kalau suatu hari
+halaman atau videonya diubah sendiri-sendiri, alat itu yang menegur.
+
+DUA HAL YANG DIRANCANG SUPAYA TIDAK MENGULANG KESALAHAN LAMA
+1. Babak `lain` dan `keliru` menggambar PERSEGI bersudut di A, bukan titik
+   telanjang. Titik berjari-jari 0,12 cuma sekitar seratus piksel, jauh di
+   bawah ambang 300 alat ukur gerak, jadi kedua babak itu akan dinilai diam
+   walaupun ada yang muncul. Persegi juga memperlihatkan bahwa yang dikalikan
+   tiga adalah JARAK ke M: sisinya ikut jadi tiga kali.
+2. Label A(2, 1) semula ditaruh di ATAS titiknya, dan A adalah sudut kiri bawah
+   perseginya sendiri, jadi labelnya jatuh di dalam persegi itu dan tertutup
+   isiannya. `qc.periksa_adegan` tidak menangkap hal semacam ini dengan sengaja.
+   Ketiga labelnya sekarang dipilih tangan: M ke atas, A dan A' ke bawah, sebab
+   M dan A cuma berjarak satu satuan sedangkan labelnya selebar 1,2.
+
+Pertanyaan penutupnya juga diganti. Versi pertama bertanya "kalau sebuah titik
+tepat berada di pusatnya, ke mana ia pergi", dan itu pertanyaan penutup video
+03. Sekarang: "kalau luas sebuah bangun menjadi dua puluh lima kali, berapa
+faktor skalanya?", yang justru menagih gagasan pokok video ini sendiri.
+
+---
+
+## Video 02: layar yang membantah narasinya sendiri selama tujuh detik
+
+Rentang diam 7,2 detik pada detik 106 dinilai ulang 7 Sep dengan membuka
+gambarnya, bukan cuma membaca angkanya. Ternyata bukan sekadar layar diam:
+
+**Narator membicarakan cermin MENDATAR, sementara layar masih memperlihatkan
+cermin TEGAK di garis x = 5.** Panelnya benar, gambarnya tidak.
+
+Komentar di kode bahkan sudah menyebut masalah ini pernah ada, dan perbaikan
+pertamanya cuma memindahkan rumus mendatar ke baris bernama supaya panel tidak
+berbohong. Itu menyelesaikan separuhnya: panel jadi jujur, gambarnya tetap
+salah. Aturan proyek menyebut kelas cacat ini paling merusak, sebab layar
+kosong cuma tidak menolong sedangkan gambar yang salah ikut mengajar.
+
+Sekarang babak `mendatar` benar-benar membuang cermin tegaknya lalu menggambar
+cermin mendatar di h = 2, dengan bendanya di bawah dan bayangannya di atas.
+Babak `rangkum` dan `tanya` mengikuti cermin baru itu: dua ruas tegak lurus
+sepanjang 1,5 di kedua sisinya, lalu sebuah titik tepat DI garis cerminnya.
+Memperagakan rangkuman pada cermin yang berbeda arah justru memperkuat, sebab
+kalimatnya memang umum.
+
+Bentuknya setengah ukuran, dan itu keharusan aritmetika: kotaknya setinggi 4
+satuan, sedangkan bentuk L aslinya setinggi 2, jadi ia tidak mungkin muat
+seluruhnya di satu sisi cermin yang juga butuh ruang untuk bayangannya.
+
+Hasilnya: diam terpanjang video 02 turun dari 7,2 ke 6,5 detik, dan yang lebih
+penting, tidak ada lagi detik yang gambarnya membantah suaranya.
+
+---
+
 ## Berkas pendamping: dua cacat yang ditemukan MASTER, bukan saya
 
 Saat memasang video ke situs (6 Sep), MASTER menemukan dua cacat yang lolos
@@ -276,16 +352,6 @@ tertangkap, tetapi perbaikannya milik sesi Vektor.
 
 ## Yang belum dikerjakan
 
-- **Video 04 masih 63 detik**, kurang dari separuh panjang lima video lain.
-  Isinya sepuluh babak, sedangkan video 03, 05, dan 06 sudah 15 sampai 18.
-  Materi 07 punya bahan untuk diperpanjang: faktor pecahan, pusat yang bukan
-  titik asal, dan kekeliruan luas yang cuma disinggung sekali. Layar matinya
-  sudah beres; panjangnya belum.
-- Klaim angka video 01, 02, dan 04 belum masuk `klaim-video-transformasi.json`.
-  Yang sudah: 03, 05, 06.
-- Video 02 masih punya rentang diam 7,2 detik pada detik 106, yang terpanjang
-  di antara keenam video. Narasinya di situ membahas cermin mendatar lalu
-  rangkuman, jadi layarnya masih relevan, tetapi angkanya menonjol.
 - `alat/cek_kejadian.py` masih menandai satu babak video 01 ("aturan") sebagai
   berisiko dinilai diam. Pengukuran pada video jadi TIDAK membenarkan
   peringatan itu: diamnya di bawah 5,1 detik dan tidak masuk empat terpanjang.

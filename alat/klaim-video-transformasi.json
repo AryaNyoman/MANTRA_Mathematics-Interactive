@@ -2,240 +2,965 @@
   {
     "id": "V03-jarum-90",
     "jenis": "rotasi",
-    "titik": [4, 0],
+    "titik": [
+      4,
+      0
+    ],
     "derajat": 90,
-    "jawaban": [0, 4]
+    "jawaban": [
+      0,
+      4
+    ]
   },
   {
     "id": "V03-B-90",
     "jenis": "rotasi",
-    "titik": [6, 1],
+    "titik": [
+      6,
+      1
+    ],
     "derajat": 90,
-    "jawaban": [-1, 6]
+    "jawaban": [
+      -1,
+      6
+    ]
   },
   {
     "id": "V03-B-270",
     "jenis": "rotasi",
-    "titik": [6, 1],
+    "titik": [
+      6,
+      1
+    ],
     "derajat": 270,
-    "jawaban": [1, -6]
+    "jawaban": [
+      1,
+      -6
+    ]
   },
   {
     "id": "V03-B-180",
     "jenis": "rotasi",
-    "titik": [6, 1],
+    "titik": [
+      6,
+      1
+    ],
     "derajat": 180,
-    "jawaban": [-6, -1]
+    "jawaban": [
+      -6,
+      -1
+    ]
   },
   {
     "id": "V03-janji-180-sama-dengan-cermin-titik-asal",
     "jenis": "cermin_titik",
-    "titik": [6, 1],
-    "pusat": [0, 0],
-    "jawaban": [-6, -1]
+    "titik": [
+      6,
+      1
+    ],
+    "pusat": [
+      0,
+      0
+    ],
+    "jawaban": [
+      -6,
+      -1
+    ]
   },
   {
     "id": "V03-jari-prapeta",
     "jenis": "jarak",
-    "a": [0, 0],
-    "b": [6, 1],
+    "a": [
+      0,
+      0
+    ],
+    "b": [
+      6,
+      1
+    ],
     "jawaban": 6.082762530298219
   },
   {
     "id": "V03-jari-peta",
     "jenis": "jarak",
-    "a": [0, 0],
-    "b": [-1, 6],
+    "a": [
+      0,
+      0
+    ],
+    "b": [
+      -1,
+      6
+    ],
     "jawaban": 6.082762530298219
   },
   {
     "id": "V03-pusat-bukan-titik-asal",
     "jenis": "rotasi",
-    "titik": [1, 1],
+    "titik": [
+      1,
+      1
+    ],
     "derajat": 90,
-    "pusat": [3, 2],
-    "jawaban": [4, 0]
+    "pusat": [
+      3,
+      2
+    ],
+    "jawaban": [
+      4,
+      0
+    ]
   },
   {
     "id": "V03-pusat-lewat-tiga-langkah",
     "jenis": "komposisi",
-    "titik": [1, 1],
-    "langkah": [
-      { "jenis": "translasi", "geser": [-3, -2] },
-      { "jenis": "rotasi", "derajat": 90 },
-      { "jenis": "translasi", "geser": [3, 2] }
+    "titik": [
+      1,
+      1
     ],
-    "jawaban": [4, 0]
+    "langkah": [
+      {
+        "jenis": "translasi",
+        "geser": [
+          -3,
+          -2
+        ]
+      },
+      {
+        "jenis": "rotasi",
+        "derajat": 90
+      },
+      {
+        "jenis": "translasi",
+        "geser": [
+          3,
+          2
+        ]
+      }
+    ],
+    "jawaban": [
+      4,
+      0
+    ]
   },
   {
     "id": "V03-titik-di-pusat-tidak-pindah",
     "jenis": "rotasi",
-    "titik": [0, 0],
+    "titik": [
+      0,
+      0
+    ],
     "derajat": 90,
-    "jawaban": [0, 0]
+    "jawaban": [
+      0,
+      0
+    ]
   },
-
   {
     "id": "V05-kolom-pertama",
     "jenis": "matriks",
-    "titik": [1, 0],
-    "m": [[0, -1], [1, 0]],
-    "jawaban": [0, 1]
+    "titik": [
+      1,
+      0
+    ],
+    "m": [
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "jawaban": [
+      0,
+      1
+    ]
   },
   {
     "id": "V05-kolom-kedua",
     "jenis": "matriks",
-    "titik": [0, 1],
-    "m": [[0, -1], [1, 0]],
-    "jawaban": [-1, 0]
+    "titik": [
+      0,
+      1
+    ],
+    "m": [
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "jawaban": [
+      -1,
+      0
+    ]
   },
   {
     "id": "V05-kenal-32",
     "jenis": "matriks",
-    "titik": [3, 2],
-    "m": [[0, -1], [1, 0]],
-    "jawaban": [-2, 3]
+    "titik": [
+      3,
+      2
+    ],
+    "m": [
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "jawaban": [
+      -2,
+      3
+    ]
   },
   {
     "id": "V05-cocok-matriks-itu-rotasi-90",
     "jenis": "rotasi",
-    "titik": [3, 2],
+    "titik": [
+      3,
+      2
+    ],
     "derajat": 90,
-    "jawaban": [-2, 3]
+    "jawaban": [
+      -2,
+      3
+    ]
   },
   {
     "id": "V05-satuan-kolom-pertama",
     "jenis": "matriks",
-    "titik": [1, 0],
-    "m": [[1, 0], [0, 1]],
-    "jawaban": [1, 0]
+    "titik": [
+      1,
+      0
+    ],
+    "m": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "jawaban": [
+      1,
+      0
+    ]
   },
   {
     "id": "V05-satuan-kolom-kedua",
     "jenis": "matriks",
-    "titik": [0, 1],
-    "m": [[1, 0], [0, 1]],
-    "jawaban": [0, 1]
+    "titik": [
+      0,
+      1
+    ],
+    "m": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "jawaban": [
+      0,
+      1
+    ]
   },
   {
     "id": "V05-keliru-dibaca-mendatar",
     "jenis": "matriks",
-    "titik": [1, 0],
-    "m": [[0, 1], [-1, 0]],
-    "jawaban": [0, -1]
+    "titik": [
+      1,
+      0
+    ],
+    "m": [
+      [
+        0,
+        1
+      ],
+      [
+        -1,
+        0
+      ]
+    ],
+    "jawaban": [
+      0,
+      -1
+    ]
   },
   {
     "id": "V05-geser-titik-asal-tetap-di-bawah-matriks",
     "jenis": "matriks",
-    "titik": [0, 0],
-    "m": [[0, -1], [1, 0]],
-    "jawaban": [0, 0]
+    "titik": [
+      0,
+      0
+    ],
+    "m": [
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "jawaban": [
+      0,
+      0
+    ]
   },
   {
     "id": "V05-tanya-persegi-bersisi-dua",
     "jenis": "matriks",
-    "titik": [1, 1],
-    "m": [[2, 0], [0, 2]],
-    "jawaban": [2, 2]
+    "titik": [
+      1,
+      1
+    ],
+    "m": [
+      [
+        2,
+        0
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "jawaban": [
+      2,
+      2
+    ]
   },
-
   {
     "id": "V06-urutan-benar",
     "jenis": "komposisi",
-    "titik": [3, 1],
-    "langkah": [
-      { "jenis": "cermin_sumbu_x" },
-      { "jenis": "rotasi", "derajat": 90 }
+    "titik": [
+      3,
+      1
     ],
-    "jawaban": [1, 3]
+    "langkah": [
+      {
+        "jenis": "cermin_sumbu_x"
+      },
+      {
+        "jenis": "rotasi",
+        "derajat": 90
+      }
+    ],
+    "jawaban": [
+      1,
+      3
+    ]
   },
   {
     "id": "V06-urutan-dibalik",
     "jenis": "komposisi",
-    "titik": [3, 1],
-    "langkah": [
-      { "jenis": "rotasi", "derajat": 90 },
-      { "jenis": "cermin_sumbu_x" }
+    "titik": [
+      3,
+      1
     ],
-    "jawaban": [-1, -3]
+    "langkah": [
+      {
+        "jenis": "rotasi",
+        "derajat": 90
+      },
+      {
+        "jenis": "cermin_sumbu_x"
+      }
+    ],
+    "jawaban": [
+      -1,
+      -3
+    ]
   },
   {
     "id": "V06-hasil-kali-matriks",
     "jenis": "kali_matriks",
-    "m2": [[0, -1], [1, 0]],
-    "m1": [[1, 0], [0, -1]],
-    "jawaban": [[0, 1], [1, 0]]
+    "m2": [
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "m1": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        -1
+      ]
+    ],
+    "jawaban": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ]
   },
   {
     "id": "V06-hasil-kali-matriks-tertukar",
     "jenis": "kali_matriks",
-    "m2": [[1, 0], [0, -1]],
-    "m1": [[0, -1], [1, 0]],
-    "jawaban": [[0, -1], [-1, 0]]
+    "m2": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        -1
+      ]
+    ],
+    "m1": [
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "jawaban": [
+      [
+        0,
+        -1
+      ],
+      [
+        -1,
+        0
+      ]
+    ]
   },
   {
     "id": "V06-gabungan-itu-cermin-y-sama-x",
     "jenis": "cermin_y_x",
-    "titik": [3, 1],
-    "jawaban": [1, 3]
+    "titik": [
+      3,
+      1
+    ],
+    "jawaban": [
+      1,
+      3
+    ]
   },
   {
     "id": "V06-gabungan-tertukar-itu-cermin-y-min-x",
     "jenis": "cermin_y_min_x",
-    "titik": [3, 1],
-    "jawaban": [-1, -3]
+    "titik": [
+      3,
+      1
+    ],
+    "jawaban": [
+      -1,
+      -3
+    ]
   },
   {
     "id": "V06-gabungan-lewat-matriks",
     "jenis": "matriks",
-    "titik": [3, 1],
-    "m": [[0, 1], [1, 0]],
-    "jawaban": [1, 3]
+    "titik": [
+      3,
+      1
+    ],
+    "m": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "jawaban": [
+      1,
+      3
+    ]
   },
   {
     "id": "V06-periksa-segitiga-dua-langkah",
     "jenis": "komposisi",
-    "titik": [2, 1],
-    "langkah": [
-      { "jenis": "cermin_sumbu_x" },
-      { "jenis": "rotasi", "derajat": 90 }
+    "titik": [
+      2,
+      1
     ],
-    "jawaban": [1, 2]
+    "langkah": [
+      {
+        "jenis": "cermin_sumbu_x"
+      },
+      {
+        "jenis": "rotasi",
+        "derajat": 90
+      }
+    ],
+    "jawaban": [
+      1,
+      2
+    ]
   },
   {
     "id": "V06-periksa-segitiga-langsung",
     "jenis": "cermin_y_x",
-    "titik": [2, 1],
-    "jawaban": [1, 2]
+    "titik": [
+      2,
+      1
+    ],
+    "jawaban": [
+      1,
+      2
+    ]
   },
   {
     "id": "V06-sama-30-lalu-60",
     "jenis": "komposisi",
-    "titik": [2, 0],
-    "langkah": [
-      { "jenis": "rotasi", "derajat": 30 },
-      { "jenis": "rotasi", "derajat": 60 }
+    "titik": [
+      2,
+      0
     ],
-    "jawaban": [0, 2]
+    "langkah": [
+      {
+        "jenis": "rotasi",
+        "derajat": 30
+      },
+      {
+        "jenis": "rotasi",
+        "derajat": 60
+      }
+    ],
+    "jawaban": [
+      0,
+      2
+    ]
   },
   {
     "id": "V06-sama-60-lalu-30",
     "jenis": "komposisi",
-    "titik": [2, 0],
-    "langkah": [
-      { "jenis": "rotasi", "derajat": 60 },
-      { "jenis": "rotasi", "derajat": 30 }
+    "titik": [
+      2,
+      0
     ],
-    "jawaban": [0, 2]
+    "langkah": [
+      {
+        "jenis": "rotasi",
+        "derajat": 60
+      },
+      {
+        "jenis": "rotasi",
+        "derajat": 30
+      }
+    ],
+    "jawaban": [
+      0,
+      2
+    ]
   },
   {
     "id": "V06-tanya-cermin-x-dua-kali",
     "jenis": "komposisi",
-    "titik": [2, 1],
-    "langkah": [
-      { "jenis": "cermin_sumbu_x" },
-      { "jenis": "cermin_sumbu_x" }
+    "titik": [
+      2,
+      1
     ],
-    "jawaban": [2, 1]
+    "langkah": [
+      {
+        "jenis": "cermin_sumbu_x"
+      },
+      {
+        "jenis": "cermin_sumbu_x"
+      }
+    ],
+    "jawaban": [
+      2,
+      1
+    ]
+  },
+  {
+    "id": "V04-B-k2",
+    "jenis": "dilatasi",
+    "titik": [
+      6,
+      1
+    ],
+    "k": 2,
+    "pusat": [
+      0,
+      0
+    ],
+    "jawaban": [
+      12,
+      2
+    ]
+  },
+  {
+    "id": "V04-AB-prapeta",
+    "jenis": "jarak",
+    "a": [
+      1,
+      1
+    ],
+    "b": [
+      6,
+      1
+    ],
+    "jawaban": 5
+  },
+  {
+    "id": "V04-AB-peta",
+    "jenis": "jarak",
+    "a": [
+      2,
+      2
+    ],
+    "b": [
+      12,
+      2
+    ],
+    "jawaban": 10
+  },
+  {
+    "id": "V04-luas-k2",
+    "jenis": "luas_dilatasi",
+    "luas": 6,
+    "k": 2,
+    "jawaban": 24
+  },
+  {
+    "id": "V04-kecil-setengah",
+    "jenis": "dilatasi",
+    "titik": [
+      6,
+      1
+    ],
+    "k": 0.5,
+    "pusat": [
+      0,
+      0
+    ],
+    "jawaban": [
+      3,
+      0.5
+    ]
+  },
+  {
+    "id": "V04-negatif",
+    "jenis": "dilatasi",
+    "titik": [
+      6,
+      1
+    ],
+    "k": -1,
+    "pusat": [
+      0,
+      0
+    ],
+    "jawaban": [
+      -6,
+      -1
+    ]
+  },
+  {
+    "id": "V04-lain-pusat-M",
+    "jenis": "dilatasi",
+    "titik": [
+      2,
+      1
+    ],
+    "k": 3,
+    "pusat": [
+      1,
+      1
+    ],
+    "jawaban": [
+      4,
+      1
+    ]
+  },
+  {
+    "id": "V04-lain-sudut-jauh",
+    "jenis": "dilatasi",
+    "titik": [
+      3,
+      2
+    ],
+    "k": 3,
+    "pusat": [
+      1,
+      1
+    ],
+    "jawaban": [
+      7,
+      4
+    ]
+  },
+  {
+    "id": "V04-keliru-lupa-pusat",
+    "jenis": "dilatasi",
+    "titik": [
+      2,
+      1
+    ],
+    "k": 3,
+    "pusat": [
+      0,
+      0
+    ],
+    "jawaban": [
+      6,
+      3
+    ]
+  },
+  {
+    "id": "V04-rangkum-luas-25",
+    "jenis": "luas_dilatasi",
+    "luas": 1,
+    "k": 5,
+    "jawaban": 25
+  },
+  {
+    "id": "V01-A-cermin-sumbu-x",
+    "jenis": "cermin_sumbu_x",
+    "titik": [
+      1,
+      1
+    ],
+    "jawaban": [
+      1,
+      -1
+    ]
+  },
+  {
+    "id": "V01-C-cermin-sumbu-x",
+    "jenis": "cermin_sumbu_x",
+    "titik": [
+      6,
+      2
+    ],
+    "jawaban": [
+      6,
+      -2
+    ]
+  },
+  {
+    "id": "V01-jarak-A-ke-bayangannya",
+    "jenis": "jarak",
+    "a": [
+      1,
+      1
+    ],
+    "b": [
+      1,
+      -1
+    ],
+    "jawaban": 2
+  },
+  {
+    "id": "V01-jarak-C-ke-bayangannya",
+    "jenis": "jarak",
+    "a": [
+      6,
+      2
+    ],
+    "b": [
+      6,
+      -2
+    ],
+    "jawaban": 4
+  },
+  {
+    "id": "V01-keliru-digeser-turun-empat",
+    "jenis": "translasi",
+    "titik": [
+      1,
+      1
+    ],
+    "geser": [
+      0,
+      -4
+    ],
+    "jawaban": [
+      1,
+      -3
+    ]
+  },
+  {
+    "id": "V01-titik-di-sumbu-x-tidak-pindah",
+    "jenis": "cermin_sumbu_x",
+    "titik": [
+      3,
+      0
+    ],
+    "jawaban": [
+      3,
+      0
+    ]
+  },
+  {
+    "id": "V02-orang-dua-meter-di-depan-kaca",
+    "jenis": "cermin_garis_tegak",
+    "titik": [
+      -2,
+      2
+    ],
+    "k": 0,
+    "jawaban": [
+      2,
+      2
+    ]
+  },
+  {
+    "id": "V02-A-cermin-x-lima",
+    "jenis": "cermin_garis_tegak",
+    "titik": [
+      1,
+      1
+    ],
+    "k": 5,
+    "jawaban": [
+      9,
+      1
+    ]
+  },
+  {
+    "id": "V02-B-cermin-x-lima",
+    "jenis": "cermin_garis_tegak",
+    "titik": [
+      6,
+      1
+    ],
+    "k": 5,
+    "jawaban": [
+      4,
+      1
+    ]
+  },
+  {
+    "id": "V02-jarak-A-ke-cermin",
+    "jenis": "jarak",
+    "a": [
+      1,
+      1
+    ],
+    "b": [
+      5,
+      1
+    ],
+    "jawaban": 4
+  },
+  {
+    "id": "V02-jarak-cermin-ke-A-aksen",
+    "jenis": "jarak",
+    "a": [
+      5,
+      1
+    ],
+    "b": [
+      9,
+      1
+    ],
+    "jawaban": 4
+  },
+  {
+    "id": "V02-keliru-dipindah-tiga-ke-kanan",
+    "jenis": "translasi",
+    "titik": [
+      1,
+      1
+    ],
+    "geser": [
+      3,
+      0
+    ],
+    "jawaban": [
+      4,
+      1
+    ]
+  },
+  {
+    "id": "V02-mendatar-h-dua",
+    "jenis": "cermin_garis_datar",
+    "titik": [
+      3,
+      0.5
+    ],
+    "h": 2,
+    "jawaban": [
+      3,
+      3.5
+    ]
+  },
+  {
+    "id": "V02-mendatar-sudut-jauh",
+    "jenis": "cermin_garis_datar",
+    "titik": [
+      5.5,
+      1
+    ],
+    "h": 2,
+    "jawaban": [
+      5.5,
+      3
+    ]
+  },
+  {
+    "id": "V02-rangkum-jarak-ke-cermin-datar",
+    "jenis": "jarak",
+    "a": [
+      3,
+      0.5
+    ],
+    "b": [
+      3,
+      2
+    ],
+    "jawaban": 1.5
+  },
+  {
+    "id": "V02-rangkum-jarak-cermin-ke-bayangan",
+    "jenis": "jarak",
+    "a": [
+      3,
+      2
+    ],
+    "b": [
+      3,
+      3.5
+    ],
+    "jawaban": 1.5
+  },
+  {
+    "id": "V02-titik-di-cermin-datar-tidak-pindah",
+    "jenis": "cermin_garis_datar",
+    "titik": [
+      7,
+      2
+    ],
+    "h": 2,
+    "jawaban": [
+      7,
+      2
+    ]
   }
 ]

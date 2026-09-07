@@ -1,5 +1,53 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 7 SEP (malam, lanjutan): INTEGRAL DIGABUNG KE MASTER, SEMBILAN TOPIK
+
+Sesi MANTRA-INTEGRAL lapor SIAP GABUNG (bbe9ba4): 11 materi, 10 widget +
+galeri, 4 latihan, 32 kuis, `siap: true`. MASTER memeriksa silang: gerbang
+dijalankan ulang (65 + 43 klaim sympy, urutan istilah, periksa_tahap, tsc),
+11 materi dibuka di 1366 dengan angka panel dihitung ulang, Materi 05 di 375.
+Digabung ke master c838056 (31 berkas), tsc 0. Revisi kecil diminta: empat
+soal kuis "sangat sulit" memakai fungsi dan angka persis buku (Ayo Mencoba
+3.11 dan 3.12, Contoh 3.14 dan 3.15) tanpa sumber. Lalu gelombang 2 video
+Integral 480p dibuka (urutan 05, 01, 07, 09, 03). Temuan sesi Integral yang
+berlaku untuk semua widget: seret dengan tetikus ikut menyeleksi teks SVG
+(dibereskan dengan userSelect none di Bidang miliknya; salinan Limit,
+Grafik, Turunan belum), dan `potongTanda` gagal bila akar jatuh tepat di
+titik cuplikan (perbaikan hanya di salinan Integral). Master kini memuat
+SEMBILAN topik siap; BELUM naik Vercel. eslint master masih gagal satu
+berkas bawaan lama: `widget/transformasi-geometri/Legenda.tsx` baris 58.
+
+## 7 SEP (malam): TURUNAN DIGABUNG KE MASTER, VIDEO TURUNAN DIPERINTAHKAN
+
+Sesi MANTRA-TURUNAN lapor SIAP GABUNG (0207378): 12 materi, 11 widget + galeri,
+4 latihan, 32 kuis, `siap: true`. MASTER memeriksa silang: gerbang dijalankan
+ulang di foldernya (96 + 63 + 19 klaim sympy lolos, urutan istilah bersih,
+tsc 0), 12 materi dibuka di 1366 dan angka panel dihitung ulang, Materi 06 di
+375. Digabung ke master c849cf2 (42 berkas), tsc master 0. Kerangka Integral
+ikut (identik dengan kerangka, tidak mengganggu sesi Integral). Satu revisi
+diminta: kalibrasi kuis, tingkat "sangat sulit" sebagian besar satu langkah.
+Setelah itu gelombang 2 video Turunan 480p dibuka (prioritas rancangan: 02,
+03, 07, 06, 01, 04), satu render pada satu waktu karena empat sesi lain
+merender 1080p. BELUM naik Vercel. Integral masih di tahap widget.
+
+## 7 SEP (sore): GELOMBANG 3 DIBUKA ARYA UNTUK EMPAT TOPIK
+
+ARYA: "suruh sesi 3D, Vektor, Statistika, dan Grafik Fungsi selesaikan render
+1080p kalau tidak ada catatan menggantung; saya cek hasilnya setelah 1080p
+semuanya." Keadaan saat perintah dikirim (`alat/cek_resolusi_anim.py`): 34
+video masih 480p (statistika 13, transformasi 6, ruang-3d 6, vektor 6, grafik
+2, trigonometri.webm 720p). Keempat worktree `matra-*` dibuat lagi (foldernya
+hilang untuk kedua kalinya; cabangnya utuh: `sesi/vektor` 4 commit belum
+masuk master, `sesi/statistika` 1). Catatan menggantung yang ADA dan sengaja
+TIDAK menahan (ARYA menilai langsung di 1080p): Vektor menunggu vonis bentuk
+01 dan 06, kode 03/04/08/09 belum dirender; Grafik menunggu jawaban 3D tahap 6
+dan letak panel; Ruang 3D narasi 01 dibuat ulang belum dirender; Statistika
+diam terpanjang 18,5 detik. Perintah ke tiap sesi: pindah ke worktree, merge
+master (gl berubah), cek_kode, render 1080p60 SATU per satu (empat sesi
+berbagi laptop), gabung_audio ke webm, poster lewat buat_poster, cek_video
+final, cek_aset_video, ubah `video.berkas` di tahap.ts, lapor ke MASTER.
+Transformasi TIDAK termasuk perintah ini (menunggu ARYA menonton 480p).
+
 ## 7 SEP: SESI TURUNAN HIDUP DI CABANG `sesi/turunan-materi`
 
 ARYA membuka sesi MANTRA-TURUNAN di worktree `materi-turunan-b8c515`,
@@ -31,8 +79,15 @@ poster 03, 04, 05 dibuat dari frame bermakna. Alat baru dari sesi itu:
 `alat/cek_aset_video.py` (subtitle sepanjang video dan poster tidak kosong)
 dan `alat/buat_poster.py`. Temuan alat itu di luar topiknya:
 `web/public/anim/vektor6-sambung.jpg` poster kosong, milik sesi Vektor.
-Sisa di sesi Transformasi (menunggu ARYA): 04 masih 63 detik, diam 7,2 detik
-di 02 detik 106, render 1080p. BELUM naik Vercel (pratinjau maupun produksi).
+7 Sep: video 04 diperpanjang 63 -> 137 detik (10 -> 17 babak, angka dari
+halaman Materi 07), digabung 55db094 dan dipasang; keenam video kini 125
+sampai 144 detik, subtitle dan poster cocok semua. Tiga belas potongan suara
+basi di `audio/` dibuang, `cek_aset_video.py` kini memeriksa suara juga.
+Video 02 dirender ulang (gabung 55dfe2b): babak cermin mendatar tadinya masih
+memperlihatkan cermin tegak, gambar membantah narasi; kini digambar di h = 2,
+diam terpanjang 6,5 detik. Klaim video 01 dan 02 dikodekan; 164 klaim lolos.
+Sisa di sesi Transformasi: render 1080p, menunggu ARYA menonton 480p.
+BELUM naik Vercel (pratinjau maupun produksi).
 
 ## 6 SEP (dini hari): TURUNAN DAN INTEGRAL DIRANCANG, KERANGKA DI `sesi/turunan`
 
