@@ -738,5 +738,229 @@
     "luas": 1,
     "k": 5,
     "jawaban": 25
+  },
+  {
+    "id": "V01-A-cermin-sumbu-x",
+    "jenis": "cermin_sumbu_x",
+    "titik": [
+      1,
+      1
+    ],
+    "jawaban": [
+      1,
+      -1
+    ]
+  },
+  {
+    "id": "V01-C-cermin-sumbu-x",
+    "jenis": "cermin_sumbu_x",
+    "titik": [
+      6,
+      2
+    ],
+    "jawaban": [
+      6,
+      -2
+    ]
+  },
+  {
+    "id": "V01-jarak-A-ke-bayangannya",
+    "jenis": "jarak",
+    "a": [
+      1,
+      1
+    ],
+    "b": [
+      1,
+      -1
+    ],
+    "jawaban": 2
+  },
+  {
+    "id": "V01-jarak-C-ke-bayangannya",
+    "jenis": "jarak",
+    "a": [
+      6,
+      2
+    ],
+    "b": [
+      6,
+      -2
+    ],
+    "jawaban": 4
+  },
+  {
+    "id": "V01-keliru-digeser-turun-empat",
+    "jenis": "translasi",
+    "titik": [
+      1,
+      1
+    ],
+    "geser": [
+      0,
+      -4
+    ],
+    "jawaban": [
+      1,
+      -3
+    ]
+  },
+  {
+    "id": "V01-titik-di-sumbu-x-tidak-pindah",
+    "jenis": "cermin_sumbu_x",
+    "titik": [
+      3,
+      0
+    ],
+    "jawaban": [
+      3,
+      0
+    ]
+  },
+  {
+    "id": "V02-orang-dua-meter-di-depan-kaca",
+    "jenis": "cermin_garis_tegak",
+    "titik": [
+      -2,
+      2
+    ],
+    "k": 0,
+    "jawaban": [
+      2,
+      2
+    ]
+  },
+  {
+    "id": "V02-A-cermin-x-lima",
+    "jenis": "cermin_garis_tegak",
+    "titik": [
+      1,
+      1
+    ],
+    "k": 5,
+    "jawaban": [
+      9,
+      1
+    ]
+  },
+  {
+    "id": "V02-B-cermin-x-lima",
+    "jenis": "cermin_garis_tegak",
+    "titik": [
+      6,
+      1
+    ],
+    "k": 5,
+    "jawaban": [
+      4,
+      1
+    ]
+  },
+  {
+    "id": "V02-jarak-A-ke-cermin",
+    "jenis": "jarak",
+    "a": [
+      1,
+      1
+    ],
+    "b": [
+      5,
+      1
+    ],
+    "jawaban": 4
+  },
+  {
+    "id": "V02-jarak-cermin-ke-A-aksen",
+    "jenis": "jarak",
+    "a": [
+      5,
+      1
+    ],
+    "b": [
+      9,
+      1
+    ],
+    "jawaban": 4
+  },
+  {
+    "id": "V02-keliru-dipindah-tiga-ke-kanan",
+    "jenis": "translasi",
+    "titik": [
+      1,
+      1
+    ],
+    "geser": [
+      3,
+      0
+    ],
+    "jawaban": [
+      4,
+      1
+    ]
+  },
+  {
+    "id": "V02-mendatar-h-dua",
+    "jenis": "cermin_garis_datar",
+    "titik": [
+      3,
+      0.5
+    ],
+    "h": 2,
+    "jawaban": [
+      3,
+      3.5
+    ]
+  },
+  {
+    "id": "V02-mendatar-sudut-jauh",
+    "jenis": "cermin_garis_datar",
+    "titik": [
+      5.5,
+      1
+    ],
+    "h": 2,
+    "jawaban": [
+      5.5,
+      3
+    ]
+  },
+  {
+    "id": "V02-rangkum-jarak-ke-cermin-datar",
+    "jenis": "jarak",
+    "a": [
+      3,
+      0.5
+    ],
+    "b": [
+      3,
+      2
+    ],
+    "jawaban": 1.5
+  },
+  {
+    "id": "V02-rangkum-jarak-cermin-ke-bayangan",
+    "jenis": "jarak",
+    "a": [
+      3,
+      2
+    ],
+    "b": [
+      3,
+      3.5
+    ],
+    "jawaban": 1.5
+  },
+  {
+    "id": "V02-titik-di-cermin-datar-tidak-pindah",
+    "jenis": "cermin_garis_datar",
+    "titik": [
+      7,
+      2
+    ],
+    "h": 2,
+    "jawaban": [
+      7,
+      2
+    ]
   }
 ]
