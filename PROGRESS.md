@@ -1,5 +1,17 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 8 SEP (pagi): KEPUTUSAN ARYA, WADAH VIDEO FINAL = MP4
+
+ARYA menyetujui saran MASTER: mp4 (H.264 ManimGL disalin + AAC) untuk semua
+video, membatalkan "webm" 7 Sep. Master 92cc576: gabung_audio bawaan mp4,
+cek_resolusi_anim tidak menolak mp4 (webm cuma dicatat), buat_poster dan
+cek_aset_video mendahulukan mp4, aturan di CLAUDE.md, `trigonometri.webm`
+720p yatim dihapus dari git. Semua alat DIJALANKAN sesudah diubah. Keenam
+sesi diberi tahu. Tugas Statistika: gabung ulang 13 master H.264 ke mp4
+(tanpa render ulang), buang webm-nya. Sisa webm yang SAH: Trigonometri 7 dan
+Limit 7 (VP9 1080p dari zaman Manim CE, tidak ada master H.264-nya); dibiarkan
+sampai ARYA memutuskan apakah layak dikode ulang.
+
 ## 8 SEP (dini hari): TIGA VIDEO TURUNAN, TIGA ALAT BARU, WADAH DITINJAU ULANG
 
 - Turunan video 02, 03 (dirender ulang setelah angka sumbu ketahuan meleset:

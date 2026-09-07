@@ -64,14 +64,13 @@ SUMBER_URUT = (TUJUAN, AKAR / "media" / "uji-480p", AKAR / "media")
 
 
 def cari_sumber(topik: str) -> Path | None:
-    # WebM DIDAHULUKAN, dua alasan. Pertama, keputusan ARYA 7 Sep 2026: semua
-    # video materi berwadah WebM, jadi itulah berkas yang benar-benar dilihat
-    # siswa. Kedua, mp4 480p yang tidak dilacak git bisa tertinggal di samping
-    # webm 1080p-nya, dan kalau mp4 didahulukan posternya diambil dari video
-    # yang salah. `cek_aset_video.video_topik` sudah memakai urutan ini;
-    # sebelumnya kedua alat tidak sepakat.
+    # mp4 DIDAHULUKAN: wadah final proyek ini mp4 (keputusan ARYA 8 Sep 2026,
+    # membatalkan webm sehari sebelumnya). Webm yang tertinggal dari masa
+    # peralihan (Statistika 7 Sep) tidak boleh jadi sumber poster kalau mp4
+    # finalnya sudah ada. `cek_aset_video.video_topik` memakai urutan yang
+    # sama; kedua alat harus sepakat.
     for folder in SUMBER_URUT:
-        for akhiran in (".webm", ".mp4"):
+        for akhiran in (".mp4", ".webm"):
             calon = folder / f"{topik}{akhiran}"
             if calon.exists():
                 return calon
