@@ -804,6 +804,7 @@ export const TAHAP: TahapIntegral[] = [
   {
     no: 9,
     slug: 'luas-daerah',
+    video: { berkas: 'integral09-luas-daerah.mp4', poster: 'integral09-luas-daerah.jpg' },
     judul: 'Luas daerah, termasuk yang di bawah sumbu',
     labelPendek: 'Luas',
     pertanyaan: 'Kalau kurvanya memotong sumbu x, kenapa integralnya bisa lebih kecil daripada luas yang terlihat?',

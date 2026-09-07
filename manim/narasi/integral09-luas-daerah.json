@@ -1,0 +1,68 @@
+{
+  "adegan": "IntegralLuasDaerah",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video Integral, Materi 09 'Luas daerah, termasuk yang di bawah sumbu'. Menurut rancangan inilah kekeliruan yang paling sering dilakukan siswa. BUKAN video bernomor tahap terkecil, jadi tanpa pembuka 3D. Seluruh angka diperiksa sympy lewat alat/klaim-video-integral09.json, 10 dari 10 lolos dan alatnya dibuktikan menolak 10 versi rusak: akar 0 dan 4 dicari solveset sendiri, integral 0 sampai 4 = -32/3, 4 sampai 6 = 32/3, 0 sampai 6 = 0, luas = 64/3 (alatnya memecah sendiri di titik potong), dan contoh aman x akar(x^2+5) pada 0 sampai 2 di mana luas dan integralnya SAMA. Satu gambar sepanjang video: kurva x^2-4x pada [0, 6] dengan dua daerah berwarna. Warna: AKSEN2 biru = daerah DI ATAS sumbu, AKSEN merah = daerah DI BAWAH sumbu, SOROT ungu = jawaban dan kesimpulan. Warna itu sama dengan widget 'luas-dua-daerah' di halaman Materi 09 (biru atas, merah bawah), supaya siswa yang sudah mencoba widgetnya mengenali gambarnya.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi kesembilan: luas daerah, termasuk yang di bawah sumbu.",
+      "tulis": "Materi 09: luas daerah, termasuk yang di bawah sumbu."
+    },
+    {
+      "id": "masalah",
+      "teks": "Ada satu kekeliruan yang paling sering terjadi di bab ini, dan gambarnya sederhana sekali. Ambil kurva x kuadrat dikurangi empat x, dari nol sampai enam.",
+      "tulis": "Kurva x² - 4x, dari 0 sampai 6."
+    },
+    {
+      "id": "potong",
+      "teks": "Samakan dengan nol untuk mencari titik potongnya. Didapat x sama dengan nol dan x sama dengan empat. Di titik itulah kurvanya berpindah sisi.",
+      "tulis": "x² - 4x = 0 memberi *x = 0* dan *x = 4*. Di situ kurvanya berpindah sisi."
+    },
+    {
+      "id": "warna",
+      "teks": "Dari nol sampai empat kurvanya di bawah sumbu. Dari empat sampai enam kurvanya di atas sumbu. Dua daerah, dan keduanya jelas terlihat.",
+      "tulis": "0 sampai 4 di *bawah* sumbu, 4 sampai 6 di *atas* sumbu."
+    },
+    {
+      "id": "hitung1",
+      "teks": "Hitung bagian kirinya. Hasilnya negatif tiga puluh dua per tiga. Tandanya negatif karena kurvanya di bawah sumbu, bukan karena luasnya negatif. Luas tidak pernah negatif.",
+      "tulis": "Bagian kiri: *-32/3*. Tandanya dari letak kurvanya, bukan dari luasnya."
+    },
+    {
+      "id": "hitung2",
+      "teks": "Bagian kanannya positif tiga puluh dua per tiga. Kebetulan besarnya sama persis dengan yang kiri.",
+      "tulis": "Bagian kanan: *+32/3*, besarnya sama persis."
+    },
+    {
+      "id": "nol",
+      "teks": "Sekarang jumlahkan langsung. Negatif tiga puluh dua per tiga ditambah tiga puluh dua per tiga sama dengan nol. Dan itulah jebakannya: nol, untuk daerah yang jelas-jelas ada di layar.",
+      "tulis": "Dijumlahkan langsung: *0*. Untuk daerah yang jelas-jelas ada."
+    },
+    {
+      "id": "bukan",
+      "teks": "Nol itu bukan salah hitung. Ia jawaban yang benar untuk pertanyaan berapa hasil integralnya. Ia hanya salah kalau dipakai menjawab pertanyaan berapa luasnya.",
+      "tulis": "Nol itu benar untuk *integral*, salah untuk *luas*. Dua pertanyaan berbeda."
+    },
+    {
+      "id": "positif",
+      "teks": "Caranya begini. Positifkan dulu tiap bagian, baru dijumlahkan. Tiga puluh dua per tiga ditambah tiga puluh dua per tiga, hasilnya enam puluh empat per tiga, kira-kira dua puluh satu koma tiga.",
+      "tulis": "Positifkan dulu: 32/3 + 32/3 = *64/3* ≈ 21,3."
+    },
+    {
+      "id": "aturan",
+      "teks": "Aturannya cuma satu kalimat. Pecah selangnya di titik potong, positifkan tiap bagian, baru jumlahkan. Kalau dijumlahkan dulu, dua bagian yang berlawanan tanda akan saling memakan.",
+      "tulis": "Pecah di titik potong, positifkan tiap bagian, baru jumlahkan."
+    },
+    {
+      "id": "aman",
+      "teks": "Tidak semua soal serumit itu. Kalau kurvanya tidak pernah turun di bawah sumbu, tidak ada yang perlu dipecah, dan luasnya memang sama dengan integralnya.",
+      "tulis": "Kalau kurvanya tidak pernah di bawah sumbu, luas = integral. Tanpa dipecah."
+    },
+    {
+      "id": "tutup",
+      "teks": "Karena itu langkah pertama soal luas selalu sama, dan bukan menghitung. Gambar dulu, cari titik potongnya, baru hitung.",
+      "tulis": "*Gambar dulu*, cari titik potongnya, baru hitung."
+    }
+  ]
+}
