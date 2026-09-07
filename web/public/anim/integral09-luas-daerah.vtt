@@ -1,0 +1,79 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/integral09-luas-daerah.json
+
+1
+00:00:00.000 --> 00:00:05.112
+Materi 09: luas daerah, termasuk yang di bawah sumbu.
+
+2
+00:00:05.112 --> 00:00:15.840
+Kurva x² - 4x, dari 0 sampai 6.
+
+3
+00:00:15.840 --> 00:00:21.431
+x² - 4x = 0 memberi <b>x = 0</b> dan <b>x = 4</b>.
+
+4
+00:00:21.431 --> 00:00:26.400
+Di situ kurvanya berpindah sisi.
+
+5
+00:00:26.400 --> 00:00:37.248
+0 sampai 4 di <b>bawah</b> sumbu, 4 sampai 6 di <b>atas</b> sumbu.
+
+6
+00:00:37.248 --> 00:00:41.057
+Bagian kiri: <b>-32/3</b>.
+
+7
+00:00:41.057 --> 00:00:50.880
+Tandanya dari letak kurvanya, bukan dari luasnya.
+
+8
+00:00:50.880 --> 00:00:58.032
+Bagian kanan: <b>+32/3</b>, besarnya sama persis.
+
+9
+00:00:58.032 --> 00:01:03.524
+Dijumlahkan langsung: <b>0</b>.
+
+10
+00:01:03.524 --> 00:01:11.304
+Untuk daerah yang jelas-jelas ada.
+
+11
+00:01:11.304 --> 00:01:18.668
+Nol itu benar untuk <b>integral</b>, salah untuk <b>luas</b>.
+
+12
+00:01:18.668 --> 00:01:22.272
+Dua pertanyaan berbeda.
+
+13
+00:01:22.272 --> 00:01:36.336
+Positifkan dulu: 32/3 + 32/3 = <b>64/3</b> ≈ 21,3.
+
+14
+00:01:36.336 --> 00:01:46.543
+Pecah di titik potong, positifkan tiap bagian,
+
+15
+00:01:46.543 --> 00:01:49.872
+baru jumlahkan.
+
+16
+00:01:49.872 --> 00:01:55.838
+Kalau kurvanya tidak pernah di bawah sumbu,
+
+17
+00:01:55.838 --> 00:01:58.058
+luas = integral.
+
+18
+00:01:58.058 --> 00:02:00.000
+Tanpa dipecah.
+
+19
+00:02:00.000 --> 00:02:09.288
+<b>Gambar dulu</b>, cari titik potongnya, baru hitung.

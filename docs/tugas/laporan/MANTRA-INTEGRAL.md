@@ -446,8 +446,64 @@ salah di kalimat penutupnya. 26/3 diperiksa lewat DUA jalan yang berbeda
 (integral tentu dan F(3) - F(1)), dan penghapusan C diperiksa dengan C sebagai
 LAMBANG, bukan angka.
 
+## Video 09 "Luas daerah, termasuk yang di bawah sumbu": SELESAI 480p
+
+`media/uji-480p/integral09-luas-daerah.mp4`, 129,3 detik, 2,02 MB, plus versi
+bersubtitle. Medan `video:` dipasang, poster dari detik 33,
+`cek_aset_video.py integral` SEMUA LOLOS untuk EMPAT video, `tsc --noEmit` 0,
+`cek_urutan_integral.py` SEMUA LOLOS, angkanya 10 dari 10 dan alatnya
+dibuktikan menolak 10 versi rusak.
+
+Lima render. Isinya kekeliruan yang menurut rancangan paling sering dilakukan
+siswa: kurva x kuadrat dikurangi 4x dari 0 sampai 6 punya integral NOL,
+sementara luasnya 64/3 alias sekitar 21,3. Satu gambar, dua jawaban.
+
+### Empat cacat yang ditemukan, dan yang paling berguna untuk sesi lain
+1. **`^` di dalam `sinema.identitas` mematikan render.** Identitas memakai
+   `teks()` (TexText, MODE TEKS), dan `teks()` meloloskan % & # _ $ tetapi
+   TIDAK meloloskan `^`. Pesannya "Missing $ inserted" dari LaTeX, jauh dari
+   penyebabnya. Angka dan rumus di identitas atau label WAJIB dieja, atau
+   dipindah ke `rumus()`.
+2. **Panel menindih sumbu DUA KALI berturut-turut**, dan penyebabnya bukan
+   gambarnya kelebaran melainkan BARIS PANELNYA kepanjangan. `sisa_kanan` 1,8
+   ditolak dengan irisan 0,73 satuan, 2,4 masih ditolak dengan 0,17. Barisnya
+   dipendekkan (`x^2 - 4x = 0 => x = 0, 4` jadi `f = 0: x = 0, 4`) DAN
+   `sisa_kanan` dinaikkan ke 3,6. Panel MANTRA memang dirancang untuk potongan
+   pendek; baris panjang bukan cuma menabrak, ia juga disusutkan
+   `batasi_lebar` sampai sulit dibaca.
+3. **`Indicate` MEMBESARKAN daerah 1,2 kali, dan di video ini itu berbahaya.**
+   Frame detik 65 render keempat memperlihatkan daerah biru membesar sampai ke
+   tepi bidang, seolah selangnya lebih panjang daripada 6, di video yang
+   seluruh isinya tentang letak dan besar daerah. Keempat belas denyut daerah
+   diganti NYALA KELEGAPAN (0,32 naik ke 0,62 lalu kembali), yang tidak
+   menggeser apa pun. Sekaligus lebih terbaca: pada kelegapan 0,32 di atas
+   kertas, merah bata dan ungu tua sama-sama jadi sekitar 204 dan 196 pada
+   skala kelabu, selisih 8 dan di bawah ambang 12 alat ukur diam; menaikkan
+   kelegapan memberi sekitar 166, selisih 38.
+4. **Penanda tebal subtitle terpotong dua baris** sehingga bintangnya tercetak
+   apa adanya: "*gambar dulu," lalu "cari titik potongnya*.". Tidak ada gerbang
+   yang menangkap ini. Kalimatnya dipendekkan supaya penanda tebalnya muat di
+   satu baris. Diperiksa dengan menghitung sisa tanda bintang di berkas .vtt,
+   dan sekarang nol.
+
+### Empat rentang "diam", terpanjang 8,9 detik
+Sudah dinilai lewat frame-nya: 24,8 sampai 33,6 detik adalah babak `warna`
+(dua daerah diisi warna satu per satu lalu dinyalakan bergantian), 16,5 sampai
+23,2 adalah `potong` (dua titik potong ditandai), 7,1 sampai 11,8 adalah
+`masalah` (kurvanya digambar 4,6 detik), 102,4 sampai 106,8 adalah `aturan`.
+Tidak ada yang cacat.
+
+### Yang saya putuskan sendiri
+Bagian merah DIBALIK ke atas sumbu saat kata "positifkan" diucapkan, dan
+aslinya dibiarkan tetap di bawah. Jadi sesaat ada tiga daerah di layar: merah
+asli di bawah, salinannya di atas, dan biru. Saya memilih begitu supaya
+terlihat bahwa daerahnya tidak dipindahkan atau dihapus, hanya dihitung
+positif; bentuk lensa yang simetris terhadap sumbu membuatnya terbaca sebagai
+pantulan, bukan sebagai daerah ketiga. Kalau MASTER menilai lain, aslinya
+tinggal diredupkan saat salinannya membalik.
+
 ## Butuh keputusan ARYA
-- Dua video sisanya (09, 03) belum dikerjakan. Urutannya dari MASTER.
+- Satu video sisanya (03, substitusi) belum dikerjakan. Urutannya dari MASTER.
 
 ## Titik rawan matematis yang sudah ditandai
 MASTER menemukan 4 kalimat matematis keliru dari 12 materi Turunan. Untuk
