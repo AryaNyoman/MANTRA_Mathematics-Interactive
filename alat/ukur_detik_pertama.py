@@ -67,6 +67,18 @@ from PIL import Image
 FPS = 8
 LAMA_UKUR = 25.0          # detik pertama yang diperiksa
 AMBANG = 0.0008           # bagian piksel yang berubah, 0,08 persen
+# Lantai MUTLAK untuk ukuran pertama, dalam piksel pada 854x480, diskalakan
+# otomatis. Tanpa ini ukuran pertama melapor ALARM PALSU pada video 1080p:
+# Materi 11 Statistika dilapor "gerak pertama 5,50 detik, LEWAT BATAS" padahal
+# framenya jelas memperlihatkan sumbu tergambar dan titik bermunculan satu per
+# satu sejak detik 4. Sebabnya titik yang memudar masuk cuma mengubah 10 sampai
+# 35 piksel pada gambar yang sudah diperkecil, sedangkan 0,08 persen dari
+# luasnya 38 piksel. Persis kesalahan yang saya peringatkan ke sesi Ruang 3D
+# untuk ukuran KEDUA, dan ternyata ukuran pertama buatan saya sendiri punya
+# lubang yang sama. Ambangnya lebih rendah daripada milik ukuran kedua sebab
+# pertanyaannya berbeda: "apakah ADA yang mulai bergerak", bukan "apakah
+# layarnya praktis berhenti".
+AMBANG_PIKSEL_AWAL = 70   # piksel pada 854x480, ambang MUTLAK ukuran pertama
 BATAS_STANDAR = 5.0       # detik, aturan STANDAR 4 Sep 2026
 JALUR_SUBTITLE = 0.82     # bagian bawah gambar yang diabaikan
 
@@ -96,9 +108,13 @@ def ukur(video: Path, lama_judul: float) -> tuple[float | None, str]:
         gambar = [np.asarray(Image.open(p).convert("L"), dtype=np.int16) for p in berkas]
         batas_bawah = int(gambar[0].shape[0] * JALUR_SUBTITLE)
         mulai = max(1, int(round(lama_judul * FPS)))
+        luas = gambar[0][:batas_bawah].size
+        lantai = max(1.0, AMBANG_PIKSEL_AWAL * luas / PIKSEL_ACUAN)
         for i in range(mulai + 1, len(gambar)):
             beda = np.abs(gambar[i] - gambar[i - 1])[:batas_bawah]
-            if (beda > 12).sum() / beda.size > AMBANG:
+            n = float((beda > 12).sum())
+            # Yang longgar yang menang, sama seperti ukuran kedua.
+            if n / luas > AMBANG or n > lantai:
                 return (i - mulai) / FPS, "ok"
         return None, f"tidak ada gerakan dalam {LAMA_UKUR:.0f} detik"
 
