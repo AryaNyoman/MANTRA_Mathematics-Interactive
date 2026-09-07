@@ -15,7 +15,15 @@ Transformasi Geometri ke situs, dan keduanya lolos dari SEMUA gerbang yang ada:
 2. POSTER KOSONG. Dua poster berukuran persis sama, 2.635 byte, dan keduanya
    gambar rata satu warna. Satu lagi tidak ada sama sekali.
 
-Kedua cacat itu punya bentuk yang sama: berkas PENDAMPING video ketinggalan
+3. POTONGAN SUARA BASI. Naskah yang diperpanjang menggeser penomoran segmennya,
+   dan `buat_narasi.py` menulis berkas baru tanpa membuang yang lama. Tiga belas
+   berkas tertinggal di lima video, dan penomorannya BENTROK: `07-luas.mp3` yang
+   basi berdampingan dengan `07-aturan.mp3` yang sah. Tidak ada yang membacanya
+   (`gabung_audio.py` dan adegannya membaca `durasi.json`), tetapi sesi
+   berikutnya yang membuka folder itu akan salah mengira segmennya masih ada.
+   Itu sudah terjadi sekali pada video 03, 5 September.
+
+Ketiga cacat itu punya bentuk yang sama: berkas PENDAMPING video ketinggalan
 saat videonya berubah. Video diperiksa berlapis-lapis di proyek ini, berkas
 pendampingnya tidak sama sekali. Berkas ini menutup celah itu.
 
@@ -62,6 +70,23 @@ def akhir_subtitle(jalur: Path) -> float | None:
     return akhir
 
 
+def suara_basi(topik: str) -> list[str]:
+    """Potongan suara yang tidak lagi disebut naskahnya.
+
+    Nama berkasnya `<nn>-<id>.mp3`, dengan nn urutan segmen. Naskah yang
+    diperpanjang menggeser nn, dan `buat_narasi.py` tidak membuang yang lama.
+    """
+    import json
+    naskah = AKAR / "manim" / "narasi" / f"{topik}.json"
+    folder = AKAR / "audio" / topik
+    if not naskah.exists() or not folder.exists():
+        return []
+    segmen = json.loads(naskah.read_text(encoding="utf-8"))["segmen"]
+    sah = {f"{i:02d}-{s['id']}.mp3" for i, s in enumerate(segmen, 1)}
+    sah.add("narasi-penuh.mp3")
+    return sorted(p.name for p in folder.glob("*.mp3") if p.name not in sah)
+
+
 def periksa(saring: str | None) -> int:
     from buat_poster import nilai  # noqa: E402
 
@@ -98,6 +123,12 @@ def periksa(saring: str | None) -> int:
             if vonis == "cacat":
                 catat.append(f"poster {ket}")
 
+        basi = suara_basi(topik)
+        if basi:
+            catat.append(
+                f"{len(basi)} potongan suara BASI, tidak disebut naskahnya lagi: "
+                + ", ".join(basi[:4]) + (" ..." if len(basi) > 4 else ""))
+
         if catat:
             buruk += 1
             print(f"  CACAT  {topik}  ({lama:.1f} s)")
@@ -111,8 +142,10 @@ def periksa(saring: str | None) -> int:
         print(f"{buruk} dari {len(daftar)} video berkas pendampingnya bermasalah")
         print("Subtitle: python manim/buat_subtitle.py <topik>")
         print("Poster  : python alat/buat_poster.py <topik> <detik>")
+        print("Suara   : buang berkas mp3 yang namanya tidak ada di naskah")
         return 1
-    print(f"SEMUA LOLOS: {len(daftar)} video, subtitle dan posternya cocok.")
+    print(f"SEMUA LOLOS: {len(daftar)} video, subtitle, poster, dan potongan "
+          f"suaranya cocok.")
     return 0
 
 
