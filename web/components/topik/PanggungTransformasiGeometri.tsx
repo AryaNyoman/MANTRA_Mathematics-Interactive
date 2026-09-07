@@ -3,16 +3,16 @@
 import { useState, type ReactNode } from 'react'
 import CerminLurus, { BATAS_CERMIN } from '@/components/widget/transformasi-geometri/CerminLurus'
 import CerminMiring from '@/components/widget/transformasi-geometri/CerminMiring'
-import CerminTitik from '@/components/widget/transformasi-geometri/CerminTitik'
+import CerminTitik, { BATAS_PUSAT } from '@/components/widget/transformasi-geometri/CerminTitik'
 import CocokkanMatriks from '@/components/widget/transformasi-geometri/CocokkanMatriks'
 import DuaLangkah from '@/components/widget/transformasi-geometri/DuaLangkah'
 import DuniaNyataTransformasi from '@/components/widget/transformasi-geometri/DuniaNyataTransformasi'
-import GeserBentuk from '@/components/widget/transformasi-geometri/GeserBentuk'
+import GeserBentuk, { BATAS_GESER } from '@/components/widget/transformasi-geometri/GeserBentuk'
 import MejaUkur from '@/components/widget/transformasi-geometri/MejaUkur'
 import MesinMatriks from '@/components/widget/transformasi-geometri/MesinMatriks'
 import PapanBebas from '@/components/widget/transformasi-geometri/PapanBebas'
-import PerbesarBentuk, { BATAS_K } from '@/components/widget/transformasi-geometri/PerbesarBentuk'
-import PutarBentuk from '@/components/widget/transformasi-geometri/PutarBentuk'
+import PerbesarBentuk, { BATAS_K, BATAS_PUSAT_DILATASI } from '@/components/widget/transformasi-geometri/PerbesarBentuk'
+import PutarBentuk, { BATAS_PUSAT_PUTAR } from '@/components/widget/transformasi-geometri/PutarBentuk'
 import {
   BENTUK_L, SUDUT_BERNAMA, arahPutarPoligon, cerminGarisDatar, cerminGarisTegak,
   cerminTitik, cerminYSamaMinX, cerminYSamaX, determinan, dilatasi, jarak,
@@ -22,6 +22,7 @@ import {
 } from '@/components/widget/transformasi-geometri/matriks'
 import { angka } from '@/components/widget/transformasi-geometri/papan'
 import type { PropPanggung } from '@/components/topik/jenis'
+import { Angka, Kembalikan, Koordinat, Petunjuk, Pilihan } from '@/components/kendali'
 
 /**
  * Panggung Transformasi Geometri: penyetelan widgetnya, dan tidak lebih.
@@ -237,6 +238,10 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
     const C = BENTUK_L[2]
 
     const mesin: Matriks = { a: mA, b: mB, c: mC, d: mD }
+    const presetMatriks =
+      mA === 1 && mB === 0 && mC === 0 && mD === 1 ? 'identitas'
+      : mA === 0 && mB === 1 && mC === 1 && mD === 0 ? 'cermin'
+      : 'lain'
     const tCocok = PILIHAN_MATERI_10[pilihan10].t
 
     // Urutan pengerjaannya bisa ditukar siswa, jadi t1 dan t2 di bawah adalah
@@ -257,24 +262,11 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               <PapanBebas transformasi={tTerpilih} />
             </div>
             <div className="kendali">
-              <div className="pilih-contoh" style={{ gridColumn: '1 / -1' }}>
-                {PILIHAN_MATERI_1.map((p, i) => (
-                  <button
-                    key={p.nama}
-                    aria-pressed={pilihan1 === i}
-                    onClick={() => setPilihan1(i)}
-                  >
-                    {p.nama}
-                  </button>
-                ))}
-              </div>
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  ganti pilihannya, lalu perhatikan keenam garis putus-putus tipisnya. Setiap
-                  titik punya tujuannya sendiri
-                </span>
-              </div>
+              <Pilihan nama="Transformasi" arti="pilih yang dikenakan pada bentuk L"
+                pilihan={PILIHAN_MATERI_1.map((p, i) => ({ nilai: String(i), label: p.nama }))} nilai={String(pilihan1)} onPilih={(n) => setPilihan1(Number(n))} />
+              <Petunjuk>
+                ganti pilihannya, lalu perhatikan keenam garis putus-putus tipisnya. Setiap titik punya tujuannya sendiri.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -285,13 +277,12 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               <GeserBentuk geser={geser} onUbah={setGeser} />
             </div>
             <div className="kendali">
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  tarik bulatan di ujung panah merahnya. Keenam garis penghubungnya selalu
-                  sejajar dan selalu sama panjang
-                </span>
-              </div>
+              <Koordinat nama="Geseran" arti="vektor translasi, ke kanan dan ke atas" kunci="geser"
+                nilai={geser} onUbah={setGeser} batas={BATAS_GESER} />
+              <Kembalikan onClick={() => { setGeser({ x: 3, y: -2 }) }} />
+              <Petunjuk>
+                ketik geserannya atau tarik bulatan di ujung panah merah. Keenam garis penghubungnya selalu sejajar dan sama panjang.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -302,32 +293,14 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               <CerminLurus arah={arahCermin} nilai={nilaiCermin} onUbah={setNilaiCermin} />
             </div>
             <div className="kendali">
-              <div className="pilih-contoh" style={{ gridColumn: '1 / -1' }}>
-                <button aria-pressed={arahCermin === 'tegak'} onClick={() => setArahCermin('tegak')}>
-                  garis tegak x = k
-                </button>
-                <button aria-pressed={arahCermin === 'datar'} onClick={() => setArahCermin('datar')}>
-                  garis mendatar y = h
-                </button>
-              </div>
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="letak-cermin">
-                  <span>Letak garis cerminnya</span>
-                  <span className="mono">{arahCermin === 'tegak' ? 'x' : 'y'} = {angka(nilaiCermin, 1)}</span>
-                </label>
-                <input
-                  id="letak-cermin" type="range"
-                  min={-BATAS_CERMIN} max={BATAS_CERMIN} step={0.5} value={nilaiCermin}
-                  onChange={(e) => setNilaiCermin(+e.target.value)}
-                />
-              </div>
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  setel ke nol, lalu perhatikan garisnya jatuh tepat di sumbu. Sumbu memang
-                  garis cermin dengan k bernilai nol
-                </span>
-              </div>
+              <Pilihan nama="Arah cermin" arti="garis tegak atau mendatar"
+                pilihan={[{ nilai: 'tegak', label: 'garis tegak x = k' }, { nilai: 'datar', label: 'garis mendatar y = h' }]} nilai={arahCermin} onPilih={setArahCermin} />
+              <Angka nama={arahCermin === 'tegak' ? 'k' : 'h'} arti="letak garis cerminnya" kunci="cermin"
+                nilai={nilaiCermin} onUbah={setNilaiCermin} min={-BATAS_CERMIN} max={BATAS_CERMIN} langkah={0.5} />
+              <Kembalikan onClick={() => { setArahCermin('tegak'); setNilaiCermin(0) }} />
+              <Petunjuk>
+                setel ke nol, lalu perhatikan garisnya jatuh tepat di sumbu. Sumbu memang garis cermin dengan k bernilai nol.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -338,17 +311,11 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               <CerminMiring naik={naik} />
             </div>
             <div className="kendali">
-              <div className="pilih-contoh" style={{ gridColumn: '1 / -1' }}>
-                <button aria-pressed={naik} onClick={() => setNaik(true)}>garis y = x</button>
-                <button aria-pressed={!naik} onClick={() => setNaik(false)}>garis y = -x</button>
-              </div>
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  bandingkan tulisan B dan B aksen pada kedua pilihan. Pada y = x angkanya
-                  bertukar, pada y = -x angkanya bertukar DAN tandanya berbalik
-                </span>
-              </div>
+              <Pilihan nama="Garis cermin" arti="miring naik atau miring turun"
+                pilihan={[{ nilai: 'naik', label: 'garis y = x' }, { nilai: 'turun', label: 'garis y = -x' }]} nilai={naik ? 'naik' : 'turun'} onPilih={(n) => setNaik(n === 'naik')} />
+              <Petunjuk>
+                bandingkan tulisan B dan B aksen pada kedua pilihan. Pada y = x angkanya bertukar, pada y = -x angkanya bertukar DAN tandanya berbalik.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -359,21 +326,12 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               <CerminTitik pusat={pusatCermin} onUbah={setPusatCermin} />
             </div>
             <div className="kendali">
-              <div className="pilih-contoh" style={{ gridColumn: '1 / -1' }}>
-                <button
-                  aria-pressed={pusatCermin.x === 0 && pusatCermin.y === 0}
-                  onClick={() => setPusatCermin({ x: 0, y: 0 })}
-                >
-                  kembalikan pusatnya ke titik asal
-                </button>
-              </div>
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  tarik bulatan ungunya ke mana saja. Kedua angka ungu di titik A selalu sama,
-                  sebab pusatnya selalu tepat di tengah
-                </span>
-              </div>
+              <Koordinat nama="Pusat cermin" arti="titik M, ketik 0 dan 0 untuk titik asal" kunci="pusat" vektor={false}
+                nilai={pusatCermin} onUbah={setPusatCermin} batas={BATAS_PUSAT} />
+              <Kembalikan onClick={() => { setPusatCermin({ x: 3, y: 3 }) }} />
+              <Petunjuk>
+                pindahkan pusatnya ke mana saja. Kedua angka ungu di titik A selalu sama, sebab pusatnya selalu tepat di tengah.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -384,37 +342,16 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               <PutarBentuk derajat={derajat} pusat={pusatPutar} onUbahPusat={setPusatPutar} />
             </div>
             <div className="kendali">
-              <div className="pilih-contoh" style={{ gridColumn: '1 / -1' }}>
-                {[90, 180, 270].map((d) => (
-                  <button key={d} aria-pressed={derajat === d} onClick={() => setDerajat(d)}>
-                    {d}°
-                  </button>
-                ))}
-                <button
-                  aria-pressed={pusatPutar.x === 0 && pusatPutar.y === 0}
-                  onClick={() => setPusatPutar({ x: 0, y: 0 })}
-                >
-                  pusat ke titik asal
-                </button>
-              </div>
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="sudut-putar">
-                  <span>Sudut putarnya</span>
-                  <span className="mono">{angka(derajat, 0)}°</span>
-                </label>
-                <input
-                  id="sudut-putar" type="range"
-                  min={-360} max={360} step={1} value={derajat}
-                  onChange={(e) => setDerajat(+e.target.value)}
-                />
-              </div>
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  kedua angka jarak di layar SELALU sama, berapa pun sudutnya. Itu yang
-                  membedakan rotasi dari dilatasi
-                </span>
-              </div>
+              <Angka nama="Sudut putar" arti="positif berlawanan arah jarum jam" kunci="sudut"
+                nilai={derajat} onUbah={setDerajat} min={-360} max={360} langkah={1} satuan="°" />
+              <Pilihan nama="Sudut cepat" arti="tiga sudut yang sering keluar"
+                pilihan={[90, 180, 270].map((d) => ({ nilai: String(d), label: `${d}°` }))} nilai={String(derajat)} onPilih={(n) => setDerajat(Number(n))} />
+              <Koordinat nama="Pusat putar" arti="titik P, ketik 0 dan 0 untuk titik asal" kunci="pusat" vektor={false}
+                nilai={pusatPutar} onUbah={setPusatPutar} batas={BATAS_PUSAT_PUTAR} />
+              <Kembalikan onClick={() => { setDerajat(90); setPusatPutar({ x: 0, y: 0 }) }} />
+              <Petunjuk>
+                ubah sudutnya, lalu perhatikan kedua angka jarak di layar SELALU sama. Itu yang membedakan rotasi dari dilatasi.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -425,24 +362,14 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               <PerbesarBentuk k={k} pusat={pusatDilatasi} onUbahPusat={setPusatDilatasi} />
             </div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="faktor-k">
-                  <span>Faktor skala k</span>
-                  <span className="mono">{angka(k, 2)}</span>
-                </label>
-                <input
-                  id="faktor-k" type="range"
-                  min={BATAS_K.min} max={BATAS_K.maks} step={BATAS_K.langkah} value={k}
-                  onChange={(e) => setK(+e.target.value)}
-                />
-              </div>
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  lewati angka nol perlahan. Bentuknya menciut ke satu titik, lalu muncul lagi
-                  di sisi seberang pusatnya
-                </span>
-              </div>
+              <Angka nama="Faktor skala k" arti="pengali jarak tiap titik dari pusat" kunci="k"
+                nilai={k} onUbah={setK} min={BATAS_K.min} max={BATAS_K.maks} langkah={BATAS_K.langkah} />
+              <Koordinat nama="Pusat dilatasi" arti="titik P yang diam" kunci="pusat" vektor={false}
+                nilai={pusatDilatasi} onUbah={setPusatDilatasi} batas={BATAS_PUSAT_DILATASI} />
+              <Kembalikan onClick={() => { setK(2); setPusatDilatasi({ x: 3, y: -1 }) }} />
+              <Petunjuk>
+                geser k melewati nol perlahan. Bentuknya menciut ke satu titik, lalu muncul lagi di sisi seberang pusatnya.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -453,20 +380,11 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               <MejaUkur transformasi={tUkur} />
             </div>
             <div className="kendali">
-              <div className="pilih-contoh" style={{ gridColumn: '1 / -1' }}>
-                {PILIHAN_MATERI_8.map((p, i) => (
-                  <button key={p.nama} aria-pressed={pilihan8 === i} onClick={() => setPilihan8(i)}>
-                    {p.nama}
-                  </button>
-                ))}
-              </div>
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  bandingkan dua pilihan terakhir. Keduanya membuat bentuknya dua kali lebih
-                  besar, tetapi cuma satu yang terlihat terjungkir
-                </span>
-              </div>
+              <Pilihan nama="Transformasi" arti="yang diukur jarak dan sudutnya"
+                pilihan={PILIHAN_MATERI_8.map((p, i) => ({ nilai: String(i), label: p.nama }))} nilai={String(pilihan8)} onPilih={(n) => setPilihan8(Number(n))} />
+              <Petunjuk>
+                bandingkan dua pilihan terakhir. Keduanya membuat bentuknya dua kali lebih besar, tetapi cuma satu yang terlihat terjungkir.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -477,51 +395,19 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               <MesinMatriks m={mesin} />
             </div>
             <div className="kendali">
-              {([
-                ['a', mA, setMA, 'kiri atas'],
-                ['b', mB, setMB, 'kanan atas'],
-                ['c', mC, setMC, 'kiri bawah'],
-                ['d', mD, setMD, 'kanan bawah'],
-              ] as const).map(([nama, nilai, setel, letak]) => (
-                <div key={nama}>
-                  <label htmlFor={`matriks-${nama}`}>
-                    <span>{nama}, {letak}</span>
-                    <span className="mono">{angka(nilai, 2)}</span>
-                  </label>
-                  <input
-                    id={`matriks-${nama}`} type="range"
-                    min={-3} max={3} step={0.5} value={nilai}
-                    onChange={(e) => setel(+e.target.value)}
-                  />
-                </div>
-              ))}
-              <div className="pilih-contoh" style={{ gridColumn: '1 / -1' }}>
-                <button
-                  aria-pressed={mA === 1 && mB === 0 && mC === 0 && mD === 1}
-                  onClick={() => { setMA(1); setMB(0); setMC(0); setMD(1) }}
-                >
-                  identitas
-                </button>
-                <button
-                  aria-pressed={mA === 0 && mB === 1 && mC === 1 && mD === 0}
-                  onClick={() => { setMA(0); setMB(1); setMC(1); setMD(0) }}
-                >
-                  cermin y = x
-                </button>
-                <button
-                  aria-pressed={mA === 1 && mB === 2 && mC === 2 && mD === 3}
-                  onClick={() => { setMA(1); setMB(2); setMC(2); setMD(3) }}
-                >
-                  bukan salah satu yang kita pelajari
-                </button>
-              </div>
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  ubah a saja, lalu perhatikan hanya panah biru yang bergerak. Dua angka di
-                  satu kolom menggerakkan panah yang sama
-                </span>
-              </div>
+              <Angka nama="a" arti="kiri atas, ke mana (1, 0) mendarat secara mendatar" kunci="a"
+                nilai={mA} onUbah={setMA} min={-3} max={3} langkah={0.5} />
+              <Angka nama="c" arti="kiri bawah, ke mana (1, 0) mendarat secara tegak" kunci="c"
+                nilai={mC} onUbah={setMC} min={-3} max={3} langkah={0.5} />
+              <Angka nama="b" arti="kanan atas, ke mana (0, 1) mendarat secara mendatar" kunci="b"
+                nilai={mB} onUbah={setMB} min={-3} max={3} langkah={0.5} />
+              <Angka nama="d" arti="kanan bawah, ke mana (0, 1) mendarat secara tegak" kunci="d"
+                nilai={mD} onUbah={setMD} min={-3} max={3} langkah={0.5} />
+              <Pilihan nama="Contoh siap pakai" arti="mengisi keempat angka sekaligus"
+                pilihan={[{ nilai: 'identitas', label: 'identitas' }, { nilai: 'cermin', label: 'cermin y = x' }, { nilai: 'lain', label: 'bukan yang kita pelajari' }]} nilai={presetMatriks} onPilih={(n) => { if (n === 'identitas') { setMA(1); setMB(0); setMC(0); setMD(1) } else if (n === 'cermin') { setMA(0); setMB(1); setMC(1); setMD(0) } else { setMA(1); setMB(2); setMC(2); setMD(3) } }} />
+              <Petunjuk>
+                ubah a saja, lalu perhatikan hanya panah biru yang bergerak. Dua angka di satu kolom menggerakkan panah yang sama.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -532,20 +418,11 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               <CocokkanMatriks transformasi={tCocok} />
             </div>
             <div className="kendali">
-              <div className="pilih-contoh" style={{ gridColumn: '1 / -1' }}>
-                {PILIHAN_MATERI_10.map((p, i) => (
-                  <button key={p.nama} aria-pressed={pilihan10 === i} onClick={() => setPilihan10(i)}>
-                    {p.nama}
-                  </button>
-                ))}
-              </div>
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  baca ujung kedua panahnya, lalu tulis keduanya sebagai kolom. Itu matriksnya,
-                  dan bisa Anda baca sebelum melihat tabel di kanan
-                </span>
-              </div>
+              <Pilihan nama="Transformasi" arti="baca matriksnya dari gambar"
+                pilihan={PILIHAN_MATERI_10.map((p, i) => ({ nilai: String(i), label: p.nama }))} nilai={String(pilihan10)} onPilih={(n) => setPilihan10(Number(n))} />
+              <Petunjuk>
+                baca ujung kedua panahnya, lalu tulis keduanya sebagai kolom. Itu matriksnya, dan bisa dibaca sebelum melihat tabel angkanya.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -559,26 +436,15 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               />
             </div>
             <div className="kendali">
-              <div className="pilih-contoh" style={{ gridColumn: '1 / -1' }}>
-                {PASANGAN.map((p, i) => (
-                  <button key={p.nama} aria-pressed={pasangan === i} onClick={() => setPasangan(i)}>
-                    {p.nama}
-                  </button>
-                ))}
-              </div>
-              <div className="pilih-contoh" style={{ gridColumn: '1 / -1' }}>
-                <button aria-pressed={dibalik} onClick={() => setDibalik(!dibalik)}>
-                  tukar urutannya
-                </button>
-              </div>
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>
-                  {tahap.widget === 'urutan-matriks'
-                    ? 'bentuk biru dan merah datang dari dua transformasi yang sama persis, cuma berbeda urutan'
-                    : 'bentuk yang paling samar adalah hasil langkah pertama. Itu persinggahan, bukan jawaban'}
-                </span>
-              </div>
+              <Pilihan nama="Pasangan" arti="dua transformasi yang dikenakan berurutan"
+                pilihan={PASANGAN.map((p, i) => ({ nilai: String(i), label: p.nama }))} nilai={String(pasangan)} onPilih={(n) => setPasangan(Number(n))} />
+              <Pilihan nama="Urutan" arti="mana yang dikerjakan lebih dulu"
+                pilihan={[{ nilai: 'asli', label: 'seperti tertulis' }, { nilai: 'balik', label: 'ditukar' }]} nilai={dibalik ? 'balik' : 'asli'} onPilih={(n) => setDibalik(n === 'balik')} />
+              <Petunjuk>
+                {tahap.widget === 'urutan-matriks'
+                  ? 'bentuk biru dan merah datang dari dua transformasi yang sama persis, cuma berbeda urutan.'
+                  : 'bentuk yang paling samar adalah hasil langkah pertama. Itu persinggahan, bukan jawaban.'}
+              </Petunjuk>
             </div>
           </>
         )}
@@ -710,7 +576,7 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               <div className="catatan">
                 {naik
                   ? 'Kedua koordinatnya bertukar tempat, dan tandanya ikut pindah bersama angkanya. Titik yang kebetulan berada DI garis cerminnya tidak berpindah sama sekali, sama seperti kaca tidak memindahkan dirinya sendiri.'
-                  : 'Kedua koordinatnya bertukar tempat, LALU kedua tandanya berbalik. Dua pekerjaan, bukan satu. Bandingkan sendiri dengan pilihan y = x di sebelah kiri: angkanya sama, tandanya yang berbeda.'}
+                  : 'Kedua koordinatnya bertukar tempat, LALU kedua tandanya berbalik. Dua pekerjaan, bukan satu. Bandingkan sendiri dengan pilihan y = x di alatnya: angkanya sama, tandanya yang berbeda.'}
               </div>
             </div>
           </>

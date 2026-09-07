@@ -1,6 +1,9 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { Angka, Petunjuk, Pilihan } from '@/components/kendali'
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
+import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
+import TitikPegang from '@/components/widget/statistika/TitikPegang'
 import Papan from '@/components/widget/statistika/Papan'
 import { PERAN } from '@/components/widget/statistika/warna-data'
 import { TEPI, angka, keData, keLayar, rentangMuat } from '@/components/widget/statistika/skala'
@@ -45,6 +48,7 @@ export default function GarisRegresi({ children }: PropWidget) {
   }
 
   const { aktif, propSvg, mulai } = useSeret(svgRef, pindah)
+  const dipegang = useSedangDiubah()
 
   const gradienSiswa = (kananY - kiriY) / (J.xMax - J.xMin)
   const konstantaSiswa = kiriY - gradienSiswa * J.xMin
@@ -94,41 +98,39 @@ export default function GarisRegresi({ children }: PropWidget) {
           {/* dua pegangan garis */}
           {([[J.xMin, kiriY, 0], [J.xMax, kananY, 1]] as Array<[number, number, number]>)
             .map(([x, y, i]) => (
-              <circle key={`p${i}`} cx={P.x(x)} cy={P.y(y)} r={8}
-                      fill={PERAN.tinta} stroke="#FFFDFA" strokeWidth={aktif === i ? 3 : 2}
-                      role="slider" tabIndex={0}
-                      aria-label={`Ujung ${i === 0 ? 'kiri' : 'kanan'} garis, nilai ${angka(y, 1)}`}
-                      aria-valuenow={y}
-                      style={{ cursor: 'grab', touchAction: 'none' }}
-                      onPointerDown={mulai(i)}
-                      onKeyDown={(e) => {
+              <TitikPegang key={`p${i}`} cx={P.x(x)} cy={P.y(y)} r={8} fill={PERAN.tinta}
+                      aktif={aktif === i} nyala={dipegang === (i === 0 ? 'kiri' : 'kanan')}
+                      prop={{
+                      role: 'slider', tabIndex: 0,
+                      'aria-label': `Ujung ${i === 0 ? 'kiri' : 'kanan'} garis, nilai ${angka(y, 1)}`,
+                      'aria-valuenow': y,
+                      style: { cursor: 'grab', touchAction: 'none' },
+                      onPointerDown: mulai(i),
+                      onKeyDown: (e: ReactKeyboardEvent) => {
                         const arah = e.key === 'ArrowUp' ? 1 : e.key === 'ArrowDown' ? -1 : 0
                         if (arah === 0) return
                         e.preventDefault()
                         const langkah = (J.yMax - J.yMin) / 50
                         if (i === 0) setKiriY((v) => Math.min(J.yMax, Math.max(J.yMin, v + arah * langkah)))
                         else setKananY((v) => Math.min(J.yMax, Math.max(J.yMin, v + arah * langkah)))
-                      }} />
+                      },
+                    }} />
             ))}
         </Papan>
       </div>
       <div className="kendali">
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label><span>Garis kuadrat terkecil</span></label>
-          <div className="pilih-sisi">
-            <button aria-pressed={tampilTerbaik} onClick={() => setTampilTerbaik((v) => !v)}>
-              {tampilTerbaik ? 'Sembunyikan garis terbaik' : 'Tunjukkan garis terbaik'}
-            </button>
-          </div>
-        </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Pilihan nama="Garis kuadrat terkecil" arti="garis yang jumlah kuadrat jaraknya paling kecil"
+          pilihan={[{ nilai: 'sembunyi', label: 'Sembunyikan' }, { nilai: 'tampil', label: 'Tunjukkan' }]}
+          nilai={tampilTerbaik ? 'tampil' : 'sembunyi'} onPilih={(n) => setTampilTerbaik(n === 'tampil')} />
+        <Angka nama="Ujung kiri garis" arti="tinggi garis di tepi kiri; ketik, geser, atau seret bolanya" kunci="kiri"
+          nilai={kiriY} onUbah={setKiriY} min={J.yMin} max={J.yMax} langkah={0.1} desimal={1} />
+        <Angka nama="Ujung kanan garis" arti="tinggi garis di tepi kanan" kunci="kanan"
+          nilai={kananY} onUbah={setKananY} min={J.yMin} max={J.yMax} langkah={0.1} desimal={1} />
+        <Petunjuk>
             {selisihLebih <= 0.5
               ? 'garis Anda sudah sedekat itu dengan yang terbaik. Tidak ada garis lain yang bisa lebih kecil lagi'
               : `garis Anda masih ${angka(selisihLebih, 1)} lebih besar daripada yang terbaik. Seret kedua ujungnya`}
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )

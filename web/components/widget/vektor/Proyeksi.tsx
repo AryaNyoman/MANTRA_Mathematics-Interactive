@@ -5,18 +5,11 @@ import BidangVektor from './BidangVektor'
 import Legenda from './Legenda'
 import Panah from './Panah'
 import { siku } from './bentuk'
-import {
-  angka, jendelaSeimbang, keLayar, panjang, panjangProyeksi, tahan, vektorProyeksi, type Vek,
-} from './geometri'
+import { angka, keLayar, panjang, panjangProyeksi, tahan, vektorProyeksi, type Vek, jendelaTetap } from './geometri'
 import { KOTAK, NISBAH, WARNA } from './gaya'
 import { useSeretTitik } from './useSeret'
 
 export const BATAS = { x: 5.5, y: 3.2 }
-
-const JANGKAR: Vek[] = [
-  { x: -BATAS.x, y: -BATAS.y },
-  { x: BATAS.x, y: BATAS.y },
-]
 
 /**
  * Widget Materi 12: proyeksi a pada b, yaitu bayangan a kalau cahayanya jatuh
@@ -40,7 +33,7 @@ export default function Proyeksi({
   const bayangan = vektorProyeksi(a, b)
   const panjangBayangan = panjangProyeksi(a, b)
 
-  const jendela = jendelaSeimbang([...JANGKAR, a, b, bayangan], NISBAH, 0.05)
+  const jendela = jendelaTetap(BATAS.x, BATAS.y, NISBAH)
   const pointer = useSeretTitik(jendela, svgRef, [a, b], (i, t) => {
     const p = tahan(t, BATAS.x, BATAS.y)
     if (i === 0) onUbah(p, b)
@@ -69,8 +62,8 @@ export default function Proyeksi({
 
       <Panah dari={asal} ke={bayangan} jendela={jendela} warna={WARNA.sudut} tebal={5}
              opasitas={0.55} />
-      <Panah dari={asal} ke={b} jendela={jendela} warna={WARNA.depan} tebal={2.6} pegangan />
-      <Panah dari={asal} ke={a} jendela={jendela} warna={WARNA.samping} tebal={2.8} pegangan />
+      <Panah dari={asal} ke={b} kunci="b" jendela={jendela} warna={WARNA.depan} tebal={2.6} pegangan />
+      <Panah dari={asal} ke={a} kunci="a" jendela={jendela} warna={WARNA.samping} tebal={2.8} pegangan />
 
       <Legenda
         sudut="kanan-bawah"

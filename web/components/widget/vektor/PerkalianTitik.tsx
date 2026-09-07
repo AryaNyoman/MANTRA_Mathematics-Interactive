@@ -5,16 +5,11 @@ import BidangVektor from './BidangVektor'
 import Legenda from './Legenda'
 import Panah from './Panah'
 import { busurAntara } from './bentuk'
-import { angka, jendelaSeimbang, sudutAntara, tahan, titik, type Vek } from './geometri'
+import { angka, sudutAntara, tahan, titik, type Vek, jendelaTetap } from './geometri'
 import { KERTAS, KOTAK, MONO, NISBAH, WARNA } from './gaya'
 import { useSeretTitik } from './useSeret'
 
 export const BATAS = { x: 5.5, y: 3.2 }
-
-const JANGKAR: Vek[] = [
-  { x: -BATAS.x, y: -BATAS.y },
-  { x: BATAS.x, y: BATAS.y },
-]
 
 /**
  * Di bawah nilai ini, hasil kali titik ditampilkan sebagai nol bulat.
@@ -38,7 +33,7 @@ export default function PerkalianTitik({
 }) {
   const svgRef = useRef<SVGSVGElement | null>(null)
   const asal: Vek = { x: 0, y: 0 }
-  const jendela = jendelaSeimbang([...JANGKAR, a, b], NISBAH, 0.05)
+  const jendela = jendelaTetap(BATAS.x, BATAS.y, NISBAH)
   const pointer = useSeretTitik(jendela, svgRef, [a, b], (i, t) => {
     const p = tahan(t, BATAS.x, BATAS.y)
     if (i === 0) onUbah(p, b)
@@ -68,8 +63,8 @@ export default function PerkalianTitik({
     >
       {busur && <path d={busur} fill="none" stroke={WARNA.sudut} strokeWidth={1.8} />}
 
-      <Panah dari={asal} ke={a} jendela={jendela} warna={WARNA.samping} tebal={2.8} pegangan />
-      <Panah dari={asal} ke={b} jendela={jendela} warna={WARNA.depan} tebal={2.8} pegangan />
+      <Panah dari={asal} ke={a} kunci="a" jendela={jendela} warna={WARNA.samping} tebal={2.8} pegangan />
+      <Panah dari={asal} ke={b} kunci="b" jendela={jendela} warna={WARNA.depan} tebal={2.8} pegangan />
 
       <text
         x={(KOTAK.x0 + KOTAK.x1) / 2} y={KOTAK.y0 + 15} textAnchor="middle"

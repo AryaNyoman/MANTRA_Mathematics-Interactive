@@ -2,7 +2,7 @@
   "adegan": "TransformasiSetiapTitik",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Video 01 topik Transformasi Geometri, Materi 01 'Setiap titik ikut pindah'. Standar ilustrasi v2. Pembuka 3D memakai LAPANGAN YANG DILIPAT pada sebuah garis, bukan pantulan di air. Versi air sudah dirender 4 September dan dibuang: pantulannya ditaruh di bawah permukaan air, dan permukaan air ManimGL menelan benda di bawahnya, sehingga layar tidak menampilkan pantulan apa pun sementara narasi menyebutnya. Melipat bidang pada garis adalah definisi pencerminan, dan kedua orangnya berdiri di atas tanah sehingga tidak ada yang bisa tertelan. Tiap segmen punya teks (terucap) dan tulis (tertulis, berlambang).",
+  "catatan": "Video 01 topik Transformasi Geometri, Materi 01 'Setiap titik ikut pindah'. Versi 2 (5 Sep 2026): diperpanjang dari 74 ke sekitar 120 detik atas permintaan ARYA. Yang ditambah ISI, bukan jeda: contoh kedua diperagakan penuh (titik C), pemeriksaan koordinat dengan menghitung petak, satu kekeliruan yang sering terjadi diperagakan SALAHNYA lalu dibetulkan (mencerminkan pada sumbu yang keliru), dan penutup berupa rangkuman satu kalimat plus satu pertanyaan. Pembuka 3D memakai lapangan yang dilipat; versi air dibuang 4 Sep sebab permukaan air ManimGL menelan pantulannya. Tiap segmen punya teks (terucap) dan tulis (tertulis, berlambang).",
   "segmen": [
     {
       "id": "buka",
@@ -36,8 +36,18 @@
     },
     {
       "id": "enam",
-      "teks": "Ada enam garis, satu untuk tiap sudut. Titik A satu koma satu mendarat di satu koma negatif satu.",
-      "tulis": "Ada 6 garis, satu untuk tiap sudut. A(1, 1) mendarat di A'(1, -1)."
+      "teks": "Ada enam garis, satu untuk tiap sudut. Masing-masing tegak lurus pada sumbu X.",
+      "tulis": "Ada 6 garis, satu untuk tiap sudut. Masing-masing tegak lurus pada sumbu X."
+    },
+    {
+      "id": "periksa",
+      "teks": "Ambil titik A di satu koma satu. Ia satu petak di atas sumbu X, jadi bayangannya satu petak di bawahnya.",
+      "tulis": "Ambil A(1, 1). Ia 1 petak di atas sumbu X, jadi bayangannya 1 petak di bawahnya."
+    },
+    {
+      "id": "hitung",
+      "teks": "Hitung petaknya sendiri di layar. Jadi A aksen di satu koma negatif satu.",
+      "tulis": "Hitung petaknya sendiri. Jadi A'(1, -1)."
     },
     {
       "id": "peta2",
@@ -45,14 +55,44 @@
       "tulis": "Hasilnya kita sebut *peta*. Gambarnya ikut pindah karena semua titiknya pindah."
     },
     {
-      "id": "bukti",
-      "teks": "Belum yakin? Ganti aturannya jadi dilatasi. Sekarang jarak antartitik ikut *berubah*.",
-      "tulis": "Belum yakin? Ganti aturannya jadi dilatasi. Sekarang jarak antartitik ikut *berubah*."
+      "id": "kedua",
+      "teks": "Sekarang contoh kedua, titik C di enam koma dua. Kali ini ia *dua* petak di atas sumbu X.",
+      "tulis": "Contoh kedua: C(6, 2). Kali ini ia *2* petak di atas sumbu X."
     },
     {
-      "id": "tutup",
-      "teks": "Benda utuh yang diangkat tangan tidak mungkin berubah jarak antarbagiannya. Yang bekerja memang *aturan pada titik*.",
-      "tulis": "Benda utuh yang diangkat tangan tidak bisa berubah jaraknya. Yang bekerja *aturan pada titik*."
+      "id": "cocok",
+      "teks": "Jadi bayangannya dua petak di bawah, di enam koma negatif dua. Cocok dengan gambarnya.",
+      "tulis": "Bayangannya 2 petak di bawah, di C'(6, -2). Cocok dengan gambarnya."
+    },
+    {
+      "id": "aturan",
+      "teks": "Dua contoh tadi memberi satu pola: nilai x tetap, nilai y berbalik tanda.",
+      "tulis": "Dua contoh tadi memberi satu pola: nilai x tetap, nilai y berbalik tanda."
+    },
+    {
+      "id": "keliru",
+      "teks": "Sekarang satu kekeliruan yang sering terjadi. Bentuk merah ini *digeser* turun, semuanya sejauh yang sama.",
+      "tulis": "Satu kekeliruan yang sering terjadi: bentuk merah ini *digeser* turun, semuanya sejauh yang sama."
+    },
+    {
+      "id": "betul",
+      "teks": "Bedanya di kaki huruf L-nya. Yang benar terbalik, yang digeser tidak. Periksa selalu satu titik.",
+      "tulis": "Bedanya di kaki huruf L-nya. Yang benar terbalik, yang digeser tidak."
+    },
+    {
+      "id": "bukti",
+      "teks": "Belum yakin? Lihat panjang keenam garisnya. Titik A berjalan dua petak, titik C berjalan *empat*.",
+      "tulis": "Belum yakin? Lihat panjang keenam garisnya. A berjalan 2 petak, C berjalan *4*."
+    },
+    {
+      "id": "rangkum",
+      "teks": "Benda utuh mustahil begitu. Yang bekerja memang *aturan pada titik*.",
+      "tulis": "Benda utuh mustahil begitu. Yang bekerja memang *aturan pada titik*."
+    },
+    {
+      "id": "tanya",
+      "teks": "Satu pertanyaan. Kalau sebuah titik tepat berada *di* sumbu X, ke mana ia pergi?",
+      "tulis": "Satu pertanyaan: kalau titik tepat *di* sumbu X, ke mana ia pergi?"
     }
   ]
 }

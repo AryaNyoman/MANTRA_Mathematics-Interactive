@@ -3,15 +3,12 @@
 import Link from 'next/link'
 import { useState, useSyncExternalStore } from 'react'
 import type { SoalKuis, TingkatKuis } from '@/content/tipe'
-import { ISI_TOPIK } from '@/content/daftar-isi'
 import { cariBab } from '@/content/subbab'
 import { langgan } from '@/lib/simpanan'
-import { bacaKemajuan, kuisTerbuka } from '@/lib/kemajuan'
 import {
   bacaLatihan, catatJawaban, persenTopik, ringkasPerTingkat,
   segarkanLencana, SYARAT_NAIK, URUT_TINGKAT,
 } from '@/lib/latihan-kemajuan'
-import Kuis from '@/components/topik/Kuis'
 import KartuBayang from '@/components/mantra/KartuBayang'
 
 /**
@@ -57,7 +54,6 @@ export default function ArenaLatihan({
   const [ke, setKe] = useState(0)
   const [pilih, setPilih] = useState<number | null>(null)
   const [periksa, setPeriksa] = useState(false)
-  const [kuisJalan, setKuisJalan] = useState(false)
 
   const kemajuanJson = useSyncExternalStore(
     langgan,
@@ -70,18 +66,9 @@ export default function ArenaLatihan({
   const persen = persenTopik(bank, k)
   const bab = cariBab(topik)
 
-  /* Kemajuan MATERI, terpisah dari kemajuan latihan. Dipakai hanya untuk
-     mengetahui apakah kuis babnya sudah boleh dibuka. */
-  const materiJson = useSyncExternalStore(
-    langgan,
-    () => JSON.stringify(bacaKemajuan(topik)),
-    () => JSON.stringify({ dibuka: [], detik: 0 }),
-  )
-  const materi = JSON.parse(materiJson) as ReturnType<typeof bacaKemajuan>
-  const jumlahTahap = ISI_TOPIK[topik]?.tahap.length ?? 0
-  const kuisSiap = jumlahTahap > 0 && kuisTerbuka(materi, jumlahTahap)
-  const sudahBuka = materi.dibuka.length
-  const sisaMateri = Math.max(0, jumlahTahap - sudahBuka)
+  /* Kemajuan MATERI tidak lagi dibaca di sini. Ia hanya dipakai untuk
+     mengetahui apakah kuis bab boleh dibuka, dan kuis bab sudah tidak ada
+     di halaman ini. */
 
   const soal = bank.filter((s) => s.tingkat === tingkat)
   const s: SoalKuis | undefined = soal[ke]
@@ -151,7 +138,7 @@ export default function ArenaLatihan({
                 {bab ? `Bab ${bab.no} · ${bab.kelas} · ` : ''}
                 {bank.length} soal
               </div>
-              <h2>Kemajuan Anda di topik ini</h2>
+              <h2>Kemajuanmu di topik ini</h2>
             </div>
             <div className="latihan-persen">{persen}%</div>
           </div>
@@ -314,54 +301,17 @@ export default function ArenaLatihan({
           </aside>
         </div>
 
-        {/* ---------------------------- kuis bab -------------------------- */}
-        <div className="tajuk-baris">
-          <h2>Kuis bab</h2>
-          <span className="rel" />
-          <span className="kanan">Berskor</span>
-        </div>
+        {/* KUIS BAB DIBUANG dari sini, 5 Sep 2026 atas permintaan ARYA.
 
-        <div className="kartu-kuis-bab">
-          {!kuisSiap ? (
-            <div className="kuis-baris">
-              <div>
-                <div className="kicker">Syaratnya terlihat, bukan disembunyikan</div>
-                <h3>Kuis terbuka setelah seluruh materi dibuka</h3>
-                <p>
-                  Sudah dibuka {sudahBuka} dari {jumlahTahap} materi, sisa {sisaMateri} lagi.
-                  Ini bukan hukuman: kuisnya berisi soal dari seluruh bab, jadi lebih
-                  enak dikerjakan setelah petanya utuh.
-                </p>
-                <div className="bar-besar" style={{ maxWidth: '26rem', marginBottom: 0 }}>
-                  <span
-                    style={{
-                      width: `${jumlahTahap === 0 ? 0 : Math.round((sudahBuka / jumlahTahap) * 100)}%`,
-                    }}
-                  />
-                </div>
-              </div>
-              <Link href={`/topik/${topik}`} className="pil-garis">
-                Buka materi dulu →
-              </Link>
-            </div>
-          ) : !kuisJalan ? (
-            <div className="kuis-baris">
-              <div>
-                <h3>Kuis siap dikerjakan</h3>
-                <p>
-                  Delapan soal acak dari seluruh bab, tanpa batas waktu. Skornya
-                  tersimpan di peramban Anda sendiri dan boleh diulang sesering yang
-                  Anda mau. Mengulang berarti bertemu soal baru, bukan soal yang sama.
-                </p>
-              </div>
-              <button type="button" className="pil-emas" onClick={() => setKuisJalan(true)}>
-                Mulai kuis
-              </button>
-            </div>
-          ) : (
-            <Kuis bank={bank} jumlah={8} kunciSimpan={`matra:kuis:${topik}`} topik={topik} />
-          )}
-        </div>
+            Ia mengulang kuis yang sudah ada di dalam halaman bab (
+            `/topik/<slug>?materi=kuis`), memakai bank dan kunci simpanan yang
+            sama persis. Dua pintu ke ruangan yang sama membuat siswa mengira
+            keduanya berbeda, dan skor yang muncul di satu tempat terlihat
+            hilang di tempat lain padahal itu skor yang sama.
+
+            Pembagiannya sekarang jelas: menu Latihan berisi BANK SOAL saja,
+            sedangkan soal Latihan dan Kuis tinggal di dalam babnya
+            masing-masing. */}
 
         <div className="kotak-emas" style={{ maxWidth: '54rem', margin: '24px 0 44px' }}>
           <b>Nilai di sini bukan penilaian resmi.</b>

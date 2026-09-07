@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useRef } from 'react'
 import { WARNA } from '@/lib/warna'
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 
 /**
  * Widget "Segitiga Sebangun", Trigonometri Kelas 10.
@@ -73,6 +74,11 @@ export default function SegitigaSebangun({
 }) {
   const svgRef = useRef<SVGSVGElement>(null)
   const menarik = useRef(false)
+  // Bagian gambar yang menyala mengikuti kendali yang sedang dipegang:
+  // busur sudut saat "sudut", ketiga sisi saat "skala".
+  const dipegang = useSedangDiubah()
+  const nyalaSudut = dipegang === 'sudut'
+  const nyalaSkala = dipegang === 'skala'
 
   const { sampingCm, depanCm, ppc } = hitungGeometri(skala, derajat)
   const rad = (derajat * Math.PI) / 180
@@ -171,15 +177,18 @@ export default function SegitigaSebangun({
           <line key={key} {...garis} stroke="#EDE6DA" strokeWidth={1} />
         ))}
       </g>
-      <line x1={ox} y1={oy} x2={bx} y2={oy} stroke={WARNA.samping} strokeWidth={3.5} strokeLinecap="round" />
-      <line x1={bx} y1={oy} x2={bx} y2={cy} stroke={WARNA.depan} strokeWidth={3.5} strokeLinecap="round" />
-      <line x1={bx} y1={cy} x2={ox} y2={oy} stroke={WARNA.miring} strokeWidth={3.5} strokeLinecap="round" />
+      <g className={nyalaSkala ? 'nyala' : undefined}>
+        <line x1={ox} y1={oy} x2={bx} y2={oy} stroke={WARNA.samping} strokeWidth={nyalaSkala ? 5 : 3.5} strokeLinecap="round" />
+        <line x1={bx} y1={oy} x2={bx} y2={cy} stroke={WARNA.depan} strokeWidth={nyalaSkala ? 5 : 3.5} strokeLinecap="round" />
+        <line x1={bx} y1={cy} x2={ox} y2={oy} stroke={WARNA.miring} strokeWidth={nyalaSkala ? 5 : 3.5} strokeLinecap="round" />
+      </g>
       <path d={`M ${bx - t} ${oy} L ${bx - t} ${oy - t} L ${bx} ${oy - t}`} fill="none" stroke={WARNA.redup} strokeWidth={2} />
       <path
+        className={nyalaSudut ? 'nyala' : undefined}
         d={`M ${ox + r} ${oy} A ${r} ${r} 0 0 0 ${ox + r * Math.cos(rad)} ${oy - r * Math.sin(rad)}`}
         fill="none"
         stroke={WARNA.sudut}
-        strokeWidth={3}
+        strokeWidth={nyalaSudut ? 5 : 3}
       />
       <text
         x={ox + (r + 13) * Math.cos(rad / 2)}

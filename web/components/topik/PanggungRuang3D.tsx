@@ -17,9 +17,9 @@ import JarakSejajar, { NAMA_BIDANG, hitung as hitungSejajar } from '@/components
 import SudutBersilangan, { SUDUT_JAWAB } from '@/components/widget/ruang-3d/SudutBersilangan'
 import SudutBidang, { MODE, sudutTerbaca, tumpuanBenar } from '@/components/widget/ruang-3d/SudutBidang'
 import DuniaNyataRuang from '@/components/widget/ruang-3d/DuniaNyataRuang'
-import TombolPilih from '@/components/widget/ruang-3d/TombolPilih'
 import { SUDUT_AWAL, bulat, type Sudut } from '@/components/widget/ruang-3d/ruang'
 import type { PropPanggung } from '@/components/topik/jenis'
+import { Angka, Petunjuk, Pilihan } from '@/components/kendali'
 
 /**
  * Panggung Ruang Tiga Dimensi: penyetelan widgetnya, dan tidak lebih.
@@ -94,10 +94,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
     )
 
     const petunjukTarik = (
-      <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-        <span className="titik" />
-        <span>tarik langsung gambarnya untuk memutar kubus</span>
-      </div>
+      <Petunjuk>tarik langsung gambarnya untuk memutar kubus.</Petunjuk>
     )
 
     kiri = (
@@ -118,26 +115,15 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
               <PemilihKedudukan pilih1={ruas1} pilih2={ruas2} sudut={sudut} onUbah={aturSudut} />
             </div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label><span>Ruas biru</span><span className="mono">{r1.nama}</span></label>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
-                  {RUAS.map((r, i) => (
-                    <TombolPilih key={`a${r.nama}`} aktif={i === ruas1} onClick={() => setRuas1(i)}>
-                      {r.nama}
-                    </TombolPilih>
-                  ))}
-                </div>
-              </div>
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label><span>Ruas merah</span><span className="mono">{r2.nama}</span></label>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
-                  {RUAS.map((r, i) => (
-                    <TombolPilih key={`b${r.nama}`} aktif={i === ruas2} onClick={() => setRuas2(i)}>
-                      {r.nama}
-                    </TombolPilih>
-                  ))}
-                </div>
-              </div>
+              <Pilihan nama="Ruas biru" arti="ruas pertama yang dibandingkan"
+                pilihan={RUAS.map((r, i) => ({ nilai: String(i), label: r.nama }))}
+                nilai={String(ruas1)} onPilih={(n) => setRuas1(Number(n))} />
+              <Pilihan nama="Ruas merah" arti="ruas kedua"
+                pilihan={RUAS.map((r, i) => ({ nilai: String(i), label: r.nama }))}
+                nilai={String(ruas2)} onPilih={(n) => setRuas2(Number(n))} />
+              <Petunjuk>
+                pilih dua ruas, lalu baca kedudukannya di tabel: sejajar, berpotongan, atau bersilangan.
+              </Petunjuk>
               {tombolKembali}
             </div>
           </>
@@ -147,18 +133,11 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
           <>
             <div className="layar"><KakiTegakLurus t={tKaki} sudut={sudut} onUbah={aturSudut} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="tkaki">
-                  <span>Geser titik Q sepanjang AC</span>
-                  <span className="mono">{bulat(tKaki * 100, 0)}%</span>
-                </label>
-                <input id="tkaki" type="range" min={0} max={1} step={0.01} value={tKaki}
-                       onChange={(e) => setTKaki(+e.target.value)} />
-              </div>
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>cari letak Q yang membuat BQ sependek mungkin, lalu lihat tanda siku-sikunya</span>
-              </div>
+              <Angka nama="Letak Q di AC" arti="0% tepat di A, 100% tepat di C" kunci="q" satuan="%"
+                nilai={Math.round(tKaki * 100)} onUbah={(n) => setTKaki(n / 100)} min={0} max={100} langkah={1} />
+              <Petunjuk>
+                cari letak Q yang membuat BQ sependek mungkin, lalu lihat tanda siku-sikunya.
+              </Petunjuk>
               {tombolKembali}
             </div>
           </>
@@ -168,13 +147,12 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
           <>
             <div className="layar"><DiagonalKubus langkah={langkah} sudut={sudut} onUbah={aturSudut} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                {LANGKAH.map((l, i) => (
-                  <TombolPilih key={l.judul} aktif={i === langkah} onClick={() => setLangkah(i)}>
-                    {l.judul}
-                  </TombolPilih>
-                ))}
-              </div>
+              <Pilihan nama="Langkah" arti="buka satu demi satu"
+                pilihan={LANGKAH.map((l, i) => ({ nilai: String(i), label: l.judul }))}
+                nilai={String(langkah)} onPilih={(n) => setLangkah(Number(n))} />
+              <Petunjuk>
+                di tiap langkah, cari segitiga siku-siku mana yang sedang dipakai Pythagoras.
+              </Petunjuk>
               {tombolKembali}
             </div>
           </>
@@ -184,21 +162,12 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
           <>
             <div className="layar"><JarakKeGaris pilih={titikGaris} sudut={sudut} onUbah={aturSudut} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label><span>Titik yang diukur ke garis AG</span>
-                  <span className="mono">{PILIHAN[titikGaris]}</span></label>
-                <div style={{ display: 'flex', gap: 6 }}>
-                  {PILIHAN.map((n, i) => (
-                    <TombolPilih key={n} aktif={i === titikGaris} onClick={() => setTitikGaris(i)}>
-                      titik {n}
-                    </TombolPilih>
-                  ))}
-                </div>
-              </div>
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>coba ketiganya, dan perhatikan angkanya sama sekali tidak berubah</span>
-              </div>
+              <Pilihan nama="Titik yang diukur ke garis AG" arti="jaraknya selalu tegak lurus ke garis"
+                pilihan={PILIHAN.map((n, i) => ({ nilai: String(i), label: `titik ${n}` }))}
+                nilai={String(titikGaris)} onPilih={(n) => setTitikGaris(Number(n))} />
+              <Petunjuk>
+                coba ketiganya, dan perhatikan angkanya sama sekali tidak berubah.
+              </Petunjuk>
               {tombolKembali}
             </div>
           </>
@@ -208,14 +177,12 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
           <>
             <div className="layar"><JarakKeBidang pilih={soalBidang} sudut={sudut} onUbah={aturSudut} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                <TombolPilih aktif={soalBidang === 0} onClick={() => setSoalBidang(0)}>
-                  A ke bidang BDE
-                </TombolPilih>
-                <TombolPilih aktif={soalBidang === 1} onClick={() => setSoalBidang(1)}>
-                  C ke bidang BDG
-                </TombolPilih>
-              </div>
+              <Pilihan nama="Soal" arti="titik dan bidang yang diukur jaraknya"
+                pilihan={[{ nilai: '0', label: 'A ke bidang BDE' }, { nilai: '1', label: 'C ke bidang BDG' }]}
+                nilai={String(soalBidang)} onPilih={(n) => setSoalBidang(Number(n))} />
+              <Petunjuk>
+                jaraknya diukur sepanjang garis yang tegak lurus bidang. Putar kubusnya sampai tanda siku-sikunya terlihat.
+              </Petunjuk>
               {tombolKembali}
             </div>
           </>
@@ -225,18 +192,11 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
           <>
             <div className="layar"><JarakSejajar t={tSejajar} sudut={sudut} onUbah={aturSudut} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="tsejajar">
-                  <span>Geser titik P sepanjang AE</span>
-                  <span className="mono">{bulat(tSejajar * 100, 0)}%</span>
-                </label>
-                <input id="tsejajar" type="range" min={0} max={1} step={0.01} value={tSejajar}
-                       onChange={(e) => setTSejajar(+e.target.value)} />
-              </div>
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>geser sejauh apa pun, angka jaraknya tidak bergerak</span>
-              </div>
+              <Angka nama="Letak P di AE" arti="0% tepat di A, 100% tepat di E" kunci="p" satuan="%"
+                nilai={Math.round(tSejajar * 100)} onUbah={(n) => setTSejajar(n / 100)} min={0} max={100} langkah={1} />
+              <Petunjuk>
+                geser sejauh apa pun, angka jaraknya tidak bergerak.
+              </Petunjuk>
               {tombolKembali}
             </div>
           </>
@@ -246,18 +206,11 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
           <>
             <div className="layar"><SudutBersilangan geser={geser} sudut={sudut} onUbah={aturSudut} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="geser">
-                  <span>Geser BG sejajar dirinya sendiri</span>
-                  <span className="mono">{bulat(geser * 100, 0)}%</span>
-                </label>
-                <input id="geser" type="range" min={0} max={1} step={0.01} value={geser}
-                       onChange={(e) => setGeser(+e.target.value)} />
-              </div>
-              <div className="skala-info" style={{ gridColumn: '1 / -1' }}>
-                <span className="titik" />
-                <span>geser sampai penuh, dan lihat BG mendarat tepat menjadi AH</span>
-              </div>
+              <Angka nama="Geseran BG" arti="0% di tempat asal, 100% sudah sejajar menempel AH" kunci="geser" satuan="%"
+                nilai={Math.round(geser * 100)} onUbah={(n) => setGeser(n / 100)} min={0} max={100} langkah={1} />
+              <Petunjuk>
+                geser sampai penuh, dan lihat BG mendarat tepat menjadi AH.
+              </Petunjuk>
               {tombolKembali}
             </div>
           </>
@@ -269,29 +222,27 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
               <SudutBidang mode={modeSudut} t={tTumpu} sudut={sudut} onUbah={aturSudut} />
             </div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1', display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                {MODE.map((x, i) => (
-                  <TombolPilih key={x.nama} aktif={i === modeSudut} onClick={() => setModeSudut(i)}>
-                    {x.nama}
-                  </TombolPilih>
-                ))}
-              </div>
+              <Pilihan nama="Sudut yang diukur" arti="pilih pasangan yang mau dilihat sudutnya"
+                pilihan={MODE.map((x, i) => ({ nilai: String(i), label: x.nama }))}
+                nilai={String(modeSudut)} onPilih={(n) => setModeSudut(Number(n))} />
               {modeSudut === 1 && (
                 <>
-                  <div style={{ gridColumn: '1 / -1' }}>
-                    <label htmlFor="ttumpu">
-                      <span>Geser titik tumpu P sepanjang BD</span>
-                      <span className="mono">{tumpuanBenar(tTumpu) ? 'di tengah' : 'meleset'}</span>
-                    </label>
-                    <input id="ttumpu" type="range" min={0.08} max={0.92} step={0.01} value={tTumpu}
-                           onChange={(e) => setTTumpu(+e.target.value)} />
-                  </div>
+                  <Angka nama="Letak titik tumpu P di BD" kunci="tumpu" satuan="%"
+                    arti={tumpuanBenar(tTumpu)
+                      ? 'tepat di tengah, kedua kakinya tegak lurus garis potong'
+                      : 'meleset, kakinya tidak tegak lurus garis potong, sudutnya belum sah'}
+                    nilai={Math.round(tTumpu * 100)} onUbah={(n) => setTTumpu(n / 100)} min={8} max={92} langkah={1} />
                   <button type="button" className="tombol garis" style={{ gridColumn: '1 / -1' }}
                           onClick={() => setTTumpu(0.5)}>
                     KEMBALIKAN P KE TENGAH
                   </button>
                 </>
               )}
+              <Petunjuk>
+                {modeSudut === 1
+                  ? 'geser P menjauh dari tengah, dan sudut yang terbaca ikut berubah. Hanya di tengah sudutnya sah.'
+                  : 'putar kubusnya sampai kedua kaki sudutnya terlihat jelas, lalu baca sudutnya di tabel.'}
+              </Petunjuk>
               {tombolKembali}
             </div>
           </>
@@ -305,7 +256,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
       <>
         {w === 'kubus-putar' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>sudut putar</td><td>{bulat(sudut.mendatar, 0)}°</td></tr>
@@ -325,7 +276,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'pemilih-kedudukan' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>ruas biru</td><td>{r1.nama} ({r1.jenis})</td></tr>
@@ -339,7 +290,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'kaki-tegak-lurus' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>letak Q pada AC</td><td>{bulat(tKaki * 100, 0)}%</td></tr>
@@ -358,7 +309,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'diagonal-kubus' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>rusuk kubus</td><td>6</td></tr>
@@ -377,7 +328,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'jarak-ke-garis' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 {PILIHAN.map((n) => (
@@ -398,7 +349,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'jarak-ke-bidang' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>titik yang diukur</td><td>{bidang.titik}</td></tr>
@@ -415,7 +366,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'jarak-sejajar' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>letak P pada AE</td><td>{bulat(tSejajar * 100, 0)}%</td></tr>
@@ -432,7 +383,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'sudut-bersilangan' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>geseran BG</td><td>{bulat(geser * 100, 0)}%</td></tr>
@@ -449,7 +400,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
 
         {w === 'sudut-bidang' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 {MODE.map((x, i) => (

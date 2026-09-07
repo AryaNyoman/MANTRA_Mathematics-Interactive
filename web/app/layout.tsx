@@ -43,7 +43,10 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#FAF9F5',
+  /* Bilah atas peramban HP kini navy, sama dengan nav yang menempel di
+     bawahnya. Dengan kertas, batas antara peramban dan nav gelap terlihat
+     sebagai garis terang yang tidak dimaksudkan siapa pun. */
+  themeColor: '#101A2B',
 }
 
 export default function RootLayout({

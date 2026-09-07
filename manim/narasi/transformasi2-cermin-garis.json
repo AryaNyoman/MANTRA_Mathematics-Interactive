@@ -1,0 +1,98 @@
+{
+  "adegan": "TransformasiCerminGaris",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video 02, Materi 02 'Cermin pada garis tegak dan mendatar'. Versi 2 (5 Sep 2026): diperpanjang dari 71 ke sekitar 120 detik. Tanpa 3D, sebab seluruh isinya klaim tentang JARAK dan kamera miring memendekkan satu arah lebih banyak daripada arah lain. Materi ini nomor dua, jadi istilah yang boleh dipakai baru prapeta, peta, dan cermin; translasi, rotasi, dilatasi, dan matriks semuanya masih di depan. Tiap segmen punya teks (terucap) dan tulis (tertulis, berlambang).",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi kedua: cermin pada garis tegak dan mendatar.",
+      "tulis": "Materi 02: cermin pada garis tegak dan mendatar."
+    },
+    {
+      "id": "kaca",
+      "teks": "Kamu berdiri dua meter di depan kaca. Bayanganmu ada di mana?",
+      "tulis": "Kamu berdiri 2 meter di depan kaca. Bayanganmu ada di mana?"
+    },
+    {
+      "id": "jarak",
+      "teks": "Dua meter di belakang kaca. Bukan menempel di kacanya, dan bukan pula sejauh empat meter.",
+      "tulis": "2 meter di belakang kaca. Bukan menempel di kacanya, bukan pula 4 meter."
+    },
+    {
+      "id": "bentuk",
+      "teks": "Bentuk ini prapetanya. Garis ungu tegak itu cerminnya, dan sekarang ia berimpit dengan sumbu Y.",
+      "tulis": "Bentuk ini prapetanya. Garis ungu tegak itu cerminnya, kini berimpit dengan sumbu Y."
+    },
+    {
+      "id": "cermin",
+      "teks": "Setiap titik menyeberang ke sisi lain garis itu.",
+      "tulis": "Setiap titik menyeberang ke sisi lain garis itu."
+    },
+    {
+      "id": "tegaklurus",
+      "teks": "Perhatikan dua angka yang sama di kiri dan kanan garis. Jaraknya sama, dan jalannya *tegak lurus* terhadap cermin.",
+      "tulis": "Dua angka yang sama di kiri dan kanan garis. Jaraknya sama, jalannya *tegak lurus*."
+    },
+    {
+      "id": "geser",
+      "teks": "Sekarang cerminnya kita pindah ke garis x sama dengan lima. Petanya ikut berpindah, dan kedua jaraknya tetap sama.",
+      "tulis": "Cerminnya dipindah ke garis x = 5. Petanya ikut, dan kedua jaraknya tetap sama."
+    },
+    {
+      "id": "rumus",
+      "teks": "Aturannya: x menjadi dua k dikurangi x, sedangkan y tidak disentuh sama sekali.",
+      "tulis": "Aturannya: x menjadi 2k - x, sedangkan y tidak disentuh sama sekali."
+    },
+    {
+      "id": "uji",
+      "teks": "Titik A satu koma satu. Dua kali lima dikurangi satu sama dengan sembilan, jadi A aksen sembilan koma satu.",
+      "tulis": "Titik A(1, 1). Dua kali 5 dikurangi 1 = 9, jadi A'(9, 1)."
+    },
+    {
+      "id": "petak",
+      "teks": "Hitung petaknya sendiri di layar. A berjarak empat petak di kiri cermin, dan A aksen empat petak di kanannya.",
+      "tulis": "Hitung petaknya sendiri. A berjarak 4 petak di kiri cermin, A' 4 petak di kanannya."
+    },
+    {
+      "id": "kedua",
+      "teks": "Contoh kedua, dan sengaja yang berbeda: titik B enam koma satu, yang berada di *kanan* cermin.",
+      "tulis": "Contoh kedua, sengaja berbeda: B(6, 1), yang berada di *kanan* cermin."
+    },
+    {
+      "id": "seberang",
+      "teks": "Rumusnya sama persis. Dua kali lima dikurangi enam sama dengan empat, jadi B aksen menyeberang ke kiri.",
+      "tulis": "Rumusnya sama persis. Dua kali 5 dikurangi 6 = 4, jadi B'(4, 1) menyeberang ke kiri."
+    },
+    {
+      "id": "dua_arah",
+      "teks": "Jadi satu rumus mengurus kedua arah sekaligus. Kita tidak perlu aturan terpisah untuk titik di kanan.",
+      "tulis": "Satu rumus mengurus kedua arah. Tidak perlu aturan terpisah untuk titik di kanan."
+    },
+    {
+      "id": "keliru",
+      "teks": "Sekarang kekeliruan yang paling sering. Bentuk merah ini cuma *dipindah* ke seberang, tidak dibalik.",
+      "tulis": "Kekeliruan yang paling sering: bentuk merah ini cuma *dipindah* ke seberang, tidak dibalik."
+    },
+    {
+      "id": "betul",
+      "teks": "Tempatnya sama persis, tapi lihat titik A. Yang benar mendarat di sembilan, yang keliru mendarat di empat.",
+      "tulis": "Tempatnya sama persis, tapi lihat titik A. Yang benar mendarat di 9, yang keliru di 4."
+    },
+    {
+      "id": "mendatar",
+      "teks": "Cermin mendatar bekerja dengan cara yang sama, tinggal tukar perannya: y menjadi dua h dikurangi y.",
+      "tulis": "Cermin mendatar sama caranya, tinggal tukar perannya: y menjadi 2h - y."
+    },
+    {
+      "id": "rangkum",
+      "teks": "Rangkumannya satu kalimat: titik dan bayangannya sama jauh dari cermin, dan jalannya selalu tegak lurus.",
+      "tulis": "Rangkumannya: titik dan bayangannya sama jauh dari cermin, jalannya selalu tegak lurus."
+    },
+    {
+      "id": "tanya",
+      "teks": "Satu pertanyaan. Kalau sebuah titik tepat berada *di* garis cerminnya, ke mana ia pergi?",
+      "tulis": "Satu pertanyaan: kalau titik tepat *di* garis cerminnya, ke mana ia pergi?"
+    }
+  ]
+}

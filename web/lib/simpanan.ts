@@ -43,9 +43,18 @@ export function tulis(kunci: string, nilai: string): void {
   pendengar.forEach((cb) => cb())
 }
 
-/** Angka kecil (mis. tingkat ukuran subtitle). Nilai rusak diabaikan. */
+/** Angka kecil (mis. tingkat ukuran subtitle). Nilai rusak diabaikan.
+ *
+ * Kunci yang BELUM PERNAH disimpan wajib mengembalikan `bawaan`, bukan nol.
+ * Sampai 4 Sep 2026 fungsi ini menghitung `Number(null)`, dan nilainya nol,
+ * bukan `NaN`. `Number.isFinite(0)` benar, jadi nol itu lolos sebagai nilai
+ * yang sah dan nilai bawaan tidak pernah dipakai. Akibatnya ukuran subtitle
+ * selalu mulai dari tingkat terkecil, bukan dari tingkat yang dimaksud, dan
+ * lebar kolom alat mulai dari nol piksel. */
 export function bacaAngka(kunci: string, bawaan: number): number {
-  const n = Number(baca(kunci))
+  const mentah = baca(kunci)
+  if (mentah === null || mentah.trim() === '') return bawaan
+  const n = Number(mentah)
   return Number.isFinite(n) ? n : bawaan
 }
 

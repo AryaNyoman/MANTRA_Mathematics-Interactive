@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { bacaKemajuan } from '@/lib/kemajuan'
 import { langgan } from '@/lib/simpanan'
 import KartuBayang from './KartuBayang'
+import MunculSaatGulir from './MunculSaatGulir'
 
 /**
  * Peta Materi: enam bab dikelompokkan per kelas, tiap bab memperlihatkan
@@ -125,8 +126,8 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
             <span className="jml angka-rata">{k.isi.length} bab</span>
             <span className="rel" />
           </div>
-          <div className="kisi-dua">
-            {k.isi.map((b) => {
+          <div className="kisi-bab">
+            {k.isi.map((b, i) => {
               const sudah = new Set(dibuka[b.slug] ?? [])
               const jumlahDibuka = b.slugTahap.filter((s) => sudah.has(s)).length
               const tuntas = jumlahDibuka >= b.jumlahMateri && b.jumlahMateri > 0
@@ -153,8 +154,23 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
                   ? `/topik/${b.slug}`
                   : `/topik/${b.slug}?materi=${lanjut.slug}`
 
+              // Hijau saat 100 persen, emas selama masih berjalan. Warna
+              // yang berubah di ujung membuat "selesai" terasa sebagai
+              // peristiwa, bukan sekadar angka yang kebetulan 100.
+              const warnaMaju = tuntas ? '#6E9C7A' : '#B08A3E'
+
               return (
-                <KartuBayang key={b.slug} className="kartu-mantra kartu-bab">
+                <MunculSaatGulir key={b.slug} tunda={(i % 2) * 90}>
+                <KartuBayang
+                  className="kartu-mantra kartu-bab"
+                  data-mulai={jumlahDibuka > 0}
+                  data-tuntas={tuntas}
+                >
+                  {/* Garis emas di bibir atas kartu. Ia tumbuh dari kiri saat
+                      babnya sudah pernah dibuka atau saat kursor lewat, jadi
+                      "sudah pernah ke sini" terbaca sebelum angka persennya
+                      sempat dibaca. */}
+                  <span className="bab-nyala" aria-hidden />
                   <div className="bab-atas">
                     <div>
                       <div className="bab-kicker">
@@ -173,7 +189,7 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
                         <circle
                           className="maju"
                           cx="20" cy="20" r="17" fill="none"
-                          stroke="#B08A3E" strokeWidth="3.2" strokeLinecap="round"
+                          stroke={warnaMaju} strokeWidth="3.2" strokeLinecap="round"
                           strokeDasharray={KELILING} strokeDashoffset={offset}
                         />
                       </svg>
@@ -181,47 +197,53 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
                     </div>
                   </div>
 
+                  {/* SATU BARIS PER SUB-BAB, bisa diklik, membuka materi
+                      pertama sub-bab itu. Sampai 4 Sep 2026 tiap sub-bab
+                      diikuti daftar keping berisi seluruh judul materinya,
+                      sehingga satu kartu bab bisa setinggi 700 piksel dan
+                      halaman ini terbaca sebagai daftar isi yang padat, bukan
+                      sebagai peta. Pemilihan materi satu per satu tetap ada,
+                      tempatnya di daftar materi halaman belajar. */}
                   <div className="bab-sub">
-                    {b.sub.map((s) => (
-                      <div key={s.huruf} className="bab-sub-baris">
-                        <span className="huruf">{s.huruf}</span>
-                        <div className="bab-sub-isi">
-                          <div className="nama">{s.nama}</div>
-                          {/* Tiap materi satu tautan. Yang sudah pernah dibuka
-                              menyala tipis dan diberi centang, jadi siswa tahu
-                              sampai mana ia berjalan tanpa membuka apa pun. */}
-                          <div className="bab-materi">
-                            {s.materi.map((m) =>
-                              m.siap ? (
-                                <Link
-                                  key={m.slug}
-                                  href={`/topik/${b.slug}?materi=${m.slug}`}
-                                  className="taut-materi"
-                                  data-selesai={sudah.has(m.slug)}
-                                >
-                                  <span className="no angka-rata">{dua(m.no)}</span>
-                                  {m.judul}
-                                </Link>
-                              ) : (
-                                <span
-                                  key={m.slug}
-                                  className="taut-materi mati"
-                                  title="Materi ini belum dibangun"
-                                >
-                                  <span className="no angka-rata">{dua(m.no)}</span>
-                                  {m.judul}
-                                </span>
-                              ),
-                            )}
-                          </div>
-                        </div>
-                        <span className="jml angka-rata">{s.jumlah} materi</span>
-                      </div>
-                    ))}
+                    {b.sub.map((s) => {
+                      const selesai = s.materi.filter((m) => sudah.has(m.slug)).length
+                      const awal = s.materi.find((m) => m.siap) ?? s.materi[0]
+                      const isi = (
+                        <>
+                          <span className="huruf">{s.huruf}</span>
+                          <span className="nama">{s.nama}</span>
+                          <span className="hitung angka-rata">
+                            {selesai}/{s.jumlah}
+                          </span>
+                        </>
+                      )
+                      return awal?.siap ? (
+                        <Link
+                          key={s.huruf}
+                          href={`/topik/${b.slug}?materi=${awal.slug}`}
+                          className="bab-sub-baris"
+                          title={`Buka ${s.nama}, mulai dari ${awal.judul}`}
+                        >
+                          {isi}
+                        </Link>
+                      ) : (
+                        <span
+                          key={s.huruf}
+                          className="bab-sub-baris mati"
+                          title="Sub-bab ini belum dibangun"
+                        >
+                          {isi}
+                        </span>
+                      )
+                    })}
                   </div>
 
                   <div className="bab-aksi">
-                    <Link href={tujuan} className="pil-kecil-emas">
+                    <Link
+                      href={tujuan}
+                      className="pil-kecil-emas"
+                      style={{ background: warnaMaju }}
+                    >
                       {aksi}
                     </Link>
                     <Link href={`/latihan/${b.slug}`} className="pil-kecil-garis">
@@ -237,6 +259,7 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
                     )}
                   </div>
                 </KartuBayang>
+                </MunculSaatGulir>
               )
             })}
           </div>

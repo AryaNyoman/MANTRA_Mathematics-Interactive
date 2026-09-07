@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import BidangVektor from './BidangVektor'
 import Panah from './Panah'
 import Legenda from './Legenda'
-import { angka, jendelaSeimbang, keLayar, tahan, tambah, type Vek } from './geometri'
+import { angka, keLayar, tahan, tambah, type Vek, jendelaTetap } from './geometri'
 import { KERTAS, KOTAK, MONO, NISBAH, WARNA } from './gaya'
 import { useSeretTitik } from './useSeret'
 
@@ -12,11 +12,6 @@ import { useSeretTitik } from './useSeret'
 export const LEBAR_SUNGAI = 3
 
 export const BATAS = { x: 5, y: 4.5 }
-
-const JANGKAR: Vek[] = [
-  { x: -BATAS.x, y: -1.2 },
-  { x: BATAS.x, y: BATAS.y },
-]
 
 /**
  * Berapa lama menyeberang dan sejauh mana hanyut ke hilir.
@@ -54,11 +49,7 @@ export default function PerahuSungai({
   const hasil = hasilSeberang(gerak)
   const mendarat: Vek | null = hasil ? { x: hasil.hanyut, y: LEBAR_SUNGAI } : null
 
-  const jendela = jendelaSeimbang(
-    [...JANGKAR, dayung, arus, gerak, ...(mendarat ? [mendarat] : [])],
-    NISBAH,
-    0.05,
-  )
+  const jendela = jendelaTetap(BATAS.x, BATAS.y, NISBAH, 0.05, -1.2)
   const pointer = useSeretTitik(jendela, svgRef, [dayung, arus], (i, t) => {
     if (i === 0) onUbah(tahan(t, BATAS.x, BATAS.y), arus)
     // Arus mengalir sepanjang sungai, jadi ia tidak punya bagian tegak.
@@ -74,7 +65,12 @@ export default function PerahuSungai({
   // Label titik mendarat ditulis di tengah titiknya, tetapi begitu titiknya
   // mendekati tepi, tulisannya menjulur keluar SVG dan terpotong tanpa
   // peringatan. Karena itu jangkarnya berpindah ke ujung kanan atau kiri.
-  const xLabelMendarat = mendarat ? p.x(mendarat.x) : 0
+  // Jendelanya tetap, jadi perahu yang hanyut jauh mendarat DI LUAR gambar.
+  // Titiknya digambar di tepi kotak dan labelnya mengatakan itu, bukan
+  // jendelanya yang melar mengejar (keputusan ARYA 5 Sep 2026).
+  const xMendaratTampak = mendarat ? Math.max(-BATAS.x, Math.min(BATAS.x, mendarat.x)) : 0
+  const mendaratDiLuar = mendarat ? Math.abs(mendarat.x) > BATAS.x : false
+  const xLabelMendarat = mendarat ? p.x(xMendaratTampak) : 0
   const dekatKanan = xLabelMendarat > KOTAK.x1 - 70
   const dekatKiri = xLabelMendarat < KOTAK.x0 + 70
   const jangkarLabel = dekatKanan ? 'end' : dekatKiri ? 'start' : 'middle'
@@ -108,16 +104,16 @@ export default function PerahuSungai({
       {mendarat && (
         <>
           <line
-            x1={p.x(0)} y1={p.y(0)} x2={p.x(mendarat.x)} y2={p.y(mendarat.y)}
+            x1={p.x(0)} y1={p.y(0)} x2={p.x(xMendaratTampak)} y2={p.y(mendarat.y)}
             stroke={WARNA.sudut} strokeWidth={1.6} strokeDasharray="6 5" opacity={0.85}
           />
-          <circle cx={p.x(mendarat.x)} cy={p.y(mendarat.y)} r={4.5} fill={WARNA.sudut} />
+          <circle cx={p.x(xMendaratTampak)} cy={p.y(mendarat.y)} r={4.5} fill={WARNA.sudut} />
           <text
-            x={xLabelAman} y={p.y(mendarat.y) + 16} textAnchor={jangkarLabel}
+            x={xLabelAman} y={p.y(mendarat.y) + (mendaratDiLuar ? 30 : 16)} textAnchor={jangkarLabel}
             fontSize={11} fontFamily={MONO} fill={WARNA.sudut}
             stroke={KERTAS} strokeWidth={3} paintOrder="stroke"
           >
-            mendarat di {angka(mendarat.x, 2)}
+            mendarat di {angka(mendarat.x, 2)}{mendaratDiLuar ? ', di luar gambar' : ''}
           </text>
         </>
       )}
@@ -125,8 +121,8 @@ export default function PerahuSungai({
       {/* Tanpa label di badan panah. Ketiganya berangkat dari satu titik dan
           bebas diseret siswa, jadi label yang menempel pasti saling menimpa
           pada suatu susunan. Namanya dipindah ke kotak keterangan di bawah. */}
-      <Panah dari={asal} ke={dayung} jendela={jendela} warna={WARNA.samping} pegangan />
-      <Panah dari={asal} ke={arus} jendela={jendela} warna={WARNA.depan} pegangan />
+      <Panah dari={asal} ke={dayung} kunci="dayung" jendela={jendela} warna={WARNA.samping} pegangan />
+      <Panah dari={asal} ke={arus} kunci="arus" jendela={jendela} warna={WARNA.depan} pegangan />
       <Panah dari={asal} ke={gerak} jendela={jendela} warna={WARNA.miring} tebal={2.8} />
 
       {/* Pojok kanan atas, bukan kiri bawah. Sumbu mendatar pada widget ini

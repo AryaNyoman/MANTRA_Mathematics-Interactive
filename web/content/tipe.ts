@@ -32,7 +32,7 @@ export type Blok =
   | { jenis: 'contoh'; judul: string; baris: string[]; simpul?: string }
   /** penanda pergantian bagian, dengan garis pemisah dan nomor urut */
   | { jenis: 'sesi'; judul: string }
-  /** ajakan mencoba alat di sebelah kiri, ditaruh di TENGAH materi */
+  /** ajakan mencoba alat interaktifnya, ditaruh di TENGAH materi */
   | { jenis: 'coba'; teks: string; langkah?: string[] }
 
 export type Tahap = {

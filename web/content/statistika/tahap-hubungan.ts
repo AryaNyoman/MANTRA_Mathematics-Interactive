@@ -86,7 +86,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri membiarkan Anda menyeret titiknya sendiri.',
+        teks: 'Alat interaktifnya membiarkan Anda menyeret titiknya sendiri.',
         langkah: [
           'Tekan tombol contoh siap pakai: naik, turun, tidak berhubungan, melengkung.',
           'Perhatikan keterangan arah dan bentuk di bawah gambar berubah mengikuti sebarannya.',
@@ -139,7 +139,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri membiarkan Anda menarik garisnya sendiri.',
+        teks: 'Alat interaktifnya membiarkan Anda menarik garisnya sendiri.',
         langkah: [
           'Seret ujung garis sampai menurut Anda paling pas.',
           'Perhatikan ruas tegak dari tiap titik ke garis, itulah residunya.',
@@ -262,7 +262,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menampilkan beberapa sebaran dengan nilai r yang berbeda.',
+        teks: 'Alat interaktifnya menampilkan beberapa sebaran dengan nilai r yang berbeda.',
         langkah: [
           'Bandingkan sebaran dengan r sekitar 0,99 dan r sekitar 0,34.',
           'Buka contoh melengkung, lalu perhatikan r nya nol padahal titik-titiknya membentuk lengkung yang rapi.',
@@ -317,7 +317,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       { jenis: 'paragraf', teks: 'Gambar grafiknya dengan sumbu tegak mulai dari nol, dan garisnya nyaris rata. Sekarang gambar lagi dengan sumbu tegak mulai dari 410. Grafik yang sama persis berubah jadi lonjakan tajam yang terlihat seperti keberhasilan besar.' },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menampilkan kedua versi berdampingan.',
+        teks: 'Alat interaktifnya menampilkan kedua versi berdampingan.',
         langkah: [
           'Geser batas bawah sumbu pada grafik kanan, dari 0 sampai 412.',
           'Perhatikan angkanya tidak berubah sama sekali, cuma sumbunya.',

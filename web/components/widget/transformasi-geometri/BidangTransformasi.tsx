@@ -1,7 +1,8 @@
 'use client'
 
+import { petakSumbu } from '@/lib/petak-sumbu'
 import type { PointerEvent, ReactNode, RefObject } from 'react'
-import { keLayar, labelSkala, petak, type Jendela } from './papan'
+import { keLayar, labelSkala, type Jendela } from './papan'
 import { GARIS_PETAK, GARIS_SUMBU, KERTAS, KOTAK, MONO, VH, VW, WARNA } from './gaya'
 
 /**
@@ -44,8 +45,8 @@ export default function BidangTransformasi({
   children?: ReactNode
 }) {
   const p = keLayar(jendela, KOTAK)
-  const petakX = petak(jendela.xMin, jendela.xMax, 7)
-  const petakY = petak(jendela.yMin, jendela.yMax, 5)
+  const petakX = petakSumbu(jendela.xMin, jendela.xMax, KOTAK.x1 - KOTAK.x0)
+  const petakY = petakSumbu(jendela.yMin, jendela.yMax, KOTAK.y1 - KOTAK.y0)
 
   // Sumbu digambar di tempat nol berada. Kalau nol ada di luar jendela,
   // sumbunya ditempel ke tepi supaya angkanya tetap terbaca dan tidak melayang

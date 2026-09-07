@@ -1,0 +1,23 @@
+{
+  "total": 124.872,
+  "segmen": {
+    "buka": 4.416,
+    "kaca": 5.592,
+    "jarak": 7.272,
+    "bentuk": 7.632,
+    "cermin": 3.552,
+    "tegaklurus": 8.472,
+    "geser": 8.28,
+    "rumus": 5.784,
+    "uji": 8.4,
+    "petak": 7.992,
+    "kedua": 7.248,
+    "seberang": 7.824,
+    "dua_arah": 7.32,
+    "keliru": 7.128,
+    "betul": 6.744,
+    "mendatar": 6.936,
+    "rangkum": 7.224,
+    "tanya": 7.056
+  }
+}

@@ -104,12 +104,20 @@ class PerahuVektor(AdeganMatra):
         # ==============================================================
         # Babak 1: dunia nyata, 3D, dari dekat
         # ==============================================================
-        air = ilustrasi.air_hidup(self, PANJANG_SUNGAI, LEBAR_SUNGAI,
+        # Air dilebihkan 0,25 ke tiap tepi supaya menyelip DI BAWAH tanah:
+        # versi lama menyisakan celah krem antara air dan tepian (ARYA 5 Sep).
+        air = ilustrasi.air_hidup(self, PANJANG_SUNGAI, LEBAR_SUNGAI + 1.0,
                                   pusat=(0.0, Y_SUNGAI))
         tepi_jauh = ilustrasi.tanah(PANJANG_SUNGAI, 2.4, LEBAR_SUNGAI + 1.2)
-        tepi_dekat = ilustrasi.tanah(PANJANG_SUNGAI, 2.4, -1.2)
+        # Tepi dekat mundur 0,35 dari titik asal: perahu di (0, 0) harus
+        # MENGAPUNG di samping tepian, bukan terkubur separuh di dalam
+        # lempengan tanah yang atapnya di atas garis air (render 5 Sep).
+        tepi_dekat = ilustrasi.tanah(PANJANG_SUNGAI, 2.4, -1.2 - 0.35)
 
-        asli = ilustrasi.perahu(0.9)
+        # Perahu dayung v2, haluan diputar ke +y: menghadap seberang, sebab
+        # ceritanya ia didayung lurus ke seberang.
+        asli = ilustrasi.perahu(1.1)
+        asli.rotate(90 * DEGREES, axis=OUT, about_point=ORIGIN)
         perahu = asli.copy()
         self.bx = ValueTracker(0.0)
         self.by = ValueTracker(0.0)
@@ -129,11 +137,36 @@ class PerahuVektor(AdeganMatra):
         kamera.pasang_awal(frame, theta=-34, phi=70,
                            pusat=(0.4, 0.7, 0.35), tinggi=4.6)
         self.add(tepi_jauh, tepi_dekat, air, perahu)
+        # Dua peraga 3D untuk dua kalimat pembuka (jam dari subtitle):
+        # 6,5 s "selebar 3 km" -> garis ukur melintang sungai;
+        # 8,4 s "ingin menyeberang ke tepi seberang" -> niat lurus ke seberang.
+        # Keduanya dipudarkan sebelum kamera terbang, supaya peta mulai bersih.
+        X_UKUR, Z_PERAGA = 1.7, 0.07
+        ukur3d = VGroup(
+            Line([X_UKUR, 0, Z_PERAGA], [X_UKUR, LEBAR_SUNGAI, Z_PERAGA]),
+            Line([X_UKUR - 0.18, 0, Z_PERAGA], [X_UKUR + 0.18, 0, Z_PERAGA]),
+            Line([X_UKUR - 0.18, LEBAR_SUNGAI, Z_PERAGA], [X_UKUR + 0.18, LEBAR_SUNGAI, Z_PERAGA]),
+        ).set_stroke(AKSEN2, 4)
+        # Label berdiri menghadap kamera (dimiringkan phi, lalu diputar theta),
+        # sebab tulisan yang rebah di air tergencet pada kamera 66 derajat.
+        label_ukur = teks("3 km", 34, AKSEN2)
+        label_ukur.rotate(66 * DEGREES, axis=RIGHT).rotate(-26 * DEGREES, axis=OUT)
+        label_ukur.move_to([X_UKUR + 0.55, LEBAR_SUNGAI / 2, 0.40])
+        niat = DashedLine([0, 0.55, Z_PERAGA], [0, LEBAR_SUNGAI - 0.12, Z_PERAGA],
+                          dash_length=0.12).set_stroke(SOROT, 4)
         with sinema.babak(self, "sapa", DURASI) as b:
             sinema.judul_pembuka(self, "Materi 01: Angka saja tidak cukup",
-                                 lama=3.2, y=2.4)
-            b.catat(3.2)
-            b.jeda(1.0)
+                                 lama=2.8, y=2.4)
+            b.catat(2.8)
+            # "perahu kecil di tepi sungai": kamera mendekat pelan ke perahunya
+            b.main(kamera.sudut(frame, theta=-26, phi=66, pusat=(0.5, 0.9, 0.3),
+                                tinggi=4.0), run_time=3.2)
+            b.tunggu_sampai(6.5)
+            b.main(ShowCreation(ukur3d), FadeIn(label_ukur), run_time=1.4)
+            b.tunggu_sampai(8.5)
+            b.main(ShowCreation(niat), run_time=1.6)
+            b.tunggu_sampai(11.2)
+            b.main(FadeOut(ukur3d), FadeOut(label_ukur), FadeOut(niat), run_time=0.7)
         qc.periksa_adegan(self, {"perahu": perahu})
 
         # ==============================================================
@@ -175,8 +208,17 @@ class PerahuVektor(AdeganMatra):
             b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
                                 tinggi=tinggi), run_time=lama)
             self.di_air = False
-            b.main(FadeOut(dunia3d), bidang.animate.set_opacity(1),
+            # Begitu kamera tegak lurus, lambung 3D cuma terlihat sebagai elips
+            # abu. Ia ditukar dengan ikon perahu tampak atas (ARYA 5 Sep 2026)
+            # yang mengikuti dua tracker yang sama, jadi tidak ada loncatan.
+            perahu.clear_updaters()
+            perahu2d = ilustrasi.perahu_atas(1.1).move_to([0, 0, Z])
+            perahu2d.add_updater(lambda m: m.move_to(
+                [self.bx.get_value(), self.by.get_value(), Z]))
+            b.main(FadeOut(dunia3d), FadeOut(perahu), FadeIn(perahu2d),
+                   bidang.animate.set_opacity(1),
                    pita.animate.set_fill(AKSEN2, PEKAT_PITA), run_time=1.4)
+            self.remove(perahu)
             identitas = sinema.identitas(self, "sungai = 3 km", "1 petak = 1 km",
                                          alas=True)
             identitas.set_opacity(0)
@@ -392,7 +434,7 @@ class PerahuVektor(AdeganMatra):
         # Dunianya disingkirkan lebih dulu. Alas teks TIDAK cukup: benda dunia
         # tetap tergambar di atas teks HUD. Aturan 4 STANDAR-ILUSTRASI-VIDEO
         # mengizinkan layar bersih untuk penutup, paling banyak satu babak.
-        semua = Group(bidang, pita, perahu, p_dayung, p_arus, p_res, l_dayung, l_arus,
+        semua = Group(bidang, pita, perahu2d, p_dayung, p_arus, p_res, l_dayung, l_arus,
                       titik_ujung, l_koord)
         with sinema.babak(self, "tutup", DURASI) as b:
             b.main(FadeOut(semua), FadeOut(ukur), FadeOut(identitas),

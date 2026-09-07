@@ -1,0 +1,159 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/transformasi2-cermin-garis.json
+
+1
+00:00:00.000 --> 00:00:04.416
+Materi 02: cermin pada garis tegak dan mendatar.
+
+2
+00:00:04.416 --> 00:00:07.790
+Kamu berdiri 2 meter di depan kaca.
+
+3
+00:00:07.790 --> 00:00:10.008
+Bayanganmu ada di mana?
+
+4
+00:00:10.008 --> 00:00:12.569
+2 meter di belakang kaca.
+
+5
+00:00:12.569 --> 00:00:17.280
+Bukan menempel di kacanya, bukan pula 4 meter.
+
+6
+00:00:17.280 --> 00:00:19.328
+Bentuk ini prapetanya.
+
+7
+00:00:19.328 --> 00:00:22.213
+Garis ungu tegak itu cerminnya,
+
+8
+00:00:22.213 --> 00:00:24.912
+kini berimpit dengan sumbu Y.
+
+9
+00:00:24.912 --> 00:00:28.464
+Setiap titik menyeberang ke sisi lain garis itu.
+
+10
+00:00:28.464 --> 00:00:33.124
+Dua angka yang sama di kiri dan kanan garis.
+
+11
+00:00:33.124 --> 00:00:36.936
+Jaraknya sama, jalannya <b>tegak lurus</b>.
+
+12
+00:00:36.936 --> 00:00:40.545
+Cerminnya dipindah ke garis x = 5.
+
+13
+00:00:40.545 --> 00:00:45.216
+Petanya ikut, dan kedua jaraknya tetap sama.
+
+14
+00:00:45.216 --> 00:00:47.633
+Aturannya: x menjadi 2k - x,
+
+15
+00:00:47.633 --> 00:00:51.000
+sedangkan y tidak disentuh sama sekali.
+
+16
+00:00:51.000 --> 00:00:53.100
+Titik A(1, 1).
+
+17
+00:00:53.100 --> 00:00:59.400
+Dua kali 5 dikurangi 1 = 9, jadi A'(9, 1).
+
+18
+00:00:59.400 --> 00:01:01.768
+Hitung petaknya sendiri.
+
+19
+00:01:01.768 --> 00:01:05.123
+A berjarak 4 petak di kiri cermin,
+
+20
+00:01:05.123 --> 00:01:07.392
+A' 4 petak di kanannya.
+
+21
+00:01:07.392 --> 00:01:11.611
+Contoh kedua, sengaja berbeda: B(6, 1),
+
+22
+00:01:11.611 --> 00:01:14.640
+yang berada di <b>kanan</b> cermin.
+
+23
+00:01:14.640 --> 00:01:16.644
+Rumusnya sama persis.
+
+24
+00:01:16.644 --> 00:01:20.269
+Dua kali 5 dikurangi 6 = 4, jadi B'(4,
+
+25
+00:01:20.269 --> 00:01:22.464
+1) menyeberang ke kiri.
+
+26
+00:01:22.464 --> 00:01:25.300
+Satu rumus mengurus kedua arah.
+
+27
+00:01:25.300 --> 00:01:29.784
+Tidak perlu aturan terpisah untuk titik di kanan.
+
+28
+00:01:29.784 --> 00:01:32.242
+Kekeliruan yang paling sering:
+
+29
+00:01:32.242 --> 00:01:35.765
+bentuk merah ini cuma <b>dipindah</b> ke seberang,
+
+30
+00:01:35.765 --> 00:01:36.912
+tidak dibalik.
+
+31
+00:01:36.912 --> 00:01:40.244
+Tempatnya sama persis, tapi lihat titik A.
+
+32
+00:01:40.244 --> 00:01:43.656
+Yang benar mendarat di 9, yang keliru di 4.
+
+33
+00:01:43.656 --> 00:01:48.908
+Cermin mendatar sama caranya, tinggal tukar perannya:
+
+34
+00:01:48.908 --> 00:01:50.592
+y menjadi 2h - y.
+
+35
+00:01:50.592 --> 00:01:51.792
+Rangkumannya:
+
+36
+00:01:51.792 --> 00:01:55.531
+titik dan bayangannya sama jauh dari cermin,
+
+37
+00:01:55.531 --> 00:01:57.816
+jalannya selalu tegak lurus.
+
+38
+00:01:57.816 --> 00:02:03.183
+Satu pertanyaan: kalau titik tepat <b>di</b> garis cerminnya,
+
+39
+00:02:03.183 --> 00:02:04.872
+ke mana ia pergi?

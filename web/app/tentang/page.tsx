@@ -63,7 +63,7 @@ export default function Tentang() {
           <h2>Dibuat dengan</h2>
           <span className="rel" />
         </div>
-        <div className="kisi-dua" style={{ marginBottom: 20 }}>
+        <div className="kisi-alat">
           <article className="kartu-alat">
             <span className="plat-logo">
               <Image src="/mantra/logo-manim.png" alt="Manim" width={132} height={74} />
@@ -81,8 +81,13 @@ export default function Tentang() {
                 Indonesia, dan tiap rumus digambar dari langkah awalnya, bukan
                 ditampilkan jadi.
               </p>
-              <a href="https://github.com/3b1b/manim" target="_blank" rel="noreferrer">
-                github.com/3b1b/manim →
+              {/* Tautan ke manim.community, permintaan ARYA 5 Sep 2026.
+                  CATATAN: yang dipakai proyek ini ManimGL milik 3Blue1Brown
+                  (github.com/3b1b/manim), bukan Manim Community. Keduanya
+                  proyek berbeda dengan sejarah yang sama. ARYA mengetahui
+                  bedanya dan tetap memilih tautan ini. */}
+              <a href="https://www.manim.community/" target="_blank" rel="noreferrer">
+                manim.community →
               </a>
             </div>
           </article>
@@ -102,9 +107,42 @@ export default function Tentang() {
               </a>
             </div>
           </article>
+          {/* PENANDA UNTUK SESI BERIKUTNYA: sampai 5 Sep 2026 seluruh berkas
+              narasi di `manim/narasi/*.json` masih mencatat `id-ID-ArdiNeural`,
+              yaitu edge-tts milik Microsoft, BUKAN ElevenLabs. Kartu ini
+              ditulis lebih dulu atas keputusan ARYA: ia akan mengganti suara
+              videonya ke ElevenLabs, dan halaman Tentang dirapikan sekarang.
+              Begitu video dirender ulang, kartu ini jadi benar apa adanya dan
+              catatan ini boleh dihapus. */}
+          <article className="kartu-alat">
+            <span className="plat-logo">
+              {/* Tulisan merek digambar sendiri dari huruf situs ini, bukan
+                  berkas logo mereka: hasilnya tajam di layar mana pun dan
+                  tidak ada berkas pihak lain yang perlu ikut disimpan. */}
+              <span className="merk-elevenlabs" aria-hidden="true">
+                <i />
+                <i />
+                ElevenLabs
+              </span>
+            </span>
+            <div>
+              <h3>ElevenLabs</h3>
+              <p>
+                Suara narasi Bahasa Indonesia di tiap video, supaya penjelasannya
+                bisa diikuti sambil memperhatikan gambarnya, bukan sambil membaca
+                teks di layar.
+              </p>
+              <a href="https://elevenlabs.io" target="_blank" rel="noreferrer">
+                elevenlabs.io →
+              </a>
+            </div>
+          </article>
         </div>
 
-        <div className="kotak-emas" style={{ maxWidth: '56rem', marginBottom: 24 }}>
+        {/* Lebarnya TIDAK dipatok. Kartu di atas dan di bawahnya melebar penuh;
+            satu kotak yang berhenti di tengah terbaca sebagai kesalahan tata
+            letak, bukan sebagai penekanan. */}
+        <div className="kotak-emas" style={{ marginBottom: 24 }}>
           <b>Nilai di situs ini bukan penilaian resmi.</b>
           <p>
             Situs ini tidak memakai akun dan tidak memakai basis data. Semua
@@ -115,26 +153,29 @@ export default function Tentang() {
         </div>
 
         <div className="kartu-penulis">
-          <Image
-            src="/mantra/undiksha.png"
-            alt="Universitas Pendidikan Ganesha"
-            width={72}
-            height={72}
-            style={{ height: 72, width: 'auto' }}
-          />
           <div>
-            <p className="nama">Nyoman Arya Sejati</p>
-            <p className="lembaga">Universitas Pendidikan Ganesha</p>
-            <a
-              className="tombol-wa-mantra"
-              href={`https://wa.me/${WA}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image src="/mantra/logo-whatsapp.png" alt="" width={20} height={20} />
-              Hubungi WhatsApp
-            </a>
+            <Image
+              src="/mantra/undiksha.png"
+              alt="Universitas Pendidikan Ganesha"
+              width={72}
+              height={72}
+              style={{ height: 56, width: 'auto' }}
+            />
+            <div>
+              <div className="kicker" style={{ color: 'var(--tinta-50)' }}>Dibuat oleh</div>
+              <p className="nama">Nyoman Arya Sejati</p>
+              <p className="lembaga">Universitas Pendidikan Ganesha</p>
+            </div>
           </div>
+          <a
+            className="tombol-wa-mantra"
+            href={`https://wa.me/${WA}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image src="/mantra/logo-whatsapp.png" alt="" width={20} height={20} />
+            Hubungi lewat WhatsApp
+          </a>
         </div>
 
         <div style={{ height: 48 }} />

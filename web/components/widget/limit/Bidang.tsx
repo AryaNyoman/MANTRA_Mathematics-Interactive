@@ -1,9 +1,10 @@
 'use client'
 
+import { petakSumbu } from '@/lib/petak-sumbu'
 import type { ReactNode } from 'react'
 import {
   GARIS_PETAK, GARIS_SUMBU, KOTAK, MONO, VH, VW, WARNA,
-  keLayar, labelSkala, petak, type Jendela,
+  keLayar, labelSkala, type Jendela,
 } from '@/components/widget/limit/koordinat'
 
 /**
@@ -32,8 +33,8 @@ export default function Bidang({
   children?: ReactNode
 }) {
   const p = keLayar(jendela)
-  const petakX = petak(jendela.xMin, jendela.xMax, 6)
-  const petakY = petak(jendela.yMin, jendela.yMax, 5)
+  const petakX = petakSumbu(jendela.xMin, jendela.xMax, KOTAK.x1 - KOTAK.x0)
+  const petakY = petakSumbu(jendela.yMin, jendela.yMax, KOTAK.y1 - KOTAK.y0)
 
   // Sumbu digambar di dalam bingkai kalau nol memang terlihat. Kalau nol ada di
   // luar jendela, sumbunya ditempel ke tepi supaya angkanya tetap terbaca dan

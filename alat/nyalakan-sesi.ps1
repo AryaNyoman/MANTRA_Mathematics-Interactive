@@ -17,12 +17,15 @@
     -Mode master   hanya MATRA-MASTER di folder proyek
     -Cek           cuma melaporkan, tidak menyalakan apa pun
     -Baru          paksa sesi baru dari nol, bukan melanjutkan yang lama
+    -Hanya <nama>  nyalakan SATU sesi saja dari daftar (contoh:
+                   -Hanya MANTRA-TURUNAN-INTEGRAL), yang lain tidak disentuh
 #>
 [CmdletBinding()]
 param(
     [ValidateSet('sesi', 'master')][string]$Mode = 'sesi',
     [switch]$Cek,
-    [switch]$Baru
+    [switch]$Baru,
+    [string]$Hanya = ''
 )
 
 $ErrorActionPreference = 'Stop'
@@ -34,7 +37,10 @@ $daftarSesi = @(
     @{ nama = 'MATRA-GRAFIK-FUNGSI';      sub = 'matra-grafik-fungsi'; tugas = 'docs/tugas/MATRA-GRAFIK-FUNGSI.md' },
     @{ nama = 'MATRA-STATISTIKA';         sub = 'matra-statistika';    tugas = 'docs/tugas/MATRA-STATISTIKA.md' },
     @{ nama = 'MATRA-RUANG-TIGA-DIMENSI'; sub = 'matra-ruang-3d';      tugas = 'docs/tugas/MATRA-RUANG-TIGA-DIMENSI.md' },
-    @{ nama = 'MATRA-DESAIN-UI-UX';       sub = 'matra-ui-ux';         tugas = 'docs/tugas/MATRA-DESAIN-UI-UX.md' }
+    @{ nama = 'MATRA-DESAIN-UI-UX';       sub = 'matra-ui-ux';         tugas = 'docs/tugas/MATRA-DESAIN-UI-UX.md' },
+    # Ditambah 6 Sep 2026: satu sesi untuk dua topik, worktree mantra-turunan.
+    @{ nama = 'MANTRA-TURUNAN';           sub = 'materi-turunan-b8c515'; tugas = 'docs/tugas/MANTRA-TURUNAN-INTEGRAL.md' },
+    @{ nama = 'MANTRA-INTEGRAL';          sub = 'integral-folder-branch-setup-05863c'; tugas = 'docs/tugas/MANTRA-TURUNAN-INTEGRAL.md' }
 )
 
 if ($Mode -eq 'master') {
@@ -71,6 +77,8 @@ $dilewati = 0
 foreach ($s in $daftar) {
     $nama = $s.nama
     $folder = $s.folder
+
+    if ($Hanya -and $nama -ne $Hanya) { continue }
 
     if (-not (Test-Path $folder)) {
         Write-Host "  [LEWAT]  $nama" -ForegroundColor Red

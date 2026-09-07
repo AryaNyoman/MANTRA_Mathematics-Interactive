@@ -1,5 +1,7 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
+import { Angka, Petunjuk } from '@/components/kendali'
 import { useState } from 'react'
 import { GARIS_PETAK, GARIS_SUMBU, MONO, PERAN } from '@/components/widget/statistika/warna-data'
 import { VH, VW, angka, petak } from '@/components/widget/statistika/skala'
@@ -29,9 +31,11 @@ const KIRI_A = 40
 const KIRI_B = 254
 
 function Panel({
-  x0, dasarY, judul, nadaJudul,
+  x0, dasarY, judul, nadaJudul, nyala,
 }: {
   x0: number
+  /** true saat penggeser "potong" sedang dipegang: sumbu dan kurvanya menyala */
+  nyala?: boolean
   /** dari angka berapa sumbu tegaknya dimulai */
   dasarY: number
   judul: string
@@ -60,9 +64,9 @@ function Panel({
 
       <line x1={x0 + 26} y1={BAWAH} x2={x0 + LEBAR_PANEL - 8} y2={BAWAH}
             stroke={GARIS_SUMBU} strokeWidth={1.6} />
-      <line x1={x0 + 26} y1={ATAS} x2={x0 + 26} y2={BAWAH} stroke={GARIS_SUMBU} strokeWidth={1.6} />
+      <line className={nyala ? 'nyala' : undefined} x1={x0 + 26} y1={ATAS} x2={x0 + 26} y2={BAWAH} stroke={GARIS_SUMBU} strokeWidth={nyala ? 3 : 1.6} />
 
-      <path d={jalur} fill="none" stroke={nadaJudul} strokeWidth={2.5}
+      <path className={nyala ? 'nyala' : undefined} d={jalur} fill="none" stroke={nadaJudul} strokeWidth={nyala ? 3.5 : 2.5}
             strokeLinejoin="round" strokeLinecap="round" />
       {D.data.map((v, i) => (
         <circle key={i} cx={keX(i)} cy={ke(v)} r={4.5} fill={nadaJudul}
@@ -77,6 +81,7 @@ function Panel({
 }
 
 export default function SumbuJujur({ children }: PropWidget) {
+  const dipegang = useSedangDiubah()
   const [potong, setPotong] = useState(410)
 
   const kiri = (
@@ -85,7 +90,8 @@ export default function SumbuJujur({ children }: PropWidget) {
         <svg viewBox={`0 0 ${VW} ${VH}`} preserveAspectRatio="xMidYMid meet" role="img"
              aria-label="Dua grafik dari data yang sama, satu sumbunya mulai dari nol, satu dipotong">
           <Panel x0={KIRI_A} dasarY={0} judul="sumbu mulai dari nol" nadaJudul={PERAN.data} />
-          <Panel x0={KIRI_B} dasarY={potong} judul={`sumbu dipotong di ${potong}`} nadaJudul={PERAN.banding} />
+          <Panel x0={KIRI_B} dasarY={potong} judul={`sumbu dipotong di ${potong}`} nadaJudul={PERAN.banding}
+                 nyala={dipegang === 'potong'} />
           <line x1={(KIRI_A + LEBAR_PANEL + KIRI_B) / 2} y1={36} x2={(KIRI_A + LEBAR_PANEL + KIRI_B) / 2} y2={BAWAH + 18}
                 stroke={GARIS_PETAK} strokeWidth={1} />
           <text x={VW / 2} y={VH - 8} textAnchor="middle" fontSize={9.5} fontFamily={MONO}
@@ -95,22 +101,13 @@ export default function SumbuJujur({ children }: PropWidget) {
         </svg>
       </div>
       <div className="kendali">
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label htmlFor="potong">
-            <span>Sumbu kanan mulai dari</span>
-            <span className="mono">{potong}</span>
-          </label>
-          <input id="potong" type="range" min={0} max={MIN_DATA} step={5} value={potong}
-                 onChange={(e) => setPotong(+e.target.value)} />
-        </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Angka nama="Sumbu kanan mulai dari" arti="0 berarti jujur, makin besar makin banyak yang dipotong" kunci="potong"
+          nilai={potong} onUbah={setPotong} min={0} max={MIN_DATA} langkah={5} />
+        <Petunjuk>
             {potong === 0
               ? 'kedua grafik sekarang sama. Naikkan angkanya dan perhatikan grafik kanan mulai berlebihan'
               : `naik ${angka(MAKS - MIN_DATA, 0)} orang dari ${angka(MIN_DATA, 0)}, sekitar ${angka(((MAKS - MIN_DATA) / MIN_DATA) * 100, 1)} persen. Di grafik kanan kenaikan itu memenuhi hampir seluruh tingginya`}
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )
