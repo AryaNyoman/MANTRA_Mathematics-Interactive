@@ -1,0 +1,12 @@
+[
+  { "id": "salah-laju", "jenis": "laju_rata_rata", "titik1": [1, 20], "titik2": [3, 64], "jawaban": 44 },
+  { "id": "salah-nilai-fungsi", "jenis": "nilai_fungsi", "f": "x**2", "di": 3, "jawaban": 6 },
+  { "id": "salah-turunan-pangkat", "jenis": "turunan", "f": "x**2", "jawaban": "x" },
+  { "id": "salah-turunan-di", "jenis": "turunan_di", "f": "x**2", "di": 3, "jawaban": 9 },
+  { "id": "salah-turunan-kedua", "jenis": "turunan_kedua", "f": "50*t - 5*t**2", "peubah": "t", "jawaban": -5 },
+  { "id": "salah-limit-definisi", "jenis": "limit_definisi", "f": "x**2", "di": 1, "jawaban": 1 },
+  { "id": "salah-stasioner", "jenis": "stasioner", "f": "x**3 - 3*x", "jawaban": [0, 3] },
+  { "id": "salah-garis-singgung", "jenis": "garis_singgung", "f": "x**2 + 2*x + 1", "di": 0, "jawaban": "2*x" },
+  { "id": "salah-ekspresi", "jenis": "ekspresi", "hitung": "44/2", "jawaban": 21 },
+  { "id": "salah-rantai-lupa-dalam", "jenis": "turunan", "f": "(2*x - 5)**5", "jawaban": "5*(2*x - 5)**4" }
+]
