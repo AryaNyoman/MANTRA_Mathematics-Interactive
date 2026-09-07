@@ -136,7 +136,7 @@ const DAFTAR: Topik[] = [
     urutanKelas: 12,
     pertanyaan: 'Kenapa luas di bawah kurva dan kebalikan turunan ternyata satu hal?',
     miskonsepsiSingkat: '“integral itu cuma menaikkan pangkat, kebalikan turunan.”',
-    siap: false,
+    siap: true,
   },
 ]
 
