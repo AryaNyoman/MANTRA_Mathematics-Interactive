@@ -135,13 +135,25 @@ def main() -> None:
         hasil = AKAR / "media" / "uji-480p" / nama
         hasil.parent.mkdir(parents=True, exist_ok=True)
         suara_kode = ["-c:a", "aac", "-b:a", "96k"]
+        gambar_kode = ["-c:v", "copy"]      # mp4 menerima H.264 apa adanya
     else:
         nama = a.keluar or f"{a.topik}.webm"
         hasil = AKAR / "media" / nama
         suara_kode = ["-c:a", "libopus", "-b:a", "72k"]
+        # WebM TIDAK menerima video H.264, dan ManimGL menghasilkan H.264.
+        # `-c:v copy` karena itu mati dengan "Could not write header (incorrect
+        # codec parameters?)" dan meninggalkan berkas 264 bita. Sampai 7 Sep 2026
+        # jalur ini tidak pernah dijalankan di bawah ManimGL: kelima belas webm
+        # yang sudah tayang semuanya VP9 buatan Manim Community, yang memang bisa
+        # menulis webm langsung. Jadi videonya disandikan ulang ke VP9 di sini.
+        # `-row-mt 1` dan `-cpu-used 3` menjaga waktu sandi tetap masuk akal di
+        # laptop yang dipakai bergiliran empat sesi.
+        gambar_kode = ["-c:v", "libvpx-vp9", "-b:v", "0", "-crf", "32",
+                       "-row-mt", "1", "-deadline", "good", "-cpu-used", "3",
+                       "-pix_fmt", "yuv420p"]
     if berkas_latar is None:
         perintah = ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
-                    "-c:v", "copy"] + suara_kode + ["-shortest", str(hasil)]
+                    ] + gambar_kode + suara_kode + ["-shortest", str(hasil)]
     else:
         # Latar dikecilkan (0,12), lalu DITEKAN lagi tiap kali narasi berbunyi
         # (sidechaincompress: narasi = pengendali). amix normalize=0 supaya
@@ -154,7 +166,7 @@ def main() -> None:
         perintah = ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
                     "-stream_loop", "-1", "-i", str(berkas_latar),
                     "-filter_complex", saring, "-map", "0:v", "-map", "[a]",
-                    "-c:v", "copy"] + suara_kode + ["-shortest", str(hasil)]
+                    ] + gambar_kode + suara_kode + ["-shortest", str(hasil)]
         print(f"latar  : {berkas_latar.relative_to(AKAR)}  (tipis, merendah saat narasi)")
     subprocess.run(perintah, check=True)
 
