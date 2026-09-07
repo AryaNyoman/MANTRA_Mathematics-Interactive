@@ -136,9 +136,28 @@ def main() -> None:
         hasil.parent.mkdir(parents=True, exist_ok=True)
         suara_kode = ["-c:a", "aac", "-b:a", "96k"]
     else:
-        nama = a.keluar or f"{a.topik}.webm"
+        # Bawaannya .mp4, dan kodek suaranya MENGIKUTI WADAH, bukan ditebak.
+        #
+        # Dulu bawaannya .webm dengan libopus, dan itu benar di zaman Manim
+        # Community yang bisa menulis .webm langsung sehingga "-c:v copy" jalan.
+        # ManimGL selalu menghasilkan .mp4 H.264, jadi menyalin aliran gambarnya
+        # ke wadah webm DITOLAK ffmpeg mentah-mentah:
+        #   "Only VP8 or VP9 or AV1 video ... are supported for WebM"
+        # Terbukti 7 Sep 2026 saat render akhir Ruang 3D materi 01.
+        #
+        # Ke-32 video yang sudah tayang semuanya mp4 H.264 dengan suara AAC,
+        # jadi itu yang jadi bawaan. Kalau suatu saat memang perlu .webm,
+        # aliran gambarnya harus DIKODE ULANG ke VP9, bukan disalin.
+        nama = a.keluar or f"{a.topik}.mp4"
         hasil = AKAR / "media" / nama
-        suara_kode = ["-c:a", "libopus", "-b:a", "72k"]
+        if hasil.suffix.lower() == ".webm":
+            raise SystemExit(
+                f"BERHENTI: {hasil.name} berwadah webm, sedangkan {video.name} "
+                f"H.264 dari ManimGL.\nAliran gambarnya tidak bisa disalin ke "
+                f"webm, dan alat ini sengaja TIDAK mengode ulang diam-diam "
+                f"(VP9 1080p60 makan puluhan menit).\nPakai .mp4, sama seperti "
+                f"seluruh video yang sudah tayang.")
+        suara_kode = ["-c:a", "aac", "-b:a", "128k"]
     if berkas_latar is None:
         perintah = ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
                     "-c:v", "copy"] + suara_kode + ["-shortest", str(hasil)]
