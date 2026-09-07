@@ -249,20 +249,62 @@ def bentang_perulangan(blok):
     return "\n".join(keluar), ada_tak_terbaca
 
 
-def hitung_babak(nama, blok, mulai_abs, lama, jam, durasi):
+DIKENAL = ("b.main(", "b.jeda(", "b.catat(", "b.tunggu_sampai(",
+           "sinema.lahir_rumus(", "sinema.ganti_rumus(", ".baris(")
+
+
+def pembantu_setempat(sumber):
+    """Fungsi pembantu di berkas adegan yang MEMAKAN waktu babak.
+
+    Pola yang dipakai adegan MANTRA: `def bersihkan_panel(..., b=None,
+    run_time: float = 0.9)` yang di dalamnya memanggil `b.catat(run_time)`.
+    Waktunya nyata, tetapi namanya tidak dikenal alat ini, sehingga babak
+    'turun' video 05 terbaca 12,50 detik padahal render melaporkan 13,40 dan
+    GAGAL. Selisih 0,90 itu persis `bersihkan_panel`. Sekarang dibaca dari
+    tanda tangannya.
+    """
+    hasil = {}
+    for m in re.finditer(r"^def ([a-z_]\w*)\((.*?)\)\s*:", sumber, re.S | re.M):
+        nama, arg = m.group(1), m.group(2)
+        if "b=None" not in arg.replace(" ", "") and "b," not in arg.replace(" ", ""):
+            continue
+        badan = sumber[m.end():]
+        potong = re.search(r"^def |^class ", badan, re.M)
+        if potong:
+            badan = badan[:potong.start()]
+        if "b.catat(" not in badan:
+            continue
+        g = re.search(r"run_time\s*(?::\s*float\s*)?=\s*([\d.]+)", arg)
+        hasil[nama] = float(g.group(1)) if g else None
+    return hasil
+
+
+def hitung_babak(nama, blok, mulai_abs, lama, jam, durasi, pembantu=None):
     """Tirukan pembukuan Babak. Kembalikan (terpakai, catatan)."""
     t = mulai_abs
     catatan = []
+    pembantu = pembantu or {}
     blok, perulangan_tak_terbaca = bentang_perulangan(blok)
     i = 0
     while i < len(blok):
-        m = re.compile(
-            r"b\.main\(|b\.jeda\(|b\.catat\(|b\.tunggu_sampai\(|"
-            r"sinema\.lahir_rumus\(|sinema\.ganti_rumus\(|\.baris\("
-        ).search(blok, i)
+        pola = "|".join(re.escape(k) for k in DIKENAL)
+        if pembantu:
+            pola += "|" + "|".join(re.escape(k + "(") for k in pembantu)
+        # Panggilan APA PUN yang menitipkan `b=b` juga ditangkap, supaya
+        # pembantu yang tidak terbaca berbunyi, bukan hilang diam-diam.
+        pola += r"|[A-Za-z_][\w.]*\((?=[^()]*b=b)"
+        m = re.compile(pola).search(blok, i)
         if not m:
             break
-        panggil = m.group(0)
+        # Nama panggilan dibaca dari NAMA LENGKAP yang berakhir di kurung buka,
+        # bukan dari potongan yang kebetulan cocok duluan. Tanpa ini
+        # `papan.baris(...)` tertangkap aturan umum "ada b=b" karena namanya
+        # mulai lebih kiri daripada potongan `.baris(`, dan waktunya hilang.
+        g = re.search(r"[A-Za-z_][\w.]*$", blok[:m.end() - 1])
+        nama_penuh = g.group(0) if g else m.group(0).rstrip("(")
+        panggil = nama_penuh + "("
+        if panggil not in DIKENAL and nama_penuh.endswith(".baris"):
+            panggil = ".baris("
         isi, sesudah = potong_panggilan(blok, m.end() - 1)
         i = sesudah
 
@@ -318,6 +360,18 @@ def hitung_babak(nama, blok, mulai_abs, lama, jam, durasi):
             if "b=b" in isi.replace(" ", ""):
                 rt, _ = angka_kw(isi, "run_time", BAWAAN["baris"]["run_time"])
                 t += rt
+        elif nama_penuh in pembantu:
+            nama_p = nama_penuh
+            bawaan_p = pembantu[nama_p]
+            rt, terbaca = angka_kw(isi, "run_time", bawaan_p)
+            if rt is None or not terbaca:
+                catatan.append("run_time %s tidak terbaca, waktunya TIDAK dihitung" % nama_p)
+            else:
+                t += rt
+        else:
+            # Panggilan yang menitipkan `b=b` tetapi tidak dikenal sama sekali.
+            catatan.append("panggilan %s memakai b=b tetapi tidak terbaca, "
+                           "waktunya TIDAK dihitung" % panggil.rstrip("("))
 
     if perulangan_tak_terbaca:
         catatan.append("ada perulangan yang jumlah putarannya tidak terbaca: "
@@ -337,6 +391,7 @@ def main():
     sumber = io.open(berkas, encoding="utf-8").read()
 
     setara = periksa_bawaan()
+    pembantu = pembantu_setempat(sumber)
 
     m = re.search(r"TOPIK\s*=\s*\"([^\"]+)\"", sumber)
     if not m:
@@ -359,7 +414,7 @@ def main():
             print("%-12s  tidak ada di durasi.json" % nama)
             gagal.append(nama)
             continue
-        terpakai, catatan = hitung_babak(nama, blok, mulai_abs, lama, jam, durasi)
+        terpakai, catatan = hitung_babak(nama, blok, mulai_abs, lama, jam, durasi, pembantu)
         sisa = lama - terpakai
         tanda = ""
         if sisa < -TOLERANSI_LEBIH:

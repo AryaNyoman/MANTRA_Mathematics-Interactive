@@ -135,22 +135,6 @@ def bersihkan_panel(scene, papan, buang, b=None, run_time=0.9):
         b.catat(run_time)
 
 
-def pastikan_hilang(scene, benda: dict) -> None:
-    """Gagalkan render kalau benda dunia dari babak sebelumnya masih terpasang.
-
-    `qc.periksa_adegan` hanya memeriksa benda yang DISERAHKAN kepadanya, jadi
-    benda yang lupa dibuang tidak melanggar apa pun: ia cuma tetap tergambar.
-    Pada render kelima itu membuat segitiga contoh f(x) = x tertinggal di
-    layar sepanjang dua babak terakhir, di belakang panel rumus, sementara
-    narator sudah membahas kurva yang lain. Gerbang ini menyebut namanya.
-    """
-    tersisa = [nama for nama, m in benda.items() if m in scene.mobjects]
-    if tersisa:
-        raise RuntimeError(
-            "benda babak lama masih di layar: " + ", ".join(tersisa) +
-            ". Tambahkan FadeOut-nya pada pergantian babak.")
-
-
 class IntegralRiemann(AdeganMatra):
     def construct(self):
         frame = self.frame
@@ -409,18 +393,30 @@ class IntegralRiemann(AdeganMatra):
             # render kelima di detik 102: panel "kiri 6,25 kanan 4,25" berdiri
             # di atas segitiga contoh sebelumnya, membantah gambarnya sendiri.
             b.main(FadeOut(bidang), FadeOut(daerah_lurus), FadeIn(bidang_kecil),
-                   Transform(k_lengkung, k_turun),
-                   kamera.dekati(frame, pusat_k, tinggi=tinggi_k), run_time=3.0)
-            pastikan_hilang(self, {"bidang lama": bidang,
-                                   "daerah contoh lurus": daerah_lurus,
-                                   "kotak n=60": kanan60, "segitiga": segitiga})
+                   kamera.dekati(frame, pusat_k, tinggi=tinggi_k), run_time=2.4)
+            qc.pastikan_hilang(self, {"bidang lama": bidang,
+                                      "daerah contoh lurus": daerah_lurus,
+                                      "kotak n=60": kanan60, "segitiga": segitiga},
+                               nama="pergantian bidang di babak turun")
+            # Urutannya: bidang pindah dulu (panel dan kurva masih sama-sama
+            # f(x) = x, jadi cocok), lalu KURVA berubah, baru panel menyusul.
+            # Sebelumnya kurva dan bidang berpindah bersama sementara
+            # `ganti_rumus` menyusul 3 detik kemudian, jadi selama 3 detik panel
+            # menulis f(x) = x di atas kurva yang sudah melengkung. MASTER benar
+            # menyebutnya cacat. Nol detik tidak bisa dicapai dari sini:
+            # `sinema.ganti_rumus` memanggil `scene.play` sendiri, jadi ia tidak
+            # bisa dititipkan ke `b.main` yang sama tanpa mengubah sinema.py
+            # yang dipakai semua sesi. Yang bisa: memperpendek jadi 1,2 detik
+            # dan membuat GAMBAR yang memimpin, panel yang menyusul, bukan
+            # sebaliknya.
+            b.main(Transform(k_lengkung, k_turun), run_time=1.0)
             sinema.ganti_rumus(self, rum, r"f(x) = 4 - x^2", b=b, warna=TINTA, papan=papan)
             bersihkan_panel(self, papan, [b_jumlah, b_luas, b_jepit, sel], b=b)
             b.main(FadeIn(kiri4, lag_ratio=0.25), run_time=2.6)
             b_angka = papan.baris(r"\text{kiri } 6{,}25 \quad \text{kanan } 4{,}25",
                                   warna=AKSEN2, b=b)
             b.main(Indicate(kiri4, color=SOROT, scale_factor=1.05), run_time=2.0)
-            b.main(Indicate(b_angka, color=SOROT), run_time=1.4)
+            b.main(Indicate(b_angka, color=SOROT), run_time=1.2)
         qc.periksa_adegan(self, {"kurva turun": k_lengkung},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_kecil})

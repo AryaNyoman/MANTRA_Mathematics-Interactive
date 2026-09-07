@@ -97,6 +97,48 @@ def jalur_bawah_kosong(frame, zona: dict, batas_atas: float = -2.55):
                 f"pindahkan: rumus ke panel KANAN atas, identitas ke KIRI atas, atau geser dunianya ke atas.")
 
 
+class BendaTertinggal(CacatTataLetak):
+    """Benda babak sebelumnya masih terpasang saat babak baru dimulai."""
+
+
+def _terpasang(scene, mob) -> bool:
+    """Apakah `mob` masih tergambar: sendiri, atau sebagai anak benda lain."""
+    for atas in list(getattr(scene, "mobjects", [])):
+        keluarga = atas.get_family() if hasattr(atas, "get_family") else [atas]
+        if any(x is mob for x in keluarga):
+            return True
+    return False
+
+
+def pastikan_hilang(scene, benda: dict, nama: str = ""):
+    """Gagalkan render kalau benda babak sebelumnya masih terpasang di adegan.
+
+    KENAPA INI ADA
+    `periksa_adegan` hanya memeriksa benda yang DISERAHKAN kepadanya, jadi benda
+    yang lupa dibuang tidak melanggar apa pun: ia cuma tetap tergambar, diam
+    diam. Video Integral 05 (8 Sep 2026) menyisakan daerah berwarna milik contoh
+    sebelumnya selama dua babak terakhir; karena titiknya dihitung dari bidang
+    LAMA, begitu kamera terbang ke bidang baru ia jadi segitiga pucat raksasa
+    yang menutupi separuh layar di belakang panel rumus, membantah narasinya
+    sendiri. Semua gerbang lolos; yang menemukannya cuma membuka frame detik 102.
+
+    Panggil pada tiap pergantian bidang, kamera, atau babak besar, dan sebut
+    sendiri apa yang seharusnya sudah hilang:
+
+        qc.pastikan_hilang(self, {"bidang lama": bidang, "daerah lama": daerah})
+
+    Nilai `None` diabaikan, jadi benda yang memang tidak selalu dibuat boleh
+    ikut disebut tanpa penjagaan tambahan di adegan.
+    """
+    tersisa = [n for n, m in benda.items() if m is not None and _terpasang(scene, m)]
+    if tersisa:
+        di = f" pada {nama}" if nama else ""
+        raise BendaTertinggal(
+            f"benda babak lama masih di layar{di}: " + ", ".join(tersisa) +
+            ". Tambahkan FadeOut-nya pada pergantian babak; benda yang titiknya "
+            "dihitung dari bidang lama akan tertinggal di tempatnya saat kamera pindah.")
+
+
 def daun_angka(kelompok, dalam: int = 0) -> list:
     """Angka sumbu SATU PER SATU, bukan kelompoknya.
 
