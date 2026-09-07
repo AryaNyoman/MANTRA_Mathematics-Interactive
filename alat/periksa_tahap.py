@@ -98,7 +98,7 @@ def nilai(t: dict) -> dict:
         # alatnya, dan kesalahan yang berbahaya: laporan "TDK" yang salah
         # membuat pembacanya berhenti memercayai kolom ini.
         'b2_panggil_ulang': bool(re.search(
-            r'tahap \d|Materi \d|di SMP|topik (Vektor|Trigonometri|Grafik Fungsi|Limit|Statistika)'
+            r'tahap \d|Materi \d|di SMP|topik (Vektor|Trigonometri|Grafik Fungsi|Limit|Statistika|Ruang Tiga Dimensi|Transformasi Geometri|Turunan|Integral)'
             r'|sudah sering|sudah pernah|sudah kita|sudah kamu'
             r'|sudah (Anda )?(pelajari|kenal|lihat|melihat)', s)),
         'b4_sesi': len(sesi),

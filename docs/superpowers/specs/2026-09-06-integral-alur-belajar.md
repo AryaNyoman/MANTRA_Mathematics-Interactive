@@ -129,7 +129,10 @@ lambang, dan apa aturan cepatnya?
 
 **Isi pokok.** ∫ f(x) dx = F(x) + C (PDF 182–183): tanda ∫, integran, dx,
 konstanta integrasi. Sifat 3.1 sampai 3.5 (PDF 183–185): ∫ dx = x + C,
-∫ xⁿ dx = xⁿ⁺¹/(n + 1) + C untuk n ≠ −1, kelipatan, jumlah, selisih. Tiap
+∫ xⁿ dx = xⁿ⁺¹/(n + 1) + C untuk n ≠ −1, kelipatan, jumlah, selisih.
+(Buku cetak 168 menulis syaratnya "n ≠ 0"; itu salah cetak, penyebut n + 1
+nol justru saat n = −1. Halaman siswa memakai syarat yang benar tanpa
+menyebut salah cetaknya; temuan sesi Integral 7 Sep 2026.) Tiap
 sifat DIPERIKSA dengan menurunkan hasilnya (itulah cara buku membuktikannya).
 Contoh: ∫ x⁵ dx = x⁶/6 + C (Contoh 3.2), ∫ (3x² − 4x + 1) dx.
 
@@ -350,8 +353,10 @@ bawah; kalau terbalik hasilnya negatif.
 Galeri tidak interaktif (pola Limit dan Statistika), empat kartu:
 
 1. **Penjualan total dari laju penjualan** (Contoh 3.14, PDF 223–224):
-   y = 3000x + 1000 unit per tahun, total 4 tahun = 20.000; grafik dengan
-   daerah terisi.
+   y = 3000√x + 1000 unit per tahun, total 4 tahun = ∫₀⁴ (3000√x + 1000) dx
+   = 2000 · 4^(3/2) + 4000 = 20.000; grafik dengan daerah terisi.
+   (Dibetulkan 7 Sep 2026 atas temuan sesi Integral: versi pertama rancangan
+   ini menulis 3000x, yang memberi 28.000, bukan 20.000.)
 2. **Jarak dari kecepatan**: v(t) diketahui, jarak = luas di bawah v
    (sambungan ke Turunan Materi 12).
 3. **Usaha meregangkan pegas** (Contoh 3.15 dan Ayo Mencoba 3.13, PDF
