@@ -394,5 +394,71 @@
     "jenis": "ekspresi",
     "hitung": "90 - 86",
     "jawaban": 4
+  },
+  {
+    "id": "V04-urai-kuadrat",
+    "jenis": "ekspresi",
+    "hitung": "expand((x + h)**2)",
+    "jawaban": "x**2 + 2*x*h + h**2"
+  },
+  {
+    "id": "V04-selisih-kuadrat",
+    "jenis": "ekspresi",
+    "hitung": "expand((x + h)**2 - x**2)",
+    "jawaban": "2*x*h + h**2"
+  },
+  {
+    "id": "V04-bagi-kuadrat",
+    "jenis": "ekspresi",
+    "hitung": "simplify((2*x*h + h**2)/h)",
+    "jawaban": "2*x + h"
+  },
+  {
+    "id": "V04-turunan-kuadrat",
+    "jenis": "turunan",
+    "f": "x**2",
+    "jawaban": "2*x"
+  },
+  {
+    "id": "V04-urai-pangkat3",
+    "jenis": "ekspresi",
+    "hitung": "expand((x + h)**3)",
+    "jawaban": "x**3 + 3*x**2*h + 3*x*h**2 + h**3"
+  },
+  {
+    "id": "V04-bagi-pangkat3",
+    "jenis": "ekspresi",
+    "hitung": "simplify(expand((x + h)**3 - x**3)/h)",
+    "jawaban": "3*x**2 + 3*x*h + h**2"
+  },
+  {
+    "id": "V04-turunan-pangkat3",
+    "jenis": "turunan",
+    "f": "x**3",
+    "jawaban": "3*x**2"
+  },
+  {
+    "id": "V04-turunan-x",
+    "jenis": "turunan",
+    "f": "x",
+    "jawaban": 1
+  },
+  {
+    "id": "V04-turunan-pangkat4",
+    "jenis": "turunan",
+    "f": "x**4",
+    "jawaban": "4*x**3"
+  },
+  {
+    "id": "V04-lima-x-pangkat3",
+    "jenis": "turunan",
+    "f": "5*x**3",
+    "jawaban": "15*x**2"
+  },
+  {
+    "id": "V04-konstanta",
+    "jenis": "turunan",
+    "f": "7",
+    "jawaban": 0
   }
 ]

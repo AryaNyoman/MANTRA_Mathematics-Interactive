@@ -439,6 +439,7 @@ export const TAHAP: TahapTurunan[] = [
       judul: 'Turunan x² bukan x',
       isi: 'Kalimat pendek "pangkatnya turun satu" sering diingat separuh, sehingga x² menjadi x dan x³ menjadi x². Godaannya besar karena separuh kalimat itu memang benar. Yang hilang adalah langkah pertamanya: pangkat lama dikalikan ke depan dulu. Jadi x² memberi 2x, bukan x. Cara memeriksanya cepat: pada kurva x² di titik x = 3, kemiringannya terlihat lebih curam daripada 3. Alat di atas menunjukkan angka 6, dan 6 itulah 2 kali 3.',
     },
+    video: { berkas: 'turunan4-aturan-pangkat.mp4', poster: 'turunan4-aturan-pangkat.jpg' },
     widget: 'mesin-pangkat',
     siap: true,
   },
