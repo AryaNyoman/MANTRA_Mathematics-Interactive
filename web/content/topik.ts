@@ -1,5 +1,5 @@
 /**
- * Daftar 7 topik MANTRA.
+ * Daftar 9 topik MANTRA (7 tayang, Turunan dan Integral sedang dibangun).
  *
  * Topik ketujuh, Transformasi Geometri, ditambahkan ARYA 3 September 2026.
  *
@@ -108,6 +108,35 @@ const DAFTAR: Topik[] = [
     // Selama pengerjaan berkas ini sengaja dibiarkan false, supaya penggabungan
     // cabang ini ke master di tengah kerja tidak menayangkan topik setengah jadi.
     siap: true,
+  },
+  {
+    // Topik kedelapan, disetujui ARYA 5 Sep 2026; kerangka dari MATRA-MASTER,
+    // isi oleh sesi MANTRA-TURUNAN-INTEGRAL. Sumbernya Matematika Tingkat
+    // Lanjut Kelas XII Bab 2. Label kelasnya cukup "Kelas 12" (aturan di
+    // kepala berkas ini).
+    //
+    // Dibiarkan `siap: false` SELAMA pengerjaan, supaya penggabungan cabang
+    // ke master di tengah kerja tidak menayangkan topik setengah jadi.
+    // Dinyalakan sesi saat seluruh gerbangnya lolos (lihat file tugasnya).
+    slug: 'turunan',
+    nama: 'Turunan',
+    kelas: 'Kelas 12',
+    urutanKelas: 12,
+    pertanyaan: 'Kenapa kemiringan sebuah kurva bisa dihitung, padahal kurva tidak lurus?',
+    miskonsepsiSingkat: '“turunan itu rumus pangkat: turunkan pangkatnya, kalikan ke depan.”',
+    siap: false,
+  },
+  {
+    // Topik kesembilan, pasangan Turunan; sumbernya Bab 3 buku yang sama.
+    // Dikerjakan SETELAH Turunan oleh sesi yang sama. `siap: false` sampai
+    // lolos gerbang.
+    slug: 'integral',
+    nama: 'Integral',
+    kelas: 'Kelas 12',
+    urutanKelas: 12,
+    pertanyaan: 'Kenapa luas di bawah kurva dan kebalikan turunan ternyata satu hal?',
+    miskonsepsiSingkat: '“integral itu cuma menaikkan pangkat, kebalikan turunan.”',
+    siap: false,
   },
 ]
 

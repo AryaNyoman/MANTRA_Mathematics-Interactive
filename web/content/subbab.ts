@@ -149,6 +149,41 @@ export const BAB: Bab[] = [
       { huruf: 'F', nama: 'Penerapan', nomor: [13] },
     ],
   },
+  {
+    // Topik kedelapan, kerangka MATRA-MASTER 6 Sep 2026. Pemetaan dari
+    // rancangan docs/superpowers/specs/2026-09-06-turunan-alur-belajar.md:
+    // bagian A.2 dan A.3 buku (sekan, tangen, notasi) plus aturan pangkat
+    // jadi sub-bab A; bagian B (sifat, rantai, trigonometri, eksponen) jadi
+    // B; bagian C (garis singgung, naik turun, ekstrem) jadi C; bagian D
+    // jadi Penerapan. Bagian A.1 (limit) sudah topik Limit.
+    slug: 'turunan',
+    no: 2,
+    kelas: 'Kelas 12',
+    urutanKelas: 12,
+    sumber: 'Tingkat Lanjut K12 Bab 2',
+    sub: [
+      { huruf: 'A', nama: 'Kemiringan yang berubah', nomor: [1, 2, 3, 4] },
+      { huruf: 'B', nama: 'Aturan menurunkan', nomor: [5, 6, 7, 8] },
+      { huruf: 'C', nama: 'Turunan membaca grafik', nomor: [9, 10, 11] },
+      { huruf: 'D', nama: 'Penerapan', nomor: [12] },
+    ],
+  },
+  {
+    // Topik kesembilan. Pemetaan dari
+    // docs/superpowers/specs/2026-09-06-integral-alur-belajar.md: bagian A
+    // buku (tak tentu) jadi sub-bab A; bagian B (tentu, Riemann, TDK) jadi
+    // B; bagian C plus luas antara dua kurva jadi Penerapan.
+    slug: 'integral',
+    no: 3,
+    kelas: 'Kelas 12',
+    urutanKelas: 12,
+    sumber: 'Tingkat Lanjut K12 Bab 3',
+    sub: [
+      { huruf: 'A', nama: 'Membalik turunan', nomor: [1, 2, 3, 4] },
+      { huruf: 'B', nama: 'Luas dan integral tentu', nomor: [5, 6, 7, 8] },
+      { huruf: 'C', nama: 'Penerapan', nomor: [9, 10, 11] },
+    ],
+  },
 ]
 
 export const cariBab = (slug: string) => BAB.find((b) => b.slug === slug)
@@ -170,6 +205,4 @@ export const BAB_SEGERA = [
   'barisan dan deret',
   'eksponen dan logaritma',
   'peluang',
-  'turunan',
-  'integral',
 ]
