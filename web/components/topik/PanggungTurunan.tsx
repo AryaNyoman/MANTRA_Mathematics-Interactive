@@ -3,40 +3,85 @@
 import { useState, type ReactNode } from 'react'
 import Rintisan from '@/components/widget/turunan/Rintisan'
 import type { PropPanggung } from '@/components/topik/jenis'
-import { Angka, Kembalikan, Petunjuk } from '@/components/kendali'
+import { Angka, Kembalikan, Petunjuk, Pilihan } from '@/components/kendali'
+import { angka } from '@/components/widget/turunan/koordinat'
+import { pilihanFungsi } from '@/components/widget/turunan/fungsi'
+import GarisPotong, {
+  AWAL as AWAL_01, BATAS_H as BATAS_H_01, BATAS_X1 as BATAS_X1_01,
+  maksH, tabelGarisPotong,
+} from '@/components/widget/turunan/GarisPotong'
+import SekanKeTangen, {
+  AWAL as AWAL_02, BATAS_H as BATAS_H_02,
+  CEPAT, FUNGSI_TERSEDIA as FUNGSI_02, batasX1, maksH as maksH_02, tabelSekan,
+} from '@/components/widget/turunan/SekanKeTangen'
+import GrafikTurunan, {
+  AWAL as AWAL_03, FUNGSI_TERSEDIA as FUNGSI_03,
+  MAKS_JEJAK, batasX, tabelGrafikTurunan,
+} from '@/components/widget/turunan/GrafikTurunan'
 
 /**
  * Panggung Turunan: penyetelan kesebelas widgetnya, dan tidak lebih.
  *
- * KERANGKA dari MATRA-MASTER (6 Sep 2026). Bentuknya meniru PanggungLimit:
- * keadaan tiap widget dipegang DI SINI supaya tidak hilang saat pindah
- * materi, komponen widget di `components/widget/turunan/` hanya menggambar.
+ * Bentuknya meniru PanggungLimit: keadaan tiap widget dipegang DI SINI supaya
+ * tidak hilang saat siswa pindah materi lalu kembali, dan komponen widget di
+ * `components/widget/turunan/` hanya menggambar.
  *
- * Widget pertama (`garis-potong`) sudah dipasangi kendalinya sebagai contoh
- * pola yang harus diikuti sepuluh widget lainnya:
+ * Pola yang diikuti semua widget:
  *   - `Angka` dengan `kunci` unik: nama + arti, bisa diketik dan digeser,
  *     batasnya dari konstanta BATAS_* yang diekspor komponen widgetnya;
  *   - `Kembalikan` mengembalikan SEMUA keadaan widget itu ke nilai awal;
  *   - `Petunjuk` satu kalimat, ajakan mencoba yang spesifik;
- *   - jendela gambar TETAP (tidak melar saat diseret), seretan ditahan di
- *     kotak batas, bagian gambar yang kuncinya dipegang diberi kelas `nyala`.
- * Contoh nyata yang harus ditiru: `widget/vektor/PanahBerpindah.tsx` dan
- * `PanggungVektor.tsx` (seret + ketik + kembalikan), `widget/limit/*` (papan
- * fungsi), `widget/statistika/TitikPegang.tsx` (sasaran sentuh besar).
+ *   - jendela gambar TETAP, seretan ditahan di kotak batas, bagian gambar yang
+ *     kuncinya dipegang diberi kelas `nyala`.
  *
- * Rancangan tiap widget (apa yang diseret, batasnya, apa yang menyala):
- * docs/superpowers/specs/2026-09-06-turunan-alur-belajar.md
+ * Rancangan tiap widget: docs/superpowers/specs/2026-09-06-turunan-alur-belajar.md
  */
 
-/** Batas kendali widget 01; pindahkan ke komponen widgetnya saat dibuat. */
-const BATAS_X1 = { min: 0, maks: 5, langkah: 0.5 }
-const BATAS_H = { min: 0.5, maks: 4, langkah: 0.5 }
-const AWAL = { x1: 1, h: 2 }
+/** Widget yang komponennya sudah jadi; sisanya masih memakai Rintisan. */
+const SUDAH_JADI = ['garis-potong', 'sekan-ke-tangen', 'grafik-turunan']
+
+function Tabel({ judul, baris }: { judul: string; baris: Array<{ nama: string; nilai: string }> }) {
+  return (
+    <div className="blok">
+      <div className="cap">{judul}</div>
+      <table className="tabel-angka">
+        <tbody>
+          {baris.map((b, i) => (
+            <tr key={b.nama} className={i === baris.length - 1 ? 'tegas' : undefined}>
+              <td>{b.nama}</td>
+              <td>{b.nilai}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
 
 export default function PanggungTurunan({ tahap, tampilWidget, children }: PropPanggung) {
-  // Materi 01: garis potong
-  const [x1, setX1] = useState(AWAL.x1)
-  const [h, setH] = useState(AWAL.h)
+  // Materi 01: garis potong pada kurva produksi
+  const [x1, setX1] = useState(AWAL_01.x1)
+  const [h1, setH1] = useState(AWAL_01.h)
+
+  // Materi 02: garis potong mengejar garis singgung
+  const [x2, setX2] = useState(AWAL_02.x1)
+  const [h2, setH2] = useState(AWAL_02.h)
+  const [fungsi2, setFungsi2] = useState(AWAL_02.nama)
+
+  // Materi 03: jejak kemiringan membentuk fungsi turunan
+  const [x3, setX3] = useState(AWAL_03.x)
+  const [fungsi3, setFungsi3] = useState(AWAL_03.nama)
+  const [jejak, setJejak] = useState<number[]>([])
+
+  /** Geser x pada Materi 03 sambil menambah jejaknya, tanpa kembar. */
+  function geserX3(nx: number) {
+    setX3(nx)
+    setJejak((lama) => {
+      if (lama.includes(nx)) return lama
+      const baru = [...lama, nx]
+      return baru.length > MAKS_JEJAK ? baru.slice(baru.length - MAKS_JEJAK) : baru
+    })
+  }
 
   let kiri: ReactNode = null
   let kanan: ReactNode = null
@@ -48,17 +93,20 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
 
     kiri = (
       <>
+        {/* ---------------- Materi 01 ---------------- */}
         {tampilWidget && tahap.widget === 'garis-potong' && (
           <>
             <div className="layar">
-              <Rintisan nama="garis-potong" keterangan={`x₁ = ${x1}, h = ${h}: kurva produksi, titik P dan Q, segitiga Δx dan Δy`} />
+              <GarisPotong x1={x1} h={h1} onGeser={(nx, nh) => { setX1(nx); setH1(nh) }} />
             </div>
             <div className="kendali">
               <Angka nama="Jam awal x₁" arti="titik P, jam mulai mengukur" kunci="x1" satuan=" jam"
-                nilai={x1} onUbah={setX1} min={BATAS_X1.min} max={BATAS_X1.maks} langkah={BATAS_X1.langkah} />
+                nilai={x1} onUbah={(n) => { setX1(n); setH1((lama) => Math.min(lama, maksH(n))) }}
+                min={BATAS_X1_01.min} max={BATAS_X1_01.maks} langkah={BATAS_X1_01.langkah} />
               <Angka nama="Selang waktu h" arti="jarak Q dari P; makin kecil makin dekat" kunci="h" satuan=" jam"
-                nilai={h} onUbah={setH} min={BATAS_H.min} max={BATAS_H.maks} langkah={BATAS_H.langkah} />
-              <Kembalikan onClick={() => { setX1(AWAL.x1); setH(AWAL.h) }} />
+                nilai={h1} onUbah={setH1}
+                min={BATAS_H_01.min} max={maksH(x1)} langkah={BATAS_H_01.langkah} />
+              <Kembalikan onClick={() => { setX1(AWAL_01.x1); setH1(AWAL_01.h) }} />
               <Petunjuk>
                 geser h makin kecil, dan perhatikan kemiringannya berhenti berubah banyak.
               </Petunjuk>
@@ -66,9 +114,74 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
           </>
         )}
 
-        {/* Widget 02 sampai 11: ganti Rintisan dengan komponen sungguhan,
+        {/* ---------------- Materi 02 ---------------- */}
+        {tampilWidget && tahap.widget === 'sekan-ke-tangen' && (
+          <>
+            <div className="layar">
+              <SekanKeTangen x1={x2} h={h2} nama={fungsi2}
+                onGeser={(nx, nh) => { setX2(nx); setH2(nh) }} />
+            </div>
+            <div className="kendali">
+              <Angka nama="Jarak h" arti="jarak Q dari P; tidak bisa dibuat nol" kunci="h"
+                nilai={h2} onUbah={setH2} desimal={2}
+                min={BATAS_H_02.min} max={maksH_02(x2, fungsi2)} langkah={BATAS_H_02.langkah} />
+              <Pilihan nama="Contoh cepat" arti="lompat ke h yang biasa dipakai"
+                pilihan={CEPAT} nilai={String(h2)} onPilih={(n) => setH2(Number(n))} />
+              <Angka nama="Titik P di x₁" arti="tempat garis singgungnya dicari" kunci="x1"
+                nilai={x2} onUbah={(n) => { setX2(n); setH2((lama) => Math.min(lama, maksH_02(n, fungsi2))) }}
+                desimal={2}
+                min={batasX1(fungsi2).min} max={batasX1(fungsi2).maks} langkah={batasX1(fungsi2).langkah} />
+              <Pilihan nama="Fungsi" arti="kurva yang sedang diperiksa"
+                pilihan={pilihanFungsi(FUNGSI_02)} nilai={fungsi2}
+                onPilih={(n) => {
+                  // Fungsi baru punya rentang aman sendiri; x₁ dan h dijepit ke
+                  // situ supaya kedua titiknya tetap terlihat.
+                  const b = batasX1(n)
+                  const nx = Math.min(b.maks, Math.max(b.min, x2))
+                  setFungsi2(n)
+                  setX2(nx)
+                  setH2((lama) => Math.min(lama, maksH_02(nx, n)))
+                }} />
+              <Kembalikan onClick={() => { setX2(AWAL_02.x1); setH2(AWAL_02.h); setFungsi2(AWAL_02.nama) }} />
+              <Petunjuk>
+                kecilkan h sampai 0,01: garis birunya menempel ke garis ungu, tapi selisih angkanya tidak pernah nol.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
+        {/* ---------------- Materi 03 ---------------- */}
+        {tampilWidget && tahap.widget === 'grafik-turunan' && (
+          <>
+            <div className="layar">
+              <GrafikTurunan x={x3} nama={fungsi3} jejak={jejak} onGeser={geserX3} />
+            </div>
+            <div className="kendali">
+              <Angka nama="Sapuan x" arti="geser pelan dari kiri ke kanan" kunci="x"
+                nilai={x3} onUbah={geserX3} desimal={1}
+                min={batasX(fungsi3).min} max={batasX(fungsi3).maks} langkah={batasX(fungsi3).langkah} />
+              <Pilihan nama="Fungsi" arti="kurva di papan atas"
+                pilihan={pilihanFungsi(FUNGSI_03)} nilai={fungsi3}
+                onPilih={(n) => {
+                  // Jejak dibuang dan x dijepit ke jendela fungsi baru: fungsi
+                  // yang berbeda punya rentang x yang berbeda, dan x lama bisa
+                  // berada di luar papan yang baru.
+                  const b = batasX(n)
+                  setFungsi3(n)
+                  setJejak([])
+                  setX3((lama) => Math.min(b.maks, Math.max(b.min, lama)))
+                }} />
+              <Kembalikan onClick={() => { setX3(AWAL_03.x); setFungsi3(AWAL_03.nama); setJejak([]) }} />
+              <Petunjuk>
+                sapu x dari kiri ke kanan, dan lihat kurva bawah lahir dari kemiringan kurva atas.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
+        {/* Widget 04 sampai 11: ganti Rintisan dengan komponen sungguhan,
             satu blok per widget, pola persis seperti di atas. */}
-        {tampilWidget && tahap.widget && tahap.widget !== 'garis-potong' && tahap.widget !== 'dunia-nyata-turunan' && (
+        {tampilWidget && tahap.widget && !SUDAH_JADI.includes(tahap.widget) && tahap.widget !== 'dunia-nyata-turunan' && (
           <>
             <div className="layar">
               <Rintisan nama={tahap.widget} keterangan="lihat rancangan Materi ini di spesifikasi Turunan" />
@@ -88,9 +201,33 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
       </>
     )
 
-    // Tabel angka hidup untuk kolom kanan; diisi per widget saat dibuat.
-    kanan = null
+    kanan = (
+      <>
+        {tampilWidget && tahap.widget === 'garis-potong' && (
+          <Tabel judul="Angka dari alat" baris={tabelGarisPotong(x1, h1)} />
+        )}
+        {tampilWidget && tahap.widget === 'sekan-ke-tangen' && (
+          <>
+            <Tabel judul="Angka dari alat" baris={tabelSekan(x2, h2, fungsi2)} />
+            <div className="catatan">
+              Selisihnya mengecil terus, tetapi tidak pernah nol selama h masih ada.
+            </div>
+          </>
+        )}
+        {tampilWidget && tahap.widget === 'grafik-turunan' && (
+          <>
+            <Tabel judul="Angka dari alat" baris={tabelGrafikTurunan(x3, fungsi3)} />
+            <div className="catatan">
+              {jejak.length === 0
+                ? 'Papan bawah masih kosong. Sapu x dulu.'
+                : `Sudah ${angka(jejak.length, 0)} titik kemiringan tercatat di papan bawah.`}
+            </div>
+          </>
+        )}
+      </>
+    )
   }
 
   return <>{children({ kiri, kanan, tanda })}</>
 }
+
