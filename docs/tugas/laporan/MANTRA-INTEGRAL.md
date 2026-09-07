@@ -32,7 +32,7 @@ Sesi ini memakai separuh Integral dari berkas tugas itu, dan rancangan
 baris Integral di `daftar-isi.ts`, `topik.ts`, `subbab.ts`, berkas `alat/` yang
 namanya menyebut integral, dan laporan ini. Di luar itu jangan disentuh.
 
-## 11 materi Integral (semua masih `siap: false`)
+## 11 materi Integral (semuanya `siap: true` sejak 7 Sep 2026)
 1. Dari laju ke jumlah, membalik turunan
 2. Tanda integral dan aturan pangkatnya
 3. Substitusi, melihat lapisan
@@ -130,6 +130,57 @@ memeriksa angkanya:
    diperiksa: pangkat `-1` saya masukkan ke daftar pilihan widget 02 (tanpa itu
    kalimat petunjuk rancangan mustahil diikuti), dan `cek_soal.py` saya ganti
    `cek_integral.py` untuk berkas soal (alat lama hanya paham klaim limit).
+
+## LIMA VIDEO 480p: RINGKASAN
+
+Semua berkas di `media/uji-480p/`, masing-masing plus versi `-bersubtitle`
+untuk ditonton. Berkas mp4 di luar `web/public/anim/` TIDAK dilacak git.
+Kelima medan `video:` sudah terpasang di `web/content/integral/tahap.ts`.
+
+| Video | Isi singkat | Durasi | Render | Ciri khusus |
+|---|---|---|---|---|
+| 01 dari laju ke jumlah | dua jalan yang bertemu di 156 | 2:26 | 11 | satu-satunya berpembuka 3D |
+| 03 substitusi | tebakan naif meleset faktor 2 | 2:15 | 4 | satu-satunya tanpa bidang koordinat |
+| 05 jumlahan Riemann | luas dari persegi panjang, 28 lawan 24,5 | 1:58 | 8 | video pertama yang dibuat |
+| 07 Teorema Dasar Kalkulus | A' = f, dua dunia bertemu | 2:22 | 4 | dua papan bertumpuk |
+| 09 luas di bawah sumbu | integral 0, luas 21,3 | 2:09 | 5 | satu gambar, dua jawaban |
+
+**Jumlah render turun dari 11 ke 4** begitu pelajarannya dipakai SEBELUM render
+alih-alih ditemukan lagi tiap kali. Tiga hal yang memangkasnya, semuanya bisa
+dikerjakan tanpa menjalankan ManimGL sekali pun:
+1. Cocokkan jangkar subtitle dengan berkas `.vtt` yang sebenarnya. Empat dari
+   sembilan jangkar video 01 tidak akan pernah ketemu, dan `sinema.mulai`
+   mengembalikan None DIAM-DIAM.
+2. Setel `sisa_kanan` sejak awal, bukan sesudah qc menolak. Penolakannya sering
+   baru muncul di babak TERAKHIR ketika panel paling penuh.
+3. Jalankan `alat/cek_waktu_adegan.py`. Gerbang waktu bawaan berhenti di babak
+   PERTAMA yang kelebihan, jadi satu render hanya menemukan satu kesalahan.
+
+### Keputusan yang DISENGAJA, bukan kelalaian
+Daftar ini ada supaya yang menonton tidak melaporkannya sebagai cacat.
+
+| Di mana | Yang terlihat | Kenapa disengaja |
+|---|---|---|
+| Video 07 | kemiringan garis singgung tidak sesuai angkanya | Papannya lebar dan pendek sementara mendatar 3,2 satuan lawan tegak 9,5. Menyamakan skalanya menuntut papan tiga kali lebih tinggi daripada lebarnya, dan itu tidak muat di layar 16:9. Video ini karena itu TIDAK PERNAH meminta mata membandingkan kemiringan: yang dibandingkan angkanya di panel. |
+| Video 09 | tiga daerah di layar saat kata "positifkan" | Bagian merah dibalik ke atas sumbu dan aslinya dibiarkan di bawah, supaya terlihat daerahnya tidak dipindahkan atau dihapus, hanya dihitung positif. Bentuk lensa yang simetris terhadap sumbu terbaca sebagai pantulan. |
+| Video 03 | layarnya paling lengang dari lima | Isinya seluruhnya aljabar lapisan, tanpa satu pun pernyataan tentang bentuk kurva atau luas. Bidang koordinat hanya akan jadi gambar yang tidak dipakai. Rumusnya sudah diperbesar sampai mengisi 48 persen lebar layar; sesudah itu yang menolong hanya gambar pendamping, dan itu menunggu kata ARYA. |
+| Video 09 dan 03 | daerah/rumus tidak "berdenyut" seperti video lain | Denyut `Indicate` membesarkan bendanya 1,2 kali. Untuk DAERAH itu berbahaya (daerahnya sesaat tampak melewati batas selangnya), jadi diganti nyala kelegapan yang tidak menggeser apa pun. |
+| Semua | rentang layar "diam" 4 sampai 9 detik | Alat ukurnya memakai perubahan piksel se-layar, dan video ini banyak memakai garis tipis serta daerah berwarna pucat. Tiap rentang sudah dibuka frame-nya satu per satu dan ditulis kalimat narasinya di bagian video masing-masing. |
+| Video 05 | babak bernama `plusC` berhuruf besar | Satu-satunya di proyek. Menamainya ulang berarti menjalankan ulang TTS, dan durasi edge-tts bisa bergeser sehingga penyetelan waktu tiga belas babak harus diulang. `cek_waktu_adegan.py` sekarang menerima nama apa pun DAN mencocokkan susunan babak dengan `durasi.json`. |
+
+### Yang menunggu keputusan, JANGAN dikerjakan sebelum ARYA bilang
+1. **Gambar pendamping untuk video 03** kalau layarnya dinilai terlalu lengang.
+2. **Render 1080p** kelima video (`--hd --config_file manim/hd60.yml`, lalu
+   `gabung_audio.py` tanpa `--uji`). Gelombang 3.
+
+### Usulan untuk `gl/sinema.py`, dikumpulkan MASTER jadi satu perubahan
+1. `bersihkan_panel` sekarang ada di LIMA adegan Integral dengan isi sama persis.
+2. `ganti_rumus(..., animasi_saja=True)` yang mengembalikan animasinya, supaya
+   pergantian rumus bisa dititipkan ke `b.main` yang sama dengan gerakan
+   gambarnya. Tanpa itu panel selalu tertinggal atau mendahului sekitar 1 detik.
+3. `cek_waktu_adegan.py` belum membaca pembantu yang memanggil `b.main` di
+   dalamnya (yang ber-`b.catat` sudah). Belum dibutuhkan: video 09 dan 03
+   sengaja menulis nyala kelegapan sebagai dua `b.main` langsung.
 
 ## Video 05 "Luas dari persegi panjang, jumlahan Riemann": SELESAI 480p
 
@@ -544,8 +595,19 @@ gambar pendamping, misalnya daftar empat langkah yang bertahan di kiri selama
 contoh dikerjakan. Itu satu render lagi dan saya belum mengerjakannya.
 
 ## Butuh keputusan ARYA
-- **LIMA VIDEO INTEGRAL 480p SIAP DITONTON ARYA**: 01, 03, 05, 07, 09.
-  Semuanya di `media/uji-480p/`, masing-masing punya versi bersubtitle.
+
+**LIMA VIDEO INTEGRAL 480p SIAP DITONTON**: 01, 03, 05, 07, 09. Semuanya di
+`media/uji-480p/`, masing-masing punya versi `-bersubtitle`. Tabelnya di
+bagian "LIMA VIDEO 480p: RINGKASAN" di atas, lengkap dengan daftar keputusan
+yang disengaja supaya tidak dilaporkan sebagai cacat.
+
+Tiga hal menunggu kata ARYA, dan tidak satu pun dikerjakan sebelum itu:
+1. **Revisi kelima video** sesudah ditonton.
+2. **Gambar pendamping untuk video 03** kalau layarnya dinilai terlalu lengang.
+   Rumusnya sudah diperbesar sampai mengisi 48 persen lebar layar; sesudah itu
+   memperbesar lagi tidak menolong.
+3. **Render 1080p** (gelombang 3): `manimgl <berkas> <Adegan> -w --hd
+   --config_file manim/hd60.yml`, lalu `gabung_audio.py` tanpa `--uji`.
 
 ## Titik rawan matematis yang sudah ditandai
 MASTER menemukan 4 kalimat matematis keliru dari 12 materi Turunan. Untuk
