@@ -153,11 +153,37 @@ MEMBUKA gambarnya:
    hanya memeriksa benda yang DISERAHKAN kepadanya. Sekarang ada
    `pastikan_hilang()` di adegannya: render GAGAL kalau benda babak lama masih
    terpasang. Sudah dibuktikan dua arah (menolak saat tersisa, diam saat bersih).
-2. **Tujuh `Indicate` menyuruh benda berubah ke warna yang sudah dipakainya.**
-   `Indicate(segitiga, color=SOROT)` pada segitiga yang memang SOROT hanya
-   menyisakan perbesaran dua persen: tidak satu piksel pun berganti warna.
-   Itulah sebab empat rentang "beku" di alat ukur diam, bukan kelemahan alatnya.
-   Semua sudah diberi warna lawan dan `scale_factor` 1,05.
+2. **Tujuh `Indicate` nyaris tidak terbaca.** Semuanya sudah diberi warna lawan
+   dan `scale_factor` 1,05, dan videonya membaik. TETAPI SEBAB YANG SAYA TULIS
+   MULA-MULA SALAH, dan itu penting dicatat di sini supaya tidak menyesatkan
+   sesi lain. Saya menyimpulkan "warnanya sama dengan warna bendanya sendiri,
+   jadi tidak satu piksel pun berganti". MASTER meneruskannya ke sesi Turunan,
+   yang mengujinya pada videonya sendiri dan membantahnya. Saya lalu mengukur
+   sendiri lewat `alat/uji_indicate.py`: satu benda yang sama, lima cara sorot,
+   metrik yang sama persis dengan `ukur_detik_pertama.py`.
+
+   | Varian | Puncak piksel berubah |
+   |---|---|
+   | kotak, warna SAMA, `scale_factor=1.02` | 258 |
+   | kotak, warna LAWAN, `scale_factor=1.02` | 221 |
+   | kotak, warna LAWAN, `scale_factor=1.05` | 722 |
+   | kotak, warna SAMA, skala BAWAAN (1,2) | 1352 |
+   | tulisan pejal, warna SAMA, skala bawaan | 179 |
+
+   Warna lawan pada skala 1,02 justru sedikit LEBIH KECIL daripada warna sama
+   (221 lawan 258): warnanya praktis tidak berpengaruh. Yang menentukan
+   SKALANYA. Ketujuh pemanggilan lama saya memang semuanya memakai
+   `scale_factor` 1,02 atau 1,03, jadi videonya membaik karena saya menaikkan
+   skalanya, bukan karena saya mengganti warnanya. Dua pemanggilan lama yang
+   memakai skala bawaan dengan warna yang sudah sama tidak pernah saya keluhkan,
+   dan itu cocok dengan temuan Turunan.
+
+   Aturan yang benar: **jangan setel `scale_factor` kalau tidak ada alasan
+   khusus.** Bawaannya 1,2 dan itu yang paling terbaca.
+
+   Satu hal yang BELUM saya buktikan dan tidak saya klaim: bahwa ketujuh denyut
+   itulah penyebab empat rentang "beku" di video 05. Rentangnya saya cocokkan
+   dengan babaknya, bukan dengan pemanggilannya satu per satu.
 3. **Denyut pengganti pada tanda partisi juga tidak terbaca.** Diganti gerak
    yang sekalian mengajar: ruas pengukur Δx BERJALAN dari bagian ke bagian,
    sehingga "sama lebar" terlihat, bukan cuma didengar.

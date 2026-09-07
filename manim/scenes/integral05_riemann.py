@@ -304,11 +304,15 @@ class IntegralRiemann(AdeganMatra):
                    run_time=5.0)
             b.tunggu_sampai(sinema.mulai(jam, "Jumlahnya 28."))
             b_jumlah = papan.baris(r"1+2+\cdots+7 = 28", warna=AKSEN2, b=b)
-            # Warna denyutnya HARUS beda dari warna benda itu sendiri. Sampai
-            # render kelima tujuh `Indicate` di adegan ini menyuruh benda
-            # berubah ke warna yang sudah dipakainya, jadi yang tersisa cuma
-            # perbesaran dua persen: tidak ada satu piksel pun yang berganti
-            # warna, dan alat ukur diam membaca babak-babak itu sebagai beku.
+            # Yang menentukan terbacanya sebuah denyut adalah SKALANYA, bukan
+            # warnanya. Saya sempat menulis sebaliknya di sini; `alat/uji_indicate.py`
+            # mengukurnya pada benda yang sama dan membantah saya (piksel berubah,
+            # metrik ukur_detik_pertama): warna sama skala 1,02 memberi puncak 258,
+            # warna lawan skala 1,02 justru 221, warna lawan skala 1,05 memberi 722,
+            # dan skala BAWAAN 1,2 dengan warna yang sama memberi 1352. Jadi
+            # `scale_factor` dekat satu itulah yang mematikan denyutnya; warna
+            # lawan cuma bonus. Kalau tidak ada alasan khusus, jangan setel
+            # `scale_factor` sama sekali.
             b.main(Indicate(kanan7, color=SOROT, scale_factor=1.05), run_time=1.6)
         qc.periksa_adegan(self, {"kurva": k_lengkung},
                           hud={"identitas": ident, "papan": papan.semua()},
