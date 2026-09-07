@@ -47,37 +47,101 @@ Dengan k = 2, jarak tiap titik ke pusat jadi 2 kali.
 Sisi AB dari 5 menjadi 10.
 
 12
-00:00:38.016 --> 00:00:40.445
-Tapi luasnya bukan 2 kali.
+00:00:38.016 --> 00:00:44.544
+Kalau pusatnya di titik asal: (x, y) menjadi (kx, ky).
 
 13
-00:00:40.445 --> 00:00:41.847
-Luasnya <b>4</b> kali,
+00:00:44.544 --> 00:00:47.614
+Uji pada B(6, 1).
 
 14
-00:00:41.847 --> 00:00:45.864
-sebab panjang dan lebar sama-sama dikali 2.
+00:00:47.614 --> 00:00:55.920
+Kalikan keduanya dengan 2: hasilnya B'(12, 2).
 
 15
-00:00:45.864 --> 00:00:48.915
-Ini alasan pizza berdiameter 2 kali
+00:00:55.920 --> 00:00:58.349
+Tapi luasnya bukan 2 kali.
 
 16
-00:00:48.915 --> 00:00:51.792
-lipat berisi 4 kali lebih banyak.
+00:00:58.349 --> 00:00:59.751
+Luasnya <b>4</b> kali,
 
 17
-00:00:51.792 --> 00:00:54.175
-Faktor 0,5 bekerja sebaliknya:
+00:00:59.751 --> 00:01:03.768
+sebab panjang dan lebar sama-sama dikali 2.
 
 18
-00:00:54.175 --> 00:00:57.432
-bentuknya mengecil dan mendekat ke pusat.
+00:01:03.768 --> 00:01:06.819
+Ini alasan pizza berdiameter 2 kali
 
 19
-00:00:57.432 --> 00:01:01.460
-Faktor negatif melempar bentuknya menyeberangi pusat,
+00:01:06.819 --> 00:01:09.696
+lipat berisi 4 kali lebih banyak.
 
 20
-00:01:01.460 --> 00:01:02.904
+00:01:09.696 --> 00:01:14.740
+Yang berubah cuma ukurannya: sudut tetap,
+
+21
+00:01:14.740 --> 00:01:17.693
+perbandingan sisi tetap.
+
+22
+00:01:17.693 --> 00:01:21.384
+Cuma ini yang mengubah ukuran.
+
+23
+00:01:21.384 --> 00:01:23.767
+Faktor 0,5 bekerja sebaliknya:
+
+24
+00:01:23.767 --> 00:01:27.024
+bentuknya mengecil dan mendekat ke pusat.
+
+25
+00:01:27.024 --> 00:01:31.117
+Faktor 1 tidak mengubah apa pun.
+
+26
+00:01:31.117 --> 00:01:37.128
+Antara 0 dan 1 mengecil, lebih dari 1 membesar.
+
+27
+00:01:37.128 --> 00:01:41.156
+Faktor negatif melempar bentuknya menyeberangi pusat,
+
+28
+00:01:41.156 --> 00:01:42.600
 ke sisi berlawanan.
+
+29
+00:01:42.600 --> 00:01:49.311
+Yang sering keluar di soal: pusatnya bukan titik asal.
+
+30
+00:01:49.311 --> 00:01:53.040
+A(2, 1), k = 3, pusat M(1, 1).
+
+31
+00:01:53.040 --> 00:01:59.754
+Kekeliruan tersering: koordinat langsung dikali 3,
+
+32
+00:01:59.754 --> 00:02:01.634
+keluar (6, 3).
+
+33
+00:02:01.634 --> 00:02:04.320
+Yang benar A'(4, 1).
+
+34
+00:02:04.320 --> 00:02:08.043
+Dilatasi mengalikan jarak tiap titik
+
+35
+00:02:08.043 --> 00:02:11.766
+ke pusatnya dengan faktor yang sama.
+
+36
+00:02:11.766 --> 00:02:17.040
+Kalau luasnya jadi 25 kali, berapa faktor skalanya?
