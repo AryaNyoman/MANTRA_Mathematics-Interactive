@@ -14,7 +14,7 @@ Semuanya terukur pada berkas jadi di `media/uji-480p/`, bukan dikira-kira.
 | Video | Materi | Adegan | Detik | Gerak pertama | Diam terpanjang |
 |---|---|---|---|---|---|
 | 01 setiap titik | 01 | `TransformasiSetiapTitik` | 130,0 | 3,00 s | 5,6 s @ 124 s |
-| 02 cermin garis | 02 | `TransformasiCerminGaris` | 124,9 | 0,75 s | 7,2 s @ 106 s |
+| 02 cermin garis | 02 | `TransformasiCerminGaris` | 124,9 | 0,75 s | 6,5 s @ 11 s |
 | 03 rotasi | 06 | `TransformasiRotasi` | 130,4 | 0,38 s | 4,8 s @ 79 s |
 | 04 dilatasi | 07 | `TransformasiDilatasi` | 137,0 | 0,25 s | 5,0 s @ 51 s |
 | 05 matriks | 09 | `TransformasiMatriks` | 143,6 | 0,38 s | 5,2 s @ 85 s |
@@ -279,6 +279,36 @@ faktor skalanya?", yang justru menagih gagasan pokok video ini sendiri.
 
 ---
 
+## Video 02: layar yang membantah narasinya sendiri selama tujuh detik
+
+Rentang diam 7,2 detik pada detik 106 dinilai ulang 7 Sep dengan membuka
+gambarnya, bukan cuma membaca angkanya. Ternyata bukan sekadar layar diam:
+
+**Narator membicarakan cermin MENDATAR, sementara layar masih memperlihatkan
+cermin TEGAK di garis x = 5.** Panelnya benar, gambarnya tidak.
+
+Komentar di kode bahkan sudah menyebut masalah ini pernah ada, dan perbaikan
+pertamanya cuma memindahkan rumus mendatar ke baris bernama supaya panel tidak
+berbohong. Itu menyelesaikan separuhnya: panel jadi jujur, gambarnya tetap
+salah. Aturan proyek menyebut kelas cacat ini paling merusak, sebab layar
+kosong cuma tidak menolong sedangkan gambar yang salah ikut mengajar.
+
+Sekarang babak `mendatar` benar-benar membuang cermin tegaknya lalu menggambar
+cermin mendatar di h = 2, dengan bendanya di bawah dan bayangannya di atas.
+Babak `rangkum` dan `tanya` mengikuti cermin baru itu: dua ruas tegak lurus
+sepanjang 1,5 di kedua sisinya, lalu sebuah titik tepat DI garis cerminnya.
+Memperagakan rangkuman pada cermin yang berbeda arah justru memperkuat, sebab
+kalimatnya memang umum.
+
+Bentuknya setengah ukuran, dan itu keharusan aritmetika: kotaknya setinggi 4
+satuan, sedangkan bentuk L aslinya setinggi 2, jadi ia tidak mungkin muat
+seluruhnya di satu sisi cermin yang juga butuh ruang untuk bayangannya.
+
+Hasilnya: diam terpanjang video 02 turun dari 7,2 ke 6,5 detik, dan yang lebih
+penting, tidak ada lagi detik yang gambarnya membantah suaranya.
+
+---
+
 ## Berkas pendamping: dua cacat yang ditemukan MASTER, bukan saya
 
 Saat memasang video ke situs (6 Sep), MASTER menemukan dua cacat yang lolos
@@ -322,11 +352,6 @@ tertangkap, tetapi perbaikannya milik sesi Vektor.
 
 ## Yang belum dikerjakan
 
-- Klaim angka video 01 dan 02 belum masuk `klaim-video-transformasi.json`.
-  Yang sudah: 03, 04, 05, 06 (41 klaim, bagian dari 147 yang diperiksa).
-- Video 02 masih punya rentang diam 7,2 detik pada detik 106, yang terpanjang
-  di antara keenam video. Narasinya di situ membahas cermin mendatar lalu
-  rangkuman, jadi layarnya masih relevan, tetapi angkanya menonjol.
 - `alat/cek_kejadian.py` masih menandai satu babak video 01 ("aturan") sebagai
   berisiko dinilai diam. Pengukuran pada video jadi TIDAK membenarkan
   peringatan itu: diamnya di bawah 5,1 detik dan tidak masuk empat terpanjang.
