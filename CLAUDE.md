@@ -76,8 +76,11 @@ Situs belajar matematika SMA: **animasi Manim** (menjelaskan *kenapa*) + **widge
   di proyek ini DAN proyek berikutnya. Pakai tanda baca lain: titik, koma, titik dua,
   tanda kurung, atau tanda hubung biasa. Berlaku untuk teks yang dilihat pengguna
   maupun untuk komentar kode.
-- **Setiap materi berwidget WAJIB punya kotak "Yuk bereksperimen"** (blok
-  `jenis: 'coba'`), ditaruh di titik siswa sudah cukup membaca untuk mencoba.
+- **Setiap materi berwidget INTERAKTIF WAJIB punya kotak "Yuk bereksperimen"**
+  (blok `jenis: 'coba'`), ditaruh di titik siswa sudah cukup membaca untuk
+  mencoba. Galeri dunia nyata (`dunia-nyata-*`) dikecualikan: tidak ada yang
+  dicoba, dan di HP galerinya jatuh ke akhir bacaan, itu memang tempatnya
+  (diperjelas 7 Sep 2026 atas pertanyaan sesi Turunan).
   Sebabnya: di layar sempit, materi TANPA video menyisipkan widgetnya tepat di
   bawah kotak itu (keputusan ARYA 5 Sep 2026), supaya siswa membaca dulu dan
   tidak disodori alat di atas judul. Tanpa kotak, widget jatuh ke akhir bacaan.
