@@ -1,5 +1,87 @@
 # Laporan MATRA-GRAFIK-FUNGSI
-Terakhir: 4 September 2026, dini hari. Bagian TERBARU di paling atas.
+Terakhir: 7 September 2026 malam. Bagian TERBARU di paling atas.
+
+## 7 Sep 2026: GELOMBANG 3 SELESAI, kedua video jadi 1080p60
+
+Perintah ARYA (diketik sendiri di jendela sesi ini). Kedua video Grafik Fungsi
+dirender ulang pada 1080p60 dan lolos gerbang.
+
+### Berkas jadi
+| | tahap 3 | tahap 6 |
+|---|---|---|
+| berkas | `web/public/anim/grafik3-puncak.mp4` | `web/public/anim/grafik6-transformasi.mp4` |
+| ukuran gambar | 1920x1080 @ 60 fps | 1920x1080 @ 60 fps |
+| durasi | 161,67 detik | 166,54 detik |
+| besar | 3,49 MB | 4,33 MB |
+| selisih suara | 0,23 detik | 0,17 detik |
+| poster | 42.568 B, rentang 234 | 39.893 B, rentang 245 |
+
+Poster tahap 6 yang lama memang tipis seperti diperingatkan MASTER (6,0 KB);
+sekarang diambil dari detik 110 dan lolos pemeriksaan `buat_poster`.
+
+`tahap.ts` TIDAK diubah. Baris `video:` kedua tahap sudah menunjuk `.mp4`
+dengan nama yang benar, sesuai koreksi MASTER bahwa semua video tayang memakai
+`.mp4`, bukan `.webm`.
+
+Peringatan "> 4.0 MB" pada tahap 6 diabaikan dengan alasan: video final lain di
+situs berkisar 3,0 sampai 7,4 MB, jadi 4,33 MB justru termasuk yang kecil.
+
+### Hasil gerbang
+- `cek_kode --dalam`: kedua adegan bersih, termasuk 5 potongan LaTeX yang
+  benar-benar dibangun lewat MiKTeX.
+- Lembar kontak DIBUKA dan dinilai: 41 frame tahap 3, 42 frame tahap 6. Tidak
+  ada teks bertindih, tidak ada yang keluar tepi, tidak ada warna belang.
+- Label puncak `(1, 4)` diperiksa lagi pada 1080p detik 60: bersih, tanpa
+  tanda dolar, tidak menindih kurva.
+- `cek_sinkron_video`: tahap 3 sinkron 4 dari 4 (`--awal 1`), tahap 6 sinkron
+  5 dari 5.
+- `cek_aset_video`: kedua video `ok`.
+- `cek_resolusi_anim`: tidak menyebut satu pun video grafik. Yang tersisa cuma
+  `trigonometri.webm` 720p, dan itu berkas YATIM (tidak dirujuk satu halaman
+  pun, sudah ada di daftar utang MASTER untuk dihapus), bukan milik topik ini.
+
+### `--fps 60` memang merusak, dan koreksi Ruang 3D menyelamatkan render ini
+Resep lama `manimgl ... --fps 60` bikin render pecah, sebab ManimGL 1.7.2
+mendaftarkan `--fps` tanpa tipe angka sehingga nilainya tersimpan sebagai teks.
+Yang dipakai: `--config_file manim/hd60.yml`. Kalau merge master dilewati,
+render ini pasti gagal.
+
+### TAMBALAN ALAT: ambang bercak sekarang IKUT RESOLUSI
+`cek_sinkron_video` mematok ambang luas bercak 45 piksel, dan angka itu
+dikalibrasi pada 480p. Begitu videonya 1080p, luas tiap benda melar sekitar 5
+kali, dan barang yang tadinya di bawah ambang naik melewatinya. Terukur pada
+grafik3-puncak 1080p: label puncak `(1, 4)` yang di 480p terhitung SATU bercak,
+di 1080p pecah jadi EMPAT, sebab tiap hurufnya sendiri sudah lebih besar dari
+45 piksel. Hitungannya meleset +3 di semua baris, dan alat itu melaporkan video
+yang benar sebagai tidak sinkron.
+
+Sekarang ambangnya dihitung dari luas frame (`ambang_bercak`), dengan 45 di
+480p tetap sebagai acuan supaya hasil pemeriksaan 480p yang sudah pernah
+dipakai tidak berubah.
+
+**INI MENGENAI SEMUA SESI YANG MERENDER 1080p MALAM INI.** Tanpa tambalan ini,
+Vektor, Statistika, Ruang 3D, dan Transformasi akan mendapat alarm palsu yang
+sama begitu memakai `cek_sinkron_video` pada berkas 1080p.
+
+Catatan tambahan: nilai `--awal` bisa BERBEDA antara 480p dan 1080p untuk video
+yang sama, sebab tulisan sewarna yang ukurannya dekat ambang bisa berpindah
+sisi. Pada grafik3-puncak, `--awal 2` di 480p menjadi `--awal 1` di 1080p.
+Tandanya tetap sama: semua baris meleset dengan selisih yang sama.
+
+### Butuh keputusan ARYA
+1. **Bagian 3D tahap 6 masih 14 detik.** Keputusan MASTER 4 Sep meminta
+   dipadatkan ke sekitar 5 detik, sebab video pertama topik ini adalah tahap 3.
+   TIDAK dikerjakan pada gelombang 3 ini atas arahan MASTER (render apa adanya,
+   tulis di sini). Perlu satu render lagi kalau jadi dipadatkan.
+2. **Panel rumus tahap 6 di KIRI atas**, menyalahi STANDAR butir 111 yang
+   menetapkan rumus di kanan atas. Disengaja: semua kurva topik ini naik ke
+   kanan, dan pada render pertama rumus akar x tertimpa kurvanya sendiri di
+   pojok kanan. Mau dibiarkan, atau standarnya yang menyesuaikan?
+3. Ringan: tahap 3 detik 14-17, busur bola yang sudah mendarat diam 4 detik.
+
+### Di luar wilayah topik ini
+`cek_aset_video` menandai `beranda-interaktif` dan `beranda-tiga-grafik-v2`
+tidak punya subtitle. Keduanya klip hiasan beranda, bukan milik Grafik Fungsi.
 
 ## 4 Sep 2026: video tahap 3 dan tahap 6 dirender ulang, tiga cacat ditutup
 
