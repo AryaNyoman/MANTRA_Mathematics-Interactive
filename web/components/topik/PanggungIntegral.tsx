@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, type ReactNode } from 'react'
-import Rintisan from '@/components/widget/integral/Rintisan'
 import MesinBalik, {
   AWAL as AWAL_BALIK, BATAS_C, BATAS_X, SOAL, soalDari,
 } from '@/components/widget/integral/MesinBalik'
@@ -34,6 +33,7 @@ import PasangkanTurunanIntegral, {
 import HitungBertahap, {
   AWAL as AWAL_HITUNG, LANGKAH_MAKS as LANGKAH_HITUNG, SOAL as SOAL_HITUNG,
 } from '@/components/widget/integral/HitungBertahap'
+import DuniaNyataIntegral from '@/components/widget/integral/DuniaNyataIntegral'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Kembalikan, Petunjuk, Pilihan } from '@/components/kendali'
 
@@ -567,31 +567,9 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
           </>
         )}
 
-        {tampilWidget && tahap.widget
-          && tahap.widget !== 'mesin-balik'
-          && tahap.widget !== 'naik-pangkat'
-          && tahap.widget !== 'persegi-panjang-menumpuk'
-          && tahap.widget !== 'pecah-selang'
-          && tahap.widget !== 'luas-dua-daerah'
-          && tahap.widget !== 'dua-kurva'
-          && tahap.widget !== 'luas-yang-tumbuh'
-          && tahap.widget !== 'cocokkan-lapisan'
-          && tahap.widget !== 'pasangkan-turunan-integral'
-          && tahap.widget !== 'hitung-bertahap'
-          && tahap.widget !== 'dunia-nyata-integral' && (
-          <>
-            <div className="layar">
-              <Rintisan nama={tahap.widget} keterangan="lihat rancangan Materi ini di spesifikasi Integral" />
-            </div>
-            <div className="kendali">
-              <Petunjuk>widget ini belum dibuat; kendalinya menyusul bersama widgetnya.</Petunjuk>
-            </div>
-          </>
-        )}
-
         {tampilWidget && tahap.widget === 'dunia-nyata-integral' && (
           <div className="isi-gulir">
-            <Rintisan nama="dunia-nyata-integral" keterangan="galeri empat kartu: penjualan, jarak, pegas, penghematan" />
+            <DuniaNyataIntegral />
           </div>
         )}
       </>
