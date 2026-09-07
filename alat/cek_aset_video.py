@@ -79,10 +79,11 @@ def video_topik(topik: str):
     kebutaan yang bikin alat ini dibuat. Ditemukan sesi Statistika 7 Sep 2026.
     """
     # Urutan folder dari VIDEO_URUT (final dulu, uji belakangan); di tiap
-    # folder webm didahulukan daripada mp4, sebab mp4 480p yang tidak
-    # dilacak git bisa tertinggal di samping webm 1080p-nya.
+    # folder mp4 didahulukan daripada webm: wadah final proyek mp4 (keputusan
+    # ARYA 8 Sep 2026), webm hanya sisa masa peralihan. Sama dengan urutan
+    # `buat_poster.cari_sumber`.
     for folder in VIDEO_URUT:
-        for akhiran in (".webm", ".mp4"):
+        for akhiran in (".mp4", ".webm"):
             calon = folder / f"{topik}{akhiran}"
             if calon.exists() and calon.stat().st_size > 1024:
                 return calon
