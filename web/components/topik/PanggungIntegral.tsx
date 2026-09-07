@@ -9,6 +9,9 @@ import NaikPangkat, {
   AWAL as AWAL_PANGKAT, BATAS_A, BATAS_C as BATAS_C_PANGKAT,
   BATAS_X as BATAS_X_PANGKAT, PANGKAT, pangkatDari,
 } from '@/components/widget/integral/NaikPangkat'
+import PersegiPanjangMenumpuk, {
+  AWAL as AWAL_RIEMANN, BATAS_N, FUNGSI, SAMPEL, fungsiDari,
+} from '@/components/widget/integral/PersegiPanjangMenumpuk'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Kembalikan, Petunjuk, Pilihan } from '@/components/kendali'
 
@@ -24,15 +27,6 @@ import { Angka, Kembalikan, Petunjuk, Pilihan } from '@/components/kendali'
  * Rancangan tiap widget: docs/superpowers/specs/2026-09-06-integral-alur-belajar.md
  */
 
-/** Batas kendali widget 05; pindahkan ke komponen widgetnya saat dibuat. */
-const BATAS_N = { min: 1, maks: 60, langkah: 1 }
-const TITIK_SAMPEL = [
-  { nilai: 'kiri', label: 'kiri' },
-  { nilai: 'kanan', label: 'kanan' },
-  { nilai: 'tengah', label: 'tengah' },
-]
-const AWAL = { n: 4, sampel: 'kiri' }
-
 export default function PanggungIntegral({ tahap, tampilWidget, children }: PropPanggung) {
   // Materi 01: mesin turunan mundur
   const [soal, setSoal] = useState(AWAL_BALIK.soal)
@@ -47,8 +41,11 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
   const [titikX2, setTitikX2] = useState(AWAL_PANGKAT.x)
 
   // Materi 05: jumlahan Riemann
-  const [n, setN] = useState(AWAL.n)
-  const [sampel, setSampel] = useState(AWAL.sampel)
+  const [fungsiR, setFungsiR] = useState(AWAL_RIEMANN.fungsi)
+  const [n, setN] = useState(AWAL_RIEMANN.n)
+  const [sampel, setSampel] = useState(AWAL_RIEMANN.sampel)
+  const [batasA, setBatasA] = useState(AWAL_RIEMANN.a)
+  const [batasB, setBatasB] = useState(AWAL_RIEMANN.b)
 
   let kiri: ReactNode = null
   let kanan: ReactNode = null
@@ -179,16 +176,47 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
         {tampilWidget && tahap.widget === 'persegi-panjang-menumpuk' && (
           <>
             <div className="layar">
-              <Rintisan nama="persegi-panjang-menumpuk" keterangan={`n = ${n}, titik sampel ${sampel}: persegi panjang di bawah kurva`} />
+              <PersegiPanjangMenumpuk
+                fungsi={fungsiR}
+                n={n}
+                sampel={sampel}
+                a={batasA}
+                b={batasB}
+                onGeserBatas={(yang, nilai) => (yang === 'a' ? setBatasA(nilai) : setBatasB(nilai))}
+              />
             </div>
             <div className="kendali">
-              <Angka nama="Banyak bagian n" arti="selang [a, b] dibagi jadi n persegi panjang" kunci="n"
+              <Angka nama="Banyak bagian n" arti="selang dibagi jadi n persegi panjang" kunci="n"
                 nilai={n} onUbah={setN} min={BATAS_N.min} max={BATAS_N.maks} langkah={BATAS_N.langkah} />
               <Pilihan nama="Titik sampel" arti="tinggi persegi panjang diambil dari ujung mana"
-                pilihan={TITIK_SAMPEL} nilai={sampel} onPilih={setSampel} />
-              <Kembalikan onClick={() => { setN(AWAL.n); setSampel(AWAL.sampel) }} />
+                pilihan={SAMPEL} nilai={sampel} onPilih={setSampel} />
+              <Pilihan
+                nama="Kurvanya"
+                arti="ganti kurva, lalu bandingkan kiri dan kanan lagi"
+                pilihan={FUNGSI.map((f) => ({ nilai: f.nilai, label: f.label }))}
+                nilai={fungsiR}
+                onPilih={(v) => {
+                  setFungsiR(v)
+                  // Batas dikembalikan ke ranah kurva yang baru. Selang [0, 7]
+                  // milik f(x) = x tidak punya arti untuk setengah lingkaran,
+                  // yang hanya hidup di [-1, 1].
+                  const fb = fungsiDari(v)
+                  setBatasA(fb.aAwal)
+                  setBatasB(fb.bAwal)
+                }}
+              />
+              <Kembalikan
+                onClick={() => {
+                  setFungsiR(AWAL_RIEMANN.fungsi)
+                  setN(AWAL_RIEMANN.n)
+                  setSampel(AWAL_RIEMANN.sampel)
+                  setBatasA(AWAL_RIEMANN.a)
+                  setBatasB(AWAL_RIEMANN.b)
+                }}
+              />
               <Petunjuk>
                 naikkan n dari 4 ke 60, dan lihat selisih ke luas sebenarnya menyusut.
+                Lalu ganti kurvanya menjadi 4 - x², dan bandingkan kiri dengan kanan lagi.
               </Petunjuk>
             </div>
           </>
