@@ -119,7 +119,13 @@ class Simpangan8(AdeganMatra):
         HUD["identitas"] = sinema.identitas(self, "5 botol tiap mesin",
                                             "botol berlabel 500 ml")
 
+        # Nama mesin lawan botolnya WAJIB diperiksa di tiap babak. Benda dunia
+        # tidak diperiksa silang terhadap benda dunia oleh `qc`, jadi tanpa
+        # pasangan tertulis ini tindihan botol di atas huruf lolos lagi.
+        PASANGAN_TETAP = [("nama A", "botol A"), ("nama B", "botol B")]
+
         def periksa(pasangan=None):
+            pasangan = PASANGAN_TETAP + list(pasangan or [])
             hidup_d = {k: v for k, v in DUNIA.items() if v is not None}
             hidup_h = {k: v for k, v in HUD.items() if v is not None}
             if papan.semua() is not None:      # kosong di dua babak pertama
@@ -160,7 +166,20 @@ class Simpangan8(AdeganMatra):
         # Nama mesin ditaruh DI BAWAH garisnya, bukan di atas: di atas garis A ia
         # masuk jalur papan rumus di kiri atas.
         nama_a = tegak(teks("Mesin A", 23, AKSEN2)).move_to([-2.15, 0, Z_GARIS_A + 0.24])
-        nama_b = tegak(teks("Mesin B", 23, AKSEN)).move_to([-2.15, 0, Z_GARIS_B + 0.22])
+        # Botol Mesin B paling kiri duduk di 490 ml, yaitu x = -1,70. Label di
+        # x = -2,15 (setengah lebarnya 0,405, DIUKUR bukan dikira) melebar sampai
+        # -1,745 dan menyenggol botolnya: meleset cuma 0,02 satuan, tetapi di
+        # 1080p hurufnya jelas tertutup. Lolos semua gerbang sebab benda dunia
+        # tidak diperiksa silang terhadap benda dunia, dan adegan ini dibuat
+        # sebelum ada daftar `tulisan`; sekarang dijaga `PASANGAN_TETAP`.
+        #
+        # Jendela amannya sempit dan dibatasi dua sisi:
+        #   x < -2,170  supaya tidak kena botol 490 ml
+        #   x > -2,659  supaya tetap muat saat kamera mendekat ke bingkai 3,6
+        # Percobaan pertama memakai -2,80 dan DITOLAK gerbang, keluar bingkai
+        # kiri di babak penutup. Dipakai tengahnya.
+        # Mesin A tidak kena: botolnya cuma merentang 498 sampai 502 ml.
+        nama_b = tegak(teks("Mesin B", 23, AKSEN)).move_to([-2.40, 0, Z_GARIS_B + 0.22])
 
         garis_mean = ilustrasi.balok(0.05, 0.4, 1.30, SOROT).shift([0, 0, Z_ANGKA + 0.16])
         l_mean = tegak(rumus(r"\bar{x}_A = \bar{x}_B = 500", 22, SOROT))
