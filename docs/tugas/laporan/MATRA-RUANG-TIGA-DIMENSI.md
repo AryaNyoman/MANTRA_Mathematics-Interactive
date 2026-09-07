@@ -143,6 +143,183 @@ Tidak ada. Gelombang 1 selesai, menunggu tinjauan ARYA.
 
 ---
 
+# GELOMBANG 3: render akhir 1080p60, 7 September 2026
+
+## Resep render akhir TIDAK bisa dijalankan apa adanya
+
+Tiga cacat di perkakas bersama, ketiganya menimpa SEMUA sesi yang merender
+1080p, bukan cuma topik ini. Semuanya sudah diperbaiki dan dicommit.
+
+**1. `--fps 60` membuat render pecah.** ManimGL 1.7.2 mendaftarkan `--fps`
+tanpa `type=int` (manimlib/config.py baris 175) lalu menyimpannya apa adanya
+ke `camera_config.fps`. Nilainya jadi teks "60" dan render mati di animasi
+pertama:
+
+    TypeError: unsupported operand type(s) for /: 'int' and 'str'
+
+Gantinya `manim/hd60.yml`, dipakai lewat `--config_file`:
+
+    manimgl manim/scenes/<berkas>.py <Adegan> -w --hd --config_file manim/hd60.yml
+
+Berkas itu digabung SESUDAH `custom_config.yml` dan hanya menimpa yang
+disebutnya, jadi latar krem dan folder keluaran tetap. Diperiksa sebelum
+dipakai: 1920x1080, fps 60 sebagai ANGKA, latar #F7F3EE, keluaran media/gl.
+Sengaja TIDAK mengubah `custom_config.yml`, sebab berkas itu dipakai semua
+sesi dan menaikkannya ke 60 fps akan diam-diam mengubah render 480p mereka.
+
+**2. `gabung_audio.py` tidak bisa menghasilkan .webm dari keluaran ManimGL.**
+Ia menyalin aliran gambar (`-c:v copy`) ke wadah webm, dan itu benar di zaman
+Manim Community yang menulis .webm langsung. ManimGL selalu menghasilkan mp4
+H.264, jadi ffmpeg menolak: "Only VP8 or VP9 or AV1 video ... are supported
+for WebM". Bawaannya sekarang .mp4 dan kodek suaranya mengikuti wadah.
+
+**Instruksi "ubah tahap.ts ke berkas webm" sudah kedaluwarsa.** Ke-32 video
+yang sudah tayang semuanya mp4 H.264 + AAC, dan `tahap.ts` Ruang 3D memang
+sudah menunjuk `.mp4`. Tidak ada yang diubah di situ.
+
+**3. `buat_poster.py` mematok folder `media/uji-480p`.** Sesi gelombang 3
+mendapat "tidak ada videonya" padahal videonya ada di `web/public/anim`.
+Sekarang sumbernya dicari berurutan, yang TAYANG lebih dulu, dan sumber yang
+dipakai dicetak.
+
+## Cacat isi yang hanya ketahuan di 1080p: gambar membantah narasi
+
+Materi 03 babak penutup. Narator berkata "dari arah ini A̅C̅ tampak berdiri
+tegak", dan di layar A̅C̅ justru MELINTANG MENDATAR. Sudut yang saya pilih,
+theta -135, ternyata pandangan TEGAK LURUS terhadap AC, kebalikan persis dari
+yang dijanjikan.
+
+Yang perlu dicatat: cacat ini LOLOS SEMUA GERBANG OTOMATIS. Tidak ada yang
+bertindih, tidak ada yang keluar bingkai, `qc.periksa_adegan` senang, waktunya
+pas, peringatan diam tidak berbunyi. Yang menemukannya cuma membuka gambarnya
+lalu membandingkannya dengan kalimat yang sedang diucapkan.
+
+Sudut yang benar DIHITUNG, bukan ditebak lagi: A dan C diproyeksikan ke layar
+untuk tiap theta, lalu diambil yang selisih mendatarnya nol.
+
+| theta | selisih mendatar A ke C | tampak |
+|---|---|---|
+| -45 | 0,00 | TEGAK, ini yang dipakai |
+| -135 | -8,49 | mendatar, yang salah |
+
+Geseran penutupnya juga dikecilkan dari 8 ke 3 derajat: lebih dari itu dan AC
+tidak lagi tampak tegak, padahal itu yang baru dijanjikan narator satu kalimat
+sebelumnya.
+
+## Jeda penutup yang mubazir
+
+Materi 06 gagal render: babak "tutup" kelebihan 0,23 detik. Sebabnya
+`b.jeda(1.2)` sebagai baris TERAKHIR sebuah babak, padahal `Babak.tutup()`
+sudah mengisi sisa babak dengan diam. Jedanya mubazir, dan begitu kejadian
+diikat ke jam kalimat, sisa itu habis dan jedanya melewati batas.
+
+Ada 10 jeda seperti itu di keenam adegan. Yang materi 06 sudah dibuang. Yang
+lima lagi SENGAJA DIBIARKAN untuk sekarang: videonya sudah jadi, dan mengubah
+berkasnya membuat gerbang kesegaran `gabung_audio` menolak menggabungkan
+(gerbang itu tidak bisa membedakan "kode diedit sesudah render" dari "render
+gagal diam-diam", dan gerbang itu memang harus curiga). Buang kesepuluhnya
+pada putaran render berikutnya, bukan sekarang.
+
+## Hasil akhir
+
+| Materi | Adegan | Ukuran | Durasi | Selisih suara | Berkas |
+|---|---|---|---|---|---|
+| 01 | GambarBolehBerbohong | 14,00 MB | 84,70 dtk | 0,13 dtk | ruang-3d-01.mp4 |
+| 03 | JarakSelaluTerpendek | 12,41 MB | 91,73 dtk | 0,10 dtk | ruang-3d-03.mp4 |
+| 04 | DuaKaliPythagoras | 12,43 MB | 82,66 dtk | 0,20 dtk | ruang-3d-04.mp4 |
+| 06 | JarakTitikKeBidang | 13,69 MB | 84,07 dtk | 0,10 dtk | ruang-3d-06.mp4 |
+| 08 | SudutGarisBersilangan | 9,92 MB | 74,86 dtk | 0,12 dtk | ruang-3d-08.mp4 |
+| 09 | SudutDenganBidang | 13,23 MB | 93,77 dtk | 0,19 dtk | ruang-3d-09.mp4 |
+
+Semuanya 1920x1080 60 fps. Lembar kontak keenamnya DIBUKA dan dinilai.
+Poster keenamnya dibuat dari video FINAL dan lolos pemeriksa frame kosong.
+
+Ukuran 12 sampai 14 MB per video (sekitar 1,3 Mbps) memicu peringatan 4 MB di
+`gabung_audio`. Peringatan itu dibuat untuk salinan tinjauan 480p, dan 1,3
+Mbps untuk 1080p60 masih wajar. Kalau ARYA mau lebih ringan, jalannya kode
+ulang H.264 dengan CRF, tanpa render ulang.
+
+## Gerbang aset menemukan enam potongan suara basi
+
+`alat/cek_aset_video.py` juga mematok folder `media/uji-480p`, cacat yang sama
+dengan `buat_poster.py`. Sesudah diperbaiki, ia langsung menemukan sesuatu:
+materi 01 punya ENAM potongan suara dari penomoran naskah versi lama.
+
+    basi  : 01-kotak, 02-rangka, 03-dua-ruas, 04-naik, 05-turun, 06-tutup
+    benar : 01-buka, 02-kotak, 03-rangka, 04-dua-ruas, 05-naik, 06-turun, 07-tutup
+
+Yang lama bernomor mundur satu, sisa dari saat babak "buka" belum ada. Ukuran
+berkasnya berpasangan persis, jadi memang salinan. `narasi-penuh.mp3` sendiri
+sudah benar (508 KB, sama dengan jumlah ketujuh berkas yang benar), jadi tidak
+ada video yang terpengaruh. Keenamnya dibuang dengan `git rm`, bisa dibalik.
+
+Sesudah itu keenam video LOLOS: subtitle, poster, dan potongan suara cocok.
+
+## Yang MENGHALANGI produksi, dan itu bukan milik topik ini
+
+`alat/cek_resolusi_anim.py` menolak naik produksi, tetapi BUKAN karena video
+Ruang 3D. Keenamnya 1080p. Yang ditolak:
+
+    720p  trigonometri.webm
+
+Berkas 569 KB dari commit pertama proyek, TIDAK dirujuk satu halaman pun
+(sudah diperiksa dengan grep ke seluruh web/). Ini "trigonometri.webm yang
+yatim" yang sudah lama ada di daftar utang MASTER. Selama ia masih di
+`web/public/anim/`, gerbang itu akan terus menolak produksi. Tidak saya hapus
+sendiri sebab berkas itu di luar topik ini dan penghapusan milik MASTER.
+
+# BERHENTI SEMENTARA atas permintaan ARYA, 4 September 2026 siang
+
+Ditulis supaya sesi berikutnya tidak perlu menebak. Pohon kerja bersih,
+semua sudah dicommit, kunci antrean render sudah dilepas (kalau tidak, lima
+sesi lain terblokir 45 menit menunggu kunci yang pemiliknya sudah mati).
+
+## Yang sudah selesai
+- Keenam adegan disesuaikan ke tiga cacat tinjauan MASTER (pembuka berisi
+  kejadian, kubus bercahaya tiga tingkat terang, angka sumbu 0/3/6).
+- 58 kejadian diikat ke kalimat narasinya lewat jam subtitle, dan kalimat
+  pemicunya ditulis sebagai komentar di atas tiap baris.
+- Materi 03 dapat aba-aba pandangan sejajar AC (syarat ARYA lewat MASTER),
+  narasi dibuat ulang 79,2 jadi 91,8 detik, kamera penutup benar-benar sampai
+  ke theta -135.
+- Alat: ukuran "diam terpanjang" masuk `alat/ukur_detik_pertama.py`, dan
+  `alat/cek_kalimat_adegan.py` memeriksa awalan kalimat tanpa perlu render.
+
+## Yang TERPUTUS di tengah jalan
+Render ulang keenam video dengan perbaikan terakhir (geseran latar mengisi
+tunggu dan sisa babak yang pendek). Yang SUDAH jadi dengan kode terbaru:
+**materi 01, 03, dan 04**. Yang BELUM: **06, 08, 09**, jadi mp4 keduanya di
+`media/gl/` masih hasil putaran sebelumnya.
+
+Lanjutkan dengan:
+
+    python alat/antre_render.py matra-ruang-3d -- manimgl manim/scenes/ruang_3d_06.py JarakTitikKeBidang -w -l
+    python alat/antre_render.py matra-ruang-3d -- manimgl manim/scenes/ruang_3d_08.py SudutGarisBersilangan -w -l
+    python alat/antre_render.py matra-ruang-3d -- manimgl manim/scenes/ruang_3d_09.py SudutDenganBidang -w -l
+
+lalu untuk keenamnya: `gabung_audio.py <topik> <Adegan> --uji`,
+`alat/ukur_detik_pertama.py --judul 3.4 media/uji-480p/ruang-3d-0*.mp4`,
+`cek_video.py --per-detik 0.25` dan BUKA lembar kontaknya.
+
+## Angka terakhir yang terukur (putaran sebelum perbaikan terakhir)
+
+| Materi | Gerak pertama | Diam terpanjang |
+|---|---|---|
+| 01 | 0,25 detik | 7,8 detik pada detik 21 |
+| 03 | 0,75 detik | 4,4 detik pada detik 30 |
+| 04 | 0,75 detik | 6,0 detik pada detik 49 |
+| 06 | 0,88 detik | 3,4 detik pada detik 37 |
+| 08 | 0,75 detik | 5,4 detik pada detik 69 |
+| 09 | 0,75 detik | 5,6 detik pada detik 18 |
+
+Peringatan `Babak.tutup()` berbunyi NOL kali untuk keenamnya, padahal angka di
+atas menunjukkan masih ada beku 3 sampai 8 detik. MASTER sudah mencatat ini
+sebagai bukti bahwa peringatan yang sunyi bukan bukti bersih.
+
+## Yang menunggu MASTER
+Setelah 06, 08, 09 selesai: salin keenam mp4 ke `web/public/anim/`, buat ulang
+poster (poster yang ada diambil dari video sebelum perbaikan), `git add` jpg-nya
+dan commit, lalu kabari MASTER untuk deploy ulang ke https://mantra-uji.vercel.app.
 # Tinjauan MASTER dan tiga cacat yang berlaku di SEMUA video, 4 September 2026
 
 MASTER menonton keenam lembar kontak dan menemukan dua cacat yang ada di semua
@@ -1061,55 +1238,3 @@ dimulai. Menunggu revisi isi ini dinilai.
 
 ---
 
-# BERHENTI SEMENTARA atas permintaan ARYA, 4 September 2026 siang
-
-Ditulis supaya sesi berikutnya tidak perlu menebak. Pohon kerja bersih,
-semua sudah dicommit, kunci antrean render sudah dilepas (kalau tidak, lima
-sesi lain terblokir 45 menit menunggu kunci yang pemiliknya sudah mati).
-
-## Yang sudah selesai
-- Keenam adegan disesuaikan ke tiga cacat tinjauan MASTER (pembuka berisi
-  kejadian, kubus bercahaya tiga tingkat terang, angka sumbu 0/3/6).
-- 58 kejadian diikat ke kalimat narasinya lewat jam subtitle, dan kalimat
-  pemicunya ditulis sebagai komentar di atas tiap baris.
-- Materi 03 dapat aba-aba pandangan sejajar AC (syarat ARYA lewat MASTER),
-  narasi dibuat ulang 79,2 jadi 91,8 detik, kamera penutup benar-benar sampai
-  ke theta -135.
-- Alat: ukuran "diam terpanjang" masuk `alat/ukur_detik_pertama.py`, dan
-  `alat/cek_kalimat_adegan.py` memeriksa awalan kalimat tanpa perlu render.
-
-## Yang TERPUTUS di tengah jalan
-Render ulang keenam video dengan perbaikan terakhir (geseran latar mengisi
-tunggu dan sisa babak yang pendek). Yang SUDAH jadi dengan kode terbaru:
-**materi 01, 03, dan 04**. Yang BELUM: **06, 08, 09**, jadi mp4 keduanya di
-`media/gl/` masih hasil putaran sebelumnya.
-
-Lanjutkan dengan:
-
-    python alat/antre_render.py matra-ruang-3d -- manimgl manim/scenes/ruang_3d_06.py JarakTitikKeBidang -w -l
-    python alat/antre_render.py matra-ruang-3d -- manimgl manim/scenes/ruang_3d_08.py SudutGarisBersilangan -w -l
-    python alat/antre_render.py matra-ruang-3d -- manimgl manim/scenes/ruang_3d_09.py SudutDenganBidang -w -l
-
-lalu untuk keenamnya: `gabung_audio.py <topik> <Adegan> --uji`,
-`alat/ukur_detik_pertama.py --judul 3.4 media/uji-480p/ruang-3d-0*.mp4`,
-`cek_video.py --per-detik 0.25` dan BUKA lembar kontaknya.
-
-## Angka terakhir yang terukur (putaran sebelum perbaikan terakhir)
-
-| Materi | Gerak pertama | Diam terpanjang |
-|---|---|---|
-| 01 | 0,25 detik | 7,8 detik pada detik 21 |
-| 03 | 0,75 detik | 4,4 detik pada detik 30 |
-| 04 | 0,75 detik | 6,0 detik pada detik 49 |
-| 06 | 0,88 detik | 3,4 detik pada detik 37 |
-| 08 | 0,75 detik | 5,4 detik pada detik 69 |
-| 09 | 0,75 detik | 5,6 detik pada detik 18 |
-
-Peringatan `Babak.tutup()` berbunyi NOL kali untuk keenamnya, padahal angka di
-atas menunjukkan masih ada beku 3 sampai 8 detik. MASTER sudah mencatat ini
-sebagai bukti bahwa peringatan yang sunyi bukan bukti bersih.
-
-## Yang menunggu MASTER
-Setelah 06, 08, 09 selesai: salin keenam mp4 ke `web/public/anim/`, buat ulang
-poster (poster yang ada diambil dari video sebelum perbaikan), `git add` jpg-nya
-dan commit, lalu kabari MASTER untuk deploy ulang ke https://mantra-uji.vercel.app.

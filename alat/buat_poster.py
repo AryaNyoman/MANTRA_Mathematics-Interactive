@@ -54,8 +54,37 @@ import sys
 from pathlib import Path
 
 AKAR = Path(__file__).resolve().parents[1]
-SUMBER = AKAR / "media" / "uji-480p"
+# Video sumber dicari berurutan: yang TAYANG lebih dulu, baru versi tinjauan.
+# Gelombang 3 (render akhir 1080p) menaruh videonya di web/public/anim, dan
+# posternya harus diambil dari video yang benar-benar dilihat siswa. Sebelum
+# ini folder 480p dipatok mati, sehingga sesi gelombang 3 mendapat
+# "tidak ada videonya" padahal videonya ada, cuma di tempat lain.
 TUJUAN = AKAR / "web" / "public" / "anim"
+SUMBER_URUT = (TUJUAN, AKAR / "media" / "uji-480p", AKAR / "media")
+
+
+def cari_sumber(topik: str) -> Path | None:
+    for folder in SUMBER_URUT:
+        for akhiran in (".mp4", ".webm"):
+            calon = folder / f"{topik}{akhiran}"
+            if calon.exists():
+                return calon
+    return None
+
+
+def cari_video(topik: str) -> Path | None:
+    """Sumber poster: video FINAL dulu, versi uji 480p belakangan.
+
+    Alat ini dibuat saat baru ada render uji, jadi sumbernya dipatok ke
+    `media/uji-480p/<topik>.mp4`. Akibatnya di gelombang 3 posternya jadi
+    854x480 untuk video 1920x1080, dan poster topik lain yang sudah tayang
+    semuanya 1920x1080. Ditemukan sesi Statistika 7 Sep 2026.
+    """
+    for calon in (TUJUAN / f"{topik}.webm", AKAR / "media" / f"{topik}.webm",
+                  TUJUAN / f"{topik}.mp4", SUMBER / f"{topik}.mp4"):
+        if calon.exists() and calon.stat().st_size > 1024:
+            return calon
+    return None
 
 AMBANG_RENTANG = 40          # dari 255
 AMBANG_TOLAK = 0.0035        # 0,35 persen piksel bukan latar: di bawah ini kosong
@@ -86,37 +115,13 @@ def nilai(jalur: Path) -> tuple[str, str]:
     return "ok", ket
 
 
-def cari_sumber(topik: str) -> Path | None:
-    """Video terbaik yang ada untuk diambil posternya.
-
-    Yang TAYANG didahulukan, baru pratinjau 480p. Dua sebabnya:
-
-    1. Poster dari 1080p jelas lebih tajam daripada dari 480p yang diperbesar.
-    2. Pratinjau 480p TIDAK DIJAMIN ADA. Berkasnya masuk .gitignore, jadi
-       worktree yang baru dibuat mulai tanpa satu pun, dan sesi yang langsung
-       merender 1080p (gelombang 3, 7 September 2026) tidak pernah membuatnya.
-       Versi lama alat ini cuma melihat `media/uji-480p/<topik>.mp4` lalu
-       menyerah dengan "tidak ada videonya", padahal videonya ada, cuma di
-       tempat lain.
-    """
-    calon = [
-        AKAR / "media" / f"{topik}.webm",
-        TUJUAN / f"{topik}.webm",
-        AKAR / "media" / f"{topik}.mp4",
-        SUMBER / f"{topik}.mp4",
-    ]
-    for jalur in calon:
-        if jalur.exists():
-            return jalur
-    return None
-
-
 def buat(topik: str, detik: float) -> int:
-    video = cari_sumber(topik)
+    video = cari_video(topik) or cari_sumber(topik)
     if video is None:
-        print(f"tidak ada videonya: {topik} (dicari di media/, "
-              f"web/public/anim/, dan media/uji-480p/)")
+        daftar = "\n  ".join(str(f / f"{topik}.mp4 atau .webm") for f in SUMBER_URUT)
+        print(f"tidak ada videonya. Dicari di:\n  {daftar}")
         return 1
+    print(f"sumber   {video.relative_to(AKAR)}")
     TUJUAN.mkdir(parents=True, exist_ok=True)
     sementara = TUJUAN / f".{topik}.calon.jpg"
     subprocess.run(

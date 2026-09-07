@@ -118,7 +118,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       isi: 'Hanya benar kalau daftarnya sudah terurut. Pada data 8, 3, 5, angka yang tertulis di tengah adalah 3, tetapi mediannya 5, sebab setelah diurutkan datanya menjadi 3, 5, 8. Melewatkan langkah mengurutkan adalah kesalahan yang paling sering terjadi pada soal median, dan paling sederhana dihindari: urutkan dulu.',
     },
     widget: 'tiga-ukuran',
-    video: { berkas: 'statistika5-pemusatan.mp4', poster: 'statistika5-pemusatan.jpg' },
+    video: { berkas: 'statistika5-pemusatan.webm', poster: 'statistika5-pemusatan.jpg' },
     siap: true,
   },
 
@@ -184,7 +184,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       sumber: 'Pokok materi "Penggunaan Ukuran Pemusatan" dengan kosakata "Pencilan" ada di Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, halaman 206.',
     },
     widget: 'tarik-pencilan',
-    video: { berkas: 'statistika6-pencilan.mp4', poster: 'statistika6-pencilan.jpg' },
+    video: { berkas: 'statistika6-pencilan.webm', poster: 'statistika6-pencilan.jpg' },
     siap: true,
   },
 
@@ -274,7 +274,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       sumber: 'Cara menentukan kuartil mengikuti Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, halaman 227 sampai 228.',
     },
     widget: 'kotak-garis',
-    video: { berkas: 'statistika7-boxplot.mp4', poster: 'statistika7-boxplot.jpg' },
+    video: { berkas: 'statistika7-boxplot.webm', poster: 'statistika7-boxplot.jpg' },
     siap: true,
   },
 
@@ -370,7 +370,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       sumber: 'Urutan varian lalu simpangan baku mengikuti Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, subbab E halaman 207.',
     },
     widget: 'jarak-ke-rata',
-    video: { berkas: 'statistika8-simpangan.mp4', poster: 'statistika8-simpangan.jpg' },
+    video: { berkas: 'statistika8-simpangan.webm', poster: 'statistika8-simpangan.jpg' },
     siap: true,
   },
 
@@ -501,7 +501,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       sumber: 'Kosakata "Interpolasi, kesebangunan" untuk median dan modus data kelompok ada di Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, halaman 206.',
     },
     widget: 'data-kelompok',
-    video: { berkas: 'statistika9-kelompok.mp4', poster: 'statistika9-kelompok.jpg' },
+    video: { berkas: 'statistika9-kelompok.webm', poster: 'statistika9-kelompok.jpg' },
     siap: true,
   },
 ]

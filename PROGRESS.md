@@ -1,5 +1,75 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 7 SEP (larut): STATISTIKA 1080p DI PRODUKSI, ALAT BERSAMA DISATUKAN
+
+Sesi Statistika selesai gelombang 3 (ad470d3): 13 video 1920x1080 60 fps
+sebagai WebM VP9 (mengikuti resep MASTER yang menyebut webm; Ruang 3D
+memilih tetap mp4 H.264, jadi dua wadah kini hidup berdampingan: webm ~3 MB
+per 115 detik, mp4 ~13 MB per 85 detik; keputusan wadah ada di ARYA).
+Gabung ke master a42b795 BENTROK di tiga alat bersama yang ditambal kedua
+sesi (gabung_audio, buat_poster, cek_aset_video); disatukan MASTER:
+gabung_audio memilih dari akhiran keluaran (.mp4 salin H.264 + AAC, .webm
+kode ulang VP9 + Opus), buat_poster dan cek_aset_video mencari video final
+webm/mp4 dulu baru versi uji. cek_aset_video: 13 statistika dan 6 ruang-3d
+lolos. Mp4 480p statistika lama dipindah ke media/arsip-480p (di luar git).
+Deploy produksi berhasil pada percobaan kedua (Vercel dua kali menjawab
+Internal Server Error saat unggah malam ini): matra-eight dan
+mantra-matematika (alias diarahkan ulang) menyajikan webm 1080p, ukuran
+berkas diverifikasi. Sisa 480p: vektor 6, grafik 2, transformasi 6;
+trigonometri.webm 720p yatim.
+
+## 7 SEP (malam): SEMBILAN TOPIK DI PRODUKSI, RUANG 3D 1080p, PERINTAH ARYA
+
+ARYA: "cek semua sesi, yang belum selesai diselesaikan sampai tuntas rendernya;
+Integral dan Turunan langsung naikkan ke produksi dan buat videonya."
+- Ruang 3D SELESAI gelombang 3: enam video 1920x1080 60 fps (bfe5a4f), digabung
+  12f00aa dan mp4-nya dipasang di master. Sesi itu menambal alat bersama:
+  `--fps 60` memecahkan render (pakai `manim/hd60.yml`), `gabung_audio`
+  tetap mp4 (instruksi MASTER "ubah ke webm" KELIRU: semua video tayang mp4),
+  `buat_poster` dan `cek_aset_video` tidak lagi mematok folder 480p.
+- `vercel deploy --prod` dari master 12f00aa (percobaan pertama gagal di sisi
+  Vercel, "Internal Server Error" saat unggah; kedua berhasil):
+  matra-eight.vercel.app dan mantra-matematika.vercel.app (alias diarahkan
+  ulang) kini memuat Turunan, Integral, enam video Transformasi 2 menit, dan
+  Ruang 3D 1080p. Diverifikasi lewat kode HTTP dan ukuran berkas video.
+- Keadaan sesi: Vektor dan Statistika sedang merender 1080p; Grafik Fungsi
+  siap tetapi MENUNGGU kata "render" dari ARYA di jendelanya (menolak
+  perintah lewat MASTER, dan itu sesuai aturannya); Turunan mulai video 02;
+  Integral merender video 05; Transformasi menunggu ARYA menonton.
+- `web/public/anim/trigonometri.webm` (720p, terlacak git, tidak dirujuk
+  halaman mana pun) masih membuat `cek_resolusi_anim.py` menolak; belum
+  dihapus, menunggu ARYA.
+
+## 7 SEP (malam, lanjutan): INTEGRAL DIGABUNG KE MASTER, SEMBILAN TOPIK
+
+Sesi MANTRA-INTEGRAL lapor SIAP GABUNG (bbe9ba4): 11 materi, 10 widget +
+galeri, 4 latihan, 32 kuis, `siap: true`. MASTER memeriksa silang: gerbang
+dijalankan ulang (65 + 43 klaim sympy, urutan istilah, periksa_tahap, tsc),
+11 materi dibuka di 1366 dengan angka panel dihitung ulang, Materi 05 di 375.
+Digabung ke master c838056 (31 berkas), tsc 0. Revisi kecil diminta: empat
+soal kuis "sangat sulit" memakai fungsi dan angka persis buku (Ayo Mencoba
+3.11 dan 3.12, Contoh 3.14 dan 3.15) tanpa sumber. Lalu gelombang 2 video
+Integral 480p dibuka (urutan 05, 01, 07, 09, 03). Temuan sesi Integral yang
+berlaku untuk semua widget: seret dengan tetikus ikut menyeleksi teks SVG
+(dibereskan dengan userSelect none di Bidang miliknya; salinan Limit,
+Grafik, Turunan belum), dan `potongTanda` gagal bila akar jatuh tepat di
+titik cuplikan (perbaikan hanya di salinan Integral). Master kini memuat
+SEMBILAN topik siap; BELUM naik Vercel. eslint master masih gagal satu
+berkas bawaan lama: `widget/transformasi-geometri/Legenda.tsx` baris 58.
+
+## 7 SEP (malam): TURUNAN DIGABUNG KE MASTER, VIDEO TURUNAN DIPERINTAHKAN
+
+Sesi MANTRA-TURUNAN lapor SIAP GABUNG (0207378): 12 materi, 11 widget + galeri,
+4 latihan, 32 kuis, `siap: true`. MASTER memeriksa silang: gerbang dijalankan
+ulang di foldernya (96 + 63 + 19 klaim sympy lolos, urutan istilah bersih,
+tsc 0), 12 materi dibuka di 1366 dan angka panel dihitung ulang, Materi 06 di
+375. Digabung ke master c849cf2 (42 berkas), tsc master 0. Kerangka Integral
+ikut (identik dengan kerangka, tidak mengganggu sesi Integral). Satu revisi
+diminta: kalibrasi kuis, tingkat "sangat sulit" sebagian besar satu langkah.
+Setelah itu gelombang 2 video Turunan 480p dibuka (prioritas rancangan: 02,
+03, 07, 06, 01, 04), satu render pada satu waktu karena empat sesi lain
+merender 1080p. BELUM naik Vercel. Integral masih di tahap widget.
+
 ## 7 SEP (sore): GELOMBANG 3 DIBUKA ARYA UNTUK EMPAT TOPIK
 
 ARYA: "suruh sesi 3D, Vektor, Statistika, dan Grafik Fungsi selesaikan render

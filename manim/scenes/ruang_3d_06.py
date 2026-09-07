@@ -166,7 +166,6 @@ class JarakTitikKeBidang(AdeganMatra):
             tunggu_bergeser(b, frame, JAM, "itu rumus volume yang dibalik")
             b.main(Indicate(papan.semua(), scale_factor=1.08, color=SOROT), run_time=1.3)
             isi_sisa(b, kamera.putar_pelan(frame, 16), sisakan=1.6)
-            b.jeda(1.2)
         qc.periksa_adegan(self, {"AK": ak, "bidang": bidang, "panel": papan.semua(),
                                  "simpul": simpul, "identitas": jati},
                           [("panel", "identitas"), ("simpul", "identitas")])
