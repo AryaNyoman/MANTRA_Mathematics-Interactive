@@ -1,5 +1,22 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 7 SEP (malam, lanjutan): INTEGRAL DIGABUNG KE MASTER, SEMBILAN TOPIK
+
+Sesi MANTRA-INTEGRAL lapor SIAP GABUNG (bbe9ba4): 11 materi, 10 widget +
+galeri, 4 latihan, 32 kuis, `siap: true`. MASTER memeriksa silang: gerbang
+dijalankan ulang (65 + 43 klaim sympy, urutan istilah, periksa_tahap, tsc),
+11 materi dibuka di 1366 dengan angka panel dihitung ulang, Materi 05 di 375.
+Digabung ke master c838056 (31 berkas), tsc 0. Revisi kecil diminta: empat
+soal kuis "sangat sulit" memakai fungsi dan angka persis buku (Ayo Mencoba
+3.11 dan 3.12, Contoh 3.14 dan 3.15) tanpa sumber. Lalu gelombang 2 video
+Integral 480p dibuka (urutan 05, 01, 07, 09, 03). Temuan sesi Integral yang
+berlaku untuk semua widget: seret dengan tetikus ikut menyeleksi teks SVG
+(dibereskan dengan userSelect none di Bidang miliknya; salinan Limit,
+Grafik, Turunan belum), dan `potongTanda` gagal bila akar jatuh tepat di
+titik cuplikan (perbaikan hanya di salinan Integral). Master kini memuat
+SEMBILAN topik siap; BELUM naik Vercel. eslint master masih gagal satu
+berkas bawaan lama: `widget/transformasi-geometri/Legenda.tsx` baris 58.
+
 ## 7 SEP (malam): TURUNAN DIGABUNG KE MASTER, VIDEO TURUNAN DIPERINTAHKAN
 
 Sesi MANTRA-TURUNAN lapor SIAP GABUNG (0207378): 12 materi, 11 widget + galeri,
