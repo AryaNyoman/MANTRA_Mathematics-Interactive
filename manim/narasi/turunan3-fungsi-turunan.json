@@ -2,7 +2,7 @@
   "adegan": "TurunanFungsiBaru",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-6%",
-  "catatan": "Video 02 topik Turunan, untuk Materi 03 'Turunan sebagai fungsi baru'. TANPA 3D. Dua papan bertumpuk dengan sumbu x yang sama: papan atas kurva f, papan bawah kosong yang terisi oleh jejak kemiringan saat x disapu. Puncaknya babak 'lahir': jejak itu ternyata membentuk garis y = 2x, jadi kemiringan berhenti menjadi satu angka dan berubah menjadi FUNGSI. Angka -2, 0, 2, dan 4 sama persis dengan tabel di halaman Materi 03, dan diperiksa alat/cek_turunan.py. Babak 'sudut' memakai |x| untuk memperlihatkan titik yang turunannya TIDAK ADA; itu ada di halaman Materi 03 juga, dan penting supaya siswa tidak menyimpulkan tiap kurva selalu punya turunan di mana-mana.",
+  "catatan": "Video 02 topik Turunan, untuk Materi 03 'Turunan sebagai fungsi baru'. TANPA 3D. SATU papan, bukan dua seperti widget-nya: alasan terukurnya ada di kepala manim/scenes/turunan3_fungsi_turunan.py. Kemiringan dicatat sebagai TITIK BIRU pada papan yang sama, tingginya sama dengan nilai kemiringan, diikat garis putus-putus ke titik merah di kurva. Puncaknya babak 'lahir': jejak titik biru itu ternyata membentuk garis y = 2x, jadi kemiringan berhenti menjadi satu angka dan berubah menjadi FUNGSI. Angka -2, 0, 2, dan 4 sama persis dengan tabel di halaman Materi 03, dan diperiksa alat/cek_turunan.py. Babak 'sudut' memakai |x| untuk memperlihatkan titik yang turunannya TIDAK ADA; itu ada di halaman Materi 03 juga, dan penting supaya siswa tidak menyimpulkan tiap kurva selalu punya turunan di mana-mana.",
   "segmen": [
     {
       "id": "buka",
@@ -21,8 +21,8 @@
     },
     {
       "id": "papan",
-      "teks": "Kita siapkan papan kedua di bawahnya. Sumbu mendatarnya sama persis, tapi yang dicatat di sini bukan tinggi kurva, melainkan *kemiringannya*.",
-      "tulis": "Papan kedua di bawah. Sumbu x sama, tapi yang dicatat *kemiringan*, bukan tinggi."
+      "teks": "Kita tetap di papan yang sama, dengan sumbu mendatar yang sama. Bedanya, mulai sekarang kita menaruh titik *biru* yang tingginya bukan tinggi kurva, melainkan kemiringannya.",
+      "tulis": "Papan tetap sama, sumbu x sama. Titik *biru* tingginya = kemiringan, bukan tinggi kurva."
     },
     {
       "id": "kiri",
@@ -46,8 +46,8 @@
     },
     {
       "id": "lahir",
-      "teks": "Perhatikan papan bawah. Jejaknya bukan kurva sembarangan. Ia sebuah *garis lurus*, dan garis itu y sama dengan dua x.",
-      "tulis": "Perhatikan papan bawah. Jejaknya sebuah *garis lurus*, yaitu y = 2x."
+      "teks": "Perhatikan jejak birunya. Ia bukan kurva sembarangan. Ia sebuah *garis lurus*, dan garis itu y sama dengan dua x.",
+      "tulis": "Perhatikan jejak birunya. Ia sebuah *garis lurus*, yaitu y = 2x."
     },
     {
       "id": "fungsi",

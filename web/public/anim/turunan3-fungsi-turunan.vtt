@@ -23,93 +23,89 @@ Pertanyaan berikutnya wajar.
 Bagaimana di titik yang lain?
 
 6
-00:00:16.488 --> 00:00:19.172
-Papan kedua di bawah.
+00:00:16.488 --> 00:00:20.724
+Papan tetap sama, sumbu x sama.
 
 7
-00:00:19.172 --> 00:00:24.667
-Sumbu x sama, tapi yang dicatat <b>kemiringan</b>,
+00:00:20.724 --> 00:00:28.104
+Titik <b>biru</b> tingginya = kemiringan, bukan tinggi kurva.
 
 8
-00:00:24.667 --> 00:00:26.328
-bukan tinggi.
-
-9
-00:00:26.328 --> 00:00:28.690
+00:00:28.104 --> 00:00:30.466
 Mulai dari kiri.
 
-10
-00:00:28.690 --> 00:00:36.072
+9
+00:00:30.466 --> 00:00:37.848
 Di x = -1 kurvanya menurun, jadi kemiringannya -2.
 
-11
-00:00:36.072 --> 00:00:41.251
+10
+00:00:37.848 --> 00:00:43.027
 Di dasar lembah, x = 0, kurvanya mendatar.
 
-12
-00:00:41.251 --> 00:00:43.224
+11
+00:00:43.027 --> 00:00:45.000
 Kemiringannya 0.
 
-13
-00:00:43.224 --> 00:00:46.123
+12
+00:00:45.000 --> 00:00:47.899
 Ke kanan kurvanya menanjak.
 
-14
-00:00:46.123 --> 00:00:51.600
+13
+00:00:47.899 --> 00:00:53.376
 Di x = 1 kemiringannya 2, di x = 2 kemiringannya 4.
 
-15
-00:00:51.600 --> 00:00:54.956
+14
+00:00:53.376 --> 00:00:56.732
 Sekarang sapu perlahan dari kiri ke kanan,
 
-16
-00:00:54.956 --> 00:00:57.912
+15
+00:00:56.732 --> 00:00:59.688
 dan biarkan tiap kemiringan berjejak.
 
+16
+00:00:59.688 --> 00:01:03.721
+Perhatikan jejak birunya.
+
 17
-00:00:57.912 --> 00:01:01.487
-Perhatikan papan bawah.
+00:01:03.721 --> 00:01:09.528
+Ia sebuah <b>garis lurus</b>, yaitu y = 2x.
 
 18
-00:01:01.487 --> 00:01:08.016
-Jejaknya sebuah <b>garis lurus</b>, yaitu y = 2x.
-
-19
-00:01:08.016 --> 00:01:12.383
+00:01:09.528 --> 00:01:13.895
 Kemiringan berhenti jadi satu angka.
 
-20
-00:01:12.383 --> 00:01:16.992
+19
+00:01:13.895 --> 00:01:18.504
 Ia menjadi <b>fungsi turunan</b>, ditulis f′.
 
-21
-00:01:16.992 --> 00:01:20.565
+20
+00:01:18.504 --> 00:01:22.077
 Tak perlu mengulang limit lagi.
 
-22
-00:01:20.565 --> 00:01:24.600
+21
+00:01:22.077 --> 00:01:26.112
 Masukkan 3 ke f′, langsung dapat 6.
 
-23
-00:01:24.600 --> 00:01:29.879
+22
+00:01:26.112 --> 00:01:31.391
 Keduanya menjawab pertanyaan berbeda.
 
-24
-00:01:29.879 --> 00:01:35.016
+23
+00:01:31.391 --> 00:01:36.528
 Di x = 3: f memberi 9, f′ memberi 6.
 
-25
-00:01:35.016 --> 00:01:41.668
+24
+00:01:36.528 --> 00:01:43.180
 Tidak semua kurva punya kemiringan di tiap titik.
 
-26
-00:01:41.668 --> 00:01:43.704
+25
+00:01:43.180 --> 00:01:45.216
 Coba kurva |x|.
 
-27
-00:01:43.704 --> 00:01:49.931
+26
+00:01:45.216 --> 00:01:51.443
 Di sudut tajamnya, dari kiri -1 dan dari kanan 1.
 
-28
-00:01:49.931 --> 00:01:53.616
+27
+00:01:51.443 --> 00:01:55.128
 Turunannya <b>tidak ada</b> di situ.

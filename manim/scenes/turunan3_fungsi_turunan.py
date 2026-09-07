@@ -57,14 +57,17 @@ DURASI = json.loads((AKAR / "audio" / TOPIK / "durasi.json").read_text(encoding=
 # bingkai yang jadi 18 satuan.
 #
 # Bidang koordinat tidak harus berhenti di tempat kurvanya berhenti. Dilebarkan
-# ke -4,2 sampai 4,2, bidangnya mengisi sekitar setengah lebar layar, angkanya
+# ke -4 sampai 4,2, bidangnya mengisi sekitar setengah lebar layar, angkanya
 # terbaca, dan kurvanya tetap sama persis: x^2 memang keluar dari tepi atas di
 # sekitar x = 2,1, dan itu jujur, bukan terpotong.
-BIDANG_X, BIDANG_Y = (-4.2, 4.2, 1.0), (-3.2, 4.4, 1.0)
-X_KIRI, X_KANAN = -4.05, 4.05
-Y_BAWAH, Y_ATAS = -3.05, 4.25
+# Batas BAWAH kedua sumbu WAJIB bilangan bulat, lihat catatan yang sama di
+# turunan2_garis_singgung.py: -4,2 dan -3,2 membuat SEMUA angka sumbu meleset
+# 0,2 petak dari garisnya dan memunculkan "-0" di kedua sumbu.
+BIDANG_X, BIDANG_Y = (-4.0, 4.2, 1.0), (-3.0, 4.4, 1.0)
+X_KIRI, X_KANAN = -3.85, 4.05
+Y_BAWAH, Y_ATAS = -2.85, 4.25
 
-SAPU_DARI, SAPU_SAMPAI = -1.5, 2.0
+SAPU_DARI, SAPU_SAMPAI = -1.4, 2.0
 CONTOH = [(-1.0, -2.0), (0.0, 0.0), (1.0, 2.0), (2.0, 4.0)]   # (x, kemiringan)
 
 
@@ -112,6 +115,13 @@ def alas_dunia(mob, pad_x=0.14, pad_y=0.10):
     r.set_fill(LATAR, opacity=1.0).set_stroke(width=0)
     r.move_to(mob.get_center())
     r.shift(0.008 * IN)
+    # Penanda untuk `qc.periksa_adegan`, sama artinya dengan yang dipasang
+    # `sinema.alas_hud`: tulisan yang punya alas kertas boleh berdiri di atas
+    # angka sumbu, sebab alasnya menutup angka di belakangnya. Tanpa tanda ini,
+    # gerbang yang memeriksa tulisan lawan angka sumbu akan menolak justru
+    # tulisan yang sudah dibereskan.
+    mob.beralas = True
+    r.beralas = True
     return r
 
 
