@@ -759,7 +759,7 @@ export const TAHAP: TahapTurunan[] = [
           'Pilih sin x, lalu sapu x dari kiri ke kanan. Perhatikan jejak kemiringan yang terbentuk di papan bawah',
           'Nyalakan Tampilkan tebakan. Jejak tadi berimpit dengan grafik cos x',
           'Ganti ke cos x. Jejaknya sekarang grafik sinus yang terbalik, yaitu negatif sin x',
-          'Ganti ke eˣ. Jejak di papan bawah menutupi kurva di papan atas, sama persis',
+          'Ganti ke eˣ. Jejak di papan bawah berbentuk sama persis dengan kurva di papan atas: eˣ adalah turunannya sendiri',
         ],
       },
 

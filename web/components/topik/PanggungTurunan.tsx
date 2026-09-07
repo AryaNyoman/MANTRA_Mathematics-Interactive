@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, type ReactNode } from 'react'
-import Rintisan from '@/components/widget/turunan/Rintisan'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Kembalikan, Petunjuk, Pilihan } from '@/components/kendali'
 import { angka } from '@/components/widget/turunan/koordinat'
@@ -28,9 +27,19 @@ import MesinBertingkat, {
   AWAL as AWAL_07, BATAS_H as BATAS_H_07, BATAS_X as BATAS_X_07,
   PILIHAN_DALAM, PILIHAN_LUAR, tabelBertingkat,
 } from '@/components/widget/turunan/MesinBertingkat'
+import GarisSinggungGeser, {
+  AWAL as AWAL_09, PILIHAN_KURVA as KURVA_09, batasX1 as batasX1_09, langkahSinggung,
+} from '@/components/widget/turunan/GarisSinggungGeser'
+import PetaTanda, {
+  AWAL as AWAL_10, PILIHAN_KURVA as KURVA_10, batasXT, tabelTanda,
+} from '@/components/widget/turunan/PetaTanda'
+import KotakTerbesar, {
+  AWAL as AWAL_11, BATAS_X as BATAS_X_11, tabelKotak,
+} from '@/components/widget/turunan/KotakTerbesar'
+import DuniaNyataTurunan from '@/components/widget/turunan/DuniaNyataTurunan'
 import GrafikTurunan, {
   AWAL as AWAL_03, FUNGSI_TERSEDIA as FUNGSI_03,
-  MAKS_JEJAK, batasX, tabelGrafikTurunan,
+  FUNGSI_SINUS, MAKS_JEJAK, batasX, tabelGrafikTurunan,
 } from '@/components/widget/turunan/GrafikTurunan'
 
 /**
@@ -50,9 +59,6 @@ import GrafikTurunan, {
  *
  * Rancangan tiap widget: docs/superpowers/specs/2026-09-06-turunan-alur-belajar.md
  */
-
-/** Widget yang komponennya sudah jadi; sisanya masih memakai Rintisan. */
-const SUDAH_JADI = ['garis-potong', 'sekan-ke-tangen', 'grafik-turunan', 'mesin-pangkat', 'susun-polinom', 'luas-berubah', 'mesin-bertingkat']
 
 function Tabel({ judul, baris }: { judul: string; baris: Array<{ nama: string; nilai: string }> }) {
   return (
@@ -106,6 +112,22 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
   const [dalam7, setDalam7] = useState(AWAL_07.dalam)
   const [luar7, setLuar7] = useState(AWAL_07.luar)
 
+  // Materi 08: kemiringan sinus, kosinus, dan eksponen
+  const [x8, setX8] = useState(-6.3)
+  const [fungsi8, setFungsi8] = useState('sinus')
+  const [jejak8, setJejak8] = useState<number[]>([])
+  const [tebakan8, setTebakan8] = useState('sembunyi')
+
+  /** Sapuan Materi 08, pola sama dengan Materi 03. */
+  function geserX8(nx: number) {
+    setX8(nx)
+    setJejak8((lama) => {
+      if (lama.includes(nx)) return lama
+      const baru = [...lama, nx]
+      return baru.length > MAKS_JEJAK ? baru.slice(baru.length - MAKS_JEJAK) : baru
+    })
+  }
+
   /** Geser x pada Materi 03 sambil menambah jejaknya, tanpa kembar. */
   function geserX3(nx: number) {
     setX3(nx)
@@ -115,6 +137,17 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
       return baru.length > MAKS_JEJAK ? baru.slice(baru.length - MAKS_JEJAK) : baru
     })
   }
+
+  // Materi 09: persamaan garis singgung
+  const [x9, setX9] = useState(AWAL_09.x1)
+  const [kurva9, setKurva9] = useState(AWAL_09.kurva)
+
+  // Materi 10: naik, turun, dan diam
+  const [x10, setX10] = useState(AWAL_10.x)
+  const [kurva10, setKurva10] = useState(AWAL_10.kurva)
+
+  // Materi 11: kotak dari karton
+  const [x11, setX11] = useState(AWAL_11.x)
 
   let kiri: ReactNode = null
   let kanan: ReactNode = null
@@ -323,23 +356,111 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
           </>
         )}
 
-        {/* Widget 08 sampai 11: ganti Rintisan dengan komponen sungguhan,
-            satu blok per widget, pola persis seperti di atas. */}
-        {tampilWidget && tahap.widget && !SUDAH_JADI.includes(tahap.widget) && tahap.widget !== 'dunia-nyata-turunan' && (
+        {/* ---------------- Materi 08 ---------------- */}
+        {tampilWidget && tahap.widget === 'kemiringan-sinus' && (
           <>
             <div className="layar">
-              <Rintisan nama={tahap.widget} keterangan="lihat rancangan Materi ini di spesifikasi Turunan" />
+              <GrafikTurunan x={x8} nama={fungsi8} jejak={jejak8}
+                tebakan={tebakan8 === 'tampil'} onGeser={geserX8} />
             </div>
             <div className="kendali">
-              <Petunjuk>widget ini belum dibuat; kendalinya menyusul bersama widgetnya.</Petunjuk>
+              <Angka nama="Sapuan x" arti="sudut dalam radian, bukan derajat" kunci="x"
+                nilai={x8} onUbah={geserX8} desimal={1}
+                min={batasX(fungsi8).min} max={batasX(fungsi8).maks} langkah={batasX(fungsi8).langkah} />
+              <Pilihan nama="Fungsi" arti="kurva di papan atas"
+                pilihan={pilihanFungsi(FUNGSI_SINUS)} nilai={fungsi8}
+                onPilih={(n) => {
+                  const b = batasX(n)
+                  setFungsi8(n)
+                  setJejak8([])
+                  setX8((lama) => Math.min(b.maks, Math.max(b.min, lama)))
+                }} />
+              <Pilihan nama="Tampilkan tebakan" arti="kurva f′ yang sebenarnya, sebagai pembanding"
+                pilihan={[{ nilai: 'sembunyi', label: 'Sembunyikan' }, { nilai: 'tampil', label: 'Tampilkan' }]}
+                nilai={tebakan8} onPilih={setTebakan8} />
+              <Kembalikan onClick={() => {
+                setX8(batasX('sinus').min); setFungsi8('sinus')
+                setJejak8([]); setTebakan8('sembunyi')
+              }} />
+              <Petunjuk>
+                sapu dulu sampai jejaknya terbentuk, baru tekan Tampilkan: jejaknya berimpit dengan grafik kosinus.
+              </Petunjuk>
             </div>
           </>
         )}
 
-        {/* Materi 12: galeri tidak interaktif, pola widget/limit/DuniaNyataLimit.tsx */}
+        {/* ---------------- Materi 09 ---------------- */}
+        {tampilWidget && tahap.widget === 'garis-singgung-geser' && (
+          <>
+            <div className="layar">
+              <GarisSinggungGeser x1={x9} nama={kurva9} onGeser={setX9} />
+            </div>
+            <div className="kendali">
+              <Angka nama="Titik singgung x₁" arti="tempat garisnya menyentuh kurva" kunci="x1"
+                nilai={x9} onUbah={setX9} desimal={2}
+                min={batasX1_09(kurva9).min} max={batasX1_09(kurva9).maks} langkah={batasX1_09(kurva9).langkah} />
+              <Pilihan nama="Kurva" arti="yang sedang disinggung"
+                pilihan={KURVA_09} nilai={kurva9}
+                onPilih={(n) => {
+                  const b = batasX1_09(n)
+                  setKurva9(n)
+                  setX9((lama) => Math.min(b.maks, Math.max(b.min, lama)))
+                }} />
+              <Kembalikan onClick={() => { setX9(AWAL_09.x1); setKurva9(AWAL_09.kurva) }} />
+              <Petunjuk>
+                geser sampai garisnya mendatar, lalu perhatikan gradiennya menjadi nol dan persamaannya kehilangan suku x.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
+        {/* ---------------- Materi 10 ---------------- */}
+        {tampilWidget && tahap.widget === 'peta-tanda' && (
+          <>
+            <div className="layar">
+              <PetaTanda x={x10} nama={kurva10} onGeser={setX10} />
+            </div>
+            <div className="kendali">
+              <Angka nama="Titik x" arti="geser pelan dari kiri ke kanan" kunci="x"
+                nilai={x10} onUbah={setX10} desimal={1}
+                min={batasXT(kurva10).min} max={batasXT(kurva10).maks} langkah={batasXT(kurva10).langkah} />
+              <Pilihan nama="Kurva" arti="yang sedang diselidiki"
+                pilihan={KURVA_10} nilai={kurva10}
+                onPilih={(n) => {
+                  const b = batasXT(n)
+                  setKurva10(n)
+                  setX10((lama) => Math.min(b.maks, Math.max(b.min, lama)))
+                }} />
+              <Kembalikan onClick={() => { setX10(AWAL_10.x); setKurva10(AWAL_10.kurva) }} />
+              <Petunjuk>
+                perhatikan pitanya berganti warna tepat di akar f aksen, bukan di tempat lain. Pada x pangkat tiga ia tidak berganti sama sekali.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
+        {/* ---------------- Materi 11 ---------------- */}
+        {tampilWidget && tahap.widget === 'kotak-terbesar' && (
+          <>
+            <div className="layar">
+              <KotakTerbesar x={x11} onGeser={setX11} />
+            </div>
+            <div className="kendali">
+              <Angka nama="Potongan pojok x" arti="sisi persegi yang digunting di tiap pojok" kunci="x"
+                satuan=" cm" nilai={x11} onUbah={setX11} desimal={1}
+                min={BATAS_X_11.min} max={BATAS_X_11.maks} langkah={BATAS_X_11.langkah} />
+              <Kembalikan onClick={() => setX11(AWAL_11.x)} />
+              <Petunjuk>
+                cari sendiri potongan yang membuat garis singgung di grafik isinya mendatar, lalu bandingkan dengan 3 cm.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
+        {/* Materi 12: galeri tidak interaktif */}
         {tampilWidget && tahap.widget === 'dunia-nyata-turunan' && (
           <div className="isi-gulir">
-            <Rintisan nama="dunia-nyata-turunan" keterangan="galeri empat kartu: kecepatan, pertumbuhan, kotak, biaya marginal" />
+            <DuniaNyataTurunan />
           </div>
         )}
       </>
@@ -375,6 +496,37 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
         )}
         {tampilWidget && tahap.widget === 'susun-polinom' && (
           <Tabel judul="Angka dari alat" baris={tabelPolinom(koef5, x5)} />
+        )}
+        {tampilWidget && tahap.widget === 'garis-singgung-geser' && (
+          <Tabel judul="Menyusun persamaannya" baris={langkahSinggung(kurva9, x9)} />
+        )}
+        {tampilWidget && tahap.widget === 'peta-tanda' && (
+          <>
+            <Tabel judul="Angka dari alat" baris={tabelTanda(kurva10, x10)} />
+            <div className="catatan">
+              Yang dibaca hanya TANDA f aksen, bukan nilainya. Angka penguji boleh
+              dipilih bebas, asal berada di selang yang benar.
+            </div>
+          </>
+        )}
+        {tampilWidget && tahap.widget === 'kotak-terbesar' && (
+          <>
+            <Tabel judul="Angka dari alat" baris={tabelKotak(x11)} />
+            <div className="catatan">
+              Yang ditanyakan isi kotaknya, bukan besar potongannya. Perhatikan
+              satuannya: potongan dalam cm, isi dalam cm kubik.
+            </div>
+          </>
+        )}
+        {tampilWidget && tahap.widget === 'kemiringan-sinus' && (
+          <>
+            <Tabel judul="Angka dari alat" baris={tabelGrafikTurunan(x8, fungsi8)} />
+            <div className="catatan">
+              {jejak8.length === 0
+                ? 'Papan bawah masih kosong. Sapu x dulu, tebak bentuknya, baru tekan Tampilkan.'
+                : `Sudah ${angka(jejak8.length, 0)} titik tercatat. Semua sudut di sini radian.`}
+            </div>
+          </>
         )}
         {tampilWidget && tahap.widget === 'mesin-bertingkat' && (
           <>

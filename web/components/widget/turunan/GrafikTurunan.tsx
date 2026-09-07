@@ -27,6 +27,13 @@ import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
  * tidak mungkin tertinggal dari fungsi lama, dan panggung tidak perlu tahu
  * apa pun tentang rumus turunannya.
  *
+ * DIPAKAI DUA MATERI
+ * Materi 03 memakainya untuk melahirkan gagasan fungsi turunan, dan Materi 08
+ * ('kemiringan-sinus') memakai mekanik yang sama untuk fungsi yang bukan
+ * pangkat. Yang berbeda hanya daftar fungsinya dan saklar `tebakan`. Menyalin
+ * berkas ini menjadi widget kedua akan melipatgandakan tempat memperbaiki bug
+ * yang sama, jadi komponennya satu dan dipanggil dua kali.
+ *
  * TITIK YANG TURUNANNYA TIDAK ADA
  * Pada |x| di x = 0 kemiringan dari kiri -1 dan dari kanan 1. Widget tidak
  * menggambar garis singgung apa pun di situ dan menuliskannya dengan kalimat,
@@ -37,6 +44,9 @@ import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 export const BATAS_X = { min: -3, maks: 3, langkah: 0.1 }
 export const AWAL = { x: -3, nama: 'kuadrat' }
 export const FUNGSI_TERSEDIA = ['kuadrat', 'kubik', 'sinus', 'mutlak']
+
+/** Fungsi untuk Materi 08: yang tidak bisa dikerjakan dengan aturan pangkat. */
+export const FUNGSI_SINUS = ['sinus', 'kosinus', 'eksponen']
 
 /** Batas atas banyaknya jejak yang disimpan panggung. */
 export const MAKS_JEJAK = 400
@@ -67,11 +77,20 @@ function jendelaTurunan(nama: string): Jendela {
 }
 
 export default function GrafikTurunan({
-  x, nama, jejak, onGeser,
+  x, nama, jejak, tebakan = false, onGeser,
 }: {
   x: number
   nama: string
   jejak: number[]
+  /**
+   * Gambar kurva f′ yang sebenarnya di papan bawah, sebagai pembanding jejak.
+   *
+   * Sengaja MATI secara bawaan. Kalau kurvanya sudah ada sejak awal, siswa
+   * membaca dua kurva yang kebetulan berdampingan, bukan menemukan bahwa
+   * jejaknya membentuk kurva itu. Materi 08 menyalakannya setelah siswa
+   * menyapu, sebagai jawaban atas tebakannya sendiri.
+   */
+  tebakan?: boolean
   onGeser: (x: number) => void
 }) {
   const dipegang = useSedangDiubah()
@@ -140,11 +159,17 @@ export default function GrafikTurunan({
       {/* ================= papan bawah: jejak kemiringan ================= */}
       <Bidang
         jendela={bawah}
-        keterangan={jejak.length > 3 ? 'jejak kemiringan f' : 'papan ini terisi saat Anda menyapu'}
+        keterangan={tebakan
+          ? `jejak kemiringan, dibandingkan dengan ${fn.rumusTurunan}`
+          : jejak.length > 3 ? 'jejak kemiringan f' : 'papan ini terisi saat Anda menyapu'}
         catatanBawah={{ teks: `${jejak.length} titik terkumpul` }}
         aria={`Papan bawah, jejak kemiringan. ${jejak.length} titik sudah terkumpul.`}
         tandaSkala={false}
       >
+        {tebakan && (
+          <path d={jalurFungsi(fn.turunan, bawah, 400)} fill="none" stroke={WARNA.depan}
+                strokeWidth={2.4} opacity={0.55} strokeLinecap="round" />
+        )}
         {jejak.map((jx) => {
           const jy = fn.turunan(jx)
           if (!Number.isFinite(jy)) return null
