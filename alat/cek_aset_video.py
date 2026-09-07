@@ -47,6 +47,23 @@ AKAR = Path(__file__).resolve().parents[1]
 VIDEO = AKAR / "media" / "uji-480p"
 ANIM = AKAR / "web" / "public" / "anim"
 
+
+def video_topik(topik: str):
+    """Berkas video sebuah topik: yang FINAL dulu, versi uji 480p belakangan.
+
+    Alat ini dibuat saat semua video masih berupa render uji, jadi sumbernya
+    dipatok ke `media/uji-480p/`. Di gelombang 3 folder itu kosong (versi uji
+    dikeluarkan dari git), sehingga alatnya melapor "tidak ada video yang cocok"
+    padahal ketiga belas video final ada di `web/public/anim/`. Melapor tidak
+    ada video sama saja dengan tidak memeriksa apa pun, dan itu justru jenis
+    kebutaan yang bikin alat ini dibuat. Ditemukan sesi Statistika 7 Sep 2026.
+    """
+    for calon in (ANIM / f"{topik}.webm", ANIM / f"{topik}.mp4",
+                  VIDEO / f"{topik}.mp4"):
+        if calon.exists() and calon.stat().st_size > 1024:
+            return calon
+    return None
+
 AMBANG_SELISIH = 15.0    # detik
 
 
@@ -91,11 +108,20 @@ def periksa(saring: str | None) -> int:
     from buat_poster import nilai  # noqa: E402
 
     buruk = 0
-    daftar = sorted(p for p in VIDEO.glob("*.mp4")
-                    if "-bersubtitle" not in p.stem
-                    and (not saring or saring in p.stem))
+    # Topik dikumpulkan dari video FINAL dan versi uji sekaligus, lalu
+    # `video_topik` memilih yang final kalau ada. Dulu hanya `media/uji-480p`
+    # yang dilihat, jadi alatnya buta begitu versi uji dibersihkan.
+    nama = set()
+    for folder, pola in ((ANIM, "*.webm"), (ANIM, "*.mp4"), (VIDEO, "*.mp4")):
+        for p in folder.glob(pola):
+            if "-bersubtitle" in p.stem:
+                continue
+            if saring and saring not in p.stem:
+                continue
+            nama.add(p.stem)
+    daftar = [v for v in (video_topik(t) for t in sorted(nama)) if v is not None]
     if not daftar:
-        print(f"tidak ada video yang cocok dengan {saring!r} di {VIDEO}")
+        print(f"tidak ada video yang cocok dengan {saring!r} di {ANIM} maupun {VIDEO}")
         return 1
 
     for v in daftar:
