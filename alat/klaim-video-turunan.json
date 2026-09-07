@@ -1,12 +1,317 @@
 [
-  { "id": "V02-tinggi-P", "jenis": "nilai_fungsi", "f": "x**2", "di": 1, "jawaban": 1 },
-  { "id": "V02-tinggi-Q-h1", "jenis": "nilai_fungsi", "f": "x**2", "di": 2, "jawaban": 4 },
-  { "id": "V02-sekan-h1", "jenis": "ekspresi", "hitung": "(2**2 - 1**2)/1", "jawaban": 3 },
-  { "id": "V02-sekan-h05", "jenis": "ekspresi", "hitung": "((3/2)**2 - 1)/(1/2)", "jawaban": "5/2" },
-  { "id": "V02-sekan-h01", "jenis": "ekspresi", "hitung": "((11/10)**2 - 1)/(1/10)", "jawaban": "21/10" },
-  { "id": "V02-sekan-h001", "jenis": "ekspresi", "hitung": "((101/100)**2 - 1)/(1/100)", "jawaban": "201/100" },
-  { "id": "V02-turunan-di-1", "jenis": "limit_definisi", "f": "x**2", "di": 1, "jawaban": 2 },
-  { "id": "V02-turunan-diff", "jenis": "turunan_di", "f": "x**2", "di": 1, "jawaban": 2 },
-  { "id": "V02-selisih-tinggi-berhuruf", "jenis": "ekspresi", "hitung": "expand((1 + h)**2 - 1)", "jawaban": "2*h + h**2" },
-  { "id": "V02-dibagi-h", "jenis": "ekspresi", "hitung": "simplify((2*h + h**2)/h)", "jawaban": "2 + h" }
+  {
+    "id": "V02-tinggi-P",
+    "jenis": "nilai_fungsi",
+    "f": "x**2",
+    "di": 1,
+    "jawaban": 1
+  },
+  {
+    "id": "V02-tinggi-Q-h1",
+    "jenis": "nilai_fungsi",
+    "f": "x**2",
+    "di": 2,
+    "jawaban": 4
+  },
+  {
+    "id": "V02-sekan-h1",
+    "jenis": "ekspresi",
+    "hitung": "(2**2 - 1**2)/1",
+    "jawaban": 3
+  },
+  {
+    "id": "V02-sekan-h05",
+    "jenis": "ekspresi",
+    "hitung": "((3/2)**2 - 1)/(1/2)",
+    "jawaban": "5/2"
+  },
+  {
+    "id": "V02-sekan-h01",
+    "jenis": "ekspresi",
+    "hitung": "((11/10)**2 - 1)/(1/10)",
+    "jawaban": "21/10"
+  },
+  {
+    "id": "V02-sekan-h001",
+    "jenis": "ekspresi",
+    "hitung": "((101/100)**2 - 1)/(1/100)",
+    "jawaban": "201/100"
+  },
+  {
+    "id": "V02-turunan-di-1",
+    "jenis": "limit_definisi",
+    "f": "x**2",
+    "di": 1,
+    "jawaban": 2
+  },
+  {
+    "id": "V02-turunan-diff",
+    "jenis": "turunan_di",
+    "f": "x**2",
+    "di": 1,
+    "jawaban": 2
+  },
+  {
+    "id": "V02-selisih-tinggi-berhuruf",
+    "jenis": "ekspresi",
+    "hitung": "expand((1 + h)**2 - 1)",
+    "jawaban": "2*h + h**2"
+  },
+  {
+    "id": "V02-dibagi-h",
+    "jenis": "ekspresi",
+    "hitung": "simplify((2*h + h**2)/h)",
+    "jawaban": "2 + h"
+  },
+  {
+    "id": "V03-kemiringan-min1",
+    "jenis": "turunan_di",
+    "f": "x**2",
+    "di": -1,
+    "jawaban": -2
+  },
+  {
+    "id": "V03-kemiringan-0",
+    "jenis": "turunan_di",
+    "f": "x**2",
+    "di": 0,
+    "jawaban": 0
+  },
+  {
+    "id": "V03-kemiringan-1",
+    "jenis": "turunan_di",
+    "f": "x**2",
+    "di": 1,
+    "jawaban": 2
+  },
+  {
+    "id": "V03-kemiringan-2",
+    "jenis": "turunan_di",
+    "f": "x**2",
+    "di": 2,
+    "jawaban": 4
+  },
+  {
+    "id": "V03-fungsi-turunan",
+    "jenis": "turunan",
+    "f": "x**2",
+    "jawaban": "2*x"
+  },
+  {
+    "id": "V03-f-aksen-3",
+    "jenis": "turunan_di",
+    "f": "x**2",
+    "di": 3,
+    "jawaban": 6
+  },
+  {
+    "id": "V03-f-3",
+    "jenis": "nilai_fungsi",
+    "f": "x**2",
+    "di": 3,
+    "jawaban": 9
+  },
+  {
+    "id": "V03-mutlak-kiri",
+    "jenis": "turunan_di",
+    "f": "-x",
+    "di": -1,
+    "jawaban": -1
+  },
+  {
+    "id": "V03-mutlak-kanan",
+    "jenis": "turunan_di",
+    "f": "x",
+    "di": 1,
+    "jawaban": 1
+  },
+  {
+    "id": "V07-mesin-dalam",
+    "jenis": "turunan",
+    "f": "3*x",
+    "jawaban": 3
+  },
+  {
+    "id": "V07-mesin-luar",
+    "jenis": "turunan",
+    "f": "5*x",
+    "jawaban": 5
+  },
+  {
+    "id": "V07-gabungan-lurus",
+    "jenis": "turunan",
+    "f": "5*(3*x)",
+    "jawaban": 15
+  },
+  {
+    "id": "V07-bukan-jumlah",
+    "jenis": "ekspresi",
+    "hitung": "3*5",
+    "jawaban": 15
+  },
+  {
+    "id": "V07-jabaran-kuadrat",
+    "jenis": "ekspresi",
+    "hitung": "expand((x**2 + 1)**2)",
+    "jawaban": "x**4 + 2*x**2 + 1"
+  },
+  {
+    "id": "V07-turunan-jabaran",
+    "jenis": "turunan",
+    "f": "x**4 + 2*x**2 + 1",
+    "jawaban": "4*x**3 + 4*x"
+  },
+  {
+    "id": "V07-faktor",
+    "jenis": "ekspresi",
+    "hitung": "factor(4*x**3 + 4*x)",
+    "jawaban": "4*x*(x**2 + 1)"
+  },
+  {
+    "id": "V07-tulis-ulang",
+    "jenis": "ekspresi",
+    "hitung": "expand(2*(x**2 + 1) * 2*x)",
+    "jawaban": "4*x**3 + 4*x"
+  },
+  {
+    "id": "V07-rantai-kuadrat",
+    "jenis": "turunan",
+    "f": "(x**2 + 1)**2",
+    "jawaban": "4*x**3 + 4*x"
+  },
+  {
+    "id": "V07-turunan-dalam",
+    "jenis": "turunan",
+    "f": "2*x - 5",
+    "jawaban": 2
+  },
+  {
+    "id": "V07-pangkat-delapan",
+    "jenis": "turunan",
+    "f": "(2*x - 5)**8",
+    "jawaban": "16*(2*x - 5)**7"
+  },
+  {
+    "id": "V07-suku-x8",
+    "jenis": "ekspresi",
+    "hitung": "expand((2*x - 5)**8).coeff(x, 8)",
+    "jawaban": 256
+  },
+  {
+    "id": "V07-suku-x7",
+    "jenis": "ekspresi",
+    "hitung": "expand((2*x - 5)**8).coeff(x, 7)",
+    "jawaban": -5120
+  },
+  {
+    "id": "V07-suku-x6",
+    "jenis": "ekspresi",
+    "hitung": "expand((2*x - 5)**8).coeff(x, 6)",
+    "jawaban": 44800
+  },
+  {
+    "id": "V07-langkah-antara",
+    "jenis": "ekspresi",
+    "hitung": "expand(8*(2*x - 5)**7 * 2)",
+    "jawaban": "expand(16*(2*x - 5)**7)"
+  },
+  {
+    "id": "V06-bantahan",
+    "jenis": "turunan",
+    "f": "x*x",
+    "jawaban": "2*x"
+  },
+  {
+    "id": "V06-u-di-2",
+    "jenis": "nilai_fungsi",
+    "f": "x + 1",
+    "di": 2,
+    "jawaban": 3
+  },
+  {
+    "id": "V06-v-di-2",
+    "jenis": "nilai_fungsi",
+    "f": "x",
+    "di": 2,
+    "jawaban": 2
+  },
+  {
+    "id": "V06-u-aksen",
+    "jenis": "turunan",
+    "f": "x + 1",
+    "jawaban": 1
+  },
+  {
+    "id": "V06-v-aksen",
+    "jenis": "turunan",
+    "f": "x",
+    "jawaban": 1
+  },
+  {
+    "id": "V06-pita-mendatar",
+    "jenis": "ekspresi",
+    "hitung": "1*2",
+    "jawaban": 2
+  },
+  {
+    "id": "V06-pita-tegak",
+    "jenis": "ekspresi",
+    "hitung": "3*1",
+    "jawaban": 3
+  },
+  {
+    "id": "V06-jumlah-pita",
+    "jenis": "ekspresi",
+    "hitung": "2 + 3",
+    "jawaban": 5
+  },
+  {
+    "id": "V06-hasil-kali-di-2",
+    "jenis": "turunan_di",
+    "f": "(x + 1)*x",
+    "di": 2,
+    "jawaban": 5
+  },
+  {
+    "id": "V06-pojok-dibagi-h",
+    "jenis": "ekspresi",
+    "hitung": "simplify(h*h/h)",
+    "jawaban": "h"
+  },
+  {
+    "id": "V06-contoh-u-aksen",
+    "jenis": "turunan",
+    "f": "x**2 + 1",
+    "jawaban": "2*x"
+  },
+  {
+    "id": "V06-contoh-v-aksen",
+    "jenis": "turunan",
+    "f": "x - 3",
+    "jawaban": 1
+  },
+  {
+    "id": "V06-contoh-susun",
+    "jenis": "ekspresi",
+    "hitung": "expand(2*x*(x - 3) + (x**2 + 1))",
+    "jawaban": "3*x**2 - 6*x + 1"
+  },
+  {
+    "id": "V06-contoh-hasil",
+    "jenis": "turunan",
+    "f": "(x**2 + 1)*(x - 3)",
+    "jawaban": "3*x**2 - 6*x + 1"
+  },
+  {
+    "id": "V06-jabaran",
+    "jenis": "ekspresi",
+    "hitung": "expand((x**2 + 1)*(x - 3))",
+    "jawaban": "x**3 - 3*x**2 + x - 3"
+  },
+  {
+    "id": "V06-turunan-jabaran",
+    "jenis": "turunan",
+    "f": "x**3 - 3*x**2 + x - 3",
+    "jawaban": "3*x**2 - 6*x + 1"
+  }
 ]

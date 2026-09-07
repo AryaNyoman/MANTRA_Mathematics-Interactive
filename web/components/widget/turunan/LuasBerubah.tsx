@@ -132,11 +132,11 @@ export default function LuasBerubah({
       <text x={(kiri + uL) / 2} y={(vL + dasar) / 2 + 4} textAnchor="middle"
             fontSize={12} fill={WARNA.miring} fontFamily={MONO}>u · v</text>
 
-      {/* ---------- pita mendatar: Δu kali v ---------- */}
+      {/* ---------- pita KANAN, tegak: Δu kali v ---------- */}
       <rect x={uL} y={vL} width={uB - uL} height={dasar - vL}
             fill={WARNA.samping} opacity={0.35} stroke={WARNA.samping} strokeWidth={1.2} />
 
-      {/* ---------- pita tegak: u kali Δv ---------- */}
+      {/* ---------- pita ATAS, mendatar: u kali Δv ---------- */}
       <rect x={kiri} y={vB} width={uL - kiri} height={vL - vB}
             fill={WARNA.depan} opacity={0.35} stroke={WARNA.depan} strokeWidth={1.2} />
 

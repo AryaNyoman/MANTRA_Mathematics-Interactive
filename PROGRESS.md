@@ -1,5 +1,34 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 8 SEP (pagi): KEPUTUSAN ARYA, WADAH VIDEO FINAL = MP4
+
+ARYA menyetujui saran MASTER: mp4 (H.264 ManimGL disalin + AAC) untuk semua
+video, membatalkan "webm" 7 Sep. Master 92cc576: gabung_audio bawaan mp4,
+cek_resolusi_anim tidak menolak mp4 (webm cuma dicatat), buat_poster dan
+cek_aset_video mendahulukan mp4, aturan di CLAUDE.md, `trigonometri.webm`
+720p yatim dihapus dari git. Semua alat DIJALANKAN sesudah diubah. Keenam
+sesi diberi tahu. Tugas Statistika: gabung ulang 13 master H.264 ke mp4
+(tanpa render ulang), buang webm-nya. Sisa webm yang SAH: Trigonometri 7 dan
+Limit 7 (VP9 1080p dari zaman Manim CE, tidak ada master H.264-nya); dibiarkan
+sampai ARYA memutuskan apakah layak dikode ulang.
+
+## 8 SEP (dini hari): TIGA VIDEO TURUNAN, TIGA ALAT BARU, WADAH DITINJAU ULANG
+
+- Turunan video 02, 03 (dirender ulang setelah angka sumbu ketahuan meleset:
+  batas bawah bidang bukan kelipatan langkah), dan 07 (aturan rantai, 147 s)
+  selesai 480p, lolos gerbang, di master dengan poster dan medan `video`.
+- Alat baru di master, semuanya dari cacat yang lolos gerbang lama:
+  `bidang_bernomor` menolak batas bawah bukan kelipatan langkah (e412aca);
+  qc mengadu tulisan dengan angka sumbu kecuali beralas (a136220);
+  `alat/cek_layar_kosong.py` memindai layar hampa >1,5 s (c9d5730; diuji pada
+  transformasi, statistika, ruang-3d: lolos). Cacat lama vektor4 dan vektor9
+  gagal qc dengan sebab lama, diteruskan ke sesi Vektor.
+- WADAH: keputusan "seragamkan ke webm" ditinjau ulang. Angka awal
+  membandingkan isi berbeda; pada isi yang sama mp4 utuh 17 persen lebih
+  ringan dan tanpa kode ulang (Statistika, Transformasi). Kode ulang Ruang
+  3D DIHENTIKAN, mp4-nya tetap tayang. Menunggu kata ARYA: "mp4" atau
+  "tetap webm". Bawaan gabung_audio masih webm sampai itu.
+
 ## 7 SEP (larut): STATISTIKA 1080p DI PRODUKSI, ALAT BERSAMA DISATUKAN
 
 Sesi Statistika selesai gelombang 3 (ad470d3): 13 video 1920x1080 60 fps

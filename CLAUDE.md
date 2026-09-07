@@ -51,6 +51,14 @@ Situs belajar matematika SMA: **animasi Manim** (menjelaskan *kenapa*) + **widge
 - **Cache LaTeX ManimGL bisa keracunan**: hasil kosong saat font baru dipasang
   ikut tersimpan. `tambal_manimgl.py` menolak SVG kosong; kalau teks pernah
   "hilang", hapus `%LOCALAPPDATA%\manim\manim\Cache`.
+- **Wadah video final = mp4 (H.264 dari ManimGL disalin, suara AAC) 1080p60**,
+  keputusan ARYA 8 Sep 2026 setelah keputusan "webm" sehari sebelumnya
+  terbukti berdasar angka keliru: pada isi yang sama mp4 utuh 17 persen lebih
+  ringan, tanpa kode ulang (webm butuh 5 sampai 14 menit VP9 per video dan
+  hasilnya lebih besar), dan diputar semua HP. Render final:
+  `manimgl <berkas> <Adegan> -w --hd --config_file manim/hd60.yml` lalu
+  `gabung_audio.py <nama-video> <Adegan> --keluar <nama-video>.mp4`. Versi uji
+  480p tetap mp4 di `media/uji-480p/`.
 - **Video: benda nyata harus terlihat seperti bendanya** (3D bercahaya dari
   `gl.ilustrasi`), kamera mulai dari dunia lalu terbang ke tempat matematika
   terbaca, rumus di atas gambar. Aturan lengkap: `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md`.
