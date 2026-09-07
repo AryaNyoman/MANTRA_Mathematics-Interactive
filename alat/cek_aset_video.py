@@ -91,11 +91,31 @@ def periksa(saring: str | None) -> int:
     from buat_poster import nilai  # noqa: E402
 
     buruk = 0
-    daftar = sorted(p for p in VIDEO.glob("*.mp4")
-                    if "-bersubtitle" not in p.stem
-                    and (not saring or saring in p.stem))
+    # Video yang TAYANG ikut diperiksa, bukan cuma pratinjau 480p. Pratinjau
+    # itu masuk .gitignore, jadi worktree yang baru dibuat mulai tanpa satu
+    # pun, dan sesi yang langsung merender 1080p (gelombang 3, 7 September
+    # 2026) tidak pernah membuatnya. Versi lama alat ini hanya melihat
+    # `media/uji-480p/*.mp4`, jadi ia menjawab "tidak ada video yang cocok"
+    # lalu berhenti. Artinya alat yang justru DIBUAT untuk menangkap subtitle
+    # basi dan poster kosong tidak memeriksa apa pun pada alur 1080p, persis
+    # di alur yang paling butuh diperiksa sebab berkasnya yang naik produksi.
+    #
+    # Satu topik dinilai SEKALI: kalau ada versi tayangnya, itu yang dipakai,
+    # sebab durasi berkas tayang itulah yang harus cocok dengan subtitlenya.
+    ditemukan: dict[str, Path] = {}
+    for folder, pola in ((AKAR / "media", "*.webm"),
+                         (AKAR / "web" / "public" / "anim", "*.webm"),
+                         (VIDEO, "*.mp4")):
+        for p in sorted(folder.glob(pola)):
+            if "-bersubtitle" in p.stem:
+                continue
+            if saring and saring not in p.stem:
+                continue
+            ditemukan.setdefault(p.stem, p)
+    daftar = [ditemukan[k] for k in sorted(ditemukan)]
     if not daftar:
-        print(f"tidak ada video yang cocok dengan {saring!r} di {VIDEO}")
+        print(f"tidak ada video yang cocok dengan {saring!r} di media/, "
+              f"web/public/anim/, maupun {VIDEO}")
         return 1
 
     for v in daftar:
