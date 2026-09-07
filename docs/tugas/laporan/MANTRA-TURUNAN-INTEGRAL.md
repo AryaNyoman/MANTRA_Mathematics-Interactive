@@ -76,6 +76,53 @@ Satu temuan saya bantah dengan alasan, dan MASTER membenarkan bantahannya:
 kata "jelas" tidak dilarang alat proyek kalau menggambarkan benda. Keenam
 pemakaiannya tetap diganti, tetapi karena kata pengisi, bukan karena melanggar.
 
+## Video: dua selesai, dan tiga cacat yang cuma ketahuan karena DILIHAT
+Materi 02 "Garis singgung" (110,4 detik) dan Materi 03 "Turunan sebagai fungsi
+baru" (115,1 detik). Keduanya 480p untuk ARYA revisi; 1080p60 menyusul kalau
+isinya sudah disetujui.
+
+### Kenapa video 03 memakai SATU papan, padahal widget-nya dua
+Ini disengaja, bukan kelalaian. Widget Materi 03 menumpuk dua papan, dan itu
+benar di layar situs yang bisa memanjang ke bawah. Di bingkai 16:9 tidak bisa.
+`bidang_bernomor` mengunci satu satuan mendatar sama dengan satu satuan tegak,
+supaya panjang di layar tidak berbohong. Dua papan bertumpuk untuk f = x kuadrat
+beserta f aksen = 2x menuntut tinggi sekitar 9,6 satuan pada lebar cuma 3, dan
+bingkainya hanya menyisakan sekitar 6,3 satuan tegak. Diukur, bukan dikira:
+kamera terpaksa mundur sampai isinya tinggal 14 persen lebar layar, dan angka
+sumbunya tidak terbaca lagi.
+
+Satu papan malah memberi satu hal yang dua papan SEMBUNYIKAN: jejak kemiringan
+memotong sumbu mendatar tepat di dasar lembah kurvanya. Hubungan itu inti
+materinya, dan dengan satu papan ia terlihat dalam satu tatapan.
+
+### Cacat 1: gerbang qc punya lubang, dan videoku yang menemukannya
+Blok "jarak h = 0,51" duduk persis di baris angka sumbu sehingga terbaca
+"1 jarak h2 = 0,51", dan LOLOS semua pemeriksaan otomatis. Sebabnya angka sumbu
+bagian dari bidang, bidang terdaftar sebagai benda dunia, dan benda dunia
+memang boleh bersentuhan. Ditutup di commit tersendiri (a136220) atas
+persetujuan MASTER, lengkap dengan lima uji baru. Kelima adegan Transformasi
+(satu-satunya topik lain yang terkena) dirender ulang dan semuanya tetap lolos.
+
+### Cacat 2: angka sumbu kedua video SALAH, dan lembar kontak pertama melewatkannya
+`bidang_bernomor` menaruh angka mulai dari batas bawah lalu melangkah satu-satu.
+Saya menulis batas mentah yang bukan bilangan bulat, jadi seluruh angka meleset
+dari garis petaknya lalu dibulatkan saat ditampilkan. Sumbu x video 02 terbaca
+"-2, -0, 0, 2, 2, 4": angka 2 muncul dua kali, dan angka 1 tidak ada sama sekali
+di video yang seluruh isinya mengukur kemiringan di x = 1.
+
+Lembar kontak pertama tidak menangkapnya karena saya memeriksa tindihan, bukan
+kebenaran angkanya. Pelajarannya: "sudah dilihat" tidak sama dengan "sudah
+dilihat dengan pertanyaan yang benar". Batas bawah kedua sumbu sekarang bilangan
+bulat, dan alasannya ditulis di kedua berkas adegan supaya tidak terulang.
+
+### Cacat 3: suara membantah gambar
+Naskah video 03 menyuruh siswa "perhatikan papan bawah", padahal adegannya satu
+papan. Dua segmen ditulis ulang agar menyebut yang benar-benar terlihat, yaitu
+titik biru yang tingginya sama dengan kemiringan pada papan yang sama. Suara dan
+subtitle dibuat ulang.
+
+Ketiganya lolos semua alat. Yang menangkap ketiganya adalah membuka gambarnya.
+
 ## Butuh MASTER
 1. **Cabangnya `sesi/turunan-materi`**, bukan `sesi/turunan`. Ambil cabang ini
    saat menggabung. `sesi/turunan` dibiarkan utuh sebagai cadangan kerangka.
@@ -86,8 +133,15 @@ pemakaiannya tetap diganti, tetapi karena kata pengisi, bukan karena melanggar.
 3. **Berkas Integral di cabang ini tidak disentuh dan tidak dihapus**, walau
    Integral sudah bukan wilayah sesi ini. Menghapusnya berisiko menabrak kerja
    sesi MANTRA-INTEGRAL saat penggabungan.
-4. **Video Turunan belum dibuat**, sesuai perintah: gelombang 1 halaman saja.
-   `cek_urutan_turunan.py` sudah menyiapkan peta naskahnya, tinggal dibuka.
+4. **Dua video sudah jadi dan ikut dilacak git** (`.webm`, seperti 28 video
+   topik lain). Tidak ada yang perlu dipasang manual. Video Materi 07 sampai
+   seterusnya menyusul.
+5. **Usul untuk berkas bersama, belum dikerjakan, menunggu keputusanmu:**
+   `bidang_bernomor` sebaiknya MENOLAK batas bawah yang bukan kelipatan bulat
+   langkahnya. `bidang_untuk` milik Transformasi sudah membulatkan, dan itulah
+   sebabnya Transformasi tidak kena jebakan ini. Semua pemanggil lain (vektor
+   1/3/4/6/8/9, grafik_umum, transformasi_umum, contoh_perahu, uji_sinema_gl)
+   sudah memakai bilangan bulat, jadi penjaganya no-op bagi mereka.
 
 ## Butuh keputusan ARYA
 1. **Kanal YouTube dipakai ulang dari topik Limit.** Handle dan tautannya sudah

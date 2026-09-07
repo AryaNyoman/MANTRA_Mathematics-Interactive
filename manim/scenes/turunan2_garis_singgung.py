@@ -44,7 +44,11 @@ AKAR = Path(__file__).resolve().parents[2]
 TOPIK = "turunan2-garis-singgung"
 DURASI = json.loads((AKAR / "audio" / TOPIK / "durasi.json").read_text(encoding="utf-8"))["segmen"]
 
-BIDANG_X, BIDANG_Y = (-1.5, 3.5, 1.0), (-1.0, 5.0, 1.0)
+# Batas BAWAH kedua sumbu WAJIB bilangan bulat: angka sumbu dimulai dari sana
+# lalu melangkah satu-satu, jadi batas -1,5 menaruh angka di -1,5 -0,5 0,5 ...
+# yang ditampilkan sebagai -2 -0 0 2 2 4. Dilebarkan ke -2, bukan disempitkan
+# ke -1, supaya tidak ada isi yang tadinya muat lalu jatuh keluar.
+BIDANG_X, BIDANG_Y = (-2.0, 3.5, 1.0), (-1.0, 5.0, 1.0)
 
 # Batas tempat garis lurus boleh digambar. Diambil sedikit di dalam tepi bidang
 # supaya ujung garis tidak menjulur keluar petak dan tertangkap qc.
@@ -124,6 +128,13 @@ def alas_dunia(mob, pad_x=0.14, pad_y=0.10):
     r.set_fill(LATAR, opacity=1.0).set_stroke(width=0)
     r.move_to(mob.get_center())
     r.shift(0.008 * IN)
+    # Penanda untuk `qc.periksa_adegan`, sama artinya dengan yang dipasang
+    # `sinema.alas_hud`: tulisan yang punya alas kertas boleh berdiri di atas
+    # angka sumbu, sebab alasnya menutup angka di belakangnya. Tanpa tanda ini,
+    # gerbang yang memeriksa tulisan lawan angka sumbu akan menolak justru
+    # tulisan yang sudah dibereskan.
+    mob.beralas = True
+    r.beralas = True
     return r
 
 

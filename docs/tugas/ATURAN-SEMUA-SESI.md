@@ -90,7 +90,15 @@ Jangan mengerjakan dengan tangan apa yang sudah ada alatnya:
   orang, bola, balok, silinder), `qc` (gagal kalau bertindih atau keluar bingkai,
   sadar sudut kamera). `manim/cek_kode.py --dalam` sebelum render.
 - Setelah render: `manim/cek_video.py media/gl/<Adegan>.mp4` lalu BUKA lembar
-  kontaknya frame per frame; `manim/buat_subtitle.py`; `manim/gabung_audio.py
+  kontaknya frame per frame DAN baca angka sumbunya satu per satu (angka yang
+  meleset tidak terlihat sebagai tindihan); `python alat/cek_layar_kosong.py
+  <video>` (layar hampa lebih dari 1,5 detik di luar jalur identitas, panel,
+  subtitle; gerbang diam TIDAK menangkapnya); `python alat/cek_aset_video.py
+  <topik>` (subtitle sepanjang video, poster tidak kosong lewat
+  `alat/buat_poster.py`, potongan suara sesuai naskah). Render final 1080p60:
+  `manimgl <berkas> <Adegan> -w --hd --config_file manim/hd60.yml` (BUKAN
+  `--fps 60`, itu memecahkan render). Alat-alat ini lahir 7 dan 8 Sep 2026
+  dari cacat yang lolos semua gerbang lama; `manim/buat_subtitle.py`; `manim/gabung_audio.py
   <topik> <Adegan> --uji` untuk 480p (suara latar dari kunci `"latar"` di naskah).
 - Halaman: `playwright-cli -s=<nama>` di 375 dan 1366, skill
   `web-interface-guidelines` kalau menyentuh tata letak.

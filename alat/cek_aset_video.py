@@ -97,7 +97,13 @@ def durasi_video(jalur: Path) -> float:
          "-of", "csv=p=0", str(jalur)],
         capture_output=True, text=True, check=True,
     )
-    return float(hasil.stdout.strip())
+    # ffprobe menjawab "N/A" untuk berkas yang rusak atau SEDANG DITULIS
+    # (ketahuan 7 Sep 2026 saat webm Ruang 3D masih dikode ulang). Durasi 0
+    # membuat videonya dilaporkan CACAT, bukan menghentikan seluruh alat.
+    try:
+        return float(hasil.stdout.strip())
+    except ValueError:
+        return 0.0
 
 
 def akhir_subtitle(jalur: Path) -> float | None:
@@ -156,6 +162,12 @@ def periksa(saring: str | None) -> int:
         topik = v.stem
         lama = durasi_video(v)
         catat = []
+        if lama <= 0:
+            # Tanpa baris ini, video berdurasi 0 (rusak atau sedang ditulis)
+            # LOLOS: pembanding di bawah hanya menangkap video yang lebih
+            # panjang dari subtitle-nya. Terbukti 7 Sep 2026: ruang-3d-03.webm
+            # yang baru separuh ditulis dilaporkan "ok (0.0 s)".
+            catat.append("durasi video TIDAK TERBACA (berkas rusak atau sedang ditulis)")
 
         vtt = ANIM / f"{topik}.vtt"
         if not vtt.exists():

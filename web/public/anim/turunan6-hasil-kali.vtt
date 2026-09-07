@@ -1,0 +1,139 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/turunan6-hasil-kali.json
+
+1
+00:00:00.000 --> 00:00:03.864
+Materi 06: turunan sebuah hasil kali.
+
+2
+00:00:03.864 --> 00:00:09.031
+Materi 05 membantah: turunan x · x adalah 2x,
+
+3
+00:00:09.031 --> 00:00:10.409
+bukan 1 · 1.
+
+4
+00:00:10.409 --> 00:00:13.968
+Perkalian butuh aturan sendiri.
+
+5
+00:00:13.968 --> 00:00:21.913
+Gambar sebuah persegi panjang: panjangnya u, lebarnya v,
+
+6
+00:00:21.913 --> 00:00:23.899
+luasnya u · v.
+
+7
+00:00:23.899 --> 00:00:26.736
+Itu yang diturunkan.
+
+8
+00:00:26.736 --> 00:00:35.448
+Pakai angka: di x = 2, u bernilai 3 dan v bernilai 2.
+
+9
+00:00:35.448 --> 00:00:37.446
+x digeser sebesar h.
+
+10
+00:00:37.446 --> 00:00:42.541
+Panjang bertambah sedikit, lebar bertambah sedikit,
+
+11
+00:00:42.541 --> 00:00:44.040
+luasnya tumbuh.
+
+12
+00:00:44.040 --> 00:00:50.641
+Tambahannya berbentuk L: pita di kanan, pita di atas,
+
+13
+00:00:50.641 --> 00:00:53.256
+dan satu pojok kecil.
+
+14
+00:00:53.256 --> 00:00:55.962
+Ketiganya dibagi h.
+
+15
+00:00:55.962 --> 00:01:01.944
+Pita kanan memberi 2, pita atas memberi 3.
+
+16
+00:01:01.944 --> 00:01:03.719
+h dikecilkan.
+
+17
+00:01:03.719 --> 00:01:07.132
+Kedua pita tetap 2 dan 3.
+
+18
+00:01:07.132 --> 00:01:14.232
+Hanya pojoknya menyusut: ia hasil kali DUA tambahan.
+
+19
+00:01:14.232 --> 00:01:21.899
+h menuju nol: pojoknya lenyap, tinggal dua pita.
+
+20
+00:01:21.899 --> 00:01:23.496
+2 + 3 = 5.
+
+21
+00:01:23.496 --> 00:01:31.728
+Itulah aturannya: turunan u · v adalah u′v + uv′.
+
+22
+00:01:31.728 --> 00:01:35.066
+Tadi dua garis lurus, jadi persis.
+
+23
+00:01:35.066 --> 00:01:39.288
+Pada fungsi melengkung pita hanya mendekat;
+
+24
+00:01:39.288 --> 00:01:41.448
+pojoknya tetap lenyap.
+
+25
+00:01:41.448 --> 00:01:47.537
+Coba yang melengkung: (x² + 1)(x - 3).
+
+26
+00:01:47.537 --> 00:01:52.824
+Bagian pertama u, bagian kedua v.
+
+27
+00:01:52.824 --> 00:02:05.208
+u′ = 2x, v′ = 1. Susun: 2x(x - 3) + (x² + 1).
+
+28
+00:02:05.208 --> 00:02:11.016
+Dijabarkan lalu dirapikan: 3x² - 6x + 1.
+
+29
+00:02:11.016 --> 00:02:16.194
+Jalan kedua: kalikan dulu jadi x³ - 3x² + x - 3,
+
+30
+00:02:16.194 --> 00:02:19.322
+lalu turunkan suku demi suku.
+
+31
+00:02:19.322 --> 00:02:20.832
+Hasilnya sama.
+
+32
+00:02:20.832 --> 00:02:24.911
+Untuk pembagian: tandanya pengurangan,
+
+33
+00:02:24.911 --> 00:02:27.166
+seluruhnya dibagi v².
+
+34
+00:02:27.166 --> 00:02:30.816
+Langkah lengkapnya di halaman ini.

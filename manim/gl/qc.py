@@ -97,6 +97,24 @@ def jalur_bawah_kosong(frame, zona: dict, batas_atas: float = -2.55):
                 f"pindahkan: rumus ke panel KANAN atas, identitas ke KIRI atas, atau geser dunianya ke atas.")
 
 
+def daun_angka(kelompok, dalam: int = 0) -> list:
+    """Angka sumbu SATU PER SATU, bukan kelompoknya.
+
+    `bidang_bernomor` menyimpan angkanya sebagai kelompok berlapis: satu
+    kelompok untuk sumbu x, satu untuk sumbu y, masing-masing berisi angkanya.
+    Kotak batas tiap kelompok membentang sepanjang sumbunya, jadi mengadu
+    tulisan dengan KELOMPOK akan menolak tulisan mana pun yang berdiri di dalam
+    bidang. Yang dilarang adalah menindih SATU angka, jadi lapisannya diratakan
+    dulu sampai angkanya sendiri.
+    """
+    if dalam < 4 and type(kelompok).__name__ in ("VGroup", "Group"):
+        hasil = []
+        for anak in getattr(kelompok, "submobjects", []):
+            hasil.extend(daun_angka(anak, dalam + 1))
+        return hasil
+    return [kelompok]
+
+
 def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: float = 0.3,
                    hud: dict | None = None, dunia: dict | None = None,
                    jaga_jalur_bawah: bool = True, tulisan: dict | None = None,
@@ -107,10 +125,13 @@ def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: floa
     pasangan  : [("nama_a", "nama_b"), ...], pasangan yang tidak boleh bertindih
     hud       : {"nama": panel}, panel yang menempel di layar
     dunia     : {"nama": benda}, benda di dunia 3D
-    tulisan   : {"nama": teks}, TULISAN di dunia. Diperiksa silang satu sama lain
-                dan terhadap HUD. Benda dunia boleh bersentuhan (orang berdiri
-                di papan, label menempel di bendanya), tetapi tulisan yang
-                menindih tulisan selalu cacat.
+    tulisan   : {"nama": teks}, TULISAN di dunia. Diperiksa silang satu sama lain,
+                terhadap HUD, dan terhadap ANGKA SUMBU benda dunia. Benda dunia
+                boleh bersentuhan (orang berdiri di papan, label menempel di
+                bendanya), tetapi tulisan yang menindih tulisan selalu cacat,
+                dan angka sumbu adalah tulisan juga. Tulisan yang bertanda
+                `beralas` dikecualikan dari adu lawan angka sumbu: alas
+                kertasnya menutup angka di belakangnya.
     periksa_isi : kelompok HUD yang bertanda `_qc_isi` (mis. `PapanRumus.semua()`)
                 diperiksa ISINYA satu sama lain, baris lawan baris.
     jaga_jalur_bawah : gagalkan render kalau ada objek masuk jalur subtitle
@@ -158,11 +179,37 @@ def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: floa
                 continue
             tidak_bertindih(frame, pa, pd, na, nd)
     daftar_tulisan = list((tulisan or {}).items())
+    # Angka sumbu dikumpulkan sekali di luar perulangan. Ia menumpang di dalam
+    # benda `dunia`, tetapi ia TULISAN, jadi ia diadu dengan aturan tulisan.
+    angka_sumbu = []
+    for nd, pd in (dunia or {}).items():
+        kel = getattr(pd, "angka", None)
+        if kel is not None:
+            angka_sumbu.extend((nd, satu) for satu in daun_angka(kel))
     for i, (na, ta) in enumerate(daftar_tulisan):
         for nb, tb in daftar_tulisan[i + 1:]:
             tidak_bertindih(frame, ta, tb, f"tulisan {na}", f"tulisan {nb}")
         for nh, ph in (hud or {}).items():
             tidak_bertindih(frame, ta, ph, f"tulisan {na}", nh)
+        # LUBANG YANG DITUTUP 7 Sep 2026, ditemukan sesi Turunan pada videonya
+        # sendiri, dua kali berturut-turut. Tulisan diadu dengan tulisan dan
+        # dengan HUD, tetapi TIDAK dengan angka sumbu, sebab angka sumbu bagian
+        # dari `bidang_bernomor` yang didaftarkan sebagai `dunia`, dan benda
+        # dunia memang boleh bersentuhan. Akibatnya blok "jarak h = 0,51" yang
+        # duduk persis di baris angka sumbu terbaca "1 jarak h2 = 0,51" dan
+        # LOLOS gerbang. Yang menemukannya lembar kontak, bukan alat, dan itu
+        # persis kegagalan yang gerbang ini ada untuk mencegahnya.
+        #
+        # Pengecualiannya sama persis dengan pengecualian HUD beralas: tulisan
+        # yang punya alas kertas menutup angka di belakangnya, jadi ia memang
+        # boleh berdiri di atasnya. Tanpa pengecualian ini, cara yang BENAR
+        # untuk membereskan tindihan justru ikut ditolak. Tanda `beralas` hanya
+        # memutihkan adu lawan angka sumbu; tulisan lawan tulisan dan tulisan
+        # lawan HUD tetap berlaku penuh.
+        if getattr(ta, "beralas", False):
+            continue
+        for nd, satu in angka_sumbu:
+            tidak_bertindih(frame, ta, satu, f"tulisan {na}", f"angka sumbu {nd}")
     if periksa_isi:
         for nama, g in (hud or {}).items():
             if not getattr(g, "_qc_isi", False):
