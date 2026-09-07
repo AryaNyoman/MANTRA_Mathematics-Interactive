@@ -31,8 +31,13 @@ poster 03, 04, 05 dibuat dari frame bermakna. Alat baru dari sesi itu:
 `alat/cek_aset_video.py` (subtitle sepanjang video dan poster tidak kosong)
 dan `alat/buat_poster.py`. Temuan alat itu di luar topiknya:
 `web/public/anim/vektor6-sambung.jpg` poster kosong, milik sesi Vektor.
-Sisa di sesi Transformasi (menunggu ARYA): 04 masih 63 detik, diam 7,2 detik
-di 02 detik 106, render 1080p. BELUM naik Vercel (pratinjau maupun produksi).
+7 Sep: video 04 diperpanjang 63 -> 137 detik (10 -> 17 babak, angka dari
+halaman Materi 07), digabung 55db094 dan dipasang; keenam video kini 125
+sampai 144 detik, subtitle dan poster cocok semua. Tiga belas potongan suara
+basi di `audio/` dibuang, `cek_aset_video.py` kini memeriksa suara juga.
+Sisa di sesi Transformasi (menunggu ARYA): diam 7,2 detik di 02 detik 106,
+klaim angka video 01 dan 02 belum dikodekan, render 1080p. BELUM naik
+Vercel (pratinjau maupun produksi).
 
 ## 6 SEP (dini hari): TURUNAN DAN INTEGRAL DIRANCANG, KERANGKA DI `sesi/turunan`
 
