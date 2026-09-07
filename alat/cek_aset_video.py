@@ -44,8 +44,28 @@ import sys
 from pathlib import Path
 
 AKAR = Path(__file__).resolve().parents[1]
-VIDEO = AKAR / "media" / "uji-480p"
 ANIM = AKAR / "web" / "public" / "anim"
+# Video dicari di DUA tempat: yang tayang lebih dulu, baru versi tinjauan 480p.
+# Sebelum ini folder 480p dipatok mati, jadi sesi gelombang 3 (render akhir
+# 1080p, videonya di web/public/anim) mendapat "tidak ada video yang cocok"
+# padahal videonya ada. Cacat yang sama dengan buat_poster.py, sumbernya juga
+# sama: kedua alat lahir di alur tinjauan 480p.
+VIDEO_URUT = (ANIM, AKAR / "media" / "uji-480p")
+
+
+def daftar_video(saring: str | None) -> list[Path]:
+    hasil, sudah = [], set()
+    for folder in VIDEO_URUT:
+        if not folder.exists():
+            continue
+        for v in sorted(folder.glob("*.mp4")):
+            if "-bersubtitle" in v.stem or v.stem in sudah:
+                continue
+            if saring and saring not in v.stem:
+                continue
+            sudah.add(v.stem)
+            hasil.append(v)
+    return sorted(hasil, key=lambda x: x.stem)
 
 AMBANG_SELISIH = 15.0    # detik
 
@@ -91,11 +111,10 @@ def periksa(saring: str | None) -> int:
     from buat_poster import nilai  # noqa: E402
 
     buruk = 0
-    daftar = sorted(p for p in VIDEO.glob("*.mp4")
-                    if "-bersubtitle" not in p.stem
-                    and (not saring or saring in p.stem))
+    daftar = daftar_video(saring)
     if not daftar:
-        print(f"tidak ada video yang cocok dengan {saring!r} di {VIDEO}")
+        tempat = " atau ".join(str(f) for f in VIDEO_URUT)
+        print(f"tidak ada video yang cocok dengan {saring!r} di {tempat}")
         return 1
 
     for v in daftar:
