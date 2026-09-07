@@ -35,9 +35,11 @@ dan `alat/buat_poster.py`. Temuan alat itu di luar topiknya:
 halaman Materi 07), digabung 55db094 dan dipasang; keenam video kini 125
 sampai 144 detik, subtitle dan poster cocok semua. Tiga belas potongan suara
 basi di `audio/` dibuang, `cek_aset_video.py` kini memeriksa suara juga.
-Sisa di sesi Transformasi (menunggu ARYA): diam 7,2 detik di 02 detik 106,
-klaim angka video 01 dan 02 belum dikodekan, render 1080p. BELUM naik
-Vercel (pratinjau maupun produksi).
+Video 02 dirender ulang (gabung 55dfe2b): babak cermin mendatar tadinya masih
+memperlihatkan cermin tegak, gambar membantah narasi; kini digambar di h = 2,
+diam terpanjang 6,5 detik. Klaim video 01 dan 02 dikodekan; 164 klaim lolos.
+Sisa di sesi Transformasi: render 1080p, menunggu ARYA menonton 480p.
+BELUM naik Vercel (pratinjau maupun produksi).
 
 ## 6 SEP (dini hari): TURUNAN DAN INTEGRAL DIRANCANG, KERANGKA DI `sesi/turunan`
 
