@@ -61,6 +61,7 @@ export const TAHAP: TahapIntegral[] = [
     slug: 'membalik-turunan',
     judul: 'Dari laju ke jumlah, membalik turunan',
     labelPendek: 'Kenapa',
+    video: { berkas: 'integral01-laju-ke-jumlah.mp4', poster: 'integral01-laju-ke-jumlah.jpg' },
     pertanyaan: 'Pengeluaran naik dengan laju 2x + 1 juta per bulan pada bulan ke-x. Berapa totalnya setahun, kalau yang diketahui cuma lajunya?',
     intisari: [
       'Kalau yang diketahui lajunya, jumlah totalnya adalah luas di bawah grafik laju itu.',

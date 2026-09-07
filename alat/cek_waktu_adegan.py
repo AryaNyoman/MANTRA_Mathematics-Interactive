@@ -134,11 +134,19 @@ def angka_kw(isi, nama, bawaan):
 
 
 def blok_babak(sumber):
-    """Daftar (nama, teks_blok) untuk tiap `with sinema.babak(...) as b:`."""
+    """Daftar (nama, teks_blok) untuk tiap `with sinema.babak(...) as b:`.
+
+    Nama babak diterima apa adanya (huruf besar sekalipun). Versi pertama alat
+    ini hanya menerima huruf kecil, dan babak bernama `plusC` di video Integral
+    01 DILEWATI TANPA SEPATAH KATA: seluruh babak sesudahnya bergeser 12,67
+    detik, dua di antaranya dilaporkan kelebihan padahal tidak, dan yang benar
+    benar kelebihan bisa saja luput. Pemeriksa yang diam-diam melewati bagian
+    yang tidak dipahaminya lebih berbahaya daripada tidak ada pemeriksa.
+    """
     hasil = []
     baris = sumber.splitlines()
     for i, bs in enumerate(baris):
-        m = re.match(r"(\s*)with sinema\.babak\(self,\s*\"([a-z0-9_]+)\"", bs)
+        m = re.match(r"(\s*)with sinema\.babak\(self,\s*\"(\w+)\"", bs)
         if not m:
             continue
         lekuk = len(m.group(1))
@@ -404,11 +412,35 @@ def main():
     if jam is None:
         print("PERINGATAN: web/public/anim/%s.vtt belum ada, jangkar tidak diperiksa" % topik)
 
+    babak = blok_babak(sumber)
+    # Jumlah dan URUTAN babak harus sama persis dengan durasi.json. Kalau satu
+    # babak terlewat, waktu mulai semua babak sesudahnya bergeser sebesar
+    # durasi babak yang hilang, dan angka "sisa" di bawah jadi karangan.
+    # Itu benar-benar terjadi pada video Integral 01 sebelum pemeriksaan ini
+    # ada: satu babak terlewat, dua babak lain dilaporkan kelebihan padahal
+    # tidak. Karena itu ketidakcocokan di sini MENGGAGALKAN, bukan sekadar
+    # dicatat.
+    nama_adegan = [n for n, _ in babak]
+    nama_narasi = list(durasi.keys())
+    if nama_adegan != nama_narasi:
+        print("SUSUNAN BABAK TIDAK COCOK, angka waktunya tidak bisa dipercaya:")
+        print("  di adegan : " + ", ".join(nama_adegan))
+        print("  di narasi : " + ", ".join(nama_narasi))
+        hilang = [n for n in nama_narasi if n not in nama_adegan]
+        lebih = [n for n in nama_adegan if n not in nama_narasi]
+        if hilang:
+            print("  ada di narasi tapi TIDAK ditemukan di adegan: " + ", ".join(hilang))
+        if lebih:
+            print("  ada di adegan tapi tidak ada di narasi: " + ", ".join(lebih))
+        if not hilang and not lebih:
+            print("  namanya sama tetapi URUTANNYA berbeda")
+        return 1
+
     print("%-12s %7s %7s %8s" % ("babak", "narasi", "animasi", "sisa"))
     print("-" * 40)
     gagal, bercatatan = [], []
     mulai_abs = 0.0
-    for nama, blok in blok_babak(sumber):
+    for nama, blok in babak:
         lama = durasi.get(nama)
         if lama is None:
             print("%-12s  tidak ada di durasi.json" % nama)

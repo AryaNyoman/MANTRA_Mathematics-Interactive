@@ -1,0 +1,107 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/integral01-laju-ke-jumlah.json
+
+1
+00:00:00.000 --> 00:00:04.944
+Materi 01: dari laju ke jumlah, membalik turunan.
+
+2
+00:00:04.944 --> 00:00:08.395
+Yang tercatat bukan totalnya,
+
+3
+00:00:08.395 --> 00:00:13.632
+melainkan seberapa cepat totalnya bertambah.
+
+4
+00:00:13.632 --> 00:00:21.921
+Laju digambar: mendatar bulan, tegak juta per bulan.
+
+5
+00:00:21.921 --> 00:00:24.312
+Lajunya 2x + 1.
+
+6
+00:00:24.312 --> 00:00:32.273
+Bulan ke-1 lajunya 3, bulan ke-2 lajunya 5.
+
+7
+00:00:32.273 --> 00:00:35.976
+Laju pada satu saat.
+
+8
+00:00:35.976 --> 00:00:39.857
+Satu bulan: laju × lama waktu,
+
+9
+00:00:39.857 --> 00:00:44.256
+yaitu luas sebuah persegi panjang.
+
+10
+00:00:44.256 --> 00:00:49.619
+Dijumlahkan: sudah dekat, belum tepat.
+
+11
+00:00:49.619 --> 00:00:54.840
+Dalam satu bulan lajunya tidak tetap.
+
+12
+00:00:54.840 --> 00:01:04.080
+Grafiknya lurus, jadi trapesium menutup tanpa sisa:
+
+13
+00:01:04.080 --> 00:01:07.704
+½(1 + 25)(12) = <b>156</b>.
+
+14
+00:01:07.704 --> 00:01:18.744
+Jalan kedua. T = total. Lajunya adalah T'.
+
+15
+00:01:18.744 --> 00:01:24.276
+Cari T dengan T' = 2x + 1.
+
+16
+00:01:24.276 --> 00:01:31.723
+Coba x² + x, lalu turunkan: 2x + 1.
+
+17
+00:01:31.723 --> 00:01:33.000
+<b>Cocok</b>.
+
+18
+00:01:33.000 --> 00:01:36.119
+x² + x + 7 juga.
+
+19
+00:01:36.119 --> 00:01:39.044
+Dan x² + x - 3.
+
+20
+00:01:39.044 --> 00:01:45.672
+Turunan sebuah tetapan adalah nol.
+
+21
+00:01:45.672 --> 00:01:54.382
+Bukan satu fungsi, satu <b>keluarga</b>: T = x² + x + C,
+
+22
+00:01:54.382 --> 00:01:57.048
+digeser oleh C.
+
+23
+00:01:57.048 --> 00:02:11.424
+T(0) = 0 memberi C = 0. Lalu T(12) = 144 + 12 = <b>156</b>.
+
+24
+00:02:11.424 --> 00:02:16.112
+Luas 156, antiturunan 156.
+
+25
+00:02:16.112 --> 00:02:20.439
+Kenapa keduanya bertemu,
+
+26
+00:02:20.439 --> 00:02:26.208
+akan kita buktikan di Materi 07.

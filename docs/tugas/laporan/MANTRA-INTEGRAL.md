@@ -251,8 +251,89 @@ rentang 224, bukan latar 10,88 persen), dan medan `video:` di `tahap.ts`
 semuanya sudah ada. Tiga potongan suara basi sudah dibuang.
 `alat/cek_aset_video.py integral` SEMUA LOLOS.
 
+## Video 01 "Dari laju ke jumlah, membalik turunan": SELESAI 480p
+
+`media/uji-480p/integral01-laju-ke-jumlah.mp4`, 146,2 detik, 2,65 MB, plus
+versi bersubtitle untuk ditonton ARYA. Medan `video:` sudah dipasang di Materi
+01, poster dari detik 62, `cek_aset_video.py integral` SEMUA LOLOS (dua video),
+`tsc --noEmit` 0, `cek_urutan_integral.py` SEMUA LOLOS.
+
+Ini satu-satunya video Integral yang boleh dibuka 3D (butir 2 STANDAR: nomor
+tahap TERKECIL, yaitu yang pertama ditonton siswa). Bagian 3D-nya 4,4 detik,
+lalu satu gerakan kamera turun dan tidak pernah miring lagi.
+
+**SEPULUH kali render.** Yang ditemukan dan diperbaiki:
+
+1. **Jangkar subtitle diperiksa SEBELUM render pertama**, bukan sesudah empat
+   render seperti video 05. Empat dari sembilan jangkar yang saya rencanakan
+   tidak akan pernah ketemu (dua jatuh persis di awal babaknya sehingga tidak
+   pernah menunggu, satu tidak ada kalimatnya, satu diawali lambang setengah).
+   Alat `cek_waktu_adegan.py` yang lahir dari video 05 yang menangkapnya.
+2. **Gerbang label menolak "juta per bulan": 3 kata, batasnya 2.** Benar, dan
+   sekaligus menunjukkan saya salah alat: angka dan rumus di dunia WAJIB lewat
+   `rumus()`, bukan `sinema.label()`. Enam label diperbaiki.
+3. **Jebakan backslash heredoc, DUA KALI.** Perintah LaTeX `\tfrac` yang
+   ditulis lewat heredoc alat Bash sampai ke berkas sebagai TAB + "frac",
+   sebab heredoc menelan satu tingkat backslash. `cek_kode.py` menangkapnya di
+   adegan ("mengandung karakter kendali, hampir pasti string lupa awalan r").
+   Lalu KALIMAT LAPORAN INI SENDIRI terkena hal yang sama saat ditulis, dan
+   yang menangkapnya cuma membaca ulang berkasnya. Sudah tercatat di memori
+   proyek sejak sesi ini juga, dan saya tetap melanggarnya dua kali.
+   Aturannya: apa pun yang memuat backslash ditulis lewat Edit atau Write,
+   tidak pernah lewat shell.
+4. **Dua detik layar benar-benar kosong** di antara pembuka 3D dan sumbu
+   pertama, ditangkap `cek_layar_kosong.py`. Sumbunya sekarang datang di dalam
+   gerakan kamera yang sama, bukan di babak berikutnya.
+5. **Gambar cuma mengisi 58 persen lebar layar.** `muat_datar` memuat sisi
+   yang paling menuntut, dan untuk grafik itu selalu TINGGI. Sumbu x dilebarkan
+   (9,2) sehingga sekarang mengisi sekitar 70 persen. Tidak mengubah
+   matematikanya: mendatar bulan, tegak juta per bulan, dua besaran berbeda.
+6. **Dua kali qc menolak "papan menindih sumbu"** sesudah pelebaran itu, dan
+   yang kedua baru muncul di babak TERAKHIR ketika panel paling penuh. Jalur
+   kanan dipesan 1,8; sumbu keluarga kurva dikembalikan ke lebar semula.
+7. **Pembuka 3D gagal dua kali dan keduanya kelihatan di lembar kontak.**
+   Empat belas keping rapat jadi satu tabung ungu polos; diberi celah,
+   `Cylinder` ManimGL ternyata TANPA TUTUP sehingga terbaca sebagai per spiral
+   berongga. Diganti sembilan lempeng `balok` pejal: terbaca sebagai lembaran
+   uang yang menumpuk.
+8. **Identitas pojok kiri atas tertinggal.** Selama lima babak ia masih
+   berbunyi "laju: juta rupiah per bulan" padahal gambarnya sudah keluarga
+   kurva T. Sekarang ikut berganti, dan kembali saat kamera kembali.
+9. **Identitas penggantinya tidak pernah muncul** pada percobaan pertama:
+   `set_opacity(0)` lalu `FadeIn` membuat `FadeIn` membaca nol sebagai
+   SASARAN, jadi ia memudar dari nol ke nol. Lebih buruk, qc tetap "memeriksa"
+   benda tak kasatmata itu tanpa mengeluh. Diganti `self.remove(...)`.
+10. **Rumus trapesium duduk persis di atas garis lajunya**, dan kurva keluarga
+    menjulur keluar sumbu (T(2,6) = 9,36 padahal sumbunya berhenti di 8,5).
+    Keduanya hanya terlihat dari membuka frame.
+
+### Empat rentang "diam", sudah dinilai satu per satu
+Sama seperti video 05, alat ukurnya memakai perubahan piksel se-layar dan
+video ini banyak memakai garis tipis. Frame-nya dibuka:
+
+| Rentang | Narasi | Vonis |
+|---|---|---|
+| 23,4 sampai 44,5 d | "Bacanya begini... laju pada satu saat" lalu "satu bulan: laju kali lama" | BUKAN cacat. Garis putus putus naik lalu mendatar untuk x = 1, lalu untuk x = 2, dua titik, dua angka, lalu satu persegi panjang berikut ruas tinggi dan lebarnya. Semuanya garis tipis. |
+| 51,6 sampai 62,1 d | "Dijumlahkan: sudah dekat... trapesium menutup tanpa sisa" | BUKAN cacat. Dua belas kotak berganti jadi trapesium, lalu dua sisi sejajarnya ditandai. Warnanya sama-sama biru muda, jadi selisih pikselnya kecil walau gambarnya berganti. |
+| 12,4 sampai 21,0 d | "Kalau digambar... lajunya 2x + 1" | BUKAN cacat. Sumbu datang bersama kamera, lalu garis lajunya digambar 5 detik. Garis setebal 4 piksel di layar selebar 854 memang di bawah ambang alatnya. |
+| 77,5 sampai 84,5 d | "Cari T dengan T' = 2x + 1. Coba x² + x" | BUKAN cacat. Parabola digambar 3,2 detik, lalu baris panel dan denyutnya. |
+
+### Yang saya sebutkan, bukan diamkan
+- `bersihkan_panel` sekarang ada di DUA adegan Integral dengan isi sama persis.
+  Kalau video berikutnya juga membutuhkannya, tempatnya `gl/sinema.py`. Saya
+  tidak memindahkannya sendiri: itu berkas milik semua sesi.
+- Babak bernama `plusC` memakai huruf besar, satu-satunya di proyek. Saya
+  sengaja tidak menamainya ulang: mengganti id segmen berarti menjalankan
+  ulang TTS, dan durasi edge-tts bisa bergeser sehingga seluruh penyetelan
+  waktu tiga belas babak harus diulang. `cek_waktu_adegan.py` sekarang
+  menerima nama apa pun DAN mencocokkan susunan babak dengan durasi.json.
+- Usulan untuk MASTER (bukan permintaan): `sinema.ganti_rumus(...,
+  animasi_saja=True)` yang mengembalikan animasinya, supaya pergantian rumus
+  bisa dititipkan ke `b.main` yang sama dengan gerakan gambarnya. Tanpa itu,
+  panel selalu tertinggal atau mendahului gambar sekitar satu detik.
+
 ## Butuh keputusan ARYA
-- Empat video sisanya (01, 07, 09, 03) belum dikerjakan. Urutannya dari MASTER.
+- Tiga video sisanya (07, 09, 03) belum dikerjakan. Urutannya dari MASTER.
 
 ## Titik rawan matematis yang sudah ditandai
 MASTER menemukan 4 kalimat matematis keliru dari 12 materi Turunan. Untuk

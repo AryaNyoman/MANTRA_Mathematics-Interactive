@@ -1,0 +1,18 @@
+{
+  "total": 146.208,
+  "segmen": {
+    "buka": 4.944,
+    "tumpuk": 8.688,
+    "turun": 10.68,
+    "baca": 11.664,
+    "satubulan": 8.28,
+    "semua": 10.584,
+    "trapesium": 12.864,
+    "balik": 11.04,
+    "tebak": 14.256,
+    "plusC": 12.672,
+    "geser": 11.376,
+    "pilih": 14.376,
+    "tutup": 14.784
+  }
+}
