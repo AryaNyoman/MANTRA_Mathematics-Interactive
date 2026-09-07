@@ -21,6 +21,9 @@ import MesinPangkat, {
 import SusunPolinom, {
   AWAL as AWAL_05, BATAS_KOEF, BATAS_X as BATAS_X_05, tabelPolinom,
 } from '@/components/widget/turunan/SusunPolinom'
+import LuasBerubah, {
+  AWAL as AWAL_06, BATAS_H as BATAS_H_06, BATAS_X as BATAS_X_06, tabelLuas,
+} from '@/components/widget/turunan/LuasBerubah'
 import GrafikTurunan, {
   AWAL as AWAL_03, FUNGSI_TERSEDIA as FUNGSI_03,
   MAKS_JEJAK, batasX, tabelGrafikTurunan,
@@ -45,7 +48,7 @@ import GrafikTurunan, {
  */
 
 /** Widget yang komponennya sudah jadi; sisanya masih memakai Rintisan. */
-const SUDAH_JADI = ['garis-potong', 'sekan-ke-tangen', 'grafik-turunan', 'mesin-pangkat', 'susun-polinom']
+const SUDAH_JADI = ['garis-potong', 'sekan-ke-tangen', 'grafik-turunan', 'mesin-pangkat', 'susun-polinom', 'luas-berubah']
 
 function Tabel({ judul, baris }: { judul: string; baris: Array<{ nama: string; nilai: string }> }) {
   return (
@@ -88,6 +91,10 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
   // Materi 05: menurunkan suku demi suku
   const [koef5, setKoef5] = useState({ a: AWAL_05.a, b: AWAL_05.b, c: AWAL_05.c, d: AWAL_05.d })
   const [x5, setX5] = useState(AWAL_05.x)
+
+  // Materi 06: aturan hasil kali lewat luas
+  const [x6, setX6] = useState(AWAL_06.x)
+  const [h6, setH6] = useState(AWAL_06.h)
 
   /** Geser x pada Materi 03 sambil menambah jejaknya, tanpa kembar. */
   function geserX3(nx: number) {
@@ -256,7 +263,28 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
           </>
         )}
 
-        {/* Widget 06 sampai 11: ganti Rintisan dengan komponen sungguhan,
+        {/* ---------------- Materi 06 ---------------- */}
+        {tampilWidget && tahap.widget === 'luas-berubah' && (
+          <>
+            <div className="layar">
+              <LuasBerubah x={x6} h={h6} onGeser={(nx, nh) => { setX6(nx); setH6(nh) }} />
+            </div>
+            <div className="kendali">
+              <Angka nama="Titik x" arti="menentukan ukuran persegi panjangnya" kunci="x"
+                nilai={x6} onUbah={setX6} desimal={1}
+                min={BATAS_X_06.min} max={BATAS_X_06.maks} langkah={BATAS_X_06.langkah} />
+              <Angka nama="Tambahan h" arti="seberapa banyak kedua sisinya bertambah" kunci="h"
+                nilai={h6} onUbah={setH6} desimal={2}
+                min={BATAS_H_06.min} max={BATAS_H_06.maks} langkah={BATAS_H_06.langkah} />
+              <Kembalikan onClick={() => { setX6(AWAL_06.x); setH6(AWAL_06.h) }} />
+              <Petunjuk>
+                kecilkan h, dan lihat pojok ungu hilang lebih cepat daripada dua pitanya.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
+        {/* Widget 07 sampai 11: ganti Rintisan dengan komponen sungguhan,
             satu blok per widget, pola persis seperti di atas. */}
         {tampilWidget && tahap.widget && !SUDAH_JADI.includes(tahap.widget) && tahap.widget !== 'dunia-nyata-turunan' && (
           <>
@@ -308,6 +336,15 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
         )}
         {tampilWidget && tahap.widget === 'susun-polinom' && (
           <Tabel judul="Angka dari alat" baris={tabelPolinom(koef5, x5)} />
+        )}
+        {tampilWidget && tahap.widget === 'luas-berubah' && (
+          <>
+            <Tabel judul="Angka dari alat" baris={tabelLuas(x6, h6)} />
+            <div className="catatan">
+              Dua pita menyisakan angka yang berarti. Pojoknya tidak: ia hasil kali DUA
+              tambahan yang sama-sama mengecil.
+            </div>
+          </>
         )}
         {tampilWidget && tahap.widget === 'grafik-turunan' && (
           <>
