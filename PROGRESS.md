@@ -1,5 +1,18 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 8 SEP (siang): ENAM VIDEO TURUNAN 480p LENGKAP, NAIK PRODUKSI
+
+Sesi Turunan menyelesaikan gelombang 2: 01 laju rata-rata (2:03, pembuka 3D
+mobil 4 detik), 02 garis singgung (1:50), 03 fungsi turunan (1:55), 04 aturan
+pangkat (1:57), 06 hasil kali (2:31), 07 aturan rantai (2:27). Semua di master
+(0eebe85), medan `video` terpasang, 71 klaim angka naskah lolos sympy,
+cek_aset_video, cek_layar_kosong, cek_urutan, periksa_tahap, tsc lolos.
+Empat keputusan yang DISENGAJA, untuk dinilai ARYA: satu papan di 03 (dua
+papan tidak muat), sumbu berskala sendiri di 01 (jam lawan barang), 06 hanya
+hasil kali (hasil bagi tidak divideokan), 04 tidak mengulang jabaran halaman
+dan paling sepi isinya (0,73 persen area kerja). Tiga cadangan (08, 10, 11)
+menunggu ARYA. Wadah uji campur (2 mp4, 4 webm); diminta disamakan ke mp4.
+
 ## 8 SEP (pagi, lanjutan): STATISTIKA MP4 1080p DI PRODUKSI
 
 Sesi Statistika menggabung ulang 13 master H.264 1080p60 ke mp4 tanpa render
