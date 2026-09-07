@@ -142,6 +142,7 @@ export const TAHAP: TahapTurunan[] = [
       judul: 'Laju rata-rata bukan nilai di tengah selang',
       isi: 'Godaannya masuk akal: kalau ditanya rata-rata antara jam ke-1 dan jam ke-3, banyak yang langsung melihat jam ke-2 lalu menjawab 44. Yang dibaca itu jumlah barang di tengah selang, bukan lajunya. Laju rata-rata sama sekali tidak peduli apa yang terjadi di antara kedua titik. Ia hanya menghitung selisih ujung dibagi selisih waktu, yaitu 22 barang per jam. Cara membedakannya: laju selalu punya satuan gabungan, yaitu barang PER jam. Kalau jawaban Anda satuannya cuma barang, yang Anda hitung bukan laju.',
     },
+    video: { berkas: 'turunan1-laju-rata-rata.mp4', poster: 'turunan1-laju-rata-rata.jpg' },
     widget: 'garis-potong',
     siap: true,
   },

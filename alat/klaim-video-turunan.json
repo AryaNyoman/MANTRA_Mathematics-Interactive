@@ -313,5 +313,86 @@
     "jenis": "turunan",
     "f": "x**3 - 3*x**2 + x - 3",
     "jawaban": "3*x**2 - 6*x + 1"
+  },
+  {
+    "id": "V01-tambahan-barang",
+    "jenis": "ekspresi",
+    "hitung": "64 - 20",
+    "jawaban": 44
+  },
+  {
+    "id": "V01-lama-waktu",
+    "jenis": "ekspresi",
+    "hitung": "3 - 1",
+    "jawaban": 2
+  },
+  {
+    "id": "V01-laju-1-ke-3",
+    "jenis": "laju_rata_rata",
+    "titik1": [
+      1,
+      20
+    ],
+    "titik2": [
+      3,
+      64
+    ],
+    "jawaban": 22
+  },
+  {
+    "id": "V01-laju-1-ke-2",
+    "jenis": "laju_rata_rata",
+    "titik1": [
+      1,
+      20
+    ],
+    "titik2": [
+      2,
+      44
+    ],
+    "jawaban": 24
+  },
+  {
+    "id": "V01-laju-3-ke-5",
+    "jenis": "laju_rata_rata",
+    "titik1": [
+      3,
+      64
+    ],
+    "titik2": [
+      5,
+      86
+    ],
+    "jawaban": 11
+  },
+  {
+    "id": "V01-tambah-jam-2",
+    "jenis": "ekspresi",
+    "hitung": "44 - 20",
+    "jawaban": 24
+  },
+  {
+    "id": "V01-tambah-jam-3",
+    "jenis": "ekspresi",
+    "hitung": "64 - 44",
+    "jawaban": 20
+  },
+  {
+    "id": "V01-tambah-jam-4",
+    "jenis": "ekspresi",
+    "hitung": "78 - 64",
+    "jawaban": 14
+  },
+  {
+    "id": "V01-tambah-jam-5",
+    "jenis": "ekspresi",
+    "hitung": "86 - 78",
+    "jawaban": 8
+  },
+  {
+    "id": "V01-tambah-jam-6",
+    "jenis": "ekspresi",
+    "hitung": "90 - 86",
+    "jawaban": 4
   }
 ]
