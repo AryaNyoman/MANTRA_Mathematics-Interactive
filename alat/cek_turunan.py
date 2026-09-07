@@ -27,6 +27,7 @@ JENIS YANG DIDUKUNG
     turunan          { "f": "x**2" }                               -> ungkapan
     turunan_di       { "f": "x**2", "di": 1 }                      -> skalar
     turunan_kedua    { "f": "50*t - 5*t**2", "peubah": "t" }       -> ungkapan
+    turunan_kedua_di { "f": "x**4 - 3*x**2", "di": 1 }             -> skalar
     limit_definisi   { "f": "x**2", "di": 1 }                      -> skalar
     stasioner        { "f": "x**3 - 3*x" }                         -> senarai
     garis_singgung   { "f": "x**2 + 2*x + 1", "di": 0 }            -> ungkapan (ruas kanan y = ...)
@@ -110,6 +111,12 @@ def hitung(soal: dict) -> sp.Expr:
 
     if jenis == "turunan_kedua":
         return sp.diff(baca(soal["f"]), v, 2)
+
+    if jenis == "turunan_kedua_di":
+        # Ditambah saat menulis kuis: soal turunan kedua menanyakan NILAINYA di
+        # satu titik, dan kekeliruan tersering justru berhenti di turunan
+        # pertama. Memeriksa ungkapannya saja tidak menangkap kekeliruan itu.
+        return sp.diff(baca(soal["f"]), v, 2).subs(v, baca(soal["di"]))
 
     if jenis == "limit_definisi":
         h = sp.Symbol("h")

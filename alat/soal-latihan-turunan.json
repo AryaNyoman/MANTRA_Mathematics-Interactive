@@ -1,0 +1,24 @@
+[
+  { "id": "lat1-turunan", "jenis": "turunan", "f": "x**3 - 6*x**2 + 9*x", "jawaban": "3*x**2 - 12*x + 9" },
+  { "id": "lat1-akar-f-aksen", "jenis": "stasioner", "f": "x**3 - 6*x**2 + 9*x", "jawaban": [1, 3] },
+  { "id": "lat1-uji-0", "jenis": "turunan_di", "f": "x**3 - 6*x**2 + 9*x", "di": 0, "jawaban": 9 },
+  { "id": "lat1-uji-2", "jenis": "turunan_di", "f": "x**3 - 6*x**2 + 9*x", "di": 2, "jawaban": -3 },
+  { "id": "lat1-uji-4", "jenis": "turunan_di", "f": "x**3 - 6*x**2 + 9*x", "di": 4, "jawaban": 9 },
+
+  { "id": "lat2-turunan-di-1", "jenis": "turunan_di", "f": "(2*x - 1)**3*(x + 4)", "di": 1, "jawaban": 31 },
+  { "id": "lat2-turunan", "jenis": "turunan", "f": "(2*x - 1)**3*(x + 4)", "jawaban": "6*(2*x - 1)**2*(x + 4) + (2*x - 1)**3" },
+  { "id": "lat2-pengecoh-lupa-rantai", "jenis": "ekspresi", "hitung": "3*1*5 + 1", "jawaban": 16 },
+
+  { "id": "lat3-titik-potong-positif", "jenis": "nilai_fungsi", "f": "x**2 - 4*x + 5", "di": 4, "jawaban": 5 },
+  { "id": "lat3-titik-potong-nol", "jenis": "nilai_fungsi", "f": "x**2 - 4*x + 5", "di": 0, "jawaban": 5 },
+  { "id": "lat3-gradien", "jenis": "turunan_di", "f": "x**2 - 4*x + 5", "di": 4, "jawaban": 4 },
+  { "id": "lat3-garis-singgung", "jenis": "garis_singgung", "f": "x**2 - 4*x + 5", "di": 4, "jawaban": "4*x - 11" },
+  { "id": "lat3-periksa-lewat-titik", "jenis": "ekspresi", "hitung": "4*4 - 11", "jawaban": 5 },
+  { "id": "lat3-pengecoh-absis-nol", "jenis": "garis_singgung", "f": "x**2 - 4*x + 5", "di": 0, "jawaban": "-4*x + 5" },
+
+  { "id": "lat4-luas", "jenis": "turunan", "f": "60*x - 2*x**2", "jawaban": "60 - 4*x" },
+  { "id": "lat4-stasioner", "jenis": "stasioner", "f": "60*x - 2*x**2", "jawaban": [15] },
+  { "id": "lat4-uji-10", "jenis": "turunan_di", "f": "60*x - 2*x**2", "di": 10, "jawaban": 20 },
+  { "id": "lat4-uji-20", "jenis": "turunan_di", "f": "60*x - 2*x**2", "di": 20, "jawaban": -20 },
+  { "id": "lat4-luas-maksimum", "jenis": "nilai_fungsi", "f": "60*x - 2*x**2", "di": 15, "jawaban": 450 }
+]
