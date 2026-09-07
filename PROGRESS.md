@@ -1,5 +1,18 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 7 SEP (malam): TURUNAN DIGABUNG KE MASTER, VIDEO TURUNAN DIPERINTAHKAN
+
+Sesi MANTRA-TURUNAN lapor SIAP GABUNG (0207378): 12 materi, 11 widget + galeri,
+4 latihan, 32 kuis, `siap: true`. MASTER memeriksa silang: gerbang dijalankan
+ulang di foldernya (96 + 63 + 19 klaim sympy lolos, urutan istilah bersih,
+tsc 0), 12 materi dibuka di 1366 dan angka panel dihitung ulang, Materi 06 di
+375. Digabung ke master c849cf2 (42 berkas), tsc master 0. Kerangka Integral
+ikut (identik dengan kerangka, tidak mengganggu sesi Integral). Satu revisi
+diminta: kalibrasi kuis, tingkat "sangat sulit" sebagian besar satu langkah.
+Setelah itu gelombang 2 video Turunan 480p dibuka (prioritas rancangan: 02,
+03, 07, 06, 01, 04), satu render pada satu waktu karena empat sesi lain
+merender 1080p. BELUM naik Vercel. Integral masih di tahap widget.
+
 ## 7 SEP (sore): GELOMBANG 3 DIBUKA ARYA UNTUK EMPAT TOPIK
 
 ARYA: "suruh sesi 3D, Vektor, Statistika, dan Grafik Fungsi selesaikan render
