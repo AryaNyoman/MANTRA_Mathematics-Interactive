@@ -1,0 +1,12 @@
+[
+  { "id": "V02-tinggi-P", "jenis": "nilai_fungsi", "f": "x**2", "di": 1, "jawaban": 1 },
+  { "id": "V02-tinggi-Q-h1", "jenis": "nilai_fungsi", "f": "x**2", "di": 2, "jawaban": 4 },
+  { "id": "V02-sekan-h1", "jenis": "ekspresi", "hitung": "(2**2 - 1**2)/1", "jawaban": 3 },
+  { "id": "V02-sekan-h05", "jenis": "ekspresi", "hitung": "((3/2)**2 - 1)/(1/2)", "jawaban": "5/2" },
+  { "id": "V02-sekan-h01", "jenis": "ekspresi", "hitung": "((11/10)**2 - 1)/(1/10)", "jawaban": "21/10" },
+  { "id": "V02-sekan-h001", "jenis": "ekspresi", "hitung": "((101/100)**2 - 1)/(1/100)", "jawaban": "201/100" },
+  { "id": "V02-turunan-di-1", "jenis": "limit_definisi", "f": "x**2", "di": 1, "jawaban": 2 },
+  { "id": "V02-turunan-diff", "jenis": "turunan_di", "f": "x**2", "di": 1, "jawaban": 2 },
+  { "id": "V02-selisih-tinggi-berhuruf", "jenis": "ekspresi", "hitung": "expand((1 + h)**2 - 1)", "jawaban": "2*h + h**2" },
+  { "id": "V02-dibagi-h", "jenis": "ekspresi", "hitung": "simplify((2*h + h**2)/h)", "jawaban": "2 + h" }
+]

@@ -1,0 +1,107 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/turunan2-garis-singgung.json
+
+1
+00:00:00.000 --> 00:00:01.200
+Materi 02:
+
+2
+00:00:01.200 --> 00:00:04.632
+garis potong yang berubah jadi garis singgung.
+
+3
+00:00:04.632 --> 00:00:08.606
+Di materi sebelumnya kita menghitung laju rata-rata,
+
+4
+00:00:08.606 --> 00:00:10.440
+dan itu butuh <b>dua</b> titik.
+
+5
+00:00:10.440 --> 00:00:13.158
+Bagaimana kalau yang ditanya
+
+6
+00:00:13.158 --> 00:00:16.167
+kemiringan tepat di <b>satu</b> titik?
+
+7
+00:00:16.167 --> 00:00:19.176
+0 dibagi 0 tidak punya jawaban.
+
+8
+00:00:19.176 --> 00:00:26.976
+Kita pakai f(x) = x², dan titik P di x = 1.
+
+9
+00:00:26.976 --> 00:00:31.380
+Titik kedua Q, satu satuan ke kanan.
+
+10
+00:00:31.380 --> 00:00:35.784
+Garis penghubungnya berkemiringan <b>3</b>.
+
+11
+00:00:35.784 --> 00:00:38.189
+Garis yang memotong kurva di
+
+12
+00:00:38.189 --> 00:00:41.280
+dua tempat itu namanya <b>garis potong</b>.
+
+13
+00:00:41.280 --> 00:00:43.747
+Q digeser mendekat.
+
+14
+00:00:43.747 --> 00:00:49.200
+h = 0,5, dan kemiringannya turun jadi 2,5.
+
+15
+00:00:49.200 --> 00:00:55.848
+Lebih dekat lagi. h = 0,1, kemiringannya 2,1.
+
+16
+00:00:55.848 --> 00:01:02.760
+Sekali lagi. h = 0,01, kemiringannya 2,01.
+
+17
+00:01:02.760 --> 00:01:07.903
+3, lalu 2,5, lalu 2,1, lalu 2,01.
+
+18
+00:01:07.903 --> 00:01:15.384
+Semuanya merapat ke <b>2</b>, tapi tak satu pun sampai.
+
+19
+00:01:15.384 --> 00:01:19.794
+Garis yang dituju hanya menyentuh kurva di satu titik.
+
+20
+00:01:19.794 --> 00:01:21.672
+Namanya <b>garis singgung</b>.
+
+21
+00:01:21.672 --> 00:01:27.005
+Dengan huruf: selisih tingginya 2h + h².
+
+22
+00:01:27.005 --> 00:01:30.072
+Dibagi h menjadi 2 + h.
+
+23
+00:01:30.072 --> 00:01:34.217
+Urutannya tak boleh dibalik.
+
+24
+00:01:34.217 --> 00:01:41.472
+Sebelum disederhanakan, h = 0 memberi 0 dibagi 0.
+
+25
+00:01:41.472 --> 00:01:47.014
+Sesudah h dicoret, h didekatkan ke nol.
+
+26
+00:01:47.014 --> 00:01:50.424
+Hasilnya <b>2</b>, yaitu f′(1).
