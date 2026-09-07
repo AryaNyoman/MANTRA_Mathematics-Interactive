@@ -1,0 +1,113 @@
+[
+  {
+    "_video": "V07 Dua dunia yang ternyata satu, Teorema Dasar Kalkulus",
+    "_segmen": "tumbuh",
+    "_kalimat": "Fungsi luas A(x) untuk f(t) = t^2 dari 0 sampai x adalah x^3/3.",
+    "_catatan": "Diperiksa sebagai ANTITURUNAN, yaitu dengan menurunkan A dan membandingkannya dengan f. Itu cara buku membuktikannya, dan tidak bergantung pada bentuk mana yang dipilih sympy.",
+    "id": "V07-A-antiturunan",
+    "jenis": "antiturunan",
+    "f": "x**2",
+    "F": "x**3/3"
+  },
+  {
+    "_segmen": "tumbuh",
+    "_kalimat": "A(3) = 9.",
+    "id": "V07-A-di-3",
+    "jenis": "nilai",
+    "ekspresi": "(x**3/3).subs(x, 3)",
+    "jawaban": "9"
+  },
+  {
+    "_segmen": "hapus",
+    "_kalimat": "A(1) = 1/3.",
+    "id": "V07-A-di-1",
+    "jenis": "nilai",
+    "ekspresi": "(x**3/3).subs(x, 1)",
+    "jawaban": "1/3"
+  },
+  {
+    "_segmen": "pita",
+    "_kalimat": "Tinggi pita di x = 2 adalah f(2) = 4.",
+    "id": "V07-tinggi-pita",
+    "jenis": "nilai",
+    "ekspresi": "(x**2).subs(x, 2)",
+    "jawaban": "4"
+  },
+  {
+    "_segmen": "bagi",
+    "_kalimat": "Kemiringan A di x = 2 juga 4, sama dengan tinggi kurvanya.",
+    "_catatan": "Diperiksa sebagai SELISIH: turunan A di 2 dikurangi f(2). Kalau nol, keduanya memang sama, dan itulah seluruh isi Teorema Dasar Kalkulus I.",
+    "id": "V07-tdk1-di-2",
+    "jenis": "nilai",
+    "ekspresi": "diff(x**3/3, x).subs(x, 2) - (x**2).subs(x, 2)",
+    "jawaban": "0"
+  },
+  {
+    "_segmen": "pita",
+    "_kalimat": "Pita selebar h = 0,2 di x = 2: tambahan luas sebenarnya 0,8827, hampiran f(2) kali h adalah 0,8.",
+    "_catatan": "Angka ini yang membenarkan kata HAMPIR di naskah. Selisihnya 0,0827, sekitar 10 persen, dan makin kecil kalau h dikecilkan.",
+    "id": "V07-pita-h-02",
+    "jenis": "nilai",
+    "ekspresi": "(x**3/3).subs(x, Rational(11,5)) - (x**3/3).subs(x, 2)",
+    "jawaban": "331/375"
+  },
+  {
+    "_segmen": "pita",
+    "_kalimat": "Hampiran f(2) kali h = 0,8.",
+    "id": "V07-hampiran-h-02",
+    "jenis": "nilai",
+    "ekspresi": "4 * Rational(1,5)",
+    "jawaban": "4/5"
+  },
+  {
+    "_segmen": "contoh",
+    "_kalimat": "Integral x^2 dari 1 sampai 3 adalah 26/3.",
+    "id": "V07-tentu-1-3",
+    "jenis": "tentu",
+    "f": "x**2",
+    "a": "1",
+    "b": "3",
+    "jawaban": "26/3"
+  },
+  {
+    "_segmen": "contoh",
+    "_kalimat": "F(3) dikurangi F(1) memberi angka yang sama.",
+    "_catatan": "Jalan kedua menuju angka yang sama, lewat antiturunan alih-alih integral. Kalau keduanya tidak sama, salah satunya keliru.",
+    "id": "V07-F3-minus-F1",
+    "jenis": "nilai",
+    "ekspresi": "(x**3/3).subs(x, 3) - (x**3/3).subs(x, 1)",
+    "jawaban": "26/3"
+  },
+  {
+    "_segmen": "hapus",
+    "_kalimat": "C benar-benar terhapus: (F(3) + C) dikurangi (F(1) + C) sama dengan F(3) dikurangi F(1).",
+    "_catatan": "Diperiksa dengan C sebagai LAMBANG, bukan angka. Kalau selisihnya nol untuk C apa pun, C memang hilang dengan sendirinya, bukan diabaikan.",
+    "id": "V07-C-terhapus",
+    "jenis": "nilai",
+    "peubah": "C",
+    "ekspresi": "((3**3/Integer(3)) + C) - ((1**3/Integer(3)) + C) - Rational(26,3)",
+    "jawaban": "0"
+  },
+  {
+    "_segmen": "tutup",
+    "_kalimat": "Jumlahan Riemann n = 60 untuk x^2 dari 1 sampai 3 masih meleset dari 26/3.",
+    "_catatan": "Dipakai untuk memperlihatkan bedanya tenaga: menumpuk enam puluh persegi panjang masih memberi hampiran, sedangkan F(b) - F(a) langsung tepat.",
+    "id": "V07-riemann-60",
+    "jenis": "riemann",
+    "f": "x**2",
+    "a": "1",
+    "b": "3",
+    "n": 60,
+    "sampel": "kanan",
+    "jawaban": "23761/2700"
+  },
+  {
+    "_segmen": "tutup",
+    "_kalimat": "Enam puluh persegi panjang masih meleset sekitar 0,13.",
+    "_catatan": "Selisih jumlahan Riemann n = 60 terhadap jawaban tepatnya. Angka pertama yang saya tulis di sini (78409/9000) DIKARANG dan ditolak cek_integral.py; yang benar 23761/2700. Alatnya bekerja.",
+    "id": "V07-selisih-riemann-60",
+    "jenis": "nilai",
+    "ekspresi": "Rational(23761,2700) - Rational(26,3)",
+    "jawaban": "361/2700"
+  }
+]

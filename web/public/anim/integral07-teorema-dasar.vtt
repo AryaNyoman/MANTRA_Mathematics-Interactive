@@ -1,0 +1,91 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/integral07-teorema-dasar.json
+
+1
+00:00:00.000 --> 00:00:04.032
+Materi 07: dua dunia yang ternyata satu.
+
+2
+00:00:04.032 --> 00:00:09.823
+Dua pekerjaan: membalik turunan,
+
+3
+00:00:09.823 --> 00:00:15.072
+dan menumpuk persegi panjang.
+
+4
+00:00:15.072 --> 00:00:20.316
+Batas atas dibiarkan bergerak:
+
+5
+00:00:20.316 --> 00:00:25.211
+A(x) = luas dari 0 sampai x.
+
+6
+00:00:25.211 --> 00:00:28.008
+<b>A adalah fungsi</b>.
+
+7
+00:00:28.008 --> 00:00:31.322
+Tiap x memberi satu nilai A.
+
+8
+00:00:31.322 --> 00:00:36.648
+Jejaknya di papan bawah membentuk kurva baru.
+
+9
+00:00:36.648 --> 00:00:47.112
+Kalau x digeser sedikit, seberapa cepat A bertambah?
+
+10
+00:00:47.112 --> 00:00:56.616
+Tambahannya pita tipis: lebar h, tinggi kira-kira f(x).
+
+11
+00:00:56.616 --> 00:01:05.448
+Tambahan ≈ f(x)·h. Dibagi h, tinggal <b>f(x)</b>.
+
+12
+00:01:05.448 --> 00:01:14.919
+h = 0,2: sebenarnya 0,88, hampiran 0,80.
+
+13
+00:01:14.919 --> 00:01:21.312
+Makin kecil h, makin rapat.
+
+14
+00:01:21.312 --> 00:01:28.054
+<b>A' = f</b>, jadi A adalah antiturunan f.
+
+15
+00:01:28.054 --> 00:01:32.736
+Teorema Dasar Kalkulus I.
+
+16
+00:01:32.736 --> 00:01:37.580
+A dan F sama-sama antiturunan f,
+
+17
+00:01:37.580 --> 00:01:42.576
+jadi bedanya cuma sebuah tetapan.
+
+18
+00:01:42.576 --> 00:01:50.608
+A(3) - A(1) = (F(3) + C) - (F(1) + C).
+
+19
+00:01:50.608 --> 00:01:54.624
+<b>C saling menghapus</b>.
+
+20
+00:01:54.624 --> 00:02:09.576
+∫ x² dari 1 sampai 3: 9 - ⅓ = <b>26/3</b> ≈ 8,67.
+
+21
+00:02:09.576 --> 00:02:16.260
+60 persegi panjang masih meleset 0,13.
+
+22
+00:02:16.260 --> 00:02:21.888
+Pengurangan tadi langsung tepat.
