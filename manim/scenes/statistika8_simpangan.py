@@ -306,6 +306,20 @@ class Simpangan8(AdeganMatra):
         l_var_b = tegak(rumus("50", 24, LATAR)).move_to(var_b.get_center())
 
         with sinema.babak(self, "varian", DURASI) as b:
+            # Dua baris temuan "A: 10" dan "B: 250" DIPADAMKAN sebelum rumus
+            # utamanya meninggi. Mulai langkah ini rumusnya jadi pecahan, lalu
+            # akar, dan keduanya menjulur turun ke slot baris pertama. Gerbang
+            # isi papan (`_qc_isi`, dipasang MASTER 4 Sep) menolak render dengan
+            # "papan rumus baris 1 menindih papan rumus baris 3"; sebelum gerbang
+            # itu ada, tindihan ini lolos diam-diam ke video yang sudah tayang.
+            # Memadamkannya juga benar secara isi: kedua angka itu sudah terserap
+            # ke dalam pecahan, dan sisa video memakai 2 dan 50, bukan 10 dan 250.
+            if papan.baris_lain:
+                b.main(*[FadeOut(m) for m in papan.baris_lain], run_time=0.6)
+                for m in papan.baris_lain:
+                    if m in self.hud:
+                        self.hud.remove(m)
+                papan.baris_lain = []
             papan.tumbuh(r"\frac{\sum (x - \bar{x})^2}{n}", "dibagi n")
             b.catat(LAMA_TUMBUH)
             b.main(FadeOut(nilai_a), FadeOut(nilai_b), run_time=0.6)
