@@ -182,6 +182,14 @@ class TurunanLajuRataRata(AdeganMatra):
             b.main(Indicate(tabel, color=TINTA), run_time=1.4)
         qc.periksa_adegan(self, {}, hud={"tabel": tabel, "judul tabel": judul_tabel},
                           jaga_jalur_bawah=False)
+        # Satu-satunya perpindahan kamera di seluruh topik Turunan ada di sini,
+        # dan justru di perpindahan kamera itulah benda yang lupa dibuang
+        # berubah jadi cacat: titiknya dihitung dari pandangan lama, lalu ia
+        # tertinggal di tempatnya saat kamera pindah. Gerbang ini dari sesi
+        # Integral, 8 Sep 2026.
+        qc.pastikan_hilang(self, {"lantai": lantai, "pekerja": pekerja,
+                                  "mobil a": mobil_a, "mobil b": mobil_b},
+                           "kamera turun dari pabrik ke bidang")
         # Identitas babak angka baru dibuat SESUDAH pemeriksaan ini, sebab
         # sebelum tabelnya ada belum ada yang perlu diberi identitas.
 
