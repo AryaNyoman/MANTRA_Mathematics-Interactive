@@ -135,13 +135,55 @@ def main() -> None:
         hasil = AKAR / "media" / "uji-480p" / nama
         hasil.parent.mkdir(parents=True, exist_ok=True)
         suara_kode = ["-c:a", "aac", "-b:a", "96k"]
+        gambar_kode = ["-c:v", "copy"]      # mp4 menerima H.264 apa adanya
     else:
+        # Bawaannya .mp4, dan kodek suaranya MENGIKUTI WADAH, bukan ditebak.
+        #
+        # Dulu bawaannya .webm dengan libopus, dan itu benar di zaman Manim
+        # Community yang bisa menulis .webm langsung sehingga "-c:v copy" jalan.
+        # ManimGL selalu menghasilkan .mp4 H.264, jadi menyalin aliran gambarnya
+        # ke wadah webm DITOLAK ffmpeg mentah-mentah:
+        #   "Only VP8 or VP9 or AV1 video ... are supported for WebM"
+        # Terbukti 7 Sep 2026 saat render akhir Ruang 3D materi 01.
+        #
+        # BAWAANNYA .webm SEJAK 7 September 2026, keputusan ARYA. Alasannya
+        # ukuran unduhan, bukan selera: video Ruang 3D 1080p berwadah mp4 H.264
+        # sekitar 14 MB untuk 85 detik, video Statistika 1080p berwadah WebM VP9
+        # sekitar 3 MB untuk 115 detik. Kira-kira enam kali lebih ringan per
+        # menit pada mutu gambar yang sama, dan situs ini dibuka siswa lewat HP.
+        #
+        # Bawaan mp4 di atas benar untuk keadaan saat ditulis (ke-32 video yang
+        # sudah tayang memang mp4), tetapi keputusannya sekarang sudah diambil.
+        # mp4 masih BOLEH kalau diminta tegas lewat --keluar, supaya render yang
+        # sedang berjalan di sesi lain tidak patah di tengah jalan; ia cuma
+        # berbunyi di sini, dan `alat/cek_resolusi_anim.py` yang menolaknya
+        # sebelum naik produksi.
         nama = a.keluar or f"{a.topik}.webm"
         hasil = AKAR / "media" / nama
-        suara_kode = ["-c:a", "libopus", "-b:a", "72k"]
+        if hasil.suffix.lower() != ".webm":
+            print(f"PERINGATAN: keluaran '{nama}' bukan WebM. Keputusan ARYA "
+                  f"7 Sep 2026: semua video materi berwadah WebM, sebab mp4 "
+                  f"kira-kira enam kali lebih berat per menit. Berkas ini akan "
+                  f"DITOLAK `alat/cek_resolusi_anim.py` sebelum naik produksi.")
+        if hasil.suffix.lower() == ".webm":
+            # WebM TIDAK menerima video H.264, dan ManimGL menghasilkan H.264.
+            # `-c:v copy` mati dengan "Could not write header" dan meninggalkan
+            # berkas 264 bita (Ruang 3D dan Statistika, 7 Sep 2026). Jadi untuk
+            # webm aliran gambarnya DISANDIKAN ULANG ke VP9. Ini lambat (1080p60
+            # makan belasan menit), sengaja dibiarkan jalan sebab Statistika
+            # memilih webm dengan sadar; `-row-mt 1` dan `-cpu-used 3` menjaga
+            # waktunya masuk akal di laptop yang dipakai bergiliran.
+            suara_kode = ["-c:a", "libopus", "-b:a", "72k"]
+            gambar_kode = ["-c:v", "libvpx-vp9", "-b:v", "0", "-crf", "32",
+                           "-row-mt", "1", "-deadline", "good", "-cpu-used", "3",
+                           "-pix_fmt", "yuv420p"]
+        else:
+            # mp4 menerima H.264 ManimGL apa adanya: gambar disalin, suara AAC.
+            suara_kode = ["-c:a", "aac", "-b:a", "128k"]
+            gambar_kode = ["-c:v", "copy"]
     if berkas_latar is None:
         perintah = ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
-                    "-c:v", "copy"] + suara_kode + ["-shortest", str(hasil)]
+                    ] + gambar_kode + suara_kode + ["-shortest", str(hasil)]
     else:
         # Latar dikecilkan (0,12), lalu DITEKAN lagi tiap kali narasi berbunyi
         # (sidechaincompress: narasi = pengendali). amix normalize=0 supaya
@@ -154,7 +196,7 @@ def main() -> None:
         perintah = ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
                     "-stream_loop", "-1", "-i", str(berkas_latar),
                     "-filter_complex", saring, "-map", "0:v", "-map", "[a]",
-                    "-c:v", "copy"] + suara_kode + ["-shortest", str(hasil)]
+                    ] + gambar_kode + suara_kode + ["-shortest", str(hasil)]
         print(f"latar  : {berkas_latar.relative_to(AKAR)}  (tipis, merendah saat narasi)")
     subprocess.run(perintah, check=True)
 

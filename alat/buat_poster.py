@@ -54,8 +54,29 @@ import sys
 from pathlib import Path
 
 AKAR = Path(__file__).resolve().parents[1]
-SUMBER = AKAR / "media" / "uji-480p"
+# Video sumber dicari berurutan: yang TAYANG lebih dulu, baru versi tinjauan.
+# Gelombang 3 (render akhir 1080p) menaruh videonya di web/public/anim, dan
+# posternya harus diambil dari video yang benar-benar dilihat siswa. Sebelum
+# ini folder 480p dipatok mati, sehingga sesi gelombang 3 mendapat
+# "tidak ada videonya" padahal videonya ada, cuma di tempat lain.
 TUJUAN = AKAR / "web" / "public" / "anim"
+SUMBER_URUT = (TUJUAN, AKAR / "media" / "uji-480p", AKAR / "media")
+
+
+def cari_sumber(topik: str) -> Path | None:
+    # WebM DIDAHULUKAN, dua alasan. Pertama, keputusan ARYA 7 Sep 2026: semua
+    # video materi berwadah WebM, jadi itulah berkas yang benar-benar dilihat
+    # siswa. Kedua, mp4 480p yang tidak dilacak git bisa tertinggal di samping
+    # webm 1080p-nya, dan kalau mp4 didahulukan posternya diambil dari video
+    # yang salah. `cek_aset_video.video_topik` sudah memakai urutan ini;
+    # sebelumnya kedua alat tidak sepakat.
+    for folder in SUMBER_URUT:
+        for akhiran in (".webm", ".mp4"):
+            calon = folder / f"{topik}{akhiran}"
+            if calon.exists():
+                return calon
+    return None
+
 
 AMBANG_RENTANG = 40          # dari 255
 AMBANG_TOLAK = 0.0035        # 0,35 persen piksel bukan latar: di bawah ini kosong
@@ -87,10 +108,12 @@ def nilai(jalur: Path) -> tuple[str, str]:
 
 
 def buat(topik: str, detik: float) -> int:
-    video = SUMBER / f"{topik}.mp4"
-    if not video.exists():
-        print(f"tidak ada videonya: {video}")
+    video = cari_sumber(topik)
+    if video is None:
+        daftar = "\n  ".join(str(f / f"{topik}.mp4 atau .webm") for f in SUMBER_URUT)
+        print(f"tidak ada videonya. Dicari di:\n  {daftar}")
         return 1
+    print(f"sumber   {video.relative_to(AKAR)}")
     TUJUAN.mkdir(parents=True, exist_ok=True)
     sementara = TUJUAN / f".{topik}.calon.jpg"
     subprocess.run(

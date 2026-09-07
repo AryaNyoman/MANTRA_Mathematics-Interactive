@@ -1,0 +1,15 @@
+# Setelan TAMBAHAN untuk render akhir 1080p60. Dipakai dengan:
+#
+#   manimgl <berkas> <Adegan> -w --hd --config_file manim/hd60.yml
+#
+# KENAPA BERKAS INI ADA, bukan sekadar memakai bendera --fps 60:
+# ManimGL 1.7.2 mendaftarkan --fps TANPA type=int (manimlib/config.py baris
+# 175), lalu menyimpannya apa adanya ke camera_config.fps. Nilainya jadi teks
+# "60", dan render langsung pecah dengan
+#   TypeError: unsupported operand type(s) for /: 'int' and 'str'
+# di tengah animasi pertama. Terbukti 7 Sep 2026 pada Ruang 3D materi 01.
+#
+# Berkas ini digabung SESUDAH custom_config.yml dan hanya menimpa yang
+# disebut di sini, jadi latar krem dan folder keluaran media/gl tetap berlaku.
+camera:
+  fps: 60

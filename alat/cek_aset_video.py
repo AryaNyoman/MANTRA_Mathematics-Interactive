@@ -44,8 +44,49 @@ import sys
 from pathlib import Path
 
 AKAR = Path(__file__).resolve().parents[1]
-VIDEO = AKAR / "media" / "uji-480p"
 ANIM = AKAR / "web" / "public" / "anim"
+# Video dicari di DUA tempat: yang tayang lebih dulu, baru versi tinjauan 480p.
+# Sebelum ini folder 480p dipatok mati, jadi sesi gelombang 3 (render akhir
+# 1080p, videonya di web/public/anim) mendapat "tidak ada video yang cocok"
+# padahal videonya ada. Cacat yang sama dengan buat_poster.py, sumbernya juga
+# sama: kedua alat lahir di alur tinjauan 480p.
+VIDEO_URUT = (ANIM, AKAR / "media" / "uji-480p")
+
+
+def daftar_video(saring: str | None) -> list[Path]:
+    hasil, sudah = [], set()
+    for folder in VIDEO_URUT:
+        if not folder.exists():
+            continue
+        for v in sorted(folder.glob("*.mp4")):
+            if "-bersubtitle" in v.stem or v.stem in sudah:
+                continue
+            if saring and saring not in v.stem:
+                continue
+            sudah.add(v.stem)
+            hasil.append(v)
+    return sorted(hasil, key=lambda x: x.stem)
+
+
+def video_topik(topik: str):
+    """Berkas video sebuah topik: yang FINAL dulu, versi uji 480p belakangan.
+
+    Alat ini dibuat saat semua video masih berupa render uji, jadi sumbernya
+    dipatok ke `media/uji-480p/`. Di gelombang 3 folder itu kosong (versi uji
+    dikeluarkan dari git), sehingga alatnya melapor "tidak ada video yang cocok"
+    padahal ketiga belas video final ada di `web/public/anim/`. Melapor tidak
+    ada video sama saja dengan tidak memeriksa apa pun, dan itu justru jenis
+    kebutaan yang bikin alat ini dibuat. Ditemukan sesi Statistika 7 Sep 2026.
+    """
+    # Urutan folder dari VIDEO_URUT (final dulu, uji belakangan); di tiap
+    # folder webm didahulukan daripada mp4, sebab mp4 480p yang tidak
+    # dilacak git bisa tertinggal di samping webm 1080p-nya.
+    for folder in VIDEO_URUT:
+        for akhiran in (".webm", ".mp4"):
+            calon = folder / f"{topik}{akhiran}"
+            if calon.exists() and calon.stat().st_size > 1024:
+                return calon
+    return None
 
 AMBANG_SELISIH = 15.0    # detik
 
@@ -91,11 +132,24 @@ def periksa(saring: str | None) -> int:
     from buat_poster import nilai  # noqa: E402
 
     buruk = 0
-    daftar = sorted(p for p in VIDEO.glob("*.mp4")
-                    if "-bersubtitle" not in p.stem
-                    and (not saring or saring in p.stem))
+    # Topik dikumpulkan dari video FINAL dan versi uji sekaligus, lalu
+    # `video_topik` memilih yang final kalau ada. Dulu hanya `media/uji-480p`
+    # yang dilihat, jadi alatnya buta begitu versi uji dibersihkan.
+    nama = set()
+    for folder in VIDEO_URUT:
+        if not folder.exists():
+            continue
+        for pola in ("*.webm", "*.mp4"):
+            for p in folder.glob(pola):
+                if "-bersubtitle" in p.stem:
+                    continue
+                if saring and saring not in p.stem:
+                    continue
+                nama.add(p.stem)
+    daftar = [v for v in (video_topik(t) for t in sorted(nama)) if v is not None]
     if not daftar:
-        print(f"tidak ada video yang cocok dengan {saring!r} di {VIDEO}")
+        tempat = " atau ".join(str(f) for f in VIDEO_URUT)
+        print(f"tidak ada video yang cocok dengan {saring!r} di {tempat}")
         return 1
 
     for v in daftar:

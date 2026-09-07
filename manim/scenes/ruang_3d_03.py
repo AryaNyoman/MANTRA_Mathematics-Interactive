@@ -190,15 +190,24 @@ class JarakSelaluTerpendek(AdeganMatra):
             # narasinya sendiri, dan itu cacat yang lebih parah daripada
             # pandangan yang membingungkan.
             #
-            # theta = -135 berarti kamera berdiri di seberang A memandang ke C,
-            # jadi arah pandang sejajar AC: AC memendek jadi garis tegak dan
-            # sudut siku-siku di Q terlihat dalam ukuran sebenarnya. Putarannya
-            # 7 detik supaya PERPUTARANNYA yang terlihat, bukan lompatannya.
+            # theta = -45, DIHITUNG bukan ditebak. Percobaan pertama memakai -135
+            # dengan alasan "kamera berdiri di seberang A memandang ke C", dan
+            # hasilnya justru pandangan TEGAK LURUS terhadap AC: di layar AC
+            # melintang MENDATAR, padahal naratornya baru saja bilang AC tampak
+            # berdiri tegak. Gambar yang membantah narasinya adalah cacat
+            # terparah menurut gerbang video, dan ini lolos SEMUA gerbang
+            # otomatis sebab tidak ada yang bertindih atau keluar bingkai.
+            #
+            # Sudutnya dicari dengan memproyeksikan A dan C ke layar untuk tiap
+            # theta, lalu diambil yang selisih mendatarnya nol:
+            #   theta  -45 -> dx  0,00  AC tegak     <- yang dipakai
+            #   theta -135 -> dx -8,49  AC mendatar
+            # Putarannya 7,4 detik supaya PERPUTARANNYA yang terlihat.
             # Putarannya MULAI tepat saat naratornya menyuruh memutar, dan
             # berlangsung sampai kalimat berikutnya selesai, jadi yang dilihat
             # penonton adalah perputarannya, bukan hasilnya saja.
             tunggu_bergeser(b, frame, JAM, "Sekarang kameranya kita putar")
-            b.main(kamera.sudut(frame, -135, 68, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
+            b.main(kamera.sudut(frame, -45, 68, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
                    run_time=7.4)
             # "dan justru karena itu sudut siku-siku di Q terlihat dalam ukuran
             # yang sebenarnya" -> tanda siku-sikunya yang disorot.
@@ -207,7 +216,10 @@ class JarakSelaluTerpendek(AdeganMatra):
             # "Ingat kalimat ini sampai materi 7" -> kalimat payungnya sendiri.
             tunggu_bergeser(b, frame, JAM, "Ingat kalimat ini")
             b.main(Indicate(payung, scale_factor=1.15, color=SOROT), run_time=1.4)
-            isi_sisa(b, kamera.putar_pelan(frame, 8), sisakan=1.4)
+            # Geseran penutup sengaja KECIL (3 derajat). Lebih dari itu dan AC
+            # tidak lagi tampak tegak, padahal justru itu yang baru dijanjikan
+            # narator satu kalimat sebelumnya.
+            isi_sisa(b, kamera.putar_pelan(frame, 3), sisakan=1.4)
             b.jeda(1.2)
         qc.periksa_adegan(self, {"BQ": bq, "siku": tanda_siku, "panel": papan.semua(),
                                  "payung": payung, "identitas": jati},
