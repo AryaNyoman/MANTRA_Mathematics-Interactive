@@ -56,7 +56,7 @@ CURIGA = ['terasa mudah', 'lebih mudah', 'sangat mudah', 'jelas sekali']
 # Daftar frasa tidak akan pernah lengkap, jadi SETIAP kalimat yang memuat kata
 # "mudah" atau "jelas" dicetak untuk dilihat mata, tanpa menggagalkan: yang
 # menggambarkan benda sah, yang menilai tugas siswa harus diganti.
-KATA_MATA = re.compile(r'(mudah|jelas)', re.I)
+KATA_MATA = re.compile(r'\b(mudah|jelas)\b', re.I)
 
 
 def baca_tahap() -> list[dict]:
