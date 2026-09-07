@@ -12,6 +12,9 @@ import NaikPangkat, {
 import PersegiPanjangMenumpuk, {
   AWAL as AWAL_RIEMANN, BATAS_N, FUNGSI, SAMPEL, fungsiDari,
 } from '@/components/widget/integral/PersegiPanjangMenumpuk'
+import PecahSelang, {
+  AWAL as AWAL_PECAH, KURVA as KURVA_PECAH, kurvaDari,
+} from '@/components/widget/integral/PecahSelang'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Kembalikan, Petunjuk, Pilihan } from '@/components/kendali'
 
@@ -46,6 +49,12 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
   const [sampel, setSampel] = useState(AWAL_RIEMANN.sampel)
   const [batasA, setBatasA] = useState(AWAL_RIEMANN.a)
   const [batasB, setBatasB] = useState(AWAL_RIEMANN.b)
+
+  // Materi 06: memecah selang dan luas bertanda
+  const [kurvaPecah, setKurvaPecah] = useState(AWAL_PECAH.kurva)
+  const [pecahA, setPecahA] = useState(AWAL_PECAH.a)
+  const [pecahB, setPecahB] = useState(AWAL_PECAH.b)
+  const [pecahC, setPecahC] = useState(AWAL_PECAH.c)
 
   let kiri: ReactNode = null
   let kanan: ReactNode = null
@@ -222,10 +231,74 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
           </>
         )}
 
+        {tampilWidget && tahap.widget === 'pecah-selang' && (
+          <>
+            <div className="layar">
+              <PecahSelang
+                kurva={kurvaPecah}
+                a={pecahA}
+                b={pecahB}
+                c={pecahC}
+                onGeser={(yang, nilai) => {
+                  if (yang === 'a') setPecahA(nilai)
+                  else if (yang === 'b') setPecahB(nilai)
+                  else setPecahC(nilai)
+                }}
+              />
+            </div>
+            <div className="kendali">
+              <Pilihan
+                nama="Kurvanya"
+                arti="pilih kurva yang sebagian ada di bawah sumbu"
+                pilihan={KURVA_PECAH.map((k) => ({ nilai: k.nilai, label: k.label }))}
+                nilai={kurvaPecah}
+                onPilih={(v) => {
+                  const kb = kurvaDari(v)
+                  setKurvaPecah(v)
+                  setPecahA(kb.aAwal)
+                  setPecahB(kb.bAwal)
+                  setPecahC(kb.cAwal)
+                }}
+              />
+              <Angka
+                nama="c" arti="tempat selang dipecah, bisa juga diseret di gambar" kunci="c"
+                nilai={pecahC}
+                onUbah={(v) => setPecahC(Math.min(Math.max(v, pecahA + 0.25), pecahB - 0.25))}
+                min={kurvaDari(kurvaPecah).ranah.min} max={kurvaDari(kurvaPecah).ranah.maks} langkah={0.25}
+              />
+              <Angka
+                nama="a" arti="batas kiri" kunci="a"
+                nilai={pecahA}
+                onUbah={(v) => setPecahA(Math.min(v, pecahC - 0.25))}
+                min={kurvaDari(kurvaPecah).ranah.min} max={kurvaDari(kurvaPecah).ranah.maks} langkah={0.25}
+              />
+              <Angka
+                nama="b" arti="batas kanan" kunci="b"
+                nilai={pecahB}
+                onUbah={(v) => setPecahB(Math.max(v, pecahC + 0.25))}
+                min={kurvaDari(kurvaPecah).ranah.min} max={kurvaDari(kurvaPecah).ranah.maks} langkah={0.25}
+              />
+              <Kembalikan
+                onClick={() => {
+                  setKurvaPecah(AWAL_PECAH.kurva)
+                  setPecahA(AWAL_PECAH.a)
+                  setPecahB(AWAL_PECAH.b)
+                  setPecahC(AWAL_PECAH.c)
+                }}
+              />
+              <Petunjuk>
+                geser c ke mana pun, dan jumlah dua bagiannya tidak pernah berubah.
+                Lalu pilih kurva x³ - 4x pada selang -2 sampai 2, dan lihat hasilnya nol.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
         {tampilWidget && tahap.widget
           && tahap.widget !== 'mesin-balik'
           && tahap.widget !== 'naik-pangkat'
           && tahap.widget !== 'persegi-panjang-menumpuk'
+          && tahap.widget !== 'pecah-selang'
           && tahap.widget !== 'dunia-nyata-integral' && (
           <>
             <div className="layar">

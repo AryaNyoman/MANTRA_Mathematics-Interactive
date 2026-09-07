@@ -31,6 +31,13 @@ export type Catatan = { teks: string; warna?: string }
  * `touchAction: 'none'` dipasang di SVG AKAR, bukan di anaknya. WebKit
  * mengabaikannya kalau dipasang di anak, dan akibatnya seretan di HP menggulung
  * halaman alih-alih memindahkan titik.
+ *
+ * `userSelect: 'none'` menutup lubang yang TIDAK ditutup `touchAction`.
+ * Menyeret pegangan dengan tetikus ikut menyeleksi tulisan di dalam SVG, dan
+ * angka sumbu berubah menjadi blok biru sepanjang seretan. Ketahuan dari
+ * potret widget Materi 06 pada 7 Sep 2026, setelah empat widget terlanjur
+ * dibuat dengan cacat yang sama. Karena diperbaiki di sini, keempatnya ikut
+ * sembuh sekaligus.
  */
 export default function Bidang({
   jendela,
@@ -85,7 +92,7 @@ export default function Bidang({
       preserveAspectRatio="xMidYMid meet"
       role="img"
       aria-label={aria}
-      style={{ touchAction: 'none', ...gaya }}
+      style={{ touchAction: 'none', userSelect: 'none', WebkitUserSelect: 'none', ...gaya }}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
