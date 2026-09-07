@@ -146,30 +146,27 @@ def main() -> None:
         #   "Only VP8 or VP9 or AV1 video ... are supported for WebM"
         # Terbukti 7 Sep 2026 saat render akhir Ruang 3D materi 01.
         #
-        # WADAH BAWAAN: .webm sejak 7 Sep 2026 malam (keputusan ARYA), tetapi
-        # keputusan itu SEDANG DITINJAU ULANG pada malam yang sama, sebab angka
-        # yang mendasarinya keliru. Klaim awal "webm enam kali lebih ringan"
+        # WADAH FINAL = .mp4 (H.264 dari ManimGL disalin + AAC), KEPUTUSAN ARYA
+        # 8 Sep 2026, menggantikan keputusan "webm" sehari sebelumnya yang
+        # ternyata berdasar angka keliru: klaim "webm enam kali lebih ringan"
         # membandingkan Ruang 3D (permukaan bergradasi, mp4 14 MB/85 s) dengan
-        # Statistika (garis datar, webm 3 MB/115 s): isinya yang beda, bukan
-        # wadahnya. Yang terukur pada ISI YANG SAMA (Statistika dan Transformasi,
-        # 7 Sep 2026):
+        # Statistika (garis datar, webm 3 MB/115 s); isinya yang beda, bukan
+        # wadahnya. Yang terukur pada ISI YANG SAMA (Statistika dan
+        # Transformasi, 7 Sep 2026):
         #   - aliran gambar: VP9 crf 32 hasil kode ulang dari H.264 ManimGL
         #     1,2 sampai 1,4 kali LEBIH BESAR daripada H.264-nya;
-        #   - berkas utuh siap tayang (gambar + suara): mp4 (H.264 + AAC 128k)
-        #     17 persen lebih ringan daripada webm (VP9 + Opus 72k);
-        #   - webm butuh 5 sampai 14 menit kode ulang per video, mp4 gratis.
-        # Jangan tulis angka "enam kali" lagi di mana pun.
-        #
-        # mp4 tetap boleh lewat --keluar; sampai ARYA memutuskan ulang, sesi
-        # yang sedang merender diminta menyimpan hasil sebagai .mp4 (mengubah
-        # wadah belakangan tidak butuh render ulang).
-        nama = a.keluar or f"{a.topik}.webm"
+        #   - berkas utuh siap tayang: mp4 (H.264 + AAC 128k) 17 persen lebih
+        #     ringan daripada webm (VP9 + Opus 72k);
+        #   - webm butuh 5 sampai 14 menit kode ulang per video, mp4 gratis,
+        #     dan mp4 diputar semua HP termasuk iPhone lama.
+        # Jangan tulis angka "enam kali" lagi di mana pun. Jalur .webm di bawah
+        # dipertahankan hanya untuk keperluan khusus lewat --keluar.
+        nama = a.keluar or f"{a.topik}.mp4"
         hasil = AKAR / "media" / nama
-        if hasil.suffix.lower() != ".webm":
-            print(f"CATATAN: keluaran '{nama}' berwadah mp4; bawaan alat ini webm "
-                  f"(keputusan ARYA 7 Sep 2026 yang sedang ditinjau ulang). "
-                  f"`alat/cek_resolusi_anim.py` masih menolak mp4 materi kecuali "
-                  f"dengan --izinkan-mp4.")
+        if hasil.suffix.lower() == ".webm":
+            print(f"CATATAN: keluaran '{nama}' berwadah webm; wadah final proyek ini "
+                  f"mp4 (keputusan ARYA 8 Sep 2026). Webm dikode ulang ke VP9, "
+                  f"belasan menit, dan hasilnya lebih besar. Pastikan memang sengaja.")
         if hasil.suffix.lower() == ".webm":
             # WebM TIDAK menerima video H.264, dan ManimGL menghasilkan H.264.
             # `-c:v copy` mati dengan "Could not write header" dan meninggalkan
