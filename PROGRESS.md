@@ -11,6 +11,14 @@ worktree: jangan menjalankan git dari sana. Perintah kerja Turunan dikirim
 MASTER 7 Sep; Integral menunggu keputusan ARYA (sesi yang sama atau
 sesi terpisah).
 
+Kemajuan sesi Turunan 7 Sep: 12 materi terisi (96 klaim sympy lolos,
+pemeriksa dibuktikan dua arah, urutan istilah bersih), pemeriksaan silang
+MASTER (10 temuan, 4 kalimat matematis keliru) sudah direvisi di 7595747;
+widget 01 sampai 03 jadi dan diuji seret sungguhan (2e66524). Sisa: widget
+04 sampai 11, galeri 12, latihan dan kuis. Utang teknis untuk MASTER setelah
+semua cabang tergabung: `koordinat.ts`, `Bidang.tsx`, `seret.ts` kini ada
+TIGA salinan (limit, grafik-fungsi, turunan); satukan ke folder bersama.
+
 ## 6 SEP (pagi): VIDEO TRANSFORMASI 02 SAMPAI 06 DIPERPANJANG, TERPASANG DI MASTER
 
 Sesi Transformasi menyetor 469c850 dan b60e8f5, digabung ke master (37fdc9e,
