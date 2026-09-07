@@ -90,7 +90,19 @@ def periksa_kesegaran(video: Path, adegan: str) -> None:
             % (video.relative_to(AKAR), berkas.relative_to(AKAR)))
 
 
-def main() -> None:
+def kodek_video(berkas):
+    """Nama kodek video berkas, mis. "h264" atau "vp9". Kosong kalau gagal."""
+    try:
+        keluar = subprocess.run(
+            ["ffprobe", "-v", "error", "-select_streams", "v:0",
+             "-show_entries", "stream=codec_name", "-of", "csv=p=0", str(berkas)],
+            capture_output=True, text=True, check=True).stdout.strip()
+    except Exception:
+        return ""
+    return keluar.splitlines()[0].strip() if keluar else ""
+
+
+def main():
     p = argparse.ArgumentParser(description="Penggabung narasi + video MATRA")
     p.add_argument("topik")
     p.add_argument("adegan")
@@ -130,6 +142,14 @@ def main() -> None:
             "  - adegan berubah?  -> pastikan tiap tahap memakai DURASI[...] dari durasi.json"
         )
 
+    # WADAH WEBM CUMA MENERIMA VP8, VP9, DAN AV1. ManimGL mengeluarkan
+    # H.264, jadi `-c:v copy` ke berkas .webm ditolak ffmpeg dengan
+    # "Invalid argument" (galat 22) TANPA pesan yang menyebut kodek. Dulu
+    # tidak pernah terasa sebab video webm proyek ini semuanya buatan Manim
+    # Community, yang memang bisa menulis VP9 langsung. Video ManimGL yang
+    # pertama dijadikan webm adalah Vektor 1080p60 pada 7 September 2026,
+    # dan di situ jebakannya muncul. Kalau kodeknya sudah cocok, video
+    # tetap DISALIN, tidak pernah dikodekan ulang tanpa perlu.
     if a.uji:
         nama = a.keluar or f"{a.topik}.mp4"
         hasil = AKAR / "media" / "uji-480p" / nama
@@ -139,9 +159,15 @@ def main() -> None:
         nama = a.keluar or f"{a.topik}.webm"
         hasil = AKAR / "media" / nama
         suara_kode = ["-c:a", "libopus", "-b:a", "72k"]
+    video_kode = ["-c:v", "copy"]
+    if hasil.suffix.lower() == ".webm" and kodek_video(video) not in ("vp8", "vp9", "av1"):
+        print(f"video  : {kodek_video(video)} tidak muat wadah webm, dikodekan ulang VP9 "
+              f"(ini bagian paling lama, bukan macet)")
+        video_kode = ["-c:v", "libvpx-vp9", "-crf", "32", "-b:v", "0",
+                      "-row-mt", "1", "-cpu-used", "4", "-deadline", "good"]
     if berkas_latar is None:
         perintah = ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
-                    "-c:v", "copy"] + suara_kode + ["-shortest", str(hasil)]
+                    ] + video_kode + suara_kode + ["-shortest", str(hasil)]
     else:
         # Latar dikecilkan (0,12), lalu DITEKAN lagi tiap kali narasi berbunyi
         # (sidechaincompress: narasi = pengendali). amix normalize=0 supaya
@@ -154,7 +180,7 @@ def main() -> None:
         perintah = ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
                     "-stream_loop", "-1", "-i", str(berkas_latar),
                     "-filter_complex", saring, "-map", "0:v", "-map", "[a]",
-                    "-c:v", "copy"] + suara_kode + ["-shortest", str(hasil)]
+                    ] + video_kode + suara_kode + ["-shortest", str(hasil)]
         print(f"latar  : {berkas_latar.relative_to(AKAR)}  (tipis, merendah saat narasi)")
     subprocess.run(perintah, check=True)
 
