@@ -24,6 +24,16 @@ import DuaKurva, {
 import LuasYangTumbuh, {
   AWAL as AWAL_TUMBUH, BATAS_X as BATAS_X_TUMBUH, KURVA as KURVA_TUMBUH,
 } from '@/components/widget/integral/LuasYangTumbuh'
+import CocokkanLapisan, {
+  AWAL as AWAL_LAPISAN, LANGKAH_MAKS as LANGKAH_LAPISAN, SOAL as SOAL_LAPISAN,
+  soalDari as soalLapisanDari,
+} from '@/components/widget/integral/CocokkanLapisan'
+import PasangkanTurunanIntegral, {
+  AWAL as AWAL_PASANG, KANAN, KIRI, type Jawaban,
+} from '@/components/widget/integral/PasangkanTurunanIntegral'
+import HitungBertahap, {
+  AWAL as AWAL_HITUNG, LANGKAH_MAKS as LANGKAH_HITUNG, SOAL as SOAL_HITUNG,
+} from '@/components/widget/integral/HitungBertahap'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Kembalikan, Petunjuk, Pilihan } from '@/components/kendali'
 
@@ -80,6 +90,19 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
   // Materi 07: fungsi luas yang tumbuh
   const [kurvaTumbuh, setKurvaTumbuh] = useState(AWAL_TUMBUH.kurva)
   const [tumbuhX, setTumbuhX] = useState(AWAL_TUMBUH.x)
+
+  // Materi 03: memilih u untuk substitusi
+  const [soalLapisan, setSoalLapisan] = useState(AWAL_LAPISAN.soal)
+  const [calonU, setCalonU] = useState(AWAL_LAPISAN.calon)
+  const [langkahLapisan, setLangkahLapisan] = useState(AWAL_LAPISAN.langkah)
+
+  // Materi 04: mencocokkan fungsi dengan antiturunannya
+  const [kartuKiri, setKartuKiri] = useState(AWAL_PASANG.kartu)
+  const [pasangan04, setPasangan04] = useState<Jawaban>({})
+
+  // Materi 08: menghitung integral tentu bertahap
+  const [soalHitung, setSoalHitung] = useState(AWAL_HITUNG.soal)
+  const [langkahHitung, setLangkahHitung] = useState(AWAL_HITUNG.langkah)
 
   let kiri: ReactNode = null
   let kanan: ReactNode = null
@@ -445,6 +468,105 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
           </>
         )}
 
+        {tampilWidget && tahap.widget === 'cocokkan-lapisan' && (
+          <>
+            <div className="layar">
+              <CocokkanLapisan soal={soalLapisan} calon={calonU} langkah={langkahLapisan} />
+            </div>
+            <div className="kendali">
+              <Pilihan
+                nama="Soalnya" arti="tiga bentuk dengan tingkat kesulitan menaik"
+                pilihan={SOAL_LAPISAN.map((s) => ({ nilai: s.nilai, label: s.label }))}
+                nilai={soalLapisan}
+                onPilih={(v) => {
+                  setSoalLapisan(v)
+                  // Calon dikembalikan ke yang salah, supaya siswa memeriksa
+                  // sendiri lagi dan tidak langsung disodori jawabannya.
+                  setCalonU(soalLapisanDari(v).calon.find((c) => !c.benar)?.nilai ?? '')
+                  setLangkahLapisan(1)
+                }}
+              />
+              <Pilihan
+                nama="Calon u" arti="mesin menuliskan du dan sisanya untuk tiap calon"
+                pilihan={soalLapisanDari(soalLapisan).calon.map((c) => ({ nilai: c.nilai, label: c.label }))}
+                nilai={calonU} onPilih={setCalonU}
+              />
+              <Angka
+                nama="Langkah" arti="buka penyelesaiannya baris demi baris" kunci="langkah"
+                nilai={langkahLapisan} onUbah={setLangkahLapisan}
+                min={1} max={LANGKAH_LAPISAN} langkah={1}
+              />
+              <Kembalikan
+                onClick={() => {
+                  setSoalLapisan(AWAL_LAPISAN.soal)
+                  setCalonU(AWAL_LAPISAN.calon)
+                  setLangkahLapisan(AWAL_LAPISAN.langkah)
+                }}
+              />
+              <Petunjuk>
+                coba calon u yang salah dulu, dan baca sisanya. Sisa itu tidak pernah bisa
+                jadi du, dan mesin menyebutkan sebabnya.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
+        {tampilWidget && tahap.widget === 'pasangkan-turunan-integral' && (
+          <>
+            <div className="layar">
+              <PasangkanTurunanIntegral kartu={kartuKiri} jawaban={pasangan04} />
+            </div>
+            <div className="kendali">
+              <Pilihan
+                nama="Fungsi yang dikerjakan" arti="pilih satu, lalu pasangkan antiturunannya"
+                pilihan={KIRI.map((k) => ({ nilai: k.nilai, label: k.fungsi }))}
+                nilai={kartuKiri} onPilih={setKartuKiri}
+              />
+              <Pilihan
+                nama="Antiturunannya" arti="mesin memeriksanya dengan menurunkan kartu ini"
+                pilihan={KANAN.map((k) => ({ nilai: k.nilai, label: k.label }))}
+                nilai={pasangan04[kartuKiri] ?? ''}
+                onPilih={(v) => setPasangan04((lama) => ({ ...lama, [kartuKiri]: v }))}
+              />
+              <Kembalikan
+                onClick={() => { setKartuKiri(AWAL_PASANG.kartu); setPasangan04({}) }}
+              />
+              <Petunjuk>
+                pasangkan sin x lebih dulu, dan perhatikan apakah Anda memilih cos x atau
+                minus cos x. Tanda minus itu milik sinus.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
+        {tampilWidget && tahap.widget === 'hitung-bertahap' && (
+          <>
+            <div className="layar">
+              <HitungBertahap soal={soalHitung} langkah={langkahHitung} />
+            </div>
+            <div className="kendali">
+              <Pilihan
+                nama="Soalnya" arti="satu di antaranya memakai substitusi"
+                pilihan={SOAL_HITUNG.map((s) => ({ nilai: s.nilai, label: s.label }))}
+                nilai={soalHitung}
+                onPilih={(v) => { setSoalHitung(v); setLangkahHitung(1) }}
+              />
+              <Angka
+                nama="Langkah" arti="buka baris demi baris, jangan langsung ke akhir" kunci="langkah"
+                nilai={langkahHitung} onUbah={setLangkahHitung}
+                min={1} max={LANGKAH_HITUNG} langkah={1}
+              />
+              <Kembalikan
+                onClick={() => { setSoalHitung(AWAL_HITUNG.soal); setLangkahHitung(AWAL_HITUNG.langkah) }}
+              />
+              <Petunjuk>
+                pada soal substitusi, perhatikan baris tempat batas lama dan batas baru
+                ditulis berdampingan.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
         {tampilWidget && tahap.widget
           && tahap.widget !== 'mesin-balik'
           && tahap.widget !== 'naik-pangkat'
@@ -453,6 +575,9 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
           && tahap.widget !== 'luas-dua-daerah'
           && tahap.widget !== 'dua-kurva'
           && tahap.widget !== 'luas-yang-tumbuh'
+          && tahap.widget !== 'cocokkan-lapisan'
+          && tahap.widget !== 'pasangkan-turunan-integral'
+          && tahap.widget !== 'hitung-bertahap'
           && tahap.widget !== 'dunia-nyata-integral' && (
           <>
             <div className="layar">
