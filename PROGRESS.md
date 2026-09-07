@@ -1,5 +1,27 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 7 SEP (malam): SEMBILAN TOPIK DI PRODUKSI, RUANG 3D 1080p, PERINTAH ARYA
+
+ARYA: "cek semua sesi, yang belum selesai diselesaikan sampai tuntas rendernya;
+Integral dan Turunan langsung naikkan ke produksi dan buat videonya."
+- Ruang 3D SELESAI gelombang 3: enam video 1920x1080 60 fps (bfe5a4f), digabung
+  12f00aa dan mp4-nya dipasang di master. Sesi itu menambal alat bersama:
+  `--fps 60` memecahkan render (pakai `manim/hd60.yml`), `gabung_audio`
+  tetap mp4 (instruksi MASTER "ubah ke webm" KELIRU: semua video tayang mp4),
+  `buat_poster` dan `cek_aset_video` tidak lagi mematok folder 480p.
+- `vercel deploy --prod` dari master 12f00aa (percobaan pertama gagal di sisi
+  Vercel, "Internal Server Error" saat unggah; kedua berhasil):
+  matra-eight.vercel.app dan mantra-matematika.vercel.app (alias diarahkan
+  ulang) kini memuat Turunan, Integral, enam video Transformasi 2 menit, dan
+  Ruang 3D 1080p. Diverifikasi lewat kode HTTP dan ukuran berkas video.
+- Keadaan sesi: Vektor dan Statistika sedang merender 1080p; Grafik Fungsi
+  siap tetapi MENUNGGU kata "render" dari ARYA di jendelanya (menolak
+  perintah lewat MASTER, dan itu sesuai aturannya); Turunan mulai video 02;
+  Integral merender video 05; Transformasi menunggu ARYA menonton.
+- `web/public/anim/trigonometri.webm` (720p, terlacak git, tidak dirujuk
+  halaman mana pun) masih membuat `cek_resolusi_anim.py` menolak; belum
+  dihapus, menunggu ARYA.
+
 ## 7 SEP (malam, lanjutan): INTEGRAL DIGABUNG KE MASTER, SEMBILAN TOPIK
 
 Sesi MANTRA-INTEGRAL lapor SIAP GABUNG (bbe9ba4): 11 materi, 10 widget +
