@@ -10,6 +10,82 @@ Terakhir: 4 September 2026 pagi. **Bagian terbaru di paling atas** (permintaan M
 
 ---
 
+# 7 September 2026: gelombang 3, tiga belas video 1080p60
+
+**SELESAI.** Ketiga belas tahap punya video final 1920x1080 pada 60 fps, VP9 +
+Opus, 2,8 sampai 6,8 MB, 100,9 sampai 124,9 detik. Poster masing-masing
+1920x1080 diambil dari video finalnya sendiri. Entri `video:` di ketiga berkas
+`tahap-*.ts` sudah menunjuk ke `.webm`.
+
+## Gerbang dan hasilnya
+
+| Gerbang | Hasil |
+|---|---|
+| `cek_kode --dalam` | 13 dari 13 adegan bersih |
+| `qc.periksa_adegan` | lolos tiap babak tiap video (render GAGAL kalau tidak) |
+| `cek_aset_video statistika` | SEMUA LOLOS: subtitle, poster, potongan suara cocok |
+| `cek_resolusi_anim --minimal 1080` | tidak ada video statistika di bawah 1080p |
+| `ukur_detik_pertama` | 13 dari 13 lolos batas 5 detik, terburuk 0,88 detik |
+| lembar kontak dibuka | Materi 01, 06, 08, 11 |
+
+Catatan `cek_resolusi_anim`: satu-satunya video di bawah 1080p adalah
+`trigonometri.webm` (720p), berkas yatim yang sudah lama tercatat sebagai utang
+di PROGRESS dan bukan milik Statistika. Tidak saya hapus tanpa persetujuan.
+
+## Lima cacat yang ditemukan, dan semuanya karena resep dianggap terbukti
+
+Tiga di antaranya berakar pada satu hal: resep 1080p di PROGRESS langkah 7
+sampai 9 mengaku "sudah terbukti tiga belas kali", padahal ketiga belas itu
+video Trigonometri dan Limit yang dibuat dengan Manim Community SEBELUM 2
+September. Sesudah proyek pindah ke ManimGL, resepnya diperbarui tetapi tidak
+pernah benar-benar dijalankan sampai malam ini.
+
+1. **`--fps 60` masuk sebagai TEKS.** `manimlib/config.py` menulis
+   `camera_config.fps = args.fps` tanpa mengubah tipenya, jadi seluruh render
+   1080p60 mati di animasi pertama. Ditambal di `tambal_manimgl.py`. Ini
+   menghentikan SEMUA sesi gelombang 3, bukan cuma Statistika.
+2. **WebM menolak video H.264**, sedangkan ManimGL menghasilkan H.264, jadi
+   `-c:v copy` meninggalkan berkas 264 bita. `gabung_audio.py` sekarang
+   menyandikan ulang ke VP9.
+3. **`buat_poster.py` dan `cek_aset_video.py` mematok sumbernya ke
+   `media/uji-480p/`**, folder yang di gelombang 3 kosong. Akibatnya poster jadi
+   854x480 untuk video 1080p, dan pemeriksa asetnya melapor "tidak ada video
+   yang cocok" untuk ketiga belas video. Alat mutu yang bilang tidak ada apa-apa
+   untuk diperiksa sama saja dengan tidak memeriksa.
+4. **Papan rumus Materi 08 bertindih sendiri.** Rumus utamanya berubah jadi
+   pecahan lalu akar dan menjulur ke slot baris pertama. Cacat lama di video
+   yang sudah tayang, baru tertangkap oleh gerbang isi papan yang dipasang
+   MASTER 4 September.
+5. **Dua tindihan yang cuma terbaca di 1080p.** Materi 06: "9 karyawan" dan
+   "kosong" berjarak 0,05 satuan, tidak bertindih menurut gerbang tetapi di
+   layar menyambung jadi "9 karyawankosong". Materi 08: botol 490 ml menutupi
+   huruf B pada label "Mesin B", meleset cuma 0,02 satuan.
+
+## Alarm palsu dari alat saya sendiri
+
+`ukur_detik_pertama` melapor Materi 11 "gerak pertama 5,50 detik, LEWAT BATAS".
+Framenya saya buka: pada detik 6 sumbunya sudah tergambar dan titiknya
+bermunculan. Videonya tidak salah, alatnya yang salah.
+
+Diukur: titik yang memudar masuk cuma mengubah 10 sampai 35 piksel pada gambar
+kerja, sedangkan ambang 0,08 persen setara 38 piksel. Ini persis kesalahan yang
+saya peringatkan ke sesi Ruang 3D untuk ukuran KEDUA, dan ternyata ukuran
+PERTAMA buatan saya sendiri punya lubang yang sama. Sekarang ukuran pertama
+punya lantai piksel mutlak juga. Sesudah ditambal, ketiga belas lolos.
+
+Pelajarannya sama dengan yang lain di laporan ini: angka dari alat bukan bukti
+sampai framenya dibuka.
+
+## Yang masih menunggu keputusan ARYA
+
+49 rentang layar diam lebih dari 3 detik, terpanjang 18,5 detik di Materi 12,
+belum diperbaiki. ARYA memerintahkan render 1080p apa adanya lewat MASTER dan
+akan menilai langsung pada versi ini. Kalau nanti diputuskan diperbaiki, ketiga
+belas video harus dirender ulang. Daftar lengkapnya berikut kalimat narasinya:
+`docs/tugas/laporan/calon-diam-statistika.md`.
+
+---
+
 # 4 September 2026: tata letak dirapikan, dan satu kesalahan baca yang saya buat
 
 ## Kesalahan saya, dan MASTER yang menemukannya
