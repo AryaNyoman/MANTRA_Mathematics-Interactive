@@ -1,12 +1,29 @@
-# MANTRA-TURUNAN-INTEGRAL
+# MANTRA-TURUNAN dan MANTRA-INTEGRAL
 
-Kamu sesi MANTRA-TURUNAN-INTEGRAL. Baca dan patuhi `docs/tugas/ATURAN-SEMUA-SESI.md`
-SEBELUM baris mana pun di bawah ini dikerjakan. Lalu `PROGRESS.md` dan `CLAUDE.md`.
+> **Diperbarui 7 Sep 2026: DUA sesi, bukan satu.** ARYA membuka sesi terpisah
+> untuk Integral. Pembagiannya:
+>
+> | Sesi | Topik | Worktree | Cabang | Port | Playwright | Laporan |
+> |---|---|---|---|---|---|---|
+> | MANTRA-TURUNAN | Turunan saja | `materi-turunan-b8c515` | `sesi/turunan-materi` | 3015 | `-s=mantra-turunan` | `laporan/MANTRA-TURUNAN-INTEGRAL.md` |
+> | MANTRA-INTEGRAL | Integral saja | `integral-folder-branch-setup-05863c` | `sesi/integral-materi` | 3016 | `-s=mantra-integral` | `laporan/MANTRA-INTEGRAL.md` |
+>
+> Keduanya berjalan BERSAMAAN; kalimat "Turunan dulu, Integral sesudahnya"
+> di bawah tidak berlaku lagi. Sesi Turunan TIDAK menyentuh berkas integral
+> (`content/integral/`, `PanggungIntegral.tsx`, `widget/integral/`,
+> `latihan/integral/`), dan sebaliknya, walau keduanya ada di kedua cabang
+> (warisan kerangka). Baris milik masing-masing di `daftar-isi.ts`,
+> `topik.ts`, `subbab.ts` hanya diubah untuk topiknya sendiri; konflik saat
+> gabung diurus MASTER.
 
-Worktree-mu: `.claude/worktrees/mantra-integral-materi-505cfc`, cabang
-`sesi/turunan` (SATU cabang untuk kedua topik). Nama foldernya warisan sesi
-lama dan tidak bisa diganti selama sesi memakainya; yang penting cabangnya.
-Sebelum apa pun: `git branch --show-current` harus menjawab `sesi/turunan`.
+Kamu sesi MANTRA-TURUNAN atau MANTRA-INTEGRAL (lihat tabel di atas). Baca dan
+patuhi `docs/tugas/ATURAN-SEMUA-SESI.md` SEBELUM baris mana pun di bawah ini
+dikerjakan. Lalu `PROGRESS.md` dan `CLAUDE.md`.
+
+Worktree-mu (sejak 7 Sep 2026): `.claude/worktrees/materi-turunan-b8c515`,
+cabang `sesi/turunan-materi` (dibuat sesi itu sendiri dari master plus
+kerangka `sesi/turunan`; cabang `sesi/turunan` lama tidak dipakai lagi).
+Sebelum apa pun: `git branch --show-current` harus menjawab `sesi/turunan-materi`.
 Kalau menjawab `master`, BERHENTI dan lapor MASTER: folder itu berarti bukan
 worktree lagi dan setiap perintah git akan mengenai master. Port dev server **3015**. Playwright
 `-s=mantra-turunan`. `cd web && npm install` sudah dijalankan MASTER; kalau

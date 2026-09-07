@@ -1,5 +1,39 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 7 SEP: SESI TURUNAN HIDUP DI CABANG `sesi/turunan-materi`
+
+ARYA membuka sesi MANTRA-TURUNAN di worktree `materi-turunan-b8c515`,
+cabang `sesi/turunan-materi` (master 87f9e5b + kerangka dari `sesi/turunan`).
+Worktree `mantra-integral-materi-505cfc` sudah hilang, `mantra-turunan`
+(detached) dihapus MASTER, `elastic-dhawan-d14db2` dihapus sesi Turunan.
+Folder `.claude/worktrees/mantra-integral` masih ada TANPA terdaftar sebagai
+worktree: jangan menjalankan git dari sana. Perintah kerja Turunan dikirim
+MASTER 7 Sep. Integral: ARYA membuka sesi TERPISAH MANTRA-INTEGRAL (worktree
+`integral-folder-branch-setup-05863c`, cabang `sesi/integral-materi` dari
+master + kerangka 5774493, port 3016, laporan `laporan/MANTRA-INTEGRAL.md`);
+keduanya berjalan bersamaan, pembagian berkas ada di kepala berkas tugas.
+
+Kemajuan sesi Turunan 7 Sep: 12 materi terisi (96 klaim sympy lolos,
+pemeriksa dibuktikan dua arah, urutan istilah bersih), pemeriksaan silang
+MASTER (10 temuan, 4 kalimat matematis keliru) sudah direvisi di 7595747;
+widget 01 sampai 03 jadi dan diuji seret sungguhan (2e66524). Sisa: widget
+04 sampai 11, galeri 12, latihan dan kuis. Utang teknis untuk MASTER setelah
+semua cabang tergabung: `koordinat.ts`, `Bidang.tsx`, `seret.ts` kini ada
+TIGA salinan (limit, grafik-fungsi, turunan); satukan ke folder bersama.
+
+## 6 SEP (pagi): VIDEO TRANSFORMASI 02 SAMPAI 06 DIPERPANJANG, TERPASANG DI MASTER
+
+Sesi Transformasi menyetor 469c850 dan b60e8f5, digabung ke master (37fdc9e,
+237d149). Video 02 sampai 06 dari `media/uji-480p` worktree disalin ke
+`web/public/anim` master: 125, 130, 63, 144, 143 detik (01 sudah 130 detik).
+Subtitle 05 dan 06 sempat basi (berhenti di detik 77 dan 81), dibuat ulang;
+poster 03, 04, 05 dibuat dari frame bermakna. Alat baru dari sesi itu:
+`alat/cek_aset_video.py` (subtitle sepanjang video dan poster tidak kosong)
+dan `alat/buat_poster.py`. Temuan alat itu di luar topiknya:
+`web/public/anim/vektor6-sambung.jpg` poster kosong, milik sesi Vektor.
+Sisa di sesi Transformasi (menunggu ARYA): 04 masih 63 detik, diam 7,2 detik
+di 02 detik 106, render 1080p. BELUM naik Vercel (pratinjau maupun produksi).
+
 ## 6 SEP (dini hari): TURUNAN DAN INTEGRAL DIRANCANG, KERANGKA DI `sesi/turunan`
 
 ARYA (5 Sep malam) menyetujui dua topik baru Kelas 12, Turunan dan Integral,

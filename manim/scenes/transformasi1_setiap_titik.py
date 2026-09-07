@@ -141,7 +141,7 @@ class TransformasiSetiapTitik(AdeganMatra):
         # kameranya dan pernah tergambar TERBALIK (temuan 4 Sep).
         with sinema.babak(self, "sama", DURASI) as b:
             b.main(FadeIn(seberang), run_time=1.6)
-            b.main(Indicate(garis_lipat, color=SOROT), run_time=1.2)
+            b.main(Indicate(garis_lipat, color=AKSEN), run_time=1.2)
             b.main(Indicate(seberang, color=SOROT), run_time=1.4)
         qc.periksa_adegan(self, {"orang": orang, "seberang": seberang}, margin=0.45)
 
@@ -211,6 +211,7 @@ class TransformasiSetiapTitik(AdeganMatra):
                 *[d.animate.move_to(titik3(peta_cermin[i])) for i, d in enumerate(titik_jalan)],
                 run_time=max(2.4, DURASI["pindah"] - 3.4),
             )
+            b.main(Indicate(prapeta, color=AKSEN2), run_time=1.4)
         qc.periksa_adegan(self, {"prapeta": prapeta}, hud=hud_kini(), dunia={"bidang": bidang})
 
         # ---------------------------------------------------------------- #
@@ -422,5 +423,6 @@ class TransformasiSetiapTitik(AdeganMatra):
         with sinema.babak(self, "tanya", DURASI) as b:
             b.main(FadeIn(titik_sumbu, scale=0.4), FadeIn(l_sumbu), run_time=1.2)
             b.main(Indicate(titik_sumbu, color=AKSEN), run_time=1.2)
+            b.main(Indicate(peta_besar, color=AKSEN), run_time=1.4)
         qc.periksa_adegan(self, {"peta besar": peta_besar, "label sumbu": l_sumbu},
                           hud=hud_kini(), dunia={"bidang": bidang_besar})

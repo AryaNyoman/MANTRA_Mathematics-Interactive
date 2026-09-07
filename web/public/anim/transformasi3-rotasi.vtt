@@ -43,33 +43,93 @@ Sama, dan itu ciri rotasi.
 Aturannya pendek: (x, y) menjadi (-y, x).
 
 11
-00:00:36.648 --> 00:00:43.512
-Sekarang setengah putaran. Hasilnya: (-x, -y).
+00:00:36.648 --> 00:00:39.160
+Kita uji pada B(6, 1).
 
 12
-00:00:43.512 --> 00:00:47.660
-Itu persis rumus pencerminan pada
+00:00:39.160 --> 00:00:45.096
+Tukar dulu keduanya, lalu beri tanda minus di depan.
 
 13
-00:00:47.660 --> 00:00:50.676
-titik asal di Materi 05.
+00:00:45.096 --> 00:00:47.460
+Hasilnya B'(-1, 6).
 
 14
-00:00:50.676 --> 00:00:53.064
-Janji itu terbukti.
+00:00:47.460 --> 00:00:53.184
+Hitung petaknya sendiri: 1 ke kiri, 6 ke atas.
 
 15
-00:00:53.064 --> 00:00:55.907
-Untuk sudut bukan kelipatan 90°,
+00:00:53.184 --> 00:01:00.312
+Contoh kedua, sengaja berbeda: 3/4 putaran, yaitu 270°.
 
 16
-00:00:55.907 --> 00:00:58.128
-sin dan cos yang dipakai.
+00:01:00.312 --> 00:01:07.584
+Aturannya jadi (y, -x). B(6, 1) mendarat di B'(1, -6).
 
 17
-00:00:58.128 --> 00:01:05.086
-Uji pada 90°: cos = 0, sin = 1, hasilnya (-y, x).
+00:01:07.584 --> 00:01:14.448
+Sekarang setengah putaran. Hasilnya: (-x, -y).
 
 18
-00:01:05.086 --> 00:01:08.352
-Cocok dengan gambarnya.
+00:01:14.448 --> 00:01:21.285
+Itu persis rumus cermin pada titik asal di Materi 04.
+
+19
+00:01:21.285 --> 00:01:23.736
+Janji itu terbukti.
+
+20
+00:01:23.736 --> 00:01:27.569
+Kekeliruan yang paling sering terjadi:
+
+21
+00:01:27.569 --> 00:01:31.704
+jarum merah ini diputar searah jarum jam.
+
+22
+00:01:31.704 --> 00:01:36.158
+Sudut positif selalu berlawanan jarum jam.
+
+23
+00:01:36.158 --> 00:01:40.824
+Salah arah, jawabannya mendarat di seberang.
+
+24
+00:01:40.824 --> 00:01:47.731
+Kalau pusatnya bukan titik asal: geser ke titik asal,
+
+25
+00:01:47.731 --> 00:01:51.120
+putar, lalu geser kembali.
+
+26
+00:01:51.120 --> 00:01:53.963
+Untuk sudut bukan kelipatan 90°,
+
+27
+00:01:53.963 --> 00:01:56.184
+sin dan cos yang dipakai.
+
+28
+00:01:56.184 --> 00:01:57.384
+Rangkumannya:
+
+29
+00:01:57.384 --> 00:02:01.105
+rotasi menjaga jarak tiap titik ke pusatnya,
+
+30
+00:02:01.105 --> 00:02:03.288
+hanya arahnya yang berubah.
+
+31
+00:02:03.288 --> 00:02:04.894
+Satu pertanyaan:
+
+32
+00:02:04.894 --> 00:02:08.709
+kalau titik tepat <b>di</b> pusat putarannya,
+
+33
+00:02:08.709 --> 00:02:10.416
+ke mana ia pergi?

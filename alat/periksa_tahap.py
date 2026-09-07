@@ -25,6 +25,13 @@ import re
 import sys
 from pathlib import Path
 
+# Konsol Windows bawaan (cp1252) tidak bisa mencetak huruf seperti ˣ atau θ
+# yang ada di judul materi, dan alat ini pernah mati di tengah tabel karena
+# itu (Turunan Materi 08, 7 Sep 2026) sambil terlihat seolah lolos. Keluaran
+# dipaksa UTF-8 supaya yang dinilai isinya, bukan kemampuan konsolnya.
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
 AKAR = Path(__file__).resolve().parent.parent
 
 # Topik yang diperiksa. Bawaannya tetap `grafik-fungsi` supaya perintah lama

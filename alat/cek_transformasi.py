@@ -51,6 +51,16 @@ BAWAAN = [
     'materi-transformasi-geometri.json',
     'soal-latihan-transformasi.json',
     'soal-kuis-transformasi.json',
+    # Angka yang DIUCAPKAN narator dan yang tertulis di panel video. Ditambahkan
+    # 5 September 2026.
+    #
+    # Sebelum itu adegan video 06 menulis di komentarnya "diperiksa mesin lewat
+    # alat/cek_transformasi.py dengan awalan V06", padahal berkas ini tidak
+    # pernah membaca satu naskah video pun dan awalan V06 tidak ada di mana
+    # mana. Klaim tentang pemeriksaan yang tidak terjadi lebih berbahaya
+    # daripada tidak ada klaim sama sekali: ia membuat sesi berikutnya percaya
+    # angkanya sudah aman. Sekarang klaimnya benar.
+    'klaim-video-transformasi.json',
 ]
 
 Titik = tuple[Fraction, Fraction]
