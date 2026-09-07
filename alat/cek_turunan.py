@@ -30,6 +30,7 @@ JENIS YANG DIDUKUNG
     limit_definisi   { "f": "x**2", "di": 1 }                      -> skalar
     stasioner        { "f": "x**3 - 3*x" }                         -> senarai
     garis_singgung   { "f": "x**2 + 2*x + 1", "di": 0 }            -> ungkapan (ruas kanan y = ...)
+    pembulatan       { "nilai": "log(2)", "desimal": 3 }           -> skalar bundar
     ekspresi         { "hitung": "44/2" }                          -> skalar
 
 `limit_definisi` sengaja dipisah dari `turunan_di`: yang pertama menempuh jalan
@@ -124,6 +125,14 @@ def hitung(soal: dict) -> sp.Expr:
         f = baca(soal["f"])
         a = baca(soal["di"])
         return sp.expand(f.subs(v, a) + sp.diff(f, v).subs(v, a) * (v - a))
+
+    if jenis == "pembulatan":
+        # Untuk angka yang di halaman memang ditulis bulat, misalnya "kira-kira
+        # 0,693". Membandingkannya langsung dengan log(2) akan selalu ditolak,
+        # padahal halaman itu tidak salah. Yang diperiksa: apakah pembulatannya
+        # memang menghasilkan angka yang tertulis.
+        tepat = sp.N(baca(soal["nilai"]), 20)
+        return sp.nsimplify(round(float(tepat), soal["desimal"]), rational=True)
 
     if jenis == "ekspresi":
         return baca(soal["hitung"])

@@ -706,13 +706,100 @@ export const TAHAP: TahapTurunan[] = [
     judul: 'Turunan sinus, kosinus, dan eˣ',
     labelPendek: 'Trigonometri, eˣ',
     pertanyaan: 'Kalau fungsinya bukan pangkat, dari mana turunannya?',
-    intisari: [],
-    penjelasan: [
-      { jenis: 'paragraf', teks: 'RINTISAN. Isi sesuai rancangan Materi 08: kemiringan sinus adalah kosinus (memakai kembali Trigonometri Materi 09), bilangan e.' },
-      { jenis: 'coba', teks: 'Untuk eˣ, tinggi kurva dan kemiringannya selalu sama persis. Itulah yang membuat e istimewa.' },
+    intisari: [
+      'Kemiringan grafik sinus di setiap titik sama dengan tinggi grafik kosinus di titik yang sama, jadi turunan sin x adalah cos x.',
+      'Turunan cos x adalah negatif sin x. Tanda minusnya tidak boleh hilang.',
+      'Turunan tan x adalah 1 dibagi cos²x, diperoleh dari aturan hasil bagi.',
+      'Semua rumus itu hanya berlaku kalau sudutnya diukur dalam radian.',
+      'Ada satu bilangan pokok yang membuat kemiringan kurva sama persis dengan tingginya. Bilangan itu disebut bilangan e, kira-kira 2,718.',
     ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Semua aturan sampai Materi 07 berangkat dari bentuk pangkat. Fungsi sin x bukan pangkat, dan tidak bisa diubah menjadi pangkat. Jadi aturan pangkat tidak punya pegangan di sini, dan kita harus kembali ke gambar.' },
+
+      { jenis: 'sesi', judul: 'Kemiringan sinus dibaca dari grafiknya' },
+      { jenis: 'paragraf', teks: 'Grafik sin x sudah Anda kenal dari topik Trigonometri, Materi 09. Sekarang grafik itu kita sapu dari kiri ke kanan, dan di tiap titik kita catat kemiringannya.' },
+      {
+        jenis: 'contoh',
+        judul: 'Kemiringan grafik sin x di empat titik penting',
+        baris: [
+          'di x = 0        grafik menanjak paling curam       kemiringan  1',
+          'di x = π/2      grafik di puncak, mendatar         kemiringan  0',
+          'di x = π        grafik menurun paling curam        kemiringan -1',
+          'di x = 3π/2     grafik di dasar lembah, mendatar   kemiringan  0',
+        ],
+        simpul: 'Deretan angka 1, 0, -1, 0 itu persis nilai cos x di keempat titik yang sama.',
+      },
+      { jenis: 'paragraf', teks: 'Kalau seluruh kemiringan itu digambar sebagai kurva baru, cara yang sudah kita pakai di Materi 03, hasilnya bukan kurva asing. Ia grafik kosinus.' },
+      { jenis: 'sorot', teks: 'Turunan sin x adalah cos x.' },
+      { jenis: 'paragraf', teks: 'Diperlakukan sama, grafik kosinus memberi hasil yang mirip tetapi terbalik. Di x = 0 grafik kosinus sedang di puncak, jadi kemiringannya 0. Sesudah itu ia menurun, jadi kemiringannya negatif.' },
+      { jenis: 'sorot', teks: 'Turunan cos x adalah negatif sin x.' },
+
+      { jenis: 'sesi', judul: 'Diperiksa lewat definisi, bukan cuma dilihat' },
+      { jenis: 'paragraf', teks: 'Membaca gambar meyakinkan, tapi kita sudah sepakat sejak Materi 04 bahwa pola perlu diperiksa. Untuk sinus, hitungannya bertumpu pada satu limit yang sudah Anda buktikan di topik Limit, Materi 08.' },
+      {
+        jenis: 'contoh',
+        judul: 'Kenapa turunan sin x keluar sebagai cos x',
+        baris: [
+          'mulai dari definisi   [ sin(x + h) - sin x ] : h',
+          'jabarkan sin(x + h)   sin x · cos h + cos x · sin h',
+          'kelompokkan           sin x · (cos h - 1) : h  +  cos x · (sin h : h)',
+          'saat h menuju nol     (cos h - 1) : h menuju 0, dan (sin h : h) menuju 1',
+          'tersisa               sin x · 0 + cos x · 1 = cos x',
+        ],
+        simpul: 'Jadi hasil bacaan grafik tadi memang benar, bukan kebetulan.',
+      },
+      { jenis: 'paragraf', teks: 'Satu syarat penting menempel pada hitungan itu. Limit sin h dibagi h bernilai 1 hanya kalau sudut diukur dalam radian. Kalau sudutnya derajat, semua rumus di materi ini berubah dan menjadi jauh lebih berantakan. Karena itu, sejak sekarang sudut selalu radian.' },
+
+      {
+        jenis: 'coba',
+        teks: 'Alatnya memakai dua papan seperti di Materi 03, tetapi kali ini untuk fungsi yang bukan pangkat.',
+        langkah: [
+          'Pilih sin x, lalu sapu x dari kiri ke kanan. Perhatikan jejak kemiringan yang terbentuk di papan bawah',
+          'Nyalakan Tampilkan tebakan. Jejak tadi berimpit dengan grafik cos x',
+          'Ganti ke cos x. Jejaknya sekarang grafik sinus yang terbalik, yaitu negatif sin x',
+          'Ganti ke eˣ. Jejak di papan bawah menutupi kurva di papan atas, sama persis',
+        ],
+      },
+
+      { jenis: 'sesi', judul: 'Turunan tan x' },
+      { jenis: 'paragraf', teks: 'Untuk tangen kita tidak perlu mengulang apa pun. tan x adalah sin x dibagi cos x, dan aturan hasil bagi dari Materi 06 sudah cukup.' },
+      {
+        jenis: 'contoh',
+        judul: 'Menurunkan tan x',
+        baris: [
+          'tulis sebagai bagi   u = sin x, v = cos x',
+          'turunannya           u′ = cos x, v′ = -sin x',
+          'pembilangnya         cos x · cos x - sin x · (-sin x) = cos²x + sin²x',
+          'pakai identitas      cos²x + sin²x = 1',
+          'penyebutnya          cos²x',
+          'hasilnya             1 : cos²x',
+        ],
+        simpul: 'Bentuk 1 dibagi cos²x sering ditulis sec²x. Nilainya tidak pernah negatif, dan itu cocok dengan grafik tangen yang selalu menanjak.',
+      },
+
+      { jenis: 'sesi', judul: 'Bilangan yang kemiringannya sama dengan tingginya' },
+      { jenis: 'paragraf', teks: 'Sekarang fungsi pangkat dengan x di ATAS, seperti 2ˣ. Perhatikan bedanya dengan x²: yang berubah bukan yang dipangkatkan, melainkan pangkatnya sendiri.' },
+      { jenis: 'paragraf', teks: 'Kalau kemiringan kurva 2ˣ dihitung di beberapa titik lalu dibandingkan dengan tingginya sendiri, muncul hal yang menarik: perbandingannya selalu angka yang sama.' },
+      {
+        jenis: 'contoh',
+        judul: 'Kemiringan dibagi tinggi, untuk beberapa bilangan pokok',
+        baris: [
+          'kurva 2ˣ    kemiringan selalu 0,693 kali tingginya',
+          'kurva 3ˣ    kemiringan selalu 1,099 kali tingginya',
+          'kurva 2,7ˣ  kemiringan selalu 0,993 kali tingginya',
+        ],
+        simpul: 'Pengalinya menyeberangi angka 1 di suatu tempat antara 2,7 dan 3.',
+      },
+      { jenis: 'paragraf', teks: 'Bilangan pokok yang membuat pengali itu tepat 1 memang ada, dan ia bukan bilangan bulat. Nilainya kira-kira 2,71828, dan diberi nama bilangan e.' },
+      { jenis: 'sorot', teks: 'Turunan eˣ adalah eˣ. Kurva itu satu-satunya yang tingginya sama persis dengan kemiringannya di setiap titik.' },
+      { jenis: 'paragraf', teks: 'Itulah sebabnya e muncul di mana-mana pada persoalan pertumbuhan, dan sebabnya kalkulator punya tombolnya sendiri. Untuk bilangan pokok lain seperti 2ˣ, turunannya masih ada, hanya ikut membawa angka pengali seperti pada tabel di atas.' },
+    ],
+    seringKeliru: {
+      judul: 'Tanda minus pada turunan cos x sering hilang',
+      isi: 'Karena sin dan cos selalu muncul berpasangan dan saling bertukar, banyak yang menghafalnya sebagai "sin jadi cos, cos jadi sin" lalu berhenti. Godaannya besar sebab setengahnya memang benar. Yang hilang adalah tanda minusnya: turunan cos x adalah negatif sin x. Cara memeriksanya tanpa menghafal: lihat grafik kosinus tepat sesudah x = 0. Grafiknya jelas MENURUN di sana, jadi turunannya wajib negatif. Padahal sin x justru positif sesudah 0. Berarti yang benar negatif sin x.',
+    },
     widget: 'kemiringan-sinus',
-    siap: false,
+    siap: true,
   },
   /* ================================================================= */
   {
@@ -721,13 +808,73 @@ export const TAHAP: TahapTurunan[] = [
     judul: 'Persamaan garis singgung',
     labelPendek: 'Garis singgung',
     pertanyaan: 'Sekarang kemiringannya diketahui; bagaimana menulis persamaan garisnya?',
-    intisari: [],
-    penjelasan: [
-      { jenis: 'paragraf', teks: 'RINTISAN. Isi sesuai rancangan Materi 09: y − y₁ = f\'(x₁)(x − x₁), tiga langkah buku.' },
-      { jenis: 'coba', teks: 'Geser ke puncak atau lembah, dan garis singgungnya mendatar: m = 0.' },
+    intisari: [
+      'Persamaan garis singgung memakai rumus garis lama: y dikurangi y₁ sama dengan m dikali (x dikurangi x₁).',
+      'Yang baru hanya sumber nilai m, yaitu f′(x₁), bukan angka yang diberikan soal.',
+      'Tiga langkahnya: cari titik singgungnya, cari turunannya, lalu susun persamaannya.',
+      'Di puncak atau di dasar lembah, gradien garis singgungnya nol, dan garisnya mendatar.',
     ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Sejak Materi 02 kita selalu berhenti pada satu angka: kemiringannya. Garisnya sendiri sudah muncul di gambar, tetapi belum pernah kita tulis persamaannya. Sekarang saatnya.' },
+      { jenis: 'paragraf', teks: 'Kabar baiknya, tidak ada rumus baru yang perlu dihafal. Rumus garis yang melalui satu titik dengan kemiringan tertentu sudah Anda pelajari di SMP.' },
+      { jenis: 'sorot', teks: 'y dikurangi y₁ sama dengan m dikali (x dikurangi x₁), dengan m diambil dari f′(x₁).' },
+      { jenis: 'paragraf', teks: 'Satu-satunya hal baru adalah dari mana m datang. Dulu m diberikan oleh soal. Sekarang m harus dihitung sendiri, dan alatnya turunan.' },
+
+      { jenis: 'sesi', judul: 'Tiga langkah yang selalu sama' },
+      {
+        jenis: 'poin',
+        judul: 'Urutan mengerjakannya',
+        butir: [
+          'Cari titik singgungnya - masukkan x₁ ke f untuk mendapat y₁',
+          'Cari gradiennya - turunkan f, lalu masukkan x₁ ke f′',
+          'Susun persamaannya - pasang x₁, y₁, dan m ke rumus di atas, lalu rapikan',
+        ],
+      },
+      {
+        jenis: 'contoh',
+        judul: 'Garis singgung kurva y = x² + 2x + 1 di x = 0',
+        baris: [
+          'langkah 1  y₁ = f(0) = 0 + 0 + 1 = 1, jadi titiknya (0, 1)',
+          'langkah 2  f′(x) = 2x + 2, maka m = f′(0) = 2',
+          'langkah 3  y - 1 = 2(x - 0)',
+          'rapikan    y = 2x + 1',
+        ],
+        simpul: 'Garis y = 2x + 1 menyentuh kurva itu tepat di titik (0, 1).',
+      },
+      { jenis: 'paragraf', teks: 'Sekarang titik yang berbeda pada kurva yang sama. Perhatikan bahwa langkahnya tidak berubah sedikit pun, hanya angkanya.' },
+      {
+        jenis: 'contoh',
+        judul: 'Kurva yang sama, tetapi di x = -1',
+        baris: [
+          'langkah 1  y₁ = f(-1) = 1 - 2 + 1 = 0, jadi titiknya (-1, 0)',
+          'langkah 2  m = f′(-1) = 2(-1) + 2 = 0',
+          'langkah 3  y - 0 = 0 · (x + 1)',
+          'rapikan    y = 0',
+        ],
+        simpul: 'Gradiennya nol, jadi garis singgungnya mendatar. Titik (-1, 0) memang titik terendah kurva itu.',
+      },
+      { jenis: 'paragraf', teks: 'Hasil kedua itu bukan kebetulan dan bukan kasus aneh. Garis singgung yang mendatar selalu menandai tempat kurva berhenti menurun dan mulai menanjak, atau sebaliknya. Sifat itu akan kita pakai serius di dua materi terakhir.' },
+
+      {
+        jenis: 'coba',
+        teks: 'Alatnya menggambar garis singgung yang ikut bergerak saat titik singgungnya digeser, lengkap dengan persamaannya.',
+        langkah: [
+          'Atur x₁ = 0 dengan Contoh buku. Panel kanan menulis m, titiknya, lalu persamaannya bertahap',
+          'Geser x₁ ke -1. Perhatikan garisnya berubah mendatar dan persamaannya menjadi y = 0',
+          'Geser terus ke kiri sampai -3. Garisnya sekarang menurun, dan m bertanda negatif',
+          'Ganti kurvanya ke x³ - 3x, lalu cari sendiri kedua tempat garisnya mendatar',
+        ],
+      },
+
+      { jenis: 'sesi', judul: 'Satu garis lagi yang sering disebut bersamanya' },
+      { jenis: 'paragraf', teks: 'Kadang soal meminta garis yang tegak lurus terhadap garis singgung di titik yang sama. Namanya garis normal, dan gradiennya negatif satu dibagi m. Materi ini tidak memperdalamnya, sebab yang penting sudah Anda punya: begitu m diketahui, semua garis lain di titik itu tinggal mengikuti.' },
+    ],
+    seringKeliru: {
+      judul: 'Gradien diambil dari f′(x₁), bukan dari f(x₁)',
+      isi: 'Kedua angka itu lahir dari titik yang sama dan ditulis berdekatan, jadi tertukarnya mudah sekali. Pada contoh pertama tadi, f(0) = 1 dan f′(0) = 2. Yang menjadi gradien adalah 2, sedangkan 1 adalah tinggi titiknya. Kalau tertukar, persamaannya menjadi y - 2 = 1(x - 0), dan garis itu bahkan tidak melewati titik singgungnya. Cara memeriksanya: masukkan x₁ ke persamaan yang sudah jadi. Hasilnya wajib sama dengan y₁. Kalau tidak, ada yang tertukar.',
+    },
     widget: 'garis-singgung-geser',
-    siap: false,
+    siap: true,
   },
   /* ================================================================= */
   {
@@ -736,13 +883,75 @@ export const TAHAP: TahapTurunan[] = [
     judul: 'Naik, turun, dan diam',
     labelPendek: 'Naik, turun',
     pertanyaan: 'Bisakah tanda turunan memberi tahu bentuk grafik tanpa menggambarnya?',
-    intisari: [],
-    penjelasan: [
-      { jenis: 'paragraf', teks: 'RINTISAN. Isi sesuai rancangan Materi 10: Definisi 2.6, tabel tanda f\', contoh x³ − 3x.' },
-      { jenis: 'coba', teks: 'Cari kedua tempat garis singgungnya mendatar, lalu baca pitanya berganti warna tepat di situ.' },
+    intisari: [
+      'Fungsi naik di tempat f′(x) bernilai positif, dan turun di tempat f′(x) bernilai negatif.',
+      'Tempat f′(x) = 0 disebut stasioner, artinya kurvanya sedang diam mendatar.',
+      'Caranya: cari akar f′, tandai pada garis bilangan, lalu uji tanda f′ di tiap selang.',
+      'Satu tanda saja yang perlu dibaca, bukan seluruh nilainya. Yang penting positif atau negatif.',
     ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Menggambar grafik dengan menghitung banyak titik itu lambat, dan hasilnya belum tentu benar di antara titik-titik yang dihitung. Pertanyaannya: bisakah bentuk kasarnya diketahui hanya dari turunannya?' },
+      { jenis: 'paragraf', teks: 'Jawabannya bisa, dan alasannya sudah Anda lihat sejak Materi 03. Waktu itu jejak kemiringan berada di atas sumbu ketika kurvanya menanjak, dan di bawah sumbu ketika kurvanya menurun. Sekarang pengamatan itu kita jadikan alat.' },
+      {
+        jenis: 'poin',
+        judul: 'Tanda turunan menceritakan arah kurvanya',
+        butir: [
+          'f′(x) positif - kurva sedang menanjak. Fungsinya disebut fungsi naik di situ',
+          'f′(x) negatif - kurva sedang menurun. Fungsinya disebut fungsi turun di situ',
+          'f′(x) = 0 - kurva sedang mendatar. Titiknya disebut stasioner, atau titik diam',
+        ],
+      },
+      { jenis: 'sorot', teks: 'Untuk mengetahui bentuk kurva, yang perlu dibaca hanya TANDA turunannya, bukan nilainya.' },
+
+      { jenis: 'sesi', judul: 'Tabel tanda, langkah demi langkah' },
+      { jenis: 'paragraf', teks: 'Karena yang dicari cuma tanda, kerjanya menjadi rapi. Titik tempat f′ bernilai nol adalah satu-satunya tempat tandanya boleh berganti, jadi titik-titik itu yang dicari lebih dulu.' },
+      {
+        jenis: 'contoh',
+        judul: 'Menyelidiki f(x) = x³ - 3x',
+        baris: [
+          'turunkan          f′(x) = 3x² - 3',
+          'cari akarnya      3x² - 3 = 0, jadi x² = 1, jadi x = -1 dan x = 1',
+          'uji di x = -2     f′(-2) = 12 - 3 = 9, bertanda positif, berarti naik',
+          'uji di x = 0      f′(0) = -3, bertanda negatif, berarti turun',
+          'uji di x = 2      f′(2) = 12 - 3 = 9, bertanda positif, berarti naik',
+        ],
+        simpul: 'Jadi kurvanya naik sampai x = -1, lalu turun sampai x = 1, lalu naik lagi. Bentuk berlekuk dua yang khas.',
+      },
+      { jenis: 'paragraf', teks: 'Angka penguji seperti -2, 0, dan 2 boleh dipilih bebas, asal berada di selang yang benar. Nilai f′ di situ tidak perlu rapi, sebab yang dibaca hanya tandanya.' },
+      { jenis: 'paragraf', teks: 'Dua titik stasioner tadi, x = -1 dan x = 1, adalah tempat kurvanya berhenti sejenak sebelum berganti arah. Di gambar, di situlah garis singgungnya mendatar seperti yang Anda temukan sendiri di Materi 09.' },
+
+      {
+        jenis: 'coba',
+        teks: 'Alatnya memasang pita tanda tepat di bawah sumbu, dengan warna berbeda untuk bagian yang naik dan yang turun.',
+        langkah: [
+          'Pilih x³ - 3x, lalu geser x pelan-pelan dari kiri ke kanan',
+          'Baca panel kanan: nilai f′(x), tandanya, dan kata naik, turun, atau diam',
+          'Perhatikan pitanya berganti warna tepat di x = -1 dan x = 1, bukan di tempat lain',
+          'Ganti ke -x² + 4x. Sekarang hanya ada satu pergantian warna, dan kurvanya cuma punya satu puncak',
+        ],
+      },
+
+      { jenis: 'sesi', judul: 'Satu peringatan sebelum lanjut' },
+      { jenis: 'paragraf', teks: 'Godaan terbesar setelah menguasai tabel tanda adalah menyimpulkan bahwa setiap tempat f′ bernilai nol pasti puncak atau lembah. Itu tidak benar, dan bantahannya sederhana.' },
+      {
+        jenis: 'contoh',
+        judul: 'Kurva f(x) = x³ di sekitar nol',
+        baris: [
+          'turunkan       f′(x) = 3x²',
+          'cari akarnya   3x² = 0, jadi x = 0',
+          'uji di x = -1  f′(-1) = 3, bertanda positif',
+          'uji di x = 1   f′(1) = 3, bertanda positif',
+        ],
+        simpul: 'Tandanya positif di kedua sisi. Kurvanya cuma mendatar sesaat lalu menanjak lagi, tanpa pernah berbalik arah.',
+      },
+      { jenis: 'paragraf', teks: 'Jadi f′ bernilai nol baru memberi tahu bahwa kurvanya sedang diam. Apakah ia benar-benar berbalik arah atau hanya beristirahat sejenak, itu yang akan kita putuskan pada materi berikutnya.' },
+    ],
+    seringKeliru: {
+      judul: 'Turunan nol belum tentu puncak atau lembah',
+      isi: 'Hampir semua contoh di soal sekolah memang berupa puncak atau lembah, jadi wajar kalau siswa menyimpulkan f′ = 0 selalu berarti begitu. Kurva x³ di titik x = 0 membantahnya: turunannya nol di sana, tetapi kurvanya tetap menanjak sebelum dan sesudahnya. Cara membedakannya bukan dengan menghafal, melainkan dengan memeriksa tanda f′ di KEDUA sisi titik itu. Kalau tandanya berbeda, kurvanya berbalik. Kalau tandanya sama, ia hanya mendatar sesaat.',
+    },
     widget: 'peta-tanda',
-    siap: false,
+    siap: true,
   },
   /* ================================================================= */
   {
@@ -751,13 +960,95 @@ export const TAHAP: TahapTurunan[] = [
     judul: 'Titik balik, terbesar dan terkecil',
     labelPendek: 'Ekstrem',
     pertanyaan: 'Kotak tanpa tutup dibuat dari karton persegi 18 cm dengan memotong pojoknya. Berapa potongan pojok yang membuat volumenya terbesar?',
-    intisari: [],
-    penjelasan: [
-      { jenis: 'paragraf', teks: 'RINTISAN. Isi sesuai rancangan Materi 11: titik stasioner, uji turunan pertama, soal kotak V(x) = (18 − 2x)²x dengan x = 3 dan V = 432.' },
-      { jenis: 'coba', teks: 'Cari x yang membuat garis singgungnya mendatar, lalu bandingkan dengan x = 3 dari hitungan.' },
+    intisari: [
+      'Titik ekstrem dicari dari f′(x) = 0, lalu diputuskan jenisnya dengan memeriksa tanda f′ di kedua sisinya.',
+      'Tanda berubah dari negatif ke positif berarti titik balik minimum, dari positif ke negatif berarti maksimum.',
+      'Kalau tandanya tidak berubah, titik itu bukan titik balik.',
+      'Jawaban soal terbesar dan terkecil harus masuk akal untuk bendanya, dan ujung selangnya juga wajib diperiksa.',
     ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Selembar karton berbentuk persegi dengan sisi 18 cm. Keempat pojoknya dipotong berbentuk persegi kecil dengan sisi x, lalu keempat sisinya dilipat ke atas sehingga terbentuk kotak tanpa tutup.' },
+      { jenis: 'paragraf', teks: 'Kalau potongannya terlalu kecil, kotaknya lebar tetapi sangat ceper. Kalau potongannya terlalu besar, kotaknya tinggi tetapi alasnya tinggal sedikit. Di antara dua keadaan itu pasti ada potongan yang memberi isi paling banyak. Berapa?' },
+      { jenis: 'paragraf', teks: 'Soal kotak dari karton ini contoh klasik yang juga dipakai buku Matematika Tingkat Lanjut Kelas XII, dan angkanya sengaja dipakai apa adanya supaya bisa Anda bandingkan dengan buku.' },
+
+      { jenis: 'sesi', judul: 'Susun dulu rumus isinya' },
+      {
+        jenis: 'contoh',
+        judul: 'Ukuran kotak setelah dipotong dan dilipat',
+        baris: [
+          'tinggi kotak        x',
+          'panjang alasnya     18 - 2x, sebab dipotong di kedua ujung',
+          'lebar alasnya       18 - 2x, karena kartonnya persegi',
+          'isinya              V(x) = (18 - 2x)² · x',
+        ],
+        simpul: 'x tidak boleh nol atau kurang, dan tidak boleh 9 atau lebih, sebab alasnya akan habis.',
+      },
+      { jenis: 'paragraf', teks: 'Sebelum diturunkan, kurungnya dijabarkan supaya bisa dikerjakan suku demi suku dengan cara Materi 05.' },
+      {
+        jenis: 'contoh',
+        judul: 'Mencari titik ekstremnya',
+        baris: [
+          'jabarkan     V(x) = 324x - 72x² + 4x³',
+          'turunkan     V′(x) = 324 - 144x + 12x²',
+          'samakan nol  12x² - 144x + 324 = 0',
+          'bagi 12      x² - 12x + 27 = 0',
+          'faktorkan    (x - 3)(x - 9) = 0',
+          'akarnya      x = 3 atau x = 9',
+        ],
+        simpul: 'x = 9 dibuang karena alas kotaknya habis. Tersisa x = 3.',
+      },
+      { jenis: 'paragraf', teks: 'Pembuangan x = 9 itu bukan main coret. Matematikanya sah, tetapi bendanya tidak ada: dengan potongan 9 cm, panjang alasnya menjadi nol. Soal cerita selalu menuntut pemeriksaan seperti ini.' },
+
+      { jenis: 'sesi', judul: 'Memastikan itu memang yang terbesar' },
+      { jenis: 'paragraf', teks: 'Turunan bernilai nol di x = 3, tetapi Materi 10 sudah memperingatkan bahwa itu belum cukup. Kita periksa tanda V′ di kedua sisinya. Cara ini namanya uji turunan pertama.' },
+      {
+        jenis: 'contoh',
+        judul: 'Uji turunan pertama di sekitar x = 3',
+        baris: [
+          'di x = 2   V′(2) = 324 - 288 + 48 = 84, bertanda positif, isinya masih bertambah',
+          'di x = 3   V′(3) = 0, isinya berhenti bertambah',
+          'di x = 4   V′(4) = 324 - 576 + 192 = -60, bertanda negatif, isinya mulai berkurang',
+        ],
+        simpul: 'Tandanya berubah dari positif ke negatif, jadi x = 3 adalah titik balik maksimum.',
+      },
+      {
+        jenis: 'poin',
+        judul: 'Cara membaca perubahan tandanya',
+        butir: [
+          'Negatif lalu positif - kurva turun lalu naik, jadi titik balik minimum',
+          'Positif lalu negatif - kurva naik lalu turun, jadi titik balik maksimum',
+          'Tandanya sama di kedua sisi - bukan titik balik, kurvanya hanya mendatar sesaat',
+        ],
+      },
+      { jenis: 'paragraf', teks: 'Terakhir, isinya dihitung. Ini langkah yang paling sering terlewat, padahal justru inilah yang ditanyakan.' },
+      {
+        jenis: 'contoh',
+        judul: 'Isi kotak terbesarnya',
+        baris: [
+          'masukkan x = 3   V(3) = (18 - 6)² · 3 = 144 · 3 = 432',
+          'periksa ujungnya V(0) = 0 dan V(9) = 0',
+        ],
+        simpul: 'Isi terbesarnya 432 cm³, dicapai saat pojoknya dipotong 3 cm.',
+      },
+      { jenis: 'paragraf', teks: 'Pemeriksaan ujung selang itu bukan basa basi. Untuk sebagian soal, nilai terbesarnya justru berada di ujung dan bukan di titik yang turunannya nol. Di soal ini kedua ujungnya memberi isi nol, jadi x = 3 aman sebagai jawabannya.' },
+
+      {
+        jenis: 'coba',
+        teks: 'Alatnya memperlihatkan kartonnya di kiri dan grafik isinya di kanan, keduanya bergerak bersamaan.',
+        langkah: [
+          'Geser potongan pojoknya dari 0,5 cm ke atas. Perhatikan kotaknya berubah dari ceper menjadi tinggi',
+          'Baca panel kanan: panjang, lebar, tinggi, isi, dan nilai V′(x)',
+          'Cari sendiri x yang membuat garis singgung di grafik isinya mendatar, lalu bandingkan dengan x = 3',
+          'Geser sampai 8,5 cm. Kotaknya tinggi tetapi isinya justru hampir nol',
+        ],
+      },
+    ],
+    seringKeliru: {
+      judul: 'Nilai terbesarnya bukan nilai x, melainkan nilai fungsinya',
+      isi: 'Setelah bersusah payah mendapat x = 3, banyak yang berhenti di situ dan menulis 3 sebagai jawaban. Godaannya wajar sebab angka itulah hasil kerja paling berat. Tapi yang ditanyakan isi kotaknya, dan isinya 432 cm³. Angka 3 menjawab pertanyaan DI MANA, bukan BERAPA. Cara memeriksanya: lihat satuannya. Potongan pojok satuannya cm, sedangkan isi kotak satuannya cm³. Kalau jawaban Anda bersatuan cm untuk pertanyaan tentang isi, ada satu langkah yang belum dikerjakan.',
+    },
     widget: 'kotak-terbesar',
-    siap: false,
+    siap: true,
   },
   /* ================================================================= */
   {
@@ -766,11 +1057,92 @@ export const TAHAP: TahapTurunan[] = [
     judul: 'Turunan di sekitar kita',
     labelPendek: 'Dunia nyata',
     pertanyaan: 'Di mana kemiringan sebuah kurva benar-benar dipakai?',
-    intisari: [],
+    intisari: [
+      'Setiap kali muncul kata "per", "laju", atau "seberapa cepat", di baliknya hampir selalu ada turunan.',
+      'Menurunkan dua kali memberi turunan kedua: dari posisi ke kecepatan, lalu ke percepatan.',
+      'Mencari nilai optimum adalah cara yang sama seperti Materi 11, hanya bendanya berganti.',
+      'Di ekonomi, turunan biaya total disebut biaya marginal, yaitu biaya membuat satu barang tambahan.',
+    ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'RINTISAN. Isi sesuai rancangan Materi 12: kecepatan dan percepatan, pertumbuhan eksponensial, kotak termurah, biaya marginal. Galeri tidak interaktif.' },
+      { jenis: 'paragraf', teks: 'Topik ini dibuka dengan satu pertanyaan sederhana di Materi 01: seberapa cepat sebuah pabrik bekerja. Sekarang lingkarannya kita tutup, dan Anda akan melihat bahwa pertanyaan itu bentuknya sama di banyak tempat yang kelihatannya tidak berhubungan.' },
+
+      { jenis: 'sesi', judul: 'Bola yang dilempar ke atas' },
+      { jenis: 'paragraf', teks: 'Sebuah bola dilempar lurus ke atas. Tingginya setelah t detik, dalam meter, kira-kira h(t) = 50t - 5t². Angka 5 di situ datang dari percepatan gravitasi yang dibulatkan.' },
+      {
+        jenis: 'contoh',
+        judul: 'Diturunkan sekali, lalu diturunkan lagi',
+        baris: [
+          'tinggi         h(t) = 50t - 5t²',
+          'kecepatan      h′(t) = 50 - 10t',
+          'percepatan     turunan sekali lagi, hasilnya -10',
+          'saat berhenti  50 - 10t = 0, jadi t = 5 detik',
+          'tinggi puncak  h(5) = 250 - 125 = 125 meter',
+        ],
+        simpul: 'Kecepatan bernilai nol tepat di puncak, persis titik stasioner dari Materi 10.',
+      },
+      { jenis: 'paragraf', teks: 'Menurunkan dua kali punya nama sendiri, yaitu turunan kedua. Di sini artinya jelas: turunan pertama memberi kecepatan, turunan kedua memberi percepatan. Nilainya tetap -10, dan tanda minus itu berarti tarikan bumi bekerja ke bawah sepanjang waktu, bahkan saat bolanya masih naik.' },
+
+      { jenis: 'sesi', judul: 'Sesuatu yang tumbuh sebanding dengan jumlahnya' },
+      { jenis: 'paragraf', teks: 'Bakteri di cawan bertambah lebih cepat kalau bakterinya sudah banyak, sebab yang membelah diri lebih banyak. Jadi lajunya sebanding dengan jumlahnya sendiri. Sebagai angka contoh, ambil jumlah bakteri N(t) = 200 · e^(t/2) dengan t dalam jam.' },
+      {
+        jenis: 'contoh',
+        judul: 'Lajunya selalu setengah dari jumlahnya',
+        baris: [
+          'jumlahnya   N(t) = 200 · e^(t/2)',
+          'turunkan    N′(t) = 100 · e^(t/2)',
+          'bandingkan  N′(t) = N(t) : 2',
+          'saat t = 0  N = 200 ekor, lajunya 100 ekor per jam',
+          'saat t = 2  N kira-kira 544 ekor, lajunya kira-kira 272 ekor per jam',
+        ],
+        simpul: 'Inilah alasan bilangan e dari Materi 08 selalu muncul di persoalan pertumbuhan.',
+      },
+      { jenis: 'paragraf', teks: 'Bentuk yang sama dipakai untuk bunga tabungan, penyebaran penyakit, dan peluruhan zat radioaktif. Yang membedakan hanya angka pengalinya, dan tandanya: pengali negatif berarti menyusut, bukan bertambah.' },
+
+      { jenis: 'sesi', judul: 'Kaleng yang paling hemat bahan' },
+      { jenis: 'paragraf', teks: 'Pabrik minuman membuat kaleng berisi 1 liter, yaitu 1000 cm³. Isinya sudah ditetapkan, jadi yang bisa dipilih hanya bentuknya: gemuk pendek, atau ramping tinggi. Bentuk mana yang memakai pelat paling sedikit?' },
+      {
+        jenis: 'contoh',
+        judul: 'Nilai optimum untuk luas pelatnya',
+        baris: [
+          'isi tetap        π r² t = 1000, jadi t = 1000 : (π r²)',
+          'luas pelatnya    L = 2π r² + 2π r t',
+          'ganti t          L(r) = 2π r² + 2000 : r',
+          'turunkan         L′(r) = 4π r - 2000 : r²',
+          'samakan nol      r³ = 500 : π, jadi r kira-kira 5,42 cm',
+          'tingginya        t kira-kira 10,84 cm',
+        ],
+        simpul: 'Tinggi kaleng paling hemat sama dengan diameternya, dua kali jari-jarinya.',
+      },
+      { jenis: 'paragraf', teks: 'Langkahnya sama persis dengan soal kotak di Materi 11: susun rumusnya, turunkan, samakan nol. Yang berganti hanya bendanya. Kaleng di rak toko biasanya tidak sependek itu, sebab bentuk juga dipilih agar enak digenggam dan muat di rak, bukan cuma agar hemat pelat.' },
+
+      { jenis: 'sesi', judul: 'Biaya membuat satu barang berikutnya' },
+      { jenis: 'paragraf', teks: 'Sebuah usaha punya biaya tetap dan biaya yang bertambah seiring jumlah produksi. Sebagai angka contoh, biaya total untuk membuat x barang adalah B(x) = 2.000.000 + 15.000x + 20x² rupiah.' },
+      {
+        jenis: 'contoh',
+        judul: 'Biaya marginal saat produksi 100 barang',
+        baris: [
+          'biaya total     B(x) = 2.000.000 + 15.000x + 20x²',
+          'turunkan        B′(x) = 15.000 + 40x',
+          'di x = 100      B′(100) = 15.000 + 4.000 = 19.000 rupiah',
+        ],
+        simpul: 'Barang ke-101 kira-kira menambah biaya 19.000 rupiah, bukan 15.000 rupiah.',
+      },
+      { jenis: 'paragraf', teks: 'Turunan biaya total itu disebut biaya marginal. Angkanya naik seiring produksi, dan itulah yang memberi tahu pemilik usaha kapan menambah produksi mulai tidak menguntungkan lagi.' },
+
+      { jenis: 'sesi', judul: 'Satu gagasan, banyak wajah' },
+      {
+        jenis: 'poin',
+        judul: 'Empat cerita tadi, satu pertanyaan yang sama',
+        butir: [
+          'Bola dilempar - seberapa cepat tingginya berubah tiap detik',
+          'Bakteri - seberapa cepat jumlahnya berubah tiap jam',
+          'Kaleng - di titik mana luas pelatnya berhenti berkurang',
+          'Biaya usaha - seberapa besar biaya bertambah untuk satu barang berikutnya',
+        ],
+      },
+      { jenis: 'paragraf', teks: 'Keempatnya dijawab dengan kemiringan garis singgung, benda yang kita bangun pelan-pelan sejak Materi 02. Semua angka pada halaman ini angka contoh, dipilih agar hitungannya bisa Anda periksa sendiri.' },
     ],
     widget: 'dunia-nyata-turunan',
-    siap: false,
+    siap: true,
   },
 ]
