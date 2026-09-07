@@ -63,33 +63,20 @@ TUJUAN = AKAR / "web" / "public" / "anim"
 SUMBER_URUT = (TUJUAN, AKAR / "media" / "uji-480p", AKAR / "media")
 
 
-def cari_video(topik: str) -> Path | None:
-    """Sumber poster: video FINAL dulu, versi uji 480p belakangan.
-
-    Alat ini dibuat saat baru ada render uji, jadi sumbernya dipatok ke
-    `media/uji-480p/<topik>.mp4`. Akibatnya di gelombang 3 posternya jadi
-    854x480 untuk video 1920x1080, dan poster topik lain yang sudah tayang
-    semuanya 1920x1080. Ditemukan sesi Statistika 7 Sep 2026.
-
-    SATU PENCARI SAJA, dan itu perbaikan 7 Sep 2026 malam. Sempat ada DUA
-    fungsi yang mengerjakan hal sama, `cari_sumber` memakai `SUMBER_URUT` dan
-    `cari_video` memakai `SUMBER` yang tidak pernah didefinisikan. Berkas ini
-    disunting dua sesi berbeda pada hari yang sama, dan sisa gabungan itu
-    membuat SETIAP pemanggilan mati dengan
-    `NameError: name 'SUMBER' is not defined`. Tidak ada yang menyadarinya
-    sebab tidak ada yang menjalankannya sesudah digabung; ketahuan waktu sesi
-    Transformasi menjalankannya, bukan waktu membacanya.
-
-    Di tiap folder .webm didahulukan daripada .mp4: berkas uji 480p yang tidak
-    dilacak git bisa tertinggal di samping .webm 1080p-nya, dan poster wajib
-    diambil dari video yang benar-benar dilihat siswa.
-    """
+def cari_sumber(topik: str) -> Path | None:
+    # WebM DIDAHULUKAN, dua alasan. Pertama, keputusan ARYA 7 Sep 2026: semua
+    # video materi berwadah WebM, jadi itulah berkas yang benar-benar dilihat
+    # siswa. Kedua, mp4 480p yang tidak dilacak git bisa tertinggal di samping
+    # webm 1080p-nya, dan kalau mp4 didahulukan posternya diambil dari video
+    # yang salah. `cek_aset_video.video_topik` sudah memakai urutan ini;
+    # sebelumnya kedua alat tidak sepakat.
     for folder in SUMBER_URUT:
         for akhiran in (".webm", ".mp4"):
             calon = folder / f"{topik}{akhiran}"
-            if calon.exists() and calon.stat().st_size > 1024:
+            if calon.exists():
                 return calon
     return None
+
 
 AMBANG_RENTANG = 40          # dari 255
 AMBANG_TOLAK = 0.0035        # 0,35 persen piksel bukan latar: di bawah ini kosong
@@ -121,7 +108,7 @@ def nilai(jalur: Path) -> tuple[str, str]:
 
 
 def buat(topik: str, detik: float) -> int:
-    video = cari_video(topik)
+    video = cari_sumber(topik)
     if video is None:
         daftar = "\n  ".join(str(f / f"{topik}.mp4 atau .webm") for f in SUMBER_URUT)
         print(f"tidak ada videonya. Dicari di:\n  {daftar}")
