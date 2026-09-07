@@ -78,10 +78,10 @@ jumlahan di Materi 06 cukup satu kalimat), Grafik Fungsi (bentuk kurva).
 | integral parsial, integral trigonometri/eksponensial | 04 |
 | partisi, jumlahan Riemann, titik sampel | 05 |
 | integral tentu, batas atas/bawah, luas bertanda | 06 |
-| Teorema Dasar Kalkulus, fungsi luas A(x) | 07 |
-| F(b) − F(a), notasi kurung siku | 08 |
-| luas daerah, daerah di bawah sumbu | 09 |
-| luas antara dua kurva, titik potong | 10 |
+| Teorema Dasar Kalkulus, fungsi luas A(x), F(b) − F(a) | 07 |
+| notasi kurung siku, substitusi dengan batas | 08 |
+| luas daerah, daerah di bawah sumbu, titik potong dengan sumbu | 09 |
+| luas antara dua kurva, titik potong dua kurva | 10 |
 | usaha, jarak dari kecepatan, penjualan total | 11 |
 
 Kata sehari-hari (luas, jumlah, tumpukan) boleh kapan saja.
@@ -359,8 +359,10 @@ Galeri tidak interaktif (pola Limit dan Statistika), empat kartu:
    ini menulis 3000x, yang memberi 28.000, bukan 20.000.)
 2. **Jarak dari kecepatan**: v(t) diketahui, jarak = luas di bawah v
    (sambungan ke Turunan Materi 12).
-3. **Usaha meregangkan pegas** (Contoh 3.15 dan Ayo Mencoba 3.13, PDF
-   225–226): gaya kx, usaha = ∫ kx dx; angka contoh.
+3. **Usaha oleh gaya yang berubah** (Contoh 3.15 dan Ayo Mencoba 3.13, PDF
+   225–226): usaha = ∫ F(x) dx; contoh buku memakai gaya x² + 2x dari x = 1
+   ke 3, hasil 50/3 (dibetulkan 7 Sep 2026: versi pertama rancangan menulis
+   "pegas, gaya kx", itu bukan contoh bukunya).
 4. **Pengeluaran yang dihemat** (Ayo Mencoba 3.12): laju penghematan
    4000x + 1000 per tahun, kapan modal 36.000 kembali.
 
