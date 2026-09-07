@@ -97,7 +97,13 @@ def durasi_video(jalur: Path) -> float:
          "-of", "csv=p=0", str(jalur)],
         capture_output=True, text=True, check=True,
     )
-    return float(hasil.stdout.strip())
+    # ffprobe menjawab "N/A" untuk berkas yang rusak atau SEDANG DITULIS
+    # (ketahuan 7 Sep 2026 saat webm Ruang 3D masih dikode ulang). Durasi 0
+    # membuat videonya dilaporkan CACAT, bukan menghentikan seluruh alat.
+    try:
+        return float(hasil.stdout.strip())
+    except ValueError:
+        return 0.0
 
 
 def akhir_subtitle(jalur: Path) -> float | None:
