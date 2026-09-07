@@ -131,9 +131,92 @@ memeriksa angkanya:
    kalimat petunjuk rancangan mustahil diikuti), dan `cek_soal.py` saya ganti
    `cek_integral.py` untuk berkas soal (alat lama hanya paham klaim limit).
 
+## Video 05 "Luas dari persegi panjang, jumlahan Riemann": SELESAI 480p
+
+`media/uji-480p/integral05-riemann.mp4`, 118,1 detik, 2,06 MB. Ada juga
+`integral05-riemann-bersubtitle.mp4` yang subtitlenya dibakar, untuk ditonton
+ARYA. Keduanya TIDAK dilacak git (mp4 di luar `web/public/anim/` diabaikan),
+jadi ambil langsung dari worktree ini.
+
+Enam kali render. Yang lolos gerbang otomatis pada render kelima tetapi baru
+ketahuan dari MEMBUKA gambarnya:
+
+1. **Segitiga pucat raksasa tertinggal dua babak terakhir.** `daerah_lurus`
+   (daerah di bawah f(x) = x) dihitung dari bidang lama dan tidak ikut dibuang
+   saat kamera terbang ke bidang kecil. Sejak detik 92 sampai video habis ia
+   menutupi separuh kanan layar, berdiri di belakang panel "kiri 6,25 kanan
+   4,25", dan membantah gambarnya sendiri. `qc.periksa_adegan` diam karena ia
+   hanya memeriksa benda yang DISERAHKAN kepadanya. Sekarang ada
+   `pastikan_hilang()` di adegannya: render GAGAL kalau benda babak lama masih
+   terpasang. Sudah dibuktikan dua arah (menolak saat tersisa, diam saat bersih).
+2. **Tujuh `Indicate` menyuruh benda berubah ke warna yang sudah dipakainya.**
+   `Indicate(segitiga, color=SOROT)` pada segitiga yang memang SOROT hanya
+   menyisakan perbesaran dua persen: tidak satu piksel pun berganti warna.
+   Itulah sebab empat rentang "beku" di alat ukur diam, bukan kelemahan alatnya.
+   Semua sudah diberi warna lawan dan `scale_factor` 1,05.
+3. **Denyut pengganti pada tanda partisi juga tidak terbaca.** Diganti gerak
+   yang sekalian mengajar: ruas pengukur Δx BERJALAN dari bagian ke bagian,
+   sehingga "sama lebar" terlihat, bukan cuma didengar.
+4. **1,8 detik diam menunggu kalimat di babak `tinggi`.** Diisi garis putus
+   putus dari titik sampel ke sumbu tegak, tepat saat narator mengucapkan
+   "setinggi nilai fungsi".
+
+### Alat baru: `alat/cek_waktu_adegan.py`
+Menghitung waktu tiap babak dari teks kodenya, tanpa menjalankan ManimGL.
+Sebabnya render 480p makan 3 sampai 5 menit dan gerbang waktu `sinema.babak`
+berhenti di babak PERTAMA yang kelebihan, jadi kesalahan di babak berikutnya
+baru ketahuan satu render kemudian. Render kelima mati di `tinggi` padahal
+`contoh` dan `hitung7` sama-sama baru diubah.
+
+Alat ini juga menangkap JANGKAR HILANG: `sinema.mulai(jam, "awalan")` memberi
+None diam-diam kalau tidak ada subtitle yang diawali teks itu, dan enam jangkar
+video ini pernah patah begitu selama empat render tanpa satu pun peringatan.
+
+Dibuktikan dua arah pada adegan sungguhan: lolos saat benar, menandai `tinggi`
+saat kelebihan (angka 8,76 detik lawan 8,67 detik yang dilaporkan render, jadi
+tebakannya sedikit di sisi aman), dan melaporkan jangkar hilang saat dirusak.
+Batasnya ditulis di dalam berkasnya: ini pembaca teks, bukan penerjemah Python,
+dan bukan pengganti render.
+
+### Empat rentang yang masih ditandai "diam", sudah dinilai satu per satu
+Alat ukur diam memakai perubahan piksel se-layar, sedangkan video ini banyak
+memakai kejadian kecil dan setempat. Frame-nya sudah dibuka:
+
+| Rentang | Narasi yang berjalan | Vonis |
+|---|---|---|
+| 46,2 sampai 56,8 d | "Titik sampel kanan. Tinggi 1, 2, 3, ..., 7." | BUKAN cacat. Frame 49 d dua kotak, 55 d enam kotak: kotaknya memang muncul satu per satu, satu tiap detik, seirama hitungan narator. |
+| 28,8 sampai 34,4 d | "...setinggi nilai fungsi, diambil di satu titik sampel." | BUKAN cacat. Frame 33 d berisi batang tegak, titik sampel di kurva, dan garis putus putus ke sumbu; semuanya garis tipis, jadi luput dari alat ukur. |
+| 62,6 sampai 67,1 d | "Daerah aslinya segitiga siku-siku..." | BUKAN cacat. Segitiga digambar, lalu alas dan tinggi ditandai berikut labelnya. |
+| 69,9 sampai 74,4 d | "Titik sampel kiri memberi 21." | BUKAN cacat. Frame 72 d kotak di ATAS garis, frame 74 d kotak di BAWAH garis: tangganya benar-benar berganti, hanya warnanya sama-sama pucat. |
+
+### Yang masih kurang, dan saya sebutkan bukan diamkan
+- Detik 92 sampai 95: kurva sudah melengkung jadi 4 - x² sementara panel masih
+  menulis f(x) = x, sebab `ganti_rumus` berjalan setelah perpindahan bidang.
+  Tiga detik, di tengah satu gerakan, dan narasinya memang sedang berkata
+  "ganti kurvanya". Saya biarkan; kalau MASTER menilai lain, tinggal pindahkan
+  `ganti_rumus` ke dalam `b.main` yang sama.
+- `alat/cek_sinkron_video.py` TIDAK dipakai untuk video ini. Alat itu butuh pola
+  kalimat yang tiap kemunculannya menambah satu benda; naskah video 05 menyebut
+  "Tinggi 1, 2, 3, ..., 7" dalam satu kalimat, jadi tidak ada pola per benda.
+  Sinkronnya diperiksa dengan membandingkan jam subtitle dan jam kemunculan
+  kotak secara manual: kotak pertama mendarat 47,5 d, narator mulai menghitung
+  51,4 d, dan selama jeda itu subtitle berbunyi "Titik sampel kanan" sambil dua
+  kotak contoh berdiri. Tidak ada gambar yang mendahului jawabannya.
+
+### Berkas pendamping
+Subtitle `.vtt` dan poster (detik 55, rentang 224, bukan latar 10,88 persen)
+sudah ada. `alat/cek_aset_video.py integral` masih CACAT karena tiga potongan
+suara BASI dari susunan naskah lama: `11-menyusut.mp3`, `12-turun.mp3`,
+`13-tutup.mp3`. Ketiganya tidak dipakai (`narasi-penuh.mp3` sudah 118,08 detik
+sesuai 12 segmen sekarang) dan bisa dibuat ulang kapan saja oleh
+`buat_narasi.py`. **Saya TIDAK menghapusnya**: menghapus berkas perlu izin
+ARYA. Perintahnya satu baris kalau diizinkan.
+
 ## Butuh keputusan ARYA
-- Video Integral belum dikerjakan sama sekali, sesuai aturan: menunggu perintah.
-  Urutan prioritasnya sudah ada di rancangan (05, 01, 07, 09, 03).
+- **Izin menghapus 3 mp3 basi di `audio/integral05-riemann/`** supaya
+  `cek_aset_video.py` bersih. Risikonya kecil: berkas hasil buatan mesin, tidak
+  dipakai, bisa dibuat ulang.
+- Empat video sisanya (01, 07, 09, 03) belum dikerjakan. Urutannya dari MASTER.
 
 ## Titik rawan matematis yang sudah ditandai
 MASTER menemukan 4 kalimat matematis keliru dari 12 materi Turunan. Untuk
