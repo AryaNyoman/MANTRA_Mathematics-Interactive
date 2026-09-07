@@ -3,10 +3,10 @@
 Kamu sesi MANTRA-TURUNAN-INTEGRAL. Baca dan patuhi `docs/tugas/ATURAN-SEMUA-SESI.md`
 SEBELUM baris mana pun di bawah ini dikerjakan. Lalu `PROGRESS.md` dan `CLAUDE.md`.
 
-Worktree-mu: `.claude/worktrees/mantra-integral-materi-505cfc`, cabang
-`sesi/turunan` (SATU cabang untuk kedua topik). Nama foldernya warisan sesi
-lama dan tidak bisa diganti selama sesi memakainya; yang penting cabangnya.
-Sebelum apa pun: `git branch --show-current` harus menjawab `sesi/turunan`.
+Worktree-mu (sejak 7 Sep 2026): `.claude/worktrees/materi-turunan-b8c515`,
+cabang `sesi/turunan-materi` (dibuat sesi itu sendiri dari master plus
+kerangka `sesi/turunan`; cabang `sesi/turunan` lama tidak dipakai lagi).
+Sebelum apa pun: `git branch --show-current` harus menjawab `sesi/turunan-materi`.
 Kalau menjawab `master`, BERHENTI dan lapor MASTER: folder itu berarti bukan
 worktree lagi dan setiap perintah git akan mengenai master. Port dev server **3015**. Playwright
 `-s=mantra-turunan`. `cd web && npm install` sudah dijalankan MASTER; kalau

@@ -1,5 +1,16 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 7 SEP: SESI TURUNAN HIDUP DI CABANG `sesi/turunan-materi`
+
+ARYA membuka sesi MANTRA-TURUNAN di worktree `materi-turunan-b8c515`,
+cabang `sesi/turunan-materi` (master 87f9e5b + kerangka dari `sesi/turunan`).
+Worktree `mantra-integral-materi-505cfc` sudah hilang, `mantra-turunan`
+(detached) dihapus MASTER, `elastic-dhawan-d14db2` dihapus sesi Turunan.
+Folder `.claude/worktrees/mantra-integral` masih ada TANPA terdaftar sebagai
+worktree: jangan menjalankan git dari sana. Perintah kerja Turunan dikirim
+MASTER 7 Sep; Integral menunggu keputusan ARYA (sesi yang sama atau
+sesi terpisah).
+
 ## 6 SEP (pagi): VIDEO TRANSFORMASI 02 SAMPAI 06 DIPERPANJANG, TERPASANG DI MASTER
 
 Sesi Transformasi menyetor 469c850 dan b60e8f5, digabung ke master (37fdc9e,
