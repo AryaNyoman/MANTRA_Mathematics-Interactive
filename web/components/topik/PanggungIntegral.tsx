@@ -21,6 +21,9 @@ import LuasDuaDaerah, {
 import DuaKurva, {
   AWAL as AWAL_DUA, BATAS_N as BATAS_N_DUA, PASANGAN, pasanganDari,
 } from '@/components/widget/integral/DuaKurva'
+import LuasYangTumbuh, {
+  AWAL as AWAL_TUMBUH, BATAS_X as BATAS_X_TUMBUH, KURVA as KURVA_TUMBUH,
+} from '@/components/widget/integral/LuasYangTumbuh'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Kembalikan, Petunjuk, Pilihan } from '@/components/kendali'
 
@@ -73,6 +76,10 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
   const [duaA, setDuaA] = useState(AWAL_DUA.a)
   const [duaB, setDuaB] = useState(AWAL_DUA.b)
   const [duaN, setDuaN] = useState(AWAL_DUA.n)
+
+  // Materi 07: fungsi luas yang tumbuh
+  const [kurvaTumbuh, setKurvaTumbuh] = useState(AWAL_TUMBUH.kurva)
+  const [tumbuhX, setTumbuhX] = useState(AWAL_TUMBUH.x)
 
   let kiri: ReactNode = null
   let kanan: ReactNode = null
@@ -411,6 +418,33 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
           </>
         )}
 
+        {tampilWidget && tahap.widget === 'luas-yang-tumbuh' && (
+          <>
+            <div className="layar">
+              <LuasYangTumbuh kurva={kurvaTumbuh} x={tumbuhX} onGeserX={setTumbuhX} />
+            </div>
+            <div className="kendali">
+              <Pilihan
+                nama="Kurvanya" arti="papan bawah ikut berganti mengikuti pilihan ini"
+                pilihan={KURVA_TUMBUH.map((k) => ({ nilai: k.nilai, label: k.label }))}
+                nilai={kurvaTumbuh} onPilih={setKurvaTumbuh}
+              />
+              <Angka
+                nama="x" arti="batas kanan daerah, bisa juga diseret di gambar" kunci="x"
+                nilai={tumbuhX} onUbah={setTumbuhX}
+                min={BATAS_X_TUMBUH.min} max={BATAS_X_TUMBUH.maks} langkah={BATAS_X_TUMBUH.langkah}
+              />
+              <Kembalikan
+                onClick={() => { setKurvaTumbuh(AWAL_TUMBUH.kurva); setTumbuhX(AWAL_TUMBUH.x) }}
+              />
+              <Petunjuk>
+                perhatikan pita di ujung kanan: tingginya persis f(x), dan itulah kemiringan
+                kurva di papan bawah.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
         {tampilWidget && tahap.widget
           && tahap.widget !== 'mesin-balik'
           && tahap.widget !== 'naik-pangkat'
@@ -418,6 +452,7 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
           && tahap.widget !== 'pecah-selang'
           && tahap.widget !== 'luas-dua-daerah'
           && tahap.widget !== 'dua-kurva'
+          && tahap.widget !== 'luas-yang-tumbuh'
           && tahap.widget !== 'dunia-nyata-integral' && (
           <>
             <div className="layar">
