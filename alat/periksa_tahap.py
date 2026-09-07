@@ -51,6 +51,12 @@ TERLARANG = ['miskonsepsi', 'tentu saja', 'gampang']
 # "mudah" dan "jelas" diperiksa terpisah: keduanya sah kalau menggambarkan
 # BENDA ("jelas bukan nol"), dan hanya terlarang kalau menilai tugas siswa.
 CURIGA = ['terasa mudah', 'lebih mudah', 'sangat mudah', 'jelas sekali']
+# Bentuk lain ("sisanya mudah", "lebarnya sudah jelas", "paling mudah dilihat")
+# lolos dari daftar di atas; ketahuan 7 Sep 2026 di Integral, empat kalimat.
+# Daftar frasa tidak akan pernah lengkap, jadi SETIAP kalimat yang memuat kata
+# "mudah" atau "jelas" dicetak untuk dilihat mata, tanpa menggagalkan: yang
+# menggambarkan benda sah, yang menilai tugas siswa harus diganti.
+KATA_MATA = re.compile(r'(mudah|jelas)', re.I)
 
 
 def baca_tahap() -> list[dict]:
@@ -108,6 +114,7 @@ def nilai(t: dict) -> dict:
         'b8_seringkeliru': "seringKeliru" in s,
         'b9_intisari': len(re.findall(r"^      '", s, re.M)) if 'intisari' in s else 0,
         'b10_terlarang': [k for k in TERLARANG + CURIGA if k in s.lower()],
+        'b10_mata': [k for k in re.findall(r"'((?:[^'\\]|\\.)*)'", s) if KATA_MATA.search(k)],
         'b10_emdash': '—' in s or '–' in s,
         'sesi': sesi,
     }
@@ -133,6 +140,13 @@ def main() -> int:
               f'{"ya" if d["b8_seringkeliru"] else "-":2s}  {b10}')
         if d['b10_terlarang']:
             print(f'     kata perlu diperiksa: {d["b10_terlarang"]}')
+        if d['b10_mata']:
+            print(f'     lihat dengan mata, {len(d["b10_mata"])} kalimat memuat "mudah"/"jelas"'
+                  + (':' if rinci else ' (--rinci untuk kalimatnya)'))
+            if rinci:
+                for k in d['b10_mata']:
+                    i = KATA_MATA.search(k).start()
+                    print(f'       ...{k[max(0, i - 60):i + 50]}...')
         if gemuk:
             print(f'     sesi kelewat panjang (blok): {d["b4_blok_per_sesi"]}')
 
