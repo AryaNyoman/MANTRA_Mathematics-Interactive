@@ -545,8 +545,8 @@ export const TAHAP: TahapTurunan[] = [
         jenis: 'poin',
         judul: 'Tambahan luasnya terdiri atas tiga bagian',
         butir: [
-          'Pita mendatar - selebar tambahan pada u, sepanjang v yang lama',
-          'Pita tegak - setinggi tambahan pada v, selebar u yang lama',
+          'Pita kanan - selebar tambahan pada u, setinggi v yang lama. Luasnya tambahan-u dikali v',
+          'Pita atas - setebal tambahan pada v, selebar u yang lama. Luasnya u dikali tambahan-v',
           'Pojok kecil - tambahan u dikali tambahan v, sebuah kotak mungil di sudut',
         ],
       },
@@ -601,6 +601,7 @@ export const TAHAP: TahapTurunan[] = [
       judul: 'Pembilang aturan hasil bagi tidak boleh dibalik',
       isi: 'Karena aturan hasil kali boleh ditulis dalam urutan mana saja, banyak yang mengira aturan hasil bagi juga begitu, lalu menulis uv′ dikurangi u′v. Godaannya masuk akal, sebab pada perkalian urutan memang tidak penting. Di sini penting, sebab yang di tengah adalah tanda kurang. Membalik urutannya membalik tanda seluruh jawaban. Pada contoh di atas, jawabannya berubah dari -3 menjadi 3, dan grafik yang terlihat menurun akan terbaca menanjak. Cara mengingatnya: yang diturunkan lebih dulu selalu bagian ATAS.',
     },
+    video: { berkas: 'turunan6-hasil-kali.webm', poster: 'turunan6-hasil-kali.jpg' },
     widget: 'luas-berubah',
     siap: true,
   },
