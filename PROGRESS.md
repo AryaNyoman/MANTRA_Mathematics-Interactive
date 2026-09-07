@@ -1,5 +1,23 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 7 SEP (sore): GELOMBANG 3 DIBUKA ARYA UNTUK EMPAT TOPIK
+
+ARYA: "suruh sesi 3D, Vektor, Statistika, dan Grafik Fungsi selesaikan render
+1080p kalau tidak ada catatan menggantung; saya cek hasilnya setelah 1080p
+semuanya." Keadaan saat perintah dikirim (`alat/cek_resolusi_anim.py`): 34
+video masih 480p (statistika 13, transformasi 6, ruang-3d 6, vektor 6, grafik
+2, trigonometri.webm 720p). Keempat worktree `matra-*` dibuat lagi (foldernya
+hilang untuk kedua kalinya; cabangnya utuh: `sesi/vektor` 4 commit belum
+masuk master, `sesi/statistika` 1). Catatan menggantung yang ADA dan sengaja
+TIDAK menahan (ARYA menilai langsung di 1080p): Vektor menunggu vonis bentuk
+01 dan 06, kode 03/04/08/09 belum dirender; Grafik menunggu jawaban 3D tahap 6
+dan letak panel; Ruang 3D narasi 01 dibuat ulang belum dirender; Statistika
+diam terpanjang 18,5 detik. Perintah ke tiap sesi: pindah ke worktree, merge
+master (gl berubah), cek_kode, render 1080p60 SATU per satu (empat sesi
+berbagi laptop), gabung_audio ke webm, poster lewat buat_poster, cek_video
+final, cek_aset_video, ubah `video.berkas` di tahap.ts, lapor ke MASTER.
+Transformasi TIDAK termasuk perintah ini (menunggu ARYA menonton 480p).
+
 ## 7 SEP: SESI TURUNAN HIDUP DI CABANG `sesi/turunan-materi`
 
 ARYA membuka sesi MANTRA-TURUNAN di worktree `materi-turunan-b8c515`,
