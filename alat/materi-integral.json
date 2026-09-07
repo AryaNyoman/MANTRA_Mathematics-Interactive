@@ -1,78 +1,491 @@
 [
-  { "id": "m01-antiturunan-laju", "jenis": "antiturunan", "f": "2*x + 1", "F": "x**2 + x" },
-  { "id": "m01-antiturunan-plus-7", "jenis": "antiturunan", "f": "2*x + 1", "F": "x**2 + x + 7" },
-  { "id": "m01-antiturunan-minus-3", "jenis": "antiturunan", "f": "2*x + 1", "F": "x**2 + x - 3" },
-  { "id": "m01-total-12-bulan", "jenis": "nilai", "ekspresi": "12**2 + 12", "jawaban": "156" },
-  { "id": "m01-total-lewat-luas", "jenis": "tentu", "f": "2*x + 1", "a": "0", "b": "12", "jawaban": "156" },
-
-  { "id": "m02-pangkat-lima", "jenis": "antiturunan", "f": "x**5", "F": "x**6/6" },
-  { "id": "m02-pangkat-dua", "jenis": "antiturunan", "f": "x**2", "F": "x**3/3" },
-  { "id": "m02-tiga-suku", "jenis": "antiturunan", "f": "3*x**2 - 4*x + 1", "F": "x**3 - 2*x**2 + x" },
-  { "id": "m02-sifat-3-1", "jenis": "antiturunan", "f": "1", "F": "x" },
-
-  { "id": "m03-tebakan-meleset", "jenis": "antiturunan", "f": "2*(2*x + 1)**5", "F": "(2*x + 1)**6/6" },
-  { "id": "m03-jawaban-benar", "jenis": "antiturunan", "f": "(2*x + 1)**5", "F": "(2*x + 1)**6/12" },
-  { "id": "m03-contoh-buku-3-3", "jenis": "antiturunan", "f": "2*x*(x**2 + 5)**4", "F": "(x**2 + 5)**5/5" },
-  { "id": "m03-bentuk-akar", "jenis": "antiturunan", "f": "2*x/sqrt(x**2 + 1)", "F": "2*sqrt(x**2 + 1)" },
-  { "id": "m03-x-kali-akar-bisa", "jenis": "antiturunan", "f": "x*sqrt(x**2 + 5)", "F": "(x**2 + 5)**Rational(3,2)/3" },
-
-  { "id": "m04-x-cos-x", "jenis": "antiturunan", "f": "x*cos(x)", "F": "x*sin(x) + cos(x)" },
-  { "id": "m04-sin", "jenis": "antiturunan", "f": "sin(x)", "F": "-cos(x)" },
-  { "id": "m04-cos", "jenis": "antiturunan", "f": "cos(x)", "F": "sin(x)" },
-  { "id": "m04-sec-kuadrat", "jenis": "antiturunan", "f": "sec(x)**2", "F": "tan(x)" },
-  { "id": "m04-eksponen", "jenis": "antiturunan", "f": "exp(x)", "F": "exp(x)" },
-  { "id": "m04-eksponen-ax", "jenis": "antiturunan", "f": "exp(3*x)", "F": "exp(3*x)/3" },
-  { "id": "m04-x-kuadrat-sin-x", "jenis": "antiturunan", "f": "x**2*sin(x)", "F": "-x**2*cos(x) + 2*x*sin(x) + 2*cos(x)" },
-  { "id": "m04-pasangan-x-kuadrat", "jenis": "antiturunan", "f": "x**2", "F": "x**3/3" },
-  { "id": "m04-pasangan-x-pangkat-min2", "jenis": "antiturunan", "f": "x**(-2)", "F": "-1/x" },
-
-  { "id": "m05-riemann-kanan-7", "jenis": "riemann", "f": "x", "a": "0", "b": "7", "n": 7, "sampel": "kanan", "jawaban": "28" },
-  { "id": "m05-riemann-kiri-7", "jenis": "riemann", "f": "x", "a": "0", "b": "7", "n": 7, "sampel": "kiri", "jawaban": "21" },
-  { "id": "m05-luas-segitiga", "jenis": "nilai", "ekspresi": "Rational(1,2)*7*7", "jawaban": "49/2" },
-  { "id": "m05-turun-kiri", "jenis": "riemann", "f": "4 - x**2", "a": "0", "b": "2", "n": 4, "sampel": "kiri", "jawaban": "25/4" },
-  { "id": "m05-turun-kanan", "jenis": "riemann", "f": "4 - x**2", "a": "0", "b": "2", "n": 4, "sampel": "kanan", "jawaban": "17/4" },
-  { "id": "m05-turun-sebenarnya", "jenis": "tentu", "f": "4 - x**2", "a": "0", "b": "2", "jawaban": "16/3" },
-
-  { "id": "m06-nol-sampai-tujuh", "jenis": "tentu", "f": "x", "a": "0", "b": "7", "jawaban": "49/2" },
-  { "id": "m06-pecah-kiri", "jenis": "tentu", "f": "x**3 - 4*x", "a": "-2", "b": "0", "jawaban": "4" },
-  { "id": "m06-pecah-kanan", "jenis": "tentu", "f": "x**3 - 4*x", "a": "0", "b": "2", "jawaban": "-4" },
-  { "id": "m06-pecah-total", "jenis": "tentu", "f": "x**3 - 4*x", "a": "-2", "b": "2", "jawaban": "0" },
-  { "id": "m06-widget-x-nol-tiga", "jenis": "tentu", "f": "x", "a": "0", "b": "3", "jawaban": "9/2" },
-
-  { "id": "m07-satu-sampai-tiga", "jenis": "tentu", "f": "x**2", "a": "1", "b": "3", "jawaban": "26/3" },
-  { "id": "m07-batas-atas", "jenis": "nilai", "ekspresi": "3**3/3", "jawaban": "9" },
-  { "id": "m07-selisih", "jenis": "nilai", "ekspresi": "9 - Rational(1,3)", "jawaban": "26/3" },
-
-  { "id": "m08-tiga-suku-tentu", "jenis": "tentu", "f": "x**2 - 3*x + 2", "a": "0", "b": "3", "jawaban": "3/2" },
-  { "id": "m08-batas-atas-tiga", "jenis": "nilai", "ekspresi": "3**3/3 - Rational(3,2)*3**2 + 2*3", "jawaban": "3/2" },
-  { "id": "m08-substitusi-tentu", "jenis": "tentu", "f": "x**2/sqrt(x**3 + 1)", "a": "0", "b": "2", "jawaban": "4/3" },
-  { "id": "m08-substitusi-hasil", "jenis": "nilai", "ekspresi": "Rational(2,3)*(3 - 1)", "jawaban": "4/3" },
-
-  { "id": "m09-akar-x2-4x", "jenis": "akar", "f": "x**2 - 4*x", "a": "0", "b": "6", "jawaban": ["0", "4"] },
-  { "id": "m09-bawah-sumbu", "jenis": "tentu", "f": "x**2 - 4*x", "a": "0", "b": "4", "jawaban": "-32/3" },
-  { "id": "m09-atas-sumbu", "jenis": "tentu", "f": "x**2 - 4*x", "a": "4", "b": "6", "jawaban": "32/3" },
-  { "id": "m09-integral-nol", "jenis": "tentu", "f": "x**2 - 4*x", "a": "0", "b": "6", "jawaban": "0" },
-  { "id": "m09-luas-sebenarnya", "jenis": "luas", "f": "x**2 - 4*x", "a": "0", "b": "6", "jawaban": "64/3" },
-  { "id": "m09-akar-kubik", "jenis": "akar", "f": "x**3 - 2*x**2 - 5*x + 6", "a": "-2", "b": "3", "jawaban": ["-2", "1", "3"] },
-  { "id": "m09-kubik-bagian-kiri", "jenis": "tentu", "f": "x**3 - 2*x**2 - 5*x + 6", "a": "-2", "b": "1", "jawaban": "63/4" },
-  { "id": "m09-kubik-bagian-kanan", "jenis": "tentu", "f": "x**3 - 2*x**2 - 5*x + 6", "a": "1", "b": "3", "jawaban": "-16/3" },
-  { "id": "m09-kubik-integral", "jenis": "tentu", "f": "x**3 - 2*x**2 - 5*x + 6", "a": "-2", "b": "3", "jawaban": "125/12" },
-  { "id": "m09-kubik-luas", "jenis": "luas", "f": "x**3 - 2*x**2 - 5*x + 6", "a": "-2", "b": "3", "jawaban": "253/12" },
-  { "id": "m09-contoh-buku-3-13", "jenis": "tentu", "f": "x*sqrt(x**2 + 5)", "a": "0", "b": "2", "jawaban": "(27 - 5*sqrt(5))/3" },
-
-  { "id": "m10-titik-potong", "jenis": "akar", "f": "x**2 - (x + 2)", "a": "-5", "b": "5", "jawaban": ["-1", "2"] },
-  { "id": "m10-luas-parabola-garis", "jenis": "luas_antara", "atas": "x + 2", "bawah": "x**2", "a": "-1", "b": "2", "jawaban": "9/2" },
-  { "id": "m10-akar-kubik-garis", "jenis": "akar", "f": "x**3 - x", "a": "-3", "b": "3", "jawaban": ["-1", "0", "1"] },
-  { "id": "m10-bagian-kiri", "jenis": "luas_antara", "atas": "x**3", "bawah": "x", "a": "-1", "b": "0", "jawaban": "1/4" },
-  { "id": "m10-bagian-kanan", "jenis": "luas_antara", "atas": "x", "bawah": "x**3", "a": "0", "b": "1", "jawaban": "1/4" },
-  { "id": "m10-jumlah-dua-bagian", "jenis": "nilai", "ekspresi": "Rational(1,4) + Rational(1,4)", "jawaban": "1/2" },
-
-  { "id": "m11-penjualan-ponsel", "jenis": "tentu", "f": "3000*sqrt(x) + 1000", "a": "0", "b": "4", "jawaban": "20000" },
-  { "id": "m11-penjualan-langkah", "jenis": "nilai", "ekspresi": "2000*4**Rational(3,2) + 1000*4", "jawaban": "20000" },
-  { "id": "m11-jarak-dari-kecepatan", "jenis": "tentu", "peubah": "t", "f": "12 - 2*t", "a": "0", "b": "5", "jawaban": "35" },
-  { "id": "m11-jarak-lewat-trapesium", "jenis": "nilai", "ekspresi": "Rational(12 + 2, 2)*5", "jawaban": "35" },
-  { "id": "m11-usaha-pegas", "jenis": "tentu", "f": "x**2 + 2*x", "a": "1", "b": "3", "jawaban": "50/3" },
-  { "id": "m11-usaha-batas-atas", "jenis": "nilai", "ekspresi": "3**3/3 + 3**2", "jawaban": "18" },
-  { "id": "m11-penghematan-empat-tahun", "jenis": "tentu", "f": "4000*x + 1000", "a": "0", "b": "4", "jawaban": "36000" },
-  { "id": "m11-penghematan-akar", "jenis": "akar", "peubah": "t", "f": "2*t**2 + t - 36", "a": "0", "b": "10", "jawaban": ["4"] }
+  {
+    "id": "m01-antiturunan-laju",
+    "jenis": "antiturunan",
+    "f": "2*x + 1",
+    "F": "x**2 + x"
+  },
+  {
+    "id": "m01-antiturunan-plus-7",
+    "jenis": "antiturunan",
+    "f": "2*x + 1",
+    "F": "x**2 + x + 7"
+  },
+  {
+    "id": "m01-antiturunan-minus-3",
+    "jenis": "antiturunan",
+    "f": "2*x + 1",
+    "F": "x**2 + x - 3"
+  },
+  {
+    "id": "m01-total-12-bulan",
+    "jenis": "nilai",
+    "ekspresi": "12**2 + 12",
+    "jawaban": "156"
+  },
+  {
+    "id": "m01-total-lewat-luas",
+    "jenis": "tentu",
+    "f": "2*x + 1",
+    "a": "0",
+    "b": "12",
+    "jawaban": "156"
+  },
+  {
+    "id": "m02-pangkat-lima",
+    "jenis": "antiturunan",
+    "f": "x**5",
+    "F": "x**6/6"
+  },
+  {
+    "id": "m02-pangkat-dua",
+    "jenis": "antiturunan",
+    "f": "x**2",
+    "F": "x**3/3"
+  },
+  {
+    "id": "m02-tiga-suku",
+    "jenis": "antiturunan",
+    "f": "3*x**2 - 4*x + 1",
+    "F": "x**3 - 2*x**2 + x"
+  },
+  {
+    "id": "m02-sifat-3-1",
+    "jenis": "antiturunan",
+    "f": "1",
+    "F": "x"
+  },
+  {
+    "id": "m03-tebakan-meleset",
+    "jenis": "antiturunan",
+    "f": "2*(2*x + 1)**5",
+    "F": "(2*x + 1)**6/6"
+  },
+  {
+    "id": "m03-jawaban-benar",
+    "jenis": "antiturunan",
+    "f": "(2*x + 1)**5",
+    "F": "(2*x + 1)**6/12"
+  },
+  {
+    "id": "m03-contoh-buku-3-3",
+    "jenis": "antiturunan",
+    "f": "2*x*(x**2 + 5)**4",
+    "F": "(x**2 + 5)**5/5"
+  },
+  {
+    "id": "m03-x-kali-akar-bisa",
+    "jenis": "antiturunan",
+    "f": "x*sqrt(x**2 + 5)",
+    "F": "(x**2 + 5)**Rational(3,2)/3"
+  },
+  {
+    "id": "m04-x-cos-x",
+    "jenis": "antiturunan",
+    "f": "x*cos(x)",
+    "F": "x*sin(x) + cos(x)"
+  },
+  {
+    "id": "m04-sin",
+    "jenis": "antiturunan",
+    "f": "sin(x)",
+    "F": "-cos(x)"
+  },
+  {
+    "id": "m04-cos",
+    "jenis": "antiturunan",
+    "f": "cos(x)",
+    "F": "sin(x)"
+  },
+  {
+    "id": "m04-sec-kuadrat",
+    "jenis": "antiturunan",
+    "f": "sec(x)**2",
+    "F": "tan(x)"
+  },
+  {
+    "id": "m04-eksponen",
+    "jenis": "antiturunan",
+    "f": "exp(x)",
+    "F": "exp(x)"
+  },
+  {
+    "id": "m04-eksponen-ax",
+    "jenis": "antiturunan",
+    "f": "exp(3*x)",
+    "F": "exp(3*x)/3"
+  },
+  {
+    "id": "m04-x-kuadrat-sin-x",
+    "jenis": "antiturunan",
+    "f": "x**2*sin(x)",
+    "F": "-x**2*cos(x) + 2*x*sin(x) + 2*cos(x)"
+  },
+  {
+    "id": "m04-pasangan-x-kuadrat",
+    "jenis": "antiturunan",
+    "f": "x**2",
+    "F": "x**3/3"
+  },
+  {
+    "id": "m04-pasangan-x-pangkat-min2",
+    "jenis": "antiturunan",
+    "f": "x**(-2)",
+    "F": "-1/x"
+  },
+  {
+    "id": "m05-riemann-kanan-7",
+    "jenis": "riemann",
+    "f": "x",
+    "a": "0",
+    "b": "7",
+    "n": 7,
+    "sampel": "kanan",
+    "jawaban": "28"
+  },
+  {
+    "id": "m05-riemann-kiri-7",
+    "jenis": "riemann",
+    "f": "x",
+    "a": "0",
+    "b": "7",
+    "n": 7,
+    "sampel": "kiri",
+    "jawaban": "21"
+  },
+  {
+    "id": "m05-luas-segitiga",
+    "jenis": "nilai",
+    "ekspresi": "Rational(1,2)*7*7",
+    "jawaban": "49/2"
+  },
+  {
+    "id": "m05-turun-kiri",
+    "jenis": "riemann",
+    "f": "4 - x**2",
+    "a": "0",
+    "b": "2",
+    "n": 4,
+    "sampel": "kiri",
+    "jawaban": "25/4"
+  },
+  {
+    "id": "m05-turun-kanan",
+    "jenis": "riemann",
+    "f": "4 - x**2",
+    "a": "0",
+    "b": "2",
+    "n": 4,
+    "sampel": "kanan",
+    "jawaban": "17/4"
+  },
+  {
+    "id": "m05-turun-sebenarnya",
+    "jenis": "tentu",
+    "f": "4 - x**2",
+    "a": "0",
+    "b": "2",
+    "jawaban": "16/3"
+  },
+  {
+    "id": "m06-nol-sampai-tujuh",
+    "jenis": "tentu",
+    "f": "x",
+    "a": "0",
+    "b": "7",
+    "jawaban": "49/2"
+  },
+  {
+    "id": "m06-pecah-kiri",
+    "jenis": "tentu",
+    "f": "x**3 - 4*x",
+    "a": "-2",
+    "b": "0",
+    "jawaban": "4"
+  },
+  {
+    "id": "m06-pecah-kanan",
+    "jenis": "tentu",
+    "f": "x**3 - 4*x",
+    "a": "0",
+    "b": "2",
+    "jawaban": "-4"
+  },
+  {
+    "id": "m06-pecah-total",
+    "jenis": "tentu",
+    "f": "x**3 - 4*x",
+    "a": "-2",
+    "b": "2",
+    "jawaban": "0"
+  },
+  {
+    "id": "m06-widget-x-nol-tiga",
+    "jenis": "tentu",
+    "f": "x",
+    "a": "0",
+    "b": "3",
+    "jawaban": "9/2"
+  },
+  {
+    "id": "m07-satu-sampai-tiga",
+    "jenis": "tentu",
+    "f": "x**2",
+    "a": "1",
+    "b": "3",
+    "jawaban": "26/3"
+  },
+  {
+    "id": "m07-batas-atas",
+    "jenis": "nilai",
+    "ekspresi": "3**3/3",
+    "jawaban": "9"
+  },
+  {
+    "id": "m07-selisih",
+    "jenis": "nilai",
+    "ekspresi": "9 - Rational(1,3)",
+    "jawaban": "26/3"
+  },
+  {
+    "id": "m08-tiga-suku-tentu",
+    "jenis": "tentu",
+    "f": "x**2 - 3*x + 2",
+    "a": "0",
+    "b": "3",
+    "jawaban": "3/2"
+  },
+  {
+    "id": "m08-batas-atas-tiga",
+    "jenis": "nilai",
+    "ekspresi": "3**3/3 - Rational(3,2)*3**2 + 2*3",
+    "jawaban": "3/2"
+  },
+  {
+    "id": "m08-substitusi-tentu",
+    "jenis": "tentu",
+    "f": "x**2/sqrt(x**3 + 1)",
+    "a": "0",
+    "b": "2",
+    "jawaban": "4/3"
+  },
+  {
+    "id": "m08-substitusi-hasil",
+    "jenis": "nilai",
+    "ekspresi": "Rational(2,3)*(3 - 1)",
+    "jawaban": "4/3"
+  },
+  {
+    "id": "m09-akar-x2-4x",
+    "jenis": "akar",
+    "f": "x**2 - 4*x",
+    "a": "0",
+    "b": "6",
+    "jawaban": [
+      "0",
+      "4"
+    ]
+  },
+  {
+    "id": "m09-bawah-sumbu",
+    "jenis": "tentu",
+    "f": "x**2 - 4*x",
+    "a": "0",
+    "b": "4",
+    "jawaban": "-32/3"
+  },
+  {
+    "id": "m09-atas-sumbu",
+    "jenis": "tentu",
+    "f": "x**2 - 4*x",
+    "a": "4",
+    "b": "6",
+    "jawaban": "32/3"
+  },
+  {
+    "id": "m09-integral-nol",
+    "jenis": "tentu",
+    "f": "x**2 - 4*x",
+    "a": "0",
+    "b": "6",
+    "jawaban": "0"
+  },
+  {
+    "id": "m09-luas-sebenarnya",
+    "jenis": "luas",
+    "f": "x**2 - 4*x",
+    "a": "0",
+    "b": "6",
+    "jawaban": "64/3"
+  },
+  {
+    "id": "m09-akar-kubik",
+    "jenis": "akar",
+    "f": "x**3 - 2*x**2 - 5*x + 6",
+    "a": "-2",
+    "b": "3",
+    "jawaban": [
+      "-2",
+      "1",
+      "3"
+    ]
+  },
+  {
+    "id": "m09-kubik-bagian-kiri",
+    "jenis": "tentu",
+    "f": "x**3 - 2*x**2 - 5*x + 6",
+    "a": "-2",
+    "b": "1",
+    "jawaban": "63/4"
+  },
+  {
+    "id": "m09-kubik-bagian-kanan",
+    "jenis": "tentu",
+    "f": "x**3 - 2*x**2 - 5*x + 6",
+    "a": "1",
+    "b": "3",
+    "jawaban": "-16/3"
+  },
+  {
+    "id": "m09-kubik-integral",
+    "jenis": "tentu",
+    "f": "x**3 - 2*x**2 - 5*x + 6",
+    "a": "-2",
+    "b": "3",
+    "jawaban": "125/12"
+  },
+  {
+    "id": "m09-kubik-luas",
+    "jenis": "luas",
+    "f": "x**3 - 2*x**2 - 5*x + 6",
+    "a": "-2",
+    "b": "3",
+    "jawaban": "253/12"
+  },
+  {
+    "id": "m09-contoh-buku-3-13",
+    "jenis": "tentu",
+    "f": "x*sqrt(x**2 + 5)",
+    "a": "0",
+    "b": "2",
+    "jawaban": "(27 - 5*sqrt(5))/3"
+  },
+  {
+    "id": "m10-titik-potong",
+    "jenis": "akar",
+    "f": "x**2 - (x + 2)",
+    "a": "-5",
+    "b": "5",
+    "jawaban": [
+      "-1",
+      "2"
+    ]
+  },
+  {
+    "id": "m10-luas-parabola-garis",
+    "jenis": "luas_antara",
+    "atas": "x + 2",
+    "bawah": "x**2",
+    "a": "-1",
+    "b": "2",
+    "jawaban": "9/2"
+  },
+  {
+    "id": "m10-akar-kubik-garis",
+    "jenis": "akar",
+    "f": "x**3 - x",
+    "a": "-3",
+    "b": "3",
+    "jawaban": [
+      "-1",
+      "0",
+      "1"
+    ]
+  },
+  {
+    "id": "m10-bagian-kiri",
+    "jenis": "luas_antara",
+    "atas": "x**3",
+    "bawah": "x",
+    "a": "-1",
+    "b": "0",
+    "jawaban": "1/4"
+  },
+  {
+    "id": "m10-bagian-kanan",
+    "jenis": "luas_antara",
+    "atas": "x",
+    "bawah": "x**3",
+    "a": "0",
+    "b": "1",
+    "jawaban": "1/4"
+  },
+  {
+    "id": "m10-jumlah-dua-bagian",
+    "jenis": "nilai",
+    "ekspresi": "Rational(1,4) + Rational(1,4)",
+    "jawaban": "1/2"
+  },
+  {
+    "id": "m11-penjualan-ponsel",
+    "jenis": "tentu",
+    "f": "3000*sqrt(x) + 1000",
+    "a": "0",
+    "b": "4",
+    "jawaban": "20000"
+  },
+  {
+    "id": "m11-penjualan-langkah",
+    "jenis": "nilai",
+    "ekspresi": "2000*4**Rational(3,2) + 1000*4",
+    "jawaban": "20000"
+  },
+  {
+    "id": "m11-jarak-dari-kecepatan",
+    "jenis": "tentu",
+    "peubah": "t",
+    "f": "12 - 2*t",
+    "a": "0",
+    "b": "5",
+    "jawaban": "35"
+  },
+  {
+    "id": "m11-jarak-lewat-trapesium",
+    "jenis": "nilai",
+    "ekspresi": "Rational(12 + 2, 2)*5",
+    "jawaban": "35"
+  },
+  {
+    "id": "m11-usaha-pegas",
+    "jenis": "tentu",
+    "f": "x**2 + 2*x",
+    "a": "1",
+    "b": "3",
+    "jawaban": "50/3"
+  },
+  {
+    "id": "m11-usaha-batas-atas",
+    "jenis": "nilai",
+    "ekspresi": "3**3/3 + 3**2",
+    "jawaban": "18"
+  },
+  {
+    "id": "m11-penghematan-empat-tahun",
+    "jenis": "tentu",
+    "f": "4000*x + 1000",
+    "a": "0",
+    "b": "4",
+    "jawaban": "36000"
+  },
+  {
+    "id": "m11-penghematan-akar",
+    "jenis": "akar",
+    "peubah": "t",
+    "f": "2*t**2 + t - 36",
+    "a": "0",
+    "b": "10",
+    "jawaban": [
+      "4"
+    ]
+  }
 ]

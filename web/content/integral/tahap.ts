@@ -70,13 +70,13 @@ export const TAHAP: TahapIntegral[] = [
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Sebuah keluarga mencatat pengeluaran mereka. Yang tercatat bukan totalnya, melainkan seberapa cepat pengeluaran itu bertambah tiap bulan. Pada bulan ke-x, angkanya 2x + 1 juta rupiah per bulan.' },
-      { jenis: 'paragraf', teks: 'Jadi bulan pertama bertambah 3 juta, bulan kedua 5 juta, bulan ketiga 7 juta, dan seterusnya. Pertanyaan keluarga itu sederhana: setahun ini kami menghabiskan berapa?' },
+      { jenis: 'paragraf', teks: 'Angka itu laju pada satu saat, bukan tambahan sebulan penuh. Pada bulan ke-1 lajunya 3 juta per bulan, pada bulan ke-2 sudah 5 juta per bulan, pada bulan ke-3 sudah 7 juta per bulan, dan terus naik di antaranya. Pertanyaan keluarga itu sederhana: setahun ini kami menghabiskan berapa?' },
       { jenis: 'sorot', teks: 'Yang dipegang adalah lajunya. Yang dicari adalah jumlahnya. Seluruh materi ini soal perjalanan dari laju kembali ke jumlah.' },
 
       { jenis: 'sesi', judul: 'Jalan pertama: jumlahnya terlihat sebagai luas' },
       { jenis: 'paragraf', teks: 'Gambar grafik lajunya, dengan bulan pada sumbu mendatar dan juta rupiah per bulan pada sumbu tegak. Untuk satu bulan saja, pengeluarannya adalah laju dikali lama waktu, dan itu persis luas sebuah persegi panjang setinggi laju dan selebar satu bulan.' },
-      { jenis: 'paragraf', teks: 'Kalau tiap bulan dibuatkan persegi panjangnya, lalu semua luasnya dijumlahkan, yang didapat adalah total setahun. Menjumlahkan potongan-potongan itu sama saja dengan mengukur luas daerah di bawah grafik lajunya.' },
-      { jenis: 'paragraf', teks: 'Buku Matematika Tingkat Lanjut Kelas XII membuka bab ini dengan cara itu, memakai potongan berbentuk trapesium supaya tepi miringnya tertutup rapi. Cara mengukurnya kita rapikan nanti; yang penting sekarang adalah gagasannya.' },
+      { jenis: 'paragraf', teks: 'Kalau tiap bulan dibuatkan persegi panjangnya, lalu semua luasnya dijumlahkan, yang didapat sudah dekat dengan total setahun. Baru dekat, belum tepat: laju di dalam satu bulan tidak benar-benar tetap, sedangkan persegi panjang menganggapnya tetap. Menjumlahkan potongan-potongan itu sama saja dengan mengukur luas daerah di bawah grafik lajunya.' },
+      { jenis: 'paragraf', teks: 'Buku Matematika Tingkat Lanjut Kelas XII membuka bab ini dengan cara itu, memakai potongan berbentuk trapesium supaya tepi miringnya tertutup rapi. Untuk laju yang grafiknya garis lurus seperti ini, trapesium menutupinya tanpa sisa sedikit pun, jadi hasilnya tepat. Cara mengukur yang berlaku untuk kurva apa pun kita rapikan nanti.' },
       { jenis: 'sorot', teks: 'Kalau yang Anda punya adalah laju, maka jumlahnya adalah luas daerah di bawah grafik laju itu.' },
 
       { jenis: 'sesi', judul: 'Jalan kedua: mesin turunan dijalankan mundur' },
@@ -325,20 +325,21 @@ export const TAHAP: TahapIntegral[] = [
       },
       {
         jenis: 'contoh',
-        judul: 'Contoh 3, bentuk akar',
+        judul: 'Contoh 3, bentuk akar yang faktornya juga kurang',
         baris: [
-          'soal        antiturunan dari 2x dibagi akar (x² + 1)',
-          'pilih u     u = x² + 1, maka du = 2x dx',
-          'tulis ulang soalnya menjadi u pangkat negatif setengah, dikali du',
-          'kerjakan    pangkat naik jadi setengah, bagi setengah, hasilnya 2 akar u',
-          'kembalikan  ganti u dengan x² + 1',
+          'soal        antiturunan dari x kali akar (x² + 5)',
+          'pilih u     u = x² + 5, maka du = 2x dx',
+          'cocokkan    soal punya x dx, itu setengah dari du, jadi seluruhnya dikali setengah',
+          'tulis ulang akar u sama dengan u pangkat setengah',
+          'kerjakan    pangkat naik jadi tiga per dua, bagi tiga per dua, lalu dikali setengah tadi',
+          'kembalikan  ganti u dengan x² + 5',
         ],
-        simpul: 'Hasilnya 2 akar (x² + 1), ditambah C. Turunkan hasil itu dan Anda kembali ke soal semula.',
+        simpul: 'Hasilnya (x² + 5) pangkat tiga per dua, dibagi 3, ditambah C. Contoh ini menggabungkan dua kesulitan sekaligus: isinya bukan bentuk sederhana, dan faktornya kurang setengah.',
       },
 
       { jenis: 'sesi', judul: 'Kapan substitusi tidak bisa dipakai' },
       { jenis: 'paragraf', teks: 'Substitusi bukan alat yang cocok untuk semua bentuk. Ia hanya bekerja kalau sisa soal, setelah bagian u diambil, memang berbentuk du atau kelipatan angkanya.' },
-      { jenis: 'paragraf', teks: 'Ambil soal antiturunan dari x kali akar (x² + 5). Pilih u sama dengan x² + 5, maka du sama dengan 2x dx. Di soal ada x dx, dan itu setengah dari du. Kekurangannya cuma sebuah angka, jadi bisa disesuaikan dan substitusinya berhasil.' },
+      { jenis: 'paragraf', teks: 'Contoh 3 tadi berhasil karena yang kurang cuma sebuah angka, yaitu setengah. Angka boleh dipindah-pindah keluar masuk tanda integral, jadi kekurangan seperti itu selalu bisa ditambal.' },
       { jenis: 'paragraf', teks: 'Sekarang ganti soalnya menjadi antiturunan dari akar (x² + 5) saja, tanpa x di depan. Dengan u yang sama, du tetap menuntut 2x dx, sementara yang tersedia hanya dx. Yang kurang memuat x, dan x tidak boleh dipindah-pindah seperti angka. Substitusi berhenti di situ, dan bentuk seperti itu tidak dibahas di SMA.' },
       { jenis: 'sorot', teks: 'Kekurangan berupa angka boleh diperbaiki. Kekurangan yang memuat x tidak.' },
       { jenis: 'paragraf', teks: 'Materi berikutnya menambah dua kelompok bentuk lagi, yaitu perkalian dua jenis fungsi yang berbeda, serta fungsi trigonometri dan eksponensial.' },
@@ -399,7 +400,7 @@ export const TAHAP: TahapIntegral[] = [
           'pilih         u = x, maka du = dx',
           'pilih         dv = cos x dx, maka v = sin x',
           'pasang        x kali sin x, dikurangi antiturunan sin x dx',
-          'sisanya mudah antiturunan sin x adalah -cos x, jadi dikurangi -cos x menjadi + cos x',
+          'sisanya         antiturunan sin x adalah -cos x, jadi dikurangi -cos x menjadi + cos x',
         ],
         simpul: 'Hasilnya x sin x + cos x, ditambah C. Turunkan hasil itu: sin x + x cos x - sin x, yang kembali menjadi x cos x.',
       },
@@ -465,16 +466,16 @@ export const TAHAP: TahapIntegral[] = [
       'Daerah bertepi lengkung diukur dengan menutupinya memakai persegi panjang yang luasnya bisa dihitung.',
       'Selang dibagi menjadi n bagian, dan tinggi tiap persegi panjang diambil dari satu titik sampel.',
       'Makin banyak bagiannya, makin kecil selisihnya terhadap luas sebenarnya.',
-      'Titik sampel kiri dan kanan mengapit dari dua sisi, tetapi mana yang lebih besar tergantung naik turunnya kurva.',
+      'Pada kurva yang naik saja atau turun saja, titik sampel kiri dan kanan mengapit luas sebenarnya dari dua sisi; mana yang lebih besar tergantung naik atau turunnya.',
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Empat materi terakhir seluruhnya soal membalik turunan. Sekarang kita tinggalkan itu sebentar dan mulai dari tempat yang sama sekali lain: mengukur luas.' },
-      { jenis: 'paragraf', teks: 'Luas persegi panjang mudah, tinggal panjang dikali lebar. Luas segitiga dan trapesium juga sudah punya rumus. Tetapi daerah di bawah sebuah kurva tidak punya rumus siap pakai, sebab tepi atasnya melengkung dan tidak ada dua sisi yang bisa langsung dikalikan.' },
+      { jenis: 'paragraf', teks: 'Luas persegi panjang sudah punya rumus, tinggal panjang dikali lebar. Luas segitiga dan trapesium juga sudah punya rumus. Tetapi daerah di bawah sebuah kurva tidak punya rumus siap pakai, sebab tepi atasnya melengkung dan tidak ada dua sisi yang bisa langsung dikalikan.' },
       { jenis: 'sorot', teks: 'Kalau bentuknya tidak bisa diukur langsung, tutupi dengan bentuk yang bisa. Itu gagasan seluruh materi ini.' },
 
       { jenis: 'sesi', judul: 'Menutupi daerah dengan persegi panjang' },
       { jenis: 'paragraf', teks: 'Ambil daerah di bawah kurva pada selang dari a sampai b. Potong selang itu menjadi n bagian yang sama lebar. Pembagian seperti itu namanya partisi, dan lebar tiap bagiannya kita sebut delta x.' },
-      { jenis: 'paragraf', teks: 'Di tiap bagian, dirikan sebuah persegi panjang. Lebarnya sudah jelas, yaitu delta x. Tingginya diambil dari nilai fungsi di satu titik yang dipilih di bagian itu, dan titik pilihan itu namanya titik sampel.' },
+      { jenis: 'paragraf', teks: 'Di tiap bagian, dirikan sebuah persegi panjang. Lebarnya delta x. Tingginya diambil dari nilai fungsi di satu titik yang dipilih di bagian itu, dan titik pilihan itu namanya titik sampel.' },
       { jenis: 'paragraf', teks: 'Jumlahkan luas semua persegi panjang tadi. Hasilnya disebut jumlahan Riemann, mengikuti nama Bernhard Riemann yang merapikan gagasan ini pada abad ke-19. Buku membahasnya di halaman 178 sampai 183.' },
       {
         jenis: 'poin',
@@ -596,7 +597,7 @@ export const TAHAP: TahapIntegral[] = [
           'Pemecahan selang - untuk c di antara a dan b, hasil dari a sampai b sama dengan hasil dari a sampai c ditambah hasil dari c sampai b',
         ],
       },
-      { jenis: 'paragraf', teks: 'Sifat pemecahan selang adalah yang paling sering dipakai nanti, dan artinya paling mudah dilihat: memotong sebuah daerah menjadi dua bagian tidak menambah atau mengurangi luasnya.' },
+      { jenis: 'paragraf', teks: 'Sifat pemecahan selang adalah yang paling sering dipakai nanti, dan artinya bisa dilihat langsung pada gambar: memotong sebuah daerah menjadi dua bagian tidak menambah atau mengurangi luasnya.' },
 
       {
         jenis: 'coba',
@@ -605,7 +606,7 @@ export const TAHAP: TahapIntegral[] = [
           'Pilih kurva x pada selang 0 sampai 3. Panel menampilkan nilai bagian kiri, bagian kanan, dan seluruhnya',
           'Geser c ke mana pun di antara batasnya. Kedua bagian berubah, tetapi jumlahnya tidak pernah berubah',
           'Geser c sampai menyentuh batas kiri. Salah satu bagian menjadi nol, sesuai sifat batas sama',
-          'Sekarang ganti kurvanya menjadi x pangkat tiga dikurangi 4x pada selang -2 sampai 2, dan perhatikan daerah yang berwarna merah',
+          'Sekarang ganti kurvanya menjadi x pangkat tiga dikurangi 4x pada selang -2 sampai 2. Angka di panel menjadi nol, padahal di layar jelas ada daerah yang terwarnai',
         ],
       },
 
@@ -652,7 +653,7 @@ export const TAHAP: TahapIntegral[] = [
 
       { jenis: 'sesi', judul: 'Luas yang dibiarkan tumbuh' },
       { jenis: 'paragraf', teks: 'Selama ini batas atas selalu sebuah angka tetap. Sekarang biarkan batas atasnya bergerak. Sebut A(x) luas bertanda dari a sampai x, dengan x bisa digeser ke kanan.' },
-      { jenis: 'paragraf', teks: 'A bukan bilangan lagi, melainkan fungsi. Untuk tiap letak x ada satu nilai luas, dan kalau x digeser ke kanan, luasnya bertambah. Fungsi seperti ini disebut fungsi luas.' },
+      { jenis: 'paragraf', teks: 'A bukan bilangan lagi, melainkan fungsi. Untuk tiap letak x ada satu nilai luas. Kalau x digeser ke kanan, A bertambah selama kurvanya berada di atas sumbu; kalau kurvanya sedang di bawah sumbu, A justru berkurang, sesuai luas bertanda di Materi 06. Fungsi seperti ini disebut fungsi luas.' },
       { jenis: 'paragraf', teks: 'Sekarang pertanyaan kuncinya. Kalau x digeser sedikit ke kanan, seberapa cepat A bertambah? Coba tebak dulu sebelum membaca lanjutannya, sambil membayangkan kurva yang tinggi dan kurva yang rendah.' },
 
       { jenis: 'sesi', judul: 'Pita tipis di ujung kanan' },
@@ -759,17 +760,6 @@ export const TAHAP: TahapIntegral[] = [
         simpul: 'Hasilnya 3 per 2, yaitu 1,5. Angka positif walaupun sebagian kurvanya berada di bawah sumbu, sebab bagian yang di atas lebih besar.',
       },
 
-      {
-        jenis: 'coba',
-        teks: 'Alat interaktifnya membuka penyelesaian baris demi baris, dan tiap baris menyebutkan sifat mana yang dipakai.',
-        langkah: [
-          'Pilih soal pertama, lalu naikkan langkahnya satu per satu. Jangan langsung ke akhir',
-          'Pada tiap baris, tutup layar sebentar dan tebak baris berikutnya sebelum membukanya',
-          'Pilih soal yang memakai substitusi. Perhatikan baris tempat batas lama dan batas baru ditulis berdampingan',
-          'Ulangi soal itu dengan cara yang satunya, yaitu kembali ke x dulu. Jawabannya sama, jalannya beda',
-        ],
-      },
-
       { jenis: 'sesi', judul: 'Kalau soalnya perlu disubstitusi' },
       { jenis: 'paragraf', teks: 'Di Materi 03 substitusi selalu berakhir dengan mengembalikan u menjadi bentuk dalam x. Dengan batas, ada satu pilihan tambahan: batasnya sekalian diganti ke dalam u, sehingga tidak perlu kembali ke x sama sekali.' },
       {
@@ -787,6 +777,17 @@ export const TAHAP: TahapIntegral[] = [
       },
       { jenis: 'paragraf', teks: 'Cara kedua: kerjakan seperti Materi 03 sampai jawabannya kembali dalam x, baru masukkan batas 0 dan 2. Hasilnya juga 4 per 3.' },
       { jenis: 'sorot', teks: 'Pilih satu cara, lalu selesaikan dengan cara itu. Yang berbahaya adalah mencampur keduanya: rumus sudah dalam u tetapi batasnya masih batas x.' },
+
+      {
+        jenis: 'coba',
+        teks: 'Alat interaktifnya membuka penyelesaian baris demi baris, dan tiap baris menyebutkan sifat mana yang dipakai.',
+        langkah: [
+          'Pilih soal pertama, lalu naikkan langkahnya satu per satu. Jangan langsung ke akhir',
+          'Pada tiap baris, tutup layar sebentar dan tebak baris berikutnya sebelum membukanya',
+          'Pilih soal yang memakai substitusi. Perhatikan baris tempat batas lama dan batas baru ditulis berdampingan',
+          'Ulangi soal itu dengan cara yang satunya, yaitu kembali ke x dulu. Jawabannya sama, jalannya beda',
+        ],
+      },
       { jenis: 'paragraf', teks: 'Sampai sini kita sudah bisa menghitung. Tiga materi terakhir memakainya untuk menjawab pertanyaan yang benar-benar ditanyakan orang, dan yang pertama adalah pertanyaan yang paling sering dijawab keliru.' },
     ],
     seringKeliru: {
@@ -823,7 +824,7 @@ export const TAHAP: TahapIntegral[] = [
           'Memotong sumbu - pecah selangnya di titik potong, hitung tiap bagian, jadikan positif satu per satu, baru dijumlahkan',
         ],
       },
-      { jenis: 'paragraf', teks: 'Titik potong dengan sumbu dicari dengan menyamakan fungsinya dengan nol. Titik itulah tempat kurva berpindah dari atas ke bawah atau sebaliknya, jadi di situlah selang harus dipotong.' },
+      { jenis: 'paragraf', teks: 'Titik potong dengan sumbu dicari dengan menyamakan fungsinya dengan nol. Di titik itulah kurva bisa berpindah dari atas ke bawah atau sebaliknya. Kadang ia cuma menyentuh sumbu lalu kembali ke sisi yang sama, dan memotong di situ tetap aman: bagian yang terbentuk sekadar dua potong yang tandanya sama.' },
       { jenis: 'sorot', teks: 'Positifkan dulu tiap bagian, baru jumlahkan. Kalau dijumlahkan dulu, dua bagian yang berlawanan tanda akan saling memakan.' },
 
       { jenis: 'sesi', judul: 'Contoh yang memperlihatkan bedanya paling tajam' },
