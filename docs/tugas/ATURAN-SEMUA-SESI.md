@@ -196,7 +196,8 @@ yang dulu adalah jatah sesi lain. Itu sumber tabrakannya.
 | MATRA-STATISTIKA | 3012 |
 | MATRA-RUANG-TIGA-DIMENSI | 3013 |
 | MATRA-DESAIN-UI-UX | 3014 |
-| MANTRA-TURUNAN-INTEGRAL (sejak 6 Sep 2026) | 3015 |
+| MANTRA-TURUNAN (sejak 7 Sep 2026) | 3015 |
+| MANTRA-INTEGRAL (sejak 7 Sep 2026) | 3016 |
 | MATRA-MASTER | 3000 |
 
 Jalankan SELALU dengan port tegas: `cd web && npm run dev -- -p <portmu>`.

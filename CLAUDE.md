@@ -37,8 +37,10 @@ Situs belajar matematika SMA: **animasi Manim** (menjelaskan *kenapa*) + **widge
   vektor, ruang 3D, statistika, transformasi geometri (⭐ = unggulan); Turunan dan
   Integral (Kelas 12) disetujui ARYA 5 Sep 2026, rancangannya
   `docs/superpowers/specs/2026-09-06-{turunan,integral}-alur-belajar.md`,
-  dikerjakan sesi MANTRA-TURUNAN di worktree
-  `materi-turunan-b8c515` (cabang `sesi/turunan-materi`, port 3015), tugasnya `docs/tugas/MANTRA-TURUNAN-INTEGRAL.md`. Transformasi geometri ditambahkan ARYA
+  dikerjakan dua sesi sejak 7 Sep: MANTRA-TURUNAN (worktree
+  `materi-turunan-b8c515`, cabang `sesi/turunan-materi`, port 3015) dan
+  MANTRA-INTEGRAL (worktree `integral-folder-branch-setup-05863c`, cabang
+  `sesi/integral-materi`, port 3016), tugasnya `docs/tugas/MANTRA-TURUNAN-INTEGRAL.md`. Transformasi geometri ditambahkan ARYA
   3 Sep 2026 dan dikerjakan di worktree `mantra-transformasi-geometri`.
   Topik baru WAJIB didaftarkan di TIGA tempat: `web/content/topik.ts`,
   `web/content/daftar-isi.ts`, dan `web/content/subbab.ts` (pemetaan bab dan
