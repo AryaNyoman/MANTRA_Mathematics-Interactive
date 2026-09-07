@@ -148,15 +148,23 @@ class IntegralRiemann(AdeganMatra):
         # Rumus di dalam gambar lewat `rumus()`, BUKAN `sinema.label()`:
         # `label` meloloskan tanda dolar sebagai huruf biasa, jadi dolarnya ikut
         # tercetak di layar. `cek_kode.py` menolaknya, dan itu benar.
-        l_dx = rumus(r"\Delta x", 28, SOROT).next_to(
-            bidang.c2p(0.2 + 6.8 * 0.5 / 4, 0), DOWN, buff=0.30)
+        #
+        # DITARUH DI ATAS SUMBU, BUKAN DI BAWAHNYA. Versi pertama menempatkannya
+        # 0,30 satuan di bawah sumbu, dan di situ persis angka sumbu x berada.
+        # `qc` TIDAK memeriksa tulisan dunia lawan angka sumbu (temuan sesi
+        # Turunan pada video 02-nya: label "jarak h" terbaca "1 jarak h2 = 0,51"),
+        # jadi tabrakan itu akan lolos gerbang dan baru ketahuan dari lembar
+        # kontak. Lebih murah dihindari daripada ditemukan.
+        lebar_bagi = Line(bidang.c2p(0.2, 0.45), bidang.c2p(0.2 + 6.8 / 4, 0.45))
+        lebar_bagi.set_stroke(SOROT, 3.0)
+        l_dx = rumus(r"\Delta x", 28, SOROT).next_to(lebar_bagi, UP, buff=0.12)
         with sinema.babak(self, "potong", DURASI) as b:
             b.main(FadeOut(satu), run_time=0.5)
             b.main(ShowCreation(tanda_x), run_time=1.6)
             b.main(FadeIn(empat, lag_ratio=0.25), run_time=2.4)
             b.tunggu_sampai(sinema.mulai(jam, "lebarnya"))
-            b.main(FadeIn(l_dx), run_time=0.8)
-            b.main(Indicate(l_dx, color=SOROT), run_time=1.0)
+            b.main(ShowCreation(lebar_bagi), FadeIn(l_dx), run_time=1.0)
+            b.main(Indicate(l_dx, color=SOROT), run_time=0.8)
 
         # ---------------------------------------------------------------
         # tinggi: satu titik sampel disorot, tingginya ditarik ke kurva.
@@ -183,7 +191,8 @@ class IntegralRiemann(AdeganMatra):
         k_lurus = kurva(bidang, f_lurus, A, B, warna=TINTA)
         with sinema.babak(self, "contoh", DURASI) as b:
             b.main(FadeOut(empat), FadeOut(daerah), FadeOut(tanda_x), FadeOut(l_dx),
-                   FadeOut(titik), FadeOut(tegak), FadeOut(l_sampel), run_time=0.9)
+                   FadeOut(lebar_bagi), FadeOut(titik), FadeOut(tegak),
+                   FadeOut(l_sampel), run_time=0.9)
             b.main(Transform(k_lengkung, k_lurus), run_time=1.8)
             rum = sinema.lahir_rumus(self, r"f(x) = x", dekat=k_lurus, papan=papan,
                                      b=b, warna=TINTA)
@@ -248,14 +257,31 @@ class IntegralRiemann(AdeganMatra):
         k_turun = kurva(bidang, f_lengkung, 0.0, 2.0, warna=TINTA)
         kiri4 = kotak_riemann(bidang, f_lengkung, 0.0, 2.0, 4, "kiri")
         kanan4 = kotak_riemann(bidang, f_lengkung, 0.0, 2.0, 4, "kanan", warna=AKSEN)
+
+        # BIDANGNYA DIGANTI, BUKAN CUMA KAMERANYA YANG MENDEKAT.
+        # Render pertama GAGAL di sini: `qc` menolak "bidang keluar bingkai,
+        # kanan 8,12 > 6,82" setelah kamera mendekat, dan penolakan itu benar.
+        # Melepas bidang dari daftar pemeriksaan hanya akan membungkam gerbangnya.
+        # Yang benar: pakai bidang seukuran daerah yang memang ditampilkan, jadi
+        # angka sumbunya pun ikut cocok dengan selang [0, 2] yang sedang dibahas.
+        # Kedua bidang memetakan koordinat 1:1 ke layar (`unit_size=1.0` lalu
+        # digeser supaya (0,0) di titik asal), sehingga kurva dan persegi panjang
+        # yang sudah dibangun memakai `bidang` tetap jatuh di tempat yang sama.
+        bidang_kecil = ilustrasi.bidang_bernomor((-0.5, 2.5, 1.0), (-0.5, 4.5, 1.0))
+        pusat_k, tinggi_k = kamera.muat_datar(bidang_kecil, sisa_atas=0.35, sisa_kanan=0.55)
+
         with sinema.babak(self, "turun", DURASI) as b:
             b.main(FadeOut(kanan60), FadeOut(segitiga), FadeOut(k_lengkung), run_time=0.9)
-            b.main(kamera.dekati(frame, bidang.c2p(1.0, 2.0), tinggi=6.4), run_time=2.2)
+            b.main(FadeOut(bidang), FadeIn(bidang_kecil),
+                   kamera.dekati(frame, pusat_k, tinggi=tinggi_k), run_time=2.2)
             b.main(ShowCreation(k_turun), run_time=1.6)
             sinema.ganti_rumus(self, rum, r"f(x) = 4 - x^2", b=b, warna=TINTA, papan=papan)
             b.tunggu_sampai(sinema.mulai(jam, "Kiri enam koma"))
             b.main(FadeIn(kiri4, lag_ratio=0.2), run_time=1.6)
             papan.baris(r"\text{kiri } 6{,}25 \quad \text{kanan } 4{,}25", warna=AKSEN2, b=b)
+        qc.periksa_adegan(self, {"kurva turun": k_turun},
+                          hud={"identitas": ident, "papan": papan.semua()},
+                          dunia={"bidang": bidang_kecil})
 
         # ---------------------------------------------------------------
         # tutup: kiri lawan kanan, dan kesimpulannya.
@@ -270,4 +296,4 @@ class IntegralRiemann(AdeganMatra):
             b.catat(0.8)
         qc.periksa_adegan(self, {"kurva turun": k_turun},
                           hud={"identitas": ident, "papan": papan.semua()},
-                          dunia={"bidang": bidang})
+                          dunia={"bidang": bidang_kecil})
