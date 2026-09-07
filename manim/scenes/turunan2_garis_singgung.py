@@ -92,12 +92,67 @@ def ruas_kemiringan(m, warna, tebal=4.0):
                 P3(b, f(XP) + m * (b - XP))).set_stroke(warna, width=tebal)
 
 
+def alas_dunia(mob, pad_x=0.14, pad_y=0.10):
+    """Alas warna kertas di BELAKANG tulisan yang menumpang di atas kisi.
+
+    KENAPA ADA, DAN KENAPA BUKAN `sinema.alas_hud`
+    Dua percobaan memindahkan blok angka hidup gagal berturut-turut: di kanan
+    bawah ia jatuh ke baris angka sumbu x sehingga terbaca "1 jarak h2 = 0,51",
+    dan di kiri tengah angka sumbu y menyusup di tengahnya menjadi
+    "jarak h 3 = 0,51". Memindahkannya lagi cuma memindahkan cacatnya, sebab
+    bidang bernomor punya angka di KEDUA sumbu dan garis petak di mana-mana.
+
+    Jawaban yang benar sudah ada di perkakas: alas kertas di belakang tulisan
+    (`sinema.alas_hud`, temuan Vektor 4 Sep). Yang dipakai di sini versi
+    DUNIA-nya, sebab `alas_hud` memasang alasnya sebagai benda HUD sedangkan
+    kedua blok ini hidup di dunia dan harus tetap sejajar dengan bidangnya.
+    Kameranya memang tidak bergerak, tetapi menyandarkan kebenaran gambar pada
+    kebetulan itu adalah cara membayar mahal di video berikutnya.
+
+    z-nya sedikit di bawah tulisan dan di atas bidang, jadi ia menutup petak
+    tanpa menutup tulisannya sendiri.
+
+    TINGGI KEDUA BLOK DIPILIH DI ANTARA ANGKA SUMBU, yaitu 3,50 dan 2,50.
+    Pada 3,55 dan 2,95 alasnya menutup angka "3" seluruhnya dan memotong
+    separuh angka "4", dan angka sumbu yang terpotong separuh terbaca seperti
+    kerusakan render, bukan seperti panel yang disengaja. Aturan 9 menuntut
+    sumbu berangka; menutup angkanya dengan alas informasi adalah menghapus
+    yang justru diwajibkan.
+    """
+    r = Rectangle(width=mob.get_width() + 2 * pad_x,
+                  height=mob.get_height() + 2 * pad_y)
+    r.set_fill(LATAR, opacity=1.0).set_stroke(width=0)
+    r.move_to(mob.get_center())
+    r.shift(0.008 * IN)
+    return r
+
+
+def hud_dengan_papan(ident, papan):
+    """Isi `hud=` untuk qc, aman saat panelnya masih KOSONG.
+
+    `PapanRumus.semua()` mengembalikan None selama belum ada satu baris pun,
+    dan qc lalu memanggil `get_family()` pada None sehingga render mati dengan
+    AttributeError. Itu baru muncul setelah "0/0 ?" dipindah keluar dari slot
+    rumus utama, yaitu ketika untuk pertama kalinya ada babak yang panelnya
+    benar-benar kosong. Menuliskan penjagaan ini sekali lebih aman daripada
+    mengingatnya di sebelas tempat.
+    """
+    isi = {"identitas": ident}
+    papan_isi = papan.semua()
+    if papan_isi is not None:
+        isi["papan"] = papan_isi
+    return isi
+
+
 class TurunanGarisSinggung(AdeganMatra):
     def construct(self):
         frame = self.frame
 
+        # Bidangnya DIBUAT sekarang supaya kamera bisa dihitung darinya, tetapi
+        # baru DIPASANG pada babak "soal". Lembar kontak render pertama
+        # memperlihatkan kartu judul duduk di atas garis petak dan angka sumbu;
+        # standar menuntut babak pertama HANYA judul materi.
         bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
-        self.add(bidang)
         pusat, tinggi = kamera.muat_datar(bidang)
         kamera.pasang_awal(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi)
         papan = sinema.PapanRumus(self, ukuran=30, alas=True)
@@ -110,7 +165,7 @@ class TurunanGarisSinggung(AdeganMatra):
                 lama=lama,
             )
             b.catat(lama)
-        qc.periksa_adegan(self, {}, dunia={"bidang": bidang})
+        qc.periksa_adegan(self, {})
 
         # ================= soal: laju rata-rata butuh DUA titik ========== #
         # Dua titik bebas dan tali penghubungnya, belum ada kurva apa pun:
@@ -122,6 +177,7 @@ class TurunanGarisSinggung(AdeganMatra):
         ident = sinema.identitas(self, "1 petak = 1 satuan")
 
         with sinema.babak(self, "soal", DURASI) as b:
+            b.main(FadeIn(bidang), run_time=0.8)
             b.main(FadeIn(d1, scale=0.5), FadeIn(d2, scale=0.5), run_time=0.9)
             b.main(ShowCreation(tali), run_time=1.2)
             b.main(Indicate(tali, color=REDUP), run_time=1.2)
@@ -135,11 +191,19 @@ class TurunanGarisSinggung(AdeganMatra):
                 run_time=1.8,
             )
             b.main(FadeOut(tali), run_time=0.4)
-            nol = sinema.lahir_rumus(
-                self, r"\frac{0}{0}\ ?", dekat=d1, papan=papan, b=b, warna=REDUP,
-            )
+            # "0/0 ?" adalah PERTANYAAN sesaat, bukan rumus yang berlaku
+            # sepanjang video, jadi ia tinggal di dunia dan dibuang setelah
+            # dijawab. Percobaan pertama menaruhnya di slot rumus utama panel
+            # lalu menggantinya dengan f(x) = x^2; lembar kontak menunjukkan
+            # panel MEMULIHKAN "0/0 ?" begitu baris berikutnya ditambahkan,
+            # sehingga video berakhir dengan pertanyaan yang justru sudah
+            # dijawabnya sendiri. Slot utama sekarang diisi sekali saja.
+            tanya = rumus(r"\frac{0}{0}\ ?", 40, REDUP)
+            tanya.move_to(P3(-0.55, 2.35))
+            alas_tanya = alas_dunia(tanya, pad_x=0.20, pad_y=0.16)
+            b.main(FadeIn(alas_tanya), Write(tanya), run_time=1.2)
         qc.periksa_adegan(self, {},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_dengan_papan(ident, papan),
                           dunia={"bidang": bidang})
 
         # ================= kurva: f(x) = x^2 dan titik P ================= #
@@ -150,11 +214,13 @@ class TurunanGarisSinggung(AdeganMatra):
 
         with sinema.babak(self, "kurva", DURASI) as b:
             b.main(FadeOut(d1), FadeOut(d2), run_time=0.5)
-            b.main(ShowCreation(kurva), run_time=max(1.6, DURASI["kurva"] - 4.2))
+            b.main(ShowCreation(kurva), run_time=max(1.4, DURASI["kurva"] - 5.4))
             b.main(FadeIn(titik_p, scale=0.5), FadeIn(l_p), run_time=0.9)
-            sinema.ganti_rumus(self, nol, r"f(x)=x^2", b=b, warna=TINTA)
+            b.main(FadeOut(tanya), FadeOut(alas_tanya), run_time=0.5)
+            sinema.lahir_rumus(self, r"f(x)=x^2", dekat=kurva, papan=papan,
+                               b=b, warna=TINTA)
         qc.periksa_adegan(self, {"kurva": kurva},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_dengan_papan(ident, papan),
                           tulisan={"P": l_p},
                           dunia={"bidang": bidang, "titik P": titik_p})
 
@@ -172,13 +238,33 @@ class TurunanGarisSinggung(AdeganMatra):
         angka_m = sinema.AngkaKoma(0, num_decimal_places=2, font_size=30).set_color(AKSEN2)
         angka_m.add_updater(lambda mob: mob.set_value(
             (f(XP + h.get_value()) - f(XP)) / h.get_value()))
+        # LETAK KEDUA BLOK ANGKA SUDAH DUA KALI SALAH. INI PERCOBAAN KETIGA.
+        #
+        # (2,15 ; 1,30): qc menggagalkan render, sebab pada h = 0,01 titik Q
+        # duduk di (1,01 ; 1,02) dan labelnya menindih blok kemiringan.
+        #
+        # (2,45 ; 0,70) dan (2,45 ; -0,20): qc MELOLOSKANNYA, tetapi lembar
+        # kontak memperlihatkan blok "jarak h" jatuh tepat di baris angka sumbu
+        # x sehingga terbaca "1 jarak h2 = 0,51". qc tidak menangkapnya karena
+        # angka sumbu adalah bagian dari `bidang`, yaitu benda DUNIA, dan
+        # tulisan lawan dunia memang tidak diperiksa keras. Gerbangnya benar;
+        # lembar kontaknya yang menemukan.
+        #
+        # Sekarang keduanya di KIRI-TENGAH. Daerah itu kosong untuk seluruh
+        # jangkauan h: kurva x^2 pada y = 3 sampai 3,6 berada di x sekitar 1,7
+        # sampai 1,9, garis potong berkemiringan 2 sampai 3 melewati ketinggian
+        # itu di x 1,85 sampai 2,3, dan titik Q tidak pernah lebih kiri dari
+        # x = 1. Semuanya di KANAN blok, yang tepi kanannya sekitar x = 1,0.
         blok_m = sinema.nilai_hidup(
-            sinema.label("kemiringan", warna=AKSEN2), angka_m, di=P3(2.15, 1.30))
+            sinema.label("kemiringan", warna=AKSEN2), angka_m, di=P3(-0.15, 3.50))
 
         angka_h = sinema.AngkaKoma(0, num_decimal_places=2, font_size=30).set_color(REDUP)
         angka_h.add_updater(lambda mob: mob.set_value(h.get_value()))
         blok_h = sinema.nilai_hidup(
-            sinema.label("jarak h", warna=REDUP), angka_h, di=P3(2.15, 0.45))
+            sinema.label("jarak h", warna=REDUP), angka_h, di=P3(-0.15, 2.50))
+
+        alas_m = alas_dunia(blok_m)
+        alas_h = alas_dunia(blok_h)
 
         l_q = always_redraw(lambda: sinema.label("Q", warna=AKSEN2).next_to(
             P3(XP + h.get_value(), f(XP + h.get_value())), UP + RIGHT, buff=0.18))
@@ -186,10 +272,11 @@ class TurunanGarisSinggung(AdeganMatra):
         with sinema.babak(self, "potong", DURASI) as b:
             b.main(FadeIn(titik_q, scale=0.5), FadeIn(l_q), run_time=0.8)
             b.main(ShowCreation(sekan), run_time=1.4)
-            b.main(FadeIn(blok_h), FadeIn(blok_m), run_time=0.9)
+            b.main(FadeIn(alas_h), FadeIn(alas_m),
+                   FadeIn(blok_h), FadeIn(blok_m), run_time=0.9)
             b.main(Indicate(blok_m, color=AKSEN2), run_time=1.2)
         qc.periksa_adegan(self, {"kurva": kurva, "sekan": sekan},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_dengan_papan(ident, papan),
                           tulisan={"P": l_p, "Q": l_q, "m": blok_m, "h": blok_h},
                           dunia={"bidang": bidang, "titik P": titik_p, "titik Q": titik_q})
 
@@ -198,7 +285,7 @@ class TurunanGarisSinggung(AdeganMatra):
             papan.baris(r"\text{garis potong}", warna=AKSEN2, b=b)
             b.main(Indicate(sekan, color=AKSEN2), run_time=1.4)
         qc.periksa_adegan(self, {"kurva": kurva, "sekan": sekan},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_dengan_papan(ident, papan),
                           tulisan={"P": l_p, "Q": l_q, "m": blok_m, "h": blok_h},
                           dunia={"bidang": bidang, "titik P": titik_p, "titik Q": titik_q})
 
@@ -209,7 +296,7 @@ class TurunanGarisSinggung(AdeganMatra):
                        run_time=max(1.6, DURASI[nama_babak] - 2.4))
                 b.main(Indicate(blok_m, color=AKSEN2), run_time=1.2)
             qc.periksa_adegan(self, {"kurva": kurva, "sekan": sekan},
-                              hud={"identitas": ident, "papan": papan.semua()},
+                              hud=hud_dengan_papan(ident, papan),
                               tulisan={"P": l_p, "Q": l_q, "m": blok_m, "h": blok_h},
                               dunia={"bidang": bidang, "titik P": titik_p, "titik Q": titik_q})
 
@@ -221,7 +308,7 @@ class TurunanGarisSinggung(AdeganMatra):
                    run_time=max(2.0, DURASI["menuju"] - papan.waktu_alasan() - 5.0))
             papan.baris(r"\text{menuju } 2,\ \text{tak pernah sampai}", warna=SOROT, b=b)
         qc.periksa_adegan(self, {"kurva": kurva, "sekan": sekan},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_dengan_papan(ident, papan),
                           tulisan={"P": l_p, "Q": l_q, "m": blok_m, "h": blok_h},
                           dunia={"bidang": bidang, "titik P": titik_p, "titik Q": titik_q})
 
@@ -235,7 +322,7 @@ class TurunanGarisSinggung(AdeganMatra):
             b.main(FadeIn(l_tangen), run_time=0.6)
             b.main(Indicate(tangen, color=SOROT), run_time=1.4)
         qc.periksa_adegan(self, {"kurva": kurva, "tangen": tangen},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_dengan_papan(ident, papan),
                           tulisan={"P": l_p, "Q": l_q, "m": blok_m, "h": blok_h,
                                    "garis singgung": l_tangen},
                           dunia={"bidang": bidang, "titik P": titik_p, "titik Q": titik_q})
@@ -243,9 +330,14 @@ class TurunanGarisSinggung(AdeganMatra):
         # ================= huruf: dikerjakan dengan lambang ============== #
         with sinema.babak(self, "huruf", DURASI) as b:
             papan.baris(r"(1+h)^2-1 = 2h+h^2", warna=TINTA, b=b)
-            papan.baris(r"\div\, h:\ \ 2+h", warna=TINTA, b=b)
+            # BUKAN `\div`: pada font Computer Modern proyek ini ia tercetak
+            # sebagai lambang nabla, sehingga barisnya terbaca "nabla titik h".
+            # Terlihat di lembar kontak, bukan di log. Halaman Materi 02 sendiri
+            # memakai titik dua untuk pembagian, jadi video dan halaman kini
+            # memakai lambang yang sama.
+            papan.baris(r"(2h+h^2) : h = 2+h", warna=TINTA, b=b)
         qc.periksa_adegan(self, {"kurva": kurva, "tangen": tangen},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_dengan_papan(ident, papan),
                           tulisan={"P": l_p, "Q": l_q, "m": blok_m, "h": blok_h,
                                    "garis singgung": l_tangen},
                           dunia={"bidang": bidang, "titik P": titik_p, "titik Q": titik_q})
@@ -255,7 +347,7 @@ class TurunanGarisSinggung(AdeganMatra):
             b.main(Indicate(blok_h, color=REDUP), run_time=1.3)
             papan.baris(r"h \neq 0\ \text{saat dicoret}", warna=AKSEN, b=b)
         qc.periksa_adegan(self, {"kurva": kurva, "tangen": tangen},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_dengan_papan(ident, papan),
                           tulisan={"P": l_p, "Q": l_q, "m": blok_m, "h": blok_h,
                                    "garis singgung": l_tangen},
                           dunia={"bidang": bidang, "titik P": titik_p, "titik Q": titik_q})
@@ -266,7 +358,7 @@ class TurunanGarisSinggung(AdeganMatra):
             b.main(Indicate(titik_p, color=SOROT), run_time=1.2)
             b.main(Indicate(tangen, color=SOROT), run_time=1.4)
         qc.periksa_adegan(self, {"kurva": kurva, "tangen": tangen},
-                          hud={"identitas": ident, "papan": papan.semua()},
+                          hud=hud_dengan_papan(ident, papan),
                           tulisan={"P": l_p, "Q": l_q, "m": blok_m, "h": blok_h,
                                    "garis singgung": l_tangen},
                           dunia={"bidang": bidang, "titik P": titik_p, "titik Q": titik_q})
