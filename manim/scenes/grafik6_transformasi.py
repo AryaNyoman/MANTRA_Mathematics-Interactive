@@ -452,9 +452,25 @@ class GeserCerminRegang(AdeganMatra):
 
         with sinema.babak(self, "lembah", DURASI) as b:
             b.main(FadeIn(self.lembah), run_time=1.4)
+            self.tunggu_sampai(b, mulai_kalimat("Bola ini menggelinding"), 0.3)
             b.main(FadeIn(self.bola), run_time=0.7)
-            b.main(self.jalan.animate.set_value(1.0), run_time=4.4)
-            b.jeda(0.6)
+            b.main(self.jalan.animate.set_value(1.0), run_time=3.0)
+            # KAMERANYA TURUN DI SINI, bukan di babak berikutnya.
+            #
+            # Keputusan MASTER 7 Sep: pembuka 3D hanya untuk video PERTAMA
+            # sebuah topik, dan video pertama Grafik Fungsi adalah tahap 3.
+            # Di sini 3D-nya boleh ada, tetapi maksimal sekitar 5 detik.
+            #
+            # Kenapa DI KALIMAT INI, bukan sekadar dipercepat: narator sedang
+            # mengucapkan "dan bentuk lembahnya persis grafik y = x kuadrat"
+            # (mulai detik 14,37). Kamera yang turun tepat di situ MEMBUKTIKAN
+            # kalimat itu, sebab penonton melihat lembah 3D berubah menjadi
+            # kurva 2D sambil kalimatnya diucapkan. Versi sebelumnya menurunkan
+            # kamera satu babak kemudian, saat narator sudah pindah ke
+            # "Sekarang lembahnya kita tinggalkan", jadi gerak terbesar di
+            # layar justru terjadi saat kalimatnya tidak membahas gerak itu.
+            self.tunggu_sampai(b, mulai_kalimat("dan bentuk lembahnya"), 0.2)
+            b.main(kamera.sudut(self.frame_, **SUDUT_GRAFIK), run_time=3.2)
         qc.periksa_adegan(self, {"lembah": self.lembah, "bola": self.bola})
 
     # ==================================================================
@@ -479,14 +495,33 @@ class GeserCerminRegang(AdeganMatra):
         self.bola.clear_updaters()
 
         with sinema.babak(self, "datar", DURASI) as b:
-            b.main(kamera.sudut(self.frame_, **SUDUT_GRAFIK), run_time=3.2)
+            # Kameranya SUDAH datar sejak babak lembah, jadi tidak diturunkan
+            # lagi di sini. Babak ini murni tentang lembahnya yang pergi.
+            #
             # Lembahnya memudar PERSIS sampai kalimat sumbu dimulai. Angkanya
-            # bukan kira-kira: babak ini mulai detik 17,71, kamera memakai 3,2
-            # detik, dan kalimat "dengan sumbu mendatar" mulai detik 24,05,
-            # jadi sisanya 3,1 detik. Dengan 2,4 detik, layarnya sempat KOSONG
-            # 0,00 persen di detik 24 dan 25, dan itu justru cacat yang sedang
-            # diperbaiki di sini.
-            b.main(FadeOut(self.lembah), FadeOut(self.bola), run_time=3.1)
+            # bukan kira-kira: babak ini mulai detik 17,71 dan kalimat "dengan
+            # sumbu mendatar" mulai detik 24,05, jadi memudarnya 6,3 detik.
+            # Memudar selambat itu memang disengaja, dan ia BUKAN layar diam:
+            # tiap frame berubah, sekaligus memerankan kalimat yang sedang
+            # diucapkan, "Sekarang lembahnya kita tinggalkan. Yang tersisa cuma
+            # gambarnya". Kalau memudarnya dipercepat, sisa waktunya jadi layar
+            # kosong 0,00 persen, dan itu justru cacat yang sedang diperbaiki.
+            #
+            # Kurvanya TIDAK boleh ditinggalkan di layar sebagai "gambar yang
+            # tersisa", walau kalimatnya menggoda ke sana: aturan ARYA, kurva
+            # lahir dari titik yang dihitung di babak berikutnya, bukan muncul
+            # lebih dulu.
+            #
+            # `rate_func=linear` BUKAN hiasan. Dengan perlambatan bawaan
+            # `smooth`, sebagian besar penurunan kejelasan terjadi di tengah,
+            # jadi lembahnya sudah tidak terlihat sejak detik 23 walau
+            # animasinya baru selesai detik 24. Terukur pada render sebelumnya:
+            # detik 24 isi layarnya 0,0 persen, benar-benar kosong sedetik
+            # penuh, tepat sebelum sumbunya mulai ditarik. Dengan linear,
+            # kejelasannya turun rata sehingga lembahnya masih tersisa samar
+            # sampai sumbu pertama muncul, dan tidak ada satu detik pun kosong.
+            b.main(FadeOut(self.lembah, rate_func=linear),
+                   FadeOut(self.bola, rate_func=linear), run_time=6.3)
             self.tunggu_sampai(b, mulai_kalimat("dengan sumbu mendatar"), 0.3)
             b.main(ShowCreation(gx), FadeIn(angka[:7]), FadeIn(huruf[0]),
                    run_time=1.8)

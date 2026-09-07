@@ -1,5 +1,63 @@
 # Laporan MATRA-GRAFIK-FUNGSI
-Terakhir: 7 September 2026 malam. Bagian TERBARU di paling atas.
+Terakhir: 7 September 2026 larut. Bagian TERBARU di paling atas.
+
+## 7 Sep larut: bagian 3D tahap 6 dipadatkan 14 detik jadi 4,4 detik
+
+Perintah ARYA ("lanjut tahap 6"), menutup butir 1 dari "Butuh keputusan ARYA".
+
+### Kameranya turun di KALIMAT yang tepat, bukan sekadar dipercepat
+Keputusan MASTER berbunyi "biarkan kamera turun lebih awal sambil narator masih
+bicara". Diikuti apa adanya, itu BERTABRAKAN dengan aturan MATRA sendiri bahwa
+gambar harus cocok dengan yang sedang diucapkan.
+
+Di sini keduanya bisa sejalan. Narator mengucapkan "dan bentuk lembahnya persis
+grafik y = x kuadrat" mulai detik 14,37. Kamera yang turun tepat di kalimat itu
+MEMBUKTIKAN kalimatnya: penonton melihat lembah 3D berubah jadi kurva 2D sambil
+kalimatnya diucapkan. Versi lama menurunkan kamera satu babak kemudian, saat
+narator sudah pindah ke "Sekarang lembahnya kita tinggalkan", jadi gerak
+terbesar di layar justru terjadi saat kalimatnya tidak membahas gerak itu.
+
+| | sebelum | sesudah |
+|---|---|---|
+| 3D murni terlihat | detik 10 sampai 24 (14 detik) | detik 10 sampai 14,4 (4,4 detik) |
+| kamera turun | detik 17,7 | detik 14,4, di kalimat "bentuk lembahnya persis grafik" |
+| lembah memudar | 3,1 detik, `smooth` | 6,3 detik, `linear` |
+
+### Cacat yang saya timbulkan sendiri lalu tutup
+Perbaikan pertama memindahkan turunnya kamera, dan itu MENGOSONGKAN layar 0,0
+persen di detik 23, 24, dan 25, tiga detik penuh. Sebabnya bukan durasi
+memudarnya, melainkan kurva perlambatan bawaan `smooth`: sebagian besar
+penurunan kejelasan terjadi di tengah, jadi lembahnya sudah tak terlihat sejak
+detik 23 padahal animasinya baru selesai detik 24. Diganti `rate_func=linear`
+supaya kejelasannya turun rata. Sesudah itu detik 23 kembali berisi 2,10 persen
+(dari 0,2 persen).
+
+### Cacat tersisa yang SENGAJA tidak dikejar
+Masih ada celah kosong sekitar 0,3 detik pada detik 24,0, antara lembah yang
+habis memudar (24,01) dan sumbu yang mulai tampak (sekitar 24,3). Diperiksa
+dengan mata pada empat frame 23,5 / 24,0 / 24,6 / 25,2, bukan cuma diukur.
+
+Tidak dikejar dengan alasan: panjangnya setara dua peralihan yang SUDAH ada di
+video yang sama dan diterima apa adanya (detik 9 dari kartu judul ke dunia 3D,
+dan detik 157 ke layar penutup), dan mengejarnya berarti render kesembilan
+untuk sesuatu yang tidak akan terlihat mata. Kalau ARYA menilai lain, tinggal
+bilang.
+
+### Gerbang sesudah render ketiga tahap 6
+- `cek_kode --dalam`: bersih, 4 potongan LaTeX dibangun lewat MiKTeX
+- 1920x1080 @ 60 fps, 166,54 detik, 4,34 MB, selisih suara 0,17 detik
+- Lembar kontak 42 frame DIBUKA dan dinilai: pemadatan 3D terlihat di frame ke-5
+  yang kini sudah datar, sisanya sama dengan versi yang sudah diperiksa
+- `cek_sinkron_video`: sinkron 5 dari 5
+- `cek_aset_video`: `ok`
+- Poster tidak berubah (detik 110 tidak tersentuh perubahan ini)
+
+### Catatan proses
+Wadah video final berubah tiga kali dalam satu malam (webm, lalu mp4, lalu webm
+lagi). Berkas yang ada sekarang masih `.mp4`. Perpindahan ke webm hanya
+menyentuh langkah `gabung_audio`, BUKAN render, jadi tidak ada render yang
+terbuang; tetapi keputusan wadah sebaiknya dikunci di STANDAR sebelum lima sesi
+disuruh mengikuti lagi.
 
 ## 7 Sep 2026: GELOMBANG 3 SELESAI, kedua video jadi 1080p60
 
