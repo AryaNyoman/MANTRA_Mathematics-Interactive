@@ -79,7 +79,7 @@ export const TAHAP: TahapTurunan[] = [
           'jam ke-5   86 barang',
           'jam ke-6   90 barang',
         ],
-        simpul: 'Awalnya menanjak cepat, lalu makin lama makin melandai. Pekerjanya lelah.',
+        simpul: 'Sesudah jam kedua, tambahannya makin lama makin kecil. Pekerjanya lelah.',
       },
       { jenis: 'paragraf', teks: 'Pemilik pabrik bertanya: seberapa cepat pabrik ini bekerja antara jam ke-1 dan jam ke-3? Pertanyaannya sederhana, tapi cara menjawabnya yang akan kita pakai sepanjang topik ini.' },
 
@@ -231,7 +231,7 @@ export const TAHAP: TahapTurunan[] = [
         ],
       },
 
-      { jenis: 'paragraf', teks: 'Satu titik lain akan memberi angka lain. Di x = 2, kurva x² jelas lebih curam daripada di x = 1. Berarti tiap titik punya angkanya sendiri, dan kumpulan angka itu akan kita urus pada materi berikutnya.' },
+      { jenis: 'paragraf', teks: 'Satu titik lain akan memberi angka lain. Di x = 2, kurva x² terlihat lebih curam daripada di x = 1. Berarti tiap titik punya angkanya sendiri, dan kumpulan angka itu akan kita urus pada materi berikutnya.' },
     ],
     seringKeliru: {
       judul: 'Turunan itu angkanya, bukan garisnya',
@@ -300,7 +300,7 @@ export const TAHAP: TahapTurunan[] = [
         jenis: 'poin',
         judul: 'Dua notasi, satu arti',
         butir: [
-          'Cara Newton - f′(x), dibaca "f aksen x". Ringkas, enak dipakai saat berhitung',
+          'Notasi aksen - f′(x), dibaca "f aksen x". Ringkas saat berhitung, dan di buku disebut cara Newton',
           'Cara Leibniz - dy/dx, dibaca "de y de x". Ia mengingatkan asal usulnya, yaitu perubahan y dibagi perubahan x',
         ],
       },
@@ -331,7 +331,7 @@ export const TAHAP: TahapTurunan[] = [
     ],
     seringKeliru: {
       judul: 'f′ bukan f yang digambar lebih kecil',
-      isi: 'Karena keduanya digambar berdampingan dan sama-sama berasal dari satu kurva, f′ sering dikira versi mengecil atau versi bergeser dari f. Godaannya kuat pada f(x) = x², sebab di sana f′ memang terlihat lebih landai. Coba pada f(x) = x³ dikurangi 3x: bentuk f punya dua belokan, sedangkan f′ hanya sebuah parabola. Keduanya jelas bukan kurva yang sama. Sebabnya sederhana: f mencatat TINGGI, sedangkan f′ mencatat KEMIRINGAN, dan dua hal itu tidak harus mirip.',
+      isi: 'Karena keduanya digambar berdampingan dan sama-sama berasal dari satu kurva, f′ sering dikira versi mengecil atau versi bergeser dari f. Godaannya kuat pada f(x) = x², sebab di sana f′ memang terlihat lebih landai. Coba pada f(x) = x³ dikurangi 3x: bentuk f punya dua belokan, sedangkan f′ hanya sebuah parabola. Keduanya bukan kurva yang sama, dan itu langsung terlihat. Sebabnya sederhana: f mencatat TINGGI, sedangkan f′ mencatat KEMIRINGAN, dan dua hal itu tidak harus mirip.',
     },
     widget: 'grafik-turunan',
     siap: true,
@@ -434,7 +434,7 @@ export const TAHAP: TahapTurunan[] = [
     ],
     seringKeliru: {
       judul: 'Turunan x² bukan x',
-      isi: 'Kalimat pendek "pangkatnya turun satu" sering diingat separuh, sehingga x² menjadi x dan x³ menjadi x². Godaannya besar karena separuh kalimat itu memang benar. Yang hilang adalah langkah pertamanya: pangkat lama dikalikan ke depan dulu. Jadi x² memberi 2x, bukan x. Cara memeriksanya cepat: pada kurva x² di titik x = 3, kemiringannya jelas lebih curam daripada 3. Alat di atas menunjukkan angka 6, dan 6 itulah 2 kali 3.',
+      isi: 'Kalimat pendek "pangkatnya turun satu" sering diingat separuh, sehingga x² menjadi x dan x³ menjadi x². Godaannya besar karena separuh kalimat itu memang benar. Yang hilang adalah langkah pertamanya: pangkat lama dikalikan ke depan dulu. Jadi x² memberi 2x, bukan x. Cara memeriksanya cepat: pada kurva x² di titik x = 3, kemiringannya terlihat lebih curam daripada 3. Alat di atas menunjukkan angka 6, dan 6 itulah 2 kali 3.',
     },
     widget: 'mesin-pangkat',
     siap: true,
@@ -588,6 +588,8 @@ export const TAHAP: TahapTurunan[] = [
           'jabarkan           2x - 2 - 2x - 1 = -3',
           'penyebutnya        v² = (x - 1)²',
           'hasilnya           -3 : (x - 1)²',
+          'periksa angkanya   di x = 2 rumusnya memberi -3',
+          'dengan selisih kecil  (f(2,01) - f(2)) : 0,01 = -2,97, sudah dekat ke -3',
         ],
         simpul: 'Hasilnya selalu negatif untuk x berapa pun selain 1, dan itu cocok dengan grafiknya yang memang selalu menurun.',
       },
@@ -595,7 +597,7 @@ export const TAHAP: TahapTurunan[] = [
     ],
     seringKeliru: {
       judul: 'Pembilang aturan hasil bagi tidak boleh dibalik',
-      isi: 'Karena aturan hasil kali boleh ditulis dalam urutan mana saja, banyak yang mengira aturan hasil bagi juga begitu, lalu menulis uv′ dikurangi u′v. Godaannya masuk akal, sebab pada perkalian urutan memang tidak penting. Di sini penting, sebab yang di tengah adalah tanda kurang. Membalik urutannya membalik tanda seluruh jawaban. Pada contoh di atas, jawabannya berubah dari -3 menjadi 3, dan grafik yang jelas menurun akan terbaca menanjak. Cara mengingatnya: yang diturunkan lebih dulu selalu bagian ATAS.',
+      isi: 'Karena aturan hasil kali boleh ditulis dalam urutan mana saja, banyak yang mengira aturan hasil bagi juga begitu, lalu menulis uv′ dikurangi u′v. Godaannya masuk akal, sebab pada perkalian urutan memang tidak penting. Di sini penting, sebab yang di tengah adalah tanda kurang. Membalik urutannya membalik tanda seluruh jawaban. Pada contoh di atas, jawabannya berubah dari -3 menjadi 3, dan grafik yang terlihat menurun akan terbaca menanjak. Cara mengingatnya: yang diturunkan lebih dulu selalu bagian ATAS.',
     },
     widget: 'luas-berubah',
     siap: true,
@@ -778,7 +780,7 @@ export const TAHAP: TahapTurunan[] = [
       },
 
       { jenis: 'sesi', judul: 'Bilangan yang kemiringannya sama dengan tingginya' },
-      { jenis: 'paragraf', teks: 'Sekarang fungsi pangkat dengan x di ATAS, seperti 2ˣ. Perhatikan bedanya dengan x²: yang berubah bukan yang dipangkatkan, melainkan pangkatnya sendiri.' },
+      { jenis: 'paragraf', teks: 'Sekarang fungsi eksponen, yaitu fungsi yang x-nya duduk di pangkat, seperti 2ˣ. Perhatikan bedanya dengan x²: yang berubah bukan yang dipangkatkan, melainkan pangkatnya sendiri.' },
       { jenis: 'paragraf', teks: 'Kalau kemiringan kurva 2ˣ dihitung di beberapa titik lalu dibandingkan dengan tingginya sendiri, muncul hal yang menarik: perbandingannya selalu angka yang sama.' },
       {
         jenis: 'contoh',
@@ -791,12 +793,12 @@ export const TAHAP: TahapTurunan[] = [
         simpul: 'Pengalinya menyeberangi angka 1 di suatu tempat antara 2,7 dan 3.',
       },
       { jenis: 'paragraf', teks: 'Bilangan pokok yang membuat pengali itu tepat 1 memang ada, dan ia bukan bilangan bulat. Nilainya kira-kira 2,71828, dan diberi nama bilangan e.' },
-      { jenis: 'sorot', teks: 'Turunan eˣ adalah eˣ. Kurva itu satu-satunya yang tingginya sama persis dengan kemiringannya di setiap titik.' },
+      { jenis: 'sorot', teks: 'Turunan eˣ adalah eˣ. Di antara semua kurva berbentuk aˣ, hanya kurva inilah yang tingginya sama persis dengan kemiringannya di setiap titik.' },
       { jenis: 'paragraf', teks: 'Itulah sebabnya e muncul di mana-mana pada persoalan pertumbuhan, dan sebabnya kalkulator punya tombolnya sendiri. Untuk bilangan pokok lain seperti 2ˣ, turunannya masih ada, hanya ikut membawa angka pengali seperti pada tabel di atas.' },
     ],
     seringKeliru: {
       judul: 'Tanda minus pada turunan cos x sering hilang',
-      isi: 'Karena sin dan cos selalu muncul berpasangan dan saling bertukar, banyak yang menghafalnya sebagai "sin jadi cos, cos jadi sin" lalu berhenti. Godaannya besar sebab setengahnya memang benar. Yang hilang adalah tanda minusnya: turunan cos x adalah negatif sin x. Cara memeriksanya tanpa menghafal: lihat grafik kosinus tepat sesudah x = 0. Grafiknya jelas MENURUN di sana, jadi turunannya wajib negatif. Padahal sin x justru positif sesudah 0. Berarti yang benar negatif sin x.',
+      isi: 'Karena sin dan cos selalu muncul berpasangan dan saling bertukar, banyak yang menghafalnya sebagai "sin jadi cos, cos jadi sin" lalu berhenti. Godaannya besar sebab setengahnya memang benar. Yang hilang adalah tanda minusnya: turunan cos x adalah negatif sin x. Cara memeriksanya tanpa menghafal: lihat grafik kosinus tepat sesudah x = 0. Grafiknya terlihat MENURUN di sana, jadi turunannya wajib negatif. Padahal sin x justru positif sesudah 0. Berarti yang benar negatif sin x.',
     },
     widget: 'kemiringan-sinus',
     siap: true,
@@ -853,7 +855,7 @@ export const TAHAP: TahapTurunan[] = [
         ],
         simpul: 'Gradiennya nol, jadi garis singgungnya mendatar. Titik (-1, 0) memang titik terendah kurva itu.',
       },
-      { jenis: 'paragraf', teks: 'Hasil kedua itu bukan kebetulan dan bukan kasus aneh. Garis singgung yang mendatar selalu menandai tempat kurva berhenti menurun dan mulai menanjak, atau sebaliknya. Sifat itu akan kita pakai serius di dua materi terakhir.' },
+      { jenis: 'paragraf', teks: 'Hasil kedua itu bukan kebetulan dan bukan kasus aneh. Garis singgung yang mendatar sering menandai tempat kurva berhenti menurun dan mulai menanjak, atau sebaliknya. Tetapi tidak selalu, dan pengecualiannya kita bahas di Materi 10. Sifat itu akan kita pakai serius di dua materi terakhir.' },
 
       {
         jenis: 'coba',
@@ -904,7 +906,7 @@ export const TAHAP: TahapTurunan[] = [
       { jenis: 'sorot', teks: 'Untuk mengetahui bentuk kurva, yang perlu dibaca hanya TANDA turunannya, bukan nilainya.' },
 
       { jenis: 'sesi', judul: 'Tabel tanda, langkah demi langkah' },
-      { jenis: 'paragraf', teks: 'Karena yang dicari cuma tanda, kerjanya menjadi rapi. Titik tempat f′ bernilai nol adalah satu-satunya tempat tandanya boleh berganti, jadi titik-titik itu yang dicari lebih dulu.' },
+      { jenis: 'paragraf', teks: 'Karena yang dicari cuma tanda, kerjanya menjadi rapi. Tanda f′ hanya boleh berganti di tempat f′ bernilai nol, atau di tempat f′ tidak ada sama sekali seperti sudut |x| pada Materi 03. Untuk fungsi polinom seperti contoh berikut, f′ ada di mana-mana, jadi cukup akarnya yang dicari.' },
       {
         jenis: 'contoh',
         judul: 'Menyelidiki f(x) = x³ - 3x',
@@ -986,7 +988,7 @@ export const TAHAP: TahapTurunan[] = [
       { jenis: 'paragraf', teks: 'Sebelum diturunkan, kurungnya dijabarkan supaya bisa dikerjakan suku demi suku dengan cara Materi 05.' },
       {
         jenis: 'contoh',
-        judul: 'Mencari titik ekstremnya',
+        judul: 'Mencari titik stasionernya',
         baris: [
           'jabarkan     V(x) = 324x - 72x² + 4x³',
           'turunkan     V′(x) = 324 - 144x + 12x²',
@@ -1080,7 +1082,7 @@ export const TAHAP: TahapTurunan[] = [
         ],
         simpul: 'Kecepatan bernilai nol tepat di puncak, persis titik stasioner dari Materi 10.',
       },
-      { jenis: 'paragraf', teks: 'Menurunkan dua kali punya nama sendiri, yaitu turunan kedua. Di sini artinya jelas: turunan pertama memberi kecepatan, turunan kedua memberi percepatan. Nilainya tetap -10, dan tanda minus itu berarti tarikan bumi bekerja ke bawah sepanjang waktu, bahkan saat bolanya masih naik.' },
+      { jenis: 'paragraf', teks: 'Menurunkan dua kali punya nama sendiri, yaitu turunan kedua. Di sini artinya langsung terbaca: turunan pertama memberi kecepatan, turunan kedua memberi percepatan. Nilainya tetap -10, dan tanda minus itu berarti tarikan bumi bekerja ke bawah sepanjang waktu, bahkan saat bolanya masih naik.' },
 
       { jenis: 'sesi', judul: 'Sesuatu yang tumbuh sebanding dengan jumlahnya' },
       { jenis: 'paragraf', teks: 'Bakteri di cawan bertambah lebih cepat kalau bakterinya sudah banyak, sebab yang membelah diri lebih banyak. Jadi lajunya sebanding dengan jumlahnya sendiri. Sebagai angka contoh, ambil jumlah bakteri N(t) = 200 · e^(t/2) dengan t dalam jam.' },
@@ -1089,7 +1091,8 @@ export const TAHAP: TahapTurunan[] = [
         judul: 'Lajunya selalu setengah dari jumlahnya',
         baris: [
           'jumlahnya   N(t) = 200 · e^(t/2)',
-          'turunkan    N′(t) = 100 · e^(t/2)',
+          'bagian dalam  t/2, turunannya 1/2, jadi aturan rantai Materi 07 dipakai',
+          'turunkan    N′(t) = 200 · e^(t/2) · 1/2 = 100 · e^(t/2)',
           'bandingkan  N′(t) = N(t) : 2',
           'saat t = 0  N = 200 ekor, lajunya 100 ekor per jam',
           'saat t = 2  N kira-kira 544 ekor, lajunya kira-kira 272 ekor per jam',
@@ -1108,12 +1111,14 @@ export const TAHAP: TahapTurunan[] = [
           'luas pelatnya    L = 2π r² + 2π r t',
           'ganti t          L(r) = 2π r² + 2000 : r',
           'turunkan         L′(r) = 4π r - 2000 : r²',
-          'samakan nol      r³ = 500 : π, jadi r kira-kira 5,42 cm',
+          'samakan nol      4π r = 2000 : r²',
+          'kalikan r²       4π r³ = 2000',
+          'bagi 4π          r³ = 500 : π, jadi r kira-kira 5,42 cm',
           'tingginya        t kira-kira 10,84 cm',
         ],
         simpul: 'Tinggi kaleng paling hemat sama dengan diameternya, dua kali jari-jarinya.',
       },
-      { jenis: 'paragraf', teks: 'Langkahnya sama persis dengan soal kotak di Materi 11: susun rumusnya, turunkan, samakan nol. Yang berganti hanya bendanya. Kaleng di rak toko biasanya tidak sependek itu, sebab bentuk juga dipilih agar enak digenggam dan muat di rak, bukan cuma agar hemat pelat.' },
+      { jenis: 'paragraf', teks: 'Uji tandanya juga wajib, seperti yang ditegaskan Materi 11: L′(4) kira-kira -74,7 dan L′(7) kira-kira 47,1. Tandanya berubah dari negatif ke positif, jadi ukuran itu memang membuat pelatnya paling sedikit, bukan paling banyak. Langkahnya sama persis dengan soal kotak di Materi 11: susun rumusnya, turunkan, samakan nol. Yang berganti hanya bendanya. Kaleng di rak toko biasanya tidak sependek itu, sebab bentuk juga dipilih agar enak digenggam dan muat di rak, bukan cuma agar hemat pelat.' },
 
       { jenis: 'sesi', judul: 'Biaya membuat satu barang berikutnya' },
       { jenis: 'paragraf', teks: 'Sebuah usaha punya biaya tetap dan biaya yang bertambah seiring jumlah produksi. Sebagai angka contoh, biaya total untuk membuat x barang adalah B(x) = 2.000.000 + 15.000x + 20x² rupiah.' },
