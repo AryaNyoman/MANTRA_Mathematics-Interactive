@@ -1,0 +1,99 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/turunan1-laju-rata-rata.json
+
+1
+00:00:00.000 --> 00:00:04.440
+Materi 01: seberapa cepat, rata-ratanya.
+
+2
+00:00:04.440 --> 00:00:08.568
+Sebuah pabrik mencatat berapa barang yang sudah selesai.
+
+3
+00:00:08.568 --> 00:00:19.224
+Enam jam pertama: 0, 20, 44, 64, 78, 86, 90 barang.
+
+4
+00:00:19.224 --> 00:00:26.030
+Sesudah jam ke-2, tambahan tiap jam makin kecil.
+
+5
+00:00:26.030 --> 00:00:28.440
+Pekerjanya lelah.
+
+6
+00:00:28.440 --> 00:00:32.183
+Seberapa cepat pabrik ini bekerja
+
+7
+00:00:32.183 --> 00:00:35.472
+antara jam ke-1 dan jam ke-3?
+
+8
+00:00:35.472 --> 00:00:46.224
+Dari 20 menjadi 64: tambahannya 44 barang, selama 2 jam.
+
+9
+00:00:46.224 --> 00:00:54.312
+44 : 2 = 22. Rata-rata 22 barang tiap jam.
+
+10
+00:00:54.312 --> 00:01:00.086
+Digambar: waktu ke kanan, jumlah barang ke atas,
+
+11
+00:01:00.086 --> 00:01:03.936
+ketujuh titik jadi sebuah kurva.
+
+12
+00:01:03.936 --> 00:01:05.723
+Titik jam ke-1 dan jam
+
+13
+00:01:05.723 --> 00:01:09.216
+ke-3 dihubungkan dengan sebuah garis lurus.
+
+14
+00:01:09.216 --> 00:01:14.632
+Segitiga di bawah garis: sisi mendatar 2 jam,
+
+15
+00:01:14.632 --> 00:01:17.160
+sisi tegak 44 barang.
+
+16
+00:01:17.160 --> 00:01:23.055
+Selisih tinggi dibagi selisih mendatar = 22.
+
+17
+00:01:23.055 --> 00:01:27.744
+Sama persis dengan hitungan pabrik.
+
+18
+00:01:27.744 --> 00:01:31.430
+Garis penghubung dua titik
+
+19
+00:01:31.430 --> 00:01:35.966
+pada kurva namanya garis potong,
+
+20
+00:01:35.966 --> 00:01:38.376
+atau garis sekan.
+
+21
+00:01:38.376 --> 00:01:48.895
+Ganti titiknya, angkanya berubah: jam 1 ke 2 memberi 24;
+
+22
+00:01:48.895 --> 00:01:52.464
+jam 3 ke 5 cuma 11.
+
+23
+00:01:52.464 --> 00:01:57.234
+Kurvanya sama, jawabannya berbeda.
+
+24
+00:01:57.234 --> 00:02:03.408
+Karena itu namanya laju perubahan <b>rata-rata</b>.
