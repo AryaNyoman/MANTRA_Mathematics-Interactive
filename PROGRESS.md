@@ -1,5 +1,23 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 7 SEP (larut): STATISTIKA 1080p DI PRODUKSI, ALAT BERSAMA DISATUKAN
+
+Sesi Statistika selesai gelombang 3 (ad470d3): 13 video 1920x1080 60 fps
+sebagai WebM VP9 (mengikuti resep MASTER yang menyebut webm; Ruang 3D
+memilih tetap mp4 H.264, jadi dua wadah kini hidup berdampingan: webm ~3 MB
+per 115 detik, mp4 ~13 MB per 85 detik; keputusan wadah ada di ARYA).
+Gabung ke master a42b795 BENTROK di tiga alat bersama yang ditambal kedua
+sesi (gabung_audio, buat_poster, cek_aset_video); disatukan MASTER:
+gabung_audio memilih dari akhiran keluaran (.mp4 salin H.264 + AAC, .webm
+kode ulang VP9 + Opus), buat_poster dan cek_aset_video mencari video final
+webm/mp4 dulu baru versi uji. cek_aset_video: 13 statistika dan 6 ruang-3d
+lolos. Mp4 480p statistika lama dipindah ke media/arsip-480p (di luar git).
+Deploy produksi berhasil pada percobaan kedua (Vercel dua kali menjawab
+Internal Server Error saat unggah malam ini): matra-eight dan
+mantra-matematika (alias diarahkan ulang) menyajikan webm 1080p, ukuran
+berkas diverifikasi. Sisa 480p: vektor 6, grafik 2, transformasi 6;
+trigonometri.webm 720p yatim.
+
 ## 7 SEP (malam): SEMBILAN TOPIK DI PRODUKSI, RUANG 3D 1080p, PERINTAH ARYA
 
 ARYA: "cek semua sesi, yang belum selesai diselesaikan sampai tuntas rendernya;
