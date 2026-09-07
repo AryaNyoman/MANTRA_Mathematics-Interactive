@@ -146,25 +146,30 @@ def main() -> None:
         #   "Only VP8 or VP9 or AV1 video ... are supported for WebM"
         # Terbukti 7 Sep 2026 saat render akhir Ruang 3D materi 01.
         #
-        # BAWAANNYA .webm SEJAK 7 September 2026, keputusan ARYA. Alasannya
-        # ukuran unduhan, bukan selera: video Ruang 3D 1080p berwadah mp4 H.264
-        # sekitar 14 MB untuk 85 detik, video Statistika 1080p berwadah WebM VP9
-        # sekitar 3 MB untuk 115 detik. Kira-kira enam kali lebih ringan per
-        # menit pada mutu gambar yang sama, dan situs ini dibuka siswa lewat HP.
+        # WADAH BAWAAN: .webm sejak 7 Sep 2026 malam (keputusan ARYA), tetapi
+        # keputusan itu SEDANG DITINJAU ULANG pada malam yang sama, sebab angka
+        # yang mendasarinya keliru. Klaim awal "webm enam kali lebih ringan"
+        # membandingkan Ruang 3D (permukaan bergradasi, mp4 14 MB/85 s) dengan
+        # Statistika (garis datar, webm 3 MB/115 s): isinya yang beda, bukan
+        # wadahnya. Yang terukur pada ISI YANG SAMA (Statistika dan Transformasi,
+        # 7 Sep 2026):
+        #   - aliran gambar: VP9 crf 32 hasil kode ulang dari H.264 ManimGL
+        #     1,2 sampai 1,4 kali LEBIH BESAR daripada H.264-nya;
+        #   - berkas utuh siap tayang (gambar + suara): mp4 (H.264 + AAC 128k)
+        #     17 persen lebih ringan daripada webm (VP9 + Opus 72k);
+        #   - webm butuh 5 sampai 14 menit kode ulang per video, mp4 gratis.
+        # Jangan tulis angka "enam kali" lagi di mana pun.
         #
-        # Bawaan mp4 di atas benar untuk keadaan saat ditulis (ke-32 video yang
-        # sudah tayang memang mp4), tetapi keputusannya sekarang sudah diambil.
-        # mp4 masih BOLEH kalau diminta tegas lewat --keluar, supaya render yang
-        # sedang berjalan di sesi lain tidak patah di tengah jalan; ia cuma
-        # berbunyi di sini, dan `alat/cek_resolusi_anim.py` yang menolaknya
-        # sebelum naik produksi.
+        # mp4 tetap boleh lewat --keluar; sampai ARYA memutuskan ulang, sesi
+        # yang sedang merender diminta menyimpan hasil sebagai .mp4 (mengubah
+        # wadah belakangan tidak butuh render ulang).
         nama = a.keluar or f"{a.topik}.webm"
         hasil = AKAR / "media" / nama
         if hasil.suffix.lower() != ".webm":
-            print(f"PERINGATAN: keluaran '{nama}' bukan WebM. Keputusan ARYA "
-                  f"7 Sep 2026: semua video materi berwadah WebM, sebab mp4 "
-                  f"kira-kira enam kali lebih berat per menit. Berkas ini akan "
-                  f"DITOLAK `alat/cek_resolusi_anim.py` sebelum naik produksi.")
+            print(f"CATATAN: keluaran '{nama}' berwadah mp4; bawaan alat ini webm "
+                  f"(keputusan ARYA 7 Sep 2026 yang sedang ditinjau ulang). "
+                  f"`alat/cek_resolusi_anim.py` masih menolak mp4 materi kecuali "
+                  f"dengan --izinkan-mp4.")
         if hasil.suffix.lower() == ".webm":
             # WebM TIDAK menerima video H.264, dan ManimGL menghasilkan H.264.
             # `-c:v copy` mati dengan "Could not write header" dan meninggalkan
