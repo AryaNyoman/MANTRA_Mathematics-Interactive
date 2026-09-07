@@ -134,7 +134,22 @@ def ambil_teks_tahap() -> list[tuple[int, str, list[str]]]:
     hasil = []
     for bagian in potongan[1:]:
         nomor = int(bagian.split(",", 1)[0].strip())
+        # Slug dibaca DULU, baru medan teknisnya dibuang. Versi master untuk
+        # topik Turunan membuang barisnya lebih dulu lalu mencarinya, sehingga
+        # laporannya menampilkan "?" untuk tiap materi. Laporan yang tidak bisa
+        # menyebut materi mana yang dibicarakan sama tumpulnya dengan tidak ada.
         slug = re.search(r"slug: '([a-z-]+)'", bagian)
+
+        # PENANDA, BUKAN KALIMAT. Nama berkas video, penanda widget, dan slug
+        # tidak pernah dibaca siswa sebagai kalimat; ketiganya nama teknis.
+        # Tanpa pembuangan ini, memasang video di sebuah materi langsung
+        # dilaporkan melanggar semata karena berkasnya bernama
+        # "integral05-riemann.mp4" atau widgetnya bernama "pecah-selang".
+        # Pemeriksa yang menuduh nama berkas mengarahkan perbaikan ke tempat
+        # yang salah, persis seperti pemeriksa yang terlalu longgar.
+        bagian = re.sub(r"video:\s*\{[^}]*\}", "", bagian)
+        bagian = re.sub(r"^\s*(?:widget|slug):\s*'[^']*',?$", "", bagian, flags=re.M)
+
         kalimat = re.findall(r"'((?:[^'\\]|\\.)*)'", bagian)
         hasil.append((nomor, slug.group(1) if slug else "?", kalimat))
     return hasil
