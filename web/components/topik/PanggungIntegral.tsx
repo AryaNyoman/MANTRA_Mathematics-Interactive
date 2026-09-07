@@ -15,6 +15,12 @@ import PersegiPanjangMenumpuk, {
 import PecahSelang, {
   AWAL as AWAL_PECAH, KURVA as KURVA_PECAH, kurvaDari,
 } from '@/components/widget/integral/PecahSelang'
+import LuasDuaDaerah, {
+  AWAL as AWAL_LUAS, KURVA as KURVA_LUAS, YANG_DIHITUNG, kurvaDari as kurvaLuasDari,
+} from '@/components/widget/integral/LuasDuaDaerah'
+import DuaKurva, {
+  AWAL as AWAL_DUA, BATAS_N as BATAS_N_DUA, PASANGAN, pasanganDari,
+} from '@/components/widget/integral/DuaKurva'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Kembalikan, Petunjuk, Pilihan } from '@/components/kendali'
 
@@ -55,6 +61,18 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
   const [pecahA, setPecahA] = useState(AWAL_PECAH.a)
   const [pecahB, setPecahB] = useState(AWAL_PECAH.b)
   const [pecahC, setPecahC] = useState(AWAL_PECAH.c)
+
+  // Materi 09: hasil integral lawan luas daerah
+  const [kurvaLuas, setKurvaLuas] = useState(AWAL_LUAS.kurva)
+  const [luasA, setLuasA] = useState(AWAL_LUAS.a)
+  const [luasB, setLuasB] = useState(AWAL_LUAS.b)
+  const [modeLuas, setModeLuas] = useState(AWAL_LUAS.mode)
+
+  // Materi 10: luas antara dua kurva
+  const [pasangan, setPasangan] = useState(AWAL_DUA.pasangan)
+  const [duaA, setDuaA] = useState(AWAL_DUA.a)
+  const [duaB, setDuaB] = useState(AWAL_DUA.b)
+  const [duaN, setDuaN] = useState(AWAL_DUA.n)
 
   let kiri: ReactNode = null
   let kanan: ReactNode = null
@@ -294,11 +312,112 @@ export default function PanggungIntegral({ tahap, tampilWidget, children }: Prop
           </>
         )}
 
+        {tampilWidget && tahap.widget === 'luas-dua-daerah' && (
+          <>
+            <div className="layar">
+              <LuasDuaDaerah
+                kurva={kurvaLuas}
+                a={luasA}
+                b={luasB}
+                mode={modeLuas}
+                onGeser={(yang, nilai) => (yang === 'a' ? setLuasA(nilai) : setLuasB(nilai))}
+              />
+            </div>
+            <div className="kendali">
+              <Pilihan
+                nama="Kurvanya" arti="pilih kurva yang memotong sumbu di dalam selang"
+                pilihan={KURVA_LUAS.map((k) => ({ nilai: k.nilai, label: k.label }))}
+                nilai={kurvaLuas}
+                onPilih={(v) => {
+                  const kb = kurvaLuasDari(v)
+                  setKurvaLuas(v); setLuasA(kb.aAwal); setLuasB(kb.bAwal)
+                }}
+              />
+              <Pilihan
+                nama="Yang dihitung" arti="keduanya tetap tertulis, yang dipilih ditegaskan"
+                pilihan={YANG_DIHITUNG} nilai={modeLuas} onPilih={setModeLuas}
+              />
+              <Angka
+                nama="a" arti="batas kiri, bisa juga diseret di gambar" kunci="a"
+                nilai={luasA} onUbah={(v) => setLuasA(Math.min(v, luasB - 0.5))}
+                min={kurvaLuasDari(kurvaLuas).ranah.min} max={kurvaLuasDari(kurvaLuas).ranah.maks} langkah={0.25}
+              />
+              <Angka
+                nama="b" arti="batas kanan, bisa juga diseret di gambar" kunci="b"
+                nilai={luasB} onUbah={(v) => setLuasB(Math.max(v, luasA + 0.5))}
+                min={kurvaLuasDari(kurvaLuas).ranah.min} max={kurvaLuasDari(kurvaLuas).ranah.maks} langkah={0.25}
+              />
+              <Kembalikan
+                onClick={() => {
+                  setKurvaLuas(AWAL_LUAS.kurva); setLuasA(AWAL_LUAS.a)
+                  setLuasB(AWAL_LUAS.b); setModeLuas(AWAL_LUAS.mode)
+                }}
+              />
+              <Petunjuk>
+                letakkan batas sehingga daerah biru dan merah sama besar. Hasil integralnya
+                jadi nol sementara luasnya tidak.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
+        {tampilWidget && tahap.widget === 'dua-kurva' && (
+          <>
+            <div className="layar">
+              <DuaKurva
+                pasangan={pasangan}
+                a={duaA}
+                b={duaB}
+                n={duaN}
+                onGeser={(yang, nilai) => (yang === 'a' ? setDuaA(nilai) : setDuaB(nilai))}
+              />
+            </div>
+            <div className="kendali">
+              <Pilihan
+                nama="Dua kurvanya" arti="yang pertama biru, yang kedua emas"
+                pilihan={PASANGAN.map((p) => ({ nilai: p.nilai, label: p.label }))}
+                nilai={pasangan}
+                onPilih={(v) => {
+                  const pb = pasanganDari(v)
+                  setPasangan(v); setDuaA(pb.aAwal); setDuaB(pb.bAwal)
+                }}
+              />
+              <Angka
+                nama="Banyak bagian n" arti="persegi panjangnya sekarang setinggi selisih dua kurva" kunci="n"
+                nilai={duaN} onUbah={setDuaN}
+                min={BATAS_N_DUA.min} max={BATAS_N_DUA.maks} langkah={BATAS_N_DUA.langkah}
+              />
+              <Angka
+                nama="a" arti="batas kiri, bisa juga diseret di gambar" kunci="a"
+                nilai={duaA} onUbah={(v) => setDuaA(Math.min(v, duaB - 0.25))}
+                min={pasanganDari(pasangan).ranah.min} max={pasanganDari(pasangan).ranah.maks} langkah={0.25}
+              />
+              <Angka
+                nama="b" arti="batas kanan, bisa juga diseret di gambar" kunci="b"
+                nilai={duaB} onUbah={(v) => setDuaB(Math.max(v, duaA + 0.25))}
+                min={pasanganDari(pasangan).ranah.min} max={pasanganDari(pasangan).ranah.maks} langkah={0.25}
+              />
+              <Kembalikan
+                onClick={() => {
+                  const pb = pasanganDari(pasangan)
+                  setDuaA(pb.potongKiri); setDuaB(pb.potongKanan); setDuaN(AWAL_DUA.n)
+                }}
+              />
+              <Petunjuk>
+                geser batas melewati titik potong, dan persegi panjangnya berbalik warna:
+                di sana kurva yang di atas sudah bertukar.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
         {tampilWidget && tahap.widget
           && tahap.widget !== 'mesin-balik'
           && tahap.widget !== 'naik-pangkat'
           && tahap.widget !== 'persegi-panjang-menumpuk'
           && tahap.widget !== 'pecah-selang'
+          && tahap.widget !== 'luas-dua-daerah'
+          && tahap.widget !== 'dua-kurva'
           && tahap.widget !== 'dunia-nyata-integral' && (
           <>
             <div className="layar">

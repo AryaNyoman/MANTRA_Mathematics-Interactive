@@ -201,18 +201,48 @@ export function potongTanda(
   bagi = 400,
 ): Array<{ dari: number; sampai: number; positif: boolean }> {
   if (!(b > a)) return []
-  const batas: number[] = [a]
-  let x0 = a
-  let y0 = f(a)
 
-  for (let i = 1; i <= bagi; i++) {
-    const x1 = a + ((b - a) * i) / bagi
-    const y1 = f(x1)
-    if (Number.isFinite(y0) && Number.isFinite(y1) && y0 * y1 < 0) {
-      // bagi dua sampai selangnya cukup sempit; 60 putaran jauh lebih dari cukup
-      let lo = x0
-      let hi = x1
-      let ylo = y0
+  /* AKAR YANG JATUH PERSIS DI TITIK CUPLIKAN
+     Versi pertama hanya menguji `y0 * y1 < 0`. Kalau akarnya kebetulan jatuh
+     tepat pada sebuah titik cuplikan, nilainya nol, hasil kalinya nol, dan
+     uji itu TIDAK PERNAH benar di kedua sisinya. Pergantian tandanya lolos
+     tanpa jejak, dan seluruh selang dianggap satu potongan bertanda sama.
+     Akibatnya nyata: luas antara x pangkat tiga dan x pada selang -1 sampai 1
+     dilaporkan 0, padahal 0,5. Ketahuan dari widget Materi 10 pada 7 Sep 2026.
+     Ini justru kasus yang PALING SERING terjadi, sebab selang yang dipakai di
+     kelas hampir selalu simetris dengan akar di tengahnya.
+
+     Sekarang nilai yang nol diperlakukan sebagai batas potongan tersendiri,
+     dan pembandingan tanda hanya dilakukan antara dua cuplikan yang sama-sama
+     bukan nol. */
+  const contoh: Array<{ x: number; y: number }> = []
+  let terbesar = 0
+  for (let i = 0; i <= bagi; i++) {
+    const x = a + ((b - a) * i) / bagi
+    const y = f(x)
+    contoh.push({ x, y })
+    if (Number.isFinite(y) && Math.abs(y) > terbesar) terbesar = Math.abs(y)
+  }
+  // Ambang "dianggap nol" mengikuti besaran fungsinya, supaya sin(pi) yang
+  // bernilai 1,2 kali 10 pangkat -16 tidak dikira bilangan positif.
+  const nol = Math.max(terbesar * 1e-12, 1e-12)
+
+  const batas: number[] = [a]
+  let akhirTakNol: { x: number; y: number } | null = null
+
+  for (const t of contoh) {
+    if (!Number.isFinite(t.y)) { akhirTakNol = null; continue }
+    if (Math.abs(t.y) <= nol) {
+      // Nol persis. Kalau letaknya di dalam selang, ia batas potongan.
+      if (t.x > a + 1e-9 && t.x < b - 1e-9) batas.push(t.x)
+      akhirTakNol = null
+      continue
+    }
+    if (akhirTakNol && akhirTakNol.y * t.y < 0) {
+      // Ganti tanda di antara dua cuplikan: cari akarnya dengan bagi dua.
+      let lo = akhirTakNol.x
+      let hi = t.x
+      let ylo = akhirTakNol.y
       for (let k = 0; k < 60; k++) {
         const tengah = (lo + hi) / 2
         const ytengah = f(tengah)
@@ -221,8 +251,7 @@ export function potongTanda(
       }
       batas.push((lo + hi) / 2)
     }
-    x0 = x1
-    y0 = y1
+    akhirTakNol = t
   }
   batas.push(b)
 
