@@ -14,6 +14,13 @@ import SekanKeTangen, {
   AWAL as AWAL_02, BATAS_H as BATAS_H_02,
   CEPAT, FUNGSI_TERSEDIA as FUNGSI_02, batasX1, maksH as maksH_02, tabelSekan,
 } from '@/components/widget/turunan/SekanKeTangen'
+import MesinPangkat, {
+  AWAL as AWAL_04, BATAS_H as BATAS_H_04, PILIHAN_PANGKAT,
+  batasXP, maksHP, tabelPangkat, uraianPangkat,
+} from '@/components/widget/turunan/MesinPangkat'
+import SusunPolinom, {
+  AWAL as AWAL_05, BATAS_KOEF, BATAS_X as BATAS_X_05, tabelPolinom,
+} from '@/components/widget/turunan/SusunPolinom'
 import GrafikTurunan, {
   AWAL as AWAL_03, FUNGSI_TERSEDIA as FUNGSI_03,
   MAKS_JEJAK, batasX, tabelGrafikTurunan,
@@ -38,7 +45,7 @@ import GrafikTurunan, {
  */
 
 /** Widget yang komponennya sudah jadi; sisanya masih memakai Rintisan. */
-const SUDAH_JADI = ['garis-potong', 'sekan-ke-tangen', 'grafik-turunan']
+const SUDAH_JADI = ['garis-potong', 'sekan-ke-tangen', 'grafik-turunan', 'mesin-pangkat', 'susun-polinom']
 
 function Tabel({ judul, baris }: { judul: string; baris: Array<{ nama: string; nilai: string }> }) {
   return (
@@ -72,6 +79,15 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
   const [x3, setX3] = useState(AWAL_03.x)
   const [fungsi3, setFungsi3] = useState(AWAL_03.nama)
   const [jejak, setJejak] = useState<number[]>([])
+
+  // Materi 04: aturan pangkat diturunkan dari definisi
+  const [pangkat4, setPangkat4] = useState(AWAL_04.pangkat)
+  const [x4, setX4] = useState(AWAL_04.x)
+  const [h4, setH4] = useState(AWAL_04.h)
+
+  // Materi 05: menurunkan suku demi suku
+  const [koef5, setKoef5] = useState({ a: AWAL_05.a, b: AWAL_05.b, c: AWAL_05.c, d: AWAL_05.d })
+  const [x5, setX5] = useState(AWAL_05.x)
 
   /** Geser x pada Materi 03 sambil menambah jejaknya, tanpa kembar. */
   function geserX3(nx: number) {
@@ -179,7 +195,68 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
           </>
         )}
 
-        {/* Widget 04 sampai 11: ganti Rintisan dengan komponen sungguhan,
+        {/* ---------------- Materi 04 ---------------- */}
+        {tampilWidget && tahap.widget === 'mesin-pangkat' && (
+          <>
+            <div className="layar">
+              <MesinPangkat nilaiPangkat={pangkat4} x={x4} h={h4}
+                onGeser={(nx, nh) => { setX4(nx); setH4(nh) }} />
+            </div>
+            <div className="kendali">
+              <Pilihan nama="Pangkat n" arti="pangkat yang sedang diperiksa"
+                pilihan={PILIHAN_PANGKAT} nilai={pangkat4}
+                onPilih={(n) => {
+                  // Tiap pangkat punya papan dan batas sendiri; x dan h dijepit
+                  // supaya kedua titiknya tetap terlihat.
+                  const b = batasXP(n)
+                  const nx = Math.min(b.maks, Math.max(b.min, x4))
+                  setPangkat4(n)
+                  setX4(nx)
+                  setH4((lama) => Math.min(lama, maksHP(nx, n)))
+                }} />
+              <Angka nama="Titik x" arti="ditahan positif supaya pangkat pecahan sah" kunci="x"
+                nilai={x4} desimal={1}
+                onUbah={(n) => { setX4(n); setH4((lama) => Math.min(lama, maksHP(n, pangkat4))) }}
+                min={batasXP(pangkat4).min} max={batasXP(pangkat4).maks} langkah={batasXP(pangkat4).langkah} />
+              <Angka nama="Jarak h" arti="kecilkan sampai sisa yang memuat h lenyap" kunci="h"
+                nilai={h4} onUbah={setH4} desimal={2}
+                min={BATAS_H_04.min} max={maksHP(x4, pangkat4)} langkah={BATAS_H_04.langkah} />
+              <Kembalikan onClick={() => { setPangkat4(AWAL_04.pangkat); setX4(AWAL_04.x); setH4(AWAL_04.h) }} />
+              <Petunjuk>
+                ganti n, dan perhatikan sisa yang mengandung h selalu hilang saat h menuju nol.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
+        {/* ---------------- Materi 05 ---------------- */}
+        {tampilWidget && tahap.widget === 'susun-polinom' && (
+          <>
+            <div className="layar">
+              <SusunPolinom koef={koef5} x={x5} onGeser={setX5} />
+            </div>
+            <div className="kendali">
+              {([['a', 'x³'], ['b', 'x²'], ['c', 'x'], ['d', 'tetap']] as const).map(([k, lambang]) => (
+                <Angka key={k} nama={`Koefisien ${k}`} arti={`pengali suku ${lambang}`} kunci={k}
+                  nilai={koef5[k]} onUbah={(n) => setKoef5((lama) => ({ ...lama, [k]: n }))}
+                  desimal={1}
+                  min={BATAS_KOEF.min} max={BATAS_KOEF.maks} langkah={BATAS_KOEF.langkah} />
+              ))}
+              <Angka nama="Titik x" arti="tempat kemiringannya dibaca" kunci="x"
+                nilai={x5} onUbah={setX5} desimal={1}
+                min={BATAS_X_05.min} max={BATAS_X_05.maks} langkah={BATAS_X_05.langkah} />
+              <Kembalikan onClick={() => {
+                setKoef5({ a: AWAL_05.a, b: AWAL_05.b, c: AWAL_05.c, d: AWAL_05.d })
+                setX5(AWAL_05.x)
+              }} />
+              <Petunjuk>
+                ubah d saja, dan lihat kurva bawah tidak bergerak sama sekali: konstanta hilang saat diturunkan.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
+        {/* Widget 06 sampai 11: ganti Rintisan dengan komponen sungguhan,
             satu blok per widget, pola persis seperti di atas. */}
         {tampilWidget && tahap.widget && !SUDAH_JADI.includes(tahap.widget) && tahap.widget !== 'dunia-nyata-turunan' && (
           <>
@@ -213,6 +290,24 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
               Selisihnya mengecil terus, tetapi tidak pernah nol selama h masih ada.
             </div>
           </>
+        )}
+        {tampilWidget && tahap.widget === 'mesin-pangkat' && (
+          <>
+            <Tabel judul="Angka dari alat" baris={tabelPangkat(pangkat4, x4, h4)} />
+            <div className="blok">
+              <div className="cap">Kotak hitung</div>
+              <div className="catatan">
+                {uraianPangkat(pangkat4).map((baris) => (
+                  <div key={baris} style={{ fontFamily: 'var(--font-mono), monospace', fontSize: '0.82rem' }}>
+                    {baris}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
+        {tampilWidget && tahap.widget === 'susun-polinom' && (
+          <Tabel judul="Angka dari alat" baris={tabelPolinom(koef5, x5)} />
         )}
         {tampilWidget && tahap.widget === 'grafik-turunan' && (
           <>
