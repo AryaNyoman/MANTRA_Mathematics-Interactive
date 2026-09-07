@@ -379,6 +379,15 @@ class IntegralLajuKeJumlah(AdeganMatra):
         # balik: pindah ke jendela keluarga kurva. SATU perpindahan bidang.
         # ---------------------------------------------------------------
         sumbu2 = sumbu_keluarga()
+        # DITARUH DI TEMPAT LAIN, bukan di tempat yang sama. Versi pertama
+        # menaruh kedua sumbu di titik yang persis sama dan memudarkan yang satu
+        # sambil memunculkan yang lain: selama tiga detik penonton melihat DUA
+        # sistem koordinat bertumpuk, angka 25 dan angka -3 saling menembus
+        # (terlihat di frame detik 71). Sekarang bidang kedua berdiri sembilan
+        # satuan di bawah, dan kameranya TERBANG ke sana. Yang lama keluar lewat
+        # tepi atas sementara yang baru masuk dari bawah, dan keduanya tidak
+        # pernah menempati petak layar yang sama.
+        sumbu2.shift(DOWN * 9.0)
         pusat2, tinggi2 = kamera.muat_datar(sumbu2, sisa_atas=0.30, sisa_kanan=0.50)
         # Identitas pojok kiri atas HARUS ikut berganti. Pada render kedelapan
         # ia masih berbunyi "laju: juta rupiah per bulan" sepanjang lima babak
@@ -394,10 +403,18 @@ class IntegralLajuKeJumlah(AdeganMatra):
         # tetap "memeriksa" benda yang tak kasatmata itu tanpa mengeluh.
         self.remove(ident2)
         with sinema.babak(self, "balik", DURASI) as b:
+            # Identitas lama dipudarkan DI SINI, sampai habis, sebelum yang baru
+            # muncul. Blok identitas menempel di LAYAR, jadi ia tidak ikut
+            # terbang bersama kamera: memudarkan yang satu sambil memunculkan
+            # yang lain membuat dua tulisan bertumpuk di petak layar yang sama
+            # selama satu detik, dan hasilnya "injandatar x, tegakoT bulan"
+            # (frame detik 71 render kesepuluh). Ditemukan sesi Turunan dan
+            # diteruskan MASTER; frame detik pergantian WAJIB ikut diperiksa,
+            # sebab `periksa_adegan` cuma berjalan di UJUNG babak.
             b.main(FadeOut(trap), FadeOut(g_laju), FadeOut(l_bulan), FadeOut(l_juta),
                    FadeOut(sisi_kiri), FadeOut(sisi_kanan), FadeOut(l_kiri),
-                   FadeOut(l_kanan), FadeOut(l_hitung), run_time=1.4)
-            b.main(FadeOut(sumbu), FadeIn(sumbu2), FadeOut(ident), FadeIn(ident2),
+                   FadeOut(l_kanan), FadeOut(l_hitung), FadeOut(ident), run_time=1.4)
+            b.main(FadeOut(sumbu), FadeIn(sumbu2), FadeIn(ident2),
                    kamera.dekati(frame, pusat2, tinggi=tinggi2), run_time=3.2)
             qc.pastikan_hilang(self, {"sumbu laju": sumbu, "trapesium": trap,
                                       "garis laju": g_laju, "kotak dua belas": dua_belas,
@@ -496,9 +513,14 @@ class IntegralLajuKeJumlah(AdeganMatra):
         # "angka yang sama dengan luas tadi". Menutup video di atas gambar
         # keluarga kurva akan membuat gambarnya membantah kalimatnya.
         with sinema.babak(self, "tutup", DURASI) as b:
-            b.main(FadeOut(asal), FadeOut(l_asal), FadeOut(k_pokok), run_time=1.0)
+            # Identitas lama habis DULU (bersama isi bidang keluarga), yang baru
+            # menyusul di gerakan kamera. Sama seperti di babak `balik`, dan
+            # sebabnya sama: blok identitas menempel di layar dan tidak ikut
+            # terbang, jadi dua tulisan bisa bertumpuk di tempat yang sama.
+            b.main(FadeOut(asal), FadeOut(l_asal), FadeOut(k_pokok),
+                   FadeOut(ident2), run_time=1.0)
             b.main(FadeOut(sumbu2), FadeIn(sumbu), FadeIn(g_laju), FadeIn(trap),
-                   FadeIn(l_bulan), FadeIn(l_juta), FadeOut(ident2), FadeIn(ident),
+                   FadeIn(l_bulan), FadeIn(l_juta), FadeIn(ident),
                    kamera.dekati(frame, pusat_datar, tinggi=tinggi_datar), run_time=2.8)
             qc.pastikan_hilang(self, {"sumbu keluarga": sumbu2, "kurva pokok": k_pokok,
                                       "titik asal": asal, "singgung pokok": s_pokok},

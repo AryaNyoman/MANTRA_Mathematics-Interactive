@@ -333,6 +333,30 @@ lalu satu gerakan kamera turun dan tidak pernah miring lagi.
     menjulur keluar sumbu (T(2,6) = 9,36 padahal sumbunya berhenti di 8,5).
     Keduanya hanya terlihat dari membuka frame.
 
+### Cacat yang ditemukan SESUDAH digabung, dan sudah diperbaiki
+MASTER meneruskan temuan sesi Turunan: identitas yang berganti jangan
+dipudarkan silang di tempat yang sama. Saya periksa frame detik 71 video 01
+yang sudah digabung, dan benar, tetapi lebih buruk daripada dugaan MASTER:
+BUKAN cuma dua tulisan identitas yang bertumpuk ("injandatar x, tegakoT
+bulan"), melainkan DUA SISTEM KOORDINAT sekaligus. Kedua sumbu berdiri di
+titik dunia yang persis sama, dan selama 3,2 detik angka 25 dan angka -3
+saling menembus di layar. Terjadi dua kali: saat pindah bidang dan saat kembali.
+
+Semua gerbang meloloskannya, dan sebabnya jelas: `qc.periksa_adegan` hanya
+berjalan di UJUNG babak, sedangkan cacat ini hidup di PERTENGAHAN babak.
+
+Dua perbaikan, render kesebelas:
+1. Bidang keluarga kurva dipindah sembilan satuan ke bawah, dan kameranya
+   TERBANG ke sana. Yang lama keluar lewat tepi atas sementara yang baru masuk
+   dari bawah; keduanya tidak pernah menempati petak layar yang sama.
+2. Identitas lama dipudarkan sampai HABIS dulu di play sebelumnya, yang baru
+   menyusul di gerakan kamera.
+
+Aturan kerja yang saya ambil dari sini: saat memilih detik untuk lembar
+kontak, SELALU sertakan detik pergantian bidang dan pergantian identitas.
+Berkas mp4 video 01 karena itu BERUBAH lagi, jadi salinan di master perlu
+diambil ulang.
+
 ### Empat rentang "diam", sudah dinilai satu per satu
 Sama seperti video 05, alat ukurnya memakai perubahan piksel se-layar dan
 video ini banyak memakai garis tipis. Frame-nya dibuka:
@@ -370,12 +394,18 @@ dan 01 dipakai sejak awal: jangkar subtitle dicocokkan dengan berkas .vtt
 SEBELUM render pertama, `sisa_kanan` 1,8 disetel sejak awal, dan waktu tiap
 babak dihitung dengan `cek_waktu_adegan.py` sebelum ManimGL dijalankan sekali pun.
 
-### Satu keputusan yang perlu diketahui: skala sengaja tidak sama
-Papannya lebar dan pendek, sedangkan x membentang 3,2 satuan dan y membentang
-9,5. Kemiringan di layar karena itu TIDAK sama dengan kemiringan sebenarnya.
-Video ini tidak pernah meminta penonton membandingkan kemiringan dengan mata:
-yang dibandingkan ANGKANYA di panel, dan ruas singgungnya cuma penunjuk.
-Ditulis di kepala berkas adegannya supaya tidak terbaca sebagai kelalaian.
+### Satu keputusan yang perlu diketahui ARYA: skala sengaja tidak sama
+**Kalau menonton video ini dan merasa kemiringan garis singgungnya "tidak
+sesuai angkanya", itu memang begitu dan disengaja, bukan kesalahan gambar.**
+Papannya lebar dan pendek, sedangkan mendatar membentang 3,2 satuan sementara
+tegak membentang 9,5. Menyamakan skalanya berarti papannya harus tiga kali
+lebih tinggi daripada lebarnya, dan itu tidak muat di layar 16:9.
+
+Karena itu video ini tidak pernah meminta penonton membandingkan kemiringan
+dengan MATA: yang dibandingkan angkanya di panel (tinggi kurva di suatu titik
+lawan kemiringan kurva luas di titik yang sama), dan ruas singgungnya cuma
+penunjuk tempat. Alasannya ditulis juga di kepala berkas adegannya supaya
+tidak terbaca sebagai kelalaian. Pola yang sama dipakai video 01 Turunan.
 
 ### Yang ditemukan dari membuka gambarnya
 1. **Lengkungan tepi atas pita TIDAK TERLIHAT sama sekali.** Pita selebar 0,2
