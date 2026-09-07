@@ -3,8 +3,14 @@
  *
  * Empat soal bertahap, dikalibrasi ke buku Matematika Tingkat Lanjut Kelas XII
  * (Edisi Revisi 2025) Bab 3: Contoh Soal 3.2 sampai 3.15, Ayo Mencoba 3.2
- * sampai 3.13, dan latihan akhir bab. Keempatnya soal tulisan sendiri; yang
- * mengikuti buku adalah bentuk dan tingkat kesulitannya, bukan angkanya.
+ * sampai 3.13, dan latihan akhir bab.
+ *
+ * SUMBER SOAL. Keempatnya ditulis sendiri; yang mengikuti buku adalah bentuk
+ * dan tingkat kesulitannya, bukan angkanya. Bandingkan dengan buku: soal 4
+ * memakai x kuadrat dikurangi 4x pada selang 0 sampai 6, sedangkan versi buku
+ * (Ayo Mencoba 3.11) memakai polinom derajat tiga pada selang lain. Kalau nanti
+ * ada soal yang angkanya diambil persis dari buku, sumbernya WAJIB ditulis di
+ * `pembahasan`, seperti yang dilakukan di `kuis.ts`.
  *
  * PENGECOHNYA BUKAN ASAL SALAH. Tiap butir adalah kekeliruan yang benar-benar
  * sering terjadi dan sudah dibahas di halaman materinya: lupa membagi turunan
