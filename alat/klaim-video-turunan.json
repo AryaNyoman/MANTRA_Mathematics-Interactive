@@ -214,5 +214,104 @@
     "jenis": "ekspresi",
     "hitung": "expand(8*(2*x - 5)**7 * 2)",
     "jawaban": "expand(16*(2*x - 5)**7)"
+  },
+  {
+    "id": "V06-bantahan",
+    "jenis": "turunan",
+    "f": "x*x",
+    "jawaban": "2*x"
+  },
+  {
+    "id": "V06-u-di-2",
+    "jenis": "nilai_fungsi",
+    "f": "x + 1",
+    "di": 2,
+    "jawaban": 3
+  },
+  {
+    "id": "V06-v-di-2",
+    "jenis": "nilai_fungsi",
+    "f": "x",
+    "di": 2,
+    "jawaban": 2
+  },
+  {
+    "id": "V06-u-aksen",
+    "jenis": "turunan",
+    "f": "x + 1",
+    "jawaban": 1
+  },
+  {
+    "id": "V06-v-aksen",
+    "jenis": "turunan",
+    "f": "x",
+    "jawaban": 1
+  },
+  {
+    "id": "V06-pita-mendatar",
+    "jenis": "ekspresi",
+    "hitung": "1*2",
+    "jawaban": 2
+  },
+  {
+    "id": "V06-pita-tegak",
+    "jenis": "ekspresi",
+    "hitung": "3*1",
+    "jawaban": 3
+  },
+  {
+    "id": "V06-jumlah-pita",
+    "jenis": "ekspresi",
+    "hitung": "2 + 3",
+    "jawaban": 5
+  },
+  {
+    "id": "V06-hasil-kali-di-2",
+    "jenis": "turunan_di",
+    "f": "(x + 1)*x",
+    "di": 2,
+    "jawaban": 5
+  },
+  {
+    "id": "V06-pojok-dibagi-h",
+    "jenis": "ekspresi",
+    "hitung": "simplify(h*h/h)",
+    "jawaban": "h"
+  },
+  {
+    "id": "V06-contoh-u-aksen",
+    "jenis": "turunan",
+    "f": "x**2 + 1",
+    "jawaban": "2*x"
+  },
+  {
+    "id": "V06-contoh-v-aksen",
+    "jenis": "turunan",
+    "f": "x - 3",
+    "jawaban": 1
+  },
+  {
+    "id": "V06-contoh-susun",
+    "jenis": "ekspresi",
+    "hitung": "expand(2*x*(x - 3) + (x**2 + 1))",
+    "jawaban": "3*x**2 - 6*x + 1"
+  },
+  {
+    "id": "V06-contoh-hasil",
+    "jenis": "turunan",
+    "f": "(x**2 + 1)*(x - 3)",
+    "jawaban": "3*x**2 - 6*x + 1"
+  },
+  {
+    "id": "V06-jabaran",
+    "jenis": "ekspresi",
+    "hitung": "expand((x**2 + 1)*(x - 3))",
+    "jawaban": "x**3 - 3*x**2 + x - 3"
+  },
+  {
+    "id": "V06-turunan-jabaran",
+    "jenis": "turunan",
+    "f": "x**3 - 3*x**2 + x - 3",
+    "jawaban": "3*x**2 - 6*x + 1"
   }
 ]
