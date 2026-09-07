@@ -57,7 +57,62 @@ namanya menyebut integral, dan laporan ini. Di luar itu jangan disentuh.
 - Uji kirim pesan dua arah dengan MANTRA-MASTER BERHASIL: kirim, dibalas, dibalas lagi.
 
 ## Sedang dikerjakan
-Belum ada. Menunggu perintah mulai dari ARYA atau MASTER.
+Tahap 2: 11 widget Integral dan `PanggungIntegral.tsx`. Widget masih
+`Rintisan` semua.
+
+## TAHAP 1 SELESAI: 11 materi terisi (7 Sep 2026)
+
+Commit `9004d9b`. Semua materi `siap: true`; `topik.ts` sengaja masih
+`siap: false` sampai widget, latihan, dan kuis selesai.
+
+### Bukti gerbang
+| Gerbang | Perintah | Hasil |
+|---|---|---|
+| Angka | `python alat/cek_integral.py alat/materi-integral.json` | **66 dari 66 lolos**, kode 0 |
+| Pemeriksa angka bisa gagal | `... uji-cek-integral-salah.json --harus-gagal` | **15 klaim salah, 15 ditolak**, kode 0 |
+| Urutan istilah | `python alat/cek_urutan_integral.py` | **SEMUA LOLOS**, kode 0 |
+| Pemeriksa urutan bisa gagal | dua pelanggaran ditanam di Materi 01 | **3 tertangkap**, kode 1, lalu dikembalikan |
+| Daftar periksa mengajar | `python alat/periksa_tahap.py integral` | **semua tahap lolos**, kode 0 |
+| Tipe | `node node_modules/typescript/bin/tsc --noEmit` | kode 0 |
+| tsc dibuktikan hidup | nama widget palsu ditanam | **TS2322**, kode 2, lalu dikembalikan |
+| Lint | `node node_modules/eslint/bin/eslint.js content/integral ...` | kode 0 |
+
+### Alat baru milik sesi ini
+- `alat/cek_integral.py`, tujuh jenis klaim: antiturunan, tentu, riemann,
+  luas, luas_antara, akar, nilai. Dua keputusan rancangan yang penting:
+  jumlahan Riemann dihitung sebagai JUMLAH (bukan lewat integral), dan klaim
+  luas mencari titik potongnya SENDIRI (bukan menerima dari klaim), supaya
+  kekeliruan "lupa memecah di titik potong" benar-benar tertangkap.
+- `alat/uji-cek-integral-salah.json`, 15 klaim sengaja salah.
+- `alat/cek_urutan_integral.py`, penjaga urutan istilah.
+- `alat/materi-integral.json`, 66 klaim angka.
+
+### Jebakan yang sempat menggigit
+`sympy.Symbol('x', real=True)` BUKAN lambang yang sama dengan `x` bawaan
+`sympify('x**2')`. Versi pertama `cek_integral.py` mencampur keduanya,
+sehingga `diff` mengembalikan 0 dan alat menolak SEMUA klaim, termasuk yang
+benar, sambil TERLIHAT lulus uji "harus gagal". Ketahuan hanya karena pesan
+penolakannya dibaca ("turunan F adalah 0"), bukan karena kode keluarnya.
+Ini bukti langsung bahwa uji satu arah tidak cukup. Sudah ditulis sebagai
+peringatan di dalam kodenya.
+
+## Dua selisih dengan buku, keduanya diperiksa lewat GAMBAR halaman asli
+
+1. **Sifat 3.2 salah cetak.** Buku menulis syarat "n bilangan rasional dan
+   n != 0" (cetak 168, PDF 184). Yang benar n != -1, sebab di situlah
+   penyebut n+1 menjadi nol. Nilai n = 0 justru aman. Halaman siswa memakai
+   syarat yang benar dan TIDAK menyebut salah cetaknya.
+2. **Rancangan salah menulis fungsi Contoh 3.14.**
+   `2026-09-06-integral-alur-belajar.md` menulis `y = 3000x + 1000`. Buku
+   menulis `y = 3000 akar x + 1000`. Hanya bentuk buku yang memberi 20.000;
+   bentuk di rancangan memberi 28.000. Halaman memakai bentuk buku.
+   Rancangannya sendiri TIDAK saya ubah (bukan berkas milik sesi ini).
+
+## Tiga klaim matematis yang sengaja tidak ditulis mutlak
+1. "Integral kebalikan turunan" ditulis dengan tambahan C-nya (Materi 01).
+2. "Integral tentu sama dengan luas" ditulis dengan syaratnya, dan justru
+   dibongkar di Materi 09 (integral 0 sementara luasnya 64/3).
+3. "Substitusi selalu bisa" dibantah di Materi 03 dengan contoh tandingan.
 
 ## Butuh MASTER
 Sudah dijawab MASTER 7 Sep 2026, tidak ada yang menggantung:
@@ -70,6 +125,16 @@ Sudah dijawab MASTER 7 Sep 2026, tidak ada yang menggantung:
 
 Koreksi MASTER yang saya terima: leluhur bersama cabang ini adalah `cdf3119`,
 bukan `8caec58` seperti yang saya tulis semula.
+
+**Satu permintaan baru (7 Sep, setelah tahap 1).** `alat/periksa_tahap.py`
+milik MASTER, butir 2 "panggil ulang", memakai daftar topik
+`(Vektor|Trigonometri|Grafik Fungsi|Limit|Statistika)`. **Turunan, Integral,
+dan Transformasi Geometri tidak ada di daftar itu**, jadi materi yang
+memanggil ulang lewat kalimat "di topik Turunan" dilaporkan `TDK` walau
+isinya benar. Materi 04 saya sempat kena. Saya perbaiki dengan menambah
+rujukan "Materi 02" dan "Materi 03" di teksnya (perbaikan yang memang
+membuat materinya lebih baik), tetapi alatnya tetap akan salah lapor untuk
+sesi Turunan. Mohon tiga nama topik itu ditambahkan.
 
 ## Butuh keputusan ARYA
 - **Lampu hijau tahap 1.** Aturan ARYA mewajibkan estimasi disebut sebelum kerja besar.
