@@ -138,8 +138,12 @@ memeriksa angkanya:
 ARYA. Keduanya TIDAK dilacak git (mp4 di luar `web/public/anim/` diabaikan),
 jadi ambil langsung dari worktree ini.
 
-Enam kali render. Yang lolos gerbang otomatis pada render kelima tetapi baru
-ketahuan dari MEMBUKA gambarnya:
+**DELAPAN kali render.** Render 7 dan 8 lahir dari empat permintaan MASTER
+setelah 9cb9c09 digabung; berkas mp4-nya BERUBAH sejak itu, jadi salinan yang
+sudah dipasang di master perlu diambil ulang dari sini.
+
+Yang lolos gerbang otomatis pada render kelima tetapi baru ketahuan dari
+MEMBUKA gambarnya:
 
 1. **Segitiga pucat raksasa tertinggal dua babak terakhir.** `daerah_lurus`
    (daerah di bawah f(x) = x) dihitung dari bidang lama dan tidak ikut dibuang
@@ -189,12 +193,50 @@ memakai kejadian kecil dan setempat. Frame-nya sudah dibuka:
 | 62,6 sampai 67,1 d | "Daerah aslinya segitiga siku-siku..." | BUKAN cacat. Segitiga digambar, lalu alas dan tinggi ditandai berikut labelnya. |
 | 69,9 sampai 74,4 d | "Titik sampel kiri memberi 21." | BUKAN cacat. Frame 72 d kotak di ATAS garis, frame 74 d kotak di BAWAH garis: tangganya benar-benar berganti, hanya warnanya sama-sama pucat. |
 
+### Empat permintaan MASTER, semuanya dikerjakan
+1. **Medan `video:` dipasang** di Materi 05 `content/integral/tahap.ts`.
+   `npx tsc --noEmit` bersih.
+2. **Tiga mp3 basi DIBUANG.** MASTER benar bahwa izin ARYA hanya untuk berkas
+   yang tidak bisa dibuat ulang, dan saya periksa sendiri bahwa ketiganya
+   DILACAK GIT, jadi menghapusnya bisa dibatalkan lewat riwayat.
+   `cek_aset_video.py integral` sekarang SEMUA LOLOS.
+3. **`pastikan_hilang` naik ke `manim/gl/qc.py`** sebagai commit tersendiri
+   (e413896) yang hanya menyentuh `qc.py` dan `uji_qc.py`, dengan lima uji dua
+   arah. Yang membedakannya dari `mob in scene.mobjects` polos: ia juga
+   menemukan benda yang terpasang sebagai ANAK VGroup, dan itu diuji.
+   `periksa_adegan` tidak disentuh. Seluruh `uji_qc.py` lolos.
+4. **Detik 92 sampai 95 diperbaiki**, tetapi TIDAK dengan cara yang MASTER
+   sebut. "Pindahkan `ganti_rumus` ke `b.main` yang sama" tidak bisa dilakukan:
+   `sinema.ganti_rumus` memanggil `scene.play` sendiri, jadi ia tidak
+   mengembalikan animasi yang bisa dititipkan. Membuatnya bisa berarti mengubah
+   `sinema.py` yang dipakai semua sesi, dan itu di luar izin commit ini.
+   Yang saya lakukan: memisahkan perpindahan bidang dari perubahan kurva.
+   Sekarang detik 92,8 sampai 95,2 bidang dan kamera pindah sementara kurva
+   MASIH lurus dan panel MASIH menulis f(x) = x, jadi keduanya cocok; detik
+   95,2 sampai 96,2 kurvanya melengkung; detik 96,2 panelnya menyusul.
+   Selisihnya turun dari 3,0 detik keadaan diam yang salah jadi 1,0 detik
+   gerakan yang jelas sedang berlangsung, dan yang memimpin GAMBAR, bukan
+   panel. Frame 94, 96, dan 98 sudah dibuka untuk membuktikannya.
+   Kalau MASTER tetap mau nol detik, itu perlu tambahan pada `sinema.py`
+   (mis. `ganti_rumus(..., animasi_saja=True)` yang mengembalikan animasinya);
+   saya tidak mengerjakannya sendiri karena berkas itu milik bersama.
+
+### Dua kesalahan alat saya sendiri yang ketahuan di render 7
+- **`cek_waktu_adegan.py` melewatkan pembantu setempat.** Babak `turun`
+  terbaca 12,50 detik padahal render melaporkan 13,40 dan GAGAL. Selisih 0,90
+  itu persis `bersihkan_panel`, fungsi pembantu di berkas adegan yang memanggil
+  `b.catat(run_time)`. Alatnya sekarang membaca tanda tangan pembantu semacam
+  itu, dan MEMBUNYIKAN peringatan untuk panggilan ber-`b=b` yang tidak
+  dikenalnya, supaya waktunya tidak hilang diam-diam lagi. Setelah diperbaiki
+  angkanya 13,40, sama persis dengan yang dilaporkan render.
+- **Berkas kode-keluar yang saya pakai memantau render selalu menulis 0.**
+  `A && B & echo %ERRORLEVEL%` membuat `echo` jalan tanpa syarat DAN
+  `%ERRORLEVEL%`-nya diurai sebelum perintahnya jalan. Render 7 yang GAGAL
+  terbaca "kode=0"; yang menyelamatkan cuma kebiasaan membaca stderr.
+  Sudah diganti `(A && B) & call echo %^ERRORLEVEL%` dan dibuktikan melaporkan
+  3 untuk kegagalan yang disengaja dan 0 untuk keberhasilan.
+
 ### Yang masih kurang, dan saya sebutkan bukan diamkan
-- Detik 92 sampai 95: kurva sudah melengkung jadi 4 - x² sementara panel masih
-  menulis f(x) = x, sebab `ganti_rumus` berjalan setelah perpindahan bidang.
-  Tiga detik, di tengah satu gerakan, dan narasinya memang sedang berkata
-  "ganti kurvanya". Saya biarkan; kalau MASTER menilai lain, tinggal pindahkan
-  `ganti_rumus` ke dalam `b.main` yang sama.
 - `alat/cek_sinkron_video.py` TIDAK dipakai untuk video ini. Alat itu butuh pola
   kalimat yang tiap kemunculannya menambah satu benda; naskah video 05 menyebut
   "Tinggi 1, 2, 3, ..., 7" dalam satu kalimat, jadi tidak ada pola per benda.
@@ -204,18 +246,12 @@ memakai kejadian kecil dan setempat. Frame-nya sudah dibuka:
   kotak contoh berdiri. Tidak ada gambar yang mendahului jawabannya.
 
 ### Berkas pendamping
-Subtitle `.vtt` dan poster (detik 55, rentang 224, bukan latar 10,88 persen)
-sudah ada. `alat/cek_aset_video.py integral` masih CACAT karena tiga potongan
-suara BASI dari susunan naskah lama: `11-menyusut.mp3`, `12-turun.mp3`,
-`13-tutup.mp3`. Ketiganya tidak dipakai (`narasi-penuh.mp3` sudah 118,08 detik
-sesuai 12 segmen sekarang) dan bisa dibuat ulang kapan saja oleh
-`buat_narasi.py`. **Saya TIDAK menghapusnya**: menghapus berkas perlu izin
-ARYA. Perintahnya satu baris kalau diizinkan.
+Subtitle `.vtt`, poster (dibuat ulang dari render kedelapan, detik 55,
+rentang 224, bukan latar 10,88 persen), dan medan `video:` di `tahap.ts`
+semuanya sudah ada. Tiga potongan suara basi sudah dibuang.
+`alat/cek_aset_video.py integral` SEMUA LOLOS.
 
 ## Butuh keputusan ARYA
-- **Izin menghapus 3 mp3 basi di `audio/integral05-riemann/`** supaya
-  `cek_aset_video.py` bersih. Risikonya kecil: berkas hasil buatan mesin, tidak
-  dipakai, bisa dibuat ulang.
 - Empat video sisanya (01, 07, 09, 03) belum dikerjakan. Urutannya dari MASTER.
 
 ## Titik rawan matematis yang sudah ditandai

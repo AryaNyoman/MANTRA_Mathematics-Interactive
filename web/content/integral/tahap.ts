@@ -461,6 +461,7 @@ export const TAHAP: TahapIntegral[] = [
     slug: 'jumlahan-riemann',
     judul: 'Luas dari persegi panjang, jumlahan Riemann',
     labelPendek: 'Riemann',
+    video: { berkas: 'integral05-riemann.mp4', poster: 'integral05-riemann.jpg' },
     pertanyaan: 'Bagaimana mengukur luas daerah yang salah satu tepinya melengkung?',
     intisari: [
       'Daerah bertepi lengkung diukur dengan menutupinya memakai persegi panjang yang luasnya bisa dihitung.',
