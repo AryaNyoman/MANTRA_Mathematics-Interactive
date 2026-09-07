@@ -135,6 +135,7 @@ def main() -> None:
         hasil = AKAR / "media" / "uji-480p" / nama
         hasil.parent.mkdir(parents=True, exist_ok=True)
         suara_kode = ["-c:a", "aac", "-b:a", "96k"]
+        gambar_kode = ["-c:v", "copy"]      # mp4 menerima H.264 apa adanya
     else:
         # Bawaannya .mp4, dan kodek suaranya MENGIKUTI WADAH, bukan ditebak.
         #
@@ -145,22 +146,46 @@ def main() -> None:
         #   "Only VP8 or VP9 or AV1 video ... are supported for WebM"
         # Terbukti 7 Sep 2026 saat render akhir Ruang 3D materi 01.
         #
-        # Ke-32 video yang sudah tayang semuanya mp4 H.264 dengan suara AAC,
-        # jadi itu yang jadi bawaan. Kalau suatu saat memang perlu .webm,
-        # aliran gambarnya harus DIKODE ULANG ke VP9, bukan disalin.
+        # WADAH FINAL = .mp4 (H.264 dari ManimGL disalin + AAC), KEPUTUSAN ARYA
+        # 8 Sep 2026, menggantikan keputusan "webm" sehari sebelumnya yang
+        # ternyata berdasar angka keliru: klaim "webm enam kali lebih ringan"
+        # membandingkan Ruang 3D (permukaan bergradasi, mp4 14 MB/85 s) dengan
+        # Statistika (garis datar, webm 3 MB/115 s); isinya yang beda, bukan
+        # wadahnya. Yang terukur pada ISI YANG SAMA (Statistika dan
+        # Transformasi, 7 Sep 2026):
+        #   - aliran gambar: VP9 crf 32 hasil kode ulang dari H.264 ManimGL
+        #     1,2 sampai 1,4 kali LEBIH BESAR daripada H.264-nya;
+        #   - berkas utuh siap tayang: mp4 (H.264 + AAC 128k) 17 persen lebih
+        #     ringan daripada webm (VP9 + Opus 72k);
+        #   - webm butuh 5 sampai 14 menit kode ulang per video, mp4 gratis,
+        #     dan mp4 diputar semua HP termasuk iPhone lama.
+        # Jangan tulis angka "enam kali" lagi di mana pun. Jalur .webm di bawah
+        # dipertahankan hanya untuk keperluan khusus lewat --keluar.
         nama = a.keluar or f"{a.topik}.mp4"
         hasil = AKAR / "media" / nama
         if hasil.suffix.lower() == ".webm":
-            raise SystemExit(
-                f"BERHENTI: {hasil.name} berwadah webm, sedangkan {video.name} "
-                f"H.264 dari ManimGL.\nAliran gambarnya tidak bisa disalin ke "
-                f"webm, dan alat ini sengaja TIDAK mengode ulang diam-diam "
-                f"(VP9 1080p60 makan puluhan menit).\nPakai .mp4, sama seperti "
-                f"seluruh video yang sudah tayang.")
-        suara_kode = ["-c:a", "aac", "-b:a", "128k"]
+            print(f"CATATAN: keluaran '{nama}' berwadah webm; wadah final proyek ini "
+                  f"mp4 (keputusan ARYA 8 Sep 2026). Webm dikode ulang ke VP9, "
+                  f"belasan menit, dan hasilnya lebih besar. Pastikan memang sengaja.")
+        if hasil.suffix.lower() == ".webm":
+            # WebM TIDAK menerima video H.264, dan ManimGL menghasilkan H.264.
+            # `-c:v copy` mati dengan "Could not write header" dan meninggalkan
+            # berkas 264 bita (Ruang 3D dan Statistika, 7 Sep 2026). Jadi untuk
+            # webm aliran gambarnya DISANDIKAN ULANG ke VP9. Ini lambat (1080p60
+            # makan belasan menit), sengaja dibiarkan jalan sebab Statistika
+            # memilih webm dengan sadar; `-row-mt 1` dan `-cpu-used 3` menjaga
+            # waktunya masuk akal di laptop yang dipakai bergiliran.
+            suara_kode = ["-c:a", "libopus", "-b:a", "72k"]
+            gambar_kode = ["-c:v", "libvpx-vp9", "-b:v", "0", "-crf", "32",
+                           "-row-mt", "1", "-deadline", "good", "-cpu-used", "3",
+                           "-pix_fmt", "yuv420p"]
+        else:
+            # mp4 menerima H.264 ManimGL apa adanya: gambar disalin, suara AAC.
+            suara_kode = ["-c:a", "aac", "-b:a", "128k"]
+            gambar_kode = ["-c:v", "copy"]
     if berkas_latar is None:
         perintah = ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
-                    "-c:v", "copy"] + suara_kode + ["-shortest", str(hasil)]
+                    ] + gambar_kode + suara_kode + ["-shortest", str(hasil)]
     else:
         # Latar dikecilkan (0,12), lalu DITEKAN lagi tiap kali narasi berbunyi
         # (sidechaincompress: narasi = pengendali). amix normalize=0 supaya
@@ -173,7 +198,7 @@ def main() -> None:
         perintah = ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
                     "-stream_loop", "-1", "-i", str(berkas_latar),
                     "-filter_complex", saring, "-map", "0:v", "-map", "[a]",
-                    "-c:v", "copy"] + suara_kode + ["-shortest", str(hasil)]
+                    ] + gambar_kode + suara_kode + ["-shortest", str(hasil)]
         print(f"latar  : {berkas_latar.relative_to(AKAR)}  (tipis, merendah saat narasi)")
     subprocess.run(perintah, check=True)
 

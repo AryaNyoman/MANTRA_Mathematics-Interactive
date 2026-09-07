@@ -67,6 +67,28 @@ def daftar_video(saring: str | None) -> list[Path]:
             hasil.append(v)
     return sorted(hasil, key=lambda x: x.stem)
 
+
+def video_topik(topik: str):
+    """Berkas video sebuah topik: yang FINAL dulu, versi uji 480p belakangan.
+
+    Alat ini dibuat saat semua video masih berupa render uji, jadi sumbernya
+    dipatok ke `media/uji-480p/`. Di gelombang 3 folder itu kosong (versi uji
+    dikeluarkan dari git), sehingga alatnya melapor "tidak ada video yang cocok"
+    padahal ketiga belas video final ada di `web/public/anim/`. Melapor tidak
+    ada video sama saja dengan tidak memeriksa apa pun, dan itu justru jenis
+    kebutaan yang bikin alat ini dibuat. Ditemukan sesi Statistika 7 Sep 2026.
+    """
+    # Urutan folder dari VIDEO_URUT (final dulu, uji belakangan); di tiap
+    # folder mp4 didahulukan daripada webm: wadah final proyek mp4 (keputusan
+    # ARYA 8 Sep 2026), webm hanya sisa masa peralihan. Sama dengan urutan
+    # `buat_poster.cari_sumber`.
+    for folder in VIDEO_URUT:
+        for akhiran in (".mp4", ".webm"):
+            calon = folder / f"{topik}{akhiran}"
+            if calon.exists() and calon.stat().st_size > 1024:
+                return calon
+    return None
+
 AMBANG_SELISIH = 15.0    # detik
 
 
@@ -76,7 +98,13 @@ def durasi_video(jalur: Path) -> float:
          "-of", "csv=p=0", str(jalur)],
         capture_output=True, text=True, check=True,
     )
-    return float(hasil.stdout.strip())
+    # ffprobe menjawab "N/A" untuk berkas yang rusak atau SEDANG DITULIS
+    # (ketahuan 7 Sep 2026 saat webm Ruang 3D masih dikode ulang). Durasi 0
+    # membuat videonya dilaporkan CACAT, bukan menghentikan seluruh alat.
+    try:
+        return float(hasil.stdout.strip())
+    except ValueError:
+        return 0.0
 
 
 def akhir_subtitle(jalur: Path) -> float | None:
@@ -111,7 +139,21 @@ def periksa(saring: str | None) -> int:
     from buat_poster import nilai  # noqa: E402
 
     buruk = 0
-    daftar = daftar_video(saring)
+    # Topik dikumpulkan dari video FINAL dan versi uji sekaligus, lalu
+    # `video_topik` memilih yang final kalau ada. Dulu hanya `media/uji-480p`
+    # yang dilihat, jadi alatnya buta begitu versi uji dibersihkan.
+    nama = set()
+    for folder in VIDEO_URUT:
+        if not folder.exists():
+            continue
+        for pola in ("*.webm", "*.mp4"):
+            for p in folder.glob(pola):
+                if "-bersubtitle" in p.stem:
+                    continue
+                if saring and saring not in p.stem:
+                    continue
+                nama.add(p.stem)
+    daftar = [v for v in (video_topik(t) for t in sorted(nama)) if v is not None]
     if not daftar:
         tempat = " atau ".join(str(f) for f in VIDEO_URUT)
         print(f"tidak ada video yang cocok dengan {saring!r} di {tempat}")
@@ -121,6 +163,12 @@ def periksa(saring: str | None) -> int:
         topik = v.stem
         lama = durasi_video(v)
         catat = []
+        if lama <= 0:
+            # Tanpa baris ini, video berdurasi 0 (rusak atau sedang ditulis)
+            # LOLOS: pembanding di bawah hanya menangkap video yang lebih
+            # panjang dari subtitle-nya. Terbukti 7 Sep 2026: ruang-3d-03.webm
+            # yang baru separuh ditulis dilaporkan "ok (0.0 s)".
+            catat.append("durasi video TIDAK TERBACA (berkas rusak atau sedang ditulis)")
 
         vtt = ANIM / f"{topik}.vtt"
         if not vtt.exists():

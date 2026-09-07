@@ -119,7 +119,13 @@ class Simpangan8(AdeganMatra):
         HUD["identitas"] = sinema.identitas(self, "5 botol tiap mesin",
                                             "botol berlabel 500 ml")
 
+        # Nama mesin lawan botolnya WAJIB diperiksa di tiap babak. Benda dunia
+        # tidak diperiksa silang terhadap benda dunia oleh `qc`, jadi tanpa
+        # pasangan tertulis ini tindihan botol di atas huruf lolos lagi.
+        PASANGAN_TETAP = [("nama A", "botol A"), ("nama B", "botol B")]
+
         def periksa(pasangan=None):
+            pasangan = PASANGAN_TETAP + list(pasangan or [])
             hidup_d = {k: v for k, v in DUNIA.items() if v is not None}
             hidup_h = {k: v for k, v in HUD.items() if v is not None}
             if papan.semua() is not None:      # kosong di dua babak pertama
@@ -160,7 +166,20 @@ class Simpangan8(AdeganMatra):
         # Nama mesin ditaruh DI BAWAH garisnya, bukan di atas: di atas garis A ia
         # masuk jalur papan rumus di kiri atas.
         nama_a = tegak(teks("Mesin A", 23, AKSEN2)).move_to([-2.15, 0, Z_GARIS_A + 0.24])
-        nama_b = tegak(teks("Mesin B", 23, AKSEN)).move_to([-2.15, 0, Z_GARIS_B + 0.22])
+        # Botol Mesin B paling kiri duduk di 490 ml, yaitu x = -1,70. Label di
+        # x = -2,15 (setengah lebarnya 0,405, DIUKUR bukan dikira) melebar sampai
+        # -1,745 dan menyenggol botolnya: meleset cuma 0,02 satuan, tetapi di
+        # 1080p hurufnya jelas tertutup. Lolos semua gerbang sebab benda dunia
+        # tidak diperiksa silang terhadap benda dunia, dan adegan ini dibuat
+        # sebelum ada daftar `tulisan`; sekarang dijaga `PASANGAN_TETAP`.
+        #
+        # Jendela amannya sempit dan dibatasi dua sisi:
+        #   x < -2,170  supaya tidak kena botol 490 ml
+        #   x > -2,659  supaya tetap muat saat kamera mendekat ke bingkai 3,6
+        # Percobaan pertama memakai -2,80 dan DITOLAK gerbang, keluar bingkai
+        # kiri di babak penutup. Dipakai tengahnya.
+        # Mesin A tidak kena: botolnya cuma merentang 498 sampai 502 ml.
+        nama_b = tegak(teks("Mesin B", 23, AKSEN)).move_to([-2.40, 0, Z_GARIS_B + 0.22])
 
         garis_mean = ilustrasi.balok(0.05, 0.4, 1.30, SOROT).shift([0, 0, Z_ANGKA + 0.16])
         l_mean = tegak(rumus(r"\bar{x}_A = \bar{x}_B = 500", 22, SOROT))
@@ -306,6 +325,20 @@ class Simpangan8(AdeganMatra):
         l_var_b = tegak(rumus("50", 24, LATAR)).move_to(var_b.get_center())
 
         with sinema.babak(self, "varian", DURASI) as b:
+            # Dua baris temuan "A: 10" dan "B: 250" DIPADAMKAN sebelum rumus
+            # utamanya meninggi. Mulai langkah ini rumusnya jadi pecahan, lalu
+            # akar, dan keduanya menjulur turun ke slot baris pertama. Gerbang
+            # isi papan (`_qc_isi`, dipasang MASTER 4 Sep) menolak render dengan
+            # "papan rumus baris 1 menindih papan rumus baris 3"; sebelum gerbang
+            # itu ada, tindihan ini lolos diam-diam ke video yang sudah tayang.
+            # Memadamkannya juga benar secara isi: kedua angka itu sudah terserap
+            # ke dalam pecahan, dan sisa video memakai 2 dan 50, bukan 10 dan 250.
+            if papan.baris_lain:
+                b.main(*[FadeOut(m) for m in papan.baris_lain], run_time=0.6)
+                for m in papan.baris_lain:
+                    if m in self.hud:
+                        self.hud.remove(m)
+                papan.baris_lain = []
             papan.tumbuh(r"\frac{\sum (x - \bar{x})^2}{n}", "dibagi n")
             b.catat(LAMA_TUMBUH)
             b.main(FadeOut(nilai_a), FadeOut(nilai_b), run_time=0.6)

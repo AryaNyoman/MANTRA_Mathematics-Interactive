@@ -1,5 +1,62 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 8 SEP (dini hari): TIGA VIDEO TURUNAN, TIGA ALAT BARU, WADAH DITINJAU ULANG
+
+- Turunan video 02, 03 (dirender ulang setelah angka sumbu ketahuan meleset:
+  batas bawah bidang bukan kelipatan langkah), dan 07 (aturan rantai, 147 s)
+  selesai 480p, lolos gerbang, di master dengan poster dan medan `video`.
+- Alat baru di master, semuanya dari cacat yang lolos gerbang lama:
+  `bidang_bernomor` menolak batas bawah bukan kelipatan langkah (e412aca);
+  qc mengadu tulisan dengan angka sumbu kecuali beralas (a136220);
+  `alat/cek_layar_kosong.py` memindai layar hampa >1,5 s (c9d5730; diuji pada
+  transformasi, statistika, ruang-3d: lolos). Cacat lama vektor4 dan vektor9
+  gagal qc dengan sebab lama, diteruskan ke sesi Vektor.
+- WADAH: keputusan "seragamkan ke webm" ditinjau ulang. Angka awal
+  membandingkan isi berbeda; pada isi yang sama mp4 utuh 17 persen lebih
+  ringan dan tanpa kode ulang (Statistika, Transformasi). Kode ulang Ruang
+  3D DIHENTIKAN, mp4-nya tetap tayang. Menunggu kata ARYA: "mp4" atau
+  "tetap webm". Bawaan gabung_audio masih webm sampai itu.
+
+## 7 SEP (larut): STATISTIKA 1080p DI PRODUKSI, ALAT BERSAMA DISATUKAN
+
+Sesi Statistika selesai gelombang 3 (ad470d3): 13 video 1920x1080 60 fps
+sebagai WebM VP9 (mengikuti resep MASTER yang menyebut webm; Ruang 3D
+memilih tetap mp4 H.264, jadi dua wadah kini hidup berdampingan: webm ~3 MB
+per 115 detik, mp4 ~13 MB per 85 detik; keputusan wadah ada di ARYA).
+Gabung ke master a42b795 BENTROK di tiga alat bersama yang ditambal kedua
+sesi (gabung_audio, buat_poster, cek_aset_video); disatukan MASTER:
+gabung_audio memilih dari akhiran keluaran (.mp4 salin H.264 + AAC, .webm
+kode ulang VP9 + Opus), buat_poster dan cek_aset_video mencari video final
+webm/mp4 dulu baru versi uji. cek_aset_video: 13 statistika dan 6 ruang-3d
+lolos. Mp4 480p statistika lama dipindah ke media/arsip-480p (di luar git).
+Deploy produksi berhasil pada percobaan kedua (Vercel dua kali menjawab
+Internal Server Error saat unggah malam ini): matra-eight dan
+mantra-matematika (alias diarahkan ulang) menyajikan webm 1080p, ukuran
+berkas diverifikasi. Sisa 480p: vektor 6, grafik 2, transformasi 6;
+trigonometri.webm 720p yatim.
+
+## 7 SEP (malam): SEMBILAN TOPIK DI PRODUKSI, RUANG 3D 1080p, PERINTAH ARYA
+
+ARYA: "cek semua sesi, yang belum selesai diselesaikan sampai tuntas rendernya;
+Integral dan Turunan langsung naikkan ke produksi dan buat videonya."
+- Ruang 3D SELESAI gelombang 3: enam video 1920x1080 60 fps (bfe5a4f), digabung
+  12f00aa dan mp4-nya dipasang di master. Sesi itu menambal alat bersama:
+  `--fps 60` memecahkan render (pakai `manim/hd60.yml`), `gabung_audio`
+  tetap mp4 (instruksi MASTER "ubah ke webm" KELIRU: semua video tayang mp4),
+  `buat_poster` dan `cek_aset_video` tidak lagi mematok folder 480p.
+- `vercel deploy --prod` dari master 12f00aa (percobaan pertama gagal di sisi
+  Vercel, "Internal Server Error" saat unggah; kedua berhasil):
+  matra-eight.vercel.app dan mantra-matematika.vercel.app (alias diarahkan
+  ulang) kini memuat Turunan, Integral, enam video Transformasi 2 menit, dan
+  Ruang 3D 1080p. Diverifikasi lewat kode HTTP dan ukuran berkas video.
+- Keadaan sesi: Vektor dan Statistika sedang merender 1080p; Grafik Fungsi
+  siap tetapi MENUNGGU kata "render" dari ARYA di jendelanya (menolak
+  perintah lewat MASTER, dan itu sesuai aturannya); Turunan mulai video 02;
+  Integral merender video 05; Transformasi menunggu ARYA menonton.
+- `web/public/anim/trigonometri.webm` (720p, terlacak git, tidak dirujuk
+  halaman mana pun) masih membuat `cek_resolusi_anim.py` menolak; belum
+  dihapus, menunggu ARYA.
+
 ## 7 SEP (malam, lanjutan): INTEGRAL DIGABUNG KE MASTER, SEMBILAN TOPIK
 
 Sesi MANTRA-INTEGRAL lapor SIAP GABUNG (bbe9ba4): 11 materi, 10 widget +

@@ -64,12 +64,18 @@ SUMBER_URUT = (TUJUAN, AKAR / "media" / "uji-480p", AKAR / "media")
 
 
 def cari_sumber(topik: str) -> Path | None:
+    # mp4 DIDAHULUKAN: wadah final proyek ini mp4 (keputusan ARYA 8 Sep 2026,
+    # membatalkan webm sehari sebelumnya). Webm yang tertinggal dari masa
+    # peralihan (Statistika 7 Sep) tidak boleh jadi sumber poster kalau mp4
+    # finalnya sudah ada. `cek_aset_video.video_topik` memakai urutan yang
+    # sama; kedua alat harus sepakat.
     for folder in SUMBER_URUT:
         for akhiran in (".mp4", ".webm"):
             calon = folder / f"{topik}{akhiran}"
             if calon.exists():
                 return calon
     return None
+
 
 AMBANG_RENTANG = 40          # dari 255
 AMBANG_TOLAK = 0.0035        # 0,35 persen piksel bukan latar: di bawah ini kosong
@@ -103,7 +109,7 @@ def nilai(jalur: Path) -> tuple[str, str]:
 def buat(topik: str, detik: float) -> int:
     video = cari_sumber(topik)
     if video is None:
-        daftar = "\n  ".join(str(f / f"{topik}.mp4") for f in SUMBER_URUT)
+        daftar = "\n  ".join(str(f / f"{topik}.mp4 atau .webm") for f in SUMBER_URUT)
         print(f"tidak ada videonya. Dicari di:\n  {daftar}")
         return 1
     print(f"sumber   {video.relative_to(AKAR)}")

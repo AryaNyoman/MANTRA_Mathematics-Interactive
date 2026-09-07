@@ -156,4 +156,60 @@ if not getattr(papan_uji.alas, "dekorasi", False):
 print("ok: baris papan beralas bertanda beralas")
 
 
+# 5. 7 Sep 2026, temuan sesi Turunan: TULISAN LAWAN ANGKA SUMBU.
+#    Angka sumbu menumpang di dalam benda `dunia`, dan benda dunia boleh
+#    bersentuhan, jadi blok teks yang duduk persis di baris angka sumbu lolos
+#    gerbang dua kali berturut-turut dan baru ketahuan di lembar kontak.
+#    Diuji dengan `bidang_bernomor` yang SEBENARNYA, bukan tiruan: yang gagal
+#    dulu adalah susunan aslinya, dan tiruan tidak akan menirunya.
+from gl import ilustrasi  # noqa: E402
+
+frame.reorient(0, 0, 0, center=(0, 0, 0), height=8)
+bidang = ilustrasi.bidang_bernomor(x_range=(-3.0, 3.0, 1.0), y_range=(-2.0, 2.0, 1.0))
+
+# Penjaga untuk PEMERIKSANYA sendiri. Angka sumbu tersusun dua lapis: satu
+# kelompok sumbu x, satu kelompok sumbu y. Kalau perata gagal turun ke
+# angkanya, yang terbaca cuma 2 kelompok yang membentang sepanjang sumbu, dan
+# uji di bawah tetap "lulus" karena tulisan mana pun menindih kelompok
+# selebar itu. Angkanya dihitung dulu supaya kegagalan begitu terlihat.
+daun = qc.daun_angka(bidang.angka)
+if len(daun) < 6:
+    raise SystemExit(f"GAGAL: angka sumbu terbaca {len(daun)} buah, mestinya satu per satu")
+print(f"ok: angka sumbu terurai jadi {len(daun)} angka")
+
+label = Text("jarak h").move_to(daun[0].get_center())
+try:
+    qc.periksa_adegan(sc, {}, dunia={"bidang": bidang}, tulisan={"jarak": label},
+                      jaga_jalur_bawah=False)
+    raise SystemExit("GAGAL: tulisan di atas angka sumbu lolos")
+except qc.CacatTataLetak:
+    print("ok: tulisan di atas angka sumbu tertangkap")
+
+# Tulisan yang berdiri di dalam bidang tapi jauh dari angka mana pun HARUS
+# lolos. Tanpa uji ini, perata yang rusak (mengembalikan kelompok, bukan
+# angka) akan menolak hampir semua adegan dan tetap terlihat "bekerja".
+label.move_to(bidang.c2p(0.6, 1.4))
+qc.periksa_adegan(sc, {}, dunia={"bidang": bidang}, tulisan={"jarak": label},
+                  jaga_jalur_bawah=False)
+print("ok: tulisan di dalam bidang, jauh dari angka, lolos")
+
+# Tulisan BERALAS boleh berdiri di atas angka: alas kertasnya menutup angka di
+# belakangnya, dan itu memang cara membereskan tindihannya.
+beralas = Text("jarak h = 0,51").move_to(daun[0].get_center())
+beralas.beralas = True
+qc.periksa_adegan(sc, {}, dunia={"bidang": bidang}, tulisan={"blok": beralas},
+                  jaga_jalur_bawah=False)
+print("ok: tulisan beralas di atas angka sumbu lolos")
+
+# Tapi `beralas` TIDAK memutihkan segalanya. Dua tulisan yang bertindih tetap
+# cacat walaupun salah satunya beralas, sebab alas kertas menutup angka sumbu
+# di belakangnya, bukan tulisan yang digambar di atasnya.
+tumpang = Text("P").move_to(daun[0].get_center())
+try:
+    qc.periksa_adegan(sc, {}, dunia={"bidang": bidang},
+                      tulisan={"blok": beralas, "P": tumpang}, jaga_jalur_bawah=False)
+    raise SystemExit("GAGAL: tulisan menindih tulisan beralas lolos")
+except qc.CacatTataLetak:
+    print("ok: beralas tidak memutihkan adu tulisan lawan tulisan")
+
 print("SEMUA UJI QC LOLOS")

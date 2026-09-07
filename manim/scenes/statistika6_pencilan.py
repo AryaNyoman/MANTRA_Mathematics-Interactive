@@ -355,7 +355,11 @@ class Pencilan6(AdeganMatra):
         tiang = DashedLine([X(MEAN10), 0, Z_PTR_MEAN + 0.16], [X(MEAN10), 0, Z_TITIK + 0.58])
         tiang.set_stroke(SOROT, 2.0)
         l_kosong = tegak(sinema.label("kosong", 20, SOROT))
-        l_kosong.move_to([X(MEAN10), 0, Z_TITIK + 0.86])
+        # Digeser ke KANAN garis putus dan diturunkan. Sebaris dengan "9 karyawan"
+        # keduanya cuma berjarak 0,05 satuan: gerbang tulisan meloloskannya sebab
+        # memang tidak bertindih, tetapi di layar terbaca menyambung jadi
+        # "9 karyawankosong". Terlihat jelas di render 1080p.
+        l_kosong.move_to([X(MEAN10) + 0.85, 0, Z_TITIK + 0.70])
         pita = Rectangle(width=X(7.0) - X(4.2) + 0.24, height=0.34)
         pita.set_fill(AKSEN2, 0.28).set_stroke(AKSEN2, 1.4)
         pita = tegak(pita).move_to([(X(4.2) + X(7.0)) / 2, 0, Z_TITIK])
