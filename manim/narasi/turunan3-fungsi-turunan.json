@@ -1,0 +1,78 @@
+{
+  "adegan": "TurunanFungsiBaru",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video 02 topik Turunan, untuk Materi 03 'Turunan sebagai fungsi baru'. TANPA 3D. Dua papan bertumpuk dengan sumbu x yang sama: papan atas kurva f, papan bawah kosong yang terisi oleh jejak kemiringan saat x disapu. Puncaknya babak 'lahir': jejak itu ternyata membentuk garis y = 2x, jadi kemiringan berhenti menjadi satu angka dan berubah menjadi FUNGSI. Angka -2, 0, 2, dan 4 sama persis dengan tabel di halaman Materi 03, dan diperiksa alat/cek_turunan.py. Babak 'sudut' memakai |x| untuk memperlihatkan titik yang turunannya TIDAK ADA; itu ada di halaman Materi 03 juga, dan penting supaya siswa tidak menyimpulkan tiap kurva selalu punya turunan di mana-mana.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi ketiga: turunan sebagai fungsi baru.",
+      "tulis": "Materi 03: turunan sebagai fungsi baru."
+    },
+    {
+      "id": "ingat",
+      "teks": "Di materi sebelumnya kita dapat satu angka: kemiringan kurva x kuadrat di titik x sama dengan satu adalah *dua*.",
+      "tulis": "Di Materi 02 kita dapat satu angka: kemiringan x² di x = 1 adalah *2*."
+    },
+    {
+      "id": "tanya",
+      "teks": "Pertanyaan berikutnya wajar. Bagaimana di titik yang lain?",
+      "tulis": "Pertanyaan berikutnya wajar. Bagaimana di titik yang lain?"
+    },
+    {
+      "id": "papan",
+      "teks": "Kita siapkan papan kedua di bawahnya. Sumbu mendatarnya sama persis, tapi yang dicatat di sini bukan tinggi kurva, melainkan *kemiringannya*.",
+      "tulis": "Papan kedua di bawah. Sumbu x sama, tapi yang dicatat *kemiringan*, bukan tinggi."
+    },
+    {
+      "id": "kiri",
+      "teks": "Mulai dari kiri. Di x sama dengan minus satu kurvanya menurun, jadi kemiringannya negatif. Nilainya minus dua.",
+      "tulis": "Mulai dari kiri. Di x = -1 kurvanya menurun, jadi kemiringannya -2."
+    },
+    {
+      "id": "nol",
+      "teks": "Di dasar lembah, x sama dengan nol, kurvanya mendatar sesaat. Kemiringannya nol.",
+      "tulis": "Di dasar lembah, x = 0, kurvanya mendatar. Kemiringannya 0."
+    },
+    {
+      "id": "kanan",
+      "teks": "Ke kanan kurvanya menanjak. Di x sama dengan satu kemiringannya dua, dan di x sama dengan dua kemiringannya empat.",
+      "tulis": "Ke kanan kurvanya menanjak. Di x = 1 kemiringannya 2, di x = 2 kemiringannya 4."
+    },
+    {
+      "id": "sapu",
+      "teks": "Sekarang kita sapu perlahan dari kiri ke kanan, dan biarkan setiap kemiringan meninggalkan jejaknya.",
+      "tulis": "Sekarang sapu perlahan dari kiri ke kanan, dan biarkan tiap kemiringan berjejak."
+    },
+    {
+      "id": "lahir",
+      "teks": "Perhatikan papan bawah. Jejaknya bukan kurva sembarangan. Ia sebuah *garis lurus*, dan garis itu y sama dengan dua x.",
+      "tulis": "Perhatikan papan bawah. Jejaknya sebuah *garis lurus*, yaitu y = 2x."
+    },
+    {
+      "id": "fungsi",
+      "teks": "Jadi kemiringan berhenti menjadi satu angka. Ia menjadi *fungsi*, dan namanya fungsi turunan, ditulis f aksen.",
+      "tulis": "Kemiringan berhenti jadi satu angka. Ia menjadi *fungsi turunan*, ditulis f′."
+    },
+    {
+      "id": "pakai",
+      "teks": "Sekarang kita tidak perlu mengulang hitungan limit lagi. Masukkan tiga ke f aksen, langsung dapat enam.",
+      "tulis": "Tak perlu mengulang limit lagi. Masukkan 3 ke f′, langsung dapat 6."
+    },
+    {
+      "id": "beda",
+      "teks": "Tapi hati-hati, keduanya menjawab pertanyaan yang berbeda. Di x sama dengan tiga, f memberi sembilan, sedangkan f aksen memberi enam.",
+      "tulis": "Keduanya menjawab pertanyaan berbeda. Di x = 3: f memberi 9, f′ memberi 6."
+    },
+    {
+      "id": "sudut",
+      "teks": "Satu hal terakhir. Tidak semua kurva punya kemiringan di setiap titiknya. Coba kurva nilai mutlak x.",
+      "tulis": "Tidak semua kurva punya kemiringan di tiap titik. Coba kurva |x|."
+    },
+    {
+      "id": "tutup",
+      "teks": "Di sudut tajamnya, kemiringan dari kiri minus satu dan dari kanan satu. Tidak ada satu angka pun yang layak, jadi di sana turunannya *tidak ada*.",
+      "tulis": "Di sudut tajamnya, dari kiri -1 dan dari kanan 1. Turunannya *tidak ada* di situ."
+    }
+  ]
+}
