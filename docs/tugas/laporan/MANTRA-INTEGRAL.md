@@ -56,124 +56,91 @@ namanya menyebut integral, dan laporan ini. Di luar itu jangan disentuh.
 - `tsc --noEmit` LOLOS (exit 0), dipanggil lewat biner Node langsung, bukan lewat rtk.
 - Uji kirim pesan dua arah dengan MANTRA-MASTER BERHASIL: kirim, dibalas, dibalas lagi.
 
-## Sedang dikerjakan
-Tahap 2: widget. **1 dari 10 selesai** (commit `c6d4d8d`).
+## INTEGRAL SIAP GABUNG
 
-Perkakas gambar milik topik ini sudah berdiri dan dipakai bersama sisanya:
-`widget/integral/koordinat.ts` (tambahan khas Integral: `jalurDaerah`,
-`jalurAntara`, `potongTanda`), `seret.ts`, `Bidang.tsx`.
+Keempat tahap selesai. Cabang `sesi/integral-materi`, siap digabung MASTER.
 
-| Widget | Materi | Keadaan |
+| Tahap | Isi | Keadaan |
 |---|---|---|
-| `mesin-balik` | 01 | **SELESAI**, diuji di 1366 dan 375 |
-| `naik-pangkat` | 02 | Rintisan |
-| `cocokkan-lapisan` | 03 | Rintisan |
-| `pasangkan-turunan-integral` | 04 | Rintisan |
-| `persegi-panjang-menumpuk` | 05 | Rintisan |
-| `pecah-selang` | 06 | Rintisan |
-| `luas-yang-tumbuh` | 07 | Rintisan |
-| `hitung-bertahap` | 08 | Rintisan |
-| `luas-dua-daerah` | 09 | Rintisan |
-| `dua-kurva` | 10 | Rintisan |
+| 1 | 11 materi | SELESAI, direvisi atas pemeriksaan silang MASTER |
+| 2 | 10 widget + galeri + panggung | SELESAI, semuanya diuji di peramban |
+| 3 | 4 latihan + 32 kuis | SELESAI |
+| 4 | `siap: true` per materi lalu topik, plus gerbang | SELESAI |
 
-Bukti uji widget 01, dijalankan dengan `playwright-cli -s=mantra-integral`
-di port 3016:
-- 1366: seret titik x=1 ke x=0, kemiringan ikut 3 jadi 1.
-- ketik C=99 dipotong jadi 3, bukan ditolak.
-- C digeser 0 sampai 3, kemiringan tetap. Itu yang diajarkan materinya.
-- tebakan salah `x²+1` dijawab "turunannya 2x, belum cocok".
-- 375: tata letak benar (kotak coba, widget, kendali), seret jalan,
-  x=1 jadi 0,25 dengan kemiringan 1,5.
+### Gerbang, semuanya dijalankan ulang setelah saklar dinyalakan
+| Gerbang | Hasil |
+|---|---|
+| `cek_integral.py alat/materi-integral.json` | 65 dari 65 lolos |
+| `cek_integral.py alat/soal-integral.json` | 43 dari 43 lolos |
+| `cek_integral.py ... --harus-gagal` | 15 klaim sengaja salah, 15 ditolak |
+| `cek_urutan_integral.py` | nol pemakaian istilah terlalu dini |
+| `periksa_tahap.py integral` | semua tahap lolos |
+| `tsc --noEmit` | 0 |
+| `eslint` wilayah Integral | 0 |
+| `next build` | 0, `/topik/integral` dan `/latihan/integral` dibuat |
+| Galat konsol peramban, 11 materi | 0 galat, 0 peringatan |
 
-Dua cacat ditemukan dari MELIHAT potret, keduanya lolos tsc dan eslint:
-angka kemiringan yang melayang menimpa garis sumbu, dan kurva bayangan yang
-keluar bingkai pada C ekstrem. Keduanya sudah diperbaiki.
-
-## TAHAP 1 SELESAI: 11 materi terisi (7 Sep 2026)
-
-Commit `9004d9b`. Semua materi `siap: true`; `topik.ts` sengaja masih
-`siap: false` sampai widget, latihan, dan kuis selesai.
-
-### Bukti gerbang
-| Gerbang | Perintah | Hasil |
+### Kesepuluh widget, semuanya potretnya DIBUKA dan seretnya diuji
+| Widget | Materi | Bukti singkat |
 |---|---|---|
-| Angka | `python alat/cek_integral.py alat/materi-integral.json` | **66 dari 66 lolos**, kode 0 |
-| Pemeriksa angka bisa gagal | `... uji-cek-integral-salah.json --harus-gagal` | **15 klaim salah, 15 ditolak**, kode 0 |
-| Urutan istilah | `python alat/cek_urutan_integral.py` | **SEMUA LOLOS**, kode 0 |
-| Pemeriksa urutan bisa gagal | dua pelanggaran ditanam di Materi 01 | **3 tertangkap**, kode 1, lalu dikembalikan |
-| Daftar periksa mengajar | `python alat/periksa_tahap.py integral` | **semua tahap lolos**, kode 0 |
-| Tipe | `node node_modules/typescript/bin/tsc --noEmit` | kode 0 |
-| tsc dibuktikan hidup | nama widget palsu ditanam | **TS2322**, kode 2, lalu dikembalikan |
-| Lint | `node node_modules/eslint/bin/eslint.js content/integral ...` | kode 0 |
+| `mesin-balik` | 01 | C digeser 0 sampai 3, kemiringan tetap 1 |
+| `naik-pangkat` | 02 | tinggi papan atas sama dengan kemiringan papan bawah; n = -1 ditolak |
+| `cocokkan-lapisan` | 03 | calon u salah dijelaskan sebabnya, bukan sekadar ditolak |
+| `pasangkan-turunan-integral` | 04 | pasangan salah menampilkan turunannya sendiri |
+| `persegi-panjang-menumpuk` | 05 | n=7 memberi 28; selisih menyusut 3,5 ke 1,75 ke 0,408 |
+| `pecah-selang` | 06 | c digeser ke tiga tempat, jumlahnya tetap 0 |
+| `luas-yang-tumbuh` | 07 | x=1,5 memberi A 1,125 dan kemiringan 1,5 |
+| `hitung-bertahap` | 08 | soal substitusi terbuka penuh sampai 4/3 |
+| `luas-dua-daerah` | 09 | integral 0 sementara luas 21,333 |
+| `dua-kurva` | 10 | x³ dan x pada [-1,1]: luas 0,5, selisih 0 |
+| `dunia-nyata-integral` | 11 | galeri empat kartu, jalurnya dihitung dari rumusnya |
 
-### Alat baru milik sesi ini
-- `alat/cek_integral.py`, tujuh jenis klaim: antiturunan, tentu, riemann,
-  luas, luas_antara, akar, nilai. Dua keputusan rancangan yang penting:
-  jumlahan Riemann dihitung sebagai JUMLAH (bukan lewat integral), dan klaim
-  luas mencari titik potongnya SENDIRI (bukan menerima dari klaim), supaya
-  kekeliruan "lupa memecah di titik potong" benar-benar tertangkap.
-- `alat/uji-cek-integral-salah.json`, 15 klaim sengaja salah.
-- `alat/cek_urutan_integral.py`, penjaga urutan istilah.
-- `alat/materi-integral.json`, 66 klaim angka.
-
-### Jebakan yang sempat menggigit
-`sympy.Symbol('x', real=True)` BUKAN lambang yang sama dengan `x` bawaan
-`sympify('x**2')`. Versi pertama `cek_integral.py` mencampur keduanya,
-sehingga `diff` mengembalikan 0 dan alat menolak SEMUA klaim, termasuk yang
-benar, sambil TERLIHAT lulus uji "harus gagal". Ketahuan hanya karena pesan
-penolakannya dibaca ("turunan F adalah 0"), bukan karena kode keluarnya.
-Ini bukti langsung bahwa uji satu arah tidak cukup. Sudah ditulis sebagai
-peringatan di dalam kodenya.
-
-## Dua selisih dengan buku, keduanya diperiksa lewat GAMBAR halaman asli
-
-1. **Sifat 3.2 salah cetak.** Buku menulis syarat "n bilangan rasional dan
-   n != 0" (cetak 168, PDF 184). Yang benar n != -1, sebab di situlah
-   penyebut n+1 menjadi nol. Nilai n = 0 justru aman. Halaman siswa memakai
-   syarat yang benar dan TIDAK menyebut salah cetaknya.
-2. **Rancangan salah menulis fungsi Contoh 3.14.**
-   `2026-09-06-integral-alur-belajar.md` menulis `y = 3000x + 1000`. Buku
-   menulis `y = 3000 akar x + 1000`. Hanya bentuk buku yang memberi 20.000;
-   bentuk di rancangan memberi 28.000. Halaman memakai bentuk buku.
-   Rancangannya sendiri TIDAK saya ubah (bukan berkas milik sesi ini).
-
-## Tiga klaim matematis yang sengaja tidak ditulis mutlak
-1. "Integral kebalikan turunan" ditulis dengan tambahan C-nya (Materi 01).
-2. "Integral tentu sama dengan luas" ditulis dengan syaratnya, dan justru
-   dibongkar di Materi 09 (integral 0 sementara luasnya 64/3).
-3. "Substitusi selalu bisa" dibantah di Materi 03 dengan contoh tandingan.
+### Cacat yang ditemukan sendiri dan sudah diperbaiki
+Semuanya LOLOS tsc dan eslint, dan hanya ketahuan dari membuka potret atau
+memeriksa angkanya:
+1. Widget 01: angka kemiringan menimpa garis sumbu; kurva bayangan keluar
+   bingkai pada C ekstrem.
+2. Widget 02: jendela diukur untuk keadaan ekstrem sehingga keadaan awal
+   nyaris datar; pesan penolakan terpotong jadi "ak pangkat -1"; panel mengaku
+   F punya kemiringan padahal F-nya tidak ada.
+3. SEMUA widget: menyeret dengan tetikus ikut menyeleksi tulisan, angka sumbu
+   jadi blok biru. Diperbaiki sekali di `Bidang.tsx`.
+4. `potongTanda`: akar yang jatuh PERSIS di titik cuplikan tidak terdeteksi,
+   sehingga luas antara x³ dan x pada [-1,1] dilaporkan 0 padahal 0,5. Widget
+   09 dengan sin x mengidap hal yang sama tanpa ketahuan.
+5. Widget 07: keterangan terpotong; jejak kurva luas digambar di kiri nol.
+6. Bank soal: ke-32 jawaban benar semuanya di pilihan A. Disebar jadi
+   7, 7, 6, 6, 6.
 
 ## Butuh MASTER
-Sudah dijawab MASTER 7 Sep 2026, tidak ada yang menggantung:
-1. Cabang `sesi/integral-materi` DITERIMA sebagai cabang resmi sesi ini.
-2. Integral BOLEH MULAI SEKARANG. Kalimat "Turunan dulu" di berkas tugas dibatalkan;
-   kepala `docs/tugas/MANTRA-TURUNAN-INTEGRAL.md` kini memuat tabel pembagian dua sesi.
-3. Sesi Turunan sudah dilarang menyentuh berkas integral. Sebaliknya sesi ini dilarang
-   menyentuh `content/turunan/`, `PanggungTurunan.tsx`, `widget/turunan/`,
-   `latihan/turunan/`, dan laporan mereka.
-
-Koreksi MASTER yang saya terima: leluhur bersama cabang ini adalah `cdf3119`,
-bukan `8caec58` seperti yang saya tulis semula.
-
-**Satu permintaan baru (7 Sep, setelah tahap 1).** `alat/periksa_tahap.py`
-milik MASTER, butir 2 "panggil ulang", memakai daftar topik
-`(Vektor|Trigonometri|Grafik Fungsi|Limit|Statistika)`. **Turunan, Integral,
-dan Transformasi Geometri tidak ada di daftar itu**, jadi materi yang
-memanggil ulang lewat kalimat "di topik Turunan" dilaporkan `TDK` walau
-isinya benar. Materi 04 saya sempat kena. Saya perbaiki dengan menambah
-rujukan "Materi 02" dan "Materi 03" di teksnya (perbaikan yang memang
-membuat materinya lebih baik), tetapi alatnya tetap akan salah lapor untuk
-sesi Turunan. Mohon tiga nama topik itu ditambahkan.
+1. **Gabungkan `sesi/integral-materi`.** Semua gerbang lolos.
+2. **Satu error eslint di wilayah sesi lain, BUKAN dari saya:**
+   `web/components/widget/transformasi-geometri/Legenda.tsx` baris 58,
+   `react-hooks/immutability`, "Cannot reassign x after render completes".
+   Berkas itu SAMA PERSIS dengan versi di master (`git diff master HEAD`
+   kosong), jadi errornya bawaan master. Saya tidak menyentuhnya sesuai aturan
+   wilayah. Kalau `eslint .` dipakai sebagai gerbang gabung, ini akan menahan
+   siapa pun, bukan cuma saya.
+3. **Perkakas gambar salinan keempat** (`koordinat.ts`, `seret.ts`,
+   `Bidang.tsx` di `widget/integral/`) sudah Anda catat sebagai utang MASTER.
+   Catatan tambahan: perbaikan `userSelect: none` dan perbaikan `potongTanda`
+   ada di salinan SAYA saja. Kalau salinan itu disatukan nanti, dua perbaikan
+   ini yang harus menang.
+4. **Dua ketidakcocokan rancangan yang saya putuskan sendiri**, mohon
+   diperiksa: pangkat `-1` saya masukkan ke daftar pilihan widget 02 (tanpa itu
+   kalimat petunjuk rancangan mustahil diikuti), dan `cek_soal.py` saya ganti
+   `cek_integral.py` untuk berkas soal (alat lama hanya paham klaim limit).
 
 ## Butuh keputusan ARYA
-- **Lampu hijau tahap 1.** Aturan ARYA mewajibkan estimasi disebut sebelum kerja besar.
-  Estimasi sudah disampaikan: tahap 1 (11 materi) besar, tahap 2 (10 widget) besar,
-  tahap 3 (latihan dan kuis) sedang, tahap 4 (gerbang mutu) sedang. Menunggu jawaban.
+- Video Integral belum dikerjakan sama sekali, sesuai aturan: menunggu perintah.
+  Urutan prioritasnya sudah ada di rancangan (05, 01, 07, 09, 03).
 
 ## Titik rawan matematis yang sudah ditandai
-MASTER menemukan 4 kalimat matematis keliru dari 12 materi Turunan. Untuk Integral,
-tiga klaim ini TIDAK boleh ditulis sebagai kalimat mutlak:
+MASTER menemukan 4 kalimat matematis keliru dari 12 materi Turunan. Untuk
+Integral, tiga klaim ini TIDAK ditulis sebagai kalimat mutlak:
 1. "Integral kebalikan turunan" hanya benar sampai konstanta.
-2. "Integral tentu sama dengan luas" salah kalau kurva ada di bawah sumbu. Justru itu
-   isi Materi 09.
+2. "Integral tentu sama dengan luas" salah kalau kurva ada di bawah sumbu.
 3. "Substitusi selalu bisa" tidak benar.
+Pemeriksaan silang MASTER menambah empat lagi, semuanya sudah dikerjakan:
+laju dibaca sebagai tambahan sebulan penuh, "kiri dan kanan selalu mengapit",
+"luas selalu bertambah", dan "titik potong selalu tempat kurva pindah sisi".
