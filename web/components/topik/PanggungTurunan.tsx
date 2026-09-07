@@ -24,6 +24,10 @@ import SusunPolinom, {
 import LuasBerubah, {
   AWAL as AWAL_06, BATAS_H as BATAS_H_06, BATAS_X as BATAS_X_06, tabelLuas,
 } from '@/components/widget/turunan/LuasBerubah'
+import MesinBertingkat, {
+  AWAL as AWAL_07, BATAS_H as BATAS_H_07, BATAS_X as BATAS_X_07,
+  PILIHAN_DALAM, PILIHAN_LUAR, tabelBertingkat,
+} from '@/components/widget/turunan/MesinBertingkat'
 import GrafikTurunan, {
   AWAL as AWAL_03, FUNGSI_TERSEDIA as FUNGSI_03,
   MAKS_JEJAK, batasX, tabelGrafikTurunan,
@@ -48,7 +52,7 @@ import GrafikTurunan, {
  */
 
 /** Widget yang komponennya sudah jadi; sisanya masih memakai Rintisan. */
-const SUDAH_JADI = ['garis-potong', 'sekan-ke-tangen', 'grafik-turunan', 'mesin-pangkat', 'susun-polinom', 'luas-berubah']
+const SUDAH_JADI = ['garis-potong', 'sekan-ke-tangen', 'grafik-turunan', 'mesin-pangkat', 'susun-polinom', 'luas-berubah', 'mesin-bertingkat']
 
 function Tabel({ judul, baris }: { judul: string; baris: Array<{ nama: string; nilai: string }> }) {
   return (
@@ -95,6 +99,12 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
   // Materi 06: aturan hasil kali lewat luas
   const [x6, setX6] = useState(AWAL_06.x)
   const [h6, setH6] = useState(AWAL_06.h)
+
+  // Materi 07: aturan rantai sebagai dua mesin berderet
+  const [x7, setX7] = useState(AWAL_07.x)
+  const [h7, setH7] = useState(AWAL_07.h)
+  const [dalam7, setDalam7] = useState(AWAL_07.dalam)
+  const [luar7, setLuar7] = useState(AWAL_07.luar)
 
   /** Geser x pada Materi 03 sambil menambah jejaknya, tanpa kembar. */
   function geserX3(nx: number) {
@@ -284,7 +294,36 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
           </>
         )}
 
-        {/* Widget 07 sampai 11: ganti Rintisan dengan komponen sungguhan,
+        {/* ---------------- Materi 07 ---------------- */}
+        {tampilWidget && tahap.widget === 'mesin-bertingkat' && (
+          <>
+            <div className="layar">
+              <MesinBertingkat x={x7} h={h7} namaDalam={dalam7} namaLuar={luar7}
+                onGeser={(nx, nh) => { setX7(nx); setH7(nh) }} />
+            </div>
+            <div className="kendali">
+              <Pilihan nama="Mesin dalam" arti="yang dikerjakan lebih dulu"
+                pilihan={PILIHAN_DALAM} nilai={dalam7} onPilih={setDalam7} />
+              <Pilihan nama="Mesin luar" arti="yang mengolah hasilnya"
+                pilihan={PILIHAN_LUAR} nilai={luar7} onPilih={setLuar7} />
+              <Angka nama="Titik x" arti="masukan yang dikirim ke mesin pertama" kunci="x"
+                nilai={x7} onUbah={setX7} desimal={2}
+                min={BATAS_X_07.min} max={BATAS_X_07.maks} langkah={BATAS_X_07.langkah} />
+              <Angka nama="Tambahan h" arti="lebar pita perubahannya" kunci="h"
+                nilai={h7} onUbah={setH7} desimal={2}
+                min={BATAS_H_07.min} max={BATAS_H_07.maks} langkah={BATAS_H_07.langkah} />
+              <Kembalikan onClick={() => {
+                setX7(AWAL_07.x); setH7(AWAL_07.h)
+                setDalam7(AWAL_07.dalam); setLuar7(AWAL_07.luar)
+              }} />
+              <Petunjuk>
+                pilih mesin dalam 3x, lalu bandingkan pita di garis u dengan pita di garis x: selalu tiga kali lebih panjang.
+              </Petunjuk>
+            </div>
+          </>
+        )}
+
+        {/* Widget 08 sampai 11: ganti Rintisan dengan komponen sungguhan,
             satu blok per widget, pola persis seperti di atas. */}
         {tampilWidget && tahap.widget && !SUDAH_JADI.includes(tahap.widget) && tahap.widget !== 'dunia-nyata-turunan' && (
           <>
@@ -336,6 +375,16 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
         )}
         {tampilWidget && tahap.widget === 'susun-polinom' && (
           <Tabel judul="Angka dari alat" baris={tabelPolinom(koef5, x5)} />
+        )}
+        {tampilWidget && tahap.widget === 'mesin-bertingkat' && (
+          <>
+            <Tabel judul="Angka dari alat" baris={tabelBertingkat(x7, h7, dalam7, luar7)} />
+            <div className="catatan">
+              Kedua pengali itu dikalikan, bukan dijumlahkan. Kalau u berubah tiga kali
+              lebih cepat daripada x, dan y berubah lima kali lebih cepat daripada u,
+              maka y berubah lima belas kali lebih cepat daripada x.
+            </div>
+          </>
         )}
         {tampilWidget && tahap.widget === 'luas-berubah' && (
           <>

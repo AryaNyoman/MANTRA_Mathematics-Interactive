@@ -662,10 +662,10 @@ export const TAHAP: TahapTurunan[] = [
         jenis: 'coba',
         teks: 'Alatnya memasang dua mesin berderet, dengan pita kecil yang memperlihatkan seberapa besar perubahan diteruskan di tiap tingkat.',
         langkah: [
-          'Pilih mesin dalam g = 3x dan mesin luar f = u². Geser x pelan-pelan',
-          'Perhatikan pita di garis u: panjangnya selalu tiga kali pita di garis x, apa pun mesin luarnya',
-          'Ganti mesin luar ke u³. Pita terakhir memanjang, tapi pita tengahnya tetap tiga kali',
-          'Baca panel kanan: angka pengali tiap tingkat dan hasil kalinya, yang tidak lain adalah dy/dx',
+          'Pilih mesin dalam 3x dan mesin luar u², lalu seret pelan di garis x',
+          'Bandingkan pita di garis u dengan pita di garis x: keduanya memakai satu skala, dan pita u selalu tiga kali lebih panjang',
+          'Baca angka pengali di sebelah kiri: ×3 di tingkat pertama, lalu angka lain di tingkat kedua',
+          'Ganti mesin dalam ke x². Sekarang pengali tingkat pertama ikut berubah mengikuti x, dan hasil kalinya juga',
         ],
       },
 
