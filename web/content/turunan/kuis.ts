@@ -5,20 +5,41 @@
  * menghindari soal yang sudah pernah keluar.
  *
  * KALIBRASI TINGKAT KESULITAN, ke buku Tingkat Lanjut Kelas XII Bab 2:
- *   mudah        satu aturan, satu langkah. Setara Contoh Soal 2.4 nomor 1
- *                sampai 3, dan Latihan Soal Definisi Turunan nomor 4.
- *   sedang       dua langkah, atau satu aturan yang harus dikenali dulu.
- *                Setara Contoh Soal 2.5 sampai 2.7 dan Ayo Mencoba 2.6.
- *   sulit        tiga langkah, atau syarat yang harus diperiksa sendiri.
+ *   mudah        satu aturan, satu langkah, dan angkanya sudah siap dipakai.
+ *                Setara Contoh Soal 2.4 nomor 1 sampai 3.
+ *   sedang       dua langkah, atau satu aturan yang harus DIKENALI dulu dari
+ *                bentuk soalnya. Setara Contoh Soal 2.5 sampai 2.7.
+ *   sulit        tiga langkah, atau ada syarat yang harus diperiksa sendiri
+ *                (uji tanda, buang akar yang tidak masuk akal, baca satuan).
  *                Setara Ayo Mencoba 2.8 dan 2.9 serta soal aplikasi.
- *   sangat sulit gabungan beberapa materi, atau nilai yang harus dicari
- *                mundur dari syarat. Setara latihan akhir bab.
+ *   sangat sulit DUA SAMPAI TIGA ALAT sekaligus, atau soal yang dibaca mundur
+ *                dari syaratnya, atau titik yang tidak diberikan sama sekali.
+ *                Setara latihan akhir bab dan soal siap-ujian di
+ *                mathcyber1997.com.
+ *
+ * KALIBRASI ULANG 7 SEP 2026, atas temuan MASTER. Delapan soal "sangat sulit"
+ * yang pertama ternyata sebagian besar satu langkah rutin: turunan hasil bagi
+ * di satu titik, mencari a dari titik stasioner, sin 2x di sebuah sudut, x·eˣ
+ * di nol, dan tan di sebuah sudut. Semuanya hanya menerapkan SATU aturan pada
+ * bentuk yang sedikit lebih ramai, dan itu tingkat sedang atau sulit, bukan
+ * sangat sulit. Yang benar-benar sangat sulit hanya dua: tangki 32 m³ dan
+ * garis singgung di titik berordinat negatif. Enam soal sangat sulit ditulis
+ * ulang supaya menuntut lebih dari satu alat:
+ *   - aturan rantai DI DALAM aturan hasil bagi
+ *   - garis singgung yang melalui titik DI LUAR kurva, jadi titik singgungnya
+ *     tidak diberikan dan harus dicari lewat persamaan
+ *   - optimasi dengan syarat bahan yang tetap, rumusnya disusun dari dua
+ *     keterangan
+ *   - aturan rantai terhadap waktu
+ *   - membaca tanda f′ DAN f″ sekaligus
+ *   - dua syarat untuk dua bilangan yang belum diketahui
  *
  * SOAL DITULIS SENDIRI. Tidak ada soal salinan di berkas ini, jadi tidak ada
  * yang perlu disebut sumbernya; yang dikalibrasi hanya POLA dan tingkatnya.
  *
  * Pengecohnya bukan angka asal. Tiap pengecoh adalah kekeliruan yang memang
- * sering terjadi, dan `alasan` menyebutkan kekeliruan mana.
+ * sering terjadi, `alasan` menyebutkan kekeliruan mana, dan NILAI pengecohnya
+ * ikut diperiksa sympy supaya klaim itu bukan sekadar keyakinan.
  *
  * SELURUH JAWABAN NUMERIK SUDAH DIPERIKSA MESIN dengan sympy:
  * `python alat/cek_turunan.py alat/soal-kuis-turunan.json`.
@@ -140,6 +161,44 @@ export const KUIS: SoalKuis[] = [
   },
   {
     id: 'turunan-sedang-05',
+    pertanyaan: 'Jika f(x) = cos x, berapakah f′(π/2)?',
+    pilihan: ['-1', '1', '0', '-π/2', 'tidak ada'],
+    benar: 0,
+    alasan: 'Turunan cos x adalah NEGATIF sin x, dan tanda minus itu yang paling sering hilang. Di x = π/2 grafik kosinus sedang menurun paling curam, jadi jawabannya wajib negatif.',
+    langkah: ['f′(x) = -sin x', 'sin(π/2) = 1', 'jadi f′(π/2) = -1'],
+    tingkat: 'sedang',
+  },
+  {
+    id: 'turunan-sedang-06',
+    pertanyaan: 'Jika f(x) = e^(2x), berapakah f′(0)?',
+    pilihan: ['2', '1', '0', 'e', '2e'],
+    benar: 0,
+    alasan: 'Bagian dalamnya 2x, dan turunannya 2 harus ikut dikalikan. Jawaban 1 muncul kalau aturan rantai terlupa, seolah fungsinya eˣ biasa.',
+    langkah: ['bagian dalam 2x, turunannya 2', 'f′(x) = e^(2x) · 2', 'di x = 0: e⁰ = 1, jadi 1 · 2 = 2'],
+    tingkat: 'sedang',
+  },
+  {
+    id: 'turunan-sedang-07',
+    pertanyaan: 'Tinggi sebuah bola setelah t detik adalah h(t) = 40t - 5t² meter. Berapa kecepatannya pada detik ke-2?',
+    pilihan: ['20 m/s', '60 m/s', '30 m/s', '10 m/s', '40 m/s'],
+    benar: 0,
+    alasan: 'Kecepatan adalah turunan tinggi terhadap waktu. Jawaban 60 m/s muncul kalau yang dihitung h(2), yaitu tingginya, bukan kecepatannya. Perhatikan satuannya: tinggi dalam meter, kecepatan dalam meter per detik.',
+    langkah: ['h′(t) = 40 - 10t', 'di t = 2: 40 - 20 = 20 m/s'],
+    tingkat: 'sedang',
+  },
+  {
+    id: 'turunan-sedang-08',
+    pertanyaan: 'Jika f(x) = sin 2x, berapakah f′(π/6)?',
+    pilihan: ['1', '2', '1/2', '√3', '√3 dibagi 2'],
+    benar: 0,
+    alasan: 'Aturan rantai pada fungsi trigonometri: bagian dalam 2x turunannya 2. Jawaban 1/2 muncul kalau pengali 2 tertinggal, sehingga yang dihitung cos(π/3) saja.',
+    langkah: ['f′(x) = cos(2x) · 2', 'di x = π/6: 2x = π/3', 'cos(π/3) = 1/2', 'jadi 2 · (1/2) = 1'],
+    tingkat: 'sedang',
+  },
+
+  /* ================= SULIT ================= */
+  {
+    id: 'turunan-sulit-01',
     pertanyaan: 'Fungsi f(x) = x³ - 3x² naik pada selang ...',
     pilihan: [
       'x < 0 atau x > 2',
@@ -149,41 +208,12 @@ export const KUIS: SoalKuis[] = [
       'seluruh bilangan real',
     ],
     benar: 0,
-    alasan: 'Fungsi naik di tempat f′ bernilai positif. Jawaban 0 < x < 2 adalah selang tempat fungsinya justru TURUN, yaitu tandanya terbalik.',
+    alasan: 'Fungsi naik di tempat f′ bernilai positif, dan tandanya harus diuji di KETIGA selang, bukan ditebak dari bentuk kurvanya. Jawaban 0 < x < 2 adalah selang tempat fungsinya justru TURUN, yaitu tandanya terbalik.',
     langkah: ['f′(x) = 3x² - 6x = 3x(x - 2)', 'akarnya x = 0 dan x = 2', 'uji x = -1: f′ = 3 + 6 = 9, positif', 'uji x = 1: f′ = 3 - 6 = -3, negatif', 'uji x = 3: f′ = 27 - 18 = 9, positif'],
-    tingkat: 'sedang',
+    tingkat: 'sulit',
   },
   {
-    id: 'turunan-sedang-06',
-    pertanyaan: 'Jika f(x) = cos x, berapakah f′(π/2)?',
-    pilihan: ['-1', '1', '0', '-π/2', 'tidak ada'],
-    benar: 0,
-    alasan: 'Turunan cos x adalah NEGATIF sin x, dan tanda minus itu yang paling sering hilang. Di x = π/2 grafik kosinus sedang menurun paling curam, jadi jawabannya wajib negatif.',
-    langkah: ['f′(x) = -sin x', 'sin(π/2) = 1', 'jadi f′(π/2) = -1'],
-    tingkat: 'sedang',
-  },
-  {
-    id: 'turunan-sedang-07',
-    pertanyaan: 'Jika f(x) = e^(2x), berapakah f′(0)?',
-    pilihan: ['2', '1', '0', 'e', '2e'],
-    benar: 0,
-    alasan: 'Bagian dalamnya 2x, dan turunannya 2 harus ikut dikalikan. Jawaban 1 muncul kalau aturan rantai terlupa, seolah fungsinya eˣ biasa.',
-    langkah: ['bagian dalam 2x, turunannya 2', 'f′(x) = e^(2x) · 2', 'di x = 0: e⁰ = 1, jadi 1 · 2 = 2'],
-    tingkat: 'sedang',
-  },
-  {
-    id: 'turunan-sedang-08',
-    pertanyaan: 'Tinggi sebuah bola setelah t detik adalah h(t) = 40t - 5t² meter. Berapa kecepatannya pada detik ke-2?',
-    pilihan: ['20 m/s', '60 m/s', '30 m/s', '10 m/s', '40 m/s'],
-    benar: 0,
-    alasan: 'Kecepatan adalah turunan tinggi terhadap waktu. Jawaban 60 m/s muncul kalau yang dihitung h(2), yaitu tingginya, bukan kecepatannya. Perhatikan satuannya: tinggi dalam meter, kecepatan dalam meter per detik.',
-    langkah: ['h′(t) = 40 - 10t', 'di t = 2: 40 - 20 = 20 m/s'],
-    tingkat: 'sedang',
-  },
-
-  /* ================= SULIT ================= */
-  {
-    id: 'turunan-sulit-01',
+    id: 'turunan-sulit-02',
     pertanyaan: 'Titik balik maksimum fungsi f(x) = x³ - 6x² + 9x + 1 adalah ...',
     pilihan: ['(1, 5)', '(3, 1)', '(1, 1)', '(3, 5)', '(2, 3)'],
     benar: 0,
@@ -197,7 +227,7 @@ export const KUIS: SoalKuis[] = [
     tingkat: 'sulit',
   },
   {
-    id: 'turunan-sulit-02',
+    id: 'turunan-sulit-03',
     pertanyaan: 'Jika f(x) = x²√x, berapakah f′(4)?',
     pilihan: ['20', '32', '10', '40', '8'],
     benar: 0,
@@ -211,7 +241,7 @@ export const KUIS: SoalKuis[] = [
     tingkat: 'sulit',
   },
   {
-    id: 'turunan-sulit-03',
+    id: 'turunan-sulit-04',
     pertanyaan: 'Garis singgung kurva y = x² - 4x + 5 yang sejajar dengan garis y = 2x + 7 mempunyai persamaan ...',
     pilihan: ['y = 2x - 4', 'y = 2x + 2', 'y = 2x - 1', 'y = 2x + 7', 'y = 2x - 7'],
     benar: 0,
@@ -221,19 +251,6 @@ export const KUIS: SoalKuis[] = [
       'f′(x) = 2x - 4, samakan dengan 2: 2x - 4 = 2, jadi x = 3',
       'ordinatnya: f(3) = 9 - 12 + 5 = 2, titiknya (3, 2)',
       'y - 2 = 2(x - 3), dirapikan y = 2x - 4',
-    ],
-    tingkat: 'sulit',
-  },
-  {
-    id: 'turunan-sulit-04',
-    pertanyaan: 'Jika f(x) = sin x + cos x, berapakah f′(π/4)?',
-    pilihan: ['0', '1', '√2', '-√2', '2'],
-    benar: 0,
-    alasan: 'Kedua suku diturunkan sendiri-sendiri, dan tanda minus pada turunan kosinus menentukan hasilnya. Di titik itu keduanya bernilai sama, jadi selisihnya nol.',
-    langkah: [
-      'f′(x) = cos x - sin x',
-      'cos(π/4) = √2 dibagi 2, dan sin(π/4) juga √2 dibagi 2',
-      'selisihnya nol',
     ],
     tingkat: 'sulit',
   },
@@ -295,20 +312,67 @@ export const KUIS: SoalKuis[] = [
   /* ================= SANGAT SULIT ================= */
   {
     id: 'turunan-sangat-01',
-    pertanyaan: 'Jika f(x) = (x² - 1) : (x² + 1), berapakah f′(1)?',
-    pilihan: ['1', '0', '1/2', '2', '-1'],
+    pertanyaan: 'Jika f(x) = (2x + 1)³ : (x - 1), berapakah f′(2)?',
+    pilihan: ['25', '-50', '150', '275', '125'],
     benar: 0,
-    alasan: 'Aturan hasil bagi dengan pembilang dan penyebut yang sama-sama memuat x². Jawaban 0 muncul kalau pembilangnya dikira nol karena f(1) = 0; nilai fungsi nol tidak berarti turunannya nol.',
+    alasan: 'Dua alat sekaligus: aturan hasil bagi di luar, aturan rantai di dalam pembilangnya. Jawaban -50 muncul kalau pengali 2 dari bagian dalam tertinggal, dan 150 kalau suku kedua aturan hasil bagi terlupa.',
     langkah: [
-      'u = x² - 1 dan v = x² + 1, jadi u′ = 2x dan v′ = 2x',
-      'pembilang: 2x(x² + 1) - (x² - 1)(2x) = 2x³ + 2x - 2x³ + 2x = 4x',
-      'f′(x) = 4x dibagi (x² + 1)²',
-      'di x = 1: 4 dibagi 4 = 1',
+      'u = (2x + 1)³ dan v = x - 1',
+      'u′ memakai aturan rantai: 3(2x + 1)² · 2 = 6(2x + 1)²',
+      'v′ = 1',
+      'pembilang: 6(2x + 1)²(x - 1) - (2x + 1)³',
+      'di x = 2: 2x + 1 = 5 dan x - 1 = 1, jadi 6 · 25 · 1 - 125 = 150 - 125 = 25',
+      'penyebutnya (x - 1)² = 1, jadi f′(2) = 25',
     ],
     tingkat: 'sangat sulit',
   },
   {
     id: 'turunan-sangat-02',
+    pertanyaan: 'Salah satu garis singgung kurva y = x² yang melalui titik (0, -1) adalah ...',
+    pilihan: ['y = 2x - 1', 'y = 2x + 1', 'y = x - 1', 'y = -1', 'y = 2x'],
+    benar: 0,
+    alasan: 'Titik (0, -1) TIDAK berada pada kurva, sebab 0² bukan -1. Jadi titik singgungnya tidak diberikan dan harus dicari lewat persamaan. Jawaban y = -1 muncul kalau titik itu dikira titik singgungnya sendiri.',
+    langkah: [
+      'misalkan titik singgungnya (a, a²)',
+      'gradiennya f′(a) = 2a, jadi garisnya y - a² = 2a(x - a), yaitu y = 2ax - a²',
+      'garis itu harus lewat (0, -1): -1 = 2a · 0 - a², jadi a² = 1',
+      'a = 1 atau a = -1, jadi ada DUA garis singgung',
+      'untuk a = 1: y = 2x - 1. Untuk a = -1: y = -2x - 1',
+    ],
+    tingkat: 'sangat sulit',
+  },
+  {
+    id: 'turunan-sangat-03',
+    pertanyaan: 'Sebuah kotak beralas persegi TANPA tutup dibuat dari bahan seluas 300 cm². Isi kotak terbesar yang mungkin adalah ...',
+    pilihan: ['500 cm³', '1.000 cm³', '250 cm³', '300 cm³', '750 cm³'],
+    benar: 0,
+    alasan: 'Rumusnya disusun dari DUA keterangan: luas bahan yang tetap, dan isi yang mau diperbesar. Jawaban 1.000 cm³ muncul kalau kotaknya dikira berbentuk kubus; kotak yang paling berisi di sini justru tidak berbentuk kubus.',
+    langkah: [
+      'alasnya s kali s, tingginya t. Bahannya: alas ditambah empat sisi, yaitu s² + 4st = 300',
+      'jadi t = (300 - s²) dibagi 4s',
+      'isinya V = s²t = s(300 - s²) dibagi 4, yaitu (300s - s³) dibagi 4',
+      'V′(s) = (300 - 3s²) dibagi 4, samakan nol: s² = 100, jadi s = 10',
+      'tingginya t = (300 - 100) dibagi 40 = 5',
+      'V = 10 · 10 · 5 = 500 cm³',
+    ],
+    tingkat: 'sangat sulit',
+  },
+  {
+    id: 'turunan-sangat-04',
+    pertanyaan: 'Sisi sebuah kubus memanjang dengan laju tetap 2 cm per detik. Pada saat sisinya 5 cm, isinya bertambah dengan laju ...',
+    pilihan: ['150 cm³ per detik', '75 cm³ per detik', '50 cm³ per detik', '250 cm³ per detik', '30 cm³ per detik'],
+    benar: 0,
+    alasan: 'Aturan rantai dipakai terhadap WAKTU: isi bergantung pada sisi, dan sisi bergantung pada waktu. Jawaban 75 muncul kalau laju sisinya lupa dikalikan, jadi yang dihitung hanya 3s².',
+    langkah: [
+      'isi kubus V = s³, dan s berubah terhadap waktu',
+      'aturan rantai: laju isi = 3s² dikali laju sisi',
+      'laju sisinya 2 cm per detik',
+      'saat s = 5: 3 · 25 · 2 = 150 cm³ per detik',
+    ],
+    tingkat: 'sangat sulit',
+  },
+  {
+    id: 'turunan-sangat-05',
     pertanyaan: 'Kurva y = x³ - 3x punya dua titik dengan garis singgung mendatar. Persamaan garis singgung di titik yang ORDINATNYA negatif adalah ...',
     pilihan: ['y = -2', 'y = 2', 'x = 1', 'y = 0', 'y = -2x'],
     benar: 0,
@@ -318,54 +382,6 @@ export const KUIS: SoalKuis[] = [
       'f(-1) = -1 + 3 = 2, ordinatnya positif',
       'f(1) = 1 - 3 = -2, ordinatnya negatif, jadi titik ini yang dipilih',
       'gradiennya nol, jadi garisnya mendatar melalui (1, -2), yaitu y = -2',
-    ],
-    tingkat: 'sangat sulit',
-  },
-  {
-    id: 'turunan-sangat-03',
-    pertanyaan: 'Fungsi f(x) = x³ + ax² + 3 mempunyai titik stasioner di x = 2. Nilai a adalah ...',
-    pilihan: ['-3', '3', '-6', '6', '-12'],
-    benar: 0,
-    alasan: 'Soal ini dibaca mundur: syaratnya diberikan, nilainya yang dicari. Jawaban -6 muncul kalau suku 2ax dikira ax, yaitu pengali 2 dari aturan pangkat tertinggal.',
-    langkah: [
-      'f′(x) = 3x² + 2ax',
-      'titik stasioner berarti f′(2) = 0',
-      '3 · 4 + 2a · 2 = 0, jadi 12 + 4a = 0',
-      'a = -3',
-    ],
-    tingkat: 'sangat sulit',
-  },
-  {
-    id: 'turunan-sangat-04',
-    pertanyaan: 'Posisi sebuah benda adalah s(t) = t³ - 6t² + 9t meter. Pada detik keberapa saja benda itu BERHENTI sesaat?',
-    pilihan: [
-      't = 1 dan t = 3',
-      't = 0 dan t = 3',
-      't = 2 saja',
-      't = 3 saja',
-      'benda itu tidak pernah berhenti',
-    ],
-    benar: 0,
-    alasan: 'Berhenti berarti kecepatannya nol, yaitu turunan pertama nol, bukan posisinya nol. Jawaban t = 0 dan t = 3 adalah saat POSISINYA nol, dan itu pertanyaan yang berbeda.',
-    langkah: [
-      'v(t) = s′(t) = 3t² - 12t + 9',
-      'samakan nol: 3(t² - 4t + 3) = 0',
-      'faktorkan: 3(t - 1)(t - 3) = 0',
-      'jadi t = 1 dan t = 3',
-    ],
-    tingkat: 'sangat sulit',
-  },
-  {
-    id: 'turunan-sangat-05',
-    pertanyaan: 'Jika f(x) = sin 2x, berapakah f′(π/6)?',
-    pilihan: ['1', '2', '1/2', '√3', '√3 dibagi 2'],
-    benar: 0,
-    alasan: 'Aturan rantai pada fungsi trigonometri: bagian dalam 2x turunannya 2. Jawaban 1/2 muncul kalau pengali 2 tertinggal, sehingga yang dihitung cos(π/3) saja.',
-    langkah: [
-      'f′(x) = cos(2x) · 2',
-      'di x = π/6: 2x = π/3',
-      'cos(π/3) = 1/2',
-      'jadi 2 · (1/2) = 1',
     ],
     tingkat: 'sangat sulit',
   },
@@ -387,28 +403,36 @@ export const KUIS: SoalKuis[] = [
   },
   {
     id: 'turunan-sangat-07',
-    pertanyaan: 'Jika f(x) = x · eˣ, berapakah f′(0)?',
-    pilihan: ['1', '0', 'e', '2', '-1'],
+    pertanyaan: 'Diberikan f(x) = x³ - 3x² + 2. Pernyataan yang BENAR adalah ...',
+    pilihan: [
+      'di x = 0 fungsi mencapai maksimum, dan turunan keduanya nol di x = 1',
+      'di x = 0 fungsi mencapai minimum, dan turunan keduanya nol di x = 1',
+      'fungsi naik pada 0 < x < 2',
+      'turunan keduanya nol di x = 2',
+      'fungsi ini tidak punya titik stasioner',
+    ],
     benar: 0,
-    alasan: 'Aturan hasil kali dengan eˣ yang turunannya dirinya sendiri. Jawaban 0 muncul kalau turunan kedua bagian dikalikan begitu saja, yaitu 1 dikali e⁰ dikali x, yang di x = 0 memberi 0.',
+    alasan: 'Dua alat sekaligus: tanda f′ menentukan jenis titik ekstremnya, sedangkan f″ menjawab pertanyaan yang berbeda. Pilihan kedua benar separuh, yaitu bagian turunan keduanya, tetapi salah pada jenis titik ekstremnya.',
     langkah: [
-      'u = x dan v = eˣ, jadi u′ = 1 dan v′ = eˣ',
-      'f′(x) = 1 · eˣ + x · eˣ = (1 + x)eˣ',
-      'di x = 0: (1 + 0) · 1 = 1',
+      'f′(x) = 3x² - 6x = 3x(x - 2), akarnya 0 dan 2',
+      'uji tanda: f′(-1) = 9 positif, f′(1) = -3 negatif, jadi di x = 0 berubah positif ke negatif, yaitu MAKSIMUM',
+      'f″(x) = 6x - 6, nol di x = 1, bukan di x = 2',
+      'karena f′ negatif pada 0 < x < 2, di selang itu fungsinya turun, bukan naik',
     ],
     tingkat: 'sangat sulit',
   },
   {
     id: 'turunan-sangat-08',
-    pertanyaan: 'Jika f(x) = tan x, berapakah f′(π/4)?',
-    pilihan: ['2', '1', '√2', '1/2', '0'],
+    pertanyaan: 'Kurva y = ax³ + bx² + 3 mempunyai titik stasioner di x = 2 dan melalui titik (1, 5). Nilai a adalah ...',
+    pilihan: ['-1', '1', '-3', '3', '2'],
     benar: 0,
-    alasan: 'Tangen diturunkan dengan aturan hasil bagi, hasilnya 1 dibagi cos²x. Jawaban 1 muncul kalau yang dihitung nilai tan(π/4), bukan turunannya.',
+    alasan: 'Dua syarat memberi dua persamaan, dan keduanya harus dipakai bersama. Jawaban 1 muncul kalau hanya syarat titik (1, 5) yang dipakai lalu ditebak, dan -3 kalau pengali 2 pada turunan bx² tertinggal.',
     langkah: [
-      'tan x = sin x dibagi cos x',
-      'aturan hasil bagi memberi (cos²x + sin²x) dibagi cos²x, yaitu 1 dibagi cos²x',
-      'cos(π/4) = √2 dibagi 2, jadi cos²(π/4) = 1/2',
-      '1 dibagi (1/2) = 2',
+      'f′(x) = 3ax² + 2bx',
+      'syarat pertama, stasioner di x = 2: 12a + 4b = 0, sederhanakan menjadi 3a + b = 0',
+      'syarat kedua, lewat (1, 5): a + b + 3 = 5, jadi a + b = 2',
+      'kurangkan: (3a + b) - (a + b) = 0 - 2, jadi 2a = -2 dan a = -1',
+      'periksa: b = 3, sehingga f(x) = -x³ + 3x² + 3. f′(2) = -12 + 12 = 0 dan f(1) = -1 + 3 + 3 = 5',
     ],
     tingkat: 'sangat sulit',
   },
