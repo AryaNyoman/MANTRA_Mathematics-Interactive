@@ -39,7 +39,8 @@ $daftarSesi = @(
     @{ nama = 'MATRA-RUANG-TIGA-DIMENSI'; sub = 'matra-ruang-3d';      tugas = 'docs/tugas/MATRA-RUANG-TIGA-DIMENSI.md' },
     @{ nama = 'MATRA-DESAIN-UI-UX';       sub = 'matra-ui-ux';         tugas = 'docs/tugas/MATRA-DESAIN-UI-UX.md' },
     # Ditambah 6 Sep 2026: satu sesi untuk dua topik, worktree mantra-turunan.
-    @{ nama = 'MANTRA-TURUNAN';           sub = 'materi-turunan-b8c515'; tugas = 'docs/tugas/MANTRA-TURUNAN-INTEGRAL.md' }
+    @{ nama = 'MANTRA-TURUNAN';           sub = 'materi-turunan-b8c515'; tugas = 'docs/tugas/MANTRA-TURUNAN-INTEGRAL.md' },
+    @{ nama = 'MANTRA-INTEGRAL';          sub = 'integral-folder-branch-setup-05863c'; tugas = 'docs/tugas/MANTRA-TURUNAN-INTEGRAL.md' }
 )
 
 if ($Mode -eq 'master') {
