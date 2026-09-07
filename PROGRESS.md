@@ -1,5 +1,17 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 8 SEP (pagi, lanjutan): STATISTIKA MP4 1080p DI PRODUKSI
+
+Sesi Statistika menggabung ulang 13 master H.264 1080p60 ke mp4 tanpa render
+ulang (7e97363, 40,9 MB, turun 17 persen dari webm), poster dari detik yang
+sama; digabung 44fae12, mp4 disalin ke master dan tiap berkas diperiksa
+(h264, 1080, 60 fps), webm dibuang. Deploy produksi berhasil sekali jalan:
+matra-eight dan mantra-matematika menyajikan mp4, webm-nya 404. Di master
+kini yang bukan mp4 hanya Trigonometri 7 dan Limit 7 (webm warisan Manim CE).
+Sisa 480p: vektor 6, grafik 2, transformasi 6, turunan 4 (uji gelombang 2).
+Menggantung di Statistika untuk ARYA: 49 rentang diam (terpanjang 18,5 s,
+Materi 12), perbaikannya butuh render ulang.
+
 ## 8 SEP (pagi): KEPUTUSAN ARYA, WADAH VIDEO FINAL = MP4
 
 ARYA menyetujui saran MASTER: mp4 (H.264 ManimGL disalin + AAC) untuk semua
