@@ -46,16 +46,25 @@ export default function Legenda({
   entri: Array<{ warna: string; teks: string; putus?: boolean }>
 }) {
   const y = VH - 19
+  // Letak tiap entri dihitung DULU, bukan diubah di dalam map: pemeriksa
+  // react-hooks/immutability menolak peubah yang ditulis ulang di dalam
+  // fungsi yang dipanggil saat merender (temuan sesi Integral, 7 Sep 2026;
+  // errornya bawaan lama dan menahan eslint seluruh proyek).
+  const tampil = entri.slice(0, 3)
+  const letak: number[] = []
   let x = KOTAK.x0
+  for (const e of tampil) {
+    letak.push(x)
+    // 5,6 piksel per huruf pada ukuran 9,5 piksel huruf mono, ditambah
+    // jarak antar entri.
+    x = x + 18 + e.teks.length * 5.6 + 12
+  }
 
   return (
     <g>
-      {entri.slice(0, 3).map((e) => {
-        const dashX = x
-        const teksX = x + 18
-        // 5,6 piksel per huruf pada ukuran 9,5 piksel huruf mono, ditambah
-        // jarak antar entri.
-        x = teksX + e.teks.length * 5.6 + 12
+      {tampil.map((e, i) => {
+        const dashX = letak[i]
+        const teksX = letak[i] + 18
         return (
           <g key={e.teks}>
             <line
