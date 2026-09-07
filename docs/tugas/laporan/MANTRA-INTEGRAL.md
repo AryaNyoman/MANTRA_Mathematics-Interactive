@@ -57,8 +57,37 @@ namanya menyebut integral, dan laporan ini. Di luar itu jangan disentuh.
 - Uji kirim pesan dua arah dengan MANTRA-MASTER BERHASIL: kirim, dibalas, dibalas lagi.
 
 ## Sedang dikerjakan
-Tahap 2: 11 widget Integral dan `PanggungIntegral.tsx`. Widget masih
-`Rintisan` semua.
+Tahap 2: widget. **1 dari 10 selesai** (commit `c6d4d8d`).
+
+Perkakas gambar milik topik ini sudah berdiri dan dipakai bersama sisanya:
+`widget/integral/koordinat.ts` (tambahan khas Integral: `jalurDaerah`,
+`jalurAntara`, `potongTanda`), `seret.ts`, `Bidang.tsx`.
+
+| Widget | Materi | Keadaan |
+|---|---|---|
+| `mesin-balik` | 01 | **SELESAI**, diuji di 1366 dan 375 |
+| `naik-pangkat` | 02 | Rintisan |
+| `cocokkan-lapisan` | 03 | Rintisan |
+| `pasangkan-turunan-integral` | 04 | Rintisan |
+| `persegi-panjang-menumpuk` | 05 | Rintisan |
+| `pecah-selang` | 06 | Rintisan |
+| `luas-yang-tumbuh` | 07 | Rintisan |
+| `hitung-bertahap` | 08 | Rintisan |
+| `luas-dua-daerah` | 09 | Rintisan |
+| `dua-kurva` | 10 | Rintisan |
+
+Bukti uji widget 01, dijalankan dengan `playwright-cli -s=mantra-integral`
+di port 3016:
+- 1366: seret titik x=1 ke x=0, kemiringan ikut 3 jadi 1.
+- ketik C=99 dipotong jadi 3, bukan ditolak.
+- C digeser 0 sampai 3, kemiringan tetap. Itu yang diajarkan materinya.
+- tebakan salah `x²+1` dijawab "turunannya 2x, belum cocok".
+- 375: tata letak benar (kotak coba, widget, kendali), seret jalan,
+  x=1 jadi 0,25 dengan kemiringan 1,5.
+
+Dua cacat ditemukan dari MELIHAT potret, keduanya lolos tsc dan eslint:
+angka kemiringan yang melayang menimpa garis sumbu, dan kurva bayangan yang
+keluar bingkai pada C ekstrem. Keduanya sudah diperbaiki.
 
 ## TAHAP 1 SELESAI: 11 materi terisi (7 Sep 2026)
 
