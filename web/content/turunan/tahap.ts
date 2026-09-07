@@ -718,6 +718,7 @@ export const TAHAP: TahapTurunan[] = [
       judul: 'Turunan bagian dalam sering tertinggal',
       isi: 'Jawaban yang paling sering muncul untuk (2x - 5)⁵ adalah 5(2x - 5)⁴, lalu berhenti. Godaannya besar sebab bagian itu sudah terlihat lengkap dan mirip aturan pangkat yang sudah dikuasai. Yang hilang adalah pengali 2, yaitu turunan dari 2x - 5. Jawaban benarnya 10(2x - 5)⁴. Cara memeriksanya tanpa menghitung ulang: kalau bagian dalamnya diganti menjadi x saja, pengalinya menjadi 1 dan jawaban pendek tadi baru benar. Selama bagian dalamnya bukan x polos, selalu ada pengali yang harus ikut.',
     },
+    video: { berkas: 'turunan7-aturan-rantai.webm', poster: 'turunan7-aturan-rantai.jpg' },
     widget: 'mesin-bertingkat',
     siap: true,
   },

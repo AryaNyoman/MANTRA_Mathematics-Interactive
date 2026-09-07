@@ -121,6 +121,7 @@ def ambil_teks_narasi() -> list[tuple[str, int, list[str]]]:
         # "turunan1-laju-rata-rata": 1,
         "turunan2-garis-singgung": 2,
         "turunan3-fungsi-turunan": 3,
+        "turunan7-aturan-rantai": 7,
     }
     hasil = []
     for nama, materi in peta.items():

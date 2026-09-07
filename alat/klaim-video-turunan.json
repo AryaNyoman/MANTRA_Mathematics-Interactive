@@ -124,5 +124,95 @@
     "f": "x",
     "di": 1,
     "jawaban": 1
+  },
+  {
+    "id": "V07-mesin-dalam",
+    "jenis": "turunan",
+    "f": "3*x",
+    "jawaban": 3
+  },
+  {
+    "id": "V07-mesin-luar",
+    "jenis": "turunan",
+    "f": "5*x",
+    "jawaban": 5
+  },
+  {
+    "id": "V07-gabungan-lurus",
+    "jenis": "turunan",
+    "f": "5*(3*x)",
+    "jawaban": 15
+  },
+  {
+    "id": "V07-bukan-jumlah",
+    "jenis": "ekspresi",
+    "hitung": "3*5",
+    "jawaban": 15
+  },
+  {
+    "id": "V07-jabaran-kuadrat",
+    "jenis": "ekspresi",
+    "hitung": "expand((x**2 + 1)**2)",
+    "jawaban": "x**4 + 2*x**2 + 1"
+  },
+  {
+    "id": "V07-turunan-jabaran",
+    "jenis": "turunan",
+    "f": "x**4 + 2*x**2 + 1",
+    "jawaban": "4*x**3 + 4*x"
+  },
+  {
+    "id": "V07-faktor",
+    "jenis": "ekspresi",
+    "hitung": "factor(4*x**3 + 4*x)",
+    "jawaban": "4*x*(x**2 + 1)"
+  },
+  {
+    "id": "V07-tulis-ulang",
+    "jenis": "ekspresi",
+    "hitung": "expand(2*(x**2 + 1) * 2*x)",
+    "jawaban": "4*x**3 + 4*x"
+  },
+  {
+    "id": "V07-rantai-kuadrat",
+    "jenis": "turunan",
+    "f": "(x**2 + 1)**2",
+    "jawaban": "4*x**3 + 4*x"
+  },
+  {
+    "id": "V07-turunan-dalam",
+    "jenis": "turunan",
+    "f": "2*x - 5",
+    "jawaban": 2
+  },
+  {
+    "id": "V07-pangkat-delapan",
+    "jenis": "turunan",
+    "f": "(2*x - 5)**8",
+    "jawaban": "16*(2*x - 5)**7"
+  },
+  {
+    "id": "V07-suku-x8",
+    "jenis": "ekspresi",
+    "hitung": "expand((2*x - 5)**8).coeff(x, 8)",
+    "jawaban": 256
+  },
+  {
+    "id": "V07-suku-x7",
+    "jenis": "ekspresi",
+    "hitung": "expand((2*x - 5)**8).coeff(x, 7)",
+    "jawaban": -5120
+  },
+  {
+    "id": "V07-suku-x6",
+    "jenis": "ekspresi",
+    "hitung": "expand((2*x - 5)**8).coeff(x, 6)",
+    "jawaban": 44800
+  },
+  {
+    "id": "V07-langkah-antara",
+    "jenis": "ekspresi",
+    "hitung": "expand(8*(2*x - 5)**7 * 2)",
+    "jawaban": "expand(16*(2*x - 5)**7)"
   }
 ]
