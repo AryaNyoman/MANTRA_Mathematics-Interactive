@@ -2,8 +2,19 @@
  * Bank soal kuis Integral: 32 soal, delapan untuk tiap tingkat.
  *
  * Bentuknya mengikuti bank soal Limit. Tingkat kesulitan dikalibrasi ke buku
- * Matematika Tingkat Lanjut Kelas XII (Edisi Revisi 2025) Bab 3. Semua soal
- * tulisan sendiri; yang mengikuti buku adalah bentuk dan tingkat kesulitannya.
+ * Matematika Tingkat Lanjut Kelas XII (Edisi Revisi 2025) Bab 3.
+ *
+ * SUMBER SOAL. Sebagian besar soal di sini ditulis sendiri: yang mengikuti buku
+ * hanya bentuk dan tingkat kesulitannya. Tetapi SEMBILAN soal memakai fungsi dan
+ * angka persis dari buku, dan semuanya sekarang menyebutkan sumbernya di akhir
+ * `alasan` lengkap dengan halaman cetaknya: int-md1, int-sl7, int-ss1, int-ss2,
+ * int-ss4, int-ss5, int-ss6, int-ss7, dan int-ss8. Aturan proyek: soal salinan
+ * WAJIB bersumber, dan soal tanpa keterangan berarti tulisan sendiri.
+ *
+ * Satu soal berada di antara keduanya dan sengaja TIDAK diberi sumber:
+ * int-sd5 memakai pola Contoh Soal 3.3 (2x(x kuadrat + 5) pangkat 4) dengan
+ * angka yang diganti menjadi 2x(x kuadrat + 1) pangkat 3. Angkanya beda, jadi
+ * ia soal sendiri yang meniru bentuk, bukan salinan.
  *
  * EMPAT TINGKAT YANG BENAR-BENAR BERBEDA CARA BERPIKIRNYA, bukan cuma angkanya
  * lebih besar:
@@ -30,7 +41,7 @@ export const KUIS: SoalKuis[] = [
     pertanyaan: 'Antiturunan dari x⁵ adalah',
     pilihan: ['x⁶/6 + C', '5x⁴ + C', 'x⁶ + C', 'x⁴/4 + C', '6x⁶ + C'],
     benar: 0,
-    alasan: 'Pangkat naik satu jadi 6, lalu dibagi pangkat yang baru itu. Pilihan 5x⁴ adalah turunannya, bukan antiturunannya.',
+    alasan: 'Pangkat naik satu jadi 6, lalu dibagi pangkat yang baru itu. Pilihan 5x⁴ adalah turunannya, bukan antiturunannya. Soal dari Contoh Soal 3.2, Matematika Tingkat Lanjut untuk SMA/MA Kelas XII (Edisi Revisi 2025), Kemendikdasmen, hal. 170.',
     tingkat: 'mudah',
   },
   {
@@ -253,7 +264,7 @@ export const KUIS: SoalKuis[] = [
     pertanyaan: 'Untuk f(x) = x pada selang 0 sampai 7 dibagi 7 bagian, berapa jumlahan Riemann dengan titik sampel KANAN?',
     pilihan: ['49', '3,5', '28', '21', '24,5'],
     benar: 2,
-    alasan: 'Lebar tiap bagian 1, dan tingginya 1, 2, 3, 4, 5, 6, 7. Jumlahnya 28. Pilihan 21 adalah jumlahan dengan titik sampel KIRI, dan 24,5 adalah luas sebenarnya yang terjepit di antara keduanya.',
+    alasan: 'Lebar tiap bagian 1, dan tingginya 1, 2, 3, 4, 5, 6, 7. Jumlahnya 28. Pilihan 21 adalah jumlahan dengan titik sampel KIRI, dan 24,5 adalah luas sebenarnya yang terjepit di antara keduanya. Soal dari Contoh Soal 3.6, Matematika Tingkat Lanjut untuk SMA/MA Kelas XII (Edisi Revisi 2025), Kemendikdasmen, hal. 180.',
     langkah: ['lebar tiap bagian: 7 dibagi 7 sama dengan 1', 'tinggi titik sampel kanan: 1 sampai 7', 'jumlahkan: 1+2+3+4+5+6+7', 'dikali lebar 1: 28'],
     tingkat: 'sulit',
   },
@@ -273,7 +284,7 @@ export const KUIS: SoalKuis[] = [
     pertanyaan: 'Tentukan LUAS daerah antara kurva y = x³ - 2x² - 5x + 6 dan sumbu x, dari x = -2 sampai x = 3.',
     pilihan: ['125/12', '63/4', '16/3', '189/12', '253/12'],
     benar: 4,
-    alasan: 'Kurvanya memotong sumbu di -2, 1, dan 3. Yang berada di dalam selang hanya x = 1, jadi di situlah dipecah. Bagian kiri memberi 63/4, bagian kanan -16/3. Untuk luas keduanya dipositifkan: 63/4 ditambah 16/3 sama dengan 253/12. Pilihan 125/12 adalah hasil integralnya.',
+    alasan: 'Kurvanya memotong sumbu di -2, 1, dan 3. Yang berada di dalam selang hanya x = 1, jadi di situlah dipecah. Bagian kiri memberi 63/4, bagian kanan -16/3. Untuk luas keduanya dipositifkan: 63/4 ditambah 16/3 sama dengan 253/12. Pilihan 125/12 adalah hasil integralnya. Soal dari Ayo Mencoba 3.11 nomor 2, Matematika Tingkat Lanjut untuk SMA/MA Kelas XII (Edisi Revisi 2025), Kemendikdasmen, hal. 205.',
     langkah: ['samakan dengan nol: akarnya -2, 1, dan 3', 'yang di dalam selang: x = 1', 'bagian -2 sampai 1: 63/4', 'bagian 1 sampai 3: -16/3', 'positifkan lalu jumlahkan: 63/4 + 16/3 = 253/12'],
     tingkat: 'sangat sulit',
   },
@@ -282,7 +293,7 @@ export const KUIS: SoalKuis[] = [
     pertanyaan: 'Untuk kurva yang sama, y = x³ - 2x² - 5x + 6, berapa HASIL INTEGRALNYA dari -2 sampai 3?',
     pilihan: ['125/12', '253/12', '0', '63/4', '-16/3'],
     benar: 0,
-    alasan: 'Kali ini bagiannya tidak dipositifkan, melainkan dijumlahkan apa adanya: 63/4 ditambah negatif 16/3, yaitu 125/12. Bandingkan dengan soal sebelumnya: gambarnya sama persis, pertanyaannya berbeda, jawabannya hampir dua kali lipat berbeda.',
+    alasan: 'Kali ini bagiannya tidak dipositifkan, melainkan dijumlahkan apa adanya: 63/4 ditambah negatif 16/3, yaitu 125/12. Bandingkan dengan soal sebelumnya: gambarnya sama persis, pertanyaannya berbeda, jawabannya hampir dua kali lipat berbeda. Soal dari Ayo Mencoba 3.11 nomor 2, Matematika Tingkat Lanjut untuk SMA/MA Kelas XII (Edisi Revisi 2025), Kemendikdasmen, hal. 205.',
     langkah: ['bagian -2 sampai 1: 63/4', 'bagian 1 sampai 3: -16/3', 'jumlahkan apa adanya: 63/4 - 16/3', 'samakan penyebut: 189/12 - 64/12 = 125/12'],
     tingkat: 'sangat sulit',
   },
@@ -306,7 +317,7 @@ export const KUIS: SoalKuis[] = [
       '27 dibagi 3',
     ],
     benar: 2,
-    alasan: 'Pada selang 0 sampai 2 kurvanya selalu di atas sumbu, jadi luas sama dengan hasil integralnya dan tidak perlu dipecah. Substitusi u = x² + 5 memberi antiturunan sepertiga kali u pangkat tiga per dua. Ini Contoh Soal 3.13 di buku.',
+    alasan: 'Pada selang 0 sampai 2 kurvanya selalu di atas sumbu, jadi luas sama dengan hasil integralnya dan tidak perlu dipecah. Substitusi u = x² + 5 memberi antiturunan sepertiga kali u pangkat tiga per dua. Soal dari Contoh Soal 3.13, Matematika Tingkat Lanjut untuk SMA/MA Kelas XII (Edisi Revisi 2025), Kemendikdasmen, hal. 204.',
     langkah: ['periksa dulu: kurvanya di atas sumbu pada 0 sampai 2', 'u = x² + 5, du = 2x dx, jadi dikali setengah', 'antiturunan: sepertiga kali u pangkat tiga per dua', 'batas atas u = 9 memberi 27, batas bawah u = 5 memberi 5 akar 5', 'hasilnya (27 - 5 akar 5) dibagi 3'],
     tingkat: 'sangat sulit',
   },
@@ -321,7 +332,7 @@ export const KUIS: SoalKuis[] = [
       '-x² cos x + C',
     ],
     benar: 3,
-    alasan: 'Parsial dikerjakan DUA kali. Putaran pertama dengan u = x² menyisakan antiturunan 2x cos x, yang masih perlu parsial lagi. Periksa dengan menurunkan jawabannya, dan semua suku kecuali x² sin x saling menghapus. Ini Contoh Soal 3.5 di buku.',
+    alasan: 'Parsial dikerjakan DUA kali. Putaran pertama dengan u = x² menyisakan antiturunan 2x cos x, yang masih perlu parsial lagi. Periksa dengan menurunkan jawabannya, dan semua suku kecuali x² sin x saling menghapus. Soal dari Contoh Soal 3.5, Matematika Tingkat Lanjut untuk SMA/MA Kelas XII (Edisi Revisi 2025), Kemendikdasmen, hal. 175.',
     langkah: ['putaran 1: u = x², dv = sin x dx, v = -cos x', 'hasil sementara: -x² cos x ditambah antiturunan 2x cos x', 'putaran 2: u = 2x, dv = cos x dx, v = sin x', 'hasil putaran 2: 2x sin x ditambah 2 cos x', 'gabungkan semuanya'],
     tingkat: 'sangat sulit',
   },
@@ -330,7 +341,7 @@ export const KUIS: SoalKuis[] = [
     pertanyaan: 'Sebuah ponsel terjual dengan laju 3.000 akar x ditambah 1.000 unit per tahun pada tahun ke-x. Berapa total penjualan selama 4 tahun pertama?',
     pilihan: ['28.000 unit', '13.000 unit', '7.000 unit', '16.000 unit', '20.000 unit'],
     benar: 4,
-    alasan: 'Yang diketahui lajunya, yang dicari jumlahnya, jadi hitung luas di bawah grafik laju dari 0 sampai 4. Pilihan 28.000 muncul kalau akar x-nya terlewat dan lajunya dibaca 3.000x. Ini Contoh Soal 3.14 di buku.',
+    alasan: 'Yang diketahui lajunya, yang dicari jumlahnya, jadi hitung luas di bawah grafik laju dari 0 sampai 4. Pilihan 28.000 muncul kalau akar x-nya terlewat dan lajunya dibaca 3.000x. Soal dari Contoh Soal 3.14, Matematika Tingkat Lanjut untuk SMA/MA Kelas XII (Edisi Revisi 2025), Kemendikdasmen, hal. 207.',
     langkah: ['antiturunan: 2.000 x pangkat tiga per dua, ditambah 1.000x', 'batas atas: 2.000 dikali 8 ditambah 4.000', 'batas bawah: 0', 'hasilnya 20.000'],
     tingkat: 'sangat sulit',
   },
@@ -339,7 +350,7 @@ export const KUIS: SoalKuis[] = [
     pertanyaan: 'Sebuah gaya sebesar x² + 2x newton bekerja pada benda di jarak x meter. Berapa usaha untuk memindahkannya dari x = 1 ke x = 3?',
     pilihan: ['50/3 joule', '18 joule', '4/3 joule', '22/3 joule', '54 joule'],
     benar: 0,
-    alasan: 'Rumus gaya dikali jarak hanya berlaku kalau gayanya tetap. Karena gayanya berubah, jalannya dipotong-potong lalu dijumlahkan, dan itu integral. Ini Contoh Soal 3.15 di buku.',
+    alasan: 'Rumus gaya dikali jarak hanya berlaku kalau gayanya tetap. Karena gayanya berubah, jalannya dipotong-potong lalu dijumlahkan, dan itu integral. Soal dari Contoh Soal 3.15, Matematika Tingkat Lanjut untuk SMA/MA Kelas XII (Edisi Revisi 2025), Kemendikdasmen, hal. 209.',
     langkah: ['antiturunan: x³/3 ditambah x²', 'batas atas: 9 ditambah 9 sama dengan 18', 'batas bawah: sepertiga ditambah 1 sama dengan 4/3', 'kurangkan: 18 dikurangi 4/3 sama dengan 50/3'],
     tingkat: 'sangat sulit',
   },
@@ -348,7 +359,7 @@ export const KUIS: SoalKuis[] = [
     pertanyaan: 'Peralatan seharga 36.000 menghemat biaya dengan laju 4.000x + 1.000 per tahun pada tahun ke-x. Setelah berapa tahun penghematannya menutup harga beli?',
     pilihan: ['9 tahun', '4 tahun', '3 tahun', '5 tahun', '6 tahun'],
     benar: 1,
-    alasan: 'Bentuk pertanyaannya terbalik dari biasanya: yang dicari bukan hasilnya, melainkan batas atasnya. Totalnya ditulis dulu sebagai fungsi dari t, baru disamakan dengan 36.000. Persamaannya punya dua akar, dan yang negatif dibuang sebab waktu tidak berjalan mundur.',
+    alasan: 'Bentuk pertanyaannya terbalik dari biasanya: yang dicari bukan hasilnya, melainkan batas atasnya. Totalnya ditulis dulu sebagai fungsi dari t, baru disamakan dengan 36.000. Persamaannya punya dua akar, dan yang negatif dibuang sebab waktu tidak berjalan mundur. Soal dari Ayo Mencoba 3.12, Matematika Tingkat Lanjut untuk SMA/MA Kelas XII (Edisi Revisi 2025), Kemendikdasmen, hal. 208.',
     langkah: ['antiturunan: 2.000x² ditambah 1.000x', 'total sampai t: 2.000t² ditambah 1.000t', 'samakan dengan 36.000, lalu bagi 1.000', '2t² + t - 36 = 0', 'akar yang masuk akal: t = 4'],
     tingkat: 'sangat sulit',
   },
