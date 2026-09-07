@@ -77,6 +77,37 @@ def kurva(bidang, f, a, b, warna=TINTA, tebal=3.2):
     return VMobject().set_points_smoothly(titik).set_stroke(warna, tebal)
 
 
+def bersihkan_panel(scene, papan, buang, b=None, run_time=0.9):
+    """Buang beberapa baris dari panel, lalu rapatkan sisanya.
+
+    KENAPA PERLU
+    `PapanRumus` sengaja dirancang MENUMPUK, dan itu tepat selama satu contoh:
+    melihat 28, lalu 24,5, lalu jepitannya berdampingan justru pelajarannya.
+    Tetapi video ini berpindah ke kurva LAIN di babak terakhir, dan panel yang
+    masih memajang "1+2+...+7 = 28" di sebelah gambar 4 - x kuadrat sedang
+    memajang angka milik kurva yang sudah tidak ada di layar. Terlihat di lembar
+    kontak render kedua, bukan dari kode.
+
+    Panel tidak punya cara membuang baris, jadi dikerjakan lewat daftarnya
+    sendiri: baris dikeluarkan dari `baris_lain`, sisanya ditempatkan ulang
+    supaya tidak menyisakan lubang, dan alas kertasnya dikecilkan supaya tidak
+    tertinggal kotak kosong.
+    """
+    buang = [m for m in buang if m is not None]
+    if not buang:
+        return
+    scene.play(*[FadeOut(m) for m in buang], run_time=run_time)
+    for m in buang:
+        if m in papan.baris_lain:
+            papan.baris_lain.remove(m)
+        scene.remove(m)
+    for i, m in enumerate(papan.baris_lain):
+        papan.tempat_baris(m, i)
+    papan.perbarui_alas()
+    if b is not None:
+        b.catat(run_time)
+
+
 class IntegralRiemann(AdeganMatra):
     def construct(self):
         frame = self.frame
@@ -205,7 +236,7 @@ class IntegralRiemann(AdeganMatra):
         with sinema.babak(self, "hitung7", DURASI) as b:
             b.main(LaggedStartMap(FadeIn, kanan7, lag_ratio=0.5), run_time=5.2)
             b.tunggu_sampai(sinema.mulai(jam, "Semuanya dijumlahkan"))
-            papan.baris(r"1+2+\cdots+7 = 28", warna=AKSEN2, b=b)
+            b_jumlah = papan.baris(r"1+2+\cdots+7 = 28", warna=AKSEN2, b=b)
             b.main(Indicate(kanan7, color=AKSEN2, scale_factor=1.02), run_time=1.6)
         qc.periksa_adegan(self, {"kurva": k_lengkung},
                           hud={"identitas": ident, "papan": papan.semua()},
@@ -220,7 +251,7 @@ class IntegralRiemann(AdeganMatra):
             b.main(kanan7.animate.set_fill(AKSEN2, 0.12).set_stroke(opacity=0.4), run_time=0.9)
             b.main(ShowCreation(segitiga), run_time=2.2)
             b.tunggu_sampai(sinema.mulai(jam, "Setengah kali alas"))
-            papan.baris(r"\tfrac{1}{2}\cdot 7\cdot 7 = 24{,}5", warna=SOROT, b=b)
+            b_luas = papan.baris(r"\tfrac{1}{2}\cdot 7\cdot 7 = 24{,}5", warna=SOROT, b=b)
             b.main(Indicate(segitiga, color=SOROT, scale_factor=1.02), run_time=1.6)
 
         # ---------------------------------------------------------------
@@ -232,7 +263,7 @@ class IntegralRiemann(AdeganMatra):
                    run_time=1.0)
             b.tunggu_sampai(sinema.mulai(jam, "Titik sampel kiri"))
             b.main(FadeOut(kanan7), FadeIn(kiri7), run_time=1.6)
-            papan.baris(r"21 \le 24{,}5 \le 28", warna=AKSEN2, b=b)
+            b_jepit = papan.baris(r"21 \le 24{,}5 \le 28", warna=AKSEN2, b=b)
             b.main(Indicate(kiri7, color=AKSEN2, scale_factor=1.02), run_time=1.6)
         qc.periksa_adegan(self, {"kurva": k_lengkung},
                           hud={"identitas": ident, "papan": papan.semua()},
@@ -248,8 +279,8 @@ class IntegralRiemann(AdeganMatra):
             sel = papan.baris(r"n = 14:\ \text{selisih } 1{,}75", warna=AKSEN, b=b)
             b.tunggu_sampai(sinema.mulai(jam, "Dengan enam puluh"))
             b.main(FadeOut(kanan14), FadeIn(kanan60), run_time=1.8)
-            sinema.ganti_rumus(self, sel, r"n = 60:\ \text{selisih } 0{,}41",
-                               b=b, warna=AKSEN, papan=papan)
+            sel = sinema.ganti_rumus(self, sel, r"n = 60:\ \text{selisih } 0{,}41",
+                                     b=b, warna=AKSEN, papan=papan)
 
         # ---------------------------------------------------------------
         # turun: kurva menurun 4 - x^2; kamera mendekat sekali.
@@ -271,15 +302,20 @@ class IntegralRiemann(AdeganMatra):
         pusat_k, tinggi_k = kamera.muat_datar(bidang_kecil, sisa_atas=0.35, sisa_kanan=0.55)
 
         with sinema.babak(self, "turun", DURASI) as b:
-            b.main(FadeOut(kanan60), FadeOut(segitiga), FadeOut(k_lengkung), run_time=0.9)
+            b.main(FadeOut(kanan60), FadeOut(segitiga), run_time=0.7)
+            # Kurvanya DI-TRANSFORM, bukan dihapus lalu digambar ulang.
+            # Lembar kontak render kedua memperlihatkan satu frame berisi bidang
+            # kosong tanpa kurva sama sekali, tepat saat narator berkata "ganti
+            # kurvanya". Layar kosong dilarang aturan 3.
             b.main(FadeOut(bidang), FadeIn(bidang_kecil),
-                   kamera.dekati(frame, pusat_k, tinggi=tinggi_k), run_time=2.2)
-            b.main(ShowCreation(k_turun), run_time=1.6)
+                   Transform(k_lengkung, k_turun),
+                   kamera.dekati(frame, pusat_k, tinggi=tinggi_k), run_time=2.6)
             sinema.ganti_rumus(self, rum, r"f(x) = 4 - x^2", b=b, warna=TINTA, papan=papan)
+            bersihkan_panel(self, papan, [b_jumlah, b_luas, b_jepit, sel], b=b)
             b.tunggu_sampai(sinema.mulai(jam, "Kiri enam koma"))
             b.main(FadeIn(kiri4, lag_ratio=0.2), run_time=1.6)
             papan.baris(r"\text{kiri } 6{,}25 \quad \text{kanan } 4{,}25", warna=AKSEN2, b=b)
-        qc.periksa_adegan(self, {"kurva turun": k_turun},
+        qc.periksa_adegan(self, {"kurva turun": k_lengkung},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_kecil})
 
@@ -292,8 +328,11 @@ class IntegralRiemann(AdeganMatra):
                    run_time=1.2)
             b.tunggu_sampai(sinema.mulai(jam, "melainkan sisi"))
             papan.baris(r"\text{yang lebih tinggi menang}", warna=SOROT, b=b)
-            b.main(Indicate(k_turun, color=SOROT), run_time=1.6)
+            # Yang tampil di layar adalah `k_lengkung` hasil Transform, bukan
+            # `k_turun` yang cuma sasaran dan tidak pernah ditambahkan ke adegan.
+            # Menyorot benda yang tidak ada tidak memperlihatkan apa pun.
+            b.main(Indicate(k_lengkung, color=SOROT), run_time=1.6)
             b.catat(0.8)
-        qc.periksa_adegan(self, {"kurva turun": k_turun},
+        qc.periksa_adegan(self, {"kurva turun": k_lengkung},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_kecil})
