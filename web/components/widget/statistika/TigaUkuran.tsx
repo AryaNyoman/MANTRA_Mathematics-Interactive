@@ -1,5 +1,7 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
+import { Angka, Petunjuk } from '@/components/kendali'
 import { useRef, useState } from 'react'
 import { GarisBilangan, Penanda, TumpukanTitik } from '@/components/widget/statistika/GarisBilangan'
 import { MONO, PERAN } from '@/components/widget/statistika/warna-data'
@@ -39,6 +41,7 @@ const TINGGI_PENOPANG = 26
 const GARIS_Y = 258
 
 export default function TigaUkuran({ children }: PropWidget) {
+  const dipegang = useSedangDiubah()
   const svgRef = useRef<SVGSVGElement | null>(null)
   const [data, setData] = useState<number[]>(D.data)
   const [tumpu, setTumpu] = useState<number | null>(null) // null berarti ikut mean
@@ -94,6 +97,7 @@ export default function TigaUkuran({ children }: PropWidget) {
 
           {/* penopang */}
           <polygon
+            className={dipegang === 'tumpu' ? 'nyala' : undefined}
             points={`${px},${DASAR + 2} ${px - 11},${DASAR + TINGGI_PENOPANG} ${px + 11},${DASAR + TINGGI_PENOPANG}`}
             fill={seimbang ? PERAN.sorot : PERAN.banding}
           />
@@ -115,14 +119,8 @@ export default function TigaUkuran({ children }: PropWidget) {
         </svg>
       </div>
       <div className="kendali">
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label htmlFor="tumpu">
-            <span>Letak penopang</span>
-            <span className="mono">{angka(letakTumpu, 2)}</span>
-          </label>
-          <input id="tumpu" type="range" min={MIN} max={MAKS} step={0.25} value={letakTumpu}
-                 onChange={(e) => setTumpu(+e.target.value)} />
-        </div>
+        <Angka nama="Letak penopang" arti="papannya hanya seimbang kalau penopangnya di rata-rata" kunci="tumpu"
+          nilai={letakTumpu} onUbah={setTumpu} min={MIN} max={MAKS} langkah={0.25} desimal={2} />
         <div>
           <label><span>Kembalikan</span></label>
           <div className="pilih-sisi">
@@ -137,14 +135,11 @@ export default function TigaUkuran({ children }: PropWidget) {
             <button onClick={() => { setData(D.data); setTumpu(null) }}>Kembalikan semula</button>
           </div>
         </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Petunjuk>
             {seimbang
               ? 'geser penopangnya sedikit saja, papannya langsung miring'
               : `jumlah simpangan ke penopang ${angka(torsi, 2)}, bukan nol, jadi papannya miring`}
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )
@@ -152,7 +147,7 @@ export default function TigaUkuran({ children }: PropWidget) {
   const simpangan = data.map((v) => v - r.mean)
   const kanan = (
     <div className="blok">
-      <div className="cap">Angka dari alat di sebelah kiri</div>
+      <div className="cap">Angka dari alat</div>
       <table className="tabel-angka">
         <tbody>
           <tr><td>data terurut</td><td>{[...data].sort((a, b) => a - b).join('  ')}</td></tr>

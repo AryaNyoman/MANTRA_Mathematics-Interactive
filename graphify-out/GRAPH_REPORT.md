@@ -1,12 +1,18 @@
-# Graph Report - MANIM-MATRA  (2026-09-04)
+# Graph Report - MANIM-MATRA  (2026-09-05)
 
 ## Corpus Check
-- Large corpus: 865 files · ~575,903 words. Semantic extraction will be expensive (many Claude tokens). Consider running on a subfolder.
+- 461 files · ~713,239 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2471 nodes · 5881 edges · 167 communities (99 shown, 60 thin omitted)
-- Extraction: 93% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 382 edges (avg confidence: 0.85)
-- Token cost: 187,587 input · 38,319 output
+- 2519 nodes · 5386 edges · 167 communities (105 shown, 62 thin omitted)
+- Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 363 edges (avg confidence: 0.85)
+- Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `e27cbf6a`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Widget Vektor: geometri dan uji
@@ -82,19 +88,19 @@
 - Video lama (Manim CE): qc.py
 - Perkakas ManimGL: Babak
 - Widget Statistika: DataKelompok.tsx
-- Widget Statistika: statistik.ts
+- LebarKelas.tsx
 - Pemeriksa soal: cek_sinkron_video.py
 - Widget Grafik Fungsi: BalapanTumbuh.tsx
 - Video ManimGL: PerahuVektor
 - Widget Ruang 3D: JarakSejajar.tsx
 - Widget Ruang 3D: PemilihKedudukan.tsx
 - Pemeriksa soal: cek_statistik_web.mjs
-- Widget Statistika: DuaKelompok.tsx
+- data.ts
 - Alat video: cek_video.py
 - Video ManimGL: vektor6_sambung.py
-- content/trigonometri: index.ts
+- skala.ts
 - Widget Ruang 3D: JarakKeBidang.tsx
-- Widget Ruang 3D: JarakKeGaris.tsx
+- DuniaNyataVektor.tsx
 - Pemeriksa soal: cek_soal.py
 - mockup: Gaya E — Satu Layar
 - Alat video: gabung_audio.py
@@ -118,12 +124,15 @@
 - Konfigurasi web: eslint.config.mjs
 - Konfigurasi web: next.config.ts
 - Konfigurasi web: postcss.config.mjs
+- Widget Ruang 3D: Bingkai3D.tsx
 - superpowers/plans: Limit Topic Implementation Plan
 - superpowers/plans: ManimGL Tools Implementation Plan
 - CLAUDE.md: kertas
 - tugas/laporan: Scene.samples antialiasing
 - tugas/laporan: Subtitle dengan lambang matematika
 - tugas/laporan: Tiga jalur layar video
+- Alat video: bakar_subtitle.py
+- manim/scenes/beranda_tiga_grafik.py
 - Alat video: Suara latar README
 - mockup/img: Dark-theme triangle diagram (tan θ = 0.75
 - mockup/img: Light-theme triangle diagram (tan θ = 0.75
@@ -171,43 +180,42 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `Tema` - 65 edges
-2. `WARNA` - 60 edges
-3. `angka()` - 31 edges
-4. `rumus()` - 30 edges
-5. `AdeganMatra` - 30 edges
-6. `GeserCerminRegang` - 28 edges
-7. `angka()` - 28 edges
-8. `EnamRasioNyata` - 26 edges
-9. `keLayar()` - 26 edges
-10. `bulat()` - 26 edges
+2. `WARNA` - 41 edges
+3. `AdeganMatra` - 29 edges
+4. `rumus()` - 29 edges
+5. `GeserCerminRegang` - 28 edges
+6. `angka()` - 27 edges
+7. `EnamRasioNyata` - 26 edges
+8. `bulat()` - 26 edges
+9. `jendelaTetap()` - 24 edges
+10. `GrafikSinusLahir` - 24 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Gaya E — Satu Layar` --references--> `segitiga-terang.png (poster)`  [EXTRACTED]
-  mockup/e-satu-layar.html → img/segitiga-terang.png
-- `Gaya E — Satu Layar` --shares_data_with--> `matra_theme.py (Manim theme)`  [EXTRACTED]
-  mockup/e-satu-layar.html → manim/matra_theme.py
-- `trigonometri.webm (Manim animation)` --shares_data_with--> `matra_theme.py (Manim theme)`  [INFERRED]
-  img/trigonometri.webm → manim/matra_theme.py
 - `Grafik Fungsi: Alur Belajar 12/13 Tahap` --references--> `ManimGL 1.7.2`  [AMBIGUOUS]
   docs/superpowers/specs/2026-09-01-grafik-fungsi-alur-belajar.md → CLAUDE.md
-- `Gaya D — Studio Teknis (A + C)` --references--> `segitiga-terang.png (poster)`  [EXTRACTED]
-  mockup/d-studio-teknis.html → img/segitiga-terang.png
+- `Limit: Alur Belajar 10 Tahap` --cites--> `Diktat Kalkulus ITB (terminology reference)`  [EXTRACTED]
+  docs/superpowers/specs/2026-09-01-limit-alur-belajar.md → CLAUDE.md
+- `Kuota Vercel untuk MATRA` --references--> `ManimGL 1.7.2`  [INFERRED]
+  docs/2026-09-01-kuota-vercel-matra.md → CLAUDE.md
+- `Grafik Fungsi: Alur Belajar 12/13 Tahap` --references--> `Widget rule: auto-fit frame + scale indicator`  [EXTRACTED]
+  docs/superpowers/specs/2026-09-01-grafik-fungsi-alur-belajar.md → CLAUDE.md
+- `Limit: Alur Belajar 10 Tahap` --references--> `Widget rule: auto-fit frame + scale indicator`  [EXTRACTED]
+  docs/superpowers/specs/2026-09-01-limit-alur-belajar.md → CLAUDE.md
 
 ## Import Cycles
 - None detected.
 
 ## Hyperedges (group relationships)
-- **Parallel Development Workflow** — docs_superpowers_specs_2026_09_01_enam_sesi_paralel_design, docs_superpowers_plans_2026_09_01_topik_vektor, docs_superpowers_plans_2026_09_01_topik_limit [EXTRACTED 1.00]
 - **Gelombang 2: Empat Sesi Topik Membuat Video** — docs_tugas_MATRA_VEKTOR, docs_tugas_MATRA_GRAFIK_FUNGSI, docs_tugas_MATRA_STATISTIKA, docs_tugas_MATRA_RUANG_TIGA_DIMENSI, docs_tugas_STANDAR_ILUSTRASI_VIDEO, docs_tugas_ILMU_3B1B [EXTRACTED 1.00]
+- **Parallel Development Workflow** — docs_superpowers_specs_2026_09_01_enam_sesi_paralel_design, docs_superpowers_plans_2026_09_01_topik_vektor, docs_superpowers_plans_2026_09_01_topik_limit [EXTRACTED 1.00]
 - **Tiga mockup gaya visual MATRA** — mockup_a_studio_html, mockup_b_papan_tulis_html, mockup_c_kertas_grafik_html [EXTRACTED 1.00]
 - **Interactive triangle widget (sliders → SVG render → live values)** — mockup_d_studio_teknis_gambar, mockup_d_studio_teknis_garis, mockup_d_studio_teknis_set, mockup_e_satu_layar_gambar, mockup_e_satu_layar_garis, mockup_e_satu_layar_set [INFERRED 0.85]
-- **MATRA topic TRIG-10-B4: Perbandingan Trigonometri** — konsep_perbandingan_trigonometri, konsep_miskonsepsi_tan, img_trigonometri_webm, mockup_d_studio_teknis, mockup_e_satu_layar [EXTRACTED 0.90]
 
-## Communities (167 total, 60 thin omitted)
+## Communities (167 total, 62 thin omitted)
 
 ### Community 0 - "Widget Vektor: geometri dan uji"
-Cohesion: 0.08
-Nodes (94): a, b, balik, isi, j, jKosong, jSatu, jTahan (+86 more)
+Cohesion: 0.07
+Nodes (80): a, b, balik, isi, j, jKosong, jSatu, jTahan (+72 more)
 
 ### Community 1 - "Rancangan MANTRA (berkas desain)"
 Cohesion: 0.06
@@ -215,39 +223,39 @@ Nodes (75): boot(), bundledBlob(), cdnScriptFor(), collectProps(), compileAttr()
 
 ### Community 2 - "Widget Limit: panggung dan bidang"
 Cohesion: 0.06
-Nodes (68): PanggungLimit(), Bidang(), Baris, BongkarBertahap(), SOAL_BONGKAR, SoalBongkar, BATAS_DERAJAT, BusurLawanTali() (+60 more)
+Nodes (65): PanggungLimit(), Bidang(), Baris, BongkarBertahap(), SOAL_BONGKAR, SoalBongkar, BATAS_DERAJAT, BusurLawanTali() (+57 more)
 
 ### Community 3 - "Widget Trigonometri: panggung dan bayangan"
 Cohesion: 0.05
 Nodes (55): PropPanggung, AngkaSegitiga(), HasilRasio(), PanggungTrigonometri(), BATAS_SUDUT, Bayangan(), hitungBayangan(), koma() (+47 more)
 
 ### Community 4 - "Perkakas ManimGL: kamera dan contoh perahu"
-Cohesion: 0.05
-Nodes (48): KERANGKA contoh alur video ManimGL MATRA, versi standar 2 (2 Sep 2026 malam).…, Perkakas bersama ManimGL untuk semua video MATRA (sejak 2 Sep 2026). Pakai dari…, dekati(), dunia_ke_peta(), dunia_ke_peta_muat(), muat_datar(), pasang_awal(), putar_pelan() (+40 more)
+Cohesion: 0.08
+Nodes (22): dekati(), dunia_ke_peta(), dunia_ke_peta_muat(), muat_datar(), pasang_awal(), putar_pelan(), Gerakan kamera siap pakai untuk ManimGL. Semua fungsi MENGEMBALIKAN animasi;…, Sudut awal babak, tanpa animasi. (+14 more)
 
 ### Community 5 - "Perkakas ManimGL: sinema (babak, rumus, subtitle)"
 Cohesion: 0.05
-Nodes (47): AngkaKoma, AturanDilanggar, batasi_lebar(), ganti_rumus(), hapus_keterangan(), identitas(), jam_subtitle(), judul_pembuka() (+39 more)
+Nodes (45): AngkaKoma, AturanDilanggar, batasi_lebar(), ganti_rumus(), hapus_keterangan(), identitas(), jam_subtitle(), judul_pembuka() (+37 more)
 
 ### Community 6 - "Video ManimGL: Grafik Fungsi transformasi"
 Cohesion: 0.07
 Nodes (30): Angka berdiri sendiri dan rumus: LaTeX lewat MiKTeX. Tulis dengan awalan r., rumus(), GeserCerminRegang, mulai_kalimat(), penanda(), Grafik Fungsi Tahap 06, Geser, cermin, regang. Versi ManimGL (2 Sep 2026). DUA…, Detik mulai TIAP KALIMAT subtitle, dibaca dari berkas .vtt topik ini. Dipakai…, Detik saat kalimat yang diawali `awalan` mulai diucapkan, atau None. (+22 more)
 
 ### Community 7 - "Isi materi: daftar isi dan jenis panggung"
-Cohesion: 0.07
-Nodes (31): BagianPanggung, IsiTopik, Latihan(), PanggungStatistika(), KUIS, KANAL, LATIHAN, TAHAP (+23 more)
+Cohesion: 0.06
+Nodes (37): BagianPanggung, IsiTopik, Latihan(), Penjelasan(), KUIS, KANAL, LATIHAN, TAHAP (+29 more)
 
 ### Community 8 - "ManimGL: tema dan uji adegan"
 Cohesion: 0.05
-Nodes (29): ContohPerahu, AdeganMatra, Scene, Tema visual MATRA untuk ManimGL: palet Studio Teknis, font, kelas adegan dasar.…, Wadah warna supaya adegan menulis `self.t.aksen`, bukan kode heksa., Kata-kata dalam LaTeX (mode teks). Karakter khusus LaTeX diloloskan otomatis.…, Kelas dasar semua adegan MATRA., Tempelkan objek ke layar (tidak ikut kamera) dan tampilkan. (+21 more)
+Nodes (33): ContohPerahu, KERANGKA contoh alur video ManimGL MATRA, versi standar 2 (2 Sep 2026 malam).…, Perkakas bersama ManimGL untuk semua video MATRA (sejak 2 Sep 2026). Pakai dari…, AdeganMatra, Scene, Tema visual MATRA untuk ManimGL: palet Studio Teknis, font, kelas adegan dasar.…, Wadah warna supaya adegan menulis `self.t.aksen`, bukan kode heksa., Kelas dasar semua adegan MATRA. (+25 more)
 
 ### Community 9 - "Pemeriksa soal: Ruang 3D"
 Cohesion: 0.11
 Nodes (44): arah_garis(), bandingkan(), bangun_balok(), bangun_kubus(), bangun_limas(), buat_titik(), dua(), hitung() (+36 more)
 
 ### Community 10 - "Web: halaman topik, peta materi, kemajuan"
-Cohesion: 0.11
-Nodes (34): BabTampil, dua(), MateriTampil, PetaMateri(), SubTampil, berkasSubtitle(), PemutarVideo(), Props (+26 more)
+Cohesion: 0.13
+Nodes (29): berkasSubtitle(), PemutarVideo(), Props, UKURAN, dua(), Layar, Rangka(), Kuis() (+21 more)
 
 ### Community 11 - "superpowers/specs: 13 Tahap"
 Cohesion: 0.06
@@ -258,32 +266,32 @@ Cohesion: 0.12
 Nodes (33): di_ac(), JarakSelaluTerpendek, Ruang Tiga Dimensi, materi 03: "Jarak selalu yang terpendek" (ManimGL). Naskah…, busur(), huruf_sudut(), isi_sisa(), kaki_pada_garis(), kubus_pejal() (+25 more)
 
 ### Community 13 - "Widget Grafik Fungsi: panggung dan dunia nyata"
-Cohesion: 0.11
-Nodes (32): URUT_DASAR, URUT_DASAR_MUTLAK, URUT_TRANSFORMASI, CONTOH, ContohNyata, DuniaNyataGrafik(), AKIBAT_LIPATAN, bangunLipatan() (+24 more)
+Cohesion: 0.09
+Nodes (35): URUT_DASAR, URUT_DASAR_MUTLAK, URUT_TRANSFORMASI, BATAS_A, BATAS_H, BATAS_K, BentukPuncak(), jendelaUntuk() (+27 more)
 
 ### Community 14 - "Video lama: Grafik Fungsi transformasi"
-Cohesion: 0.12
-Nodes (13): GeserCerminRegang, Scene, VGroup, Grafik Fungsi Tahap 06, Geser, cermin, regang. STORYBOARD (ditulis lebih dulu,…, Bidang koordinat, dengan angka HANYA di sumbu x. Render uji pertama memakai…, Tukar panel rumus BERURUTAN, jangan pernah di-morph. `ReplacementTransform`…, Kurva satu fungsi pada jangkauan x tertentu, dipotong di tepi atas. Nilai di…, Tumpukan rumus di panel kanan, baris terakhir boleh diberi warna. (+5 more)
+Cohesion: 0.16
+Nodes (12): GeserCerminRegang, Scene, VGroup, Bidang koordinat, dengan angka HANYA di sumbu x. Render uji pertama memakai…, Tukar panel rumus BERURUTAN, jangan pernah di-morph. `ReplacementTransform`…, Kurva satu fungsi pada jangkauan x tertentu, dipotong di tepi atas. Nilai di…, Tumpukan rumus di panel kanan, baris terakhir boleh diberi warna., Menulis f(x - 1) lalu BERHENTI. Penonton menebak dulu. (+4 more)
 
 ### Community 15 - "Perkakas ManimGL: ilustrasi 3D (air, perahu, bola)"
 Cohesion: 0.06
-Nodes (30): air(), air_hidup(), ayunkan(), balok(), bidang_bernomor(), lantai_kisi(), lembah_fungsi(), mobil() (+22 more)
+Nodes (36): air(), air_hidup(), ayunkan(), balok(), bayangan_lantai(), bidang_bernomor(), _lambung(), _lambung_cembung() (+28 more)
 
 ### Community 16 - "Web: rute latihan dan nav"
-Cohesion: 0.09
+Cohesion: 0.10
 Nodes (16): metadata, metadata, metadata, metadata, metadata, metadata, metadata, metadata (+8 more)
 
 ### Community 17 - "Video lama (Manim CE): tema dan beranda"
-Cohesion: 0.08
-Nodes (21): Tema visual bersama untuk semua animasi MATRA. Semua adegan WAJIB memakai warna…, Satu wadah warna supaya adegan tidak perlu tahu tema mana yang dipakai., Tema, BerandaTigaGrafik, Scene, Beranda: tiga grafik sin, cos, tan sebagai loop mulus tanpa suara. Dipakai di…, Ubah sudut u (radian, 0 di penanda) menjadi koordinat mendatar layar., x_layar() (+13 more)
+Cohesion: 0.07
+Nodes (22): Tema visual bersama untuk semua animasi MATRA. Semua adegan WAJIB memakai warna…, Satu wadah warna supaya adegan tidak perlu tahu tema mana yang dipakai., Tema, BerandaTigaGrafik, Scene, Beranda: tiga grafik sin, cos, tan sebagai loop mulus tanpa suara. Dipakai di…, Ubah sudut u (radian, 0 di penanda) menjadi koordinat mendatar layar., x_layar() (+14 more)
 
 ### Community 18 - "Video lama (Manim CE): sinema"
 Cohesion: 0.08
 Nodes (27): AngkaKoma, Babak, batasi_lebar(), hapus_keterangan(), judul_pembuka(), keterangan(), lepas_sorot(), nilai_hidup() (+19 more)
 
 ### Community 19 - "Widget Grafik Fungsi: pembaca grafik"
-Cohesion: 0.09
-Nodes (32): jalurParametrik(), jendelaTetap(), keMatematika(), BABAK, babakDi(), BATAS_WAKTU, jarak(), JENDELA (+24 more)
+Cohesion: 0.32
+Nodes (4): keMatematika(), posisiDiGambar(), posisiMatematika(), TitikXY
 
 ### Community 20 - "Video lama: Trigonometri enam rasio"
 Cohesion: 0.14
@@ -298,12 +306,12 @@ Cohesion: 0.15
 Nodes (31): bulat(), cocok(), desimal_klaim(), hitung_saja(), kuartil_tunggal(), main(), median_dari(), periksa_satu() (+23 more)
 
 ### Community 23 - "Widget Grafik Fungsi: bentuk puncak dan koordinat"
-Cohesion: 0.14
-Nodes (26): BATAS_A, BATAS_H, BATAS_K, Bidang(), Catatan, potong(), BATAS_LIPAT, BATAS_POKOK (+18 more)
+Cohesion: 0.12
+Nodes (32): AsimtotRasional(), BATAS_GESER_X, BATAS_GESER_Y, JENDELA, rumusRasional(), tabelDekatAsimtot(), tabelJauh(), Bidang() (+24 more)
 
 ### Community 24 - "Widget Statistika: bentuk data dan garis bilangan"
-Cohesion: 0.12
-Nodes (25): ANGKA, Bentuk, Jenis, KAT, NAMA_BENTUK, PERINGATAN, GarisBilangan(), Penanda() (+17 more)
+Cohesion: 0.16
+Nodes (12): A, B, KELAS_A, KELAS_B, IsiWidget, PropWidget, GARIS_PETAK, GARIS_SUMBU (+4 more)
 
 ### Community 25 - "Video ManimGL: Grafik Fungsi bentuk puncak"
 Cohesion: 0.13
@@ -314,8 +322,8 @@ Cohesion: 0.07
 Nodes (28): dom, dom.iterable, esnext, **/*.mts, .next/dev/types/**/*.ts, next-env.d.ts, .next/types/**/*.ts, node_modules (+20 more)
 
 ### Community 27 - "Widget Ruang 3D: panggung dan diagonal"
-Cohesion: 0.14
-Nodes (25): PanggungRuang3D(), SUDUT_TAHAP, TandaSiku(), BANGUN, DIAGONAL_RUANG, DIAGONAL_SISI, DiagonalKubus(), LANGKAH (+17 more)
+Cohesion: 0.22
+Nodes (13): PanggungRuang3D(), TandaSiku(), BANGUN, GARIS, GrafikPanjang(), JARAK_TERPENDEK, kakiDi(), KakiTegakLurus() (+5 more)
 
 ### Community 28 - "Video lama: Trigonometri grafik sinus"
 Cohesion: 0.15
@@ -350,36 +358,36 @@ Cohesion: 0.14
 Nodes (8): LubangDiGrafik, Scene, Pecahan yang pembilang dan penyebutnya bisa dipegang sendiri-sendiri. Dibangun…, Satu garis miring bersih melintasi satu faktor, dari kiri bawah., Satu baris tabel nilai di kolom kanan, dua kolom rata., Tetangga kiri. Titiknya BERHENTI di 0,9 dan tidak dimajukan ke 0,99. Pada skala…, Tetangga kanan. Titiknya berhenti di 1,1, alasannya sama dengan b06., Sumbu, garis, dan lubangnya. Dibuat sekali, dipakai sejak babak 5.
 
 ### Community 36 - "docs/tugas: Aturan Semua Sesi"
-Cohesion: 0.20
-Nodes (22): UI/UX Responsif Design Spec, Aturan Semua Sesi, Ilmu 3b1b, Tugas MATRA-DESAIN-UI-UX, Tugas MATRA-GRAFIK-FUNGSI, Tugas MATRA-RUANG-TIGA-DIMENSI, Tugas MATRA-STATISTIKA, Tugas MATRA-VEKTOR (+14 more)
+Cohesion: 0.23
+Nodes (21): UI/UX Responsif Design Spec, Aturan Semua Sesi, Ilmu 3b1b, Tugas MATRA-DESAIN-UI-UX, Tugas MATRA-GRAFIK-FUNGSI, Tugas MATRA-RUANG-TIGA-DIMENSI, Tugas MATRA-STATISTIKA, Tugas MATRA-VEKTOR (+13 more)
 
 ### Community 37 - "Video lama (Manim CE): PerbandinganTetap"
 Cohesion: 0.16
 Nodes (6): PerbandinganTetap, Scene, Dua label ukuran yang menempel pada sisinya dan ikut berubah., Penanda bagian di pojok kiri atas, permintaan ARYA supaya siswa tahu video ini…, Puncak video: pengali di atas dan di bawah saling menghapus., Baru sekarang SUDUTNYA diubah, dan angkanya ikut bergerak.
 
 ### Community 38 - "Widget Grafik Fungsi: WajahParabola.tsx"
-Cohesion: 0.18
-Nodes (21): PanggungGrafikFungsi(), AsimtotRasional(), BATAS_GESER_X, BATAS_GESER_Y, JENDELA, rumusRasional(), tabelDekatAsimtot(), tabelJauh() (+13 more)
+Cohesion: 0.16
+Nodes (22): PanggungGrafikFungsi(), akar(), BentukPuncak, BentukUmum, depanKurung(), diskriminan(), gabungSuku(), isiKurung() (+14 more)
 
 ### Community 39 - "Widget Grafik Fungsi: SusunParabola.tsx"
-Cohesion: 0.20
-Nodes (22): BentukPuncak(), jendelaUntuk(), BentukUmum, depanKurung(), gabungSuku(), isiKurung(), keUmum(), lewatPuncakDanTitik() (+14 more)
+Cohesion: 0.28
+Nodes (8): AWAL, BATAS_X, BATAS_Y, JENDELA_TETAP, parabolaDari(), PosisiSusun, SusunParabola(), tigaBentuk()
 
 ### Community 40 - "Widget Statistika: skala.ts"
-Cohesion: 0.21
-Nodes (19): CONTOH, DiagramPencar(), A, B, KELAS_A, KELAS_B, CONTOH, KekuatanHubungan() (+11 more)
+Cohesion: 0.29
+Nodes (4): BULAN, D, MAKS, MIN_DATA
 
 ### Community 41 - "Video lama (Manim CE): SudutIstimewaLahir"
-Cohesion: 0.15
-Nodes (8): Scene, Persegi bersisi satu, lalu dipotong menurut diagonalnya., Separuh atas memudar; tersisa segitiga 45-45-90., Segitiga sama sisi bersisi dua, lalu dibelah di tengah., Separuh kiri memudar; tersisa segitiga 30-60-90., Jari-jari berhenti di tiap sudut istimewa, juringnya terisi., Busur sudut DALAM di `titik`, antara arah ke_a dan ke_b. `Angle` bawaan Manim…, SudutIstimewaLahir
+Cohesion: 0.09
+Nodes (18): Scene, Persegi bersisi satu, lalu dipotong menurut diagonalnya., Separuh atas memudar; tersisa segitiga 45-45-90., Segitiga sama sisi bersisi dua, lalu dibelah di tengah., Separuh kiri memudar; tersisa segitiga 30-60-90., Jari-jari berhenti di tiap sudut istimewa, juringnya terisi., Busur sudut DALAM di `titik`, antara arah ke_a dan ke_b. `Angle` bawaan Manim…, SudutIstimewaLahir (+10 more)
 
 ### Community 42 - "Pustaka web: ArenaLatihan.tsx"
-Cohesion: 0.19
-Nodes (17): ArenaLatihan(), periksaJawaban(), KartuBab(), KartuBayang(), bacaLatihan(), catatJawaban(), hitungLencana(), KemajuanLatihan (+9 more)
+Cohesion: 0.18
+Nodes (19): ArenaLatihan(), periksaJawaban(), KartuBab(), KartuBayang(), ISI_TOPIK, cariBab(), bacaLatihan(), catatJawaban() (+11 more)
 
 ### Community 43 - "Widget Ruang 3D: ruang.ts"
-Cohesion: 0.17
-Nodes (19): Bingkai3D(), gerak(), Layar, Bangun, BATAS_MENUNDUK, Bola, bolaMuat(), GARIS_PETAK (+11 more)
+Cohesion: 0.14
+Nodes (21): Bingkai3D(), gerak(), BusurSudut(), Layar, Bangun, BATAS_MENUNDUK, Bola, bolaMuat() (+13 more)
 
 ### Community 44 - "Video lama (Manim CE): MathTex"
 Cohesion: 0.19
@@ -390,24 +398,24 @@ Cohesion: 0.10
 Nodes (15): Dua tambalan ManimGL 1.7.2 (Windows + MiKTeX; argv saat impor). Impor SEKALI…, _SubprocessTanpaNoPdf, gundukan(), Scene, UJI COBA ManimGL, bukan video materi. Boleh dibuang. Menjawab satu pertanyaan:…, UjiCahayaGelap, UjiCahayaTerang, buat_perahu() (+7 more)
 
 ### Community 46 - "Widget Statistika: JarakKeRata.tsx"
-Cohesion: 0.17
-Nodes (19): A, B, dari(), JarakKeRata(), ke(), TIK, D, dari() (+11 more)
+Cohesion: 0.38
+Nodes (6): dari(), DENGAN, ke(), TANPA, TarikPencilan(), TIK
 
 ### Community 47 - "Pemeriksa soal: cek_grafik_fungsi.py"
 Cohesion: 0.18
 Nodes (20): daftar_sama(), jalankan(), main(), periksa_akar(), periksa_diskriminan(), periksa_ekspresi(), periksa_invers(), periksa_komposisi() (+12 more)
 
 ### Community 48 - "Video lama (Manim CE): Text"
-Cohesion: 0.23
-Nodes (5): NolPerNol, Scene, Pecahan dirakit sendiri dari tiga bagian. Sengaja TIDAK memakai \\frac: coretan…, Garis miring dari kiri bawah ke kanan atas, jelas bukan garis pecahan.…, Text
+Cohesion: 0.16
+Nodes (8): NolPerNol, Scene, Pecahan dirakit sendiri dari tiga bagian. Sengaja TIDAK memakai \\frac: coretan…, Garis miring dari kiri bawah ke kanan atas, jelas bukan garis pecahan.…, ContohFont, Scene, Contoh font untuk dipilih ARYA. Render gambar diam: manimgl ... -s, Text
 
 ### Community 49 - "Widget Ruang 3D: SudutBersilangan.tsx"
-Cohesion: 0.13
-Nodes (19): Bidang(), BusurSudut(), TitikBantu(), kali(), sepanjang(), tambah(), BANGUN, GARIS1 (+11 more)
+Cohesion: 0.14
+Nodes (24): Bidang(), kakiPadaBidang(), kakiPadaGaris(), kali(), kaliTitik(), kurang(), sepanjang(), sudutDuaArah() (+16 more)
 
 ### Community 50 - "Isi materi: page.tsx"
-Cohesion: 0.15
-Nodes (15): HalamanPetaMateri(), metadata, generateMetadata(), RuteTopik(), HalamanTopik(), ISI_TOPIK, Bab, BAB_SEGERA (+7 more)
+Cohesion: 0.12
+Nodes (18): HalamanPetaMateri(), metadata, generateMetadata(), RuteTopik(), BabTampil, dua(), MateriTampil, PetaMateri() (+10 more)
 
 ### Community 51 - "Video lama (Manim CE): LahirnyaRasio"
 Cohesion: 0.19
@@ -430,28 +438,28 @@ Cohesion: 0.21
 Nodes (13): AST, Constant, kumpulkan_tex(), _literal_mentah(), main(), periksa_aritas(), periksa_aturan_matra(), periksa_dalam() (+5 more)
 
 ### Community 57 - "Widget Statistika: angka"
-Cohesion: 0.19
-Nodes (16): BentukData(), jalurJuring(), FrekuensiRelatif(), LebarKelas(), angka(), kotak, labelSkala(), petak (+8 more)
+Cohesion: 0.07
+Nodes (38): CONTOH, DiagramPencar(), jendelaContoh(), jepit(), A, B, dari(), DuaKelompok() (+30 more)
 
 ### Community 58 - "content/statistika: tahap.ts"
-Cohesion: 0.21
-Nodes (11): TAHAP_HUBUNGAN, TahapStatistika, TAHAP_PEMUSATAN, TahapStatistika, TAHAP_PENYAJIAN, TahapStatistika, WidgetStatistika, Tahap (+3 more)
+Cohesion: 0.09
+Nodes (13): DAFTAR, PanggungStatistika(), Kartu, TAHAP_HUBUNGAN, TahapStatistika, TAHAP_NYATA, TahapStatistika, TAHAP_PEMUSATAN (+5 more)
 
 ### Community 59 - "Video ManimGL: grafik_umum.py"
-Cohesion: 0.13
-Nodes (15): bayangan(), bersihkan_baris(), ganti_bersama(), Perkakas bersama video topik GRAFIK FUNGSI. Pola `ruang_3d_umum.py`. Dipindah…, Rumus di panel MORPH bersamaan dengan kurvanya berubah bentuk. `papan.tumbuh`…, Kosongkan temuan yang menumpuk di panel, supaya ruangnya tidak habis.…, Kamera tegak lurus bidang xz. Tidak ada kesan tiga dimensi sama sekali.…, Putar teks supaya terbaca dari pandangan bidang xz. (+7 more)
+Cohesion: 0.12
+Nodes (16): Grafik Fungsi Tahap 03, Parabola dan bentuk puncak. ManimGL, 3 Sep 2026.…, bayangan(), bersihkan_baris(), ganti_bersama(), Perkakas bersama video topik GRAFIK FUNGSI. Pola `ruang_3d_umum.py`. Dipindah…, Rumus di panel MORPH bersamaan dengan kurvanya berubah bentuk. `papan.tumbuh`…, Kosongkan temuan yang menumpuk di panel, supaya ruangnya tidak habis.…, Kamera tegak lurus bidang xz. Tidak ada kesan tiga dimensi sama sekali.… (+8 more)
 
 ### Community 60 - "Video ManimGL: statistika8_simpangan.py"
 Cohesion: 0.23
 Nodes (13): baris_jajar(), bilah(), kotak(), pita_datar(), Materi 08 Statistika: simpangan baku, persegi yang tumbuh kuadrat (ManimGL).…, Letak mendatar sebuah pengukuran; 500 ml duduk di x = 0., Berdirikan teks di bidang xz supaya menghadap kamera yang sejajar tanah., Pita HARUS dibentuk sebelum diputar: sesudah `tegak()`, "height" sebuah benda… (+5 more)
 
 ### Community 61 - "Komponen web: page.tsx"
-Cohesion: 0.19
-Nodes (9): ISI_SITUS, bacaGerak(), Demo(), Klip, langganGerak(), LogoParalaks(), PitaKurva(), PeristiwaPasang (+1 more)
+Cohesion: 0.14
+Nodes (12): ISI_SITUS, bacaGerak(), Demo(), Klip, langganGerak(), LogoParalaks(), Geometri, LEBAR (+4 more)
 
 ### Community 62 - "Widget Statistika: PanggungStatistika.tsx"
-Cohesion: 0.18
-Nodes (12): DAFTAR, BALIK, D, GarisRegresi(), HITUNG, J, P, rx (+4 more)
+Cohesion: 0.47
+Nodes (5): D, dari(), ke(), TigaUkuran(), TIK
 
 ### Community 63 - "Video lama (Manim CE): trigonometri.py"
 Cohesion: 0.23
@@ -462,24 +470,24 @@ Cohesion: 0.20
 Nodes (12): bilah(), geser_x(), miring(), Pemusatan5, Materi 05 Statistika: mean, median, modus lewat jungkat-jungkit (ManimGL).…, Satu satuan dunia = satu nilai; nilai 7 duduk di x = 0., Nilai kembar digeser ke SAMPING, bukan ke belakang. Dijajarkan ke belakang…, Jumlah simpangan tiap nilai terhadap letak tumpuan. Nol berarti seimbang. (+4 more)
 
 ### Community 65 - "content/statistika: data.ts"
-Cohesion: 0.20
-Nodes (13): ambil(), bivariat(), Butir, ButirBivariat, ButirKategori, ButirKelompok, ButirTunggal, Dasar (+5 more)
+Cohesion: 0.11
+Nodes (20): PASANGAN, PILIHAN_MATERI_1, PILIHAN_MATERI_10, PILIHAN_MATERI_8, CerminLurus(), JANGKAR, BATAS_PUSAT, CerminTitik() (+12 more)
 
 ### Community 66 - "Pemeriksa soal: cek_vektor.py"
 Cohesion: 0.28
 Nodes (12): diklaim(), hitung(), main(), nilai(), periksa(), Path, Pemeriksa jawaban soal vektor dengan sympy. KENAPA ALAT INI ADA…, Ubah angka atau teks menjadi bilangan sympy yang tepat. (+4 more)
 
 ### Community 67 - "Video lama (Manim CE): trigonometri_anim.py"
-Cohesion: 0.22
-Nodes (10): koma(), pecahan(), Mobject, Scene, VGroup, Trigonometri, animasi utama, bernarasi. Kelas 10, Bab 4. Melawan miskonsepsi…, Pecahan dirakit sendiri supaya tiap bagian bisa diwarnai dengan pasti. JANGAN…, Mainkan animasi lalu tunggu, sehingga tahap ini memakan waktu persis sepanjang… (+2 more)
+Cohesion: 0.13
+Nodes (18): CacatTataLetak, jalur_bawah_kosong(), ke_layar(), muat_di_bingkai(), periksa_adegan(), AssertionError, Gerbang mutu tata letak untuk ManimGL, sadar kamera 3D. Dipakai DI DALAM…, Tata letak melanggar aturan. Sengaja menggagalkan render. (+10 more)
 
 ### Community 68 - "Widget Ruang 3D: KubusPutar.tsx"
-Cohesion: 0.18
-Nodes (12): ALAS, BANGUN, JARAK_ASLI, KubusPutar(), LETAK, ruasBerpotongan(), RUSUK, SUDUT_MULAI (+4 more)
+Cohesion: 0.12
+Nodes (22): SUDUT_TAHAP, BANGUN, DIAGONAL_RUANG, DIAGONAL_SISI, DiagonalKubus(), LANGKAH, RUSUK, ALAS (+14 more)
 
 ### Community 69 - "Widget Ruang 3D: jarakTitik"
-Cohesion: 0.29
-Nodes (13): jarakDuaGaris(), jarakTitik(), jarakTitikBidang(), jarakTitikGaris(), kakiPadaBidang(), kakiPadaGaris(), kaliTitik(), kedudukanDuaGaris() (+5 more)
+Cohesion: 0.18
+Nodes (9): ANGKA, Bentuk, Jenis, KAT, NAMA_BENTUK, PERINGATAN, GarisBilangan(), tinggiTumpukan() (+1 more)
 
 ### Community 70 - "Video lama (Manim CE): qc.py"
 Cohesion: 0.26
@@ -490,12 +498,12 @@ Cohesion: 0.17
 Nodes (6): Babak, Satu segmen narasi. Mencatat waktu terpakai dan menutup sisanya sendiri., Catat waktu yang dipakai di luar `main` (judul_pembuka, lahir_rumus, wait)., Jeda PENDEK yang disengaja (0,6 sampai 1,6 detik). Untuk tunggu panjang pakai…, Diam sampai `detik` pada jam video (dari `jam_subtitle`), lalu lanjut., Pakai: `with sinema.babak(self, "buka", DURASI) as b: b.main(...)`.
 
 ### Community 72 - "Widget Statistika: DataKelompok.tsx"
-Cohesion: 0.21
-Nodes (11): banyakDiKiri(), D, dari(), DataKelompok(), I_PUNCAK, J, K, P (+3 more)
-
-### Community 73 - "Widget Statistika: statistik.ts"
 Cohesion: 0.27
-Nodes (10): D, LEBAR_PILIHAN, R, kelompokkan(), kuartil(), median(), modus(), ringkasTunggal (+2 more)
+Nodes (9): banyakDiKiri(), D, dari(), DataKelompok(), I_PUNCAK, J, K, P (+1 more)
+
+### Community 73 - "LebarKelas.tsx"
+Cohesion: 0.25
+Nodes (13): BentukData(), jalurJuring(), FrekuensiRelatif(), D, LEBAR_PILIHAN, LebarKelas(), R, keLayar() (+5 more)
 
 ### Community 74 - "Pemeriksa soal: cek_sinkron_video.py"
 Cohesion: 0.31
@@ -506,24 +514,24 @@ Cohesion: 0.36
 Nodes (10): BalapanTumbuh(), BATAS_AKHIR, BATAS_POKOK, eksponen(), jendelaUntuk(), KUADRAT(), langkahMenyalip(), LINEAR() (+2 more)
 
 ### Community 76 - "Video ManimGL: PerahuVektor"
-Cohesion: 0.42
-Nodes (3): PerahuVektor, Ujung panah dayung, sudah digeser ke jalur panah arus., Ujung resultan, di jalur yang SEBENARNYA, tanpa geseran.
+Cohesion: 0.18
+Nodes (8): AdeganMatra, BerandaTigaGrafik, Beranda: tiga grafik sin, cos, tan lahir dari satu putaran. Bisu, mengulang., Satu panel: lingkaran kecil di kiri, papan grafik di kanan., x_dari(), PerahuVektor, Ujung panah dayung, sudah digeser ke jalur panah arus., Ujung resultan, di jalur yang SEBENARNYA, tanpa geseran.
 
 ### Community 77 - "Widget Ruang 3D: JarakSejajar.tsx"
-Cohesion: 0.22
-Nodes (9): BANGUN, BIDANG, hitung(), JARAK, JarakSejajar(), NAMA_BIDANG, RUSUK, balok() (+1 more)
+Cohesion: 0.10
+Nodes (29): Ruas(), TitikBantu(), BANGUN, hitung(), JARAK, JarakKeBidang(), RUSUK, SOAL (+21 more)
 
 ### Community 78 - "Widget Ruang 3D: PemilihKedudukan.tsx"
 Cohesion: 0.24
-Nodes (9): BANGUN, PemilihKedudukan(), periksaRuas(), RUAS, Ruas2, RUSUK, titikBersama(), Kedudukan (+1 more)
+Nodes (12): BANGUN, PemilihKedudukan(), periksaRuas(), RUAS, Ruas2, RUSUK, titikBersama(), jarakDuaGaris() (+4 more)
 
 ### Community 79 - "Pemeriksa soal: cek_statistik_web.mjs"
 Cohesion: 0.25
 Nodes (7): BERKAS_DATA, cocok(), DI_SINI, isi, keluhan, PETA, uraiKlaim()
 
-### Community 80 - "Widget Statistika: DuaKelompok.tsx"
-Cohesion: 0.31
-Nodes (8): A, B, dari(), DuaKelompok(), JUMLAH_SASARAN, ke(), samakanJumlah(), TIK
+### Community 80 - "data.ts"
+Cohesion: 0.20
+Nodes (13): ambil(), bivariat(), Butir, ButirBivariat, ButirKategori, ButirKelompok, ButirTunggal, Dasar (+5 more)
 
 ### Community 81 - "Alat video: cek_video.py"
 Cohesion: 0.57
@@ -533,25 +541,21 @@ Nodes (7): frame_lepas(), info(), jalankan(), lembar_kontak(), main(), Path, Pem
 Cohesion: 0.32
 Nodes (5): panah(), Vektor Materi 06, Menjumlah itu menyambung perjalanan. ManimGL. Rancangan arah…, Posisi pejalan: berangkat dari asal, dua perjalanan berurutan., Panah pendek pun tetap sah: panjang nol membuat Arrow gagal., SambungPerjalanan
 
-### Community 83 - "content/trigonometri: index.ts"
-Cohesion: 0.29
-Nodes (4): Penjelasan(), Blok, TAHAP, Widget
+### Community 83 - "skala.ts"
+Cohesion: 0.20
+Nodes (8): angka(), Jendela, labelSkala(), petak, Tepi, TEPI_KATEGORI, VH, VW
 
 ### Community 84 - "Widget Ruang 3D: JarakKeBidang.tsx"
-Cohesion: 0.29
-Nodes (7): Ruas(), BANGUN, hitung(), JARAK, JarakKeBidang(), RUSUK, SOAL
-
-### Community 85 - "Widget Ruang 3D: JarakKeGaris.tsx"
-Cohesion: 0.29
-Nodes (7): BANGUN, hitung(), JARAK, JarakKeGaris(), Pilihan, RUSUK, KOTAK
+Cohesion: 0.23
+Nodes (9): Kelas, kuartil(), median(), modus(), regresi, ringkasKelompok, ringkasTunggal, terurut() (+1 more)
 
 ### Community 86 - "Pemeriksa soal: cek_soal.py"
 Cohesion: 0.38
 Nodes (6): bandingkan(), main(), periksa_satu(), Pemeriksa jawaban soal limit dengan sympy. KENAPA ALAT INI ADA…, Benar kalau kedua nilai itu sama secara matematika. Perbandingan teks tidak…, Kembalikan (lolos, keterangan) untuk satu soal.
 
 ### Community 87 - "mockup: Gaya E — Satu Layar"
-Cohesion: 0.48
-Nodes (7): segitiga-terang.png (poster), trigonometri.webm (Manim animation), Miskonsepsi: tan 37° ≈ 0,75 bukan angka mati, Perbandingan Trigonometri (topic), matra_theme.py (Manim theme), Gaya D — Studio Teknis (A + C), Gaya E — Satu Layar
+Cohesion: 0.67
+Nodes (4): Miskonsepsi: tan 37° ≈ 0,75 bukan angka mati, Perbandingan Trigonometri (topic), Gaya D — Studio Teknis (A + C), Gaya E — Satu Layar
 
 ### Community 88 - "Alat video: gabung_audio.py"
 Cohesion: 0.43
@@ -581,10 +585,6 @@ Nodes (5): buildCommand, framework, installCommand, outputDirectory, $schema
 Cohesion: 0.70
 Nodes (4): baca_kunci(), main(), Antrean render: lima sesi berbagi satu prosesor, render Manim harus bergiliran.…, siapa()
 
-### Community 95 - "Uji ManimGL: ContohFont"
-Cohesion: 0.40
-Nodes (3): ContohFont, Scene, Contoh font untuk dipilih ARYA. Render gambar diam: manimgl ... -s
-
 ### Community 96 - "mockup: gambar() render function"
 Cohesion: 0.50
 Nodes (4): gambar() render function, garis() helper, pilih() tab switcher, set() helper
@@ -601,30 +601,42 @@ Nodes (3): Mockup Gaya A — Studio, Mockup Gaya B — Papan Tulis, Mockup Gaya 
 Cohesion: 0.67
 Nodes (3): gambar() render function, garis() helper, set() helper
 
+### Community 111 - "Widget Ruang 3D: Bingkai3D.tsx"
+Cohesion: 0.23
+Nodes (14): BATAS_LANGKAH, PapanTransformasi(), sepertiSemula(), AKIBAT_LANGKAH, bangunFungsi(), Dasar, DI_DALAM_KURUNG, FUNGSI_DASAR (+6 more)
+
+### Community 119 - "Alat video: bakar_subtitle.py"
+Cohesion: 0.36
+Nodes (7): BABAK, babakDi(), BATAS_WAKTU, jarak(), JENDELA, PembacaGrafik(), TITIK
+
+### Community 120 - "manim/scenes/beranda_tiga_grafik.py"
+Cohesion: 0.14
+Nodes (8): PapanRumus, Rumus dan hitungan di KANAN ATAS, dibangun di depan mata, bukan muncul jadi.…, Slot 0 (paling atas) SELALU dipesan untuk rumus utama, baris mulai slot 1.…, Ganti rumus utama dengan MORPH: lambang lama berpindah, yang baru tumbuh., Satu kata kecil (maks 2 kata) yang menyebut operasinya, lalu memudar., Tumpuk satu temuan baru di bawah yang sudah ada., Daftarkan rumus yang sudah ada di panel (hasil `lahir_rumus`)., Catat bahwa `lama` di panel sudah diganti `baru` (dipanggil ganti_rumus).
+
 ## Ambiguous Edges - Review These
-- `Grafik Fungsi: Alur Belajar 12/13 Tahap` → `ManimGL 1.7.2`  [AMBIGUOUS]
+- `ManimGL 1.7.2` → `Grafik Fungsi: Alur Belajar 12/13 Tahap`  [AMBIGUOUS]
   docs/superpowers/specs/2026-09-01-grafik-fungsi-alur-belajar.md · relation: references
-- `Laporan MATRA-DESAIN-UI-UX` → `Gerbang Mutu Video`  [AMBIGUOUS]
+- `Gerbang Mutu Video` → `Laporan MATRA-DESAIN-UI-UX`  [AMBIGUOUS]
   docs/tugas/laporan/MATRA-DESAIN-UI-UX.md · relation: references
 
 ## Knowledge Gaps
-- **384 isolated node(s):** `DI_SINI`, `BERKAS_DATA`, `PETA`, `isi`, `keluhan` (+379 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 847 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **60 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **383 isolated node(s):** `PILIHAN_MATERI_1`, `PILIHAN_MATERI_8`, `PILIHAN_MATERI_10`, `PASANGAN`, `AWAL` (+378 more)
+  These have ≤1 connection - possible missing edges or undocumented components.
+- **62 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **What is the exact relationship between `Grafik Fungsi: Alur Belajar 12/13 Tahap` and `ManimGL 1.7.2`?**
+- **What is the exact relationship between `ManimGL 1.7.2` and `Grafik Fungsi: Alur Belajar 12/13 Tahap`?**
   _Edge tagged AMBIGUOUS (relation: references) - confidence is low._
-- **What is the exact relationship between `Laporan MATRA-DESAIN-UI-UX` and `Gerbang Mutu Video`?**
+- **What is the exact relationship between `Gerbang Mutu Video` and `Laporan MATRA-DESAIN-UI-UX`?**
   _Edge tagged AMBIGUOUS (relation: references) - confidence is low._
-- **Why does `kurva()` connect `Video ManimGL: Grafik Fungsi transformasi` to `Video lama (Manim CE): tema dan beranda`, `Video ManimGL: grafik_umum.py`, `Video ManimGL: Grafik Fungsi bentuk puncak`?**
-  _High betweenness centrality (0.056) - this node is a cross-community bridge._
-- **Why does `Tema` connect `Video lama (Manim CE): tema dan beranda` to `Video lama: Trigonometri lingkaran satuan`, `Video lama (Manim CE): PerahuMenyeberang`, `Video lama (Manim CE): KecepatanSesaat`, `Video lama (Manim CE): LubangDiGrafik`, `Video lama (Manim CE): trigonometri_anim.py`, `Video lama (Manim CE): PerbandinganTetap`, `Video lama (Manim CE): SudutIstimewaLahir`, `Video lama (Manim CE): MathTex`, `Video lama: Grafik Fungsi transformasi`, `Video lama (Manim CE): Text`, `Video lama (Manim CE): trigonometri.py`, `Video lama (Manim CE): LahirnyaRasio`, `Video lama: Trigonometri enam rasio`, `Video lama (Manim CE): LimitSinus`, `Video lama: Trigonometri grafik sinus`, `Video lama (Manim CE): FungsiTidakPutus`, `Video lama (Manim CE): TigaGrafikBersama`, `Video lama (Manim CE): MendekatiBukanMenyentuh`?**
+- **Why does `Tema` connect `Video lama (Manim CE): tema dan beranda` to `Video lama: Trigonometri lingkaran satuan`, `Video lama (Manim CE): PerahuMenyeberang`, `Video lama (Manim CE): KecepatanSesaat`, `Video lama (Manim CE): LubangDiGrafik`, `Video lama (Manim CE): PerbandinganTetap`, `Video lama (Manim CE): SudutIstimewaLahir`, `Video lama (Manim CE): MathTex`, `Video lama: Grafik Fungsi transformasi`, `Video lama (Manim CE): Text`, `Video lama (Manim CE): trigonometri.py`, `Video lama (Manim CE): LahirnyaRasio`, `Video lama: Trigonometri enam rasio`, `Video lama (Manim CE): LimitSinus`, `Video lama: Trigonometri grafik sinus`, `Video lama (Manim CE): FungsiTidakPutus`, `Video lama (Manim CE): TigaGrafikBersama`, `Video lama (Manim CE): MendekatiBukanMenyentuh`?**
   _High betweenness centrality (0.053) - this node is a cross-community bridge._
-- **Why does `WARNA` connect `Widget Vektor: geometri dan uji` to `Widget Limit: panggung dan bidang`, `Widget Trigonometri: panggung dan bayangan`, `Widget Grafik Fungsi: panggung dan dunia nyata`, `Widget Grafik Fungsi: pembaca grafik`, `Widget Grafik Fungsi: bentuk puncak dan koordinat`, `Widget Statistika: bentuk data dan garis bilangan`, `Widget Ruang 3D: panggung dan diagonal`, `Widget Grafik Fungsi: WajahParabola.tsx`, `Widget Grafik Fungsi: SusunParabola.tsx`, `Widget Ruang 3D: ruang.ts`, `Widget Ruang 3D: SudutBersilangan.tsx`, `Widget Grafik Fungsi: DuaMesin.tsx`, `Widget Ruang 3D: DuniaNyataRuang.tsx`, `Widget Ruang 3D: KubusPutar.tsx`, `Widget Grafik Fungsi: BalapanTumbuh.tsx`, `Widget Ruang 3D: JarakSejajar.tsx`, `Widget Ruang 3D: PemilihKedudukan.tsx`, `Widget Ruang 3D: JarakKeBidang.tsx`, `Widget Ruang 3D: JarakKeGaris.tsx`?**
-  _High betweenness centrality (0.036) - this node is a cross-community bridge._
+- **Why does `kurva()` connect `Video ManimGL: Grafik Fungsi transformasi` to `Video lama (Manim CE): tema dan beranda`, `Video ManimGL: grafik_umum.py`, `Video ManimGL: Grafik Fungsi bentuk puncak`?**
+  _High betweenness centrality (0.050) - this node is a cross-community bridge._
+- **Why does `WARNA` connect `Widget Ruang 3D: JarakSejajar.tsx` to `Widget Vektor: geometri dan uji`, `Widget Limit: panggung dan bidang`, `Widget Trigonometri: panggung dan bayangan`, `Widget Ruang 3D: KubusPutar.tsx`, `Widget Grafik Fungsi: WajahParabola.tsx`, `Widget Grafik Fungsi: BalapanTumbuh.tsx`, `Widget Ruang 3D: ruang.ts`, `Widget Grafik Fungsi: panggung dan dunia nyata`, `Widget Ruang 3D: PemilihKedudukan.tsx`, `Widget Ruang 3D: Bingkai3D.tsx`, `Widget Ruang 3D: SudutBersilangan.tsx`, `Widget Grafik Fungsi: DuaMesin.tsx`, `Widget Ruang 3D: DuniaNyataRuang.tsx`, `Widget Grafik Fungsi: bentuk puncak dan koordinat`, `Widget Statistika: bentuk data dan garis bilangan`, `Widget Ruang 3D: panggung dan diagonal`?**
+  _High betweenness centrality (0.043) - this node is a cross-community bridge._
 - **Are the 94 inferred relationships involving `MathTex` (e.g. with `.construct()` and `.b06_kenapa()`) actually correct?**
   _`MathTex` has 94 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 80 inferred relationships involving `Text` (e.g. with `.b04_tanya()` and `.b09_mampat()`) actually correct?**

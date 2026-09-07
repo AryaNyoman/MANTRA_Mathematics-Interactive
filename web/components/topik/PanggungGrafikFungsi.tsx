@@ -15,7 +15,7 @@ import WajahParabola, {
   BATAS_C, JUMLAH_LANGKAH, langkahLengkap, umumDari,
 } from '@/components/widget/grafik-fungsi/WajahParabola'
 import SusunParabola, {
-  AWAL, parabolaDari, tigaBentuk, type PosisiSusun,
+  AWAL, BATAS_X, BATAS_Y, LANGKAH_SERET, parabolaDari, tigaBentuk, type PosisiSusun,
 } from '@/components/widget/grafik-fungsi/SusunParabola'
 import PapanTransformasi, {
   BATAS_LANGKAH,
@@ -47,6 +47,7 @@ import {
   type Dasar, type Langkah,
 } from '@/components/widget/grafik-fungsi/transformasi'
 import type { PropPanggung } from '@/components/topik/jenis'
+import { Angka, Koordinat, Petunjuk, Pilihan } from '@/components/kendali'
 
 /**
  * Panggung Grafik Fungsi: penyetelan kesebelas widgetnya, dan tidak lebih.
@@ -131,6 +132,11 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
     const Dwajah = diskriminan(umumWajah)
     const akarWajah = akar(umumWajah)
     const parSusun = parabolaDari(posSusun)
+    const contohSusun =
+      posSusun.puncak.x === AWAL.puncak.x && posSusun.puncak.y === AWAL.puncak.y
+        && posSusun.titik.x === AWAL.titik.x && posSusun.titik.y === AWAL.titik.y ? 'a'
+      : posSusun.puncak.x === 1 && posSusun.puncak.y === -8 && posSusun.titik.x === 4 && posSusun.titik.y === 1 ? 'b'
+      : 'lain'
     const potongUji = potongDi(bentukUji, xUji)
     const jejak = jejakAngka(mesin, masukMesin)
 
@@ -142,19 +148,11 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
               <PembacaGrafik waktu={waktu} onGeser={setWaktu} />
             </div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="waktu">
-                  <span>Menit ke</span>
-                  <span className="mono">{angka(waktu, 1)}</span>
-                </label>
-                <input id="waktu" type="range"
-                       min={BATAS_WAKTU.min} max={BATAS_WAKTU.maks} step={BATAS_WAKTU.langkah}
-                       value={waktu} onChange={(e) => setWaktu(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>titiknya bisa diseret langsung di gambar, penggeser ini jalan kedua</span>
-              </div>
+              <Angka nama="Menit ke" arti="titik di grafik yang sedang dibaca" kunci="waktu"
+                nilai={waktu} onUbah={setWaktu} min={BATAS_WAKTU.min} max={BATAS_WAKTU.maks} langkah={BATAS_WAKTU.langkah} />
+              <Petunjuk>
+                ketik menitnya atau seret titiknya di gambar, lalu baca jaraknya di tabel.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -165,34 +163,16 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
               <UjiGarisTegak bentuk={bentukUji} x={xUji} onGeser={setXUji} />
             </div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label><span>Gambar yang diuji</span></label>
-                <div className="pilih-sisi" style={{ flexWrap: 'wrap' }}>
-                  {URUT_BENTUK.map((b) => (
-                    <button key={b} aria-pressed={bentukUji === b}
-                            onClick={() => setBentukUji(b)} style={{ flex: '1 1 30%' }}>
-                      {NAMA_BENTUK[b]}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="xuji">
-                  <span>Letak garis tegak</span>
-                  <span className="mono">x = {angka(xUji, 1)}</span>
-                </label>
-                <input id="xuji" type="range"
-                       min={BATAS_GARIS.min} max={BATAS_GARIS.maks} step={BATAS_GARIS.langkah}
-                       value={xUji} onChange={(e) => setXUji(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>
-                  {ADALAH_FUNGSI[bentukUji]
-                    ? 'geser ke mana pun, potongnya tetap satu. Ini grafik fungsi'
-                    : 'cari posisi yang memotong dua kali, dan buktinya selesai'}
-                </span>
-              </div>
+              <Pilihan nama="Gambar yang diuji" arti="mana yang fungsi, mana yang bukan"
+                pilihan={URUT_BENTUK.map((b) => ({ nilai: b, label: NAMA_BENTUK[b] }))}
+                nilai={bentukUji} onPilih={setBentukUji} />
+              <Angka nama="Letak garis tegak" arti="x tempat garis tegaknya berdiri" kunci="x"
+                nilai={xUji} onUbah={setXUji} min={BATAS_GARIS.min} max={BATAS_GARIS.maks} langkah={BATAS_GARIS.langkah} />
+              <Petunjuk>
+                {ADALAH_FUNGSI[bentukUji]
+                  ? 'geser ke mana pun, potongnya tetap satu. Ini grafik fungsi.'
+                  : 'cari posisi yang memotong dua kali, dan buktinya selesai.'}
+              </Petunjuk>
             </div>
           </>
         )}
@@ -203,28 +183,15 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
               <BentukPuncak nilai={puncakSekarang} bayang={bayang} />
             </div>
             <div className="kendali">
-              <div>
-                <label htmlFor="pa"><span>a</span><span className="mono">{angka(a, 1)}</span></label>
-                <input id="pa" type="range" min={BATAS_A.min} max={BATAS_A.maks} step={BATAS_A.langkah}
-                       value={a} onPointerDown={rekamBayang} onKeyDown={rekamBayang}
-                       onChange={(e) => setA(+e.target.value)} />
-              </div>
-              <div>
-                <label htmlFor="ph"><span>h</span><span className="mono">{angka(h, 1)}</span></label>
-                <input id="ph" type="range" min={BATAS_H.min} max={BATAS_H.maks} step={BATAS_H.langkah}
-                       value={h} onPointerDown={rekamBayang} onKeyDown={rekamBayang}
-                       onChange={(e) => setH(+e.target.value)} />
-              </div>
-              <div>
-                <label htmlFor="pk"><span>k</span><span className="mono">{angka(k, 1)}</span></label>
-                <input id="pk" type="range" min={BATAS_K.min} max={BATAS_K.maks} step={BATAS_K.langkah}
-                       value={k} onPointerDown={rekamBayang} onKeyDown={rekamBayang}
-                       onChange={(e) => setK(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>besarkan h, dan perhatikan parabolanya pergi ke KANAN walaupun tandanya minus</span>
-              </div>
+              <Angka nama="a" arti="positif terbuka ke atas, negatif ke bawah; makin jauh dari nol makin ramping" kunci="a"
+                nilai={a} onUbah={setA} onPegang={rekamBayang} min={BATAS_A.min} max={BATAS_A.maks} langkah={BATAS_A.langkah} />
+              <Angka nama="h" arti="geser puncak ke kiri-kanan; di rumus (x - h)² tandanya terbalik" kunci="h"
+                nilai={h} onUbah={setH} onPegang={rekamBayang} min={BATAS_H.min} max={BATAS_H.maks} langkah={BATAS_H.langkah} />
+              <Angka nama="k" arti="geser puncak ke atas-bawah" kunci="k"
+                nilai={k} onUbah={setK} onPegang={rekamBayang} min={BATAS_K.min} max={BATAS_K.maks} langkah={BATAS_K.langkah} />
+              <Petunjuk>
+                besarkan h, dan perhatikan parabolanya pergi ke KANAN walaupun di rumus tertulis minus.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -235,28 +202,13 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
               <WajahParabola c={cWajah} langkah={langkahWajah} />
             </div>
             <div className="kendali">
-              <div>
-                <label><span>Langkah</span><span className="mono">{langkahWajah + 1} / {JUMLAH_LANGKAH}</span></label>
-                <div className="pilih-sisi">
-                  <button disabled={langkahWajah <= 0} onClick={() => setLangkahWajah((n) => n - 1)}>
-                    ← mundur
-                  </button>
-                  <button disabled={langkahWajah >= JUMLAH_LANGKAH - 1}
-                          onClick={() => setLangkahWajah((n) => n + 1)}>
-                    maju →
-                  </button>
-                </div>
-              </div>
-              <div>
-                <label htmlFor="cwajah"><span>Nilai c</span><span className="mono">{angka(cWajah, 1)}</span></label>
-                <input id="cwajah" type="range"
-                       min={BATAS_C.min} max={BATAS_C.maks} step={BATAS_C.langkah}
-                       value={cWajah} onChange={(e) => setCWajah(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>naikkan c melewati 2, dan kedua titik potong sumbu x menghilang</span>
-              </div>
+              <Angka nama="Langkah" arti="melengkapkan kuadrat, satu baris demi satu baris" kunci="langkah"
+                nilai={langkahWajah + 1} onUbah={(n) => setLangkahWajah(n - 1)} min={1} max={JUMLAH_LANGKAH} langkah={1} />
+              <Angka nama="Nilai c" arti="suku tetap di rumus 2x² - 4x + c" kunci="c"
+                nilai={cWajah} onUbah={setCWajah} min={BATAS_C.min} max={BATAS_C.maks} langkah={BATAS_C.langkah} />
+              <Petunjuk>
+                naikkan c melewati 2, dan kedua titik potong sumbu x menghilang.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -267,24 +219,18 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
               <SusunParabola pos={posSusun} onGeser={setPosSusun} />
             </div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label><span>Contoh siap pakai</span></label>
-                <div className="pilih-sisi" style={{ flexWrap: 'wrap' }}>
-                  <button onClick={() => setPosSusun(AWAL)} style={{ flex: '1 1 45%' }}>
-                    puncak (2, 8) lewat (0, 4)
-                  </button>
-                  <button
-                    onClick={() => setPosSusun({ puncak: { x: 1, y: -8 }, titik: { x: 4, y: 1 } })}
-                    style={{ flex: '1 1 45%' }}
-                  >
-                    puncak (1, -8) lewat (4, 1)
-                  </button>
-                </div>
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>seret kedua titik berwarna di gambar. Angkanya berhenti di kelipatan 0,5</span>
-              </div>
+              <Koordinat nama="Puncak" arti="titik tertinggi atau terendah" kunci="puncak" vektor={false}
+                nilai={posSusun.puncak} onUbah={(t) => setPosSusun({ ...posSusun, puncak: t })}
+                batas={{ x: BATAS_X.maks, y: BATAS_Y.maks }} langkah={LANGKAH_SERET} />
+              <Koordinat nama="Titik yang dilewati" arti="satu titik lain pada parabola" kunci="titik" vektor={false}
+                nilai={posSusun.titik} onUbah={(t) => setPosSusun({ ...posSusun, titik: t })}
+                batas={{ x: BATAS_X.maks, y: BATAS_Y.maks }} langkah={LANGKAH_SERET} />
+              <Pilihan nama="Contoh siap pakai" arti="mengisi kedua titik sekaligus"
+                pilihan={[{ nilai: 'a', label: 'puncak (2, 8) lewat (0, 4)' }, { nilai: 'b', label: 'puncak (1, -8) lewat (4, 1)' }]}
+                nilai={contohSusun} onPilih={(n) => setPosSusun(n === 'a' ? AWAL : { puncak: { x: 1, y: -8 }, titik: { x: 4, y: 1 } })} />
+              <Petunjuk>
+                ketik kedua titik atau seret keduanya di gambar. Angkanya berhenti di kelipatan 0,5.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -295,50 +241,34 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
               <PapanTransformasi dasar={dasarTrans} langkah={langkahTrans} />
             </div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label><span>Fungsi dasar</span></label>
-                <div className="pilih-sisi">
-                  {URUT_DASAR.map((d) => (
-                    <button key={d} aria-pressed={dasarTrans === d}
-                            onClick={() => { setDasarTrans(d); setLangkahTrans([]) }}>
-                      {NAMA_DASAR[d]}
-                    </button>
-                  ))}
+              <Pilihan nama="Fungsi dasar" arti="bentuk yang akan diubah"
+                pilihan={URUT_DASAR.map((d) => ({ nilai: d, label: NAMA_DASAR[d] }))}
+                nilai={dasarTrans} onPilih={(d) => { setDasarTrans(d); setLangkahTrans([]) }} />
+              <div className="kendali-pilihan">
+                <div className="kendali-nama">
+                  <span><b>Transformasi</b><span className="kendali-arti"> · tekan untuk menumpuk, paling banyak {BATAS_LANGKAH}</span></span>
+                  <span className="kendali-nilai angka-rata">{langkahTrans.length} / {BATAS_LANGKAH}</span>
                 </div>
-              </div>
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label>
-                  <span>Transformasi</span>
-                  <span className="mono">{langkahTrans.length} / {BATAS_LANGKAH}</span>
-                </label>
-                <div className="pilih-sisi" style={{ flexWrap: 'wrap' }}>
+                <div className="pilihan-segmen pilihan-bungkus">
                   {URUT_TRANSFORMASI.map((l) => (
-                    <button key={l} onClick={() => tambahLangkah(l)}
-                            disabled={langkahTrans.length >= BATAS_LANGKAH}
-                            style={{ flex: '1 1 22%' }}>
+                    <button key={l} type="button" onClick={() => tambahLangkah(l)}
+                            disabled={langkahTrans.length >= BATAS_LANGKAH}>
                       {NAMA_LANGKAH[l]}
                     </button>
                   ))}
-                  {/* Tombol batalkan dan bersihkan ditaruh di baris yang SAMA
-                      dengan tombol transformasi, bukan di baris sendiri. Tiap
-                      baris kendali yang ditambahkan memakan tinggi panggung,
-                      dan grafiknyalah yang mengecil. */}
-                  <button disabled={langkahTrans.length === 0}
-                          onClick={() => setLangkahTrans((l) => l.slice(0, -1))}
-                          style={{ flex: '1 1 22%' }}>
+                  <button type="button" disabled={langkahTrans.length === 0}
+                          onClick={() => setLangkahTrans((l) => l.slice(0, -1))}>
                     ← batalkan
                   </button>
-                  <button disabled={langkahTrans.length === 0}
-                          onClick={() => setLangkahTrans([])}
-                          style={{ flex: '1 1 22%' }}>
+                  <button type="button" disabled={langkahTrans.length === 0}
+                          onClick={() => setLangkahTrans([])}>
                     bersihkan
                   </button>
                 </div>
               </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>tekan Mampat mendatar, lalu periksa: lebarnya jadi setengah</span>
-              </div>
+              <Petunjuk>
+                tekan Mampat mendatar, lalu periksa: lebarnya jadi setengah.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -349,30 +279,13 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
               <LipatMutlak dasar={dasarMutlak} lipat={lipat} />
             </div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label><span>Fungsi dasar</span></label>
-                <div className="pilih-sisi">
-                  {URUT_DASAR_MUTLAK.map((d) => (
-                    <button key={d} aria-pressed={dasarMutlak === d} onClick={() => setDasarMutlak(d)}>
-                      {NAMA_DASAR_MUTLAK[d]}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label><span>Lambang mutlak dipasang di</span></label>
-                <div className="pilih-sisi">
-                  {URUT_LIPATAN.map((l) => (
-                    <button key={l} aria-pressed={lipat === l} onClick={() => setLipat(l)}>
-                      {NAMA_LIPATAN[l]}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>{AKIBAT_LIPATAN[lipat]}</span>
-              </div>
+              <Pilihan nama="Fungsi dasar" arti="yang akan diberi lambang mutlak"
+                pilihan={URUT_DASAR_MUTLAK.map((d) => ({ nilai: d, label: NAMA_DASAR_MUTLAK[d] }))}
+                nilai={dasarMutlak} onPilih={setDasarMutlak} />
+              <Pilihan nama="Lambang mutlak dipasang di" arti="luar atau dalam kurung"
+                pilihan={URUT_LIPATAN.map((l) => ({ nilai: l, label: NAMA_LIPATAN[l] }))}
+                nilai={lipat} onPilih={setLipat} />
+              <Petunjuk>{AKIBAT_LIPATAN[lipat]}</Petunjuk>
             </div>
           </>
         )}
@@ -383,29 +296,13 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
               <BalapanTumbuh pokok={pokokBalap} akhir={akhirBalap} />
             </div>
             <div className="kendali">
-              <div>
-                <label htmlFor="akhir">
-                  <span>Garis akhir</span>
-                  <span className="mono">langkah {akhirBalap}</span>
-                </label>
-                <input id="akhir" type="range"
-                       min={BATAS_AKHIR.min} max={BATAS_AKHIR.maks} step={BATAS_AKHIR.langkah}
-                       value={akhirBalap} onChange={(e) => setAkhirBalap(+e.target.value)} />
-              </div>
-              <div>
-                <label htmlFor="pokok">
-                  <span>Pengali tiap langkah</span>
-                  <span className="mono">{angka(pokokBalap, 1)}</span>
-                </label>
-                <input id="pokok" type="range"
-                       min={BATAS_POKOK_BALAP.min} max={BATAS_POKOK_BALAP.maks}
-                       step={BATAS_POKOK_BALAP.langkah}
-                       value={pokokBalap} onChange={(e) => setPokokBalap(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>geser garis akhir ke kanan, dan lihat penunjuk skala di pojok melonjak</span>
-              </div>
+              <Angka nama="Garis akhir" arti="langkah ke berapa balapannya dihentikan" kunci="akhir" satuan=" langkah"
+                nilai={akhirBalap} onUbah={setAkhirBalap} min={BATAS_AKHIR.min} max={BATAS_AKHIR.maks} langkah={BATAS_AKHIR.langkah} />
+              <Angka nama="Pengali tiap langkah" arti="bilangan pokok pertumbuhan eksponen" kunci="pokok"
+                nilai={pokokBalap} onUbah={setPokokBalap} min={BATAS_POKOK_BALAP.min} max={BATAS_POKOK_BALAP.maks} langkah={BATAS_POKOK_BALAP.langkah} />
+              <Petunjuk>
+                geser garis akhir ke kanan, dan lihat penunjuk skala di pojok melonjak.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -416,29 +313,13 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
               <CerminYX pokok={pokokCermin} lipat={lipatCermin} />
             </div>
             <div className="kendali">
-              <div>
-                <label htmlFor="lipatc">
-                  <span>Lipatan</span>
-                  <span className="mono">{angka(lipatCermin * 100, 0)} persen</span>
-                </label>
-                <input id="lipatc" type="range"
-                       min={BATAS_LIPAT.min} max={BATAS_LIPAT.maks} step={BATAS_LIPAT.langkah}
-                       value={lipatCermin} onChange={(e) => setLipatCermin(+e.target.value)} />
-              </div>
-              <div>
-                <label htmlFor="pokokc">
-                  <span>Bilangan pokok</span>
-                  <span className="mono">{angka(pokokCermin, 1)}</span>
-                </label>
-                <input id="pokokc" type="range"
-                       min={BATAS_POKOK_CERMIN.min} max={BATAS_POKOK_CERMIN.maks}
-                       step={BATAS_POKOK_CERMIN.langkah}
-                       value={pokokCermin} onChange={(e) => setPokokCermin(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>berhentilah di 50 persen: seluruh kurva mendarat tepat di garis y = x</span>
-              </div>
+              <Angka nama="Lipatan" arti="0 belum dilipat, 1 tercermin penuh pada y = x" kunci="lipat"
+                nilai={lipatCermin} onUbah={setLipatCermin} min={BATAS_LIPAT.min} max={BATAS_LIPAT.maks} langkah={BATAS_LIPAT.langkah} desimal={2} />
+              <Angka nama="Bilangan pokok" arti="pokok eksponen dan logaritmanya" kunci="pokok"
+                nilai={pokokCermin} onUbah={setPokokCermin} min={BATAS_POKOK_CERMIN.min} max={BATAS_POKOK_CERMIN.maks} langkah={BATAS_POKOK_CERMIN.langkah} />
+              <Petunjuk>
+                berhentilah di 0,5: seluruh kurva mendarat tepat di garis y = x.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -449,28 +330,13 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
               <AsimtotRasional h={hRas} k={kRas} />
             </div>
             <div className="kendali">
-              <div>
-                <label htmlFor="hras">
-                  <span>Geser mendatar</span>
-                  <span className="mono">{angka(hRas, 1)}</span>
-                </label>
-                <input id="hras" type="range"
-                       min={BATAS_GESER_X.min} max={BATAS_GESER_X.maks} step={BATAS_GESER_X.langkah}
-                       value={hRas} onChange={(e) => setHRas(+e.target.value)} />
-              </div>
-              <div>
-                <label htmlFor="kras">
-                  <span>Geser tegak</span>
-                  <span className="mono">{angka(kRas, 1)}</span>
-                </label>
-                <input id="kras" type="range"
-                       min={BATAS_GESER_Y.min} max={BATAS_GESER_Y.maks} step={BATAS_GESER_Y.langkah}
-                       value={kRas} onChange={(e) => setKRas(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>kedua asimtot ikut pindah. Ini aturan tahap 6, bukan bentuk baru</span>
-              </div>
+              <Angka nama="Geser mendatar" arti="h, asimtot tegaknya ikut pindah" kunci="h"
+                nilai={hRas} onUbah={setHRas} min={BATAS_GESER_X.min} max={BATAS_GESER_X.maks} langkah={BATAS_GESER_X.langkah} />
+              <Angka nama="Geser tegak" arti="k, asimtot mendatarnya ikut pindah" kunci="k"
+                nilai={kRas} onUbah={setKRas} min={BATAS_GESER_Y.min} max={BATAS_GESER_Y.maks} langkah={BATAS_GESER_Y.langkah} />
+              <Petunjuk>
+                kedua asimtot ikut pindah. Ini aturan Materi 06, bukan bentuk baru.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -485,36 +351,18 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
               />
             </div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label><span>Mesin f</span></label>
-                <div className="pilih-sisi">
-                  <button aria-pressed={mesin === 'linear'} onClick={() => setMesin('linear')}>
-                    {NAMA_F.linear}
-                  </button>
-                  <button aria-pressed={mesin === 'kuadrat'} onClick={() => setMesin('kuadrat')}>
-                    {NAMA_F.kuadrat}
-                  </button>
-                </div>
-              </div>
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="masuk">
-                  <span>Angka yang dijalankan</span>
-                  <span className="mono">x = {angka(masukMesin, 1)}</span>
-                </label>
-                <input id="masuk" type="range"
-                       min={BATAS_MASUK.min} max={BATAS_MASUK.maks} step={BATAS_MASUK.langkah}
-                       value={masukMesin} onChange={(e) => setMasukMesin(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>
-                  {tahap.widget === 'dua-mesin'
-                    ? 'dua kurva berbeda berarti urutan mesin memang berpengaruh'
-                    : INVERS[mesin]
-                      ? 'satu-satu, jadi inversnya ada dan grafiknya cerminan terhadap y = x'
-                      : 'kuadrat tidak satu-satu, jadi inversnya tidak ada. Itu isi pelajarannya'}
-                </span>
-              </div>
+              <Pilihan nama="Mesin f" arti="fungsi yang dipasangkan dengan g"
+                pilihan={[{ nilai: 'linear', label: NAMA_F.linear }, { nilai: 'kuadrat', label: NAMA_F.kuadrat }]}
+                nilai={mesin} onPilih={setMesin} />
+              <Angka nama="Angka yang dijalankan" arti="x yang dimasukkan ke mesin" kunci="masuk"
+                nilai={masukMesin} onUbah={setMasukMesin} min={BATAS_MASUK.min} max={BATAS_MASUK.maks} langkah={BATAS_MASUK.langkah} />
+              <Petunjuk>
+                {tahap.widget === 'dua-mesin'
+                  ? 'dua kurva berbeda berarti urutan mesin memang berpengaruh.'
+                  : INVERS[mesin]
+                    ? 'satu-satu, jadi inversnya ada dan grafiknya cerminan terhadap y = x.'
+                    : 'kuadrat tidak satu-satu, jadi inversnya tidak ada. Itu isi pelajarannya.'}
+              </Petunjuk>
             </div>
           </>
         )}
@@ -531,7 +379,7 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
       <>
         {tampilWidget && tahap.widget === 'pembaca-grafik' && (
           <div className="blok">
-            <div className="cap">Angka dari alat di sebelah kiri</div>
+            <div className="cap">Angka dari alat</div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>waktu</td><td>{angka(waktu, 1)} menit</td></tr>

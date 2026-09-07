@@ -5,10 +5,10 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from '
 /**
  * Apakah pengguna minta gerakan dikurangi (Pengaturan sistem, bukan situs).
  *
- * Dipakai untuk slide pertama yang berjalan sendiri berulang-ulang. Bagi
- * sebagian orang gerakan berulang di tepi pandangan bikin pusing, dan
- * mereka sudah menyalakan setelan itu di HP atau laptopnya. Kalau menyala,
- * slide pertama diam dan diberi tombol putar supaya tetap bisa ditonton.
+ * Dipakai untuk slide pertama yang berjalan sendiri berulang-ulang, dan
+ * untuk mematikan pergantian slide otomatis. Bagi sebagian orang gerakan
+ * berulang di tepi pandangan bikin pusing, dan mereka sudah menyalakan
+ * setelan itu di HP atau laptopnya.
  *
  * Memakai `useSyncExternalStore`, pola yang sama dengan pembacaan
  * localStorage di proyek ini: nilainya segar sendiri tanpa disalin ke state,
@@ -25,8 +25,8 @@ function bacaGerak() {
 }
 
 /**
- * Pratinjau isi situs di halaman depan: satu panel besar dengan tombol geser
- * kiri-kanan.
+ * Pratinjau isi situs di halaman depan: satu panel besar yang berganti
+ * sendiri, dengan tombol geser kiri-kanan.
  *
  * Yang ditampilkan adalah ISI ASLI, bukan gambar promosi. Video diambil dari
  * berkas yang benar-benar dipakai di materi, dan kedua cuplikan layar dipotret
@@ -40,29 +40,29 @@ function bacaGerak() {
  *   4. Latihan, dipotret dengan jawaban SUDAH terbuka.
  *   5. Bank soal, dipotret dengan kemajuan SUDAH menyala.
  *
- * PEROMBAKAN 3 Sep 2026, tiga hal yang diminta ARYA:
+ * UKURAN KOTAK SAMA PERSIS untuk kelima slide. Berkasnya bermacam
+ * perbandingan sisi: 16:9, 2,38:1, bahkan potret 0,79:1. Kotaknya dikunci
+ * 16:9 dan isinya `object-fit: contain`.
  *
- * a. UKURAN KOTAK SAMA PERSIS. Berkasnya bermacam perbandingan sisi: 16:9,
- *    2,38:1, bahkan potret 0,79:1. Dulu tiap klip menentukan tingginya
- *    sendiri, jadi panel melompat-lompat. Sekarang kotaknya dikunci 16:9 dan
- *    isinya `object-fit: contain`.
- *
- * b. PERPINDAHAN BERGERAK. Kelima klip berjajar di satu rel yang digeser,
- *    bukan satu klip yang ditukar diam-diam. Arah gesernya otomatis mengikuti
- *    tombol yang ditekan.
- *
- * c. PENANDA MEMUAT. Selama isi klip belum siap, kotaknya tidak dibiarkan
- *    kosong: ada lingkaran berputar di atasnya.
+ * PERGANTIAN OTOMATIS DICABUT (ARYA, 5 Sep 2026). Versi v2 sempat punya
+ * garis emas penghitung waktu yang mengganti slide sendiri tiap 7 detik.
+ * Akibatnya video slide pertama tidak pernah sempat selesai, dan slide yang
+ * sedang dibaca berpindah di tengah kalimat. Sekarang slide hanya berganti
+ * kalau pengguna menekan panah, titik, atau tombol panah papan ketik.
  *
  * Semua klip dibiarkan terpasang di rel, tidak dibongkar pasang. Itu yang
- * membuat klip yang pernah dibuka tidak perlu dimuat ulang. Yang dijaga hanya
- * satu: video yang tidak sedang tampil DIHENTIKAN, supaya tidak ada dua suara
- * berbunyi bersamaan.
+ * membuat klip yang pernah dibuka tidak perlu dimuat ulang. Yang dijaga:
+ * video yang tidak sedang tampil DIHENTIKAN supaya tidak ada dua suara
+ * berbunyi bersamaan, dan video yang mengulang sendiri (slide pertama)
+ * DIPUTAR LAGI setiap kali slidenya kembali tampil. `autoPlay` hanya bekerja
+ * sekali saat halaman dimuat; tanpa `play()` di sini video itu diam membeku
+ * begitu pengguna kembali ke slide pertama.
  */
 
 type Klip =
   | {
       jenis: 'video'
+      label: string
       berkas: string
       poster: string
       judul: string
@@ -72,26 +72,31 @@ type Klip =
       /** berkas subtitle hanya ada untuk video materi */
       teks?: boolean
     }
-  | { jenis: 'gambar'; berkas: string; judul: string; isi: string }
+  | { jenis: 'gambar'; label: string; berkas: string; judul: string; isi: string }
 
 const KLIP: Klip[] = [
   {
     jenis: 'video',
-    berkas: 'beranda-tiga-grafik-v2.mp4',
-    poster: 'beranda-tiga-grafik-v2.jpg',
+    label: 'Animasi tanpa suara',
+    /* v3 (5 Sep 2026): render ManimGL `manim/scenes/beranda_tiga_grafik.py`,
+       30 detik, 0 sampai 540 derajat, bisu, sambungan ulangnya dipudarkan. */
+    berkas: 'beranda-tiga-grafik-v3.mp4',
+    poster: 'beranda-tiga-grafik-v3.jpg',
     loop: true,
     judul: 'Tiga kurva yang lahir dari satu lingkaran',
-    isi: 'Sinus, kosinus, dan tangen bukan tiga rumus terpisah. Ketiganya catatan dari satu titik yang berputar, dan di sini Anda melihatnya terjadi.',
+    isi: 'Sinus, kosinus, dan tangen bukan tiga rumus terpisah. Ketiganya catatan dari satu titik yang berputar, dan di sini kamu melihatnya terjadi.',
   },
   {
     jenis: 'video',
+    label: 'Alat interaktif',
     berkas: 'beranda-interaktif.mp4',
     poster: 'beranda-interaktif.jpg',
-    judul: 'Alat yang bisa Anda geser sendiri',
-    isi: 'Sudutnya Anda yang tentukan, dan angkanya berubah saat itu juga. Bukan membaca hasil orang lain, melainkan menguji sendiri sampai yakin.',
+    judul: 'Alat yang bisa kamu geser sendiri',
+    isi: 'Sudutnya kamu yang tentukan, dan angkanya berubah saat itu juga. Bukan membaca hasil orang lain, melainkan menguji sendiri sampai yakin.',
   },
   {
     jenis: 'video',
+    label: 'Animasi bersuara',
     berkas: 'tahap8-grafik-sin.webm',
     poster: 'tahap8-grafik-sin.jpg',
     teks: true,
@@ -100,15 +105,17 @@ const KLIP: Klip[] = [
   },
   {
     jenis: 'gambar',
+    label: 'Latihan',
     berkas: 'demo-latihan.jpg',
     judul: 'Latihan dengan pembahasan bertahap',
-    isi: 'Soal pilihan ganda A sampai E. Setelah menjawab, Anda melihat langkah penyelesaiannya, bukan sekadar benar atau salah.',
+    isi: 'Soal pilihan ganda A sampai E. Setelah menjawab, kamu melihat langkah penyelesaiannya, bukan sekadar benar atau salah.',
   },
   {
     jenis: 'gambar',
+    label: 'Bank soal',
     berkas: 'demo-banksoal.jpg',
     judul: 'Bank soal berjenjang, empat tingkat',
-    isi: 'Empat tingkat kesulitan yang terbuka bertahap. Kemajuannya tersimpan di peramban Anda sendiri, tanpa perlu akun.',
+    isi: 'Empat tingkat kesulitan yang terbuka bertahap. Kemajuannya tersimpan di peramban kamu sendiri, tanpa perlu akun.',
   },
 ]
 
@@ -132,10 +139,14 @@ export default function Demo() {
 
   // Hanya video yang sedang tampil yang boleh berbunyi. Yang lain dihentikan
   // dan dikembalikan ke awal, jadi klip berikutnya selalu mulai dari detik nol.
+  // Video yang mengulang sendiri diputar lagi begitu slidenya kembali tampil.
   useEffect(() => {
     const semua = rel.current?.querySelectorAll('video')
     semua?.forEach((v, i) => {
-      if (i === ke) return
+      if (i === ke) {
+        if (v.loop) v.play().catch(() => { /* peramban boleh menolak; posternya tetap tampil */ })
+        return
+      }
       v.pause()
       try {
         v.currentTime = 0
@@ -160,7 +171,7 @@ export default function Demo() {
   return (
     <section
       className="demo"
-      aria-label="Contoh isi situs"
+      aria-label="Cuplikan isi situs"
       aria-roledescription="korsel"
       onKeyDown={(e) => {
         if (e.key === 'ArrowLeft') { e.preventDefault(); geser(-1) }
@@ -250,33 +261,48 @@ export default function Demo() {
             <span className="hanya-pembaca">Memuat cuplikan</span>
           </div>
         )}
+
       </div>
 
-      {/* `key` sengaja dipasang: mengganti kuncinya membuat React memasang
-          ulang blok ini, dan animasi masuk di CSS ikut berjalan lagi. */}
-      <div className="demo-teks" key={klip.berkas}>
-        <h3>{klip.judul}</h3>
-        <p>{klip.isi}</p>
-      </div>
-
-      <div className="demo-kendali">
-        <button type="button" aria-label="Sebelumnya" onClick={() => geser(-1)}>
-          &#8592;
-        </button>
-        <div className="demo-titik" role="tablist" aria-label="Pilih contoh">
-          {KLIP.map((k, i) => (
-            <button
-              key={k.berkas}
-              role="tab"
-              aria-selected={i === ke}
-              aria-label={k.judul}
-              onClick={() => setKe(i)}
-            />
-          ))}
+      <div className="demo-bawah">
+        <div className="demo-jenis">
+          {klip.label}
+          <br />
+          {String(ke + 1).padStart(2, '0')} / {String(KLIP.length).padStart(2, '0')}
         </div>
-        <button type="button" aria-label="Berikutnya" onClick={() => geser(1)}>
-          &#8594;
-        </button>
+
+        {/* `key` sengaja dipasang: mengganti kuncinya membuat React MELEPAS
+            blok lama lalu memasang yang baru, jadi animasi masuk berjalan
+            lagi tanpa keterangan lama ikut tertinggal di layar. */}
+        <div className="demo-teks" key={klip.berkas}>
+          <h3>{klip.judul}</h3>
+          <p>{klip.isi}</p>
+        </div>
+
+        <div className="demo-kendali">
+          <button type="button" className="demo-garis" aria-label="Cuplikan sebelumnya" onClick={() => geser(-1)}>
+            &#8592;
+          </button>
+          <button type="button" className="demo-isi" aria-label="Cuplikan berikutnya" onClick={() => geser(1)}>
+            &#8594;
+          </button>
+        </div>
+      </div>
+
+      <div className="demo-titik" role="tablist" aria-label="Pilih cuplikan">
+        {KLIP.map((k, i) => (
+          <button
+            key={k.berkas}
+            type="button"
+            role="tab"
+            aria-selected={i === ke}
+            aria-label={`Cuplikan ${i + 1}, ${k.judul}`}
+            data-aktif={i === ke}
+            onClick={() => setKe(i)}
+          >
+            <span aria-hidden />
+          </button>
+        ))}
       </div>
     </section>
   )

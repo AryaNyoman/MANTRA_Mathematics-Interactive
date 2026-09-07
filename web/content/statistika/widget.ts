@@ -25,3 +25,4 @@ export type WidgetStatistika =
   | 'garis-regresi'
   | 'kekuatan-hubungan'
   | 'sumbu-jujur'
+  | 'dunia-nyata-statistika'

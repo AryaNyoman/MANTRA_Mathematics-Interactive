@@ -1,42 +1,53 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import Nav from '@/components/Nav'
 import Demo from '@/components/Demo'
 import TombolPasang from '@/components/TombolPasang'
 import PitaKurva from '@/components/mantra/PitaKurva'
 import KartuBayang from '@/components/mantra/KartuBayang'
-import LogoParalaks from '@/components/mantra/LogoParalaks'
+import MunculSaatGulir from '@/components/mantra/MunculSaatGulir'
 import Kaki from '@/components/mantra/Kaki'
 
 /**
- * Beranda MANTRA (rancangan 3 Sep 2026).
+ * Beranda MANTRA v2, arah "Panggung Sinema" (4 Sep 2026).
+ * Patokan: `docs/desain-mantra/MANTRA-v2.dc.html` baris 84 sampai 178.
  *
  * Tugas halaman ini BUKAN mendaftar materi, melainkan menjelaskan tempat ini
  * apa, bisa apa, dibangun dengan apa, lalu mengantar siswa ke Peta Materi.
- * Daftar bab pindah ke rutenya sendiri, `/peta-materi`. Sebelumnya daftar itu
- * ada di sini dan membuat halaman depan terbaca seperti daftar isi, bukan
- * perkenalan.
+ * Daftar bab punya rutenya sendiri, `/peta-materi`.
+ *
+ * Susunannya sekarang panggung, bukan dokumen: hero navy yang berakhir pada
+ * kurva, lalu kotak korsel yang MENGGANTUNG menembus batas navy ke kertas.
+ * Tumpang tindih itu yang membuat halaman terasa punya kedalaman tanpa satu
+ * pun bayangan berwarna atau gradasi.
+ *
+ * Sapaan di halaman ini "kamu". "Anda" hanya dipakai di halaman Tentang,
+ * yang pembacanya bukan siswa melainkan orang yang menilai proyek ini.
  *
  * Kaki halaman sengaja berbahasa Inggris, permintaan ARYA.
  */
 
-const ISI_SITUS = [
+const FITUR = [
   {
     no: '01',
     kelas: 'sorot-animasi',
-    judul: 'Animasi',
-    isi: 'Video pendek yang menurunkan rumus dari awal, bersuara dan bersubtitle Bahasa Indonesia. Dibuat memakai Manim, alat yang sama dengan yang dipakai 3Blue1Brown.',
+    judul: 'Animasi yang menjelaskan sebabnya',
+    isi: 'Rumus tidak disodorkan. Kamu menonton asal-usulnya sampai masuk akal.',
+    tunda: 0,
   },
   {
     no: '02',
     kelas: 'sorot-visual',
     judul: 'Alat yang bisa dicoba',
-    isi: 'Segitiga yang bisa ditarik, sudut yang bisa digeser, dan angka yang berubah seketika. Anda menguji sendiri, bukan percaya pada kalimat di buku.',
+    isi: 'Geser sudutnya, angkanya berubah saat itu juga. Uji sendiri sampai yakin.',
+    tunda: 90,
   },
   {
     no: '03',
     kelas: 'sorot-interaksi',
-    judul: 'Latihan dan kuis',
-    isi: 'Soal berjenjang dengan pembahasan langkah demi langkah, lalu kuis berskor yang tersimpan di peramban Anda sendiri. Tanpa akun, tanpa mendaftar.',
+    judul: 'Latihan dan kuis berjenjang',
+    isi: 'Empat tingkat, pembahasan bertahap, kemajuan tersimpan di HP-mu.',
+    tunda: 180,
   },
 ] as const
 
@@ -46,23 +57,26 @@ export default function Beranda() {
       <Nav />
       <main>
         <header className="hero">
-          <PitaKurva />
           <div className="hero-isi">
-            <span className="hero-lencana naik">Matematika SMA · Kelas 10–12</span>
-            <LogoParalaks />
+            <span className="hero-lencana naik">Matematika SMA · Kelas 10 sampai 12</span>
+            <Image
+              src="/mantra/mantra-penuh-gelap.png"
+              alt="MANTRA, Matematika Interaktif"
+              width={1592}
+              height={485}
+              priority
+              className="hero-logo naik naik-1"
+            />
             <h1 className="naik naik-2">
-              <span>Matematika tidak hanya dipelajari</span>
-              <i>Matematika bisa dijelajahi</i>
+              Matematika tidak hanya dipelajari.
+              <br />
+              <i>Matematika bisa dijelajahi.</i>
             </h1>
             <p className="hero-sub naik naik-3">
-              Eksplorasi konsep matematika melalui{' '}
-              <b className="sorot-animasi">animasi</b>,{' '}
-              <b className="sorot-visual">visualisasi</b>, dan{' '}
-              <b className="sorot-interaksi">interaksi</b>
-              <br />
-              yang membuat setiap rumus tidak hanya dipahami
-              <br />
-              tetapi dapat Anda lihat dan rasakan cara kerjanya
+              Setiap rumus dijelaskan lewat <b className="sorot-animasi">animasi</b>,
+              dibuktikan lewat <b className="sorot-visual">visualisasi</b>, dan diuji
+              sendiri lewat <b className="sorot-interaksi">interaksi</b>. Kamu melihat
+              cara kerjanya, bukan hanya menghafalnya.
             </p>
             <div className="hero-aksi naik naik-4">
               <Link href="/peta-materi" className="pil-emas">
@@ -71,51 +85,56 @@ export default function Beranda() {
               <TombolPasang />
             </div>
           </div>
+          <PitaKurva />
         </header>
 
-        <section className="mantra" style={{ paddingTop: 44 }} aria-label="Cuplikan">
-          <div className="garis-label">
-            <span>Berganti sendiri</span>
-          </div>
+        {/* Korsel digantung menembus batas hero. Angka negatifnya ikut lebar
+            layar supaya tumpang tindihnya tetap seimbang di HP maupun di
+            layar lebar. */}
+        <section className="mantra demo-wadah" aria-label="Cuplikan isi situs">
           <Demo />
         </section>
 
-        <section className="mantra" style={{ paddingTop: 48 }} aria-labelledby="fitur-unggulan">
-          {/* Judul ini sebelumnya tidak ada, jadi tiga kartu di bawah muncul
-              tanpa keterangan apa pun (temuan ARYA, 3 Sep 2026). Label kanan
-              memakai istilah yang ia usulkan, judulnya menyebutkan apa yang
-              sebenarnya didapat siswa. */}
+        <section className="mantra bagian-beranda" aria-labelledby="fitur-unggulan">
+          {/* Judul ini TIDAK ada di prototipe rancangan, yang hanya memberi
+              seksi ini `aria-label`. Sengaja dipertahankan: pada 3 Sep 2026
+              ARYA menemukan tiga kartu ini muncul tanpa keterangan apa pun
+              dan memintanya diberi judul. Menghapusnya lagi berarti
+              mengulang kembali keluhan yang sudah pernah diperbaiki. */}
           <div className="tajuk-baris">
-            <h2 id="fitur-unggulan">Tiga hal yang Anda dapat di sini</h2>
+            <h2 id="fitur-unggulan">Tiga hal yang kamu dapat di sini</h2>
             <span className="rel" />
             <span className="kanan">Fitur unggulan</span>
           </div>
           <div className="kisi-tiga">
-            {ISI_SITUS.map((i) => (
-              <KartuBayang key={i.no} className="kartu-mantra kartu-fitur">
-                <div className={`no ${i.kelas}`}>{i.no}</div>
-                <h3>{i.judul}</h3>
-                <p>{i.isi}</p>
-              </KartuBayang>
+            {FITUR.map((f) => (
+              <MunculSaatGulir key={f.no} tunda={f.tunda}>
+                <KartuBayang className="kartu-fitur">
+                  <div className={`no ${f.kelas}`}>{f.no}</div>
+                  <h3>{f.judul}</h3>
+                  <p>{f.isi}</p>
+                </KartuBayang>
+              </MunculSaatGulir>
             ))}
           </div>
         </section>
 
-        <section className="mantra" style={{ paddingTop: 52 }}>
-          <div className="ajakan">
-            <div>
-              <h2>Enam bab, tersusun seperti buku</h2>
-              <p>
-                Tiap bab dipecah jadi sub-bab, tiap sub-bab berisi beberapa materi.
-                Peta lengkapnya beserta kemajuan Anda ada di tab Peta Materi.
-              </p>
+        <section className="mantra bagian-beranda" aria-label="Ajakan ke Peta Materi">
+          <MunculSaatGulir>
+            <div className="ajakan">
+              <div>
+                <h2>Tujuh bab, tersusun seperti buku</h2>
+                <p>
+                  Tiap bab dipecah jadi sub-bab, tiap sub-bab berisi beberapa materi.
+                  Peta lengkapnya beserta kemajuanmu ada di Peta Materi.
+                </p>
+              </div>
+              <Link href="/peta-materi" className="pil-gelap">
+                Buka Peta Materi →
+              </Link>
             </div>
-            <Link href="/peta-materi" className="pil-gelap">
-              Buka Peta Materi →
-            </Link>
-          </div>
+          </MunculSaatGulir>
         </section>
-        <div style={{ height: 40 }} />
       </main>
       <Kaki />
     </>

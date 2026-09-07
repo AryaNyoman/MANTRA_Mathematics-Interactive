@@ -1,5 +1,6 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import { useCallback, useRef } from 'react'
 import { WARNA } from '@/lib/warna'
 
@@ -40,6 +41,7 @@ export default function LingkaranSatuan({
   derajat: number
   onUbah?: (d: number) => void
 }) {
+  const dipegang = useSedangDiubah()
   const svgRef = useRef<SVGSVGElement>(null)
   const menarik = useRef(false)
   const { rad, cos, sin } = hitungLingkaran(derajat)
@@ -115,7 +117,7 @@ export default function LingkaranSatuan({
       <line x1={px} y1={CY} x2={px} y2={py} stroke={WARNA.depan} strokeWidth={5} strokeLinecap="round" />
 
       {/* jari-jari = 1 (sisi miring) */}
-      <line x1={CX} y1={CY} x2={px} y2={py} stroke={WARNA.miring} strokeWidth={3} strokeLinecap="round" />
+      <line className={dipegang === 'sudut' ? 'nyala' : undefined} x1={CX} y1={CY} x2={px} y2={py} stroke={WARNA.miring} strokeWidth={dipegang === 'sudut' ? 4.5 : 3} strokeLinecap="round" />
       <text
         x={CX + (px - CX) / 2 - 12} y={CY + (py - CY) / 2 - 8}
         fontSize={13} fill={WARNA.miring}
@@ -144,7 +146,7 @@ export default function LingkaranSatuan({
       </text>
 
       {/* titik yang diseret */}
-      <g onPointerDown={mulai} style={{ cursor: 'grab' }}>
+      <g className={dipegang === 'sudut' ? 'nyala' : undefined} onPointerDown={mulai} style={{ cursor: 'grab' }}>
         <circle cx={px} cy={py} r={16} fill="transparent" />
         <circle cx={px} cy={py} r={7} fill={WARNA.sudut} stroke="var(--kartu)" strokeWidth={2.5} />
       </g>

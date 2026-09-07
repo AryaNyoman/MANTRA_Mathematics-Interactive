@@ -12,6 +12,7 @@ yang memindahkannya ke `manim/gl/`.
 
 import json
 import sys
+import unicodedata
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -370,6 +371,30 @@ def kaki_pada_garis(p, a, b):
     return a + t * d
 
 
+LAJU_LATAR = 1.6   # derajat per detik: geseran latar, bukan gerakan yang mencuri perhatian
+
+
+def tunggu_bergeser(b, frame, jam, awalan: str, laju: float = LAJU_LATAR):
+    """Tunggu sampai kalimat itu mulai, TETAPI kameranya bergeser pelan selama
+    menunggu, bukan layar berhenti.
+
+    `b.tunggu_sampai` diam betul-betul. Waktu kejadian mulai diikat ke jam
+    kalimat (4 Sep), diam itu justru MEMBURUKKAN keadaan: materi 01 diam
+    terpanjangnya naik dari 4,2 detik jadi 9,0 detik, sebab geseran kamera yang
+    dulu mengisi ekor babak diganti tunggu mati. Angkanya diukur dari video
+    jadi, bukan diperkirakan.
+
+    Aturan MASTER 4 Sep: geseran kamera pelan sendiri bukan dosa, yang salah
+    adalah menjadikannya SATU-SATUNYA isi 5 sampai 10 detik. Jadi kamera boleh
+    jalan sebagai latar, asal tiap kalimat tetap punya kejadian pada benda yang
+    disebutnya. Lajunya sengaja kecil (1,6 derajat per detik): cukup untuk
+    memberi rasa ruang, tidak cukup untuk mencuri perhatian dari yang dibahas.
+    """
+    sisa = saat_kalimat(jam, awalan) - b.scene.time
+    if sisa > 0.15:
+        b.main(kamera.putar_pelan(frame, laju * sisa), run_time=sisa)
+
+
 def isi_sisa(b, *animasi, minimum=2.0, maksimum=10.0, sisakan=1.0):
     """Pakai SISA waktu babak untuk satu gerakan panjang, bukan untuk diam.
 
@@ -378,8 +403,54 @@ def isi_sisa(b, *animasi, minimum=2.0, maksimum=10.0, sisakan=1.0):
     ujung. Gerakan kamera yang panjang justru dianjurkan (empat sampai sepuluh
     detik menurut ILMU-3B1B), jadi sisa itu diberikan kepadanya.
     """
-    lama = float(np.clip(b.sisa - sisakan, minimum, maksimum))
-    b.main(*animasi, run_time=lama)
+    tersedia = b.sisa - sisakan
+    if tersedia < minimum:
+        # TIDAK cukup waktu untuk gerakan yang diminta. Memaksakan `minimum`
+        # membuat adegan melewati batas babak (materi 03 kelebihan 1,39 detik,
+        # materi 04 kelebihan 0,38 detik, keduanya ditolak gerbang waktu 4 Sep),
+        # dan memampatkannya ke waktu yang tersisa membuat kamera menyentak,
+        # sebab `kamera.sudut` selalu sampai ke tujuan dalam `run_time` berapa
+        # pun. Jadi yang dipakai geseran latar berlaju TETAP: lamanya boleh
+        # sependek apa pun tanpa menyentak, dan layarnya tetap hidup.
+        # Diukur: tanpa ini materi 04 punya 2,8 detik beku antara "tidak
+        # menempel pada sisi mana pun" dan "Alasnya AC tadi".
+        if tersedia > 0.4:
+            b.main(kamera.putar_pelan(b.scene.frame, LAJU_LATAR * tersedia),
+                   run_time=tersedia)
+        return
+    b.main(*animasi, run_time=float(np.clip(tersedia, minimum, maksimum)))
+
+
+def saat_kalimat(jam, awalan: str) -> float:
+    """Detik saat kalimat berawalan `awalan` MULAI diucapkan narator.
+
+    Dipakai dengan `b.tunggu_sampai(...)` supaya kejadian di layar jatuh tepat
+    pada kalimat yang menyebut bendanya, bukan pada jarak tetap dari awal
+    babak. Syarat MASTER 4 Sep, dan alasannya benar: denyut berkala yang tidak
+    peduli apa yang sedang dikatakan adalah "napas" yang dilarang STANDAR butir
+    3, dan cuma mengejar angka alat ukur. Ujinya sederhana: untuk tiap kejadian
+    harus bisa disebut kalimat narasi mana yang memicunya.
+
+    GAGAL kalau kalimatnya tidak ada. `sinema.mulai` mengembalikan None, dan
+    `tunggu_sampai(None)` diam-diam tidak menunggu apa pun, jadi satu salah
+    ketik akan mengembalikan adegannya ke perilaku lama TANPA memberi tahu.
+
+    Tanda di atas huruf diabaikan saat mencocokkan, jadi awalan boleh ditulis
+    "AC menghubungkan" walaupun subtitlenya berbunyi "A̅C̅ menghubungkan".
+    """
+    def polos(t: str) -> str:
+        return "".join(c for c in unicodedata.normalize("NFD", t)
+                       if not unicodedata.combining(c)).casefold()
+
+    cari = polos(awalan)
+    for detik, kalimat in jam:
+        if polos(kalimat).startswith(cari):
+            return detik
+    tersedia = "\n  ".join(k for _, k in jam[:40])
+    raise KeyError(
+        f"tidak ada kalimat subtitle yang diawali {awalan!r}.\n"
+        f"Ingat urutannya: buat_narasi.py, buat_subtitle.py, BARU render.\n"
+        f"Kalimat yang ada:\n  {tersedia}")
 
 
 def sepanjang3(a, b, t):

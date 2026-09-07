@@ -64,10 +64,10 @@ export default function HalamanPetaMateri() {
       <Nav />
       <main className="mantra-lebar" style={{ paddingTop: 38 }}>
         <div className="kicker">Peta Materi</div>
-        <h1 className="judul-halaman">Pilih bab, lalu sub-bab, lalu materinya</h1>
+        <h1 className="judul-halaman">Pilih bab, lalu materinya. Kemajuanmu tercatat di sini.</h1>
         <p className="sub-italic">
           Susunan sub-bab mengikuti bab buku Kurikulum Merdeka. Kemajuan tersimpan
-          di peramban Anda sendiri.
+          di HP atau laptopmu sendiri, tanpa akun.
         </p>
 
         <PetaMateri bab={bab} />

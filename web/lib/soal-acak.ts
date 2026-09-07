@@ -1,6 +1,7 @@
 'use client'
 
 import { baca, tulis } from '@/lib/simpanan'
+import { bacaLatihan } from '@/lib/latihan-kemajuan'
 
 /**
  * Pemilih soal kuis: mengambil sebagian soal dari bank, dan MENGHINDARI soal
@@ -57,9 +58,23 @@ function kocok<T>(daftar: readonly T[]): T[] {
 /**
  * Ambil `jumlah` soal untuk satu sesi kuis.
  *
- * Soal yang belum pernah keluar didahulukan. Kalau sisanya tidak cukup, sisa
- * itu dipakai semua lalu kekurangannya diambil dari soal lama yang dikocok
- * ulang, dan catatan terpakai dimulai lagi dari sesi ini.
+ * TIGA LAPIS PRIORITAS, dari yang paling diutamakan:
+ *
+ *   1. belum pernah keluar di kuis DAN belum pernah dijawab benar di bank soal
+ *   2. belum pernah keluar di kuis, tetapi sudah pernah benar di bank soal
+ *   3. sudah pernah keluar di kuis
+ *
+ * Lapis pertama ditambahkan 5 Sep 2026 atas keputusan ARYA. Sebabnya: menu
+ * Latihan dan kuis bab mengambil dari kumpulan soal yang SAMA, sehingga siswa
+ * yang rajin mengerjakan bank soal justru bertemu soal yang sudah dihafalnya
+ * saat mengerjakan kuis. Sekarang kuis mendahulukan soal yang benar-benar
+ * baru baginya.
+ *
+ * MENDAHULUKAN, bukan membuang. Kalau soal yang belum tersentuh tinggal tiga
+ * sedangkan satu sesi butuh delapan, kuisnya tetap berisi delapan soal:
+ * kekurangannya diambil dari lapis berikutnya. Membuang akan membuat kuis
+ * mengecil diam-diam, dan kuis empat soal yang mengaku delapan lebih buruk
+ * daripada satu dua soal yang berulang.
  */
 export function ambilSoal<T extends { id: string }>(
   bank: readonly T[],
@@ -67,19 +82,30 @@ export function ambilSoal<T extends { id: string }>(
   topik: string,
 ): T[] {
   const terpakai = new Set(bacaTerpakai(topik))
+  // Soal yang pernah dijawab BENAR di bank soal menu Latihan.
+  const sudahDikuasai = new Set(bacaLatihan(topik).benar)
+
   const segar = bank.filter((s) => !terpakai.has(s.id))
+  // Lapis 1 lebih dulu, lapis 2 menyusul. Masing-masing dikocok sendiri
+  // supaya urutannya tetap tidak bisa dihafal.
+  const antre = [
+    ...kocok(segar.filter((s) => !sudahDikuasai.has(s.id))),
+    ...kocok(segar.filter((s) => sudahDikuasai.has(s.id))),
+  ]
 
   let terpilih: T[]
   let catatanBaru: string[]
 
-  if (segar.length >= jumlah) {
-    terpilih = kocok(segar).slice(0, jumlah)
+  if (antre.length >= jumlah) {
+    // Dikocok sekali lagi supaya soal yang benar-benar baru tidak selalu
+    // muncul di nomor-nomor awal.
+    terpilih = kocok(antre.slice(0, jumlah))
     catatanBaru = [...terpakai, ...terpilih.map((s) => s.id)]
   } else {
     // Bank hampir habis: pakai semua yang tersisa, sisanya dari soal lama.
     const lama = bank.filter((s) => terpakai.has(s.id))
-    const tambahan = kocok(lama).slice(0, jumlah - segar.length)
-    terpilih = kocok([...segar, ...tambahan])
+    const tambahan = kocok(lama).slice(0, jumlah - antre.length)
+    terpilih = kocok([...antre, ...tambahan])
     // Putaran baru dimulai: yang dicatat hanya soal sesi ini.
     catatanBaru = terpilih.map((s) => s.id)
   }

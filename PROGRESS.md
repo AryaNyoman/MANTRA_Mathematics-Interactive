@@ -1,5 +1,260 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 7 SEP (sore): GELOMBANG 3 DIBUKA ARYA UNTUK EMPAT TOPIK
+
+ARYA: "suruh sesi 3D, Vektor, Statistika, dan Grafik Fungsi selesaikan render
+1080p kalau tidak ada catatan menggantung; saya cek hasilnya setelah 1080p
+semuanya." Keadaan saat perintah dikirim (`alat/cek_resolusi_anim.py`): 34
+video masih 480p (statistika 13, transformasi 6, ruang-3d 6, vektor 6, grafik
+2, trigonometri.webm 720p). Keempat worktree `matra-*` dibuat lagi (foldernya
+hilang untuk kedua kalinya; cabangnya utuh: `sesi/vektor` 4 commit belum
+masuk master, `sesi/statistika` 1). Catatan menggantung yang ADA dan sengaja
+TIDAK menahan (ARYA menilai langsung di 1080p): Vektor menunggu vonis bentuk
+01 dan 06, kode 03/04/08/09 belum dirender; Grafik menunggu jawaban 3D tahap 6
+dan letak panel; Ruang 3D narasi 01 dibuat ulang belum dirender; Statistika
+diam terpanjang 18,5 detik. Perintah ke tiap sesi: pindah ke worktree, merge
+master (gl berubah), cek_kode, render 1080p60 SATU per satu (empat sesi
+berbagi laptop), gabung_audio ke webm, poster lewat buat_poster, cek_video
+final, cek_aset_video, ubah `video.berkas` di tahap.ts, lapor ke MASTER.
+Transformasi TIDAK termasuk perintah ini (menunggu ARYA menonton 480p).
+
+## 7 SEP: SESI TURUNAN HIDUP DI CABANG `sesi/turunan-materi`
+
+ARYA membuka sesi MANTRA-TURUNAN di worktree `materi-turunan-b8c515`,
+cabang `sesi/turunan-materi` (master 87f9e5b + kerangka dari `sesi/turunan`).
+Worktree `mantra-integral-materi-505cfc` sudah hilang, `mantra-turunan`
+(detached) dihapus MASTER, `elastic-dhawan-d14db2` dihapus sesi Turunan.
+Folder `.claude/worktrees/mantra-integral` masih ada TANPA terdaftar sebagai
+worktree: jangan menjalankan git dari sana. Perintah kerja Turunan dikirim
+MASTER 7 Sep. Integral: ARYA membuka sesi TERPISAH MANTRA-INTEGRAL (worktree
+`integral-folder-branch-setup-05863c`, cabang `sesi/integral-materi` dari
+master + kerangka 5774493, port 3016, laporan `laporan/MANTRA-INTEGRAL.md`);
+keduanya berjalan bersamaan, pembagian berkas ada di kepala berkas tugas.
+
+Kemajuan sesi Turunan 7 Sep: 12 materi terisi (96 klaim sympy lolos,
+pemeriksa dibuktikan dua arah, urutan istilah bersih), pemeriksaan silang
+MASTER (10 temuan, 4 kalimat matematis keliru) sudah direvisi di 7595747;
+widget 01 sampai 03 jadi dan diuji seret sungguhan (2e66524). Sisa: widget
+04 sampai 11, galeri 12, latihan dan kuis. Utang teknis untuk MASTER setelah
+semua cabang tergabung: `koordinat.ts`, `Bidang.tsx`, `seret.ts` kini ada
+TIGA salinan (limit, grafik-fungsi, turunan); satukan ke folder bersama.
+
+## 6 SEP (pagi): VIDEO TRANSFORMASI 02 SAMPAI 06 DIPERPANJANG, TERPASANG DI MASTER
+
+Sesi Transformasi menyetor 469c850 dan b60e8f5, digabung ke master (37fdc9e,
+237d149). Video 02 sampai 06 dari `media/uji-480p` worktree disalin ke
+`web/public/anim` master: 125, 130, 63, 144, 143 detik (01 sudah 130 detik).
+Subtitle 05 dan 06 sempat basi (berhenti di detik 77 dan 81), dibuat ulang;
+poster 03, 04, 05 dibuat dari frame bermakna. Alat baru dari sesi itu:
+`alat/cek_aset_video.py` (subtitle sepanjang video dan poster tidak kosong)
+dan `alat/buat_poster.py`. Temuan alat itu di luar topiknya:
+`web/public/anim/vektor6-sambung.jpg` poster kosong, milik sesi Vektor.
+7 Sep: video 04 diperpanjang 63 -> 137 detik (10 -> 17 babak, angka dari
+halaman Materi 07), digabung 55db094 dan dipasang; keenam video kini 125
+sampai 144 detik, subtitle dan poster cocok semua. Tiga belas potongan suara
+basi di `audio/` dibuang, `cek_aset_video.py` kini memeriksa suara juga.
+Video 02 dirender ulang (gabung 55dfe2b): babak cermin mendatar tadinya masih
+memperlihatkan cermin tegak, gambar membantah narasi; kini digambar di h = 2,
+diam terpanjang 6,5 detik. Klaim video 01 dan 02 dikodekan; 164 klaim lolos.
+Sisa di sesi Transformasi: render 1080p, menunggu ARYA menonton 480p.
+BELUM naik Vercel (pratinjau maupun produksi).
+
+## 6 SEP (dini hari): TURUNAN DAN INTEGRAL DIRANCANG, KERANGKA DI `sesi/turunan`
+
+ARYA (5 Sep malam) menyetujui dua topik baru Kelas 12, Turunan dan Integral,
+dikerjakan SATU sesi (MANTRA-TURUNAN-INTEGRAL) di worktree `mantra-turunan`,
+dan mempercayakan rancangannya ke MASTER tanpa konfirmasi. Yang sudah ada:
+- Rancangan: `docs/superpowers/specs/2026-09-06-turunan-alur-belajar.md`
+  (12 materi, 11 widget) dan `...-integral-alur-belajar.md` (11 materi,
+  10 widget), dari Bab 2 dan 3 buku Tingkat Lanjut XII (`LIMIT.pdf` adalah
+  buku utuhnya, PDF = cetak + 16). Tiap materi: pertanyaan, isi pokok dengan
+  halaman buku, rancangan widget (seret, batas, kendali, nyala, petunjuk),
+  sering keliru, prioritas video. Volume benda putar tidak masuk.
+- Kerangka kode di cabang `sesi/turunan` (commit 5774493, BUKAN master):
+  `content/turunan/`, `content/integral/` (materi rintisan, `siap: false`),
+  `PanggungTurunan.tsx`, `PanggungIntegral.tsx` (satu widget contoh sudah
+  berkendali), `widget/{turunan,integral}/Rintisan.tsx`, dua halaman
+  latihan, pendaftaran di `daftar-isi.ts`, `topik.ts` (`siap: false`),
+  `subbab.ts` (Bab 2 dan 3 Kelas 12, dicabut dari `BAB_SEGERA`). tsc dan
+  eslint lolos; halaman dilihat lewat Playwright di port 3015.
+- Berkas tugas `docs/tugas/MANTRA-TURUNAN-INTEGRAL.md`, port 3015 di
+  ATURAN-SEMUA-SESI, `alat/nyalakan-sesi.ps1` dapat saklar `-Hanya <nama>`
+  dan entri sesi baru.
+- Sesi TIDAK dinyalakan MASTER: pengaman mode otomatis menolak MASTER
+  menulis setelan izin `bypassPermissions`, dan itu memang keputusan ARYA.
+  Pesan tugas dikirim ke sesi desktop MANTRA-TURUNAN (menunggu dibuka).
+  Catatan: `.claude/settings.local.json` di SEMUA worktree hilang saat
+  foldernya terhapus 5 Sep; mode AUTO harus dipilih ARYA saat membuka sesi.
+- 6 Sep pagi, permintaan ARYA: worktree kerjanya dipindah ke folder
+  `.claude/worktrees/mantra-integral-materi-505cfc` (folder sesi desktop
+  MANTRA-INTEGRAL yang hidup; tadinya KOSONG dan tidak terdaftar, sehingga
+  perintah git dari sana mengenai master). Sekarang folder itu worktree
+  sungguhan di cabang `sesi/turunan`, node_modules ikut dipindah. Folder
+  `mantra-turunan` dilepas (detached HEAD), dihapus bila tidak dipegang sesi.
+- Setelah sesi lapor SIAP GABUNG: MASTER memeriksa silang materi dan widget
+  (permintaan ARYA), baru video diperintahkan. Video Transformasi 02 sampai
+  06 (2 menit) masih di sesi Transformasi; urutan baru Transformasi (af8c93b)
+  baru di pratinjau, belum produksi.
+
+## 5 SEP (malam): SEMUA DI ATAS SUDAH DI PRODUKSI
+
+ARYA mencoba pratinjau (seret di HP lancar, batas terpasang) lalu meminta
+naik produksi. `vercel deploy --prod` dari `master` e27cbf6: matra-eight dan
+mantra-matematika kini berisi kendali bersama, tata letak HP, beranda v3,
+Materi 14 Statistika, batas jendela, dan video perahu 480p.
+
+## 5 SEP (malam, lanjutan 4): VIDEO PERAHU VEKTOR 01 DIBUAT ULANG (480p)
+
+Keluhan ARYA: perahunya jelek (cakram abu bertiang) dan kurang rapi saat
+beralih ke 2D. Yang diubah, semuanya di `manim/gl/ilustrasi.py` dan
+`manim/scenes/vektor1_perahu.py`:
+- `perahu()` v2: perahu dayung (lambung dua terang, bibir cincin gelap, dua
+  bangku, sepasang dayung, tanpa layar), shading dimatikan sebab permukaan
+  cekung menghitam. `perahu_atas()`: ikon 2D tampak atas, dipasang lewat
+  FadeOut/FadeIn saat kamera sudah tegak lurus, mengikuti tracker bx/by.
+- `tanah()`: lempengan bertebal warna pasir (bukan lembaran melayang 35%
+  tembus pandang): celah putih di tepi air hilang. Air dilebihkan 0,5 ke tiap
+  sisi, tepi dekat mundur 0,35 supaya perahu mengapung di samping tepian.
+- Pembuka 3D diberi kejadian per kalimat (jam subtitle): kamera mendekat,
+  garis ukur "3 km" saat disebut, panah niat ke seberang; gerak pertama 0,12 s.
+- Render 480p, narasi digabung: `media/uji-480p/vektor1-perahu.mp4`,
+  disalin ke `web/public/anim/vektor1-perahu.mp4` (mp4 tidak dilacak git;
+  ikut terunggah ke Vercel). Poster dari detik 4.
+- MASIH: diam terpanjang 12,6 s di babak pythagoras (77 sampai 90 s), 11,4 s
+  di dayung/arus, 10,6 s di tanya; bawaan versi lama, di luar permintaan.
+  1080p belum dirender (aturan: 480p dulu untuk ditinjau ARYA).
+
+## 5 SEP (malam, lanjutan 3): JENDELA WIDGET DIKUNCI, SERET DI HP, TABEL DICABUT
+
+Keluhan ARYA: menyeret bola terasa licin sampai keluar daerah (jendela
+melar mengikuti bola), di HP justru bergerak sedikit lalu berhenti, dan tabel
+data ternyata memperumit.
+- Vektor: `jendelaTetap` (geometri.ts) dari kotak BATAS, tidak ikut titik;
+  resultan dijaga di kotak lewat `tahanBersama`; KaliSkalar kotaknya 3 kali;
+  Perahu: titik mendarat di luar kotak digambar di tepi + "di luar gambar".
+- Transformasi: jendela DIBEKUKAN selama diseret (`useSeret` mengembalikan
+  `jendela`), menyesuaikan setelah dilepas; kotak tetap akan membuat bentuk
+  terlalu kecil untuk rotasi dan dilatasi.
+- Statistika 10 dan 12: jendela dari data awal contoh, tidak di bawah nol,
+  seretan dijepit ke jendela. Grafik Fungsi Susun Parabola: jendela tetap
+  dari BATAS_X dan BATAS_Y. Widget penggeser saja (parabola, balapan, dua
+  mesin) sengaja tetap menyesuaikan (persetujuan ARYA).
+- Tombol `Kembalikan` (kendali) di 11 widget Vektor dan 5 Transformasi.
+- Seret di HP: `touch-action: none` dipasang di SVG statistika (sebelumnya
+  hanya di bolanya; WebKit tidak selalu menghormatinya di anak SVG, jadi
+  peramban mengira mau menggulir dan mengirim pointercancel). BELUM
+  terverifikasi di HP sungguhan; hipotesis dari perbedaan dengan Vektor.
+- `TabelData` dihapus lagi (baru dibuat pagi harinya). `TitikPegang` tetap.
+
+## 5 SEP (malam, lanjutan 2): STATISTIKA MUDAH DIPEGANG, TABEL DATA, MATERI 14
+
+Keluhan ARYA: bola data Statistika di Materi 01, 07, 08, 10, 11, 12 sulit
+diambil, dan Statistika belum punya materi contoh nyata.
+- `components/widget/statistika/TitikPegang.tsx`: sasaran sentuh berjari-jari
+  16 di belakang bola 5 sampai 8, bola membesar dan menyala saat dipegang.
+  `TumpukanTitik` memakainya otomatis kalau bolanya bisa diseret.
+- `components/kendali/TabelData.tsx`: satu kotak ketik per angka (dua kolom
+  untuk pasangan x, y), lapor `${kunci}-${indeks}` ke `sedang-diubah` supaya
+  bolanya menyala. Materi 11 memakai dua `Angka` (cuma dua ujung garis).
+- Materi 14 "Statistika di sekitar kita": `content/statistika/tahap-nyata.ts`
+  + `DuniaNyataStatistika.tsx` (enam grafik kecil digambar sendiri, bukan
+  foto). Sub-bab D "Penerapan" di `subbab.ts`. SEMUA ANGKANYA ANGKA CONTOH,
+  dinyatakan di bacaannya. Pemeriksa angka (`alat/cek_statistik_web.mjs`)
+  tetap lolos 152 angka.
+- Tugas video Transformasi 2 menit sudah dikirim ke sesi
+  MANTRA-TRANSFORMASI-GEO (sesi sedang mati; pesannya menunggu dibuka).
+
+## 5 SEP (malam, lanjutan): BERANDA DIRAPIKAN, VIDEO BERANDA BARU
+
+Permintaan ARYA 5 Sep sore: korsel jangan berganti sendiri; video slide 1
+harus terus mengulang dan hidup lagi saat kembali ke slide itu; kotak slide
+krem; bola hijau di kurva biru hero dengan irama acak; dan video slide 1
+dirender ulang meniru Materi 09 Trigonometri tanpa suara dan subtitle.
+
+- Video: `manim/scenes/beranda_tiga_grafik.py` (ManimGL, port dari arsip CE).
+  30 detik, 0 sampai 540 derajat, laju tetap, lalu dipudarkan dan diulang
+  dari nol supaya `loop` di peramban tidak berkedip. Render:
+  `manimgl manim/scenes/beranda_tiga_grafik.py BerandaTigaGrafik -w --hd`,
+  lalu ffmpeg ke `web/public/anim/beranda-tiga-grafik-v3.mp4` (30 fps, h264)
+  dan poster `.jpg` dari detik 13,5. Berkas v2 masih ada, tidak dipakai.
+  Video ini TIDAK punya jalur subtitle (`jaga_jalur_bawah=False`), sebab
+  memang tidak bernarasi; pemeriksaan tabrakan dan bingkai tetap jalan.
+- Dua jebakan ManimGL yang ketahuan lewat lembar kontak: `Circle` butuh
+  `stroke_color=` (`color=` kalah oleh bawaan merah), `Dot` butuh
+  `fill_color=` (`color=` kalah oleh bawaan putih).
+
+## 5 SEP (malam): SEMUA WIDGET MEMAKAI SISTEM KENDALI BERSAMA
+
+Permintaan ARYA (5 Sep): widget jangan cuma bisa diseret di gambar; siswa
+harus bisa MENGETIK angkanya, tiap kendali harus menjelaskan gunanya, label
+sumbu harus rinci, dan perubahan harus terlihat langsung di gambar.
+Rancangannya: `docs/superpowers/specs/2026-09-05-sistem-kendali-widget-design.md`.
+
+Yang jadi, di ketujuh topik (56 materi berwidget, semuanya dicek di browser
+desktop dan HP 390 px, tidak ada yang melebar):
+- `web/components/kendali/`: `Angka` (nama + arti, angka tampil, kolom ketik
+  yang DIPOTONG ke batas bukan ditolak, penggeser), `Koordinat` (x, y, plus
+  pratinjau vektor kolom dan i-j), `Pilihan` (tombol bersegmen), `Petunjuk`
+  (kalimat "geser X, perhatikan Y"), dan `sedang-diubah.ts` (kendali yang
+  dipegang melaporkan `kunci`-nya, gambar menyalakan bagiannya: kelas `.nyala`).
+- `web/lib/petak-sumbu.ts`: satu pembuat label sumbu untuk semua papan;
+  jaraknya dipilih supaya labelnya rapat tapi tidak bertumpuk.
+- Gambar lengket (`position: sticky`) di atas kendalinya, jadi saat menggeser
+  perubahan terlihat tanpa menggulir.
+- Kata "tahap" di teks siswa Trigonometri diganti "Materi 0N".
+
+Cara memakai di widget baru: taruh `<Angka nama arti nilai onUbah min max
+langkah kunci>` di dalam `.kendali`; kalau widget punya pegangan yang bisa
+diseret, panggil `useSedangDiubah()` dan beri kelas `nyala` saat kuncinya
+sama. Contoh: `Panah.tsx` (vektor), `Bentuk.tsx` (transformasi),
+`SegitigaSebangun.tsx`.
+
+**Letak alat di layar sempit (keputusan ARYA 5 Sep, sesudahnya):** materi
+TANPA video tidak lagi menyodorkan widget di atas judul. Widgetnya disisipkan
+di bawah kotak "Yuk bereksperimen" pertama (prop `sisipan` di
+`Penjelasan.tsx`), atau di akhir bacaan kalau kotaknya tidak ada (empat galeri
+dunia nyata). Materi dengan video tetap: video dulu, alat lewat "Coba
+sendiri". Desktop tiga kolom tidak berubah.
+
+Yang sengaja BELUM: sorot `.nyala` baru ada di Vektor, Transformasi, dan
+Segitiga sebangun; tombol aksi lama ("Kembalikan semula", "Samakan
+rata-ratanya") di Statistika masih bergaya lama karena memang bukan besaran.
+
+## 5 SEP: MANTRA v2 "Panggung Sinema" SUDAH DI PRODUKSI
+
+Cabang `sesi/mantra-v2` sudah digabung ke `master` dan dinaikkan ke
+produksi. **https://matra-eight.vercel.app** kini memakai rancangan v2.
+Pratinjaunya (`mantra-rancangan-v2.vercel.app`) masih hidup sebagai
+pembanding dan boleh dibuang kapan saja.
+
+Isi perubahan ada di pesan commit, jangan disalin ulang ke sini. Ringkasnya:
+nav, hero, dan kaki halaman jadi permukaan navy; halaman belajar jadi tiga
+kolom penuh layar (daftar materi, bacaan, ALAT) dengan pembatas yang bisa
+ditarik dan mode fokus layar penuh; Peta Materi jadi baris sub-bab; menu
+Latihan jadi kartu per bab tanpa kuis; ada halaman 404, keadaan memuat, dan
+kotak galat video.
+
+### YANG PERLU DIKETAHUI SESI BERIKUTNYA
+
+1. **Gerbang resolusi video MENOLAK saat promote ini, dan tetap dinaikkan
+   atas keputusan ARYA.** `python alat/cek_resolusi_anim.py` melaporkan 33
+   video masih 480p. Sebelum promote ini produksi TIDAK punya video topik
+   sama sekali (404), jadi menaikkannya membuat video muncul untuk pertama
+   kali, di mutu draf. Begitu render 1080p selesai, jalankan gerbangnya lagi
+   sampai lolos lalu deploy ulang.
+
+2. **Kredit ElevenLabs di halaman Tentang belum sesuai kenyataan.** Seluruh
+   `manim/narasi/*.json` masih mencatat `id-ID-ArdiNeural` (edge-tts).
+   ARYA akan mengganti suaranya; penandanya ada di `app/tentang/page.tsx`.
+
+3. **Bank soal menu Latihan dan kuis bab masih satu kumpulan** (32 soal
+   `kuis.ts`). Yang sudah dikerjakan: kuis kini MENDAHULUKAN soal yang belum
+   pernah dijawab benar di bank soal. Kalau suatu saat mau benar-benar
+   terpisah, perlu bank soal baru.
+
+4. **Kartu ManimGL menaut ke manim.community**, padahal yang dipakai ManimGL
+   milik 3Blue1Brown. ARYA tahu bedanya dan tetap memilih itu.
+
 > **SESI BARU: baca berkas ini dari atas sampai bawah SEBELUM mengerjakan apa pun.**
 > Terakhir diperbarui: **3 September 2026 sore**.
 >
@@ -135,7 +390,9 @@
   mengira perbaikannya belum ada (3 Sep).
 - **Cara deploy yang benar mulai sekarang:** dari `D:\MANIM-MATRA\web` di
   `master`. Preview: `vercel deploy --yes` lalu `vercel alias set ...`.
-  Produksi: hanya atas kata ARYA, dan pakai `vercel promote <deploy>` untuk
+  Produksi: hanya atas kata ARYA, WAJIB lolos `python alat/cek_resolusi_anim.py`
+  dulu (video 480p tinjauan memakai nama yang sama dengan 1080p; temuan 3D
+  4 Sep), lalu pakai `vercel promote <deploy>` untuk
   menaikkan build yang sudah ia periksa, bukan `--prod` yang membangun ulang.
 - Yang berubah di situs (rincian per commit `01b0f5e`, `86b0a22`, `d810649`,
   `faac773`): huruf Newsreader + Space Grotesk, palet emas-navy, nav lengket,

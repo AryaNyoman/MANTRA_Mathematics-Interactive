@@ -18,7 +18,7 @@ export default function Kaki() {
   return (
     <footer className="kaki-mantra">
       <span>
-        Built by <b>Nyoman Arya Sejati</b> · with Manim, Claude, and Next.js
+        Built by <b>Nyoman Arya Sejati</b> · with Manim, Claude, ElevenLabs, and Next.js
       </span>
       <span className="lembaga">
         <Image

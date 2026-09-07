@@ -68,10 +68,12 @@ graphify-out/cost.json
 graphify-out/memory/
 .graphify_cache/
 graphify-out/cache/
+# cadangan harian otomatis graphify: duplikat graph.json, selalu bisa dibuat ulang
+graphify-out/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
 
 # Video 480p untuk PREVIEW Vercel: disalin dari media/uji-480p, TIDAK di-commit
-# (repo membengkak tiap render ulang). Vercel mengunggahnya dari disk lewat
+# (repo membengkak tiap render ulang). Poster .jpg TETAP di-commit: kecil, dan
+# klon bersih butuh poster. Vercel mengunggah mp4 dari disk lewat
 # web/.vercelignore yang menggantikan .gitignore. Berkas yang sudah dilacak
 # (beranda-*.mp4, poster lama) tidak terpengaruh.
 web/public/anim/*.mp4
-web/public/anim/*.jpg

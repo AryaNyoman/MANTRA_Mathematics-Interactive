@@ -43,7 +43,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Di sebelah kiri ada kubus ABCD.EFGH. Dua ruas garis diberi warna: BD di alas, dan EG di tutup. Pada tampilan awalnya, keduanya menyilang tepat di tengah gambar.',
+          'Di alatnya ada kubus ABCD.EFGH. Dua ruas garis diberi warna: BD di alas, dan EG di tutup. Pada tampilan awalnya, keduanya menyilang tepat di tengah gambar.',
       },
       {
         jenis: 'coba',
@@ -158,7 +158,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'coba',
         teks:
-          'Pilih dua ruas di alat sebelah kiri, lalu baca alasannya di bawah tabel angka.',
+          'Pilih dua ruas di alatnya, lalu baca alasannya di bawah tabel angka.',
         langkah: [
           'Mulai dari AB dan HG. Keduanya sejajar, dan Anda bisa membayangkan satu bidang, yaitu sisi depan yang direntangkan, memuat keduanya.',
           'Ganti yang kedua jadi CG. Sekarang bersilangan. Coba cari bidang yang memuat keduanya, dan Anda tidak akan menemukannya.',
@@ -583,7 +583,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Soal kedua di alat sebelah kiri, jarak C ke bidang BDG, adalah soal EBTANAS 1992. Jawabannya juga 2 akar 3. Titik dan bidangnya berbeda, tetapi susunannya kembar: sebuah titik sudut dan bidang yang memotong ketiga tetangganya. Mengenali kembaran seperti ini menghemat banyak waktu di ujian.',
+          'Soal kedua di alatnya, jarak C ke bidang BDG, adalah soal EBTANAS 1992. Jawabannya juga 2 akar 3. Titik dan bidangnya berbeda, tetapi susunannya kembar: sebuah titik sudut dan bidang yang memotong ketiga tetangganya. Mengenali kembaran seperti ini menghemat banyak waktu di ujian.',
       },
       {
         jenis: 'contoh',
@@ -947,7 +947,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Empat gambar di sebelah kiri bukan soal buatan. Semuanya benda yang biasa dijumpai, dan di dalam tiap benda itu ada bangun ruang yang sedang dihitung orang sungguhan.',
+          'Empat gambar di panel Alat bukan soal buatan. Semuanya benda yang biasa dijumpai, dan di dalam tiap benda itu ada bangun ruang yang sedang dihitung orang sungguhan.',
       },
       {
         jenis: 'poin',

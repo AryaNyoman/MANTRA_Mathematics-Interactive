@@ -48,15 +48,16 @@ export default function CerminLurus({
   const prapeta = BENTUK_L
   const peta = prapeta.map((t) => (tegak ? cerminGarisTegak(t, nilai) : cerminGarisDatar(t, nilai)))
 
-  const jendela = jendelaSeimbang([...JANGKAR, ...prapeta, ...peta], NISBAH, 0.06)
+  const jendelaHitung = jendelaSeimbang([...JANGKAR, ...prapeta, ...peta], NISBAH, 0.06)
 
   // Yang diseret garis cerminnya. Untuk garis tegak hanya nilai x jari yang
   // dipakai, untuk garis mendatar hanya nilai y-nya.
-  const pointer = useSeret(jendela, svgRef, (t) => {
+  const pointer = useSeret(jendelaHitung, svgRef, (t) => {
     const mentah = tegak ? t.x : t.y
     const jepit = Math.min(BATAS_CERMIN, Math.max(-BATAS_CERMIN, mentah))
     onUbah(Math.round(jepit * 2) / 2)
   })
+  const jendela = pointer.jendela
 
   const p = keLayar(jendela, KOTAK)
 
@@ -106,7 +107,7 @@ export default function CerminLurus({
       <RuasBerangka dari={A} ke={kaki} p={p} warna={ALAT} sisi={1} />
       <RuasBerangka dari={kaki} ke={Aksen} p={p} warna={ALAT} sisi={-1} />
 
-      <Pegangan titik={pegangan} p={p} warna={ALAT} />
+      <Pegangan titik={pegangan} p={p} warna={ALAT} kunci="cermin" />
 
       <Legenda
         entri={[

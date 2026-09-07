@@ -3,7 +3,7 @@
 import { useRef } from 'react'
 import BidangVektor from './BidangVektor'
 import Panah from './Panah'
-import { angka, jendelaSeimbang, kurang, panjang, tahan, type Vek } from './geometri'
+import { angka, kurang, panjang, tahan, type Vek, jendelaTetap } from './geometri'
 import { KERTAS, KOTAK, MONO, NISBAH, WARNA } from './gaya'
 import { useSeretTitik } from './useSeret'
 
@@ -11,11 +11,6 @@ export const BATAS = { x: 6, y: 3.5 }
 
 /** Panah acuan yang tidak bisa digeser, sebagai pembanding. */
 export const ACUAN = { pangkal: { x: -5, y: -2 } as Vek, ujung: { x: -2, y: 0 } as Vek }
-
-const JANGKAR: Vek[] = [
-  { x: -BATAS.x, y: -BATAS.y },
-  { x: BATAS.x, y: BATAS.y },
-]
 
 /** Selisih komponen yang masih dianggap sama, supaya pembulatan tidak menuduh. */
 const TOLERANSI = 0.001
@@ -65,11 +60,7 @@ export default function PanahBerpindah({
   const acuan = kurang(ACUAN.ujung, ACUAN.pangkal)
   const nilai = nilaiHubungan(coba, acuan)
 
-  const jendela = jendelaSeimbang(
-    [...JANGKAR, pangkal, ujung, ACUAN.pangkal, ACUAN.ujung],
-    NISBAH,
-    0.05,
-  )
+  const jendela = jendelaTetap(BATAS.x, BATAS.y, NISBAH)
   const pointer = useSeretTitik(jendela, svgRef, [pangkal, ujung], (i, t) => {
     if (i === 0) onUbah(tahan(t, BATAS.x, BATAS.y), ujung)
     else onUbah(pangkal, tahan(t, BATAS.x, BATAS.y))
@@ -90,7 +81,7 @@ export default function PanahBerpindah({
       <Panah dari={ACUAN.pangkal} ke={ACUAN.ujung} jendela={jendela} warna={WARNA.redup}
              label="acuan" sisiLabel={-1} tebal={2.4} />
 
-      <Panah dari={pangkal} ke={ujung} jendela={jendela} warna={warnaNilai}
+      <Panah dari={pangkal} ke={ujung} kunci="ujung" jendela={jendela} warna={warnaNilai}
              label="coba" sisiLabel={-1} tebal={2.8} pegangan />
 
       <text

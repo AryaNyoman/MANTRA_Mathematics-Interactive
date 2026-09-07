@@ -12,6 +12,7 @@ import LingkaranKeGrafik, { BATAS_SAPU } from '@/components/widget/LingkaranKeGr
 import TigaGrafik from '@/components/widget/TigaGrafik'
 import DuniaNyata from '@/components/widget/DuniaNyata'
 import type { PropPanggung } from '@/components/topik/jenis'
+import { Angka, Petunjuk, Pilihan } from '@/components/kendali'
 
 /**
  * Panggung Trigonometri: penyetelan kesepuluh widgetnya, dan tidak lebih.
@@ -54,22 +55,12 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
           <>
             <div className="layar"><Bayangan derajat={sudutSinar} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="sinar">
-                  <span>Sudut sinar matahari</span>
-                  <span className="mono">{sudutSinar}°</span>
-                </label>
-                <input id="sinar" type="range"
-                       min={BATAS_SUDUT.min} max={BATAS_SUDUT.maks} value={sudutSinar}
-                       onChange={(e) => setSudutSinar(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>
+              <Angka nama="Sudut sinar matahari" arti="makin tinggi matahari, makin pendek bayangan" kunci="sinar" satuan="°"
+                nilai={sudutSinar} onUbah={setSudutSinar} min={BATAS_SUDUT.min} max={BATAS_SUDUT.maks} langkah={1} />
+              <Petunjuk>
                   kedua bayangan berubah panjang, tapi kedua hasil baginya tetap{' '}
                   {angka(hitungBayangan(sudutSinar).tan)}
-                </span>
-              </div>
+                </Petunjuk>
             </div>
           </>
         )}
@@ -84,36 +75,30 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
               />
             </div>
             <div className="kendali">
-              <div>
-                <label htmlFor="skala">
-                  <span>Besar segitiga</span>
-                  <span className="mono">{skala}%</span>
-                </label>
-                <input id="skala" type="range" min={35} max={100} value={skala}
-                       onChange={(e) => setSkala(+e.target.value)} />
-              </div>
-              <div>
-                {/* θ dikecualikan dari huruf besar, kalau ikut, ia jadi Θ */}
-                <label htmlFor="sudut">
-                  <span>Sudut <span style={{ textTransform: 'none' }}>θ</span></span>
-                  <span className="mono">{derajat}°</span>
-                </label>
-                <input id="sudut" type="range" min={10} max={80} value={derajat}
-                       onChange={(e) => setDerajat(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>tarik titik puncaknya, atau geser kendali di atas ·
-                  skala tampilan 1 cm = {angka(hitungGeometri(skala, derajat).ppc, 1)} px</span>
-              </div>
+              <Angka nama="Besar segitiga" arti="hanya memperbesar gambarnya, sudutnya tidak ikut berubah" kunci="skala" satuan="%"
+                nilai={skala} onUbah={setSkala} min={35} max={100} langkah={1} />
+              <Angka nama="Sudut θ" arti="sudut di titik A, inilah yang menentukan rasionya" kunci="sudut" satuan="°"
+                nilai={derajat} onUbah={setDerajat} min={10} max={80} langkah={1} />
+              <Petunjuk>tarik titik puncaknya, atau geser kendali di atas ·
+                  skala tampilan 1 cm = {angka(hitungGeometri(skala, derajat).ppc, 1)} px</Petunjuk>
             </div>
           </>
         )}
 
         {tampilWidget && tahap.widget === 'penamaan-sisi' && (
-          <div className="layar">
-            <PenamaanSisi aktif={sudutDilihat} onPilih={setSudutDilihat} />
-          </div>
+          <>
+            <div className="layar">
+              <PenamaanSisi aktif={sudutDilihat} onPilih={setSudutDilihat} />
+            </div>
+            <div className="kendali">
+              <Pilihan nama="Sudut yang dilihat" arti="nama sisi ikut berpindah bersama sudutnya"
+                pilihan={[{ nilai: 'A', label: 'Sudut A' }, { nilai: 'C', label: 'Sudut C' }]}
+                nilai={sudutDilihat} onPilih={setSudutDilihat} />
+              <Petunjuk>
+                sisi miring tidak pernah berubah, tetapi depan dan samping bertukar tempat.
+              </Petunjuk>
+            </div>
+          </>
         )}
 
         {tampilWidget && tahap.widget === 'pabrik-rasio' && (
@@ -122,12 +107,9 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
               <PabrikRasio pembilang={pembilang} penyebut={penyebut} />
             </div>
             <div className="kendali">
-              <PilihSisi label="Pembilang (atas)" nilai={pembilang} atur={setPembilang} />
-              <PilihSisi label="Penyebut (bawah)" nilai={penyebut} atur={setPenyebut} />
-              <div className="skala-info">
-                <span className="titik" />
-                <span>coba keenam pasangan, tiap satu punya nama resminya sendiri</span>
-              </div>
+              <PilihSisi label="Pembilang (atas)" arti="sisi yang dibagi" nilai={pembilang} atur={setPembilang} />
+              <PilihSisi label="Penyebut (bawah)" arti="sisi pembaginya" nilai={penyebut} atur={setPenyebut} />
+              <Petunjuk>coba keenam pasangan, tiap satu punya nama resminya sendiri</Petunjuk>
             </div>
           </>
         )}
@@ -138,19 +120,9 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
               <LingkaranSatuan derajat={sudutLingkaran} onUbah={setSudutLingkaran} />
             </div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="sudutLingkaran">
-                  <span>Sudut <span style={{ textTransform: 'none' }}>θ</span></span>
-                  <span className="mono">{sudutLingkaran}°</span>
-                </label>
-                <input id="sudutLingkaran" type="range" min={0} max={359}
-                       value={sudutLingkaran}
-                       onChange={(e) => setSudutLingkaran(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>lewati 90° dan perhatikan cos mulai bernilai negatif</span>
-              </div>
+              <Angka nama="Sudut θ" arti="diukur dari sumbu x positif, berlawanan arah jarum jam" kunci="sudut" satuan="°"
+                nilai={sudutLingkaran} onUbah={setSudutLingkaran} min={0} max={359} langkah={1} />
+              <Petunjuk>lewati 90° dan perhatikan cos mulai bernilai negatif</Petunjuk>
             </div>
           </>
         )}
@@ -159,25 +131,14 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
           <>
             <div className="layar"><EnamRasio derajat={sudutEnam} sorot={sorotRasio} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="sudutEnam">
-                  <span>Sudut <span style={{ textTransform: 'none' }}>θ</span></span>
-                  <span className="mono">{sudutEnam}°</span>
-                </label>
-                <input id="sudutEnam" type="range"
-                       min={BATAS_ENAM.min} max={BATAS_ENAM.maks} value={sudutEnam}
-                       onChange={(e) => setSudutEnam(+e.target.value)} />
-              </div>
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label><span>Sorot rasio</span></label>
-                <div className="pilih-sisi">
-                  {URUT_RASIO.map((r) => (
-                    <button key={r} aria-pressed={sorotRasio === r} onClick={() => setSorotRasio(r)}>
-                      {r}
-                    </button>
-                  ))}
-                </div>
-              </div>
+              <Angka nama="Sudut θ" arti="keenam rasio dihitung dari sudut ini" kunci="sudut" satuan="°"
+                nilai={sudutEnam} onUbah={setSudutEnam} min={BATAS_ENAM.min} max={BATAS_ENAM.maks} langkah={1} />
+              <Pilihan nama="Sorot rasio" arti="yang dipilih ditebalkan di gambar"
+                pilihan={URUT_RASIO.map((r) => ({ nilai: r, label: r }))}
+                nilai={sorotRasio} onPilih={setSorotRasio} />
+              <Petunjuk>
+                tiap rasio punya kebalikannya: sin dengan csc, cos dengan sec, tan dengan cot.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -186,20 +147,20 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
           <>
             <div className="layar"><PerjalananSudut indeks={langkahIstimewa} /></div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1', display: 'flex', gap: 8 }}>
-                <button className="tombol garis" style={{ flex: 'none' }}
+              <Pilihan nama="Sudut istimewa" arti="urutannya dari kecil ke besar"
+                pilihan={ISTIMEWA.map((t, n) => ({ nilai: String(n), label: `${t.derajat}°` }))}
+                nilai={String(langkahIstimewa)} onPilih={(n) => setLangkahIstimewa(Number(n))} />
+              <div style={{ display: 'flex', gap: 8 }}>
+                <button className="tombol garis" style={{ flex: 1 }}
                         disabled={langkahIstimewa === 0}
                         onClick={() => setLangkahIstimewa((n) => n - 1)}>← SEBELUM</button>
-                <div className="pilih-sisi" style={{ flex: 1, flexWrap: 'wrap' }}>
-                  {ISTIMEWA.map((t, n) => (
-                    <button key={t.derajat} aria-pressed={langkahIstimewa === n}
-                            onClick={() => setLangkahIstimewa(n)}>{t.derajat}°</button>
-                  ))}
-                </div>
-                <button className="tombol garis" style={{ flex: 'none' }}
+                <button className="tombol garis" style={{ flex: 1 }}
                         disabled={langkahIstimewa === ISTIMEWA.length - 1}
                         onClick={() => setLangkahIstimewa((n) => n + 1)}>BERIKUT →</button>
               </div>
+              <Petunjuk>
+                jalani satu per satu, dan perhatikan nilai sin dan cos yang selalu berupa akar sederhana.
+              </Petunjuk>
             </div>
           </>
         )}
@@ -212,19 +173,9 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
                 : <TigaGrafik derajat={sudutSapu} />}
             </div>
             <div className="kendali">
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label htmlFor="sudutSapu">
-                  <span>Sudut yang sudah disapu</span>
-                  <span className="mono">{sudutSapu}°</span>
-                </label>
-                <input id="sudutSapu" type="range"
-                       min={BATAS_SAPU.min} max={BATAS_SAPU.maks} step={2} value={sudutSapu}
-                       onChange={(e) => setSudutSapu(+e.target.value)} />
-              </div>
-              <div className="skala-info">
-                <span className="titik" />
-                <span>naikkan sampai lewat 360°, kurvanya mengulang persis</span>
-              </div>
+              <Angka nama="Sudut yang sudah disapu" arti="jarumnya berjalan dari 0°, grafiknya tergambar sejauh itu" kunci="sapu" satuan="°"
+                nilai={sudutSapu} onUbah={setSudutSapu} min={BATAS_SAPU.min} max={BATAS_SAPU.maks} langkah={2} />
+              <Petunjuk>naikkan sampai lewat 360°, kurvanya mengulang persis</Petunjuk>
             </div>
           </>
         )}
@@ -247,7 +198,7 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
         {/* angka hidup hanya untuk tahap yang punya widget berangka */}
         {tampilWidget && tahap.widget === 'segitiga-sebangun' && (
           <div className="blok">
-            <div className="cap">Angka dari segitiga di sebelah kiri</div>
+            <div className="cap">Angka dari segitiga</div>
             <AngkaSegitiga skala={skala} derajat={derajat} />
           </div>
         )}
@@ -327,13 +278,16 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
 
 /** Pemilih sisi untuk widget Pabrik Rasio. Di luar render induk, bukan di dalamnya. */
 function PilihSisi({
-  label, nilai, atur,
+  label, arti, nilai, atur,
 }: {
-  label: string; nilai: NamaSisi; atur: (s: NamaSisi) => void
+  label: string; arti: string; nilai: NamaSisi; atur: (s: NamaSisi) => void
 }) {
   return (
-    <div>
-      <label><span>{label}</span></label>
+    <div className="kendali-pilihan">
+      <div className="kendali-nama">
+        <span><b>{label}</b><span className="kendali-arti"> · {arti}</span></span>
+        <span className="kendali-nilai">{nilai}</span>
+      </div>
       <div className="pilih-sisi">
         {(Object.keys(SISI) as NamaSisi[]).map((s) => (
           <button

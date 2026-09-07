@@ -1,5 +1,6 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import Bidang from '@/components/widget/limit/Bidang'
 import { KOTAK, MONO, WARNA, angka, keLayar, type Jendela } from '@/components/widget/limit/koordinat'
 
@@ -25,6 +26,7 @@ export const BATAS_JARAK = { min: 0.02, maks: 0.8, langkah: 0.02 }
 const JENDELA: Jendela = { xMin: 0, xMax: 4, yMin: 0, yMax: 10 }
 
 export default function TarifMelompat({ c, jarak }: { c: number; jarak: number }) {
+  const dipegang = useSedangDiubah()
   const p = keLayar(JENDELA)
 
   const xKiri = c - jarak
@@ -55,7 +57,7 @@ export default function TarifMelompat({ c, jarak }: { c: number; jarak: number }
             stroke={WARNA.redup} strokeWidth={1.4} strokeDasharray="4 4" opacity={0.7} />
 
       {/* titik tujuan */}
-      <line x1={p.x(c)} y1={KOTAK.y0} x2={p.x(c)} y2={KOTAK.y1}
+      <line className={dipegang === 'c' ? 'nyala' : undefined} x1={p.x(c)} y1={KOTAK.y0} x2={p.x(c)} y2={KOTAK.y1}
             stroke={WARNA.sudut} strokeWidth={1.4} strokeDasharray="6 5" opacity={0.8} />
       <text x={p.x(c)} y={KOTAK.y0 + 11} textAnchor="middle" fontSize={10.5}
             fill={WARNA.sudut} fontFamily={MONO}>c</text>
@@ -63,13 +65,13 @@ export default function TarifMelompat({ c, jarak }: { c: number; jarak: number }
       {/* penunjuk kiri */}
       <line x1={p.x(xKiri)} y1={p.y(yKiri)} x2={p.x(xKiri)} y2={KOTAK.y1}
             stroke={WARNA.samping} strokeWidth={1.4} opacity={0.6} />
-      <circle cx={p.x(xKiri)} cy={p.y(yKiri)} r={5.5} fill={WARNA.samping}
+      <circle className={dipegang === 'c' || dipegang === 'jarak' ? 'nyala' : undefined} cx={p.x(xKiri)} cy={p.y(yKiri)} r={dipegang === 'c' || dipegang === 'jarak' ? 7 : 5.5} fill={WARNA.samping}
               stroke="var(--kartu)" strokeWidth={2} />
 
       {/* penunjuk kanan */}
       <line x1={p.x(xKanan)} y1={p.y(yKanan)} x2={p.x(xKanan)} y2={KOTAK.y1}
             stroke={WARNA.depan} strokeWidth={1.4} opacity={0.6} />
-      <circle cx={p.x(xKanan)} cy={p.y(yKanan)} r={5.5} fill={WARNA.depan}
+      <circle className={dipegang === 'c' || dipegang === 'jarak' ? 'nyala' : undefined} cx={p.x(xKanan)} cy={p.y(yKanan)} r={dipegang === 'c' || dipegang === 'jarak' ? 7 : 5.5} fill={WARNA.depan}
               stroke="var(--kartu)" strokeWidth={2} />
 
       {/* angka kedua sisi */}

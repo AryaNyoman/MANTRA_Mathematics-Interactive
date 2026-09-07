@@ -3,6 +3,7 @@ import { Suspense } from 'react'
 import { notFound } from 'next/navigation'
 import Nav from '@/components/Nav'
 import HalamanTopik from '@/components/topik/HalamanTopik'
+import SedangMemuat from '@/components/mantra/SedangMemuat'
 import { TOPIK, cariTopik } from '@/content/topik'
 
 /**
@@ -42,11 +43,13 @@ export default async function RuteTopik({
       {topik.siap ? (
         /* Suspense WAJIB: `HalamanTopik` membaca `?materi=` lewat
            `useSearchParams`, dan Next 16 menolak merakit halaman statis yang
-           membacanya tanpa batas Suspense. Cadangannya sengaja kotak kosong
-           setinggi panel, bukan tulisan "memuat": panelnya muncul dalam
-           sekejap dan tulisan yang berkedip lebih mengganggu daripada
-           ruang kosong sesaat. */
-        <Suspense fallback={<div style={{ minHeight: '70vh' }} />}>
+           membacanya tanpa batas Suspense.
+
+           Cadangannya kerangka bernapas, bukan kotak kosong. Di jaringan
+           cepat panelnya muncul dalam sekejap dan kerangkanya nyaris tak
+           sempat terlihat; di jaringan lambat, kotak kosong tanpa keterangan
+           tidak bisa dibedakan dari halaman yang gagal. */
+        <Suspense fallback={<SedangMemuat />}>
           <HalamanTopik topik={topik} />
         </Suspense>
       ) : (

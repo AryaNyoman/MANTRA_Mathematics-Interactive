@@ -95,7 +95,7 @@ export const TAHAP: Tahap[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri adalah kejadian tadi dalam bentuk yang bisa Anda utak-atik. Geser sudut sinar mataharinya dan amati baik-baik.',
+        teks: 'Alat interaktifnya adalah kejadian tadi dalam bentuk yang bisa Anda utak-atik. Geser sudut sinar mataharinya dan amati baik-baik.',
         langkah: [
           'Geser ke sudut kecil: kedua bayangan memanjang jauh',
           'Geser ke sudut besar: kedua bayangan memendek',
@@ -139,7 +139,7 @@ export const TAHAP: Tahap[] = [
       'Maka perbandingan hanya bergantung pada sudut.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Tahap 1 berakhir pada satu dugaan: sudut yang sama memberi perbandingan yang sama. Sekarang kita buktikan.' },
+      { jenis: 'paragraf', teks: 'Materi 01 berakhir pada satu dugaan: sudut yang sama memberi perbandingan yang sama. Sekarang kita buktikan.' },
       { jenis: 'sesi', judul: 'Dua segitiga sebangun' },
       {
         jenis: 'poin',
@@ -160,7 +160,7 @@ export const TAHAP: Tahap[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Sekarang buktikan sendiri di alat sebelah kiri, jangan percaya begitu saja.',
+        teks: 'Sekarang buktikan sendiri di alatnya, jangan percaya begitu saja.',
         langkah: [
           'Tarik puncak segitiga menyamping: dua angka pertama berubah',
           'Perhatikan angka hasil bagi di bawah: tidak ikut berubah',
@@ -178,7 +178,7 @@ export const TAHAP: Tahap[] = [
           'Satu sudut, satu angka - berlaku untuk semua segitiga siku-siku di dunia',
         ],
       },
-      { jenis: 'sesi', judul: 'Coba sendiri di gambar sebelah kiri' },
+      { jenis: 'sesi', judul: 'Coba sendiri di alatnya' },
       {
         jenis: 'poin',
         butir: [
@@ -224,7 +224,7 @@ export const TAHAP: Tahap[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Nama sisi bergantung sudut mana yang sedang dilihat. Buktikan di alat sebelah kiri.',
+        teks: 'Nama sisi bergantung sudut mana yang sedang dilihat. Buktikan di alatnya.',
         langkah: [
           'Klik sudut A, perhatikan nama tiap sisinya',
           'Sekarang klik sudut B pada segitiga yang sama',
@@ -243,7 +243,7 @@ export const TAHAP: Tahap[] = [
         ],
         simpul: 'Garisnya tidak bergerak sedikit pun. Yang berubah hanya dari mana kita memandang.',
       },
-      { jenis: 'sesi', judul: 'Kenapa ini perlu satu tahap sendiri' },
+      { jenis: 'sesi', judul: 'Kenapa ini perlu satu materi sendiri' },
       {
         jenis: 'poin',
         butir: [
@@ -252,7 +252,7 @@ export const TAHAP: Tahap[] = [
           'Kesalahan ini paling sering terjadi dan paling sering luput, karena kelihatannya sepele',
         ],
       },
-      { jenis: 'paragraf', teks: 'Klik sudut A atau C di gambar sebelah kiri untuk merasakan pertukaran itu sendiri.' },
+      { jenis: 'paragraf', teks: 'Klik sudut A atau C di alatnya untuk merasakan pertukaran itu sendiri.' },
     ],
     seringKeliru: {
       judul: 'Nama sisi dikira melekat pada garisnya',
@@ -289,7 +289,7 @@ export const TAHAP: Tahap[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di kiri adalah pabrik perbandingan. Pilih sendiri pembilang dan penyebutnya.',
+        teks: 'Alat interaktifnya adalah pabrik perbandingan. Pilih sendiri pembilang dan penyebutnya.',
         langkah: [
           'Pilih depan dibagi miring, lihat namanya muncul: sinus',
           'Ganti jadi samping dibagi miring, itu cosinus',
@@ -327,10 +327,10 @@ export const TAHAP: Tahap[] = [
         butir: [
           'Sinus - berawal dari kata Sanskerta jya-ardha, artinya setengah tali busur. Diserap ke bahasa Arab jadi jiba, lalu keliru dibaca sebagai jaib yang berarti teluk atau lipatan. Penerjemah Latin memakai kata sinus, yang juga berarti teluk. Jadi nama itu sebenarnya kecelakaan penerjemahan',
           'Kosinus - dari complementi sinus, sinus dari sudut pelengkap. Pelengkap 30° adalah 60°, dan memang cos 30° sama dengan sin 60°',
-          'Tangen - dari kata Latin tangens, yang menyentuh. Di tahap 6 Anda akan melihat ia benar-benar berupa garis yang menyentuh lingkaran',
+          'Tangen - dari kata Latin tangens, yang menyentuh. Di Materi 06 Anda akan melihat ia benar-benar berupa garis yang menyentuh lingkaran',
         ],
       },
-      { jenis: 'paragraf', teks: 'Coba sendiri di gambar sebelah kiri: pilih sisi mana yang jadi pembilang dan mana yang jadi penyebut, lalu lihat nama resminya muncul.' },
+      { jenis: 'paragraf', teks: 'Coba sendiri di alatnya: pilih sisi mana yang jadi pembilang dan mana yang jadi penyebut, lalu lihat nama resminya muncul.' },
     ],
     seringKeliru: {
       judul: 'Dikira tiga rumus terpisah yang harus dihafal',
@@ -394,7 +394,7 @@ export const TAHAP: Tahap[] = [
           'Di kiri sumbu tegak cos jadi negatif, di bawah sumbu mendatar sin jadi negatif. Tandanya mengikuti arah, bukan aturan hafalan',
         ],
       },
-      { jenis: 'paragraf', teks: 'Inilah alasan lingkaran satuan digambar di mana-mana. Ia bukan hiasan, ia mengubah tiga pecahan jadi satu titik yang bisa ditunjuk. Seret titik ungu di sebelah kiri dan perhatikan kedua angkanya bergerak.' },
+      { jenis: 'paragraf', teks: 'Inilah alasan lingkaran satuan digambar di mana-mana. Ia bukan hiasan, ia mengubah tiga pecahan jadi satu titik yang bisa ditunjuk. Seret titik ungu di alatnya dan perhatikan kedua angkanya bergerak.' },
     ],
     seringKeliru: {
       judul: 'Dikira topik terpisah dari segitiga siku-siku',
@@ -417,7 +417,7 @@ export const TAHAP: Tahap[] = [
       'Nama tangen memang berarti menyentuh.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Di tahap 4 kita menemukan enam pembagian. Di tahap 5 dua di antaranya berubah jadi koordinat. Sekarang pertanyaannya: di mana empat sisanya berada pada gambar?' },
+      { jenis: 'paragraf', teks: 'Di Materi 04 kita menemukan enam pembagian. Di Materi 05 dua di antaranya berubah jadi koordinat. Sekarang pertanyaannya: di mana empat sisanya berada pada gambar?' },
       { jenis: 'sorot', teks: 'Jawabannya: keenamnya adalah ruas garis sungguhan pada lingkaran satuan. Tidak ada yang cuma rumus.' },
       { jenis: 'sesi', judul: 'Dua yang sudah kita kenal' },
       {
@@ -465,7 +465,7 @@ export const TAHAP: Tahap[] = [
         ],
         simpul: 'Di 45° semuanya berpasangan kembar, karena segitiganya sama kaki.',
       },
-      { jenis: 'paragraf', teks: 'Geser sudutnya di sebelah kiri, lalu klik nama rasio yang ingin disorot. Perhatikan tan memanjang tak terkendali saat sudut mendekati 90°, sementara cot justru menyusut, dan sebaliknya saat sudut mengecil.' },
+      { jenis: 'paragraf', teks: 'Geser sudutnya di alatnya, lalu klik nama rasio yang ingin disorot. Perhatikan tan memanjang tak terkendali saat sudut mendekati 90°, sementara cot justru menyusut, dan sebaliknya saat sudut mengecil.' },
     ],
     seringKeliru: {
       judul: 'sec dikira kebalikan sin',
@@ -540,7 +540,7 @@ export const TAHAP: Tahap[] = [
           'Nilai di kuadran lain tinggal dicerminkan - tandanya berubah, besarnya tidak',
         ],
       },
-      { jenis: 'paragraf', teks: 'Telusuri perjalanannya di sebelah kiri. Jari-jari berhenti di tiap sudut istimewa, dan nilai eksaknya muncul di bawah, lengkap dengan asal-usul bangunnya.' },
+      { jenis: 'paragraf', teks: 'Telusuri perjalanannya di alatnya. Jari-jari berhenti di tiap sudut istimewa, dan nilai eksaknya muncul di bawah, lengkap dengan asal-usul bangunnya.' },
     ],
     seringKeliru: {
       judul: 'Tabel sudut istimewa dihafal mentah',
@@ -563,7 +563,7 @@ export const TAHAP: Tahap[] = [
       'Gelombang bukan bentuk baru - ia rekaman tinggi sebuah putaran.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Sampai tahap 7 titiknya selalu kita hentikan di sudut tertentu. Sekarang biarkan ia terus berputar, dan catat tingginya sepanjang perjalanan.' },
+      { jenis: 'paragraf', teks: 'Sampai Materi 07 titiknya selalu kita hentikan di sudut tertentu. Sekarang biarkan ia terus berputar, dan catat tingginya sepanjang perjalanan.' },
       { jenis: 'sesi', judul: 'Cara membacanya' },
       {
         jenis: 'poin',
@@ -604,7 +604,7 @@ export const TAHAP: Tahap[] = [
         ],
         simpul: 'Di puncak, titik sedang bergerak menyamping, bukan naik. Karena itu kurvanya melandai.',
       },
-      { jenis: 'paragraf', teks: 'Geser sudutnya di sebelah kiri dan perhatikan kurvanya tumbuh sendiri. Naikkan sampai lewat 360°, kurva mengulang persis, karena putarannya memang mengulang.' },
+      { jenis: 'paragraf', teks: 'Geser sudutnya di alatnya dan perhatikan kurvanya tumbuh sendiri. Naikkan sampai lewat 360°, kurva mengulang persis, karena putarannya memang mengulang.' },
     ],
     seringKeliru: {
       judul: 'Grafik sinus dikira gambar bentuk sesuatu',
@@ -627,14 +627,14 @@ export const TAHAP: Tahap[] = [
       'tan meledak setiap 90° karena penyebutnya menjadi nol.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Ketiga panel di sebelah kiri digerakkan oleh satu sudut yang sama. Yang berbeda hanya apa yang dicatat dari putaran itu.' },
+      { jenis: 'paragraf', teks: 'Ketiga panel di alatnya digerakkan oleh satu sudut yang sama. Yang berbeda hanya apa yang dicatat dari putaran itu.' },
       { jenis: 'sesi', judul: 'Apa yang dicatat masing-masing' },
       {
         jenis: 'poin',
         butir: [
           'sin θ - tinggi titik, ruas tegak',
           'cos θ - posisi mendatarnya, ruas mendatar',
-          'tan θ - ruas pada garis singgung, yang kita temui di tahap 6',
+          'tan θ - ruas pada garis singgung, yang kita temui di Materi 06',
         ],
       },
       {
@@ -736,7 +736,7 @@ export const TAHAP: Tahap[] = [
           'Begitu sudutnya melewati batas, layar dibalik',
         ],
       },
-      { jenis: 'paragraf', teks: 'Jadi setiap kali layar berputar saat ponsel Anda miringkan, yang baru saja terjadi adalah pembacaan sudut dari sebuah perbandingan sisi, persis yang Anda pelajari di tahap 4.' },
+      { jenis: 'paragraf', teks: 'Jadi setiap kali layar berputar saat ponsel Anda miringkan, yang baru saja terjadi adalah pembacaan sudut dari sebuah perbandingan sisi, persis yang Anda pelajari di Materi 04.' },
 
       {
         jenis: 'poin',
@@ -747,14 +747,14 @@ export const TAHAP: Tahap[] = [
           'Game yang berjalan 60 gambar per detik menghitung rumus itu puluhan ribu kali tiap detik',
         ],
       },
-      { jenis: 'paragraf', teks: 'Perhatikan bahwa rumus itu hanya memakai sin dan cos dari sudut putarnya. Tidak ada yang lain. Seluruh gerak berputar di layar game dibangun dari dua angka yang Anda kenal sejak tahap 4.' },
+      { jenis: 'paragraf', teks: 'Perhatikan bahwa rumus itu hanya memakai sin dan cos dari sudut putarnya. Tidak ada yang lain. Seluruh gerak berputar di layar game dibangun dari dua angka yang Anda kenal sejak Materi 04.' },
 
       {
         jenis: 'poin',
         judul: '4. Suara, bentuk aslinya kurva sinus',
         butir: [
           'Nada A yang dipakai menyetem gitar bergetar 440 kali per detik',
-          'Bentuk getarannya persis kurva yang lahir di tahap 8',
+          'Bentuk getarannya persis kurva yang lahir di Materi 08',
           'Nada lebih tinggi = kurva lebih rapat; suara lebih keras = kurva lebih tinggi',
           'Equalizer memecah lagu menjadi tumpukan gelombang sinus, lalu mengeraskan atau memelankan tiap kelompok',
         ],
@@ -772,13 +772,13 @@ export const TAHAP: Tahap[] = [
           'Keempat contoh di samping semuanya ada di dalam benda itu',
         ],
       },
-      { jenis: 'sorot', teks: 'Kurva yang Anda gambar di tahap 8 itu bukan latihan. Itu bentuk suara yang sedang Anda dengar.' },
+      { jenis: 'sorot', teks: 'Kurva yang Anda gambar di Materi 08 itu bukan latihan. Itu bentuk suara yang sedang Anda dengar.' },
 
       { jenis: 'paragraf', teks: 'Empat contoh, satu benda. Dan itu belum termasuk yang di luar genggaman: gelombang radio, arus listrik di rumah, pasang surut air laut, dan denyut jantung yang terbaca di layar rumah sakit, semuanya dijelaskan dengan kurva yang sama.' },
     ],
     seringKeliru: {
       judul: 'Mengira trigonometri hanya untuk mengukur tinggi pohon',
-      isi: 'Mengukur yang tidak terjangkau memang pintu masuknya, dan itu memang cerita tahap 1. Tapi begitu sesuatu berputar atau berulang secara teratur, suara, cahaya, arus listrik, pasang surut, gerak game, sin dan cos hampir selalu ikut. Trigonometri lebih sering dipakai untuk hal yang BERULANG daripada untuk segitiga.',
+      isi: 'Mengukur yang tidak terjangkau memang pintu masuknya, dan itu memang cerita Materi 01. Tapi begitu sesuatu berputar atau berulang secara teratur, suara, cahaya, arus listrik, pasang surut, gerak game, sin dan cos hampir selalu ikut. Trigonometri lebih sering dipakai untuk hal yang BERULANG daripada untuk segitiga.',
     },
     widget: 'dunia-nyata',
     siap: true,

@@ -45,10 +45,11 @@ export default function CerminTitik({
   const prapeta = BENTUK_L
   const peta = prapeta.map((t) => cerminTitik(t, pusat))
 
-  const jendela = jendelaSeimbang([...JANGKAR, ...prapeta, ...peta], NISBAH, 0.06)
-  const pointer = useSeret(jendela, svgRef, (t) =>
+  const jendelaHitung = jendelaSeimbang([...JANGKAR, ...prapeta, ...peta], NISBAH, 0.06)
+  const pointer = useSeret(jendelaHitung, svgRef, (t) =>
     onUbah(tahan(t, BATAS_PUSAT.x, BATAS_PUSAT.y)),
   )
+  const jendela = pointer.jendela
 
   const p = keLayar(jendela, KOTAK)
   const A = prapeta[0]
@@ -79,7 +80,7 @@ export default function CerminTitik({
       <RuasBerangka dari={A} ke={pusat} p={p} warna={ALAT} sisi={1} />
       <RuasBerangka dari={pusat} ke={Aksen} p={p} warna={ALAT} sisi={-1} />
 
-      <Pegangan titik={pusat} p={p} warna={ALAT} label={diTitikAsal ? 'O' : 'M'} />
+      <Pegangan titik={pusat} p={p} warna={ALAT} label={diTitikAsal ? 'O' : 'M'} kunci="pusat" />
 
       <Legenda
         entri={[

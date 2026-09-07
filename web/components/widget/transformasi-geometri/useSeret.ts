@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useRef, type PointerEvent, type RefObject } from 'react'
+import { useCallback, useRef, useState, type PointerEvent, type RefObject } from 'react'
 import { keMatematika, type Jendela, type Titik } from './papan'
 import { KOTAK, VH, VW } from './gaya'
 
@@ -23,11 +23,18 @@ import { KOTAK, VH, VW } from './gaya'
  * diangkat.
  */
 export function useSeret(
-  jendela: Jendela,
+  jendelaHitung: Jendela,
   svgRef: RefObject<SVGSVGElement | null>,
   onGeser: (t: Titik) => void,
 ) {
   const menyeret = useRef(false)
+  // Jendela DIBEKUKAN selama diseret (keputusan ARYA 5 Sep 2026): transformasi
+  // bisa melempar bayangan jauh, jadi jendelanya memang harus menyesuaikan,
+  // tetapi TIDAK di tengah seretan. Selama jari menahan, jendela yang dipakai
+  // untuk memetakan pointer dan untuk menggambar adalah jendela saat jari
+  // pertama menyentuh; setelah dilepas barulah ia menyesuaikan.
+  const [beku, setBeku] = useState<Jendela | null>(null)
+  const jendelaPakai = beku ?? jendelaHitung
 
   const bacaTitik = useCallback(
     (e: PointerEvent): Titik | null => {
@@ -38,20 +45,21 @@ export function useSeret(
 
       const vx = ((e.clientX - kotak.left) / kotak.width) * VW
       const vy = ((e.clientY - kotak.top) / kotak.height) * VH
-      const m = keMatematika(jendela, KOTAK)
+      const m = keMatematika(jendelaPakai, KOTAK)
       return { x: m.x(vx), y: m.y(vy) }
     },
-    [jendela, svgRef],
+    [jendelaPakai, svgRef],
   )
 
   const onPointerDown = useCallback(
     (e: PointerEvent) => {
       menyeret.current = true
+      setBeku(jendelaPakai)
       ;(e.currentTarget as Element).setPointerCapture(e.pointerId)
       const t = bacaTitik(e)
       if (t) onGeser(t)
     },
-    [bacaTitik, onGeser],
+    [bacaTitik, onGeser, jendelaPakai],
   )
 
   const onPointerMove = useCallback(
@@ -65,11 +73,12 @@ export function useSeret(
 
   const onPointerUp = useCallback((e: PointerEvent) => {
     menyeret.current = false
+    setBeku(null)
     const sasaran = e.currentTarget as Element
     if (sasaran.hasPointerCapture(e.pointerId)) sasaran.releasePointerCapture(e.pointerId)
   }, [])
 
-  return { onPointerDown, onPointerMove, onPointerUp }
+  return { onPointerDown, onPointerMove, onPointerUp, jendela: jendelaPakai }
 }
 
 /**
@@ -85,7 +94,7 @@ export function useSeret(
  * dipegang.
  */
 export function useSeretTitik(
-  jendela: Jendela,
+  jendelaHitung: Jendela,
   svgRef: RefObject<SVGSVGElement | null>,
   titik: Titik[],
   onGeser: (indeks: number, t: Titik) => void,
@@ -96,6 +105,8 @@ export function useSeretTitik(
   // dari lingkup fungsi sudah benar, sebab penangan ini dibuat ulang tiap kali
   // titiknya berubah.
   const dipegang = useRef<number | null>(null)
+  const [beku, setBeku] = useState<Jendela | null>(null)
+  const jendelaPakai = beku ?? jendelaHitung
 
   const bacaTitik = useCallback(
     (e: PointerEvent): Titik | null => {
@@ -105,10 +116,10 @@ export function useSeretTitik(
       if (kotak.width === 0 || kotak.height === 0) return null
       const vx = ((e.clientX - kotak.left) / kotak.width) * VW
       const vy = ((e.clientY - kotak.top) / kotak.height) * VH
-      const m = keMatematika(jendela, KOTAK)
+      const m = keMatematika(jendelaPakai, KOTAK)
       return { x: m.x(vx), y: m.y(vy) }
     },
-    [jendela, svgRef],
+    [jendelaPakai, svgRef],
   )
 
   const onPointerDown = useCallback(
@@ -125,10 +136,11 @@ export function useSeretTitik(
         }
       })
       dipegang.current = terdekat
+      setBeku(jendelaPakai)
       ;(e.currentTarget as Element).setPointerCapture(e.pointerId)
       onGeser(terdekat, t)
     },
-    [bacaTitik, onGeser, titik],
+    [bacaTitik, onGeser, titik, jendelaPakai],
   )
 
   const onPointerMove = useCallback(
@@ -142,9 +154,10 @@ export function useSeretTitik(
 
   const onPointerUp = useCallback((e: PointerEvent) => {
     dipegang.current = null
+    setBeku(null)
     const sasaran = e.currentTarget as Element
     if (sasaran.hasPointerCapture(e.pointerId)) sasaran.releasePointerCapture(e.pointerId)
   }, [])
 
-  return { onPointerDown, onPointerMove, onPointerUp }
+  return { onPointerDown, onPointerMove, onPointerUp, jendela: jendelaPakai }
 }

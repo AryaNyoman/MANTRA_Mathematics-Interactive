@@ -1,0 +1,21 @@
+{
+  "total": 143.664,
+  "segmen": {
+    "buka": 3.744,
+    "tumpuk": 7.416,
+    "susun": 9.096,
+    "persegi": 8.136,
+    "kolom1": 8.136,
+    "kolom2": 6.192,
+    "baca": 9.168,
+    "satuan": 8.64,
+    "kali": 6.144,
+    "uji": 12.888,
+    "kenal": 10.224,
+    "cocok": 8.76,
+    "keliru": 9.72,
+    "betul": 10.296,
+    "geser": 12.24,
+    "rangkum": 12.864
+  }
+}

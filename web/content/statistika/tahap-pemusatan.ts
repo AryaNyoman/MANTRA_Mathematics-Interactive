@@ -93,7 +93,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menaruh data di atas papan jungkat-jungkit. Penopangnya adalah mean, median ditandai garis di bawah papan, dan modus terbaca dari tumpukan titik yang paling tinggi.',
+        teks: 'Alat interaktifnya menaruh data di atas papan jungkat-jungkit. Penopangnya adalah mean, median ditandai garis di bawah papan, dan modus terbaca dari tumpukan titik yang paling tinggi.',
         langkah: [
           'Seret satu titik ke kanan. Perhatikan penopang, yaitu mean, ikut bergeser ke kanan.',
           'Perhatikan median sering tidak ikut bergeser sama sekali.',
@@ -157,7 +157,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       { jenis: 'paragraf', teks: 'Median hanya memakai POSISI. Bagi median, gaji direktur itu cuma "satu data yang ada di paling kanan". Mau 75 juta atau 750 juta, posisinya tetap sama, dan mediannya tidak berubah sedikit pun.' },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri punya satu titik yang bisa diseret sejauh mungkin ke kanan.',
+        teks: 'Alat interaktifnya punya satu titik yang bisa diseret sejauh mungkin ke kanan.',
         langkah: [
           'Seret titik paling kanan menjauh perlahan.',
           'Perhatikan penanda mean ikut lari mengejarnya, sementara penanda median berhenti di tempat.',
@@ -260,7 +260,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri membentuk boxplot dari titik data di bawahnya.',
+        teks: 'Alat interaktifnya membentuk boxplot dari titik data di bawahnya.',
         langkah: [
           'Seret titik paling kanan mendekat ke kelompoknya. Perhatikan kumisnya memendek tetapi kotaknya nyaris tidak berubah.',
           'Nyalakan tanda pagar 1,5 × JAK, lalu perhatikan titik pencilan berubah warna sendiri.',
@@ -338,7 +338,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
         ],
         simpul: 'Angka ini disebut varian. Ia sudah berhasil membedakan kedua mesin: 2 lawan 50.',
       },
-      { jenis: 'paragraf', teks: 'Kuadrat itu bisa dibayangkan sebagai luas persegi yang sisinya sepanjang simpangan. Alat di sebelah kiri menggambarnya persis seperti itu, jadi varian adalah rata-rata luas persegi tersebut.' },
+      { jenis: 'paragraf', teks: 'Kuadrat itu bisa dibayangkan sebagai luas persegi yang sisinya sepanjang simpangan. Alat interaktifnya menggambarnya persis seperti itu, jadi varian adalah rata-rata luas persegi tersebut.' },
 
       { jenis: 'sesi', judul: 'Langkah 4, akarkan supaya satuannya masuk akal' },
       { jenis: 'paragraf', teks: 'Varian punya satu cacat: satuannya ikut terkuadratkan. Isi botol diukur dalam ml, jadi variannya bersatuan ml kuadrat, dan tidak ada orang yang bisa membayangkan ml kuadrat.' },
@@ -353,7 +353,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menggambar seluruh langkah tadi sekaligus.',
+        teks: 'Alat interaktifnya menggambar seluruh langkah tadi sekaligus.',
         langkah: [
           'Seret satu botol menjauh dari mean. Perhatikan sisi bawah perseginya memanjang, dan perseginya membesar mengikuti.',
           'Perhatikan persegi tumbuh jauh lebih cepat daripada garisnya. Jarak dua kali lipat membuat luasnya empat kali lipat.',
@@ -477,7 +477,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       },
       {
         jenis: 'coba',
-        teks: 'Alat di sebelah kiri menampilkan histogram dan tabelnya berdampingan.',
+        teks: 'Alat interaktifnya menampilkan histogram dan tabelnya berdampingan.',
         langkah: [
           'Sentuh satu baris tabel, dan batang yang bersangkutan ikut menyala. Keduanya benda yang sama.',
           'Geser garis median sampai luas di kirinya sama dengan luas di kanannya.',

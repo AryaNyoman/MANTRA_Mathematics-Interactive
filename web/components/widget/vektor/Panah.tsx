@@ -1,6 +1,7 @@
 'use client'
 
 import { keLayar, type Jendela, type Vek } from './geometri'
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import { KERTAS, KOTAK, MONO } from './gaya'
 
 /**
@@ -28,6 +29,7 @@ export default function Panah({
   bagian = 0.5,
   jarakLabel = 13,
   opasitas = 1,
+  kunci,
 }: {
   dari: Vek
   ke: Vek
@@ -54,7 +56,17 @@ export default function Panah({
    */
   jarakLabel?: number
   opasitas?: number
+  /**
+   * Nama besaran yang digambar panah ini, misalnya "dayung". Kalau sama
+   * dengan besaran yang sedang dipegang siswa di kendali, panahnya MENYALA:
+   * lebih tebal dan berpendar emas. Itu cara gambar memberi tahu penggeser
+   * mana mengubah panah mana, tanpa satu pun kalimat.
+   */
+  kunci?: string
 }) {
+  const dipegang = useSedangDiubah()
+  const nyala = kunci !== undefined && dipegang === kunci
+  const tebalKini = nyala ? tebal * 1.7 : tebal
   const p = keLayar(jendela, KOTAK)
   const x1 = p.x(dari.x)
   const y1 = p.y(dari.y)
@@ -91,10 +103,10 @@ export default function Panah({
   const labelY = y1 + (ky - y1) * bagian + ny * geser + 3.6
 
   return (
-    <g opacity={opasitas}>
+    <g opacity={opasitas} className={nyala ? 'nyala' : undefined}>
       <line
         x1={x1} y1={y1} x2={kx} y2={ky}
-        stroke={warna} strokeWidth={tebal} strokeLinecap="round"
+        stroke={warna} strokeWidth={tebalKini} strokeLinecap="round"
         strokeDasharray={putus ? '5 4' : undefined}
       />
       <polygon points={mata} fill={warna} />

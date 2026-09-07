@@ -54,10 +54,11 @@ export default function PerbesarBentuk({
   const prapeta = BENTUK_L
   const peta = prapeta.map((t) => dilatasi(t, k, pusat))
 
-  const jendela = jendelaSeimbang([...JANGKAR, ...prapeta, ...peta, pusat], NISBAH, 0.08)
-  const pointer = useSeret(jendela, svgRef, (t) =>
+  const jendelaHitung = jendelaSeimbang([...JANGKAR, ...prapeta, ...peta, pusat], NISBAH, 0.08)
+  const pointer = useSeret(jendelaHitung, svgRef, (t) =>
     onUbahPusat(tahan(t, BATAS_PUSAT_DILATASI.x, BATAS_PUSAT_DILATASI.y)),
   )
+  const jendela = pointer.jendela
 
   const p = keLayar(jendela, KOTAK)
 
@@ -116,7 +117,7 @@ export default function PerbesarBentuk({
         <RuasBerangka dari={pusat} ke={petaUkur} p={p} warna={ALAT} desimal={2} sisi={-1} />
       )}
 
-      <Pegangan titik={pusat} p={p} warna={ALAT} label={diTitikAsal ? 'O' : 'P'} />
+      <Pegangan titik={pusat} p={p} warna={ALAT} label={diTitikAsal ? 'O' : 'P'} kunci="pusat" />
 
       <Legenda
         entri={[

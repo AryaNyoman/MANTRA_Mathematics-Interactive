@@ -4,19 +4,12 @@ import { useRef } from 'react'
 import BidangVektor from './BidangVektor'
 import Legenda from './Legenda'
 import Panah from './Panah'
-import {
-  angka, jendelaSeimbang, kali, keLayar, panjang, tahan, type Vek,
-} from './geometri'
+import { angka, kali, keLayar, panjang, tahan, type Vek, jendelaTetap } from './geometri'
 import { KERTAS, KOTAK, MONO, NISBAH, WARNA } from './gaya'
 import { useSeret } from './useSeret'
 
 export const BATAS = { x: 2.5, y: 1.5 }
 export const BATAS_K = { min: -3, maks: 3, langkah: 0.25 }
-
-const JANGKAR: Vek[] = [
-  { x: -6, y: -3.5 },
-  { x: 6, y: 3.5 },
-]
 
 /**
  * Widget Materi 09: mengalikan vektor dengan sebuah bilangan.
@@ -37,7 +30,7 @@ export default function KaliSkalar({
 }) {
   const svgRef = useRef<SVGSVGElement | null>(null)
   const hasil = kali(k, a)
-  const jendela = jendelaSeimbang([...JANGKAR, a, hasil], NISBAH, 0.05)
+  const jendela = jendelaTetap(BATAS.x * BATAS_K.maks, BATAS.y * BATAS_K.maks, NISBAH)
   const pointer = useSeret(jendela, svgRef, (t) => onUbah(tahan(t, BATAS.x, BATAS.y, 0.5)))
 
   const asal: Vek = { x: 0, y: 0 }
@@ -55,8 +48,8 @@ export default function KaliSkalar({
     >
       {/* hasil kali digambar lebih dulu supaya panah asalnya tetap terlihat
           di atasnya saat pengalinya kecil dan keduanya berimpit */}
-      <Panah dari={asal} ke={hasil} jendela={jendela} warna={WARNA.sudut} tebal={3.4} />
-      <Panah dari={asal} ke={a} jendela={jendela} warna={WARNA.miring} tebal={2.4} pegangan />
+      <Panah dari={asal} ke={hasil} kunci="k" jendela={jendela} warna={WARNA.sudut} tebal={3.4} />
+      <Panah dari={asal} ke={a} kunci="a" jendela={jendela} warna={WARNA.miring} tebal={2.4} pegangan />
 
       {nol && (
         // Pada pengali nol, panahnya memang lenyap. Tanpa keterangan ini,

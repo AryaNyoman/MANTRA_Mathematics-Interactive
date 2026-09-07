@@ -74,6 +74,12 @@ export function useSeret(
       onPointerUp: selesai,
       onPointerCancel: selesai,
       onPointerLeave: selesai,
+      // touch-action DI SVG-NYA, bukan hanya di bolanya. Di HP (WebKit),
+      // touch-action pada anak SVG tidak selalu dihormati: peramban mengira
+      // jari mau menggulir halaman, mengirim pointercancel, dan seretan
+      // berhenti setelah bergerak sedikit (keluhan ARYA 5 Sep 2026). Widget
+      // Vektor dan Transformasi memasangnya di svg dan tidak punya masalah.
+      style: { touchAction: 'none' as const },
     },
     /** dipasang pada tiap titik yang bisa diseret */
     mulai,

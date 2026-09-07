@@ -1,5 +1,6 @@
 'use client'
 
+import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import { MONO, VH, VW, WARNA, angka } from '@/components/widget/limit/koordinat'
 
 /**
@@ -34,6 +35,7 @@ const TANDA_X = [2.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.6]
 const TANDA_F = [7, 8, 9, 10, 11, 12, 13]
 
 export default function GarisMendekati({ x }: { x: number }) {
+  const dipegang = useSedangDiubah()
   const nilai = f(x)
   const tepatDiC = Math.abs(x - C) < 1e-9
   const dariKiri = x < C
@@ -56,7 +58,7 @@ export default function GarisMendekati({ x }: { x: number }) {
       <circle cx={petaX(C)} cy={BARIS_X} r={6.5} fill="var(--kartu)" stroke={WARNA.sudut} strokeWidth={2.2} />
       <text x={petaX(C)} y={BARIS_X - 14} textAnchor="middle" fontSize={11} fill={WARNA.sudut} fontFamily={MONO}>c = 3</text>
       {/* posisi x sekarang */}
-      <circle cx={petaX(x)} cy={BARIS_X} r={5.5} fill={tepatDiC ? 'var(--kartu)' : WARNA.depan}
+      <circle className={dipegang === 'x' ? 'nyala' : undefined} cx={petaX(x)} cy={BARIS_X} r={dipegang === 'x' ? 7 : 5.5} fill={tepatDiC ? 'var(--kartu)' : WARNA.depan}
               stroke={tepatDiC ? WARNA.depan : 'var(--kartu)'} strokeWidth={2} />
 
       {/* panah arah datangnya */}
@@ -91,7 +93,7 @@ export default function GarisMendekati({ x }: { x: number }) {
       ))}
       <circle cx={petaF(L)} cy={BARIS_F} r={6.5} fill="var(--kartu)" stroke={WARNA.sudut} strokeWidth={2.2} />
       <text x={petaF(L)} y={BARIS_F + 34} textAnchor="middle" fontSize={11} fill={WARNA.sudut} fontFamily={MONO}>L = 10</text>
-      <circle cx={petaF(nilai)} cy={BARIS_F} r={5.5} fill={tepatDiC ? 'var(--kartu)' : WARNA.samping}
+      <circle className={dipegang === 'x' ? 'nyala' : undefined} cx={petaF(nilai)} cy={BARIS_F} r={dipegang === 'x' ? 7 : 5.5} fill={tepatDiC ? 'var(--kartu)' : WARNA.samping}
               stroke={tepatDiC ? WARNA.samping : 'var(--kartu)'} strokeWidth={2} />
 
       {/* ---------------- angka dan catatan ---------------- */}

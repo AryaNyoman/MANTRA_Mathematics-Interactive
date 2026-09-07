@@ -1,3 +1,4 @@
+import { Fragment, type ReactNode } from 'react'
 import type { Blok } from '@/content/trigonometri'
 
 /**
@@ -15,13 +16,20 @@ import type { Blok } from '@/content/trigonometri'
  *         yang lega, jadi batasnya tidak mungkin terlewat.
  *
  * `coba`  Kotak "Yuk bereksperimen" yang disorot, mengajak siswa memakai alat
- *         di sebelah kiri sebelum lanjut membaca. Ditaruh di tengah materi,
+ *         di panel Alat sebelum lanjut membaca. Ditaruh di tengah materi,
  *         bukan di akhir, supaya siswa mencoba selagi penasaran.
  *
  * Butir daftar boleh ditulis "Label - isi"; bagian sebelum tanda pisah akan
  * ditebalkan otomatis.
+ *
+ * `sisipan` (5 Sep 2026, keputusan ARYA): di layar sempit, materi TANPA video
+ * menaruh alatnya di sini, tepat di bawah kotak "Yuk bereksperimen" yang
+ * pertama, bukan di atas judul. Siswa membaca dulu, baru diajak mencoba.
+ * Kalau materinya tidak punya kotak itu (galeri dunia nyata), sisipan
+ * ditaruh di akhir bacaan.
  */
-export default function Penjelasan({ blok }: { blok: Blok[] }) {
+export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: ReactNode }) {
+  const letakSisipan = sisipan ? blok.findIndex((b) => b.jenis === 'coba') : -1
   // Nomor sesi dihitung DULU, bukan dengan penghitung yang dinaikkan di dalam
   // map. React 19 melarang mengubah variabel setelah render selesai, dan pada
   // render ulang penghitung semacam itu memberi nomor yang berbeda-beda.
@@ -47,15 +55,18 @@ export default function Penjelasan({ blok }: { blok: Blok[] }) {
 
         if (b.jenis === 'coba')
           return (
-            <div key={i} className="kotak-coba">
-              <div className="coba-cap">🔬 Yuk bereksperimen!</div>
-              <p>{b.teks}</p>
-              {b.langkah && (
-                <ul className="coba-langkah">
-                  {b.langkah.map((l, n) => <li key={n}>{l}</li>)}
-                </ul>
-              )}
-            </div>
+            <Fragment key={i}>
+              <div className="kotak-coba">
+                <div className="coba-cap">🔬 Yuk bereksperimen!</div>
+                <p>{b.teks}</p>
+                {b.langkah && (
+                  <ul className="coba-langkah">
+                    {b.langkah.map((l, n) => <li key={n}>{l}</li>)}
+                  </ul>
+                )}
+              </div>
+              {i === letakSisipan && sisipan}
+            </Fragment>
           )
 
         if (b.jenis === 'sorot')
@@ -95,6 +106,7 @@ export default function Penjelasan({ blok }: { blok: Blok[] }) {
           </div>
         )
       })}
+      {letakSisipan < 0 && sisipan}
     </div>
   )
 }

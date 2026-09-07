@@ -48,10 +48,11 @@ export default function PutarBentuk({
   const prapeta = BENTUK_L
   const peta = prapeta.map((t) => rotasi(t, derajat, pusat))
 
-  const jendela = jendelaSeimbang([...JANGKAR, ...prapeta, ...peta, pusat], NISBAH, 0.08)
-  const pointer = useSeret(jendela, svgRef, (t) =>
+  const jendelaHitung = jendelaSeimbang([...JANGKAR, ...prapeta, ...peta, pusat], NISBAH, 0.08)
+  const pointer = useSeret(jendelaHitung, svgRef, (t) =>
     onUbahPusat(tahan(t, BATAS_PUSAT_PUTAR.x, BATAS_PUSAT_PUTAR.y)),
   )
+  const jendela = pointer.jendela
 
   const p = keLayar(jendela, KOTAK)
 
@@ -86,7 +87,7 @@ export default function PutarBentuk({
       <Bentuk titik={prapeta} p={p} warna={PRAPETA} isian={0.08} putus />
       <Bentuk titik={peta} p={p} warna={PETA} isian={0.14} petik="'" />
 
-      <Pegangan titik={pusat} p={p} warna={ALAT} label={diTitikAsal ? 'O' : 'P'} />
+      <Pegangan titik={pusat} p={p} warna={ALAT} label={diTitikAsal ? 'O' : 'P'} kunci="pusat" />
 
       <Legenda
         entri={[

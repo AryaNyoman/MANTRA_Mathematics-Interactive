@@ -33,8 +33,14 @@ Situs belajar matematika SMA: **animasi Manim** (menjelaskan *kenapa*) + **widge
 | `alat/` | Alat bantu proyek di luar Manim, mis. pemeriksa jawaban soal |
 
 ## Aturan proyek (jangan dilanggar)
-- **7 topik**: trigonometri⭐, limit⭐, grafik fungsi, vektor, ruang 3D, statistika,
-  transformasi geometri (⭐ = unggulan). Transformasi geometri ditambahkan ARYA
+- **7 topik tayang + 2 sedang dibangun**: trigonometri⭐, limit⭐, grafik fungsi,
+  vektor, ruang 3D, statistika, transformasi geometri (⭐ = unggulan); Turunan dan
+  Integral (Kelas 12) disetujui ARYA 5 Sep 2026, rancangannya
+  `docs/superpowers/specs/2026-09-06-{turunan,integral}-alur-belajar.md`,
+  dikerjakan dua sesi sejak 7 Sep: MANTRA-TURUNAN (worktree
+  `materi-turunan-b8c515`, cabang `sesi/turunan-materi`, port 3015) dan
+  MANTRA-INTEGRAL (worktree `integral-folder-branch-setup-05863c`, cabang
+  `sesi/integral-materi`, port 3016), tugasnya `docs/tugas/MANTRA-TURUNAN-INTEGRAL.md`. Transformasi geometri ditambahkan ARYA
   3 Sep 2026 dan dikerjakan di worktree `mantra-transformasi-geometri`.
   Topik baru WAJIB didaftarkan di TIGA tempat: `web/content/topik.ts`,
   `web/content/daftar-isi.ts`, dan `web/content/subbab.ts` (pemetaan bab dan
@@ -72,6 +78,21 @@ Situs belajar matematika SMA: **animasi Manim** (menjelaskan *kenapa*) + **widge
   di proyek ini DAN proyek berikutnya. Pakai tanda baca lain: titik, koma, titik dua,
   tanda kurung, atau tanda hubung biasa. Berlaku untuk teks yang dilihat pengguna
   maupun untuk komentar kode.
+- **Setiap materi berwidget INTERAKTIF WAJIB punya kotak "Yuk bereksperimen"**
+  (blok `jenis: 'coba'`), ditaruh di titik siswa sudah cukup membaca untuk
+  mencoba. Galeri dunia nyata (`dunia-nyata-*`) dikecualikan: tidak ada yang
+  dicoba, dan di HP galerinya jatuh ke akhir bacaan, itu memang tempatnya
+  (diperjelas 7 Sep 2026 atas pertanyaan sesi Turunan).
+  Sebabnya: di layar sempit, materi TANPA video menyisipkan widgetnya tepat di
+  bawah kotak itu (keputusan ARYA 5 Sep 2026), supaya siswa membaca dulu dan
+  tidak disodori alat di atas judul. Tanpa kotak, widget jatuh ke akhir bacaan.
+  Materi bervideo dan tata letak desktop tidak terpengaruh.
+- **Kendali widget memakai komponen bersama** `web/components/kendali/`
+  (`Angka`, `Koordinat`, `Pilihan`, `Petunjuk`): nama + arti, angka tampil,
+  bisa diketik (dipotong ke batas, bukan ditolak), bisa digeser. Pegangan
+  yang bisa diseret memberi kelas `nyala` saat kuncinya sedang dipegang.
+  Label sumbu lewat `lib/petak-sumbu.ts`. Rancangan:
+  `docs/superpowers/specs/2026-09-05-sistem-kendali-widget-design.md`.
 - **Widget tidak boleh memotong gambarnya sendiri.** Bingkai wajib menyesuaikan otomatis
   dan memberi tahu penggunanya lewat penunjuk skala. (Bug temuan ARYA, 31 Agu.)
 

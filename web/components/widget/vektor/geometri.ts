@@ -1,3 +1,4 @@
+import { petakSumbu } from '@/lib/petak-sumbu'
 /**
  * Matematika vektor dan penskalaan bidang, untuk kesebelas widget Vektor.
  *
@@ -203,6 +204,36 @@ export function keMatematika(j: Jendela, kotak: Kotak) {
  * angkanya. Penahan batasnya juga yang membuat gambar tidak pernah terpotong:
  * kalau titiknya tidak bisa keluar, bingkainya tidak perlu mengejar.
  */
+/**
+ * Jendela TETAP dari kotak batas seret, tidak ikut titik yang sedang diseret.
+ *
+ * Keputusan ARYA 5 Sep 2026: jendela yang melar saat bola ditarik membuat
+ * seretannya terasa licin (jari bergerak sedikit, gambar berubah banyak) dan
+ * siswa kehilangan pijakan. Kotaknya adalah batas seret widget (BATAS), jadi
+ * semua yang bisa diseret selalu muat, dan sumbunya diam.
+ */
+export function jendelaTetap(
+  batasX: number, batasY: number, nisbahLayar: number, tepi = 0.05, yMin = -batasY,
+): Jendela {
+  return jendelaSeimbang([{ x: -batasX, y: yMin }, { x: batasX, y: batasY }], nisbahLayar, tepi)
+}
+
+/**
+ * Tahan `t` supaya t sendiri DAN t + lain sama-sama di dalam kotak batas.
+ * Dipakai widget yang menggambar resultan: jendelanya tidak lagi melebar
+ * mengikuti resultan, jadi resultannya yang harus dijaga tetap di kotak.
+ */
+export function tahanBersama(
+  t: Vek, lain: Vek, batasX: number, batasY: number, kelipatan = 0.5,
+): Vek {
+  const jepit = (n: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, n))
+  const bulat = (n: number) => Math.round(n / kelipatan) * kelipatan
+  return {
+    x: bulat(jepit(t.x, Math.max(-batasX, -batasX - lain.x), Math.min(batasX, batasX - lain.x))),
+    y: bulat(jepit(t.y, Math.max(-batasY, -batasY - lain.y), Math.min(batasY, batasY - lain.y))),
+  }
+}
+
 export function tahan(t: Vek, batasX: number, batasY: number, kelipatan = 0.5): Vek {
   const jepit = (n: number, batas: number) => Math.min(batas, Math.max(-batas, n))
   const bulat = (n: number) => Math.round(n / kelipatan) * kelipatan
@@ -233,21 +264,12 @@ export type Petak = { nilai: number; label: string }
  * 1, 2, atau 5 dikali pangkat sepuluh.
  */
 export function petak(min: number, maks: number, target = 6): Petak[] {
-  const rentang = maks - min
-  if (!Number.isFinite(rentang) || rentang <= 0) return []
-
-  const kasar = rentang / target
-  const pangkat = Math.pow(10, Math.floor(Math.log10(kasar)))
-  const sisa = kasar / pangkat
-  const langkah = (sisa >= 5 ? 10 : sisa >= 2 ? 5 : sisa >= 1 ? 2 : 1) * pangkat
-
-  const desimal = Math.max(0, -Math.floor(Math.log10(langkah)))
-  const hasil: Petak[] = []
-  for (let n = Math.ceil(min / langkah) * langkah; n <= maks + langkah * 1e-9; n += langkah) {
-    const nilai = Math.abs(n) < langkah * 1e-9 ? 0 : n
-    hasil.push({ nilai, label: angka(nilai, desimal) })
-  }
-  return hasil
+  // `target` tidak dipakai lagi. Sejak 5 Sep 2026 banyaknya label tidak
+  // ditebak, melainkan dihitung dari ruang: lihat lib/petak-sumbu.ts. Angka
+  // 400 adalah panjang kotak gambar yang lazim (viewBox 460 dikurangi tepi);
+  // bidang yang tahu panjang sumbunya persis memanggil petakSumbu langsung.
+  void target
+  return petakSumbu(min, maks, 400)
 }
 
 /**

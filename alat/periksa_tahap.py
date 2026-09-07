@@ -25,6 +25,13 @@ import re
 import sys
 from pathlib import Path
 
+# Konsol Windows bawaan (cp1252) tidak bisa mencetak huruf seperti ˣ atau θ
+# yang ada di judul materi, dan alat ini pernah mati di tengah tabel karena
+# itu (Turunan Materi 08, 7 Sep 2026) sambil terlihat seolah lolos. Keluaran
+# dipaksa UTF-8 supaya yang dinilai isinya, bukan kemampuan konsolnya.
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
 AKAR = Path(__file__).resolve().parent.parent
 
 # Topik yang diperiksa. Bawaannya tetap `grafik-fungsi` supaya perintah lama
@@ -44,6 +51,12 @@ TERLARANG = ['miskonsepsi', 'tentu saja', 'gampang']
 # "mudah" dan "jelas" diperiksa terpisah: keduanya sah kalau menggambarkan
 # BENDA ("jelas bukan nol"), dan hanya terlarang kalau menilai tugas siswa.
 CURIGA = ['terasa mudah', 'lebih mudah', 'sangat mudah', 'jelas sekali']
+# Bentuk lain ("sisanya mudah", "lebarnya sudah jelas", "paling mudah dilihat")
+# lolos dari daftar di atas; ketahuan 7 Sep 2026 di Integral, empat kalimat.
+# Daftar frasa tidak akan pernah lengkap, jadi SETIAP kalimat yang memuat kata
+# "mudah" atau "jelas" dicetak untuk dilihat mata, tanpa menggagalkan: yang
+# menggambarkan benda sah, yang menilai tugas siswa harus diganti.
+KATA_MATA = re.compile(r'\b(mudah|jelas)\b', re.I)
 
 
 def baca_tahap() -> list[dict]:
@@ -91,7 +104,7 @@ def nilai(t: dict) -> dict:
         # alatnya, dan kesalahan yang berbahaya: laporan "TDK" yang salah
         # membuat pembacanya berhenti memercayai kolom ini.
         'b2_panggil_ulang': bool(re.search(
-            r'tahap \d|Materi \d|di SMP|topik (Vektor|Trigonometri|Grafik Fungsi|Limit|Statistika)'
+            r'tahap \d|Materi \d|di SMP|topik (Vektor|Trigonometri|Grafik Fungsi|Limit|Statistika|Ruang Tiga Dimensi|Transformasi Geometri|Turunan|Integral)'
             r'|sudah sering|sudah pernah|sudah kita|sudah kamu'
             r'|sudah (Anda )?(pelajari|kenal|lihat|melihat)', s)),
         'b4_sesi': len(sesi),
@@ -101,6 +114,7 @@ def nilai(t: dict) -> dict:
         'b8_seringkeliru': "seringKeliru" in s,
         'b9_intisari': len(re.findall(r"^      '", s, re.M)) if 'intisari' in s else 0,
         'b10_terlarang': [k for k in TERLARANG + CURIGA if k in s.lower()],
+        'b10_mata': [k for k in re.findall(r"'((?:[^'\\]|\\.)*)'", s) if KATA_MATA.search(k)],
         'b10_emdash': '—' in s or '–' in s,
         'sesi': sesi,
     }
@@ -126,6 +140,13 @@ def main() -> int:
               f'{"ya" if d["b8_seringkeliru"] else "-":2s}  {b10}')
         if d['b10_terlarang']:
             print(f'     kata perlu diperiksa: {d["b10_terlarang"]}')
+        if d['b10_mata']:
+            print(f'     lihat dengan mata, {len(d["b10_mata"])} kalimat memuat "mudah"/"jelas"'
+                  + (':' if rinci else ' (--rinci untuk kalimatnya)'))
+            if rinci:
+                for k in d['b10_mata']:
+                    i = KATA_MATA.search(k).start()
+                    print(f'       ...{k[max(0, i - 60):i + 50]}...')
         if gemuk:
             print(f'     sesi kelewat panjang (blok): {d["b4_blok_per_sesi"]}')
 

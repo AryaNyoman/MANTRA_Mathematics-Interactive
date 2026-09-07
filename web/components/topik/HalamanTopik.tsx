@@ -10,12 +10,38 @@ import type { IsiTopik } from '@/components/topik/jenis'
 import { ISI_TOPIK } from '@/content/daftar-isi'
 import type { Topik } from '@/content/topik'
 import { cariBab, type SubBab } from '@/content/subbab'
-import { langgan } from '@/lib/simpanan'
+import { bacaAngka, langgan, simpanAngka } from '@/lib/simpanan'
 import {
   bacaKemajuan, catatDibuka, tambahDetik, kuisTerbuka, MENIT_MINIMUM,
 } from '@/lib/kemajuan'
+import { aturSesi, daftarkanAkar, keluarFokus, lepasSesi, useSesiBelajar } from '@/lib/sesi-belajar'
+import PenggeserEmas from '@/components/mantra/PenggeserEmas'
 
 type Layar = { jenis: 'tahap'; slug: string } | { jenis: 'latihan' } | { jenis: 'kuis' }
+
+/**
+ * Di bawah 1180 piksel kolom ALAT di kanan tidak muat lagi tanpa memeras
+ * kolom bacaan sampai di bawah lebar baca yang nyaman. Di sana kolom itu
+ * dilepas, dan siswa memilih sendiri mau menonton atau mencoba lewat
+ * segmen "Tonton / Coba sendiri".
+ *
+ * Dibaca lewat `useSyncExternalStore`, bukan disalin ke state lewat effect:
+ * nilainya selalu segar, dan hasil rakitan server (`false`) tidak pernah
+ * bertabrakan dengan hasil di peramban.
+ */
+const KUERI_PADAT = '(max-width: 1180px)'
+function langganPadat(ubah: () => void) {
+  const m = window.matchMedia(KUERI_PADAT)
+  m.addEventListener('change', ubah)
+  return () => m.removeEventListener('change', ubah)
+}
+function bacaPadat() {
+  return window.matchMedia(KUERI_PADAT).matches
+}
+
+/** Lebar awal kolom ALAT, dalam piksel. Sama dengan rancangan. */
+const LEBAR_ALAT_BAWAAN = 380
+const KUNCI_LEBAR = 'matra:lebar-alat'
 
 /** Berapa soal yang dikerjakan dalam satu sesi kuis, diambil dari bank soal. */
 const SOAL_PER_SESI = 8
@@ -102,7 +128,13 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
      serta Kuis terlihat menindih materi yang terpotong itu (temuan ARYA di
      HP, 3 Sep 2026). Rancangannya memang bukan tumpukan: "sidebar pohon
      berubah jadi laci yang digeser dari kiri" (HANDOFF bagian tampilan HP). */
-  const [laci, setLaci] = useState(false)
+  /* Laci daftar materi dan mode fokus TIDAK disimpan di sini, melainkan di
+     `lib/sesi-belajar`. Sebabnya: keduanya dikendalikan dari nav, dan nav
+     adalah komponen SAUDARA, bukan anak. Lihat catatan di berkas itu. */
+  const sesi = useSesiBelajar()
+  const laci = sesi.laci
+  const fokus = sesi.fokus
+  const setLaci = (buka: boolean) => aturSesi({ laci: buka })
   // Materi yang centangnya sedang meletup. Sekali saja, saat pertama dibuka.
   const [letup, setLetup] = useState<string | null>(null)
 
@@ -150,7 +182,59 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
 
   const tahap = layar.jenis === 'tahap' ? TAHAP.find((t) => t.slug === layar.slug) : undefined
   const adaVideo = Boolean(tahap?.video)
-  const tampilWidget = !adaVideo || mode === 'coba'
+
+  /* Layar lebar memperlihatkan KEDUANYA sekaligus: animasi di atas bacaan,
+     alat di kolom kanan. Itu perubahan v2 yang paling mengubah cara halaman
+     ini dipakai. Sebelumnya keduanya bergantian lewat tombol Tonton / Coba
+     sendiri, dan di layar 1440 piksel itu menyia-nyiakan sepertiga layar
+     yang kosong di kanan.
+
+     Tombol pilihannya tetap ada, TAPI hanya di bawah 1180 piksel, tempat
+     kolom alat memang tidak muat. */
+  const padat = useSyncExternalStore(langganPadat, bacaPadat, () => false)
+
+  /* Lebar kolom ALAT bisa ditarik siswa, seperti di rancangan. Ada yang mau
+     alatnya besar supaya gambarnya enak dilihat, ada yang mau bacaannya
+     lebar. Nilainya disimpan supaya pilihan itu tidak hilang tiap kali
+     halaman dimuat ulang; kuncinya tetap berawalan `matra:` seperti seluruh
+     simpanan proyek ini. */
+  const lebarAlat = useSyncExternalStore(
+    langgan,
+    () => bacaAngka(KUNCI_LEBAR, LEBAR_ALAT_BAWAAN),
+    () => LEBAR_ALAT_BAWAAN,
+  )
+  const [tarik, setTarik] = useState(false)
+  const acuanPanggung = useRef<HTMLDivElement>(null)
+  const akarHalaman = useRef<HTMLElement>(null)
+
+  /* Penarik dipasang di JENDELA, bukan di gagangnya: jari atau tetikus yang
+     bergerak cepat sering meninggalkan gagang selebar 10 piksel sebelum
+     peristiwa berikutnya sampai, dan kalau pendengarnya menempel di gagang,
+     tarikan berhenti di tengah jalan. */
+  useEffect(() => {
+    if (!tarik) return
+    const geser = (e: PointerEvent) => {
+      const k = acuanPanggung.current?.getBoundingClientRect()
+      if (!k) return
+      // Kolom bacaan dijaga tetap punya 360 piksel: di bawah itu barisnya
+      // terlalu pendek untuk dibaca dengan nyaman.
+      const maks = Math.min(k.width * 0.62, k.width - 360)
+      const lebar = Math.round(Math.max(280, Math.min(maks, k.right - e.clientX)))
+      if (Number.isFinite(lebar)) simpanAngka(KUNCI_LEBAR, lebar)
+    }
+    const lepas = () => setTarik(false)
+    window.addEventListener('pointermove', geser)
+    window.addEventListener('pointerup', lepas)
+    window.addEventListener('pointercancel', lepas)
+    return () => {
+      window.removeEventListener('pointermove', geser)
+      window.removeEventListener('pointerup', lepas)
+      window.removeEventListener('pointercancel', lepas)
+    }
+  }, [tarik])
+  const tampilWidget = !padat || !adaVideo || mode === 'coba'
+  const tampilVideo = adaVideo && (!padat || mode === 'tonton')
+  const pakaiMode = padat && adaVideo && Boolean(tahap?.widget)
 
   /* Pindah dari Peta Materi ke materi LAIN pada topik yang sama tidak memasang
      ulang komponen ini, jadi nilai awal di atas tidak dihitung lagi. Tanpa
@@ -206,6 +290,60 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
     }
   }, [laci])
 
+  /* Nav perlu tahu tiga hal dari halaman ini: bahwa ia sedang di halaman
+     belajar, nomor materi yang sedang dibuka (untuk pil "Materi 03" di HP),
+     dan ke mana tombol Lanjutkan harus membawa. Diterbitkan dari sini karena
+     hanya di sini semuanya diketahui. */
+  useEffect(() => {
+    const no = tahap ? dua(tahap.no) : layar.jenis === 'latihan' ? 'LT' : 'KS'
+    const nama =
+      tahap ? `Materi ${dua(tahap.no)}` : layar.jenis === 'latihan' ? 'Latihan' : 'Kuis'
+    aturSesi({
+      aktif: true,
+      no,
+      judul: `${topik.nama} · ${nama}`,
+      judulPanjang: tahap
+        ? `${topik.nama}, Materi ${dua(tahap.no)}: ${tahap.judul}`
+        : `${topik.nama}, ${nama}`,
+      lanjut: `/topik/${topik.slug}`,
+    })
+  }, [tahap, layar, topik.nama, topik.slug])
+
+  // Saat halaman belajar ditinggalkan, nav harus kembali normal. Tanpa ini
+  // pil "Mode fokus" ikut terbawa ke Peta Materi dan beranda.
+  useEffect(() => lepasSesi, [])
+
+  // Esc keluar dari mode fokus. Ini SATU-SATUNYA jalan keluar yang selalu
+  // ada: dalam mode fokus nav tidak tergambar, jadi tombol di sana tidak
+  // bisa dipakai untuk membatalkannya.
+  useEffect(() => {
+    if (!fokus) return
+    const saatTekan = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') keluarFokus()
+    }
+    window.addEventListener('keydown', saatTekan)
+    return () => window.removeEventListener('keydown', saatTekan)
+  }, [fokus])
+
+  /* Layar penuh bisa dibatalkan tanpa lewat tombol kita: Esc bawaan
+     peramban, F11, atau berpindah tab. Kalau keadaan fokus tidak ikut
+     dimatikan, nav tetap tersembunyi padahal layarnya sudah kembali normal,
+     dan siswa terjebak di halaman tanpa navigasi. */
+  useEffect(() => {
+    const saatBerubah = () => {
+      if (!document.fullscreenElement) aturSesi({ fokus: false })
+    }
+    document.addEventListener('fullscreenchange', saatBerubah)
+    return () => document.removeEventListener('fullscreenchange', saatBerubah)
+  }, [])
+
+  // Elemen halaman didaftarkan supaya `Nav` bisa meminta layar penuh
+  // langsung di dalam klik, bukan lewat effect yang berjalan belakangan.
+  useEffect(() => {
+    daftarkanAkar(akarHalaman.current)
+    return () => daftarkanAkar(null)
+  }, [])
+
   // Waktu hanya bertambah selama tab benar-benar terlihat: meninggalkan
   // halaman semalaman tidak boleh dihitung sebagai membaca.
   useEffect(() => {
@@ -239,51 +377,27 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   // halaman belajar cukup satu layar. Di HP aturan ini dilepas, sebab di
   // sana kolom bertumpuk dan halaman memang harus menggulir.
   return (
-    <main className="mantra-lebar materi-satu-layar">
+    <main ref={akarHalaman} className="mantra-lebar materi-satu-layar" data-fokus={fokus}>
+      {/* Dipasang DI SINI, bukan di `layout.tsx`. Halaman ini dirakit di
+          balik batas Suspense, jadi komponen yang berada di luarnya sempat
+          menyentuh penggeser sebelum widgetnya selesai dihidupkan di
+          peramban, dan React melaporkannya sebagai ketidakcocokan hidrasi.
+          Dari dalam sini efeknya baru berjalan setelah widget hidup. */}
+      <PenggeserEmas />
       <div className="materi-panel">
-        {/* Remah roti: kelas, bab, sub-bab, materi, lalu kemajuan di kanan. */}
-        <div className="remah">
-          {/* Pembuka laci daftar materi, HANYA tampil di layar HP. Di layar
-              lebar sidebar-nya memang selalu terlihat, jadi tombol ini tidak
-              ada gunanya di sana. */}
+        {/* Remah roti PINDAH ke atas kolom bacaan (lihat di bawah). Di v1 ia
+            sebuah bilah selebar panel; di v2 ia baris pertama bacaan, sebab
+            yang ia terangkan adalah bacaan itu, bukan seluruh halaman. */}
+        {fokus && (
           <button
             type="button"
-            className="buka-laci"
-            aria-expanded={laci}
-            aria-controls="pohon-materi"
-            onClick={() => setLaci(true)}
+            className="keluar-fokus"
+            title="Keluar layar penuh (Esc)"
+            onClick={keluarFokus}
           >
-            <span aria-hidden="true">☰</span> Materi
+            <span aria-hidden="true">✕</span>Keluar fokus <span className="tuts">Esc</span>
           </button>
-          {/* Dua remah pertama disembunyikan di layar HP. Remah tidak boleh
-              membungkus, dan rantai lengkapnya butuh 676 piksel: di layar 375
-              ia mendorong seluruh halaman keluar 333 piksel (terukur 3 Sep).
-              Yang dipertahankan adalah dua remah terakhir, sebab itulah yang
-              memberi tahu siswa di mana ia sekarang. */}
-          <span className="remah-awal">{topik.kelas}</span>
-          <span className="remah-pisah remah-awal">/</span>
-          <span className="remah-awal">
-            {bab ? `Bab ${bab.no} · ` : ''}
-            {topik.nama}
-          </span>
-          {subKini && (
-            <>
-              <span className="remah-pisah remah-awal">/</span>
-              <span className="nama-sub">{subKini.nama}</span>
-            </>
-          )}
-          <span className="remah-pisah">/</span>
-          <span className="kini">
-            {tahap ? `Materi ${dua(tahap.no)}` : layar.jenis === 'latihan' ? 'Latihan' : 'Kuis'}
-          </span>
-          <span className="kanan">
-            <span className="bar" role="img" aria-label={`Kemajuan ${persen} persen`}>
-              <span style={{ width: `${persen}%` }} />
-            </span>
-            <span style={{ fontWeight: 600, fontVariantNumeric: 'tabular-nums' }}>{persen}%</span>
-          </span>
-        </div>
-
+        )}
         <div className="materi-badan" data-rel={rel}>
           {/* Tirai gelap di belakang laci. Sebuah tombol, bukan div: menutup
               laci harus bisa dilakukan tanpa tetikus, dan tombol sudah bisa
@@ -329,6 +443,20 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
               >
                 ✕
               </button>
+            </div>
+
+            {/* Kemajuan pindah dari bilah remah ke kepala daftar materi.
+                Di situ ia berdiri tepat di atas daftar yang ia hitung, jadi
+                angkanya punya rujukan; di bilah atas ia cuma angka melayang. */}
+            <div className="pohon-maju">
+              <div className="pohon-bar" role="img" aria-label={`Kemajuan ${persen} persen`}>
+                <span style={{ width: `${persen}%` }} />
+              </div>
+              {!rel && (
+                <div className="pohon-maju-teks angka-rata">
+                  {jumlahDibuka} dari {urut.length} materi dibuka · {persen}%
+                </div>
+              )}
             </div>
 
             <div className="pohon-gulir">
@@ -408,77 +536,95 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
           {/* ======================= ISI MATERI ======================= */}
           <Panggung tahap={tahap} tampilWidget={tampilWidget}>
             {({ kiri, kanan, tanda }) => (
-              <div className="panggung">
-                <div className="kolom">
-                  {layar.jenis === 'latihan' && (
-                    <>
-                      <div className="tanda">LATIHAN · {LATIHAN.length} SOAL</div>
-                      <div className="isi-gulir"><Latihan soal={LATIHAN} /></div>
-                    </>
+              <div
+                className="panggung"
+                ref={acuanPanggung}
+                data-alat={!padat && Boolean(tahap)}
+                data-tarik={tarik}
+                style={
+                  !padat && tahap
+                    ? { gridTemplateColumns: `minmax(0, 1fr) 10px ${lebarAlat}px` }
+                    : undefined
+                }
+              >
+                {/* KOLOM BACAAN, di tengah. Di v1 kolom ini di kanan dan alat
+                    di kiri; v2 membaliknya, sebab yang paling lama ditatap
+                    adalah bacaannya, dan yang paling lama ditatap pantas
+                    berada di tengah pandangan, bukan di tepi. */}
+                <div className="kolom baca">
+                  {/* Remah roti: kelas, bab, sub-bab, materi. */}
+                  <div className="remah">
+                    <button
+                      type="button"
+                      className="buka-laci"
+                      aria-expanded={laci}
+                      aria-controls="pohon-materi"
+                      onClick={() => setLaci(true)}
+                    >
+                      <span aria-hidden="true">☰</span> Materi
+                    </button>
+                    {/* Dua remah pertama disembunyikan di layar HP. Remah tidak
+                        boleh membungkus, dan rantai lengkapnya butuh 676 piksel:
+                        di layar 375 ia mendorong seluruh halaman keluar 333
+                        piksel (terukur 3 Sep). Yang dipertahankan adalah dua
+                        remah terakhir, sebab itulah yang memberi tahu siswa di
+                        mana ia sekarang. */}
+                    <span className="remah-awal">{topik.kelas}</span>
+                    <span className="remah-pisah remah-awal">/</span>
+                    <span className="remah-awal">
+                      {bab ? `Bab ${bab.no} · ` : ''}
+                      {topik.nama}
+                    </span>
+                    {subKini && (
+                      <>
+                        <span className="remah-pisah remah-awal">/</span>
+                        <span className="nama-sub">{subKini.nama}</span>
+                      </>
+                    )}
+                    <span className="remah-pisah">/</span>
+                    <span className="kini">
+                      {tahap ? `Materi ${dua(tahap.no)}` : layar.jenis === 'latihan' ? 'Latihan' : 'Kuis'}
+                    </span>
+                  </div>
+
+                  {/* Segmen Tonton / Coba sendiri HANYA muncul di layar sempit.
+                      Di layar lebar keduanya tampil sekaligus, jadi tombol
+                      pilihan di sana hanya akan menyembunyikan sesuatu yang
+                      sudah muat. */}
+                  {pakaiMode && (
+                    <div className="pilih-mode" role="tablist" aria-label="Cara belajar materi ini">
+                      <button type="button" role="tab" aria-selected={mode === 'tonton'} onClick={() => setMode('tonton')}>
+                        Tonton
+                      </button>
+                      <button type="button" role="tab" aria-selected={mode === 'coba'} onClick={() => setMode('coba')}>
+                        Coba sendiri
+                      </button>
+                    </div>
                   )}
 
-                  {layar.jenis === 'kuis' && (
-                    <>
-                      {/* 8 soal per sesi, diambil dari bank 32 soal, dan yang sudah
-                          pernah keluar dihindari. Jadi mengulang kuis berarti
-                          bertemu soal baru. (Permintaan ARYA, 1 Sep 2026.) */}
-                      <div className="tanda">KUIS · {SOAL_PER_SESI} SOAL</div>
-                      <div className="isi-gulir">
-                        <Kuis
-                          bank={KUIS}
-                          jumlah={SOAL_PER_SESI}
-                          kunciSimpan={`matra:kuis:${topik.slug}`}
-                          topik={topik.slug}
-                        />
-                      </div>
-                    </>
+                  {tahap && tampilVideo && tahap.video && (
+                    <div className="layar layar-atas">
+                      <PemutarVideo
+                        berkas={tahap.video.berkas}
+                        poster={tahap.video.poster}
+                        judul={`Animasi: ${tahap.judul}`}
+                      />
+                    </div>
                   )}
 
-                  {tahap && (
-                    <>
-                      <div className="tanda">
-                        {adaVideo && mode === 'tonton' ? 'ANIMASI' : tanda}
-                      </div>
-
-                      {/* Tahap yang punya animasi DAN widget: siswa memilih salah
-                          satu. Menampilkan keduanya sekaligus memaksa panggung
-                          digulir, dan tata letak satu layar sudah dikunci. */}
-                      {adaVideo && tahap.widget && (
-                        <div className="pilih-mode" role="group" aria-label="Cara belajar tahap ini">
-                          <button aria-pressed={mode === 'tonton'} onClick={() => setMode('tonton')}>
-                            Tonton
-                          </button>
-                          <button aria-pressed={mode === 'coba'} onClick={() => setMode('coba')}>
-                            Coba sendiri
-                          </button>
-                        </div>
-                      )}
-
-                      {adaVideo && mode === 'tonton' && tahap.video && (
-                        <div className="layar">
-                          <PemutarVideo
-                            berkas={tahap.video.berkas}
-                            poster={tahap.video.poster}
-                            judul={`Animasi: ${tahap.judul}`}
-                          />
-                        </div>
-                      )}
-
+                  {/* Di layar sempit alat dan tabelnya ikut turun ke kolom ini,
+                      sebab kolom kanan tidak ada di sana. Di ATAS hanya kalau
+                      materinya punya video (siswa memilih "Coba sendiri").
+                      Tanpa video, alatnya disisipkan ke bacaan lewat
+                      `sisipan` Penjelasan, di bawah kotak "Yuk bereksperimen"
+                      (keputusan ARYA 5 Sep 2026). */}
+                  {padat && tahap && tampilWidget && adaVideo && (
+                    <div className="alat-sisip">
                       {kiri}
-
-                      {tampilWidget && !tahap.widget && (
-                        <div className="isi-gulir">
-                          <div className="cap">Intisari tahap ini</div>
-                          <ul className="intisari">
-                            {(tahap.intisari ?? []).map((b, i) => <li key={i}>{b}</li>)}
-                          </ul>
-                        </div>
-                      )}
-                    </>
+                      {kanan}
+                    </div>
                   )}
-                </div>
 
-                <div className="kolom kanan">
                   {tahap ? (
                     <>
                       <div className="jalur">
@@ -488,15 +634,25 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                       <div className="sub">{tahap.pertanyaan}</div>
 
                       <div className="blok">
-                        <Penjelasan blok={tahap.penjelasan} />
+                        <Penjelasan
+                          blok={tahap.penjelasan}
+                          sisipan={padat && !adaVideo && tampilWidget ? (
+                            <div className="alat-sisip">
+                              {kiri}
+                              {kanan}
+                            </div>
+                          ) : undefined}
+                        />
                       </div>
-
-                      {kanan}
 
                       {tahap.seringKeliru && (
                         <div className="blok">
-                          <div className="cap merah">Sering keliru</div>
+                          {/* Label ada DI DALAM kotak, bukan di atasnya.
+                              Di luar kotak ia terbaca sebagai judul bagian
+                              baru; di dalam ia terbaca sebagai peringatan
+                              milik kotak itu. */}
                           <div className="miskon">
+                            <div className="cap merah">Sering keliru</div>
                             <b>{tahap.seringKeliru.judul}</b>
                             <p style={{ margin: '6px 0 0' }}>{tahap.seringKeliru.isi}</p>
                             {tahap.seringKeliru.sumber && (
@@ -525,6 +681,25 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                     </>
                   )}
 
+                  {/* Soalnya datang SESUDAH judul dan keterangan cara
+                      memakainya. Sampai 4 Sep 2026 keduanya berada di kolom
+                      berbeda, jadi urutannya tidak pernah jadi soal; begitu
+                      keduanya turun ke satu kolom, soal yang mendahului
+                      judulnya membuat halaman terbuka di tengah pekerjaan. */}
+                  {layar.jenis === 'latihan' && <Latihan soal={LATIHAN} />}
+
+                  {layar.jenis === 'kuis' && (
+                    /* 8 soal per sesi, diambil dari bank 32 soal, dan yang sudah
+                       pernah keluar dihindari. Jadi mengulang kuis berarti
+                       bertemu soal baru. (Permintaan ARYA, 1 Sep 2026.) */
+                    <Kuis
+                      bank={KUIS}
+                      jumlah={SOAL_PER_SESI}
+                      kunciSimpan={`matra:kuis:${topik.slug}`}
+                      topik={topik.slug}
+                    />
+                  )}
+
                   {/* RINGKASAN ditaruh di BAWAH, tepat sebelum kotak YouTube.
                       Permintaan ARYA, dan ia menyatakan sudah berkali-kali
                       memintanya. Alasannya pedagogis: rangkuman berguna sebagai
@@ -543,37 +718,36 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                       berikutnya, bukan cuma nomornya, plus satu petunjuk apakah
                       siswa masih di sub-bab yang sama atau berpindah. */}
                   {tahap && (
+                    /* Bilah pindah materi LENGKET di dasar kolom bacaan.
+                       Sebelum v2 ia sepasang kartu besar berisi judul materi
+                       tetangga, dan letaknya di ujung bacaan: siswa yang baru
+                       membaca separuh harus menggulir sampai habis dulu untuk
+                       menemukannya. Sekarang ia selalu ada di bawah mata,
+                       cukup satu baris. */
                     <div className="pindah-materi">
                       <button
                         type="button"
                         className="pindah-kembali"
                         disabled={!sebelum}
-                        onClick={() => sebelum && setLayar({ jenis: 'tahap', slug: sebelum.slug })}
+                        title={sebelum ? sebelum.judul : 'Ini materi pertama'}
+                        onClick={() => sebelum && pilihLayar({ jenis: 'tahap', slug: sebelum.slug })}
                       >
-                        <div className="cap-kecil">
-                          <span>← Kembali</span>
-                        </div>
-                        <div className="judul-kecil">{sebelum?.judul ?? 'Materi pertama'}</div>
+                        ← Kembali
                       </button>
+                      {/* Petunjuk sub-bab disembunyikan di HP: di sana baris
+                          ini hanya muat untuk dua tombolnya. */}
+                      {saranLanjut && <span className="pindah-petunjuk">{saranLanjut}</span>}
                       <button
                         type="button"
                         className="pindah-lanjut"
+                        title={sesudah ? sesudah.judul : 'Uji dengan soal berjenjang'}
                         onClick={() =>
                           sesudah
-                            ? setLayar({ jenis: 'tahap', slug: sesudah.slug })
-                            : setLayar({ jenis: 'latihan' })
+                            ? pilihLayar({ jenis: 'tahap', slug: sesudah.slug })
+                            : pilihLayar({ jenis: 'latihan' })
                         }
                       >
-                        <div className="cap-kecil">
-                          <span>Lanjut →</span>
-                          <span className="angka-rata">
-                            {sesudah ? `Materi ${dua(sesudah.no)}` : 'Latihan'}
-                          </span>
-                        </div>
-                        <div className="judul-kecil">
-                          {sesudah?.judul ?? 'Uji dengan soal berjenjang'}
-                        </div>
-                        {saranLanjut && <div className="saran">{saranLanjut}</div>}
+                        {sesudah ? `Lanjut · Materi ${dua(sesudah.no)}` : 'Ke latihan'}
                       </button>
                     </div>
                   )}
@@ -612,6 +786,56 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                     </div>
                   </div>
                 </div>
+
+                {/* KOLOM ALAT, di kanan. Hanya ada di layar lebar; di layar
+                    sempit isinya disisipkan ke dalam kolom bacaan. Ia punya
+                    gulirnya sendiri, jadi menggeser sudut di sini tidak
+                    menggeser bacaan di sebelahnya. */}
+                {/* Gagang penarik antara bacaan dan alat. `role="separator"`
+                    beserta `aria-orientation` membuat pembaca layar
+                    menyebutnya pemisah, bukan tombol tak bernama.
+                    `touch-action: none` di CSS wajib: tanpa itu jari yang
+                    menarik gagang justru menggulir halaman. */}
+                {!padat && tahap && (
+                  <div
+                    className="tarik-alat"
+                    role="separator"
+                    aria-orientation="vertical"
+                    aria-label="Tarik untuk mengubah lebar alat"
+                    title="Tarik untuk memperbesar atau mengecilkan alat"
+                    onPointerDown={(e) => {
+                      e.preventDefault()
+                      setTarik(true)
+                    }}
+                    onDoubleClick={() => simpanAngka(KUNCI_LEBAR, LEBAR_ALAT_BAWAAN)}
+                  >
+                    <span aria-hidden />
+                  </div>
+                )}
+
+                {!padat && tahap && (
+                  <aside className="kolom alat" aria-label="Alat interaktif">
+                    <div className="alat-kepala">
+                      <span className="tanda-alat">
+                        {tahap.widget ? `ALAT · ${tanda}` : 'RINGKASAN'}
+                      </span>
+                      {tahap.widget && <span className="alat-ajak">Coba sendiri</span>}
+                    </div>
+                    {tahap.widget ? (
+                      <>
+                        {kiri}
+                        {kanan}
+                      </>
+                    ) : (
+                      <div className="alat-kosong">
+                        <div className="cap">Intisari materi ini</div>
+                        <ul className="intisari">
+                          {(tahap.intisari ?? []).map((b, i) => <li key={i}>{b}</li>)}
+                        </ul>
+                      </div>
+                    )}
+                  </aside>
+                )}
               </div>
             )}
           </Panggung>

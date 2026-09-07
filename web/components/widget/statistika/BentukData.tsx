@@ -1,5 +1,6 @@
 'use client'
 
+import { Petunjuk, Pilihan } from '@/components/kendali'
 import { useState } from 'react'
 import Papan from '@/components/widget/statistika/Papan'
 import { GarisBilangan, TumpukanTitik } from '@/components/widget/statistika/GarisBilangan'
@@ -174,36 +175,17 @@ export default function BentukData({ children }: PropWidget) {
     <>
       <div className="layar">{gambar}</div>
       <div className="kendali">
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label><span>Jenis datanya</span></label>
-          <div className="pilih-sisi">
-            <button aria-pressed={jenis === 'kategori'} onClick={() => setJenis('kategori')}>
-              Kategori
-            </button>
-            <button aria-pressed={jenis === 'angka'} onClick={() => setJenis('angka')}>
-              Angka
-            </button>
-          </div>
-        </div>
-        <div style={{ gridColumn: '1 / -1' }}>
-          <label><span>Bentuk gambarnya</span></label>
-          <div className="pilih-sisi" style={{ flexWrap: 'wrap' }}>
-            {(Object.keys(NAMA_BENTUK) as Bentuk[]).map((b) => (
-              <button key={b} aria-pressed={bentuk === b} onClick={() => setBentuk(b)}
-                      style={{ flex: '1 1 42%' }}>
-                {NAMA_BENTUK[b]}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div className="skala-info">
-          <span className="titik" />
-          <span>
+        <Pilihan nama="Jenis datanya" arti="nama-nama, atau angka yang bisa diurutkan"
+          pilihan={[{ nilai: 'kategori', label: 'Kategori' }, { nilai: 'angka', label: 'Angka' }]}
+          nilai={jenis} onPilih={setJenis} />
+        <Pilihan nama="Bentuk gambarnya" arti="tidak semua bentuk cocok untuk semua jenis data"
+          pilihan={(Object.keys(NAMA_BENTUK) as Bentuk[]).map((b) => ({ nilai: b, label: NAMA_BENTUK[b] }))}
+          nilai={bentuk} onPilih={setBentuk} />
+        <Petunjuk>
             {peringatan
               ? `tidak cocok. ${peringatan}`
               : `${NAMA_BENTUK[bentuk]} memang bentuk yang tepat untuk data ${jenis} ini`}
-          </span>
-        </div>
+          </Petunjuk>
       </div>
     </>
   )
@@ -233,7 +215,7 @@ export default function BentukData({ children }: PropWidget) {
       <div className="catatan">
         {peringatan
           ? `Gambar yang sedang tampil TIDAK cocok untuk data ini. ${peringatan}`
-          : 'Tabel dan gambar di sebelah kiri adalah benda yang sama dalam dua bentuk. Kalau salah satunya bercerita lain, ada yang salah.'}
+          : 'Tabel dan gambar di panel Alat adalah benda yang sama dalam dua bentuk. Kalau salah satunya bercerita lain, ada yang salah.'}
         {' '}{keterangan(jenis === 'kategori' ? KAT : ANGKA)}
       </div>
     </div>
