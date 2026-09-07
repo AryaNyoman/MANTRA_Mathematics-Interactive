@@ -261,9 +261,18 @@ class TurunanLajuRataRata(AdeganMatra):
         ident.set_opacity(0.0)
 
         with sinema.babak(self, "gambar", DURASI) as b:
+            # BERURUTAN, bukan bersamaan. Versi pertama memudarkan identitas
+            # lama dan memunculkan yang baru dalam satu gerakan, padahal
+            # keduanya duduk di TEMPAT YANG SAMA di pojok kiri atas: hasilnya
+            # satu detik penuh dua tulisan bertindih dan tidak terbaca
+            # ("sumbu tegak = barang" dengan "catatan produksi" menembusnya).
+            # Gerbang qc tidak menangkapnya sebab di titik pemeriksaan, yaitu
+            # ujung babak, cuma satu yang tampak. Yang menemukannya frame
+            # detik 55.
             b.main(FadeOut(tabel), FadeOut(hasil), FadeOut(ident_angka),
-                   ident.animate.set_opacity(1.0), run_time=1.0)
-            b.main(FadeIn(sumbu), FadeIn(l_jam), FadeIn(l_barang), run_time=1.8)
+                   run_time=1.0)
+            b.main(ident.animate.set_opacity(1.0), run_time=0.8)
+            b.main(FadeIn(sumbu), FadeIn(l_jam), FadeIn(l_barang), run_time=1.6)
             b.main(LaggedStartMap(FadeIn, simpul, lag_ratio=0.25), run_time=2.2)
             b.main(ShowCreation(kurva), run_time=2.6)
         qc.periksa_adegan(self, {"kurva": kurva},
