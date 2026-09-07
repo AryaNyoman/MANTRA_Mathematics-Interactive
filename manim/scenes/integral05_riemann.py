@@ -135,6 +135,22 @@ def bersihkan_panel(scene, papan, buang, b=None, run_time=0.9):
         b.catat(run_time)
 
 
+def pastikan_hilang(scene, benda: dict) -> None:
+    """Gagalkan render kalau benda dunia dari babak sebelumnya masih terpasang.
+
+    `qc.periksa_adegan` hanya memeriksa benda yang DISERAHKAN kepadanya, jadi
+    benda yang lupa dibuang tidak melanggar apa pun: ia cuma tetap tergambar.
+    Pada render kelima itu membuat segitiga contoh f(x) = x tertinggal di
+    layar sepanjang dua babak terakhir, di belakang panel rumus, sementara
+    narator sudah membahas kurva yang lain. Gerbang ini menyebut namanya.
+    """
+    tersisa = [nama for nama, m in benda.items() if m in scene.mobjects]
+    if tersisa:
+        raise RuntimeError(
+            "benda babak lama masih di layar: " + ", ".join(tersisa) +
+            ". Tambahkan FadeOut-nya pada pergantian babak.")
+
+
 class IntegralRiemann(AdeganMatra):
     def construct(self):
         frame = self.frame
@@ -215,8 +231,17 @@ class IntegralRiemann(AdeganMatra):
             b.tunggu_sampai(sinema.mulai(jam, "Pembagiannya disebut"))
             b.main(ShowCreation(lebar_bagi), FadeIn(l_dx), run_time=1.4)
             b.main(Indicate(l_dx, color=SOROT), run_time=1.2)
-            b.main(LaggedStartMap(Indicate, tanda_x, color=SOROT, lag_ratio=0.25),
-                   run_time=1.8)
+            # Ruas pengukurnya BERJALAN dari bagian ke bagian. Dua percobaan
+            # sebelumnya memakai denyut warna (`Indicate`) dan keduanya gagal:
+            # frame detik 28 dan 30 pada render kelima praktis gambar yang sama,
+            # sebab `scale_factor` 1,02 pada bidang setengah tembus pandang
+            # hampir tidak mengubah piksel. Yang penting bukan menyalakan
+            # kotaknya, melainkan memperlihatkan bahwa lebar yang SAMA muat di
+            # tiap bagian. Itu justru arti "sama lebar" yang sedang diucapkan.
+            selebar = bidang.c2p(lebar4, 0) - bidang.c2p(0, 0)
+            ukur = VGroup(lebar_bagi, l_dx)
+            for _ in range(3):
+                b.main(ukur.animate.shift(selebar), run_time=1.0)
 
         # ---------------------------------------------------------------
         # tinggi: titik sampel, dan bahwa TIAP bagian punya satu.
@@ -234,14 +259,30 @@ class IntegralRiemann(AdeganMatra):
         with sinema.babak(self, "tinggi", DURASI) as b:
             b.main(ShowCreation(tegak), run_time=1.4)
             b.main(FadeIn(titik, scale=0.5), run_time=0.8)
+            # Sementara narator mengucapkan "setinggi NILAI FUNGSI", nilainya
+            # ditarik ke sumbu tegak. Tanpa ini layar diam 1,8 detik menunggu
+            # kalimat berikutnya, dan alat ukur diam menghitung detik 27,9
+            # sampai 34,4 sebagai satu rentang beku.
+            garis_nilai = DashedLine(
+                bidang.c2p(0, f_pembuka(KIRI_AWAL + lebar4 * 2)),
+                bidang.c2p(KIRI_AWAL + lebar4 * 2, f_pembuka(KIRI_AWAL + lebar4 * 2)),
+            ).set_stroke(AKSEN, 2.0)
+            b.main(ShowCreation(garis_nilai), run_time=1.2)
             b.tunggu_sampai(sinema.mulai(jam, "diambil di satu titik sampel."))
-            b.main(FadeIn(l_sampel), run_time=1.0)
-            b.main(Indicate(titik, color=AKSEN), run_time=1.0)
+            # Label dan denyut titiknya JADI SATU kejadian, bukan dua beruntun:
+            # keduanya menerangkan benda yang sama, dan menggabungkannya memberi
+            # waktu kepada dua perpindahan di bawah, yang justru perlu terbaca.
+            b.main(FadeIn(l_sampel), Indicate(titik, color=AKSEN),
+                   FadeOut(garis_nilai), run_time=1.0)
             # TIAP bagian punya titik sampelnya sendiri: batangnya berpindah,
-            # bukan diam sementara narator menyebut "di tiap bagian".
+            # bukan diam sementara narator menyebut "di tiap bagian". Persegi
+            # panjang yang bersangkutan ikut menyala, sebab batang setipis ini
+            # saja tidak terbaca sebagai kejadian di 480p: itulah yang membuat
+            # detik 26 sampai 34 pada render keempat tampak beku.
             for i in (2, 3):
                 b.main(Transform(tegak, tegak_di(i)), Transform(titik, titik_di(i)),
-                       l_sampel.animate.next_to(titik_di(i), UR, buff=0.14), run_time=1.1)
+                       l_sampel.animate.next_to(titik_di(i), UR, buff=0.14),
+                       Indicate(empat[i], color=AKSEN, scale_factor=1.03), run_time=1.5)
         qc.periksa_adegan(self, {"label sampel": l_sampel},
                           hud={"identitas": ident}, dunia={"bidang": bidang})
 
@@ -249,6 +290,7 @@ class IntegralRiemann(AdeganMatra):
         # contoh: ganti ke f(x) = x pada [0, 7]; rumus LAHIR dekat kurvanya.
         # ---------------------------------------------------------------
         k_lurus = kurva(bidang, f_lurus, A, B, warna=TINTA)
+        daerah_lurus = daerah_bawah(bidang, f_lurus, A, B)
         with sinema.babak(self, "contoh", DURASI) as b:
             b.main(FadeOut(empat), FadeOut(daerah), FadeOut(tanda_x), FadeOut(l_dx),
                    FadeOut(lebar_bagi), FadeOut(titik), FadeOut(tegak),
@@ -256,20 +298,34 @@ class IntegralRiemann(AdeganMatra):
             b.main(Transform(k_lengkung, k_lurus), run_time=2.4)
             rum = sinema.lahir_rumus(self, r"f(x) = x", dekat=k_lurus, papan=papan,
                                      b=b, warna=TINTA)
-            b.main(Indicate(bidang.angka, color=SOROT, scale_factor=1.02), run_time=1.8)
+            # Daerah yang mau diukur DIWARNAI sekarang, bukan dibiarkan kosong
+            # sampai persegi panjangnya datang. Pada render keempat detik 46
+            # hanya berisi satu garis diagonal di bidang kosong sementara
+            # narator sudah menyebut selang dan banyak bagiannya.
+            b.main(FadeIn(daerah_lurus), run_time=1.6)
+            b.main(Indicate(bidang.angka, color=SOROT, scale_factor=1.02), run_time=1.4)
 
         # ---------------------------------------------------------------
         # hitung7: tujuh persegi panjang kanan, jumlahnya 28.
         # ---------------------------------------------------------------
         kanan7 = kotak_riemann(bidang, f_lurus, A, B, 7, "kanan")
         with sinema.babak(self, "hitung7", DURASI) as b:
-            b.main(FadeIn(kanan7[0]), FadeIn(kanan7[1]), run_time=1.2)
+            b.main(FadeIn(kanan7[0]), FadeIn(kanan7[1]), run_time=1.4)
             b.tunggu_sampai(sinema.mulai(jam, "Tinggi 1, 2, 3"))
-            b.main(LaggedStartMap(FadeIn, VGroup(*kanan7[2:]), lag_ratio=0.45),
-                   run_time=5.2)
+            # lag_ratio 0.8 membuat tiap persegi panjang selesai muncul sebelum
+            # yang berikutnya mulai. Pada render keempat lag 0.45 membuat kelima
+            # kotak memudar bersamaan pelan-pelan, dan perubahan per frame-nya
+            # terlalu kecil untuk terbaca sebagai kejadian.
+            b.main(LaggedStartMap(FadeIn, VGroup(*kanan7[2:]), lag_ratio=0.8),
+                   run_time=5.0)
             b.tunggu_sampai(sinema.mulai(jam, "Jumlahnya 28."))
             b_jumlah = papan.baris(r"1+2+\cdots+7 = 28", warna=AKSEN2, b=b)
-            b.main(Indicate(kanan7, color=AKSEN2, scale_factor=1.02), run_time=1.6)
+            # Warna denyutnya HARUS beda dari warna benda itu sendiri. Sampai
+            # render kelima tujuh `Indicate` di adegan ini menyuruh benda
+            # berubah ke warna yang sudah dipakainya, jadi yang tersisa cuma
+            # perbesaran dua persen: tidak ada satu piksel pun yang berganti
+            # warna, dan alat ukur diam membaca babak-babak itu sebagai beku.
+            b.main(Indicate(kanan7, color=SOROT, scale_factor=1.05), run_time=1.6)
         qc.periksa_adegan(self, {"kurva": k_lengkung},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang, "kotak": kanan7})
@@ -286,10 +342,10 @@ class IntegralRiemann(AdeganMatra):
         with sinema.babak(self, "segitiga", DURASI) as b:
             b.main(kanan7.animate.set_fill(AKSEN2, 0.12).set_stroke(opacity=0.4), run_time=1.0)
             b.main(ShowCreation(segitiga), run_time=3.0)
-            b.main(ShowCreation(alas), FadeIn(l_alas), run_time=1.2)
-            b.main(ShowCreation(tinggi_s), FadeIn(l_tinggi), run_time=1.2)
+            b.main(ShowCreation(alas), FadeIn(l_alas), run_time=1.6)
+            b.main(ShowCreation(tinggi_s), FadeIn(l_tinggi), run_time=1.6)
             b_luas = papan.baris(r"\tfrac{1}{2}\cdot 7\cdot 7 = 24{,}5", warna=SOROT, b=b)
-            b.main(Indicate(segitiga, color=SOROT, scale_factor=1.02), run_time=1.8)
+            b.main(Indicate(segitiga, color=AKSEN, scale_factor=1.05), run_time=2.4)
         qc.periksa_adegan(self, {"label alas": l_alas, "label tinggi": l_tinggi},
                           [("label alas", "label tinggi")],
                           hud={"identitas": ident, "papan": papan.semua()},
@@ -299,15 +355,22 @@ class IntegralRiemann(AdeganMatra):
         # jepit: titik sampel kiri memberi 21; jawabannya terjepit.
         # ---------------------------------------------------------------
         kiri7 = kotak_riemann(bidang, f_lurus, A, B, 7, "kiri")
+        # Bayangan tangga KANAN dipanggil kembali di akhir babak. Kalimatnya
+        # "jawabannya terjepit di antara 21 dan 28", dan yang paling terbaca
+        # bukan denyut warna melainkan KEDUA tangga tampak sekaligus dengan
+        # daerah sebenarnya di antaranya.
+        bayang_kanan = kanan7.copy().set_fill(AKSEN, 0.10).set_stroke(AKSEN, 1.4)
         with sinema.babak(self, "jepit", DURASI) as b:
             b.main(FadeOut(alas), FadeOut(l_alas), FadeOut(tinggi_s), FadeOut(l_tinggi),
                    kanan7.animate.set_fill(AKSEN, 0.16).set_stroke(AKSEN, 1.6, opacity=0.8),
                    run_time=1.4)
             b.main(FadeOut(kanan7), FadeIn(kiri7), run_time=1.8)
-            b.main(Indicate(kiri7, color=AKSEN2, scale_factor=1.02), run_time=1.4)
+            b.main(Indicate(kiri7, color=SOROT, scale_factor=1.05), run_time=1.4)
             b.tunggu_sampai(sinema.mulai(jam, "Jawabannya terjepit"))
             b_jepit = papan.baris(r"21 \le 24{,}5 \le 28", warna=AKSEN2, b=b)
-            b.main(Indicate(segitiga, color=SOROT, scale_factor=1.02), run_time=1.6)
+            b.main(FadeIn(bayang_kanan), run_time=1.4)
+            b.main(Indicate(kiri7, color=SOROT, scale_factor=1.05), run_time=1.2)
+            b.main(Indicate(bayang_kanan, color=SOROT, scale_factor=1.05), run_time=1.2)
         qc.periksa_adegan(self, {"kurva": k_lengkung},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang, "kotak": kiri7})
@@ -318,12 +381,12 @@ class IntegralRiemann(AdeganMatra):
         kanan14 = kotak_riemann(bidang, f_lurus, A, B, 14, "kanan")
         kanan60 = kotak_riemann(bidang, f_lurus, A, B, 60, "kanan")
         with sinema.babak(self, "perbanyak", DURASI) as b:
-            b.main(FadeOut(kiri7), FadeIn(kanan14), run_time=2.0)
+            b.main(FadeOut(kiri7), FadeOut(bayang_kanan), FadeIn(kanan14), run_time=2.4)
             sel = papan.baris(r"n = 14:\ \text{selisih } 1{,}75", warna=AKSEN, b=b)
-            b.main(FadeOut(kanan14), FadeIn(kanan60), run_time=2.4)
+            b.main(FadeOut(kanan14), FadeIn(kanan60), run_time=2.8)
             sel = sinema.ganti_rumus(self, sel, r"n = 60:\ \text{selisih } 0{,}41",
                                      b=b, warna=AKSEN, papan=papan)
-            b.main(Indicate(kanan60, color=AKSEN2, scale_factor=1.02), run_time=1.6)
+            b.main(Indicate(kanan60, color=SOROT, scale_factor=1.05), run_time=2.4)
 
         # ---------------------------------------------------------------
         # turun: kurva menurun 4 - x^2; bidang DAN kamera berganti sekali.
@@ -339,14 +402,25 @@ class IntegralRiemann(AdeganMatra):
             # Kurvanya DI-TRANSFORM, bukan dihapus lalu digambar ulang: lembar
             # kontak render kedua memperlihatkan satu frame berisi bidang kosong
             # tanpa kurva, tepat saat narator berkata "ganti kurvanya".
-            b.main(FadeOut(bidang), FadeIn(bidang_kecil),
+            # `daerah_lurus` HARUS ikut dibuang di sini. Titiknya dihitung dari
+            # `bidang` yang lama, jadi ketika kamera terbang ke bidang kecil ia
+            # tertinggal di tempatnya dan berubah jadi segitiga pucat raksasa
+            # yang menutupi separuh layar sampai video habis. Terlihat pada
+            # render kelima di detik 102: panel "kiri 6,25 kanan 4,25" berdiri
+            # di atas segitiga contoh sebelumnya, membantah gambarnya sendiri.
+            b.main(FadeOut(bidang), FadeOut(daerah_lurus), FadeIn(bidang_kecil),
                    Transform(k_lengkung, k_turun),
                    kamera.dekati(frame, pusat_k, tinggi=tinggi_k), run_time=3.0)
+            pastikan_hilang(self, {"bidang lama": bidang,
+                                   "daerah contoh lurus": daerah_lurus,
+                                   "kotak n=60": kanan60, "segitiga": segitiga})
             sinema.ganti_rumus(self, rum, r"f(x) = 4 - x^2", b=b, warna=TINTA, papan=papan)
             bersihkan_panel(self, papan, [b_jumlah, b_luas, b_jepit, sel], b=b)
-            b.main(FadeIn(kiri4, lag_ratio=0.25), run_time=2.0)
-            papan.baris(r"\text{kiri } 6{,}25 \quad \text{kanan } 4{,}25", warna=AKSEN2, b=b)
-            b.main(Indicate(kiri4, color=AKSEN2, scale_factor=1.03), run_time=1.4)
+            b.main(FadeIn(kiri4, lag_ratio=0.25), run_time=2.6)
+            b_angka = papan.baris(r"\text{kiri } 6{,}25 \quad \text{kanan } 4{,}25",
+                                  warna=AKSEN2, b=b)
+            b.main(Indicate(kiri4, color=SOROT, scale_factor=1.05), run_time=2.0)
+            b.main(Indicate(b_angka, color=SOROT), run_time=1.4)
         qc.periksa_adegan(self, {"kurva turun": k_lengkung},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_kecil})
@@ -358,13 +432,19 @@ class IntegralRiemann(AdeganMatra):
         with sinema.babak(self, "tutup", DURASI) as b:
             b.main(FadeOut(kiri4), FadeIn(kanan4), run_time=1.8)
             b.main(FadeIn(bayang_kiri), run_time=1.4)
-            b.main(Indicate(bayang_kiri, color=AKSEN2, scale_factor=1.03), run_time=1.4)
-            b.main(Indicate(kanan4, color=AKSEN, scale_factor=1.03), run_time=1.4)
+            b.main(Indicate(bayang_kiri, color=SOROT, scale_factor=1.05), run_time=1.4)
+            b.main(Indicate(kanan4, color=SOROT, scale_factor=1.05), run_time=1.4)
             b.tunggu_sampai(sinema.mulai(jam, "di sisi mana kurvanya"))
             papan.baris(r"\text{yang lebih tinggi menang}", warna=SOROT, b=b)
             # Yang tampil di layar adalah `k_lengkung` hasil Transform, bukan
             # `k_turun` yang cuma sasaran dan tidak pernah ditambahkan ke adegan.
             b.main(Indicate(k_lengkung, color=SOROT), run_time=1.8)
+            # Kejadian tambahan ditaruh SESUDAH jangkar, bukan sebelumnya.
+            # Menambah animasi sebelum `tunggu_sampai` hanya memakan waktu
+            # menunggu dan panjang babaknya tidak berubah sama sekali; ekor
+            # diamnya tetap 2,9 detik. Yang menutup ekor itu hanya kejadian
+            # yang terjadi setelah kalimat jangkarnya dimulai.
+            b.main(Indicate(kanan4, color=SOROT, scale_factor=1.05), run_time=1.4)
         qc.periksa_adegan(self, {"kurva turun": k_lengkung},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_kecil})
