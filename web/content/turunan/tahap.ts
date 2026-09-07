@@ -614,6 +614,7 @@ export const TAHAP: TahapTurunan[] = [
       'Aturan rantai: turunkan bagian luarnya dulu, lalu kalikan dengan turunan bagian dalamnya.',
       'Dalam notasi Leibniz: dy/dx sama dengan dy/du dikali du/dx.',
       'Kesalahan tersering adalah lupa mengalikan turunan bagian dalam.',
+      'Bagian dalam boleh berupa waktu: kalau ukuran benda berubah tiap detik, isinya ikut berubah lewat aturan rantai.',
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Sampai Materi 06 semua fungsi bisa dijabarkan dulu, lalu diturunkan suku demi suku. Cara itu masih bisa dipakai untuk (x² + 1)². Untuk (2x - 5)⁸, menjabarkannya butuh kesabaran yang tidak masuk akal.' },
@@ -693,6 +694,23 @@ export const TAHAP: TahapTurunan[] = [
         ],
         simpul: 'Aturan pangkat dari Materi 04 tetap dipakai. Yang ditambahkan hanya pengali di belakang.',
       },
+
+      { jenis: 'sesi', judul: 'Kalau bagian dalamnya adalah waktu' },
+      { jenis: 'paragraf', teks: 'Sejauh ini bagian dalamnya selalu berupa x. Padahal bagian dalam boleh apa saja, termasuk sesuatu yang berubah menurut waktu. Sebuah balon yang ditiup, sebatang logam yang memuai, sebuah kubus yang sisinya memanjang: ukurannya berubah tiap detik, dan isinya ikut berubah.' },
+      { jenis: 'paragraf', teks: 'Dua tingkat itu persis bentuk yang barusan kita bangun. Isi bergantung pada sisi, dan sisi bergantung pada waktu. Jadi pengalinya juga dikalikan.' },
+      {
+        jenis: 'contoh',
+        judul: 'Kubus yang sisinya memanjang 2 cm tiap detik',
+        baris: [
+          'isi kubus             V = s³, jadi dV/ds = 3s²',
+          'sisinya memanjang     ds/dt = 2 cm per detik',
+          'aturan rantai         dV/dt = dV/ds · ds/dt = 3s² · 2',
+          'saat sisinya 5 cm     3 · 25 · 2 = 150',
+        ],
+        simpul: 'Isinya bertambah 150 cm³ tiap detik, padahal sisinya hanya memanjang 2 cm tiap detik.',
+      },
+      { jenis: 'paragraf', teks: 'Perhatikan betapa jauh selisihnya. Sisi bertambah 2, tetapi isi bertambah 150. Sebabnya kubus punya tiga arah sekaligus, dan aturan rantai yang menghitungkan hal itu untuk kita.' },
+      { jenis: 'paragraf', teks: 'Pola ini muncul di banyak soal terapan, dan bentuknya selalu sama: cari dulu turunan yang menghubungkan kedua besaran, lalu kalikan dengan laju yang sudah diketahui.' },
     ],
     seringKeliru: {
       judul: 'Turunan bagian dalam sering tertinggal',

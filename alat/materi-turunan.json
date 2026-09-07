@@ -663,5 +663,24 @@
     "nilai": "4*pi*7 - 2000/49",
     "desimal": 1,
     "jawaban": "47.1"
+  },
+  {
+    "id": "m07-turunan-isi-kubus",
+    "jenis": "turunan",
+    "f": "s**3",
+    "peubah": "s",
+    "jawaban": "3*s**2"
+  },
+  {
+    "id": "m07-laju-isi-kubus",
+    "jenis": "ekspresi",
+    "hitung": "3*5**2*2",
+    "jawaban": 150
+  },
+  {
+    "id": "m07-pengecoh-lupa-laju-sisi",
+    "jenis": "ekspresi",
+    "hitung": "3*5**2",
+    "jawaban": 75
   }
 ]
