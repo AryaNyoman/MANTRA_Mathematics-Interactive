@@ -162,6 +162,12 @@ def periksa(saring: str | None) -> int:
         topik = v.stem
         lama = durasi_video(v)
         catat = []
+        if lama <= 0:
+            # Tanpa baris ini, video berdurasi 0 (rusak atau sedang ditulis)
+            # LOLOS: pembanding di bawah hanya menangkap video yang lebih
+            # panjang dari subtitle-nya. Terbukti 7 Sep 2026: ruang-3d-03.webm
+            # yang baru separuh ditulis dilaporkan "ok (0.0 s)".
+            catat.append("durasi video TIDAK TERBACA (berkas rusak atau sedang ditulis)")
 
         vtt = ANIM / f"{topik}.vtt"
         if not vtt.exists():
