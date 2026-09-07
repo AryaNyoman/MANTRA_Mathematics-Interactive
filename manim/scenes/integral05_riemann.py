@@ -10,12 +10,24 @@ WARNA, satu makna sepanjang video:
   SOROT ungu   = luas sebenarnya dan kesimpulan
   REDUP        = bantu, TINTA = tulisan
 
+ISTILAH DISAMAKAN DENGAN WIDGET HALAMANNYA (`widget/integral/
+PersegiPanjangMenumpuk.tsx`), diperiksa 8 Sep 2026 dengan membuka widgetnya:
+"bagian", "titik sampel" (kiri, kanan, tengah), "jumlahan", "luas sebenarnya",
+"selisih". Warnanya juga sama: persegi panjang biru, kurva gelap.
+
+BATAS SUMBU WAJIB KELIPATAN LANGKAHNYA. Versi pertama memakai (-0,5 ... 7,5)
+dengan langkah 1, dan angka sumbunya meleset setengah petak lalu dibulatkan
+saat ditampilkan; hasilnya tiga angka "0" liar berserakan di kiri dan bawah
+sumbu. Terbaca setelah frame diperbesar, tidak terlihat di lembar kontak.
+`bidang_bernomor` sekarang menolaknya sendiri.
+
 SELURUH ANGKA di adegan ini sama dengan angka di halaman Materi 05 dan sudah
 lolos `python alat/cek_integral.py alat/klaim-video-integral.json`:
 28, 21, 24,5, 26,25 (selisih 1,75), 2989/120 (selisih 49/120), 6,25, dan 4,25.
 
 Alur berkas: naskah -> buat_narasi.py -> buat_subtitle.py -> adegan ini ->
 cek_kode.py -> manimgl -w -l -> cek_video.py (BUKA lembar kontak) ->
+alat/ukur_detik_pertama.py -> alat/cek_layar_kosong.py ->
 gabung_audio.py integral05-riemann IntegralRiemann --uji.
 """
 
@@ -34,6 +46,8 @@ DURASI = json.loads((AKAR / "audio" / TOPIK / "durasi.json").read_text(encoding=
 # Kurva utama: f(x) = x pada [0, 7]. Dipilih buku justru karena daerahnya
 # segitiga siku-siku, jadi luas sebenarnya bisa diperiksa siswa dengan rumus SMP.
 A, B = 0.0, 7.0
+# Kurva pembuka, dipakai hanya untuk memperlihatkan "tepi atas yang melengkung".
+KIRI_AWAL, KANAN_AWAL = 0.2, 7.0
 
 
 def f_lurus(x):
@@ -42,6 +56,10 @@ def f_lurus(x):
 
 def f_lengkung(x):
     return 4.0 - x * x
+
+
+def f_pembuka(x):
+    return 1.2 + 5.0 * (x / 7.0) ** 0.55
 
 
 def kotak_riemann(bidang, f, a, b, n, sampel="kanan", warna=AKSEN2, opacity=0.30):
@@ -75,6 +93,15 @@ def kurva(bidang, f, a, b, warna=TINTA, tebal=3.2):
     """Kurva digambar dari titik yang DIHITUNG, bukan muncul jadi."""
     titik = [bidang.c2p(a + (b - a) * i / 160, f(a + (b - a) * i / 160)) for i in range(161)]
     return VMobject().set_points_smoothly(titik).set_stroke(warna, tebal)
+
+
+def daerah_bawah(bidang, f, a, b, warna=AKSEN2, opacity=0.18, langkah=60):
+    """Daerah di bawah kurva, untuk memperlihatkan 'yang mau diukur'."""
+    titik = ([bidang.c2p(a, 0)]
+             + [bidang.c2p(a + (b - a) * i / langkah, f(a + (b - a) * i / langkah))
+                for i in range(langkah + 1)]
+             + [bidang.c2p(b, 0), bidang.c2p(a, 0)])
+    return VMobject().set_points_as_corners(titik).set_fill(warna, opacity).set_stroke(width=0)
 
 
 def bersihkan_panel(scene, papan, buang, b=None, run_time=0.9):
@@ -123,14 +150,15 @@ class IntegralRiemann(AdeganMatra):
                 self, "Materi 05: Luas dari persegi panjang", lama=lama)
             b.catat(lama)
 
-        # Bidang dipakai seluruh video; kamera dipasang sekali dan hanya
-        # bergerak sekali (babak `turun`), sesuai aturan satu gerakan per babak.
-        bidang = ilustrasi.bidang_bernomor((-0.5, 7.5, 1.0), (-0.5, 8.0, 1.0))
+        # Semua isi video berada di kuadran pertama, jadi bidangnya dipatok di
+        # sana: batasnya kelipatan langkah, dan tidak ada sumbu negatif yang
+        # kosong memakan lebar layar.
+        bidang = ilustrasi.bidang_bernomor((0.0, 8.0, 1.0), (0.0, 8.0, 1.0))
         pusat, tinggi_kam = kamera.muat_datar(bidang, sisa_atas=0.35, sisa_kanan=0.55)
         kamera.pasang_awal(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi_kam)
 
         # ---------------------------------------------------------------
-        # masalah: persegi panjang yang gampang diukur, lalu daerah melengkung.
+        # masalah: persegi panjang yang mudah diukur, lalu daerah melengkung.
         # ---------------------------------------------------------------
         kotak_mudah = Rectangle(
             width=bidang.c2p(3, 0)[0] - bidang.c2p(0, 0)[0],
@@ -140,20 +168,15 @@ class IntegralRiemann(AdeganMatra):
         kotak_mudah.set_fill(REDUP, 0.28).set_stroke(REDUP, 2.4)
         l_mudah = sinema.label("3 x 2", warna=REDUP).move_to(bidang.c2p(1.5, 1.0))
 
-        k_lengkung = kurva(bidang, lambda x: 1.2 + 5.0 * (x / 7.0) ** 0.55, 0.2, 7.0)
-        daerah = VMobject().set_points_as_corners(
-            [bidang.c2p(0.2, 0)]
-            + [bidang.c2p(0.2 + 6.8 * i / 60, 1.2 + 5.0 * ((0.2 + 6.8 * i / 60) / 7.0) ** 0.55)
-               for i in range(61)]
-            + [bidang.c2p(7.0, 0), bidang.c2p(0.2, 0)]
-        ).set_fill(AKSEN2, 0.18).set_stroke(width=0)
+        k_lengkung = kurva(bidang, f_pembuka, KIRI_AWAL, KANAN_AWAL)
+        daerah = daerah_bawah(bidang, f_pembuka, KIRI_AWAL, KANAN_AWAL)
 
         with sinema.babak(self, "masalah", DURASI) as b:
-            b.main(FadeIn(bidang), run_time=0.8)
-            b.main(ShowCreation(kotak_mudah), FadeIn(l_mudah), run_time=1.6)
+            b.main(FadeIn(bidang), run_time=0.9)
+            b.main(ShowCreation(kotak_mudah), FadeIn(l_mudah), run_time=2.0)
             b.tunggu_sampai(sinema.mulai(jam, "Tapi tepi atas"))
-            b.main(FadeOut(kotak_mudah), FadeOut(l_mudah), run_time=0.7)
-            b.main(ShowCreation(k_lengkung), run_time=2.0)
+            b.main(FadeOut(kotak_mudah), FadeOut(l_mudah), run_time=0.8)
+            b.main(ShowCreation(k_lengkung), run_time=2.2)
             b.main(FadeIn(daerah), run_time=1.4)
             ident = sinema.identitas(self, "1 petak = 1 satuan")
         qc.periksa_adegan(self, {"kurva": k_lengkung},
@@ -162,80 +185,89 @@ class IntegralRiemann(AdeganMatra):
         # ---------------------------------------------------------------
         # gagasan: satu persegi panjang diletakkan di bawah kurva.
         # ---------------------------------------------------------------
-        satu = kotak_riemann(bidang, lambda x: 1.2 + 5.0 * (x / 7.0) ** 0.55, 0.2, 7.0, 1, "kiri")
+        satu = kotak_riemann(bidang, f_pembuka, KIRI_AWAL, KANAN_AWAL, 1, "kiri")
         with sinema.babak(self, "gagasan", DURASI) as b:
-            b.main(FadeIn(satu), run_time=1.2)
-            b.main(Indicate(satu, color=AKSEN2, scale_factor=1.03), run_time=1.2)
-            b.catat(0.6)
+            b.main(FadeIn(satu), run_time=1.6)
+            b.tunggu_sampai(sinema.mulai(jam, "tutupi dengan yang bisa."))
+            b.main(Indicate(satu, color=AKSEN2, scale_factor=1.03), run_time=1.6)
 
         # ---------------------------------------------------------------
-        # potong: selang dipecah jadi beberapa bagian, lebarnya delta x.
+        # potong: selang dipecah, lebarnya delta x.
         # ---------------------------------------------------------------
-        empat = kotak_riemann(bidang, lambda x: 1.2 + 5.0 * (x / 7.0) ** 0.55, 0.2, 7.0, 4, "kanan")
+        empat = kotak_riemann(bidang, f_pembuka, KIRI_AWAL, KANAN_AWAL, 4, "kanan")
+        lebar4 = (KANAN_AWAL - KIRI_AWAL) / 4
         tanda_x = VGroup(*[
-            Line(bidang.c2p(0.2 + 6.8 * i / 4, -0.16), bidang.c2p(0.2 + 6.8 * i / 4, 0.16))
-            .set_stroke(SOROT, 3.0) for i in range(5)
+            Line(bidang.c2p(KIRI_AWAL + lebar4 * i, -0.14),
+                 bidang.c2p(KIRI_AWAL + lebar4 * i, 0.18)).set_stroke(SOROT, 3.0)
+            for i in range(5)
         ])
-        # Rumus di dalam gambar lewat `rumus()`, BUKAN `sinema.label()`:
-        # `label` meloloskan tanda dolar sebagai huruf biasa, jadi dolarnya ikut
-        # tercetak di layar. `cek_kode.py` menolaknya, dan itu benar.
-        #
-        # DITARUH DI ATAS SUMBU, BUKAN DI BAWAHNYA. Versi pertama menempatkannya
-        # 0,30 satuan di bawah sumbu, dan di situ persis angka sumbu x berada.
-        # `qc` TIDAK memeriksa tulisan dunia lawan angka sumbu (temuan sesi
-        # Turunan pada video 02-nya: label "jarak h" terbaca "1 jarak h2 = 0,51"),
-        # jadi tabrakan itu akan lolos gerbang dan baru ketahuan dari lembar
-        # kontak. Lebih murah dihindari daripada ditemukan.
-        lebar_bagi = Line(bidang.c2p(0.2, 0.45), bidang.c2p(0.2 + 6.8 / 4, 0.45))
-        lebar_bagi.set_stroke(SOROT, 3.0)
+        # Ruas pengukur DI ATAS sumbu, bukan di bawahnya: `qc` tidak memeriksa
+        # tulisan dunia lawan angka sumbu (temuan sesi Turunan), jadi label yang
+        # ditaruh di jalur angka akan menabraknya tanpa tertangkap gerbang.
+        lebar_bagi = Line(bidang.c2p(KIRI_AWAL, 0.45),
+                          bidang.c2p(KIRI_AWAL + lebar4, 0.45)).set_stroke(SOROT, 3.0)
         l_dx = rumus(r"\Delta x", 28, SOROT).next_to(lebar_bagi, UP, buff=0.12)
+
         with sinema.babak(self, "potong", DURASI) as b:
             b.main(FadeOut(satu), run_time=0.5)
-            b.main(ShowCreation(tanda_x), run_time=1.6)
-            b.main(FadeIn(empat, lag_ratio=0.25), run_time=2.4)
-            b.tunggu_sampai(sinema.mulai(jam, "lebarnya"))
-            b.main(ShowCreation(lebar_bagi), FadeIn(l_dx), run_time=1.0)
-            b.main(Indicate(l_dx, color=SOROT), run_time=0.8)
+            b.main(ShowCreation(tanda_x, lag_ratio=0.35), run_time=1.6)
+            b.main(FadeIn(empat, lag_ratio=0.3), run_time=1.6)
+            b.tunggu_sampai(sinema.mulai(jam, "Pembagiannya disebut"))
+            b.main(ShowCreation(lebar_bagi), FadeIn(l_dx), run_time=1.4)
+            b.main(Indicate(l_dx, color=SOROT), run_time=1.2)
+            b.main(LaggedStartMap(Indicate, tanda_x, color=SOROT, lag_ratio=0.25),
+                   run_time=1.8)
 
         # ---------------------------------------------------------------
-        # tinggi: satu titik sampel disorot, tingginya ditarik ke kurva.
+        # tinggi: titik sampel, dan bahwa TIAP bagian punya satu.
         # ---------------------------------------------------------------
-        x_s = 0.2 + 6.8 * 1.5 / 4
-        y_s = 1.2 + 5.0 * ((0.2 + 6.8 * 2 / 4) / 7.0) ** 0.55
-        titik = Dot(bidang.c2p(0.2 + 6.8 * 2 / 4, y_s), radius=0.075).set_color(AKSEN)
-        tegak = Line(bidang.c2p(0.2 + 6.8 * 2 / 4, 0),
-                     bidang.c2p(0.2 + 6.8 * 2 / 4, y_s)).set_stroke(AKSEN, 3.0)
+        def tegak_di(i):
+            x = KIRI_AWAL + lebar4 * (i + 1)
+            return Line(bidang.c2p(x, 0), bidang.c2p(x, f_pembuka(x))).set_stroke(AKSEN, 3.0)
+
+        def titik_di(i):
+            x = KIRI_AWAL + lebar4 * (i + 1)
+            return Dot(bidang.c2p(x, f_pembuka(x)), radius=0.075).set_color(AKSEN)
+
+        tegak, titik = tegak_di(1), titik_di(1)
         l_sampel = sinema.label("titik sampel", warna=AKSEN).next_to(titik, UR, buff=0.14)
         with sinema.babak(self, "tinggi", DURASI) as b:
-            b.main(ShowCreation(tegak), run_time=1.2)
-            b.main(FadeIn(titik, scale=0.5), run_time=0.7)
-            b.tunggu_sampai(sinema.mulai(jam, "titik sampel"))
-            b.main(FadeIn(l_sampel), run_time=0.8)
+            b.main(ShowCreation(tegak), run_time=1.4)
+            b.main(FadeIn(titik, scale=0.5), run_time=0.8)
+            b.tunggu_sampai(sinema.mulai(jam, "diambil di satu titik sampel."))
+            b.main(FadeIn(l_sampel), run_time=1.0)
             b.main(Indicate(titik, color=AKSEN), run_time=1.0)
-            b.catat(0.5)
+            # TIAP bagian punya titik sampelnya sendiri: batangnya berpindah,
+            # bukan diam sementara narator menyebut "di tiap bagian".
+            for i in (2, 3):
+                b.main(Transform(tegak, tegak_di(i)), Transform(titik, titik_di(i)),
+                       l_sampel.animate.next_to(titik_di(i), UR, buff=0.14), run_time=1.1)
         qc.periksa_adegan(self, {"label sampel": l_sampel},
                           hud={"identitas": ident}, dunia={"bidang": bidang})
 
         # ---------------------------------------------------------------
-        # contoh: ganti ke f(x) = x pada [0, 7]. Rumus LAHIR dekat kurvanya.
+        # contoh: ganti ke f(x) = x pada [0, 7]; rumus LAHIR dekat kurvanya.
         # ---------------------------------------------------------------
         k_lurus = kurva(bidang, f_lurus, A, B, warna=TINTA)
         with sinema.babak(self, "contoh", DURASI) as b:
             b.main(FadeOut(empat), FadeOut(daerah), FadeOut(tanda_x), FadeOut(l_dx),
                    FadeOut(lebar_bagi), FadeOut(titik), FadeOut(tegak),
-                   FadeOut(l_sampel), run_time=0.9)
-            b.main(Transform(k_lengkung, k_lurus), run_time=1.8)
+                   FadeOut(l_sampel), run_time=1.0)
+            b.main(Transform(k_lengkung, k_lurus), run_time=2.4)
             rum = sinema.lahir_rumus(self, r"f(x) = x", dekat=k_lurus, papan=papan,
                                      b=b, warna=TINTA)
-            b.main(Indicate(bidang.angka, color=SOROT, scale_factor=1.02), run_time=1.4)
+            b.main(Indicate(bidang.angka, color=SOROT, scale_factor=1.02), run_time=1.8)
 
         # ---------------------------------------------------------------
-        # hitung7: tujuh persegi panjang kanan tumbuh satu per satu, jumlah 28.
+        # hitung7: tujuh persegi panjang kanan, jumlahnya 28.
         # ---------------------------------------------------------------
         kanan7 = kotak_riemann(bidang, f_lurus, A, B, 7, "kanan")
         with sinema.babak(self, "hitung7", DURASI) as b:
-            b.main(LaggedStartMap(FadeIn, kanan7, lag_ratio=0.5), run_time=5.2)
-            b.tunggu_sampai(sinema.mulai(jam, "Semuanya dijumlahkan"))
+            b.main(FadeIn(kanan7[0]), FadeIn(kanan7[1]), run_time=1.2)
+            b.tunggu_sampai(sinema.mulai(jam, "Tinggi 1, 2, 3"))
+            b.main(LaggedStartMap(FadeIn, VGroup(*kanan7[2:]), lag_ratio=0.45),
+                   run_time=5.2)
+            b.tunggu_sampai(sinema.mulai(jam, "Jumlahnya 28."))
             b_jumlah = papan.baris(r"1+2+\cdots+7 = 28", warna=AKSEN2, b=b)
             b.main(Indicate(kanan7, color=AKSEN2, scale_factor=1.02), run_time=1.6)
         qc.periksa_adegan(self, {"kurva": k_lengkung},
@@ -247,24 +279,35 @@ class IntegralRiemann(AdeganMatra):
         # ---------------------------------------------------------------
         segitiga = Polygon(bidang.c2p(0, 0), bidang.c2p(7, 0), bidang.c2p(7, 7))
         segitiga.set_fill(SOROT, 0.30).set_stroke(SOROT, 3.0)
+        alas = Line(bidang.c2p(0, 0), bidang.c2p(7, 0)).set_stroke(SOROT, 5.0)
+        tinggi_s = Line(bidang.c2p(7, 0), bidang.c2p(7, 7)).set_stroke(SOROT, 5.0)
+        l_alas = sinema.label("alas 7", warna=SOROT).next_to(bidang.c2p(3.5, 0), UP, buff=0.14)
+        l_tinggi = sinema.label("tinggi 7", warna=SOROT).next_to(bidang.c2p(7, 3.5), LEFT, buff=0.16)
         with sinema.babak(self, "segitiga", DURASI) as b:
-            b.main(kanan7.animate.set_fill(AKSEN2, 0.12).set_stroke(opacity=0.4), run_time=0.9)
-            b.main(ShowCreation(segitiga), run_time=2.2)
-            b.tunggu_sampai(sinema.mulai(jam, "Setengah kali alas"))
+            b.main(kanan7.animate.set_fill(AKSEN2, 0.12).set_stroke(opacity=0.4), run_time=1.0)
+            b.main(ShowCreation(segitiga), run_time=3.0)
+            b.main(ShowCreation(alas), FadeIn(l_alas), run_time=1.2)
+            b.main(ShowCreation(tinggi_s), FadeIn(l_tinggi), run_time=1.2)
             b_luas = papan.baris(r"\tfrac{1}{2}\cdot 7\cdot 7 = 24{,}5", warna=SOROT, b=b)
-            b.main(Indicate(segitiga, color=SOROT, scale_factor=1.02), run_time=1.6)
+            b.main(Indicate(segitiga, color=SOROT, scale_factor=1.02), run_time=1.8)
+        qc.periksa_adegan(self, {"label alas": l_alas, "label tinggi": l_tinggi},
+                          [("label alas", "label tinggi")],
+                          hud={"identitas": ident, "papan": papan.semua()},
+                          dunia={"bidang": bidang})
 
         # ---------------------------------------------------------------
         # jepit: titik sampel kiri memberi 21; jawabannya terjepit.
         # ---------------------------------------------------------------
         kiri7 = kotak_riemann(bidang, f_lurus, A, B, 7, "kiri")
         with sinema.babak(self, "jepit", DURASI) as b:
-            b.main(kanan7.animate.set_fill(AKSEN, 0.16).set_stroke(AKSEN, 1.6, opacity=0.8),
-                   run_time=1.0)
-            b.tunggu_sampai(sinema.mulai(jam, "Titik sampel kiri"))
-            b.main(FadeOut(kanan7), FadeIn(kiri7), run_time=1.6)
+            b.main(FadeOut(alas), FadeOut(l_alas), FadeOut(tinggi_s), FadeOut(l_tinggi),
+                   kanan7.animate.set_fill(AKSEN, 0.16).set_stroke(AKSEN, 1.6, opacity=0.8),
+                   run_time=1.4)
+            b.main(FadeOut(kanan7), FadeIn(kiri7), run_time=1.8)
+            b.main(Indicate(kiri7, color=AKSEN2, scale_factor=1.02), run_time=1.4)
+            b.tunggu_sampai(sinema.mulai(jam, "Jawabannya terjepit"))
             b_jepit = papan.baris(r"21 \le 24{,}5 \le 28", warna=AKSEN2, b=b)
-            b.main(Indicate(kiri7, color=AKSEN2, scale_factor=1.02), run_time=1.6)
+            b.main(Indicate(segitiga, color=SOROT, scale_factor=1.02), run_time=1.6)
         qc.periksa_adegan(self, {"kurva": k_lengkung},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang, "kotak": kiri7})
@@ -275,46 +318,35 @@ class IntegralRiemann(AdeganMatra):
         kanan14 = kotak_riemann(bidang, f_lurus, A, B, 14, "kanan")
         kanan60 = kotak_riemann(bidang, f_lurus, A, B, 60, "kanan")
         with sinema.babak(self, "perbanyak", DURASI) as b:
-            b.main(FadeOut(kiri7), FadeIn(kanan14), run_time=1.4)
+            b.main(FadeOut(kiri7), FadeIn(kanan14), run_time=2.0)
             sel = papan.baris(r"n = 14:\ \text{selisih } 1{,}75", warna=AKSEN, b=b)
-            b.tunggu_sampai(sinema.mulai(jam, "Dengan enam puluh"))
-            b.main(FadeOut(kanan14), FadeIn(kanan60), run_time=1.8)
+            b.main(FadeOut(kanan14), FadeIn(kanan60), run_time=2.4)
             sel = sinema.ganti_rumus(self, sel, r"n = 60:\ \text{selisih } 0{,}41",
                                      b=b, warna=AKSEN, papan=papan)
+            b.main(Indicate(kanan60, color=AKSEN2, scale_factor=1.02), run_time=1.6)
 
         # ---------------------------------------------------------------
-        # turun: kurva menurun 4 - x^2; kamera mendekat sekali.
+        # turun: kurva menurun 4 - x^2; bidang DAN kamera berganti sekali.
         # ---------------------------------------------------------------
+        bidang_kecil = ilustrasi.bidang_bernomor((0.0, 3.0, 1.0), (0.0, 5.0, 1.0))
+        pusat_k, tinggi_k = kamera.muat_datar(bidang_kecil, sisa_atas=0.35, sisa_kanan=0.55)
         k_turun = kurva(bidang, f_lengkung, 0.0, 2.0, warna=TINTA)
         kiri4 = kotak_riemann(bidang, f_lengkung, 0.0, 2.0, 4, "kiri")
         kanan4 = kotak_riemann(bidang, f_lengkung, 0.0, 2.0, 4, "kanan", warna=AKSEN)
 
-        # BIDANGNYA DIGANTI, BUKAN CUMA KAMERANYA YANG MENDEKAT.
-        # Render pertama GAGAL di sini: `qc` menolak "bidang keluar bingkai,
-        # kanan 8,12 > 6,82" setelah kamera mendekat, dan penolakan itu benar.
-        # Melepas bidang dari daftar pemeriksaan hanya akan membungkam gerbangnya.
-        # Yang benar: pakai bidang seukuran daerah yang memang ditampilkan, jadi
-        # angka sumbunya pun ikut cocok dengan selang [0, 2] yang sedang dibahas.
-        # Kedua bidang memetakan koordinat 1:1 ke layar (`unit_size=1.0` lalu
-        # digeser supaya (0,0) di titik asal), sehingga kurva dan persegi panjang
-        # yang sudah dibangun memakai `bidang` tetap jatuh di tempat yang sama.
-        bidang_kecil = ilustrasi.bidang_bernomor((-0.5, 2.5, 1.0), (-0.5, 4.5, 1.0))
-        pusat_k, tinggi_k = kamera.muat_datar(bidang_kecil, sisa_atas=0.35, sisa_kanan=0.55)
-
         with sinema.babak(self, "turun", DURASI) as b:
-            b.main(FadeOut(kanan60), FadeOut(segitiga), run_time=0.7)
-            # Kurvanya DI-TRANSFORM, bukan dihapus lalu digambar ulang.
-            # Lembar kontak render kedua memperlihatkan satu frame berisi bidang
-            # kosong tanpa kurva sama sekali, tepat saat narator berkata "ganti
-            # kurvanya". Layar kosong dilarang aturan 3.
+            b.main(FadeOut(kanan60), FadeOut(segitiga), run_time=0.9)
+            # Kurvanya DI-TRANSFORM, bukan dihapus lalu digambar ulang: lembar
+            # kontak render kedua memperlihatkan satu frame berisi bidang kosong
+            # tanpa kurva, tepat saat narator berkata "ganti kurvanya".
             b.main(FadeOut(bidang), FadeIn(bidang_kecil),
                    Transform(k_lengkung, k_turun),
-                   kamera.dekati(frame, pusat_k, tinggi=tinggi_k), run_time=2.6)
+                   kamera.dekati(frame, pusat_k, tinggi=tinggi_k), run_time=3.0)
             sinema.ganti_rumus(self, rum, r"f(x) = 4 - x^2", b=b, warna=TINTA, papan=papan)
             bersihkan_panel(self, papan, [b_jumlah, b_luas, b_jepit, sel], b=b)
-            b.tunggu_sampai(sinema.mulai(jam, "Kiri enam koma"))
-            b.main(FadeIn(kiri4, lag_ratio=0.2), run_time=1.6)
+            b.main(FadeIn(kiri4, lag_ratio=0.25), run_time=2.0)
             papan.baris(r"\text{kiri } 6{,}25 \quad \text{kanan } 4{,}25", warna=AKSEN2, b=b)
+            b.main(Indicate(kiri4, color=AKSEN2, scale_factor=1.03), run_time=1.4)
         qc.periksa_adegan(self, {"kurva turun": k_lengkung},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_kecil})
@@ -322,17 +354,17 @@ class IntegralRiemann(AdeganMatra):
         # ---------------------------------------------------------------
         # tutup: kiri lawan kanan, dan kesimpulannya.
         # ---------------------------------------------------------------
+        bayang_kiri = kiri4.copy().set_fill(AKSEN2, 0.14).set_stroke(AKSEN2, 1.4)
         with sinema.babak(self, "tutup", DURASI) as b:
-            b.main(FadeOut(kiri4), FadeIn(kanan4), run_time=1.4)
-            b.main(FadeIn(kiri4.copy().set_fill(AKSEN2, 0.16).set_stroke(AKSEN2, 1.4)),
-                   run_time=1.2)
-            b.tunggu_sampai(sinema.mulai(jam, "melainkan sisi"))
+            b.main(FadeOut(kiri4), FadeIn(kanan4), run_time=1.8)
+            b.main(FadeIn(bayang_kiri), run_time=1.4)
+            b.main(Indicate(bayang_kiri, color=AKSEN2, scale_factor=1.03), run_time=1.4)
+            b.main(Indicate(kanan4, color=AKSEN, scale_factor=1.03), run_time=1.4)
+            b.tunggu_sampai(sinema.mulai(jam, "di sisi mana kurvanya"))
             papan.baris(r"\text{yang lebih tinggi menang}", warna=SOROT, b=b)
             # Yang tampil di layar adalah `k_lengkung` hasil Transform, bukan
             # `k_turun` yang cuma sasaran dan tidak pernah ditambahkan ke adegan.
-            # Menyorot benda yang tidak ada tidak memperlihatkan apa pun.
-            b.main(Indicate(k_lengkung, color=SOROT), run_time=1.6)
-            b.catat(0.8)
+            b.main(Indicate(k_lengkung, color=SOROT), run_time=1.8)
         qc.periksa_adegan(self, {"kurva turun": k_lengkung},
                           hud={"identitas": ident, "papan": papan.semua()},
                           dunia={"bidang": bidang_kecil})
