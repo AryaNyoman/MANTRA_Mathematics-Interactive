@@ -1,5 +1,22 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 8 SEP (malam): LIMA VIDEO INTEGRAL 480p LENGKAP, SUBTITLE BINTANG DIBERESKAN
+
+Sesi Integral menyelesaikan gelombang 2: 01 (146 s, 11 render), 03 substitusi
+(135 s, 4), 05 Riemann (118 s, 8), 07 TDK (142 s, 4), 09 luas di bawah sumbu
+(129 s, 5). Semua di master (af52d6e), medan video terpasang, cek_aset_video,
+cek_layar_kosong, cek_urutan, tsc lolos, tayang di produksi. Keputusan yang
+DISENGAJA untuk dinilai ARYA: skala x dan y tidak sama di 07 (angka di panel
+yang dibandingkan), bagian merah dibalik ke atas sementara aslinya tetap di 09,
+03 tanpa bidang koordinat dan paling lengang (1,17 persen; pilihan: gambar
+pendamping daftar langkah, satu render). Cacat lintas topik yang ketahuan dari
+sesi ini: penanda tebal `*` terpotong dua baris subtitle tercetak di layar
+pada empat video tayang (grafik6, ruang-3d-03, statistika10, tahap5);
+buat_subtitle dibetulkan (tebalkan sebelum pecah, tag diseimbangkan, bintang
+menggagalkan), keempat vtt dibuat ulang dan naik produksi. Jebakan baru
+26 sampai 40 di catatan MASTER. Kedua sesi (Turunan 6 video, Integral 5)
+berhenti menunggu tinjauan ARYA; tiga cadangan Turunan (08, 10, 11) menunggu.
+
 ## 8 SEP (sore): DUA VIDEO INTEGRAL 480p DI PRODUKSI, ALAT BERSAMA BERTAMBAH
 
 Sesi Integral: video 05 jumlahan Riemann (118 s, delapan render) dan 01 dari
