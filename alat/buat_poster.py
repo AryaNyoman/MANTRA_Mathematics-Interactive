@@ -81,7 +81,13 @@ def cari_video(topik: str) -> Path | None:
     semuanya 1920x1080. Ditemukan sesi Statistika 7 Sep 2026.
     """
     for calon in (TUJUAN / f"{topik}.webm", AKAR / "media" / f"{topik}.webm",
-                  TUJUAN / f"{topik}.mp4", SUMBER / f"{topik}.mp4"):
+                  TUJUAN / f"{topik}.mp4",
+                  # Dulu di sini tertulis `SUMBER`, nama yang TIDAK PERNAH ada:
+                  # tetapannya bernama `SUMBER_URUT`. Akibatnya `buat_poster`
+                  # mati dengan "NameError: name 'SUMBER' is not defined" untuk
+                  # topik APA PUN, sebab `cari_video` dipanggil paling awal.
+                  # Ketahuan sesi Vektor 7 Sep saat membuat poster Materi 01.
+                  AKAR / "media" / "uji-480p" / f"{topik}.mp4"):
         if calon.exists() and calon.stat().st_size > 1024:
             return calon
     return None
