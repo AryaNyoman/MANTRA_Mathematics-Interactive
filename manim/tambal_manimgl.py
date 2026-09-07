@@ -50,3 +50,29 @@ class _SubprocessTanpaNoPdf:
 
 
 _tfw.subprocess = _SubprocessTanpaNoPdf()
+
+
+# ---------------------------------------------------------------------------
+# Tambalan 4: `--fps 60` masuk sebagai TEKS, bukan angka.
+#
+# Ditemukan sesi Statistika 7 Sep 2026 pada render 1080p60 pertama gelombang 3.
+# `manimlib/config.py` menulis `camera_config.fps = args.fps` tanpa mengubah
+# tipenya, jadi seluruh render mati di animasi PERTAMA dengan
+#     TypeError: unsupported operand type(s) for /: 'int' and 'str'
+# dari `np.arange(0, run_time, 1 / self.camera.fps)`.
+#
+# Resep di PROGRESS langkah 7 menulis `-w --hd --fps 60` dan menyebut dirinya
+# "terbukti tiga belas kali", tetapi ketiga belas itu video Trigonometri dan
+# Limit yang dibuat dengan Manim Community sebelum 2 September. Baris itu tidak
+# pernah benar-benar dijalankan di bawah ManimGL sampai malam ini, jadi
+# jebakannya menunggu SEMUA sesi yang merender 1080p60.
+#
+# Ditambal di sini, bukan di custom_config.yml, sebab config itu berlaku untuk
+# render uji 480p juga dan tidak ada alasan memaksa 60 fps di sana.
+try:
+    from manimlib.config import manim_config as _mc
+
+    if isinstance(_mc.camera.fps, str):
+        _mc.camera.fps = int(float(_mc.camera.fps))
+except Exception:      # ManimGL versi lain: biarkan apa adanya
+    pass
