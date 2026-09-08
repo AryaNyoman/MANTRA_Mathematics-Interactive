@@ -57,6 +57,9 @@ luar rentang itu. Jangan mengisi waktu dengan pengulangan atau jeda kosong.
   `with sinema.babak(self, "id", DURASI, kata=KATA) as b:` lalu
   `b.tunggu_kata("frasa")` sebelum animasi yang harus muncul saat kata itu
   diucapkan. Babak ditutup pada jam audio mutlak, bukan jumlah animasi.
+  Frasa yang diucapkan lebih dari sekali di satu segmen dipilih dengan
+  `ke=2`; pemicu yang detiknya SUDAH LEWAT menggagalkan render saat itu
+  juga (tidak menunggu akhir render), pesannya menyebut segmen dan frasanya.
 - Di akhir `construct`: `sinema.laporkan_pemicu(self)`; render GAGAL bila
   ada pemicu terlambat lebih dari 0,15 detik (animasi sebelumnya kepanjangan).
 - Yang dipicu per kata: benda yang DISEBUT (pembilang saat disebut, lalu
@@ -85,7 +88,10 @@ luar rentang itu. Jangan mengisi waktu dengan pengulangan atau jeda kosong.
 ## 6. Gerbang wajib sebelum render dan sesudahnya
 
 Sebelum render pertama: `manim/cek_kode.py --dalam`, `alat/cek_waktu_adegan.py
-<adegan.py>`, jangkar kata dicocokkan (JamKata menolak frasa yang tidak ada),
+<adegan.py>`, `alat/cek_pemicu_urut.py <adegan.py>` (jam tiap `tunggu_kata`
+harus maju terus dalam satu segmen; frasa berulang yang lupa `ke=` ketahuan
+di sini, bukan sesudah sembilan menit render), jangkar kata dicocokkan
+(JamKata menolak frasa yang tidak ada),
 `alat/cek_urutan_<topik>.py` (membaca naskah), klaim angka naskah ke pemeriksa
 sympy topik.
 

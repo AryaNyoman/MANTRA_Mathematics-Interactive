@@ -669,20 +669,32 @@ class Babak:
         # adegan lama yang membagi waktu per babak, tetap didukung.
         self.kata = None
 
-    def tunggu_kata(self, frasa: str) -> None:
+    def tunggu_kata(self, frasa: str, ke: int = 1, batas: float = 0.15) -> None:
         """Diam sampai detik KATA `frasa` diucapkan di segmen ini, lalu lanjut.
 
         Inilah inti standar v3: kejadian di layar dipicu oleh kata yang
         sedang diucapkan, bukan oleh pembagian waktu per babak. `frasa` boleh
-        beberapa kata; yang dicocokkan kata pertamanya. Salah tulis frasa
-        menggagalkan render dengan daftar kata segmen itu, bukan diam-diam
-        memicu di waktu yang salah.
+        beberapa kata; yang dicocokkan kata pertamanya. Frasa yang muncul
+        beberapa kali di satu segmen dipilih dengan `ke=2`, `ke=3`, dst.
+
+        GAGAL SAAT ITU JUGA (bukan di akhir render) bila detik sasarannya
+        sudah lewat lebih dari `batas`: animasi sebelumnya kelewat panjang,
+        atau frasanya kemunculan pertama padahal yang dimaksud yang kedua
+        (Transformasi 8 Sep 2026: sembilan menit render terbuang untuk
+        kesalahan satu baris). Salah tulis frasa juga menggagalkan render
+        dengan daftar kata segmen itu, bukan diam-diam memicu di waktu lain.
         """
         if self.kata is None:
             raise AturanDilanggar(
                 f"babak '{self.nama}': tunggu_kata butuh jam kata; pakai "
                 f"`with sinema.babak(self, nama, DURASI, kata=KATA) as b`.")
-        sasaran = self.kata.jam(self.nama, frasa)
+        sasaran = self.kata.jam(self.nama, frasa, ke=ke)
+        if self.scene.time - sasaran > batas:
+            raise WaktuTidakMuat(
+                f"babak '{self.nama}': pemicu '{frasa}' (kemunculan ke-{ke}) jatuh di "
+                f"detik {sasaran:.2f}, tetapi video sudah di detik {self.scene.time:.2f} "
+                f"(terlambat {self.scene.time - sasaran:.2f}). Pendekkan animasi sebelumnya, "
+                f"atau kalau frasa itu diucapkan lebih dari sekali, pilih kemunculannya dengan ke=.")
         self.tunggu_sampai(round(sasaran * 30) / 30)
         self.scene.pemicu = getattr(self.scene, "pemicu", [])
         self.scene.pemicu.append({"segmen": self.nama, "frasa": frasa,
