@@ -262,4 +262,34 @@ except qc.CacatTataLetak:
 else:
     raise SystemExit("GAGAL: BendaTertinggal tidak turunan CacatTataLetak")
 
+
+# ---- periksa_adegan: nilai None diabaikan, tapi cacat sungguhan tetap mati.
+# `PapanRumus.semua()` mengembalikan None saat papannya kosong, dan sebelum
+# 9 Sep 2026 itu mematikan render dengan AttributeError yang tidak menyebut
+# papan rumus sama sekali.
+class _AdeganBingkai:
+    pass
+
+
+_layar = _AdeganBingkai()
+_layar.frame = CameraFrame()
+_layar.frame.reorient(0, 0, 0, center=(0, 0, 0), height=8)
+kiri = Square(side_length=0.6).move_to([-3, 1, 0])
+kanan = Square(side_length=0.6).move_to([3, 1, 0])
+
+# ARAH LOLOS: satu nilai None di antara benda sungguhan tidak menggagalkan.
+qc.periksa_adegan(_layar, {}, hud={"papan": None, "identitas": kiri},
+                  dunia={"gambar": kanan})
+print("ok: periksa_adegan mengabaikan hud bernilai None")
+
+# ARAH TOLAK: sesudah tambalan itu, benda yang SUNGGUH bertindih tetap mati.
+# Tanpa uji ini, pemeriksa yang meloloskan segalanya juga akan lulus.
+tumpuk = Square(side_length=0.6).move_to([-3, 1, 0])
+try:
+    qc.periksa_adegan(_layar, {}, hud={"papan": None, "identitas": kiri},
+                      dunia={"gambar": tumpuk})
+    raise SystemExit("GAGAL: benda yang bertindih lolos sesudah tambalan None")
+except qc.CacatTataLetak:
+    print("ok: benda bertindih tetap tertangkap walau ada nilai None")
+
 print("SEMUA UJI QC LOLOS")

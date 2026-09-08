@@ -195,10 +195,20 @@ def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: floa
        memasangnya juga: `g._qc_isi = True`.
     """
     frame = scene.frame
+    # Nilai None artinya "tidak ada yang perlu diperiksa", bukan kelalaian.
+    # Yang paling sering: `PapanRumus.semua()` mengembalikan None saat papan
+    # sedang kosong (belum ada baris, atau semua baris baru dibersihkan).
+    # Sebelum ini render mati dengan AttributeError di tengah adegan, dan
+    # pesannya sama sekali tidak menunjuk papan rumus.
+    def _isi(d):
+        return {n: m for n, m in (d or {}).items() if m is not None}
+
+    zona = _isi(zona)
+    hud, dunia, tulisan = _isi(hud), _isi(dunia), _isi(tulisan)
     semua = dict(zona)
-    semua.update(hud or {})
-    semua.update(dunia or {})
-    semua.update(tulisan or {})
+    semua.update(hud)
+    semua.update(dunia)
+    semua.update(tulisan)
     for nama, m in semua.items():
         muat_di_bingkai(frame, m, margin=margin, nama=nama)
     for a, b in pasangan or []:

@@ -1,89 +1,122 @@
 [
   {
-    "_video": "V03 Substitusi, melihat lapisan",
-    "_segmen": "periksa",
-    "_kalimat": "Turunan tebakan (2x+1)^6/6 adalah 2(2x+1)^5, jadi PERSIS DUA KALI yang dicari.",
-    "_catatan": "Selisih turunan tebakan dengan integran yang dituju harus sama dengan integran itu sendiri. Kalau nol, tebakannya benar dan seluruh video ini tidak punya alasan; kalau bukan itu, kelebihannya bukan dua kali.",
-    "id": "V03-tebakan-dua-kali",
+    "_video": "V03 Substitusi, melihat lapisan (tulis ulang STANDAR v3)",
+    "_segmen": "ingat5",
+    "_kalimat": "Aturan pangkat: antiturunan dari x pangkat n adalah x pangkat n+1 dibagi n+1.",
+    "_catatan": "Segar-ingat Materi 02 ikut diperiksa, bukan dipercaya begitu saja. Diperiksa pada satu pangkat yang dipakai video ini juga (lima).",
+    "id": "V03-aturan-pangkat-5",
+    "jenis": "antiturunan",
+    "f": "x**5",
+    "F": "x**6/6"
+  },
+  {
+    "_segmen": "uraikan",
+    "_kalimat": "Menguraikan (2x + 1) pangkat lima hasilnya enam suku.",
+    "_catatan": "Angka 'enam suku' dihitung sympy dari uraiannya sendiri, bukan dari ingatan saya soal segitiga Pascal.",
+    "id": "V03-uraian-pangkat-5-enam-suku",
     "jenis": "nilai",
-    "ekspresi": "simplify(diff((2*x + 1)**6/6, x) - (2*x + 1)**5 - (2*x + 1)**5)",
-    "jawaban": "0"
+    "ekspresi": "len(expand((2*x + 1)**5).as_ordered_terms())",
+    "jawaban": "6"
   },
   {
-    "_segmen": "bagi",
-    "_kalimat": "Jawaban yang benar (2x+1)^6/12.",
-    "id": "V03-benar-1",
-    "jenis": "antiturunan",
-    "f": "(2*x + 1)**5",
-    "F": "(2*x + 1)**6/12"
+    "_segmen": "besar",
+    "_kalimat": "Untuk pangkat sepuluh, uraiannya sebelas suku.",
+    "id": "V03-uraian-pangkat-10-sebelas-suku",
+    "jenis": "nilai",
+    "ekspresi": "len(expand((2*x + 1)**10).as_ordered_terms())",
+    "jawaban": "11"
   },
   {
-    "_segmen": "contoh2",
-    "_kalimat": "Antiturunan 2x(x^2+5)^4 adalah (x^2+5)^5/5.",
-    "_catatan": "Contoh Soal 3.3 buku, halaman 172. Di sini du sudah lengkap di soal, tidak perlu disesuaikan.",
-    "id": "V03-benar-2",
-    "jenis": "antiturunan",
-    "f": "2*x*(x**2 + 5)**4",
-    "F": "(x**2 + 5)**5/5"
+    "_segmen": "besar",
+    "_kalimat": "Untuk pangkat dua puluh, dua puluh satu suku.",
+    "id": "V03-uraian-pangkat-20-dua-puluh-satu-suku",
+    "jenis": "nilai",
+    "ekspresi": "len(expand((2*x + 1)**20).as_ordered_terms())",
+    "jawaban": "21"
   },
   {
-    "_segmen": "contoh3",
-    "_kalimat": "Antiturunan x akar(x^2+5) adalah (x^2+5)^(3/2)/3.",
-    "_catatan": "Yang kurang di sini cuma angka setengah, dan angka boleh disesuaikan.",
-    "id": "V03-benar-3",
-    "jenis": "antiturunan",
-    "f": "x*sqrt(x**2 + 5)",
-    "F": "(x**2 + 5)**Rational(3,2)/3"
-  },
-  {
-    "_segmen": "namai",
-    "_kalimat": "u = 2x + 1 memberi du = 2 dx.",
-    "_catatan": "Diperiksa sebagai turunan u terhadap x, yaitu 2.",
-    "id": "V03-du-pertama",
+    "_segmen": "turunanisi",
+    "_kalimat": "Turunan dari dua x tambah satu adalah dua.",
+    "id": "V03-turunan-isi-kurung",
     "jenis": "nilai",
     "ekspresi": "diff(2*x + 1, x)",
     "jawaban": "2"
   },
   {
-    "_segmen": "contoh2",
-    "_kalimat": "u = x^2 + 5 memberi du = 2x dx.",
-    "id": "V03-du-kedua",
+    "_segmen": "kelebihan",
+    "_kalimat": "Turunan tebakan naif itu dua kali (2x + 1) pangkat lima.",
+    "_catatan": "Inti seluruh video. Diperiksa sebagai SELISIH: turunan tebakan dikurangi dua kali yang dicari harus nol. Kalau selisihnya bukan nol, kalimat 'dua kali lipat' itu bohong.",
+    "id": "V03-tebakan-naif-dua-kali-lipat",
     "jenis": "nilai",
-    "ekspresi": "diff(x**2 + 5, x) - 2*x",
+    "ekspresi": "simplify(diff((2*x + 1)**6/6, x) - 2*(2*x + 1)**5)",
     "jawaban": "0"
   },
   {
-    "_segmen": "contoh3",
-    "_kalimat": "Soal punya x dx, itu setengah dari du.",
-    "_catatan": "x dibagi turunan u, yaitu 2x, memberi setengah. Angka, bukan bentuk yang memuat x: itulah sebabnya substitusinya bisa dipakai.",
-    "id": "V03-setengah",
+    "_segmen": "buktijawab",
+    "_kalimat": "Enam per dua belas dikali dua sama dengan satu.",
+    "_catatan": "STANDAR v3 menghitung di layar langkah demi langkah, jadi angka ANTARA ikut diucapkan dan ikut diperiksa.",
+    "id": "V03-enam-per-duabelas-kali-dua",
     "jenis": "nilai",
-    "ekspresi": "simplify(x/diff(x**2 + 5, x))",
-    "jawaban": "1/2"
-  },
-  {
-    "_segmen": "gagal",
-    "_kalimat": "Tanpa x di depan, yang kurang memuat x, jadi substitusinya tidak bisa dipakai.",
-    "_catatan": "Yang diperiksa: 1 dibagi turunan u BUKAN sebuah tetapan, melainkan bentuk yang memuat x. Selisihnya terhadap 1/(2x) harus nol.",
-    "id": "V03-gagal-memuat-x",
-    "jenis": "nilai",
-    "ekspresi": "simplify(1/diff(x**2 + 5, x) - 1/(2*x))",
-    "jawaban": "0"
-  },
-  {
-    "_segmen": "soal",
-    "_kalimat": "Menguraikan (2x+1)^5 memberi enam suku.",
-    "_catatan": "Dipakai untuk mengatakan cara lama itu bisa tetapi panjang. Angkanya diperiksa, bukan dikira-kira: suku pertama 32x^5, terakhir 1.",
-    "id": "V03-urai-suku-pertama",
-    "jenis": "nilai",
-    "ekspresi": "expand((2*x + 1)**5).coeff(x, 5)",
-    "jawaban": "32"
-  },
-  {
-    "_segmen": "soal",
-    "id": "V03-urai-suku-tetap",
-    "jenis": "nilai",
-    "ekspresi": "expand((2*x + 1)**5).coeff(x, 0)",
+    "ekspresi": "Rational(6,12)*2",
     "jawaban": "1"
+  },
+  {
+    "_segmen": "jawaban",
+    "_kalimat": "Jawabannya (2x + 1) pangkat enam dibagi dua belas.",
+    "id": "V03-jawaban-pokok",
+    "jenis": "antiturunan",
+    "f": "(2*x + 1)**5",
+    "F": "(2*x + 1)**6/12"
+  },
+  {
+    "_segmen": "du",
+    "_kalimat": "u = 2x + 1, maka du = 2 dx.",
+    "_catatan": "du/dx untuk u = 2x + 1 harus 2; inilah angka yang tadi muncul dari aturan rantai.",
+    "id": "V03-du-dx-contoh-1",
+    "jenis": "nilai",
+    "ekspresi": "diff(2*x + 1, x)",
+    "jawaban": "2"
+  },
+  {
+    "_segmen": "kerjakan",
+    "_kalimat": "Antiturunan u pangkat lima adalah u pangkat enam dibagi enam.",
+    "_catatan": "Dikerjakan pada huruf x sebagai wakil u; yang dibuktikan aturan pangkatnya, bukan namanya.",
+    "id": "V03-antiturunan-u-pangkat-5",
+    "jenis": "antiturunan",
+    "f": "x**5",
+    "F": "x**6/6"
+  },
+  {
+    "_segmen": "contoh2u",
+    "_kalimat": "u = x kuadrat tambah lima, maka du = 2x dx.",
+    "id": "V03-du-dx-contoh-2",
+    "jenis": "nilai",
+    "ekspresi": "diff(x**2 + 5, x)",
+    "jawaban": "2*x"
+  },
+  {
+    "_segmen": "contoh2hasil",
+    "_kalimat": "Antiturunan dari 2x(x^2 + 5)^4 adalah (x^2 + 5)^5 dibagi 5.",
+    "id": "V03-contoh-2",
+    "jenis": "antiturunan",
+    "f": "2*x*(x**2 + 5)**4",
+    "F": "(x**2 + 5)**5/5"
+  },
+  {
+    "_segmen": "contoh3hasil",
+    "_kalimat": "Antiturunan dari x akar (x^2 + 5) adalah (x^2 + 5) pangkat 3/2 dibagi 3.",
+    "_catatan": "Di sini yang kurang cuma angka setengah, dan setengah kali dua per tiga memang sepertiga. Kalau angkanya keliru, alat ini yang menangkap, bukan ARYA.",
+    "id": "V03-contoh-3",
+    "jenis": "antiturunan",
+    "f": "x*sqrt(x**2 + 5)",
+    "F": "(x**2 + 5)**Rational(3,2)/3"
+  },
+  {
+    "_segmen": "contoh3angka",
+    "_kalimat": "Setengah dikali dua per tiga sama dengan sepertiga.",
+    "id": "V03-setengah-kali-dua-per-tiga",
+    "jenis": "nilai",
+    "ekspresi": "Rational(1,2)*Rational(2,3)",
+    "jawaban": "1/3"
   }
 ]
