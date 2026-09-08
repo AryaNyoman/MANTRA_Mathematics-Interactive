@@ -155,7 +155,6 @@ class GambarBolehBerbohong(AdeganMatra):
         qc.periksa_adegan(self, {})
 
         # ---- Babak 5: bendanya datang. Kubus PEJAL dulu, benda sebelum rangka.
-        self.add(lantai(), bayangan, *papan_koor["datar"], *papan_koor["tinggi"])
         jati = sinema.identitas(self, "panjang = lebar = tinggi = 6 satuan")
         self.remove(jati)
         with sinema.babak(self, "kubus", DURASI, kata=KATA) as b:
@@ -164,6 +163,12 @@ class GambarBolehBerbohong(AdeganMatra):
             # lebih awal meninggalkan 1,54 detik layar kosong, tepat di bawah
             # ambang cek_layar_kosong sehingga lolos tanpa dilaporkan.
             tunggu_kata_bergeser(b, frame, "kubus")
+            # Lantai dan sumbu baru masuk DI SINI, bersamaan dengan kubusnya.
+            # Ditambahkan sebelum babak ini, keduanya sempat tampil di bawah
+            # kartu segar-ingat: rumus c kuadrat menabrak sumbu z, dan kata
+            # "koordinat" serta "Pythagoras" jatuh di atas petak lantai.
+            # Terlihat di frame detik 35, tidak terlihat dari membaca kode.
+            self.add(lantai(), bayangan, *papan_koor["datar"], *papan_koor["tinggi"])
             b.main(FadeOut(kartu), FadeOut(bawa),
                    FadeIn(kubus, scale=0.72), bayangan.animate.set_opacity(0.16),
                    run_time=1.3)
