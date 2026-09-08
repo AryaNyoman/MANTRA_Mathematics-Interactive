@@ -1,5 +1,70 @@
 # Prompt siap tempel untuk tiap sesi
 
+
+## GELOMBANG 4 (8 Sep 2026): tulis ulang semua video, standar v3
+
+Buka sesi di worktree-nya (tabel di ATURAN-SEMUA-SESI bagian GELOMBANG 4),
+mode AUTO, lalu tempel prompt sesinya. Dua sesi baru (Trigonometri, Limit)
+memakai kalimat pembuka; sesi lama cukup kalimat lanjutan.
+
+### MANTRA-TRIGONOMETRI
+
+```
+Kamu sesi MANTRA-TRIGONOMETRI. Baca dan ikuti docs/tugas/ATURAN-SEMUA-SESI.md bagian GELOMBANG 4, lalu docs/tugas/MANTRA-TRIGONOMETRI.md bagian GELOMBANG 4, lalu docs/tugas/STANDAR-VIDEO-V3.md. Cabangmu sesi/trigonometri-video, port 3017, Playwright -s=mantra-trigonometri. Kerjakan video PERTAMA di daftar sampai lolos sepuluh butir daftar periksa v3, kirim salinan 480p bersubtitelnya ke saya di sini, lapor ke MASTER lewat pesan antar sesi, lalu BERHENTI menunggu penilaian saya.
+```
+
+### MANTRA-LIMIT
+
+```
+Kamu sesi MANTRA-LIMIT. Baca dan ikuti docs/tugas/ATURAN-SEMUA-SESI.md bagian GELOMBANG 4, lalu docs/tugas/MANTRA-LIMIT.md bagian GELOMBANG 4, lalu docs/tugas/STANDAR-VIDEO-V3.md. Cabangmu sesi/limit-video, port 3018, Playwright -s=mantra-limit. Kerjakan video PERTAMA di daftar sampai lolos sepuluh butir daftar periksa v3, kirim salinan 480p bersubtitelnya ke saya di sini, lapor ke MASTER lewat pesan antar sesi, lalu BERHENTI menunggu penilaian saya.
+```
+
+### MANTRA-VEKTOR
+
+```
+Lanjutkan sebagai sesi MANTRA-VEKTOR. Keputusan saya 8 Sep: SEMUA video ditulis ulang dengan standar v3. Jalankan git merge master dulu (selesaikan bentrok kalau ada), lalu baca docs/tugas/ATURAN-SEMUA-SESI.md bagian GELOMBANG 4, docs/tugas/MATRA-VEKTOR.md bagian GELOMBANG 4, dan docs/tugas/STANDAR-VIDEO-V3.md. Kerjakan video PERTAMA di daftar gelombang 4 sampai lolos sepuluh butir daftar periksa v3, kirim salinan 480p bersubtitelnya ke saya di sini, lapor ke MASTER lewat pesan antar sesi, lalu BERHENTI menunggu penilaian saya.
+```
+
+### MANTRA-GRAFIK-FUNGSI
+
+```
+Lanjutkan sebagai sesi MANTRA-GRAFIK-FUNGSI. Keputusan saya 8 Sep: SEMUA video ditulis ulang dengan standar v3. Jalankan git merge master dulu (selesaikan bentrok kalau ada), lalu baca docs/tugas/ATURAN-SEMUA-SESI.md bagian GELOMBANG 4, docs/tugas/MATRA-GRAFIK-FUNGSI.md bagian GELOMBANG 4, dan docs/tugas/STANDAR-VIDEO-V3.md. Kerjakan video PERTAMA di daftar gelombang 4 sampai lolos sepuluh butir daftar periksa v3, kirim salinan 480p bersubtitelnya ke saya di sini, lapor ke MASTER lewat pesan antar sesi, lalu BERHENTI menunggu penilaian saya.
+```
+
+### MANTRA-STATISTIKA
+
+```
+Lanjutkan sebagai sesi MANTRA-STATISTIKA. Keputusan saya 8 Sep: SEMUA video ditulis ulang dengan standar v3. Jalankan git merge master dulu (selesaikan bentrok kalau ada), lalu baca docs/tugas/ATURAN-SEMUA-SESI.md bagian GELOMBANG 4, docs/tugas/MATRA-STATISTIKA.md bagian GELOMBANG 4, dan docs/tugas/STANDAR-VIDEO-V3.md. Kerjakan video PERTAMA di daftar gelombang 4 sampai lolos sepuluh butir daftar periksa v3, kirim salinan 480p bersubtitelnya ke saya di sini, lapor ke MASTER lewat pesan antar sesi, lalu BERHENTI menunggu penilaian saya.
+```
+
+### MANTRA-3D
+
+```
+Lanjutkan sebagai sesi MANTRA-3D. Keputusan saya 8 Sep: SEMUA video ditulis ulang dengan standar v3. Jalankan git merge master dulu (selesaikan bentrok kalau ada), lalu baca docs/tugas/ATURAN-SEMUA-SESI.md bagian GELOMBANG 4, docs/tugas/MATRA-RUANG-TIGA-DIMENSI.md bagian GELOMBANG 4, dan docs/tugas/STANDAR-VIDEO-V3.md. Kerjakan video PERTAMA di daftar gelombang 4 sampai lolos sepuluh butir daftar periksa v3, kirim salinan 480p bersubtitelnya ke saya di sini, lapor ke MASTER lewat pesan antar sesi, lalu BERHENTI menunggu penilaian saya.
+```
+
+### MANTRA-TRANSFORMASI-GEO
+
+```
+Lanjutkan sebagai sesi MANTRA-TRANSFORMASI-GEO. Keputusan saya 8 Sep: SEMUA video ditulis ulang dengan standar v3. Jalankan git merge master dulu (selesaikan bentrok kalau ada), lalu baca docs/tugas/ATURAN-SEMUA-SESI.md bagian GELOMBANG 4, docs/tugas/MANTRA-TRANSFORMASI-GEOMETRI.md bagian GELOMBANG 4, dan docs/tugas/STANDAR-VIDEO-V3.md. Kerjakan video PERTAMA di daftar gelombang 4 sampai lolos sepuluh butir daftar periksa v3, kirim salinan 480p bersubtitelnya ke saya di sini, lapor ke MASTER lewat pesan antar sesi, lalu BERHENTI menunggu penilaian saya.
+```
+
+### MANTRA-TURUNAN
+
+```
+Lanjutkan sebagai sesi MANTRA-TURUNAN. Keputusan saya 8 Sep: SEMUA video ditulis ulang dengan standar v3. Jalankan git merge master dulu (selesaikan bentrok kalau ada), lalu baca docs/tugas/ATURAN-SEMUA-SESI.md bagian GELOMBANG 4, docs/tugas/MANTRA-TURUNAN-INTEGRAL.md bagian GELOMBANG 4, dan docs/tugas/STANDAR-VIDEO-V3.md. Kerjakan video PERTAMA di daftar gelombang 4 sampai lolos sepuluh butir daftar periksa v3, kirim salinan 480p bersubtitelnya ke saya di sini, lapor ke MASTER lewat pesan antar sesi, lalu BERHENTI menunggu penilaian saya.
+```
+
+### MANTRA-INTEGRAL
+
+```
+Lanjutkan sebagai sesi MANTRA-INTEGRAL. Keputusan saya 8 Sep: SEMUA video ditulis ulang dengan standar v3. Jalankan git merge master dulu (selesaikan bentrok kalau ada), lalu baca docs/tugas/ATURAN-SEMUA-SESI.md bagian GELOMBANG 4, docs/tugas/MANTRA-TURUNAN-INTEGRAL.md bagian GELOMBANG 4, dan docs/tugas/STANDAR-VIDEO-V3.md. Kerjakan video PERTAMA di daftar gelombang 4 sampai lolos sepuluh butir daftar periksa v3, kirim salinan 480p bersubtitelnya ke saya di sini, lapor ke MASTER lewat pesan antar sesi, lalu BERHENTI menunggu penilaian saya.
+```
+
+---
+
+## Arsip prompt gelombang sebelumnya
+
 Cara pakai: buka jendela sesinya, tempel prompt yang sesuai, tekan Enter.
 Semua prompt di bawah aman diulang berkali-kali.
 

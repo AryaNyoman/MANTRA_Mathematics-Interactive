@@ -111,3 +111,42 @@ Enam kandidat, urut prioritas. Satu per satu, lembar kontak dibuka:
 
 Naskah 10 sampai 12 segmen, 90 sampai 125 detik, ikuti pola
 `manim/narasi/limit*.json` dan bagian 5 STANDAR-MENGAJAR. Render 480p saja
+
+## GELOMBANG 4 (8 Sep 2026): TULIS ULANG SEMUA VIDEO, STANDAR v3
+
+Kamu sesi **MANTRA-GRAFIK-FUNGSI**. Keputusan ARYA: semua video MANTRA ditulis ulang dengan
+gaya Turunan 02 versi rinci (3 sampai 6 menit, segar-ingat, asal rumus
+dibuktikan, narasi tenang, animasi dipicu per kata). Baca berurutan:
+`docs/tugas/STANDAR-VIDEO-V3.md`, `docs/tugas/ATURAN-SEMUA-SESI.md` bagian
+GELOMBANG 4, `docs/tugas/laporan/PELAJARAN-RENDER-TURUNAN-2026-09-08.md`, lalu
+`docs/tugas/laporan/MANTRA-INTEGRAL.md` bagian pemangkas render.
+
+| Hal | Nilai |
+|---|---|
+| Cabang | `sesi/grafik-fungsi` |
+| Worktree | `.claude/worktrees/matra-grafik-fungsi` |
+| Port dev server | 3011 |
+| Playwright | `-s=matra-grafik-fungsi` |
+| Contoh yang disetujui | `manim/scenes/turunan2_garis_singgung.py`, naskah `manim/narasi/turunan2-garis-singgung.json`, video `web/public/anim/turunan2-garis-singgung.mp4` |
+
+Video yang ditulis ulang, URUT (segar-ingat bersambung dari satu ke berikutnya):
+
+| Materi | Nama berkas video |
+|---|---|
+| 03 bentuk-puncak | `grafik3-puncak` |
+| 06 geser-cermin-regang | `grafik6-transformasi` |
+
+Dua video lama ditulis ulang dulu (kedua adegan ManimGL sudah ada). Sesudah keduanya disetujui, ajukan ke ARYA di jendelamu daftar kandidat video berikutnya dari rancangan topik ini (materi yang paling butuh gambar bergerak: fungsi kuadrat, eksponen, komposisi); jangan mulai sebelum ia memilih.
+
+Alur tiap video: naskah 25 sampai 35 segmen dengan `teks` (ejaan ucapan) dan
+`tulis` (kalimat utuh berlambang) -> `python manim/buat_narasi.py <video>` ->
+adegan dengan `sinema.JamKata` dan `tunggu_kata` -> `cek_kode --dalam`,
+`cek_waktu_adegan`, klaim sympy, `cek_urutan_grafik_fungsi` ->
+render `--hd --config_file manim/hd60.yml` -> `gabung_audio <video> <Adegan>
+--keluar <video>.mp4` -> lembar kontak DIBUKA -> `cek_layar_kosong`,
+`buat_subtitle` + `cek_subtitle`, `buat_poster` + `cek_aset_video` ->
+salinan 480p bersubtitel -> medan `video` di tahap.ts, tsc -> commit ->
+lapor ke MASTER dengan sepuluh butir daftar periksa v3 terisi.
+
+**Video PERTAMA berhenti** sampai ARYA menonton dan menyetujui di jendelamu;
+sesudahnya per kelompok dua sampai tiga video. Satu render pada satu waktu.

@@ -100,6 +100,15 @@ def ambil_teks_tahap() -> list[tuple[int, str, list[str]]]:
     isi = re.sub(r"/\*.*?\*/", "", isi, flags=re.S)
     isi = re.sub(r"^\s*//.*$", "", isi, flags=re.M)
 
+    # PENANDA, BUKAN KALIMAT. Nama berkas video, penanda widget, dan slug tidak
+    # pernah dibaca siswa sebagai kalimat; ketiganya nama teknis. Tanpa
+    # pembuangan ini, memasang video di Materi 01 langsung dilaporkan melanggar
+    # semata karena berkasnya bernama "turunan1-laju-rata-rata.mp4" (terjadi
+    # 8 Sep 2026). Pemeriksa yang menuduh nama berkas mengarahkan perbaikan ke
+    # tempat yang salah, persis seperti pemeriksa yang terlalu longgar.
+    isi = re.sub(r"video:\s*\{[^}]*\}", "", isi)
+    isi = re.sub(r"^\s*(?:widget|slug):\s*'[^']*',?$", "", isi, flags=re.M)
+
     potongan = re.split(r"\n  \{\n    no: ", isi)
     hasil = []
     for bagian in potongan[1:]:
@@ -118,9 +127,10 @@ def ambil_teks_narasi() -> list[tuple[str, int, list[str]]]:
     begitu naskahnya ada.
     """
     peta: dict[str, int] = {
-        # "turunan1-laju-rata-rata": 1,
+        "turunan1-laju-rata-rata": 1,
         "turunan2-garis-singgung": 2,
         "turunan3-fungsi-turunan": 3,
+        "turunan4-aturan-pangkat": 4,
         "turunan6-hasil-kali": 6,
         "turunan7-aturan-rantai": 7,
     }

@@ -10,8 +10,31 @@ Situs belajar matematika SMA: **animasi Manim** (menjelaskan *kenapa*) + **widge
 > akan menghapus kemajuan siswa yang sudah tersimpan, dan mengganti alamat
 > Vercel memutus tautan yang sudah disebar.
 
-> **Tenggat: 12 September 2026.** Baca `PROGRESS.md` DULU tiap sesi baru - di situ status harian,
+> **Tenggat 12 September 2026 diterima lewat** (keputusan ARYA 8 Sep: semua
+> video ditulis ulang, standar v3). Baca `PROGRESS.md` DULU tiap sesi baru - di situ status harian,
 > keputusan yang sudah diambil, dan apa yang harus dikerjakan berikutnya.
+
+## STANDAR VIDEO v3, keputusan ARYA 8 September 2026 (berlaku SEMUA video)
+
+Setelah menonton Turunan 01 sampai 03 versi rinci (masing-masing sekitar 5:55),
+ARYA memutuskan **semua 58 video ditulis ulang** dengan gaya itu, delapan sesi
+paralel, tenggat 12 Sep diterima lewat. Aturannya di
+`docs/tugas/STANDAR-VIDEO-V3.md` (wajib dibaca sebelum menyentuh video),
+rancangan dan alasannya di
+`docs/superpowers/specs/2026-09-08-standar-video-v3-design.md`. Ringkasnya:
+- durasi 3 sampai 6 menit; kerangka wajib: pembuka pertanyaan, SEGAR-INGAT
+  materi sebelumnya (nomor dan nama konsep, gambar kuncinya), contoh angka,
+  asal rumus dibuktikan, bentuk umum, penutup yang menunjuk video berikutnya;
+- narasi tenang (tempo -5%), bahasa akrab, penghubung lengkap, pengetahuan
+  lama yang mengecoh diantisipasi; `tulis` = kalimat utuh yang diucapkan
+  dengan lambang, dan subtitle harus sama huruf demi huruf (`cek_subtitle`);
+- animasi dipicu pada detik KATA diucapkan: `buat_narasi.py` menulis
+  `kata.json`, adegan memakai `sinema.JamKata`, `babak(..., kata=KATA)`,
+  `b.tunggu_kata("frasa")`, dan `sinema.laporkan_pemicu(self)` di akhir;
+- video pertama tiap sesi ditonton ARYA dulu, sesudahnya per kelompok dua
+  sampai tiga video; render langsung 1080p60 mp4 plus salinan 480p bersubtitel.
+Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
+`docs/tugas/laporan/PELAJARAN-RENDER-TURUNAN-2026-09-08.md`.
 
 ## Cara menjalankan
 - Animasi (ManimGL, sejak 2 Sep 2026): `manimgl manim/scenes/<file>.py <NamaScene> -w -l`
@@ -53,9 +76,12 @@ Situs belajar matematika SMA: **animasi Manim** (menjelaskan *kenapa*) + **widge
   "hilang", hapus `%LOCALAPPDATA%\manim\manim\Cache`.
 - **Wadah video final = mp4 (H.264 dari ManimGL disalin, suara AAC) 1080p60**,
   keputusan ARYA 8 Sep 2026 setelah keputusan "webm" sehari sebelumnya
-  terbukti berdasar angka keliru: pada isi yang sama mp4 utuh 17 persen lebih
-  ringan, tanpa kode ulang (webm butuh 5 sampai 14 menit VP9 per video dan
-  hasilnya lebih besar), dan diputar semua HP. Render final:
+  terbukti berdasar angka keliru. Alasan yang bisa dipertanggungjawabkan
+  HANYA dua: mp4 tidak butuh kode ulang sama sekali (webm menuntut VP9 lima
+  sampai empat belas menit per video), dan mp4 diputar semua HP. Ukuran
+  BUKAN alasannya: terukur 17 persen lebih ringan pada 1080p Statistika,
+  tetapi seri pada 480p Turunan (99 sampai 105 persen); jangan mengutip
+  angka ukuran sebelum diukur pada kasusnya. Render final:
   `manimgl <berkas> <Adegan> -w --hd --config_file manim/hd60.yml` lalu
   `gabung_audio.py <nama-video> <Adegan> --keluar <nama-video>.mp4`. Versi uji
   480p tetap mp4 di `media/uji-480p/`.

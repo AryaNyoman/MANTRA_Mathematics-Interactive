@@ -1,0 +1,95 @@
+[
+  {
+    "_video": "V01 Dari laju ke jumlah, membalik turunan",
+    "_segmen": "laju",
+    "_kalimat": "Pada bulan ke-1 lajunya 3 juta per bulan, pada bulan ke-2 sudah 5.",
+    "id": "V01-laju-b1",
+    "jenis": "nilai",
+    "ekspresi": "2*1 + 1",
+    "jawaban": "3"
+  },
+  {
+    "_segmen": "laju",
+    "id": "V01-laju-b2",
+    "jenis": "nilai",
+    "ekspresi": "2*2 + 1",
+    "jawaban": "5"
+  },
+  {
+    "_segmen": "luas",
+    "_kalimat": "Luas di bawah grafik laju dari 0 sampai 12 adalah 156.",
+    "_catatan": "Grafik lajunya garis lurus, jadi trapesium menutupinya tanpa sisa dan angkanya TEPAT, bukan hampiran. Ini yang membuat dua jalan bertemu di angka yang sama.",
+    "id": "V01-luas-12-bulan",
+    "jenis": "tentu",
+    "f": "2*x + 1",
+    "a": "0",
+    "b": "12",
+    "jawaban": "156"
+  },
+  {
+    "_segmen": "luas",
+    "_kalimat": "Trapesium: setengah kali jumlah sisi sejajar kali lebar.",
+    "_catatan": "Tepi kiri f(0) = 1, tepi kanan f(12) = 25, lebar 12. Angkanya WAJIB sama dengan integralnya di atas; kalau tidak, salah satu dari keduanya keliru.",
+    "id": "V01-trapesium",
+    "jenis": "nilai",
+    "ekspresi": "Rational(1,2)*(1 + 25)*12",
+    "jawaban": "156"
+  },
+  {
+    "_segmen": "tebak",
+    "_kalimat": "Tebakan T(x) = x^2 + x, diperiksa dengan menurunkannya.",
+    "id": "V01-antiturunan-pokok",
+    "jenis": "antiturunan",
+    "f": "2*x + 1",
+    "F": "x**2 + x"
+  },
+  {
+    "_segmen": "plusC",
+    "_kalimat": "x^2 + x + 7 turunannya juga 2x + 1.",
+    "id": "V01-antiturunan-plus7",
+    "jenis": "antiturunan",
+    "f": "2*x + 1",
+    "F": "x**2 + x + 7"
+  },
+  {
+    "_segmen": "plusC",
+    "_kalimat": "Begitu pula x^2 + x - 3.",
+    "id": "V01-antiturunan-minus3",
+    "jenis": "antiturunan",
+    "f": "2*x + 1",
+    "F": "x**2 + x - 3"
+  },
+  {
+    "_segmen": "geser",
+    "_kalimat": "Kemiringan di x = 2 tetap 5 untuk C berapa pun.",
+    "_catatan": "Diperiksa sebagai SELISIH dua turunan pada C yang berbeda; kalau selisihnya nol, menggeser kurva memang tidak mengubah kemiringannya.",
+    "id": "V01-kemiringan-tak-berubah",
+    "jenis": "nilai",
+    "ekspresi": "diff(x**2 + x + 7, x).subs(x, 2) - diff(x**2 + x - 3, x).subs(x, 2)",
+    "jawaban": "0"
+  },
+  {
+    "_segmen": "geser",
+    "id": "V01-kemiringan-di-2",
+    "jenis": "nilai",
+    "ekspresi": "diff(x**2 + x + 7, x).subs(x, 2)",
+    "jawaban": "5"
+  },
+  {
+    "_segmen": "jawab",
+    "_kalimat": "T(0) = 0 memberi C = 0, lalu T(12) = 144 + 12 = 156.",
+    "id": "V01-total-setahun",
+    "jenis": "nilai",
+    "ekspresi": "(x**2 + x).subs(x, 12)",
+    "jawaban": "156"
+  },
+  {
+    "_segmen": "tutup",
+    "_kalimat": "Dua jalan memberi angka yang sama.",
+    "_catatan": "Selisih antara luas di bawah grafik laju dan nilai antiturunannya WAJIB nol. Inilah pernyataan yang jadi Teorema Dasar Kalkulus di Materi 07.",
+    "id": "V01-dua-jalan-bertemu",
+    "jenis": "nilai",
+    "ekspresi": "integrate(2*x + 1, (x, 0, 12)) - (x**2 + x).subs(x, 12)",
+    "jawaban": "0"
+  }
+]

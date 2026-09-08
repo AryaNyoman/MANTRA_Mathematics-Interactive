@@ -61,6 +61,7 @@ export const TAHAP: TahapIntegral[] = [
     slug: 'membalik-turunan',
     judul: 'Dari laju ke jumlah, membalik turunan',
     labelPendek: 'Kenapa',
+    video: { berkas: 'integral01-laju-ke-jumlah.mp4', poster: 'integral01-laju-ke-jumlah.jpg' },
     pertanyaan: 'Pengeluaran naik dengan laju 2x + 1 juta per bulan pada bulan ke-x. Berapa totalnya setahun, kalau yang diketahui cuma lajunya?',
     intisari: [
       'Kalau yang diketahui lajunya, jumlah totalnya adalah luas di bawah grafik laju itu.',
@@ -247,6 +248,7 @@ export const TAHAP: TahapIntegral[] = [
   {
     no: 3,
     slug: 'substitusi',
+    video: { berkas: 'integral03-substitusi.mp4', poster: 'integral03-substitusi.jpg' },
     judul: 'Substitusi, melihat lapisan',
     labelPendek: 'Substitusi',
     pertanyaan: 'Bagaimana mengintegralkan (2x + 1)⁵ tanpa menguraikannya?',
@@ -461,6 +463,7 @@ export const TAHAP: TahapIntegral[] = [
     slug: 'jumlahan-riemann',
     judul: 'Luas dari persegi panjang, jumlahan Riemann',
     labelPendek: 'Riemann',
+    video: { berkas: 'integral05-riemann.mp4', poster: 'integral05-riemann.jpg' },
     pertanyaan: 'Bagaimana mengukur luas daerah yang salah satu tepinya melengkung?',
     intisari: [
       'Daerah bertepi lengkung diukur dengan menutupinya memakai persegi panjang yang luasnya bisa dihitung.',
@@ -520,7 +523,7 @@ export const TAHAP: TahapIntegral[] = [
       },
 
       { jenis: 'sesi', judul: 'Kiri dan kanan, mana yang lebih besar' },
-      { jenis: 'paragraf', teks: 'Pada contoh f(x) sama dengan x tadi, jumlahan kanan lebih besar daripada jumlahan kiri. Mudah menyimpulkan bahwa itu selalu terjadi. Coba periksa dengan kurva yang menurun.' },
+      { jenis: 'paragraf', teks: 'Pada contoh f(x) sama dengan x tadi, jumlahan kanan lebih besar daripada jumlahan kiri. Godaannya besar untuk menyimpulkan bahwa itu selalu terjadi. Coba periksa dengan kurva yang menurun.' },
       {
         jenis: 'contoh',
         judul: 'Empat persegi panjang pada f(x) = 4 - x kuadrat, selang 0 sampai 2',
@@ -638,6 +641,7 @@ export const TAHAP: TahapIntegral[] = [
   {
     no: 7,
     slug: 'teorema-dasar-kalkulus',
+    video: { berkas: 'integral07-teorema-dasar.mp4', poster: 'integral07-teorema-dasar.jpg' },
     judul: 'Dua dunia yang ternyata satu, Teorema Dasar Kalkulus',
     labelPendek: 'TDK',
     pertanyaan: 'Luas dari persegi panjang dan antiturunan tidak kelihatan berhubungan. Kenapa ternyata sama?',
@@ -801,6 +805,7 @@ export const TAHAP: TahapIntegral[] = [
   {
     no: 9,
     slug: 'luas-daerah',
+    video: { berkas: 'integral09-luas-daerah.mp4', poster: 'integral09-luas-daerah.jpg' },
     judul: 'Luas daerah, termasuk yang di bawah sumbu',
     labelPendek: 'Luas',
     pertanyaan: 'Kalau kurvanya memotong sumbu x, kenapa integralnya bisa lebih kecil daripada luas yang terlihat?',
@@ -971,7 +976,7 @@ export const TAHAP: TahapIntegral[] = [
     ],
     seringKeliru: {
       judul: 'Urutan pengurangan dianggap bebas',
-      isi: 'Karena yang dicari luas, dan luas tidak pernah negatif, mudah menganggap urutannya tidak penting dan tanda minus di akhir tinggal dibuang. Persoalannya, membuang tanda minus di akhir kebetulan benar untuk satu daerah, tetapi menyesatkan begitu daerahnya lebih dari satu: dua bagian yang urutannya berbeda akan saling menghapus sebelum sempat dipositifkan. Cara membedakannya: ambil satu angka di dalam selang, masukkan ke kedua kurva, dan lihat sendiri mana yang nilainya lebih besar. Yang lebih besar itulah yang ditulis di depan.',
+      isi: 'Karena yang dicari luas, dan luas tidak pernah negatif, godaannya besar untuk menganggap urutannya tidak penting dan tanda minus di akhir tinggal dibuang. Persoalannya, membuang tanda minus di akhir kebetulan benar untuk satu daerah, tetapi menyesatkan begitu daerahnya lebih dari satu: dua bagian yang urutannya berbeda akan saling menghapus sebelum sempat dipositifkan. Cara membedakannya: ambil satu angka di dalam selang, masukkan ke kedua kurva, dan lihat sendiri mana yang nilainya lebih besar. Yang lebih besar itulah yang ditulis di depan.',
     },
     widget: 'dua-kurva',
     siap: true,
@@ -1057,7 +1062,7 @@ export const TAHAP: TahapIntegral[] = [
     ],
     seringKeliru: {
       judul: 'Satuan hasilnya dikira sama dengan satuan sumbu tegak',
-      isi: 'Grafiknya bersumbu tegak meter per detik, jadi terasa wajar kalau jawabannya juga dibaca meter per detik. Padahal yang dihitung adalah luas, dan luas selalu berupa perkalian dua sumbu. Kekeliruan ini menggoda karena angka pada sumbu tegak itulah yang paling menonjol di layar, sementara satuan sumbu mendatar mudah terlupakan. Cara membedakannya: kalikan satuan kedua sumbunya. Meter per detik dikali detik menghasilkan meter, dan newton dikali meter menghasilkan joule.',
+      isi: 'Grafiknya bersumbu tegak meter per detik, jadi terasa wajar kalau jawabannya juga dibaca meter per detik. Padahal yang dihitung adalah luas, dan luas selalu berupa perkalian dua sumbu. Kekeliruan ini menggoda karena angka pada sumbu tegak itulah yang paling menonjol di layar, sementara satuan sumbu mendatar sering terlupakan. Cara membedakannya: kalikan satuan kedua sumbunya. Meter per detik dikali detik menghasilkan meter, dan newton dikali meter menghasilkan joule.',
     },
     widget: 'dunia-nyata-integral',
     siap: true,
