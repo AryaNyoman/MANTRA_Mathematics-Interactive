@@ -186,7 +186,11 @@ def periksa(nomor: int, kalimat: list[str]) -> list[tuple[str, str]]:
         # penyaringan ini, sambungan antartopik yang justru diminta rancangan
         # akan dilaporkan sebagai pelanggaran.
         tanpa_topik_lain = re.sub(rf"topik {TOPIK_LAIN},? Materi \d{{2}}", "", baris)
-        tanpa_topik_lain = re.sub(rf"{TOPIK_LAIN} Materi \d{{2}}", "", tanpa_topik_lain)
+        # "Di Vektor, Materi 03, ..." (koma, atau beberapa kata di antaranya) juga
+        # rujukan lintas topik; standar v3 mewajibkannya di segar-ingat Materi 01
+        # (temuan Transformasi 8 Sep 2026). Batas 30 huruf supaya nama topik di awal
+        # kalimat tidak memutihkan "Materi 09" yang jauh di belakangnya.
+        tanpa_topik_lain = re.sub(rf"{TOPIK_LAIN}[^.]{{0,30}}?Materi \d{{2}}", "", tanpa_topik_lain)
         for rujuk in re.findall(r"Materi (\d{2})", tanpa_topik_lain):
             if int(rujuk) > nomor:
                 temuan.append((f"rujukan ke Materi {rujuk}", baris))
