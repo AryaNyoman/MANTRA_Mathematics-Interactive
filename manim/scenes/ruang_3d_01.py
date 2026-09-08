@@ -383,9 +383,12 @@ class GambarBolehBerbohong(AdeganMatra):
             tunggu_kata_bergeser(b, frame, "bersilangan")
             b.main(FadeIn(payung), run_time=0.9)
             b.main(Indicate(payung, color=SOROT), run_time=1.0)
+        # Panelnya sengaja KOSONG di sini: hitungan panjang BD sudah dihapus di
+        # babak "naik", dan daftar tiga kedudukan baru ditulis di babak
+        # berikutnya. Menyerahkan panel kosong ke qc membuatnya jatuh dengan
+        # AttributeError sesudah render berjalan 24 menit.
         qc.periksa_adegan(self, {"payung": payung, "tiang": tiang,
-                                 "identitas": jati, "panel": papan.semua()},
-                          [("payung", "panel")])
+                                 "identitas": jati})
 
         with sinema.babak(self, "umum-syarat", DURASI, kata=KATA) as b:
             tunggu_kata_bergeser(b, frame, "berpotongan")
