@@ -1,0 +1,89 @@
+[
+  {
+    "_video": "V03 Substitusi, melihat lapisan",
+    "_segmen": "periksa",
+    "_kalimat": "Turunan tebakan (2x+1)^6/6 adalah 2(2x+1)^5, jadi PERSIS DUA KALI yang dicari.",
+    "_catatan": "Selisih turunan tebakan dengan integran yang dituju harus sama dengan integran itu sendiri. Kalau nol, tebakannya benar dan seluruh video ini tidak punya alasan; kalau bukan itu, kelebihannya bukan dua kali.",
+    "id": "V03-tebakan-dua-kali",
+    "jenis": "nilai",
+    "ekspresi": "simplify(diff((2*x + 1)**6/6, x) - (2*x + 1)**5 - (2*x + 1)**5)",
+    "jawaban": "0"
+  },
+  {
+    "_segmen": "bagi",
+    "_kalimat": "Jawaban yang benar (2x+1)^6/12.",
+    "id": "V03-benar-1",
+    "jenis": "antiturunan",
+    "f": "(2*x + 1)**5",
+    "F": "(2*x + 1)**6/12"
+  },
+  {
+    "_segmen": "contoh2",
+    "_kalimat": "Antiturunan 2x(x^2+5)^4 adalah (x^2+5)^5/5.",
+    "_catatan": "Contoh Soal 3.3 buku, halaman 172. Di sini du sudah lengkap di soal, tidak perlu disesuaikan.",
+    "id": "V03-benar-2",
+    "jenis": "antiturunan",
+    "f": "2*x*(x**2 + 5)**4",
+    "F": "(x**2 + 5)**5/5"
+  },
+  {
+    "_segmen": "contoh3",
+    "_kalimat": "Antiturunan x akar(x^2+5) adalah (x^2+5)^(3/2)/3.",
+    "_catatan": "Yang kurang di sini cuma angka setengah, dan angka boleh disesuaikan.",
+    "id": "V03-benar-3",
+    "jenis": "antiturunan",
+    "f": "x*sqrt(x**2 + 5)",
+    "F": "(x**2 + 5)**Rational(3,2)/3"
+  },
+  {
+    "_segmen": "namai",
+    "_kalimat": "u = 2x + 1 memberi du = 2 dx.",
+    "_catatan": "Diperiksa sebagai turunan u terhadap x, yaitu 2.",
+    "id": "V03-du-pertama",
+    "jenis": "nilai",
+    "ekspresi": "diff(2*x + 1, x)",
+    "jawaban": "2"
+  },
+  {
+    "_segmen": "contoh2",
+    "_kalimat": "u = x^2 + 5 memberi du = 2x dx.",
+    "id": "V03-du-kedua",
+    "jenis": "nilai",
+    "ekspresi": "diff(x**2 + 5, x) - 2*x",
+    "jawaban": "0"
+  },
+  {
+    "_segmen": "contoh3",
+    "_kalimat": "Soal punya x dx, itu setengah dari du.",
+    "_catatan": "x dibagi turunan u, yaitu 2x, memberi setengah. Angka, bukan bentuk yang memuat x: itulah sebabnya substitusinya bisa dipakai.",
+    "id": "V03-setengah",
+    "jenis": "nilai",
+    "ekspresi": "simplify(x/diff(x**2 + 5, x))",
+    "jawaban": "1/2"
+  },
+  {
+    "_segmen": "gagal",
+    "_kalimat": "Tanpa x di depan, yang kurang memuat x, jadi substitusinya tidak bisa dipakai.",
+    "_catatan": "Yang diperiksa: 1 dibagi turunan u BUKAN sebuah tetapan, melainkan bentuk yang memuat x. Selisihnya terhadap 1/(2x) harus nol.",
+    "id": "V03-gagal-memuat-x",
+    "jenis": "nilai",
+    "ekspresi": "simplify(1/diff(x**2 + 5, x) - 1/(2*x))",
+    "jawaban": "0"
+  },
+  {
+    "_segmen": "soal",
+    "_kalimat": "Menguraikan (2x+1)^5 memberi enam suku.",
+    "_catatan": "Dipakai untuk mengatakan cara lama itu bisa tetapi panjang. Angkanya diperiksa, bukan dikira-kira: suku pertama 32x^5, terakhir 1.",
+    "id": "V03-urai-suku-pertama",
+    "jenis": "nilai",
+    "ekspresi": "expand((2*x + 1)**5).coeff(x, 5)",
+    "jawaban": "32"
+  },
+  {
+    "_segmen": "soal",
+    "id": "V03-urai-suku-tetap",
+    "jenis": "nilai",
+    "ekspresi": "expand((2*x + 1)**5).coeff(x, 0)",
+    "jawaban": "1"
+  }
+]

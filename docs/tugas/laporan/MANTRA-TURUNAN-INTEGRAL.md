@@ -123,6 +123,61 @@ subtitle dibuat ulang.
 
 Ketiganya lolos semua alat. Yang menangkap ketiganya adalah membuka gambarnya.
 
+## Enam video, dan empat keputusan yang perlu ARYA tahu disengaja
+
+| Materi | Isi | Panjang |
+|---|---|---|
+| 01 | Laju rata-rata, pembuka 3D pabrik | 2:03 |
+| 02 | Garis singgung dari garis potong | 1:50 |
+| 03 | Turunan sebagai fungsi baru | 1:55 |
+| 04 | Aturan pangkat lahir dari definisi | 1:57 |
+| 06 | Aturan hasil kali, pojok yang lenyap | 2:31 |
+| 07 | Aturan rantai, perkalian yang dibuktikan | 2:27 |
+
+Semuanya 480p untuk ARYA revisi. Wadahnya mp4 untuk video 01 dan 04 (keputusan
+ARYA 8 September); empat yang lebih dulu masih webm dan akan diganti sekalian
+saat 1080p.
+
+### Keputusan 1: video 03 memakai SATU papan, widget-nya dua
+Alasan terukurnya ada di bagian sebelumnya. Ringkasnya: dua papan bertumpuk pada
+bingkai 16:9 memaksa kamera mundur sampai isinya tinggal 14 persen lebar layar.
+
+### Keputusan 2: video 01 memakai sumbu berskala sendiri, bukan bidang berpetak
+Sumbunya jam lawan barang, 6 lawan 90. Bidang berpetak mengunci satu satuan
+mendatar sama dengan satu satuan tegak, dan pada data ini gambarnya jadi pita
+setinggi 90 satuan di atas alas 6 satuan. Maksud aturan itu adalah supaya
+panjang di layar tidak berbohong, dan di sini yang menjaga hal itu adalah ANGKA
+pada tiap sisi segitiga (2 jam, 44 barang): siswa membaca angka pada sumbu,
+bukan mengukur panjang di layar. Disetujui MASTER 8 September.
+
+### Keputusan 3: video 06 hanya membahas hasil kali, padahal judul materinya
+juga menyebut hasil bagi. Alasan aturan hasil kali berupa GAMBAR, dan gambar
+bergerak bisa memperlihatkan pojoknya lenyap. Alasan aturan hasil bagi berupa
+aljabar, dan halaman sudah mengerjakannya lengkap. Video menyebutnya di penutup
+supaya siswa tahu ke mana mencarinya.
+
+### Keputusan 4: video 04 sengaja TIDAK mengulang jabaran halaman baris demi baris
+Yang dikerjakan video satu hal yang tidak bisa dilakukan tulisan: suku yang
+memuat h benar-benar terlihat menyusut sampai hilang, sementara suku yang tidak
+memuat h sama sekali tidak bergerak. Akibatnya video ini yang paling sepi
+isinya (0,73 persen area kerja, dibanding 6,03 persen video 06), dan itu memang
+konsekuensi menampilkan satu bentuk pendek pada satu waktu.
+
+### Cacat yang ditemukan karena video dibuat, bukan karena video diperiksa
+Merancang video Materi 06 memaksa saya membuka widget-nya untuk menentukan warna
+tiap pita, dan di situ ketahuan halaman menamai pitanya TERBALIK: "pita mendatar"
+untuk pita yang digambar tegak. Tidak satu pun alat proyek bisa menangkap teks
+halaman yang membantah widget di halaman yang sama. MASTER sudah menjadikannya
+aturan: setiap membuat video untuk materi berwidget, buka widget-nya dan samakan
+istilahnya.
+
+### Alat baru: `alat/cek_layar_kosong.py`
+Gerbang `sinema.babak` menghitung berapa lama babak DIAM, tetapi tidak bisa
+membedakan layar yang diam karena menahan gambar dari layar yang TIDAK BERISI
+APA PUN. Video Materi 07 sempat menyisakan 5,5 detik layar kosong dan lolos
+semua gerbang. Alat ini memindai isi tiap setengah detik di luar jalur identitas,
+panel, dan subtitle. Sudah menangkap satu cacat lagi saat video 04 dibuat.
+
 ## Butuh MASTER
 1. **Cabangnya `sesi/turunan-materi`**, bukan `sesi/turunan`. Ambil cabang ini
    saat menggabung. `sesi/turunan` dibiarkan utuh sebagai cadangan kerangka.

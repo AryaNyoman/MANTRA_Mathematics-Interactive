@@ -92,8 +92,12 @@ Jangan mengerjakan dengan tangan apa yang sudah ada alatnya:
 - Setelah render: `manim/cek_video.py media/gl/<Adegan>.mp4` lalu BUKA lembar
   kontaknya frame per frame DAN baca angka sumbunya satu per satu (angka yang
   meleset tidak terlihat sebagai tindihan); `python alat/cek_layar_kosong.py
-  <video>` (layar hampa lebih dari 1,5 detik di luar jalur identitas, panel,
-  subtitle; gerbang diam TIDAK menangkapnya); `python alat/cek_aset_video.py
+  <path-video>` (layar hampa lebih dari 1,5 detik di luar jalur identitas,
+  panel, subtitle; gerbang diam TIDAK menangkapnya; beri PATH berkasnya,
+  nama topik hanya jalan kalau videonya sudah ada di web/public/anim;
+  angka "isi area kerja rata-rata"-nya patokan kasar: di bawah 2 persen
+  pada video penuh rumus pendek wajar, tetapi selisih lima kali antar
+  video satu topik berarti ada yang terlalu lengang); `python alat/cek_aset_video.py
   <topik>` (subtitle sepanjang video, poster tidak kosong lewat
   `alat/buat_poster.py`, potongan suara sesuai naskah). Render final 1080p60:
   `manimgl <berkas> <Adegan> -w --hd --config_file manim/hd60.yml` (BUKAN

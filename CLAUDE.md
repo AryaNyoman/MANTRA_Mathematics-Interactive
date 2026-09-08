@@ -53,9 +53,12 @@ Situs belajar matematika SMA: **animasi Manim** (menjelaskan *kenapa*) + **widge
   "hilang", hapus `%LOCALAPPDATA%\manim\manim\Cache`.
 - **Wadah video final = mp4 (H.264 dari ManimGL disalin, suara AAC) 1080p60**,
   keputusan ARYA 8 Sep 2026 setelah keputusan "webm" sehari sebelumnya
-  terbukti berdasar angka keliru: pada isi yang sama mp4 utuh 17 persen lebih
-  ringan, tanpa kode ulang (webm butuh 5 sampai 14 menit VP9 per video dan
-  hasilnya lebih besar), dan diputar semua HP. Render final:
+  terbukti berdasar angka keliru. Alasan yang bisa dipertanggungjawabkan
+  HANYA dua: mp4 tidak butuh kode ulang sama sekali (webm menuntut VP9 lima
+  sampai empat belas menit per video), dan mp4 diputar semua HP. Ukuran
+  BUKAN alasannya: terukur 17 persen lebih ringan pada 1080p Statistika,
+  tetapi seri pada 480p Turunan (99 sampai 105 persen); jangan mengutip
+  angka ukuran sebelum diukur pada kasusnya. Render final:
   `manimgl <berkas> <Adegan> -w --hd --config_file manim/hd60.yml` lalu
   `gabung_audio.py <nama-video> <Adegan> --keluar <nama-video>.mp4`. Versi uji
   480p tetap mp4 di `media/uji-480p/`.

@@ -1,0 +1,105 @@
+[
+  {
+    "_video": "V09 Luas daerah, termasuk yang di bawah sumbu",
+    "_segmen": "potong",
+    "_kalimat": "Kurva x^2 - 4x memotong sumbu di 0 dan 4.",
+    "_catatan": "Akarnya dicari solveset, bukan diambil dari klaim, jadi angka yang saya tulis di sini benar-benar diadu dengan hitungan.",
+    "id": "V09-akar",
+    "jenis": "akar",
+    "f": "x**2 - 4*x",
+    "a": "0",
+    "b": "6",
+    "jawaban": ["0", "4"]
+  },
+  {
+    "_segmen": "hitung1",
+    "_kalimat": "Bagian 0 sampai 4 memberi -32/3, dan tandanya negatif sebab kurvanya di bawah sumbu.",
+    "id": "V09-bagian-kiri",
+    "jenis": "tentu",
+    "f": "x**2 - 4*x",
+    "a": "0",
+    "b": "4",
+    "jawaban": "-32/3"
+  },
+  {
+    "_segmen": "hitung2",
+    "_kalimat": "Bagian 4 sampai 6 memberi 32/3, positif sebab kurvanya di atas sumbu.",
+    "id": "V09-bagian-kanan",
+    "jenis": "tentu",
+    "f": "x**2 - 4*x",
+    "a": "4",
+    "b": "6",
+    "jawaban": "32/3"
+  },
+  {
+    "_segmen": "nol",
+    "_kalimat": "Dijumlahkan langsung, hasilnya NOL untuk daerah yang jelas-jelas ada.",
+    "_catatan": "Inilah seluruh isi video ini. Diperiksa sebagai integral dari 0 sampai 6, BUKAN sebagai -32/3 + 32/3, supaya yang diuji hitungannya sendiri dan bukan penjumlahan saya.",
+    "id": "V09-integral-nol",
+    "jenis": "tentu",
+    "f": "x**2 - 4*x",
+    "a": "0",
+    "b": "6",
+    "jawaban": "0"
+  },
+  {
+    "_segmen": "positif",
+    "_kalimat": "Luas daerahnya 64/3, kira-kira 21,3.",
+    "_catatan": "Jenis klaim 'luas' mencari titik potongnya SENDIRI lalu memecah selangnya. Kalau saya lupa memecah, alat inilah yang menangkapnya, bukan saya.",
+    "id": "V09-luas",
+    "jenis": "luas",
+    "f": "x**2 - 4*x",
+    "a": "0",
+    "b": "6",
+    "jawaban": "64/3"
+  },
+  {
+    "_segmen": "positif",
+    "_kalimat": "Dipositifkan dulu: 32/3 ditambah 32/3, hasilnya 64/3.",
+    "_catatan": "Klaim pertama yang saya tulis di sini (64/3 dikurangi 64/3 sama dengan 0) TIDAK MEMBUKTIKAN APA-APA: ia benar untuk bilangan mana pun. Diganti penjumlahan yang sungguh dipakai video.",
+    "id": "V09-positifkan-lalu-jumlah",
+    "jenis": "nilai",
+    "ekspresi": "Abs(Rational(-32,3)) + Abs(Rational(32,3))",
+    "jawaban": "64/3"
+  },
+  {
+    "_segmen": "nol",
+    "_kalimat": "Selisih dua jawaban dari satu gambar yang sama: 64/3 lawan 0.",
+    "_catatan": "Yang dibuktikan di sini bahwa keduanya BENAR-BENAR berbeda, bukan kebetulan sama.",
+    "id": "V09-beda-dua-jawaban",
+    "jenis": "nilai",
+    "ekspresi": "Rational(64,3) - 0",
+    "jawaban": "64/3"
+  },
+  {
+    "_segmen": "aman",
+    "_kalimat": "Kurva x akar(x^2 + 5) pada 0 sampai 2 tidak pernah di bawah sumbu, jadi luasnya sama dengan integralnya.",
+    "_catatan": "Contoh Soal 3.13 buku. Kalau luas dan integral tentunya TIDAK sama, berarti kurvanya memotong sumbu dan kalimat 'boleh langsung' di video keliru.",
+    "id": "V09-aman-luas",
+    "jenis": "luas",
+    "f": "x*sqrt(x**2 + 5)",
+    "a": "0",
+    "b": "2",
+    "jawaban": "(27 - 5*sqrt(5))/3"
+  },
+  {
+    "_segmen": "aman",
+    "id": "V09-aman-tentu",
+    "jenis": "tentu",
+    "f": "x*sqrt(x**2 + 5)",
+    "a": "0",
+    "b": "2",
+    "jawaban": "(27 - 5*sqrt(5))/3"
+  },
+  {
+    "_segmen": "aturan",
+    "_kalimat": "Kalau seluruh kurvanya di BAWAH sumbu, luasnya integral yang dipositifkan.",
+    "_catatan": "Diperiksa pada bagian kiri contoh utamanya: integralnya -32/3, luasnya 32/3.",
+    "id": "V09-bawah-saja",
+    "jenis": "luas",
+    "f": "x**2 - 4*x",
+    "a": "0",
+    "b": "4",
+    "jawaban": "32/3"
+  }
+]

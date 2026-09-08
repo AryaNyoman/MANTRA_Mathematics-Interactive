@@ -1,5 +1,64 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 8 SEP (malam): LIMA VIDEO INTEGRAL 480p LENGKAP, SUBTITLE BINTANG DIBERESKAN
+
+Sesi Integral menyelesaikan gelombang 2: 01 (146 s, 11 render), 03 substitusi
+(135 s, 4), 05 Riemann (118 s, 8), 07 TDK (142 s, 4), 09 luas di bawah sumbu
+(129 s, 5). Semua di master (af52d6e), medan video terpasang, cek_aset_video,
+cek_layar_kosong, cek_urutan, tsc lolos, tayang di produksi. Keputusan yang
+DISENGAJA untuk dinilai ARYA: skala x dan y tidak sama di 07 (angka di panel
+yang dibandingkan), bagian merah dibalik ke atas sementara aslinya tetap di 09,
+03 tanpa bidang koordinat dan paling lengang (1,17 persen; pilihan: gambar
+pendamping daftar langkah, satu render). Cacat lintas topik yang ketahuan dari
+sesi ini: penanda tebal `*` terpotong dua baris subtitle tercetak di layar
+pada empat video tayang (grafik6, ruang-3d-03, statistika10, tahap5);
+buat_subtitle dibetulkan (tebalkan sebelum pecah, tag diseimbangkan, bintang
+menggagalkan), keempat vtt dibuat ulang dan naik produksi. Jebakan baru
+26 sampai 40 di catatan MASTER. Kedua sesi (Turunan 6 video, Integral 5)
+berhenti menunggu tinjauan ARYA; tiga cadangan Turunan (08, 10, 11) menunggu.
+
+## 8 SEP (sore): DUA VIDEO INTEGRAL 480p DI PRODUKSI, ALAT BERSAMA BERTAMBAH
+
+Sesi Integral: video 05 jumlahan Riemann (118 s, delapan render) dan 01 dari
+laju ke jumlah (146 s, sepuluh render), keduanya di master (3a44108) dengan
+medan video dan poster, cek_aset_video lolos, naik produksi bersama enam
+video Turunan yang sudah satu wadah mp4. Alat bersama baru dari sesi ini:
+`qc.pastikan_hilang` / `BendaTertinggal` (benda babak lama yang ikut
+terbang saat kamera pindah), `alat/cek_waktu_adegan.py` (waktu babak dari
+teks kode, dicocokkan dengan durasi.json, jangkar subtitle hilang). Klaim
+"Indicate berwarna sama tidak terlihat" DIBANTAH pengukuran sesi Turunan
+(Indicate bawaan membesarkan 1,2 kali); catatan diluruskan. Jebakan baru:
+Cylinder tanpa tutup, set_opacity(0)+FadeIn, identitas ikut berganti bidang,
+%ERRORLEVEL% di cmd selalu 0. Membandingkan dua render: psnr piksel, bukan
+hash. Semua sesi berhenti menunggu ARYA: revisi video Turunan (6) dan
+Integral (2), Transformasi (perbaiki 05/06 atau render 1080p apa adanya),
+Grafik Fungsi (kata "render"), Statistika (49 rentang diam).
+
+## 8 SEP (siang): ENAM VIDEO TURUNAN 480p LENGKAP, NAIK PRODUKSI
+
+Sesi Turunan menyelesaikan gelombang 2: 01 laju rata-rata (2:03, pembuka 3D
+mobil 4 detik), 02 garis singgung (1:50), 03 fungsi turunan (1:55), 04 aturan
+pangkat (1:57), 06 hasil kali (2:31), 07 aturan rantai (2:27). Semua di master
+(0eebe85), medan `video` terpasang, 71 klaim angka naskah lolos sympy,
+cek_aset_video, cek_layar_kosong, cek_urutan, periksa_tahap, tsc lolos.
+Empat keputusan yang DISENGAJA, untuk dinilai ARYA: satu papan di 03 (dua
+papan tidak muat), sumbu berskala sendiri di 01 (jam lawan barang), 06 hanya
+hasil kali (hasil bagi tidak divideokan), 04 tidak mengulang jabaran halaman
+dan paling sepi isinya (0,73 persen area kerja). Tiga cadangan (08, 10, 11)
+menunggu ARYA. Wadah uji campur (2 mp4, 4 webm); diminta disamakan ke mp4.
+
+## 8 SEP (pagi, lanjutan): STATISTIKA MP4 1080p DI PRODUKSI
+
+Sesi Statistika menggabung ulang 13 master H.264 1080p60 ke mp4 tanpa render
+ulang (7e97363, 40,9 MB, turun 17 persen dari webm), poster dari detik yang
+sama; digabung 44fae12, mp4 disalin ke master dan tiap berkas diperiksa
+(h264, 1080, 60 fps), webm dibuang. Deploy produksi berhasil sekali jalan:
+matra-eight dan mantra-matematika menyajikan mp4, webm-nya 404. Di master
+kini yang bukan mp4 hanya Trigonometri 7 dan Limit 7 (webm warisan Manim CE).
+Sisa 480p: vektor 6, grafik 2, transformasi 6, turunan 4 (uji gelombang 2).
+Menggantung di Statistika untuk ARYA: 49 rentang diam (terpanjang 18,5 s,
+Materi 12), perbaikannya butuh render ulang.
+
 ## 8 SEP (pagi): KEPUTUSAN ARYA, WADAH VIDEO FINAL = MP4
 
 ARYA menyetujui saran MASTER: mp4 (H.264 ManimGL disalin + AAC) untuk semua

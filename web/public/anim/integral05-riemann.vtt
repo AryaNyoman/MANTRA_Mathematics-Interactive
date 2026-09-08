@@ -1,0 +1,83 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/integral05-riemann.json
+
+1
+00:00:00.000 --> 00:00:05.232
+Materi 05: luas dari persegi panjang, jumlahan Riemann.
+
+2
+00:00:05.232 --> 00:00:09.724
+Persegi panjang: panjang × lebar.
+
+3
+00:00:09.724 --> 00:00:14.760
+Tapi tepi atas daerah ini melengkung.
+
+4
+00:00:14.760 --> 00:00:17.650
+Kalau tidak bisa diukur langsung,
+
+5
+00:00:17.650 --> 00:00:19.752
+tutupi dengan yang bisa.
+
+6
+00:00:19.752 --> 00:00:23.518
+Selang dipotong sama lebar.
+
+7
+00:00:23.518 --> 00:00:29.376
+Pembagiannya disebut <b>partisi</b>, lebarnya Δx.
+
+8
+00:00:29.376 --> 00:00:33.333
+Tinggi tiap persegi panjang
+
+9
+00:00:33.333 --> 00:00:37.584
+diambil di satu <b>titik sampel</b>.
+
+10
+00:00:37.584 --> 00:00:47.112
+f(x) = x, dari 0 sampai 7, dibagi 7 bagian.
+
+11
+00:00:47.112 --> 00:00:51.440
+Titik sampel kanan.
+
+12
+00:00:51.440 --> 00:00:56.679
+Tinggi 1, 2, 3, ..., 7.
+
+13
+00:00:56.679 --> 00:00:59.640
+Jumlahnya <b>28</b>.
+
+14
+00:00:59.640 --> 00:01:10.944
+Daerahnya segitiga: ½ × 7 × 7 = <b>24,5</b>.
+
+15
+00:01:10.944 --> 00:01:15.361
+28 kelebihan, 21 kekurangan.
+
+16
+00:01:15.361 --> 00:01:21.672
+Jawabannya terjepit di antara 21 dan 28.
+
+17
+00:01:21.672 --> 00:01:31.896
+n = 14, selisih <b>1,75</b>. n = 60, selisih 0,41.
+
+18
+00:01:31.896 --> 00:01:45.144
+Ganti ke 4 - x², [0, 2], n = 4. Kiri 6,25, kanan 4,25.
+
+19
+00:01:45.144 --> 00:01:52.625
+Kali ini <b>kiri</b> yang lebih besar: yang menentukan,
+
+20
+00:01:52.625 --> 00:01:58.080
+di sisi mana kurvanya lebih tinggi.

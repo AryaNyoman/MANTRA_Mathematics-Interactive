@@ -1,0 +1,73 @@
+{
+  "adegan": "TurunanAturanPangkat",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video 06 topik Turunan, untuk Materi 04 'Aturan pangkat lahir dari definisi'. TANPA 3D. Halaman Materi 04 mengerjakan aljabarnya lengkap, jadi video TIDAK mengulang jabaran itu baris demi baris. Yang dikerjakan video adalah satu hal yang tidak bisa dilakukan tulisan: memperlihatkan suku yang masih memuat h benar-benar MENYUSUT sampai hilang saat h dikecilkan, sementara satu suku yang tidak memuat h sama sekali tidak bergerak. Warnanya membelah dua: TINTA untuk suku yang bertahan, AKSEN merah untuk suku yang akan lenyap. Sesudah itu polanya dijajarkan dan aturannya dinamai. Angkanya sama persis dengan kotak contoh halaman Materi 04, dan diperiksa alat/cek_turunan.py lewat klaim berawalan V04.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi keempat: aturan pangkat, lahir dari definisi.",
+      "tulis": "Materi 04: aturan pangkat, lahir dari definisi."
+    },
+    {
+      "id": "pola",
+      "teks": "Di materi sebelumnya kita menyimpulkan dua x hanya dari empat titik. Itu pola, bukan bukti. Sekarang hitungannya diulang dengan x dibiarkan berupa huruf, supaya berlaku untuk semua titik sekaligus.",
+      "tulis": "Materi 03 menyimpulkan 2x dari empat titik. Itu pola, bukan bukti. Kini x dibiarkan berupa huruf."
+    },
+    {
+      "id": "urai",
+      "teks": "Tinggi di titik sebelah. x tambah h, dikuadratkan, sama dengan x kuadrat tambah dua x h tambah h kuadrat.",
+      "tulis": "(x + h)² = x² + 2xh + h²"
+    },
+    {
+      "id": "selisih",
+      "teks": "Kurangi tinggi semula, yaitu x kuadrat. Yang tersisa dua x h tambah h kuadrat.",
+      "tulis": "Dikurangi x²: sisanya 2xh + h²"
+    },
+    {
+      "id": "bagi",
+      "teks": "Bagi dengan jarak mendatarnya, yaitu h. Hasilnya dua x tambah h.",
+      "tulis": "Dibagi h: hasilnya 2x + h"
+    },
+    {
+      "id": "lenyap",
+      "teks": "Sekarang perhatikan baik-baik. Kalau h dikecilkan, suku yang masih memuat h ikut mengecil sampai hilang. Yang tidak memuat h sama sekali tidak bergerak.",
+      "tulis": "h dikecilkan: suku yang memuat h ikut hilang. Yang tidak memuat h diam saja."
+    },
+    {
+      "id": "dapat",
+      "teks": "Jadi turunan x kuadrat memang dua x, untuk titik mana pun, bukan cuma empat titik tadi.",
+      "tulis": "Jadi turunan x² memang 2x, untuk titik mana pun."
+    },
+    {
+      "id": "tiga",
+      "teks": "Diulang untuk x pangkat tiga. Sesudah dibagi h, yang tertinggal tiga x kuadrat, tambah tiga x h, tambah h kuadrat.",
+      "tulis": "Untuk x³, sesudah dibagi h: 3x² + 3xh + h²"
+    },
+    {
+      "id": "duahilang",
+      "teks": "Kali ini ada dua suku yang memuat h, dan keduanya lenyap sekaligus. Sisanya tiga x kuadrat.",
+      "tulis": "Dua suku memuat h, keduanya lenyap. Sisanya 3x²."
+    },
+    {
+      "id": "jajar",
+      "teks": "Hasil-hasilnya kita jajarkan. x memberi satu. x kuadrat memberi dua x. x pangkat tiga memberi tiga x kuadrat. x pangkat empat memberi empat x pangkat tiga.",
+      "tulis": "x → 1, x² → 2x, x³ → 3x², x⁴ → 4x³"
+    },
+    {
+      "id": "aturan",
+      "teks": "Polanya jelas. Pangkatnya turun ke depan menjadi pengali, lalu pangkat yang tertinggal berkurang satu.",
+      "tulis": "Aturan pangkat: untuk a·xⁿ berlaku a·n·xⁿ⁻¹."
+    },
+    {
+      "id": "contoh",
+      "teks": "Angka di depan hanya ikut terbawa. Lima x pangkat tiga memberi lima kali tiga kali x kuadrat, yaitu lima belas x kuadrat.",
+      "tulis": "5x³ memberi 5 · 3 · x², yaitu 15x²."
+    },
+    {
+      "id": "konstan",
+      "teks": "Satu lagi. Fungsi yang isinya cuma angka, misalnya tujuh, grafiknya garis mendatar. Garis mendatar tidak menanjak dan tidak menurun, jadi turunannya nol.",
+      "tulis": "f(x) = 7 grafiknya garis mendatar, tidak menanjak dan tidak menurun. Turunannya 0."
+    }
+  ]
+}

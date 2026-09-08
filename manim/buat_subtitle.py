@@ -69,6 +69,27 @@ def tebalkan(teks: str) -> str:
     return re.sub(r"\*([^*]+)\*", r"<b>\1</b>", teks)
 
 
+def seimbangkan_tebal(baris: list[str]) -> list[str]:
+    """Tag <b> yang terbelah di antara dua baris ditutup dan dibuka lagi.
+
+    `pecah` boleh memotong di tengah `<b>dua kata</b>`; tanpa ini baris
+    pertama berakhir dengan tag terbuka dan baris kedua memuat tag tutup tanpa
+    pembuka, dan peramban menampilkannya sesukanya.
+    """
+    hasil: list[str] = []
+    terbuka = False
+    for b in baris:
+        if terbuka:
+            b = "<b>" + b
+        if b.count("<b>") > b.count("</b>"):
+            b += "</b>"
+            terbuka = True
+        else:
+            terbuka = False
+        hasil.append(b)
+    return hasil
+
+
 def panjang_tampak(teks: str) -> int:
     """Panjang teks tanpa menghitung tag, dipakai membagi waktu baca."""
     return len(re.sub(r"<[^>]+>", "", teks))
@@ -175,7 +196,20 @@ def buat(topik: str, diam: bool = False) -> Path:
                 f"Jalankan ulang buat_narasi.py {topik}.")
         # Bentuk TERTULIS subtitle (angka dan lambang) dibaca dari medan `tulis`;
         # `layar` dan `subtitle` diterima sebagai nama lama. Tanpa itu jatuh ke `teks`.
-        potongan = [tebalkan(x) for x in pecah(bentuk_tulis(seg))]
+        # `tebalkan` DULU, baru `pecah`: versi lama memecah dulu, sehingga
+        # `*istilah dua kata*` yang terpotong di tengah baris meninggalkan
+        # bintangnya tercetak apa adanya di layar ("*gambar dulu," lalu "cari
+        # titik potongnya*."). Ditemukan sesi Integral 8 Sep 2026; saat itu
+        # empat video tayang (grafik6, ruang-3d-03, statistika10, tahap5)
+        # mengidapnya. `pecah` sudah mengukur panjang tanpa tag, jadi urutan
+        # ini tidak mengubah pemotongannya; tag yang terbelah di antara dua
+        # baris diseimbangkan lagi oleh `seimbangkan_tebal`.
+        potongan = seimbangkan_tebal(pecah(tebalkan(bentuk_tulis(seg))))
+        sisa_bintang = [p for p in potongan if "*" in p]
+        if sisa_bintang:
+            raise SystemExit(
+                f"segmen '{seg['id']}' masih memuat tanda * di subtitle: {sisa_bintang}. "
+                f"Penanda tebal harus berpasangan di dalam satu segmen; periksa naskahnya.")
         total_huruf = sum(panjang_tampak(p) for p in potongan) or 1
         mulai = jalan
         for p in potongan:
