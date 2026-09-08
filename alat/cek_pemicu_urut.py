@@ -43,6 +43,10 @@ AKAR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(AKAR / "manim"))
 
 BABAK = re.compile(r'sinema\.babak\(\s*self,\s*"([^"]+)"')
+# Lama animasi di antara dua pemicu. Hanya angka tetap yang dibaca;
+# `run_time=lama` yang dihitung saat jalan sengaja dilewati dan dihitung nol,
+# jadi alat ini bisa MELEWATKAN kelebihan, tidak pernah mengarangnya.
+RUN_TIME = re.compile(r'run_time\s*=\s*([0-9.]+)')
 # Cocok untuk `b.tunggu_kata("frasa", ke=2)` DAN untuk pembungkusnya, misalnya
 # `tunggu_kata_bergeser(b, frame, "frasa")` yang menunggu sambil menggeser
 # kamera. Pembungkus wajib ikut terbaca: begitu sebuah sesi memakai pembungkus,
@@ -74,12 +78,17 @@ def periksa(jalur: Path) -> int:
             urut.setdefault(segmen_kini, [])
         t = TUNGGU.search(baris)
         if t and segmen_kini:
-            urut[segmen_kini].append((t.group(1), int(t.group(2) or 1)))
+            urut[segmen_kini].append((t.group(1), int(t.group(2) or 1), 0.0))
+        elif segmen_kini and urut.get(segmen_kini):
+            # Animasi SESUDAH pemicu terakhir: waktunya menggeser pemicu berikutnya.
+            for rt in RUN_TIME.findall(baris):
+                f, ke, lama_anim = urut[segmen_kini][-1]
+                urut[segmen_kini][-1] = (f, ke, lama_anim + float(rt))
 
     buruk = 0
     for segmen, frasa in urut.items():
-        sebelum_nama, sebelum_jam, sebelum_ke = None, None, None
-        for f, ke in frasa:
+        sebelum_nama, sebelum_jam, sebelum_ke, sebelum_anim = None, None, None, 0.0
+        for f, ke, anim in frasa:
             try:
                 saat = jam.jam(segmen, f, ke=ke)
             except Exception as e:
@@ -94,7 +103,34 @@ def periksa(jalur: Path) -> int:
                 if f == sebelum_nama and ke == sebelum_ke:
                     print(f"          frasanya SAMA dan ke= sama. Kalau yang dimaksud "
                           f"kemunculan berikutnya, tulis ke={ke + 1}.")
-            sebelum_nama, sebelum_jam, sebelum_ke = f, saat, ke
+            elif sebelum_jam is not None and sebelum_anim > (saat - sebelum_jam) + 0.15:
+                # Celah antar-kata TIDAK MUAT untuk animasi di antaranya. Inilah
+                # yang menggagalkan render Ruang 3D materi 01 (9 Sep): animasi
+                # 1,4 detik di celah 0,78 detik, ketahuan sesudah render jalan.
+                # Ketiga gerbang lama tidak melihatnya: yang satu memeriksa
+                # URUTAN pemicu, yang lain memeriksa TOTAL babak, dan celah di
+                # antara dua pemicu tidak diperiksa siapa pun.
+                buruk += 1
+                print(f"  SEMPIT  {segmen}: animasi {sebelum_anim:.2f} s sesudah "
+                      f"{sebelum_nama!r}, padahal {f!r} menyusul "
+                      f"{saat - sebelum_jam:.2f} s kemudian. Pendekkan animasinya.")
+            sebelum_nama, sebelum_jam, sebelum_ke, sebelum_anim = f, saat, ke, anim
+
+        # EKOR: animasi sesudah pemicu TERAKHIR harus muat sampai ujung segmen.
+        # Celah antar-pemicu saja tidak cukup: babak `kenapa` Ruang 3D materi 01
+        # lolos pemeriksaan celah, lalu tetap menggagalkan render di menit ke-22
+        # karena geseran kamera 2,6 detik sesudah kata terakhir menabrak ujung
+        # narasi. Render yang gagal di menit ke-22 harganya jauh di atas nol.
+        if sebelum_jam is not None and sebelum_anim > 0:
+            try:
+                sisa_segmen = jam.akhir(segmen) - sebelum_jam
+            except Exception:
+                sisa_segmen = None
+            if sisa_segmen is not None and sebelum_anim > sisa_segmen + 0.15:
+                buruk += 1
+                print(f"  EKOR    {segmen}: animasi {sebelum_anim:.2f} s sesudah "
+                      f"{sebelum_nama!r}, padahal segmennya habis "
+                      f"{sisa_segmen:.2f} s kemudian. Pendekkan animasinya.")
 
     jumlah = sum(len(v) for v in urut.values())
     print(f"{jalur.name}: {jumlah} pemicu di {len(urut)} babak, "

@@ -111,7 +111,7 @@ class GambarBolehBerbohong(AdeganMatra):
         pembuka, garis_pembuka, titik_pembuka, tanya = dua_garis_pembuka()
         with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
             b.tunggu_kata("dua")
-            b.main(ShowCreation(garis_pembuka, lag_ratio=0.4), run_time=1.4)
+            b.main(ShowCreation(garis_pembuka, lag_ratio=0.4), run_time=0.65)
             b.tunggu_kata("menyilang")
             b.main(FadeIn(titik_pembuka, scale=0.4), run_time=0.7)
             b.tunggu_kata("bertemu")
@@ -169,7 +169,7 @@ class GambarBolehBerbohong(AdeganMatra):
             tunggu_kata_bergeser(b, frame, "tembus")
             b.main(kubus.animate.set_opacity(0.14),
                    ShowCreation(rangka, lag_ratio=0.16),
-                   FadeOut(bayangan), run_time=2.2)
+                   FadeOut(bayangan), run_time=1.6)
             tunggu_kata_bergeser(b, frame, "Kedelapan")
             # Kameranya TETAP bergeser sementara hurufnya muncul: delapan huruf
             # kecil sendirian tidak terbaca sebagai gerakan (temuan 4 Sep).
@@ -343,7 +343,7 @@ class GambarBolehBerbohong(AdeganMatra):
             b.main(Indicate(tiang, scale_factor=1.15, color=SOROT), run_time=1.3)
             tunggu_kata_bergeser(b, frame, "tinggi")
             b.main(kamera.sudut(frame, -18, 60, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
-                   run_time=2.6)
+                   run_time=1.6)
 
         with sinema.babak(self, "bayangan", DURASI, kata=KATA) as b:
             tunggu_kata_bergeser(b, frame, "bayangan")
@@ -386,7 +386,7 @@ class GambarBolehBerbohong(AdeganMatra):
             b.main(Indicate(n_bawah, color=AKSEN2), Indicate(n_atas, color=AKSEN),
                    run_time=1.4)
             tunggu_kata_bergeser(b, frame, "berpotongan")
-            b.main(kamera.putar_pelan(frame, 10), run_time=2.4)
+            b.main(kamera.putar_pelan(frame, 8), run_time=1.8)
 
         with sinema.babak(self, "umum-gagal", DURASI, kata=KATA) as b:
             tunggu_kata_bergeser(b, frame, "bersilangan")
@@ -399,7 +399,7 @@ class GambarBolehBerbohong(AdeganMatra):
                             + np.array([-2.4, 0.0, -0.55]), SOROT, 30)
         with sinema.babak(self, "pesan", DURASI, kata=KATA) as b:
             tunggu_kata_bergeser(b, frame, "menduga")
-            b.main(kamera.putar_pelan(frame, 8), run_time=1.8)
+            b.main(kamera.putar_pelan(frame, 5), run_time=1.1)
             tunggu_kata_bergeser(b, frame, "angka")
             b.main(FadeIn(pesan), run_time=0.9)
         qc.periksa_adegan(self, {"pesan": pesan, "payung": payung,
