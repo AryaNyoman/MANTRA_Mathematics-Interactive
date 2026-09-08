@@ -89,8 +89,10 @@ luar rentang itu. Jangan mengisi waktu dengan pengulangan atau jeda kosong.
 
 Sebelum render pertama: `manim/cek_kode.py --dalam`, `alat/cek_waktu_adegan.py
 <adegan.py>`, `alat/cek_pemicu_urut.py <adegan.py>` (jam tiap `tunggu_kata`
-harus maju terus dalam satu segmen; frasa berulang yang lupa `ke=` ketahuan
-di sini, bukan sesudah sembilan menit render), jangkar kata dicocokkan
+harus maju terus dalam satu segmen DAN tidak boleh terlambat: alat ini
+meramalkan jam adegan dari `run_time` di kodenya, jadi pemicu yang akan
+kedahuluan animasi ketahuan sebelum render, bukan sesudah sembilan menit;
+frasa berulang yang lupa `ke=` juga ketahuan di sini), jangkar kata dicocokkan
 (JamKata menolak frasa yang tidak ada),
 `alat/cek_urutan_<topik>.py` (membaca naskah), klaim angka naskah ke pemeriksa
 sympy topik.
@@ -100,7 +102,8 @@ Sesudah render (1080p60 langsung, `--hd --config_file manim/hd60.yml`;
 1. `manim/cek_video.py` lalu BUKA lembar kontaknya frame per frame, termasuk
    detik PERGANTIAN identitas dan bidang, dan baca angka sumbu satu per satu;
 2. `alat/cek_layar_kosong.py web/public/anim/<video>.mp4`;
-3. `manim/buat_subtitle.py <video>` lalu `alat/cek_subtitle.py <video>`;
+3. `manim/buat_subtitle.py <video>` lalu `alat/cek_subtitle.py <video>` (menolak vtt yang sidik naskahnya beda,
+yaitu berkas lama yang ditinggalkan `buat_subtitle` yang gagal);
 4. `alat/buat_poster.py <video> <detik>` lalu `alat/cek_aset_video.py <topik>`;
 5. salinan 480p bersubtitel untuk ARYA: `gabung_audio.py ... --uji` (atau
    ffmpeg dari mp4 final) ke `media/uji-480p/<video>-bersubtitle.mp4`;
