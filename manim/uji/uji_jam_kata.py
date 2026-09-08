@@ -61,17 +61,33 @@ def main() -> int:
         assert abs(s.time - K.mulai("h")) < 1e-6
     print("ok: babak disejajarkan ke awal audio segmennya")
 
-    # 5. pemicu yang terlambat menggagalkan laporan
+    # 5. pemicu yang sudah lewat GAGAL SAAT ITU JUGA, bukan di akhir render
     s2 = AdeganPalsu()
     s2.time = K.mulai("bagi")
-    with sinema.babak(s2, "bagi", durasi, kata=K) as b:
-        b.main(None, run_time=(t - K.mulai("bagi")) + 0.6)   # animasi kelewat panjang
-        b.tunggu_kata("segitiga")                             # sudah lewat 0,6 detik
     try:
-        sinema.laporkan_pemicu(s2, batas=0.15)
+        with sinema.babak(s2, "bagi", durasi, kata=K) as b:
+            b.main(None, run_time=(t - K.mulai("bagi")) + 0.6)   # animasi kelewat panjang
+            b.tunggu_kata("segitiga")                             # sudah lewat 0,6 detik
         raise SystemExit("GAGAL: pemicu terlambat lolos")
     except sinema.WaktuTidakMuat:
-        print("ok: pemicu terlambat 0,6 detik ditolak laporkan_pemicu")
+        print("ok: pemicu terlambat 0,6 detik ditolak SAAT tunggu_kata dipanggil")
+
+    # 6. frasa yang diucapkan dua kali: ke=2 memilih kemunculan kedua, dan maju
+    def dua_kali(s):
+        try:
+            return K.jam(s, "nol", ke=2) > K.jam(s, "nol", ke=1)
+        except ValueError:
+            return False
+    seg = next(s for s in K.segmen if dua_kali(s))
+    t1, t2 = K.jam(seg, "nol", ke=1), K.jam(seg, "nol", ke=2)
+    assert t2 > t1, (seg, t1, t2)
+    s4 = AdeganPalsu()
+    s4.time = K.mulai(seg)
+    with sinema.babak(s4, seg, durasi, kata=K) as b:
+        b.tunggu_kata("nol")
+        b.tunggu_kata("nol", ke=2)
+        assert abs(s4.time - round(t2 * 30) / 30) < 1e-6
+    print(f"ok: frasa berulang dipilih dengan ke=2 (segmen '{seg}', {t1:.2f} lalu {t2:.2f} detik)")
 
     # 6. babak tanpa jam kata tetap bekerja seperti dulu, dan tunggu_kata menolak
     s3 = AdeganPalsu()
