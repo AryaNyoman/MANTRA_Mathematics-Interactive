@@ -47,6 +47,13 @@ BABAK = re.compile(r'sinema\.babak\(\s*self,\s*"([^"]+)"')
 # `run_time=lama` yang dihitung saat jalan sengaja dilewati dan dihitung nol,
 # jadi alat ini bisa MELEWATKAN kelebihan, tidak pernah mengarangnya.
 RUN_TIME = re.compile(r'run_time\s*=\s*([0-9.]+)')
+# Penolong yang MEMAKAN WAKTU tanpa menulis `run_time=`. Tanpa daftar ini,
+# `sumbu_z_pamit(b, papan_koor, 0.8)` dihitung nol, dan babak `naik` Ruang 3D
+# materi 01 lolos pemeriksaan lalu tetap menggagalkan render di menit ke-8
+# (kelebihan 0,55 detik, persis 0,8 dikurangi sisa yang ada).
+PENOLONG = re.compile(
+    r'(?:sumbu_z_pamit|sumbu_z_muncul)\([^)]*?,\s*([0-9.]+)\s*\)'
+    r'|b\.(?:jeda|catat)\(\s*([0-9.]+)\s*\)')
 # Cocok untuk `b.tunggu_kata("frasa", ke=2)` DAN untuk pembungkusnya, misalnya
 # `tunggu_kata_bergeser(b, frame, "frasa")` yang menunggu sambil menggeser
 # kamera. Pembungkus wajib ikut terbaca: begitu sebuah sesi memakai pembungkus,
@@ -81,9 +88,11 @@ def periksa(jalur: Path) -> int:
             urut[segmen_kini].append((t.group(1), int(t.group(2) or 1), 0.0))
         elif segmen_kini and urut.get(segmen_kini):
             # Animasi SESUDAH pemicu terakhir: waktunya menggeser pemicu berikutnya.
-            for rt in RUN_TIME.findall(baris):
+            tambah = [float(x) for x in RUN_TIME.findall(baris)]
+            tambah += [float(a or b2) for a, b2 in PENOLONG.findall(baris)]
+            for rt in tambah:
                 f, ke, lama_anim = urut[segmen_kini][-1]
-                urut[segmen_kini][-1] = (f, ke, lama_anim + float(rt))
+                urut[segmen_kini][-1] = (f, ke, lama_anim + rt)
 
     buruk = 0
     for segmen, frasa in urut.items():

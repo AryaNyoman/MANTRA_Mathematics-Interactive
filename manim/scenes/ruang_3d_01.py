@@ -257,7 +257,7 @@ class GambarBolehBerbohong(AdeganMatra):
             papan.utama, papan.baris_lain = None, []
             sumbu_z_pamit(b, papan_koor, 0.8)
             b.main(kamera.dunia_ke_peta(frame, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
-                   run_time=4.0)
+                   run_time=3.2)
         qc.periksa_adegan(self, {"BD": bd, "EG": eg, "identitas": jati})
 
         with sinema.babak(self, "dari-atas", DURASI, kata=KATA) as b:
