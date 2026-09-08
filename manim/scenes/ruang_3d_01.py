@@ -122,10 +122,17 @@ class GambarBolehBerbohong(AdeganMatra):
         #      gambar kunci dari Vektor Materi 04, disebut nomor dan namanya.
         kartu, siku_ingat, rms_ingat = kartu_ingat()
         with sinema.babak(self, "ingat-vektor", DURASI, kata=KATA) as b:
+            # Gambar pembukanya BERTAHAN sampai penggantinya datang, lalu
+            # keduanya bersilang di kata "panjang". Versi pertama memudarkannya
+            # di kata "Vektor" (detik 6,62) padahal segitiga segar-ingatnya baru
+            # digambar di kata "panjang" (detik 9,80), dan cek_layar_kosong
+            # menangkap 3,0 detik layar KOSONG di antaranya.
             b.tunggu_kata("Vektor")
-            b.main(FadeOut(pembuka), run_time=0.6)
+            b.main(Indicate(titik_pembuka, scale_factor=1.8, color=SOROT),
+                   run_time=1.0)
             b.tunggu_kata("panjang")
-            b.main(ShowCreation(siku_ingat, lag_ratio=0.3), run_time=1.5)
+            b.main(FadeOut(pembuka), ShowCreation(siku_ingat, lag_ratio=0.3),
+                   run_time=1.5)
             b.tunggu_kata("akar")
             b.main(FadeIn(kartu[1:5]), run_time=0.9)
 
@@ -145,8 +152,6 @@ class GambarBolehBerbohong(AdeganMatra):
             b.main(FadeIn(bawa[0]), run_time=0.7)
             b.tunggu_kata("Pythagoras")
             b.main(FadeIn(bawa[1]), run_time=0.7)
-            b.tunggu_sampai(KATA.akhir("ingat-bawa") - 0.9)
-            b.main(FadeOut(kartu), FadeOut(bawa), run_time=0.8)
         qc.periksa_adegan(self, {})
 
         # ---- Babak 5: bendanya datang. Kubus PEJAL dulu, benda sebelum rangka.
@@ -154,8 +159,13 @@ class GambarBolehBerbohong(AdeganMatra):
         jati = sinema.identitas(self, "panjang = lebar = tinggi = 6 satuan")
         self.remove(jati)
         with sinema.babak(self, "kubus", DURASI, kata=KATA) as b:
+            # Kartu segar-ingat baru dipudarkan BERSAMAAN dengan datangnya
+            # kubus, bukan di ujung babak sebelumnya. Diukur: memudarkannya
+            # lebih awal meninggalkan 1,54 detik layar kosong, tepat di bawah
+            # ambang cek_layar_kosong sehingga lolos tanpa dilaporkan.
             tunggu_kata_bergeser(b, frame, "kubus")
-            b.main(FadeIn(kubus, scale=0.72), bayangan.animate.set_opacity(0.16),
+            b.main(FadeOut(kartu), FadeOut(bawa),
+                   FadeIn(kubus, scale=0.72), bayangan.animate.set_opacity(0.16),
                    run_time=1.3)
             b.main(self.camera.light_source.animate.move_to(CAHAYA), run_time=1.4)
             tunggu_kata_bergeser(b, frame, "enam")
@@ -239,6 +249,12 @@ class GambarBolehBerbohong(AdeganMatra):
         #      atas, dan di situ kedua ruas tampak berpotongan.
         with sinema.babak(self, "naik", DURASI, kata=KATA) as b:
             b.tunggu_kata("naikkan")
+            # Hitungan panjang BD sudah selesai dipakai. Dibiarkan menumpuk, ia
+            # masih tampil sampai akhir video padahal tidak dibicarakan lagi.
+            lama_panel = papan.semua()
+            self.hud.remove(*lama_panel)
+            b.main(FadeOut(lama_panel), run_time=0.6)
+            papan.utama, papan.baris_lain = None, []
             sumbu_z_pamit(b, papan_koor, 0.8)
             b.main(kamera.dunia_ke_peta(frame, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
                    run_time=4.0)
