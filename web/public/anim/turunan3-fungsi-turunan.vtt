@@ -1,5 +1,7 @@
 WEBVTT
 
+NOTE Dibuat otomatis dari manim/narasi/turunan3-fungsi-turunan.json (waktu kata rekaman)
+
 1
 00:00:00.101 --> 00:00:03.080
 Materi ketiga: kemiringan menjadi fungsi.
@@ -9,52 +11,52 @@ Materi ketiga: kemiringan menjadi fungsi.
 Kita lanjutkan kurva x² dari video kedua.
 
 3
-00:00:07.968 --> 00:00:11.863
-Di video kedua, pada x = 1, kemiringan garis
+00:00:07.968 --> 00:00:10.191
+Di video kedua, pada x = 1,
 
 4
-00:00:11.863 --> 00:00:15.669
-singgungnya 2. Ingat video pertama: kemiringan
+00:00:10.191 --> 00:00:12.894
+kemiringan garis singgungnya 2.
 
 5
-00:00:15.669 --> 00:00:17.977
-adalah kenaikan dibagi langkah mendatar.
+00:00:13.643 --> 00:00:14.843
+Ingat video pertama:
 
 6
-00:00:19.182 --> 00:00:21.946
-Kita ringkas tulisannya menjadi miring, sama dengan
+00:00:14.843 --> 00:00:17.999
+kemiringan adalah kenaikan dibagi langkah mendatar.
 
 7
-00:00:21.946 --> 00:00:23.280
-naik dibagi datar.
+00:00:19.182 --> 00:00:21.414
+Kita ringkas tulisannya menjadi miring,
 
 8
-00:00:24.013 --> 00:00:26.934
-Miring berarti kemiringan, bukan panjang sisi miring
+00:00:21.414 --> 00:00:23.280
+sama dengan naik dibagi datar.
 
 9
-00:00:26.934 --> 00:00:28.689
-yang dicari dengan Pythagoras.
+00:00:24.013 --> 00:00:25.448
+Miring berarti kemiringan,
 
 10
+00:00:25.448 --> 00:00:28.689
+bukan panjang sisi miring yang dicari dengan Pythagoras.
+
+11
 00:00:29.901 --> 00:00:31.577
 Perhatikan titik merah.
 
-11
+12
 00:00:32.312 --> 00:00:35.093
 Saat x = 1, tinggi kurvanya 1.
 
-12
+13
 00:00:35.825 --> 00:00:38.080
 Tetapi kemiringan garis ungunya 2.
 
-13
-00:00:38.812 --> 00:00:41.101
-Tinggi titik dan kemiringan menjawab pertanyaan
-
 14
-00:00:41.101 --> 00:00:41.922
-berbeda.
+00:00:38.812 --> 00:00:41.922
+Tinggi titik dan kemiringan menjawab pertanyaan berbeda.
 
 15
 00:00:43.135 --> 00:00:46.127
@@ -105,12 +107,12 @@ Tetapi contoh saja belum membuktikan rumus.
 Kita hitung untuk titik mana pun.
 
 27
-00:01:20.582 --> 00:01:23.582
-Sekarang titik awalnya kita sebut x, jadi tingginya
+00:01:20.582 --> 00:01:24.548
+Sekarang titik awalnya kita sebut x, jadi tingginya x².
 
 28
-00:01:23.582 --> 00:01:27.641
-x². Huruf x menggantikan angka 1 tadi.
+00:01:25.280 --> 00:01:27.641
+Huruf x menggantikan angka 1 tadi.
 
 29
 00:01:28.867 --> 00:01:31.833
@@ -121,40 +123,40 @@ Geser mendatar sejauh h, yang belum 0.
 Titik sebelahnya berada di x + h.
 
 31
-00:01:35.793 --> 00:01:38.517
-Tingginya adalah x + h, lalu seluruhnya
+00:01:35.793 --> 00:01:39.601
+Tingginya adalah x + h, lalu seluruhnya dikuadratkan.
 
 32
-00:01:38.517 --> 00:01:39.601
-dikuadratkan.
-
-33
-00:01:40.816 --> 00:01:43.268
+00:01:40.816 --> 00:01:43.479
 Kemiringan garis potong adalah selisih tinggi,
 
-34
-00:01:43.408 --> 00:01:45.018
+33
+00:01:43.479 --> 00:01:45.018
 dibagi langkah mendatar.
 
+34
+00:01:45.751 --> 00:01:48.456
+Jadi tinggi yang baru dikurangi tinggi awal,
+
 35
-00:01:45.751 --> 00:01:48.541
-Jadi tinggi yang baru dikurangi tinggi awal, lalu
+00:01:48.456 --> 00:01:49.806
+lalu dibagi h.
 
 36
-00:01:48.541 --> 00:01:51.887
-dibagi h. Inilah asal pecahannya.
+00:01:50.198 --> 00:01:51.887
+Inilah asal pecahannya.
 
 37
 00:01:53.101 --> 00:01:55.514
 Kuadrat berarti dikali dirinya sendiri.
 
 38
-00:01:56.249 --> 00:02:00.762
-Kalikan tiap suku: x², xh, hx, dan
+00:01:56.249 --> 00:02:01.675
+Kalikan tiap suku: x², xh, hx, dan h².
 
 39
-00:02:00.762 --> 00:02:04.636
-h². 2 suku tengah menjadi 2xh.
+00:02:02.407 --> 00:02:04.636
+2 suku tengah menjadi 2xh.
 
 40
 00:02:05.867 --> 00:02:07.702
@@ -185,12 +187,12 @@ h² menjadi h.
 Hasilnya 2x + h.
 
 47
-00:02:28.668 --> 00:02:31.510
-Sekarang h kita dekatkan ke 0, dari kanan maupun
+00:02:28.668 --> 00:02:32.134
+Sekarang h kita dekatkan ke 0, dari kanan maupun kiri.
 
 48
-00:02:31.510 --> 00:02:35.084
-kiri. Garis potong mendekati garis singgung.
+00:02:32.868 --> 00:02:35.084
+Garis potong mendekati garis singgung.
 
 49
 00:02:35.815 --> 00:02:38.071
@@ -201,237 +203,261 @@ kiri. Garis potong mendekati garis singgung.
 Jadi kemiringan kurva x² adalah 2x.
 
 51
-00:02:42.982 --> 00:02:45.693
-Ini berasal dari selisih tinggi dan limit, bukan
+00:02:42.982 --> 00:02:45.416
+Ini berasal dari selisih tinggi dan limit,
 
 52
-00:02:45.693 --> 00:02:47.014
-tebakan dari tabel.
+00:02:45.416 --> 00:02:47.014
+bukan tebakan dari tabel.
 
 53
-00:02:48.235 --> 00:02:50.432
-Tiap masukan x sekarang punya keluaran berupa
+00:02:48.235 --> 00:02:49.435
+Tiap masukan x sekarang
 
 54
-00:02:50.432 --> 00:02:53.698
-kemiringan. Kumpulan keluaran ini membentuk fungsi
+00:02:49.435 --> 00:02:51.306
+punya keluaran berupa kemiringan.
 
 55
-00:02:53.698 --> 00:02:56.058
-baru, namanya fungsi turunan.
+00:02:52.040 --> 00:02:54.580
+Kumpulan keluaran ini membentuk fungsi baru,
 
 56
+00:02:54.580 --> 00:02:56.058
+namanya fungsi turunan.
+
+57
 00:02:56.790 --> 00:02:58.611
 Kita tulis f′(x).
 
-57
+58
 00:02:59.800 --> 00:03:01.463
 Bagaimana menggambarnya?
 
-58
+59
 00:03:02.198 --> 00:03:03.993
 Ambil x = −1.
 
-59
+60
 00:03:04.724 --> 00:03:06.585
 Kemiringannya −2.
 
-60
-00:03:07.332 --> 00:03:11.068
-Catat sebagai titik biru: mendatar −1, tegak
-
 61
-00:03:11.068 --> 00:03:14.611
-−2. Biru mencatat kemiringan.
+00:03:07.332 --> 00:03:12.126
+Catat sebagai titik biru: mendatar −1, tegak −2.
 
 62
+00:03:12.855 --> 00:03:14.611
+Biru mencatat kemiringan.
+
+63
 00:03:15.801 --> 00:03:18.175
 Pada x = 0, kemiringannya 0.
 
-63
+64
 00:03:18.909 --> 00:03:20.848
 Titik birunya di pusat sumbu.
 
-64
+65
 00:03:21.580 --> 00:03:24.730
 Ingat, angka tegak biru menunjukkan kemiringan.
 
-65
+66
 00:03:25.935 --> 00:03:28.453
 Pada x = 1, kemiringannya 2.
 
-66
+67
 00:03:29.187 --> 00:03:31.271
 Titik biru berada di tinggi 2.
 
-67
+68
 00:03:32.002 --> 00:03:34.047
 Titik merah tetap di tinggi 1.
 
-68
+69
 00:03:34.779 --> 00:03:37.153
 Jangan tertukar antara kedua titik ini.
 
-69
+70
 00:03:38.368 --> 00:03:40.952
 Pada x = 2, kemiringannya 4.
 
-70
+71
 00:03:41.686 --> 00:03:44.534
 Kita tambahkan titik biru di 2, 4.
 
-71
+72
 00:03:45.265 --> 00:03:47.968
 Sekarang beberapa hasil pengukuran sudah terlihat.
 
-72
-00:03:49.168 --> 00:03:51.655
-Kalau x digeser terus, setiap kemiringan
-
 73
-00:03:51.655 --> 00:03:53.160
-meninggalkan titik biru.
+00:03:49.168 --> 00:03:50.489
+Kalau x digeser terus,
 
 74
+00:03:50.489 --> 00:03:53.160
+setiap kemiringan meninggalkan titik biru.
+
+75
 00:03:53.894 --> 00:03:56.097
 Jejaknya membentuk garis 2x.
 
-75
-00:03:56.843 --> 00:03:59.580
-Bentuknya berbeda dari lengkungan hitam, karena yang
-
 76
-00:03:59.580 --> 00:04:01.085
-dicatat memang berbeda.
+00:03:56.843 --> 00:03:59.025
+Bentuknya berbeda dari lengkungan hitam,
 
 77
+00:03:59.025 --> 00:04:01.085
+karena yang dicatat memang berbeda.
+
+78
 00:04:02.301 --> 00:04:05.754
 Di kiri 0, kurva hitam menurun saat dibaca ke kanan.
 
-78
-00:04:06.503 --> 00:04:09.463
-Kemiringannya negatif, sehingga grafik biru berada
-
 79
-00:04:09.463 --> 00:04:10.903
-di bawah sumbu mendatar.
+00:04:06.503 --> 00:04:07.766
+Kemiringannya negatif,
 
 80
+00:04:07.766 --> 00:04:10.903
+sehingga grafik biru berada di bawah sumbu mendatar.
+
+81
 00:04:12.101 --> 00:04:14.685
 Di x = 0, garis singgung mendatar.
 
-81
-00:04:15.420 --> 00:04:18.591
-Kemiringannya 0, sehingga grafik biru melewati pusat
-
 82
-00:04:18.591 --> 00:04:22.446
-sumbu. Di kanan 0, kurva naik dan kemiringannya
+00:04:15.420 --> 00:04:16.620
+Kemiringannya 0,
 
 83
-00:04:22.446 --> 00:04:23.320
-positif.
+00:04:16.620 --> 00:04:19.447
+sehingga grafik biru melewati pusat sumbu.
 
 84
-00:04:24.534 --> 00:04:25.881
-Coba x = 3.
+00:04:19.999 --> 00:04:23.320
+Di kanan 0, kurva naik dan kemiringannya positif.
 
 85
+00:04:24.534 --> 00:04:25.884
+Coba x = 3.
+
+86
 00:04:26.631 --> 00:04:29.846
 Fungsi awal memberi 3², yaitu 9.
 
-86
+87
 00:04:30.591 --> 00:04:33.978
 Fungsi turunannya memberi 2 × 3, yaitu 6.
 
-87
+88
 00:04:34.708 --> 00:04:37.595
 9 itu tinggi; 6 itu kemiringan.
 
-88
-00:04:38.816 --> 00:04:41.966
+89
+00:04:38.816 --> 00:04:42.024
 Selain f′(x), kalau fungsi awal ditulis y,
 
-89
-00:04:42.092 --> 00:04:44.466
+90
+00:04:42.024 --> 00:04:44.466
 turunannya bisa ditulis dy/dx.
 
-90
+91
 00:04:45.199 --> 00:04:47.901
 Kedua tulisan ini menyatakan turunan yang sama.
 
-91
-00:04:49.116 --> 00:04:51.668
-Lambang dy/dx mengingatkan kita pada perubahan
-
 92
-00:04:51.668 --> 00:04:54.458
-tinggi dibanding perubahan mendatar, ketika jaraknya
+00:04:49.116 --> 00:04:51.135
+Lambang dy/dx mengingatkan kita pada
 
 93
-00:04:54.458 --> 00:04:58.372
-mendekati 0. Ini bukan nilai y dibagi x.
+00:04:51.135 --> 00:04:53.716
+perubahan tinggi dibanding perubahan mendatar,
 
 94
+00:04:53.716 --> 00:04:55.437
+ketika jaraknya mendekati 0.
+
+95
+00:04:56.169 --> 00:04:58.372
+Ini bukan nilai y dibagi x.
+
+96
 00:04:59.568 --> 00:05:01.902
 Apakah setiap titik selalu punya turunan?
 
-95
-00:05:02.635 --> 00:05:06.953
-Belum tentu. Lihat grafik |x|, yang berbentuk
-
-96
-00:05:06.953 --> 00:05:09.196
-huruf V. Di 0 ada sudut tajam.
-
 97
-00:05:10.401 --> 00:05:13.322
-Dari kiri, garis turun 1 untuk setiap langkah
+00:05:02.635 --> 00:05:03.985
+Belum tentu.
 
 98
-00:05:13.322 --> 00:05:17.014
-mendatar 1. Kemiringannya −1.
+00:05:04.493 --> 00:05:07.506
+Lihat grafik |x|, yang berbentuk huruf V.
 
 99
+00:05:07.506 --> 00:05:09.196
+Di 0 ada sudut tajam.
+
+100
+00:05:10.401 --> 00:05:11.601
+Dari kiri,
+
+101
+00:05:11.601 --> 00:05:14.929
+garis turun 1 untuk setiap langkah mendatar 1.
+
+102
+00:05:15.153 --> 00:05:17.014
+Kemiringannya −1.
+
+103
 00:05:17.746 --> 00:05:20.199
 Itulah tinggi jejak biru di sebelah kiri.
 
-100
-00:05:21.401 --> 00:05:24.322
-Dari kanan, garis naik 1 untuk setiap langkah
+104
+00:05:21.401 --> 00:05:22.601
+Dari kanan,
 
-101
-00:05:24.322 --> 00:05:28.001
-mendatar 1. Kemiringannya +1.
+105
+00:05:22.601 --> 00:05:25.860
+garis naik 1 untuk setiap langkah mendatar 1.
 
-102
+106
+00:05:26.153 --> 00:05:28.001
+Kemiringannya +1.
+
+107
 00:05:28.733 --> 00:05:31.659
 Jejak biru di sebelah kanan berada di tinggi 1.
 
-103
+108
 00:05:32.867 --> 00:05:34.938
 2 sisi memberi hasil berbeda.
 
-104
+109
 00:05:35.673 --> 00:05:38.586
 Jadi di 0 tidak ada 1 nilai turunan yang cocok.
 
-105
-00:05:39.318 --> 00:05:41.686
-Bulatan kosong berarti nilai itu tidak termasuk
+110
+00:05:39.318 --> 00:05:40.803
+Bulatan kosong berarti nilai
 
-106
-00:05:41.686 --> 00:05:42.915
-grafik turunannya.
+111
+00:05:40.803 --> 00:05:42.915
+itu tidak termasuk grafik turunannya.
 
-107
+112
 00:05:44.134 --> 00:05:46.021
 Fungsi awal mencatat tinggi.
 
-108
-00:05:46.770 --> 00:05:49.599
-Fungsi turunan mencatat kemiringan, pada titik yang
+113
+00:05:46.770 --> 00:05:48.773
+Fungsi turunan mencatat kemiringan,
 
-109
-00:05:49.599 --> 00:05:54.208
-turunannya ada. Untuk x², turunannya 2x.
+114
+00:05:48.773 --> 00:05:50.696
+pada titik yang turunannya ada.
+
+115
+00:05:51.427 --> 00:05:54.208
+Untuk x², turunannya 2x.

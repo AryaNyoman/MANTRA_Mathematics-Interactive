@@ -2,172 +2,172 @@
   "adegan": "TurunanGarisSinggung",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Rombakan 8 September 2026: motivasi, segitiga selisih, arti h, pendekatan, bukti lewat luas, limit dua sisi, definisi turunan. Rekaman baru dengan WordBoundary, tanpa definisi hanya menyentuh satu titik. Durasi mengikuti kebutuhan penjelasan.",
+  "catatan": "Rombakan 8 September 2026: motivasi, segitiga selisih, arti h, pendekatan, bukti lewat luas, limit dua sisi, definisi turunan. Rekaman baru dengan WordBoundary, tanpa definisi hanya menyentuh satu titik. Durasi mengikuti kebutuhan penjelasan. Medan tulis = kalimat utuh yang diucapkan dengan lambang (standar v3, 8 Sep 2026), disusun dari subtitle yang sudah disetujui.",
   "segmen": [
     {
       "id": "buka",
       "teks": "Bagaimana kita mengukur kemiringan kurva, tepat di satu titik?",
-      "tulis": "Bagaimana mengukur kemiringan tepat di satu titik?"
+      "tulis": "Bagaimana kita mengukur kemiringan kurva, tepat di satu titik?"
     },
     {
       "id": "ingat",
       "teks": "Di video sebelumnya, kita membagi tambahan barang dengan selang waktu. Pada gambar, hitungan yang sama adalah kenaikan dibagi langkah mendatar.",
-      "tulis": "Ingat: kemiringan = kenaikan dibagi langkah mendatar."
+      "tulis": "Di video sebelumnya, kita membagi tambahan barang dengan selang waktu. Pada gambar, hitungan yang sama adalah kenaikan dibagi langkah mendatar."
     },
     {
       "id": "tanya",
       "teks": "Dua titik memberi kita satu arah garis. Tetapi di titik merah ini saja, banyak garis bisa lewat. Arah mana yang mengikuti kurvanya?",
-      "tulis": "Banyak garis melewati satu titik. Mana yang mengikuti kurva?"
+      "tulis": "Dua titik memberi kita satu arah garis. Tetapi di titik merah ini saja, banyak garis bisa lewat. Arah mana yang mengikuti kurvanya?"
     },
     {
       "id": "kurva",
       "teks": "Supaya hitungannya mudah diikuti, kita memakai contoh baru: y sama dengan x kuadrat. Setiap nilai x dikalikan dengan dirinya sendiri.",
-      "tulis": "Contoh baru: y = x². Setiap x dikalikan dirinya sendiri."
+      "tulis": "Supaya hitungannya mudah diikuti, kita memakai contoh baru: y sama dengan x². Setiap nilai x dikalikan dengan dirinya sendiri."
     },
     {
       "id": "p",
       "teks": "Kita pilih x sama dengan satu. Tingginya satu kali satu, yaitu satu. Inilah titik P, yang akan tetap di tempatnya.",
-      "tulis": "P tetap di (1, 1), sebab 1² = 1."
+      "tulis": "Kita pilih x sama dengan satu. Tingginya satu kali satu, yaitu satu. Inilah titik P, yang akan tetap di tempatnya."
     },
     {
       "id": "q",
       "teks": "Ambil titik kedua, Q, di x sama dengan dua. Tingginya dua kali dua, yaitu empat. Hubungkan P dan Q.",
-      "tulis": "Q di (2, 4), sebab 2² = 4. Hubungkan P dan Q."
+      "tulis": "Ambil titik kedua, Q, di x sama dengan dua. Tingginya dua kali dua, yaitu empat. Hubungkan P dan Q."
     },
     {
       "id": "datar",
       "teks": "Dari P, kita melangkah mendatar dari satu ke dua. Jadi langkah mendatarnya dua dikurangi satu, yaitu satu.",
-      "tulis": "Langkah mendatar: 2 − 1 = 1."
+      "tulis": "Dari P, kita melangkah mendatar dari satu ke dua. Jadi langkah mendatarnya dua dikurangi satu, yaitu satu."
     },
     {
       "id": "tegak",
       "teks": "Lalu naik dari tinggi satu ke tinggi empat. Kenaikannya empat dikurangi satu, yaitu tiga.",
-      "tulis": "Kenaikan: 4 − 1 = 3."
+      "tulis": "Lalu naik dari tinggi satu ke tinggi empat. Kenaikannya empat dikurangi satu, yaitu tiga."
     },
     {
       "id": "bagi",
       "teks": "Kemiringannya tiga dibagi satu, sama dengan tiga. Angka tiga ini berasal dari segitiga tadi. Ini kemiringan garis potong, antara dua titik.",
-      "tulis": "Kemiringan garis potong = 3 : 1 = 3. Angka ini berasal dari segitiga."
+      "tulis": "Kemiringannya tiga dibagi satu, sama dengan tiga. Angka tiga ini berasal dari segitiga tadi. Ini kemiringan garis potong, antara dua titik."
     },
     {
       "id": "h",
       "teks": "Kita ingin tahu arah kurva lebih dekat ke P. Jadi Q perlu digeser. Agar tidak terikat pada satu jarak, langkah mendatar kita beri nama h.",
-      "tulis": "Geser Q mendekati P. Langkah mendatar kita namai h."
+      "tulis": "Kita ingin tahu arah kurva lebih dekat ke P. Jadi Q perlu digeser. Agar tidak terikat pada satu jarak, langkah mendatar kita beri nama h."
     },
     {
       "id": "posisi",
       "teks": "Titik merah tetap pada posisi satu. Bergeser sejauh h, posisi titik biru menjadi satu ditambah h. Untuk mencari tinggi titik biru, kuadratkan posisi tersebut.",
-      "tulis": "Posisi Q: 1 + h. Tingginya: (1 + h)²."
+      "tulis": "Titik merah tetap pada posisi satu. Bergeser sejauh h, posisi titik biru menjadi satu ditambah h. Untuk mencari tinggi titik biru, kuadratkan posisi tersebut."
     },
     {
       "id": "asal",
       "teks": "Jadi kenaikannya adalah tinggi Q dikurangi tinggi P. Lalu kita bagi dengan langkah mendatar, h. Inilah asal pecahan ini, dari gambar yang sama.",
-      "tulis": "Kemiringan = [(1 + h)² − 1] : h. Asalnya: kenaikan dibagi langkah mendatar."
+      "tulis": "Jadi kenaikannya adalah tinggi Q dikurangi tinggi P. Lalu kita bagi dengan langkah mendatar, h. Inilah asal pecahan ini, dari gambar yang sama."
     },
     {
       "id": "setengah",
       "teks": "Coba h sama dengan nol koma lima. Q mendekati P. Kenaikannya satu koma dua lima, dibagi nol koma lima. Kemiringannya dua koma lima.",
-      "tulis": "h = 0,5: kemiringan = 1,25 : 0,5 = 2,5."
+      "tulis": "Coba h sama dengan 0,5. Q mendekati P. Kenaikannya 1,25, dibagi 0,5. Kemiringannya 2,5."
     },
     {
       "id": "sepersepuluh",
       "teks": "Perkecil lagi h menjadi nol koma satu. Sekarang kemiringannya dua koma satu.",
-      "tulis": "h = 0,1: kemiringan = 2,1."
+      "tulis": "Perkecil lagi h menjadi 0,1. Sekarang kemiringannya 2,1."
     },
     {
       "id": "seperseratus",
       "teks": "Saat h tinggal nol koma nol satu, kemiringannya dua koma nol satu. Q dan P tampak berimpit di layar, tetapi jaraknya belum nol.",
-      "tulis": "h = 0,01: kemiringan = 2,01. Tampak berimpit, tetapi h belum nol."
+      "tulis": "Saat h tinggal 0,01, kemiringannya 2,01. Q dan P tampak berimpit di layar, tetapi jaraknya belum nol."
     },
     {
       "id": "dugaan",
       "teks": "Tiga, dua koma lima, dua koma satu, dua koma nol satu. Angkanya tampak menuju dua. Namun beberapa contoh saja belum membuktikannya.",
-      "tulis": "3 → 2,5 → 2,1 → 2,01. Tampak menuju 2. Mengapa?"
+      "tulis": "Tiga, 2,5, 2,1, 2,01. Angkanya tampak menuju dua. Namun beberapa contoh saja belum membuktikannya."
     },
     {
       "id": "luas",
       "teks": "Kita buktikan asalnya. Satu ditambah h, dikuadratkan, dapat digambar sebagai luas persegi dengan sisi satu ditambah h.",
-      "tulis": "(1 + h)² adalah luas persegi bersisi 1 + h."
+      "tulis": "Kita buktikan asalnya. Satu ditambah h, dikuadratkan, dapat digambar sebagai luas persegi dengan sisi satu ditambah h."
     },
     {
       "id": "petak_satu",
       "teks": "Potong setiap sisi menjadi bagian satu dan bagian h. Petak besar ini luasnya satu kali satu, yaitu satu.",
-      "tulis": "Pisahkan setiap sisi menjadi 1 dan h. Petak besar luasnya 1."
+      "tulis": "Potong setiap sisi menjadi bagian satu dan bagian h. Petak besar ini luasnya satu kali satu, yaitu satu."
     },
     {
       "id": "petak_dua",
       "teks": "Ada dua persegi panjang. Masing-masing luasnya satu kali h, yaitu h. Jadi keduanya menyumbang dua h.",
-      "tulis": "Dua persegi panjang: h + h = 2h."
+      "tulis": "Ada dua persegi panjang. Masing-masing luasnya satu kali h, yaitu h. Jadi keduanya menyumbang dua h."
     },
     {
       "id": "petak_kecil",
       "teks": "Petak kecil di sudut bersisi h dan h, sehingga luasnya h kuadrat. Seluruh luasnya menjadi satu, ditambah dua h, ditambah h kuadrat.",
-      "tulis": "Petak kecil luasnya h². Jadi (1 + h)² = 1 + 2h + h²."
+      "tulis": "Petak kecil di sudut bersisi h dan h, sehingga luasnya h². Seluruh luasnya menjadi satu, ditambah dua h, ditambah h²."
     },
     {
       "id": "kurangi",
       "teks": "Ingat, yang kita perlukan adalah selisih tinggi. Kurangi tinggi P, yaitu satu. Bagian satu hilang, menyisakan dua h ditambah h kuadrat.",
-      "tulis": "Kurangi tinggi P: (1 + 2h + h²) − 1 = 2h + h²."
+      "tulis": "Ingat, yang kita perlukan adalah selisih tinggi. Kurangi tinggi P, yaitu satu. Bagian satu hilang, menyisakan dua h ditambah h²."
     },
     {
       "id": "faktor",
       "teks": "Sekarang bagi kenaikan itu dengan h. Kedua suku di atas memiliki faktor h. Kita keluarkan, menjadi h dikali dua ditambah h.",
-      "tulis": "(2h + h²) : h = h(2 + h) : h."
+      "tulis": "Sekarang bagi kenaikan itu dengan h. Kedua suku di atas memiliki faktor h. Kita keluarkan, menjadi h dikali dua ditambah h."
     },
     {
       "id": "bagi_h",
       "teks": "Pembagian ini hanya boleh dilakukan ketika h tidak sama dengan nol. Faktor yang sama, di atas dan di bawah, kita bagi. Tersisa dua ditambah h. Jadi tabel tadi mengikuti aturan ini.",
-      "tulis": "Untuk h ≠ 0, kemiringan garis potong = 2 + h."
+      "tulis": "Pembagian ini hanya boleh dilakukan ketika h tidak sama dengan nol. Faktor yang sama, di atas dan di bawah, kita bagi. Tersisa dua ditambah h. Jadi tabel tadi mengikuti aturan ini."
     },
     {
       "id": "nol",
       "teks": "Mengapa tidak boleh langsung nol? Saat kedua titik disatukan, kenaikan dan langkah mendatarnya menjadi nol. Pecahan kita berubah menjadi nol dibagi nol. Bentuk ini tidak terdefinisi; bukan bernilai nol.",
-      "tulis": "h = 0 membuat pecahan asal menjadi 0/0. Tidak terdefinisi, bukan 0."
+      "tulis": "Mengapa tidak boleh langsung nol? Saat kedua titik disatukan, kenaikan dan langkah mendatarnya menjadi nol. Pecahan kita berubah menjadi nol dibagi nol. Bentuk ini tidak terdefinisi; bukan bernilai nol."
     },
     {
       "id": "limit",
       "teks": "Kita tidak menghitung pecahan asal pada h sama dengan nol. Kita mencari nilai yang dituju saat h mendekati nol. Pada dua ditambah h, bagian h makin kecil, sehingga hasilnya menuju dua.",
-      "tulis": "Cari nilai yang dituju: saat h → 0, maka 2 + h → 2."
+      "tulis": "Kita tidak menghitung pecahan asal pada h sama dengan nol. Kita mencari nilai yang dituju saat h mendekati nol. Pada dua ditambah h, bagian h makin kecil, sehingga hasilnya menuju dua."
     },
     {
       "id": "kiri",
       "teks": "Tadi Q datang dari kanan. Kita periksa juga dari kiri. Sekarang h negatif. Untuk h sama dengan negatif nol koma satu, kemiringannya satu koma sembilan.",
-      "tulis": "Dari kiri, h negatif. h = −0,1 memberi kemiringan 1,9."
+      "tulis": "Tadi Q datang dari kanan. Kita periksa juga dari kiri. Sekarang h negatif. Untuk h sama dengan −0,1, kemiringannya 1,9."
     },
     {
       "id": "kiri_dekat",
       "teks": "Saat h menjadi negatif nol koma nol satu, kemiringannya satu koma sembilan sembilan. Dari kiri maupun kanan, kita mendekati angka yang sama: dua.",
-      "tulis": "h = −0,01 memberi 1,99. Kedua sisi sama-sama menuju 2."
+      "tulis": "Saat h menjadi −0,01, kemiringannya 1,99. Dari kiri maupun kanan, kita mendekati angka yang sama: dua."
     },
     {
       "id": "singgung",
       "teks": "Garis ungu ini adalah garis yang dituju oleh garis potong ketika Q mendekati P. Inilah garis singgung. Kemiringannya tepat dua, bukan dua koma nol satu.",
-      "tulis": "Garis singgung adalah garis yang dituju. Kemiringannya tepat 2."
+      "tulis": "Garis ungu ini adalah garis yang dituju oleh garis potong ketika Q mendekati P. Inilah garis singgung. Kemiringannya tepat dua, bukan 2,01."
     },
     {
       "id": "arti_dua",
       "teks": "Apa arti dua pada gambar? Pada garis ungu, satu langkah ke kanan disertai dua langkah ke atas. Itulah arah kurva di dekat P.",
-      "tulis": "Pada garis singgung: ke kanan 1, naik 2. Kemiringannya 2."
+      "tulis": "Apa arti dua pada gambar? Pada garis ungu, satu langkah ke kanan disertai dua langkah ke atas. Itulah arah kurva di dekat P."
     },
     {
       "id": "nama",
       "teks": "Angka kemiringan sesaat ini kita beri nama turunan. Lambangnya dibaca: ef aksen satu, sama dengan dua. Artinya, pada posisi satu, turunan fungsi x kuadrat adalah dua.",
-      "tulis": "f′(1) = 2. Turunan di x = 1 adalah kemiringan sesaat di P."
+      "tulis": "Angka kemiringan sesaat ini kita beri nama turunan. Lambangnya dibaca: f′(1), sama dengan dua. Artinya, pada posisi satu, turunan fungsi x² adalah dua."
     },
     {
       "id": "umum",
       "teks": "Untuk kurva lain, caranya tetap sama. Sebut posisi titik yang tetap sebagai a. Tinggi titik kedua dikurangi tinggi titik pertama, dibagi selisih mendatarnya. Lalu cari limitnya ketika selisih itu mendekati nol.",
-      "tulis": "P tetap pada x = a. Turunan berasal dari selisih tinggi dibagi selisih mendatar, lalu diambil limitnya."
+      "tulis": "Untuk kurva lain, caranya tetap sama. Sebut posisi titik yang tetap sebagai a. Tinggi titik kedua dikurangi tinggi titik pertama, dibagi selisih mendatarnya. Lalu cari limitnya ketika selisih itu mendekati nol."
     },
     {
       "id": "syarat",
       "teks": "Itulah asal rumus turunan ini. Di titik bagian dalam domain, limit dari kiri dan kanan harus ada dan sama, dengan nilai terhingga.",
-      "tulis": "f′(a) = lim h→0 [f(a + h) − f(a)] / h, jika limitnya ada dan terhingga."
+      "tulis": "Itulah asal rumus turunan ini. Di titik bagian dalam domain, limit dari kiri dan kanan harus ada dan sama, dengan nilai terhingga."
     },
     {
       "id": "tutup",
       "teks": "Jadi kita tidak menebak arah dari satu titik saja. Kita mempelajari dua titik yang semakin dekat. Angka kemiringan yang dituju itulah turunannya.",
-      "tulis": "Dua titik semakin dekat → kemiringan menuju satu nilai → turunan."
+      "tulis": "Jadi kita tidak menebak arah dari satu titik saja. Kita mempelajari dua titik yang semakin dekat. Angka kemiringan yang dituju itulah turunannya."
     }
   ]
 }
