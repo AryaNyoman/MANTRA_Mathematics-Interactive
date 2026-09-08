@@ -210,7 +210,13 @@ JANJI = re.compile(
 # Rujukan ke topik lain, misalnya "topik Turunan" atau "Turunan Materi 07".
 # Topik Turunan dan Limit letaknya SEBELUM Integral, jadi menunjuk ke sana bukan
 # pelanggaran urutan belajar.
-TOPIK_LAIN = re.compile(r"(?:Turunan|Limit|Grafik Fungsi)\s+Materi\s+(\d{2})")
+# Rujukan lintas topik ("Di Turunan, Materi 07, ...") WAJIB menurut standar v3
+# (segar-ingat menyebut nomor dan nama konsep prasyaratnya); nomor yang didahului
+# nama topik lain dalam 30 huruf di kalimat yang sama bukan rujukan maju
+# (temuan Transformasi 8 Sep 2026). "Materi 09" telanjang tetap ditangkap.
+TOPIK_LAIN = re.compile(
+    r"\b(?:Trigonometri|Limit|Grafik Fungsi|Vektor|Ruang 3D|Ruang Tiga Dimensi|"
+    r"Statistika|Transformasi Geometri|Turunan)\b[^.]{0,30}?Materi\s+\d{2}", re.I)
 
 
 def periksa(nomor: int, kalimat: list[str]) -> list[tuple[str, str]]:

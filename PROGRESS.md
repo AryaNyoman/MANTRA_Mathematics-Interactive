@@ -1,5 +1,24 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 9 SEP (dini hari): DUA TAMBALAN PERKAKAS v3 DARI TEMUAN TRANSFORMASI
+
+Sesi Transformasi (gelombang 4 berjalan, video 01 dan 02 sekitar 4,5 menit)
+menemukan dua celah perkakas bersama yang mengenai semua sesi:
+- `tunggu_kata` selalu mengambil kemunculan PERTAMA frasa; frasa yang
+  diucapkan dua kali memicu detik yang sudah lewat dan baru ketahuan di
+  `laporkan_pemicu` setelah sembilan menit render. Sekarang `tunggu_kata(frasa,
+  ke=2)` memilih kemunculannya, dan pemicu yang sudah lewat lebih dari 0,15 s
+  MENGGAGALKAN RENDER SAAT ITU JUGA. `alat/cek_pemicu_urut.py <adegan.py>`
+  (dari Transformasi) jadi gerbang pra-render: jam tiap tunggu_kata harus maju.
+- Pemeriksa urutan istilah menghukum segar-ingat lintas topik ("Di Vektor,
+  Materi 03") yang justru diwajibkan v3. `cek_urutan_turunan.py` dan
+  `cek_urutan_integral.py` ditambal (nomor yang didahului nama topik lain
+  dalam 30 huruf bukan rujukan maju), dibuktikan dua arah; sesi lain menambal
+  salinannya sendiri dengan pola yang sama. Satu jebakan alat Bash terulang
+  saat menambal (backslash jadi backspace), ketahuan karena polanya diuji.
+`uji_jam_kata.py` ditambah uji ke=2 dan gagal-cepat. Master 9 Sep: sesi
+gelombang 4 wajib `git merge master` sebelum render berikutnya.
+
 ## 8 SEP (malam): STANDAR VIDEO v3, SEMUA 58 VIDEO DITULIS ULANG, DELAPAN SESI
 
 Keputusan ARYA setelah menonton Turunan 01 sampai 03 versi rinci (5:52, 5:56,
