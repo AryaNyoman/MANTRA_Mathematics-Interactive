@@ -1,99 +1,453 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/turunan1-laju-rata-rata.json
-
 1
-00:00:00.000 --> 00:00:04.440
-Materi 01: seberapa cepat, rata-ratanya.
+00:00:00.101 --> 00:00:03.646
+Materi pertama: seberapa cepat, rata-ratanya.
 
 2
-00:00:04.440 --> 00:00:08.568
-Sebuah pabrik mencatat berapa barang yang sudah selesai.
+00:00:04.380 --> 00:00:06.688
+Kita mulai dari catatan sebuah pabrik.
 
 3
-00:00:08.568 --> 00:00:19.224
-Enam jam pertama: 0, 20, 44, 64, 78, 86, 90 barang.
+00:00:07.916 --> 00:00:10.784
+Pabrik ini mencatat barang yang sudah selesai, jam
 
 4
-00:00:19.224 --> 00:00:26.030
-Sesudah jam ke-2, tambahan tiap jam makin kecil.
+00:00:10.784 --> 00:00:11.632
+demi jam.
 
 5
-00:00:26.030 --> 00:00:28.440
-Pekerjanya lelah.
+00:00:12.867 --> 00:00:14.688
+Sekarang kita baca tabelnya.
 
 6
-00:00:28.440 --> 00:00:32.183
-Seberapa cepat pabrik ini bekerja
+00:00:15.438 --> 00:00:18.096
+Baris atas menunjukkan jam, dan baris bawah
 
 7
-00:00:32.183 --> 00:00:35.472
-antara jam ke-1 dan jam ke-3?
+00:00:18.096 --> 00:00:20.404
+menunjukkan total barang yang sudah selesai.
 
 8
-00:00:35.472 --> 00:00:46.224
-Dari 20 menjadi 64: tambahannya 44 barang, selama 2 jam.
+00:00:21.601 --> 00:00:23.817
+Saat mulai, totalnya 0.
 
 9
-00:00:46.224 --> 00:00:54.312
-44 : 2 = 22. Rata-rata 22 barang tiap jam.
+00:00:24.566 --> 00:00:27.084
+Pada jam pertama, 20 barang.
 
 10
-00:00:54.312 --> 00:01:00.086
-Digambar: waktu ke kanan, jumlah barang ke atas,
+00:00:27.814 --> 00:00:30.122
+Jam kedua, 44.
 
 11
-00:01:00.086 --> 00:01:03.936
-ketujuh titik jadi sebuah kurva.
+00:00:30.854 --> 00:00:33.228
+Jam ketiga, 64.
 
 12
-00:01:03.936 --> 00:01:05.723
-Titik jam ke-1 dan jam
+00:00:34.435 --> 00:00:37.243
+Jam keempat, 78 barang.
 
 13
-00:01:05.723 --> 00:01:09.216
-ke-3 dihubungkan dengan sebuah garis lurus.
+00:00:37.977 --> 00:00:40.456
+Jam kelima, 86.
 
 14
-00:01:09.216 --> 00:01:14.632
-Segitiga di bawah garis: sisi mendatar 2 jam,
+00:00:41.187 --> 00:00:43.521
+Jam keenam, 90.
 
 15
-00:01:14.632 --> 00:01:17.160
-sisi tegak 44 barang.
+00:00:44.253 --> 00:00:46.561
+Tiap angka adalah total sejak mulai.
 
 16
-00:01:17.160 --> 00:01:23.055
-Selisih tinggi dibagi selisih mendatar = 22.
+00:00:47.782 --> 00:00:51.203
+Jadi, 64 bukan barang yang dibuat pada jam ketiga
 
 17
-00:01:23.055 --> 00:01:27.744
-Sama persis dengan hitungan pabrik.
+00:00:51.203 --> 00:00:54.757
+saja. Angka itu mencakup semua barang yang selesai
 
 18
-00:01:27.744 --> 00:01:31.430
-Garis penghubung dua titik
+00:00:54.757 --> 00:00:56.078
+sampai jam ketiga.
 
 19
-00:01:31.430 --> 00:01:35.966
-pada kurva namanya garis potong,
+00:00:57.268 --> 00:00:59.747
+Kita pilih jam pertama sampai jam ketiga.
 
 20
-00:01:35.966 --> 00:01:38.376
-atau garis sekan.
+00:01:00.496 --> 00:01:03.035
+Selama rentang itu, rata-rata berapa barang yang
 
 21
-00:01:38.376 --> 00:01:48.895
-Ganti titiknya, angkanya berubah: jam 1 ke 2 memberi 24;
+00:01:03.035 --> 00:01:04.330
+selesai setiap jam?
 
 22
-00:01:48.895 --> 00:01:52.464
-jam 3 ke 5 cuma 11.
+00:01:05.060 --> 00:01:06.657
+Coba pikirkan sebentar.
 
 23
-00:01:52.464 --> 00:01:57.234
-Kurvanya sama, jawabannya berbeda.
+00:01:07.867 --> 00:01:09.503
+Awalnya 20 barang.
 
 24
-00:01:57.234 --> 00:02:03.408
-Karena itu namanya laju perubahan <b>rata-rata</b>.
+00:01:10.239 --> 00:01:12.626
+Di akhir rentang, 64.
+
+25
+00:01:13.372 --> 00:01:17.838
+Untuk mencari tambahannya, kurangi: 64 dikurangi 20,
+
+26
+00:01:17.938 --> 00:01:19.877
+hasilnya 44 barang.
+
+27
+00:01:21.100 --> 00:01:22.618
+Berapa lama rentangnya?
+
+28
+00:01:23.353 --> 00:01:25.516
+Dari jam 1 sampai jam 3.
+
+29
+00:01:26.249 --> 00:01:29.570
+Jadi, 3 dikurangi 1 sama dengan 2 jam.
+
+30
+00:01:30.768 --> 00:01:33.392
+44 barang selesai dalam 2 jam.
+
+31
+00:01:34.140 --> 00:01:37.259
+Untuk mencari rata-rata tiap jam, kita bagi 44
+
+32
+00:01:37.259 --> 00:01:41.025
+dengan 2. Hasilnya 22 barang per jam.
+
+33
+00:01:42.235 --> 00:01:45.248
+Bayangkan tambahannya dibagi rata ke 2 kotak, 1
+
+34
+00:01:45.248 --> 00:01:46.753
+kotak untuk setiap jam.
+
+35
+00:01:47.486 --> 00:01:49.583
+Masing-masing berisi 22.
+
+36
+00:01:50.316 --> 00:01:52.018
+Inilah arti rata-rata.
+
+37
+00:01:53.235 --> 00:01:55.740
+Sekarang kita ubah catatan menjadi gambar.
+
+38
+00:01:56.474 --> 00:01:58.993
+Sumbu datar menunjukkan waktu dalam jam.
+
+39
+00:01:59.724 --> 00:02:01.921
+Sumbu tegak menunjukkan total barang yang sudah
+
+40
+00:02:01.921 --> 00:02:02.743
+selesai.
+
+41
+00:02:03.935 --> 00:02:07.808
+Jam 1, total 20, menjadi titik pertama.
+
+42
+00:02:08.543 --> 00:02:12.482
+Jam 3, total 64, menjadi titik kedua.
+
+43
+00:02:13.214 --> 00:02:15.482
+Angkanya tetap sama seperti di tabel.
+
+44
+00:02:16.716 --> 00:02:19.479
+Titik-titik catatan lainnya kita tambahkan, lalu
+
+45
+00:02:19.479 --> 00:02:20.918
+hubungkan dengan kurva.
+
+46
+00:02:21.651 --> 00:02:23.967
+Kurva ini membantu kita melihat bagaimana total
+
+47
+00:02:23.967 --> 00:02:25.630
+barang berubah seiring waktu.
+
+48
+00:02:26.835 --> 00:02:29.748
+Sekarang hubungkan 2 titik merah dengan garis lurus.
+
+49
+00:02:30.482 --> 00:02:33.008
+Garis ini merangkum perubahan dari awal sampai akhir
+
+50
+00:02:33.008 --> 00:02:34.382
+rentang yang kita pilih.
+
+51
+00:02:35.601 --> 00:02:38.449
+Dari titik awal, kita bergerak ke kanan dulu.
+
+52
+00:02:39.197 --> 00:02:42.421
+Langkah mendatarnya dari jam 1 ke jam 3, yaitu 2
+
+53
+00:02:42.421 --> 00:02:43.032
+jam.
+
+54
+00:02:44.234 --> 00:02:46.292
+Lalu kita naik sampai titik akhir.
+
+55
+00:02:47.041 --> 00:02:51.270
+Kenaikannya dari 20 ke 64, yaitu 44 barang.
+
+56
+00:02:52.468 --> 00:02:54.836
+Kemiringan garis adalah kenaikan dibagi langkah
+
+57
+00:02:54.836 --> 00:02:58.998
+mendatar. Di sini, 44 barang dibagi 2
+
+58
+00:02:58.998 --> 00:03:03.064
+jam. Hasilnya 22 barang per jam, sama dengan
+
+59
+00:03:03.064 --> 00:03:04.109
+rata-rata tadi.
+
+60
+00:03:05.301 --> 00:03:08.333
+Supaya gampang diingat, kita singkat tulisannya:
+
+61
+00:03:08.472 --> 00:03:10.622
+miring sama dengan naik dibagi datar.
+
+62
+00:03:11.357 --> 00:03:14.251
+Kata miring di sini berarti kemiringan garis, bukan
+
+63
+00:03:14.251 --> 00:03:15.586
+panjang sisi miring.
+
+64
+00:03:16.801 --> 00:03:19.183
+Bentuk segitiganya mungkin mengingatkan kita pada
+
+65
+00:03:19.183 --> 00:03:23.441
+Pythagoras. Lalu, kenapa kita justru membagi?
+
+66
+00:03:24.172 --> 00:03:26.493
+Kita bedakan dulu apa yang ingin dicari.
+
+67
+00:03:27.701 --> 00:03:29.728
+Lihat contoh panjang yang sama-sama dalam
+
+68
+00:03:29.728 --> 00:03:34.047
+sentimeter. Sisi datarnya 4 sentimeter, dan sisi
+
+69
+00:03:34.047 --> 00:03:35.816
+tegaknya 3 sentimeter.
+
+70
+00:03:36.546 --> 00:03:39.051
+Kedua sisi ini membentuk sudut siku-siku.
+
+71
+00:03:40.282 --> 00:03:42.901
+Kalau ditanya panjang sisi miring, barulah kita
+
+72
+00:03:42.901 --> 00:03:44.130
+pakai Pythagoras.
+
+73
+00:03:44.863 --> 00:03:48.236
+3 kuadrat ditambah 4 kuadrat sama dengan 25.
+
+74
+00:03:48.967 --> 00:03:50.182
+Akarnya 5.
+
+75
+00:03:50.915 --> 00:03:53.118
+Jadi panjangnya 5 sentimeter.
+
+76
+00:03:54.335 --> 00:03:57.787
+Kalau ditanya kemiringan, hitungannya 3 dibagi 4.
+
+77
+00:03:58.520 --> 00:04:00.578
+Hasilnya 0,75.
+
+78
+00:04:01.325 --> 00:04:05.010
+Artinya, setiap 1 sentimeter ke kanan, garis naik
+
+79
+00:04:05.010 --> 00:04:06.910
+0,75 sentimeter.
+
+80
+00:04:08.101 --> 00:04:11.514
+Segitiganya sama, tetapi pertanyaannya berbeda.
+
+81
+00:04:12.249 --> 00:04:14.820
+Panjang sisi miring adalah 5 sentimeter.
+
+82
+00:04:15.551 --> 00:04:17.359
+Kemiringannya 3 per 4.
+
+83
+00:04:18.091 --> 00:04:20.872
+Jangan tertukar antara panjang dan perbandingan.
+
+84
+00:04:22.067 --> 00:04:23.362
+Kembali ke pabrik.
+
+85
+00:04:24.111 --> 00:04:27.125
+Sisi tegak menunjukkan barang, sedangkan sisi datar
+
+86
+00:04:27.125 --> 00:04:28.301
+menunjukkan jam.
+
+87
+00:04:29.030 --> 00:04:30.588
+Satuannya berbeda.
+
+88
+00:04:31.321 --> 00:04:33.879
+Ini bukan ukuran panjang dalam sentimeter.
+
+89
+00:04:34.625 --> 00:04:37.519
+Jadi, kita tidak menjumlahkan kuadrat barang dan
+
+90
+00:04:37.519 --> 00:04:38.143
+jam.
+
+91
+00:04:39.368 --> 00:04:41.644
+Yang kita cari adalah tambahan barang untuk setiap
+
+92
+00:04:41.644 --> 00:04:45.746
+jam. Maka hitungannya tetap 44 dibagi 2,
+
+93
+00:04:45.885 --> 00:04:47.798
+yaitu 22 barang per jam.
+
+94
+00:04:49.016 --> 00:04:51.200
+Garis lurus yang menghubungkan 2 titik pada kurva
+
+95
+00:04:51.200 --> 00:04:54.297
+ini disebut garis potong, atau garis sekan.
+
+96
+00:04:55.030 --> 00:04:57.412
+Kemiringannya menyatakan laju perubahan rata-rata
+
+97
+00:04:57.412 --> 00:04:58.891
+pada rentang yang dipilih.
+
+98
+00:05:00.116 --> 00:05:03.774
+Kalau kita pilih jam 1 sampai jam 2, tambahannya 44
+
+99
+00:05:03.774 --> 00:05:06.358
+dikurangi 20, yaitu 24.
+
+100
+00:05:07.089 --> 00:05:08.608
+Waktunya 1 jam.
+
+101
+00:05:09.339 --> 00:05:11.779
+Rata-ratanya 24 barang per jam.
+
+102
+00:05:13.001 --> 00:05:15.467
+Sekarang pilih jam 3 sampai jam 5.
+
+103
+00:05:16.216 --> 00:05:20.563
+Tambahannya 86 dikurangi 64, yaitu 22.
+
+104
+00:05:21.293 --> 00:05:24.641
+Dibagi 2 jam, hasilnya 11 barang per jam.
+
+105
+00:05:25.849 --> 00:05:29.112
+Tadi rata-ratanya 22, tetapi bukan berarti setiap
+
+106
+00:05:29.112 --> 00:05:31.539
+jam selalu menghasilkan 22 barang.
+
+107
+00:05:32.271 --> 00:05:34.342
+Jumlah tiap jam bisa berbeda.
+
+108
+00:05:35.073 --> 00:05:37.144
+Rata-rata merangkum 1 rentang.
+
+109
+00:05:38.349 --> 00:05:41.533
+Jadi, laju perubahan rata-rata adalah selisih hasil
+
+110
+00:05:41.533 --> 00:05:42.973
+dibagi selisih waktu.
+
+111
+00:05:43.720 --> 00:05:46.431
+Pada grafik, angka itu menjadi kemiringan garis
+
+112
+00:05:46.431 --> 00:05:47.725
+penghubung 2 titik.
+
+113
+00:05:48.456 --> 00:05:50.658
+Pilihan titiknya menentukan hasilnya.

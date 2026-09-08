@@ -77,3 +77,8 @@ graphify-out/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
 # web/.vercelignore yang menggantikan .gitignore. Berkas yang sudah dilacak
 # (beranda-*.mp4, poster lama) tidak terpengaruh.
 web/public/anim/*.mp4
+
+# Hasil antara mesin suara per kata (8 Sep 2026): WAV mentah dan cache per segmen
+# puluhan MB per video; yang dilacak cukup mp3 gabungan, durasi.json, kata.json.
+audio/*/revisi/
+audio/*/*.wav

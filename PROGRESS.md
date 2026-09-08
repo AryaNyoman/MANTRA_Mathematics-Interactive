@@ -33,6 +33,258 @@ Cylinder tanpa tutup, set_opacity(0)+FadeIn, identitas ikut berganti bidang,
 hash. Semua sesi berhenti menunggu ARYA: revisi video Turunan (6) dan
 Integral (2), Transformasi (perbaiki 05/06 atau render 1080p apa adanya),
 Grafik Fungsi (kata "render"), Statistika (49 rentang diam).
+## 8 SEP (audit catatan): PELAJARAN RENDER TURUNAN 1–3
+
+Atas permintaan ARYA, catatan produksi diperiksa ulang dan dirangkum dalam
+[Pelajaran render Turunan 1–3](docs/tugas/laporan/PELAJARAN-RENDER-TURUNAN-2026-09-08.md); salinan tersedia di MASTER
+dan worktree materi-turunan-b8c515. Tidak ada kode/media yang diubah atau render baru.
+
+- Diperjelas: timing tepat ≠ kalimat lengkap; contoh penghubung video 2 masih
+  perlu revisi berikutnya. Koreksi tersebut sudah diterapkan pada video 1/3.
+- Dicatat: akumulasi pembulatan frame, pemicu terlambat karena animasi sebelumnya,
+  transisi kosong, rumus membesar saat morph, dan garis menimpa angka.
+  Perbaikan masing-masing serta bukti QC tercantum dalam laporan.
+- Subtitle 3 pernah menggabungkan dua kalimat menjadi rumus keliru; pembuatnya
+  sudah diperbaiki. **Temuan baru pada pemeriksa:** normalisasi menghapus operator,
+  sehingga 2x + h/2xh, −1/1, f′(x)/f(x), dan dy/dx/dydx lolos sebagai pasangan sama.
+  Keempat kasus dikonfirmasi langsung. Ini celah QC, bukan vonis MP4 final salah.
+- Ditambahkan pelajaran MP4 lama setelah render/mux gagal, alarm diam yang
+  keliru, mesin TTS bersama 1/2/3, dan keterbatasan transkripsi tujuh bagian.
+- Untuk MASTER: perkuat pembanding subtitle; revisi penghubung video 2 serta
+  video 4 pada pekerjaan berikutnya. Catatan tidak mengklaim tindak lanjut selesai.
+  Belum ada commit, merge, deploy, atau pesan langsung ke task MASTER.
+
+## 8 SEP (revisi lanjutan): TURUNAN 3 SELESAI 1080p60
+
+ARYA meminta "lakukan hal yg sama pd video3". Produksi diizinkan sesudah
+tahap pencatatan sebelumnya. Worktree: `.claude/worktrees/materi-turunan-b8c515`.
+Naskah dan TTS baru: **355,333333 detik (5:55), 649 kata, 31 bagian**,
+Ardi tempo -5%, 109 cue subtitle utuh dengan waktu kata dan lambang matematika.
+Hasil akhir **1920×1080, 60 fps, H.264 + AAC, 9.816.530 byte**.
+**Selesai secara produksi; menunggu tinjauan ARYA atas versi terbaru.**
+
+Isi revisi:
+- Panggil ulang video 2 secara lengkap: pada x=1 kemiringan garis singgung
+  kurva x² adalah 2. Panggil ulang video 1: kemiringan = kenaikan / langkah
+  mendatar, baru tulisan diringkas menjadi miring = naik/datar.
+- Ingatkan bahwa kemiringan berbeda dari panjang sisi miring/Pythagoras.
+  Bedakan tinggi titik merah dan kemiringan garis ungu; contoh akhir
+  x=3 menghasilkan tinggi 9, kemiringan 6.
+- Rumus 2x dibuktikan dari (x+h)², dua suku campuran xh+hx, pengurangan x²,
+  pembagian h yang belum nol, dan limit dari kedua sisi. Bukti mendahului
+  sapuan jejak, sehingga siswa tidak harus menerima pola tanpa alasan.
+- Titik biru mencatat pasangan (x, kemiringan) lalu membentuk grafik turunan.
+  |x| menunjukkan kemiringan kiri -1 dan kanan +1; f'(0) tidak ada,
+  dengan dua bulatan kosong dan tanpa garis vertikal penghubung.
+- Notasi f'(x) dan dy/dx dijelaskan sebagai turunan, bukan y/x. Huruf y
+  dieja "ye" pada TTS. Salah atribusi notasi aksen sebagai "cara Newton"
+  pada halaman 03 dihapus tanpa menambah pembahasan sejarah.
+
+Perubahan dari rancangan MASTER yang disengaja: bukti x² yang semula
+ditunda ke Materi 04 kini diberikan di Materi 03, sesuai arahan ARYA tentang
+asal rumus. Satu kalimat penghubung halaman 04 ikut diselaraskan.
+**Tindak lanjut MASTER:** pembuka VIDEO 04 segmen `pola` masih menyebut
+Materi 03 hanya mengambil pola dari empat titik. Selaraskan saat merevisi
+video 04 berikutnya. Video/audio 01, 02, dan 04 tidak diubah dalam tugas ini.
+
+Uji 480p lengkap sudah dirender dan frame dengan subtitle diperiksa.
+Tabrakan panel notasi diperbaiki. Dua keterlambatan pemicu 0,27/0,33 detik
+ditemukan dalam uji, lalu diperbaiki sebelum render akhir. Pemeriksa kode,
+subtitle utuh, TypeScript, serta Materi 03 lulus. Seluruh 31 babak lolos QC;
+88 pemicu kata berselisih maksimum 0,111834 detik; 16 klaim matematika lulus.
+Lembar kontak akhir dan frame penting, termasuk versi bersubtitle, dibuka.
+Tidak ada layar kosong berkepanjangan; decode penuh MP4 lulus. Gerak pertama
+0,125 detik sesudah judul. Sebanyak 38 calon diam ditinjau dalam konteks
+narasi; calon 15,75 detik pada tabel adalah perubahan angka kecil yang tidak
+ditangkap ambang piksel alat, bukan layar kosong.
+
+Sepuluh berkas MP4 lain di media/public memiliki hash yang tetap. Video
+utama dan salinan situs identik; poster/VTT diperbarui. Salinan 480p60
+bersubtitle ada di `media/uji-480p/turunan3-fungsi-turunan-bersubtitle.mp4`.
+Laporan lengkap: `qc/turunan3-fungsi-turunan/hasil-revisi.md`.
+Catatan ini dan laporan sesi diperbarui di folder utama serta worktree
+untuk MASTER; tidak ada klaim pesan langsung sudah diterima MASTER.
+Implementasi belum di-commit, digabung, atau deploy.
+
+
+## 8 SEP (revisi lanjutan): TURUNAN 1 SELESAI 1080p60
+
+ARYA melanjutkan arahan pencatatan dengan meminta revisi Turunan 1.
+Hasil baru: **351,766667 detik (5:52), 1920×1080, 60 fps, H.264 + AAC**,
+10.391.420 byte. Naskah dan suara baru, 31 bagian, Ardi tempo -5%, serta
+113 potongan subtitle utuh dengan angka sebagai lambang.
+
+Perbaikan utama:
+- Masalah lama detik 10–17 ditangani dengan memisahkan perpindahan kamera,
+  orientasi tabel, dan pembacaan angka. Tabel sekarang diperkenalkan pada
+  12,77–21,50 detik; pembacaan data dimulai setelah itu. Angka muncul pada
+  ucapan yang terkait, bukan saat kamera masih menghalangi tabel.
+- Arti total, tambahan, lama waktu, dan pembagian per jam dijelaskan.
+  Hasil hitungan muncul ketika narator menjelaskannya.
+- Kemiringan disebut lengkap dahulu, kemudian disingkat "miring = naik/datar".
+  Kata miring dijelaskan sebagai kemiringan, bukan panjang sisi miring.
+- Contoh 3–4–5 cm menunjukkan panjang sisi miring 5 cm dan kemiringan
+  3/4 = 0,75. Pada grafik pabrik, barang dan jam berbeda satuan, sehingga
+  tidak dijumlahkan kuadratnya seperti dua panjang.
+- Materi nomor 1 pada halaman ikut mendapat penjelasan Pythagoras dan satuan.
+  Video lain tidak berubah; revisi Turunan 3 belum dikerjakan.
+
+Bukti: 31 babak lolos QC; 70 pemicu animasi berselisih maksimum 0,032001
+detik dari penanda kata; durasi audio/video cocok. Lembar kontak akhir dan
+frame penting dibuka, subtitle diperiksa. Pemindaian layar kosong dan
+decode penuh FFmpeg lulus. Pemeriksa kode, TypeScript, dan Materi 01 lulus.
+Pemeriksa urutan meloloskan Materi 01; temuan lintas topik pada "bagian dalam
+domain" Materi 02 adalah pencocokan kata konteks komposisi yang terlalu luas,
+dicatat tanpa mengubah video 2. Hash 12 video lain sama dengan sebelum revisi.
+
+Lokasi seluruh implementasi dan bukti:
+`D:/MANIM-MATRA/.claude/worktrees/materi-turunan-b8c515`.
+Video: `media/turunan1-laju-rata-rata.mp4`; salinan lokal situs, JPG dan VTT:
+`web/public/anim/turunan1-laju-rata-rata.*`. Salinan bersubtitle:
+`media/uji-480p/turunan1-laju-rata-rata-bersubtitle.mp4` (480p60).
+Laporan: `qc/turunan1-laju-rata-rata/hasil-revisi-lanjutan.md`.
+Cara membangun ulang ada di laporan; pembuat suara Turunan 1 mengimpor
+mesin WordBoundary dari `alat/buat_suara_turunan2.py`, tanpa mengubah aset 2.
+
+**Selesai secara produksi; menunggu tinjauan ARYA atas versi terbaru.**
+Belum di-commit, digabung, atau deploy. Catatan utama dan worktree diperbarui
+untuk MASTER; tidak ada klaim pesan langsung sudah diterima MASTER.
+
+## 8 SEP (arahan lanjutan): CATATAN TURUNAN 3, BELUM PRODUKSI
+
+ARYA meminta rombakan Turunan 3 dengan resep penjelasan rinci dan suara
+tenang Turunan 2, tetapi **langkah saat ini hanya memperbarui catatan untuk
+MASTER**, sebelum coding, menulis naskah narasi, membuat suara, atau render.
+
+Keputusan baru: **durasi 3–6 menit**, bahasa akrab siswa, dan setiap konsep
+dihubungkan secara eksplisit ke pelajaran sebelumnya. Contoh koreksi ARYA
+untuk video 2: "Sama seperti video 1 yaitu, kemiringan adalah kenaikan dibagi
+langkah mendatar." Bentuk lengkap diperkenalkan melalui ucapan dan tulisan,
+lalu tulisan adegan diringkas menjadi **"miring = naik/datar"**. Subtitle
+tetap menyampaikan kalimat lengkap, bukan hanya menyalin singkatan adegan.
+
+Dua foto ARYA menunjukkan masalah jembatan penjelasan dan kemungkinan siswa
+menyamakan segitiga kemiringan dengan soal Pythagoras. Yang perlu dijelaskan:
+Pythagoras mencari panjang sisi; kemiringan membandingkan perubahan tegak
+dengan mendatar. Khusus grafik pabrik, 44 barang / 2 jam = 22 barang/jam;
+barang dan jam bukan dua panjang sejenis. Label "miring" perlu diperjelas
+sebagai singkatan kemiringan, bukan panjang sisi miring.
+
+ARYA mengonfirmasi timing Turunan 1 detik **10–17** adalah **masalah yang
+perlu diperbaiki**, bukan contoh yang ingin ditiru. Catat perbaikan video 1
+sebagai tindak lanjut dan cegah cacatnya terulang di Turunan 3. Ketepatan
+waktu tiap kata harus disertai ketepatan makna: kata "kemiringan" dan
+hubungannya wajib benar-benar diucapkan, bukan hanya ada pada gambar.
+
+Catatan `CLAUDE.md`, `PROGRESS.md`, standar mengajar, serta laporan sesi
+Turunan diperbarui di folder utama dan worktree. Dua gambar bukti disalin
+ke `docs/tugas/laporan/bukti-turunan-2026-09-08/` agar tidak bergantung pada
+folder sementara. Rincian rancangan dan daftar pemeriksaan ada di
+`docs/tugas/laporan/MANTRA-TURUNAN-INTEGRAL.md`, bagian paling baru.
+
+Persetujuan Turunan 2 sebelumnya adalah riwayat penilaian umum; masukan
+baru ini tetap harus ditindaklanjuti pada tahap revisi. **Belum ada perubahan
+kode, naskah, suara, subtitle, atau video pada tahap pencatatan ini.**
+Belum ada pesan langsung ke MASTER melalui alat komunikasi; laporan tersedia
+di berkas utama. Integrasi dan deploy tidak dilakukan.
+
+## 8 SEP: TURUNAN 2 DIROMBAK 1080p60, HASIL DISETUJUI ARYA
+
+**Keputusan pemilik:** setelah menonton hasil, ARYA menyatakan "video ini
+sudah bagus, lebih detail dan intonasinya tenang" dan meminta pembaruan
+`CLAUDE.md` serta `PROGRESS.md` untuk MASTER, karena sedikit melenceng dari
+aturan lama tetapi ia menyukainya. Status tinjauan Turunan 2 kini
+**DISETUJUI ARYA**. Catatan versi 02 berdurasi 1:50 di bawah adalah riwayat
+rilis lama, bukan status revisi ini.
+
+### Hasil dan alasan pembelajaran
+
+- Narasi baru: 33 bagian, suara tetap `id-ID-ArdiNeural`, tempo `-5%`,
+  jeda antargagasan. Yang dirombak adalah naskah, rekaman, tempo, dan
+  penempatan animasi; bukan mengganti identitas suara.
+- Alur: kemiringan sebagai kenaikan dibagi langkah mendatar; contoh baru
+  y = x² dengan P(1,1) dan Q(2,4); asal h dan 1+h; pecahan selisih tinggi;
+  nilai h mendekati nol; luas empat petak menjelaskan 1 + 2h + h²;
+  faktorisasi dengan h bukan nol; 0/0 tidak terdefinisi; pendekatan dari
+  kanan dan kiri; garis singgung dengan kemiringan 2; rumus turunan umum.
+- Diagram luas memakai h positif. Identitas aljabar tetap berlaku untuk
+  h negatif; pendekatan dari kiri dijelaskan terpisah. Garis singgung
+  dijelaskan sebagai batas garis potong, bukan "hanya menyentuh satu titik".
+- Materi nomor 2 di `web/content/turunan/tahap.ts` ikut diselaraskan.
+  Revisi video 2 tidak mengubah video lain; perubahan video 1 dari
+  pekerjaan sebelumnya tetap terpisah.
+
+### Perbedaan terhadap aturan MASTER, dicatat terbuka
+
+| Hal | Hasil yang disetujui dan batas pengecualiannya |
+|---|---|
+| Durasi dan kedalaman | 355,966667 detik (5:56), sebelumnya 110,4 detik (1:50). Lebih panjang untuk menjelaskan asal rumus. Ini perubahan rancangan; batas durasi total maksimum tidak tercantum pada standar yang diperiksa. |
+| Transisi rumus | Metode `papan()` memakai FadeOut/FadeIn; tidak selalu mengikuti `lahir_rumus` dan morph lambang pada standar ilustrasi butir 5. Pertahankan versi yang sudah ditonton dan disetujui; jangan otomatis menggantinya hanya demi keseragaman. |
+| Pembuat bidang | Memakai `Axes` dengan label angka dan skala satuan x/y sama, bukan pembungkus `ilustrasi.bidang_bernomor` pada butir 9. Geometri dan angka diperiksa. |
+| Waktu suara dan subtitle | Pembuat khusus `alat/buat_suara_turunan2.py` dan `alat/buat_subtitle_turunan2.py` memakai WordBoundary TTS. VTT mengambil kata rekaman dan beberapa penggantian lambang; tidak memakai semua medan `tulis` dan masih memuat ejaan sebagian angka, berbeda dari butir 7. |
+| Gambar 2D dan jeda | Sudah sesuai standar versi 2 butir 2 dan 3 untuk video kedua. Keduanya tidak perlu dianggap penyimpangan. |
+| Catatan utama proyek | Tugas sesi lama melarang menyunting CLAUDE/PROGRESS dan folder master. Permintaan langsung ARYA kali ini mengizinkan pembaruan catatan di folder utama dan worktree, tanpa menggabung implementasi atau deploy. |
+
+Persetujuan tersebut adalah penilaian ARYA terhadap hasil video secara
+keseluruhan. Rincian teknis di tabel adalah pencatatan sesi ini, bukan klaim
+bahwa ARYA menilai setiap fungsi kode satu per satu. Pengecualian hanya
+untuk Turunan 2; aturan umum dan gerbang mutu topik lain tetap berlaku.
+
+### Bukti pemeriksaan revisi
+
+- MP4 H.264 + AAC, 1920×1080, 60 fps, 355,966667 detik,
+  9.444.693 byte (9,01 MiB). Durasi suara dan gambar cocok.
+- Semua 33 babak lolos QC tata letak; lembar kontak dan delapan frame
+  penting hasil final dibuka. Pemindaian layar kosong dan decode penuh
+  FFmpeg lulus. Pemeriksa kode Manim, TypeScript, dan whitespace lulus.
+- SymPy memeriksa ekspansi, faktorisasi, tabel h, serta limit kiri/kanan = 2.
+  Maksimum selisih 31 pemicu animasi terhadap waktu kata TTS 0,03113 detik;
+  ini ukuran waktu pemicu, bukan klaim ketepatan persepsi pendengaran.
+- Suara diperiksa melalui naskah, waktu kata, level sinyal, dan transkripsi
+  otomatis lima bagian rawan; puncak -2,6 dB, tanpa clipping. Beberapa
+  kalimat dibuat ulang agar huruf matematika tidak berdesakan. ARYA telah
+  menilai intonasinya tenang; belum ada uji pemahaman langsung kepada siswa.
+
+### Serah terima untuk MASTER
+
+Implementasi masih berupa perubahan lokal di
+`D:\MANIM-MATRA\.claude\worktrees\materi-turunan-b8c515`,
+cabang `sesi/turunan-materi`. **Belum di-commit, belum digabung ke master,
+dan belum di-deploy.** Hanya catatan keputusan ini yang juga ditulis ke
+folder utama; jangan menganggap video produksi sudah berubah.
+
+Berkas inti yang harus ikut bila MASTER mengintegrasikan revisi:
+
+- `manim/scenes/turunan2_garis_singgung.py`,
+  `manim/narasi/turunan2-garis-singgung.json`, kedua alat khusus di atas,
+  dan perubahan materi nomor 2 dalam `web/content/turunan/tahap.ts`.
+- `audio/turunan2-garis-singgung/{durasi.json,kata.json,narasi-penuh.mp3}`.
+  Adegan memerlukan `kata.json`; pembuat suara umum tidak menghasilkan
+  penanda tersebut. Rekaman WAV dan cache `revisi/` tersedia lokal.
+- Video final: `media/turunan2-garis-singgung.mp4`; salinan lokal situs,
+  poster JPG, dan subtitle VTT di `web/public/anim/turunan2-garis-singgung.*`.
+  Media dapat diabaikan Git, sehingga cek dan salin aset secara eksplisit.
+- Salinan untuk meninjau:
+  `media/uji-480p/turunan2-garis-singgung-bersubtitle.mp4` (480p60).
+  Video utama memakai VTT terpisah, bukan subtitle tertanam.
+- Bukti rinci lokal:
+  `qc/turunan2-garis-singgung/hasil-pemeriksaan.md`,
+  `jadwal-render.json`, `isyarat-render.json`, serta lembar kontak.
+  Versi lama dicadangkan di `qc/turunan2-garis-singgung/sebelum/`.
+
+Untuk membangun ulang, dari worktree tersebut:
+
+```powershell
+python alat/buat_suara_turunan2.py
+python alat/buat_subtitle_turunan2.py
+manimgl manim/scenes/turunan2_garis_singgung.py TurunanGarisSinggung -w --hd --config_file manim/hd60.yml
+python manim/gabung_audio.py turunan2-garis-singgung TurunanGarisSinggung --keluar turunan2-garis-singgung.mp4
+```
+
+MASTER dapat membaca laporan ini langsung di catatan utama proyek. Sesi
+MATRA-MASTER tidak ditemukan dalam daftar task yang tersedia pada alat
+komunikasi Codex; belum ada pesan langsung yang dikirim atau bukti MASTER
+sudah membaca. Integrasi dan pemeriksaan hasil di produksi masih terbuka.
 
 ## 8 SEP (siang): ENAM VIDEO TURUNAN 480p LENGKAP, NAIK PRODUKSI
 
