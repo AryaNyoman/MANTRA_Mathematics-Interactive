@@ -31,9 +31,15 @@ dibuktikan: `alat/klaim-video-integral03-salah.json --harus-gagal` berisi
 empat klaim yang sengaja keliru, dan keempatnya ditolak, termasuk tebakan
 naif (2x+1)^6/6 yang jadi inti seluruh video.
 
-WARNA, sama dengan widget `cocokkan-lapisan` di halaman Materi 03
+WARNA
 AKSEN2 biru = lapisan dalam u. AKSEN merah = faktor du dan angka yang harus
 disesuaikan. SOROT ungu = jawaban benar dan kesimpulan.
+CATATAN JUJUR: docstring versi lama mengaku warnanya "sama dengan widget
+`cocokkan-lapisan`". Widgetnya dibuka 9 Sep 2026 dan itu TIDAK benar: widget
+memakai navy dan emas MANTRA, dan tidak mewarnai u berbeda dari du sama
+sekali. Yang memang sama istilah dan contohnya (tiga soal yang sama persis,
+"yang kurang cuma sebuah angka", "masih memuat x", "kembalikan u"), dan itu
+yang penting bagi siswa.
 
 Alur berkas: naskah -> buat_narasi.py -> adegan ini -> gabung_audio.py
 integral03-substitusi IntegralSubstitusi --uji -> buat_subtitle.py.
@@ -61,9 +67,15 @@ def baris_rumus(*potongan, ukuran=66, buff=0.18):
 
     Tiap potongan berupa (teks_latex, warna) dan tetap bisa dialamati sendiri,
     jadi angka yang perlu disorot tidak perlu dicari lewat `get_part_by_tex`.
+
+    DIRATAKAN DI TENGAH, bukan di bawah. Versi 8 Sep meratakan tepi bawah, dan
+    pada render 9 Sep hasilnya salah baca: "+ C" di sebelah sebuah pecahan
+    turun sampai sejajar penyebutnya, sehingga x^(n+1)/(n+1) + C terbaca
+    seolah C ada DI DALAM penyebut. Rata tengah juga cara LaTeX menaruh
+    integran di sebelah tanda integral yang tinggi.
     """
     g = VGroup(*[rumus(t, ukuran, w) for t, w in potongan])
-    g.arrange(RIGHT, buff=buff, aligned_edge=DOWN)
+    g.arrange(RIGHT, buff=buff)
     return g
 
 
@@ -106,7 +118,11 @@ class IntegralSubstitusi(AdeganMatra):
         # PEMBUKA: satu pertanyaan yang dijawab video ini.
         # =============================================================
         soal = baris_rumus(
-            (r"\int", TINTA), (r"(2x + 1)", AKSEN2), (r"^5", TINTA), (r"dx", TINTA),
+            # SATU potongan untuk (2x + 1)^5, bukan basis dan pangkat
+            # terpisah: potongan r"^5" sendirian membangun pangkat yang
+            # tidak menempel pada apa pun, dan pada render 9 Sep 2026
+            # rumus inti video ini terbaca "(2x + 1) 5 dx".
+            (r"\int", TINTA), (r"(2x + 1)^5", AKSEN2), (r"dx", TINTA),
             ukuran=62,
         ).move_to(PANGGUNG)
 
@@ -118,7 +134,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("antiturunan")
             b.main(FadeIn(soal, scale=0.9), run_time=2.2)
             b.tunggu_kata("lima")
-            b.main(Indicate(soal[2], color=AKSEN), run_time=1.2)
+            b.main(Indicate(soal[1], color=AKSEN), run_time=1.2)
             b.tunggu_kata("menguraikan")
             b.main(Indicate(soal, color=SOROT), run_time=2.0)
         qc.periksa_adegan(self, {"soal": soal}, hud={"identitas": ident})
@@ -273,13 +289,13 @@ class IntegralSubstitusi(AdeganMatra):
 
         with sinema.babak(self, "uraikan", DURASI, kata=KATA) as b:
             b.tunggu_kata("Menguraikan")
-            b.main(Indicate(soal[2], color=AKSEN), run_time=1.4)
+            b.main(Indicate(soal[1], color=AKSEN), run_time=1.4)
             b.tunggu_kata("Hasilnya")
             b.main(LaggedStartMap(FadeIn, urai, lag_ratio=0.5), run_time=1.4)
             b.tunggu_kata("tiap")
             b.main(Indicate(urai[1], color=AKSEN), run_time=1.0)
             b.tunggu_kata("diantiturunkan")
-            b.main(LaggedStartMap(Indicate, urai, lag_ratio=0.35), run_time=2.4)
+            b.main(LaggedStartMap(Indicate, urai, lag_ratio=0.35, color=AKSEN), run_time=2.4)
         qc.periksa_adegan(self, {"soal": soal, "uraian": urai},
                           [("soal", "uraian")],
                           hud={"identitas": ident2, "papan": panel.semua()})
@@ -317,7 +333,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("menebak")
             b.main(Indicate(soal, color=AKSEN2), run_time=1.4)
             b.tunggu_kata("Naikkan")
-            b.main(Indicate(soal[2], color=SOROT), run_time=0.9)
+            b.main(Indicate(soal[1], color=SOROT), run_time=0.9)
             b.tunggu_kata("lalu")
             b_tebak = panel.baris(r"\text{tebakan}", warna=AKSEN, b=b)
             b.main(Indicate(b_tebak, color=SOROT), run_time=0.5)
