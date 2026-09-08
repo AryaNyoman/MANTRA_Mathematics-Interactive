@@ -1,38 +1,158 @@
 {
   "adegan": "JarakSelaluTerpendek",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Ruang Tiga Dimensi materi 03. Gagasan payung topik ini lahir di sini: setiap soal jarak adalah soal mencari kaki tegak lurus. Titik Q digeser supaya siswa MELIHAT panjangnya naik-turun, bukan diberi tahu.",
+  "tempo": "-5%",
+  "catatan": "Standar v3, 9 September 2026. Ditulis ulang dari versi 92 detik. Satu pertanyaan: dari sekian banyak penghubung, yang mana yang pantas disebut jarak. Segar-ingat: Ruang 3D Materi 01 (gambar ruang boleh berbohong, angka yang memutuskan), dipakai betulan sebab seluruh jawabannya diputuskan angka, bukan gambar. Asal kesimpulan dibuktikan dengan Pythagoras pada segitiga BQR, lengkap dengan angkanya: 18 + 6,48 = 24,48.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Dari materi sebelumnya kita sudah tahu tiga kedudukan dua garis: berpotongan, sejajar, dan bersilangan. Sekarang materi tiga, *jarak selalu yang terpendek*.",
-      "tulis": "Dari materi sebelumnya kita sudah tahu tiga kedudukan dua garis: berpotongan, sejajar, dan bersilangan. Sekarang materi 3, *jarak selalu yang terpendek*."
+      "teks": "Dari sekian banyak ruas yang menghubungkan sebuah titik ke sebuah garis, yang mana yang pantas disebut *jarak*?",
+      "tulis": "Dari sekian banyak ruas yang menghubungkan sebuah titik ke sebuah garis, yang mana yang pantas disebut *jarak*?"
     },
     {
-      "id": "masalah",
-      "teks": "Ini titik B, dan ini garis A C di lantai kubus. Dari B ke garis itu bisa ditarik ruas sebanyak yang kita mau, dan semuanya sah disebut penghubung. Panjangnya berbeda-beda.",
-      "tulis": "Ini titik B, dan ini garis A̅C̅ di lantai kubus. Dari B ke garis itu bisa ditarik ruas sebanyak yang kita mau, dan semuanya sah disebut penghubung. Panjangnya berbeda-beda."
+      "id": "ingat-01",
+      "teks": "Di Materi 01, gambar ruang boleh berbohong, kita melihat dua ruas yang tampak berpotongan padahal terpisah enam satuan.",
+      "tulis": "Di Materi 01, gambar ruang boleh berbohong, kita melihat dua ruas yang tampak berpotongan padahal terpisah 6 satuan."
+    },
+    {
+      "id": "ingat-pesan",
+      "teks": "Kesimpulannya waktu itu: pada gambar ruang, mata boleh menduga, tetapi angka yang memutuskan. Aturan itu kita pakai lagi hari ini.",
+      "tulis": "Kesimpulannya waktu itu: pada gambar ruang, mata boleh menduga, tetapi angka yang memutuskan. Aturan itu kita pakai lagi hari ini."
+    },
+    {
+      "id": "panggung",
+      "teks": "Kubusnya masih yang tadi, rusuknya enam satuan. Sekarang perhatikan titik B, dan garis A C yang tergeletak di lantai.",
+      "tulis": "Kubusnya masih yang tadi, rusuknya 6 satuan. Sekarang perhatikan titik B, dan garis AC yang tergeletak di lantai."
+    },
+    {
+      "id": "banyak",
+      "teks": "Dari B ke garis itu, kita bisa menarik ruas sebanyak yang kita mau. Ke sana, ke sana, atau ke sana.",
+      "tulis": "Dari B ke garis itu, kita bisa menarik ruas sebanyak yang kita mau. Ke sana, ke sana, atau ke sana."
+    },
+    {
+      "id": "sah",
+      "teks": "Semuanya sah disebut penghubung. Masing-masing benar-benar menyambungkan titik B ke sebuah titik pada garis A C.",
+      "tulis": "Semuanya sah disebut penghubung. Masing-masing benar-benar menyambungkan titik B ke sebuah titik pada garis AC."
+    },
+    {
+      "id": "beda",
+      "teks": "Tetapi panjangnya berbeda-beda. Kalau semuanya kita sebut jarak, satu titik dan satu garis akan punya banyak jarak sekaligus.",
+      "tulis": "Tetapi panjangnya berbeda-beda. Kalau semuanya kita sebut jarak, satu titik dan satu garis akan punya banyak jarak sekaligus."
+    },
+    {
+      "id": "belum",
+      "teks": "Jadi kata jarak belum punya arti, sampai kita sepakat memilih yang mana.",
+      "tulis": "Jadi kata jarak belum punya arti, sampai kita sepakat memilih yang mana."
     },
     {
       "id": "geser",
-      "teks": "Jadi kata *jarak* belum punya arti sampai kita memilih yang mana. Kita geser titik Q di sepanjang A C, dan perhatikan angkanya. Turun, lalu naik lagi. Ada satu tempat yang paling pendek.",
-      "tulis": "Jadi kata *jarak* belum punya arti sampai kita memilih yang mana. Kita geser titik Q di sepanjang A̅C̅, dan perhatikan angkanya. Turun, lalu naik lagi. Ada satu tempat yang paling pendek."
+      "teks": "Mari kita cari sendiri. Titik Q kita geser pelan di sepanjang A C, dan angkanya kita perhatikan.",
+      "tulis": "Mari kita cari sendiri. Titik Q kita geser pelan di sepanjang AC, dan angkanya kita perhatikan."
     },
     {
-      "id": "temu",
-      "teks": "Di situ, dan hanya di situ, muncul tanda *siku-siku*. Panjangnya tiga akar dua, kira-kira empat koma dua empat tiga.",
-      "tulis": "Di situ, dan hanya di situ, muncul tanda *siku-siku*. Panjangnya 3√2, kira-kira 4,243."
+      "id": "turun-naik",
+      "teks": "Angkanya turun, terus turun, lalu berbalik naik lagi. Berarti ada satu tempat yang paling pendek di antaranya.",
+      "tulis": "Angkanya turun, terus turun, lalu berbalik naik lagi. Berarti ada satu tempat yang paling pendek di antaranya."
     },
     {
-      "id": "kenapa",
-      "teks": "Kenapa yang terpendek pasti yang siku-siku? Ambil titik lain, sebut R. Segitiga B Q R siku-siku di Q, dan B R adalah sisi miringnya. Sisi miring *selalu* lebih panjang daripada sisi tegaknya. Itu saja seluruh alasannya.",
-      "tulis": "Kenapa yang terpendek pasti yang siku-siku? Ambil titik lain, sebut R. Segitiga BQR siku-siku di Q, dan B̅R̅ adalah sisi miringnya. Sisi miring *selalu* lebih panjang daripada sisi tegaknya. Itu saja seluruh alasannya."
+      "id": "siku",
+      "teks": "Dan perhatikan, tepat di tempat itu, muncul tanda siku-siku. Ruas terpendeknya *tegak lurus* pada garis A C.",
+      "tulis": "Dan perhatikan, tepat di tempat itu, muncul tanda siku-siku. Ruas terpendeknya *tegak lurus* pada garis AC."
+    },
+    {
+      "id": "nama-kaki",
+      "teks": "Titik pertemuannya kita sebut *kaki tegak lurus*. Panjang ruas dari B ke kaki itulah yang kita sebut jarak.",
+      "tulis": "Titik pertemuannya kita sebut *kaki tegak lurus*. Panjang ruas dari B ke kaki itulah yang kita sebut jarak."
+    },
+    {
+      "id": "mana-q",
+      "teks": "Di mana persisnya kaki itu? Ternyata tepat di tengah A C, yaitu di titik tiga, tiga, nol.",
+      "tulis": "Di mana persisnya kaki itu? Ternyata tepat di tengah AC, yaitu di titik (3, 3, 0)."
+    },
+    {
+      "id": "hitung-bq",
+      "teks": "Titik B ada di enam, nol, nol. Dari B ke Q, langkahnya tiga mundur pada sumbu x dan tiga maju pada sumbu y.",
+      "tulis": "Titik B ada di (6, 0, 0). Dari B ke Q, langkahnya 3 mundur pada sumbu x dan 3 maju pada sumbu y."
+    },
+    {
+      "id": "nilai-bq",
+      "teks": "Pythagoras memberi tiga kuadrat ditambah tiga kuadrat, yaitu delapan belas. Akarnya tiga akar dua, kira-kira empat koma dua empat tiga.",
+      "tulis": "Pythagoras memberi 3² + 3² = 18. Akarnya 3√2, kira-kira 4,243."
+    },
+    {
+      "id": "kenapa-buka",
+      "teks": "Sekarang pertanyaan yang lebih penting. Kenapa yang tegak lurus itu *pasti* yang terpendek? Bukan kebetulan pada kubus ini saja?",
+      "tulis": "Sekarang pertanyaan yang lebih penting. Kenapa yang tegak lurus itu *pasti* yang terpendek? Bukan kebetulan pada kubus ini saja?"
+    },
+    {
+      "id": "ambil-r",
+      "teks": "Kita ambil titik lain pada garis A C, sebut saja R. Boleh di mana pun, asal bukan di kaki tadi.",
+      "tulis": "Kita ambil titik lain pada garis AC, sebut saja R. Boleh di mana pun, asal bukan di kaki tadi."
+    },
+    {
+      "id": "segitiga",
+      "teks": "Sekarang lihat segitiga B Q R. Karena B Q tegak lurus pada garis A C, segitiga ini siku-siku di Q.",
+      "tulis": "Sekarang lihat segitiga BQR. Karena BQ tegak lurus pada garis AC, segitiga ini siku-siku di Q."
+    },
+    {
+      "id": "sisi-miring",
+      "teks": "Pada segitiga siku-siku, sisi di depan sudut siku-siku adalah sisi miringnya. Di sini sisi miringnya B R.",
+      "tulis": "Pada segitiga siku-siku, sisi di depan sudut siku-siku adalah sisi miringnya. Di sini sisi miringnya BR."
+    },
+    {
+      "id": "rumus",
+      "teks": "Pythagoras memberi B R kuadrat sama dengan B Q kuadrat ditambah Q R kuadrat.",
+      "tulis": "Pythagoras memberi BR² = BQ² + QR²."
+    },
+    {
+      "id": "angka-r",
+      "teks": "Coba dengan angka. Q R kita ambil satu koma delapan akar dua, sehingga Q R kuadrat adalah enam koma empat delapan.",
+      "tulis": "Coba dengan angka. QR kita ambil 1,8√2, sehingga QR² = 6,48."
+    },
+    {
+      "id": "jumlah",
+      "teks": "Maka B R kuadrat sama dengan delapan belas ditambah enam koma empat delapan, yaitu dua puluh empat koma empat delapan.",
+      "tulis": "Maka BR² = 18 + 6,48 = 24,48."
+    },
+    {
+      "id": "banding",
+      "teks": "Akarnya kira-kira empat koma sembilan lima. Bandingkan dengan B Q yang empat koma dua empat tiga. B R memang lebih panjang.",
+      "tulis": "Akarnya kira-kira 4,95. Bandingkan dengan BQ yang 4,243. BR memang lebih panjang."
+    },
+    {
+      "id": "sebab",
+      "teks": "Dan sekarang alasannya kelihatan tanpa perlu angka lagi. Q R kuadrat tidak pernah negatif.",
+      "tulis": "Dan sekarang alasannya kelihatan tanpa perlu angka lagi. QR² tidak pernah negatif."
+    },
+    {
+      "id": "selalu",
+      "teks": "Jadi B R kuadrat selalu sama dengan B Q kuadrat, ditambah sesuatu yang tidak pernah negatif. B R tidak mungkin lebih pendek daripada B Q.",
+      "tulis": "Jadi BR² selalu sama dengan BQ², ditambah sesuatu yang tidak pernah negatif. BR tidak mungkin lebih pendek daripada BQ."
+    },
+    {
+      "id": "sama-kapan",
+      "teks": "Keduanya hanya sama panjang kalau Q R sama dengan nol, dan itu berarti R berimpit dengan kaki tegak lurusnya sendiri.",
+      "tulis": "Keduanya hanya sama panjang kalau QR = 0, dan itu berarti R berimpit dengan kaki tegak lurusnya sendiri."
+    },
+    {
+      "id": "umum",
+      "teks": "Itulah bentuk umumnya. Jarak dari sebuah titik ke sebuah garis adalah panjang ruas tegak lurus dari titik itu ke garisnya.",
+      "tulis": "Itulah bentuk umumnya. Jarak dari sebuah titik ke sebuah garis adalah panjang ruas tegak lurus dari titik itu ke garisnya."
+    },
+    {
+      "id": "payung",
+      "teks": "Dan karena itu, tegak lurus bukan aturan tambahan yang harus dihafal. Ia akibat dari memilih yang terpendek.",
+      "tulis": "Dan karena itu, tegak lurus bukan aturan tambahan yang harus dihafal. Ia akibat dari memilih yang terpendek."
+    },
+    {
+      "id": "berlaku",
+      "teks": "Alasan tadi tidak menyebut kubus sama sekali. Ia hanya memakai satu segitiga siku-siku, jadi ia berlaku juga untuk jarak titik ke bidang nanti.",
+      "tulis": "Alasan tadi tidak menyebut kubus sama sekali. Ia hanya memakai satu segitiga siku-siku, jadi ia berlaku juga untuk jarak titik ke bidang nanti."
     },
     {
       "id": "tutup",
-      "teks": "Sekarang kameranya kita putar pelan ke arah A C. Dari arah ini A C tampak berdiri tegak walaupun ia tergeletak di lantai, dan justru karena itu sudut siku-siku di Q terlihat dalam ukuran yang sebenarnya. Jadi tegak lurus bukan aturan tambahan yang harus dihafal. Ia akibat dari memilih yang terpendek. Ingat kalimat ini sampai materi tujuh: *setiap soal jarak adalah soal mencari kaki tegak lurus*.",
-      "tulis": "Sekarang kameranya kita putar pelan ke arah A̅C̅. Dari arah ini A̅C̅ tampak berdiri tegak walaupun ia tergeletak di lantai, dan justru karena itu sudut siku-siku di Q terlihat dalam ukuran yang sebenarnya. Jadi tegak lurus bukan aturan tambahan yang harus dihafal. Ia akibat dari memilih yang terpendek. Ingat kalimat ini sampai materi 7: *setiap soal jarak adalah soal mencari kaki tegak lurus*."
+      "teks": "Ingat kalimat ini sampai materi tujuh: setiap soal jarak adalah soal mencari kaki tegak lurus. Di video berikutnya kita memakai Pythagoras *dua kali* berturut-turut.",
+      "tulis": "Ingat kalimat ini sampai materi 7: setiap soal jarak adalah soal mencari kaki tegak lurus. Di video berikutnya kita memakai Pythagoras *dua kali* berturut-turut."
     }
   ]
 }

@@ -1,22 +1,28 @@
 """Ruang Tiga Dimensi, materi 03: "Jarak selalu yang terpendek" (ManimGL).
 
-Naskah   : manim/narasi/ruang-3d-03.json
-Render   : manimgl manim/scenes/ruang_3d_03.py JarakSelaluTerpendek -w -l
-Gabung   : python manim/gabung_audio.py ruang-3d-03 JarakSelaluTerpendek --uji
+STANDAR VIDEO v3 (9 September 2026). Ditulis ulang dari versi 92 detik.
+Kejadian di layar dipicu oleh KATA yang sedang diucapkan.
 
-DI SINILAH GAGASAN PAYUNG SELURUH TOPIK LAHIR
-"Setiap soal jarak adalah soal mencari kaki tegak lurus." Video ini tidak
-MEMBERI TAHU kalimat itu, ia membuat siswa melihatnya: titik Q digeser, angkanya
-turun lalu naik lagi, dan tepat di dasar lembah tanda siku-siku menyala sendiri.
+Naskah   : manim/narasi/ruang-3d-03.json      (30 segmen, 259,8 detik)
+Narasi   : python manim/buat_narasi.py ruang-3d-03
+Render   : manimgl manim/scenes/ruang_3d_03.py JarakSelaluTerpendek -w --hd --config_file manim/hd60.yml
+Gabung   : python manim/gabung_audio.py ruang-3d-03 JarakSelaluTerpendek --keluar ruang-3d-03.mp4
 
-ASAL ANGKA DITUNJUKKAN DULU, BARU RUMUSNYA (cara 3b1b, permintaan ARYA)
-Sebelum panel "BQ = 3 akar 2" muncul di kanan atas, panjang AC diberi label di
-ruasnya sendiri dan titik Q terlihat berhenti tepat di tengahnya. Jadi angka
-3 akar 2 itu setengah dari 6 akar 2 yang sudah terbaca di layar, bukan angka
-yang jatuh dari langit.
+SEGAR-INGAT (standar v3 butir 2)
+Materi 01 "Gambar ruang boleh berbohong", disebut nomor dan namanya, dengan
+gambar kuncinya: dua ruas yang tampak berpotongan padahal terpisah 6 satuan.
+Bukan hiasan: seluruh video ini memutuskan dengan ANGKA, bukan dengan gambar,
+dan itu persis kesimpulan materi 01.
 
-SUMBU Z hanya muncul di babak pembuka sebagai perkenalan arah tinggi, lalu
-dihilangkan dan tidak kembali: seluruh materi ini terjadi di lantai kubus.
+ASAL KESIMPULAN DIBUKTIKAN, bukan disodorkan: segitiga BQR siku-siku di Q,
+lalu Pythagoras memberi BR kuadrat sama dengan BQ kuadrat ditambah QR kuadrat.
+Karena QR kuadrat tidak pernah negatif, BR tidak pernah lebih pendek daripada
+BQ. Angkanya ikut dihitung di layar: 18 + 6,48 = 24,48.
+
+SATU WARNA SATU MAKNA
+  AKSEN2 biru  = garis AC, sasaran yang dituju
+  AKSEN merah  = ruas coba-coba dari B, termasuk BR
+  SOROT ungu   = jawabannya: kaki tegak lurus dan ruas BQ
 """
 
 import sys
@@ -28,199 +34,273 @@ from gl import kamera, qc, sinema  # noqa: E402
 
 TOPIK = "ruang-3d-03"
 DURASI = durasi(TOPIK)
-# Jam kalimat dari .vtt: dipakai supaya kejadian di layar jatuh tepat pada
-# kalimat yang menyebutnya. URUTAN WAJIB: buat_narasi.py, buat_subtitle.py,
-# BARU render.
-JAM = sinema.jam_subtitle(TOPIK)
+# Jam KATA, inti standar v3. URUTAN WAJIB: buat_narasi.py dulu, baru render.
+KATA = sinema.JamKata(TOPIK)
 
 KAKI = kaki_pada_garis(T["B"], T["A"], T["C"])   # tepat di tengah alas
 T_KAKI = 0.5
+T_R = 0.80          # letak titik R pada AC, sengaja bukan di kaki
 
 
 def di_ac(t):
     return T["A"] + (T["C"] - T["A"]) * t
 
 
+def panjang_dari_b(t):
+    return float(np.linalg.norm(T["B"] - di_ac(t)))
+
+
 class JarakSelaluTerpendek(AdeganMatra):
     def construct(self):
         frame = self.frame
 
-        kubus = kubus_pejal()
+        kubus = kubus_pejal().set_opacity(0.14)
         rangka = rangka_kubus()
         ac = Line(T["A"], T["C"]).set_stroke(AKSEN2, 6)
-
         papan_koor = papan_koordinat(frame)
         papan = sinema.PapanRumus(self)
 
-        # Titik Q dikendalikan satu angka saja. Semua yang bergantung padanya
-        # digambar ulang tiap frame, jadi ruas, penanda, dan angka di panel tidak
-        # mungkin berbeda pendapat (prinsip 5 ILMU-3B1B).
-        t = ValueTracker(0.14)
-
-        def panjang():
-            return float(np.linalg.norm(T["B"] - di_ac(t.get_value())))
-
-        bq = always_redraw(lambda: Line(T["B"], di_ac(t.get_value())).set_stroke(AKSEN, 5))
-        titik_q = always_redraw(
-            lambda: lingkaran_hadap(
-                frame, di_ac(t.get_value()),
-                SOROT if abs(t.get_value() - T_KAKI) < 0.012 else AKSEN,
-                0.20 + 0.04 * np.sin(3.0 * self.time))
-        )
-
-        angka = sinema.AngkaKoma(0, num_decimal_places=3, font_size=32).set_color(AKSEN)
-        angka.add_updater(lambda m: m.set_value(panjang()))
-        panel_hidup = sinema.nilai_hidup(teks("BQ", 28, AKSEN), angka, di=[4.6, 3.15, 0])
-
-        lab = huruf_sudut(frame, {"A": TINTA, "B": AKSEN, "C": AKSEN2})
-
-        # --- Babak 1: pengumuman materi, sumbu z ikut memperkenalkan arah tinggi.
         kamera.pasang_awal(frame, theta=-38, phi=72, pusat=PUSAT, tinggi=TINGGI_BINGKAI)
-        # Cahaya dipindah ke sisi kamera dan kubus diberi bayangan lantai. Tanpa
-        # keduanya kubusnya terbaca sebagai balok gelap datar yang melayang.
         pasang_cahaya(self)
-        bayangan = bayangan_kubus()
-        self.add(lantai(), bayangan, *papan_koor["datar"], *papan_koor["tinggi"], kubus)
-        with sinema.babak(self, "buka", DURASI) as b:
-            sinema.judul_pembuka(self, "Materi 03: Jarak selalu yang terpendek",
-                                 lama=3.4, y=3.0)
-            b.catat(3.4)
-            # Pembuka MAKSIMAL 5 detik (STANDAR butir 2, dipertegas 4 Sep):
-            # kubus pejal langsung melebur jadi rangka, bukan diam berputar
-            # belasan detik. Sebelum ini babak pembuka dan babak berikutnya
-            # sama-sama menampilkan kubus abu-abu pejal, dan itu 20 persen
-            # video habis tanpa satu pun hal baru masuk layar.
-            # Rusuknya digambar SATU PER SATU (lag_ratio), bukan kedua belasnya
-            # sekaligus dalam 1,6 detik. Ukuran baru MASTER 4 Sep, 'detik
-            # pertama bergerak': yang dihitung bukan ada tidaknya animasi,
-            # melainkan apakah layarnya benar-benar berubah di mata penonton.
-            b.main(kubus.animate.set_opacity(0.14),
-                   ShowCreation(rangka, lag_ratio=0.16),
-                   FadeOut(bayangan), run_time=3.2)
-            isi_sisa(b, kamera.sudut(frame, -26, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
+
+        # ---- Babak 1: SATU pertanyaan yang dijawab video ini.
+        tanya = rumus(r"?", 60, SOROT)
+        tanya.move_to(np.array([0.0, 1.4, 0.0])).fix_in_frame()
+        titik_b = Dot(ORIGIN, radius=0.10).set_color(AKSEN)
+        garis_t = Line(np.array([-2.6, -1.2, 0.0]), np.array([2.6, -1.2, 0.0]))
+        garis_t.set_stroke(AKSEN2, 5)
+        titik_b.move_to(np.array([-0.4, 0.6, 0.0]))
+        coba_t = VGroup(*[
+            Line(titik_b.get_center(), np.array([x, -1.2, 0.0])).set_stroke(REDUP, 2.6)
+            for x in (-2.0, -1.2, -0.4, 0.6, 1.6)
+        ])
+        skema = VGroup(garis_t, coba_t, titik_b, tanya).fix_in_frame()
+        with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
+            b.tunggu_kata("banyak")
+            b.main(ShowCreation(garis_t), FadeIn(titik_b), run_time=0.7)
+            b.tunggu_kata("menghubungkan")
+            b.main(ShowCreation(coba_t, lag_ratio=0.3), run_time=1.3)
+            b.tunggu_kata("jarak")
+            b.main(FadeIn(tanya, shift=0.2 * UP), run_time=0.7)
+        qc.periksa_adegan(self, {"skema": skema})
+
+        # ---- Babak 2 dan 3: SEGAR-INGAT materi 01, dengan gambar kuncinya.
+        bd_ingat = Line(T["B"], T["D"]).set_stroke(AKSEN2, 5)
+        eg_ingat = Line(T["E"], T["G"]).set_stroke(AKSEN, 5)
+        with sinema.babak(self, "ingat-01", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Materi")
+            b.main(FadeOut(skema), run_time=0.6)
+            self.add(lantai(), *papan_koor["datar"], kubus)
+            b.main(FadeIn(kubus), ShowCreation(rangka, lag_ratio=0.12), run_time=1.5)
+            b.tunggu_kata("berpotongan")
+            b.main(ShowCreation(bd_ingat), ShowCreation(eg_ingat), run_time=0.8)
+            b.tunggu_kata("terpisah")
+            b.main(Indicate(eg_ingat, color=AKSEN), run_time=1.0)
         qc.periksa_adegan(self, {"kubus": kubus})
 
-        # --- Babak 2: masalahnya dulu. Sumbu z pamit di sini, sebab seluruh sisa
-        #     video terjadi di lantai kubus.
+        jati = sinema.identitas(self, "panjang = lebar = tinggi = 6 satuan")
+        self.remove(jati)
+        pesan_lama = sinema.label("angka memutuskan", warna=SOROT)
+        pesan_lama.to_edge(UP, buff=1.15).fix_in_frame()
+        with sinema.babak(self, "ingat-pesan", DURASI, kata=KATA) as b:
+            b.tunggu_kata("angka")
+            b.main(FadeIn(pesan_lama, shift=0.2 * DOWN), run_time=0.8)
+            b.tunggu_kata("pakai")
+            b.main(FadeOut(bd_ingat), FadeOut(eg_ingat), FadeOut(pesan_lama),
+                   run_time=0.9)
+            self.add(jati)
+            b.main(FadeIn(jati), run_time=0.6)
+        qc.periksa_adegan(self, {"kubus": kubus, "identitas": jati})
+
+        # ---- Babak 4: panggungnya sendiri, titik B dan garis AC.
+        lab = huruf_sudut(frame, {"A": AKSEN2, "B": AKSEN, "C": AKSEN2})
+        with sinema.babak(self, "panggung", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "rusuknya")
+            b.main(*[FadeIn(x) for x in lab.values()], run_time=0.8)
+            tunggu_kata_bergeser(b, frame, "titik")
+            b.main(Indicate(lab["B"], scale_factor=1.7, color=AKSEN), run_time=1.0)
+            tunggu_kata_bergeser(b, frame, "garis")
+            b.main(ShowCreation(ac), run_time=1.2)
+        qc.periksa_adegan(self, {"AC": ac, "huruf B": lab["B"], "identitas": jati})
+
+        # ---- Babak 5 sampai 8: masalahnya, kata "jarak" belum punya arti.
         coba_coba = VGroup(*[
-            Line(T["B"], di_ac(x)).set_stroke(REDUP, 2.4)
+            Line(T["B"], di_ac(x)).set_stroke(REDUP, 2.6)
             for x in (0.16, 0.30, 0.44, 0.62, 0.80)
         ])
-        jati = sinema.identitas(self, "panjang = lebar = tinggi = 6 satuan")
-        with sinema.babak(self, "masalah", DURASI) as b:
-            sumbu_z_pamit(b, papan_koor, 0.8)
-            # "Ini titik B, dan ini garis AC di lantai kubus."
-            b.main(ShowCreation(ac), *[FadeIn(x) for x in lab.values()], run_time=1.4)
-            # "Dari B ke garis itu bisa ditarik ruas sebanyak yang kita mau":
-            # ruas-ruas coba-coba itu digambar TEPAT saat kalimatnya berjalan.
-            tunggu_bergeser(b, frame, JAM, "Dari B ke garis itu")
-            b.main(ShowCreation(coba_coba, lag_ratio=0.25), run_time=2.6)
-            # "Panjangnya berbeda-beda." -> yang disorot memang berkas ruasnya.
-            tunggu_bergeser(b, frame, JAM, "Panjangnya berbeda-beda")
+        with sinema.babak(self, "banyak", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "menarik")
+            b.main(ShowCreation(coba_coba, lag_ratio=0.25), run_time=2.2)
+        qc.periksa_adegan(self, {"AC": ac, "coba": coba_coba, "identitas": jati})
+
+        with sinema.babak(self, "sah", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "penghubung")
             b.main(Indicate(coba_coba, color=SOROT), run_time=1.3)
-            isi_sisa(b, kamera.sudut(frame, -14, 62, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-        qc.periksa_adegan(self, {"AC": ac, "huruf A": lab["A"], "huruf C": lab["C"],
+
+        with sinema.babak(self, "beda", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "panjangnya")
+            b.main(Indicate(coba_coba[0], color=REDUP),
+                   Indicate(coba_coba[4], color=REDUP), run_time=1.3)
+
+        with sinema.babak(self, "belum", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "memilih")
+            b.main(FadeOut(coba_coba), run_time=0.9)
+
+        # ---- Babak 9 sampai 12: CONTOH ANGKA. Q digeser, angkanya hidup.
+        t_q = ValueTracker(0.14)
+        bq = always_redraw(lambda: Line(T["B"], di_ac(t_q.get_value())
+                                        ).set_stroke(AKSEN, 5))
+        titik_q = always_redraw(lambda: Dot(di_ac(t_q.get_value()), radius=0.10
+                                            ).set_color(SOROT))
+        angka = DecimalNumber(panjang_dari_b(0.14), num_decimal_places=3,
+                              font_size=30).set_color(AKSEN)
+        angka.add_updater(lambda m: m.set_value(panjang_dari_b(t_q.get_value())))
+        panel_hidup = sinema.nilai_hidup(teks("BQ", 28, AKSEN), angka, di=[4.6, 3.15, 0])
+        with sinema.babak(self, "geser", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "Titik")
+            self.add(bq, titik_q)
+            b.main(FadeIn(panel_hidup), run_time=0.7)
+            b.tunggu_kata("angkanya")
+            b.main(t_q.animate.set_value(T_KAKI), run_time=2.4)
+        qc.periksa_adegan(self, {"BQ": bq, "panel hidup": panel_hidup,
                                  "identitas": jati})
 
-        # --- Babak 3: satu ruas saja yang tinggal, lalu digeser. Angkanya hidup.
-        with sinema.babak(self, "geser", DURASI) as b:
-            b.main(FadeOut(coba_coba), FadeIn(bq), FadeIn(titik_q), run_time=1.0)
-            self.hud_tambah(panel_hidup)
-            panel_hidup.set_opacity(0)
-            b.main(panel_hidup.animate.set_opacity(1), run_time=0.6)
-            b.main(t.animate.set_value(0.86), run_time=max(3.0, b.sisa - 1.0),
-                   rate_func=there_and_back_with_pause)
-            b.jeda(0.8)
-        qc.periksa_adegan(self, {"BQ": bq, "panel hidup": panel_hidup, "identitas": jati},
-                          [("panel hidup", "identitas")])
+        with sinema.babak(self, "turun-naik", DURASI, kata=KATA) as b:
+            b.tunggu_kata("berbalik")
+            b.main(t_q.animate.set_value(0.86), run_time=2.0)
+            b.tunggu_kata("paling")
+            b.main(t_q.animate.set_value(T_KAKI), run_time=1.6)
 
-        # --- Babak 4: berhenti tepat di dasar lembah. ASAL ANGKANYA DITUNJUKKAN
-        #     DULU: panjang AC diberi label di ruasnya, dan Q terlihat berhenti
-        #     tepat di tengah. Baru sesudah itu panel jawabannya muncul.
-        tanda_siku = siku(T["B"], KAKI, T["C"], warna=SOROT, ukuran=0.5, tebal=2.6)
-        n_ac = label_hadap(frame, "6\\sqrt{2}", sepanjang3(T["A"], T["C"], 0.26)
-                           + np.array([-0.55, 0.30, 0.35]), AKSEN2, 28, rumus_latex=True)
-        n_bq = label_hadap(frame, "3\\sqrt{2}", sepanjang3(T["B"], KAKI, 0.5)
-                           + np.array([0.35, -0.35, 0.40]), SOROT, 30, rumus_latex=True)
-        with sinema.babak(self, "temu", DURASI) as b:
-            b.main(t.animate.set_value(T_KAKI), run_time=1.6)
-            b.main(ShowCreation(tanda_siku), run_time=0.8)
-            b.main(FadeIn(n_ac), run_time=0.7)
-            b.main(FadeIn(n_bq), run_time=0.7)
-            self.hud.remove(panel_hidup)
-            b.main(FadeOut(panel_hidup), run_time=0.4)
-            sinema.lahir_rumus(self, r"BQ = 3\sqrt{2} \approx 4{,}243", dekat=bq,
+        tanda_siku = siku(T["B"], KAKI, T["C"], ukuran=0.55).set_stroke(SOROT, 4)
+        with sinema.babak(self, "siku", DURASI, kata=KATA) as b:
+            b.tunggu_kata("siku-siku")
+            b.main(ShowCreation(tanda_siku), run_time=1.0)
+            b.tunggu_kata("tegak")
+            b.main(Indicate(tanda_siku, scale_factor=1.5, color=SOROT), run_time=1.1)
+        qc.periksa_adegan(self, {"BQ": bq, "siku": tanda_siku, "identitas": jati})
+
+        payung = label_hadap(frame, "tegak lurus", KAKI + np.array([-2.3, 0.0, 0.55]),
+                             SOROT, 30)
+        with sinema.babak(self, "nama-kaki", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "kaki")
+            b.main(FadeIn(payung), run_time=0.8)
+            tunggu_kata_bergeser(b, frame, "jarak")
+            b.main(Indicate(bq, color=SOROT), run_time=1.1)
+        qc.periksa_adegan(self, {"payung": payung, "siku": tanda_siku,
+                                 "identitas": jati})
+
+        # ---- Babak 13 sampai 15: angkanya dihitung, bukan diberikan.
+        n_kaki = label_hadap(frame, "(3, 3, 0)", KAKI + np.array([0.9, -0.9, 0.45]),
+                             SOROT, 26, rumus_latex=True)
+        with sinema.babak(self, "mana-q", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "tengah")
+            b.main(FadeIn(n_kaki), run_time=0.8)
+        qc.periksa_adegan(self, {"letak kaki": n_kaki, "payung": payung,
+                                 "identitas": jati},
+                          [("letak kaki", "payung")])
+
+        with sinema.babak(self, "hitung-bq", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "langkahnya")
+            b.main(Indicate(lab["B"], scale_factor=1.6, color=AKSEN), run_time=1.0)
+            tunggu_kata_bergeser(b, frame, "maju")
+            b.main(Indicate(n_kaki, color=SOROT), run_time=1.0)
+
+        with sinema.babak(self, "nilai-bq", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Pythagoras")
+            sinema.lahir_rumus(self, r"BQ^2 = 3^2 + 3^2 = 18", dekat=bq,
                                papan=papan, b=b, warna=SOROT)
-            isi_sisa(b, kamera.putar_pelan(frame, 16), sisakan=0.6)
-        qc.periksa_adegan(self, {"siku": tanda_siku, "jawab": papan.semua(), "nilai AC": n_ac,
-                                 "nilai BQ": n_bq, "identitas": jati},
-                          [("jawab", "identitas"), ("nilai AC", "nilai BQ")])
-
-        # --- Babak 5: kenapa yang siku-siku pasti yang terpendek.
-        r_letak = di_ac(0.80)
-        br = Line(T["B"], r_letak).set_stroke(REDUP, 4)
-        qr = Line(KAKI, r_letak).set_stroke(REDUP, 4)
-        lab_r = label_hadap(frame, "R", r_letak + np.array([0.35, 0.35, 0.40]), REDUP)
-        with sinema.babak(self, "kenapa", DURASI) as b:
-            # "Ambil titik lain, sebut R."
-            tunggu_bergeser(b, frame, JAM, "Ambil titik lain")
-            b.main(ShowCreation(br), ShowCreation(qr), FadeIn(lab_r), run_time=1.6)
-            papan.baris(r"BR^2 = BQ^2 + QR^2")
-            b.catat(0.8)
-            # "dan BR adalah sisi miringnya" -> sisi miring itu yang disorot.
-            tunggu_bergeser(b, frame, JAM, "dan BR adalah sisi miringnya")
-            b.main(Indicate(br, color=SOROT), run_time=1.3)
-            isi_sisa(b, kamera.sudut(frame, -46, 70, pusat=PUSAT, tinggi=TINGGI_BINGKAI))
-        qc.periksa_adegan(self, {"BR": br, "panel": papan.semua(), "identitas": jati},
+            b.tunggu_kata("Akarnya")
+            papan.baris(r"BQ = 3\sqrt{2} \approx 4{,}243", SOROT, b=b)
+        qc.periksa_adegan(self, {"panel": papan.semua(), "identitas": jati},
                           [("panel", "identitas")])
 
-        # --- Babak 6: kalimat payung topik, ditempelkan pada kaki tegak lurusnya
-        #     sendiri, bukan ditulis di kaki layar tempat subtitle berada.
-        # Dua kata, batas standar v2 butir 4. "Kaki tegak lurus" tiga kata dan
-        # ditolak mesin; intinya tetap terbawa, kalimat penuhnya milik narasi.
-        payung = label_hadap(frame, "tegak lurus",
-                             KAKI + np.array([-2.3, 0.0, 0.55]), SOROT, 30)
-        with sinema.babak(self, "tutup", DURASI) as b:
-            b.main(FadeOut(br), FadeOut(qr), FadeOut(lab_r), run_time=0.8)
-            b.main(FadeIn(payung), run_time=0.9)
-            # Narasi babak ini kini MENJANJIKAN "kita putar pelan ke arah A C,
-            # dari arah ini A C tampak berdiri tegak" (syarat ARYA lewat MASTER
-            # supaya pandangan itu boleh dipertahankan). Kameranya harus
-            # benar-benar sampai ke sana, kalau tidak videonya membantah
-            # narasinya sendiri, dan itu cacat yang lebih parah daripada
-            # pandangan yang membingungkan.
-            #
-            # theta = -45, DIHITUNG bukan ditebak. Percobaan pertama memakai -135
-            # dengan alasan "kamera berdiri di seberang A memandang ke C", dan
-            # hasilnya justru pandangan TEGAK LURUS terhadap AC: di layar AC
-            # melintang MENDATAR, padahal naratornya baru saja bilang AC tampak
-            # berdiri tegak. Gambar yang membantah narasinya adalah cacat
-            # terparah menurut gerbang video, dan ini lolos SEMUA gerbang
-            # otomatis sebab tidak ada yang bertindih atau keluar bingkai.
-            #
-            # Sudutnya dicari dengan memproyeksikan A dan C ke layar untuk tiap
-            # theta, lalu diambil yang selisih mendatarnya nol:
-            #   theta  -45 -> dx  0,00  AC tegak     <- yang dipakai
-            #   theta -135 -> dx -8,49  AC mendatar
-            # Putarannya 7,4 detik supaya PERPUTARANNYA yang terlihat.
-            # Putarannya MULAI tepat saat naratornya menyuruh memutar, dan
-            # berlangsung sampai kalimat berikutnya selesai, jadi yang dilihat
-            # penonton adalah perputarannya, bukan hasilnya saja.
-            tunggu_bergeser(b, frame, JAM, "Sekarang kameranya kita putar")
-            b.main(kamera.sudut(frame, -45, 68, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
-                   run_time=7.4)
-            # "dan justru karena itu sudut siku-siku di Q terlihat dalam ukuran
-            # yang sebenarnya" -> tanda siku-sikunya yang disorot.
-            tunggu_bergeser(b, frame, JAM, "dan justru karena itu sudut")
-            b.main(Indicate(tanda_siku, scale_factor=1.7, color=SOROT), run_time=1.4)
-            # "Ingat kalimat ini sampai materi 7" -> kalimat payungnya sendiri.
-            tunggu_bergeser(b, frame, JAM, "Ingat kalimat ini")
-            b.main(Indicate(payung, scale_factor=1.15, color=SOROT), run_time=1.4)
-            # Geseran penutup sengaja KECIL (3 derajat). Lebih dari itu dan AC
-            # tidak lagi tampak tegak, padahal justru itu yang baru dijanjikan
-            # narator satu kalimat sebelumnya.
-            isi_sisa(b, kamera.putar_pelan(frame, 3), sisakan=1.4)
-            b.jeda(1.2)
-        qc.periksa_adegan(self, {"BQ": bq, "siku": tanda_siku, "panel": papan.semua(),
-                                 "payung": payung, "identitas": jati},
-                          [("payung", "identitas"), ("payung", "panel")])
+        # ---- Babak 16 sampai 26: ASAL KESIMPULAN, dibuktikan dengan Pythagoras.
+        with sinema.babak(self, "kenapa-buka", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "pasti")
+            b.main(Indicate(bq, color=SOROT), run_time=1.2)
+
+        r_letak = di_ac(T_R)
+        br = Line(T["B"], r_letak).set_stroke(AKSEN, 4)
+        qr = Line(KAKI, r_letak).set_stroke(REDUP, 4)
+        lab_r = label_hadap(frame, "R", r_letak + np.array([0.35, 0.35, 0.40]), AKSEN)
+        with sinema.babak(self, "ambil-r", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "sebut")
+            b.main(FadeIn(lab_r), ShowCreation(br), run_time=1.3)
+        qc.periksa_adegan(self, {"BR": br, "huruf R": lab_r, "identitas": jati})
+
+        with sinema.babak(self, "segitiga", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "segitiga")
+            b.main(ShowCreation(qr), run_time=1.1)
+            tunggu_kata_bergeser(b, frame, "siku-siku")
+            b.main(Indicate(tanda_siku, scale_factor=1.5, color=SOROT), run_time=1.1)
+
+        with sinema.babak(self, "sisi-miring", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "miringnya")
+            b.main(Indicate(br, color=AKSEN), run_time=1.3)
+
+        with sinema.babak(self, "rumus", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Pythagoras")
+            papan.baris(r"BR^2 = BQ^2 + QR^2", TINTA, b=b)
+        qc.periksa_adegan(self, {"panel": papan.semua(), "BR": br,
+                                 "identitas": jati},
+                          [("panel", "identitas")])
+
+        with sinema.babak(self, "angka-r", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "ambil")
+            b.main(Indicate(qr, color=REDUP), run_time=1.2)
+            b.tunggu_kata("sehingga")
+            papan.baris(r"QR^2 = 6{,}48", REDUP, b=b)
+
+        with sinema.babak(self, "jumlah", DURASI, kata=KATA) as b:
+            b.tunggu_kata("delapan")
+            papan.baris(r"BR^2 = 18 + 6{,}48 = 24{,}48", TINTA, b=b)
+        qc.periksa_adegan(self, {"panel": papan.semua(), "identitas": jati},
+                          [("panel", "identitas")])
+
+        with sinema.babak(self, "banding", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "Bandingkan")
+            b.main(Indicate(bq, color=SOROT), run_time=1.1)
+            tunggu_kata_bergeser(b, frame, "panjang")
+            b.main(Indicate(br, color=AKSEN), run_time=1.1)
+
+        with sinema.babak(self, "sebab", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "negatif")
+            b.main(Indicate(papan.semua()[-2], scale_factor=1.12, color=SOROT),
+                   run_time=1.3)
+
+        with sinema.babak(self, "selalu", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "mungkin")
+            b.main(Indicate(bq, color=SOROT), run_time=1.2)
+
+        with sinema.babak(self, "sama-kapan", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "berimpit")
+            b.main(FadeOut(br), FadeOut(qr), FadeOut(lab_r), run_time=1.1)
+        qc.periksa_adegan(self, {"BQ": bq, "siku": tanda_siku, "payung": payung,
+                                 "identitas": jati})
+
+        # ---- Babak 27 sampai 30: BENTUK UMUM, lalu penutup yang menunjuk 04.
+        with sinema.babak(self, "umum", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "Jarak")
+            b.main(Indicate(bq, color=SOROT), Indicate(tanda_siku, color=SOROT),
+                   run_time=1.4)
+
+        with sinema.babak(self, "payung", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "dihafal")
+            b.main(Indicate(payung, scale_factor=1.18, color=SOROT), run_time=1.3)
+
+        with sinema.babak(self, "berlaku", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "menyebut")
+            b.main(Indicate(tanda_siku, scale_factor=1.5, color=SOROT), run_time=1.2)
+
+        with sinema.babak(self, "tutup", DURASI, kata=KATA) as b:
+            tunggu_kata_bergeser(b, frame, "Ingat")
+            b.main(Indicate(payung, color=SOROT), run_time=1.2)
+            tunggu_kata_bergeser(b, frame, "berikutnya")
+            b.main(Indicate(papan.semua(), scale_factor=1.06, color=SOROT),
+                   run_time=1.3)
+        qc.periksa_adegan(self, {"BQ": bq, "payung": payung, "siku": tanda_siku,
+                                 "panel": papan.semua(), "identitas": jati},
+                          [("payung", "panel")])
+
+        # Gerbang v3: tiap pemicu harus jatuh di detik katanya, selisih < 0,15.
+        sinema.laporkan_pemicu(self)
