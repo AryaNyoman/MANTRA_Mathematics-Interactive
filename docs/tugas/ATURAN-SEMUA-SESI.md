@@ -24,8 +24,12 @@
 >    segar-ingat bersambung. Video PERTAMA berhenti untuk ditonton ARYA;
 >    sesudah disetujui, lanjut per kelompok dua sampai tiga video.
 > 3. Perkakas: `buat_narasi.py` (kata.json), `sinema.JamKata` + `tunggu_kata`,
->    `buat_subtitle.py` + `alat/cek_subtitle.py`, `cek_waktu_adegan.py` sebelum
->    render, `cek_layar_kosong.py`, `buat_poster.py`, `cek_aset_video.py`.
+>    `buat_subtitle.py` + `alat/cek_subtitle.py`, `cek_waktu_adegan.py` dan
+>    `cek_pemicu_urut.py` sebelum render, `cek_layar_kosong.py`, `buat_poster.py`,
+>    `cek_aset_video.py`. Segar-ingat lintas topik ("Di Vektor, Materi 03, ...")
+>    sah menurut pemeriksa urutan; nomor yang didahului nama topik lain di
+>    kalimat yang sama bukan rujukan maju (tambal `cek_urutan_<topik>.py`-mu
+>    dengan pola TOPIK_LAIN seperti di cek_urutan_turunan.py kalau belum).
 >    JANGAN membuat alat suara atau subtitle sendiri; kalau perkakas bersama
 >    kurang, ajukan diff ke MASTER sebagai commit tersendiri.
 > 4. Render langsung 1080p60 mp4 (`--hd --config_file manim/hd60.yml`, lalu
