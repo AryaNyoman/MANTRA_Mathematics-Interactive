@@ -1,0 +1,163 @@
+{
+  "adegan": "TurunanLajuRataRata",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-5%",
+  "catatan": "Revisi atas arahan ARYA 8 September 2026: timing kata dan tabel, arti total dan rata-rata, kemiringan lengkap lalu miring = naik/datar, pembeda Pythagoras melalui 3–4–5 cm, satuan barang/jam. Target 3–6 menit. Kurva mengikuti interpolasi monoton widget. Turunan 2 dan 3 tidak diubah.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi pertama: seberapa cepat, rata-ratanya. Kita mulai dari catatan sebuah pabrik.",
+      "tulis": "Materi pertama: seberapa cepat, rata-ratanya. Kita mulai dari catatan sebuah pabrik."
+    },
+    {
+      "id": "pabrik",
+      "teks": "Pabrik ini mencatat barang yang sudah selesai, jam demi jam.",
+      "tulis": "Pabrik ini mencatat barang yang sudah selesai, jam demi jam."
+    },
+    {
+      "id": "siap",
+      "teks": "Sekarang kita baca tabelnya. Baris atas menunjukkan jam, dan baris bawah menunjukkan total barang yang sudah selesai.",
+      "tulis": "Sekarang kita baca tabelnya. Baris atas menunjukkan jam, dan baris bawah menunjukkan total barang yang sudah selesai."
+    },
+    {
+      "id": "catatan_a",
+      "teks": "Saat mulai, totalnya nol. Pada jam pertama, dua puluh barang. Jam kedua, empat puluh empat. Jam ketiga, enam puluh empat.",
+      "tulis": "Saat mulai, totalnya 0. Pada jam pertama, 20 barang. Jam kedua, 44. Jam ketiga, 64."
+    },
+    {
+      "id": "catatan_b",
+      "teks": "Jam keempat, tujuh puluh delapan barang. Jam kelima, delapan puluh enam. Jam keenam, sembilan puluh. Tiap angka adalah total sejak mulai.",
+      "tulis": "Jam keempat, 78 barang. Jam kelima, 86. Jam keenam, 90. Tiap angka adalah total sejak mulai."
+    },
+    {
+      "id": "total",
+      "teks": "Jadi, enam puluh empat bukan barang yang dibuat pada jam ketiga saja. Angka itu mencakup semua barang yang selesai sampai jam ketiga.",
+      "tulis": "Jadi, 64 bukan barang yang dibuat pada jam ketiga saja. Angka itu mencakup semua barang yang selesai sampai jam ketiga."
+    },
+    {
+      "id": "tanya",
+      "teks": "Kita pilih jam pertama sampai jam ketiga. Selama rentang itu, rata-rata berapa barang yang selesai setiap jam? Coba pikirkan sebentar.",
+      "tulis": "Kita pilih jam pertama sampai jam ketiga. Selama rentang itu, rata-rata berapa barang yang selesai setiap jam? Coba pikirkan sebentar."
+    },
+    {
+      "id": "tambahan",
+      "teks": "Awalnya dua puluh barang. Di akhir rentang, enam puluh empat. Untuk mencari tambahannya, kurangi: enam puluh empat dikurangi dua puluh, hasilnya empat puluh empat barang.",
+      "tulis": "Awalnya 20 barang. Di akhir rentang, 64. Untuk mencari tambahannya, kurangi: 64 dikurangi 20, hasilnya 44 barang."
+    },
+    {
+      "id": "waktu",
+      "teks": "Berapa lama rentangnya? Dari jam satu sampai jam tiga. Jadi, tiga dikurangi satu sama dengan dua jam.",
+      "tulis": "Berapa lama rentangnya? Dari jam 1 sampai jam 3. Jadi, 3 dikurangi 1 sama dengan 2 jam."
+    },
+    {
+      "id": "bagi",
+      "teks": "Empat puluh empat barang selesai dalam dua jam. Untuk mencari rata-rata tiap jam, kita bagi empat puluh empat dengan dua. Hasilnya dua puluh dua barang per jam.",
+      "tulis": "44 barang selesai dalam 2 jam. Untuk mencari rata-rata tiap jam, kita bagi 44 dengan 2. Hasilnya 22 barang per jam."
+    },
+    {
+      "id": "arti",
+      "teks": "Bayangkan tambahannya dibagi rata ke dua kotak, satu kotak untuk setiap jam. Masing-masing berisi dua puluh dua. Inilah arti rata-rata.",
+      "tulis": "Bayangkan tambahannya dibagi rata ke 2 kotak, 1 kotak untuk setiap jam. Masing-masing berisi 22. Inilah arti rata-rata."
+    },
+    {
+      "id": "sumbu",
+      "teks": "Sekarang kita ubah catatan menjadi gambar. Sumbu datar menunjukkan waktu dalam jam. Sumbu tegak menunjukkan total barang yang sudah selesai.",
+      "tulis": "Sekarang kita ubah catatan menjadi gambar. Sumbu datar menunjukkan waktu dalam jam. Sumbu tegak menunjukkan total barang yang sudah selesai."
+    },
+    {
+      "id": "titik",
+      "teks": "Jam satu, total dua puluh, menjadi titik pertama. Jam tiga, total enam puluh empat, menjadi titik kedua. Angkanya tetap sama seperti di tabel.",
+      "tulis": "Jam 1, total 20, menjadi titik pertama. Jam 3, total 64, menjadi titik kedua. Angkanya tetap sama seperti di tabel."
+    },
+    {
+      "id": "kurva",
+      "teks": "Titik-titik catatan lainnya kita tambahkan, lalu hubungkan dengan kurva. Kurva ini membantu kita melihat bagaimana total barang berubah seiring waktu.",
+      "tulis": "Titik-titik catatan lainnya kita tambahkan, lalu hubungkan dengan kurva. Kurva ini membantu kita melihat bagaimana total barang berubah seiring waktu."
+    },
+    {
+      "id": "hubung",
+      "teks": "Sekarang hubungkan dua titik merah dengan garis lurus. Garis ini merangkum perubahan dari awal sampai akhir rentang yang kita pilih.",
+      "tulis": "Sekarang hubungkan 2 titik merah dengan garis lurus. Garis ini merangkum perubahan dari awal sampai akhir rentang yang kita pilih."
+    },
+    {
+      "id": "datar",
+      "teks": "Dari titik awal, kita bergerak ke kanan dulu. Langkah mendatarnya dari jam satu ke jam tiga, yaitu dua jam.",
+      "tulis": "Dari titik awal, kita bergerak ke kanan dulu. Langkah mendatarnya dari jam 1 ke jam 3, yaitu 2 jam."
+    },
+    {
+      "id": "naik",
+      "teks": "Lalu kita naik sampai titik akhir. Kenaikannya dari dua puluh ke enam puluh empat, yaitu empat puluh empat barang.",
+      "tulis": "Lalu kita naik sampai titik akhir. Kenaikannya dari 20 ke 64, yaitu 44 barang."
+    },
+    {
+      "id": "kemiringan",
+      "teks": "Kemiringan garis adalah kenaikan dibagi langkah mendatar. Di sini, empat puluh empat barang dibagi dua jam. Hasilnya dua puluh dua barang per jam, sama dengan rata-rata tadi.",
+      "tulis": "Kemiringan garis adalah kenaikan dibagi langkah mendatar. Di sini, 44 barang dibagi 2 jam. Hasilnya 22 barang per jam, sama dengan rata-rata tadi."
+    },
+    {
+      "id": "singkat",
+      "teks": "Supaya gampang diingat, kita singkat tulisannya: miring sama dengan naik dibagi datar. Kata miring di sini berarti kemiringan garis, bukan panjang sisi miring.",
+      "tulis": "Supaya gampang diingat, kita singkat tulisannya: miring sama dengan naik dibagi datar. Kata miring di sini berarti kemiringan garis, bukan panjang sisi miring."
+    },
+    {
+      "id": "pitagoras",
+      "teks": "Bentuk segitiganya mungkin mengingatkan kita pada Pythagoras. Lalu, kenapa kita justru membagi? Kita bedakan dulu apa yang ingin dicari.",
+      "tulis": "Bentuk segitiganya mungkin mengingatkan kita pada Pythagoras. Lalu, kenapa kita justru membagi? Kita bedakan dulu apa yang ingin dicari."
+    },
+    {
+      "id": "contoh345",
+      "teks": "Lihat contoh panjang yang sama-sama dalam sentimeter. Sisi datarnya empat sentimeter, dan sisi tegaknya tiga sentimeter. Kedua sisi ini membentuk sudut siku-siku.",
+      "tulis": "Lihat contoh panjang yang sama-sama dalam sentimeter. Sisi datarnya 4 sentimeter, dan sisi tegaknya 3 sentimeter. Kedua sisi ini membentuk sudut siku-siku."
+    },
+    {
+      "id": "panjang",
+      "teks": "Kalau ditanya panjang sisi miring, barulah kita pakai Pythagoras. Tiga kuadrat ditambah empat kuadrat sama dengan dua puluh lima. Akarnya lima. Jadi panjangnya lima sentimeter.",
+      "tulis": "Kalau ditanya panjang sisi miring, barulah kita pakai Pythagoras. 3 kuadrat ditambah 4 kuadrat sama dengan 25. Akarnya 5. Jadi panjangnya 5 sentimeter."
+    },
+    {
+      "id": "rasio",
+      "teks": "Kalau ditanya kemiringan, hitungannya tiga dibagi empat. Hasilnya nol koma tujuh lima. Artinya, setiap satu sentimeter ke kanan, garis naik nol koma tujuh lima sentimeter.",
+      "tulis": "Kalau ditanya kemiringan, hitungannya 3 dibagi 4. Hasilnya 0,75. Artinya, setiap 1 sentimeter ke kanan, garis naik 0,75 sentimeter."
+    },
+    {
+      "id": "bedakan",
+      "teks": "Segitiganya sama, tetapi pertanyaannya berbeda. Panjang sisi miring adalah lima sentimeter. Kemiringannya tiga per empat. Jangan tertukar antara panjang dan perbandingan.",
+      "tulis": "Segitiganya sama, tetapi pertanyaannya berbeda. Panjang sisi miring adalah 5 sentimeter. Kemiringannya 3 per 4. Jangan tertukar antara panjang dan perbandingan."
+    },
+    {
+      "id": "satuan",
+      "teks": "Kembali ke pabrik. Sisi tegak menunjukkan barang, sedangkan sisi datar menunjukkan jam. Satuannya berbeda. Ini bukan ukuran panjang dalam sentimeter. Jadi, kita tidak menjumlahkan kuadrat barang dan jam.",
+      "tulis": "Kembali ke pabrik. Sisi tegak menunjukkan barang, sedangkan sisi datar menunjukkan jam. Satuannya berbeda. Ini bukan ukuran panjang dalam sentimeter. Jadi, kita tidak menjumlahkan kuadrat barang dan jam."
+    },
+    {
+      "id": "kembali",
+      "teks": "Yang kita cari adalah tambahan barang untuk setiap jam. Maka hitungannya tetap empat puluh empat dibagi dua, yaitu dua puluh dua barang per jam.",
+      "tulis": "Yang kita cari adalah tambahan barang untuk setiap jam. Maka hitungannya tetap 44 dibagi 2, yaitu 22 barang per jam."
+    },
+    {
+      "id": "sekan",
+      "teks": "Garis lurus yang menghubungkan dua titik pada kurva ini disebut garis potong, atau garis sekan. Kemiringannya menyatakan laju perubahan rata-rata pada rentang yang dipilih.",
+      "tulis": "Garis lurus yang menghubungkan 2 titik pada kurva ini disebut garis potong, atau garis sekan. Kemiringannya menyatakan laju perubahan rata-rata pada rentang yang dipilih."
+    },
+    {
+      "id": "beda_awal",
+      "teks": "Kalau kita pilih jam satu sampai jam dua, tambahannya empat puluh empat dikurangi dua puluh, yaitu dua puluh empat. Waktunya satu jam. Rata-ratanya dua puluh empat barang per jam.",
+      "tulis": "Kalau kita pilih jam 1 sampai jam 2, tambahannya 44 dikurangi 20, yaitu 24. Waktunya 1 jam. Rata-ratanya 24 barang per jam."
+    },
+    {
+      "id": "beda_akhir",
+      "teks": "Sekarang pilih jam tiga sampai jam lima. Tambahannya delapan puluh enam dikurangi enam puluh empat, yaitu dua puluh dua. Dibagi dua jam, hasilnya sebelas barang per jam.",
+      "tulis": "Sekarang pilih jam 3 sampai jam 5. Tambahannya 86 dikurangi 64, yaitu 22. Dibagi 2 jam, hasilnya 11 barang per jam."
+    },
+    {
+      "id": "bukan_tiap",
+      "teks": "Tadi rata-ratanya dua puluh dua, tetapi bukan berarti setiap jam selalu menghasilkan dua puluh dua barang. Jumlah tiap jam bisa berbeda. Rata-rata merangkum satu rentang.",
+      "tulis": "Tadi rata-ratanya 22, tetapi bukan berarti setiap jam selalu menghasilkan 22 barang. Jumlah tiap jam bisa berbeda. Rata-rata merangkum 1 rentang."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi, laju perubahan rata-rata adalah selisih hasil dibagi selisih waktu. Pada grafik, angka itu menjadi kemiringan garis penghubung dua titik. Pilihan titiknya menentukan hasilnya.",
+      "tulis": "Jadi, laju perubahan rata-rata adalah selisih hasil dibagi selisih waktu. Pada grafik, angka itu menjadi kemiringan garis penghubung 2 titik. Pilihan titiknya menentukan hasilnya."
+    }
+  ]
+}

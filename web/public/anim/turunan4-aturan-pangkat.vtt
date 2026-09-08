@@ -1,0 +1,75 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/turunan4-aturan-pangkat.json
+
+1
+00:00:00.000 --> 00:00:04.896
+Materi 04: aturan pangkat, lahir dari definisi.
+
+2
+00:00:04.896 --> 00:00:11.316
+Materi 03 menyimpulkan 2x dari empat titik.
+
+3
+00:00:11.316 --> 00:00:14.601
+Itu pola, bukan bukti.
+
+4
+00:00:14.601 --> 00:00:19.080
+Kini x dibiarkan berupa huruf.
+
+5
+00:00:19.080 --> 00:00:27.888
+(x + h)² = x² + 2xh + h²
+
+6
+00:00:27.888 --> 00:00:34.896
+Dikurangi x²: sisanya 2xh + h²
+
+7
+00:00:34.896 --> 00:00:40.176
+Dibagi h: hasilnya 2x + h
+
+8
+00:00:40.176 --> 00:00:46.872
+h dikecilkan: suku yang memuat h ikut hilang.
+
+9
+00:00:46.872 --> 00:00:51.336
+Yang tidak memuat h diam saja.
+
+10
+00:00:51.336 --> 00:00:57.624
+Jadi turunan x² memang 2x, untuk titik mana pun.
+
+11
+00:00:57.624 --> 00:01:07.368
+Untuk x³, sesudah dibagi h: 3x² + 3xh + h²
+
+12
+00:01:07.368 --> 00:01:15.000
+Dua suku memuat h, keduanya lenyap. Sisanya 3x².
+
+13
+00:01:15.000 --> 00:01:28.296
+x → 1, x² → 2x, x³ → 3x², x⁴ → 4x³
+
+14
+00:01:28.296 --> 00:01:35.928
+Aturan pangkat: untuk a·xⁿ berlaku a·n·xⁿ⁻¹.
+
+15
+00:01:35.928 --> 00:01:44.784
+5x³ memberi 5 · 3 · x², yaitu 15x².
+
+16
+00:01:44.784 --> 00:01:50.047
+f(x) = 7 grafiknya garis mendatar,
+
+17
+00:01:50.047 --> 00:01:55.156
+tidak menanjak dan tidak menurun.
+
+18
+00:01:55.156 --> 00:01:57.168
+Turunannya 0.

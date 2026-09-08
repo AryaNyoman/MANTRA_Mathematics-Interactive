@@ -112,3 +112,46 @@ buka dan nilai frame per frame, baru berikutnya:
 Naskah 10 sampai 12 segmen, 90 sampai 125 detik, ikuti pola
 `manim/narasi/limit*.json` dan bagian 5 STANDAR-MENGAJAR (satu gagasan per
 segmen, sebut yang sedang tampil, tanya lalu jeda lalu jawab). Render 480p
+
+## GELOMBANG 4 (8 Sep 2026): TULIS ULANG SEMUA VIDEO, STANDAR v3
+
+Kamu sesi **MANTRA-VEKTOR**. Keputusan ARYA: semua video MANTRA ditulis ulang dengan
+gaya Turunan 02 versi rinci (3 sampai 6 menit, segar-ingat, asal rumus
+dibuktikan, narasi tenang, animasi dipicu per kata). Baca berurutan:
+`docs/tugas/STANDAR-VIDEO-V3.md`, `docs/tugas/ATURAN-SEMUA-SESI.md` bagian
+GELOMBANG 4, `docs/tugas/laporan/PELAJARAN-RENDER-TURUNAN-2026-09-08.md`, lalu
+`docs/tugas/laporan/MANTRA-INTEGRAL.md` bagian pemangkas render.
+
+| Hal | Nilai |
+|---|---|
+| Cabang | `sesi/vektor` |
+| Worktree | `.claude/worktrees/matra-vektor` |
+| Port dev server | 3010 |
+| Playwright | `-s=matra-vektor` |
+| Contoh yang disetujui | `manim/scenes/turunan2_garis_singgung.py`, naskah `manim/narasi/turunan2-garis-singgung.json`, video `web/public/anim/turunan2-garis-singgung.mp4` |
+
+Video yang ditulis ulang, URUT (segar-ingat bersambung dari satu ke berikutnya):
+
+| Materi | Nama berkas video |
+|---|---|
+| 01 angka-saja-tidak-cukup | `vektor1-perahu` |
+| 03 memecah-panah | `vektor3-komponen` |
+| 04 panjang-dan-arah | `vektor4-panjang` |
+| 06 menjumlah-vektor | `vektor6-sambung` |
+| 08 mengurangi-vektor | `vektor8-selisih` |
+| 09 kali-skalar | `vektor9-kali-skalar` |
+
+Keenam adegan ManimGL sudah ada dan dipakai sebagai bahan; naskahnya ditulis ulang 25 sampai 35 segmen dengan segar-ingat. Dua cacat lama yang masih gagal qc (vektor4 "panjang w menindih label 4 3", vektor9 "ukur k menindih bidang") harus beres di versi baru. Render 1080p yang sedang berjalan boleh dihentikan: versi lama tidak akan tayang.
+
+Alur tiap video: naskah 25 sampai 35 segmen dengan `teks` (ejaan ucapan) dan
+`tulis` (kalimat utuh berlambang) -> `python manim/buat_narasi.py <video>` ->
+adegan dengan `sinema.JamKata` dan `tunggu_kata` -> `cek_kode --dalam`,
+`cek_waktu_adegan`, klaim sympy, `cek_urutan_vektor` ->
+render `--hd --config_file manim/hd60.yml` -> `gabung_audio <video> <Adegan>
+--keluar <video>.mp4` -> lembar kontak DIBUKA -> `cek_layar_kosong`,
+`buat_subtitle` + `cek_subtitle`, `buat_poster` + `cek_aset_video` ->
+salinan 480p bersubtitel -> medan `video` di tahap.ts, tsc -> commit ->
+lapor ke MASTER dengan sepuluh butir daftar periksa v3 terisi.
+
+**Video PERTAMA berhenti** sampai ARYA menonton dan menyetujui di jendelamu;
+sesudahnya per kelompok dua sampai tiga video. Satu render pada satu waktu.

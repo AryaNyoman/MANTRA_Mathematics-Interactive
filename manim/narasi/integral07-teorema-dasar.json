@@ -1,0 +1,73 @@
+{
+  "adegan": "IntegralTeoremaDasar",
+  "suara": "id-ID-ArdiNeural",
+  "tempo": "-6%",
+  "catatan": "Video Integral, Materi 07 'Dua dunia yang ternyata satu, Teorema Dasar Kalkulus'. Puncak topik ini menurut rancangan. BUKAN video bernomor tahap terkecil, jadi TIDAK ada pembuka 3D. Seluruh angka diperiksa sympy lewat alat/klaim-video-integral07.json: A(x) = x^3/3 diperiksa sebagai antiturunan x^2, A(3) = 9, A(1) = 1/3, f(2) = 4, selisih A'(2) dan f(2) = 0, pita h = 0,2 memberi 331/375 lawan hampiran 4/5, integral 1 sampai 3 = 26/3 lewat DUA jalan, C terhapus diperiksa dengan C sebagai LAMBANG, dan jumlahan Riemann n = 60 memberi 23761/2700 yang masih meleset 361/2700. Angka Riemann yang pertama saya tulis DIKARANG dan ditolak alatnya. Satu gambar dipakai sepanjang video: dua papan bertumpuk, atas f(x) = x^2 pada [0, 3] dengan daerahnya, bawah jejak A(x). Susunan itu sama dengan widget 'luas-yang-tumbuh' di halaman Materi 07, supaya siswa yang sudah mencoba widgetnya mengenali gambarnya. Warna: AKSEN2 biru = fungsi f dan luasnya, SOROT ungu = fungsi luas A dan jejaknya, AKSEN merah = pita tipis dan tetapan C.",
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Materi ketujuh: dua dunia yang ternyata satu.",
+      "tulis": "Materi 07: dua dunia yang ternyata satu."
+    },
+    {
+      "id": "dua",
+      "teks": "Sejauh ini ada dua pekerjaan yang asal usulnya berbeda jauh. Yang satu membalik mesin turunan. Yang satu menumpuk persegi panjang untuk mengukur luas.",
+      "tulis": "Dua pekerjaan: membalik turunan, dan menumpuk persegi panjang."
+    },
+    {
+      "id": "tumbuh",
+      "teks": "Sekarang satu perubahan kecil. Batas atasnya jangan dipatok, biarkan bergerak. Sebut A dari x luas dari nol sampai x. A bukan bilangan lagi, melainkan fungsi.",
+      "tulis": "Batas atas dibiarkan bergerak: A(x) = luas dari 0 sampai x. *A adalah fungsi*."
+    },
+    {
+      "id": "jejak",
+      "teks": "Tiap letak x memberi satu nilai luas, dan nilai-nilai itu bisa digambar di papan bawah. Jejaknya membentuk kurva baru.",
+      "tulis": "Tiap x memberi satu nilai A. Jejaknya di papan bawah membentuk kurva baru."
+    },
+    {
+      "id": "tanya",
+      "teks": "Pertanyaan kuncinya begini. Kalau x digeser sedikit ke kanan, seberapa cepat A bertambah? Coba tebak sambil melihat kedua papan.",
+      "tulis": "Kalau x digeser sedikit, seberapa cepat A bertambah?"
+    },
+    {
+      "id": "pita",
+      "teks": "Geser x sebesar h yang kecil. Tambahan luasnya sebuah pita tipis di ujung kanan, lebarnya h dan tingginya kira-kira f dari x.",
+      "tulis": "Tambahannya pita tipis: lebar h, tinggi kira-kira f(x)."
+    },
+    {
+      "id": "bagi",
+      "teks": "Jadi tambahannya kira-kira f dari x dikali h. Bagi dengan h, tinggal f dari x. Itulah laju bertambahnya luas.",
+      "tulis": "Tambahan ≈ f(x)·h. Dibagi h, tinggal *f(x)*."
+    },
+    {
+      "id": "hampir",
+      "teks": "Kata kira-kira memang perlu: tepi atas pita itu ikut melengkung. Untuk h sama dengan nol koma dua di titik dua, tambahan sebenarnya nol koma delapan delapan, hampirannya nol koma delapan. Makin kecil h, makin rapat keduanya.",
+      "tulis": "h = 0,2: sebenarnya 0,88, hampiran 0,80. Makin kecil h, makin rapat."
+    },
+    {
+      "id": "tdk1",
+      "teks": "Maka turunan A sama dengan f. Kalimat itu boleh dibaca ulang: A adalah antiturunan dari f. Di situlah dua dunia tadi bertemu. Inilah Teorema Dasar Kalkulus satu.",
+      "tulis": "*A' = f*, jadi A adalah antiturunan f. Teorema Dasar Kalkulus I."
+    },
+    {
+      "id": "beda",
+      "teks": "Sekarang ambil antiturunan mana pun, sebut F. Karena A dan F sama-sama antiturunan f, keduanya cuma berbeda sebuah tetapan.",
+      "tulis": "A dan F sama-sama antiturunan f, jadi bedanya cuma sebuah tetapan."
+    },
+    {
+      "id": "hapus",
+      "teks": "Luas dari satu sampai tiga adalah A tiga dikurangi A satu. Tulis dengan F, dan tetapannya muncul dua kali dengan tanda berlawanan. Keduanya saling menghapus.",
+      "tulis": "A(3) - A(1) = (F(3) + C) - (F(1) + C). *C saling menghapus*."
+    },
+    {
+      "id": "contoh",
+      "teks": "Coba pada f dari x sama dengan x kuadrat, dari satu sampai tiga. Antiturunannya x pangkat tiga dibagi tiga. Batas atas memberi sembilan, batas bawah sepertiga, selisihnya dua puluh enam per tiga.",
+      "tulis": "∫ x² dari 1 sampai 3: 9 - ⅓ = *26/3* ≈ 8,67."
+    },
+    {
+      "id": "tutup",
+      "teks": "Bandingkan tenaganya. Enam puluh persegi panjang masih meleset nol koma satu tiga, sedangkan pengurangan tadi langsung tepat. Itulah sebabnya teorema ini disebut dasar.",
+      "tulis": "60 persegi panjang masih meleset 0,13. Pengurangan tadi langsung tepat."
+    }
+  ]
+}

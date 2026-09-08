@@ -175,3 +175,88 @@ deploy, JANGAN mengedit `PROGRESS.md` atau `CLAUDE.md`.
   `touch-action: none` di SVG akar.
 - Grafik "licin" sampai keluar daerah (Vektor, Grafik Fungsi): jendela tetap
   dan batas seret.
+
+## GELOMBANG 4 (8 Sep 2026): TULIS ULANG SEMUA VIDEO, STANDAR v3
+
+Kamu sesi **MANTRA-TURUNAN**. Keputusan ARYA: semua video MANTRA ditulis ulang dengan
+gaya Turunan 02 versi rinci (3 sampai 6 menit, segar-ingat, asal rumus
+dibuktikan, narasi tenang, animasi dipicu per kata). Baca berurutan:
+`docs/tugas/STANDAR-VIDEO-V3.md`, `docs/tugas/ATURAN-SEMUA-SESI.md` bagian
+GELOMBANG 4, `docs/tugas/laporan/PELAJARAN-RENDER-TURUNAN-2026-09-08.md`, lalu
+`docs/tugas/laporan/MANTRA-INTEGRAL.md` bagian pemangkas render.
+
+| Hal | Nilai |
+|---|---|
+| Cabang | `sesi/turunan-materi` |
+| Worktree | `.claude/worktrees/materi-turunan-b8c515` |
+| Port dev server | 3015 |
+| Playwright | `-s=mantra-turunan` |
+| Contoh yang disetujui | `manim/scenes/turunan2_garis_singgung.py`, naskah `manim/narasi/turunan2-garis-singgung.json`, video `web/public/anim/turunan2-garis-singgung.mp4` |
+
+Video yang ditulis ulang, URUT (segar-ingat bersambung dari satu ke berikutnya):
+
+| Materi | Nama berkas video |
+|---|---|
+| 01 laju-rata-rata (SUDAH v3, 5:52) | `turunan1-laju-rata-rata` |
+| 02 garis-singgung-lahir (SUDAH v3, 5:56) | `turunan2-garis-singgung` |
+| 03 turunan-sebagai-fungsi (SUDAH v3, 5:55) | `turunan3-fungsi-turunan` |
+| 04 aturan-pangkat | `turunan4-aturan-pangkat` |
+| 06 hasil-kali-dan-bagi | `turunan6-hasil-kali` |
+| 07 aturan-rantai | `turunan7-aturan-rantai` |
+
+Kamu yang melahirkan standar ini. Mulai dari 04 (pembukanya masih membantah 03 yang kini membuktikan rumus). Tiga tindak lanjut yang kamu catat sendiri: penghubung lama video 02 ("hitungan yang sama") dirapikan tanpa merender ulang seluruhnya kalau bisa, dan tiga alat khususmu sudah DIGANTI perkakas bersama (`buat_narasi.py`, `sinema.JamKata`, `buat_subtitle.py`); adegan 01 sampai 03 yang membaca kata.json langsung tetap jalan, tetapi adegan baru wajib memakai `sinema.JamKata` dan `tunggu_kata`. Tiga cadangan (08, 10, 11) sesudah 04, 06, 07.
+
+Alur tiap video: naskah 25 sampai 35 segmen dengan `teks` (ejaan ucapan) dan
+`tulis` (kalimat utuh berlambang) -> `python manim/buat_narasi.py <video>` ->
+adegan dengan `sinema.JamKata` dan `tunggu_kata` -> `cek_kode --dalam`,
+`cek_waktu_adegan`, klaim sympy, `cek_urutan_turunan` ->
+render `--hd --config_file manim/hd60.yml` -> `gabung_audio <video> <Adegan>
+--keluar <video>.mp4` -> lembar kontak DIBUKA -> `cek_layar_kosong`,
+`buat_subtitle` + `cek_subtitle`, `buat_poster` + `cek_aset_video` ->
+salinan 480p bersubtitel -> medan `video` di tahap.ts, tsc -> commit ->
+lapor ke MASTER dengan sepuluh butir daftar periksa v3 terisi.
+
+**Video PERTAMA berhenti** sampai ARYA menonton dan menyetujui di jendelamu;
+sesudahnya per kelompok dua sampai tiga video. Satu render pada satu waktu.
+
+## GELOMBANG 4 (8 Sep 2026): TULIS ULANG SEMUA VIDEO, STANDAR v3
+
+Kamu sesi **MANTRA-INTEGRAL**. Keputusan ARYA: semua video MANTRA ditulis ulang dengan
+gaya Turunan 02 versi rinci (3 sampai 6 menit, segar-ingat, asal rumus
+dibuktikan, narasi tenang, animasi dipicu per kata). Baca berurutan:
+`docs/tugas/STANDAR-VIDEO-V3.md`, `docs/tugas/ATURAN-SEMUA-SESI.md` bagian
+GELOMBANG 4, `docs/tugas/laporan/PELAJARAN-RENDER-TURUNAN-2026-09-08.md`, lalu
+`docs/tugas/laporan/MANTRA-INTEGRAL.md` bagian pemangkas render.
+
+| Hal | Nilai |
+|---|---|
+| Cabang | `sesi/integral-materi` |
+| Worktree | `.claude/worktrees/integral-folder-branch-setup-05863c` |
+| Port dev server | 3016 |
+| Playwright | `-s=mantra-integral` |
+| Contoh yang disetujui | `manim/scenes/turunan2_garis_singgung.py`, naskah `manim/narasi/turunan2-garis-singgung.json`, video `web/public/anim/turunan2-garis-singgung.mp4` |
+
+Video yang ditulis ulang, URUT (segar-ingat bersambung dari satu ke berikutnya):
+
+| Materi | Nama berkas video |
+|---|---|
+| 01 membalik-turunan | `integral01-laju-ke-jumlah` |
+| 03 substitusi | `integral03-substitusi` |
+| 05 jumlahan-riemann | `integral05-riemann` |
+| 07 teorema-dasar-kalkulus | `integral07-teorema-dasar` |
+| 09 luas-daerah | `integral09-luas-daerah` |
+
+Kelima video 480p-mu ditulis ulang ke gaya v3 (naskah tiga kali lebih rinci, timing per kata) mengikuti urutan belajar: 01, 03, 05, 07, 09. Segar-ingat Materi 01 mengingat Turunan 03 (turunan sebagai fungsi) dan Turunan 12 (laju). Tabel keputusan yang disengaja di laporanmu tetap berlaku sebagai patokan.
+
+Alur tiap video: naskah 25 sampai 35 segmen dengan `teks` (ejaan ucapan) dan
+`tulis` (kalimat utuh berlambang) -> `python manim/buat_narasi.py <video>` ->
+adegan dengan `sinema.JamKata` dan `tunggu_kata` -> `cek_kode --dalam`,
+`cek_waktu_adegan`, klaim sympy, `cek_urutan_integral` ->
+render `--hd --config_file manim/hd60.yml` -> `gabung_audio <video> <Adegan>
+--keluar <video>.mp4` -> lembar kontak DIBUKA -> `cek_layar_kosong`,
+`buat_subtitle` + `cek_subtitle`, `buat_poster` + `cek_aset_video` ->
+salinan 480p bersubtitel -> medan `video` di tahap.ts, tsc -> commit ->
+lapor ke MASTER dengan sepuluh butir daftar periksa v3 terisi.
+
+**Video PERTAMA berhenti** sampai ARYA menonton dan menyetujui di jendelamu;
+sesudahnya per kelompok dua sampai tiga video. Satu render pada satu waktu.

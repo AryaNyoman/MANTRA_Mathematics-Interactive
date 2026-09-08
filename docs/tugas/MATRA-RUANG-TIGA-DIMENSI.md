@@ -120,3 +120,46 @@ di tiap babak pada sudut kamera awal DAN akhir; label huruf sudut menempel di
 layar lewat `self.hud_tambah` atau ditempatkan dengan `Z` di atas benda supaya
 tidak tertutup. Render `manimgl ... -w -l`, boleh paralel, 480p saja.
 Naskah ikuti `manim/narasi/contoh-perahu.json` dan bagian 5 STANDAR-MENGAJAR.
+
+## GELOMBANG 4 (8 Sep 2026): TULIS ULANG SEMUA VIDEO, STANDAR v3
+
+Kamu sesi **MANTRA-3D**. Keputusan ARYA: semua video MANTRA ditulis ulang dengan
+gaya Turunan 02 versi rinci (3 sampai 6 menit, segar-ingat, asal rumus
+dibuktikan, narasi tenang, animasi dipicu per kata). Baca berurutan:
+`docs/tugas/STANDAR-VIDEO-V3.md`, `docs/tugas/ATURAN-SEMUA-SESI.md` bagian
+GELOMBANG 4, `docs/tugas/laporan/PELAJARAN-RENDER-TURUNAN-2026-09-08.md`, lalu
+`docs/tugas/laporan/MANTRA-INTEGRAL.md` bagian pemangkas render.
+
+| Hal | Nilai |
+|---|---|
+| Cabang | `sesi/ruang-3d` |
+| Worktree | `.claude/worktrees/matra-ruang-3d` |
+| Port dev server | 3013 |
+| Playwright | `-s=matra-ruang-3d` |
+| Contoh yang disetujui | `manim/scenes/turunan2_garis_singgung.py`, naskah `manim/narasi/turunan2-garis-singgung.json`, video `web/public/anim/turunan2-garis-singgung.mp4` |
+
+Video yang ditulis ulang, URUT (segar-ingat bersambung dari satu ke berikutnya):
+
+| Materi | Nama berkas video |
+|---|---|
+| 01 gambar-boleh-berbohong | `ruang-3d-01` |
+| 03 jarak-terpendek | `ruang-3d-03` |
+| 04 dua-kali-pythagoras | `ruang-3d-04` |
+| 06 jarak-titik-ke-bidang | `ruang-3d-06` |
+| 08 sudut-garis-bersilangan | `ruang-3d-08` |
+| 09 sudut-dengan-bidang | `ruang-3d-09` |
+
+Keenam video 1080p60 yang baru tayang ditulis ulang lagi: itu keputusan sadar ARYA. Topik ini boleh 3D sepanjang video (pengecualian standar). Segar-ingat Materi 01 mengingat Vektor 04 (panjang) dan Pythagoras SMP.
+
+Alur tiap video: naskah 25 sampai 35 segmen dengan `teks` (ejaan ucapan) dan
+`tulis` (kalimat utuh berlambang) -> `python manim/buat_narasi.py <video>` ->
+adegan dengan `sinema.JamKata` dan `tunggu_kata` -> `cek_kode --dalam`,
+`cek_waktu_adegan`, klaim sympy, `cek_urutan_ruang_3d` ->
+render `--hd --config_file manim/hd60.yml` -> `gabung_audio <video> <Adegan>
+--keluar <video>.mp4` -> lembar kontak DIBUKA -> `cek_layar_kosong`,
+`buat_subtitle` + `cek_subtitle`, `buat_poster` + `cek_aset_video` ->
+salinan 480p bersubtitel -> medan `video` di tahap.ts, tsc -> commit ->
+lapor ke MASTER dengan sepuluh butir daftar periksa v3 terisi.
+
+**Video PERTAMA berhenti** sampai ARYA menonton dan menyetujui di jendelamu;
+sesudahnya per kelompok dua sampai tiga video. Satu render pada satu waktu.

@@ -212,4 +212,54 @@ try:
 except qc.CacatTataLetak:
     print("ok: beralas tidak memutihkan adu tulisan lawan tulisan")
 
+
+# 6. 8 Sep 2026, temuan sesi Integral (video 05): BENDA BABAK LAMA YANG
+#    TERTINGGAL. Ia tidak melanggar apa pun sebab `periksa_adegan` cuma
+#    memeriksa benda yang diserahkan kepadanya; yang menemukannya cuma membuka
+#    frame detik 102. `pastikan_hilang` menutup celahnya.
+class _AdeganBenda:
+    def __init__(self, isi):
+        self.mobjects = list(isi)
+
+
+tinggal = Square(side_length=1).move_to([0, 0, 0])
+pergi = Square(side_length=1).move_to([2, 0, 0])
+
+# ARAH TOLAK 1: benda masih terpasang langsung.
+try:
+    qc.pastikan_hilang(_AdeganBenda([tinggal]), {"daerah lama": tinggal})
+    raise SystemExit("GAGAL: benda yang masih terpasang lolos")
+except qc.BendaTertinggal as e:
+    if "daerah lama" not in str(e):
+        raise SystemExit(f"GAGAL: pesan tidak menyebut nama bendanya: {e}")
+    print("ok: benda babak lama yang masih terpasang tertangkap")
+
+# ARAH TOLAK 2: benda terpasang sebagai ANAK benda lain, bukan di tingkat atas.
+# Ini yang membedakan pemeriksa sungguhan dari `mob in scene.mobjects` polos:
+# daerah berwarna hampir selalu dimasukkan lewat VGroup, dan versi polos akan
+# melaporkannya "sudah hilang" padahal masih tergambar.
+induk = VGroup(tinggal)
+try:
+    qc.pastikan_hilang(_AdeganBenda([induk]), {"daerah lama": tinggal})
+    raise SystemExit("GAGAL: benda di dalam VGroup dianggap sudah hilang")
+except qc.BendaTertinggal:
+    print("ok: benda yang terpasang sebagai anak VGroup tertangkap")
+
+# ARAH LOLOS 1: benda memang sudah tidak terpasang.
+qc.pastikan_hilang(_AdeganBenda([tinggal]), {"daerah lama": pergi})
+print("ok: benda yang sudah dibuang lolos")
+
+# ARAH LOLOS 2: nilai None diabaikan, bukan dianggap terpasang.
+qc.pastikan_hilang(_AdeganBenda([tinggal]), {"yang tidak selalu ada": None})
+print("ok: benda bernilai None diabaikan")
+
+# `BendaTertinggal` harus tetap tertangkap oleh kode lama yang menangkap
+# `CacatTataLetak`, supaya adegan yang sudah ada tidak berubah perilakunya.
+try:
+    qc.pastikan_hilang(_AdeganBenda([tinggal]), {"daerah lama": tinggal})
+except qc.CacatTataLetak:
+    print("ok: BendaTertinggal ikut tertangkap sebagai CacatTataLetak")
+else:
+    raise SystemExit("GAGAL: BendaTertinggal tidak turunan CacatTataLetak")
+
 print("SEMUA UJI QC LOLOS")

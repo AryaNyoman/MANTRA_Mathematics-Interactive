@@ -10,6 +10,51 @@ Yang di bawah ini bukan teori. Tiap butir diikat ke blok yang benar-benar ada di
 `web/content/tipe.ts`: `paragraf`, `poin`, `sorot`, `contoh`, `sesi`, `coba`,
 plus `pertanyaan`, `seringKeliru`, dan `intisari` pada tiap tahap.
 
+## Arahan ARYA 8 Sep 2026: durasi, penghubung, bahasa, dan timing
+
+Berlaku untuk perencanaan video berikutnya, dimulai dari rombakan Turunan 3.
+Arahan ini melengkapi aturan di bawah dan didahulukan bila bertentangan.
+Saat arahan dicatat, ARYA meminta catatan dahulu sebelum naskah dan produksi.
+
+1. **Durasi 3 sampai 6 menit (180–360 detik).** Materi sederhana mendekati
+   3 menit, materi yang memerlukan penjabaran boleh mendekati 6 menit.
+   Durasi mengikuti kebutuhan belajar; jangan memperpanjang dengan isi
+   berulang atau memotong alasan penting supaya lebih singkat.
+2. **Penghubung harus lengkap.** Sebut materi sebelumnya, nama konsep yang
+   dibawa, dan arti hubungan itu. Hindari "sama seperti tadi" atau "hitungan
+   yang sama" jika pendengar harus menebak apa yang sedang dinamai.
+   Nama konsep pada gambar juga harus terdengar pada penjelasan yang sesuai.
+3. **Bahasa akrab, istilah tetap jelas.** Perkenalkan bentuk lengkap melalui
+   ucapan dan tulisan, lalu sederhanakan label adegan. Contoh permintaan
+   ARYA: "kemiringan = kenaikan / langkah mendatar" kemudian
+   **"miring = naik/datar"**. Terangkan bahwa "miring" berarti kemiringan;
+   "naik" mewakili perubahan tegak, bukan selalu pertambahan positif.
+   Saat grafik menurun, jelaskan arah dan tanda negatifnya.
+4. **Narasi, subtitle, dan label saling menjelaskan.** Subtitle memuat
+   kalimat utuh yang diucapkan, boleh memakai lambang untuk angka. Label
+   adegan boleh lebih ringkas setelah artinya diajarkan; jangan menghilangkan
+   nama konsep atau kalimat penghubung dari suara maupun subtitle.
+5. **Gunakan pengetahuan lama untuk mengurai kebingungan.** Jika muncul
+   segitiga siku-siku, bedakan panjang sisi miring (Pythagoras) dan
+   kemiringan (perubahan tegak dibagi mendatar). Pada grafik barang terhadap
+   jam, satuannya berbeda; tidak sah menghitung akar dari jumlah kuadrat
+   angka barang dan angka jam sebagai panjang sisi miring. Kemiringan
+   dibaca dari nilai sumbu, bukan panjang piksel atau sudut gambar.
+6. **Timing diperiksa per kejadian bermakna.** Pasangkan setiap ucapan kunci
+   dengan objek, angka, atau sorotan yang sesuai. Tampilkan atau sorot
+   pembilang ketika disebut, kemudian penyebut, lalu hasil saat dijelaskan;
+   objek pengantar boleh tampil dahulu bila memang diperlukan sebagai konteks.
+   Transisi kamera jangan menghabiskan waktu ketika angka sudah dibacakan.
+   Ukuran selisih waktu yang kecil tidak membuktikan kalimatnya lengkap.
+7. **Tinjau cuplikan dengan suara dan subtitle.** Lembar kontak memeriksa
+   tata letak, tetapi urutan dan keterlambatan perlu pemeriksaan cuplikan
+   bergerak. ARYA menegaskan Turunan 1 detik 10–17 merupakan masalah timing
+   yang harus diperbaiki dan dicegah terulang, bukan patokan yang baik.
+   Catat yang diperiksa dan keterbatasan audit.
+
+Contoh, bukti dua foto, dan daftar pemeriksaan khusus Turunan 3:
+`docs/tugas/laporan/MANTRA-TURUNAN-INTEGRAL.md`, arahan lanjutan 8 Sep.
+
 ## 1. Runtutan ilmu: urutan yang tidak boleh dilanggar
 
 1. **Prasyarat sebelum konsep.** Sebelum memakai sebuah gagasan, pastikan

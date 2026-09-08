@@ -1,0 +1,67 @@
+WEBVTT
+
+NOTE Dibuat otomatis dari manim/narasi/integral03-substitusi.json
+
+1
+00:00:00.000 --> 00:00:04.704
+Materi 03: substitusi, melihat lapisan.
+
+2
+00:00:04.704 --> 00:00:09.898
+Antiturunan dari (2x + 1)⁵.
+
+3
+00:00:09.898 --> 00:00:16.824
+Diuraikan bisa, tapi jadi enam suku.
+
+4
+00:00:16.824 --> 00:00:24.240
+Tebakan dengan aturan pangkat: (2x + 1)⁶ dibagi 6.
+
+5
+00:00:24.240 --> 00:00:36.912
+Diturunkan: (2x + 1)⁵ dikali turunan isinya, yaitu <b>2</b>.
+
+6
+00:00:36.912 --> 00:00:43.416
+Turunannya <b>2(2x + 1)⁵</b>, dua kali yang dicari.
+
+7
+00:00:43.416 --> 00:00:51.792
+Dibagi 2, jadi <b>(2x + 1)⁶ dibagi 12</b>.
+
+8
+00:00:51.792 --> 00:01:05.208
+Namai isinya: <b>u = 2x + 1</b>, maka <b>du = 2 dx</b>.
+
+9
+00:01:05.208 --> 00:01:18.744
+Pilih u. Hitung du. Cocokkan. Kerjakan lalu kembalikan.
+
+10
+00:01:18.744 --> 00:01:25.409
+u = x² + 5, du = 2x dx.
+
+11
+00:01:25.409 --> 00:01:34.392
+Bagian 2x dx <b>sudah ada</b> di soal.
+
+12
+00:01:34.392 --> 00:01:42.528
+Jadi <b>(x² + 5)⁵ dibagi 5</b>, ditambah C.
+
+13
+00:01:42.528 --> 00:01:51.908
+Soal punya x dx, du menuntut 2x dx.
+
+14
+00:01:51.908 --> 00:01:58.608
+Yang kurang cuma <b>angka</b> ½.
+
+15
+00:01:58.608 --> 00:02:09.932
+Kekurangan berupa <b>angka</b> boleh diperbaiki.
+
+16
+00:02:09.932 --> 00:02:15.456
+Yang memuat <b>x</b> tidak.

@@ -1,0 +1,106 @@
+[
+  {
+    "_video": "V05 Luas dari persegi panjang, jumlahan Riemann",
+    "_segmen": "hitung7",
+    "id": "V05-kanan-n7",
+    "jenis": "riemann",
+    "f": "x",
+    "a": "0",
+    "b": "7",
+    "n": 7,
+    "sampel": "kanan",
+    "jawaban": "28"
+  },
+  {
+    "_segmen": "jepit",
+    "id": "V05-kiri-n7",
+    "jenis": "riemann",
+    "f": "x",
+    "a": "0",
+    "b": "7",
+    "n": 7,
+    "sampel": "kiri",
+    "jawaban": "21"
+  },
+  {
+    "_segmen": "segitiga",
+    "id": "V05-luas-segitiga",
+    "jenis": "nilai",
+    "ekspresi": "Rational(1,2)*7*7",
+    "jawaban": "49/2"
+  },
+  {
+    "_segmen": "jepit",
+    "id": "V05-selisih-n7",
+    "jenis": "nilai",
+    "ekspresi": "28 - Rational(49,2)",
+    "jawaban": "7/2"
+  },
+  {
+    "_segmen": "perbanyak",
+    "id": "V05-kanan-n14",
+    "jenis": "riemann",
+    "f": "x",
+    "a": "0",
+    "b": "7",
+    "n": 14,
+    "sampel": "kanan",
+    "jawaban": "105/4"
+  },
+  {
+    "_segmen": "perbanyak",
+    "id": "V05-selisih-n14",
+    "jenis": "nilai",
+    "ekspresi": "Rational(105,4) - Rational(49,2)",
+    "jawaban": "7/4"
+  },
+  {
+    "_segmen": "perbanyak",
+    "id": "V05-kanan-n60",
+    "jenis": "riemann",
+    "f": "x",
+    "a": "0",
+    "b": "7",
+    "n": 60,
+    "sampel": "kanan",
+    "jawaban": "2989/120"
+  },
+  {
+    "_segmen": "perbanyak",
+    "id": "V05-selisih-n60",
+    "jenis": "nilai",
+    "ekspresi": "Rational(2989,120) - Rational(49,2)",
+    "jawaban": "49/120"
+  },
+  {
+    "_segmen": "turun",
+    "id": "V05-turun-kiri",
+    "jenis": "riemann",
+    "f": "4 - x**2",
+    "a": "0",
+    "b": "2",
+    "n": 4,
+    "sampel": "kiri",
+    "jawaban": "25/4"
+  },
+  {
+    "_segmen": "turun",
+    "id": "V05-turun-kanan",
+    "jenis": "riemann",
+    "f": "4 - x**2",
+    "a": "0",
+    "b": "2",
+    "n": 4,
+    "sampel": "kanan",
+    "jawaban": "17/4"
+  },
+  {
+    "_segmen": "turun",
+    "id": "V05-turun-sebenarnya",
+    "jenis": "tentu",
+    "f": "4 - x**2",
+    "a": "0",
+    "b": "2",
+    "jawaban": "16/3"
+  }
+]
