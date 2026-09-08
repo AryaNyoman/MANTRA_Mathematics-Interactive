@@ -164,9 +164,64 @@ def pecah(teks: str) -> list[str]:
     return hasil or [teks]
 
 
+def _kalimat(teks: str) -> list[str]:
+    teks = " ".join(teks.split())
+    return [k.strip() for k in re.split(r"(?<=[.!?])\s+", teks) if k.strip()]
+
+
+def cue_dari_kata(seg: dict, jam_seg: dict) -> list[tuple[float, float, str]]:
+    """Cue kalimat UTUH dari medan `tulis`, waktunya dari kata rekaman.
+
+    STANDAR v3 (8 Sep 2026): subtitle memuat kalimat yang benar-benar
+    diucapkan, memakai lambang untuk angka, dan waktunya mengikuti kata
+    rekaman (kata.json), bukan dibagi rata menurut panjang teks. Kalimat ke-i
+    di `teks` (yang diucapkan) dan di `tulis` (yang dibaca siswa) harus
+    berpasangan; jumlah kalimatnya wajib sama, kalau tidak alat berhenti dan
+    menyebut segmennya. Di dalam satu kalimat, kalimat yang kepanjangan
+    dipecah oleh `pecah` dan waktunya dibagi menurut panjang hurufnya.
+    """
+    ucap = " ".join(seg["teks"].replace("*", "").split())
+    kal_ucap = _kalimat(ucap)
+    kal_tulis = _kalimat(bentuk_tulis(seg))
+    if len(kal_ucap) != len(kal_tulis):
+        raise SystemExit(
+            f"segmen '{seg['id']}': {len(kal_ucap)} kalimat diucapkan tetapi {len(kal_tulis)} "
+            f"kalimat di `tulis`. Keduanya harus berpasangan kalimat demi kalimat.")
+    kata = jam_seg["kata"]
+    total_ucap = sum(len(k.split()) for k in kal_ucap)
+    # peta kata teks ke kata rekaman: sama persis kalau jumlahnya sama, kalau tidak
+    # (mesin suara memecah atau menggabung sesuatu) dipetakan sebanding
+    skala = len(kata) / total_ucap if total_ucap else 1.0
+    hasil: list[tuple[float, float, str]] = []
+    idx = 0
+    for ku, kt in zip(kal_ucap, kal_tulis):
+        n = len(ku.split())
+        i0 = min(int(round(idx * skala)), len(kata) - 1)
+        i1 = min(int(round((idx + n) * skala)) - 1, len(kata) - 1)
+        i1 = max(i1, i0)
+        idx += n
+        awal = jam_seg["mulai"] + kata[i0]["mulai"]
+        akhir = jam_seg["mulai"] + kata[i1]["mulai"] + kata[i1]["durasi"]
+        potongan = seimbangkan_tebal(pecah(tebalkan(kt)))
+        sisa = [p for p in potongan if "*" in p]
+        if sisa:
+            raise SystemExit(
+                f"segmen '{seg['id']}' masih memuat tanda * di subtitle: {sisa}. "
+                f"Penanda tebal harus berpasangan di dalam satu kalimat; periksa naskahnya.")
+        huruf = sum(panjang_tampak(p) for p in potongan) or 1
+        t = awal
+        for p in potongan:
+            bagi = (akhir - awal) * panjang_tampak(p) / huruf
+            selesai = t + max(bagi, MIN_DETIK)
+            hasil.append((t, selesai, p))
+            t = selesai
+    return hasil
+
+
 def buat(topik: str, diam: bool = False) -> Path:
     berkas_naskah = NASKAH / f"{topik}.json"
     berkas_durasi = AKAR / "audio" / topik / "durasi.json"
+    berkas_kata = AKAR / "audio" / topik / "kata.json"
     if not berkas_naskah.exists():
         raise SystemExit(f"naskah tidak ada: {berkas_naskah}")
     if not berkas_durasi.exists():
@@ -176,11 +231,17 @@ def buat(topik: str, diam: bool = False) -> Path:
 
     naskah = json.loads(berkas_naskah.read_text(encoding="utf-8"))
     durasi = json.loads(berkas_durasi.read_text(encoding="utf-8"))["segmen"]
+    # STANDAR v3: kalau buat_narasi mencatat waktu tiap kata, cue mengikuti
+    # kata rekaman (kalimat utuh dari `tulis`). Tanpa kata.json (video lama)
+    # jatuh ke pembagian menurut panjang teks seperti dulu.
+    jam_kata = json.loads(berkas_kata.read_text(encoding="utf-8")) if berkas_kata.exists() else {}
 
     baris = ["WEBVTT", "",
-             f"NOTE Dibuat otomatis dari manim/narasi/{topik}.json", ""]
+             f"NOTE Dibuat otomatis dari manim/narasi/{topik}.json"
+             + (" (waktu kata rekaman)" if jam_kata else ""), ""]
     jalan = 0.0
     nomor = 0
+    cue_kata: list[tuple[float, float, str]] = []
     tanpa_tulis = [seg["id"] for seg in naskah["segmen"]
                    if not (seg.get("tulis") or seg.get("layar") or seg.get("subtitle"))
                    and KATA_BILANGAN.search(seg["teks"])]
@@ -194,6 +255,14 @@ def buat(topik: str, diam: bool = False) -> Path:
             raise SystemExit(
                 f"segmen '{seg['id']}' ada di naskah tapi tidak di durasi.json. "
                 f"Jalankan ulang buat_narasi.py {topik}.")
+        if jam_kata:
+            if seg["id"] not in jam_kata:
+                raise SystemExit(
+                    f"segmen '{seg['id']}' ada di naskah tapi tidak di kata.json; "
+                    f"jalankan ulang buat_narasi.py {topik} supaya keduanya seiring.")
+            cue_kata.extend(cue_dari_kata(seg, jam_kata[seg["id"]]))
+            jalan += lama
+            continue
         # Bentuk TERTULIS subtitle (angka dan lambang) dibaca dari medan `tulis`;
         # `layar` dan `subtitle` diterima sebagai nama lama. Tanpa itu jatuh ke `teks`.
         # `tebalkan` DULU, baru `pecah`: versi lama memecah dulu, sehingga
@@ -223,6 +292,18 @@ def buat(topik: str, diam: bool = False) -> Path:
             baris += [str(nomor), f"{jam(mulai)} --> {jam(selesai)}", p, ""]
             mulai = selesai
         jalan += lama
+
+    if cue_kata:
+        # cue tidak boleh tumpang tindih: akhir cue dipotong di awal cue berikutnya,
+        # dan diberi sedikit napas 0,15 detik kalau ada ruang
+        for k, (awal, akhir, isi) in enumerate(cue_kata):
+            akhir = akhir + 0.15
+            if k + 1 < len(cue_kata):
+                akhir = min(akhir, cue_kata[k + 1][0])
+            if akhir <= awal:
+                akhir = awal + 0.4
+            nomor += 1
+            baris += [str(nomor), f"{jam(awal)} --> {jam(akhir)}", isi, ""]
 
     TUJUAN.mkdir(parents=True, exist_ok=True)
     keluar = TUJUAN / f"{topik}.vtt"

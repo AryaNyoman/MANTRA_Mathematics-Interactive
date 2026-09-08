@@ -1,78 +1,163 @@
 {
   "adegan": "TurunanFungsiBaru",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Video 02 topik Turunan, untuk Materi 03 'Turunan sebagai fungsi baru'. TANPA 3D. SATU papan, bukan dua seperti widget-nya: alasan terukurnya ada di kepala manim/scenes/turunan3_fungsi_turunan.py. Kemiringan dicatat sebagai TITIK BIRU pada papan yang sama, tingginya sama dengan nilai kemiringan, diikat garis putus-putus ke titik merah di kurva. Puncaknya babak 'lahir': jejak titik biru itu ternyata membentuk garis y = 2x, jadi kemiringan berhenti menjadi satu angka dan berubah menjadi FUNGSI. Angka -2, 0, 2, dan 4 sama persis dengan tabel di halaman Materi 03, dan diperiksa alat/cek_turunan.py. Babak 'sudut' memakai |x| untuk memperlihatkan titik yang turunannya TIDAK ADA; itu ada di halaman Materi 03 juga, dan penting supaya siswa tidak menyimpulkan tiap kurva selalu punya turunan di mana-mana.",
+  "tempo": "-5%",
+  "catatan": "Revisi ARYA 8 Sep 2026: asal f'(x)=2x dibuktikan, tinggi vs kemiringan, jejak dihasilkan pengukuran, notasi dan sudut |x|; 3–6 menit. Pemicu animasi mengikuti WordBoundary. Video lain dipertahankan.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi ketiga: turunan sebagai fungsi baru.",
-      "tulis": "Materi 03: turunan sebagai fungsi baru."
+      "teks": "Materi ketiga: kemiringan menjadi fungsi. Kita lanjutkan kurva eks kuadrat dari video kedua.",
+      "tulis": "Materi ketiga: kemiringan menjadi fungsi. Kita lanjutkan kurva x² dari video kedua."
     },
     {
       "id": "ingat",
-      "teks": "Di materi sebelumnya kita dapat satu angka: kemiringan kurva x kuadrat di titik x sama dengan satu adalah *dua*.",
-      "tulis": "Di Materi 02 kita dapat satu angka: kemiringan x² di x = 1 adalah *2*."
+      "teks": "Di video kedua, pada eks sama dengan satu, kemiringan garis singgungnya dua. Ingat video pertama: kemiringan adalah kenaikan dibagi langkah mendatar.",
+      "tulis": "Di video kedua, pada x = 1, kemiringan garis singgungnya 2. Ingat video pertama: kemiringan adalah kenaikan dibagi langkah mendatar."
+    },
+    {
+      "id": "ringkas",
+      "teks": "Kita ringkas tulisannya menjadi miring, sama dengan naik dibagi datar. Miring berarti kemiringan, bukan panjang sisi miring yang dicari dengan Pythagoras.",
+      "tulis": "Kita ringkas tulisannya menjadi miring, sama dengan naik dibagi datar. Miring berarti kemiringan, bukan panjang sisi miring yang dicari dengan Pythagoras."
+    },
+    {
+      "id": "tinggi",
+      "teks": "Perhatikan titik merah. Saat eks satu, tinggi kurvanya satu. Tetapi kemiringan garis ungunya dua. Tinggi titik dan kemiringan menjawab pertanyaan berbeda.",
+      "tulis": "Perhatikan titik merah. Saat x = 1, tinggi kurvanya 1. Tetapi kemiringan garis ungunya 2. Tinggi titik dan kemiringan menjawab pertanyaan berbeda."
     },
     {
       "id": "tanya",
-      "teks": "Pertanyaan berikutnya wajar. Bagaimana di titik yang lain?",
-      "tulis": "Pertanyaan berikutnya wajar. Bagaimana di titik yang lain?"
+      "teks": "Lalu, bagaimana kalau titik merahnya pindah? Di sebelah kiri garisnya menurun. Di dasar lengkungan garisnya mendatar. Kemiringannya ikut berubah.",
+      "tulis": "Lalu, bagaimana kalau titik merahnya pindah? Di sebelah kiri garisnya menurun. Di dasar lengkungan garisnya mendatar. Kemiringannya ikut berubah."
     },
     {
-      "id": "papan",
-      "teks": "Kita tetap di papan yang sama, dengan sumbu mendatar yang sama. Bedanya, mulai sekarang kita menaruh titik *biru* yang tingginya bukan tinggi kurva, melainkan kemiringannya.",
-      "tulis": "Papan tetap sama, sumbu x sama. Titik *biru* tingginya = kemiringan, bukan tinggi kurva."
+      "id": "contoh",
+      "teks": "Kita catat hasil hitungan seperti video kedua. Pada eks negatif satu, kemiringannya negatif dua. Pada eks nol, nol. Eks satu, dua. Eks dua, empat.",
+      "tulis": "Kita catat hasil hitungan seperti video kedua. Pada x = −1, kemiringannya −2. Pada x = 0, 0. x = 1, 2. x = 2, 4."
     },
     {
-      "id": "kiri",
-      "teks": "Mulai dari kiri. Di x sama dengan minus satu kurvanya menurun, jadi kemiringannya negatif. Nilainya minus dua.",
-      "tulis": "Mulai dari kiri. Di x = -1 kurvanya menurun, jadi kemiringannya -2."
+      "id": "pola",
+      "teks": "Hasilnya tampak dua kali eks. Tetapi contoh saja belum membuktikan rumus. Kita hitung untuk titik mana pun.",
+      "tulis": "Hasilnya tampak 2x. Tetapi contoh saja belum membuktikan rumus. Kita hitung untuk titik mana pun."
     },
     {
-      "id": "nol",
-      "teks": "Di dasar lembah, x sama dengan nol, kurvanya mendatar sesaat. Kemiringannya nol.",
-      "tulis": "Di dasar lembah, x = 0, kurvanya mendatar. Kemiringannya 0."
+      "id": "umum",
+      "teks": "Sekarang titik awalnya kita sebut eks, jadi tingginya eks kuadrat. Huruf eks menggantikan angka satu tadi.",
+      "tulis": "Sekarang titik awalnya kita sebut x, jadi tingginya x². Huruf x menggantikan angka 1 tadi."
     },
     {
-      "id": "kanan",
-      "teks": "Ke kanan kurvanya menanjak. Di x sama dengan satu kemiringannya dua, dan di x sama dengan dua kemiringannya empat.",
-      "tulis": "Ke kanan kurvanya menanjak. Di x = 1 kemiringannya 2, di x = 2 kemiringannya 4."
+      "id": "tetangga",
+      "teks": "Geser mendatar sejauh ha, yang belum nol. Titik sebelahnya berada di eks tambah ha. Tingginya adalah eks tambah ha, lalu seluruhnya dikuadratkan.",
+      "tulis": "Geser mendatar sejauh h, yang belum 0. Titik sebelahnya berada di x + h. Tingginya adalah x + h, lalu seluruhnya dikuadratkan."
     },
     {
-      "id": "sapu",
-      "teks": "Sekarang kita sapu perlahan dari kiri ke kanan, dan biarkan setiap kemiringan meninggalkan jejaknya.",
-      "tulis": "Sekarang sapu perlahan dari kiri ke kanan, dan biarkan tiap kemiringan berjejak."
+      "id": "selisih",
+      "teks": "Kemiringan garis potong adalah selisih tinggi, dibagi langkah mendatar. Jadi tinggi yang baru dikurangi tinggi awal, lalu dibagi ha. Inilah asal pecahannya.",
+      "tulis": "Kemiringan garis potong adalah selisih tinggi, dibagi langkah mendatar. Jadi tinggi yang baru dikurangi tinggi awal, lalu dibagi h. Inilah asal pecahannya."
     },
     {
-      "id": "lahir",
-      "teks": "Perhatikan jejak birunya. Ia bukan kurva sembarangan. Ia sebuah *garis lurus*, dan garis itu y sama dengan dua x.",
-      "tulis": "Perhatikan jejak birunya. Ia sebuah *garis lurus*, yaitu y = 2x."
+      "id": "kali",
+      "teks": "Kuadrat berarti dikali dirinya sendiri. Kalikan tiap suku: eks kuadrat, eks ha, ha eks, dan ha kuadrat. Dua suku tengah menjadi dua eks ha.",
+      "tulis": "Kuadrat berarti dikali dirinya sendiri. Kalikan tiap suku: x², xh, hx, dan h². 2 suku tengah menjadi 2xh."
+    },
+    {
+      "id": "kurangi",
+      "teks": "Tinggi awalnya eks kuadrat. Setelah dikurangi, suku eks kuadrat habis. Yang tersisa dua eks ha, ditambah ha kuadrat.",
+      "tulis": "Tinggi awalnya x². Setelah dikurangi, suku x² habis. Yang tersisa 2xh, ditambah h²."
+    },
+    {
+      "id": "bagi",
+      "teks": "Karena ha belum nol, kedua suku boleh dibagi ha. Dua eks ha menjadi dua eks. Ha kuadrat menjadi ha. Hasilnya dua eks tambah ha.",
+      "tulis": "Karena h belum 0, kedua suku boleh dibagi h. 2xh menjadi 2x. h² menjadi h. Hasilnya 2x + h."
+    },
+    {
+      "id": "limit",
+      "teks": "Sekarang ha kita dekatkan ke nol, dari kanan maupun kiri. Garis potong mendekati garis singgung. Dua eks tambah ha mendekati dua eks.",
+      "tulis": "Sekarang h kita dekatkan ke 0, dari kanan maupun kiri. Garis potong mendekati garis singgung. 2x + h mendekati 2x."
+    },
+    {
+      "id": "hasil",
+      "teks": "Jadi kemiringan kurva eks kuadrat adalah dua eks. Ini berasal dari selisih tinggi dan limit, bukan tebakan dari tabel.",
+      "tulis": "Jadi kemiringan kurva x² adalah 2x. Ini berasal dari selisih tinggi dan limit, bukan tebakan dari tabel."
     },
     {
       "id": "fungsi",
-      "teks": "Jadi kemiringan berhenti menjadi satu angka. Ia menjadi *fungsi*, dan namanya fungsi turunan, ditulis f aksen.",
-      "tulis": "Kemiringan berhenti jadi satu angka. Ia menjadi *fungsi turunan*, ditulis f′."
+      "teks": "Tiap masukan eks sekarang punya keluaran berupa kemiringan. Kumpulan keluaran ini membentuk fungsi baru, namanya fungsi turunan. Kita tulis ef aksen eks.",
+      "tulis": "Tiap masukan x sekarang punya keluaran berupa kemiringan. Kumpulan keluaran ini membentuk fungsi baru, namanya fungsi turunan. Kita tulis f′(x)."
     },
     {
-      "id": "pakai",
-      "teks": "Sekarang kita tidak perlu mengulang hitungan limit lagi. Masukkan tiga ke f aksen, langsung dapat enam.",
-      "tulis": "Tak perlu mengulang limit lagi. Masukkan 3 ke f′, langsung dapat 6."
+      "id": "peta",
+      "teks": "Bagaimana menggambarnya? Ambil eks negatif satu. Kemiringannya negatif dua. Catat sebagai titik biru: mendatar negatif satu, tegak negatif dua. Biru mencatat kemiringan.",
+      "tulis": "Bagaimana menggambarnya? Ambil x = −1. Kemiringannya −2. Catat sebagai titik biru: mendatar −1, tegak −2. Biru mencatat kemiringan."
     },
     {
-      "id": "beda",
-      "teks": "Tapi hati-hati, keduanya menjawab pertanyaan yang berbeda. Di x sama dengan tiga, f memberi sembilan, sedangkan f aksen memberi enam.",
-      "tulis": "Keduanya menjawab pertanyaan berbeda. Di x = 3: f memberi 9, f′ memberi 6."
+      "id": "peta_nol",
+      "teks": "Pada eks nol, kemiringannya nol. Titik birunya di pusat sumbu. Ingat, angka tegak biru menunjukkan kemiringan.",
+      "tulis": "Pada x = 0, kemiringannya 0. Titik birunya di pusat sumbu. Ingat, angka tegak biru menunjukkan kemiringan."
+    },
+    {
+      "id": "peta_satu",
+      "teks": "Pada eks satu, kemiringannya dua. Titik biru berada di tinggi dua. Titik merah tetap di tinggi satu. Jangan tertukar antara kedua titik ini.",
+      "tulis": "Pada x = 1, kemiringannya 2. Titik biru berada di tinggi 2. Titik merah tetap di tinggi 1. Jangan tertukar antara kedua titik ini."
+    },
+    {
+      "id": "peta_dua",
+      "teks": "Pada eks dua, kemiringannya empat. Kita tambahkan titik biru di dua, empat. Sekarang beberapa hasil pengukuran sudah terlihat.",
+      "tulis": "Pada x = 2, kemiringannya 4. Kita tambahkan titik biru di 2, 4. Sekarang beberapa hasil pengukuran sudah terlihat."
+    },
+    {
+      "id": "sapu",
+      "teks": "Kalau eks digeser terus, setiap kemiringan meninggalkan titik biru. Jejaknya membentuk garis dua eks. Bentuknya berbeda dari lengkungan hitam, karena yang dicatat memang berbeda.",
+      "tulis": "Kalau x digeser terus, setiap kemiringan meninggalkan titik biru. Jejaknya membentuk garis 2x. Bentuknya berbeda dari lengkungan hitam, karena yang dicatat memang berbeda."
+    },
+    {
+      "id": "tanda",
+      "teks": "Di kiri nol, kurva hitam menurun saat dibaca ke kanan. Kemiringannya negatif, sehingga grafik biru berada di bawah sumbu mendatar.",
+      "tulis": "Di kiri 0, kurva hitam menurun saat dibaca ke kanan. Kemiringannya negatif, sehingga grafik biru berada di bawah sumbu mendatar."
+    },
+    {
+      "id": "datar",
+      "teks": "Di eks nol, garis singgung mendatar. Kemiringannya nol, sehingga grafik biru melewati pusat sumbu. Di kanan nol, kurva naik dan kemiringannya positif.",
+      "tulis": "Di x = 0, garis singgung mendatar. Kemiringannya 0, sehingga grafik biru melewati pusat sumbu. Di kanan 0, kurva naik dan kemiringannya positif."
+    },
+    {
+      "id": "contoh_tiga",
+      "teks": "Coba eks tiga. Fungsi awal memberi tiga kuadrat, yaitu sembilan. Fungsi turunannya memberi dua kali tiga, yaitu enam. Sembilan itu tinggi; enam itu kemiringan.",
+      "tulis": "Coba x = 3. Fungsi awal memberi 3², yaitu 9. Fungsi turunannya memberi 2 × 3, yaitu 6. 9 itu tinggi; 6 itu kemiringan."
+    },
+    {
+      "id": "notasi",
+      "teks": "Selain ef aksen eks, kalau fungsi awal ditulis ye, turunannya bisa ditulis de ye per de eks. Kedua tulisan ini menyatakan turunan yang sama.",
+      "tulis": "Selain f′(x), kalau fungsi awal ditulis y, turunannya bisa ditulis dy/dx. Kedua tulisan ini menyatakan turunan yang sama."
+    },
+    {
+      "id": "arti_notasi",
+      "teks": "Lambang de ye per de eks mengingatkan kita pada perubahan tinggi dibanding perubahan mendatar, ketika jaraknya mendekati nol. Ini bukan nilai ye dibagi eks.",
+      "tulis": "Lambang dy/dx mengingatkan kita pada perubahan tinggi dibanding perubahan mendatar, ketika jaraknya mendekati 0. Ini bukan nilai y dibagi x."
     },
     {
       "id": "sudut",
-      "teks": "Satu hal terakhir. Tidak semua kurva punya kemiringan di setiap titiknya. Coba kurva nilai mutlak x.",
-      "tulis": "Tidak semua kurva punya kemiringan di tiap titik. Coba kurva |x|."
+      "teks": "Apakah setiap titik selalu punya turunan? Belum tentu. Lihat grafik nilai mutlak eks, yang berbentuk huruf V. Di nol ada sudut tajam.",
+      "tulis": "Apakah setiap titik selalu punya turunan? Belum tentu. Lihat grafik |x|, yang berbentuk huruf V. Di 0 ada sudut tajam."
+    },
+    {
+      "id": "kiri",
+      "teks": "Dari kiri, garis turun satu untuk setiap langkah mendatar satu. Kemiringannya negatif satu. Itulah tinggi jejak biru di sebelah kiri.",
+      "tulis": "Dari kiri, garis turun 1 untuk setiap langkah mendatar 1. Kemiringannya −1. Itulah tinggi jejak biru di sebelah kiri."
+    },
+    {
+      "id": "kanan",
+      "teks": "Dari kanan, garis naik satu untuk setiap langkah mendatar satu. Kemiringannya positif satu. Jejak biru di sebelah kanan berada di tinggi satu.",
+      "tulis": "Dari kanan, garis naik 1 untuk setiap langkah mendatar 1. Kemiringannya +1. Jejak biru di sebelah kanan berada di tinggi 1."
+    },
+    {
+      "id": "tidak_ada",
+      "teks": "Dua sisi memberi hasil berbeda. Jadi di nol tidak ada satu nilai turunan yang cocok. Bulatan kosong berarti nilai itu tidak termasuk grafik turunannya.",
+      "tulis": "2 sisi memberi hasil berbeda. Jadi di 0 tidak ada 1 nilai turunan yang cocok. Bulatan kosong berarti nilai itu tidak termasuk grafik turunannya."
     },
     {
       "id": "tutup",
-      "teks": "Di sudut tajamnya, kemiringan dari kiri minus satu dan dari kanan satu. Tidak ada satu angka pun yang layak, jadi di sana turunannya *tidak ada*.",
-      "tulis": "Di sudut tajamnya, dari kiri -1 dan dari kanan 1. Turunannya *tidak ada* di situ."
+      "teks": "Fungsi awal mencatat tinggi. Fungsi turunan mencatat kemiringan, pada titik yang turunannya ada. Untuk eks kuadrat, turunannya dua eks.",
+      "tulis": "Fungsi awal mencatat tinggi. Fungsi turunan mencatat kemiringan, pada titik yang turunannya ada. Untuk x², turunannya 2x."
     }
   ]
 }

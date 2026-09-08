@@ -100,6 +100,18 @@ export const TAHAP: TahapTurunan[] = [
       { jenis: 'sesi', judul: 'Angka yang sama, dilihat sebagai gambar' },
       { jenis: 'paragraf', teks: 'Sekarang catatan tadi kita gambar sebagai kurva: waktu ke kanan, jumlah barang ke atas. Titik jam ke-1 dan titik jam ke-3 kita hubungkan dengan sebuah garis lurus.' },
       { jenis: 'paragraf', teks: 'Ingat lagi pelajaran SMP tentang kemiringan garis. Garis yang melewati dua titik punya kemiringan sebesar selisih tinggi dibagi selisih mendatar. Persis bentuk yang barusan kita hitung.' },
+      { jenis: 'paragraf', teks: 'Untuk mengingatnya, kita singkat: miring = naik/datar. Kata miring di sini berarti kemiringan garis, bukan panjang sisi miring segitiga.' },
+      {
+        jenis: 'contoh',
+        judul: 'Segitiga yang sama, dua pertanyaan',
+        baris: [
+          'Contoh panjang: sisi datar 4 cm, sisi tegak 3 cm',
+          'Panjang sisi miring: √(3² + 4²) = √25 = 5 cm',
+          'Kemiringan: 3/4 = 0,75',
+        ],
+        simpul: 'Pythagoras mencari panjang sisi miring. Kemiringan menjawab berapa naiknya untuk setiap satu langkah ke kanan.',
+      },
+      { jenis: 'paragraf', teks: 'Pada grafik pabrik, sisi tegak menunjukkan 44 barang dan sisi datar menunjukkan 2 jam. Keduanya bukan dua panjang dalam sentimeter, jadi kita tidak menjumlahkan kuadrat barang dan jam. Yang dicari adalah tambahan barang tiap jam: 44 barang / 2 jam = 22 barang per jam. Bacalah nilai sumbu dan satuannya, bukan panjang garis di layar.' },
       {
         jenis: 'poin',
         judul: 'Dua bahasa, satu angka',
@@ -154,10 +166,10 @@ export const TAHAP: TahapTurunan[] = [
     labelPendek: 'Definisi',
     pertanyaan: 'Kalau titik Q terus mendekati P, garis potongnya menjadi garis apa, dan angka apa yang tersisa?',
     intisari: [
-      'Kalau titik kedua digeser mendekati titik pertama, garis potongnya berubah menjadi garis singgung.',
+      'Saat titik kedua mendekati titik pertama, garis potong dapat mendekati suatu garis. Jika limit kemiringannya ada dan terhingga, garis yang dituju itu adalah garis singgung.',
       'Kemiringan garis singgung itu disebut kemiringan sesaat, dan angkanya disebut turunan di titik itu.',
       'Rumusnya limit dari selisih dibagi selisih: f(x₁ + h) dikurangi f(x₁), dibagi h, saat h menuju 0.',
-      'Bentuk aslinya tidak boleh langsung diisi h = 0. Sederhanakan dulu, baru h didekatkan ke nol.',
+      'Pada pecahan asal, h harus bukan nol. Kita mencari limit ketika h mendekati nol; pada contoh ini, menyederhanakan pecahan membantu menghitung limitnya.',
       'Hasilnya satu angka untuk satu titik, bukan sebuah garis dan bukan sebuah rumus.',
     ],
     penjelasan: [
@@ -166,8 +178,8 @@ export const TAHAP: TahapTurunan[] = [
       { jenis: 'paragraf', teks: 'Persoalan itu sudah Anda temui di topik Limit, Materi 01, lewat speedometer. Jalan keluarnya sama: jangan menghitung tepat di satu titik, tapi di selang yang terus diperpendek.' },
 
       { jenis: 'sesi', judul: 'Titik kedua digeser mendekat' },
-      { jenis: 'paragraf', teks: 'Sebut titik pertamanya P, dan titik kedua Q. Jarak mendatar antara keduanya kita namai h. Kalau h diperkecil, titik Q merayap mendekati P, dan garis potong PQ ikut berputar sedikit demi sedikit.' },
-      { jenis: 'paragraf', teks: 'Untuk menghitungnya kita butuh rumus, bukan sekadar tabel. Kita pakai kurva melengkung yang paling sederhana, yaitu f(x) = x², dan kita amati titik di x = 1.' },
+      { jenis: 'paragraf', teks: 'Sebut titik pertamanya P, dan titik kedua Q. Selisih mendatar dari P ke Q kita namai h. Untuk Q di kanan P, h positif; untuk Q di kiri P, h negatif. Saat besar selisih ini diperkecil, Q mendekati P dan arah garis potong PQ ikut berubah.' },
+      { jenis: 'paragraf', teks: 'Agar asal hitungannya terlihat jelas, kita beralih ke contoh baru, f(x) = x². Ini bukan kurva produksi pabrik tadi. Pada x = 1, tingginya 1² = 1, sehingga P = (1, 1). Pada x = 2, tingginya 2² = 4. Dari P ke titik itu, langkah mendatarnya 2 − 1 = 1 dan kenaikannya 4 − 1 = 3. Jadi kemiringan garis potongnya 3 : 1 = 3.' },
       {
         jenis: 'contoh',
         judul: 'Kemiringan garis potong saat h diperkecil',
@@ -179,7 +191,9 @@ export const TAHAP: TahapTurunan[] = [
         ],
         simpul: 'Angkanya merapat ke 2, dan garis potongnya makin menempel pada kurva di titik (1, 1).',
       },
-      { jenis: 'paragraf', teks: 'Perhatikan bahwa 2 tidak pernah benar-benar tercapai selama h masih ada. Yang terjadi adalah angkanya bisa dibuat sedekat apa pun ke 2. Itu cukup, dan itulah yang disebut limit.' },
+      { jenis: 'paragraf', teks: 'Untuk contoh x² di x = 1 ini, kemiringan garis potong dapat dibuat sedekat yang kita mau ke 2 dengan mengambil h cukup dekat ke nol. Tabel memberi dugaan; hitungan berikut menjelaskan mengapa limitnya tepat 2.' },
+
+      { jenis: 'paragraf', teks: 'Mengapa posisi Q ditulis 1 + h? Karena P mulai pada x = 1, lalu kita melangkah sejauh h. Tinggi Q adalah f(1 + h) = (1 + h)². Selisih tingginya (1 + h)² − 1, sedangkan selisih mendatarnya h. Jadi pecahan [(1 + h)² − 1] : h berasal dari kenaikan dibagi langkah mendatar, bukan rumus yang muncul tiba-tiba.' },
 
       { jenis: 'sesi', judul: 'Dikerjakan dengan huruf, bukan dengan tabel' },
       { jenis: 'paragraf', teks: 'Tabel di atas meyakinkan, tapi belum membuktikan. Sekarang hitungan yang sama kita kerjakan dengan huruf h, tanpa memasukkan angka satu per satu.' },
@@ -191,8 +205,8 @@ export const TAHAP: TahapTurunan[] = [
           'tinggi titik P       f(1) = 1',
           'selisih tingginya    (1 + 2h + h²) - 1 = 2h + h²',
           'dibagi selisih x     (2h + h²) : h',
-          'h dicoret            2 + h',
-          'baru sekarang h didekatkan ke nol      2 + 0 = 2',
+          'faktorkan lalu bagi  h(2 + h) : h = 2 + h, untuk h ≠ 0',
+          'ambil limit          saat h → 0, maka 2 + h → 2',
         ],
         simpul: 'Kemiringan sesaat kurva f(x) = x² di titik x = 1 adalah 2.',
       },
@@ -202,23 +216,26 @@ export const TAHAP: TahapTurunan[] = [
         butir: [
           'Sebelum disederhanakan - mengisi h = 0 memberi 0 dibagi 0, dan itu tidak punya arti',
           'Mencoret h - hanya sah selama h bukan nol, sebab kita sedang membaginya',
-          'Sesudah disederhanakan - bentuk 2 + h aman untuk h berapa pun, termasuk nol',
+          'Sesudah disederhanakan - untuk h ≠ 0, pecahan asal sama dengan 2 + h. Karena 2 + h mendekati 2 saat h mendekati nol, limit pecahan asal adalah 2; pecahan asal tetap tidak terdefinisi pada h = 0',
         ],
       },
       { jenis: 'paragraf', teks: 'Aturan urutan ini persis yang Anda pelajari di topik Limit, Materi 04, pada bentuk 0 per 0. Di sini bentuk itu muncul lagi, dan kali ini ia punya arti gambar.' },
 
+      { jenis: 'paragraf', teks: 'Asal 1 + 2h + h² dapat dilihat lewat luas. Untuk h positif, pecah persegi bersisi 1 + h menjadi satu petak 1 × 1, dua persegi panjang 1 × h, dan satu petak h × h. Luasnya 1 + h + h + h² = 1 + 2h + h². Setelah dikurangi 1, tersisa 2h + h². Identitas aljabarnya juga berlaku untuk h negatif, walaupun gambar panjang tadi memakai h positif.' },
+      { jenis: 'paragraf', teks: 'Kita juga harus memeriksa dari kiri P. Untuk h = −0,1, kemiringannya 2 + h = 1,9; untuk h = −0,01, kemiringannya 1,99. Dari kiri maupun kanan, nilai yang dituju sama, yaitu 2. Itulah alasan limit dua sisinya ada.' },
+
       { jenis: 'sesi', judul: 'Tiga nama untuk satu kejadian' },
-      { jenis: 'paragraf', teks: 'Saat h benar-benar menuju nol, titik Q berimpit dengan P dan garis potongnya berhenti berputar. Garis terakhir itu hanya menyentuh kurva di satu titik, dan namanya garis singgung.' },
+      { jenis: 'paragraf', teks: 'Saat Q makin dekat ke P, garis potong mendekati garis melalui P dengan kemiringan 2. Garis yang dituju inilah garis singgung. Kita tidak membentuk garis potong dari dua titik yang sudah sama. Garis singgung juga tidak didefinisikan sebagai garis yang hanya punya satu perpotongan: pada kurva lain, garis singgung dapat memotong kurva lagi.' },
       {
         jenis: 'poin',
         judul: 'Yang baru saja diberi nama',
         butir: [
-          'Garis singgung - garis yang dituju oleh garis potong saat kedua titiknya berimpit',
+          'Garis singgung - garis yang dituju garis potong saat Q mendekati P, jika limit kemiringannya ada dan terhingga',
           'Kemiringan sesaat - kemiringan garis singgung itu, yaitu satu angka',
           'Turunan di sebuah titik - nama resmi untuk kemiringan sesaat tadi, ditulis f′(x₁)',
         ],
       },
-      { jenis: 'sorot', teks: 'Turunan di titik x₁ adalah limit dari [ f(x₁ + h) dikurangi f(x₁) ] dibagi h, saat h menuju 0, jika limitnya ada.' },
+      { jenis: 'sorot', teks: 'Turunan di titik x₁ adalah limit dari [ f(x₁ + h) dikurangi f(x₁) ] dibagi h, saat h menuju 0, jika limitnya ada dan terhingga. Di titik bagian dalam domain, limit dari kiri dan kanan harus sama.' },
       { jenis: 'paragraf', teks: 'Untuk contoh tadi berarti f′(1) = 2. Satu angka, untuk satu titik. Bukan sebuah garis, dan bukan sebuah rumus yang berlaku di mana-mana.' },
 
       {
@@ -250,15 +267,15 @@ export const TAHAP: TahapTurunan[] = [
     labelPendek: 'Fungsi f′',
     pertanyaan: 'Kalau tiap titik punya kemiringannya sendiri, apa yang terjadi kalau semua kemiringan itu digambar?',
     intisari: [
-      'Turunan di satu titik adalah angka. Turunan di semua titik adalah fungsi baru, ditulis f′.',
+      'Turunan di satu titik adalah angka. Dengan mencatat kemiringan pada tiap titik yang turunannya ada, kita mendapat fungsi baru, ditulis f′.',
       'Untuk f(x) = x², kemiringannya di tiap titik ternyata selalu 2x, jadi f′(x) = 2x.',
-      'Dua cara menulis yang sama artinya: f′(x) cara Newton, dan dy/dx cara Leibniz.',
-      'dy/dx dibaca sebagai perubahan y per perubahan x, bukan sebagai pembagian biasa.',
+      'Dua cara menulis turunan yang sama: notasi aksen f′(x), dan notasi Leibniz dy/dx.',
+      'dy/dx menyatakan laju perubahan y terhadap x; ini bukan pembagian nilai y dengan nilai x.',
       'Bentuk f′ bisa sangat berbeda dari bentuk f, sebab f′ mencatat kemiringan, bukan tinggi.',
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Di Materi 02 kita baru mendapat satu angka: kemiringan kurva f(x) = x² di titik x = 1 adalah 2. Wajar kalau muncul pertanyaan berikutnya. Bagaimana di titik lain?' },
-      { jenis: 'paragraf', teks: 'Caranya tidak berubah sama sekali. Yang berganti hanya titik yang dipilih.' },
+      { jenis: 'paragraf', teks: 'Ingat kemiringan dari Materi 01: kenaikan dibagi langkah mendatar. Tulisan singkatnya miring = naik/datar; miring berarti kemiringan, bukan panjang sisi miring yang dicari dengan Pythagoras. Materi 02 lalu mendekatkan dua titik untuk mendapatkan kemiringan garis singgung. Sekarang kita ulangi cara itu di titik yang berbeda.' },
       {
         jenis: 'contoh',
         judul: 'Cara yang sama, di tiga titik berbeda',
@@ -283,7 +300,19 @@ export const TAHAP: TahapTurunan[] = [
 
       { jenis: 'sesi', judul: 'Kemiringannya sendiri membentuk sebuah kurva' },
       { jenis: 'paragraf', teks: 'Kalau pasangan (x, kemiringan) tadi digambar sebagai titik-titik pada papan sendiri, keempatnya duduk rapi pada satu garis lurus, yaitu garis y = 2x.' },
-      { jenis: 'paragraf', teks: 'Perlu jujur di sini: empat titik belum membuktikan apa pun. Ia baru memperlihatkan pola. Bukti aljabarnya kita kerjakan pada materi berikutnya. Untuk sekarang, terimalah bahwa kemiringan kurva x² di titik x mana pun adalah 2x.' },
+      { jenis: 'paragraf', teks: 'Empat titik baru memperlihatkan pola. Supaya tahu alasan rumusnya berlaku di titik mana pun, gantikan angka titik awal dengan huruf x. Tinggi awalnya x², sedangkan tinggi di titik sebelah adalah (x + h)². Langkah mendatarnya h, yang belum nol.' },
+      {
+        jenis: 'contoh',
+        judul: 'Dari selisih tinggi menuju rumus kemiringan',
+        baris: [
+          'kuadrat adalah perkalian     (x + h)(x + h) = x² + xh + hx + h²',
+          'dua suku tengah sejenis      xh + hx = 2xh',
+          'kurangi tinggi awal          (x² + 2xh + h²) - x² = 2xh + h²',
+          'bagi langkah mendatar        (2xh + h²) : h = 2x + h, dengan h ≠ 0',
+          'dekatkan h ke nol            2x + h menuju 2x, dari kedua sisi',
+        ],
+        simpul: 'Jadi kemiringan kurva x² di titik x adalah 2x. Rumus ini berlaku untuk setiap x real, bukan hanya empat contoh tadi.',
+      },
       { jenis: 'sorot', teks: 'Kemiringan berhenti menjadi satu angka dan berubah menjadi sebuah fungsi. Fungsi itu namanya fungsi turunan, ditulis f′.' },
       { jenis: 'paragraf', teks: 'Jadi f(x) = x² punya f′(x) = 2x. Masukkan x = 3 ke f′ dan Anda langsung dapat kemiringannya di sana, yaitu 6, tanpa perlu mengulang hitungan limit dari awal.' },
       {
@@ -297,16 +326,16 @@ export const TAHAP: TahapTurunan[] = [
       },
 
       { jenis: 'sesi', judul: 'Dua cara menuliskannya' },
-      { jenis: 'paragraf', teks: 'Fungsi turunan sudah dipakai orang selama ratusan tahun, dan dua penemunya menulisnya dengan cara berbeda. Keduanya masih dipakai sampai sekarang, jadi keduanya perlu Anda kenali.' },
+      { jenis: 'paragraf', teks: 'Fungsi turunan dapat ditulis dengan beberapa notasi. Dua bentuk berikut sering muncul dalam pelajaran. Jika y = f(x), keduanya menyatakan turunan fungsi yang sama.' },
       {
         jenis: 'poin',
         judul: 'Dua notasi, satu arti',
         butir: [
-          'Notasi aksen - f′(x), dibaca "f aksen x". Ringkas saat berhitung, dan di buku disebut cara Newton',
+          'Notasi aksen - f′(x), dibaca "f aksen x". Lambang aksen menandai fungsi turunannya',
           'Cara Leibniz - dy/dx, dibaca "de y de x". Ia mengingatkan asal usulnya, yaitu perubahan y dibagi perubahan x',
         ],
       },
-      { jenis: 'paragraf', teks: 'Satu peringatan tentang dy/dx. Bentuknya memang seperti pecahan, tetapi dy dan dx bukan dua bilangan yang bisa dipisah lalu dicoret. Lambang itu satu kesatuan yang berarti laju perubahan y terhadap x.' },
+      { jenis: 'paragraf', teks: 'Pada tahap ini, baca dy/dx sebagai satu lambang turunan. Artinya laju perubahan y terhadap x, yang berasal dari limit perbandingan perubahan tinggi dengan perubahan mendatar. Ini bukan pembagian nilai y oleh nilai x.' },
 
       {
         jenis: 'coba',
@@ -315,7 +344,7 @@ export const TAHAP: TahapTurunan[] = [
           'Sapu x dari kiri ke kanan pelan-pelan. Garis singgung di papan atas ikut berputar',
           'Perhatikan papan bawah: tiap kemiringan meninggalkan jejak titik, dan jejaknya membentuk kurva f′',
           'Untuk x², jejaknya membentuk garis lurus. Untuk x³ - 3x, jejaknya melengkung',
-          'Pilih fungsi |x|, lalu lewati x = 0. Jejaknya melompat dari -1 ke 1, sebab di sudut tajam itu tidak ada satu garis singgung pun',
+          'Pilih fungsi |x|, lalu lewati x = 0. Dari kiri kemiringannya -1, dari kanan +1. Kedua hasil berbeda, jadi f′(0) tidak ada. Di sana widget menampilkan keterangan tidak ada di sini',
         ],
       },
 
@@ -325,7 +354,7 @@ export const TAHAP: TahapTurunan[] = [
         jenis: 'poin',
         butir: [
           'Di bagian yang kurvanya menanjak, jejaknya berada di atas sumbu, jadi nilainya positif',
-          'Tepat di puncak atau di dasar lembah, jejaknya menyentuh sumbu, jadi nilainya nol',
+          'Di puncak atau dasar lembah yang mulus dan memiliki turunan, garis singgung mendatar dan nilai turunannya nol. Sudut tajam |x| di nol tidak memenuhi syarat ini',
           'Di bagian yang kurvanya menurun, jejaknya berada di bawah sumbu, jadi nilainya negatif',
         ],
       },
@@ -353,7 +382,7 @@ export const TAHAP: TahapTurunan[] = [
       'Aturan yang sama berlaku untuk pangkat pecahan dan pangkat negatif, asal ditulis dulu sebagai pangkat.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Di Materi 03 kita menyimpulkan f′(x) = 2x hanya dari empat titik. Itu pola, bukan bukti. Sekarang hitungannya kita kerjakan sekali lagi, tapi dengan x yang dibiarkan berupa huruf, supaya berlaku untuk semua titik sekaligus.' },
+      { jenis: 'paragraf', teks: 'Di Materi 03 kita sudah membuktikan f′(x) = 2x dari definisi turunan. Sekarang kita ulas hitungannya sebagai pijakan untuk memahami turunan pangkat lain.' },
 
       { jenis: 'sesi', judul: 'Dibuktikan untuk x pangkat dua' },
       {

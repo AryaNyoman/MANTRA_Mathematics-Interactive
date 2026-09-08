@@ -665,6 +665,28 @@ class Babak:
         # `terpakai` supaya peringatan diam tidak dibutakan oleh babak yang
         # mengikat kejadiannya ke jam kalimat (temuan Ruang 3D 4 Sep).
         self.menunggu = 0.0
+        # Jam kata (STANDAR v3): diisi `babak(..., kata=JamKata)`; None berarti
+        # adegan lama yang membagi waktu per babak, tetap didukung.
+        self.kata = None
+
+    def tunggu_kata(self, frasa: str) -> None:
+        """Diam sampai detik KATA `frasa` diucapkan di segmen ini, lalu lanjut.
+
+        Inilah inti standar v3: kejadian di layar dipicu oleh kata yang
+        sedang diucapkan, bukan oleh pembagian waktu per babak. `frasa` boleh
+        beberapa kata; yang dicocokkan kata pertamanya. Salah tulis frasa
+        menggagalkan render dengan daftar kata segmen itu, bukan diam-diam
+        memicu di waktu yang salah.
+        """
+        if self.kata is None:
+            raise AturanDilanggar(
+                f"babak '{self.nama}': tunggu_kata butuh jam kata; pakai "
+                f"`with sinema.babak(self, nama, DURASI, kata=KATA) as b`.")
+        sasaran = self.kata.jam(self.nama, frasa)
+        self.tunggu_sampai(round(sasaran * 30) / 30)
+        self.scene.pemicu = getattr(self.scene, "pemicu", [])
+        self.scene.pemicu.append({"segmen": self.nama, "frasa": frasa,
+                                  "audio": sasaran, "video": self.scene.time})
 
     def main(self, *animasi, run_time: float = 1.0, **kw) -> None:
         self.scene.play(*animasi, run_time=run_time, **kw)
@@ -732,10 +754,98 @@ class Babak:
 
 
 @contextmanager
-def babak(scene, nama: str, durasi: dict):
-    """Pakai: `with sinema.babak(self, "buka", DURASI) as b: b.main(...)`."""
+def babak(scene, nama: str, durasi: dict, kata=None):
+    """Pakai: `with sinema.babak(self, "buka", DURASI) as b: b.main(...)`.
+
+    Dengan `kata=JamKata(...)` (standar v3) babak juga ditutup pada JAM AUDIO
+    MUTLAK segmennya, bukan pada jumlah durasi animasinya: frame Manim
+    dibulatkan ke atas, dan tanpa ini satu frame per babak menumpuk sampai
+    satu detik di akhir video enam menit (temuan Turunan 2, 8 Sep 2026).
+    """
     if nama not in durasi:
         raise KeyError(f"segmen '{nama}' tidak ada di durasi.json. Yang tersedia: {', '.join(durasi)}")
     b = Babak(scene, nama, durasi[nama])
+    b.kata = kata
+    if kata is not None:
+        awal = kata.mulai(nama)
+        if scene.time < awal - 0.02:
+            # babak sebelumnya menutup lebih awal (mis. judul pembuka): sejajarkan
+            scene.wait(awal - scene.time)
     yield b
+    if kata is not None:
+        b.terpakai = scene.time - kata.mulai(nama) + 1e-7
     b.tutup()
+
+
+# ---------------------------------------------------------------------------
+# STANDAR v3: jam kata. Waktu tiap kata datang dari `audio/<video>/kata.json`
+# yang ditulis `manim/buat_narasi.py` (penanda WordBoundary mesin suara).
+# ---------------------------------------------------------------------------
+
+def _kata_polos(teks: str) -> str:
+    return "".join(c for c in teks.lower() if c.isalnum())
+
+
+class JamKata:
+    """Detik absolut tiap kata narasi, untuk memicu animasi pada kata itu.
+
+    Pakai di adegan:
+        KATA = sinema.JamKata("turunan2-garis-singgung")
+        with sinema.babak(self, "bagi", DURASI, kata=KATA) as b:
+            b.tunggu_kata("segitiga")
+            b.main(Indicate(segitiga), run_time=1)
+    """
+
+    def __init__(self, topik: str):
+        berkas = AKAR / "audio" / topik / "kata.json"
+        if not berkas.exists():
+            raise FileNotFoundError(
+                f"{berkas} tidak ada. Jalankan: python manim/buat_narasi.py {topik}")
+        import json
+        self.topik = topik
+        self.segmen = json.loads(berkas.read_text(encoding="utf-8"))
+
+    def mulai(self, segmen: str) -> float:
+        return self.segmen[segmen]["mulai"]
+
+    def akhir(self, segmen: str) -> float:
+        s = self.segmen[segmen]
+        return s["mulai"] + s["durasi"]
+
+    def jam(self, segmen: str, frasa: str, ke: int = 1) -> float:
+        """Detik absolut kata pertama `frasa` (kemunculan ke-`ke`) di `segmen`."""
+        if segmen not in self.segmen:
+            raise KeyError(f"segmen '{segmen}' tidak ada di kata.json {self.topik}")
+        cari = [_kata_polos(k) for k in frasa.split()]
+        kata = self.segmen[segmen]["kata"]
+        polos = [_kata_polos(w["kata"]) for w in kata]
+        hitung = 0
+        for i in range(len(polos) - len(cari) + 1):
+            if polos[i:i + len(cari)] == cari:
+                hitung += 1
+                if hitung == ke:
+                    return self.segmen[segmen]["mulai"] + kata[i]["mulai"]
+        raise ValueError(
+            f"frasa '{frasa}' tidak ada di segmen '{segmen}'. Kata segmen itu: "
+            + " ".join(w["kata"] for w in kata))
+
+
+def laporkan_pemicu(scene, batas: float = 0.15) -> float:
+    """Selisih terbesar antara jam kata dan detik video saat animasinya mulai.
+
+    Dipanggil di akhir `construct`. Render GAGAL bila ada pemicu yang
+    terlambat lebih dari `batas` detik: biasanya animasi sebelumnya memakan
+    terlalu banyak waktu sehingga `tunggu_kata` sudah lewat saat dipanggil.
+    """
+    pemicu = getattr(scene, "pemicu", [])
+    if not pemicu:
+        return 0.0
+    terburuk = max(pemicu, key=lambda p: p["video"] - p["audio"])
+    selisih = terburuk["video"] - terburuk["audio"]
+    print(f"  pemicu kata: {len(pemicu)} buah, terlambat terbesar {selisih:.3f} s "
+          f"(segmen '{terburuk['segmen']}', '{terburuk['frasa']}')")
+    if selisih > batas:
+        raise WaktuTidakMuat(
+            f"pemicu '{terburuk['frasa']}' di segmen '{terburuk['segmen']}' terlambat "
+            f"{selisih:.2f} detik: animasi sebelum tunggu_kata terlalu panjang.")
+    return selisih
