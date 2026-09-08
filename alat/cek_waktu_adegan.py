@@ -142,11 +142,17 @@ def blok_babak(sumber):
     detik, dua di antaranya dilaporkan kelebihan padahal tidak, dan yang benar
     benar kelebihan bisa saja luput. Pemeriksa yang diam-diam melewati bagian
     yang tidak dipahaminya lebih berbahaya daripada tidak ada pemeriksa.
+
+    Tanda hubung juga diterima (Ruang 3D, 9 Sep 2026): `\w` tidak memuatnya,
+    jadi babak bernama `dua-ruas` atau `hitung-p` tidak terbaca. Empat belas
+    dari tiga puluh babak hilang sekaligus. Kali ini alatnya TIDAK diam: ia
+    membandingkan daftar babak adegan dengan daftar segmen naskah dan berhenti.
+    Perbandingan itulah yang menyelamatkan, bukan polanya.
     """
     hasil = []
     baris = sumber.splitlines()
     for i, bs in enumerate(baris):
-        m = re.match(r"(\s*)with sinema\.babak\(self,\s*\"(\w+)\"", bs)
+        m = re.match(r"(\s*)with sinema\.babak\(self,\s*\"([\w-]+)\"", bs)
         if not m:
             continue
         lekuk = len(m.group(1))

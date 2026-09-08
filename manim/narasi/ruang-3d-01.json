@@ -1,43 +1,158 @@
 {
   "adegan": "GambarBolehBerbohong",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Ruang Tiga Dimensi materi 01. Seluruh video melayani satu gagasan: yang menentukan kedudukan adalah bendanya, bukan gambarnya. Kamera sengaja jadi tokoh utama, sebab kameralah yang berbohong.",
+  "tempo": "-5%",
+  "catatan": "Standar v3, 9 September 2026. Ditulis ulang dari versi 85 detik jadi gaya rinci. Satu pertanyaan: kalau dua garis tampak menyilang di gambar, apakah keduanya benar-benar bertemu. Segar-ingat: Vektor Materi 04 (panjang panah itu Pythagoras) dan Pythagoras SMP, dipakai betulan untuk menghitung panjang BD. Asal kesimpulan dibuktikan dengan koordinat, bukan disodorkan. Topik Ruang 3D boleh 3D sepanjang video (pengecualian STANDAR v3 butir 5).",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Sekarang kita masuk ke materi baru: *ruang tiga dimensi*. Materi pertama, *gambar ruang boleh berbohong*.",
-      "tulis": "Sekarang kita masuk ke materi baru: *ruang tiga dimensi*. Materi pertama, *gambar ruang boleh berbohong*."
+      "teks": "Kalau dua garis tampak menyilang pada sebuah gambar, apakah keduanya benar-benar bertemu?",
+      "tulis": "Kalau dua garis tampak menyilang pada sebuah gambar, apakah keduanya benar-benar bertemu?"
     },
     {
-      "id": "kotak",
-      "teks": "Di depan kita ada sebuah kotak, berdiri di atas lantai. Panjang, lebar, dan tingginya sama, jadi bentuknya *kubus*.",
-      "tulis": "Di depan kita ada sebuah kotak, berdiri di atas lantai. Panjang, lebar, dan tingginya sama, jadi bentuknya *kubus*."
+      "id": "ingat-vektor",
+      "teks": "Di topik Vektor, Materi 04, kita menemukan bahwa panjang panah itu Pythagoras. Panjangnya adalah akar dari jumlah kuadrat setiap langkahnya.",
+      "tulis": "Di topik Vektor, Materi 04, kita menemukan bahwa panjang panah itu Pythagoras. Panjangnya adalah akar dari jumlah kuadrat setiap langkahnya."
+    },
+    {
+      "id": "ingat-smp",
+      "teks": "Aturan itu sendiri sudah kita pakai sejak SMP. Pada segitiga siku-siku, kuadrat sisi miring sama dengan jumlah kuadrat kedua sisi tegaknya.",
+      "tulis": "Aturan itu sendiri sudah kita pakai sejak SMP. Pada segitiga siku-siku, kuadrat sisi miring sama dengan jumlah kuadrat kedua sisi tegaknya."
+    },
+    {
+      "id": "ingat-bawa",
+      "teks": "Dua hal itu yang kita bawa ke topik baru ini: *koordinat* untuk menyebut letak, dan *Pythagoras* untuk mengukur jarak.",
+      "tulis": "Dua hal itu yang kita bawa ke topik baru ini: *koordinat* untuk menyebut letak, dan *Pythagoras* untuk mengukur jarak."
+    },
+    {
+      "id": "kubus",
+      "teks": "Di depan kita ada sebuah kubus. Panjang, lebar, dan tingginya sama, yaitu enam satuan.",
+      "tulis": "Di depan kita ada sebuah kubus. Panjang, lebar, dan tingginya sama, yaitu 6 satuan."
     },
     {
       "id": "rangka",
-      "teks": "Supaya bagian dalamnya ikut terlihat, dinding kotak ini kita buat *tembus pandang*. Kedelapan titik sudutnya kita beri nama, A sampai H.",
-      "tulis": "Supaya bagian dalamnya ikut terlihat, dinding kotak ini kita buat *tembus pandang*. Kedelapan titik sudutnya kita beri nama, A sampai H."
+      "teks": "Supaya bagian dalamnya ikut terlihat, dindingnya kita buat tembus pandang. Kedelapan titik sudutnya diberi nama, A sampai H.",
+      "tulis": "Supaya bagian dalamnya ikut terlihat, dindingnya kita buat tembus pandang. Kedelapan titik sudutnya diberi nama, A sampai H."
+    },
+    {
+      "id": "koordinat",
+      "teks": "Titik A kita letakkan di titik asal. Maka B ada di enam pada sumbu x, D di enam pada sumbu y, dan E di enam pada sumbu z.",
+      "tulis": "Titik A kita letakkan di titik asal. Maka B ada di 6 pada sumbu x, D di 6 pada sumbu y, dan E di 6 pada sumbu z."
     },
     {
       "id": "dua-ruas",
-      "teks": "Sekarang kita tarik dua ruas garis. Yang biru, B D, tergeletak di *lantai* kubus. Yang merah, E G, ada di *atapnya*, enam satuan lebih tinggi.",
-      "tulis": "Sekarang kita tarik dua ruas garis. Yang biru, B̅D̅, tergeletak di *lantai* kubus. Yang merah, E̅G̅, ada di *atapnya*, 6 satuan lebih tinggi."
+      "teks": "Sekarang kita tarik dua ruas garis. Yang biru, B D, tergeletak di lantai kubus. Yang merah, E G, ada di atapnya.",
+      "tulis": "Sekarang kita tarik dua ruas garis. Yang biru, BD, tergeletak di lantai kubus. Yang merah, EG, ada di atapnya."
+    },
+    {
+      "id": "panjang-bd",
+      "teks": "Berapa panjang B D? Dari B ke D kita melangkah enam ke belakang dan enam ke kiri. Pythagoras memberi enam kuadrat ditambah enam kuadrat, yaitu tujuh puluh dua.",
+      "tulis": "Berapa panjang BD? Dari B ke D kita melangkah 6 ke belakang dan 6 ke kiri. Pythagoras memberi 6² + 6² = 72."
+    },
+    {
+      "id": "akar-72",
+      "teks": "Akar tujuh puluh dua adalah enam akar dua, kira-kira delapan koma empat sembilan. Jadi kedua ruas ini punya panjang yang nyata, bukan sekadar garis di gambar.",
+      "tulis": "Akar 72 adalah 6√2, kira-kira 8,49. Jadi kedua ruas ini punya panjang yang nyata, bukan sekadar garis di gambar."
     },
     {
       "id": "naik",
-      "teks": "Sekarang kamera kita naikkan, dan kita lihat kubus ini dari atas. Perhatikan kedua ruas tadi. Keduanya *menyilang tepat di tengah*. Apakah keduanya benar-benar bertemu di situ? Coba tebak dulu.",
-      "tulis": "Sekarang kamera kita naikkan, dan kita lihat kubus ini dari atas. Perhatikan kedua ruas tadi. Keduanya *menyilang tepat di tengah*. Apakah keduanya benar-benar bertemu di situ? Coba tebak dulu."
+      "teks": "Sekarang kameranya kita naikkan pelan-pelan, sampai kubus ini terlihat tepat dari atas.",
+      "tulis": "Sekarang kameranya kita naikkan pelan-pelan, sampai kubus ini terlihat tepat dari atas."
+    },
+    {
+      "id": "dari-atas",
+      "teks": "Dari atas, kubus tampak sebagai sebuah persegi. Kedua ruas tadi menjadi kedua diagonalnya.",
+      "tulis": "Dari atas, kubus tampak sebagai sebuah persegi. Kedua ruas tadi menjadi kedua diagonalnya."
+    },
+    {
+      "id": "silang",
+      "teks": "Keduanya menyilang tepat di tengah persegi. Pada gambar ini, mereka jelas berpotongan di satu titik.",
+      "tulis": "Keduanya menyilang tepat di tengah persegi. Pada gambar ini, mereka jelas berpotongan di satu titik."
+    },
+    {
+      "id": "tebak",
+      "teks": "Coba tebak dulu sebelum kita lanjutkan. Menurut kamu, apakah B D dan E G benar-benar bertemu di titik itu?",
+      "tulis": "Coba tebak dulu sebelum kita lanjutkan. Menurut kamu, apakah BD dan EG benar-benar bertemu di titik itu?"
     },
     {
       "id": "turun",
-      "teks": "Kamera kita turunkan lagi, dan jawabannya kelihatan. Tidak. Yang biru tetap di lantai, yang merah tetap di atap. Titik silang tadi ternyata *dua titik yang berbeda*, terpisah sejauh enam satuan.",
-      "tulis": "Kamera kita turunkan lagi, dan jawabannya kelihatan. Tidak. Yang biru tetap di lantai, yang merah tetap di atap. Titik silang tadi ternyata *dua titik yang berbeda*, terpisah sejauh 6 satuan."
+      "teks": "Kita turunkan lagi kameranya, dan jawabannya langsung kelihatan.",
+      "tulis": "Kita turunkan lagi kameranya, dan jawabannya langsung kelihatan."
+    },
+    {
+      "id": "tidak",
+      "teks": "Tidak. Yang biru tetap tergeletak di lantai, dan yang merah tetap menempel di atap.",
+      "tulis": "Tidak. Yang biru tetap tergeletak di lantai, dan yang merah tetap menempel di atap."
+    },
+    {
+      "id": "dua-titik",
+      "teks": "Titik silang tadi ternyata bukan satu titik, melainkan dua titik berbeda yang kebetulan segaris dengan mata kita.",
+      "tulis": "Titik silang tadi ternyata bukan satu titik, melainkan dua titik berbeda yang kebetulan segaris dengan mata kita."
+    },
+    {
+      "id": "hitung-p",
+      "teks": "Mari kita buktikan dengan angka. Titik tengah B D ada di tiga, tiga, nol. Setengah jalan dari enam, nol, nol menuju nol, enam, nol.",
+      "tulis": "Mari kita buktikan dengan angka. Titik tengah BD ada di (3, 3, 0). Setengah jalan dari (6, 0, 0) menuju (0, 6, 0)."
+    },
+    {
+      "id": "hitung-q",
+      "teks": "Titik tengah E G ada di tiga, tiga, enam. Setengah jalan dari nol, nol, enam menuju enam, enam, enam.",
+      "tulis": "Titik tengah EG ada di (3, 3, 6). Setengah jalan dari (0, 0, 6) menuju (6, 6, 6)."
+    },
+    {
+      "id": "beda",
+      "teks": "Bandingkan keduanya. Angka x-nya sama, tiga. Angka y-nya juga sama, tiga. Yang berbeda hanya angka ketiganya: nol lawan enam.",
+      "tulis": "Bandingkan keduanya. Angka x-nya sama, 3. Angka y-nya juga sama, 3. Yang berbeda hanya angka ketiganya: 0 lawan 6."
+    },
+    {
+      "id": "jarak",
+      "teks": "Karena hanya tingginya yang berbeda, jaraknya adalah enam dikurangi nol, yaitu *enam satuan*. Dua titik yang tampak berimpit itu terpisah sejauh satu rusuk penuh.",
+      "tulis": "Karena hanya tingginya yang berbeda, jaraknya adalah 6 - 0, yaitu *6 satuan*. Dua titik yang tampak berimpit itu terpisah sejauh satu rusuk penuh."
+    },
+    {
+      "id": "kenapa",
+      "teks": "Kenapa gambarnya bisa menyesatkan? Sebab memandang dari atas berarti membuang satu arah, yaitu arah tinggi.",
+      "tulis": "Kenapa gambarnya bisa menyesatkan? Sebab memandang dari atas berarti membuang satu arah, yaitu arah tinggi."
+    },
+    {
+      "id": "bayangan",
+      "teks": "Yang kita lihat dari atas sebenarnya *bayangan* kedua ruas di lantai. Dua bayangan boleh berpotongan walaupun bendanya tidak.",
+      "tulis": "Yang kita lihat dari atas sebenarnya *bayangan* kedua ruas di lantai. Dua bayangan boleh berpotongan walaupun bendanya tidak."
+    },
+    {
+      "id": "kubus-tetap",
+      "teks": "Perhatikan, kubusnya sendiri sama sekali tidak berubah selama tadi. Yang berubah hanya tempat kita berdiri memandangnya.",
+      "tulis": "Perhatikan, kubusnya sendiri sama sekali tidak berubah selama tadi. Yang berubah hanya tempat kita berdiri memandangnya."
+    },
+    {
+      "id": "nama",
+      "teks": "Dua garis seperti ini punya nama sendiri. Karena tidak sejajar dan tidak pernah bertemu, keduanya disebut *bersilangan*.",
+      "tulis": "Dua garis seperti ini punya nama sendiri. Karena tidak sejajar dan tidak pernah bertemu, keduanya disebut *bersilangan*."
+    },
+    {
+      "id": "umum-syarat",
+      "teks": "Bentuk umumnya begini. Dua garis dalam ruang hanya punya tiga kemungkinan: berpotongan, sejajar, atau bersilangan.",
+      "tulis": "Bentuk umumnya begini. Dua garis dalam ruang hanya punya tiga kemungkinan: berpotongan, sejajar, atau bersilangan."
+    },
+    {
+      "id": "umum-uji",
+      "teks": "Cara memeriksanya tidak dengan melihat gambar, melainkan dengan koordinat. Kalau ada satu titik yang ketiga angkanya sama-sama dimiliki kedua garis, keduanya berpotongan.",
+      "tulis": "Cara memeriksanya tidak dengan melihat gambar, melainkan dengan koordinat. Kalau ada satu titik yang ketiga angkanya sama-sama dimiliki kedua garis, keduanya berpotongan."
+    },
+    {
+      "id": "umum-gagal",
+      "teks": "Kalau tidak ada titik seperti itu, dan arah keduanya juga berbeda, maka keduanya bersilangan. Persis seperti B D dan E G tadi.",
+      "tulis": "Kalau tidak ada titik seperti itu, dan arah keduanya juga berbeda, maka keduanya bersilangan. Persis seperti BD dan EG tadi."
+    },
+    {
+      "id": "pesan",
+      "teks": "Jadi pesan materi ini singkat saja: pada gambar ruang, mata boleh menduga, tetapi *angka yang memutuskan*.",
+      "tulis": "Jadi pesan materi ini singkat saja: pada gambar ruang, mata boleh menduga, tetapi *angka yang memutuskan*."
     },
     {
       "id": "tutup",
-      "teks": "Jadi yang berubah cuma sudut pandangnya. Kubusnya sendiri sama sekali tidak berubah. Dua garis seperti ini, yang tidak sejajar dan tidak pernah bertemu, namanya *bersilangan*.",
-      "tulis": "Jadi yang berubah cuma sudut pandangnya. Kubusnya sendiri sama sekali tidak berubah. Dua garis seperti ini, yang tidak sejajar dan tidak pernah bertemu, namanya *bersilangan*."
+      "teks": "Di video berikutnya kita memakai kebiasaan itu untuk pertanyaan yang lebih tajam: dari sekian banyak penghubung, yang mana yang pantas disebut jarak?",
+      "tulis": "Di video berikutnya kita memakai kebiasaan itu untuk pertanyaan yang lebih tajam: dari sekian banyak penghubung, yang mana yang pantas disebut jarak?"
     }
   ]
 }
