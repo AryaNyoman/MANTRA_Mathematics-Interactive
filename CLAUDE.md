@@ -10,125 +10,31 @@ Situs belajar matematika SMA: **animasi Manim** (menjelaskan *kenapa*) + **widge
 > akan menghapus kemajuan siswa yang sudah tersimpan, dan mengganti alamat
 > Vercel memutus tautan yang sudah disebar.
 
-> **Tenggat: 12 September 2026.** Baca `PROGRESS.md` DULU tiap sesi baru - di situ status harian,
+> **Tenggat 12 September 2026 diterima lewat** (keputusan ARYA 8 Sep: semua
+> video ditulis ulang, standar v3). Baca `PROGRESS.md` DULU tiap sesi baru - di situ status harian,
 > keputusan yang sudah diambil, dan apa yang harus dikerjakan berikutnya.
 
-## Pelajaran produksi terbaru untuk MASTER (8 September 2026)
+## STANDAR VIDEO v3, keputusan ARYA 8 September 2026 (berlaku SEMUA video)
 
-ARYA meminta temuan selama render dicatat lagi. Baca
-[Pelajaran render Turunan 1–3](docs/tugas/laporan/PELAJARAN-RENDER-TURUNAN-2026-09-08.md) sebelum melanjutkan seri.
-Timing presisi tidak menjamin penghubung lisan lengkap; QC tata letak bisa
-melewatkan garis yang menimpa angka; detektor diam bisa melewatkan angka tabel
-yang berubah. Bug subtitle lintas tanda baca pada video 3 sudah diperbaiki.
-**Celah QC baru:** pembanding subtitle 3 membuang operator matematika;
-2x + h dan 2xh dapat dianggap sama. Ini kelemahan pemeriksa yang dikonfirmasi,
-bukan temuan kesalahan baru dalam MP4 final; perbaikan pemeriksa masih tindak lanjut.
-Penghubung lama video 2 dan rujukan empat titik video 4 juga masih tindak lanjut.
-Laporan memisahkan perbaikan selesai, batas pemeriksaan, dan pekerjaan tersisa.
-Pembaruan ini hanya catatan; tidak mengubah kode/media atau menjalankan render.
-
-## Status terbaru: revisi Turunan 3 selesai (8 September 2026)
-
-ARYA melanjutkan dengan permintaan langsung "lakukan hal yg sama pd video3".
-Batas "catatan dahulu" pada arahan sebelumnya kini telah dilanjutkan menjadi
-izin produksi Turunan 3. Naskah, suara, ilustrasi, dan subtitle sudah dirombak.
-Hasil akhir 5:55,33, MP4 1080p60, 31 bagian dan 109 cue subtitle. Pemeriksaan
-akhir lulus: 88 pemicu kata berselisih maksimum 0,111834 detik; 16 klaim
-matematika benar; tanpa layar kosong berkepanjangan; decode penuh lulus.
-Sepuluh berkas MP4 lain di media/public tetap identik dengan cadangan hash.
-Implementasi dan laporan `qc/turunan3-fungsi-turunan/hasil-revisi.md` berada
-di worktree `.claude/worktrees/materi-turunan-b8c515`. Versi bersubtitle
-tersedia di `media/uji-480p/turunan3-fungsi-turunan-bersubtitle.mp4`.
-**Selesai secara produksi; menunggu tinjauan ARYA atas hasil terbaru.**
-
-Keputusan pedagogis: rumus f'(x)=2x kini DIBUKTIKAN di Materi 03 dari selisih
-tinggi, perkalian aljabar, pembagian h yang belum nol, dan limit. Ini maju
-dari rancangan MASTER yang semula menunda bukti ke Materi 04, sesuai permintaan
-ARYA agar siswa memahami asal rumus. Tinggi dan kemiringan dipisahkan,
-jejak biru lahir dari pengukuran, dan sudut |x| menjelaskan batas keberadaan
-turunan. Notasi aksen tidak lagi salah disebut "cara Newton" pada halaman.
-
-Materi halaman 03 diselaraskan; satu kalimat penghubung halaman 04 diperbaiki
-agar tidak mengatakan Materi 03 hanya menebak pola. **Video 04 masih versi
-lama:** segmen `pola` mengucapkan klaim lama itu. MASTER perlu menyelaraskan
-pembuka video 04 pada revisi berikutnya; audio/video 04 tidak ikut diubah.
-Video 01 dan 02 juga dipertahankan. Belum di-commit, digabung, atau deploy.
-
-## Riwayat: revisi Turunan 1 selesai (8 September 2026)
-
-Permintaan lanjutan ARYA adalah "ok skrng coba direvisi turunan1".
-Produksi Turunan 1 telah dilakukan, durasi 5:51,77, MP4 1080p60.
-Timing tabel diperbaiki, narasi kemiringan dilengkapi sebelum singkatan
-"miring = naik/datar", dan contoh 3–4–5 cm membedakan panjang sisi miring
-dari kemiringan. Penjelasan satuan barang/jam ikut diperjelas.
-Turunan 2 dan 3 tidak diubah dalam revisi ini. Arahan Turunan 3 di bawah
-tetap menjadi catatan untuk pekerjaan berikutnya, bukan larangan produksi
-Turunan 1 yang telah diminta secara langsung.
-Bukti lokal: `qc/turunan1-laju-rata-rata/hasil-revisi-lanjutan.md` dalam
-worktree `.claude/worktrees/materi-turunan-b8c515`. Hasil terbaru belum
-ditinjau ARYA. Implementasi belum di-commit, digabung ke master, atau deploy.
-
-## Riwayat arahan ARYA: persiapan revisi Turunan 3 (8 September 2026)
-
-**Saat arahan ini dicatat, tahapnya hanya catatan dan laporan untuk MASTER.**
-ARYA meminta pencatatan dahulu sebelum kode, naskah narasi, TTS, atau render.
-Target berikutnya Turunan 3, memakai penjelasan rinci dan suara tenang dari
-Turunan 2, dengan koreksi berikut sebagai syarat rancangan:
-
-- **Durasi video 3 sampai 6 menit (180 sampai 360 detik)**; sesuaikan dengan
-  kerumitan materi. Jangan mengisi waktu dengan pengulangan atau jeda kosong.
-- Hubungan ke materi sebelumnya harus disebut lengkap, termasuk nama
-  konsepnya. "Hitungan yang sama" tanpa menjelaskan apa yang sama tidak cukup.
-- Gunakan bahasa akrab siswa. Jelaskan dan ucapkan bentuk lengkap dahulu,
-  lalu ringkas tulisan adegan menjadi **"miring = naik/datar"**. "Miring"
-  adalah sebutan singkat kemiringan, bukan panjang sisi miring segitiga.
-- Antisipasi pengetahuan lama yang bisa mengecoh, termasuk Pythagoras:
-  panjang sisi miring dan kemiringan adalah dua besaran berbeda. Pada grafik
-  pabrik, barang dan jam juga tidak boleh dikuadratkan lalu dijumlahkan.
-- Periksa waktu setiap ucapan terhadap objek yang disebut dan subtitle.
-  ARYA menegaskan Turunan 1 detik 10 sampai 17 adalah **masalah timing
-  yang perlu diperbaiki**, bukan contoh untuk ditiru. Cegah terulang di
-  Turunan 3; revisi video 1 sendiri masih tercatat sebagai tindak lanjut.
-- Persetujuan Turunan 2 sebelumnya tetap berlaku untuk arah penyajiannya,
-  tetapi **tidak menutup koreksi baru** tentang kalimat penghubung, label,
-  dan penjelasan Pythagoras. Temuan video 1/2 dicatat; medianya belum direvisi
-  dalam tahap ini. Tidak otomatis memperluas semua pengecualian teknis video 2.
-
-Rincian: `docs/tugas/STANDAR-MENGAJAR.md` bagian arahan 8 Sep dan
-`docs/tugas/laporan/MANTRA-TURUNAN-INTEGRAL.md` bagian persiapan Turunan 3.
-Aturan durasi baru ini menggantikan catatan sebelumnya bahwa batas durasi
-total belum ditentukan.
-
-## Keputusan ARYA: Turunan 2 versi rinci disetujui (8 September 2026)
-
-ARYA menilai hasil revisi video 2: "video ini sudah bagus, lebih detail dan
-intonasinya tenang", lalu meminta keputusan ini dicatat untuk MASTER walaupun
-hasilnya sedikit melenceng dari aturan sebelumnya. **Pertahankan versi yang
-disetujui ini; jangan otomatis memendekkannya atau mengubah transisinya hanya
-untuk menyeragamkan format lama.** Pengecualian berlaku untuk Turunan 2
-(`turunan2-garis-singgung`), bukan perubahan aturan seluruh seri.
-
-- Prioritas yang disukai ARYA: narasi tenang, asal setiap rumus dijelaskan,
-  contoh berhitung bertahap, ilustrasi mendukung kalimat. Durasi versi ini
-  5:56 (355,966667 detik), menggantikan versi 1:50.
-- Perbedaan terhadap standar: panel rumus memakai fade sederhana, bukan
-  selalu lahir dekat objek lalu morph; sumbu dibuat dengan `Axes` bernomor
-  berskala sama; suara dan subtitle memakai pembuat khusus dengan waktu
-  tiap kata. Subtitle masih memuat sebagian ejaan angka, belum sepenuhnya
-  mengikuti aturan semua lambang dari medan `tulis`. Rinciannya di entri
-  Turunan 2 terbaru dalam `PROGRESS.md`.
-- Video 2 langsung memakai gambar 2D sudah SESUAI standar ilustrasi versi 2
-  butir 2. Narasi tenang dan jeda yang membahas gambar juga diperbolehkan.
-  Keduanya bukan pelanggaran. Saat persetujuan awal ini belum ada batas
-  durasi total; arahan lanjutan di atas kini menetapkan 3 sampai 6 menit.
-- LaTeX, ketepatan matematika, ruang subtitle, pemeriksaan visual, dan
-  keluaran MP4 1080p60 tetap berlaku. Persetujuan hasil oleh ARYA belum
-  merupakan pengujian pemahaman langsung kepada siswa.
-- Implementasi berada di worktree `.claude/worktrees/materi-turunan-b8c515`.
-  Pada pencatatan ini revisi video belum di-commit, digabung ke master,
-  atau di-deploy. Catatan di folder utama juga diperbarui atas permintaan
-  langsung ARYA; ini mengesampingkan larangan menyunting kedua catatan dalam
-  tugas sesi lama, khusus untuk laporan ini.
+Setelah menonton Turunan 01 sampai 03 versi rinci (masing-masing sekitar 5:55),
+ARYA memutuskan **semua 58 video ditulis ulang** dengan gaya itu, delapan sesi
+paralel, tenggat 12 Sep diterima lewat. Aturannya di
+`docs/tugas/STANDAR-VIDEO-V3.md` (wajib dibaca sebelum menyentuh video),
+rancangan dan alasannya di
+`docs/superpowers/specs/2026-09-08-standar-video-v3-design.md`. Ringkasnya:
+- durasi 3 sampai 6 menit; kerangka wajib: pembuka pertanyaan, SEGAR-INGAT
+  materi sebelumnya (nomor dan nama konsep, gambar kuncinya), contoh angka,
+  asal rumus dibuktikan, bentuk umum, penutup yang menunjuk video berikutnya;
+- narasi tenang (tempo -5%), bahasa akrab, penghubung lengkap, pengetahuan
+  lama yang mengecoh diantisipasi; `tulis` = kalimat utuh yang diucapkan
+  dengan lambang, dan subtitle harus sama huruf demi huruf (`cek_subtitle`);
+- animasi dipicu pada detik KATA diucapkan: `buat_narasi.py` menulis
+  `kata.json`, adegan memakai `sinema.JamKata`, `babak(..., kata=KATA)`,
+  `b.tunggu_kata("frasa")`, dan `sinema.laporkan_pemicu(self)` di akhir;
+- video pertama tiap sesi ditonton ARYA dulu, sesudahnya per kelompok dua
+  sampai tiga video; render langsung 1080p60 mp4 plus salinan 480p bersubtitel.
+Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
+`docs/tugas/laporan/PELAJARAN-RENDER-TURUNAN-2026-09-08.md`.
 
 ## Cara menjalankan
 - Animasi (ManimGL, sejak 2 Sep 2026): `manimgl manim/scenes/<file>.py <NamaScene> -w -l`

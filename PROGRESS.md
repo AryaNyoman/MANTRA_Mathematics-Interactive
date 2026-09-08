@@ -1,5 +1,31 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 8 SEP (malam): STANDAR VIDEO v3, SEMUA 58 VIDEO DITULIS ULANG, DELAPAN SESI
+
+Keputusan ARYA setelah menonton Turunan 01 sampai 03 versi rinci (5:52, 5:56,
+5:55, 1080p60, di master efe6f5d): semua video ditulis ulang dengan gaya itu,
+tenggat 12 Sep diterima lewat. Yang disiapkan MASTER:
+- `docs/tugas/STANDAR-VIDEO-V3.md` (kerangka enam bagian, segar-ingat, narasi,
+  timing per kata, gerbang, sepuluh butir daftar periksa) dan rancangannya
+  `docs/superpowers/specs/2026-09-08-standar-video-v3-design.md`.
+- Perkakas bersama (07d4893): `buat_narasi.py` mencatat waktu tiap kata
+  (kata.json) dengan cache per segmen, tempo -5%, napas 0,35 s; `sinema.JamKata`,
+  `babak(..., kata=)`, `tunggu_kata`, `laporkan_pemicu`; `buat_subtitle.py`
+  mode kata (cue kalimat utuh dari `tulis`); `alat/cek_subtitle.py` menjaga
+  operator; uji dua arah `manim/uji/uji_jam_kata.py`, `alat/uji_cek_subtitle.py`.
+  Dibuktikan: durasi.json dan kata.json Turunan 1 sampai 3 dibangun ulang
+  dari cache SAMA PERSIS (selisih 0,000000 s); subtitle ketiganya lolos
+  cek_subtitle. Tiga pasang alat khusus Turunan dihapus.
+- Aturan `tulis` = kalimat utuh yang diucapkan dengan lambang (naskah
+  Turunan 2 disesuaikan dari subtitle yang disetujui).
+- Catatan: CLAUDE.md diringkas menunjuk standar v3; ATURAN-SEMUA-SESI bagian
+  GELOMBANG 4 (delapan sesi, port 3017 Trigonometri, 3018 Limit); bagian
+  GELOMBANG 4 di tiap berkas tugas (dua baru: MANTRA-TRIGONOMETRI,
+  MANTRA-LIMIT; satu baru untuk Transformasi); PROMPT-SIAP-TEMPEL delapan
+  prompt.
+- Tinjauan: video pertama tiap sesi ditonton ARYA (delapan sekaligus),
+  sesudahnya per kelompok dua sampai tiga video. Segar-ingat wajib.
+
 ## 8 SEP (malam): LIMA VIDEO INTEGRAL 480p LENGKAP, SUBTITLE BINTANG DIBERESKAN
 
 Sesi Integral menyelesaikan gelombang 2: 01 (146 s, 11 render), 03 substitusi

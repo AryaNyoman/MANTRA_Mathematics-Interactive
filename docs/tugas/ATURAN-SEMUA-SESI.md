@@ -1,5 +1,45 @@
 # Aturan semua sesi paralel MATRA
 
+> **GELOMBANG 4 (8 Sep 2026): SEMUA 58 VIDEO DITULIS ULANG, STANDAR v3.**
+> Baca `docs/tugas/STANDAR-VIDEO-V3.md` sebelum menyentuh video. Delapan sesi:
+>
+> | Sesi | Cabang | Worktree | Port | Playwright |
+> |---|---|---|---|---|
+> | MANTRA-TRIGONOMETRI | `sesi/trigonometri-video` | `mantra-trigonometri` | 3017 | `-s=mantra-trigonometri` |
+> | MANTRA-LIMIT | `sesi/limit-video` | `mantra-limit` | 3018 | `-s=mantra-limit` |
+> | MANTRA-VEKTOR | `sesi/vektor` | `matra-vektor` | 3010 | `-s=matra-vektor` |
+> | MANTRA-GRAFIK-FUNGSI | `sesi/grafik-fungsi` | `matra-grafik-fungsi` | 3011 | `-s=matra-grafik-fungsi` |
+> | MANTRA-STATISTIKA | `sesi/statistika` | `matra-statistika` | 3012 | `-s=matra-statistika` |
+> | MANTRA-3D | `sesi/ruang-3d` | `matra-ruang-3d` | 3013 | `-s=matra-ruang-3d` |
+> | MANTRA-TRANSFORMASI-GEO | `sesi/transformasi-geometri` | `mantra-transformasi-geometri` | 3014 | `-s=mantra-transformasi` |
+> | MANTRA-TURUNAN | `sesi/turunan-materi` | `materi-turunan-b8c515` | 3015 | `-s=mantra-turunan` |
+> | MANTRA-INTEGRAL | `sesi/integral-materi` | `integral-folder-branch-setup-05863c` | 3016 | `-s=mantra-integral` |
+>
+> Aturan gelombang 4 yang MENGGANTIKAN yang lama di bawah bila bertentangan:
+> 1. Menit pertama: `git merge master` (kalau bentrok, selesaikan; kalau ragu
+>    tanya MASTER lewat pesan antar sesi), lalu baca STANDAR-VIDEO-V3, berkas
+>    tugasmu bagian "Gelombang 4", PELAJARAN-RENDER-TURUNAN, dan catatan
+>    jebakan di `docs/tugas/laporan/` sesi lain.
+> 2. Urutan video mengikuti urutan belajar topikmu (sub-bab), supaya
+>    segar-ingat bersambung. Video PERTAMA berhenti untuk ditonton ARYA;
+>    sesudah disetujui, lanjut per kelompok dua sampai tiga video.
+> 3. Perkakas: `buat_narasi.py` (kata.json), `sinema.JamKata` + `tunggu_kata`,
+>    `buat_subtitle.py` + `alat/cek_subtitle.py`, `cek_waktu_adegan.py` sebelum
+>    render, `cek_layar_kosong.py`, `buat_poster.py`, `cek_aset_video.py`.
+>    JANGAN membuat alat suara atau subtitle sendiri; kalau perkakas bersama
+>    kurang, ajukan diff ke MASTER sebagai commit tersendiri.
+> 4. Render langsung 1080p60 mp4 (`--hd --config_file manim/hd60.yml`, lalu
+>    `gabung_audio.py <video> <Adegan> --keluar <video>.mp4`), plus salinan
+>    480p bersubtitel di `media/uji-480p/<video>-bersubtitle.mp4` untuk ARYA.
+>    mp4 tidak dilacak git: sebutkan lokasinya di laporan supaya MASTER menyalin.
+> 5. SATU render pada satu waktu per sesi; delapan sesi berbagi satu laptop.
+> 6. Lapor ke MASTER lewat pesan antar sesi tiap video selesai (durasi,
+>    lokasi mp4, hasil sepuluh butir daftar periksa v3). MASTER menggabung,
+>    memasang, menayangkan; ISI dinilai ARYA di jendelamu.
+> 7. Video yang sudah tayang boleh dibiarkan sampai penggantinya lolos:
+>    jangan menghapus video lama sebelum yang baru selesai semua gerbangnya.
+
+
 Berlaku untuk: MATRA-VEKTOR, MATRA-GRAFIK-FUNGSI, MATRA-STATISTIKA,
 MATRA-RUANG-TIGA-DIMENSI, MATRA-DESAIN-UI-UX.
 MATRA-MASTER = sesi di `D:\MANIM-MATRA` yang memegang cabang `master`,
@@ -210,6 +250,8 @@ yang dulu adalah jatah sesi lain. Itu sumber tabrakannya.
 | MATRA-DESAIN-UI-UX | 3014 |
 | MANTRA-TURUNAN (sejak 7 Sep 2026) | 3015 |
 | MANTRA-INTEGRAL (sejak 7 Sep 2026) | 3016 |
+| MANTRA-TRIGONOMETRI (sejak 8 Sep 2026) | 3017 |
+| MANTRA-LIMIT (sejak 8 Sep 2026) | 3018 |
 | MATRA-MASTER | 3000 |
 
 Jalankan SELALU dengan port tegas: `cd web && npm run dev -- -p <portmu>`.
