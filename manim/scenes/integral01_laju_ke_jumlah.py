@@ -416,13 +416,16 @@ class IntegralLajuKeJumlah(AdeganMatra):
             b.main(Indicate(r_tinggi, color=AKSEN), run_time=1.2)
             b.tunggu_kata("lebarnya")
             b.main(Indicate(r_lebar, color=AKSEN), run_time=1.4)
-        # Garis laju ikut diperiksa: pada 9 Sep 2026 label "1 bulan" tercoret
-        # garis ini dan lolos, sebab yang diadu cuma label lawan label.
-        qc.periksa_adegan(self, {"label tinggi": l_tinggi, "label lebar": l_lebar,
-                                 "garis laju": g_laju},
-                          [("label tinggi", "label lebar"),
-                           ("label tinggi", "garis laju"),
-                           ("label lebar", "garis laju")],
+        # CATATAN untuk yang datang berikutnya: label lawan GARIS DIAGONAL
+        # tidak bisa dititipkan ke `qc.periksa_adegan`. Yang diadu di situ
+        # kotak batas, dan kotak batas garis laju menutupi hampir seluruh
+        # bidang, jadi label mana pun di bawah garis dituduh bertindih
+        # padahal bersih. Sudah dicoba 9 Sep 2026 dan menggagalkan render
+        # dua kali pada label yang gambarnya baik-baik saja. Yang menangkap
+        # "1 bulan" tercoret garis adalah membuka framenya, lalu mengukur
+        # jalur garisnya (bukan kotaknya) di luar render.
+        qc.periksa_adegan(self, {"label tinggi": l_tinggi, "label lebar": l_lebar},
+                          [("label tinggi", "label lebar")],
                           hud={"identitas": ident2, "papan": panel.semua()},
                           dunia={"papan laju": s_laju})
 
@@ -591,7 +594,11 @@ class IntegralLajuKeJumlah(AdeganMatra):
         tujuh = VGroup(rumus(r"(x^2 + x + 7)'", 30, AKSEN),
                        rumus(r"= 2x + 1", 30, AKSEN))
         tujuh.arrange(DOWN, buff=0.16, aligned_edge=LEFT)
-        tujuh.next_to(s_kel.c2p(-0.25, 7.2), LEFT, buff=0.0)
+        # Ujung kanan di x = -0,60, bukan -0,25: deretan angka sumbu tegak
+        # duduk persis di kiri sumbunya, dan pada -0,25 rumus ini menyenggol
+        # salah satunya sebesar 0,10 x 0,15 satuan layar (diukur, bukan
+        # ditebak, lewat pengaduan lawan tiap angka satu per satu).
+        tujuh.next_to(s_kel.c2p(-0.60, 7.2), LEFT, buff=0.0)
         nol = rumus(r"(\text{tetapan})' = 0", 28, AKSEN)
         nol.next_to(tujuh, DOWN, buff=0.30).align_to(tujuh, LEFT)
         with sinema.babak(self, "tapi", DURASI, kata=KATA) as b:
@@ -605,14 +612,12 @@ class IntegralLajuKeJumlah(AdeganMatra):
             b.main(FadeIn(nol), run_time=1.8)
             b.tunggu_kata("berubah")
             b.main(Indicate(nol, color=SOROT), run_time=1.8)
-        # Angka sumbu ikut diadu: rumus panjang di atas bidang gampang
-        # menutupi angka tegaknya, dan itu terjadi pada render 9 Sep 2026.
-        qc.periksa_adegan(self, {"tujuh": tujuh, "nol": nol,
-                                 "angka sumbu": s_kel.angka,
-                                 "kurva atas": k_atas},
-                          [("tujuh", "nol"), ("tujuh", "angka sumbu"),
-                           ("nol", "angka sumbu"), ("tujuh", "kurva atas"),
-                           ("nol", "kurva atas")],
+        # Lewat `tulisan=`, BUKAN lewat pasangan buatan sendiri: `tulisan`
+        # mengadu tiap ANGKA SUMBU satu per satu, sedangkan pasangan biasa
+        # mengadu kotak batas seluruh kelompok angka, yang menutupi habis
+        # bidangnya dan menuduh rumus mana pun bertindih.
+        qc.periksa_adegan(self, {},
+                          tulisan={"tujuh": tujuh, "nol": nol},
                           hud={"identitas": ident3, "papan": panel.semua()},
                           dunia={"papan keluarga": s_kel})
 
@@ -672,9 +677,8 @@ class IntegralLajuKeJumlah(AdeganMatra):
             b.main(FadeOut(k_atas), FadeOut(k_bawah), run_time=1.4)
             b.tunggu_kata("kecuali")
             b.main(Indicate(asal, color=SOROT, scale_factor=1.8), run_time=1.6)
-        qc.periksa_adegan(self, {"asal": l_asal,
-                                 "angka sumbu": s_kel.angka},
-                          [("asal", "angka sumbu")],
+        qc.periksa_adegan(self, {},
+                          tulisan={"asal": l_asal},
                           hud={"identitas": ident3, "papan": panel.semua()},
                           dunia={"papan keluarga": s_kel})
 
