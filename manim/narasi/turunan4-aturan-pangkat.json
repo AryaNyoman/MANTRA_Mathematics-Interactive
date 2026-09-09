@@ -1,73 +1,172 @@
 {
   "adegan": "TurunanAturanPangkat",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Video 06 topik Turunan, untuk Materi 04 'Aturan pangkat lahir dari definisi'. TANPA 3D. Halaman Materi 04 mengerjakan aljabarnya lengkap, jadi video TIDAK mengulang jabaran itu baris demi baris. Yang dikerjakan video adalah satu hal yang tidak bisa dilakukan tulisan: memperlihatkan suku yang masih memuat h benar-benar MENYUSUT sampai hilang saat h dikecilkan, sementara satu suku yang tidak memuat h sama sekali tidak bergerak. Warnanya membelah dua: TINTA untuk suku yang bertahan, AKSEN merah untuk suku yang akan lenyap. Sesudah itu polanya dijajarkan dan aturannya dinamai. Angkanya sama persis dengan kotak contoh halaman Materi 04, dan diperiksa alat/cek_turunan.py lewat klaim berawalan V04.",
+  "catatan": "Video 04 topik Turunan, Materi 04 'Aturan pangkat lahir dari definisi'. STANDAR v3: 31 segmen, animasi dipicu per kata lewat sinema.JamKata. PENGHUBUNGNYA DIPERBAIKI: naskah lama membuka dengan 'itu pola, bukan bukti' karena video 03 versi lama cuma menyimpulkan 2x dari empat titik. Video 03 versi v3 SUDAH MEMBUKTIKANNYA lewat selisih tinggi dan limit, jadi pembuka lama itu membantah video sebelumnya. Segar-ingat sekarang menyebut nomor dan nama video 03, mengulang cara pembuktiannya secara ringkas, lalu mengajukan pertanyaan yang benar-benar belum dijawab: apakah hitungan panjang itu harus diulang untuk tiap pangkat. Contoh angkanya kemiringan x pangkat tiga di x = 2, dihitung dengan h = 0,1 lalu 0,01, mendekati 12 yang sama dengan 3 kali 2 kuadrat; sesudah itu barulah dibuktikan dengan huruf. Semua angka diperiksa alat/cek_turunan.py lewat klaim berawalan V04.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi keempat: aturan pangkat, lahir dari definisi.",
-      "tulis": "Materi 04: aturan pangkat, lahir dari definisi."
+      "teks": "Materi keempat: aturan pangkat. Apakah setiap pangkat harus dihitung ulang dari nol?",
+      "tulis": "Materi 04: aturan pangkat. Apakah setiap pangkat harus dihitung ulang dari nol?"
     },
     {
-      "id": "pola",
-      "teks": "Di materi sebelumnya kita menyimpulkan dua x hanya dari empat titik. Itu pola, bukan bukti. Sekarang hitungannya diulang dengan x dibiarkan berupa huruf, supaya berlaku untuk semua titik sekaligus.",
-      "tulis": "Materi 03 menyimpulkan 2x dari empat titik. Itu pola, bukan bukti. Kini x dibiarkan berupa huruf."
+      "id": "ingat_tiga",
+      "teks": "Di video ketiga, Turunan sebagai fungsi baru, kita membuktikan bahwa turunan eks kuadrat adalah dua eks.",
+      "tulis": "Di video 3, Turunan sebagai fungsi baru, kita membuktikan bahwa turunan x² adalah 2x."
     },
     {
-      "id": "urai",
-      "teks": "Tinggi di titik sebelah. x tambah h, dikuadratkan, sama dengan x kuadrat tambah dua x h tambah h kuadrat.",
-      "tulis": "(x + h)² = x² + 2xh + h²"
+      "id": "ingat_cara",
+      "teks": "Caranya selisih tinggi dibagi langkah mendatar, lalu ha didekatkan ke nol.",
+      "tulis": "Caranya selisih tinggi dibagi langkah mendatar, lalu h didekatkan ke 0."
     },
     {
-      "id": "selisih",
-      "teks": "Kurangi tinggi semula, yaitu x kuadrat. Yang tersisa dua x h tambah h kuadrat.",
-      "tulis": "Dikurangi x²: sisanya 2xh + h²"
+      "id": "ingat_hasil",
+      "teks": "Hasilnya bukan tebakan dari beberapa titik. Ia berlaku untuk semua eks sekaligus.",
+      "tulis": "Hasilnya bukan tebakan dari beberapa titik. Ia berlaku untuk semua x sekaligus."
     },
     {
-      "id": "bagi",
-      "teks": "Bagi dengan jarak mendatarnya, yaitu h. Hasilnya dua x tambah h.",
-      "tulis": "Dibagi h: hasilnya 2x + h"
+      "id": "masalah",
+      "teks": "Sekarang pertanyaannya. Untuk eks pangkat tiga, eks pangkat empat, dan seterusnya, apakah hitungan panjang itu harus diulang setiap kali?",
+      "tulis": "Sekarang pertanyaannya. Untuk x³, x⁴, dan seterusnya, apakah hitungan panjang itu harus diulang setiap kali?"
+    },
+    {
+      "id": "coba",
+      "teks": "Kita coba dengan angka dulu. Ambil eks pangkat tiga, dan lihat kemiringannya di eks sama dengan dua.",
+      "tulis": "Kita coba dengan angka dulu. Ambil x³, dan lihat kemiringannya di x = 2."
+    },
+    {
+      "id": "angka_awal",
+      "teks": "Di eks sama dengan dua, tingginya dua pangkat tiga, yaitu delapan.",
+      "tulis": "Di x = 2, tingginya 2³, yaitu 8."
+    },
+    {
+      "id": "angka_h1",
+      "teks": "Ambil langkah mendatar nol koma satu. Tinggi di sebelahnya dua koma satu pangkat tiga, yaitu sembilan koma dua enam satu.",
+      "tulis": "Ambil langkah mendatar h = 0,1. Tinggi di sebelahnya 2,1³, yaitu 9,261."
+    },
+    {
+      "id": "angka_bagi1",
+      "teks": "Selisihnya satu koma dua enam satu, dibagi nol koma satu. Hasilnya dua belas koma enam satu.",
+      "tulis": "Selisihnya 1,261, dibagi 0,1. Hasilnya 12,61."
+    },
+    {
+      "id": "angka_h2",
+      "teks": "Langkahnya diperkecil menjadi nol koma nol satu. Kali ini hasilnya dua belas koma nol enam nol satu.",
+      "tulis": "Langkahnya diperkecil menjadi h = 0,01. Kali ini hasilnya 12,0601."
+    },
+    {
+      "id": "angka_dekat",
+      "teks": "Angkanya mendekati dua belas. Dan dua belas itu tiga dikali dua kuadrat.",
+      "tulis": "Angkanya mendekati 12. Dan 12 itu 3 × 2²."
+    },
+    {
+      "id": "belum_bukti",
+      "teks": "Tetapi seperti di video ketiga, angka saja belum membuktikan apa-apa. Kita ulangi dengan huruf.",
+      "tulis": "Tetapi seperti di video 3, angka saja belum membuktikan apa-apa. Kita ulangi dengan huruf."
+    },
+    {
+      "id": "huruf_awal",
+      "teks": "Titik awalnya kita sebut eks, jadi tingginya eks pangkat tiga.",
+      "tulis": "Titik awalnya kita sebut x, jadi tingginya x³."
+    },
+    {
+      "id": "huruf_tetangga",
+      "teks": "Geser mendatar sejauh ha. Titik sebelahnya di eks tambah ha, dan tingginya eks tambah ha, pangkat tiga.",
+      "tulis": "Geser mendatar sejauh h. Titik sebelahnya di x + h, dan tingginya (x + h)³."
+    },
+    {
+      "id": "jabar",
+      "teks": "Jabarannya eks pangkat tiga, tambah tiga eks kuadrat ha, tambah tiga eks ha kuadrat, tambah ha pangkat tiga.",
+      "tulis": "Jabarannya x³ + 3x²h + 3xh² + h³."
+    },
+    {
+      "id": "kurangi",
+      "teks": "Tinggi awalnya eks pangkat tiga. Setelah dikurangi, suku itu habis.",
+      "tulis": "Tinggi awalnya x³. Setelah dikurangi, suku itu habis."
+    },
+    {
+      "id": "sisa",
+      "teks": "Yang tersisa tiga eks kuadrat ha, tambah tiga eks ha kuadrat, tambah ha pangkat tiga.",
+      "tulis": "Yang tersisa 3x²h + 3xh² + h³."
+    },
+    {
+      "id": "bagi_h",
+      "teks": "Karena ha belum nol, ketiganya boleh dibagi ha. Hasilnya tiga eks kuadrat, tambah tiga eks ha, tambah ha kuadrat.",
+      "tulis": "Karena h belum 0, ketiganya boleh dibagi h. Hasilnya 3x² + 3xh + h²."
+    },
+    {
+      "id": "dua_golongan",
+      "teks": "Perhatikan. Satu suku tidak memuat ha sama sekali. Dua suku sisanya masih memuat ha.",
+      "tulis": "Perhatikan. Satu suku tidak memuat h sama sekali. Dua suku sisanya masih memuat h."
     },
     {
       "id": "lenyap",
-      "teks": "Sekarang perhatikan baik-baik. Kalau h dikecilkan, suku yang masih memuat h ikut mengecil sampai hilang. Yang tidak memuat h sama sekali tidak bergerak.",
-      "tulis": "h dikecilkan: suku yang memuat h ikut hilang. Yang tidak memuat h diam saja."
+      "teks": "Begitu ha didekatkan ke nol, kedua suku yang memuat ha ikut menuju nol. Yang tidak memuat ha tidak bergerak sama sekali.",
+      "tulis": "Begitu h didekatkan ke 0, kedua suku yang memuat h ikut menuju 0. Yang tidak memuat h tidak bergerak sama sekali."
     },
     {
-      "id": "dapat",
-      "teks": "Jadi turunan x kuadrat memang dua x, untuk titik mana pun, bukan cuma empat titik tadi.",
-      "tulis": "Jadi turunan x² memang 2x, untuk titik mana pun."
+      "id": "hasil_tiga",
+      "teks": "Jadi turunan eks pangkat tiga adalah tiga eks kuadrat. Di eks sama dengan dua, hasilnya dua belas, sama dengan angka tadi.",
+      "tulis": "Jadi turunan x³ adalah 3x². Di x = 2, hasilnya 12, sama dengan angka tadi."
     },
     {
-      "id": "tiga",
-      "teks": "Diulang untuk x pangkat tiga. Sesudah dibagi h, yang tertinggal tiga x kuadrat, tambah tiga x h, tambah h kuadrat.",
-      "tulis": "Untuk x³, sesudah dibagi h: 3x² + 3xh + h²"
+      "id": "empat",
+      "teks": "Dengan cara yang sama, eks pangkat empat memberi empat eks pangkat tiga.",
+      "tulis": "Dengan cara yang sama, x⁴ memberi 4x³."
     },
     {
-      "id": "duahilang",
-      "teks": "Kali ini ada dua suku yang memuat h, dan keduanya lenyap sekaligus. Sisanya tiga x kuadrat.",
-      "tulis": "Dua suku memuat h, keduanya lenyap. Sisanya 3x²."
+      "id": "jajar_a",
+      "teks": "Sekarang hasilnya kita jajarkan. Eks memberi satu. Eks kuadrat memberi dua eks.",
+      "tulis": "Sekarang hasilnya kita jajarkan. x memberi 1. x² memberi 2x."
     },
     {
-      "id": "jajar",
-      "teks": "Hasil-hasilnya kita jajarkan. x memberi satu. x kuadrat memberi dua x. x pangkat tiga memberi tiga x kuadrat. x pangkat empat memberi empat x pangkat tiga.",
-      "tulis": "x → 1, x² → 2x, x³ → 3x², x⁴ → 4x³"
+      "id": "jajar_b",
+      "teks": "Eks pangkat tiga memberi tiga eks kuadrat. Eks pangkat empat memberi empat eks pangkat tiga.",
+      "tulis": "x³ memberi 3x². x⁴ memberi 4x³."
     },
     {
-      "id": "aturan",
-      "teks": "Polanya jelas. Pangkatnya turun ke depan menjadi pengali, lalu pangkat yang tertinggal berkurang satu.",
-      "tulis": "Aturan pangkat: untuk a·xⁿ berlaku a·n·xⁿ⁻¹."
+      "id": "pola_turun",
+      "teks": "Polanya terbaca. Pangkatnya turun ke depan menjadi pengali.",
+      "tulis": "Polanya terbaca. Pangkatnya turun ke depan menjadi pengali."
     },
     {
-      "id": "contoh",
-      "teks": "Angka di depan hanya ikut terbawa. Lima x pangkat tiga memberi lima kali tiga kali x kuadrat, yaitu lima belas x kuadrat.",
-      "tulis": "5x³ memberi 5 · 3 · x², yaitu 15x²."
+      "id": "pola_kurang",
+      "teks": "Lalu pangkat yang tertinggal berkurang satu.",
+      "tulis": "Lalu pangkat yang tertinggal berkurang satu."
+    },
+    {
+      "id": "umum",
+      "teks": "Ditulis dengan huruf, turunan eks pangkat en adalah en dikali eks pangkat en kurang satu.",
+      "tulis": "Ditulis dengan huruf, turunan xⁿ adalah n·xⁿ⁻¹."
+    },
+    {
+      "id": "pengali",
+      "teks": "Angka di depan hanya ikut terbawa. Turunan a eks pangkat en adalah a dikali en dikali eks pangkat en kurang satu.",
+      "tulis": "Angka di depan hanya ikut terbawa. Turunan a·xⁿ adalah a·n·xⁿ⁻¹."
+    },
+    {
+      "id": "contoh_lima",
+      "teks": "Contohnya lima eks pangkat tiga. Lima dikali tiga adalah lima belas, dan pangkatnya menjadi dua. Hasilnya lima belas eks kuadrat.",
+      "tulis": "Contohnya 5x³. 5 × 3 = 15, dan pangkatnya menjadi 2. Hasilnya 15x²."
     },
     {
       "id": "konstan",
-      "teks": "Satu lagi. Fungsi yang isinya cuma angka, misalnya tujuh, grafiknya garis mendatar. Garis mendatar tidak menanjak dan tidak menurun, jadi turunannya nol.",
-      "tulis": "f(x) = 7 grafiknya garis mendatar, tidak menanjak dan tidak menurun. Turunannya 0."
+      "teks": "Bagaimana kalau fungsinya cuma angka? Grafik ef eks sama dengan tujuh adalah garis mendatar.",
+      "tulis": "Bagaimana kalau fungsinya cuma angka? Grafik f(x) = 7 adalah garis mendatar."
+    },
+    {
+      "id": "konstan_nol",
+      "teks": "Garis mendatar tidak menanjak dan tidak menurun. Kemiringannya nol di mana-mana, jadi turunannya nol.",
+      "tulis": "Garis mendatar tidak menanjak dan tidak menurun. Kemiringannya 0 di mana-mana, jadi turunannya 0."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi aturan pangkat bukan hafalan. Ia hasil hitungan yang sama, diulang sampai polanya terlihat.",
+      "tulis": "Jadi aturan pangkat bukan hafalan. Ia hasil hitungan yang sama, diulang sampai polanya terlihat."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di video kelima, Menurunkan suku demi suku, aturan ini dipakai pada fungsi yang punya banyak suku sekaligus.",
+      "tulis": "Di video 5, Menurunkan suku demi suku, aturan ini dipakai pada fungsi yang punya banyak suku sekaligus."
     }
   ]
 }

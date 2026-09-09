@@ -460,5 +460,57 @@
     "jenis": "turunan",
     "f": "7",
     "jawaban": 0
+  },
+  {
+    "id": "V04-tinggi-di-2",
+    "jenis": "nilai_fungsi",
+    "f": "x**3",
+    "di": 2,
+    "jawaban": 8
+  },
+  {
+    "id": "V04-tinggi-di-2koma1",
+    "jenis": "nilai_fungsi",
+    "f": "x**3",
+    "di": "21/10",
+    "jawaban": "9261/1000"
+  },
+  {
+    "id": "V04-laju-h-01",
+    "jenis": "ekspresi",
+    "hitung": "((21/10)**3 - 2**3)/(1/10)",
+    "jawaban": "1261/100"
+  },
+  {
+    "id": "V04-tinggi-di-2koma01",
+    "jenis": "nilai_fungsi",
+    "f": "x**3",
+    "di": "201/100",
+    "jawaban": "8120601/1000000"
+  },
+  {
+    "id": "V04-laju-h-001",
+    "jenis": "ekspresi",
+    "hitung": "((201/100)**3 - 2**3)/(1/100)",
+    "jawaban": "120601/10000"
+  },
+  {
+    "id": "V04-turunan-di-2",
+    "jenis": "turunan_di",
+    "f": "x**3",
+    "di": 2,
+    "jawaban": 12
+  },
+  {
+    "id": "V04-tiga-kali-dua-kuadrat",
+    "jenis": "ekspresi",
+    "hitung": "3*2**2",
+    "jawaban": 12
+  },
+  {
+    "id": "V04-sisa-pangkat3",
+    "jenis": "ekspresi",
+    "hitung": "expand((x + h)**3 - x**3)",
+    "jawaban": "3*x**2*h + 3*x*h**2 + h**3"
   }
 ]
