@@ -1,0 +1,263 @@
+[
+  {
+    "id": "jejak-0",
+    "jenis": "nilai",
+    "ekspresi": "2*x + 1",
+    "di": "0",
+    "jawaban": "1"
+  },
+  {
+    "id": "jejak-1",
+    "jenis": "nilai",
+    "ekspresi": "2*x + 1",
+    "di": "1",
+    "jawaban": "3"
+  },
+  {
+    "id": "jejak-2",
+    "jenis": "nilai",
+    "ekspresi": "2*x + 1",
+    "di": "2",
+    "jawaban": "5"
+  },
+  {
+    "id": "kuad-0",
+    "jenis": "nilai",
+    "ekspresi": "x**2",
+    "di": "0",
+    "jawaban": "0"
+  },
+  {
+    "id": "kuad-1",
+    "jenis": "nilai",
+    "ekspresi": "x**2",
+    "di": "1",
+    "jawaban": "1"
+  },
+  {
+    "id": "kuad-2",
+    "jenis": "nilai",
+    "ekspresi": "x**2",
+    "di": "2",
+    "jawaban": "4"
+  },
+  {
+    "id": "kuad-m1",
+    "jenis": "nilai",
+    "ekspresi": "x**2",
+    "di": "-1",
+    "jawaban": "1"
+  },
+  {
+    "id": "kuad-m2",
+    "jenis": "nilai",
+    "ekspresi": "x**2",
+    "di": "-2",
+    "jawaban": "4"
+  },
+  {
+    "id": "kuad-pck",
+    "jenis": "puncak",
+    "a": "1",
+    "b": "0",
+    "c": "0",
+    "jawaban": [
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "naik-0",
+    "jenis": "nilai",
+    "ekspresi": "x**2 + 2",
+    "di": "0",
+    "jawaban": "2"
+  },
+  {
+    "id": "naik-1",
+    "jenis": "nilai",
+    "ekspresi": "x**2 + 2",
+    "di": "1",
+    "jawaban": "3"
+  },
+  {
+    "id": "naik-pck",
+    "jenis": "puncak",
+    "a": "1",
+    "b": "0",
+    "c": "2",
+    "jawaban": [
+      "0",
+      "2"
+    ]
+  },
+  {
+    "id": "kurung-3",
+    "jenis": "nilai",
+    "ekspresi": "(x - 3)**2",
+    "di": "3",
+    "jawaban": "0"
+  },
+  {
+    "id": "kurung-4",
+    "jenis": "nilai",
+    "ekspresi": "(x - 3)**2",
+    "di": "4",
+    "jawaban": "1"
+  },
+  {
+    "id": "kurung-2",
+    "jenis": "nilai",
+    "ekspresi": "(x - 3)**2",
+    "di": "2",
+    "jawaban": "1"
+  },
+  {
+    "id": "kurung-pck",
+    "jenis": "puncak",
+    "a": "1",
+    "b": "-6",
+    "c": "9",
+    "jawaban": [
+      "3",
+      "0"
+    ]
+  },
+  {
+    "id": "kiri-m3",
+    "jenis": "nilai",
+    "ekspresi": "(x + 3)**2",
+    "di": "-3",
+    "jawaban": "0"
+  },
+  {
+    "id": "kiri-pck",
+    "jenis": "puncak",
+    "a": "1",
+    "b": "6",
+    "c": "9",
+    "jawaban": [
+      "-3",
+      "0"
+    ]
+  },
+  {
+    "id": "utama-3",
+    "jenis": "nilai",
+    "ekspresi": "2*(x - 3)**2 - 5",
+    "di": "3",
+    "jawaban": "-5"
+  },
+  {
+    "id": "utama-4",
+    "jenis": "nilai",
+    "ekspresi": "2*(x - 3)**2 - 5",
+    "di": "4",
+    "jawaban": "-3"
+  },
+  {
+    "id": "utama-2",
+    "jenis": "nilai",
+    "ekspresi": "2*(x - 3)**2 - 5",
+    "di": "2",
+    "jawaban": "-3"
+  },
+  {
+    "id": "utama-5",
+    "jenis": "nilai",
+    "ekspresi": "2*(x - 3)**2 - 5",
+    "di": "5",
+    "jawaban": "3"
+  },
+  {
+    "id": "utama-1",
+    "jenis": "nilai",
+    "ekspresi": "2*(x - 3)**2 - 5",
+    "di": "1",
+    "jawaban": "3"
+  },
+  {
+    "id": "utama-pck",
+    "jenis": "puncak",
+    "a": "2",
+    "b": "-12",
+    "c": "13",
+    "jawaban": [
+      "3",
+      "-5"
+    ]
+  },
+  {
+    "id": "utama-jabar",
+    "jenis": "ekspresi",
+    "kiri": "2*(x - 3)**2 - 5",
+    "kanan": "2*x**2 - 12*x + 13"
+  },
+  {
+    "id": "simetri-d",
+    "jenis": "ekspresi",
+    "kiri": "((3 + x) - 3)**2",
+    "kanan": "((3 - x) - 3)**2"
+  },
+  {
+    "id": "a3-4",
+    "jenis": "nilai",
+    "ekspresi": "3*(x - 3)**2 - 5",
+    "di": "4",
+    "jawaban": "-2"
+  },
+  {
+    "id": "a3-pck",
+    "jenis": "puncak",
+    "a": "3",
+    "b": "-18",
+    "c": "22",
+    "jawaban": [
+      "3",
+      "-5"
+    ]
+  },
+  {
+    "id": "a03-4",
+    "jenis": "nilai",
+    "ekspresi": "0.3*(x - 3)**2 - 5",
+    "di": "4",
+    "jawaban": "-47/10"
+  },
+  {
+    "id": "amin-4",
+    "jenis": "nilai",
+    "ekspresi": "-2*(x - 3)**2 - 5",
+    "di": "4",
+    "jawaban": "-7"
+  },
+  {
+    "id": "amin-pck",
+    "jenis": "puncak",
+    "a": "-2",
+    "b": "12",
+    "c": "-23",
+    "jawaban": [
+      "3",
+      "-5"
+    ]
+  },
+  {
+    "id": "amin1-4",
+    "jenis": "nilai",
+    "ekspresi": "-1*(x - 3)**2 - 5",
+    "di": "4",
+    "jawaban": "-6"
+  },
+  {
+    "id": "amin1-pck",
+    "jenis": "puncak",
+    "a": "-1",
+    "b": "6",
+    "c": "-14",
+    "jawaban": [
+      "3",
+      "-5"
+    ]
+  }
+]
