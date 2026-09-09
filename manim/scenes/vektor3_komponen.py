@@ -165,9 +165,13 @@ class PecahJadiKomponen(AdeganMatra):
         self.gerbang()
 
         # Sepuluh panah kecil: kenapa menggambar satu per satu melelahkan.
+        # SEPULUH, sebab naratornya berkata sepuluh. Siswa yang teliti menghitung
+        # panah di layar, dan gambar yang membantah narasinya sendiri lebih
+        # merusak daripada gambar yang membosankan.
         acak = [((-3, 0), (-1, 1)), ((-3, 4), (-2, 5)), ((-1, 4), (1, 5)),
                 ((2, 5), (4, 5)), ((5, 1), (5, 3)), ((1, -1), (3, 0)),
-                ((-2, 1), (-1, 3)), ((4, -1), (5, 0))]
+                ((-2, 1), (-1, 3)), ((4, -1), (5, 0)),
+                ((-4, 3), (-3, 4)), ((4, 4), (5, 5))]
         banyak = VGroup(*[panah([a[0], a[1], Z], [c[0], c[1], Z], REDUP, tebal=3)
                           for a, c in acak])
 

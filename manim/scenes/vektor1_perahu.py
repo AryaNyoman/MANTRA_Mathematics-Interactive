@@ -693,9 +693,13 @@ class PerahuVektor(AdeganMatra):
         pj = np.array([-1.9, -0.55, 0.0])
         panah_janji = Arrow(pj, pj + np.array([2.6, 1.4, 0.0]), buff=0,
                             thickness=5).set_color(SOROT).fix_in_frame()
-        langkah1 = Line(pj, pj + np.array([2.6, 0.0, 0.0])).set_stroke(AKSEN, 4).fix_in_frame()
+        # Mendatar BIRU, tegak MERAH: kesepakatan warna proyek (`web/lib/warna.ts`,
+        # `samping` biru untuk sumbu x, `depan` merah untuk sumbu y), dipakai
+        # widget `pecah-komponen` dan video Materi 03. Versi pertama gambar ini
+        # menukar keduanya, jadi peraga "berikutnya" membantah video berikutnya.
+        langkah1 = Line(pj, pj + np.array([2.6, 0.0, 0.0])).set_stroke(AKSEN2, 4).fix_in_frame()
         langkah2 = Line(pj + np.array([2.6, 0.0, 0.0]), pj + np.array([2.6, 1.4, 0.0]))
-        langkah2.set_stroke(AKSEN2, 4).fix_in_frame()
+        langkah2.set_stroke(AKSEN, 4).fix_in_frame()
         janji = VGroup(panah_janji, langkah1, langkah2)
 
         with sinema.babak(self, "tutup1", DURASI, kata=KATA) as b:
