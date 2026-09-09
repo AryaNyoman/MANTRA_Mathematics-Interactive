@@ -51,7 +51,13 @@ ISTILAH: dict[str, tuple[int, str]] = {
     r"aturan hasil kali|aturan hasil bagi": (6, "aturan hasil kali, aturan hasil bagi"),
     r"aturan rantai": (7, "aturan rantai"),
     r"komposisi": (7, "komposisi fungsi"),
-    r"bagian dalam|bagian luar": (7, "bagian dalam, bagian luar"),
+    # Batas kata DAN pengecualian "domain". "Bagian dalam" milik Materi 07
+    # berarti fungsi yang duduk di dalam kurung; "titik bagian dalam domain" di
+    # definisi turunan Materi 02 berarti titik yang bukan tepi daerah asal. Dua
+    # arti, satu ejaan. Tanpa `(?! domain)` alat ini menuduh definisi turunan
+    # memakai istilah aturan rantai, dan perbaikan yang diarahkannya adalah
+    # mengubah kalimat yang sudah benar.
+    r"bagian dalam(?! domain)|bagian luar": (7, "bagian dalam, bagian luar"),
     r"bilangan e\b": (8, "bilangan e"),
     r"persamaan garis singgung|gradien garis singgung": (9, "persamaan garis singgung"),
     r"garis normal": (9, "garis normal"),
@@ -95,6 +101,7 @@ def ambil_teks_tahap() -> list[tuple[int, str, list[str]]]:
     """
     berkas = AKAR / "web" / "content" / "turunan" / "tahap.ts"
     isi = berkas.read_text(encoding="utf-8")
+    asli = isi
 
     # Komentar dibuang lebih dulu: isinya untuk pembuat situs, bukan siswa.
     isi = re.sub(r"/\*.*?\*/", "", isi, flags=re.S)
@@ -109,13 +116,23 @@ def ambil_teks_tahap() -> list[tuple[int, str, list[str]]]:
     isi = re.sub(r"video:\s*\{[^}]*\}", "", isi)
     isi = re.sub(r"^\s*(?:widget|slug):\s*'[^']*',?$", "", isi, flags=re.M)
 
+    # Slug diambil dari teks ASLI, sebelum baris penanda dibuang di atas.
+    # Kalau diambil sesudahnya, laporannya menampilkan "?" untuk semua materi
+    # dan pembacanya kehilangan satu-satunya cara mengenali materi mana yang
+    # dimaksud (terjadi 8 Sep 2026, akibat pembuangan baris `slug:` itu sendiri).
+    slug_per_nomor = {}
+    for bagian in re.split(r"\n  \{\n    no: ", asli)[1:]:
+        nomor = int(bagian.split(",", 1)[0].strip())
+        m = re.search(r"slug: '([a-z-]+)'", bagian)
+        if m:
+            slug_per_nomor[nomor] = m.group(1)
+
     potongan = re.split(r"\n  \{\n    no: ", isi)
     hasil = []
     for bagian in potongan[1:]:
         nomor = int(bagian.split(",", 1)[0].strip())
-        slug = re.search(r"slug: '([a-z-]+)'", bagian)
         kalimat = re.findall(r"'((?:[^'\\]|\\.)*)'", bagian)
-        hasil.append((nomor, slug.group(1) if slug else "?", kalimat))
+        hasil.append((nomor, slug_per_nomor.get(nomor, "?"), kalimat))
     return hasil
 
 

@@ -1,5 +1,26 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 9 SEP: VIDEO 04 TURUNAN v3, DUA ALAT DIPERKUAT LAGI
+
+Sesi Turunan menyetor video 04 standar v3 (4:08, 1080p60, 67 pemicu selisih
+maks 0,031 s, daftar periksa sepuluh butir terisi); digabung dan dipasang di
+master. Penghubungnya dibetulkan: naskah lama membuka "itu pola, bukan bukti"
+padahal video 03 v3 sudah membuktikan rumusnya.
+
+Dua temuan mereka dikerjakan di perkakas bersama:
+- `cek_pemicu_urut.py` kini MERAMALKAN jam adegan dari `run_time` di kode,
+  jadi pemicu yang akan kedahuluan animasi ketahuan SEBELUM render (ambang
+  nol, bukan 0,15: pembulatan frame membesarkan selisih). Uji dua arah di
+  `manim/uji/uji_pemicu_urut.py`.
+- `cek_subtitle.py` menolak vtt basi lewat SIDIK JARI naskah yang ditulis
+  `buat_subtitle` ke dalam vtt. Versi pertama penjaga ini memakai cap waktu
+  berkas dan melaporkan enam video tayang sebagai basi padahal isinya
+  identik (git menggeser cap waktu); ketahuan karena isinya dibandingkan
+  sebelum percaya. Enam puluh video kini lolos.
+Lubang qc yang mereka sebut (tulisan tidak diadu lawan `zona`) belum ditutup
+di perkakas; obat di adegan: daftarkan rumus yang bisa tertindih sebagai
+`tulisan`, bukan `zona`.
+
 ## 9 SEP (dini hari): DUA TAMBALAN PERKAKAS v3 DARI TEMUAN TRANSFORMASI
 
 Sesi Transformasi (gelombang 4 berjalan, video 01 dan 02 sekitar 4,5 menit)
