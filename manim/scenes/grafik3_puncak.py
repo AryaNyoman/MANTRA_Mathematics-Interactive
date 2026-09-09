@@ -121,7 +121,7 @@ class BentukPuncak(AdeganMatra):
         garis_lurus = kurva(lambda t: 2 * t + 1, -2.5, 1.5, AKSEN2, 3.5)
         tl0, tl1 = titik(0, 1, AKSEN2), titik(1, 3, AKSEN2)
         ctl0 = rumus('(0,1)', 26, AKSEN2).next_to(tl0, DR, buff=0.10)
-        ctl1 = rumus('(1,3)', 26, AKSEN2).next_to(tl1, UL, buff=0.10)
+        ctl1 = rumus('(1,3)', 26, AKSEN2).next_to(tl1, UR, buff=0.10)
 
         with self.bagian('jejak') as b:
             b.tunggu_kata('ef eks')
@@ -313,10 +313,10 @@ class BentukPuncak(AdeganMatra):
         # ---- contoh utama: y = 2(x-3)^2 - 5 ----
         kurva_utama = kurva(utama, 1.2, 4.8, TINTA)
         with self.bagian('gabung') as b:
-            self.hilang(b, 'geser_kanan', 'geser_kiri', 'panah_kiri', 'cap_kiri', lama=0.5)
             b.tunggu_kata('pengali')
             self.papan(b, r'y=a(x-h)^2+k', warna=REDUP)
             b.tunggu_kata('Ye sama')
+            self.hilang(b, 'geser_kanan', 'geser_kiri', 'panah_kiri', 'cap_kiri', lama=0.5)
             b.main(ShowCreation(kurva_utama), run_time=1.4)
             self.aktif['kurva_utama'] = kurva_utama
             self.papan(b, 'y=2(x-3)^2-5')
@@ -333,21 +333,19 @@ class BentukPuncak(AdeganMatra):
         tu = [titik(4, -3, AKSEN), titik(2, -3, AKSEN), titik(5, 3, AKSEN2), titik(1, 3, AKSEN2)]
         with self.bagian('contoh_sisi') as b:
             b.tunggu_kata('Satu langkah')
-            langkah_kanan = Arrow(cp(3, -5), cp(4, -5), buff=0).set_stroke(AKSEN, 3)
-            self.muncul(b, langkah_kanan=langkah_kanan, lama=0.9)
             self.papan(b, '2(4-3)^2-5', '=2(1)-5=-3', warna=AKSEN)
             b.tunggu_kata('Hasilnya')
-            self.muncul(b, tu0=tu[0], lama=0.7)
-            self.muncul(b, True, bu1=baris(1, '4', '-3'), lama=0.7)
+            self.muncul(b, tu0=tu[0], lama=0.8)
+            self.muncul(b, True, bu1=baris(1, '4', '-3'), lama=0.8)
+            b.main(Indicate(tu[0], color=AKSEN, scale_factor=2.0), run_time=0.9)
 
         with self.bagian('contoh_kembar') as b:
             b.tunggu_kata('Satu langkah')
-            langkah_kiri = Arrow(cp(3, -5), cp(2, -5), buff=0).set_stroke(AKSEN, 3)
-            self.muncul(b, langkah_kiri=langkah_kiri, lama=0.9)
             self.papan(b, '2(2-3)^2-5', '=2(1)-5=-3', warna=AKSEN)
             b.tunggu_kata('Hasilnya')
-            self.muncul(b, tu1=tu[1], lama=0.7)
-            self.muncul(b, True, bu2=baris(2, '2', '-3'), lama=0.7)
+            self.muncul(b, tu1=tu[1], lama=0.8)
+            self.muncul(b, True, bu2=baris(2, '2', '-3'), lama=0.8)
+            b.main(Indicate(VGroup(tu[0], tu[1]), color=AKSEN, scale_factor=2.0), run_time=0.9)
 
         with self.bagian('contoh_jauh') as b:
             b.tunggu_kata('Dua langkah ke kanan')
@@ -376,9 +374,8 @@ class BentukPuncak(AdeganMatra):
             self.papan(b, r'\text{sumbu simetri}', 'x=3', warna=SOROT)
 
         with self.bagian('kenapa_simetri') as b:
-            self.hilang(b, 'langkah_kanan', 'langkah_kiri', lama=0.4)
-            d_kanan = Arrow(cp(3, -5), cp(4.5, -5), buff=0).set_stroke(AKSEN, 3)
-            d_kiri = Arrow(cp(3, -5), cp(1.5, -5), buff=0).set_stroke(AKSEN2, 3)
+            d_kanan = Arrow(cp(3, -3.2), cp(4.5, -3.2), buff=0).set_stroke(AKSEN, 3)
+            d_kiri = Arrow(cp(3, -3.2), cp(1.5, -3.2), buff=0).set_stroke(AKSEN2, 3)
             cap_dk = rumus('d', 26, AKSEN).next_to(d_kanan, UP, buff=0.10)
             cap_dr = rumus('d', 26, AKSEN2).next_to(d_kiri, UP, buff=0.10)
             b.tunggu_kata('ke kanan')
@@ -440,7 +437,8 @@ class BentukPuncak(AdeganMatra):
 
         with self.bagian('a_minus') as b:
             b.tunggu_kata('dibuat negatif')
-            b.main(ReplacementTransform(a_kecil, a_minus), run_time=2.4)
+            self.hilang(b, 'bayang', lama=0.5)
+            b.main(ReplacementTransform(a_kecil, a_minus), run_time=1.8)
             self.aktif['a_kini'] = a_minus
             b.tunggu_kata('terbuka ke bawah')
             self.papan(b, 'a=-1', r'\text{terbuka ke bawah}', warna=SOROT)
@@ -459,7 +457,7 @@ class BentukPuncak(AdeganMatra):
             self.papan(b, r'h,k:\ \text{letak puncak}', r'\text{tanda }a:\ \text{arah}',
                        r'\text{besar }a:\ \text{lebar}', warna=SOROT)
             b.tunggu_kata('Video berikutnya')
-            self.hilang(b, 'a_kini', 'bayang', 'sumbu_simetri', 'puncak', lama=0.8)
+            self.hilang(b, 'sumbu_simetri', 'cap_simetri', lama=0.8)
             self.papan(b, r'\text{berikutnya}', 'y=ax^2+bx+c', warna=AKSEN)
             b.tunggu_kata('bentuk puncak')
             b.main(Indicate(self.panel, color=AKSEN, scale_factor=1.05), run_time=1.2)
