@@ -76,5 +76,29 @@ kode, keluar = jalankan(p)
 print("4 dengan ke=2:", "LOLOS" if kode == 0 else "GAGAL\n" + keluar)
 assert kode == 0, keluar
 
+# 5. HARUS GAGAL JUGA pada bentuk pembungkus `self.bagian('...')` berkutip
+#    tunggal. Bentuk itu dipakai contoh rujukan turunan2 yang disetujui ARYA.
+#    Sebelum 9 Sep 2026 pemeriksa hanya mengenali `sinema.babak(self, "...")`
+#    berkutip ganda, jadi adegan seperti itu dilaporkan "0 pemicu di 0 babak"
+#    dan LOLOS tanpa diperiksa sama sekali. Uji harus-gagal saja tidak cukup:
+#    tanpa uji ini, regex yang dipersempit lagi tidak akan ketahuan.
+p.write_text(f"TOPIK = '{TOPIK}'\n"
+             f"with self.bagian('{seg}') as b:\n"
+             f"    b.tunggu_kata('{f1}')\n"
+             f"    b.main(FadeIn(x), run_time={jarak + 0.8:.2f})\n"
+             f"    b.tunggu_kata('{f2}')\n", encoding="utf-8")
+kode, keluar = jalankan(p)
+print("5 pembungkus bagian() kutip tunggal:", "DITOLAK" if kode != 0 else "LOLOS (SALAH)")
+assert kode != 0 and "TERLAMBAT" in keluar, keluar
+
+# 6. HARUS GAGAL: berkas ber-TOPIK yang babaknya tidak terbaca sama sekali.
+#    Diam yang terbaca sebagai lulus lebih berbahaya daripada tidak memeriksa.
+p.write_text(f"TOPIK = '{TOPIK}'\n"
+             f"with self.entah_apa('{seg}') as b:\n"
+             f"    b.tunggu_kata('{f1}')\n", encoding="utf-8")
+kode, keluar = jalankan(p)
+print("6 babak tak terbaca:", "DITOLAK" if kode != 0 else "LOLOS (SALAH)")
+assert kode != 0 and "TIDAK ADA babak" in keluar, keluar
+
 p.unlink()
 print("SEMUA UJI CEK PEMICU URUT LOLOS")
