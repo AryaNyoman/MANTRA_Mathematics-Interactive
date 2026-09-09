@@ -45,10 +45,11 @@ memakai angka 4 dan 3, angka yang sama dengan tempat mendarat perahu di video
    memang isi halaman Materi 03. Di sini ia dibuktikan dengan menghitung petak
    dari A(1, 2) ke B(5, 5) lebih dulu, baru diperlihatkan bahwa 4 = 5 - 1.
 
-### Tiga cacat yang ditemukan lembar kontak, dan perbaikannya
+### Empat cacat yang ditemukan lembar kontak, dan perbaikannya
 
-Render 1080p pertama (9 Sep 10.17) lolos semua gerbang otomatis. Lembar
-kontaknya tetap memperlihatkan tiga cacat, dan ketiganya sudah diperbaiki:
+Dua render 1080p pertama lolos SEMUA gerbang otomatis. Lembar kontaknya tetap
+memperlihatkan empat cacat, dan keempatnya sudah diperbaiki. Ini persis alasan
+gerbang video di `CLAUDE.md` ada: "rendered" di log bukan bukti videonya benar.
 
 | Cacat | Buktinya | Perbaikan |
 |---|---|---|
@@ -56,32 +57,86 @@ kontaknya tetap memperlihatkan tiga cacat, dan ketiganya sudah diperbaiki:
 | Perahu 3D terbaca sebagai serpih putih, tiga frame pertama isinya air | Lembar kontak baris 1 | Bingkai kamera 2,8 satuan (dulu 4,4) dan kemiringan 62 derajat (dulu 68). Perahunya sekarang terlihat papan dan dayungnya. Dibuktikan lewat render intip 3 detik sebelum render penuh |
 | Label "3 km" menabrak angka sumbu, terbaca "3 km2" | Lembar kontak, frame detik 182, di tengah dayung diputar | Label tidak boleh duduk di jalur angka sumbu tegak. Yang diperbesar JARAKNYA dari panah, bukan sisinya: menukar sisi membuat label meloncat 1,8 satuan di tengah putaran |
 
-Cacat keempat yang ditemukan sekalian, di adegan video 03 dan belum sempat
-tampil: papan rumus akan menumpuk DELAPAN baris padahal zona kanan atas
-tingginya 2,6 satuan (muat empat). Papan sekarang dikosongkan di tiga tempat.
+| Warna dua langkah pada peraga penutup terbalik | Dibandingkan dengan `web/lib/warna.ts` dan widget `pecah-komponen` | Mendatar BIRU, tegak MERAH. Versi pertama menukar keduanya, jadi peraga "berikutnya" membantah video Materi 03 yang dijanjikannya |
 
-### Beda antara video dan widget, keputusan ARYA
+Catatan jujur soal cacat keempat: di dalam video 01 sendiri, biru berarti
+"dayung" selama empat menit lalu berarti "langkah mendatar" pada sepuluh detik
+terakhir. Saya pilih menyamakan peraga penutup dengan video 03 dan widgetnya,
+sebab tugas peraga itu memang menjanjikan video berikutnya, dan pada peraga itu
+tidak ada dayung maupun arus. Kalau Anda lebih suka peraga penutupnya abu-abu
+saja supaya tidak ikut berwarna, itu satu baris ubahan.
 
-Butir 7 daftar periksa meminta widget materi yang sama dibuka dan dibandingkan.
-Warna dan istilah pokoknya cocok, tetapi ada tiga selisih. Dua yang pertama
-sudah ada sejak video v2, jadi bukan akibat penulisan ulang ini:
+Dua cacat lagi ditemukan di adegan video 03 SEBELUM ia sempat dirender, jadi
+tidak memakan render: papan rumus akan menumpuk DELAPAN baris padahal zona
+kanan atas muat empat (papan sekarang dikosongkan di tiga tempat), dan narator
+berkata "sepuluh panah" padahal yang digambar delapan.
 
-1. **Warna panah hasil.** Video memakai ungu `#6A4C93`, widget memakai hitam
-   `#1F2430` (`WARNA.miring`), dan ungu di widget justru dipakai untuk lintasan
-   perahu (`WARNA.sudut`). Jadi siswa melihat ungu berarti dua hal berbeda.
-   Saran saya: WIDGET yang diseragamkan ke ungu, sebab enam video sudah memakai
-   ungu dan mengubah widget jauh lebih murah daripada merender ulang enam video.
+### Butir 7: kedua widget DIBUKA di peramban, bukan cuma dibaca kodenya
+
+`playwright-cli -s=matra-vektor` pada port 3010, Materi 01 dan Materi 03.
+Yang cocok dengan video: dayung biru `#3A6EA5`, arus merah `#C25E4D`, langkah
+mendatar biru dan langkah tegak merah, istilah "komponen mendatar" dan
+"komponen tegak", penulisan `(4 3)` tanpa koma, dan angka contohnya pun sama
+(widget `pecah-komponen` bawaannya memang `v = (4 3)`, angka yang saya pakai di
+video 03). Yang TIDAK cocok, semuanya sudah begitu sejak sebelum penulisan
+ulang ini:
+
+1. **Warna panah hasil.** Video memakai ungu `#6A4C93`; kedua widget memakai
+   hitam `#1F2430` (`WARNA.miring`). Di widget perahu, ungu justru dipakai
+   untuk lintasan perahu (`WARNA.sudut`), jadi satu warna punya dua makna.
+   Saran: WIDGET yang diseragamkan ke ungu, sebab enam video sudah memakai
+   ungu dan mengubah widget jauh lebih murah daripada merender ulang enam
+   video. Tetapi `WARNA.sudut` sudah terpakai di widget perahu, jadi
+   penggantiannya perlu ditata, bukan ditukar begitu saja. Saya tidak
+   mengubahnya sendiri: itu keputusan Anda dan berkasnya milik bersama.
+
 2. **Cara menggambar Materi 01.** Di video, panah arus berangkat dari UJUNG
-   panah dayung, supaya segitiga siku-sikunya terbentuk dan Pythagoras masuk
-   akal. Di widget, ketiga panah berangkat dari titik yang sama. Dua-duanya
-   benar, tetapi gambarnya berbeda. Widget memang begitu karena kedua panahnya
-   bisa diseret siswa dari satu titik.
-3. **Nama panah hasil.** Widget menyebutnya "gerak nyata", video menyebutnya
+   panah dayung supaya segitiga siku-sikunya terbentuk dan Pythagoras masuk
+   akal. Di widget, ketiga panah berangkat dari titik yang sama, sebab kedua
+   panahnya memang diseret siswa dari satu titik. Dua-duanya benar, tetapi
+   gambarnya berbeda.
+
+3. **Widget Materi 01 sudah memakai notasi yang belum diajarkan.** Panel
+   kendalinya menampilkan `(0 3)` dan `0i + 3j` untuk dayung. Pasangan angka
+   itu isi Materi 03, dan lambang i dan j isi Materi 05. Widget Materi 03 juga
+   menampilkan `4i + 3j` dan "panjang 5" (isi Materi 04 dan 05). Pemeriksa
+   `alat/cek_urutan_vektor.py` tidak menangkapnya sebab ia membaca `tahap.ts`
+   dan naskah video, bukan komponen React.
+
+   Ini melemahkan salah satu keputusan saya: saya sengaja TIDAK memakai
+   pasangan angka (4 3) di video 01 supaya tidak mendahului Materi 03, padahal
+   widget di halaman yang sama sudah menampilkannya. Dua-duanya perlu satu
+   sikap. Menurut saya widgetnya yang sebaiknya menyembunyikan lambang i dan j
+   sampai Materi 05, tetapi panel kendali itu komponen bersama, jadi saya
+   ajukan ke Anda, tidak saya ubah.
+
+4. **Nama panah hasil.** Widget menyebutnya "gerak nyata", video menyebutnya
    "panah ungu" dan "perpindahan sebenarnya". Sebaiknya satu nama saja.
 
-Yang sudah cocok: dayung biru `#3A6EA5`, arus merah `#C25E4D`, "komponen
-mendatar" dan "komponen tegak", dan penulisan `(4  3)` tanpa koma.
+### Sepuluh butir daftar periksa v3, video Materi 01
 
+| # | Butir | Jawab |
+|---|---|---|
+| 1 | Durasi 3 sampai 6 menit, tanpa jeda kosong lebih dari 1,5 detik | YA. 4 menit 56 detik. `cek_layar_kosong.py` lolos, isi area kerja rata-rata 21,79 persen |
+| 2 | Ada segar-ingat yang menyebut nomor dan nama konsep sebelumnya | SEBAGIAN, dan sengaja. Namanya disebut lengkap ("teorema Pythagoras", bunyinya diucapkan utuh), tetapi TANPA nomor materi, sebab ini materi pertama topik: yang diingat prasyaratnya, bekal SMP, dan bekal SMP tidak punya nomor materi MANTRA |
+| 3 | Tiap rumus lahir dari contoh angka yang dihitung di layar | YA. 3² = 9, 4² = 16, 9 + 16 = 25, √25 = 5 dihitung satu per satu di panel, segitiganya dibentuk dulu dari dua gerakan. Bentuk umum √(a² + b²) lahir besar di dekat gambarnya lalu terbang ke panel |
+| 4 | Semua pemicu kata selisih di bawah 0,15 detik | YA. 91 pemicu, terlambat terbesar 0,033 detik |
+| 5 | Subtitle sama huruf demi huruf dengan medan `tulis` | YA. `alat/cek_subtitle.py` lolos, 98 baris |
+| 6 | Lembar kontak dibuka, angka sumbu dibaca, pergantian identitas diperiksa | YA. 74 frame dinilai satu per satu, empat cacat ditemukan dan diperbaiki. Identitas tidak pernah berganti di video ini (hanya "1 petak = 1 km"), jadi tidak ada pergantian yang bisa bersilang |
+| 7 | Widget materi yang sama dibuka, istilah, warna, arah sama | SEBAGIAN. Dibuka dan dinilai; empat selisih di atas, tiga di antaranya sudah ada sebelum penulisan ulang ini |
+| 8 | Klaim angka lolos sympy, urutan istilah lolos | YA. 14 klaim video 01 lolos `alat/cek_vektor.py`; pemeriksanya dibuktikan menolak 13 jawaban yang sengaja salah. `alat/cek_urutan_vektor.py` lolos, dan ia sendiri dibuktikan dua arah |
+| 9 | cek_aset_video, cek_layar_kosong, tsc lolos, medan video terpasang | YA. tsc lolos DAN dibuktikan hidup (kesalahan tipe sengaja ditolak TS2322, lalu dikembalikan). Medan `video` sudah terpasang di `tahap.ts` sejak gelombang 2 |
+| 10 | Keputusan yang disengaja ditulis di laporan | YA, di bagian "Keputusan yang saya ambil sendiri" dan catatan kepala berkas adegannya |
+
+### Butuh MASTER
+
+`alat/cek_aset_video.py` hanya menangkap subtitle yang LEBIH PENDEK daripada
+videonya (`lama - akhir > AMBANG`). Kebalikannya lolos diam-diam: saat naskah
+vektor3-komponen sudah 285 detik sementara videonya masih versi lama 136 detik,
+alat itu menjawab "ok". Pasangan yang jelas-jelas tidak cocok itu justru
+keadaan paling sering terjadi di gelombang 4, sebab tiap sesi menulis naskah
+baru lebih dulu lalu merender belakangan. Sarannya: bandingkan dua arah, dan
+sebut selisihnya. Berkasnya milik MASTER, jadi saya tidak menyentuhnya.
 
 ## Cacat diperbaiki, 01 dan 06 dirender ulang (4 Sep pagi)
 
