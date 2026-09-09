@@ -236,9 +236,17 @@ def buat(topik: str, diam: bool = False) -> Path:
     # jatuh ke pembagian menurut panjang teks seperti dulu.
     jam_kata = json.loads(berkas_kata.read_text(encoding="utf-8")) if berkas_kata.exists() else {}
 
+    # Sidik jari naskah ikut ditulis: `alat/cek_subtitle.py` memakainya untuk
+    # mengenali vtt yang ditinggalkan oleh `buat_subtitle` yang GAGAL, tanpa
+    # bergantung pada cap waktu berkas (cap waktu digeser git checkout dan
+    # merge; penjaga versi cap waktu melaporkan enam video tayang sebagai basi
+    # padahal isinya identik, 9 Sep 2026).
+    sys.path.insert(0, str(AKAR / "alat"))
+    from cek_subtitle import sidik_naskah  # noqa: E402
     baris = ["WEBVTT", "",
              f"NOTE Dibuat otomatis dari manim/narasi/{topik}.json"
-             + (" (waktu kata rekaman)" if jam_kata else ""), ""]
+             + (" (waktu kata rekaman)" if jam_kata else ""),
+             f"NOTE naskah-sidik {sidik_naskah(berkas_naskah)}", ""]
     jalan = 0.0
     nomor = 0
     cue_kata: list[tuple[float, float, str]] = []

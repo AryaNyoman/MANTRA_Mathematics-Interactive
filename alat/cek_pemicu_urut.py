@@ -43,8 +43,10 @@ AKAR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(AKAR / "manim"))
 
 BABAK = re.compile(r'sinema\.babak\(\s*self,\s*"([^"]+)"')
-TUNGGU = re.compile(r'\.tunggu_kata\(\s*"([^"]+)"')
+TUNGGU = re.compile(r'\.tunggu_kata\(\s*"([^"]+)"(?:\s*,\s*ke\s*=\s*(\d+))?')
 TOPIK_BARIS = re.compile(r'^TOPIK\s*=\s*"([^"]+)"', re.M)
+# run_time= pada baris animasi, untuk MERAMALKAN jam adegan tanpa render.
+RUN_TIME = re.compile(r'run_time\s*=\s*([0-9.]+)')
 
 
 def periksa(jalur: Path) -> int:
@@ -58,39 +60,69 @@ def periksa(jalur: Path) -> int:
     from gl import sinema
     jam = sinema.JamKata(topik)
 
+    # Kejadian per babak, urut: ("tunggu", frasa, ke) atau ("animasi", detik).
     segmen_kini = None
-    urut: dict[str, list[str]] = {}
+    urut: dict[str, list[tuple]] = {}
     for baris in isi.split("\n"):
         b = BABAK.search(baris)
         if b:
             segmen_kini = b.group(1)
             urut.setdefault(segmen_kini, [])
+        if not segmen_kini:
+            continue
         t = TUNGGU.search(baris)
-        if t and segmen_kini:
-            urut[segmen_kini].append(t.group(1))
+        if t:
+            urut[segmen_kini].append(("tunggu", t.group(1), int(t.group(2) or 1)))
+            continue
+        r = RUN_TIME.search(baris)
+        if r:
+            urut[segmen_kini].append(("animasi", float(r.group(1))))
 
     buruk = 0
-    for segmen, frasa in urut.items():
+    for segmen, kejadian in urut.items():
+        # RAMALAN JAM ADEGAN, tanpa render (usul sesi Turunan, video 04):
+        # jalan dari awal audio segmen; tiap run_time memajukan jam, tiap
+        # tunggu_kata melompat ke detik katanya. Kalau jam sudah MELEWATI
+        # detik kata itu, render akan gagal di `tunggu_kata` sekarang juga.
+        # Ambangnya NOL, bukan 0,15: pembulatan frame membuat selisih 0,04
+        # di kertas menjadi 0,19 saat render.
+        try:
+            jam_kini = jam.mulai(segmen)
+        except KeyError:
+            buruk += 1
+            print(f"  HILANG  segmen {segmen!r} tidak ada di kata.json")
+            continue
         sebelum_nama, sebelum_jam = None, None
-        for f in frasa:
+        for k in kejadian:
+            if k[0] == "animasi":
+                jam_kini += k[1]
+                continue
+            _, f, ke = k
             try:
-                saat = jam.jam(segmen, f)
+                saat = jam.jam(segmen, f, ke=ke)
             except Exception as e:
                 buruk += 1
-                print(f"  HILANG  {segmen}: {f!r} -> {str(e)[:90]}")
+                print(f"  HILANG  {segmen}: {f!r} (ke={ke}) -> {str(e)[:90]}")
                 continue
             if sebelum_jam is not None and saat <= sebelum_jam:
                 buruk += 1
                 print(f"  MUNDUR  {segmen}: {f!r} di {saat:.2f} s, padahal "
                       f"{sebelum_nama!r} sudah di {sebelum_jam:.2f} s")
-                if f == sebelum_nama:
-                    print(f"          frasanya SAMA. `tunggu_kata` selalu mengambil "
-                          f"kemunculan pertama; pakai frasa lain yang muncul sesudahnya.")
+                if f == sebelum_nama and ke == 1:
+                    print("          frasanya SAMA. Pakai `ke=2` untuk kemunculan kedua, "
+                          "atau frasa lain yang diucapkan sesudahnya.")
+            elif jam_kini > saat + 1e-9:
+                buruk += 1
+                print(f"  TERLAMBAT {segmen}: {f!r} diucapkan detik {saat:.2f}, tetapi "
+                      f"animasi sebelumnya membawa jam ke {jam_kini:.2f} "
+                      f"(kelebihan {jam_kini - saat:.2f} s). Pendekkan animasi sebelum pemicu ini.")
+            jam_kini = max(jam_kini, saat)
             sebelum_nama, sebelum_jam = f, saat
 
-    jumlah = sum(len(v) for v in urut.values())
+    jumlah = sum(1 for v in urut.values() for k in v if k[0] == "tunggu")
     print(f"{jalur.name}: {jumlah} pemicu di {len(urut)} babak, "
-          + ("semuanya maju terus" if buruk == 0 else f"{buruk} bermasalah"))
+          + ("semuanya maju terus dan tidak ada yang terlambat" if buruk == 0
+             else f"{buruk} bermasalah"))
     return buruk
 
 

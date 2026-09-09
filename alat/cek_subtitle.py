@@ -33,6 +33,18 @@ ANIM = AKAR / "web" / "public" / "anim"
 NASKAH = AKAR / "manim" / "narasi"
 
 
+def sidik_naskah(jalur) -> str:
+    """Sidik jari 12 huruf dari medan `tulis` naskah, ditulis ke dalam vtt.
+
+    Yang disidik hanya teks yang MENENTUKAN subtitle, jadi mengubah komentar
+    atau merapikan spasi di naskah tidak membuat vtt dianggap basi.
+    """
+    import hashlib
+    seg = json.loads(Path(jalur).read_text(encoding="utf-8"))["segmen"]
+    bahan = " ".join(_tulis(s) for s in seg)
+    return hashlib.sha256(bahan.encode("utf-8")).hexdigest()[:12]
+
+
 def _tulis(seg: dict) -> str:
     return seg.get("tulis") or seg.get("layar") or seg.get("subtitle") or seg["teks"]
 
@@ -69,6 +81,21 @@ def periksa(topik: str) -> list[str]:
         return [f"vtt tidak ada: {vtt}"]
     segmen = json.loads(naskah.read_text(encoding="utf-8"))["segmen"]
     isi = vtt.read_text(encoding="utf-8")
+    # VTT BASI: `buat_subtitle` yang GAGAL meninggalkan berkas lama di tempatnya,
+    # dan membandingkannya menuduh naskah tidak cocok padahal yang dibaca berkas
+    # versi sebelumnya (temuan sesi Turunan, video 04, 9 Sep 2026).
+    #
+    # Yang dibandingkan SIDIK JARI naskah yang ditulis `buat_subtitle` ke dalam
+    # vtt, bukan cap waktu berkas: cap waktu digeser oleh git checkout dan merge,
+    # dan versi pertama penjaga ini melaporkan enam video tayang sebagai basi
+    # padahal isinya identik. Vtt lama tanpa sidik jari dilewati, bukan dituduh.
+    cap = re.search(r"^NOTE naskah-sidik ([0-9a-f]{12})$", isi, re.M)
+    if cap:
+        kini = sidik_naskah(naskah)
+        if cap.group(1) != kini:
+            return [f"vtt dibuat dari naskah versi LAIN (sidik {cap.group(1)}, naskah "
+                    f"sekarang {kini}). Jalankan `python manim/buat_subtitle.py {topik}`; "
+                    f"kalau alat itu GAGAL, perbaiki naskahnya, jangan membaca vtt lama ini."]
     cue = _cue(isi)
     temuan = []
     if "*" in "".join(c[2] for c in cue):
