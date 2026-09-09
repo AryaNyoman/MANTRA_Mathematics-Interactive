@@ -1,219 +1,456 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/grafik3-puncak.json
+NOTE Dibuat otomatis dari manim/narasi/grafik3-puncak.json (waktu kata rekaman)
+NOTE naskah-sidik 650d738904ca
 
 1
-00:00:00.000 --> 00:00:03.365
-Materi tiga: <b>parabola dan bentuk puncak</b>.
+00:00:00.101 --> 00:00:01.672
+Ini sebuah parabola.
 
 2
-00:00:03.365 --> 00:00:07.824
-Satu rumus yang puncaknya bisa dibaca tanpa dihitung.
+00:00:02.421 --> 00:00:04.626
+Ubah satu angka saja di dalam rumusnya,
 
 3
-00:00:07.824 --> 00:00:11.553
-Bola basket yang dilempar membentuk lengkung.
+00:00:04.626 --> 00:00:06.755
+dan seluruh kurvanya pindah tempat.
 
 4
-00:00:11.553 --> 00:00:15.615
-Air mancur juga, dan kabel jembatan gantung juga.
+00:00:07.486 --> 00:00:10.438
+Kenapa satu angka bisa memindahkan seluruh parabola?
 
 5
-00:00:15.615 --> 00:00:19.344
-Ketiganya bentuk yang sama, namanya <b>parabola</b>.
+00:00:11.682 --> 00:00:13.790
+Di materi dua, potret sebuah aturan,
 
 6
-00:00:19.344 --> 00:00:23.901
-Lintasan tadi kita pindahkan ke bidang datar.
+00:00:13.790 --> 00:00:16.600
+kita menyimpulkan bahwa fungsi itu sebuah mesin,
 
 7
-00:00:23.901 --> 00:00:26.231
-Dan rumusnya kita tulis
+00:00:16.600 --> 00:00:17.946
+dan grafik adalah jejak
 
 8
-00:00:26.231 --> 00:00:29.573
-dalam bentuk yang paling berguna:
+00:00:17.946 --> 00:00:20.438
+dari menjalankan mesin itu berkali-kali.
 
 9
-00:00:29.573 --> 00:00:31.396
-y = a(x - h)² + k.
+00:00:21.185 --> 00:00:24.128
+Itu yang kita pakai hari ini: ubah aturannya,
 
 10
-00:00:31.396 --> 00:00:33.624
-Namanya <b>bentuk puncak</b>.
+00:00:24.128 --> 00:00:25.717
+jejaknya ikut berubah.
 
 11
-00:00:33.624 --> 00:00:36.375
-Kenapa disebut bentuk puncak?
+00:00:26.935 --> 00:00:30.111
+Mesinnya waktu itu f(x) = 2x + 1.
 
 12
-00:00:36.375 --> 00:00:38.936
-Perhatikan bagian (x - h)².
+00:00:30.844 --> 00:00:33.020
+Masukkan nol, keluar satu.
 
 13
-00:00:38.936 --> 00:00:43.869
-Apa pun isinya, dikuadratkan pasti nol atau positif.
+00:00:33.753 --> 00:00:36.166
+Masukkan satu, keluar tiga.
 
 14
-00:00:43.869 --> 00:00:46.430
-Jadi nilai terkecilnya <b>nol</b>,
+00:00:36.897 --> 00:00:38.995
+Titik-titiknya berjajar lurus.
 
 15
-00:00:46.430 --> 00:00:49.560
-dan itu hanya terjadi saat x = h.
+00:00:40.201 --> 00:00:42.088
+Sekarang mesinnya kita ganti.
 
 16
-00:00:49.560 --> 00:00:55.038
-Lemparan tadi rumusnya y = -(x - 1)² + 4.
+00:00:42.822 --> 00:00:46.064
+Aturan barunya: kalikan x dengan dirinya sendiri.
 
 17
-00:00:55.038 --> 00:00:57.844
-Jadi h = 1 dan k = 4.
+00:00:46.796 --> 00:00:48.920
+Ditulis y = x².
 
 18
-00:00:57.844 --> 00:01:02.520
-Puncaknya <b>langsung terbaca</b>: (1, 4).
+00:00:50.135 --> 00:00:51.485
+Kita jalankan.
 
 19
-00:01:02.520 --> 00:01:06.528
-Tidak ada yang perlu dihitung.
+00:00:52.123 --> 00:00:54.378
+Masukkan nol, hasilnya nol.
 
 20
-00:01:06.528 --> 00:01:11.074
-Sekarang uji ke kiri dan ke kanannya.
+00:00:55.111 --> 00:00:57.669
+Masukkan satu, hasilnya satu.
 
 21
-00:01:11.074 --> 00:01:13.040
-x = 0 memberi 3.
+00:00:58.400 --> 00:01:02.011
+Masukkan dua, dua kali dua, hasilnya empat.
 
 22
-00:01:13.040 --> 00:01:15.006
-x = 2 memberi 3.
+00:01:03.233 --> 00:01:04.831
+Sekarang yang negatif.
 
 23
-00:01:15.006 --> 00:01:17.095
-x = -1 memberi 0.
+00:01:05.566 --> 00:01:08.650
+Minus satu kali minus satu, hasilnya satu.
 
 24
-00:01:17.095 --> 00:01:19.061
-x = 3 memberi 0.
+00:01:09.381 --> 00:01:11.070
+Minus dua memberi empat.
 
 25
-00:01:19.061 --> 00:01:22.255
-Yang <b>sama jauhnya</b> dari x =
+00:01:11.803 --> 00:01:14.361
+Tanda minusnya hilang begitu dikuadratkan.
 
 26
-00:01:22.255 --> 00:01:26.064
-1 selalu punya nilai yang sama.
+00:01:15.568 --> 00:01:17.507
+Titik-titiknya kita hubungkan.
 
 27
-00:01:26.064 --> 00:01:28.443
-Kesamaan berpasangan itulah yang
+00:01:18.256 --> 00:01:20.014
+Yang terbentuk bukan garis lurus,
 
 28
-00:01:28.443 --> 00:01:31.120
-membuat parabola terlihat setangkup.
+00:01:20.014 --> 00:01:22.827
+melainkan lengkung simetris yang namanya parabola.
 
 29
-00:01:31.120 --> 00:01:33.276
-Garis tegak x = 1 membelahnya
+00:01:24.049 --> 00:01:27.607
+Titik terendahnya di (0, 0), dan itu bukan kebetulan.
 
 30
-00:01:33.276 --> 00:01:35.878
-jadi dua sisi yang saling bayangan.
+00:01:28.354 --> 00:01:32.089
+x² tidak pernah negatif, jadi nilai terkecilnya nol,
 
 31
-00:01:35.878 --> 00:01:38.257
-Garis itu namanya <b>sumbu simetri</b>,
+00:01:32.089 --> 00:01:34.610
+dan itu hanya terjadi saat x = 0.
 
 32
-00:01:38.257 --> 00:01:40.488
-dan ia selalu lewat puncaknya.
+00:01:35.835 --> 00:01:37.491
+Tetapi parabola di dunia nyata
 
 33
-00:01:40.488 --> 00:01:43.394
-Tinggal satu huruf yang belum dibahas: a.
+00:01:37.491 --> 00:01:39.077
+jarang duduk di titik nol.
 
 34
-00:01:43.394 --> 00:01:46.583
-Supaya jelas, puncaknya kita kunci di (1, 1),
+00:01:39.811 --> 00:01:41.080
+Bola basket yang dilempar
 
 35
-00:01:46.583 --> 00:01:49.560
-dan mulai sekarang <b>hanya a yang kita ubah</b>.
+00:01:41.080 --> 00:01:43.158
+mencapai puncaknya di tengah lapangan.
 
 36
-00:01:49.560 --> 00:01:51.440
-Kita besarkan a jadi 3.
+00:01:44.367 --> 00:01:46.332
+Memindahkan ke atas paling mudah.
 
 37
-00:01:51.440 --> 00:01:54.465
-Puncaknya tidak bergeser sedikit pun,
+00:01:47.068 --> 00:01:50.573
+Tambahkan dua: y = x² + 2.
 
 38
-00:01:54.465 --> 00:01:57.654
-tapi parabolanya jadi <b>sempit dan curam</b>.
+00:01:51.305 --> 00:01:53.078
+Di x = 0 tingginya kini dua,
 
 39
-00:01:57.654 --> 00:01:58.854
-Masuk akal:
+00:01:53.078 --> 00:01:56.205
+dan setiap tinggi yang lain juga bertambah dua.
 
 40
-00:01:58.854 --> 00:02:02.232
-tiap langkah menjauh dari puncak dikalikan 3.
+00:01:56.935 --> 00:01:58.796
+Seluruh kurvanya naik dua.
 
 41
-00:02:02.232 --> 00:02:05.262
-Sekarang kita kecilkan a jadi 0,3.
+00:02:00.001 --> 00:02:02.059
+Pertanyaan berikutnya lebih licin.
 
 42
-00:02:05.262 --> 00:02:08.470
-Puncaknya tetap di tempat yang sama,
+00:02:02.793 --> 00:02:04.890
+Bagaimana memindahkannya ke samping?
 
 43
-00:02:08.470 --> 00:02:11.857
-tapi parabolanya <b>melebar dan melandai</b>.
+00:02:05.637 --> 00:02:08.255
+Menambah angka di ujung tadi hanya menaikkan,
 
 44
-00:02:11.857 --> 00:02:14.352
-Makin kecil a, makin landai.
+00:02:08.255 --> 00:02:09.605
+ia tidak menggeser.
 
 45
-00:02:14.352 --> 00:02:16.519
-Terakhir, a dibuat negatif.
+00:02:10.701 --> 00:02:11.901
+Caranya,
 
 46
-00:02:16.519 --> 00:02:19.650
-Parabolanya <b>berbalik</b>, terbuka ke bawah,
+00:02:11.901 --> 00:02:15.272
+angkanya dimasukkan ke dalam kurung yang dikuadratkan.
 
 47
-00:02:19.650 --> 00:02:23.584
-dan puncaknya berubah peran: tadi titik terendah,
+00:02:15.283 --> 00:02:20.525
+y = (x − 3)².
 
 48
-00:02:23.584 --> 00:02:25.591
-sekarang titik tertinggi.
+00:02:21.733 --> 00:02:23.083
+Kita hitung.
 
 49
-00:02:25.591 --> 00:02:28.320
-Persis seperti lemparan bola tadi.
+00:02:23.724 --> 00:02:28.019
+Di x = 3, isi kurungnya nol, jadi tingginya nol.
 
 50
-00:02:28.320 --> 00:02:30.097
-Jadi dari satu rumus,
+00:02:28.750 --> 00:02:32.308
+Di x = 4 isinya satu, kuadratnya satu.
 
 51
-00:02:30.097 --> 00:02:33.312
-tiga hal bisa dibaca tanpa menghitung.
+00:02:33.040 --> 00:02:36.993
+Di x = 2 isinya minus satu, kuadratnya juga satu.
 
 52
-00:02:33.312 --> 00:02:36.019
-h dan k memberi letak puncaknya.
+00:02:38.201 --> 00:02:41.220
+Jadi titik terendahnya sekarang di x = 3.
 
 53
-00:02:36.019 --> 00:02:38.642
-Tanda a memberi arah bukaannya.
+00:02:41.968 --> 00:02:44.261
+Perhatikan baik-baik: tandanya minus,
 
 54
-00:02:38.642 --> 00:02:41.688
-Dan besar a memberi lebar sempitnya.
+00:02:44.261 --> 00:02:46.579
+tetapi parabolanya pindah ke kanan.
+
+55
+00:02:47.768 --> 00:02:48.968
+Terasa terbalik,
+
+56
+00:02:48.968 --> 00:02:51.389
+dan di sinilah paling banyak yang keliru.
+
+57
+00:02:51.810 --> 00:02:53.750
+Padahal alasannya sederhana.
+
+58
+00:02:54.496 --> 00:02:57.372
+Titik terendah terjadi saat isi kurungnya nol,
+
+59
+00:02:57.372 --> 00:02:59.961
+dan x − 3 bernilai nol saat x-nya tiga.
+
+60
+00:03:01.167 --> 00:03:02.646
+Coba yang sebaliknya.
+
+61
+00:03:03.396 --> 00:03:07.796
+Kalau kurungnya x + 3, isinya nol saat x = −3.
+
+62
+00:03:08.526 --> 00:03:10.965
+Jadi kali ini parabolanya pindah ke kiri.
+
+63
+00:03:12.182 --> 00:03:13.913
+Jadi bukan tandanya yang dibaca,
+
+64
+00:03:13.913 --> 00:03:16.767
+melainkan angka yang membuat isi kurungnya kosong.
+
+65
+00:03:17.982 --> 00:03:20.638
+Sekarang kedua perpindahan itu dipakai bersama,
+
+66
+00:03:20.638 --> 00:03:22.540
+ditambah satu pengali di depan.
+
+67
+00:03:23.273 --> 00:03:28.489
+y = 2(x − 3)² − 5.
+
+68
+00:03:29.716 --> 00:03:33.791
+Di x = 3, isi kurungnya nol, dikuadratkan tetap nol,
+
+69
+00:03:33.791 --> 00:03:36.997
+dikali dua tetap nol, lalu kurang lima.
+
+70
+00:03:37.729 --> 00:03:39.366
+Hasilnya −5.
+
+71
+00:03:40.568 --> 00:03:43.402
+Satu langkah ke kanan, x = 4.
+
+72
+00:03:44.151 --> 00:03:46.828
+Isi kurungnya satu, kuadratnya satu,
+
+73
+00:03:46.828 --> 00:03:49.432
+dikali dua jadi dua, kurang lima.
+
+74
+00:03:50.161 --> 00:03:51.785
+Hasilnya −3.
+
+75
+00:03:53.001 --> 00:03:55.809
+Satu langkah ke kiri, x = 2.
+
+76
+00:03:56.558 --> 00:04:00.129
+Isi kurungnya minus satu, tetapi kuadratnya tetap satu.
+
+77
+00:04:00.859 --> 00:04:03.772
+Hasilnya −3 juga, sama persis.
+
+78
+00:04:04.968 --> 00:04:09.013
+Dua langkah ke kanan, x = 5, hasilnya tiga.
+
+79
+00:04:09.747 --> 00:04:14.081
+Dua langkah ke kiri, x = 1, hasilnya tiga juga.
+
+80
+00:04:15.316 --> 00:04:18.225
+Yang sama jauhnya dari x = 3 selalu berpasangan,
+
+81
+00:04:18.225 --> 00:04:21.466
+dan itulah yang membuat parabola terlihat simetris.
+
+82
+00:04:22.199 --> 00:04:23.976
+Garis tegak x = 3 membelahnya
+
+83
+00:04:23.976 --> 00:04:26.454
+menjadi dua sisi yang saling bayangan.
+
+84
+00:04:27.184 --> 00:04:28.847
+Namanya sumbu simetri.
+
+85
+00:04:30.068 --> 00:04:31.744
+Kenapa selalu berpasangan?
+
+86
+00:04:32.478 --> 00:04:35.352
+Melangkah sejauh d ke kanan membuat isi kurungnya d.
+
+87
+00:04:36.084 --> 00:04:38.326
+Ke kiri, isinya −d.
+
+88
+00:04:39.072 --> 00:04:41.339
+Dikuadratkan keduanya menjadi d²,
+
+89
+00:04:41.339 --> 00:04:43.275
+jadi tingginya pasti sama.
+
+90
+00:04:44.467 --> 00:04:46.315
+Sekarang dari angka ke huruf.
+
+91
+00:04:47.050 --> 00:04:52.029
+y = a(x − h)² + k.
+
+92
+00:04:52.775 --> 00:04:56.688
+Puncaknya di (h, k), sumbu simetrinya x = h.
+
+93
+00:04:57.418 --> 00:05:00.121
+Itu sebabnya rumus ini disebut bentuk puncak.
+
+94
+00:05:01.349 --> 00:05:04.060
+Tinggal satu huruf yang belum dibahas, yaitu a.
+
+95
+00:05:04.060 --> 00:05:07.696
+Puncaknya kita kunci, lalu a dibesarkan menjadi tiga.
+
+96
+00:05:08.444 --> 00:05:10.535
+Puncaknya tidak bergeser sedikit pun,
+
+97
+00:05:10.535 --> 00:05:13.173
+tetapi parabolanya menjadi sempit dan curam.
+
+98
+00:05:14.382 --> 00:05:16.412
+Sebabnya terbaca dari hitungannya:
+
+99
+00:05:16.412 --> 00:05:18.532
+setiap ketinggian dikalikan tiga.
+
+100
+00:05:19.265 --> 00:05:22.165
+Sekarang a dikecilkan menjadi 0,3.
+
+101
+00:05:22.911 --> 00:05:24.312
+Ketinggiannya tertekan,
+
+102
+00:05:24.312 --> 00:05:26.838
+dan parabolanya melebar serta melandai.
+
+103
+00:05:28.068 --> 00:05:30.376
+Terakhir, a dibuat negatif.
+
+104
+00:05:31.125 --> 00:05:33.042
+Setiap ketinggian berganti tanda,
+
+105
+00:05:33.042 --> 00:05:35.772
+jadi parabolanya berbalik dan terbuka ke bawah,
+
+106
+00:05:35.772 --> 00:05:38.130
+dan puncaknya menjadi titik tertinggi.
+
+107
+00:05:38.860 --> 00:05:40.576
+Persis lemparan bola tadi.
+
+108
+00:05:41.782 --> 00:05:44.851
+Jadi satu rumus memberi tiga hal tanpa dihitung:
+
+109
+00:05:44.851 --> 00:05:47.919
+h dan k letak puncaknya, tanda a arah bukaannya,
+
+110
+00:05:47.919 --> 00:05:49.269
+besar a lebarnya.
+
+111
+00:05:49.903 --> 00:05:51.214
+Video berikutnya,
+
+112
+00:05:51.214 --> 00:05:54.530
+rumus yang datang sebagai y = ax² + bx + c,
+
+113
+00:05:54.530 --> 00:05:57.225
+kita kembalikan ke bentuk puncak.

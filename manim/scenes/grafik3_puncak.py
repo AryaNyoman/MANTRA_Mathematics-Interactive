@@ -85,7 +85,7 @@ class BentukPuncak(AdeganMatra):
             b.tunggu_kata('dalam rumusnya')
             b.main(Indicate(self.panel, color=SOROT, scale_factor=1.06), run_time=1.0)
             b.tunggu_kata('seluruh kurvanya')
-            b.main(Transform(pembuka_kanan, pembuka_kiri), run_time=1.8)
+            b.main(Transform(pembuka_kanan, pembuka_kiri), run_time=1.4)
             self.papan(b, 'y=(x-1)^2', warna=AKSEN)
             b.tunggu_kata('Kenapa satu')
             self.papan(b, r'\text{satu angka}', r'\text{seluruh kurva pindah?}', warna=SOROT)
@@ -102,8 +102,8 @@ class BentukPuncak(AdeganMatra):
         cap_keluar = sinema.label('keluar', warna=REDUP).scale(0.75).next_to(panah_keluar, UP, buff=0.10)
 
         with self.bagian('ingat') as b:
-            self.hilang(b, 'kurva')
             b.tunggu_kata('materi dua')
+            self.hilang(b, 'kurva')
             self.papan(b, r'\text{Materi 02}', r'\text{potret sebuah aturan}')
             b.tunggu_kata('sebuah mesin')
             self.muncul(b, mesin=kotak_mesin, masuk=panah_masuk, keluar=panah_keluar)
@@ -140,8 +140,8 @@ class BentukPuncak(AdeganMatra):
 
         # ---- mesin baru: y = x^2 ----
         with self.bagian('mesin_baru') as b:
-            self.hilang(b, 'garis_lurus', 'tl0', 'tl1', 'ctl0', 'ctl1')
             b.tunggu_kata('Sekarang mesinnya')
+            self.hilang(b, 'garis_lurus', 'tl0', 'tl1', 'ctl0', 'ctl1')
             b.main(Indicate(kotak_mesin, color=AKSEN, scale_factor=1.10), run_time=1.1)
             b.tunggu_kata('kalikan')
             b.main(Transform(isi_mesin, rumus(r'x\times x', 30, AKSEN).move_to(kotak_mesin)),
@@ -228,7 +228,7 @@ class BentukPuncak(AdeganMatra):
             self.papan(b, 'y=x^2+2', warna=AKSEN)
             b.tunggu_kata('Di eks')
             self.muncul(b, bayang_naik=bayang_naik, lama=0.5)
-            b.main(ReplacementTransform(parabola.copy(), naik), run_time=2.2)
+            b.main(ReplacementTransform(parabola.copy(), naik), run_time=1.9)
             self.aktif['naik'] = naik
             b.tunggu_kata('setiap tinggi')
             self.muncul(b, panah_naik=panah_naik, lama=1.2)
@@ -297,9 +297,8 @@ class BentukPuncak(AdeganMatra):
             self.hilang(b, 'panah_kanan', 'cap_kanan', *[f'tg{i}' for i in range(3)],
                         *[f'bg{i}' for i in range(3)], 'kepala', lama=0.4)
             b.tunggu_kata('kurungnya eks')
-            b.main(ShowCreation(geser_kiri), run_time=1.8)
+            b.main(ShowCreation(geser_kiri), run_time=1.2)
             self.aktif['geser_kiri'] = geser_kiri
-            self.papan(b, 'y=(x+3)^2', warna=AKSEN2)
             b.tunggu_kata('isinya nol')
             self.papan(b, 'y=(x+3)^2', 'x+3=0', r'\Rightarrow\ x=-3', warna=AKSEN2)
             b.tunggu_kata('pindah ke')
@@ -396,15 +395,15 @@ class BentukPuncak(AdeganMatra):
             b.main(Indicate(VGroup(d_kanan, d_kiri), color=SOROT, scale_factor=1.06), run_time=1.2)
 
         with self.bagian('umum') as b:
-            self.hilang(b, *[f'bu{i}' for i in range(5)], 'kepala', lama=0.5)
-            self.hilang(b, 'd_kanan', 'd_kiri', 'cap_dk', 'cap_dr', lama=0.5)
+            self.hilang(b, *[f'bu{i}' for i in range(5)], 'kepala',
+                        'd_kanan', 'd_kiri', 'cap_dk', 'cap_dr', lama=0.5)
             b.tunggu_kata('dari angka')
             self.papan(b, '2(x-3)^2-5', warna=REDUP)
             b.tunggu_kata('Ye sama')
             self.papan(b, 'y=a(x-h)^2+k')
             b.tunggu_kata('Puncaknya di')
             self.papan(b, 'y=a(x-h)^2+k', r'\text{puncak}=(h,k)', warna=SOROT)
-            b.main(Indicate(puncak, color=SOROT, scale_factor=2.2), run_time=1.2)
+            b.main(Indicate(puncak, color=SOROT, scale_factor=2.2), run_time=0.9)
             b.tunggu_kata('sumbu simetrinya')
             self.papan(b, 'y=a(x-h)^2+k', r'\text{puncak}=(h,k)', 'x=h', warna=SOROT)
             b.main(Indicate(sumbu_simetri, color=SOROT, scale_factor=1.04), run_time=1.2)
