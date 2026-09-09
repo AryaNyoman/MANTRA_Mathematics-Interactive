@@ -30,6 +30,14 @@ Ini pemeriksa STATIS: ia membaca urutan `tunggu_kata` dari kode, bukan
 menjalankan adegannya. Percabangan atau perulangan yang mengubah urutan tidak
 terbaca. Ia juga tidak menilai apakah animasi di antara dua pemicu muat; itu
 tugas `cek_waktu_adegan.py` dan, pada akhirnya, rendernya sendiri.
+
+Satu batas lagi yang perlu diketahui SEBELUM memercayai angkanya: ramalan jam
+hanya menjumlahkan `run_time=` yang tertulis di dalam badan babak. Adegan yang
+memanggil metode pembantu (`self.muncul(...)`, `self.papan(...)`) menyembunyikan
+waktunya di badan metode itu, jadi ramalannya OPTIMIS. Pada grafik3-puncak
+selisihnya terukur: pemeriksa meramalkan kelebihan 0,09 detik, rendernya
+melaporkan 0,82 detik untuk pemicu yang sama. Jadi "kelebihan kecil" di sini
+tetap berarti render akan gagal; beri jarak, jangan dipepetkan ke nol.
 """
 
 from __future__ import annotations
@@ -42,9 +50,18 @@ from pathlib import Path
 AKAR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(AKAR / "manim"))
 
-BABAK = re.compile(r'sinema\.babak\(\s*self,\s*"([^"]+)"')
-TUNGGU = re.compile(r'\.tunggu_kata\(\s*"([^"]+)"(?:\s*,\s*ke\s*=\s*(\d+))?')
-TOPIK_BARIS = re.compile(r'^TOPIK\s*=\s*"([^"]+)"', re.M)
+# Dua bentuk pembuka babak diterima, dan kutip tunggal maupun ganda:
+#   with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
+#   with self.bagian('buka') as b:          pembungkus yang menambahkan QC
+# Bentuk kedua dipakai contoh rujukan yang disetujui ARYA
+# (`manim/scenes/turunan2_garis_singgung.py`) dan adegan yang meniru polanya.
+# Sebelum 9 Sep 2026 pemeriksa ini hanya mengenali bentuk pertama berkutip
+# ganda, jadi ia melaporkan "0 pemicu di 0 babak" untuk adegan seperti itu dan
+# LOLOS tanpa memeriksa apa pun. Diam yang terbaca sebagai lulus lebih
+# berbahaya daripada tidak ada pemeriksa sama sekali.
+BABAK = re.compile(r"""(?:sinema\.babak\(\s*self,|self\.bagian\()\s*(['"])([^'"]+)\1""")
+TUNGGU = re.compile(r"""\.tunggu_kata\(\s*(['"])([^'"]+)\1(?:\s*,\s*ke\s*=\s*(\d+))?""")
+TOPIK_BARIS = re.compile(r"""^TOPIK\s*=\s*(['"])([^'"]+)\1""", re.M)
 # run_time= pada baris animasi, untuk MERAMALKAN jam adegan tanpa render.
 RUN_TIME = re.compile(r'run_time\s*=\s*([0-9.]+)')
 
@@ -55,7 +72,7 @@ def periksa(jalur: Path) -> int:
     if not m:
         print(f"{jalur.name}: tidak ada baris TOPIK = \"...\", dilewati")
         return 0
-    topik = m.group(1)
+    topik = m.group(2)
 
     from gl import sinema
     jam = sinema.JamKata(topik)
@@ -66,13 +83,20 @@ def periksa(jalur: Path) -> int:
     for baris in isi.split("\n"):
         b = BABAK.search(baris)
         if b:
-            segmen_kini = b.group(1)
+            segmen_kini = b.group(2)
             urut.setdefault(segmen_kini, [])
+        elif re.match(r"    (?:@|def |async def )", baris) and segmen_kini:
+            # `construct` sudah habis; yang menyusul adalah metode pembantu
+            # (`muncul`, `papan`, `hilang`). `run_time=` di dalamnya BUKAN milik
+            # babak terakhir. Tanpa penjaga ini, adegan grafik3 menyumbangkan
+            # 1,4 detik hantu ke babak 'tutup' dan menyembunyikannya dari
+            # babak yang benar-benar memakainya.
+            segmen_kini = None
         if not segmen_kini:
             continue
         t = TUNGGU.search(baris)
         if t:
-            urut[segmen_kini].append(("tunggu", t.group(1), int(t.group(2) or 1)))
+            urut[segmen_kini].append(("tunggu", t.group(2), int(t.group(3) or 1)))
             continue
         r = RUN_TIME.search(baris)
         if r:
@@ -120,6 +144,18 @@ def periksa(jalur: Path) -> int:
             sebelum_nama, sebelum_jam = f, saat
 
     jumlah = sum(1 for v in urut.values() for k in v if k[0] == "tunggu")
+
+    # Adegan standar v3 SELALU punya babak berpemicu kata. Kalau tidak ada satu
+    # pun yang terbaca, yang terjadi bukan "adegannya bersih" melainkan
+    # "pemeriksanya tidak mengerti berkas ini", dan melaporkan LOLOS untuk itu
+    # sama saja dengan tidak memeriksa. Adegan yang memang belum memakai jam
+    # kata tidak punya `TOPIK = "..."` dan sudah dilewati di atas.
+    if not urut:
+        print(f"{jalur.name}: TIDAK ADA babak yang terbaca, padahal berkas ini "
+              f"punya TOPIK = {topik!r}. Pemeriksa tidak mengerti bentuk "
+              f"pembuka babaknya; jangan dianggap lolos.")
+        return 1
+
     print(f"{jalur.name}: {jumlah} pemicu di {len(urut)} babak, "
           + ("semuanya maju terus dan tidak ada yang terlambat" if buruk == 0
              else f"{buruk} bermasalah"))
