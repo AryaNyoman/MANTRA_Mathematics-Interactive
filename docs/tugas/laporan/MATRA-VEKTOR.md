@@ -1,5 +1,87 @@
 # Laporan MATRA-VEKTOR
-Terakhir: 4 September 2026, 08.00
+Terakhir: 9 September 2026, siang
+
+## GELOMBANG 4, STANDAR VIDEO v3: video 01 dan 03 ditulis ulang (8 sampai 9 Sep)
+
+Perintah ARYA: semua video ditulis ulang dengan standar v3, kerjakan video
+PERTAMA dan KEDUA di daftar gelombang 4 sampai lolos sepuluh butir daftar
+periksa, dan bawa hasilnya ke `UNTUK ARYA\CEK 480P` untuk ditonton dulu
+sebelum video ketiga dimulai.
+
+### Persiapan
+
+| Hal | Hasil |
+|---|---|
+| `git merge master` | Lolos tanpa bentrok, dua kali (8 Sep dan 9 Sep) |
+| Backup video v2 | Enam video + poster + subtitle + enam adegan + enam naskah lama disalin ke `UNTUK ARYA\BACKUP VIDEO MANTRA V2ektor\` |
+| Alat kembar dibuang | Saya sempat menulis `alat/cek_pemicu_kata.py`; MASTER ternyata sudah punya `alat/cek_pemicu_urut.py` yang lebih baik (ia MERAMALKAN jam adegan, bukan cuma memeriksa urutan). Punya saya dihapus, punya MASTER dipakai |
+| Alat baru yang memang belum ada | `alat/cek_urutan_vektor.py` (pemeriksa urutan istilah khusus topik ini, saudara `cek_urutan_turunan.py`), `alat/klaim-vektor1-perahu.json`, `alat/klaim-vektor3-komponen.json` |
+
+### Naskah
+
+| Video | Segmen | Durasi | Segar-ingat |
+|---|---|---|---|
+| `vektor1-perahu` (Materi 01) | 31 | 4 menit 56 detik | teorema Pythagoras, bekal SMP, digambar sebagai segitiga 3-4-5 di petak yang sama |
+| `vektor3-komponen` (Materi 03) | 30 | 4 menit 45 detik | Materi 01 (perahu mendarat 4 petak ke kanan, 3 petak ke atas) dan Materi 02 (panah boleh digeser) |
+
+Sambungannya sengaja dibuat nyata, bukan tempelan: contoh utama video 03
+memakai angka 4 dan 3, angka yang sama dengan tempat mendarat perahu di video
+01, jadi panah mobil di video 03 benar-benar panah yang sama.
+
+### Keputusan yang saya ambil sendiri, mohon dinilai
+
+1. **Pembuka 3D dipendekkan.** Standar v3 bagian 5 memberi jatah paling lama
+   5 detik untuk 3D, dan hanya di video pertama tiap topik. Versi lama memakai
+   sekitar 13 detik. Sekarang: 3D miring 0 sampai 3,8 detik, kamera turun 1,6
+   detik, tegak lurus sejak detik 5,4. Kalau Anda lebih suka pembuka panjang
+   yang lama, itu satu baris ubahan.
+2. **Pasangan angka (4 3) TIDAK dipakai di video 01.** Versi lama menulis
+   `d = (0, 3)` dan `a = (4, 0)` di panel. Menulis vektor sebagai dua angka
+   adalah isi Materi 03, dan video 01 justru ditutup dengan menjanjikannya.
+   Yang ditulis sekarang besaran berikut satuannya: "dayung = 3 km".
+3. **Aturan "ujung dikurangi pangkal" dikembalikan ke video 03.** Versi lama
+   menyerahkannya ke video Materi 08 supaya videonya pendek. Standar v3 meminta
+   tiap rumus lahir dari contoh angka yang dihitung di layar, dan aturan itu
+   memang isi halaman Materi 03. Di sini ia dibuktikan dengan menghitung petak
+   dari A(1, 2) ke B(5, 5) lebih dulu, baru diperlihatkan bahwa 4 = 5 - 1.
+
+### Tiga cacat yang ditemukan lembar kontak, dan perbaikannya
+
+Render 1080p pertama (9 Sep 10.17) lolos semua gerbang otomatis. Lembar
+kontaknya tetap memperlihatkan tiga cacat, dan ketiganya sudah diperbaiki:
+
+| Cacat | Buktinya | Perbaikan |
+|---|---|---|
+| Layar kosong 2,5 detik pada detik 229,5 sampai 232,0 | `alat/cek_layar_kosong.py`, dan frame kosong di lembar kontak | Kalimat "besaran yang butuh arah SEPERTI INI" menunjuk panah yang masih di layar, jadi layar tidak boleh dibersihkan di kata pertama. Pembersihan dipindah ke kata "punya nama", jaraknya tinggal 0,6 detik |
+| Perahu 3D terbaca sebagai serpih putih, tiga frame pertama isinya air | Lembar kontak baris 1 | Bingkai kamera 2,8 satuan (dulu 4,4) dan kemiringan 62 derajat (dulu 68). Perahunya sekarang terlihat papan dan dayungnya. Dibuktikan lewat render intip 3 detik sebelum render penuh |
+| Label "3 km" menabrak angka sumbu, terbaca "3 km2" | Lembar kontak, frame detik 182, di tengah dayung diputar | Label tidak boleh duduk di jalur angka sumbu tegak. Yang diperbesar JARAKNYA dari panah, bukan sisinya: menukar sisi membuat label meloncat 1,8 satuan di tengah putaran |
+
+Cacat keempat yang ditemukan sekalian, di adegan video 03 dan belum sempat
+tampil: papan rumus akan menumpuk DELAPAN baris padahal zona kanan atas
+tingginya 2,6 satuan (muat empat). Papan sekarang dikosongkan di tiga tempat.
+
+### Beda antara video dan widget, keputusan ARYA
+
+Butir 7 daftar periksa meminta widget materi yang sama dibuka dan dibandingkan.
+Warna dan istilah pokoknya cocok, tetapi ada tiga selisih. Dua yang pertama
+sudah ada sejak video v2, jadi bukan akibat penulisan ulang ini:
+
+1. **Warna panah hasil.** Video memakai ungu `#6A4C93`, widget memakai hitam
+   `#1F2430` (`WARNA.miring`), dan ungu di widget justru dipakai untuk lintasan
+   perahu (`WARNA.sudut`). Jadi siswa melihat ungu berarti dua hal berbeda.
+   Saran saya: WIDGET yang diseragamkan ke ungu, sebab enam video sudah memakai
+   ungu dan mengubah widget jauh lebih murah daripada merender ulang enam video.
+2. **Cara menggambar Materi 01.** Di video, panah arus berangkat dari UJUNG
+   panah dayung, supaya segitiga siku-sikunya terbentuk dan Pythagoras masuk
+   akal. Di widget, ketiga panah berangkat dari titik yang sama. Dua-duanya
+   benar, tetapi gambarnya berbeda. Widget memang begitu karena kedua panahnya
+   bisa diseret siswa dari satu titik.
+3. **Nama panah hasil.** Widget menyebutnya "gerak nyata", video menyebutnya
+   "panah ungu" dan "perpindahan sebenarnya". Sebaiknya satu nama saja.
+
+Yang sudah cocok: dayung biru `#3A6EA5`, arus merah `#C25E4D`, "komponen
+mendatar" dan "komponen tegak", dan penulisan `(4  3)` tanpa koma.
+
 
 ## Cacat diperbaiki, 01 dan 06 dirender ulang (4 Sep pagi)
 

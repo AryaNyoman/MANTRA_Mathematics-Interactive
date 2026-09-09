@@ -1,68 +1,158 @@
 {
   "adegan": "PecahJadiKomponen",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Vektor Materi 03, Memecah panah jadi dua langkah. Arah visual sama dengan Materi 01, 06, dan 08. Pengaitnya mobil yang hanya bisa lewat jalan mendatar dan tegak, jadi jalur miring terpaksa jadi dua langkah: itu persis gagasan komponen. Bagian 'ujung dikurangi pangkal' SENGAJA tidak diulang di sini karena sudah dibahas tuntas di video Materi 08.",
+  "tempo": "-5%",
+  "catatan": "Tulis ulang 8 September 2026, STANDAR VIDEO v3. Segar-ingat menyebut Materi 01 (angka saja tidak cukup, perahu 4 petak ke kanan 3 petak ke atas) dan Materi 02 (panah boleh dipindah). Contoh utama SENGAJA memakai 4 dan 3, angka yang sama dengan tempat mendarat perahu di video pertama, supaya sambungannya terlihat. Aturan ujung dikurangi pangkal DIBUKTIKAN dari hitungan petak A(1,2) ke B(5,5), bukan disodorkan. Penutup menunjuk video berikutnya, panjang panah lewat Pythagoras.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Materi tiga, memecah panah jadi dua langkah. Sebuah mobil hendak menuju satu tempat di seberang kota. Masalahnya, mobil tidak bisa menembus gedung. Ia hanya boleh lewat jalan yang mendatar dan jalan yang tegak.",
-      "tulis": "Materi 03, *memecah panah jadi dua langkah*. Sebuah mobil hendak menuju satu tempat di seberang kota. Masalahnya, mobil tidak bisa menembus gedung. Ia hanya boleh lewat jalan yang *mendatar* dan jalan yang *tegak*."
+      "id": "buka",
+      "teks": "Bagaimana caranya panah bisa dihitung, bukan cuma digambar?",
+      "tulis": "Bagaimana caranya panah bisa dihitung, bukan cuma digambar?"
     },
     {
-      "id": "terbang",
-      "teks": "Kita lihat kotanya dari atas. Satu petak sama dengan satu blok jalan.",
-      "tulis": "Kita lihat kotanya dari atas. *1 petak = 1 blok*."
+      "id": "ingat1",
+      "teks": "Di Materi satu kita lihat, angka saja tidak cukup. Perahu yang didayung tiga kilometer ke seberang, lalu dibawa arus empat kilometer ke hilir, berpindah sejauh lima kilometer.",
+      "tulis": "Di Materi 01 kita lihat, angka saja tidak cukup. Perahu yang didayung 3 km ke seberang, lalu dibawa arus 4 km ke hilir, berpindah sejauh 5 km."
+    },
+    {
+      "id": "ingat2",
+      "teks": "Yang kita pakai hari ini bukan angka lima itu, melainkan tempat mendaratnya: empat petak ke kanan, tiga petak ke atas.",
+      "tulis": "Yang kita pakai hari ini bukan angka 5 itu, melainkan tempat mendaratnya: 4 petak ke kanan, 3 petak ke atas."
+    },
+    {
+      "id": "ingat3",
+      "teks": "Dan di Materi dua kita lihat, yang menentukan sebuah panah hanya panjang dan arahnya. Letaknya tidak ikut menentukan, jadi panah boleh digeser ke mana saja.",
+      "tulis": "Dan di Materi 02 kita lihat, yang menentukan sebuah panah hanya panjang dan arahnya. Letaknya tidak ikut menentukan, jadi panah boleh digeser ke mana saja."
+    },
+    {
+      "id": "masalah",
+      "teks": "Menggambar panah di kertas berpetak memang gamblang. Tetapi begitu panahnya ada sepuluh, menggambar satu per satu melelahkan dan sering meleset satu dua kotak.",
+      "tulis": "Menggambar panah di kertas berpetak memang gamblang. Tetapi begitu panahnya ada sepuluh, menggambar satu per satu melelahkan dan sering meleset satu dua kotak."
+    },
+    {
+      "id": "kota",
+      "teks": "Jadi kita cari cara mencatatnya sebagai angka. Untuk itu kita pindah ke peta kota, dan satu petak sekarang berarti satu blok jalan.",
+      "tulis": "Jadi kita cari cara mencatatnya sebagai angka. Untuk itu kita pindah ke peta kota, dan 1 petak sekarang berarti 1 blok jalan."
     },
     {
       "id": "miring",
-      "teks": "Kalau mobil itu bisa terbang, jalurnya cukup satu panah miring seperti ini, langsung dari titik asal menuju tujuannya.",
-      "tulis": "Kalau mobil itu bisa terbang, jalurnya cukup *satu panah miring* seperti ini, langsung dari titik asal menuju tujuannya."
+      "teks": "Sebuah mobil hendak menuju satu tempat di seberang kota. Kalau ia bisa terbang, jalurnya cukup satu panah miring seperti ini, langsung dari titik asal ke tujuan.",
+      "tulis": "Sebuah mobil hendak menuju satu tempat di seberang kota. Kalau ia bisa terbang, jalurnya cukup satu panah miring seperti ini, langsung dari titik asal ke tujuan."
     },
     {
       "id": "jalan",
-      "teks": "Tetapi ia tidak bisa terbang. Jadi mobil itu berjalan tiga blok ke kanan lebih dulu, lalu berbelok dan naik empat blok.",
-      "tulis": "Tetapi ia tidak bisa terbang. Jadi mobil itu berjalan *3 blok ke kanan* lebih dulu, lalu berbelok dan naik *4 blok*."
+      "teks": "Tetapi mobil tidak bisa terbang. Jadi ia berjalan empat blok ke kanan lebih dulu, lalu berbelok dan naik tiga blok.",
+      "tulis": "Tetapi mobil tidak bisa terbang. Jadi ia berjalan 4 blok ke kanan lebih dulu, lalu berbelok dan naik 3 blok."
     },
     {
       "id": "sama",
-      "teks": "Perhatikan baik-baik: mobilnya berhenti di titik yang sama persis dengan ujung panah miring tadi. Jalurnya berbeda, tetapi perpindahannya sama.",
-      "tulis": "Perhatikan baik-baik: mobilnya berhenti di *titik yang sama persis* dengan ujung panah miring tadi. Jalurnya berbeda, tetapi perpindahannya sama."
+      "teks": "Perhatikan baik-baik. Mobilnya berhenti di titik yang sama persis dengan ujung panah miring tadi. Jalurnya berbeda, tetapi tempat tibanya sama.",
+      "tulis": "Perhatikan baik-baik. Mobilnya berhenti di titik yang sama persis dengan ujung panah miring tadi. Jalurnya berbeda, tetapi tempat tibanya sama."
     },
     {
-      "id": "komponen",
-      "teks": "Jadi satu panah miring, semiring apa pun, selalu bisa diganti dua langkah: berapa jauh ke kanan, lalu berapa jauh ke atas. Dua angka itu namanya komponen. Kita tulis tiga empat.",
-      "tulis": "Jadi satu panah miring, semiring apa pun, selalu bisa diganti dua langkah: berapa jauh ke kanan, lalu berapa jauh ke atas. Dua angka itu namanya *komponen*. Kita tulis (3 4)."
+      "id": "dua_langkah",
+      "teks": "Jadi satu panah miring, semiring apa pun, selalu bisa diganti dua langkah: berapa jauh ke kanan, lalu berapa jauh ke atas.",
+      "tulis": "Jadi satu panah miring, semiring apa pun, selalu bisa diganti dua langkah: berapa jauh ke kanan, lalu berapa jauh ke atas."
     },
     {
-      "id": "tanya",
+      "id": "nama_komponen",
+      "teks": "Kedua angka itu punya nama. Yang mendatar disebut komponen mendatar, yang tegak disebut komponen tegak.",
+      "tulis": "Kedua angka itu punya nama. Yang mendatar disebut komponen mendatar, yang tegak disebut komponen tegak."
+    },
+    {
+      "id": "tulis_baris",
+      "teks": "Menuliskannya berdampingan di dalam kurung, empat tiga. Bentuk mendatar seperti ini disebut vektor baris.",
+      "tulis": "Menuliskannya berdampingan di dalam kurung, (4 3). Bentuk mendatar seperti ini disebut vektor baris."
+    },
+    {
+      "id": "tanya_tukar",
       "teks": "Sekarang pertanyaannya. Kalau kedua angka itu ditukar tempatnya, apakah tujuannya tetap sama?",
-      "tulis": "Sekarang pertanyaannya. Kalau kedua angka itu *ditukar tempatnya*, apakah tujuannya tetap sama?"
+      "tulis": "Sekarang pertanyaannya. Kalau kedua angka itu ditukar tempatnya, apakah tujuannya tetap sama?"
     },
     {
       "id": "tukar",
-      "teks": "Tidak. Empat tiga berarti empat blok ke kanan lalu tiga blok ke atas, dan itu tempat yang sama sekali berbeda. Panjangnya memang kebetulan sama, tetapi arahnya lain. Jadi urutannya tidak boleh ditukar.",
-      "tulis": "Tidak. (4 3) berarti *4 blok ke kanan* lalu *3 blok ke atas*, dan itu tempat yang sama sekali berbeda. Panjangnya memang kebetulan sama, tetapi arahnya lain. Jadi *urutannya tidak boleh ditukar*."
+      "teks": "Tidak. Tiga empat berarti tiga blok ke kanan lalu empat blok ke atas, dan mobilnya berhenti di tempat yang sama sekali berbeda.",
+      "tulis": "Tidak. (3 4) berarti 3 blok ke kanan lalu 4 blok ke atas, dan mobilnya berhenti di tempat yang sama sekali berbeda."
+    },
+    {
+      "id": "urutan",
+      "teks": "Jadi urutannya tidak boleh ditukar. Angka pertama selalu yang mendatar, angka kedua selalu yang tegak.",
+      "tulis": "Jadi urutannya tidak boleh ditukar. Angka pertama selalu yang mendatar, angka kedua selalu yang tegak."
     },
     {
       "id": "tanda",
-      "teks": "Komponen juga boleh bertanda negatif. Negatif tiga empat berarti bergeser tiga blok ke kiri, bukan ke kanan, lalu tetap naik empat blok. Tandanya yang memberi tahu arahnya.",
-      "tulis": "Komponen juga boleh bertanda negatif. *(-3 4)* berarti bergeser *3 blok ke kiri*, bukan ke kanan, lalu tetap naik 4 blok. *Tandanya yang memberi tahu arahnya*."
+      "teks": "Kedua angka itu juga boleh bertanda negatif. Negatif tiga empat berarti bergeser tiga blok ke kiri, bukan ke kanan, lalu naik empat blok.",
+      "tulis": "Kedua angka itu juga boleh bertanda negatif. (-3 4) berarti bergeser 3 blok ke kiri, bukan ke kanan, lalu naik 4 blok."
     },
     {
-      "id": "tulis",
-      "teks": "Ada dua cara menuliskannya, dan artinya sama persis. Mendatar disebut vektor baris. Bertumpuk disebut vektor kolom, angka mendatar di atas dan angka tegak di bawah. Keduanya dipakai di sekolah.",
-      "tulis": "Ada dua cara menuliskannya, dan artinya sama persis. Mendatar disebut *vektor baris*. Bertumpuk disebut *vektor kolom*, angka mendatar di atas dan angka tegak di bawah. Keduanya dipakai di sekolah."
+      "id": "kolom",
+      "teks": "Ada cara kedua menuliskannya, dan artinya sama persis. Angka mendatar di atas, angka tegak di bawah. Bentuk bertumpuk itu disebut vektor kolom.",
+      "tulis": "Ada cara kedua menuliskannya, dan artinya sama persis. Angka mendatar di atas, angka tegak di bawah. Bentuk bertumpuk itu disebut vektor kolom."
     },
     {
       "id": "koma",
-      "teks": "Satu hal kecil yang sering luput. Titik koordinat memakai koma, misalnya A kurung tiga koma empat. Vektor baris ditulis tanpa koma. Bedanya disengaja: yang satu menyatakan letak, yang lain menyatakan perpindahan.",
-      "tulis": "Satu hal kecil yang sering luput. Titik koordinat *memakai koma*: A(3, 4). Vektor baris ditulis *tanpa koma*: (3 4). Bedanya disengaja: yang satu menyatakan *letak*, yang lain menyatakan *perpindahan*."
+      "teks": "Satu hal kecil yang sering luput. Titik koordinat memakai koma, misalnya A kurung tiga koma empat. Vektor baris tidak memakai koma.",
+      "tulis": "Satu hal kecil yang sering luput. Titik koordinat memakai koma, misalnya A(3, 4). Vektor baris tidak memakai koma."
     },
     {
-      "id": "tutup",
-      "teks": "Dua angka sudah cukup mewakili satu panah. Itulah sebabnya vektor bisa dihitung, bukan cuma digambar.",
-      "tulis": "*Dua angka sudah cukup mewakili satu panah.* Itulah sebabnya vektor bisa *dihitung*, bukan cuma digambar."
+      "id": "kenapa_koma",
+      "teks": "Bedanya memang disengaja. Yang satu menyatakan letak, yang lain menyatakan perpindahan.",
+      "tulis": "Bedanya memang disengaja. Yang satu menyatakan letak, yang lain menyatakan perpindahan."
+    },
+    {
+      "id": "tidak_dari_o",
+      "teks": "Sampai di sini semua panah kita berangkat dari titik asal. Padahal panah dari titik A ke titik B pun punya dua angka itu.",
+      "tulis": "Sampai di sini semua panah kita berangkat dari titik asal. Padahal panah dari titik A ke titik B pun punya dua angka itu."
+    },
+    {
+      "id": "contoh_ab",
+      "teks": "Ambil A di satu koma dua, dan B di lima koma lima. Kita cari kedua angka panah dari A ke B.",
+      "tulis": "Ambil A(1, 2) dan B(5, 5). Kita cari kedua angka panah dari A ke B."
+    },
+    {
+      "id": "hitung_x",
+      "teks": "Berapa jauh geser mendatarnya? Dari x sama dengan satu sampai x sama dengan lima. Hitung petaknya satu per satu: empat petak.",
+      "tulis": "Berapa jauh geser mendatarnya? Dari x = 1 sampai x = 5. Hitung petaknya satu per satu: 4 petak."
+    },
+    {
+      "id": "hitung_y",
+      "teks": "Berapa jauh naiknya? Dari y sama dengan dua sampai y sama dengan lima. Tiga petak.",
+      "tulis": "Berapa jauh naiknya? Dari y = 2 sampai y = 5. 3 petak."
+    },
+    {
+      "id": "aturan",
+      "teks": "Sekarang perhatikan dari mana empat dan tiga itu datang. Empat adalah lima dikurangi satu, dan tiga adalah lima dikurangi dua. Ujung dikurangi pangkal.",
+      "tulis": "Sekarang perhatikan dari mana 4 dan 3 itu datang. 4 adalah 5 - 1, dan 3 adalah 5 - 2. Ujung dikurangi pangkal."
+    },
+    {
+      "id": "umum",
+      "teks": "Bentuk umumnya begitu untuk dua titik mana pun. Angka mendatarnya x ujung dikurangi x pangkal, angka tegaknya y ujung dikurangi y pangkal.",
+      "tulis": "Bentuk umumnya begitu untuk dua titik mana pun. Angka mendatarnya x ujung - x pangkal, angka tegaknya y ujung - y pangkal."
+    },
+    {
+      "id": "terbalik",
+      "teks": "Kalau urutannya dibalik, pangkal dikurangi ujung, hasilnya negatif empat negatif tiga. Itu bukan salah hitung, itu panah dari B ke A, arahnya berkebalikan.",
+      "tulis": "Kalau urutannya dibalik, pangkal dikurangi ujung, hasilnya (-4 -3). Itu bukan salah hitung, itu panah dari B ke A, arahnya berkebalikan."
+    },
+    {
+      "id": "geser",
+      "teks": "Dan lihat angkanya: empat tiga, sama persis dengan panah mobil tadi, padahal berangkatnya dari tempat yang lain. Persis seperti yang kita ingat di awal, letaknya memang tidak ikut menentukan.",
+      "tulis": "Dan lihat angkanya: (4 3), sama persis dengan panah mobil tadi, padahal berangkatnya dari tempat yang lain. Persis seperti yang kita ingat di awal, letaknya memang tidak ikut menentukan."
+    },
+    {
+      "id": "beda_titik",
+      "teks": "Karena itu titik dan panah jangan tertukar. Titik empat koma tiga selamanya di tempat yang sama, sedangkan panah empat tiga boleh digambar di mana saja.",
+      "tulis": "Karena itu titik dan panah jangan tertukar. Titik (4, 3) selamanya di tempat yang sama, sedangkan panah (4 3) boleh digambar di mana saja."
+    },
+    {
+      "id": "tutup1",
+      "teks": "Jadi dua angka sudah cukup mewakili satu panah. Itulah sebabnya vektor bisa dihitung, bukan cuma digambar.",
+      "tulis": "Jadi dua angka sudah cukup mewakili satu panah. Itulah sebabnya vektor bisa dihitung, bukan cuma digambar."
+    },
+    {
+      "id": "tutup2",
+      "teks": "Di video berikutnya kita pakai kedua angka itu untuk menghitung panjang panahnya, lewat segitiga siku-siku yang sudah kita kenal.",
+      "tulis": "Di video berikutnya kita pakai kedua angka itu untuk menghitung panjang panahnya, lewat segitiga siku-siku yang sudah kita kenal."
     }
   ]
 }

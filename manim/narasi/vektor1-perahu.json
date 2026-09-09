@@ -1,69 +1,163 @@
 {
   "adegan": "PerahuVektor",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "latar": "air",
-  "catatan": "Vektor Materi 01, Angka saja tidak cukup. Arah visual: 3D hanya di babak pembuka, sisanya bidang koordinat bernomor dengan kamera tegak lurus. Medan `layar` berisi bentuk TERTULIS (angka dan lambang), medan `teks` berisi bentuk TERUCAP untuk mesin suara. Revisi 2 Sep malam atas catatan ARYA: keterangan pita bawah DIHAPUS seluruhnya (pita itu milik subtitle), identitas cerita pindah ke pojok kiri atas, dan segmen `pythagoras` ditambahkan supaya angka 5 diperlihatkan asal-usulnya lebih dulu.",
+  "tempo": "-5%",
+  "catatan": "Tulis ulang 8 September 2026, STANDAR VIDEO v3. Kerangka: pertanyaan pembuka, segar-ingat teorema Pythagoras sebagai bekal SMP (Materi 01 topik mengingat PRASYARATNYA), contoh angka 3 dan 4 dihitung di layar, asal angka 5 dibuktikan dari segitiga yang dibentuk sendiri, bentuk umum akar kuadrat ditambah kuadrat, penutup menunjuk video berikutnya. Pengetahuan lama yang mengecoh (Pythagoras dipakai saat segitiga sudah tergambar) disebut terbuka di segmen 'beda'. Notasi pasangan angka (4 3) SENGAJA tidak dipakai di sini: itu isi Materi 03, dan video ini menutup dengan menjanjikannya. REVISI 9 Sep: kalimat 'Perahu di layar ini yang akan menjawabnya' dipindah dari segmen buka ke terbang. Sebabnya lembar kontak: kamera dulu turun pada detik 3,3 padahal narator baru berkata 'kita lihat dari atas' pada detik 9,2, jadi gambar mendahului suara hampir empat detik. Sekarang 3D berdiri sendiri 4,3 detik (di bawah jatah 5 detik standar v3) dan turunnya kamera jatuh tepat pada kalimat yang menyebutkannya.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Materi satu, angka saja tidak cukup. Bayangkan sebuah perahu kecil di tepi sungai. Sungainya selebar tiga kilometer, dan kita ingin menyeberang ke tepi seberang.",
-      "tulis": "Materi 01, *Angka saja tidak cukup*. Bayangkan sebuah perahu kecil di tepi sungai. Sungainya selebar 3 km, dan kita ingin menyeberang ke tepi seberang."
+      "id": "buka",
+      "teks": "Kenapa tiga tambah empat tidak selalu tujuh?",
+      "tulis": "Kenapa 3 + 4 tidak selalu 7?"
     },
     {
       "id": "terbang",
-      "teks": "Supaya bisa kita ukur, sungai itu kita lihat dari atas, dan kita pasang petak koordinat di atasnya. Satu petak sama dengan satu kilometer, jadi sungainya menempati petak nol sampai tiga.",
-      "tulis": "Supaya bisa kita *ukur*, sungai itu kita lihat dari atas, dan kita pasang petak koordinat di atasnya. *1 petak = 1 km*, jadi sungainya menempati petak 0 sampai 3."
+      "teks": "Perahu di layar ini yang akan menjawabnya. Supaya bisa kita hitung, sungainya kita lihat dari atas, lalu kita pasang petak di atasnya. Satu petak sama dengan satu kilometer.",
+      "tulis": "Perahu di layar ini yang akan menjawabnya. Supaya bisa kita hitung, sungainya kita lihat dari atas, lalu kita pasang petak di atasnya. 1 petak = 1 km."
+    },
+    {
+      "id": "ingat_smp",
+      "teks": "Sebelum mulai, kita panggil satu bekal lama dari SMP: teorema Pythagoras. Bunyinya, pada segitiga siku-siku, kuadrat sisi miring sama dengan jumlah kuadrat dua sisi tegaknya.",
+      "tulis": "Sebelum mulai, kita panggil satu bekal lama dari SMP: teorema Pythagoras. Bunyinya, pada segitiga siku-siku, kuadrat sisi miring sama dengan jumlah kuadrat dua sisi tegaknya."
+    },
+    {
+      "id": "ingat_angka",
+      "teks": "Contohnya yang paling dikenal. Sisi tegak tiga, sisi mendatar empat. Tiga kuadrat sembilan, empat kuadrat enam belas, dijumlahkan dua puluh lima. Akar dua puluh lima adalah lima.",
+      "tulis": "Contohnya yang paling dikenal. Sisi tegak 3, sisi mendatar 4. 3² = 9, 4² = 16, dijumlahkan 25. √25 = 5."
+    },
+    {
+      "id": "beda",
+      "teks": "Ingat bedanya. Pythagoras biasa dipakai saat segitiganya sudah tergambar. Hari ini segitiganya belum ada: yang ada dua gerakan, dan kita sendiri yang membentuknya.",
+      "tulis": "Ingat bedanya. Pythagoras biasa dipakai saat segitiganya sudah tergambar. Hari ini segitiganya belum ada: yang ada dua gerakan, dan kita sendiri yang membentuknya."
+    },
+    {
+      "id": "cerita",
+      "teks": "Sekarang ceritanya. Sebuah perahu berangkat dari titik ini, di tepi dekat. Pendayungnya menghadap lurus ke seberang dan tidak sekali pun membelokkan haluan.",
+      "tulis": "Sekarang ceritanya. Sebuah perahu berangkat dari titik ini, di tepi dekat. Pendayungnya menghadap lurus ke seberang dan tidak sekali pun membelokkan haluan."
     },
     {
       "id": "dayung",
-      "teks": "Perahu didayung lurus ke seberang, sejauh tiga kilometer. Panah biru ini naik tiga petak, dan tidak bergeser ke samping sedikit pun. Kita tulis nol koma tiga.",
-      "tulis": "Perahu didayung lurus ke seberang, sejauh 3 km. Panah biru ini naik *3 petak*, dan tidak bergeser ke samping sedikit pun. Kita tulis (0, 3)."
+      "teks": "Dayungnya membawa perahu tiga kilometer ke seberang. Panah biru ini naik tiga petak, dan tidak bergeser sedikit pun ke samping.",
+      "tulis": "Dayungnya membawa perahu 3 km ke seberang. Panah biru ini naik 3 petak, dan tidak bergeser sedikit pun ke samping."
     },
     {
       "id": "arus",
-      "teks": "Tetapi sungai punya arus. Arus mendorong perahu ke hilir sejauh empat kilometer. Panah merah ini bergeser empat petak ke kanan, dan tidak naik sama sekali. Kita tulis empat koma nol.",
-      "tulis": "Tetapi sungai punya arus. Arus mendorong perahu ke hilir sejauh 4 km. Panah merah ini bergeser *4 petak* ke kanan, dan tidak naik sama sekali. Kita tulis (4, 0)."
+      "teks": "Tetapi sungai punya arus. Dalam waktu yang sama, arus mendorong perahu empat kilometer ke hilir. Panah merah ini bergeser empat petak ke kanan.",
+      "tulis": "Tetapi sungai punya arus. Dalam waktu yang sama, arus mendorong perahu 4 km ke hilir. Panah merah ini bergeser 4 petak ke kanan."
     },
     {
-      "id": "resultan",
-      "teks": "Keduanya bekerja bersamaan. Jadi perahu tidak menempuh panah biru saja, dan tidak panah merah saja, melainkan panah ungu ini: empat ke kanan, tiga ke atas.",
-      "tulis": "Keduanya bekerja bersamaan. Jadi perahu tidak menempuh panah biru saja, dan tidak panah merah saja, melainkan *panah ungu* ini: 4 ke kanan, 3 ke atas."
+      "id": "bersamaan",
+      "teks": "Keduanya bekerja bersamaan. Jadi perahu tidak menempuh panah biru saja, dan tidak panah merah saja.",
+      "tulis": "Keduanya bekerja bersamaan. Jadi perahu tidak menempuh panah biru saja, dan tidak panah merah saja."
     },
     {
-      "id": "hilir",
-      "teks": "Hitung sendiri dari petaknya. Perahu mendarat empat kilometer di hilir, padahal haluannya tidak pernah dibelokkan.",
-      "tulis": "Hitung sendiri dari petaknya. Perahu mendarat *4 km di hilir*, padahal haluannya tidak pernah dibelokkan."
+      "id": "jalur",
+      "teks": "Yang benar-benar ditempuhnya panah ungu ini, langsung dari titik berangkat ke titik mendarat.",
+      "tulis": "Yang benar-benar ditempuhnya panah ungu ini, langsung dari titik berangkat ke titik mendarat."
     },
     {
-      "id": "pythagoras",
-      "teks": "Lalu dari mana angka lima ini? Panah biru dan panah merah bertemu siku-siku. Sisi mendatarnya empat, sisi tegaknya tiga. Jadi panjangnya akar dari empat kuadrat tambah tiga kuadrat, sama dengan akar dua puluh lima, yaitu lima. Bukan tujuh.",
-      "tulis": "Lalu dari mana angka 5 ini? Panah biru dan panah merah bertemu *siku-siku*. Sisi mendatarnya 4, sisi tegaknya 3. Jadi panjangnya √(4² + 3²) = √25 = *5*. Bukan 7."
+      "id": "berlayar",
+      "teks": "Mari kita jalankan. Perahunya menyusuri panah ungu, dan benar, ia mendarat jauh di hilir.",
+      "tulis": "Mari kita jalankan. Perahunya menyusuri panah ungu, dan benar, ia mendarat jauh di hilir."
+    },
+    {
+      "id": "baca_petak",
+      "teks": "Baca sendiri dari petaknya. Perahu bergeser empat petak ke kanan dan tiga petak ke atas, padahal haluannya tidak pernah dibelokkan.",
+      "tulis": "Baca sendiri dari petaknya. Perahu bergeser 4 petak ke kanan dan 3 petak ke atas, padahal haluannya tidak pernah dibelokkan."
+    },
+    {
+      "id": "tanya_jarak",
+      "teks": "Pertanyaannya sekarang, sejauh apa perahu itu benar-benar berpindah?",
+      "tulis": "Pertanyaannya sekarang, sejauh apa perahu itu benar-benar berpindah?"
+    },
+    {
+      "id": "siku",
+      "teks": "Perhatikan panah biru dan panah merah. Keduanya bertemu tegak lurus. Di sinilah segitiga siku-siku yang tadi kita sebut akhirnya terbentuk.",
+      "tulis": "Perhatikan panah biru dan panah merah. Keduanya bertemu tegak lurus. Di sinilah segitiga siku-siku yang tadi kita sebut akhirnya terbentuk."
+    },
+    {
+      "id": "sisi",
+      "teks": "Sisi tegaknya tiga kilometer, dari dayung. Sisi mendatarnya empat kilometer, dari arus. Panah ungu jadi sisi miringnya.",
+      "tulis": "Sisi tegaknya 3 km, dari dayung. Sisi mendatarnya 4 km, dari arus. Panah ungu jadi sisi miringnya."
+    },
+    {
+      "id": "hitung1",
+      "teks": "Sekarang tinggal memakai bekal tadi. Tiga kuadrat sama dengan sembilan.",
+      "tulis": "Sekarang tinggal memakai bekal tadi. 3² = 9."
+    },
+    {
+      "id": "hitung2",
+      "teks": "Empat kuadrat sama dengan enam belas. Sembilan ditambah enam belas sama dengan dua puluh lima.",
+      "tulis": "4² = 16. 9 + 16 = 25."
+    },
+    {
+      "id": "hitung3",
+      "teks": "Akar dua puluh lima adalah lima. Jadi perahu berpindah lima kilometer, bukan tujuh.",
+      "tulis": "√25 = 5. Jadi perahu berpindah 5 km, bukan 7."
     },
     {
       "id": "tanya",
-      "teks": "Sekarang perhatikan baik-baik. Angkanya tetap tiga dan empat, tetapi arah dayungnya kita putar. Menurut Anda, hasilnya ikut berubah atau tidak?",
-      "tulis": "Sekarang perhatikan baik-baik. Angkanya *tetap 3 dan 4*, tetapi arah dayungnya kita putar. Menurut Anda, hasilnya ikut berubah atau tidak?"
+      "teks": "Sekarang perhatikan baik-baik. Angkanya kita kunci, tetap tiga dan empat. Yang diubah hanya arah dayungnya. Menurut Anda, hasilnya tetap lima?",
+      "tulis": "Sekarang perhatikan baik-baik. Angkanya kita kunci, tetap 3 dan 4. Yang diubah hanya arah dayungnya. Menurut Anda, hasilnya tetap 5?"
     },
     {
       "id": "searah",
-      "teks": "Kalau dayung diputar sampai searah arus, keduanya saling menambah. Panah ungunya memanjang menjadi tujuh petak.",
-      "tulis": "Kalau dayung diputar sampai *searah* arus, keduanya saling menambah. Panah ungunya memanjang menjadi 7 petak."
+      "teks": "Kalau dayung diputar sampai searah arus, keduanya saling menambah. Panah ungunya memanjang jadi tujuh petak. Di sini, dan hanya di sini, tiga tambah empat memang tujuh.",
+      "tulis": "Kalau dayung diputar sampai searah arus, keduanya saling menambah. Panah ungunya memanjang jadi 7 petak. Di sini, dan hanya di sini, 3 + 4 memang 7."
     },
     {
       "id": "lawan",
-      "teks": "Kalau dayung diputar sampai melawan arus, keduanya saling mengurangi. Panah ungunya menyusut, sisanya tinggal satu petak.",
-      "tulis": "Kalau dayung diputar sampai *melawan* arus, keduanya saling mengurangi. Panah ungunya menyusut, sisanya tinggal 1 petak."
+      "teks": "Kalau dayung diputar sampai melawan arus, keduanya saling mengurangi. Panah ungunya menyusut, dan sisanya tinggal satu petak.",
+      "tulis": "Kalau dayung diputar sampai melawan arus, keduanya saling mengurangi. Panah ungunya menyusut, dan sisanya tinggal 1 petak."
     },
     {
       "id": "tegak",
-      "teks": "Dan kalau dayung kembali tegak lurus seperti semula, hasilnya lima. Angka yang sama, tiga dan empat, ternyata bisa memberi tujuh, satu, atau lima.",
-      "tulis": "Dan kalau dayung kembali *tegak lurus* seperti semula, hasilnya 5. Angka yang sama, 3 dan 4, ternyata bisa memberi 7, 1, atau 5."
+      "teks": "Dan kalau dayung kembali tegak lurus seperti semula, panjangnya kembali lima.",
+      "tulis": "Dan kalau dayung kembali tegak lurus seperti semula, panjangnya kembali 5."
     },
     {
-      "id": "tutup",
-      "teks": "Yang membedakan hanya arah. Besaran yang butuh arah itulah yang disebut vektor. Yang cukup satu angka disebut skalar.",
-      "tulis": "Yang membedakan hanya *arah*. Besaran yang butuh arah itulah yang disebut *VEKTOR*. Yang cukup satu angka disebut *skalar*."
+      "id": "tiga_hasil",
+      "teks": "Satu pasang angka yang sama, tiga jawaban yang berbeda: tujuh, satu, atau lima. Yang membedakan hanya arah.",
+      "tulis": "Satu pasang angka yang sama, tiga jawaban yang berbeda: 7, 1, atau 5. Yang membedakan hanya arah."
+    },
+    {
+      "id": "umum",
+      "teks": "Dan itu berlaku umum. Untuk dua gerakan yang saling tegak lurus, panjang gabungannya akar dari kuadrat yang satu ditambah kuadrat yang lain.",
+      "tulis": "Dan itu berlaku umum. Untuk dua gerakan yang saling tegak lurus, panjang gabungannya √(a² + b²)."
+    },
+    {
+      "id": "nama",
+      "teks": "Besaran yang butuh arah seperti ini punya nama sendiri. Namanya vektor.",
+      "tulis": "Besaran yang butuh arah seperti ini punya nama sendiri. Namanya vektor."
+    },
+    {
+      "id": "skalar",
+      "teks": "Lawannya, besaran yang cukup dinyatakan satu angka, disebut skalar. Massa enam puluh kilogram, suhu dua puluh tujuh derajat, waktu dua jam.",
+      "tulis": "Lawannya, besaran yang cukup dinyatakan satu angka, disebut skalar. Massa 60 kg, suhu 27 derajat, waktu 2 jam."
+    },
+    {
+      "id": "uji",
+      "teks": "Cara memeriksanya begini. Coba tambahkan arah pada massa: massa enam puluh kilogram ke utara. Kalimat itu tidak berarti apa-apa, jadi massa memang bukan vektor.",
+      "tulis": "Cara memeriksanya begini. Coba tambahkan arah pada massa: massa 60 kg ke utara. Kalimat itu tidak berarti apa-apa, jadi massa memang bukan vektor."
+    },
+    {
+      "id": "contoh_vektor",
+      "teks": "Sebaliknya, perpindahan, kecepatan, dan gaya belum selesai diceritakan tanpa arah. Ketiganya vektor.",
+      "tulis": "Sebaliknya, perpindahan, kecepatan, dan gaya belum selesai diceritakan tanpa arah. Ketiganya vektor."
+    },
+    {
+      "id": "keliru",
+      "teks": "Karena itu, melihat angka tiga dan empat lalu langsung menulis tujuh adalah jebakan yang paling sering kena. Menumpuk angka begitu saja hanya benar kalau keduanya searah.",
+      "tulis": "Karena itu, melihat angka 3 dan 4 lalu langsung menulis 7 adalah jebakan yang paling sering kena. Menumpuk angka begitu saja hanya benar kalau keduanya searah."
+    },
+    {
+      "id": "tutup1",
+      "teks": "Jadi begitu arah ikut dihitung, angka tidak boleh lagi ditumpuk begitu saja.",
+      "tulis": "Jadi begitu arah ikut dihitung, angka tidak boleh lagi ditumpuk begitu saja."
+    },
+    {
+      "id": "tutup2",
+      "teks": "Di video berikutnya kita catat satu panah sebagai dua langkah: berapa jauh ke kanan, lalu berapa jauh ke atas. Dengan itu panah bisa dihitung, bukan cuma digambar.",
+      "tulis": "Di video berikutnya kita catat satu panah sebagai dua langkah: berapa jauh ke kanan, lalu berapa jauh ke atas. Dengan itu panah bisa dihitung, bukan cuma digambar."
     }
   ]
 }
