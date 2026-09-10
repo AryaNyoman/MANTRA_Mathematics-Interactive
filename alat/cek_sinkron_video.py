@@ -126,12 +126,38 @@ def frame(video: Path, detik: float, tujuan: Path) -> np.ndarray:
     return np.asarray(Image.open(tujuan).convert("RGB")).astype(int)
 
 
-def hitung_bercak(a: np.ndarray, rgb: tuple[int, int, int], min_px: int = 45,
+# Ambang luas bercak, dikalibrasi pada 854x480. Dipakai sebagai PERBANDINGAN,
+# bukan angka mati: lihat `ambang_bercak`.
+MIN_PX_480P = 45
+LUAS_480P = 854 * 480
+
+
+def ambang_bercak(a: np.ndarray) -> int:
+    """Ambang luas bercak, diskalakan ke ukuran frame yang sedang diperiksa.
+
+    KENAPA TIDAK ANGKA MATI. Ambang 45 piksel dikalibrasi pada 480p. Begitu
+    gelombang 3 merender 1080p, luas tiap benda melar sekitar 5 kali, dan
+    barang yang tadinya di bawah ambang naik melewatinya. Terukur 7 September
+    2026 pada grafik3-puncak 1080p: label puncak (1, 4) yang di 480p terhitung
+    SATU bercak, di 1080p pecah jadi EMPAT, sebab tiap hurufnya sendiri sudah
+    lebih besar dari 45 piksel. Hitungannya meleset +3 di semua baris, dan alat
+    ini melaporkan video yang benar sebagai tidak sinkron.
+
+    Ambangnya karena itu ikut luas frame. Angka 45 di 480p tetap jadi acuan,
+    supaya hasil pemeriksaan 480p yang sudah pernah dipakai tidak berubah.
+    """
+    tinggi, lebar = a.shape[:2]
+    return max(MIN_PX_480P, round(MIN_PX_480P * (lebar * tinggi) / LUAS_480P))
+
+
+def hitung_bercak(a: np.ndarray, rgb: tuple[int, int, int], min_px: int | None = None,
                   toleransi: float = 0.055, min_sat: float = 0.18) -> int:
     """Berapa bercak berwarna `rgb` ada di frame ini, dihitung dari RONA.
 
     Bercak yang lebih kecil dari `min_px` diabaikan: itu tepi huruf atau ujung
-    garis yang kena kabur tepi, bukan benda.
+    garis yang kena kabur tepi, bukan benda. Kalau `min_px` tidak diisi, ia
+    dihitung dari ukuran frame lewat `ambang_bercak`, sebab ambang tetap akan
+    salah begitu videonya bukan 480p lagi.
 
     KENAPA RONA, BUKAN WARNA TERDEKAT. Versi pertama menggolongkan tiap piksel
     ke warna palet yang paling dekat. Cara itu GAGAL pada benda bercahaya, dan
@@ -147,6 +173,8 @@ def hitung_bercak(a: np.ndarray, rgb: tuple[int, int, int], min_px: int = 45,
     krem dan garis abu tidak ikut terhitung. Diuji pada tujuh detik di
     grafik6-transformasi: 0, 1, 1, 2, 3, 4, 5 titik, semuanya tepat.
     """
+    if min_px is None:
+        min_px = ambang_bercak(a)
     hsv = np.asarray(Image.fromarray(a.astype(np.uint8)).convert("HSV")).astype(float) / 255.0
     h, s, v = hsv[..., 0], hsv[..., 1], hsv[..., 2]
     rona = colorsys.rgb_to_hsv(*[c / 255 for c in rgb])[0]
