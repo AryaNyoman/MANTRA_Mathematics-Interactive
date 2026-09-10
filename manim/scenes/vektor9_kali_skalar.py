@@ -53,6 +53,16 @@ ASAL = np.array([0.0, 0.0, Z])
 VA = np.array([2.0, 1.0, 0.0])          # a = (2 1)
 
 BIDANG_X, BIDANG_Y = (-5.0, 7.0, 1.0), (-2.0, 3.0, 1.0)
+
+# Pembuka: garis petak naik dua tahap mengikuti kalimat narator, dan kamera
+# mulai miring TIPIS lalu mendatar tepat pada kalimat "kita lihat dari atas".
+# Sesudah pembuka 3D dipotong, kalimat itu tidak lagi menggambarkan
+# perubahan apa pun, dan gambar yang membantah narasinya dilarang STANDAR
+# butir 3. 6 derajat memendekkan satu arah 1 - cos 6 = 0,55 persen, jauh di
+# bawah yang bisa dilihat mata, dan tidak ada angka sumbu maupun panah yang
+# tampil selama kamera masih miring (syarat MASTER 4 Sep).
+GARIS_SAMAR, GARIS_SEDANG, GARIS_PENUH = 0.30, 0.55, 1.0
+MIRING_AWAL = 6.0          # derajat
 # Kamera peta dihitung `kamera.muat_datar`, tidak ditulis tangan: yang
 # paling bawah pada `bidang_bernomor` adalah ANGKA sumbunya.
 #
@@ -77,6 +87,7 @@ class KaliSkalar(AdeganMatra):
         # tidak diubah; angka sumbu sengaja ditahan sampai babak kedua, tempat
         # narator memang menyebutnya.
         bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
+        bidang.set_stroke(opacity=GARIS_SAMAR)
         bidang.angka.set_opacity(0)
         self.add(bidang)
         self.k = ValueTracker(0.0)
@@ -87,26 +98,61 @@ class KaliSkalar(AdeganMatra):
         bola.add_updater(lambda m: m.move_to(pusat0 + self.k.get_value() * VA))
 
         pusat, tinggi = kamera.muat_datar(bidang)
-        kamera.pasang_awal(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi)
+        kamera.pasang_awal(frame, theta=0, phi=MIRING_AWAL, pusat=pusat,
+                           tinggi=tinggi * 1.06)
+
+        # Jam kalimat: tiap kejadian pembuka dipatok ke detik kalimat yang
+        # menyebutkannya. Tanpa ini `run_time` menumpuk dan gambarnya
+        # meleset beberapa detik dari narasinya.
+        JAM = sinema.jam_subtitle(TOPIK)
+
+        def saat(potongan):
+            for detik, kalimat in JAM:
+                if potongan in kalimat:
+                    return detik
+            return None
         papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True, alas=True)
 
+        # Ruas putus-putus searah a: "ke arah yang sama terus". Ia
+        # DISINGKIRKAN sebelum babak `sejajar` menggambar garis kelipatannya
+        # sendiri, supaya tidak ada dua garis dengan maksud yang sama.
+        arah_tetap = DashedLine(ASAL, ASAL + VA * 1.6).set_stroke(REDUP, 3)
+
         with sinema.babak(self, "sapa", DURASI) as b:
-            self.add(bola)
-            b.main(FadeIn(bola, scale=1.6), run_time=0.8)
             sinema.judul_pembuka(self, "Panjang berubah, arah tetap", lama=3.2, y=2.4)
             b.catat(3.2)
-            b.jeda(1.0)
+            # "Sebuah bola ditendang di lapangan berpetak."
+            b.tunggu_sampai(saat("lapangan berpetak"))
+            b.main(bidang.animate.set_stroke(opacity=GARIS_SEDANG), run_time=1.1)
+            self.add(bola)
+            b.main(FadeIn(bola, scale=1.6), run_time=0.8)
+            # "Kita akan menendangnya ke arah yang sama terus,"
+            b.tunggu_sampai(saat("arah yang"))
+            b.main(ShowCreation(arah_tetap), run_time=1.6)
+            # "hanya tenaganya yang diubah-ubah." Dua denyut, dua tenaga.
+            b.tunggu_sampai(saat("tenaganya"))
+            for _ in range(2):
+                b.main(Indicate(bola, scale_factor=1.35, color=SOROT),
+                       run_time=0.9)
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang, "bola": bola})
 
         # ==============================================================
         # Babak 2: angka sumbu muncul, identitas dipasang
         # ==============================================================
         with sinema.babak(self, "terbang", DURASI) as b:
-            b.main(bidang.angka.animate.set_opacity(0.75), run_time=1.6)
+            # "Kita lihat dari atas supaya bisa dihitung."
+            b.tunggu_sampai(saat("dari atas"))
+            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
+                                tinggi=tinggi), run_time=1.8)
+            b.main(bidang.animate.set_stroke(opacity=GARIS_PENUH), run_time=0.5)
+            b.main(bidang.angka[0].animate.set_opacity(0.75), run_time=0.7)
+            b.main(bidang.angka[1].animate.set_opacity(0.75), run_time=0.7)
+            # "1 petak = 1 langkah."
+            b.tunggu_sampai(saat("petak = 1 langkah"))
+            b.main(FadeOut(arah_tetap), run_time=0.5)
             identitas = sinema.identitas(self, "1 petak = 1 langkah", alas=True)
             identitas.set_opacity(0)
             b.main(identitas.animate.set_opacity(1), run_time=0.8)
-            b.jeda(1.2)
         # Bidang ke `dunia`, identitas ke `hud`: hanya begitu perkalian
         # silang hud x dunia di `periksa_adegan` berjalan.
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
@@ -141,6 +187,13 @@ class KaliSkalar(AdeganMatra):
         # kanan sampai keluar bingkai. Diukur dari pesan gerbang: kelebihan
         # 0,21 satuan.
         ukur_k.move_to([6.85 - ukur_k.get_width() / 2 - 0.47, 0.62, 0]).fix_in_frame()
+        # Alasnya dipasang SENDIRI, sama seperti baris "panjang" di Materi 01.
+        # Baris ini berdiri di luar papan, jadi ia tidak ikut alas papan. Tanpa
+        # ini gerbang menolak "ukur k menindih bidang (irisan 1,48 x 0,33)":
+        # sejak bidang boleh memenuhi layar, baris ini duduk tepat di atas garis
+        # petak. Bantalan mendatar dilebihkan sebab angkanya HIDUP dan melebar
+        # satu huruf saat pengalinya negatif ("-2,0" lawan "1,0").
+        alas_ukur = sinema.alas_hud(self, ukur_k, pad_x=0.42)
 
         with sinema.babak(self, "satu", DURASI) as b:
             self.add(p_asal, p_hasil)
@@ -150,7 +203,9 @@ class KaliSkalar(AdeganMatra):
             panel_a = papan.baris(r"\vec{a} = (2\ \ 1)", AKSEN2)
             self.hud_tambah(ukur_k)
             ukur_k.set_opacity(0)
-            b.main(ukur_k.animate.set_opacity(1), run_time=0.6)
+            alas_ukur.set_opacity(0)
+            b.main(ukur_k.animate.set_opacity(1),
+                   alas_ukur.animate.set_opacity(1), run_time=0.6)
             angka_k.add_updater(lambda m: m.set_value(self.k.get_value()))
             b.jeda(0.8)
         qc.periksa_adegan(self, {},
@@ -173,10 +228,14 @@ class KaliSkalar(AdeganMatra):
         # ==============================================================
         # Babak 5: pengali setengah
         # ==============================================================
+        # Panahnya menyusut TEPAT saat narator berkata "panahnya menyusut",
+        # bukan tiga detik sebelumnya. Dulu keduanya dimainkan di awal babak
+        # lalu layar beku 22 detik.
         with sinema.babak(self, "kecil", DURASI) as b:
+            b.tunggu_sampai(saat("menyusut"))
             b.main(self.k.animate.set_value(0.5), run_time=2.4)
-            b.main(Indicate(p_asal, scale_factor=1.0, color=SOROT), run_time=1.0)
-            b.jeda(0.8)
+            b.tunggu_sampai(saat("Arahnya"))
+            b.main(Indicate(p_asal, scale_factor=1.0, color=SOROT), run_time=1.4)
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
                           hud={"panel a": panel_a, "ukur k": ukur_k,
                                "hitung": hit, "identitas": identitas})
@@ -199,8 +258,12 @@ class KaliSkalar(AdeganMatra):
         nol_label.move_to(ASAL + np.array([1.0, -0.75, 0.0]))
 
         with sinema.babak(self, "nol", DURASI) as b:
-            b.main(self.k.animate.set_value(0.0), run_time=1.8)
-            b.main(FadeIn(nol_label), run_time=0.5)
+            # "Kita turunkan pengalinya pelan-pelan sampai melewati nol."
+            b.tunggu_sampai(saat("melewati nol"))
+            b.main(self.k.animate.set_value(0.0), run_time=3.2)
+            # "Di pengali 0, panahnya lenyap."
+            b.tunggu_sampai(saat("lenyap"))
+            b.main(FadeIn(nol_label), run_time=0.6)
             b.jeda(1.0)
             b.main(FadeOut(nol_label), run_time=0.4)
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
@@ -297,7 +360,8 @@ class KaliSkalar(AdeganMatra):
         # `papan=papan`.
         with sinema.babak(self, "tutup", DURASI) as b:
             b.main(FadeOut(semua), FadeOut(papan.semua()),
-                   FadeOut(ukur_k), FadeOut(identitas), run_time=1.4)
+                   FadeOut(ukur_k), FadeOut(alas_ukur),
+                   FadeOut(identitas), run_time=1.4)
             self.hud_tambah(tutup)
             tutup.set_opacity(0)
             b.main(tutup.animate.set_opacity(1), run_time=1.8)

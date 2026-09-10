@@ -56,6 +56,16 @@ SUDUT_V = np.array([VX, 0.0, Z])        # pojok siku-siku
 VW = np.array([-3.0, 4.0, 0.0])         # (-3 4)
 
 BIDANG_X, BIDANG_Y = (-6.0, 6.0, 1.0), (-1.0, 5.0, 1.0)
+
+# Pembuka: garis petak naik dua tahap mengikuti kalimat narator, dan kamera
+# mulai miring TIPIS lalu mendatar tepat pada kalimat "kita lihat dari atas".
+# Sesudah pembuka 3D dipotong, kalimat itu tidak lagi menggambarkan
+# perubahan apa pun, dan gambar yang membantah narasinya dilarang STANDAR
+# butir 3. 6 derajat memendekkan satu arah 1 - cos 6 = 0,55 persen, jauh di
+# bawah yang bisa dilihat mata, dan tidak ada angka sumbu maupun panah yang
+# tampil selama kamera masih miring (syarat MASTER 4 Sep).
+GARIS_SAMAR, GARIS_SEDANG, GARIS_PENUH = 0.30, 0.55, 1.0
+MIRING_AWAL = 6.0          # derajat
 # Kamera peta dihitung `kamera.muat_datar`, tidak ditulis tangan: yang paling
 # bawah pada `bidang_bernomor` adalah ANGKA sumbunya, bukan garis petak
 # terbawah, dan hitungan tangan berkali-kali ditolak qc karenanya.
@@ -89,6 +99,7 @@ class PanjangPanah(AdeganMatra):
         # tidak diubah; angka sumbu sengaja ditahan sampai babak kedua, tempat
         # narator memang menyebutnya.
         bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
+        bidang.set_stroke(opacity=GARIS_SAMAR)
         bidang.angka.set_opacity(0)
         self.add(bidang)
 
@@ -104,19 +115,42 @@ class PanjangPanah(AdeganMatra):
         kabel.set_stroke(TINTA, 2.5)
 
         pusat, tinggi = kamera.muat_datar(bidang)
-        kamera.pasang_awal(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi)
+        kamera.pasang_awal(frame, theta=0, phi=MIRING_AWAL, pusat=pusat,
+                           tinggi=tinggi * 1.06)
+
+        # Jam kalimat: tiap kejadian pembuka dipatok ke detik kalimat yang
+        # menyebutkannya. Tanpa ini `run_time` menumpuk dan gambarnya
+        # meleset beberapa detik dari narasinya.
+        JAM = sinema.jam_subtitle(TOPIK)
+
+        def saat(potongan):
+            for detik, kalimat in JAM:
+                if potongan in kalimat:
+                    return detik
+            return None
         # `alas=True`: tulisan HUD diberi alas kertas, jadi bidang boleh
         # memenuhi layar tanpa garis petak menembus tulisannya.
         papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True, alas=True)
 
         with sinema.babak(self, "sapa", DURASI) as b:
-            self.add(tiang1, tiang2, kabel)
-            b.main(FadeIn(tiang1, scale=1.5), FadeIn(tiang2, scale=1.5),
-                   run_time=0.6)
-            b.main(ShowCreation(kabel), run_time=0.8)
             sinema.judul_pembuka(self, "Panjang panah itu Pythagoras", lama=3.2, y=2.4)
             b.catat(3.2)
-            b.jeda(1.0)
+            # "Dua tiang berdiri di lapangan."
+            b.tunggu_sampai(saat("Dua tiang"))
+            b.main(bidang.animate.set_stroke(opacity=GARIS_SEDANG), run_time=1.0)
+            self.add(tiang1, tiang2)
+            b.main(FadeIn(tiang1, scale=1.5), FadeIn(tiang2, scale=1.5),
+                   run_time=0.8)
+            # "dan kita harus membentang kabel lurus di antara keduanya."
+            b.tunggu_sampai(saat("membentang kabel"))
+            self.add(kabel)
+            b.main(ShowCreation(kabel), run_time=1.6)
+            # "Pertanyaannya: berapa meter kabel yang perlu disiapkan?"
+            # Kabelnya berdenyut: yang ditanya panjang BENDA itu.
+            b.tunggu_sampai(saat("berapa meter"))
+            for _ in range(2):
+                b.main(Indicate(kabel, scale_factor=1.0, color=SOROT),
+                       run_time=1.0)
         qc.periksa_adegan(self, {},
                           dunia={"bidang": bidang, "tiang 1": tiang1,
                                  "tiang 2": tiang2})
@@ -125,12 +159,18 @@ class PanjangPanah(AdeganMatra):
         # Babak 2: angka sumbu muncul, identitas dipasang
         # ==============================================================
         with sinema.babak(self, "terbang", DURASI) as b:
-            b.main(bidang.angka.animate.set_opacity(0.75), run_time=1.6)
+            # "Kita lihat dari atas": kamera mendatar sekali, lalu angka.
+            b.tunggu_sampai(saat("dari atas"))
+            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
+                                tinggi=tinggi), run_time=1.8)
+            b.main(bidang.animate.set_stroke(opacity=GARIS_PENUH), run_time=0.5)
+            b.main(bidang.angka[0].animate.set_opacity(0.75), run_time=0.7)
+            b.main(bidang.angka[1].animate.set_opacity(0.75), run_time=0.7)
             b.main(FadeOut(kabel), FadeOut(tiang1), FadeOut(tiang2),
-                   run_time=0.8)
+                   run_time=0.6)
             identitas = sinema.identitas(self, "1 petak = 1 meter", alas=True)
             identitas.set_opacity(0)
-            b.main(identitas.animate.set_opacity(1), run_time=0.8)
+            b.main(identitas.animate.set_opacity(1), run_time=0.7)
         # Bidang ke `dunia`, identitas ke `hud`. Hanya begitu perkalian
         # silang hud x dunia di `periksa_adegan` berjalan; menaruh keduanya
         # di `zona` membuat gerbang diam saat petak menembus tulisan.
@@ -192,15 +232,28 @@ class PanjangPanah(AdeganMatra):
         # kuadratnya dijumlahkan dalam satu baris, akarnya di baris kedua.
         # Langkah antaranya tetap diucapkan narator, dan v2 memang menaruh
         # kalimat panjang di narasi, bukan di gambar.
+        # PADATAN SAYA SENDIRI YANG SALAH. Empat langkah narasi (4^2 = 16,
+        # 2^2 = 4, jumlahkan 20, tarik akarnya) saya padatkan jadi dua baris
+        # supaya muat di empat slot panel. Harganya 31,3 detik layar beku,
+        # terukur alat MASTER. Sekarang tiap langkah punya kejadiannya, dan
+        # baris kedua DIMORF supaya slotnya tetap dua.
         with sinema.babak(self, "hitung", DURASI) as b:
-            kuadrat = papan.baris(r"4^2 + 2^2 = 20", TINTA)
+            b.tunggu_sampai(saat("Kuadratkan yang mendatar"))
+            kuadrat = papan.baris(r"4^2 = 16", AKSEN2)
             b.catat(0.8)
+            b.tunggu_sampai(saat("Kuadratkan yang tegak"))
+            jumlah = papan.baris(r"2^2 = 4", AKSEN)
+            b.catat(0.8)
+            b.tunggu_sampai(saat("Jumlahkan"))
+            jumlah = sinema.ganti_rumus(self, jumlah, r"16 + 4 = 20", b=b,
+                                        papan=papan, warna=TINTA)
+            b.tunggu_sampai(saat("tarik akarnya"))
             akar = papan.baris(r"|\vec{v}| = \sqrt{20} \approx 4{,}47", SOROT)
             b.catat(0.8)
-            b.jeda(0.8)
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
                           hud={"identitas": identitas, "panel v": panel_v,
-                               "kuadrat": kuadrat, "akar": akar})
+                               "kuadrat": kuadrat, "jumlah": jumlah,
+                               "akar": akar})
 
         # ==============================================================
         # Babak 6: hasilnya tidak bulat, dan itu biasa
@@ -210,7 +263,8 @@ class PanjangPanah(AdeganMatra):
             b.jeda(1.0)
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang, "v": p_v},
                           hud={"identitas": identitas, "panel v": panel_v,
-                               "kuadrat": kuadrat, "akar": akar})
+                               "kuadrat": kuadrat, "jumlah": jumlah,
+                               "akar": akar})
 
         # ==============================================================
         # Babak 7: pertanyaan
@@ -222,7 +276,8 @@ class PanjangPanah(AdeganMatra):
             b.jeda(1.6)
         qc.periksa_adegan(self, {}, dunia={"bidang": bidang, "v": p_v},
                           hud={"identitas": identitas, "panel v": panel_v,
-                               "kuadrat": kuadrat, "akar": akar})
+                               "kuadrat": kuadrat, "jumlah": jumlah,
+                               "akar": akar})
 
         # ==============================================================
         # Babak 8: komponen yang bertanda negatif
@@ -232,12 +287,16 @@ class PanjangPanah(AdeganMatra):
         l_w.move_to(ASAL + VW + np.array([-0.15, 0.60, 0.0]))
         # Satu baris, bukan tiga: kuadrat 9 dan 16 sudah kelihatan di dalam
         # akarnya, dan slot panel keempat adalah yang terakhir tersedia.
+        # Baris "16 + 4 = 20" DIMORF jadi panjang w: hitungan antara untuk v
+        # sudah selesai dipakai, dan zona rumus cuma memuat empat baris.
+        # Yang tinggal berdampingan justru dua yang mau dibandingkan,
+        # panjang v dan panjang w.
         with sinema.babak(self, "negatif", DURASI) as b:
             b.main(GrowArrow(p_w), run_time=1.4)
             b.main(FadeIn(l_w), run_time=0.5)
-            panjang_w = papan.baris(r"|\vec{w}| = \sqrt{9 + 16} = 5", TINTA)
-            b.catat(0.8)
-            b.jeda(0.6)
+            panjang_w = sinema.ganti_rumus(
+                self, jumlah, r"|\vec{w}| = \sqrt{9 + 16} = 5", b=b,
+                papan=papan, warna=TINTA)
         qc.periksa_adegan(self, {},
                           dunia={"bidang": bidang, "w": p_w, "label w": l_w},
                           hud={"identitas": identitas, "panel v": panel_v,
@@ -286,7 +345,14 @@ class PanjangPanah(AdeganMatra):
         p_sama = VGroup(*[panah(ASAL, ASAL + v, TINTA, tebal=5) for v in SAMA])
         l_sama = VGroup(
             rumus(r"(3\ \ 4)", 24, TINTA).move_to(ASAL + SAMA[0] + np.array([0.15, 0.50, 0.0])),
-            rumus(r"(4\ \ 3)", 24, TINTA).move_to(ASAL + SAMA[1] + np.array([0.95, 0.30, 0.0])),
+            # Digeser ke BAWAH ujungnya, bukan ke kanan atas. Sejak bidang
+            # boleh memenuhi layar, pojok kanan atas dunia jatuh persis di
+            # bawah plat panel rumus, dan gerbang menolaknya: "panjang w
+            # menindih label 4 3". Dihitung, bukan ditebak: pada tinggi
+            # bingkai 9,06 satuan dunia per satuan layar 1,13, tepi bawah
+            # plat ada di layar y = 1,42, sedangkan label di (4,60, 2,30)
+            # berpuncak di 1,21. Sisa 0,21 satuan.
+            rumus(r"(4\ \ 3)", 24, TINTA).move_to(ASAL + SAMA[1] + np.array([0.60, -0.70, 0.0])),
             rumus(r"(-5\ \ 0)", 24, TINTA).move_to(ASAL + SAMA[2] + np.array([-0.20, 0.55, 0.0])),
         )
         # `sinema.label` menggagalkan render kalau lebih dari dua kata, dan
