@@ -1,0 +1,35 @@
+[
+  {
+    "_video": "V03 Substitusi. Berkas ini SENGAJA SALAH.",
+    "_kenapa": "Dijalankan dengan --harus-gagal. Video 03 seluruhnya bertumpu pada satu kalimat: tebakan naif (2x + 1) pangkat 6 dibagi 6 itu KELIRU. Kalau alat pemeriksanya diam-diam meloloskan tebakan itu, seluruh video mengajarkan hal yang salah dan tidak ada yang tahu. Jadi kekeliruannya dibuktikan, bukan diyakini.",
+    "_segmen": "tebakrumus",
+    "id": "V03-SALAH-tebakan-naif",
+    "jenis": "antiturunan",
+    "f": "(2*x + 1)**5",
+    "F": "(2*x + 1)**6/6"
+  },
+  {
+    "_kenapa": "Lupa mengembalikan u ke x adalah kesalahan paling sering di langkah keempat. Jawaban yang berhenti di u bukan jawaban soal semula.",
+    "_segmen": "kembalikan",
+    "id": "V03-SALAH-berhenti-di-u",
+    "jenis": "antiturunan",
+    "f": "2*x*(x**2 + 5)**4",
+    "F": "x**5/5"
+  },
+  {
+    "_kenapa": "Contoh ketiga tanpa penyesuaian angka setengah: hasilnya dua kali lipat.",
+    "_segmen": "contoh3hasil",
+    "id": "V03-SALAH-lupa-setengah",
+    "jenis": "antiturunan",
+    "f": "x*sqrt(x**2 + 5)",
+    "F": "(x**2 + 5)**Rational(3,2)*Rational(2,3)"
+  },
+  {
+    "_kenapa": "Kalau substitusi dipaksakan pada akar tanpa x di depan, hasilnya bukan sekadar meleset angka. Ini yang dibicarakan segmen 'gagal' dan 'batas'.",
+    "_segmen": "gagal",
+    "id": "V03-SALAH-substitusi-dipaksakan",
+    "jenis": "antiturunan",
+    "f": "sqrt(x**2 + 5)",
+    "F": "(x**2 + 5)**Rational(3,2)/3"
+  }
+]

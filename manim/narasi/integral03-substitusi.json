@@ -1,68 +1,178 @@
 {
   "adegan": "IntegralSubstitusi",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Video Integral, Materi 03 'Substitusi, melihat lapisan'. Video terakhir dari lima. BUKAN video bernomor tahap terkecil, jadi tanpa pembuka 3D. Video ini TIDAK BERGRAFIK sama sekali dan itu disengaja: isinya seluruhnya aljabar lapisan, dan memaksakan bidang koordinat hanya akan memberi gambar yang tidak dipakai. Aturan proyek 3d-hanya-jika-dibutuhkan berlaku sama untuk bidang 2D. Angka diperiksa sympy lewat alat/klaim-video-integral03.json, 10 dari 10 lolos, DAN tebakan naif (2x+1)^6/6 dibuktikan DITOLAK alatnya (turunannya 2(2x+1)^5, bukan (2x+1)^5). Warna: AKSEN2 biru = lapisan dalam u, AKSEN merah = faktor du dan angka yang harus disesuaikan, SOROT ungu = jawaban benar dan kesimpulan. Sama dengan widget 'cocokkan-lapisan' di halaman Materi 03.",
+  "tempo": "-5%",
+  "catatan": "Video Integral, Materi 03 'Substitusi, melihat lapisan'. DITULIS ULANG dengan STANDAR VIDEO v3 (keputusan ARYA 8 Sep 2026). Kerangka v3 dipenuhi urut: pembuka satu pertanyaan, segar-ingat Materi 01 dan Materi 02 dengan nomor dan namanya, contoh angka yang dihitung di layar, rumus DIBUKTIKAN dari contoh itu (bukan disodorkan), bentuk umum empat langkah, penutup yang menunjuk Materi 04. Video ini TIDAK BERGRAFIK dan itu disengaja: isinya seluruhnya aljabar lapisan, dan bidang koordinat hanya akan memberi gambar yang tidak dipakai; aturan proyek 3d-hanya-jika-dibutuhkan berlaku sama untuk bidang 2D. Angka diperiksa sympy lewat alat/klaim-video-integral03.json, TERMASUK arah gagalnya: tebakan naif (2x+1) pangkat 6 dibagi 6 dibuktikan DITOLAK alatnya. Warna: AKSEN2 biru = lapisan dalam u, AKSEN merah = faktor du dan angka yang harus disesuaikan, SOROT ungu = jawaban benar dan kesimpulan. Sama dengan widget 'cocokkan-lapisan' di halaman Materi 03.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi ketiga: substitusi, melihat lapisan.",
-      "tulis": "Materi 03: substitusi, melihat lapisan."
+      "teks": "Bagaimana cara mencari antiturunan dari dua x tambah satu, pangkat lima, tanpa harus menguraikan pangkatnya?",
+      "tulis": "Bagaimana cara mencari antiturunan dari (2x + 1)⁵, tanpa harus menguraikan pangkatnya?"
     },
     {
-      "id": "soal",
-      "teks": "Cari antiturunan dari dua x tambah satu, pangkat lima. Menguraikan pangkat limanya bisa saja, tapi hasilnya enam suku, dan untuk pangkat sepuluh cara itu tidak masuk akal lagi.",
-      "tulis": "Antiturunan dari (2x + 1)⁵. Diuraikan bisa, tapi jadi enam suku."
+      "id": "ingat1",
+      "teks": "Sebelum menjawab, kita ingat dua hal. Di Integral Materi nol satu, membalik turunan, kita belajar antiturunan: mesin turunan dijalankan mundur.",
+      "tulis": "Sebelum menjawab, kita ingat dua hal. Di Integral Materi 01, membalik turunan, kita belajar antiturunan: mesin turunan dijalankan mundur."
+    },
+    {
+      "id": "ingat2",
+      "teks": "Caranya menebak, lalu memeriksa tebakan itu dengan menurunkannya kembali. Kalau turunannya cocok dengan soal, tebakan itu benar.",
+      "tulis": "Caranya menebak, lalu memeriksa tebakan itu dengan menurunkannya kembali. Kalau turunannya cocok dengan soal, tebakan itu benar."
+    },
+    {
+      "id": "ingat3",
+      "teks": "Dan jawabannya selalu berakhiran tambah C, karena menggeser kurva ke atas atau ke bawah tidak mengubah kemiringannya.",
+      "tulis": "Dan jawabannya selalu berakhiran + C, karena menggeser kurva ke atas atau ke bawah tidak mengubah kemiringannya."
+    },
+    {
+      "id": "ingat4",
+      "teks": "Lalu di Integral Materi nol dua, tanda integral dan aturan pangkatnya, kita berkenalan dengan lambang integral dan satu aturan cepat.",
+      "tulis": "Lalu di Integral Materi 02, tanda integral dan aturan pangkatnya, kita berkenalan dengan lambang integral dan satu aturan cepat."
+    },
+    {
+      "id": "ingat5",
+      "teks": "Aturan pangkat: antiturunan dari x pangkat n adalah x pangkat n tambah satu, dibagi n tambah satu. Berlaku untuk semua n kecuali negatif satu.",
+      "tulis": "Aturan pangkat: antiturunan dari xⁿ adalah xⁿ⁺¹ dibagi (n + 1). Berlaku untuk semua n kecuali -1."
+    },
+    {
+      "id": "bawa",
+      "teks": "Yang dibawa ke video ini satu kalimat. Aturan pangkat itu ditulis untuk x polos, sedangkan soal hari ini pangkatnya dua x tambah satu.",
+      "tulis": "Yang dibawa ke video ini satu kalimat. Aturan pangkat itu ditulis untuk *x polos*, sedangkan soal hari ini pangkatnya (2x + 1)."
+    },
+    {
+      "id": "uraikan",
+      "teks": "Menguraikan pangkat limanya memang bisa. Hasilnya enam suku, dan tiap suku masih harus diantiturunkan satu per satu.",
+      "tulis": "Menguraikan (2x + 1)⁵ memang bisa. Hasilnya enam suku, dan tiap suku masih harus diantiturunkan satu per satu."
+    },
+    {
+      "id": "besar",
+      "teks": "Untuk pangkat sepuluh, uraiannya sebelas suku. Untuk pangkat dua puluh, dua puluh satu suku. Cara itu berhenti masuk akal.",
+      "tulis": "Untuk pangkat 10, uraiannya 11 suku. Untuk pangkat 20, 21 suku. Cara itu berhenti masuk akal."
     },
     {
       "id": "tebak",
-      "teks": "Coba tebak dulu dengan aturan pangkat apa adanya. Pangkatnya naik jadi enam, lalu dibagi enam.",
-      "tulis": "Tebakan dengan aturan pangkat: (2x + 1)⁶ dibagi 6."
+      "teks": "Jadi kita pakai cara Materi nol satu, yaitu menebak. Naikkan pangkatnya jadi enam, lalu bagi enam.",
+      "tulis": "Jadi kita pakai cara Materi 01, yaitu menebak. Naikkan pangkatnya jadi 6, lalu bagi 6."
+    },
+    {
+      "id": "tebakrumus",
+      "teks": "Tebakannya dua x tambah satu, pangkat enam, dibagi enam.",
+      "tulis": "Tebakannya (2x + 1)⁶ dibagi 6."
     },
     {
       "id": "periksa",
-      "teks": "Sekarang periksa tebakan itu dengan menurunkannya. Lapisan luarnya memberi dua x tambah satu pangkat lima, tapi aturan rantai menuntut satu kali lagi: dikalikan turunan isinya, yaitu dua.",
-      "tulis": "Diturunkan: (2x + 1)⁵ dikali turunan isinya, yaitu *2*."
+      "teks": "Sekarang periksa tebakan itu dengan menurunkannya. Pangkat enamnya turun jadi lima, dan angka enam yang turun ke depan habis dibagi enam di bawah.",
+      "tulis": "Sekarang periksa tebakan itu dengan menurunkannya. Pangkat 6 turun jadi 5, dan angka 6 yang turun ke depan habis dibagi 6 di bawah."
     },
     {
-      "id": "dua",
-      "teks": "Jadi turunan tebakan itu dua kali yang kita cari. Tebakannya kelebihan faktor dua.",
-      "tulis": "Turunannya *2(2x + 1)⁵*, dua kali yang dicari."
+      "id": "rantai",
+      "teks": "Tapi aturan rantai menuntut satu langkah lagi. Hasilnya masih harus dikalikan turunan isi kurungnya.",
+      "tulis": "Tapi aturan rantai menuntut satu langkah lagi. Hasilnya masih harus dikalikan turunan isi kurungnya."
+    },
+    {
+      "id": "turunanisi",
+      "teks": "Turunan dari dua x tambah satu adalah dua.",
+      "tulis": "Turunan dari (2x + 1) adalah 2."
+    },
+    {
+      "id": "kelebihan",
+      "teks": "Jadi turunan tebakan itu dua kali dua x tambah satu pangkat lima. Dua kali lipat dari yang kita cari.",
+      "tulis": "Jadi turunan tebakan itu 2(2x + 1)⁵. Dua kali lipat dari yang kita cari."
     },
     {
       "id": "bagi",
-      "teks": "Perbaikannya sederhana: bagi dua. Jawabannya dua x tambah satu pangkat enam, dibagi dua belas.",
-      "tulis": "Dibagi 2, jadi *(2x + 1)⁶ dibagi 12*."
+      "teks": "Kelebihannya cuma sebuah angka, dan angka gampang diperbaiki. Bagi dua.",
+      "tulis": "Kelebihannya cuma sebuah angka, dan angka gampang diperbaiki. Bagi 2."
+    },
+    {
+      "id": "jawaban",
+      "teks": "Jawabannya dua x tambah satu, pangkat enam, dibagi dua belas, tambah C.",
+      "tulis": "Jawabannya (2x + 1)⁶ dibagi 12, tambah C."
+    },
+    {
+      "id": "buktijawab",
+      "teks": "Diperiksa sekali lagi. Turunannya enam per dua belas, dikali dua, dikali dua x tambah satu pangkat lima. Enam per dua belas dikali dua sama dengan satu, jadi cocok.",
+      "tulis": "Diperiksa sekali lagi. Turunannya 6/12 dikali 2 dikali (2x + 1)⁵. Dan 6/12 dikali 2 = 1, jadi cocok."
     },
     {
       "id": "namai",
-      "teks": "Angka dua itu bukan datang dari mana-mana. Ia turunan isi kurungnya. Beri nama isi kurung itu u. Maka u sama dengan dua x tambah satu, dan du sama dengan dua dx.",
-      "tulis": "Namai isinya: *u = 2x + 1*, maka *du = 2 dx*."
+      "teks": "Angka dua tadi bukan datang dari mana-mana. Ia turunan isi kurungnya. Maka beri nama isi kurung itu u.",
+      "tulis": "Angka 2 tadi bukan datang dari mana-mana. Ia turunan isi kurungnya. Maka beri nama isi kurung itu *u*."
+    },
+    {
+      "id": "du",
+      "teks": "u sama dengan dua x tambah satu. Turunkan kedua ruas, dan du sama dengan dua dx.",
+      "tulis": "u = 2x + 1. Turunkan kedua ruas, dan du = 2 dx."
+    },
+    {
+      "id": "tukar",
+      "teks": "Dari situ dx sama dengan du dibagi dua. Sekarang seluruh soal bisa ditulis ulang dalam u saja.",
+      "tulis": "Dari situ dx = du/2. Sekarang seluruh soal bisa ditulis ulang dalam u saja."
+    },
+    {
+      "id": "dalamu",
+      "teks": "Integral u pangkat lima du, dibagi dua. Aturan pangkat sekarang boleh dipakai, sebab yang dipangkatkan sudah u polos.",
+      "tulis": "Integral dari u⁵ du, dibagi 2. Aturan pangkat sekarang boleh dipakai, sebab yang dipangkatkan sudah *u polos*."
+    },
+    {
+      "id": "kerjakan",
+      "teks": "Hasilnya u pangkat enam dibagi enam, lalu dibagi dua lagi, jadi u pangkat enam dibagi dua belas.",
+      "tulis": "Hasilnya u⁶ dibagi 6, lalu dibagi 2 lagi, jadi u⁶ dibagi 12."
+    },
+    {
+      "id": "kembalikan",
+      "teks": "Langkah terakhir jangan dilupakan. Kembalikan u menjadi dua x tambah satu, dan jawabannya sama persis dengan tebakan yang tadi kita perbaiki.",
+      "tulis": "Langkah terakhir jangan dilupakan. Kembalikan u menjadi (2x + 1), dan jawabannya sama persis dengan tebakan yang tadi kita perbaiki."
     },
     {
       "id": "empat",
-      "teks": "Langkahnya selalu empat, dan urutannya tidak pernah berubah. Pilih u. Hitung du. Cocokkan du dengan yang ada di soal. Kerjakan dalam u, lalu kembalikan ke x.",
-      "tulis": "Pilih u. Hitung du. Cocokkan. Kerjakan lalu kembalikan."
+      "teks": "Jadi bentuk umumnya empat langkah, dan urutannya tidak pernah berubah. Pilih u. Hitung du. Cocokkan du dengan yang ada di soal. Kerjakan dalam u, lalu kembalikan ke x.",
+      "tulis": "Jadi bentuk umumnya empat langkah, dan urutannya tidak pernah berubah. Pilih u. Hitung du. Cocokkan du dengan yang ada di soal. Kerjakan dalam u, lalu kembalikan ke x."
     },
     {
       "id": "contoh2",
-      "teks": "Contoh kedua, dua x kali x kuadrat tambah lima pangkat empat. Pilih u sama dengan x kuadrat tambah lima, maka du sama dengan dua x dx. Bagian dua x dx itu sudah ada di soal, jadi tidak ada yang perlu disesuaikan.",
-      "tulis": "u = x² + 5, du = 2x dx. Bagian 2x dx *sudah ada* di soal."
+      "teks": "Contoh kedua. Integral dua x, dikali x kuadrat tambah lima pangkat empat, dx.",
+      "tulis": "Contoh kedua. Integral dari 2x(x² + 5)⁴ dx."
     },
     {
-      "id": "hasil2",
-      "teks": "Tinggal antiturunan u pangkat empat, yaitu u pangkat lima dibagi lima. Kembalikan u, dan selesai.",
-      "tulis": "Jadi *(x² + 5)⁵ dibagi 5*, ditambah C."
+      "id": "contoh2u",
+      "teks": "Pilih u sama dengan x kuadrat tambah lima, maka du sama dengan dua x dx. Bagian dua x dx itu sudah ada di soal, jadi tidak ada yang perlu disesuaikan.",
+      "tulis": "Pilih u = x² + 5, maka du = 2x dx. Bagian 2x dx itu sudah ada di soal, jadi tidak ada yang perlu disesuaikan."
+    },
+    {
+      "id": "contoh2hasil",
+      "teks": "Tinggal antiturunan u pangkat empat, yaitu u pangkat lima dibagi lima. Kembalikan u, dan hasilnya x kuadrat tambah lima, pangkat lima, dibagi lima, tambah C.",
+      "tulis": "Tinggal antiturunan u⁴, yaitu u⁵ dibagi 5. Kembalikan u, dan hasilnya (x² + 5)⁵ dibagi 5, tambah C."
     },
     {
       "id": "contoh3",
-      "teks": "Contoh ketiga, x kali akar x kuadrat tambah lima. Dengan u yang sama, soal cuma punya x dx, sedangkan du menuntut dua x dx. Yang kurang cuma sebuah angka, yaitu setengah, dan angka boleh disesuaikan.",
-      "tulis": "Soal punya x dx, du menuntut 2x dx. Yang kurang cuma *angka* ½."
+      "teks": "Contoh ketiga. Integral x, dikali akar x kuadrat tambah lima, dx. Dengan u yang sama, soal cuma punya x dx, sedangkan du menuntut dua x dx.",
+      "tulis": "Contoh ketiga. Integral dari x kali akar (x² + 5), dx. Dengan u yang sama, soal cuma punya x dx, sedangkan du menuntut 2x dx."
+    },
+    {
+      "id": "contoh3angka",
+      "teks": "Yang kurang cuma sebuah angka, yaitu setengah, dan angka boleh dipindahkan keluar masuk integral.",
+      "tulis": "Yang kurang cuma sebuah *angka*, yaitu ½, dan angka boleh dipindahkan keluar masuk integral."
+    },
+    {
+      "id": "contoh3hasil",
+      "teks": "Hasilnya x kuadrat tambah lima, pangkat tiga per dua, dibagi tiga, tambah C.",
+      "tulis": "Hasilnya (x² + 5) pangkat 3/2, dibagi 3, tambah C."
     },
     {
       "id": "gagal",
-      "teks": "Sekarang buang x di depannya, sisakan akarnya saja. Dengan u yang sama, yang kurang bukan angka lagi melainkan bentuk yang memuat x. Kekurangan berupa angka boleh diperbaiki, kekurangan yang memuat x tidak. Di situlah substitusi berhenti bisa dipakai.",
-      "tulis": "Kekurangan berupa *angka* boleh diperbaiki. Yang memuat *x* tidak."
+      "teks": "Sekarang buang x di depannya, sisakan akarnya saja. Dengan u yang sama, yang kurang bukan angka lagi, melainkan bentuk yang memuat x.",
+      "tulis": "Sekarang buang x di depannya, sisakan akarnya saja. Dengan u yang sama, yang kurang bukan angka lagi, melainkan bentuk yang memuat x."
+    },
+    {
+      "id": "batas",
+      "teks": "Inilah batas aturannya. Kekurangan berupa angka boleh diperbaiki, kekurangan yang memuat x tidak. Di situlah substitusi berhenti bisa dipakai.",
+      "tulis": "Inilah batas aturannya. Kekurangan berupa *angka* boleh diperbaiki, kekurangan yang memuat *x* tidak. Di situlah substitusi berhenti bisa dipakai."
+    },
+    {
+      "id": "tutup",
+      "teks": "Ringkasnya, kalau yang dipangkatkan bukan x polos, beri nama isi itu u, cocokkan du, kerjakan, lalu kembalikan. Materi berikutnya, nomor nol empat, memakai cara memberi nama ini lagi untuk bentuk yang belum tertangani cara hari ini.",
+      "tulis": "Ringkasnya, kalau yang dipangkatkan bukan x polos, beri nama isi itu u, cocokkan du, kerjakan, lalu kembalikan. Materi berikutnya, nomor 04, memakai cara memberi nama ini lagi untuk bentuk yang belum tertangani cara hari ini."
     }
   ]
 }

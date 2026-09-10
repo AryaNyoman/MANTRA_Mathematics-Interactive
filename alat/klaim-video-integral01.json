@@ -36,6 +36,39 @@
     "jawaban": "156"
   },
   {
+    "_segmen": "hitungtrap",
+    "_kalimat": "Satu tambah dua puluh lima sama dengan dua puluh enam.",
+    "_catatan": "STANDAR v3 menghitung di layar langkah demi langkah, jadi angka ANTARA ikut diucapkan dan ikut diperiksa. Tanpa ini, 26 dan 13 cuma angka yang saya ketik.",
+    "id": "V01-trapesium-jumlah-sisi",
+    "jenis": "nilai",
+    "ekspresi": "1 + 25",
+    "jawaban": "26"
+  },
+  {
+    "_segmen": "hitungtrap",
+    "_kalimat": "Setengahnya tiga belas.",
+    "id": "V01-trapesium-separuh",
+    "jenis": "nilai",
+    "ekspresi": "Rational(1,2)*26",
+    "jawaban": "13"
+  },
+  {
+    "_segmen": "hitungtrap",
+    "_kalimat": "Dikali dua belas bulan, hasilnya seratus lima puluh enam.",
+    "id": "V01-trapesium-kali-lebar",
+    "jenis": "nilai",
+    "ekspresi": "13*12",
+    "jawaban": "156"
+  },
+  {
+    "_segmen": "hitungT",
+    "_kalimat": "Dua belas kuadrat tambah dua belas, yaitu seratus empat puluh empat tambah dua belas.",
+    "id": "V01-T12-kuadrat",
+    "jenis": "nilai",
+    "ekspresi": "12**2",
+    "jawaban": "144"
+  },
+  {
     "_segmen": "tebak",
     "_kalimat": "Tebakan T(x) = x^2 + x, diperiksa dengan menurunkannya.",
     "id": "V01-antiturunan-pokok",

@@ -82,6 +82,46 @@ def periksa_bawaan():
     return True
 
 
+def _kata_polos(teks):
+    """Salinan `sinema._kata_polos`, supaya pencocokan frasa sama persis."""
+    return "".join(c for c in teks.lower() if c.isalnum())
+
+
+def jam_kata(topik):
+    """Isi `audio/<topik>/kata.json`, atau None kalau belum dibuat.
+
+    STANDAR v3 memicu animasi pada KATA yang sedang diucapkan lewat
+    `b.tunggu_kata("frasa")`, bukan lagi lewat awalan kalimat subtitle.
+    Tanpa membaca berkas ini, alat ini akan MELEWATI tiap `tunggu_kata`
+    diam-diam dan angkanya jadi karangan: persis kesalahan yang dulu terjadi
+    pada babak `plusC` dan yang membuat alat ini ada.
+    """
+    p = AKAR / "audio" / topik / "kata.json"
+    if not p.exists():
+        return None
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def detik_kata(kata, segmen, frasa, ke=1):
+    """Detik absolut kata pertama `frasa` di `segmen`, atau None kalau tidak ada.
+
+    Meniru `sinema.JamKata.jam` persis, termasuk normalisasinya, supaya frasa
+    yang lolos di sini juga lolos saat render, dan sebaliknya.
+    """
+    if segmen not in kata:
+        return None
+    cari = [_kata_polos(k) for k in frasa.split()]
+    daftar = kata[segmen]["kata"]
+    polos = [_kata_polos(w["kata"]) for w in daftar]
+    hitung = 0
+    for i in range(len(polos) - len(cari) + 1):
+        if polos[i:i + len(cari)] == cari:
+            hitung += 1
+            if hitung == ke:
+                return kata[segmen]["mulai"] + daftar[i]["mulai"]
+    return None
+
+
 def jam_subtitle(topik):
     """Salinan sinema.jam_subtitle: daftar (detik, kalimat) dari berkas .vtt."""
     p = AKAR / "web" / "public" / "anim" / (topik + ".vtt")
@@ -258,6 +298,7 @@ def bentang_perulangan(blok):
 
 
 DIKENAL = ("b.main(", "b.jeda(", "b.catat(", "b.tunggu_sampai(",
+           "b.tunggu_kata(",
            "sinema.lahir_rumus(", "sinema.ganti_rumus(", ".baris(")
 
 
@@ -287,7 +328,7 @@ def pembantu_setempat(sumber):
     return hasil
 
 
-def hitung_babak(nama, blok, mulai_abs, lama, jam, durasi, pembantu=None):
+def hitung_babak(nama, blok, mulai_abs, lama, jam, durasi, pembantu=None, kata=None):
     """Tirukan pembukuan Babak. Kembalikan (terpakai, catatan)."""
     t = mulai_abs
     catatan = []
@@ -334,6 +375,35 @@ def hitung_babak(nama, blok, mulai_abs, lama, jam, durasi, pembantu=None):
                 catatan.append("b.catat tidak terbaca, waktunya TIDAK dihitung")
             else:
                 t += nilai
+        elif panggil == "b.tunggu_kata(":
+            # STANDAR v3: pemicu per KATA. `sinema.Babak.tunggu_kata`
+            # membulatkan sasarannya ke kisi 1/30 detik, dan itu ditiru di sini
+            # supaya angkanya sama persis dengan render.
+            g = re.search(r"\"((?:[^\"\\]|\\.)*)\"", isi)
+            if not g:
+                catatan.append("tunggu_kata tanpa frasa harfiah, waktunya TIDAK dihitung")
+            elif kata is None:
+                catatan.append("kata.json belum ada, pemicu kata tidak bisa diperiksa "
+                               "(jalankan buat_narasi.py dulu)")
+            else:
+                frasa = g.group(1)
+                titik = detik_kata(kata, nama, frasa)
+                if titik is None:
+                    daftar = ""
+                    if nama in kata:
+                        daftar = " Kata segmen ini: " + " ".join(
+                            w["kata"] for w in kata[nama]["kata"])
+                    catatan.append("PEMICU HILANG: frasa \"%s\" tidak ada di segmen "
+                                   "'%s'.%s" % (frasa, nama, daftar[:400]))
+                else:
+                    sasaran = round(titik * 30) / 30
+                    if sasaran < t - 0.02:
+                        catatan.append(
+                            "pemicu \"%s\" pada %.2f d sudah TERLEWAT (animasi baru "
+                            "sampai %.2f d, selisih %.2f). Render akan GAGAL lewat "
+                            "laporkan_pemicu kalau selisihnya di atas 0,15."
+                            % (frasa, sasaran, t, t - sasaran))
+                    t = max(t, sasaran)
         elif panggil == "b.tunggu_sampai(":
             g = re.search(r"sinema\.mulai\(jam,\s*\"((?:[^\"\\]|\\.)*)\"", isi)
             cadangan, _ = angka_kw(isi, "cadangan", 0.0)
@@ -408,7 +478,12 @@ def main():
     topik = m.group(1)
     durasi = json.loads(
         (AKAR / "audio" / topik / "durasi.json").read_text(encoding="utf-8"))["segmen"]
+    kata = jam_kata(topik)
     jam = jam_subtitle(topik)
+    if kata is None:
+        print("PERINGATAN: audio/%s/kata.json belum ada. Adegan STANDAR v3 memakai "
+              "`b.tunggu_kata`, dan tanpa berkas itu pemicunya tidak bisa diperiksa. "
+              "Jalankan: python manim/buat_narasi.py %s" % (topik, topik))
     if jam is None:
         print("PERINGATAN: web/public/anim/%s.vtt belum ada, jangkar tidak diperiksa" % topik)
 
@@ -446,7 +521,8 @@ def main():
             print("%-12s  tidak ada di durasi.json" % nama)
             gagal.append(nama)
             continue
-        terpakai, catatan = hitung_babak(nama, blok, mulai_abs, lama, jam, durasi, pembantu)
+        terpakai, catatan = hitung_babak(nama, blok, mulai_abs, lama, jam, durasi,
+                                         pembantu, kata)
         sisa = lama - terpakai
         tanda = ""
         if sisa < -TOLERANSI_LEBIH:
@@ -455,7 +531,7 @@ def main():
         print("%-12s %7.2f %7.2f %8.2f%s" % (nama, lama, terpakai, sisa, tanda))
         for c in catatan:
             print("             . " + c)
-            if "JANGKAR HILANG" in c:
+            if "JANGKAR HILANG" in c or "PEMICU HILANG" in c:
                 gagal.append(nama)
             else:
                 bercatatan.append(nama)

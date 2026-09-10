@@ -1,107 +1,439 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/integral01-laju-ke-jumlah.json
+NOTE Dibuat otomatis dari manim/narasi/integral01-laju-ke-jumlah.json (waktu kata rekaman)
 
 1
-00:00:00.000 --> 00:00:04.944
-Materi 01: dari laju ke jumlah, membalik turunan.
+00:00:00.116 --> 00:00:01.316
+Kalau yang kita punya
 
 2
-00:00:04.944 --> 00:00:08.395
-Yang tercatat bukan totalnya,
+00:00:01.316 --> 00:00:03.374
+hanya seberapa cepat sesuatu bertambah,
 
 3
-00:00:08.395 --> 00:00:13.632
-melainkan seberapa cepat totalnya bertambah.
+00:00:03.374 --> 00:00:05.318
+bagaimana mencari jumlah totalnya?
 
 4
-00:00:13.632 --> 00:00:21.921
-Laju digambar: mendatar bulan, tegak juta per bulan.
+00:00:06.435 --> 00:00:10.164
+Kita ingat dua hal dari topik Turunan.
 
 5
-00:00:21.921 --> 00:00:24.312
-Lajunya 2x + 1.
+00:00:10.912 --> 00:00:14.008
+Di Turunan Materi 01, seberapa cepat rata-ratanya,
 
 6
-00:00:24.312 --> 00:00:32.273
-Bulan ke-1 lajunya 3, bulan ke-2 lajunya 5.
+00:00:14.008 --> 00:00:16.944
+kita membagi tambahan dengan selang waktunya.
 
 7
-00:00:32.273 --> 00:00:35.976
-Laju pada satu saat.
+00:00:18.182 --> 00:00:22.140
+Lalu di Turunan Materi 03, turunan sebagai fungsi baru,
 
 8
-00:00:35.976 --> 00:00:39.857
-Satu bulan: laju × lama waktu,
+00:00:22.140 --> 00:00:25.240
+tiap nilai x punya satu angka kemiringan.
 
 9
-00:00:39.857 --> 00:00:44.256
-yaitu luas sebuah persegi panjang.
+00:00:25.988 --> 00:00:28.524
+Kumpulan angka itu membentuk fungsi baru,
 
 10
-00:00:44.256 --> 00:00:49.619
-Dijumlahkan: sudah dekat, belum tepat.
+00:00:28.524 --> 00:00:29.874
+namanya turunan.
 
 11
-00:00:49.619 --> 00:00:54.840
-Dalam satu bulan lajunya tidak tetap.
+00:00:30.868 --> 00:00:34.052
+Selama ini arah kerjanya satu: diberi fungsi,
 
 12
-00:00:54.840 --> 00:01:04.080
-Grafiknya lurus, jadi trapesium menutup tanpa sisa:
+00:00:34.052 --> 00:00:35.402
+cari turunannya.
 
 13
-00:01:04.080 --> 00:01:07.704
-½(1 + 25)(12) = <b>156</b>.
+00:00:36.067 --> 00:00:37.941
+Video ini <b>membalik arah itu</b>.
 
 14
-00:01:07.704 --> 00:01:18.744
-Jalan kedua. T = total. Lajunya adalah T'.
+00:00:38.673 --> 00:00:41.521
+Diberi turunannya, cari fungsi asalnya.
 
 15
-00:01:18.744 --> 00:01:24.276
-Cari T dengan T' = 2x + 1.
+00:00:42.734 --> 00:00:44.108
+Ceritanya begini.
 
 16
-00:01:24.276 --> 00:01:31.723
-Coba x² + x, lalu turunkan: 2x + 1.
+00:00:44.843 --> 00:00:47.190
+Sebuah keluarga mencatat pengeluarannya.
 
 17
-00:01:31.723 --> 00:01:33.000
-<b>Cocok</b>.
+00:00:47.936 --> 00:00:49.543
+Yang tercatat bukan totalnya,
 
 18
-00:01:33.000 --> 00:01:36.119
-x² + x + 7 juga.
+00:00:49.543 --> 00:00:51.537
+melainkan <b>seberapa cepat</b> pengeluaran
 
 19
-00:01:36.119 --> 00:01:39.044
-Dan x² + x - 3.
+00:00:51.537 --> 00:00:53.349
+itu bertambah pada tiap bulan.
 
 20
-00:01:39.044 --> 00:01:45.672
-Turunan sebuah tetapan adalah nol.
+00:00:54.549 --> 00:00:59.462
+Pada bulan ke-x, lajunya <b>2x + 1</b> juta rupiah per bulan.
 
 21
-00:01:45.672 --> 00:01:54.382
-Bukan satu fungsi, satu <b>keluarga</b>: T = x² + x + C,
+00:01:00.667 --> 00:01:02.317
+Mari kita baca angka itu.
 
 22
-00:01:54.382 --> 00:01:57.048
-digeser oleh C.
+00:01:03.067 --> 00:01:07.804
+Pada bulan pertama, x = 1, jadi lajunya 2(1) + 1,
 
 23
-00:01:57.048 --> 00:02:11.424
-T(0) = 0 memberi C = 0. Lalu T(12) = 144 + 12 = <b>156</b>.
+00:01:07.804 --> 00:01:10.177
+yaitu 3 juta per bulan.
 
 24
-00:02:11.424 --> 00:02:16.112
-Luas 156, antiturunan 156.
+00:01:11.382 --> 00:01:16.217
+Pada bulan ke-2: laju = 2(2) + 1 = 5 juta per bulan.
 
 25
-00:02:16.112 --> 00:02:20.439
-Kenapa keduanya bertemu,
+00:01:16.948 --> 00:01:18.572
+Makin lama makin cepat.
 
 26
-00:02:20.439 --> 00:02:26.208
-akan kita buktikan di Materi 07.
+00:01:19.767 --> 00:01:21.509
+Satu hal yang penting sekali.
+
+27
+00:01:22.244 --> 00:01:23.997
+Angka itu laju <b>pada satu saat</b>,
+
+28
+00:01:23.997 --> 00:01:26.250
+bukan tambahan selama sebulan penuh.
+
+29
+00:01:26.996 --> 00:01:29.124
+Kalau dibaca sebagai tambahan bulanan,
+
+30
+00:01:29.124 --> 00:01:30.843
+hasil akhirnya akan meleset.
+
+31
+00:01:32.068 --> 00:01:33.613
+Mendatar: bulan.
+
+32
+00:01:34.347 --> 00:01:37.286
+Tegak: juta per bulan.
+
+33
+00:01:38.032 --> 00:01:42.525
+Karena bentuknya 2x + 1, grafiknya <b>garis lurus</b>.
+
+34
+00:01:43.735 --> 00:01:45.450
+Jalan pertama.
+
+35
+00:01:46.199 --> 00:01:50.296
+Untuk satu bulan: pengeluaran = laju × lama waktu.
+
+36
+00:01:51.501 --> 00:01:52.983
+Laju × lama waktu itu
+
+37
+00:01:52.983 --> 00:01:55.451
+persis <b>luas sebuah persegi panjang</b>:
+
+38
+00:01:55.451 --> 00:01:57.717
+tinggi laju, lebar satu bulan.
+
+39
+00:01:58.935 --> 00:02:00.407
+Kalau tiap bulan dibuatkan
+
+40
+00:02:00.407 --> 00:02:02.956
+persegi panjangnya lalu semuanya dijumlahkan,
+
+41
+00:02:02.956 --> 00:02:04.306
+hasilnya sudah dekat.
+
+42
+00:02:05.029 --> 00:02:06.229
+Baru dekat,
+
+43
+00:02:06.229 --> 00:02:07.429
+sebab di dalam satu
+
+44
+00:02:07.429 --> 00:02:09.778
+bulan lajunya tidak benar-benar tetap.
+
+45
+00:02:09.845 --> 00:02:13.179
+Lihat tepi atasnya: miring, bukan datar.
+
+46
+00:02:14.401 --> 00:02:16.945
+Untungnya grafik laju kita garis lurus.
+
+47
+00:02:17.695 --> 00:02:20.875
+Tepi miring itu bisa ditutup rapi oleh sebuah <b>trapesium</b>,
+
+48
+00:02:20.875 --> 00:02:22.332
+tanpa sisa sedikit pun.
+
+49
+00:02:23.062 --> 00:02:26.396
+Jadi untuk soal ini luasnya tepat, bukan hampiran.
+
+50
+00:02:27.601 --> 00:02:30.014
+Trapesiumnya punya dua sisi sejajar.
+
+51
+00:02:30.763 --> 00:02:34.111
+Sisi kiri setinggi laju di bulan 0, yaitu 1.
+
+52
+00:02:34.855 --> 00:02:38.874
+Sisi kanan setinggi laju di bulan 12, yaitu 25.
+
+53
+00:02:40.101 --> 00:02:41.969
+Luas trapesium adalah ½ ×
+
+54
+00:02:41.969 --> 00:02:44.659
+jumlah sisi sejajarnya × lebarnya.
+
+55
+00:02:45.393 --> 00:02:48.320
+1 + 25 = 26.
+
+56
+00:02:49.050 --> 00:02:50.726
+Setengahnya 13.
+
+57
+00:02:51.459 --> 00:02:55.083
+Dikali 12 bulan, hasilnya <b>156</b>.
+
+58
+00:02:56.282 --> 00:03:01.275
+Jalan pertama selesai: <b>156</b> juta rupiah setahun.
+
+59
+00:03:02.501 --> 00:03:03.701
+Jalan kedua,
+
+60
+00:03:03.701 --> 00:03:07.532
+yang sepintas tidak berhubungan dengan luas.
+
+61
+00:03:08.070 --> 00:03:10.838
+Sebut <b>T</b> total pengeluaran sampai bulan ke-x.
+
+62
+00:03:12.082 --> 00:03:14.319
+Seberapa cepat T bertambah itu T'.
+
+63
+00:03:14.319 --> 00:03:17.052
+Dan seberapa cepat T bertambah sudah kita tahu:
+
+64
+00:03:17.052 --> 00:03:18.402
+itulah lajunya.
+
+65
+00:03:18.807 --> 00:03:22.365
+Jadi kita mencari fungsi T yang turunannya <b>2x + 1</b>.
+
+66
+00:03:23.567 --> 00:03:24.917
+Coba tebak.
+
+67
+00:03:25.480 --> 00:03:29.207
+Kalau diturunkan x² memberi 2x, dan x memberi 1,
+
+68
+00:03:29.207 --> 00:03:32.696
+maka tebakan yang masuk akal adalah <b>x² + x</b>.
+
+69
+00:03:33.901 --> 00:03:36.209
+Tebakan tidak dipercaya begitu saja.
+
+70
+00:03:36.958 --> 00:03:39.046
+Kita periksa dengan menurunkannya,
+
+71
+00:03:39.046 --> 00:03:41.529
+memakai aturan dari Turunan Materi 03.
+
+72
+00:03:42.259 --> 00:03:44.312
+Turunan x² adalah 2x.
+
+73
+00:03:44.312 --> 00:03:46.014
+Turunan x adalah 1.
+
+74
+00:03:47.235 --> 00:03:49.898
+Dijumlahkan, 2x + 1.
+
+75
+00:03:50.632 --> 00:03:52.203
+Itu persis lajunya.
+
+76
+00:03:52.934 --> 00:03:54.321
+Tebakan kita <b>benar</b>.
+
+77
+00:03:55.535 --> 00:03:57.448
+Tetapi ada yang belum selesai.
+
+78
+00:03:58.182 --> 00:04:01.082
+Coba periksa juga x² + x + <b>7</b>.
+
+79
+00:04:02.316 --> 00:04:03.954
+Turunannya juga 2x + 1,
+
+80
+00:04:03.954 --> 00:04:06.953
+sebab <b>turunan sebuah tetapan adalah nol</b>.
+
+81
+00:04:07.700 --> 00:04:08.960
+Tetapan tidak berubah,
+
+82
+00:04:08.960 --> 00:04:11.574
+jadi ia tidak menyumbang kecepatan apa pun.
+
+83
+00:04:12.782 --> 00:04:14.964
+Jadi jawabannya bukan satu fungsi,
+
+84
+00:04:14.964 --> 00:04:17.103
+melainkan satu <b>keluarga</b> fungsi.
+
+85
+00:04:17.836 --> 00:04:21.157
+Kita tulis T = x² + x + C.
+
+86
+00:04:22.382 --> 00:04:25.276
+Pada gambar: bentuknya sama persis,
+
+87
+00:04:25.276 --> 00:04:28.072
+hanya <b>digeser</b> naik turun oleh C.
+
+88
+00:04:29.301 --> 00:04:31.964
+Dan inilah sebabnya turunannya tidak berubah.
+
+89
+00:04:32.698 --> 00:04:35.795
+Ambil x = 2 pada dua anggota yang berbeda.
+
+90
+00:04:36.542 --> 00:04:40.455
+Kemiringannya sama-sama 2(2) + 1, yaitu <b>5</b>.
+
+91
+00:04:41.682 --> 00:04:46.227
+Laju hanya memberi bentuk kurvanya, bukan letaknya.
+
+92
+00:04:46.960 --> 00:04:50.478
+Untuk memilih satu, perlu <b>satu keterangan tambahan</b>.
+
+93
+00:04:51.668 --> 00:04:54.735
+Keterangan itu ada di ceritanya: awal tahun,
+
+94
+00:04:54.735 --> 00:04:56.085
+totalnya nol.
+
+95
+00:04:56.540 --> 00:05:00.401
+Masukkan x = 0, dan seluruh sukunya nol kecuali C.
+
+96
+00:05:01.130 --> 00:05:02.898
+Jadi <b>C = 0</b>.
+
+97
+00:05:04.100 --> 00:05:05.868
+Sekarang tinggal menghitung.
+
+98
+00:05:06.604 --> 00:05:09.741
+T(12) = 12² + 12.
+
+99
+00:05:10.487 --> 00:05:15.111
+Yaitu 144 + 12, sama dengan <b>156</b>.
+
+100
+00:05:16.335 --> 00:05:18.537
+Angka yang <b>sama persis</b> dengan luas tadi.
+
+101
+00:05:19.286 --> 00:05:25.318
+Dua jalan, satu jawaban.
+
+102
+00:05:26.516 --> 00:05:30.411
+Fungsi yang turunannya f disebut <b>antiturunan</b> dari f.
+
+103
+00:05:30.411 --> 00:05:34.034
+Anti berarti melawan arah, bukan meniadakan.
+
+104
+00:05:35.249 --> 00:05:38.309
+Kenapa mengukur luas dan membalik turunan bisa bertemu,
+
+105
+00:05:38.309 --> 00:05:39.794
+itu belum kita buktikan.
+
+106
+00:05:40.541 --> 00:05:42.581
+Pembuktiannya ada di Materi 07,
+
+107
+00:05:42.581 --> 00:05:44.573
+dan itulah puncak topik ini.
+
+108
+00:05:45.303 --> 00:05:47.095
+Materi berikutnya lebih dulu memberi
+
+109
+00:05:47.095 --> 00:05:49.137
+lambang tetap untuk semua antiturunan.
