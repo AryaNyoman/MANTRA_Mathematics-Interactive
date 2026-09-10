@@ -60,13 +60,13 @@
     "semantic_hash": "0bc2a89e562e3fd820a936512ff29638"
   },
   "alat/nyalakan-sesi.ps1": {
-    "mtime": 1788266510.0625257,
-    "ast_hash": "ba0744008499c51d4e4aad69d0da34ee",
-    "semantic_hash": "ba0744008499c51d4e4aad69d0da34ee"
+    "mtime": 1788753102.6579645,
+    "ast_hash": "7267d84f4b989fc1dfeeb27a35a9fc88",
+    "semantic_hash": ""
   },
   "alat/periksa_tahap.py": {
-    "mtime": 1788454437.072794,
-    "ast_hash": "bb3298e2c30de239918a62c9a0fdc647",
+    "mtime": 1788760813.1212204,
+    "ast_hash": "b550591be2810a908fefb72225678e37",
     "semantic_hash": ""
   },
   "alat/soal-grafik-fungsi.json": {
@@ -385,14 +385,14 @@
     "semantic_hash": "2a8b536b46b72e17b1ab90a691a5974d"
   },
   "manim/buat_narasi.py": {
-    "mtime": 1788200862.5825863,
-    "ast_hash": "e56d22d7a193bb8af34553743f2c4287",
-    "semantic_hash": "e56d22d7a193bb8af34553743f2c4287"
+    "mtime": 1788868030.6493216,
+    "ast_hash": "1090d6513c9d7fd482d8b14548be51dc",
+    "semantic_hash": ""
   },
   "manim/buat_subtitle.py": {
-    "mtime": 1788389987.7006466,
-    "ast_hash": "7ac2821b0a4571b7dc9380c7b8a4817f",
-    "semantic_hash": "7ac2821b0a4571b7dc9380c7b8a4817f"
+    "mtime": 1788890775.3239489,
+    "ast_hash": "88a469c9b42890231b5a430df39ddc1e",
+    "semantic_hash": ""
   },
   "manim/cek_kode.py": {
     "mtime": 1788476352.6116824,
@@ -410,8 +410,8 @@
     "semantic_hash": "3822804b6fd7c350495098c83339c023"
   },
   "manim/gabung_audio.py": {
-    "mtime": 1788454389.1394465,
-    "ast_hash": "488b9555703d76428ec49118f60655ef",
+    "mtime": 1788808182.5667837,
+    "ast_hash": "071d75d21ebb91d96d2bbaeb1091bf68",
     "semantic_hash": ""
   },
   "manim/gl/__init__.py": {
@@ -420,8 +420,8 @@
     "semantic_hash": "22d582fdfa5ba27d35fdd6ed7e816c9a"
   },
   "manim/gl/ilustrasi.py": {
-    "mtime": 1788611912.5784187,
-    "ast_hash": "77d0bdc662bf17daf7ead954bdf9737f",
+    "mtime": 1788799446.7883172,
+    "ast_hash": "30a67d966b3a63a77d5b1e551026763e",
     "semantic_hash": ""
   },
   "manim/gl/kamera.py": {
@@ -430,13 +430,13 @@
     "semantic_hash": ""
   },
   "manim/gl/qc.py": {
-    "mtime": 1788476994.0487587,
-    "ast_hash": "40433296f72cf6cdd8fcdc575763fad0",
+    "mtime": 1788812406.2879798,
+    "ast_hash": "761a4684bc8c1cba3593d353743a05cd",
     "semantic_hash": ""
   },
   "manim/gl/sinema.py": {
-    "mtime": 1788492698.194267,
-    "ast_hash": "6c2e2220e309efdec9ea500653c54fb2",
+    "mtime": 1788879875.231632,
+    "ast_hash": "9446ec61a67246848ebdc24f4339991f",
     "semantic_hash": ""
   },
   "manim/gl/tema.py": {
@@ -445,8 +445,8 @@
     "semantic_hash": "ba06a0876c2bb09d447a2538ce5131f7"
   },
   "manim/gl/uji_qc.py": {
-    "mtime": 1788479460.7547314,
-    "ast_hash": "0799a5b8f8a517b2206aa32a35fa95b2",
+    "mtime": 1788812406.2889805,
+    "ast_hash": "b86489f7ad2a582313ec47fb623f8e64",
     "semantic_hash": ""
   },
   "manim/lingkungan.py": {
@@ -640,8 +640,8 @@
     "semantic_hash": ""
   },
   "manim/scenes/ruang_3d_03.py": {
-    "mtime": 1788498594.5888865,
-    "ast_hash": "6470355544877f220df023f113634426",
+    "mtime": 1788785409.5730374,
+    "ast_hash": "2945819463c683bd3dab48a732b3baf6",
     "semantic_hash": ""
   },
   "manim/scenes/ruang_3d_04.py": {
@@ -650,8 +650,8 @@
     "semantic_hash": ""
   },
   "manim/scenes/ruang_3d_06.py": {
-    "mtime": 1788498594.5940318,
-    "ast_hash": "559815e348428c554a1c344ac127466f",
+    "mtime": 1788785409.5740523,
+    "ast_hash": "f9dddce5f0bb9fb54e7f3885bba91181",
     "semantic_hash": ""
   },
   "manim/scenes/ruang_3d_08.py": {
@@ -675,9 +675,9 @@
     "semantic_hash": ""
   },
   "manim/scenes/statistika8_simpangan.py": {
-    "mtime": 1788389914.7831268,
-    "ast_hash": "63398e41135df7d00c0a6dfa26253bf4",
-    "semantic_hash": "63398e41135df7d00c0a6dfa26253bf4"
+    "mtime": 1788790040.3725352,
+    "ast_hash": "10045b41ea5080634f65c40a2797d0ee",
+    "semantic_hash": ""
   },
   "manim/scenes/vektor1_perahu.py": {
     "mtime": 1788611652.8013268,
@@ -710,9 +710,9 @@
     "semantic_hash": ""
   },
   "manim/tambal_manimgl.py": {
-    "mtime": 1788322139.8139558,
-    "ast_hash": "a638746fb22ba0addc886d7e997327b6",
-    "semantic_hash": "a638746fb22ba0addc886d7e997327b6"
+    "mtime": 1788790040.3725352,
+    "ast_hash": "20cfa65aae2c277018de033d92df6a3c",
+    "semantic_hash": ""
   },
   "manim/uji/uji_cahaya_gl.py": {
     "mtime": 1788315323.4356947,
@@ -1385,8 +1385,8 @@
     "semantic_hash": "600c21b433819c3aaf375c59d8a27818"
   },
   "web/content/daftar-isi.ts": {
-    "mtime": 1788454437.0890703,
-    "ast_hash": "75565b46dd33ae59aad4b0211bf69377",
+    "mtime": 1788775898.4937184,
+    "ast_hash": "38cfa002d3d06a72a550dd3dea575094",
     "semantic_hash": ""
   },
   "web/content/grafik-fungsi/index.ts": {
@@ -1445,7 +1445,7 @@
     "semantic_hash": "733c2c48e5d011679fdc521d98a7d97e"
   },
   "web/content/ruang-3d/tahap.ts": {
-    "mtime": 1788565564.3818784,
+    "mtime": 1788793507.7425063,
     "ast_hash": "3998617d3a536c02d817a6b6c92a7a6f",
     "semantic_hash": ""
   },
@@ -1475,17 +1475,17 @@
     "semantic_hash": "e904b7ef6dc80309ff0c37f2b7210226"
   },
   "web/content/statistika/tahap-hubungan.ts": {
-    "mtime": 1788565564.3838818,
+    "mtime": 1788808932.511036,
     "ast_hash": "d39f313efc51f90227ff907104259d96",
     "semantic_hash": ""
   },
   "web/content/statistika/tahap-pemusatan.ts": {
-    "mtime": 1788565564.3848798,
+    "mtime": 1788808932.5120347,
     "ast_hash": "904e67818d5a11b9b13d49b2a1a37fad",
     "semantic_hash": ""
   },
   "web/content/statistika/tahap-penyajian.ts": {
-    "mtime": 1788565564.386112,
+    "mtime": 1788808932.5120347,
     "ast_hash": "c74ef942303d7b3220907c5e93828d34",
     "semantic_hash": ""
   },
@@ -1500,8 +1500,8 @@
     "semantic_hash": ""
   },
   "web/content/subbab.ts": {
-    "mtime": 1788606552.6329505,
-    "ast_hash": "9291862b0053003c09b02e737846e602",
+    "mtime": 1788775898.5033288,
+    "ast_hash": "3660f748ca68ccd477959f40201cf1e6",
     "semantic_hash": ""
   },
   "web/content/tipe.ts": {
@@ -1510,8 +1510,8 @@
     "semantic_hash": ""
   },
   "web/content/topik.ts": {
-    "mtime": 1788454558.9312317,
-    "ast_hash": "02426b63e75bdc2dd9ee6cb4372b5ffd",
+    "mtime": 1788778105.474409,
+    "ast_hash": "2df48e1d3592779c7a57d698c9ac5ef5",
     "semantic_hash": ""
   },
   "web/content/trigonometri/index.ts": {
@@ -1620,13 +1620,13 @@
     "semantic_hash": "70803fcfe0c0ffd5294dcb2199bf820b"
   },
   "CLAUDE.md": {
-    "mtime": 1788600411.726748,
-    "ast_hash": "51410aa3f646cc7d1c39e1615d7e0153",
+    "mtime": 1788869189.1732528,
+    "ast_hash": "a52e1b2baac077cccf14f5dfaf1db6ea",
     "semantic_hash": ""
   },
   "PROGRESS.md": {
-    "mtime": 1788612950.5458972,
-    "ast_hash": "12e1752f4583f289d21675e9e766fbec",
+    "mtime": 1788890974.5351038,
+    "ast_hash": "ff216b51844412ceada1f686d546446c",
     "semantic_hash": ""
   },
   "alat/lingkungan/pip-freeze-2026-09-02-sebelum-manimgl.txt": {
@@ -1745,9 +1745,9 @@
     "semantic_hash": "4fdac124de32fda57772d962928b795e"
   },
   "docs/tugas/ATURAN-SEMUA-SESI.md": {
-    "mtime": 1788364034.4256291,
-    "ast_hash": "029b45711824a7c1b8d9eaeda891f04a",
-    "semantic_hash": "029b45711824a7c1b8d9eaeda891f04a"
+    "mtime": 1788880047.3335917,
+    "ast_hash": "b28cbb99be881321cc34bd1828d26bec",
+    "semantic_hash": ""
   },
   "docs/tugas/CARA-BUKA-SESI.md": {
     "mtime": 1788266582.4907582,
@@ -1765,29 +1765,29 @@
     "semantic_hash": "5709ed5405745a96451df9b878dd1c40"
   },
   "docs/tugas/MATRA-GRAFIK-FUNGSI.md": {
-    "mtime": 1788364055.9478774,
-    "ast_hash": "985e26703f7d209ac75be55f6ee83f37",
-    "semantic_hash": "985e26703f7d209ac75be55f6ee83f37"
+    "mtime": 1788869189.1864974,
+    "ast_hash": "41a9d2de118bfb33db64d1a8a6e76010",
+    "semantic_hash": ""
   },
   "docs/tugas/MATRA-RUANG-TIGA-DIMENSI.md": {
-    "mtime": 1788319703.3875232,
-    "ast_hash": "759b4ff02d7d40d93f55030114d83f61",
-    "semantic_hash": "759b4ff02d7d40d93f55030114d83f61"
+    "mtime": 1788869189.1924715,
+    "ast_hash": "ead81a560417723c77ecf6c3076c0ad4",
+    "semantic_hash": ""
   },
   "docs/tugas/MATRA-STATISTIKA.md": {
-    "mtime": 1788364055.9453185,
-    "ast_hash": "70692d64ccb6b933b054a9a7a92f64a2",
-    "semantic_hash": "70692d64ccb6b933b054a9a7a92f64a2"
+    "mtime": 1788869189.188463,
+    "ast_hash": "e0eba80cd60006275256948e0127ef18",
+    "semantic_hash": ""
   },
   "docs/tugas/MATRA-VEKTOR.md": {
-    "mtime": 1788364055.9494264,
-    "ast_hash": "104f92cc51265c1c62405eee58601243",
-    "semantic_hash": "104f92cc51265c1c62405eee58601243"
+    "mtime": 1788869189.1834385,
+    "ast_hash": "641b3dc845643c981bd0515177434c9e",
+    "semantic_hash": ""
   },
   "docs/tugas/PROMPT-SIAP-TEMPEL.md": {
-    "mtime": 1788319714.7009065,
-    "ast_hash": "e22fda567998a778a1adff3e4a8ccbc9",
-    "semantic_hash": "e22fda567998a778a1adff3e4a8ccbc9"
+    "mtime": 1788869189.2449565,
+    "ast_hash": "ad725eeaa5637804264eef9353a58572",
+    "semantic_hash": ""
   },
   "docs/tugas/REVISI-ARYA-VIDEO.md": {
     "mtime": 1788364049.484445,
@@ -1800,9 +1800,9 @@
     "semantic_hash": ""
   },
   "docs/tugas/STANDAR-MENGAJAR.md": {
-    "mtime": 1788364014.1081479,
-    "ast_hash": "e9b4e90abfc7cb76f31c7ceef548a33f",
-    "semantic_hash": "e9b4e90abfc7cb76f31c7ceef548a33f"
+    "mtime": 1788867774.9140089,
+    "ast_hash": "5f9fc8497449318263464edb69640ac8",
+    "semantic_hash": ""
   },
   "docs/tugas/laporan/MATRA-DESAIN-UI-UX.md": {
     "mtime": 1788412479.2878358,
@@ -1815,13 +1815,13 @@
     "semantic_hash": ""
   },
   "docs/tugas/laporan/MATRA-RUANG-TIGA-DIMENSI.md": {
-    "mtime": 1788498594.5859272,
-    "ast_hash": "df978ecfe0b1c9ac40d4fe1e58bedf58",
+    "mtime": 1788785409.5697627,
+    "ast_hash": "e34fb98e71e3551986a09215894b9fef",
     "semantic_hash": ""
   },
   "docs/tugas/laporan/MATRA-STATISTIKA.md": {
-    "mtime": 1788490641.4312296,
-    "ast_hash": "6bfc565e17a3c2a124c55e7aa77523fb",
+    "mtime": 1788790040.3701186,
+    "ast_hash": "45f0e8c7d8b5553a93f4ecd72c8cb18d",
     "semantic_hash": ""
   },
   "docs/tugas/laporan/MATRA-VEKTOR.md": {
@@ -2100,13 +2100,13 @@
     "semantic_hash": ""
   },
   "alat/cek_resolusi_anim.py": {
-    "mtime": 1788497143.8346229,
-    "ast_hash": "c6cedc309ee613710f2a3ec0fb9d08f4",
+    "mtime": 1788808246.0514534,
+    "ast_hash": "2913c5e9841c18cd4f7679cfaf9bce9a",
     "semantic_hash": ""
   },
   "alat/cek_transformasi.py": {
-    "mtime": 1788490173.0259135,
-    "ast_hash": "43933f5d035004bc4a11bdb2831e0195",
+    "mtime": 1788624495.8438597,
+    "ast_hash": "053893953dce4b69f56595ecc6dd8efb",
     "semantic_hash": ""
   },
   "alat/materi-transformasi-geometri.json": {
@@ -2130,8 +2130,8 @@
     "semantic_hash": ""
   },
   "alat/ukur_detik_pertama.py": {
-    "mtime": 1788491225.3725295,
-    "ast_hash": "f2ba0a75c8e27ba29ffe6d9142b78247",
+    "mtime": 1788790040.3675776,
+    "ast_hash": "0decc52f20201232e1b534433c18b5af",
     "semantic_hash": ""
   },
   "audio/statistika1-menipu/durasi.json": {
@@ -2190,8 +2190,8 @@
     "semantic_hash": ""
   },
   "audio/transformasi1-setiap-titik/durasi.json": {
-    "mtime": 1788490173.0611856,
-    "ast_hash": "8a5b74c5b993f35f33c08bb432a91ed0",
+    "mtime": 1788616314.975973,
+    "ast_hash": "6bdd2a6586882fb0a0a6659d5f562bc6",
     "semantic_hash": ""
   },
   "manim/narasi/statistika1-menipu.json": {
@@ -2250,8 +2250,8 @@
     "semantic_hash": ""
   },
   "manim/narasi/transformasi1-setiap-titik.json": {
-    "mtime": 1788490173.078866,
-    "ast_hash": "1a5c651d9f76e436c7bc7c56edb6a267",
+    "mtime": 1788616315.0483236,
+    "ast_hash": "2ac249cd981a2bec0f8fbccbbdf902f7",
     "semantic_hash": ""
   },
   "manim/scenes/statistika10_pencar.py": {
@@ -2295,8 +2295,8 @@
     "semantic_hash": ""
   },
   "manim/scenes/statistika6_pencilan.py": {
-    "mtime": 1788490171.228469,
-    "ast_hash": "2add03ba465a9181becd42e39f943365",
+    "mtime": 1788790040.3711765,
+    "ast_hash": "24a23d9596aacd87f405f1c9cfc0c2e7",
     "semantic_hash": ""
   },
   "manim/scenes/statistika7_boxplot.py": {
@@ -2310,8 +2310,8 @@
     "semantic_hash": ""
   },
   "manim/scenes/transformasi1_setiap_titik.py": {
-    "mtime": 1788490173.0822983,
-    "ast_hash": "a73641e9d869cbc725d4e48479596fb9",
+    "mtime": 1788624495.9309871,
+    "ast_hash": "7968f5b0ff0320aefb7d7d67c579d091",
     "semantic_hash": ""
   },
   "manim/uji/uji_balok_tiga_terang.py": {
@@ -2435,8 +2435,8 @@
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/Legenda.tsx": {
-    "mtime": 1788454437.0833359,
-    "ast_hash": "e6a6380b1d4db2e85cd3748eb3cda8e0",
+    "mtime": 1788778608.241391,
+    "ast_hash": "2a3513b3cda7afe2fc1696130a4a422f",
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/MejaUkur.tsx": {
@@ -2500,8 +2500,8 @@
     "semantic_hash": ""
   },
   "web/content/transformasi-geometri/tahap.ts": {
-    "mtime": 1788565564.3892977,
-    "ast_hash": "054173163cc4d03ac971953b1669e1f4",
+    "mtime": 1788616315.055458,
+    "ast_hash": "4fbaeb86fd625f3136b6032c29bf150e",
     "semantic_hash": ""
   },
   "web/lib/petak-sumbu.ts": {
@@ -2660,33 +2660,33 @@
     "semantic_hash": ""
   },
   "web/public/anim/ruang-3d-01.jpg": {
-    "mtime": 1788493360.1429558,
-    "ast_hash": "a5d939b83a9ca994b8d9fd666fe79cc2",
+    "mtime": 1788785409.5780497,
+    "ast_hash": "52faa663e474cf93065ba871a8630651",
     "semantic_hash": ""
   },
   "web/public/anim/ruang-3d-03.jpg": {
-    "mtime": 1788493360.476343,
-    "ast_hash": "e65b1c1e6b5e5e5c286906037b0cc771",
+    "mtime": 1788785409.5807912,
+    "ast_hash": "86c1a2351696dcad4c95ee527b71a7ed",
     "semantic_hash": ""
   },
   "web/public/anim/ruang-3d-04.jpg": {
-    "mtime": 1788493360.8813715,
-    "ast_hash": "9493fc541c3df1b4e248ad856cef6c4d",
+    "mtime": 1788785409.581915,
+    "ast_hash": "f2f9338421cb369e5fbb150f338fd45c",
     "semantic_hash": ""
   },
   "web/public/anim/ruang-3d-06.jpg": {
-    "mtime": 1788493361.4082024,
-    "ast_hash": "c7f87a5f2af439f160cacbb03ef0c536",
+    "mtime": 1788785409.5844338,
+    "ast_hash": "0cadef160c057c9370a78b75d6b209e6",
     "semantic_hash": ""
   },
   "web/public/anim/ruang-3d-08.jpg": {
-    "mtime": 1788493361.7364967,
-    "ast_hash": "b64961caaba23d2bfa1e1b1cb7d8d62e",
+    "mtime": 1788785409.5864334,
+    "ast_hash": "d8b9667612667689b41e0c81c1a24395",
     "semantic_hash": ""
   },
   "web/public/anim/ruang-3d-09.jpg": {
-    "mtime": 1788493362.131227,
-    "ast_hash": "434af0c2f542b9969ad26ca7392e9640",
+    "mtime": 1788785409.5884337,
+    "ast_hash": "33e5347ea66a64d2da5d94cec8b7a443",
     "semantic_hash": ""
   },
   "web/public/anim/segitiga-terang.png": {
@@ -2695,68 +2695,68 @@
     "semantic_hash": ""
   },
   "web/public/anim/statistika1-menipu.jpg": {
-    "mtime": 1788493362.482231,
-    "ast_hash": "7d8df58bbb2bdafa7837303c52f3d736",
+    "mtime": 1788808932.513878,
+    "ast_hash": "bdf26e4c8f08fd8f430e9909e3160547",
     "semantic_hash": ""
   },
   "web/public/anim/statistika10-pencar.jpg": {
-    "mtime": 1788493362.7999845,
-    "ast_hash": "6451faeb45ef4d64b6c46948d8790ff1",
+    "mtime": 1788808932.514885,
+    "ast_hash": "38165513844b65c86cf776bbf4fccb46",
     "semantic_hash": ""
   },
   "web/public/anim/statistika11-regresi.jpg": {
-    "mtime": 1788493363.1168036,
-    "ast_hash": "9fc137358516949e751000f247f064ef",
+    "mtime": 1788808932.515895,
+    "ast_hash": "7f59e273b25fc2d9c6cda4e4ff2fb2f4",
     "semantic_hash": ""
   },
   "web/public/anim/statistika12-korelasi.jpg": {
-    "mtime": 1788493363.4909036,
-    "ast_hash": "8b6e4750d7f9c326635e5e60aff68da8",
+    "mtime": 1788808932.5168939,
+    "ast_hash": "e9eabbdab8fb290a915c1eef46ce96b4",
     "semantic_hash": ""
   },
   "web/public/anim/statistika13-menyesatkan.jpg": {
-    "mtime": 1788493363.862697,
-    "ast_hash": "4e08b48cfe12ed72b9ceab3c5651e337",
+    "mtime": 1788808932.5178952,
+    "ast_hash": "4ba89db78800fbb98b348ffbe7834846",
     "semantic_hash": ""
   },
   "web/public/anim/statistika2-bentuk.jpg": {
-    "mtime": 1788493364.2243917,
-    "ast_hash": "43b587110a86e09aca039a4d0706503b",
+    "mtime": 1788808932.518895,
+    "ast_hash": "0059daa19be82173ec3faa39c270f718",
     "semantic_hash": ""
   },
   "web/public/anim/statistika3-lebar-kelas.jpg": {
-    "mtime": 1788493364.5476787,
-    "ast_hash": "a8b4e84680be51742ab36008305ed42f",
+    "mtime": 1788808932.5198941,
+    "ast_hash": "32ff4d2862937d35d5f3d805f42d3ca6",
     "semantic_hash": ""
   },
   "web/public/anim/statistika4-relatif.jpg": {
-    "mtime": 1788493364.8779953,
-    "ast_hash": "9a6c95e56873f2ec0ffcff5b4dec8071",
+    "mtime": 1788808932.5198941,
+    "ast_hash": "63a144cf4e0d214a36eb351d6bc59201",
     "semantic_hash": ""
   },
   "web/public/anim/statistika5-pemusatan.jpg": {
-    "mtime": 1788493365.2490792,
-    "ast_hash": "5966a4d0b59b23621e8caffb0f30ef8e",
+    "mtime": 1788808932.5208945,
+    "ast_hash": "7d2af4c39b49f24d2a2344a195ddf6e9",
     "semantic_hash": ""
   },
   "web/public/anim/statistika6-pencilan.jpg": {
-    "mtime": 1788493365.5989888,
-    "ast_hash": "0e6d4551a6d6567ca0e00f6798ead96e",
+    "mtime": 1788808932.521894,
+    "ast_hash": "781292c35b0415fc2a13de563efad47a",
     "semantic_hash": ""
   },
   "web/public/anim/statistika7-boxplot.jpg": {
-    "mtime": 1788493366.052631,
-    "ast_hash": "217dde806fb6eb7254c27584c336bfab",
+    "mtime": 1788808932.5228937,
+    "ast_hash": "a8e68d705e562e13da3681eace5055f7",
     "semantic_hash": ""
   },
   "web/public/anim/statistika8-simpangan.jpg": {
-    "mtime": 1788493366.4110265,
-    "ast_hash": "29672a311cac8b511fef12a86f815e6e",
+    "mtime": 1788808932.523894,
+    "ast_hash": "e73103e62bf5e28d1c7414d3ecc44f68",
     "semantic_hash": ""
   },
   "web/public/anim/statistika9-kelompok.jpg": {
-    "mtime": 1788493366.764253,
-    "ast_hash": "e31803698558137b49390fa51951db10",
+    "mtime": 1788808932.5248938,
+    "ast_hash": "3ec6b81f38514978c0dde5f123c8c336",
     "semantic_hash": ""
   },
   "web/public/anim/tahap2-perbandingan-tetap.jpg": {
@@ -2795,8 +2795,8 @@
     "semantic_hash": ""
   },
   "web/public/anim/transformasi1-setiap-titik.jpg": {
-    "mtime": 1788493368.1948526,
-    "ast_hash": "25bdc51b32a0b43c0cda3a0aa764cfd4",
+    "mtime": 1788616472.7236667,
+    "ast_hash": "6a487fd46dc5393fc85bca6eee965879",
     "semantic_hash": ""
   },
   "web/public/anim/transformasi2-cermin-garis.jpg": {
@@ -2805,13 +2805,13 @@
     "semantic_hash": ""
   },
   "web/public/anim/transformasi3-rotasi.jpg": {
-    "mtime": 1788493368.9011736,
-    "ast_hash": "9be720fffd08725903ff7195aac34d55",
+    "mtime": 1788625207.700094,
+    "ast_hash": "29fdfc811a0941f689f906bb5435db83",
     "semantic_hash": ""
   },
   "web/public/anim/transformasi4-dilatasi.jpg": {
-    "mtime": 1788493369.2975516,
-    "ast_hash": "9be720fffd08725903ff7195aac34d55",
+    "mtime": 1788760880.70757,
+    "ast_hash": "d3f59cd7269a22fa4a81c83a63084055",
     "semantic_hash": ""
   },
   "web/public/anim/transformasi6-urutan.jpg": {
@@ -3534,24 +3534,9 @@
     "ast_hash": "f38e1ef3e15bbc9b258b3a72f711fa2e",
     "semantic_hash": ""
   },
-  "audio/ruang-3d-01/01-kotak.mp3": {
-    "mtime": 1788363617.7092335,
-    "ast_hash": "890cf6282f46589400ccb53f5548585a",
-    "semantic_hash": ""
-  },
   "audio/ruang-3d-01/02-kotak.mp3": {
     "mtime": 1788363617.7105114,
     "ast_hash": "0afd64c210666bc88c587b27b6593f6e",
-    "semantic_hash": ""
-  },
-  "audio/ruang-3d-01/02-rangka.mp3": {
-    "mtime": 1788363617.711567,
-    "ast_hash": "483a52391557b5c0f2bc8f0462426566",
-    "semantic_hash": ""
-  },
-  "audio/ruang-3d-01/03-dua-ruas.mp3": {
-    "mtime": 1788363617.7125795,
-    "ast_hash": "d04bc9a147ecb634ecbfcbf2161d94ac",
     "semantic_hash": ""
   },
   "audio/ruang-3d-01/03-rangka.mp3": {
@@ -3564,29 +3549,14 @@
     "ast_hash": "49f38c4c535e71cbfe2a7125af4086e3",
     "semantic_hash": ""
   },
-  "audio/ruang-3d-01/04-naik.mp3": {
-    "mtime": 1788363617.7156932,
-    "ast_hash": "729375fb97866635b60e519199a022d8",
-    "semantic_hash": ""
-  },
   "audio/ruang-3d-01/05-naik.mp3": {
     "mtime": 1788363617.7156932,
     "ast_hash": "86c449011df1654260891cd7baf7771d",
     "semantic_hash": ""
   },
-  "audio/ruang-3d-01/05-turun.mp3": {
-    "mtime": 1788363617.7167287,
-    "ast_hash": "6b27c84883fb67fc5cf060c8676b9f92",
-    "semantic_hash": ""
-  },
   "audio/ruang-3d-01/06-turun.mp3": {
     "mtime": 1788363617.7177353,
     "ast_hash": "dbebab743d9b5e166e030587b81fdd3f",
-    "semantic_hash": ""
-  },
-  "audio/ruang-3d-01/06-tutup.mp3": {
-    "mtime": 1788363617.7202427,
-    "ast_hash": "2f1e02a26a8f1eb6ebf588d8fd7ebabf",
     "semantic_hash": ""
   },
   "audio/ruang-3d-01/07-tutup.mp3": {
@@ -4965,58 +4935,43 @@
     "semantic_hash": ""
   },
   "audio/transformasi1-setiap-titik/01-buka.mp3": {
-    "mtime": 1788490173.031885,
-    "ast_hash": "b89a214f6a66374141b750e8504ff8d8",
+    "mtime": 1788616314.9639163,
+    "ast_hash": "545c659ee15739655c4a6e5528fd5dda",
     "semantic_hash": ""
   },
   "audio/transformasi1-setiap-titik/02-dunia.mp3": {
-    "mtime": 1788490173.034913,
-    "ast_hash": "e6665086344e71cc1a8dc529d14ed9cb",
+    "mtime": 1788616314.9639163,
+    "ast_hash": "91b80beb46ea9dbbb38a56ea961af71d",
     "semantic_hash": ""
   },
   "audio/transformasi1-setiap-titik/03-sama.mp3": {
-    "mtime": 1788490173.0378664,
-    "ast_hash": "1cb5d53bdaed9d7213933a0879ef7903",
+    "mtime": 1788616314.9649029,
+    "ast_hash": "26d003c407a9deae774529ac0cf6a83a",
     "semantic_hash": ""
   },
   "audio/transformasi1-setiap-titik/04-peta.mp3": {
-    "mtime": 1788490173.0412626,
-    "ast_hash": "55c8e13e3ff67d69c46457c39bd2d311",
+    "mtime": 1788616314.965916,
+    "ast_hash": "da755fd5ee5948ab1c97d43eb09b484d",
     "semantic_hash": ""
   },
   "audio/transformasi1-setiap-titik/05-bentuk.mp3": {
-    "mtime": 1788490173.044333,
-    "ast_hash": "8ab6d4360ffccf4944df52aaf0b48b26",
+    "mtime": 1788616314.966903,
+    "ast_hash": "d80ec3b7ca1aee3ee837d67f88d88053",
     "semantic_hash": ""
   },
   "audio/transformasi1-setiap-titik/06-pindah.mp3": {
-    "mtime": 1788490173.0482817,
-    "ast_hash": "850ae009b687091682ff261bee1b189b",
+    "mtime": 1788616314.9679034,
+    "ast_hash": "d931589d0d6f49a5e486dd960069a698",
     "semantic_hash": ""
   },
   "audio/transformasi1-setiap-titik/07-enam.mp3": {
-    "mtime": 1788490173.0512798,
-    "ast_hash": "14ce0701a1ebbda1bdd0d4cdc6742a71",
-    "semantic_hash": ""
-  },
-  "audio/transformasi1-setiap-titik/08-peta2.mp3": {
-    "mtime": 1788490173.0543306,
-    "ast_hash": "4e5397828438f256d763f4a64a9e7f59",
-    "semantic_hash": ""
-  },
-  "audio/transformasi1-setiap-titik/09-bukti.mp3": {
-    "mtime": 1788490173.0576527,
-    "ast_hash": "7d719deb78cff3a290b71ee2d6ba640a",
-    "semantic_hash": ""
-  },
-  "audio/transformasi1-setiap-titik/10-tutup.mp3": {
-    "mtime": 1788490173.0602021,
-    "ast_hash": "312522e5b41fb710fac24da256919d88",
+    "mtime": 1788616314.9679034,
+    "ast_hash": "a203e108bb2351c7774b150d571ffcca",
     "semantic_hash": ""
   },
   "audio/transformasi1-setiap-titik/narasi-penuh.mp3": {
-    "mtime": 1788490173.076803,
-    "ast_hash": "148b9e65a99e334c258d858a8e422c85",
+    "mtime": 1788616314.9819746,
+    "ast_hash": "508e61a5837e368069bebec73a8e5360",
     "semantic_hash": ""
   },
   "audio/uji/11labs-Alice.mp3": {
@@ -5589,11 +5544,6 @@
     "ast_hash": "c442a4a4765878e11a4efbc9d60b9d08",
     "semantic_hash": ""
   },
-  "web/public/anim/trigonometri.webm": {
-    "mtime": 1788159491.549474,
-    "ast_hash": "bdc2cbe2be6e55cdc1a5f0b0eb7d4871",
-    "semantic_hash": ""
-  },
   "manim/scenes/beranda_tiga_grafik.py": {
     "mtime": 1788602379.5517173,
     "ast_hash": "46691cffd737a879c42f4dc67b04851b",
@@ -5622,6 +5572,2996 @@
   "web/components/kendali/Kembalikan.tsx": {
     "mtime": 1788609301.5137637,
     "ast_hash": "0e91de32f765cb0ce63e5239c8079e38",
+    "semantic_hash": ""
+  },
+  "alat/cek_urutan_belajar.py": {
+    "mtime": 1788616314.962914,
+    "ast_hash": "492122e4bff9f33c135baa97d28c0ea7",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/durasi.json": {
+    "mtime": 1788624495.859423,
+    "ast_hash": "9b22919611ab69c3a96fb04f1a07a479",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/durasi.json": {
+    "mtime": 1788624495.8798697,
+    "ast_hash": "c65edcde7954bc7a0826edd82883ef56",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/durasi.json": {
+    "mtime": 1788760880.6961749,
+    "ast_hash": "4bbde709b247e672c55fb3124a8672a9",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/durasi.json": {
+    "mtime": 1788624495.9001462,
+    "ast_hash": "77215b4d6b3aa630c6b69a77b75a4f8f",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/durasi.json": {
+    "mtime": 1788624495.9206865,
+    "ast_hash": "05aa3ce416fc9eba0ba20055ca5a90f2",
+    "semantic_hash": ""
+  },
+  "manim/narasi/transformasi2-cermin-garis.json": {
+    "mtime": 1788624495.929024,
+    "ast_hash": "92a9bc8aeaa2b232b901c13c2a6b024d",
+    "semantic_hash": ""
+  },
+  "manim/narasi/transformasi3-rotasi.json": {
+    "mtime": 1788624495.929024,
+    "ast_hash": "08b01490d7a1e39c5a78799f3216416e",
+    "semantic_hash": ""
+  },
+  "manim/narasi/transformasi4-dilatasi.json": {
+    "mtime": 1788760880.7053926,
+    "ast_hash": "17ca36e6f1484749bf8b91aa558904f3",
+    "semantic_hash": ""
+  },
+  "manim/narasi/transformasi5-matriks.json": {
+    "mtime": 1788624495.9299886,
+    "ast_hash": "af5970f5e44a8848209e47e23a64a51e",
+    "semantic_hash": ""
+  },
+  "manim/narasi/transformasi6-urutan.json": {
+    "mtime": 1788624495.9299886,
+    "ast_hash": "06f1ffaf8a3b82d3833fa91dbd6b727f",
+    "semantic_hash": ""
+  },
+  "manim/scenes/transformasi2_cermin_garis.py": {
+    "mtime": 1788767101.047382,
+    "ast_hash": "919889534aee3f039db697838d1648b3",
+    "semantic_hash": ""
+  },
+  "manim/scenes/transformasi3_rotasi.py": {
+    "mtime": 1788624495.9319897,
+    "ast_hash": "ca908278463b98b01509f382369c515b",
+    "semantic_hash": ""
+  },
+  "manim/scenes/transformasi4_dilatasi.py": {
+    "mtime": 1788760880.7063882,
+    "ast_hash": "c5cfdd9ee809f9ff164602ae798f0c5d",
+    "semantic_hash": ""
+  },
+  "manim/scenes/transformasi5_matriks.py": {
+    "mtime": 1788624495.932985,
+    "ast_hash": "6942df034d0ed95f13b0ce2bfc41de68",
+    "semantic_hash": ""
+  },
+  "manim/scenes/transformasi6_urutan.py": {
+    "mtime": 1788624495.934023,
+    "ast_hash": "83affb4bc6899db8029ac3c52209c29a",
+    "semantic_hash": ""
+  },
+  "manim/scenes/transformasi_umum.py": {
+    "mtime": 1788624495.934023,
+    "ast_hash": "d99fba6732b18ea337bbafe1d51cce60",
+    "semantic_hash": ""
+  },
+  "audio/transformasi1-setiap-titik/08-periksa.mp3": {
+    "mtime": 1788616314.9689033,
+    "ast_hash": "03db71cb87943b3c604fe1ca183fd457",
+    "semantic_hash": ""
+  },
+  "audio/transformasi1-setiap-titik/09-hitung.mp3": {
+    "mtime": 1788616314.969916,
+    "ast_hash": "4151bcab79256bfbf8b9a90d60535807",
+    "semantic_hash": ""
+  },
+  "audio/transformasi1-setiap-titik/10-peta2.mp3": {
+    "mtime": 1788616314.969916,
+    "ast_hash": "98145b61854f869e67ba8cbe0f9fa5b3",
+    "semantic_hash": ""
+  },
+  "audio/transformasi1-setiap-titik/11-kedua.mp3": {
+    "mtime": 1788616314.9709024,
+    "ast_hash": "c325dfa24a7ea9c5bdaf0ac310f7400b",
+    "semantic_hash": ""
+  },
+  "audio/transformasi1-setiap-titik/12-cocok.mp3": {
+    "mtime": 1788616314.9709024,
+    "ast_hash": "dff604c75a956ba0ac1a255057c02ec9",
+    "semantic_hash": ""
+  },
+  "audio/transformasi1-setiap-titik/13-aturan.mp3": {
+    "mtime": 1788616314.9724092,
+    "ast_hash": "e884dfa63a88b849bc21b500cfdf51b8",
+    "semantic_hash": ""
+  },
+  "audio/transformasi1-setiap-titik/14-keliru.mp3": {
+    "mtime": 1788616314.9724092,
+    "ast_hash": "18c1ac951d3b0e8fd12e88e5d9ebb897",
+    "semantic_hash": ""
+  },
+  "audio/transformasi1-setiap-titik/15-betul.mp3": {
+    "mtime": 1788616314.9739654,
+    "ast_hash": "01bd88824b6160228d3b3828f04f0245",
+    "semantic_hash": ""
+  },
+  "audio/transformasi1-setiap-titik/16-bukti.mp3": {
+    "mtime": 1788616314.9739654,
+    "ast_hash": "1dc342898d8c8b016b487ab4c2790dc8",
+    "semantic_hash": ""
+  },
+  "audio/transformasi1-setiap-titik/17-rangkum.mp3": {
+    "mtime": 1788616314.9749727,
+    "ast_hash": "c80aeafa9b001ad71d30661a897cee03",
+    "semantic_hash": ""
+  },
+  "audio/transformasi1-setiap-titik/18-tanya.mp3": {
+    "mtime": 1788616314.975973,
+    "ast_hash": "5cb5b0961474c70bdb97b58f1582d1ed",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/01-buka.mp3": {
+    "mtime": 1788624495.847551,
+    "ast_hash": "2005567aadf6bd3881ff649fc8c24a72",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/02-kaca.mp3": {
+    "mtime": 1788624495.847551,
+    "ast_hash": "62119629c88ac25fe12a44ee9e304fb2",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/03-jarak.mp3": {
+    "mtime": 1788624495.8485599,
+    "ast_hash": "af3fc3e4cad4db84e0c67f071b52baf4",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/04-bentuk.mp3": {
+    "mtime": 1788624495.84956,
+    "ast_hash": "5021b71e46d6b2103979e7be7d4fd23c",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/05-cermin.mp3": {
+    "mtime": 1788624495.8505595,
+    "ast_hash": "2dc6b63bcc34ac186f61376f1759929b",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/06-tegaklurus.mp3": {
+    "mtime": 1788624495.8505595,
+    "ast_hash": "58a9126c2378b4c4fdd12ae819ce30ae",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/07-geser.mp3": {
+    "mtime": 1788624495.8515575,
+    "ast_hash": "3d59a8665c623ac3c28fbd7b32d7b2ad",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/08-rumus.mp3": {
+    "mtime": 1788624495.8515575,
+    "ast_hash": "2278f8ae803e7f8b014082a3073726f9",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/09-uji.mp3": {
+    "mtime": 1788624495.8530624,
+    "ast_hash": "89f8ac3769c8efcd5c965ca74e73ff88",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/narasi-penuh.mp3": {
+    "mtime": 1788624495.8659375,
+    "ast_hash": "6b03ba8cd90ae3340ce3b592392e314c",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/01-buka.mp3": {
+    "mtime": 1788624495.866932,
+    "ast_hash": "122f1b9edba6fc964b61b687186d5881",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/02-jarum.mp3": {
+    "mtime": 1788624495.8679333,
+    "ast_hash": "c39837bc1717c3e954420c20ee899678",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/03-jawab.mp3": {
+    "mtime": 1788624495.8689306,
+    "ast_hash": "de0228f8d73f653698aa5ea5bd3d803a",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/04-bentuk.mp3": {
+    "mtime": 1788624495.8689306,
+    "ast_hash": "b9f766c772b4a0246772c2aa379d306d",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/05-jari.mp3": {
+    "mtime": 1788624495.8699534,
+    "ast_hash": "61a9f7ef08f30740672f39130014f8f2",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/06-rumus.mp3": {
+    "mtime": 1788624495.8699534,
+    "ast_hash": "a35e56101f91638bb16f0c5b47f9a224",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/narasi-penuh.mp3": {
+    "mtime": 1788624495.886869,
+    "ast_hash": "5bc45b43048dac3535d603f5eb6de9e9",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/01-buka.mp3": {
+    "mtime": 1788760880.6837106,
+    "ast_hash": "d5fb709d101d985128a91fef13bfb0c8",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/02-foto.mp3": {
+    "mtime": 1788760880.684711,
+    "ast_hash": "5e2444794a8ddb9d17e62494d49ad814",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/03-pusat.mp3": {
+    "mtime": 1788760880.684711,
+    "ast_hash": "e978449aa686870ca447495c62437ae0",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/04-sinar.mp3": {
+    "mtime": 1788760880.68571,
+    "ast_hash": "22248de0adb610cbba99f5ee22f9ed45",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/05-meluncur.mp3": {
+    "mtime": 1788760880.6867094,
+    "ast_hash": "c24a103b4af94f8c6446719289c99d4a",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/06-dua.mp3": {
+    "mtime": 1788760880.687712,
+    "ast_hash": "aad59bffc58cfbc2cc02ca28edc411cb",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/narasi-penuh.mp3": {
+    "mtime": 1788760880.7033527,
+    "ast_hash": "55cbf989a35ac15fbf52c568bf430339",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/01-buka.mp3": {
+    "mtime": 1788624495.886869,
+    "ast_hash": "b8dc8710b2f3857ddfe38d686270f81f",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/02-tumpuk.mp3": {
+    "mtime": 1788624495.88787,
+    "ast_hash": "d3e802b85241a790e95a657ec9eea7ce",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/03-susun.mp3": {
+    "mtime": 1788624495.8888698,
+    "ast_hash": "67404c38183539899ffaf20b63956cd5",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/04-persegi.mp3": {
+    "mtime": 1788624495.88987,
+    "ast_hash": "50cbdefdc54728bbb35d45c1e0e5e10a",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/05-kolom1.mp3": {
+    "mtime": 1788624495.8908696,
+    "ast_hash": "80270ba4f701dc1457e1b58787441405",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/06-kolom2.mp3": {
+    "mtime": 1788624495.8908696,
+    "ast_hash": "b03a9d176976f6d2178cd8641f186822",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/07-baca.mp3": {
+    "mtime": 1788624495.8918695,
+    "ast_hash": "37c151f021d0d93a913d71d0e950b01e",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/narasi-penuh.mp3": {
+    "mtime": 1788624495.9061427,
+    "ast_hash": "3eaef1b7c460b0b667befcfb7c88b113",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/01-buka.mp3": {
+    "mtime": 1788624495.9071445,
+    "ast_hash": "85aa3504b86520757bc80a5ec54ee580",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/02-dua.mp3": {
+    "mtime": 1788624495.908146,
+    "ast_hash": "f1760480493a670b05d841ba68c81b0a",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/03-langkah.mp3": {
+    "mtime": 1788624495.9091463,
+    "ast_hash": "cf1d62530a238d5e206420371baddb09",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/04-kedua.mp3": {
+    "mtime": 1788624495.9096708,
+    "ast_hash": "02d3892af8d0c7c3aa81ad0ae4678bdb",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/05-balik.mp3": {
+    "mtime": 1788624495.9112318,
+    "ast_hash": "a41d3f7ed6cd7ddf9b841f861098f79a",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/06-beda.mp3": {
+    "mtime": 1788624495.9122403,
+    "ast_hash": "27d3560bc50006537b6a23931665a8c1",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/07-matriks.mp3": {
+    "mtime": 1788624495.9122403,
+    "ast_hash": "8a038cb572bd434d1f783fa431349770",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/08-kenapa.mp3": {
+    "mtime": 1788624495.91363,
+    "ast_hash": "1ebd70951d350beac846bc8bbfb3b57d",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/narasi-penuh.mp3": {
+    "mtime": 1788624495.9270318,
+    "ast_hash": "b5b79fc561c92a1ae571412b5c897337",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/specs/2026-09-06-integral-alur-belajar.md": {
+    "mtime": 1788759428.4405408,
+    "ast_hash": "9fa70d8345ffe4c2c850bd56427f9f70",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/specs/2026-09-06-turunan-alur-belajar.md": {
+    "mtime": 1788621249.652546,
+    "ast_hash": "7970207af76df2358971b2c38487bced",
+    "semantic_hash": ""
+  },
+  "docs/tugas/MANTRA-TURUNAN-INTEGRAL.md": {
+    "mtime": 1788869189.242409,
+    "ast_hash": "c362f359c3212e083c31bd9d9aa4bd1a",
+    "semantic_hash": ""
+  },
+  "alat/buat_poster.py": {
+    "mtime": 1788808201.7335935,
+    "ast_hash": "771c6f3581f8da5c48a9a13dce42189c",
+    "semantic_hash": ""
+  },
+  "alat/cek_aset_video.py": {
+    "mtime": 1788808201.7335935,
+    "ast_hash": "4f5ac02cf9a944b593fa045d7051c991",
+    "semantic_hash": ""
+  },
+  "alat/cek_kejadian.py": {
+    "mtime": 1788624495.8428597,
+    "ast_hash": "a3c82007921441ad4934b6e1679b454c",
+    "semantic_hash": ""
+  },
+  "alat/klaim-video-transformasi.json": {
+    "mtime": 1788767101.04538,
+    "ast_hash": "b2583620c89d2fde8e22ada62f4475fc",
+    "semantic_hash": ""
+  },
+  "alat/lihat_narasi.py": {
+    "mtime": 1788624495.8448606,
+    "ast_hash": "e586aaaf109264082238896a3ae71bed",
+    "semantic_hash": ""
+  },
+  "alat/peta_diam.py": {
+    "mtime": 1788624495.8448606,
+    "ast_hash": "12dd03278f1e85ebcb37273f07526847",
+    "semantic_hash": ""
+  },
+  "alat/tambah_sorotan.py": {
+    "mtime": 1788624495.8458662,
+    "ast_hash": "6474666e15fe23abc5ebeea0c74fefed",
+    "semantic_hash": ""
+  },
+  "alat/uji_tempel_label.py": {
+    "mtime": 1788624495.8458662,
+    "ast_hash": "c0b9c8be91a1f356fd6a77bc4f930906",
+    "semantic_hash": ""
+  },
+  "alat/urutkan_ulang.py": {
+    "mtime": 1788624495.8458662,
+    "ast_hash": "f45b5a0459dfd5939ee81e0f026a6c8b",
+    "semantic_hash": ""
+  },
+  "alat/warna_sorot.py": {
+    "mtime": 1788624495.8458662,
+    "ast_hash": "b1058730cae65943d230ef7aa2a96478",
+    "semantic_hash": ""
+  },
+  "docs/tugas/laporan/MANTRA-TRANSFORMASI-GEOMETRI.md": {
+    "mtime": 1788767101.0463815,
+    "ast_hash": "25c7efc0df6ad057515e4a6072091160",
+    "semantic_hash": ""
+  },
+  "web/public/anim/transformasi5-matriks.jpg": {
+    "mtime": 1788625207.7020938,
+    "ast_hash": "fe73f75442d7605df38a2638bb912216",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/10-petak.mp3": {
+    "mtime": 1788624495.8530624,
+    "ast_hash": "bd1b7a713b8595ac8f77e0b0b541d413",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/11-kedua.mp3": {
+    "mtime": 1788624495.854757,
+    "ast_hash": "b614c9711156d3f4783b9c49b38c2540",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/12-seberang.mp3": {
+    "mtime": 1788624495.855764,
+    "ast_hash": "dc96733210be8f9caa6abb363c384d54",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/13-dua_arah.mp3": {
+    "mtime": 1788624495.855764,
+    "ast_hash": "b9e083217dfcac2699902e3a834daace",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/14-keliru.mp3": {
+    "mtime": 1788624495.857035,
+    "ast_hash": "a2e9ecafe691ef816f21bb0506334432",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/15-betul.mp3": {
+    "mtime": 1788624495.857035,
+    "ast_hash": "21c70323dcec75be38836de967e77ef1",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/16-mendatar.mp3": {
+    "mtime": 1788624495.858065,
+    "ast_hash": "3869cd73998b6f12789d6c2ae0cbcba6",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/17-rangkum.mp3": {
+    "mtime": 1788624495.858065,
+    "ast_hash": "7f703e88dc42a9000ceeabfaa47c33ce",
+    "semantic_hash": ""
+  },
+  "audio/transformasi2-cermin-garis/18-tanya.mp3": {
+    "mtime": 1788624495.859423,
+    "ast_hash": "220cda50dba1bfbab04e6b292544bf40",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/07-periksa.mp3": {
+    "mtime": 1788624495.8714128,
+    "ast_hash": "572e65f2eb3a30b7b7a7513f3d159a58",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/08-hitung.mp3": {
+    "mtime": 1788624495.8714128,
+    "ast_hash": "92633b6c4316dd6e40d25bb251ecb90a",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/09-kedua.mp3": {
+    "mtime": 1788624495.8727174,
+    "ast_hash": "502b80a798c67c669c6bd4b133f369d2",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/10-cocok.mp3": {
+    "mtime": 1788624495.8739867,
+    "ast_hash": "efa09852e2fd9a0afa7d42998dbc71c3",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/11-janji.mp3": {
+    "mtime": 1788624495.8739867,
+    "ast_hash": "d546ad2ac2c3aca1d8b9dc10555392fb",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/12-sama.mp3": {
+    "mtime": 1788624495.8751602,
+    "ast_hash": "169a95f740e00208a0a2e33bc1c20eb8",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/13-keliru.mp3": {
+    "mtime": 1788624495.8751602,
+    "ast_hash": "7a1f2d9fd28e88be6e7703880f5aff59",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/14-betul.mp3": {
+    "mtime": 1788624495.8768635,
+    "ast_hash": "9a0d4266290d7302eda7b499b8a3e1f3",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/15-pusat.mp3": {
+    "mtime": 1788624495.8778706,
+    "ast_hash": "ae268f366bfb3604a90d9d66bf162a97",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/16-sembarang.mp3": {
+    "mtime": 1788624495.8778706,
+    "ast_hash": "0af9be525c96ae841a733e1b141199da",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/17-rangkum.mp3": {
+    "mtime": 1788624495.8788707,
+    "ast_hash": "f842c1a5cb401851a2f2ab39d1483bca",
+    "semantic_hash": ""
+  },
+  "audio/transformasi3-rotasi/18-tanya.mp3": {
+    "mtime": 1788624495.8798697,
+    "ast_hash": "fac7922eb8bcfc375423945e0521db82",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/08-satuan.mp3": {
+    "mtime": 1788624495.89287,
+    "ast_hash": "7cdce9b663eec9aab908126aba6e837f",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/09-kali.mp3": {
+    "mtime": 1788624495.89287,
+    "ast_hash": "d510f8e62219b457d37c43864731550a",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/10-uji.mp3": {
+    "mtime": 1788624495.8938699,
+    "ast_hash": "a109bac17e6968ea8a03056ab3259d69",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/11-kenal.mp3": {
+    "mtime": 1788624495.8948753,
+    "ast_hash": "1a309e1724538f9b9951648efb0d334a",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/12-cocok.mp3": {
+    "mtime": 1788624495.8958774,
+    "ast_hash": "51e09658726b98b5b5abd89ea6aeb67e",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/13-keliru.mp3": {
+    "mtime": 1788624495.8969145,
+    "ast_hash": "804867f1d971cf0ab65c0500bbebba5d",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/14-betul.mp3": {
+    "mtime": 1788624495.8979137,
+    "ast_hash": "ebdd96d06dfa1817f83419e7caf29005",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/15-geser.mp3": {
+    "mtime": 1788624495.8991385,
+    "ast_hash": "0da74b40b009503ad9ce2afb50a70ea2",
+    "semantic_hash": ""
+  },
+  "audio/transformasi5-matriks/16-rangkum.mp3": {
+    "mtime": 1788624495.9001462,
+    "ast_hash": "5b3a9923284e3703c4f62893dbe5fd16",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/09-kalikan.mp3": {
+    "mtime": 1788624495.9146423,
+    "ast_hash": "21c9403c728b4106ac49b4d653c3e929",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/10-hasil.mp3": {
+    "mtime": 1788624495.9156816,
+    "ast_hash": "b5a8c1f0c30f384fe05cdc19086e4de0",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/11-periksa.mp3": {
+    "mtime": 1788624495.9169087,
+    "ast_hash": "8275798a631977d02fa8a4aa1f35646b",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/12-tutup.mp3": {
+    "mtime": 1788624495.9169087,
+    "ast_hash": "056fe650086a5cf995122b498a4b0e17",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/13-sama.mp3": {
+    "mtime": 1788624495.9181292,
+    "ast_hash": "781cec518d668e68093585630ea2ac17",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/14-jaga.mp3": {
+    "mtime": 1788624495.919177,
+    "ast_hash": "41f4550113544e01f43bb4059830fa69",
+    "semantic_hash": ""
+  },
+  "audio/transformasi6-urutan/15-rangkum.mp3": {
+    "mtime": 1788624495.9206865,
+    "ast_hash": "caac53f3aac79bc459c0a22e550fcec1",
+    "semantic_hash": ""
+  },
+  "alat/cek_integral.py": {
+    "mtime": 1788778105.4323492,
+    "ast_hash": "35d5e8b805afa0e7457aa5eb7c3a5d23",
+    "semantic_hash": ""
+  },
+  "alat/cek_turunan.py": {
+    "mtime": 1788775898.4496906,
+    "ast_hash": "211bdfa8caea0598d216c5d8ca64724b",
+    "semantic_hash": ""
+  },
+  "alat/cek_urutan_integral.py": {
+    "mtime": 1788880108.4553554,
+    "ast_hash": "2582e9da32f2418c467190b395554e61",
+    "semantic_hash": ""
+  },
+  "alat/cek_urutan_turunan.py": {
+    "mtime": 1788890398.9996724,
+    "ast_hash": "d51f8df0a1600eb53df22772b0d89043",
+    "semantic_hash": ""
+  },
+  "alat/materi-integral.json": {
+    "mtime": 1788778105.4333436,
+    "ast_hash": "8a452af664ac4eeeecf0a683cde98d2c",
+    "semantic_hash": ""
+  },
+  "alat/materi-turunan.json": {
+    "mtime": 1788792118.7112465,
+    "ast_hash": "809a8623333c714079b5f0553dd4d9aa",
+    "semantic_hash": ""
+  },
+  "alat/soal-integral.json": {
+    "mtime": 1788778105.4353442,
+    "ast_hash": "0b96688e185673226cbccde117f6f2c7",
+    "semantic_hash": ""
+  },
+  "alat/soal-kuis-turunan.json": {
+    "mtime": 1788776703.8317628,
+    "ast_hash": "4ad93660566b7940e264d83f5f1f9010",
+    "semantic_hash": ""
+  },
+  "alat/soal-latihan-turunan.json": {
+    "mtime": 1788775898.455683,
+    "ast_hash": "e36c5ec41b6c619be20755f0d646287d",
+    "semantic_hash": ""
+  },
+  "alat/uji-cek-integral-salah.json": {
+    "mtime": 1788778105.4363434,
+    "ast_hash": "51f88248f1e35e85f395793a1b44f75e",
+    "semantic_hash": ""
+  },
+  "alat/uji-cek-turunan-salah.json": {
+    "mtime": 1788775898.457198,
+    "ast_hash": "2983fe65e2c1c6b5f564867fdece4e38",
+    "semantic_hash": ""
+  },
+  "web/app/latihan/integral/page.tsx": {
+    "mtime": 1788775898.4619572,
+    "ast_hash": "0220b8b20c1a6c87fd79242b0504590b",
+    "semantic_hash": ""
+  },
+  "web/app/latihan/turunan/page.tsx": {
+    "mtime": 1788775898.463961,
+    "ast_hash": "40a11259f0392205ec4e43f8a99137ad",
+    "semantic_hash": ""
+  },
+  "web/components/topik/PanggungIntegral.tsx": {
+    "mtime": 1788778105.4415889,
+    "ast_hash": "d80501eb8732dc7cdf7c600f9d78a416",
+    "semantic_hash": ""
+  },
+  "web/components/topik/PanggungTurunan.tsx": {
+    "mtime": 1788775898.46695,
+    "ast_hash": "917750cdd06bbf2e668efc3f858cf666",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/Bidang.tsx": {
+    "mtime": 1788778105.4425921,
+    "ast_hash": "47ee6bfd3755d73b91b37090c5b6c958",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/CocokkanLapisan.tsx": {
+    "mtime": 1788778105.4451034,
+    "ast_hash": "299ee7dc64727dc807c07f5b4dfe782d",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/DaerahBertanda.tsx": {
+    "mtime": 1788778105.4466565,
+    "ast_hash": "aab7d9c001008beeef19d02048bbc075",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/DuaKurva.tsx": {
+    "mtime": 1788778105.4479578,
+    "ast_hash": "8f6388916b594dfd6bb5a4bd7ce07f1b",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/DuniaNyataIntegral.tsx": {
+    "mtime": 1788778105.4489734,
+    "ast_hash": "d2285c70bbf31194c3b65e28db91d868",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/HitungBertahap.tsx": {
+    "mtime": 1788778105.4512846,
+    "ast_hash": "0a678f105ded4a4bab3ac0d7907e5e1a",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/LuasDuaDaerah.tsx": {
+    "mtime": 1788778105.4522855,
+    "ast_hash": "e81f67007fd086c9196f0c4af9f8bcfd",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/LuasYangTumbuh.tsx": {
+    "mtime": 1788778105.4547224,
+    "ast_hash": "ca1a2316a502f9b096a52aaeca4130d5",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/MesinBalik.tsx": {
+    "mtime": 1788778105.4567213,
+    "ast_hash": "9d8a5b8cbc3f04a2e51159b98aa06fa8",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/NaikPangkat.tsx": {
+    "mtime": 1788778105.4577205,
+    "ast_hash": "27c555abf752d4686e6d4f85374dcd90",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/PasangkanTurunanIntegral.tsx": {
+    "mtime": 1788778105.4588935,
+    "ast_hash": "95329b94a05bbbb81b212594c97adef4",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/PecahSelang.tsx": {
+    "mtime": 1788778105.460407,
+    "ast_hash": "e79c14325d4a61c9e7dc5389d93529d9",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/PersegiPanjangMenumpuk.tsx": {
+    "mtime": 1788778105.4619434,
+    "ast_hash": "4d1b770865c1e30ed7a3954e7290b5ea",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/koordinat.ts": {
+    "mtime": 1788778105.4639788,
+    "ast_hash": "3b274e70a759b64e065851c14bc01f8d",
+    "semantic_hash": ""
+  },
+  "web/components/widget/integral/seret.ts": {
+    "mtime": 1788778105.4649785,
+    "ast_hash": "fefed2caf748523b198046f077057392",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/Bidang.tsx": {
+    "mtime": 1788775898.4719276,
+    "ast_hash": "4f31507539d936d5ecf4232108197b84",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/DuniaNyataTurunan.tsx": {
+    "mtime": 1788775898.4734693,
+    "ast_hash": "03dc7a8f971587d1ed67e9b48fa63020",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/GarisPotong.tsx": {
+    "mtime": 1788775898.4754825,
+    "ast_hash": "ad699c15bba87046e3e6c266e1b44407",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/GarisSinggungGeser.tsx": {
+    "mtime": 1788775898.4786587,
+    "ast_hash": "f85f2f3451128f97dcf638f2b8b79367",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/GrafikTurunan.tsx": {
+    "mtime": 1788775898.4806983,
+    "ast_hash": "e49c89f57eff019452058282ede9fc24",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/KotakTerbesar.tsx": {
+    "mtime": 1788775898.4826982,
+    "ast_hash": "7848306bf13b569dd71709a5599a3c8a",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/LuasBerubah.tsx": {
+    "mtime": 1788802220.9877954,
+    "ast_hash": "7936a3ecf887a8344d5bad3414468712",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/MesinBertingkat.tsx": {
+    "mtime": 1788775898.4837005,
+    "ast_hash": "653af6af3ee920fd9d50c32df879c1fc",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/MesinPangkat.tsx": {
+    "mtime": 1788775898.4857159,
+    "ast_hash": "eb1c0f5966336e99ad7ac1a04293191c",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/PetaTanda.tsx": {
+    "mtime": 1788775898.4867146,
+    "ast_hash": "3a9952ff2e15d52843dfe34ba3481a2b",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/SekanKeTangen.tsx": {
+    "mtime": 1788775898.4877143,
+    "ast_hash": "ded087c383d779227b9f686a4ec12f44",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/SusunPolinom.tsx": {
+    "mtime": 1788775898.488713,
+    "ast_hash": "a6e6f2e09a1778d426148fe234eca9a3",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/fungsi.ts": {
+    "mtime": 1788775898.4897172,
+    "ast_hash": "867a2dc54e423ecda3a3ce6fdef58bb8",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/koordinat.ts": {
+    "mtime": 1788775898.490711,
+    "ast_hash": "03aced7392103c2865f479bbf5d64912",
+    "semantic_hash": ""
+  },
+  "web/components/widget/turunan/seret.ts": {
+    "mtime": 1788775898.491716,
+    "ast_hash": "89fac8046d04ae9c1976a344e129ce23",
+    "semantic_hash": ""
+  },
+  "web/content/integral/index.ts": {
+    "mtime": 1788775898.4958048,
+    "ast_hash": "fa383fe91d163cf5b6b4f6952f88894b",
+    "semantic_hash": ""
+  },
+  "web/content/integral/kuis.ts": {
+    "mtime": 1788778988.8683424,
+    "ast_hash": "f1f03c026e145097687bdce3c308ece4",
+    "semantic_hash": ""
+  },
+  "web/content/integral/latihan.ts": {
+    "mtime": 1788778988.8708558,
+    "ast_hash": "5fb195797031cf3936f50748b282f0f2",
+    "semantic_hash": ""
+  },
+  "web/content/integral/tahap.ts": {
+    "mtime": 1788821773.7807245,
+    "ast_hash": "1fe62f743ae5a77c9538fa82273038b4",
+    "semantic_hash": ""
+  },
+  "web/content/turunan/index.ts": {
+    "mtime": 1788775898.506213,
+    "ast_hash": "fa383fe91d163cf5b6b4f6952f88894b",
+    "semantic_hash": ""
+  },
+  "web/content/turunan/kuis.ts": {
+    "mtime": 1788776703.833768,
+    "ast_hash": "d7a96aaaab78855f8f23754d221aafe6",
+    "semantic_hash": ""
+  },
+  "web/content/turunan/latihan.ts": {
+    "mtime": 1788775898.5102108,
+    "ast_hash": "72c666e0cb159f6f7b8003e93d7c4d5c",
+    "semantic_hash": ""
+  },
+  "web/content/turunan/tahap.ts": {
+    "mtime": 1788867774.9486895,
+    "ast_hash": "9d49183bc6371bc72df2f42b65225028",
+    "semantic_hash": ""
+  },
+  "docs/tugas/laporan/MANTRA-INTEGRAL.md": {
+    "mtime": 1788822106.6178565,
+    "ast_hash": "aa548deaa813b9b8cc26f42955c04b31",
+    "semantic_hash": ""
+  },
+  "docs/tugas/laporan/MANTRA-TURUNAN-INTEGRAL.md": {
+    "mtime": 1788867774.9162242,
+    "ast_hash": "693bc43a725132a4b6835620e9494d0c",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/07-aturan.mp3": {
+    "mtime": 1788760880.6887095,
+    "ast_hash": "5067ddbfe2b6318c86dc39de164686d7",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/08-uji.mp3": {
+    "mtime": 1788760880.6897101,
+    "ast_hash": "2cab9ce72f68565470e4fcb454c85398",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/09-luas.mp3": {
+    "mtime": 1788760880.6897101,
+    "ast_hash": "653270e6462bfbbbb47289c2e59dd2ab",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/10-pizza.mp3": {
+    "mtime": 1788760880.6907136,
+    "ast_hash": "eae9bc6a89ec27c322e16fd92d2f370f",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/11-bentuk.mp3": {
+    "mtime": 1788760880.6917112,
+    "ast_hash": "5ff9875510b9bab9c3f6a4443521424e",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/12-kecil.mp3": {
+    "mtime": 1788760880.6917112,
+    "ast_hash": "b120657e043be7ea14125897659f7040",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/13-satu.mp3": {
+    "mtime": 1788760880.6927118,
+    "ast_hash": "99887669ad875dfba1f4c630e0b1bb97",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/14-negatif.mp3": {
+    "mtime": 1788760880.6937091,
+    "ast_hash": "dcf3f59fa9e4a7fdc52cbe30fe7b16f7",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/15-lain.mp3": {
+    "mtime": 1788760880.6947105,
+    "ast_hash": "61c4306290652370c34e404eec0e0fa8",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/16-keliru.mp3": {
+    "mtime": 1788760880.6947105,
+    "ast_hash": "d9373815de6ab54f0240fcf0d84b77a2",
+    "semantic_hash": ""
+  },
+  "audio/transformasi4-dilatasi/17-rangkum.mp3": {
+    "mtime": 1788760880.6961749,
+    "ast_hash": "fa1ccb97abc061c4c6370de896b89d24",
+    "semantic_hash": ""
+  },
+  "docs/tugas/laporan/calon-diam-statistika.md": {
+    "mtime": 1788790040.3701186,
+    "ast_hash": "0035d1e939e79645ce2f610a896e2c26",
+    "semantic_hash": ""
+  },
+  "manim/hd60.yml": {
+    "mtime": 1788785409.5712714,
+    "ast_hash": "0bd7fb0959941863ded9ae51d168c1d3",
+    "semantic_hash": ""
+  },
+  "alat/klaim-video-turunan.json": {
+    "mtime": 1788890399.0006485,
+    "ast_hash": "37b652215b9d08993fc2e11a1c1692cd",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/durasi.json": {
+    "mtime": 1788868106.242439,
+    "ast_hash": "a3eb25625634c55f5572015f11a33a21",
+    "semantic_hash": ""
+  },
+  "manim/narasi/turunan2-garis-singgung.json": {
+    "mtime": 1788890860.255268,
+    "ast_hash": "7081cef0ade89e116bcfb29cff454478",
+    "semantic_hash": ""
+  },
+  "manim/scenes/turunan2_garis_singgung.py": {
+    "mtime": 1788867774.943186,
+    "ast_hash": "c37d320a97911673099c0c69336d5d2d",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/01-buka.mp3": {
+    "mtime": 1788868087.187703,
+    "ast_hash": "760f36f0e4dc37216ef004dd91fb5136",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/04-kurva.mp3": {
+    "mtime": 1788868088.7119515,
+    "ast_hash": "785ce39cbb154fb119ce5044b0fadaa0",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/narasi-penuh.mp3": {
+    "mtime": 1788868106.2310288,
+    "ast_hash": "38e6a3eb57edb8f1df483958c989632c",
+    "semantic_hash": ""
+  },
+  "alat/cek_layar_kosong.py": {
+    "mtime": 1788799829.6492126,
+    "ast_hash": "748e23c78b4b113362128c794b83b72d",
+    "semantic_hash": ""
+  },
+  "alat/uji_cek_layar_kosong.py": {
+    "mtime": 1788799829.6492126,
+    "ast_hash": "079d64aa91397e58ecee8395cb3c6337",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/durasi.json": {
+    "mtime": 1788868529.0044525,
+    "ast_hash": "3c88b03cb79c727ce78d25a59cc7e6d7",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/durasi.json": {
+    "mtime": 1788802220.9827988,
+    "ast_hash": "502e9f467292a6254510c8ce82f96813",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/durasi.json": {
+    "mtime": 1788799446.7794409,
+    "ast_hash": "9f9203edba299604a346b56527fe3ebe",
+    "semantic_hash": ""
+  },
+  "manim/narasi/turunan3-fungsi-turunan.json": {
+    "mtime": 1788867774.9398744,
+    "ast_hash": "0a2fc43cb5af0fbb5e65532e2b5d914c",
+    "semantic_hash": ""
+  },
+  "manim/narasi/turunan6-hasil-kali.json": {
+    "mtime": 1788802220.9868538,
+    "ast_hash": "074b74bbfcdb1eae29aa819b99a264b6",
+    "semantic_hash": ""
+  },
+  "manim/narasi/turunan7-aturan-rantai.json": {
+    "mtime": 1788799446.7883172,
+    "ast_hash": "d67444178b64553e0295bad084588aba",
+    "semantic_hash": ""
+  },
+  "manim/scenes/turunan3_fungsi_turunan.py": {
+    "mtime": 1788867774.9456487,
+    "ast_hash": "334d3a526a390ef05ff143cdbb9070a4",
+    "semantic_hash": ""
+  },
+  "manim/scenes/turunan6_hasil_kali.py": {
+    "mtime": 1788802220.9877954,
+    "ast_hash": "feecf08036b7ac75092481afe84e027c",
+    "semantic_hash": ""
+  },
+  "manim/scenes/turunan7_aturan_rantai.py": {
+    "mtime": 1788799446.7892785,
+    "ast_hash": "ce47b7d893ffefdd3c6de67e4f1a4b1b",
+    "semantic_hash": ""
+  },
+  "manim/uji/uji_bidang_bernomor.py": {
+    "mtime": 1788799446.7892785,
+    "ast_hash": "6e66d648b89fd457ba1219b64af4deb2",
+    "semantic_hash": ""
+  },
+  "web/public/anim/turunan2-garis-singgung.jpg": {
+    "mtime": 1788867774.9553216,
+    "ast_hash": "445e0bb8195bababbeb104b42aa11b58",
+    "semantic_hash": ""
+  },
+  "web/public/anim/turunan3-fungsi-turunan.jpg": {
+    "mtime": 1788867774.9593203,
+    "ast_hash": "177c2701374e49d78098883ba2d3d9de",
+    "semantic_hash": ""
+  },
+  "web/public/anim/turunan6-hasil-kali.jpg": {
+    "mtime": 1788802220.9892612,
+    "ast_hash": "91105f4e4bed8435a1abb7f0cf39f148",
+    "semantic_hash": ""
+  },
+  "web/public/anim/turunan7-aturan-rantai.jpg": {
+    "mtime": 1788799446.790275,
+    "ast_hash": "a49f8b321faaf689d93cdd24b5361024",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/01-buka.mp3": {
+    "mtime": 1788868513.1702328,
+    "ast_hash": "457bd4c2e566ad1fd49961bdd65630ab",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/02-ingat.mp3": {
+    "mtime": 1788868513.5899503,
+    "ast_hash": "89335c1b1621eb47ed6f832d756b772f",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/narasi-penuh.mp3": {
+    "mtime": 1788868528.996928,
+    "ast_hash": "b541a5173a663966c79ff9680f83c5a0",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/01-buka.mp3": {
+    "mtime": 1788802220.9687436,
+    "ast_hash": "cd957fc40a9822a7248418b276d13eac",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/02-bantah.mp3": {
+    "mtime": 1788802220.9687436,
+    "ast_hash": "52d7306266cfe4d5e8577b504c4fc7a5",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/03-persegi.mp3": {
+    "mtime": 1788802220.9697433,
+    "ast_hash": "4f1b48f7df7ba6f7d7159988d1139da0",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/04-angka.mp3": {
+    "mtime": 1788802220.9707432,
+    "ast_hash": "7c1ebe706980bccc8018c15b5ec43bbb",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/05-geser.mp3": {
+    "mtime": 1788802220.9717426,
+    "ast_hash": "61d0d063c185000dc9921618f431dcad",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/06-tiga.mp3": {
+    "mtime": 1788802220.9717426,
+    "ast_hash": "84068341ca9d2ddbfa818988621bba3e",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/07-bagi.mp3": {
+    "mtime": 1788802220.9727433,
+    "ast_hash": "4f7a4d9d7d3ee6cfdac6f8e80035a469",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/08-pojok.mp3": {
+    "mtime": 1788802220.9737928,
+    "ast_hash": "562bfebbdaab1f599d9d96567c0e74e4",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/09-lenyap.mp3": {
+    "mtime": 1788802220.974744,
+    "ast_hash": "a58039bfa88b6d5c84c6d3d5318205e7",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/10-aturan.mp3": {
+    "mtime": 1788802220.974744,
+    "ast_hash": "665953b4e4846f80de35d5a3bf165631",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/11-lengkung.mp3": {
+    "mtime": 1788802220.975743,
+    "ast_hash": "ce7d84604d2175f334ca5e62edc39446",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/12-contoh.mp3": {
+    "mtime": 1788802220.979838,
+    "ast_hash": "0d7f7ff7524fbd792c34064d8f76f73d",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/13-susun.mp3": {
+    "mtime": 1788802220.9808378,
+    "ast_hash": "0c28db91d9982387d3757c6f3f90f1e4",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/14-rapikan.mp3": {
+    "mtime": 1788802220.9808378,
+    "ast_hash": "2ca19b5f627799315cd8921652d8597d",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/15-periksa.mp3": {
+    "mtime": 1788802220.9817996,
+    "ast_hash": "ff199c2e387817179a629b876fb8ecd9",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/16-tutup.mp3": {
+    "mtime": 1788802220.9827988,
+    "ast_hash": "348a7c0f8c625c2a1f5733c64078f722",
+    "semantic_hash": ""
+  },
+  "audio/turunan6-hasil-kali/narasi-penuh.mp3": {
+    "mtime": 1788802220.9868538,
+    "ast_hash": "41f7e2917cad9d5bbcc54c858678c23b",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/01-buka.mp3": {
+    "mtime": 1788799446.7624233,
+    "ast_hash": "ddbee080729d1b04d054913eb46ecfff",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/02-masalah.mp3": {
+    "mtime": 1788799446.7634246,
+    "ast_hash": "77f0d24c530f149476a89b7f7d0a7d39",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/03-mesin.mp3": {
+    "mtime": 1788799446.7669873,
+    "ast_hash": "e49a327df394d2c2d88e45dbb0d5f3c2",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/04-batang.mp3": {
+    "mtime": 1788799446.7680047,
+    "ast_hash": "483f563893b50009835547ac9ab23ab4",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/05-tiga.mp3": {
+    "mtime": 1788799446.7689977,
+    "ast_hash": "7458d2ca37f68c6818375ed64231d45c",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/06-lima.mp3": {
+    "mtime": 1788799446.7700002,
+    "ast_hash": "5a07a333fa900559e69d638855fab19e",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/07-kali.mp3": {
+    "mtime": 1788799446.7723677,
+    "ast_hash": "43e07bca43fe2fa07a004ee98b39ed58",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/08-berubah.mp3": {
+    "mtime": 1788799446.7733705,
+    "ast_hash": "2444d4abb114f45e33b70488874d90a9",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/09-mudah.mp3": {
+    "mtime": 1788799446.7744036,
+    "ast_hash": "3177516c49b2f82eda8cd39829a19dea",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/10-turunkan.mp3": {
+    "mtime": 1788799446.7744036,
+    "ast_hash": "0a801beebcc5ac50b836d91db389ce63",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/11-faktor.mp3": {
+    "mtime": 1788799446.776195,
+    "ast_hash": "fd89e53da2e91570c4812bc6e7328a51",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/12-pola.mp3": {
+    "mtime": 1788799446.7772427,
+    "ast_hash": "59c53614e8cd90fcb768ca7363a58e4f",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/13-aturan.mp3": {
+    "mtime": 1788799446.7772427,
+    "ast_hash": "1862ccc91f474b5d5f0ab224614db992",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/14-pakai.mp3": {
+    "mtime": 1788799446.7788858,
+    "ast_hash": "a9bc531acab3a4c425453b9214a1fda2",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/15-hasil.mp3": {
+    "mtime": 1788799446.7794409,
+    "ast_hash": "25ef555f5226db081c31f0fef18b128f",
+    "semantic_hash": ""
+  },
+  "audio/turunan7-aturan-rantai/narasi-penuh.mp3": {
+    "mtime": 1788799446.7872753,
+    "ast_hash": "62faca8e5ee4e5d27ec5c373a5cf896f",
+    "semantic_hash": ""
+  },
+  "alat/cek_waktu_adegan.py": {
+    "mtime": 1788815485.295459,
+    "ast_hash": "24628927a37b87867fdff2ac21ad6ba2",
+    "semantic_hash": ""
+  },
+  "alat/klaim-video-integral.json": {
+    "mtime": 1788811545.861417,
+    "ast_hash": "22da704f407f112f755cf5a598d37a04",
+    "semantic_hash": ""
+  },
+  "alat/klaim-video-integral01.json": {
+    "mtime": 1788815485.2964263,
+    "ast_hash": "276f28f79a47685b0ecd7925beea129c",
+    "semantic_hash": ""
+  },
+  "alat/klaim-video-integral07.json": {
+    "mtime": 1788817965.0047145,
+    "ast_hash": "fad369ebc318e0d99cd72c5a58eda06f",
+    "semantic_hash": ""
+  },
+  "alat/klaim-video-integral09.json": {
+    "mtime": 1788820210.335904,
+    "ast_hash": "84bce2fb5acc5f1da6c805bea42f7561",
+    "semantic_hash": ""
+  },
+  "alat/uji_indicate.py": {
+    "mtime": 1788816119.9896836,
+    "ast_hash": "b0cf3f5d68b733537f9ecb0d4bbdeaac",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/durasi.json": {
+    "mtime": 1788815485.3115294,
+    "ast_hash": "7c443e2e27b06bd1d51ba2dc9571e418",
+    "semantic_hash": ""
+  },
+  "audio/integral05-riemann/durasi.json": {
+    "mtime": 1788811545.881435,
+    "ast_hash": "8506690ed50883cafdbc7ed61b266fd1",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/durasi.json": {
+    "mtime": 1788817965.0194376,
+    "ast_hash": "87a25e85cb3f5401d20137ceb7a64558",
+    "semantic_hash": ""
+  },
+  "audio/integral09-luas-daerah/durasi.json": {
+    "mtime": 1788820210.3479528,
+    "ast_hash": "965396005b40442a6e0e7a4bf40a04e7",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/durasi.json": {
+    "mtime": 1788868509.9379768,
+    "ast_hash": "d0ff7c496261c2516ef32fe747552cc5",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/durasi.json": {
+    "mtime": 1788890399.0421402,
+    "ast_hash": "0f9e1f40c6f2779e28614d43adab2a88",
+    "semantic_hash": ""
+  },
+  "manim/narasi/integral01-laju-ke-jumlah.json": {
+    "mtime": 1788815485.3207452,
+    "ast_hash": "dbe133571997574ea7208c137bffa8b6",
+    "semantic_hash": ""
+  },
+  "manim/narasi/integral05-riemann.json": {
+    "mtime": 1788811545.885087,
+    "ast_hash": "a93efdd61a546f2582a5e894592f5b9a",
+    "semantic_hash": ""
+  },
+  "manim/narasi/integral07-teorema-dasar.json": {
+    "mtime": 1788817965.0276,
+    "ast_hash": "632423591867a393ba87858a5de88fad",
+    "semantic_hash": ""
+  },
+  "manim/narasi/integral09-luas-daerah.json": {
+    "mtime": 1788820210.3549705,
+    "ast_hash": "07c3af7a83f4bf981b6f30948b47441a",
+    "semantic_hash": ""
+  },
+  "manim/narasi/turunan1-laju-rata-rata.json": {
+    "mtime": 1788867774.9365244,
+    "ast_hash": "e52dbd25950db5e59cdf6defb2f47515",
+    "semantic_hash": ""
+  },
+  "manim/narasi/turunan4-aturan-pangkat.json": {
+    "mtime": 1788890399.0753024,
+    "ast_hash": "6da21359861523ac5a848e0328fa380c",
+    "semantic_hash": ""
+  },
+  "manim/scenes/integral01_laju_ke_jumlah.py": {
+    "mtime": 1788818564.8133729,
+    "ast_hash": "a01561ef703a994cd441f527d814eb50",
+    "semantic_hash": ""
+  },
+  "manim/scenes/integral05_riemann.py": {
+    "mtime": 1788816119.99169,
+    "ast_hash": "b0169358306b809d6b101f5c9d7785c4",
+    "semantic_hash": ""
+  },
+  "manim/scenes/integral07_teorema_dasar.py": {
+    "mtime": 1788817965.0286007,
+    "ast_hash": "70bf2565c3ce4265573492a49fa36599",
+    "semantic_hash": ""
+  },
+  "manim/scenes/integral09_luas_daerah.py": {
+    "mtime": 1788820210.3559763,
+    "ast_hash": "f30c4498ba272c892c7ef0b1a6dcda8e",
+    "semantic_hash": ""
+  },
+  "manim/scenes/turunan1_laju_rata_rata.py": {
+    "mtime": 1788867774.9419222,
+    "ast_hash": "a01048ebb6346bedb88c935651b9e30e",
+    "semantic_hash": ""
+  },
+  "manim/scenes/turunan4_aturan_pangkat.py": {
+    "mtime": 1788890399.0753024,
+    "ast_hash": "955e8ba8c2536fe74f4b618e27120603",
+    "semantic_hash": ""
+  },
+  "web/public/anim/integral01-laju-ke-jumlah.jpg": {
+    "mtime": 1788815485.3238218,
+    "ast_hash": "54787e90a9556163e1b932b2453e4ded",
+    "semantic_hash": ""
+  },
+  "web/public/anim/integral05-riemann.jpg": {
+    "mtime": 1788811545.887161,
+    "ast_hash": "a692221dace17851e1850446e8046bb5",
+    "semantic_hash": ""
+  },
+  "web/public/anim/integral07-teorema-dasar.jpg": {
+    "mtime": 1788817965.0306368,
+    "ast_hash": "f14ab87087859a31d39e90d5433d2680",
+    "semantic_hash": ""
+  },
+  "web/public/anim/integral09-luas-daerah.jpg": {
+    "mtime": 1788820210.3579698,
+    "ast_hash": "4f4e4de2fc260c8e01ead1f8f9fb5229",
+    "semantic_hash": ""
+  },
+  "web/public/anim/turunan1-laju-rata-rata.jpg": {
+    "mtime": 1788867774.9512744,
+    "ast_hash": "e6b2a480b0a213ea5890a3ecf8b7adc6",
+    "semantic_hash": ""
+  },
+  "web/public/anim/turunan4-aturan-pangkat.jpg": {
+    "mtime": 1788890399.0763118,
+    "ast_hash": "28826f16bb353c123d5825d21f109343",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/01-buka.mp3": {
+    "mtime": 1788815485.2964263,
+    "ast_hash": "46cf84dda6d1c194fba2bec903c54726",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/02-tumpuk.mp3": {
+    "mtime": 1788815485.2974217,
+    "ast_hash": "319235bf35937c6edab00e07e9883434",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/03-turun.mp3": {
+    "mtime": 1788815485.2984233,
+    "ast_hash": "ef1cad29db24d2eb10f1348f6b596487",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/04-baca.mp3": {
+    "mtime": 1788815485.2994263,
+    "ast_hash": "c5b3eb3edd7c20c88b0c61b1b512dee6",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/05-satubulan.mp3": {
+    "mtime": 1788815485.3011596,
+    "ast_hash": "f07adcae827b7cd09e3f362a2c6cfc74",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/06-semua.mp3": {
+    "mtime": 1788815485.3022063,
+    "ast_hash": "637346c3a1c8b22d3c05e821b73f49ae",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/07-trapesium.mp3": {
+    "mtime": 1788815485.3035264,
+    "ast_hash": "3f1721e59ec0b68e02f89dc7a59c724d",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/08-balik.mp3": {
+    "mtime": 1788815485.3045287,
+    "ast_hash": "f80e112a4d6546fb26125f88f195513a",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/09-tebak.mp3": {
+    "mtime": 1788815485.3055303,
+    "ast_hash": "85a42d4d196b1e130ad39bcd6376bc60",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/10-plusC.mp3": {
+    "mtime": 1788815485.307531,
+    "ast_hash": "1d1c32519c2171ab7bac1721edd01db8",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/11-geser.mp3": {
+    "mtime": 1788815485.308528,
+    "ast_hash": "dca5ad420f9e9292e9a6ca151fe0313c",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/12-pilih.mp3": {
+    "mtime": 1788815485.3095262,
+    "ast_hash": "484ab898c4ba711c87fd1d8c77aeab3c",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/13-tutup.mp3": {
+    "mtime": 1788815485.3105285,
+    "ast_hash": "5f4301216881b5c194a88dd11fd159ed",
+    "semantic_hash": ""
+  },
+  "audio/integral01-laju-ke-jumlah/narasi-penuh.mp3": {
+    "mtime": 1788815485.3187897,
+    "ast_hash": "1e8df1a93a791757b279b1f0d63dbd51",
+    "semantic_hash": ""
+  },
+  "audio/integral05-riemann/01-buka.mp3": {
+    "mtime": 1788811545.862418,
+    "ast_hash": "a9e10f9af347b78e5c5da0c1871d2cd7",
+    "semantic_hash": ""
+  },
+  "audio/integral05-riemann/02-masalah.mp3": {
+    "mtime": 1788811545.863419,
+    "ast_hash": "da25eb2eab39f71d58a8656c388992ae",
+    "semantic_hash": ""
+  },
+  "audio/integral05-riemann/03-gagasan.mp3": {
+    "mtime": 1788811545.864611,
+    "ast_hash": "e80fa2c26bd44d059f76d61ce44d66db",
+    "semantic_hash": ""
+  },
+  "audio/integral05-riemann/04-potong.mp3": {
+    "mtime": 1788811545.8661146,
+    "ast_hash": "f79e013abee9b45d0896d08fe854e356",
+    "semantic_hash": ""
+  },
+  "audio/integral05-riemann/05-tinggi.mp3": {
+    "mtime": 1788811545.8661146,
+    "ast_hash": "6acea990664b86a706852921bd652932",
+    "semantic_hash": ""
+  },
+  "audio/integral05-riemann/06-contoh.mp3": {
+    "mtime": 1788811545.8726685,
+    "ast_hash": "3f6561c4f1b6af55490d961fafc813cf",
+    "semantic_hash": ""
+  },
+  "audio/integral05-riemann/07-hitung7.mp3": {
+    "mtime": 1788811545.8726685,
+    "ast_hash": "bd2df2f39570d5c44da7b17c0755892b",
+    "semantic_hash": ""
+  },
+  "audio/integral05-riemann/08-segitiga.mp3": {
+    "mtime": 1788811545.874713,
+    "ast_hash": "9da22e8a0b757812fff236a4674672c4",
+    "semantic_hash": ""
+  },
+  "audio/integral05-riemann/09-jepit.mp3": {
+    "mtime": 1788811545.8756807,
+    "ast_hash": "10a5790df82fe17a7cea35d6add3b69a",
+    "semantic_hash": ""
+  },
+  "audio/integral05-riemann/10-perbanyak.mp3": {
+    "mtime": 1788811545.8761065,
+    "ast_hash": "caffce4816b777c4ba040cafac3814a0",
+    "semantic_hash": ""
+  },
+  "audio/integral05-riemann/11-turun.mp3": {
+    "mtime": 1788811545.8777132,
+    "ast_hash": "6787ed20b303d0053268c47866e82ebb",
+    "semantic_hash": ""
+  },
+  "audio/integral05-riemann/12-tutup.mp3": {
+    "mtime": 1788811545.8797133,
+    "ast_hash": "f5fb4179264d9a70be22b8342c7cf5d4",
+    "semantic_hash": ""
+  },
+  "audio/integral05-riemann/narasi-penuh.mp3": {
+    "mtime": 1788811545.883044,
+    "ast_hash": "08a54bcb45b3b417955a75a560092dfe",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/01-buka.mp3": {
+    "mtime": 1788817965.0057142,
+    "ast_hash": "6765be65e14b579b4d43a019673be394",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/02-dua.mp3": {
+    "mtime": 1788817965.0062208,
+    "ast_hash": "cf71b0e8aed44746263625cae7f6649c",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/03-tumbuh.mp3": {
+    "mtime": 1788817965.0072289,
+    "ast_hash": "8a0195a48d32b8b713a3253cc5086ecd",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/04-jejak.mp3": {
+    "mtime": 1788817965.0082283,
+    "ast_hash": "87ecf275c6c27c822a42583f8fbfca8c",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/05-tanya.mp3": {
+    "mtime": 1788817965.0102305,
+    "ast_hash": "9b1159aec92c160e8337ea8206678fc8",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/06-pita.mp3": {
+    "mtime": 1788817965.0112634,
+    "ast_hash": "d37a51f63086c89ee5efface47836226",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/07-bagi.mp3": {
+    "mtime": 1788817965.0112634,
+    "ast_hash": "85078995ee48ead0c419fd93461618a7",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/08-hampir.mp3": {
+    "mtime": 1788817965.012984,
+    "ast_hash": "6457e547c145c394ee16082d2c77ed8e",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/09-tdk1.mp3": {
+    "mtime": 1788817965.0147777,
+    "ast_hash": "57859a150505aa6cb12a5d6e47cc85eb",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/10-beda.mp3": {
+    "mtime": 1788817965.015792,
+    "ast_hash": "5a6289df0a0147a7a033eff25f1880b4",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/11-hapus.mp3": {
+    "mtime": 1788817965.015792,
+    "ast_hash": "bfe7d2770da34be39032ab72e447c247",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/12-contoh.mp3": {
+    "mtime": 1788817965.0184374,
+    "ast_hash": "2f345f192feb8be9523979be8832c286",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/13-tutup.mp3": {
+    "mtime": 1788817965.0194376,
+    "ast_hash": "7de7b2e55b1aa6f8c92e0bbf0bc026ef",
+    "semantic_hash": ""
+  },
+  "audio/integral07-teorema-dasar/narasi-penuh.mp3": {
+    "mtime": 1788817965.0265985,
+    "ast_hash": "dae3f1071d66897360ed7908d6902553",
+    "semantic_hash": ""
+  },
+  "audio/integral09-luas-daerah/01-buka.mp3": {
+    "mtime": 1788820210.3379054,
+    "ast_hash": "da917f28057ff8bed2f73b27d83c37da",
+    "semantic_hash": ""
+  },
+  "audio/integral09-luas-daerah/02-masalah.mp3": {
+    "mtime": 1788820210.3389041,
+    "ast_hash": "5e3ee8ad0503438b4b0b497f6f2281aa",
+    "semantic_hash": ""
+  },
+  "audio/integral09-luas-daerah/03-potong.mp3": {
+    "mtime": 1788820210.3389041,
+    "ast_hash": "18a8b7cf6bfefe850a135b4d9d16cfa3",
+    "semantic_hash": ""
+  },
+  "audio/integral09-luas-daerah/04-warna.mp3": {
+    "mtime": 1788820210.3407845,
+    "ast_hash": "b858c16d4bfd80267f127efd887d361f",
+    "semantic_hash": ""
+  },
+  "audio/integral09-luas-daerah/05-hitung1.mp3": {
+    "mtime": 1788820210.341829,
+    "ast_hash": "c66d4ad0cf379dc4985ee8583c4b990c",
+    "semantic_hash": ""
+  },
+  "audio/integral09-luas-daerah/06-hitung2.mp3": {
+    "mtime": 1788820210.341829,
+    "ast_hash": "21d5825b57f88afc5ac16ffee92269ef",
+    "semantic_hash": ""
+  },
+  "audio/integral09-luas-daerah/07-nol.mp3": {
+    "mtime": 1788820210.342864,
+    "ast_hash": "381fe855328c8ffa1d68a8595a0da68b",
+    "semantic_hash": ""
+  },
+  "audio/integral09-luas-daerah/08-bukan.mp3": {
+    "mtime": 1788820210.344674,
+    "ast_hash": "54e8ae70d73c597cd72214a95eb3ea68",
+    "semantic_hash": ""
+  },
+  "audio/integral09-luas-daerah/09-positif.mp3": {
+    "mtime": 1788820210.3458064,
+    "ast_hash": "70d347e43cfa81cda6df8c5ed037b25f",
+    "semantic_hash": ""
+  },
+  "audio/integral09-luas-daerah/10-aturan.mp3": {
+    "mtime": 1788820210.3458064,
+    "ast_hash": "b6deef666929a3b98b14b90696515175",
+    "semantic_hash": ""
+  },
+  "audio/integral09-luas-daerah/11-aman.mp3": {
+    "mtime": 1788820210.346902,
+    "ast_hash": "24e81edee1f924bc203302d79040f2f5",
+    "semantic_hash": ""
+  },
+  "audio/integral09-luas-daerah/12-tutup.mp3": {
+    "mtime": 1788820210.3479528,
+    "ast_hash": "3cfedbe3d557691b4aae371c49c73c76",
+    "semantic_hash": ""
+  },
+  "audio/integral09-luas-daerah/narasi-penuh.mp3": {
+    "mtime": 1788820210.3540134,
+    "ast_hash": "95a86330e7d665aadc965d72255a8b18",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/01-buka.mp3": {
+    "mtime": 1788868493.1054873,
+    "ast_hash": "828504c2e0ec3f07c954a12cdd3f1faf",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/02-pabrik.mp3": {
+    "mtime": 1788868493.4662607,
+    "ast_hash": "ab3d751db0e0273530bd9ed9a70f5668",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/narasi-penuh.mp3": {
+    "mtime": 1788868509.9306512,
+    "ast_hash": "0d2090fd408616011ab44d1ee6e529b9",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/01-buka.mp3": {
+    "mtime": 1788890399.00167,
+    "ast_hash": "146dfdffd7d8f3f1bb2af4197f8f3c88",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/narasi-penuh.mp3": {
+    "mtime": 1788890399.0742953,
+    "ast_hash": "30790a50c8b330f5418c7bdf4c3c5457",
+    "semantic_hash": ""
+  },
+  "alat/klaim-video-integral03.json": {
+    "mtime": 1788821773.758773,
+    "ast_hash": "f66ba6ac36dd5faf352aa4a309aca137",
+    "semantic_hash": ""
+  },
+  "audio/integral03-substitusi/durasi.json": {
+    "mtime": 1788821773.7712052,
+    "ast_hash": "ba9c18d081ae129c810a7ef63303acb2",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/kata.json": {
+    "mtime": 1788868509.952009,
+    "ast_hash": "48cb0b8caef9c8bb6d9827ac6c6b04b3",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/kata.json": {
+    "mtime": 1788868106.2524674,
+    "ast_hash": "2105df0391671781479c769b0376189f",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/kata.json": {
+    "mtime": 1788868529.0211473,
+    "ast_hash": "6e2f594350775c9a86e3282ac43b8366",
+    "semantic_hash": ""
+  },
+  "manim/narasi/integral03-substitusi.json": {
+    "mtime": 1788821773.779206,
+    "ast_hash": "42533f55621aa0a065f11c1c2b464139",
+    "semantic_hash": ""
+  },
+  "manim/scenes/integral03_substitusi.py": {
+    "mtime": 1788821773.779206,
+    "ast_hash": "88dfad7fd48f0b9310aadd0b9502e30d",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/specs/2026-09-08-standar-video-v3-design.md": {
+    "mtime": 1788867588.3890142,
+    "ast_hash": "a260373271dc6cd289f7d3d8bce21a73",
+    "semantic_hash": ""
+  },
+  "docs/tugas/laporan/PELAJARAN-RENDER-TURUNAN-2026-09-08.md": {
+    "mtime": 1788867774.9175034,
+    "ast_hash": "95a939700ad90dc9f9698d8e3b031d15",
+    "semantic_hash": ""
+  },
+  "docs/tugas/laporan/bukti-turunan-2026-09-08/foto-1-turunan2-rumus-subtitle.png": {
+    "mtime": 1788867774.9259908,
+    "ast_hash": "d7c5d8c51d027f79ca0721e24074a46f",
+    "semantic_hash": ""
+  },
+  "docs/tugas/laporan/bukti-turunan-2026-09-08/foto-2-turunan1-segitiga.png": {
+    "mtime": 1788867774.9344077,
+    "ast_hash": "87706d9780703df7470821404d76a1a7",
+    "semantic_hash": ""
+  },
+  "web/public/anim/integral03-substitusi.jpg": {
+    "mtime": 1788821773.7817516,
+    "ast_hash": "613f1773326155109cba2d87a8606a52",
+    "semantic_hash": ""
+  },
+  "audio/integral03-substitusi/01-buka.mp3": {
+    "mtime": 1788821773.7597735,
+    "ast_hash": "9f3bf7ae01114b0ef94d66ca18f98d2c",
+    "semantic_hash": ""
+  },
+  "audio/integral03-substitusi/02-soal.mp3": {
+    "mtime": 1788821773.7607744,
+    "ast_hash": "b809cd5ec98d797375abf26eca1b79ab",
+    "semantic_hash": ""
+  },
+  "audio/integral03-substitusi/03-tebak.mp3": {
+    "mtime": 1788821773.7617736,
+    "ast_hash": "dedd03dcb8bb86112cc6aceaf98ffd53",
+    "semantic_hash": ""
+  },
+  "audio/integral03-substitusi/04-periksa.mp3": {
+    "mtime": 1788821773.7627738,
+    "ast_hash": "0d8e3978850fb2f73a044d4ab88b0d36",
+    "semantic_hash": ""
+  },
+  "audio/integral03-substitusi/05-dua.mp3": {
+    "mtime": 1788821773.7637727,
+    "ast_hash": "30cfad4d0953e3d9e2b3f09bed89c316",
+    "semantic_hash": ""
+  },
+  "audio/integral03-substitusi/06-bagi.mp3": {
+    "mtime": 1788821773.7637727,
+    "ast_hash": "35f8e808301df2ea35955204fb2d4a40",
+    "semantic_hash": ""
+  },
+  "audio/integral03-substitusi/07-namai.mp3": {
+    "mtime": 1788821773.7654345,
+    "ast_hash": "0ca14813c8e66bd12df1859638e8098b",
+    "semantic_hash": ""
+  },
+  "audio/integral03-substitusi/08-empat.mp3": {
+    "mtime": 1788821773.7654345,
+    "ast_hash": "9d181d122def5f546f54626fb55ab65a",
+    "semantic_hash": ""
+  },
+  "audio/integral03-substitusi/09-contoh2.mp3": {
+    "mtime": 1788821773.7671943,
+    "ast_hash": "247144dfe429c48e6ca9638a8d68025d",
+    "semantic_hash": ""
+  },
+  "audio/integral03-substitusi/10-hasil2.mp3": {
+    "mtime": 1788821773.7682061,
+    "ast_hash": "897cd134e33b7dcebf51d46a652fcc0b",
+    "semantic_hash": ""
+  },
+  "audio/integral03-substitusi/11-contoh3.mp3": {
+    "mtime": 1788821773.7692065,
+    "ast_hash": "2f71550797c967fb3e1443c661f40712",
+    "semantic_hash": ""
+  },
+  "audio/integral03-substitusi/12-gagal.mp3": {
+    "mtime": 1788821773.7702134,
+    "ast_hash": "609c63b5483a31967511aabfa0e0d647",
+    "semantic_hash": ""
+  },
+  "audio/integral03-substitusi/narasi-penuh.mp3": {
+    "mtime": 1788821773.7772036,
+    "ast_hash": "4a7fc0e665a5f0c7d83180b741c4b4be",
+    "semantic_hash": ""
+  },
+  "alat/cek_subtitle.py": {
+    "mtime": 1788890838.4699361,
+    "ast_hash": "75d80c431ed538e3675df40b49dad6e0",
+    "semantic_hash": ""
+  },
+  "alat/uji_cek_subtitle.py": {
+    "mtime": 1788868532.7637544,
+    "ast_hash": "7be3bb255f8b76224e4bc99892dee34a",
+    "semantic_hash": ""
+  },
+  "manim/uji/uji_jam_kata.py": {
+    "mtime": 1788879957.696119,
+    "ast_hash": "452a2beb4df35f48def23f90d27f091e",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/03-siap.mp3": {
+    "mtime": 1788868493.934573,
+    "ast_hash": "3809655325d7260aed60ec33f0d6e518",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/04-catatan_a.mp3": {
+    "mtime": 1788868494.4427528,
+    "ast_hash": "bc1d315da65915aeb69f76d9d1e87206",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/05-catatan_b.mp3": {
+    "mtime": 1788868494.945962,
+    "ast_hash": "3e9fd835916decb46c5880187ef1805f",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/06-total.mp3": {
+    "mtime": 1788868495.3997407,
+    "ast_hash": "a11a71e7afa1c8bfc8549c4c2ab167ff",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/07-tanya.mp3": {
+    "mtime": 1788868496.0401216,
+    "ast_hash": "1f3d7cab6cb5f0938e9ea78e79de1460",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/08-tambahan.mp3": {
+    "mtime": 1788868496.7526631,
+    "ast_hash": "ca3fe07e894c606a49f7cfd675310684",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/09-waktu.mp3": {
+    "mtime": 1788868497.4493837,
+    "ast_hash": "d1a315147c5b53c6d54ff78fd6ba36f8",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/10-bagi.mp3": {
+    "mtime": 1788868497.891221,
+    "ast_hash": "09019b69ad9e4b944f25871d3c263fb5",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/11-arti.mp3": {
+    "mtime": 1788868498.4186308,
+    "ast_hash": "eacfdbd671a3d64b1370d0de16b681be",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/12-sumbu.mp3": {
+    "mtime": 1788868498.905795,
+    "ast_hash": "96797d9fd6cac9414a75ccc6cd918ec8",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/13-titik.mp3": {
+    "mtime": 1788868499.5782623,
+    "ast_hash": "8cf722769b49c657df4de70712690d81",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/14-kurva.mp3": {
+    "mtime": 1788868500.0786083,
+    "ast_hash": "68524a3b8279347250e96028de06c1c5",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/15-hubung.mp3": {
+    "mtime": 1788868500.6120167,
+    "ast_hash": "3a34ff283240c86474346fa030670697",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/16-datar.mp3": {
+    "mtime": 1788868500.9933627,
+    "ast_hash": "859999f802a27a53539f45e25291040a",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/17-naik.mp3": {
+    "mtime": 1788868501.5099413,
+    "ast_hash": "b47ae37127bad5b2bee19521167008d3",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/18-kemiringan.mp3": {
+    "mtime": 1788868501.9230971,
+    "ast_hash": "12c1864b64f354bcf800d6d910f02391",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/19-singkat.mp3": {
+    "mtime": 1788868502.2220786,
+    "ast_hash": "b10b0c18fce5ca18e6b80f572a5aec0f",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/20-pitagoras.mp3": {
+    "mtime": 1788868502.5433223,
+    "ast_hash": "dc70c9a73ffc1d4da129dccfb71e326a",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/21-contoh345.mp3": {
+    "mtime": 1788868502.884631,
+    "ast_hash": "d5d03812edfcf496582f99bdde59de97",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/22-panjang.mp3": {
+    "mtime": 1788868503.3686223,
+    "ast_hash": "61e7a7240a1d2907373fc725d7a0b666",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/23-rasio.mp3": {
+    "mtime": 1788868503.7940974,
+    "ast_hash": "97f3ce767a896c3f96179eac294cbb24",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/24-bedakan.mp3": {
+    "mtime": 1788868504.262024,
+    "ast_hash": "186e4f32f9f368c4b792404834e73e8f",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/25-satuan.mp3": {
+    "mtime": 1788868504.7818253,
+    "ast_hash": "391a6771ed86daf4ec201702e0652472",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/26-kembali.mp3": {
+    "mtime": 1788868505.156329,
+    "ast_hash": "3f944f001b73ab3de572fa4dd0e71df8",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/27-sekan.mp3": {
+    "mtime": 1788868505.5696137,
+    "ast_hash": "25abe84637bbf2c3785787f167c184f3",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/28-beda_awal.mp3": {
+    "mtime": 1788868505.9714646,
+    "ast_hash": "f2f952d4efd598c3141362570cfe0d12",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/29-beda_akhir.mp3": {
+    "mtime": 1788868506.3589907,
+    "ast_hash": "696828172e85a5e1078618cb7bb36da5",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/30-bukan_tiap.mp3": {
+    "mtime": 1788868506.794367,
+    "ast_hash": "90bb34b59f3bb77729dac2c4e3ae8bb4",
+    "semantic_hash": ""
+  },
+  "audio/turunan1-laju-rata-rata/31-tutup.mp3": {
+    "mtime": 1788868507.2229626,
+    "ast_hash": "8c187810c0737bc60fbebcb6ce0cd4db",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/02-ingat.mp3": {
+    "mtime": 1788868087.7721748,
+    "ast_hash": "cab9f31f763f9a95dec902d093ca5ed8",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/03-tanya.mp3": {
+    "mtime": 1788868088.238917,
+    "ast_hash": "ff8b194d9028e050f825e5f27c9bcd78",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/05-p.mp3": {
+    "mtime": 1788868089.1789496,
+    "ast_hash": "58461597b099b1da5dfa6c37dff7e1f2",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/06-q.mp3": {
+    "mtime": 1788868089.6756258,
+    "ast_hash": "388a16569ce5430ce398bbc05295d25c",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/07-datar.mp3": {
+    "mtime": 1788868090.1178138,
+    "ast_hash": "2a094c60d26f79d420185de3d45621e0",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/08-tegak.mp3": {
+    "mtime": 1788868090.5205579,
+    "ast_hash": "8dca01a53cc1f4d3435b19f80afa8c25",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/09-bagi.mp3": {
+    "mtime": 1788868091.0326405,
+    "ast_hash": "356de2212e3baeb9c303abba5efe0a81",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/10-h.mp3": {
+    "mtime": 1788868091.4561963,
+    "ast_hash": "bfbe74d946a7ad72ed5e6757b2316833",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/11-posisi.mp3": {
+    "mtime": 1788868091.9126847,
+    "ast_hash": "7602d5474497a6223b998e2558e37de2",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/12-asal.mp3": {
+    "mtime": 1788868092.439562,
+    "ast_hash": "4c186ded10440d09fb27c2c8d23c145f",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/13-setengah.mp3": {
+    "mtime": 1788868092.8046193,
+    "ast_hash": "1f9d5cc94d06e8d217b592fc59844cab",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/14-sepersepuluh.mp3": {
+    "mtime": 1788868093.15082,
+    "ast_hash": "85f57b9dc8ab0e19c1cd651f92b47e58",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/15-seperseratus.mp3": {
+    "mtime": 1788868093.5782082,
+    "ast_hash": "fd4ec15e552996e9b93321497cd66230",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/16-dugaan.mp3": {
+    "mtime": 1788868094.0699053,
+    "ast_hash": "c2d0b04360ecb3b93f246ed5af94a64c",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/17-luas.mp3": {
+    "mtime": 1788868094.4582992,
+    "ast_hash": "f956869fe804c0e7622af019ad30a776",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/18-petak_satu.mp3": {
+    "mtime": 1788868094.7574906,
+    "ast_hash": "5f8b85fdc9fbeb2984350bc356625db9",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/19-petak_dua.mp3": {
+    "mtime": 1788868095.0702958,
+    "ast_hash": "b882a07f9819da51b3056f0ca54809fb",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/20-petak_kecil.mp3": {
+    "mtime": 1788868095.4101772,
+    "ast_hash": "d680439e9b07016aff3c62a811ff33c1",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/21-kurangi.mp3": {
+    "mtime": 1788868095.8213816,
+    "ast_hash": "c70c0b89c7e7e93bc5ebad7f62337557",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/22-faktor.mp3": {
+    "mtime": 1788868096.2676666,
+    "ast_hash": "6bd659366a7e0bd99e47e3eb6e8b311f",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/23-bagi_h.mp3": {
+    "mtime": 1788868096.8116567,
+    "ast_hash": "40b471fd85aee69100d3b7fd4caf73ea",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/24-nol.mp3": {
+    "mtime": 1788868097.4267774,
+    "ast_hash": "d616e81bb9f31133854c9946358f367a",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/25-limit.mp3": {
+    "mtime": 1788868097.870263,
+    "ast_hash": "d2941f90a87abbe5d47997f19d726e9c",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/26-kiri.mp3": {
+    "mtime": 1788868098.3197389,
+    "ast_hash": "b1d28dda4d5133deba66e8b8e1c1caa0",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/27-kiri_dekat.mp3": {
+    "mtime": 1788868098.6710277,
+    "ast_hash": "99a77041d6c4e10ce175e76038c520e5",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/28-singgung.mp3": {
+    "mtime": 1788868099.1321938,
+    "ast_hash": "c7214460b1cbb58c196714074fd94146",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/29-arti_dua.mp3": {
+    "mtime": 1788868099.5587826,
+    "ast_hash": "7f04f2135a8a396d52a5fa03ac4b04f9",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/30-nama.mp3": {
+    "mtime": 1788868100.008715,
+    "ast_hash": "334204768e67142e8f656028f6eedbd1",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/31-umum.mp3": {
+    "mtime": 1788868100.4691622,
+    "ast_hash": "0ea49900aa3adffdde9ce995ce6585bf",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/32-syarat.mp3": {
+    "mtime": 1788868100.8738818,
+    "ast_hash": "e8d41de073244bcde3024b81406aea33",
+    "semantic_hash": ""
+  },
+  "audio/turunan2-garis-singgung/33-tutup.mp3": {
+    "mtime": 1788868101.3500173,
+    "ast_hash": "48de2ccb6409c7ba23ff99379620cafe",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/03-ringkas.mp3": {
+    "mtime": 1788868514.0246336,
+    "ast_hash": "f9227d034b9fe5d41760905f01da012c",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/04-tinggi.mp3": {
+    "mtime": 1788868514.4586608,
+    "ast_hash": "e3d66517473c4813a620af5f4de1aca2",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/05-tanya.mp3": {
+    "mtime": 1788868514.9607162,
+    "ast_hash": "7b317204cabb8284e46f5e7af98d3e1e",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/06-contoh.mp3": {
+    "mtime": 1788868515.3997035,
+    "ast_hash": "96dd8c750e103dff9637d5656390204b",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/07-pola.mp3": {
+    "mtime": 1788868515.7809496,
+    "ast_hash": "64846f5137b0a743d6cf300ddace6c47",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/08-umum.mp3": {
+    "mtime": 1788868516.1519005,
+    "ast_hash": "48b9e7eada7c30737587b2d61fca1526",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/09-tetangga.mp3": {
+    "mtime": 1788868516.5700831,
+    "ast_hash": "1e9f40c0aafad06e0f8a5f10f3206c0d",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/10-selisih.mp3": {
+    "mtime": 1788868517.1560204,
+    "ast_hash": "bc7a31e212dfa6dc424cd94d0ddd5c72",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/11-kali.mp3": {
+    "mtime": 1788868517.5733635,
+    "ast_hash": "b726a2a2d7cc18fa8422810a97487d32",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/12-kurangi.mp3": {
+    "mtime": 1788868517.9544458,
+    "ast_hash": "cb3c41e2e4906f6836fbf71f409b984b",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/13-bagi.mp3": {
+    "mtime": 1788868518.3962424,
+    "ast_hash": "3a9822e700eebeef72c061d870edc2b7",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/14-limit.mp3": {
+    "mtime": 1788868518.8593462,
+    "ast_hash": "3d883ca5fb3c0b97b4f1a516178a1b8e",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/15-hasil.mp3": {
+    "mtime": 1788868519.2577705,
+    "ast_hash": "04f7ab9a616eedf46221b3b9883d083d",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/16-fungsi.mp3": {
+    "mtime": 1788868519.6894631,
+    "ast_hash": "c91eb37a1fe4c57b055d75cb516d9f8f",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/17-peta.mp3": {
+    "mtime": 1788868520.1435444,
+    "ast_hash": "0128e0ad71b8303cd5ea63c562a3bf59",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/18-peta_nol.mp3": {
+    "mtime": 1788868520.6386037,
+    "ast_hash": "3e1a0b755a0f3692ad9ec25b67457c6f",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/19-peta_satu.mp3": {
+    "mtime": 1788868521.1043644,
+    "ast_hash": "fee4259932fd7120a45c1dd1e160103f",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/20-peta_dua.mp3": {
+    "mtime": 1788868521.5142395,
+    "ast_hash": "cd5fc443ac85962400ae75aac22fa7af",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/21-sapu.mp3": {
+    "mtime": 1788868521.9872284,
+    "ast_hash": "6370eb84a4a48f37b381f55c8a9652ec",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/22-tanda.mp3": {
+    "mtime": 1788868522.3646035,
+    "ast_hash": "5a838a90fae44463d17ef923b4b576c8",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/23-datar.mp3": {
+    "mtime": 1788868522.9038773,
+    "ast_hash": "4ad916d70c4c71d55c5730061a625011",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/24-contoh_tiga.mp3": {
+    "mtime": 1788868523.3725173,
+    "ast_hash": "f588ab628c4172b211f0fff16b0d7891",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/25-notasi.mp3": {
+    "mtime": 1788868523.750872,
+    "ast_hash": "e1e72b8f23766ccf35b260f4a085b30c",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/26-arti_notasi.mp3": {
+    "mtime": 1788868524.123114,
+    "ast_hash": "2dd0874d15a7131a6117f93de99d217e",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/27-sudut.mp3": {
+    "mtime": 1788868524.5491526,
+    "ast_hash": "255c04a33e95e12b3a20508b57c0b55a",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/28-kiri.mp3": {
+    "mtime": 1788868524.9902954,
+    "ast_hash": "c8c6a2941a404652766ca01576b7204b",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/29-kanan.mp3": {
+    "mtime": 1788868525.4196215,
+    "ast_hash": "714d646c7e7dc9bd00dac93436c38f04",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/30-tidak_ada.mp3": {
+    "mtime": 1788868525.8621678,
+    "ast_hash": "9601060ec6a8eae0df943c608bd71ef3",
+    "semantic_hash": ""
+  },
+  "audio/turunan3-fungsi-turunan/31-tutup.mp3": {
+    "mtime": 1788868526.2991126,
+    "ast_hash": "4bd3f7a22f3033b2b9a8371ee373c70d",
+    "semantic_hash": ""
+  },
+  "docs/tugas/MANTRA-LIMIT.md": {
+    "mtime": 1788869189.1804974,
+    "ast_hash": "fdd53289f09c720aaa71c12f2411ce88",
+    "semantic_hash": ""
+  },
+  "docs/tugas/MANTRA-TRANSFORMASI-GEOMETRI.md": {
+    "mtime": 1788869189.1945188,
+    "ast_hash": "5bc8cf0e5364281d95589eb1d500ef66",
+    "semantic_hash": ""
+  },
+  "docs/tugas/MANTRA-TRIGONOMETRI.md": {
+    "mtime": 1788869189.178499,
+    "ast_hash": "84d88111a302c9ad098977fb89816acd",
+    "semantic_hash": ""
+  },
+  "docs/tugas/STANDAR-VIDEO-V3.md": {
+    "mtime": 1788890974.1639771,
+    "ast_hash": "670fb37b6847228b8c9c6cc6562c5670",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/adegan/grafik3_puncak.py": {
+    "mtime": 1788871869.538884,
+    "ast_hash": "0daf1d55a26860fa846a98fd747b1cca",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/adegan/grafik6_transformasi.py": {
+    "mtime": 1788871869.5685902,
+    "ast_hash": "119cc154732b9d2cbb1dca11cd9aca2b",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/naskah/grafik3-puncak.json": {
+    "mtime": 1788871869.3383472,
+    "ast_hash": "9cfce54d981dcc66d8ee3a049a92c72e",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/naskah/grafik6-transformasi.json": {
+    "mtime": 1788871869.3690932,
+    "ast_hash": "c4f5eb0274f38c7820b824e292b72f25",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/naskah/tahap8-grafik-sin.json": {
+    "mtime": 1788871869.393852,
+    "ast_hash": "8575fe771905699e9b468f2af2100a01",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/naskah/tahap9-tiga-grafik.json": {
+    "mtime": 1788871869.4195313,
+    "ast_hash": "0f1cbb9a5b1fa8adef91ef77b86471aa",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/adegan/vektor1_perahu.py": {
+    "mtime": 1788872078.8858137,
+    "ast_hash": "ab127c6cc8a4428c5596a2277aa8c718",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/adegan/vektor3_komponen.py": {
+    "mtime": 1788872078.895854,
+    "ast_hash": "e4244342ff518ef0d84ca33f026a9d7c",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/adegan/vektor4_panjang.py": {
+    "mtime": 1788872078.908136,
+    "ast_hash": "49aab8740cf549ed58cca2ff39f3b5bd",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/adegan/vektor6_sambung.py": {
+    "mtime": 1788872078.9226778,
+    "ast_hash": "0d826015f9d79f564efd6b91900d5c57",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/adegan/vektor8_selisih.py": {
+    "mtime": 1788872078.9354782,
+    "ast_hash": "699134e177ec4f95a4570c5780568a09",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/adegan/vektor9_kali_skalar.py": {
+    "mtime": 1788872078.9487498,
+    "ast_hash": "c93396be5d50d6191f67b20dcdcb0061",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/naskah/vektor1-perahu.json": {
+    "mtime": 1788872078.993047,
+    "ast_hash": "f4642cd364ff5683f5d726f630043e4b",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/naskah/vektor3-komponen.json": {
+    "mtime": 1788872079.0028317,
+    "ast_hash": "00659a9bd469a596a848787275e34e55",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/naskah/vektor4-panjang.json": {
+    "mtime": 1788872079.0113614,
+    "ast_hash": "13f8c49dfa4b4bfc89f60b7fa4d83df2",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/naskah/vektor6-sambung.json": {
+    "mtime": 1788872079.020848,
+    "ast_hash": "9eb6696286947c1ffa16ca7be33318d6",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/naskah/vektor8-selisih.json": {
+    "mtime": 1788872079.0288951,
+    "ast_hash": "945e1fb15975edf6fafe3ea3953b0b1c",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/naskah/vektor9-kali-skalar.json": {
+    "mtime": 1788872079.0397308,
+    "ast_hash": "812dbf7d879c87f195a9cacf8f8e46f2",
+    "semantic_hash": ""
+  },
+  "alat/cek_pemicu_urut.py": {
+    "mtime": 1788890495.5368361,
+    "ast_hash": "5be412346867a1578437189ce6aa568a",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/beranda-tiga-grafik-v2.jpg": {
+    "mtime": 1788871869.2395167,
+    "ast_hash": "ca35a56aeed2d3ff46574591fe89452e",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/grafik3-puncak.jpg": {
+    "mtime": 1788871868.0354743,
+    "ast_hash": "cead2a5ebcec67352f070c6c6d07242e",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/grafik6-transformasi.jpg": {
+    "mtime": 1788871868.3605433,
+    "ast_hash": "58b8c89cbf68652ca063bebea7e7c88a",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/tahap8-grafik-sin.jpg": {
+    "mtime": 1788871868.696509,
+    "ast_hash": "623a9bb84be19354e2293490c95c00b9",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/tahap9-tiga-grafik.jpg": {
+    "mtime": 1788871869.0305047,
+    "ast_hash": "25e041ee0f5369ffddf1cbfce82d3579",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral01-laju-ke-jumlah.jpg": {
+    "mtime": 1788818465.9936483,
+    "ast_hash": "54787e90a9556163e1b932b2453e4ded",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral03-substitusi.jpg": {
+    "mtime": 1788821618.1396234,
+    "ast_hash": "613f1773326155109cba2d87a8606a52",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral05-riemann.jpg": {
+    "mtime": 1788812198.903999,
+    "ast_hash": "a692221dace17851e1850446e8046bb5",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral07-teorema-dasar.jpg": {
+    "mtime": 1788817791.9015434,
+    "ast_hash": "f14ab87087859a31d39e90d5433d2680",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral09-luas-daerah.jpg": {
+    "mtime": 1788820045.4914594,
+    "ast_hash": "4f4e4de2fc260c8e01ead1f8f9fb5229",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika1-menipu.jpg": {
+    "mtime": 1788871554.814982,
+    "ast_hash": "bdf26e4c8f08fd8f430e9909e3160547",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika10-pencar.jpg": {
+    "mtime": 1788871554.8341153,
+    "ast_hash": "38165513844b65c86cf776bbf4fccb46",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika11-regresi.jpg": {
+    "mtime": 1788871554.8500278,
+    "ast_hash": "7f59e273b25fc2d9c6cda4e4ff2fb2f4",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika12-korelasi.jpg": {
+    "mtime": 1788871554.87189,
+    "ast_hash": "e9eabbdab8fb290a915c1eef46ce96b4",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika13-menyesatkan.jpg": {
+    "mtime": 1788871554.890158,
+    "ast_hash": "4ba89db78800fbb98b348ffbe7834846",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika2-bentuk.jpg": {
+    "mtime": 1788871554.909811,
+    "ast_hash": "0059daa19be82173ec3faa39c270f718",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika3-lebar-kelas.jpg": {
+    "mtime": 1788871554.9305031,
+    "ast_hash": "32ff4d2862937d35d5f3d805f42d3ca6",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika4-relatif.jpg": {
+    "mtime": 1788871554.9487276,
+    "ast_hash": "63a144cf4e0d214a36eb351d6bc59201",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika5-pemusatan.jpg": {
+    "mtime": 1788871554.965671,
+    "ast_hash": "7d2af4c39b49f24d2a2344a195ddf6e9",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika6-pencilan.jpg": {
+    "mtime": 1788871554.9868002,
+    "ast_hash": "781292c35b0415fc2a13de563efad47a",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika7-boxplot.jpg": {
+    "mtime": 1788871555.0004036,
+    "ast_hash": "a8e68d705e562e13da3681eace5055f7",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika8-simpangan.jpg": {
+    "mtime": 1788871555.0186498,
+    "ast_hash": "e73103e62bf5e28d1c7414d3ecc44f68",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika9-kelompok.jpg": {
+    "mtime": 1788871555.0338972,
+    "ast_hash": "3ec6b81f38514978c0dde5f123c8c336",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/vektor1-perahu.jpg": {
+    "mtime": 1788872078.7315233,
+    "ast_hash": "7d8715a99c76b663b6774ea7571fbed1",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/vektor3-komponen.jpg": {
+    "mtime": 1788872078.7387836,
+    "ast_hash": "0dabf78bf1cb6dcd904ed107d0c855b0",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/vektor4-panjang.jpg": {
+    "mtime": 1788872078.748321,
+    "ast_hash": "c4587a96afa76204b44d2228ba2fe8ad",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/vektor6-sambung.jpg": {
+    "mtime": 1788872078.757045,
+    "ast_hash": "450677759257a5751be793868dfaa108",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/vektor8-selisih.jpg": {
+    "mtime": 1788872078.76814,
+    "ast_hash": "73a57fd9c27f10d53ab0f4a4e6a2acbb",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/vektor9-kali-skalar.jpg": {
+    "mtime": 1788872078.778468,
+    "ast_hash": "0b3595d03480b24e49c7fc8aa8876de0",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/beranda-tiga-grafik-v2.mp4": {
+    "mtime": 1788871869.1314363,
+    "ast_hash": "681be88b22bba4a37c352acdc6ec7795",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/grafik3-puncak.mp4": {
+    "mtime": 1788871867.830332,
+    "ast_hash": "86aa3175b83a58a5cc6c449c2e8e3d97",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/grafik6-transformasi.mp4": {
+    "mtime": 1788871868.1562922,
+    "ast_hash": "5ccbfde61f265e82bd522e0e0d355274",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/tahap8-grafik-sin.webm": {
+    "mtime": 1788871868.487002,
+    "ast_hash": "e360b6bdabcc0eeb128d002ec7fd22ae",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/tahap9-tiga-grafik.webm": {
+    "mtime": 1788871868.8248267,
+    "ast_hash": "c442a4a4765878e11a4efbc9d60b9d08",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral01-laju-ke-jumlah-bersubtitle.mp4": {
+    "mtime": 1788818465.3963768,
+    "ast_hash": "8216c3eadb15d8b1af0aa4b6c2790c7f",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral01-laju-ke-jumlah.mp4": {
+    "mtime": 1788818452.8408759,
+    "ast_hash": "5c841d350cadfb6bda678e4c9189b4d5",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral03-substitusi-bersubtitle.mp4": {
+    "mtime": 1788821617.449659,
+    "ast_hash": "6e56a34c0d63fd32cdb3b6a7ba811449",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral03-substitusi.mp4": {
+    "mtime": 1788821604.8136845,
+    "ast_hash": "fa96a7febb8cf1002e3bd4973f5edaee",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral05-riemann-bersubtitle.mp4": {
+    "mtime": 1788812198.594975,
+    "ast_hash": "709e75b1f7517bc5370c2889ff40d201",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral05-riemann.mp4": {
+    "mtime": 1788812193.1976545,
+    "ast_hash": "315db41dfedcb2e0e9e39a701a1849f2",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral07-teorema-dasar-bersubtitle.mp4": {
+    "mtime": 1788817791.628921,
+    "ast_hash": "6528e63395384dd5f2b59d553e51f1d0",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral07-teorema-dasar.mp4": {
+    "mtime": 1788817785.8467736,
+    "ast_hash": "84a4aa297983da3cdf2ab1a85a0d32fa",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral09-luas-daerah-bersubtitle.mp4": {
+    "mtime": 1788820044.8049922,
+    "ast_hash": "ad7d0d57b13a24160747f848baea0c69",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/integral/integral09-luas-daerah.mp4": {
+    "mtime": 1788820037.7212708,
+    "ast_hash": "ae46ed2ffd2535ebc0e0938a60d7ddae",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika1-menipu.mp4": {
+    "mtime": 1788871554.1449637,
+    "ast_hash": "09ad9e49007b2f2eec81f1ce1bfaa69e",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika10-pencar.mp4": {
+    "mtime": 1788871554.1767826,
+    "ast_hash": "bb001a559cc353a9f6b254f95ebcb5d1",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika11-regresi.mp4": {
+    "mtime": 1788871554.2067842,
+    "ast_hash": "08d99b473fb4b212fff0b49a946b3501",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika12-korelasi.mp4": {
+    "mtime": 1788871554.2345333,
+    "ast_hash": "9a7081dfdb1bc85e8dc2c0f7467ac772",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika13-menyesatkan.mp4": {
+    "mtime": 1788871554.265563,
+    "ast_hash": "5c632bf0c4870e1f8d87ef2973297981",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika2-bentuk.mp4": {
+    "mtime": 1788871554.301128,
+    "ast_hash": "cd6c60543335bb2162b96663c177f7d3",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika3-lebar-kelas.mp4": {
+    "mtime": 1788871554.3276415,
+    "ast_hash": "985939c1c3111512512b5fa77b506f06",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika4-relatif.mp4": {
+    "mtime": 1788871554.3592787,
+    "ast_hash": "be09d01cfe608bac957ecc6160b89cae",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika5-pemusatan.mp4": {
+    "mtime": 1788871554.392355,
+    "ast_hash": "5aac87ad876ee3b545d4730de4ad2817",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika6-pencilan.mp4": {
+    "mtime": 1788871554.4230423,
+    "ast_hash": "27b8a972d8e5d0278ccca80603307b42",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika7-boxplot.mp4": {
+    "mtime": 1788871554.455318,
+    "ast_hash": "5da2a1249510e021cc7dca3fb3fff399",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika8-simpangan.mp4": {
+    "mtime": 1788871554.4915304,
+    "ast_hash": "eb695f1c8b8ab395bea0672290cdb1b6",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/statistika/statistika9-kelompok.mp4": {
+    "mtime": 1788871554.5229704,
+    "ast_hash": "0790b400fd90f1badcc69a134f62f17f",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/transformasi1-setiap-titik-bersubtitle.mp4": {
+    "mtime": 1788878054.5892818,
+    "ast_hash": "268c7c6891d061a1d286ba9ebec58895",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/transformasi1-setiap-titik.mp4": {
+    "mtime": 1788878054.5684,
+    "ast_hash": "5eb942352097bfcce4bda3c69a582723",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/transformasi2-cermin-garis-bersubtitle.mp4": {
+    "mtime": 1788878054.620185,
+    "ast_hash": "3c5637d9ba9a138fd9c607d9e439a56b",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/transformasi2-cermin-garis.mp4": {
+    "mtime": 1788878054.6048262,
+    "ast_hash": "4d4ffd9b882c002a490e4b90408ac5ce",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/transformasi3-rotasi-bersubtitle.mp4": {
+    "mtime": 1788878054.666212,
+    "ast_hash": "0e2848b620335a0f4ef47be50cdfb44f",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/transformasi3-rotasi.mp4": {
+    "mtime": 1788878054.6459196,
+    "ast_hash": "5234e2e8b3d115e1f9a3603c38356188",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/transformasi4-dilatasi-bersubtitle.mp4": {
+    "mtime": 1788878054.7958362,
+    "ast_hash": "f4930d8a319fd8c0c80d1ddd2ed5a8d1",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/transformasi4-dilatasi.mp4": {
+    "mtime": 1788878054.767905,
+    "ast_hash": "f1221249de2057fcc3c9c53a7cfa952f",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/transformasi5-matriks-bersubtitle.mp4": {
+    "mtime": 1788878054.8488185,
+    "ast_hash": "457bdcbff31016659a81ea07ec6124cf",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/transformasi5-matriks.mp4": {
+    "mtime": 1788878054.8224015,
+    "ast_hash": "602d1647d8a405b74775f4d975e1ea54",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/transformasi6-urutan-bersubtitle.mp4": {
+    "mtime": 1788878054.8984613,
+    "ast_hash": "0beef071588ea9c753704704b0bfecf3",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/transformasi6-urutan.mp4": {
+    "mtime": 1788878054.8738368,
+    "ast_hash": "946db2080439ec709e1f0ac32e4e98c0",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/vektor1-perahu.mp4": {
+    "mtime": 1788872078.6381857,
+    "ast_hash": "4405a6c53a2a68a532d9a82bc734db79",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/vektor3-komponen.mp4": {
+    "mtime": 1788872078.6527476,
+    "ast_hash": "359ca503a285c73994e172e6fecdcbee",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/vektor4-panjang.mp4": {
+    "mtime": 1788872078.6692505,
+    "ast_hash": "3cf5ed33d324927b096164562a22cf79",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/vektor6-sambung.mp4": {
+    "mtime": 1788872078.6859186,
+    "ast_hash": "1e4dca470b15cee38e312a3d20e38737",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/vektor8-selisih.mp4": {
+    "mtime": 1788872078.7049043,
+    "ast_hash": "3c59abc306e58a12c778fd9a13c76f74",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/vektor/vektor9-kali-skalar.mp4": {
+    "mtime": 1788872078.7223637,
+    "ast_hash": "ab45d7c8d8ce4fa43f5b4ed500ac5ba5",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/kata.json": {
+    "mtime": 1788890399.0430822,
+    "ast_hash": "1c628d2198bba17ec41dee8afdfe8687",
+    "semantic_hash": ""
+  },
+  "manim/uji/uji_pemicu_urut.py": {
+    "mtime": 1788890614.5661566,
+    "ast_hash": "b749318e02746c8a295b078c5bb461c0",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/ruang-3d-01.jpg": {
+    "mtime": 1788772812.2912824,
+    "ast_hash": "52faa663e474cf93065ba871a8630651",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/ruang-3d-03.jpg": {
+    "mtime": 1788780545.3732243,
+    "ast_hash": "86c1a2351696dcad4c95ee527b71a7ed",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/ruang-3d-04.jpg": {
+    "mtime": 1788778115.0618334,
+    "ast_hash": "f2f9338421cb369e5fbb150f338fd45c",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/ruang-3d-06.jpg": {
+    "mtime": 1788779715.2327943,
+    "ast_hash": "0cadef160c057c9370a78b75d6b209e6",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/ruang-3d-08.jpg": {
+    "mtime": 1788778117.1128304,
+    "ast_hash": "d8b9667612667689b41e0c81c1a24395",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/ruang-3d-09.jpg": {
+    "mtime": 1788778119.5341935,
+    "ast_hash": "33e5347ea66a64d2da5d94cec8b7a443",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/ruang-3d-01.mp4": {
+    "mtime": 1788772670.1211722,
+    "ast_hash": "463991ebe2808ab056bd655726e34a5e",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/ruang-3d-03.mp4": {
+    "mtime": 1788780480.8824475,
+    "ast_hash": "2b8433e741400eebc4398a92e3003698",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/ruang-3d-04.mp4": {
+    "mtime": 1788778069.6843376,
+    "ast_hash": "105c3e9f4e4d9ec3455714bc47c8e5e5",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/ruang-3d-06.mp4": {
+    "mtime": 1788779689.5519202,
+    "ast_hash": "d7b764a0c972e1d06a54e0d27263da9e",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/ruang-3d-08.mp4": {
+    "mtime": 1788778077.8476067,
+    "ast_hash": "312204c3fca8bfe783e25290cd7bff17",
+    "semantic_hash": ""
+  },
+  "UNTUK ARYA/BACKUP VIDEO MANTRA V2/ruang-3d-09.mp4": {
+    "mtime": 1788778086.2046134,
+    "ast_hash": "2ef96149ec5c4ec148db9584eb0590b4",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/02-ingat_tiga.mp3": {
+    "mtime": 1788890399.0026696,
+    "ast_hash": "bbfc510472929c45683ffd35199d3147",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/03-ingat_cara.mp3": {
+    "mtime": 1788890399.004796,
+    "ast_hash": "16018d393698326207b9afe6c415a4a1",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/04-ingat_hasil.mp3": {
+    "mtime": 1788890399.0058315,
+    "ast_hash": "e8de616af28e2d732bdb6b8b63b497f8",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/05-masalah.mp3": {
+    "mtime": 1788890399.0068297,
+    "ast_hash": "5458ddba0f9e65d9627635817a6fa3aa",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/06-coba.mp3": {
+    "mtime": 1788890399.0088084,
+    "ast_hash": "7ba6afcf70babfc2690f30072a25def8",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/07-angka_awal.mp3": {
+    "mtime": 1788890399.0088084,
+    "ast_hash": "59b4624594f859dca7385cde8249f895",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/08-angka_h1.mp3": {
+    "mtime": 1788890399.0108309,
+    "ast_hash": "fa484e26549d4030f14e6881cbb84388",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/09-angka_bagi1.mp3": {
+    "mtime": 1788890399.011793,
+    "ast_hash": "aae296f154d38d427003626bcaafa2f3",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/10-angka_h2.mp3": {
+    "mtime": 1788890399.0128195,
+    "ast_hash": "1a0daedad6703d8a0edc4455223f5772",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/11-angka_dekat.mp3": {
+    "mtime": 1788890399.0137908,
+    "ast_hash": "53d172caa8004b9b603610479300ae07",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/12-belum_bukti.mp3": {
+    "mtime": 1788890399.0158348,
+    "ast_hash": "72f89132266fbcab94bf4623368c91e6",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/13-huruf_awal.mp3": {
+    "mtime": 1788890399.0168824,
+    "ast_hash": "987d12fed022691ea06b0e4651001ed5",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/14-huruf_tetangga.mp3": {
+    "mtime": 1788890399.0178907,
+    "ast_hash": "5ae7bf6c4b7ba789e8b393d3c64be9d1",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/15-jabar.mp3": {
+    "mtime": 1788890399.0193493,
+    "ast_hash": "4a0d4ef1c355f34c173ed1e1f517c3c4",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/16-kurangi.mp3": {
+    "mtime": 1788890399.020412,
+    "ast_hash": "94608f7e698f84ffd60716efaf62fc43",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/17-sisa.mp3": {
+    "mtime": 1788890399.0214047,
+    "ast_hash": "c7b1a1c909a08aa913bf89d5b3638e47",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/18-bagi_h.mp3": {
+    "mtime": 1788890399.0234003,
+    "ast_hash": "6421f338ca3d673403c744254a88802f",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/19-dua_golongan.mp3": {
+    "mtime": 1788890399.0244067,
+    "ast_hash": "e72e93c6cc2a594c74e5a1bcb471dd81",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/20-lenyap.mp3": {
+    "mtime": 1788890399.0253656,
+    "ast_hash": "fa43db52d636cd15f66f8d697c49cd9f",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/21-hasil_tiga.mp3": {
+    "mtime": 1788890399.0274103,
+    "ast_hash": "09169d5cf2e96214a7035be329a4cbb7",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/22-empat.mp3": {
+    "mtime": 1788890399.0284035,
+    "ast_hash": "c803966aaed107bfd77c65dd4297c2d1",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/23-jajar_a.mp3": {
+    "mtime": 1788890399.0299191,
+    "ast_hash": "c5aa5d548c981f925b495cd032ab6205",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/24-jajar_b.mp3": {
+    "mtime": 1788890399.031132,
+    "ast_hash": "4f603d6c22620cf539306e8339a264a2",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/25-pola_turun.mp3": {
+    "mtime": 1788890399.0316725,
+    "ast_hash": "f40e23c4ffba8cd6284c9867d258d4c3",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/26-pola_kurang.mp3": {
+    "mtime": 1788890399.032727,
+    "ast_hash": "a1a49ee65ffdf659325fa817e772e2a0",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/27-umum.mp3": {
+    "mtime": 1788890399.033681,
+    "ast_hash": "5f969821e51010916d4302ab3e6aa0ca",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/28-pengali.mp3": {
+    "mtime": 1788890399.0357077,
+    "ast_hash": "165484d2341d4bd65f5c8027748d2ac8",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/29-contoh_lima.mp3": {
+    "mtime": 1788890399.0370748,
+    "ast_hash": "334e34e19eb9663ceec7aefe33a2842c",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/30-konstan.mp3": {
+    "mtime": 1788890399.0380821,
+    "ast_hash": "2ce0a2acc3a7805bfa44a5cf84eb40d6",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/31-konstan_nol.mp3": {
+    "mtime": 1788890399.0391178,
+    "ast_hash": "7a1e345ce9c6c14f23be692310be2f5a",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/32-tutup.mp3": {
+    "mtime": 1788890399.0400808,
+    "ast_hash": "a49fc629736c6e23f08936e8de3e402a",
+    "semantic_hash": ""
+  },
+  "audio/turunan4-aturan-pangkat/33-lanjut.mp3": {
+    "mtime": 1788890399.0421402,
+    "ast_hash": "b1d9bfbe48174a6f0d83fa242026c868",
     "semantic_hash": ""
   }
 }
