@@ -139,6 +139,15 @@ def ambil_teks_narasi() -> list[tuple[str, int, list[str]]]:
 # Syaratnya ketat: kata penunjuk masa depannya harus ada di kalimat yang SAMA.
 # Tanpa syarat itu, satu kata "nanti" di sebuah paragraf akan memutihkan semua
 # istilah di sekitarnya.
+# Nama topik MANTRA lain, dipakai untuk mengenali rujukan lintas topik seperti
+# "Di Vektor, Materi 03, ...". Daftar ini sengaja ditulis tangan dan pendek:
+# yang dibutuhkan cuma nama topik yang mungkin jadi prasyarat topik ini.
+TOPIK_LAIN = re.compile(
+    r"\b(?:Trigonometri|Limit|Grafik Fungsi|Vektor|Ruang 3D|Ruang Tiga Dimensi|"
+    r"Statistika|Turunan|Integral)\b[^.]{0,30}?Materi \d{2}",
+    re.I,
+)
+
 JANJI = re.compile(
     r"nanti|akan kita|akan dibahas|dibahas|kita buktikan|kita periksa|"
     r"belum kita|baru akan|kita kenal|kita pakai lagi|kita bahas|kita singgung|"
@@ -166,7 +175,23 @@ def periksa(nomor: int, kalimat: list[str]) -> list[tuple[str, str]]:
             if re.search(pola, rendah):
                 temuan.append((f"{nama} (diajarkan Materi {materi_ajar:02d})", baris))
 
-        for rujuk in re.findall(r"Materi (\d{2})", baris):
+        # RUJUKAN BERTOPIK TIDAK DIHITUNG, dan itu keharusan Standar Video v3.
+        #
+        # v3 mewajibkan video Materi 01 tiap topik MENGINGAT topik prasyaratnya
+        # dengan menyebut nomor DAN nama konsepnya ("Di Vektor, Materi 03,
+        # Memecah panah jadi dua langkah"). Nomor itu milik topik LAIN, dan
+        # membacanya sebagai rujukan ke Materi 03 topik ini keliru: ia bukan
+        # rujukan ke depan sama sekali.
+        #
+        # Tanpa pengecualian ini, tiap video Materi 01 dari kedelapan sesi
+        # gelombang 4 akan ditandai DINI oleh kalimat yang justru DIWAJIBKAN
+        # standarnya. Alat yang menghukum kepatuhan lebih buruk daripada tidak
+        # ada alat.
+        #
+        # Yang dikecualikan sempit: nomor yang didahului nama topik lain di
+        # kalimat yang sama. "Materi 09" telanjang tetap ditangkap.
+        bersih = TOPIK_LAIN.sub(" ", baris)
+        for rujuk in re.findall(r"Materi (\d{2})", bersih):
             if int(rujuk) > nomor:
                 temuan.append((f"rujukan ke Materi {rujuk}", baris))
     return temuan

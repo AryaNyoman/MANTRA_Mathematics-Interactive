@@ -1,16 +1,24 @@
 """Video 02 Transformasi Geometri, Materi 02 "Cermin pada garis tegak dan mendatar".
 
-TANPA 3D, DAN ITU DISENGAJA
-Seluruh isi video ini adalah klaim tentang JARAK: titik dan bayangannya sama
-jauh dari cermin. Kamera miring memendekkan satu arah lebih banyak daripada
-arah lain, jadi gambar miring akan membantah angka yang sedang diucapkan.
-Aturan proyek: matematika yang butuh panjang akurat wajib kamera tegak lurus.
+STANDAR VIDEO v3 (8 September 2026). Ditulis ulang dari versi 2 yang 125 detik
+dan 18 babak jadi 263 detik dan 31 babak.
 
-Letak kamera diambil dari `transformasi_umum.letak_peta`, bukan dihitung ulang
-di sini. Alasannya ada di kepala berkas itu.
+APA YANG BERUBAH DARI VERSI 2, DAN KENAPA
+1. RUMUS 2k - x SEKARANG DIBUKTIKAN. Versi 2 menyebut rumusnya lebih dulu lalu
+   mengujinya pada dua titik. Sekarang empat babak `umum_*` menurunkannya dari
+   jarak: jaraknya k - x, bayangannya sejauh itu lagi dari cermin, jadi
+   letaknya k + (k - x), yang dirapikan menjadi 2k - x. Angka baru dipakai lagi
+   sesudah rumusnya lahir.
+2. ADA SEGAR-INGAT KE VIDEO 01. Bukan pemutaran ulang: yang diambil satu
+   gagasan kunci, "jarak tiap titik ke garis lipatan tidak berubah", sebab
+   gagasan itulah yang membuat rumus video ini bisa diturunkan.
+3. SATU KOTAK KAMERA UNTUK SELURUH BAGIAN MATEMATIKANYA. Versi 2 memakai dua
+   kotak: cermin di sumbu Y dulu, baru digeser ke x = 5. Cerminnya sekarang
+   langsung di x = 5 sejak babak kaca, jadi kacanya dan garis cerminnya benda
+   yang sama, dan tidak ada satu pun perpindahan kamera di tengah hitungan.
+4. ANIMASI DIPICU PER KATA lewat `sinema.JamKata` dan `b.tunggu_kata`.
 
-Alur berkas: buat_narasi -> buat_subtitle -> cek_kode -> manimgl -w -l ->
-cek_video (BUKA lembar kontak) -> gabung_audio --uji.
+TIDAK ADA 3D di video ini: pembuka 3D hanya untuk video PERTAMA tiap topik.
 """
 
 import json
@@ -29,13 +37,54 @@ from transformasi_umum import (  # noqa: E402
 AKAR = Path(__file__).resolve().parents[2]
 TOPIK = "transformasi2-cermin-garis"
 DURASI = json.loads((AKAR / "audio" / TOPIK / "durasi.json").read_text(encoding="utf-8"))["segmen"]
+KATA = sinema.JamKata(TOPIK)
 
-K_AWAL = 0.0    # cermin berimpit sumbu Y
-K_GESER = 5.0   # angka yang sama dengan contoh berhitung di halaman Materi 03
+TEBAL_BENTUK = 5.0
+TEBAL_BANTU = 3.0
+JARI_TITIK = 0.13
+
+# Satu kotak untuk seluruh video. Muat: bentuk L (x 1..6), petanya di seberang
+# cermin (x 4..9), sosok orang beserta bayangannya (x 3 dan 7), dan bentuk
+# kecil untuk cermin mendatar di akhir.
+KOTAK = (0.0, 10.0, 0.0, 4.0)
+K = 5.0          # letak cermin tegak; angka yang sama dengan halaman Materi 02
+H_DATAR = 2.0    # letak cermin mendatar di babak penutup
+
+# Bentuk kecil untuk cermin mendatar. Setengah ukuran, dan itu keharusan
+# aritmetika: kotak ini setinggi 4 satuan sedangkan huruf L aslinya setinggi 2,
+# jadi ia tidak mungkin muat seluruhnya di satu sisi cermin yang juga butuh
+# ruang untuk bayangannya.
+KECIL = [(3.0, 0.5), (5.5, 0.5), (5.5, 1.0), (3.5, 1.0), (3.5, 1.5), (3.0, 1.5)]
 
 
 def cermin_tegak(p, k):
     return (2 * k - p[0], p[1])
+
+
+def cermin_datar(p, h):
+    return (p[0], 2 * h - p[1])
+
+
+def geser_saja(p):
+    """Kekeliruan yang diperagakan: bentuknya DIPINDAH ke seberang, tanpa dibalik.
+
+    Digeser +3 supaya mendarat di kotak yang PERSIS sama dengan peta yang benar
+    (keduanya x = 4 sampai 9), sehingga bedanya murni pada bentuknya, bukan
+    pada letaknya.
+    """
+    return (p[0] + 3.0, p[1])
+
+
+def sosok(pusat_x, pusat_y):
+    """Sosok orang yang TIDAK simetris, supaya bayangannya terlihat menghadap
+    arah sebaliknya. Sebuah titik tidak bisa menunjukkan itu, sebab titik tidak
+    punya arah."""
+    return [
+        (pusat_x - 0.56, pusat_y - 1.12),
+        (pusat_x + 0.56, pusat_y - 1.12),
+        (pusat_x + 0.56, pusat_y + 0.32),
+        (pusat_x, pusat_y + 1.12),
+    ]
 
 
 class TransformasiCerminGaris(AdeganMatra):
@@ -43,487 +92,511 @@ class TransformasiCerminGaris(AdeganMatra):
         frame = self.frame
         papan = sinema.PapanRumus(self)
 
-        peta_awal = [cermin_tegak(p, K_AWAL) for p in L]
-        peta_geser = [cermin_tegak(p, K_GESER) for p in L]
+        peta_benar = [cermin_tegak(p, K) for p in L]
+        A, B = L[0], L[1]
+        A_peta, B_peta = peta_benar[0], peta_benar[1]
 
-        # --- buka -------------------------------------------------------- #
-        with sinema.babak(self, "buka", DURASI) as b:
-            lama = max(3.0, DURASI["buka"] - 0.6)
-            sinema.judul_pembuka(self, "Materi 02: Cermin pada garis lurus", lama=lama)
-            b.catat(lama)
+        ident = None
 
-        # Babak "kaca" dan "jarak" memakai bidang yang sama dengan babak
-        # berikutnya, jadi bidangnya dipasang sekali di awal dan tidak pernah
-        # dibongkar. Layar yang tidak berubah selama narasi masih membahas hal
-        # yang sama itu diizinkan; yang dilarang layar KOSONG.
-        pusat_a, tinggi_a = letak_peta(-7.0, 7.0, 0.0, 4.0)
-        bidang = bidang_untuk(-7.0, 7.0, 0.0, 4.0)
-        kamera.pasang_awal(frame, theta=0, phi=0, pusat=pusat_a, tinggi=tinggi_a)
+        def hud_kini():
+            isi = {}
+            if ident is not None:
+                isi["identitas"] = ident
+            papan_isi = papan.semua()
+            if papan_isi is not None:
+                isi["papan"] = papan_isi
+            return isi
 
-        prapeta = poligon(L, TINTA, tebal=3.2, isian=0.08)
+        # ================================================================ #
+        # PEMBUKA                                                           #
+        # ================================================================ #
+        tanya_buka = rumus(r"\text{Cerminnya digeser: rumusnya jadi apa?}", 40, TINTA)
+        sinema.batasi_lebar(tanya_buka, 10.0)
+        tanya_buka.move_to(ORIGIN)
+
+        with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Kalau garisnya")
+            b.main(FadeIn(tanya_buka, shift=0.3 * UP), run_time=1.2)
+
+        # ================================================================ #
+        # SEGAR-INGAT VIDEO 01                                              #
+        # ================================================================ #
+        rum_lama = rumus(r"(x,\ y) \to (x,\ -y)", 44, AKSEN2)
+        rum_lama.move_to(np.array([0.0, 1.4, 0.0]))
+        # Gambar ringkas video 01: satu titik, sumbu mendatar, bayangannya.
+        sumbu_ingat = DashedLine(
+            np.array([-3.4, -0.9, 0.0]), np.array([3.4, -0.9, 0.0]),
+        ).set_stroke(SOROT, 3.0)
+        t_atas = Dot(np.array([-1.4, 0.1, 0.0]), radius=JARI_TITIK).set_color(AKSEN)
+        t_bawah = Dot(np.array([-1.4, -1.9, 0.0]), radius=JARI_TITIK).set_color(AKSEN2)
+        ruas_ingat_a = Line(np.array([-1.4, -0.9, 0.0]),
+                            np.array([-1.4, 0.1, 0.0])).set_stroke(AKSEN, TEBAL_BANTU)
+        ruas_ingat_b = Line(np.array([-1.4, -0.9, 0.0]),
+                            np.array([-1.4, -1.9, 0.0])).set_stroke(AKSEN, TEBAL_BANTU)
+
+        with sinema.babak(self, "ingat_satu", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Setiap titik")
+            b.main(FadeOut(tanya_buka), FadeIn(rum_lama, shift=0.25 * UP), run_time=1.2)
+            b.tunggu_kata("aturan")
+            b.main(Indicate(rum_lama, color=SOROT), run_time=1.4)
+
+        with sinema.babak(self, "ingat_jarak", DURASI, kata=KATA) as b:
+            b.tunggu_kata("jarak setiap titik")
+            b.main(ShowCreation(sumbu_ingat), FadeIn(t_atas), run_time=1.2)
+            b.main(ShowCreation(ruas_ingat_a), run_time=0.9)
+            b.tunggu_kata("sisi yang lain")
+            b.main(ShowCreation(ruas_ingat_b), FadeIn(t_bawah), run_time=1.4)
+        qc.periksa_adegan(self, {"rumus lama": rum_lama, "titik atas": t_atas,
+                                 "titik bawah": t_bawah})
+
+        with sinema.babak(self, "bawa", DURASI, kata=KATA) as b:
+            b.tunggu_kata("boleh ada di mana saja")
+            b.main(sumbu_ingat.animate.shift(0.9 * UP), run_time=1.4)
+            b.main(Indicate(sumbu_ingat, color=AKSEN), run_time=1.2)
+
+        # ================================================================ #
+        # KACA: dua meter di depan, dua meter di belakang                   #
+        # ================================================================ #
+        pusat_peta, tinggi_peta = letak_peta(*KOTAK)
+        bidang = bidang_untuk(*KOTAK)
+        kamera.pasang_awal(frame, theta=0, phi=0, pusat=pusat_peta, tinggi=tinggi_peta)
+
+        ORANG = (3.0, 2.0)
+        BAYANG = cermin_tegak(ORANG, K)
+        kaca = DashedLine(
+            titik3((K, -0.2)), titik3((K, 4.2)),
+        ).set_stroke(SOROT, 4.0)
+        dot_orang = poligon(sosok(*ORANG), TINTA, tebal=4.0, isian=0.16)
+        l_orang = tempel_label(sinema.label("kamu", warna=TINTA), dot_orang, UP)
+        dot_bayang = poligon([cermin_tegak(t, K) for t in sosok(*ORANG)],
+                             AKSEN2, tebal=4.0, isian=0.20)
+        l_bayang = tempel_label(sinema.label("bayangan", warna=AKSEN2), dot_bayang, UP)
+        ruas_orang = Line(titik3(ORANG), titik3((K, ORANG[1]))).set_stroke(AKSEN, TEBAL_BANTU)
+        angka_orang = sinema.label("2", warna=AKSEN)
+        angka_orang.next_to(ruas_orang.get_center(), DOWN, buff=0.18)
+        ruas_bayang = Line(titik3((K, ORANG[1])), titik3(BAYANG)).set_stroke(AKSEN, TEBAL_BANTU)
+        angka_bayang = sinema.label("2", warna=AKSEN)
+        angka_bayang.next_to(ruas_bayang.get_center(), DOWN, buff=0.18)
+
+        with sinema.babak(self, "kaca", DURASI, kata=KATA) as b:
+            b.main(
+                FadeOut(rum_lama), FadeOut(sumbu_ingat), FadeOut(t_atas),
+                FadeOut(t_bawah), FadeOut(ruas_ingat_a), FadeOut(ruas_ingat_b),
+                run_time=0.6,
+            )
+            b.tunggu_kata("kaca")
+            b.main(FadeIn(bidang), ShowCreation(kaca), run_time=1.2)
+            ident = sinema.identitas(self, "1 petak = 1 satuan")
+            b.tunggu_kata("Bayanganmu")
+            b.main(ShowCreation(dot_orang), FadeIn(l_orang), run_time=1.2)
+        qc.periksa_adegan(self, {"orang": dot_orang}, hud=hud_kini(),
+                          tulisan={"label orang": l_orang},
+                          dunia={"bidang": bidang, "kaca": kaca})
+
+        with sinema.babak(self, "jarak_kaca", DURASI, kata=KATA) as b:
+            b.tunggu_kata("di belakang kaca")
+            b.main(ShowCreation(dot_bayang), FadeIn(l_bayang), run_time=1.4)
+            b.tunggu_kata("empat meter")
+            b.main(ShowCreation(ruas_orang), FadeIn(angka_orang),
+                   ShowCreation(ruas_bayang), FadeIn(angka_bayang), run_time=1.4)
+        qc.periksa_adegan(
+            self, {"orang": dot_orang, "bayangan": dot_bayang},
+            hud=hud_kini(),
+            tulisan={"label orang": l_orang, "label bayangan": l_bayang,
+                     "angka orang": angka_orang, "angka bayangan": angka_bayang},
+            dunia={"bidang": bidang, "kaca": kaca},
+        )
+
+        with sinema.babak(self, "dua_hal", DURASI, kata=KATA) as b:
+            b.tunggu_kata("di sisi mana")
+            b.main(Indicate(dot_bayang, color=SOROT), run_time=1.3)
+            b.tunggu_kata("sejauh berapa")
+            b.main(Indicate(angka_orang, color=SOROT),
+                   Indicate(angka_bayang, color=SOROT), run_time=1.3)
+        qc.periksa_adegan(self, {"orang": dot_orang, "bayangan": dot_bayang},
+                          hud=hud_kini(), dunia={"bidang": bidang, "kaca": kaca})
+
+        # ================================================================ #
+        # PETA: bentuk huruf L, cermin di x = 5                             #
+        # ================================================================ #
+        prapeta = poligon(L, TINTA, tebal=TEBAL_BENTUK, isian=0.14)
         nama_pra = {}
         for i, huruf in NAMA_SUDUT.items():
             t = sinema.label(huruf, warna=TINTA)
-            t.next_to(titik3(L[i]), DOWN if i < 2 else UP, buff=0.22)
+            t.next_to(titik3(L[i]), DOWN if i < 2 else UP, buff=0.24)
             nama_pra[huruf] = t
+        l_k = sinema.label("x = 5", warna=SOROT)
+        l_k.next_to(titik3((K, 4.0)), UP, buff=0.18)
 
-        garis_cermin = DashedLine(
-            np.array([K_AWAL, -0.2, 0.03]), np.array([K_AWAL, 4.2, 0.03]),
-        ).set_stroke(SOROT, 3.0)
-
-        # DUA BABAK PERTAMA MENJAWAB PERTANYAAN NARASINYA, BUKAN MENUNGGUNYA.
-        #
-        # Versi pertama cuma menampilkan bidang dan garis cermin, lalu diam
-        # 14,1 detik sementara narator bertanya "bayanganmu ada di mana" dan
-        # menjawabnya sendiri. Terukur oleh `alat/ukur_detik_pertama.py`, dan
-        # bukan cuma angka yang buruk: pertanyaan tentang JARAK dijawab layar
-        # yang tidak memuat satu jarak pun.
-        #
-        # Sekarang orangnya sungguh ada di layar sebagai sebuah titik berjarak
-        # 2 dari kaca, dan bayangannya muncul tepat saat narator menyebutnya.
-        orang = (-2.0, 2.0)
-        bayangan = cermin_tegak(orang, K_AWAL)
-
-        # ORANGNYA SEBUAH BENTUK, BUKAN SEBUAH TITIK.
-        #
-        # Dua sebab, dan keduanya nyata. Pertama, titik berjari-jari 0,09 hanya
-        # sekitar 100 piksel, jauh di bawah ambang 300 alat ukur, sehingga
-        # seluruh babak ini dinilai DIAM walaupun ada yang muncul di layar.
-        # Kedua, bentuk yang TIDAK SIMETRIS memperlihatkan hal yang justru
-        # sedang diajarkan: bayangannya menghadap arah sebaliknya. Sebuah titik
-        # tidak bisa menunjukkan itu, sebab titik tidak punya arah.
-        #
-        # UKURANNYA DINAIKKAN 1,6 KALI dari percobaan 5 Sep. Bidang babak ini
-        # selebar 14 satuan, sebab babak "bentuk" nanti memakai bidang yang
-        # sama untuk bentuk L beserta petanya di seberang cermin. Pada lebar
-        # itu sosok setinggi 1,4 satuan cuma sekitar sepersebelas tinggi layar,
-        # dan di lembar kontak ia terbaca sebagai noda, bukan orang.
-        def sosok(pusat_x, pusat_y):
-            return [
-                (pusat_x - 0.56, pusat_y - 1.12),
-                (pusat_x + 0.56, pusat_y - 1.12),
-                (pusat_x + 0.56, pusat_y + 0.32),
-                (pusat_x, pusat_y + 1.12),
-            ]
-
-        dot_orang = poligon(sosok(*orang), TINTA, tebal=4.0, isian=0.16)
-        # Ditempel ke BENDANYA, bukan ke titik pusatnya. Lihat `tempel_label`.
-        l_orang = tempel_label(sinema.label("kamu", warna=TINTA), dot_orang, UP)
-        ruas_orang = Line(titik3(orang), np.array([K_AWAL, orang[1], 0.03])).set_stroke(AKSEN, 3.0)
-        angka_orang = sinema.label("2", warna=AKSEN)
-        angka_orang.next_to(ruas_orang.get_center(), DOWN, buff=0.16)
-
-        # Bayangannya dicerminkan SEBAGAI BENTUK, jadi sosoknya menghadap ke
-        # arah yang berlawanan. Itu bukan hiasan: menghadapnya ke arah lain
-        # adalah bukti pertama yang dilihat siswa bahwa pencerminan membalik,
-        # dan bukti itu muncul sebelum satu rumus pun ditulis.
-        dot_bayang = poligon(
-            [cermin_tegak(t, K_AWAL) for t in sosok(*orang)],
-            AKSEN2, tebal=4.0, isian=0.20,
-        )
-        l_bayang = tempel_label(sinema.label("bayangan", warna=AKSEN2), dot_bayang, UP)
-        ruas_bayang = Line(np.array([K_AWAL, orang[1], 0.03]), titik3(bayangan)).set_stroke(AKSEN, 3.0)
-        angka_bayang = sinema.label("2", warna=AKSEN)
-        angka_bayang.next_to(ruas_bayang.get_center(), DOWN, buff=0.16)
-
-        # DI DUA BABAK INI BELUM ADA POLIGON, jadi yang dipakai sebagai kejadian
-        # besar adalah GARIS CERMINNYA.
-        #
-        # Titik berjari-jari 0,09 dan ruas setebal 3,0 keduanya di bawah ambang
-        # 300 piksel alat ukur, dan pada percobaan sebelumnya kedua babak ini
-        # dinilai diam 10,8 detik berturut-turut. Garis cermin membentang
-        # selebar bidang, jadi menyorotnya mengubah ribuan piksel sekaligus.
-        # Ia juga benda yang memang sedang dibicarakan narator, bukan kilatan
-        # yang dicari-cari supaya angkanya turun.
-        # Jumlah run_time babak ini 5,2 detik, sedangkan narasinya 5,59.
-        #
-        # Versi sebelumnya 5,8 detik dan `Babak.tutup()` MENGGAGALKAN render:
-        # gambarnya akan mendahului suara. Itu efek samping menambahkan sorotan
-        # tanpa mengurangi yang lain, dan gerbangnya benar menolak. Babak ini
-        # yang paling pendek di video, jadi ia paling cepat kepenuhan.
-        with sinema.babak(self, "kaca", DURASI) as b:
-            b.main(FadeIn(bidang), run_time=0.8)
-            b.main(ShowCreation(garis_cermin), run_time=1.0)
-            ident = sinema.identitas(self, "1 petak = 1 satuan")
-            b.main(ShowCreation(dot_orang), FadeIn(l_orang), run_time=1.2)
-            b.main(Indicate(garis_cermin, color=AKSEN2), run_time=1.2)
-            b.main(ShowCreation(ruas_orang), FadeIn(angka_orang), run_time=1.0)
-        qc.periksa_adegan(self, {"titik orang": dot_orang},
-                          hud={"identitas": ident},
-                          tulisan={"label orang": l_orang, "angka orang": angka_orang},
-                          dunia={"bidang": bidang})
-
-        with sinema.babak(self, "jarak", DURASI) as b:
-            b.main(ShowCreation(dot_bayang), FadeIn(l_bayang), run_time=1.4)
-            b.main(ShowCreation(ruas_bayang), FadeIn(angka_bayang), run_time=1.2)
+        with sinema.babak(self, "peta_masuk", DURASI, kata=KATA) as b:
             b.main(
-                Indicate(angka_orang, color=SOROT), Indicate(angka_bayang, color=SOROT),
-                run_time=1.2,
-            )
-            b.main(Indicate(garis_cermin, color=AKSEN2), run_time=1.4)
-        qc.periksa_adegan(
-            self,
-            {"titik orang": dot_orang, "titik bayangan": dot_bayang},
-            hud={"identitas": ident}, dunia={"bidang": bidang},
-            tulisan={"label orang": l_orang, "label bayangan": l_bayang,
-                     "angka orang": angka_orang, "angka bayangan": angka_bayang},
-        )
-
-        # --- bentuk sungguhan menggantikan kedua titik tadi ---------------- #
-        with sinema.babak(self, "bentuk", DURASI) as b:
-            b.main(
-                FadeOut(dot_orang), FadeOut(l_orang), FadeOut(ruas_orang),
-                FadeOut(angka_orang), FadeOut(dot_bayang), FadeOut(l_bayang),
-                FadeOut(ruas_bayang), FadeOut(angka_bayang),
+                FadeOut(dot_orang), FadeOut(l_orang), FadeOut(dot_bayang),
+                FadeOut(l_bayang), FadeOut(ruas_orang), FadeOut(ruas_bayang),
+                FadeOut(angka_orang), FadeOut(angka_bayang),
                 run_time=0.8,
             )
-            b.main(
-                ShowCreation(prapeta),
-                *[FadeIn(nama_pra[h]) for h in nama_pra],
-                run_time=1.6,
-            )
-        qc.periksa_adegan(self, {"prapeta": prapeta}, hud={"identitas": ident},
-                          dunia={"bidang": bidang})
+            b.tunggu_kata("huruf L")
+            b.main(ShowCreation(prapeta), *[FadeIn(nama_pra[h]) for h in nama_pra],
+                   run_time=1.8)
+        qc.periksa_adegan(self, {"prapeta": prapeta}, hud=hud_kini(),
+                          dunia={"bidang": bidang, "kaca": kaca})
 
-        # --- bentuk: petanya lahir di seberang cermin -------------------- #
-        peta = poligon(peta_awal, AKSEN2, tebal=3.2, isian=0.12)
+        with sinema.babak(self, "garis_lima", DURASI, kata=KATA) as b:
+            b.tunggu_kata("garis tegak")
+            b.main(FadeIn(l_k), run_time=1.0)
+            b.tunggu_kata("ungu")
+            b.main(Indicate(kaca, color=AKSEN2), run_time=1.4)
+        qc.periksa_adegan(self, {"prapeta": prapeta}, hud=hud_kini(),
+                          tulisan={"label k": l_k},
+                          dunia={"bidang": bidang, "kaca": kaca})
+
+        # ================================================================ #
+        # CONTOH ANGKA: titik A, lalu titik B di sisi seberang              #
+        # ================================================================ #
+        dot_a = Dot(titik3(A), radius=JARI_TITIK).set_color(AKSEN)
+        l_a = sinema.label("(1, 1)", warna=AKSEN)
+        l_a.next_to(titik3(A), DOWN, buff=0.26)
+        ruas_a1 = Line(titik3(A), titik3((K, A[1]))).set_stroke(AKSEN, 4.0)
+        angka_a1 = sinema.label("4", warna=AKSEN)
+        angka_a1.next_to(ruas_a1.get_center(), UP, buff=0.18)
+
+        with sinema.babak(self, "titik_a", DURASI, kata=KATA) as b:
+            b.tunggu_kata("titik A")
+            b.main(FadeIn(dot_a, scale=0.4), FadeIn(l_a), run_time=1.0)
+            b.tunggu_kata("Hitung petaknya")
+            b.main(ShowCreation(ruas_a1), FadeIn(angka_a1), run_time=1.4)
+        qc.periksa_adegan(self, {"prapeta": prapeta, "titik A": dot_a},
+                          hud=hud_kini(),
+                          tulisan={"label A": l_a, "angka A": angka_a1, "label k": l_k},
+                          dunia={"bidang": bidang, "kaca": kaca})
+
+        ruas_a2 = Line(titik3((K, A[1])), titik3(A_peta)).set_stroke(AKSEN, 4.0)
+        angka_a2 = sinema.label("4", warna=AKSEN)
+        angka_a2.next_to(ruas_a2.get_center(), UP, buff=0.18)
+        dot_a2 = Dot(titik3(A_peta), radius=JARI_TITIK).set_color(AKSEN2)
+        l_a2 = sinema.label("(9, 1)", warna=AKSEN2)
+        l_a2.next_to(titik3(A_peta), DOWN, buff=0.26)
+
+        with sinema.babak(self, "seberang_a", DURASI, kata=KATA) as b:
+            b.tunggu_kata("empat petak juga")
+            b.main(ShowCreation(ruas_a2), FadeIn(angka_a2), run_time=1.4)
+            b.tunggu_kata("sembilan")
+            b.main(FadeIn(dot_a2, scale=0.4), run_time=1.0)
+        qc.periksa_adegan(
+            self, {"prapeta": prapeta, "titik A": dot_a, "titik A aksen": dot_a2},
+            hud=hud_kini(),
+            tulisan={"label A": l_a, "angka A": angka_a1, "angka A2": angka_a2,
+                     "label k": l_k},
+            dunia={"bidang": bidang, "kaca": kaca},
+        )
+
+        with sinema.babak(self, "hasil_a", DURASI, kata=KATA) as b:
+            b.tunggu_kata("A aksen")
+            b.main(FadeIn(l_a2), run_time=1.0)
+            b.tunggu_kata("Tingginya tetap")
+            b.main(Indicate(dot_a, color=SOROT), Indicate(dot_a2, color=SOROT),
+                   run_time=1.4)
+        qc.periksa_adegan(
+            self, {"prapeta": prapeta, "titik A": dot_a, "titik A aksen": dot_a2},
+            hud=hud_kini(),
+            tulisan={"label A": l_a, "label A aksen": l_a2, "label k": l_k},
+            dunia={"bidang": bidang, "kaca": kaca},
+        )
+
+        dot_b = Dot(titik3(B), radius=JARI_TITIK).set_color(SOROT)
+        l_b = sinema.label("(6, 1)", warna=SOROT)
+        l_b.next_to(titik3(B), DOWN, buff=0.26)
+        ruas_b1 = Line(titik3((K, B[1])), titik3(B)).set_stroke(SOROT, 4.0)
+        angka_b1 = sinema.label("1", warna=SOROT)
+        angka_b1.next_to(ruas_b1.get_center(), UP, buff=0.18)
+
+        with sinema.babak(self, "titik_b", DURASI, kata=KATA) as b:
+            b.main(FadeOut(ruas_a1), FadeOut(ruas_a2),
+                   FadeOut(angka_a1), FadeOut(angka_a2), run_time=0.6)
+            b.tunggu_kata("titik B")
+            b.main(FadeIn(dot_b, scale=0.4), FadeIn(l_b), run_time=1.0)
+            b.tunggu_kata("satu petak")
+            b.main(ShowCreation(ruas_b1), FadeIn(angka_b1), run_time=1.3)
+        qc.periksa_adegan(
+            self, {"prapeta": prapeta, "titik B": dot_b},
+            hud=hud_kini(),
+            tulisan={"label B": l_b, "angka B": angka_b1, "label k": l_k},
+            dunia={"bidang": bidang, "kaca": kaca},
+        )
+
+        ruas_b2 = Line(titik3(B_peta), titik3((K, B[1]))).set_stroke(SOROT, 4.0)
+        angka_b2 = sinema.label("1", warna=SOROT)
+        angka_b2.next_to(ruas_b2.get_center(), UP, buff=0.18)
+        dot_b2 = Dot(titik3(B_peta), radius=JARI_TITIK).set_color(AKSEN2)
+        l_b2 = sinema.label("(4, 1)", warna=AKSEN2)
+        l_b2.next_to(titik3(B_peta), DOWN, buff=0.26)
+
+        with sinema.babak(self, "seberang_b", DURASI, kata=KATA) as b:
+            b.tunggu_kata("di kiri cermin")
+            b.main(ShowCreation(ruas_b2), FadeIn(angka_b2), run_time=1.3)
+            b.tunggu_kata("B aksen")
+            b.main(FadeIn(dot_b2, scale=0.4), FadeIn(l_b2), run_time=1.2)
+        qc.periksa_adegan(
+            self, {"prapeta": prapeta, "titik B": dot_b, "titik B aksen": dot_b2},
+            hud=hud_kini(),
+            tulisan={"label B": l_b, "label B aksen": l_b2, "label k": l_k},
+            dunia={"bidang": bidang, "kaca": kaca},
+        )
+
+        # ================================================================ #
+        # ASAL RUMUS: 2k - x diturunkan dari jarak, bukan disodorkan        #
+        # ================================================================ #
+        P_UMUM = (2.0, 3.0)
+        dot_p = Dot(titik3(P_UMUM), radius=JARI_TITIK).set_color(SOROT)
+        l_p = sinema.label("(x, y)", warna=SOROT)
+        l_p.next_to(titik3(P_UMUM), UP, buff=0.24)
+        ruas_p1 = Line(titik3(P_UMUM), titik3((K, P_UMUM[1]))).set_stroke(SOROT, 4.0)
+        l_selisih = sinema.label("k - x", warna=SOROT)
+        l_selisih.next_to(ruas_p1.get_center(), UP, buff=0.18)
+
+        with sinema.babak(self, "umum_jarak", DURASI, kata=KATA) as b:
+            b.main(
+                FadeOut(dot_a), FadeOut(dot_a2), FadeOut(l_a), FadeOut(l_a2),
+                FadeOut(dot_b), FadeOut(dot_b2), FadeOut(l_b), FadeOut(l_b2),
+                FadeOut(ruas_b1), FadeOut(ruas_b2), FadeOut(angka_b1), FadeOut(angka_b2),
+                run_time=0.8,
+            )
+            b.tunggu_kata("sembarang")
+            b.main(FadeIn(dot_p, scale=0.4), FadeIn(l_p), run_time=1.2)
+        qc.periksa_adegan(self, {"prapeta": prapeta, "titik P": dot_p},
+                          hud=hud_kini(), tulisan={"label P": l_p, "label k": l_k},
+                          dunia={"bidang": bidang, "kaca": kaca})
+
+        with sinema.babak(self, "umum_selisih", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Jaraknya ke cermin")
+            b.main(ShowCreation(ruas_p1), FadeIn(l_selisih), run_time=1.4)
+            b.tunggu_kata("Cocok")
+            b.main(Indicate(ruas_p1, color=AKSEN), run_time=1.2)
+        qc.periksa_adegan(self, {"prapeta": prapeta, "titik P": dot_p},
+                          hud=hud_kini(),
+                          tulisan={"label P": l_p, "label selisih": l_selisih,
+                                   "label k": l_k},
+                          dunia={"bidang": bidang, "kaca": kaca})
+
+        P_PETA = cermin_tegak(P_UMUM, K)
+        dot_p2 = Dot(titik3(P_PETA), radius=JARI_TITIK).set_color(AKSEN2)
+        ruas_p2 = Line(titik3((K, P_UMUM[1])), titik3(P_PETA)).set_stroke(AKSEN2, 4.0)
+        l_selisih2 = sinema.label("k - x", warna=AKSEN2)
+        l_selisih2.next_to(ruas_p2.get_center(), UP, buff=0.18)
+
+        with sinema.babak(self, "umum_tambah", DURASI, kata=KATA) as b:
+            b.tunggu_kata("sejauh itu lagi")
+            b.main(ShowCreation(ruas_p2), FadeIn(l_selisih2),
+                   FadeIn(dot_p2, scale=0.4), run_time=1.6)
+            b.tunggu_kata("letaknya")
+            papan.baris(r"k + (k - x)", warna=SOROT, b=b)
+        qc.periksa_adegan(
+            self, {"prapeta": prapeta, "titik P": dot_p, "titik P aksen": dot_p2},
+            hud=hud_kini(),
+            tulisan={"label P": l_p, "label selisih": l_selisih,
+                     "label selisih 2": l_selisih2, "label k": l_k},
+            dunia={"bidang": bidang, "kaca": kaca},
+        )
+
+        with sinema.babak(self, "umum_rapikan", DURASI, kata=KATA) as b:
+            b.tunggu_kata("dijumlahkan")
+            papan.baris(r"= 2k - x", warna=AKSEN, b=b)
+            b.tunggu_kata("lahir dari jarak")
+            b.main(Indicate(ruas_p1, color=AKSEN), Indicate(ruas_p2, color=AKSEN),
+                   run_time=1.4)
+        qc.periksa_adegan(self, {"prapeta": prapeta, "titik P": dot_p},
+                          hud=hud_kini(),
+                          dunia={"bidang": bidang, "kaca": kaca})
+
+        with sinema.babak(self, "rumus", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Aturannya")
+            rum = sinema.lahir_rumus(
+                self, r"(x,\ y) \to (2k - x,\ y)",
+                dekat=dot_p, papan=papan, b=b, warna=SOROT,
+            )
+        qc.periksa_adegan(self, {"prapeta": prapeta, "titik P": dot_p},
+                          hud=hud_kini(),
+                          dunia={"bidang": bidang, "kaca": kaca})
+
+        with sinema.babak(self, "uji_rumus", DURASI, kata=KATA) as b:
+            b.main(
+                FadeOut(dot_p), FadeOut(dot_p2), FadeOut(l_p),
+                FadeOut(ruas_p1), FadeOut(ruas_p2),
+                FadeOut(l_selisih), FadeOut(l_selisih2),
+                run_time=0.8,
+            )
+            b.tunggu_kata("sembilan")
+            b.main(FadeIn(dot_a, scale=0.4), FadeIn(dot_a2, scale=0.4), run_time=1.0)
+            b.tunggu_kata("empat")
+            b.main(FadeIn(dot_b, scale=0.4), FadeIn(dot_b2, scale=0.4), run_time=1.0)
+            b.tunggu_kata("cocok")
+            b.main(Indicate(prapeta, color=AKSEN2), run_time=1.4)
+        qc.periksa_adegan(self, {"prapeta": prapeta, "titik A": dot_a, "titik B": dot_b},
+                          hud=hud_kini(), dunia={"bidang": bidang, "kaca": kaca})
+
+        with sinema.babak(self, "dua_arah", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Rumus yang sama")
+            b.main(Indicate(dot_a, color=AKSEN), Indicate(dot_a2, color=AKSEN),
+                   run_time=1.3)
+            b.tunggu_kata("aturan terpisah")
+            b.main(Indicate(dot_b, color=SOROT), Indicate(dot_b2, color=SOROT),
+                   run_time=1.3)
+        qc.periksa_adegan(self, {"prapeta": prapeta, "titik A": dot_a, "titik B": dot_b},
+                          hud=hud_kini(), dunia={"bidang": bidang, "kaca": kaca})
+
+        # ================================================================ #
+        # PETA UTUH, lalu kekeliruan                                        #
+        # ================================================================ #
+        peta = poligon(peta_benar, AKSEN2, tebal=TEBAL_BENTUK, isian=0.20)
         nama_peta = {}
         for i, huruf in NAMA_SUDUT.items():
             t = sinema.label(f"{huruf}'", warna=AKSEN2)
-            t.next_to(titik3(peta_awal[i]), DOWN if i < 2 else UP, buff=0.22)
+            t.next_to(titik3(peta_benar[i]), DOWN if i < 2 else UP, buff=0.24)
             nama_peta[huruf] = t
 
-        with sinema.babak(self, "cermin", DURASI) as b:
-            b.main(
-                ShowCreation(peta),
-                *[FadeIn(nama_peta[h]) for h in nama_peta],
-                run_time=1.6,
-            )
-            b.main(Indicate(peta, color=AKSEN2), run_time=1.2)
-        qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta},
-                          hud={"identitas": ident}, dunia={"bidang": bidang})
+        with sinema.babak(self, "peta_utuh", DURASI, kata=KATA) as b:
+            b.main(FadeOut(dot_a), FadeOut(dot_a2), FadeOut(dot_b), FadeOut(dot_b2),
+                   run_time=0.6)
+            b.tunggu_kata("keenam sudutnya")
+            b.main(ShowCreation(peta), *[FadeIn(nama_peta[h]) for h in nama_peta],
+                   run_time=1.8)
+            b.tunggu_kata("terbalik")
+            b.main(Indicate(peta, color=SOROT), run_time=1.4)
+        qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta}, hud=hud_kini(),
+                          dunia={"bidang": bidang, "kaca": kaca})
 
-        # --- tegaklurus: dua angka jarak yang sama ----------------------- #
-        # Diambil pada titik C, bukan A. C berada di y = 2, jauh dari tepi atas
-        # maupun bawah bidang, jadi angka jaraknya punya ruang di kedua sisi
-        # garis tanpa menabrak apa pun.
-        C = L[2]
-        C_peta = peta_awal[2]
-        ruas_kiri = Line(titik3(C), np.array([K_AWAL, C[1], 0.03])).set_stroke(AKSEN, 3.0)
-        ruas_kanan = Line(np.array([K_AWAL, C[1], 0.03]), titik3(C_peta)).set_stroke(AKSEN, 3.0)
-        angka_kiri = sinema.label(f"{abs(C[0] - K_AWAL):.0f}", warna=AKSEN)
-        angka_kiri.next_to(ruas_kiri.get_center(), UP, buff=0.16)
-        angka_kanan = sinema.label(f"{abs(C_peta[0] - K_AWAL):.0f}", warna=AKSEN)
-        angka_kanan.next_to(ruas_kanan.get_center(), UP, buff=0.16)
+        salah = poligon([geser_saja(p) for p in L], AKSEN, tebal=TEBAL_BENTUK, isian=0.16)
 
-        # KEJADIANNYA HARUS SEUKURAN BENTUKNYA, BUKAN SEUKURAN RUASNYA.
-        #
-        # Versi pertama babak ini cuma menggambar dua ruas berangka, dan alat
-        # ukur menilai SELURUH 8,5 detiknya DIAM. Ruas setebal 4,0 sepanjang
-        # beberapa petak hanya sekitar 100 piksel dari 409.920, jauh di bawah
-        # ambang 300. Pelajaran yang sama sudah dibayar di video 01 babak
-        # "periksa"; di sini ia terulang karena polanya belum dipindahkan ke
-        # babak-babak lain.
-        #
-        # Sorotan bentuk utuh ditaruh di antara kedua ruas, bukan di ujung
-        # babak, supaya bagian tengahnya juga punya kejadian.
-        with sinema.babak(self, "tegaklurus", DURASI) as b:
-            b.main(ShowCreation(ruas_kiri), FadeIn(angka_kiri), run_time=1.4)
-            b.main(Indicate(prapeta, color=AKSEN), run_time=1.2)
-            b.main(ShowCreation(ruas_kanan), FadeIn(angka_kanan), run_time=1.4)
-            b.main(Indicate(peta, color=AKSEN), run_time=1.2)
-        qc.periksa_adegan(
-            self,
-            {"prapeta": prapeta, "peta": peta, "angka kiri": angka_kiri, "angka kanan": angka_kanan},
-            [("angka kiri", "angka kanan")],
-            hud={"identitas": ident}, dunia={"bidang": bidang},
-        )
-
-        # --- geser: cerminnya pindah ke x = 5, kamera ikut menyesuaikan --- #
-        pusat_b, tinggi_b = letak_peta(0.0, 10.0, 0.0, 4.0)
-        bidang_b = bidang_untuk(0.0, 10.0, 0.0, 4.0)
-        garis_b = DashedLine(
-            np.array([K_GESER, -0.2, 0.03]), np.array([K_GESER, 4.2, 0.03]),
-        ).set_stroke(SOROT, 3.0)
-        peta_b = poligon(peta_geser, AKSEN2, tebal=3.2, isian=0.12)
-        nama_peta_b = {}
-        for i, huruf in NAMA_SUDUT.items():
-            t = sinema.label(f"{huruf}'", warna=AKSEN2)
-            t.next_to(titik3(peta_geser[i]), DOWN if i < 2 else UP, buff=0.22)
-            nama_peta_b[huruf] = t
-
-        with sinema.babak(self, "geser", DURASI) as b:
-            b.main(
-                FadeOut(ruas_kiri), FadeOut(ruas_kanan),
-                FadeOut(angka_kiri), FadeOut(angka_kanan),
-                FadeOut(peta), *[FadeOut(nama_peta[h]) for h in nama_peta],
-                run_time=0.8,
-            )
-            b.main(
-                kamera.dunia_ke_peta(frame, pusat=pusat_b, tinggi=tinggi_b),
-                FadeOut(bidang), FadeIn(bidang_b),
-                Transform(garis_cermin, garis_b),
-                run_time=max(1.6, DURASI["geser"] - 3.4),
-            )
-            b.main(
-                ShowCreation(peta_b),
-                *[FadeIn(nama_peta_b[h]) for h in nama_peta_b],
-                run_time=1.6,
-            )
-        qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_b},
-                          hud={"identitas": ident}, dunia={"bidang": bidang_b})
-
-        # --- rumus: lahir dekat bendanya, lalu terbang ke panel ----------- #
-        with sinema.babak(self, "rumus", DURASI) as b:
-            rum = sinema.lahir_rumus(
-                self, r"(x,\ y) \to (2k - x,\ y)",
-                dekat=peta_b, papan=papan, b=b, warna=AKSEN2,
-            )
-        qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_b},
-                          hud={"identitas": ident, "papan": papan.semua()},
-                          dunia={"bidang": bidang_b})
-
-        # --- uji: angka contoh yang sama dengan halamannya ---------------- #
-        with sinema.babak(self, "uji", DURASI) as b:
-            # Angkanya A(1, 1), BUKAN A(1, 2) seperti contoh di halaman.
-            #
-            # Titik A bentuk L memang di (1, 1). Naskah versi pertama memakai
-            # A(1, 2) karena disalin dari contoh berhitung halamannya, dan
-            # akibatnya narator menyebut koordinat yang tidak sama dengan titik
-            # yang sedang disorot di layar. Gambar yang membantah ucapannya
-            # adalah cacat terburuk menurut standar proyek, jadi yang dipakai
-            # titik yang benar-benar ada di gambar.
-            papan.baris(r"A(1,\ 1) \to A'(9,\ 1)", warna=AKSEN2, b=b)
-            b.main(Indicate(peta_b, color=AKSEN), run_time=1.4)
-        qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_b},
-                          hud={"identitas": ident, "papan": papan.semua()},
-                          dunia={"bidang": bidang_b})
-
-        # ---------------------------------------------------------------- #
-        # petak: koordinatnya DIHITUNG dari petak di layar                  #
-        # ---------------------------------------------------------------- #
-        A = L[0]
-        A_peta = peta_geser[0]
-        ruas_kiri_a = Line(titik3(A), np.array([K_GESER, A[1], 0.03])).set_stroke(AKSEN, 4.0)
-        ruas_kanan_a = Line(np.array([K_GESER, A[1], 0.03]), titik3(A_peta)).set_stroke(AKSEN, 4.0)
-        angka_kiri_a = sinema.label("4", warna=AKSEN)
-        angka_kiri_a.next_to(ruas_kiri_a.get_center(), DOWN, buff=0.18)
-        angka_kanan_a = sinema.label("4", warna=AKSEN)
-        angka_kanan_a.next_to(ruas_kanan_a.get_center(), DOWN, buff=0.18)
-
-        with sinema.babak(self, "petak", DURASI) as b:
-            b.main(Indicate(prapeta, color=AKSEN), run_time=1.2)
-            b.main(ShowCreation(ruas_kiri_a), FadeIn(angka_kiri_a), run_time=1.4)
-            b.main(ShowCreation(ruas_kanan_a), FadeIn(angka_kanan_a), run_time=1.4)
-            b.main(Indicate(peta_b, color=AKSEN), run_time=1.2)
-        qc.periksa_adegan(
-            self,
-            {"prapeta": prapeta, "peta": peta_b,
-             "angka kiri": angka_kiri_a, "angka kanan": angka_kanan_a},
-            [("angka kiri", "angka kanan")],
-            hud={"identitas": ident, "papan": papan.semua()},
-            dunia={"bidang": bidang_b},
-        )
-
-        # ---------------------------------------------------------------- #
-        # kedua dan seberang: contoh KEDUA dari sisi yang berlawanan        #
-        # ---------------------------------------------------------------- #
-        # Titik B berada di KANAN cermin, sedangkan A di kirinya. Ini bukan
-        # sekadar contoh lain dengan angka lain: satu contoh dari satu sisi
-        # saja membuat siswa mengira ada aturan terpisah untuk titik di
-        # seberang. Dengan dua sisi, satu rumus terbukti mengurus keduanya.
-        B = L[1]
-        B_peta = peta_geser[1]
-        ruas_b1 = Line(np.array([K_GESER, B[1], 0.03]), titik3(B)).set_stroke(SOROT, 4.0)
-        ruas_b2 = Line(titik3(B_peta), np.array([K_GESER, B[1], 0.03])).set_stroke(SOROT, 4.0)
-        angka_b1 = sinema.label("1", warna=SOROT)
-        angka_b1.next_to(ruas_b1.get_center(), UP, buff=0.18)
-        angka_b2 = sinema.label("1", warna=SOROT)
-        angka_b2.next_to(ruas_b2.get_center(), UP, buff=0.18)
-
-        with sinema.babak(self, "kedua", DURASI) as b:
-            b.main(
-                FadeOut(ruas_kiri_a), FadeOut(ruas_kanan_a),
-                FadeOut(angka_kiri_a), FadeOut(angka_kanan_a),
-                run_time=0.7,
-            )
-            b.main(Indicate(nama_pra["B"], color=SOROT), run_time=1.0)
-            b.main(ShowCreation(ruas_b1), FadeIn(angka_b1), run_time=1.4)
-            b.main(Indicate(prapeta, color=SOROT), run_time=1.2)
-        qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_b, "angka B": angka_b1},
-                          hud={"identitas": ident, "papan": papan.semua()},
-                          dunia={"bidang": bidang_b})
-
-        with sinema.babak(self, "seberang", DURASI) as b:
-            b.main(ShowCreation(ruas_b2), FadeIn(angka_b2), run_time=1.4)
-            b.main(Indicate(peta_b, color=SOROT), run_time=1.2)
-            papan.baris(r"B(6,\ 1) \to B'(4,\ 1)", warna=SOROT, b=b)
-        qc.periksa_adegan(
-            self,
-            {"prapeta": prapeta, "peta": peta_b, "angka B1": angka_b1, "angka B2": angka_b2},
-            [("angka B1", "angka B2")],
-            hud={"identitas": ident, "papan": papan.semua()},
-            dunia={"bidang": bidang_b},
-        )
-
-        with sinema.babak(self, "dua_arah", DURASI) as b:
-            b.main(Indicate(garis_cermin, color=AKSEN2), run_time=1.2)
-            b.main(
-                FadeOut(ruas_b1), FadeOut(ruas_b2),
-                FadeOut(angka_b1), FadeOut(angka_b2),
-                run_time=0.8,
-            )
-            b.main(Indicate(prapeta, color=AKSEN2), Indicate(peta_b, color=AKSEN2), run_time=1.4)
-        qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_b},
-                          hud={"identitas": ident, "papan": papan.semua()},
-                          dunia={"bidang": bidang_b})
-
-        # ---------------------------------------------------------------- #
-        # keliru dan betul: kekeliruan diperagakan lalu dibetulkan          #
-        # ---------------------------------------------------------------- #
-        # KEKELIRUANNYA: MEMINDAHKAN KE SEBERANG TANPA MEMBALIK.
-        #
-        # Pilihan pertama "x dikurangi 5" dan GAGAL DIRENDER: hasilnya jatuh di
-        # x = -4 sampai 1, jauh di luar bingkai, dan qc menolaknya. Komentar
-        # versi pertama malah menulis bahwa hasilnya "jatuh di kotak yang
-        # sama"; klaim itu tidak pernah diperiksa dan ternyata salah.
-        #
-        # Yang dipakai sekarang menggeser prapeta sejauh +3, dan itu jatuh
-        # PERSIS di kotak yang sama dengan peta yang benar (keduanya x = 4
-        # sampai 9). Bedanya cuma satu hal, dan justru hal yang sedang
-        # diajarkan: yang benar TERBALIK, yang keliru tidak. Titik A yang
-        # benar mendarat di x = 9, sedangkan yang keliru di x = 4.
-        #
-        # Kekeliruan ini juga lebih hidup daripada salah hitung: "pindahkan
-        # saja ke seberang" memang cara berpikir yang paling sering dipakai
-        # siswa sebelum ia menyadari pencerminan membalik.
-        salah = poligon([(t[0] + 3.0, t[1]) for t in L], AKSEN, tebal=4.5, isian=0.14)
-
-        with sinema.babak(self, "keliru", DURASI) as b:
-            b.main(
-                FadeOut(peta_b), *[FadeOut(nama_peta_b[h]) for h in nama_peta_b],
-                run_time=0.7,
-            )
+        with sinema.babak(self, "keliru", DURASI, kata=KATA) as b:
+            b.main(FadeOut(peta), *[FadeOut(nama_peta[h]) for h in nama_peta],
+                   run_time=0.7)
+            b.tunggu_kata("merah")
             b.main(ShowCreation(salah), run_time=1.8)
-            b.main(Indicate(salah, color=AKSEN), run_time=1.2)
-        qc.periksa_adegan(self, {"prapeta": prapeta, "salah": salah},
-                          hud={"identitas": ident, "papan": papan.semua()},
-                          dunia={"bidang": bidang_b})
+        qc.periksa_adegan(self, {"prapeta": prapeta, "salah": salah}, hud=hud_kini(),
+                          dunia={"bidang": bidang, "kaca": kaca})
 
-        with sinema.babak(self, "betul", DURASI) as b:
-            b.main(FadeOut(salah), run_time=0.8)
-            b.main(ShowCreation(peta_b), run_time=1.6)
-            b.main(Indicate(peta_b, color=AKSEN2), run_time=1.2)
-        qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_b},
-                          hud={"identitas": ident, "papan": papan.semua()},
-                          dunia={"bidang": bidang_b})
+        dot_salah = Dot(titik3(geser_saja(A)), radius=JARI_TITIK).set_color(AKSEN)
+        l_salah = sinema.label("(4, 1)", warna=AKSEN)
+        l_salah.next_to(titik3(geser_saja(A)), DOWN, buff=0.26)
 
-        # ---------------------------------------------------------------- #
-        # mendatar, rangkum, tanya: penutup                                 #
-        # ---------------------------------------------------------------- #
-        # CERMIN MENDATARNYA SUNGGUH DIGAMBAR, dan ini perbaikan kedua.
-        #
-        # Perbaikan pertama cuma memindahkan rumusnya ke baris bernama supaya
-        # panel tidak lagi berbohong. Itu menyelesaikan separuh masalah: panel
-        # jadi jujur, tetapi GAMBARNYA tetap cermin TEGAK di garis x = 5
-        # sementara narator berbicara tentang cermin MENDATAR. Layar dan suara
-        # saling membantah selama tujuh detik penuh, dan `alat/peta_diam.py`
-        # menunjukkannya sebagai rentang diam terpanjang di enam video topik
-        # ini: 7,2 detik pada detik 106.
-        #
-        # Aturan proyek menyebut kelas cacat ini paling merusak: gambar yang
-        # lupa diganti saat babak berpindah lebih buruk daripada layar kosong,
-        # sebab layar kosong cuma tidak menolong, sedangkan gambar yang salah
-        # ikut mengajar.
-        #
-        # BENTUKNYA SETENGAH UKURAN, dan itu keharusan aritmetika. Kotak ini
-        # setinggi 4 satuan, sedangkan bentuk L aslinya setinggi 2. Bentuk
-        # setinggi 2 tidak mungkin muat seluruhnya di SATU sisi cermin mendatar
-        # yang juga harus punya ruang untuk bayangannya di sisi lain. Setengah
-        # ukuran memberi 1 satuan untuk benda, 1 untuk bayangan, dan sisanya
-        # untuk napas.
-        H_DATAR = 2.0
-        KECIL = [(3.0, 0.5), (5.5, 0.5), (5.5, 1.0),
-                 (3.5, 1.0), (3.5, 1.5), (3.0, 1.5)]
+        with sinema.babak(self, "betul", DURASI, kata=KATA) as b:
+            b.tunggu_kata("lihat titik A")
+            b.main(FadeIn(dot_a, scale=0.4), FadeIn(l_a), run_time=1.0)
+            b.tunggu_kata("mendarat di sembilan")
+            b.main(FadeOut(salah), ShowCreation(peta),
+                   FadeIn(dot_a2, scale=0.4), FadeIn(l_a2), run_time=1.6)
+            b.tunggu_kata("dipindah mendarat")
+            b.main(FadeIn(dot_salah, scale=0.4), FadeIn(l_salah), run_time=1.2)
+        qc.periksa_adegan(
+            self, {"prapeta": prapeta, "peta": peta, "titik salah": dot_salah},
+            hud=hud_kini(),
+            tulisan={"label A": l_a, "label A aksen": l_a2, "label salah": l_salah},
+            dunia={"bidang": bidang, "kaca": kaca},
+        )
 
-        def cermin_datar(p, h):
-            return (p[0], 2 * h - p[1])
+        with sinema.babak(self, "pelajaran", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Satu titik")
+            b.main(Indicate(dot_a2, color=SOROT), Indicate(dot_salah, color=SOROT),
+                   run_time=1.6)
+        qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta}, hud=hud_kini(),
+                          dunia={"bidang": bidang, "kaca": kaca})
 
+        # ================================================================ #
+        # CERMIN MENDATAR                                                   #
+        # ================================================================ #
         garis_datar = DashedLine(
-            np.array([0.6, H_DATAR, 0.03]), np.array([9.4, H_DATAR, 0.03]),
-        ).set_stroke(SOROT, 3.0)
-        l_h = sinema.label("h = 2", warna=SOROT)
-        l_h.next_to(np.array([1.2, H_DATAR, 0.03]), UP, buff=0.20)
-        kecil_pra = poligon(KECIL, TINTA, tebal=3.0, isian=0.08)
+            titik3((0.6, H_DATAR)), titik3((9.4, H_DATAR)),
+        ).set_stroke(SOROT, 4.0)
+        l_h = sinema.label("y = 2", warna=SOROT)
+        l_h.next_to(titik3((1.2, H_DATAR)), UP, buff=0.20)
+        kecil_pra = poligon(KECIL, TINTA, tebal=3.4, isian=0.14)
         kecil_peta = poligon([cermin_datar(p, H_DATAR) for p in KECIL],
-                             AKSEN2, tebal=3.0, isian=0.12)
+                             AKSEN2, tebal=3.4, isian=0.20)
 
-        with sinema.babak(self, "mendatar", DURASI) as b:
+        with sinema.babak(self, "mendatar_gagasan", DURASI, kata=KATA) as b:
             b.main(
                 FadeOut(prapeta), *[FadeOut(nama_pra[h]) for h in nama_pra],
-                FadeOut(peta_b), *[FadeOut(nama_peta_b[h]) for h in nama_peta_b],
-                FadeOut(garis_cermin),
+                FadeOut(peta), FadeOut(dot_a), FadeOut(dot_a2), FadeOut(l_a),
+                FadeOut(l_a2), FadeOut(dot_salah), FadeOut(l_salah),
+                FadeOut(kaca), FadeOut(l_k),
                 run_time=0.9,
             )
-            b.main(ShowCreation(garis_datar), FadeIn(l_h), run_time=1.0)
-            b.main(ShowCreation(kecil_pra), run_time=1.2)
-            papan.baris(r"\text{mendatar: } (x,\ y) \to (x,\ 2h - y)", warna=SOROT, b=b)
-            b.main(ShowCreation(kecil_peta), run_time=1.4)
-        qc.periksa_adegan(self, {"benda": kecil_pra, "bayangan": kecil_peta},
-                          hud={"identitas": ident, "papan": papan.semua()},
-                          tulisan={"label h": l_h},
-                          dunia={"bidang": bidang_b, "cermin datar": garis_datar})
+            b.tunggu_kata("cermin mendatar")
+            b.main(ShowCreation(garis_datar), FadeIn(l_h), run_time=1.4)
+        qc.periksa_adegan(self, {}, hud=hud_kini(), tulisan={"label h": l_h},
+                          dunia={"bidang": bidang, "cermin datar": garis_datar})
 
-        # Rangkumannya diperagakan pada cermin MENDATAR yang baru saja tampil,
-        # bukan pada cermin tegak yang sudah dibuang. Kalimatnya sendiri umum
-        # ("titik dan bayangannya sama jauh dari cermin"), jadi memperagakannya
-        # pada cermin yang berbeda arah justru memperkuat: aturannya tidak
-        # terikat pada cermin tegak.
+        with sinema.babak(self, "mendatar_gambar", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Bendanya di bawah")
+            b.main(ShowCreation(kecil_pra), run_time=1.4)
+            b.tunggu_kata("bayangannya di atas")
+            b.main(ShowCreation(kecil_peta), run_time=1.6)
+        qc.periksa_adegan(self, {"benda": kecil_pra, "bayangan": kecil_peta},
+                          hud=hud_kini(), tulisan={"label h": l_h},
+                          dunia={"bidang": bidang, "cermin datar": garis_datar})
+
+        with sinema.babak(self, "mendatar_rumus", DURASI, kata=KATA) as b:
+            b.tunggu_kata("aturannya menjadi")
+            papan.baris(r"(x,\ y) \to (x,\ 2h - y)", warna=AKSEN, b=b)
+            b.tunggu_kata("mendatarnya")
+            b.main(Indicate(garis_datar, color=AKSEN2), run_time=1.4)
+        qc.periksa_adegan(self, {"benda": kecil_pra, "bayangan": kecil_peta},
+                          hud=hud_kini(), tulisan={"label h": l_h},
+                          dunia={"bidang": bidang, "cermin datar": garis_datar})
+
+        # ================================================================ #
+        # PENUTUP                                                           #
+        # ================================================================ #
         SUDUT_P = KECIL[0]
         kaki = np.array([SUDUT_P[0], H_DATAR, 0.03])
         ruas_bawah = Line(titik3(SUDUT_P), kaki).set_stroke(AKSEN, 4.0)
         ruas_atas = Line(kaki, titik3(cermin_datar(SUDUT_P, H_DATAR))).set_stroke(AKSEN, 4.0)
-        # Angkanya ke KIRI ruas, sebab di sebelah kanannya berdiri bendanya
-        # sendiri: pada y = 1,25 bentuk kecil itu menempati x 3 sampai 3,5.
         angka_bawah = sinema.label("1,5", warna=AKSEN)
         angka_bawah.next_to(ruas_bawah.get_center(), LEFT, buff=0.20)
         angka_atas = sinema.label("1,5", warna=AKSEN)
         angka_atas.next_to(ruas_atas.get_center(), LEFT, buff=0.20)
 
-        with sinema.babak(self, "rangkum", DURASI) as b:
-            b.main(ShowCreation(ruas_bawah), FadeIn(angka_bawah), run_time=1.3)
-            b.main(ShowCreation(ruas_atas), FadeIn(angka_atas), run_time=1.3)
-            b.main(Indicate(kecil_pra, color=SOROT), run_time=1.3)
-            b.main(Indicate(kecil_peta, color=AKSEN), run_time=1.3)
+        with sinema.babak(self, "rangkum", DURASI, kata=KATA) as b:
+            b.tunggu_kata("sama jauh")
+            b.main(ShowCreation(ruas_bawah), FadeIn(angka_bawah),
+                   ShowCreation(ruas_atas), FadeIn(angka_atas), run_time=1.6)
+            b.tunggu_kata("tegak lurus")
+            b.main(Indicate(kecil_pra, color=SOROT), Indicate(kecil_peta, color=SOROT),
+                   run_time=1.4)
         qc.periksa_adegan(
             self, {"benda": kecil_pra, "bayangan": kecil_peta},
-            hud={"identitas": ident, "papan": papan.semua()},
+            hud=hud_kini(),
             tulisan={"label h": l_h, "angka bawah": angka_bawah, "angka atas": angka_atas},
-            dunia={"bidang": bidang_b, "cermin datar": garis_datar},
+            dunia={"bidang": bidang, "cermin datar": garis_datar},
         )
 
-        # Pertanyaan penutup ditandai DI GAMBAR: sebuah titik diletakkan tepat
-        # di garis cerminnya, supaya penonton punya benda untuk dipikirkan
-        # selama pertanyaannya dibacakan. Ditaruh di x = 7, di sebelah kanan
-        # bendanya, supaya tidak tertimpa apa pun.
-        titik_di_cermin = Dot(np.array([7.0, H_DATAR, 0.05]), radius=0.14).set_color(AKSEN)
+        titik_di_cermin = Dot(titik3((7.5, H_DATAR)), radius=0.16).set_color(AKSEN)
         l_di_cermin = sinema.label("di cermin", warna=AKSEN)
         l_di_cermin.next_to(titik_di_cermin, UP, buff=0.26)
 
-        with sinema.babak(self, "tanya", DURASI) as b:
-            b.main(
-                FadeOut(ruas_bawah), FadeOut(ruas_atas),
-                FadeOut(angka_bawah), FadeOut(angka_atas),
-                run_time=0.7,
-            )
+        with sinema.babak(self, "tanya", DURASI, kata=KATA) as b:
+            b.main(FadeOut(ruas_bawah), FadeOut(ruas_atas),
+                   FadeOut(angka_bawah), FadeOut(angka_atas), run_time=0.7)
+            b.tunggu_kata("tepat berada")
             b.main(FadeIn(titik_di_cermin, scale=0.4), FadeIn(l_di_cermin), run_time=1.2)
-            b.main(Indicate(kecil_pra, color=AKSEN), run_time=1.3)
-            b.main(Indicate(kecil_peta, color=SOROT), run_time=1.3)
+            b.main(Indicate(titik_di_cermin, color=SOROT), run_time=1.2)
         qc.periksa_adegan(
-            self,
-            {"benda": kecil_pra, "bayangan": kecil_peta, "titik di cermin": titik_di_cermin},
-            hud={"identitas": ident, "papan": papan.semua()},
+            self, {"benda": kecil_pra, "bayangan": kecil_peta,
+                   "titik di cermin": titik_di_cermin},
+            hud=hud_kini(),
             tulisan={"label h": l_h, "label di cermin": l_di_cermin},
-            dunia={"bidang": bidang_b, "cermin datar": garis_datar},
+            dunia={"bidang": bidang, "cermin datar": garis_datar},
         )
 
+        with sinema.babak(self, "berikut", DURASI, kata=KATA) as b:
+            b.main(FadeOut(titik_di_cermin), FadeOut(l_di_cermin), run_time=0.6)
+            b.tunggu_kata("diputar")
+            b.main(Rotate(kecil_peta, PI / 6, about_point=titik3((5.0, 2.0))),
+                   run_time=1.6)
+            b.tunggu_kata("gagasan jarak")
+            b.main(Indicate(rum, color=AKSEN), run_time=1.4)
+        qc.periksa_adegan(self, {"benda": kecil_pra}, hud=hud_kini(),
+                          tulisan={"label h": l_h},
+                          dunia={"bidang": bidang, "cermin datar": garis_datar})
+
+        sinema.laporkan_pemicu(self)
