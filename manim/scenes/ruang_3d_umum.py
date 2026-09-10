@@ -374,6 +374,32 @@ def kaki_pada_garis(p, a, b):
 LAJU_LATAR = 1.6   # derajat per detik: geseran latar, bukan gerakan yang mencuri perhatian
 
 
+def tunggu_kata_bergeser(b, frame, frasa: str, ke: int = 1, laju: float = LAJU_LATAR):
+    """`b.tunggu_kata` versi standar v3, TETAPI menunggunya sambil menggeser
+    kamera pelan, bukan dengan layar berhenti.
+
+    Pemicu per kata memindahkan kejadian ke detik yang tepat, dan justru karena
+    itu jeda di antaranya jadi diam betulan. Diukur di gelombang 2: sesudah
+    kejadian diikat ke kalimat, diam terpanjang materi 01 NAIK dari 4,2 detik
+    jadi 9,0 detik. Gerbang waktu 9 Sep juga memperlihatkan tiap babak cuma
+    berisi 2 sampai 4 detik animasi dari 8 sampai 14 detik narasi.
+
+    Lajunya kecil (1,6 derajat per detik): cukup memberi rasa ruang pada benda
+    tiga dimensi, tidak cukup mencuri perhatian, jadi bukan "napas" yang
+    dilarang STANDAR v3 butir 3. JANGAN dipakai saat kamera memang harus diam
+    di tempat (pandangan tegak lurus dari atas), sebab di situ letak kamera
+    adalah bagian dari yang diajarkan.
+
+    Menyisakan 0,12 detik untuk `tunggu_kata` supaya pemicunya tetap dicatat
+    `laporkan_pemicu` dan tetap gagal kalau kelewat.
+    """
+    sasaran = b.kata.jam(b.nama, frasa, ke=ke)
+    sisa = sasaran - b.scene.time - 0.12
+    if sisa > 0.4:
+        b.main(kamera.putar_pelan(frame, laju * sisa), run_time=sisa)
+    b.tunggu_kata(frasa, ke=ke)
+
+
 def tunggu_bergeser(b, frame, jam, awalan: str, laju: float = LAJU_LATAR):
     """Tunggu sampai kalimat itu mulai, TETAPI kameranya bergeser pelan selama
     menunggu, bukan layar berhenti.

@@ -1,135 +1,331 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/ruang-3d-03.json
+NOTE Dibuat otomatis dari manim/narasi/ruang-3d-03.json (waktu kata rekaman)
 
 1
-00:00:00.000 --> 00:00:02.649
-Dari materi sebelumnya kita sudah
+00:00:00.116 --> 00:00:01.531
+Dari sekian banyak ruas yang
 
 2
-00:00:02.649 --> 00:00:05.057
-tahu tiga kedudukan dua garis:
+00:00:01.531 --> 00:00:03.704
+menghubungkan sebuah titik ke sebuah garis,
 
 3
-00:00:05.057 --> 00:00:08.107
-berpotongan, sejajar, dan bersilangan.
+00:00:03.704 --> 00:00:05.674
+yang mana yang pantas disebut <b>jarak</b>?
 
 4
-00:00:08.107 --> 00:00:11.880
-Sekarang materi 3, <b>jarak selalu yang terpendek</b>.
+00:00:06.882 --> 00:00:09.483
+Di Materi 01, gambar ruang boleh berbohong,
 
 5
-00:00:11.880 --> 00:00:15.617
-Ini titik B, dan ini garis A̅C̅ di lantai kubus.
+00:00:09.483 --> 00:00:11.056
+kita melihat dua ruas yang
 
 6
-00:00:15.617 --> 00:00:17.486
-Dari B ke garis itu bisa
+00:00:11.056 --> 00:00:13.927
+tampak berpotongan padahal terpisah 6 satuan.
 
 7
-00:00:17.486 --> 00:00:20.289
-ditarik ruas sebanyak yang kita mau,
+00:00:15.149 --> 00:00:17.935
+Kesimpulannya waktu itu: pada gambar ruang,
 
 8
-00:00:20.289 --> 00:00:23.091
-dan semuanya sah disebut penghubung.
+00:00:17.935 --> 00:00:21.260
+mata boleh menduga, tetapi angka yang memutuskan.
 
 9
-00:00:23.091 --> 00:00:24.960
-Panjangnya berbeda-beda.
+00:00:21.992 --> 00:00:24.247
+Aturan itu kita pakai lagi hari ini.
 
 10
-00:00:24.960 --> 00:00:27.116
-Jadi kata <b>jarak</b> belum punya
+00:00:25.468 --> 00:00:28.657
+Kubusnya masih yang tadi, rusuknya 6 satuan.
 
 11
-00:00:27.116 --> 00:00:29.912
-arti sampai kita memilih yang mana.
+00:00:29.406 --> 00:00:31.127
+Sekarang perhatikan titik B,
 
 12
-00:00:29.912 --> 00:00:32.867
-Kita geser titik Q di sepanjang A̅C̅,
+00:00:31.127 --> 00:00:33.675
+dan garis AC yang tergeletak di lantai.
 
 13
-00:00:32.867 --> 00:00:34.784
-dan perhatikan angkanya.
+00:00:34.868 --> 00:00:36.068
+Dari B ke garis itu,
 
 14
-00:00:34.784 --> 00:00:36.541
-Turun, lalu naik lagi.
+00:00:36.068 --> 00:00:38.896
+kita bisa menarik ruas sebanyak yang kita mau.
 
 15
-00:00:36.541 --> 00:00:39.336
-Ada satu tempat yang paling pendek.
+00:00:39.594 --> 00:00:42.560
+Ke sana, ke sana, atau ke sana.
 
 16
-00:00:39.336 --> 00:00:45.146
-Di situ, dan hanya di situ, muncul tanda <b>siku-siku</b>.
+00:00:43.767 --> 00:00:45.799
+Semuanya sah disebut penghubung.
 
 17
-00:00:45.146 --> 00:00:48.792
-Panjangnya 3√2, kira-kira 4,243.
+00:00:46.534 --> 00:00:49.112
+Masing-masing benar-benar menyambungkan titik B
 
 18
-00:00:48.792 --> 00:00:52.245
-Kenapa yang terpendek pasti yang siku-siku?
+00:00:49.112 --> 00:00:50.907
+ke sebuah titik pada garis AC.
 
 19
-00:00:52.245 --> 00:00:54.333
-Ambil titik lain, sebut R.
+00:00:52.135 --> 00:00:54.206
+Tetapi panjangnya berbeda-beda.
 
 20
-00:00:54.333 --> 00:00:56.581
-Segitiga BQR siku-siku di Q,
+00:00:54.940 --> 00:00:56.735
+Kalau semuanya kita sebut jarak,
 
 21
-00:00:56.581 --> 00:00:59.071
-dan B̅R̅ adalah sisi miringnya.
+00:00:56.735 --> 00:00:58.138
+satu titik dan satu garis
 
 22
-00:00:59.071 --> 00:01:03.568
-Sisi miring <b>selalu</b> lebih panjang daripada sisi tegaknya.
+00:00:58.138 --> 00:01:00.195
+akan punya banyak jarak sekaligus.
 
 23
-00:01:03.568 --> 00:01:05.736
-Itu saja seluruh alasannya.
+00:01:01.416 --> 00:01:03.269
+Jadi kata jarak belum punya arti,
 
 24
-00:01:05.736 --> 00:01:09.047
-Sekarang kameranya kita putar pelan ke arah A̅C̅.
+00:01:03.269 --> 00:01:05.553
+sampai kita sepakat memilih yang mana.
 
 25
-00:01:09.047 --> 00:01:11.277
-Dari arah ini A̅C̅ tampak berdiri
+00:01:06.767 --> 00:01:08.364
+Mari kita cari sendiri.
 
 26
-00:01:11.277 --> 00:01:13.912
-tegak walaupun ia tergeletak di lantai,
+00:01:09.114 --> 00:01:11.557
+Titik Q kita geser pelan di sepanjang AC,
 
 27
-00:01:13.912 --> 00:01:16.413
-dan justru karena itu sudut siku-siku
+00:01:11.557 --> 00:01:13.435
+dan angkanya kita perhatikan.
 
 28
-00:01:16.413 --> 00:01:19.318
-di Q terlihat dalam ukuran yang sebenarnya.
+00:01:14.635 --> 00:01:18.443
+Angkanya turun, terus turun, lalu berbalik naik lagi.
 
 29
-00:01:19.318 --> 00:01:20.805
-Jadi tegak lurus bukan
+00:01:19.177 --> 00:01:22.116
+Berarti ada satu tempat yang paling pendek di antaranya.
 
 30
-00:01:20.805 --> 00:01:23.170
-aturan tambahan yang harus dihafal.
+00:01:23.349 --> 00:01:25.830
+Dan perhatikan, tepat di tempat itu,
 
 31
-00:01:23.170 --> 00:01:25.738
-Ia akibat dari memilih yang terpendek.
+00:01:25.830 --> 00:01:27.565
+muncul tanda siku-siku.
 
 32
-00:01:25.738 --> 00:01:28.035
-Ingat kalimat ini sampai materi 7:
+00:01:28.297 --> 00:01:31.105
+Ruas terpendeknya <b>tegak lurus</b> pada garis AC.
 
 33
-00:01:28.035 --> 00:01:31.752
-<b>setiap soal jarak adalah soal mencari kaki tegak lurus</b>.
+00:01:32.301 --> 00:01:35.083
+Titik pertemuannya kita sebut <b>kaki tegak lurus</b>.
+
+34
+00:01:35.817 --> 00:01:37.017
+Panjang ruas dari B ke
+
+35
+00:01:37.017 --> 00:01:38.989
+kaki itulah yang kita sebut jarak.
+
+36
+00:01:40.167 --> 00:01:41.909
+Di mana persisnya kaki itu?
+
+37
+00:01:42.659 --> 00:01:47.638
+Ternyata tepat di tengah AC, yaitu di titik (3, 3, 0).
+
+38
+00:01:48.835 --> 00:01:51.906
+Titik B ada di (6, 0, 0).
+
+39
+00:01:52.654 --> 00:01:53.854
+Dari B ke Q,
+
+40
+00:01:53.854 --> 00:01:56.176
+langkahnya 3 mundur pada sumbu x
+
+41
+00:01:56.176 --> 00:01:58.068
+dan 3 maju pada sumbu y.
+
+42
+00:01:58.949 --> 00:02:03.415
+Pythagoras memberi 3² + 3² = 18.
+
+43
+00:02:04.162 --> 00:02:08.075
+Akarnya 3√2, kira-kira 4,243.
+
+44
+00:02:09.301 --> 00:02:11.399
+Sekarang pertanyaan yang lebih penting.
+
+45
+00:02:12.133 --> 00:02:14.691
+Kenapa yang tegak lurus itu <b>pasti</b> yang terpendek?
+
+46
+00:02:15.422 --> 00:02:17.703
+Bukan kebetulan pada kubus ini saja?
+
+47
+00:02:18.916 --> 00:02:21.982
+Kita ambil titik lain pada garis AC, sebut saja R.
+
+48
+00:02:21.982 --> 00:02:24.618
+Boleh di mana pun, asal bukan di kaki tadi.
+
+49
+00:02:25.835 --> 00:02:28.393
+Sekarang lihat segitiga BQR.
+
+50
+00:02:29.141 --> 00:02:31.724
+Karena BQ tegak lurus pada garis AC,
+
+51
+00:02:31.724 --> 00:02:33.883
+segitiga ini siku-siku di Q.
+
+52
+00:02:35.082 --> 00:02:36.508
+Pada segitiga siku-siku,
+
+53
+00:02:36.508 --> 00:02:39.746
+sisi di depan sudut siku-siku adalah sisi miringnya.
+
+54
+00:02:40.477 --> 00:02:42.627
+Di sini sisi miringnya BR.
+
+55
+00:02:43.835 --> 00:02:48.379
+Pythagoras memberi BR² = BQ² + QR².
+
+56
+00:02:49.601 --> 00:02:51.001
+Coba dengan angka.
+
+57
+00:02:51.750 --> 00:02:57.505
+QR kita ambil 1,8√2, sehingga QR² = 6,48.
+
+58
+00:02:58.716 --> 00:03:05.208
+Maka BR² = 18 + 6,48 = 24,48.
+
+59
+00:03:06.401 --> 00:03:08.932
+Akarnya kira-kira 4,95.
+
+60
+00:03:09.666 --> 00:03:12.751
+Bandingkan dengan BQ yang 4,243.
+
+61
+00:03:13.482 --> 00:03:15.368
+BR memang lebih panjang.
+
+62
+00:03:16.568 --> 00:03:19.705
+Dan sekarang alasannya kelihatan tanpa perlu angka lagi.
+
+63
+00:03:20.439 --> 00:03:22.523
+QR² tidak pernah negatif.
+
+64
+00:03:23.749 --> 00:03:25.984
+Jadi BR² selalu sama dengan BQ²,
+
+65
+00:03:25.984 --> 00:03:29.136
+ditambah sesuatu yang tidak pernah negatif.
+
+66
+00:03:29.869 --> 00:03:32.848
+BR tidak mungkin lebih pendek daripada BQ.
+
+67
+00:03:34.082 --> 00:03:36.542
+Keduanya hanya sama panjang kalau QR = 0,
+
+68
+00:03:36.542 --> 00:03:38.101
+dan itu berarti R berimpit
+
+69
+00:03:38.101 --> 00:03:40.351
+dengan kaki tegak lurusnya sendiri.
+
+70
+00:03:41.567 --> 00:03:43.178
+Itulah bentuk umumnya.
+
+71
+00:03:43.913 --> 00:03:46.229
+Jarak dari sebuah titik ke sebuah garis adalah
+
+72
+00:03:46.229 --> 00:03:48.997
+panjang ruas tegak lurus dari titik itu ke garisnya.
+
+73
+00:03:50.216 --> 00:03:51.416
+Dan karena itu,
+
+74
+00:03:51.416 --> 00:03:54.704
+tegak lurus bukan aturan tambahan yang harus dihafal.
+
+75
+00:03:55.125 --> 00:03:57.433
+Ia akibat dari memilih yang terpendek.
+
+76
+00:03:58.635 --> 00:04:01.324
+Alasan tadi tidak menyebut kubus sama sekali.
+
+77
+00:04:02.073 --> 00:04:04.371
+Ia hanya memakai satu segitiga siku-siku,
+
+78
+00:04:04.371 --> 00:04:07.604
+jadi ia berlaku juga untuk jarak titik ke bidang nanti.
+
+79
+00:04:08.816 --> 00:04:10.826
+Ingat kalimat ini sampai materi 7:
+
+80
+00:04:10.826 --> 00:04:14.229
+setiap soal jarak adalah soal mencari kaki tegak lurus.
+
+81
+00:04:14.962 --> 00:04:16.253
+Di video berikutnya kita
+
+82
+00:04:16.253 --> 00:04:18.717
+memakai Pythagoras <b>dua kali</b> berturut-turut.

@@ -18,6 +18,23 @@ class CacatTataLetak(AssertionError):
     """Tata letak melanggar aturan. Sengaja menggagalkan render."""
 
 
+def _periksa_bukan_none(benda: dict) -> None:
+    """Tolak benda None dengan nama yang jelas, sebelum render terlanjur jauh.
+
+    `PapanRumus.semua()` mengembalikan None saat panelnya kosong. Diserahkan ke
+    qc, ia jatuh dengan "AttributeError: 'NoneType' object has no attribute
+    'get_family'" dari kedalaman perpustakaan, tanpa menyebut benda mana. Ruang
+    3D materi 01 (9 Sep 2026) membayarnya dengan render 24 menit.
+    """
+    kosong = [nama for nama, m in benda.items() if m is None]
+    if kosong:
+        raise CacatTataLetak(
+            "qc.periksa_adegan menerima benda kosong (None): "
+            + ", ".join(kosong)
+            + ". Kalau itu `papan.semua()`, panelnya memang sedang "
+            "kosong: keluarkan dari daftar periksa babak ini.")
+
+
 def _titik(mob):
     # Alas kertas HUD (`sinema.alas_hud`) ditandai `dekorasi` dan TIDAK ikut
     # diukur: ia sengaja dirapatkan sampai tepi bingkai supaya terbaca
@@ -194,6 +211,7 @@ def periksa_adegan(scene, zona: dict, pasangan: list | None = None, margin: floa
        otomatis oleh `PapanRumus.semua()`; kelompok HUD buatan sendiri boleh
        memasangnya juga: `g._qc_isi = True`.
     """
+    _periksa_bukan_none(zona)
     frame = scene.frame
     # Nilai None artinya "tidak ada yang perlu diperiksa", bukan kelalaian.
     # Yang paling sering: `PapanRumus.semua()` mengembalikan None saat papan
