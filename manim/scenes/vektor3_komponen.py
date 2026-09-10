@@ -392,7 +392,12 @@ class PecahJadiKomponen(AdeganMatra):
         titik_a = Dot(A_TITIK, radius=0.09).set_color(TINTA)
         titik_b = Dot(B_TITIK, radius=0.09).set_color(TINTA)
         l_a = rumus(r"A(1,\ 2)", 28, TINTA).move_to(A_TITIK + np.array([-0.95, -0.42, 0]))
-        l_b = rumus(r"B(5,\ 5)", 28, TINTA).move_to(B_TITIK + np.array([0.05, 0.48, 0]))
+        # Label B ke KIRI ATAS titiknya, bukan kanan atas. B(5, 5) adalah pojok
+        # kanan atas bidang, dan pada kamera `muat_datar` bidang ini ia jatuh di
+        # layar (3,20 , 2,74), tepat di jalur panel rumus (ZONA_RUMUS x 2,10
+        # sampai 6,85, y 1,10 sampai 3,70). Label di kanan titik itu menindih
+        # panel; render 9 Sep gagal dengan "tulisan label B menindih papan".
+        l_b = rumus(r"B(5,\ 5)", 28, TINTA).move_to(B_TITIK + np.array([-1.25, 0.30, 0]))
         p_ab = panah(A_TITIK, B_TITIK, SOROT, tebal=6)
 
         with sinema.babak(self, "tidak_dari_o", DURASI, kata=KATA) as b:
@@ -430,7 +435,9 @@ class PecahJadiKomponen(AdeganMatra):
         ab_x = putus(A_TITIK, sudut_ab, AKSEN2)
         ab_y = putus(sudut_ab, B_TITIK, AKSEN)
         l_abx = rumus("4", 32, AKSEN2).move_to([(A_TITIK[0] + B_TITIK[0]) / 2, A_TITIK[1] - 0.52, Z])
-        l_aby = rumus("3", 32, AKSEN).move_to([B_TITIK[0] + 0.52, (A_TITIK[1] + B_TITIK[1]) / 2, Z])
+        # Angka 3 di sisi KIRI ruas tegaknya, sebab sisi kanannya sudah masuk
+        # jalur panel rumus (lihat catatan pada label B).
+        l_aby = rumus("3", 32, AKSEN).move_to([B_TITIK[0] - 0.45, (A_TITIK[1] + B_TITIK[1]) / 2, Z])
 
         with sinema.babak(self, "hitung_x", DURASI, kata=KATA) as b:
             b.tunggu_kata("Dari x")
@@ -467,7 +474,13 @@ class PecahJadiKomponen(AdeganMatra):
 
         with sinema.babak(self, "umum", DURASI, kata=KATA) as b:
             b.tunggu_kata("Angka mendatarnya")
-            sinema.lahir_rumus(self, r"(x_B - x_A \ \ \ y_B - y_A)", p_ab, self.papan,
+            # Ditulis sebagai vektor KOLOM, bukan baris. Dua alasan. Pertama,
+            # bentuk barisnya selebar 4,5 satuan layar sehingga tepi kirinya
+            # menjulur sampai x = 2,18 dan menindih tulisan di bidang. Kedua,
+            # kolom itu memang baru saja diperkenalkan babak `kolom`, dan
+            # susunannya persis mengikuti kalimatnya: angka mendatar di atas,
+            # angka tegak di bawah.
+            sinema.lahir_rumus(self, r"\binom{x_B - x_A}{y_B - y_A}", p_ab, self.papan,
                                b=b, warna=SOROT, sebagai_utama=False, tahan=0.5,
                                run_time=1.0)
         self.gerbang()
