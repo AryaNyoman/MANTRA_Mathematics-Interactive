@@ -9,12 +9,19 @@ Angka contohnya mengikuti halaman materi tahap 03 persis: y = 2(x-3)^2 - 5,
 puncak (3, -5). Semua klaim angkanya diperiksa sympy lewat
 `alat/klaim-video-grafik3.json`.
 
-Satu bidang saja dipakai sepanjang video (sumbu x dari -5 sampai 6, y dari -6
-sampai 4, skala kedua sumbu SAMA). Rentang y sengaja hanya sepuluh langkah:
-ruang tegak di luar jalur subtitle dan pojok identitas cuma sekitar 4,3 satuan
-layar, dan rentang yang lebih tinggi memaksa gambarnya menciut sampai angka
-sumbunya berdesakan. Tiap kurva dipotong pada rentang x yang membuatnya tetap
-utuh di dalam bingkai itu.
+Satu bidang saja dipakai sepanjang video (sumbu x dari -5 sampai 6, y dari -8
+sampai 4, skala kedua sumbu SAMA). Tiap kurva dipotong pada rentang x yang
+membuatnya tetap utuh di dalam bingkai itu.
+
+LETAK SUMBU, DAN KENAPA BUKAN DI KIRI (revisi 9 Sep 2026)
+Versi pertama menaruh sumbu di kiri layar dengan lantai y = -6. Dari lembar
+kontak terlihat tiga akibatnya, dan ketiganya satu sebab: di kiri, ruang tegak
+dibatasi pita identitas, jadi rentang y terpaksa dangkal.
+  1. Parabola a = -1 yang puncaknya di y = -5 cuma muat selebar 1,8 satuan,
+     jadi "berbalik dan terbuka ke bawah" tidak terlihat seperti yang dikatakan.
+  2. Tengah dan kanan bawah layar kosong; gambarnya menumpuk di satu sudut.
+Sumbu sekarang di tengah kiri (x -4,4 sampai 0,6): di kanannya zona panel
+rumus, di kirinya tulisan identitas, dan lantainya bisa turun ke -8.
 """
 import json
 import sys
@@ -32,9 +39,9 @@ KATA = sinema.JamKata(TOPIK)
 
 # Satuan layar per satu langkah sumbu. Sama untuk x dan y: perbandingan
 # kemiringan yang dilihat mata harus jujur.
-SATUAN = 0.43
+SATUAN = 0.46
 X0, X1 = -5, 6
-Y0, Y1 = -6, 4
+Y0, Y1 = -8, 4
 
 
 def kuadrat(x):
@@ -56,7 +63,7 @@ class BentukPuncak(AdeganMatra):
         sumbu = Axes(x_range=(X0, X1, 1), y_range=(Y0, Y1, 2),
                      width=(X1 - X0) * SATUAN, height=(Y1 - Y0) * SATUAN,
                      axis_config=dict(stroke_color=REDUP, stroke_width=2))
-        sumbu.move_to([-3.6, -0.05, 0])
+        sumbu.move_to([-1.90, 0.52, 0])
         angka = sumbu.add_coordinate_labels(font_size=20, num_decimal_places=0)
         angka.set_color(TINTA)
         sumbu.angka = angka
@@ -92,7 +99,7 @@ class BentukPuncak(AdeganMatra):
 
         # ---- segar-ingat Materi 02: fungsi itu mesin, grafik itu jejaknya ----
         kotak_mesin = RoundedRectangle(width=1.5, height=0.9, corner_radius=0.12)
-        kotak_mesin.move_to([0.55, 1.35, 0]).set_stroke(REDUP, 2).set_fill(REDUP, 0.10)
+        kotak_mesin.move_to([5.35, -1.35, 0]).set_stroke(REDUP, 2).set_fill(REDUP, 0.10)
         isi_mesin = rumus('2x+1', 30, TINTA).move_to(kotak_mesin)
         panah_masuk = Arrow(LEFT * 0.55, ORIGIN, buff=0).set_stroke(REDUP, 3)
         panah_masuk.next_to(kotak_mesin, LEFT, buff=0.08)
@@ -152,7 +159,7 @@ class BentukPuncak(AdeganMatra):
 
         # Tabel nilai. Ditaruh di bawah panel rumus, di ruang yang tidak dipakai
         # sumbu maupun panel.
-        KOLOM_X, KOLOM_Y, ATAS, LANGKAH = 0.95, 1.95, 0.35, 0.50
+        KOLOM_X, KOLOM_Y, ATAS, LANGKAH = 2.60, 3.70, 0.55, 0.52
         kepala = VGroup(rumus('x', 26, REDUP).move_to([KOLOM_X, ATAS, 0]),
                         rumus('y', 26, REDUP).move_to([KOLOM_Y, ATAS, 0]))
 
@@ -357,7 +364,11 @@ class BentukPuncak(AdeganMatra):
             self.muncul(b, True, bu4=baris(4, '1', '3', AKSEN2), lama=0.8)
             b.main(Indicate(tu[3], color=AKSEN2, scale_factor=2.0), run_time=0.9)
 
-        sumbu_simetri = DashedLine(cp(3, -5.6), cp(3, 3.6)).set_stroke(SOROT, 2.5)
+        # Dua potong, bukan satu. Satu garis utuh menembus angka "3" di sumbu x
+        # dan membuat angkanya sulit dibaca (temuan dari lembar kontak 9 Sep).
+        sumbu_simetri = VGroup(
+            DashedLine(cp(3, 0.45), cp(3, 3.4)).set_stroke(SOROT, 2.5),
+            DashedLine(cp(3, -0.95), cp(3, -7.4)).set_stroke(SOROT, 2.5))
         cap_simetri = rumus('x=3', 26, SOROT).next_to(sumbu_simetri, UP, buff=0.10)
         with self.bagian('simetri') as b:
             b.tunggu_kata('selalu berpasangan')
@@ -410,7 +421,7 @@ class BentukPuncak(AdeganMatra):
         # ---- peran a: puncak dikunci di (3, -5) ----
         a_tiga = kurva(lambda t: utama(t, a=3.0), 1.6, 4.4, AKSEN)
         a_kecil = kurva(lambda t: utama(t, a=0.3), 0.2, 5.8, AKSEN2)
-        a_minus = kurva(lambda t: utama(t, a=-1.0), 2.1, 3.9, SOROT)
+        a_minus = kurva(lambda t: utama(t, a=-1.0), 1.3, 4.7, SOROT)
         bayang = kurva(utama, 1.2, 4.8, REDUP, 2)
 
         with self.bagian('a_besar') as b:
