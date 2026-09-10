@@ -81,6 +81,13 @@ BABAK = re.compile(r"""(?:sinema\.babak\(\s*self,|self\.bagian\()\s*(['"])([^'"]
 # kamera. Pembungkus wajib ikut terbaca: begitu sebuah sesi memakai pembungkus,
 # pemeriksa yang hanya mengenal bentuk asli akan diam-diam melewatkan sebagian
 # besar pemicu (Ruang 3D 9 Sep: 44 dari 62 pemicu sempat tidak terbaca).
+# `self.tunggu(b, 'frasa')` di Turunan 1 sampai 3 SENGAJA tidak dibaca: itu
+# pembungkus pribadi dari sebelum perkakas bersama ada, dengan pencocokan frasa
+# sendiri ("rata rata" cocok dengan "rata-rata", kemunculan dicari sesudah jam
+# berjalan). Dibaca dengan aturan JamKata, ketiga video yang sudah disetujui
+# ARYA itu menghasilkan tujuh alarm palsu (10 Sep 2026). Adegan seperti itu
+# jatuh ke laporan "NOL pemicu" di bawah, yang jujur: alat ini tidak bisa
+# memeriksanya. `tunggu_sampai(` juga tidak cocok (bukan jam kata).
 # Kelompok: 1 kutip, 2 frasa, 3 ke=.
 TUNGGU = re.compile(
     r"""tunggu_kata\w*\(\s*(?:[^)'"]*?,\s*)?(['"])([^'"]+)\1(?:\s*,\s*ke\s*=\s*(\d+))?""")
@@ -112,7 +119,13 @@ def periksa(jalur: Path) -> int:
     topik = m.group(2)
 
     from gl import sinema
-    jam = sinema.JamKata(topik)
+    try:
+        jam = sinema.JamKata(topik)
+    except FileNotFoundError as e:
+        # kata.json belum dibuat: laporkan sebagai cacat, jangan jatuh, supaya
+        # adegan lain dalam daftar yang sama tetap diperiksa.
+        print(f"{jalur.name}: KATA.JSON HILANG untuk TOPIK {topik!r}: {e}")
+        return 1
 
     # Kejadian per babak, urut: ("tunggu", frasa, ke) atau ("animasi", detik).
     segmen_kini = None
@@ -197,6 +210,16 @@ def periksa(jalur: Path) -> int:
               f"punya TOPIK = {topik!r}. Pemeriksa tidak mengerti bentuk "
               f"pembuka babaknya; jangan dianggap lolos.")
         return 1
+    if jumlah == 0:
+        # Babak terbaca tetapi tidak satu pun pemicu: adegan v3 selalu punya
+        # pemicu kata, jadi yang tidak dimengerti adalah bentuk pemicunya
+        # (Turunan 1 sampai 3 memakai `self.tunggu(b, 'frasa')` pribadi, dan
+        # sempat terbaca "0 pemicu ... semuanya maju terus").
+        print(f"{jalur.name}: {len(urut)} babak terbaca tetapi NOL pemicu. Bentuk yang "
+              f"dikenali: b.tunggu_kata(\"frasa\") dan pembungkus tunggu_kata_xxx(b, ..., "
+              f"\"frasa\"). Adegan dengan pembungkus lain (Turunan 1 sampai 3) tidak bisa "
+              f"diperiksa alat ini; jangan dianggap lolos.")
+        return max(buruk, 1)
 
     print(f"{jalur.name}: {jumlah} pemicu di {len(urut)} babak, "
           + ("semuanya maju terus dan tidak ada yang terlambat" if buruk == 0
