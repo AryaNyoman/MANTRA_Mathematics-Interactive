@@ -1,58 +1,173 @@
 {
   "adegan": "Bentuk2",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Materi 02 Statistika. Gerak dirancang lebih dulu: batang kategori benar-benar DITUKAR tempatnya dan artinya tetap, lalu batang histogram ditukar dan gambarnya jadi omong kosong. Medan `tulis` adalah bentuk tertulis untuk subtitle.",
+  "tempo": "-5%",
+  "catatan": "Tulis ulang 9 September 2026, STANDAR VIDEO v3. Segar-ingat menyebut NOMOR dan NAMA Materi 01 (kenapa satu angka bisa menipu) beserta angka kuncinya, jangkauan 2 lawan 8, dan menyambungkannya: yang menyelamatkan kita di sana adalah MELIHAT sebaran datanya. Contoh angka: 8 dari 40 siswa dihitung jadi 20 persen di layar, lalu lahir rumus persen = f dibagi n kali 100 persen. Yang DIBUKTIKAN bukan rumus melainkan ATURAN memilih gambar, lewat uji tukar yang dijalankan dua kali: pada diagram batang arti tidak berubah, pada histogram sumbunya jadi kacau. Angka kategori dari t02-cara-ke-sekolah, angka histogram dari t02-tinggi-kelompok, keduanya lolos alat/cek_statistik.py.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi dua Statistika: *dari daftar angka jadi gambar*. Empat puluh angka yang berbaris di tabel hampir tidak bisa dibaca manusia. Mata kita jauh lebih cepat menangkap tinggi daripada deretan angka.",
-      "tulis": "Materi 02 Statistika: *dari daftar angka jadi gambar*. 40 angka yang berbaris di tabel hampir tidak bisa dibaca manusia. Mata kita jauh lebih cepat menangkap tinggi daripada deretan angka."
+      "teks": "Empat puluh angka yang berbaris di dalam tabel hampir tidak bisa dibaca manusia. Karena itu data digambar. Tetapi kapan kita pakai diagram batang, dan kapan histogram?",
+      "tulis": "40 angka yang berbaris di dalam tabel hampir tidak bisa dibaca manusia. Karena itu data digambar. Tetapi kapan kita pakai diagram batang, dan kapan histogram?"
     },
     {
-      "id": "jenis",
-      "teks": "Tetapi tidak semua gambar cocok untuk semua data. Yang menentukan bukan selera, melainkan *jenis datanya*. Ada dua: data kategori, dan data angka.",
-      "tulis": "Tetapi tidak semua gambar cocok untuk semua data. Yang menentukan bukan selera, melainkan *jenis datanya*. Ada dua: data kategori, dan data angka."
+      "id": "ingat",
+      "teks": "Di Materi satu, kenapa satu angka bisa menipu, kita bertemu dua kelas yang rata-ratanya sama persis, tujuh dan tujuh. Mediannya sama, modusnya juga sama.",
+      "tulis": "Di *Materi 1, kenapa satu angka bisa menipu*, kita bertemu dua kelas yang rata-ratanya sama persis, 7 dan 7. Mediannya sama, modusnya juga sama."
     },
     {
-      "id": "batang",
-      "teks": "Ini data kategori: cara empat puluh siswa berangkat ke sekolah. Jawabannya berupa nama, bukan angka. Digambar sebagai *diagram batang*, dan antar batangnya diberi sela.",
-      "tulis": "Ini data kategori: cara 40 siswa berangkat ke sekolah. Jawabannya berupa nama, bukan angka. Digambar sebagai *diagram batang*, dan antar batangnya diberi sela."
+      "id": "ingat2",
+      "teks": "Yang akhirnya membedakan keduanya adalah jangkauan: Kelas A dua, Kelas B delapan. Dan kita baru percaya angka itu sesudah melihat titiknya berpencar di garis nilai.",
+      "tulis": "Yang akhirnya membedakan keduanya adalah *jangkauan*: Kelas A 2, Kelas B 8. Dan kita baru percaya angka itu sesudah melihat titiknya berpencar di garis nilai."
     },
     {
-      "id": "tukar",
-      "teks": "Perhatikan apa yang terjadi kalau urutannya ditukar. Sepeda motor pindah ke depan, angkot ke belakang. Gambarnya berubah, tetapi *artinya sama persis*. Kategori memang tidak punya urutan alami.",
-      "tulis": "Perhatikan apa yang terjadi kalau urutannya ditukar. Sepeda motor pindah ke depan, angkot ke belakang. Gambarnya berubah, tetapi *artinya sama persis*. Kategori memang tidak punya urutan alami."
+      "id": "bawa",
+      "teks": "Jadi yang kita bawa ke video ini satu kalimat: melihat bentuk data itu bukan hiasan, melainkan cara memeriksa. Sekarang pertanyaannya, gambar yang mana.",
+      "tulis": "Jadi yang kita bawa ke video ini satu kalimat: melihat bentuk data itu bukan hiasan, melainkan cara memeriksa. Sekarang pertanyaannya, gambar yang mana."
+    },
+    {
+      "id": "duajenis",
+      "teks": "Yang menentukan bukan selera, melainkan jenis datanya. Dan jenisnya cuma ada dua.",
+      "tulis": "Yang menentukan bukan selera, melainkan *jenis datanya*. Dan jenisnya cuma ada dua."
+    },
+    {
+      "id": "kategori",
+      "teks": "Yang pertama data kategori. Jawabannya berupa nama, bukan angka. Contohnya cara berangkat ke sekolah: jalan kaki, sepeda, sepeda motor, angkot, diantar.",
+      "tulis": "Yang pertama *data kategori*. Jawabannya berupa nama, bukan angka. Contohnya cara berangkat ke sekolah: jalan kaki, sepeda, sepeda motor, angkot, diantar."
     },
     {
       "id": "angka",
-      "teks": "Sekarang data angka: tinggi badan empat puluh siswa yang sama. Jawabannya bilangan yang bisa diukur dan diurutkan, dan di antara dua angka selalu ada angka lain.",
-      "tulis": "Sekarang data angka: tinggi badan 40 siswa yang sama. Jawabannya bilangan yang bisa diukur dan diurutkan, dan di antara dua angka selalu ada angka lain."
+      "teks": "Yang kedua data angka. Jawabannya bilangan yang bisa diukur dan diurutkan. Contohnya tinggi badan, nilai ulangan, waktu tempuh.",
+      "tulis": "Yang kedua *data angka*. Jawabannya bilangan yang bisa diukur dan diurutkan. Contohnya tinggi badan, nilai ulangan, waktu tempuh."
     },
     {
-      "id": "histogram",
-      "teks": "Karena itu batangnya digambar *rapat*, tanpa sela. Gambar ini namanya histogram, dan selanya sengaja dihilangkan sebab kelas sebelah menyebelah memang menyambung.",
-      "tulis": "Karena itu batangnya digambar *rapat*, tanpa sela. Gambar ini namanya histogram, dan selanya sengaja dihilangkan sebab kelas sebelah menyebelah memang menyambung."
+      "id": "data40",
+      "teks": "Kita mulai dari yang kategori. Empat puluh siswa ditanya cara berangkatnya, dan jawabannya dihitung satu per satu.",
+      "tulis": "Kita mulai dari yang kategori. 40 siswa ditanya cara berangkatnya, dan jawabannya dihitung satu per satu."
     },
     {
-      "id": "urut",
-      "teks": "Sekarang coba tukar urutannya seperti tadi. Sumbunya jadi seratus enam puluh, seratus lima puluh, seratus tujuh puluh. *Gambarnya jadi omong kosong*, sebab angka punya urutan.",
-      "tulis": "Sekarang coba tukar urutannya seperti tadi. Sumbunya jadi 160, 150, 170. *Gambarnya jadi omong kosong*, sebab angka punya urutan."
+      "id": "hitungf",
+      "teks": "Jalan kaki delapan siswa. Sepeda enam. Sepeda motor dua belas. Angkot lima. Diantar sembilan.",
+      "tulis": "Jalan kaki 8 siswa. Sepeda 6. Sepeda motor 12. Angkot 5. Diantar 9."
+    },
+    {
+      "id": "cek40",
+      "teks": "Kalau kelimanya dijumlahkan, hasilnya empat puluh. Sama dengan banyaknya siswa, jadi tidak ada yang terlewat.",
+      "tulis": "Kalau kelimanya dijumlahkan, hasilnya 40. Sama dengan banyaknya siswa, jadi tidak ada yang terlewat."
+    },
+    {
+      "id": "persen1",
+      "teks": "Berapa bagian yang jalan kaki? Delapan dari empat puluh. Dibagi, hasilnya nol koma dua.",
+      "tulis": "Berapa bagian yang jalan kaki? 8 dari 40. Dibagi, hasilnya 0,2."
+    },
+    {
+      "id": "persen2",
+      "teks": "Nol koma dua artinya dua puluh per seratus. Dikali seratus persen, jadi dua puluh persen.",
+      "tulis": "0,2 artinya 20 per 100. Dikali 100%, jadi 20%."
+    },
+    {
+      "id": "rumuspersen",
+      "teks": "Hitungan yang sama berlaku untuk kategori mana pun. Frekuensinya dibagi banyaknya data seluruhnya, lalu dikali seratus persen.",
+      "tulis": "Hitungan yang sama berlaku untuk kategori mana pun. Frekuensinya dibagi banyaknya data seluruhnya, lalu dikali 100%."
+    },
+    {
+      "id": "persenlain",
+      "teks": "Dengan rumus itu, sepeda lima belas persen, sepeda motor tiga puluh persen, angkot dua belas koma lima persen, dan diantar dua puluh dua koma lima persen.",
+      "tulis": "Dengan rumus itu, sepeda 15%, sepeda motor 30%, angkot 12,5%, dan diantar 22,5%."
+    },
+    {
+      "id": "batang",
+      "teks": "Sekarang digambar. Tiap kategori diberi satu batang, dan tinggi batangnya menunjukkan banyaknya siswa. Inilah diagram batang.",
+      "tulis": "Sekarang digambar. Tiap kategori diberi satu batang, dan tinggi batangnya menunjukkan banyaknya siswa. Inilah *diagram batang*."
     },
     {
       "id": "sela",
-      "teks": "Jadi sela antar batang itu *bukan hiasan*. Ada sela berarti kategori, tidak menyambung, boleh ditukar. Tidak ada sela berarti angka, menyambung, tidak boleh ditukar.",
-      "tulis": "Jadi sela antar batang itu *bukan hiasan*. Ada sela berarti kategori, tidak menyambung, boleh ditukar. Tidak ada sela berarti angka, menyambung, tidak boleh ditukar."
+      "teks": "Perhatikan ada sela di antara batangnya. Sela itu bukan hiasan. Ia menandakan bahwa kategori yang bersebelahan tidak menyambung.",
+      "tulis": "Perhatikan ada *sela* di antara batangnya. Sela itu bukan hiasan. Ia menandakan bahwa kategori yang bersebelahan tidak menyambung."
+    },
+    {
+      "id": "tukar1",
+      "teks": "Sekarang kita uji. Batang sepeda motor dan batang angkot kita tukar tempatnya. Perhatikan apa yang berubah.",
+      "tulis": "Sekarang kita uji. Batang sepeda motor dan batang angkot kita tukar tempatnya. Perhatikan apa yang berubah."
+    },
+    {
+      "id": "tukar2",
+      "teks": "Ternyata tidak ada yang berubah. Sepeda motor tetap dua belas, angkot tetap lima. Gambarnya masih berkata persis sama.",
+      "tulis": "Ternyata tidak ada yang berubah. Sepeda motor tetap 12, angkot tetap 5. Gambarnya masih berkata persis sama."
+    },
+    {
+      "id": "kenapaboleh",
+      "teks": "Boleh ditukar karena kategori tidak punya urutan alami. Tidak ada yang namanya setengah angkot, dan angkot tidak berada di antara sepeda dan diantar.",
+      "tulis": "Boleh ditukar karena kategori tidak punya urutan alami. Tidak ada yang namanya setengah angkot, dan angkot tidak berada di antara sepeda dan diantar."
+    },
+    {
+      "id": "pindah",
+      "teks": "Sekarang data angka. Empat puluh siswa yang sama kita ukur tinggi badannya, dan hasilnya tersebar dari seratus lima puluh dua sampai seratus delapan puluh sentimeter.",
+      "tulis": "Sekarang data angka. 40 siswa yang sama kita ukur tinggi badannya, dan hasilnya tersebar dari 152 sampai 180 cm."
+    },
+    {
+      "id": "kelompok",
+      "teks": "Empat puluh tinggi yang semuanya berbeda terlalu banyak untuk digambar satu per satu. Jadi kita kelompokkan, tiap kelompok selebar sepuluh sentimeter.",
+      "tulis": "40 tinggi yang semuanya berbeda terlalu banyak untuk digambar satu per satu. Jadi kita kelompokkan, tiap kelompok selebar 10 cm."
+    },
+    {
+      "id": "frek",
+      "teks": "Dihitung: seratus lima puluh sampai seratus enam puluh ada enam siswa. Seratus enam puluh sampai seratus tujuh puluh ada dua puluh dua. Seratus tujuh puluh sampai seratus delapan puluh ada sebelas. Sisanya satu.",
+      "tulis": "Dihitung: 150 sampai 160 ada 6 siswa. 160 sampai 170 ada 22. 170 sampai 180 ada 11. Sisanya 1."
+    },
+    {
+      "id": "cek40b",
+      "teks": "Dijumlahkan, enam tambah dua puluh dua tambah sebelas tambah satu sama dengan empat puluh. Cocok lagi.",
+      "tulis": "Dijumlahkan, 6 + 22 + 11 + 1 = 40. Cocok lagi."
+    },
+    {
+      "id": "histogram",
+      "teks": "Sekarang digambar, dan di sini batangnya digambar rapat, tanpa sela sedikit pun. Gambar ini namanya histogram.",
+      "tulis": "Sekarang digambar, dan di sini batangnya digambar *rapat*, tanpa sela sedikit pun. Gambar ini namanya *histogram*."
+    },
+    {
+      "id": "kenaparapat",
+      "teks": "Rapat karena kelas yang bersebelahan memang bersambung. Kelompok pertama berhenti di seratus enam puluh, dan kelompok kedua mulai dari seratus enam puluh juga. Tidak ada tinggi badan yang jatuh di celah.",
+      "tulis": "Rapat karena kelas yang bersebelahan memang bersambung. Kelompok pertama berhenti di 160, dan kelompok kedua mulai dari 160 juga. Tidak ada tinggi badan yang jatuh di celah."
+    },
+    {
+      "id": "tukar3",
+      "teks": "Sekarang uji yang sama kita jalankan di sini. Batang seratus enam puluh sampai seratus tujuh puluh kita tukar dengan tetangganya.",
+      "tulis": "Sekarang uji yang sama kita jalankan di sini. Batang 160 sampai 170 kita tukar dengan tetangganya."
+    },
+    {
+      "id": "kacau",
+      "teks": "Dan sekarang sumbunya berbunyi seratus lima puluh, seratus enam puluh, lalu seratus tujuh puluh, lalu seratus enam puluh lagi. Itu bukan garis bilangan, itu kacau.",
+      "tulis": "Dan sekarang sumbunya berbunyi 150, 160, lalu 170, lalu 160 lagi. Itu bukan garis bilangan, itu kacau."
+    },
+    {
+      "id": "aturan",
+      "teks": "Dari dua percobaan tadi lahir aturan memilihnya, dan aturannya cukup satu uji. Tukar dua batang yang bersebelahan.",
+      "tulis": "Dari dua percobaan tadi lahir aturan memilihnya, dan aturannya cukup satu uji. *Tukar dua batang yang bersebelahan*."
+    },
+    {
+      "id": "aturan2",
+      "teks": "Kalau artinya tidak berubah, itu diagram batang, dan batangnya wajib diberi sela. Kalau artinya jadi kacau, itu histogram, dan batangnya wajib rapat.",
+      "tulis": "Kalau artinya tidak berubah, itu *diagram batang*, dan batangnya wajib diberi sela. Kalau artinya jadi kacau, itu *histogram*, dan batangnya wajib rapat."
     },
     {
       "id": "lineplot",
-      "teks": "Ada satu gambar lagi yang berguna untuk data sedikit: *line plot*, atau diagram titik. Tiap data jadi satu titik, apa adanya, dan tidak ada satu pun yang disembunyikan di dalam kelompok.",
-      "tulis": "Ada satu gambar lagi yang berguna untuk data sedikit: *line plot*, atau diagram titik. Tiap data jadi satu titik, apa adanya, dan tidak ada satu pun yang disembunyikan di dalam kelompok."
+      "teks": "Untuk data yang sedikit ada satu gambar lagi yang tidak menyembunyikan apa pun: line plot, dalam bahasa Indonesia diagram titik. Persis yang kita pakai di Materi satu.",
+      "tulis": "Untuk data yang sedikit ada satu gambar lagi yang tidak menyembunyikan apa pun: *line plot*, dalam bahasa Indonesia diagram titik. Persis yang kita pakai di Materi 1."
+    },
+    {
+      "id": "lineplot2",
+      "teks": "Tiap data jadi satu titik, dan nilai yang muncul dua kali membuat dua titik bertumpuk. Modus terlihat sebagai tumpukan tertinggi, dan yang terpencil sendirian langsung ketahuan.",
+      "tulis": "Tiap data jadi satu titik, dan nilai yang muncul dua kali membuat dua titik bertumpuk. Modus terlihat sebagai tumpukan tertinggi, dan yang terpencil sendirian langsung ketahuan."
     },
     {
       "id": "tutup",
-      "teks": "Jadi sebelum menggambar, pertanyaannya bukan gambar mana yang paling bagus, melainkan *data ini jenis apa*.",
-      "tulis": "Jadi sebelum menggambar, pertanyaannya bukan gambar mana yang paling bagus, melainkan *data ini jenis apa*."
+      "teks": "Jadi sebelum menggambar, pertanyaannya bukan gambar mana yang paling bagus, melainkan data ini jenisnya apa. Jenis datanya yang memilih gambarnya.",
+      "tulis": "Jadi sebelum menggambar, pertanyaannya bukan gambar mana yang paling bagus, melainkan data ini jenisnya apa. Jenis datanya yang memilih gambarnya."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Tadi keempat kelompok tinggi badan sama lebarnya, sepuluh sentimeter. Di Materi tiga kita lihat apa yang terjadi kalau lebarnya dibuat berbeda, dan kenapa yang dibaca sebenarnya luas batangnya, bukan tingginya.",
+      "tulis": "Tadi keempat kelompok tinggi badan sama lebarnya, 10 cm. Di Materi 3 kita lihat apa yang terjadi kalau lebarnya dibuat berbeda, dan kenapa yang dibaca sebenarnya *luas* batangnya, bukan tingginya."
     }
   ]
 }
