@@ -1,143 +1,192 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/tahap8-grafik-sin.json
+NOTE Dibuat otomatis dari manim/narasi/tahap8-grafik-sin.json (waktu kata rekaman)
+NOTE naskah-sidik ee5882b6af0e
 
 1
-00:00:00.000 --> 00:00:03.672
-Perhatikan bagaimana terbentuknya <b>grafik sinus</b>.
+00:00:00.101 --> 00:00:03.317
+Grafik Fungsi Trigonometri, Bagian 1.
 
 2
-00:00:03.672 --> 00:00:05.746
-Semuanya dimulai dari sebuah
+00:00:04.051 --> 00:00:05.670
+Dari mana datangnya bentuk grafik
 
 3
-00:00:05.746 --> 00:00:07.968
-lingkaran yang berjari-jari 1.
+00:00:05.670 --> 00:00:07.096
+sinus yang naik turun itu?
 
 4
-00:00:07.968 --> 00:00:10.326
-Sebuah titik berjalan di tepinya,
+00:00:08.316 --> 00:00:09.828
+Di materi sebelumnya,
 
 5
-00:00:10.326 --> 00:00:14.328
-berlawanan arah jarum jam, berangkat dari sebelah kanan.
+00:00:09.828 --> 00:00:13.139
+Lingkaran Satuan dan Sudut Istimewa, Bagian 1,
 
 6
-00:00:14.328 --> 00:00:17.128
-Yang kita perhatikan cuma satu hal.
+00:00:13.139 --> 00:00:16.667
+titik di lingkaran satuan punya koordinat (cos θ,
 
 7
-00:00:17.128 --> 00:00:21.048
-Seberapa tinggi titik itu di atas garis mendatar.
+00:00:16.667 --> 00:00:18.017
+sin θ).
 
 8
-00:00:21.048 --> 00:00:23.928
-Tinggi itulah yang kita sebut <b>sin θ</b>.
+00:00:18.054 --> 00:00:19.647
+Jadi sin θ tidak lain adalah
 
 9
-00:00:23.928 --> 00:00:26.832
-Sekarang lingkarannya kita geser ke kiri,
+00:00:19.647 --> 00:00:22.072
+<b>tinggi titik itu</b> di atas garis mendatar.
 
 10
-00:00:26.832 --> 00:00:30.162
-dan di sebelah kanan kita siapkan papan kosong.
+00:00:23.282 --> 00:00:26.273
+Sekarang biarkan titik itu berjalan di tepi lingkaran,
 
 11
-00:00:30.162 --> 00:00:32.287
-Sumbu mendatarnya besar sudut,
+00:00:26.273 --> 00:00:29.525
+berlawanan arah jarum jam, berangkat dari sebelah kanan.
 
 12
-00:00:32.287 --> 00:00:34.200
-sumbu tegaknya tinggi tadi.
+00:00:30.735 --> 00:00:32.819
+Yang kita perhatikan cuma satu hal.
 
 13
-00:00:34.200 --> 00:00:36.087
-Titiknya mulai berjalan.
+00:00:33.553 --> 00:00:36.321
+Seberapa tinggi titik itu di atas garis mendatar.
 
 14
-00:00:36.087 --> 00:00:37.973
-Setiap kali ia bergerak,
+00:00:37.052 --> 00:00:38.900
+Tinggi itulah <b>sin θ</b>.
 
 15
-00:00:37.973 --> 00:00:40.724
-tingginya kita bawa lurus ke kanan,
+00:00:40.116 --> 00:00:42.292
+Sekarang lingkarannya kita geser ke kiri,
 
 16
-00:00:40.724 --> 00:00:42.768
-lalu kita tandai di papan.
+00:00:42.292 --> 00:00:44.937
+dan di sebelah kanan kita siapkan papan kosong.
 
 17
-00:00:42.768 --> 00:00:45.938
-Di 90° titiknya berada paling atas.
+00:00:45.670 --> 00:00:47.560
+Sumbu mendatarnya besar sudut,
 
 18
-00:00:45.938 --> 00:00:47.138
-Tingginya 1,
+00:00:47.560 --> 00:00:49.412
+sumbu tegaknya tinggi tadi.
 
 19
-00:00:47.138 --> 00:00:51.192
-dan itu setinggi-tingginya yang bisa ia capai.
+00:00:50.634 --> 00:00:52.337
+Titiknya mulai berjalan.
 
 20
-00:00:51.192 --> 00:00:54.367
-Lewat 90°, titiknya mulai turun.
+00:00:53.086 --> 00:00:54.509
+Setiap kali ia bergerak,
 
 21
-00:00:54.367 --> 00:00:58.732
-Di 180° ia kembali menyentuh garis mendatar,
+00:00:54.509 --> 00:00:56.584
+tingginya kita bawa lurus ke kanan,
 
 22
-00:00:58.732 --> 00:01:00.816
-dan tingginya 0 lagi.
+00:00:56.584 --> 00:00:58.275
+lalu kita tandai di papan.
 
 23
-00:01:00.816 --> 00:01:05.362
-Setelah itu titiknya masuk ke bawah garis.
+00:00:59.468 --> 00:01:02.565
+Coba cek dengan sudut istimewa dari Bagian 3 tadi.
 
 24
-00:01:05.362 --> 00:01:08.177
-Tingginya menjadi negatif.
+00:01:03.314 --> 00:01:08.698
+Di 30° tingginya 1/2, dan di 60° tingginya √3/2,
 
 25
-00:01:08.177 --> 00:01:11.208
-Di 270° ia paling dalam, -1.
+00:01:08.698 --> 00:01:10.306
+sekitar 0,87.
 
 26
-00:01:11.208 --> 00:01:16.105
-Di 360° titiknya sampai lagi di tempat ia berangkat.
+00:01:11.535 --> 00:01:14.435
+Di 90° titiknya berada paling atas.
 
 27
-00:01:16.105 --> 00:01:18.648
-Satu putaran penuh selesai.
+00:01:15.169 --> 00:01:16.369
+Tingginya 1,
 
 28
-00:01:18.648 --> 00:01:20.592
-Kalau titiknya jalan terus,
+00:01:16.369 --> 00:01:19.462
+dan itu setinggi-tingginya yang bisa ia capai.
 
 29
-00:01:20.592 --> 00:01:23.112
-ia hanya mengulang jalan yang sama.
+00:01:20.235 --> 00:01:23.450
+Lewat 90°, titiknya mulai turun.
 
 30
-00:01:23.112 --> 00:01:26.352
-Maka kurvanya pun mengulang bentuk yang sama,
+00:01:24.199 --> 00:01:27.512
+Di 180° ia kembali menyentuh garis mendatar,
 
 31
-00:01:26.352 --> 00:01:27.936
-tanpa pernah berhenti.
+00:01:27.512 --> 00:01:29.244
+dan tingginya 0 lagi.
 
 32
-00:01:27.936 --> 00:01:29.469
-Inilah grafik sinus.
+00:01:30.435 --> 00:01:32.887
+Setelah itu titiknya masuk ke bawah garis.
 
 33
-00:01:29.469 --> 00:01:31.923
-Bukan gambar yang harus dihafal,
+00:01:33.621 --> 00:01:35.442
+Tingginya menjadi negatif.
 
 34
-00:01:31.923 --> 00:01:34.146
-melainkan <b>jejak tinggi</b> sebuah
+00:01:36.189 --> 00:01:39.878
+Di 270° ia paling dalam, −1.
 
 35
-00:01:34.146 --> 00:01:36.216
+00:01:41.101 --> 00:01:45.041
+Di 360° titiknya sampai lagi di tempat ia berangkat.
+
+36
+00:01:45.775 --> 00:01:47.609
+Satu putaran penuh selesai.
+
+37
+00:01:48.801 --> 00:01:50.303
+Kalau titiknya jalan terus,
+
+38
+00:01:50.303 --> 00:01:52.399
+ia hanya mengulang jalan yang sama.
+
+39
+00:01:53.133 --> 00:01:55.731
+Maka kurvanya pun mengulang bentuk yang sama,
+
+40
+00:01:55.731 --> 00:01:57.151
+tanpa pernah berhenti.
+
+41
+00:01:58.367 --> 00:02:00.030
+Inilah grafik sinus.
+
+42
+00:02:00.780 --> 00:02:02.526
+Bukan gambar yang harus dihafal,
+
+43
+00:02:02.526 --> 00:02:04.109
+melainkan <b>jejak tinggi</b> sebuah
+
+44
+00:02:04.109 --> 00:02:05.732
 titik yang sedang berputar.
+
+45
+00:02:06.935 --> 00:02:10.540
+Di materi berikutnya, Grafik Fungsi Trigonometri,
+
+46
+00:02:10.540 --> 00:02:14.145
+Bagian 2, kita jajarkan grafik sin, cos, dan tan,
+
+47
+00:02:14.145 --> 00:02:17.900
+yang ketiganya lahir dari satu putaran yang sama.

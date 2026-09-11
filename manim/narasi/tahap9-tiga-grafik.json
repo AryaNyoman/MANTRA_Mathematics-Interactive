@@ -1,18 +1,28 @@
 {
   "adegan": "TigaGrafikBersama",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Tahap 9, Sin, cos, tan berdampingan. Pola visual meniru referensi 4 (Grafik SIN COS TAN): tiga panel bertumpuk, masing-masing lingkaran kecil di kiri dan grafiknya di kanan, semuanya digerakkan SATU sudut yang sama. Inti yang harus tertanam: ketiga kurva lahir dari satu putaran; yang berbeda hanya apa yang dicatat. Asimtot tangen dijelaskan sebagai akibat pembagian dengan nol, bukan sebagai 'nilainya tak hingga'.",
+  "tempo": "-5%",
+  "catatan": "Grafik Fungsi Trigonometri, Bagian 2 (Materi 09). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (tiga panel: sin mencatat tinggi, cos posisi mendatar dan berangkat 90 lebih awal, tan = tinggi : mendatar dengan jurang di 90, sin dan cos terkurung 1 dan -1, tan tanpa batas, tan mengulang tiap 180). Yang ditambah: pembuka sub-bab plus Bagian 2, segar-ingat grafik sinus dari Bagian 1, contoh angka tan 45 = 1, penutup menunjuk Penerapan Trigonometri.",
   "segmen": [
     {
-      "id": "sapa",
+      "id": "buka",
+      "teks": "Grafik Fungsi Trigonometri, Bagian dua. Kalau sinus, cosinus, dan tangen lahir dari satu titik yang sama, kenapa bentuk grafiknya berbeda?",
+      "tulis": "Grafik Fungsi Trigonometri, Bagian 2. Kalau sin, cos, dan tan lahir dari satu titik yang sama, kenapa bentuk grafiknya berbeda?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di materi sebelumnya, Grafik Fungsi Trigonometri, Bagian satu, grafik sinus lahir sebagai jejak tinggi sebuah titik yang berputar di lingkaran satuan.",
+      "tulis": "Di materi sebelumnya, Grafik Fungsi Trigonometri, Bagian 1, grafik sinus lahir sebagai jejak tinggi sebuah titik yang berputar di lingkaran satuan."
+    },
+    {
+      "id": "tiga",
       "teks": "Sekarang kita letakkan sinus, cosinus, dan tangen berdampingan. Ketiganya digerakkan oleh *satu sudut yang sama*.",
       "tulis": "Sekarang kita letakkan sin, cos, dan tan berdampingan. Ketiganya digerakkan oleh *satu sudut yang sama*."
     },
     {
       "id": "sin",
-      "teks": "Yang pertama sudah kita kenal dari tahap delapan. Sinus mencatat tinggi titik, dan jejaknya melahirkan kurva yang naik turun antara satu dan minus satu.",
-      "tulis": "Yang pertama sudah kita kenal dari tahap 8. sin mencatat tinggi titik, dan jejaknya melahirkan kurva yang naik turun antara 1 dan -1."
+      "teks": "Yang pertama sudah kita kenal. Sinus mencatat tinggi titik, dan jejaknya melahirkan kurva yang naik turun antara satu dan minus satu.",
+      "tulis": "Yang pertama sudah kita kenal. sin mencatat tinggi titik, dan jejaknya melahirkan kurva yang naik turun antara 1 dan −1."
     },
     {
       "id": "cos",
@@ -26,8 +36,8 @@
     },
     {
       "id": "tan",
-      "teks": "Yang ketiga berbeda sendiri. Tangen adalah tinggi dibagi posisi mendatar.",
-      "tulis": "Yang ketiga berbeda sendiri. tan = tinggi : posisi mendatar."
+      "teks": "Yang ketiga berbeda sendiri. Tangen sama dengan tinggi dibagi posisi mendatar. Di empat puluh lima derajat keduanya sama besar, jadi tangennya tepat satu.",
+      "tulis": "Yang ketiga berbeda sendiri. tan = tinggi : posisi mendatar. Di 45° keduanya sama besar, jadi tan-nya tepat 1."
     },
     {
       "id": "bagi",
@@ -42,7 +52,7 @@
     {
       "id": "banding",
       "teks": "Sinus dan cosinus terkurung rapat antara satu dan minus satu. Tangen tidak punya batas, baik ke atas maupun ke bawah.",
-      "tulis": "sin dan cos terkurung rapat antara 1 dan -1. tan tidak punya batas, baik ke atas maupun ke bawah."
+      "tulis": "sin dan cos terkurung rapat antara 1 dan −1. tan tidak punya batas, baik ke atas maupun ke bawah."
     },
     {
       "id": "ulang",
@@ -53,6 +63,11 @@
       "id": "tutup",
       "teks": "Tiga kurva, satu putaran. Yang berbeda hanya apa yang dicatat dari perjalanan yang sama.",
       "tulis": "3 kurva, 1 putaran. Yang berbeda hanya apa yang dicatat dari perjalanan yang sama."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Penerapan Trigonometri, kita lihat di mana sudut dan perbandingan ini dipakai di dunia nyata.",
+      "tulis": "Di materi berikutnya, Penerapan Trigonometri, kita lihat di mana sudut dan perbandingan ini dipakai di dunia nyata."
     }
   ]
 }

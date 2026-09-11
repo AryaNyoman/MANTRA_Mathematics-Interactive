@@ -611,7 +611,7 @@ export const TAHAP: Tahap[] = [
       isi: 'Sumbu mendatarnya bukan jarak atau posisi, melainkan besar sudut. Jadi kurva ini tidak menggambarkan bentuk benda apa pun, ia grafik nilai terhadap sudut, sama seperti grafik suhu terhadap waktu.',
     },
     widget: 'lingkaran-ke-grafik',
-    video: { berkas: 'tahap8-grafik-sin.webm', poster: 'tahap8-grafik-sin.jpg' },
+    video: { berkas: 'tahap8-grafik-sin.mp4', poster: 'tahap8-grafik-sin.jpg' },
     siap: true,
   },
   {
@@ -686,7 +686,7 @@ export const TAHAP: Tahap[] = [
       isi: 'Tak hingga bukan sebuah angka. Yang benar: pada 90° nilai tan tidak terdefinisi, tidak ada bilangan yang bisa ditulis di sana. Kurvanya mendekati garis putus-putus itu sedekat apa pun, tapi tidak pernah menyentuhnya.',
     },
     widget: 'tiga-grafik',
-    video: { berkas: 'tahap9-tiga-grafik.webm', poster: 'tahap9-tiga-grafik.jpg' },
+    video: { berkas: 'tahap9-tiga-grafik.mp4', poster: 'tahap9-tiga-grafik.jpg' },
     siap: true,
   },
   {

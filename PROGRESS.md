@@ -1,5 +1,44 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 12 SEP (dini hari): TRIGONOMETRI 05 SAMPAI 09 SELESAI v3.1, SEMUA VIDEO TRIGONOMETRI TAYANG (master 4c4ffdc plus 08 dan 09)
+
+ARYA menonton 02 dan 04 (11 Sep malam): "sudah sangat bagus ... Aku suka
+semua", dengan dua koreksi yang berlaku untuk SEMUA video: (1) sorot rumus
+tidak boleh menutup rumusnya (Indicate pada panel membuatnya jadi kotak ungu,
+"terlihat seperti glitch"): kini `papan.sorot()` menyorot barisnya saja dan
+sorot garis atau kurva memakai pita ungu TEMBUS PANDANG yang lebih lebar
+dari bendanya; (2) tidak boleh ada potongan gambar yang tidak dijelaskan
+(busur seperempat lingkaran sebagai "pancingan" dianggap glitch): dihapus.
+ARYA: "lanjut saja sampai tuntas ... langsung 1080p kan saja", jadi
+sisanya dikerjakan MASTER tanpa tinjauan per video, langsung 1080p60.
+- 05 Lingkaran Satuan Bagian 1 (2:26), 06 Bagian 2 (2:22), 07 Bagian 3
+  (2:32), 08 Grafik Fungsi Trigonometri Bagian 1 (2:19), 09 Bagian 2 (2:07).
+  Isi tetap sama dengan naskah lama; tambahannya pembuka sub-bab, segar-ingat
+  dari bagian sebelumnya, contoh angka, penutup menunjuk bagian berikutnya.
+- 08: lingkaran besar di tengah untuk segar-ingat lalu DIGESER mengecil ke
+  kiri (empat pelacak: pusat, jari-jari, sudut), papan grafik di kanan
+  dengan satu satuan tinggi = jari-jari sehingga penghubungnya mendatar;
+  catatan contoh (sin 30, sin 60) di ruang kosong di atas papan; tiga grafik
+  kecil sin, cos, tan sebagai penunjuk Bagian 2.
+- 09: tiga panel (pola beranda) diperkecil supaya jalur subtitle dan pojok
+  identitas terjaga; TIGA pelacak sudut (versi lama mengembalikan satu
+  pelacak ke nol sehingga kurva yang sudah jadi lenyap), "satu sudut yang
+  sama" diperlihatkan lewat gerak serentak 0 ke 45 dan satu putaran penuh di
+  penutup; tan digambar per cabang dengan asimtot; panel rumus HUD tidak
+  dipakai (papan atas memenuhi zonanya), rumus tan di kolom kanan.
+- JEBAKAN BARU: dua render 1080p60 SEKALIGUS menghasilkan video 05 HITAM dari
+  detik 54 tanpa galat apa pun (ketahuan `cek_layar_kosong`). Aturan: render
+  1080p SATU PER SATU, dan `cek_layar_kosong` wajib pada berkas final.
+  `FadeIn` pada kurva `always_redraw` yang jumlah titiknya berubah GAGAL
+  ("could not broadcast"): munculkan salinan diam lalu tukar.
+- Semua gerbang lolos, lembar kontak 480p dan 1080p dibuka per video.
+  tahap.ts menunjuk mp4, webm lama dihapus, deploy produksi (05 sampai 07
+  dulu, lalu 08 dan 09), ukuran mp4 di produksi diverifikasi sama.
+Berikutnya: 47 video lain masih pembuka lama (cek_pembuka_video), urutan:
+Limit (7, belum ada adegan ManimGL, tulis dari arsip CE), lalu Vektor,
+Grafik, Ruang 3D, Statistika, Transformasi, Turunan 06 dan 07, Integral.
+Turunan 01 sampai 04 dibiarkan (keputusan ARYA 10 Sep).
+
 ## 11 SEP (malam): DUA VIDEO PERTAMA v3.1, TRIGONOMETRI 02 DAN 04, MENUNGGU ARYA (master 14052da)
 
 Permintaan ARYA: mulai dari Trigonometri, dua video sekaligus, durasi

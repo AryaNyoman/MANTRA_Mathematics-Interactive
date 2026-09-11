@@ -1,34 +1,43 @@
 {
   "adegan": "GrafikSinusLahir",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Tahap 8, Terbentuknya grafik sinus. Pola visual meniru referensi 3 (Visualizing Trigonometry: Fungsi SIN): lingkaran mengecil ke kiri, sumbu grafik muncul di kanan, garis mendatar membawa tinggi titik ke papan grafik. Satu sumber kebenaran untuk naskah, jangan ditulis ulang di adegan.",
+  "tempo": "-5%",
+  "catatan": "Grafik Fungsi Trigonometri, Bagian 1 (Materi 08). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (titik berjalan di lingkaran satuan, tingginya dibawa ke papan grafik, puncak di 90, nol di 180, lembah di 270, satu putaran di 360, kurva mengulang). Yang ditambah: pembuka sub-bab plus Bagian 1, segar-ingat sin theta = tinggi titik dari Lingkaran Satuan Bagian 1, contoh angka sudut istimewa (sin 30 = 1/2, sin 60 = akar 3 per 2) dari Bagian 3, penutup menunjuk Bagian 2.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Perhatikan bagaimana terbentuknya *grafik sinus*."
-    },
-    {
-      "id": "mulai",
-      "teks": "Semuanya dimulai dari sebuah lingkaran yang berjari-jari satu.",
-      "tulis": "Semuanya dimulai dari sebuah lingkaran yang berjari-jari 1."
-    },
-    {
       "id": "buka",
-      "teks": "Sebuah titik berjalan di tepinya, berlawanan arah jarum jam, berangkat dari sebelah kanan."
+      "teks": "Grafik Fungsi Trigonometri, Bagian satu. Dari mana datangnya bentuk grafik sinus yang naik turun itu?",
+      "tulis": "Grafik Fungsi Trigonometri, Bagian 1. Dari mana datangnya bentuk grafik sinus yang naik turun itu?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di materi sebelumnya, Lingkaran Satuan dan Sudut Istimewa, Bagian satu, titik di lingkaran satuan punya koordinat cosinus theta koma sinus theta. Jadi sinus theta tidak lain adalah *tinggi titik itu* di atas garis mendatar.",
+      "tulis": "Di materi sebelumnya, Lingkaran Satuan dan Sudut Istimewa, Bagian 1, titik di lingkaran satuan punya koordinat (cos θ, sin θ). Jadi sin θ tidak lain adalah *tinggi titik itu* di atas garis mendatar."
+    },
+    {
+      "id": "jalan",
+      "teks": "Sekarang biarkan titik itu berjalan di tepi lingkaran, berlawanan arah jarum jam, berangkat dari sebelah kanan.",
+      "tulis": "Sekarang biarkan titik itu berjalan di tepi lingkaran, berlawanan arah jarum jam, berangkat dari sebelah kanan."
     },
     {
       "id": "tinggi",
-      "teks": "Yang kita perhatikan cuma satu hal. Seberapa tinggi titik itu di atas garis mendatar. Tinggi itulah yang kita sebut *sinus theta*.",
-      "tulis": "Yang kita perhatikan cuma satu hal. Seberapa tinggi titik itu di atas garis mendatar. Tinggi itulah yang kita sebut *sin θ*."
+      "teks": "Yang kita perhatikan cuma satu hal. Seberapa tinggi titik itu di atas garis mendatar. Tinggi itulah *sinus theta*.",
+      "tulis": "Yang kita perhatikan cuma satu hal. Seberapa tinggi titik itu di atas garis mendatar. Tinggi itulah *sin θ*."
     },
     {
       "id": "geser",
-      "teks": "Sekarang lingkarannya kita geser ke kiri, dan di sebelah kanan kita siapkan papan kosong. Sumbu mendatarnya besar sudut, sumbu tegaknya tinggi tadi."
+      "teks": "Sekarang lingkarannya kita geser ke kiri, dan di sebelah kanan kita siapkan papan kosong. Sumbu mendatarnya besar sudut, sumbu tegaknya tinggi tadi.",
+      "tulis": "Sekarang lingkarannya kita geser ke kiri, dan di sebelah kanan kita siapkan papan kosong. Sumbu mendatarnya besar sudut, sumbu tegaknya tinggi tadi."
     },
     {
       "id": "sapu",
-      "teks": "Titiknya mulai berjalan. Setiap kali ia bergerak, tingginya kita bawa lurus ke kanan, lalu kita tandai di papan."
+      "teks": "Titiknya mulai berjalan. Setiap kali ia bergerak, tingginya kita bawa lurus ke kanan, lalu kita tandai di papan.",
+      "tulis": "Titiknya mulai berjalan. Setiap kali ia bergerak, tingginya kita bawa lurus ke kanan, lalu kita tandai di papan."
+    },
+    {
+      "id": "contoh",
+      "teks": "Coba cek dengan sudut istimewa dari Bagian tiga tadi. Di tiga puluh derajat tingginya setengah, dan di enam puluh derajat tingginya akar tiga per dua, sekitar nol koma delapan tujuh.",
+      "tulis": "Coba cek dengan sudut istimewa dari Bagian 3 tadi. Di 30° tingginya 1/2, dan di 60° tingginya √3/2, sekitar 0,87."
     },
     {
       "id": "puncak",
@@ -37,13 +46,13 @@
     },
     {
       "id": "turun",
-      "teks": "Lewat sembilan puluh, titiknya mulai turun. Di seratus delapan puluh derajat ia kembali menyentuh garis mendatar, dan tingginya nol lagi.",
+      "teks": "Lewat sembilan puluh derajat, titiknya mulai turun. Di seratus delapan puluh derajat ia kembali menyentuh garis mendatar, dan tingginya nol lagi.",
       "tulis": "Lewat 90°, titiknya mulai turun. Di 180° ia kembali menyentuh garis mendatar, dan tingginya 0 lagi."
     },
     {
       "id": "bawah",
       "teks": "Setelah itu titiknya masuk ke bawah garis. Tingginya menjadi negatif. Di dua ratus tujuh puluh derajat ia paling dalam, minus satu.",
-      "tulis": "Setelah itu titiknya masuk ke bawah garis. Tingginya menjadi negatif. Di 270° ia paling dalam, -1."
+      "tulis": "Setelah itu titiknya masuk ke bawah garis. Tingginya menjadi negatif. Di 270° ia paling dalam, −1."
     },
     {
       "id": "genap",
@@ -52,11 +61,18 @@
     },
     {
       "id": "ulang",
-      "teks": "Kalau titiknya jalan terus, ia hanya mengulang jalan yang sama. Maka kurvanya pun mengulang bentuk yang sama, tanpa pernah berhenti."
+      "teks": "Kalau titiknya jalan terus, ia hanya mengulang jalan yang sama. Maka kurvanya pun mengulang bentuk yang sama, tanpa pernah berhenti.",
+      "tulis": "Kalau titiknya jalan terus, ia hanya mengulang jalan yang sama. Maka kurvanya pun mengulang bentuk yang sama, tanpa pernah berhenti."
     },
     {
       "id": "tutup",
-      "teks": "Inilah grafik sinus. Bukan gambar yang harus dihafal, melainkan *jejak tinggi* sebuah titik yang sedang berputar."
+      "teks": "Inilah grafik sinus. Bukan gambar yang harus dihafal, melainkan *jejak tinggi* sebuah titik yang sedang berputar.",
+      "tulis": "Inilah grafik sinus. Bukan gambar yang harus dihafal, melainkan *jejak tinggi* sebuah titik yang sedang berputar."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Grafik Fungsi Trigonometri, Bagian dua, kita jajarkan grafik sinus, cosinus, dan tangen, yang ketiganya lahir dari satu putaran yang sama.",
+      "tulis": "Di materi berikutnya, Grafik Fungsi Trigonometri, Bagian 2, kita jajarkan grafik sin, cos, dan tan, yang ketiganya lahir dari satu putaran yang sama."
     }
   ]
 }
