@@ -1,13 +1,18 @@
 {
   "adegan": "NolPerNol",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Limit Materi 06, Kalau hasilnya 0 dibagi 0. Video prioritas KEENAM. Tugasnya mengajarkan dua cara membongkar bentuk tak tentu: memfaktorkan dan mengalikan sekawan. Syarat 'asal x bukan' harus disebut dan ditonjolkan, itu yang paling sering dilupakan siswa.",
+  "tempo": "-5%",
+  "catatan": "Sifat Limit dan Cara Menghitungnya, Bagian 2 (Materi 06). Ditulis ulang 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (0 : 0 bukan berarti limitnya tidak ada, melainkan bentuknya belum bercerita; bukti: (2x - 4) : (x - 2) dan (x kuadrat - 4) : (x - 2) sama-sama 0 : 0 di x menuju 2 tetapi jawabannya 2 dan 4; cara 1 memfaktorkan dengan syarat x bukan 2; cara 2 mengalikan sekawan untuk (akar(x + 4) - 2) : x, hasil 1/4; urutan tetap: masukkan, kalau 0 : 0 tulis ulang bentuknya, masukkan lagi). Yang ditambah: pembuka sub-bab plus Bagian 2, segar-ingat Bagian 1 (cara cepat: masukkan angkanya), cek angka hasil cara 1 di x = 2,1 (0,41 : 0,1 = 4,1, dekat 4), penutup menunjuk Bagian 3 (x lari ke tak hingga).",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Angkanya sudah dimasukkan, hasilnya nol dibagi nol. Sekarang bagaimana?",
-      "tulis": "Angkanya sudah dimasukkan, hasilnya 0 : 0. Sekarang bagaimana?"
+      "id": "buka",
+      "teks": "Sifat Limit dan Cara Menghitungnya, Bagian dua. Angkanya sudah dimasukkan, hasilnya nol dibagi nol. Sekarang bagaimana?",
+      "tulis": "Sifat Limit dan Cara Menghitungnya, Bagian 2. Angkanya sudah dimasukkan, hasilnya 0 : 0. Sekarang bagaimana?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di materi sebelumnya, Sifat Limit dan Cara Menghitungnya, Bagian satu, limit fungsi yang wajar cukup dihitung dengan memasukkan angkanya. Kali ini cara cepat itu buntu.",
+      "tulis": "Di materi sebelumnya, Sifat Limit dan Cara Menghitungnya, Bagian 1, limit fungsi yang wajar cukup dihitung dengan memasukkan angkanya. Kali ini cara cepat itu buntu."
     },
     {
       "id": "bukan",
@@ -27,17 +32,22 @@
     {
       "id": "faktor",
       "teks": "Ambil x kuadrat kurang empat, dibagi x kurang dua, saat x mendekati dua. Pembilangnya difaktorkan menjadi x kurang dua, dikali x tambah dua.",
-      "tulis": "Ambil (x² - 4) : (x - 2), saat x → 2. Pembilangnya difaktorkan menjadi (x - 2)(x + 2)."
+      "tulis": "Ambil (x² − 4) : (x − 2), saat x → 2. Pembilangnya difaktorkan menjadi (x − 2)(x + 2)."
     },
     {
       "id": "coret1",
       "teks": "Faktor x kurang dua di atas dan di bawah bisa dicoret. Tapi hanya boleh kalau x bukan dua, sebab kita sedang membaginya.",
-      "tulis": "Faktor (x - 2) di atas dan di bawah bisa dicoret. Tapi hanya boleh kalau x ≠ 2, sebab kita sedang membaginya."
+      "tulis": "Faktor (x − 2) di atas dan di bawah bisa dicoret. Tapi hanya boleh kalau x ≠ 2, sebab kita sedang membaginya."
     },
     {
       "id": "hasil1",
       "teks": "Yang tersisa x tambah dua. Masukkan dua, hasilnya empat.",
       "tulis": "Yang tersisa x + 2. Masukkan 2, hasilnya 4."
+    },
+    {
+      "id": "cek",
+      "teks": "Cek dengan angka di dekat dua. Di x sama dengan dua koma satu, pembilangnya empat koma empat satu kurang empat, yaitu nol koma empat satu. Dibagi nol koma satu, hasilnya empat koma satu. Memang dekat empat.",
+      "tulis": "Cek dengan angka di dekat 2. Di x = 2,1, pembilangnya 4,41 − 4, yaitu 0,41. Dibagi 0,1, hasilnya 4,1. Memang dekat 4."
     },
     {
       "id": "cara2",
@@ -47,12 +57,12 @@
     {
       "id": "sekawan",
       "teks": "Ambil akar dari x tambah empat, dikurangi dua, lalu dibagi x, saat x mendekati nol. Sekawan pembilangnya adalah akar x tambah empat, ditambah dua.",
-      "tulis": "Ambil (√(x + 4) - 2) : x, saat x → 0. Sekawan pembilangnya adalah √(x + 4) + 2."
+      "tulis": "Ambil (√(x + 4) − 2) : x, saat x → 0. Sekawan pembilangnya adalah √(x + 4) + 2."
     },
     {
       "id": "kali",
       "teks": "Kalikan atas dan bawah dengan sekawan itu. Pembilangnya berubah jadi x tambah empat, dikurangi empat, yaitu x saja. Akarnya hilang karena dikuadratkan.",
-      "tulis": "Kalikan atas dan bawah dengan sekawan itu. Pembilangnya berubah jadi (x + 4) - 4, yaitu x saja. Akarnya hilang karena dikuadratkan."
+      "tulis": "Kalikan atas dan bawah dengan sekawan itu. Pembilangnya berubah jadi (x + 4) − 4, yaitu x saja. Akarnya hilang karena dikuadratkan."
     },
     {
       "id": "hasil2",
@@ -63,6 +73,11 @@
       "id": "tutup",
       "teks": "Urutannya selalu sama, dan tidak pernah berubah. Masukkan angkanya. Kalau wajar, itu jawabannya. Kalau nol dibagi nol, tulis ulang bentuknya, baru masukkan lagi.",
       "tulis": "Urutannya selalu sama, dan tidak pernah berubah. Masukkan angkanya. Kalau wajar, itu jawabannya. Kalau 0 : 0, tulis ulang bentuknya, baru masukkan lagi."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Sifat Limit dan Cara Menghitungnya, Bagian tiga, x-nya tidak lagi mendekati satu angka, melainkan lari ke tak hingga.",
+      "tulis": "Di materi berikutnya, Sifat Limit dan Cara Menghitungnya, Bagian 3, x-nya tidak lagi mendekati satu angka, melainkan lari ke tak hingga."
     }
   ]
 }

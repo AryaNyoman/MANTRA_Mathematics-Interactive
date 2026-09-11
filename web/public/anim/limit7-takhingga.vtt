@@ -1,139 +1,192 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/limit7-takhingga.json
+NOTE Dibuat otomatis dari manim/narasi/limit7-takhingga.json (waktu kata rekaman)
+NOTE naskah-sidik ecd27209247d
 
 1
-00:00:00.000 --> 00:00:02.450
-Kenapa sebuah grafik bisa mendatar,
+00:00:00.101 --> 00:00:03.475
+Sifat Limit dan Cara Menghitungnya, Bagian 3.
 
 2
-00:00:02.450 --> 00:00:05.040
-tapi tidak pernah menyentuh garisnya?
+00:00:04.209 --> 00:00:06.141
+Kenapa sebuah grafik bisa mendatar,
 
 3
-00:00:05.040 --> 00:00:08.823
-Sebuah pabrik punya biaya tetap Rp5.000.000 sehari,
+00:00:06.141 --> 00:00:08.333
+tapi tidak pernah menyentuh garisnya?
 
 4
-00:00:08.823 --> 00:00:11.494
-ditambah Rp20.000 untuk tiap barang.
+00:00:09.549 --> 00:00:10.922
+Di materi sebelumnya,
 
 5
-00:00:11.494 --> 00:00:14.016
-Berapa biaya rata-rata per barang?
+00:00:10.922 --> 00:00:14.584
+Sifat Limit dan Cara Menghitungnya, Bagian 2, bentuk 0 :
 
 6
-00:00:14.016 --> 00:00:18.430
-100 barang, Rp70.000 per barang.
+00:00:14.584 --> 00:00:18.396
+0 dibongkar dengan memfaktorkan atau mengalikan sekawan.
 
 7
-00:00:18.430 --> 00:00:21.602
-1.000 barang, Rp25.000.
+00:00:19.144 --> 00:00:21.619
+Kali ini x-nya tidak mendekati satu angka,
 
 8
-00:00:21.602 --> 00:00:24.912
-10.000 barang, Rp20.500.
+00:00:21.619 --> 00:00:23.596
+melainkan membesar tanpa henti.
 
 9
-00:00:24.912 --> 00:00:29.106
-Angkanya merapat ke Rp20.000, tapi tidak pernah sampai.
+00:00:24.816 --> 00:00:27.870
+Sebuah pabrik punya biaya tetap Rp5.000.000 sehari,
 
 10
-00:00:29.106 --> 00:00:32.233
-Biaya tetapnya selalu menyisakan sedikit,
+00:00:27.870 --> 00:00:30.176
+ditambah Rp20.000 untuk tiap barang.
 
 11
-00:00:32.233 --> 00:00:34.368
-berapa pun banyaknya barang.
+00:00:30.909 --> 00:00:32.835
+Berapa biaya rata-rata per barang?
 
 12
-00:00:34.368 --> 00:00:38.105
-Sebelum lanjut, satu hal yang wajib diluruskan.
+00:00:34.035 --> 00:00:36.895
+100 barang, Rp70.000 per barang.
 
 13
-00:00:38.105 --> 00:00:39.456
-∞ bukan bilangan.
+00:00:37.629 --> 00:00:40.135
+1.000 barang, Rp25.000.
 
 14
-00:00:39.456 --> 00:00:42.159
-Ia tidak bisa dimasukkan ke rumus,
+00:00:40.866 --> 00:00:43.964
+10.000 barang, Rp20.500.
 
 15
-00:00:42.159 --> 00:00:45.816
-sebab tidak ada angka yang bernama tak hingga.
+00:00:45.182 --> 00:00:48.793
+Angkanya merapat ke Rp20.000, tapi tidak pernah sampai.
 
 16
-00:00:45.816 --> 00:00:47.818
-∞ adalah keterangan arah.
+00:00:49.526 --> 00:00:51.903
+Biaya tetapnya selalu menyisakan sedikit,
 
 17
-00:00:47.818 --> 00:00:52.142
-Ia memberi tahu bahwa x dibuat membesar terus menerus,
+00:00:51.903 --> 00:00:53.676
+berapa pun banyaknya barang.
 
 18
-00:00:52.142 --> 00:00:53.904
-tanpa pernah berhenti.
+00:00:54.901 --> 00:00:58.117
+Sebelum lanjut, satu hal yang wajib diluruskan.
 
 19
-00:00:53.904 --> 00:00:56.172
-Alat utamanya satu saja.
+00:00:58.851 --> 00:01:00.449
+∞ bukan bilangan.
 
 20
-00:00:56.172 --> 00:00:57.779
-Kalau x membesar,
+00:01:01.195 --> 00:01:02.917
+Ia tidak bisa dimasukkan ke rumus,
 
 21
-00:00:57.779 --> 00:01:02.976
-pecahan seperti 1/x menjadi sangat kecil, dan menuju 0.
+00:01:02.917 --> 00:01:05.397
+sebab tidak ada angka yang bernama tak hingga.
 
 22
-00:01:02.976 --> 00:01:06.615
-Ambil (3x² + 2x) : (x² - 5).
+00:01:06.601 --> 00:01:08.541
+∞ adalah keterangan arah.
 
 23
-00:01:06.615 --> 00:01:12.984
-Pangkat tertingginya x², jadi semuanya dibagi x².
+00:01:09.289 --> 00:01:12.365
+Ia memberi tahu bahwa x dibuat membesar terus menerus,
 
 24
-00:01:12.984 --> 00:01:15.608
-Pembilangnya jadi 3 + 2/x.
+00:01:12.365 --> 00:01:13.768
+tanpa pernah berhenti.
 
 25
-00:01:15.608 --> 00:01:18.233
-Penyebutnya jadi 1 - 5/x².
+00:01:14.967 --> 00:01:16.775
+Alat utamanya satu saja.
 
 26
-00:01:18.233 --> 00:01:23.280
-Saat x membesar, kedua pecahan kecil itu menuju 0.
+00:01:17.510 --> 00:01:18.740
+Kalau x membesar,
 
 27
-00:01:23.280 --> 00:01:28.560
-Yang tersisa 3 : 1. Jadi limitnya 3.
+00:01:18.740 --> 00:01:21.857
+pecahan seperti 1/x menjadi sangat kecil.
 
 28
-00:01:28.560 --> 00:01:30.999
-Karena limitnya sebuah angka,
+00:01:22.589 --> 00:01:25.936
+Di x = 10, nilainya 0,1.
 
 29
-00:01:30.999 --> 00:01:35.036
-grafiknya makin mendatar merapat ke garis y = 3.
+00:01:26.668 --> 00:01:30.055
+Di x = 1.000, 0,001.
 
 30
-00:01:35.036 --> 00:01:37.728
-Garis itu disebut asimtot datar.
+00:01:30.785 --> 00:01:32.135
+Ia menuju 0.
 
 31
-00:01:37.728 --> 00:01:39.433
-Perhatikan sampai akhir:
+00:01:33.316 --> 00:01:37.505
+Ambil (3x² + 2x) : (x² − 5).
 
 32
-00:01:39.433 --> 00:01:42.558
-kurvanya boleh sedekat apa pun ke garis itu,
+00:01:38.253 --> 00:01:42.363
+Pangkat tertingginya x², jadi semuanya dibagi x².
 
 33
-00:01:42.558 --> 00:01:45.755
-tetapi selisihnya tidak pernah benar-benar 0.
+00:01:43.582 --> 00:01:45.903
+Pembilangnya jadi 3 + 2/x.
 
 34
-00:01:45.755 --> 00:01:48.312
+00:01:46.056 --> 00:01:48.719
+Penyebutnya jadi 1 − 5/x².
+
+35
+00:01:49.452 --> 00:01:52.918
+Saat x membesar, kedua pecahan kecil itu menuju 0.
+
+36
+00:01:54.135 --> 00:01:56.206
+Yang tersisa 3 : 1.
+
+37
+00:01:56.939 --> 00:01:58.510
+Jadi limitnya 3.
+
+38
+00:01:59.716 --> 00:02:01.629
+Karena limitnya sebuah angka,
+
+39
+00:02:01.629 --> 00:02:04.945
+grafiknya makin mendatar merapat ke garis y = 3.
+
+40
+00:02:05.678 --> 00:02:07.920
+Garis itu disebut asimtot datar.
+
+41
+00:02:09.149 --> 00:02:10.527
+Perhatikan sampai akhir:
+
+42
+00:02:10.527 --> 00:02:13.053
+kurvanya boleh sedekat apa pun ke garis itu,
+
+43
+00:02:13.053 --> 00:02:15.786
+tetapi selisihnya tidak pernah benar-benar 0.
+
+44
+00:02:16.518 --> 00:02:18.773
 Itulah beda mendekati dan menyentuh.
+
+45
+00:02:20.016 --> 00:02:21.501
+Di materi berikutnya,
+
+46
+00:02:21.501 --> 00:02:24.684
+Limit Trigonometri dan Kekontinuan, Bagian 1,
+
+47
+00:02:24.684 --> 00:02:28.442
+kita buktikan kenapa sin x dibagi x menuju tepat 1.

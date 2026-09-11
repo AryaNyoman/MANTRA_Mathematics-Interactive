@@ -1,12 +1,18 @@
 {
   "adegan": "LariKeTakHingga",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Limit Materi 07, Kalau x lari ke tak hingga. Video prioritas KETUJUH, yang terakhir. Tugasnya menjelaskan asimtot datar dan cara membagi dengan pangkat tertinggi. Ditegaskan tak hingga BUKAN bilangan, itu salah paham yang paling sering muncul.",
+  "tempo": "-5%",
+  "catatan": "Sifat Limit dan Cara Menghitungnya, Bagian 3 (Materi 07). Ditulis ulang 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (pabrik: biaya tetap 5 juta plus 20 ribu per barang, rata-rata per barang merapat ke 20 ribu tanpa pernah sampai; tak hingga BUKAN bilangan melainkan keterangan arah; alat: 1/x menuju 0; (3x kuadrat + 2x) : (x kuadrat - 5) dibagi pangkat tertinggi, limitnya 3; asimtot datar y = 3; kurva boleh sedekat apa pun tetapi selisihnya tidak pernah nol). Yang ditambah: pembuka sub-bab plus Bagian 3, segar-ingat Bagian 2 (0 : 0 dibongkar dengan faktor atau sekawan), contoh angka untuk 1/x (x = 10 memberi 0,1; x = 1000 memberi 0,001), penutup menunjuk Limit Trigonometri dan Kekontinuan Bagian 1.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Kenapa sebuah grafik bisa mendatar, tapi tidak pernah menyentuh garisnya?"
+      "id": "buka",
+      "teks": "Sifat Limit dan Cara Menghitungnya, Bagian tiga. Kenapa sebuah grafik bisa mendatar, tapi tidak pernah menyentuh garisnya?",
+      "tulis": "Sifat Limit dan Cara Menghitungnya, Bagian 3. Kenapa sebuah grafik bisa mendatar, tapi tidak pernah menyentuh garisnya?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di materi sebelumnya, Sifat Limit dan Cara Menghitungnya, Bagian dua, bentuk nol dibagi nol dibongkar dengan memfaktorkan atau mengalikan sekawan. Kali ini x-nya tidak mendekati satu angka, melainkan membesar tanpa henti.",
+      "tulis": "Di materi sebelumnya, Sifat Limit dan Cara Menghitungnya, Bagian 2, bentuk 0 : 0 dibongkar dengan memfaktorkan atau mengalikan sekawan. Kali ini x-nya tidak mendekati satu angka, melainkan membesar tanpa henti."
     },
     {
       "id": "pabrik",
@@ -35,18 +41,18 @@
     },
     {
       "id": "alat",
-      "teks": "Alat utamanya satu saja. Kalau x membesar, pecahan seperti satu dibagi x menjadi sangat kecil, dan menuju nol.",
-      "tulis": "Alat utamanya satu saja. Kalau x membesar, pecahan seperti 1/x menjadi sangat kecil, dan menuju 0."
+      "teks": "Alat utamanya satu saja. Kalau x membesar, pecahan seperti satu dibagi x menjadi sangat kecil. Di x sama dengan sepuluh, nilainya nol koma satu. Di x sama dengan seribu, nol koma nol nol satu. Ia menuju nol.",
+      "tulis": "Alat utamanya satu saja. Kalau x membesar, pecahan seperti 1/x menjadi sangat kecil. Di x = 10, nilainya 0,1. Di x = 1.000, 0,001. Ia menuju 0."
     },
     {
       "id": "soal",
       "teks": "Ambil tiga x kuadrat tambah dua x, dibagi x kuadrat kurang lima. Pangkat tertingginya x kuadrat, jadi semuanya dibagi x kuadrat.",
-      "tulis": "Ambil (3x² + 2x) : (x² - 5). Pangkat tertingginya x², jadi semuanya dibagi x²."
+      "tulis": "Ambil (3x² + 2x) : (x² − 5). Pangkat tertingginya x², jadi semuanya dibagi x²."
     },
     {
       "id": "bagi",
       "teks": "Pembilangnya jadi tiga tambah dua per x. Penyebutnya jadi satu kurang lima per x kuadrat. Saat x membesar, kedua pecahan kecil itu menuju nol.",
-      "tulis": "Pembilangnya jadi 3 + 2/x. Penyebutnya jadi 1 - 5/x². Saat x membesar, kedua pecahan kecil itu menuju 0."
+      "tulis": "Pembilangnya jadi 3 + 2/x. Penyebutnya jadi 1 − 5/x². Saat x membesar, kedua pecahan kecil itu menuju 0."
     },
     {
       "id": "hasil",
@@ -62,6 +68,11 @@
       "id": "tutup",
       "teks": "Perhatikan sampai akhir: kurvanya boleh sedekat apa pun ke garis itu, tetapi selisihnya tidak pernah benar-benar nol. Itulah beda mendekati dan menyentuh.",
       "tulis": "Perhatikan sampai akhir: kurvanya boleh sedekat apa pun ke garis itu, tetapi selisihnya tidak pernah benar-benar 0. Itulah beda mendekati dan menyentuh."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Limit Trigonometri dan Kekontinuan, Bagian satu, kita buktikan kenapa sinus x dibagi x menuju tepat satu.",
+      "tulis": "Di materi berikutnya, Limit Trigonometri dan Kekontinuan, Bagian 1, kita buktikan kenapa sin x dibagi x menuju tepat 1."
     }
   ]
 }
