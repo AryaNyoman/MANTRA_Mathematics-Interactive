@@ -1,68 +1,88 @@
 {
   "adegan": "KaliSkalar",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Vektor Materi 09, Dikali angka: panjang berubah, arah tetap. Arah visual sama dengan Materi 01, 03, 06, dan 08. Pengalinya dibuat BERGERAK TERUS dari 3 turun melewati nol sampai -2, bukan tiga gambar terpisah, supaya siswa melihat panahnya menyusut, lenyap sesaat, lalu berbalik. Angkanya sama persis dengan halaman Materi 09: a = (2 1), 3a = (6 3), -2a = (-4 -2).",
+  "tempo": "-5%",
+  "catatan": "Operasi Vektor, Bagian 4 (Materi 09). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (bola ditendang, a = (2 1); pengali 3 memberi (6 3) arah tetap; setengah menyusut; pengali diturunkan terus melewati 0, vektor nol; -2 memberi (-4 -2) arah berbalik; panjang akar 5 = 2,24, 3 akar 5 = 6,71, 2 akar 5 = 4,47; panjang tidak pernah negatif; kelipatan berarti sejajar). Yang ditambah: pembuka menyebut sub-bab plus Bagian 4, segar-ingat Vektor dalam Sistem Koordinat Bagian 2 (rumus panjang), bentuk umum k a = (k a1  k a2), penutup menunjuk Penerapan Vektor. Pengalinya tetap BERGERAK TERUS dari 3 turun melewati 0 sampai -2.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Materi sembilan, dikali angka: panjang berubah, arah tetap. Sebuah bola ditendang di lapangan berpetak. Kita akan menendangnya ke arah yang sama terus, hanya tenaganya yang diubah-ubah.",
-      "tulis": "Materi 09, *dikali angka: panjang berubah, arah tetap*. Sebuah bola ditendang di lapangan berpetak. Kita akan menendangnya ke arah yang *sama* terus, hanya *tenaganya* yang diubah-ubah."
+      "id": "buka",
+      "teks": "Operasi Vektor, Bagian empat. Apa yang terjadi kalau sebuah panah dikali bilangan?",
+      "tulis": "Operasi Vektor, Bagian 4. Apa yang terjadi kalau sebuah panah dikali bilangan?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Vektor dalam Sistem Koordinat, Bagian dua, panjang panah dihitung dari komponennya: akar dari x kuadrat ditambah y kuadrat. Hari ini rumus itu dipakai lagi, sesudah panahnya dikali bilangan.",
+      "tulis": "Di Vektor dalam Sistem Koordinat, Bagian 2, panjang panah dihitung dari komponennya: √(x² + y²). Hari ini rumus itu dipakai lagi, sesudah panahnya dikali bilangan."
+    },
+    {
+      "id": "cerita",
+      "teks": "Sebuah bola ditendang di lapangan berpetak. Kita akan menendangnya ke arah yang sama terus, hanya tenaganya yang diubah-ubah.",
+      "tulis": "Sebuah bola ditendang di lapangan berpetak. Kita akan menendangnya ke arah yang sama terus, hanya tenaganya yang diubah-ubah."
     },
     {
       "id": "terbang",
       "teks": "Kita lihat dari atas supaya bisa dihitung. Satu petak sama dengan satu langkah.",
-      "tulis": "Kita lihat dari atas supaya bisa dihitung. *1 petak = 1 langkah*."
+      "tulis": "Kita lihat dari atas supaya bisa dihitung. 1 petak = 1 langkah."
     },
     {
       "id": "satu",
       "teks": "Tendangan pertama membawa bola dua petak ke kanan dan satu petak ke atas. Panah itu kita sebut a, yaitu dua satu. Pengalinya satu.",
-      "tulis": "Tendangan pertama membawa bola *2 petak ke kanan* dan *1 petak ke atas*. Panah itu kita sebut *a*, yaitu (2 1). Pengalinya 1."
+      "tulis": "Tendangan pertama membawa bola 2 petak ke kanan dan 1 petak ke atas. Panah itu kita sebut a, yaitu (2 1). Pengalinya 1."
     },
     {
       "id": "tiga",
       "teks": "Sekarang tendangan tiga kali lebih kuat. Kalikan tiap komponennya dengan tiga: dua kali tiga sama dengan enam, satu kali tiga sama dengan tiga. Bolanya mendarat di enam tiga. Perhatikan arahnya tidak bergeser sedikit pun.",
-      "tulis": "Sekarang tendangan *3 kali lebih kuat*. Kalikan tiap komponennya dengan 3: *2 × 3 = 6*, *1 × 3 = 3*. Bolanya mendarat di (6 3). Perhatikan *arahnya tidak bergeser sedikit pun*."
+      "tulis": "Sekarang tendangan 3 kali lebih kuat. Kalikan tiap komponennya dengan 3: 2 × 3 = 6, 1 × 3 = 3. Bolanya mendarat di (6 3). Perhatikan arahnya tidak bergeser sedikit pun."
     },
     {
       "id": "kecil",
       "teks": "Sekarang sebaliknya, tendangan setengah kekuatan. Panahnya menyusut jadi setengahnya. Arahnya, sekali lagi, sama sekali tidak berubah. Yang berubah cuma panjangnya.",
-      "tulis": "Sekarang sebaliknya, tendangan *setengah* kekuatan. Panahnya menyusut jadi setengahnya. Arahnya, sekali lagi, *sama sekali tidak berubah*. Yang berubah cuma panjangnya."
+      "tulis": "Sekarang sebaliknya, tendangan setengah kekuatan. Panahnya menyusut jadi setengahnya. Arahnya, sekali lagi, sama sekali tidak berubah. Yang berubah cuma panjangnya."
+    },
+    {
+      "id": "umum",
+      "teks": "Bentuk umumnya begini. k kali a sama dengan k a satu, k a dua. Tiap komponen dikali bilangan yang sama.",
+      "tulis": "Bentuk umumnya begini. k · a = (k a₁  k a₂). Tiap komponen dikali bilangan yang sama."
     },
     {
       "id": "tanya",
       "teks": "Sekarang perhatikan baik-baik. Kita turunkan pengalinya pelan-pelan sampai melewati nol. Menurut Anda, apa yang terjadi pada panahnya?",
-      "tulis": "Sekarang perhatikan baik-baik. Kita turunkan pengalinya pelan-pelan sampai *melewati nol*. Menurut Anda, apa yang terjadi pada panahnya?"
+      "tulis": "Sekarang perhatikan baik-baik. Kita turunkan pengalinya pelan-pelan sampai melewati 0. Menurut Anda, apa yang terjadi pada panahnya?"
     },
     {
       "id": "nol",
       "teks": "Di pengali nol, panahnya lenyap. Bolanya tidak berpindah sama sekali. Itulah yang disebut vektor nol.",
-      "tulis": "Di pengali *0*, panahnya lenyap. Bolanya tidak berpindah sama sekali. Itulah yang disebut *vektor nol*."
+      "tulis": "Di pengali 0, panahnya lenyap. Bolanya tidak berpindah sama sekali. Itulah yang disebut vektor nol."
     },
     {
       "id": "negatif",
       "teks": "Dan begitu pengalinya jadi negatif, panahnya muncul lagi menghadap arah yang berlawanan. Negatif dua kali a sama dengan negatif empat, negatif dua. Bolanya ditendang ke belakang.",
-      "tulis": "Dan begitu pengalinya jadi *negatif*, panahnya muncul lagi menghadap arah yang *berlawanan*. *-2 × a = (-4 -2)*. Bolanya ditendang ke belakang."
+      "tulis": "Dan begitu pengalinya jadi negatif, panahnya muncul lagi menghadap arah yang berlawanan. -2 · a = (-4 -2). Bolanya ditendang ke belakang."
     },
     {
       "id": "panjang",
       "teks": "Sekarang panjangnya. Panjang a adalah akar dari empat ditambah satu, yaitu akar lima, sekitar dua koma dua empat. Tiga a panjangnya tiga akar lima, sekitar enam koma tujuh satu. Dan negatif dua a panjangnya dua akar lima, sekitar empat koma empat tujuh.",
-      "tulis": "Sekarang panjangnya. Panjang a adalah √(4 + 1) = √5, sekitar *2,24*. 3a panjangnya 3√5, sekitar *6,71*. Dan -2a panjangnya 2√5, sekitar *4,47*."
+      "tulis": "Sekarang panjangnya. Panjang a adalah √(4 + 1), yaitu √5, sekitar 2,24. 3a panjangnya 3√5, sekitar 6,71. Dan -2a panjangnya 2√5, sekitar 4,47."
     },
     {
       "id": "keliru",
       "teks": "Perhatikan angka terakhir itu baik-baik. Empat koma empat tujuh, bukan negatif empat koma empat tujuh. Panjang adalah ukuran, dan ukuran tidak pernah kurang dari nol. Yang dibalik oleh tanda minus adalah arahnya, bukan panjangnya.",
-      "tulis": "Perhatikan angka terakhir itu baik-baik. *4,47*, bukan -4,47. Panjang adalah ukuran, dan ukuran *tidak pernah kurang dari nol*. Yang dibalik oleh tanda minus adalah *arahnya*, bukan panjangnya."
+      "tulis": "Perhatikan angka terakhir itu baik-baik. 4,47, bukan -4,47. Panjang adalah ukuran, dan ukuran tidak pernah kurang dari 0. Yang dibalik oleh tanda minus adalah arahnya, bukan panjangnya."
     },
     {
       "id": "sejajar",
       "teks": "Satu hal terakhir, dan ini yang paling sering dipakai di soal. Perhatikan semua panah tadi terletak pada satu garis yang sama. Dua vektor yang salah satunya kelipatan yang lain pasti sejajar, walaupun arahnya berlawanan.",
-      "tulis": "Satu hal terakhir, dan ini yang paling sering dipakai di soal. Perhatikan semua panah tadi terletak pada *satu garis yang sama*. Dua vektor yang salah satunya *kelipatan* yang lain pasti *sejajar*, walaupun arahnya berlawanan."
+      "tulis": "Satu hal terakhir, dan ini yang paling sering dipakai di soal. Perhatikan semua panah tadi terletak pada satu garis yang sama. Dua vektor yang salah satunya kelipatan yang lain pasti sejajar, walaupun arahnya berlawanan."
     },
     {
       "id": "tutup",
       "teks": "Jadi ingat ini. Dikali angka positif, arahnya tetap. Dikali angka negatif, arahnya berbalik. Panjangnya mengikuti angkanya tanpa tanda minus.",
-      "tulis": "Jadi ingat ini. Dikali angka *positif*, arahnya tetap. Dikali angka *negatif*, arahnya berbalik. Panjangnya mengikuti angkanya *tanpa tanda minus*."
+      "tulis": "Jadi ingat ini. Dikali angka positif, arahnya tetap. Dikali angka negatif, arahnya berbalik. Panjangnya mengikuti angkanya tanpa tanda minus."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Penerapan Vektor, kita lihat di mana saja panah-panah ini benar-benar dipakai di dunia nyata.",
+      "tulis": "Di materi berikutnya, Penerapan Vektor, kita lihat di mana saja panah-panah ini benar-benar dipakai di dunia nyata."
     }
   ]
 }
