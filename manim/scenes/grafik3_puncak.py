@@ -1,4 +1,7 @@
-"""Materi 03: parabola dan bentuk puncak, standar video v3 (8 September 2026).
+"""Materi 03: parabola dan bentuk puncak, Fungsi Kuadrat Bagian 1, standar video
+v3 (8 September 2026), disesuaikan MASTER ke v3.1 pada 12 September 2026:
+pembuka menyebut "Fungsi Kuadrat, Bagian 1", segar-ingat menyebut Pengenalan
+Fungsi dan Grafik Bagian 2, penutup dipecah dan menunjuk Fungsi Kuadrat Bagian 2.
 
 Ditulis ulang dari nol. Kerangka v3: pembuka pertanyaan, segar-ingat Materi 02,
 contoh angka dijalankan di layar, asal rumus dibuktikan, bentuk umum, penutup
@@ -84,13 +87,14 @@ class BentukPuncak(AdeganMatra):
         pembuka_kiri = kurva(lambda t: (t - 1) ** 2, -1.0, 3.0, TINTA)
 
         with self.bagian('buka') as b:
-            b.tunggu_kata('Ini sebuah')
-            self.muncul(b, sumbu=sumbu, kurva=pembuka_kanan)
-            self.muncul(b, True, x=lx, y=ly)
+            b.tunggu_kata('Fungsi')
+            sinema.judul_pembuka(self, 'Fungsi Kuadrat, Bagian 1', lama=2.6)
+            b.catat(2.6)
             b.tunggu_kata('Ubah satu')
+            self.muncul(b, sumbu=sumbu, kurva=pembuka_kanan, lama=0.5)
+            self.muncul(b, True, x=lx, y=ly, lama=0.4)
+            b.tunggu_kata('rumus parabola')
             self.papan(b, 'y=(x-3)^2')
-            b.tunggu_kata('dalam rumusnya')
-            b.main(Indicate(self.panel, color=SOROT, scale_factor=1.06), run_time=1.0)
             b.tunggu_kata('seluruh kurvanya')
             b.main(Transform(pembuka_kanan, pembuka_kiri), run_time=1.4)
             self.papan(b, 'y=(x-1)^2', warna=AKSEN)
@@ -109,9 +113,9 @@ class BentukPuncak(AdeganMatra):
         cap_keluar = sinema.label('keluar', warna=REDUP).scale(0.75).next_to(panah_keluar, UP, buff=0.10)
 
         with self.bagian('ingat') as b:
-            b.tunggu_kata('materi dua')
+            b.tunggu_kata('Di Pengenalan')
             self.hilang(b, 'kurva')
-            self.papan(b, r'\text{Materi 02}', r'\text{potret sebuah aturan}')
+            self.papan(b, r'\text{Pengenalan Fungsi}', r'\text{dan Grafik, Bagian 2}')
             b.tunggu_kata('sebuah mesin')
             self.muncul(b, mesin=kotak_mesin, masuk=panah_masuk, keluar=panah_keluar)
             self.muncul(b, True, isi_mesin=isi_mesin, cap_masuk=cap_masuk, cap_keluar=cap_keluar)
@@ -467,9 +471,12 @@ class BentukPuncak(AdeganMatra):
             b.tunggu_kata('besar a')
             self.papan(b, r'h,k:\ \text{letak puncak}', r'\text{tanda }a:\ \text{arah}',
                        r'\text{besar }a:\ \text{lebar}', warna=SOROT)
-            b.tunggu_kata('Video berikutnya')
+
+        with self.bagian('lanjut') as b:
+            b.tunggu_kata('Di materi')
             self.hilang(b, 'sumbu_simetri', 'cap_simetri', lama=0.8)
-            self.papan(b, r'\text{berikutnya}', 'y=ax^2+bx+c', warna=AKSEN)
+            b.tunggu_kata('Fungsi Kuadrat')
+            self.papan(b, r'\text{Fungsi Kuadrat, Bagian 2}', 'y=ax^2+bx+c', warna=AKSEN)
             b.tunggu_kata('bentuk puncak')
             b.main(Indicate(self.panel, color=AKSEN, scale_factor=1.05), run_time=1.2)
 

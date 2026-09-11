@@ -2,17 +2,17 @@
   "adegan": "BentukPuncak",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Tulis ulang 8 September 2026, STANDAR VIDEO v3. Kerangka: pembuka pertanyaan, segar-ingat Materi 02 (fungsi itu mesin, grafik adalah jejaknya), contoh angka y = x^2 dijalankan di layar, asal rumus dibuktikan (kenapa puncak di (h,k), kenapa minus menggeser ke kanan, kenapa simetris), bentuk umum y = a(x-h)^2 + k, penutup menunjuk Materi 04. Angka contoh mengikuti materi tahap 03 persis: y = 2(x-3)^2 - 5, puncak (3,-5). Medan tulis = kalimat utuh yang diucapkan dengan lambang; itulah subtitle. Rekaman pertama 437 detik (7,3 menit) lewat batas: segmen bawa, naik_cek, nama_simetri, nama_bentuk, dan a_nol dilebur ke tetangganya, kalimat lain dirapatkan. Rekaman kedua 380 detik masih lewat: sepuluh segmen terpanjang dirapatkan lagi, dan catatan a = 0 sengaja dilepas dari video (tetap ada di halaman materi). Geseran ke atas memakai +2, bukan +4: bingkai y hanya sampai 4, dan y = x^2 + 4 keluar bingkai. Ragam a negatif memakai a = -1 dengan alasan sama.",
+  "catatan": "Fungsi Kuadrat, Bagian 1 (Materi 03). Disesuaikan MASTER 12 Sep 2026 ke standar v3.1 dari naskah v3 sesi Grafik (8 Sep): ISI TETAP SAMA (mesin y = x kuadrat dijalankan, parabola, terendah di (0,0); naik 2; geser samping lewat kurung (x-3) kuadrat ke KANAN dan alasannya; (x+3) ke kiri; y = 2(x-3)^2 - 5 dihitung di 3, 4, 2, 5, 1; sumbu simetri x = 3 dan buktinya d kuadrat; bentuk umum y = a(x-h)^2 + k; peran a: 3 sempit, 0,3 lebar, -1 terbuka ke bawah). Yang diubah: pembuka menyebut sub-bab plus Bagian 1; segar-ingat menyebut Pengenalan Fungsi dan Grafik Bagian 2 (bukan Materi 02); penutup dipecah, segmen lanjut menunjuk Fungsi Kuadrat Bagian 2.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Ini sebuah parabola. Ubah satu angka saja di dalam rumusnya, dan seluruh kurvanya pindah tempat. Kenapa satu angka bisa memindahkan seluruh parabola?",
-      "tulis": "Ini sebuah parabola. Ubah satu angka saja di dalam rumusnya, dan seluruh kurvanya pindah tempat. Kenapa satu angka bisa memindahkan seluruh parabola?"
+      "teks": "Fungsi Kuadrat, Bagian satu. Ubah satu angka di dalam rumus parabola ini, dan seluruh kurvanya pindah tempat. Kenapa satu angka bisa memindahkan seluruh parabola?",
+      "tulis": "Fungsi Kuadrat, Bagian 1. Ubah satu angka di dalam rumus parabola ini, dan seluruh kurvanya pindah tempat. Kenapa satu angka bisa memindahkan seluruh parabola?"
     },
     {
       "id": "ingat",
-      "teks": "Di materi dua, potret sebuah aturan, kita menyimpulkan bahwa fungsi itu sebuah mesin, dan grafik adalah jejak dari menjalankan mesin itu berkali-kali. Itu yang kita pakai hari ini: ubah aturannya, jejaknya ikut berubah.",
-      "tulis": "Di materi dua, potret sebuah aturan, kita menyimpulkan bahwa fungsi itu sebuah mesin, dan grafik adalah jejak dari menjalankan mesin itu berkali-kali. Itu yang kita pakai hari ini: ubah aturannya, jejaknya ikut berubah."
+      "teks": "Di Pengenalan Fungsi dan Grafik, Bagian dua, kita menyimpulkan bahwa fungsi itu sebuah mesin, dan grafik adalah jejak dari menjalankan mesin itu berkali-kali. Itu yang kita pakai hari ini: ubah aturannya, jejaknya ikut berubah.",
+      "tulis": "Di Pengenalan Fungsi dan Grafik, Bagian 2, kita menyimpulkan bahwa fungsi itu sebuah mesin, dan grafik adalah jejak dari menjalankan mesin itu berkali-kali. Itu yang kita pakai hari ini: ubah aturannya, jejaknya ikut berubah."
     },
     {
       "id": "jejak",
@@ -146,8 +146,13 @@
     },
     {
       "id": "tutup",
-      "teks": "Jadi satu rumus memberi tiga hal tanpa dihitung: ha dan ka letak puncaknya, tanda a arah bukaannya, besar a lebarnya. Video berikutnya, rumus yang datang sebagai ye sama dengan a eks kuadrat tambah be eks tambah ce, kita kembalikan ke bentuk puncak.",
-      "tulis": "Jadi satu rumus memberi tiga hal tanpa dihitung: h dan k letak puncaknya, tanda a arah bukaannya, besar a lebarnya. Video berikutnya, rumus yang datang sebagai y = ax² + bx + c, kita kembalikan ke bentuk puncak."
+      "teks": "Jadi satu rumus memberi tiga hal tanpa dihitung: ha dan ka letak puncaknya, tanda a arah bukaannya, besar a lebarnya.",
+      "tulis": "Jadi satu rumus memberi tiga hal tanpa dihitung: h dan k letak puncaknya, tanda a arah bukaannya, besar a lebarnya."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Fungsi Kuadrat, Bagian dua, rumus yang datang sebagai ye sama dengan a eks kuadrat tambah be eks tambah ce kita kembalikan ke bentuk puncak.",
+      "tulis": "Di materi berikutnya, Fungsi Kuadrat, Bagian 2, rumus yang datang sebagai y = ax² + bx + c kita kembalikan ke bentuk puncak."
     }
   ]
 }

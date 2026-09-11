@@ -1,5 +1,33 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 12 SEP (siang): KEENAM VIDEO VEKTOR v3.1 TAYANG, GRAFIK 03 SELESAI, RUANG 3D DISIAPKAN
+
+Vektor 01 (4:38) dan 03 (4:55) disesuaikan dari naskah v3 sesi (pembuka
+sub-bab, segar-ingat Pythagoras dipadatkan satu segmen, penutup menunjuk
+materi berikutnya, kalimat narasi bukan teks layar, pita sorot tembus
+pandang); 04 (3:23), 06 (2:58), 08 (3:12), 09 (3:13) ditulis ulang dari naskah
+lama yang disetujui dengan segar-ingat, contoh angka, bentuk umum, penutup.
+Semua 1080p60, lembar kontak 480p dan 1080p dibuka, deploy produksi diverifikasi
+(commit 1837e01, 89ebb9d, 0cd137d).
+- JEBAKAN BARU: `Indicate` pada panah `always_redraw` tidak berbekas sama
+  sekali, dan Indicate sewarna bendanya (panah ungu disorot ungu) juga tidak
+  terlihat: sorot panah memakai pita ungu tembus pandang (`sorot_pita`).
+  `Arrow.set_stroke(opacity=)` TIDAK meredupkan panah (ujungnya isian):
+  pakai `set_opacity`. Kamera miring 6 derajat pada segar-ingat membuat
+  segitiga 4-3 di petak berbohong: kamera tegak lurus sejak awal, "kita lihat
+  dari atas" tinggal zum ringan. Titik yang jatuh di bawah panel rumus
+  ketahuan gerbang qc begitu bendanya didaftarkan (Vektor 09 bola di (6, 3)):
+  `kamera.muat_datar(bidang, sisa_kanan=2.6)`. Dua render 1080p yang tidak
+  sengaja berjalan bersamaan (perbaikan dikirim saat render lama masih hidup)
+  dimatikan lewat PID, berkas _temp dihapus, render diulang dari nol.
+- Grafik 03 (Fungsi Kuadrat Bagian 1, 6:02) disesuaikan dari v3 sesi dan
+  dirender 1080p; Grafik 06 (Transformasi Fungsi Bagian 1, 3:29) ditulis ulang
+  dua dimensi dan sedang dirender. Ruang 3D: 01 dan 03 disesuaikan, 04, 06,
+  08, 09 ditulis ulang di atas `ruang_3d_umum` (JamKata,
+  `tunggu_kata_bergeser`), menunggu render 480p.
+Berikutnya: render dan tayangkan Grafik 06, Ruang 3D (6), lalu Statistika
+(13), Transformasi (5), Turunan 06 dan 07, Integral (5).
+
 ## 12 SEP: KETUJUH VIDEO LIMIT DITULIS DARI NOL v3.1, ManimGL 1080p60, TAYANG
 
 Topik Limit tidak punya adegan ManimGL sama sekali (hanya arsip Manim CE), jadi
