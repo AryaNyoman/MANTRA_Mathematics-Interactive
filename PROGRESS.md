@@ -1,5 +1,26 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 11 SEP (dini hari): PAKET SITUS REVISI ARYA SELESAI DI MASTER (b949aef), BELUM DEPLOY
+
+Semua butir tampilan dari `docs/tugas/REVISI-ARYA-2026-09-10.md` dikerjakan
+MASTER dan dipotret dengan playwright (desktop 1366 dan HP 375):
+- logo nav tinggal lambang "M" (`mantra-simbol-gelap.png`);
+- "Lanjutkan" jadi laci di samping "Peta Materi" (`components/LaciLanjut.tsx`):
+  daftar 9 bab dengan persen yang berjalan 0 ke nilainya, 4 baris terlihat
+  lalu gulir; tiap baris ke `/topik/<slug>?materi=lanjut`, dan `HalamanTopik`
+  yang memutuskan materi pertama yang belum dibuka (penahan `lanjutBeres`
+  supaya materi 01 tidak keburu tercatat dibuka; diuji dua kunjungan: 01 lalu 02);
+- kartu Peta Materi: pertanyaan umum per bab (`Bab.tanya` di `subbab.ts`),
+  kicker hanya kelas; nomor bab buku dan sebutan kurikulum dibuang di semua
+  halaman (peta, tentang, sidebar, remah, catatan pengayaan Vektor dan
+  Grafik Fungsi);
+- "Tahap N" jadi "Materi 0N" di 139 baris teks siswa (hanya di dalam string
+  konten, jalur modul dan nama tipe tidak disentuh);
+- judul materi di atas video, desktop dan HP.
+tsc dan eslint bersih. Pemeriksa urutan lolos kecuali 3 temuan lama Grafik
+Fungsi (istilah parabola dan asimtot, bukan akibat perubahan ini).
+Deploy MENUNGGU izin ARYA. Berikutnya: daftar perapian proyek (butir 13).
+
 ## 10 SEP: DELAPAN SESI DIBUBARKAN, MASTER MENGERJAKAN SEMUA; 13 REVISI ARYA DICATAT
 
 Keputusan ARYA setelah menonton video pertama gelombang 4: hasilnya

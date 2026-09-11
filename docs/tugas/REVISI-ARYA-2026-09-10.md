@@ -130,7 +130,12 @@ dengan nama topiknya ("Penerapan Vektor").
 | Turunan | Seberapa cepat sesuatu berubah tepat pada satu saat? |
 | Integral | Bagaimana potongan kecil yang tak terhingga banyaknya bisa dijumlahkan jadi satu luas? |
 
-### F3. Urutan pengerjaan yang diusulkan
+### F3. Urutan pengerjaan yang diusulkan (keadaan 11 Sep dini hari)
+
+Status: langkah 1 SELESAI (10 Sep, master da15623), langkah 2 SELESAI
+(11 Sep, master b949aef, belum deploy), langkah 3 menunggu daftar disetujui.
+Butir 3, 4, 5, 6, 7, 8 (tampilan) sudah terpasang di master; butir 9 sampai 12
+(video) baru di catatan dan alat pemeriksa, naskahnya menunggu ditulis ulang.
 
 1. Urusan cabang (hari ini): commit pekerjaan sesi yang belum di-commit,
    gabung ke master yang lolos `tsc` dan pemeriksa, tulis catatan baru di
