@@ -31,7 +31,7 @@ disetujui): `docs/tugas/REVISI-ARYA-2026-09-10.md`; daftar perapian:
 Aturannya di `docs/tugas/STANDAR-VIDEO-V3.md` (wajib dibaca sebelum menyentuh
 video), rancangannya `docs/superpowers/specs/2026-09-08-standar-video-v3-design.md`.
 Ringkasnya:
-- durasi 3 sampai 6 menit; kerangka: pembuka (nama SUB-BAB plus "Bagian n"
+- durasi 2 sampai 6 menit (v3.1, jangan dipaksakan panjang); kerangka: pembuka (nama SUB-BAB plus "Bagian n"
   dari `web/content/subbab.ts`, BUKAN judul materi, lalu satu pertanyaan),
   segar-ingat HANYA bila ada prasyarat nyata (Pythagoras dulu cuma contoh dan
   sempat dipaksakan ke semua video: jangan), contoh angka, asal rumus

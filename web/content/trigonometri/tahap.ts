@@ -194,7 +194,7 @@ export const TAHAP: Tahap[] = [
       sumber: 'Buku Panduan Guru Matematika Kelas X, Bab 4, “membuktikan sinus dan cosinus suatu sudut berupa rasio, bukan nilai tetap”',
     },
     widget: 'segitiga-sebangun',
-    video: { berkas: 'tahap2-perbandingan-tetap.webm', poster: 'tahap2-perbandingan-tetap.jpg' },
+    video: { berkas: 'tahap2-perbandingan-tetap.mp4', poster: 'tahap2-perbandingan-tetap.jpg' },
     siap: true,
   },
 
@@ -337,7 +337,7 @@ export const TAHAP: Tahap[] = [
       isi: 'Ketiganya bukan rumus terpisah, melainkan tiga label untuk tiga pembagian dari kumpulan yang sama. Begitu panjang ketiga sisinya diketahui, keenam nilai itu bisa dihitung tanpa menghafal apa pun. Yang perlu diingat cuma sisi mana dibagi sisi mana.',
     },
     widget: 'pabrik-rasio',
-    video: { berkas: 'tahap4-lahirnya-rasio.webm', poster: 'tahap4-lahirnya-rasio.jpg' },
+    video: { berkas: 'tahap4-lahirnya-rasio.mp4', poster: 'tahap4-lahirnya-rasio.jpg' },
     siap: true,
   },
   {

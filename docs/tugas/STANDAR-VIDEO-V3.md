@@ -29,6 +29,10 @@ bertentangan. Rancangan dan alasannya:
 >    semua video gelombang 4 dan merusak semuanya. Kalau materi ini tidak
 >    membutuhkan ingatan apa pun, bagian segar-ingat DILEWATI. Ragu? Jangan.
 > 4. Narasi dan subtitle mengucapkan "materi", tidak pernah "tahap".
+> 5. Durasi 2 sampai 6 menit (dilonggarkan ARYA 11 Sep 2026). JANGAN
+>    memaksakan video jadi 6 menit: isi yang menentukan panjangnya. Video
+>    yang sudah bagus (Trigonometri) ditulis ulang dengan isi yang kurang
+>    lebih sama, kualitasnya tidak boleh turun.
 
 ## 1. Kerangka wajib tiap video (urut)
 
@@ -41,8 +45,8 @@ bertentangan. Rancangan dan alasannya:
 | Bentuk umum | dari angka ke huruf; rumus umum lahir di dekat gambarnya lalu ke panel | |
 | Penutup | ringkas satu kalimat, lalu sebut apa yang dipakai di video berikutnya | 10 sampai 20 detik |
 
-Durasi 3 sampai 6 menit (180 sampai 360 detik); materi sederhana mendekati 3,
-materi yang perlu penjabaran mendekati 6. `buat_narasi.py` memperingatkan di
+Durasi 2 sampai 6 menit (120 sampai 360 detik, v3.1); materi sederhana
+mendekati 2 sampai 3, materi yang perlu penjabaran mendekati 6. `buat_narasi.py` memperingatkan di
 luar rentang itu. Jangan mengisi waktu dengan pengulangan atau jeda kosong.
 
 ## 2. Segar-ingat, aturannya
@@ -145,7 +149,7 @@ dibiarkan dulu (keputusan ARYA 10 Sep), tidak dirender ulang sekarang.
 
 ## 7. Daftar periksa sebelum lapor "selesai" (jawab ya/tidak di laporan)
 
-1. Durasi 3 sampai 6 menit, tanpa jeda kosong lebih dari 1,5 detik.
+1. Durasi 2 sampai 6 menit, tanpa jeda kosong lebih dari 1,5 detik.
 2. Ada segar-ingat yang menyebut nomor dan nama konsep sebelumnya.
 3. Tiap rumus lahir dari contoh angka yang dihitung di layar.
 4. Semua pemicu kata selisih di bawah 0,15 detik (`laporkan_pemicu`).

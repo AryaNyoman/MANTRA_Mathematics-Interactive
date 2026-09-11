@@ -1,131 +1,188 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/tahap2-perbandingan-tetap.json
+NOTE Dibuat otomatis dari manim/narasi/tahap2-perbandingan-tetap.json (waktu kata rekaman)
+NOTE naskah-sidik 1d92988df82a
 
 1
-00:00:00.000 --> 00:00:02.830
-Tahap 1 berakhir pada satu dugaan.
+00:00:00.116 --> 00:00:03.095
+Perbandingan Trigonometri, Bagian 2.
 
 2
-00:00:02.830 --> 00:00:07.325
-Sudut yang sama selalu memberi <b>perbandingan yang sama</b>.
+00:00:03.828 --> 00:00:06.635
+Kenapa sudut yang sama selalu memberi angka yang sama?
 
 3
-00:00:07.325 --> 00:00:09.240
-Sekarang kita buktikan.
+00:00:07.849 --> 00:00:11.270
+Di materi sebelumnya, Perbandingan Trigonometri,
 
 4
-00:00:09.240 --> 00:00:13.433
-Ini segitiga siku-siku dengan sudut θ.
+00:00:11.270 --> 00:00:14.341
+Bagian 1, kita berhenti pada satu dugaan.
 
 5
-00:00:13.433 --> 00:00:18.840
-Sisi depannya 1,8 cm, dan sisi sampingnya 2,4 cm.
+00:00:15.089 --> 00:00:18.453
+Tinggi dibagi bayangan pada diri kita hasilnya 1,25,
 
 6
-00:00:18.840 --> 00:00:24.413
-Bagi sisi depan dengan sisi samping.
+00:00:18.453 --> 00:00:20.005
+dan pada pohon yang jauh
 
 7
-00:00:24.413 --> 00:00:25.961
-1,8 : 2,4.
+00:00:20.005 --> 00:00:22.225
+lebih tinggi hasilnya juga 1,25.
 
 8
-00:00:25.961 --> 00:00:28.128
-Hasilnya <b>0,75</b>.
+00:00:23.435 --> 00:00:24.635
+Dugaannya:
 
 9
-00:00:28.128 --> 00:00:30.870
-Sekarang segitiganya kita besarkan.
+00:00:24.635 --> 00:00:28.015
+sudut yang sama selalu memberi <b>perbandingan yang sama</b>.
 
 10
-00:00:30.870 --> 00:00:33.848
-Sudut θ tidak kita sentuh sama sekali,
+00:00:28.148 --> 00:00:31.285
+Sekarang kita buktikan, bukan sekadar percaya.
 
 11
-00:00:33.848 --> 00:00:36.120
-hanya ukurannya yang berubah.
+00:00:32.501 --> 00:00:35.112
+Ini segitiga siku-siku dengan sudut θ.
 
 12
-00:00:36.120 --> 00:00:41.349
-Sisi depannya sekarang 3 cm, dan sisi sampingnya 4 cm.
+00:00:35.861 --> 00:00:41.155
+Sisi depannya 1,8 cm, dan sisi sampingnya 2,4 cm.
 
 13
-00:00:41.349 --> 00:00:44.544
-Keduanya jelas berbeda dari tadi.
+00:00:42.367 --> 00:00:44.623
+Bagi sisi depan dengan sisi samping.
 
 14
-00:00:44.544 --> 00:00:47.404
-Tapi coba bagi lagi.
+00:00:45.357 --> 00:00:47.915
+1,8 : 2,4.
 
 15
-00:00:47.404 --> 00:00:48.604
-3 : 4.
+00:00:48.646 --> 00:00:50.703
+Hasilnya <b>0,75</b>.
 
 16
-00:00:48.604 --> 00:00:50.606
-Hasilnya 0,75.
+00:00:51.935 --> 00:00:54.203
+Sekarang segitiganya kita besarkan.
 
 17
-00:00:50.606 --> 00:00:54.696
-Sama persis seperti sebelumnya.
+00:00:54.937 --> 00:00:57.161
+Sudut θ tidak kita sentuh sama sekali,
 
 18
-00:00:54.696 --> 00:00:56.225
-Sebabnya sederhana.
+00:00:57.161 --> 00:00:59.008
+hanya ukurannya yang berubah.
 
 19
-00:00:56.225 --> 00:00:58.559
-Waktu segitiganya diperbesar,
+00:01:00.249 --> 00:01:04.886
+Sisi depannya sekarang 3 cm, dan sisi sampingnya 4 cm.
 
 20
-00:00:58.559 --> 00:01:02.904
-sisi depan dan sisi samping dikalikan angka yang sama.
+00:01:05.619 --> 00:01:07.729
+Keduanya jelas berbeda dari tadi.
 
 21
-00:01:02.904 --> 00:01:04.326
-Dan pada pembagian,
+00:01:08.935 --> 00:01:10.466
+Tapi coba bagi lagi.
 
 22
-00:01:04.326 --> 00:01:06.272
-angka pengali yang sama di
+00:01:11.200 --> 00:01:12.666
+3 : 4.
 
 23
-00:01:06.272 --> 00:01:08.892
-atas dan di bawah <b>saling menghapus</b>.
+00:01:13.396 --> 00:01:15.468
+Hasilnya 0,75.
 
 24
-00:01:08.892 --> 00:01:11.736
-Yang tersisa persis hasil bagi semula.
+00:01:16.200 --> 00:01:18.140
+Sama persis seperti sebelumnya.
 
 25
-00:01:11.736 --> 00:01:15.367
-Sekarang perhatikan kalau yang diubah sudutnya.
+00:01:19.367 --> 00:01:20.925
+Sebabnya sederhana.
 
 26
-00:01:15.367 --> 00:01:19.152
-Begitu θ bergerak, barulah angkanya ikut berubah.
+00:01:21.675 --> 00:01:23.339
+Waktu segitiganya diperbesar,
 
 27
-00:01:19.152 --> 00:01:22.383
-Jadi perbandingan itu <b>hanya bergantung pada sudut</b>,
+00:01:23.339 --> 00:01:26.588
+sisi depan dan sisi samping dikalikan angka yang sama.
 
 28
-00:01:22.383 --> 00:01:23.583
-bukan pada ukuran.
+00:01:27.318 --> 00:01:29.007
+Sebut saja angka itu k.
 
 29
-00:01:23.583 --> 00:01:25.457
-Itulah sebabnya nilainya bisa
+00:01:30.249 --> 00:01:31.449
+Dan pada pembagian,
 
 30
-00:01:25.457 --> 00:01:27.460
-dihitung sekali lalu dibukukan,
+00:01:31.449 --> 00:01:32.933
+angka pengali yang sama di
 
 31
-00:01:27.460 --> 00:01:30.303
-dan kalkulator sanggup menjawab tanpa pernah
+00:01:32.933 --> 00:01:35.081
+atas dan di bawah <b>saling menghapus</b>.
 
 32
-00:01:30.303 --> 00:01:32.592
+00:01:35.712 --> 00:01:39.612
+Yang tersisa persis hasil bagi semula, 0,75.
+
+33
+00:01:40.835 --> 00:01:45.609
+Berapa pun pengalinya, 2 kali, 10 kali, 100 kali,
+
+34
+00:01:45.609 --> 00:01:48.195
+hasil baginya tetap 0,75.
+
+35
+00:01:49.401 --> 00:01:51.933
+Sekarang perhatikan kalau yang diubah sudutnya.
+
+36
+00:01:52.667 --> 00:01:55.896
+Begitu θ bergerak, barulah angkanya ikut berubah.
+
+37
+00:01:57.101 --> 00:01:59.938
+Jadi perbandingan itu <b>hanya bergantung pada sudut</b>,
+
+38
+00:01:59.938 --> 00:02:01.791
+bukan pada ukuran segitiganya.
+
+39
+00:02:03.016 --> 00:02:04.558
+Itulah sebabnya nilainya bisa
+
+40
+00:02:04.558 --> 00:02:06.208
+dihitung sekali lalu dibukukan,
+
+41
+00:02:06.208 --> 00:02:08.548
+dan kalkulator sanggup menjawab tanpa pernah
+
+42
+00:02:08.548 --> 00:02:10.613
 tahu segitiga mana yang Anda maksud.
+
+43
+00:02:11.816 --> 00:02:14.814
+Di materi berikutnya, Perbandingan Trigonometri,
+
+44
+00:02:14.814 --> 00:02:17.937
+Bagian 3, ketiga sisi segitiga ini kita beri nama,
+
+45
+00:02:17.937 --> 00:02:19.748
+supaya perbandingan mana yang
+
+46
+00:02:19.748 --> 00:02:22.084
+dimaksud bisa disebut dengan jelas.

@@ -1,13 +1,23 @@
 {
   "adegan": "LahirnyaRasio",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Tahap 4, Lahirnya sin, cos, tan. Inti yang harus tertanam: ketiganya bukan rumus yang muncul entah dari mana, melainkan tiga dari ENAM cara membagi dua sisi segitiga siku-siku. Menghitung keenamnya lebih dulu membuat 'kenapa cuma tiga yang terkenal' jadi pertanyaan yang wajar, dan menyiapkan tahap 6.",
+  "tempo": "-5%",
+  "catatan": "Perbandingan Trigonometri, Bagian 4 (Materi 04). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (tiga sisi, enam cara membagi dihitung dulu baru diberi nama, kenapa tiga yang terkenal, tiga sisanya). Yang ditambah: pembuka menyebut sub-bab plus Bagian 4, segar-ingat ringkas nama sisi dari Bagian 3, contoh angka pada segitiga 3-4-5 (ada di halaman materinya), dan penutup yang menunjuk Lingkaran Satuan dan Sudut Istimewa, Bagian 1. Tidak ada Pythagoras: sisi 3-4-5 diberikan, bukan dihitung.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Sebuah segitiga siku-siku punya tiga sisi. Dari ketiga sisi itu, ada berapa cara membaginya berpasangan?",
-      "tulis": "Sebuah segitiga siku-siku punya 3 sisi. Dari ketiga sisi itu, ada berapa cara membaginya berpasangan?"
+      "id": "buka",
+      "teks": "Perbandingan Trigonometri, Bagian empat. Dari mana sinus, cosinus, dan tangen datang?",
+      "tulis": "Perbandingan Trigonometri, Bagian 4. Dari mana sinus, cosinus, dan tangen datang?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di materi sebelumnya, Perbandingan Trigonometri, Bagian tiga, ketiga sisi segitiga siku-siku sudah punya nama. Sisi depan ada di seberang sudut theta, sisi samping menempel pada sudutnya, dan sisi miring ada di hadapan siku-siku.",
+      "tulis": "Di materi sebelumnya, Perbandingan Trigonometri, Bagian 3, ketiga sisi segitiga siku-siku sudah punya nama. Sisi depan ada di seberang sudut θ, sisi samping menempel pada sudutnya, dan sisi miring ada di hadapan siku-siku."
+    },
+    {
+      "id": "tanya",
+      "teks": "Dari ketiga sisi itu, ada berapa cara membaginya berpasangan? Kita hitung dulu, baru diberi nama.",
+      "tulis": "Dari ketiga sisi itu, ada berapa cara membaginya berpasangan? Kita hitung dulu, baru diberi nama."
     },
     {
       "id": "hitung",
@@ -15,29 +25,44 @@
       "tulis": "Ambil satu sisi sebagai pembilang, dan satu sisi lain sebagai penyebut. Ada 3 pilihan untuk yang di atas, dan 2 sisa untuk yang di bawah."
     },
     {
+      "id": "sisa_dua",
+      "teks": "Kenapa dua, bukan tiga? Sisi yang sudah dipakai di atas tidak boleh dipakai lagi di bawah, karena membagi sisi dengan dirinya sendiri selalu satu.",
+      "tulis": "Kenapa 2, bukan 3? Sisi yang sudah dipakai di atas tidak boleh dipakai lagi di bawah, karena membagi sisi dengan dirinya sendiri selalu 1."
+    },
+    {
       "id": "enam",
       "teks": "Tiga dikali dua sama dengan enam. Jadi ada *enam perbandingan* yang mungkin. Tidak lebih, dan tidak kurang.",
-      "tulis": "3 × 2 = 6. Jadi ada *6 perbandingan* yang mungkin. Tidak lebih, dan tidak kurang."
+      "tulis": "3 × 2 = 6. Jadi ada *enam perbandingan* yang mungkin. Tidak lebih, dan tidak kurang."
     },
     {
       "id": "nama",
       "teks": "Dan keenamnya punya nama. Tiga yang paling sering dipakai diberi nama yang sudah Anda dengar sejak lama.",
-      "tulis": "Dan keenamnya punya nama. 3 yang paling sering dipakai diberi nama yang sudah Anda dengar sejak lama."
+      "tulis": "Dan keenamnya punya nama. Tiga yang paling sering dipakai diberi nama yang sudah Anda dengar sejak lama."
     },
     {
       "id": "sin",
-      "teks": "Sisi depan dibagi sisi miring. Namanya *sinus*.",
-      "tulis": "depan : miring. Namanya *sinus* (sin)."
+      "teks": "Sisi depan dibagi sisi miring. Namanya *sinus*, disingkat sin.",
+      "tulis": "Sisi depan dibagi sisi miring. Namanya *sinus*, disingkat sin."
     },
     {
       "id": "cos",
-      "teks": "Sisi samping dibagi sisi miring. Namanya *cosinus*.",
-      "tulis": "samping : miring. Namanya *cosinus* (cos)."
+      "teks": "Sisi samping dibagi sisi miring. Namanya *cosinus*, disingkat cos.",
+      "tulis": "Sisi samping dibagi sisi miring. Namanya *cosinus*, disingkat cos."
     },
     {
       "id": "tan",
-      "teks": "Dan sisi depan dibagi sisi samping. Namanya *tangen*.",
-      "tulis": "Dan depan : samping. Namanya *tangen* (tan)."
+      "teks": "Dan sisi depan dibagi sisi samping. Namanya *tangen*, disingkat tan.",
+      "tulis": "Dan sisi depan dibagi sisi samping. Namanya *tangen*, disingkat tan."
+    },
+    {
+      "id": "contoh",
+      "teks": "Coba dengan angka. Segitiga dengan sisi depan tiga, sisi samping empat, dan sisi miring lima.",
+      "tulis": "Coba dengan angka. Segitiga dengan sisi depan 3, sisi samping 4, dan sisi miring 5."
+    },
+    {
+      "id": "contoh_nilai",
+      "teks": "Sinus theta sama dengan tiga per lima, yaitu nol koma enam. Cosinus theta sama dengan empat per lima, yaitu nol koma delapan. Dan tangen theta sama dengan tiga per empat, yaitu nol koma tujuh lima.",
+      "tulis": "sin θ = 3/5 = 0,6. cos θ = 4/5 = 0,8. Dan tan θ = 3/4 = 0,75."
     },
     {
       "id": "kenapa",
@@ -46,13 +71,18 @@
     },
     {
       "id": "sisa",
-      "teks": "Tiga sisanya adalah kebalikan dari ketiga tadi. Namanya *kosekan, sekan, dan kotangen*. Kita akan menemuinya lagi di tahap enam.",
-      "tulis": "Tiga sisanya adalah kebalikan dari ketiga tadi. Namanya *kosekan, sekan, dan kotangen*. Kita akan menemuinya lagi di tahap 6."
+      "teks": "Tiga sisanya adalah kebalikan dari ketiga tadi. Namanya *kosekan, sekan, dan kotangen*. Kita akan menemuinya lagi di Lingkaran Satuan dan Sudut Istimewa, Bagian dua.",
+      "tulis": "Tiga sisanya adalah kebalikan dari ketiga tadi. Namanya *kosekan, sekan, dan kotangen*. Kita akan menemuinya lagi di Lingkaran Satuan dan Sudut Istimewa, Bagian 2."
     },
     {
       "id": "tutup",
       "teks": "Jadi sinus, cosinus, dan tangen bukan rumus yang muncul entah dari mana. Ketiganya hanya tiga dari enam cara membagi dua sisi.",
       "tulis": "Jadi sin, cos, dan tan bukan rumus yang muncul entah dari mana. Ketiganya hanya 3 dari 6 cara membagi dua sisi."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Lingkaran Satuan dan Sudut Istimewa, Bagian satu, segitiga ini kita taruh di dalam lingkaran berjari-jari satu, dan sisi miringnya jadi tepat satu.",
+      "tulis": "Di materi berikutnya, Lingkaran Satuan dan Sudut Istimewa, Bagian 1, segitiga ini kita taruh di dalam lingkaran berjari-jari 1, dan sisi miringnya jadi tepat 1."
     }
   ]
 }

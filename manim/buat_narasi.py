@@ -162,8 +162,10 @@ async def buat(topik: str, napas: float = NAPAS, diam: bool = False) -> None:
         print(f"  keluaran: {keluar.relative_to(AKAR)}/  durasi.json, kata.json, narasi-penuh.mp3")
         if basi:
             print(f"  dibuang : {len(basi)} potongan basi ({', '.join(basi[:4])}{', ...' if len(basi) > 4 else ''})")
-        if not 180 <= waktu <= 360:
-            print(f"  PERINGATAN: standar v3 meminta 3 sampai 6 menit; naskah ini {waktu / 60:.1f} menit.")
+        # Rentang dilonggarkan ARYA 11 Sep 2026: 2 sampai 6 menit, jangan
+        # memaksakan 6 menit; isi yang menentukan panjangnya.
+        if not 120 <= waktu <= 360:
+            print(f"  PERINGATAN: standar v3.1 meminta 2 sampai 6 menit; naskah ini {waktu / 60:.1f} menit.")
         print("\n>>> Adegan membaca durasi.json dan kata.json. Jalankan ulang skrip ini tiap naskah")
         print(">>> diubah (hanya segmen yang berubah yang direkam ulang), lalu render ulang.")
 

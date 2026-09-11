@@ -393,7 +393,12 @@ def hitung_babak(nama, blok, mulai_abs, lama, jam, durasi, pembantu=None, kata=N
                                "(jalankan buat_narasi.py dulu)")
             else:
                 frasa = g.group(1)
-                titik = detik_kata(kata, nama, frasa)
+                # `ke=2` memilih kemunculan kedua frasa; tanpa membacanya alat
+                # ini menuduh pemicu kedua "terlewat" padahal yang dimaksud
+                # kemunculan berikutnya (Trigonometri 02, 11 Sep 2026).
+                g_ke = re.search(r"ke\s*=\s*(\d+)", isi)
+                ke = int(g_ke.group(1)) if g_ke else 1
+                titik = detik_kata(kata, nama, frasa, ke=ke)
                 if titik is None:
                     daftar = ""
                     if nama in kata:

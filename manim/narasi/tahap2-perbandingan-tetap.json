@@ -1,13 +1,23 @@
 {
   "adegan": "PerbandinganTetap",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Tahap 2, Perbandingan yang tidak berubah. MENGGANTIKAN video lama 17 detik tanpa narasi (media lama UkuranBedaRasioSama), yang punya 7 cacat dan dirilis tanpa diperiksa. Inti yang harus tertanam: pada segitiga sebangun, panjang sisinya berubah tapi hasil baginya tidak, karena pembilang dan penyebut dikali angka yang sama, dan pada pembagian keduanya saling menghapus. Itulah alasan nilai sin, cos, tan bisa dibukukan.",
+  "tempo": "-5%",
+  "catatan": "Perbandingan Trigonometri, Bagian 2 (Materi 02). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (segitiga 1,8 dan 2,4 lalu 3 dan 4, hasil bagi 0,75, pengali k saling menghapus, sudut digeser barulah angkanya berubah). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2, segar-ingat ringkas dugaan dari Bagian 1 (pohon dan bayangan, 1,25), dan penutup yang menunjuk Bagian 3. Tidak ada Pythagoras: materi ini tidak membutuhkannya.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Tahap satu berakhir pada satu dugaan. Sudut yang sama selalu memberi *perbandingan yang sama*. Sekarang kita buktikan.",
-      "tulis": "Tahap 1 berakhir pada satu dugaan. Sudut yang sama selalu memberi *perbandingan yang sama*. Sekarang kita buktikan."
+      "id": "buka",
+      "teks": "Perbandingan Trigonometri, Bagian dua. Kenapa sudut yang sama selalu memberi angka yang sama?",
+      "tulis": "Perbandingan Trigonometri, Bagian 2. Kenapa sudut yang sama selalu memberi angka yang sama?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di materi sebelumnya, Perbandingan Trigonometri, Bagian satu, kita berhenti pada satu dugaan. Tinggi dibagi bayangan pada diri kita hasilnya satu koma dua lima, dan pada pohon yang jauh lebih tinggi hasilnya juga satu koma dua lima.",
+      "tulis": "Di materi sebelumnya, Perbandingan Trigonometri, Bagian 1, kita berhenti pada satu dugaan. Tinggi dibagi bayangan pada diri kita hasilnya 1,25, dan pada pohon yang jauh lebih tinggi hasilnya juga 1,25."
+    },
+    {
+      "id": "dugaan",
+      "teks": "Dugaannya: sudut yang sama selalu memberi *perbandingan yang sama*. Sekarang kita buktikan, bukan sekadar percaya.",
+      "tulis": "Dugaannya: sudut yang sama selalu memberi *perbandingan yang sama*. Sekarang kita buktikan, bukan sekadar percaya."
     },
     {
       "id": "segitiga",
@@ -36,11 +46,18 @@
     },
     {
       "id": "kenapa",
-      "teks": "Sebabnya sederhana. Waktu segitiganya diperbesar, sisi depan dan sisi samping dikalikan angka yang sama."
+      "teks": "Sebabnya sederhana. Waktu segitiganya diperbesar, sisi depan dan sisi samping dikalikan angka yang sama. Sebut saja angka itu k.",
+      "tulis": "Sebabnya sederhana. Waktu segitiganya diperbesar, sisi depan dan sisi samping dikalikan angka yang sama. Sebut saja angka itu k."
     },
     {
       "id": "hapus",
-      "teks": "Dan pada pembagian, angka pengali yang sama di atas dan di bawah *saling menghapus*. Yang tersisa persis hasil bagi semula."
+      "teks": "Dan pada pembagian, angka pengali yang sama di atas dan di bawah *saling menghapus*. Yang tersisa persis hasil bagi semula, nol koma tujuh lima.",
+      "tulis": "Dan pada pembagian, angka pengali yang sama di atas dan di bawah *saling menghapus*. Yang tersisa persis hasil bagi semula, 0,75."
+    },
+    {
+      "id": "berapapun",
+      "teks": "Berapa pun pengalinya, dua kali, sepuluh kali, seratus kali, hasil baginya tetap nol koma tujuh lima.",
+      "tulis": "Berapa pun pengalinya, 2 kali, 10 kali, 100 kali, hasil baginya tetap 0,75."
     },
     {
       "id": "geser",
@@ -48,8 +65,19 @@
       "tulis": "Sekarang perhatikan kalau yang diubah sudutnya. Begitu θ bergerak, barulah angkanya ikut berubah."
     },
     {
+      "id": "simpul",
+      "teks": "Jadi perbandingan itu *hanya bergantung pada sudut*, bukan pada ukuran segitiganya.",
+      "tulis": "Jadi perbandingan itu *hanya bergantung pada sudut*, bukan pada ukuran segitiganya."
+    },
+    {
       "id": "tutup",
-      "teks": "Jadi perbandingan itu *hanya bergantung pada sudut*, bukan pada ukuran. Itulah sebabnya nilainya bisa dihitung sekali lalu dibukukan, dan kalkulator sanggup menjawab tanpa pernah tahu segitiga mana yang Anda maksud."
+      "teks": "Itulah sebabnya nilainya bisa dihitung sekali lalu dibukukan, dan kalkulator sanggup menjawab tanpa pernah tahu segitiga mana yang Anda maksud.",
+      "tulis": "Itulah sebabnya nilainya bisa dihitung sekali lalu dibukukan, dan kalkulator sanggup menjawab tanpa pernah tahu segitiga mana yang Anda maksud."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Perbandingan Trigonometri, Bagian tiga, ketiga sisi segitiga ini kita beri nama, supaya perbandingan mana yang dimaksud bisa disebut dengan jelas.",
+      "tulis": "Di materi berikutnya, Perbandingan Trigonometri, Bagian 3, ketiga sisi segitiga ini kita beri nama, supaya perbandingan mana yang dimaksud bisa disebut dengan jelas."
     }
   ]
 }
