@@ -1,51 +1,30 @@
-"""Vektor Materi 06, Menjumlah itu menyambung perjalanan. ManimGL.
+"""Vektor Materi 06, Operasi Vektor Bagian 1: menjumlah itu menyambung perjalanan.
+STANDAR VIDEO v3.1, ditulis ulang MASTER 12 Sep 2026 dari adegan lama (2:12)
+yang sudah disetujui ARYA. ISINYA SAMA: pejalan berjalan (3 1) lalu (1 2)
+dari tempat ia berhenti; resultan (4 3) dari titik berangkat ke titik akhir;
+ujung ke pangkal; susunan keliru pangkal ke pangkal; garis bantu ke sumbu
+memperlihatkan 3 + 1 = 4 dan 1 + 2 = 3; jebakan panjang 3,16 + 2,24 = 5,4
+padahal resultannya tepat 5.
 
-Rancangan arah visual:
-`docs/superpowers/specs/2026-09-02-video-vektor-bidang-bernomor.md`.
+YANG BERBEDA DARI VERSI LAMA
+- Pembuka menyebut sub-bab plus Bagian 1 lalu pertanyaannya; segar-ingat
+  Vektor dalam Sistem Koordinat Bagian 1: satu panah = dua angka, digambar
+  ulang sebagai (4 2) dengan dua langkahnya.
+- Bentuk umum a + b = (a1 + b1  a2 + b2) LAHIR besar di dekat resultannya.
+- Tiap kejadian dipicu pada kata yang mengucapkannya (`sinema.JamKata`).
+- Kalimat narasi tidak ditulis sebagai teks di layar; penutup memperlihatkan
+  penjumlahan komponen yang sah dan penjumlahan panjang yang dicoret;
+  pancingan Bagian 2 berupa dua panah sepangkal yang ditutup jajar genjang.
+- Sorot panah memakai pita ungu tembus pandang (`sorot_pita`), bukan Indicate.
 
-PRINSIP POKOK
-Matematika digambar di bidang datar bernomor, kamera TEGAK LURUS dari atas,
-tidak pernah dimiringkan lagi. 3D hanya di babak pembuka.
-
-REVISI 2 SEPTEMBER MALAM, dua catatan ARYA setelah menonton:
-
-1. PITA BAWAH MILIK SUBTITLE SENDIRIAN. Semua `sinema.keterangan` dibuang.
-   Isinya memang mengulang ucapan narator, dan aturan proyek melarang itu.
-   Gantinya satu baris tetap di pojok kiri atas sebagai satuan cerita, karena
-   begitu pindah ke 2D tidak ada lagi yang memberi tahu satu petak itu apa.
-
-2. ASAL RUMUS DIPERLIHATKAN DULU. Babak `komponen` baru: garis putus-putus
-   dijatuhkan dari tiap ujung panah ke sumbu mendatar, lalu ruas yang terbentuk
-   di sumbu itu diwarnai. Siswa MELIHAT petak 0 sampai 3 disambung petak 3
-   sampai 4 sebelum ditulis 3 + 1 = 4. Babak `hitung` melakukan hal yang sama
-   pada sumbu tegak.
-
-STORYBOARD
-   1. sapa       Bidang bernomor, tegak lurus: orang berdiri di lapangan berpetak.
-   2. terbang    Turun ke tegak lurus; bidang koordinat bernomor muncul.
-   3. jalan1     Orangnya BERJALAN (3, 1). Panah biru tumbuh mengikuti langkah.
-   4. jalan2     Dari tempat ia berhenti, berjalan lagi (1, 2). Panah merah.
-   5. tanya      Pertanyaan, lalu diam.
-   6. resultan   Panah ungu dari (0, 0) langsung ke (4, 3).
-   7. aturan     Segitiganya disorot: ujung ke pangkal.
-   8. keliru     Susunan yang SALAH: kedua pangkal ditempelkan.
-   9. komponen   Garis bantu ke sumbu mendatar; ruas 0-3 dan 3-4 diwarnai.
-  10. hitung     Hal yang sama di sumbu tegak, lalu 3 + 1 = 4 dan 1 + 2 = 3.
-  11. panjang    Jebakannya: 3,16 + 2,24 = 5,4, padahal resultannya tepat 5.
-  12. tutup      Layar bersih, kalimat sorot Materi 06.
-
-KENAPA BERANGKAT DARI (0, 0) BIDANG
-Sama dengan Materi 01: koordinat di layar SAMA dengan komponen vektornya, jadi
-siswa bisa memeriksa sendiri dengan menghitung petak, tanpa mengurangi apa pun.
-
-KENAPA PANAHNYA DIBEKUKAN SETELAH BABAK 4
-Selama orangnya berjalan, panah digambar ulang tiap frame (`always_redraw`)
-supaya tumbuh mengikuti langkah. Sesudah berhenti, panah yang sama diganti
-salinan diam. Sebabnya babak `keliru` perlu MEREDUPKAN susunan yang benar, dan
-benda `always_redraw` mengembalikan kepekatannya sendiri tiap frame.
+KENAPA PANAHNYA DIBEKUKAN SETELAH BABAK jalan2: selama orangnya berjalan,
+panah digambar ulang tiap frame (`always_redraw`) supaya tumbuh mengikuti
+langkah. Sesudah berhenti, panah yang sama diganti salinan diam, sebab babak
+`keliru` perlu MEREDUPKAN susunan yang benar, dan benda `always_redraw`
+mengembalikan kepekatannya sendiri tiap frame.
 
 WARNA: biru perjalanan pertama, merah perjalanan kedua, ungu resultan,
-hitam susunan yang keliru.
+abu susunan yang keliru dan garis bantu.
 """
 
 import json
@@ -59,33 +38,19 @@ from gl import ilustrasi, kamera, qc, sinema  # noqa: E402
 AKAR = Path(__file__).resolve().parents[2]
 TOPIK = "vektor6-sambung"
 DURASI = json.loads((AKAR / "audio" / TOPIK / "durasi.json").read_text(encoding="utf-8"))["segmen"]
+KATA = sinema.JamKata(TOPIK)
 
-Z = 0.02                                   # tepat di atas bidang
+Z = 0.02
 ASAL = np.array([0.0, 0.0, Z])
 V1 = np.array([3.0, 1.0, 0.0])             # perjalanan pertama
 V2 = np.array([1.0, 2.0, 0.0])             # perjalanan kedua
-SIMPANG = ASAL + V1                        # tempat ia berhenti lalu berangkat lagi
+SIMPANG = ASAL + V1
 AKHIR = ASAL + V1 + V2
+V_INGAT = np.array([4.0, 2.0, 0.0])        # panah (4 2) dari Vektor dalam Sistem Koordinat
 
-# Jangkauan dipilih dari daerah yang benar-benar dipakai: x sampai 4, y sampai 3,
-# ditambah satu petak longgar untuk label koordinat. Batas bawah -1, bukan -2:
-# angka "-2" jatuh persis di pita subtitle.
 BIDANG_X, BIDANG_Y = (-2.0, 7.0, 1.0), (-1.0, 4.0, 1.0)
-
-# Pembuka: garis petak naik dua tahap, kamera mulai miring tipis.
 GARIS_SAMAR, GARIS_SEDANG, GARIS_PENUH = 0.30, 0.55, 1.0
-MIRING_AWAL = 6.0          # derajat, lihat catatan di `construct`
-# Pusat y 1,12, bukan 1,30: pada 1,30 baris paling bawah bidang jatuh di
-# -2,63 pada bingkai, masuk jalur subtitle yang dipesan v2 (batas -2,55),
-# dan `qc.jalur_bawah_kosong` menggagalkan rendernya. Pada 1,12 baris itu
-# ada di -2,42 dan baris teratas di 3,29, keduanya aman.
-# Pada tinggi 7,0 bidangnya TIDAK MUAT di pita yang tersisa setelah jalur
-# subtitle dipesan: enam baris petak plus angka sumbunya memakan 6,33
-# satuan bingkai, sedangkan yang tersedia 6,25. Tingginya dinaikkan ke
-# 7,6 (sama dengan Materi 01) supaya muat, dan pusatnya diletakkan di
-# tengah pita itu. Diukur, bukan dihitung di kepala.
-# Pusat dan tinggi kamera peta dihitung `kamera.muat_datar`, tidak ditulis
-# tangan: bidang setinggi enam baris tidak selalu muat berapa pun pusatnya.
+MIRING_AWAL = 0.0          # kamera TEGAK LURUS sejak awal: segar-ingat menggambar di petak, dan petak miring membuat segitiganya berbohong; "kita lihat dari atas" tinggal zum ringan
 
 
 def panah(a, b, warna, tebal=5):
@@ -100,24 +65,12 @@ def panah(a, b, warna, tebal=5):
 class SambungPerjalanan(AdeganMatra):
     def construct(self):
         frame = self.frame
+        self.aktif, self.tulisan, self.hud_ku = {}, {}, {}
 
-        # ==============================================================
-        # Babak 1: LANGSUNG ke bidang bernomor, tanpa pembuka 3D
-        # ==============================================================
-        # STANDAR butir 2 dipertegas 4 Sep 2026: 3D hanya di video PERTAMA
-        # tiap topik. Video ini dulu membuka dengan 22 detik lapangan kelabu
-        # yang hampir tidak bergerak, seperlima panjang videonya, dan itu
-        # yang dipotong. Narasinya tidak diubah sama sekali: kalimat
-        # "lapangan itu kita lihat dari atas, lengkap dengan angka pada
-        # kedua sumbunya" justru makin cocok, sebab angkanya memang baru
-        # muncul pada babak itu.
         bidang = ilustrasi.bidang_bernomor(BIDANG_X, BIDANG_Y)
-        # Garis petak dinyalakan DUA TAHAP mengikuti kalimat narator: samar
-        # saat "lapangan berpetak" disebut, penuh saat "supaya langkahnya
-        # bisa kita hitung". Memotong pembuka 3D saja tidak cukup; MASTER
-        # 4 Sep: kekosongannya cuma PINDAH dari lapangan kelabu ke bidang
-        # kosong kalau tidak ada yang terjadi di tiap kalimat.
-        bidang.set_stroke(opacity=GARIS_SAMAR)
+        # Bidang tidak tampak selama pembuka (pertanyaannya menempati tengah
+        # layar); ia menyala samar pada kalimat segar-ingat.
+        bidang.set_stroke(opacity=0.0)
         bidang.angka.set_opacity(0)
         self.add(bidang)
 
@@ -128,314 +81,443 @@ class SambungPerjalanan(AdeganMatra):
         pejalan.add_updater(lambda m: m.move_to(pusat0 + self.langkah()))
 
         pusat, tinggi = kamera.muat_datar(bidang)
-        # Kamera dimulai MIRING TIPIS lalu mendatar tepat pada kalimat
-        # "lapangan itu kita lihat dari atas". Sesudah pembuka 3D dipotong,
-        # kalimat itu tidak lagi menggambarkan perubahan apa pun, dan gambar
-        # yang membantah narasinya justru dilarang STANDAR butir 3.
-        # 6 derajat memendekkan satu arah 1 - cos 6 = 0,55 persen, jauh di
-        # bawah yang bisa dilihat mata. Syarat MASTER 4 Sep dipenuhi: tidak
-        # ada angka sumbu maupun panah yang tampil selama kamera masih
-        # miring, dan sesudah mendatar ia tidak pernah miring lagi.
         kamera.pasang_awal(frame, theta=0, phi=MIRING_AWAL, pusat=pusat,
                            tinggi=tinggi * 1.06)
+        self.papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True, alas=True)
 
-        # Jam kalimat: tiap kejadian pembuka dipatok ke detik kalimat yang
-        # menyebutkannya. Tanpa ini `run_time` menumpuk dan gambarnya meleset
-        # beberapa detik dari narasinya.
-        JAM = sinema.jam_subtitle(TOPIK)
+        # ============ buka ============================================== #
+        tanya_buka = teks("Dua perjalanan berturut-turut, hasilnya perjalanan apa?", 34, TINTA)
+        sinema.batasi_lebar(tanya_buka, 11.4)
+        tanya_buka.move_to([0, 0.3, 0]).fix_in_frame()
 
-        def saat(potongan):
-            for detik, kalimat in JAM:
-                if potongan in kalimat:
-                    return detik
-            return None
-        # `alas=True`: tulisan HUD diberi alas kertas, jadi bidang boleh
-        # memenuhi layar tanpa garis petak menembus tulisannya.
-        papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True, alas=True)
+        with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Operasi")
+            sinema.judul_pembuka(self, "Operasi Vektor, Bagian 1", lama=3.0, y=1.6)
+            b.catat(3.0)
+            b.tunggu_kata("Dua perjalanan")
+            self.hud_tambah(tanya_buka)
+            b.main(Write(tanya_buka), run_time=1.6)
+            self.hud_ku["tanya buka"] = tanya_buka
+        self.gerbang()
 
-        with sinema.babak(self, "sapa", DURASI) as b:
-            sinema.judul_pembuka(self, "Materi 06: Menyambung perjalanan",
-                                 lama=3.2, y=2.4)
-            b.catat(3.2)
-            # "Seseorang berdiri di sebuah lapangan berpetak."
-            b.tunggu_sampai(saat("lapangan berpetak"))
-            b.main(bidang.animate.set_stroke(opacity=GARIS_SEDANG), run_time=1.3)
+        # ============ ingat: panah (4 2) = dua angka ====================== #
+        p_ingat = panah(ASAL, ASAL + V_INGAT, SOROT, tebal=7)
+        i_datar = Line(ASAL, ASAL + V_INGAT[0] * RIGHT).set_stroke(AKSEN2, 6)
+        i_tegak = Line(ASAL + V_INGAT[0] * RIGHT, ASAL + V_INGAT).set_stroke(AKSEN, 6)
+        li_datar = rumus("4", 30, AKSEN2).move_to([V_INGAT[0] / 2, -0.55, Z])
+        li_tegak = rumus("2", 30, AKSEN).move_to([V_INGAT[0] + 0.5, V_INGAT[1] / 2, Z])
+        ident = None
+
+        with sinema.babak(self, "ingat", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Di Vektor")
+            ident = sinema.identitas(self, "ingat komponen", alas=True)
+            ident.set_opacity(0)
+            b.main(FadeOut(tanya_buka), ident.animate.set_opacity(1),
+                   bidang.animate.set_stroke(opacity=GARIS_SAMAR), run_time=0.6)
+            self.aktif["bidang"] = bidang
+            self.remove(tanya_buka)
+            self.hud_ku.pop("tanya buka", None)
+            self.hud_ku["identitas"] = ident
+            b.tunggu_kata("satu panah")
+            self.add(p_ingat)
+            b.main(GrowArrow(p_ingat), run_time=1.0)
+            self.aktif["panah ingat"] = p_ingat
+            b.tunggu_kata("berapa ke kanan")
+            self.add(i_datar, li_datar)
+            b.main(ShowCreation(i_datar), FadeIn(li_datar), run_time=0.8)
+            self.aktif["langkah ingat datar"] = i_datar
+            self.tulisan["4 ingat"] = li_datar
+            b.tunggu_kata("berapa ke atas")
+            self.add(i_tegak, li_tegak)
+            b.main(ShowCreation(i_tegak), FadeIn(li_tegak), run_time=0.8)
+            self.aktif["langkah ingat tegak"] = i_tegak
+            self.tulisan["2 ingat"] = li_tegak
+            self.papan.baris(r"(4\ \ 2)", SOROT, b=b)
+            b.tunggu_kata("kita sambung")
+            self.sorot_pita(b, p_ingat, lama=0.9)
+        self.gerbang()
+
+        # ============ cerita: pejalan di lapangan berpetak ================ #
+        with sinema.babak(self, "cerita", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Seseorang")
+            pergi = Group(p_ingat, i_datar, i_tegak, li_datar, li_tegak)
+            self.papan_baru(b, lama=0.7, bareng=[FadeOut(pergi), FadeOut(ident),
+                                                 bidang.animate.set_stroke(opacity=GARIS_SEDANG)])
+            self.remove(*pergi, ident)
+            ident = None
+            self.hud_ku.pop("identitas", None)
+            for nama in ("panah ingat", "langkah ingat datar", "langkah ingat tegak"):
+                self.aktif.pop(nama, None)
+            self.tulisan.clear()
             self.add(pejalan)
-            b.main(FadeIn(pejalan, scale=1.5), run_time=0.9)
-            # "Ia akan berjalan dua kali." Satu denyut untuk tiap "kali".
-            b.tunggu_sampai(saat("berjalan dua kali"))
+            b.main(FadeIn(pejalan, scale=1.5), run_time=0.8)
+            self.aktif["pejalan"] = pejalan
+            b.tunggu_kata("berjalan dua")
             for _ in range(2):
-                b.main(Indicate(pejalan, scale_factor=1.18, color=TINTA),
-                       run_time=0.9)
-            # "dan kita ingin tahu di mana ia berakhir." Dua sumbu inilah
-            # yang nanti dipakai untuk menyebut tempat itu.
-            b.tunggu_sampai(saat("di mana ia berakhir"))
-            b.main(Indicate(bidang.axes, scale_factor=1.0, color=SOROT),
-                   run_time=1.5)
-        qc.periksa_adegan(self, {},
-                          dunia={"bidang": bidang, "pejalan": pejalan})
+                b.main(Indicate(pejalan, scale_factor=1.18, color=TINTA), run_time=0.8)
+            b.tunggu_kata("di mana")
+            b.main(Indicate(bidang.axes, scale_factor=1.0, color=SOROT), run_time=1.2)
+        self.gerbang()
 
-        # ==============================================================
-        # Babak 2: angka sumbu muncul, identitas dipasang
-        # ==============================================================
-        with sinema.babak(self, "terbang", DURASI) as b:
-            # "Supaya langkahnya bisa kita hitung": petaknya menyala penuh.
-            b.tunggu_sampai(saat("bisa kita"))
-            b.main(bidang.animate.set_stroke(opacity=GARIS_PENUH), run_time=1.4)
-            # "lapangan itu kita lihat dari atas": kamera mendatar, sekali,
-            # dan tidak pernah miring lagi sesudah ini.
-            b.tunggu_sampai(saat("dari atas"))
-            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat,
-                                tinggi=tinggi), run_time=2.2)
-            # "lengkap dengan angka pada KEDUA sumbunya": sumbu x dulu, lalu
-            # sumbu y, dua kejadian untuk satu kalimat yang menyebut dua hal.
-            # Angkanya baru muncul sesudah kamera mendatar.
-            b.tunggu_sampai(saat("kedua sumbunya"))
-            b.main(bidang.angka[0].animate.set_opacity(0.75), run_time=1.1)
-            b.main(bidang.angka[1].animate.set_opacity(0.75), run_time=1.1)
-            # "1 petak = 1 langkah."
-            b.tunggu_sampai(saat("petak = 1 langkah"))
-            identitas = sinema.identitas(self, "1 petak = 1 langkah", alas=True)
-            identitas.set_opacity(0)
-            b.main(identitas.animate.set_opacity(1), run_time=0.8)
-        qc.periksa_adegan(self, {}, dunia={"bidang": bidang},
-                          hud={"identitas": identitas})
+        # ============ terbang: tegak lurus, angka sumbu, identitas ======== #
+        with sinema.babak(self, "terbang", DURASI, kata=KATA) as b:
+            b.tunggu_kata("bisa kita")
+            b.main(bidang.animate.set_stroke(opacity=GARIS_PENUH), run_time=1.0)
+            b.tunggu_kata("dari atas")
+            b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi),
+                   run_time=1.6)
+            b.tunggu_kata("kedua sumbunya")
+            b.main(bidang.angka[0].animate.set_opacity(0.75), run_time=0.7)
+            b.main(bidang.angka[1].animate.set_opacity(0.75), run_time=0.7)
+            b.tunggu_kata("Satu petak")
+            ident = sinema.identitas(self, "1 petak = 1 langkah", alas=True)
+            ident.set_opacity(0)
+            b.main(ident.animate.set_opacity(1), run_time=0.7)
+            self.hud_ku["identitas"] = ident
+        self.gerbang()
 
-        # ==============================================================
-        # Babak 3: perjalanan pertama, panah tumbuh mengikuti langkah
-        # ==============================================================
+        # ============ jalan1: perjalanan pertama ========================== #
         p1 = always_redraw(lambda: panah(ASAL, ASAL + V1 * self.t1.get_value(), AKSEN2))
-        with sinema.babak(self, "jalan1", DURASI) as b:
+        titik1 = Dot(radius=0.08).set_color(AKSEN2).move_to(SIMPANG)
+        koord1 = rumus(r"(3,\ 1)", 26, AKSEN2).move_to(SIMPANG + np.array([0.75, -0.42, 0.0]))
+
+        with sinema.babak(self, "jalan1", DURASI, kata=KATA) as b:
+            b.tunggu_kata("tiga petak")
             self.add(p1)
             self.bring_to_front(pejalan)
-            b.main(self.t1.animate.set_value(1.0), run_time=max(2.0, DURASI["jalan1"] - 1.8))
-            panel_a = papan.baris(r"\vec{a} = (3,\ 1)", AKSEN2)
-            b.catat(0.8)
-            b.jeda(0.8)
-        qc.periksa_adegan(self, {"panah a": p1},
-                          hud={"panel a": panel_a, "identitas": identitas})
+            b.main(self.t1.animate.set_value(1.0), run_time=2.6)
+            b.tunggu_kata("Panah biru")
+            self.papan.baris(r"\vec{a} = (3\ \ 1)", AKSEN2, b=b)
+            b.tunggu_kata("ujungnya")
+            self.add(titik1, koord1)
+            self.bring_to_front(pejalan)
+            b.main(FadeIn(titik1, scale=2.0), FadeIn(koord1), run_time=0.6)
+            self.tulisan["koordinat 1"] = koord1
+        self.gerbang()
 
-        # ==============================================================
-        # Babak 4: perjalanan kedua, berangkat dari tempat ia berhenti
-        # ==============================================================
+        # ============ jalan2: perjalanan kedua ============================ #
         p2 = always_redraw(lambda: panah(SIMPANG, SIMPANG + V2 * self.t2.get_value(), AKSEN))
-        with sinema.babak(self, "jalan2", DURASI) as b:
+        titik2 = Dot(radius=0.09).set_color(SOROT).move_to(AKHIR)
+        koord2 = rumus(r"(4,\ 3)", 26, SOROT).move_to(AKHIR + np.array([0.85, 0.42, 0.0]))
+
+        with sinema.babak(self, "jalan2", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Satu petak")
             self.add(p2)
             self.bring_to_front(pejalan)
-            b.main(self.t2.animate.set_value(1.0), run_time=max(2.0, DURASI["jalan2"] - 1.8))
-            panel_b = papan.baris(r"\vec{b} = (1,\ 2)", AKSEN)
-            b.catat(0.8)
-            b.jeda(0.8)
+            b.main(self.t2.animate.set_value(1.0), run_time=2.4)
+            b.tunggu_kata("Panah merah")
+            self.papan.baris(r"\vec{b} = (1\ \ 2)", AKSEN, b=b)
+            b.tunggu_kata("berhenti di")
+            self.add(titik2, koord2)
+            self.bring_to_front(pejalan)
+            b.main(FadeIn(titik2, scale=2.0), FadeIn(koord2), run_time=0.6)
+            self.tulisan["koordinat 2"] = koord2
 
-        # Panah dan orangnya dibekukan. Alasannya di catatan kepala berkas.
+        # Panah dibekukan (catatan kepala berkas).
         pejalan.clear_updaters()
         self.remove(p1, p2)
         pa = panah(ASAL, SIMPANG, AKSEN2)
         pb = panah(SIMPANG, AKHIR, AKSEN)
-        la = teks("pertama", 24, AKSEN2).move_to(ASAL + V1 * 0.5 + 0.52 * UP + 0.30 * LEFT)
-        lb = teks("kedua", 24, AKSEN).move_to(SIMPANG + V2 * 0.5 + 0.62 * RIGHT)
-        self.add(pa, pb, la, lb)
+        self.add(pa, pb)
         self.bring_to_front(pejalan)
-        self.play(FadeIn(la), FadeIn(lb), run_time=0.4)
-        qc.periksa_adegan(self, {"panah a": pa, "panah b": pb, "label a": la, "label b": lb},
-                          [("label a", "label b")],
-                          hud={"panel a": panel_a, "panel b": panel_b,
-                               "identitas": identitas})
+        self.aktif["panah a"] = pa
+        self.aktif["panah b"] = pb
+        self.gerbang()
 
-        # ==============================================================
-        # Babak 5: pertanyaan
-        # ==============================================================
-        with sinema.babak(self, "tanya", DURASI) as b:
-        # `Indicate` bawaan ManimGL berkedip KUNING (#FFFF00), warna yang tidak ada
-        # di palet MATRA dan terlihat seperti kerusakan gambar. Warnanya diganti
-        # warna palet, dan `scale_factor` dibuat 1.0: membesarkan panah walau
-        # sekejap membuat ujungnya melewati petaknya sendiri, dan di bidang
-        # bernomor itu berarti gambar membantah angkanya.
-            b.main(Indicate(pa, scale_factor=1.0, color=SOROT), run_time=1.0)
-            b.jeda(1.6)
-        qc.periksa_adegan(self, {"panah a": pa, "identitas": identitas})
+        # ============ tanya: ke mana ia berpindah? ======================== #
+        titik0 = Dot(radius=0.10).set_color(TINTA).move_to(ASAL)
+        tanda_tanya = rumus("?", 44, SOROT).move_to([1.2, 1.7, Z])
 
-        # ==============================================================
-        # Babak 6: resultan
-        # ==============================================================
+        with sinema.babak(self, "tanya", DURASI, kata=KATA) as b:
+            b.tunggu_kata("lupakan")
+            b.main(pa.animate.set_opacity(0.45), pb.animate.set_opacity(0.45), run_time=0.7)
+            b.tunggu_kata("titik ia berangkat")
+            self.add(titik0)
+            b.main(FadeIn(titik0, scale=2.5), Flash(ASAL, color=SOROT, flash_radius=0.5,
+                                                    line_length=0.2), run_time=0.8)
+            self.aktif["titik asal"] = titik0
+            b.tunggu_kata("ke mana")
+            self.add(tanda_tanya)
+            b.main(FadeIn(tanda_tanya, scale=1.4), run_time=0.5)
+            self.tulisan["tanda tanya"] = tanda_tanya
+        self.gerbang()
+
+        # ============ resultan ============================================ #
         pr = panah(ASAL, AKHIR, SOROT, tebal=7)
-        titik = Dot(radius=0.09).set_color(SOROT).move_to(AKHIR)
-        koord = rumus(r"(4,\ 3)", 30, SOROT).move_to(AKHIR + np.array([0.85, 0.42, 0.0]))
-        with sinema.babak(self, "resultan", DURASI) as b:
-            b.main(GrowArrow(pr), run_time=1.8)
+        l_resultan = teks("resultan", 24, SOROT).move_to(ASAL + (V1 + V2) * 0.5 + np.array([-0.55, 0.62, 0.0]))
+
+        with sinema.babak(self, "resultan", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Panah ungu")
+            b.main(FadeOut(tanda_tanya), run_time=0.3)
+            self.remove(tanda_tanya)
+            self.tulisan.pop("tanda tanya", None)
+            self.add(pr)
             self.bring_to_front(pejalan)
-            b.main(FadeIn(titik, scale=2.0), FadeIn(koord), run_time=0.7)
-            panel_r = papan.baris(r"\vec{a} + \vec{b} = (4,\ 3)", SOROT)
-            b.catat(0.8)
-            b.jeda(0.6)
-        qc.periksa_adegan(self, {"resultan": pr, "koordinat": koord},
-                          hud={"panel a": panel_a, "panel b": panel_b,
-                               "panel r": panel_r, "identitas": identitas})
+            b.main(GrowArrow(pr), run_time=1.6)
+            self.aktif["resultan"] = pr
+            b.tunggu_kata("empat koma")
+            b.main(Indicate(koord2, color=SOROT), run_time=0.8)
+            b.tunggu_kata("namanya")
+            self.add(l_resultan)
+            b.main(FadeIn(l_resultan), run_time=0.5)
+            self.tulisan["label resultan"] = l_resultan
+            self.papan.baris(r"\vec{a} + \vec{b} = (4\ \ 3)", SOROT, b=b)
+        self.gerbang()
 
-        # ==============================================================
-        # Babak 7: aturannya, ujung ke pangkal
-        # ==============================================================
+        # ============ aturan: ujung ke pangkal ============================ #
         sambung = Dot(radius=0.11).set_color(TINTA).move_to(SIMPANG)
-        # "ujung a = pangkal b" berisi empat kata dan `sinema.label`
-        # menggagalkan render. Dipendekkan; tanda sama dengan tidak dihitung.
         l_sambung = sinema.label("ujung = pangkal", 24, TINTA)
-        l_sambung.move_to(SIMPANG + np.array([1.15, -0.55, 0.0]))
+        # Di kanan atas simpangnya: di kanan bawah ia menindih koordinat (3, 1).
+        l_sambung.move_to(SIMPANG + np.array([1.45, 0.55, 0.0]))
 
-        with sinema.babak(self, "aturan", DURASI) as b:
+        with sinema.babak(self, "aturan", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Perhatikan")
+            b.main(pa.animate.set_opacity(1.0), pb.animate.set_opacity(1.0), run_time=0.6)
+            b.tunggu_kata("Pangkal panah")
+            self.add(sambung)
             b.main(FadeIn(sambung, scale=2.5), run_time=0.6)
+            self.aktif["sambung"] = sambung
+            b.tunggu_kata("ujung panah")
+            self.add(l_sambung)
             b.main(FadeIn(l_sambung), run_time=0.5)
-            b.main(Indicate(pa, scale_factor=1.0, color=SOROT),
-                   Indicate(pb, scale_factor=1.0, color=SOROT), run_time=1.2)
-            b.jeda(0.8)
-        qc.periksa_adegan(self, {"sambung": l_sambung, "koordinat": koord},
-                          [("sambung", "koordinat")])
+            self.tulisan["label sambung"] = l_sambung
+            b.tunggu_kata("menutup segitiga")
+            self.sorot_pita(b, pa, pb, pr, lama=1.2)
+        self.gerbang()
 
-        # ==============================================================
-        # Babak 8: susunan yang keliru
-        # ==============================================================
+        # ============ keliru: pangkal ke pangkal ========================== #
         pb_salah = panah(ASAL, ASAL + V2, AKSEN)
         pb_salah.set_opacity(0.55)
-        # REDUP, bukan TINTA. Hitam di video ini juga dipakai untuk titik
-        # sambung, label "ujung = pangkal", dan baris hitungan, jadi ia
-        # warna tinta NETRAL. Memberi panah yang salah warna yang sama
-        # membuat satu warna memikul dua makna, dan sorotan tinta di babak
-        # "panjang" jadi terbaca sebagai "ini yang salah". Abu hangat lebih
-        # tepat: ia memang warna garis bantu, dan panah ini memang bukan
-        # jawabannya. Latar sekitarnya diredupkan ke 0,22 pada babak itu,
-        # jadi abu berkepekatan penuh tetap menonjol. (Temuan MASTER 4 Sep.)
         p_salah = panah(ASAL + V1, ASAL + V2, REDUP, tebal=5)
-        benar = VGroup(pa, pb, pr, la, lb, sambung, l_sambung, titik, koord)
+        benar = VGroup(pa, pb, pr, sambung, l_sambung, titik1, titik2, koord1, koord2, l_resultan)
 
-        # Susunan yang salah TIDAK dikembalikan di dalam babak ini. `sinema.babak`
-        # menambal sisa waktu narasinya SESUDAH blok selesai, jadi kalau gambarnya
-        # dipulihkan di sini, detik-detik terakhir narator masih menjelaskan
-        # susunan yang salah sementara layar sudah menampilkan yang benar. Gambar
-        # yang membantah narasinya lebih merusak daripada layar kosong.
-        with sinema.babak(self, "keliru", DURASI) as b:
+        with sinema.babak(self, "keliru", DURASI, kata=KATA) as b:
+            b.tunggu_kata("kedua pangkalnya")
             b.main(benar.animate.set_opacity(0.22), run_time=0.8)
+            self.add(pb_salah)
             b.main(GrowArrow(pb_salah), run_time=0.9)
+            self.aktif["b salah"] = pb_salah
+            b.tunggu_kata("bukan resultan")
+            self.add(p_salah)
             b.main(GrowArrow(p_salah), run_time=1.0)
-            b.jeda(1.0)
-        qc.periksa_adegan(self, {"salah": p_salah, "identitas": identitas})
+            self.aktif["salah"] = p_salah
+            b.tunggu_kata("lebih pendek")
+            self.sorot_pita(b, p_salah, lama=1.0)
+        self.gerbang()
 
-        # ==============================================================
-        # Babak 9: dari mana angka mendatarnya datang
-        # ==============================================================
-        # Garis bantu dijatuhkan ke sumbu mendatar, lalu ruas yang terbentuk di
-        # sumbu itu diwarnai. Angkanya ditaruh di y = -0,72: di bawah deretan
-        # angka sumbu (yang berhenti di sekitar -0,42) tetapi masih di dalam
-        # petak (batas bawah -1), jadi tidak menabrak apa pun.
+        # ============ komponen: dari mana angka mendatarnya =============== #
         Y_LABEL = -0.72
         bantu_x = VGroup(
-            DashedLine(SIMPANG, [SIMPANG[0], 0, Z]).set_stroke(AKSEN2, 2),
-            DashedLine(AKHIR, [AKHIR[0], 0, Z]).set_stroke(SOROT, 2),
+            DashedLine(SIMPANG, [SIMPANG[0], 0, Z], dash_length=0.14).set_stroke(AKSEN2, 2),
+            DashedLine(AKHIR, [AKHIR[0], 0, Z], dash_length=0.14).set_stroke(SOROT, 2),
         )
         ruas_a = Line([0, 0, Z], [3, 0, Z]).set_stroke(AKSEN2, 7)
         ruas_b = Line([3, 0, Z], [4, 0, Z]).set_stroke(AKSEN, 7)
         n_a = rumus("3", 30, AKSEN2).move_to([1.5, Y_LABEL, 0])
         n_b = rumus("1", 30, AKSEN).move_to([3.5, Y_LABEL, 0])
 
-        # Dulu keenam animasi ini dimainkan beruntun lalu layar diam 13,6
-        # detik, tepat sementara narator berkata "kita jatuhkan garis bantu"
-        # dan menyebut kedua ruasnya. Gambarnya MENDAHULUI narasinya.
-        with sinema.babak(self, "komponen", DURASI) as b:
-            b.main(FadeOut(pb_salah), FadeOut(p_salah),
-                   benar.animate.set_opacity(1.0), run_time=0.8)
-            b.tunggu_sampai(saat("garis bantu"))
-            b.main(ShowCreation(bantu_x), run_time=1.6)
-            b.tunggu_sampai(saat("mengisi petak"))
-            b.main(ShowCreation(ruas_a), run_time=1.0)
-            b.main(FadeIn(n_a), run_time=0.5)
-            b.tunggu_sampai(saat("menyambungnya"))
-            b.main(ShowCreation(ruas_b), run_time=1.0)
-            b.main(FadeIn(n_b), run_time=0.5)
-        qc.periksa_adegan(self, {"angka a": n_a, "angka b": n_b, "identitas": identitas},
-                          [("angka a", "angka b")])
+        with sinema.babak(self, "komponen", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Sebelum")
+            b.main(FadeOut(pb_salah), FadeOut(p_salah), benar.animate.set_opacity(1.0),
+                   run_time=0.8)
+            self.remove(pb_salah, p_salah)
+            self.aktif.pop("b salah", None)
+            self.aktif.pop("salah", None)
+            b.tunggu_kata("garis bantu")
+            self.add(bantu_x)
+            b.main(ShowCreation(bantu_x), run_time=1.4)
+            self.aktif["bantu x"] = bantu_x
+            b.tunggu_kata("mengisi petak")
+            self.add(ruas_a, n_a)
+            b.main(ShowCreation(ruas_a), FadeIn(n_a), run_time=1.0)
+            self.aktif["ruas a"] = ruas_a
+            self.tulisan["angka a"] = n_a
+            b.tunggu_kata("menyambungnya")
+            self.add(ruas_b, n_b)
+            b.main(ShowCreation(ruas_b), FadeIn(n_b), run_time=1.0)
+            self.aktif["ruas b"] = ruas_b
+            self.tulisan["angka b"] = n_b
+        self.gerbang()
 
-        # ==============================================================
-        # Babak 10: hal yang sama di sumbu tegak, lalu angkanya ditulis
-        # ==============================================================
+        # ============ hitung: sumbu tegak, lalu angkanya ================== #
         X_LABEL = -0.95
         bantu_y = VGroup(
-            DashedLine(SIMPANG, [0, SIMPANG[1], Z]).set_stroke(AKSEN2, 2),
-            DashedLine(AKHIR, [0, AKHIR[1], Z]).set_stroke(SOROT, 2),
+            DashedLine(SIMPANG, [0, SIMPANG[1], Z], dash_length=0.14).set_stroke(AKSEN2, 2),
+            DashedLine(AKHIR, [0, AKHIR[1], Z], dash_length=0.14).set_stroke(SOROT, 2),
         )
         ruas_c = Line([0, 0, Z], [0, 1, Z]).set_stroke(AKSEN2, 7)
         ruas_d = Line([0, 1, Z], [0, 3, Z]).set_stroke(AKSEN, 7)
         n_c = rumus("1", 30, AKSEN2).move_to([X_LABEL, 0.5, 0])
         n_d = rumus("2", 30, AKSEN).move_to([X_LABEL, 2.0, 0])
 
-        # Hitungan pindah ke papan rumus kanan atas (zona v2), dan barisnya
-        # BERUBAH DENGAN MORPH, bukan dua baris yang muncul memudar.
-        with sinema.babak(self, "hitung", DURASI) as b:
-            # "3 + 1 = 4" ditulis saat angkanya diucapkan, bukan sebelumnya.
-            b.tunggu_sampai(saat("3 + 1"))
-            hitung = papan.baris(r"3 + 1 = 4", TINTA)
-            b.catat(0.8)
-            # "Dan dengan cara yang sama pada sumbu tegak: 1 + 2 = 3."
-            b.tunggu_sampai(saat("sumbu tegak"))
-            b.main(ShowCreation(bantu_y), run_time=1.0)
-            b.main(ShowCreation(ruas_c), FadeIn(n_c), run_time=0.7)
-            b.main(ShowCreation(ruas_d), FadeIn(n_d), run_time=0.7)
-            hitung = sinema.ganti_rumus(self, hitung, r"1 + 2 = 3", b=b,
-                                        papan=papan)
-        qc.periksa_adegan(self, {"angka c": n_c, "angka d": n_d},
-                          [("angka c", "angka d")],
-                          hud={"hitung": hitung, "identitas": identitas,
-                               "panel r": panel_r})
+        with sinema.babak(self, "hitung", DURASI, kata=KATA) as b:
+            b.tunggu_kata("tiga tambah")
+            hitung = self.papan.baris(r"3 + 1 = 4", TINTA, b=b)
+            b.tunggu_kata("sumbu tegak")
+            self.add(bantu_y, ruas_c, n_c, ruas_d, n_d)
+            b.main(ShowCreation(bantu_y), run_time=0.5)
+            self.aktif["bantu y"] = bantu_y
+            b.main(ShowCreation(ruas_c), FadeIn(n_c), ShowCreation(ruas_d), FadeIn(n_d),
+                   run_time=0.5)
+            self.aktif["ruas c"] = ruas_c
+            self.aktif["ruas d"] = ruas_d
+            self.tulisan["angka c"] = n_c
+            self.tulisan["angka d"] = n_d
+            b.tunggu_kata("satu tambah")
+            hitung = sinema.ganti_rumus(self, hitung, r"3 + 1 = 4,\quad 1 + 2 = 3", b=b,
+                                        papan=self.papan, warna=TINTA, run_time=0.9)
+        self.gerbang()
 
-        # ==============================================================
-        # Babak 11: jebakan panjang
-        # ==============================================================
+        # ============ umum: a + b = (a1 + b1  a2 + b2) ==================== #
+        with sinema.babak(self, "umum", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Bentuk umumnya")
+            self.papan_baru(b, lama=0.6)
+            b.tunggu_kata("a tambah")
+            sinema.lahir_rumus(self, r"\vec{a} + \vec{b} = (a_1 + b_1\ \ \ a_2 + b_2)", pr,
+                               self.papan, b=b, warna=SOROT, sebagai_utama=False,
+                               ukuran_lahir=44, tahan=1.0, run_time=1.1, geser=UP * 1.2)
+            b.tunggu_kata("Yang mendatar")
+            self.sorot_pita(b, ruas_a, ruas_b, lama=1.0)
+            b.tunggu_kata("yang tegak")
+            self.sorot_pita(b, ruas_c, ruas_d, lama=1.0)
+        self.gerbang()
+
+        # ============ panjang: jebakannya ================================= #
         bantu = VGroup(bantu_x, bantu_y, ruas_a, ruas_b, ruas_c, ruas_d, n_a, n_b, n_c, n_d)
+        # Di BAWAH panah biru: di atasnya label ini jatuh tepat di jalur resultan.
+        l_pa = rumus(r"3{,}16", 24, AKSEN2).move_to(ASAL + V1 * 0.5 + np.array([0.2, -0.34, 0.0]))
+        l_pb = rumus(r"2{,}24", 24, AKSEN).move_to(SIMPANG + V2 * 0.5 + np.array([0.62, 0.0, 0.0]))
+        l_pr = rumus("5", 28, SOROT).move_to(ASAL + (V1 + V2) * 0.5 + np.array([0.35, -0.45, 0.0]))
 
-        with sinema.babak(self, "panjang", DURASI) as b:
-            # Garis bantu disingkirkan: mulai sekarang yang dibicarakan panjang
-            # panahnya, bukan komponennya, dan garis komponen yang tertinggal
-            # akan menarik mata ke tempat yang salah.
-            b.main(FadeOut(bantu), run_time=0.6)
-            # Barisnya PENDEK, hanya kesimpulannya. `ganti_rumus` memorf di
-            # tempat memakai titik tengah rumus lama, jadi rumus baru yang lebih
-            # panjang melar ke kanan sampai keluar bingkai (qc menolaknya dengan
-            # "kanan 7.45 > 6.82"). Angka lengkap "3,16 + 2,24 = 5,4" dibawa
-            # narasi dan subtitle; versi 2 memang menetapkan kalimat panjang
-            # milik subtitle, bukan gambar.
-            jebak = sinema.ganti_rumus(self, hitung, r"5{,}4 \ne 5", b=b,
-                                       warna=AKSEN, papan=papan)
-            # Resultannya sendiri sudah ungu, jadi disorot dengan tinta.
-            b.main(Indicate(pr, scale_factor=1.0, color=TINTA), run_time=1.0)
-            b.jeda(1.0)
-        qc.periksa_adegan(self, {},
-                          hud={"jebak": jebak, "panel a": panel_a,
-                               "panel r": panel_r, "identitas": identitas})
+        with sinema.babak(self, "panjang", DURASI, kata=KATA) as b:
+            b.tunggu_kata("hati-hati")
+            b.main(FadeOut(bantu), FadeOut(l_sambung), FadeOut(sambung), run_time=0.6)
+            self.remove(*bantu, l_sambung, sambung)
+            for nama in ("bantu x", "bantu y", "ruas a", "ruas b", "ruas c", "ruas d", "sambung"):
+                self.aktif.pop(nama, None)
+            for nama in ("angka a", "angka b", "angka c", "angka d", "label sambung"):
+                self.tulisan.pop(nama, None)
+            b.tunggu_kata("Perjalanan pertama")
+            self.add(l_pa)
+            b.main(FadeIn(l_pa), run_time=0.5)
+            self.tulisan["panjang a"] = l_pa
+            b.tunggu_kata("yang kedua")
+            self.add(l_pb)
+            b.main(FadeIn(l_pb), run_time=0.5)
+            self.tulisan["panjang b"] = l_pb
+            b.tunggu_kata("Dijumlahkan")
+            jebak = self.papan.baris(r"3{,}16 + 2{,}24 = 5{,}4", AKSEN, b=b)
+            b.tunggu_kata("resultannya")
+            self.add(l_pr)
+            b.main(FadeIn(l_pr, scale=1.4), run_time=0.5)
+            self.tulisan["panjang r"] = l_pr
+            self.sorot_pita(b, pr, lama=0.9)
+        self.gerbang()
 
-        # ==============================================================
-        # Babak 12: layar bersih, kalimat sorot
-        # ==============================================================
-        tutup1 = teks("Komponen boleh dijumlahkan.", 34, TINTA)
-        sinema.batasi_lebar(tutup1, 11.4)
-        tutup2 = teks("Panjang tidak boleh.", 34, AKSEN)
-        sinema.batasi_lebar(tutup2, 11.4)
-        tutup = VGroup(tutup1, tutup2).arrange(DOWN, buff=0.34).move_to([0, 0.3, 0])
+        # ============ tutup: komponen boleh, panjang tidak ================ #
+        baris_boleh = rumus(r"(3\ \ 1) + (1\ \ 2) = (4\ \ 3)", 40, SOROT).move_to([0, 0.9, 0]).fix_in_frame()
+        baris_tidak = rumus(r"3{,}16 + 2{,}24 = 5{,}4 \neq 5", 40, AKSEN).move_to([0, -0.7, 0]).fix_in_frame()
+        centang = rumus(r"\checkmark", 40, AKSEN2).next_to(baris_boleh, RIGHT, buff=0.4).fix_in_frame()
+        coret = Line(baris_tidak.get_left() + np.array([-0.1, -0.12, 0]),
+                     baris_tidak.get_right() + np.array([0.1, 0.12, 0])).set_stroke(AKSEN, 4).fix_in_frame()
 
-        # Dunianya disingkirkan lebih dulu: benda dunia tetap tergambar di atas
-        # teks HUD, berapa pun pekat alasnya. Aturan 4 STANDAR-ILUSTRASI-VIDEO
-        # mengizinkan layar bersih untuk penutup, paling banyak satu babak.
-        semua = Group(bidang, pejalan, benar)
-        with sinema.babak(self, "tutup", DURASI) as b:
-            # `papan.semua()` aman lagi sejak `ganti_rumus` diberi `papan=papan`:
-            # papan mencatat penggantinya, jadi yang disingkirkan objek yang
-            # benar-benar tampil. Sebelum itu baris LAMA yang sudah dilebur
-            # ikut di-FadeOut dan hidup lagi menimpa yang baru.
-            b.main(FadeOut(semua), FadeOut(papan.semua()), FadeOut(identitas),
-                   run_time=1.4)
-            self.hud_tambah(tutup)
-            tutup.set_opacity(0)
-            b.main(tutup.animate.set_opacity(1), run_time=1.8)
-            b.jeda(1.4)
-        qc.periksa_adegan(self, {"tutup": tutup})
+        semua = Group(bidang, pejalan, pa, pb, pr, titik0, titik1, titik2, koord1, koord2,
+                      l_resultan, l_pa, l_pb, l_pr)
 
-    # ==================================================================
+        with sinema.babak(self, "tutup", DURASI, kata=KATA) as b:
+            # Dunia dibersihkan pada "Komponen boleh", bukan di awal babak: kalau
+            # di awal, layar kosong dua detik (cek_layar_kosong).
+            b.tunggu_kata("Komponen boleh")
+            self.papan_baru(b, lama=0.8, bareng=[FadeOut(semua), FadeOut(ident)])
+            self.remove(*semua, ident)
+            ident = None
+            self.aktif.clear()
+            self.tulisan.clear()
+            self.hud_ku.clear()
+            self.hud_tambah(baris_boleh, centang)
+            b.main(FadeIn(baris_boleh, shift=UP * 0.2), run_time=0.8)
+            b.main(FadeIn(centang, scale=1.4), run_time=0.4)
+            self.hud_ku["baris boleh"] = baris_boleh
+            self.hud_ku["centang"] = centang
+            b.tunggu_kata("Panjang tidak")
+            self.hud_tambah(baris_tidak, coret)
+            b.main(FadeIn(baris_tidak, shift=UP * 0.2), run_time=0.7)
+            b.main(ShowCreation(coret), run_time=0.5)
+            self.hud_ku["baris tidak"] = baris_tidak
+            self.hud_ku["coret"] = coret
+        self.gerbang()
+
+        # ============ lanjut: jajar genjang =============================== #
+        judul_lanjut = teks("Operasi Vektor, Bagian 2", 30, SOROT)
+        judul_lanjut.move_to([0, 1.9, 0]).fix_in_frame()
+        P = np.array([-1.7, -1.5, 0.0])
+        A = np.array([2.6, 0.7, 0.0])
+        B = np.array([0.9, 1.7, 0.0])
+        j_a = Arrow(P, P + A, buff=0, thickness=5).set_color(AKSEN2).fix_in_frame()
+        j_b = Arrow(P, P + B, buff=0, thickness=5).set_color(AKSEN).fix_in_frame()
+        j_a2 = DashedLine(P + B, P + B + A, dash_length=0.14).set_stroke(AKSEN2, 3).fix_in_frame()
+        j_b2 = DashedLine(P + A, P + A + B, dash_length=0.14).set_stroke(AKSEN, 3).fix_in_frame()
+        j_r = Arrow(P, P + A + B, buff=0, thickness=6).set_color(SOROT).fix_in_frame()
+
+        with sinema.babak(self, "lanjut", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Operasi Vektor")
+            pergi = Group(baris_boleh, centang, baris_tidak, coret)
+            self.hud_tambah(judul_lanjut)
+            b.main(FadeOut(pergi), FadeIn(judul_lanjut, shift=UP * 0.2), run_time=0.8)
+            self.remove(*pergi)
+            self.hud_ku.clear()
+            self.hud_ku["judul lanjut"] = judul_lanjut
+            b.tunggu_kata("bekerja serentak")
+            self.hud_tambah(j_a, j_b)
+            b.main(GrowArrow(j_a), GrowArrow(j_b), run_time=1.0)
+            self.hud_ku["janji a"] = j_a
+            self.hud_ku["janji b"] = j_b
+            b.tunggu_kata("jajar genjang")
+            self.hud_tambah(j_a2, j_b2, j_r)
+            b.main(ShowCreation(j_a2), ShowCreation(j_b2), run_time=0.7)
+            b.main(GrowArrow(j_r), run_time=0.8)
+            self.hud_ku["janji sisi a"] = j_a2
+            self.hud_ku["janji sisi b"] = j_b2
+            self.hud_ku["janji resultan"] = j_r
+        self.gerbang()
+
+        sinema.laporkan_pemicu(self)
+
+    # ================================================================== #
     def langkah(self):
         """Posisi pejalan: berangkat dari asal, dua perjalanan berurutan."""
         return V1 * self.t1.get_value() + V2 * self.t2.get_value()
+
+    def gerbang(self):
+        hud = dict(self.hud_ku)
+        papan = self.papan.semua()
+        if papan is not None:
+            papan.beralas = True
+            hud["papan"] = papan
+        qc.periksa_adegan(self, {}, hud=hud, dunia=self.aktif, tulisan=self.tulisan)
+
+    def sorot_pita(self, b, *ruas, lama: float = 1.0):
+        """Pita ungu tembus pandang di sepanjang panah atau ruas (bukan Indicate)."""
+        pita = VGroup(*[Line(r.get_start(), r.get_end()).set_stroke(SOROT, 18, opacity=0.35)
+                        for r in ruas])
+        self.add(pita)
+        b.main(FadeIn(pita), run_time=lama * 0.35)
+        b.main(FadeOut(pita), run_time=lama * 0.65)
+        self.remove(pita)
+
+    def papan_baru(self, b, lama: float = 0.5, ikut=None, bareng=None):
+        g = self.papan.semua()
+        gerak = list(bareng or [])
+        buang = list(g) if g is not None else []
+        if buang:
+            gerak.append(FadeOut(Group(*buang)))
+        if gerak:
+            b.main(*gerak, run_time=lama)
+        for m in buang:
+            self.remove(m)
+            if m in self.hud:
+                self.hud.remove(m)
+        self.papan = sinema.PapanRumus(self, ukuran=30, tanpa_utama=True, alas=True)
+        if ikut is not None:
+            self.papan.ikut(ikut)
+        return self.papan

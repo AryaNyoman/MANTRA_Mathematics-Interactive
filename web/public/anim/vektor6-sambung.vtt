@@ -1,187 +1,240 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/vektor6-sambung.json
+NOTE Dibuat otomatis dari manim/narasi/vektor6-sambung.json (waktu kata rekaman)
+NOTE naskah-sidik 05fe9e06b8ce
 
 1
-00:00:00.000 --> 00:00:03.604
-Materi 06, <b>menjumlah itu menyambung perjalanan</b>.
+00:00:00.101 --> 00:00:02.580
+Operasi Vektor, Bagian 1.
 
 2
-00:00:03.604 --> 00:00:07.131
-Seseorang berdiri di sebuah lapangan berpetak.
+00:00:03.314 --> 00:00:06.807
+Dua perjalanan berturut-turut, hasilnya perjalanan apa?
 
 3
-00:00:07.131 --> 00:00:09.125
-Ia akan berjalan dua kali,
+00:00:08.049 --> 00:00:10.980
+Di Vektor dalam Sistem Koordinat, Bagian 1,
 
 4
-00:00:09.125 --> 00:00:12.192
-dan kita ingin tahu di mana ia berakhir.
+00:00:10.980 --> 00:00:14.660
+satu panah dicatat sebagai dua angka: berapa ke kanan,
 
 5
-00:00:12.192 --> 00:00:14.906
-Supaya langkahnya bisa kita <b>hitung</b>,
+00:00:14.660 --> 00:00:16.173
+lalu berapa ke atas.
 
 6
-00:00:14.906 --> 00:00:17.542
-lapangan itu kita lihat dari atas,
+00:00:16.906 --> 00:00:19.402
+Hari ini dua panah seperti itu kita sambung,
 
 7
-00:00:17.542 --> 00:00:20.721
-lengkap dengan angka pada kedua sumbunya.
+00:00:19.402 --> 00:00:21.595
+dan kedua angkanya ikut dijumlahkan.
 
 8
-00:00:20.721 --> 00:00:22.272
-<b>1 petak = 1 langkah</b>.
+00:00:22.801 --> 00:00:25.399
+Seseorang berdiri di sebuah lapangan berpetak.
 
 9
-00:00:22.272 --> 00:00:23.862
-Perjalanan pertama:
+00:00:26.147 --> 00:00:27.630
+Ia akan berjalan dua kali,
 
 10
-00:00:23.862 --> 00:00:26.960
-<b>3 petak ke kanan</b> dan <b>1 petak ke atas</b>.
+00:00:27.630 --> 00:00:30.061
+dan kita ingin tahu di mana ia berakhir.
 
 11
-00:00:26.960 --> 00:00:29.638
-Panah biru ini merekam jejaknya,
+00:00:31.282 --> 00:00:33.212
+Supaya langkahnya bisa kita hitung,
 
 12
-00:00:29.638 --> 00:00:32.568
-dan ujungnya jatuh di titik (3, 1).
+00:00:33.212 --> 00:00:35.087
+lapangan itu kita lihat dari atas,
 
 13
-00:00:32.568 --> 00:00:36.658
-Dari tempat ia berhenti itu juga, ia berjalan lagi.
+00:00:35.087 --> 00:00:37.498
+lengkap dengan angka pada kedua sumbunya.
 
 14
-00:00:36.658 --> 00:00:39.625
-<b>1 petak ke kanan</b> dan <b>2 petak ke atas</b>.
+00:00:38.231 --> 00:00:40.407
+1 petak = 1 langkah.
 
 15
-00:00:39.625 --> 00:00:43.154
-Panah merah berangkat dari ujung panah biru,
+00:00:41.649 --> 00:00:42.939
+Perjalanan pertama:
 
 16
-00:00:43.154 --> 00:00:45.480
-dan berhenti di titik (4, 3).
+00:00:42.939 --> 00:00:45.602
+3 petak ke kanan dan 1 petak ke atas.
 
 17
-00:00:45.480 --> 00:00:48.055
-Sekarang lupakan sejenak jalurnya.
+00:00:46.349 --> 00:00:48.492
+Panah biru ini merekam jejaknya,
 
 18
-00:00:48.055 --> 00:00:50.857
-Dilihat dari titik ia <b>berangkat</b> tadi,
+00:00:48.492 --> 00:00:50.986
+dan ujungnya jatuh di titik (3, 1).
 
 19
-00:00:50.857 --> 00:00:53.280
-ke mana sebenarnya ia berpindah?
+00:00:52.201 --> 00:00:55.549
+Dari tempat ia berhenti itu juga, ia berjalan lagi.
 
 20
-00:00:53.280 --> 00:00:55.051
-Inilah jawabannya.
+00:00:56.283 --> 00:00:58.749
+1 petak ke kanan dan 2 petak ke atas.
 
 21
-00:00:55.051 --> 00:01:00.463
-Panah ungu, dari titik (0, 0) langsung ke titik (4, 3).
+00:00:59.495 --> 00:01:02.199
+Panah merah berangkat dari ujung panah biru,
 
 22
-00:01:00.463 --> 00:01:03.120
-Panah itu namanya <b>resultan</b>.
+00:01:02.199 --> 00:01:04.132
+dan berhenti di titik (4, 3).
 
 23
-00:01:03.120 --> 00:01:04.817
-Perhatikan bentuknya.
+00:01:05.335 --> 00:01:07.445
+Sekarang lupakan sejenak jalurnya.
 
 24
-00:01:04.817 --> 00:01:08.775
-Pangkal panah merah menempel di ujung panah biru,
+00:01:08.179 --> 00:01:10.254
+Dilihat dari titik ia berangkat tadi,
 
 25
-00:01:08.775 --> 00:01:11.764
-dan resultannya menutup segitiga itu.
+00:01:10.254 --> 00:01:12.198
+ke mana sebenarnya ia berpindah?
 
 26
-00:01:11.764 --> 00:01:14.592
-<b>Ujung ke pangkal</b>, begitu aturannya.
+00:01:13.401 --> 00:01:14.945
+Inilah jawabannya.
 
 27
-00:01:14.592 --> 00:01:17.479
-Kalau kedua <b>pangkalnya</b> yang ditempelkan,
+00:01:15.680 --> 00:01:19.804
+Panah ungu, dari titik (0, 0) langsung ke titik (4, 3).
 
 28
-00:01:17.479 --> 00:01:19.644
-yang terbentuk bukan resultan.
+00:01:20.536 --> 00:01:22.304
+Panah itu namanya resultan.
 
 29
-00:01:19.644 --> 00:01:22.892
-Perhatikan panah hitam ini jauh lebih pendek,
+00:01:23.500 --> 00:01:25.005
+Perhatikan bentuknya.
 
 30
-00:01:22.892 --> 00:01:24.624
-dan arahnya pun berbeda.
+00:01:25.755 --> 00:01:28.492
+Pangkal panah merah menempel di ujung panah biru,
 
 31
-00:01:24.624 --> 00:01:26.336
-Sebelum kita menghitung,
+00:01:28.492 --> 00:01:30.708
+dan resultannya menutup segitiga itu.
 
 32
-00:01:26.336 --> 00:01:28.976
-lihat dulu dari mana angkanya datang.
+00:01:31.438 --> 00:01:34.009
+Ujung ke pangkal, begitu aturannya.
 
 33
-00:01:28.976 --> 00:01:31.116
-Kita jatuhkan garis bantu dari
+00:01:35.249 --> 00:01:37.512
+Kalau kedua pangkalnya yang ditempelkan,
 
 34
-00:01:31.116 --> 00:01:33.612
-tiap ujung panah ke sumbu mendatar.
+00:01:37.512 --> 00:01:39.360
+yang terbentuk bukan resultan.
 
 35
-00:01:33.612 --> 00:01:36.751
-Perjalanan pertama mengisi petak <b>0 sampai 3</b>,
+00:01:40.107 --> 00:01:42.903
+Perhatikan panah abu-abu ini jauh lebih pendek,
 
 36
-00:01:36.751 --> 00:01:40.104
-perjalanan kedua menyambungnya dari <b>3 sampai 4</b>.
+00:01:42.903 --> 00:01:44.481
+dan arahnya pun berbeda.
 
 37
-00:01:40.104 --> 00:01:42.733
-Itulah sebabnya yang mendatar
+00:01:45.668 --> 00:01:47.019
+Sebelum kita menghitung,
 
 38
-00:01:42.733 --> 00:01:45.725
-dijumlahkan dengan yang mendatar:
+00:01:47.019 --> 00:01:49.252
+lihat dulu dari mana angkanya datang.
 
 39
-00:01:45.725 --> 00:01:46.925
-<b>3 + 1 = 4</b>.
+00:01:49.986 --> 00:01:51.547
+Kita jatuhkan garis bantu dari
 
 40
-00:01:46.925 --> 00:01:51.528
-Dan dengan cara yang sama pada sumbu tegak: <b>1 + 2 = 3</b>.
+00:01:51.547 --> 00:01:53.518
+tiap ujung panah ke sumbu mendatar.
 
 41
-00:01:51.528 --> 00:01:54.778
-Tetapi hati-hati pada <b>panjangnya</b>.
+00:01:54.264 --> 00:01:57.032
+Perjalanan pertama mengisi petak 0 sampai 3,
 
 42
-00:01:54.778 --> 00:01:59.604
-Perjalanan pertama sekitar 3,16, yang kedua 2,24.
+00:01:57.032 --> 00:02:00.138
+perjalanan kedua menyambungnya dari 3 sampai 4.
 
 43
-00:01:59.604 --> 00:02:04.824
-Dijumlahkan menjadi 5,4, padahal resultannya tepat <b>5</b>.
+00:02:01.349 --> 00:02:03.400
+Itulah sebabnya yang mendatar
 
 44
-00:02:04.824 --> 00:02:08.174
-Selisih itu bukan kesalahan hitung.
+00:02:03.400 --> 00:02:05.734
+dijumlahkan dengan yang mendatar:
 
 45
-00:02:08.174 --> 00:02:10.758
-<b>Komponen</b> boleh dijumlahkan.
+00:02:05.734 --> 00:02:07.084
+3 + 1 = 4.
 
 46
-00:02:10.758 --> 00:02:12.672
-<b>Panjang</b> tidak boleh.
+00:02:07.339 --> 00:02:11.804
+Dan dengan cara yang sama pada sumbu tegak: 1 + 2 = 3.
+
+47
+00:02:13.000 --> 00:02:14.597
+Bentuk umumnya begini.
+
+48
+00:02:15.347 --> 00:02:19.589
+a + b = (a₁ + b₁ a₂ + b₂).
+
+49
+00:02:20.320 --> 00:02:22.205
+Yang mendatar dengan yang mendatar,
+
+50
+00:02:22.205 --> 00:02:23.917
+yang tegak dengan yang tegak.
+
+51
+00:02:25.135 --> 00:02:27.193
+Tetapi hati-hati pada panjangnya.
+
+52
+00:02:27.941 --> 00:02:32.578
+Perjalanan pertama sekitar 3,16, yang kedua 2,24.
+
+53
+00:02:33.323 --> 00:02:37.446
+Dijumlahkan menjadi 5,4, padahal resultannya tepat 5.
+
+54
+00:02:38.668 --> 00:02:40.844
+Selisih itu bukan kesalahan hitung.
+
+55
+00:02:41.578 --> 00:02:43.425
+Komponen boleh dijumlahkan.
+
+56
+00:02:44.157 --> 00:02:45.596
+Panjang tidak boleh.
+
+57
+00:02:46.816 --> 00:02:50.061
+Di materi berikutnya, Operasi Vektor, Bagian 2,
+
+58
+00:02:50.061 --> 00:02:53.583
+kedua panah itu bekerja serentak, bukan bergantian,
+
+59
+00:02:53.583 --> 00:02:56.979
+dan segitiga ini berubah menjadi jajar genjang.
