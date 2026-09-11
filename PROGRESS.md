@@ -1,5 +1,27 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 11 SEP: PAKET SITUS TAYANG, PERAPIAN SELESAI, ASET VIDEO DISAMAKAN (master 1b8c30e)
+
+Deploy produksi tiga kali (matra-eight dan mantra-matematika): paket situs,
+lalu perbaikan aset, lalu perapian. Yang ketahuan saat verifikasi produksi:
+mp4 TIDAK dilacak git, jadi penggabungan cabang 10 Sep membawa vtt dan poster
+versi v3 sesi ke master sementara videonya masih lama (subtitle 5 menit di
+atas video 2 menit pada 8 video). Dipulihkan ke versi sebelum penggabungan
+(f13f9fb) supaya sepasang lagi; `cek_subtitle` kini menandai 11 video yang
+naskahnya v3 tetapi videonya belum ada, dan itu memang daftar tunggu v3.1.
+Enam mp4 Vektor 03/04/06/08/09 dan Grafik 06 diganti salinan 1080p isi sama
+dari worktree. Video v3 buatan sesi (Vektor 01 4:56, Grafik 03 5:58, Integral
+01 dan 03 480p, Statistika 01 480p, Ruang 3D 01 dan 03 480p bersubtitel) TIDAK
+ditayangkan (pembukanya gaya lama dan Pythagoras dipaksakan); salinannya di
+`D:\MANTRA-BACKUP\2026-09-11\worktree-*` dan `UNTUK ARYA\CEK 480P`.
+
+Perapian (`docs/tugas/PERAPIAN-2026-09-11.md`, disetujui ARYA): backup
+dibuktikan sama jumlah dan byte, lalu dihapus: tangkapan layar root, qc/,
+salinan PDF, cache suara, media lama, Manim CE, enam worktree, `UNTUK ARYA/`;
+catatan era sesi ke `docs/arsip-sesi/`. Belum: hapus 18 cabang tergabung
+(penjaga alat memblokir; ARYA sendiri), dan penyatuan kode dobel widget.
+Berikutnya: video pertama gaya v3.1 untuk ditonton ARYA.
+
 ## 11 SEP (dini hari): PAKET SITUS REVISI ARYA SELESAI DI MASTER (b949aef), BELUM DEPLOY
 
 Semua butir tampilan dari `docs/tugas/REVISI-ARYA-2026-09-10.md` dikerjakan
