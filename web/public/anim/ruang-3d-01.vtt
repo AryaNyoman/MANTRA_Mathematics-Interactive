@@ -1,363 +1,119 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/ruang-3d-01.json (waktu kata rekaman)
+NOTE Dibuat otomatis dari manim/narasi/ruang-3d-01.json
 
 1
-00:00:00.116 --> 00:00:02.892
-Kalau dua garis tampak menyilang pada sebuah gambar,
+00:00:00.000 --> 00:00:02.919
+Sekarang kita masuk ke materi baru:
 
 2
-00:00:02.892 --> 00:00:04.963
-apakah keduanya benar-benar bertemu?
+00:00:02.919 --> 00:00:04.503
+<b>ruang tiga dimensi</b>.
 
 3
-00:00:06.182 --> 00:00:08.046
-Di topik Vektor, Materi 04,
+00:00:04.503 --> 00:00:08.256
+Materi pertama, <b>gambar ruang boleh berbohong</b>.
 
 4
-00:00:08.046 --> 00:00:11.648
-kita menemukan bahwa panjang panah itu Pythagoras.
+00:00:08.256 --> 00:00:13.251
+Di depan kita ada sebuah kotak, berdiri di atas lantai.
 
 5
-00:00:12.381 --> 00:00:13.820
-Panjangnya adalah akar dari
+00:00:13.251 --> 00:00:16.429
+Panjang, lebar, dan tingginya sama,
 
 6
-00:00:13.820 --> 00:00:15.728
-jumlah kuadrat setiap langkahnya.
+00:00:16.429 --> 00:00:18.336
+jadi bentuknya <b>kubus</b>.
 
 7
-00:00:16.935 --> 00:00:19.966
-Aturan itu sendiri sudah kita pakai sejak SMP.
-
-8
-00:00:20.715 --> 00:00:22.087
-Pada segitiga siku-siku,
-
-9
-00:00:22.087 --> 00:00:23.859
-kuadrat sisi miring sama dengan
-
-10
-00:00:23.859 --> 00:00:26.010
-jumlah kuadrat kedua sisi tegaknya.
-
-11
-00:00:27.216 --> 00:00:29.701
-Dua hal itu yang kita bawa ke topik baru ini:
-
-12
-00:00:29.701 --> 00:00:31.412
-<b>koordinat</b> untuk menyebut letak,
-
-13
-00:00:31.412 --> 00:00:33.550
-dan <b>Pythagoras</b> untuk mengukur jarak.
-
-14
-00:00:34.767 --> 00:00:36.838
-Di depan kita ada sebuah kubus.
-
-15
-00:00:37.588 --> 00:00:42.396
-Panjang, lebar, dan tingginya sama, yaitu 6 satuan.
-
-16
-00:00:43.601 --> 00:00:45.695
+00:00:18.336 --> 00:00:21.094
 Supaya bagian dalamnya ikut terlihat,
 
-17
-00:00:45.695 --> 00:00:47.883
-dindingnya kita buat tembus pandang.
+8
+00:00:21.094 --> 00:00:24.300
+dinding kotak ini kita buat <b>tembus pandang</b>.
 
-18
-00:00:48.617 --> 00:00:52.136
-Kedelapan titik sudutnya diberi nama, A sampai H.
+9
+00:00:24.300 --> 00:00:28.176
+Kedelapan titik sudutnya kita beri nama, A sampai H.
 
-19
-00:00:53.368 --> 00:00:55.584
-Titik A kita letakkan di titik asal.
-
-20
-00:00:56.332 --> 00:01:00.262
-Maka B ada di 6 pada sumbu x, D di 6 pada sumbu y,
-
-21
-00:01:00.262 --> 00:01:02.298
-dan E di 6 pada sumbu z.
-
-22
-00:01:03.501 --> 00:01:05.691
+10
+00:00:28.176 --> 00:00:31.599
 Sekarang kita tarik dua ruas garis.
 
-23
-00:01:06.439 --> 00:01:10.155
-Yang biru, BD, tergeletak di lantai kubus.
+11
+00:00:31.599 --> 00:00:35.901
+Yang biru, B̅D̅, tergeletak di <b>lantai</b> kubus.
 
-24
-00:01:10.886 --> 00:01:13.996
-Yang merah, EG, ada di atapnya.
+12
+00:00:35.901 --> 00:00:39.129
+Yang merah, E̅G̅, ada di <b>atapnya</b>,
 
-25
-00:01:15.200 --> 00:01:16.758
-Berapa panjang BD?
+13
+00:00:39.129 --> 00:00:41.280
+6 satuan lebih tinggi.
 
-26
-00:01:17.493 --> 00:01:20.893
-Dari B ke D kita melangkah 6 ke belakang dan 6 ke kiri.
+14
+00:00:41.280 --> 00:00:43.690
+Sekarang kamera kita naikkan,
 
-27
-00:01:21.639 --> 00:01:26.118
-Pythagoras memberi 6² + 6² = 72.
+15
+00:00:43.690 --> 00:00:46.598
+dan kita lihat kubus ini dari atas.
 
-28
-00:01:27.349 --> 00:01:32.236
-Akar 72 adalah 6√2, kira-kira 8,49.
+16
+00:00:46.598 --> 00:00:48.842
+Perhatikan kedua ruas tadi.
 
-29
-00:01:32.983 --> 00:01:35.652
-Jadi kedua ruas ini punya panjang yang nyata,
+17
+00:00:48.842 --> 00:00:51.750
+Keduanya <b>menyilang tepat di tengah</b>.
 
-30
-00:01:35.652 --> 00:01:37.581
-bukan sekadar garis di gambar.
+18
+00:00:51.750 --> 00:00:55.406
+Apakah keduanya benar-benar bertemu di situ?
 
-31
-00:01:38.816 --> 00:01:41.192
-Sekarang kameranya kita naikkan pelan-pelan,
+19
+00:00:55.406 --> 00:00:56.736
+Coba tebak dulu.
 
-32
-00:01:41.192 --> 00:01:43.611
-sampai kubus ini terlihat tepat dari atas.
+20
+00:00:56.736 --> 00:01:01.074
+Kamera kita turunkan lagi, dan jawabannya kelihatan.
 
-33
-00:01:44.849 --> 00:01:48.025
-Dari atas, kubus tampak sebagai sebuah persegi.
-
-34
-00:01:48.758 --> 00:01:51.356
-Kedua ruas tadi menjadi kedua diagonalnya.
-
-35
-00:01:52.568 --> 00:01:54.876
-Keduanya menyilang tepat di tengah persegi.
-
-36
-00:01:55.625 --> 00:01:59.130
-Pada gambar ini, mereka jelas berpotongan di satu titik.
-
-37
-00:02:00.335 --> 00:02:02.603
-Coba tebak dulu sebelum kita lanjutkan.
-
-38
-00:02:03.337 --> 00:02:04.537
-Menurut kamu,
-
-39
-00:02:04.537 --> 00:02:07.966
-apakah BD dan EG benar-benar bertemu di titik itu?
-
-40
-00:02:08.849 --> 00:02:10.563
-Kita turunkan lagi kameranya,
-
-41
-00:02:10.563 --> 00:02:12.723
-dan jawabannya langsung kelihatan.
-
-42
-00:02:13.933 --> 00:02:15.283
+21
+00:01:01.074 --> 00:01:02.274
 Tidak.
 
-43
-00:02:15.610 --> 00:02:17.628
-Yang biru tetap tergeletak di lantai,
+22
+00:01:02.274 --> 00:01:06.611
+Yang biru tetap di lantai, yang merah tetap di atap.
 
-44
-00:02:17.628 --> 00:02:19.852
-dan yang merah tetap menempel di atap.
+23
+00:01:06.611 --> 00:01:10.782
+Titik silang tadi ternyata <b>dua titik yang berbeda</b>,
 
-45
-00:02:21.082 --> 00:02:23.383
-Titik silang tadi ternyata bukan satu titik,
+24
+00:01:10.782 --> 00:01:12.168
+terpisah sejauh 6 satuan.
 
-46
-00:02:23.383 --> 00:02:25.055
-melainkan dua titik berbeda yang
+25
+00:01:12.168 --> 00:01:15.139
+Jadi yang berubah cuma sudut pandangnya.
 
-47
-00:02:25.055 --> 00:02:27.035
-kebetulan segaris dengan mata kita.
+26
+00:01:15.139 --> 00:01:18.333
+Kubusnya sendiri sama sekali tidak berubah.
 
-48
-00:02:28.233 --> 00:02:30.239
-Mari kita buktikan dengan angka.
+27
+00:01:18.333 --> 00:01:19.967
+Dua garis seperti ini,
 
-49
-00:02:30.974 --> 00:02:34.664
-Titik tengah BD ada di (3, 3, 0).
+28
+00:01:19.967 --> 00:01:23.235
+yang tidak sejajar dan tidak pernah bertemu,
 
-50
-00:02:35.395 --> 00:02:40.637
-Setengah jalan dari (6, 0, 0) menuju (0, 6, 0).
-
-51
-00:02:41.849 --> 00:02:45.407
-Titik tengah EG ada di (3, 3, 6).
-
-52
-00:02:46.140 --> 00:02:51.303
-Setengah jalan dari (0, 0, 6) menuju (6, 6, 6).
-
-53
-00:02:52.533 --> 00:02:54.104
-Bandingkan keduanya.
-
-54
-00:02:54.840 --> 00:02:57.108
-Angka x-nya sama, 3.
-
-55
-00:02:57.839 --> 00:03:00.292
-Angka y-nya juga sama, 3.
-
-56
-00:03:01.024 --> 00:03:04.293
-Yang berbeda hanya angka ketiganya: 0 lawan 6.
-
-57
-00:03:05.516 --> 00:03:08.172
-Karena hanya tingginya yang berbeda,
-
-58
-00:03:08.172 --> 00:03:11.126
-jaraknya adalah 6 - 0, yaitu <b>6 satuan</b>.
-
-59
-00:03:11.859 --> 00:03:13.444
-Dua titik yang tampak berimpit
-
-60
-00:03:13.444 --> 00:03:15.549
-itu terpisah sejauh satu rusuk penuh.
-
-61
-00:03:16.768 --> 00:03:18.800
-Kenapa gambarnya bisa menyesatkan?
-
-62
-00:03:19.534 --> 00:03:22.588
-Sebab memandang dari atas berarti membuang satu arah,
-
-63
-00:03:22.588 --> 00:03:23.938
-yaitu arah tinggi.
-
-64
-00:03:24.968 --> 00:03:26.244
-Yang kita lihat dari atas
-
-65
-00:03:26.244 --> 00:03:28.486
-sebenarnya <b>bayangan</b> kedua ruas di lantai.
-
-66
-00:03:29.221 --> 00:03:32.305
-Dua bayangan boleh berpotongan walaupun bendanya tidak.
-
-67
-00:03:33.549 --> 00:03:34.749
-Perhatikan,
-
-68
-00:03:34.749 --> 00:03:38.057
-kubusnya sendiri sama sekali tidak berubah selama tadi.
-
-69
-00:03:38.221 --> 00:03:40.950
-Yang berubah hanya tempat kita berdiri memandangnya.
-
-70
-00:03:42.168 --> 00:03:44.594
-Dua garis seperti ini punya nama sendiri.
-
-71
-00:03:45.343 --> 00:03:47.966
-Karena tidak sejajar dan tidak pernah bertemu,
-
-72
-00:03:47.966 --> 00:03:49.769
-keduanya disebut <b>bersilangan</b>.
-
-73
-00:03:50.967 --> 00:03:52.577
-Bentuk umumnya begini.
-
-74
-00:03:53.327 --> 00:03:56.802
-Dua garis dalam ruang hanya punya tiga kemungkinan:
-
-75
-00:03:56.802 --> 00:03:59.609
-berpotongan, sejajar, atau bersilangan.
-
-76
-00:04:00.801 --> 00:04:03.330
-Cara memeriksanya tidak dengan melihat gambar,
-
-77
-00:04:03.330 --> 00:04:04.964
-melainkan dengan koordinat.
-
-78
-00:04:05.713 --> 00:04:07.071
-Kalau ada satu titik yang
-
-79
-00:04:07.071 --> 00:04:09.625
-ketiga angkanya sama-sama dimiliki kedua garis,
-
-80
-00:04:09.625 --> 00:04:10.975
-keduanya berpotongan.
-
-81
-00:04:12.116 --> 00:04:14.131
-Kalau tidak ada titik seperti itu,
-
-82
-00:04:14.131 --> 00:04:15.969
-dan arah keduanya juga berbeda,
-
-83
-00:04:15.969 --> 00:04:17.660
-maka keduanya bersilangan.
-
-84
-00:04:18.393 --> 00:04:20.846
-Persis seperti BD dan EG tadi.
-
-85
-00:04:22.049 --> 00:04:25.471
-Jadi pesan materi ini singkat saja: pada gambar ruang,
-
-86
-00:04:25.471 --> 00:04:28.725
-mata boleh menduga, tetapi <b>angka yang memutuskan</b>.
-
-87
-00:04:29.935 --> 00:04:32.149
-Di video berikutnya kita memakai kebiasaan
-
-88
-00:04:32.149 --> 00:04:34.152
-itu untuk pertanyaan yang lebih tajam:
-
-89
-00:04:34.152 --> 00:04:35.734
-dari sekian banyak penghubung,
-
-90
-00:04:35.734 --> 00:04:37.782
-yang mana yang pantas disebut jarak?
+29
+00:01:23.235 --> 00:01:24.720
+namanya <b>bersilangan</b>.

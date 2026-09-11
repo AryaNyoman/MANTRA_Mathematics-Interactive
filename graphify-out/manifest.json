@@ -805,13 +805,13 @@
     "semantic_hash": ""
   },
   "web/app/peta-materi/page.tsx": {
-    "mtime": 1788565564.3289683,
-    "ast_hash": "76d7b66e58dd9f13796b8246b027b954",
+    "mtime": 1789121353.4687734,
+    "ast_hash": "af6f7737386dd2b5070856843b976b88",
     "semantic_hash": ""
   },
   "web/app/tentang/page.tsx": {
-    "mtime": 1788565564.330972,
-    "ast_hash": "19dfd600f889c8c751a3bf1ad23e8466",
+    "mtime": 1789121128.7756643,
+    "ast_hash": "d7f92da171a09cfad361d32d0ea7aa55",
     "semantic_hash": ""
   },
   "web/app/topik/[slug]/page.tsx": {
@@ -825,8 +825,8 @@
     "semantic_hash": ""
   },
   "web/components/Nav.tsx": {
-    "mtime": 1788565564.3349729,
-    "ast_hash": "41d82fea1183b936d6cb29113f1e1c1c",
+    "mtime": 1789121276.1055317,
+    "ast_hash": "5226cec42bb44adbd096c795422790b5",
     "semantic_hash": ""
   },
   "web/components/PemutarVideo.tsx": {
@@ -865,8 +865,8 @@
     "semantic_hash": "9ada17beed73f2ef071bf8ef5dcff5ed"
   },
   "web/components/mantra/PetaMateri.tsx": {
-    "mtime": 1788565564.3434942,
-    "ast_hash": "bf47c87f8a6e3788d53cbda555a4c8fe",
+    "mtime": 1789121358.981536,
+    "ast_hash": "456a2d0ae91f5f05b8d9b0b0aedbae0c",
     "semantic_hash": ""
   },
   "web/components/mantra/PitaKurva.tsx": {
@@ -875,8 +875,8 @@
     "semantic_hash": ""
   },
   "web/components/topik/HalamanTopik.tsx": {
-    "mtime": 1788591020.1637254,
-    "ast_hash": "2afd08635058cfafe7384b53b69577d0",
+    "mtime": 1789121910.7897806,
+    "ast_hash": "3f369c1a86fd97a0d17de07f0482ee95",
     "semantic_hash": ""
   },
   "web/components/topik/Kuis.tsx": {
@@ -1405,8 +1405,8 @@
     "semantic_hash": "340ce5e16abf1f6a2f0807fff80cd75c"
   },
   "web/content/grafik-fungsi/tahap.ts": {
-    "mtime": 1788565564.3771267,
-    "ast_hash": "ba33d440ff07ff0a58f4142a5bb3da08",
+    "mtime": 1789121128.7879155,
+    "ast_hash": "828fe43053c3b374e7a7a40593432420",
     "semantic_hash": ""
   },
   "web/content/limit/index.ts": {
@@ -1425,8 +1425,8 @@
     "semantic_hash": "7f04c964600ef847d7b8b20761ddf2b4"
   },
   "web/content/limit/tahap.ts": {
-    "mtime": 1788565564.3798666,
-    "ast_hash": "a6035b8d7e8dca64b71e134f976184f9",
+    "mtime": 1789121128.807008,
+    "ast_hash": "0f7ab7c14a84992677ee10844d97bd85",
     "semantic_hash": ""
   },
   "web/content/ruang-3d/index.ts": {
@@ -1435,9 +1435,9 @@
     "semantic_hash": "fa383fe91d163cf5b6b4f6952f88894b"
   },
   "web/content/ruang-3d/kuis.ts": {
-    "mtime": 1788295264.4901164,
-    "ast_hash": "0e827e12786d78288e5e90ed1e85f445",
-    "semantic_hash": "0e827e12786d78288e5e90ed1e85f445"
+    "mtime": 1789121128.8090668,
+    "ast_hash": "648dce3daefd21924ce8cd94f6ca08cd",
+    "semantic_hash": ""
   },
   "web/content/ruang-3d/latihan.ts": {
     "mtime": 1788295264.4914737,
@@ -1445,13 +1445,13 @@
     "semantic_hash": "733c2c48e5d011679fdc521d98a7d97e"
   },
   "web/content/ruang-3d/tahap.ts": {
-    "mtime": 1788793507.7425063,
-    "ast_hash": "3998617d3a536c02d817a6b6c92a7a6f",
+    "mtime": 1789121128.8144076,
+    "ast_hash": "d71f68ee34583e624456c4f373ef2d0e",
     "semantic_hash": ""
   },
   "web/content/statistika/data.json": {
-    "mtime": 1789055314.7974339,
-    "ast_hash": "9bd0db83840d1a0ac373e1c2baf55eee",
+    "mtime": 1789121128.8165114,
+    "ast_hash": "0787143776f6fd5cd53e171b284c2e94",
     "semantic_hash": ""
   },
   "web/content/statistika/data.ts": {
@@ -1475,18 +1475,18 @@
     "semantic_hash": "e904b7ef6dc80309ff0c37f2b7210226"
   },
   "web/content/statistika/tahap-hubungan.ts": {
-    "mtime": 1788808932.511036,
-    "ast_hash": "d39f313efc51f90227ff907104259d96",
+    "mtime": 1789121128.8215196,
+    "ast_hash": "a439c498d90973a79ccaf1ec79d4991b",
     "semantic_hash": ""
   },
   "web/content/statistika/tahap-pemusatan.ts": {
-    "mtime": 1788808932.5120347,
-    "ast_hash": "904e67818d5a11b9b13d49b2a1a37fad",
+    "mtime": 1789121128.8260038,
+    "ast_hash": "ffaf2f1b4d9111ca979e9fbe5b9742dc",
     "semantic_hash": ""
   },
   "web/content/statistika/tahap-penyajian.ts": {
-    "mtime": 1788808932.5120347,
-    "ast_hash": "c74ef942303d7b3220907c5e93828d34",
+    "mtime": 1789121128.8282578,
+    "ast_hash": "ad496afb56ce33f5a15b501cace072a1",
     "semantic_hash": ""
   },
   "web/content/statistika/tahap.ts": {
@@ -1500,8 +1500,8 @@
     "semantic_hash": ""
   },
   "web/content/subbab.ts": {
-    "mtime": 1789055654.3495688,
-    "ast_hash": "a342121ba26b9182dae3bb689c866ad7",
+    "mtime": 1789121350.1897554,
+    "ast_hash": "c0b205178654e3baf9e70a04c10d259d",
     "semantic_hash": ""
   },
   "web/content/tipe.ts": {
@@ -1525,9 +1525,9 @@
     "semantic_hash": "946faa97606bd87edb309206c33532e4"
   },
   "web/content/trigonometri/latihan.ts": {
-    "mtime": 1788254991.7954023,
-    "ast_hash": "a74ad37b7ae4019c7d30e18820b63fc1",
-    "semantic_hash": "a74ad37b7ae4019c7d30e18820b63fc1"
+    "mtime": 1789121128.842495,
+    "ast_hash": "090abfe56c0e96bc4af08f1435ad41c9",
+    "semantic_hash": ""
   },
   "web/content/trigonometri/tahap.ts": {
     "mtime": 1788586079.8493464,
@@ -1550,8 +1550,8 @@
     "semantic_hash": "fef9469947a877dfe1480db591bbd78e"
   },
   "web/content/vektor/tahap.ts": {
-    "mtime": 1788565564.3933134,
-    "ast_hash": "fc74ce7ef283d3e2883eed07d51ac0bc",
+    "mtime": 1789121128.864604,
+    "ast_hash": "80eb964223c271d9c7c7695b1f69edb1",
     "semantic_hash": ""
   },
   "web/eslint.config.mjs": {
@@ -1625,8 +1625,8 @@
     "semantic_hash": ""
   },
   "PROGRESS.md": {
-    "mtime": 1789055548.2825806,
-    "ast_hash": "0a0c21e3fac5fc14ed03b4c5975caca9",
+    "mtime": 1789122243.177664,
+    "ast_hash": "f8f0184536df72bb729b0f9999304ddf",
     "semantic_hash": ""
   },
   "alat/lingkungan/pip-freeze-2026-09-02-sebelum-manimgl.txt": {
@@ -2340,8 +2340,8 @@
     "semantic_hash": ""
   },
   "web/components/kendali/Koordinat.tsx": {
-    "mtime": 1788579104.5517745,
-    "ast_hash": "3469a2a2c9c3e4c1a4db1e82f8667e3d",
+    "mtime": 1789121128.776737,
+    "ast_hash": "c595123c34252e184b2f09a8e936e95c",
     "semantic_hash": ""
   },
   "web/components/kendali/Petunjuk.tsx": {
@@ -2500,8 +2500,8 @@
     "semantic_hash": ""
   },
   "web/content/transformasi-geometri/tahap.ts": {
-    "mtime": 1788616315.055458,
-    "ast_hash": "4fbaeb86fd625f3136b6032c29bf150e",
+    "mtime": 1789121128.8391552,
+    "ast_hash": "9852d75ec5833c7fca50ff5b5d894d3b",
     "semantic_hash": ""
   },
   "web/lib/petak-sumbu.ts": {
@@ -5875,8 +5875,8 @@
     "semantic_hash": ""
   },
   "web/content/turunan/tahap.ts": {
-    "mtime": 1788867774.9486895,
-    "ast_hash": "9d49183bc6371bc72df2f42b65225028",
+    "mtime": 1789121128.8574996,
+    "ast_hash": "9f9c31654ec3be6c8a03c7de3242705b",
     "semantic_hash": ""
   },
   "docs/tugas/laporan/MANTRA-INTEGRAL.md": {
@@ -7885,8 +7885,8 @@
     "semantic_hash": ""
   },
   "docs/tugas/REVISI-ARYA-2026-09-10.md": {
-    "mtime": 1789053388.010643,
-    "ast_hash": "231d600a7f2afd0e2d22fc056073f400",
+    "mtime": 1789122247.6753943,
+    "ast_hash": "0f7de5e0321e0b5c154c708d5793630e",
     "semantic_hash": ""
   },
   "UNTUK ARYA/CEK 480P/integral01-laju-ke-jumlah.jpg": {
@@ -9812,6 +9812,16 @@
   "alat/uji_cek_pembuka_video.py": {
     "mtime": 1789055702.0472898,
     "ast_hash": "7341a7956b7be3547661fed500c09d27",
+    "semantic_hash": ""
+  },
+  "web/components/LaciLanjut.tsx": {
+    "mtime": 1789121247.6998453,
+    "ast_hash": "b3a01bf2d50c505d0af0e6f15ce13ea7",
+    "semantic_hash": ""
+  },
+  "docs/tugas/PERAPIAN-2026-09-11.md": {
+    "mtime": 1789122511.763773,
+    "ast_hash": "14f423363fe62446628c4ea316bf5ce6",
     "semantic_hash": ""
   }
 }

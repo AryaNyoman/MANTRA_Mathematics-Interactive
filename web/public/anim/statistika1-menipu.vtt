@@ -1,472 +1,135 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/statistika1-menipu.json (waktu kata rekaman)
-NOTE naskah-sidik c227901c0fb8
+NOTE Dibuat otomatis dari manim/narasi/statistika1-menipu.json
 
 1
-00:00:00.101 --> 00:00:01.935
-Dua kelas baru saja ulangan.
+00:00:00.000 --> 00:00:04.805
+Materi 01 Statistika: <b>kenapa satu angka bisa menipu</b>.
 
 2
-00:00:02.670 --> 00:00:06.162
-Wali kelas melaporkan rata-ratanya: Kelas A 7,
+00:00:04.805 --> 00:00:09.517
+Dua kelas baru saja ulangan, masing-masing 8 siswa.
 
 3
-00:00:06.162 --> 00:00:07.512
-Kelas B juga 7.
+00:00:09.517 --> 00:00:11.088
+Ini nilai mereka.
 
 4
-00:00:08.183 --> 00:00:10.359
-Apakah kedua kelas itu sama saja?
+00:00:11.088 --> 00:00:14.820
+Wali kelas melaporkan rata-ratanya.
 
 5
-00:00:11.568 --> 00:00:13.073
-Ini kedua kelas itu.
+00:00:14.820 --> 00:00:16.020
+Kelas A 7.
 
 6
-00:00:13.807 --> 00:00:16.834
-Ada 8 siswa di Kelas A dan 8 siswa di Kelas B.
+00:00:16.020 --> 00:00:17.620
+Kelas B juga 7.
 
 7
-00:00:16.834 --> 00:00:19.102
-Tiap siswa membawa satu nilai ulangan.
+00:00:17.620 --> 00:00:22.392
+Kepala sekolah mengangguk: <b>keduanya sama saja</b>.
 
 8
-00:00:20.316 --> 00:00:22.643
-Supaya semua nilai muat dalam satu gambar,
+00:00:22.392 --> 00:00:25.438
+Dan memang begitulah rupa sebuah ringkasan.
 
 9
-00:00:22.643 --> 00:00:24.859
-tiap siswa kita ganti dengan satu titik,
+00:00:25.438 --> 00:00:29.193
+Delapan angka <b>diperas jadi satu</b>, dan sesudah diperas,
 
 10
-00:00:24.859 --> 00:00:26.300
-dan titiknya kita taruh di
+00:00:29.193 --> 00:00:32.664
+kedua kelas itu benar-benar terlihat sama persis.
 
 11
-00:00:26.300 --> 00:00:28.611
-atas nilainya sendiri pada garis nilai.
+00:00:32.664 --> 00:00:34.873
+Bukan cuma rata-ratanya.
 
 12
-00:00:29.816 --> 00:00:31.097
-Sebelum melangkah,
+00:00:34.873 --> 00:00:39.751
+Mediannya juga 7 di kedua kelas, dan modusnya juga 7.
 
 13
-00:00:31.097 --> 00:00:33.090
-kita segarkan apa yang sudah
+00:00:39.751 --> 00:00:42.696
+<b>Ketiga ukuran pemusatan sepakat</b>.
 
 14
-00:00:33.090 --> 00:00:35.154
-kamu pelajari di kelas 8 SMP:
-
-15
-00:00:35.154 --> 00:00:38.499
-tiga <b>ukuran pemusatan</b>, yaitu rata-rata, median,
-
-16
-00:00:38.499 --> 00:00:39.849
-dan modus.
-
-17
-00:00:40.567 --> 00:00:42.199
-Rata-rata adalah jumlah semua
-
-18
-00:00:42.199 --> 00:00:43.980
-nilai dibagi banyaknya nilai.
-
-19
-00:00:44.715 --> 00:00:46.372
-Median adalah nilai yang berada
-
-20
-00:00:46.372 --> 00:00:48.286
-di tengah setelah data diurutkan.
-
-21
-00:00:49.017 --> 00:00:51.588
-Modus adalah nilai yang paling sering muncul.
-
-22
-00:00:52.801 --> 00:00:53.959
-Kita mulai dari Kelas A.
-
-23
-00:00:53.959 --> 00:01:01.267
-Nilainya 6, 6, 7, 7, 7, 7, 8, 8.
-
-24
-00:01:02.001 --> 00:01:05.388
-Kalau semuanya dijumlahkan, hasilnya 56.
-
-25
-00:01:06.601 --> 00:01:08.606
-Banyaknya nilai ada 8.
-
-26
-00:01:09.355 --> 00:01:13.571
-Jadi rata-ratanya 56 : 8 = 7.
-
-27
-00:01:14.782 --> 00:01:15.611
-Sekarang Kelas B.
-
-28
-00:01:15.611 --> 00:01:23.051
-Nilainya 3, 4, 5, 7, 7, 9, 10, 11.
-
-29
-00:01:23.798 --> 00:01:25.864
-Nilai terkecilnya jauh lebih kecil,
-
-30
-00:01:25.864 --> 00:01:28.317
-dan nilai terbesarnya jauh lebih besar.
-
-31
-00:01:29.535 --> 00:01:33.132
-Tetapi kalau dijumlahkan, hasilnya juga 56.
-
-32
-00:01:33.866 --> 00:01:36.885
-Dibagi 8, rata-ratanya juga 7.
-
-33
-00:01:37.616 --> 00:01:39.398
-Persis sama dengan Kelas A.
-
-34
-00:01:40.601 --> 00:01:42.535
-Hitungan yang barusan kita lakukan dua
-
-35
-00:01:42.535 --> 00:01:44.567
-kali itu bisa ditulis satu kali saja.
-
-36
-00:01:45.301 --> 00:01:49.004
-Jumlahkan semua nilai, lalu bagi dengan banyaknya nilai.
-
-37
-00:01:49.735 --> 00:01:51.832
-Lambang rata-rata adalah x̄.
-
-38
-00:01:53.033 --> 00:01:54.683
-Bagaimana dengan median?
-
-39
-00:01:55.419 --> 00:01:58.911
-Untuk Kelas A, nilainya sudah urut dari kecil ke besar.
-
-40
-00:01:59.657 --> 00:02:02.532
-Karena datanya 8, ada dua nilai di tengah,
-
-41
-00:02:02.532 --> 00:02:04.873
-yaitu nilai ke-4 dan nilai ke-5.
-
-42
-00:02:06.067 --> 00:02:07.862
-Keduanya bernilai 7.
-
-43
-00:02:08.597 --> 00:02:13.457
-Rata-rata dua nilai tengah itu (7 + 7) : 2 = 7.
-
-44
-00:02:14.189 --> 00:02:16.536
-Jadi median Kelas A adalah 7.
-
-45
-00:02:17.734 --> 00:02:19.608
-Kelas B juga sudah urut.
-
-46
-00:02:20.343 --> 00:02:23.506
-Nilai ke-4 dan nilai ke-5 nya juga 7 dan 7.
-
-47
-00:02:24.237 --> 00:02:26.519
-Jadi median Kelas B juga 7.
-
-48
-00:02:27.735 --> 00:02:30.608
-Tinggal modus, nilai yang paling sering muncul.
-
-49
-00:02:31.343 --> 00:02:34.348
-Di Kelas A, angka 7 muncul 4 kali.
-
-50
-00:02:35.094 --> 00:02:37.494
-Di Kelas B, angka 7 muncul 2 kali,
-
-51
-00:02:37.494 --> 00:02:39.691
-dan itu masih yang terbanyak.
-
-52
-00:02:40.901 --> 00:02:43.268
-Jadi ketiga <b>ukuran pemusatan</b> memberi jawaban
-
-53
-00:02:43.268 --> 00:02:45.301
-yang sama persis untuk kedua kelas.
-
-54
-00:02:46.036 --> 00:02:49.738
-Rata-rata 7, median 7, modus 7.
-
-55
-00:02:50.935 --> 00:02:52.436
-Sekarang perhatikan apa yang
-
-56
-00:02:52.436 --> 00:02:54.677
-sebenarnya terjadi saat data diringkas.
-
-57
-00:02:55.411 --> 00:02:58.548
-8 nilai tiap kelas diperas menjadi satu angka saja.
-
-58
-00:02:59.749 --> 00:03:03.162
-Dan sesudah diperas, kedua kelas terlihat sama persis.
-
-59
-00:03:03.895 --> 00:03:07.966
-Satu titik di angka 7, dan satu titik lagi di angka 7.
-
-60
-00:03:09.168 --> 00:03:12.081
-Inilah yang dilihat orang yang cuma menerima laporannya.
-
-61
-00:03:12.815 --> 00:03:15.939
-Bukan datanya, melainkan sisa dari datanya.
-
-62
-00:03:16.671 --> 00:03:19.334
-Dari tiap kelas, 7 angka sudah hilang.
-
-63
-00:03:20.535 --> 00:03:23.277
+00:00:42.696 --> 00:00:46.613
 Sekarang kita kembalikan angkanya ke tempat semula.
 
-64
-00:03:24.025 --> 00:03:25.751
-Yang tadi diperas jadi satu,
+15
+00:00:46.613 --> 00:00:50.376
+Yang tadi diperas jadi satu, kita tumpahkan lagi.
 
-65
-00:03:25.751 --> 00:03:28.057
-kita tumpahkan lagi ke garis nilai.
-
-66
-00:03:29.267 --> 00:03:31.246
+16
+00:00:50.376 --> 00:00:53.191
 Dan bedanya langsung kelihatan.
 
-67
-00:03:31.996 --> 00:03:34.767
-Kelas A berdesakan rapat di sekitar 7,
+17
+00:00:53.191 --> 00:00:56.641
+Kelas A berdesakan rapat di sekitar 7.
 
-68
-00:03:34.767 --> 00:03:36.448
-dari 6 sampai 8 saja.
+18
+00:00:56.641 --> 00:01:01.272
+Kelas B <b>berpencar jauh</b>, ada yang 3 dan ada yang 11.
 
-69
-00:03:37.178 --> 00:03:39.065
-Tidak ada yang tertinggal jauh.
+19
+00:01:01.272 --> 00:01:03.543
+Diukur dari ujung ke ujung:
 
-70
-00:03:40.267 --> 00:03:42.075
-Kelas B berpencar jauh.
+20
+00:01:03.543 --> 00:01:07.579
+Kelas A cuma merentang 2 angka, dari 6 sampai 8.
 
-71
-00:03:42.810 --> 00:03:46.184
-Ada yang mendapat 3, dan ada yang mendapat 11.
+21
+00:01:07.579 --> 00:01:11.784
+Kelas B merentang 8 angka, <b>empat kali lebih lebar</b>.
 
-72
-00:03:46.915 --> 00:03:48.330
-Rata-ratanya memang 7,
-
-73
-00:03:48.330 --> 00:03:51.631
-tetapi hanya 2 siswa yang benar-benar bernilai 7.
-
-74
-00:03:52.849 --> 00:03:54.049
+22
+00:01:11.784 --> 00:01:13.054
 Bagi seorang guru,
 
-75
-00:03:54.049 --> 00:03:55.259
+23
+00:01:13.054 --> 00:01:14.537
 kedua kelas ini butuh
 
-76
-00:03:55.259 --> 00:03:57.425
+24
+00:01:14.537 --> 00:01:17.007
 perlakuan yang sama sekali berbeda.
 
-77
-00:03:58.010 --> 00:04:00.661
-Di Kelas B ada anak yang benar-benar tertinggal,
+25
+00:01:17.007 --> 00:01:19.901
+Di Kelas B ada anak yang tertinggal jauh,
 
-78
-00:04:00.661 --> 00:04:02.910
-dan ada anak yang sudah jauh di depan.
+26
+00:01:19.901 --> 00:01:22.512
+dan ringkasan tadi <b>menyembunyikannya</b>.
 
-79
-00:04:04.149 --> 00:04:05.878
-Berarti kita butuh angka baru,
+27
+00:01:22.512 --> 00:01:25.213
+Jadi satu angka tidak pernah cukup.
 
-80
-00:04:05.878 --> 00:04:08.852
-angka yang mengukur seberapa jauh data berpencar.
+28
+00:01:25.213 --> 00:01:28.377
+Statistika selalu butuh <b>dua</b> jenis ukuran:
 
-81
-00:04:09.585 --> 00:04:11.046
-Cara paling sederhana adalah
+29
+00:01:28.377 --> 00:01:32.544
+di mana pusatnya, dan seberapa jauh datanya berpencar.
 
-82
-00:04:11.046 --> 00:04:12.866
-mengukurnya dari ujung ke ujung.
+30
+00:01:32.544 --> 00:01:35.116
+Meringkas selalu membuang sesuatu,
 
-83
-00:04:14.082 --> 00:04:15.282
-Untuk Kelas A,
-
-84
-00:04:15.282 --> 00:04:18.457
-nilai terbesarnya 8 dan nilai terkecilnya 6.
-
-85
-00:04:18.952 --> 00:04:22.378
-Selisihnya 8 - 6 = 2.
-
-86
-00:04:23.582 --> 00:04:24.782
-Untuk Kelas B,
-
-87
-00:04:24.782 --> 00:04:28.054
-nilai terbesarnya 11 dan nilai terkecilnya 3.
-
-88
-00:04:28.572 --> 00:04:32.196
-Selisihnya 11 - 3 = 8.
-
-89
-00:04:33.401 --> 00:04:35.025
-Angka ini namanya <b>jangkauan</b>,
-
-90
-00:04:35.025 --> 00:04:37.959
-dan bentuk umumnya lahir dari dua hitungan tadi.
-
-91
-00:04:38.693 --> 00:04:42.225
-Jangkauan = nilai terbesar - nilai terkecil.
-
-92
-00:04:43.435 --> 00:04:46.387
-Dan akhirnya kedua kelas itu punya angka yang berbeda.
-
-93
-00:04:47.121 --> 00:04:49.653
-Kelas A 2, Kelas B 8.
-
-94
-00:04:50.385 --> 00:04:52.758
-Sebaran Kelas B 4 kali lebih lebar.
-
-95
-00:04:53.968 --> 00:04:55.987
-Jadi satu angka tidak pernah cukup,
-
-96
-00:04:55.987 --> 00:04:57.660
-dan statistika selalu memakai
-
-97
-00:04:57.660 --> 00:04:59.368
-dua jenis ukuran sekaligus.
-
-98
-00:05:00.117 --> 00:05:01.869
-Yang pertama <b>ukuran pemusatan</b>,
-
-99
-00:05:01.869 --> 00:05:04.122
-yang menjawab di mana pusat datanya.
-
-100
-00:05:05.349 --> 00:05:07.011
-Yang kedua <b>ukuran penyebaran</b>,
-
-101
-00:05:07.011 --> 00:05:09.854
-yang menjawab seberapa lebar datanya berpencar.
-
-102
-00:05:10.602 --> 00:05:12.314
-Keduanya harus dijawab bersama,
-
-103
-00:05:12.314 --> 00:05:15.225
-sebab yang satu tidak bisa menggantikan yang lain.
-
-104
-00:05:16.449 --> 00:05:17.871
-Jangkauan sudah lumayan,
-
-105
-00:05:17.871 --> 00:05:19.827
-tetapi ia hanya melihat dua data,
-
-106
-00:05:19.827 --> 00:05:21.723
-yang terkecil dan yang terbesar,
-
-107
-00:05:21.723 --> 00:05:24.125
-lalu mengabaikan semua yang di tengah.
-
-108
-00:05:24.858 --> 00:05:27.279
-Ukuran sebaran yang lebih jujur menunggu
-
-109
-00:05:27.279 --> 00:05:28.943
-di Materi 7 dan Materi 8.
-
-110
-00:05:30.149 --> 00:05:32.593
-Meringkas data selalu membuang sesuatu,
-
-111
-00:05:32.593 --> 00:05:34.246
+31
+00:01:35.116 --> 00:01:36.931
 dan itu bukan kesalahan.
 
-112
-00:05:34.979 --> 00:05:38.024
-Yang jadi kesalahan adalah lupa bahwa ada yang dibuang.
+32
+00:01:36.931 --> 00:01:38.898
+Yang jadi kesalahan adalah
 
-113
-00:05:39.235 --> 00:05:40.435
-Tadi kita baru melihat
-
-114
-00:05:40.435 --> 00:05:42.953
-bedanya sesudah titiknya ditumpahkan kembali.
-
-115
-00:05:43.645 --> 00:05:44.845
-Di Materi 2,
-
-116
-00:05:44.845 --> 00:05:46.789
-kita belajar cara menggambar data
-
-117
-00:05:46.789 --> 00:05:49.472
-supaya bentuknya sudah terlihat sejak awal.
+33
+00:01:38.898 --> 00:01:41.016
+<b>lupa bahwa ada yang dibuang</b>.
