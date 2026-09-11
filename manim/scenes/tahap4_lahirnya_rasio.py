@@ -314,7 +314,7 @@ class LahirnyaRasio(AdeganMatra):
             b.main(Indicate(kotaks[0], color=SOROT), Indicate(kotaks[1], color=SOROT),
                    run_time=1.0)
             b.tunggu_kata("antara")
-            b.main(Indicate(papan.semua(), color=SOROT, scale_factor=1.0), run_time=1.0)
+            b.main(papan.sorot(), run_time=1.0)
 
         # ============ tiga sisanya: csc, sec, cot ======================== #
         nama_sisa = [r"\csc\theta =", r"\sec\theta =", r"\cot\theta ="]
@@ -350,26 +350,19 @@ class LahirnyaRasio(AdeganMatra):
         lanjut = teks("Lingkaran Satuan dan Sudut Istimewa, Bagian 1", 30, SOROT)
         lanjut.move_to([3.0, -0.4, 0])
         sinema.batasi_lebar(lanjut, 7.6)
-        # Lingkaran satuan mengintip: segitiganya masuk lingkaran berjari-jari
-        # satu. Sisi miring = jari-jari, jadi lingkarannya berpusat di theta.
-        # Hanya BUSURNYA yang muat di layar (lingkaran penuh berjari-jari
-        # sisi miring keluar bingkai kiri dan bawah, ditolak qc).
-        r_ling = np.linalg.norm(C - A)
-        # Busur mulai dari ujung sisi miring (sudut theta) ke atas: ke bawah
-        # ia menabrak label "depan = 3", ke atas lewat 72 derajat menyentuh
-        # zona identitas.
-        lingkaran = Arc(radius=r_ling, start_angle=np.radians(SUDUT), angle=np.radians(38),
-                        arc_center=A).set_stroke(SOROT, 2.4)
+        # TIDAK ada potongan lingkaran yang mengintip: sepotong busur tanpa
+        # lingkarannya terbaca ARYA sebagai glitch (11 Sep 2026). Gambar yang
+        # belum dijelaskan jangan dimunculkan; cukup sisi miringnya disorot.
         with sinema.babak(self, "lanjut", DURASI, kata=KATA) as b:
             b.tunggu_kata("Lingkaran")
             b.main(FadeOut(bingkai), FadeOut(kotaks), FadeOut(t_sin), FadeOut(t_cos),
                    FadeOut(t_tan), FadeOut(t_sisa), run_time=0.6)
             b.main(FadeIn(lanjut, shift=UP * 0.2), run_time=0.8)
-            b.tunggu_kata("lingkaran", ke=2)
-            b.main(ShowCreation(lingkaran), run_time=1.4)
             b.tunggu_kata("miringnya")
-            b.main(Indicate(miring, color=SOROT, scale_factor=1.0), run_time=1.0)
-        qc.periksa_adegan(self, {"segitiga": segitiga, "lingkaran": lingkaran},
+            b.main(Indicate(miring, color=SOROT, scale_factor=1.0), run_time=0.6)
+            b.tunggu_kata("tepat")
+            b.main(Indicate(a_miring, color=SOROT), run_time=0.8)
+        qc.periksa_adegan(self, {"segitiga": segitiga},
                           hud=hud(ident, papan), jaga_jalur_bawah=False,
                           tulisan={"lanjut": lanjut, "samping": n_samping, "depan": n_depan,
                                    "miring": n_miring})

@@ -423,7 +423,7 @@ class PerbandinganTetap(AdeganMatra):
             b.tunggu_kata("dihitung")
             b.main(Indicate(panel, color=SOROT), run_time=0.8)
             b.tunggu_kata("dibukukan")
-            b.main(Indicate(papan.semua(), color=SOROT, scale_factor=1.0), run_time=1.0)
+            b.main(papan.sorot(), run_time=1.0)
             b.tunggu_kata("segitiga")
             b.main(samping_cm.animate.set_value(3.2), run_time=0.7, rate_func=smooth)
             b.main(samping_cm.animate.set_value(BESAR), run_time=0.7, rate_func=smooth)

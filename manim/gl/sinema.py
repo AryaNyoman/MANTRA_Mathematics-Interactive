@@ -490,10 +490,28 @@ class PapanRumus:
         self.perbarui_alas()
         return baru
 
+    def isi(self):
+        """Baris-baris panel TANPA alasnya: inilah yang boleh disorot.
+
+        `Indicate(papan.semua())` mewarnai alas kertasnya ikut ungu, dan
+        karena tulisannya ikut ungu, panel jadi kotak ungu polos tanpa rumus
+        selama sorotan (ARYA menyebutnya glitch, Trigonometri 04, 11 Sep
+        2026). Sorot isinya saja, alasnya jangan disentuh.
+        """
+        return self._isi()
+
+    def sorot(self, warna: str = SOROT, run_time: float = 1.0):
+        """Animasi menyorot isi panel tanpa menutup rumusnya. Pakai:
+        `b.main(papan.sorot(), run_time=1.0)`."""
+        isi = self.isi()
+        if isi is None:
+            raise AturanDilanggar("papan.sorot(): panel masih kosong, tidak ada yang disorot")
+        return Indicate(isi, color=warna, scale_factor=1.0)
+
     def semua(self):
         """Semua yang tampil di panel, ALASNYA IKUT, supaya
         `FadeOut(papan.semua())` di babak penutup tidak meninggalkan kotak
-        kertas melayang."""
+        kertas melayang. JANGAN dipakai untuk `Indicate` (lihat `sorot`)."""
         isi = list(self.baris_lain)
         if self.utama is not None:
             isi.append(self.utama)
