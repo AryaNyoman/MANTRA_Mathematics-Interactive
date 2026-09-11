@@ -54,11 +54,10 @@ export type SubTampil = {
 
 export type BabTampil = {
   slug: string
-  no: number
   kelas: string
   urutanKelas: number
-  sumber: string
   nama: string
+  /** pertanyaan umum seluruh bab (`subbab.ts`), bukan pertanyaan satu materi */
   pertanyaan: string
   jumlahMateri: number
   /** slug tahap urut belajar, dipakai menghitung yang sudah dibuka */
@@ -173,9 +172,10 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
                   <span className="bab-nyala" aria-hidden />
                   <div className="bab-atas">
                     <div>
-                      <div className="bab-kicker">
-                        Bab {b.no} · {b.kelas} · {b.sumber}
-                      </div>
+                      {/* Hanya kelasnya. Nomor bab dan nama buku sumber
+                          dibuang (ARYA 10 Sep 2026): tanpa bukunya, "Bab 4"
+                          tidak berarti apa-apa bagi siswa. */}
+                      <div className="bab-kicker">{b.kelas}</div>
                       <h3>{b.nama}</h3>
                       <p className="bab-tanya">{b.pertanyaan}</p>
                     </div>

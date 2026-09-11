@@ -89,7 +89,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
         ],
         simpul: 'Ini bukan kebetulan pada contoh ini saja. Untuk data apa pun, jumlah simpangan terhadap mean selalu tepat nol. Itulah arti "titik seimbang".',
       },
-      { jenis: 'paragraf', teks: 'Sifat ini akan kita pakai lagi di Tahap 8. Ia sekaligus menjelaskan kenapa simpangan baku harus dikuadratkan dulu: kalau simpangannya dijumlah apa adanya, hasilnya selalu nol, dan ukuran yang selalu nol tidak mengukur apa-apa.' },
+      { jenis: 'paragraf', teks: 'Sifat ini akan kita pakai lagi di Materi 08. Ia sekaligus menjelaskan kenapa simpangan baku harus dikuadratkan dulu: kalau simpangannya dijumlah apa adanya, hasilnya selalu nol, dan ukuran yang selalu nol tidak mengukur apa-apa.' },
 
       {
         jenis: 'coba',
@@ -111,7 +111,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
           'Data yang miring atau punya pencilan, misalnya gaji dan harga rumah - median lebih jujur mewakili "orang kebanyakan".',
         ],
       },
-      { jenis: 'paragraf', teks: 'Alasan pegangan terakhir itu adalah isi Tahap 6, dan contohnya cukup mengejutkan untuk dibahas terpisah.' },
+      { jenis: 'paragraf', teks: 'Alasan pegangan terakhir itu adalah isi Materi 06, dan contohnya cukup mengejutkan untuk dibahas terpisah.' },
     ],
     seringKeliru: {
       judul: 'Median itu angka yang ada di tengah daftar',
@@ -153,7 +153,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       { jenis: 'paragraf', teks: 'Bandingkan dengan kantor yang sama tanpa direkturnya. Sembilan karyawan itu saja punya mean 5,24 juta dan median 5 juta. Kedua angka itu berdekatan, dan keduanya masuk akal sebagai gambaran.' },
 
       { jenis: 'sesi', judul: 'Kenapa mean tertarik tetapi median tidak' },
-      { jenis: 'paragraf', teks: 'Di Tahap 5 kita membuktikan mean adalah titik seimbang: jumlah simpangan ke kirinya sama besar dengan jumlah simpangan ke kanannya. Sifat itu juga yang membuatnya bisa diseret. Mean memakai NILAI setiap data. Satu data yang nilainya raksasa ikut masuk ke dalam penjumlahan dengan bobot penuh, jadi ia menyeret hasilnya.' },
+      { jenis: 'paragraf', teks: 'Di Materi 05 kita membuktikan mean adalah titik seimbang: jumlah simpangan ke kirinya sama besar dengan jumlah simpangan ke kanannya. Sifat itu juga yang membuatnya bisa diseret. Mean memakai NILAI setiap data. Satu data yang nilainya raksasa ikut masuk ke dalam penjumlahan dengan bobot penuh, jadi ia menyeret hasilnya.' },
       { jenis: 'paragraf', teks: 'Median hanya memakai POSISI. Bagi median, gaji direktur itu cuma "satu data yang ada di paling kanan". Mau 75 juta atau 750 juta, posisinya tetap sama, dan mediannya tidak berubah sedikit pun.' },
       {
         jenis: 'coba',
@@ -176,7 +176,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
           'Justru yang paling penting - satu pasien yang sembuh padahal obatnya sama, satu sekolah yang nilainya melonjak. Dalam banyak penelitian, pencilan adalah temuannya, bukan gangguannya.',
         ],
       },
-      { jenis: 'paragraf', teks: 'Karena itu urutan yang benar adalah: temukan pencilannya, periksa dari mana asalnya, baru putuskan. Cara menemukannya dengan hitungan, bukan dengan perasaan, ada di tahap berikutnya lewat pagar 1,5 kali jangkauan antar kuartil. Untuk data gaji tadi, pagar itu ada di 7,8 juta, dan gaji 75 juta jatuh jauh di luarnya.' },
+      { jenis: 'paragraf', teks: 'Karena itu urutan yang benar adalah: temukan pencilannya, periksa dari mana asalnya, baru putuskan. Cara menemukannya dengan hitungan, bukan dengan perasaan, ada di materi berikutnya lewat pagar 1,5 kali jangkauan antar kuartil. Untuk data gaji tadi, pagar itu ada di 7,8 juta, dan gaji 75 juta jatuh jauh di luarnya.' },
     ],
     seringKeliru: {
       judul: 'Data yang jauh sendiri itu pasti salah catat, hapus saja',
@@ -324,7 +324,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
           'Mesin A    -2 + (-1) + 0 + 1 + 2 = 0',
           'Mesin B   -10 + (-5) + 0 + 5 + 10 = 0',
         ],
-        simpul: 'Keduanya nol. Bukan kebetulan: seperti di Tahap 5, jumlah simpangan terhadap mean SELALU nol, untuk data apa pun. Ukuran yang selalu nol tidak mengukur apa-apa.',
+        simpul: 'Keduanya nol. Bukan kebetulan: seperti di Materi 05, jumlah simpangan terhadap mean SELALU nol, untuk data apa pun. Ukuran yang selalu nol tidak mengukur apa-apa.',
       },
 
       { jenis: 'sesi', judul: 'Langkah 3, kuadratkan supaya tidak saling menghapus' },
@@ -357,7 +357,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
         langkah: [
           'Seret satu botol menjauh dari mean. Perhatikan sisi bawah perseginya memanjang, dan perseginya membesar mengikuti.',
           'Perhatikan persegi tumbuh jauh lebih cepat daripada garisnya. Jarak dua kali lipat membuat luasnya empat kali lipat.',
-          'Itu sebabnya simpangan baku sangat peka terhadap pencilan, jauh lebih peka daripada jangkauan antar kuartil di Tahap 7.',
+          'Itu sebabnya simpangan baku sangat peka terhadap pencilan, jauh lebih peka daripada jangkauan antar kuartil di Materi 07.',
         ],
       },
 
@@ -458,7 +458,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       },
       { jenis: 'paragraf', teks: 'Kuartil dihitung dengan rumus yang persis sama, cuma n:2 diganti. Untuk Q1 dipakai n:4, untuk Q3 dipakai 3n:4. Hasilnya Q1 = 58,25 dan Q3 = 77,28.' },
 
-      { jenis: 'paragraf', teks: 'Sebelum masuk ke modus, panggil ulang dua hal dari awal tahap ini. Pertama, setiap kelas hanya diwakili titik tengahnya, jadi hasilnya tetap hampiran. Kedua, batang yang paling tinggi memang menunjuk kelas modusnya, tetapi modusnya belum tentu jatuh tepat di tengah batang itu.' },
+      { jenis: 'paragraf', teks: 'Sebelum masuk ke modus, panggil ulang dua hal dari awal materi ini. Pertama, setiap kelas hanya diwakili titik tengahnya, jadi hasilnya tetap hampiran. Kedua, batang yang paling tinggi memang menunjuk kelas modusnya, tetapi modusnya belum tentu jatuh tepat di tengah batang itu.' },
       { jenis: 'sesi', judul: 'Modus lewat kesebangunan' },
       { jenis: 'paragraf', teks: 'Modus data berkelompok berada di kelas dengan batang tertinggi, di sini kelas 60 sampai 69 dengan frekuensi 12. Letak persisnya di dalam kelas itu ditentukan oleh tetangga kiri dan kanannya: batang condong ke arah tetangga yang lebih tinggi.' },
       {

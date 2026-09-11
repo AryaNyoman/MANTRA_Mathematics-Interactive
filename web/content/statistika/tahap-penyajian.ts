@@ -49,7 +49,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
           'median     keduanya 7',
           'modus      keduanya 7',
         ],
-        simpul: 'Ketiga ukuran pemusatan yang biasa dipakai memberi jawaban yang sama persis. Rata-rata adalah jumlah dibagi banyaknya, median adalah nilai yang di tengah setelah diurutkan, modus adalah nilai yang paling sering muncul; ketiganya dibongkar tuntas di Tahap 5. Padahal isi kedua kelas itu berbeda jauh.',
+        simpul: 'Ketiga ukuran pemusatan yang biasa dipakai memberi jawaban yang sama persis. Rata-rata adalah jumlah dibagi banyaknya, median adalah nilai yang di tengah setelah diurutkan, modus adalah nilai yang paling sering muncul; ketiganya dibongkar tuntas di Materi 05. Padahal isi kedua kelas itu berbeda jauh.',
       },
       { jenis: 'sorot', teks: 'Di Kelas A tidak ada yang tertinggal jauh. Di Kelas B ada yang dapat 3, dan ada yang dapat 11. Kalau Anda guru, kedua kelas itu butuh perlakuan yang sama sekali berbeda.' },
 
@@ -86,7 +86,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
         ],
         simpul: 'Sekarang kedua kelas itu akhirnya terlihat berbeda: 2 lawan 8.',
       },
-      { jenis: 'paragraf', teks: 'Jangkauan sudah lumayan, tetapi ia cuma melihat dua data, yang paling kecil dan yang paling besar, lalu mengabaikan semua yang di tengah. Di Tahap 7 dan Tahap 8 kita akan bertemu ukuran sebaran yang lebih jujur, yaitu jangkauan antar kuartil dan simpangan baku. Sebagai bocoran, simpangan baku Kelas A adalah 0,71 sedangkan Kelas B 2,69.' },
+      { jenis: 'paragraf', teks: 'Jangkauan sudah lumayan, tetapi ia cuma melihat dua data, yang paling kecil dan yang paling besar, lalu mengabaikan semua yang di tengah. Di Materi 07 dan Materi 08 kita akan bertemu ukuran sebaran yang lebih jujur, yaitu jangkauan antar kuartil dan simpangan baku. Sebagai bocoran, simpangan baku Kelas A adalah 0,71 sedangkan Kelas B 2,69.' },
     ],
     seringKeliru: {
       judul: 'Rata-rata sama, jadi datanya mirip',
@@ -147,13 +147,13 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
         butir: [
           'Sumbu mendatarnya garis bilangan - jadi urutan batangnya TIDAK boleh ditukar.',
           'Batangnya menempel tanpa sela - sebab kelas yang bersebelahan memang bersambung, misalnya 150 sampai 160 lalu 160 sampai 170.',
-          'Yang dibaca sebenarnya LUAS batang, bukan tingginya. Ini penting saat lebar kelasnya tidak sama, dan akan kita pakai di tahap berikutnya.',
+          'Yang dibaca sebenarnya LUAS batang, bukan tingginya. Ini penting saat lebar kelasnya tidak sama, dan akan kita pakai di materi berikutnya.',
         ],
       },
 
       { jenis: 'sesi', judul: 'Line plot (diagram titik), gambar yang paling jujur' },
       { jenis: 'paragraf', teks: 'Untuk data yang sedikit, ada gambar yang tidak menyembunyikan apa pun: line plot, dalam bahasa Indonesia diagram titik, dan di buku lain kadang disebut dot plot. Setiap data digambar sebagai satu titik di atas garis bilangan. Nilai yang muncul dua kali membuat dua titik bertumpuk ke atas.' },
-      { jenis: 'paragraf', teks: 'Kelebihannya besar: modus terlihat sebagai tumpukan tertinggi, median bisa dihitung dengan menghitung titik dari kiri, dan pencilan langsung terlihat sebagai titik yang terpencil sendirian. Kekurangannya juga nyata, yaitu jadi berantakan kalau datanya ratusan. Kita akan sering memakainya di Tahap 5 sampai Tahap 7.' },
+      { jenis: 'paragraf', teks: 'Kelebihannya besar: modus terlihat sebagai tumpukan tertinggi, median bisa dihitung dengan menghitung titik dari kiri, dan pencilan langsung terlihat sebagai titik yang terpencil sendirian. Kekurangannya juga nyata, yaitu jadi berantakan kalau datanya ratusan. Kita akan sering memakainya di Materi 05 sampai Materi 07.' },
 
       {
         jenis: 'coba',
@@ -238,7 +238,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
     ],
     seringKeliru: {
       judul: 'Banyak kelas sudah ditentukan rumus, jadi cuma ada satu histogram yang benar',
-      isi: 'Tidak. Rumus seperti aturan Sturges memberi saran, bukan keharusan, dan buku pun menunjukkan dua histogram berbeda yang lahir dari sumber data yang sama. Yang benar-benar salah bukan memilih lebar yang berbeda, melainkan memilih lebar tertentu supaya kesimpulan yang diinginkan muncul, lalu menyembunyikan bahwa pilihan itu pernah dibuat. Kita bahas lagi di Tahap 13.',
+      isi: 'Tidak. Rumus seperti aturan Sturges memberi saran, bukan keharusan, dan buku pun menunjukkan dua histogram berbeda yang lahir dari sumber data yang sama. Yang benar-benar salah bukan memilih lebar yang berbeda, melainkan memilih lebar tertentu supaya kesimpulan yang diinginkan muncul, lalu menyembunyikan bahwa pilihan itu pernah dibuat. Kita bahas lagi di Materi 13.',
       sumber: 'Perhitungan luas gabungan kelas mengikuti Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, halaman 211.',
     },
     widget: 'lebar-kelas',

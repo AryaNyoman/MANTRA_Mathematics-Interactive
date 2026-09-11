@@ -344,7 +344,7 @@ export const KUIS: SoalKuis[] = [
     pilihan: ['4,8 cm', '5 cm', '3,4 cm', '6,4 cm', '2,4 cm'],
     benar: 0,
     alasan:
-      'Bidang BDHF berdiri tegak di atas diagonal BD. Jadi soalnya menjadi jarak titik A ke garis BD pada persegi panjang alas 8 kali 6. BD = 10, dan jaraknya 8 kali 6 dibagi 10, yaitu 4,8. Ini jalan pintas luas segitiga yang dipakai di tahap 5.',
+      'Bidang BDHF berdiri tegak di atas diagonal BD. Jadi soalnya menjadi jarak titik A ke garis BD pada persegi panjang alas 8 kali 6. BD = 10, dan jaraknya 8 kali 6 dibagi 10, yaitu 4,8. Ini jalan pintas luas segitiga yang dipakai di materi 05.',
   },
   {
     id: 'r31',

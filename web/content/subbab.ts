@@ -50,8 +50,15 @@ export type Bab = {
   kelas: string
   /** kelas terkecil, dipakai mengurutkan dan mengelompokkan */
   urutanKelas: 10 | 12
-  /** buku sumber, ditulis apa adanya supaya bisa diperiksa siswa dan guru */
+  /** buku sumber; catatan dalam kode saja, TIDAK ditampilkan (ARYA 10 Sep 2026) */
   sumber: string
+  /**
+   * Pertanyaan umum yang mewakili SELURUH bab, hanya untuk kartu Peta Materi
+   * (ARYA 10 Sep 2026). Sebelumnya kartu memakai `pertanyaan` topik yang
+   * hanya menyangkut satu materi ("Kenapa dua panah bisa dijumlahkan?" cuma
+   * soal penjumlahan vektor). Pertanyaan per materi tetap di halaman materi.
+   */
+  tanya: string
   sub: SubBab[]
 }
 
@@ -62,6 +69,7 @@ export const BAB: Bab[] = [
     kelas: 'Kelas 10',
     urutanKelas: 10,
     sumber: 'Buku K10 Bab 4',
+    tanya: 'Kenapa satu sudut cukup untuk menghitung tinggi gedung sampai bentuk gelombang?',
     sub: [
       { huruf: 'A', nama: 'Perbandingan Trigonometri', nomor: [1, 2, 3, 4] },
       { huruf: 'B', nama: 'Lingkaran Satuan dan Sudut Istimewa', nomor: [5, 6, 7] },
@@ -75,6 +83,7 @@ export const BAB: Bab[] = [
     kelas: 'Kelas 10',
     urutanKelas: 10,
     sumber: 'Buku K10 Bab 3',
+    tanya: 'Kenapa arah harus ikut dihitung, bukan hanya besarnya?',
     sub: [
       { huruf: 'A', nama: 'Pengenalan Vektor', nomor: [1, 2] },
       { huruf: 'B', nama: 'Vektor dalam Sistem Koordinat', nomor: [3, 4, 5] },
@@ -89,6 +98,7 @@ export const BAB: Bab[] = [
     kelas: 'Kelas 10–11',
     urutanKelas: 10,
     sumber: 'K10 Bab 1 & 6, K11 Bab 1 & 4',
+    tanya: 'Bagaimana rumus berubah menjadi gambar, dan gambar kembali menjadi rumus?',
     sub: [
       { huruf: 'A', nama: 'Pengenalan Fungsi dan Grafik', nomor: [1, 2] },
       { huruf: 'B', nama: 'Fungsi Kuadrat', nomor: [3, 4, 5] },
@@ -104,6 +114,7 @@ export const BAB: Bab[] = [
     kelas: 'Kelas 10–11',
     urutanKelas: 10,
     sumber: 'K10 Bab 7, K11 Bab 3',
+    tanya: 'Bagaimana ribuan angka bisa diringkas jadi satu cerita yang jujur?',
     sub: [
       { huruf: 'A', nama: 'Penyajian Data', nomor: [1, 2, 3, 4] },
       { huruf: 'B', nama: 'Ukuran Pemusatan dan Penyebaran', nomor: [5, 6, 7, 8, 9] },
@@ -117,6 +128,7 @@ export const BAB: Bab[] = [
     kelas: 'Kelas 12',
     urutanKelas: 12,
     sumber: 'Buku K12 Bab 1',
+    tanya: 'Bagaimana mengukur jarak dan sudut di dalam ruang, bukan hanya di atas kertas?',
     sub: [
       { huruf: 'A', nama: 'Kedudukan Titik, Garis, dan Bidang', nomor: [1, 2] },
       { huruf: 'B', nama: 'Jarak dalam Ruang', nomor: [3, 4, 5, 6, 7] },
@@ -130,6 +142,7 @@ export const BAB: Bab[] = [
     kelas: 'Kelas 12',
     urutanKelas: 12,
     sumber: 'Buku K12, LIMIT.pdf',
+    tanya: 'Apa yang terjadi pada sebuah nilai ketika kita mendekat tetapi tidak pernah sampai?',
     sub: [
       { huruf: 'A', nama: 'Konsep Limit', nomor: [1, 2, 3, 4] },
       { huruf: 'B', nama: 'Sifat Limit dan Cara Menghitungnya', nomor: [5, 6, 7] },
@@ -151,6 +164,7 @@ export const BAB: Bab[] = [
     kelas: 'Kelas 11',
     urutanKelas: 10,
     sumber: 'Buku K11 Bab 4',
+    tanya: 'Kalau bangun digeser, dicerminkan, atau diputar, apa yang tetap dan apa yang berubah?',
     sub: [
       { huruf: 'A', nama: 'Prapeta, Peta, dan Pencerminan', nomor: [1, 2, 3, 4] },
       { huruf: 'B', nama: 'Translasi, Rotasi, dan Dilatasi', nomor: [5, 6, 7] },
@@ -172,6 +186,7 @@ export const BAB: Bab[] = [
     kelas: 'Kelas 12',
     urutanKelas: 12,
     sumber: 'Tingkat Lanjut K12 Bab 2',
+    tanya: 'Seberapa cepat sesuatu berubah tepat pada satu saat?',
     sub: [
       { huruf: 'A', nama: 'Kemiringan yang Berubah', nomor: [1, 2, 3, 4] },
       { huruf: 'B', nama: 'Aturan Menurunkan', nomor: [5, 6, 7, 8] },
@@ -189,6 +204,7 @@ export const BAB: Bab[] = [
     kelas: 'Kelas 12',
     urutanKelas: 12,
     sumber: 'Tingkat Lanjut K12 Bab 3',
+    tanya: 'Bagaimana potongan kecil yang tak terhingga banyaknya bisa dijumlahkan jadi satu luas?',
     sub: [
       { huruf: 'A', nama: 'Membalik Turunan', nomor: [1, 2, 3, 4] },
       { huruf: 'B', nama: 'Luas dan Integral Tentu', nomor: [5, 6, 7, 8] },

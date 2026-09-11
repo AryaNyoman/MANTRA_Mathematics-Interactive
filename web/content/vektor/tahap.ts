@@ -804,7 +804,7 @@ export const TAHAP: TahapVektor[] = [
     penjelasan: [
       {
         jenis: 'sorot',
-        teks: 'Materi 11 dan 12 di luar Kurikulum Merdeka Kelas 10. Keduanya tidak ada di buku sekolah Anda, tetapi masih keluar di UTBK. Boleh dilewati kalau Anda sedang mengejar ulangan sekolah.',
+        teks: 'Materi 11 dan 12 di luar bab wajib Kelas 10. Keduanya tidak ada di buku sekolah Anda, tetapi masih keluar di UTBK. Boleh dilewati kalau Anda sedang mengejar ulangan sekolah.',
       },
       {
         jenis: 'paragraf',
@@ -813,7 +813,7 @@ export const TAHAP: TahapVektor[] = [
       { jenis: 'sesi', judul: 'Dua cara menghitungnya, hasilnya sama' },
       {
         jenis: 'paragraf',
-        teks: 'Cara kedua memakai kosinus sudut. Kalau belum kenal, baca Trigonometri tahap 4 dulu, atau pakai cara pertama saja.',
+        teks: 'Cara kedua memakai kosinus sudut. Kalau belum kenal, baca Trigonometri materi 04 dulu, atau pakai cara pertama saja.',
       },
       {
         jenis: 'poin',
@@ -892,7 +892,7 @@ export const TAHAP: TahapVektor[] = [
     penjelasan: [
       {
         jenis: 'sorot',
-        teks: 'Sama seperti Materi 11, bagian ini di luar Kurikulum Merdeka Kelas 10 dan ditujukan untuk persiapan UTBK.',
+        teks: 'Sama seperti Materi 11, bagian ini di luar bab wajib Kelas 10 dan ditujukan untuk persiapan UTBK.',
       },
       {
         jenis: 'paragraf',

@@ -508,7 +508,7 @@
   {
     "id": "t09-modus-kanan-tinggi",
     "jenis": "kelompok",
-    "judul": "Tabel Tahap 9 dengan tetangga kanan dinaikkan jadi 11",
+    "judul": "Tabel Materi 09 dengan tetangga kanan dinaikkan jadi 11",
     "satuan": "nilai",
     "buatan": true,
     "kelas": [
@@ -557,7 +557,7 @@
   {
     "id": "t09-modus-tetangga-sama",
     "jenis": "kelompok",
-    "judul": "Tabel Tahap 9 dengan kedua tetangga sama tinggi, 11 dan 11",
+    "judul": "Tabel Materi 09 dengan kedua tetangga sama tinggi, 11 dan 11",
     "satuan": "nilai",
     "buatan": true,
     "kelas": [
@@ -606,7 +606,7 @@
   {
     "id": "t09-modus-kiri-tinggi",
     "jenis": "kelompok",
-    "judul": "Tabel Tahap 9 dengan tetangga kanan diturunkan jadi 0",
+    "judul": "Tabel Materi 09 dengan tetangga kanan diturunkan jadi 0",
     "satuan": "nilai",
     "buatan": true,
     "kelas": [

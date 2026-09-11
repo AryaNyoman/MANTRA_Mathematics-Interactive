@@ -9,7 +9,7 @@ import { cariTopik } from '@/content/topik'
 export const metadata: Metadata = {
   title: 'Peta Materi | MANTRA',
   description:
-    'Enam bab matematika SMA, tersusun mengikuti buku Kurikulum Merdeka: pilih bab, lalu sub-bab, lalu materinya.',
+    'Bab matematika SMA: pilih bab, lalu sub-bab, lalu materinya. Kemajuanmu tersimpan di perangkatmu sendiri.',
 }
 
 /**
@@ -34,12 +34,12 @@ export default function HalamanPetaMateri() {
 
     return {
       slug: b.slug,
-      no: b.no,
       kelas: b.kelas,
       urutanKelas: b.urutanKelas,
-      sumber: b.sumber,
       nama: topik?.nama ?? b.slug,
-      pertanyaan: topik?.pertanyaan ?? '',
+      // Pertanyaan SELURUH bab dari `subbab.ts`, bukan `pertanyaan` topik yang
+      // hanya menyangkut satu materi (ARYA 10 Sep 2026).
+      pertanyaan: b.tanya,
       jumlahMateri: nomorUrut.length,
       slugTahap: nomorUrut.map((n) => tahap[n - 1]?.slug ?? String(n)),
       sub: b.sub.map((s) => ({
@@ -66,8 +66,7 @@ export default function HalamanPetaMateri() {
         <div className="kicker">Peta Materi</div>
         <h1 className="judul-halaman">Pilih bab, lalu materinya. Kemajuanmu tercatat di sini.</h1>
         <p className="sub-italic">
-          Susunan sub-bab mengikuti bab buku Kurikulum Merdeka. Kemajuan tersimpan
-          di HP atau laptopmu sendiri, tanpa akun.
+          Kemajuan tersimpan di HP atau laptopmu sendiri, tanpa akun.
         </p>
 
         <PetaMateri bab={bab} />

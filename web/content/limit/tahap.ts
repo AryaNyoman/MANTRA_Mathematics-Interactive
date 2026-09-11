@@ -150,7 +150,7 @@ export const TAHAP: TahapLimit[] = [
       'Yang dipedulikan hanya tetangga-tetangga c.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Pada Tahap 1 kita memperpendek selang waktu terus menerus dan melihat angkanya merapat ke 20. Sekarang cara berpikir itu dirapikan supaya bisa dipakai untuk fungsi apa pun.' },
+      { jenis: 'paragraf', teks: 'Pada Materi 01 kita memperpendek selang waktu terus menerus dan melihat angkanya merapat ke 20. Sekarang cara berpikir itu dirapikan supaya bisa dipakai untuk fungsi apa pun.' },
 
       { jenis: 'sesi', judul: 'Didorong dari dua arah' },
       { jenis: 'paragraf', teks: 'Ambil fungsi sederhana f(x) = x² + 1, dan tanyakan: ke mana f(x) menuju kalau x didorong mendekati 3?' },
@@ -188,7 +188,7 @@ export const TAHAP: TahapLimit[] = [
         ],
       },
       { jenis: 'sorot', teks: 'Limit sama sekali tidak peduli apa yang terjadi tepat di titik c. Ia hanya melihat tetangga-tetangganya.' },
-      { jenis: 'paragraf', teks: 'Kalimat itu terdengar aneh sekarang, karena pada contoh di atas nilai f(3) kebetulan memang 10, sama dengan limitnya. Tahap 3 dan Tahap 4 akan menunjukkan bahwa kebetulan itu tidak selalu terjadi, dan justru di situlah limit menjadi berguna.' },
+      { jenis: 'paragraf', teks: 'Kalimat itu terdengar aneh sekarang, karena pada contoh di atas nilai f(3) kebetulan memang 10, sama dengan limitnya. Materi 03 dan Materi 04 akan menunjukkan bahwa kebetulan itu tidak selalu terjadi, dan justru di situlah limit menjadi berguna.' },
 
       {
         jenis: 'coba',
@@ -362,15 +362,15 @@ export const TAHAP: TahapLimit[] = [
       { jenis: 'sesi', judul: 'Inilah alasan limit dibuat orang' },
       {
         jenis: 'poin',
-        judul: 'Bandingkan dengan Tahap 3',
+        judul: 'Bandingkan dengan Materi 03',
         butir: [
           'Tarif parkir - nilainya ADA, limitnya TIDAK ADA',
           'Fungsi berlubang ini - nilainya TIDAK ADA, limitnya ADA',
         ],
       },
       { jenis: 'sorot', teks: 'Nilai fungsi dan limit adalah dua hal yang benar-benar berbeda. Yang satu bisa ada tanpa yang lain.' },
-      { jenis: 'paragraf', teks: 'Sekarang kalimat dari Tahap 2 itu masuk akal: limit tidak peduli apa yang terjadi tepat di titiknya. Justru karena tidak peduli, ia masih bisa menjawab walaupun titiknya bolong.' },
-      { jenis: 'paragraf', teks: 'Dan ternyata ini bukan kasus langka. Hitungan kecepatan sesaat di Tahap 1 bentuknya persis seperti ini: 0 dibagi 0 kalau dipaksakan, tetapi punya limit yang rapi setelah disederhanakan. Seluruh kalkulus berdiri di atas bentuk semacam ini.' },
+      { jenis: 'paragraf', teks: 'Sekarang kalimat dari Materi 02 itu masuk akal: limit tidak peduli apa yang terjadi tepat di titiknya. Justru karena tidak peduli, ia masih bisa menjawab walaupun titiknya bolong.' },
+      { jenis: 'paragraf', teks: 'Dan ternyata ini bukan kasus langka. Hitungan kecepatan sesaat di Materi 01 bentuknya persis seperti ini: 0 dibagi 0 kalau dipaksakan, tetapi punya limit yang rapi setelah disederhanakan. Seluruh kalkulus berdiri di atas bentuk semacam ini.' },
 
       {
         jenis: 'coba',
@@ -462,8 +462,8 @@ export const TAHAP: TahapLimit[] = [
         judul: 'Periksa penyebutnya lebih dulu, selalu',
         butir: [
           'Penyebut tidak nol - substitusi langsung sah, selesai',
-          'Penyebut nol tapi pembilang bukan nol - limitnya biasanya tidak ada, dan grafiknya punya asimtot tegak. Dibahas di Tahap 9',
-          'Penyebut nol DAN pembilang nol - inilah 0 dibagi 0, bentuknya harus ditulis ulang. Dibahas di Tahap 6',
+          'Penyebut nol tapi pembilang bukan nol - limitnya biasanya tidak ada, dan grafiknya punya asimtot tegak. Dibahas di Materi 09',
+          'Penyebut nol DAN pembilang nol - inilah 0 dibagi 0, bentuknya harus ditulis ulang. Dibahas di Materi 06',
         ],
       },
       { jenis: 'paragraf', teks: 'Jadi urutan kerjanya selalu sama: masukkan angkanya dulu untuk melihat apa yang terjadi. Kalau hasilnya wajar, selesai. Kalau muncul 0 dibagi 0, barulah pekerjaan yang sebenarnya dimulai.' },
@@ -481,7 +481,7 @@ export const TAHAP: TahapLimit[] = [
     ],
     seringKeliru: {
       judul: 'Dikira substitusi itulah definisi limit',
-      isi: 'Substitusi berhasil pada banyak soal, jadi wajar kalau lama-lama orang mengira memang begitulah cara kerja limit. Padahal urutannya terbalik. Limit didefinisikan lewat pendekatan dari dua arah, dan substitusi hanya jalan pintas yang kebetulan sah untuk fungsi yang tidak punya kejutan di titik itu. Alasan lengkapnya baru dilunasi di Tahap 9, saat kata "kontinu" diperkenalkan. Buktinya bahwa substitusi bukan definisi: pada Tahap 4 substitusi gagal total, sedangkan limitnya ada dan rapi.',
+      isi: 'Substitusi berhasil pada banyak soal, jadi wajar kalau lama-lama orang mengira memang begitulah cara kerja limit. Padahal urutannya terbalik. Limit didefinisikan lewat pendekatan dari dua arah, dan substitusi hanya jalan pintas yang kebetulan sah untuk fungsi yang tidak punya kejutan di titik itu. Alasan lengkapnya baru dilunasi di Materi 09, saat kata "kontinu" diperkenalkan. Buktinya bahwa substitusi bukan definisi: pada Materi 04 substitusi gagal total, sedangkan limitnya ada dan rapi.',
     },
     widget: 'mesin-sifat',
     siap: true,
@@ -501,7 +501,7 @@ export const TAHAP: TahapLimit[] = [
       'Setelah tercoret, barulah angkanya dimasukkan.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Tahap 5 berakhir pada satu simpul: masukkan angkanya dulu. Kalau hasilnya wajar, selesai. Kalau muncul 0 dibagi 0, pekerjaan yang sebenarnya baru dimulai. Materi ini tentang pekerjaan itu.' },
+      { jenis: 'paragraf', teks: 'Materi 05 berakhir pada satu simpul: masukkan angkanya dulu. Kalau hasilnya wajar, selesai. Kalau muncul 0 dibagi 0, pekerjaan yang sebenarnya baru dimulai. Materi ini tentang pekerjaan itu.' },
       { jenis: 'sorot', teks: 'Bentuk 0 dibagi 0 tidak berarti limitnya tidak ada. Ia berarti bentuk yang Anda tulis belum memberi tahu apa-apa.' },
       { jenis: 'paragraf', teks: 'Buktinya begini. Bentuk (x² - 1) : (x - 1) limitnya 2, sedangkan (x² - 4) : (x - 2) limitnya 4. Keduanya sama-sama memberi 0 dibagi 0 kalau angkanya dipaksakan masuk, tetapi jawabannya berbeda. Jadi tulisan 0 dibagi 0 memang belum mengandung keterangan apa pun.' },
 
@@ -573,7 +573,7 @@ export const TAHAP: TahapLimit[] = [
     ],
     seringKeliru: {
       judul: 'Mencoret dianggap boleh kapan saja',
-      isi: 'Mencoret (x - 2) dari atas dan bawah terasa seperti aturan aljabar biasa, padahal ia hanya sah kalau (x - 2) bukan nol, yaitu kalau x bukan 2. Kalau syarat itu dilupakan, orang menyimpulkan bahwa fungsi asli dan fungsi hasil coretan sama persis. Padahal keduanya berbeda tepat di satu titik: yang asli berlubang di x = 2, hasil coretannya tidak. Gambar di Tahap 4 memperlihatkan bedanya.',
+      isi: 'Mencoret (x - 2) dari atas dan bawah terasa seperti aturan aljabar biasa, padahal ia hanya sah kalau (x - 2) bukan nol, yaitu kalau x bukan 2. Kalau syarat itu dilupakan, orang menyimpulkan bahwa fungsi asli dan fungsi hasil coretan sama persis. Padahal keduanya berbeda tepat di satu titik: yang asli berlubang di x = 2, hasil coretannya tidak. Gambar di Materi 04 memperlihatkan bedanya.',
     },
     video: { berkas: 'limit6-nolpernol.webm', poster: 'limit6-nolpernol.jpg' },
     widget: 'bongkar-bertahap',
@@ -650,7 +650,7 @@ export const TAHAP: TahapLimit[] = [
 
       {
         jenis: 'coba',
-        teks: 'Alat interaktifnya adalah kebalikan dari alat Tahap 4. Di sana Anda memperbesar, di sini Anda memperkecil.',
+        teks: 'Alat interaktifnya adalah kebalikan dari alat Materi 04. Di sana Anda memperbesar, di sini Anda memperkecil.',
         langkah: [
           'Mulai dari tampilan biasa. Kurvanya masih terlihat jelas melengkung',
           'Perkecil tampilannya. Kurvanya makin lama makin terlihat mendatar',
@@ -811,7 +811,7 @@ export const TAHAP: TahapLimit[] = [
           'Contohnya (x² - 1) : (x - 1) di titik x = 1',
           'Limitnya ada dan rapi, yaitu 2',
           'Tapi nilainya tidak ada sama sekali, jadi syarat pertama gagal',
-          'Grafiknya garis lurus dengan satu titik bolong, sudah dibahas di Tahap 4',
+          'Grafiknya garis lurus dengan satu titik bolong, sudah dibahas di Materi 04',
         ],
       },
       {
@@ -821,7 +821,7 @@ export const TAHAP: TahapLimit[] = [
           'Contohnya tarif parkir yang berubah tepat pada jam kedua',
           'Nilainya ada, papan tarifnya jelas menyebutkan satu angka',
           'Tapi limit kiri dan limit kanan berbeda, jadi syarat kedua gagal',
-          'Grafiknya patah tegak, sudah dibahas di Tahap 3',
+          'Grafiknya patah tegak, sudah dibahas di Materi 03',
         ],
       },
       {
@@ -844,12 +844,12 @@ export const TAHAP: TahapLimit[] = [
           'Inilah satu-satunya bentuk yang membuat syarat 3 terasa perlu',
         ],
       },
-      { jenis: 'paragraf', teks: 'Perhatikan bedanya dengan asimtot datar di Tahap 7. Asimtot datar muncul saat x lari ke tak hingga dan f(x) yang mendatar. Asimtot tegak muncul saat x mendekati satu titik dan f(x) yang meledak. Arahnya kebalikan.' },
+      { jenis: 'paragraf', teks: 'Perhatikan bedanya dengan asimtot datar di Materi 07. Asimtot datar muncul saat x lari ke tak hingga dan f(x) yang mendatar. Asimtot tegak muncul saat x mendekati satu titik dan f(x) yang meledak. Arahnya kebalikan.' },
 
-      { jenis: 'sesi', judul: 'Janji dari Tahap 5 dilunasi di sini' },
-      { jenis: 'paragraf', teks: 'Pada Tahap 5 dikatakan bahwa substitusi langsung sah untuk suku banyak, tetapi alasannya sengaja ditunda. Sekarang alasannya bisa disebutkan utuh.' },
+      { jenis: 'sesi', judul: 'Janji dari Materi 05 dilunasi di sini' },
+      { jenis: 'paragraf', teks: 'Pada Materi 05 dikatakan bahwa substitusi langsung sah untuk suku banyak, tetapi alasannya sengaja ditunda. Sekarang alasannya bisa disebutkan utuh.' },
       { jenis: 'sorot', teks: 'Suku banyak kontinu di semua titik. Karena kontinu berarti limit sama dengan nilai fungsi, maka menghitung limitnya boleh dilakukan dengan memasukkan angkanya.' },
-      { jenis: 'paragraf', teks: 'Jadi substitusi bukan definisi limit, melainkan akibat dari kontinuitas. Untuk fungsi yang tidak kontinu di titik itu, jalan pintasnya langsung gugur, persis seperti yang terjadi di Tahap 4 dan Tahap 6. Sekarang seluruh alurnya tertutup rapi.' },
+      { jenis: 'paragraf', teks: 'Jadi substitusi bukan definisi limit, melainkan akibat dari kontinuitas. Untuk fungsi yang tidak kontinu di titik itu, jalan pintasnya langsung gugur, persis seperti yang terjadi di Materi 04 dan Materi 06. Sekarang seluruh alurnya tertutup rapi.' },
 
       {
         jenis: 'coba',
@@ -897,7 +897,7 @@ export const TAHAP: TahapLimit[] = [
       { jenis: 'paragraf', teks: 'Dokter memakai nilai limit itu untuk menentukan dosis: cukup tinggi supaya obatnya bekerja, cukup rendah supaya tidak meracuni. Yang dihitung adalah limit kadar obat saat banyaknya dosis menuju tak hingga.' },
 
       { jenis: 'sesi', judul: 'Biaya rata-rata produksi' },
-      { jenis: 'paragraf', teks: 'Contoh pabrik di Tahap 7 adalah kasus nyata. Biaya tetap dibagi rata ke seluruh barang, jadi semakin banyak barang yang dibuat, semakin kecil bagian biaya tetap yang ditanggung tiap barang.' },
+      { jenis: 'paragraf', teks: 'Contoh pabrik di Materi 07 adalah kasus nyata. Biaya tetap dibagi rata ke seluruh barang, jadi semakin banyak barang yang dibuat, semakin kecil bagian biaya tetap yang ditanggung tiap barang.' },
       { jenis: 'paragraf', teks: 'Tapi ada batasnya. Biaya bahan per barang tidak bisa dihilangkan. Limitnya itulah biaya rata-rata terendah yang mungkin dicapai, dan angka itu dipakai untuk menentukan harga jual paling murah yang masih tidak merugi.' },
 
       { jenis: 'sesi', judul: 'Populasi yang berhenti tumbuh' },

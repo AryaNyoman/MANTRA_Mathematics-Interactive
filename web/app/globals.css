@@ -224,7 +224,51 @@ h1, h2, h3, .disp {
 
 /* Pil "Materi 03" dan tombol fokus kecil: hanya di HP, hanya di halaman
    belajar. Di layar lebar keduanya tidak ada. */
-.nav-materi, .nav-fokus-kecil, .nav-lanjut-hp { display: none; }
+.nav-materi, .nav-fokus-kecil { display: none; }
+
+/* Laci "Lanjutkan" di samping Peta Materi (ARYA 10 Sep 2026): tombolnya
+   berpakaian tab, panelnya kartu kertas di bawah nav. Empat baris terlihat
+   (tiap baris 44px) plus judul kecil; sisanya digulir di dalam panel. */
+.nav-laci { position: relative; flex: none; }
+.nav-laci-tombol {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 0; cursor: pointer; font: inherit;
+}
+.nav-laci[data-buka='true'] .nav-laci-tombol { background: rgba(250, 249, 245, 0.08); color: var(--kertas-tinta); }
+.nav-laci-panah { font-size: 10px; line-height: 1; transition: transform var(--d-cepat) var(--kurva); }
+.nav-laci[data-buka='true'] .nav-laci-panah { transform: rotate(180deg); }
+.nav-laci-panel {
+  position: absolute; top: calc(100% + 6px); left: 0; z-index: 31;
+  width: 300px; max-height: calc(4 * 44px + 34px + 12px); overflow-y: auto;
+  background: var(--kertas); color: var(--tinta);
+  border: 1px solid var(--garis); border-radius: var(--r-kontrol);
+  box-shadow: 0 18px 40px rgba(16, 26, 43, 0.18);
+  padding: 6px;
+  animation: naik var(--d-sedang) var(--kurva) both;
+}
+.nav-laci-judul {
+  position: sticky; top: 0; z-index: 1;
+  background: var(--kertas);
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10.5px;
+  letter-spacing: 0.13em; text-transform: uppercase; font-weight: 600;
+  color: var(--redup); padding: 8px 10px 6px; height: 34px;
+}
+.nav-laci-baris {
+  display: grid; grid-template-columns: 1fr auto; column-gap: 12px; row-gap: 5px;
+  align-items: center; min-height: 44px; padding: 7px 10px;
+  border-radius: var(--r-kontrol); color: var(--tinta); text-decoration: none;
+  font-size: 13.5px; line-height: 1.25;
+  transition: background var(--d-cepat) var(--kurva);
+}
+.nav-laci-baris:hover { background: rgba(16, 26, 43, 0.06); color: var(--tinta); }
+.nav-laci-baris .persen { font-size: 12px; color: var(--redup); font-variant-numeric: tabular-nums; }
+.nav-laci-baris[data-tuntas='true'] .persen { color: #6E9C7A; font-weight: 600; }
+.nav-laci-baris .batang {
+  grid-column: 1 / -1; height: 3px; border-radius: 2px;
+  background: rgba(16, 26, 43, 0.1); overflow: hidden;
+}
+.nav-laci-baris .batang span { display: block; height: 100%; background: var(--emas); }
+.nav-laci-baris[data-tuntas='true'] .batang span { background: #6E9C7A; }
 
 .sp { margin-left: auto; }
 
@@ -1445,17 +1489,16 @@ video::cue(b) { font-weight: 700; }
   .nav-menu .nav-tab[data-aktif='true'] { border-left-color: var(--emas-terang); }
   .nav-tab-garis { display: none; }
 
-  .nav-lanjut-hp {
-    margin-top: 10px;
-    display: flex; align-items: center; justify-content: center;
-    min-height: 48px; font-weight: 600; font-size: 15px;
-    color: var(--panggung); background: var(--emas-terang);
-    border-radius: var(--r-pil); text-decoration: none;
+  /* Laci Lanjutkan ikut masuk kolom menu: tombolnya selebar menu, panelnya
+     menempel di bawahnya (bukan melayang), tetap empat baris lalu gulir. */
+  .nav-menu .nav-laci { position: static; }
+  .nav-menu .nav-laci-tombol { width: 100%; justify-content: space-between; }
+  .nav-menu .nav-laci-panel {
+    position: static; width: auto; margin: 4px 0 8px 12px; box-shadow: none;
   }
-  .nav-lanjut-hp:hover { color: var(--panggung); }
 
-  /* Di HP label "terakhir dibuka" dan pil Lanjutkan versi lebar tidak ada:
-     keduanya sudah diwakili tombol di dalam menu. */
+  /* Di HP label "terakhir dibuka" dan pil Mode fokus versi lebar tidak ada:
+     halaman belajar punya tombol kecilnya sendiri. */
   .nav-meta, .nav-lanjut { display: none; }
 
   /* Halaman belajar: pil nomor materi membuka laci, tombol kotak masuk

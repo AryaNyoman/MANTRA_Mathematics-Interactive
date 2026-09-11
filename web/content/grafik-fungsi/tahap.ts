@@ -13,7 +13,7 @@
  * beberapa angka acuannya mengikuti buku itu dan disebutkan sumbernya.
  *
  * DUA TAHAP DI LUAR BAB WAJIB
- * Tahap 7 (nilai mutlak) dan tahap 10 (fungsi rasional) TIDAK ada di kedua buku
+ * Materi 07 (nilai mutlak) dan Materi 10 (fungsi rasional) TIDAK ada di kedua buku
  * itu. Sudah diperiksa halaman demi halaman: nol kemunculan. Keduanya masuk
  * atas keputusan ARYA pada 1 September 2026 karena sering ditemui siswa di luar
  * bab wajib. Statusnya disebut terus terang di badan teksnya, bukan
@@ -138,7 +138,7 @@ export const TAHAP: TahapGrafik[] = [
       'Domain adalah x yang boleh dimasukkan, range adalah y yang mungkin keluar.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Tahap 1 membaca grafik yang sudah jadi. Sekarang kebalikannya: dari mana grafik itu datang?' },
+      { jenis: 'paragraf', teks: 'Materi 01 membaca grafik yang sudah jadi. Sekarang kebalikannya: dari mana grafik itu datang?' },
       { jenis: 'paragraf', teks: 'Bayangkan sebuah mesin. Anda masukkan sebuah angka, mesin mengolahnya, lalu mengeluarkan satu angka. Mesin itulah yang disebut fungsi. Aturannya boleh apa saja, misalnya "kalikan dua lalu tambah satu".' },
       { jenis: 'paragraf', teks: 'Sebelum melangkah, ingat garis lurus yang sudah Anda pelajari di SMP: y = mx + c, dengan m kemiringannya dan c tempat grafiknya memotong sumbu y. Itu fungsi juga, dan mesin di bawah ini persis garis itu.' },
       {
@@ -191,7 +191,7 @@ export const TAHAP: TahapGrafik[] = [
           'Range - kumpulan semua y yang mungkin keluar. Pada gambar: seberapa jauh grafiknya naik dan turun',
         ],
       },
-      { jenis: 'paragraf', teks: 'Untuk f(x) = 2x + 1, apa pun boleh dimasukkan dan apa pun bisa keluar, jadi domain dan rangenya semua bilangan real. Tapi tidak semua fungsi seberuntung itu. Akar kuadrat menolak bilangan negatif, dan pembagian menolak penyebut nol. Keduanya akan kita temui nanti di tahap 9 dan 10.' },
+      { jenis: 'paragraf', teks: 'Untuk f(x) = 2x + 1, apa pun boleh dimasukkan dan apa pun bisa keluar, jadi domain dan rangenya semua bilangan real. Tapi tidak semua fungsi seberuntung itu. Akar kuadrat menolak bilangan negatif, dan pembagian menolak penyebut nol. Keduanya akan kita temui nanti di materi 09 dan 10.' },
     ],
     seringKeliru: {
       judul: 'Lingkaran itu fungsi karena rumusnya ada',
@@ -279,7 +279,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     seringKeliru: {
       judul: 'Tanda minus di dalam kurung berarti geser ke kiri',
-      isi: 'Justru ke kanan. Yang menentukan letak puncak bukan tanda yang tertulis, melainkan nilai x yang membuat isi kurungnya menjadi nol. Pada (x - 3)², isi kurungnya nol saat x = 3, jadi puncaknya di kanan. Pada (x + 3)², isi kurungnya nol saat x = -3, jadi puncaknya di kiri. Aturan ini akan muncul lagi di tahap 6 dalam bentuk yang lebih umum, dan berlaku untuk semua fungsi, bukan cuma parabola.',
+      isi: 'Justru ke kanan. Yang menentukan letak puncak bukan tanda yang tertulis, melainkan nilai x yang membuat isi kurungnya menjadi nol. Pada (x - 3)², isi kurungnya nol saat x = 3, jadi puncaknya di kanan. Pada (x + 3)², isi kurungnya nol saat x = -3, jadi puncaknya di kiri. Aturan ini akan muncul lagi di materi 06 dalam bentuk yang lebih umum, dan berlaku untuk semua fungsi, bukan cuma parabola.',
     },
     widget: 'bentuk-puncak',
     video: { berkas: 'grafik3-puncak.mp4', poster: 'grafik3-puncak.jpg' },
@@ -300,7 +300,7 @@ export const TAHAP: TahapGrafik[] = [
       'Diskriminan D = b² - 4ac menentukan berapa kali grafiknya memotong sumbu x.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Parabola jembatan gantung dari tahap 3 tidak berubah bentuknya sedikit pun di tahap ini. Yang berubah cuma cara menuliskannya, dan itu penting karena buku dan soal ujian hampir selalu memakai tulisan yang satu lagi.' },
+      { jenis: 'paragraf', teks: 'Parabola jembatan gantung dari materi 03 tidak berubah bentuknya sedikit pun di materi ini. Yang berubah cuma cara menuliskannya, dan itu penting karena buku dan soal ujian hampir selalu memakai tulisan yang satu lagi.' },
       { jenis: 'paragraf', teks: 'Bentuk yang dipakai buku dan soal ujian:' },
       { jenis: 'sorot', teks: 'y = ax² + bx + c' },
       { jenis: 'paragraf', teks: 'Namanya bentuk umum. Bentuk ini tidak seramah bentuk puncak, karena puncaknya tidak kelihatan. Tapi ia bukan parabola jenis lain. Ia parabola yang sama, cuma kurungnya sudah dijabarkan.' },
@@ -329,7 +329,7 @@ export const TAHAP: TahapGrafik[] = [
         ],
         simpul: 'Puncaknya (1, -18).',
       },
-      { jenis: 'paragraf', teks: 'Cara kedua namanya melengkapkan kuadrat. Lebih panjang, tetapi ia tidak sekadar memberi jawaban: ia mengembalikan rumusnya ke bentuk puncak, sehingga seluruh isi tahap 3 bisa dipakai lagi.' },
+      { jenis: 'paragraf', teks: 'Cara kedua namanya melengkapkan kuadrat. Lebih panjang, tetapi ia tidak sekadar memberi jawaban: ia mengembalikan rumusnya ke bentuk puncak, sehingga seluruh isi materi 03 bisa dipakai lagi.' },
       {
         jenis: 'contoh',
         judul: 'Cara 2: melengkapkan kuadrat',
@@ -409,10 +409,10 @@ export const TAHAP: TahapGrafik[] = [
       { jenis: 'paragraf', teks: 'Sebelum itu, satu bentuk terakhir perlu diperkenalkan.' },
       { jenis: 'sorot', teks: 'y = a(x - p)(x - q)' },
       { jenis: 'paragraf', teks: 'Namanya bentuk faktor. Kegunaannya persis seperti bentuk puncak, hanya saja yang terbaca langsung bukan puncaknya, melainkan titik potongnya dengan sumbu x.' },
-      { jenis: 'paragraf', teks: 'Alasannya sama seperti tahap 3. Hasil kali dua bilangan bernilai nol kalau salah satunya nol. Jadi y bernilai nol saat x = p atau saat x = q, dan di kedua tempat itulah grafiknya menyentuh sumbu x.' },
+      { jenis: 'paragraf', teks: 'Alasannya sama seperti materi 03. Hasil kali dua bilangan bernilai nol kalau salah satunya nol. Jadi y bernilai nol saat x = p atau saat x = q, dan di kedua tempat itulah grafiknya menyentuh sumbu x.' },
 
       { jenis: 'sesi', judul: 'Satu parabola, tiga cara menulisnya' },
-      { jenis: 'paragraf', teks: 'Mari kita lihat parabola yang sama dari tahap 4, sekarang dalam ketiga bentuknya sekaligus.' },
+      { jenis: 'paragraf', teks: 'Mari kita lihat parabola yang sama dari materi 04, sekarang dalam ketiga bentuknya sekaligus.' },
       {
         jenis: 'contoh',
         judul: 'Ketiganya adalah parabola yang sama',
@@ -498,8 +498,8 @@ export const TAHAP: TahapGrafik[] = [
       'Aturan ini berlaku untuk semua fungsi, bukan cuma parabola.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Ini bagian tengah topik, dan yang paling berharga. Kalau Anda hanya sempat memahami satu tahap dengan benar, pilih tahap ini.' },
-      { jenis: 'paragraf', teks: 'Di tahap 3, h dan k memindahkan parabola. Pertanyaannya sekarang: apakah itu sifat khusus parabola, atau berlaku lebih luas? Jawabannya berlaku lebih luas, dan jauh lebih luas daripada yang biasanya disadari siswa.' },
+      { jenis: 'paragraf', teks: 'Ini bagian tengah topik, dan yang paling berharga. Kalau Anda hanya sempat memahami satu materi dengan benar, pilih materi ini.' },
+      { jenis: 'paragraf', teks: 'Di materi 03, h dan k memindahkan parabola. Pertanyaannya sekarang: apakah itu sifat khusus parabola, atau berlaku lebih luas? Jawabannya berlaku lebih luas, dan jauh lebih luas daripada yang biasanya disadari siswa.' },
       { jenis: 'sorot', teks: 'Apa pun bentuk grafik awalnya, keenam perlakuan di bawah ini selalu memberi akibat yang sama.' },
 
       { jenis: 'sesi', judul: 'Enam perlakuan, dan akibatnya pada gambar' },
@@ -554,9 +554,9 @@ export const TAHAP: TahapGrafik[] = [
       { jenis: 'paragraf', teks: 'Pertanyaan terakhir itu bukan jebakan. Parabola y = x² memang sudah simetris terhadap sumbu y sejak awal, jadi mencerminkannya menghasilkan gambar yang sama. Coba tombol yang sama pada fungsi akar, dan bedanya langsung terlihat.' },
 
       { jenis: 'sesi', judul: 'Berlaku juga untuk grafik yang belum kita pelajari' },
-      { jenis: 'paragraf', teks: 'Salah satu fungsi dasar di alat itu adalah kurva sinus, yang bentuknya bergelombang. Kurva itu milik topik Trigonometri, dan pembentukannya dijelaskan lengkap di sana pada tahap 8.' },
+      { jenis: 'paragraf', teks: 'Salah satu fungsi dasar di alat itu adalah kurva sinus, yang bentuknya bergelombang. Kurva itu milik topik Trigonometri, dan pembentukannya dijelaskan lengkap di sana pada materi 08.' },
       { jenis: 'paragraf', teks: 'Di sini ia dipakai untuk satu keperluan saja: membuktikan bahwa aturan tadi tidak peduli bentuk grafiknya. Gelombang yang digeser ke kanan tetap bergeser ke kanan, dan f(2x) tetap memampatkannya jadi setengah. Anda belum perlu tahu dari mana gelombang itu berasal untuk melihat itu.' },
-      { jenis: 'sorot', teks: 'Enam aturan tadi dipelajari sekali, lalu dipakai di sisa topik ini dan di topik lain. Tahap 7, 9, dan 10 semuanya berdiri di atasnya.' },
+      { jenis: 'sorot', teks: 'Enam aturan tadi dipelajari sekali, lalu dipakai di sisa topik ini dan di topik lain. Materi 07, 9, dan 10 semuanya berdiri di atasnya.' },
     ],
     seringKeliru: {
       judul: 'f(2x) berarti grafiknya jadi dua kali lebih lebar',
@@ -585,9 +585,9 @@ export const TAHAP: TahapGrafik[] = [
         jenis: 'poin',
         judul: 'Catatan sebelum mulai',
         butir: [
-          'Bahan ini BUKAN bab wajib - fungsi nilai mutlak tidak ada di buku Kurikulum Merdeka Kelas 10 maupun Kelas 11',
+          'Bahan ini pengayaan, bukan bab wajib: fungsi nilai mutlak tidak ada di buku Kelas 10 maupun Kelas 11',
           'Tetap dipelajari - karena sering muncul di soal seleksi masuk perguruan tinggi dan di bimbingan belajar',
-          'Modalnya sudah ada - seluruh tahap ini cuma penerapan aturan tahap 6',
+          'Modalnya sudah ada - seluruh materi ini cuma penerapan aturan materi 06',
         ],
       },
       { jenis: 'paragraf', teks: 'Nilai mutlak sebenarnya sudah Anda kenal sejak SMP. Lambangnya dua garis tegak, dan artinya jarak dari nol.' },
@@ -604,15 +604,15 @@ export const TAHAP: TahapGrafik[] = [
       },
 
       { jenis: 'sesi', judul: 'Grafik y = |x|, bentuk V' },
-      { jenis: 'paragraf', teks: 'Coba jalankan mesin |x| seperti di tahap 2. Untuk x positif, hasilnya sama dengan x sendiri, jadi grafiknya garis miring naik. Untuk x negatif, tandanya dibalik, jadi grafiknya garis miring turun.' },
+      { jenis: 'paragraf', teks: 'Coba jalankan mesin |x| seperti di materi 02. Untuk x positif, hasilnya sama dengan x sendiri, jadi grafiknya garis miring naik. Untuk x negatif, tandanya dibalik, jadi grafiknya garis miring turun.' },
       { jenis: 'paragraf', teks: 'Kedua garis itu bertemu di titik (0, 0), dan hasilnya bentuk V dengan ujung runcing di titik asal.' },
-      { jenis: 'paragraf', teks: 'Begitu bentuk dasarnya diketahui, seluruh aturan tahap 6 langsung berlaku tanpa perlu hafalan baru. Pada y = 2|x - 1| - 3, ujung V-nya pindah ke (1, -3) dan kedua sayapnya jadi dua kali lebih curam. Sama persis cara membacanya dengan bentuk puncak parabola.' },
+      { jenis: 'paragraf', teks: 'Begitu bentuk dasarnya diketahui, seluruh aturan materi 06 langsung berlaku tanpa perlu hafalan baru. Pada y = 2|x - 1| - 3, ujung V-nya pindah ke (1, -3) dan kedua sayapnya jadi dua kali lebih curam. Sama persis cara membacanya dengan bentuk puncak parabola.' },
 
       { jenis: 'sesi', judul: 'Dua hal yang berbeda dan sering dikira sama' },
       { jenis: 'paragraf', teks: 'Sekarang bagian yang penting. Lambang mutlak bisa dipasang di dua tempat, dan akibatnya sama sekali berbeda.' },
       {
         jenis: 'poin',
-        judul: 'Ingat aturan tahap 6',
+        judul: 'Ingat aturan materi 06',
         butir: [
           'y = |f(x)| - mutlaknya di LUAR, jadi ia mengerjakan HASILNYA. Semua hasil negatif dibalik jadi positif',
           'y = f(|x|) - mutlaknya di DALAM, jadi ia mengerjakan MASUKANNYA. Semua x negatif diganti pasangan positifnya',
@@ -672,7 +672,7 @@ export const TAHAP: TahapGrafik[] = [
       'Grafiknya mendekati sumbu x tanpa pernah menyentuhnya.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Sampai tahap 7, semua grafik yang kita temui dibangun dari penjumlahan dan perkalian biasa: garis lurus menambah dengan jumlah tetap, parabola memangkatkan x dengan 2. Sekarang x pindah tempat, dan akibatnya jauh lebih besar daripada yang biasanya diduga.' },
+      { jenis: 'paragraf', teks: 'Sampai materi 07, semua grafik yang kita temui dibangun dari penjumlahan dan perkalian biasa: garis lurus menambah dengan jumlah tetap, parabola memangkatkan x dengan 2. Sekarang x pindah tempat, dan akibatnya jauh lebih besar daripada yang biasanya diduga.' },
       { jenis: 'paragraf', teks: 'Buku Kelas 10 membuka bab ini dengan penularan virus. Satu orang menulari tiga orang, ketiganya masing-masing menulari tiga lagi, dan seterusnya.' },
       {
         jenis: 'contoh',
@@ -777,7 +777,7 @@ export const TAHAP: TahapGrafik[] = [
       'Naiknya sangat lambat, justru karena eksponen naiknya sangat cepat.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Tahap 8 selalu menanyakan hal yang sama: diketahui pangkatnya, berapa hasilnya. Dua pangkat 3 berapa? Delapan.' },
+      { jenis: 'paragraf', teks: 'Materi 08 selalu menanyakan hal yang sama: diketahui pangkatnya, berapa hasilnya. Dua pangkat 3 berapa? Delapan.' },
       { jenis: 'paragraf', teks: 'Sekarang balik pertanyaannya. Dua pangkat berapa yang menghasilkan 8? Jawabannya 3, dan Anda pasti bisa menebaknya. Tapi bagaimana kalau pertanyaannya: dua pangkat berapa yang menghasilkan 10?' },
       { jenis: 'paragraf', teks: 'Jawabannya ada di antara 3 dan 4, karena 2 pangkat 3 adalah 8 dan 2 pangkat 4 adalah 16. Angka pastinya sekitar 3,32. Pertanyaan seperti inilah yang dijawab logaritma.' },
       { jenis: 'sorot', teks: 'Eksponen menanyakan hasilnya. Logaritma menanyakan pangkatnya. Keduanya pertanyaan yang sama, dibaca dari arah berlawanan.' },
@@ -834,7 +834,7 @@ export const TAHAP: TahapGrafik[] = [
           'Coba bilangan pokok antara 0 dan 1. Kedua grafiknya berbalik arah sekaligus',
         ],
       },
-      { jenis: 'paragraf', teks: 'Satu istilah untuk nanti. Pasangan seperti ini, dua fungsi yang saling membatalkan dan grafiknya saling mencerminkan pada garis y = x, punya nama resmi. Namanya akan diberikan di tahap 12, setelah Anda melihatnya bekerja di sini.' },
+      { jenis: 'paragraf', teks: 'Satu istilah untuk nanti. Pasangan seperti ini, dua fungsi yang saling membatalkan dan grafiknya saling mencerminkan pada garis y = x, punya nama resmi. Namanya akan diberikan di materi 12, setelah Anda melihatnya bekerja di sini.' },
     ],
     seringKeliru: {
       judul: 'Logaritma dari bilangan negatif hasilnya negatif',
@@ -855,16 +855,16 @@ export const TAHAP: TahapGrafik[] = [
       'Fungsi rasional adalah pecahan yang pembilang dan penyebutnya berupa fungsi.',
       'Asimtot tegak muncul di tempat penyebutnya nol, karena di situ fungsinya tidak punya nilai.',
       'Asimtot datar terlihat saat x dibuat sangat besar.',
-      'Menggeser 1/x menggeser kedua asimtotnya sekaligus. Itu aturan tahap 6 lagi.',
+      'Menggeser 1/x menggeser kedua asimtotnya sekaligus. Itu aturan materi 06 lagi.',
     ],
     penjelasan: [
       {
         jenis: 'poin',
         judul: 'Catatan sebelum mulai',
         butir: [
-          'Bahan ini BUKAN bab wajib - fungsi rasional tidak ada di buku Kurikulum Merdeka Kelas 10 maupun Kelas 11',
+          'Bahan ini pengayaan, bukan bab wajib: fungsi rasional tidak ada di buku Kelas 10 maupun Kelas 11',
           'Tetap dipelajari - karena sering muncul di soal seleksi masuk perguruan tinggi',
-          'Sebagian sudah pernah lewat - kata asimtot sudah dipakai di tahap 8',
+          'Sebagian sudah pernah lewat - kata asimtot sudah dipakai di materi 08',
         ],
       },
       { jenis: 'paragraf', teks: 'Ada satu grafik yang bentuknya paling mengejutkan siswa waktu pertama kali melihatnya: grafik y = 1 dibagi x. Ia terbelah menjadi dua bagian yang tidak bersambung, dan kedua bagiannya menempel pada sumbu tanpa pernah menyentuhnya.' },
@@ -900,10 +900,10 @@ export const TAHAP: TahapGrafik[] = [
         simpul: 'Hasilnya mengecil terus mendekati nol, tetapi tidak pernah benar-benar nol.',
       },
       { jenis: 'paragraf', teks: 'Satu dibagi sejuta memang sangat kecil, tetapi ia masih bilangan positif. Berapa pun besarnya x, satu dibagi x tidak akan pernah menghasilkan nol tepat. Jadi grafiknya mendekati sumbu x tanpa menyentuh, dan sumbu x itulah asimtot datarnya.' },
-      { jenis: 'sorot', teks: 'Sama seperti tahap 8: alasan lengkap kenapa jaraknya mengecil terus tanpa pernah nol, dan cara menghitung perilakunya, ada di topik Limit materi 07. Bukalah materi itu kalau ingin jawabannya, bukan cuma gambarnya.' },
+      { jenis: 'sorot', teks: 'Sama seperti materi 08: alasan lengkap kenapa jaraknya mengecil terus tanpa pernah nol, dan cara menghitung perilakunya, ada di topik Limit materi 07. Bukalah materi itu kalau ingin jawabannya, bukan cuma gambarnya.' },
 
       { jenis: 'sesi', judul: 'Menggeser 1 dibagi x, dan asimtotnya ikut pindah' },
-      { jenis: 'paragraf', teks: 'Bagian ini tidak menuntut aturan baru sama sekali, karena aturannya sudah dipelajari di tahap 6. Yang baru hanya nama bentuknya.' },
+      { jenis: 'paragraf', teks: 'Bagian ini tidak menuntut aturan baru sama sekali, karena aturannya sudah dipelajari di materi 06. Yang baru hanya nama bentuknya.' },
       {
         jenis: 'contoh',
         judul: 'Bandingkan dengan y = 1/(x - 2) + 3',
@@ -950,7 +950,7 @@ export const TAHAP: TahapGrafik[] = [
       'Soal ujian sering membalik arahnya: hasil komposisinya diketahui, koefisien mesinnya yang dicari.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Di tahap 2, fungsi diperkenalkan sebagai mesin: masukkan satu angka, keluar satu angka. Sekarang kita pasang dua mesin berderet, sehingga keluaran mesin pertama langsung masuk ke mesin kedua.' },
+      { jenis: 'paragraf', teks: 'Di materi 02, fungsi diperkenalkan sebagai mesin: masukkan satu angka, keluar satu angka. Sekarang kita pasang dua mesin berderet, sehingga keluaran mesin pertama langsung masuk ke mesin kedua.' },
       { jenis: 'paragraf', teks: 'Contoh sehari-harinya banyak. Harga barang dikenai diskon dulu, lalu hasilnya dikenai pajak. Dua aturan, dijalankan berurutan.' },
       { jenis: 'sorot', teks: '(f komposisi g)(x) = f(g(x))' },
       { jenis: 'paragraf', teks: 'Yang paling sering salah adalah urutannya, jadi kita tegaskan sekali dan pakai terus: yang bekerja lebih dulu adalah yang paling dekat dengan x. Pada f(g(x)), yang paling dekat dengan x adalah g, jadi g yang jalan duluan.' },
@@ -1013,7 +1013,7 @@ export const TAHAP: TahapGrafik[] = [
           'Geser angkanya pelan-pelan, dan perhatikan kedua bulatan penandanya tidak pernah bertemu',
         ],
       },
-      { jenis: 'paragraf', teks: 'Satu pertanyaan sengaja disimpan untuk tahap berikutnya. Kalau sebuah mesin mengubah 5 menjadi 13, adakah mesin lain yang mengembalikan 13 menjadi 5? Mesin itu ada, dan ia yang menutup seluruh isi topik ini.' },
+      { jenis: 'paragraf', teks: 'Satu pertanyaan sengaja disimpan untuk materi berikutnya. Kalau sebuah mesin mengubah 5 menjadi 13, adakah mesin lain yang mengembalikan 13 menjadi 5? Mesin itu ada, dan ia yang menutup seluruh isi topik ini.' },
     ],
     seringKeliru: {
       judul: 'f komposisi g sama saja dengan g komposisi f, kan mesinnya itu-itu juga',
@@ -1034,10 +1034,10 @@ export const TAHAP: TahapGrafik[] = [
       'Fungsi invers membatalkan fungsi aslinya, langkah demi langkah dengan urutan terbalik.',
       'Grafik inversnya adalah grafik aslinya yang dicerminkan terhadap garis y = x.',
       'Invers hanya ada kalau fungsinya satu-satu, dan itu diperiksa dengan uji garis mendatar.',
-      'Logaritma di tahap 9 ternyata invers dari eksponen di tahap 8.',
+      'Logaritma di materi 09 ternyata invers dari eksponen di materi 08.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Tahap 11 merangkai dua mesin supaya bekerja berurutan. Sekarang pertanyaan yang arahnya berbeda: kalau sebuah mesin mengubah 5 menjadi 13, adakah mesin lain yang mengembalikan 13 menjadi 5?' },
+      { jenis: 'paragraf', teks: 'Materi 11 merangkai dua mesin supaya bekerja berurutan. Sekarang pertanyaan yang arahnya berbeda: kalau sebuah mesin mengubah 5 menjadi 13, adakah mesin lain yang mengembalikan 13 menjadi 5?' },
       { jenis: 'paragraf', teks: 'Mesin itu ada, dan namanya fungsi invers. Ia membatalkan pekerjaan fungsi aslinya, langkah demi langkah dengan urutan terbalik.' },
       { jenis: 'paragraf', teks: 'Perhatikan kata terbalik itu, karena di situlah letak seluruh caranya. Kalau memakai kaus kaki lalu sepatu, melepasnya bukan kaus kaki dulu, melainkan sepatu dulu.' },
       {
@@ -1058,10 +1058,10 @@ export const TAHAP: TahapGrafik[] = [
       { jenis: 'sesi', judul: 'Kenapa grafiknya dicerminkan terhadap y = x' },
       { jenis: 'paragraf', teks: 'Fungsi invers menukar peran masukan dan keluaran: yang tadinya masuk sekarang keluar. Pada grafiknya, itu berarti koordinat x dan y tiap titik ikut bertukar tempat.' },
       { jenis: 'paragraf', teks: 'Menukar x dengan y sama artinya dengan melipat gambar pada garis y = x. Jadi grafik fungsi invers adalah grafik fungsi aslinya yang dicerminkan terhadap garis itu. Buku Kelas 11 memakai kata pencerminan itu persis.' },
-      { jenis: 'sorot', teks: 'Di sinilah janji tahap 9 dilunasi: logaritma adalah invers dari eksponen. Anda sudah melihat pencerminannya bekerja sebelum tahu namanya.' },
+      { jenis: 'sorot', teks: 'Di sinilah janji materi 09 dilunasi: logaritma adalah invers dari eksponen. Anda sudah melihat pencerminannya bekerja sebelum tahu namanya.' },
 
       { jenis: 'sesi', judul: 'Tidak semua fungsi punya invers' },
-      { jenis: 'paragraf', teks: 'Ada syaratnya, dan syarat itu berpasangan dengan uji garis tegak di tahap 2.' },
+      { jenis: 'paragraf', teks: 'Ada syaratnya, dan syarat itu berpasangan dengan uji garis tegak di materi 02.' },
       { jenis: 'paragraf', teks: 'Supaya bisa dibalik, tiap keluaran hanya boleh berasal dari satu masukan. Fungsi seperti itu disebut fungsi satu-satu. Kalau ada dua masukan berbeda yang memberi keluaran sama, mesin pembalinya bingung harus mengembalikan yang mana.' },
       {
         jenis: 'contoh',
@@ -1078,7 +1078,7 @@ export const TAHAP: TahapGrafik[] = [
         jenis: 'poin',
         judul: 'Dua uji yang berpasangan',
         butir: [
-          'Uji garis TEGAK (tahap 2) - memastikan gambarnya memang grafik fungsi',
+          'Uji garis TEGAK (materi 02) - memastikan gambarnya memang grafik fungsi',
           'Uji garis MENDATAR (di sini) - memastikan fungsinya satu-satu, jadi punya invers',
           'Cara memakainya sama - geser garisnya, dan kalau ada yang memotong lebih dari sekali, ujinya gagal',
         ],
@@ -1095,7 +1095,7 @@ export const TAHAP: TahapGrafik[] = [
           'Garis mendatarnya kini memotong dua kali, dan alatnya menyebutkan kenapa inversnya tidak ada',
         ],
       },
-      { jenis: 'paragraf', teks: 'Dengan ini lingkaran topik ini tertutup. Tahap 2 menuntut satu masukan satu keluaran; tahap 12 menuntut syarat kebalikannya, satu keluaran satu masukan. Yang pertama membuat sebuah gambar layak disebut fungsi, yang kedua membuat fungsi itu layak dibalik.' },
+      { jenis: 'paragraf', teks: 'Dengan ini lingkaran topik ini tertutup. Materi 02 menuntut satu masukan satu keluaran; materi 12 menuntut syarat kebalikannya, satu keluaran satu masukan. Yang pertama membuat sebuah gambar layak disebut fungsi, yang kedua membuat fungsi itu layak dibalik.' },
     ],
     seringKeliru: {
       judul: 'Lambang pangkat minus satu artinya satu per fungsinya',
@@ -1119,7 +1119,7 @@ export const TAHAP: TahapGrafik[] = [
       'Logaritma dipakai untuk memampatkan angka yang jangkauannya raksasa.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Dua belas tahap sebelumnya membahas bentuk dan aturannya. Tahap ini menunjukkan di mana bentuk-bentuk itu benar-benar dipakai orang untuk bekerja, bukan untuk ujian.' },
+      { jenis: 'paragraf', teks: 'Dua belas materi sebelumnya membahas bentuk dan aturannya. Materi ini menunjukkan di mana bentuk-bentuk itu benar-benar dipakai orang untuk bekerja, bukan untuk ujian.' },
       { jenis: 'paragraf', teks: 'Tidak ada alat yang perlu dicoba di sini. Yang perlu dilakukan cuma satu: mengenali bentuk yang sudah Anda pelajari saat ia muncul di luar buku pelajaran.' },
       { jenis: 'sorot', teks: 'Kalau setelah membaca bagian ini Anda mulai melihat parabola di air mancur dan grafik eksponen di berita bunga bank, tujuan topik ini sudah tercapai.' },
       {

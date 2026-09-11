@@ -93,7 +93,7 @@ export const TAHAP: TahapTransformasi[] = [
     penjelasan: [
       // Kotak "Sebelum mulai, satu keterangan yang jujur" DIHAPUS 5 Sep 2026
       // atas permintaan ARYA. Isinya keterangan tentang letak materi ini di
-      // Kurikulum Merdeka dan Kurikulum 2013.
+      // buku sekolah 2021 maupun buku 2013.
       //
       // Alasannya: itu keterangan untuk GURU dan untuk pembuat situs, bukan
       // untuk siswa yang sedang membuka halaman ini. Siswa yang datang ke sini
@@ -1252,10 +1252,10 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'paragraf',
         teks: 'Dengan matriks, ketiga transformasi itu dikalikan lebih dulu menjadi SATU matriks. Setelah itu tiap titik cukup dikenai satu hitungan saja. Itulah alasan Materi 12 ada, dan alasannya bukan kerapian, melainkan kecepatan.',
       },
-      { jenis: 'sesi', judul: 'Bedanya dengan tahap Transformasi di topik Grafik Fungsi' },
+      { jenis: 'sesi', judul: 'Bedanya dengan materi Transformasi di topik Grafik Fungsi' },
       {
         jenis: 'paragraf',
-        teks: 'Kalau kamu sudah membaca topik Grafik Fungsi, kamu bertemu tahap bernama Transformasi di sana: geser, cermin, dan regang pada sebuah grafik. Keduanya terdengar sama, dan sering membuat siswa mengira salah satunya keliru.',
+        teks: 'Kalau kamu sudah membaca topik Grafik Fungsi, kamu bertemu materi bernama Transformasi di sana: geser, cermin, dan regang pada sebuah grafik. Keduanya terdengar sama, dan sering membuat siswa mengira salah satunya keliru.',
       },
       {
         jenis: 'poin',

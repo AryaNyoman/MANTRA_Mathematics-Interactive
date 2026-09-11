@@ -102,6 +102,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
        ?materi=<nomor>        sama, tetapi memakai nomor yang dilihat siswa
        ?materi=latihan        membuka layar latihan
        ?materi=kuis           membuka layar kuis kalau syaratnya sudah lewat
+       ?materi=lanjut         materi pertama yang belum dibuka (dari laci nav)
      Alamat yang tidak dikenali diabaikan diam-diam dan jatuh ke materi
      pertama: tautan salah ketik tidak boleh membuat halaman kosong. */
   const awalDari = (minta: string | null): Layar => {
@@ -118,6 +119,34 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
 
   const minta = useSearchParams()?.get('materi') ?? null
   const [layarPilih, setLayar] = useState<Layar>(() => awalDari(minta))
+
+  /* ?materi=lanjut datang dari laci "Lanjutkan" di nav (ARYA 10 Sep 2026):
+     materi pertama yang BELUM dibuka menurut urutan sub-bab; kalau semua
+     sudah, materi pertama. Diputuskan SESUDAH komponen hidup, sebab catatan
+     kemajuan hanya ada di peramban dan gambaran server harus sama dengan
+     gambaran pertama di peramban. Lewat requestAnimationFrame, pola yang sama
+     dengan `Nav` dan `PetaMateri`.
+
+     `lanjutBeres` menahan pencatat "sudah dibuka" sampai tujuannya diputuskan.
+     Tanpa penahan itu, gambaran pertama (materi 01) sempat tercatat dibuka,
+     lalu penyelaras ini mencari yang belum dibuka dan melompati 01 (terjadi
+     saat diuji 11 Sep 2026: mendarat di 03 padahal 01 belum pernah dibaca). */
+  const [lanjutBeres, setLanjutBeres] = useState(minta !== 'lanjut')
+  const tujuanLanjut = (): Layar => {
+    const sudah = new Set(bacaKemajuan(topik.slug).dibuka)
+    const t = urut.map(tahapDari).find((t) => t?.siap && !sudah.has(t.slug))
+    return t ? { jenis: 'tahap', slug: t.slug } : awalDari(null)
+  }
+  useEffect(() => {
+    if (minta !== 'lanjut') return
+    const id = requestAnimationFrame(() => {
+      setLayar(tujuanLanjut())
+      setLanjutBeres(true)
+    })
+    return () => cancelAnimationFrame(id)
+    // tujuanLanjut turunan tetap dari isi topik; cukup slug topiknya.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [minta, topik.slug])
   // Tahap yang punya video menampilkan salah satu saja pada satu waktu,
   // supaya panggung tetap satu layar tanpa gulir atas-bawah.
   const [mode, setMode] = useState<'coba' | 'tonton'>('tonton')
@@ -249,13 +278,15 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
     if (!minta) return
     // requestAnimationFrame, bukan setLayar langsung: React 19 melarang
     // setState serentak di badan effect (react-hooks/set-state-in-effect).
-    const id = requestAnimationFrame(() => setLayar(awalDari(minta)))
+    const id = requestAnimationFrame(() =>
+      setLayar(minta === 'lanjut' ? tujuanLanjut() : awalDari(minta)),
+    )
     return () => cancelAnimationFrame(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [minta])
 
   useEffect(() => {
-    if (layar.jenis !== 'tahap') return
+    if (layar.jenis !== 'tahap' || !lanjutBeres) return
     const baru = !bacaKemajuan(topik.slug).dibuka.includes(layar.slug)
     catatDibuka(topik.slug, layar.slug)
     if (baru) {
@@ -270,7 +301,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
         window.clearTimeout(id)
       }
     }
-  }, [layar, topik.slug])
+  }, [layar, topik.slug, lanjutBeres])
 
   /* Selama laci terbuka, halaman di belakangnya dikunci supaya tidak ikut
      bergulir saat jari menggeser di atas tirai. Esc menutupnya, sama seperti
@@ -416,9 +447,9 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
             <div className="pohon-kepala">
               {!rel && (
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div className="bab">
-                    {bab ? `Bab ${bab.no} · ${bab.kelas}` : topik.kelas}
-                  </div>
+                  {/* Kelasnya saja: nomor bab milik buku sumber, tidak berarti
+                      tanpa bukunya (ARYA 10 Sep 2026). */}
+                  <div className="bab">{bab ? bab.kelas : topik.kelas}</div>
                   <div className="nama">{topik.nama}</div>
                 </div>
               )}
@@ -571,10 +602,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                         mana ia sekarang. */}
                     <span className="remah-awal">{topik.kelas}</span>
                     <span className="remah-pisah remah-awal">/</span>
-                    <span className="remah-awal">
-                      {bab ? `Bab ${bab.no} · ` : ''}
-                      {topik.nama}
-                    </span>
+                    <span className="remah-awal">{topik.nama}</span>
                     {subKini && (
                       <>
                         <span className="remah-pisah remah-awal">/</span>
@@ -591,6 +619,19 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                       Di layar lebar keduanya tampil sekaligus, jadi tombol
                       pilihan di sana hanya akan menyembunyikan sesuatu yang
                       sudah muat. */}
+                  {/* Judul materi di ATAS videonya, di desktop maupun HP
+                      (ARYA 10 Sep 2026): siswa tahu sedang menonton apa
+                      sebelum menekan putar. */}
+                  {tahap && (
+                    <>
+                      <div className="jalur">
+                        {subKini ? `${subKini.huruf} · ` : ''}Materi {dua(tahap.no)}
+                      </div>
+                      <h1>{tahap.judul}</h1>
+                      <div className="sub">{tahap.pertanyaan}</div>
+                    </>
+                  )}
+
                   {pakaiMode && (
                     <div className="pilih-mode" role="tablist" aria-label="Cara belajar materi ini">
                       <button type="button" role="tab" aria-selected={mode === 'tonton'} onClick={() => setMode('tonton')}>
@@ -627,12 +668,6 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
 
                   {tahap ? (
                     <>
-                      <div className="jalur">
-                        {subKini ? `${subKini.huruf} · ` : ''}Materi {dua(tahap.no)}
-                      </div>
-                      <h1>{tahap.judul}</h1>
-                      <div className="sub">{tahap.pertanyaan}</div>
-
                       <div className="blok">
                         <Penjelasan
                           blok={tahap.penjelasan}

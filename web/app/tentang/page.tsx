@@ -38,7 +38,7 @@ export default function Tentang() {
                 bertambah, dan kalimat yang menyebut angka akan basi diam-diam
                 tanpa ada yang ingat memperbaikinya. */}
             <p>
-              Isinya disusun mengikuti bab buku Kurikulum Merdeka: tiap bab
+              Isinya disusun per bab: tiap bab
               dipecah jadi sub-bab, tiap sub-bab berisi beberapa materi.
               Bahasanya bahasa SMA, bukan bahasa diktat.
             </p>
@@ -99,7 +99,7 @@ export default function Tentang() {
               <h3>Claude</h3>
               <p>
                 Dipakai menyusun kode animasi, alat interaktif, dan naskah materi,
-                dengan rujukan Buku Panduan Guru Kurikulum Merdeka dan diktat
+                dengan rujukan buku panduan guru matematika SMA dan diktat
                 kalkulus.
               </p>
               <a href="https://claude.com/product/overview/" target="_blank" rel="noreferrer">

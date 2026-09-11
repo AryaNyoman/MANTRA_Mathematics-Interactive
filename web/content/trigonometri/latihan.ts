@@ -1,5 +1,5 @@
 /**
- * Isi materi Trigonometri, Kelas 10, Bab 4 (Kurikulum Merdeka).
+ * Isi materi Trigonometri, Kelas 10, Bab 4 buku sekolah.
  *
  * SOAL DITULIS SENDIRI, tapi tingkat kesulitannya dikalibrasi dulu ke kunci
  * jawaban Buku Panduan Guru Kelas X Bab 4. Pola yang dipakai buku itu, dan

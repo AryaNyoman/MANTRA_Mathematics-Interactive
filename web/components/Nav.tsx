@@ -3,8 +3,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { aturSesi, masukFokus, useSesiBelajar } from '@/lib/sesi-belajar'
+import LaciLanjut from './LaciLanjut'
 
 /**
  * Nav MANTRA v2, arah "Panggung Sinema" (4 Sep 2026).
@@ -18,11 +19,16 @@ import { aturSesi, masukFokus, useSesiBelajar } from '@/lib/sesi-belajar'
  *
  * Satu baris yang TIDAK PERNAH membungkus: logo tetap, deretan tab boleh
  * menyusut, label materi terakhir boleh terpotong dengan elipsis (teks
- * lengkapnya ada di `title`), dan pil "Lanjutkan" selalu utuh.
+ * lengkapnya ada di `title`).
  *
- * Di halaman belajar isinya berbeda: pil "Lanjutkan" berganti jadi
- * "Mode fokus", dan di HP muncul pil "Materi 03" yang membuka laci daftar
- * materi. Nomor materinya datang dari `HalamanTopik` lewat `sesi-belajar`.
+ * REVISI ARYA 10 Sep 2026: logo cukup lambang "M" tanpa tulisan MANTRA, dan
+ * "Lanjutkan" bukan lagi pil di ujung kanan melainkan laci di samping
+ * "Peta Materi" yang memperlihatkan kemajuan tiap bab (`LaciLanjut`).
+ * Alasannya ada di berkas komponen itu.
+ *
+ * Di halaman belajar: pil "Mode fokus" di kanan, dan di HP muncul pil
+ * "Materi 03" yang membuka laci daftar materi. Nomor materinya datang dari
+ * `HalamanTopik` lewat `sesi-belajar`.
  *
  * Di bawah 860 piksel tab pindah ke balik tombol dua garis yang berubah
  * jadi tanda silang. Aturan itu warisan sesi UI/UX (2 Sep) yang menemukan
@@ -37,7 +43,7 @@ const TAB = [
   { href: '/tentang', nama: 'Tentang' },
 ] as const
 
-export default function Nav({ label, lanjut }: { label?: string; lanjut?: string }) {
+export default function Nav({ label }: { label?: string }) {
   const [buka, setBuka] = useState(false)
   const jalur = usePathname() ?? '/'
   const sesi = useSesiBelajar()
@@ -70,7 +76,6 @@ export default function Nav({ label, lanjut }: { label?: string; lanjut?: string
     href === '/' ? jalur === '/' : jalur.startsWith(href)
 
   const diBelajar = sesi.aktif
-  const tujuanLanjut = lanjut ?? (sesi.lanjut || '/peta-materi')
   const labelTerakhir = sesi.judul || label || 'Matematika SMA'
   const judulTerakhir = sesi.judulPanjang || label || 'Matematika SMA, Kelas 10 sampai 12'
 
@@ -86,10 +91,12 @@ export default function Nav({ label, lanjut }: { label?: string; lanjut?: string
         aria-label="MANTRA, Matematika Interaktif, halaman depan"
         onClick={tutup}
       >
+        {/* Lambang "M" saja (ARYA 10 Sep 2026); tulisan MANTRA ada di
+            aria-label supaya pembaca layar tetap tahu tautannya ke mana. */}
         <Image
-          src="/mantra/mantra-penuh-gelap.png"
+          src="/mantra/mantra-simbol-gelap.png"
           alt=""
-          width={1592}
+          width={490}
           height={485}
           className="merk-ikon"
           priority
@@ -98,28 +105,27 @@ export default function Nav({ label, lanjut }: { label?: string; lanjut?: string
 
       <div className="nav-menu" id="nav-menu" data-buka={buka}>
         {TAB.map((t) => (
-          <Link
-            key={t.href}
-            href={t.href}
-            className="nav-tab"
-            data-aktif={aktif(t.href)}
-            aria-current={aktif(t.href) ? 'page' : undefined}
-            onClick={tutup}
-          >
-            {t.nama}
-            <span className="nav-tab-garis" aria-hidden />
-          </Link>
+          <Fragment key={t.href}>
+            <Link
+              href={t.href}
+              className="nav-tab"
+              data-aktif={aktif(t.href)}
+              aria-current={aktif(t.href) ? 'page' : undefined}
+              onClick={tutup}
+            >
+              {t.nama}
+              <span className="nav-tab-garis" aria-hidden />
+            </Link>
+            {t.href === '/peta-materi' && <LaciLanjut onPilih={tutup} />}
+          </Fragment>
         ))}
-        <Link href={tujuanLanjut} className="nav-lanjut-hp" onClick={tutup}>
-          Lanjutkan{sesi.judul ? ` · ${sesi.judul}` : ''}
-        </Link>
       </div>
 
       <span className="nav-meta" title={judulTerakhir}>
         {labelTerakhir}
       </span>
 
-      {diBelajar ? (
+      {diBelajar && (
         <button
           type="button"
           className="nav-lanjut nav-fokus"
@@ -128,10 +134,6 @@ export default function Nav({ label, lanjut }: { label?: string; lanjut?: string
         >
           <span aria-hidden>&#9974;</span>Mode fokus
         </button>
-      ) : (
-        <Link href={tujuanLanjut} className="nav-lanjut" onClick={tutup}>
-          Lanjutkan
-        </Link>
       )}
 
       {diBelajar && (

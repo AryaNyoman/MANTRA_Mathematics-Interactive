@@ -4,7 +4,7 @@ import type { Tahap } from '@/content/tipe'
  * Isi topik Ruang Tiga Dimensi: 10 tahap.
  *
  * SUMBERNYA, DITULIS TERBUKA
- * Geometri ruang tidak ada di buku Kurikulum Merdeka yang dipegang ARYA. Sudah
+ * Geometri ruang tidak ada di buku sekolah yang dipegang ARYA. Sudah
  * diperiksa isinya satu per satu, bukan ditebak dari judulnya: buku Kelas 10,
  * Kelas 11, Kelas XII Revisi 2025, dan berkas bernama "3 Dimensi.pdf" yang
  * ternyata Buku Siswa Kelas XI tentang bilangan kompleks dan matriks.
@@ -134,7 +134,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Di tahap 1 kita sudah bertemu satu kedudukan, yaitu bersilangan, lewat BD dan EG yang tampak menyilang padahal terpisah enam satuan. Sekarang kedudukan itu ditaruh berdampingan dengan saudara-saudaranya, supaya bedanya terlihat.',
+          'Di materi 01 kita sudah bertemu satu kedudukan, yaitu bersilangan, lewat BD dan EG yang tampak menyilang padahal terpisah enam satuan. Sekarang kedudukan itu ditaruh berdampingan dengan saudara-saudaranya, supaya bedanya terlihat.',
       },
       {
         jenis: 'paragraf',
@@ -273,7 +273,7 @@ export const TAHAP: Tahap[] = [
         teks:
           'Karena itu "jarak" dan "tegak lurus" bukan dua aturan yang harus dihafal terpisah. Tegak lurus adalah akibat dari memilih yang terpendek. Sisi miring selalu lebih panjang daripada sisi tegak, dan itu saja seluruh alasannya.',
       },
-      { jenis: 'sesi', judul: 'Satu kalimat untuk lima tahap ke depan' },
+      { jenis: 'sesi', judul: 'Satu kalimat untuk lima materi ke depan' },
       {
         jenis: 'sorot',
         teks: 'Setiap soal jarak adalah soal mencari kaki tegak lurus.',
@@ -435,7 +435,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Perhatikan segitiga ABG. Rusuk AB tegak lurus bidang BCGF, dan BG terletak di bidang itu, jadi segitiga ABG siku-siku di B. Ketiga sisinya sudah bisa dihitung dari tahap sebelumnya.',
+          'Perhatikan segitiga ABG. Rusuk AB tegak lurus bidang BCGF, dan BG terletak di bidang itu, jadi segitiga ABG siku-siku di B. Ketiga sisinya sudah bisa dihitung dari materi sebelumnya.',
       },
       {
         jenis: 'contoh',
@@ -527,7 +527,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Aturannya sama seperti tahap sebelumnya, tinggal diganti sasarannya: tarik ruas dari A yang tegak lurus bidang itu, lalu ukur sampai menusuk. Yang berubah cuma bentuk sasarannya, dari garis menjadi bidang.',
+          'Aturannya sama seperti materi sebelumnya, tinggal diganti sasarannya: tarik ruas dari A yang tegak lurus bidang itu, lalu ukur sampai menusuk. Yang berubah cuma bentuk sasarannya, dari garis menjadi bidang.',
       },
       {
         jenis: 'coba',
@@ -557,7 +557,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Cara simetri hanya jalan kalau bangunnya kebetulan simetris. Cara volume selalu jalan, jadi inilah yang perlu dikuasai. Gagasannya sama dengan jalan pintas luas di tahap sebelumnya: hitung satu benda dengan dua cara, lalu samakan.',
+          'Cara simetri hanya jalan kalau bangunnya kebetulan simetris. Cara volume selalu jalan, jadi inilah yang perlu dikuasai. Gagasannya sama dengan jalan pintas luas di materi sebelumnya: hitung satu benda dengan dua cara, lalu samakan.',
       },
       {
         jenis: 'contoh',
@@ -624,11 +624,11 @@ export const TAHAP: Tahap[] = [
     widget: 'jarak-sejajar',
     siap: true,
     penjelasan: [
-      { jenis: 'sesi', judul: 'Tahap ini sengaja pendek' },
+      { jenis: 'sesi', judul: 'Materi ini sengaja pendek' },
       {
         jenis: 'paragraf',
         teks:
-          'Buku biasanya memberi dua rumus lagi di sini: jarak garis ke bidang sejajar, dan jarak dua bidang sejajar. Sebenarnya tidak ada yang baru. Keduanya runtuh menjadi soal tahap 6 begitu satu titik sembarang dipilih.',
+          'Buku biasanya memberi dua rumus lagi di sini: jarak garis ke bidang sejajar, dan jarak dua bidang sejajar. Sebenarnya tidak ada yang baru. Keduanya runtuh menjadi soal materi 06 begitu satu titik sembarang dipilih.',
       },
       {
         jenis: 'coba',
@@ -674,7 +674,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Semua ini hanya berlaku kalau memang sejajar. Kalau garisnya menembus bidang, jaraknya nol, sebab keduanya bersentuhan. Kalau garisnya terletak pada bidang, jaraknya juga nol. Jadi periksa kedudukannya dulu, seperti di tahap 2, baru hitung.',
+          'Semua ini hanya berlaku kalau memang sejajar. Kalau garisnya menembus bidang, jaraknya nol, sebab keduanya bersentuhan. Kalau garisnya terletak pada bidang, jaraknya juga nol. Jadi periksa kedudukannya dulu, seperti di materi 02, baru hitung.',
       },
     ],
     seringKeliru: {
@@ -830,7 +830,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Sebelum masuk ke angka, satu hal dipanggil ulang dari Trigonometri tahap 4. Pada segitiga siku-siku, tan sudut adalah sisi depan dibagi sisi samping, dan sin sudut adalah sisi depan dibagi sisi miring. Dua perbandingan itulah yang dipakai di sepanjang tahap ini.',
+          'Sebelum masuk ke angka, satu hal dipanggil ulang dari Trigonometri materi 04. Pada segitiga siku-siku, tan sudut adalah sisi depan dibagi sisi samping, dan sin sudut adalah sisi depan dibagi sisi miring. Dua perbandingan itulah yang dipakai di sepanjang materi ini.',
       },
       {
         jenis: 'contoh',
@@ -963,7 +963,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Yang menyatukan keempatnya: semuanya berangkat dari gambar dua dimensi, entah denah, foto, atau rancangan di layar, sementara benda yang dikerjakan tiga dimensi. Persis masalah tahap 1. Orang yang bekerja dengan benda ruang harus terbiasa tidak percaya begitu saja pada gambarnya.',
+          'Yang menyatukan keempatnya: semuanya berangkat dari gambar dua dimensi, entah denah, foto, atau rancangan di layar, sementara benda yang dikerjakan tiga dimensi. Persis masalah materi 01. Orang yang bekerja dengan benda ruang harus terbiasa tidak percaya begitu saja pada gambarnya.',
       },
       {
         jenis: 'paragraf',
@@ -973,19 +973,19 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'coba',
         teks:
-          'Sebelum membaca keterangan tiap kartu, tutup dulu tulisannya dan tebak sendiri: tahap mana yang mengajarkan hitungan di gambar itu.',
+          'Sebelum membaca keterangan tiap kartu, tutup dulu tulisannya dan tebak sendiri: materi mana yang mengajarkan hitungan di gambar itu.',
         langkah: [
-          'Lampu kelas: yang dicari ruas terpendek dari sebuah titik ke sebuah bidang. Itu tahap 6.',
-          'Atap rumah: dua bidang bertemu pada satu garis, dan sudutnya diukur dari sana. Itu tahap 9 bagian kedua.',
-          'Menara rangka: dua batang tanpa titik persekutuan dan tanpa bidang yang memuat keduanya. Itu tahap 1 dan tahap 2.',
-          'Tangga bersandar: sebuah garis miring dan bayangannya di lantai. Itu tahap 9 bagian pertama.',
+          'Lampu kelas: yang dicari ruas terpendek dari sebuah titik ke sebuah bidang. Itu materi 06.',
+          'Atap rumah: dua bidang bertemu pada satu garis, dan sudutnya diukur dari sana. Itu materi 09 bagian kedua.',
+          'Menara rangka: dua batang tanpa titik persekutuan dan tanpa bidang yang memuat keduanya. Itu materi 01 dan materi 02.',
+          'Tangga bersandar: sebuah garis miring dan bayangannya di lantai. Itu materi 09 bagian pertama.',
           'Cocokkan tebakan Anda dengan tulisan di tiap kartu, lalu perhatikan angkanya di baris bawah gambar.',
         ],
       },
       {
         jenis: 'sorot',
         teks:
-          'Semua angka di keempat gambar dihitung dengan cara yang sama seperti tahap 1 sampai 9, dan diperiksa mesin sebelum dipasang di sini.',
+          'Semua angka di keempat gambar dihitung dengan cara yang sama seperti materi 01 sampai 9, dan diperiksa mesin sebelum dipasang di sini.',
       },
       { jenis: 'sesi', judul: 'Lanjutannya kalau tertarik' },
       {

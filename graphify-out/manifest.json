@@ -1500,8 +1500,8 @@
     "semantic_hash": ""
   },
   "web/content/subbab.ts": {
-    "mtime": 1788775898.5033288,
-    "ast_hash": "3660f748ca68ccd477959f40201cf1e6",
+    "mtime": 1789055654.3495688,
+    "ast_hash": "a342121ba26b9182dae3bb689c866ad7",
     "semantic_hash": ""
   },
   "web/content/tipe.ts": {
@@ -1620,13 +1620,13 @@
     "semantic_hash": "70803fcfe0c0ffd5294dcb2199bf820b"
   },
   "CLAUDE.md": {
-    "mtime": 1788869189.1732528,
-    "ast_hash": "a52e1b2baac077cccf14f5dfaf1db6ea",
+    "mtime": 1789055533.1860127,
+    "ast_hash": "c77981cc9687152d538158abe1b9c75e",
     "semantic_hash": ""
   },
   "PROGRESS.md": {
-    "mtime": 1788890974.5351038,
-    "ast_hash": "ff216b51844412ceada1f686d546446c",
+    "mtime": 1789055548.2825806,
+    "ast_hash": "0a0c21e3fac5fc14ed03b4c5975caca9",
     "semantic_hash": ""
   },
   "alat/lingkungan/pip-freeze-2026-09-02-sebelum-manimgl.txt": {
@@ -7180,8 +7180,8 @@
     "semantic_hash": ""
   },
   "docs/tugas/STANDAR-VIDEO-V3.md": {
-    "mtime": 1788890974.1639771,
-    "ast_hash": "670fb37b6847228b8c9c6cc6562c5670",
+    "mtime": 1789055501.3887663,
+    "ast_hash": "5c22f247a111d6c642310e4a3cfac1c8",
     "semantic_hash": ""
   },
   "UNTUK ARYA/BACKUP VIDEO MANTRA V2/grafik-fungsi/adegan/grafik3_puncak.py": {
@@ -9802,6 +9802,16 @@
   "audio/transformasi2-cermin-garis/31-berikut.mp3": {
     "mtime": 1789055315.7816875,
     "ast_hash": "0f9fec7c72dae8bda45e7a5207332b9d",
+    "semantic_hash": ""
+  },
+  "alat/cek_pembuka_video.py": {
+    "mtime": 1789055683.8496137,
+    "ast_hash": "9263b600b01e76db68febc23057940cf",
+    "semantic_hash": ""
+  },
+  "alat/uji_cek_pembuka_video.py": {
+    "mtime": 1789055702.0472898,
+    "ast_hash": "7341a7956b7be3547661fed500c09d27",
     "semantic_hash": ""
   }
 }

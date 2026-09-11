@@ -7,7 +7,7 @@ import Angka from './Angka'
  * dalam dua notasi lain, bentuk kolom dan bentuk i-j.
  *
  * Keputusan ARYA 5 Sep 2026: kolom isiannya x dan y (paling mudah di HP dan
- * bentuk kolom yang dipakai Buku Kurikulum Merdeka), tetapi ketiga bentuknya
+ * bentuk kolom yang dipakai buku sekolah), tetapi ketiga bentuknya
  * ditampilkan bersamaan supaya siswa melihat bahwa (4, 3), kolom 4 di atas 3,
  * dan 4i + 3j adalah SATU benda yang sama ditulis tiga cara.
  *

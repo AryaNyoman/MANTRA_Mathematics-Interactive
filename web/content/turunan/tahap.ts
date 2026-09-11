@@ -335,7 +335,7 @@ export const TAHAP: TahapTurunan[] = [
           'Cara Leibniz - dy/dx, dibaca "de y de x". Ia mengingatkan asal usulnya, yaitu perubahan y dibagi perubahan x',
         ],
       },
-      { jenis: 'paragraf', teks: 'Pada tahap ini, baca dy/dx sebagai satu lambang turunan. Artinya laju perubahan y terhadap x, yang berasal dari limit perbandingan perubahan tinggi dengan perubahan mendatar. Ini bukan pembagian nilai y oleh nilai x.' },
+      { jenis: 'paragraf', teks: 'Pada materi ini, baca dy/dx sebagai satu lambang turunan. Artinya laju perubahan y terhadap x, yang berasal dari limit perbandingan perubahan tinggi dengan perubahan mendatar. Ini bukan pembagian nilai y oleh nilai x.' },
 
       {
         jenis: 'coba',

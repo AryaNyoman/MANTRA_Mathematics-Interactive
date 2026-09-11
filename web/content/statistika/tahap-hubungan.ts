@@ -40,7 +40,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       'Sumbu mendatar untuk yang dianggap penyebab, sumbu tegak untuk yang dianggap akibat.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Sampai Tahap 9, semua data kita cuma punya satu angka per orang: satu nilai, satu tinggi badan, satu waktu tempuh. Sekarang tiap siswa dicatat dua angkanya sekaligus.' },
+      { jenis: 'paragraf', teks: 'Sampai Materi 09, semua data kita cuma punya satu angka per orang: satu nilai, satu tinggi badan, satu waktu tempuh. Sekarang tiap siswa dicatat dua angkanya sekaligus.' },
       {
         jenis: 'contoh',
         judul: 'Jam belajar seminggu dan nilai ujian, 10 siswa',
@@ -54,7 +54,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
 
       { jenis: 'sesi', judul: 'Sumbu mana untuk yang mana' },
       { jenis: 'paragraf', teks: 'Kesepakatannya: yang dianggap penyebab, atau yang bisa kita atur, diletakkan di sumbu mendatar. Yang dianggap akibat, atau yang ingin kita ramalkan, diletakkan di sumbu tegak.' },
-      { jenis: 'paragraf', teks: 'Di sini lama belajar ada di sumbu mendatar dan nilai ujian di sumbu tegak, sebab kita ingin menebak nilai dari lama belajar, bukan sebaliknya. Menukar keduanya bukan cuma memutar gambar: garis yang nanti kita tarik di Tahap 11 akan berbeda, dan tafsirannya juga berbeda.' },
+      { jenis: 'paragraf', teks: 'Di sini lama belajar ada di sumbu mendatar dan nilai ujian di sumbu tegak, sebab kita ingin menebak nilai dari lama belajar, bukan sebaliknya. Menukar keduanya bukan cuma memutar gambar: garis yang nanti kita tarik di Materi 11 akan berbeda, dan tafsirannya juga berbeda.' },
 
       { jenis: 'sesi', judul: 'Tiga hal yang dibaca dari sebaran titik' },
       {
@@ -70,7 +70,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
         jenis: 'poin',
         judul: 'Bentuk',
         butir: [
-          'Lurus - titiknya menyusuri sebuah garis. Ini yang bisa ditangani garis regresi di Tahap 11.',
+          'Lurus - titiknya menyusuri sebuah garis. Ini yang bisa ditangani garis regresi di Materi 11.',
           'Melengkung - titiknya menyusuri kurva, misalnya naik lalu turun. Memaksakan garis lurus pada data seperti ini akan menghasilkan kesimpulan yang salah.',
         ],
       },
@@ -95,7 +95,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       },
 
       { jenis: 'sesi', judul: 'Peringatan yang harus dibawa sejak sekarang' },
-      { jenis: 'paragraf', teks: 'Titik yang naik bersama-sama menunjukkan bahwa keduanya BERGERAK BERSAMA. Itu saja. Ia tidak membuktikan bahwa yang satu menyebabkan yang lain. Bahasan lengkapnya ada di Tahap 12, dan itu bagian paling penting dari seluruh topik ini.' },
+      { jenis: 'paragraf', teks: 'Titik yang naik bersama-sama menunjukkan bahwa keduanya BERGERAK BERSAMA. Itu saja. Ia tidak membuktikan bahwa yang satu menyebabkan yang lain. Bahasan lengkapnya ada di Materi 12, dan itu bagian paling penting dari seluruh topik ini.' },
     ],
     seringKeliru: {
       judul: 'Menukar tempat x dan y saat meletakkan titik',
@@ -134,7 +134,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
           'Titik yang tepat di garis punya residu nol.',
         ],
       },
-      { jenis: 'paragraf', teks: 'Seperti pada simpangan di Tahap 8, residu tidak bisa langsung dijumlah, sebab yang positif dan yang negatif saling menghapus. Jadi residunya dikuadratkan dulu, lalu dijumlahkan.' },
+      { jenis: 'paragraf', teks: 'Seperti pada simpangan di Materi 08, residu tidak bisa langsung dijumlah, sebab yang positif dan yang negatif saling menghapus. Jadi residunya dikuadratkan dulu, lalu dijumlahkan.' },
       { jenis: 'sorot', teks: 'Garis terbaik adalah garis yang membuat jumlah kuadrat residu sekecil mungkin. Itu yang disebut metode kuadrat terkecil, dan hanya ada satu garis yang memenuhinya.' },
 
       {
@@ -225,7 +225,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       'Korelasi sekuat apa pun tidak membuktikan sebab-akibat.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Di Tahap 10 kita membaca kekuatan hubungan dengan mata: titiknya rapat atau berpencar. Sekarang kekuatan itu diberi angka.' },
+      { jenis: 'paragraf', teks: 'Di Materi 10 kita membaca kekuatan hubungan dengan mata: titiknya rapat atau berpencar. Sekarang kekuatan itu diberi angka.' },
 
       { jenis: 'sesi', judul: 'Koefisien korelasi r' },
       {
@@ -309,7 +309,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       'Tiga pertanyaan wajib pada setiap grafik: sumbunya mulai dari berapa, datanya dari mana, dan apa yang tidak ditampilkan.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Sebelas tahap sebelumnya membangun alat untuk MEMBUAT ringkasan data. Tahap terakhir ini membalik posisinya: sekarang Anda pembacanya, dan yang membuat grafiknya orang lain yang mungkin punya kepentingan.' },
+      { jenis: 'paragraf', teks: 'Sebelas materi sebelumnya membangun alat untuk MEMBUAT ringkasan data. Materi terakhir ini membalik posisinya: sekarang Anda pembacanya, dan yang membuat grafiknya orang lain yang mungkin punya kepentingan.' },
       { jenis: 'sorot', teks: 'Grafik yang menyesatkan biasanya tidak berisi angka palsu. Justru itu yang membuatnya berbahaya: semuanya bisa diperiksa dan semuanya benar.' },
 
       { jenis: 'sesi', judul: 'Cara 1, sumbu tegak yang dipotong' },
@@ -327,13 +327,13 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       { jenis: 'paragraf', teks: 'Memotong sumbu tidak selalu curang. Untuk data seperti suhu tubuh, mulai dari nol justru membuang seluruh informasinya. Yang membedakan curang dan tidak adalah apakah pemotongan itu DIBERITAHUKAN dengan jelas, atau disembunyikan supaya pembaca salah menduga.' },
 
       { jenis: 'sesi', judul: 'Cara 2, lebar kelas yang dipilih-pilih' },
-      { jenis: 'paragraf', teks: 'Kita sudah melihatnya sendiri di Tahap 3: data yang sama bisa jadi beberapa histogram yang berbeda bentuk. Orang yang ingin menunjukkan "tidak ada masalah" tinggal memilih lebar kelas yang membuat tumpukan mencurigakan itu larut ke dalam kelas yang besar.' },
+      { jenis: 'paragraf', teks: 'Kita sudah melihatnya sendiri di Materi 03: data yang sama bisa jadi beberapa histogram yang berbeda bentuk. Orang yang ingin menunjukkan "tidak ada masalah" tinggal memilih lebar kelas yang membuat tumpukan mencurigakan itu larut ke dalam kelas yang besar.' },
 
       { jenis: 'sesi', judul: 'Cara 3, gambar yang diperbesar dua arah' },
       { jenis: 'paragraf', teks: 'Kalau harga naik dua kali lipat lalu digambar sebagai gambar uang yang tinggi DAN lebarnya sama-sama dilipatduakan, luas gambarnya menjadi empat kali lipat. Mata membaca luas, jadi kenaikan dua kali lipat terbaca sebagai empat kali lipat.' },
 
       { jenis: 'sesi', judul: 'Cara 4, memilih rata-rata yang paling menguntungkan' },
-      { jenis: 'paragraf', teks: 'Ingat kantor pada Tahap 6. Kalau ingin kantor itu terdengar makmur, laporkan mean 12,22 juta. Kalau ingin terdengar sederhana, laporkan median 5,1 juta. Keduanya benar, keduanya "rata-rata", dan kata "rata-rata" saja tidak memberi tahu yang mana.' },
+      { jenis: 'paragraf', teks: 'Ingat kantor pada Materi 06. Kalau ingin kantor itu terdengar makmur, laporkan mean 12,22 juta. Kalau ingin terdengar sederhana, laporkan median 5,1 juta. Keduanya benar, keduanya "rata-rata", dan kata "rata-rata" saja tidak memberi tahu yang mana.' },
 
       { jenis: 'sesi', judul: 'Cara 5, sumbu mendatar yang jaraknya tidak sama' },
       { jenis: 'paragraf', teks: 'Grafik garis yang titik-titik waktunya berjarak 1 tahun, 1 tahun, lalu 5 tahun, tetapi digambar dengan jarak yang sama, akan memampatkan periode panjang menjadi terlihat sependek yang lain. Kecepatan perubahannya jadi terbaca salah.' },
@@ -344,7 +344,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
         judul: 'Tanyakan ini sebelum percaya',
         butir: [
           'Sumbunya mulai dari berapa? Kalau tidak dari nol, apakah itu diberitahukan?',
-          'Datanya dari mana, siapa yang mengumpulkan, dan dari berapa banyak? Perbandingan tanpa jumlah tidak bisa dinilai, seperti di Tahap 4.',
+          'Datanya dari mana, siapa yang mengumpulkan, dan dari berapa banyak? Perbandingan tanpa jumlah tidak bisa dinilai, seperti di Materi 04.',
           'Apa yang TIDAK ditampilkan? Bulan yang dilewati, kelompok yang tidak masuk, dan rentang waktu yang dipotong biasanya bukan kebetulan.',
         ],
       },
