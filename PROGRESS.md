@@ -1,5 +1,35 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 10 SEP: DELAPAN SESI DIBUBARKAN, MASTER MENGERJAKAN SEMUA; 13 REVISI ARYA DICATAT
+
+Keputusan ARYA setelah menonton video pertama gelombang 4: hasilnya
+mengecewakan (contoh Pythagoras di catatan dipaksakan ke hampir semua video,
+pembuka menyebut judul materi yang tidak memberi tahu siswa materi mana).
+Sejak hari ini MASTER sendiri yang menulis ulang semua 58 video, merevisi
+situs, dan merapikan proyek; MASTER DILARANG mengirim tugas atau pesan ke sesi
+lain. Semua di `docs/tugas/REVISI-ARYA-2026-09-10.md` (13 butir; keputusan;
+nama sub-bab dan sembilan pertanyaan bab yang DISETUJUI).
+
+Yang sudah dikerjakan hari ini:
+- Enam cabang sesi digabung ke master (statistika, transformasi, integral,
+  ruang-3d, grafik-fungsi, vektor; pekerjaan yang belum di-commit di empat
+  worktree di-commit MASTER dulu). Isinya: video v3 Vektor 01, Grafik 03,
+  Ruang 3D 01 dan 03, Integral 01 dan 03 (semua masih pembuka gaya lama),
+  naskah v3 Statistika 01 dan 02, Transformasi 01 dan 02 setengah jadi.
+- `alat/cek_pemicu_urut.py` disatukan dari TIGA versi (master: ramalan jam;
+  Ruang 3D: penolong pemakan waktu, pembungkus tunggu_kata, EKOR; Grafik:
+  `self.bagian`, kutip tunggal, nol babak). Sepuluh uji dua arah lolos.
+  Turunan 1 sampai 3 memakai pembungkus pribadi `self.tunggu` yang SENGAJA
+  tidak dibaca (tujuh alarm palsu kalau dibaca); alat melaporkannya "NOL
+  pemicu", jujur bahwa ia tidak bisa memeriksanya.
+- STANDAR-VIDEO-V3 mendapat bagian v3.1; CLAUDE.md dan subbab.ts disesuaikan.
+- tsc bersih; cek_subtitle dan cek_aset_video menandai video yang naskahnya
+  sudah v3 tetapi videonya belum (Transformasi 02 dan kawan-kawan), itu
+  pekerjaan yang memang menunggu.
+Berikutnya: paket situs (logo M, hapus sebutan kurikulum, Tahap ke Materi,
+judul di atas video, Lanjutkan berdropdown, pertanyaan bab), lalu daftar
+perapian proyek untuk disetujui ARYA, lalu video satu per satu.
+
 ## 9 SEP: VIDEO 04 TURUNAN v3, DUA ALAT DIPERKUAT LAGI
 
 Sesi Turunan menyetor video 04 standar v3 (4:08, 1080p60, 67 pemicu selisih

@@ -1,6 +1,17 @@
 /**
- * Pengelompokan materi menjadi Bab dan Sub-bab, mengikuti buku Kurikulum
- * Merdeka. Ini lapisan keempat struktur MANTRA: Kelas → Bab → Sub-bab → Materi.
+ * Pengelompokan materi menjadi Bab dan Sub-bab, mengikuti urutan bab buku
+ * sekolah. Ini lapisan keempat struktur MANTRA: Kelas → Bab → Sub-bab → Materi.
+ *
+ * NAMA SUB-BAB ADALAH JUDUL YANG DIUCAPKAN DI VIDEO (keputusan ARYA 10 Sep
+ * 2026): pembuka video mengucapkan "<nama sub-bab>, Bagian n" dengan n =
+ * urutan materi di dalam `nomor`. Jadi namanya harus enak diucapkan (bukan
+ * daftar koma), ditulis Huruf Besar Tiap Kata, dan satu sumber ini dipakai
+ * sidebar, Peta Materi, dan naskah video. Sub-bab berisi satu materi
+ * diucapkan tanpa "Bagian"; sub-bab penerapan memuat nama topiknya
+ * ("Penerapan Vektor") supaya tidak ambigu saat diucapkan. Pemeriksanya:
+ * `alat/cek_pembuka_video.py`.
+ * Nama kurikulum TIDAK disebut di mana pun yang dilihat siswa; `sumber`
+ * tinggal catatan dalam kode.
  *
  * KENAPA BERKAS TERSENDIRI, BUKAN MEDAN DI `content/<topik>/tahap.ts`
  * Berkas `tahap.ts` tiap topik dimiliki sesi topiknya masing-masing, dan
@@ -55,7 +66,7 @@ export const BAB: Bab[] = [
       { huruf: 'A', nama: 'Perbandingan Trigonometri', nomor: [1, 2, 3, 4] },
       { huruf: 'B', nama: 'Lingkaran Satuan dan Sudut Istimewa', nomor: [5, 6, 7] },
       { huruf: 'C', nama: 'Grafik Fungsi Trigonometri', nomor: [8, 9] },
-      { huruf: 'D', nama: 'Penerapan', nomor: [10] },
+      { huruf: 'D', nama: 'Penerapan Trigonometri', nomor: [10] },
     ],
   },
   {
@@ -65,11 +76,11 @@ export const BAB: Bab[] = [
     urutanKelas: 10,
     sumber: 'Buku K10 Bab 3',
     sub: [
-      { huruf: 'A', nama: 'Pengertian, notasi, jenis vektor', nomor: [1, 2] },
-      { huruf: 'B', nama: 'Vektor dan sistem koordinat', nomor: [3, 4, 5] },
-      { huruf: 'C', nama: 'Operasi vektor', nomor: [6, 7, 8, 9] },
-      { huruf: 'D', nama: 'Perkalian titik dan proyeksi', nomor: [11, 12] },
-      { huruf: 'E', nama: 'Penerapan', nomor: [10] },
+      { huruf: 'A', nama: 'Pengenalan Vektor', nomor: [1, 2] },
+      { huruf: 'B', nama: 'Vektor dalam Sistem Koordinat', nomor: [3, 4, 5] },
+      { huruf: 'C', nama: 'Operasi Vektor', nomor: [6, 7, 8, 9] },
+      { huruf: 'D', nama: 'Perkalian Titik dan Proyeksi', nomor: [11, 12] },
+      { huruf: 'E', nama: 'Penerapan Vektor', nomor: [10] },
     ],
   },
   {
@@ -79,12 +90,12 @@ export const BAB: Bab[] = [
     urutanKelas: 10,
     sumber: 'K10 Bab 1 & 6, K11 Bab 1 & 4',
     sub: [
-      { huruf: 'A', nama: 'Fungsi dan grafiknya', nomor: [1, 2] },
-      { huruf: 'B', nama: 'Fungsi kuadrat', nomor: [3, 4, 5] },
-      { huruf: 'C', nama: 'Transformasi fungsi', nomor: [6, 7] },
-      { huruf: 'D', nama: 'Eksponen dan logaritma', nomor: [8, 9] },
-      { huruf: 'E', nama: 'Rasional, komposisi, invers', nomor: [10, 11, 12] },
-      { huruf: 'F', nama: 'Penerapan', nomor: [13] },
+      { huruf: 'A', nama: 'Pengenalan Fungsi dan Grafik', nomor: [1, 2] },
+      { huruf: 'B', nama: 'Fungsi Kuadrat', nomor: [3, 4, 5] },
+      { huruf: 'C', nama: 'Transformasi Fungsi', nomor: [6, 7] },
+      { huruf: 'D', nama: 'Fungsi Eksponen dan Logaritma', nomor: [8, 9] },
+      { huruf: 'E', nama: 'Fungsi Rasional, Komposisi, dan Invers', nomor: [10, 11, 12] },
+      { huruf: 'F', nama: 'Penerapan Grafik Fungsi', nomor: [13] },
     ],
   },
   {
@@ -94,10 +105,10 @@ export const BAB: Bab[] = [
     urutanKelas: 10,
     sumber: 'K10 Bab 7, K11 Bab 3',
     sub: [
-      { huruf: 'A', nama: 'Penyajian data', nomor: [1, 2, 3, 4] },
-      { huruf: 'B', nama: 'Ukuran pemusatan dan penyebaran', nomor: [5, 6, 7, 8, 9] },
-      { huruf: 'C', nama: 'Hubungan dua variabel', nomor: [10, 11, 12, 13] },
-      { huruf: 'D', nama: 'Penerapan', nomor: [14] },
+      { huruf: 'A', nama: 'Penyajian Data', nomor: [1, 2, 3, 4] },
+      { huruf: 'B', nama: 'Ukuran Pemusatan dan Penyebaran', nomor: [5, 6, 7, 8, 9] },
+      { huruf: 'C', nama: 'Hubungan Dua Variabel', nomor: [10, 11, 12, 13] },
+      { huruf: 'D', nama: 'Penerapan Statistika', nomor: [14] },
     ],
   },
   {
@@ -107,10 +118,10 @@ export const BAB: Bab[] = [
     urutanKelas: 12,
     sumber: 'Buku K12 Bab 1',
     sub: [
-      { huruf: 'A', nama: 'Kedudukan titik, garis, bidang', nomor: [1, 2] },
-      { huruf: 'B', nama: 'Jarak dalam ruang', nomor: [3, 4, 5, 6, 7] },
-      { huruf: 'C', nama: 'Sudut dalam ruang', nomor: [8, 9] },
-      { huruf: 'D', nama: 'Penerapan', nomor: [10] },
+      { huruf: 'A', nama: 'Kedudukan Titik, Garis, dan Bidang', nomor: [1, 2] },
+      { huruf: 'B', nama: 'Jarak dalam Ruang', nomor: [3, 4, 5, 6, 7] },
+      { huruf: 'C', nama: 'Sudut dalam Ruang', nomor: [8, 9] },
+      { huruf: 'D', nama: 'Penerapan Ruang Tiga Dimensi', nomor: [10] },
     ],
   },
   {
@@ -120,10 +131,10 @@ export const BAB: Bab[] = [
     urutanKelas: 12,
     sumber: 'Buku K12, LIMIT.pdf',
     sub: [
-      { huruf: 'A', nama: 'Konsep limit', nomor: [1, 2, 3, 4] },
-      { huruf: 'B', nama: 'Sifat dan cara menghitung', nomor: [5, 6, 7] },
-      { huruf: 'C', nama: 'Limit trigonometri dan kekontinuan', nomor: [8, 9] },
-      { huruf: 'D', nama: 'Penerapan', nomor: [10] },
+      { huruf: 'A', nama: 'Konsep Limit', nomor: [1, 2, 3, 4] },
+      { huruf: 'B', nama: 'Sifat Limit dan Cara Menghitungnya', nomor: [5, 6, 7] },
+      { huruf: 'C', nama: 'Limit Trigonometri dan Kekontinuan', nomor: [8, 9] },
+      { huruf: 'D', nama: 'Penerapan Limit', nomor: [10] },
     ],
   },
   {
@@ -146,7 +157,7 @@ export const BAB: Bab[] = [
       { huruf: 'C', nama: 'Sifat Transformasi', nomor: [8] },
       { huruf: 'D', nama: 'Matriks Transformasi', nomor: [9, 10] },
       { huruf: 'E', nama: 'Komposisi Transformasi', nomor: [11, 12] },
-      { huruf: 'F', nama: 'Penerapan', nomor: [13] },
+      { huruf: 'F', nama: 'Penerapan Transformasi Geometri', nomor: [13] },
     ],
   },
   {
@@ -162,10 +173,10 @@ export const BAB: Bab[] = [
     urutanKelas: 12,
     sumber: 'Tingkat Lanjut K12 Bab 2',
     sub: [
-      { huruf: 'A', nama: 'Kemiringan yang berubah', nomor: [1, 2, 3, 4] },
-      { huruf: 'B', nama: 'Aturan menurunkan', nomor: [5, 6, 7, 8] },
-      { huruf: 'C', nama: 'Turunan membaca grafik', nomor: [9, 10, 11] },
-      { huruf: 'D', nama: 'Penerapan', nomor: [12] },
+      { huruf: 'A', nama: 'Kemiringan yang Berubah', nomor: [1, 2, 3, 4] },
+      { huruf: 'B', nama: 'Aturan Menurunkan', nomor: [5, 6, 7, 8] },
+      { huruf: 'C', nama: 'Turunan untuk Membaca Grafik', nomor: [9, 10, 11] },
+      { huruf: 'D', nama: 'Penerapan Turunan', nomor: [12] },
     ],
   },
   {
@@ -179,9 +190,9 @@ export const BAB: Bab[] = [
     urutanKelas: 12,
     sumber: 'Tingkat Lanjut K12 Bab 3',
     sub: [
-      { huruf: 'A', nama: 'Membalik turunan', nomor: [1, 2, 3, 4] },
-      { huruf: 'B', nama: 'Luas dan integral tentu', nomor: [5, 6, 7, 8] },
-      { huruf: 'C', nama: 'Penerapan', nomor: [9, 10, 11] },
+      { huruf: 'A', nama: 'Membalik Turunan', nomor: [1, 2, 3, 4] },
+      { huruf: 'B', nama: 'Luas dan Integral Tentu', nomor: [5, 6, 7, 8] },
+      { huruf: 'C', nama: 'Penerapan Integral', nomor: [9, 10, 11] },
     ],
   },
 ]

@@ -8,12 +8,34 @@ pita subtitle di kaki layar, label dua kata) tetap berlaku untuk yang tidak
 bertentangan. Rancangan dan alasannya:
 `docs/superpowers/specs/2026-09-08-standar-video-v3-design.md`.
 
+> **Tambahan 10 September 2026 (v3.1), keputusan ARYA setelah menonton video
+> pertama gelombang 4.** Sejak hari itu SEMUA video ditulis MASTER sendiri
+> (delapan sesi dibubarkan; catatan lengkapnya `docs/tugas/REVISI-ARYA-2026-09-10.md`):
+> 1. Pembuka TIDAK menyebut judul materi. Yang diucapkan dan ditulis di layar
+>    adalah NAMA SUB-BAB plus "Bagian n" (n = urutan materi di dalam
+>    sub-babnya), contoh "Pengenalan Fungsi dan Grafik, Bagian 1", "Fungsi
+>    Kuadrat, Bagian 2". Satu-satunya sumber nama: `web/content/subbab.ts`
+>    (nama di sidebar, Peta Materi, dan narasi SAMA). Sub-bab yang isinya satu
+>    materi diucapkan tanpa "Bagian"; sub-bab Penerapan diucapkan dengan nama
+>    topiknya ("Penerapan Vektor"; Integral: "Penerapan Integral, Bagian 1").
+>    Nomor "Materi 05" tetap boleh tampil kecil di identitas layar dan di
+>    halaman; yang berubah hanya kalimat yang DIUCAPKAN.
+> 2. Segar-ingat menyebut video sebelumnya dengan cara yang sama: "Di materi
+>    sebelumnya, Pengenalan Fungsi dan Grafik, Bagian 1, kita ...", BUKAN
+>    judul materinya ("Grafik itu Bercerita" tidak memberi tahu siswa materi
+>    yang mana).
+> 3. Segar-ingat hanya untuk PRASYARAT NYATA materi itu. Pythagoras di
+>    catatan lama hanyalah CONTOH untuk Turunan 02; ia dipaksakan ke hampir
+>    semua video gelombang 4 dan merusak semuanya. Kalau materi ini tidak
+>    membutuhkan ingatan apa pun, bagian segar-ingat DILEWATI. Ragu? Jangan.
+> 4. Narasi dan subtitle mengucapkan "materi", tidak pernah "tahap".
+
 ## 1. Kerangka wajib tiap video (urut)
 
 | Bagian | Isi | Panjang kira-kira |
 |---|---|---|
-| Pembuka | SATU pertanyaan yang dijawab video ini, diucapkan dan ditulis | 5 sampai 10 detik |
-| Segar-ingat | mengingat materi sebelumnya: sebut NOMOR dan NAMA konsepnya, perlihatkan kembali gambar atau rumus kuncinya dalam bentuk ringkas, lalu sebut apa yang dibawa ke video ini. Materi 01 sebuah topik mengingat topik PRASYARATNYA (Turunan 01 mengingat Limit 01; Integral 01 mengingat Turunan) | 20 sampai 45 detik |
+| Pembuka | nama sub-bab plus "Bagian n" (v3.1), lalu SATU pertanyaan yang dijawab video ini, diucapkan dan ditulis | 5 sampai 10 detik |
+| Segar-ingat (hanya bila ada prasyarat nyata) | mengingat materi sebelumnya: sebut sub-bab dan bagiannya (v3.1) serta NAMA konsepnya, perlihatkan kembali gambar atau rumus kuncinya dalam bentuk ringkas, lalu sebut apa yang dibawa ke video ini. Materi 01 sebuah topik mengingat topik PRASYARATNYA hanya kalau memang dipakai (Turunan 01 mengingat Limit; Integral 01 mengingat Turunan) | 0 (dilewati) sampai 45 detik |
 | Contoh angka | satu contoh dengan angka kecil, dihitung di layar langkah demi langkah | |
 | Asal rumus | rumusnya DIBUKTIKAN dari contoh itu, bukan disodorkan; tiap langkah aljabar terlihat | |
 | Bentuk umum | dari angka ke huruf; rumus umum lahir di dekat gambarnya lalu ke panel | |
@@ -33,12 +55,19 @@ luar rentang itu. Jangan mengisi waktu dengan pengulangan atau jeda kosong.
   dibuktikan, dulu cuma pola), katakan itu terbuka.
 - Pemeriksa urutan istilah tetap berlaku: yang diingat hanya yang sudah
   diajarkan.
+- Yang diingat adalah PRASYARAT yang benar-benar dipakai di video ini
+  (rumus atau gambar yang akan dibangun di atasnya), bukan materi terdekat
+  demi kelengkapan. Pythagoras bukan bahan wajib; contoh yang benar: Turunan
+  03 mengingat "kemiringan garis singgung" dari Turunan 02 karena rumus
+  turunan lahir dari situ. Tidak ada prasyarat berarti tidak ada segar-ingat.
 
 ## 3. Narasi dan bahasa
 
 - Suara `id-ID-ArdiNeural`, tempo `-5%` (bawaan `buat_narasi.py`), jeda napas
   0,35 detik di ujung tiap segmen. Tenang, tidak terburu.
 - Satu segmen = satu gagasan, 8 sampai 15 detik; naskah 25 sampai 35 segmen.
+- Kata "materi" untuk unit belajar ("di materi sebelumnya", "materi ini");
+  kata "tahap" DILARANG di narasi, subtitle, dan tulisan layar (v3.1).
 - Bahasa akrab siswa; bentuk lengkap dulu, baru singkatan di gambar
   ("kemiringan = kenaikan / langkah mendatar", baru "miring = naik/datar").
 - Pengetahuan lama yang bisa mengecoh disebut dan dibedakan (Pythagoras
@@ -109,9 +138,10 @@ yaitu berkas lama yang ditinggalkan `buat_subtitle` yang gagal);
    ffmpeg dari mp4 final) ke `media/uji-480p/<video>-bersubtitle.mp4`;
 6. medan `video` di `tahap.ts`, tsc, commit kecil di cabang sendiri.
 
-Tinjauan: video PERTAMA tiap sesi berhenti untuk ditonton dan disetujui ARYA;
-sesudahnya dua sampai tiga video per kelompok. Revisi ARYA dikerjakan sesi
-sendiri; MASTER hanya menggabung, memasang, dan menayangkan.
+Tinjauan (sejak 10 Sep 2026 semua dikerjakan MASTER): video pertama bergaya
+pembuka v3.1 berhenti untuk ditonton dan disetujui ARYA; sesudahnya dua
+sampai tiga video per kelompok. Turunan 01 sampai 04 yang sudah disetujui
+dibiarkan dulu (keputusan ARYA 10 Sep), tidak dirender ulang sekarang.
 
 ## 7. Daftar periksa sebelum lapor "selesai" (jawab ya/tidak di laporan)
 
@@ -126,3 +156,7 @@ sendiri; MASTER hanya menggabung, memasang, dan menayangkan.
 9. cek_aset_video, cek_layar_kosong, tsc lolos; medan video terpasang.
 10. Keputusan yang disengaja (skala, satu papan, dan sebagainya) ditulis di
     laporan supaya ARYA tidak mengira kelalaian.
+11. (v3.1) Pembuka mengucapkan nama sub-bab plus "Bagian n" sesuai
+    `subbab.ts`, bukan judul materi; kata "tahap" tidak ada di naskah.
+12. (v3.1) Segar-ingat hanya mengingat prasyarat yang dipakai; kalau video
+    ini tidak butuh, bagian itu tidak ada, dan itu ditulis di laporan.

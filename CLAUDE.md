@@ -14,25 +14,36 @@ Situs belajar matematika SMA: **animasi Manim** (menjelaskan *kenapa*) + **widge
 > video ditulis ulang, standar v3). Baca `PROGRESS.md` DULU tiap sesi baru - di situ status harian,
 > keputusan yang sudah diambil, dan apa yang harus dikerjakan berikutnya.
 
-## STANDAR VIDEO v3, keputusan ARYA 8 September 2026 (berlaku SEMUA video)
+## SATU TANGAN SEJAK 10 SEPTEMBER 2026: MASTER MENGERJAKAN SEMUA
 
-Setelah menonton Turunan 01 sampai 03 versi rinci (masing-masing sekitar 5:55),
-ARYA memutuskan **semua 58 video ditulis ulang** dengan gaya itu, delapan sesi
-paralel, tenggat 12 Sep diterima lewat. Aturannya di
-`docs/tugas/STANDAR-VIDEO-V3.md` (wajib dibaca sebelum menyentuh video),
-rancangan dan alasannya di
-`docs/superpowers/specs/2026-09-08-standar-video-v3-design.md`. Ringkasnya:
-- durasi 3 sampai 6 menit; kerangka wajib: pembuka pertanyaan, SEGAR-INGAT
-  materi sebelumnya (nomor dan nama konsep, gambar kuncinya), contoh angka,
-  asal rumus dibuktikan, bentuk umum, penutup yang menunjuk video berikutnya;
-- narasi tenang (tempo -5%), bahasa akrab, penghubung lengkap, pengetahuan
-  lama yang mengecoh diantisipasi; `tulis` = kalimat utuh yang diucapkan
-  dengan lambang, dan subtitle harus sama huruf demi huruf (`cek_subtitle`);
+Keputusan ARYA 10 Sep: delapan sesi paralel DIBUBARKAN; MASTER sendiri yang
+menulis ulang semua 58 video, merevisi situs, dan merapikan proyek. **MASTER
+DILARANG KERAS mengirim tugas atau pesan ke sesi lain** (kata ARYA: "STOP
+UNTUK MENGIRIMKAN TUGAS/MESSAGE KE SESI LAIN"). Cabang `sesi/*` sudah
+digabung ke `master` 10 Sep; worktree di `.claude/worktrees/` tinggal arsip
+yang menunggu dihapus saat perapian. Daftar revisi ARYA hari itu (13 butir,
+keputusan, nama sub-bab dan pertanyaan bab yang disetujui):
+`docs/tugas/REVISI-ARYA-2026-09-10.md`.
+
+## STANDAR VIDEO v3 (8 Sep) plus tambahan v3.1 (10 Sep), berlaku SEMUA video
+
+Aturannya di `docs/tugas/STANDAR-VIDEO-V3.md` (wajib dibaca sebelum menyentuh
+video), rancangannya `docs/superpowers/specs/2026-09-08-standar-video-v3-design.md`.
+Ringkasnya:
+- durasi 3 sampai 6 menit; kerangka: pembuka (nama SUB-BAB plus "Bagian n"
+  dari `web/content/subbab.ts`, BUKAN judul materi, lalu satu pertanyaan),
+  segar-ingat HANYA bila ada prasyarat nyata (Pythagoras dulu cuma contoh dan
+  sempat dipaksakan ke semua video: jangan), contoh angka, asal rumus
+  dibuktikan, bentuk umum, penutup yang menunjuk video berikutnya;
+- narasi tenang (tempo -5%), bahasa akrab, kata "materi" bukan "tahap";
+  `tulis` = kalimat utuh yang diucapkan dengan lambang, subtitle sama huruf
+  demi huruf (`cek_subtitle`);
 - animasi dipicu pada detik KATA diucapkan: `buat_narasi.py` menulis
   `kata.json`, adegan memakai `sinema.JamKata`, `babak(..., kata=KATA)`,
-  `b.tunggu_kata("frasa")`, dan `sinema.laporkan_pemicu(self)` di akhir;
-- video pertama tiap sesi ditonton ARYA dulu, sesudahnya per kelompok dua
-  sampai tiga video; render langsung 1080p60 mp4 plus salinan 480p bersubtitel.
+  `b.tunggu_kata("frasa", ke=)`, `sinema.laporkan_pemicu(self)` di akhir;
+  gerbang pra-render `alat/cek_pemicu_urut.py` meramalkan jam adegan;
+- Turunan 01 sampai 04 (sudah v3, disetujui) dibiarkan dulu; video bergaya
+  pembuka v3.1 pertama ditonton ARYA, sesudahnya per kelompok dua sampai tiga.
 Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
 `docs/tugas/laporan/PELAJARAN-RENDER-TURUNAN-2026-09-08.md`.
 
@@ -51,20 +62,16 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
 |---|---|
 | `manim/` | Animasi Python (ManimGL 1.7.2; `gl/` perkakas bersama, `arsip-manim-ce/` kode lama yang tak bisa dijalankan) |
 | `web/` | Situs Next.js 16 + TypeScript |
-| `web/public/anim/` | Video hasil render (WebM) |
+| `web/public/anim/` | Video hasil render (mp4 1080p60, poster jpg, subtitle vtt) |
 | `docs/superpowers/specs/` | Dokumen desain |
 | `alat/` | Alat bantu proyek di luar Manim, mis. pemeriksa jawaban soal |
 
 ## Aturan proyek (jangan dilanggar)
-- **7 topik tayang + 2 sedang dibangun**: trigonometri⭐, limit⭐, grafik fungsi,
-  vektor, ruang 3D, statistika, transformasi geometri (⭐ = unggulan); Turunan dan
-  Integral (Kelas 12) disetujui ARYA 5 Sep 2026, rancangannya
-  `docs/superpowers/specs/2026-09-06-{turunan,integral}-alur-belajar.md`,
-  dikerjakan dua sesi sejak 7 Sep: MANTRA-TURUNAN (worktree
-  `materi-turunan-b8c515`, cabang `sesi/turunan-materi`, port 3015) dan
-  MANTRA-INTEGRAL (worktree `integral-folder-branch-setup-05863c`, cabang
-  `sesi/integral-materi`, port 3016), tugasnya `docs/tugas/MANTRA-TURUNAN-INTEGRAL.md`. Transformasi geometri ditambahkan ARYA
-  3 Sep 2026 dan dikerjakan di worktree `mantra-transformasi-geometri`.
+- **9 topik**: trigonometri⭐, limit⭐, grafik fungsi, vektor, ruang 3D,
+  statistika, transformasi geometri, turunan, integral (⭐ = unggulan;
+  Turunan dan Integral rancangannya
+  `docs/superpowers/specs/2026-09-06-{turunan,integral}-alur-belajar.md`).
+  Semua dikerjakan MASTER di `master` sejak 10 Sep 2026.
   Topik baru WAJIB didaftarkan di TIGA tempat: `web/content/topik.ts`,
   `web/content/daftar-isi.ts`, dan `web/content/subbab.ts` (pemetaan bab dan
   sub-bab). Kalau `subbab.ts` terlewat, topiknya tidak muncul di Peta Materi.
@@ -162,7 +169,7 @@ Sebelum video APA PUN dinyatakan selesai atau dikirim ke ARYA:
 ## Bahan referensi (di luar folder proyek)
 | Berkas / sumber | Untuk apa | Bisa dibaca? |
 |---|---|---|
-| `D:\BAHAN MATEMATIKA\Buku Matematika Kelas 10 - Guru.pdf` dan `...Kelas 11 - Guru.pdf` (DUA berkas) | ⭐ Kurikulum Merdeka, miskonsepsi | teks digital |
+| `D:\BAHAN MATEMATIKA\Buku Matematika Kelas 10 - Guru.pdf` dan `...Kelas 11 - Guru.pdf` (DUA berkas) | ⭐ susunan bab dan kekeliruan siswa yang lazim (nama kurikulumnya TIDAK disebut di situs, keputusan ARYA 10 Sep 2026) | teks digital |
 | `D:\BAHAN MATEMATIKA\3 Dimensi.pdf` (AWAS: isinya Buku Siswa Kelas XI, BUKAN geometri ruang), `Matematika_BS_KLS_XII_Rev.pdf`, `LIMIT.pdf` | bahan tambahan per topik | teks digital |
 | `D:\SEKOLAH S1 & S2\S1\matematika\kalkulus 1.pdf`, `kalkulus 2.pdf` | Diktat ITB - istilah Indonesia yang benar | teks digital |
 | `…\Calculus (9rd Edition) - Solution.pdf` | Pola & tingkat kesulitan soal | teks digital |
