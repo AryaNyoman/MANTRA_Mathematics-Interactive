@@ -1,175 +1,232 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/limit9-kontinu.json
+NOTE Dibuat otomatis dari manim/narasi/limit9-kontinu.json (waktu kata rekaman)
+NOTE naskah-sidik d83dfcd619ad
 
 1
-00:00:00.000 --> 00:00:01.556
-Apa bedanya grafik yang
+00:00:00.101 --> 00:00:03.554
+Limit Trigonometri dan Kekontinuan, Bagian 2.
 
 2
-00:00:01.556 --> 00:00:04.128
-bisa digambar tanpa mengangkat pensil?
+00:00:04.288 --> 00:00:05.488
+Apa bedanya grafik yang
 
 3
-00:00:04.128 --> 00:00:06.656
-Bayangkan rel roller coaster.
+00:00:05.488 --> 00:00:07.605
+bisa digambar tanpa mengangkat pensil?
 
 4
-00:00:06.656 --> 00:00:10.927
-Ia boleh menanjak, boleh menukik, boleh berputar.
+00:00:08.816 --> 00:00:10.322
+Di materi sebelumnya,
 
 5
-00:00:10.927 --> 00:00:15.024
-Yang tidak boleh, ada potongan rel yang hilang.
+00:00:10.322 --> 00:00:13.550
+Limit Trigonometri dan Kekontinuan, Bagian 1,
 
 6
-00:00:15.024 --> 00:00:17.584
-Sebuah fungsi disebut kontinu di titik
+00:00:13.550 --> 00:00:15.487
+sin x dibagi x dijepit dari
 
 7
-00:00:17.584 --> 00:00:19.605
-c kalau 3 hal benar sekaligus.
+00:00:15.487 --> 00:00:17.861
+dua sisi sampai menuju tepat 1.
 
 8
-00:00:19.605 --> 00:00:22.704
-Nilainya ada, limitnya ada, dan keduanya sama.
+00:00:18.593 --> 00:00:20.243
+Kali ini kita kumpulkan semua
 
 9
-00:00:22.704 --> 00:00:26.673
-Pada fungsi yang mulus, ketiganya terpenuhi.
+00:00:20.243 --> 00:00:22.099
+cara sebuah grafik bisa putus.
 
 10
-00:00:26.673 --> 00:00:30.823
-Titik di x = 2 punya nilai 3, limitnya juga 3,
+00:00:23.301 --> 00:00:25.227
+Bayangkan rel roller coaster.
 
 11
-00:00:30.823 --> 00:00:32.808
-dan keduanya berimpit.
+00:00:25.962 --> 00:00:29.572
+Ia boleh menanjak, boleh menukik, boleh berputar.
 
 12
-00:00:32.808 --> 00:00:34.630
-Sekarang kita rusak.
+00:00:30.304 --> 00:00:33.243
+Yang tidak boleh, ada potongan rel yang hilang.
 
 13
-00:00:34.630 --> 00:00:37.454
-Cara pertama, dibuat berlubang.
+00:00:34.435 --> 00:00:36.574
+Sebuah fungsi disebut kontinu di titik
 
 14
-00:00:37.454 --> 00:00:41.372
-Nilainya lenyap, jadi syarat pertama gagal.
+00:00:36.574 --> 00:00:38.414
+c kalau 3 hal benar sekaligus.
 
 15
-00:00:41.372 --> 00:00:43.376
-Tapi limitnya tetap 3,
+00:00:39.148 --> 00:00:42.969
+Nilainya ada, limitnya ada, dan keduanya sama.
 
 16
-00:00:43.376 --> 00:00:46.656
-karena limit hanya melihat tetangga.
+00:00:44.201 --> 00:00:47.075
+Pada fungsi yang mulus, ketiganya terpenuhi.
 
 17
-00:00:46.656 --> 00:00:48.957
-Cara kedua, titiknya digeser.
+00:00:47.809 --> 00:00:50.525
+Ambil f(x) = x + 1.
 
 18
-00:00:48.957 --> 00:00:52.923
-Nilainya ada, limitnya ada, tapi keduanya berbeda.
+00:00:51.257 --> 00:00:53.880
+Titik di x = 2 punya nilai 3.
 
 19
-00:00:52.923 --> 00:00:55.383
-Hanya syarat ketiga yang gagal,
+00:00:54.626 --> 00:00:58.682
+Di 1,9 nilainya 2,9, di 2,1 nilainya 3,1,
 
 20
-00:00:55.383 --> 00:00:58.159
-dan inilah satu-satunya bentuk yang
+00:00:58.682 --> 00:01:03.184
+jadi limitnya juga 3, dan keduanya berimpit.
 
 21
-00:00:58.159 --> 00:01:00.936
-membuat syarat ketiga terasa perlu.
+00:01:04.401 --> 00:01:05.840
+Sekarang kita rusak.
 
 22
-00:01:00.936 --> 00:01:03.697
-Cara ketiga, dibuat melompat.
+00:01:06.575 --> 00:01:09.107
+Cara pertama, dibuat berlubang.
 
 23
-00:01:03.697 --> 00:01:07.504
-Dari kiri menuju 3, dari kanan menuju 5.
+00:01:09.838 --> 00:01:12.751
+Nilainya lenyap, jadi syarat pertama gagal.
 
 24
-00:01:07.504 --> 00:01:12.264
-Kedua arah tidak sepakat, jadi limitnya tidak ada.
+00:01:13.497 --> 00:01:14.865
+Tapi limitnya tetap 3,
 
 25
-00:01:12.264 --> 00:01:14.594
-Cara keempat, dibuat meledak.
+00:01:14.865 --> 00:01:17.253
+karena limit hanya melihat tetangga.
 
 26
-00:01:14.594 --> 00:01:18.209
-Penyebutnya 0 sedangkan pembilangnya bukan 0,
+00:01:18.468 --> 00:01:20.921
+Cara kedua, titiknya digeser.
 
 27
-00:01:18.209 --> 00:01:21.342
-sehingga nilainya membesar tanpa batas.
+00:01:21.655 --> 00:01:25.660
+Nilainya ada, limitnya ada, tapi keduanya berbeda.
 
 28
-00:01:21.342 --> 00:01:23.592
-Tidak ada angka yang dituju.
+00:01:26.406 --> 00:01:28.001
+Hanya syarat ketiga yang gagal,
 
 29
-00:01:23.592 --> 00:01:26.345
-Ketiga kerusakan pertama sebenarnya
+00:01:28.001 --> 00:01:29.802
+dan inilah satu-satunya bentuk yang
 
 30
-00:01:26.345 --> 00:01:28.232
-sudah pernah Anda temui.
+00:01:29.802 --> 00:01:31.753
+membuat syarat ketiga terasa perlu.
 
 31
-00:01:28.232 --> 00:01:31.850
-Berlubang di Materi 04, melompat di Materi 03,
+00:01:32.968 --> 00:01:35.368
+Cara ketiga, dibuat melompat.
 
 32
-00:01:31.850 --> 00:01:33.816
-dan meledak di Materi 07.
+00:01:36.102 --> 00:01:39.371
+Dari kiri menuju 3, dari kanan menuju 5.
 
 33
-00:01:33.816 --> 00:01:37.152
-Sekarang janji dari Materi 05 bisa dilunasi.
+00:01:40.102 --> 00:01:43.331
+Kedua arah tidak sepakat, jadi limitnya tidak ada.
 
 34
-00:01:37.152 --> 00:01:39.274
-Di sana dikatakan substitusi
+00:01:44.535 --> 00:01:46.803
+Cara keempat, dibuat meledak.
 
 35
-00:01:39.274 --> 00:01:41.624
-langsung sah untuk suku banyak,
+00:01:47.552 --> 00:01:50.110
+Penyebutnya 0 sedangkan pembilangnya bukan 0,
 
 36
-00:01:41.624 --> 00:01:43.368
-tapi alasannya ditunda.
+00:01:50.110 --> 00:01:52.478
+sehingga nilainya membesar tanpa batas.
 
 37
-00:01:43.368 --> 00:01:47.334
-Alasannya: suku banyak kontinu di semua titik.
+00:01:53.208 --> 00:01:54.897
+Tidak ada angka yang dituju.
 
 38
-00:01:47.334 --> 00:01:50.868
-Dan kontinu berarti limit = nilai fungsi.
+00:01:56.101 --> 00:01:57.990
+Ketiga kerusakan pertama sebenarnya
 
 39
-00:01:50.868 --> 00:01:54.144
-Jadi memasukkan angkanya memang boleh.
+00:01:57.990 --> 00:01:59.435
+sudah pernah Anda temui.
 
 40
-00:01:54.144 --> 00:01:56.913
-Jadi substitusi bukan definisi limit,
+00:02:00.184 --> 00:02:02.421
+Berlubang di Konsep Limit Bagian 4,
 
 41
-00:01:56.913 --> 00:01:59.458
-melainkan akibat dari kekontinuan.
+00:02:02.421 --> 00:02:04.594
+melompat di Konsep Limit Bagian 3,
 
 42
-00:01:59.458 --> 00:02:01.853
-Untuk fungsi yang tidak kontinu,
+00:02:04.594 --> 00:02:07.045
+dan meledak di Sifat Limit Bagian 3.
 
 43
-00:02:01.853 --> 00:02:04.248
+00:02:08.282 --> 00:02:12.066
+Sekarang janji dari Sifat Limit dan Cara Menghitungnya,
+
+44
+00:02:12.066 --> 00:02:13.867
+Bagian 1, bisa dilunasi.
+
+45
+00:02:14.614 --> 00:02:16.245
+Di sana dikatakan substitusi
+
+46
+00:02:16.245 --> 00:02:18.051
+langsung sah untuk suku banyak,
+
+47
+00:02:18.051 --> 00:02:19.540
+tapi alasannya ditunda.
+
+48
+00:02:20.768 --> 00:02:23.892
+Alasannya: suku banyak kontinu di semua titik.
+
+49
+00:02:24.625 --> 00:02:27.617
+Dan kontinu berarti limit = nilai fungsi.
+
+50
+00:02:28.349 --> 00:02:30.591
+Jadi memasukkan angkanya memang boleh.
+
+51
+00:02:31.816 --> 00:02:34.113
+Jadi substitusi bukan definisi limit,
+
+52
+00:02:34.113 --> 00:02:36.374
+melainkan akibat dari kekontinuan.
+
+53
+00:02:37.107 --> 00:02:38.962
+Untuk fungsi yang tidak kontinu,
+
+54
+00:02:38.962 --> 00:02:40.967
 jalan pintas itu langsung gugur.
+
+55
+00:02:42.168 --> 00:02:44.416
+Di materi berikutnya, Penerapan Limit,
+
+56
+00:02:44.416 --> 00:02:45.835
+kita lihat di mana limit
+
+57
+00:02:45.835 --> 00:02:48.292
+dan kekontinuan dipakai di dunia nyata.

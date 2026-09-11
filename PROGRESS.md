@@ -1,5 +1,32 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 12 SEP: KETUJUH VIDEO LIMIT DITULIS DARI NOL v3.1, ManimGL 1080p60, TAYANG
+
+Topik Limit tidak punya adegan ManimGL sama sekali (hanya arsip Manim CE), jadi
+ketujuhnya (01, 02, 04, 06, 07, 08, 09; 2:30 sampai 3:01) ditulis MASTER dari
+nol mengikuti tata letak lama yang sudah disetujui, dengan pembuka sub-bab,
+segar-ingat, contoh angka, dan penutup menunjuk materi berikutnya. Kalimat
+narasi tidak lagi ditulis sebagai teks di layar; yang bercerita lambang, angka,
+lampu syarat, pita sorot tembus pandang.
+- Pola baru yang terbukti: pecahan dibangun dari bagian terpisah supaya
+  coretan mendarat tepat pada faktornya (06, 04); lingkaran bolong diperbesar
+  supaya titik 2,99 jatuh DI DALAM cincin (02); skala x diperbesar supaya
+  titik tetangga lepas dari lubang (04); papan manual untuk rentang yang tidak
+  memuat 0 (07, Axes ManimGL selalu menaruh 0 di titik potong); daerah luas
+  hidup mengikuti pelacak sudut (08); tiga lampu syarat biru/merah (09); rel
+  dipecah tiga potongan, bukan ditutup kotak sewarna kertas (kotaknya samar
+  terlihat, warna isian dan latar beda dua tingkat).
+- JEBAKAN BARU: `Indicate` pada lingkaran bolong berisi kertas mengisi
+  lubangnya jadi cakram penuh (02 dan 04 dirender ulang); sorot lingkaran
+  bolong memakai cincin tanpa isian. `cek_layar_kosong` menganggap satu huruf
+  "x" saja sebagai layar kosong (di bawah 0,1 persen): beri benda pendamping.
+- Semua gerbang lolos per video, lembar kontak 480p dan 1080p dibuka, celah
+  layar kosong ditutup satu per satu. tahap.ts menunjuk mp4, webm lama
+  dihapus, deploy produksi bertahap (01+02+04, lalu 06 sampai 09).
+Berikutnya: 40 video lain masih pembuka lama (cek_pembuka_video): Vektor 6,
+Grafik 2, Ruang 3D 6, Statistika 13, Transformasi 5, Turunan 06 dan 07,
+Integral 5. Turunan 01 sampai 04 dibiarkan (keputusan ARYA 10 Sep).
+
 ## 12 SEP (dini hari): TRIGONOMETRI 05 SAMPAI 09 SELESAI v3.1, SEMUA VIDEO TRIGONOMETRI TAYANG (master 4c4ffdc plus 08 dan 09)
 
 ARYA menonton 02 dan 04 (11 Sep malam): "sudah sangat bagus ... Aku suka

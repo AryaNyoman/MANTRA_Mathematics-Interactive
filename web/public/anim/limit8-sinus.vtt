@@ -1,139 +1,208 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/limit8-sinus.json
+NOTE Dibuat otomatis dari manim/narasi/limit8-sinus.json (waktu kata rekaman)
+NOTE naskah-sidik 8ff1283acfeb
 
 1
-00:00:00.000 --> 00:00:03.067
-Kenapa (sin x) : x menuju tepat 1,
+00:00:00.101 --> 00:00:03.672
+Limit Trigonometri dan Kekontinuan, Bagian 1.
 
 2
-00:00:03.067 --> 00:00:05.232
-bukan sekadar mendekati?
+00:00:04.421 --> 00:00:06.889
+Kenapa (sin x) : x menuju tepat 1,
 
 3
-00:00:05.232 --> 00:00:09.902
-Kalau angkanya dimasukkan langsung, sin 0 = 0,
+00:00:06.889 --> 00:00:08.782
+bukan sekadar mendekati?
 
 4
-00:00:09.902 --> 00:00:12.237
-dan penyebutnya juga 0.
+00:00:10.016 --> 00:00:11.702
+Ingat dari Trigonometri,
 
 5
-00:00:12.237 --> 00:00:14.064
-Bentuk 0 : 0 lagi.
+00:00:11.702 --> 00:00:14.935
+Lingkaran Satuan dan Sudut Istimewa, Bagian 2:
 
 6
-00:00:14.064 --> 00:00:21.337
-Dicoba dengan angka, semuanya dalam radian.
+00:00:14.935 --> 00:00:18.238
+di lingkaran satuan, sin x adalah tinggi titik,
 
 7
-00:00:21.337 --> 00:00:25.227
-Di 0,1 hasilnya 0,9983.
+00:00:18.238 --> 00:00:19.924
+cos x jarak mendatarnya,
 
 8
-00:00:25.227 --> 00:00:28.272
-Di 0,01, 0,999983.
+00:00:19.924 --> 00:00:22.745
+dan tan x panjang ruas garis singgung.
 
 9
-00:00:28.272 --> 00:00:29.865
-Merapat ke 1.
+00:00:23.477 --> 00:00:25.469
+Ketiganya akan dipakai di sini.
 
 10
-00:00:29.865 --> 00:00:35.136
-Tapi kenapa tepat 1, dan bukan 0,99 sekian?
+00:00:26.716 --> 00:00:30.128
+Kalau angkanya dimasukkan langsung, sin 0 = 0,
 
 11
-00:00:35.136 --> 00:00:37.954
-Jawabannya ada di lingkaran satuan.
+00:00:30.128 --> 00:00:31.984
+dan penyebutnya juga 0.
 
 12
-00:00:37.954 --> 00:00:40.530
-Gambar lingkaran berjari-jari 1,
+00:00:32.716 --> 00:00:34.603
+Bentuk 0 : 0 lagi.
 
 13
-00:00:40.530 --> 00:00:43.992
-lalu ambil sebuah sudut lancip di pusatnya.
+00:00:35.801 --> 00:00:38.951
+Dicoba dengan angka, semuanya dalam radian.
 
 14
-00:00:43.992 --> 00:00:48.239
-Di dalam gambar itu ada 3 daerah yang saling bersarang.
+00:00:39.686 --> 00:00:43.493
+Di 0,1 hasilnya 0,9983.
 
 15
-00:00:48.239 --> 00:00:51.483
-Segitiga kecil di dalam, juring lingkaran,
+00:00:44.239 --> 00:00:49.021
+Di 0,01, 0,999983.
 
 16
-00:00:51.483 --> 00:00:53.568
-dan segitiga besar di luar.
+00:00:50.233 --> 00:00:51.583
+Merapat ke 1.
 
 17
-00:00:53.568 --> 00:00:57.466
-Luas segitiga dalam = ½ cos x · sin x.
+00:00:52.278 --> 00:00:56.178
+Tapi kenapa tepat 1, dan bukan 0,99 sekian?
 
 18
-00:00:57.466 --> 00:01:01.775
-Luas juringnya ½ x, karena jari-jarinya 1.
+00:00:57.401 --> 00:00:59.749
+Jawabannya ada di lingkaran satuan.
 
 19
-00:01:01.775 --> 00:01:05.160
-Dan luas segitiga luar = ½ tan x.
+00:01:00.483 --> 00:01:02.481
+Gambar lingkaran berjari-jari 1,
 
 20
-00:01:05.160 --> 00:01:08.120
-Karena yang satu termuat di dalam yang lain,
+00:01:02.481 --> 00:01:05.317
+lalu ambil sebuah sudut lancip di pusatnya.
 
 21
-00:01:08.120 --> 00:01:10.272
-urutan luasnya sudah pasti naik.
+00:01:06.535 --> 00:01:09.658
+Di dalam gambar itu ada 3 daerah yang saling bersarang.
 
 22
-00:01:10.272 --> 00:01:17.211
-Bagi ketiganya dengan sin x, dan bentuknya menjadi rapi.
+00:01:10.407 --> 00:01:13.210
+Segitiga kecil di dalam, juring lingkaran,
 
 23
-00:01:17.211 --> 00:01:20.928
-cos x < x : sin x < 1 : cos x.
+00:01:13.210 --> 00:01:15.162
+dan segitiga besar di luar.
 
 24
-00:01:20.928 --> 00:01:22.853
-Sekarang kecilkan sudutnya.
+00:01:16.368 --> 00:01:19.702
+Luas segitiga dalam = ½ cos x · sin x.
 
 25
-00:01:22.853 --> 00:01:25.491
-Kedua penjepitnya sama-sama menuju 1,
+00:01:20.451 --> 00:01:23.903
+Luas juringnya ½ x, karena jari-jarinya 1.
 
 26
-00:01:25.491 --> 00:01:27.916
-jadi yang terjepit di tengah tidak
+00:01:24.634 --> 00:01:27.007
+Dan luas segitiga luar = ½ tan x.
 
 27
-00:01:27.916 --> 00:01:30.768
-punya pilihan lain selain ikut menuju 1.
+00:01:28.201 --> 00:01:30.891
+Cek dengan angka di sudut 0,5 radian.
 
 28
-00:01:30.768 --> 00:01:33.442
-Satu syarat yang tidak boleh dilupakan:
+00:01:31.625 --> 00:01:34.420
+Segitiga dalam 0,2104.
 
 29
-00:01:33.442 --> 00:01:35.362
-sudutnya harus dalam radian.
+00:01:35.150 --> 00:01:36.905
+Juring 0,25.
 
 30
-00:01:35.362 --> 00:01:37.557
-Kalau ditulis dalam derajat (°),
+00:01:37.638 --> 00:01:40.591
+Segitiga luar 0,2732.
 
 31
-00:01:37.557 --> 00:01:41.328
-luas juringnya berubah dan seluruh hitungan ini runtuh.
+00:01:41.321 --> 00:01:42.774
+Memang makin besar.
 
 32
-00:01:41.328 --> 00:01:44.398
-Jadi bukan hampir 1, melainkan tepat 1.
+00:01:44.016 --> 00:01:46.427
+Karena yang satu termuat di dalam yang lain,
 
 33
-00:01:44.398 --> 00:01:47.468
-Dan alasannya bukan tebakan dari tabel,
+00:01:46.427 --> 00:01:49.482
+urutan luasnya sudah pasti naik, berapa pun sudutnya.
 
 34
-00:01:47.468 --> 00:01:51.168
+00:01:50.682 --> 00:01:52.670
+Bagi ketiganya dengan ½ sin x,
+
+35
+00:01:52.670 --> 00:01:54.609
+dan bentuknya menjadi rapi.
+
+36
+00:01:55.356 --> 00:02:00.677
+cos x < x : sin x < 1 : cos x.
+
+37
+00:02:01.867 --> 00:02:03.662
+Sekarang kecilkan sudutnya.
+
+38
+00:02:04.411 --> 00:02:06.482
+Kedua penjepitnya sama-sama menuju 1,
+
+39
+00:02:06.482 --> 00:02:08.384
+jadi yang terjepit di tengah tidak
+
+40
+00:02:08.384 --> 00:02:10.772
+punya pilihan lain selain ikut menuju 1.
+
+41
+00:02:11.968 --> 00:02:14.289
+Satu syarat yang tidak boleh dilupakan:
+
+42
+00:02:14.289 --> 00:02:16.105
+sudutnya harus dalam radian.
+
+43
+00:02:16.853 --> 00:02:18.533
+Kalau ditulis dalam derajat (°),
+
+44
+00:02:18.533 --> 00:02:21.569
+luas juringnya berubah dan seluruh hitungan ini runtuh.
+
+45
+00:02:22.768 --> 00:02:25.984
+Jadi bukan hampir 1, melainkan tepat 1.
+
+46
+00:02:26.732 --> 00:02:28.898
+Dan alasannya bukan tebakan dari tabel,
+
+47
+00:02:28.898 --> 00:02:31.659
 melainkan perbandingan luas di dalam lingkaran.
+
+48
+00:02:32.882 --> 00:02:34.190
+Di materi berikutnya,
+
+49
+00:02:34.190 --> 00:02:36.991
+Limit Trigonometri dan Kekontinuan, Bagian 2,
+
+50
+00:02:36.991 --> 00:02:40.165
+kita kumpulkan semua cara sebuah grafik bisa putus,
+
+51
+00:02:40.165 --> 00:02:42.743
+dan memberi nama pada yang tidak putus.

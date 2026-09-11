@@ -1,16 +1,23 @@
 {
   "adegan": "FungsiTidakPutus",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Limit Materi 09, Fungsi yang tidak putus. Video prioritas KELIMA. Tugasnya menutup seluruh alur topik Limit: ketiga cara sebuah fungsi gagal sudah pernah ditemui siswa di Materi 03, 04, dan 07, jadi di sini tinggal dikumpulkan dan diberi nama. Sekaligus melunasi janji Materi 05 tentang kenapa substitusi langsung boleh dipakai.",
+  "tempo": "-5%",
+  "catatan": "Limit Trigonometri dan Kekontinuan, Bagian 2 (Materi 09). Ditulis ulang 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (rel roller coaster; kontinu di c kalau nilai ada, limit ada, dan sama; fungsi mulus di x = 2 nilai 3 limit 3; empat cara rusak: berlubang, digeser, melompat, meledak; ketiga kerusakan pertama sudah ditemui; janji substitusi langsung dilunasi: suku banyak kontinu di semua titik; substitusi bukan definisi limit melainkan akibat kekontinuan). Yang ditambah: pembuka sub-bab plus Bagian 2, segar-ingat Bagian 1 (sin x : x dijepit menuju 1), contoh angka pada fungsi mulus (1,9 memberi 2,9 dan 2,1 memberi 3,1), rujukan kerusakan memakai nama sub-bab dan bagian, penutup menunjuk Penerapan Limit.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Apa bedanya grafik yang bisa digambar tanpa mengangkat pensil?"
+      "id": "buka",
+      "teks": "Limit Trigonometri dan Kekontinuan, Bagian dua. Apa bedanya grafik yang bisa digambar tanpa mengangkat pensil?",
+      "tulis": "Limit Trigonometri dan Kekontinuan, Bagian 2. Apa bedanya grafik yang bisa digambar tanpa mengangkat pensil?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di materi sebelumnya, Limit Trigonometri dan Kekontinuan, Bagian satu, sinus x dibagi x dijepit dari dua sisi sampai menuju tepat satu. Kali ini kita kumpulkan semua cara sebuah grafik bisa putus.",
+      "tulis": "Di materi sebelumnya, Limit Trigonometri dan Kekontinuan, Bagian 1, sin x dibagi x dijepit dari dua sisi sampai menuju tepat 1. Kali ini kita kumpulkan semua cara sebuah grafik bisa putus."
     },
     {
       "id": "rel",
-      "teks": "Bayangkan rel roller coaster. Ia boleh menanjak, boleh menukik, boleh berputar. Yang tidak boleh, ada potongan rel yang hilang."
+      "teks": "Bayangkan rel roller coaster. Ia boleh menanjak, boleh menukik, boleh berputar. Yang tidak boleh, ada potongan rel yang hilang.",
+      "tulis": "Bayangkan rel roller coaster. Ia boleh menanjak, boleh menukik, boleh berputar. Yang tidak boleh, ada potongan rel yang hilang."
     },
     {
       "id": "syarat",
@@ -19,8 +26,8 @@
     },
     {
       "id": "mulus",
-      "teks": "Pada fungsi yang mulus, ketiganya terpenuhi. Titik di x sama dengan dua punya nilai tiga, limitnya juga tiga, dan keduanya berimpit.",
-      "tulis": "Pada fungsi yang mulus, ketiganya terpenuhi. Titik di x = 2 punya nilai 3, limitnya juga 3, dan keduanya berimpit."
+      "teks": "Pada fungsi yang mulus, ketiganya terpenuhi. Ambil f dari x sama dengan x tambah satu. Titik di x sama dengan dua punya nilai tiga. Di satu koma sembilan nilainya dua koma sembilan, di dua koma satu nilainya tiga koma satu, jadi limitnya juga tiga, dan keduanya berimpit.",
+      "tulis": "Pada fungsi yang mulus, ketiganya terpenuhi. Ambil f(x) = x + 1. Titik di x = 2 punya nilai 3. Di 1,9 nilainya 2,9, di 2,1 nilainya 3,1, jadi limitnya juga 3, dan keduanya berimpit."
     },
     {
       "id": "lubang",
@@ -44,13 +51,13 @@
     },
     {
       "id": "kenal",
-      "teks": "Ketiga kerusakan pertama sebenarnya sudah pernah Anda temui. Berlubang di materi keempat, melompat di materi ketiga, dan meledak di materi ketujuh.",
-      "tulis": "Ketiga kerusakan pertama sebenarnya sudah pernah Anda temui. Berlubang di Materi 04, melompat di Materi 03, dan meledak di Materi 07."
+      "teks": "Ketiga kerusakan pertama sebenarnya sudah pernah Anda temui. Berlubang di Konsep Limit Bagian empat, melompat di Konsep Limit Bagian tiga, dan meledak di Sifat Limit Bagian tiga.",
+      "tulis": "Ketiga kerusakan pertama sebenarnya sudah pernah Anda temui. Berlubang di Konsep Limit Bagian 4, melompat di Konsep Limit Bagian 3, dan meledak di Sifat Limit Bagian 3."
     },
     {
       "id": "janji",
-      "teks": "Sekarang janji dari materi kelima bisa dilunasi. Di sana dikatakan substitusi langsung sah untuk suku banyak, tapi alasannya ditunda.",
-      "tulis": "Sekarang janji dari Materi 05 bisa dilunasi. Di sana dikatakan substitusi langsung sah untuk suku banyak, tapi alasannya ditunda."
+      "teks": "Sekarang janji dari Sifat Limit dan Cara Menghitungnya, Bagian satu, bisa dilunasi. Di sana dikatakan substitusi langsung sah untuk suku banyak, tapi alasannya ditunda.",
+      "tulis": "Sekarang janji dari Sifat Limit dan Cara Menghitungnya, Bagian 1, bisa dilunasi. Di sana dikatakan substitusi langsung sah untuk suku banyak, tapi alasannya ditunda."
     },
     {
       "id": "sebab",
@@ -59,7 +66,13 @@
     },
     {
       "id": "tutup",
-      "teks": "Jadi substitusi bukan definisi limit, melainkan akibat dari kekontinuan. Untuk fungsi yang tidak kontinu, jalan pintas itu langsung gugur."
+      "teks": "Jadi substitusi bukan definisi limit, melainkan akibat dari kekontinuan. Untuk fungsi yang tidak kontinu, jalan pintas itu langsung gugur.",
+      "tulis": "Jadi substitusi bukan definisi limit, melainkan akibat dari kekontinuan. Untuk fungsi yang tidak kontinu, jalan pintas itu langsung gugur."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Penerapan Limit, kita lihat di mana limit dan kekontinuan dipakai di dunia nyata.",
+      "tulis": "Di materi berikutnya, Penerapan Limit, kita lihat di mana limit dan kekontinuan dipakai di dunia nyata."
     }
   ]
 }

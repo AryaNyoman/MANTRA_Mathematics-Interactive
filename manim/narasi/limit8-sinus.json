@@ -1,13 +1,18 @@
 {
   "adegan": "LimitSinus",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Limit Materi 08, Limit sinus jadi angka 1. Video prioritas KETIGA. Ini penyambung ke topik Trigonometri, jadi lingkaran satuannya WAJIB memakai warna yang sama dengan widget dan video Trigonometri. Buktinya mengikuti buku Kemendikdasmen halaman 88 dan 89: perbandingan luas segitiga dalam, juring, dan segitiga luar.",
+  "tempo": "-5%",
+  "catatan": "Limit Trigonometri dan Kekontinuan, Bagian 1 (Materi 08). Ditulis ulang 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (sin x : x mentok 0 : 0; angka 0,1 memberi 0,9983 dan 0,01 memberi 0,999983; kenapa tepat 1: di lingkaran satuan tiga daerah bersarang, segitiga dalam setengah cos sin, juring setengah x, segitiga luar setengah tan; dibagi sin x jadi cos x < x : sin x < 1 : cos x; kedua penjepit menuju 1; syarat radian; jadi tepat 1 dari perbandingan luas, bukan tebakan tabel). Buktinya mengikuti buku Kemendikdasmen halaman 88 dan 89. Yang ditambah: pembuka sub-bab plus Bagian 1, segar-ingat dari Trigonometri (Lingkaran Satuan dan Sudut Istimewa, Bagian 2: sin tinggi, cos mendatar, tan ruas garis singgung), contoh angka di 0,5 radian untuk urutan luas (0,2104 < 0,25 < 0,2732), penutup menunjuk Bagian 2. Lingkaran satuannya memakai warna yang sama dengan video Trigonometri.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Kenapa sinus x dibagi x menuju tepat satu, bukan sekadar mendekati?",
-      "tulis": "Kenapa (sin x) : x menuju tepat 1, bukan sekadar mendekati?"
+      "id": "buka",
+      "teks": "Limit Trigonometri dan Kekontinuan, Bagian satu. Kenapa sinus x dibagi x menuju tepat satu, bukan sekadar mendekati?",
+      "tulis": "Limit Trigonometri dan Kekontinuan, Bagian 1. Kenapa (sin x) : x menuju tepat 1, bukan sekadar mendekati?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Ingat dari Trigonometri, Lingkaran Satuan dan Sudut Istimewa, Bagian dua: di lingkaran satuan, sinus x adalah tinggi titik, kosinus x jarak mendatarnya, dan tangen x panjang ruas garis singgung. Ketiganya akan dipakai di sini.",
+      "tulis": "Ingat dari Trigonometri, Lingkaran Satuan dan Sudut Istimewa, Bagian 2: di lingkaran satuan, sin x adalah tinggi titik, cos x jarak mendatarnya, dan tan x panjang ruas garis singgung. Ketiganya akan dipakai di sini."
     },
     {
       "id": "coba",
@@ -40,14 +45,19 @@
       "tulis": "Luas segitiga dalam = ½ cos x · sin x. Luas juringnya ½ x, karena jari-jarinya 1. Dan luas segitiga luar = ½ tan x."
     },
     {
+      "id": "cek",
+      "teks": "Cek dengan angka di sudut nol koma lima radian. Segitiga dalam nol koma dua satu nol empat. Juring nol koma dua lima. Segitiga luar nol koma dua tujuh tiga dua. Memang makin besar.",
+      "tulis": "Cek dengan angka di sudut 0,5 radian. Segitiga dalam 0,2104. Juring 0,25. Segitiga luar 0,2732. Memang makin besar."
+    },
+    {
       "id": "urut",
-      "teks": "Karena yang satu termuat di dalam yang lain, urutan luasnya sudah pasti naik.",
-      "tulis": "Karena yang satu termuat di dalam yang lain, urutan luasnya sudah pasti naik."
+      "teks": "Karena yang satu termuat di dalam yang lain, urutan luasnya sudah pasti naik, berapa pun sudutnya.",
+      "tulis": "Karena yang satu termuat di dalam yang lain, urutan luasnya sudah pasti naik, berapa pun sudutnya."
     },
     {
       "id": "bagi",
-      "teks": "Bagi ketiganya dengan sinus, dan bentuknya menjadi rapi. Kosinus lebih kecil dari sudut dibagi sinus, dan itu lebih kecil dari satu dibagi kosinus.",
-      "tulis": "Bagi ketiganya dengan sin x, dan bentuknya menjadi rapi. cos x < x : sin x < 1 : cos x."
+      "teks": "Bagi ketiganya dengan setengah sinus, dan bentuknya menjadi rapi. Kosinus lebih kecil dari sudut dibagi sinus, dan itu lebih kecil dari satu dibagi kosinus.",
+      "tulis": "Bagi ketiganya dengan ½ sin x, dan bentuknya menjadi rapi. cos x < x : sin x < 1 : cos x."
     },
     {
       "id": "jepit",
@@ -63,6 +73,11 @@
       "id": "tutup",
       "teks": "Jadi bukan hampir satu, melainkan tepat satu. Dan alasannya bukan tebakan dari tabel, melainkan perbandingan luas di dalam lingkaran.",
       "tulis": "Jadi bukan hampir 1, melainkan tepat 1. Dan alasannya bukan tebakan dari tabel, melainkan perbandingan luas di dalam lingkaran."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Limit Trigonometri dan Kekontinuan, Bagian dua, kita kumpulkan semua cara sebuah grafik bisa putus, dan memberi nama pada yang tidak putus.",
+      "tulis": "Di materi berikutnya, Limit Trigonometri dan Kekontinuan, Bagian 2, kita kumpulkan semua cara sebuah grafik bisa putus, dan memberi nama pada yang tidak putus."
     }
   ]
 }
