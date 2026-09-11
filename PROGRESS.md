@@ -1,5 +1,33 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 11 SEP (malam): DUA VIDEO PERTAMA v3.1, TRIGONOMETRI 02 DAN 04, MENUNGGU ARYA (master 14052da)
+
+Permintaan ARYA: mulai dari Trigonometri, dua video sekaligus, durasi
+dilonggarkan 2 sampai 6 menit (jangan dipaksakan 6), isi kurang lebih sama
+dengan video lama yang sudah bagus, kualitas tidak boleh turun. Hasil:
+- `tahap2-perbandingan-tetap` (Materi 02, "Perbandingan Trigonometri,
+  Bagian 2") 2:23, 57 pemicu kata, dan `tahap4-lahirnya-rasio` (Materi 04,
+  "Bagian 4") 2:40, 51 pemicu; keduanya ManimGL 1080p60 mp4 (video lama
+  Manim CE webm 1:32 dan 1:22). Isinya sama; tambahannya pembuka v3.1,
+  segar-ingat singkat (Bagian 1: orang dan pohon 1,25; Bagian 3: nama sisi),
+  "berapa pun pengalinya" (02), "kenapa 2 bukan 3" dan contoh 3-4-5 (04),
+  penutup yang menunjuk bagian berikutnya. Tanpa Pythagoras.
+- Semua gerbang lolos: cek_kode, cek_pemicu_urut, cek_waktu_adegan (kini
+  mengenal `ke=`), cek_pembuka_video, qc, cek_layar_kosong, cek_subtitle,
+  cek_aset_video; lembar kontak 480p dan 1080p DIBUKA: lima cacat ditemukan
+  dan ditutup sebelum final (rasio menindih garis tanah, "1188" saat
+  pudar-silang, TAB dari heredoc jadi "sin heta", "miring = 5" menindih
+  garis miring, "sudut tetap" menindih sisi miring, lingkaran penuh keluar
+  bingkai, layar kosong 3 dan 7 detik).
+- Angka hidup dirender LaTeX (`always_redraw(rumus(...))`), bukan
+  DecimalNumber Pango; jebakan 42 sampai 46 dicatat di memori MASTER.
+- Berkas untuk ARYA: `D:\MANTRA-BACKUP\2026-09-11\UNTUK ARYA PERIKSA\`
+  (final 1080p60 dan salinan 480p bersubtitel, plus BACA DULU.txt).
+- `tahap.ts` sudah menunjuk mp4, tsc bersih, BELUM deploy; webm lama masih
+  di `web/public/anim` sampai ARYA menyetujui.
+Berikutnya: menunggu tinjauan ARYA; kalau disetujui, deploy dan lanjut
+Trigonometri 05, 06, 07 (kelompok dua sampai tiga).
+
 ## 11 SEP: PAKET SITUS TAYANG, PERAPIAN SELESAI, ASET VIDEO DISAMAKAN (master 1b8c30e)
 
 Deploy produksi tiga kali (matra-eight dan mantra-matematika): paket situs,
