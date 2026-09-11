@@ -1,17 +1,27 @@
-"""Vektor Materi 01, Angka saja tidak cukup. ManimGL, STANDAR VIDEO v3.
+"""Vektor Materi 01, Pengenalan Vektor Bagian 1. ManimGL, STANDAR VIDEO v3.1.
 
-TULIS ULANG 8 SEPTEMBER 2026. Versi sebelumnya 12 segmen, 2 menit 19 detik,
-waktunya dibagi rata per babak. Versi ini 31 segmen, 4 menit 56 detik, dan tiap
-kejadian di layar dipicu pada detik KATA-nya diucapkan (`sinema.JamKata`).
+TULIS ULANG 8 SEPTEMBER 2026 (v3, 31 segmen, 4 menit 56 detik), DISESUAIKAN
+MASTER 12 SEPTEMBER 2026 ke v3.1: 29 segmen, 4 menit 38 detik. Tiap kejadian
+di layar dipicu pada detik KATA-nya diucapkan (`sinema.JamKata`).
 
-KERANGKA v3 (docs/tugas/STANDAR-VIDEO-V3.md bagian 1)
-  pembuka      buka                     satu pertanyaan, diucapkan dan ditulis
-  segar-ingat  ingat_smp, ingat_angka,  teorema Pythagoras, bekal SMP, dengan
-               beda                     segitiga 3-4-5 yang digambar di petak
+KERANGKA v3.1 (docs/tugas/STANDAR-VIDEO-V3.md bagian 1)
+  pembuka      buka                     "Pengenalan Vektor, Bagian 1", lalu pertanyaannya
+  segar-ingat  ingat                    Pythagoras (prasyarat nyata: dipakai hitung1-3),
+                                        segitiga a, b, c; SATU segmen, tanpa contoh 3-4-5
+                                        yang mengulang hitungan utama
   contoh angka cerita sampai baca_petak dayung 3 km, arus 4 km, dibaca dari petak
   asal rumus   siku sampai hitung3      segitiganya DIBENTUK dulu, baru dihitung
   bentuk umum  tanya sampai umum        tiga jawaban, lalu akar a^2 + b^2
-  penutup      nama sampai tutup2       vektor lawan skalar, lalu video berikutnya
+  penutup      nama sampai lanjut       vektor lawan skalar, tiga pasang panah kecil
+                                        (7, 1, 5), lalu Pengenalan Vektor Bagian 2
+
+YANG BERUBAH DARI v3 KE v3.1 (keputusan ARYA 10 dan 11 Sep 2026)
+- Kalimat narasi TIDAK ditulis sebagai teks di layar (pita "hanya benar kalau
+  keduanya searah", dua kalimat penutup, "massa 60 kg ke utara ?" dibuang);
+  yang bercerita gambar: pasangan panah kecil, coretan merah, dua panah sama.
+- Sorot panah memakai PITA UNGU TEMBUS PANDANG (`sorot_panah`), bukan
+  `Indicate`: pada panah `always_redraw` Indicate tidak berbekas sama sekali,
+  dan pada benda lain ia menutup bendanya (ARYA: "seperti glitch").
 
 TIGA KEPUTUSAN YANG DISENGAJA, DICATAT SUPAYA TIDAK DIKIRA KELALAIAN
 
@@ -134,10 +144,18 @@ class PerahuVektor(AdeganMatra):
         # ==============================================================
         # buka: pertanyaan video ini, di atas dunia 3D
         # ==============================================================
+        tanya_buka = teks("Kenapa 3 + 4 tidak selalu 7?", 34, TINTA)
+        sinema.batasi_lebar(tanya_buka, 11.0)
+        tanya_buka.move_to([0, 2.4, 0]).fix_in_frame()
+
         with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
-            sinema.judul_pembuka(self, "Materi 01: kenapa 3 + 4 tidak selalu 7?",
-                                 lama=2.6, y=2.4)
+            b.tunggu_kata("Pengenalan")
+            sinema.judul_pembuka(self, "Pengenalan Vektor, Bagian 1", lama=2.6, y=2.4)
             b.catat(2.6)
+            b.tunggu_kata("Kenapa")
+            self.hud_tambah(tanya_buka)
+            b.main(Write(tanya_buka), run_time=1.5)
+            self.hud_ku["tanya buka"] = tanya_buka
         self.gerbang()
 
         # ==============================================================
@@ -153,10 +171,12 @@ class PerahuVektor(AdeganMatra):
             # Kamera turun PADA kalimat yang menyebutkannya. Versi pertama
             # menurunkannya pada detik 3,3 padahal narator baru berkata "kita
             # lihat dari atas" pada detik 9,2: gambar mendahului suara empat detik.
-            b.tunggu_kata("Perahu")
+            b.tunggu_kata("Supaya")
             pusat, tinggi = kamera.muat_datar(bidang)
             b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi),
-                   run_time=1.6)
+                   FadeOut(tanya_buka), run_time=1.6)
+            self.remove(tanya_buka)
+            self.hud_ku.pop("tanya buka", None)
             self.di_air = False
             # Air 3D ditukar PITA sungai, bukan dibiarkan. Dari tegak lurus air
             # 3D memenuhi layar sebagai dinding garis biru tanpa tepian, dan itu
@@ -178,73 +198,50 @@ class PerahuVektor(AdeganMatra):
         self.gerbang()
 
         # ==============================================================
-        # ingat_smp, ingat_angka, beda: bekal SMP dipanggil kembali
+        # ingat: bekal SMP dipanggil kembali, SATU segmen, segitiga a b c
         # ==============================================================
         siku_i = self.tanda_siku(np.array([IX0, IY1, Z]), RIGHT, DOWN)
         sisi_tegak_i = Line([IX0, IY0, Z], [IX0, IY1, Z]).set_stroke(TINTA, 4)
         sisi_datar_i = Line([IX0, IY1, Z], [IX1, IY1, Z]).set_stroke(TINTA, 4)
         sisi_miring_i = Line([IX0, IY0, Z], [IX1, IY1, Z]).set_stroke(SOROT, 4)
         segitiga_i = VGroup(sisi_tegak_i, sisi_datar_i, sisi_miring_i)
-        l3_i = rumus("3", 32, TINTA).move_to([IX0 - 0.42, (IY0 + IY1) / 2, Z])
-        l4_i = rumus("4", 32, TINTA).move_to([(IX0 + IX1) / 2, IY1 + 0.42, Z])
-        l5_i = rumus("5", 32, SOROT).move_to([-2.0, 0.55, Z])
+        la_i = rumus("a", 32, TINTA).move_to([IX0 - 0.42, (IY0 + IY1) / 2, Z])
+        lb_i = rumus("b", 32, TINTA).move_to([(IX0 + IX1) / 2, IY1 + 0.42, Z])
+        lc_i = rumus("c", 32, SOROT).move_to([-0.85, 0.72, Z])
 
-        with sinema.babak(self, "ingat_smp", DURASI, kata=KATA) as b:
-            b.tunggu_kata("Sebelum")
+        perahu2d = ilustrasi.perahu_atas(0.5).move_to([0, 0, Z])
+        perahu2d.add_updater(lambda m: m.move_to([self.bx.get_value(), self.by.get_value(), Z]))
+
+        with sinema.babak(self, "ingat", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Bekal")
             b.main(FadeOut(kotak_satuan), run_time=0.5)
             self.remove(kotak_satuan)
             b.tunggu_kata("teorema")
             self.papan.baris(r"\text{teorema Pythagoras}", REDUP, b=b)
             b.tunggu_kata("segitiga")
-            # 0,9 dan 0,4, bukan 1,2 dan 0,5: pemicu "kuadrat" datang 1,6 detik
-            # sesudah "segitiga", dan gambar yang belum selesai saat katanya
-            # diucapkan menggeser seluruh babak (gerbang cek_pemicu_urut).
             b.main(ShowCreation(segitiga_i), run_time=0.9)
             self.aktif["segitiga ingat"] = segitiga_i
             b.main(ShowCreation(siku_i), run_time=0.4)
             self.aktif["siku ingat"] = siku_i
             b.tunggu_kata("kuadrat")
+            self.add(lc_i)
+            b.main(FadeIn(lc_i), run_time=0.5)
+            self.tulisan["c ingat"] = lc_i
             self.papan.baris(r"c^2 = a^2 + b^2", TINTA, b=b)
-        self.gerbang()
-
-        with sinema.babak(self, "ingat_angka", DURASI, kata=KATA) as b:
-            b.tunggu_kata("Sisi tegak")
-            self.add(l3_i)
-            b.main(FadeIn(l3_i), Indicate(sisi_tegak_i, scale_factor=1, color=SOROT),
-                   run_time=0.9)
-            self.tulisan["3 ingat"] = l3_i
-            b.tunggu_kata("sisi mendatar")
-            self.add(l4_i)
-            b.main(FadeIn(l4_i), Indicate(sisi_datar_i, scale_factor=1, color=SOROT),
-                   run_time=0.9)
-            self.tulisan["4 ingat"] = l4_i
-            b.tunggu_kata("Tiga kuadrat")
-            uraian = self.papan.baris(r"3^2 + 4^2", TINTA, b=b)
-            b.tunggu_kata("dijumlahkan")
-            uraian = sinema.ganti_rumus(self, uraian, r"9 + 16 = 25", b=b,
-                                        run_time=0.9, papan=self.papan)
-            b.tunggu_kata("Akar")
-            uraian = sinema.ganti_rumus(self, uraian, r"\sqrt{25} = 5", b=b,
-                                        run_time=0.9, papan=self.papan)
-            b.tunggu_kata("adalah lima")
-            self.add(l5_i)
-            b.main(FadeIn(l5_i), run_time=0.6)
-            self.tulisan["5 ingat"] = l5_i
-        self.gerbang()
-
-        perahu2d = ilustrasi.perahu_atas(0.5).move_to([0, 0, Z])
-        perahu2d.add_updater(lambda m: m.move_to([self.bx.get_value(), self.by.get_value(), Z]))
-
-        with sinema.babak(self, "beda", DURASI, kata=KATA) as b:
-            b.tunggu_kata("Pythagoras biasa")
+            b.tunggu_kata("dua sisi")
+            self.add(la_i, lb_i)
+            b.main(FadeIn(la_i), FadeIn(lb_i), run_time=0.6)
+            self.tulisan["a ingat"] = la_i
+            self.tulisan["b ingat"] = lb_i
+            b.tunggu_kata("Biasanya")
             b.main(Indicate(segitiga_i, scale_factor=1, color=SOROT), run_time=1.0)
-            b.tunggu_kata("Hari ini")
-            pergi = Group(segitiga_i, siku_i, l3_i, l4_i, l5_i)
+            b.tunggu_kata("segitiganya belum")
+            pergi = Group(segitiga_i, siku_i, la_i, lb_i, lc_i)
             self.papan_baru(b, lama=1.0, bareng=[FadeOut(pergi)])
             self.remove(*pergi)
             for nama in ("segitiga ingat", "siku ingat"):
                 self.aktif.pop(nama, None)
-            for nama in ("3 ingat", "4 ingat", "5 ingat"):
+            for nama in ("a ingat", "b ingat", "c ingat"):
                 self.tulisan.pop(nama, None)
             b.tunggu_kata("dua gerakan")
             b.main(FadeIn(perahu2d), run_time=1.0)
@@ -347,9 +344,9 @@ class PerahuVektor(AdeganMatra):
 
         with sinema.babak(self, "bersamaan", DURASI, kata=KATA) as b:
             b.tunggu_kata("panah biru")
-            b.main(Indicate(p_dayung, scale_factor=1, color=SOROT), run_time=1.0)
+            self.sorot_panah(b, p_dayung)
             b.tunggu_kata("panah merah")
-            b.main(Indicate(p_arus, scale_factor=1, color=SOROT), run_time=1.0)
+            self.sorot_panah(b, p_arus)
         self.gerbang()
 
         with sinema.babak(self, "jalur", DURASI, kata=KATA) as b:
@@ -391,7 +388,7 @@ class PerahuVektor(AdeganMatra):
 
         with sinema.babak(self, "tanya_jarak", DURASI, kata=KATA) as b:
             b.tunggu_kata("sejauh apa")
-            b.main(Indicate(p_res, scale_factor=1, color=SOROT), run_time=1.0)
+            self.sorot_panah(b, p_res)
             b.tunggu_kata("berpindah")
             pergi = VGroup(proy_datar, proy_tegak, l_datar, l_tegak)
             b.main(FadeOut(pergi), run_time=0.8)
@@ -409,9 +406,9 @@ class PerahuVektor(AdeganMatra):
 
         with sinema.babak(self, "siku", DURASI, kata=KATA) as b:
             b.tunggu_kata("panah biru")
-            b.main(Indicate(p_dayung, scale_factor=1, color=SOROT), run_time=0.7)
+            self.sorot_panah(b, p_dayung, lama=0.7)
             b.tunggu_kata("panah merah")
-            b.main(Indicate(p_arus, scale_factor=1, color=SOROT), run_time=0.7)
+            self.sorot_panah(b, p_arus, lama=0.7)
             b.tunggu_kata("Keduanya bertemu")
             b.main(self.geser.animate.set_value(0.0), run_time=0.6)
             b.tunggu_kata("tegak lurus")
@@ -419,7 +416,7 @@ class PerahuVektor(AdeganMatra):
             b.main(ShowCreation(siku), run_time=0.8)
             self.aktif["siku"] = siku
             b.tunggu_kata("Di sinilah")
-            b.main(Indicate(p_res, scale_factor=1, color=SOROT), run_time=1.0)
+            self.sorot_panah(b, p_res)
         self.gerbang()
 
         # Nama panah ditukar dengan ANGKANYA, memakai pengikut yang sama persis.
@@ -445,7 +442,7 @@ class PerahuVektor(AdeganMatra):
             self.tulisan.pop("label arus", None)
             self.tulisan["4 km"] = l_empat
             b.tunggu_kata("Panah ungu")
-            b.main(Indicate(p_res, scale_factor=1, color=SOROT), run_time=1.0)
+            self.sorot_panah(b, p_res)
         self.gerbang()
 
         label_p = teks("panjang", 24, SOROT)
@@ -476,9 +473,9 @@ class PerahuVektor(AdeganMatra):
             self.hud_tambah(ukur)
             self.papan.ikut(ukur)
             ukur.set_opacity(0)
-            b.main(ukur.animate.set_opacity(1),
-                   Indicate(p_res, scale_factor=1, color=SOROT), run_time=1.0)
+            b.main(ukur.animate.set_opacity(1), run_time=0.5)
             self.hud_ku["ukur"] = ukur
+            self.sorot_panah(b, p_res, lama=0.8)
         self.gerbang()
 
         # ==============================================================
@@ -504,7 +501,7 @@ class PerahuVektor(AdeganMatra):
                    self.bx.animate.set_value(0.0), self.by.animate.set_value(0.0),
                    run_time=3.0)
             b.tunggu_kata("Panah ungunya")
-            b.main(Indicate(p_res, scale_factor=1, color=SOROT), run_time=1.0)
+            self.sorot_panah(b, p_res)
             b.tunggu_kata("Di sini")
             self.papan.baris(r"3 + 4 = 7", SOROT, b=b)
         self.gerbang()
@@ -513,7 +510,7 @@ class PerahuVektor(AdeganMatra):
             b.tunggu_kata("Kalau dayung")
             b.main(self.th.animate.set_value(180.0), run_time=3.0)
             b.tunggu_kata("Panah ungunya")
-            b.main(Indicate(p_res, scale_factor=1, color=SOROT), run_time=1.0)
+            self.sorot_panah(b, p_res)
             b.tunggu_kata("sisanya tinggal")
             self.papan.baris(r"4 - 3 = 1", SOROT, b=b)
         self.gerbang()
@@ -536,8 +533,7 @@ class PerahuVektor(AdeganMatra):
             b.tunggu_kata("atau lima")
             b.main(Indicate(baris_lima, color=SOROT), run_time=0.7)
             b.tunggu_kata("Yang membedakan")
-            b.main(Indicate(p_dayung, scale_factor=1, color=SOROT),
-                   Indicate(p_arus, scale_factor=1, color=SOROT), run_time=1.0)
+            self.sorot_panah(b, p_dayung, p_arus)
         self.gerbang()
 
         with sinema.babak(self, "umum", DURASI, kata=KATA) as b:
@@ -584,9 +580,7 @@ class PerahuVektor(AdeganMatra):
             # pertama membersihkannya pada kata pertama dan meninggalkan layar
             # kosong 2,5 detik (ditemukan alat/cek_layar_kosong.py).
             b.tunggu_kata("Besaran")
-            b.main(Indicate(p_dayung, scale_factor=1, color=SOROT),
-                   Indicate(p_arus, scale_factor=1, color=SOROT),
-                   Indicate(p_res, scale_factor=1, color=SOROT), run_time=1.2)
+            self.sorot_panah(b, p_dayung, p_arus, p_res, lama=1.2)
             b.tunggu_kata("punya nama")
             # Pengikut dimatikan SEBELUM dipudarkan. `always_redraw` membangun
             # ulang bendanya tiap frame, jadi ia memulihkan dirinya di tengah
@@ -627,23 +621,32 @@ class PerahuVektor(AdeganMatra):
             self.hud_ku["kolom skalar"] = isi_s
         self.gerbang()
 
-        catatan_uji = teks("massa 60 kg ke utara ?", 28, REDUP)
-        catatan_uji.move_to([0, -1.95, 0]).fix_in_frame()
+        # "massa 60 kg ke utara": arahnya ditempelkan pada barisnya sebagai label
+        # dua kata plus panah kecil, lalu DICORET merah. Bukan kalimat di layar.
+        arah_uji = VGroup(teks("ke utara", 30, AKSEN),
+                          Arrow(ORIGIN, UP * 0.55, buff=0, thickness=4).set_color(AKSEN))
+        arah_uji.arrange(RIGHT, buff=0.15)
+        arah_uji.next_to(isi_s[0], RIGHT, buff=0.28).fix_in_frame()
+        coret_uji = Line(arah_uji.get_left() + DOWN * 0.08, arah_uji.get_right() + UP * 0.08)
+        coret_uji.set_stroke(AKSEN, 4).fix_in_frame()
 
         with sinema.babak(self, "uji", DURASI, kata=KATA) as b:
             b.tunggu_kata("Coba tambahkan")
             b.main(Indicate(isi_s[0], color=AKSEN), run_time=0.8)
-            b.tunggu_kata("massa enam")
-            self.hud_tambah(catatan_uji)
-            catatan_uji.set_opacity(0)
-            b.main(catatan_uji.animate.set_opacity(1), run_time=0.9)
-            self.hud_ku["catatan uji"] = catatan_uji
+            b.tunggu_kata("ke utara")
+            self.hud_tambah(arah_uji)
+            b.main(FadeIn(arah_uji, shift=RIGHT * 0.2), run_time=0.6)
+            self.hud_ku["arah uji"] = arah_uji
             b.tunggu_kata("Kalimat itu")
-            b.main(FadeOut(catatan_uji), run_time=0.8)
-            self.remove(catatan_uji)
-            self.hud_ku.pop("catatan uji", None)
+            self.hud_tambah(coret_uji)
+            b.main(ShowCreation(coret_uji), run_time=0.5)
+            self.hud_ku["coret uji"] = coret_uji
             b.tunggu_kata("bukan vektor")
-            b.main(Indicate(judul_s, color=REDUP), run_time=0.8)
+            b.main(FadeOut(arah_uji), FadeOut(coret_uji), Indicate(judul_s, color=REDUP),
+                   run_time=0.8)
+            self.remove(arah_uji, coret_uji)
+            self.hud_ku.pop("arah uji", None)
+            self.hud_ku.pop("coret uji", None)
         self.gerbang()
 
         with sinema.babak(self, "contoh_vektor", DURASI, kata=KATA) as b:
@@ -658,9 +661,11 @@ class PerahuVektor(AdeganMatra):
             b.main(Indicate(judul_v, color=SOROT), run_time=0.8)
         self.gerbang()
 
-        jebakan = rumus(r"3 + 4 = 7", 44, REDUP).move_to([0, 0.75, 0]).fix_in_frame()
-        syarat = teks("hanya benar kalau keduanya searah", 30, AKSEN)
-        syarat.move_to([0, -0.35, 0]).fix_in_frame()
+        jebakan = rumus(r"3 + 4 = 7", 44, REDUP).move_to([0, 0.95, 0]).fix_in_frame()
+        # "hanya benar kalau keduanya searah": bukan kalimat, melainkan pasangan
+        # panah kecil yang searah, berlabel satu kata.
+        mini_searah = self.mini_pasangan(0.0, teks("searah", 28, REDUP), s=0.46)
+        mini_searah.move_to([0, -0.55, 0]).fix_in_frame()
 
         with sinema.babak(self, "keliru", DURASI, kata=KATA) as b:
             b.tunggu_kata("melihat angka")
@@ -674,67 +679,61 @@ class PerahuVektor(AdeganMatra):
             self.hud_ku["jebakan"] = jebakan
             b.tunggu_kata("jebakan")
             b.main(Indicate(jebakan, color=AKSEN), run_time=1.0)
-            b.tunggu_kata("Menumpuk angka")
-            self.hud_tambah(syarat)
-            syarat.set_opacity(0)
-            b.main(syarat.animate.set_opacity(1), run_time=1.0)
-            self.hud_ku["syarat"] = syarat
+            b.tunggu_kata("hanya benar")
+            self.hud_tambah(mini_searah)
+            b.main(FadeIn(mini_searah, shift=UP * 0.2), run_time=1.0)
+            self.hud_ku["mini searah"] = mini_searah
         self.gerbang()
 
-        tutup1 = teks("Begitu arah ikut dihitung, angka tidak boleh ditumpuk begitu saja.",
-                      32, TINTA)
-        sinema.batasi_lebar(tutup1, 11.4)
-        tutup1.move_to([0, 0.9, 0]).fix_in_frame()
-        tutup2 = teks("Berikutnya: satu panah dicatat sebagai dua langkah.", 32, SOROT)
-        sinema.batasi_lebar(tutup2, 11.4)
-        tutup2.move_to([0, -1.35, 0]).fix_in_frame()
-
-        # Peraga janji video berikutnya: satu panah miring, lalu dua langkah.
-        pj = np.array([-1.9, -0.55, 0.0])
-        panah_janji = Arrow(pj, pj + np.array([2.6, 1.4, 0.0]), buff=0,
-                            thickness=5).set_color(SOROT).fix_in_frame()
-        # Mendatar BIRU, tegak MERAH: kesepakatan warna proyek (`web/lib/warna.ts`,
-        # `samping` biru untuk sumbu x, `depan` merah untuk sumbu y), dipakai
-        # widget `pecah-komponen` dan video Materi 03. Versi pertama gambar ini
-        # menukar keduanya, jadi peraga "berikutnya" membantah video berikutnya.
-        langkah1 = Line(pj, pj + np.array([2.6, 0.0, 0.0])).set_stroke(AKSEN2, 4).fix_in_frame()
-        langkah2 = Line(pj + np.array([2.6, 0.0, 0.0]), pj + np.array([2.6, 1.4, 0.0]))
-        langkah2.set_stroke(AKSEN, 4).fix_in_frame()
-        janji = VGroup(panah_janji, langkah1, langkah2)
+        # Penutup: satu pasang angka, tiga pasang panah, tiga jawaban.
+        tiga_mini = VGroup(
+            self.mini_pasangan(0.0, rumus(r"3 + 4 = 7", 34, SOROT)),
+            self.mini_pasangan(180.0, rumus(r"4 - 3 = 1", 34, SOROT)),
+            self.mini_pasangan(90.0, rumus(r"\sqrt{3^2 + 4^2} = 5", 34, SOROT)),
+        )
+        for m, x in zip(tiga_mini, (-4.4, 0.0, 4.4)):
+            m.move_to([x, 0.2, 0]).fix_in_frame()
 
         with sinema.babak(self, "tutup1", DURASI, kata=KATA) as b:
             b.tunggu_kata("Jadi begitu")
-            b.main(FadeOut(jebakan), FadeOut(syarat), run_time=0.8)
-            self.remove(jebakan, syarat)
+            b.main(FadeOut(jebakan), FadeOut(mini_searah), run_time=0.8)
+            self.remove(jebakan, mini_searah)
             self.hud_ku.clear()
             b.tunggu_kata("angka tidak")
-            self.hud_tambah(tutup1)
-            tutup1.set_opacity(0)
-            b.main(tutup1.animate.set_opacity(1), run_time=1.2)
-            self.hud_ku["tutup 1"] = tutup1
+            self.hud_tambah(tiga_mini)
+            b.main(LaggedStart(*[FadeIn(m, shift=UP * 0.2) for m in tiga_mini],
+                               lag_ratio=0.3), run_time=1.5)
+            self.hud_ku["tiga mini"] = tiga_mini
         self.gerbang()
 
-        with sinema.babak(self, "tutup2", DURASI, kata=KATA) as b:
-            b.tunggu_kata("Di video")
-            b.main(FadeOut(tutup1), run_time=0.6)
-            self.remove(tutup1)
-            self.hud_ku.pop("tutup 1", None)
-            self.hud_tambah(tutup2)
-            tutup2.set_opacity(0)
-            b.main(tutup2.animate.set_opacity(1), run_time=0.8)
-            self.hud_ku["tutup 2"] = tutup2
-            b.tunggu_kata("dua langkah")
-            self.hud_tambah(panah_janji)
-            b.main(GrowArrow(panah_janji), run_time=1.0)
-            b.tunggu_kata("berapa jauh")
-            self.hud_tambah(langkah1)
-            b.main(ShowCreation(langkah1), run_time=0.9)
-            b.tunggu_kata("lalu berapa")
-            self.hud_tambah(langkah2)
-            b.main(ShowCreation(langkah2), run_time=0.9)
-            self.hud_ku["janji"] = janji
-            b.tunggu_kata("Dengan itu")
-            b.main(Indicate(janji, scale_factor=1.05, color=SOROT), run_time=1.0)
+        # Janji materi berikutnya: dua panah yang sama di tempat yang berbeda,
+        # lalu salinan yang satu digeser sampai berimpit dengan yang lain.
+        judul_lanjut = teks("Pengenalan Vektor, Bagian 2", 30, SOROT)
+        judul_lanjut.move_to([0, 1.7, 0]).fix_in_frame()
+        pa0, pb0 = np.array([-3.4, -0.9, 0.0]), np.array([0.9, -1.5, 0.0])
+        v_sama = np.array([2.2, 1.3, 0.0])
+        panah_a = Arrow(pa0, pa0 + v_sama, buff=0, thickness=5).set_color(SOROT).fix_in_frame()
+        panah_b = Arrow(pb0, pb0 + v_sama, buff=0, thickness=5).set_color(SOROT).fix_in_frame()
+        salinan_a = Arrow(pa0, pa0 + v_sama, buff=0, thickness=5).set_color(AKSEN2).fix_in_frame()
+
+        with sinema.babak(self, "lanjut", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Di materi")
+            b.main(FadeOut(tiga_mini), run_time=0.7)
+            self.remove(tiga_mini)
+            self.hud_ku.clear()
+            b.tunggu_kata("Pengenalan")
+            self.hud_tambah(judul_lanjut)
+            b.main(FadeIn(judul_lanjut, shift=UP * 0.2), run_time=0.8)
+            self.hud_ku["judul lanjut"] = judul_lanjut
+            b.tunggu_kata("dua panah")
+            self.hud_tambah(panah_a, panah_b)
+            b.main(GrowArrow(panah_a), GrowArrow(panah_b), run_time=1.0)
+            self.hud_ku["panah a"] = panah_a
+            self.hud_ku["panah b"] = panah_b
+            b.tunggu_kata("selama panjang")
+            self.hud_tambah(salinan_a)
+            b.main(salinan_a.animate.shift(pb0 - pa0), run_time=1.6)
+            self.hud_ku["salinan a"] = salinan_a
         self.gerbang()
 
         sinema.laporkan_pemicu(self)
@@ -780,6 +779,40 @@ class PerahuVektor(AdeganMatra):
         if ikut is not None:
             self.papan.ikut(ikut)
         return self.papan
+
+    def sorot_panah(self, b, *panah, lama: float = 1.0):
+        """Sorot panah dengan pita ungu TEMBUS PANDANG di sepanjang panahnya.
+
+        Bukan `Indicate`: pada panah `always_redraw` Indicate tidak berbekas
+        (bendanya dibangun ulang tiap frame), dan pada benda lain ia menutup
+        bendanya sesaat (ARYA 11 Sep: "seperti glitch"). Pita dibangun dari
+        letak panah SAAT INI, jadi dipanggil hanya ketika panahnya diam.
+        """
+        pita = VGroup(*[Line(p.get_start(), p.get_end()).set_stroke(SOROT, 18, opacity=0.35)
+                        for p in panah])
+        self.add(pita)
+        b.main(FadeIn(pita), run_time=lama * 0.35)
+        b.main(FadeOut(pita), run_time=lama * 0.65)
+        self.remove(pita)
+
+    def mini_pasangan(self, sudut_dayung: float, label, s: float = 0.42):
+        """Pasangan panah kecil untuk penutup: dayung biru (3 satuan) pada
+        `sudut_dayung`, arus merah (4 satuan) dari ujungnya, perpindahan ungu
+        dari pangkal ke ujung, labelnya di bawah. Pada 0 dan 180 derajat
+        ketiganya segaris, jadi arus dan perpindahan digeser sedikit ke atas
+        dan ke bawah supaya ketiganya tetap terbaca."""
+        a = sudut_dayung * DEGREES
+        v_d = 3 * s * np.array([np.cos(a), np.sin(a), 0.0])
+        v_a = 4 * s * RIGHT
+        segaris = abs(np.sin(a)) < 1e-6
+        geser = 0.11 * UP if segaris else 0 * UP
+        p0 = np.zeros(3)
+        dayung = Arrow(p0, p0 + v_d, buff=0, thickness=4).set_color(AKSEN2)
+        arus = Arrow(p0 + v_d + geser, p0 + v_d + geser + v_a, buff=0, thickness=4).set_color(AKSEN)
+        hasil = Arrow(p0 - geser, p0 - geser + v_d + v_a, buff=0, thickness=5).set_color(SOROT)
+        gambar = VGroup(dayung, arus, hasil)
+        label.next_to(gambar, DOWN, buff=0.32)
+        return VGroup(gambar, label)
 
     def tanda_siku(self, pojok, arah_a, arah_b, s=0.30):
         """Tanda siku-siku di `pojok`, kakinya menuju dua arah yang diberikan."""

@@ -1,68 +1,88 @@
 {
   "adegan": "PanjangPanah",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Vektor Materi 04, Panjang panah itu Pythagoras. Arah visual sama dengan Materi 01, 03, 06, 08, dan 09. ANGKANYA SENGAJA BEDA dari halaman: halaman memakai (4 3) yang panjangnya 5, dan itu sudah diuraikan di video Materi 01. Video ini memakai (4 2) yang panjangnya akar 20, supaya siswa tidak mengira panjang vektor selalu bilangan bulat, lalu (-3 4) untuk memperlihatkan tanda minus hilang saat dikuadratkan.",
+  "tempo": "-5%",
+  "catatan": "Vektor dalam Sistem Koordinat, Bagian 2 (Materi 04). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (dua tiang, kabel; vektor (4 2); segitiga siku-siku dengan kabel sebagai sisi miring; 16 + 4 = 20, akar 20 = 2 akar 5 = 4,47; hasil tidak bulat itu biasa; (-3 4) kuadratnya 9 bukan -9, panjang 5; panjang tidak pernah negatif; arah = sudut dari sumbu mendatar 26,6 derajat; (3 4), (4 3), (-5 0) sama panjang beda arah). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2, segar-ingat Bagian 1 (panah (4 3) dicatat dua angka), bentuk umum |v| = akar(x^2 + y^2) lahir di dekat panahnya, penutup menunjuk Bagian 3 (vektor satuan). Angkanya sengaja (4 2), bukan (4 3): halaman sudah memakai (4 3) dan hasil akar 20 memperlihatkan panjang tidak selalu bulat.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Materi empat, panjang panah itu Pythagoras. Dua tiang berdiri di lapangan, dan kita harus membentang kabel lurus di antara keduanya. Pertanyaannya: berapa meter kabel yang perlu disiapkan?",
-      "tulis": "Materi 04, *panjang panah itu Pythagoras*. Dua tiang berdiri di lapangan, dan kita harus membentang kabel lurus di antara keduanya. Pertanyaannya: *berapa meter kabel* yang perlu disiapkan?"
+      "id": "buka",
+      "teks": "Vektor dalam Sistem Koordinat, Bagian dua. Sudah punya dua angka, lalu berapa panjang panahnya?",
+      "tulis": "Vektor dalam Sistem Koordinat, Bagian 2. Sudah punya dua angka, lalu berapa panjang panahnya?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di materi sebelumnya, Vektor dalam Sistem Koordinat, Bagian satu, satu panah dicatat sebagai dua angka: empat petak ke kanan, tiga petak ke atas, ditulis empat tiga. Hari ini kedua angka seperti itu kita pakai untuk menghitung panjang panahnya.",
+      "tulis": "Di materi sebelumnya, Vektor dalam Sistem Koordinat, Bagian 1, satu panah dicatat sebagai dua angka: 4 petak ke kanan, 3 petak ke atas, ditulis (4 3). Hari ini kedua angka seperti itu kita pakai untuk menghitung panjang panahnya."
+    },
+    {
+      "id": "cerita",
+      "teks": "Dua tiang berdiri di lapangan, dan kita harus membentang kabel lurus di antara keduanya. Pertanyaannya: berapa meter kabel yang perlu disiapkan?",
+      "tulis": "Dua tiang berdiri di lapangan, dan kita harus membentang kabel lurus di antara keduanya. Pertanyaannya: berapa meter kabel yang perlu disiapkan?"
     },
     {
       "id": "terbang",
       "teks": "Kita lihat dari atas. Satu petak sama dengan satu meter.",
-      "tulis": "Kita lihat dari atas. *1 petak = 1 meter*."
+      "tulis": "Kita lihat dari atas. 1 petak = 1 meter."
     },
     {
       "id": "komponen",
-      "teks": "Komponennya sudah kita tahu caranya dari materi sebelumnya. Tiang kedua berada empat petak ke kanan dan dua petak ke atas dari tiang pertama. Jadi vektornya empat dua.",
-      "tulis": "Komponennya sudah kita tahu caranya dari materi sebelumnya. Tiang kedua berada *4 petak ke kanan* dan *2 petak ke atas* dari tiang pertama. Jadi vektornya *(4 2)*."
+      "teks": "Tiang kedua berada empat petak ke kanan dan dua petak ke atas dari tiang pertama. Jadi vektornya empat dua.",
+      "tulis": "Tiang kedua berada 4 petak ke kanan dan 2 petak ke atas dari tiang pertama. Jadi vektornya (4 2)."
     },
     {
       "id": "segitiga",
       "teks": "Tapi empat dan dua bukan jawabannya. Perhatikan: langkah mendatar, langkah tegak, dan kabelnya sendiri selalu membentuk segitiga siku-siku. Dan kabelnya selalu jadi sisi miringnya.",
-      "tulis": "Tapi 4 dan 2 bukan jawabannya. Perhatikan: langkah mendatar, langkah tegak, dan kabelnya sendiri selalu membentuk *segitiga siku-siku*. Dan kabelnya selalu jadi *sisi miringnya*."
+      "tulis": "Tapi 4 dan 2 bukan jawabannya. Perhatikan: langkah mendatar, langkah tegak, dan kabelnya sendiri selalu membentuk segitiga siku-siku. Dan kabelnya selalu jadi sisi miringnya."
     },
     {
       "id": "hitung",
       "teks": "Selama itu benar, Pythagoras berlaku. Kuadratkan yang mendatar: empat kuadrat sama dengan enam belas. Kuadratkan yang tegak: dua kuadrat sama dengan empat. Jumlahkan jadi dua puluh. Lalu tarik akarnya: akar dua puluh, atau dua akar lima, sekitar empat koma empat tujuh meter.",
-      "tulis": "Selama itu benar, Pythagoras berlaku. Kuadratkan yang mendatar: *4² = 16*. Kuadratkan yang tegak: *2² = 4*. Jumlahkan jadi *20*. Lalu tarik akarnya: *√20 = 2√5 ≈ 4,47* meter."
+      "tulis": "Selama itu benar, Pythagoras berlaku. Kuadratkan yang mendatar: 4² = 16. Kuadratkan yang tegak: 2² = 4. Jumlahkan jadi 20. Lalu tarik akarnya: √20, atau 2√5, sekitar 4,47 meter."
     },
     {
       "id": "bulat",
       "teks": "Perhatikan hasilnya bukan bilangan bulat. Itu justru yang biasa. Panjang yang bulat rapi seperti lima itu kebetulan yang jarang, bukan aturan.",
-      "tulis": "Perhatikan hasilnya *bukan bilangan bulat*. Itu justru yang biasa. Panjang yang bulat rapi seperti 5 itu *kebetulan yang jarang*, bukan aturan."
+      "tulis": "Perhatikan hasilnya bukan bilangan bulat. Itu justru yang biasa. Panjang yang bulat rapi seperti 5 itu kebetulan yang jarang, bukan aturan."
+    },
+    {
+      "id": "umum",
+      "teks": "Bentuk umumnya begini. Untuk panah dengan komponen x dan y, panjangnya akar dari x kuadrat ditambah y kuadrat. Dua garis tegak yang mengapit v itu lambang untuk panjang.",
+      "tulis": "Bentuk umumnya begini. Untuk panah dengan komponen x dan y, panjangnya √(x² + y²). Dua garis tegak yang mengapit v itu lambang untuk panjang."
     },
     {
       "id": "tanya",
       "teks": "Sekarang pertanyaannya. Kalau komponennya bertanda negatif, apakah panjangnya ikut jadi negatif?",
-      "tulis": "Sekarang pertanyaannya. Kalau komponennya *bertanda negatif*, apakah panjangnya ikut jadi negatif?"
+      "tulis": "Sekarang pertanyaannya. Kalau komponennya bertanda negatif, apakah panjangnya ikut jadi negatif?"
     },
     {
       "id": "negatif",
       "teks": "Kita coba dengan panah lain: negatif tiga, empat. Komponen mendatarnya negatif, artinya bergeser ke kiri. Kuadratkan: negatif tiga kuadrat sama dengan sembilan, bukan negatif sembilan. Lalu empat kuadrat sama dengan enam belas. Jumlahnya dua puluh lima, akarnya lima.",
-      "tulis": "Kita coba dengan panah lain: *(-3 4)*. Komponen mendatarnya negatif, artinya bergeser ke kiri. Kuadratkan: *(-3)² = 9*, bukan -9. Lalu *4² = 16*. Jumlahnya *25*, akarnya *5*."
+      "tulis": "Kita coba dengan panah lain: (-3 4). Komponen mendatarnya negatif, artinya bergeser ke kiri. Kuadratkan: (-3)² = 9, bukan -9. Lalu 4² = 16. Jumlahnya 25, akarnya 5."
     },
     {
       "id": "mutlak",
       "teks": "Jadi jawabannya tidak. Minusnya hilang begitu dikuadratkan. Panjang vektor tidak pernah negatif, sebab panjang itu ukuran, dan ukuran tidak pernah kurang dari nol.",
-      "tulis": "Jadi jawabannya tidak. Minusnya *hilang begitu dikuadratkan*. Panjang vektor *tidak pernah negatif*, sebab panjang itu ukuran, dan ukuran tidak pernah kurang dari nol."
+      "tulis": "Jadi jawabannya tidak. Minusnya hilang begitu dikuadratkan. Panjang vektor tidak pernah negatif, sebab panjang itu ukuran, dan ukuran tidak pernah kurang dari 0."
     },
     {
       "id": "arah",
       "teks": "Panjang saja belum cukup untuk menyebut sebuah vektor. Arahnya juga perlu, dan arah diukur sebagai sudut dari sumbu mendatar, berlawanan arah jarum jam. Untuk empat dua, sudutnya sekitar dua puluh enam koma enam derajat.",
-      "tulis": "Panjang saja belum cukup untuk menyebut sebuah vektor. Arahnya juga perlu, dan arah diukur sebagai sudut dari *sumbu mendatar*, *berlawanan arah jarum jam*. Untuk (4 2), sudutnya sekitar *26,6°*."
+      "tulis": "Panjang saja belum cukup untuk menyebut sebuah vektor. Arahnya juga perlu, dan arah diukur sebagai sudut dari sumbu mendatar, berlawanan arah jarum jam. Untuk (4 2), sudutnya sekitar 26,6°."
     },
     {
       "id": "sama",
       "teks": "Dan inilah sebabnya keduanya harus disebut bersama. Tiga empat, empat tiga, dan negatif lima nol panjangnya sama persis, yaitu lima. Tetapi ketiganya menunjuk ke arah yang sama sekali berbeda.",
-      "tulis": "Dan inilah sebabnya keduanya harus disebut bersama. *(3 4)*, *(4 3)*, dan *(-5 0)* panjangnya sama persis, yaitu *5*. Tetapi ketiganya menunjuk ke arah yang *sama sekali berbeda*."
+      "tulis": "Dan inilah sebabnya keduanya harus disebut bersama. (3 4), (4 3), dan (-5 0) panjangnya sama persis, yaitu 5. Tetapi ketiganya menunjuk ke arah yang sama sekali berbeda."
     },
     {
       "id": "tutup",
       "teks": "Jadi ingat dua hal. Panjang panah adalah akar dari jumlah kuadrat komponennya. Dan panjang saja tidak pernah cukup untuk menyebut sebuah vektor.",
-      "tulis": "Jadi ingat dua hal. *Panjang panah adalah akar dari jumlah kuadrat komponennya.* Dan *panjang saja tidak pernah cukup* untuk menyebut sebuah vektor."
+      "tulis": "Jadi ingat dua hal. Panjang panah adalah akar dari jumlah kuadrat komponennya. Dan panjang saja tidak pernah cukup untuk menyebut sebuah vektor."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Vektor dalam Sistem Koordinat, Bagian tiga, kita cari cara menyebut arah saja tanpa ikut menyebut jauhnya: panah yang panjangnya tepat satu.",
+      "tulis": "Di materi berikutnya, Vektor dalam Sistem Koordinat, Bagian 3, kita cari cara menyebut arah saja tanpa ikut menyebut jauhnya: panah yang panjangnya tepat 1."
     }
   ]
 }

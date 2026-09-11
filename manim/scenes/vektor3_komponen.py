@@ -1,19 +1,29 @@
-"""Vektor Materi 03, Memecah panah jadi dua langkah. ManimGL, STANDAR VIDEO v3.
+"""Vektor Materi 03, Vektor dalam Sistem Koordinat Bagian 1. ManimGL, STANDAR VIDEO v3.1.
 
-TULIS ULANG 8 SEPTEMBER 2026. Versi sebelumnya 12 segmen, 2 menit 16 detik.
-Versi ini 30 segmen, 4 menit 45 detik, tiap kejadian dipicu pada detik KATA-nya
-diucapkan (`sinema.JamKata`).
+TULIS ULANG 8 SEPTEMBER 2026 (v3, 30 segmen, 4 menit 45 detik), DISESUAIKAN
+MASTER 12 SEPTEMBER 2026 ke v3.1: 30 segmen, 4 menit 55 detik, tiap kejadian
+dipicu pada detik KATA-nya diucapkan (`sinema.JamKata`).
 
-KERANGKA v3 (docs/tugas/STANDAR-VIDEO-V3.md bagian 1)
-  pembuka      buka                        satu pertanyaan, diucapkan dan ditulis
-  segar-ingat  ingat1, ingat2, ingat3      Materi 01 (perahu, mendarat 4 ke kanan
-                                           3 ke atas) dan Materi 02 (panah boleh
-                                           digeser), gambarnya ditampilkan lagi
+KERANGKA v3.1 (docs/tugas/STANDAR-VIDEO-V3.md bagian 1)
+  pembuka      buka                        "Vektor dalam Sistem Koordinat, Bagian 1",
+                                           lalu pertanyaannya
+  segar-ingat  ingat1, ingat2, ingat3      Pengenalan Vektor Bagian 1 (perahu, mendarat
+                                           4 ke kanan 3 ke atas) dan Bagian 2 (panah
+                                           boleh digeser), gambarnya ditampilkan lagi
   contoh angka masalah sampai tulis_baris  mobil 4 blok ke kanan lalu 3 blok naik
   asal rumus   tanya_tukar sampai aturan   ujung dikurangi pangkal DIBUKTIKAN
                                            dari hitungan petak A(1,2) ke B(5,5)
   bentuk umum  umum, terbalik, geser       x ujung - x pangkal, dan arti tanda
-  penutup      beda_titik sampai tutup2    titik lawan panah, lalu video berikutnya
+  penutup      beda_titik sampai lanjut    titik lawan panah; panah (4 3) dengan dua
+                                           cara menulisnya; segitiga 4-3 bertanda
+                                           tanya untuk Bagian 2
+
+YANG BERUBAH DARI v3 KE v3.1 (keputusan ARYA 10 dan 11 Sep 2026)
+- Kalimat narasi TIDAK ditulis sebagai teks di layar (tiga kalimat penutup
+  dibuang); yang bercerita gambar dan lambang.
+- Sorot panah dan ruas memakai PITA UNGU TEMBUS PANDANG (`sorot_pita`), bukan
+  `Indicate`: Indicate dengan warna yang sama dengan bendanya tidak berbekas
+  (panah ungu disorot ungu), dan pada benda lain ia menutup bendanya.
 
 TIGA KEPUTUSAN YANG DISENGAJA
 
@@ -93,10 +103,18 @@ class PecahJadiKomponen(AdeganMatra):
         # ==============================================================
         # buka: pertanyaan video ini
         # ==============================================================
+        tanya_buka = teks("Bagaimana caranya panah bisa dihitung, bukan cuma digambar?", 34, TINTA)
+        sinema.batasi_lebar(tanya_buka, 11.4)
+        tanya_buka.move_to([0, 0.3, 0]).fix_in_frame()
+
         with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
-            sinema.judul_pembuka(self, "Materi 03: bagaimana panah bisa dihitung?",
-                                 lama=2.4, y=2.4)
-            b.catat(2.4)
+            b.tunggu_kata("Vektor")
+            sinema.judul_pembuka(self, "Vektor dalam Sistem Koordinat, Bagian 1", lama=3.2, y=1.6)
+            b.catat(3.2)
+            b.tunggu_kata("Bagaimana")
+            self.hud_tambah(tanya_buka)
+            b.main(Write(tanya_buka), run_time=1.6)
+            self.hud_ku["tanya buka"] = tanya_buka
         self.gerbang()
 
         # ==============================================================
@@ -110,9 +128,11 @@ class PecahJadiKomponen(AdeganMatra):
         self.hud_ku["identitas"] = ident_km
 
         with sinema.babak(self, "ingat1", DURASI, kata=KATA) as b:
-            b.tunggu_kata("Di Materi")
-            b.main(bidang.animate.set_opacity(1),
+            b.tunggu_kata("Di Pengenalan")
+            b.main(FadeOut(tanya_buka), bidang.animate.set_opacity(1),
                    ident_km.animate.set_opacity(1), run_time=1.0)
+            self.remove(tanya_buka)
+            self.hud_ku.pop("tanya buka", None)
             self.aktif["bidang"] = bidang
             b.tunggu_kata("Perahu yang")
             self.add(p_dayung)
@@ -155,13 +175,13 @@ class PecahJadiKomponen(AdeganMatra):
 
         with sinema.babak(self, "ingat3", DURASI, kata=KATA) as b:
             b.tunggu_kata("Dan di")
-            self.papan.baris(r"\text{Materi 02: panjang dan arah}", REDUP, b=b)
+            self.papan.baris(r"\text{Bagian 2: panjang dan arah}", REDUP, b=b)
             b.tunggu_kata("Letaknya")
             self.add(salinan)
             b.main(TransformFromCopy(p_pindah, salinan), run_time=1.5)
             self.aktif["salinan"] = salinan
             b.tunggu_kata("boleh digeser")
-            b.main(Indicate(salinan, scale_factor=1, color=SOROT), run_time=1.0)
+            self.sorot_pita(b, salinan)
         self.gerbang()
 
         # Sepuluh panah kecil: kenapa menggambar satu per satu melelahkan.
@@ -240,7 +260,7 @@ class PecahJadiKomponen(AdeganMatra):
             b.main(GrowArrow(p_miring), run_time=1.5)
             self.aktif["panah miring"] = p_miring
             b.tunggu_kata("langsung dari")
-            b.main(Indicate(p_miring, scale_factor=1, color=SOROT), run_time=1.0)
+            self.sorot_pita(b, p_miring)
         self.gerbang()
 
         jejak_x = Line(ASAL, SUDUT).set_stroke(AKSEN2, 6)
@@ -262,10 +282,9 @@ class PecahJadiKomponen(AdeganMatra):
             b.tunggu_kata("Mobilnya berhenti")
             b.main(Indicate(tanda_tujuan, scale_factor=1.5, color=SOROT), run_time=1.0)
             b.tunggu_kata("ujung panah")
-            b.main(Indicate(p_miring, scale_factor=1, color=SOROT), run_time=1.0)
+            self.sorot_pita(b, p_miring)
             b.tunggu_kata("Jalurnya berbeda")
-            b.main(Indicate(jejak_x, scale_factor=1, color=AKSEN2),
-                   Indicate(jejak_y, scale_factor=1, color=AKSEN), run_time=1.2)
+            self.sorot_pita(b, jejak_x, jejak_y, lama=1.2)
         self.gerbang()
 
         l_mx = rumus("4", 32, AKSEN2).move_to([MX / 2, -0.55, Z])
@@ -273,8 +292,7 @@ class PecahJadiKomponen(AdeganMatra):
 
         with sinema.babak(self, "dua_langkah", DURASI, kata=KATA) as b:
             b.tunggu_kata("dua langkah")
-            b.main(Indicate(jejak_x, scale_factor=1, color=AKSEN2),
-                   Indicate(jejak_y, scale_factor=1, color=AKSEN), run_time=0.8)
+            self.sorot_pita(b, jejak_x, jejak_y, lama=0.8)
             b.tunggu_kata("berapa jauh")
             self.add(l_mx)
             b.main(FadeIn(l_mx), run_time=0.7)
@@ -391,7 +409,9 @@ class PecahJadiKomponen(AdeganMatra):
         # ==============================================================
         titik_a = Dot(A_TITIK, radius=0.09).set_color(TINTA)
         titik_b = Dot(B_TITIK, radius=0.09).set_color(TINTA)
-        l_a = rumus(r"A(1,\ 2)", 28, TINTA).move_to(A_TITIK + np.array([-0.95, -0.42, 0]))
+        # Di kanan bawah titiknya, lepas dari sumbu tegak: di kiri bawah label ini
+        # melintasi sumbu y (lembar kontak 12 Sep).
+        l_a = rumus(r"A(1,\ 2)", 28, TINTA).move_to(A_TITIK + np.array([-0.40, -0.50, 0]))
         # Label B ke KIRI ATAS titiknya, bukan kanan atas. B(5, 5) adalah pojok
         # kanan atas bidang, dan pada kamera `muat_datar` bidang ini ia jatuh di
         # layar (3,20 , 2,74), tepat di jalur panel rumus (ZONA_RUMUS x 2,10
@@ -405,7 +425,7 @@ class PecahJadiKomponen(AdeganMatra):
             # Panah mobil TIDAK dibuang, cuma diredupkan: nanti pada babak
             # `geser` ia dibandingkan langsung dengan panah A ke B.
             self.papan_baru(b, lama=0.6, bareng=[
-                p_miring.animate.set_stroke(opacity=0.30),
+                p_miring.animate.set_opacity(0.30),
                 jejak_x.animate.set_stroke(opacity=0.25),
                 jejak_y.animate.set_stroke(opacity=0.25),
                 FadeOut(l_mx), FadeOut(l_my), FadeOut(tanda_tujuan)])
@@ -445,7 +465,7 @@ class PecahJadiKomponen(AdeganMatra):
             b.main(ShowCreation(ab_x), run_time=1.2)
             self.aktif["langkah AB mendatar"] = ab_x
             b.tunggu_kata("Hitung petaknya")
-            b.main(Indicate(ab_x, scale_factor=1, color=AKSEN2), run_time=1.0)
+            self.sorot_pita(b, ab_x)
             b.tunggu_kata("empat petak")
             self.add(l_abx)
             b.main(FadeIn(l_abx), run_time=0.7)
@@ -496,7 +516,7 @@ class PecahJadiKomponen(AdeganMatra):
             b.main(GrowArrow(p_ba), run_time=1.2)
             self.aktif["panah BA"] = p_ba
             b.tunggu_kata("arahnya berkebalikan")
-            b.main(Indicate(p_ba, scale_factor=1, color=TINTA), run_time=1.0)
+            self.sorot_pita(b, p_ba)
         self.gerbang()
 
         with sinema.babak(self, "geser", DURASI, kata=KATA) as b:
@@ -505,10 +525,9 @@ class PecahJadiKomponen(AdeganMatra):
             self.remove(p_ba)
             self.aktif.pop("panah BA", None)
             b.tunggu_kata("empat tiga")
-            b.main(p_miring.animate.set_stroke(opacity=1.0), run_time=0.8)
+            b.main(p_miring.animate.set_opacity(1.0), run_time=0.8)
             b.tunggu_kata("padahal berangkatnya")
-            b.main(Indicate(p_miring, scale_factor=1, color=SOROT),
-                   Indicate(p_ab, scale_factor=1, color=SOROT), run_time=1.4)
+            self.sorot_pita(b, p_miring, p_ab, lama=1.4)
             b.tunggu_kata("letaknya memang")
             self.papan.baris(r"(4\ \ 3) = (4\ \ 3)", SOROT, b=b)
         self.gerbang()
@@ -521,23 +540,19 @@ class PecahJadiKomponen(AdeganMatra):
             self.papan.baris(r"\text{panah } (4\ \ 3):\ \text{perpindahan}", SOROT, b=b)
         self.gerbang()
 
-        tutup1 = teks("Dua angka sudah cukup mewakili satu panah.", 32, TINTA)
-        sinema.batasi_lebar(tutup1, 11.4)
-        tutup1.move_to([0, 0.95, 0]).fix_in_frame()
-        tutup1b = teks("Itulah sebabnya vektor bisa dihitung, bukan cuma digambar.", 32, SOROT)
-        sinema.batasi_lebar(tutup1b, 11.4)
-        tutup1b.move_to([0, 0.10, 0]).fix_in_frame()
-        tutup2 = teks("Berikutnya: panjang panah, dari kedua angka itu.", 32, TINTA)
-        sinema.batasi_lebar(tutup2, 11.4)
-        tutup2.move_to([0, -1.30, 0]).fix_in_frame()
-
-        # Peraga janji video berikutnya: segitiga siku-siku dari 4 dan 3.
-        pj = np.array([-1.6, -2.15, 0.0])
-        j_datar = Line(pj, pj + np.array([1.9, 0, 0])).set_stroke(AKSEN2, 4).fix_in_frame()
-        j_tegak = Line(pj + np.array([1.9, 0, 0]), pj + np.array([1.9, 1.1, 0]))
-        j_tegak.set_stroke(AKSEN, 4).fix_in_frame()
-        j_miring = Line(pj, pj + np.array([1.9, 1.1, 0])).set_stroke(SOROT, 4).fix_in_frame()
-        janji = VGroup(j_datar, j_tegak, j_miring)
+        # Penutup: SATU panah (4 3) besar di tengah dengan dua cara menulisnya,
+        # bukan kalimat. Lalu segitiga 4-3 bertanda tanya sebagai pancingan
+        # Vektor dalam Sistem Koordinat Bagian 2 (panjang panah).
+        p0 = np.array([-3.0, -1.3, 0.0])
+        vt = np.array([2.8, 2.1, 0.0])
+        panah_tutup = Arrow(p0, p0 + vt, buff=0, thickness=7).set_color(SOROT).fix_in_frame()
+        langkah_x = Line(p0, p0 + vt[0] * RIGHT).set_stroke(AKSEN2, 6).fix_in_frame()
+        langkah_y = Line(p0 + vt[0] * RIGHT, p0 + vt).set_stroke(AKSEN, 6).fix_in_frame()
+        l_tx = rumus("4", 34, AKSEN2).move_to(p0 + vt[0] * RIGHT / 2 + DOWN * 0.45).fix_in_frame()
+        l_ty = rumus("3", 34, AKSEN).move_to(p0 + vt[0] * RIGHT + vt[1] * UP / 2 + RIGHT * 0.45).fix_in_frame()
+        baris_tutup = rumus(r"(4\ \ 3)", 48, SOROT).move_to([3.0, 0.9, 0]).fix_in_frame()
+        kolom_tutup = rumus(r"\binom{4}{3}", 48, SOROT).move_to([3.0, -0.9, 0]).fix_in_frame()
+        sama_tutup = rumus("=", 40, REDUP).move_to([3.0, 0.0, 0]).fix_in_frame()
 
         semua_dunia = Group(bidang, p_miring, jejak_x, jejak_y, mobil,
                             titik_a, titik_b, l_a, l_b, p_ab, ab_x, ab_y,
@@ -546,34 +561,60 @@ class PecahJadiKomponen(AdeganMatra):
         with sinema.babak(self, "tutup1", DURASI, kata=KATA) as b:
             b.tunggu_kata("Jadi dua")
             mobil.clear_updaters()
-            self.papan_baru(b, lama=1.0, bareng=[FadeOut(semua_dunia),
+            self.papan_baru(b, lama=0.8, bareng=[FadeOut(semua_dunia),
                                                  FadeOut(ident_blok)])
             self.remove(*semua_dunia, ident_blok)
             self.aktif.clear()
             self.tulisan.clear()
             self.hud_ku.clear()
-            self.hud_tambah(tutup1)
-            tutup1.set_opacity(0)
-            b.main(tutup1.animate.set_opacity(1), run_time=1.0)
-            self.hud_ku["tutup 1"] = tutup1
-            b.tunggu_kata("Itulah sebabnya")
-            self.hud_tambah(tutup1b)
-            tutup1b.set_opacity(0)
-            b.main(tutup1b.animate.set_opacity(1), run_time=1.0)
-            self.hud_ku["tutup 1b"] = tutup1b
+            self.hud_tambah(langkah_x, langkah_y, l_tx, l_ty, panah_tutup)
+            b.main(ShowCreation(langkah_x), FadeIn(l_tx), run_time=0.4)
+            b.main(ShowCreation(langkah_y), FadeIn(l_ty), run_time=0.4)
+            self.hud_ku["langkah x"] = langkah_x
+            self.hud_ku["langkah y"] = langkah_y
+            self.hud_ku["4"] = l_tx
+            self.hud_ku["3"] = l_ty
+            b.tunggu_kata("satu panah")
+            b.main(GrowArrow(panah_tutup), run_time=0.9)
+            self.hud_ku["panah tutup"] = panah_tutup
+            b.tunggu_kata("bisa dihitung")
+            self.hud_tambah(baris_tutup, sama_tutup, kolom_tutup)
+            b.main(FadeIn(baris_tutup, shift=LEFT * 0.2), run_time=0.6)
+            b.main(FadeIn(sama_tutup), FadeIn(kolom_tutup, shift=LEFT * 0.2), run_time=0.7)
+            self.hud_ku["baris tutup"] = baris_tutup
+            self.hud_ku["sama tutup"] = sama_tutup
+            self.hud_ku["kolom tutup"] = kolom_tutup
         self.gerbang()
 
-        with sinema.babak(self, "tutup2", DURASI, kata=KATA) as b:
-            b.tunggu_kata("Di video")
-            self.hud_tambah(tutup2)
-            tutup2.set_opacity(0)
-            b.main(tutup2.animate.set_opacity(1), run_time=0.8)
-            self.hud_ku["tutup 2"] = tutup2
+        judul_lanjut = teks("Vektor dalam Sistem Koordinat, Bagian 2", 30, SOROT)
+        judul_lanjut.move_to([0, 2.0, 0]).fix_in_frame()
+        # Segitiga siku-sikunya sudah ada di layar (langkah x, langkah y, panah);
+        # yang ditambah cuma tanda siku-siku dan tanda tanya pada sisi miringnya.
+        pojok = p0 + vt[0] * RIGHT
+        siku_tutup = VGroup(Line(pojok + LEFT * 0.3, pojok + LEFT * 0.3 + UP * 0.3),
+                            Line(pojok + UP * 0.3, pojok + LEFT * 0.3 + UP * 0.3))
+        siku_tutup.set_stroke(TINTA, 2.6).fix_in_frame()
+        tanya_panjang = rumus("?", 48, SOROT)
+        tanya_panjang.move_to(p0 + vt / 2 + np.array([-0.45, 0.4, 0.0])).fix_in_frame()
+
+        with sinema.babak(self, "lanjut", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Di materi")
+            b.main(FadeOut(baris_tutup), FadeOut(sama_tutup), FadeOut(kolom_tutup), run_time=0.6)
+            self.remove(baris_tutup, sama_tutup, kolom_tutup)
+            for nama in ("baris tutup", "sama tutup", "kolom tutup"):
+                self.hud_ku.pop(nama, None)
+            b.tunggu_kata("Vektor dalam")
+            self.hud_tambah(judul_lanjut)
+            b.main(FadeIn(judul_lanjut, shift=UP * 0.2), run_time=0.8)
+            self.hud_ku["judul lanjut"] = judul_lanjut
+            b.tunggu_kata("panjang panahnya")
+            self.hud_tambah(tanya_panjang)
+            b.main(FadeIn(tanya_panjang, scale=1.4), run_time=0.7)
+            self.hud_ku["tanya panjang"] = tanya_panjang
             b.tunggu_kata("segitiga siku-siku")
-            self.hud_tambah(j_datar, j_tegak, j_miring)
-            b.main(ShowCreation(j_datar), ShowCreation(j_tegak),
-                   ShowCreation(j_miring), run_time=1.2)
-            self.hud_ku["janji"] = janji
+            self.hud_tambah(siku_tutup)
+            b.main(ShowCreation(siku_tutup), run_time=0.7)
+            self.hud_ku["siku tutup"] = siku_tutup
         self.gerbang()
 
         sinema.laporkan_pemicu(self)
@@ -589,6 +630,20 @@ class PecahJadiKomponen(AdeganMatra):
             papan.beralas = True
             hud["papan"] = papan
         qc.periksa_adegan(self, {}, hud=hud, dunia=self.aktif, tulisan=self.tulisan)
+
+    def sorot_pita(self, b, *ruas, lama: float = 1.0):
+        """Sorot panah atau ruas dengan pita ungu TEMBUS PANDANG di sepanjangnya.
+
+        Bukan `Indicate`: panah ungu yang di-Indicate ungu tidak berubah apa
+        pun, dan pada benda lain Indicate menutup bendanya sesaat (ARYA 11 Sep:
+        "seperti glitch"). Dibangun dari letak ruas SAAT INI.
+        """
+        pita = VGroup(*[Line(r.get_start(), r.get_end()).set_stroke(SOROT, 18, opacity=0.35)
+                        for r in ruas])
+        self.add(pita)
+        b.main(FadeIn(pita), run_time=lama * 0.35)
+        b.main(FadeOut(pita), run_time=lama * 0.65)
+        self.remove(pita)
 
     def papan_baru(self, b, lama: float = 0.5, ikut=None, bareng=None):
         """Kosongkan papan rumus, lalu ganti dengan papan kosong yang baru.

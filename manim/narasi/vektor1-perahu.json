@@ -2,12 +2,12 @@
   "adegan": "PerahuVektor",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Tulis ulang 8 September 2026, STANDAR VIDEO v3. Kerangka: pertanyaan pembuka, segar-ingat teorema Pythagoras sebagai bekal SMP (Materi 01 topik mengingat PRASYARATNYA), contoh angka 3 dan 4 dihitung di layar, asal angka 5 dibuktikan dari segitiga yang dibentuk sendiri, bentuk umum akar kuadrat ditambah kuadrat, penutup menunjuk video berikutnya. Pengetahuan lama yang mengecoh (Pythagoras dipakai saat segitiga sudah tergambar) disebut terbuka di segmen 'beda'. Notasi pasangan angka (4 3) SENGAJA tidak dipakai di sini: itu isi Materi 03, dan video ini menutup dengan menjanjikannya. REVISI 9 Sep: kalimat 'Perahu di layar ini yang akan menjawabnya' dipindah dari segmen buka ke terbang. Sebabnya lembar kontak: kamera dulu turun pada detik 3,3 padahal narator baru berkata 'kita lihat dari atas' pada detik 9,2, jadi gambar mendahului suara hampir empat detik. Sekarang 3D berdiri sendiri 4,3 detik (di bawah jatah 5 detik standar v3) dan turunnya kamera jatuh tepat pada kalimat yang menyebutkannya.",
+  "catatan": "Pengenalan Vektor, Bagian 1 (Materi 01). Disesuaikan MASTER 12 Sep 2026 ke standar v3.1 dari naskah v3 sesi Vektor (8 Sep): ISI TETAP SAMA (perahu didayung 3 km, arus 4 km, mendarat 4 petak ke kanan 3 ke atas; segitiga siku-siku dibentuk dulu baru dihitung, akar 25 = 5; dayung diputar searah 7, melawan 1, tegak 5; bentuk umum akar a kuadrat + b kuadrat; vektor lawan skalar; jebakan 3 + 4 = 7 hanya benar bila searah). Yang diubah: pembuka menyebut sub-bab plus Bagian 1; segar-ingat Pythagoras dipadatkan jadi SATU segmen (prasyarat nyata, dipakai di hitung1 sampai hitung3) tanpa contoh 3-4-5 yang mengulang hitungan utama; penutup menunjuk Pengenalan Vektor Bagian 2 (panah boleh dipindah), bukan lagi Materi 03. Kalimat narasi tidak ditulis sebagai teks di layar; tiga hasil 7, 1, 5 digambar sebagai tiga pasang panah kecil.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Kenapa tiga tambah empat tidak selalu tujuh?",
-      "tulis": "Kenapa 3 + 4 tidak selalu 7?"
+      "teks": "Pengenalan Vektor, Bagian satu. Kenapa tiga tambah empat tidak selalu tujuh?",
+      "tulis": "Pengenalan Vektor, Bagian 1. Kenapa 3 + 4 tidak selalu 7?"
     },
     {
       "id": "terbang",
@@ -15,19 +15,9 @@
       "tulis": "Perahu di layar ini yang akan menjawabnya. Supaya bisa kita hitung, sungainya kita lihat dari atas, lalu kita pasang petak di atasnya. 1 petak = 1 km."
     },
     {
-      "id": "ingat_smp",
-      "teks": "Sebelum mulai, kita panggil satu bekal lama dari SMP: teorema Pythagoras. Bunyinya, pada segitiga siku-siku, kuadrat sisi miring sama dengan jumlah kuadrat dua sisi tegaknya.",
-      "tulis": "Sebelum mulai, kita panggil satu bekal lama dari SMP: teorema Pythagoras. Bunyinya, pada segitiga siku-siku, kuadrat sisi miring sama dengan jumlah kuadrat dua sisi tegaknya."
-    },
-    {
-      "id": "ingat_angka",
-      "teks": "Contohnya yang paling dikenal. Sisi tegak tiga, sisi mendatar empat. Tiga kuadrat sembilan, empat kuadrat enam belas, dijumlahkan dua puluh lima. Akar dua puluh lima adalah lima.",
-      "tulis": "Contohnya yang paling dikenal. Sisi tegak 3, sisi mendatar 4. 3² = 9, 4² = 16, dijumlahkan 25. √25 = 5."
-    },
-    {
-      "id": "beda",
-      "teks": "Ingat bedanya. Pythagoras biasa dipakai saat segitiganya sudah tergambar. Hari ini segitiganya belum ada: yang ada dua gerakan, dan kita sendiri yang membentuknya.",
-      "tulis": "Ingat bedanya. Pythagoras biasa dipakai saat segitiganya sudah tergambar. Hari ini segitiganya belum ada: yang ada dua gerakan, dan kita sendiri yang membentuknya."
+      "id": "ingat",
+      "teks": "Bekal yang dipakai hari ini cuma satu, teorema Pythagoras dari SMP. Pada segitiga siku-siku, kuadrat sisi miring sama dengan jumlah kuadrat dua sisi tegaknya. Biasanya segitiganya sudah tergambar. Hari ini segitiganya belum ada: yang ada dua gerakan, dan kita sendiri yang membentuknya.",
+      "tulis": "Bekal yang dipakai hari ini cuma satu, teorema Pythagoras dari SMP. Pada segitiga siku-siku, kuadrat sisi miring sama dengan jumlah kuadrat dua sisi tegaknya. Biasanya segitiganya sudah tergambar. Hari ini segitiganya belum ada: yang ada dua gerakan, dan kita sendiri yang membentuknya."
     },
     {
       "id": "cerita",
@@ -155,9 +145,9 @@
       "tulis": "Jadi begitu arah ikut dihitung, angka tidak boleh lagi ditumpuk begitu saja."
     },
     {
-      "id": "tutup2",
-      "teks": "Di video berikutnya kita catat satu panah sebagai dua langkah: berapa jauh ke kanan, lalu berapa jauh ke atas. Dengan itu panah bisa dihitung, bukan cuma digambar.",
-      "tulis": "Di video berikutnya kita catat satu panah sebagai dua langkah: berapa jauh ke kanan, lalu berapa jauh ke atas. Dengan itu panah bisa dihitung, bukan cuma digambar."
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Pengenalan Vektor, Bagian dua, kita lihat kenapa dua panah di tempat yang berbeda bisa jadi vektor yang sama, selama panjang dan arahnya sama.",
+      "tulis": "Di materi berikutnya, Pengenalan Vektor, Bagian 2, kita lihat kenapa dua panah di tempat yang berbeda bisa jadi vektor yang sama, selama panjang dan arahnya sama."
     }
   ]
 }
