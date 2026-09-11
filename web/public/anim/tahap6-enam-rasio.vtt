@@ -1,115 +1,192 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/tahap6-enam-rasio.json
+NOTE Dibuat otomatis dari manim/narasi/tahap6-enam-rasio.json (waktu kata rekaman)
+NOTE naskah-sidik 9de474cace2d
 
 1
-00:00:00.000 --> 00:00:04.237
-Selain sin dan cos, masih ada 4 perbandingan lagi.
+00:00:00.101 --> 00:00:03.620
+Lingkaran Satuan dan Sudut Istimewa, Bagian 2.
 
 2
-00:00:04.237 --> 00:00:08.304
-Dan keempatnya bisa ditunjuk sebagai ruas garis.
+00:00:04.368 --> 00:00:08.071
+Selain sin dan cos, masih ada 4 perbandingan lagi.
 
 3
-00:00:08.304 --> 00:00:13.236
-Kita mulai dari lingkaran satuan yang tadi.
+00:00:08.801 --> 00:00:10.742
+Bisakah keempatnya ditunjuk sebagai
 
 4
-00:00:13.236 --> 00:00:16.104
-cos θ = x, dan sin θ = y.
+00:00:10.742 --> 00:00:12.333
+panjang sebuah ruas garis?
 
 5
-00:00:16.104 --> 00:00:18.296
-Sekarang tarik sebuah garis tegak
+00:00:13.549 --> 00:00:15.023
+Di materi sebelumnya,
 
 6
-00:00:18.296 --> 00:00:21.085
-yang menyentuh lingkaran di sebelah kanan.
+00:00:15.023 --> 00:00:18.251
+Lingkaran Satuan dan Sudut Istimewa, Bagian 1,
 
 7
-00:00:21.085 --> 00:00:23.808
-Garis seperti ini disebut <b>garis singgung</b>.
+00:00:18.251 --> 00:00:19.725
+sisi miring dibuat 1,
 
 8
-00:00:23.808 --> 00:00:25.913
-Perpanjang jari-jarinya sampai
+00:00:19.725 --> 00:00:22.962
+dan jejak titiknya menjadi lingkaran satuan.
 
 9
-00:00:25.913 --> 00:00:27.948
-mengenai garis singgung tadi.
+00:00:23.710 --> 00:00:28.110
+Di situ cos θ = x, dan sin θ = y.
 
 10
-00:00:27.948 --> 00:00:30.544
-Ruas dari sumbu mendatar sampai titik
+00:00:29.301 --> 00:00:30.836
+Sekarang tarik sebuah garis tegak
 
 11
-00:00:30.544 --> 00:00:33.000
-potong itu panjangnya persis <b>tan θ</b>.
+00:00:30.836 --> 00:00:32.938
+yang menyentuh lingkaran di sebelah kanan.
 
 12
-00:00:33.000 --> 00:00:35.444
-Dan ruas dari pusat lingkaran sampai
+00:00:33.672 --> 00:00:36.086
+Garis seperti ini disebut <b>garis singgung</b>.
 
 13
-00:00:35.444 --> 00:00:38.160
-titik potong yang sama panjangnya <b>sec θ</b>.
+00:00:37.301 --> 00:00:38.874
+Perpanjang jari-jarinya sampai
 
 14
-00:00:38.160 --> 00:00:41.236
-Sekarang tarik garis singgung yang kedua.
+00:00:38.874 --> 00:00:40.543
+mengenai garis singgung tadi.
 
 15
-00:00:41.236 --> 00:00:45.288
-Kali ini mendatar, menyentuh lingkaran di bagian atas.
+00:00:41.278 --> 00:00:43.810
+Ruas dari sumbu mendatar sampai titik
 
 16
-00:00:45.288 --> 00:00:48.472
-Perpanjang lagi jari-jarinya ke arah itu.
+00:00:43.810 --> 00:00:46.206
+potong itu panjangnya persis <b>tan θ</b>,
 
 17
-00:00:48.472 --> 00:00:50.646
-Ruas dari sumbu tegak sampai
+00:00:46.206 --> 00:00:47.556
+yaitu y : x.
 
 18
-00:00:50.646 --> 00:00:53.208
-titik potongnya panjangnya <b>cot θ</b>.
+00:00:48.416 --> 00:00:50.779
+Dan ruas dari pusat lingkaran sampai
 
 19
-00:00:53.208 --> 00:00:55.205
-Dan ruas dari pusat sampai
+00:00:50.779 --> 00:00:53.404
+titik potong yang sama panjangnya <b>sec θ</b>,
 
 20
-00:00:55.205 --> 00:00:57.816
-titik potong itu panjangnya <b>csc θ</b>.
+00:00:53.404 --> 00:00:54.754
+yaitu 1 : x.
 
 21
-00:00:57.816 --> 00:00:59.241
-6 ruas, 6 nama.
+00:00:55.568 --> 00:00:57.705
+Sekarang tarik garis singgung yang kedua.
 
 22
-00:00:59.241 --> 00:01:02.472
-Semuanya lahir dari satu lingkaran
+00:00:58.439 --> 00:01:01.786
+Kali ini mendatar, menyentuh lingkaran di bagian atas.
 
 23
-00:01:02.472 --> 00:01:04.848
-dan satu sudut yang sama.
+00:01:03.001 --> 00:01:05.467
+Perpanjang lagi jari-jarinya ke arah itu.
 
 24
-00:01:04.848 --> 00:01:09.300
-Geser sudutnya, dan keenamnya berubah bersama-sama.
+00:01:06.201 --> 00:01:08.225
+Ruas dari sumbu tegak sampai
 
 25
-00:01:09.300 --> 00:01:12.792
-Yang satu memanjang, yang lain memendek.
+00:01:08.225 --> 00:01:10.610
+titik potongnya panjangnya <b>cot θ</b>,
 
 26
-00:01:12.792 --> 00:01:16.369
-Jadi sec dan csc bukan rumus yang harus dihafal.
+00:01:10.610 --> 00:01:11.960
+yaitu x : y.
 
 27
-00:01:16.369 --> 00:01:18.306
-Keduanya panjang yang bisa
+00:01:12.849 --> 00:01:14.731
+Dan ruas dari pusat sampai
 
 28
-00:01:18.306 --> 00:01:20.616
+00:01:14.731 --> 00:01:17.191
+titik potong itu panjangnya <b>csc θ</b>,
+
+29
+00:01:17.191 --> 00:01:18.541
+yaitu 1 : y.
+
+30
+00:01:19.401 --> 00:01:21.420
+6 ruas, 6 nama.
+
+31
+00:01:22.154 --> 00:01:25.514
+Semuanya lahir dari 1 lingkaran dan 1 sudut yang sama.
+
+32
+00:01:26.734 --> 00:01:28.134
+Coba dengan angka.
+
+33
+00:01:28.883 --> 00:01:34.348
+Pada sudut segitiga 3, 4, 5 dari Bagian 1 tadi,
+
+34
+00:01:34.348 --> 00:01:36.823
+x = 0,8 dan y = 0,6.
+
+35
+00:01:37.568 --> 00:01:43.125
+Jadi tan θ = 0,6 : 0,8 = 0,75.
+
+36
+00:01:44.349 --> 00:01:48.552
+Persis sama dengan depan : samping, 3 : 4.
+
+37
+00:01:49.284 --> 00:01:52.908
+Ruas tan-nya pun memang sepanjang 0,75 jari-jari.
+
+38
+00:01:54.101 --> 00:01:57.686
+Geser sudutnya, dan keenamnya berubah bersama-sama.
+
+39
+00:01:58.420 --> 00:02:01.122
+Yang satu memanjang, yang lain memendek.
+
+40
+00:02:02.335 --> 00:02:05.511
+Jadi sec dan csc bukan rumus yang harus dihafal.
+
+41
+00:02:06.245 --> 00:02:07.536
+Keduanya panjang yang bisa
+
+42
+00:02:07.536 --> 00:02:09.224
 Anda tunjuk langsung di gambar.
+
+43
+00:02:10.449 --> 00:02:11.825
+Di materi berikutnya,
+
+44
+00:02:11.825 --> 00:02:14.840
+Lingkaran Satuan dan Sudut Istimewa, Bagian 3,
+
+45
+00:02:14.840 --> 00:02:16.937
+kita cari sudut-sudut yang nilai
+
+46
+00:02:16.937 --> 00:02:19.296
+sin dan cos-nya bisa ditulis persis,
+
+47
+00:02:19.296 --> 00:02:20.646
+tanpa kalkulator.

@@ -1,0 +1,399 @@
+"""Lingkaran Satuan dan Sudut Istimewa, Bagian 3 (Materi 07): sudut istimewa.
+STANDAR VIDEO v3.1, ditulis ulang 11 Sep 2026 dari adegan Manim CE yang sudah
+disetujui ARYA. ISINYA SAMA: persegi bersisi 1 dipotong diagonal jadi
+45-45-90 (miring akar 2); segitiga sama sisi bersisi 2 dibelah jadi 30-60-90
+(tegak akar 3); sin 45, 30, 60; ketiganya di lingkaran satuan; jari-jari
+menyapu berhenti di tiap sudut istimewa.
+
+YANG BERBEDA DARI VERSI LAMA
+- Pembuka menyebut sub-bab plus Bagian 3; segar-ingat koordinat (cos, sin)
+  dari Bagian 1 dengan contoh desimal yang tidak habis (sudut 50 derajat).
+- Akar 2 dan akar 3 DIHITUNG di layar lewat Pythagoras (1 + 1 = 2, 4 - 1 = 3),
+  bukan disodorkan. Pythagoras di sini prasyarat nyata, bukan tempelan.
+- Nilai sin lahir besar di dekat segitiganya lalu terbang ke panel kanan atas.
+- Tiap kejadian dipicu pada kata yang mengucapkannya.
+
+INTI YANG HARUS TERTANAM: nilainya lahir dari dua bangun yang bisa digambar
+sendiri di buku tulis. Karena itu pemotongan persegi dan pembelahan segitiga
+harus benar-benar terlihat.
+
+WARNA: biru = alas/samping, merah = tegak/depan, tinta = miring, ungu = sudut.
+ANGKANYA: 1 + 1 = 2 (akar 2); 4 - 1 = 3 (akar 3); cos 50 = 0,6428, sin 50 = 0,7660.
+"""
+
+import json
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from gl import *  # noqa: E402,F403
+from gl import kamera, qc, sinema  # noqa: E402
+
+AKAR = Path(__file__).resolve().parents[2]
+TOPIK = "tahap7-sudut-istimewa"
+DURASI = json.loads((AKAR / "audio" / TOPIK / "durasi.json").read_text(encoding="utf-8"))["segmen"]
+KATA = sinema.JamKata(TOPIK)
+
+PANGGUNG = np.array([-3.7, -0.4, 0.0])   # pusat bangun di kiri
+SISI = 2.3                               # panjang layar untuk 1 satuan
+R_LING = 1.9
+ISTIMEWA = [30, 45, 60]
+X_KERJA, Y_KERJA = 3.2, -0.6
+
+
+def hud(ident, papan):
+    isi = {"identitas": ident} if ident is not None else {}
+    p = papan.semua()
+    if p is not None:
+        isi["papan"] = p
+    return isi
+
+
+def busur_di(titik, ke_a, ke_b, radius=0.5, warna=SOROT):
+    """Busur sudut DALAM di `titik`, antara arah ke_a dan ke_b (selisih terpendek)."""
+    a = np.arctan2(*(ke_a - titik)[1::-1])
+    b = np.arctan2(*(ke_b - titik)[1::-1])
+    beda = (b - a + PI) % TAU - PI
+    if beda < 0:
+        a, beda = b, -beda
+    return Arc(radius=radius, start_angle=a, angle=beda, arc_center=titik).set_stroke(warna, 4)
+
+
+def siku_tanda(sudut_di, arah_a, arah_b, ukuran=0.26, warna=REDUP):
+    p = np.array(sudut_di)
+    u = np.array(arah_a) / np.linalg.norm(arah_a) * ukuran
+    v = np.array(arah_b) / np.linalg.norm(arah_b) * ukuran
+    return VGroup(Line(p + u, p + u + v), Line(p + v, p + u + v)).set_stroke(warna, 2.4)
+
+
+class SudutIstimewaLahir(AdeganMatra):
+    def construct(self):
+        frame = self.frame
+        kamera.pasang_awal(frame, theta=0, phi=0, pusat=(0, 0, 0), tinggi=8.0)
+        papan = sinema.PapanRumus(self, ukuran=30, alas=True, tanpa_utama=True)
+        ident = None
+
+        # ============ buka ============================================== #
+        # Tanpa lambang derajat: huruf "°" ditolak latex, dan "$" di dalam
+        # teks ditolak cek_kode. Diucapkan "derajat", ditulis "derajat".
+        tanya = teks("Kenapa 30, 45, dan 60 derajat disebut sudut istimewa?", 34, TINTA)
+        tanya.move_to([0, -0.6, 0])
+        sinema.batasi_lebar(tanya, 10.5)
+        with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Lingkaran")
+            sinema.judul_pembuka(self, "Lingkaran Satuan dan Sudut Istimewa, Bagian 3", lama=3.4)
+            b.catat(3.4)
+            b.tunggu_kata("Kenapa")
+            b.main(Write(tanya), run_time=2.0)
+
+        # ============ segar-ingat: koordinat titik di lingkaran satuan ==== #
+        pusat_ingat = PANGGUNG
+        ling_ingat = Circle(radius=R_LING).move_to(pusat_ingat).set_stroke(TINTA, 3)
+        # Sumbu ke bawah hanya 1,1 R: pada 1,15 R ujungnya masuk jalur subtitle.
+        sumbu_ingat = VGroup(Line(pusat_ingat + LEFT * R_LING * 1.15, pusat_ingat + RIGHT * R_LING * 1.15),
+                             Line(pusat_ingat + DOWN * R_LING * 1.1, pusat_ingat + UP * R_LING * 1.15)
+                             ).set_stroke(REDUP, 2)
+        sumbu_ingat.latar = True
+        arah50 = np.array([np.cos(np.radians(50)), np.sin(np.radians(50)), 0.0])
+        p50 = pusat_ingat + R_LING * arah50
+        jari50 = Line(pusat_ingat, p50).set_stroke(TINTA, 4)
+        titik50 = Dot(p50, radius=0.08).set_color(SOROT)
+        koor_umum = rumus(r"(\cos\theta, \sin\theta)", 30, TINTA).next_to(p50, UR, buff=0.12)
+        koor_desimal = rumus(r"(0{,}6428\ldots,\ 0{,}7660\ldots)", 30, REDUP)
+        koor_desimal.next_to(p50, UR, buff=0.12)
+        with sinema.babak(self, "ingat", DURASI, kata=KATA) as b:
+            b.tunggu_kata("materi sebelumnya")
+            ident = sinema.identitas(self, "ingat Bagian 1")
+            ident.set_opacity(0.0)
+            b.main(FadeOut(tanya), ident.animate.set_opacity(1.0), run_time=0.5)
+            b.tunggu_kata("Lingkaran")
+            b.main(ShowCreation(sumbu_ingat), ShowCreation(ling_ingat), run_time=1.4)
+            b.tunggu_kata("titik")
+            b.main(ShowCreation(jari50), FadeIn(titik50), run_time=0.7)
+            b.tunggu_kata("koordinat")
+            b.main(Write(koor_umum), run_time=1.2)
+            b.tunggu_kata("desimal")
+            b.main(FadeOut(koor_umum), run_time=0.2)
+            b.main(FadeIn(koor_desimal), run_time=0.5)
+        qc.periksa_adegan(self, {"lingkaran": ling_ingat, "jari": jari50, "titik": titik50},
+                          hud=hud(ident, papan), dunia={"sumbu": sumbu_ingat},
+                          tulisan={"koordinat": koor_desimal})
+
+        # ============ tiga sudut istimewa ================================ #
+        tiga = VGroup(*[rumus(rf"{d}^\circ", 54, SOROT) for d in ISTIMEWA])
+        tiga.arrange(RIGHT, buff=0.9).move_to([X_KERJA, 0.3, 0])
+        with sinema.babak(self, "kenapa", DURASI, kata=KATA) as b:
+            b.tunggu_kata("tiga", ke=2)
+            b.main(FadeIn(tiga[0], shift=UP * 0.2), run_time=0.6)
+            b.tunggu_kata("empat")
+            b.main(FadeIn(tiga[1], shift=UP * 0.2), run_time=0.6)
+            b.tunggu_kata("enam")
+            b.main(FadeIn(tiga[2], shift=UP * 0.2), run_time=0.6)
+            b.tunggu_kata("bulat")
+            b.main(Indicate(koor_desimal, color=REDUP), run_time=0.8)
+            b.tunggu_kata("persis")
+            b.main(Indicate(tiga, color=SOROT), run_time=1.0)
+        qc.periksa_adegan(self, {"lingkaran": ling_ingat, "tiga": tiga}, hud=hud(ident, papan),
+                          dunia={"sumbu": sumbu_ingat}, tulisan={"koordinat": koor_desimal})
+
+        # ============ persegi bersisi 1, dipotong diagonal =============== #
+        kb = PANGGUNG + LEFT * SISI * 0.5 + DOWN * SISI * 0.5
+        kanan_bawah, kanan_atas, kiri_atas = kb + RIGHT * SISI, kb + RIGHT * SISI + UP * SISI, kb + UP * SISI
+        persegi = Square(side_length=SISI).move_to(PANGGUNG).set_stroke(TINTA, 4)
+        diagonal = Line(kb, kanan_atas).set_stroke(SOROT, 5)
+        l_bawah = rumus("1", 30, TINTA).next_to(persegi, DOWN, buff=0.2)
+        l_kiri = rumus("1", 30, TINTA).next_to(persegi, LEFT, buff=0.2)
+        with sinema.babak(self, "persegi", DURASI, kata=KATA) as b:
+            b.tunggu_kata("pertama")
+            ident2 = sinema.identitas(self, "dua bangun")
+            ident2.set_opacity(0.0)
+            b.main(FadeOut(ling_ingat), FadeOut(sumbu_ingat), FadeOut(jari50), FadeOut(titik50),
+                   FadeOut(koor_desimal), FadeOut(tiga), FadeOut(ident), run_time=0.6)
+            # Persegi digambar SEKARANG, bersama identitas barunya, bukan tiga
+            # detik kemudian pada kata "persegi": layar sempat kosong 2 detik.
+            b.main(ident2.animate.set_opacity(1.0), ShowCreation(persegi), run_time=1.0)
+            ident = ident2
+            b.tunggu_kata("persegi", ke=2)
+            b.main(Indicate(persegi, color=TINTA, scale_factor=1.0), run_time=0.8)
+            b.tunggu_kata("satu")
+            b.main(FadeIn(l_bawah), FadeIn(l_kiri), run_time=0.6)
+            b.tunggu_kata("diagonalnya")
+            b.main(ShowCreation(diagonal), run_time=1.0)
+        qc.periksa_adegan(self, {"persegi": persegi, "diagonal": diagonal}, hud=hud(ident, papan),
+                          tulisan={"bawah": l_bawah, "kiri": l_kiri})
+
+        # ============ segitiga 45-45-90 ================================== #
+        alas45 = Line(kb, kanan_bawah).set_stroke(AKSEN2, 5)
+        tegak45 = Line(kanan_bawah, kanan_atas).set_stroke(AKSEN, 5)
+        miring45 = Line(kb, kanan_atas).set_stroke(TINTA, 5)
+        buang = VGroup(Line(kb, kiri_atas), Line(kiri_atas, kanan_atas)).set_stroke(TINTA, 4)
+        siku45 = siku_tanda(kanan_bawah, kb - kanan_bawah, kanan_atas - kanan_bawah)
+        s45a = busur_di(kb, kanan_bawah, kanan_atas, radius=0.5)
+        s45b = busur_di(kanan_atas, kb, kanan_bawah, radius=0.5)
+        l45a = rumus(r"45^\circ", 24, SOROT).move_to(kb + RIGHT * 0.95 + UP * 0.32)
+        l45b = rumus(r"45^\circ", 24, SOROT).move_to(kanan_atas + LEFT * 0.34 + DOWN * 0.95)
+        l_tegak45 = rumus("1", 30, AKSEN).next_to(tegak45, RIGHT, buff=0.2)
+        segi45 = VGroup(alas45, tegak45, miring45, siku45, s45a, s45b)
+        with sinema.babak(self, "empatlima", DURASI, kata=KATA) as b:
+            b.tunggu_kata("tersisa")
+            self.add(alas45, tegak45, miring45)
+            self.remove(persegi, diagonal)
+            self.add(buang)
+            b.main(FadeOut(buang), FadeOut(l_kiri), run_time=0.8)
+            b.main(ShowCreation(siku45), run_time=0.3)
+            b.tunggu_kata("empat")
+            b.main(ShowCreation(s45a), ShowCreation(s45b), FadeIn(l45a), FadeIn(l45b), run_time=0.9)
+            b.tunggu_kata("tegaknya")
+            b.main(FadeIn(l_tegak45), Indicate(l_bawah, color=AKSEN2), run_time=0.7)
+        qc.periksa_adegan(self, {"segitiga": segi45}, hud=hud(ident, papan),
+                          tulisan={"bawah": l_bawah, "tegak": l_tegak45, "45a": l45a, "45b": l45b})
+
+        # ============ miring 45 lewat Pythagoras ========================== #
+        h1 = rumus(r"1^2 + 1^2 = 2", 40, TINTA).move_to([X_KERJA, Y_KERJA + 0.8, 0])
+        h2 = rumus(r"\text{miring} = \sqrt{2}", 40, TINTA).move_to([X_KERJA, Y_KERJA - 0.2, 0])
+        l_miring45 = rumus(r"\sqrt{2}", 30, TINTA).move_to((kb + kanan_atas) / 2 + UP * 0.36 + LEFT * 0.34)
+        with sinema.babak(self, "miring45", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Pythagoras")
+            b.main(Indicate(miring45, color=SOROT, scale_factor=1.0), run_time=0.8)
+            b.tunggu_kata("Satu")
+            b.main(Write(h1), run_time=1.8)
+            b.tunggu_kata("akar")
+            b.main(Write(h2), FadeIn(l_miring45), run_time=1.0)
+        qc.periksa_adegan(self, {"segitiga": segi45, "h1": h1, "h2": h2}, hud=hud(ident, papan),
+                          tulisan={"bawah": l_bawah, "tegak": l_tegak45, "45a": l45a, "45b": l45b,
+                                   "miring": l_miring45})
+
+        # ============ sin 45 = 1 / akar 2 ================================ #
+        with sinema.babak(self, "nilai45", DURASI, kata=KATA) as b:
+            b.tunggu_kata("depan")
+            b.main(FadeOut(h1), FadeOut(h2), run_time=0.3)
+            sinema.lahir_rumus(self, r"\sin 45^\circ = \frac{1}{\sqrt{2}}", segi45, papan, b=b,
+                               warna=SOROT, geser=RIGHT * 3.4 + UP * 0.6, sebagai_utama=False)
+            b.tunggu_kata("pasti")
+            b.main(papan.sorot(), run_time=0.8)
+        qc.periksa_adegan(self, {"segitiga": segi45}, hud=hud(ident, papan),
+                          tulisan={"bawah": l_bawah, "tegak": l_tegak45, "45a": l45a, "45b": l45b,
+                                   "miring": l_miring45})
+
+        # ============ segitiga sama sisi bersisi 2, dibelah ============== #
+        s = SISI * 1.12
+        kb2 = PANGGUNG + LEFT * s * 0.5 + DOWN * s * 0.45
+        kanan2 = kb2 + RIGHT * s
+        puncak = kb2 + RIGHT * s * 0.5 + UP * s * np.sqrt(3) / 2
+        tengah = kb2 + RIGHT * s * 0.5
+        samasisi = Polygon(kb2, kanan2, puncak).set_stroke(TINTA, 4).set_fill(opacity=0)
+        tinggi = DashedLine(puncak, tengah).set_stroke(SOROT, 4)
+        l_dua = VGroup(rumus("2", 30, TINTA).move_to((kb2 + puncak) / 2 + LEFT * 0.3 + UP * 0.12),
+                       rumus("2", 30, TINTA).move_to((kanan2 + puncak) / 2 + RIGHT * 0.3 + UP * 0.12),
+                       rumus("2", 30, TINTA).next_to(Line(kb2, kanan2), DOWN, buff=0.2))
+        with sinema.babak(self, "samasisi", DURASI, kata=KATA) as b:
+            b.tunggu_kata("kedua")
+            b.main(FadeOut(segi45), FadeOut(l_bawah), FadeOut(l_tegak45), FadeOut(l45a),
+                   FadeOut(l45b), FadeOut(l_miring45), run_time=0.6)
+            b.tunggu_kata("segitiga")
+            b.main(ShowCreation(samasisi), run_time=1.2)
+            b.tunggu_kata("dua")
+            b.main(LaggedStartMap(FadeIn, l_dua, lag_ratio=0.3), run_time=0.9)
+            b.tunggu_kata("belah")
+            b.main(ShowCreation(tinggi), run_time=0.9)
+        qc.periksa_adegan(self, {"samasisi": samasisi, "tinggi": tinggi}, hud=hud(ident, papan),
+                          tulisan={"dua": l_dua})
+
+        # ============ segitiga 30-60-90 ================================== #
+        alas30 = Line(tengah, kanan2).set_stroke(AKSEN2, 5)
+        tegak30 = Line(tengah, puncak).set_stroke(AKSEN, 5)
+        miring30 = Line(kanan2, puncak).set_stroke(TINTA, 5)
+        buang2 = VGroup(Line(kb2, tengah), Line(kb2, puncak)).set_stroke(TINTA, 4)
+        siku30 = siku_tanda(tengah, kanan2 - tengah, puncak - tengah)
+        s30 = busur_di(puncak, tengah, kanan2, radius=0.6)
+        s60 = busur_di(kanan2, puncak, tengah, radius=0.5)
+        l30 = rumus(r"30^\circ", 24, SOROT).move_to(puncak + DOWN * 1.0 + RIGHT * 0.2)
+        l60 = rumus(r"60^\circ", 24, SOROT).move_to(kanan2 + LEFT * 0.62 + UP * 0.34)
+        l_alas30 = rumus("1", 30, AKSEN2).next_to(alas30, DOWN, buff=0.2)
+        l_miring30 = rumus("2", 30, TINTA).move_to((kanan2 + puncak) / 2 + RIGHT * 0.3 + UP * 0.12)
+        segi30 = VGroup(alas30, tegak30, miring30, siku30, s30, s60)
+        with sinema.babak(self, "tigapuluh", DURASI, kata=KATA) as b:
+            b.tunggu_kata("muncul")
+            self.add(alas30, tegak30, miring30)
+            self.remove(samasisi, tinggi)
+            self.add(buang2)
+            b.main(FadeOut(buang2), FadeOut(l_dua), run_time=0.8)
+            b.main(ShowCreation(siku30), run_time=0.3)
+            b.tunggu_kata("tiga")
+            b.main(ShowCreation(s30), FadeIn(l30), run_time=0.7)
+            b.tunggu_kata("enam")
+            b.main(ShowCreation(s60), FadeIn(l60), run_time=0.7)
+            b.tunggu_kata("Alasnya")
+            b.main(FadeIn(l_alas30), Indicate(alas30, color=AKSEN2, scale_factor=1.0), run_time=0.7)
+            b.tunggu_kata("miringnya")
+            b.main(FadeIn(l_miring30), Indicate(miring30, color=TINTA, scale_factor=1.0), run_time=0.7)
+        qc.periksa_adegan(self, {"segitiga": segi30}, hud=hud(ident, papan),
+                          tulisan={"30": l30, "60": l60, "alas": l_alas30, "miring": l_miring30})
+
+        # ============ tegak 30 lewat Pythagoras =========================== #
+        h3 = rumus(r"2^2 - 1^2 = 3", 40, TINTA).move_to([X_KERJA, Y_KERJA + 0.8, 0])
+        h4 = rumus(r"\text{tegak} = \sqrt{3}", 40, TINTA).move_to([X_KERJA, Y_KERJA - 0.2, 0])
+        l_tegak30 = rumus(r"\sqrt{3}", 30, AKSEN).next_to(tegak30, LEFT, buff=0.16)
+        with sinema.babak(self, "tegak30", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Pythagoras")
+            b.main(Indicate(tegak30, color=SOROT, scale_factor=1.0), run_time=0.8)
+            b.tunggu_kata("Dua")
+            b.main(Write(h3), run_time=1.8)
+            b.tunggu_kata("akar")
+            b.main(Write(h4), FadeIn(l_tegak30), run_time=1.0)
+        qc.periksa_adegan(self, {"segitiga": segi30, "h3": h3, "h4": h4}, hud=hud(ident, papan),
+                          tulisan={"30": l30, "60": l60, "alas": l_alas30, "miring": l_miring30,
+                                   "tegak": l_tegak30})
+
+        # ============ sin 30 dan sin 60 ================================== #
+        with sinema.babak(self, "nilai30", DURASI, kata=KATA) as b:
+            b.tunggu_kata("sinus")
+            b.main(FadeOut(h3), FadeOut(h4), run_time=0.3)
+            sinema.lahir_rumus(self, r"\sin 30^\circ = \frac{1}{2}", segi30, papan, b=b,
+                               warna=SOROT, geser=RIGHT * 3.4 + UP * 0.6, sebagai_utama=False)
+            b.tunggu_kata("sinus", ke=2)
+            sinema.lahir_rumus(self, r"\sin 60^\circ = \frac{\sqrt{3}}{2}", segi30, papan, b=b,
+                               warna=SOROT, geser=RIGHT * 3.4 + UP * 0.6, sebagai_utama=False)
+        qc.periksa_adegan(self, {"segitiga": segi30}, hud=hud(ident, papan),
+                          tulisan={"30": l30, "60": l60, "alas": l_alas30, "miring": l_miring30,
+                                   "tegak": l_tegak30})
+
+        # ============ ketiganya di lingkaran satuan ====================== #
+        pusat = PANGGUNG
+        lingkaran = Circle(radius=R_LING).move_to(pusat).set_stroke(TINTA, 3.2)
+        sumbu = VGroup(Line(pusat + LEFT * R_LING * 1.15, pusat + RIGHT * R_LING * 1.15),
+                       Line(pusat + DOWN * R_LING * 1.1, pusat + UP * R_LING * 1.15)
+                       ).set_stroke(REDUP, 2)
+        sumbu.latar = True
+        tanda_sudut = VGroup()
+        for d in ISTIMEWA:
+            arah = np.array([np.cos(np.radians(d)), np.sin(np.radians(d)), 0.0])
+            garis = Line(pusat + arah * R_LING, pusat + arah * R_LING * 1.1).set_stroke(REDUP, 2)
+            lab = rumus(rf"{d}^\circ", 24, TINTA).move_to(pusat + arah * R_LING * 1.32)
+            tanda_sudut.add(VGroup(garis, lab))
+        with sinema.babak(self, "lingkaran", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Sekarang")
+            ident3 = sinema.identitas(self, "lingkaran satuan")
+            ident3.set_opacity(0.0)
+            b.main(FadeOut(segi30), FadeOut(l30), FadeOut(l60), FadeOut(l_alas30),
+                   FadeOut(l_miring30), FadeOut(l_tegak30), FadeOut(ident), run_time=0.5)
+            b.main(ident3.animate.set_opacity(1.0), run_time=0.3)
+            ident = ident3
+            b.tunggu_kata("lingkaran")
+            b.main(ShowCreation(sumbu), ShowCreation(lingkaran), run_time=1.4)
+            b.tunggu_kata("Tiap")
+            b.main(LaggedStart(*[FadeIn(m, shift=UP * 0.1) for m in tanda_sudut], lag_ratio=0.3),
+                   run_time=1.4)
+        qc.periksa_adegan(self, {"lingkaran": lingkaran, "tanda": tanda_sudut},
+                          hud=hud(ident, papan), dunia={"sumbu": sumbu})
+
+        # ============ jari-jari menyapu, koordinat muncul ================ #
+        theta = ValueTracker(0.0)
+
+        def arah_t():
+            return np.array([np.cos(np.radians(theta.get_value())),
+                             np.sin(np.radians(theta.get_value())), 0.0])
+
+        jari = always_redraw(lambda: Line(pusat, pusat + R_LING * arah_t()).set_stroke(TINTA, 5))
+        juring = always_redraw(lambda: Sector(
+            radius=R_LING, angle=max(np.radians(theta.get_value()), 1e-3), arc_center=pusat
+        ).set_fill(SOROT, 0.16).set_stroke(width=0))
+        titik = always_redraw(lambda: Dot(pusat + R_LING * arah_t(), radius=0.075).set_color(AKSEN))
+        sapuan = VGroup(juring, jari, titik)
+        isi_koor = [r"\left(\tfrac{\sqrt{3}}{2}, \tfrac{1}{2}\right)",
+                    r"\left(\tfrac{1}{\sqrt{2}}, \tfrac{1}{\sqrt{2}}\right)",
+                    r"\left(\tfrac{1}{2}, \tfrac{\sqrt{3}}{2}\right)"]
+        koor = VGroup()
+        for d, isi in zip(ISTIMEWA, isi_koor):
+            arah = np.array([np.cos(np.radians(d)), np.sin(np.radians(d)), 0.0])
+            m = rumus(isi, 26, SOROT).move_to(pusat + arah * R_LING * 1.72)
+            koor.add(m)
+        # Label 45 derajat digeser sedikit ke luar supaya tiga koordinat yang
+        # berdekatan (15 derajat) tidak bersinggungan.
+        koor[1].shift(RIGHT * 0.55 + UP * 0.1)
+        with sinema.babak(self, "sapu", DURASI, kata=KATA) as b:
+            b.tunggu_kata("menyapu")
+            b.main(FadeIn(sapuan), run_time=0.5)
+            b.tunggu_kata("tiga")
+            b.main(theta.animate.set_value(30), run_time=0.6, rate_func=smooth)
+            b.main(FadeOut(tanda_sudut[0][1]), FadeIn(koor[0]), run_time=0.3)
+            b.tunggu_kata("empat")
+            b.main(theta.animate.set_value(45), run_time=0.6, rate_func=smooth)
+            b.main(FadeOut(tanda_sudut[1][1]), FadeIn(koor[1]), run_time=0.3)
+            b.tunggu_kata("enam")
+            b.main(theta.animate.set_value(60), run_time=0.6, rate_func=smooth)
+            b.main(FadeOut(tanda_sudut[2][1]), FadeIn(koor[2]), run_time=0.3)
+            b.tunggu_kata("koordinatnya")
+            b.main(LaggedStart(*[Indicate(m, color=SOROT) for m in koor], lag_ratio=0.3),
+                   run_time=1.4)
+        qc.periksa_adegan(self, {"lingkaran": lingkaran, "sapuan": sapuan},
+                          hud=hud(ident, papan), dunia={"sumbu": sumbu},
+                          tulisan={"koor 30": koor[0], "koor 45": koor[1], "koor 60": koor[2]})
+
+        # ============ penutup ============================================ #
+        with sinema.babak(self, "tutup", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Itulah")
+            b.main(theta.animate.set_value(45), run_time=1.2, rate_func=smooth)
+            b.tunggu_kata("dihitung")
+            b.main(papan.sorot(), run_time=1.0)
+
+        lanjut = teks("Grafik Fungsi Trigonometri, Bagian 1", 30, SOROT)
+        lanjut.move_to([X_KERJA, Y_KERJA, 0])
+        sinema.batasi_lebar(lanjut, 7.4)
+        tinggi_titik = always_redraw(lambda: Line(
+            pusat + R_LING * arah_t(), np.array([pusat[0] + R_LING * arah_t()[0], pusat[1], 0.0])
+        ).set_stroke(AKSEN, 5))
+        with sinema.babak(self, "lanjut", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Grafik")
+            b.main(FadeIn(lanjut, shift=UP * 0.2), run_time=0.8)
+            b.tunggu_kata("berputar")
+            b.main(theta.animate.set_value(70), run_time=1.2, rate_func=smooth)
+            b.tunggu_kata("tingginya")
+            b.main(ShowCreation(tinggi_titik), run_time=0.7)
+            b.main(theta.animate.set_value(20), run_time=1.6, rate_func=smooth)
+        qc.periksa_adegan(self, {"lingkaran": lingkaran, "sapuan": sapuan, "tinggi": tinggi_titik},
+                          hud=hud(ident, papan), dunia={"sumbu": sumbu},
+                          tulisan={"koor 30": koor[0], "koor 45": koor[1], "koor 60": koor[2],
+                                   "lanjut": lanjut})
+
+        sinema.laporkan_pemicu(self)

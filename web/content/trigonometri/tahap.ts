@@ -401,7 +401,7 @@ export const TAHAP: Tahap[] = [
       isi: 'Banyak siswa memperlakukan lingkaran satuan sebagai bab baru yang harus dihafal sendiri. Padahal ia segitiga yang sama, hanya dengan sisi miring dipaksa bernilai 1 lalu diletakkan di pusat lingkaran. Tidak ada konsep baru, hanya penyederhanaan.',
     },
     widget: 'lingkaran-satuan',
-    video: { berkas: 'tahap5-lingkaran-satuan.webm', poster: 'tahap5-lingkaran-satuan.jpg' },
+    video: { berkas: 'tahap5-lingkaran-satuan.mp4', poster: 'tahap5-lingkaran-satuan.jpg' },
     siap: true,
   },
   {
@@ -472,7 +472,7 @@ export const TAHAP: Tahap[] = [
       isi: 'Namanya mirip, jadi sering tertukar. Yang benar: sec adalah kebalikan cos, dan csc kebalikan sin. Cara mengingatnya lewat huruf ketiga, se-C-an berpasangan dengan C-osinus, ko-S-ekan dengan S-inus. Persis terbalik dari dugaan kebanyakan orang.',
     },
     widget: 'enam-rasio',
-    video: { berkas: 'tahap6-enam-rasio.webm', poster: 'tahap6-enam-rasio.jpg' },
+    video: { berkas: 'tahap6-enam-rasio.mp4', poster: 'tahap6-enam-rasio.jpg' },
     siap: true,
   },
   {
@@ -547,7 +547,7 @@ export const TAHAP: Tahap[] = [
       isi: 'Banyak siswa menghafal tabelnya lalu lupa separuh saat ujian. Padahal cukup ingat dua bangun: persegi dibelah diagonal, dan segitiga sama sisi dibelah dua. Dari dua gambar itu seluruh tabel bisa disusun ulang dalam satu menit, dan kalau lupa, tinggal digambar lagi.',
     },
     widget: 'perjalanan-sudut',
-    video: { berkas: 'tahap7-sudut-istimewa.webm', poster: 'tahap7-sudut-istimewa.jpg' },
+    video: { berkas: 'tahap7-sudut-istimewa.mp4', poster: 'tahap7-sudut-istimewa.jpg' },
     siap: true,
   },
   {

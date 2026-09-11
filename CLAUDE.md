@@ -196,4 +196,4 @@ PDF scan dibaca dengan PyMuPDF → render halaman jadi PNG → dibaca sebagai ga
 
 ## Lingkungan (terverifikasi 2 Sep 2026)
 ManimGL 1.7.2 (Manim Community dicabut 2 Sep) · MiKTeX 25.12 (AutoInstall aktif) · Typst 0.15.0 · FFmpeg 8.1.1 · Python 3.11.9 · Node 24.13
-GPU: GeForce MX250 + Intel UHD; render ManimGL tanpa jendela, paralel aman.
+GPU: GeForce MX250 + Intel UHD; render ManimGL tanpa jendela. Render 1080p60 SATU PER SATU: dua sekaligus pernah menghasilkan video hitam dari tengah tanpa galat (11 Sep 2026).

@@ -1,23 +1,23 @@
 {
   "adegan": "LingkaranSatuanLahir",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Tahap 5, Lingkaran satuan. Pola visual meniru referensi 1 (qc/referensi/1-rasio.png): lingkaran satuan di kiri, daftar rumus tumbuh di kanan, tiap besaran muncul sebagai ruas garis berwarna. Inti yang harus tertanam: kalau sisi miring dibuat 1, penyebutnya hilang, cos theta menjadi x dan sin theta menjadi y. Satu sumber kebenaran untuk naskah.",
+  "tempo": "-5%",
+  "catatan": "Lingkaran Satuan dan Sudut Istimewa, Bagian 1 (Materi 05). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (segitiga diperkecil sampai miringnya 1, jejak titik jadi lingkaran satuan, penyebut 1 dicoret, koordinat titik = (cos, sin), sudut digeser). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1, segar-ingat dua rumus dari Bagian 4, contoh angka segitiga 3-4-5 yang diperkecil jadi (0,8, 0,6), penutup menunjuk Bagian 2. Tanpa Pythagoras.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Perhatikan apa yang terjadi kalau sisi miring sebuah segitiga dibuat tepat berukuran satu.",
-      "tulis": "Perhatikan apa yang terjadi kalau sisi miring sebuah segitiga dibuat tepat berukuran 1."
+      "id": "buka",
+      "teks": "Lingkaran Satuan dan Sudut Istimewa, Bagian satu. Apa yang terjadi kalau sisi miring sebuah segitiga dibuat tepat berukuran satu?",
+      "tulis": "Lingkaran Satuan dan Sudut Istimewa, Bagian 1. Apa yang terjadi kalau sisi miring sebuah segitiga dibuat tepat berukuran 1?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di materi sebelumnya, Perbandingan Trigonometri, Bagian empat, kita sudah punya dua perbandingan. Cosinus theta sama dengan sisi samping dibagi sisi miring, dan sinus theta sama dengan sisi depan dibagi sisi miring.",
+      "tulis": "Di materi sebelumnya, Perbandingan Trigonometri, Bagian 4, kita sudah punya dua perbandingan. cos θ = samping : miring, dan sin θ = depan : miring."
     },
     {
       "id": "segitiga",
-      "teks": "Ini segitiga siku-siku yang sudah kita kenal sejak tahap tiga. Sudutnya theta, dan sisi miringnya kita beri nama r.",
-      "tulis": "Ini segitiga siku-siku yang sudah kita kenal sejak tahap 3. Sudutnya θ, dan sisi miringnya kita beri nama r."
-    },
-    {
-      "id": "rumus",
-      "teks": "Dari tahap empat kita sudah tahu. Cosinus theta adalah sisi samping dibagi sisi miring, dan sinus theta adalah sisi depan dibagi sisi miring.",
-      "tulis": "Dari tahap 4 kita sudah tahu. cos θ = sisi samping : sisi miring, dan sin θ = sisi depan : sisi miring."
+      "teks": "Ini segitiga siku-siku yang sama. Sudutnya theta, dan sisi miringnya kita beri nama r.",
+      "tulis": "Ini segitiga siku-siku yang sama. Sudutnya θ, dan sisi miringnya kita beri nama r."
     },
     {
       "id": "kecilkan",
@@ -31,8 +31,8 @@
     },
     {
       "id": "bagi",
-      "teks": "Sekarang perhatikan baik-baik rumusnya. Sisi miringnya bukan lagi r, melainkan satu. Jadi *cosinus theta sama dengan x* dibagi satu.",
-      "tulis": "Sekarang perhatikan baik-baik rumusnya. Sisi miringnya bukan lagi r, melainkan 1. Jadi *cos θ = x* : 1."
+      "teks": "Sekarang perhatikan baik-baik rumusnya. Sisi miringnya bukan lagi r, melainkan satu. Jadi cosinus theta sama dengan x dibagi satu.",
+      "tulis": "Sekarang perhatikan baik-baik rumusnya. Sisi miringnya bukan lagi r, melainkan 1. Jadi *cos θ = x : 1*."
     },
     {
       "id": "hilang",
@@ -41,13 +41,23 @@
     },
     {
       "id": "sinus",
-      "teks": "Dengan cara yang persis sama, *sinus theta sama dengan y* dibagi satu, yang berarti sinus theta sama dengan y.",
-      "tulis": "Dengan cara yang persis sama, *sin θ = y* : 1, yang berarti sin θ = y."
+      "teks": "Dengan cara yang persis sama, sinus theta sama dengan y dibagi satu, yang berarti sinus theta sama dengan y.",
+      "tulis": "Dengan cara yang persis sama, *sin θ = y : 1*, yang berarti sin θ = y."
     },
     {
       "id": "koordinat",
-      "teks": "Perhatikan apa yang baru saja terjadi. Koordinat titik itu bukan sekadar x dan y. Koordinatnya adalah cosinus theta dan sinus theta.",
+      "teks": "Perhatikan apa yang baru saja terjadi. Koordinat titik itu bukan sekadar x dan y. Koordinatnya adalah cosinus theta koma sinus theta.",
       "tulis": "Perhatikan apa yang baru saja terjadi. Koordinat titik itu bukan sekadar x dan y. Koordinatnya adalah (cos θ, sin θ)."
+    },
+    {
+      "id": "contoh",
+      "teks": "Coba dengan segitiga tiga, empat, lima dari Bagian empat tadi. Kalau sisi miringnya, lima, diperkecil jadi satu, sisi samping empat menjadi nol koma delapan, dan sisi depan tiga menjadi nol koma enam.",
+      "tulis": "Coba dengan segitiga 3, 4, 5 dari Bagian 4 tadi. Kalau sisi miringnya, 5, diperkecil jadi 1, sisi samping 4 menjadi 0,8, dan sisi depan 3 menjadi 0,6."
+    },
+    {
+      "id": "contoh_titik",
+      "teks": "Jadi titik ujungnya ada di koordinat nol koma delapan koma nol koma enam. Cosinus theta memang nol koma delapan, dan sinus theta memang nol koma enam, persis seperti yang kita hitung sebelumnya.",
+      "tulis": "Jadi titik ujungnya ada di koordinat (0,8, 0,6). cos θ memang 0,8, dan sin θ memang 0,6, persis seperti yang kita hitung sebelumnya."
     },
     {
       "id": "putar",
@@ -58,6 +68,11 @@
       "id": "tutup",
       "teks": "Sinus dan cosinus tidak lagi sekadar hasil bagi dua sisi. Sekarang keduanya adalah *posisi sebuah titik* yang sedang berputar.",
       "tulis": "sin dan cos tidak lagi sekadar hasil bagi dua sisi. Sekarang keduanya adalah *posisi sebuah titik* yang sedang berputar."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Lingkaran Satuan dan Sudut Istimewa, Bagian dua, empat perbandingan sisanya, tangen, kotangen, sekan, dan kosekan, kita tunjuk sebagai ruas garis di lingkaran yang sama.",
+      "tulis": "Di materi berikutnya, Lingkaran Satuan dan Sudut Istimewa, Bagian 2, empat perbandingan sisanya, tangen, kotangen, sekan, dan kosekan, kita tunjuk sebagai ruas garis di lingkaran yang sama."
     }
   ]
 }

@@ -1,16 +1,19 @@
 {
-  "total": 92.952,
+  "total": 145.89999999999998,
   "segmen": {
-    "sapa": 5.64,
-    "segitiga": 8.736,
-    "rumus": 9.816,
-    "kecilkan": 6.0,
-    "lingkaran": 9.936,
-    "bagi": 10.992,
-    "hilang": 8.04,
-    "sinus": 7.416,
-    "koordinat": 9.432,
-    "putar": 8.232,
-    "tutup": 8.712
+    "buka": 9.7,
+    "ingat": 14.733333333333333,
+    "segitiga": 7.7,
+    "kecilkan": 6.333333333333333,
+    "lingkaran": 10.2,
+    "bagi": 11.233333333333333,
+    "hilang": 8.3,
+    "sinus": 7.7,
+    "koordinat": 9.633333333333333,
+    "contoh": 15.466666666666667,
+    "contoh_titik": 12.733333333333333,
+    "putar": 8.5,
+    "tutup": 8.966666666666667,
+    "lanjut": 14.7
   }
 }

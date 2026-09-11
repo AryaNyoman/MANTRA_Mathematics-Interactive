@@ -1,17 +1,23 @@
 {
   "adegan": "SudutIstimewaLahir",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Tahap 7, Sudut istimewa. Pola visual meniru referensi 2 (Unit Circle Journey): lingkaran berlabel derajat, jari-jari menyapu berhenti di tiap sudut istimewa, juring terisi. Inti yang harus tertanam: 30, 45, dan 60 derajat disebut istimewa BUKAN karena angkanya bulat, melainkan karena nilainya lahir dari dua bangun yang bisa digambar sendiri, persegi dibelah diagonal, dan segitiga sama sisi dibelah dua, sehingga nilainya eksak, bukan desimal dari kalkulator.",
+  "tempo": "-5%",
+  "catatan": "Lingkaran Satuan dan Sudut Istimewa, Bagian 3 (Materi 07). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (persegi dipotong diagonal jadi 45-45-90 dengan miring akar 2; segitiga sama sisi dibelah jadi 30-60-90 dengan tegak akar 3; nilai sin 45, 30, 60; ketiganya di lingkaran satuan; jari-jari menyapu). Yang ditambah: pembuka sub-bab plus Bagian 3, segar-ingat koordinat (cos, sin) dari Bagian 1, asal akar 2 dan akar 3 DIHITUNG lewat Pythagoras (prasyarat nyata SMP, dipakai sungguhan), penutup menunjuk Grafik Fungsi Trigonometri Bagian 1.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Ada tiga sudut yang di semua buku selalu disebut *istimewa*. Tiga puluh, empat puluh lima, dan enam puluh derajat.",
-      "tulis": "Ada tiga sudut yang di semua buku selalu disebut *istimewa*. 30°, 45°, dan 60°."
+      "id": "buka",
+      "teks": "Lingkaran Satuan dan Sudut Istimewa, Bagian tiga. Kenapa tiga puluh, empat puluh lima, dan enam puluh derajat disebut sudut istimewa?",
+      "tulis": "Lingkaran Satuan dan Sudut Istimewa, Bagian 3. Kenapa 30°, 45°, dan 60° disebut sudut istimewa?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di materi sebelumnya, Lingkaran Satuan dan Sudut Istimewa, Bagian satu, tiap titik di lingkaran satuan punya koordinat cosinus theta koma sinus theta. Untuk kebanyakan sudut, angkanya desimal panjang yang tidak pernah habis.",
+      "tulis": "Di materi sebelumnya, Lingkaran Satuan dan Sudut Istimewa, Bagian 1, tiap titik di lingkaran satuan punya koordinat (cos θ, sin θ). Untuk kebanyakan sudut, angkanya desimal panjang yang tidak pernah habis."
     },
     {
       "id": "kenapa",
-      "teks": "Istimewanya bukan karena angkanya bulat. Melainkan karena nilainya bisa *ditulis persis*, tanpa deretan desimal yang tidak pernah habis."
+      "teks": "Ada tiga sudut yang di semua buku selalu disebut *istimewa*: tiga puluh, empat puluh lima, dan enam puluh derajat. Istimewanya bukan karena angkanya bulat, melainkan karena nilainya bisa *ditulis persis*.",
+      "tulis": "Ada tiga sudut yang di semua buku selalu disebut *istimewa*: 30°, 45°, dan 60°. Istimewanya bukan karena angkanya bulat, melainkan karena nilainya bisa *ditulis persis*."
     },
     {
       "id": "persegi",
@@ -20,13 +26,18 @@
     },
     {
       "id": "empatlima",
-      "teks": "Yang tersisa adalah segitiga siku-siku dengan dua sudut empat puluh lima derajat. Kedua sisi tegaknya satu, dan sisi miringnya *akar dua*.",
-      "tulis": "Yang tersisa adalah segitiga siku-siku dengan dua sudut 45°. Kedua sisi tegaknya 1, dan sisi miringnya *√2*."
+      "teks": "Yang tersisa adalah segitiga siku-siku dengan dua sudut empat puluh lima derajat. Kedua sisi tegaknya satu.",
+      "tulis": "Yang tersisa adalah segitiga siku-siku dengan dua sudut 45°. Kedua sisi tegaknya 1."
+    },
+    {
+      "id": "miring45",
+      "teks": "Sisi miringnya kita hitung dengan Pythagoras. Satu kuadrat tambah satu kuadrat sama dengan dua, jadi sisi miringnya *akar dua*.",
+      "tulis": "Sisi miringnya kita hitung dengan Pythagoras. 1² + 1² = 2, jadi sisi miringnya *√2*."
     },
     {
       "id": "nilai45",
-      "teks": "Jadi sinus empat puluh lima derajat adalah satu per akar dua. Sebuah angka pasti, bukan hasil tekan kalkulator.",
-      "tulis": "Jadi sin 45° = 1/√2. Sebuah angka pasti, bukan hasil tekan kalkulator."
+      "teks": "Jadi sinus empat puluh lima derajat sama dengan depan dibagi miring, satu per akar dua. Sebuah angka pasti, bukan hasil tekan kalkulator.",
+      "tulis": "Jadi sin 45° = depan : miring = 1/√2. Sebuah angka pasti, bukan hasil tekan kalkulator."
     },
     {
       "id": "samasisi",
@@ -35,12 +46,17 @@
     },
     {
       "id": "tigapuluh",
-      "teks": "Sekarang muncul segitiga siku-siku dengan sudut tiga puluh dan enam puluh derajat. Alasnya satu, miringnya dua, dan sisi tegaknya *akar tiga*.",
-      "tulis": "Sekarang muncul segitiga siku-siku dengan sudut 30° dan 60°. Alasnya 1, miringnya 2, dan sisi tegaknya *√3*."
+      "teks": "Sekarang muncul segitiga siku-siku dengan sudut tiga puluh dan enam puluh derajat. Alasnya satu, dan miringnya dua.",
+      "tulis": "Sekarang muncul segitiga siku-siku dengan sudut 30° dan 60°. Alasnya 1, dan miringnya 2."
+    },
+    {
+      "id": "tegak30",
+      "teks": "Sisi tegaknya lagi-lagi dari Pythagoras. Dua kuadrat kurang satu kuadrat sama dengan tiga, jadi sisi tegaknya *akar tiga*.",
+      "tulis": "Sisi tegaknya lagi-lagi dari Pythagoras. 2² − 1² = 3, jadi sisi tegaknya *√3*."
     },
     {
       "id": "nilai30",
-      "teks": "Dari situ, sinus tiga puluh derajat adalah satu per dua. Dan sinus enam puluh derajat adalah akar tiga per dua.",
+      "teks": "Dari situ, sinus tiga puluh derajat sama dengan satu per dua. Dan sinus enam puluh derajat sama dengan akar tiga per dua.",
       "tulis": "Dari situ, sin 30° = 1/2. Dan sin 60° = √3/2."
     },
     {
@@ -50,12 +66,18 @@
     },
     {
       "id": "sapu",
-      "teks": "Jari-jarinya menyapu, berhenti di tiap sudut istimewa, dan koordinatnya muncul satu per satu.",
-      "tulis": "Jari-jarinya menyapu, berhenti di tiap sudut istimewa, dan koordinatnya muncul satu per satu."
+      "teks": "Jari-jarinya menyapu, berhenti di tiga puluh, empat puluh lima, dan enam puluh derajat, dan koordinatnya muncul satu per satu.",
+      "tulis": "Jari-jarinya menyapu, berhenti di 30°, 45°, dan 60°, dan koordinatnya muncul satu per satu."
     },
     {
       "id": "tutup",
-      "teks": "Itulah sebabnya ketiganya disebut istimewa. Bukan karena mudah dihafal, melainkan karena nilainya bisa dihitung sendiri dengan tangan."
+      "teks": "Itulah sebabnya ketiganya disebut istimewa. Bukan karena mudah dihafal, melainkan karena nilainya bisa dihitung sendiri dengan tangan.",
+      "tulis": "Itulah sebabnya ketiganya disebut istimewa. Bukan karena mudah dihafal, melainkan karena nilainya bisa dihitung sendiri dengan tangan."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Grafik Fungsi Trigonometri, Bagian satu, titik yang berputar di lingkaran ini kita rekam tingginya dari waktu ke waktu, dan lahirlah grafik sinus.",
+      "tulis": "Di materi berikutnya, Grafik Fungsi Trigonometri, Bagian 1, titik yang berputar di lingkaran ini kita rekam tingginya dari waktu ke waktu, dan lahirlah grafik sinus."
     }
   ]
 }

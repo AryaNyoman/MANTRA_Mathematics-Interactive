@@ -1,123 +1,192 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/tahap7-sudut-istimewa.json
+NOTE Dibuat otomatis dari manim/narasi/tahap7-sudut-istimewa.json (waktu kata rekaman)
+NOTE naskah-sidik e4014db920fa
 
 1
-00:00:00.000 --> 00:00:02.591
-Ada tiga sudut yang di
+00:00:00.101 --> 00:00:03.751
+Lingkaran Satuan dan Sudut Istimewa, Bagian 3.
 
 2
-00:00:02.591 --> 00:00:06.712
-semua buku selalu disebut <b>istimewa</b>.
+00:00:04.500 --> 00:00:09.637
+Kenapa 30°, 45°, dan 60° disebut sudut istimewa?
 
 3
-00:00:06.712 --> 00:00:08.832
-30°, 45°, dan 60°.
+00:00:10.849 --> 00:00:12.332
+Di materi sebelumnya,
 
 4
-00:00:08.832 --> 00:00:11.617
-Istimewanya bukan karena angkanya bulat.
+00:00:12.332 --> 00:00:15.581
+Lingkaran Satuan dan Sudut Istimewa, Bagian 1,
 
 5
-00:00:11.617 --> 00:00:14.821
-Melainkan karena nilainya bisa <b>ditulis persis</b>,
+00:00:15.581 --> 00:00:19.394
+tiap titik di lingkaran satuan punya koordinat (cos θ,
 
 6
-00:00:14.821 --> 00:00:18.024
-tanpa deretan desimal yang tidak pernah habis.
+00:00:19.394 --> 00:00:20.744
+sin θ).
 
 7
-00:00:18.024 --> 00:00:21.023
-Yang pertama lahir dari sebuah persegi.
+00:00:20.786 --> 00:00:22.097
+Untuk kebanyakan sudut,
 
 8
-00:00:21.023 --> 00:00:23.790
-Ambil persegi dengan panjang sisi 1,
+00:00:22.097 --> 00:00:25.041
+angkanya desimal panjang yang tidak pernah habis.
 
 9
-00:00:23.790 --> 00:00:26.712
-lalu potong menurut garis diagonalnya.
+00:00:26.249 --> 00:00:28.237
+Ada tiga sudut yang di
 
 10
-00:00:26.712 --> 00:00:29.297
-Yang tersisa adalah segitiga
+00:00:28.237 --> 00:00:31.399
+semua buku selalu disebut <b>istimewa</b>:
 
 11
-00:00:29.297 --> 00:00:32.158
-siku-siku dengan dua sudut 45°.
+00:00:31.399 --> 00:00:33.175
+30°, 45°, dan 60°.
 
 12
-00:00:32.158 --> 00:00:36.312
-Kedua sisi tegaknya 1, dan sisi miringnya <b>√2</b>.
+00:00:33.923 --> 00:00:36.144
+Istimewanya bukan karena angkanya bulat,
 
 13
-00:00:36.312 --> 00:00:38.761
-Jadi sin 45° = 1/√2.
+00:00:36.144 --> 00:00:38.849
+melainkan karena nilainya bisa <b>ditulis persis</b>.
 
 14
-00:00:38.761 --> 00:00:44.760
-Sebuah angka pasti, bukan hasil tekan kalkulator.
+00:00:40.067 --> 00:00:42.428
+Yang pertama lahir dari sebuah persegi.
 
 15
-00:00:44.760 --> 00:00:47.965
-Yang kedua lahir dari segitiga sama sisi.
+00:00:43.177 --> 00:00:45.366
+Ambil persegi dengan panjang sisi 1,
 
 16
-00:00:47.965 --> 00:00:50.857
-Ambil segitiga yang ketiga sisinya 2,
+00:00:45.366 --> 00:00:47.827
+lalu potong menurut garis diagonalnya.
 
 17
-00:00:50.857 --> 00:00:52.968
-lalu belah tepat di tengah.
+00:00:49.035 --> 00:00:50.989
+Yang tersisa adalah segitiga
 
 18
-00:00:52.968 --> 00:00:56.358
-Sekarang muncul segitiga siku-siku
+00:00:50.989 --> 00:00:53.303
+siku-siku dengan dua sudut 45°.
 
 19
-00:00:56.358 --> 00:00:58.850
-dengan sudut 30° dan 60°.
+00:00:54.037 --> 00:00:55.898
+Kedua sisi tegaknya 1.
 
 20
-00:00:58.850 --> 00:01:03.336
-Alasnya 1, miringnya 2, dan sisi tegaknya <b>√3</b>.
+00:00:57.101 --> 00:00:59.699
+Sisi miringnya kita hitung dengan Pythagoras.
 
 21
-00:01:03.336 --> 00:01:11.808
-Dari situ, sin 30° = 1/2. Dan sin 60° = √3/2.
+00:01:00.447 --> 00:01:05.203
+1² + 1² = 2, jadi sisi miringnya <b>√2</b>.
 
 22
-00:01:11.808 --> 00:01:15.002
-Sekarang taruh ketiganya di lingkaran satuan.
+00:01:06.449 --> 00:01:11.428
+Jadi sin 45° = depan : miring = 1/√2.
 
 23
-00:01:15.002 --> 00:01:17.061
-Tiap sudut istimewa memberi 1
+00:01:12.161 --> 00:01:15.535
+Sebuah angka pasti, bukan hasil tekan kalkulator.
 
 24
-00:01:17.061 --> 00:01:20.184
-titik yang koordinatnya bisa ditulis persis.
+00:01:16.735 --> 00:01:19.319
+Yang kedua lahir dari segitiga sama sisi.
 
 25
-00:01:20.184 --> 00:01:24.241
-Jari-jarinya menyapu, berhenti di tiap sudut istimewa,
+00:01:20.053 --> 00:01:22.259
+Ambil segitiga yang ketiga sisinya 2,
 
 26
-00:01:24.241 --> 00:01:27.096
-dan koordinatnya muncul satu per satu.
+00:01:22.259 --> 00:01:24.019
+lalu belah tepat di tengah.
 
 27
-00:01:27.096 --> 00:01:30.200
-Itulah sebabnya ketiganya disebut istimewa.
+00:01:25.235 --> 00:01:27.616
+Sekarang muncul segitiga siku-siku
 
 28
-00:01:30.200 --> 00:01:32.149
-Bukan karena mudah dihafal,
+00:01:27.616 --> 00:01:29.516
+dengan sudut 30° dan 60°.
 
 29
-00:01:32.149 --> 00:01:34.314
-melainkan karena nilainya bisa
+00:01:30.250 --> 00:01:32.821
+Alasnya 1, dan miringnya 2.
 
 30
-00:01:34.314 --> 00:01:36.552
+00:01:34.035 --> 00:01:36.632
+Sisi tegaknya lagi-lagi dari Pythagoras.
+
+31
+00:01:37.381 --> 00:01:42.307
+2² − 1² = 3, jadi sisi tegaknya <b>√3</b>.
+
+32
+00:01:43.549 --> 00:01:47.449
+Dari situ, sin 30° = 1/2.
+
+33
+00:01:48.182 --> 00:01:51.450
+Dan sin 60° = √3/2.
+
+34
+00:01:52.668 --> 00:01:55.213
+Sekarang taruh ketiganya di lingkaran satuan.
+
+35
+00:01:55.947 --> 00:01:57.546
+Tiap sudut istimewa memberi 1
+
+36
+00:01:57.546 --> 00:02:00.123
+titik yang koordinatnya bisa ditulis persis.
+
+37
+00:02:01.349 --> 00:02:06.032
+Jari-jarinya menyapu, berhenti di 30°, 45°, dan 60°,
+
+38
+00:02:06.032 --> 00:02:09.604
+dan koordinatnya muncul satu per satu.
+
+39
+00:02:10.835 --> 00:02:13.603
+Itulah sebabnya ketiganya disebut istimewa.
+
+40
+00:02:14.352 --> 00:02:15.841
+Bukan karena mudah dihafal,
+
+41
+00:02:15.841 --> 00:02:17.497
+melainkan karena nilainya bisa
+
+42
+00:02:17.497 --> 00:02:19.357
 dihitung sendiri dengan tangan.
+
+43
+00:02:20.582 --> 00:02:23.618
+Di materi berikutnya, Grafik Fungsi Trigonometri,
+
+44
+00:02:23.618 --> 00:02:24.818
+Bagian 1,
+
+45
+00:02:24.818 --> 00:02:27.048
+titik yang berputar di lingkaran ini
+
+46
+00:02:27.048 --> 00:02:29.588
+kita rekam tingginya dari waktu ke waktu,
+
+47
+00:02:29.588 --> 00:02:31.349
+dan lahirlah grafik sinus.

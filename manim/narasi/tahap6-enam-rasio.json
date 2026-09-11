@@ -1,51 +1,63 @@
 {
   "adegan": "EnamRasioNyata",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Tahap 6, Enam rasio sebagai panjang nyata. Lanjutan langsung tahap 5, referensi visual sama (qc/referensi/1-rasio.png). Inti: tan, cot, sec, csc bukan rumus hafalan, keempatnya ruas garis yang bisa ditunjuk pada lingkaran satuan, lewat dua garis singgung. Sudut kerja 55 derajat, dipilih supaya keenam ruas sama-sama berukuran wajar; di sudut kecil cot dan csc meledak, di sudut besar tan dan sec meledak.",
+  "tempo": "-5%",
+  "catatan": "Lingkaran Satuan dan Sudut Istimewa, Bagian 2 (Materi 06). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (dua garis singgung, tan dan sec di garis tegak, cot dan csc di garis mendatar, enam ruas satu lingkaran, sudut digeser). Yang ditambah: pembuka sub-bab plus Bagian 2, segar-ingat cos = x dan sin = y dari Bagian 1, contoh angka pada sudut segitiga 3-4-5 (tan = 0,6 : 0,8 = 0,75), penutup menunjuk Bagian 3. Tanpa Pythagoras.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Selain sinus dan cosinus, masih ada empat perbandingan lagi. Dan keempatnya bisa ditunjuk sebagai ruas garis.",
-      "tulis": "Selain sin dan cos, masih ada 4 perbandingan lagi. Dan keempatnya bisa ditunjuk sebagai ruas garis."
+      "id": "buka",
+      "teks": "Lingkaran Satuan dan Sudut Istimewa, Bagian dua. Selain sinus dan cosinus, masih ada empat perbandingan lagi. Bisakah keempatnya ditunjuk sebagai panjang sebuah ruas garis?",
+      "tulis": "Lingkaran Satuan dan Sudut Istimewa, Bagian 2. Selain sin dan cos, masih ada 4 perbandingan lagi. Bisakah keempatnya ditunjuk sebagai panjang sebuah ruas garis?"
     },
     {
-      "id": "ulang",
-      "teks": "Kita mulai dari lingkaran satuan yang tadi. Cosinus theta adalah x, dan sinus theta adalah y.",
-      "tulis": "Kita mulai dari lingkaran satuan yang tadi. cos θ = x, dan sin θ = y."
+      "id": "ingat",
+      "teks": "Di materi sebelumnya, Lingkaran Satuan dan Sudut Istimewa, Bagian satu, sisi miring dibuat satu, dan jejak titiknya menjadi lingkaran satuan. Di situ cosinus theta sama dengan x, dan sinus theta sama dengan y.",
+      "tulis": "Di materi sebelumnya, Lingkaran Satuan dan Sudut Istimewa, Bagian 1, sisi miring dibuat 1, dan jejak titiknya menjadi lingkaran satuan. Di situ cos θ = x, dan sin θ = y."
     },
     {
       "id": "singgung",
-      "teks": "Sekarang tarik sebuah garis tegak yang menyentuh lingkaran di sebelah kanan. Garis seperti ini disebut *garis singgung*."
+      "teks": "Sekarang tarik sebuah garis tegak yang menyentuh lingkaran di sebelah kanan. Garis seperti ini disebut *garis singgung*.",
+      "tulis": "Sekarang tarik sebuah garis tegak yang menyentuh lingkaran di sebelah kanan. Garis seperti ini disebut *garis singgung*."
     },
     {
       "id": "tan",
-      "teks": "Perpanjang jari-jarinya sampai mengenai garis singgung tadi. Ruas dari sumbu mendatar sampai titik potong itu panjangnya persis *tangen theta*.",
-      "tulis": "Perpanjang jari-jarinya sampai mengenai garis singgung tadi. Ruas dari sumbu mendatar sampai titik potong itu panjangnya persis *tan θ*."
+      "teks": "Perpanjang jari-jarinya sampai mengenai garis singgung tadi. Ruas dari sumbu mendatar sampai titik potong itu panjangnya persis *tangen theta*, yaitu y dibagi x.",
+      "tulis": "Perpanjang jari-jarinya sampai mengenai garis singgung tadi. Ruas dari sumbu mendatar sampai titik potong itu panjangnya persis *tan θ*, yaitu y : x."
     },
     {
       "id": "sec",
-      "teks": "Dan ruas dari pusat lingkaran sampai titik potong yang sama panjangnya *sekan theta*.",
-      "tulis": "Dan ruas dari pusat lingkaran sampai titik potong yang sama panjangnya *sec θ*."
+      "teks": "Dan ruas dari pusat lingkaran sampai titik potong yang sama panjangnya *sekan theta*, yaitu satu dibagi x.",
+      "tulis": "Dan ruas dari pusat lingkaran sampai titik potong yang sama panjangnya *sec θ*, yaitu 1 : x."
     },
     {
       "id": "singgung2",
-      "teks": "Sekarang tarik garis singgung yang kedua. Kali ini mendatar, menyentuh lingkaran di bagian atas."
+      "teks": "Sekarang tarik garis singgung yang kedua. Kali ini mendatar, menyentuh lingkaran di bagian atas.",
+      "tulis": "Sekarang tarik garis singgung yang kedua. Kali ini mendatar, menyentuh lingkaran di bagian atas."
     },
     {
       "id": "cot",
-      "teks": "Perpanjang lagi jari-jarinya ke arah itu. Ruas dari sumbu tegak sampai titik potongnya panjangnya *kotangen theta*.",
-      "tulis": "Perpanjang lagi jari-jarinya ke arah itu. Ruas dari sumbu tegak sampai titik potongnya panjangnya *cot θ*."
+      "teks": "Perpanjang lagi jari-jarinya ke arah itu. Ruas dari sumbu tegak sampai titik potongnya panjangnya *kotangen theta*, yaitu x dibagi y.",
+      "tulis": "Perpanjang lagi jari-jarinya ke arah itu. Ruas dari sumbu tegak sampai titik potongnya panjangnya *cot θ*, yaitu x : y."
     },
     {
       "id": "csc",
-      "teks": "Dan ruas dari pusat sampai titik potong itu panjangnya *kosekan theta*.",
-      "tulis": "Dan ruas dari pusat sampai titik potong itu panjangnya *csc θ*."
+      "teks": "Dan ruas dari pusat sampai titik potong itu panjangnya *kosekan theta*, yaitu satu dibagi y.",
+      "tulis": "Dan ruas dari pusat sampai titik potong itu panjangnya *csc θ*, yaitu 1 : y."
     },
     {
       "id": "enam",
       "teks": "Enam ruas, enam nama. Semuanya lahir dari satu lingkaran dan satu sudut yang sama.",
-      "tulis": "6 ruas, 6 nama. Semuanya lahir dari satu lingkaran dan satu sudut yang sama."
+      "tulis": "6 ruas, 6 nama. Semuanya lahir dari 1 lingkaran dan 1 sudut yang sama."
+    },
+    {
+      "id": "contoh",
+      "teks": "Coba dengan angka. Pada sudut segitiga tiga, empat, lima dari Bagian satu tadi, x sama dengan nol koma delapan dan y sama dengan nol koma enam. Jadi tangen theta sama dengan nol koma enam dibagi nol koma delapan, yaitu nol koma tujuh lima.",
+      "tulis": "Coba dengan angka. Pada sudut segitiga 3, 4, 5 dari Bagian 1 tadi, x = 0,8 dan y = 0,6. Jadi tan θ = 0,6 : 0,8 = 0,75."
+    },
+    {
+      "id": "contoh_cocok",
+      "teks": "Persis sama dengan sisi depan dibagi sisi samping, tiga dibagi empat. Ruas tangennya pun memang sepanjang nol koma tujuh lima jari-jari.",
+      "tulis": "Persis sama dengan depan : samping, 3 : 4. Ruas tan-nya pun memang sepanjang 0,75 jari-jari."
     },
     {
       "id": "putar",
@@ -56,6 +68,11 @@
       "id": "tutup",
       "teks": "Jadi sekan dan kosekan bukan rumus yang harus dihafal. Keduanya panjang yang bisa Anda tunjuk langsung di gambar.",
       "tulis": "Jadi sec dan csc bukan rumus yang harus dihafal. Keduanya panjang yang bisa Anda tunjuk langsung di gambar."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Lingkaran Satuan dan Sudut Istimewa, Bagian tiga, kita cari sudut-sudut yang nilai sinus dan cosinusnya bisa ditulis persis, tanpa kalkulator.",
+      "tulis": "Di materi berikutnya, Lingkaran Satuan dan Sudut Istimewa, Bagian 3, kita cari sudut-sudut yang nilai sin dan cos-nya bisa ditulis persis, tanpa kalkulator."
     }
   ]
 }
