@@ -20,10 +20,11 @@ Keputusan ARYA 10 Sep: delapan sesi paralel DIBUBARKAN; MASTER sendiri yang
 menulis ulang semua 58 video, merevisi situs, dan merapikan proyek. **MASTER
 DILARANG KERAS mengirim tugas atau pesan ke sesi lain** (kata ARYA: "STOP
 UNTUK MENGIRIMKAN TUGAS/MESSAGE KE SESI LAIN"). Cabang `sesi/*` sudah
-digabung ke `master` 10 Sep; worktree di `.claude/worktrees/` tinggal arsip
-yang menunggu dihapus saat perapian. Daftar revisi ARYA hari itu (13 butir,
-keputusan, nama sub-bab dan pertanyaan bab yang disetujui):
-`docs/tugas/REVISI-ARYA-2026-09-10.md`.
+digabung ke `master` 10 Sep dan keenam worktree dihapus 11 Sep (render dan
+berkas yang tidak di git ada di `D:\MANTRA-BACKUP\2026-09-11\`). Daftar
+revisi ARYA (13 butir, keputusan, nama sub-bab dan pertanyaan bab yang
+disetujui): `docs/tugas/REVISI-ARYA-2026-09-10.md`; daftar perapian:
+`docs/tugas/PERAPIAN-2026-09-11.md`.
 
 ## STANDAR VIDEO v3 (8 Sep) plus tambahan v3.1 (10 Sep), berlaku SEMUA video
 
@@ -52,15 +53,15 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
   (keluaran `media/gl/`). Perkakas: `manim/gl/`. Contoh rujukan: `manim/contoh/contoh_perahu.py`.
   Standar visual video: `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md`. Manim Community DICABUT.
 - Situs: `cd web && npm run dev` → http://localhost:3000
-- **Folder kerja yang benar: `D:\MANIM-MATRA` (cabang `master`).** Folder di
-  `.claude\worktrees\` adalah salinan proyek yang sama pada cabang lain, dan
-  `PROGRESS.md` di dalamnya bisa basi. Ragu? `git worktree list`. Selesai pakai
-  worktree? Gabungkan ke `master` lalu hapus worktree-nya.
+- **Folder kerja yang benar: `D:\MANIM-MATRA` (cabang `master`).** Sejak 11 Sep
+  2026 tidak ada worktree lagi; kalau suatu saat dibuat, gabungkan ke `master`
+  lalu hapus worktree-nya, dan ingat mp4 di `web/public/anim/` TIDAK dilacak
+  git (harus disalin manual, kalau tidak vtt dan videonya tidak sepasang).
 
 ## Susunan folder
 | Folder | Isi |
 |---|---|
-| `manim/` | Animasi Python (ManimGL 1.7.2; `gl/` perkakas bersama, `arsip-manim-ce/` kode lama yang tak bisa dijalankan) |
+| `manim/` | Animasi Python (ManimGL 1.7.2; `gl/` perkakas bersama; kode Manim CE lama dipindah ke `D:\MANTRA-BACKUP\2026-09-11`) |
 | `web/` | Situs Next.js 16 + TypeScript |
 | `web/public/anim/` | Video hasil render (mp4 1080p60, poster jpg, subtitle vtt) |
 | `docs/superpowers/specs/` | Dokumen desain |
@@ -71,7 +72,7 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
   statistika, transformasi geometri, turunan, integral (⭐ = unggulan;
   Turunan dan Integral rancangannya
   `docs/superpowers/specs/2026-09-06-{turunan,integral}-alur-belajar.md`).
-  Semua dikerjakan MASTER di `master` sejak 10 Sep 2026.
+  Semua dikerjakan MASTER di `master` sejak 10 Sep 2026. Catatan era delapan sesi diarsipkan di `docs/arsip-sesi/` (11 Sep).
   Topik baru WAJIB didaftarkan di TIGA tempat: `web/content/topik.ts`,
   `web/content/daftar-isi.ts`, dan `web/content/subbab.ts` (pemetaan bab dan
   sub-bab). Kalau `subbab.ts` terlewat, topiknya tidak muncul di Peta Materi.

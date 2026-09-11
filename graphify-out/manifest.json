@@ -2615,8 +2615,8 @@
     "semantic_hash": ""
   },
   "web/public/anim/grafik3-puncak.jpg": {
-    "mtime": 1789055315.177289,
-    "ast_hash": "76d4a70c078ddc6c49a12179650017f6",
+    "mtime": 1789123344.6283588,
+    "ast_hash": "68ff458ca96c7a7bdecfd4901f274738",
     "semantic_hash": ""
   },
   "web/public/anim/grafik6-transformasi.jpg": {
@@ -2660,13 +2660,13 @@
     "semantic_hash": ""
   },
   "web/public/anim/ruang-3d-01.jpg": {
-    "mtime": 1789054803.5076196,
-    "ast_hash": "4370a684ca988ff5295022a6e3338e9b",
+    "mtime": 1789123345.6810875,
+    "ast_hash": "52faa663e474cf93065ba871a8630651",
     "semantic_hash": ""
   },
   "web/public/anim/ruang-3d-03.jpg": {
-    "mtime": 1789054803.5096202,
-    "ast_hash": "69a6026842650d79b60ea7006ad6aaac",
+    "mtime": 1789123345.9713287,
+    "ast_hash": "86c1a2351696dcad4c95ee527b71a7ed",
     "semantic_hash": ""
   },
   "web/public/anim/ruang-3d-04.jpg": {
@@ -2695,7 +2695,7 @@
     "semantic_hash": ""
   },
   "web/public/anim/statistika1-menipu.jpg": {
-    "mtime": 1788808932.513878,
+    "mtime": 1789123346.2332897,
     "ast_hash": "bdf26e4c8f08fd8f430e9909e3160547",
     "semantic_hash": ""
   },
@@ -2820,13 +2820,13 @@
     "semantic_hash": ""
   },
   "web/public/anim/vektor1-perahu.jpg": {
-    "mtime": 1789054956.4274132,
-    "ast_hash": "5d75281686b413350e9818fd52b406cb",
+    "mtime": 1789123346.4790058,
+    "ast_hash": "ea5e204a2e54089aa32be0b2afaaba8e",
     "semantic_hash": ""
   },
   "web/public/anim/vektor3-komponen.jpg": {
-    "mtime": 1789054956.4294143,
-    "ast_hash": "0dabf78bf1cb6dcd904ed107d0c855b0",
+    "mtime": 1789123346.7242744,
+    "ast_hash": "d98ea2b741eceabc040f31415336f4c5",
     "semantic_hash": ""
   },
   "web/public/anim/vektor4-panjang.jpg": {
@@ -6370,8 +6370,8 @@
     "semantic_hash": ""
   },
   "web/public/anim/integral01-laju-ke-jumlah.jpg": {
-    "mtime": 1789054802.6471665,
-    "ast_hash": "3004e22e4dcaf6bc53a07055c2a796c8",
+    "mtime": 1789123344.9644237,
+    "ast_hash": "54787e90a9556163e1b932b2453e4ded",
     "semantic_hash": ""
   },
   "web/public/anim/integral05-riemann.jpg": {
@@ -6690,8 +6690,8 @@
     "semantic_hash": ""
   },
   "web/public/anim/integral03-substitusi.jpg": {
-    "mtime": 1789054802.6481664,
-    "ast_hash": "60a0054e447ef93356b23529e126c111",
+    "mtime": 1789123345.2666996,
+    "ast_hash": "613f1773326155109cba2d87a8606a52",
     "semantic_hash": ""
   },
   "audio/integral03-substitusi/01-buka.mp3": {
@@ -8757,11 +8757,6 @@
   "audio/statistika1-menipu/32-lanjut.mp3": {
     "mtime": 1789054801.6106162,
     "ast_hash": "45930eafc5a8da055bdb92c2a0778bff",
-    "semantic_hash": ""
-  },
-  "web/public/anim/uji-480p/integral01-laju-ke-jumlah.mp4": {
-    "mtime": 1789054802.7122443,
-    "ast_hash": "ccd55bf51f87487dce97be43e54f9c9a",
     "semantic_hash": ""
   },
   "alat/cek_urutan_grafik_fungsi.py": {
