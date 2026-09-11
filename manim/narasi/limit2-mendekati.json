@@ -1,12 +1,18 @@
 {
   "adegan": "MendekatiBukanMenyentuh",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Limit Materi 02, Mendekati bukan menyentuh. Video prioritas KEEMPAT. Tugasnya merapikan kata 'mendekati' jadi kalimat yang bisa diuji, termasuk permainan tantangan yang gagasannya diambil dari Essence of Calculus bab 7. Satu sumber kebenaran untuk naskah, jangan ditulis ulang di dalam adegan.",
+  "tempo": "-5%",
+  "catatan": "Konsep Limit, Bagian 2 (Materi 02). Ditulis ulang 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (f(x) = x kuadrat + 1 didekati ke 3 dari kiri 2,9 dan 2,99 lalu dari kanan 3,1 dan 3,01; kedua arah menuju 10; x tidak pernah diletakkan tepat di 3; permainan tantangan epsilon-delta tanpa lambang: 0,1 dijawab 0,016, 0,001 dijawab 0,00016; limit adalah janji yang sanggup memenuhi tantangan seketat apa pun). Yang ditambah: pembuka sub-bab plus Bagian 2, segar-ingat dari Bagian 1 (kecepatan kelapa menuju 20), catatan bahwa di fungsi ini nilai di 3 kebetulan juga 10 (pengantar Bagian 4), contoh angka yang mengecek jawaban tantangan pertama (3,016 memberi 10,096, jaraknya 0,096 kurang dari 0,1), penutup menunjuk Konsep Limit Bagian 3. Angka tantangan sudah diperiksa: delta 0,016 memberi selisih terburuk 0,0963 di bawah 0,1; delta 0,00016 memberi 0,00096 di bawah 0,001.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Apa artinya mendekati, kalau ternyata tidak pernah sampai?"
+      "id": "buka",
+      "teks": "Konsep Limit, Bagian dua. Apa artinya mendekati, kalau ternyata tidak pernah sampai?",
+      "tulis": "Konsep Limit, Bagian 2. Apa artinya mendekati, kalau ternyata tidak pernah sampai?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di materi sebelumnya, Konsep Limit, Bagian satu, kecepatan rata-rata kelapa menuju dua puluh saat selangnya dibuat makin pendek, tanpa selangnya pernah nol. Kata mendekati itulah yang sekarang kita rapikan.",
+      "tulis": "Di materi sebelumnya, Konsep Limit, Bagian 1, kecepatan rata-rata kelapa menuju 20 saat selangnya dibuat makin pendek, tanpa selangnya pernah 0. Kata mendekati itulah yang sekarang kita rapikan."
     },
     {
       "id": "fungsi",
@@ -25,13 +31,18 @@
     },
     {
       "id": "sepakat",
-      "teks": "Kedua arah menuju angka yang sama, yaitu sepuluh. Karena itulah kita katakan limitnya sepuluh.",
-      "tulis": "Kedua arah menuju angka yang sama, yaitu 10. Karena itulah kita katakan limitnya 10."
+      "teks": "Kedua arah menuju angka yang sama, yaitu sepuluh. Karena itulah kita katakan limit f dari x untuk x menuju tiga sama dengan sepuluh.",
+      "tulis": "Kedua arah menuju angka yang sama, yaitu 10. Karena itulah kita katakan lim f(x) untuk x → 3 sama dengan 10."
     },
     {
       "id": "tekan",
       "teks": "Perhatikan satu hal. Nilai x tidak pernah diletakkan tepat di tiga. Ia hanya didorong sedekat-dekatnya, dari kiri dan dari kanan.",
       "tulis": "Perhatikan satu hal. Nilai x tidak pernah diletakkan tepat di 3. Ia hanya didorong sedekat-dekatnya, dari kiri dan dari kanan."
+    },
+    {
+      "id": "nilai",
+      "teks": "Memang, kalau x tepat tiga, f-nya sembilan tambah satu, sepuluh juga. Di fungsi ini keduanya kebetulan sama. Nanti di Bagian empat ada fungsi yang di titiknya tidak punya nilai, tetapi limitnya tetap ada.",
+      "tulis": "Memang, kalau x tepat 3, f-nya 9 + 1, 10 juga. Di fungsi ini keduanya kebetulan sama. Nanti di Bagian 4 ada fungsi yang di titiknya tidak punya nilai, tetapi limitnya tetap ada."
     },
     {
       "id": "longgar",
@@ -42,6 +53,11 @@
       "id": "tantang1",
       "teks": "Anda menantang: saya mau f dari x berjarak kurang dari nol koma satu dari sepuluh. Saya menjawab: pakai x yang berjarak kurang dari nol koma nol satu enam dari tiga.",
       "tulis": "Anda menantang: saya mau f(x) berjarak kurang dari 0,1 dari 10. Saya menjawab: pakai x yang berjarak kurang dari 0,016 dari 3."
+    },
+    {
+      "id": "cek",
+      "teks": "Coba cek. Di x sama dengan tiga koma nol satu enam, f-nya sepuluh koma nol sembilan enam. Jaraknya dari sepuluh hanya nol koma nol sembilan enam, memang kurang dari nol koma satu.",
+      "tulis": "Coba cek. Di x = 3,016, f-nya 10,096. Jaraknya dari 10 hanya 0,096, memang kurang dari 0,1."
     },
     {
       "id": "tantang2",
@@ -55,12 +71,18 @@
     },
     {
       "id": "beda",
-      "teks": "Itulah beda antara kebetulan dekat dan benar-benar menuju. Kalau hanya kebetulan dekat, cepat atau lambat ada tantangan yang tidak bisa dipenuhi."
+      "teks": "Itulah beda antara kebetulan dekat dan benar-benar menuju. Kalau hanya kebetulan dekat, cepat atau lambat ada tantangan yang tidak bisa dipenuhi.",
+      "tulis": "Itulah beda antara kebetulan dekat dan benar-benar menuju. Kalau hanya kebetulan dekat, cepat atau lambat ada tantangan yang tidak bisa dipenuhi."
     },
     {
       "id": "tutup",
-      "teks": "Di bangku kuliah permainan ini ditulis dengan dua huruf Yunani. Anda belum perlu lambangnya. Yang perlu dibawa adalah gagasannya: limit itu janji yang sanggup memenuhi tantangan seketat apa pun.",
+      "teks": "Di bangku kuliah permainan ini ditulis dengan dua huruf Yunani, epsilon dan delta. Anda belum perlu lambangnya. Yang perlu dibawa adalah gagasannya: limit itu janji yang sanggup memenuhi tantangan seketat apa pun.",
       "tulis": "Di bangku kuliah permainan ini ditulis dengan dua huruf Yunani, ε dan δ. Anda belum perlu lambangnya. Yang perlu dibawa adalah gagasannya: limit itu janji yang sanggup memenuhi tantangan seketat apa pun."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Konsep Limit, Bagian tiga, kita lihat apa jadinya kalau arah kiri dan arah kanan tidak sepakat.",
+      "tulis": "Di materi berikutnya, Konsep Limit, Bagian 3, kita lihat apa jadinya kalau arah kiri dan arah kanan tidak sepakat."
     }
   ]
 }

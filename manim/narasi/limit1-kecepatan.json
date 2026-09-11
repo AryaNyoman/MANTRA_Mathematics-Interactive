@@ -1,23 +1,28 @@
 {
   "adegan": "KecepatanSesaat",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Limit Materi 01, Kecepatan pada satu detik. Video prioritas KEDUA untuk topik Limit. Tugasnya menjawab 'kenapa kita butuh limit' sebelum siswa bertemu definisinya. Satu sumber kebenaran untuk naskah, jangan ditulis ulang di dalam adegan.",
+  "tempo": "-5%",
+  "catatan": "Konsep Limit, Bagian 1 (Materi 01). Ditulis ulang 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (speedometer; kecepatan = jarak : waktu; pada satu saat 0 : 0 tidak punya jawaban; jalan keluar: perpendek selangnya; kelapa jatuh s = 5t kuadrat; selang 1, 0,5, 0,1 detik memberi 25, 22,5, 20,5; menuju 20 tetapi tidak pernah sampai; aljabar 20 + 5h; syarat h bukan nol). Yang ditambah: pembuka sub-bab plus Bagian 1, segar-ingat rumus kecepatan dari SMP (prasyarat nyata, bukan materi Limit sebelumnya karena ini video pertama), hitungan aljabarnya dibuktikan langkah demi langkah (5(2+h) kuadrat dijabarkan), penutup menunjuk Konsep Limit Bagian 2.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Speedometer menunjuk enam puluh kilometer per jam. Angka itu terasa biasa, sampai kita memikirkannya sedikit lebih lama.",
-      "tulis": "Speedometer menunjuk 60 km/jam. Angka itu terasa biasa, sampai kita memikirkannya sedikit lebih lama."
+      "id": "buka",
+      "teks": "Konsep Limit, Bagian satu. Speedometer menunjuk enam puluh kilometer per jam. Bagaimana kecepatan pada satu saat itu bisa dihitung?",
+      "tulis": "Konsep Limit, Bagian 1. Speedometer menunjuk 60 km/jam. Bagaimana kecepatan pada satu saat itu bisa dihitung?"
     },
     {
       "id": "rumus",
-      "teks": "Kecepatan itu jarak dibagi waktu. Tapi jarum tadi menunjukkan kecepatan pada satu saat, bukan sepanjang perjalanan.",
-      "tulis": "Kecepatan = jarak : waktu. Tapi jarum tadi menunjukkan kecepatan pada satu saat, bukan sepanjang perjalanan."
+      "teks": "Sejak SMP kita tahu, kecepatan itu jarak dibagi waktu. Enam puluh kilometer ditempuh dalam satu jam, kecepatan rata-ratanya enam puluh kilometer per jam.",
+      "tulis": "Sejak SMP kita tahu, kecepatan = jarak : waktu. 60 km ditempuh dalam 1 jam, kecepatan rata-ratanya 60 km/jam."
+    },
+    {
+      "id": "saat",
+      "teks": "Tapi jarum speedometer tadi menunjukkan kecepatan pada satu saat, bukan sepanjang perjalanan. Coba pakai rumus yang sama untuk satu saat.",
+      "tulis": "Tapi jarum speedometer tadi menunjukkan kecepatan pada satu saat, bukan sepanjang perjalanan. Coba pakai rumus yang sama untuk satu saat."
     },
     {
       "id": "buntu",
-      "teks": "Dan pada satu saat, waktunya nol, jaraknya juga nol. Nol dibagi nol. Hitungan itu tidak punya jawaban.",
-      "tulis": "Dan pada satu saat, waktunya 0, jaraknya juga 0. 0 : 0. Hitungan itu tidak punya jawaban."
+      "teks": "Pada satu saat, waktunya nol. Dalam waktu nol, jaraknya juga nol. Nol dibagi nol. Hitungan itu tidak punya jawaban.",
+      "tulis": "Pada satu saat, waktunya 0. Dalam waktu 0, jaraknya juga 0. 0 : 0. Hitungan itu tidak punya jawaban."
     },
     {
       "id": "jalan",
@@ -26,13 +31,13 @@
     },
     {
       "id": "kelapa",
-      "teks": "Kita pakai sebutir kelapa yang jatuh. Setelah t detik, ia sudah turun sejauh lima t kuadrat meter.",
-      "tulis": "Kita pakai sebutir kelapa yang jatuh. Setelah t detik, ia sudah turun sejauh 5t² meter."
+      "teks": "Kita pakai sebutir kelapa yang jatuh. Setelah t detik, ia sudah turun sejauh lima t kuadrat meter. Di detik dua, ia sudah turun dua puluh meter.",
+      "tulis": "Kita pakai sebutir kelapa yang jatuh. Setelah t detik, ia sudah turun sejauh 5t² meter. Di detik 2, ia sudah turun 20 meter."
     },
     {
       "id": "satu",
-      "teks": "Dari detik dua sampai detik tiga, ia turun dua puluh lima meter dalam satu detik. Jadi kecepatan rata-ratanya dua puluh lima meter per detik.",
-      "tulis": "Dari detik 2 sampai detik 3, ia turun 25 meter dalam 1 detik. Jadi kecepatan rata-ratanya 25 m/detik."
+      "teks": "Dari detik dua sampai detik tiga, ia turun dari dua puluh ke empat puluh lima meter. Dua puluh lima meter dalam satu detik. Jadi kecepatan rata-ratanya dua puluh lima meter per detik.",
+      "tulis": "Dari detik 2 sampai detik 3, ia turun dari 20 ke 45 meter. 25 meter dalam 1 detik. Jadi kecepatan rata-ratanya 25 m/detik."
     },
     {
       "id": "setengah",
@@ -46,22 +51,33 @@
     },
     {
       "id": "menuju",
-      "teks": "Semakin pendek selangnya, semakin dekat angkanya ke dua puluh. Tapi tidak pernah tepat sampai.",
-      "tulis": "Semakin pendek selangnya, semakin dekat angkanya ke 20. Tapi tidak pernah tepat sampai."
+      "teks": "Semakin pendek selangnya, semakin dekat angkanya ke dua puluh. Tapi tidak pernah tepat sampai, sebab selangnya tidak pernah benar-benar nol.",
+      "tulis": "Semakin pendek selangnya, semakin dekat angkanya ke 20. Tapi tidak pernah tepat sampai, sebab selangnya tidak pernah benar-benar 0."
     },
     {
       "id": "aljabar",
-      "teks": "Kenapa dua puluh? Kalau selangnya kita sebut h, kecepatan rata-ratanya adalah dua puluh tambah lima h.",
-      "tulis": "Kenapa 20? Kalau selangnya kita sebut h, kecepatan rata-ratanya adalah 20 + 5h."
+      "teks": "Kenapa dua puluh? Kita hitung. Kalau selangnya kita sebut h, jarak di detik dua tambah h adalah lima kali dua tambah h kuadrat, yaitu dua puluh tambah dua puluh h tambah lima h kuadrat.",
+      "tulis": "Kenapa 20? Kita hitung. Kalau selangnya kita sebut h, jarak di detik 2 + h adalah 5(2 + h)², yaitu 20 + 20h + 5h²."
+    },
+    {
+      "id": "coret",
+      "teks": "Dikurangi dua puluh meter yang sudah ditempuh, sisanya dua puluh h tambah lima h kuadrat. Dibagi selang h, kecepatan rata-ratanya dua puluh tambah lima h.",
+      "tulis": "Dikurangi 20 meter yang sudah ditempuh, sisanya 20h + 5h². Dibagi selang h, kecepatan rata-ratanya 20 + 5h."
     },
     {
       "id": "syarat",
-      "teks": "Bentuk itu baru muncul setelah h dicoret. Dan mencoret h hanya boleh kalau h bukan nol, sebab kita sedang membaginya.",
-      "tulis": "Bentuk itu baru muncul setelah h dicoret. Dan mencoret h hanya boleh kalau h ≠ 0, sebab kita sedang membaginya."
+      "teks": "Bentuk itu baru muncul setelah h dicoret. Dan mencoret h hanya boleh kalau h bukan nol, sebab kita sedang membaginya. Semakin kecil h, semakin dekat ke dua puluh.",
+      "tulis": "Bentuk itu baru muncul setelah h dicoret. Dan mencoret h hanya boleh kalau h ≠ 0, sebab kita sedang membaginya. Semakin kecil h, semakin dekat ke 20."
     },
     {
       "id": "tutup",
-      "teks": "Jadi limit bukan cara berbelit untuk memasukkan angka. Limit adalah cara menjawab pertanyaan yang angkanya justru tidak boleh dimasukkan."
+      "teks": "Jadi limit bukan cara berbelit untuk memasukkan angka. Limit adalah cara menjawab pertanyaan yang angkanya justru tidak boleh dimasukkan.",
+      "tulis": "Jadi limit bukan cara berbelit untuk memasukkan angka. Limit adalah cara menjawab pertanyaan yang angkanya justru tidak boleh dimasukkan."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Konsep Limit, Bagian dua, kata mendekati ini kita rapikan menjadi kalimat yang bisa diuji.",
+      "tulis": "Di materi berikutnya, Konsep Limit, Bagian 2, kata mendekati ini kita rapikan menjadi kalimat yang bisa diuji."
     }
   ]
 }

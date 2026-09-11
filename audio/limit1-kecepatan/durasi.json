@@ -1,17 +1,20 @@
 {
-  "total": 102.192,
+  "total": 158.8,
   "segmen": {
-    "sapa": 8.472,
-    "rumus": 8.736,
-    "buntu": 9.72,
-    "jalan": 7.992,
-    "kelapa": 7.68,
-    "satu": 9.408,
-    "setengah": 7.104,
-    "sepersepuluh": 10.848,
-    "menuju": 7.368,
-    "aljabar": 7.704,
-    "syarat": 8.28,
-    "tutup": 8.88
+    "buka": 10.8,
+    "rumus": 11.166666666666666,
+    "saat": 9.833333333333334,
+    "buntu": 11.8,
+    "jalan": 8.3,
+    "kelapa": 11.666666666666666,
+    "satu": 12.5,
+    "setengah": 7.4,
+    "sepersepuluh": 11.1,
+    "menuju": 10.0,
+    "aljabar": 13.433333333333334,
+    "coret": 10.9,
+    "syarat": 12.333333333333334,
+    "tutup": 9.166666666666666,
+    "lanjut": 8.4
   }
 }
