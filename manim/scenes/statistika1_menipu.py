@@ -252,12 +252,20 @@ class Menipu1(AdeganMatra):
         tanya = rumus(r"\stackrel{?}{=}", 46, TINTA).move_to([0, 0.35, 0]).fix_in_frame()
 
         with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
-            sinema.judul_pembuka(self, "Materi 01: Satu angka bisa menipu", lama=2.4)
-            b.catat(2.4)
-            b.tunggu_kata("melaporkan")
+            b.tunggu_kata("Penyajian")
+            sinema.judul_pembuka(self, "Penyajian Data, Bagian 1", lama=3.0)
+            b.catat(3.0)
+            # Nama kelas muncul saat "Dua kelas" disebut, angkanya baru saat
+            # "melaporkan": tanpa ini layar kosong 4 detik sesudah judul
+            # (cek_layar_kosong 12 Sep).
+            b.tunggu_kata("Dua kelas")
             self.hud_tambah(kartu_a, kartu_b)
             HUD["kartu A"], HUD["kartu B"] = kartu_a, kartu_b
-            b.main(FadeIn(kartu_a, shift=UP * 0.2), FadeIn(kartu_b, shift=UP * 0.2), run_time=1.2)
+            kartu_a[1].set_opacity(0)
+            kartu_b[1].set_opacity(0)
+            b.main(FadeIn(kartu_a[0], shift=UP * 0.2), FadeIn(kartu_b[0], shift=UP * 0.2), run_time=0.8)
+            b.tunggu_kata("melaporkan")
+            b.main(kartu_a[1].animate.set_opacity(1), kartu_b[1].animate.set_opacity(1), run_time=0.8)
             b.tunggu_kata("tujuh", ke=1)
             b.main(Indicate(kartu_a, scale_factor=1.15, color=SOROT), run_time=0.9)
             b.tunggu_kata("tujuh", ke=2)
@@ -946,7 +954,7 @@ class Menipu1(AdeganMatra):
             b.main(tengah_b.animate.set_opacity(0.20), run_time=2.0)
             b.tunggu_kata("jujur")
             b.main(Indicate(isi_papan(papan2), scale_factor=1.06, color=SOROT), run_time=0.8)
-            b.tunggu_kata("Materi", ke=1)
+            b.tunggu_kata("Ukuran Pemusatan")
             b.main(tengah_b.animate.set_opacity(1.0), run_time=1.6)
         periksa()
 
@@ -977,8 +985,8 @@ class Menipu1(AdeganMatra):
             batang.add(tegak(r).move_to([xn(v), 0, Z_ALAS_A + tinggi / 2]))
         batang.latar = True
 
-        kartu_lanjut = VGroup(sinema.label("Materi 02", 26, REDUP),
-                              sinema.label("bentuk data", 32, SOROT))
+        kartu_lanjut = VGroup(sinema.label("Penyajian Data", 26, REDUP),
+                              sinema.label("Bagian 2", 32, SOROT))
         kartu_lanjut.arrange(DOWN, buff=0.18).move_to([0, 2.78, 0]).fix_in_frame()
 
         with sinema.babak(self, "lanjut", DURASI, kata=KATA) as b:
@@ -986,7 +994,7 @@ class Menipu1(AdeganMatra):
             b.main(denyut(titik_a, AKSEN2, 1.7, 0.06), run_time=1.4)
             b.tunggu_kata("ditumpahkan")
             b.main(denyut(semua_titik, SOROT, 1.8, 0.035), run_time=2.0)
-            b.tunggu_kata("Materi")
+            b.tunggu_kata("materi berikutnya")
             b.main(FadeOut(papan2.semua()), run_time=0.6)
             self.papan = None
             self.hud_tambah(kartu_lanjut)

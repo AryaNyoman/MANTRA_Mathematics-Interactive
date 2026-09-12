@@ -1,28 +1,38 @@
 {
   "adegan": "Boxplot7",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Materi 07 Statistika. Gerak dirancang lebih dulu: lima belas titik dibelah dua, lalu tiap belahan dibelah lagi, dan kotak boxplot TUMBUH dari Q1 ke Q3 di depan mata. Medan `tulis` adalah bentuk tertulis untuk subtitle.",
+  "tempo": "-5%",
+  "catatan": "Ukuran Pemusatan dan Penyebaran, Bagian 3 (Materi 07). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (15 waktu tempuh sudah urut; median data ke-8 = 15; tiap belahan dicari mediannya: Q1 = 10, Q3 = 25; arti seperempat, setengah, tiga perempat; boxplot lahir dari lima angka; cara membaca; JAK = 25 - 10 = 15 lawan jangkauan 60 - 5 = 55 yang ditentukan dua orang; pagar 1,5 JAK = 22,5, pagar atas 47,5, 60 pencilan). Yang ditambah: pembuka menyebut sub-bab plus Bagian 3 dengan pertanyaan halaman, segar-ingat median dari Bagian 1, bentuk umum lima angka dan pagar bawah/atas, penutup menunjuk Bagian 4.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi tujuh Statistika: *kuartil dan boxplot*. Lima belas siswa mencatat waktu tempuh ke sekolah, dalam menit, sudah diurutkan dari yang terkecil.",
-      "tulis": "Materi 07 Statistika: *kuartil dan boxplot*. 15 siswa mencatat waktu tempuh ke sekolah, dalam menit, sudah diurutkan dari yang terkecil."
+      "teks": "Ukuran Pemusatan dan Penyebaran, Bagian tiga. Bagaimana menggambarkan sebaran seluruh data hanya dengan lima angka?",
+      "tulis": "Ukuran Pemusatan dan Penyebaran, Bagian 3. Bagaimana menggambarkan sebaran seluruh data hanya dengan *lima angka*?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Bagian satu, median adalah yang di tengah setelah data diurutkan: ia membelah data jadi dua bagian yang sama banyak. Hari ini pembelahan itu diteruskan.",
+      "tulis": "Di Bagian 1, median adalah yang di tengah setelah data diurutkan: ia *membelah* data jadi dua bagian yang sama banyak. Hari ini pembelahan itu diteruskan."
+    },
+    {
+      "id": "data",
+      "teks": "Lima belas siswa mencatat waktu tempuh ke sekolah, dalam menit, sudah diurutkan dari yang terkecil: lima menit sampai enam puluh menit.",
+      "tulis": "15 siswa mencatat waktu tempuh ke sekolah, dalam menit, sudah diurutkan dari yang terkecil: 5 menit sampai 60 menit."
     },
     {
       "id": "median",
-      "teks": "Mediannya sudah kita kenal. Data ke delapan, yaitu lima belas menit, membelah lima belas data ini jadi dua bagian yang sama banyak.",
-      "tulis": "Mediannya sudah kita kenal. Data ke-8, yaitu 15 menit, membelah 15 data ini jadi dua bagian yang sama banyak."
+      "teks": "Mediannya data ke delapan, yaitu lima belas menit. Tujuh data di kirinya, tujuh data di kanannya.",
+      "tulis": "Mediannya data ke-8, yaitu 15 menit. 7 data di kirinya, 7 data di kanannya."
     },
     {
       "id": "lagi",
-      "teks": "Kuartil melanjutkan gagasan yang sama, tetapi membelahnya jadi *empat*. Caranya: tiap belahan tadi dicari mediannya sendiri.",
+      "teks": "Kuartil melanjutkan gagasan yang sama, tetapi membelahnya jadi empat. Caranya: tiap belahan tadi dicari mediannya sendiri.",
       "tulis": "Kuartil melanjutkan gagasan yang sama, tetapi membelahnya jadi *empat*. Caranya: tiap belahan tadi dicari mediannya sendiri."
     },
     {
       "id": "q1q3",
       "teks": "Belahan kiri berisi tujuh data, mediannya sepuluh. Itulah kuartil satu. Belahan kanan juga tujuh data, mediannya dua puluh lima. Itulah kuartil tiga.",
-      "tulis": "Belahan kiri berisi 7 data, mediannya 10. Itulah Q1. Belahan kanan juga 7 data, mediannya 25. Itulah Q3."
+      "tulis": "Belahan kiri berisi 7 data, mediannya 10. Itulah *kuartil satu*. Belahan kanan juga 7 data, mediannya 25. Itulah *kuartil tiga*."
     },
     {
       "id": "arti",
@@ -32,27 +42,42 @@
     {
       "id": "kotak",
       "teks": "Sekarang kelima angka itu digambar sekaligus. Sebuah kotak dari kuartil satu sampai kuartil tiga, satu garis di dalamnya untuk median, dan dua kumis ke data terkecil dan terbesar.",
-      "tulis": "Sekarang kelima angka itu digambar sekaligus. Sebuah kotak dari Q1 sampai Q3, satu garis di dalamnya untuk median, dan dua kumis ke data terkecil dan terbesar."
+      "tulis": "Sekarang kelima angka itu digambar sekaligus. Sebuah kotak dari kuartil satu sampai kuartil tiga, satu garis di dalamnya untuk median, dan dua kumis ke data terkecil dan terbesar."
     },
     {
       "id": "baca",
-      "teks": "Itulah *boxplot*. Kotaknya berisi setengah data yang di tengah. Garis median yang tidak di tengah kotak berarti datanya miring, dan kumis yang panjang sebelah menandakan ada ekor yang menjulur jauh.",
+      "teks": "Itulah boxplot. Kotaknya berisi setengah data yang di tengah. Garis median yang tidak di tengah kotak berarti datanya miring, dan kumis yang panjang sebelah menandakan ada ekor yang menjulur jauh.",
       "tulis": "Itulah *boxplot*. Kotaknya berisi setengah data yang di tengah. Garis median yang tidak di tengah kotak berarti datanya miring, dan kumis yang panjang sebelah menandakan ada ekor yang menjulur jauh."
     },
     {
       "id": "jak",
-      "teks": "Lebar kotaknya punya nama: *jangkauan antar kuartil*. Dua puluh lima dikurangi sepuluh, jadi lima belas menit. Bandingkan dengan jangkauan biasa, enam puluh dikurangi lima, yaitu lima puluh lima.",
+      "teks": "Lebar kotaknya punya nama: jangkauan antar kuartil. Dua puluh lima dikurangi sepuluh, jadi lima belas menit. Bandingkan dengan jangkauan biasa, enam puluh dikurangi lima, yaitu lima puluh lima.",
       "tulis": "Lebar kotaknya punya nama: *jangkauan antar kuartil*. 25 - 10 = 15 menit. Bandingkan dengan jangkauan biasa, 60 - 5 = 55."
     },
     {
       "id": "kebal",
-      "teks": "Angka lima puluh lima itu ditentukan oleh *dua orang saja*, yang paling dekat dan yang paling jauh rumahnya. Jangkauan antar kuartil tidak peduli pada keduanya.",
-      "tulis": "Angka 55 itu ditentukan oleh *2 orang saja*, yang paling dekat dan yang paling jauh rumahnya. Jangkauan antar kuartil tidak peduli pada keduanya."
+      "teks": "Angka lima puluh lima itu ditentukan oleh dua orang saja, yang paling dekat dan yang paling jauh rumahnya. Jangkauan antar kuartil tidak peduli pada keduanya.",
+      "tulis": "Angka 55 itu ditentukan oleh *dua orang saja*, yang paling dekat dan yang paling jauh rumahnya. Jangkauan antar kuartil tidak peduli pada keduanya."
     },
     {
       "id": "pagar",
-      "teks": "Dan dari situ pencilan bisa ditemukan dengan hitungan. Pagarnya satu koma lima kali jangkauan antar kuartil, yaitu dua puluh dua koma lima, jadi pagar atasnya empat puluh tujuh koma lima. Waktu enam puluh menit jatuh di luarnya.",
+      "teks": "Dan dari situ pencilan bisa ditemukan dengan hitungan. Pagarnya satu koma lima kali jangkauan antar kuartil, yaitu dua puluh dua koma lima, jadi pagar atasnya dua puluh lima tambah dua puluh dua koma lima, empat puluh tujuh koma lima. Waktu enam puluh menit jatuh di luarnya.",
       "tulis": "Dan dari situ pencilan bisa ditemukan dengan hitungan. Pagarnya 1,5 × JAK = 22,5, jadi pagar atasnya 25 + 22,5 = 47,5. Waktu 60 menit jatuh di luarnya."
+    },
+    {
+      "id": "umum",
+      "teks": "Bentuk umumnya: lima angka itu data terkecil, kuartil satu, median, kuartil tiga, dan data terbesar. Jangkauan antar kuartil sama dengan kuartil tiga dikurangi kuartil satu, dan data disebut pencilan kalau jatuh di luar kuartil satu dikurangi satu koma lima JAK, atau di luar kuartil tiga ditambah satu koma lima JAK.",
+      "tulis": "Bentuk umumnya: lima angka itu data terkecil, Q1, median, Q3, dan data terbesar. JAK = Q3 - Q1, dan data disebut pencilan kalau jatuh di luar Q1 - 1,5 JAK, atau di luar Q3 + 1,5 JAK."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi lima angka cukup untuk menggambar seluruh sebaran: di mana tengahnya, seberapa lebar separuh yang di tengah, dan seberapa jauh ekornya menjulur.",
+      "tulis": "Jadi lima angka cukup untuk menggambar seluruh sebaran: di mana tengahnya, seberapa lebar separuh yang di tengah, dan seberapa jauh ekornya menjulur."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian empat, dua mesin isi ulang sama-sama rata-rata lima ratus mililiter, tetapi yang satu tetap ditolak pabrik.",
+      "tulis": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian 4, dua mesin isi ulang sama-sama rata-rata 500 ml, tetapi yang satu tetap *ditolak* pabrik."
     }
   ]
 }

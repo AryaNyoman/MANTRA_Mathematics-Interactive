@@ -1,159 +1,348 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/statistika2-bentuk.json
+NOTE Dibuat otomatis dari manim/narasi/statistika2-bentuk.json (waktu kata rekaman)
+NOTE naskah-sidik 95487135c493
 
 1
-00:00:00.000 --> 00:00:03.909
-Materi 02 Statistika: <b>dari daftar angka jadi gambar</b>.
+00:00:00.101 --> 00:00:02.554
+Penyajian Data, Bagian 2.
 
 2
-00:00:03.909 --> 00:00:05.788
+00:00:03.288 --> 00:00:04.715
 40 angka yang berbaris di
 
 3
-00:00:05.788 --> 00:00:08.719
-tabel hampir tidak bisa dibaca manusia.
+00:00:04.715 --> 00:00:06.978
+dalam tabel hampir tidak bisa dibaca.
 
 4
-00:00:08.719 --> 00:00:10.673
-Mata kita jauh lebih cepat
+00:00:07.709 --> 00:00:09.425
+Karena itu data digambar.
 
 5
-00:00:10.673 --> 00:00:13.680
-menangkap tinggi daripada deretan angka.
+00:00:10.157 --> 00:00:13.464
+Tetapi kapan diagram batang, dan kapan histogram?
 
 6
-00:00:13.680 --> 00:00:17.986
-Tetapi tidak semua gambar cocok untuk semua data.
+00:00:14.682 --> 00:00:17.541
+Di materi sebelumnya, Penyajian Data, Bagian 1,
 
 7
-00:00:17.986 --> 00:00:22.732
-Yang menentukan bukan selera, melainkan <b>jenis datanya</b>.
+00:00:17.541 --> 00:00:20.034
+dua kelas dengan rata-rata yang sama baru
 
 8
-00:00:22.732 --> 00:00:26.160
-Ada dua: data kategori, dan data angka.
+00:00:20.034 --> 00:00:22.041
+terlihat bedanya sesudah titiknya
 
 9
-00:00:26.160 --> 00:00:30.814
-Ini data kategori: cara 40 siswa berangkat ke sekolah.
+00:00:22.041 --> 00:00:23.832
+ditumpahkan ke garis nilai.
 
 10
-00:00:30.814 --> 00:00:33.916
-Jawabannya berupa nama, bukan angka.
+00:00:24.580 --> 00:00:26.786
+Melihat bentuk data itu bukan hiasan,
 
 11
-00:00:33.916 --> 00:00:36.674
-Digambar sebagai <b>diagram batang</b>,
+00:00:26.786 --> 00:00:28.427
+melainkan cara memeriksa.
 
 12
-00:00:36.674 --> 00:00:39.432
-dan antar batangnya diberi sela.
+00:00:29.157 --> 00:00:31.965
+Sekarang pertanyaannya: gambar yang mana.
 
 13
-00:00:39.432 --> 00:00:43.495
-Perhatikan apa yang terjadi kalau urutannya ditukar.
+00:00:33.182 --> 00:00:36.642
+Yang menentukan bukan selera, melainkan <b>jenis datanya</b>,
 
 14
-00:00:43.495 --> 00:00:47.323
-Sepeda motor pindah ke depan, angkot ke belakang.
+00:00:36.642 --> 00:00:38.201
+dan jenisnya cuma dua.
 
 15
-00:00:47.323 --> 00:00:50.917
-Gambarnya berubah, tetapi <b>artinya sama persis</b>.
+00:00:38.934 --> 00:00:43.375
+Data kategori, jawabannya berupa nama: jalan kaki,
 
 16
-00:00:50.917 --> 00:00:54.120
-Kategori memang tidak punya urutan alami.
+00:00:43.375 --> 00:00:46.900
+sepeda, sepeda motor, angkot, diantar.
 
 17
-00:00:54.120 --> 00:00:57.911
-Sekarang data angka: tinggi badan 40 siswa yang sama.
+00:00:47.646 --> 00:00:48.846
+Data angka,
 
 18
-00:00:57.911 --> 00:01:01.558
-Jawabannya bilangan yang bisa diukur dan diurutkan,
+00:00:48.846 --> 00:00:52.401
+jawabannya bilangan yang bisa diukur dan diurutkan:
 
 19
-00:01:01.558 --> 00:01:04.848
-dan di antara dua angka selalu ada angka lain.
+00:00:52.401 --> 00:00:55.479
+tinggi badan, nilai ulangan, waktu tempuh.
 
 20
-00:01:04.848 --> 00:01:08.150
-Karena itu batangnya digambar <b>rapat</b>, tanpa sela.
+00:00:56.268 --> 00:00:58.155
+Kita mulai dari yang kategori.
 
 21
-00:01:08.150 --> 00:01:10.145
-Gambar ini namanya histogram,
+00:00:58.888 --> 00:01:01.407
+40 siswa ditanya cara berangkatnya.
 
 22
-00:01:10.145 --> 00:01:12.690
-dan selanya sengaja dihilangkan sebab
+00:01:02.139 --> 00:01:07.479
+Jalan kaki 8, sepeda 6, sepeda motor 12, angkot 5,
 
 23
-00:01:12.690 --> 00:01:15.648
-kelas sebelah menyebelah memang menyambung.
+00:01:07.479 --> 00:01:08.829
+diantar 9.
 
 24
-00:01:15.648 --> 00:01:20.164
-Sekarang coba tukar urutannya seperti tadi.
+00:01:09.427 --> 00:01:11.709
+Dijumlahkan, 40.
 
 25
-00:01:20.164 --> 00:01:23.105
-Sumbunya jadi 160, 150, 170.
+00:01:12.441 --> 00:01:14.012
+Tidak ada yang terlewat.
 
 26
-00:01:23.105 --> 00:01:28.776
-<b>Gambarnya jadi omong kosong</b>, sebab angka punya urutan.
+00:01:15.234 --> 00:01:17.108
+Berapa bagian yang jalan kaki?
 
 27
-00:01:28.776 --> 00:01:32.121
-Jadi sela antar batang itu <b>bukan hiasan</b>.
+00:01:17.843 --> 00:01:22.703
+8 dari 40, sama dengan 0,2, yaitu 20%.
 
 28
-00:01:32.121 --> 00:01:35.800
-Ada sela berarti kategori, tidak menyambung,
+00:01:23.449 --> 00:01:27.291
+Bentuk umumnya: frekuensi dibagi banyaknya data,
 
 29
-00:01:35.800 --> 00:01:37.000
-boleh ditukar.
+00:01:27.291 --> 00:01:28.641
+dikali 100%.
 
 30
-00:01:37.000 --> 00:01:40.429
-Tidak ada sela berarti angka, menyambung,
+00:01:29.146 --> 00:01:33.704
+Dengan itu sepeda motor 30%, dan angkot 12,5%.
 
 31
-00:01:40.429 --> 00:01:42.072
-tidak boleh ditukar.
+00:01:34.934 --> 00:01:36.373
+Sekarang digambar.
 
 32
-00:01:42.072 --> 00:01:45.810
-Ada satu gambar lagi yang berguna untuk data sedikit:
+00:01:37.123 --> 00:01:38.992
+Tiap kategori diberi satu batang,
 
 33
-00:01:45.810 --> 00:01:47.926
-<b>line plot</b>, atau diagram titik.
+00:01:38.992 --> 00:01:41.918
+dan tinggi batangnya menunjukkan banyaknya siswa.
 
 34
-00:01:47.926 --> 00:01:50.607
-Tiap data jadi satu titik, apa adanya,
+00:01:42.648 --> 00:01:46.232
+Inilah <b>diagram batang</b>, dan di antara batangnya ada sela.
 
 35
-00:01:50.607 --> 00:01:52.158
-dan tidak ada satu pun
+00:01:46.964 --> 00:01:48.228
+Sela itu bukan hiasan:
 
 36
-00:01:52.158 --> 00:01:54.768
-yang disembunyikan di dalam kelompok.
+00:01:48.228 --> 00:01:49.492
+ia menandakan kategori
 
 37
-00:01:54.768 --> 00:01:56.401
-Jadi sebelum menggambar,
+00:01:49.492 --> 00:01:51.653
+yang bersebelahan tidak menyambung.
 
 38
-00:01:56.401 --> 00:01:59.803
-pertanyaannya bukan gambar mana yang paling bagus,
+00:01:52.867 --> 00:01:54.306
+Sekarang kita uji.
 
 39
-00:01:59.803 --> 00:02:01.776
-melainkan <b>data ini jenis apa</b>.
+00:01:55.042 --> 00:01:56.247
+Batang sepeda motor dan
+
+40
+00:01:56.247 --> 00:01:58.231
+batang angkot kita tukar tempatnya.
+
+41
+00:01:58.962 --> 00:02:00.809
+Ternyata tidak ada yang berubah.
+
+42
+00:02:01.542 --> 00:02:04.678
+Sepeda motor tetap 12, angkot tetap 5.
+
+43
+00:02:05.410 --> 00:02:07.473
+Gambarnya masih berkata persis sama,
+
+44
+00:02:07.473 --> 00:02:09.915
+sebab kategori tidak punya urutan alami.
+
+45
+00:02:11.100 --> 00:02:12.566
+Sekarang data angka.
+
+46
+00:02:13.316 --> 00:02:17.487
+40 siswa yang sama kita ukur tinggi badannya,
+
+47
+00:02:17.487 --> 00:02:19.768
+dari 152 sampai 180 cm.
+
+48
+00:02:20.513 --> 00:02:23.402
+Terlalu banyak untuk digambar satu per satu,
+
+49
+00:02:23.402 --> 00:02:26.703
+jadi dikelompokkan, tiap kelompok selebar 10 cm.
+
+50
+00:02:27.901 --> 00:02:31.288
+150 sampai 160 ada 6 siswa.
+
+51
+00:02:32.022 --> 00:02:35.751
+160 sampai 170, 22.
+
+52
+00:02:36.483 --> 00:02:40.172
+170 sampai 180, 11.
+
+53
+00:02:40.903 --> 00:02:42.253
+Sisanya 1.
+
+54
+00:02:42.903 --> 00:02:45.330
+Dijumlahkan, 40 lagi.
+
+55
+00:02:46.535 --> 00:02:49.125
+Digambar, dan di sini batangnya <b>rapat</b>,
+
+56
+00:02:49.125 --> 00:02:50.843
+tanpa sela sedikit pun.
+
+57
+00:02:51.576 --> 00:02:53.568
+Gambar ini namanya <b>histogram</b>.
+
+58
+00:02:54.315 --> 00:02:57.740
+Rapat karena kelas yang bersebelahan memang bersambung:
+
+59
+00:02:57.740 --> 00:02:59.794
+kelompok pertama berhenti di 160,
+
+60
+00:02:59.794 --> 00:03:02.373
+dan kelompok kedua mulai dari 160 juga.
+
+61
+00:03:03.568 --> 00:03:05.771
+Uji yang sama kita jalankan di sini.
+
+62
+00:03:06.505 --> 00:03:10.589
+Batang 160 sampai 170 kita tukar dengan tetangganya.
+
+63
+00:03:11.335 --> 00:03:18.327
+Sekarang sumbunya berbunyi 150, 160, 170, lalu 160 lagi.
+
+64
+00:03:19.057 --> 00:03:21.747
+Itu bukan garis bilangan, itu <b>kacau</b>.
+
+65
+00:03:22.982 --> 00:03:25.466
+Dari dua percobaan tadi lahir aturannya,
+
+66
+00:03:25.466 --> 00:03:26.770
+dan ujinya cuma satu:
+
+67
+00:03:26.770 --> 00:03:29.093
+tukar dua batang yang bersebelahan.
+
+68
+00:03:29.826 --> 00:03:33.086
+Kalau artinya tidak berubah, itu diagram batang,
+
+69
+00:03:33.086 --> 00:03:34.436
+wajib bersela.
+
+70
+00:03:34.918 --> 00:03:38.963
+Kalau artinya jadi kacau, itu histogram, wajib rapat.
+
+71
+00:03:40.182 --> 00:03:41.988
+Untuk data yang sedikit ada satu
+
+72
+00:03:41.988 --> 00:03:44.583
+gambar lagi yang tidak menyembunyikan apa pun:
+
+73
+00:03:44.583 --> 00:03:47.385
+<b>diagram titik</b>, persis yang dipakai di Bagian 1.
+
+74
+00:03:48.132 --> 00:03:49.504
+Tiap data jadi satu titik,
+
+75
+00:03:49.504 --> 00:03:52.404
+nilai yang muncul dua kali membuat dua titik bertumpuk,
+
+76
+00:03:52.404 --> 00:03:55.032
+dan yang terpencil sendirian langsung ketahuan.
+
+77
+00:03:56.249 --> 00:03:57.602
+Jadi sebelum menggambar,
+
+78
+00:03:57.602 --> 00:04:00.419
+pertanyaannya bukan gambar mana yang paling bagus,
+
+79
+00:04:00.419 --> 00:04:02.373
+melainkan <b>data ini jenisnya apa</b>.
+
+80
+00:04:03.105 --> 00:04:05.373
+Jenis datanya yang memilih gambarnya.
+
+81
+00:04:06.616 --> 00:04:09.527
+Di materi berikutnya, Penyajian Data, Bagian 3,
+
+82
+00:04:09.527 --> 00:04:11.323
+keempat kelompok tinggi badan
+
+83
+00:04:11.323 --> 00:04:13.181
+tadi tidak lagi sama lebarnya,
+
+84
+00:04:13.181 --> 00:04:14.482
+dan kita lihat kenapa
+
+85
+00:04:14.482 --> 00:04:16.835
+yang dibaca sebenarnya luas batangnya,
+
+86
+00:04:16.835 --> 00:04:18.185
+bukan tingginya.

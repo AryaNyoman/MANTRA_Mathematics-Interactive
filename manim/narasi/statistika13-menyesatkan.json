@@ -1,58 +1,78 @@
 {
   "adegan": "Menyesatkan13",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Materi 13 Statistika, video penutup topik. Gerak dirancang lebih dulu, naskah ditulis sepanjang gerak itu. Medan `tulis` adalah bentuk tertulis untuk subtitle: lambang dan angka, bukan salinan mentah ucapan. Penanda *kata* jadi tebal.",
+  "tempo": "-5%",
+  "catatan": "Hubungan Dua Variabel, Bagian 4 (Materi 13). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (pengunjung 412, 418, 425, 421, 430; sumbu dari nol nyaris rata; sumbu dipotong dari 410 jadi lonjakan tajam; kenaikan 18 dari 420 = 4 persen; memotong sumbu tidak selalu curang: suhu tubuh; bedanya diberitahukan atau tidak; luas empat kali; memilih rata-rata yang menguntungkan; tiga pertanyaan). Yang ditambah: pembuka menyebut sub-bab plus Bagian 4 dengan pertanyaan halaman, segar-ingat Penyajian Data Bagian 1 (satu angka bisa menipu), bentuk umum = tiga pertanyaan sebagai aturan tetap, penutup menunjuk Penerapan Statistika.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi tiga belas Statistika: *grafik yang menyesatkan*. Perpustakaan sekolah mencatat pengunjung lima bulan: empat ratus dua belas, empat ratus delapan belas, empat ratus dua puluh lima, empat ratus dua puluh satu, empat ratus tiga puluh.",
-      "tulis": "Materi 13 Statistika: *grafik yang menyesatkan*. Perpustakaan sekolah mencatat pengunjung 5 bulan: 412, 418, 425, 421, 430."
+      "teks": "Hubungan Dua Variabel, Bagian empat. Semua angkanya benar. Kenapa kesimpulannya tetap salah?",
+      "tulis": "Hubungan Dua Variabel, Bagian 4. Semua angkanya benar. Kenapa kesimpulannya tetap *salah*?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Penyajian Data, Bagian satu, satu angka ringkasan bisa menipu. Hari ini gilirannya gambar: grafik yang angkanya benar semua pun bisa menyesatkan.",
+      "tulis": "Di Penyajian Data, Bagian 1, satu angka ringkasan bisa menipu. Hari ini gilirannya *gambar*: grafik yang angkanya benar semua pun bisa menyesatkan."
+    },
+    {
+      "id": "data",
+      "teks": "Perpustakaan sekolah mencatat pengunjung lima bulan: empat ratus dua belas, empat ratus delapan belas, empat ratus dua puluh lima, empat ratus dua puluh satu, empat ratus tiga puluh.",
+      "tulis": "Perpustakaan sekolah mencatat pengunjung 5 bulan: 412, 418, 425, 421, 430."
     },
     {
       "id": "jujur",
-      "teks": "Digambar dengan sumbu tegak mulai dari nol, garisnya *nyaris rata*. Memang begitu keadaannya: naik turunnya cuma belasan orang.",
-      "tulis": "Digambar dengan sumbu tegak mulai dari 0, garisnya *nyaris rata*. Memang begitu keadaannya: naik turunnya cuma belasan orang."
+      "teks": "Digambar dengan sumbu tegak mulai dari nol, garisnya nyaris rata. Memang begitu keadaannya: naik turunnya cuma belasan orang.",
+      "tulis": "Digambar dengan sumbu tegak mulai dari nol, garisnya *nyaris rata*. Memang begitu keadaannya: naik turunnya cuma belasan orang."
     },
     {
       "id": "potong",
       "teks": "Sekarang perhatikan. Sumbu tegaknya kita naikkan, tidak lagi dari nol melainkan dari empat ratus sepuluh. Satu pun angkanya tidak diubah.",
-      "tulis": "Sekarang perhatikan. Sumbu tegaknya kita naikkan, tidak lagi dari 0 melainkan dari 410. Satu pun angkanya tidak diubah."
+      "tulis": "Sekarang perhatikan. Sumbu tegaknya kita naikkan, tidak lagi dari nol melainkan dari 410. Satu pun angkanya tidak diubah."
     },
     {
       "id": "lonjak",
-      "teks": "Dan grafik yang sama persis berubah jadi *lonjakan tajam*. Kesannya keberhasilan besar. Padahal titiknya di tempat yang sama, angkanya sama, datanya satu.",
+      "teks": "Dan grafik yang sama persis berubah jadi lonjakan tajam. Kesannya keberhasilan besar. Padahal titiknya di tempat yang sama, angkanya sama, datanya satu.",
       "tulis": "Dan grafik yang sama persis berubah jadi *lonjakan tajam*. Kesannya keberhasilan besar. Padahal titiknya di tempat yang sama, angkanya sama, datanya satu."
     },
     {
       "id": "berapa",
-      "teks": "Berapa besar sebenarnya kenaikannya? Dari empat ratus dua belas ke empat ratus tiga puluh, jadi delapan belas orang. Dibandingkan sekitar empat ratus dua puluh, itu *empat persen*.",
-      "tulis": "Berapa besar sebenarnya kenaikannya? Dari 412 ke 430, jadi 18 orang. Dibandingkan sekitar 420, itu *4 persen*."
+      "teks": "Berapa besar sebenarnya kenaikannya? Dari empat ratus dua belas ke empat ratus tiga puluh, jadi delapan belas orang. Dibandingkan sekitar empat ratus dua puluh, itu empat persen.",
+      "tulis": "Berapa besar sebenarnya kenaikannya? Dari 412 ke 430, jadi 18 orang. Dibandingkan sekitar 420, itu *4%*."
     },
     {
       "id": "kapan",
       "teks": "Memotong sumbu tidak selalu curang. Untuk suhu tubuh, mulai dari nol justru membuang seluruh isinya: yang penting justru selisih satu dua derajat.",
-      "tulis": "Memotong sumbu tidak selalu curang. Untuk suhu tubuh, mulai dari 0 justru membuang seluruh isinya: yang penting justru selisih 1 sampai 2 derajat."
+      "tulis": "Memotong sumbu tidak selalu curang. Untuk suhu tubuh, mulai dari nol justru membuang seluruh isinya: yang penting justru selisih satu dua derajat."
     },
     {
       "id": "beda",
-      "teks": "Yang membedakan curang dan tidak bukan pemotongannya, melainkan apakah pemotongan itu *diberitahukan*, atau disembunyikan supaya pembaca salah menduga.",
+      "teks": "Yang membedakan curang dan tidak bukan pemotongannya, melainkan apakah pemotongan itu diberitahukan, atau disembunyikan supaya pembaca salah menduga.",
       "tulis": "Yang membedakan curang dan tidak bukan pemotongannya, melainkan apakah pemotongan itu *diberitahukan*, atau disembunyikan supaya pembaca salah menduga."
     },
     {
       "id": "luas",
-      "teks": "Cara lain: harga naik dua kali lipat, digambar sebagai gambar yang tinggi dan lebarnya sama-sama dilipatduakan. Luasnya jadi *empat kali*, dan mata membaca luas.",
-      "tulis": "Cara lain: harga naik 2 kali lipat, digambar sebagai gambar yang tinggi dan lebarnya sama-sama dilipatduakan. Luasnya jadi *empat kali*, dan mata membaca luas."
+      "teks": "Cara lain: harga naik dua kali lipat, digambar sebagai gambar yang tinggi dan lebarnya sama-sama dilipatduakan. Luasnya jadi empat kali, dan mata membaca luas.",
+      "tulis": "Cara lain: harga naik dua kali lipat, digambar sebagai gambar yang tinggi dan lebarnya sama-sama dilipatduakan. Luasnya jadi *empat kali*, dan mata membaca luas."
     },
     {
       "id": "ratarata",
-      "teks": "Cara ketiga: memilih rata-rata yang menguntungkan. Kantor di Materi enam bisa disebut bergaji dua belas koma dua dua juta, atau lima koma satu juta. *Keduanya benar*.",
-      "tulis": "Cara ketiga: memilih rata-rata yang menguntungkan. Kantor di Materi 06 bisa disebut bergaji 12,22 juta, atau 5,1 juta. *Keduanya benar*."
+      "teks": "Cara ketiga: memilih rata-rata yang menguntungkan. Kantor di Ukuran Pemusatan dan Penyebaran, Bagian dua, bisa disebut bergaji dua belas koma dua dua juta, atau lima koma satu juta. Keduanya benar.",
+      "tulis": "Cara ketiga: memilih rata-rata yang menguntungkan. Kantor di Ukuran Pemusatan dan Penyebaran, Bagian 2, bisa disebut bergaji 12,22 juta, atau 5,1 juta. *Keduanya benar*."
     },
     {
       "id": "tanya",
-      "teks": "Jadi tanyakan tiga hal pada setiap grafik. Sumbunya mulai dari berapa. Datanya dari mana dan dari berapa banyak. Dan yang paling sering dilupakan: *apa yang tidak ditampilkan*.",
-      "tulis": "Jadi tanyakan 3 hal pada setiap grafik. Sumbunya mulai dari berapa. Datanya dari mana dan dari berapa banyak. Dan yang paling sering dilupakan: *apa yang tidak ditampilkan*."
+      "teks": "Jadi aturan tetapnya: tanyakan tiga hal pada setiap grafik. Sumbunya mulai dari berapa. Datanya dari mana dan dari berapa banyak. Dan yang paling sering dilupakan: apa yang tidak ditampilkan.",
+      "tulis": "Jadi aturan tetapnya: tanyakan tiga hal pada setiap grafik. Sumbunya mulai dari berapa. Datanya dari mana dan dari berapa banyak. Dan yang paling sering dilupakan: *apa yang tidak ditampilkan*."
+    },
+    {
+      "id": "tutup",
+      "teks": "Itulah jawabannya: angka yang benar bisa dipakai untuk menyesatkan, lewat sumbu, lewat luas, lewat pilihan ukuran. Yang salah bukan angkanya, melainkan cara membacanya.",
+      "tulis": "Itulah jawabannya: angka yang benar bisa dipakai untuk menyesatkan, lewat sumbu, lewat luas, lewat pilihan ukuran. Yang salah bukan angkanya, melainkan *cara membacanya*."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Penerapan Statistika, kita lihat di mana alat-alat ini benar-benar dipakai, dan apa yang harus ditanyakan sebelum percaya.",
+      "tulis": "Di materi berikutnya, Penerapan Statistika, kita lihat di mana alat-alat ini benar-benar dipakai, dan apa yang harus ditanyakan sebelum percaya."
     }
   ]
 }

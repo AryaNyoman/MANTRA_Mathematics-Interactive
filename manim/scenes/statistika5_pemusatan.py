@@ -1,31 +1,26 @@
-"""Materi 05 Statistika: mean, median, modus lewat jungkat-jungkit (ManimGL).
+"""Statistika Materi 05, Ukuran Pemusatan dan Penyebaran Bagian 1: mean,
+median, modus lewat jungkat-jungkit (ManimGL).
+STANDAR VIDEO v3.1, ditulis ulang MASTER 12 Sep 2026 dari adegan lama (2:02)
+yang sudah disetujui ARYA. DUNIANYA SAMA: delapan siswa bervolume berdiri
+di garis bilangan (4, 5, 6, 7, 7, 8, 8, 11), modus ditandai bentuk (dua
+orang berdampingan), median oleh sekat, garis bilangan berubah jadi papan
+jungkat-jungkit yang jatuh ke kiri saat tumpuannya di 8 dan mendatar di 7,
+jarak kiri dan kanan dijajarkan jadi dua batang sama panjang.
 
-Storyboard: docs/superpowers/specs/2026-09-02-statistika-video-5-storyboard.md
-Naskah    : manim/narasi/statistika5-pemusatan.json (11 segmen, 122 detik)
+YANG BERBEDA: pembuka sub-bab plus Bagian 1 dengan pertanyaan; rumus hafalan
+diperlihatkan redup sebagai pertanyaan; ASAL RUMUS: keseimbangan ditulis
+sebagai jumlah simpangan nol, diturunkan jadi 56 - 8 x bar = 0, x bar = 7;
+bentuk umum x bar = jumlah x dibagi n lahir di dekat tumpuan; penutup
+mengulang ketiga jawaban lewat gambarnya lalu menunjuk Bagian 2; tiap
+kejadian dipicu pada KATA (`sinema.JamKata`); sorotan bilah memakai pita
+tembus pandang.
 
-Yang dibuktikan gambar, bukan diberitahu: rata-rata adalah titik tempat data
-seimbang. Rumus mean sengaja ditahan sampai babak kesepuluh, setelah papannya
-mendatar sendiri di angka 7.
+PANDANGAN DATAR (temuan ARYA): isi adegan ini MEMBANDINGKAN PANJANG, dan
+sudut miring menggambar panjang yang sama jadi tidak sama. Bendanya tetap
+3D bercahaya.
 
-PANDANGAN DATAR, temuan ARYA: kalau isi sebuah adegan adalah MEMBANDINGKAN
-PANJANG, sudut miring menggambar panjang yang sama jadi tidak sama, dan itu
-membantah pelajarannya sendiri. Bendanya tetap 3D bercahaya.
-
-TATA LETAK, keputusan ARYA 2 Sep 2026 malam:
-- Tidak ada keterangan di bawah layar. Jalur itu milik subtitle, dan menulis
-  ulang kalimat di sana berarti dua kalimat berbeda untuk satu maksud sama.
-- Kanan atas: PAPAN TEMUAN. Tiap jawaban yang sudah didapat ditumpuk di sana
-  dalam bentuk matematika, bukan kalimat. Materi ini bukan satu rantai rumus
-  seperti Materi 08, melainkan tiga jawaban untuk satu pertanyaan, jadi
-  papannya MENUMPUK, bukan membungkus.
-- Kanan atas: papan temuan (zona rumus standar v2). Kiri atas: identitas benda.
-- Seluruh panel diperiksa SILANG terhadap seluruh benda dunia oleh qc, lewat
-  kamus DUNIA dan HUD yang dipelihara sepanjang adegan. Daftar pasangan yang
-  ditulis tangan selalu punya lubang; perkalian silang tidak.
-
-Satu warna satu makna: AKSEN2 biru = data, AKSEN bata = mean dan jarak ke mean,
-SOROT ungu = median, TINTA = angka dan penanda modus. Modus ditandai BENTUK,
-yaitu dua orang berdiri berdampingan di satu angka.
+Satu warna satu makna: AKSEN2 biru = data, AKSEN bata = mean dan jarak ke
+mean, SOROT ungu = median dan sorotan, TINTA = angka dan penanda modus.
 """
 
 import json
@@ -39,6 +34,7 @@ from gl import ilustrasi, kamera, qc, sinema  # noqa: E402
 AKAR = Path(__file__).resolve().parents[2]
 TOPIK = "statistika5-pemusatan"
 DURASI = json.loads((AKAR / "audio" / TOPIK / "durasi.json").read_text(encoding="utf-8"))["segmen"]
+KATA = sinema.JamKata(TOPIK)
 
 # --- Data. Sudah lolos dua pemeriksa sebagai `t05-ulangan` di situs.
 NILAI = [4, 5, 6, 7, 7, 8, 8, 11]
@@ -54,10 +50,6 @@ def xw(nilai):
 TINGGI_TUMPU = 0.55
 TEBAL_PAPAN = 0.18
 Z_ATAS_PAPAN = TINGGI_TUMPU + TEBAL_PAPAN
-# DICOBA DIBESARKAN 4 Sep lalu DIKEMBALIKAN. Siswa membentang selebar layar
-# dan papan temuan tumbuh ke bawah di pojok kanan, jadi siswa yang lebih
-# tinggi selalu menabraknya (gerbang qc menolak di 1,85 dan di 1,60).
-# Membesarkannya butuh merombak panggung, bukan menyetel angka.
 TINGGI_ORANG = 1.15
 Z_KEPALA = Z_ATAS_PAPAN + TINGGI_ORANG
 PAPAN_PUSAT = 0.5
@@ -68,13 +60,7 @@ GESER_KEMBAR = 0.17             # dua orang bernilai sama berdiri berdampingan
 
 
 def geser_x(nilai_list):
-    """Nilai kembar digeser ke SAMPING, bukan ke belakang.
-
-    Dijajarkan ke belakang hanya terbaca saat kamera miring, dan kamera harus
-    rata supaya jarak antar nilai terbaca jujur. Geseran 0,17 satuan jauh lebih
-    kecil daripada satu satuan nilai, jadi keduanya tetap terbaca berdiri di
-    angka yang sama.
-    """
+    """Nilai kembar digeser ke SAMPING, bukan ke belakang (kamera rata)."""
     hasil, dipakai = [], {}
     banyak = {v: nilai_list.count(v) for v in nilai_list}
     for v in nilai_list:
@@ -110,15 +96,23 @@ def bilah(panjang, tinggi=0.30, warna=AKSEN):
 class Pemusatan5(AdeganMatra):
     samples = 4                 # penghalus tepi; bawaan ManimGL 0
 
+    def sorot_pita(self, b, *mobs, lama=1.0):
+        """Pita tembus pandang di atas benda datar (bilah): menyorot tanpa menutup angkanya."""
+        pita = VGroup()
+        for m in mobs:
+            p = Rectangle(width=m.get_width() + 0.16, height=m.get_depth() + 0.16)
+            p.set_stroke(width=0).set_fill(SOROT, 0.35)
+            pita.add(tegak(p).move_to(m.get_center() + IN * 0.01))
+        self.add(pita)
+        b.main(FadeIn(pita), run_time=lama * 0.35)
+        b.main(FadeOut(pita), run_time=lama * 0.65)
+        self.remove(pita)
+
     def construct(self):
         frame = self.frame
-        papan = sinema.PapanRumus(self)
+        papan = sinema.PapanRumus(self, tanpa_utama=True)
 
-        # Kamus ini dipelihara sepanjang adegan dan diserahkan UTUH ke qc tiap
-        # babak. Menyerahkan sebagian daftar adalah sumber semua tabrakan yang
-        # lolos sejauh ini.
         DUNIA, HUD = {}, {}
-        HUD["identitas"] = sinema.identitas(self, "8 siswa, nilai 4 sampai 11")
 
         def periksa(pasangan=None):
             hidup_d = {k: v for k, v in DUNIA.items() if v is not None}
@@ -156,34 +150,45 @@ class Pemusatan5(AdeganMatra):
             o.add_updater(napas)
 
         # ------------------------------------------------------------------
-        # Babak 1: pandangan dunia, miring dan dekat.
+        # buka: judul sub-bab, siswa berdatangan, angka garis bilangan.
         # ------------------------------------------------------------------
         kamera.pasang_awal(frame, theta=-22, phi=74, pusat=(0.4, 0, 1.0), tinggi=6.0)
         self.add(garis)
         DUNIA.update({"garis": garis, "siswa": siswa, "angka": angka_lantai})
 
-        with sinema.babak(self, "sapa", DURASI) as b:
-            sinema.judul_pembuka(self, "Materi 05: Mean, median, modus", lama=3.4, y=2.6)
-            b.catat(3.4)
-            b.main(LaggedStartMap(FadeIn, siswa, lag_ratio=0.35), run_time=3.0)
-            b.main(LaggedStartMap(FadeIn, angka_lantai, lag_ratio=0.25), run_time=1.8)
-            b.jeda(1.6)
+        with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Ukuran")
+            sinema.judul_pembuka(self, "Ukuran Pemusatan dan Penyebaran, Bagian 1", lama=3.6, y=2.6)
+            b.catat(3.6)
+            b.tunggu_kata("Delapan")
+            HUD["identitas"] = sinema.identitas(self, "8 siswa, nilai 4 sampai 11")
+            HUD["identitas"].set_opacity(0)
+            b.main(LaggedStartMap(FadeIn, siswa, lag_ratio=0.35), HUD["identitas"].animate.set_opacity(1),
+                   run_time=2.4)
+            b.tunggu_kata("Nilainya")
+            b.main(LaggedStartMap(FadeIn, angka_lantai, lag_ratio=0.25), run_time=1.2)
         periksa()
 
         # ------------------------------------------------------------------
-        # Babak 2: SATU gerakan panjang ke pandangan datar, tempat jarak antar
-        # nilai terbaca jujur. Sesudah ini kamera hampir tidak berpindah lagi.
+        # berbaris: SATU gerakan panjang ke pandangan datar, lalu tiap siswa
+        # disebut satu per satu pada angkanya.
         # ------------------------------------------------------------------
-        with sinema.babak(self, "berbaris", DURASI) as b:
+        with sinema.babak(self, "berbaris", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Mari")
             b.main(kamera.sudut(frame, theta=0, phi=85, pusat=(0.4, 0, 1.15), tinggi=6.4),
                    *[o.animate.move_to(o.tujuan + OUT * TINGGI_ORANG / 2) for o in siswa],
-                   run_time=5.4)
-            b.jeda(1.6)
+                   run_time=3.5)
+            for i, (frasa, ke) in enumerate((("empat", 1), ("lima", 1), ("enam", 1), ("tujuh", 1),
+                                             ("tujuh", 2), ("delapan", 1), ("delapan", 2), ("sebelas", 1))):
+                b.tunggu_kata(frasa, ke=ke)
+                b.main(Indicate(siswa[i], scale_factor=1.12, color=SOROT), run_time=0.6)
+            b.tunggu_kata("berdampingan")
+            b.main(Indicate(Group(siswa[3], siswa[4]), scale_factor=1.1, color=TINTA),
+                   Indicate(Group(siswa[5], siswa[6]), scale_factor=1.1, color=TINTA), run_time=1.0)
         periksa()
 
         # ------------------------------------------------------------------
-        # Babak 3: modus, ditandai BENTUK (dua orang berdampingan), bukan warna.
-        # Temuannya ditulis di papan kiri atas sebagai pernyataan matematika.
+        # modus: ditandai BENTUK (dua orang berdampingan) dengan kurung di atasnya.
         # ------------------------------------------------------------------
         kurung_modus = VGroup()
         for v in (7, 8):
@@ -197,68 +202,85 @@ class Pemusatan5(AdeganMatra):
             k.set_stroke(TINTA, 4)
             kurung_modus.add(k)
 
-        with sinema.babak(self, "modus", DURASI) as b:
-            b.main(kamera.dekati(frame, [0.4, 0, 1.20], 6.2), run_time=2.2)
+        with sinema.babak(self, "modus", DURASI, kata=KATA) as b:
+            b.tunggu_kata("barisan")
+            b.main(kamera.dekati(frame, [0.4, 0, 1.20], 6.2), run_time=1.4)
             DUNIA["kurung modus"] = kurung_modus
-            b.main(ShowCreation(kurung_modus), run_time=1.4)
-            papan.baris(r"\mathrm{modus} = 7, 8", TINTA)
-            b.catat(0.8)
-            b.main(Indicate(siswa[3], scale_factor=1.12, color=TINTA),
-                   Indicate(siswa[4], scale_factor=1.12, color=TINTA), run_time=1.2)
-            b.main(Indicate(siswa[5], scale_factor=1.12, color=TINTA),
-                   Indicate(siswa[6], scale_factor=1.12, color=TINTA), run_time=1.2)
-            b.jeda(1.6)
+            b.tunggu_kata("Di angka")
+            b.main(ShowCreation(kurung_modus[0]), Indicate(siswa[3], scale_factor=1.12, color=TINTA),
+                   Indicate(siswa[4], scale_factor=1.12, color=TINTA), run_time=1.0)
+            b.tunggu_kata("di delapan")
+            b.main(ShowCreation(kurung_modus[1]), Indicate(siswa[5], scale_factor=1.12, color=TINTA),
+                   Indicate(siswa[6], scale_factor=1.12, color=TINTA), run_time=1.0)
+            b.tunggu_kata("Itulah")
+            papan.baris(r"\mathrm{modus} = 7, 8", TINTA, b=b)
         periksa()
 
         # ------------------------------------------------------------------
-        # Babak 4: median. Sekat berdiri di antara siswa ke-4 dan ke-5, yang
-        # dua-duanya bernilai 7, jadi sekatnya jatuh tepat di angka 7.
+        # median: sekat berdiri di antara siswa ke-4 dan ke-5 (dua-duanya 7).
         # ------------------------------------------------------------------
         sekat = ilustrasi.balok(0.09, 0.5, 2.4, SOROT).shift([xw(MEDIAN), 0, 0])
-        with sinema.babak(self, "median", DURASI) as b:
-            b.main(FadeOut(kurung_modus), run_time=0.8)
+        with sinema.babak(self, "median", DURASI, kata=KATA) as b:
+            b.tunggu_kata("belah")
+            b.main(FadeOut(kurung_modus), run_time=0.5)
             DUNIA["kurung modus"] = None
             sekat.set_opacity(0)
             self.add(sekat)
             DUNIA["sekat"] = sekat
-            b.main(sekat.animate.set_opacity(1), run_time=1.2)
+            b.main(sekat.animate.set_opacity(1), run_time=0.9)
+            b.tunggu_kata("Empat di")
             b.main(LaggedStart(*[Indicate(siswa[i], scale_factor=1.1, color=SOROT)
-                                 for i in (0, 1, 2, 3)], lag_ratio=0.3), run_time=1.6)
+                                 for i in (0, 1, 2, 3)], lag_ratio=0.3), run_time=1.0)
+            b.tunggu_kata("empat di", ke=2)
             b.main(LaggedStart(*[Indicate(siswa[i], scale_factor=1.1, color=SOROT)
-                                 for i in (4, 5, 6, 7)], lag_ratio=0.3), run_time=1.6)
-            papan.baris(r"\mathrm{median} = 7", SOROT)
-            b.catat(0.8)
-            b.jeda(1.6)
+                                 for i in (4, 5, 6, 7)], lag_ratio=0.3), run_time=1.0)
+            b.tunggu_kata("Sekatnya")
+            b.main(Indicate(sekat, scale_factor=1.05, color=SOROT), run_time=0.8)
+            b.tunggu_kata("itulah")
+            papan.baris(r"\mathrm{median} = 7", SOROT, b=b)
         periksa()
 
         # ------------------------------------------------------------------
-        # Babak 5: pertanyaan, lalu diam sejenak. Dunia tetap hidup karena napas.
+        # tanya: rumus hafalan tampil redup sebagai PERTANYAAN, bukan jawaban.
         # ------------------------------------------------------------------
-        with sinema.babak(self, "tanya", DURASI) as b:
-            b.main(FadeOut(sekat), run_time=1.0)
+        hafal = rumus(r"\bar{x} = \frac{56}{8} = 7\ ?", 34, REDUP).move_to([0.0, 2.55, 0]).fix_in_frame()
+        with sinema.babak(self, "tanya", DURASI, kata=KATA) as b:
+            b.tunggu_kata("rata-rata")
+            b.main(FadeOut(sekat), run_time=0.8)
             DUNIA["sekat"] = None
-            b.main(kamera.dekati(frame, [0.4, 0, 1.25], 6.2), run_time=5.2)
-            b.jeda(1.6)
+            b.tunggu_kata("jumlah")
+            self.hud_tambah(hafal)
+            HUD["hafalan"] = hafal
+            b.main(FadeIn(hafal, shift=0.2 * DOWN), run_time=0.8)
+            b.tunggu_kata("angka apa")
+            b.main(Indicate(hafal, scale_factor=1.1, color=SOROT), run_time=1.0)
         periksa()
 
         # ------------------------------------------------------------------
-        # Babak 6: garis bilangan BERUBAH jadi papan, tumpuan tumbuh di angka 8.
+        # papan: garis bilangan BERUBAH jadi papan, tumpuan tumbuh di angka 8.
         # ------------------------------------------------------------------
         tumpu = 8.0
         papan_tebal = ilustrasi.balok(PAPAN_PANJANG, PAPAN_DALAM, TEBAL_PAPAN, AKSEN)
         papan_tebal.shift([PAPAN_PUSAT, 0, TINGGI_TUMPU])
         penopang = ilustrasi.penopang(0.7, TINGGI_TUMPU, 0.85).shift([xw(tumpu), 0, 0])
 
-        with sinema.babak(self, "papan", DURASI) as b:
+        with sinema.babak(self, "papan", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Kita ubah")
+            b.main(FadeOut(hafal), run_time=0.4)
+            HUD["hafalan"] = None
+            self.remove(hafal)
+            b.tunggu_kata("papan")
             b.main(Transform(garis, papan_tebal),
-                   siswa.animate.shift(OUT * Z_ATAS_PAPAN), run_time=2.8)
+                   siswa.animate.shift(OUT * Z_ATAS_PAPAN), run_time=2.0)
+            b.tunggu_kata("Tumpuannya")
             DUNIA["penopang"] = penopang
-            b.main(GrowFromCenter(penopang), run_time=1.6)
-            b.jeda(1.6)
+            b.main(GrowFromCenter(penopang), run_time=1.2)
+            b.tunggu_kata("delapan")
+            b.main(Indicate(angka_lantai[4], scale_factor=1.4, color=AKSEN), run_time=0.7)
         periksa()
 
         # ------------------------------------------------------------------
-        # Babak 7: papan jatuh ke kiri. Sudut dicatat sendiri supaya tiap putaran
+        # miring: papan jatuh ke kiri. Sudut dicatat sendiri supaya tiap putaran
         # berikutnya cuma SELISIHnya; kalau tidak, putaran bertumpuk.
         # ------------------------------------------------------------------
         papan_grup = Group(garis, *siswa)
@@ -270,25 +292,34 @@ class Pemusatan5(AdeganMatra):
             return Rotate(papan_grup, selisih, axis=UP,
                           about_point=np.array([xw(poros_nilai), 0.0, TINGGI_TUMPU]))
 
-        with sinema.babak(self, "miring", DURASI) as b:
-            b.main(ke_sudut(miring(tumpu), tumpu), run_time=3.6)
-            b.jeda(1.6)
+        with sinema.babak(self, "miring", DURASI, kata=KATA) as b:
+            b.tunggu_kata("jatuh")
+            b.main(ke_sudut(miring(tumpu), tumpu), run_time=2.0)
+            b.tunggu_kata("orang di")
+            b.main(LaggedStart(*[Indicate(siswa[i], scale_factor=1.1, color=AKSEN)
+                                 for i in (0, 1, 2)], lag_ratio=0.3), run_time=1.2)
+            b.tunggu_kata("yang di")
+            b.main(Indicate(siswa[7], scale_factor=1.1, color=AKSEN), run_time=0.8)
         periksa()
 
         # ------------------------------------------------------------------
-        # Babak 8: tumpuan digeser sampai papan mendatar, angkanya hidup.
+        # geser: tumpuan digeser sampai papan mendatar, tiap singgahan pada katanya.
         # ------------------------------------------------------------------
-        with sinema.babak(self, "geser", DURASI) as b:
-            for singgah in (7.5, 7.2, MEAN):
+        with sinema.babak(self, "geser", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Delapan")
+            b.main(Indicate(penopang, scale_factor=1.08, color=AKSEN), run_time=0.7)
+            for frasa, singgah, lama in (("tujuh koma lima", 7.5, 1.2), ("tujuh koma dua", 7.2, 1.1),
+                                         ("berhenti", MEAN, 1.6)):
+                b.tunggu_kata(frasa)
                 b.main(penopang.animate.move_to([xw(singgah), 0, TINGGI_TUMPU / 2]),
-                       ke_sudut(miring(singgah), singgah), run_time=3.0)
-            b.jeda(1.6)
+                       ke_sudut(miring(singgah), singgah), run_time=lama)
+            b.tunggu_kata("mendatar")
+            b.main(Indicate(garis, scale_factor=1.0, color=AKSEN), run_time=0.8)
         periksa()
 
         # ------------------------------------------------------------------
-        # Babak 9: bukti. Ketiga jarak kiri dijajarkan jadi SATU batang, ketiga
-        # jarak kanan jadi batang kedua, berpangkal sama. Sama panjang atau tidak
-        # bisa dilihat sekejap, tanpa membandingkan angka satu per satu.
+        # bukti: ketiga jarak kiri dijajarkan jadi SATU batang, ketiga jarak
+        # kanan jadi batang kedua, berpangkal sama.
         # ------------------------------------------------------------------
         Z_BILAH = (1.95, 2.28, 2.61)
         Z_KIRI, Z_KANAN, X_PANGKAL = 2.62, 2.10, -2.5
@@ -322,38 +353,145 @@ class Pemusatan5(AdeganMatra):
         nama_kiri = tegak(teks("kiri", 22, AKSEN)).move_to([X_PANGKAL - 0.7, 0, Z_KIRI])
         nama_kanan = tegak(teks("kanan", 22, AKSEN)).move_to([X_PANGKAL - 0.8, 0, Z_KANAN])
 
-        with sinema.babak(self, "bukti", DURASI) as b:
-            DUNIA.update({"bilah kiri": bilah_kiri, "bilah kanan": bilah_kanan})
-            b.main(LaggedStartMap(FadeIn, bilah_kiri, lag_ratio=0.25), run_time=1.6)
-            b.main(LaggedStartMap(FadeIn, bilah_kanan, lag_ratio=0.25), run_time=1.6)
-            b.main(*[g.animate.move_to(p) for g, p in zip(bilah_kiri, sasaran_kiri)],
-                   *[g.animate.move_to(p) for g, p in zip(bilah_kanan, sasaran_kanan)],
-                   run_time=2.6)
-            DUNIA.update({"nama kiri": nama_kiri, "nama kanan": nama_kanan})
-            b.main(FadeIn(nama_kiri), FadeIn(nama_kanan), run_time=0.8)
-            papan.baris(r"\sum (x - \bar{x}) = 0", AKSEN)
-            b.catat(0.8)
-            b.jeda(1.6)
+        with sinema.babak(self, "bukti", DURASI, kata=KATA) as b:
+            b.tunggu_kata("ketiga jarak")
+            DUNIA["bilah kiri"] = bilah_kiri
+            b.main(LaggedStartMap(FadeIn, bilah_kiri, lag_ratio=0.25), run_time=1.0)
+            b.tunggu_kata("jajarkan")
+            b.main(*[g.animate.move_to(p) for g, p in zip(bilah_kiri, sasaran_kiri)], run_time=1.4)
+            DUNIA["nama kiri"] = nama_kiri
+            b.main(FadeIn(nama_kiri), run_time=0.4)
+            b.tunggu_kata("ketiga jarak", ke=2)
+            DUNIA["bilah kanan"] = bilah_kanan
+            b.main(LaggedStartMap(FadeIn, bilah_kanan, lag_ratio=0.25), run_time=1.0)
+            b.tunggu_kata("batang kedua")
+            b.main(*[g.animate.move_to(p) for g, p in zip(bilah_kanan, sasaran_kanan)], run_time=1.0)
+            DUNIA["nama kanan"] = nama_kanan
+            b.main(FadeIn(nama_kanan), run_time=0.3)
+            b.tunggu_kata("Tiga tambah")
+            self.sorot_pita(b, *[g[0] for g in bilah_kiri], lama=1.4)
+            b.tunggu_kata("lawan")
+            self.sorot_pita(b, *[g[0] for g in bilah_kanan], lama=1.4)
+            b.tunggu_kata("sama panjang")
+            self.sorot_pita(b, *[g[0] for g in bilah_kiri], *[g[0] for g in bilah_kanan], lama=1.6)
+            b.tunggu_kata("seimbang")
+            b.main(Indicate(penopang, scale_factor=1.08, color=AKSEN), run_time=0.8)
         periksa()
 
         # ------------------------------------------------------------------
-        # Babak 10: BARU sekarang rumusnya, sesudah gambarnya membuktikan artinya.
+        # asal: keseimbangan ditulis sebagai persamaan; simpangan tiap orang.
         # ------------------------------------------------------------------
-        with sinema.babak(self, "rumus", DURASI) as b:
-            b.main(FadeOut(bilah_kiri), FadeOut(bilah_kanan),
-                   FadeOut(nama_kiri), FadeOut(nama_kanan), run_time=1.4)
+        # Di samping tumpuan, bukan di bawah angka: di bawah angka ia masuk
+        # jalur subtitle (qc menolak, 12 Sep).
+        lab_xbar = tegak(rumus(r"\bar{x}", 30, AKSEN)).move_to([xw(MEAN) + 0.72, 0, 0.27])
+        simpangan = VGroup()
+        for i, (v, dx) in enumerate(zip(NILAI, DX_ORANG)):
+            s = v - MEAN
+            isi = "0" if s == 0 else (f"{int(s):+d}")
+            warna = REDUP if s == 0 else AKSEN
+            simpangan.add(tegak(rumus(isi, 22, warna)).move_to([xw(v) + dx, 0, Z_KEPALA + 0.30]))
+        with sinema.babak(self, "asal", DURASI, kata=KATA) as b:
+            b.tunggu_kata("persamaan")
+            b.main(FadeOut(bilah_kiri), FadeOut(bilah_kanan), FadeOut(nama_kiri), FadeOut(nama_kanan),
+                   FadeOut(papan.semua()), run_time=0.6)
+            self.remove(*papan.semua())
+            papan = sinema.PapanRumus(self, tanpa_utama=True)
             DUNIA["bilah kiri"] = DUNIA["bilah kanan"] = None
             DUNIA["nama kiri"] = DUNIA["nama kanan"] = None
-            baris_mean = papan.baris(r"\bar{x} = \frac{56}{8} = 7", AKSEN)
-            b.catat(0.8)
-            b.main(Indicate(baris_mean, scale_factor=1.12, color=SOROT), run_time=2.6)
-            b.jeda(1.6)
+            b.tunggu_kata("Sebut")
+            DUNIA["x bar"] = lab_xbar
+            b.main(FadeIn(lab_xbar, shift=0.2 * OUT), run_time=0.7)
+            b.tunggu_kata("Jarak tiap")
+            DUNIA["simpangan"] = simpangan
+            b.main(LaggedStartMap(FadeIn, simpangan, lag_ratio=0.15), run_time=1.4)
+            b.tunggu_kata("negatif")
+            b.main(Indicate(VGroup(*simpangan[:3]), scale_factor=1.3, color=SOROT), run_time=0.9)
+            b.tunggu_kata("positif")
+            b.main(Indicate(VGroup(*simpangan[5:]), scale_factor=1.3, color=SOROT), run_time=0.9)
+            b.tunggu_kata("jumlah semuanya")
+            papan.baris(r"(4 - \bar{x}) + (5 - \bar{x}) + \cdots + (11 - \bar{x}) = 0", AKSEN, b=b)
         periksa()
 
         # ------------------------------------------------------------------
-        # Babak 11: penutup. Papan tetap seimbang, siswa terus bernapas.
+        # rumus: BARU sekarang rumusnya, diturunkan dari keseimbangan.
         # ------------------------------------------------------------------
-        with sinema.babak(self, "tutup", DURASI) as b:
-            b.main(kamera.putar_pelan(frame, derajat=6), run_time=5.4)
-            b.jeda(1.6)
+        with sinema.babak(self, "rumus", DURASI, kata=KATA) as b:
+            b.tunggu_kata("dijumlahkan")
+            b.main(LaggedStart(*[Indicate(a, scale_factor=1.3, color=SOROT) for a in angka_lantai],
+                               lag_ratio=0.1), run_time=1.2)
+            b.tunggu_kata("muncul")
+            b.main(Indicate(lab_xbar, scale_factor=1.3, color=SOROT), run_time=0.8)
+            b.tunggu_kata("Lima puluh", ke=2)
+            papan.baris(r"56 - 8\bar{x} = 0", AKSEN, b=b)
+            b.tunggu_kata("jadi", ke=2)
+            baris_mean = papan.baris(r"\bar{x} = 56 : 8 = 7", AKSEN, b=b)
+            b.tunggu_kata("Barulah")
+            b.main(Indicate(baris_mean, scale_factor=1.0, color=SOROT), run_time=0.9)
+            b.tunggu_kata("titik seimbangnya")
+            b.main(Indicate(penopang, scale_factor=1.08, color=AKSEN), run_time=0.9)
         periksa()
+
+        # ------------------------------------------------------------------
+        # umum: bentuk umum lahir di dekat tumpuan, lalu duduk di panel baru.
+        # ------------------------------------------------------------------
+        with sinema.babak(self, "umum", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Bentuk")
+            b.main(FadeOut(papan.semua()), FadeOut(simpangan), run_time=0.5)
+            self.remove(*papan.semua())
+            DUNIA["simpangan"] = None
+            papan = sinema.PapanRumus(self, tanpa_utama=True)
+            b.tunggu_kata("jumlah seluruh")
+            sinema.lahir_rumus(self, r"\bar{x} = \frac{\sum x}{n}", dekat=penopang, papan=papan, b=b,
+                               warna=AKSEN, ukuran_lahir=52, tahan=0.6, run_time=1.1,
+                               sebagai_utama=False, geser=UP * 1.6)
+            b.tunggu_kata("simpangan")
+            papan.baris(r"\sum (x - \bar{x}) = 0", AKSEN, b=b)
+        periksa()
+
+        # ------------------------------------------------------------------
+        # tutup: ketiga jawaban diulang lewat gambarnya.
+        # ------------------------------------------------------------------
+        sekat2 = ilustrasi.balok(0.09, 0.5, 2.4, SOROT).shift([xw(MEDIAN), 0, Z_ATAS_PAPAN])
+        with sinema.babak(self, "tutup", DURASI, kata=KATA) as b:
+            b.tunggu_kata("tujuh")
+            b.main(Indicate(angka_lantai[3], scale_factor=1.4, color=SOROT), run_time=0.8)
+            b.tunggu_kata("Modus")
+            b.main(Indicate(Group(siswa[3], siswa[4]), scale_factor=1.1, color=TINTA),
+                   Indicate(Group(siswa[5], siswa[6]), scale_factor=1.1, color=TINTA), run_time=1.0)
+            b.tunggu_kata("median")
+            sekat2.set_opacity(0)
+            self.add(sekat2)
+            DUNIA["sekat"] = sekat2
+            b.main(sekat2.animate.set_opacity(1), run_time=0.7)
+            b.tunggu_kata("rata-rata")
+            b.main(sekat2.animate.set_opacity(0), Indicate(penopang, scale_factor=1.08, color=AKSEN),
+                   run_time=0.9)
+            self.remove(sekat2)
+            DUNIA["sekat"] = None
+        periksa()
+
+        # ------------------------------------------------------------------
+        # lanjut: satu nilai jauh sendiri naik ke papan, papannya berlari.
+        # ------------------------------------------------------------------
+        judul_lanjut = teks("Ukuran Pemusatan dan Penyebaran, Bagian 2", 30, SOROT)
+        judul_lanjut.move_to([0, 2.6, 0]).fix_in_frame()
+        pendatang = ilustrasi.orang(TINGGI_ORANG, AKSEN)
+        pendatang.move_to(np.array([xw(12) - 0.2, 0.0, Z_ATAS_PAPAN + TINGGI_ORANG / 2]))
+        with sinema.babak(self, "lanjut", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Ukuran")
+            b.main(FadeOut(papan.semua()), FadeOut(lab_xbar), run_time=0.5)
+            self.remove(*papan.semua())
+            papan = sinema.PapanRumus(self, tanpa_utama=True)
+            DUNIA["x bar"] = None
+            self.hud_tambah(judul_lanjut)
+            HUD["judul lanjut"] = judul_lanjut
+            b.main(FadeIn(judul_lanjut, shift=0.2 * UP), run_time=0.7)
+            b.tunggu_kata("satu nilai")
+            DUNIA["pendatang"] = pendatang
+            b.main(FadeIn(pendatang, shift=0.3 * IN), run_time=0.9)
+            papan_grup.add(pendatang)
+            b.tunggu_kata("berlari")
+            b.main(ke_sudut(6.0, MEAN), run_time=1.2)
+        periksa()
+
+        sinema.laporkan_pemicu(self)

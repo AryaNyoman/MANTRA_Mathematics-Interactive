@@ -1,11 +1,16 @@
 {
-  "total": 74.88,
+  "total": 130.9,
   "segmen": {
-    "buka": 11.808,
-    "masalah": 16.224,
-    "geser": 11.856,
-    "mendarat": 10.152,
-    "segitiga": 12.672,
-    "tutup": 12.168
+    "buka": 7.7,
+    "ingat": 13.1,
+    "masalah": 16.433333333333334,
+    "geser": 12.1,
+    "mendarat": 10.433333333333334,
+    "segitiga": 12.9,
+    "cek": 17.6,
+    "sudut": 7.8,
+    "umum": 11.9,
+    "tutup": 10.066666666666666,
+    "lanjut": 10.866666666666667
   }
 }

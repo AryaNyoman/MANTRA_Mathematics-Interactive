@@ -1,63 +1,83 @@
 {
   "adegan": "Simpangan8",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Materi 08 Statistika. Naskah ditulis SESUDAH storyboard geraknya, supaya panjang kalimat mengikuti panjang gerak, bukan sebaliknya. Medan `tulis` adalah bentuk tertulis untuk subtitle: lambang matematika, bukan salinan mentah ucapan (permintaan ARYA 2 Sep 2026). Penanda *kata* jadi tebal.",
+  "tempo": "-5%",
+  "catatan": "Ukuran Pemusatan dan Penyebaran, Bagian 4 (Materi 08). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (dua mesin lima botol, rata-rata sama 500; jarak ke pusat; jumlah jarak nol; kuadrat jadi persegi; luas 10 lawan 250; varian 2 dan 50; sisi dua kali luas empat kali; akar mengembalikan satuan; 1,41 lawan 7,07; botol 490 kurang isi). Yang ditambah: pembuka menyebut sub-bab plus Bagian 4 dengan pertanyaan halaman, segar-ingat Bagian 1 (jumlah simpangan ke kiri dan ke kanan sama), bentuk umum s = akar dari jumlah kuadrat simpangan dibagi n dan varian s kuadrat dibaca lengkap, penutup menunjuk Bagian 5.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi delapan Statistika: *simpangan baku*. Sebuah pabrik menguji dua mesin pengisi botol, lalu mengukur lima botol dari masing-masing. Ini hasilnya.",
-      "tulis": "Materi 08 Statistika: *simpangan baku*. Sebuah pabrik menguji dua mesin pengisi botol, lalu mengukur lima botol dari masing-masing. Ini hasilnya."
+      "teks": "Ukuran Pemusatan dan Penyebaran, Bagian empat. Dua mesin isi ulang sama-sama rata-rata lima ratus mililiter. Kenapa yang satu tetap ditolak pabrik?",
+      "tulis": "Ukuran Pemusatan dan Penyebaran, Bagian 4. Dua mesin isi ulang sama-sama rata-rata 500 ml. Kenapa yang satu tetap *ditolak* pabrik?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Bagian satu, rata-rata adalah titik seimbang: jumlah jarak ke kiri sama dengan jumlah jarak ke kanan. Ingat itu, sebentar lagi justru itu yang jadi masalah.",
+      "tulis": "Di Bagian 1, rata-rata adalah titik seimbang: jumlah jarak ke kiri *sama dengan* jumlah jarak ke kanan. Ingat itu, sebentar lagi justru itu yang jadi masalah."
+    },
+    {
+      "id": "botol",
+      "teks": "Sebuah pabrik menguji dua mesin pengisi botol, lalu mengukur lima botol dari masing-masing. Ini hasilnya, dalam mililiter.",
+      "tulis": "Sebuah pabrik menguji dua mesin pengisi botol, lalu mengukur 5 botol dari masing-masing. Ini hasilnya, dalam ml."
     },
     {
       "id": "sama",
-      "teks": "Rata-rata keduanya lima ratus mililiter, sama persis. Kalau pabrik cuma melihat rata-rata, kedua mesin ini *lulus dua-duanya*. Tetapi lihat sebarannya.",
+      "teks": "Rata-rata keduanya lima ratus mililiter, sama persis. Kalau pabrik cuma melihat rata-rata, kedua mesin ini lulus dua-duanya. Tetapi lihat sebarannya.",
       "tulis": "Rata-rata keduanya 500 ml, sama persis. Kalau pabrik cuma melihat rata-rata, kedua mesin ini *lulus dua-duanya*. Tetapi lihat sebarannya."
     },
     {
       "id": "simpangan",
-      "teks": "Jadi yang harus diukur bukan pusatnya, melainkan *jaraknya ke pusat*. Kita gambar jarak tiap botol ke lima ratus. Punya Mesin B jelas jauh lebih panjang.",
+      "teks": "Jadi yang harus diukur bukan pusatnya, melainkan jaraknya ke pusat. Kita gambar jarak tiap botol ke lima ratus. Punya Mesin B jelas jauh lebih panjang.",
       "tulis": "Jadi yang harus diukur bukan pusatnya, melainkan *jaraknya ke pusat*. Kita gambar jarak tiap botol ke 500. Punya Mesin B jelas jauh lebih panjang."
     },
     {
       "id": "nol",
-      "teks": "Cara paling wajar: jumlahkan semua jarak itu. Gagal total. Yang di kiri bertanda minus, yang di kanan plus, dan mereka *saling menghapus*. Dua-duanya nol.",
-      "tulis": "Cara paling wajar: jumlahkan semua jarak itu. Gagal total. Yang di kiri bertanda minus, yang di kanan plus, dan mereka *saling menghapus*. Dua-duanya 0."
+      "teks": "Cara paling wajar: jumlahkan semua jarak itu. Gagal total. Yang di kiri bertanda minus, yang di kanan plus, dan mereka saling menghapus. Dua-duanya nol, persis seperti di Bagian satu.",
+      "tulis": "Cara paling wajar: jumlahkan semua jarak itu. Gagal total. Yang di kiri bertanda minus, yang di kanan plus, dan mereka *saling menghapus*. Dua-duanya nol, persis seperti di Bagian 1."
     },
     {
       "id": "kuadrat",
-      "teks": "Yang merusak adalah tanda minusnya. Jadi tanda itu kita buang dengan *mengkuadratkan*. Dan kuadrat punya arti gambar: tiap jarak jadi sisi sebuah persegi.",
+      "teks": "Yang merusak adalah tanda minusnya. Jadi tanda itu kita buang dengan mengkuadratkan. Dan kuadrat punya arti gambar: tiap jarak jadi sisi sebuah persegi.",
       "tulis": "Yang merusak adalah tanda minusnya. Jadi tanda itu kita buang dengan *mengkuadratkan*. Dan kuadrat punya arti gambar: tiap jarak jadi sisi sebuah persegi."
     },
     {
       "id": "luas",
-      "teks": "Sekarang bandingkan luasnya. Mesin A mengumpulkan sepuluh, Mesin B dua ratus lima puluh. Bedanya bukan lagi tipis, tetapi *dua puluh lima kali lipat*.",
+      "teks": "Sekarang bandingkan luasnya. Mesin A mengumpulkan sepuluh, Mesin B dua ratus lima puluh. Bedanya bukan lagi tipis, tetapi dua puluh lima kali lipat.",
       "tulis": "Sekarang bandingkan luasnya. Mesin A mengumpulkan 10, Mesin B 250. Bedanya bukan lagi tipis, tetapi *25 kali lipat*."
     },
     {
       "id": "varian",
-      "teks": "Dibagi banyak botolnya, tersisa satu persegi rata-rata untuk tiap mesin. Angka inilah yang disebut *varian*: dua untuk Mesin A, lima puluh untuk Mesin B.",
+      "teks": "Dibagi banyak botolnya, tersisa satu persegi rata-rata untuk tiap mesin. Angka inilah yang disebut varian: dua untuk Mesin A, lima puluh untuk Mesin B.",
       "tulis": "Dibagi banyak botolnya, tersisa satu persegi rata-rata untuk tiap mesin. Angka inilah yang disebut *varian*: 2 untuk Mesin A, 50 untuk Mesin B."
     },
     {
       "id": "empatkali",
-      "teks": "Perhatikan satu hal. Botol yang meleset sepuluh jaraknya cuma dua kali botol yang meleset lima. Tetapi perseginya *empat kali lipat*.",
-      "tulis": "Perhatikan satu hal. Botol yang meleset 10 jaraknya cuma 2 kali botol yang meleset 5. Tetapi perseginya *empat kali lipat*."
+      "teks": "Perhatikan satu hal. Botol yang meleset sepuluh jaraknya cuma dua kali botol yang meleset lima. Tetapi perseginya empat kali lipat.",
+      "tulis": "Perhatikan satu hal. Botol yang meleset 10 jaraknya cuma dua kali botol yang meleset 5. Tetapi perseginya *empat kali lipat*."
     },
     {
       "id": "akar",
-      "teks": "Tinggal satu cacat. Varian bersatuan mililiter kuadrat, dan tidak ada yang bisa membayangkan itu. Jadi kita *akarkan*, kembali ke sisi perseginya.",
-      "tulis": "Tinggal satu cacat. Varian bersatuan ml², dan tidak ada yang bisa membayangkan itu. Jadi kita *akarkan*, kembali ke sisi perseginya. √2 = 1,41 dan √50 = 7,07."
+      "teks": "Tinggal satu cacat. Varian bersatuan mililiter kuadrat, dan tidak ada yang bisa membayangkan itu. Jadi kita akarkan, kembali ke sisi perseginya.",
+      "tulis": "Tinggal satu cacat. Varian bersatuan ml², dan tidak ada yang bisa membayangkan itu. Jadi kita *akarkan*, kembali ke sisi perseginya."
+    },
+    {
+      "id": "umum",
+      "teks": "Itulah bentuk umumnya: simpangan baku s sama dengan akar dari jumlah kuadrat simpangan dibagi n, dan varian adalah s kuadrat, angka sebelum diakarkan.",
+      "tulis": "Itulah bentuk umumnya: simpangan baku s = akar dari jumlah kuadrat simpangan dibagi n, dan varian adalah s², angka sebelum diakarkan."
     },
     {
       "id": "baca",
       "teks": "Barulah angkanya bisa dibaca sebagai kalimat. Isi botol Mesin A biasanya meleset satu koma empat satu mililiter dari lima ratus, Mesin B tujuh koma nol tujuh.",
-      "tulis": "Barulah angkanya bisa dibaca sebagai kalimat. Isi botol Mesin A biasanya meleset 1,41 ml dari 500, Mesin B 7,07 ml."
+      "tulis": "Barulah angkanya bisa dibaca sebagai kalimat. Isi botol Mesin A biasanya meleset 1,41 ml dari 500, Mesin B 7,07."
     },
     {
       "id": "tutup",
-      "teks": "Dan itulah jawabannya. Botol berlabel lima ratus dari Mesin B bisa berisi empat ratus sembilan puluh, dan pembeli menerima *botol yang kurang isi*.",
-      "tulis": "Dan itulah jawabannya. Botol berlabel 500 ml dari Mesin B bisa berisi 490 ml, dan pembeli menerima *botol yang kurang isi*."
+      "teks": "Dan itulah jawabannya. Botol berlabel lima ratus dari Mesin B bisa berisi empat ratus sembilan puluh, dan pembeli menerima botol yang kurang isi.",
+      "tulis": "Dan itulah jawabannya. Botol berlabel 500 dari Mesin B bisa berisi 490, dan pembeli menerima *botol yang kurang isi*."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian lima, angka aslinya sudah hilang dan yang tersisa cuma tabelnya. Apa yang masih bisa dihitung?",
+      "tulis": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian 5, angka aslinya sudah hilang dan yang tersisa cuma *tabelnya*. Apa yang masih bisa dihitung?"
     }
   ]
 }

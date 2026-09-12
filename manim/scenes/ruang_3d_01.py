@@ -4,7 +4,9 @@ STANDAR VIDEO v3 (9 September 2026). Ditulis ulang dari versi 85 detik.
 Kejadian di layar dipicu oleh KATA yang sedang diucapkan (`sinema.JamKata`
 dan `b.tunggu_kata`), bukan oleh pembagian waktu per babak.
 
-Naskah   : manim/narasi/ruang-3d-01.json      (30 segmen, 278,9 detik)
+Naskah   : manim/narasi/ruang-3d-01.json      (29 segmen, 278,9 detik; v3.1 12 Sep 2026:
+           pembuka "Kedudukan Titik, Garis, dan Bidang, Bagian 1", segar-ingat menyebut
+           Vektor dalam Sistem Koordinat Bagian 2, penutup menunjuk Bagian 2)
 Narasi   : python manim/buat_narasi.py ruang-3d-01
 Render   : manimgl manim/scenes/ruang_3d_01.py GambarBolehBerbohong -w --hd --config_file manim/hd60.yml
 Gabung   : python manim/gabung_audio.py ruang-3d-01 GambarBolehBerbohong --keluar ruang-3d-01.mp4
@@ -110,6 +112,11 @@ class GambarBolehBerbohong(AdeganMatra):
         # ---- Babak 1: pertanyaan yang dijawab video ini (standar v3 butir 1).
         pembuka, garis_pembuka, titik_pembuka, tanya = dua_garis_pembuka()
         with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Kedudukan")
+            # Judulnya ditahan sampai kalimat pertanyaan mulai: kalau dilepas di
+            # detik 3,6 layar kosong dua detik (cek_layar_kosong 12 Sep).
+            sinema.judul_pembuka(self, "Kedudukan Titik, Garis, dan Bidang, Bagian 1", lama=5.3, y=1.8)
+            b.catat(5.3)
             b.tunggu_kata("dua")
             b.main(ShowCreation(garis_pembuka, lag_ratio=0.4), run_time=0.65)
             b.tunggu_kata("menyilang")
@@ -127,20 +134,16 @@ class GambarBolehBerbohong(AdeganMatra):
             # di kata "Vektor" (detik 6,62) padahal segitiga segar-ingatnya baru
             # digambar di kata "panjang" (detik 9,80), dan cek_layar_kosong
             # menangkap 3,0 detik layar KOSONG di antaranya.
-            b.tunggu_kata("Vektor")
+            b.tunggu_kata("Di topik")
             b.main(Indicate(titik_pembuka, scale_factor=1.8, color=SOROT),
                    run_time=1.0)
             b.tunggu_kata("panjang")
             b.main(FadeOut(pembuka), ShowCreation(siku_ingat, lag_ratio=0.3),
-                   run_time=1.5)
+                   run_time=1.2)
+            b.tunggu_kata("Pythagoras")
+            b.main(FadeIn(kartu[1:5]), run_time=0.7)
             b.tunggu_kata("akar")
-            b.main(FadeIn(kartu[1:5]), run_time=0.9)
-
-        with sinema.babak(self, "ingat-smp", DURASI, kata=KATA) as b:
-            b.tunggu_kata("segitiga")
-            b.main(Indicate(siku_ingat, color=SOROT), run_time=1.2)
-            b.tunggu_kata("kuadrat")
-            b.main(FadeIn(rms_ingat, shift=0.2 * UP), run_time=1.0)
+            b.main(FadeIn(rms_ingat, shift=0.2 * UP), run_time=0.9)
 
         bawa = VGroup(
             sinema.label("koordinat", warna=SOROT),
@@ -231,7 +234,7 @@ class GambarBolehBerbohong(AdeganMatra):
                            + np.array([0.0, 0.66, 0.30]), REDUP, 26)
         with sinema.babak(self, "panjang-bd", DURASI, kata=KATA) as b:
             tunggu_kata_bergeser(b, frame, "enam")
-            b.main(ShowCreation(langkah_x), FadeIn(n_lx), run_time=1.0)
+            b.main(ShowCreation(langkah_x), FadeIn(n_lx), run_time=0.9)
             tunggu_kata_bergeser(b, frame, "enam", ke=2)
             b.main(ShowCreation(langkah_y), FadeIn(n_ly), run_time=1.0)
             tunggu_kata_bergeser(b, frame, "Pythagoras")
@@ -319,8 +322,11 @@ class GambarBolehBerbohong(AdeganMatra):
         # ---- Babak 18 sampai 21: ASAL KESIMPULAN, dibuktikan dengan angka.
         n_bawah = label_hadap(frame, "(3, 3, 0)", SILANG_BAWAH
                               + np.array([1.5, -0.5, 0.45]), AKSEN2, 26, rumus_latex=True)
+        # DI ATAS atap kubus (z + 1,35), bukan di samping: geseran x dan y
+        # dari kamera theta -30 cuma menggeser label sepanjang garis EG, dan
+        # pada render 1080p kedua label itu dicoret garisnya sendiri.
         n_atas = label_hadap(frame, "(3, 3, 6)", SILANG_ATAS
-                             + np.array([1.5, -0.5, 0.45]), AKSEN, 26, rumus_latex=True)
+                             + np.array([0.0, 0.0, 1.35]), AKSEN, 26, rumus_latex=True)
         with sinema.babak(self, "hitung-p", DURASI, kata=KATA) as b:
             tunggu_kata_bergeser(b, frame, "tengah")
             b.main(Indicate(titik_bawah, scale_factor=1.8, color=AKSEN2), run_time=1.0)
@@ -433,8 +439,8 @@ class GambarBolehBerbohong(AdeganMatra):
         with sinema.babak(self, "tutup", DURASI, kata=KATA) as b:
             tunggu_kata_bergeser(b, frame, "berikutnya")
             b.main(Indicate(pesan, color=SOROT), run_time=1.2)
-            tunggu_kata_bergeser(b, frame, "jarak")
-            b.main(Indicate(tiang, scale_factor=1.15, color=SOROT), run_time=1.4)
+            tunggu_kata_bergeser(b, frame, "menamai")
+            b.main(kamera.putar_pelan(frame, 7), run_time=2.0)
         qc.periksa_adegan(self, {"pesan": pesan, "tiang": tiang, "identitas": jati})
 
         # Gerbang v3: tiap pemicu harus jatuh di detik katanya, selisih < 0,15.

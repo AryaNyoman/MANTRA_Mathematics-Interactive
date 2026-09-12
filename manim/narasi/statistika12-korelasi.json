@@ -1,27 +1,32 @@
 {
   "adegan": "Korelasi12",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Materi 12 Statistika. Gerak dirancang lebih dulu, dan puncaknya PARABOLA: hubungan sempurna yang r-nya nol persis. Itu bukti bergerak bahwa angka r saja tidak pernah cukup. Medan `tulis` adalah bentuk tertulis untuk subtitle.",
+  "tempo": "-5%",
+  "catatan": "Hubungan Dua Variabel, Bagian 3 (Materi 12). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (r = 0,98 pada jam belajar; r = -0,98 pada jam main gim; tanda arah, besar kekuatan; r kuadrat 0,97 = 97 persen dijelaskan, 3 persen dari hal lain; jebakan parabola y = x kuadrat dengan r = 0; selalu lihat gambarnya; korelasi bukan sebab-akibat). Yang ditambah: pembuka menyebut sub-bab plus Bagian 3 dengan pertanyaan halaman, segar-ingat Bagian 1 (arah dan kekuatan dibaca dengan mata), bentuk umum: r antara -1 dan 1, tanda = arah, besar = kekuatan, r kuadrat = bagian yang dijelaskan, penutup menunjuk Bagian 4.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi dua belas Statistika: *korelasi bukan sebab-akibat*. Di materi sepuluh kekuatan hubungan dibaca dengan mata. Sekarang kekuatan itu diberi angka, namanya r.",
-      "tulis": "Materi 12 Statistika: *korelasi bukan sebab-akibat*. Di Materi 10 kekuatan hubungan dibaca dengan mata. Sekarang kekuatan itu diberi angka, namanya r."
+      "teks": "Hubungan Dua Variabel, Bagian tiga. Angka hubungannya nol koma sembilan delapan. Berarti yang satu menyebabkan yang lain, kan?",
+      "tulis": "Hubungan Dua Variabel, Bagian 3. Angka hubungannya 0,98. Berarti yang satu *menyebabkan* yang lain, kan?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Bagian satu, kekuatan hubungan dibaca dengan mata: titiknya rapat ke satu garis atau berserakan. Hari ini kekuatan itu diberi angka, namanya r.",
+      "tulis": "Di Bagian 1, kekuatan hubungan dibaca dengan mata: titiknya rapat ke satu garis atau berserakan. Hari ini kekuatan itu diberi angka, namanya *r*."
     },
     {
       "id": "kuat",
-      "teks": "Ini data jam belajar dan nilai ujian dari materi sebelas. Titiknya rapat sekali ke garis, dan r nya nol koma sembilan delapan. Hampir satu, jadi hubungannya sangat kuat.",
-      "tulis": "Ini data jam belajar dan nilai ujian dari Materi 11. Titiknya rapat sekali ke garis, dan r-nya 0,98. Hampir 1, jadi hubungannya sangat kuat."
+      "teks": "Ini data jam belajar dan nilai ujian dari Bagian dua. Titiknya rapat sekali ke garis, dan r nya nol koma sembilan delapan. Hampir satu, jadi hubungannya sangat kuat.",
+      "tulis": "Ini data jam belajar dan nilai ujian dari Bagian 2. Titiknya rapat sekali ke garis, dan r = 0,98. Hampir 1, jadi hubungannya sangat kuat."
     },
     {
       "id": "arah",
-      "teks": "Sekarang data lain: jam main gim dan nilai ujian. Titiknya sama rapatnya, tetapi garisnya *turun*, dan r nya minus nol koma sembilan delapan.",
-      "tulis": "Sekarang data lain: jam main gim dan nilai ujian. Titiknya sama rapatnya, tetapi garisnya *turun*, dan r-nya -0,98."
+      "teks": "Sekarang data lain: jam main gim dan nilai ujian. Titiknya sama rapatnya, tetapi garisnya turun, dan r nya minus nol koma sembilan delapan.",
+      "tulis": "Sekarang data lain: jam main gim dan nilai ujian. Titiknya sama rapatnya, tetapi garisnya *turun*, dan r = -0,98."
     },
     {
       "id": "baca",
-      "teks": "Jadi cara membacanya begini. *Tandanya arah*, plus berarti naik dan minus berarti turun. *Besarnya kekuatan*, makin dekat ke satu makin rapat titiknya ke garis.",
+      "teks": "Jadi cara membacanya begini. Tandanya arah, plus berarti naik dan minus berarti turun. Besarnya kekuatan, makin dekat ke satu makin rapat titiknya ke garis.",
       "tulis": "Jadi cara membacanya begini. *Tandanya arah*, plus berarti naik dan minus berarti turun. *Besarnya kekuatan*, makin dekat ke 1 makin rapat titiknya ke garis."
     },
     {
@@ -31,28 +36,43 @@
     },
     {
       "id": "sisa",
-      "teks": "Sisa tiga persennya datang dari hal lain yang tidak masuk hitungan: cara belajarnya, kondisi saat ujian, soal yang kebetulan cocok. *Selalu ada yang tidak dijelaskan*.",
-      "tulis": "Sisa 3%-nya datang dari hal lain yang tidak masuk hitungan: cara belajarnya, kondisi saat ujian, soal yang kebetulan cocok. *Selalu ada yang tidak dijelaskan*."
+      "teks": "Sisa tiga persennya datang dari hal lain yang tidak masuk hitungan: cara belajarnya, kondisi saat ujian, soal yang kebetulan cocok. Selalu ada yang tidak dijelaskan.",
+      "tulis": "Sisa 3% nya datang dari hal lain yang tidak masuk hitungan: cara belajarnya, kondisi saat ujian, soal yang kebetulan cocok. *Selalu ada yang tidak dijelaskan*."
     },
     {
       "id": "jebakan",
-      "teks": "Sekarang jebakannya. Lihat tujuh titik ini: y selalu persis sama dengan x kuadrat. Tidak ada satu pun titik yang meleset. Ini hubungan yang *benar-benar sempurna*.",
-      "tulis": "Sekarang jebakannya. Lihat 7 titik ini: y selalu persis sama dengan x². Tidak ada satu pun titik yang meleset. Ini hubungan yang *benar-benar sempurna*."
+      "teks": "Sekarang jebakannya. Lihat tujuh titik ini: y selalu persis sama dengan x kuadrat. Tidak ada satu pun titik yang meleset. Ini hubungan yang benar-benar sempurna.",
+      "tulis": "Sekarang jebakannya. Lihat tujuh titik ini: y selalu persis sama dengan x². Tidak ada satu pun titik yang meleset. Ini hubungan yang *benar-benar sempurna*."
     },
     {
       "id": "nol",
-      "teks": "Tetapi r nya *nol*. Nol persis. Garis lurus terbaiknya mendatar, sebab r cuma mengukur kelurusan, dan pola ini melengkung setangkup.",
-      "tulis": "Tetapi r-nya *0*. Nol persis. Garis lurus terbaiknya mendatar, sebab r cuma mengukur kelurusan, dan pola ini melengkung setangkup."
+      "teks": "Tetapi r nya nol. Nol persis. Garis lurus terbaiknya mendatar, sebab r cuma mengukur kelurusan, dan pola ini melengkung setangkup.",
+      "tulis": "Tetapi r nya *nol*. Nol persis. Garis lurus terbaiknya mendatar, sebab r cuma mengukur kelurusan, dan pola ini melengkung setangkup."
     },
     {
       "id": "lihat",
-      "teks": "Kalau yang dibaca cuma angkanya, hubungan sempurna ini akan dilaporkan sebagai tidak ada hubungan. Jadi aturannya: *selalu lihat gambarnya*.",
+      "teks": "Kalau yang dibaca cuma angkanya, hubungan sempurna ini akan dilaporkan sebagai tidak ada hubungan. Jadi aturannya: selalu lihat gambarnya.",
       "tulis": "Kalau yang dibaca cuma angkanya, hubungan sempurna ini akan dilaporkan sebagai tidak ada hubungan. Jadi aturannya: *selalu lihat gambarnya*."
     },
     {
+      "id": "umum",
+      "teks": "Bentuk umumnya: r selalu antara minus satu dan satu. Tandanya arah, besarnya kekuatan garis lurus, dan r kuadrat adalah bagian keragaman yang dijelaskan garis itu.",
+      "tulis": "Bentuk umumnya: r selalu antara -1 dan 1. Tandanya arah, besarnya kekuatan garis lurus, dan r² adalah bagian keragaman yang dijelaskan garis itu."
+    },
+    {
       "id": "sebab",
-      "teks": "Dan yang terpenting. Korelasi sekuat apa pun *tidak membuktikan sebab-akibat*. Bisa jadi arahnya terbalik, bisa jadi ada hal ketiga yang menyebabkan keduanya, bisa jadi cuma kebetulan.",
+      "teks": "Dan yang terpenting. Korelasi sekuat apa pun tidak membuktikan sebab-akibat. Bisa jadi arahnya terbalik, bisa jadi ada hal ketiga yang menyebabkan keduanya, bisa jadi cuma kebetulan.",
       "tulis": "Dan yang terpenting. Korelasi sekuat apa pun *tidak membuktikan sebab-akibat*. Bisa jadi arahnya terbalik, bisa jadi ada hal ketiga yang menyebabkan keduanya, bisa jadi cuma kebetulan."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi jawaban pertanyaan tadi: nol koma sembilan delapan hanya berkata keduanya bergerak bersama. Yang satu menyebabkan yang lain butuh bukti jauh lebih banyak.",
+      "tulis": "Jadi jawaban pertanyaan tadi: 0,98 hanya berkata keduanya *bergerak bersama*. Yang satu menyebabkan yang lain butuh bukti jauh lebih banyak."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Hubungan Dua Variabel, Bagian empat, semua angkanya benar, tetapi kesimpulannya tetap salah. Bagaimana bisa?",
+      "tulis": "Di materi berikutnya, Hubungan Dua Variabel, Bagian 4, semua angkanya benar, tetapi kesimpulannya tetap *salah*. Bagaimana bisa?"
     }
   ]
 }

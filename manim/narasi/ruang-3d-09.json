@@ -1,43 +1,63 @@
 {
   "adegan": "SudutDenganBidang",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Ruang Tiga Dimensi materi 09. Dua ide besar, masing-masing dapat babaknya sendiri: sudut garis dengan bidang lewat bayangan, dan sudut antarbidang lewat garis potong.",
+  "tempo": "-5%",
+  "catatan": "Sudut dalam Ruang, Bagian 2 (Materi 09). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (92 detik) yang sudah disetujui ARYA: ISI TETAP SAMA (sudut garis dengan bidang = sudut garis dengan bayangannya: AG dan AC, tangen = 6 dibagi 6 akar 2, 35,26 derajat; sudut dua bidang lewat garis potong BD, titik P di tengahnya, PC di lantai dan PG di bidang miring, 54,74 derajat; syarat tegak lurus garis potong dan bertumpu di satu titik). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2, segar-ingat Bagian 1 (geser sampai bertemu), segar-ingat tangen menyebut Perbandingan Trigonometri Bagian 4, hitungan angka sudut kedua (PC = 3 akar 2, CG = 6, tangen = akar 2), bentuk umum keduanya, penutup menunjuk Penerapan Ruang Tiga Dimensi.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi sembilan, *sudut dengan bidang dan sudut antarbidang*. Ini materi terakhir sebelum kita melihat pemakaiannya di dunia nyata.",
-      "tulis": "Materi 9, *sudut dengan bidang dan sudut antarbidang*. Ini materi terakhir sebelum kita melihat pemakaiannya di dunia nyata."
+      "teks": "Sudut dalam Ruang, Bagian dua. Bagaimana mengukur sudut antara garis dan bidang, lalu antara dua bidang?",
+      "tulis": "Sudut dalam Ruang, Bagian 2. Bagaimana mengukur sudut antara garis dan bidang, lalu antara dua bidang?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Sudut dalam Ruang, Bagian satu, dua garis yang bersilangan diukur sudutnya sesudah salah satunya digeser sampai bertemu. Hari ini sasarannya bidang, dan kuncinya bayangan.",
+      "tulis": "Di Sudut dalam Ruang, Bagian 1, dua garis yang bersilangan diukur sudutnya sesudah salah satunya digeser sampai bertemu. Hari ini sasarannya bidang, dan kuncinya *bayangan*."
     },
     {
       "id": "bayangan",
-      "teks": "Bagian pertama. Ini diagonal ruang A G, sebuah garis miring yang menembus lantai di titik A. Sudut yang dimaksud bukan sudut sembarangan, melainkan sudut antara garis itu dan *bayangannya* di lantai.",
-      "tulis": "Bagian pertama. Ini diagonal ruang A̅G̅, sebuah garis miring yang menembus lantai di titik A. Sudut yang dimaksud bukan sudut sembarangan, melainkan sudut antara garis itu dan *bayangannya* di lantai."
+      "teks": "Bagian pertama. Ini diagonal ruang A G, sebuah garis miring yang menembus lantai di titik A. Sudut yang dimaksud bukan sudut sembarangan, melainkan sudut antara garis itu dan bayangannya di lantai.",
+      "tulis": "Bagian pertama. Ini diagonal ruang AG, sebuah garis miring yang menembus lantai di titik A. Sudut yang dimaksud bukan sudut sembarangan, melainkan sudut antara garis itu dan *bayangannya* di lantai."
     },
     {
       "id": "proyeksi",
-      "teks": "Bayangan A tetap A, sebab A memang di lantai. Bayangan G jatuh di C, sebab G C tegak lurus lantai. Jadi bayangan A G adalah *A C*. Ingat dari trigonometri: tangen sudut sama dengan sisi depan dibagi sisi samping.",
-      "tulis": "Bayangan A tetap A, sebab A memang di lantai. Bayangan G jatuh di C, sebab G̅C̅ tegak lurus lantai. Jadi bayangan A̅G̅ adalah *A̅C̅*. Ingat dari trigonometri: tan sudut sama dengan sisi depan dibagi sisi samping."
+      "teks": "Bayangan A tetap A, sebab A memang di lantai. Bayangan G jatuh di C, sebab G C tegak lurus lantai. Jadi bayangan A G adalah A C.",
+      "tulis": "Bayangan A tetap A, sebab A memang di lantai. Bayangan G jatuh di C, sebab GC tegak lurus lantai. Jadi bayangan AG adalah *AC*."
     },
     {
       "id": "sudut1",
-      "teks": "Pada segitiga A C G yang siku-siku di C, tangen sudutnya sama dengan enam dibagi enam akar dua. Sudutnya kira-kira *tiga puluh lima koma dua enam* derajat.",
-      "tulis": "Pada segitiga ACG yang siku-siku di C, tan sudutnya sama dengan 6 dibagi 6√2. Sudutnya kira-kira *35,26°*."
+      "teks": "Ingat dari Perbandingan Trigonometri, Bagian empat: tangen sudut sama dengan sisi depan dibagi sisi samping. Pada segitiga A C G yang siku-siku di C, tangen sudutnya sama dengan enam dibagi enam akar dua, yaitu satu per akar dua. Sudutnya kira-kira tiga puluh lima koma dua enam derajat.",
+      "tulis": "Ingat dari Perbandingan Trigonometri, Bagian 4: tangen sudut = sisi depan dibagi sisi samping. Pada segitiga ACG yang siku-siku di C, tangen sudutnya = 6 dibagi 6√2, yaitu 1 per √2. Sudutnya kira-kira *35,26°*."
     },
     {
       "id": "potong",
-      "teks": "Bagian kedua, sudut antara dua *bidang*. Bidang B D G memotong lantai, dan persekutuannya bukan satu titik melainkan satu garis penuh, yaitu B D. Garis itu namanya *garis potong*.",
-      "tulis": "Bagian kedua, sudut antara dua *bidang*. Bidang BDG memotong lantai, dan persekutuannya bukan satu titik melainkan satu garis penuh, yaitu B̅D̅. Garis itu namanya *garis potong*."
+      "teks": "Bagian kedua, sudut antara dua bidang. Bidang B D G memotong lantai, dan persekutuannya bukan satu titik melainkan satu garis penuh, yaitu B D. Garis itu namanya garis potong.",
+      "tulis": "Bagian kedua, sudut antara dua *bidang*. Bidang BDG memotong lantai, dan persekutuannya bukan satu titik melainkan satu garis penuh, yaitu BD. Garis itu namanya *garis potong*."
     },
     {
       "id": "sudut2",
-      "teks": "Ambil titik P tepat di tengah B D. Dari P kita tarik dua garis yang sama-sama tegak lurus B D: P C di lantai, dan P G di bidang miring. Sudut di antara keduanya, kira-kira *lima puluh empat koma tujuh empat* derajat, itulah sudut kedua bidang.",
-      "tulis": "Ambil titik P tepat di tengah B̅D̅. Dari P kita tarik dua garis yang sama-sama tegak lurus B̅D̅: P̅C̅ di lantai, dan P̅G̅ di bidang miring. Sudut di antara keduanya, kira-kira *54,74°*, itulah sudut kedua bidang."
+      "teks": "Ambil titik P tepat di tengah B D. Dari P kita tarik dua garis yang sama-sama tegak lurus B D: P C di lantai, dan P G di bidang miring. Sudut di antara keduanya, itulah sudut kedua bidang.",
+      "tulis": "Ambil titik P tepat di tengah BD. Dari P kita tarik dua garis yang sama-sama tegak lurus BD: PC di lantai, dan PG di bidang miring. Sudut di antara keduanya, itulah sudut kedua bidang."
+    },
+    {
+      "id": "hitung2",
+      "teks": "Hitung dengan angka. P C setengah diagonal sisi, yaitu tiga akar dua. C G rusuk, yaitu enam. Tangen sudutnya enam dibagi tiga akar dua, yaitu akar dua. Sudutnya kira-kira lima puluh empat koma tujuh empat derajat.",
+      "tulis": "Hitung dengan angka. PC setengah diagonal sisi, yaitu 3√2. CG rusuk, yaitu 6. Tangen sudutnya 6 dibagi 3√2, yaitu √2. Sudutnya kira-kira *54,74°*."
+    },
+    {
+      "id": "umum",
+      "teks": "Bentuk umumnya dua. Sudut garis dengan bidang sama dengan sudut garis itu dengan bayangannya. Sudut dua bidang diukur dari dua garis yang tegak lurus garis potong di satu titik yang sama.",
+      "tulis": "Bentuk umumnya dua. Sudut garis dengan bidang = sudut garis itu dengan bayangannya. Sudut dua bidang diukur dari dua garis yang tegak lurus garis potong di satu titik yang sama."
     },
     {
       "id": "tutup",
-      "teks": "Syaratnya dua dan harus dipenuhi bersamaan: tegak lurus garis potong, dan bertumpu di *satu titik yang sama*. Kalau P digeser, P C tidak lagi tegak lurus, dan angka yang terbaca menjadi salah.",
-      "tulis": "Syaratnya dua dan harus dipenuhi bersamaan: tegak lurus garis potong, dan bertumpu di *satu titik yang sama*. Kalau P digeser, P̅C̅ tidak lagi tegak lurus, dan angka yang terbaca menjadi salah."
+      "teks": "Syaratnya dua dan harus dipenuhi bersamaan: tegak lurus garis potong, dan bertumpu di satu titik yang sama. Kalau P digeser, P C tidak lagi tegak lurus, dan angka yang terbaca menjadi salah.",
+      "tulis": "Syaratnya dua dan harus dipenuhi bersamaan: tegak lurus garis potong, dan bertumpu di *satu titik yang sama*. Kalau P digeser, PC tidak lagi tegak lurus, dan angka yang terbaca menjadi salah."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Penerapan Ruang Tiga Dimensi, kita lihat di mana jarak dan sudut di dalam ruang ini benar-benar dipakai.",
+      "tulis": "Di materi berikutnya, Penerapan Ruang Tiga Dimensi, kita lihat di mana jarak dan sudut di dalam ruang ini benar-benar dipakai."
     }
   ]
 }

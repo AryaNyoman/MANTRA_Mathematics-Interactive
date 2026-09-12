@@ -76,11 +76,14 @@ class JarakSelaluTerpendek(AdeganMatra):
         ])
         skema = VGroup(garis_t, coba_t, titik_b, tanya).fix_in_frame()
         with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Jarak")
+            sinema.judul_pembuka(self, "Jarak dalam Ruang, Bagian 1", lama=3.0, y=1.8)
+            b.catat(3.0)
             b.tunggu_kata("banyak")
-            b.main(ShowCreation(garis_t), FadeIn(titik_b), run_time=0.7)
+            b.main(ShowCreation(garis_t), FadeIn(titik_b), run_time=0.6)
             b.tunggu_kata("menghubungkan")
             b.main(ShowCreation(coba_t, lag_ratio=0.3), run_time=1.3)
-            b.tunggu_kata("jarak")
+            b.tunggu_kata("disebut jarak")
             b.main(FadeIn(tanya, shift=0.2 * UP), run_time=0.7)
         qc.periksa_adegan(self, {"skema": skema})
 
@@ -88,7 +91,7 @@ class JarakSelaluTerpendek(AdeganMatra):
         bd_ingat = Line(T["B"], T["D"]).set_stroke(AKSEN2, 5)
         eg_ingat = Line(T["E"], T["G"]).set_stroke(AKSEN, 5)
         with sinema.babak(self, "ingat-01", DURASI, kata=KATA) as b:
-            b.tunggu_kata("Materi")
+            b.tunggu_kata("Kedudukan")
             b.main(FadeOut(skema), run_time=0.6)
             self.add(lantai(), *papan_koor["datar"], kubus)
             b.main(FadeIn(kubus), ShowCreation(rangka, lag_ratio=0.12), run_time=1.5)
@@ -296,8 +299,7 @@ class JarakSelaluTerpendek(AdeganMatra):
             tunggu_kata_bergeser(b, frame, "Ingat")
             b.main(Indicate(payung, color=SOROT), run_time=1.2)
             tunggu_kata_bergeser(b, frame, "berikutnya")
-            b.main(Indicate(papan.semua(), scale_factor=1.06, color=SOROT),
-                   run_time=1.3)
+            b.main(papan.sorot(), run_time=1.3)
         qc.periksa_adegan(self, {"BQ": bq, "payung": payung, "siku": tanda_siku,
                                  "panel": papan.semua(), "identitas": jati},
                           [("payung", "panel")])

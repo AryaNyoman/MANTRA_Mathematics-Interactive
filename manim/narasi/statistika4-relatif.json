@@ -1,27 +1,32 @@
 {
   "adegan": "Relatif4",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Materi 04 Statistika. Gerak dirancang lebih dulu: dua batang mentah yang menjawab satu kesimpulan, lalu takarannya disamakan dan kesimpulannya BERBALIK di depan mata. Medan `tulis` adalah bentuk tertulis untuk subtitle.",
+  "tempo": "-5%",
+  "catatan": "Penyajian Data, Bagian 4 (Materi 04). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (Kelas A 25 siswa, Kelas B 40 siswa; 11 lawan 13 siswa bernilai 80 ke atas; batang mentah Kelas B menang; dibagi jumlahnya sendiri 0,44 lawan 0,325, kesimpulan berbalik; dua pertanyaan berbeda; nama frekuensi relatif; nilainya 0 sampai 1, jumlahnya 1). Yang ditambah: pembuka menyebut sub-bab plus Bagian 4 dengan pertanyaan, segar-ingat Bagian 2 (persen 8 dari 40 = 20%), cek jumlah frekuensi relatif Kelas A 0,44 + 0,56 = 1, penutup menunjuk Ukuran Pemusatan dan Penyebaran Bagian 1.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi empat Statistika: *membandingkan kelompok yang jumlahnya beda*. Kelas A berisi dua puluh lima siswa, Kelas B empat puluh siswa.",
-      "tulis": "Materi 04 Statistika: *membandingkan kelompok yang jumlahnya beda*. Kelas A berisi 25 siswa, Kelas B 40 siswa."
+      "teks": "Penyajian Data, Bagian empat. Kelas A berisi dua puluh lima siswa, Kelas B empat puluh siswa. Kelas mana yang lebih banyak siswanya bernilai delapan puluh ke atas?",
+      "tulis": "Penyajian Data, Bagian 4. Kelas A berisi 25 siswa, Kelas B 40 siswa. Kelas mana yang lebih banyak siswanya bernilai 80 ke atas?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Penyajian Data, Bagian dua, frekuensi diubah jadi persen: delapan dari empat puluh siswa sama dengan dua puluh persen. Hari ini hitungan yang sama dipakai untuk membandingkan dua kelompok yang jumlahnya berbeda.",
+      "tulis": "Di Penyajian Data, Bagian 2, frekuensi diubah jadi persen: 8 dari 40 siswa sama dengan 20%. Hari ini hitungan yang sama dipakai untuk membandingkan dua kelompok yang jumlahnya berbeda."
     },
     {
       "id": "tanya",
-      "teks": "Pertanyaannya: kelas mana yang lebih banyak siswanya bernilai delapan puluh ke atas? Di Kelas A ada sebelas orang. Di Kelas B ada tiga belas orang.",
-      "tulis": "Pertanyaannya: kelas mana yang lebih banyak siswanya bernilai 80 ke atas? Di Kelas A ada 11 orang. Di Kelas B ada 13 orang."
+      "teks": "Di Kelas A ada sebelas orang yang bernilai delapan puluh ke atas. Di Kelas B ada tiga belas orang.",
+      "tulis": "Di Kelas A ada 11 orang yang bernilai 80 ke atas. Di Kelas B ada 13 orang."
     },
     {
       "id": "mentah",
-      "teks": "Digambar sebagai batang, jawabannya kelihatan gamblang. Tiga belas lebih tinggi daripada sebelas, jadi *Kelas B menang*. Begitu?",
+      "teks": "Digambar sebagai batang, jawabannya kelihatan gamblang. Tiga belas lebih tinggi daripada sebelas, jadi Kelas B menang. Begitu?",
       "tulis": "Digambar sebagai batang, jawabannya kelihatan gamblang. 13 lebih tinggi daripada 11, jadi *Kelas B menang*. Begitu?"
     },
     {
       "id": "curiga",
-      "teks": "Ada yang belum masuk hitungan. Kelas B memang punya lebih banyak siswa yang bernilai tinggi, tetapi Kelas B juga punya *lebih banyak siswa*, titik.",
+      "teks": "Ada yang belum masuk hitungan. Kelas B memang punya lebih banyak siswa yang bernilai tinggi, tetapi Kelas B juga punya lebih banyak siswa, titik.",
       "tulis": "Ada yang belum masuk hitungan. Kelas B memang punya lebih banyak siswa yang bernilai tinggi, tetapi Kelas B juga punya *lebih banyak siswa*, titik."
     },
     {
@@ -31,28 +36,33 @@
     },
     {
       "id": "balik",
-      "teks": "Dan kesimpulannya *berbalik*. Empat puluh empat persen lawan tiga puluh dua koma lima persen. Di Kelas A hampir separuh siswa bernilai delapan puluh ke atas, di Kelas B cuma sekitar sepertiga.",
+      "teks": "Dan kesimpulannya berbalik. Empat puluh empat persen lawan tiga puluh dua koma lima persen. Di Kelas A hampir separuh siswa bernilai delapan puluh ke atas, di Kelas B cuma sekitar sepertiga.",
       "tulis": "Dan kesimpulannya *berbalik*. 44% lawan 32,5%. Di Kelas A hampir separuh siswa bernilai 80 ke atas, di Kelas B cuma sekitar sepertiga."
     },
     {
       "id": "dua",
-      "teks": "Kedua hitungan tadi sama-sama benar sebagai hitungan. Yang berbeda *pertanyaan yang dijawabnya*. Yang pertama menjawab berapa banyak orangnya, yang kedua menjawab seberapa besar bagiannya.",
+      "teks": "Kedua hitungan tadi sama-sama benar sebagai hitungan. Yang berbeda pertanyaan yang dijawabnya. Yang pertama menjawab berapa banyak orangnya, yang kedua menjawab seberapa besar bagiannya.",
       "tulis": "Kedua hitungan tadi sama-sama benar sebagai hitungan. Yang berbeda *pertanyaan yang dijawabnya*. Yang pertama menjawab berapa banyak orangnya, yang kedua menjawab seberapa besar bagiannya."
     },
     {
       "id": "nama",
-      "teks": "Angka hasil bagi itu namanya *frekuensi relatif*: frekuensi dibagi banyak seluruh data. Karena tiap kelompok dibagi dengan jumlahnya sendiri, takarannya jadi sama.",
+      "teks": "Angka hasil bagi itu namanya frekuensi relatif: frekuensi dibagi banyak seluruh data. Karena tiap kelompok dibagi dengan jumlahnya sendiri, takarannya jadi sama.",
       "tulis": "Angka hasil bagi itu namanya *frekuensi relatif*: frekuensi dibagi banyak seluruh data. Karena tiap kelompok dibagi dengan jumlahnya sendiri, takarannya jadi sama."
     },
     {
       "id": "sifat",
-      "teks": "Nilainya selalu antara nol dan satu, dan kalau seluruh kelasnya dijumlahkan hasilnya selalu satu, atau seratus persen.",
-      "tulis": "Nilainya selalu antara 0 dan 1, dan kalau seluruh kelasnya dijumlahkan hasilnya selalu 1, atau 100%."
+      "teks": "Nilainya selalu antara nol dan satu, dan kalau seluruh kelasnya dijumlahkan hasilnya selalu satu, atau seratus persen. Cek di Kelas A: sebelas yang delapan puluh ke atas, empat belas sisanya. Nol koma empat empat tambah nol koma lima enam sama dengan satu.",
+      "tulis": "Nilainya selalu antara 0 dan 1, dan kalau seluruh kelasnya dijumlahkan hasilnya selalu 1, atau 100%. Cek di Kelas A: 11 yang 80 ke atas, 14 sisanya. 0,44 + 0,56 = 1."
     },
     {
       "id": "tutup",
-      "teks": "Jadi tiap kali dua kelompok yang jumlahnya beda dibandingkan, pertanyaan pertama yang wajib diajukan bukan berapa angkanya, melainkan *dari berapa*.",
+      "teks": "Jadi tiap kali dua kelompok yang jumlahnya beda dibandingkan, pertanyaan pertama yang wajib diajukan bukan berapa angkanya, melainkan dari berapa.",
       "tulis": "Jadi tiap kali dua kelompok yang jumlahnya beda dibandingkan, pertanyaan pertama yang wajib diajukan bukan berapa angkanya, melainkan *dari berapa*."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian satu, rata-rata bukan lagi sekadar jumlah dibagi banyaknya: ia titik tempat data seimbang.",
+      "tulis": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian 1, rata-rata bukan lagi sekadar jumlah dibagi banyaknya: ia titik tempat data seimbang."
     }
   ]
 }

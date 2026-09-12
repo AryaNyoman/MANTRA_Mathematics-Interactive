@@ -1,37 +1,20 @@
-"""Materi 03 Statistika: lebar kelas mengubah cerita (ManimGL).
+"""Statistika Materi 03, Penyajian Data Bagian 3: lebar kelas mengubah cerita.
+STANDAR VIDEO v3.1, ditulis ulang MASTER 12 Sep 2026 dari adegan lama (xz
+miring, 2:05) yang sudah disetujui ARYA. ISINYA SAMA: 40 tinggi badan yang
+sama dikelompokkan tiga kali di depan mata (lebar 5: tujuh batang; lebar 2:
+bergerigi; lebar 10: empat batang), tanpa satu angka pun berubah; lebar kelas
+pilihan manusia; contoh gabung dua kelas selebar 2 (tinggi 12 dan 4):
+menjumlah tinggi salah (luas 64), yang dijumlah luasnya (32, tinggi 8);
+luas mewakili banyaknya data.
 
-Naskah: manim/narasi/statistika3-lebar-kelas.json (10 segmen, 113,9 detik)
+YANG BERBEDA: dua dimensi biasa; pembuka sub-bab plus Bagian 3 dengan
+pertanyaan; segar-ingat histogram 10 cm dari Bagian 2; tujuh frekuensi
+dibaca satu per satu; bentuk umum tinggi = f : lebar lahir di dekat batang
+gabungan; penutup menunjuk Bagian 4; tiap kejadian dipicu pada KATA.
 
-GAGASAN POKOK. Halaman punya penggeser lebar kelas, jadi siswa bisa mencobanya
-sendiri. Yang tidak bisa dilakukan halaman: memperlihatkan PERISTIWA
-pengelompokan ulang, yaitu empat puluh titik yang sama persis jatuh ke kotak
-yang berbeda-beda dan melahirkan tiga histogram yang bentuknya berlainan.
-Titiknya tidak pernah dibuat ulang di video ini: titik yang sama dipindahkan,
-supaya jelas datanya memang tidak berubah sedikit pun.
-
-Data `t03-tinggi` (dinyatakan buatan), 40 tinggi badan 152 sampai 180 cm.
-Kelasnya dijangkarkan di 150 supaya cocok dengan halaman:
-    lebar  5 -> 7 batang: 1, 5, 11, 11, 7, 4, 1
-    lebar  2 -> 15 batang bergerigi
-    lebar 10 -> 4 batang: 6, 22, 11, 1
-
-Bagian kedua, aturan luas, memakai angka buku panduan guru:
-    kelas 8-10 tinggi 12 dan kelas 10-12 tinggi 4, digabung jadi 8-12.
-    luasnya 24 + 8 = 32, lebarnya 4, jadi tingginya 8, BUKAN 16.
-
-TATA LETAK (standar video versi 2):
-    kiri atas  identitas benda, menetap
-    kanan atas papan rumus, berubah lewat morph
-    kaki layar milik subtitle, dijaga qc
-    dalam gambar label maksimal dua kata
-
-SATU WARNA SATU MAKNA DI DALAM VIDEO INI:
-    AKSEN2 biru = batang histogram dan titik data
-    AKSEN bata  = jawaban yang salah, dan batang gabungan yang benar
-    SOROT ungu  = luas, yaitu besaran yang sesungguhnya dipertahankan
-    REDUP       = sumbu dan angkanya
-
-Kamera phi 90, tegak lurus: yang dibandingkan TINGGI dan LUAS batang.
+SATU WARNA SATU MAKNA: merah bata = data angka (histogram), ungu = yang
+disorot, abu = sumbu; jawaban salah dicoret merah.
+Data: web/content/statistika/data.json t03-tinggi (40 siswa).
 """
 
 import json
@@ -40,49 +23,24 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from gl import *  # noqa: E402,F403
-from gl import ilustrasi, kamera, qc, sinema  # noqa: E402
+from gl import kamera, qc, sinema  # noqa: E402
 
 AKAR = Path(__file__).resolve().parents[2]
 TOPIK = "statistika3-lebar-kelas"
 DURASI = json.loads((AKAR / "audio" / TOPIK / "durasi.json").read_text(encoding="utf-8"))["segmen"]
+KATA = sinema.JamKata(TOPIK)
 
 TINGGI_BADAN = [152, 155, 156, 158, 158, 159, 160, 160, 161, 161, 162, 162, 163, 163, 163,
                 164, 164, 165, 165, 165, 166, 166, 167, 167, 168, 168, 169, 169, 170, 170,
                 171, 172, 172, 173, 174, 175, 176, 177, 178, 180]
-JANGKAR = 150            # kelas dijangkarkan di sini, seperti halaman
-
-# --- Penggaris cm. Kelas terakhir pada lebar 10 adalah 180 sampai 189, jadi
-#     penggarisnya harus memuat sampai 190. Render pertama gagal persis di
-#     situ: histogramnya keluar bingkai kanan, ditangkap gerbang qc.
-SKALA_X, PUSAT_CM = 0.225, 169.0
-ANGKA_X = [150, 155, 160, 165, 170, 175, 180]
-Z_DASAR = -1.06
-Z_ANGKA = Z_DASAR - 0.32
-X_SUMBU_F = -4.88
-Z_KAMERA = 0.50
-TINGGI_BINGKAI = 6.4
-# Batang tertinggi di seluruh video 22 siswa (lebar 10). Puncaknya harus
-# berhenti di bawah layar y = 1,10, jadi z <= 1,38.
-# Dinaikkan 4 Sep: tengah atas layar bebas.
-SKALA_F = 0.135
-JARI_TITIK = 0.062
-
-
-def tegak(mob):
-    """Berdirikan benda datar di bidang xz supaya menghadap kamera."""
-    return mob.rotate(90 * DEGREES, RIGHT)
-
-
-def xc(cm):
-    return (cm - PUSAT_CM) * SKALA_X
-
-
-def zf(frekuensi):
-    return Z_DASAR + frekuensi * SKALA_F
+JANGKAR = 150
+X0, Y0 = -5.4, -1.9          # titik (150 cm, 0 siswa) di layar
+SKALA_X = 0.16               # satu cm = 0,16 satuan (150..190 = 6,4 satuan)
+SKALA_F = 0.17               # satu siswa = 0,17 satuan tinggi (11 siswa = 1,87)
+JARI_TITIK = 0.055
 
 
 def kelompokkan(lebar):
-    """Kembalikan daftar (batas bawah, frekuensi) untuk lebar kelas tertentu."""
     hitung = {}
     for v in TINGGI_BADAN:
         k = JANGKAR + ((v - JANGKAR) // lebar) * lebar
@@ -90,317 +48,297 @@ def kelompokkan(lebar):
     return sorted(hitung.items())
 
 
+def xc(cm):
+    return X0 + (cm - JANGKAR) * SKALA_X
+
+
+def hud(ident, papan):
+    isi = {"identitas": ident} if ident is not None else {}
+    p = papan.semua()
+    if p is not None:
+        isi["papan"] = p
+    return isi
+
+
 class LebarKelas3(AdeganMatra):
-    samples = 4                        # penghalus tepi; bawaan ManimGL 0
+    def histogram(self, lebar, warna=AKSEN, isi=0.35):
+        g = VGroup()
+        for k, f in kelompokkan(lebar):
+            r = Rectangle(width=lebar * SKALA_X, height=f * SKALA_F).set_stroke(warna, 1.5).set_fill(warna, isi)
+            r.move_to([xc(k) + lebar * SKALA_X / 2, Y0 + f * SKALA_F / 2, 0])
+            g.add(r)
+        return g
+
+    def sorot_pita(self, b, *ruas, lama=1.0):
+        pita = VGroup(*[Line(r.get_start(), r.get_end()).set_stroke(SOROT, 18, opacity=0.35)
+                        for r in ruas])
+        self.add(pita)
+        b.main(FadeIn(pita), run_time=lama * 0.35)
+        b.main(FadeOut(pita), run_time=lama * 0.65)
+        self.remove(pita)
 
     def construct(self):
         frame = self.frame
-        papan = sinema.PapanRumus(self)
-        DUNIA, HUD, TULISAN = {}, {}, {}
-        HUD["identitas"] = sinema.identitas(self, "40 siswa, tinggi badan",
-                                            "152 sampai 180 cm")
+        kamera.pasang_awal(frame, theta=0, phi=0, pusat=(0, 0, 0), tinggi=8.0)
+        papan = sinema.PapanRumus(self, ukuran=30, alas=True, tanpa_utama=True)
+        ident = None
 
-        def taruh(nama, mob, tulisan=False):
-            DUNIA[nama] = mob
-            if tulisan:
-                TULISAN[nama] = mob
-            return mob
+        sumbu = VGroup(Line([X0 - 0.3, Y0, 0], [xc(190) + 0.3, Y0, 0]).set_stroke(REDUP, 2))
+        for cm in range(150, 191, 10):
+            sumbu.add(Line([xc(cm), Y0 - 0.08, 0], [xc(cm), Y0 + 0.08, 0]).set_stroke(REDUP, 2))
+        angka = VGroup(*[rumus(str(cm), 20, REDUP).move_to([xc(cm), Y0 - 0.32, 0]) for cm in range(150, 191, 10)])
+        sumbu.latar = True
+        satuan = rumus(r"\mathrm{cm}", 20, REDUP).next_to(angka[-1], RIGHT, buff=0.25)
 
-        def buang(*nama):
-            for n in nama:
-                DUNIA[n] = None
-                TULISAN.pop(n, None)
-
-        def periksa(pasangan=None):
-            hidup_d = {k: v for k, v in DUNIA.items() if v is not None}
-            hidup_h = {k: v for k, v in HUD.items() if v is not None}
-            if papan.semua() is not None:
-                hidup_h["papan rumus"] = papan.semua()
-            hidup_t = {k: v for k, v in TULISAN.items() if v is not None}
-            qc.periksa_adegan(self, {}, pasangan=pasangan, hud=hidup_h,
-                              dunia=hidup_d, tulisan=hidup_t, jaga_jalur_bawah=True)
-
-        # ------------------------------------------------------------------
-        # Panggung: dua sumbu berangka.
-        # ------------------------------------------------------------------
-        sumbu_x = Line([xc(148.4), 0, Z_DASAR], [xc(191.0), 0, Z_DASAR]).set_stroke(REDUP, 2.4)
-        sumbu_f = Line([X_SUMBU_F, 0, Z_DASAR], [X_SUMBU_F, 0, zf(24)]).set_stroke(REDUP, 2.4)
-        angka_x = VGroup()
-        for v in ANGKA_X:
-            angka_x.add(Line([xc(v), 0, Z_DASAR], [xc(v), 0, Z_DASAR - 0.10])
-                        .set_stroke(REDUP, 1.6))
-            angka_x.add(tegak(rumus(str(v), 20, REDUP)).move_to([xc(v), 0, Z_ANGKA]))
-        angka_f = VGroup()
-        for f in (0, 10, 20):
-            angka_f.add(Line([X_SUMBU_F, 0, zf(f)], [X_SUMBU_F - 0.10, 0, zf(f)])
-                        .set_stroke(REDUP, 1.6))
-            angka_f.add(tegak(rumus(str(f), 20, REDUP)).move_to([X_SUMBU_F - 0.34, 0, zf(f)]))
-
-        # Empat puluh titik data, satu per siswa, ditumpuk di atas nilainya.
-        def tumpuk(nilai_list):
-            hitung, hasil = {}, []
-            for v in nilai_list:
-                hasil.append(hitung.get(v, 0))
-                hitung[v] = hitung.get(v, 0) + 1
-            return hasil
-
+        # Titik data: 40 titik kecil di atas sumbu, ditumpuk per nilai.
+        tumpuk = {}
         titik = VGroup()
-        for v, tingkat in zip(TINGGI_BADAN, tumpuk(TINGGI_BADAN)):
-            d = Dot(radius=JARI_TITIK).set_fill(AKSEN2, 1).set_stroke(LATAR, 1.0)
-            titik.add(tegak(d).move_to([xc(v), 0, Z_DASAR + 0.09 + tingkat * 0.13]))
+        for v in TINGGI_BADAN:
+            k = tumpuk.get(v, 0)
+            tumpuk[v] = k + 1
+            titik.add(Dot([xc(v), Y0 + 0.16 + k * 0.17, 0], radius=JARI_TITIK).set_color(TINTA))
 
-        def histogram(lebar, warna=AKSEN2):
-            g = VGroup()
-            for bawah, f in kelompokkan(lebar):
-                r = Rectangle(width=xc(bawah + lebar) - xc(bawah), height=f * SKALA_F)
-                r.set_fill(warna, 0.55).set_stroke(warna, 2.0)
-                g.add(tegak(r).move_to([(xc(bawah) + xc(bawah + lebar)) / 2, 0,
-                                        Z_DASAR + f * SKALA_F / 2]))
+        # ============ buka ============================================== #
+        tanya_buka = teks("Lebar kelas mana yang benar?", 34, TINTA).move_to([0, 0.3, 0])
+        # Dua histogram kecil dari data yang sama (lebar 5 dan 10) menemani
+        # kalimat pembuka; tanpa ini layar kosong 4 detik sesudah judul.
+        def mini_buka(lebar, pusat):
+            g = self.histogram(lebar, isi=0.35)
+            g.add(Line([X0, Y0, 0], [xc(190), Y0, 0]).set_stroke(REDUP, 1.5))
+            g.scale(0.5).move_to(pusat)
             return g
 
-        hist5 = histogram(5)
-        hist2 = histogram(2)
-        hist10 = histogram(10)
+        dua_mini = VGroup(mini_buka(5, np.array([-2.2, -1.0, 0])), mini_buka(10, np.array([2.2, -1.0, 0])))
+        with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Penyajian")
+            sinema.judul_pembuka(self, "Penyajian Data, Bagian 3", lama=3.0, y=1.6)
+            b.catat(3.0)
+            b.tunggu_kata("Data yang")
+            b.main(FadeIn(dua_mini, lag_ratio=0.3), run_time=0.9)
+            b.tunggu_kata("Lebar kelas")
+            b.main(Write(tanya_buka), run_time=1.3)
+        qc.periksa_adegan(self, {}, hud=hud(ident, papan), dunia={"dua mini": dua_mini}, tulisan={"tanya": tanya_buka})
 
-        # ==================================================================
-        # Babak 1 `buka`: sumbu, lalu empat puluh titik.
-        # ==================================================================
-        kamera.pasang_awal(frame, theta=0, phi=90, pusat=(0, 0, Z_KAMERA), tinggi=TINGGI_BINGKAI)
-        with sinema.babak(self, "buka", DURASI) as b:
-            sinema.judul_pembuka(self, "Materi 03: Lebar kelas", lama=3.2, y=2.6)
-            b.catat(3.2)
-            taruh("sumbu", VGroup(sumbu_x, sumbu_f))
-            taruh("angka x", angka_x)
-            taruh("angka f", angka_f)
-            b.main(ShowCreation(sumbu_x), ShowCreation(sumbu_f), run_time=1.2)
-            b.main(FadeIn(angka_x), FadeIn(angka_f), run_time=1.2)
-            taruh("titik", titik)
-            b.main(LaggedStart(*[FadeIn(m, shift=DOWN * 0.3) for m in titik],
-                               lag_ratio=0.06), run_time=3.6)
-            b.jeda(1.4)
-        periksa()
+        # ============ ingat: histogram 10 cm dari Bagian 2 ================ #
+        hist10 = self.histogram(10)
+        with sinema.babak(self, "ingat", DURASI, kata=KATA) as b:
+            b.tunggu_kata("materi sebelumnya")
+            ident = sinema.identitas(self, "40 siswa", "tinggi badan 152 sampai 180 cm")
+            ident.set_opacity(0)
+            b.main(ident.animate.set_opacity(1), run_time=0.5)
+            b.tunggu_kata("empat puluh")
+            b.main(FadeOut(tanya_buka), FadeOut(dua_mini), ShowCreation(sumbu), FadeIn(angka), FadeIn(satuan),
+                   run_time=0.9)
+            b.tunggu_kata("selebar sepuluh")
+            b.main(LaggedStartMap(FadeIn, hist10, lag_ratio=0.2), run_time=1.2)
+            b.tunggu_kata("empat batang")
+            b.main(Indicate(hist10, color=SOROT, scale_factor=1.0), run_time=1.0)
+            b.tunggu_kata("ubah-ubah")
+            b.main(FadeOut(hist10), run_time=0.7)
+        qc.periksa_adegan(self, {}, hud=hud(ident, papan), dunia={"sumbu": sumbu},
+                          tulisan={"angka": angka, "satuan": satuan})
 
-        # ==================================================================
-        # Babak 2 `kelompok`: titiknya jatuh ke kotak selebar 5 cm.
-        # ==================================================================
-        with sinema.babak(self, "kelompok", DURASI) as b:
-            taruh("histogram", hist5)
-            b.main(FadeOut(titik), LaggedStartMap(ilustrasi.tumbuh_batang, hist5,
-                                                  lag_ratio=0.12), run_time=3.4,
-                   )
-            buang("titik")
-            b.main(LaggedStartMap(
-                lambda m, **kw: Indicate(m, scale_factor=1.04, color=AKSEN2, **kw),
-                hist5, lag_ratio=0.12), run_time=2.4)
-            b.jeda(1.4)
-        periksa()
+        # ============ kelompok: lebar 5, tujuh batang ===================== #
+        hist5 = self.histogram(5)
+        f5 = [f for _, f in kelompokkan(5)]
+        lab5 = VGroup(*[rumus(str(f), 20, AKSEN).move_to(hist5[i].get_top() + UP * 0.22) for i, f in enumerate(f5)])
+        ident5 = None
+        with sinema.babak(self, "kelompok", DURASI, kata=KATA) as b:
+            b.tunggu_kata("lebar lima")
+            papan.baris(r"\text{lebar kelas } 5", AKSEN, b=b)
+            b.tunggu_kata("Empat puluh")
+            b.main(LaggedStartMap(lambda m: FadeIn(m, scale=1.5), titik, lag_ratio=0.04), run_time=1.0)
+            b.tunggu_kata("kotaknya")
+            b.main(FadeIn(hist5), run_time=0.9)
+            for frasa, ke, i in (("satu", 1, 0), ("lima", 2, 1), ("sebelas", 1, 2), ("sebelas", 2, 3),
+                                 ("tujuh", 2, 4), ("empat", 2, 5), ("satu", 2, 6)):
+                b.tunggu_kata(frasa, ke=ke)
+                b.main(FadeIn(lab5[i], scale=1.3), run_time=0.3)
+        qc.periksa_adegan(self, {}, hud=hud(ident, papan), dunia={"sumbu": sumbu, "hist": hist5, "titik": titik},
+                          tulisan={"angka": angka, "satuan": satuan, "lab5": lab5})
 
-        # ==================================================================
-        # Babak 3 `pola`: tumpukan di sekitar 160 sampai 170.
-        # ==================================================================
-        pita = Rectangle(width=xc(170) - xc(160), height=0.30)
-        pita.set_fill(SOROT, 0.26).set_stroke(SOROT, 1.6)
-        pita = tegak(pita).move_to([(xc(160) + xc(170)) / 2, 0, zf(11) + 0.34])
-        l_tumpuk = tegak(sinema.label("tumpukan", 20, SOROT))
-        l_tumpuk.move_to([(xc(160) + xc(170)) / 2, 0, zf(11) + 0.76])
+        # ============ pola: tumpukan 160 sampai 170 ======================= #
+        with sinema.babak(self, "pola", DURASI, kata=KATA) as b:
+            b.tunggu_kata("tumpukan")
+            self.sorot_pita(b, Line([xc(160), Y0 + 1.0, 0], [xc(170), Y0 + 1.0, 0]), lama=1.4)
+            b.tunggu_kata("mewajibkan")
+            b.main(papan.sorot(), run_time=1.0)
+        qc.periksa_adegan(self, {}, hud=hud(ident, papan), dunia={"sumbu": sumbu, "hist": hist5, "titik": titik},
+                          tulisan={"angka": angka, "satuan": satuan, "lab5": lab5})
 
-        with sinema.babak(self, "pola", DURASI) as b:
-            taruh("pita", pita)
-            b.main(GrowFromCenter(pita), run_time=1.4)
-            taruh("label tumpukan", l_tumpuk, tulisan=True)
-            b.main(FadeIn(l_tumpuk), run_time=1.0)
-            b.main(Indicate(hist5[2], scale_factor=1.05, color=SOROT),
-                   Indicate(hist5[3], scale_factor=1.05, color=SOROT), run_time=1.6)
-            b.main(FadeOut(pita), FadeOut(l_tumpuk), run_time=0.8)
-            buang("pita", "label tumpukan")
-            b.jeda(1.4)
-        periksa()
+        # ============ sempit: lebar 2, bergerigi ========================== #
+        hist2 = self.histogram(2)
+        with sinema.babak(self, "sempit", DURASI, kata=KATA) as b:
+            b.tunggu_kata("selebar dua")
+            b.main(FadeOut(lab5), FadeOut(papan.semua()), run_time=0.4)
+            self.remove(*papan.semua())
+            papan = sinema.PapanRumus(self, ukuran=30, alas=True, tanpa_utama=True)
+            b.main(ReplacementTransform(hist5, hist2), run_time=1.4)
+            papan.baris(r"\text{lebar kelas } 2", AKSEN, b=b)
+            b.tunggu_kata("bergerigi")
+            b.main(Indicate(hist2, color=SOROT, scale_factor=1.0), run_time=1.0)
+            b.tunggu_kata("satu dua")
+            b.main(Indicate(VGroup(*hist2[:3]), color=SOROT, scale_factor=1.0), run_time=0.8)
+        qc.periksa_adegan(self, {}, hud=hud(ident, papan), dunia={"sumbu": sumbu, "hist": hist2, "titik": titik},
+                          tulisan={"angka": angka, "satuan": satuan})
 
-        # ==================================================================
-        # Babak 4 `sempit`: lebar 2, gambarnya bergerigi.
-        # ==================================================================
-        l_gerigi = tegak(sinema.label("bergerigi", 20, AKSEN))
-        l_gerigi.move_to([xc(176.5), 0, zf(7.4)])
+        # ============ lebar: lebar 10, empat batang ======================= #
+        hist10b = self.histogram(10)
+        with sinema.babak(self, "lebar", DURASI, kata=KATA) as b:
+            b.tunggu_kata("selebar sepuluh")
+            b.main(FadeOut(papan.semua()), run_time=0.3)
+            self.remove(*papan.semua())
+            papan = sinema.PapanRumus(self, ukuran=30, alas=True, tanpa_utama=True)
+            b.main(ReplacementTransform(hist2, hist10b), run_time=1.4)
+            papan.baris(r"\text{lebar kelas } 10", AKSEN, b=b)
+            b.tunggu_kata("paling kanan")
+            b.main(Indicate(hist10b[3], color=SOROT, scale_factor=1.0), run_time=1.0)
+            b.tunggu_kata("tidak terlihat")
+            self.sorot_pita(b, Line([xc(160), Y0 + 1.0, 0], [xc(170), Y0 + 1.0, 0]), lama=1.2)
+        qc.periksa_adegan(self, {}, hud=hud(ident, papan), dunia={"sumbu": sumbu, "hist": hist10b, "titik": titik},
+                          tulisan={"angka": angka, "satuan": satuan})
 
-        with sinema.babak(self, "sempit", DURASI) as b:
-            sinema.lahir_rumus(self, r"\text{lebar } 2", hist5[3], papan, b=b, warna=TINTA)
-            taruh("histogram", hist2)
-            b.main(FadeOut(hist5), LaggedStartMap(ilustrasi.tumbuh_batang, hist2, lag_ratio=0.06),
-                   run_time=3.4)
-            taruh("label gerigi", l_gerigi, tulisan=True)
-            b.main(FadeIn(l_gerigi), run_time=1.0)
-            b.main(LaggedStartMap(
-                lambda m, **kw: Indicate(m, scale_factor=1.12, color=AKSEN, **kw),
-                hist2, lag_ratio=0.05), run_time=2.6)
-            b.main(FadeOut(l_gerigi), run_time=0.8)
-            buang("label gerigi")
-            b.jeda(1.4)
-        periksa()
+        # ============ pilihan: tiga gambar kecil berdampingan ============= #
+        def mini(lebar, pusat, skala=0.42):
+            g = self.histogram(lebar, isi=0.35)
+            g.add(Line([X0, Y0, 0], [xc(190), Y0, 0]).set_stroke(REDUP, 1.5))
+            g.scale(skala).move_to(pusat)
+            return g
 
-        # ==================================================================
-        # Babak 5 `lebar`: lebar 10, cuma empat batang, polanya hilang.
-        # ==================================================================
-        l_satu = tegak(sinema.label("1 siswa", 20, AKSEN))
-        l_satu.move_to([xc(186.0), 0, zf(3.4)])
+        tiga = VGroup(mini(5, np.array([-2.4, 1.6, 0])), mini(2, np.array([0.4, 1.6, 0])), mini(10, np.array([3.2, 1.6, 0])))
+        with sinema.babak(self, "pilihan", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Tiga gambar")
+            b.main(FadeIn(tiga, lag_ratio=0.3), run_time=1.2)
+            b.tunggu_kata("pilihan manusia")
+            b.main(papan.sorot(), run_time=1.0)
+            b.tunggu_kata("paling benar")
+            b.main(Indicate(tiga, color=SOROT, scale_factor=1.0), run_time=1.0)
+        qc.periksa_adegan(self, {}, hud=hud(ident, papan), dunia={"sumbu": sumbu, "hist": hist10b, "titik": titik, "tiga": tiga},
+                          tulisan={"angka": angka, "satuan": satuan})
 
-        with sinema.babak(self, "lebar", DURASI) as b:
-            sinema.ganti_rumus(self, papan.utama, r"\text{lebar } 10", b=b,
-                               run_time=1.4, papan=papan)
-            taruh("histogram", hist10)
-            b.main(FadeOut(hist2), LaggedStartMap(ilustrasi.tumbuh_batang, hist10, lag_ratio=0.16),
-                   run_time=3.2)
-            taruh("label satu", l_satu, tulisan=True)
-            b.main(FadeIn(l_satu), Indicate(hist10[3], scale_factor=1.2, color=AKSEN),
-                   run_time=1.8)
-            b.main(Indicate(hist10[1], scale_factor=1.04, color=AKSEN2), run_time=1.6)
-            b.main(FadeOut(l_satu), run_time=0.8)
-            buang("label satu")
-            b.jeda(1.4)
-        periksa()
+        # ============ luas: contoh dua kelas selebar 2 (12 dan 4) ========= #
+        XG, YG = -1.6, -1.9
+        S = 0.5                       # satu satuan lebar contoh
+        SF = 0.11                     # satu data = 0,11 satuan tinggi (12 data = 1,32)
+        kotak12 = Rectangle(width=2 * S, height=12 * SF).set_stroke(AKSEN, 2).set_fill(AKSEN, 0.35)
+        kotak12.move_to([XG + 2 * S + S, YG + 12 * SF / 2, 0])
+        kotak4 = Rectangle(width=2 * S, height=4 * SF).set_stroke(AKSEN, 2).set_fill(AKSEN, 0.35)
+        kotak4.move_to([XG + 4 * S + S, YG + 4 * SF / 2, 0])
+        dasar_g = Line([XG + 1.5 * S, YG, 0], [XG + 7 * S, YG, 0]).set_stroke(REDUP, 2)
+        tepi_g = VGroup(*[rumus(str(v), 20, REDUP).move_to([XG + v * S, YG - 0.32, 0]) for v in (2, 4, 6)])
+        l12 = rumus("12", 22, AKSEN).next_to(kotak12, UP, buff=0.12)
+        l4 = rumus("4", 22, AKSEN).next_to(kotak4, UP, buff=0.12)
+        contoh = VGroup(dasar_g, tepi_g, kotak12, kotak4, l12, l4)
 
-        # ==================================================================
-        # Babak 6 `pilihan`: tiga gambar, satu kumpulan data.
-        # ==================================================================
-        with sinema.babak(self, "pilihan", DURASI) as b:
-            sinema.ganti_rumus(self, papan.utama, r"\text{lebar } 5", b=b,
-                               run_time=1.4, papan=papan)
-            taruh("histogram", hist5)
-            b.main(FadeOut(hist10), LaggedStartMap(ilustrasi.tumbuh_batang, hist5, lag_ratio=0.1),
-                   run_time=2.8)
-            b.main(LaggedStartMap(
-                lambda m, **kw: Indicate(m, scale_factor=1.05, color=AKSEN2, **kw),
-                hist5, lag_ratio=0.1), run_time=2.4)
-            b.jeda(1.4)
-        periksa()
+        with sinema.babak(self, "luas", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Ambil dua")
+            b.main(FadeOut(hist10b), FadeOut(titik), FadeOut(sumbu), FadeOut(angka), FadeOut(satuan),
+                   FadeOut(papan.semua()), FadeOut(ident), run_time=0.6)
+            self.remove(*papan.semua(), ident)
+            ident = None
+            papan = sinema.PapanRumus(self, ukuran=30, alas=True, tanpa_utama=True)
+            b.main(ShowCreation(dasar_g), FadeIn(tepi_g), FadeIn(kotak12), FadeIn(kotak4), run_time=1.0)
+            b.tunggu_kata("dua belas")
+            b.main(FadeIn(l12), run_time=0.4)
+            b.tunggu_kata("empat")
+            b.main(FadeIn(l4), run_time=0.4)
+            b.tunggu_kata("digabung")
+            b.main(Indicate(VGroup(kotak12, kotak4), color=SOROT, scale_factor=1.0), run_time=1.0)
+        qc.periksa_adegan(self, {}, hud=hud(ident, papan), dunia={"tiga": tiga, "contoh": contoh},
+                          tulisan={"l12": l12, "l4": l4, "tepi g": tepi_g})
 
-        # ==================================================================
-        # Babak 7 `luas`: pindah ke contoh kecil dua kelas bersebelahan.
-        # Skalanya sendiri, ditulis di panel, supaya tidak tercampur dengan
-        # histogram tinggi badan tadi.
-        # ==================================================================
-        LEBAR_KOTAK = 1.15               # satu satuan lebar kelas contoh
-        TINGGI_KOTAK = 0.175             # satu satuan tinggi kelas contoh
-        X_KIRI = -2.30
+        # ============ salah: tinggi dijumlah =============================== #
+        salah = Rectangle(width=4 * S, height=16 * SF).set_stroke(AKSEN, 2, opacity=0.8).set_fill(AKSEN, 0.15)
+        salah.move_to([XG + 4 * S, YG + 16 * SF / 2, 0])
+        l16 = rumus("16", 22, AKSEN).next_to(salah, UP, buff=0.12)
+        coret = Line(salah.get_corner(DL) + np.array([-0.1, -0.1, 0]), salah.get_corner(UR) + np.array([0.1, 0.1, 0])).set_stroke(AKSEN, 4)
+        with sinema.babak(self, "salah", DURASI, kata=KATA) as b:
+            b.tunggu_kata("tingginya dijumlah")
+            b.main(FadeIn(salah), FadeIn(l16), run_time=0.9)
+            b.tunggu_kata("dua belas")
+            papan.baris(r"12 + 4 = 16", AKSEN, b=b)
+            b.tunggu_kata("luasnya lalu")
+            papan.baris(r"\text{luas} = 4 \times 16 = 64", AKSEN, b=b)
+            b.tunggu_kata("Dua kali")
+            b.main(ShowCreation(coret), run_time=0.6)
+            b.main(Indicate(l16, color=AKSEN), run_time=0.8)
+        qc.periksa_adegan(self, {}, hud=hud(ident, papan), dunia={"tiga": tiga, "contoh": contoh, "salah": salah},
+                          tulisan={"l12": l12, "l4": l4, "l16": l16, "tepi g": tepi_g})
 
-        # Contoh gabung kelas punya sumbunya SENDIRI. Tanpa itu penonton tidak
-        # bisa melihat lebarnya 4 dan tingginya 8, dan aturan 9 standar
-        # mewajibkan tiap bidang koordinat berangka.
-        X_SUMBU_C = X_KIRI - 0.80
-        sumbu_contoh = VGroup()
-        sumbu_contoh.add(Line([X_SUMBU_C, 0, Z_DASAR], [X_SUMBU_C, 0, Z_DASAR + 18 * TINGGI_KOTAK])
-                         .set_stroke(REDUP, 2.2))
-        angka_contoh = {}          # tiap angka didaftarkan SENDIRI ke gerbang
-        for f in (0, 4, 8, 12, 16):
-            z = Z_DASAR + f * TINGGI_KOTAK
-            sumbu_contoh.add(Line([X_SUMBU_C, 0, z], [X_SUMBU_C - 0.10, 0, z])
-                             .set_stroke(REDUP, 1.5))
-            t = tegak(rumus(str(f), 19, REDUP)).move_to([X_SUMBU_C - 0.36, 0, z])
-            sumbu_contoh.add(t)
-            angka_contoh[f"contoh f{f}"] = t
-        for satuan in (0, 2, 4):
-            x = X_KIRI + satuan * LEBAR_KOTAK
-            sumbu_contoh.add(Line([x, 0, Z_DASAR], [x, 0, Z_DASAR - 0.10])
-                             .set_stroke(REDUP, 1.5))
-            t = tegak(rumus(str(8 + satuan), 19, REDUP)).move_to([x, 0, Z_DASAR - 0.32])
-            sumbu_contoh.add(t)
-            angka_contoh[f"contoh x{8 + satuan}"] = t
+        # ============ benar: luas dijumlah, tinggi 8 ======================= #
+        gabung = Rectangle(width=4 * S, height=8 * SF).set_stroke(SOROT, 2).set_fill(SOROT, 0.35)
+        gabung.move_to([XG + 4 * S, YG + 8 * SF / 2, 0])
+        l8 = rumus("8", 22, SOROT).next_to(gabung, UP, buff=0.12)
+        with sinema.babak(self, "benar", DURASI, kata=KATA) as b:
+            b.tunggu_kata("dijumlah luasnya")
+            b.main(FadeOut(salah), FadeOut(l16), FadeOut(coret), FadeOut(papan.semua()), run_time=0.5)
+            self.remove(*papan.semua())
+            papan = sinema.PapanRumus(self, ukuran=30, alas=True, tanpa_utama=True)
+            b.tunggu_kata("Dua kali dua")
+            papan.baris(r"2 \times 12 = 24", TINTA, b=b)
+            b.tunggu_kata("dua kali empat")
+            papan.baris(r"2 \times 4 = 8", TINTA, b=b)
+            b.tunggu_kata("tiga puluh dua")
+            papan.baris(r"24 + 8 = 32", SOROT, b=b)
+            b.tunggu_kata("Lebarnya sekarang")
+            b.main(ReplacementTransform(VGroup(kotak12.copy(), kotak4.copy()), gabung),
+                   kotak12.animate.set_fill(opacity=0.1).set_stroke(opacity=0.4),
+                   kotak4.animate.set_fill(opacity=0.1).set_stroke(opacity=0.4),
+                   FadeOut(l12), FadeOut(l4), run_time=1.2)
+            b.tunggu_kata("yaitu delapan")
+            papan.baris(r"\text{tinggi} = 32 : 4 = 8", SOROT, b=b)
+            b.main(FadeIn(l8, scale=1.3), run_time=0.4)
+        qc.periksa_adegan(self, {}, hud=hud(ident, papan), dunia={"tiga": tiga, "contoh": contoh, "gabung": gabung},
+                          tulisan={"l8": l8, "tepi g": tepi_g})
 
-        def kotak_contoh(mulai, lebar, tinggi, warna, isi=0.55):
-            r = Rectangle(width=lebar * LEBAR_KOTAK, height=tinggi * TINGGI_KOTAK)
-            r.set_fill(warna, isi).set_stroke(warna, 2.2)
-            return tegak(r).move_to([X_KIRI + (mulai + lebar / 2) * LEBAR_KOTAK, 0,
-                                     Z_DASAR + tinggi * TINGGI_KOTAK / 2])
+        # ============ umum: tinggi = f : lebar, lahir di dekat batang gabungan
+        with sinema.babak(self, "umum", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Bentuk umumnya")
+            b.main(FadeOut(papan.semua()), run_time=0.4)
+            self.remove(*papan.semua())
+            papan = sinema.PapanRumus(self, ukuran=30, alas=True, tanpa_utama=True)
+            b.tunggu_kata("tinggi batang")
+            sinema.lahir_rumus(self, r"\text{tinggi} = \frac{f}{\text{lebar}}", gabung, papan, b=b,
+                               warna=SOROT, sebagai_utama=False, ukuran_lahir=46, tahan=0.6,
+                               run_time=1.0, geser=UP * 1.6 + RIGHT * 1.6)
+            b.tunggu_kata("luasnya")
+            papan.baris(r"\text{tinggi} \times \text{lebar} = f", TINTA, b=b)
+        qc.periksa_adegan(self, {}, hud=hud(ident, papan), dunia={"tiga": tiga, "contoh": contoh, "gabung": gabung},
+                          tulisan={"l8": l8, "tepi g": tepi_g})
 
-        kiri = kotak_contoh(0, 2, 12, AKSEN2)
-        kanan = kotak_contoh(2, 2, 4, AKSEN2)
-        l_kiri = tegak(rumus("12", 20, AKSEN2)).move_to([X_KIRI + 1.0 * LEBAR_KOTAK, 0,
-                                                         Z_DASAR + 12 * TINGGI_KOTAK + 0.24])
-        l_kanan = tegak(rumus("4", 20, AKSEN2)).move_to([X_KIRI + 3.0 * LEBAR_KOTAK, 0,
-                                                         Z_DASAR + 4 * TINGGI_KOTAK + 0.24])
+        # ============ tutup: luas, bukan tinggi ============================ #
+        with sinema.babak(self, "tutup", DURASI, kata=KATA) as b:
+            b.tunggu_kata("luas batangnya")
+            b.main(Indicate(gabung, color=SOROT, scale_factor=1.0), run_time=1.0)
+            b.tunggu_kata("sama lebar")
+            b.main(Indicate(tiga[2], color=SOROT, scale_factor=1.0), run_time=1.0)
+            b.tunggu_kata("lebih lebar")
+            b.main(Indicate(gabung, color=AKSEN, scale_factor=1.0), run_time=1.0)
+            b.tunggu_kata("menyesatkan")
+            b.main(papan.sorot(), run_time=1.0)
+        qc.periksa_adegan(self, {}, hud=hud(ident, papan), dunia={"tiga": tiga, "contoh": contoh, "gabung": gabung},
+                          tulisan={"l8": l8, "tepi g": tepi_g})
 
-        with sinema.babak(self, "luas", DURASI) as b:
-            b.main(FadeOut(hist5), FadeOut(angka_f), FadeOut(sumbu_f), FadeOut(angka_x),
-                   run_time=1.2)
-            buang("histogram", "angka f", "angka x")
-            taruh("sumbu", sumbu_x)
-            taruh("sumbu contoh", sumbu_contoh)
-            TULISAN.update(angka_contoh)
-            b.main(FadeIn(sumbu_contoh), run_time=1.0)
-            sinema.ganti_rumus(self, papan.utama, r"\text{gabung 2 kelas}", b=b,
-                               run_time=1.4, papan=papan)
-            taruh("kotak kiri", kiri)
-            taruh("kotak kanan", kanan)
-            taruh("tinggi kiri", l_kiri, tulisan=True)
-            taruh("tinggi kanan", l_kanan, tulisan=True)
-            b.main(FadeIn(kiri), FadeIn(kanan), run_time=1.2)
-            b.main(FadeIn(l_kiri), FadeIn(l_kanan), run_time=1.0)
-            b.jeda(1.4)
-        periksa()
+        # ============ lanjut: dua batang mentah beda jumlah ================ #
+        judul_lanjut = teks("Penyajian Data, Bagian 4", 30, SOROT).move_to([0, 1.9, 0])
+        bar_a = Rectangle(width=0.9, height=11 * 0.13).set_stroke(AKSEN2, 2).set_fill(AKSEN2, 0.35)
+        bar_b = Rectangle(width=0.9, height=13 * 0.13).set_stroke(AKSEN, 2).set_fill(AKSEN, 0.35)
+        bar_a.move_to([-0.8, -1.4 + 11 * 0.13 / 2, 0])
+        bar_b.move_to([0.8, -1.4 + 13 * 0.13 / 2, 0])
+        dasar_l = Line([-2.0, -1.4, 0], [2.0, -1.4, 0]).set_stroke(REDUP, 2)
+        la = rumus(r"\frac{11}{25}", 26, AKSEN2).next_to(bar_a, UP, buff=0.15)
+        lb = rumus(r"\frac{13}{40}", 26, AKSEN).next_to(bar_b, UP, buff=0.15)
+        with sinema.babak(self, "lanjut", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Penyajian")
+            b.main(FadeOut(tiga), FadeOut(contoh), FadeOut(gabung), FadeOut(l8), FadeOut(papan.semua()),
+                   FadeIn(judul_lanjut, shift=UP * 0.2), run_time=0.8)
+            self.remove(*papan.semua())
+            papan = sinema.PapanRumus(self, ukuran=30, alas=True, tanpa_utama=True)
+            b.tunggu_kata("dua kelompok")
+            b.main(ShowCreation(dasar_l), FadeIn(bar_a), FadeIn(bar_b), run_time=1.0)
+            b.tunggu_kata("takarannya")
+            b.main(FadeIn(la), FadeIn(lb), run_time=0.7)
+        qc.periksa_adegan(self, {}, hud=hud(ident, papan), dunia={"bar a": bar_a, "bar b": bar_b, "dasar": dasar_l},
+                          tulisan={"judul": judul_lanjut, "la": la, "lb": lb})
 
-        # ==================================================================
-        # Babak 8 `salah`: tingginya dijumlah, dan batangnya tidak muat.
-        # ==================================================================
-        salah = kotak_contoh(0, 4, 16, AKSEN, isi=0.30)
-        l_salah = tegak(rumus("4 \\times 16 = 64", 20, AKSEN))
-        l_salah.move_to([X_KIRI + 2.0 * LEBAR_KOTAK, 0, Z_DASAR + 16 * TINGGI_KOTAK + 0.28])
-        # Silang dipasang di tengah BATANG yang salah, berlubang di tengah
-        # supaya batangnya tetap terlihat (gerbang video CLAUDE.md).
-        silang = VGroup()
-        pusat_s = np.array([X_KIRI + 2.0 * LEBAR_KOTAK, 0.0, Z_DASAR + 8 * TINGGI_KOTAK])
-        for tanda in (1, -1):
-            for arah in (1, -1):
-                silang.add(Line(pusat_s + np.array([arah * 0.22, 0, arah * tanda * 0.22]),
-                                pusat_s + np.array([arah * 0.62, 0, arah * tanda * 0.62])))
-        silang.set_stroke(AKSEN, 3.4)
-
-        with sinema.babak(self, "salah", DURASI) as b:
-            taruh("kotak salah", salah)
-            taruh("tinggi salah", l_salah, tulisan=True)
-            b.main(FadeIn(salah), FadeIn(l_salah), run_time=1.6)
-            b.main(Indicate(salah, scale_factor=1.04, color=AKSEN), run_time=1.4)
-            taruh("silang", silang)
-            b.main(ShowCreation(silang), run_time=1.4)
-            b.main(FadeOut(salah), FadeOut(l_salah), FadeOut(silang), run_time=1.4)
-            buang("kotak salah", "tinggi salah", "silang")
-            b.jeda(1.4)
-        periksa()
-
-        # ==================================================================
-        # Babak 9 `benar`: yang dijumlah LUASNYA.
-        # ==================================================================
-        gabung = kotak_contoh(0, 4, 8, SOROT)
-        l_gabung = tegak(rumus("8", 20, SOROT)).move_to([X_KIRI + 2.0 * LEBAR_KOTAK, 0,
-                                                         Z_DASAR + 8 * TINGGI_KOTAK + 0.24])
-
-        with sinema.babak(self, "benar", DURASI) as b:
-            sinema.ganti_rumus(self, papan.utama, r"24 + 8 = 32", b=b,
-                               run_time=1.6, papan=papan)
-            b.main(Indicate(kiri, scale_factor=1.04, color=SOROT), run_time=1.2)
-            b.main(Indicate(kanan, scale_factor=1.04, color=SOROT), run_time=1.2)
-            taruh("kotak gabung", gabung)
-            taruh("tinggi gabung", l_gabung, tulisan=True)
-            b.main(FadeOut(l_kiri), FadeOut(l_kanan),
-                   ReplacementTransform(VGroup(kiri, kanan), gabung), run_time=2.4)
-            buang("kotak kiri", "kotak kanan", "tinggi kiri", "tinggi kanan")
-            b.main(FadeIn(l_gabung), run_time=1.0)
-            sinema.ganti_rumus(self, papan.utama, r"32 : 4 = 8", b=b,
-                               run_time=1.4, papan=papan)
-            b.jeda(1.4)
-        periksa()
-
-        # ==================================================================
-        # Babak 10 `tutup`: luas yang mewakili banyaknya data.
-        # ==================================================================
-        l_luas = tegak(sinema.label("luasnya", 20, SOROT))
-        l_luas.move_to([X_KIRI + 2.0 * LEBAR_KOTAK, 0, Z_DASAR + 4 * TINGGI_KOTAK])
-
-        with sinema.babak(self, "tutup", DURASI) as b:
-            taruh("label luas", l_luas, tulisan=True)
-            b.main(FadeIn(l_luas), run_time=1.0)
-            b.main(Indicate(gabung, scale_factor=1.06, color=SOROT), run_time=1.6)
-            b.main(Indicate(l_gabung, scale_factor=1.4, color=SOROT), run_time=1.4)
-            sinema.ganti_rumus(self, papan.utama, r"\text{luas, bukan tinggi}", b=b,
-                               run_time=1.6, papan=papan)
-            b.main(Indicate(papan.utama, scale_factor=1.15, color=SOROT), run_time=1.6)
-            b.jeda(1.4)
-        periksa()
+        sinema.laporkan_pemicu(self)

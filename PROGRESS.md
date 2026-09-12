@@ -1,5 +1,67 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 12 SEP (petang): STATISTIKA 13 VIDEO 1080p SELESAI, RUANG 3D 01 DIRENDER ULANG, TRANSFORMASI 5, TURUNAN 06 07, INTEGRAL 5 DITULIS v3.1
+
+Ketiga belas Statistika (2:24 sampai 5:58) dirender 1080p60 satu per satu
+lewat antrean latar, digabung, layar kosong diperiksa, subtitle dan poster
+dibuat, `cek_aset_video statistika` lolos. Ruang 3D 01 dirender ulang dengan
+label "(3, 3, 6)" di atas atap (dibuktikan pada frame 1080p), poster dibuat
+ulang. Transformasi 01 dan 02 disesuaikan, 03, 04, 06 ditulis ulang v3.1
+(03 rotasi: dua langkah B ikut diputar; 04 dilatasi: kotak 6 x 1 jadi 12 x 2;
+06 komposisi matriks: M1 (3, 1) lalu M2 dibaca utuh M2 M1); Turunan 06 (hasil
+kali: kedua pita dibaca sebagai u'v dan uv') dan 07 (aturan rantai, Leibniz)
+ditulis ulang; Integral 01 dan 03 (sudah v3) disesuaikan pembuka, segar-ingat,
+dan penutupnya; Integral 05 (Riemann: tujuh segitiga sisa setengah satuan),
+07 (TDK: kotak pembesaran pita, C terhapus di depan mata), 09 (luas di bawah
+sumbu: antiturunan dihitung di panel) ditulis ulang. Semua lolos gerbang;
+lembar kontak 480p dinilai untuk Transformasi 1 sampai 6, Turunan 06 07,
+Integral 01 03; antrean 1080p sembilan video itu berjalan, Integral 05 07 09
+menunggu uji 480p.
+- Sesi obrolan sempat mati satu kali (13:00): render di latar (nohup) tetap
+  hidup dan selesai; tidak ada yang diulang. Cukup buka sesi baru dan lanjut.
+- JEBAKAN BARU: ManimGL menambahkan kembali benda yang dianimasikan (Indicate
+  pada baris papan yang sudah di-FadeOut oleh kosongkan_papan memunculkannya
+  lagi TANPA terdaftar, lalu baris berikutnya jatuh menindihnya: Transformasi
+  03 babak "sama"). Kalau benda dimunculkan lagi, daftarkan lagi ke
+  `papan.baris_lain`. Label langkah yang berimpit sumbu jangan ditaruh di
+  kiri sumbu (menindih angka sumbu; qc `tulisan` tidak menangkapnya).
+  Baris HUD mendatar di y 1,85 menindih puncak bidang KOTAK_C (qc menolak):
+  disusun ke bawah di zona panel yang kosong. Judul penutup di (0, 2,9)
+  menindih puncak bidang kecil Integral 05: dipindah ke (4,4, 2,35).
+  cek_layar_kosong menangkap jeda 2 sampai 8 detik setiap kali gambar dibuang
+  di awal babak sebelum penggantinya muncul (Transformasi 01, 02, 04, Turunan
+  06, 07): buang BERSAMAAN dengan FadeIn penggantinya.
+- Poster Statistika dipilih dari frame yang isinya penuh (02 pada 180 s, 01
+  pada 260 s), dilihat lewat lembar kontak poster.
+Berikutnya: selesaikan uji 480p Integral 05 07 09 lalu 1080p; subtitle,
+poster, cek_aset untuk Transformasi, Turunan, Integral; commit per kelompok,
+deploy SEKALI untuk Ruang 3D plus Statistika, sekali lagi untuk sisanya.
+
+## 12 SEP (sore): RUANG 3D ENAM VIDEO 1080p SELESAI, STATISTIKA 13 ADEGAN v3.1 DITULIS DAN DIUJI 480p
+
+Ruang 3D 01, 03, 04, 06, 08, 09 (2:11 sampai 4:39) dirender 1080p60 lewat
+antrean satu per satu, digabung, subtitle dan poster dibuat, `cek_aset_video`
+lolos; 01 dirender ulang sekali karena label "(3, 3, 6)" menempel pada "EG"
+di 1080p. Statistika: ketiga belas adegan ditulis ulang v3.1 (01 diadaptasi,
+02 sampai 13 ditulis baru: pembuka sub-bab plus Bagian n dengan pertanyaan
+halaman, segar-ingat hanya pada prasyarat nyata, contoh angka, asal rumus,
+bentuk umum di panel, penutup menunjuk materi berikutnya; jungkat-jungkit,
+penggaris, botol, dan lembar jawaban dari adegan lama dipertahankan), lolos
+semua gerbang, diuji 480p dua putaran dan lembar kontaknya dinilai.
+- JEBAKAN BARU: theta -45 memandang tepat sepanjang bidang x = y, jadi
+  diagonal ruang AG dan segitiga ACG terlihat sebagai satu garis tegak (04,
+  09); uji bingkai tunggal `manim/scenes/uji/uji_sudut_acg.py`. Rumus utama
+  berbentuk pecahan menindih baris yang sudah duduk di panel (09): papan
+  `tanpa_utama` dan lahir `sebagai_utama=False`. Gerbang `cek_pemicu_urut`
+  belum menghitung `sorot_*(lama=)`, `lahir_rumus(tahan=)`, `papan.baris`
+  bawaan, dan tidak membaca perulangan: sekarang dihitung; frasa di dalam
+  `for` tetap diperiksa tangan (ke= pada "empat" Statistika 03).
+- Penyimpanan deploy Vercel melewati 10 GB (tiap deploy menyimpan seluruh
+  folder video): 52 deployment lama dihapus atas permintaan ARYA, disisakan 3
+  yang beralias. Deploy per kelompok video mulai sekarang.
+Berikutnya: render 1080p Statistika 01 sampai 13 lalu tayangkan bersama Ruang
+3D; Transformasi (5), Turunan 06 dan 07, Integral (5).
+
 ## 12 SEP (siang): KEENAM VIDEO VEKTOR v3.1 TAYANG, GRAFIK 03 SELESAI, RUANG 3D DISIAPKAN
 
 Vektor 01 (4:38) dan 03 (4:55) disesuaikan dari naskah v3 sesi (pembuka

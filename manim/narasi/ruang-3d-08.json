@@ -1,38 +1,63 @@
 {
   "adegan": "SudutGarisBersilangan",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Ruang Tiga Dimensi materi 08. Geseran sejajar dianimasikan pelan supaya terlihat bahwa arah garisnya tidak berubah sedikit pun, sebab di situlah letak sahnya cara ini.",
+  "tempo": "-5%",
+  "catatan": "Sudut dalam Ruang, Bagian 1 (Materi 08). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (85 detik) yang sudah disetujui ARYA: ISI TETAP SAMA (AC di lantai dan BG di sisi kanan bersilangan; sudut butuh titik sudut; BG digeser sejajar dirinya sendiri sampai mendarat di AH; segitiga ACH sama sisi 6 akar 2; sudutnya 60 derajat tanpa trigonometri; menggeser tidak mengubah arah). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1, segar-ingat Kedudukan Titik, Garis, dan Bidang Bagian 1 (nama bersilangan), cek panjang CH dari koordinat, bentuk umum sudut dua garis bersilangan, penutup menunjuk Bagian 2.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi delapan, *sudut dua garis yang tidak pernah bertemu*. Banyak yang mengira sudut hanya bisa diukur kalau kedua garis berpotongan. Coba kita uji dengan kubus ini.",
-      "tulis": "Materi 8, *sudut dua garis yang tidak pernah bertemu*. Banyak yang mengira sudut hanya bisa diukur kalau kedua garis berpotongan. Coba kita uji dengan kubus ini."
+      "teks": "Sudut dalam Ruang, Bagian satu. Bagaimana mengukur sudut dua garis yang tidak pernah bertemu?",
+      "tulis": "Sudut dalam Ruang, Bagian 1. Bagaimana mengukur sudut dua garis yang tidak pernah bertemu?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Kedudukan Titik, Garis, dan Bidang, Bagian satu, dua garis yang tidak sejajar dan tidak pernah bertemu kita sebut bersilangan. Hari ini kita ukur sudut di antara keduanya.",
+      "tulis": "Di Kedudukan Titik, Garis, dan Bidang, Bagian 1, dua garis yang tidak sejajar dan tidak pernah bertemu kita sebut *bersilangan*. Hari ini kita ukur sudut di antara keduanya."
     },
     {
       "id": "masalah",
-      "teks": "Ini A C di lantai, dan ini B G di sisi kanan. Keduanya *bersilangan*: tidak sejajar, dan tidak punya satu pun titik bersama. Padahal sudut selalu butuh titik sudut. Jadi sudutnya diukur di mana?",
-      "tulis": "Ini A̅C̅ di lantai, dan ini B̅G̅ di sisi kanan. Keduanya *bersilangan*: tidak sejajar, dan tidak punya satu pun titik bersama. Padahal sudut selalu butuh titik sudut. Jadi sudutnya diukur di mana?"
+      "teks": "Ini A C di lantai, dan ini B G di sisi kanan. Keduanya bersilangan: tidak sejajar, dan tidak punya satu pun titik bersama. Padahal sudut selalu butuh titik sudut. Jadi sudutnya diukur di mana?",
+      "tulis": "Ini AC di lantai, dan ini BG di sisi kanan. Keduanya *bersilangan*: tidak sejajar, dan tidak punya satu pun titik bersama. Padahal sudut selalu butuh titik sudut. Jadi sudutnya diukur di mana?"
     },
     {
       "id": "geser",
-      "teks": "Jalan keluarnya: kita geser salah satunya, *sejajar dirinya sendiri*, sampai keduanya bertemu. Perhatikan garis merah ini berjalan pelan tanpa berputar sedikit pun.",
+      "teks": "Jalan keluarnya: kita geser salah satunya, sejajar dirinya sendiri, sampai keduanya bertemu. Perhatikan garis merah ini berjalan pelan tanpa berputar sedikit pun.",
       "tulis": "Jalan keluarnya: kita geser salah satunya, *sejajar dirinya sendiri*, sampai keduanya bertemu. Perhatikan garis merah ini berjalan pelan tanpa berputar sedikit pun."
     },
     {
       "id": "mendarat",
       "teks": "Pada geseran penuh, B G mendarat tepat menjadi A H, diagonal sisi yang memang sudah ada di kubus. Sekarang keduanya bertemu di titik A.",
-      "tulis": "Pada geseran penuh, B̅G̅ mendarat tepat menjadi A̅H̅, diagonal sisi yang memang sudah ada di kubus. Sekarang keduanya bertemu di titik A."
+      "tulis": "Pada geseran penuh, BG mendarat tepat menjadi AH, diagonal sisi yang memang sudah ada di kubus. Sekarang keduanya bertemu di titik A."
     },
     {
       "id": "segitiga",
-      "teks": "Sekarang lihat segitiga A C H. A C diagonal sisi alas, A H diagonal sisi kiri, C H diagonal sisi belakang. Ketiganya *enam akar dua*, jadi segitiganya *sama sisi*.",
-      "tulis": "Sekarang lihat segitiga ACH. A̅C̅ diagonal sisi alas, A̅H̅ diagonal sisi kiri, C̅H̅ diagonal sisi belakang. Ketiganya *6√2*, jadi segitiganya *sama sisi*."
+      "teks": "Sekarang lihat segitiga A C H. A C diagonal sisi alas, A H diagonal sisi kiri, C H diagonal sisi belakang. Ketiganya enam akar dua, jadi segitiganya sama sisi.",
+      "tulis": "Sekarang lihat segitiga ACH. AC diagonal sisi alas, AH diagonal sisi kiri, CH diagonal sisi belakang. Ketiganya *6√2*, jadi segitiganya *sama sisi*."
+    },
+    {
+      "id": "cek",
+      "teks": "Cek satu saja. C H menghubungkan C di enam, enam, nol dengan H di nol, enam, enam. Selisihnya enam pada x dan enam pada z, jadi panjangnya akar tujuh puluh dua, yaitu enam akar dua. Cocok.",
+      "tulis": "Cek satu saja. CH menghubungkan C di (6, 6, 0) dengan H di (0, 6, 6). Selisihnya 6 pada x dan 6 pada z, jadi panjangnya √72, yaitu 6√2. Cocok."
+    },
+    {
+      "id": "sudut",
+      "teks": "Semua sudut segitiga sama sisi adalah enam puluh derajat, dan kita mendapatkannya tanpa satu pun perhitungan trigonometri.",
+      "tulis": "Semua sudut segitiga sama sisi adalah *60°*, dan kita mendapatkannya tanpa satu pun perhitungan trigonometri."
+    },
+    {
+      "id": "umum",
+      "teks": "Bentuk umumnya: sudut dua garis bersilangan adalah sudut dua garis berpotongan yang sejajar dengan keduanya. Menggeser tidak mengubah arah, dan karena itu tidak mengubah sudut.",
+      "tulis": "Bentuk umumnya: sudut dua garis bersilangan adalah sudut dua garis berpotongan yang sejajar dengan keduanya. Menggeser tidak mengubah arah, dan karena itu tidak mengubah sudut."
     },
     {
       "id": "tutup",
-      "teks": "Semua sudut segitiga sama sisi adalah *enam puluh derajat*, dan kita mendapatkannya tanpa satu pun perhitungan trigonometri. Menggeser tidak mengubah arah, dan karena itu tidak mengubah sudut.",
-      "tulis": "Semua sudut segitiga sama sisi adalah *60°*, dan kita mendapatkannya tanpa satu pun perhitungan trigonometri. Menggeser tidak mengubah arah, dan karena itu tidak mengubah sudut."
+      "teks": "Jadi kalau dua garis tidak bertemu, jangan diukur di gambarnya. Geser satu sejajar sampai bertemu, lalu ukur sudut yang lahir di situ.",
+      "tulis": "Jadi kalau dua garis tidak bertemu, jangan diukur di gambarnya. Geser satu sejajar sampai bertemu, lalu ukur sudut yang lahir di situ."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Sudut dalam Ruang, Bagian dua, sudutnya bukan antara dua garis, melainkan antara garis dan bidang, lalu antara dua bidang.",
+      "tulis": "Di materi berikutnya, Sudut dalam Ruang, Bagian 2, sudutnya bukan antara dua garis, melainkan antara garis dan bidang, lalu antara dua bidang."
     }
   ]
 }

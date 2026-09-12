@@ -1,57 +1,27 @@
-"""Materi 11 Statistika: garis regresi dan residu (ManimGL).
+"""Statistika Materi 11, Hubungan Dua Variabel Bagian 2: garis regresi dan
+residu (ManimGL).
+STANDAR VIDEO v3.1, ditulis ulang MASTER 12 Sep 2026 dari adegan lama (1:50)
+yang sudah disetujui ARYA. DUNIANYA SAMA: sepuluh titik, tiga garis tebakan,
+residu sebagai BILAH tegak (bukan garis tipis) dengan kamera didekatkan,
+warna menyebut tandanya, jumlah residu nol, kuadrat lalu dijumlah jadi satu
+angka, garis diputar mengelilingi pusat data (146, 56,9, 27,2, naik lagi),
+garis terbaik, tangga 1 jam naik 3,2, ekstrapolasi 40 jam pada penggaris
+jauh dengan langit-langit 100.
 
-Naskah: manim/narasi/statistika11-regresi.json (10 segmen, 110,0 detik)
+YANG BERBEDA: pembuka sub-bab plus Bagian 2 dengan pertanyaan halaman;
+segar-ingat Ukuran Pemusatan dan Penyebaran Bagian 4 (jarak ke pusat,
+jumlah nol, kuadrat) diperagakan dengan bilah ke garis y = 70; rumus b dan a
+dihitung dengan angkanya di panel (lima jumlah ditulis di dunia); penutup
+menunjuk Bagian 3 (r = 0,98); tiap kejadian dipicu pada KATA; sorotan
+memakai pita tembus pandang.
 
-GAGASAN POKOK. Sepuluh orang menarik sepuluh garis "yang paling pas", dan
-semuanya kelihatan masuk akal. Video ini menjawabnya dengan cara yang tidak
-bisa dilakukan halaman: garisnya benar-benar diputar di depan mata, dan angka
-jumlah kuadrat residu diperlihatkan turun lalu naik lagi. Titik terendahnya
-cuma satu, dan di situlah garis terbaiknya.
+Angka: n = 10, Sx = 65, Sy = 700, Sxy = 4814, Sxx = 505, b = 3,2, a = 49,2;
+jumlah kuadrat residu: b=2,0 -> 146; 2,6 -> 56,9; 3,2 -> 27,2; 3,8 -> 56,9.
 
-Angka yang dipakai persis angka halaman dan sudah diperiksa ulang:
-    n = 10   Sx = 65   Sy = 700   Sxy = 4814   Sxx = 505
-    b = 3,2  a = 49,2
-    jumlah kuadrat residu: b=2,0 -> 146   b=2,6 -> 56,9   b=3,2 -> 27,2   b=3,8 -> 56,9
-Keempat garis diputar mengelilingi titik pusat data (6,5 ; 70), jadi
-perbandingannya adil: yang berubah cuma kemiringannya.
-
-DUA KEPUTUSAN GAMBAR YANG DIBAYAR MAHAL DI RENDER PERTAMA.
-
-1. Sumbu tegaknya dulu 45 sampai 105 supaya langit-langit nilai 100 muat.
-   Akibatnya data yang cuma merentang 55 sampai 85 menempati separuh tinggi,
-   dan RESIDUNYA, yang besarnya 0,2 sampai 3,2 poin, tinggal 2 sampai 8 piksel.
-   Seluruh isi video ini residu, dan residunya tidak kelihatan. Sekarang sumbu
-   utamanya 51 sampai 89 (data mengisi bingkai), dan babak terakhir berpindah
-   ke sumbu 40 sampai 190. Perpindahan itu justru pelajarannya: begitu garis
-   diteruskan ke 40 jam, datanya sendiri menciut jadi gerombolan di pojok.
-
-2. Residu digambar sebagai BILAH berisi, bukan garis. Garis setipis itu di
-   480p hilang; bilah selebar 0,12 satuan terbaca walau cuma 14 piksel tinggi.
-
-KENAPA TIDAK ADA PERSEGI DI SINI. Materi 08 menggambar kuadrat sebagai persegi
-yang tumbuh, dan itu tepat karena simpangannya besar. Di sini residunya terlalu
-kecil: persegi bersisi segitu cuma beberapa piksel, dan menggambarnya di skala
-lain berarti persegi yang sisinya BUKAN residu. Jadi yang dipakai bilah tegak
-plus satu angka yang berubah, dan naskahnya sudah disesuaikan.
-
-TATA LETAK (standar video versi 2):
-    kiri atas  identitas benda, menetap
-    kanan atas papan rumus, berubah lewat morph
-    kaki layar milik subtitle, dijaga qc
-    dalam gambar label maksimal dua kata
-
-SATU WARNA SATU MAKNA DI DALAM VIDEO INI:
-    AKSEN2 biru = residu POSITIF (titik di atas garis)
-    AKSEN bata  = residu NEGATIF (titik di bawah garis), dan peringatan
-    SOROT ungu  = garis regresi terbaik
-    TINTA       = titik data dan tulisan
-    REDUP       = sumbu, angka, dan garis tebakan yang belum terbukti
-
-Kamera phi 90, tegak lurus, tidak pernah dimiringkan. Bingkainya DIDEKATKAN
-dari 6,4 ke 4,2 selama empat babak residu (disetujui MASTER 4 Sep 2026): di
-bingkai 6,4 residu terbesar cuma 15 piksel, di 4,2 ia 24 piksel. Selama itu
-sumbu keluar bingkai, jadi ia dikeluarkan dari daftar periksa untuk babak-babak
-itu saja; benda lain tetap diperiksa penuh.
+SATU WARNA SATU MAKNA: AKSEN2 biru = residu POSITIF, AKSEN bata = residu
+NEGATIF dan peringatan, SOROT ungu = garis terbaik dan sorotan, TINTA = titik
+dan tulisan, REDUP = sumbu, angka, garis tebakan. Kamera phi 90; bingkai
+didekatkan ke 4,8 selama babak residu, tanda, nol, kuadrat.
 """
 
 import json
@@ -65,24 +35,18 @@ from gl import kamera, qc, sinema  # noqa: E402
 AKAR = Path(__file__).resolve().parents[2]
 TOPIK = "statistika11-regresi"
 DURASI = json.loads((AKAR / "audio" / TOPIK / "durasi.json").read_text(encoding="utf-8"))["segmen"]
+KATA = sinema.JamKata(TOPIK)
 
-# --- Data `t10-belajar` dari web/content/statistika/data.json (dinyatakan buatan).
 DATA = [(2, 55), (3, 58), (4, 64), (5, 63), (6, 70), (7, 72), (8, 75), (9, 80), (10, 78), (11, 85)]
 MEAN_X, MEAN_Y = 6.5, 70.0
 B, A = 3.2, 49.2
 JKR = {2.0: 146.0, 2.6: 56.9, 3.2: 27.2, 3.8: 56.9}
-BATAS_NILAI = 100          # nilai ujian tidak mungkin lewat ini
-JAM_JAUH = 40              # pengandaian ekstrapolasi
-RAMAL_JAUH = 177.2         # 49,2 + 3,2 x 40
+BATAS_NILAI = 100
+JAM_JAUH = 40
+RAMAL_JAUH = 177.2
 
-# --- Dua keadaan penggaris. `dekat` dipakai sembilan babak pertama, `jauh`
-#     cuma babak terakhir. Keduanya: (skala x, pusat jam, skala y, dasar nilai)
 SKALA = {
     "dekat": (0.7167, 6.0, 0.0880, 51.0),
-    # Sumbu mendatar harus memuat 40 jam, sebab di situlah ramalannya
-    # dihitung. Akibatnya data yang cuma 2 sampai 11 jam menciut jadi
-    # gerombolan selebar 1,8 satuan di pojok kiri, dan itu memang
-    # gambaran paling jujur tentang ekstrapolasi.
     "jauh": (0.1955, 22.0, 0.0223, 40.0),
 }
 ANGKA_X = {"dekat": [0, 2, 4, 6, 8, 10, 12], "jauh": [0, 10, 20, 30, 40]}
@@ -93,7 +57,7 @@ Z_ANGKA = Z_DASAR - 0.32
 X_SUMBU_Y = -4.72
 Z_KAMERA = 0.50
 TINGGI_BINGKAI = 6.4
-LEBAR_BILAH = 0.15         # residu digambar sebagai bilah, bukan garis
+LEBAR_BILAH = 0.15
 
 
 def tegak(mob):
@@ -110,11 +74,21 @@ def koma(nilai, desimal=1):
 class Regresi11(AdeganMatra):
     samples = 4                        # penghalus tepi; bawaan ManimGL 0
 
+    def sorot_pita(self, b, *mobs, lama=1.0, lebih=0.2):
+        pita = VGroup()
+        for m in mobs:
+            p = Rectangle(width=m.get_width() + lebih, height=m.get_depth() + lebih)
+            p.set_stroke(width=0).set_fill(SOROT, 0.35)
+            pita.add(tegak(p).move_to(m.get_center() + IN * 0.02))
+        self.add(pita)
+        b.main(FadeIn(pita), run_time=lama * 0.35)
+        b.main(FadeOut(pita), run_time=lama * 0.65)
+        self.remove(pita)
+
     def construct(self):
         frame = self.frame
         papan = sinema.PapanRumus(self)
         DUNIA, HUD, TULISAN = {}, {}, {}
-        HUD["identitas"] = sinema.identitas(self, "10 siswa", "jam belajar, nilai ujian")
 
         def taruh(nama, mob, tulisan=False):
             DUNIA[nama] = mob
@@ -146,23 +120,11 @@ class Regresi11(AdeganMatra):
             _, _, sy, dn = SKALA[nama or keadaan["nama"]]
             return Z_DASAR + (nilai - dn) * sy
 
-        # ------------------------------------------------------------------
-        # Panggung: dua sumbu berangka, dibangun ulang untuk tiap keadaan.
-        # ------------------------------------------------------------------
         def buat_sumbu(nama):
-            """Kembalikan (gabungan, bagian mendatar, bagian tegak).
-
-            Didaftarkan ke gerbang sebagai DUA benda pipih, bukan satu kotak
-            sebesar grafik: kotak batas gabungan mencakup seluruh bidang, jadi
-            papan rumus di pojok kanan atas dianggap menindihnya padahal tidak
-            ada garis yang bersentuhan (gerbang menolak render 4 Sep).
-            """
             datar, tegak_g = VGroup(), VGroup()
-            datar.add(Line([xj(-0.8, nama), 0, Z_DASAR],
-                           [xj(ANGKA_X[nama][-1] + 0.8, nama), 0, Z_DASAR])
+            datar.add(Line([xj(-0.8, nama), 0, Z_DASAR], [xj(ANGKA_X[nama][-1] + 0.8, nama), 0, Z_DASAR])
                       .set_stroke(REDUP, 2.4))
-            tegak_g.add(Line([X_SUMBU_Y, 0, Z_DASAR],
-                             [X_SUMBU_Y, 0, zn(ANGKA_Y[nama][-1] + 3, nama)])
+            tegak_g.add(Line([X_SUMBU_Y, 0, Z_DASAR], [X_SUMBU_Y, 0, zn(ANGKA_Y[nama][-1] + 3, nama)])
                         .set_stroke(REDUP, 2.4))
             for j in ANGKA_X[nama]:
                 x = xj(j, nama)
@@ -170,8 +132,7 @@ class Regresi11(AdeganMatra):
                 datar.add(tegak(rumus(str(j), 20, REDUP)).move_to([x, 0, Z_ANGKA]))
             for v in ANGKA_Y[nama]:
                 z = zn(v, nama)
-                tegak_g.add(Line([X_SUMBU_Y, 0, z], [X_SUMBU_Y - 0.10, 0, z])
-                            .set_stroke(REDUP, 1.6))
+                tegak_g.add(Line([X_SUMBU_Y, 0, z], [X_SUMBU_Y - 0.10, 0, z]).set_stroke(REDUP, 1.6))
                 tegak_g.add(tegak(rumus(str(v), 20, REDUP)).move_to([X_SUMBU_Y - 0.38, 0, z]))
             return VGroup(datar, tegak_g), datar, tegak_g
 
@@ -189,15 +150,12 @@ class Regresi11(AdeganMatra):
         titik_jauh = buat_titik("jauh")
 
         def garis_dari(b, a=None, dari=2.0, sampai=11.0, warna=REDUP, tebal=2.6, nama=None):
-            """Garis y = a + b x. Tanpa `a`, garisnya lewat titik pusat data."""
             if a is None:
                 a = MEAN_Y - b * MEAN_X
-            g = Line([xj(dari, nama), 0, zn(a + b * dari, nama)],
-                     [xj(sampai, nama), 0, zn(a + b * sampai, nama)])
+            g = Line([xj(dari, nama), 0, zn(a + b * dari, nama)], [xj(sampai, nama), 0, zn(a + b * sampai, nama)])
             return g.set_stroke(warna, tebal)
 
         def bilah_residu(b_miring, nama=None):
-            """Residu sebagai bilah berisi. Garis setipis ini hilang di 480p."""
             g = VGroup()
             a_potong = MEAN_Y - b_miring * MEAN_X
             for j, v in DATA:
@@ -210,218 +168,243 @@ class Regresi11(AdeganMatra):
             return g
 
         # ==================================================================
-        # Babak 1 `buka`: sumbu, lalu sepuluh titik.
+        # buka: judul sub-bab; sepuluh titik dan tiga garis, tanda tanya.
         # ==================================================================
         kamera.pasang_awal(frame, theta=0, phi=90, pusat=(0, 0, Z_KAMERA), tinggi=TINGGI_BINGKAI)
-        with sinema.babak(self, "buka", DURASI) as b:
-            sinema.judul_pembuka(self, "Materi 11: Garis regresi", lama=3.2, y=2.6)
+        tebakan = VGroup(garis_dari(2.5), garis_dari(3.2), garis_dari(3.9))
+        tanya = tegak(rumus("?", 44, SOROT)).move_to([xj(3.4), 0, zn(82)])
+        with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Hubungan")
+            sinema.judul_pembuka(self, "Hubungan Dua Variabel, Bagian 2", lama=3.2, y=2.6)
             b.catat(3.2)
+            b.tunggu_kata("Kalau")
             taruh("sumbu datar", sumbu_dekat_x)
             taruh("sumbu tegak", sumbu_dekat_y)
-            b.main(FadeIn(sumbu_dekat), run_time=1.6)
             taruh("titik", titik)
-            b.main(LaggedStartMap(FadeIn, titik, lag_ratio=0.14), run_time=3.6)
-            b.main(LaggedStartMap(
-                lambda m, **kw: Indicate(m, scale_factor=1.8, color=TINTA, **kw),
-                titik, lag_ratio=0.12), run_time=2.4)
-            b.jeda(1.4)
+            b.main(FadeIn(sumbu_dekat), LaggedStartMap(FadeIn, titik, lag_ratio=0.08), run_time=0.7)
+            b.tunggu_kata("menarik")
+            taruh("tebakan", tebakan)
+            b.main(LaggedStartMap(ShowCreation, tebakan, lag_ratio=0.3), run_time=1.5)
+            b.tunggu_kata("siapa")
+            taruh("tanya", tanya, tulisan=True)
+            b.main(FadeIn(tanya, shift=0.2 * OUT), run_time=0.5)
         periksa()
 
         # ==================================================================
-        # Babak 2 `banyak`: tiga garis berbeda, ketiganya masuk akal.
+        # ingat: jarak ke pusat (garis y = 70), jumlahnya nol, dikuadratkan.
+        # ==================================================================
+        garis_rata = DashedLine([xj(1.2), 0, zn(MEAN_Y)], [xj(11.8), 0, zn(MEAN_Y)]).set_stroke(SOROT, 2.2)
+        l_rata = tegak(rumus(r"\bar{y} = 70", 20, SOROT)).move_to([xj(12.3), 0, zn(MEAN_Y) + 0.05])
+        bilah0 = bilah_residu(0.0)
+        with sinema.babak(self, "ingat", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Di Ukuran")
+            b.main(FadeOut(tanya), FadeOut(tebakan), run_time=0.5)
+            buang("tanya", "tebakan")
+            b.tunggu_kata("jarak ke")
+            taruh("garis rata", garis_rata)
+            taruh("label rata", l_rata, tulisan=True)
+            b.main(ShowCreation(garis_rata), FadeIn(l_rata), run_time=0.7)
+            taruh("bilah nol", bilah0)
+            b.main(LaggedStartMap(GrowFromCenter, bilah0, lag_ratio=0.1), run_time=1.2)
+            b.tunggu_kata("jumlahnya nol")
+            b.main(*[Indicate(m, scale_factor=1.3, color=m.get_color()) for m in bilah0], run_time=0.9)
+            b.tunggu_kata("dikuadratkan")
+            self.sorot_pita(b, *bilah0, lama=1.2, lebih=0.14)
+            b.tunggu_kata("Cara yang")
+            b.main(FadeOut(bilah0), FadeOut(garis_rata), FadeOut(l_rata), run_time=0.6)
+            buang("bilah nol", "garis rata", "label rata")
+        periksa()
+
+        # ==================================================================
+        # banyak: tiga garis berbeda, ketiganya masuk akal; butuh ukuran.
         # ==================================================================
         tebakan = VGroup(garis_dari(2.5), garis_dari(3.2), garis_dari(3.9))
-
-        with sinema.babak(self, "banyak", DURASI) as b:
+        with sinema.babak(self, "banyak", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Sepuluh")
+            HUD["identitas"] = sinema.identitas(self, "10 siswa", "jam belajar, nilai ujian")
+            HUD["identitas"].set_opacity(0)
+            b.main(HUD["identitas"].animate.set_opacity(1), run_time=0.6)
+            b.tunggu_kata("Tiga orang")
             taruh("tebakan", tebakan)
-            for g in tebakan:
-                b.main(ShowCreation(g), run_time=1.6)
-            b.main(LaggedStartMap(
-                lambda m, **kw: Indicate(m, scale_factor=1.02, color=REDUP, **kw),
-                tebakan, lag_ratio=0.2), run_time=2.0)
-            b.main(FadeOut(tebakan[0]), FadeOut(tebakan[2]), run_time=1.2)
-            b.jeda(1.2)
+            b.main(LaggedStartMap(ShowCreation, tebakan, lag_ratio=0.3), run_time=1.8)
+            b.tunggu_kata("masuk akal")
+            b.main(LaggedStartMap(lambda m, **kw: Indicate(m, scale_factor=1.02, color=SOROT, **kw),
+                                  tebakan, lag_ratio=0.2), run_time=1.2)
+            b.tunggu_kata("mengukur")
+            b.main(FadeOut(tebakan[0]), FadeOut(tebakan[2]), run_time=0.8)
         periksa()
 
         # ==================================================================
-        # Babak 3 `residu`: jarak TEGAK, bukan tegak lurus. Yang salah ikut
-        # digambar sebentar supaya bedanya terlihat, lalu dibuang.
+        # residu: jarak TEGAK, bukan tegak lurus.
         # ==================================================================
         garis_uji = tebakan[1]
-        j0, v0 = DATA[8]                          # siswa 10 jam, nilai 78
-        ramal0 = MEAN_Y + 3.2 * (j0 - MEAN_X)     # 81,2, jadi residunya -3,2
+        j0, v0 = DATA[8]
         bilah_contoh = bilah_residu(3.2)[8].copy()
-        l_tegak = tegak(sinema.label("tegak", 20, AKSEN))
-        # Di samping bilah, label ini menindih titik data tetangga (render
-        # keempat). Ditaruh di BAWAH bilahnya, tempat yang benar-benar kosong.
-        l_tegak.move_to([xj(j0), 0, zn(v0) - 0.36])
-        # Kaki tegak lurus dihitung di ruang DUNIA: tegak lurus di layar bukan
-        # tegak lurus dalam satuan jam dan nilai, sebab skalanya berbeda.
+        l_tegak = tegak(sinema.label("tegak", 20, AKSEN)).move_to([xj(j0), 0, zn(v0) - 0.36])
         _p = np.array([xj(j0), zn(v0)])
         _q = np.array([xj(0.0), zn(A)])
         _d = np.array([xj(1.0) - xj(0.0), zn(A + B) - zn(A)])
         _kaki = _q + _d * float(np.dot(_p - _q, _d) / np.dot(_d, _d))
         ruas_serong = Line([_p[0], 0, _p[1]], [_kaki[0], 0, _kaki[1]]).set_stroke(REDUP, 2.6)
 
-        with sinema.babak(self, "residu", DURASI) as b:
-            # Sumbu keluar bingkai selama empat babak ini, jadi ia dilepas dari
-            # daftar periksa. Kelompok `tebakan` juga: dua anggotanya sudah
-            # dipadamkan tetapi kotak batasnya masih menjulur ke jalur subtitle
-            # begitu kamera didekatkan. Yang masih terlihat cuma garis tengahnya,
-            # dan ITU didaftarkan menggantikannya, jadi tidak ada yang lolos
-            # periksa: titik, bilah, garis, dan tulisan semuanya tetap dijaga.
+        with sinema.babak(self, "residu", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Untuk")
             buang("sumbu datar", "sumbu tegak", "tebakan")
             taruh("garis", garis_uji)
-            b.main(kamera.dekati(frame, [0.35, 0, 0.59], 4.8), run_time=2.0)
-            b.main(Indicate(titik[8], scale_factor=2.2, color=TINTA), run_time=1.2)
+            b.main(kamera.dekati(frame, [0.35, 0, 0.59], 4.8), run_time=1.4)
+            b.main(Indicate(titik[8], scale_factor=2.2, color=SOROT), run_time=0.6)
+            b.tunggu_kata("jarak tegak")
             taruh("bilah contoh", bilah_contoh)
-            b.main(GrowFromCenter(bilah_contoh), run_time=1.6)
             taruh("label tegak", l_tegak, tulisan=True)
-            b.main(FadeIn(l_tegak), run_time=1.0)
+            b.main(GrowFromCenter(bilah_contoh), FadeIn(l_tegak), run_time=1.0)
+            b.tunggu_kata("Bukan")
             taruh("ruas serong", ruas_serong)
-            b.main(ShowCreation(ruas_serong), run_time=1.2)
-            b.main(FadeOut(ruas_serong), run_time=1.0)
+            b.main(ShowCreation(ruas_serong), run_time=0.8)
+            b.tunggu_kata("sebab")
+            b.main(FadeOut(ruas_serong), run_time=0.6)
             buang("ruas serong")
-            b.main(Indicate(bilah_contoh, scale_factor=1.3, color=AKSEN), run_time=1.2)
-            b.main(FadeOut(l_tegak), run_time=0.8)
+            b.tunggu_kata("nilai y")
+            b.main(Indicate(bilah_contoh, scale_factor=1.3, color=SOROT), FadeOut(l_tegak), run_time=0.9)
             buang("label tegak")
-            b.jeda(1.2)
         periksa()
 
         # ==================================================================
-        # Babak 4 `tanda`: kesepuluh residu, warnanya menyebut tandanya.
+        # tanda: kesepuluh residu, warnanya menyebut tandanya.
         # ==================================================================
         bilah = bilah_residu(3.2)
-
-        with sinema.babak(self, "tanda", DURASI) as b:
-            b.main(FadeOut(bilah_contoh), run_time=0.6)
-            buang("bilah contoh")
-            taruh("bilah", bilah)
-            b.main(LaggedStartMap(GrowFromCenter, bilah, lag_ratio=0.12), run_time=3.4)
-            b.main(LaggedStartMap(
-                lambda m, **kw: Indicate(m, scale_factor=1.3, color=m.get_color(), **kw),
-                bilah, lag_ratio=0.1), run_time=2.4)
-            b.jeda(1.4)
-        periksa()
-
-        # ==================================================================
-        # Babak 5 `nol`: menjumlah gagal. Yang biru dan yang bata saling hapus.
-        # ==================================================================
         biru = [bilah[i] for i, (j, v) in enumerate(DATA) if v >= MEAN_Y + 3.2 * (j - MEAN_X)]
         bata = [bilah[i] for i, (j, v) in enumerate(DATA) if v < MEAN_Y + 3.2 * (j - MEAN_X)]
-
-        with sinema.babak(self, "nol", DURASI) as b:
-            b.main(*[Indicate(m, scale_factor=1.35, color=AKSEN2) for m in biru], run_time=1.4)
-            b.main(*[Indicate(m, scale_factor=1.35, color=AKSEN) for m in bata], run_time=1.4)
-            sinema.lahir_rumus(self, r"\sum r = 0", bilah[4], papan, b=b, warna=REDUP)
-            b.jeda(1.4)
+        with sinema.babak(self, "tanda", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Jarak")
+            b.main(FadeOut(bilah_contoh), run_time=0.3)
+            buang("bilah contoh")
+            taruh("bilah", bilah)
+            b.main(LaggedStartMap(GrowFromCenter, bilah, lag_ratio=0.12), run_time=1.8)
+            b.tunggu_kata("Titik di")
+            b.main(*[Indicate(m, scale_factor=1.35, color=SOROT) for m in biru], run_time=1.0)
+            b.tunggu_kata("titik di", ke=2)
+            b.main(*[Indicate(m, scale_factor=1.35, color=SOROT) for m in bata], run_time=1.0)
         periksa()
 
         # ==================================================================
-        # Babak 6 `kuadrat`: dikuadratkan lalu dijumlahkan. Satu angka.
+        # nol: menjumlah gagal.
         # ==================================================================
-        # Residu terbesar: siswa 10 jam, nilai 78, ramalan 81,2, jadi -3,2.
-        l_terbesar = tegak(rumus("r = -3{,}2", 19, AKSEN))
-        l_terbesar.move_to([xj(10) + 0.92, 0, (zn(78) + zn(81.2)) / 2])
-
-        with sinema.babak(self, "kuadrat", DURASI) as b:
-            b.main(Indicate(bilah[8], scale_factor=1.4, color=AKSEN), run_time=1.2)
-            taruh("residu terbesar", l_terbesar, tulisan=True)
-            b.main(FadeIn(l_terbesar), run_time=0.8)
-            sinema.ganti_rumus(self, papan.utama, r"\sum r^2 = 27{,}2", b=b,
-                               run_time=1.6, papan=papan)
-            b.main(LaggedStartMap(
-                lambda m, **kw: Indicate(m, scale_factor=1.3, color=SOROT, **kw),
-                bilah, lag_ratio=0.09), run_time=2.6)
-            b.main(FadeOut(l_terbesar), run_time=0.8)
-            buang("residu terbesar")
-            b.main(Indicate(papan.utama, scale_factor=1.15, color=SOROT), run_time=1.4)
-            b.jeda(1.4)
+        with sinema.babak(self, "nol", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Menjumlah")
+            sinema.lahir_rumus(self, r"\sum r = 0", bilah[4], papan, b=b, warna=REDUP, ukuran_lahir=48,
+                               tahan=0.5, run_time=1.0)
+            b.tunggu_kata("saling")
+            b.main(*[Indicate(m, scale_factor=1.35, color=SOROT) for m in biru], run_time=0.6)
+            b.main(*[Indicate(m, scale_factor=1.35, color=SOROT) for m in bata], run_time=0.6)
         periksa()
 
         # ==================================================================
-        # Babak 7 `kecilkan`: garisnya diputar mengelilingi titik pusat data,
-        # dan angkanya turun lalu naik lagi. Inilah kuadrat terkecil.
+        # kuadrat: dikuadratkan lalu dijumlahkan. Satu angka.
         # ==================================================================
-        with sinema.babak(self, "kecilkan", DURASI) as b:
+        with sinema.babak(self, "kuadrat", DURASI, kata=KATA) as b:
+            b.tunggu_kata("dikuadratkan")
+            sinema.ganti_rumus(self, papan.utama, r"\sum r^2", b=b, run_time=1.0, papan=papan)
+            b.tunggu_kata("dijumlahkan")
+            b.main(LaggedStartMap(lambda m, **kw: Indicate(m, scale_factor=1.3, color=SOROT, **kw),
+                                  bilah, lag_ratio=0.09), run_time=1.5)
+            b.tunggu_kata("satu angka")
+            sinema.ganti_rumus(self, papan.utama, r"\sum r^2 = 27{,}2", b=b, run_time=1.0, papan=papan)
+            b.tunggu_kata("dua puluh")
+            b.main(Indicate(papan.utama, scale_factor=1.0, color=SOROT), run_time=0.9)
+        periksa()
+
+        # ==================================================================
+        # kecilkan: garisnya diputar mengelilingi pusat data; angkanya turun lalu naik.
+        # ==================================================================
+        with sinema.babak(self, "kecilkan", DURASI, kata=KATA) as b:
+            b.tunggu_kata("putar")
             taruh("sumbu datar", sumbu_dekat_x)
             taruh("sumbu tegak", sumbu_dekat_y)
-            b.main(kamera.dekati(frame, [0, 0, Z_KAMERA], TINGGI_BINGKAI), run_time=1.6)
-            for miring in (2.0, 2.6, 3.2, 3.8):
-                b.main(Transform(garis_uji, garis_dari(miring)),
-                       Transform(bilah, bilah_residu(miring)), run_time=1.2)
-                sinema.ganti_rumus(self, papan.utama,
-                                   rf"\sum r^2 = {koma(JKR[miring], 1)}", b=b,
-                                   run_time=0.8, papan=papan)
-            b.jeda(1.2)
+            b.main(kamera.dekati(frame, [0, 0, Z_KAMERA], TINGGI_BINGKAI), run_time=1.2)
+            for frasa, miring in (("seratus", 2.0), ("lima puluh", 2.6), ("dua puluh", 3.2), ("Diputar", 3.8)):
+                b.tunggu_kata(frasa)
+                b.main(Transform(garis_uji, garis_dari(miring)), Transform(bilah, bilah_residu(miring)), run_time=0.9)
+                sinema.ganti_rumus(self, papan.utama, rf"\sum r^2 = {koma(JKR[miring], 1)}", b=b, run_time=0.6, papan=papan)
         periksa()
 
         # ==================================================================
-        # Babak 8 `rumus`: kembali ke 3,2 dan persamaannya ditulis.
+        # rumus: kembali ke 3,2, kuadrat terkecil, persamaannya.
         # ==================================================================
         garis_terbaik = garis_dari(B, A, warna=SOROT, tebal=3.4)
-
-        with sinema.babak(self, "rumus", DURASI) as b:
-            b.main(Transform(garis_uji, garis_terbaik),
-                   Transform(bilah, bilah_residu(3.2)), run_time=1.6)
-            sinema.ganti_rumus(self, papan.utama, r"\sum r^2 = 27{,}2", b=b,
-                               run_time=1.0, papan=papan)
-            papan.baris(r"b = 3{,}2", SOROT)
-            b.catat(0.8)
-            papan.baris(r"a = 49{,}2", SOROT)
-            b.catat(0.8)
-            papan.baris(r"\hat{y} = 49{,}2 + 3{,}2x", SOROT)
-            b.catat(0.8)
-            b.main(FadeOut(bilah), run_time=1.0)
+        with sinema.babak(self, "rumus", DURASI, kata=KATA) as b:
+            b.tunggu_kata("satu garis")
+            b.main(Transform(garis_uji, garis_terbaik), Transform(bilah, bilah_residu(3.2)), run_time=1.2)
+            sinema.ganti_rumus(self, papan.utama, r"\sum r^2 = 27{,}2", b=b, run_time=0.6, papan=papan)
+            b.tunggu_kata("cuma satu")
+            b.main(Indicate(garis_uji, scale_factor=1.02, color=SOROT), run_time=0.9)
+            b.tunggu_kata("metode")
+            b.main(papan.sorot(), run_time=1.0)
+            b.tunggu_kata("Garis terbaiknya")
+            baris_y = papan.baris(r"\hat{y} = 49{,}2 + 3{,}2x", SOROT, b=b)
+            b.main(FadeOut(bilah), run_time=0.6)
             buang("bilah")
-            b.main(Indicate(garis_uji, scale_factor=1.02, color=SOROT), run_time=1.4)
-            b.jeda(1.4)
         periksa()
 
         # ==================================================================
-        # Babak 9 `arti`: satu jam ke kanan, tiga koma dua ke atas.
+        # hitung: dari mana 3,2; lima jumlah di dunia, b dan a di panel baru.
+        # ==================================================================
+        jumlah1 = tegak(rumus(r"n = 10,\quad \sum x = 65,\quad \sum y = 700", 21, TINTA)).move_to([-2.85, 0, 1.75])
+        jumlah2 = tegak(rumus(r"\sum xy = 4814,\quad \sum x^2 = 505", 21, TINTA)).move_to([-2.85, 0, 1.30])
+        with sinema.babak(self, "hitung", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Dari lima")
+            b.main(FadeOut(papan.semua()), run_time=0.5)
+            self.remove(*papan.semua())
+            papan = sinema.PapanRumus(self, tanpa_utama=True)
+            b.tunggu_kata("n sepuluh")
+            taruh("jumlah 1", jumlah1, tulisan=True)
+            b.main(FadeIn(jumlah1), run_time=0.6)
+            b.tunggu_kata("jumlah x y")
+            taruh("jumlah 2", jumlah2, tulisan=True)
+            b.main(FadeIn(jumlah2), run_time=0.6)
+            b.tunggu_kata("Kemiringan")
+            baris_b = papan.baris(r"b = \frac{n\sum xy - \sum x \sum y}{n\sum x^2 - (\sum x)^2}", SOROT, b=b)
+            b.tunggu_kata("dua ribu")
+            baris_b = sinema.ganti_rumus(self, baris_b, r"b = \frac{2640}{825} = 3{,}2", b=b, run_time=0.9, papan=papan)
+            b.tunggu_kata("Lalu")
+            baris_a = papan.baris(r"a = \bar{y} - b\,\bar{x}", SOROT, b=b)
+            b.tunggu_kata("tujuh puluh")
+            baris_a = sinema.ganti_rumus(self, baris_a, r"a = 70 - 20{,}8 = 49{,}2", b=b, run_time=0.9, papan=papan)
+        periksa()
+
+        # ==================================================================
+        # arti: satu jam ke kanan, tiga koma dua ke atas.
         # ==================================================================
         j_a = 7
-        tangga_datar = Line([xj(j_a), 0, zn(A + B * j_a)], [xj(j_a + 1), 0, zn(A + B * j_a)])
-        tangga_datar.set_stroke(TINTA, 2.6)
-        tangga_naik = Line([xj(j_a + 1), 0, zn(A + B * j_a)],
-                           [xj(j_a + 1), 0, zn(A + B * (j_a + 1))]).set_stroke(TINTA, 2.6)
-        l_satu = tegak(sinema.label("1 jam", 19, TINTA))
-        l_satu.move_to([xj(j_a + 0.5), 0, zn(A + B * j_a) - 0.30])
-        l_naik = tegak(rumus("3{,}2", 19, TINTA))
-        l_naik.move_to([xj(j_a + 1) + 0.44, 0, zn(A + B * (j_a + 0.5))])
-
-        with sinema.babak(self, "arti", DURASI) as b:
+        tangga_datar = Line([xj(j_a), 0, zn(A + B * j_a)], [xj(j_a + 1), 0, zn(A + B * j_a)]).set_stroke(TINTA, 2.6)
+        tangga_naik = Line([xj(j_a + 1), 0, zn(A + B * j_a)], [xj(j_a + 1), 0, zn(A + B * (j_a + 1))]).set_stroke(TINTA, 2.6)
+        l_satu = tegak(sinema.label("1 jam", 19, TINTA)).move_to([xj(j_a + 0.5), 0, zn(A + B * j_a) - 0.30])
+        l_naik = tegak(rumus("3{,}2", 19, TINTA)).move_to([xj(j_a + 1) + 0.44, 0, zn(A + B * (j_a + 0.5))])
+        with sinema.babak(self, "arti", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Kemiringan")
+            b.main(FadeOut(jumlah1), FadeOut(jumlah2), run_time=0.5)
+            buang("jumlah 1", "jumlah 2")
+            b.tunggu_kata("tiap tambahan")
             taruh("tangga", VGroup(tangga_datar, tangga_naik))
-            b.main(ShowCreation(tangga_datar), run_time=1.0)
             taruh("label satu jam", l_satu, tulisan=True)
-            b.main(FadeIn(l_satu), run_time=0.8)
-            b.main(ShowCreation(tangga_naik), run_time=1.0)
+            b.main(ShowCreation(tangga_datar), FadeIn(l_satu), run_time=0.8)
+            b.tunggu_kata("naik")
             taruh("label naik", l_naik, tulisan=True)
-            b.main(FadeIn(l_naik), run_time=0.8)
-            b.main(Indicate(VGroup(tangga_datar, tangga_naik), scale_factor=1.2,
-                            color=TINTA), run_time=1.4)
-            b.jeda(1.4)
+            b.main(ShowCreation(tangga_naik), FadeIn(l_naik), run_time=0.8)
+            b.tunggu_kata("poin")
+            b.main(Indicate(VGroup(tangga_datar, tangga_naik), scale_factor=1.2, color=SOROT), run_time=0.9)
         periksa()
 
         # ==================================================================
-        # Babak 10 `jauh`: penggarisnya ditarik sampai 190, dan datanya sendiri
-        # menciut jadi gerombolan di pojok. Itu gambaran paling jujur tentang
-        # ekstrapolasi: ramalannya jauh di luar tempat datanya pernah ada.
+        # jauh: penggaris ditarik sampai 190; datanya menciut jadi gerombolan.
         # ==================================================================
-        garis_jauh = garis_dari(B, A, dari=0.0, sampai=JAM_JAUH, warna=SOROT, tebal=3.4,
-                                nama="jauh")
-        langit = DashedLine([xj(-1.0, "jauh"), 0, zn(BATAS_NILAI, "jauh")],
-                            [xj(43.0, "jauh"), 0, zn(BATAS_NILAI, "jauh")])
+        garis_jauh = garis_dari(B, A, dari=0.0, sampai=JAM_JAUH, warna=SOROT, tebal=3.4, nama="jauh")
+        langit = DashedLine([xj(-1.0, "jauh"), 0, zn(BATAS_NILAI, "jauh")], [xj(43.0, "jauh"), 0, zn(BATAS_NILAI, "jauh")])
         langit.set_stroke(AKSEN, 2.4)
-        l_langit = tegak(sinema.label("batas 100", 19, AKSEN))
-        l_langit.move_to([xj(30.0, "jauh"), 0, zn(BATAS_NILAI, "jauh") + 0.30])
-        l_ramal = tegak(rumus("177{,}2", 20, AKSEN))
-        l_ramal.move_to([xj(38.0, "jauh"), 0, zn(A + B * 38.0, "jauh") - 0.34])
-
-        with sinema.babak(self, "jauh", DURASI) as b:
-            b.main(FadeOut(VGroup(tangga_datar, tangga_naik)), FadeOut(l_satu),
-                   FadeOut(l_naik), run_time=0.8)
+        l_langit = tegak(sinema.label("batas 100", 19, AKSEN)).move_to([xj(30.0, "jauh"), 0, zn(BATAS_NILAI, "jauh") + 0.30])
+        l_ramal = tegak(rumus("177{,}2", 20, AKSEN)).move_to([xj(38.0, "jauh"), 0, zn(A + B * 38.0, "jauh") - 0.34])
+        with sinema.babak(self, "jauh", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Diteruskan")
+            b.main(FadeOut(VGroup(tangga_datar, tangga_naik)), FadeOut(l_satu), FadeOut(l_naik), run_time=0.4)
             buang("tangga", "label satu jam", "label naik")
             keadaan["nama"] = "jauh"
             taruh("sumbu datar", sumbu_jauh_x)
@@ -429,16 +412,54 @@ class Regresi11(AdeganMatra):
             taruh("titik", titik_jauh)
             b.main(FadeOut(sumbu_dekat), FadeIn(sumbu_jauh),
                    *[Transform(a, c) for a, c in zip(titik, titik_jauh)],
-                   Transform(garis_uji, garis_dari(B, A, 0.0, 12.0, SOROT, 3.4, "jauh")),
-                   run_time=3.0)
+                   Transform(garis_uji, garis_dari(B, A, 0.0, 12.0, SOROT, 3.4, "jauh")), run_time=2.0)
+            b.tunggu_kata("meramalkan")
+            taruh("garis jauh", garis_jauh)
+            b.main(Transform(garis_uji, garis_jauh), run_time=1.4)
+            b.tunggu_kata("koma dua")
+            taruh("angka ramalan", l_ramal, tulisan=True)
+            b.main(FadeIn(l_ramal), run_time=0.5)
+            b.tunggu_kata("Nilai ujian")
             taruh("langit", VGroup(langit, l_langit))
             TULISAN["label langit"] = l_langit
-            b.main(ShowCreation(langit), FadeIn(l_langit), run_time=1.6)
-            taruh("garis jauh", garis_jauh)
-            b.main(Transform(garis_uji, garis_jauh), run_time=2.0)
-            taruh("angka ramalan", l_ramal, tulisan=True)
-            b.main(FadeIn(l_ramal), run_time=1.0)
-            b.main(Indicate(l_ramal, scale_factor=1.4, color=AKSEN), run_time=1.4)
-            b.main(Indicate(langit, scale_factor=1.02, color=AKSEN), run_time=1.4)
-            b.jeda(1.2)
+            b.main(ShowCreation(langit), FadeIn(l_langit), run_time=1.0)
+            b.tunggu_kata("garisnya tidak")
+            b.main(Indicate(l_ramal, scale_factor=1.4, color=AKSEN), run_time=0.9)
         periksa()
+
+        # ==================================================================
+        # tutup: jumlah kuadrat residu terkecil; ramalan hanya di sekitar data.
+        # ==================================================================
+        with sinema.babak(self, "tutup", DURASI, kata=KATA) as b:
+            b.tunggu_kata("jumlah kuadrat")
+            papan.baris(r"\sum r^2 = 27{,}2\ \text{terkecil}", SOROT, b=b)
+            b.tunggu_kata("di sekitar")
+            self.sorot_pita(b, titik_jauh, lama=1.4, lebih=0.4)
+        periksa()
+
+        # ==================================================================
+        # lanjut: r = 0,98, apakah sebab-akibat?
+        # ==================================================================
+        judul_lanjut = teks("Hubungan Dua Variabel, Bagian 3", 30, SOROT).move_to([0, 2.6, 0]).fix_in_frame()
+        l_r = tegak(rumus("r = 0{,}98", 44, SOROT)).move_to([0, 0, 0.9])
+        l_sebab = tegak(sinema.label("sebab-akibat?", 30, AKSEN)).move_to([0, 0, 0.0])
+        with sinema.babak(self, "lanjut", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Hubungan")
+            b.main(FadeOut(VGroup(sumbu_jauh, titik, garis_uji, langit, l_langit, l_ramal)),
+                   FadeOut(papan.semua()), FadeOut(HUD["identitas"]), FadeIn(judul_lanjut, shift=0.2 * UP), run_time=0.7)
+            self.remove(*papan.semua())
+            papan = sinema.PapanRumus(self, tanpa_utama=True)
+            HUD["identitas"] = None
+            for n in list(DUNIA):
+                buang(n)
+            self.hud_tambah(judul_lanjut)
+            HUD["judul lanjut"] = judul_lanjut
+            b.tunggu_kata("namanya")
+            taruh("r", l_r, tulisan=True)
+            b.main(FadeIn(l_r, scale=1.3), run_time=0.7)
+            b.tunggu_kata("menyebabkan")
+            taruh("sebab", l_sebab, tulisan=True)
+            b.main(FadeIn(l_sebab, shift=0.2 * OUT), run_time=0.6)
+        periksa()
+
+        sinema.laporkan_pemicu(self)

@@ -1,111 +1,180 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/ruang-3d-04.json
+NOTE Dibuat otomatis dari manim/narasi/ruang-3d-04.json (waktu kata rekaman)
+NOTE naskah-sidik 2d879fcb3404
 
 1
-00:00:00.000 --> 00:00:02.266
-Materi 4, <b>dua kali Pythagoras</b>.
+00:00:00.101 --> 00:00:02.646
+Jarak dalam Ruang, Bagian 2.
 
 2
-00:00:02.266 --> 00:00:04.155
-Di materi sebelumnya kita
+00:00:03.380 --> 00:00:05.964
+Berapa panjang diagonal ruang sebuah kubus?
 
 3
-00:00:04.155 --> 00:00:06.497
-berhenti pada kaki tegak lurus.
+00:00:07.182 --> 00:00:10.403
+Di materi sebelumnya, Jarak dalam Ruang, Bagian 1,
 
 4
-00:00:06.497 --> 00:00:10.727
-Sekarang pertanyaannya lebih pendek tetapi sering salah:
+00:00:10.403 --> 00:00:12.722
+kita berhenti pada kaki tegak lurus:
 
 5
-00:00:10.727 --> 00:00:13.296
-berapa panjang diagonal kubus ini?
+00:00:12.722 --> 00:00:14.977
+jarak selalu ruas yang tegak lurus,
 
 6
-00:00:13.296 --> 00:00:16.061
-Mulai dari yang tampak lebih dulu.
+00:00:14.977 --> 00:00:17.832
+dan panjangnya dihitung dengan Pythagoras.
 
 7
-00:00:16.061 --> 00:00:19.639
-A̅C̅ menghubungkan dua sudut pada satu sisi,
+00:00:18.565 --> 00:00:21.781
+Hari ini Pythagoras itu dipakai dua kali berturut-turut.
 
 8
-00:00:19.639 --> 00:00:21.835
-jadi namanya <b>diagonal sisi</b>.
+00:00:23.001 --> 00:00:26.283
+Kubusnya masih yang sama, rusuknya 6 satuan.
 
 9
-00:00:21.835 --> 00:00:24.112
-Segitiga ABC siku-siku di B,
+00:00:27.032 --> 00:00:33.071
+Titik A di titik asal, B, C, dan D di lantai, E, F, G,
 
 10
-00:00:24.112 --> 00:00:27.528
-dan kedua sisi tegaknya rusuk sepanjang 6.
+00:00:33.071 --> 00:00:34.787
+dan H di atap.
 
 11
-00:00:27.528 --> 00:00:32.496
-Jadi AC² sama dengan 36 ditambah 36, yaitu <b>72</b>.
+00:00:36.000 --> 00:00:37.887
+Mulai dari yang tampak lebih dulu.
 
 12
-00:00:32.496 --> 00:00:38.112
-Jangan diakarkan dulu, angka itu masih akan dipakai.
+00:00:38.637 --> 00:00:41.320
+AC menghubungkan dua sudut pada satu sisi,
 
 13
-00:00:38.112 --> 00:00:39.752
-Sekarang yang sulit.
+00:00:41.320 --> 00:00:43.195
+jadi namanya <b>diagonal sisi</b>.
 
 14
-00:00:39.752 --> 00:00:42.457
-A̅G̅ menembus bagian dalam kubus,
+00:00:43.939 --> 00:00:45.997
+Segitiga ABC siku-siku di B,
 
 15
-00:00:42.457 --> 00:00:44.753
-jadi namanya <b>diagonal ruang</b>.
+00:00:45.997 --> 00:00:49.234
+dan kedua sisi tegaknya rusuk sepanjang 6.
 
 16
-00:00:44.753 --> 00:00:46.885
-Segitiga penolongnya, ACG,
+00:00:50.449 --> 00:00:55.968
+Jadi AC² = 36 + 36 = 72.
 
 17
-00:00:46.885 --> 00:00:49.508
-berdiri tegak di dalam kubus dan
+00:00:56.700 --> 00:01:00.074
+Jangan diakarkan dulu, angka itu masih akan dipakai.
 
 18
-00:00:49.508 --> 00:00:52.296
-tidak menempel pada sisi mana pun.
+00:01:01.316 --> 00:01:07.940
+Kalau diakarkan pun boleh: √72 = 6√2, kira-kira 8,49.
 
 19
-00:00:52.296 --> 00:00:57.400
-Alasnya A̅C̅ tadi, sisi tegaknya rusuk C̅G̅,
+00:01:08.672 --> 00:01:11.533
+Itu panjang diagonal sisi mana pun di kubus ini.
 
 20
-00:00:57.400 --> 00:00:59.952
-dan siku-sikunya di C.
+00:01:12.767 --> 00:01:14.206
+Sekarang yang sulit.
 
 21
-00:00:59.952 --> 00:01:05.404
-Jadi AG² sama dengan 72 ditambah 36, yaitu 108.
+00:01:14.956 --> 00:01:16.975
+AG menembus bagian dalam kubus,
 
 22
-00:01:05.404 --> 00:01:07.608
-AG sama dengan <b>6√3</b>.
+00:01:16.975 --> 00:01:18.948
+jadi namanya <b>diagonal ruang</b>.
 
 23
-00:01:07.608 --> 00:01:10.905
-Angka 3 di dalam akar itu bukan kebetulan.
+00:01:19.693 --> 00:01:21.418
+Segitiga penolongnya, ACG,
 
 24
-00:01:10.905 --> 00:01:15.065
-Ia menghitung ada berapa arah yang dilewati: panjang,
+00:01:21.418 --> 00:01:23.542
+berdiri tegak di dalam kubus dan
 
 25
-00:01:15.065 --> 00:01:16.478
-lebar, dan tinggi.
+00:01:23.542 --> 00:01:25.948
+tidak menempel pada sisi mana pun.
 
 26
-00:01:16.478 --> 00:01:18.990
-Diagonal ruang bukan rumus baru,
+00:01:27.149 --> 00:01:30.358
+Alasnya AC tadi, sisi tegaknya rusuk CG,
 
 27
-00:01:18.990 --> 00:01:22.680
+00:01:30.358 --> 00:01:32.273
+dan siku-sikunya di C.
+
+28
+00:01:33.020 --> 00:01:38.512
+Jadi AG² = 72 + 36 = 108.
+
+29
+00:01:39.257 --> 00:01:43.710
+AG = 6√3, kira-kira 10,39.
+
+30
+00:01:44.949 --> 00:01:48.005
+Perhatikan: yang dijumlahkan itu kuadratnya,
+
+31
+00:01:48.005 --> 00:01:49.355
+bukan panjangnya.
+
+32
+00:01:50.069 --> 00:01:52.969
+6√2 + 6 bukan diagonal ruang.
+
+33
+00:01:53.700 --> 00:01:57.166
+Yang boleh dijumlahkan hanya 72 dan 36.
+
+34
+00:01:58.382 --> 00:02:03.448
+Bentuk umumnya, untuk balok dengan panjang p, lebar l,
+
+35
+00:02:03.448 --> 00:02:08.006
+dan tinggi t: diagonal ruang = √(p² + l² + t²).
+
+36
+00:02:08.753 --> 00:02:12.746
+Pada kubus ketiganya sama, jadi hasilnya rusuk × √3.
+
+37
+00:02:13.935 --> 00:02:16.545
+Angka 3 di dalam akar itu bukan kebetulan.
+
+38
+00:02:17.294 --> 00:02:21.144
+Ia menghitung ada berapa arah yang dilewati: panjang,
+
+39
+00:02:21.144 --> 00:02:22.602
+lebar, dan tinggi.
+
+40
+00:02:23.346 --> 00:02:25.175
+Diagonal ruang bukan rumus baru,
+
+41
+00:02:25.175 --> 00:02:28.010
 ia Pythagoras yang dipakai untuk <b>kedua kalinya</b>.
+
+42
+00:02:29.249 --> 00:02:32.509
+Di materi berikutnya, Jarak dalam Ruang, Bagian 3,
+
+43
+00:02:32.509 --> 00:02:35.769
+titiknya di pojok dan garisnya diagonal ruang ini:
+
+44
+00:02:35.769 --> 00:02:38.136
+di mana kaki tegak lurusnya jatuh?

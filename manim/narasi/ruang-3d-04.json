@@ -1,38 +1,68 @@
 {
   "adegan": "DuaKaliPythagoras",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Ruang Tiga Dimensi materi 04. Diagonal ruang dibangun DI DALAM kubus supaya siswa melihat segitiga penolongnya berdiri, bukan membayangkannya.",
+  "tempo": "-5%",
+  "catatan": "Jarak dalam Ruang, Bagian 2 (Materi 04). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (85 detik) yang sudah disetujui ARYA: ISI TETAP SAMA (diagonal sisi AC, segitiga ABC siku-siku di B, AC kuadrat = 72 dibiarkan kuadrat; diagonal ruang AG, segitiga penolong ACG berdiri di dalam kubus, AG kuadrat = 72 + 36 = 108, AG = 6 akar 3; angka 3 di dalam akar = tiga arah). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2 dengan pertanyaan, segar-ingat Jarak dalam Ruang Bagian 1 (kaki tegak lurus, Pythagoras), contoh angka akar 72 = 8,49, peringatan yang dijumlahkan kuadratnya bukan panjangnya, bentuk umum diagonal balok akar(p^2 + l^2 + t^2), penutup menunjuk Bagian 3.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi empat, *dua kali Pythagoras*. Di materi sebelumnya kita berhenti pada kaki tegak lurus. Sekarang pertanyaannya lebih pendek tetapi sering salah: berapa panjang diagonal kubus ini?",
-      "tulis": "Materi 4, *dua kali Pythagoras*. Di materi sebelumnya kita berhenti pada kaki tegak lurus. Sekarang pertanyaannya lebih pendek tetapi sering salah: berapa panjang diagonal kubus ini?"
+      "teks": "Jarak dalam Ruang, Bagian dua. Berapa panjang diagonal ruang sebuah kubus?",
+      "tulis": "Jarak dalam Ruang, Bagian 2. Berapa panjang diagonal ruang sebuah kubus?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di materi sebelumnya, Jarak dalam Ruang, Bagian satu, kita berhenti pada kaki tegak lurus: jarak selalu ruas yang tegak lurus, dan panjangnya dihitung dengan Pythagoras. Hari ini Pythagoras itu dipakai dua kali berturut-turut.",
+      "tulis": "Di materi sebelumnya, Jarak dalam Ruang, Bagian 1, kita berhenti pada kaki tegak lurus: jarak selalu ruas yang tegak lurus, dan panjangnya dihitung dengan Pythagoras. Hari ini Pythagoras itu dipakai dua kali berturut-turut."
+    },
+    {
+      "id": "kubus",
+      "teks": "Kubusnya masih yang sama, rusuknya enam satuan. Titik A di titik asal, B, C, dan D di lantai, E, F, G, dan H di atap.",
+      "tulis": "Kubusnya masih yang sama, rusuknya 6 satuan. Titik A di titik asal, B, C, dan D di lantai, E, F, G, dan H di atap."
     },
     {
       "id": "sisi",
-      "teks": "Mulai dari yang tampak lebih dulu. A C menghubungkan dua sudut pada satu sisi, jadi namanya *diagonal sisi*. Segitiga A B C siku-siku di B, dan kedua sisi tegaknya rusuk sepanjang enam.",
-      "tulis": "Mulai dari yang tampak lebih dulu. A̅C̅ menghubungkan dua sudut pada satu sisi, jadi namanya *diagonal sisi*. Segitiga ABC siku-siku di B, dan kedua sisi tegaknya rusuk sepanjang 6."
+      "teks": "Mulai dari yang tampak lebih dulu. A C menghubungkan dua sudut pada satu sisi, jadi namanya diagonal sisi. Segitiga A B C siku-siku di B, dan kedua sisi tegaknya rusuk sepanjang enam.",
+      "tulis": "Mulai dari yang tampak lebih dulu. AC menghubungkan dua sudut pada satu sisi, jadi namanya *diagonal sisi*. Segitiga ABC siku-siku di B, dan kedua sisi tegaknya rusuk sepanjang 6."
     },
     {
       "id": "hitung1",
-      "teks": "Jadi A C kuadrat sama dengan tiga puluh enam ditambah tiga puluh enam, yaitu *tujuh puluh dua*. Jangan diakarkan dulu, angka itu masih akan dipakai.",
-      "tulis": "Jadi AC² sama dengan 36 ditambah 36, yaitu *72*. Jangan diakarkan dulu, angka itu masih akan dipakai."
+      "teks": "Jadi A C kuadrat sama dengan tiga puluh enam ditambah tiga puluh enam, yaitu tujuh puluh dua. Jangan diakarkan dulu, angka itu masih akan dipakai.",
+      "tulis": "Jadi AC² = 36 + 36 = 72. Jangan diakarkan dulu, angka itu masih akan dipakai."
+    },
+    {
+      "id": "cek1",
+      "teks": "Kalau diakarkan pun boleh: akar tujuh puluh dua sama dengan enam akar dua, kira-kira delapan koma empat sembilan. Itu panjang diagonal sisi mana pun di kubus ini.",
+      "tulis": "Kalau diakarkan pun boleh: √72 = 6√2, kira-kira 8,49. Itu panjang diagonal sisi mana pun di kubus ini."
     },
     {
       "id": "ruang",
-      "teks": "Sekarang yang sulit. A G menembus bagian dalam kubus, jadi namanya *diagonal ruang*. Segitiga penolongnya, A C G, berdiri tegak di dalam kubus dan tidak menempel pada sisi mana pun.",
-      "tulis": "Sekarang yang sulit. A̅G̅ menembus bagian dalam kubus, jadi namanya *diagonal ruang*. Segitiga penolongnya, ACG, berdiri tegak di dalam kubus dan tidak menempel pada sisi mana pun."
+      "teks": "Sekarang yang sulit. A G menembus bagian dalam kubus, jadi namanya diagonal ruang. Segitiga penolongnya, A C G, berdiri tegak di dalam kubus dan tidak menempel pada sisi mana pun.",
+      "tulis": "Sekarang yang sulit. AG menembus bagian dalam kubus, jadi namanya *diagonal ruang*. Segitiga penolongnya, ACG, berdiri tegak di dalam kubus dan tidak menempel pada sisi mana pun."
     },
     {
       "id": "hitung2",
-      "teks": "Alasnya A C tadi, sisi tegaknya rusuk C G, dan siku-sikunya di C. Jadi A G kuadrat sama dengan tujuh puluh dua ditambah tiga puluh enam, yaitu seratus delapan. A G sama dengan *enam akar tiga*.",
-      "tulis": "Alasnya A̅C̅ tadi, sisi tegaknya rusuk C̅G̅, dan siku-sikunya di C. Jadi AG² sama dengan 72 ditambah 36, yaitu 108. AG sama dengan *6√3*."
+      "teks": "Alasnya A C tadi, sisi tegaknya rusuk C G, dan siku-sikunya di C. Jadi A G kuadrat sama dengan tujuh puluh dua ditambah tiga puluh enam, yaitu seratus delapan. A G sama dengan enam akar tiga, kira-kira sepuluh koma tiga sembilan.",
+      "tulis": "Alasnya AC tadi, sisi tegaknya rusuk CG, dan siku-sikunya di C. Jadi AG² = 72 + 36 = 108. AG = 6√3, kira-kira 10,39."
+    },
+    {
+      "id": "keliru",
+      "teks": "Perhatikan: yang dijumlahkan itu kuadratnya, bukan panjangnya. Enam akar dua ditambah enam bukan diagonal ruang. Yang boleh dijumlahkan hanya tujuh puluh dua dan tiga puluh enam.",
+      "tulis": "Perhatikan: yang dijumlahkan itu kuadratnya, bukan panjangnya. 6√2 + 6 bukan diagonal ruang. Yang boleh dijumlahkan hanya 72 dan 36."
+    },
+    {
+      "id": "umum",
+      "teks": "Bentuk umumnya, untuk balok dengan panjang p, lebar l, dan tinggi t: diagonal ruang sama dengan akar dari p kuadrat tambah l kuadrat tambah t kuadrat. Pada kubus ketiganya sama, jadi hasilnya rusuk kali akar tiga.",
+      "tulis": "Bentuk umumnya, untuk balok dengan panjang p, lebar l, dan tinggi t: diagonal ruang = √(p² + l² + t²). Pada kubus ketiganya sama, jadi hasilnya rusuk × √3."
     },
     {
       "id": "tutup",
-      "teks": "Angka tiga di dalam akar itu bukan kebetulan. Ia menghitung ada berapa arah yang dilewati: panjang, lebar, dan tinggi. Diagonal ruang bukan rumus baru, ia Pythagoras yang dipakai untuk *kedua kalinya*.",
+      "teks": "Angka tiga di dalam akar itu bukan kebetulan. Ia menghitung ada berapa arah yang dilewati: panjang, lebar, dan tinggi. Diagonal ruang bukan rumus baru, ia Pythagoras yang dipakai untuk kedua kalinya.",
       "tulis": "Angka 3 di dalam akar itu bukan kebetulan. Ia menghitung ada berapa arah yang dilewati: panjang, lebar, dan tinggi. Diagonal ruang bukan rumus baru, ia Pythagoras yang dipakai untuk *kedua kalinya*."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Jarak dalam Ruang, Bagian tiga, titiknya di pojok dan garisnya diagonal ruang ini: di mana kaki tegak lurusnya jatuh?",
+      "tulis": "Di materi berikutnya, Jarak dalam Ruang, Bagian 3, titiknya di pojok dan garisnya diagonal ruang ini: di mana kaki tegak lurusnya jatuh?"
     }
   ]
 }

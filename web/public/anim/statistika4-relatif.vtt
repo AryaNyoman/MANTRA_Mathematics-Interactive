@@ -1,163 +1,200 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/statistika4-relatif.json
+NOTE Dibuat otomatis dari manim/narasi/statistika4-relatif.json (waktu kata rekaman)
+NOTE naskah-sidik cce2207b9496
 
 1
-00:00:00.000 --> 00:00:01.916
-Materi 04 Statistika:
+00:00:00.101 --> 00:00:02.620
+Penyajian Data, Bagian 4.
 
 2
-00:00:01.916 --> 00:00:05.840
-<b>membandingkan kelompok yang jumlahnya beda</b>.
-
-3
-00:00:05.840 --> 00:00:09.672
+00:00:03.368 --> 00:00:07.268
 Kelas A berisi 25 siswa, Kelas B 40 siswa.
 
+3
+00:00:07.999 --> 00:00:09.589
+Kelas mana yang lebih banyak
+
 4
-00:00:09.672 --> 00:00:10.982
-Pertanyaannya:
-
-5
-00:00:10.982 --> 00:00:13.602
-kelas mana yang lebih banyak
-
-6
-00:00:13.602 --> 00:00:16.316
+00:00:09.589 --> 00:00:11.386
 siswanya bernilai 80 ke atas?
 
+5
+00:00:12.616 --> 00:00:14.942
+Di Penyajian Data, Bagian 2,
+
+6
+00:00:14.942 --> 00:00:17.352
+frekuensi diubah jadi persen:
+
 7
-00:00:16.316 --> 00:00:18.562
-Di Kelas A ada 11 orang.
+00:00:17.352 --> 00:00:20.161
+8 dari 40 siswa sama dengan 20%.
 
 8
-00:00:18.562 --> 00:00:20.808
-Di Kelas B ada 13 orang.
+00:00:20.893 --> 00:00:22.609
+Hari ini hitungan yang sama dipakai
 
 9
-00:00:20.808 --> 00:00:26.183
-Digambar sebagai batang, jawabannya kelihatan gamblang.
+00:00:22.609 --> 00:00:25.504
+untuk membandingkan dua kelompok yang jumlahnya berbeda.
 
 10
-00:00:26.183 --> 00:00:30.972
-13 lebih tinggi daripada 11, jadi <b>Kelas B menang</b>.
+00:00:26.735 --> 00:00:30.240
+Di Kelas A ada 11 orang yang bernilai 80 ke atas.
 
 11
-00:00:30.972 --> 00:00:31.656
-Begitu?
+00:00:30.974 --> 00:00:33.150
+Di Kelas B ada 13 orang.
 
 12
-00:00:31.656 --> 00:00:33.699
-Ada yang belum masuk hitungan.
+00:00:34.335 --> 00:00:38.077
+Digambar sebagai batang, jawabannya kelihatan gamblang.
 
 13
-00:00:33.699 --> 00:00:35.470
-Kelas B memang punya lebih
+00:00:38.825 --> 00:00:42.568
+13 lebih tinggi daripada 11, jadi <b>Kelas B menang</b>.
 
 14
-00:00:35.470 --> 00:00:37.786
-banyak siswa yang bernilai tinggi,
+00:00:43.296 --> 00:00:44.646
+Begitu?
 
 15
-00:00:37.786 --> 00:00:41.328
-tetapi Kelas B juga punya <b>lebih banyak siswa</b>, titik.
+00:00:45.467 --> 00:00:47.196
+Ada yang belum masuk hitungan.
 
 16
-00:00:41.328 --> 00:00:44.208
-Jadi tiap kelas kita
+00:00:47.946 --> 00:00:49.363
+Kelas B memang punya lebih
 
 17
-00:00:44.208 --> 00:00:49.392
-bagi dengan jumlah siswanya sendiri.
+00:00:49.363 --> 00:00:51.216
+banyak siswa yang bernilai tinggi,
 
 18
-00:00:49.392 --> 00:00:51.552
-11 : 25 = 0,44.
+00:00:51.216 --> 00:00:54.201
+tetapi Kelas B juga punya <b>lebih banyak siswa</b>, titik.
 
 19
-00:00:51.552 --> 00:00:53.856
-13 : 40 = 0,325.
+00:00:55.401 --> 00:00:56.601
+Jadi tiap kelas kita
 
 20
-00:00:53.856 --> 00:00:56.619
-Dan kesimpulannya <b>berbalik</b>.
+00:00:56.601 --> 00:00:58.638
+bagi dengan jumlah siswanya sendiri.
 
 21
-00:00:56.619 --> 00:00:58.256
-44% lawan 32,5%.
+00:00:59.220 --> 00:01:02.607
+11 : 25 = 0,44.
 
 22
-00:00:58.256 --> 00:01:03.577
-Di Kelas A hampir separuh siswa bernilai 80 ke atas,
+00:01:03.338 --> 00:01:06.962
+13 : 40 = 0,325.
 
 23
-00:01:03.577 --> 00:01:07.056
-di Kelas B cuma sekitar sepertiga.
+00:01:08.167 --> 00:01:09.988
+Dan kesimpulannya <b>berbalik</b>.
 
 24
-00:01:07.056 --> 00:01:10.768
-Kedua hitungan tadi sama-sama benar sebagai hitungan.
+00:01:10.723 --> 00:01:14.057
+44% lawan 32,5%.
 
 25
-00:01:10.768 --> 00:01:13.569
-Yang berbeda <b>pertanyaan yang dijawabnya</b>.
+00:01:14.803 --> 00:01:18.089
+Di Kelas A hampir separuh siswa bernilai 80 ke atas,
 
 26
-00:01:13.569 --> 00:01:16.721
-Yang pertama menjawab berapa banyak orangnya,
+00:01:18.089 --> 00:01:20.388
+di Kelas B cuma sekitar sepertiga.
 
 27
-00:01:16.721 --> 00:01:19.872
-yang kedua menjawab seberapa besar bagiannya.
+00:01:21.601 --> 00:01:24.672
+Kedua hitungan tadi sama-sama benar sebagai hitungan.
 
 28
-00:01:19.872 --> 00:01:23.163
-Angka hasil bagi itu namanya <b>frekuensi relatif</b>:
+00:01:25.407 --> 00:01:27.741
+Yang berbeda <b>pertanyaan yang dijawabnya</b>.
 
 29
-00:01:23.163 --> 00:01:25.754
-frekuensi dibagi banyak seluruh data.
+00:01:28.472 --> 00:01:30.887
+Yang pertama menjawab berapa banyak orangnya,
 
 30
-00:01:25.754 --> 00:01:29.465
-Karena tiap kelompok dibagi dengan jumlahnya sendiri,
+00:01:30.887 --> 00:01:33.451
+yang kedua menjawab seberapa besar bagiannya.
 
 31
-00:01:29.465 --> 00:01:30.936
-takarannya jadi sama.
+00:01:34.682 --> 00:01:37.421
+Angka hasil bagi itu namanya <b>frekuensi relatif</b>:
 
 32
-00:01:30.936 --> 00:01:33.490
-Nilainya selalu antara 0 dan 1,
+00:01:37.421 --> 00:01:39.727
+frekuensi dibagi banyak seluruh data.
 
 33
-00:01:33.490 --> 00:01:35.632
-dan kalau seluruh kelasnya
+00:01:40.475 --> 00:01:43.443
+Karena tiap kelompok dibagi dengan jumlahnya sendiri,
 
 34
-00:01:35.632 --> 00:01:38.104
-dijumlahkan hasilnya selalu 1,
+00:01:43.443 --> 00:01:44.793
+takarannya jadi sama.
 
 35
-00:01:38.104 --> 00:01:38.928
-atau 100%.
+00:01:45.982 --> 00:01:48.199
+Nilainya selalu antara 0 dan 1,
 
 36
-00:01:38.928 --> 00:01:40.128
-Jadi tiap kali dua
+00:01:48.199 --> 00:01:50.057
+dan kalau seluruh kelasnya
 
 37
-00:01:40.128 --> 00:01:42.740
-kelompok yang jumlahnya beda dibandingkan,
+00:01:50.057 --> 00:01:52.202
+dijumlahkan hasilnya selalu 1,
 
 38
-00:01:42.740 --> 00:01:44.544
-pertanyaan pertama yang wajib
+00:01:52.202 --> 00:01:53.552
+atau 100%.
 
 39
-00:01:44.544 --> 00:01:46.472
-diajukan bukan berapa angkanya,
+00:01:53.814 --> 00:01:58.280
+Cek di Kelas A: 11 yang 80 ke atas, 14 sisanya.
 
 40
-00:01:46.472 --> 00:01:47.760
+00:01:59.009 --> 00:02:02.633
+0,44 + 0,56 = 1.
+
+41
+00:02:03.882 --> 00:02:05.082
+Jadi tiap kali dua
+
+42
+00:02:05.082 --> 00:02:07.371
+kelompok yang jumlahnya beda dibandingkan,
+
+43
+00:02:07.371 --> 00:02:08.951
+pertanyaan pertama yang wajib
+
+44
+00:02:08.951 --> 00:02:10.640
+diajukan bukan berapa angkanya,
+
+45
+00:02:10.640 --> 00:02:11.990
 melainkan <b>dari berapa</b>.
+
+46
+00:02:12.982 --> 00:02:16.501
+Di materi berikutnya, Ukuran Pemusatan dan Penyebaran,
+
+47
+00:02:16.501 --> 00:02:17.701
+Bagian 1,
+
+48
+00:02:17.701 --> 00:02:21.154
+rata-rata bukan lagi sekadar jumlah dibagi banyaknya:
+
+49
+00:02:21.154 --> 00:02:23.259
+ia titik tempat data seimbang.

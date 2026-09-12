@@ -1,151 +1,232 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/statistika6-pencilan.json
+NOTE Dibuat otomatis dari manim/narasi/statistika6-pencilan.json (waktu kata rekaman)
+NOTE naskah-sidik 5f048800ce1e
 
 1
-00:00:00.000 --> 00:00:03.161
-Materi 06 Statistika: <b>pencilan</b>.
+00:00:00.101 --> 00:00:03.291
+Ukuran Pemusatan dan Penyebaran, Bagian 2.
 
 2
-00:00:03.161 --> 00:00:07.035
-Sebuah kantor kecil berisi 9 karyawan.
+00:00:04.025 --> 00:00:06.820
+Gaji rata-rata di sebuah kantor 12 juta.
 
 3
-00:00:07.035 --> 00:00:12.744
-Ini gaji mereka, dalam juta rupiah, dari 4,2 sampai 7,0.
+00:00:07.551 --> 00:00:10.464
+Kenapa hampir semua karyawannya tidak merasa begitu?
 
 4
-00:00:12.744 --> 00:00:16.768
-Rata-ratanya 5,24 juta, mediannya 5,00 juta.
+00:00:11.682 --> 00:00:12.882
+Di Bagian 1,
 
 5
-00:00:16.768 --> 00:00:20.243
-Dua ukuran yang cara kerjanya berbeda,
+00:00:12.882 --> 00:00:15.493
+rata-rata adalah <b>titik tempat data seimbang</b>,
 
 6
-00:00:20.243 --> 00:00:22.987
-tetapi jawabannya <b>hampir sama</b>.
+00:00:15.493 --> 00:00:18.965
+dan median adalah <b>yang di tengah</b> setelah data diurutkan.
 
 7
-00:00:22.987 --> 00:00:24.816
-Keduanya masuk akal.
+00:00:19.209 --> 00:00:20.819
+Hari ini keduanya diuji oleh
 
 8
-00:00:24.816 --> 00:00:27.933
-Sekarang direkturnya ikut dihitung.
+00:00:20.819 --> 00:00:22.636
+satu nilai yang jauh sendiri.
 
 9
-00:00:27.933 --> 00:00:29.357
-Gajinya 75 juta.
+00:00:23.835 --> 00:00:26.550
+Sebuah kantor kecil berisi 9 karyawan.
 
 10
-00:00:29.357 --> 00:00:33.097
-Supaya ia muat, penggarisnya ditarik jauh,
+00:00:27.299 --> 00:00:32.094
+Ini gaji mereka, dalam juta rupiah, dari 4,2 sampai 7.
 
 11
-00:00:33.097 --> 00:00:37.728
-dan 9 karyawan tadi berdesakan jadi satu gerombolan.
+00:00:33.301 --> 00:00:37.228
+Rata-ratanya 5,24 juta, mediannya 5 juta.
 
 12
-00:00:37.728 --> 00:00:40.794
-Perhatikan dua penanda tadi.
+00:00:37.976 --> 00:00:40.241
+Dua ukuran yang cara kerjanya berbeda,
 
 13
-00:00:40.794 --> 00:00:45.394
-Mean <b>berlari</b> ke kanan, dari 5,24 ke 12,22.
+00:00:40.241 --> 00:00:42.179
+tetapi jawabannya <b>hampir sama</b>.
 
 14
-00:00:45.394 --> 00:00:50.760
-Median hanya bergeser sedikit, dari 5,00 ke 5,10.
+00:00:42.909 --> 00:00:44.414
+Keduanya masuk akal.
 
 15
-00:00:50.760 --> 00:00:54.270
-Dan di 12,22 itu <b>tidak ada siapa-siapa</b>.
+00:00:45.634 --> 00:00:47.784
+Sekarang direkturnya ikut dihitung.
 
 16
-00:00:54.270 --> 00:00:58.140
-9 dari 10 orang bergaji 7 juta atau kurang.
+00:00:48.518 --> 00:00:50.550
+Gajinya 75 juta.
 
 17
-00:00:58.140 --> 00:01:03.000
-Rata-ratanya benar, tetapi tidak mewakili seorang pun.
+00:00:51.296 --> 00:00:54.036
+Supaya ia muat, penggarisnya ditarik jauh,
 
 18
-00:01:03.000 --> 00:01:04.942
-Kenapa mean bisa diseret?
+00:00:54.036 --> 00:00:57.578
+dan 9 karyawan tadi berdesakan jadi satu gerombolan.
 
 19
-00:01:04.942 --> 00:01:07.894
-Karena mean memakai <b>nilai</b> setiap data.
+00:00:58.801 --> 00:01:02.372
+Jumlah gaji 9 karyawan 47,2 juta.
 
 20
-00:01:07.894 --> 00:01:10.458
-Jarak gaji direktur ke pusat jauh
+00:01:03.121 --> 00:01:09.903
+Ditambah 75 jadi 122,2, dibagi 10 orang: 12,22 juta.
 
 21
-00:01:10.458 --> 00:01:13.488
-lebih panjang daripada milik siapa pun.
+00:01:11.135 --> 00:01:12.969
+Perhatikan dua penanda tadi.
 
 22
-00:01:13.488 --> 00:01:15.278
-Median bekerja lain.
+00:01:13.703 --> 00:01:17.932
+Mean <b>berlari</b> ke kanan, dari 5,24 ke 12,22.
 
 23
-00:01:15.278 --> 00:01:17.426
-Ia hanya memakai <b>urutan</b>.
+00:01:18.678 --> 00:01:23.183
+Median hanya bergeser sedikit, dari 5,00 ke 5,10.
 
 24
-00:01:17.426 --> 00:01:20.738
-10 data ini dibariskan berjarak sama,
+00:01:24.401 --> 00:01:27.604
+Dan di 12,22 itu <b>tidak ada siapa-siapa</b>.
 
 25
-00:01:20.738 --> 00:01:23.692
-dan median adalah yang di tengah.
+00:01:28.338 --> 00:01:31.633
+9 dari 10 orang bergaji 7 juta atau kurang.
 
 26
-00:01:23.692 --> 00:01:27.720
-Bagi median, direktur cuma data paling kanan.
+00:01:32.364 --> 00:01:35.672
+Rata-ratanya benar, tetapi tidak mewakili seorang pun.
 
 27
-00:01:27.720 --> 00:01:33.444
-Bagaimana kalau gajinya bukan 75, melainkan 120 juta?
+00:01:36.901 --> 00:01:38.617
+Kenapa mean bisa diseret?
 
 28
-00:01:33.444 --> 00:01:36.360
-Mean lari lagi, jadi 16,72.
+00:01:39.351 --> 00:01:41.712
+Karena mean memakai <b>nilai</b> setiap data.
 
 29
-00:01:36.360 --> 00:01:40.032
-Median <b>tidak bergerak sedikit pun</b>.
+00:01:42.458 --> 00:01:44.243
+Jarak gaji direktur ke pusat jauh
 
 30
-00:01:40.032 --> 00:01:44.481
-Godaannya, hapus saja direkturnya supaya angkanya rapi.
+00:01:44.243 --> 00:01:46.353
+lebih panjang daripada milik siapa pun,
 
 31
-00:01:44.481 --> 00:01:45.681
-Jangan.
+00:01:46.353 --> 00:01:48.450
+dan papan tadi harus tetap seimbang.
 
 32
-00:01:45.681 --> 00:01:47.946
-Gajinya memang benar segitu,
+00:01:49.667 --> 00:01:51.290
+Median bekerja lain.
 
 33
-00:01:47.946 --> 00:01:51.600
-dan membuangnya berarti <b>berbohong</b> tentang kantor ini.
+00:01:52.025 --> 00:01:53.728
+Ia hanya memakai <b>urutan</b>.
 
 34
-00:01:51.600 --> 00:01:55.580
-Yang diganti bukan datanya, melainkan <b>ukurannya</b>.
+00:01:54.460 --> 00:01:56.804
+10 data ini dibariskan berjarak sama,
 
 35
-00:01:55.580 --> 00:01:59.559
-Untuk gaji dan harga rumah, <b>median</b> yang dipakai.
+00:01:56.804 --> 00:01:59.044
+dan median adalah yang di tengah.
 
 36
-00:01:59.559 --> 00:02:01.964
-Itulah sebabnya karyawan tadi
+00:01:59.776 --> 00:02:02.913
+Bagi median, direktur cuma data paling kanan.
 
 37
-00:02:01.964 --> 00:02:04.368
+00:02:04.135 --> 00:02:08.771
+Bagaimana kalau gajinya bukan 75, melainkan 120 juta?
+
+38
+00:02:09.506 --> 00:02:12.669
+Mean lari lagi, jadi 16,72.
+
+39
+00:02:13.400 --> 00:02:15.471
+Median <b>tidak bergerak sedikit pun</b>.
+
+40
+00:02:16.667 --> 00:02:18.264
+Bentuk umumnya begini.
+
+41
+00:02:19.000 --> 00:02:21.288
+Mean = jumlah semua nilai dibagi n,
+
+42
+00:02:21.288 --> 00:02:23.531
+jadi <b>tiap nilai</b> ikut menariknya.
+
+43
+00:02:24.277 --> 00:02:26.739
+Median adalah data ke tengah setelah diurutkan,
+
+44
+00:02:26.739 --> 00:02:28.363
+jadi ia cuma peduli berapa data
+
+45
+00:02:28.363 --> 00:02:29.980
+di kiri dan berapa di kanan.
+
+46
+00:02:31.201 --> 00:02:34.799
+Godaannya, hapus saja direkturnya supaya angkanya rapi.
+
+47
+00:02:35.532 --> 00:02:36.882
+Jangan.
+
+48
+00:02:37.164 --> 00:02:38.715
+Gajinya memang benar segitu,
+
+49
+00:02:38.715 --> 00:02:41.801
+dan membuangnya berarti <b>berbohong</b> tentang kantor ini.
+
+50
+00:02:43.001 --> 00:02:46.257
+Yang diganti bukan datanya, melainkan <b>ukurannya</b>.
+
+51
+00:02:46.991 --> 00:02:50.246
+Untuk gaji dan harga rumah, median yang dipakai.
+
+52
+00:02:50.978 --> 00:02:52.813
+Itulah sebabnya karyawan tadi
+
+53
+00:02:52.813 --> 00:02:54.799
 tidak merasa bergaji 12 juta.
+
+54
+00:02:56.016 --> 00:02:59.491
+Di materi berikutnya, Ukuran Pemusatan dan Penyebaran,
+
+55
+00:02:59.491 --> 00:03:00.691
+Bagian 3,
+
+56
+00:03:00.691 --> 00:03:02.750
+sebaran seluruh data digambarkan
+
+57
+00:03:02.750 --> 00:03:04.444
+hanya dengan <b>lima angka</b>.

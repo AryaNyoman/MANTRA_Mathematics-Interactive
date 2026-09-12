@@ -1,60 +1,78 @@
 {
   "adegan": "Pemusatan5",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Tahap 5 Statistika. Inti video: mean bukan sekadar jumlah dibagi banyaknya, melainkan titik tempat data seimbang. Pembuka mengumumkan materinya (STANDAR-MENGAJAR bagian 5 aturan 8). Penanda *kata* jadi tebal (aturan 9). Medan `tulis` adalah bentuk TERTULIS untuk subtitle: mesin suara butuh angka dieja, pembaca subtitle lebih cepat menangkap lambangnya. Permintaan ARYA 2 Sep 2026: subtitle memakai LAMBANG matematika, bukan salinan mentah ucapan. \"lima puluh enam dibagi delapan\" ditulis \"56 : 8\", \"titik dua koma empat\" ditulis \"Titik (2,4)\", \"f dari x kurang 1\" ditulis \"f(x-1)\". Kalau `tulis` tidak ada, subtitle memakai `teks`.",
+  "tempo": "-5%",
+  "catatan": "Ukuran Pemusatan dan Penyebaran, Bagian 1 (Materi 05). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (delapan siswa bernilai 4, 5, 6, 7, 7, 8, 8, 11 berdiri di garis bilangan; modus 7 dan 8; median 7; garis jadi jungkat-jungkit, tumpuan di 8 jatuh ke kiri, digeser sampai mendatar di 7; jarak kiri 3 + 2 + 1 sama dengan jarak kanan 1 + 1 + 4; rumus 56 : 8 = 7 bukan arti rata-rata). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1 dengan pertanyaan, tidak ada segar-ingat (tidak ada prasyarat dari materi sebelumnya), ASAL RUMUS: keseimbangan ditulis sebagai jumlah simpangan nol lalu diturunkan jadi x bar = 56 : 8, bentuk umum x bar = jumlah x dibagi n, penutup menunjuk Bagian 2.",
   "segmen": [
     {
-      "id": "sapa",
-      "teks": "Materi lima Statistika: *rata-rata, median, dan modus*. Materi sebelumnya membandingkan dua kelompok. Sekarang delapan siswa baru selesai ulangan. Nilainya biasanya berapa?",
-      "tulis": "Materi 05 Statistika: *rata-rata, median, dan modus*. Materi sebelumnya membandingkan dua kelompok. Sekarang 8 siswa baru selesai ulangan. Nilainya biasanya berapa?"
+      "id": "buka",
+      "teks": "Ukuran Pemusatan dan Penyebaran, Bagian satu. Delapan siswa baru selesai ulangan. Nilainya biasanya berapa?",
+      "tulis": "Ukuran Pemusatan dan Penyebaran, Bagian 1. 8 siswa baru selesai ulangan. Nilainya biasanya berapa?"
     },
     {
       "id": "berbaris",
-      "teks": "Mari mereka berdiri di garis bilangan, tepat di angka nilainya. Yang nilainya *sama* berdiri berdampingan."
+      "teks": "Mari mereka berdiri di garis bilangan, tepat di angka nilainya: empat, lima, enam, tujuh, tujuh, delapan, delapan, dan sebelas. Yang nilainya sama berdiri berdampingan.",
+      "tulis": "Mari mereka berdiri di garis bilangan, tepat di angka nilainya: 4, 5, 6, 7, 7, 8, 8, dan 11. Yang nilainya *sama* berdiri berdampingan."
     },
     {
       "id": "modus",
-      "teks": "Jawaban pertama ada di barisan paling tebal. Di angka tujuh ada dua orang, di delapan juga dua. Itulah *modus*, dan data ini punya dua.",
+      "teks": "Jawaban pertama ada di barisan paling tebal. Di angka tujuh ada dua orang, di delapan juga dua. Itulah modus, dan data ini punya dua.",
       "tulis": "Jawaban pertama ada di barisan paling tebal. Di angka 7 ada 2 orang, di 8 juga 2. Itulah *modus*, dan data ini punya dua."
     },
     {
       "id": "median",
-      "teks": "Jawaban kedua: belah barisan jadi dua sama banyak. Empat di kiri, empat di kanan. Sekatnya jatuh di angka tujuh, dan itulah *mediannya*.",
+      "teks": "Jawaban kedua: belah barisan jadi dua sama banyak. Empat di kiri, empat di kanan. Sekatnya jatuh di angka tujuh, dan itulah mediannya.",
       "tulis": "Jawaban kedua: belah barisan jadi dua sama banyak. 4 di kiri, 4 di kanan. Sekatnya jatuh di angka 7, dan itulah *mediannya*."
     },
     {
       "id": "tanya",
-      "teks": "Jawaban ketiga paling sering dihafal, tetapi paling jarang dimengerti. *Rata-rata*. Semua tahu menghitungnya. Tetapi ia angka apa?"
+      "teks": "Jawaban ketiga paling sering dihafal, tetapi paling jarang dimengerti: rata-rata. Semua tahu menghitungnya, jumlah dibagi banyaknya. Tetapi ia angka apa?",
+      "tulis": "Jawaban ketiga paling sering dihafal, tetapi paling jarang dimengerti: *rata-rata*. Semua tahu menghitungnya, jumlah dibagi banyaknya. Tetapi ia angka apa?"
     },
     {
       "id": "papan",
-      "teks": "Kita ubah garis bilangan ini jadi papan *jungkat-jungkit*, dan berat tiap siswa dianggap sama. Tumpuannya kita taruh dulu di angka delapan.",
+      "teks": "Kita ubah garis bilangan ini jadi papan jungkat-jungkit, dan berat tiap siswa dianggap sama. Tumpuannya kita taruh dulu di angka delapan.",
       "tulis": "Kita ubah garis bilangan ini jadi papan *jungkat-jungkit*, dan berat tiap siswa dianggap sama. Tumpuannya kita taruh dulu di angka 8."
     },
     {
       "id": "miring",
-      "teks": "Papannya langsung *jatuh ke kiri*. Dilihat dari angka delapan, orang di sebelah kiri jaraknya jauh lebih besar daripada yang di kanan.",
+      "teks": "Papannya langsung jatuh ke kiri. Dilihat dari angka delapan, orang di sebelah kiri jaraknya jauh lebih besar daripada yang di kanan.",
       "tulis": "Papannya langsung *jatuh ke kiri*. Dilihat dari angka 8, orang di sebelah kiri jaraknya jauh lebih besar daripada yang di kanan."
     },
     {
       "id": "geser",
-      "teks": "Jadi tumpuannya kita geser pelan ke kiri. Delapan, tujuh koma lima, tujuh koma dua, lalu berhenti tepat di *tujuh*. Papannya mendatar.",
+      "teks": "Jadi tumpuannya kita geser pelan ke kiri. Delapan, tujuh koma lima, tujuh koma dua, lalu berhenti tepat di tujuh. Papannya mendatar.",
       "tulis": "Jadi tumpuannya kita geser pelan ke kiri. 8, lalu 7,5, lalu 7,2, lalu berhenti tepat di *7*. Papannya mendatar."
     },
     {
       "id": "bukti",
-      "teks": "Sekarang ketiga jarak ke kiri kita jajarkan jadi satu batang, dan ketiga jarak ke kanan jadi batang kedua. Dua batang ini *sama panjang*. Itulah sebabnya papan tadi seimbang.",
-      "tulis": "Sekarang ketiga jarak ke kiri kita jajarkan jadi satu batang, dan ketiga jarak ke kanan jadi batang kedua. 3 + 2 + 1 = 1 + 1 + 4. Dua batang ini *sama panjang*. Itulah sebabnya papan tadi seimbang."
+      "teks": "Sekarang ketiga jarak ke kiri kita jajarkan jadi satu batang, dan ketiga jarak ke kanan jadi batang kedua. Tiga tambah dua tambah satu, lawan satu tambah satu tambah empat. Dua batang ini sama panjang. Itulah sebabnya papan tadi seimbang.",
+      "tulis": "Sekarang ketiga jarak ke kiri kita jajarkan jadi satu batang, dan ketiga jarak ke kanan jadi batang kedua. 3 + 2 + 1 lawan 1 + 1 + 4. Dua batang ini *sama panjang*. Itulah sebabnya papan tadi seimbang."
+    },
+    {
+      "id": "asal",
+      "teks": "Keseimbangan itu bisa ditulis sebagai persamaan. Sebut titik tumpunya x bar. Jarak tiap orang ke titik itu adalah nilainya kurang x bar, negatif di kiri, positif di kanan, dan seimbang berarti jumlah semuanya nol.",
+      "tulis": "Keseimbangan itu bisa ditulis sebagai persamaan. Sebut titik tumpunya x̄. Jarak tiap orang ke titik itu adalah nilainya kurang x̄, negatif di kiri, positif di kanan, dan seimbang berarti *jumlah semuanya nol*."
     },
     {
       "id": "rumus",
-      "teks": "Barulah rumus yang dihafal masuk akal. Lima puluh enam dibagi delapan, hasilnya tujuh. Rumus itu *bukan arti* rata-rata, cuma cara cepat menemukannya.",
-      "tulis": "Barulah rumus yang dihafal masuk akal. 56 : 8 = 7. Rumus itu *bukan arti* rata-rata, cuma cara cepat menemukannya."
+      "teks": "Semua nilainya dijumlahkan jadi lima puluh enam, dan x bar muncul delapan kali. Lima puluh enam kurang delapan x bar sama dengan nol, jadi x bar sama dengan lima puluh enam dibagi delapan, yaitu tujuh. Barulah rumus yang dihafal masuk akal: ia bukan arti rata-rata, cuma cara cepat menemukan titik seimbangnya.",
+      "tulis": "Semua nilainya dijumlahkan jadi 56, dan x̄ muncul 8 kali. 56 - 8x̄ = 0, jadi x̄ = 56 : 8 = 7. Barulah rumus yang dihafal masuk akal: ia *bukan arti* rata-rata, cuma cara cepat menemukan titik seimbangnya."
+    },
+    {
+      "id": "umum",
+      "teks": "Bentuk umumnya: x bar sama dengan jumlah seluruh nilai dibagi banyaknya data, dan untuk data apa pun, jumlah simpangan terhadap x bar selalu nol.",
+      "tulis": "Bentuk umumnya: x̄ = jumlah seluruh nilai dibagi banyaknya data, dan untuk data apa pun, jumlah simpangan terhadap x̄ selalu nol."
     },
     {
       "id": "tutup",
-      "teks": "Tiga angka, satu pertanyaan, dan di sini ketiganya kebetulan sama. Di video berikutnya satu nilai *jauh sendiri* ikut masuk, dan papan ini akan berlari."
+      "teks": "Tiga angka, satu pertanyaan, dan di sini ketiganya kebetulan sama, tujuh. Modus menghitung yang paling sering, median membelah barisan, rata-rata menyeimbangkan papan.",
+      "tulis": "Tiga angka, satu pertanyaan, dan di sini ketiganya kebetulan sama, 7. Modus menghitung yang paling sering, median membelah barisan, rata-rata menyeimbangkan papan."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian dua, satu nilai jauh sendiri ikut masuk, dan papan ini akan berlari.",
+      "tulis": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian 2, satu nilai *jauh sendiri* ikut masuk, dan papan ini akan berlari."
     }
   ]
 }

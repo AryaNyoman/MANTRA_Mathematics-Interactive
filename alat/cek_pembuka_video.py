@@ -74,11 +74,19 @@ def judul_ucap(peta, slug: str, nomor: int) -> str:
     raise KeyError(f"materi {nomor} topik {slug!r} tidak ada di subbab.ts")
 
 
+# Nomor VIDEO Transformasi Geometri bukan nomor materinya: enam video dibuat
+# untuk materi 1, 2, 6, 7, 9, dan 12 (sesi Transformasi, 4 sampai 7 Sep 2026).
+NOMOR_MATERI_TRANSFORMASI = {1: 1, 2: 2, 3: 6, 4: 7, 5: 9, 6: 12}
+
+
 def petakan(nama_naskah: str) -> tuple[str, int] | None:
     for pola, slug in POLA_NAMA:
         m = pola.match(nama_naskah)
         if m:
-            return slug, int(m.group(1))
+            nomor = int(m.group(1))
+            if slug == "transformasi-geometri":
+                nomor = NOMOR_MATERI_TRANSFORMASI.get(nomor, nomor)
+            return slug, nomor
     return None
 
 

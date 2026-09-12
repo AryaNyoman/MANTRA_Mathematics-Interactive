@@ -1,58 +1,78 @@
 {
   "adegan": "Regresi11",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Materi 11 Statistika. Gerak dirancang lebih dulu, naskah ditulis sepanjang gerak itu. Medan `tulis` adalah bentuk tertulis untuk subtitle: lambang dan angka, bukan salinan mentah ucapan. Penanda *kata* jadi tebal.",
+  "tempo": "-5%",
+  "catatan": "Hubungan Dua Variabel, Bagian 2 (Materi 11). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (tiga garis masuk akal; residu = jarak tegak; tanda residu; jumlahnya nol; dikuadratkan lalu dijumlah; garis diputar: 146, 56,9, 27,2, naik lagi; kuadrat terkecil, b = 3,2 dan a = 49,2; arti kemiringan; ekstrapolasi 40 jam = 177,2). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2 dengan pertanyaan halaman, segar-ingat Ukuran Pemusatan dan Penyebaran Bagian 4 (jumlah simpangan nol, kuadrat), rumus b dan a dihitung dengan angkanya (n = 10, jumlah x 65, jumlah y 700, jumlah xy 4814, jumlah x kuadrat 505), bentuk umum, penutup menunjuk Bagian 3.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi sebelas Statistika: *garis regresi*. Sepuluh siswa, jam belajar seminggu dan nilai ujiannya. Titiknya jelas naik, tetapi garis mana yang paling pas?",
-      "tulis": "Materi 11 Statistika: *garis regresi*. 10 siswa, jam belajar seminggu dan nilai ujiannya. Titiknya jelas naik, tetapi garis mana yang paling pas?"
+      "teks": "Hubungan Dua Variabel, Bagian dua. Kalau sepuluh orang menarik garis yang paling pas pada titik yang sama, garis siapa yang benar?",
+      "tulis": "Hubungan Dua Variabel, Bagian 2. Kalau sepuluh orang menarik garis yang paling pas pada titik yang sama, garis *siapa* yang benar?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Ukuran Pemusatan dan Penyebaran, Bagian empat, jarak ke pusat tidak bisa langsung dijumlah karena jumlahnya nol, jadi dikuadratkan dulu. Cara yang sama dipakai hari ini untuk garis.",
+      "tulis": "Di Ukuran Pemusatan dan Penyebaran, Bagian 4, jarak ke pusat tidak bisa langsung dijumlah karena jumlahnya nol, jadi *dikuadratkan* dulu. Cara yang sama dipakai hari ini untuk garis."
     },
     {
       "id": "banyak",
-      "teks": "Tiga orang menarik tiga garis berbeda, dan ketiganya kelihatan masuk akal. Supaya ada jawaban, kita butuh cara *mengukur* seberapa meleset sebuah garis.",
-      "tulis": "Tiga orang menarik tiga garis berbeda, dan ketiganya kelihatan masuk akal. Supaya ada jawaban, kita butuh cara *mengukur* seberapa meleset sebuah garis."
+      "teks": "Sepuluh siswa, jam belajar seminggu dan nilai ujiannya. Tiga orang menarik tiga garis berbeda, dan ketiganya kelihatan masuk akal. Supaya ada jawaban, kita butuh cara mengukur seberapa meleset sebuah garis.",
+      "tulis": "10 siswa, jam belajar seminggu dan nilai ujiannya. Tiga orang menarik tiga garis berbeda, dan ketiganya kelihatan masuk akal. Supaya ada jawaban, kita butuh cara *mengukur* seberapa meleset sebuah garis."
     },
     {
       "id": "residu",
-      "teks": "Untuk satu titik, ukurannya adalah jarak *tegak* dari titik ke garis. Bukan tegak lurus terhadap garisnya, sebab yang ingin diperkecil adalah kesalahan menebak nilai y.",
+      "teks": "Untuk satu titik, ukurannya adalah jarak tegak dari titik ke garis. Bukan tegak lurus terhadap garisnya, sebab yang ingin diperkecil adalah kesalahan menebak nilai y.",
       "tulis": "Untuk satu titik, ukurannya adalah jarak *tegak* dari titik ke garis. Bukan tegak lurus terhadap garisnya, sebab yang ingin diperkecil adalah kesalahan menebak nilai y."
     },
     {
       "id": "tanda",
-      "teks": "Jarak itu namanya *residu*. Titik di atas garis berarti garisnya menebak terlalu rendah, titik di bawah garis berarti terlalu tinggi.",
+      "teks": "Jarak itu namanya residu. Titik di atas garis berarti garisnya menebak terlalu rendah, titik di bawah garis berarti terlalu tinggi.",
       "tulis": "Jarak itu namanya *residu*. Titik di atas garis berarti garisnya menebak terlalu rendah, titik di bawah garis berarti terlalu tinggi."
     },
     {
       "id": "nol",
-      "teks": "Menjumlah semuanya gagal, persis seperti simpangan di Materi delapan. Yang positif dan yang negatif *saling menghapus*.",
-      "tulis": "Menjumlah semuanya gagal, persis seperti simpangan di Materi 08. Yang positif dan yang negatif *saling menghapus*."
+      "teks": "Menjumlah semuanya gagal, persis seperti simpangan tadi. Yang positif dan yang negatif saling menghapus.",
+      "tulis": "Menjumlah semuanya gagal, persis seperti simpangan tadi. Yang positif dan yang negatif *saling menghapus*."
     },
     {
       "id": "kuadrat",
-      "teks": "Jadi tiap residu *dikuadratkan* dulu, persis seperti simpangan baku, lalu semuanya dijumlahkan. Sekarang seluruh kemelesetan sebuah garis tinggal *satu angka*.",
-      "tulis": "Jadi tiap residu *dikuadratkan* dulu, persis seperti simpangan baku, lalu semuanya dijumlahkan. Sekarang seluruh kemelesetan sebuah garis tinggal *satu angka*."
+      "teks": "Jadi tiap residu dikuadratkan dulu, lalu semuanya dijumlahkan. Sekarang seluruh kemelesetan sebuah garis tinggal satu angka: dua puluh tujuh koma dua.",
+      "tulis": "Jadi tiap residu *dikuadratkan* dulu, lalu semuanya dijumlahkan. Sekarang seluruh kemelesetan sebuah garis tinggal *satu angka*: 27,2."
     },
     {
       "id": "kecilkan",
-      "teks": "Sekarang garisnya kita putar, dan angka itu ikut berubah: seratus empat puluh enam, lalu lima puluh enam koma sembilan, lalu *dua puluh tujuh koma dua*. Diputar terus, ia naik lagi.",
+      "teks": "Sekarang garisnya kita putar, dan angka itu ikut berubah: seratus empat puluh enam, lalu lima puluh enam koma sembilan, lalu dua puluh tujuh koma dua. Diputar terus, ia naik lagi.",
       "tulis": "Sekarang garisnya kita putar, dan angka itu ikut berubah: 146, lalu 56,9, lalu *27,2*. Diputar terus, ia naik lagi."
     },
     {
       "id": "rumus",
-      "teks": "Jadi ada satu garis yang jumlah kuadratnya paling kecil, dan cuma satu. Itulah *metode kuadrat terkecil*, dan rumusnya memberi kemiringan tiga koma dua serta perpotongan empat puluh sembilan koma dua.",
-      "tulis": "Jadi ada satu garis yang jumlah kuadratnya paling kecil, dan cuma satu. Itulah *metode kuadrat terkecil*, dan rumusnya memberi kemiringan 3,2 serta perpotongan 49,2."
+      "teks": "Jadi ada satu garis yang jumlah kuadratnya paling kecil, dan cuma satu. Itulah metode kuadrat terkecil. Garis terbaiknya y topi sama dengan empat puluh sembilan koma dua tambah tiga koma dua x.",
+      "tulis": "Jadi ada satu garis yang jumlah kuadratnya paling kecil, dan cuma satu. Itulah *metode kuadrat terkecil*. Garis terbaiknya ŷ = 49,2 + 3,2x."
+    },
+    {
+      "id": "hitung",
+      "teks": "Dari mana tiga koma dua? Dari lima jumlah: n sepuluh, jumlah x enam puluh lima, jumlah y tujuh ratus, jumlah x y empat ribu delapan ratus empat belas, jumlah x kuadrat lima ratus lima. Kemiringan b sama dengan n jumlah x y kurang jumlah x kali jumlah y, dibagi n jumlah x kuadrat kurang kuadrat jumlah x: dua ribu enam ratus empat puluh dibagi delapan ratus dua puluh lima, tiga koma dua. Lalu a sama dengan y bar kurang b x bar: tujuh puluh kurang dua puluh koma delapan, empat puluh sembilan koma dua.",
+      "tulis": "Dari mana 3,2? Dari lima jumlah: n = 10, Σx = 65, Σy = 700, Σxy = 4814, Σx² = 505. b = (nΣxy - Σx Σy) : (nΣx² - (Σx)²) = 2640 : 825 = 3,2. Lalu a = ȳ - b x̄ = 70 - 20,8 = 49,2."
     },
     {
       "id": "arti",
-      "teks": "Kemiringan tiga koma dua itu punya arti: tiap tambahan *satu jam* belajar per minggu, nilai diramalkan naik sekitar tiga koma dua poin.",
-      "tulis": "Kemiringan 3,2 itu punya arti: tiap tambahan *1 jam* belajar per minggu, nilai diramalkan naik sekitar 3,2 poin."
+      "teks": "Kemiringan tiga koma dua itu punya arti: tiap tambahan satu jam belajar per minggu, nilai diramalkan naik sekitar tiga koma dua poin.",
+      "tulis": "Kemiringan 3,2 itu punya arti: tiap tambahan *satu jam* belajar per minggu, nilai diramalkan naik sekitar 3,2 poin."
     },
     {
       "id": "jauh",
-      "teks": "Tetapi hati-hati. Diteruskan sampai empat puluh jam, garis ini meramalkan seratus tujuh puluh tujuh koma dua. Nilai ujian tidak bisa lewat seratus, dan *garisnya tidak tahu itu*.",
+      "teks": "Tetapi hati-hati. Diteruskan sampai empat puluh jam, garis ini meramalkan seratus tujuh puluh tujuh koma dua. Nilai ujian tidak bisa lewat seratus, dan garisnya tidak tahu itu.",
       "tulis": "Tetapi hati-hati. Diteruskan sampai 40 jam, garis ini meramalkan 177,2. Nilai ujian tidak bisa lewat 100, dan *garisnya tidak tahu itu*."
+    },
+    {
+      "id": "tutup",
+      "teks": "Jadi garis yang benar bukan garis siapa-siapa, melainkan garis yang jumlah kuadrat residunya paling kecil, dan ramalannya hanya boleh dipakai di sekitar tempat datanya pernah ada.",
+      "tulis": "Jadi garis yang benar bukan garis siapa-siapa, melainkan garis yang *jumlah kuadrat residunya paling kecil*, dan ramalannya hanya boleh dipakai di sekitar tempat datanya pernah ada."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Hubungan Dua Variabel, Bagian tiga, kekuatan hubungan diberi angka, namanya r. Kalau r nya nol koma sembilan delapan, apakah yang satu menyebabkan yang lain?",
+      "tulis": "Di materi berikutnya, Hubungan Dua Variabel, Bagian 3, kekuatan hubungan diberi angka, namanya r. Kalau r = 0,98, apakah yang satu *menyebabkan* yang lain?"
     }
   ]
 }

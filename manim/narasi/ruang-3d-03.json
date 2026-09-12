@@ -2,17 +2,17 @@
   "adegan": "JarakSelaluTerpendek",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Standar v3, 9 September 2026. Ditulis ulang dari versi 92 detik. Satu pertanyaan: dari sekian banyak penghubung, yang mana yang pantas disebut jarak. Segar-ingat: Ruang 3D Materi 01 (gambar ruang boleh berbohong, angka yang memutuskan), dipakai betulan sebab seluruh jawabannya diputuskan angka, bukan gambar. Asal kesimpulan dibuktikan dengan Pythagoras pada segitiga BQR, lengkap dengan angkanya: 18 + 6,48 = 24,48.",
+  "catatan": "Jarak dalam Ruang, Bagian 1 (Materi 03). Disesuaikan MASTER 12 Sep 2026 ke standar v3.1 dari naskah v3 sesi Ruang 3D (9 Sep): ISI TETAP SAMA (banyak penghubung dari B ke garis AC; Q digeser, panjangnya turun lalu naik; terpendek tegak lurus; kaki tegak lurus Q(3,3,0), BQ = 3 akar 2; bukti segitiga BQR siku-siku di Q, BR kuadrat = BQ kuadrat + QR kuadrat dengan angka; QR kuadrat tidak pernah negatif). Yang diubah: pembuka menyebut sub-bab plus Bagian 1; segar-ingat menyebut Kedudukan Titik, Garis, dan Bidang Bagian 1; penutup menyebut Jarak dalam Ruang Bagian 5 dan menunjuk Bagian 2.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Dari sekian banyak ruas yang menghubungkan sebuah titik ke sebuah garis, yang mana yang pantas disebut *jarak*?",
-      "tulis": "Dari sekian banyak ruas yang menghubungkan sebuah titik ke sebuah garis, yang mana yang pantas disebut *jarak*?"
+      "teks": "Jarak dalam Ruang, Bagian satu. Dari sekian banyak ruas yang menghubungkan sebuah titik ke sebuah garis, yang mana yang pantas disebut jarak?",
+      "tulis": "Jarak dalam Ruang, Bagian 1. Dari sekian banyak ruas yang menghubungkan sebuah titik ke sebuah garis, yang mana yang pantas disebut *jarak*?"
     },
     {
       "id": "ingat-01",
-      "teks": "Di Materi 01, gambar ruang boleh berbohong, kita melihat dua ruas yang tampak berpotongan padahal terpisah enam satuan.",
-      "tulis": "Di Materi 01, gambar ruang boleh berbohong, kita melihat dua ruas yang tampak berpotongan padahal terpisah 6 satuan."
+      "teks": "Di Kedudukan Titik, Garis, dan Bidang, Bagian satu, kita melihat dua ruas yang tampak berpotongan padahal terpisah enam satuan.",
+      "tulis": "Di Kedudukan Titik, Garis, dan Bidang, Bagian 1, kita melihat dua ruas yang tampak berpotongan padahal terpisah 6 satuan."
     },
     {
       "id": "ingat-pesan",
@@ -151,8 +151,8 @@
     },
     {
       "id": "tutup",
-      "teks": "Ingat kalimat ini sampai materi tujuh: setiap soal jarak adalah soal mencari kaki tegak lurus. Di video berikutnya kita memakai Pythagoras *dua kali* berturut-turut.",
-      "tulis": "Ingat kalimat ini sampai materi 7: setiap soal jarak adalah soal mencari kaki tegak lurus. Di video berikutnya kita memakai Pythagoras *dua kali* berturut-turut."
+      "teks": "Ingat kalimat ini sampai Jarak dalam Ruang, Bagian lima: setiap soal jarak adalah soal mencari kaki tegak lurus. Di materi berikutnya, Jarak dalam Ruang, Bagian dua, kita memakai Pythagoras dua kali berturut-turut.",
+      "tulis": "Ingat kalimat ini sampai Jarak dalam Ruang, Bagian 5: setiap soal jarak adalah soal mencari kaki tegak lurus. Di materi berikutnya, Jarak dalam Ruang, Bagian 2, kita memakai Pythagoras *dua kali* berturut-turut."
     }
   ]
 }

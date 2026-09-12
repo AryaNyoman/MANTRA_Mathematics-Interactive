@@ -1,18 +1,23 @@
 {
   "adegan": "Pencar10",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Materi 10 Statistika. Gerak dirancang lebih dulu: dua daftar angka yang terpisah DISATUKAN jadi pasangan, tiap pasangan turun jadi satu titik, dan awan titiknya sendiri yang memperlihatkan arah hubungannya. Medan `tulis` adalah bentuk tertulis untuk subtitle.",
+  "tempo": "-5%",
+  "catatan": "Hubungan Dua Variabel, Bagian 1 (Materi 10). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (jam belajar dan nilai dari sepuluh siswa yang sama; pasangan (2, 55) jadi satu titik; awan naik = positif; jam main gim = negatif; kuat lawan lemah; awan bulat tanpa kecenderungan, contoh buatan; titik tidak boleh disambung berurutan; satu garis wakil; gambar dulu awannya). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1 dengan pertanyaan halaman, tidak ada segar-ingat (tidak ada prasyarat dari materi sebelumnya), bentuk umum: tiap orang sepasang angka (x, y), yang dibaca arah dan kekuatan, penutup menunjuk Bagian 2.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi sepuluh Statistika: *diagram pencar*. Sampai sini kita selalu mengurus satu jenis angka saja. Sekarang dua sekaligus: jam belajar seminggu, dan nilai ujian, dari sepuluh siswa yang sama.",
-      "tulis": "Materi 10 Statistika: *diagram pencar*. Sampai sini kita selalu mengurus satu jenis angka saja. Sekarang dua sekaligus: jam belajar seminggu, dan nilai ujian, dari 10 siswa yang sama."
+      "teks": "Hubungan Dua Variabel, Bagian satu. Apakah lama belajar berhubungan dengan nilai ujian?",
+      "tulis": "Hubungan Dua Variabel, Bagian 1. Apakah lama belajar berhubungan dengan nilai ujian?"
+    },
+    {
+      "id": "dua",
+      "teks": "Sampai sini kita selalu mengurus satu jenis angka saja. Sekarang dua sekaligus: jam belajar seminggu, dan nilai ujian, dari sepuluh siswa yang sama.",
+      "tulis": "Sampai sini kita selalu mengurus satu jenis angka saja. Sekarang *dua sekaligus*: jam belajar seminggu, dan nilai ujian, dari 10 siswa yang sama."
     },
     {
       "id": "pasang",
-      "teks": "Kuncinya kedua angka itu milik *orang yang sama*. Jadi jangan dibaca sebagai dua daftar terpisah, melainkan sepuluh pasangan.",
-      "tulis": "Kuncinya kedua angka itu milik *orang yang sama*. Jadi jangan dibaca sebagai dua daftar terpisah, melainkan 10 pasangan."
+      "teks": "Kuncinya kedua angka itu milik orang yang sama. Jadi jangan dibaca sebagai dua daftar terpisah, melainkan sepuluh pasangan. Siswa pertama: dua jam, nilai lima puluh lima.",
+      "tulis": "Kuncinya kedua angka itu milik *orang yang sama*. Jadi jangan dibaca sebagai dua daftar terpisah, melainkan 10 pasangan. Siswa pertama: (2, 55)."
     },
     {
       "id": "titik",
@@ -21,18 +26,18 @@
     },
     {
       "id": "awan",
-      "teks": "Sepuluh titik, dan sekarang polanya kelihatan tanpa dihitung apa pun. Makin ke kanan makin ke atas. Ini yang disebut hubungan *positif*.",
+      "teks": "Sepuluh titik, dan sekarang polanya kelihatan tanpa dihitung apa pun. Makin ke kanan makin ke atas. Ini yang disebut hubungan positif.",
       "tulis": "10 titik, dan sekarang polanya kelihatan tanpa dihitung apa pun. Makin ke kanan makin ke atas. Ini yang disebut hubungan *positif*."
     },
     {
       "id": "negatif",
-      "teks": "Sekarang data lain dari sepuluh siswa: jam main gim dan nilai ujian. Awannya condong ke arah sebaliknya, makin ke kanan makin ke bawah. Hubungan *negatif*.",
+      "teks": "Sekarang data lain dari sepuluh siswa: jam main gim dan nilai ujian. Awannya condong ke arah sebaliknya, makin ke kanan makin ke bawah. Hubungan negatif.",
       "tulis": "Sekarang data lain dari 10 siswa: jam main gim dan nilai ujian. Awannya condong ke arah sebaliknya, makin ke kanan makin ke bawah. Hubungan *negatif*."
     },
     {
       "id": "kuat",
       "teks": "Selain arah, ada kekuatannya. Titik yang berdesakan rapat di sekitar satu garis berarti hubungannya kuat. Titik yang berserakan berarti lemah, walau arahnya sama.",
-      "tulis": "Selain arah, ada kekuatannya. Titik yang berdesakan rapat di sekitar satu garis berarti hubungannya kuat. Titik yang berserakan berarti lemah, walau arahnya sama."
+      "tulis": "Selain arah, ada *kekuatannya*. Titik yang berdesakan rapat di sekitar satu garis berarti hubungannya kuat. Titik yang berserakan berarti lemah, walau arahnya sama."
     },
     {
       "id": "tanpa",
@@ -41,18 +46,28 @@
     },
     {
       "id": "urutan",
-      "teks": "Satu hal yang sering keliru. Titik pada diagram pencar *tidak boleh disambung berurutan* seperti grafik garis. Tidak ada urutan waktu di sini, yang ada sepuluh orang.",
+      "teks": "Satu hal yang sering keliru. Titik pada diagram pencar tidak boleh disambung berurutan seperti grafik garis. Tidak ada urutan waktu di sini, yang ada sepuluh orang.",
       "tulis": "Satu hal yang sering keliru. Titik pada diagram pencar *tidak boleh disambung berurutan* seperti grafik garis. Tidak ada urutan waktu di sini, yang ada 10 orang."
     },
     {
       "id": "garis",
-      "teks": "Yang boleh ditarik cuma *satu* garis yang mewakili seluruh awan. Bagaimana memilih garis yang paling pas, itu isi materi sebelas.",
-      "tulis": "Yang boleh ditarik cuma *satu* garis yang mewakili seluruh awan. Bagaimana memilih garis yang paling pas, itu isi Materi 11."
+      "teks": "Yang boleh ditarik cuma satu garis yang mewakili seluruh awan. Bagaimana memilih garis yang paling pas, itu isi materi berikutnya.",
+      "tulis": "Yang boleh ditarik cuma *satu* garis yang mewakili seluruh awan. Bagaimana memilih garis yang paling pas, itu isi materi berikutnya."
+    },
+    {
+      "id": "umum",
+      "teks": "Bentuk umumnya: tiap orang menyumbang sepasang angka, x dan y, x ke mendatar dan y ke tegak. Dari awannya kita baca dua hal: arahnya, positif atau negatif, dan kekuatannya, rapat atau berserakan.",
+      "tulis": "Bentuk umumnya: tiap orang menyumbang sepasang angka (x, y), x ke mendatar dan y ke tegak. Dari awannya kita baca dua hal: *arahnya*, positif atau negatif, dan *kekuatannya*, rapat atau berserakan."
     },
     {
       "id": "tutup",
-      "teks": "Jadi langkah pertama menghadapi dua jenis angka selalu sama: *gambar dulu awannya*, baru hitung. Gambarnya sering sudah menjawab sebelum satu rumus pun dipakai.",
+      "teks": "Jadi langkah pertama menghadapi dua jenis angka selalu sama: gambar dulu awannya, baru hitung. Gambarnya sering sudah menjawab sebelum satu rumus pun dipakai.",
       "tulis": "Jadi langkah pertama menghadapi dua jenis angka selalu sama: *gambar dulu awannya*, baru hitung. Gambarnya sering sudah menjawab sebelum satu rumus pun dipakai."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Hubungan Dua Variabel, Bagian dua, sepuluh orang menarik garis yang paling pas pada titik yang sama. Garis siapa yang benar?",
+      "tulis": "Di materi berikutnya, Hubungan Dua Variabel, Bagian 2, sepuluh orang menarik garis yang paling pas pada titik yang sama. Garis *siapa* yang benar?"
     }
   ]
 }

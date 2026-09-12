@@ -102,11 +102,44 @@ PENOLONG = re.compile(
 BATAS_EKOR = 0.15
 
 
+# Penolong adegan yang memakan waktu lewat kata kunci lain (12 Sep 2026):
+# `sorot_pita/sorot_kotak/sorot_panah(..., lama=X)` memakan X (bawaan 1,0),
+# `lahir_rumus(..., tahan=X, run_time=Y)` memakan 0,5 + X + Y (bawaan tahan
+# 0,6, run_time 1,2), `papan.baris(...)` 0,8, `papan.tumbuh(...)` dan
+# `ganti_rumus(...)` 1,2 bila run_time tidak ditulis. Statistika 09 lolos
+# gerbang ini lalu gagal di render karena sorot_pita 1,0 detik tidak dihitung.
+LAMA_SOROT = re.compile(r'lama\s*=\s*([0-9.]+)')
+TAHAN = re.compile(r'tahan\s*=\s*([0-9.]+)')
+SOROT_TANPA_LAMA = re.compile(r'sorot_(?:pita|kotak|panah|cincin)\(')
+
+
 def lama_animasi(baris: str) -> float:
     """Detik yang dimakan satu baris kode: run_time terbesar plus penolong."""
     rt = [float(x) for x in RUN_TIME.findall(baris)]
     lama = max(rt) if rt else 0.0
     lama += sum(float(a or b) for a, b in PENOLONG.findall(baris))
+    # `lama=` hanya dihitung pada baris penolong sorot: `judul_pembuka(...,
+    # lama=X)` sudah dicatat adegan lewat `b.catat(X)` di baris berikutnya.
+    if "sorot_" in baris:
+        sorot = LAMA_SOROT.findall(baris)
+        if sorot:
+            lama += sum(float(x) for x in sorot)
+        elif SOROT_TANPA_LAMA.search(baris):
+            lama += 1.0
+    # Panggilan yang berlanjut ke baris berikutnya (tidak ditutup `)` di
+    # baris ini) menaruh tahan= dan run_time= di baris lanjutannya, dan
+    # baris lanjutan itu dihitung sendiri; jangan menambah nilai bawaan dua kali.
+    tertutup = baris.rstrip().endswith(")") or baris.rstrip().endswith("):")
+    tahan = TAHAN.findall(baris)
+    if tahan:
+        lama += 0.5 + sum(float(x) for x in tahan)
+    elif "lahir_rumus(" in baris:
+        lama += 0.5 + ((0.6 + (0.0 if rt else 1.2)) if tertutup else 0.0)
+    if not rt and tertutup:
+        if "papan.baris(" in baris:
+            lama += 0.8
+        if "papan.tumbuh(" in baris or "ganti_rumus(" in baris:
+            lama += 1.2
     return lama
 
 

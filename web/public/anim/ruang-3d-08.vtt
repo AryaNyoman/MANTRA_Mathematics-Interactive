@@ -1,103 +1,180 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/ruang-3d-08.json
+NOTE Dibuat otomatis dari manim/narasi/ruang-3d-08.json (waktu kata rekaman)
+NOTE naskah-sidik 3ea578b2744a
 
 1
-00:00:00.000 --> 00:00:03.936
-Materi 8, <b>sudut dua garis yang tidak pernah bertemu</b>.
+00:00:00.101 --> 00:00:02.672
+Sudut dalam Ruang, Bagian 1.
 
 2
-00:00:03.936 --> 00:00:06.282
-Banyak yang mengira sudut hanya
+00:00:03.406 --> 00:00:04.818
+Bagaimana mengukur sudut dua
 
 3
-00:00:06.282 --> 00:00:09.462
-bisa diukur kalau kedua garis berpotongan.
+00:00:04.818 --> 00:00:06.582
+garis yang tidak pernah bertemu?
 
 4
-00:00:09.462 --> 00:00:11.808
-Coba kita uji dengan kubus ini.
+00:00:07.816 --> 00:00:11.096
+Di Kedudukan Titik, Garis, dan Bidang, Bagian 1,
 
 5
-00:00:11.808 --> 00:00:15.821
-Ini A̅C̅ di lantai, dan ini B̅G̅ di sisi kanan.
+00:00:11.096 --> 00:00:13.283
+dua garis yang tidak sejajar dan
 
 6
-00:00:15.821 --> 00:00:18.895
-Keduanya <b>bersilangan</b>: tidak sejajar,
+00:00:13.283 --> 00:00:16.439
+tidak pernah bertemu kita sebut <b>bersilangan</b>.
 
 7
-00:00:18.895 --> 00:00:22.226
-dan tidak punya satu pun titik bersama.
+00:00:17.172 --> 00:00:19.703
+Hari ini kita ukur sudut di antara keduanya.
 
 8
-00:00:22.226 --> 00:00:25.556
-Padahal sudut selalu butuh titik sudut.
+00:00:20.916 --> 00:00:24.645
+Ini AC di lantai, dan ini BG di sisi kanan.
 
 9
-00:00:25.556 --> 00:00:28.032
-Jadi sudutnya diukur di mana?
+00:00:25.392 --> 00:00:27.685
+Keduanya <b>bersilangan</b>: tidak sejajar,
 
 10
-00:00:28.032 --> 00:00:31.164
-Jalan keluarnya: kita geser salah satunya,
+00:00:27.685 --> 00:00:30.318
+dan tidak punya satu pun titik bersama.
 
 11
-00:00:31.164 --> 00:00:34.818
-<b>sejajar dirinya sendiri</b>, sampai keduanya bertemu.
+00:00:31.049 --> 00:00:33.449
+Padahal sudut selalu butuh titik sudut.
 
 12
-00:00:34.818 --> 00:00:37.427
-Perhatikan garis merah ini berjalan
+00:00:34.180 --> 00:00:36.120
+Jadi sudutnya diukur di mana?
 
 13
-00:00:37.427 --> 00:00:39.888
-pelan tanpa berputar sedikit pun.
+00:00:37.335 --> 00:00:40.189
+Jalan keluarnya: kita geser salah satunya,
 
 14
-00:00:39.888 --> 00:00:43.874
-Pada geseran penuh, B̅G̅ mendarat tepat menjadi A̅H̅,
+00:00:40.189 --> 00:00:43.669
+<b>sejajar dirinya sendiri</b>, sampai keduanya bertemu.
 
 15
-00:00:43.874 --> 00:00:47.258
-diagonal sisi yang memang sudah ada di kubus.
+00:00:44.403 --> 00:00:46.293
+Perhatikan garis merah ini berjalan
 
 16
-00:00:47.258 --> 00:00:50.040
-Sekarang keduanya bertemu di titik A.
+00:00:46.293 --> 00:00:48.224
+pelan tanpa berputar sedikit pun.
 
 17
-00:00:50.040 --> 00:00:52.454
-Sekarang lihat segitiga ACH.
+00:00:49.449 --> 00:00:52.556
+Pada geseran penuh, BG mendarat tepat menjadi AH,
 
 18
-00:00:52.454 --> 00:00:56.678
-A̅C̅ diagonal sisi alas, A̅H̅ diagonal sisi kiri,
+00:00:52.556 --> 00:00:55.560
+diagonal sisi yang memang sudah ada di kubus.
 
 19
-00:00:56.678 --> 00:00:59.091
-C̅H̅ diagonal sisi belakang.
+00:00:56.293 --> 00:00:58.640
+Sekarang keduanya bertemu di titik A.
 
 20
-00:00:59.091 --> 00:01:02.712
-Ketiganya <b>6√2</b>, jadi segitiganya <b>sama sisi</b>.
+00:00:59.882 --> 00:01:01.698
+Sekarang lihat segitiga ACH.
 
 21
-00:01:02.712 --> 00:01:05.701
-Semua sudut segitiga sama sisi adalah <b>60°</b>,
+00:01:01.698 --> 00:01:05.026
+AC diagonal sisi alas, AH diagonal sisi kiri,
 
 22
-00:01:05.701 --> 00:01:07.764
-dan kita mendapatkannya tanpa
+00:01:05.026 --> 00:01:07.098
+CH diagonal sisi belakang.
 
 23
-00:01:07.764 --> 00:01:10.184
-satu pun perhitungan trigonometri.
+00:01:07.846 --> 00:01:11.561
+Ketiganya <b>6√2</b>, jadi segitiganya <b>sama sisi</b>.
 
 24
-00:01:10.184 --> 00:01:12.318
-Menggeser tidak mengubah arah,
+00:01:12.767 --> 00:01:14.117
+Cek satu saja.
 
 25
-00:01:12.318 --> 00:01:14.880
+00:01:14.784 --> 00:01:20.460
+CH menghubungkan C di (6, 6, 0) dengan H di (0, 6, 6).
+
+26
+00:01:21.206 --> 00:01:26.402
+Selisihnya 6 pada x dan 6 pada z, jadi panjangnya √72,
+
+27
+00:01:26.402 --> 00:01:27.752
+yaitu 6√2.
+
+28
+00:01:28.243 --> 00:01:29.593
+Cocok.
+
+29
+00:01:30.382 --> 00:01:32.951
+Semua sudut segitiga sama sisi adalah <b>60°</b>,
+
+30
+00:01:32.951 --> 00:01:34.724
+dan kita mendapatkannya tanpa
+
+31
+00:01:34.724 --> 00:01:36.953
+satu pun perhitungan trigonometri.
+
+32
+00:01:38.182 --> 00:01:39.382
+Bentuk umumnya:
+
+33
+00:01:39.382 --> 00:01:41.627
+sudut dua garis bersilangan adalah sudut
+
+34
+00:01:41.627 --> 00:01:44.638
+dua garis berpotongan yang sejajar dengan keduanya.
+
+35
+00:01:45.027 --> 00:01:46.702
+Menggeser tidak mengubah arah,
+
+36
+00:01:46.702 --> 00:01:48.861
 dan karena itu tidak mengubah sudut.
+
+37
+00:01:50.068 --> 00:01:52.140
+Jadi kalau dua garis tidak bertemu,
+
+38
+00:01:52.140 --> 00:01:53.889
+jangan diukur di gambarnya.
+
+39
+00:01:54.623 --> 00:01:56.672
+Geser satu sejajar sampai bertemu,
+
+40
+00:01:56.672 --> 00:01:58.931
+lalu ukur sudut yang lahir di situ.
+
+41
+00:02:00.149 --> 00:02:03.562
+Di materi berikutnya, Sudut dalam Ruang, Bagian 2,
+
+42
+00:02:03.562 --> 00:02:05.746
+sudutnya bukan antara dua garis,
+
+43
+00:02:05.746 --> 00:02:08.066
+melainkan antara garis dan bidang,
+
+44
+00:02:08.066 --> 00:02:09.786
+lalu antara dua bidang.

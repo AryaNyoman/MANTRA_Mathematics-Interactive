@@ -1,18 +1,28 @@
 {
   "adegan": "Pencilan6",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Materi 06 Statistika. GERAKNYA DIRANCANG LEBIH DULU, naskah ditulis sepanjang gerak itu; ini perbaikan atas cacat video 05 dan 08 yang menyisakan detik tanpa animasi baru. Medan `tulis` adalah bentuk tertulis untuk subtitle: lambang dan angka, bukan salinan mentah ucapan. Penanda *kata* jadi tebal.",
+  "tempo": "-5%",
+  "catatan": "Ukuran Pemusatan dan Penyebaran, Bagian 2 (Materi 06). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (sembilan karyawan bergaji 4,2 sampai 7 juta, mean 5,24 dan median 5,00; direktur 75 juta masuk, penggaris ditarik jauh, karyawan jadi gerombolan; mean berlari ke 12,22, median cuma ke 5,10; di 12,22 tidak ada siapa-siapa; mean memakai nilai, median memakai urutan; direktur 120 juta: mean 16,72, median diam; jangan buang direkturnya; ganti ukurannya, pakai median). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2 dengan pertanyaan halaman, segar-ingat Bagian 1 (mean titik seimbang, median yang di tengah), hitungan mean 122,2 : 10 = 12,22 ditulis, bentuk umum: mean memakai nilai (jumlah x dibagi n), median memakai urutan, penutup menunjuk Bagian 3.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi enam Statistika: *pencilan*. Sebuah kantor kecil berisi sembilan karyawan. Ini gaji mereka, dalam juta rupiah, dari empat koma dua sampai tujuh.",
-      "tulis": "Materi 06 Statistika: *pencilan*. Sebuah kantor kecil berisi 9 karyawan. Ini gaji mereka, dalam juta rupiah, dari 4,2 sampai 7,0."
+      "teks": "Ukuran Pemusatan dan Penyebaran, Bagian dua. Gaji rata-rata di sebuah kantor dua belas juta. Kenapa hampir semua karyawannya tidak merasa begitu?",
+      "tulis": "Ukuran Pemusatan dan Penyebaran, Bagian 2. Gaji rata-rata di sebuah kantor 12 juta. Kenapa hampir semua karyawannya tidak merasa begitu?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Bagian satu, rata-rata adalah titik tempat data seimbang, dan median adalah yang di tengah setelah data diurutkan. Hari ini keduanya diuji oleh satu nilai yang jauh sendiri.",
+      "tulis": "Di Bagian 1, rata-rata adalah *titik tempat data seimbang*, dan median adalah *yang di tengah* setelah data diurutkan. Hari ini keduanya diuji oleh satu nilai yang jauh sendiri."
+    },
+    {
+      "id": "kantor",
+      "teks": "Sebuah kantor kecil berisi sembilan karyawan. Ini gaji mereka, dalam juta rupiah, dari empat koma dua sampai tujuh.",
+      "tulis": "Sebuah kantor kecil berisi 9 karyawan. Ini gaji mereka, dalam juta rupiah, dari 4,2 sampai 7."
     },
     {
       "id": "wajar",
-      "teks": "Rata-ratanya lima koma dua empat juta, mediannya lima juta. Dua ukuran yang cara kerjanya berbeda, tetapi jawabannya *hampir sama*. Keduanya masuk akal.",
-      "tulis": "Rata-ratanya 5,24 juta, mediannya 5,00 juta. Dua ukuran yang cara kerjanya berbeda, tetapi jawabannya *hampir sama*. Keduanya masuk akal."
+      "teks": "Rata-ratanya lima koma dua empat juta, mediannya lima juta. Dua ukuran yang cara kerjanya berbeda, tetapi jawabannya hampir sama. Keduanya masuk akal.",
+      "tulis": "Rata-ratanya 5,24 juta, mediannya 5 juta. Dua ukuran yang cara kerjanya berbeda, tetapi jawabannya *hampir sama*. Keduanya masuk akal."
     },
     {
       "id": "masuk",
@@ -20,39 +30,54 @@
       "tulis": "Sekarang direkturnya ikut dihitung. Gajinya 75 juta. Supaya ia muat, penggarisnya ditarik jauh, dan 9 karyawan tadi berdesakan jadi satu gerombolan."
     },
     {
+      "id": "hitung",
+      "teks": "Jumlah gaji sembilan karyawan empat puluh tujuh koma dua juta. Ditambah tujuh puluh lima jadi seratus dua puluh dua koma dua, dibagi sepuluh orang: dua belas koma dua dua juta.",
+      "tulis": "Jumlah gaji 9 karyawan 47,2 juta. Ditambah 75 jadi 122,2, dibagi 10 orang: 12,22 juta."
+    },
+    {
       "id": "tertarik",
-      "teks": "Perhatikan dua penanda tadi. Mean *berlari* ke kanan, dari lima koma dua empat ke dua belas koma dua dua. Median hanya bergeser sedikit, dari lima koma nol nol ke lima koma satu nol.",
+      "teks": "Perhatikan dua penanda tadi. Mean berlari ke kanan, dari lima koma dua empat ke dua belas koma dua dua. Median hanya bergeser sedikit, dari lima koma nol nol ke lima koma satu nol.",
       "tulis": "Perhatikan dua penanda tadi. Mean *berlari* ke kanan, dari 5,24 ke 12,22. Median hanya bergeser sedikit, dari 5,00 ke 5,10."
     },
     {
       "id": "kosong",
-      "teks": "Dan di dua belas koma dua dua itu *tidak ada siapa-siapa*. Sembilan dari sepuluh orang bergaji tujuh juta atau kurang. Rata-ratanya benar, tetapi tidak mewakili seorang pun.",
+      "teks": "Dan di dua belas koma dua dua itu tidak ada siapa-siapa. Sembilan dari sepuluh orang bergaji tujuh juta atau kurang. Rata-ratanya benar, tetapi tidak mewakili seorang pun.",
       "tulis": "Dan di 12,22 itu *tidak ada siapa-siapa*. 9 dari 10 orang bergaji 7 juta atau kurang. Rata-ratanya benar, tetapi tidak mewakili seorang pun."
     },
     {
       "id": "nilai",
-      "teks": "Kenapa mean bisa diseret? Karena mean memakai *nilai* setiap data. Jarak gaji direktur ke pusat jauh lebih panjang daripada milik siapa pun.",
-      "tulis": "Kenapa mean bisa diseret? Karena mean memakai *nilai* setiap data. Jarak gaji direktur ke pusat jauh lebih panjang daripada milik siapa pun."
+      "teks": "Kenapa mean bisa diseret? Karena mean memakai nilai setiap data. Jarak gaji direktur ke pusat jauh lebih panjang daripada milik siapa pun, dan papan tadi harus tetap seimbang.",
+      "tulis": "Kenapa mean bisa diseret? Karena mean memakai *nilai* setiap data. Jarak gaji direktur ke pusat jauh lebih panjang daripada milik siapa pun, dan papan tadi harus tetap seimbang."
     },
     {
       "id": "posisi",
-      "teks": "Median bekerja lain. Ia hanya memakai *urutan*. Sepuluh data ini dibariskan berjarak sama, dan median adalah yang di tengah. Bagi median, direktur cuma data paling kanan.",
+      "teks": "Median bekerja lain. Ia hanya memakai urutan. Sepuluh data ini dibariskan berjarak sama, dan median adalah yang di tengah. Bagi median, direktur cuma data paling kanan.",
       "tulis": "Median bekerja lain. Ia hanya memakai *urutan*. 10 data ini dibariskan berjarak sama, dan median adalah yang di tengah. Bagi median, direktur cuma data paling kanan."
     },
     {
       "id": "seret",
-      "teks": "Bagaimana kalau gajinya bukan tujuh puluh lima, melainkan seratus dua puluh juta? Mean lari lagi, jadi enam belas koma tujuh dua. Median *tidak bergerak sedikit pun*.",
+      "teks": "Bagaimana kalau gajinya bukan tujuh puluh lima, melainkan seratus dua puluh juta? Mean lari lagi, jadi enam belas koma tujuh dua. Median tidak bergerak sedikit pun.",
       "tulis": "Bagaimana kalau gajinya bukan 75, melainkan 120 juta? Mean lari lagi, jadi 16,72. Median *tidak bergerak sedikit pun*."
     },
     {
+      "id": "umum",
+      "teks": "Bentuk umumnya begini. Mean sama dengan jumlah semua nilai dibagi n, jadi tiap nilai ikut menariknya. Median adalah data ke tengah setelah diurutkan, jadi ia cuma peduli berapa data di kiri dan berapa di kanan.",
+      "tulis": "Bentuk umumnya begini. Mean = jumlah semua nilai dibagi n, jadi *tiap nilai* ikut menariknya. Median adalah data ke tengah setelah diurutkan, jadi ia cuma peduli berapa data di kiri dan berapa di kanan."
+    },
+    {
       "id": "buang",
-      "teks": "Godaannya, hapus saja direkturnya supaya angkanya rapi. Jangan. Gajinya memang benar segitu, dan membuangnya berarti *berbohong* tentang kantor ini.",
+      "teks": "Godaannya, hapus saja direkturnya supaya angkanya rapi. Jangan. Gajinya memang benar segitu, dan membuangnya berarti berbohong tentang kantor ini.",
       "tulis": "Godaannya, hapus saja direkturnya supaya angkanya rapi. Jangan. Gajinya memang benar segitu, dan membuangnya berarti *berbohong* tentang kantor ini."
     },
     {
       "id": "tutup",
-      "teks": "Yang diganti bukan datanya, melainkan *ukurannya*. Untuk gaji dan harga rumah, median yang dipakai. Itulah sebabnya karyawan tadi tidak merasa bergaji dua belas juta.",
-      "tulis": "Yang diganti bukan datanya, melainkan *ukurannya*. Untuk gaji dan harga rumah, *median* yang dipakai. Itulah sebabnya karyawan tadi tidak merasa bergaji 12 juta."
+      "teks": "Yang diganti bukan datanya, melainkan ukurannya. Untuk gaji dan harga rumah, median yang dipakai. Itulah sebabnya karyawan tadi tidak merasa bergaji dua belas juta.",
+      "tulis": "Yang diganti bukan datanya, melainkan *ukurannya*. Untuk gaji dan harga rumah, median yang dipakai. Itulah sebabnya karyawan tadi tidak merasa bergaji 12 juta."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian tiga, sebaran seluruh data digambarkan hanya dengan lima angka.",
+      "tulis": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian 3, sebaran seluruh data digambarkan hanya dengan *lima angka*."
     }
   ]
 }
