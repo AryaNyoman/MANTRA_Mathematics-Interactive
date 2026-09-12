@@ -45,9 +45,11 @@ Umpan balik ARYA sesudah 58 video v3.1 tayang, semuanya dikerjakan MASTER:
    kolom alat 1366 ada 23 kotak yang sekarang membungkus dua sampai empat
    baris (dulu terpotong). Sudut kotak 21px supaya dua baris tidak berbentuk
    telur.
-- Vercel: proyek `matra` tinggal 3 deploy (produksi + `mantra-uji` 4 Sep +
-  `mantra-rancangan-v2` 5 Sep, keduanya punya alias bernama, belum dihapus
-  tanpa izin ARYA). Angka >10 GB di dasbor juga memuat dua proyek LENTERA
+- Commit 06f9d0e, deploy matra-h9g7dnush dialiaskan ke mantra-matematika
+  (diperiksa di situs tayang: alamat video, subtitle, poster bersidik dan
+  saklar subtitle ada). Vercel: proyek `matra` tinggal 3 deploy (produksi +
+  `mantra-uji` 4 Sep + `mantra-rancangan-v2` 5 Sep, keduanya punya alias
+  bernama, belum dihapus tanpa izin ARYA). Angka >10 GB di dasbor juga memuat dua proyek LENTERA
   HARUM (simpus-imun 9 deploy, simpus-posyandu 20 deploy).
 Berikutnya: keputusan ARYA soal video yang mau diperdalam (butir 1) dan dua
 alias lama (mantra-uji, mantra-rancangan-v2).
