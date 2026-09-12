@@ -680,6 +680,17 @@ export const TAHAP: Tahap[] = [
         ],
       },
       { jenis: 'paragraf', teks: 'Geser sudutnya dan perhatikan ketiga kurva tumbuh bersamaan dari satu putaran yang sama.' },
+      { jenis: 'sesi', judul: 'Bonus: kebalikannya juga punya grafik' },
+      { jenis: 'paragraf', teks: 'Tiga perbandingan sisanya dari Materi 06 adalah kebalikan dari sin, cos, dan tan, jadi grafiknya bisa dibaca dari grafik ketiganya: kurvanya melesat persis di tempat pembaginya nol.' },
+      {
+        jenis: 'poin',
+        butir: [
+          'csc θ = 1 ÷ sin θ - melesat di 0°, 180°, dan 360° (tempat sin nol), dan tidak pernah masuk ke antara −1 dan 1',
+          'sec θ = 1 ÷ cos θ - melesat di 90° dan 270° (tempat cos nol), jurangnya sama dengan tan',
+          'cot θ = cos θ ÷ sin θ - kebalikan tan: melesat di tempat sin nol, dan turun di tempat tan naik',
+        ],
+      },
+      { jenis: 'sorot', teks: 'Tidak ada bentuk baru yang perlu dihafal: jurang csc, sec, dan cot selalu ada di tempat sin atau cos bernilai nol.' },
     ],
     seringKeliru: {
       judul: 'Jurang grafik tan dikira “nilainya tak hingga”',

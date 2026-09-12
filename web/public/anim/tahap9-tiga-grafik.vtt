@@ -1,7 +1,7 @@
 WEBVTT
 
 NOTE Dibuat otomatis dari manim/narasi/tahap9-tiga-grafik.json (waktu kata rekaman)
-NOTE naskah-sidik f5fb5d920d25
+NOTE naskah-sidik 2ef5b44dea06
 
 1
 00:00:00.101 --> 00:00:03.199
@@ -104,57 +104,173 @@ Di 45° keduanya sama besar, jadi tan-nya tepat 1.
 Selama pembaginya tidak 0, hasilnya baik-baik saja.
 
 26
-00:01:19.641 --> 00:01:23.502
-Tetapi di 90°, posisi mendatarnya tepat 0.
+00:01:19.641 --> 00:01:21.470
+Tetapi makin dekat ke 90°,
 
 27
-00:01:24.701 --> 00:01:27.378
-Dan pembagian dengan 0 <b>tidak terdefinisi</b>.
+00:01:21.470 --> 00:01:23.650
+posisi mendatarnya makin <b>kecil</b>,
 
 28
-00:01:28.112 --> 00:01:29.506
-Kurvanya melesat naik tanpa
+00:01:23.650 --> 00:01:25.910
+dan hasil baginya makin <b>besar</b>.
 
 29
-00:01:29.506 --> 00:01:31.670
-pernah menyentuh garis putus-putus itu.
+00:01:27.133 --> 00:01:28.483
+Lihat angkanya.
 
 30
-00:01:32.868 --> 00:01:36.413
-sin dan cos terkurung rapat antara 1 dan −1.
+00:01:29.164 --> 00:01:32.037
+tan 80° = 5,67.
 
 31
-00:01:37.147 --> 00:01:40.494
-tan tidak punya batas, baik ke atas maupun ke bawah.
+00:01:32.769 --> 00:01:36.669
+tan 89° = 57,29.
 
 32
-00:01:41.701 --> 00:01:45.338
-sin dan cos mengulang setiap 360°.
+00:01:37.400 --> 00:01:42.274
+tan 89,9° = 572,96.
 
 33
-00:01:46.087 --> 00:01:50.210
-tan mengulang dua kali lebih cepat, setiap <b>180°</b>.
+00:01:43.005 --> 00:01:45.234
+Makin dekat, makin <b>melesat</b>.
 
 34
-00:01:51.435 --> 00:01:53.769
-3 kurva, 1 putaran.
+00:01:46.449 --> 00:01:49.071
+Tepat di 90°, posisi mendatarnya 0,
 
 35
-00:01:54.503 --> 00:01:55.854
-Yang berbeda hanya apa yang
+00:01:49.071 --> 00:01:52.441
+dan pembagian dengan 0 <b>tidak punya jawaban</b>.
 
 36
-00:01:55.854 --> 00:01:57.706
-dicatat dari perjalanan yang sama.
+00:01:53.189 --> 00:01:56.163
+Itulah sebabnya tan 90° tidak terdefinisi:
 
 37
-00:01:58.916 --> 00:02:01.546
-Di materi berikutnya, Penerapan Trigonometri,
+00:01:56.163 --> 00:01:59.641
+bukan tak hingga, melainkan tidak ada angkanya.
 
 38
-00:02:01.546 --> 00:02:03.183
-kita lihat di mana sudut dan
+00:02:00.835 --> 00:02:04.393
+Di grafik, tempat itu ditandai garis putus-putus tegak.
 
 39
-00:02:03.183 --> 00:02:05.671
+00:02:05.127 --> 00:02:06.833
+Kurvanya melesat ke atas mendekati
+
+40
+00:02:06.833 --> 00:02:08.790
+garis itu tanpa pernah <b>menyentuhnya</b>.
+
+41
+00:02:09.536 --> 00:02:12.325
+Lewat 90°, posisi mendatarnya negatif,
+
+42
+00:02:12.325 --> 00:02:14.012
+jadi tangennya negatif,
+
+43
+00:02:14.012 --> 00:02:16.804
+dan kurvanya muncul lagi dari bawah.
+
+44
+00:02:18.001 --> 00:02:20.177
+Hal yang sama terulang di 270°,
+
+45
+00:02:20.177 --> 00:02:22.783
+saat titiknya tepat di bawah pusat.
+
+46
+00:02:23.532 --> 00:02:25.650
+Setiap kali posisi mendatarnya 0,
+
+47
+00:02:25.650 --> 00:02:27.405
+tangen tidak terdefinisi.
+
+48
+00:02:28.601 --> 00:02:32.146
+sin dan cos terkurung rapat antara 1 dan −1.
+
+49
+00:02:32.880 --> 00:02:36.228
+tan tidak punya batas, baik ke atas maupun ke bawah.
+
+50
+00:02:37.435 --> 00:02:41.071
+sin dan cos mengulang setiap 360°.
+
+51
+00:02:41.820 --> 00:02:45.944
+tan mengulang dua kali lebih cepat, setiap <b>180°</b>.
+
+52
+00:02:47.168 --> 00:02:48.368
+Sebagai bonus,
+
+53
+00:02:48.368 --> 00:02:51.263
+tiga perbandingan sisanya juga punya grafik.
+
+54
+00:02:51.671 --> 00:02:53.939
+csc θ = 1 : sin θ.
+
+55
+00:02:54.685 --> 00:02:58.357
+Kurvanya melesat persis di tempat sinus nol,
+
+56
+00:02:58.357 --> 00:03:00.693
+yaitu di 0°, 180°, dan 360°,
+
+57
+00:03:00.693 --> 00:03:04.348
+dan tidak pernah masuk ke antara 1 dan -1.
+
+58
+00:03:05.582 --> 00:03:09.999
+sec θ = 1 : cos θ, melesat di 90° dan 270°,
+
+59
+00:03:09.999 --> 00:03:12.101
+tempat cosinus nol.
+
+60
+00:03:12.848 --> 00:03:15.904
+Dan cot θ = cos θ : sin θ, kebalikan tangen:
+
+61
+00:03:15.904 --> 00:03:17.849
+melesat di tempat sinus nol,
+
+62
+00:03:17.849 --> 00:03:20.222
+dan <b>turun</b> di tempat tangen naik.
+
+63
+00:03:21.435 --> 00:03:23.769
+3 kurva, 1 putaran.
+
+64
+00:03:24.503 --> 00:03:25.854
+Yang berbeda hanya apa yang
+
+65
+00:03:25.854 --> 00:03:27.706
+dicatat dari perjalanan yang sama.
+
+66
+00:03:28.916 --> 00:03:31.546
+Di materi berikutnya, Penerapan Trigonometri,
+
+67
+00:03:31.546 --> 00:03:33.183
+kita lihat di mana sudut dan
+
+68
+00:03:33.183 --> 00:03:35.671
 perbandingan ini dipakai di dunia nyata.

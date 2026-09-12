@@ -1,7 +1,7 @@
 WEBVTT
 
 NOTE Dibuat otomatis dari manim/narasi/tahap7-sudut-istimewa.json (waktu kata rekaman)
-NOTE naskah-sidik e4014db920fa
+NOTE naskah-sidik 4e009fc84f7c
 
 1
 00:00:00.101 --> 00:00:03.751
@@ -96,97 +96,149 @@ Jadi sin 45° = depan : miring = 1/√2.
 Sebuah angka pasti, bukan hasil tekan kalkulator.
 
 24
-00:01:16.735 --> 00:01:19.319
-Yang kedua lahir dari segitiga sama sisi.
+00:01:16.749 --> 00:01:21.899
+cos 45° = samping : miring, juga 1/√2.
 
 25
-00:01:20.053 --> 00:01:22.259
-Ambil segitiga yang ketiga sisinya 2,
+00:01:22.646 --> 00:01:25.039
+Bentuk lain angka yang sama adalah <b>√2/2</b>,
 
 26
-00:01:22.259 --> 00:01:24.019
-lalu belah tepat di tengah.
+00:01:25.039 --> 00:01:27.941
+dan bentuk itulah yang biasa ditulis di tabel.
 
 27
-00:01:25.235 --> 00:01:27.616
-Sekarang muncul segitiga siku-siku
+00:01:29.135 --> 00:01:31.719
+Yang kedua lahir dari segitiga sama sisi.
 
 28
-00:01:27.616 --> 00:01:29.516
-dengan sudut 30° dan 60°.
+00:01:32.453 --> 00:01:34.659
+Ambil segitiga yang ketiga sisinya 2,
 
 29
-00:01:30.250 --> 00:01:32.821
-Alasnya 1, dan miringnya 2.
+00:01:34.659 --> 00:01:36.419
+lalu belah tepat di tengah.
 
 30
-00:01:34.035 --> 00:01:36.632
-Sisi tegaknya lagi-lagi dari Pythagoras.
+00:01:37.635 --> 00:01:40.016
+Sekarang muncul segitiga siku-siku
 
 31
-00:01:37.381 --> 00:01:42.307
-2² − 1² = 3, jadi sisi tegaknya <b>√3</b>.
+00:01:40.016 --> 00:01:41.916
+dengan sudut 30° dan 60°.
 
 32
-00:01:43.549 --> 00:01:47.449
-Dari situ, sin 30° = 1/2.
+00:01:42.650 --> 00:01:45.221
+Alasnya 1, dan miringnya 2.
 
 33
-00:01:48.182 --> 00:01:51.450
-Dan sin 60° = √3/2.
+00:01:46.435 --> 00:01:49.032
+Sisi tegaknya lagi-lagi dari Pythagoras.
 
 34
-00:01:52.668 --> 00:01:55.213
-Sekarang taruh ketiganya di lingkaran satuan.
+00:01:49.781 --> 00:01:54.707
+2² − 1² = 3, jadi sisi tegaknya <b>√3</b>.
 
 35
-00:01:55.947 --> 00:01:57.546
-Tiap sudut istimewa memberi 1
+00:01:55.949 --> 00:01:59.849
+Dari situ, sin 30° = 1/2.
 
 36
-00:01:57.546 --> 00:02:00.123
-titik yang koordinatnya bisa ditulis persis.
+00:02:00.582 --> 00:02:03.850
+Dan sin 60° = √3/2.
 
 37
-00:02:01.349 --> 00:02:06.032
-Jari-jarinya menyapu, berhenti di 30°, 45°, dan 60°,
+00:02:05.068 --> 00:02:07.718
+Cosinusnya tinggal membaca sisi sampingnya.
 
 38
-00:02:06.032 --> 00:02:09.604
-dan koordinatnya muncul satu per satu.
+00:02:08.467 --> 00:02:14.656
+cos 30° = √3/2, dan cos 60° = 1/2.
 
 39
-00:02:10.835 --> 00:02:13.603
-Itulah sebabnya ketiganya disebut istimewa.
+00:02:15.385 --> 00:02:16.903
+Nilainya <b>bertukar</b>.
 
 40
-00:02:14.352 --> 00:02:15.841
-Bukan karena mudah dihafal,
+00:02:18.116 --> 00:02:21.193
+Sekarang <b>ciutkan</b> segitiganya sampai sisi miringnya 1,
 
 41
-00:02:15.841 --> 00:02:17.497
-melainkan karena nilainya bisa
+00:02:21.193 --> 00:02:23.608
+sama dengan jari-jari lingkaran satuan.
 
 42
-00:02:17.497 --> 00:02:19.357
-dihitung sendiri dengan tangan.
+00:02:24.355 --> 00:02:29.676
+Segitiga 30-60 dibagi 2: sisinya menjadi 1/2 dan √3/2.
 
 43
-00:02:20.582 --> 00:02:21.883
-Di materi berikutnya,
+00:02:30.421 --> 00:02:35.374
+Segitiga 45 dibagi √2: kedua sisinya menjadi √2/2.
 
 44
-00:02:21.883 --> 00:02:24.175
-Grafik Fungsi Trigonometri, Bagian 1,
+00:02:36.601 --> 00:02:39.146
+Sekarang taruh ketiganya di lingkaran satuan.
 
 45
-00:02:24.175 --> 00:02:26.406
-titik yang berputar di lingkaran ini
+00:02:39.895 --> 00:02:43.266
+Setiap titik di lingkaran adalah (cos θ, sin θ):
 
 46
-00:02:26.406 --> 00:02:28.945
-kita rekam tingginya dari waktu ke waktu,
+00:02:43.266 --> 00:02:46.084
+sampingnya ke kanan, depannya ke atas.
 
 47
-00:02:28.945 --> 00:02:30.706
+00:02:47.316 --> 00:02:51.025
+Jari-jarinya menyapu dan berhenti di 30°:
+
+48
+00:02:51.025 --> 00:02:53.740
+sampingnya √3/2, depannya 1/2,
+
+49
+00:02:53.740 --> 00:02:56.242
+jadi titiknya (√3/2, 1/2).
+
+50
+00:02:56.975 --> 00:03:01.059
+Di 45°, (√2/2, √2/2).
+
+51
+00:03:01.791 --> 00:03:05.349
+Di 60°, (1/2, √3/2).
+
+52
+00:03:06.568 --> 00:03:09.336
+Itulah sebabnya ketiganya disebut istimewa.
+
+53
+00:03:10.085 --> 00:03:11.575
+Bukan karena mudah dihafal,
+
+54
+00:03:11.575 --> 00:03:13.230
+melainkan karena nilainya bisa
+
+55
+00:03:13.230 --> 00:03:15.090
+dihitung sendiri dengan tangan.
+
+56
+00:03:16.316 --> 00:03:17.617
+Di materi berikutnya,
+
+57
+00:03:17.617 --> 00:03:19.909
+Grafik Fungsi Trigonometri, Bagian 1,
+
+58
+00:03:19.909 --> 00:03:22.139
+titik yang berputar di lingkaran ini
+
+59
+00:03:22.139 --> 00:03:24.679
+kita rekam tingginya dari waktu ke waktu,
+
+60
+00:03:24.679 --> 00:03:26.439
 dan lahirlah grafik sinus.

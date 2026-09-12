@@ -2,7 +2,7 @@
   "adegan": "SudutIstimewaLahir",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Lingkaran Satuan dan Sudut Istimewa, Bagian 3 (Materi 07). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (persegi dipotong diagonal jadi 45-45-90 dengan miring akar 2; segitiga sama sisi dibelah jadi 30-60-90 dengan tegak akar 3; nilai sin 45, 30, 60; ketiganya di lingkaran satuan; jari-jari menyapu). Yang ditambah: pembuka sub-bab plus Bagian 3, segar-ingat koordinat (cos, sin) dari Bagian 1, asal akar 2 dan akar 3 DIHITUNG lewat Pythagoras (prasyarat nyata SMP, dipakai sungguhan), penutup menunjuk Grafik Fungsi Trigonometri Bagian 1.",
+  "catatan": "Lingkaran Satuan dan Sudut Istimewa, Bagian 3 (Materi 07). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (persegi dipotong diagonal jadi 45-45-90 dengan miring akar 2; segitiga sama sisi dibelah jadi 30-60-90 dengan tegak akar 3; nilai sin 45, 30, 60; ketiganya di lingkaran satuan; jari-jari menyapu). Yang ditambah: pembuka sub-bab plus Bagian 3, segar-ingat koordinat (cos, sin) dari Bagian 1, asal akar 2 dan akar 3 DIHITUNG lewat Pythagoras (prasyarat nyata SMP, dipakai sungguhan), penutup menunjuk Grafik Fungsi Trigonometri Bagian 1. DIPERDALAM 13 Sep 2026 atas revisi ARYA: cos 45, cos 30, cos 60 disebut lengkap (dulu hanya sin); segitiganya diciutkan ke sisi miring 1 supaya sisinya persis nilai sin dan cos; setiap titik di lingkaran ditegaskan sebagai (cos theta, sin theta), dan di tiap sudut istimewa samping dan depannya dibaca sebelum koordinatnya ditulis; koordinat 45 derajat ditulis (akar 2 / 2, akar 2 / 2) seperti di tabel dan widget.",
   "segmen": [
     {
       "id": "buka",
@@ -40,6 +40,11 @@
       "tulis": "Jadi sin 45° = depan : miring = 1/√2. Sebuah angka pasti, bukan hasil tekan kalkulator."
     },
     {
+      "id": "cos45",
+      "teks": "Cosinus empat puluh lima derajat sama dengan samping dibagi miring, juga satu per akar dua. Bentuk lain angka yang sama adalah akar dua per dua, dan bentuk itulah yang biasa ditulis di tabel.",
+      "tulis": "cos 45° = samping : miring, juga 1/√2. Bentuk lain angka yang sama adalah *√2/2*, dan bentuk itulah yang biasa ditulis di tabel."
+    },
+    {
       "id": "samasisi",
       "teks": "Yang kedua lahir dari segitiga sama sisi. Ambil segitiga yang ketiga sisinya dua, lalu belah tepat di tengah.",
       "tulis": "Yang kedua lahir dari segitiga sama sisi. Ambil segitiga yang ketiga sisinya 2, lalu belah tepat di tengah."
@@ -60,14 +65,24 @@
       "tulis": "Dari situ, sin 30° = 1/2. Dan sin 60° = √3/2."
     },
     {
+      "id": "cos30",
+      "teks": "Cosinusnya tinggal membaca sisi sampingnya. Cosinus tiga puluh derajat sama dengan akar tiga per dua, dan cosinus enam puluh derajat sama dengan satu per dua. Nilainya bertukar.",
+      "tulis": "Cosinusnya tinggal membaca sisi sampingnya. cos 30° = √3/2, dan cos 60° = 1/2. Nilainya *bertukar*."
+    },
+    {
+      "id": "ciut",
+      "teks": "Sekarang ciutkan segitiganya sampai sisi miringnya satu, sama dengan jari-jari lingkaran satuan. Segitiga tiga puluh enam puluh dibagi dua: sisinya menjadi setengah dan akar tiga per dua. Segitiga empat puluh lima dibagi akar dua: kedua sisinya menjadi akar dua per dua.",
+      "tulis": "Sekarang *ciutkan* segitiganya sampai sisi miringnya 1, sama dengan jari-jari lingkaran satuan. Segitiga 30-60 dibagi 2: sisinya menjadi 1/2 dan √3/2. Segitiga 45 dibagi √2: kedua sisinya menjadi √2/2."
+    },
+    {
       "id": "lingkaran",
-      "teks": "Sekarang taruh ketiganya di lingkaran satuan. Tiap sudut istimewa memberi satu titik yang koordinatnya bisa ditulis persis.",
-      "tulis": "Sekarang taruh ketiganya di lingkaran satuan. Tiap sudut istimewa memberi 1 titik yang koordinatnya bisa ditulis persis."
+      "teks": "Sekarang taruh ketiganya di lingkaran satuan. Setiap titik di lingkaran adalah cosinus theta koma sinus theta: sampingnya ke kanan, depannya ke atas.",
+      "tulis": "Sekarang taruh ketiganya di lingkaran satuan. Setiap titik di lingkaran adalah (cos θ, sin θ): sampingnya ke kanan, depannya ke atas."
     },
     {
       "id": "sapu",
-      "teks": "Jari-jarinya menyapu, berhenti di tiga puluh, empat puluh lima, dan enam puluh derajat, dan koordinatnya muncul satu per satu.",
-      "tulis": "Jari-jarinya menyapu, berhenti di 30°, 45°, dan 60°, dan koordinatnya muncul satu per satu."
+      "teks": "Jari-jarinya menyapu dan berhenti di tiga puluh derajat: sampingnya akar tiga per dua, depannya setengah, jadi titiknya akar tiga per dua koma setengah. Di empat puluh lima derajat, akar dua per dua koma akar dua per dua. Di enam puluh derajat, setengah koma akar tiga per dua.",
+      "tulis": "Jari-jarinya menyapu dan berhenti di 30°: sampingnya √3/2, depannya 1/2, jadi titiknya (√3/2, 1/2). Di 45°, (√2/2, √2/2). Di 60°, (1/2, √3/2)."
     },
     {
       "id": "tutup",

@@ -2,7 +2,7 @@
   "adegan": "TigaGrafikBersama",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Grafik Fungsi Trigonometri, Bagian 2 (Materi 09). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (tiga panel: sin mencatat tinggi, cos posisi mendatar dan berangkat 90 lebih awal, tan = tinggi : mendatar dengan jurang di 90, sin dan cos terkurung 1 dan -1, tan tanpa batas, tan mengulang tiap 180). Yang ditambah: pembuka sub-bab plus Bagian 2, segar-ingat grafik sinus dari Bagian 1, contoh angka tan 45 = 1, penutup menunjuk Penerapan Trigonometri.",
+  "catatan": "Grafik Fungsi Trigonometri, Bagian 2 (Materi 09). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (tiga panel: sin mencatat tinggi, cos posisi mendatar dan berangkat 90 lebih awal, tan = tinggi : mendatar dengan jurang di 90, sin dan cos terkurung 1 dan -1, tan tanpa batas, tan mengulang tiap 180). Yang ditambah: pembuka sub-bab plus Bagian 2, segar-ingat grafik sinus dari Bagian 1, contoh angka tan 45 = 1, penutup menunjuk Penerapan Trigonometri. DIPERDALAM 13 Sep 2026 atas revisi ARYA (lebih pelan, 3 sampai 5 menit): tan tidak terdefinisi dijelaskan lewat pembagi yang mengecil (tan 80 = 5,67; tan 89 = 57,29; tan 89,9 = 572,96, sama dengan tabel halaman), pembagian dengan nol tidak punya jawaban, garis putus-putus yang tidak pernah disentuh, tanda negatif sesudah 90, terulang di 270; bonus grafik csc, sec, cot sebagai kebalikan (melesat di tempat pembaginya nol).",
   "segmen": [
     {
       "id": "buka",
@@ -41,13 +41,28 @@
     },
     {
       "id": "bagi",
-      "teks": "Selama pembaginya tidak nol, hasilnya baik-baik saja. Tetapi di sembilan puluh derajat, posisi mendatarnya tepat nol.",
-      "tulis": "Selama pembaginya tidak 0, hasilnya baik-baik saja. Tetapi di 90°, posisi mendatarnya tepat 0."
+      "teks": "Selama pembaginya tidak nol, hasilnya baik-baik saja. Tetapi makin dekat ke sembilan puluh derajat, posisi mendatarnya makin kecil, dan hasil baginya makin besar.",
+      "tulis": "Selama pembaginya tidak 0, hasilnya baik-baik saja. Tetapi makin dekat ke 90°, posisi mendatarnya makin *kecil*, dan hasil baginya makin *besar*."
+    },
+    {
+      "id": "angka",
+      "teks": "Lihat angkanya. Tangen delapan puluh derajat lima koma enam tujuh. Tangen delapan puluh sembilan derajat lima puluh tujuh koma dua sembilan. Tangen delapan puluh sembilan koma sembilan derajat lima ratus tujuh puluh dua koma sembilan enam. Makin dekat, makin melesat.",
+      "tulis": "Lihat angkanya. tan 80° = 5,67. tan 89° = 57,29. tan 89,9° = 572,96. Makin dekat, makin *melesat*."
     },
     {
       "id": "jurang",
-      "teks": "Dan pembagian dengan nol *tidak terdefinisi*. Kurvanya melesat naik tanpa pernah menyentuh garis putus-putus itu.",
-      "tulis": "Dan pembagian dengan 0 *tidak terdefinisi*. Kurvanya melesat naik tanpa pernah menyentuh garis putus-putus itu."
+      "teks": "Tepat di sembilan puluh derajat, posisi mendatarnya nol, dan pembagian dengan nol tidak punya jawaban. Itulah sebabnya tangen sembilan puluh derajat tidak terdefinisi: bukan tak hingga, melainkan tidak ada angkanya.",
+      "tulis": "Tepat di 90°, posisi mendatarnya 0, dan pembagian dengan 0 *tidak punya jawaban*. Itulah sebabnya tan 90° tidak terdefinisi: bukan tak hingga, melainkan tidak ada angkanya."
+    },
+    {
+      "id": "asimtot",
+      "teks": "Di grafik, tempat itu ditandai garis putus-putus tegak. Kurvanya melesat ke atas mendekati garis itu tanpa pernah menyentuhnya. Lewat sembilan puluh derajat, posisi mendatarnya negatif, jadi tangennya negatif, dan kurvanya muncul lagi dari bawah.",
+      "tulis": "Di grafik, tempat itu ditandai garis putus-putus tegak. Kurvanya melesat ke atas mendekati garis itu tanpa pernah *menyentuhnya*. Lewat 90°, posisi mendatarnya negatif, jadi tangennya negatif, dan kurvanya muncul lagi dari bawah."
+    },
+    {
+      "id": "duaratus",
+      "teks": "Hal yang sama terulang di dua ratus tujuh puluh derajat, saat titiknya tepat di bawah pusat. Setiap kali posisi mendatarnya nol, tangen tidak terdefinisi.",
+      "tulis": "Hal yang sama terulang di 270°, saat titiknya tepat di bawah pusat. Setiap kali posisi mendatarnya 0, tangen tidak terdefinisi."
     },
     {
       "id": "banding",
@@ -58,6 +73,16 @@
       "id": "ulang",
       "teks": "Sinus dan cosinus mengulang setiap tiga ratus enam puluh derajat. Tangen mengulang dua kali lebih cepat, setiap *seratus delapan puluh derajat*.",
       "tulis": "sin dan cos mengulang setiap 360°. tan mengulang dua kali lebih cepat, setiap *180°*."
+    },
+    {
+      "id": "bonus1",
+      "teks": "Sebagai bonus, tiga perbandingan sisanya juga punya grafik. Kosekan adalah satu dibagi sinus. Kurvanya melesat persis di tempat sinus nol, yaitu di nol, seratus delapan puluh, dan tiga ratus enam puluh derajat, dan tidak pernah masuk ke antara satu dan minus satu.",
+      "tulis": "Sebagai bonus, tiga perbandingan sisanya juga punya grafik. csc θ = 1 : sin θ. Kurvanya melesat persis di tempat sinus nol, yaitu di 0°, 180°, dan 360°, dan tidak pernah masuk ke antara 1 dan -1."
+    },
+    {
+      "id": "bonus2",
+      "teks": "Sekan adalah satu dibagi cosinus, melesat di sembilan puluh dan dua ratus tujuh puluh derajat, tempat cosinus nol. Dan kotangen adalah cosinus dibagi sinus, kebalikan tangen: melesat di tempat sinus nol, dan turun di tempat tangen naik.",
+      "tulis": "sec θ = 1 : cos θ, melesat di 90° dan 270°, tempat cosinus nol. Dan cot θ = cos θ : sin θ, kebalikan tangen: melesat di tempat sinus nol, dan *turun* di tempat tangen naik."
     },
     {
       "id": "tutup",
