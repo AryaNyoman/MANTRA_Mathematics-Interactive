@@ -45,12 +45,54 @@ export const ISTIMEWA: SudutIstimewa[] = [
   { derajat: 360, radian: '2π', sin: '0', cos: '1', tan: '0', asal: 'Satu putaran penuh, kembali ke titik awal. Semua nilainya mengulang.' },
 ]
 
-export default function PerjalananSudut({ indeks }: { indeks: number }) {
+export type SatuanSudut = 'derajat' | 'radian'
+
+/** Tulisan sudut menurut satuan yang dipilih siswa. */
+export const tulisSudut = (t: SudutIstimewa, satuan: SatuanSudut) =>
+  satuan === 'radian' ? t.radian : `${t.derajat}°`
+
+const HURUF = 'var(--font-mono), sans-serif'
+
+/**
+ * REVISI ARYA 13 Sep 2026: nilai sin, cos, tan tidak lagi "berserakan" di
+ * bawah gambar (tabel di panel sebelah sudah memuatnya rapi). Yang ditulis
+ * di gambar hanya yang memang milik gambar: sudut θ di dekat busurnya,
+ * nama ruas cos (mendatar) dan sin (tegak), dan koordinat titiknya
+ * (cos θ, sin θ), supaya siswa melihat dari mana (√3/2, 1/2) di 30° lahir.
+ * Satuan sudut mengikuti pilihan siswa (bawaan derajat, sama dengan video).
+ */
+export default function PerjalananSudut({ indeks, satuan = 'derajat' }: { indeks: number; satuan?: SatuanSudut }) {
   const s = ISTIMEWA[Math.min(indeks, ISTIMEWA.length - 1)]
   const rad = (s.derajat * Math.PI) / 180
   const px = CX + Math.cos(rad) * R
   const py = CY - Math.sin(rad) * R
   const besar = s.derajat > 180 ? 1 : 0
+  // label sudut: tepat di luar busur juring (jari-jari 46), di tengah sudutnya,
+  // menjauh dari busur searah sudut tengahnya supaya tidak menindih busur
+  // maupun jari-jarinya; untuk 0° ditaruh di kanan atas sumbu
+  const tengah = s.derajat === 0 ? 0 : rad / 2
+  const ct = Math.cos(tengah)
+  const st = Math.sin(tengah)
+  const lAnchor = ct > 0.3 ? 'start' : ct < -0.3 ? 'end' : 'middle'
+  // di 45° dan 60° ruas sin (x = px) memotong tempat labelnya: labelnya
+  // digeser ke kanan ruas itu
+  const lxAwal = CX + ct * 52 + (ct > 0.3 ? 5 : ct < -0.3 ? -5 : 0)
+  const lx = ct > 0.3 && px > lxAwal - 4 && px < lxAwal + 60 ? px + 12 : lxAwal
+  const ly = CY - st * 52 + (st > 0.3 ? -4 : st < -0.3 ? 13 : 5) + (s.derajat === 0 ? -8 : 0)
+  // label ruas: cos di bawah ruas mendatar, sin di sisi ruas tegak yang
+  // menjauhi juring. Ruas yang panjangnya nol (sin 0°, cos 90°) tidak diberi
+  // label: nilainya ada di tabel sebelah.
+  const cosX = CX + (px - CX) / 2
+  const cosY = py <= CY ? CY + 16 : CY - 8
+  const sinKanan = s.derajat === 90 ? false : px >= CX
+  const sinX = sinKanan ? px + 10 : px - 10
+  const sinY = CY + (py - CY) * 0.62 + 4
+  const sinAnchor = sinKanan ? 'start' : 'end'
+  // koordinat titik: menjauh dari pusat searah jari-jari
+  const kx = px + Math.cos(rad) * 14
+  const ky = py - Math.sin(rad) * 14
+  const kAnchor = Math.abs(Math.cos(rad)) < 0.3 ? 'middle' : (px >= CX ? 'start' : 'end')
+  const kDy = Math.sin(rad) > 0.3 ? -4 : Math.sin(rad) < -0.3 ? 14 : 5
 
   return (
     <svg viewBox={`0 0 ${VW} ${VH}`} preserveAspectRatio="xMidYMid meet" role="img"
@@ -96,17 +138,25 @@ export default function PerjalananSudut({ indeks }: { indeks: number }) {
       <line x1={CX} y1={CY} x2={px} y2={py} stroke={WARNA.miring} strokeWidth={3} strokeLinecap="round" />
       <circle cx={px} cy={py} r={6} fill={WARNA.sudut} stroke="var(--kartu)" strokeWidth={2} />
 
-      {/* nilai eksak di bawah */}
-      <text x={VW / 2} y={VH - 46} textAnchor="middle" fontSize={17} fill="#211E1A"
-            fontFamily="var(--font-mono), sans-serif">
-        θ = {s.derajat}° = {s.radian}
+      {/* label sudut di dekat busurnya */}
+      <text x={lx} y={ly} textAnchor={lAnchor} fontSize={15} fill={WARNA.sudut}
+            fontFamily={HURUF} fontWeight={600}>
+        θ = {tulisSudut(s, satuan)}
       </text>
-      <text x={VW / 2 - 96} y={VH - 22} textAnchor="middle" fontSize={14} fill={WARNA.depan}
-            fontFamily="var(--font-mono), sans-serif">sin θ = {s.sin}</text>
-      <text x={VW / 2 + 96} y={VH - 22} textAnchor="middle" fontSize={14} fill={WARNA.samping}
-            fontFamily="var(--font-mono), sans-serif">cos θ = {s.cos}</text>
-      <text x={VW / 2} y={VH - 4} textAnchor="middle" fontSize={13} fill={WARNA.sudut}
-            fontFamily="var(--font-mono), sans-serif">tan θ = {s.tan}</text>
+      {/* nama ruas: cos mendatar, sin tegak (nilainya ada di tabel sebelah) */}
+      {s.cos !== '0' && (
+        <text x={cosX} y={cosY} textAnchor="middle" fontSize={12} fill={WARNA.samping}
+              fontFamily={HURUF}>cos θ</text>
+      )}
+      {s.sin !== '0' && (
+        <text x={sinX} y={sinY} textAnchor={sinAnchor} fontSize={12} fill={WARNA.depan}
+              fontFamily={HURUF}>sin θ</text>
+      )}
+      {/* koordinat titiknya: (cos θ, sin θ) */}
+      <text x={kx} y={ky + kDy} textAnchor={kAnchor} fontSize={13} fill="#211E1A"
+            fontFamily={HURUF}>({s.cos}, {s.sin})</text>
+      <text x={10} y={16} textAnchor="start" fontSize={11.5} fill={WARNA.redup}
+            fontFamily={HURUF}>titik pada lingkaran = (cos θ, sin θ)</text>
     </svg>
   )
 }

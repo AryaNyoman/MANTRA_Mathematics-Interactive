@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { bacaAngka, langgan, simpanAngka } from '@/lib/simpanan'
 import versiAnim from '@/lib/versi-anim.json'
 
@@ -75,6 +75,27 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
   // elemen video, jadi tiap efek yang memegang elemen itu ikut dijalankan ulang).
   const [galat, setGalat] = useState(false)
   const [percobaan, setPercobaan] = useState(0)
+  // Lencana "+5 detik" / "-5 detik" yang muncul sekejap di atas video tiap
+  // kali digeser lewat panah atau ketukan ganda, supaya siswa tahu apa yang
+  // barusan terjadi.
+  const [lencana, setLencana] = useState<string | null>(null)
+  const jamLencana = useRef<number | undefined>(undefined)
+  const geser = useCallback((detik: number, dari?: number) => {
+    const v = video.current
+    if (!v) return
+    const batas = Number.isFinite(v.duration) ? v.duration : Number.POSITIVE_INFINITY
+    const tujuan = Math.min(Math.max((dari ?? v.currentTime) + detik, 0), batas)
+    v.currentTime = tujuan
+    if (dari !== undefined) {
+      // Kontrol bawaan Chrome di HP punya gerakan ketuk-ganda sendiri (10
+      // detik) yang berjalan di luar jangkauan kita; ditegaskan lagi sesaat
+      // kemudian supaya hasil akhirnya tetap 5 detik dari titik semula.
+      window.setTimeout(() => { v.currentTime = tujuan }, 80)
+    }
+    setLencana(detik > 0 ? `+${detik} detik` : `${detik} detik`)
+    window.clearTimeout(jamLencana.current)
+    jamLencana.current = window.setTimeout(() => setLencana(null), 700)
+  }, [])
 
   /* Pilihan ukuran diingat antar materi: siswa yang perlu teks besar tidak
      harus mengaturnya ulang setiap kali berpindah.
@@ -121,15 +142,21 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
     }
   }, [tampil, berkas, percobaan])
 
-  /* Spasi = putar/jeda (permintaan ARYA 12 Sep 2026). Kontrol bawaan hanya
-     menanggapi spasi kalau elemen videonya sedang fokus, dan fokus itu hilang
-     begitu siswa mengeklik bacaan di sebelahnya. Di sini spasi ditangkap di
-     dokumen selama pemutar ini "dipegang": pernah disentuh atau diputar, dan
-     siswa belum mengeklik bagian halaman yang lain. Video yang sedang
-     berjalan selalu bisa dijeda dengan spasi. Spasi pada kotak isian atau
-     tombol (termasuk tombol subtitle di bawah pemutar) dibiarkan seperti
-     biasa. `preventDefault` sekaligus mencegah halaman menggulir dan mencegah
-     kontrol bawaan menanggapi spasi yang sama untuk kedua kalinya. */
+  /* Spasi = putar/jeda, panah kiri/kanan = mundur/maju 5 detik (permintaan
+     ARYA 12 dan 13 Sep 2026). Kontrol bawaan hanya menanggapi papan tik
+     kalau elemen videonya sedang fokus, dan fokus itu hilang begitu siswa
+     mengeklik bacaan di sebelahnya. Di sini tombolnya ditangkap di dokumen
+     selama pemutar ini "dipegang": pernah disentuh atau diputar, dan siswa
+     belum mengeklik bagian halaman yang lain. Video yang sedang berjalan
+     selalu bisa dijeda dengan spasi. Tombol pada kotak isian, penggeser,
+     atau tombol lain (termasuk tombol subtitle di bawah pemutar) dibiarkan
+     seperti biasa.
+
+     KALAU VIDEONYA SENDIRI YANG FOKUS (siswa baru mengeklik tombol kontrol
+     bawaannya), pendengar ini DIAM dan membiarkan peramban bekerja: kontrol
+     bawaan Chrome menanggapi spasi di dalam shadow DOM-nya sebelum kejadian
+     sampai ke dokumen, jadi versi 12 Sep yang tetap menanggapi membuat
+     videonya berjalan lalu berhenti lagi (laporan ARYA 13 Sep). */
   useEffect(() => {
     const v = video.current
     const kotak = bungkus.current
@@ -140,18 +167,25 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
       dipegang = kotak.contains(e.target as Node)
     }
     const tekan = (e: KeyboardEvent) => {
-      if (e.code !== 'Space' || e.repeat) return
+      const kode = e.code
+      if (kode !== 'Space' && kode !== 'ArrowLeft' && kode !== 'ArrowRight') return
+      if (kode === 'Space' && e.repeat) return
       const sasaran = e.target as HTMLElement | null
-      if (sasaran && sasaran !== v) {
+      if (sasaran === v) return
+      if (sasaran && sasaran !== document.body) {
         const nama = sasaran.tagName
         if (nama === 'INPUT' || nama === 'TEXTAREA' || nama === 'SELECT' || nama === 'BUTTON'
-            || sasaran.isContentEditable) return
+            || nama === 'A' || sasaran.isContentEditable) return
       }
       if (!dipegang && !kotak.contains(document.activeElement) && v.paused) return
       e.preventDefault()
       dipegang = true
-      if (v.paused) void v.play()
-      else v.pause()
+      if (kode === 'Space') {
+        if (v.paused) void v.play()
+        else v.pause()
+      } else {
+        geser(kode === 'ArrowRight' ? 5 : -5)
+      }
     }
     document.addEventListener('pointerdown', sentuh)
     document.addEventListener('keydown', tekan)
@@ -161,7 +195,34 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
       document.removeEventListener('keydown', tekan)
       v.removeEventListener('play', pegang)
     }
-  }, [berkas, percobaan])
+  }, [berkas, percobaan, geser])
+
+  /* Di layar sentuh: ketuk dua kali separuh kanan video = maju 5 detik,
+     separuh kiri = mundur 5 detik (permintaan ARYA 13 Sep 2026, pola yang
+     dikenal siswa dari YouTube). Hanya untuk jari (pointerType touch):
+     klik ganda tetikus di Chrome sudah berarti layar penuh, jangan ditimpa.
+     Ketukan di baris kontrol bawaan (56 piksel terbawah) dibiarkan, itu
+     tombol-tombolnya sendiri. */
+  useEffect(() => {
+    const v = video.current
+    if (!v) return
+    let terakhir = { t: 0, x: 0, y: 0, waktu: 0 }
+    const ketuk = (e: PointerEvent) => {
+      if (e.pointerType !== 'touch') return
+      const r = v.getBoundingClientRect()
+      if (e.clientY > r.bottom - 56) return
+      const kini = { t: e.timeStamp, x: e.clientX, y: e.clientY, waktu: v.currentTime }
+      const ganda = kini.t - terakhir.t < 350
+        && Math.abs(kini.x - terakhir.x) < 40 && Math.abs(kini.y - terakhir.y) < 40
+      const awal = terakhir.waktu
+      terakhir = ganda ? { t: 0, x: 0, y: 0, waktu: 0 } : kini
+      if (!ganda) return
+      e.preventDefault()
+      geser(kini.x > r.left + r.width / 2 ? 5 : -5, awal)
+    }
+    v.addEventListener('pointerup', ketuk)
+    return () => v.removeEventListener('pointerup', ketuk)
+  }, [berkas, percobaan, geser])
 
   /* Kontrol bawaan disembunyikan setelah DIAM_DETIK detik menonton tanpa
      disentuh, lalu muncul lagi begitu mouse digerakkan, layar disentuh, atau
@@ -277,6 +338,7 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
           punya video, dan langsung muncul begitu Limit punya tujuh (1 Sep
           2026). `key` memaksa elemennya dibuat ulang, jadi pemilihan sumbernya
           diulang dari nol. */}
+      <div className="pemutar-layar">
       <video
         key={`${berkas}-${percobaan}`}
         ref={video}
@@ -304,6 +366,8 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
         Peramban Anda tidak bisa memutar video ini. Penjelasan lengkapnya tetap
         tersedia sebagai teks di bawahnya.
       </video>
+      {lencana && <div className="lencana-geser" aria-live="polite">{lencana}</div>}
+      </div>
 
       <div className="atur-subtitle">
         <button type="button" className="saklar"

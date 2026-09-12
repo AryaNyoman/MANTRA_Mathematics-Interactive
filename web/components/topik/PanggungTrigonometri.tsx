@@ -7,7 +7,7 @@ import Bayangan, { BATAS_SUDUT, hitungBayangan } from '@/components/widget/Bayan
 import PabrikRasio, { hitungRasio, SISI, type NamaSisi } from '@/components/widget/PabrikRasio'
 import LingkaranSatuan, { hitungLingkaran, angka3 } from '@/components/widget/LingkaranSatuan'
 import EnamRasio, { BATAS_ENAM, RASIO, URUT_RASIO, hitungEnam, type Rasio } from '@/components/widget/EnamRasio'
-import PerjalananSudut, { ISTIMEWA } from '@/components/widget/PerjalananSudut'
+import PerjalananSudut, { ISTIMEWA, tulisSudut, type SatuanSudut } from '@/components/widget/PerjalananSudut'
 import LingkaranKeGrafik, { BATAS_SAPU } from '@/components/widget/LingkaranKeGrafik'
 import TigaGrafik from '@/components/widget/TigaGrafik'
 import DuniaNyata from '@/components/widget/DuniaNyata'
@@ -32,6 +32,9 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
   const [skala, setSkala] = useState(100)
   const [derajat, setDerajat] = useState(37)
   const [sudutSinar, setSudutSinar] = useState(51)
+  // Satuan sudut widget sudut istimewa: bawaan derajat, sama dengan videonya
+  // (permintaan ARYA 13 Sep 2026); siswa bisa berganti ke radian.
+  const [satuanSudut, setSatuanSudut] = useState<SatuanSudut>('derajat')
   const [sudutDilihat, setSudutDilihat] = useState<SudutAktif>('A')
   const [pembilang, setPembilang] = useState<NamaSisi>('depan')
   const [penyebut, setPenyebut] = useState<NamaSisi>('miring')
@@ -145,10 +148,13 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
 
         {tampilWidget && tahap.widget === 'perjalanan-sudut' && (
           <>
-            <div className="layar"><PerjalananSudut indeks={langkahIstimewa} /></div>
+            <div className="layar"><PerjalananSudut indeks={langkahIstimewa} satuan={satuanSudut} /></div>
             <div className="kendali">
+              <Pilihan nama="Satuan sudut" arti="derajat seperti di video, atau radian"
+                pilihan={[{ nilai: 'derajat', label: 'derajat (°)' }, { nilai: 'radian', label: 'radian (π)' }]}
+                nilai={satuanSudut} onPilih={setSatuanSudut} />
               <Pilihan nama="Sudut istimewa" arti="urutannya dari kecil ke besar"
-                pilihan={ISTIMEWA.map((t, n) => ({ nilai: String(n), label: `${t.derajat}°` }))}
+                pilihan={ISTIMEWA.map((t, n) => ({ nilai: String(n), label: tulisSudut(t, satuanSudut) }))}
                 nilai={String(langkahIstimewa)} onPilih={(n) => setLangkahIstimewa(Number(n))} />
               <div style={{ display: 'flex', gap: 8 }}>
                 <button className="tombol garis" style={{ flex: 1 }}
@@ -227,13 +233,15 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
         {tampilWidget && tahap.widget === 'perjalanan-sudut' && (
           <div className="blok">
             <div className="cap">
-              {ISTIMEWA[langkahIstimewa].derajat}° = {ISTIMEWA[langkahIstimewa].radian}
+              θ = {tulisSudut(ISTIMEWA[langkahIstimewa], satuanSudut)}
+              {' '}({tulisSudut(ISTIMEWA[langkahIstimewa], satuanSudut === 'radian' ? 'derajat' : 'radian')})
             </div>
             <table className="tabel-angka">
               <tbody>
                 <tr><td>sin θ</td><td>{ISTIMEWA[langkahIstimewa].sin}</td></tr>
                 <tr><td>cos θ</td><td>{ISTIMEWA[langkahIstimewa].cos}</td></tr>
-                <tr className="tegas"><td>tan θ</td><td>{ISTIMEWA[langkahIstimewa].tan}</td></tr>
+                <tr className="tegas"><td>tan θ = sin θ : cos θ</td><td>{ISTIMEWA[langkahIstimewa].tan}</td></tr>
+                <tr><td>titik (cos θ, sin θ)</td><td>({ISTIMEWA[langkahIstimewa].cos}, {ISTIMEWA[langkahIstimewa].sin})</td></tr>
               </tbody>
             </table>
             <div className="catatan">{ISTIMEWA[langkahIstimewa].asal}</div>

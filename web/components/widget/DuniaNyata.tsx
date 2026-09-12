@@ -34,26 +34,26 @@ export const CONTOH: Contoh[] = [
   {
     id: 'kamera', gambar: 'kamera.jpg', nomor: '01',
     judul: 'Kamera, seberapa lebar yang muat',
-    inti: 'Sudut pandang lensa tetap. Yang menentukan lebar hasil foto adalah sudut itu dan jarak Anda ke objek.',
-    rumus: 'lebar = 2 x jarak x tan(setengah sudut pandang)',
+    inti: 'Lensa ponsel punya sudut pandang yang tetap, kira-kira 78°. Makin jauh Anda berdiri, makin lebar pemandangan yang masuk bingkai, dan tangen setengah sudut pandang itulah yang menghitung lebarnya.',
+    rumus: 'lebar bingkai = 2 × jarak × tan(sudut pandang : 2)',
   },
   {
     id: 'layar', gambar: 'miring.jpg', nomor: '02',
     judul: 'Layar yang berputar sendiri',
-    inti: 'Sensor merasakan tarikan gravitasi pada dua arah. Perbandingan keduanya memberi sudut kemiringan ponsel.',
-    rumus: 'kemiringan = sudut yang tangennya = mendatar : tegak',
+    inti: 'Sensor di ponsel mengukur tarikan gravitasi ke arah mendatar dan ke arah tegak layar. Perbandingan dua angka itu adalah tangen sudut kemiringannya, jadi ponsel tahu seberapa miring dirinya dan kapan layar harus berputar.',
+    rumus: 'tan(sudut kemiringan) = tarikan mendatar : tarikan tegak',
   },
   {
     id: 'game', gambar: 'game.jpg', nomor: '03',
     judul: 'Game, memutar apa pun',
-    inti: 'Setiap benda dan kamera yang berputar dihitung ulang puluhan ribu kali tiap detik memakai sin dan cos.',
-    rumus: 'titik (1, 0) diputar sejauh sudut menjadi (cos, sin)',
+    inti: 'Tiap benda dan kamera dalam game diputar puluhan ribu kali per detik. Memutar sebuah titik sejauh sudut θ artinya menghitung cos θ dan sin θ, persis titik pada lingkaran satuan di materi 5.',
+    rumus: 'titik (1, 0) diputar sejauh θ menjadi (cos θ, sin θ)',
   },
   {
     id: 'suara', gambar: 'suara.jpg', nomor: '04',
     judul: 'Suara, bentuknya kurva sinus',
-    inti: 'Nada A bergetar 440 kali per detik. Alat seperti ini memperlihatkan bentuk getarannya, dan bentuk itu kurva dari materi 8.',
-    rumus: 'simpangan = tinggi x sin(2 pi x frekuensi x waktu)',
+    inti: 'Nada A bergetar 440 kali per detik. Alat seperti ini menggambar getarannya, dan gambarnya kurva sinus dari materi 8: makin tinggi kurvanya makin keras, makin rapat makin tinggi nadanya.',
+    rumus: 'simpangan = tinggi × sin(2π × frekuensi × waktu)',
   },
 ]
 

@@ -642,7 +642,7 @@ h1, h2, h3, .disp {
 .bacaan > * + * { margin-top: 14px; }
 .bacaan p { margin: 0; font-size: 15px; line-height: 1.68; color: #3A3630; }
 
-/* Kalimat inti: bercap "Intinya" sejak 12 Sep 2026 supaya perannya terbaca
+/* Kalimat inti: bercap "Kalimat kunci" sejak 12 Sep 2026 supaya perannya terbaca
    (ARYA mengira kalimat bergaris kiri ini bagian dari kotak di atasnya). */
 .bacaan .sorot {
   border-left: 3px solid var(--oker); padding: 4px 0 4px 15px;
@@ -698,6 +698,8 @@ ul.poin li b { color: var(--tinta); font-weight: 600; }
    ke 100 persen lebar kotaknya. */
 .sel-contoh.penuh { white-space: normal; width: 0; min-width: 100%; }
 .sel-contoh.kosong { min-width: 0; }
+/* Baris kosong di naskah = jeda tipis antar kelompok baris. */
+.sel-contoh.jeda { height: 6px; }
 .contoh-tabel .baris-sel { display: contents; }
 /* HP: tabel berkolom empat ke atas tidak dipaksa jadi grid. Tiap barisnya
    mengalir seperti kalimat (sel demi sel, patah di antara sel), jadi
@@ -1113,6 +1115,22 @@ video::cue(b) { font-weight: 700; }
   width: 100%; max-width: 100%;
 }
 .pemutar-bungkus video { max-width: 100%; max-height: min(100%, 34rem); border-radius: 8px; }
+/* Pembungkus video: tempat lencana geser menempel, dan `touch-action`
+   supaya ketukan ganda di HP tidak diartikan zoom oleh peramban. */
+.pemutar-layar {
+  position: relative; display: flex; justify-content: center;
+  max-width: 100%; max-height: 100%; min-height: 0; touch-action: manipulation;
+}
+.lencana-geser {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  padding: 8px 14px; border-radius: 999px; background: rgba(16, 26, 43, 0.78);
+  color: var(--kertas); font-family: var(--font-mono), system-ui, sans-serif;
+  font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  pointer-events: none; animation: lencana-pudar 0.7s ease-out forwards;
+}
+@keyframes lencana-pudar {
+  0% { opacity: 1; } 70% { opacity: 1; } 100% { opacity: 0; }
+}
 
 /* ============================================================
    Penanda sesi dan kotak eksperimen di dalam materi

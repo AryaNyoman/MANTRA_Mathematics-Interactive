@@ -34,7 +34,7 @@ import type { Blok } from '@/content/trigonometri'
  *   dibaca sebagai bagian kotaknya tanpa jelas maksudnya. Ia memang jawaban
  *   atas percobaannya, jadi kini dimasukkan ke dalam kotak sebagai penutup
  *   bersub-judul "Yang kamu temukan"; kalimat sorot lainnya diberi cap
- *   "Intinya" supaya perannya terbaca di mana pun ia muncul;
+ *   "Kalimat kunci" (semula "Intinya", ARYA 13 Sep: terdengar memaksa) supaya perannya terbaca;
  * - baris kotak contoh dulu dirapikan dengan spasi untuk huruf lebar-sama
  *   (MATRA lama). Rancangan MANTRA mengganti hurufnya (3 Sep), dan sejak itu
  *   spasinya tidak menjajarkan apa pun (foto ARYA: "Bayangan pohon 8 m"
@@ -111,7 +111,7 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
           if (sorotDalamCoba.has(i)) return null
           return (
             <div key={i} className="sorot">
-              <span className="sorot-cap">Intinya</span>
+              <span className="sorot-cap">Kalimat kunci</span>
               <p>{b.teks}</p>
             </div>
           )
@@ -174,6 +174,7 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
                      kalimat, sebab lima kolom tidak pernah muat di 375
                      piksel tanpa digulir atau diperas. */
                   <div key={n} className="baris-sel">
+                    {baris.length === 0 && <span className="sel-contoh jeda" style={{ gridColumn: '1 / -1' }} />}
                     {baris.map((isi, k) => (
                       <span
                         key={k}
