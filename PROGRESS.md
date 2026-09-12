@@ -1,5 +1,45 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 13 SEP (pagi): REVISI ARYA KEDUA TAYANG: 44 KOTAK ANGKA, SAKLAR KATA, PEMUTAR, WIDGET SUDUT ISTIMEWA, TIGA VIDEO TRIGONOMETRI DIPERDALAM
+
+Situs (commit df991af, deploy matra-ebnyhxfaz):
+- 44 kotak angka yang masih berhuruf lebar-sama ditulis ulang barisnya (pemisah
+  kolom dua spasi, jumlah sel tiap baris sama) jadi 201 dari 201 kotak tabel
+  huruf situs; baris kosong jadi jeda tipis.
+- Cap "Intinya" jadi "Kalimat kunci" (ARYA: "Intinya" terdengar memaksa).
+- Pemutar: spasi tidak lagi putar-lalu-berhenti (kalau videonya fokus, kontrol
+  bawaan Chrome menangani spasi sendiri di shadow DOM; kode diam), panah
+  kiri/kanan 5 detik, ketuk ganda di HP 5 detik (ditambatkan ke waktu ketukan
+  pertama karena Chrome Android punya gerakan 10 detik sendiri), lencana
+  "+5 detik". Diuji Playwright (uji_pemutar.mjs).
+- Widget Sudut istimewa: satuan derajat bawaan plus saklar radian, label
+  cos/sin di ruasnya, koordinat (cos θ, sin θ) di ujung jari-jari, nilai di
+  tabel sebelah; contoh dunia nyata ditulis ulang (tan(sudut kemiringan) =
+  tarikan mendatar : tarikan tegak, dst.).
+Video Trigonometri (commit 8e2fa09, deploy matra-83v7p73vn, 1080p60):
+- B6 Enam rasio 2:21 -> 4:22: segar-ingat A4 (enam pembagian pada segitiga),
+  titik x = 1 dan y = 1 ditandai, DUA SEGITIGA SEBANGUN (kecil miring 1, besar
+  samping 1) melahirkan tan dan sec sebagai panjang sekaligus y/x dan 1/x;
+  untuk y = 1, theta muncul lagi di titik tabrak (garis sejajar sumbu) sehingga
+  depan = 1 dan ruasnya cot dan csc; contoh 3-4-5 diperluas ke sec 1,25, cot
+  1,33, csc 1,67.
+- B7 Sudut istimewa 2:31 -> 3:28: cos 45 (1/akar 2 = akar 2/2), cos 30, cos 60
+  masuk panel; kedua segitiga diciutkan ke sisi miring 1 (= jari-jari
+  lingkaran, skala 1,9/2,576, bukan 0,5 yang terlalu kecil); tiap titik di
+  lingkaran ditegaskan (cos, sin) dengan kaki biru dan merah, di 30 derajat
+  kakinya diberi angka sebelum koordinatnya ditulis.
+- C9 Tiga grafik 2:06 -> 3:37: tan tak terdefinisi dijelaskan pelan (pembagi
+  mengecil, deret tan 80 = 5,67, tan 89 = 57,29, tan 89,9 = 572,96 di kolom
+  kanan, "1 : 0 tak terdefinisi", garis putus-putus yang tidak disentuh,
+  negatif lewat 90, terulang di 270); bonus grafik csc, sec, cot di satu papan
+  besar, ketiga panel dikembalikan untuk penutup; halaman materi 09 diberi
+  blok "Bonus: kebalikannya juga punya grafik".
+- Semua lolos gerbang (cek_kode, cek_pemicu_urut, cek_waktu_adegan, qc,
+  cek_layar_kosong, cek_subtitle, cek_aset_video), lembar kontak 480p dan
+  1080p dinilai; label sinema maksimal dua kata ("tak terdefinisi").
+Berikutnya: umpan balik ARYA atas ketiga video dan tampilan baru; keputusan
+video yang mau diperdalam di topik lain.
+
 ## 13 SEP (dini hari): REVISI GLOBAL KEDUA ARYA (kotak coba, kotak angka, gulir ke atas), POTRET EMPAT GENERASI UI UNTUK TESIS, RETENTION VERCEL
 
 - Revisi ARYA 12 Sep malam, semuanya di perender (`Penjelasan.tsx`,
