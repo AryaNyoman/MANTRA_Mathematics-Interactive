@@ -1,83 +1,292 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/integral05-riemann.json
+NOTE Dibuat otomatis dari manim/narasi/integral05-riemann.json (waktu kata rekaman)
+NOTE naskah-sidik 4361850e3f16
 
 1
-00:00:00.000 --> 00:00:05.232
-Materi 05: luas dari persegi panjang, jumlahan Riemann.
+00:00:00.101 --> 00:00:03.041
+Luas dan Integral Tentu, Bagian 1.
 
 2
-00:00:05.232 --> 00:00:09.724
-Persegi panjang: panjang × lebar.
+00:00:03.774 --> 00:00:05.238
+Bagaimana mengukur luas daerah
 
 3
-00:00:09.724 --> 00:00:14.760
-Tapi tepi atas daerah ini melengkung.
+00:00:05.238 --> 00:00:07.095
+yang salah satu tepinya <b>melengkung</b>?
 
 4
-00:00:14.760 --> 00:00:17.650
-Kalau tidak bisa diukur langsung,
+00:00:08.301 --> 00:00:11.964
+Di Membalik Turunan, keempat bagiannya soal antiturunan.
 
 5
-00:00:17.650 --> 00:00:19.752
-tutupi dengan yang bisa.
+00:00:12.699 --> 00:00:14.559
+Itu kita tinggalkan sebentar.
 
 6
-00:00:19.752 --> 00:00:23.518
-Selang dipotong sama lebar.
+00:00:15.305 --> 00:00:18.040
+Yang dibawa hari ini justru rumus SMP:
 
 7
-00:00:23.518 --> 00:00:29.376
-Pembagiannya disebut <b>partisi</b>, lebarnya Δx.
+00:00:18.040 --> 00:00:20.774
+luas persegi panjang, panjang · lebar,
 
 8
-00:00:29.376 --> 00:00:33.333
-Tinggi tiap persegi panjang
+00:00:20.774 --> 00:00:23.587
+dan luas segitiga, ½ · alas · tinggi.
 
 9
-00:00:33.333 --> 00:00:37.584
-diambil di satu <b>titik sampel</b>.
+00:00:24.801 --> 00:00:27.333
+Persegi panjang ini tinggal 3 · 2.
 
 10
-00:00:37.584 --> 00:00:47.112
-f(x) = x, dari 0 sampai 7, dibagi 7 bagian.
+00:00:28.082 --> 00:00:30.158
+Tapi daerah ini tepi atasnya melengkung,
 
 11
-00:00:47.112 --> 00:00:51.440
-Titik sampel kanan.
+00:00:30.158 --> 00:00:33.008
+dan <b>tidak ada</b> dua sisi yang bisa langsung dikalikan.
 
 12
-00:00:51.440 --> 00:00:56.679
-Tinggi 1, 2, 3, ..., 7.
+00:00:34.216 --> 00:00:36.494
+Kalau bentuknya tidak bisa diukur langsung,
 
 13
-00:00:56.679 --> 00:00:59.640
-Jumlahnya <b>28</b>.
+00:00:36.494 --> 00:00:38.287
+<b>tutupi</b> dengan bentuk yang bisa.
 
 14
-00:00:59.640 --> 00:01:10.944
-Daerahnya segitiga: ½ × 7 × 7 = <b>24,5</b>.
+00:00:39.020 --> 00:00:41.525
+Satu persegi panjang jelas terlalu kasar.
 
 15
-00:01:10.944 --> 00:01:15.361
-28 kelebihan, 21 kekurangan.
+00:00:42.735 --> 00:00:44.601
+Selangnya dipotong menjadi beberapa
 
 16
-00:01:15.361 --> 00:01:21.672
-Jawabannya terjepit di antara 21 dan 28.
+00:00:44.601 --> 00:00:45.977
+bagian yang sama lebar.
 
 17
-00:01:21.672 --> 00:01:31.896
-n = 14, selisih <b>1,75</b>. n = 60, selisih 0,41.
+00:00:46.725 --> 00:00:48.699
+Pembagian itu namanya <b>partisi</b>,
 
 18
-00:01:31.896 --> 00:01:45.144
-Ganti ke 4 - x², [0, 2], n = 4. Kiri 6,25, kanan 4,25.
+00:00:48.699 --> 00:00:51.415
+dan lebar tiap bagiannya kita sebut Δx.
 
 19
-00:01:45.144 --> 00:01:52.625
-Kali ini <b>kiri</b> yang lebih besar: yang menentukan,
+00:00:52.635 --> 00:00:54.775
+Di tiap bagian didirikan persegi panjang
 
 20
-00:01:52.625 --> 00:01:58.080
-di sisi mana kurvanya lebih tinggi.
+00:00:54.775 --> 00:00:56.850
+setinggi nilai fungsi di satu titik.
+
+21
+00:00:57.599 --> 00:01:00.153
+Titik pilihan itu namanya <b>titik sampel</b>:
+
+22
+00:01:00.153 --> 00:01:03.315
+boleh ujung kiri, ujung kanan, atau tengahnya.
+
+23
+00:01:04.549 --> 00:01:09.036
+Kita pakai contoh yang bisa diperiksa sendiri: f(x) = x,
+
+24
+00:01:09.036 --> 00:01:11.831
+dari 0 sampai 7, dibagi 7 bagian.
+
+25
+00:01:12.563 --> 00:01:14.423
+Lebar tiap bagiannya 1.
+
+26
+00:01:15.635 --> 00:01:17.443
+Titik sampelnya ujung kanan.
+
+27
+00:01:18.177 --> 00:01:22.393
+Tingginya 1, 2, 3, sampai 7.
+
+28
+00:01:23.139 --> 00:01:28.187
+Semua luasnya dijumlahkan: 1 + 2 + 3 + … + 7,
+
+29
+00:01:28.187 --> 00:01:29.683
+hasilnya <b>28</b>.
+
+30
+00:01:30.414 --> 00:01:32.106
+Jumlah persegi panjang seperti
+
+31
+00:01:32.106 --> 00:01:33.893
+ini namanya jumlahan Riemann.
+
+32
+00:01:35.116 --> 00:01:38.098
+Daerah aslinya segitiga siku-siku,
+
+33
+00:01:38.098 --> 00:01:42.660
+jadi luas sebenarnya bisa dihitung dengan rumus SMP:
+
+34
+00:01:42.660 --> 00:01:44.739
+½ · 7 · 7, yaitu <b>24,5</b>.
+
+35
+00:01:45.968 --> 00:01:48.184
+Jadi 28 itu kelebihan.
+
+36
+00:01:48.932 --> 00:01:53.004
+Titik sampel kiri memberi 0 + 1 + … + 6, yaitu 21,
+
+37
+00:01:53.004 --> 00:01:54.701
+dan itu kekurangan.
+
+38
+00:01:55.431 --> 00:01:57.844
+Jawabannya <b>terjepit</b> di antara keduanya.
+
+39
+00:01:59.067 --> 00:02:00.651
+Dari mana kelebihannya?
+
+40
+00:02:01.401 --> 00:02:02.650
+Lihat tiap bagian:
+
+41
+00:02:02.650 --> 00:02:04.871
+persegi panjang kanan menyisakan
+
+42
+00:02:04.871 --> 00:02:06.884
+segitiga kecil di atas kurva,
+
+43
+00:02:06.884 --> 00:02:09.117
+7 buah, tiap-tiapnya ½ satuan.
+
+44
+00:02:09.861 --> 00:02:15.564
+7 · ½ = 3,5, persis 28 - 24,5.
+
+45
+00:02:16.768 --> 00:02:19.589
+Sekarang bagiannya digandakan jadi 14.
+
+46
+00:02:20.338 --> 00:02:24.078
+Segitiga sisanya jadi separuh lebar dan separuh tinggi,
+
+47
+00:02:24.078 --> 00:02:26.132
+dan selisihnya tinggal <b>1,75</b>.
+
+48
+00:02:26.863 --> 00:02:30.328
+Dengan 60 bagian, tinggal 0,41.
+
+49
+00:02:31.549 --> 00:02:35.896
+Bentuk umumnya: jumlahan Riemann adalah Σ f(xᵢ) · Δx,
+
+50
+00:02:35.896 --> 00:02:37.865
+untuk i dari 1 sampai n.
+
+51
+00:02:37.865 --> 00:02:39.065
+Makin besar n,
+
+52
+00:02:39.065 --> 00:02:41.830
+makin rapat jepitannya pada luas sebenarnya.
+
+53
+00:02:42.668 --> 00:02:44.726
+Satu hal yang sering disalahpahami:
+
+54
+00:02:44.726 --> 00:02:46.700
+kanan <b>tidak selalu</b> lebih besar.
+
+55
+00:02:47.434 --> 00:02:52.702
+Ganti kurvanya jadi 4 - x², 0 sampai 2, 4 bagian.
+
+56
+00:02:53.448 --> 00:02:56.730
+Kiri 6,25, kanan 4,25.
+
+57
+00:02:57.935 --> 00:03:00.098
+Kali ini justru <b>kiri</b> yang lebih besar.
+
+58
+00:03:00.833 --> 00:03:02.865
+Jadi bukan kanan yang selalu besar,
+
+59
+00:03:02.865 --> 00:03:05.419
+melainkan sisi tempat kurvanya lebih tinggi:
+
+60
+00:03:05.419 --> 00:03:07.218
+pada kurva naik itu sisi kanan,
+
+61
+00:03:07.218 --> 00:03:09.168
+pada kurva turun itu sisi kiri.
+
+62
+00:03:10.382 --> 00:03:11.807
+Rangkumannya satu kalimat:
+
+63
+00:03:11.807 --> 00:03:13.450
+daerah bertepi lengkung diukur
+
+64
+00:03:13.450 --> 00:03:15.805
+dengan <b>menutupinya</b> memakai persegi panjang,
+
+65
+00:03:15.805 --> 00:03:17.777
+dan makin banyak persegi panjangnya,
+
+66
+00:03:17.777 --> 00:03:20.282
+makin dekat jumlahannya ke luas sebenarnya.
+
+67
+00:03:21.015 --> 00:03:22.215
+Satu pertanyaan:
+
+68
+00:03:22.215 --> 00:03:24.733
+kalau bagiannya dibuat tak hingga banyak,
+
+69
+00:03:24.733 --> 00:03:26.083
+apa nama hasilnya?
+
+70
+00:03:26.968 --> 00:03:30.698
+Di materi berikutnya, Luas dan Integral Tentu, Bagian 2,
+
+71
+00:03:30.698 --> 00:03:33.495
+nilai yang dituju jepitan itu diberi nama,
+
+72
+00:03:33.495 --> 00:03:35.776
+dan lambang untuk menuliskannya.

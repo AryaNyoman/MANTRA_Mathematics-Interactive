@@ -199,13 +199,18 @@ class IntegralLajuKeJumlah(AdeganMatra):
 
         # ---- buka: pertanyaan video ini, papan masih kosong -----------
         with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
+            # v3.1 (12 Sep 2026): nama sub-bab plus Bagian dulu, baru pertanyaannya.
+            b.tunggu_kata("Membalik")
+            sinema.judul_pembuka(self, "Membalik Turunan, Bagian 1", lama=3.0, y=2.6)
+            b.catat(3.0)
             ident = sinema.identitas(self, "segar-ingat: topik Turunan")
             self.remove(ident)
-            b.main(FadeIn(ident), run_time=1.0)
+            b.tunggu_kata("Kalau")
+            b.main(FadeIn(ident), run_time=0.6)
             b.tunggu_kata("seberapa")
-            b.main(FadeIn(s_ingat), run_time=1.8)
+            b.main(FadeIn(s_ingat), run_time=1.5)
             b.tunggu_kata("jumlah")
-            b.main(ShowCreation(k_contoh), run_time=2.0)
+            b.main(ShowCreation(k_contoh), run_time=1.6)
         qc.periksa_adegan(self, {}, hud={"identitas": ident},
                           dunia={"papan ingat": s_ingat})
 
@@ -223,7 +228,7 @@ class IntegralLajuKeJumlah(AdeganMatra):
             b.main(k_contoh.animate.set_stroke(TINTA, 3.6), run_time=0.6)
             b.tunggu_kata("Turunan")
             b_t01 = panel.baris(r"\text{Turunan 01: laju rata-rata}", warna=REDUP, b=b)
-            b.tunggu_kata("Materi")
+            b.tunggu_kata("Bagian")
             b.main(Indicate(b_t01, color=AKSEN), run_time=1.1)
             b.tunggu_kata("seberapa")
             b.main(FadeIn(p1, scale=0.5), FadeIn(p2, scale=0.5),
@@ -232,20 +237,20 @@ class IntegralLajuKeJumlah(AdeganMatra):
             # datar itu selangnya. Muncul berurutan, mengikuti kalimatnya.
             b.tunggu_kata("membagi")
             b.main(ShowCreation(tegak), run_time=1.4)
-            b.main(ShowCreation(datar), run_time=1.6)
+            b.main(ShowCreation(datar), run_time=1.4)
         qc.periksa_adegan(self, {},
                           hud={"identitas": ident, "papan": panel.semua()},
                           dunia={"papan ingat": s_ingat})
 
         # ---- ingat2: Turunan Materi 03, turunan sebagai fungsi --------
         with sinema.babak(self, "ingat2", DURASI, kata=KATA) as b:
-            b.tunggu_kata("Turunan")
+            b.tunggu_kata("Kemiringan")
             b_t03 = panel.baris(r"\text{Turunan 03: } f' \text{ fungsi baru}",
                                 warna=REDUP, b=b)
             b.tunggu_kata("tiap")
             b.main(FadeOut(tali), FadeOut(datar), FadeOut(tegak), FadeOut(p2),
                    run_time=1.3)
-            b.tunggu_kata("kemiringan")
+            b.tunggu_kata("kemiringan", ke=2)
             b.main(ShowCreation(singgung_a), run_time=1.4)
             b.tunggu_kata("Kumpulan")
             b.main(ShowCreation(singgung_b), run_time=0.8)
@@ -732,7 +737,7 @@ class IntegralLajuKeJumlah(AdeganMatra):
         with sinema.babak(self, "tutup", DURASI, kata=KATA) as b:
             b.tunggu_kata("bertemu")
             b.main(Indicate(VGroup(b_luas, b_total), color=SOROT), run_time=1.8)
-            b.tunggu_kata("tujuh")
+            b.tunggu_kata("Integral Tentu")
             b_next = panel.baris(r"\text{buktinya: Materi 07}", warna=AKSEN, b=b)
             b.main(Indicate(b_next, color=SOROT), run_time=1.8)
             b.tunggu_kata("lambang")

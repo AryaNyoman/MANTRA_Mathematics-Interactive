@@ -1,17 +1,22 @@
 {
-  "total": 118.08,
+  "total": 216.86666666666667,
   "segmen": {
-    "buka": 5.232,
-    "masalah": 9.528,
-    "gagasan": 4.992,
-    "potong": 9.624,
-    "tinggi": 8.208,
-    "contoh": 9.528,
-    "hitung7": 12.528,
-    "segitiga": 11.304,
-    "jepit": 10.728,
-    "perbanyak": 10.224,
-    "turun": 13.248,
-    "tutup": 12.936
+    "buka": 8.2,
+    "ingat": 16.5,
+    "masalah": 9.4,
+    "gagasan": 8.533333333333333,
+    "potong": 9.9,
+    "tinggi": 11.9,
+    "contoh": 11.1,
+    "hitung7": 19.466666666666665,
+    "segitiga": 10.866666666666667,
+    "jepit": 13.1,
+    "asal": 17.7,
+    "perbanyak": 14.766666666666667,
+    "umum": 11.133333333333333,
+    "turun": 15.266666666666667,
+    "tutup": 12.433333333333334,
+    "rangkum": 16.6,
+    "lanjut": 10.0
   }
 }

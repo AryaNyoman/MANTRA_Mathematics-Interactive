@@ -33,9 +33,14 @@ menunggu uji 480p.
   06, 07): buang BERSAMAAN dengan FadeIn penggantinya.
 - Poster Statistika dipilih dari frame yang isinya penuh (02 pada 180 s, 01
   pada 260 s), dilihat lewat lembar kontak poster.
-Berikutnya: selesaikan uji 480p Integral 05 07 09 lalu 1080p; subtitle,
-poster, cek_aset untuk Transformasi, Turunan, Integral; commit per kelompok,
-deploy SEKALI untuk Ruang 3D plus Statistika, sekali lagi untuk sisanya.
+- Malamnya: kedua belas video itu (Transformasi 01 02 03 04 06, Turunan 06
+  07, Integral 01 03 05 07 09) selesai 1080p60 satu per satu, frame 1080p
+  dibuka pada titik perbaikan (Transformasi 02 dirender ulang sekali karena
+  "(1, 1)" menindih huruf A), subtitle dan poster dibuat, `cek_aset_video`
+  transformasi, turunan, integral lolos. Deploy kedua hari ini. Yang belum
+  v3.1 tinggal Turunan 01 sampai 04 (dibiarkan, sudah disetujui) dan
+  Transformasi 05 (Materi 09, tidak dirujuk halaman mana pun).
+Berikutnya: menunggu umpan balik ARYA atas 58 video v3.1; perapian proyek.
 
 ## 12 SEP (sore): RUANG 3D ENAM VIDEO 1080p SELESAI, STATISTIKA 13 ADEGAN v3.1 DITULIS DAN DIUJI 480p
 

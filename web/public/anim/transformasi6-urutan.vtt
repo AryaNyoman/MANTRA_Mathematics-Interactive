@@ -1,135 +1,340 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/transformasi6-urutan.json
+NOTE Dibuat otomatis dari manim/narasi/transformasi6-urutan.json (waktu kata rekaman)
+NOTE naskah-sidik 00abe68bcd21
 
 1
-00:00:00.000 --> 00:00:04.464
-Materi 12: komposisi lewat perkalian matriks.
+00:00:00.101 --> 00:00:03.054
+Komposisi Transformasi, Bagian 2.
 
 2
-00:00:04.464 --> 00:00:08.552
-Sebuah bentuk dicerminkan pada sumbu X,
+00:00:03.788 --> 00:00:06.122
+Dua transformasi punya dua matriks.
 
 3
-00:00:08.552 --> 00:00:10.333
-lalu diputar 90°.
+00:00:06.854 --> 00:00:08.241
+Kalau keduanya dikalikan,
 
 4
-00:00:10.333 --> 00:00:12.744
-Dua langkah, berurutan.
+00:00:08.241 --> 00:00:10.333
+matriks mana yang ditulis <b>di depan</b>?
 
 5
-00:00:12.744 --> 00:00:15.546
-Kita ikuti titik A saja.
+00:00:11.549 --> 00:00:14.187
+Di Matriks Transformasi, Bagian 1,
 
 6
-00:00:15.546 --> 00:00:19.632
-(3, 1) dicerminkan menjadi (3, -1).
+00:00:14.187 --> 00:00:18.144
+cermin sumbu X punya matriks baris pertama 1 dan 0,
 
 7
-00:00:19.632 --> 00:00:26.304
-Lalu diputar 90° menjadi (1, 3). Itu jawaban akhirnya.
+00:00:18.144 --> 00:00:19.923
+baris kedua 0 dan -1.
 
 8
-00:00:26.304 --> 00:00:30.965
-Sekarang urutannya dibalik: diputar dulu,
+00:00:20.670 --> 00:00:24.766
+Rotasi 90° punya matriks baris pertama 0 dan -1,
 
 9
-00:00:30.965 --> 00:00:32.898
-baru dicerminkan.
+00:00:24.766 --> 00:00:26.623
+baris kedua 1 dan 0.
 
 10
-00:00:32.898 --> 00:00:34.944
-Hasilnya (-1, -3).
+00:00:27.353 --> 00:00:29.832
+Dua matriks itulah yang kita kalikan hari ini.
 
 11
-00:00:34.944 --> 00:00:39.065
-Dua transformasi yang sama, cuma beda urutan,
+00:00:31.049 --> 00:00:34.082
+Sebuah bentuk dicerminkan pada sumbu X,
 
 12
-00:00:39.065 --> 00:00:41.904
-mendarat di kuadran berlawanan.
+00:00:34.082 --> 00:00:35.554
+lalu diputar 90°.
 
 13
-00:00:41.904 --> 00:00:43.207
-Lewat matriks:
+00:00:36.287 --> 00:00:38.371
+Dua langkah, berurutan.
 
 14
-00:00:43.207 --> 00:00:47.302
-kalau langkah pertama dikerjakan lebih dulu,
+00:00:39.118 --> 00:00:43.070
+Kita ikuti satu titiknya saja: A(3, 1).
 
 15
-00:00:47.302 --> 00:00:49.536
-matriksnya paling <b>kanan</b>.
+00:00:44.316 --> 00:00:47.486
+Langkah pertama, cermin sumbu X: (3,
 
 16
-00:00:49.536 --> 00:00:53.224
-Sebabnya koordinat titiknya di ujung kanan,
+00:00:47.486 --> 00:00:51.071
+1) menyeberangi sumbu, menjadi (3, -1).
 
 17
-00:00:53.224 --> 00:00:56.568
-dan matriks terdekat menyentuhnya dulu.
+00:00:52.282 --> 00:00:55.480
+Langkah kedua dikerjakan pada <b>hasil itu</b>:
 
 18
-00:00:56.568 --> 00:01:06.600
-Baris 1 kiri bertemu kolom 1 kanan: 0(1) + (-1)(0) = 0.
+00:00:55.480 --> 00:00:57.788
+diputar 90° menjadi (1, 3).
 
 19
-00:01:06.600 --> 00:01:10.248
-Itu kotak kiri atas.
+00:00:58.521 --> 00:01:00.171
+Itu jawaban akhirnya.
 
 20
-00:01:10.248 --> 00:01:18.068
-Urutan yang benar memberi matriks cermin garis y = x.
+00:01:01.382 --> 00:01:05.876
+Sekarang urutannya dibalik: diputar dulu ke (-1, 3),
 
 21
-00:01:18.068 --> 00:01:22.200
-Pada (3, 1) hasilnya (1, 3).
+00:01:05.876 --> 00:01:08.532
+baru dicerminkan ke (-1, -3).
 
 22
-00:01:22.200 --> 00:01:27.861
-Kenakan matriks gabungan pada seluruh bentuk,
+00:01:09.749 --> 00:01:12.867
+Dua transformasi yang sama persis, cuma berbeda urutan,
 
 23
-00:01:27.861 --> 00:01:33.648
-bandingkan dengan hasil dua langkah: berimpit.
+00:01:12.867 --> 00:01:15.794
+dan titiknya mendarat di kuadran yang <b>berlawanan</b>.
 
 24
-00:01:33.648 --> 00:01:37.680
-Urutan matriks yang tertukar
+00:01:16.527 --> 00:01:19.308
+Urutan itulah yang harus dijaga oleh matriksnya.
 
 25
-00:01:37.680 --> 00:01:43.440
-memberi jawaban untuk urutan sebaliknya,
+00:01:20.500 --> 00:01:21.966
+Dari mana aturannya?
 
 26
-00:01:43.440 --> 00:01:45.888
-bukan yang kacau.
+00:01:22.701 --> 00:01:25.167
+Tulis kedua langkah itu sebagai perkalian.
 
 27
-00:01:45.888 --> 00:01:50.166
-Urutan tidak selalu penting:
+00:01:25.913 --> 00:01:29.879
+M1, matriks cermin, mengenai titiknya lebih dulu.
 
 28
-00:01:50.166 --> 00:01:56.736
-30° lalu 60° sama saja dengan 60° lalu 30°.
+00:01:30.609 --> 00:01:34.062
+Hasilnya baru dikenai M2, matriks rotasi.
 
 29
-00:01:56.736 --> 00:02:00.481
-Bacalah dari kanan ke kiri:
+00:01:34.808 --> 00:01:40.076
+Dibaca utuh: M2, lalu M1, lalu titiknya di ujung kanan.
 
 30
-00:02:00.481 --> 00:02:07.416
-yang paling dekat koordinat dikerjakan lebih dulu.
+00:01:41.316 --> 00:01:44.509
+Jadi kalau langkah pertama dikerjakan lebih dulu,
 
 31
-00:02:07.416 --> 00:02:13.478
-Perkalian matriks menggabungkan dua transformasi,
+00:01:44.509 --> 00:01:46.595
+matriksnya ditulis paling <b>kanan</b>,
 
 32
-00:02:13.478 --> 00:02:16.941
-urutannya dibaca dari kanan.
+00:01:46.595 --> 00:01:49.874
+dan matriks gabungannya M2 M1, bukan sebaliknya.
 
 33
-00:02:16.941 --> 00:02:22.632
-Dicerminkan sumbu X dua kali, gabungannya apa?
+00:01:51.082 --> 00:01:52.282
+Sebabnya sederhana:
+
+34
+00:01:52.282 --> 00:01:54.449
+koordinat titiknya berada di ujung kanan,
+
+35
+00:01:54.449 --> 00:01:55.981
+dan matriks yang <b>paling dekat</b>
+
+36
+00:01:55.981 --> 00:01:58.350
+dengannyalah yang menyentuhnya lebih dulu.
+
+37
+00:01:58.886 --> 00:02:01.091
+Mengalikan kedua matriksnya lebih dulu cuma
+
+38
+00:02:01.091 --> 00:02:03.497
+menggabungkan dua sentuhan itu menjadi satu.
+
+39
+00:02:04.700 --> 00:02:06.205
+Perkaliannya begini.
+
+40
+00:02:06.955 --> 00:02:09.367
+Baris pertama matriks kiri
+
+41
+00:02:09.367 --> 00:02:12.706
+bertemu kolom pertama matriks kanan:
+
+42
+00:02:12.706 --> 00:02:14.618
+0(1) + (-1)(0) = 0.
+
+43
+00:02:15.349 --> 00:02:16.920
+Itu kotak kiri atas.
+
+44
+00:02:17.666 --> 00:02:22.632
+Tiga kotak sisanya dengan cara yang sama: 1, 1, dan 0.
+
+45
+00:02:23.849 --> 00:02:28.512
+Hasilnya: baris pertama 0 dan 1, baris kedua 1 dan 0.
+
+46
+00:02:29.260 --> 00:02:31.878
+Itu matriks cermin pada garis y = x.
+
+47
+00:02:31.878 --> 00:02:34.168
+Dikenakan pada (3, 1) memberi (1, 3),
+
+48
+00:02:34.168 --> 00:02:37.660
+sama persis dengan hitungan langkah demi langkah tadi.
+
+49
+00:02:38.868 --> 00:02:40.807
+Jangan percaya begitu saja.
+
+50
+00:02:41.556 --> 00:02:43.006
+Kenakan matriks gabungan itu
+
+51
+00:02:43.006 --> 00:02:44.714
+pada <b>seluruh bentuknya</b> sekaligus,
+
+52
+00:02:44.714 --> 00:02:47.246
+lalu bandingkan dengan hasil dua langkah tadi.
+
+53
+00:02:47.975 --> 00:02:49.362
+Keduanya berimpit.
+
+54
+00:02:50.582 --> 00:02:53.627
+Kalau urutan matriksnya tertukar, M1 M2,
+
+55
+00:02:53.627 --> 00:02:55.378
+jawabannya bukan kacau,
+
+56
+00:02:55.378 --> 00:02:58.956
+melainkan jawaban untuk urutan yang <b>sebaliknya</b>:
+
+57
+00:02:58.956 --> 00:03:01.009
+cermin pada garis y = -x.
+
+58
+00:03:01.756 --> 00:03:04.001
+Itu sebabnya jebakan ini berbahaya:
+
+59
+00:03:04.001 --> 00:03:06.011
+hasilnya terlihat masuk akal.
+
+60
+00:03:07.235 --> 00:03:09.174
+Tapi urutan tidak selalu penting.
+
+61
+00:03:09.923 --> 00:03:13.520
+Dua putaran terhadap pusat yang sama boleh ditukar,
+
+62
+00:03:13.520 --> 00:03:17.125
+sebab 30° lalu 60° sama saja dengan 60° lalu 30°.
+
+63
+00:03:18.349 --> 00:03:23.300
+Bentuk umumnya, untuk tiga langkah atau lebih: T1,
+
+64
+00:03:23.300 --> 00:03:28.104
+lalu T2, lalu T3, matriks gabungannya M3 M2 M1.
+
+65
+00:03:28.837 --> 00:03:31.303
+Yang pertama dikerjakan tetap paling kanan.
+
+66
+00:03:32.049 --> 00:03:34.688
+Satu catatan: translasi bukan perkalian,
+
+67
+00:03:34.688 --> 00:03:37.278
+jadi langkah itu dikerjakan terpisah.
+
+68
+00:03:38.468 --> 00:03:41.811
+Cara menjaganya cuma satu: bacalah dari kanan ke kiri,
+
+69
+00:03:41.811 --> 00:03:43.447
+mulai dari koordinatnya.
+
+70
+00:03:44.180 --> 00:03:45.753
+Yang paling dekat dengan koordinat
+
+71
+00:03:45.753 --> 00:03:47.475
+itulah yang dikerjakan lebih dulu.
+
+72
+00:03:48.682 --> 00:03:50.225
+Rangkumannya satu kalimat:
+
+73
+00:03:50.225 --> 00:03:52.064
+perkalian matriks menggabungkan
+
+74
+00:03:52.064 --> 00:03:53.666
+dua transformasi jadi satu,
+
+75
+00:03:53.666 --> 00:03:55.714
+dan urutannya dibaca <b>dari kanan</b>.
+
+76
+00:03:56.461 --> 00:03:57.661
+Satu pertanyaan:
+
+77
+00:03:57.661 --> 00:03:59.754
+kalau sebuah bentuk dicerminkan pada
+
+78
+00:03:59.754 --> 00:04:01.613
+sumbu X dua kali berturut-turut,
+
+79
+00:04:01.613 --> 00:04:03.158
+matriks gabungannya apa?
+
+80
+00:04:04.101 --> 00:04:07.449
+Di materi berikutnya, Penerapan Transformasi Geometri,
+
+81
+00:04:07.449 --> 00:04:10.673
+kita lihat siapa yang memakai semua ini setiap hari:
+
+82
+00:04:10.673 --> 00:04:13.922
+motif batik, permainan di layar, dan lengan robot.
+
+83
+00:04:14.657 --> 00:04:16.222
+Di sana matriks gabungan tadi
+
+84
+00:04:16.222 --> 00:04:17.991
+dipakai ribuan kali per detik.

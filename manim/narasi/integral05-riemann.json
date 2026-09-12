@@ -1,68 +1,93 @@
 {
   "adegan": "IntegralRiemann",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Video Integral, Materi 05 'Luas dari persegi panjang, jumlahan Riemann'. Video PERTAMA yang dibuat untuk topik ini, tetapi BUKAN video pertama dalam urutan tonton, jadi TIDAK memakai pembuka 3D (aturan 2 STANDAR-ILUSTRASI-VIDEO: 3D hanya untuk video bernomor tahap terkecil, yaitu Materi 01). Nama berkas memakai nomor MATERI, bukan nomor urut pembuatan, supaya cek_urutan_integral.py tahu aturan materi mana yang berlaku. Dua belas segmen; segmen 'menyusut' digabung ke 'perbanyak' karena gagasannya sama (makin banyak bagian, makin rapat) dan dua angka sudah cukup memperlihatkan polanya. Seluruh angka diperiksa sympy lewat alat/klaim-video-integral.json: 28, 21, 24,5, 26,25, 1,75, 0,41, 6,25, dan 4,25. Warna: AKSEN2 biru = persegi panjang dan jumlahannya, AKSEN merah = selisih terhadap luas sebenarnya, SOROT ungu = luas sebenarnya dan kesimpulan.",
+  "tempo": "-5%",
+  "catatan": "Luas dan Integral Tentu, Bagian 1 (Materi 05 'Luas dari persegi panjang, jumlahan Riemann', video Integral). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (12 segmen, 2:00) yang sudah disetujui ARYA: ISI TETAP SAMA (daerah bertepi lengkung; tutupi dengan persegi panjang; partisi dan delta x; titik sampel; contoh f(x) = x pada 0 sampai 7, tujuh bagian: kanan 28, segitiga 24,5, kiri 21, terjepit; n = 14 selisih 1,75, n = 60 selisih 0,41; kurva turun 4 - x kuadrat: kiri 6,25 kanan 4,25; yang lebih tinggi menang). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1 dengan pertanyaan halaman, segar-ingat (empat bagian Membalik Turunan ditinggalkan sebentar; rumus SMP persegi panjang dan segitiga yang dibawa), ASAL RUMUS: kelebihan 28 - 24,5 = 3,5 dibaca dari tujuh segitiga kecil setengah satuan, bentuk umum jumlah f(x_i) delta x, rangkuman dengan pertanyaan halaman Materi 06, penutup menunjuk Luas dan Integral Tentu, Bagian 2. Seluruh angka sama dengan halaman Materi 05 (28, 21, 24,5, 26,25 selisih 1,75, selisih 0,41 pada n = 60, 6,25, 4,25).",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi kelima: luas dari persegi panjang, jumlahan Riemann.",
-      "tulis": "Materi 05: luas dari persegi panjang, jumlahan Riemann."
+      "teks": "Luas dan Integral Tentu, Bagian satu. Bagaimana mengukur luas daerah yang salah satu tepinya melengkung?",
+      "tulis": "Luas dan Integral Tentu, Bagian 1. Bagaimana mengukur luas daerah yang salah satu tepinya *melengkung*?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Membalik Turunan, keempat bagiannya soal antiturunan. Itu kita tinggalkan sebentar. Yang dibawa hari ini justru rumus SMP: luas persegi panjang, panjang kali lebar, dan luas segitiga, setengah alas kali tinggi.",
+      "tulis": "Di Membalik Turunan, keempat bagiannya soal antiturunan. Itu kita tinggalkan sebentar. Yang dibawa hari ini justru rumus SMP: luas persegi panjang, panjang · lebar, dan luas segitiga, ½ · alas · tinggi."
     },
     {
       "id": "masalah",
-      "teks": "Luas persegi panjang tinggal panjang dikali lebar. Tapi daerah ini tepi atasnya melengkung, dan tidak ada dua sisi yang bisa langsung dikalikan.",
-      "tulis": "Persegi panjang: panjang × lebar. Tapi tepi atas daerah ini melengkung."
+      "teks": "Persegi panjang ini tinggal tiga kali dua. Tapi daerah ini tepi atasnya melengkung, dan tidak ada dua sisi yang bisa langsung dikalikan.",
+      "tulis": "Persegi panjang ini tinggal 3 · 2. Tapi daerah ini tepi atasnya melengkung, dan *tidak ada* dua sisi yang bisa langsung dikalikan."
     },
     {
       "id": "gagasan",
-      "teks": "Kalau bentuknya tidak bisa diukur langsung, tutupi dengan bentuk yang bisa.",
-      "tulis": "Kalau tidak bisa diukur langsung, tutupi dengan yang bisa."
+      "teks": "Kalau bentuknya tidak bisa diukur langsung, tutupi dengan bentuk yang bisa. Satu persegi panjang jelas terlalu kasar.",
+      "tulis": "Kalau bentuknya tidak bisa diukur langsung, *tutupi* dengan bentuk yang bisa. Satu persegi panjang jelas terlalu kasar."
     },
     {
       "id": "potong",
-      "teks": "Selangnya dipotong menjadi beberapa bagian yang sama lebar. Pembagian itu namanya *partisi*, dan lebar tiap bagiannya kita sebut delta x.",
-      "tulis": "Selang dipotong sama lebar. Pembagiannya disebut *partisi*, lebarnya Δx."
+      "teks": "Selangnya dipotong menjadi beberapa bagian yang sama lebar. Pembagian itu namanya partisi, dan lebar tiap bagiannya kita sebut delta x.",
+      "tulis": "Selangnya dipotong menjadi beberapa bagian yang sama lebar. Pembagian itu namanya *partisi*, dan lebar tiap bagiannya kita sebut Δx."
     },
     {
       "id": "tinggi",
-      "teks": "Di tiap bagian didirikan persegi panjang setinggi nilai fungsi di satu titik. Titik pilihan itu namanya *titik sampel*.",
-      "tulis": "Tinggi tiap persegi panjang diambil di satu *titik sampel*."
+      "teks": "Di tiap bagian didirikan persegi panjang setinggi nilai fungsi di satu titik. Titik pilihan itu namanya titik sampel: boleh ujung kiri, ujung kanan, atau tengahnya.",
+      "tulis": "Di tiap bagian didirikan persegi panjang setinggi nilai fungsi di satu titik. Titik pilihan itu namanya *titik sampel*: boleh ujung kiri, ujung kanan, atau tengahnya."
     },
     {
       "id": "contoh",
-      "teks": "Kita pakai contoh yang bisa diperiksa sendiri. Fungsinya f dari x sama dengan x, dari nol sampai tujuh, dibagi tujuh bagian.",
-      "tulis": "f(x) = x, dari 0 sampai 7, dibagi 7 bagian."
+      "teks": "Kita pakai contoh yang bisa diperiksa sendiri: f dari x sama dengan x, dari nol sampai tujuh, dibagi tujuh bagian. Lebar tiap bagiannya satu.",
+      "tulis": "Kita pakai contoh yang bisa diperiksa sendiri: f(x) = x, dari 0 sampai 7, dibagi 7 bagian. Lebar tiap bagiannya 1."
     },
     {
       "id": "hitung7",
-      "teks": "Titik sampelnya diambil dari ujung kanan. Tingginya satu, dua, tiga, sampai tujuh. Semuanya dijumlahkan, hasilnya *dua puluh delapan*.",
-      "tulis": "Titik sampel kanan. Tinggi 1, 2, 3, ..., 7. Jumlahnya *28*."
+      "teks": "Titik sampelnya ujung kanan. Tingginya satu, dua, tiga, sampai tujuh. Semua luasnya dijumlahkan: satu tambah dua tambah tiga, sampai tujuh, hasilnya dua puluh delapan. Jumlah persegi panjang seperti ini namanya jumlahan Riemann.",
+      "tulis": "Titik sampelnya ujung kanan. Tingginya 1, 2, 3, sampai 7. Semua luasnya dijumlahkan: 1 + 2 + 3 + … + 7, hasilnya *28*. Jumlah persegi panjang seperti ini namanya jumlahan Riemann."
     },
     {
       "id": "segitiga",
-      "teks": "Daerah aslinya segitiga siku-siku, jadi luasnya bisa dihitung dengan rumus SMP. Setengah kali alas tujuh kali tinggi tujuh, yaitu *dua puluh empat koma lima*.",
-      "tulis": "Daerahnya segitiga: ½ × 7 × 7 = *24,5*."
+      "teks": "Daerah aslinya segitiga siku-siku, jadi luas sebenarnya bisa dihitung dengan rumus SMP: setengah kali alas tujuh kali tinggi tujuh, yaitu dua puluh empat koma lima.",
+      "tulis": "Daerah aslinya segitiga siku-siku, jadi luas sebenarnya bisa dihitung dengan rumus SMP: ½ · 7 · 7, yaitu *24,5*."
     },
     {
       "id": "jepit",
-      "teks": "Jadi dua puluh delapan itu kelebihan. Titik sampel kiri memberi dua puluh satu, dan itu kekurangan. Jawabannya terjepit di antara keduanya.",
-      "tulis": "28 kelebihan, 21 kekurangan. Jawabannya terjepit di antara 21 dan 28."
+      "teks": "Jadi dua puluh delapan itu kelebihan. Titik sampel kiri memberi nol tambah satu sampai enam, yaitu dua puluh satu, dan itu kekurangan. Jawabannya terjepit di antara keduanya.",
+      "tulis": "Jadi 28 itu kelebihan. Titik sampel kiri memberi 0 + 1 + … + 6, yaitu 21, dan itu kekurangan. Jawabannya *terjepit* di antara keduanya."
+    },
+    {
+      "id": "asal",
+      "teks": "Dari mana kelebihannya? Lihat tiap bagian: persegi panjang kanan menyisakan segitiga kecil di atas kurva, tujuh buah, tiap-tiapnya setengah satuan. Tujuh kali setengah, tiga koma lima, persis dua puluh delapan dikurangi dua puluh empat koma lima.",
+      "tulis": "Dari mana kelebihannya? Lihat tiap bagian: persegi panjang kanan menyisakan segitiga kecil di atas kurva, 7 buah, tiap-tiapnya ½ satuan. 7 · ½ = 3,5, persis 28 - 24,5."
     },
     {
       "id": "perbanyak",
-      "teks": "Sekarang bagiannya digandakan jadi empat belas: selisihnya tinggal *satu koma tujuh lima*. Dengan enam puluh bagian, tinggal nol koma empat satu.",
-      "tulis": "n = 14, selisih *1,75*. n = 60, selisih 0,41."
+      "teks": "Sekarang bagiannya digandakan jadi empat belas. Segitiga sisanya jadi separuh lebar dan separuh tinggi, dan selisihnya tinggal satu koma tujuh lima. Dengan enam puluh bagian, tinggal nol koma empat satu.",
+      "tulis": "Sekarang bagiannya digandakan jadi 14. Segitiga sisanya jadi separuh lebar dan separuh tinggi, dan selisihnya tinggal *1,75*. Dengan 60 bagian, tinggal 0,41."
+    },
+    {
+      "id": "umum",
+      "teks": "Bentuk umumnya: jumlahan Riemann adalah jumlah f dari x i kali delta x, untuk i dari satu sampai n. Makin besar n, makin rapat jepitannya pada luas sebenarnya.",
+      "tulis": "Bentuk umumnya: jumlahan Riemann adalah Σ f(xᵢ) · Δx, untuk i dari 1 sampai n. Makin besar n, makin rapat jepitannya pada luas sebenarnya."
     },
     {
       "id": "turun",
-      "teks": "Satu hal yang sering disalahpahami. Ganti kurvanya jadi empat dikurangi x kuadrat, nol sampai dua, empat bagian. Kiri enam koma dua lima, kanan empat koma dua lima.",
-      "tulis": "Ganti ke 4 - x², [0, 2], n = 4. Kiri 6,25, kanan 4,25."
+      "teks": "Satu hal yang sering disalahpahami: kanan tidak selalu lebih besar. Ganti kurvanya jadi empat dikurangi x kuadrat, nol sampai dua, empat bagian. Kiri enam koma dua lima, kanan empat koma dua lima.",
+      "tulis": "Satu hal yang sering disalahpahami: kanan *tidak selalu* lebih besar. Ganti kurvanya jadi 4 - x², 0 sampai 2, 4 bagian. Kiri 6,25, kanan 4,25."
     },
     {
       "id": "tutup",
-      "teks": "Kali ini justru *kiri* yang lebih besar. Jadi bukan kanan yang selalu besar, melainkan sisi tempat kurvanya lebih tinggi. Nilai yang dituju jepitan itu ada namanya, di materi berikutnya.",
-      "tulis": "Kali ini *kiri* yang lebih besar: yang menentukan, di sisi mana kurvanya lebih tinggi."
+      "teks": "Kali ini justru kiri yang lebih besar. Jadi bukan kanan yang selalu besar, melainkan sisi tempat kurvanya lebih tinggi: pada kurva naik itu sisi kanan, pada kurva turun itu sisi kiri.",
+      "tulis": "Kali ini justru *kiri* yang lebih besar. Jadi bukan kanan yang selalu besar, melainkan sisi tempat kurvanya lebih tinggi: pada kurva naik itu sisi kanan, pada kurva turun itu sisi kiri."
+    },
+    {
+      "id": "rangkum",
+      "teks": "Rangkumannya satu kalimat: daerah bertepi lengkung diukur dengan menutupinya memakai persegi panjang, dan makin banyak persegi panjangnya, makin dekat jumlahannya ke luas sebenarnya. Satu pertanyaan: kalau bagiannya dibuat tak hingga banyak, apa nama hasilnya?",
+      "tulis": "Rangkumannya satu kalimat: daerah bertepi lengkung diukur dengan *menutupinya* memakai persegi panjang, dan makin banyak persegi panjangnya, makin dekat jumlahannya ke luas sebenarnya. Satu pertanyaan: kalau bagiannya dibuat tak hingga banyak, apa nama hasilnya?"
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Luas dan Integral Tentu, Bagian dua, nilai yang dituju jepitan itu diberi nama, dan lambang untuk menuliskannya.",
+      "tulis": "Di materi berikutnya, Luas dan Integral Tentu, Bagian 2, nilai yang dituju jepitan itu diberi nama, dan lambang untuk menuliskannya."
     }
   ]
 }

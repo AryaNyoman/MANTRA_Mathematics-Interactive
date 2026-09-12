@@ -129,14 +129,18 @@ class IntegralSubstitusi(AdeganMatra):
         ident = sinema.identitas(self, "segar-ingat: Materi 01 dan 02")
         self.remove(ident)
         with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
+            # v3.1 (12 Sep 2026): nama sub-bab plus Bagian dulu, baru pertanyaannya.
+            b.tunggu_kata("Membalik")
+            sinema.judul_pembuka(self, "Membalik Turunan, Bagian 3", lama=3.0, y=2.6)
+            b.catat(3.0)
             b.tunggu_kata("Bagaimana")
-            b.main(FadeIn(ident), run_time=1.0)
+            b.main(FadeIn(ident), run_time=0.6)
             b.tunggu_kata("antiturunan")
-            b.main(FadeIn(soal, scale=0.9), run_time=2.2)
+            b.main(FadeIn(soal, scale=0.9), run_time=1.8)
             b.tunggu_kata("lima")
-            b.main(Indicate(soal[1], color=AKSEN), run_time=1.2)
+            b.main(Indicate(soal[1], color=AKSEN), run_time=1.0)
             b.tunggu_kata("menguraikan")
-            b.main(Indicate(soal, color=SOROT), run_time=2.0)
+            b.main(Indicate(soal, color=SOROT), run_time=1.6)
         qc.periksa_adegan(self, {"soal": soal}, hud={"identitas": ident})
 
         # =============================================================
@@ -153,10 +157,10 @@ class IntegralSubstitusi(AdeganMatra):
             # tiga detik (ditangkap cek_layar_kosong, bukan mata saya).
             b.tunggu_kata("menjawab")
             b.main(Indicate(soal, color=AKSEN), run_time=1.4)
-            b.tunggu_kata("Materi")
+            b.tunggu_kata("Membalik")
             b_m01 = panel.baris(r"\text{Integral 01: antiturunan}", warna=REDUP, b=b)
-            b.tunggu_kata("membalik")
-            b.main(FadeOut(soal), FadeIn(panah_balik), run_time=1.6)
+            b.tunggu_kata("Bagian")
+            b.main(FadeOut(soal), FadeIn(panah_balik), run_time=1.2)
             b.tunggu_kata("antiturunan")
             b.main(Indicate(b_m01, color=AKSEN), run_time=1.0)
             b.tunggu_kata("mesin")
@@ -220,7 +224,7 @@ class IntegralSubstitusi(AdeganMatra):
             # Layar dikosongkan BERTAHAP: panah balik bertahan sampai lambang
             # integral siap menggantikannya. Versi pertama membuang ketiganya
             # sekaligus dan meninggalkan layar kosong empat detik.
-            b.tunggu_kata("Materi")
+            b.tunggu_kata("Lalu")
             b.main(FadeOut(busur_kel), FadeOut(plus_c), run_time=1.2)
             b.tunggu_kata("tanda")
             b_m02 = panel.baris(r"\text{Integral 02: aturan pangkat}",
@@ -293,7 +297,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("Hasilnya")
             b.main(LaggedStartMap(FadeIn, urai, lag_ratio=0.5), run_time=1.4)
             b.tunggu_kata("tiap")
-            b.main(Indicate(urai[1], color=AKSEN), run_time=1.0)
+            b.main(Indicate(urai[1], color=AKSEN), run_time=0.9)
             b.tunggu_kata("diantiturunkan")
             b.main(LaggedStartMap(Indicate, urai, lag_ratio=0.35, color=AKSEN), run_time=2.4)
         qc.periksa_adegan(self, {"soal": soal, "uraian": urai},
@@ -328,7 +332,7 @@ class IntegralSubstitusi(AdeganMatra):
         with sinema.babak(self, "tebak", DURASI, kata=KATA) as b:
             b.tunggu_kata("Jadi")
             b.main(FadeOut(besar1), FadeOut(besar2), run_time=0.9)
-            b.tunggu_kata("Materi")
+            b.tunggu_kata("Bagian")
             b.main(Indicate(b_m01, color=AKSEN), run_time=1.2)
             b.tunggu_kata("menebak")
             b.main(Indicate(soal, color=AKSEN2), run_time=1.4)
@@ -781,10 +785,10 @@ class IntegralSubstitusi(AdeganMatra):
             b.main(Indicate(langkah, color=SOROT, scale_factor=1.04), run_time=1.6)
             b.tunggu_kata("berikutnya")
             b_next = panel.baris(r"\text{berikutnya: Materi 04}", warna=AKSEN, b=b)
-            b.tunggu_kata("memakai")
-            b.main(Indicate(b_next, color=SOROT), run_time=2.2)
+            b.tunggu_kata("Bagian")
+            b.main(Indicate(b_next, color=SOROT), run_time=2.0)
             b.tunggu_kata("tertangani")
-            b.main(Indicate(langkah, color=AKSEN, scale_factor=1.04), run_time=2.4)
+            b.main(Indicate(langkah, color=AKSEN, scale_factor=1.04), run_time=2.0)
         qc.periksa_adegan(self, {"empat langkah": langkah},
                           hud={"identitas": ident3, "papan": panel.semua()})
 

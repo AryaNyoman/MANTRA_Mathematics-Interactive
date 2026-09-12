@@ -115,8 +115,14 @@ class TransformasiCerminGaris(AdeganMatra):
         tanya_buka.move_to(ORIGIN)
 
         with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
-            b.tunggu_kata("Kalau garisnya")
-            b.main(FadeIn(tanya_buka, shift=0.3 * UP), run_time=1.2)
+            b.tunggu_kata("Prapeta")
+            sinema.judul_pembuka(self, "Prapeta, Peta, dan Pencerminan, Bagian 2", lama=5.0, y=2.6)
+            b.catat(5.0)
+            # Pertanyaannya muncul pada "Cerminnya" (5,2 s), bukan "Kalau garisnya"
+            # (8,2 s): judul memudar pada 5,1 s dan jeda 3 detik itu terbaca
+            # cek_layar_kosong sebagai layar kosong (12 Sep 2026).
+            b.tunggu_kata("Cerminnya")
+            b.main(FadeIn(tanya_buka, shift=0.3 * UP), run_time=1.0)
 
         # ================================================================ #
         # SEGAR-INGAT VIDEO 01                                              #
@@ -255,7 +261,9 @@ class TransformasiCerminGaris(AdeganMatra):
         # ================================================================ #
         dot_a = Dot(titik3(A), radius=JARI_TITIK).set_color(AKSEN)
         l_a = sinema.label("(1, 1)", warna=AKSEN)
-        l_a.next_to(titik3(A), DOWN, buff=0.26)
+        # Di bawah huruf "A", bukan di bawah titiknya: di bawah titik ia
+        # menindih huruf A (terlihat di lembar kontak 1080p, 12 Sep 2026).
+        l_a.next_to(nama_pra["A"], DOWN, buff=0.10)
         ruas_a1 = Line(titik3(A), titik3((K, A[1]))).set_stroke(AKSEN, 4.0)
         angka_a1 = sinema.label("4", warna=AKSEN)
         angka_a1.next_to(ruas_a1.get_center(), UP, buff=0.18)
@@ -267,7 +275,8 @@ class TransformasiCerminGaris(AdeganMatra):
             b.main(ShowCreation(ruas_a1), FadeIn(angka_a1), run_time=1.4)
         qc.periksa_adegan(self, {"prapeta": prapeta, "titik A": dot_a},
                           hud=hud_kini(),
-                          tulisan={"label A": l_a, "angka A": angka_a1, "label k": l_k},
+                          tulisan={"label A": l_a, "angka A": angka_a1, "label k": l_k,
+                                   "nama A": nama_pra["A"], "nama B": nama_pra["B"]},
                           dunia={"bidang": bidang, "kaca": kaca})
 
         ruas_a2 = Line(titik3((K, A[1])), titik3(A_peta)).set_stroke(AKSEN, 4.0)
@@ -312,7 +321,7 @@ class TransformasiCerminGaris(AdeganMatra):
 
         with sinema.babak(self, "titik_b", DURASI, kata=KATA) as b:
             b.main(FadeOut(ruas_a1), FadeOut(ruas_a2),
-                   FadeOut(angka_a1), FadeOut(angka_a2), run_time=0.6)
+                   FadeOut(angka_a1), FadeOut(angka_a2), run_time=0.45)
             b.tunggu_kata("titik B")
             b.main(FadeIn(dot_b, scale=0.4), FadeIn(l_b), run_time=1.0)
             b.tunggu_kata("satu petak")
@@ -484,7 +493,7 @@ class TransformasiCerminGaris(AdeganMatra):
             b.main(FadeIn(dot_a, scale=0.4), FadeIn(l_a), run_time=1.0)
             b.tunggu_kata("mendarat di sembilan")
             b.main(FadeOut(salah), ShowCreation(peta),
-                   FadeIn(dot_a2, scale=0.4), FadeIn(l_a2), run_time=1.6)
+                   FadeIn(dot_a2, scale=0.4), FadeIn(l_a2), run_time=1.3)
             b.tunggu_kata("dipindah mendarat")
             b.main(FadeIn(dot_salah, scale=0.4), FadeIn(l_salah), run_time=1.2)
         qc.periksa_adegan(
@@ -519,7 +528,7 @@ class TransformasiCerminGaris(AdeganMatra):
                 FadeOut(peta), FadeOut(dot_a), FadeOut(dot_a2), FadeOut(l_a),
                 FadeOut(l_a2), FadeOut(dot_salah), FadeOut(l_salah),
                 FadeOut(kaca), FadeOut(l_k),
-                run_time=0.9,
+                run_time=0.5,
             )
             b.tunggu_kata("cermin mendatar")
             b.main(ShowCreation(garis_datar), FadeIn(l_h), run_time=1.4)
@@ -528,7 +537,7 @@ class TransformasiCerminGaris(AdeganMatra):
 
         with sinema.babak(self, "mendatar_gambar", DURASI, kata=KATA) as b:
             b.tunggu_kata("Bendanya di bawah")
-            b.main(ShowCreation(kecil_pra), run_time=1.4)
+            b.main(ShowCreation(kecil_pra), run_time=1.1)
             b.tunggu_kata("bayangannya di atas")
             b.main(ShowCreation(kecil_peta), run_time=1.6)
         qc.periksa_adegan(self, {"benda": kecil_pra, "bayangan": kecil_peta},
@@ -588,15 +597,23 @@ class TransformasiCerminGaris(AdeganMatra):
             dunia={"bidang": bidang, "cermin datar": garis_datar},
         )
 
+        # Cermin miring y = x sebagai pengantar Bagian 3: garisnya diputar 45
+        # derajat di tempat, bendanya tinggal.
+        # Ujungnya (4,4, 4,4), bukan (7,4, 7,4): pada kamera KOTAK ini y dunia 7,4
+        # jatuh di y layar 4,30, keluar bingkai (qc menolaknya, 12 Sep 2026).
+        garis_miring = DashedLine(titik3((0.6, 0.6)), titik3((4.4, 4.4))).set_stroke(SOROT, 4.0)
         with sinema.babak(self, "berikut", DURASI, kata=KATA) as b:
             b.main(FadeOut(titik_di_cermin), FadeOut(l_di_cermin), run_time=0.6)
-            b.tunggu_kata("diputar")
-            b.main(Rotate(kecil_peta, PI / 6, about_point=titik3((5.0, 2.0))),
-                   run_time=1.6)
+            b.tunggu_kata("Bagian")
+            judul_lanjut = teks("Prapeta, Peta, dan Pencerminan, Bagian 3", 30, SOROT)
+            judul_lanjut.move_to([0, 2.9, 0]).fix_in_frame()
+            self.hud_tambah(judul_lanjut)
+            b.main(FadeIn(judul_lanjut, shift=0.2 * UP), run_time=0.8)
+            b.tunggu_kata("miring")
+            b.main(FadeOut(kecil_peta), FadeOut(l_h), Transform(garis_datar, garis_miring), run_time=1.4)
             b.tunggu_kata("gagasan jarak")
             b.main(Indicate(rum, color=AKSEN), run_time=1.4)
         qc.periksa_adegan(self, {"benda": kecil_pra}, hud=hud_kini(),
-                          tulisan={"label h": l_h},
-                          dunia={"bidang": bidang, "cermin datar": garis_datar})
+                          dunia={"bidang": bidang, "cermin": garis_datar})
 
         sinema.laporkan_pemicu(self)

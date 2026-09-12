@@ -1,67 +1,384 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/integral03-substitusi.json
+NOTE Dibuat otomatis dari manim/narasi/integral03-substitusi.json (waktu kata rekaman)
+NOTE naskah-sidik f8677e3a1882
 
 1
-00:00:00.000 --> 00:00:04.704
-Materi 03: substitusi, melihat lapisan.
+00:00:00.101 --> 00:00:02.646
+Membalik Turunan, Bagian 3.
 
 2
-00:00:04.704 --> 00:00:09.898
-Antiturunan dari (2x + 1)⁵.
+00:00:03.395 --> 00:00:07.087
+Bagaimana cara mencari antiturunan dari (2x + 1)⁵,
 
 3
-00:00:09.898 --> 00:00:16.824
-Diuraikan bisa, tapi jadi enam suku.
+00:00:07.087 --> 00:00:09.821
+tanpa harus menguraikan pangkatnya?
 
 4
-00:00:16.824 --> 00:00:24.240
-Tebakan dengan aturan pangkat: (2x + 1)⁶ dibagi 6.
+00:00:11.035 --> 00:00:13.219
+Sebelum menjawab, kita ingat dua hal.
 
 5
-00:00:24.240 --> 00:00:36.912
-Diturunkan: (2x + 1)⁵ dikali turunan isinya, yaitu <b>2</b>.
+00:00:13.219 --> 00:00:17.087
+Di Membalik Turunan, Bagian 1, kita belajar antiturunan:
 
 6
-00:00:36.912 --> 00:00:43.416
-Turunannya <b>2(2x + 1)⁵</b>, dua kali yang dicari.
+00:00:17.087 --> 00:00:19.448
+mesin turunan dijalankan mundur.
 
 7
-00:00:43.416 --> 00:00:51.792
-Dibagi 2, jadi <b>(2x + 1)⁶ dibagi 12</b>.
+00:00:20.668 --> 00:00:21.868
+Caranya menebak,
 
 8
-00:00:51.792 --> 00:01:05.208
-Namai isinya: <b>u = 2x + 1</b>, maka <b>du = 2 dx</b>.
+00:00:21.868 --> 00:00:25.160
+lalu memeriksa tebakan itu dengan menurunkannya kembali.
 
 9
-00:01:05.208 --> 00:01:18.744
-Pilih u. Hitung du. Cocokkan. Kerjakan lalu kembalikan.
+00:00:25.592 --> 00:00:29.005
+Kalau turunannya cocok dengan soal, tebakan itu benar.
 
 10
-00:01:18.744 --> 00:01:25.409
-u = x² + 5, du = 2x dx.
+00:00:30.249 --> 00:00:32.285
+Dan jawabannya selalu berakhiran + C,
 
 11
-00:01:25.409 --> 00:01:34.392
-Bagian 2x dx <b>sudah ada</b> di soal.
+00:00:32.285 --> 00:00:33.936
+karena menggeser kurva ke atas
 
 12
-00:01:34.392 --> 00:01:42.528
-Jadi <b>(x² + 5)⁵ dibagi 5</b>, ditambah C.
+00:00:33.936 --> 00:00:36.452
+atau ke bawah tidak mengubah kemiringannya.
 
 13
-00:01:42.528 --> 00:01:51.908
-Soal punya x dx, du menuntut 2x dx.
+00:00:37.682 --> 00:00:39.784
+Lalu di Membalik Turunan, Bagian 2,
 
 14
-00:01:51.908 --> 00:01:58.608
-Yang kurang cuma <b>angka</b> ½.
+00:00:39.784 --> 00:00:42.006
+tanda integral dan aturan pangkatnya,
 
 15
-00:01:58.608 --> 00:02:09.932
-Kekurangan berupa <b>angka</b> boleh diperbaiki.
+00:00:42.006 --> 00:00:43.808
+kita berkenalan dengan lambang
 
 16
-00:02:09.932 --> 00:02:15.456
-Yang memuat <b>x</b> tidak.
+00:00:43.808 --> 00:00:45.819
+integral dan satu aturan cepat.
+
+17
+00:00:47.049 --> 00:00:48.615
+Aturan pangkat:
+
+18
+00:00:48.615 --> 00:00:53.673
+antiturunan dari xⁿ adalah xⁿ⁺¹ dibagi (n + 1).
+
+19
+00:00:54.406 --> 00:00:57.200
+Berlaku untuk semua n kecuali -1.
+
+20
+00:00:58.401 --> 00:01:00.749
+Yang dibawa ke video ini satu kalimat.
+
+21
+00:01:01.497 --> 00:01:04.074
+Aturan pangkat itu ditulis untuk <b>x polos</b>,
+
+22
+00:01:04.074 --> 00:01:06.989
+sedangkan soal hari ini pangkatnya (2x + 1).
+
+23
+00:01:08.200 --> 00:01:10.600
+Menguraikan (2x + 1)⁵ memang bisa.
+
+24
+00:01:11.350 --> 00:01:12.550
+Hasilnya enam suku,
+
+25
+00:01:12.550 --> 00:01:16.035
+dan tiap suku masih harus diantiturunkan satu per satu.
+
+26
+00:01:17.168 --> 00:01:20.186
+Untuk pangkat 10, uraiannya 11 suku.
+
+27
+00:01:20.921 --> 00:01:23.847
+Untuk pangkat 20, 21 suku.
+
+28
+00:01:24.578 --> 00:01:26.439
+Cara itu berhenti masuk akal.
+
+29
+00:01:27.635 --> 00:01:30.969
+Jadi kita pakai cara Bagian 1, yaitu menebak.
+
+30
+00:01:31.703 --> 00:01:34.827
+Naikkan pangkatnya jadi 6, lalu bagi 6.
+
+31
+00:01:36.049 --> 00:01:40.304
+Tebakannya (2x + 1)⁶ dibagi 6.
+
+32
+00:01:41.501 --> 00:01:44.243
+Sekarang periksa tebakan itu dengan menurunkannya.
+
+33
+00:01:44.992 --> 00:01:46.467
+Pangkat 6 turun jadi 5,
+
+34
+00:01:46.467 --> 00:01:50.208
+dan angka 6 yang turun ke depan habis dibagi 6 di bawah.
+
+35
+00:01:51.435 --> 00:01:54.058
+Tapi aturan rantai menuntut satu langkah lagi.
+
+36
+00:01:54.792 --> 00:01:57.744
+Hasilnya masih harus dikalikan turunan isi kurungnya.
+
+37
+00:01:58.968 --> 00:02:01.618
+Turunan dari (2x + 1) adalah 2.
+
+38
+00:02:02.835 --> 00:02:06.564
+Jadi turunan tebakan itu 2(2x + 1)⁵.
+
+39
+00:02:07.297 --> 00:02:09.250
+Dua kali lipat dari yang kita cari.
+
+40
+00:02:10.435 --> 00:02:12.325
+Kelebihannya cuma sebuah angka,
+
+41
+00:02:12.325 --> 00:02:14.243
+dan angka gampang diperbaiki.
+
+42
+00:02:14.975 --> 00:02:16.325
+Bagi 2.
+
+43
+00:02:17.316 --> 00:02:22.874
+Jawabannya (2x + 1)⁶ dibagi 12, tambah C.
+
+44
+00:02:24.067 --> 00:02:25.664
+Diperiksa sekali lagi.
+
+45
+00:02:26.414 --> 00:02:31.643
+Turunannya 6/12 dikali 2 dikali (2x + 1)⁵.
+
+46
+00:02:32.388 --> 00:02:36.182
+Dan 6/12 dikali 2 = 1, jadi cocok.
+
+47
+00:02:37.401 --> 00:02:39.906
+Angka 2 tadi bukan datang dari mana-mana.
+
+48
+00:02:40.640 --> 00:02:42.382
+Ia turunan isi kurungnya.
+
+49
+00:02:43.113 --> 00:02:45.039
+Maka beri nama isi kurung itu <b>u</b>.
+
+50
+00:02:46.235 --> 00:02:48.319
+u = 2x + 1.
+
+51
+00:02:49.068 --> 00:02:52.428
+Turunkan kedua ruas, dan du = 2 dx.
+
+52
+00:02:53.635 --> 00:02:56.258
+Dari situ dx = du/2.
+
+53
+00:02:56.993 --> 00:03:00.050
+Sekarang seluruh soal bisa ditulis ulang dalam u saja.
+
+54
+00:03:01.249 --> 00:03:04.162
+Integral dari u⁵ du, dibagi 2.
+
+55
+00:03:04.910 --> 00:03:07.002
+Aturan pangkat sekarang boleh dipakai,
+
+56
+00:03:07.002 --> 00:03:09.244
+sebab yang dipangkatkan sudah <b>u polos</b>.
+
+57
+00:03:10.482 --> 00:03:14.542
+Hasilnya u⁶ dibagi 6, lalu dibagi 2 lagi,
+
+58
+00:03:14.542 --> 00:03:16.475
+jadi u⁶ dibagi 12.
+
+59
+00:03:17.667 --> 00:03:19.673
+Langkah terakhir jangan dilupakan.
+
+60
+00:03:20.422 --> 00:03:22.246
+Kembalikan u menjadi (2x + 1),
+
+61
+00:03:22.246 --> 00:03:24.253
+dan jawabannya sama persis dengan
+
+62
+00:03:24.253 --> 00:03:26.348
+tebakan yang tadi kita perbaiki.
+
+63
+00:03:27.568 --> 00:03:29.526
+Jadi bentuk umumnya empat langkah,
+
+64
+00:03:29.526 --> 00:03:31.692
+dan urutannya tidak pernah berubah.
+
+65
+00:03:32.425 --> 00:03:33.135
+Pilih u.
+
+66
+00:03:33.135 --> 00:03:34.485
+Hitung du.
+
+67
+00:03:34.807 --> 00:03:36.905
+Cocokkan du dengan yang ada di soal.
+
+68
+00:03:37.651 --> 00:03:40.551
+Kerjakan dalam u, lalu kembalikan ke x.
+
+69
+00:03:41.767 --> 00:03:43.117
+Contoh kedua.
+
+70
+00:03:43.732 --> 00:03:48.330
+Integral dari 2x(x² + 5)⁴ dx.
+
+71
+00:03:49.549 --> 00:03:54.146
+Pilih u = x² + 5, maka du = 2x dx.
+
+72
+00:03:54.894 --> 00:03:57.070
+Bagian 2x dx itu sudah ada di soal,
+
+73
+00:03:57.070 --> 00:03:59.583
+jadi tidak ada yang perlu disesuaikan.
+
+74
+00:04:00.816 --> 00:04:04.966
+Tinggal antiturunan u⁴, yaitu u⁵ dibagi 5.
+
+75
+00:04:05.713 --> 00:04:12.521
+Kembalikan u, dan hasilnya (x² + 5)⁵ dibagi 5, tambah C.
+
+76
+00:04:13.733 --> 00:04:15.083
+Contoh ketiga.
+
+77
+00:04:15.791 --> 00:04:19.981
+Integral dari x kali akar (x² + 5), dx.
+
+78
+00:04:20.711 --> 00:04:23.737
+Dengan u yang sama, soal cuma punya x dx,
+
+79
+00:04:23.737 --> 00:04:25.953
+sedangkan du menuntut 2x dx.
+
+80
+00:04:27.182 --> 00:04:29.621
+Yang kurang cuma sebuah <b>angka</b>, yaitu ½,
+
+81
+00:04:29.621 --> 00:04:32.898
+dan angka boleh dipindahkan keluar masuk integral.
+
+82
+00:04:34.116 --> 00:04:39.911
+Hasilnya (x² + 5) pangkat 3/2, dibagi 3, tambah C.
+
+83
+00:04:41.101 --> 00:04:44.541
+Sekarang buang x di depannya, sisakan akarnya saja.
+
+84
+00:04:45.289 --> 00:04:48.215
+Dengan u yang sama, yang kurang bukan angka lagi,
+
+85
+00:04:48.215 --> 00:04:50.216
+melainkan bentuk yang memuat x.
+
+86
+00:04:51.434 --> 00:04:53.163
+Inilah batas aturannya.
+
+87
+00:04:53.912 --> 00:04:56.183
+Kekurangan berupa <b>angka</b> boleh diperbaiki,
+
+88
+00:04:56.183 --> 00:04:58.049
+kekurangan yang memuat <b>x</b> tidak.
+
+89
+00:04:58.779 --> 00:05:01.495
+Di situlah substitusi berhenti bisa dipakai.
+
+90
+00:05:02.701 --> 00:05:06.359
+Ringkasnya, kalau yang dipangkatkan bukan x polos,
+
+91
+00:05:06.359 --> 00:05:09.505
+beri nama isi itu u, cocokkan du, kerjakan,
+
+92
+00:05:09.505 --> 00:05:10.855
+lalu kembalikan.
+
+93
+00:05:11.559 --> 00:05:14.446
+Di materi berikutnya, Membalik Turunan, Bagian 4,
+
+94
+00:05:14.446 --> 00:05:16.802
+cara memberi nama ini dipakai lagi untuk
+
+95
+00:05:16.802 --> 00:05:19.486
+bentuk yang belum tertangani cara hari ini.

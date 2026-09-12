@@ -1,88 +1,108 @@
 {
   "adegan": "TurunanHasilKali",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Video 04 topik Turunan, untuk Materi 06 'Hasil kali dan hasil bagi'. TANPA 3D. Video ini hanya membahas ATURAN HASIL KALI, dan itu disengaja: buktinya memang sebuah gambar, yaitu persegi panjang yang kedua sisinya bertambah, dan gambar bergerak bisa memperlihatkan pojok kecilnya lenyap dengan cara yang tidak bisa dilakukan tulisan. Aturan hasil bagi tidak dibawa ke video sebab alasannya aljabar, bukan gambar, dan halaman Materi 06 sudah mengerjakannya lengkap; video menyebutnya di penutup supaya siswa tahu ke mana mencarinya. ANGKANYA dipilih supaya siswa bisa memeriksa sendiri: u = x + 1 dan v = x di x = 2, jadi u = 3, v = 2, dan keduanya lurus sehingga tiap pita dibagi h memberi angka yang PERSIS tetap, 2 dan 3, berapa pun h. Pojoknya h kuadrat dibagi h, yaitu h sendiri, jadi ia satu-satunya yang menyusut. Babak 'lengkung' yang menjaga siswa tidak menyimpulkan angkanya selalu tetap: pada fungsi yang melengkung, kedua pita cuma MENDEKATI nilainya, dan yang selalu benar adalah pojoknya lenyap. Contoh terakhir memakai (x kuadrat + 1)(x - 3) dari halaman Materi 06, yang memang melengkung, lalu diperiksa lewat jalan kedua. Semua angka diperiksa alat/cek_turunan.py lewat klaim berawalan V06.",
+  "tempo": "-5%",
+  "catatan": "Aturan Menurunkan, Bagian 2 (Materi 06 'Hasil kali dan hasil bagi', video 04 topik Turunan). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (16 segmen) yang sudah disetujui ARYA: ISI TETAP SAMA (bantahan x kali x; persegi panjang u kali v; u = x + 1 dan v = x di x = 2 sehingga u = 3, v = 2; digeser h, tambahan berbentuk L: pita kanan, pita atas, pojok; dibagi h: 2, 3, dan h; h dikecilkan, pojok lenyap, 2 + 3 = 5; aturan u'v + uv'; catatan fungsi melengkung; contoh (x kuadrat + 1)(x - 3) = 3x kuadrat - 6x + 1 diperiksa lewat jalan kedua; hasil bagi disebut di penutup). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2 dengan pertanyaan halaman, segar-ingat Aturan Menurunkan Bagian 1 (bantahan itu), ASAL RUMUS: pita kanan dibagi h adalah u'v dan pita atas dibagi h adalah uv' dibaca dari gambarnya lalu diperiksa dengan angka 1 kali 2 + 3 kali 1 = 5, kekeliruan hasil kali turunan 2x kali 1, rangkuman dengan pertanyaan (u = v = x memberi 2x), penutup menunjuk Bagian 3 (aturan rantai). Semua angka sama dengan halaman Materi 06.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi keenam: turunan sebuah hasil kali.",
-      "tulis": "Materi 06: turunan sebuah hasil kali."
+      "teks": "Aturan Menurunkan, Bagian dua. Kenapa turunan hasil kali bukan hasil kali turunan?",
+      "tulis": "Aturan Menurunkan, Bagian 2. Kenapa turunan hasil kali *bukan* hasil kali turunan?"
     },
     {
-      "id": "bantah",
-      "teks": "Materi sebelumnya berakhir dengan bantahan: turunan x dikali x adalah dua x, bukan satu dikali satu. Perkalian butuh aturannya sendiri.",
-      "tulis": "Materi 05 membantah: turunan x · x adalah 2x, bukan 1 · 1. Perkalian butuh aturan sendiri."
+      "id": "ingat",
+      "teks": "Di Aturan Menurunkan, Bagian satu, tiap suku boleh diturunkan sendiri-sendiri, dan materi itu ditutup dengan bantahan: turunan x kali x adalah dua x, bukan satu kali satu. Perkalian butuh aturannya sendiri.",
+      "tulis": "Di Aturan Menurunkan, Bagian 1, tiap suku boleh diturunkan sendiri-sendiri, dan materi itu ditutup dengan bantahan: turunan x · x adalah 2x, *bukan* 1 · 1. Perkalian butuh aturannya sendiri."
     },
     {
       "id": "persegi",
-      "teks": "Alasannya paling jelas kalau digambar. Ambil sebuah persegi panjang. Panjangnya kita sebut u, lebarnya v, dan luasnya u dikali v. Luas itulah yang mau kita turunkan.",
-      "tulis": "Gambar sebuah persegi panjang: panjangnya u, lebarnya v, luasnya u · v. Itu yang diturunkan."
+      "teks": "Alasannya paling jelas kalau digambar. Ambil sebuah persegi panjang: panjangnya kita sebut u, lebarnya v, dan luasnya u kali v. Luas itulah yang mau kita turunkan.",
+      "tulis": "Alasannya paling jelas kalau digambar. Ambil sebuah persegi panjang: panjangnya kita sebut u, lebarnya v, dan luasnya u · v. Luas itulah yang mau kita turunkan."
     },
     {
       "id": "angka",
-      "teks": "Supaya bisa diperiksa, kita pakai angka. Di x sama dengan dua, u bernilai tiga dan v bernilai dua.",
-      "tulis": "Pakai angka: di x = 2, u bernilai 3 dan v bernilai 2."
+      "teks": "Supaya bisa diperiksa, kita pakai angka: u sama dengan x tambah satu, dan v sama dengan x. Di x sama dengan dua, u bernilai tiga dan v bernilai dua.",
+      "tulis": "Supaya bisa diperiksa, kita pakai angka: u = x + 1, dan v = x. Di x = 2, u bernilai 3 dan v bernilai 2."
     },
     {
       "id": "geser",
-      "teks": "Sekarang x digeser sedikit sebesar h. Panjangnya bertambah sedikit, lebarnya juga bertambah sedikit, dan persegi panjangnya tumbuh.",
-      "tulis": "x digeser sebesar h. Panjang bertambah sedikit, lebar bertambah sedikit, luasnya tumbuh."
+      "teks": "Sekarang x digeser sedikit, sebesar h. Panjangnya bertambah h, lebarnya juga bertambah h, dan persegi panjangnya tumbuh.",
+      "tulis": "Sekarang x digeser sedikit, sebesar h. Panjangnya bertambah h, lebarnya juga bertambah h, dan persegi panjangnya tumbuh."
     },
     {
       "id": "tiga",
-      "teks": "Tambahan luasnya berbentuk huruf L, dan ia terdiri atas tiga bagian: pita di kanan, pita di atas, dan satu pojok kecil di sudut.",
-      "tulis": "Tambahannya berbentuk L: pita di kanan, pita di atas, dan satu pojok kecil."
+      "teks": "Tambahan luasnya berbentuk huruf L, terdiri atas tiga bagian: pita di kanan, pita di atas, dan satu pojok kecil di sudut.",
+      "tulis": "Tambahan luasnya berbentuk huruf L, terdiri atas tiga bagian: pita di kanan, pita di atas, dan satu *pojok kecil* di sudut."
     },
     {
       "id": "bagi",
-      "teks": "Ketiganya dibagi h, sebab yang kita cari laju perubahannya. Pita kanan memberi dua, pita atas memberi tiga.",
-      "tulis": "Ketiganya dibagi h. Pita kanan memberi 2, pita atas memberi 3."
+      "teks": "Ketiganya dibagi h, sebab yang kita cari laju perubahannya. Pita kanan memberi dua, pita atas memberi tiga, dan pojoknya memberi h.",
+      "tulis": "Ketiganya dibagi h, sebab yang kita cari laju perubahannya. Pita kanan memberi 2, pita atas memberi 3, dan pojoknya memberi h."
     },
     {
       "id": "pojok",
-      "teks": "Sekarang h dikecilkan. Perhatikan, kedua pita tetap memberi dua dan tiga. Yang menyusut hanya pojoknya, sebab ia perkalian dua tambahan yang sama-sama mengecil.",
-      "tulis": "h dikecilkan. Kedua pita tetap 2 dan 3. Hanya pojoknya menyusut: ia hasil kali DUA tambahan."
+      "teks": "Sekarang h dikecilkan. Perhatikan: kedua pita tetap memberi dua dan tiga. Yang menyusut hanya pojoknya, sebab ia perkalian dua tambahan yang sama-sama mengecil.",
+      "tulis": "Sekarang h dikecilkan. Perhatikan: kedua pita tetap memberi 2 dan 3. Yang menyusut hanya pojoknya, sebab ia perkalian *dua* tambahan yang sama-sama mengecil."
     },
     {
       "id": "lenyap",
-      "teks": "Begitu h menuju nol, pojok itu lenyap sama sekali, dan yang tersisa tinggal dua pita. Dua tambah tiga sama dengan lima.",
-      "tulis": "h menuju nol: pojoknya lenyap, tinggal dua pita. 2 + 3 = 5."
+      "teks": "Begitu h menuju nol, pojok itu lenyap sama sekali, dan yang tersisa tinggal dua pita: dua tambah tiga sama dengan lima.",
+      "tulis": "Begitu h menuju 0, pojok itu lenyap sama sekali, dan yang tersisa tinggal dua pita: 2 + 3 = 5."
+    },
+    {
+      "id": "asal",
+      "teks": "Dari mana rumusnya? Pita kanan lebarnya tambahan u dan tingginya v: dibagi h, ia menjadi u aksen kali v. Pita atas lebarnya u dan tebalnya tambahan v: dibagi h, ia menjadi u kali v aksen.",
+      "tulis": "Dari mana rumusnya? Pita kanan lebarnya tambahan u dan tingginya v: dibagi h, ia menjadi u′v. Pita atas lebarnya u dan tebalnya tambahan v: dibagi h, ia menjadi uv′."
     },
     {
       "id": "aturan",
-      "teks": "Kedua pita itulah aturannya. Turunan dari u dikali v adalah u aksen dikali v, ditambah u dikali v aksen.",
-      "tulis": "Itulah aturannya: turunan u · v adalah u′v + uv′."
+      "teks": "Kedua pita itulah aturannya. Turunan dari u kali v adalah u aksen kali v, ditambah u kali v aksen. Periksa dengan angkanya: satu kali dua, ditambah tiga kali satu, sama dengan lima.",
+      "tulis": "Kedua pita itulah aturannya. Turunan dari u · v adalah (u · v)′ = u′v + uv′. Periksa dengan angkanya: 1 · 2 + 3 · 1 = 5."
     },
     {
       "id": "lengkung",
-      "teks": "Contoh tadi dua garis lurus, jadi angkanya persis tetap. Pada fungsi yang melengkung kedua pita hanya mendekat, tetapi pojoknya tetap lenyap.",
-      "tulis": "Tadi dua garis lurus, jadi persis. Pada fungsi melengkung pita hanya mendekat; pojoknya tetap lenyap."
+      "teks": "Contoh tadi dua garis lurus, jadi angkanya persis tetap. Pada fungsi yang melengkung, kedua pita hanya mendekati nilainya, tetapi pojoknya tetap lenyap, dan aturannya tetap berlaku.",
+      "tulis": "Contoh tadi dua garis lurus, jadi angkanya persis tetap. Pada fungsi yang melengkung, kedua pita hanya *mendekati* nilainya, tetapi pojoknya tetap lenyap, dan aturannya tetap berlaku."
     },
     {
       "id": "contoh",
-      "teks": "Kita coba pada bentuk yang melengkung. Ambil x kuadrat tambah satu, dikali x kurang tiga. Bagian pertamanya u, bagian keduanya v.",
-      "tulis": "Coba yang melengkung: (x² + 1)(x - 3). Bagian pertama u, bagian kedua v."
+      "teks": "Kita coba pada bentuk yang melengkung: x kuadrat tambah satu, dikali x kurang tiga. Bagian pertamanya u, bagian keduanya v.",
+      "tulis": "Kita coba pada bentuk yang melengkung: (x² + 1)(x - 3). Bagian pertamanya u, bagian keduanya v."
     },
     {
       "id": "susun",
-      "teks": "Turunkan masing-masing sendiri. u aksen dua x, v aksen satu. Susun ke rumusnya: dua x dikali x kurang tiga, ditambah x kuadrat tambah satu.",
-      "tulis": "u′ = 2x, v′ = 1. Susun: 2x(x - 3) + (x² + 1)."
+      "teks": "Turunkan masing-masing sendiri: u aksen dua x, v aksen satu. Susun ke rumusnya: dua x kali x kurang tiga, ditambah x kuadrat tambah satu kali satu.",
+      "tulis": "Turunkan masing-masing sendiri: u′ = 2x, v′ = 1. Susun ke rumusnya: 2x(x - 3) + (x² + 1) · 1."
     },
     {
       "id": "rapikan",
-      "teks": "Dijabarkan lalu dirapikan, hasilnya tiga x kuadrat kurang enam x tambah satu.",
-      "tulis": "Dijabarkan lalu dirapikan: 3x² - 6x + 1."
+      "teks": "Dijabarkan: dua x kuadrat kurang enam x, tambah x kuadrat tambah satu. Dirapikan: tiga x kuadrat kurang enam x tambah satu.",
+      "tulis": "Dijabarkan: 2x² - 6x + x² + 1. Dirapikan: 3x² - 6x + 1."
     },
     {
       "id": "periksa",
-      "teks": "Untuk bentuk sesederhana ini ada jalan kedua. Kalikan dulu, lalu turunkan suku demi suku. Hasilnya sama persis.",
-      "tulis": "Jalan kedua: kalikan dulu jadi x³ - 3x² + x - 3, lalu turunkan suku demi suku. Hasilnya sama."
+      "teks": "Untuk bentuk sesederhana ini ada jalan kedua: kalikan dulu menjadi x pangkat tiga kurang tiga x kuadrat tambah x kurang tiga, lalu turunkan suku demi suku. Hasilnya sama persis.",
+      "tulis": "Untuk bentuk sesederhana ini ada jalan kedua: kalikan dulu menjadi x³ - 3x² + x - 3, lalu turunkan suku demi suku. Hasilnya *sama persis*."
+    },
+    {
+      "id": "keliru",
+      "teks": "Kekeliruan yang paling sering: turunan hasil kali dikira hasil kali turunannya, dua x kali satu, yaitu dua x. Padahal jawabannya tiga x kuadrat kurang enam x tambah satu. Yang terlupa: tiap bagian diturunkan sementara bagian lainnya dibiarkan utuh.",
+      "tulis": "Kekeliruan yang paling sering: turunan hasil kali dikira hasil kali turunannya, 2x · 1, yaitu 2x. Padahal jawabannya 3x² - 6x + 1. Yang terlupa: tiap bagian diturunkan sementara bagian lainnya *dibiarkan utuh*."
     },
     {
       "id": "tutup",
-      "teks": "Untuk pembagian, aturannya mirip: tandanya pengurangan, dan seluruhnya dibagi v kuadrat. Langkah lengkapnya ada di halaman ini.",
-      "tulis": "Untuk pembagian: tandanya pengurangan, seluruhnya dibagi v². Langkah lengkapnya di halaman ini."
+      "teks": "Untuk pembagian, aturannya mirip tetapi dua hal harus dijaga: tandanya pengurangan, bukan penjumlahan, dan seluruhnya dibagi v kuadrat. Langkah lengkapnya ada di halaman ini.",
+      "tulis": "Untuk pembagian, aturannya mirip tetapi dua hal harus dijaga: tandanya *pengurangan*, bukan penjumlahan, dan seluruhnya dibagi v². Langkah lengkapnya ada di halaman ini."
+    },
+    {
+      "id": "rangkum",
+      "teks": "Rangkumannya satu kalimat: turunan hasil kali adalah dua pita, tiap bagian diturunkan bergantian sementara bagian lainnya dibiarkan utuh. Satu pertanyaan: kalau u dan v sama-sama x, apakah aturan ini memberi dua x?",
+      "tulis": "Rangkumannya satu kalimat: turunan hasil kali adalah *dua pita*, tiap bagian diturunkan bergantian sementara bagian lainnya dibiarkan utuh. Satu pertanyaan: kalau u dan v sama-sama x, apakah aturan ini memberi 2x?"
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Aturan Menurunkan, Bagian tiga, fungsinya ada di dalam fungsi lain: kalau y bergantung pada u, dan u bergantung pada x, seberapa cepat y berubah terhadap x?",
+      "tulis": "Di materi berikutnya, Aturan Menurunkan, Bagian 3, fungsinya ada di dalam fungsi lain: kalau y bergantung pada u, dan u bergantung pada x, seberapa cepat y berubah terhadap x?"
     }
   ]
 }

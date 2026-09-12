@@ -355,7 +355,8 @@ class PapanRumus:
         gerak = (self.alas.animate
                  .set_width(baru.get_width(), stretch=True)
                  .set_height(baru.get_height(), stretch=True)
-                 .move_to(baru.get_center()))
+                 .move_to(baru.get_center())
+                 .set_opacity(1))
         self._ke_depan()
         return [gerak]
 
@@ -366,6 +367,11 @@ class PapanRumus:
             return
         isi = self._isi()
         if isi is None:
+            # Panel kosong: kertasnya disembunyikan, bukan dibiarkan sebagai kotak
+            # kosong melayang (terlihat di lembar kontak Integral 07, 12 Sep 2026).
+            # `_anim_alas` memunculkannya lagi begitu ada baris baru.
+            if self.alas is not None:
+                self.alas.set_opacity(0)
             return
         baru = _kotak_alas(isi.get_left()[0] - 0.18, isi.get_right()[0] + 0.18,
                            isi.get_bottom()[1] - 0.14, isi.get_top()[1] + 0.14)
@@ -376,6 +382,7 @@ class PapanRumus:
             self.alas.set_width(baru.get_width(), stretch=True)
             self.alas.set_height(baru.get_height(), stretch=True)
             self.alas.move_to(baru.get_center())
+            self.alas.set_opacity(1)
         self.alas.dekorasi = True
         # Alas dibuat SESUDAH baris pertama ada, jadi urutan gambarnya harus
         # dibalik secara eksplisit; kalau tidak, ia menutupi barisnya sendiri.

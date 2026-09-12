@@ -108,8 +108,14 @@ class TransformasiSetiapTitik(AdeganMatra):
         tanya_buka.move_to(ORIGIN)
 
         with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
-            b.tunggu_kata("sebenarnya")
-            b.main(FadeIn(tanya_buka, shift=0.3 * UP), run_time=1.2)
+            b.tunggu_kata("Prapeta")
+            sinema.judul_pembuka(self, "Prapeta, Peta, dan Pencerminan, Bagian 1", lama=5.0, y=2.6)
+            b.catat(5.0)
+            # Pertanyaannya muncul pada "Kalau sebuah" (5,3 s), bukan "sebenarnya"
+            # (7,4 s): judul memudar pada 5,1 s, dan jeda 2,3 s itu terbaca
+            # cek_layar_kosong sebagai layar kosong (12 Sep 2026).
+            b.tunggu_kata("Kalau sebuah")
+            b.main(FadeIn(tanya_buka, shift=0.3 * UP), run_time=1.0)
 
         # ================================================================ #
         # SEGAR-INGAT: Vektor Materi 03, panah jadi dua langkah             #
@@ -172,7 +178,7 @@ class TransformasiSetiapTitik(AdeganMatra):
         # `alat/cek_pemicu_urut.py`, yang menolaknya sebelum render.
         with sinema.babak(self, "bawa", DURASI, kata=KATA) as b:
             b.tunggu_kata("sepasang angka")
-            b.main(FadeIn(bawa, shift=0.25 * UP), run_time=1.2)
+            b.main(FadeIn(bawa, shift=0.25 * UP), run_time=0.6)
             b.tunggu_kata("menjadi sepasang")
             b.main(Indicate(bawa, color=AKSEN), run_time=1.4)
         qc.periksa_adegan(self, {"bawa": bawa})
@@ -613,6 +619,11 @@ class TransformasiSetiapTitik(AdeganMatra):
 
         with sinema.babak(self, "berikut", DURASI, kata=KATA) as b:
             b.main(FadeOut(titik_di_sumbu), FadeOut(l_di_sumbu), run_time=0.6)
+            b.tunggu_kata("Bagian")
+            judul_lanjut = teks("Prapeta, Peta, dan Pencerminan, Bagian 2", 30, SOROT)
+            judul_lanjut.move_to([0, 2.9, 0]).fix_in_frame()
+            self.hud_tambah(judul_lanjut)
+            b.main(FadeIn(judul_lanjut, shift=0.2 * UP), run_time=0.8)
             b.tunggu_kata("kita pindahkan")
             b.main(garis_sumbu.animate.shift(1.2 * UP), run_time=1.6)
             b.tunggu_kata("aturan dua angka")

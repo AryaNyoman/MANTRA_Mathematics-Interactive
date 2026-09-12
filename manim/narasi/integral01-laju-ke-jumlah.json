@@ -2,22 +2,22 @@
   "adegan": "IntegralLajuKeJumlah",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "STANDAR v3, 8 September 2026: ditulis ulang dari naskah 12 segmen jadi 30 segmen. Kerangka wajib: pembuka satu pertanyaan, segar-ingat Turunan Materi 01 dan 03 (topik prasyarat), contoh angka yang dihitung di layar, asal rumus DIBUKTIKAN (tebakan diperiksa dengan menurunkannya, lalu C dibuktikan dari turunan tetapan nol), bentuk umum, penutup yang menunjuk Materi 07. Medan tulis = kalimat utuh yang diucapkan, dengan lambang; itulah subtitle. Seluruh angka diperiksa sympy lewat alat/klaim-video-integral01.json. HATI-HATI: 2x+1 laju SESAAT, bukan tambahan sebulan penuh; membacanya sebagai tambahan bulanan memberi 168, bukan 156. Video PERTAMA topik ini, jadi boleh dibuka 3D maksimal 5 detik.",
+  "catatan": "STANDAR v3, 8 September 2026: ditulis ulang dari naskah 12 segmen jadi 30 segmen. Kerangka wajib: pembuka satu pertanyaan, segar-ingat Turunan Materi 01 dan 03 (topik prasyarat), contoh angka yang dihitung di layar, asal rumus DIBUKTIKAN (tebakan diperiksa dengan menurunkannya, lalu C dibuktikan dari turunan tetapan nol), bentuk umum, penutup yang menunjuk Materi 07. Medan tulis = kalimat utuh yang diucapkan, dengan lambang; itulah subtitle. Seluruh angka diperiksa sympy lewat alat/klaim-video-integral01.json. HATI-HATI: 2x+1 laju SESAAT, bukan tambahan sebulan penuh; membacanya sebagai tambahan bulanan memberi 168, bukan 156. Video PERTAMA topik ini, jadi boleh dibuka 3D maksimal 5 detik. DISESUAIKAN v3.1 (MASTER 12 Sep 2026): pembuka menyebut sub-bab Membalik Turunan, Bagian 1; segar-ingat menyebut Kemiringan yang Berubah, Bagian 1 dan 3 (topik Turunan); penutup menunjuk Luas dan Integral Tentu, Bagian 3 dan materi berikutnya Membalik Turunan, Bagian 2.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Kalau yang kita punya hanya seberapa cepat sesuatu bertambah, bagaimana mencari jumlah totalnya?",
-      "tulis": "Kalau yang kita punya hanya seberapa cepat sesuatu bertambah, bagaimana mencari jumlah totalnya?"
+      "teks": "Membalik Turunan, Bagian satu. Kalau yang kita punya hanya seberapa cepat sesuatu bertambah, bagaimana mencari jumlah totalnya?",
+      "tulis": "Membalik Turunan, Bagian 1. Kalau yang kita punya hanya *seberapa cepat* sesuatu bertambah, bagaimana mencari jumlah totalnya?"
     },
     {
       "id": "ingat1",
-      "teks": "Sebelum menjawab, kita ingat dulu dua hal dari topik Turunan. Di Turunan Materi nol satu, seberapa cepat rata-ratanya, kita membagi tambahan dengan selang waktunya.",
-      "tulis": "Kita ingat dua hal dari topik Turunan. Di Turunan Materi 01, seberapa cepat rata-ratanya, kita membagi tambahan dengan selang waktunya."
+      "teks": "Sebelum menjawab, kita ingat dulu dua hal dari topik Turunan. Di Kemiringan yang Berubah, Bagian satu, seberapa cepat rata-ratanya, kita membagi tambahan dengan selang waktunya.",
+      "tulis": "Sebelum menjawab, kita ingat dulu dua hal dari topik Turunan. Di Kemiringan yang Berubah, Bagian 1, seberapa cepat rata-ratanya, kita membagi tambahan dengan selang waktunya."
     },
     {
       "id": "ingat2",
-      "teks": "Lalu di Turunan Materi nol tiga, turunan sebagai fungsi baru, kita melihat bahwa tiap nilai x punya satu angka kemiringan. Kumpulan angka itu membentuk fungsi baru, dan namanya turunan.",
-      "tulis": "Lalu di Turunan Materi 03, turunan sebagai fungsi baru, tiap nilai x punya satu angka kemiringan. Kumpulan angka itu membentuk fungsi baru, namanya turunan."
+      "teks": "Lalu di Kemiringan yang Berubah, Bagian tiga, turunan sebagai fungsi baru, kita melihat bahwa tiap nilai x punya satu angka kemiringan. Kumpulan angka itu membentuk fungsi baru, dan namanya turunan.",
+      "tulis": "Lalu di Kemiringan yang Berubah, Bagian 3, turunan sebagai fungsi baru, kita melihat bahwa tiap nilai x punya satu angka kemiringan. Kumpulan angka itu membentuk fungsi baru, dan namanya *turunan*."
     },
     {
       "id": "balikarah",
@@ -106,8 +106,8 @@
     },
     {
       "id": "periksa",
-      "teks": "Tebakan tidak dipercaya begitu saja. Kita periksa dengan menurunkannya, memakai aturan dari Turunan Materi nol tiga. Turunan x kuadrat adalah dua x. Turunan x adalah satu.",
-      "tulis": "Tebakan tidak dipercaya begitu saja. Kita periksa dengan menurunkannya, memakai aturan dari Turunan Materi 03. Turunan x² adalah 2x. Turunan x adalah 1."
+      "teks": "Tebakan tidak dipercaya begitu saja. Kita periksa dengan menurunkannya, memakai aturan dari Kemiringan yang Berubah, Bagian tiga. Turunan x kuadrat adalah dua x. Turunan x adalah satu.",
+      "tulis": "Tebakan tidak dipercaya begitu saja. Kita periksa dengan menurunkannya, memakai aturan dari Kemiringan yang Berubah, Bagian 3. Turunan x² adalah 2x. Turunan x adalah 1."
     },
     {
       "id": "cocok",
@@ -166,8 +166,8 @@
     },
     {
       "id": "tutup",
-      "teks": "Kenapa mengukur luas dan membalik turunan bisa bertemu, itu belum kita buktikan. Pembuktiannya ada di Materi nol tujuh, dan itulah puncak topik ini. Materi berikutnya lebih dulu memberi lambang tetap untuk semua antiturunan.",
-      "tulis": "Kenapa mengukur luas dan membalik turunan bisa bertemu, itu belum kita buktikan. Pembuktiannya ada di Materi 07, dan itulah puncak topik ini. Materi berikutnya lebih dulu memberi lambang tetap untuk semua antiturunan."
+      "teks": "Kenapa mengukur luas dan membalik turunan bisa bertemu, itu belum kita buktikan. Pembuktiannya ada di Luas dan Integral Tentu, Bagian tiga, dan itulah puncak topik ini. Materi berikutnya, Membalik Turunan, Bagian dua, lebih dulu memberi lambang tetap untuk semua antiturunan.",
+      "tulis": "Kenapa mengukur luas dan membalik turunan bisa bertemu, itu belum kita buktikan. Pembuktiannya ada di Luas dan Integral Tentu, Bagian 3, dan itulah puncak topik ini. Materi berikutnya, Membalik Turunan, Bagian 2, lebih dulu memberi lambang tetap untuk semua antiturunan."
     }
   ]
 }

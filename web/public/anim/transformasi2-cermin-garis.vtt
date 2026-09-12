@@ -1,159 +1,360 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/transformasi2-cermin-garis.json
+NOTE Dibuat otomatis dari manim/narasi/transformasi2-cermin-garis.json (waktu kata rekaman)
+NOTE naskah-sidik 5f10e4544b67
 
 1
-00:00:00.000 --> 00:00:04.416
-Materi 02: cermin pada garis tegak dan mendatar.
+00:00:00.116 --> 00:00:04.463
+Prapeta, Peta, dan Pencerminan, Bagian 2.
 
 2
-00:00:04.416 --> 00:00:07.790
-Kamu berdiri 2 meter di depan kaca.
+00:00:05.196 --> 00:00:07.425
+Cerminnya tidak selalu tepat di sumbu.
 
 3
-00:00:07.790 --> 00:00:10.008
-Bayanganmu ada di mana?
+00:00:08.157 --> 00:00:11.412
+Kalau garisnya digeser, rumusnya berubah jadi apa?
 
 4
-00:00:10.008 --> 00:00:12.569
-2 meter di belakang kaca.
+00:00:12.616 --> 00:00:16.288
+Di Prapeta, Peta, dan Pencerminan, Bagian 1,
 
 5
-00:00:12.569 --> 00:00:17.280
-Bukan menempel di kacanya, bukan pula 4 meter.
+00:00:16.288 --> 00:00:20.543
+<b>Setiap titik ikut pindah</b>, kita menemukan aturan (x,
 
 6
-00:00:17.280 --> 00:00:19.328
-Bentuk ini prapetanya.
+00:00:20.543 --> 00:00:22.279
+y) menjadi (x, -y).
 
 7
-00:00:19.328 --> 00:00:22.213
-Garis ungu tegak itu cerminnya,
+00:00:23.482 --> 00:00:26.027
+Yang membuat aturan itu benar bukan hafalan,
 
 8
-00:00:22.213 --> 00:00:24.912
-kini berimpit dengan sumbu Y.
+00:00:26.027 --> 00:00:27.357
+melainkan satu gagasan:
 
 9
-00:00:24.912 --> 00:00:28.464
-Setiap titik menyeberang ke sisi lain garis itu.
+00:00:27.357 --> 00:00:30.248
+jarak setiap titik ke garis lipatan tidak berubah,
 
 10
-00:00:28.464 --> 00:00:33.124
-Dua angka yang sama di kiri dan kanan garis.
+00:00:30.248 --> 00:00:32.132
+cuma pindah ke sisi yang lain.
 
 11
-00:00:33.124 --> 00:00:36.936
-Jaraknya sama, jalannya <b>tegak lurus</b>.
+00:00:33.334 --> 00:00:35.537
+Gagasan itulah yang kita bawa ke sini.
 
 12
-00:00:36.936 --> 00:00:40.545
-Cerminnya dipindah ke garis x = 5.
+00:00:36.286 --> 00:00:37.971
+Kalau gagasannya soal jarak,
 
 13
-00:00:40.545 --> 00:00:45.216
-Petanya ikut, dan kedua jaraknya tetap sama.
+00:00:37.971 --> 00:00:40.528
+garis lipatannya boleh ada di mana saja.
 
 14
-00:00:45.216 --> 00:00:47.633
-Aturannya: x menjadi 2k - x,
+00:00:41.735 --> 00:00:44.069
+Kamu berdiri 2 meter di depan kaca.
 
 15
-00:00:47.633 --> 00:00:51.000
-sedangkan y tidak disentuh sama sekali.
+00:00:44.802 --> 00:00:46.425
+Bayanganmu ada di mana?
 
 16
-00:00:51.000 --> 00:00:53.100
-Titik A(1, 1).
+00:00:47.634 --> 00:00:49.402
+2 meter di belakang kaca.
 
 17
-00:00:53.100 --> 00:00:59.400
-Dua kali 5 dikurangi 1 = 9, jadi A'(9, 1).
+00:00:50.137 --> 00:00:51.854
+Bukan menempel di kacanya,
 
 18
-00:00:59.400 --> 00:01:01.768
-Hitung petaknya sendiri.
+00:00:51.854 --> 00:00:53.985
+dan bukan pula sejauh 4 meter.
 
 19
-00:01:01.768 --> 00:01:05.123
-A berjarak 4 petak di kiri cermin,
+00:00:55.201 --> 00:00:58.280
+Jadi ada dua hal yang menentukan letak bayangan:
 
 20
-00:01:05.123 --> 00:01:07.392
-A' 4 petak di kanannya.
+00:00:58.280 --> 00:01:00.483
+di sisi mana, dan sejauh berapa.
 
 21
-00:01:07.392 --> 00:01:11.611
-Contoh kedua, sengaja berbeda: B(6, 1),
+00:01:01.217 --> 00:01:03.249
+Keduanya diukur dari cerminnya.
 
 22
-00:01:11.611 --> 00:01:14.640
-yang berada di <b>kanan</b> cermin.
+00:01:04.467 --> 00:01:05.841
+Kita turun ke peta.
 
 23
-00:01:14.640 --> 00:01:16.644
-Rumusnya sama persis.
+00:01:06.576 --> 00:01:10.963
+1 petak = 1 satuan, dan bentuk huruf L ini prapetanya.
 
 24
-00:01:16.644 --> 00:01:20.269
-Dua kali 5 dikurangi 6 = 4, jadi B'(4,
+00:01:12.168 --> 00:01:15.055
+Cerminnya kali ini garis tegak x = 5.
 
 25
-00:01:20.269 --> 00:01:22.464
-1) menyeberang ke kiri.
+00:01:15.788 --> 00:01:17.662
+Garis ungu putus-putus itu.
 
 26
-00:01:22.464 --> 00:01:25.300
-Satu rumus mengurus kedua arah.
+00:01:18.868 --> 00:01:21.097
+Ambil titik A di (1, 1).
 
 27
-00:01:25.300 --> 00:01:29.784
-Tidak perlu aturan terpisah untuk titik di kanan.
+00:01:21.830 --> 00:01:23.428
+Berapa jaraknya ke cermin?
 
 28
-00:01:29.784 --> 00:01:32.242
-Kekeliruan yang paling sering:
+00:01:24.175 --> 00:01:27.772
+Hitung petaknya: dari 1 ke 5, 4 petak.
 
 29
-00:01:32.242 --> 00:01:35.765
-bentuk merah ini cuma <b>dipindah</b> ke seberang,
+00:01:28.968 --> 00:01:32.578
+Bayangannya harus 4 petak juga, tetapi di sisi kanan.
 
 30
-00:01:35.765 --> 00:01:36.912
-tidak dibalik.
+00:01:33.312 --> 00:01:35.699
+5 + 4 = 9.
 
 31
-00:01:36.912 --> 00:01:40.244
-Tempatnya sama persis, tapi lihat titik A.
+00:01:36.935 --> 00:01:39.506
+Jadi A' ada di (9, 1).
 
 32
-00:01:40.244 --> 00:01:43.656
-Yang benar mendarat di 9, yang keliru di 4.
+00:01:40.254 --> 00:01:41.454
+Tingginya tetap 1,
 
 33
-00:01:43.656 --> 00:01:48.908
-Cermin mendatar sama caranya, tinggal tukar perannya:
+00:01:41.454 --> 00:01:42.875
+sebab cermin tegak tidak
 
 34
-00:01:48.908 --> 00:01:50.592
-y menjadi 2h - y.
+00:01:42.875 --> 00:01:45.039
+menaikkan atau menurunkan apa pun.
 
 35
-00:01:50.592 --> 00:01:51.792
-Rangkumannya:
+00:01:46.101 --> 00:01:48.422
+Sekarang titik B di (6, 1).
 
 36
-00:01:51.792 --> 00:01:55.531
-titik dan bayangannya sama jauh dari cermin,
+00:01:49.157 --> 00:01:51.689
+Kali ini ia sudah berada di <b>kanan</b> cermin,
 
 37
-00:01:55.531 --> 00:01:57.816
-jalannya selalu tegak lurus.
+00:01:51.689 --> 00:01:53.136
+cuma 1 petak jauhnya.
 
 38
-00:01:57.816 --> 00:02:03.183
-Satu pertanyaan: kalau titik tepat <b>di</b> garis cerminnya,
+00:01:54.335 --> 00:01:56.958
+Maka bayangannya 1 petak di kiri cermin.
 
 39
-00:02:03.183 --> 00:02:04.872
+00:01:57.707 --> 00:02:02.068
+5 - 1 = 4, jadi B' di (4, 1).
+
+40
+00:02:03.268 --> 00:02:05.747
+Dua contoh sudah cukup untuk melihat caranya.
+
+41
+00:02:06.480 --> 00:02:08.499
+Sekarang kita buktikan rumusnya.
+
+42
+00:02:09.246 --> 00:02:11.396
+Ambil titik sembarang, (x, y),
+
+43
+00:02:11.396 --> 00:02:13.553
+dan sebut letak cerminnya k.
+
+44
+00:02:14.767 --> 00:02:17.391
+Jaraknya ke cermin adalah k - x.
+
+45
+00:02:18.140 --> 00:02:22.093
+Untuk titik A tadi, 5 - 1, yaitu 4.
+
+46
+00:02:22.822 --> 00:02:24.172
+Cocok.
+
+47
+00:02:24.935 --> 00:02:27.139
+Bayangannya berada sejauh itu lagi,
+
+48
+00:02:27.139 --> 00:02:28.611
+dihitung dari cermin.
+
+49
+00:02:29.345 --> 00:02:31.969
+Jadi letaknya k + (k - x).
+
+50
+00:02:33.168 --> 00:02:36.910
+Dua k dijumlahkan menjadi 2k, lalu dikurangi x.
+
+51
+00:02:37.644 --> 00:02:40.834
+Itulah rumusnya, dan ia lahir dari jarak tadi.
+
+52
+00:02:42.068 --> 00:02:46.034
+Aturannya: (x, y) menjadi (2k - x, y).
+
+53
+00:02:47.234 --> 00:02:48.584
+Kita uji balik.
+
+54
+00:02:49.290 --> 00:02:52.137
+2(5) - 1 = 9.
+
+55
+00:02:52.868 --> 00:02:55.531
+2(5) - 6 = 4.
+
+56
+00:02:56.264 --> 00:02:58.269
+Keduanya cocok dengan gambarnya.
+
+57
+00:02:59.468 --> 00:03:01.263
+Perhatikan satu hal penting.
+
+58
+00:03:01.996 --> 00:03:03.581
+Rumus yang sama mengurus titik
+
+59
+00:03:03.581 --> 00:03:05.159
+di kiri dan titik di kanan.
+
+60
+00:03:05.892 --> 00:03:08.607
+Kita tidak perlu aturan terpisah untuk tiap sisi.
+
+61
+00:03:09.849 --> 00:03:13.262
+Kenakan pada keenam sudutnya, dan petanya terbentuk.
+
+62
+00:03:14.010 --> 00:03:15.722
+Bentuknya terbalik kiri kanan,
+
+63
+00:03:15.722 --> 00:03:17.528
+sebab tiap titik menyeberang.
+
+64
+00:03:18.735 --> 00:03:20.832
+Sekarang kekeliruan yang paling sering.
+
+65
+00:03:21.566 --> 00:03:24.117
+Bentuk merah ini cuma <b>dipindah</b> ke seberang,
+
+66
+00:03:24.117 --> 00:03:25.467
+tanpa dibalik.
+
+67
+00:03:26.316 --> 00:03:29.368
+Tempatnya kebetulan sama persis, tetapi lihat titik A.
+
+68
+00:03:29.368 --> 00:03:32.795
+Yang benar mendarat di 9, yang dipindah mendarat di 4.
+
+69
+00:03:34.001 --> 00:03:36.414
+Bentuk yang mirip tidak membuktikan apa-apa.
+
+70
+00:03:37.149 --> 00:03:39.851
+Satu titik yang diperiksa membuktikan segalanya.
+
+71
+00:03:41.067 --> 00:03:42.770
+Sekarang cermin mendatar.
+
+72
+00:03:43.505 --> 00:03:44.809
+Gagasannya sama persis,
+
+73
+00:03:44.809 --> 00:03:46.944
+tinggal tukar peran kedua angkanya.
+
+74
+00:03:48.168 --> 00:03:51.002
+Cerminnya sekarang garis mendatar y = 2.
+
+75
+00:03:51.736 --> 00:03:54.401
+Bendanya di bawah, bayangannya di atas,
+
+76
+00:03:54.401 --> 00:03:55.781
+dan jaraknya sama.
+
+77
+00:03:56.982 --> 00:04:00.728
+Dengan alasan yang sama, aturannya menjadi (x,
+
+78
+00:04:00.728 --> 00:04:02.751
+y) menjadi (x, 2h - y).
+
+79
+00:04:03.483 --> 00:04:05.580
+Sebut letak cermin mendatarnya h.
+
+80
+00:04:06.816 --> 00:04:08.338
+Rangkumannya satu kalimat:
+
+81
+00:04:08.338 --> 00:04:10.915
+titik dan bayangannya sama jauh dari cermin,
+
+82
+00:04:10.915 --> 00:04:13.466
+dan jalannya tegak lurus pada cermin itu.
+
+83
+00:04:14.667 --> 00:04:16.120
+Satu pertanyaan.
+
+84
+00:04:16.855 --> 00:04:19.707
+Kalau sebuah titik tepat berada <b>di</b> garis cerminnya,
+
+85
+00:04:19.707 --> 00:04:21.057
 ke mana ia pergi?
+
+86
+00:04:22.049 --> 00:04:26.931
+Di materi berikutnya, Prapeta, Peta, dan Pencerminan,
+
+87
+00:04:26.931 --> 00:04:30.628
+Bagian 3, cerminnya miring: garis y = x.
+
+88
+00:04:30.628 --> 00:04:32.268
+Dan gagasan jarak yang kita pakai
+
+89
+00:04:32.268 --> 00:04:34.107
+hari ini tetap yang menuntun kita.

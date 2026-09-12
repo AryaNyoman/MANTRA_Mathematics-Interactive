@@ -1,98 +1,103 @@
 {
   "adegan": "TransformasiRotasi",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Video 03, Materi 06 'Memutar terhadap sebuah pusat'. Versi 2 (5 Sep 2026): diperpanjang dari 68 ke sekitar 120 detik. Tanpa 3D, sebab sudut dan jarak harus akurat. Materi ini nomor enam, jadi istilah yang boleh dipakai prapeta, peta, cermin, translasi, dan rotasi; dilatasi, arah putar, matriks, dan komposisi semuanya masih di depan. Puncaknya babak 'janji' dan 'sama', yang menagih janji Materi 04 bahwa setengah putaran sama dengan cermin pada sebuah titik. Babak 'keliru' dan 'betul' memakai JARUM JAM, bukan bentuk L: kalimatnya sendiri berbunyi 'searah jarum jam', dan hasil putaran +90 serta -90 pada bentuk L terpisah 12 satuan sehingga kameranya harus mundur sampai bentuknya tinggal sepersepuluh lebar layar.",
+  "tempo": "-5%",
+  "catatan": "Translasi, Rotasi, dan Dilatasi, Bagian 2 (Materi 06, video 03 Transformasi). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (18 segmen, 2:06) yang sudah disetujui ARYA: ISI TETAP SAMA (jarum (4, 0) seperempat putaran ke (0, 4); bentuk L diputar 90 derajat, jarak B ke pusat tetap; aturan (x, y) ke (-y, x) diuji pada B(6, 1); 270 derajat; setengah putaran = cermin titik asal; arah yang salah; pusat bukan titik asal: geser, putar, geser kembali; rumus sin cos). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2 dengan pertanyaan halaman, segar-ingat Prapeta Peta dan Pencerminan Bagian 4 (cermin titik asal) yang ditagih di babak sama, ASAL RUMUS: dua langkah B (6 ke kanan, 1 ke atas) ikut diputar sehingga (-y, x) lahir dari gambar, uji pada A, bentuk umum sin cos dicek pada 90 derajat, penutup menunjuk Bagian 3.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi keenam: memutar terhadap sebuah pusat.",
-      "tulis": "Materi 06: memutar terhadap sebuah pusat."
+      "teks": "Translasi, Rotasi, dan Dilatasi, Bagian dua. Jarum jam berputar seperempat putaran. Kalau ujungnya semula di empat koma nol, di mana ia sekarang?",
+      "tulis": "Translasi, Rotasi, dan Dilatasi, Bagian 2. Jarum jam berputar seperempat putaran. Kalau ujungnya semula di (4, 0), di mana ia sekarang?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Prapeta, Peta, dan Pencerminan, Bagian empat, cermin pada titik asal memberi aturan x koma y menjadi negatif x koma negatif y. Simpan itu, sebentar lagi ia muncul lagi dari arah yang tidak terduga.",
+      "tulis": "Di Prapeta, Peta, dan Pencerminan, Bagian 4, cermin pada titik asal memberi aturan (x, y) menjadi (-x, -y). Simpan itu, sebentar lagi ia muncul lagi dari arah yang tidak terduga."
     },
     {
       "id": "jarum",
-      "teks": "Ujung jarum jam ini ada di empat koma nol. Ia berputar seperempat putaran. Ke mana?",
-      "tulis": "Ujung jarum jam ini di (4, 0). Ia berputar seperempat putaran. Ke mana?"
+      "teks": "Ujung jarum jam ini ada di empat koma nol. Ia berputar seperempat putaran berlawanan arah jarum jam, sembilan puluh derajat.",
+      "tulis": "Ujung jarum jam ini ada di (4, 0). Ia berputar seperempat putaran berlawanan arah jarum jam, 90°."
     },
     {
       "id": "jawab",
-      "teks": "Ke nol koma empat. Jaraknya dari pusat tetap empat, yang berubah cuma arahnya.",
-      "tulis": "Ke (0, 4). Jaraknya dari pusat tetap 4, yang berubah cuma arahnya."
+      "teks": "Ia mendarat di nol koma empat. Jaraknya dari pusat tetap empat, yang berubah cuma arahnya.",
+      "tulis": "Ia mendarat di (0, 4). Jaraknya dari pusat *tetap* 4, yang berubah cuma arahnya."
     },
     {
       "id": "bentuk",
-      "teks": "Sekarang bentuk yang sama kita putar sembilan puluh derajat terhadap titik asal.",
-      "tulis": "Bentuk yang sama kita putar 90° terhadap titik asal."
+      "teks": "Sekarang bentuk L ini kita putar sembilan puluh derajat terhadap titik asal. Tiap sudutnya berjalan di busurnya sendiri.",
+      "tulis": "Sekarang bentuk L ini kita putar 90° terhadap titik asal. Tiap sudutnya berjalan di busurnya sendiri."
     },
     {
       "id": "jari",
-      "teks": "Dua angka di layar itu jarak titik B ke pusat, sebelum dan sesudah. Keduanya sama, dan itu ciri rotasi.",
-      "tulis": "Dua angka itu jarak B ke pusat, sebelum dan sesudah. Sama, dan itu ciri rotasi."
+      "teks": "Dua angka ini jarak titik B ke pusat, sebelum dan sesudah. Keduanya sama, dan itu ciri rotasi.",
+      "tulis": "Dua angka ini jarak titik B ke pusat, sebelum dan sesudah. Keduanya *sama*, dan itu ciri rotasi."
+    },
+    {
+      "id": "asal",
+      "teks": "Dari mana rumusnya? Titik B, enam koma satu, dicapai dengan enam langkah ke kanan lalu satu langkah ke atas. Putar kedua langkah itu seperempat putaran: enam ke kanan menjadi enam ke atas, dan satu ke atas menjadi satu ke kiri.",
+      "tulis": "Dari mana rumusnya? Titik B, (6, 1), dicapai dengan 6 langkah ke kanan lalu 1 langkah ke atas. Putar kedua langkah itu seperempat putaran: 6 ke kanan menjadi 6 *ke atas*, dan 1 ke atas menjadi 1 *ke kiri*."
     },
     {
       "id": "rumus",
-      "teks": "Aturannya pendek: x koma y menjadi negatif y koma x.",
-      "tulis": "Aturannya pendek: (x, y) menjadi (-y, x)."
+      "teks": "Jadi B mendarat di negatif satu koma enam. Untuk titik sembarang sama saja: x ke kanan menjadi x ke atas, y ke atas menjadi y ke kiri. Aturannya x koma y menjadi negatif y koma x.",
+      "tulis": "Jadi B mendarat di (-1, 6). Untuk titik sembarang sama saja: x ke kanan menjadi x ke atas, y ke atas menjadi y ke kiri. Aturannya (x, y) menjadi (-y, x)."
     },
     {
       "id": "periksa",
-      "teks": "Kita uji pada titik B, enam koma satu. Tukar dulu keduanya, lalu beri tanda minus pada yang di depan.",
-      "tulis": "Kita uji pada B(6, 1). Tukar dulu keduanya, lalu beri tanda minus di depan."
-    },
-    {
-      "id": "hitung",
-      "teks": "Hasilnya negatif satu koma enam. Hitung petaknya sendiri di layar: satu ke kiri, enam ke atas.",
-      "tulis": "Hasilnya B'(-1, 6). Hitung petaknya sendiri: 1 ke kiri, 6 ke atas."
+      "teks": "Kita uji sekali lagi pada titik A, satu koma satu. Tukar dulu keduanya, lalu beri tanda minus pada yang di depan: negatif satu koma satu. Cocok dengan gambarnya.",
+      "tulis": "Kita uji sekali lagi pada titik A, (1, 1). Tukar dulu keduanya, lalu beri tanda minus pada yang di depan: (-1, 1). Cocok dengan gambarnya."
     },
     {
       "id": "kedua",
       "teks": "Contoh kedua, dan sengaja berbeda: sekarang tiga perempat putaran, dua ratus tujuh puluh derajat.",
-      "tulis": "Contoh kedua, sengaja berbeda: 3/4 putaran, yaitu 270°."
+      "tulis": "Contoh kedua, dan sengaja berbeda: sekarang tiga perempat putaran, 270°."
     },
     {
       "id": "cocok",
-      "teks": "Aturannya berubah jadi y koma negatif x. Titik B enam koma satu mendarat di satu koma negatif enam.",
-      "tulis": "Aturannya jadi (y, -x). B(6, 1) mendarat di B'(1, -6)."
+      "teks": "Aturannya berubah jadi y koma negatif x. Titik B enam koma satu mendarat di satu koma negatif enam, dan jaraknya ke pusat tetap.",
+      "tulis": "Aturannya berubah jadi (y, -x). Titik B (6, 1) mendarat di (1, -6), dan jaraknya ke pusat tetap."
     },
     {
       "id": "janji",
       "teks": "Sekarang setengah putaran. Perhatikan hasilnya: negatif x koma negatif y.",
-      "tulis": "Sekarang setengah putaran. Hasilnya: (-x, -y)."
+      "tulis": "Sekarang setengah putaran. Perhatikan hasilnya: (-x, -y)."
     },
     {
       "id": "sama",
-      "teks": "Itu persis rumus cermin pada titik asal di Materi keempat. Jadi keduanya memang satu hal yang sama, dan janji itu sekarang terbukti.",
-      "tulis": "Itu persis rumus cermin pada titik asal di Materi 04. Janji itu terbukti."
+      "teks": "Itu persis rumus cermin pada titik asal yang kita ingat di awal tadi. Jadi keduanya memang satu hal yang sama: setengah putaran adalah cermin titik.",
+      "tulis": "Itu persis rumus cermin pada titik asal yang kita ingat di awal tadi. Jadi keduanya memang *satu hal yang sama*: setengah putaran adalah cermin titik."
     },
     {
       "id": "keliru",
       "teks": "Sekarang kekeliruan yang paling sering terjadi. Jarum merah ini diputar ke arah yang salah, searah jarum jam.",
-      "tulis": "Kekeliruan yang paling sering terjadi: jarum merah ini diputar searah jarum jam."
+      "tulis": "Sekarang kekeliruan yang paling sering terjadi. Jarum merah ini diputar ke arah yang *salah*, searah jarum jam."
     },
     {
       "id": "betul",
       "teks": "Sudut positif selalu berlawanan arah jarum jam. Salah arah membuat jawabannya mendarat di seberang, tepat berlawanan dengan yang benar.",
-      "tulis": "Sudut positif selalu berlawanan jarum jam. Salah arah, jawabannya mendarat di seberang."
+      "tulis": "Sudut positif selalu *berlawanan* arah jarum jam. Salah arah membuat jawabannya mendarat di seberang, tepat berlawanan dengan yang benar."
     },
     {
       "id": "pusat",
       "teks": "Kalau pusatnya bukan titik asal, jangan cari rumus baru. Geser dulu supaya pusatnya jatuh di titik asal, putar, lalu geser kembali.",
-      "tulis": "Kalau pusatnya bukan titik asal: geser ke titik asal, putar, lalu geser kembali."
+      "tulis": "Kalau pusatnya bukan titik asal, jangan cari rumus baru. *Geser* dulu supaya pusatnya jatuh di titik asal, *putar*, lalu *geser kembali*."
     },
     {
-      "id": "sembarang",
-      "teks": "Untuk sudut yang bukan kelipatan sembilan puluh, sin dan cos yang dipakai.",
-      "tulis": "Untuk sudut bukan kelipatan 90°, sin dan cos yang dipakai."
+      "id": "umum",
+      "teks": "Bentuk umumnya, untuk sudut a sembarang: x koma y menjadi x cos a kurang y sin a, koma x sin a tambah y cos a. Coba a sama dengan sembilan puluh derajat: cos nol dan sin satu, dan lahirlah negatif y koma x yang tadi.",
+      "tulis": "Bentuk umumnya, untuk sudut a sembarang: (x, y) menjadi (x cos a - y sin a, x sin a + y cos a). Coba a = 90°: cos 0 dan sin 1, dan lahirlah (-y, x) yang tadi."
     },
     {
       "id": "rangkum",
       "teks": "Rangkumannya satu kalimat: rotasi menjaga jarak setiap titik ke pusatnya, dan hanya mengubah arahnya.",
-      "tulis": "Rangkumannya: rotasi menjaga jarak tiap titik ke pusatnya, hanya arahnya yang berubah."
+      "tulis": "Rangkumannya satu kalimat: rotasi *menjaga jarak* setiap titik ke pusatnya, dan hanya mengubah arahnya."
     },
     {
-      "id": "tanya",
-      "teks": "Satu pertanyaan. Kalau sebuah titik tepat berada *di* pusat putarannya, ke mana ia pergi?",
-      "tulis": "Satu pertanyaan: kalau titik tepat *di* pusat putarannya, ke mana ia pergi?"
+      "id": "lanjut",
+      "teks": "Satu pertanyaan: kalau sebuah titik tepat berada di pusat putarannya, ke mana ia pergi? Di materi berikutnya, Translasi, Rotasi, dan Dilatasi, Bagian tiga, justru jarak ke pusat itulah yang diubah: bentuknya diperbesar.",
+      "tulis": "Satu pertanyaan: kalau sebuah titik tepat berada *di* pusat putarannya, ke mana ia pergi? Di materi berikutnya, Translasi, Rotasi, dan Dilatasi, Bagian 3, justru jarak ke pusat itulah yang diubah: bentuknya diperbesar."
     }
   ]
 }

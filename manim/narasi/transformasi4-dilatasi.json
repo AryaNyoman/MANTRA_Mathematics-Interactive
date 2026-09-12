@@ -1,93 +1,108 @@
 {
   "adegan": "TransformasiDilatasi",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Video 04, Materi 07 'Memperbesar dan memperkecil'. Tanpa 3D. Versi 2 (6 Sep 2026): diperpanjang dari 63 ke sekitar 125 detik, dari 10 ke 17 segmen, supaya sepanjang lima video lain. Yang ditambahkan bukan karangan, melainkan bagian halaman Materi 07 yang belum tersentuh video: aturan (x, y) menjadi (kx, ky) diuji pada satu titik, watak faktor satu, contoh pusat BUKAN titik asal, dan kekeliruan lupa pusat. Angka contoh dan kekeliruannya SAMA PERSIS dengan halaman (A(2, 1), k = 3, pusat M(1, 1), jawaban (4, 1); yang keliru (6, 3)), diperiksa mesin lewat alat/cek_transformasi.py dengan awalan M07 dan V04. Materi ini nomor tujuh, jadi istilah yang boleh dipakai prapeta, peta, cermin, translasi, rotasi, dilatasi, dan faktor skala; arah putar, matriks, dan komposisi masih di depan.",
+  "tempo": "-5%",
+  "catatan": "Translasi, Rotasi, dan Dilatasi, Bagian 3 (Materi 07, video 04 Transformasi). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (17 segmen, 2:17) yang sudah disetujui ARYA: ISI TETAP SAMA (cubitan dua jari, pusat yang tidak bergerak, sinar dari pusat, tiap titik meluncur di garisnya, faktor 2: AB 5 jadi 10, aturan (x, y) ke (kx, ky) diuji pada B(6, 1), luas 4 kali, pizza, sudut tetap, faktor setengah, satu, negatif, pusat M(1, 1) faktor 3: A(2, 1) ke A'(4, 1) bukan (6, 3), luas 25 kali). Yang ditambah: pembuka menyebut sub-bab plus Bagian 3 dengan pertanyaan halaman, segar-ingat Bagian 2 (rotasi menjaga jarak ke pusat), ASAL RUMUS: kotak dari pusat ke B ikut membesar (6 kali 1 jadi 12 kali 2) sehingga (kx, ky) lahir dari gambar, bentuk umum A' = M + k(A - M) dan luas kali k kuadrat, penutup menunjuk Sifat Transformasi.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi ketujuh: memperbesar dan memperkecil.",
-      "tulis": "Materi 07: memperbesar dan memperkecil."
+      "teks": "Translasi, Rotasi, dan Dilatasi, Bagian tiga. Sebuah foto diperbesar dua kali di layar. Semua titiknya menjauh dari mana?",
+      "tulis": "Translasi, Rotasi, dan Dilatasi, Bagian 3. Sebuah foto diperbesar dua kali di layar. Semua titiknya menjauh *dari mana*?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Bagian dua, rotasi menjaga jarak setiap titik ke pusatnya, hanya arahnya yang berubah. Hari ini kebalikannya: arahnya dijaga, jaraknya yang diubah.",
+      "tulis": "Di Bagian 2, rotasi *menjaga jarak* setiap titik ke pusatnya, hanya arahnya yang berubah. Hari ini kebalikannya: arahnya dijaga, *jaraknya* yang diubah."
     },
     {
       "id": "foto",
       "teks": "Kamu memperbesar foto di ponsel dengan dua jari. Ada satu titik yang tidak bergerak sama sekali.",
-      "tulis": "Kamu memperbesar foto dengan dua jari. Ada satu titik yang tidak bergerak."
+      "tulis": "Kamu memperbesar foto di ponsel dengan dua jari. Ada *satu titik* yang tidak bergerak sama sekali."
     },
     {
       "id": "pusat",
-      "teks": "Titik itu pusatnya. Tanpa menyebut pusatnya, perintah *perbesar dua kali* belum lengkap.",
-      "tulis": "Titik itu pusatnya. Tanpa pusat, perintah *perbesar 2 kali* belum lengkap."
+      "teks": "Titik itu pusatnya. Tanpa menyebut pusatnya, perintah perbesar dua kali belum lengkap.",
+      "tulis": "Titik itu *pusatnya*. Tanpa menyebut pusatnya, perintah *perbesar dua kali* belum lengkap."
     },
     {
       "id": "sinar",
       "teks": "Garis-garis tipis ini berpangkal di pusat dan melewati tiap sudut bentuknya.",
-      "tulis": "Garis tipis ini berpangkal di pusat dan melewati tiap sudut bentuknya."
+      "tulis": "Garis-garis tipis ini berpangkal di pusat dan melewati tiap sudut bentuknya."
     },
     {
       "id": "meluncur",
       "teks": "Sekarang perhatikan: setiap titik meluncur di sepanjang garisnya sendiri, tidak pernah keluar dari situ.",
-      "tulis": "Setiap titik meluncur sepanjang garisnya sendiri, tidak pernah keluar dari situ."
+      "tulis": "Sekarang perhatikan: setiap titik *meluncur* di sepanjang garisnya sendiri, tidak pernah keluar dari situ."
     },
     {
       "id": "dua",
       "teks": "Dengan faktor dua, jarak tiap titik ke pusat menjadi dua kali. Sisi AB yang tadinya lima menjadi sepuluh.",
-      "tulis": "Dengan k = 2, jarak tiap titik ke pusat jadi 2 kali. Sisi AB dari 5 menjadi 10."
+      "tulis": "Dengan faktor 2, jarak tiap titik ke pusat menjadi *dua kali*. Sisi AB yang tadinya 5 menjadi 10."
+    },
+    {
+      "id": "asal",
+      "teks": "Dari mana rumusnya? Titik B, enam koma satu, ada di pojok kotak selebar enam dan setinggi satu dari pusat. Kalau jarak B ke pusat dikalikan dua, kotaknya ikut membesar dua kali: lebarnya dua belas, tingginya dua.",
+      "tulis": "Dari mana rumusnya? Titik B, (6, 1), ada di pojok kotak selebar 6 dan setinggi 1 dari pusat. Kalau jarak B ke pusat dikalikan 2, kotaknya ikut membesar dua kali: lebarnya 12, tingginya 2."
     },
     {
       "id": "aturan",
-      "teks": "Kalau pusatnya tepat di titik asal, aturannya sependek ini: x koma y menjadi k x koma k y.",
-      "tulis": "Kalau pusatnya di titik asal: (x, y) menjadi (kx, ky)."
-    },
-    {
-      "id": "uji",
-      "teks": "Kita uji pada titik B, enam koma satu. Kalikan keduanya dengan dua, dan hasilnya dua belas koma dua. Hitung petaknya sendiri di layar.",
-      "tulis": "Uji pada B(6, 1). Kalikan keduanya dengan 2: hasilnya B'(12, 2)."
+      "teks": "Jadi B aksen ada di dua belas koma dua: kedua angkanya dikalikan dua. Kalau pusatnya tepat di titik asal, aturannya sependek ini: x koma y menjadi k x koma k y.",
+      "tulis": "Jadi B' ada di (12, 2): kedua angkanya dikalikan 2. Kalau pusatnya tepat di titik asal, aturannya sependek ini: (x, y) menjadi (kx, ky)."
     },
     {
       "id": "luas",
-      "teks": "Tapi luasnya tidak dua kali. Luasnya *empat* kali, sebab panjang dan lebarnya sama-sama dikalikan dua.",
-      "tulis": "Tapi luasnya bukan 2 kali. Luasnya *4* kali, sebab panjang dan lebar sama-sama dikali 2."
+      "teks": "Tapi luasnya tidak dua kali. Luas bentuknya enam, dan petanya dua puluh empat: empat kali, sebab panjang dan lebarnya sama-sama dikalikan dua.",
+      "tulis": "Tapi luasnya tidak dua kali. Luas bentuknya 6, dan petanya 24: *empat* kali, sebab panjang dan lebarnya sama-sama dikalikan 2."
     },
     {
       "id": "pizza",
       "teks": "Ini alasan pizza berdiameter dua kali lipat berisi empat kali lebih banyak, bukan dua kali.",
-      "tulis": "Ini alasan pizza berdiameter 2 kali lipat berisi 4 kali lebih banyak."
+      "tulis": "Ini alasan pizza berdiameter dua kali lipat berisi *empat kali* lebih banyak, bukan dua kali."
     },
     {
       "id": "bentuk",
       "teks": "Yang berubah cuma ukurannya: sudutnya tetap, perbandingan sisinya tetap. Empat transformasi sebelumnya tidak pernah mengubah ukuran, dan ini satu-satunya yang mengubahnya.",
-      "tulis": "Yang berubah cuma ukurannya: sudut tetap, perbandingan sisi tetap. Cuma ini yang mengubah ukuran."
+      "tulis": "Yang berubah cuma ukurannya: sudutnya tetap, perbandingan sisinya tetap. Empat transformasi sebelumnya tidak pernah mengubah ukuran, dan ini *satu-satunya* yang mengubahnya."
     },
     {
       "id": "kecil",
       "teks": "Faktor setengah bekerja ke arah sebaliknya: bentuknya mengecil dan mendekat ke pusat.",
-      "tulis": "Faktor 0,5 bekerja sebaliknya: bentuknya mengecil dan mendekat ke pusat."
+      "tulis": "Faktor setengah bekerja ke arah sebaliknya: bentuknya mengecil dan mendekat ke pusat."
     },
     {
       "id": "satu",
       "teks": "Faktor satu tidak mengubah apa pun. Jadi selama faktornya di antara nol dan satu, bentuknya mengecil; lebih dari satu, membesar.",
-      "tulis": "Faktor 1 tidak mengubah apa pun. Antara 0 dan 1 mengecil, lebih dari 1 membesar."
+      "tulis": "Faktor 1 tidak mengubah apa pun. Jadi selama faktornya di antara 0 dan 1, bentuknya mengecil; lebih dari 1, membesar."
     },
     {
       "id": "negatif",
       "teks": "Dan faktor negatif melempar bentuknya menyeberangi pusat, ke sisi yang berlawanan.",
-      "tulis": "Faktor negatif melempar bentuknya menyeberangi pusat, ke sisi berlawanan."
+      "tulis": "Dan faktor negatif melempar bentuknya *menyeberangi* pusat, ke sisi yang berlawanan."
     },
     {
       "id": "lain",
-      "teks": "Sekarang yang paling sering keluar di soal: pusatnya bukan titik asal. Titik A dua koma satu, faktor tiga, pusatnya M satu koma satu.",
-      "tulis": "Yang sering keluar di soal: pusatnya bukan titik asal. A(2, 1), k = 3, pusat M(1, 1)."
+      "teks": "Sekarang yang paling sering keluar di soal: pusatnya bukan titik asal. Titik A dua koma satu, faktor tiga, pusatnya M satu koma satu. Jarak A ke M satu petak, dikalikan tiga jadi tiga petak: A aksen di empat koma satu.",
+      "tulis": "Sekarang yang paling sering keluar di soal: pusatnya bukan titik asal. Titik A (2, 1), faktor 3, pusatnya M (1, 1). Jarak A ke M 1 petak, dikalikan 3 jadi 3 petak: A' di (4, 1)."
     },
     {
       "id": "keliru",
-      "teks": "Kekeliruan yang paling sering: koordinatnya langsung dikalikan tiga, keluar enam koma tiga. Yang benar empat koma satu, sebab yang dikalikan itu jaraknya ke M.",
-      "tulis": "Kekeliruan tersering: koordinat langsung dikali 3, keluar (6, 3). Yang benar A'(4, 1)."
+      "teks": "Kekeliruan yang paling sering: koordinatnya langsung dikalikan tiga, keluar enam koma tiga. Titik itu bahkan tidak berada di garis dari M lewat A. Yang benar empat koma satu, sebab yang dikalikan itu jaraknya ke M.",
+      "tulis": "Kekeliruan yang paling sering: koordinatnya langsung dikalikan 3, keluar (6, 3). Titik itu bahkan tidak berada di garis dari M lewat A. Yang benar (4, 1), sebab yang dikalikan itu *jaraknya ke M*."
+    },
+    {
+      "id": "umum",
+      "teks": "Bentuk umumnya: A aksen sama dengan M ditambah k kali A kurang M. Kalau M titik asal, ia kembali menjadi k x koma k y. Dan luasnya selalu berubah k kuadrat kali.",
+      "tulis": "Bentuk umumnya: A' = M + k(A - M). Kalau M titik asal, ia kembali menjadi (kx, ky). Dan luasnya selalu berubah *k kuadrat* kali."
     },
     {
       "id": "rangkum",
       "teks": "Rangkumannya satu kalimat: dilatasi mengalikan jarak tiap titik ke pusatnya dengan faktor yang sama. Satu pertanyaan: kalau luas sebuah bangun menjadi dua puluh lima kali, berapa faktor skalanya?",
-      "tulis": "Dilatasi mengalikan jarak tiap titik ke pusatnya dengan faktor yang sama. Kalau luasnya jadi 25 kali, berapa faktor skalanya?"
+      "tulis": "Rangkumannya satu kalimat: dilatasi *mengalikan jarak* tiap titik ke pusatnya dengan faktor yang sama. Satu pertanyaan: kalau luas sebuah bangun menjadi 25 kali, berapa faktor skalanya?"
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Sifat Transformasi, kelima transformasi dijajarkan: mana yang mengubah luas, dan mana yang tidak mungkin.",
+      "tulis": "Di materi berikutnya, Sifat Transformasi, kelima transformasi dijajarkan: mana yang mengubah luas, dan mana yang tidak mungkin."
     }
   ]
 }

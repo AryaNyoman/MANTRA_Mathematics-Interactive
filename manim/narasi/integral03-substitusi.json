@@ -2,17 +2,17 @@
   "adegan": "IntegralSubstitusi",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Video Integral, Materi 03 'Substitusi, melihat lapisan'. DITULIS ULANG dengan STANDAR VIDEO v3 (keputusan ARYA 8 Sep 2026). Kerangka v3 dipenuhi urut: pembuka satu pertanyaan, segar-ingat Materi 01 dan Materi 02 dengan nomor dan namanya, contoh angka yang dihitung di layar, rumus DIBUKTIKAN dari contoh itu (bukan disodorkan), bentuk umum empat langkah, penutup yang menunjuk Materi 04. Video ini TIDAK BERGRAFIK dan itu disengaja: isinya seluruhnya aljabar lapisan, dan bidang koordinat hanya akan memberi gambar yang tidak dipakai; aturan proyek 3d-hanya-jika-dibutuhkan berlaku sama untuk bidang 2D. Angka diperiksa sympy lewat alat/klaim-video-integral03.json, TERMASUK arah gagalnya: tebakan naif (2x+1) pangkat 6 dibagi 6 dibuktikan DITOLAK alatnya. Warna: AKSEN2 biru = lapisan dalam u, AKSEN merah = faktor du dan angka yang harus disesuaikan, SOROT ungu = jawaban benar dan kesimpulan. Sama dengan widget 'cocokkan-lapisan' di halaman Materi 03.",
+  "catatan": "Video Integral, Materi 03 'Substitusi, melihat lapisan'. DITULIS ULANG dengan STANDAR VIDEO v3 (keputusan ARYA 8 Sep 2026). Kerangka v3 dipenuhi urut: pembuka satu pertanyaan, segar-ingat Materi 01 dan Materi 02 dengan nomor dan namanya, contoh angka yang dihitung di layar, rumus DIBUKTIKAN dari contoh itu (bukan disodorkan), bentuk umum empat langkah, penutup yang menunjuk Materi 04. Video ini TIDAK BERGRAFIK dan itu disengaja: isinya seluruhnya aljabar lapisan, dan bidang koordinat hanya akan memberi gambar yang tidak dipakai; aturan proyek 3d-hanya-jika-dibutuhkan berlaku sama untuk bidang 2D. Angka diperiksa sympy lewat alat/klaim-video-integral03.json, TERMASUK arah gagalnya: tebakan naif (2x+1) pangkat 6 dibagi 6 dibuktikan DITOLAK alatnya. Warna: AKSEN2 biru = lapisan dalam u, AKSEN merah = faktor du dan angka yang harus disesuaikan, SOROT ungu = jawaban benar dan kesimpulan. Sama dengan widget 'cocokkan-lapisan' di halaman Materi 03. DISESUAIKAN v3.1 (MASTER 12 Sep 2026): pembuka menyebut sub-bab Membalik Turunan, Bagian 3; segar-ingat menyebut Bagian 1 dan Bagian 2; penutup menunjuk materi berikutnya, Membalik Turunan, Bagian 4.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Bagaimana cara mencari antiturunan dari dua x tambah satu, pangkat lima, tanpa harus menguraikan pangkatnya?",
-      "tulis": "Bagaimana cara mencari antiturunan dari (2x + 1)⁵, tanpa harus menguraikan pangkatnya?"
+      "teks": "Membalik Turunan, Bagian tiga. Bagaimana cara mencari antiturunan dari dua x tambah satu, pangkat lima, tanpa harus menguraikan pangkatnya?",
+      "tulis": "Membalik Turunan, Bagian 3. Bagaimana cara mencari antiturunan dari (2x + 1)⁵, tanpa harus menguraikan pangkatnya?"
     },
     {
       "id": "ingat1",
-      "teks": "Sebelum menjawab, kita ingat dua hal. Di Integral Materi nol satu, membalik turunan, kita belajar antiturunan: mesin turunan dijalankan mundur.",
-      "tulis": "Sebelum menjawab, kita ingat dua hal. Di Integral Materi 01, membalik turunan, kita belajar antiturunan: mesin turunan dijalankan mundur."
+      "teks": "Sebelum menjawab, kita ingat dua hal. Di Membalik Turunan, Bagian satu, kita belajar antiturunan: mesin turunan dijalankan mundur.",
+      "tulis": "Sebelum menjawab, kita ingat dua hal. Di Membalik Turunan, Bagian 1, kita belajar antiturunan: mesin turunan dijalankan mundur."
     },
     {
       "id": "ingat2",
@@ -26,8 +26,8 @@
     },
     {
       "id": "ingat4",
-      "teks": "Lalu di Integral Materi nol dua, tanda integral dan aturan pangkatnya, kita berkenalan dengan lambang integral dan satu aturan cepat.",
-      "tulis": "Lalu di Integral Materi 02, tanda integral dan aturan pangkatnya, kita berkenalan dengan lambang integral dan satu aturan cepat."
+      "teks": "Lalu di Membalik Turunan, Bagian dua, tanda integral dan aturan pangkatnya, kita berkenalan dengan lambang integral dan satu aturan cepat.",
+      "tulis": "Lalu di Membalik Turunan, Bagian 2, tanda integral dan aturan pangkatnya, kita berkenalan dengan lambang integral dan satu aturan cepat."
     },
     {
       "id": "ingat5",
@@ -51,8 +51,8 @@
     },
     {
       "id": "tebak",
-      "teks": "Jadi kita pakai cara Materi nol satu, yaitu menebak. Naikkan pangkatnya jadi enam, lalu bagi enam.",
-      "tulis": "Jadi kita pakai cara Materi 01, yaitu menebak. Naikkan pangkatnya jadi 6, lalu bagi 6."
+      "teks": "Jadi kita pakai cara Bagian satu, yaitu menebak. Naikkan pangkatnya jadi enam, lalu bagi enam.",
+      "tulis": "Jadi kita pakai cara Bagian 1, yaitu menebak. Naikkan pangkatnya jadi 6, lalu bagi 6."
     },
     {
       "id": "tebakrumus",
@@ -171,8 +171,8 @@
     },
     {
       "id": "tutup",
-      "teks": "Ringkasnya, kalau yang dipangkatkan bukan x polos, beri nama isi itu u, cocokkan du, kerjakan, lalu kembalikan. Materi berikutnya, nomor nol empat, memakai cara memberi nama ini lagi untuk bentuk yang belum tertangani cara hari ini.",
-      "tulis": "Ringkasnya, kalau yang dipangkatkan bukan x polos, beri nama isi itu u, cocokkan du, kerjakan, lalu kembalikan. Materi berikutnya, nomor 04, memakai cara memberi nama ini lagi untuk bentuk yang belum tertangani cara hari ini."
+      "teks": "Ringkasnya, kalau yang dipangkatkan bukan x polos, beri nama isi itu u, cocokkan du, kerjakan, lalu kembalikan. Di materi berikutnya, Membalik Turunan, Bagian empat, cara memberi nama ini dipakai lagi untuk bentuk yang belum tertangani cara hari ini.",
+      "tulis": "Ringkasnya, kalau yang dipangkatkan bukan x polos, beri nama isi itu u, cocokkan du, kerjakan, lalu kembalikan. Di materi berikutnya, Membalik Turunan, Bagian 4, cara memberi nama ini dipakai lagi untuk bentuk yang belum tertangani cara hari ini."
     }
   ]
 }

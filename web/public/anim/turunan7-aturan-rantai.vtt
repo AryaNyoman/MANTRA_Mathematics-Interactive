@@ -1,123 +1,284 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/turunan7-aturan-rantai.json
+NOTE Dibuat otomatis dari manim/narasi/turunan7-aturan-rantai.json (waktu kata rekaman)
+NOTE naskah-sidik ed1576a0c4de
 
 1
-00:00:00.000 --> 00:00:05.040
-Materi 07: fungsi di dalam fungsi, aturan rantai.
+00:00:00.101 --> 00:00:02.751
+Aturan Menurunkan, Bagian 3.
 
 2
-00:00:05.040 --> 00:00:10.800
-Selama ini: jabarkan dulu, baru turunkan.
+00:00:03.500 --> 00:00:06.693
+Kalau y bergantung pada u, dan u bergantung pada x,
 
 3
-00:00:10.800 --> 00:00:16.560
-Untuk (2x - 5)⁸ cara itu habis kesabaran.
+00:00:06.693 --> 00:00:09.097
+seberapa cepat y berubah terhadap x?
 
 4
-00:00:16.560 --> 00:00:20.545
-Bentuk ini dua mesin berderet:
+00:00:10.316 --> 00:00:12.743
+Di Aturan Menurunkan, Bagian 1,
 
 5
-00:00:20.545 --> 00:00:24.397
-x masuk mesin pertama jadi u,
+00:00:12.743 --> 00:00:16.736
+tiap suku diturunkan sendiri dengan aturan pangkat:
 
 6
-00:00:24.397 --> 00:00:27.984
-u masuk mesin kedua jadi y.
+00:00:16.736 --> 00:00:18.295
+xⁿ menjadi n xⁿ⁻¹.
 
 7
-00:00:27.984 --> 00:00:31.495
-Perubahan digambar jadi batang,
+00:00:19.042 --> 00:00:22.239
+Sampai sekarang setiap fungsi bisa kita <b>jabarkan dulu</b>,
 
 8
-00:00:31.495 --> 00:00:34.552
-satu skala untuk ketiganya.
+00:00:22.239 --> 00:00:23.589
+baru diturunkan.
 
 9
-00:00:34.552 --> 00:00:38.856
-Mesin dalam u = 3x, mesin luar y = 5u.
+00:00:24.549 --> 00:00:25.919
+Untuk (2x - 5)⁸,
 
 10
-00:00:38.856 --> 00:00:43.729
-Batang u terisi tepat oleh 3 batang x.
+00:00:25.919 --> 00:00:30.094
+kesabaran itu habis sebelum jabarannya selesai.
 
 11
-00:00:43.729 --> 00:00:47.448
-Tingkat pertama mengalikan 3.
+00:00:31.300 --> 00:00:33.121
+Lihat bentuknya baik-baik.
 
 12
-00:00:47.448 --> 00:00:50.535
-Batang y terisi tepat oleh 5 batang u.
+00:00:33.857 --> 00:00:35.914
+Ia <b>dua mesin</b> yang dipasang berderet.
 
 13
-00:00:50.535 --> 00:00:52.728
-Tingkat kedua mengalikan 5.
+00:00:36.661 --> 00:00:40.090
+Angka x masuk ke mesin pertama, hasilnya kita sebut u,
 
 14
-00:00:52.728 --> 00:00:58.426
-Berapa batang x mengisi batang y?
+00:00:40.090 --> 00:00:43.416
+lalu u masuk ke mesin kedua, dan keluar sebagai y.
 
 15
-00:00:58.426 --> 00:01:00.498
-15, bukan 8.
+00:00:44.649 --> 00:00:46.896
+Perubahannya kita gambar sebagai batang,
 
 16
-00:01:00.498 --> 00:01:05.160
-Bertingkat, maka <b>dikalikan</b>.
+00:00:46.896 --> 00:00:49.181
+ketiganya dengan <b>satu skala</b> yang sama.
 
 17
-00:01:05.160 --> 00:01:10.420
-Mesin lurus punya pengali tetap.
+00:00:49.928 --> 00:00:54.552
+Mesin dalamnya u = 3x, dan mesin luarnya y = 5u.
 
 18
-00:01:10.420 --> 00:01:17.160
-Umumnya pengali ikut berubah mengikuti x.
+00:00:55.768 --> 00:00:58.031
+Satu langkah pada x menghasilkan batang u
 
 19
-00:01:17.160 --> 00:01:27.816
-Ambil yang masih mudah: (x² + 1)² = x⁴ + 2x² + 1.
+00:00:58.031 --> 00:01:00.444
+yang bisa diisi tepat oleh <b>tiga</b> batang x.
 
 20
-00:01:27.816 --> 00:01:34.920
-Turunkan suku demi suku: 4x³ + 4x.
+00:01:01.178 --> 00:01:03.434
+Jadi tingkat pertama mengalikan 3.
 
 21
-00:01:34.920 --> 00:01:44.232
-Difaktorkan: 4x(x² + 1). Isi kurungnya muncul lagi.
+00:01:04.668 --> 00:01:07.234
+Batang y bisa diisi tepat oleh <b>lima</b> batang u.
 
 22
-00:01:44.232 --> 00:01:48.624
-Ditulis ulang: 2(x² + 1) · 2x.
+00:01:07.234 --> 00:01:09.055
+Tingkat kedua mengalikan 5.
 
 23
-00:01:48.624 --> 00:01:55.944
-Kiri turunan pangkatnya, 2x turunan isi kurungnya.
+00:01:10.268 --> 00:01:12.707
+Sekarang berapa batang x yang mengisi batang y?
 
 24
-00:01:55.944 --> 00:02:00.560
-Aturan rantai: turunkan bagian luar,
+00:01:13.440 --> 00:01:14.790
+Lima belas.
 
 25
-00:02:00.560 --> 00:02:04.920
-lalu kalikan turunan bagian dalam.
+00:01:15.309 --> 00:01:16.659
+Bukan delapan.
 
 26
-00:02:04.920 --> 00:02:07.774
-Kembali ke (2x - 5)⁸.
+00:01:17.310 --> 00:01:20.411
+Pengaruhnya bertingkat, maka angkanya <b>dikalikan</b>,
 
 27
-00:02:07.774 --> 00:02:12.394
-Bagian dalam 2x - 5, turunannya 2.
+00:01:20.411 --> 00:01:21.761
+bukan dijumlahkan.
 
 28
-00:02:12.394 --> 00:02:15.384
-Bagian luar pangkat 8.
+00:01:22.935 --> 00:01:25.914
+Dua mesin tadi lurus, jadi pengalinya tetap.
 
 29
-00:02:15.384 --> 00:02:19.022
-Turunkan luar, kalikan 2.
+00:01:26.662 --> 00:01:28.495
+Kebanyakan fungsi tidak begitu:
 
 30
-00:02:19.022 --> 00:02:26.880
-Hasilnya 16(2x - 5)⁷, tanpa menjabarkan satu suku pun.
+00:01:28.495 --> 00:01:30.773
+pengalinya <b>ikut berubah</b> mengikuti x.
+
+31
+00:01:31.503 --> 00:01:33.969
+Karena itu kita butuh bentuk yang berlaku umum.
+
+32
+00:01:35.167 --> 00:01:36.527
+Dari mana rumusnya?
+
+33
+00:01:37.277 --> 00:01:39.488
+Kita ambil bentuk bertingkat
+
+34
+00:01:39.488 --> 00:01:41.698
+yang masih mudah dijabarkan:
+
+35
+00:01:41.698 --> 00:01:43.048
+(x² + 1)².
+
+36
+00:01:43.368 --> 00:01:46.952
+Jabarannya x⁴ + 2x² + 1.
+
+37
+00:01:48.168 --> 00:01:50.765
+Turunkan suku demi suku dengan aturan pangkat.
+
+38
+00:01:51.500 --> 00:01:54.360
+Hasilnya 4x³ + 4x.
+
+39
+00:01:55.582 --> 00:02:00.061
+Sekarang difaktorkan: 4x(x² + 1).
+
+40
+00:02:00.794 --> 00:02:03.115
+Bentuk di dalam kurung itu <b>kembali muncul</b>.
+
+41
+00:02:04.349 --> 00:02:09.512
+Ditulis ulang sedikit, ia menjadi 2(x² + 1) · 2x.
+
+42
+00:02:09.981 --> 00:02:11.820
+Ruas kiri turunan pangkat duanya,
+
+43
+00:02:11.820 --> 00:02:13.046
+dan 2x di kanan adalah
+
+44
+00:02:13.046 --> 00:02:15.091
+turunan dari yang di dalam kurung.
+
+45
+00:02:16.301 --> 00:02:17.687
+Itulah aturannya.
+
+46
+00:02:18.437 --> 00:02:20.057
+Turunkan bagian luarnya seolah
+
+47
+00:02:20.057 --> 00:02:21.785
+bagian dalam sebuah huruf biasa,
+
+48
+00:02:21.785 --> 00:02:24.311
+lalu <b>kalikan</b> dengan turunan bagian dalamnya.
+
+49
+00:02:25.041 --> 00:02:29.415
+Dengan lambang Leibniz: dy/dx = dy/du · du/dx.
+
+50
+00:02:30.601 --> 00:02:32.949
+Kembali ke soal yang tadi kita tinggalkan.
+
+51
+00:02:33.683 --> 00:02:37.359
+Bagian dalamnya 2x - 5, dan turunannya 2.
+
+52
+00:02:38.090 --> 00:02:40.122
+Bagian luarnya pangkat 8.
+
+53
+00:02:41.335 --> 00:02:43.985
+Turunkan luarnya, lalu kalikan 2.
+
+54
+00:02:44.719 --> 00:02:49.014
+Hasilnya 16(2x - 5)⁷.
+
+55
+00:02:49.745 --> 00:02:51.856
+Tanpa menjabarkan satu suku pun.
+
+56
+00:02:53.082 --> 00:02:54.740
+Kekeliruan yang paling sering:
+
+57
+00:02:54.740 --> 00:02:56.825
+turunan bagian dalamnya <b>tertinggal</b>.
+
+58
+00:02:57.557 --> 00:03:01.234
+8(2x - 5)⁷, lalu berhenti.
+
+59
+00:03:01.980 --> 00:03:03.409
+Pengali 2 itu yang hilang,
+
+60
+00:03:03.409 --> 00:03:06.472
+dan tanpanya jawabannya cuma separuh dari yang benar.
+
+61
+00:03:07.716 --> 00:03:09.216
+Rangkumannya satu kalimat:
+
+62
+00:03:09.216 --> 00:03:12.102
+fungsi bertingkat diturunkan tingkat demi tingkat,
+
+63
+00:03:12.102 --> 00:03:13.695
+dan pengalinya <b>dikalikan</b>.
+
+64
+00:03:14.442 --> 00:03:17.788
+Satu pertanyaan: kalau bagian dalamnya cuma x sendiri,
+
+65
+00:03:17.788 --> 00:03:18.988
+turunannya 1,
+
+66
+00:03:18.988 --> 00:03:20.724
+apakah aturan rantai kembali
+
+67
+00:03:20.724 --> 00:03:22.671
+menjadi aturan pangkat biasa?
+
+68
+00:03:23.468 --> 00:03:27.811
+Di materi berikutnya, Aturan Menurunkan, Bagian 4,
+
+69
+00:03:27.811 --> 00:03:32.565
+fungsinya bukan pangkat lagi: sinus, kosinus, dan eˣ.
+
+70
+00:03:33.298 --> 00:03:34.790
+Dari mana turunannya?

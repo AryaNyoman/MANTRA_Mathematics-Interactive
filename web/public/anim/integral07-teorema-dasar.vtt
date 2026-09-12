@@ -1,91 +1,312 @@
 WEBVTT
 
-NOTE Dibuat otomatis dari manim/narasi/integral07-teorema-dasar.json
+NOTE Dibuat otomatis dari manim/narasi/integral07-teorema-dasar.json (waktu kata rekaman)
+NOTE naskah-sidik 2245f1eb9813
 
 1
-00:00:00.000 --> 00:00:04.032
-Materi 07: dua dunia yang ternyata satu.
+00:00:00.116 --> 00:00:03.029
+Luas dan Integral Tentu, Bagian 3.
 
 2
-00:00:04.032 --> 00:00:09.823
-Dua pekerjaan: membalik turunan,
+00:00:03.762 --> 00:00:05.101
+Luas dari persegi panjang
 
 3
-00:00:09.823 --> 00:00:15.072
-dan menumpuk persegi panjang.
+00:00:05.101 --> 00:00:07.609
+dan antiturunan tidak kelihatan berhubungan.
 
 4
-00:00:15.072 --> 00:00:20.316
-Batas atas dibiarkan bergerak:
+00:00:08.341 --> 00:00:09.807
+Kenapa ternyata <b>sama</b>?
 
 5
-00:00:20.316 --> 00:00:25.211
-A(x) = luas dari 0 sampai x.
+00:00:11.049 --> 00:00:12.923
+Di Membalik Turunan, Bagian 1,
 
 6
-00:00:25.211 --> 00:00:28.008
-<b>A adalah fungsi</b>.
+00:00:12.923 --> 00:00:15.046
+fungsi yang turunannya sama dengan
 
 7
-00:00:28.008 --> 00:00:31.322
-Tiap x memberi satu nilai A.
+00:00:15.046 --> 00:00:16.732
+f kita sebut <b>antiturunan</b> f,
 
 8
-00:00:31.322 --> 00:00:36.648
-Jejaknya di papan bawah membentuk kurva baru.
+00:00:16.732 --> 00:00:18.668
+dan semuanya berbeda tetapan C.
 
 9
-00:00:36.648 --> 00:00:47.112
-Kalau x digeser sedikit, seberapa cepat A bertambah?
+00:00:18.668 --> 00:00:20.966
+Di Luas dan Integral Tentu, Bagian 2,
 
 10
-00:00:47.112 --> 00:00:56.616
-Tambahannya pita tipis: lebar h, tinggi kira-kira f(x).
+00:00:20.966 --> 00:00:24.072
+luas di bawah kurva ditulis dengan tanda integral,
 
 11
-00:00:56.616 --> 00:01:05.448
-Tambahan ≈ f(x)·h. Dibagi h, tinggal <b>f(x)</b>.
+00:00:24.072 --> 00:00:26.831
+batas bawah dan batas atasnya angka tetap.
 
 12
-00:01:05.448 --> 00:01:14.919
-h = 0,2: sebenarnya 0,88, hampiran 0,80.
+00:00:28.035 --> 00:00:30.790
+Dua pekerjaan itu asal usulnya berbeda jauh.
 
 13
-00:01:14.919 --> 00:01:21.312
-Makin kecil h, makin rapat.
+00:00:31.523 --> 00:00:33.568
+Yang satu membalik mesin turunan.
 
 14
-00:01:21.312 --> 00:01:28.054
-<b>A' = f</b>, jadi A adalah antiturunan f.
+00:00:34.300 --> 00:00:37.332
+Yang satu menumpuk persegi panjang untuk mengukur luas.
 
 15
-00:01:28.054 --> 00:01:32.736
-Teorema Dasar Kalkulus I.
+00:00:38.064 --> 00:00:39.264
+Tidak ada alasan yang
 
 16
-00:01:32.736 --> 00:01:37.580
-A dan F sama-sama antiturunan f,
+00:00:39.264 --> 00:00:41.407
+jelas kenapa keduanya harus berhubungan.
 
 17
-00:01:37.580 --> 00:01:42.576
-jadi bedanya cuma sebuah tetapan.
+00:00:42.468 --> 00:00:44.381
+Sekarang satu perubahan kecil.
 
 18
-00:01:42.576 --> 00:01:50.608
-A(3) - A(1) = (F(3) + C) - (F(1) + C).
+00:00:45.115 --> 00:00:48.292
+Batas atasnya jangan dipatok, biarkan <b>bergerak</b>.
 
 19
-00:01:50.608 --> 00:01:54.624
-<b>C saling menghapus</b>.
+00:00:49.023 --> 00:00:51.686
+Sebut A(x) luas dari 0 sampai x.
 
 20
-00:01:54.624 --> 00:02:09.576
-∫ x² dari 1 sampai 3: 9 - ⅓ = <b>26/3</b> ≈ 8,67.
+00:00:51.694 --> 00:00:54.410
+A bukan bilangan lagi, melainkan fungsi.
 
 21
-00:02:09.576 --> 00:02:16.260
-60 persegi panjang masih meleset 0,13.
+00:00:55.649 --> 00:00:57.732
+Tiap letak x memberi satu nilai luas,
 
 22
-00:02:16.260 --> 00:02:21.888
-Pengurangan tadi langsung tepat.
+00:00:57.732 --> 00:01:00.641
+dan nilai-nilai itu bisa digambar di papan bawah.
+
+23
+00:01:01.373 --> 00:01:03.352
+Jejaknya membentuk <b>kurva baru</b>.
+
+24
+00:01:04.567 --> 00:01:06.441
+Pertanyaan kuncinya begini.
+
+25
+00:01:07.176 --> 00:01:09.195
+Kalau x digeser sedikit ke kanan,
+
+26
+00:01:09.195 --> 00:01:10.997
+<b>seberapa cepat</b> A bertambah?
+
+27
+00:01:11.728 --> 00:01:14.089
+Coba tebak sambil melihat kedua papan.
+
+28
+00:01:15.300 --> 00:01:16.897
+Dari mana jawabannya?
+
+29
+00:01:17.632 --> 00:01:19.716
+Geser x sebesar h yang kecil.
+
+30
+00:01:20.463 --> 00:01:23.563
+Tambahan luasnya sebuah <b>pita tipis</b> di ujung kanan,
+
+31
+00:01:23.563 --> 00:01:26.192
+lebarnya h dan tingginya kira-kira f(x).
+
+32
+00:01:27.416 --> 00:01:29.942
+Jadi tambahannya kira-kira f(x) · h.
+
+33
+00:01:29.942 --> 00:01:32.566
+Bagi dengan h, tinggal f(x).
+
+34
+00:01:33.313 --> 00:01:35.040
+Itulah laju bertambahnya luas:
+
+35
+00:01:35.040 --> 00:01:36.479
+turunan A di titik x sama
+
+36
+00:01:36.479 --> 00:01:38.529
+dengan <b>tinggi kurva</b> di titik itu.
+
+37
+00:01:39.749 --> 00:01:41.281
+Kata <b>kira-kira</b> memang perlu:
+
+38
+00:01:41.281 --> 00:01:43.346
+tepi atas pita itu ikut melengkung.
+
+39
+00:01:44.094 --> 00:01:49.206
+Untuk h = 0,2 di titik 2, tambahan sebenarnya 0,88,
+
+40
+00:01:49.206 --> 00:01:51.060
+hampirannya 0,80.
+
+41
+00:01:51.790 --> 00:01:54.598
+Makin kecil h, makin rapat keduanya.
+
+42
+00:01:55.849 --> 00:01:57.652
+Maka A′ = f.
+
+43
+00:01:57.652 --> 00:01:59.498
+Kalimat itu boleh dibaca ulang:
+
+44
+00:01:59.498 --> 00:02:01.191
+A adalah <b>antiturunan</b> dari f.
+
+45
+00:02:01.191 --> 00:02:03.236
+Di situlah dua dunia tadi bertemu.
+
+46
+00:02:03.969 --> 00:02:06.290
+Inilah Teorema Dasar Kalkulus I.
+
+47
+00:02:07.501 --> 00:02:10.704
+Sekarang ambil antiturunan mana pun, sebut F.
+
+48
+00:02:11.453 --> 00:02:13.917
+Karena A dan F sama-sama antiturunan f,
+
+49
+00:02:13.917 --> 00:02:16.405
+keduanya cuma berbeda sebuah <b>tetapan</b>.
+
+50
+00:02:17.601 --> 00:02:21.120
+Luas dari 1 sampai 3 adalah A(3) - A(1).
+
+51
+00:02:21.868 --> 00:02:23.068
+Tulis dengan F,
+
+52
+00:02:23.068 --> 00:02:26.485
+dan tetapannya muncul dua kali dengan tanda berlawanan.
+
+53
+00:02:26.906 --> 00:02:28.674
+Keduanya <b>saling menghapus</b>.
+
+54
+00:02:29.916 --> 00:02:34.423
+Bentuk umumnya: ∫ f dari a sampai b = F(b) - F(a),
+
+55
+00:02:34.423 --> 00:02:37.908
+dengan F antiturunan mana pun dari f.
+
+56
+00:02:38.641 --> 00:02:41.001
+Inilah Teorema Dasar Kalkulus II.
+
+57
+00:02:42.249 --> 00:02:46.439
+Coba pada f(x) = x², dari 1 sampai 3.
+
+58
+00:02:47.171 --> 00:02:49.940
+Antiturunannya x³/3.
+
+59
+00:02:50.686 --> 00:02:56.178
+Batas atas memberi 9, batas bawah ⅓, selisihnya <b>26/3</b>.
+
+60
+00:02:57.416 --> 00:02:59.061
+Kekeliruan yang paling sering:
+
+61
+00:02:59.061 --> 00:03:01.842
+C ikut dituliskan pada hasil yang memakai batas.
+
+62
+00:03:02.575 --> 00:03:04.264
+Padahal C muncul di kedua nilai
+
+63
+00:03:04.264 --> 00:03:06.593
+itu dan sudah <b>terhapus</b> saat dikurangkan.
+
+64
+00:03:07.325 --> 00:03:10.541
+Jawabannya 26/3, tanpa C.
+
+65
+00:03:11.767 --> 00:03:13.338
+Bandingkan tenaganya.
+
+66
+00:03:14.088 --> 00:03:16.915
+Enam puluh persegi panjang masih meleset 0,13,
+
+67
+00:03:16.915 --> 00:03:19.646
+sedangkan pengurangan tadi langsung <b>tepat</b>.
+
+68
+00:03:20.376 --> 00:03:23.105
+Itulah sebabnya teorema ini disebut dasar.
+
+69
+00:03:24.349 --> 00:03:26.122
+Rangkumannya satu kalimat:
+
+70
+00:03:26.122 --> 00:03:29.258
+laju bertambahnya luas adalah <b>tinggi kurvanya</b>,
+
+71
+00:03:29.258 --> 00:03:32.749
+jadi luas dihitung dari antiturunan, F(b) - F(a).
+
+72
+00:03:33.482 --> 00:03:34.682
+Satu pertanyaan:
+
+73
+00:03:34.682 --> 00:03:37.365
+kalau batas bawah dan batas atasnya sama,
+
+74
+00:03:37.365 --> 00:03:38.715
+berapa hasilnya?
+
+75
+00:03:39.649 --> 00:03:43.115
+Di materi berikutnya, Luas dan Integral Tentu, Bagian 4,
+
+76
+00:03:43.115 --> 00:03:46.023
+alat ini dipakai dengan urutan kerja yang rapi,
+
+77
+00:03:46.023 --> 00:03:49.391
+termasuk saat soalnya perlu disubstitusi lebih dulu.

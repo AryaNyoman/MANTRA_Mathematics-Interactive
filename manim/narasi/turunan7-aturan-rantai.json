@@ -1,83 +1,103 @@
 {
   "adegan": "TurunanAturanRantai",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Video 03 topik Turunan, untuk Materi 07 'Fungsi di dalam fungsi, aturan rantai'. TANPA 3D. Tugasnya menjawab satu pertanyaan yang halaman Materi 07 ajukan tapi tidak bisa diperagakan tulisan: KENAPA DIKALIKAN, bukan dijumlahkan. Babak inti memakai TIGA BATANG perubahan berskala sama, lalu batang kecil disusun berderet untuk mengisi batang besar: tiga batang x mengisi batang u, lima batang u mengisi batang y, dan lima belas batang x mengisi batang y. Perkaliannya jadi TERBUKTI di layar, bukan diklaim. Rancangan awal memakai tiga garis bilangan berskala sama dan dibatalkan: pada satu skala yang sama, garis x jadi terlalu pendek untuk dibaca. Mesin dalam dan luar sengaja dipilih lurus (u = 3x dan y = 5u) supaya pengalinya tetap dan bisa dihitung dengan mata; babak 'berubah' yang menjelaskan bahwa pengali itu biasanya ikut berubah. Sesudah itu SATU pembuktian aljabar, (x kuadrat + 1) pangkat dua, angkanya sama persis dengan kotak contoh di halaman Materi 07. Penjabaran kedua di halaman, (x kuadrat + 1) pangkat tiga, SENGAJA tidak dibawa ke video: ia mengulang yang sudah terlihat dan memaksa rumus mengecil sampai sulit dibaca. Semua angka diperiksa alat/cek_turunan.py lewat klaim berawalan V07.",
+  "tempo": "-5%",
+  "catatan": "Aturan Menurunkan, Bagian 3 (Materi 07 'Fungsi di dalam fungsi, aturan rantai', video 03 topik Turunan). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (15 segmen) yang sudah disetujui ARYA: ISI TETAP SAMA (jabaran (2x - 5) pangkat 8 yang tidak selesai; dua mesin berderet u = 3x dan y = 5u; tiga batang satu skala: tiga batang x mengisi batang u, lima batang u mengisi batang y, lima belas batang x mengisi batang y, jadi DIKALIKAN bukan dijumlahkan; pengali biasanya berubah; pembuktian aljabar (x kuadrat + 1) kuadrat dijabarkan, diturunkan, difaktorkan, ditulis ulang 2(x kuadrat + 1) kali 2x; aturannya; dipakai pada (2x - 5) pangkat 8 memberi 16(2x - 5) pangkat 7). Yang ditambah: pembuka menyebut sub-bab plus Bagian 3 dengan pertanyaan halaman, segar-ingat Bagian 1 (aturan pangkat suku demi suku), bentuk umum Leibniz dy/dx = dy/du kali du/dx, kekeliruan turunan bagian dalam tertinggal, rangkuman dengan pertanyaan, penutup menunjuk Bagian 4 (sinus, kosinus, e pangkat x). Semua angka sama dengan halaman Materi 07.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi ketujuh: fungsi di dalam fungsi, aturan rantai.",
-      "tulis": "Materi 07: fungsi di dalam fungsi, aturan rantai."
+      "teks": "Aturan Menurunkan, Bagian tiga. Kalau y bergantung pada u, dan u bergantung pada x, seberapa cepat y berubah terhadap x?",
+      "tulis": "Aturan Menurunkan, Bagian 3. Kalau y bergantung pada u, dan u bergantung pada x, seberapa cepat y berubah terhadap x?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Aturan Menurunkan, Bagian satu, tiap suku diturunkan sendiri dengan aturan pangkat: x pangkat n menjadi n x pangkat n kurang satu. Sampai sekarang setiap fungsi bisa kita jabarkan dulu, baru diturunkan.",
+      "tulis": "Di Aturan Menurunkan, Bagian 1, tiap suku diturunkan sendiri dengan aturan pangkat: xⁿ menjadi n xⁿ⁻¹. Sampai sekarang setiap fungsi bisa kita *jabarkan dulu*, baru diturunkan."
     },
     {
       "id": "masalah",
-      "teks": "Sampai sekarang setiap fungsi bisa kita jabarkan dulu, baru diturunkan. Untuk dua x kurang lima, pangkat delapan, kesabaran itu habis sebelum jabarannya selesai.",
-      "tulis": "Selama ini: jabarkan dulu, baru turunkan. Untuk (2x - 5)⁸ cara itu habis kesabaran."
+      "teks": "Untuk dua x kurang lima, pangkat delapan, kesabaran itu habis sebelum jabarannya selesai.",
+      "tulis": "Untuk (2x - 5)⁸, kesabaran itu habis sebelum jabarannya selesai."
     },
     {
       "id": "mesin",
-      "teks": "Lihat bentuknya baik-baik. Ia dua mesin yang dipasang berderet. Angka x masuk ke mesin pertama, hasilnya kita sebut u, lalu u masuk ke mesin kedua.",
-      "tulis": "Bentuk ini dua mesin berderet: x masuk mesin pertama jadi u, u masuk mesin kedua jadi y."
+      "teks": "Lihat bentuknya baik-baik. Ia dua mesin yang dipasang berderet. Angka x masuk ke mesin pertama, hasilnya kita sebut u, lalu u masuk ke mesin kedua, dan keluar sebagai y.",
+      "tulis": "Lihat bentuknya baik-baik. Ia *dua mesin* yang dipasang berderet. Angka x masuk ke mesin pertama, hasilnya kita sebut u, lalu u masuk ke mesin kedua, dan keluar sebagai y."
     },
     {
       "id": "batang",
       "teks": "Perubahannya kita gambar sebagai batang, ketiganya dengan satu skala yang sama. Mesin dalamnya u sama dengan tiga x, dan mesin luarnya y sama dengan lima u.",
-      "tulis": "Perubahan digambar jadi batang, satu skala untuk ketiganya. Mesin dalam u = 3x, mesin luar y = 5u."
+      "tulis": "Perubahannya kita gambar sebagai batang, ketiganya dengan *satu skala* yang sama. Mesin dalamnya u = 3x, dan mesin luarnya y = 5u."
     },
     {
       "id": "tiga",
       "teks": "Satu langkah pada x menghasilkan batang u yang bisa diisi tepat oleh tiga batang x. Jadi tingkat pertama mengalikan tiga.",
-      "tulis": "Batang u terisi tepat oleh 3 batang x. Tingkat pertama mengalikan 3."
+      "tulis": "Satu langkah pada x menghasilkan batang u yang bisa diisi tepat oleh *tiga* batang x. Jadi tingkat pertama mengalikan 3."
     },
     {
       "id": "lima",
       "teks": "Batang y bisa diisi tepat oleh lima batang u. Tingkat kedua mengalikan lima.",
-      "tulis": "Batang y terisi tepat oleh 5 batang u. Tingkat kedua mengalikan 5."
+      "tulis": "Batang y bisa diisi tepat oleh *lima* batang u. Tingkat kedua mengalikan 5."
     },
     {
       "id": "kali",
-      "teks": "Sekarang berapa batang x yang mengisi batang y? Lima belas. Bukan delapan. Pengaruhnya bertingkat, maka angkanya *dikalikan*, bukan dijumlahkan.",
-      "tulis": "Berapa batang x mengisi batang y? 15, bukan 8. Bertingkat, maka *dikalikan*."
+      "teks": "Sekarang berapa batang x yang mengisi batang y? Lima belas. Bukan delapan. Pengaruhnya bertingkat, maka angkanya dikalikan, bukan dijumlahkan.",
+      "tulis": "Sekarang berapa batang x yang mengisi batang y? Lima belas. Bukan delapan. Pengaruhnya bertingkat, maka angkanya *dikalikan*, bukan dijumlahkan."
     },
     {
       "id": "berubah",
       "teks": "Dua mesin tadi lurus, jadi pengalinya tetap. Kebanyakan fungsi tidak begitu: pengalinya ikut berubah mengikuti x. Karena itu kita butuh bentuk yang berlaku umum.",
-      "tulis": "Mesin lurus punya pengali tetap. Umumnya pengali ikut berubah mengikuti x."
+      "tulis": "Dua mesin tadi lurus, jadi pengalinya tetap. Kebanyakan fungsi tidak begitu: pengalinya *ikut berubah* mengikuti x. Karena itu kita butuh bentuk yang berlaku umum."
     },
     {
       "id": "mudah",
-      "teks": "Kita ambil bentuk bertingkat yang masih mudah dijabarkan: x kuadrat tambah satu, dikuadratkan. Jabarannya x pangkat empat tambah dua x kuadrat tambah satu.",
-      "tulis": "Ambil yang masih mudah: (x² + 1)² = x⁴ + 2x² + 1."
+      "teks": "Dari mana rumusnya? Kita ambil bentuk bertingkat yang masih mudah dijabarkan: x kuadrat tambah satu, dikuadratkan. Jabarannya x pangkat empat tambah dua x kuadrat tambah satu.",
+      "tulis": "Dari mana rumusnya? Kita ambil bentuk bertingkat yang masih mudah dijabarkan: (x² + 1)². Jabarannya x⁴ + 2x² + 1."
     },
     {
       "id": "turunkan",
       "teks": "Turunkan suku demi suku dengan aturan pangkat. Hasilnya empat x pangkat tiga tambah empat x.",
-      "tulis": "Turunkan suku demi suku: 4x³ + 4x."
+      "tulis": "Turunkan suku demi suku dengan aturan pangkat. Hasilnya 4x³ + 4x."
     },
     {
       "id": "faktor",
-      "teks": "Sekarang difaktorkan. Empat x, dikali x kuadrat tambah satu. Bentuk di dalam kurung itu kembali muncul.",
-      "tulis": "Difaktorkan: 4x(x² + 1). Isi kurungnya muncul lagi."
+      "teks": "Sekarang difaktorkan: empat x, dikali x kuadrat tambah satu. Bentuk di dalam kurung itu kembali muncul.",
+      "tulis": "Sekarang difaktorkan: 4x(x² + 1). Bentuk di dalam kurung itu *kembali muncul*."
     },
     {
       "id": "pola",
       "teks": "Ditulis ulang sedikit, ia menjadi dua kali x kuadrat tambah satu, dikali dua x. Ruas kiri turunan pangkat duanya, dan dua x di kanan adalah turunan dari yang di dalam kurung.",
-      "tulis": "Ditulis ulang: 2(x² + 1) · 2x. Kiri turunan pangkatnya, 2x turunan isi kurungnya."
+      "tulis": "Ditulis ulang sedikit, ia menjadi 2(x² + 1) · 2x. Ruas kiri turunan pangkat duanya, dan 2x di kanan adalah turunan dari yang di dalam kurung."
     },
     {
       "id": "aturan",
-      "teks": "Itulah aturannya. Turunkan bagian luarnya seolah bagian dalam sebuah huruf biasa, lalu kalikan dengan turunan bagian dalamnya.",
-      "tulis": "Aturan rantai: turunkan bagian luar, lalu kalikan turunan bagian dalam."
+      "teks": "Itulah aturannya. Turunkan bagian luarnya seolah bagian dalam sebuah huruf biasa, lalu kalikan dengan turunan bagian dalamnya. Dengan lambang Leibniz: dy dx sama dengan dy du, kali du dx.",
+      "tulis": "Itulah aturannya. Turunkan bagian luarnya seolah bagian dalam sebuah huruf biasa, lalu *kalikan* dengan turunan bagian dalamnya. Dengan lambang Leibniz: dy/dx = dy/du · du/dx."
     },
     {
       "id": "pakai",
       "teks": "Kembali ke soal yang tadi kita tinggalkan. Bagian dalamnya dua x kurang lima, dan turunannya dua. Bagian luarnya pangkat delapan.",
-      "tulis": "Kembali ke (2x - 5)⁸. Bagian dalam 2x - 5, turunannya 2. Bagian luar pangkat 8."
+      "tulis": "Kembali ke soal yang tadi kita tinggalkan. Bagian dalamnya 2x - 5, dan turunannya 2. Bagian luarnya pangkat 8."
     },
     {
       "id": "hasil",
       "teks": "Turunkan luarnya, lalu kalikan dua. Hasilnya enam belas, dikali dua x kurang lima, pangkat tujuh. Tanpa menjabarkan satu suku pun.",
-      "tulis": "Turunkan luar, kalikan 2. Hasilnya 16(2x - 5)⁷, tanpa menjabarkan satu suku pun."
+      "tulis": "Turunkan luarnya, lalu kalikan 2. Hasilnya 16(2x - 5)⁷. Tanpa menjabarkan satu suku pun."
+    },
+    {
+      "id": "keliru",
+      "teks": "Kekeliruan yang paling sering: turunan bagian dalamnya tertinggal. Delapan kali dua x kurang lima pangkat tujuh, lalu berhenti. Pengali dua itu yang hilang, dan tanpanya jawabannya cuma separuh dari yang benar.",
+      "tulis": "Kekeliruan yang paling sering: turunan bagian dalamnya *tertinggal*. 8(2x - 5)⁷, lalu berhenti. Pengali 2 itu yang hilang, dan tanpanya jawabannya cuma separuh dari yang benar."
+    },
+    {
+      "id": "rangkum",
+      "teks": "Rangkumannya satu kalimat: fungsi bertingkat diturunkan tingkat demi tingkat, dan pengalinya dikalikan. Satu pertanyaan: kalau bagian dalamnya cuma x sendiri, turunannya satu, apakah aturan rantai kembali menjadi aturan pangkat biasa?",
+      "tulis": "Rangkumannya satu kalimat: fungsi bertingkat diturunkan tingkat demi tingkat, dan pengalinya *dikalikan*. Satu pertanyaan: kalau bagian dalamnya cuma x sendiri, turunannya 1, apakah aturan rantai kembali menjadi aturan pangkat biasa?"
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Aturan Menurunkan, Bagian empat, fungsinya bukan pangkat lagi: sinus, kosinus, dan e pangkat x. Dari mana turunannya?",
+      "tulis": "Di materi berikutnya, Aturan Menurunkan, Bagian 4, fungsinya bukan pangkat lagi: sinus, kosinus, dan eˣ. Dari mana turunannya?"
     }
   ]
 }

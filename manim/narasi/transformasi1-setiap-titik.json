@@ -2,17 +2,17 @@
   "adegan": "TransformasiSetiapTitik",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Video 01 topik Transformasi Geometri, Materi 01 'Setiap titik ikut pindah'. VERSI 3 (8 Sep 2026, keputusan ARYA): ditulis ulang dari 18 segmen 130 detik jadi 30 segmen sekitar 5 menit, gaya rinci Turunan 02. Segar-ingat menagih VEKTOR MATERI 03 'Memecah panah jadi dua langkah', sebab di situlah siswa belajar satu panah dinamai dua angka, dan di video ini satu TITIK dinamai dua angka dengan cara yang sama. Rumus (x, y) -> (x, -y) DIBUKTIKAN dari jarak ke sumbu, bukan disodorkan sebagai pola dari dua contoh: itu perubahan pokok dari versi 2, yang cuma menyimpulkan pola. Materi ini nomor SATU, jadi satu-satunya istilah topik yang boleh muncul adalah prapeta dan peta; cermin, translasi, rotasi, dilatasi, matriks, dan komposisi semuanya masih di depan, dan kata 'cermin' sengaja diganti 'lipatan'.",
+  "catatan": "Video 01 topik Transformasi Geometri, Materi 01 'Setiap titik ikut pindah'. VERSI 3 (8 Sep 2026, keputusan ARYA): ditulis ulang dari 18 segmen 130 detik jadi 30 segmen sekitar 5 menit, gaya rinci Turunan 02. Segar-ingat menagih VEKTOR MATERI 03 'Memecah panah jadi dua langkah', sebab di situlah siswa belajar satu panah dinamai dua angka, dan di video ini satu TITIK dinamai dua angka dengan cara yang sama. Rumus (x, y) -> (x, -y) DIBUKTIKAN dari jarak ke sumbu, bukan disodorkan sebagai pola dari dua contoh: itu perubahan pokok dari versi 2, yang cuma menyimpulkan pola. Materi ini nomor SATU, jadi satu-satunya istilah topik yang boleh muncul adalah prapeta dan peta; cermin, translasi, rotasi, dilatasi, matriks, dan komposisi semuanya masih di depan, dan kata 'cermin' sengaja diganti 'lipatan'. DISESUAIKAN v3.1 (MASTER 12 Sep 2026): pembuka menyebut sub-bab plus Bagian 1, segar-ingat menyebut Vektor dalam Sistem Koordinat Bagian 1, penutup menunjuk Bagian 2 dengan kata materi.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Kalau sebuah gambar berpindah tempat, sebenarnya apa yang pindah?",
-      "tulis": "Kalau sebuah gambar berpindah tempat, sebenarnya apa yang pindah?"
+      "teks": "Prapeta, Peta, dan Pencerminan, Bagian satu. Kalau sebuah gambar berpindah tempat, sebenarnya apa yang pindah?",
+      "tulis": "Prapeta, Peta, dan Pencerminan, Bagian 1. Kalau sebuah gambar berpindah tempat, sebenarnya apa yang pindah?"
     },
     {
       "id": "ingat_panah",
-      "teks": "Di Vektor, Materi ketiga, *Memecah panah jadi dua langkah*, kita belajar satu panah bisa ditulis sebagai dua angka: langkah mendatarnya, lalu langkah tegaknya.",
-      "tulis": "Di Vektor, Materi 03, *Memecah panah jadi dua langkah*, kita belajar satu panah bisa ditulis sebagai dua angka: langkah mendatarnya, lalu langkah tegaknya."
+      "teks": "Di Vektor dalam Sistem Koordinat, Bagian satu, *Memecah panah jadi dua langkah*, kita belajar satu panah bisa ditulis sebagai dua angka: langkah mendatarnya, lalu langkah tegaknya.",
+      "tulis": "Di Vektor dalam Sistem Koordinat, Bagian 1, *Memecah panah jadi dua langkah*, kita belajar satu panah bisa ditulis sebagai dua angka: langkah mendatarnya, lalu langkah tegaknya."
     },
     {
       "id": "ingat_titik",
@@ -156,8 +156,8 @@
     },
     {
       "id": "berikut",
-      "teks": "Di video berikutnya garis lipatannya kita pindahkan. Ia tidak harus sumbu X, dan aturan dua angka tadi yang akan kita ubah mengikutinya.",
-      "tulis": "Di video berikutnya garis lipatannya kita pindahkan. Ia tidak harus sumbu X, dan aturan dua angka tadi yang akan kita ubah mengikutinya."
+      "teks": "Di materi berikutnya, Prapeta, Peta, dan Pencerminan, Bagian dua, garis lipatannya kita pindahkan. Ia tidak harus sumbu X, dan aturan dua angka tadi yang akan kita ubah mengikutinya.",
+      "tulis": "Di materi berikutnya, Prapeta, Peta, dan Pencerminan, Bagian 2, garis lipatannya kita pindahkan. Ia tidak harus sumbu X, dan aturan dua angka tadi yang akan kita ubah mengikutinya."
     }
   ]
 }

@@ -1,83 +1,103 @@
 {
   "adegan": "TransformasiUrutan",
   "suara": "id-ID-ArdiNeural",
-  "tempo": "-6%",
-  "catatan": "Video 06, Materi 12 'Komposisi lewat perkalian matriks'. Jebakan utamanya: yang dikerjakan PERTAMA ditulis paling KANAN. Video ini menjalankan kedua urutan berdampingan supaya bedanya dilihat, bukan dihafal. Angka yang dipakai sama dengan contoh di halaman Materi 11 dan 12. Versi 2 (5 Sep 2026): diperpanjang dari 81 ke sekitar 126 detik, dari 10 ke 15 segmen. Yang ditambahkan: perkaliannya benar-benar dihitung sekotak demi sekotak, hasilnya diperiksa ulang pada seluruh bentuk, DAN satu contoh tandingan berupa dua rotasi yang urutannya boleh ditukar. Contoh tandingan itu penting: tanpanya video ini mengajarkan 'urutan selalu penting', dan itu tidak benar.",
+  "tempo": "-5%",
+  "catatan": "Komposisi Transformasi, Bagian 2 (Materi 12, video 06 Transformasi). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (15 segmen, 2:06) yang sudah disetujui ARYA: ISI TETAP SAMA (titik A(3, 1) dicerminkan sumbu X lalu diputar 90 derajat mendarat di (1, 3); urutan dibalik mendarat di (-1, -3); yang dikerjakan pertama ditulis paling kanan; koordinat di ujung kanan, matriks terdekat menyentuh lebih dulu; perkalian dihitung sekotak demi sekotak; hasilnya matriks cermin y = x; diperiksa pada seluruh bentuk; urutan tertukar memberi cermin y = -x; contoh tandingan dua rotasi sepusat; baca dari kanan). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2 dengan pertanyaan halaman, segar-ingat Matriks Transformasi Bagian 1 (kedua matriksnya), ASAL RUMUS: kedua langkah ditulis sebagai perkalian M2(M1 titik) sehingga M2 M1 lahir dari tulisannya, bentuk umum M3 M2 M1 plus catatan translasi, penutup menunjuk Penerapan Transformasi Geometri. Angka sama persis dengan halaman Materi 09, 11, dan 12.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Materi kedua belas: komposisi lewat perkalian matriks.",
-      "tulis": "Materi 12: komposisi lewat perkalian matriks."
+      "teks": "Komposisi Transformasi, Bagian dua. Dua transformasi punya dua matriks. Kalau keduanya dikalikan, matriks mana yang ditulis di depan?",
+      "tulis": "Komposisi Transformasi, Bagian 2. Dua transformasi punya dua matriks. Kalau keduanya dikalikan, matriks mana yang ditulis *di depan*?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di Matriks Transformasi, Bagian satu, cermin sumbu X punya matriks baris pertama satu dan nol, baris kedua nol dan negatif satu. Rotasi sembilan puluh derajat punya matriks baris pertama nol dan negatif satu, baris kedua satu dan nol. Dua matriks itulah yang kita kalikan hari ini.",
+      "tulis": "Di Matriks Transformasi, Bagian 1, cermin sumbu X punya matriks baris pertama 1 dan 0, baris kedua 0 dan -1. Rotasi 90° punya matriks baris pertama 0 dan -1, baris kedua 1 dan 0. Dua matriks itulah yang kita kalikan hari ini."
     },
     {
       "id": "dua",
-      "teks": "Sebuah bentuk dicerminkan pada sumbu X, lalu diputar sembilan puluh derajat. Dua langkah, berurutan.",
-      "tulis": "Sebuah bentuk dicerminkan pada sumbu X, lalu diputar 90°. Dua langkah, berurutan."
+      "teks": "Sebuah bentuk dicerminkan pada sumbu X, lalu diputar sembilan puluh derajat. Dua langkah, berurutan. Kita ikuti satu titiknya saja: A, tiga koma satu.",
+      "tulis": "Sebuah bentuk dicerminkan pada sumbu X, lalu diputar 90°. Dua langkah, berurutan. Kita ikuti satu titiknya saja: A(3, 1)."
     },
     {
       "id": "langkah",
-      "teks": "Kita ikuti titik A saja. Tiga koma satu dicerminkan menjadi tiga koma negatif satu.",
-      "tulis": "Kita ikuti titik A saja. (3, 1) dicerminkan menjadi (3, -1)."
+      "teks": "Langkah pertama, cermin sumbu X: tiga koma satu menyeberangi sumbu, menjadi tiga koma negatif satu.",
+      "tulis": "Langkah pertama, cermin sumbu X: (3, 1) menyeberangi sumbu, menjadi (3, -1)."
     },
     {
       "id": "kedua",
-      "teks": "Lalu diputar sembilan puluh derajat menjadi satu koma tiga. Itu jawaban akhirnya.",
-      "tulis": "Lalu diputar 90° menjadi (1, 3). Itu jawaban akhirnya."
+      "teks": "Langkah kedua dikerjakan pada hasil itu: diputar sembilan puluh derajat menjadi satu koma tiga. Itu jawaban akhirnya.",
+      "tulis": "Langkah kedua dikerjakan pada *hasil itu*: diputar 90° menjadi (1, 3). Itu jawaban akhirnya."
     },
     {
       "id": "balik",
-      "teks": "Sekarang urutannya dibalik: diputar dulu, baru dicerminkan. Hasilnya negatif satu koma negatif tiga.",
-      "tulis": "Sekarang urutannya dibalik: diputar dulu, baru dicerminkan. Hasilnya (-1, -3)."
+      "teks": "Sekarang urutannya dibalik: diputar dulu ke negatif satu koma tiga, baru dicerminkan ke negatif satu koma negatif tiga.",
+      "tulis": "Sekarang urutannya dibalik: diputar dulu ke (-1, 3), baru dicerminkan ke (-1, -3)."
     },
     {
       "id": "beda",
-      "teks": "Dua transformasi yang sama persis, cuma berbeda urutan, dan bentuknya mendarat di kuadran yang berlawanan.",
-      "tulis": "Dua transformasi yang sama, cuma beda urutan, mendarat di kuadran berlawanan."
+      "teks": "Dua transformasi yang sama persis, cuma berbeda urutan, dan titiknya mendarat di kuadran yang berlawanan. Urutan itulah yang harus dijaga oleh matriksnya.",
+      "tulis": "Dua transformasi yang sama persis, cuma berbeda urutan, dan titiknya mendarat di kuadran yang *berlawanan*. Urutan itulah yang harus dijaga oleh matriksnya."
+    },
+    {
+      "id": "asal",
+      "teks": "Dari mana aturannya? Tulis kedua langkah itu sebagai perkalian. M satu, matriks cermin, mengenai titiknya lebih dulu. Hasilnya baru dikenai M dua, matriks rotasi. Dibaca utuh: M dua, lalu M satu, lalu titiknya di ujung kanan.",
+      "tulis": "Dari mana aturannya? Tulis kedua langkah itu sebagai perkalian. M1, matriks cermin, mengenai titiknya lebih dulu. Hasilnya baru dikenai M2, matriks rotasi. Dibaca utuh: M2, lalu M1, lalu titiknya di ujung kanan."
     },
     {
       "id": "matriks",
-      "teks": "Sekarang lewat matriks. Kalau langkah pertama dikerjakan lebih dulu, matriksnya ditulis paling *kanan*.",
-      "tulis": "Lewat matriks: kalau langkah pertama dikerjakan lebih dulu, matriksnya paling *kanan*."
+      "teks": "Jadi kalau langkah pertama dikerjakan lebih dulu, matriksnya ditulis paling kanan, dan matriks gabungannya M dua kali M satu, bukan sebaliknya.",
+      "tulis": "Jadi kalau langkah pertama dikerjakan lebih dulu, matriksnya ditulis paling *kanan*, dan matriks gabungannya M2 M1, bukan sebaliknya."
     },
     {
       "id": "kenapa",
-      "teks": "Sebabnya koordinat titiknya berada di ujung kanan, dan matriks yang paling dekat dengannyalah yang menyentuhnya lebih dulu.",
-      "tulis": "Sebabnya koordinat titiknya di ujung kanan, dan matriks terdekat menyentuhnya dulu."
+      "teks": "Sebabnya sederhana: koordinat titiknya berada di ujung kanan, dan matriks yang paling dekat dengannyalah yang menyentuhnya lebih dulu. Mengalikan kedua matriksnya lebih dulu cuma menggabungkan dua sentuhan itu menjadi satu.",
+      "tulis": "Sebabnya sederhana: koordinat titiknya berada di ujung kanan, dan matriks yang *paling dekat* dengannyalah yang menyentuhnya lebih dulu. Mengalikan kedua matriksnya lebih dulu cuma menggabungkan dua sentuhan itu menjadi satu."
     },
     {
       "id": "kalikan",
-      "teks": "Perkaliannya begini. Baris pertama matriks kiri bertemu kolom pertama matriks kanan, dikalikan lalu dijumlahkan, dan hasilnya mengisi kotak kiri atas. Tiga kotak sisanya dengan cara yang sama.",
-      "tulis": "Baris 1 kiri bertemu kolom 1 kanan: 0(1) + (-1)(0) = 0. Itu kotak kiri atas."
+      "teks": "Perkaliannya begini. Baris pertama matriks kiri bertemu kolom pertama matriks kanan: nol kali satu, ditambah negatif satu kali nol, sama dengan nol. Itu kotak kiri atas. Tiga kotak sisanya dengan cara yang sama: satu, satu, dan nol.",
+      "tulis": "Perkaliannya begini. Baris pertama matriks kiri bertemu kolom pertama matriks kanan: 0(1) + (-1)(0) = 0. Itu kotak kiri atas. Tiga kotak sisanya dengan cara yang sama: 1, 1, dan 0."
     },
     {
       "id": "hasil",
-      "teks": "Kalikan keduanya dengan urutan yang benar, dan hasilnya matriks cermin pada garis y sama dengan x. Dikenakan pada tiga koma satu memberi satu koma tiga, sama dengan hitungan langkah demi langkah tadi.",
-      "tulis": "Urutan yang benar memberi matriks cermin garis y = x. Pada (3, 1) hasilnya (1, 3)."
+      "teks": "Hasilnya: baris pertama nol dan satu, baris kedua satu dan nol. Itu matriks cermin pada garis y sama dengan x. Dikenakan pada tiga koma satu memberi satu koma tiga, sama persis dengan hitungan langkah demi langkah tadi.",
+      "tulis": "Hasilnya: baris pertama 0 dan 1, baris kedua 1 dan 0. Itu matriks cermin pada garis y = x. Dikenakan pada (3, 1) memberi (1, 3), sama persis dengan hitungan langkah demi langkah tadi."
     },
     {
       "id": "periksa",
       "teks": "Jangan percaya begitu saja. Kenakan matriks gabungan itu pada seluruh bentuknya sekaligus, lalu bandingkan dengan hasil dua langkah tadi. Keduanya berimpit.",
-      "tulis": "Kenakan matriks gabungan pada seluruh bentuk, bandingkan dengan hasil dua langkah: berimpit."
+      "tulis": "Jangan percaya begitu saja. Kenakan matriks gabungan itu pada *seluruh bentuknya* sekaligus, lalu bandingkan dengan hasil dua langkah tadi. Keduanya berimpit."
     },
     {
       "id": "tutup",
-      "teks": "Kalau urutan matriksnya tertukar, jawabannya bukan kacau, melainkan jawaban untuk urutan yang sebaliknya. Itu sebabnya jebakan ini berbahaya: hasilnya terlihat masuk akal.",
-      "tulis": "Urutan matriks yang tertukar memberi jawaban untuk urutan sebaliknya, bukan yang kacau."
+      "teks": "Kalau urutan matriksnya tertukar, M satu kali M dua, jawabannya bukan kacau, melainkan jawaban untuk urutan yang sebaliknya: cermin pada garis y sama dengan negatif x. Itu sebabnya jebakan ini berbahaya: hasilnya terlihat masuk akal.",
+      "tulis": "Kalau urutan matriksnya tertukar, M1 M2, jawabannya bukan kacau, melainkan jawaban untuk urutan yang *sebaliknya*: cermin pada garis y = -x. Itu sebabnya jebakan ini berbahaya: hasilnya terlihat masuk akal."
     },
     {
       "id": "sama",
       "teks": "Tapi urutan tidak selalu penting. Dua putaran terhadap pusat yang sama boleh ditukar, sebab tiga puluh derajat lalu enam puluh derajat sama saja dengan enam puluh lalu tiga puluh.",
-      "tulis": "Urutan tidak selalu penting: 30° lalu 60° sama saja dengan 60° lalu 30°."
+      "tulis": "Tapi urutan tidak selalu penting. Dua putaran terhadap pusat yang sama boleh ditukar, sebab 30° lalu 60° sama saja dengan 60° lalu 30°."
+    },
+    {
+      "id": "umum",
+      "teks": "Bentuk umumnya, untuk tiga langkah atau lebih: T satu, lalu T dua, lalu T tiga, matriks gabungannya M tiga kali M dua kali M satu. Yang pertama dikerjakan tetap paling kanan. Satu catatan: translasi bukan perkalian, jadi langkah itu dikerjakan terpisah.",
+      "tulis": "Bentuk umumnya, untuk tiga langkah atau lebih: T1, lalu T2, lalu T3, matriks gabungannya M3 M2 M1. Yang pertama dikerjakan tetap paling kanan. Satu catatan: translasi bukan perkalian, jadi langkah itu dikerjakan terpisah."
     },
     {
       "id": "jaga",
-      "teks": "Cara menjaganya cuma satu: bacalah dari kanan ke kiri, seperti koordinatnya sendiri dibaca. Yang paling dekat dengan koordinat itulah yang dikerjakan lebih dulu.",
-      "tulis": "Bacalah dari kanan ke kiri: yang paling dekat koordinat dikerjakan lebih dulu."
+      "teks": "Cara menjaganya cuma satu: bacalah dari kanan ke kiri, mulai dari koordinatnya. Yang paling dekat dengan koordinat itulah yang dikerjakan lebih dulu.",
+      "tulis": "Cara menjaganya cuma satu: bacalah dari kanan ke kiri, mulai dari koordinatnya. Yang paling dekat dengan koordinat itulah yang dikerjakan lebih dulu."
     },
     {
       "id": "rangkum",
       "teks": "Rangkumannya satu kalimat: perkalian matriks menggabungkan dua transformasi jadi satu, dan urutannya dibaca dari kanan. Satu pertanyaan: kalau sebuah bentuk dicerminkan pada sumbu X dua kali berturut-turut, matriks gabungannya apa?",
-      "tulis": "Perkalian matriks menggabungkan dua transformasi, urutannya dibaca dari kanan. Dicerminkan sumbu X dua kali, gabungannya apa?"
+      "tulis": "Rangkumannya satu kalimat: perkalian matriks menggabungkan dua transformasi jadi satu, dan urutannya dibaca *dari kanan*. Satu pertanyaan: kalau sebuah bentuk dicerminkan pada sumbu X dua kali berturut-turut, matriks gabungannya apa?"
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Penerapan Transformasi Geometri, kita lihat siapa yang memakai semua ini setiap hari: motif batik, permainan di layar, dan lengan robot. Di sana matriks gabungan tadi dipakai ribuan kali per detik.",
+      "tulis": "Di materi berikutnya, Penerapan Transformasi Geometri, kita lihat siapa yang memakai semua ini setiap hari: motif batik, permainan di layar, dan lengan robot. Di sana matriks gabungan tadi dipakai ribuan kali per detik."
     }
   ]
 }

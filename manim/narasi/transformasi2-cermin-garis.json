@@ -2,17 +2,17 @@
   "adegan": "TransformasiCerminGaris",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Video 02 topik Transformasi Geometri, Materi 02 'Cermin pada garis tegak dan mendatar'. VERSI 3 (8 Sep 2026): ditulis ulang dari 18 segmen 125 detik jadi 30 segmen sekitar 5 menit. Segar-ingat menagih VIDEO 01 topik ini: Materi 01 'Setiap titik ikut pindah', aturan (x, y) -> (x, -y), dan gagasan bahwa yang dijaga adalah JARAK tiap titik ke garis lipatan. Rumus 2k - x DIBUKTIKAN dari jarak itu, bukan disodorkan: versi 2 langsung menyebut rumusnya lalu mengujinya. Materi ini nomor DUA, jadi istilah yang boleh dipakai cuma prapeta, peta, dan cermin; translasi, rotasi, dilatasi, matriks, dan komposisi masih di depan. Penutup menunjuk video berikutnya dengan kata sehari-hari 'diputar', sebab istilah rotasi baru diajarkan Materi 06.",
+  "catatan": "Video 02 topik Transformasi Geometri, Materi 02 'Cermin pada garis tegak dan mendatar'. VERSI 3 (8 Sep 2026): ditulis ulang dari 18 segmen 125 detik jadi 30 segmen sekitar 5 menit. Segar-ingat menagih VIDEO 01 topik ini: Materi 01 'Setiap titik ikut pindah', aturan (x, y) -> (x, -y), dan gagasan bahwa yang dijaga adalah JARAK tiap titik ke garis lipatan. Rumus 2k - x DIBUKTIKAN dari jarak itu, bukan disodorkan: versi 2 langsung menyebut rumusnya lalu mengujinya. Materi ini nomor DUA, jadi istilah yang boleh dipakai cuma prapeta, peta, dan cermin; translasi, rotasi, dilatasi, matriks, dan komposisi masih di depan. Penutup menunjuk video berikutnya dengan kata sehari-hari 'diputar', sebab istilah rotasi baru diajarkan Materi 06. DISESUAIKAN v3.1 (MASTER 12 Sep 2026): pembuka menyebut sub-bab plus Bagian 2, segar-ingat menyebut Bagian 1, penutup menunjuk Bagian 3 (cermin miring) dengan kata materi.",
   "segmen": [
     {
       "id": "buka",
-      "teks": "Cerminnya tidak selalu tepat di sumbu. Kalau garisnya digeser, rumusnya berubah jadi apa?",
-      "tulis": "Cerminnya tidak selalu tepat di sumbu. Kalau garisnya digeser, rumusnya berubah jadi apa?"
+      "teks": "Prapeta, Peta, dan Pencerminan, Bagian dua. Cerminnya tidak selalu tepat di sumbu. Kalau garisnya digeser, rumusnya berubah jadi apa?",
+      "tulis": "Prapeta, Peta, dan Pencerminan, Bagian 2. Cerminnya tidak selalu tepat di sumbu. Kalau garisnya digeser, rumusnya berubah jadi apa?"
     },
     {
       "id": "ingat_satu",
-      "teks": "Di Materi pertama, *Setiap titik ikut pindah*, kita menemukan aturan x koma y menjadi x koma negatif y.",
-      "tulis": "Di Materi 01, *Setiap titik ikut pindah*, kita menemukan aturan (x, y) menjadi (x, -y)."
+      "teks": "Di Prapeta, Peta, dan Pencerminan, Bagian satu, *Setiap titik ikut pindah*, kita menemukan aturan x koma y menjadi x koma negatif y.",
+      "tulis": "Di Prapeta, Peta, dan Pencerminan, Bagian 1, *Setiap titik ikut pindah*, kita menemukan aturan (x, y) menjadi (x, -y)."
     },
     {
       "id": "ingat_jarak",
@@ -156,8 +156,8 @@
     },
     {
       "id": "berikut",
-      "teks": "Di video berikutnya bendanya tidak dilipat, melainkan diputar. Dan gagasan jarak yang kita pakai hari ini tetap yang menuntun kita.",
-      "tulis": "Di video berikutnya bendanya tidak dilipat, melainkan diputar. Dan gagasan jarak yang kita pakai hari ini tetap yang menuntun kita."
+      "teks": "Di materi berikutnya, Prapeta, Peta, dan Pencerminan, Bagian tiga, cerminnya miring: garis y sama dengan x. Dan gagasan jarak yang kita pakai hari ini tetap yang menuntun kita.",
+      "tulis": "Di materi berikutnya, Prapeta, Peta, dan Pencerminan, Bagian 3, cerminnya miring: garis y = x. Dan gagasan jarak yang kita pakai hari ini tetap yang menuntun kita."
     }
   ]
 }
