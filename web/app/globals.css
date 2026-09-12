@@ -816,6 +816,17 @@ video::cue(b) { font-weight: 700; }
 }
 .atur-subtitle button:hover { border-color: var(--tegas); color: var(--tinta); }
 .atur-subtitle .nilai { color: var(--tinta); min-width: 3.2em; }
+/* Saklar hidup-matikan subtitle (permintaan ARYA 12 Sep 2026). Saat hidup
+   tombolnya terisi emas supaya keadaannya terbaca sekilas; saat mati kembali
+   ke gaya tombol biasa. */
+.atur-subtitle .saklar {
+  width: auto; padding: 0 10px; margin-right: 6px;
+  letter-spacing: 0.06em; text-transform: uppercase; font-size: 10.5px;
+}
+.atur-subtitle .saklar[aria-pressed="true"] {
+  background: var(--emas); border-color: var(--emas); color: var(--tinta);
+}
+.atur-subtitle .saklar[aria-pressed="true"]:hover { color: var(--tinta); }
 
 /* ============================================================
    HALAMAN DEPAN: sambutan, demo, isi situs, kaki
@@ -2119,13 +2130,24 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 }
 .notasi-kolom i { font-style: normal; text-align: center; }
 .notasi-ij { font-family: var(--font-serif), Georgia, serif; font-style: italic; font-size: 13px; color: var(--tinta-72); }
-/* Tombol segmen, sama rupa dengan segmen Tonton / Coba sendiri. */
+/* Tombol segmen, sama rupa dengan segmen Tonton / Coba sendiri.
+   Tombolnya MEMBUNGKUS ke baris berikutnya kalau tidak muat (flex-wrap),
+   bukan berjajar paksa dalam satu baris. Versi lama memakai grid satu baris
+   berkolom sama lebar, sehingga di jendela sempit tombol paling kanan
+   terdorong keluar kotak dan tidak terlihat: sudut 180° sampai 360° di
+   Trigonometri materi 7 baru muncul kalau jendelanya dilebarkan (temuan
+   ARYA 12 Sep 2026). Tiap tombol mengisi sisa lebar barisnya, jadi pada
+   pilihan yang sedikit rupanya tetap seperti dulu. */
 .pilihan-segmen {
-  display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr;
-  border: 1px solid var(--garis-tegas); border-radius: var(--r-pil);
+  display: inline-flex; flex-wrap: wrap; gap: 2px;
+  /* 21px = setengah tinggi satu baris (34 + 2 x 3 + 2 x 1), jadi satu baris
+     tetap berbentuk pil; pada dua baris ke atas sudutnya tidak lagi membulat
+     seperti telur yang menjepit tombol di pojoknya. */
+  border: 1px solid var(--garis-tegas); border-radius: 21px;
   padding: 3px; background: var(--cekung); max-width: 100%;
 }
 .pilihan-segmen button {
+  flex: 1 1 auto;
   min-height: 34px; padding: 0 12px; border: 0; border-radius: var(--r-pil);
   font: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer; white-space: nowrap;
   background: transparent; color: var(--tinta-62);

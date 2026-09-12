@@ -20,12 +20,12 @@ Kalau ujungnya semula di (4, 0), di mana ia sekarang?
 Di Prapeta, Peta, dan Pencerminan, Bagian 4,
 
 5
-00:00:16.828 --> 00:00:20.131
-cermin pada titik asal memberi aturan (x,
+00:00:16.828 --> 00:00:19.245
+cermin pada titik asal memberi
 
 6
-00:00:20.131 --> 00:00:21.743
-y) menjadi (-x, -y).
+00:00:19.245 --> 00:00:21.743
+aturan (x, y) menjadi (-x, -y).
 
 7
 00:00:21.743 --> 00:00:22.943
@@ -44,241 +44,237 @@ dari arah yang tidak terduga.
 Ujung jarum jam ini ada di (4, 0).
 
 11
-00:00:30.461 --> 00:00:32.664
+00:00:30.461 --> 00:00:32.628
 Ia berputar seperempat putaran
 
 12
-00:00:32.664 --> 00:00:34.575
-berlawanan arah jarum jam,
+00:00:32.628 --> 00:00:35.018
+berlawanan arah jarum jam, 90°.
 
 13
-00:00:34.575 --> 00:00:35.925
-90°.
-
-14
 00:00:36.235 --> 00:00:38.214
 Ia mendarat di (0, 4).
 
-15
+14
 00:00:38.948 --> 00:00:42.506
 Jaraknya dari pusat <b>tetap</b> 4, yang berubah cuma arahnya.
 
-16
+15
 00:00:43.701 --> 00:00:45.516
 Sekarang bentuk L ini kita
 
-17
+16
 00:00:45.516 --> 00:00:47.759
 putar 90° terhadap titik asal.
 
-18
+17
 00:00:48.493 --> 00:00:51.012
 Tiap sudutnya berjalan di busurnya sendiri.
 
-19
+18
 00:00:52.235 --> 00:00:54.626
 Dua angka ini jarak titik B ke pusat,
 
-20
+19
 00:00:54.626 --> 00:00:56.069
 sebelum dan sesudah.
 
-21
+20
 00:00:56.803 --> 00:00:59.611
 Keduanya <b>sama</b>, dan itu ciri rotasi.
 
-22
+21
 00:01:00.800 --> 00:01:02.161
 Dari mana rumusnya?
 
-23
+22
 00:01:02.911 --> 00:01:04.115
 Titik B, (6, 1),
 
-24
+23
 00:01:04.115 --> 00:01:06.148
 dicapai dengan 6 langkah ke
 
-25
+24
 00:01:06.148 --> 00:01:08.482
 kanan lalu 1 langkah ke atas.
 
-26
+25
 00:01:09.226 --> 00:01:11.963
 Putar kedua langkah itu seperempat putaran:
 
-27
+26
 00:01:11.963 --> 00:01:13.808
 6 ke kanan menjadi 6 <b>ke atas</b>,
 
-28
+27
 00:01:13.808 --> 00:01:15.995
 dan 1 ke atas menjadi 1 <b>ke kiri</b>.
 
-29
+28
 00:01:17.201 --> 00:01:19.891
 Jadi B mendarat di (-1, 6).
 
-30
+29
 00:01:20.639 --> 00:01:22.537
 Untuk titik sembarang sama saja:
 
-31
+30
 00:01:22.537 --> 00:01:24.256
 x ke kanan menjadi x ke atas,
 
-32
+31
 00:01:24.256 --> 00:01:26.066
 y ke atas menjadi y ke kiri.
 
-33
+32
 00:01:26.795 --> 00:01:30.037
 Aturannya (x, y) menjadi (-y, x).
 
-34
+33
 00:01:31.235 --> 00:01:34.727
 Kita uji sekali lagi pada titik A, (1, 1).
 
-35
+34
 00:01:35.475 --> 00:01:36.972
 Tukar dulu keduanya,
 
-36
+35
 00:01:36.972 --> 00:01:40.862
 lalu beri tanda minus pada yang di depan: (-1, 1).
 
-37
+36
 00:01:41.592 --> 00:01:43.189
 Cocok dengan gambarnya.
 
-38
+37
 00:01:44.416 --> 00:01:47.314
 Contoh kedua, dan sengaja berbeda:
 
-39
+38
 00:01:47.314 --> 00:01:50.618
 sekarang tiga perempat putaran, 270°.
 
-40
+39
 00:01:51.849 --> 00:01:54.446
 Aturannya berubah jadi (y, -x).
 
-41
+40
 00:01:54.823 --> 00:01:57.506
 Titik B (6, 1) mendarat di (1, -6),
 
-42
+41
 00:01:57.506 --> 00:01:59.802
 dan jaraknya ke pusat tetap.
 
-43
+42
 00:02:01.001 --> 00:02:02.704
 Sekarang setengah putaran.
 
-44
+43
 00:02:03.453 --> 00:02:06.958
 Perhatikan hasilnya: (-x, -y).
 
-45
+44
 00:02:08.168 --> 00:02:09.911
 Itu persis rumus cermin pada titik
 
-46
+45
 00:02:09.911 --> 00:02:11.805
 asal yang kita ingat di awal tadi.
 
-47
+46
 00:02:12.539 --> 00:02:14.767
 Jadi keduanya memang <b>satu hal yang sama</b>:
 
-48
+47
 00:02:14.767 --> 00:02:16.978
 setengah putaran adalah cermin titik.
 
-49
+48
 00:02:18.168 --> 00:02:20.739
 Sekarang kekeliruan yang paling sering terjadi.
 
-50
+49
 00:02:21.473 --> 00:02:24.048
 Jarum merah ini diputar ke arah yang <b>salah</b>,
 
-51
+50
 00:02:24.048 --> 00:02:25.398
 searah jarum jam.
 
-52
+51
 00:02:26.435 --> 00:02:29.282
 Sudut positif selalu <b>berlawanan</b> arah jarum jam.
 
-53
+52
 00:02:30.031 --> 00:02:32.660
 Salah arah membuat jawabannya mendarat di seberang,
 
-54
+53
 00:02:32.660 --> 00:02:34.615
 tepat berlawanan dengan yang benar.
 
-55
+54
 00:02:35.835 --> 00:02:39.353
 Kalau pusatnya bukan titik asal, jangan cari rumus baru.
 
-56
+55
 00:02:40.087 --> 00:02:43.747
 <b>Geser</b> dulu supaya pusatnya jatuh di titik asal, <b>putar</b>,
 
-57
+56
 00:02:43.747 --> 00:02:45.185
 lalu <b>geser kembali</b>.
 
+57
+00:02:46.416 --> 00:02:49.344
+Bentuk umumnya, untuk sudut a sembarang:
+
 58
-00:02:46.416 --> 00:02:49.637
-Bentuk umumnya, untuk sudut a sembarang: (x,
+00:02:49.344 --> 00:02:53.447
+(x, y) menjadi (x cos a - y sin a, x sin a + y cos a).
 
 59
-00:02:49.637 --> 00:02:53.447
-y) menjadi (x cos a - y sin a, x sin a + y cos a).
+00:02:54.195 --> 00:02:57.301
+Coba a = 90°: cos 0 dan sin 1,
 
 60
-00:02:54.195 --> 00:02:59.165
-Coba a = 90°: cos 0 dan sin 1, dan lahirlah (-y,
+00:02:57.301 --> 00:03:00.661
+dan lahirlah (-y, x) yang tadi.
 
 61
-00:02:59.165 --> 00:03:00.661
-x) yang tadi.
-
-62
 00:03:01.868 --> 00:03:03.451
 Rangkumannya satu kalimat:
 
-63
+62
 00:03:03.451 --> 00:03:06.251
 rotasi <b>menjaga jarak</b> setiap titik ke pusatnya,
 
-64
+63
 00:03:06.251 --> 00:03:08.044
 dan hanya mengubah arahnya.
 
-65
+64
 00:03:09.268 --> 00:03:10.468
 Satu pertanyaan:
 
-66
+65
 00:03:10.468 --> 00:03:13.567
 kalau sebuah titik tepat berada <b>di</b> pusat putarannya,
 
-67
+66
 00:03:13.567 --> 00:03:14.917
 ke mana ia pergi?
 
-68
+67
 00:03:15.218 --> 00:03:19.430
 Di materi berikutnya, Translasi, Rotasi, dan Dilatasi,
 
-69
+68
 00:03:19.430 --> 00:03:23.409
 Bagian 3, justru jarak ke pusat itulah yang diubah:
 
-70
+69
 00:03:23.409 --> 00:03:25.197
 bentuknya diperbesar.

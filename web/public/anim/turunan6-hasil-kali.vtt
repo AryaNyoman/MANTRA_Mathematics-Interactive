@@ -220,12 +220,12 @@ Hasilnya <b>sama persis</b>.
 Kekeliruan yang paling sering:
 
 55
-00:03:05.218 --> 00:03:09.267
-turunan hasil kali dikira hasil kali turunannya, 2x · 1,
+00:03:05.218 --> 00:03:08.688
+turunan hasil kali dikira hasil kali turunannya,
 
 56
-00:03:09.267 --> 00:03:10.617
-yaitu 2x.
+00:03:08.688 --> 00:03:10.068
+2x · 1, yaitu 2x.
 
 57
 00:03:10.800 --> 00:03:14.424

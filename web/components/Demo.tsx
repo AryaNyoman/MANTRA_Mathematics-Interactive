@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { alamatAnim } from '@/components/PemutarVideo'
 
 /**
  * Apakah pengguna minta gerakan dikurangi (Pengaturan sistem, bukan situs).
@@ -218,20 +219,20 @@ export default function Demo() {
                      berukuran megabita di kuota siswa yang belum tentu
                      menontonnya. */
                   preload={k.loop ? 'auto' : 'metadata'}
-                  poster={`/anim/${k.poster}`}
+                  poster={alamatAnim(k.poster)}
                   aria-label={k.judul}
                   onLoadedData={() => tandai(i)}
                   onCanPlay={() => tandai(i)}
                   onError={() => tandai(i)}
                 >
                   <source
-                    src={`/anim/${k.berkas}`}
+                    src={alamatAnim(k.berkas)}
                     type={k.berkas.endsWith('.webm') ? 'video/webm' : 'video/mp4'}
                   />
                   {k.teks && (
                     <track
                       kind="subtitles"
-                      src={`/anim/${k.berkas.replace(/\.webm$/, '.vtt')}`}
+                      src={alamatAnim(k.berkas.replace(/\.(webm|mp4)$/, '.vtt'))}
                       srcLang="id"
                       label="Bahasa Indonesia"
                       default

@@ -42,6 +42,13 @@ TUJUAN = AKAR / "web" / "public" / "anim"
 # dengan ukuran subtitle 90 persen; di layar HP tetap membungkus, itu diterima.
 MAKS_HURUF = 56
 MIN_DETIK = 1.2
+# Tidak ada baris yang lebih pendek dari ini (aturan ARYA 12 Sep 2026):
+# kalimat jangan dipotong kalau potongan keduanya cuma sepatah kata seperti
+# "yaitu 21." yang berkedip sedetik lalu hilang. Kalau potongan sependek itu
+# tidak terhindarkan tanpa melewati MAKS_HURUF, kalimatnya dibiarkan sedikit
+# kepanjangan: baris yang membungkus di layar sempit lebih baik daripada
+# sepatah kata yang berkedip.
+MIN_HURUF = 10
 
 # Kata bilangan yang menandakan segmen butuh medan `tulis` (angka, bukan ejaan).
 KATA_BILANGAN = re.compile(
@@ -106,18 +113,86 @@ def bentuk_tulis(seg: dict) -> str:
 
 
 def _gabung_potongan(potongan: list[str]) -> list[str]:
-    """Rangkai potongan berurutan selama muat MAKS_HURUF; yang tidak muat mulai baris baru."""
-    hasil: list[str] = []
-    gabung = ""
-    for c in potongan:
-        if gabung and panjang_tampak(gabung) + panjang_tampak(c) + 1 > MAKS_HURUF:
-            hasil.append(gabung)
-            gabung = c
+    """Rangkai potongan berurutan jadi baris-baris yang muat MAKS_HURUF.
+
+    Dipilih susunan dengan baris PALING SEDIKIT; kalau ada beberapa, yang
+    paling sedikit barisnya lebih pendek dari MIN_HURUF; sesudah itu baru
+    yang paling serakah dari kiri (baris pertama sepanjang mungkin, lalu
+    baris kedua, dan seterusnya), yaitu persis hasil versi lama. Jadi
+    pemotongan yang sudah ditonton ARYA tidak berubah, KECUALI kalimat
+    yang ekornya tinggal sepatah kata ("yaitu 21.") berkedip sendirian
+    (temuan ARYA 12 Sep 2026). Potongan tunggal yang sendirinya melewati
+    MAKS_HURUF tetap diloloskan sebagai satu baris: `_pecah_kata` yang
+    memecahnya.
+    """
+    n = len(potongan)
+    if n == 0:
+        return []
+    pj = [panjang_tampak(c) for c in potongan]
+    # terbaik[i] = (jumlah baris, jumlah baris pendek, urutan -panjang baris,
+    # daftar (awal, akhir)) untuk potongan[i:]; tuple dibandingkan berurutan.
+    terbaik: list = [None] * (n + 1)
+    terbaik[n] = (0, 0, (), ())
+    for i in range(n - 1, -1, -1):
+        calon = []
+        for j in range(i + 1, n + 1):
+            p = sum(pj[i:j]) + (j - i - 1)
+            if p > MAKS_HURUF and j > i + 1:
+                break
+            baris_n, pendek, neg_panjang, susunan = terbaik[j]
+            calon.append((baris_n + 1, pendek + (p < MIN_HURUF), (-p,) + neg_panjang,
+                          ((i, j),) + susunan))
+        terbaik[i] = min(calon)
+    return [" ".join(potongan[a:b]) for a, b in terbaik[0][3]]
+
+
+def _rapikan_pendek(baris: list[str]) -> list[str]:
+    """Baris yang lebih pendek dari MIN_HURUF digabung ke tetangganya yang lebih pendek.
+
+    Dijalankan SESUDAH semua pemotongan, jadi hasil gabungannya boleh
+    melewati MAKS_HURUF: itulah maksud aturannya, jangan dipotong kalau
+    potongannya cuma sepatah kata.
+    """
+    baris = list(baris)
+    i = 0
+    while len(baris) > 1 and i < len(baris):
+        if panjang_tampak(baris[i]) >= MIN_HURUF:
+            i += 1
+            continue
+        if i == 0:
+            ke = 1
+        elif i == len(baris) - 1:
+            ke = i - 1
         else:
-            gabung = f"{gabung} {c}".strip()
-    if gabung:
-        hasil.append(gabung)
-    return hasil
+            ke = i - 1 if panjang_tampak(baris[i - 1]) <= panjang_tampak(baris[i + 1]) else i + 1
+        kiri, kanan = (ke, i) if ke < i else (i, ke)
+        baris[kiri:kanan + 1] = [f"{baris[kiri]} {baris[kanan]}"]
+        i = kiri
+    return baris
+
+
+def _potong_jeda(b: str) -> list[str]:
+    """Potong kalimat di tanda jeda (, ; :) yang berada di LUAR tanda kurung.
+
+    Koma di dalam kurung adalah bagian lambangnya, bukan jeda kalimat:
+    "(cos θ, sin θ)" dan "(1, 0)" pernah terbelah menjadi "(cos θ," dan
+    "sin θ)." di dua baris (Trigonometri 7 dan 8, Transformasi 5).
+    """
+    hasil: list[str] = []
+    awal = 0
+    dalam = 0
+    for i, h in enumerate(b):
+        if h in "([{":
+            dalam += 1
+        elif h in ")]}":
+            dalam = max(dalam - 1, 0)
+        elif h in ",;:" and dalam == 0 and i + 1 < len(b) and b[i + 1] == " ":
+            hasil.append(b[awal:i + 1].strip())
+            awal = i + 1
+    sisa = b[awal:].strip()
+    if sisa:
+        hasil.append(sisa)
+    return [c for c in hasil if c]
 
 
 def _pecah_kata(b: str) -> list[str]:
@@ -129,16 +204,26 @@ def _pecah_kata(b: str) -> list[str]:
     if panjang_tampak(b) <= MAKS_HURUF:
         return [b]
     kata = b.split(" ")
+    # Titik potong di dalam tanda kurung dihindari dulu ("(cos θ, sin θ)"
+    # jangan terbelah); kalau tidak ada titik lain, baru dibolehkan.
+    luar_kurung = set()
+    dalam = 0
+    for i, k in enumerate(kata):
+        if dalam == 0:
+            luar_kurung.add(i)
+        dalam += sum(k.count(h) for h in "([{") - sum(k.count(h) for h in ")]}")
+        dalam = max(dalam, 0)
     # Coba dari tengah ke luar, cari pemotongan yang membuat kedua sisi muat
     # sebanyak mungkin; kalau sisi kanan masih panjang, ia dipecah lagi (rekursif).
     tengah = len(kata) // 2
-    for jarak in range(0, len(kata)):
-        for i in (tengah - jarak, tengah + jarak):
-            if 0 < i < len(kata):
-                kiri = " ".join(kata[:i])
-                if panjang_tampak(kiri) <= MAKS_HURUF:
-                    kanan = " ".join(kata[i:])
-                    return [kiri] + _pecah_kata(kanan)
+    for boleh in (luar_kurung, set(range(len(kata)))):
+        for jarak in range(0, len(kata)):
+            for i in (tengah - jarak, tengah + jarak):
+                if 0 < i < len(kata) and i in boleh:
+                    kiri = " ".join(kata[:i])
+                    if panjang_tampak(kiri) <= MAKS_HURUF:
+                        kanan = " ".join(kata[i:])
+                        return [kiri] + _pecah_kata(kanan)
     return [b]
 
 
@@ -149,6 +234,9 @@ def pecah(teks: str) -> list[str]:
     panjang, di spasi kata. Temuan UI/UX 3 Sep 2026: versi lama hanya memotong
     di titik dan koma, sehingga 38 persen baris melewati 56 huruf dan yang
     terpanjang 101 huruf. Sekarang batasnya DITEGAKKAN, bukan diharapkan.
+    Satu-satunya pengecualian: potongan yang lebih pendek dari MIN_HURUF
+    digabung kembali ke tetangganya walau hasilnya melewati batas
+    (`_rapikan_pendek`, aturan ARYA 12 Sep 2026).
     """
     teks = " ".join(teks.split())
     if panjang_tampak(teks) <= MAKS_HURUF:
@@ -158,9 +246,11 @@ def pecah(teks: str) -> list[str]:
         if panjang_tampak(b) <= MAKS_HURUF:
             hasil.append(b)
             continue
-        potong = [c.strip() for c in re.split(r"(?<=[,;:])\s+", b) if c.strip()]
+        potong = _potong_jeda(b)
+        baris_kalimat: list[str] = []
         for baris in _gabung_potongan(potong):
-            hasil.extend(_pecah_kata(baris))
+            baris_kalimat.extend(_pecah_kata(baris))
+        hasil.extend(_rapikan_pendek(baris_kalimat))
     return hasil or [teks]
 
 

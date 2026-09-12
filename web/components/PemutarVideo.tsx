@@ -2,6 +2,19 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { bacaAngka, langgan, simpanAngka } from '@/lib/simpanan'
+import versiAnim from '@/lib/versi-anim.json'
+
+/**
+ * Alamat berkas di /anim/ diberi sidik jari isinya (?v=...), dibuat oleh
+ * scripts/versi-anim.mjs sebelum build. Tanpa ini, video atau subtitle yang
+ * diganti isinya tanpa ganti nama tetap diambil peramban dari salinan lama
+ * sampai setahun (Cache-Control immutable di next.config.ts): ARYA melihat
+ * subtitle lama berjalan di atas video baru pada 12 Sep 2026.
+ */
+export const alamatAnim = (nama: string) => {
+  const v = (versiAnim as Record<string, string>)[nama]
+  return v ? `/anim/${nama}?v=${v}` : `/anim/${nama}`
+}
 
 /**
  * Pemutar video animasi Manim.
@@ -44,6 +57,11 @@ type Props = {
 const berkasSubtitle = (berkas: string) => berkas.replace(/\.(webm|mp4)$/, '.vtt')
 
 const KUNCI_UKURAN = 'matra:subtitle:ukuran'
+// 1 = subtitle tampil (bawaan), 0 = disembunyikan. Diingat antar materi.
+// Permintaan ARYA 12 Sep 2026: tombol hidup-matikan subtitle di tiap video,
+// sebab tombol CC bawaan peramban tidak ada di semua peramban dan letaknya
+// berbeda-beda.
+const KUNCI_TAMPIL = 'matra:subtitle:tampil'
 const UKURAN = [85, 100, 125, 155] as const
 // Bawaan 85%: keputusan ARYA 2 Sep 2026 malam, subtitle selalu SATU BARIS dengan
 // huruf dikecilkan (buat_subtitle.py memecah kalimat sampai 56 huruf). Siswa
@@ -53,6 +71,10 @@ const BAWAAN = 0 // 85%
 export default function PemutarVideo({ berkas, poster, judul }: Props) {
   const bungkus = useRef<HTMLDivElement>(null)
   const video = useRef<HTMLVideoElement>(null)
+  // Dideklarasikan di atas efek-efek yang memakainya (percobaan jadi kunci
+  // elemen video, jadi tiap efek yang memegang elemen itu ikut dijalankan ulang).
+  const [galat, setGalat] = useState(false)
+  const [percobaan, setPercobaan] = useState(0)
 
   /* Pilihan ukuran diingat antar materi: siswa yang perlu teks besar tidak
      harus mengaturnya ulang setiap kali berpindah.
@@ -70,6 +92,76 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
   useEffect(() => {
     bungkus.current?.style.setProperty('--ukuran-subtitle', `${UKURAN[tingkat]}%`)
   }, [tingkat])
+
+  const tampil = useSyncExternalStore(
+    langgan,
+    () => bacaAngka(KUNCI_TAMPIL, 1),
+    () => 1,
+  )
+
+  /* Subtitle dihidup-matikan lewat `mode` jalur teksnya, bukan dengan
+     mencabut <track>: jalurnya tetap dimuat, jadi menghidupkan lagi tidak
+     mengunduh ulang. Diterapkan ulang setiap jalurnya siap (`loadedmetadata`)
+     sebab peramban menyetel mode bawaan `showing` untuk track `default` saat
+     elemen videonya dibuat ulang (key berganti tiap pindah materi). */
+  useEffect(() => {
+    const v = video.current
+    if (!v) return
+    const terapkan = () => {
+      for (const t of Array.from(v.textTracks)) {
+        t.mode = tampil ? 'showing' : 'hidden'
+      }
+    }
+    terapkan()
+    v.addEventListener('loadedmetadata', terapkan)
+    v.textTracks.addEventListener?.('addtrack', terapkan)
+    return () => {
+      v.removeEventListener('loadedmetadata', terapkan)
+      v.textTracks.removeEventListener?.('addtrack', terapkan)
+    }
+  }, [tampil, berkas, percobaan])
+
+  /* Spasi = putar/jeda (permintaan ARYA 12 Sep 2026). Kontrol bawaan hanya
+     menanggapi spasi kalau elemen videonya sedang fokus, dan fokus itu hilang
+     begitu siswa mengeklik bacaan di sebelahnya. Di sini spasi ditangkap di
+     dokumen selama pemutar ini "dipegang": pernah disentuh atau diputar, dan
+     siswa belum mengeklik bagian halaman yang lain. Video yang sedang
+     berjalan selalu bisa dijeda dengan spasi. Spasi pada kotak isian atau
+     tombol (termasuk tombol subtitle di bawah pemutar) dibiarkan seperti
+     biasa. `preventDefault` sekaligus mencegah halaman menggulir dan mencegah
+     kontrol bawaan menanggapi spasi yang sama untuk kedua kalinya. */
+  useEffect(() => {
+    const v = video.current
+    const kotak = bungkus.current
+    if (!v || !kotak) return
+    let dipegang = false
+    const pegang = () => { dipegang = true }
+    const sentuh = (e: PointerEvent) => {
+      dipegang = kotak.contains(e.target as Node)
+    }
+    const tekan = (e: KeyboardEvent) => {
+      if (e.code !== 'Space' || e.repeat) return
+      const sasaran = e.target as HTMLElement | null
+      if (sasaran && sasaran !== v) {
+        const nama = sasaran.tagName
+        if (nama === 'INPUT' || nama === 'TEXTAREA' || nama === 'SELECT' || nama === 'BUTTON'
+            || sasaran.isContentEditable) return
+      }
+      if (!dipegang && !kotak.contains(document.activeElement) && v.paused) return
+      e.preventDefault()
+      dipegang = true
+      if (v.paused) void v.play()
+      else v.pause()
+    }
+    document.addEventListener('pointerdown', sentuh)
+    document.addEventListener('keydown', tekan)
+    v.addEventListener('play', pegang)
+    return () => {
+      document.removeEventListener('pointerdown', sentuh)
+      document.removeEventListener('keydown', tekan)
+      v.removeEventListener('play', pegang)
+    }
+  }, [berkas, percobaan])
 
   /* Kontrol bawaan disembunyikan setelah DIAM_DETIK detik menonton tanpa
      disentuh, lalu muncul lagi begitu mouse digerakkan, layar disentuh, atau
@@ -133,7 +225,9 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
       // tersembunyi kalau komponennya dipakai ulang
       v.setAttribute('controls', '')
     }
-  }, [berkas])
+    // `percobaan` ikut: "Coba lagi" membuat elemen video baru (key), dan
+    // pendengar di sini harus pindah ke elemen yang baru itu.
+  }, [berkas, percobaan])
 
   const ubah = (arah: -1 | 1) => {
     simpanAngka(
@@ -149,9 +243,6 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
      videonya. `percobaan` dipakai sebagai `key` supaya "Coba lagi" benar
      benar membuat elemen video baru; menyetel ulang `src` pada elemen yang
      sama tidak selalu memicu pemuatan ulang. */
-  const [galat, setGalat] = useState(false)
-  const [percobaan, setPercobaan] = useState(0)
-
   if (galat) {
     return (
       <div className="video-galat" role="alert">
@@ -197,15 +288,15 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
            2 Sep 2026.) */
         playsInline
         preload="metadata"
-        poster={poster ? `/anim/${poster}` : undefined}
+        poster={poster ? alamatAnim(poster) : undefined}
         aria-label={judul}
       >
         {/* Jenis MIME mengikuti ekstensinya. Kalau dipatok "video/webm" untuk
             berkas .mp4, peramban menolak sumbernya sebelum mencoba memutar. */}
-        <source src={`/anim/${berkas}`} type={berkas.endsWith('.mp4') ? 'video/mp4' : 'video/webm'} />
+        <source src={alamatAnim(berkas)} type={berkas.endsWith('.mp4') ? 'video/mp4' : 'video/webm'} />
         <track
           kind="subtitles"
-          src={`/anim/${berkasSubtitle(berkas)}`}
+          src={alamatAnim(berkasSubtitle(berkas))}
           srcLang="id"
           label="Bahasa Indonesia"
           default
@@ -215,6 +306,11 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
       </video>
 
       <div className="atur-subtitle">
+        <button type="button" className="saklar"
+                aria-pressed={tampil === 1}
+                onClick={() => simpanAngka(KUNCI_TAMPIL, tampil ? 0 : 1)}>
+          Subtitle {tampil ? 'hidup' : 'mati'}
+        </button>
         <span>Ukuran teks</span>
         <button type="button" onClick={() => ubah(-1)}
                 disabled={tingkat === 0} aria-label="Perkecil teks subtitle">

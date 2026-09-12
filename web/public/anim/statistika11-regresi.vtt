@@ -112,121 +112,117 @@ Jadi tiap residu <b>dikuadratkan</b> dulu,
 lalu semuanya dijumlahkan.
 
 28
-00:01:11.553 --> 00:01:14.132
+00:01:11.553 --> 00:01:14.093
 Sekarang seluruh kemelesetan sebuah
 
 29
-00:01:14.132 --> 00:01:15.974
-garis tinggal <b>satu angka</b>:
+00:01:14.093 --> 00:01:16.492
+garis tinggal <b>satu angka</b>: 27,2.
 
 30
-00:01:15.974 --> 00:01:17.324
-27,2.
-
-31
 00:01:17.716 --> 00:01:20.750
 Sekarang garisnya kita putar,
 
-32
+31
 00:01:20.750 --> 00:01:26.550
 dan angka itu ikut berubah: 146, lalu 56,9, lalu <b>27,2</b>.
 
-33
+32
 00:01:27.283 --> 00:01:29.564
 Diputar terus, ia naik lagi.
 
-34
+33
 00:01:30.782 --> 00:01:34.014
 Jadi ada satu garis yang jumlah kuadratnya paling kecil,
 
-35
+34
 00:01:34.014 --> 00:01:35.364
 dan cuma satu.
 
-36
+35
 00:01:35.705 --> 00:01:37.828
 Itulah <b>metode kuadrat terkecil</b>.
 
-37
+36
 00:01:38.560 --> 00:01:43.434
 Garis terbaiknya ŷ = 49,2 + 3,2x.
 
-38
+37
 00:01:44.634 --> 00:01:46.337
 Dari mana 3,2?
 
-39
+38
 00:01:47.086 --> 00:01:55.805
 Dari lima jumlah: n = 10, Σx = 65, Σy = 700, Σxy = 4814,
 
-40
+39
 00:01:55.805 --> 00:01:57.512
 Σx² = 505.
 
-41
+40
 00:01:58.257 --> 00:02:09.723
 b = (nΣxy - Σx Σy) : (nΣx² - (Σx)²) = 2640 : 825 = 3,2.
 
-42
+41
 00:02:10.468 --> 00:02:16.960
 Lalu a = ȳ - b x̄ = 70 - 20,8 = 49,2.
 
-43
+42
 00:02:18.182 --> 00:02:20.153
 Kemiringan 3,2 itu punya arti:
 
-44
+43
 00:02:20.153 --> 00:02:22.911
 tiap tambahan <b>satu jam</b> belajar per minggu,
 
-45
+44
 00:02:22.911 --> 00:02:25.622
 nilai diramalkan naik sekitar 3,2 poin.
 
-46
+45
 00:02:26.833 --> 00:02:28.286
 Tetapi hati-hati.
 
-47
+46
 00:02:29.036 --> 00:02:34.133
 Diteruskan sampai 40 jam, garis ini meramalkan 177,2.
 
-48
+47
 00:02:34.878 --> 00:02:36.885
 Nilai ujian tidak bisa lewat 100,
 
-49
+48
 00:02:36.885 --> 00:02:38.739
 dan <b>garisnya tidak tahu itu</b>.
 
-50
+49
 00:02:39.949 --> 00:02:42.346
 Jadi garis yang benar bukan garis siapa-siapa,
 
-51
+50
 00:02:42.346 --> 00:02:43.753
 melainkan garis yang <b>jumlah</b>
 
-52
+51
 00:02:43.753 --> 00:02:45.368
 <b>kuadrat residunya paling kecil</b>,
 
-53
+52
 00:02:45.368 --> 00:02:47.140
 dan ramalannya hanya boleh dipakai
 
-54
+53
 00:02:47.140 --> 00:02:49.218
 di sekitar tempat datanya pernah ada.
 
-55
+54
 00:02:50.449 --> 00:02:54.468
 Di materi berikutnya, Hubungan Dua Variabel, Bagian 3,
 
-56
+55
 00:02:54.468 --> 00:02:57.744
 kekuatan hubungan diberi angka, namanya r.
 
-57
+56
 00:02:58.477 --> 00:03:02.824
 Kalau r = 0,98, apakah yang satu <b>menyebabkan</b> yang lain?

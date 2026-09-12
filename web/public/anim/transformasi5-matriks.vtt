@@ -1,6 +1,7 @@
 WEBVTT
 
 NOTE Dibuat otomatis dari manim/narasi/transformasi5-matriks.json
+NOTE naskah-sidik 7938c6de5e31
 
 1
 00:00:00.000 --> 00:00:03.744
@@ -131,13 +132,13 @@ menggeser memindahkan titik asal,
 perkalian matriks tidak.
 
 33
-00:02:10.800 --> 00:02:17.947
-Kedua kolom matriks = tempat mendaratnya (1, 0) dan (0,
+00:02:10.800 --> 00:02:14.438
+Kedua kolom matriks = tempat
 
 34
-00:02:17.947 --> 00:02:19.147
-1).
+00:02:14.438 --> 00:02:18.336
+mendaratnya (1, 0) dan (0, 1).
 
 35
-00:02:19.147 --> 00:02:23.664
+00:02:18.336 --> 00:02:23.664
 Matriks mana yang membuat sisinya jadi 2?

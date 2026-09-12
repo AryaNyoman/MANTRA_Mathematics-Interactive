@@ -20,12 +20,12 @@ Kalau garisnya digeser, rumusnya berubah jadi apa?
 Di Prapeta, Peta, dan Pencerminan, Bagian 1,
 
 5
-00:00:16.288 --> 00:00:20.543
-<b>Setiap titik ikut pindah</b>, kita menemukan aturan (x,
+00:00:16.288 --> 00:00:18.374
+<b>Setiap titik ikut pindah</b>,
 
 6
-00:00:20.543 --> 00:00:22.279
-y) menjadi (x, -y).
+00:00:18.374 --> 00:00:22.279
+kita menemukan aturan (x, y) menjadi (x, -y).
 
 7
 00:00:23.482 --> 00:00:26.027
@@ -308,12 +308,12 @@ Bendanya di bawah, bayangannya di atas,
 dan jaraknya sama.
 
 77
-00:03:56.982 --> 00:04:00.728
-Dengan alasan yang sama, aturannya menjadi (x,
+00:03:56.982 --> 00:03:58.937
+Dengan alasan yang sama,
 
 78
-00:04:00.728 --> 00:04:02.751
-y) menjadi (x, 2h - y).
+00:03:58.937 --> 00:04:02.751
+aturannya menjadi (x, y) menjadi (x, 2h - y).
 
 79
 00:04:03.483 --> 00:04:05.580

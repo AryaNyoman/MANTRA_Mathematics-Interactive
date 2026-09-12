@@ -1,5 +1,57 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 12 SEP (malam): PERBAIKAN GLOBAL ARYA, ENAM BUTIR
+
+Umpan balik ARYA sesudah 58 video v3.1 tayang, semuanya dikerjakan MASTER:
+1. DURASI SERAGAM PER BAB (pertanyaan, belum diubah). Diukur: Trigonometri
+   2:06 sampai 2:40, Limit 2:29 sampai 3:01, Statistika 03 sampai 13 2:23
+   sampai 3:04; yang bervariasi hanya Vektor (2:58 sampai 4:55), Ruang 3D (2:10
+   sampai 4:38), Transformasi (3:24 sampai 4:44), Turunan (3:35 sampai 5:55),
+   Integral (3:09 sampai 6:00). Sebabnya bukan aturan, melainkan cara
+   menulisnya: satu kerangka v3.1 yang sama, satu penulis, satu gelombang per
+   topik, dan isi disamakan dengan naskah lama yang disetujui (Trigonometri
+   memang 2 menit sejak awal). Menunggu ARYA menunjuk video mana yang perlu
+   lebih dalam.
+2. SUBTITLE "TELAT" DI DUA VIDEO PEMBUKA BAB. Diukur dari suara di mp4 final
+   (skrip scratchpad `ukur_sinkron_mp4.py`, energi per 10 ms dibanding cue vtt)
+   pada kesembilan video pembuka bab: cue mulai 0,10 sampai 0,24 detik SEBELUM
+   suara, rata-rata 0,13, tidak pernah sesudahnya. Berkasnya sinkron. Sebab
+   yang paling masuk akal: `/anim/*` dilayani immutable setahun
+   (next.config.ts) sedangkan mp4 dan vtt diganti isinya dengan nama yang
+   sama, jadi peramban ARYA memutar subtitle lama di atas video baru.
+   Perbaikan: `web/scripts/versi-anim.mjs` menulis `web/lib/versi-anim.json`
+   (sidik md5 tiap berkas anim), dijalankan otomatis lewat `prebuild`;
+   `alamatAnim()` di PemutarVideo menempelkan `?v=<sidik>` (Demo beranda
+   ikut). `cek_aset_video.py` kini menolak sidik yang basi (dibuktikan
+   dengan sidik yang ditanam salah).
+3. SAKLAR SUBTITLE di tiap pemutar ("Subtitle hidup / mati", diingat di
+   `matra:subtitle:tampil`, lewat `textTracks[].mode`, jalurnya tetap dimuat).
+4. ATURAN SUBTITLE BARU: tidak ada potongan lebih pendek dari 10 huruf
+   (`MIN_HURUF` di buat_subtitle.py; susunan potongan dicari yang paling
+   sedikit barisnya lalu paling serakah dari kiri, sama dengan dulu, dan
+   hanya berubah kalau ekornya sepatah kata; kalau tak terhindarkan, barisnya
+   dibiarkan melewati 56 huruf). Sekalian: koma di dalam kurung bukan lagi
+   titik potong ("(cos θ, sin θ)" pernah terbelah). 23 vtt berubah,
+   `cek_subtitle --semua` lolos. Kalimat pendek utuh seperti "Cocok." atau
+   "Bagi 2." tetap sendiri: itu irama naratornya, bukan potongan.
+5. SPASI = putar/jeda: ditangkap di dokumen selama pemutar "dipegang" (pernah
+   disentuh atau diputar, dan siswa belum mengeklik bagian lain halaman);
+   video yang berjalan selalu bisa dijeda; spasi di kotak isian dan tombol
+   dibiarkan. Diuji Playwright: putar, jeda, putar lagi; sesudah klik judul,
+   spasi tidak lagi mengenai video.
+6. TOMBOL PILIHAN KELUAR LAYAR (Trigonometri 07, 180° ke atas). `.pilihan-segmen`
+   dari grid satu baris jadi flex-wrap. Sapuan Playwright 105 materi x 3 lebar
+   (375, 1180, 1366): 68 kotak pilihan, tidak ada tombol keluar kotak; di
+   kolom alat 1366 ada 23 kotak yang sekarang membungkus dua sampai empat
+   baris (dulu terpotong). Sudut kotak 21px supaya dua baris tidak berbentuk
+   telur.
+- Vercel: proyek `matra` tinggal 3 deploy (produksi + `mantra-uji` 4 Sep +
+  `mantra-rancangan-v2` 5 Sep, keduanya punya alias bernama, belum dihapus
+  tanpa izin ARYA). Angka >10 GB di dasbor juga memuat dua proyek LENTERA
+  HARUM (simpus-imun 9 deploy, simpus-posyandu 20 deploy).
+Berikutnya: keputusan ARYA soal video yang mau diperdalam (butir 1) dan dua
+alias lama (mantra-uji, mantra-rancangan-v2).
+
 ## 12 SEP (petang): STATISTIKA 13 VIDEO 1080p SELESAI, RUANG 3D 01 DIRENDER ULANG, TRANSFORMASI 5, TURUNAN 06 07, INTEGRAL 5 DITULIS v3.1
 
 Ketiga belas Statistika (2:24 sampai 5:58) dirender 1080p60 satu per satu

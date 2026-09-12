@@ -23,7 +23,15 @@ Transformasi Geometri ke situs, dan keduanya lolos dari SEMUA gerbang yang ada:
    berikutnya yang membuka folder itu akan salah mengira segmennya masih ada.
    Itu sudah terjadi sekali pada video 03, 5 September.
 
-Ketiga cacat itu punya bentuk yang sama: berkas PENDAMPING video ketinggalan
+4. SIDIK VERSI BASI (12 Sep 2026). Alamat /anim/* diberi `?v=<sidik isi>`
+   dari `web/lib/versi-anim.json` supaya peramban yang menyimpan salinan lama
+   (Cache-Control immutable setahun) mengambil berkas baru begitu isinya
+   berganti. ARYA melihat subtitle lama berjalan di atas video baru karena
+   berkasnya diganti di tempat tanpa ganti alamat. Kalau sidiknya tidak
+   diperbarui (`node web/scripts/versi-anim.mjs`), alamatnya tidak berubah dan
+   peramban lama tetap memakai salinan basi: cacat yang sama persis.
+
+Keempat cacat itu punya bentuk yang sama: berkas PENDAMPING video ketinggalan
 saat videonya berubah. Video diperiksa berlapis-lapis di proyek ini, berkas
 pendampingnya tidak sama sekali. Berkas ini menutup celah itu.
 
@@ -38,6 +46,8 @@ kecil yang memang normal.
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
 import re
 import subprocess
 import sys
@@ -135,9 +145,32 @@ def suara_basi(topik: str) -> list[str]:
     return sorted(p.name for p in folder.glob("*.mp3") if p.name not in sah)
 
 
+def sidik_berkas(jalur: Path) -> str:
+    """Sidik yang sama dengan web/scripts/versi-anim.mjs: md5, 10 heksa pertama."""
+    h = hashlib.md5()
+    with jalur.open("rb") as f:
+        for potongan in iter(lambda: f.read(1 << 20), b""):
+            h.update(potongan)
+    return h.hexdigest()[:10]
+
+
+def versi_basi(topik: str, versi: dict) -> list[str]:
+    """Nama berkas anim topik ini yang sidiknya di versi-anim.json tidak sama dengan isinya."""
+    basi = []
+    for nama in (f"{topik}.mp4", f"{topik}.webm", f"{topik}.vtt", f"{topik}.jpg"):
+        p = ANIM / nama
+        if not p.exists():
+            continue
+        if versi.get(nama) != sidik_berkas(p):
+            basi.append(nama)
+    return basi
+
+
 def periksa(saring: str | None) -> int:
     from buat_poster import nilai  # noqa: E402
 
+    berkas_versi = AKAR / "web" / "lib" / "versi-anim.json"
+    versi = json.loads(berkas_versi.read_text(encoding="utf-8")) if berkas_versi.exists() else {}
     buruk = 0
     # Topik dikumpulkan dari video FINAL dan versi uji sekaligus, lalu
     # `video_topik` memilih yang final kalau ada. Dulu hanya `media/uji-480p`
@@ -196,6 +229,14 @@ def periksa(saring: str | None) -> int:
                 f"{len(basi)} potongan suara BASI, tidak disebut naskahnya lagi: "
                 + ", ".join(basi[:4]) + (" ..." if len(basi) > 4 else ""))
 
+        # Hanya video yang sudah tayang (di web/public/anim) yang punya alamat.
+        if v.parent == ANIM:
+            lama_versi = versi_basi(topik, versi)
+            if lama_versi:
+                catat.append(
+                    "sidik versi BASI (peramban lama akan memakai salinan lama): "
+                    + ", ".join(lama_versi) + ". Jalankan: node web/scripts/versi-anim.mjs")
+
         if catat:
             buruk += 1
             print(f"  CACAT  {topik}  ({lama:.1f} s)")
@@ -210,6 +251,7 @@ def periksa(saring: str | None) -> int:
         print("Subtitle: python manim/buat_subtitle.py <topik>")
         print("Poster  : python alat/buat_poster.py <topik> <detik>")
         print("Suara   : buang berkas mp3 yang namanya tidak ada di naskah")
+        print("Versi   : node web/scripts/versi-anim.mjs")
         return 1
     print(f"SEMUA LOLOS: {len(daftar)} video, subtitle, poster, dan potongan "
           f"suaranya cocok.")

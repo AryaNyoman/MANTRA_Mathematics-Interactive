@@ -1,6 +1,7 @@
 WEBVTT
 
 NOTE Dibuat otomatis dari manim/narasi/turunan1-laju-rata-rata.json (waktu kata rekaman)
+NOTE naskah-sidik 6862813d2333
 
 1
 00:00:00.101 --> 00:00:03.646
@@ -439,25 +440,21 @@ Jumlah tiap jam bisa berbeda.
 Rata-rata merangkum 1 rentang.
 
 110
-00:05:38.349 --> 00:05:39.549
-Jadi,
+00:05:38.349 --> 00:05:40.648
+Jadi, laju perubahan rata-rata adalah
 
 111
-00:05:39.549 --> 00:05:41.502
-laju perubahan rata-rata adalah
-
-112
-00:05:41.502 --> 00:05:43.720
+00:05:40.648 --> 00:05:42.973
 selisih hasil dibagi selisih waktu.
 
-113
+112
 00:05:43.720 --> 00:05:44.920
 Pada grafik,
 
-114
+113
 00:05:44.920 --> 00:05:48.224
 angka itu menjadi kemiringan garis penghubung 2 titik.
 
-115
+114
 00:05:48.456 --> 00:05:50.658
 Pilihan titiknya menentukan hasilnya.
