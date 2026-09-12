@@ -1,5 +1,41 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 13 SEP (dini hari): REVISI GLOBAL KEDUA ARYA (kotak coba, kotak angka, gulir ke atas), POTRET EMPAT GENERASI UI UNTUK TESIS, RETENTION VERCEL
+
+- Revisi ARYA 12 Sep malam, semuanya di perender (`Penjelasan.tsx`,
+  `HalamanTopik.tsx`, `globals.css`), tanpa mengubah 201 kotak isi:
+  1. Kotak "Yuk bereksperimen": langkah bernomor 1, 2, 3 (angka dalam kotak
+     emas). Kalimat sorot yang berdiri tepat di bawah kotak (11 tempat, 9 di
+     Trigonometri, 2 di Ruang 3D) ternyata jawaban percobaannya: kini masuk
+     ke dalam kotak sebagai penutup bersub-judul "Yang kamu temukan".
+     Kalimat sorot lainnya (123) bercap kecil "Intinya".
+  2. Kotak angka (contoh): barisnya dulu dijajarkan dengan spasi untuk huruf
+     lebar-sama, dan huruf MANTRA (3 Sep) merusak jajarannya. Sekarang baris
+     dipecah di dua spasi atau lebih jadi sel; kotak yang susunannya
+     konsisten (157) jadi grid (kolom selebar isinya, kolom terakhir mengisi
+     sisa), yang tidak konsisten (44: "masuk  0" dijajarkan ke "masuk -2",
+     deretan 15 angka) dirender dengan huruf lebar-sama sistem supaya
+     jajaran penulisnya utuh. Di HP: grid berkolom empat ke atas mengalir
+     seperti kalimat per baris; baris huruf lebar-sama yang kelewat panjang
+     dibungkus. `contain: inline-size` mencegah kotak melebarkan kolomnya.
+  3. Pindah materi (sidebar, Kembali/Lanjut) selalu mulai dari atas: kolom
+     bacaan, kolom alat, <main>, dan jendela digulir ke 0 (`kunciLayar`).
+  4. Sapuan Playwright 105 materi x 2 lebar (1366, 375): 0 masalah, tidak ada
+     kotak yang menggulir menyamping di HP, langkah bernomor di 100 kotak
+     coba, 11 "Yang kamu temukan".
+- Potret empat generasi tampilan untuk tesis: `docs/tesis/versi-ui/` (31
+  potret, README berisi tanggal, commit, ciri tiap generasi), kode
+  generasi lama dihidupkan dari git (`git archive`, node_modules junction,
+  `next dev --webpack`) dan dipotret `alat/potret_versi_ui.mjs`.
+- Vercel (ARYA login di Browser pane): Deployment Storage 12,1 GB, hampir
+  semuanya matra (11,82 GB) dari tumpukan deployment yang sudah dihapus;
+  angkanya per hari, jadi baru turun sehari kemudian; deployment terhapus
+  masuk "Recently Deleted" 30 hari. Retention policy proyek matra disetel 1
+  hari untuk keempat jenis. `mantra-uji` dan `mantra-rancangan-v2` dihapus
+  atas izin ARYA; LENTERA HARUM tidak disentuh (perintah tegas ARYA).
+Berikutnya: umpan balik ARYA atas tampilan baru; keputusan video yang mau
+diperdalam (durasi seragam per bab).
+
 ## 12 SEP (malam): PERBAIKAN GLOBAL ARYA, ENAM BUTIR
 
 Umpan balik ARYA sesudah 58 video v3.1 tayang, semuanya dikerjakan MASTER:

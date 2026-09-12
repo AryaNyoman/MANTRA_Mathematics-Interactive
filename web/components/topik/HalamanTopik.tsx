@@ -285,6 +285,22 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [minta])
 
+  /* Pindah materi SELALU mulai dari atas (permintaan ARYA 12 Sep 2026), lewat
+     sidebar maupun tombol Kembali/Lanjut, juga untuk materi yang sudah pernah
+     dibuka. Yang menggulir berbeda tiap tata letak: di laptop kolom bacaan dan
+     kolom alat (halamannya dikunci setinggi layar), di HP halamannya sendiri,
+     di mode fokus elemen <main>. Ketiganya digulir ke 0 sekaligus; menggulir
+     sesuatu yang memang sudah di atas tidak berdampak apa pun. */
+  const kunciLayar = layar.jenis === 'tahap' ? `tahap:${layar.slug}` : layar.jenis
+  useEffect(() => {
+    const akar = akarHalaman.current
+    akar?.querySelectorAll<HTMLElement>('.kolom.baca, .kolom.alat').forEach((el) => {
+      el.scrollTop = 0
+    })
+    if (akar) akar.scrollTop = 0
+    window.scrollTo(0, 0)
+  }, [kunciLayar])
+
   useEffect(() => {
     if (layar.jenis !== 'tahap' || !lanjutBeres) return
     const baru = !bacaKemajuan(topik.slug).dibuka.includes(layar.slug)

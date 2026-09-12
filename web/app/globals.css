@@ -642,11 +642,20 @@ h1, h2, h3, .disp {
 .bacaan > * + * { margin-top: 14px; }
 .bacaan p { margin: 0; font-size: 15px; line-height: 1.68; color: #3A3630; }
 
-.bacaan p.sorot {
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: 17px; line-height: 1.5; color: var(--tinta);
+/* Kalimat inti: bercap "Intinya" sejak 12 Sep 2026 supaya perannya terbaca
+   (ARYA mengira kalimat bergaris kiri ini bagian dari kotak di atasnya). */
+.bacaan .sorot {
   border-left: 3px solid var(--oker); padding: 4px 0 4px 15px;
   margin-top: 18px;
+}
+.sorot-cap {
+  display: block; font-family: var(--font-mono), system-ui, sans-serif;
+  font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 600; color: var(--oker); margin-bottom: 3px;
+}
+.bacaan .sorot p {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 17px; line-height: 1.5; color: var(--tinta);
 }
 
 .judul-poin {
@@ -669,9 +678,55 @@ ul.poin li b { color: var(--tinta); font-weight: 600; }
   background: #FAF6EF; border: 1px solid var(--garis); border-radius: 10px;
   padding: 13px 15px;
 }
+/* Baris kotak contoh disusun sebagai grid (kolom sebanyak sel terbanyak,
+   lihat Penjelasan.tsx). Dulu satu baris teks pre-wrap yang mengandalkan
+   spasi dan huruf lebar-sama; sejak huruf MANTRA, spasinya tidak lagi
+   menjajarkan apa pun. */
+.contoh-tabel {
+  display: grid; column-gap: 16px; row-gap: 1px; align-items: baseline;
+  overflow-x: auto; max-width: 100%;
+  /* Lebar isinya tidak boleh melebarkan kotak dan kolom di atasnya (di HP
+     kotaknya sempat terpotong 50 piksel): grid menggulir di dalam kotak. */
+  contain: inline-size;
+}
+.sel-contoh {
+  font-size: 13px; line-height: 1.75; color: #3A3630;
+  font-variant-numeric: tabular-nums;
+}
+/* Baris kalimat (satu sel, melebar penuh) tidak boleh ikut menentukan lebar
+   kolom angka: lebarnya dinolkan bagi perhitungan grid, lalu dibentangkan
+   ke 100 persen lebar kotaknya. */
+.sel-contoh.penuh { white-space: normal; width: 0; min-width: 100%; }
+.sel-contoh.kosong { min-width: 0; }
+.contoh-tabel .baris-sel { display: contents; }
+/* HP: tabel berkolom empat ke atas tidak dipaksa jadi grid. Tiap barisnya
+   mengalir seperti kalimat (sel demi sel, patah di antara sel), jadi
+   terbaca utuh tanpa gulir menyamping dan tanpa sel yang diperas. */
+@media (max-width: 860px) {
+  .contoh-tabel.lebar { display: flex; flex-direction: column; row-gap: 7px; }
+  .contoh-tabel.lebar .baris-sel {
+    display: flex; flex-wrap: wrap; column-gap: 9px; row-gap: 0; align-items: baseline;
+  }
+  .contoh-tabel.lebar .sel-contoh { white-space: nowrap; line-height: 1.55; }
+  .contoh-tabel.lebar .sel-contoh.kosong { display: none; }
+  .contoh-tabel.lebar .sel-contoh.penuh { white-space: normal; }
+}
+/* Kotak yang jajarannya disusun tangan (lebar kolom tidak seragam): huruf
+   lebar-sama dari sistem, tanpa mengunduh keluarga huruf baru, supaya spasi
+   penulisnya kembali menjajarkan kolom seperti semula. Baris yang terlalu
+   lebar untuk HP menggulir di dalam kotaknya, bukan membungkus (membungkus
+   merusak jajarannya). */
+.contoh-mono { overflow-x: auto; max-width: 100%; contain: inline-size; }
 .baris-contoh {
-  font-size: 12.5px; line-height: 1.9; color: #3A3630; white-space: pre-wrap;
-  overflow-x: auto;
+  font-family: ui-monospace, 'Cascadia Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 12.5px; line-height: 1.85; color: #3A3630; white-space: pre;
+}
+/* Di HP baris yang kelewat panjang (sampai 89 huruf) dibungkus, bukan
+   digulir: baris yang terbungkus memang kehilangan jajarannya, tetapi
+   isinya terbaca tanpa digeser; baris pendek di kotak yang sama tetap
+   berjajar. Di laptop kolom bacaan selebar 46rem memuat semuanya. */
+@media (max-width: 860px) {
+  .baris-contoh { white-space: pre-wrap; }
 }
 .simpul {
   margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--garis);
@@ -1092,8 +1147,36 @@ video::cue(b) { font-weight: 700; }
   color: #7A5A22; margin-bottom: 7px;
 }
 .kotak-coba p { margin: 0; font-size: 14px; }
-.coba-langkah { margin: 9px 0 0; padding-left: 18px; font-size: 13.5px; }
-.coba-langkah li { margin-bottom: 4px; }
+/* Langkah percobaan bernomor 1, 2, 3 (permintaan ARYA 12 Sep 2026): angka
+   dalam kotak kecil emas, supaya urutannya terbaca sekilas. */
+.coba-langkah {
+  list-style: none; counter-reset: langkah; margin: 10px 0 0; padding: 0;
+  font-size: 13.5px;
+}
+.coba-langkah li {
+  counter-increment: langkah; position: relative; padding: 3px 0 3px 28px;
+  line-height: 1.55; margin: 0;
+}
+.coba-langkah li::before {
+  content: counter(langkah); position: absolute; left: 0; top: 4px;
+  width: 18px; height: 18px; border-radius: 5px; display: grid; place-items: center;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10.5px; font-weight: 600;
+  color: var(--kertas); background: var(--emas);
+}
+/* Penutup kotak: kalimat inti yang menjawab percobaannya, dulu berdiri
+   sendiri di bawah kotak sehingga maksudnya tidak terbaca (foto ARYA). */
+.coba-temuan {
+  margin-top: 12px; padding-top: 10px; border-top: 1px dashed #CBBBA0;
+}
+.coba-temuan-cap {
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10.5px;
+  letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
+  color: #7A5A22; margin-bottom: 4px;
+}
+.kotak-coba .coba-temuan p {
+  font-family: var(--font-serif), Georgia, serif; font-size: 16px; line-height: 1.5;
+  color: var(--tinta);
+}
 
 /* "Sering keliru" diberi penanda seru supaya terbaca sebagai peringatan,
    bukan sekadar kotak tambahan di akhir. */
