@@ -1,5 +1,50 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 14 SEP (siang): LATIHAN BERGAMBAR, 9 BANK 60 SOAL, MODE GURU TAYANG (deploy matra-hbwlr3w1u)
+
+Permintaan ARYA 13 Sep (tangkapan /latihan): pembahasan bank soal diperpanjang
+dan diperjelas, gambar untuk soal bersituasi, 15 soal per tingkat dengan syarat
+naik 10 benar, logo nav kembali MANTRA penuh, menu Lanjutkan simetris, kartu
+latihan berlatar motif matematis, mode GURU (semua tingkat terbuka) lewat
+tombol pojok kanan atas beranda. Keputusan ARYA: gambar hanya soal cerita,
+bangun, grafik, data; sulit dikalibrasi ke UTBK, sangat sulit 5 bergaya
+olimpiade plus 10 sulit-biasa; guru pilihan b (kata kunci, hanya hash SHA-256
+yang disimpan di kode; kata kuncinya TIDAK ditulis di mana pun). ARYA minta
+semuanya dikerjakan sekaligus sampai deploy, dicek belakangan.
+Rancangan: `docs/superpowers/specs/2026-09-13-latihan-bergambar-mode-guru-design.md`,
+rencana: `docs/superpowers/plans/2026-09-13-latihan-bergambar-mode-guru.md`.
+- Tahap 1 (a677b7e sampai tahap bank): tipe `GambarSoal` (segitiga, lingkaran,
+  grafik, vektor, batang, garis-data, balok, bidang, luas, svg) dan perender
+  `web/components/latihan/gambar/*` (viewBox 460, huruf mono, petakAngka sampai
+  10.000, kurva diklip); `SoalKuis.langkah/jebakan/gambar`; ArenaLatihan
+  menampilkan gambar di bawah soal dan di panel pembahasan, langkah bernomor,
+  kotak "Kenapa pilihan lain menggoda"; `SYARAT_NAIK = 10`; mode guru
+  (`lib/mode-guru.ts`, `TombolGuru.tsx`, jawaban guru tidak direkam, kuis
+  materi terbuka untuk guru); `LatarBab.tsx` motif per bab; logo nav penuh;
+  galeri QC `/latihan/contoh-gambar?bab=<slug>`; alat `alat/cek_kuis.mjs`
+  (15 per tingkat, id unik, 5 pilihan, tanpa em-dash dan "miskonsepsi",
+  gambar sah, komentar `// cek: <js>` di atas `id:` dievaluasi mesin).
+- Sembilan bank ditulis ulang, id lama dipertahankan, tiap soal punya langkah,
+  jebakan, gambar bila bersituasi, dan cek mesin: Trigonometri d8b82f5, Vektor
+  e7dae5b, Grafik Fungsi 3f81a52, Statistika a54b96b, Limit 56c6521, Ruang 3D
+  (koordinat kubus untuk cek) dan Balok tanpa label ukuran kubus, Transformasi
+  Geometri 16 jadi 60 (0b8db03; soal urutan-boleh-dibalik dulu punya DUA
+  jawaban benar karena cermin y=x dan translasi (1,1) komutatif, pilihan
+  diganti), Turunan dan Integral f0110a2 (cek numerik selisih simetris dan
+  jumlahan titik tengah; batas kelipatan pi ditulis dengan lambang).
+  `cek_kuis.mjs --semua --ketat`: 9 bab x 60 soal, 346 gambar, 434 cek mesin,
+  SEMUA LOLOS. Galeri tiap bab dipotret playwright-cli dan dibaca per potongan.
+- Deploy matra-hbwlr3w1u dialiaskan ke mantra-matematika.vercel.app; deploy lama
+  matra-65kyvpery dihapus. Diverifikasi tayang: /latihan 9 kartu "60 soal",
+  arena Limit menampilkan gambar dan tombol Guru.
+- Insiden 13 Sep: saat mencari dev server MANTRA, PID 25564 di port 3000
+  yang dimatikan ternyata dev server proyek lain (`D:\PROJECT AUTOMATION  WEBSITEacik`). Dev server MANTRA sejak itu di port 3210. Sudah
+  dilaporkan ke ARYA.
+- Jebakan baru: perender Bidang dan pemeriksa harus menerima bangun satu titik
+  (soal transformasi memindahkan satu titik); balok kurus (4x3x12) mengecil
+  sampai hurufnya bertumpuk, pilih ukuran soal yang proporsinya wajar;
+  cek `Math.abs(-x**2)` ditolak JS (perlu kurung).
+
 ## 14 SEP (dini hari): BERKAS LOMBA PPPMI 2026 DIVISI A1 DISIAPKAN (di luar repo: D:\PPPMI-2026)
 
 ARYA (13 Sep malam) minta berkas Lomba Inovasi Media dan Pembelajaran
