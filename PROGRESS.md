@@ -1,5 +1,62 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 13 SEP (siang): SUMBU-X/SUMBU-Y DI 10 VIDEO, B6 SEGITIGA BESAR/KECIL, C9 PENGINGAT GARIS SINGGUNG DAN ASAL ANGKA TAN
+
+Video (commit c5c1efd, deploy matra-fdgzwosru, alias mantra-matematika.vercel.app;
+deploy lama matra-83v7p73vn dihapus). Sepuluh video dirender ulang 1080p60 satu
+per satu (antrean berbasis berkas daftar, 10:37 sampai 14:50):
+- Kata "sumbu mendatar / sumbu tegak / sumbu datar" diganti "sumbu-x / sumbu-y"
+  (permintaan ARYA: pakai yang lebih akrab) di 10 naskah: tahap6, tahap8,
+  tahap9 (tidak ada, cuma "posisi mendatar" yang memang bukan nama sumbu),
+  grafik6, statistika13, transformasi1, turunan1, turunan3, vektor4, vektor6.
+  Kalimat yang janggal bila diganti mentah ditulis tangan ("sumbu-x mendatar
+  dan sumbu-y tegak", "Sumbu-x untuk besar sudut, sumbu-y untuk tinggi tadi",
+  "Sumbu-y kita naikkan"). Jangkar `tunggu_kata` yang memakai kata lama
+  ikut diganti (gerbang cek_pemicu_urut yang menemukannya, 5 adegan plus
+  pembungkus `self.tunggu` Turunan 1). Dua pemicu jadi terlambat 0,00 dan
+  0,05 detik karena kata baru lebih pendek: animasi sebelumnya dipendekkan.
+  Cache `revisi/` Turunan 1 dan 3 tidak ada (worktree sesi dihapus 11 Sep),
+  seluruh segmennya direkam ulang; durasinya sama persis kecuali segmen yang
+  berubah.
+- B6 Enam rasio: ikon segitiga (salinan isi segitiga diciutkan ke tinggi 0,5,
+  `set_height`, bukan `scale_to_fit_height` yang tidak ada di ManimGL) di kiri
+  tiap rumus kerja: besar (ungu) untuk depan/samping = depan/1 dan
+  miring/samping, kecil (biru) untuk y/x, 1/x, x/y, 1/y, segitiga atas untuk
+  cot dan csc; segitiganya di gambar berkedip (Indicate) saat rumusnya lahir.
+  Di contoh 3-4-5 naskah menyebut "sec θ dibaca dari segitiga besar di garis
+  x = 1", "cot θ dan csc θ dibaca dari segitiga di garis y = 1", dan segitiga
+  itu diarsir (poligon statis di sudut 3-4-5) bersama ikon di samping tiap
+  angka. Poster baru detik 180. 4:22 -> 4:30.
+- C9 Tiga grafik, dua revisi ARYA:
+  1. Sebelum bonus, segmen pengingat 28 detik dari Materi 06: lingkaran satuan
+     di kiri, dua garis singgung, ruas tan dan sec di x = 1, cot dan csc di
+     y = 1, segitiga kecil, lalu csc = 1/y, sec = 1/x, cot = x/y di kanan; di
+     bonus1 rumus csc berpindah jadi keterangan papan. Ruas sec dan csc yang
+     berimpit digeser tipis ke dua sisi sinar supaya keduanya terlihat. Layar
+     kosong 3,5 detik (panel dihapus sebelum lingkaran lahir) ditutup dengan
+     tiga nama csc, sec, cot sampai kata "Ingat".
+  2. Angka tan 80 = 5,67, tan 89 = 57,29, tan 89,9 = 572,96 "jatuh dari
+     langit" (ARYA: papan cuma sampai 1,7, tidak terlihat kenapa): kaca
+     pembesar lingkaran satuan di kolom kanan (r 0,7) dengan ruas tinggi merah
+     (0,98 lalu 1,00) dan ruas mendatar biru yang menciut (0,17, 0,017,
+     0,0017), muncul di "makin dekat ke 90°"; deret angka diganti tabel sudut,
+     mendatar, tan θ yang selnya lahir saat disebut; narasi menegaskan pembagi
+     sepuluh kali lebih kecil, hasil sepuluh kali lebih besar. Operan dua
+     desimal sengaja (0,98 : 0,17 = 5,76, bukan 5,67; narasi menyebut tinggi,
+     mendatar, dan tan sebagai tiga fakta, tidak mengucapkan "dibagi sama
+     dengan"), disetujui ARYA. "1 : 0 tak terdefinisi" turun ke y -0,85.
+     Poster baru detik 118. 3:37 -> 4:19.
+- Semua lolos gerbang; lembar kontak 480p (B6, C9 tiga kali) dan 1080p (10
+  video, segmen yang berubah plus sebaran) dinilai; cek_subtitle, cek_aset,
+  buat_poster --periksa lolos; alamat bersidik baru terverifikasi di situs
+  tayang lewat playwright-cli (materi 9: mp4 91a2628ca3, vtt 1419f287e3).
+- Salinan 10 video produksi sebelum ditimpa: D:\MANTRA-BACKUP6-09-13-sebelum-sumbu\.
+- Jebakan baru: frame basi di qc/<video>/ ikut terbaca lembar kontak (nama
+  detik-190_5.png), lembar.py kini menghapus foldernya dulu.
+Belum diputuskan ARYA: teks bacaan situs masih memakai "sumbu mendatar /
+sumbu tegak" di 33 tempat (Grafik Fungsi, Integral, Statistika, Vektor,
+Trigonometri); permintaannya khusus video.
+
 ## 13 SEP (pagi): REVISI ARYA KEDUA TAYANG: 44 KOTAK ANGKA, SAKLAR KATA, PEMUTAR, WIDGET SUDUT ISTIMEWA, TIGA VIDEO TRIGONOMETRI DIPERDALAM
 
 Situs (commit df991af, deploy matra-ebnyhxfaz):
