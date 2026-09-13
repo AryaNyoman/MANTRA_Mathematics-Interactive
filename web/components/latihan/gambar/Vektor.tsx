@@ -41,9 +41,20 @@ export default function Vektor({ panah, jangkauan, komponen = [] }: { panah: Pan
               </>
             )}
             <line x1={b.X(x0)} y1={b.Y(y0)} x2={b.X(x1)} y2={b.Y(y1)} stroke={WARNA[w]} strokeWidth={2.4} markerEnd={`url(#panah-${w})`} />
-            {p.label && (
-              <text x={(b.X(x0) + b.X(x1)) / 2 + 8} y={(b.Y(y0) + b.Y(y1)) / 2 - 8} fontSize={12} fill={WARNA[w]} fontFamily={MONO}>{p.label}</text>
-            )}
+            {p.label && (() => {
+              // Label di sisi kiri panah (tegak lurus arahnya), pada 55, 70,
+              // atau 40 persen panjangnya bergantian, supaya dua panah yang
+              // berpangkal sama tidak menumpuk labelnya (galeri 13 Sep).
+              const sx0 = b.X(x0), sy0 = b.Y(y0), sx1 = b.X(x1), sy1 = b.Y(y1)
+              const dx = sx1 - sx0, dy = sy1 - sy0
+              const pj = Math.hypot(dx, dy) || 1
+              const nx = dy / pj, ny = -dx / pj
+              const t = [0.55, 0.72, 0.4][i % 3]!
+              const lx = sx0 + dx * t + nx * 13, ly = sy0 + dy * t + ny * 13
+              return (
+                <text x={lx} y={ly + 4} fontSize={12} textAnchor={nx < -0.3 ? 'end' : nx > 0.3 ? 'start' : 'middle'} fill={WARNA[w]} fontFamily={MONO}>{p.label}</text>
+              )
+            })()}
           </g>
         )
       })}
