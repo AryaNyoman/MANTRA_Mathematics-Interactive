@@ -27,8 +27,11 @@ const KUNCI = 'matra:latihan:'
 
 export const URUT_TINGKAT: TingkatKuis[] = ['mudah', 'sedang', 'sulit', 'sangat sulit']
 
-/** Berapa soal harus benar di satu tingkat sebelum tingkat berikutnya terbuka. */
-export const SYARAT_NAIK = 4
+/**
+ * Berapa soal harus benar di satu tingkat sebelum tingkat berikutnya terbuka.
+ * 10 dari 15 sejak 13 Sep 2026 (ARYA); sebelumnya 4 dari 8.
+ */
+export const SYARAT_NAIK = 10
 
 export type KemajuanLatihan = {
   /** id soal yang pernah dijawab benar */
@@ -81,6 +84,8 @@ export type RingkasTingkat = {
 export function ringkasPerTingkat(
   bank: readonly { id: string; tingkat: TingkatKuis }[],
   k: KemajuanLatihan,
+  /** mode guru: semua tingkat terbuka tanpa syarat (lib/mode-guru.ts) */
+  semuaTerbuka = false,
 ): RingkasTingkat[] {
   const sudah = new Set(k.benar)
   let bolehBuka = true
@@ -93,7 +98,7 @@ export function ringkasPerTingkat(
       total: soal.length,
       selesai,
       persen: soal.length === 0 ? 0 : Math.round((selesai / soal.length) * 100),
-      terbuka: bolehBuka,
+      terbuka: semuaTerbuka || bolehBuka,
     }
     // Tingkat berikutnya terbuka kalau tingkat ini sudah cukup dikuasai.
     bolehBuka = bolehBuka && selesai >= Math.min(SYARAT_NAIK, soal.length)

@@ -1,6 +1,6 @@
 'use client'
 
-import { baca, tulis } from '@/lib/simpanan'
+import { baca, tulisDiam } from '@/lib/simpanan'
 import { bacaLatihan } from '@/lib/latihan-kemajuan'
 
 /**
@@ -42,7 +42,7 @@ function bacaTerpakai(topik: string): string[] {
 }
 
 function simpanTerpakai(topik: string, id: string[]): void {
-  tulis(KUNCI_TERPAKAI + topik, JSON.stringify(id))
+  tulisDiam(KUNCI_TERPAKAI + topik, JSON.stringify(id))
 }
 
 /** Kocok salinan daftar, tidak mengubah aslinya. Fisher-Yates. */

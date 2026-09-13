@@ -43,6 +43,21 @@ export function tulis(kunci: string, nilai: string): void {
   pendengar.forEach((cb) => cb())
 }
 
+/**
+ * Menulis TANPA memberi tahu pendengar. Untuk catatan yang tidak ditampilkan
+ * di mana pun (mis. id soal yang sudah pernah keluar): memberi tahu pendengar
+ * dari dalam inisialisasi `useState` komponen lain membuat React 19 mengeluh
+ * "Cannot update a component while rendering a different component"
+ * (ditemukan 13 Sep 2026 di kuis materi).
+ */
+export function tulisDiam(kunci: string, nilai: string): void {
+  try {
+    localStorage.setItem(kunci, nilai)
+  } catch {
+    /* diabaikan */
+  }
+}
+
 /** Angka kecil (mis. tingkat ukuran subtitle). Nilai rusak diabaikan.
  *
  * Kunci yang BELUM PERNAH disimpan wajib mengembalikan `bawaan`, bukan nol.

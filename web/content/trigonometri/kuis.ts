@@ -47,6 +47,7 @@ export const KUIS: SoalKuis[] = [
     id: 'k02',
     tingkat: 'mudah',
     pertanyaan: 'sin θ adalah perbandingan antara…',
+    gambar: { jenis: 'segitiga', sudut: 35, label: ['depan', 'samping', 'miring'], namaSudut: 'θ' },
     pilihan: ['depan : samping', 'depan : miring', 'samping : miring', 'miring : depan', 'samping : depan'],
     benar: 1,
     alasan: 'sin θ = depan : miring. Yang "depan : samping" itu tan, "samping : miring" itu cos.',

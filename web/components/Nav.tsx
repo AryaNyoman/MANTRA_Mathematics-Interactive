@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { Fragment, useEffect, useState } from 'react'
 import { aturSesi, masukFokus, useSesiBelajar } from '@/lib/sesi-belajar'
 import LaciLanjut from './LaciLanjut'
+import TombolGuru from './TombolGuru'
 
 /**
  * Nav MANTRA v2, arah "Panggung Sinema" (4 Sep 2026).
@@ -91,12 +92,12 @@ export default function Nav({ label }: { label?: string }) {
         aria-label="MANTRA, Matematika Interaktif, halaman depan"
         onClick={tutup}
       >
-        {/* Lambang "M" saja (ARYA 10 Sep 2026); tulisan MANTRA ada di
-            aria-label supaya pembaca layar tetap tahu tautannya ke mana. */}
+        {/* Logo penuh, lambang plus tulisan MANTRA (ARYA 13 Sep 2026
+            mengembalikannya; 10 Sep sampai 13 Sep sempat lambang "M" saja). */}
         <Image
-          src="/mantra/mantra-simbol-gelap.png"
+          src="/mantra/mantra-penuh-gelap.png"
           alt=""
-          width={490}
+          width={1592}
           height={485}
           className="merk-ikon"
           priority
@@ -124,6 +125,10 @@ export default function Nav({ label }: { label?: string }) {
       <span className="nav-meta" title={judulTerakhir}>
         {labelTerakhir}
       </span>
+
+      {/* Mode guru di ujung kanan, tidak di halaman belajar (ARYA 13 Sep 2026:
+          halaman materi tempat mode fokus). */}
+      {!diBelajar && <TombolGuru />}
 
       {diBelajar && (
         <button

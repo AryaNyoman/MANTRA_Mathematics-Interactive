@@ -4,6 +4,7 @@ import { useCallback, useState, useSyncExternalStore } from 'react'
 import { baca, bacaDiServer, langgan, tulis } from '@/lib/simpanan'
 import { ambilSoal } from '@/lib/soal-acak'
 import type { SoalKuis } from '@/content/trigonometri'
+import GambarSoal from '@/components/latihan/gambar/GambarSoal'
 
 /**
  * Kuis berskor. Tanpa database dan tanpa login, skor disimpan di browser
@@ -101,6 +102,7 @@ export default function Kuis({
       </div>
 
       <p className="soal-teks">{s.pertanyaan}</p>
+      {s.gambar && <GambarSoal gambar={s.gambar} />}
 
       <div className="pilihan">
         {s.pilihan.map((p, n) => {

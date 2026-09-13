@@ -6,6 +6,7 @@ import PemutarVideo from '@/components/PemutarVideo'
 import Penjelasan from '@/components/topik/Penjelasan'
 import Latihan from '@/components/topik/Latihan'
 import Kuis from '@/components/topik/Kuis'
+import { useModeGuru } from '@/lib/mode-guru'
 import type { IsiTopik } from '@/components/topik/jenis'
 import { ISI_TOPIK } from '@/content/daftar-isi'
 import type { Topik } from '@/content/topik'
@@ -193,7 +194,9 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   )
   const kemajuan = JSON.parse(kemajuanJson) as ReturnType<typeof bacaKemajuan>
   const dibuka = new Set(kemajuan.dibuka)
-  const terbuka = kuisTerbuka(kemajuan, TAHAP.length)
+  // Mode guru (lib/mode-guru.ts) membuka kuis tanpa syarat materi dan menit.
+  const guru = useModeGuru()
+  const terbuka = kuisTerbuka(kemajuan, TAHAP.length) || guru
   const jumlahDibuka = urut.filter((n) => dibuka.has(tahapDari(n)?.slug ?? '')).length
   const persen = Math.round((jumlahDibuka / urut.length) * 100)
   const menitKurang = Math.max(0, MENIT_MINIMUM - Math.floor(kemajuan.detik / 60))

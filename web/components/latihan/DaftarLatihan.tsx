@@ -7,7 +7,9 @@ import { TOPIK, type Topik } from '@/content/topik'
 import { cariBab } from '@/content/subbab'
 import type { SoalKuis } from '@/content/tipe'
 import { langgan } from '@/lib/simpanan'
-import { bacaLatihan, persenTopik, ringkasPerTingkat } from '@/lib/latihan-kemajuan'
+import { bacaLatihan, persenTopik, ringkasPerTingkat, SYARAT_NAIK } from '@/lib/latihan-kemajuan'
+import { useModeGuru } from '@/lib/mode-guru'
+import LatarBab from '@/components/latihan/LatarBab'
 import MunculSaatGulir from '@/components/mantra/MunculSaatGulir'
 
 /**
@@ -44,15 +46,22 @@ const WARNA_TINGKAT = ['#B08A3E', '#B08A3E', '#8A6A28', '#6E9C7A']
 export default function DaftarLatihan() {
   const siap = TOPIK.filter((t) => ISI_TOPIK[t.slug])
   const belum = TOPIK.filter((t) => !ISI_TOPIK[t.slug])
+  const guru = useModeGuru()
 
   return (
     <main className="mantra-lebar" style={{ paddingTop: 38 }}>
       <div className="kicker">Latihan</div>
       <h1 className="judul-halaman">Pilih bab yang mau kamu latih</h1>
       <p className="sub-italic">
-        Tiap bab punya empat tingkat soal. Tingkat berikutnya terbuka setelah
-        tingkat sebelumnya kamu kuasai, jadi urutannya menuntun, bukan menghukum.
+        Tiap bab punya empat tingkat, 15 soal tiap tingkat. Tingkat berikutnya
+        terbuka setelah {SYARAT_NAIK} soal tingkat sebelumnya kamu jawab benar, jadi
+        urutannya menuntun, bukan menghukum.
       </p>
+      {guru && (
+        <div className="lencana-guru" role="status">
+          Mode guru aktif: semua tingkat dan kuis terbuka di peramban ini.
+        </div>
+      )}
 
       <div className="kisi-bank">
         {siap.map((t, i) => (
@@ -104,9 +113,10 @@ function KartuBab({ topik, bank }: { topik: Topik; bank: SoalKuis[] }) {
   )
   const k = JSON.parse(kemajuan) as ReturnType<typeof bacaLatihan>
   const bab = cariBab(topik.slug)
+  const guru = useModeGuru()
 
   const persen = persenTopik(bank, k)
-  const ringkas = ringkasPerTingkat(bank, k)
+  const ringkas = ringkasPerTingkat(bank, k, guru)
 
   return (
     <Link
@@ -114,6 +124,7 @@ function KartuBab({ topik, bank }: { topik: Topik; bank: SoalKuis[] }) {
       className="kartu-bank"
       aria-label={`Latihan ${topik.nama}, ${persen} persen selesai dari ${bank.length} soal`}
     >
+      <LatarBab slug={topik.slug} />
       <div className="bank-atas">
         <div className="bank-judul">
           <div className="bab-kicker">

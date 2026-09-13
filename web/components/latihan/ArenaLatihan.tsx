@@ -10,6 +10,8 @@ import {
   segarkanLencana, SYARAT_NAIK, URUT_TINGKAT,
 } from '@/lib/latihan-kemajuan'
 import KartuBayang from '@/components/mantra/KartuBayang'
+import GambarSoal from '@/components/latihan/gambar/GambarSoal'
+import { useModeGuru } from '@/lib/mode-guru'
 
 /**
  * Halaman bank soal satu topik, rancangan MANTRA (3 Sep 2026).
@@ -62,7 +64,10 @@ export default function ArenaLatihan({
   )
   const k = JSON.parse(kemajuanJson) as ReturnType<typeof bacaLatihan>
   const sudahBenar = new Set(k.benar)
-  const ringkas = ringkasPerTingkat(bank, k)
+  // Mode guru: semua tingkat terbuka, dan jawaban guru TIDAK dicatat supaya
+  // kemajuan siswa di peramban itu tidak ikut berubah.
+  const guru = useModeGuru()
+  const ringkas = ringkasPerTingkat(bank, k, guru)
   const persen = persenTopik(bank, k)
   const bab = cariBab(topik)
 
@@ -85,6 +90,7 @@ export default function ArenaLatihan({
   function periksaJawaban() {
     if (pilih === null || !s || periksa) return
     setPeriksa(true)
+    if (guru) return
     catatJawaban(topik, s.id, pilih === s.benar)
     segarkanLencana(topik, bank)
   }
@@ -128,6 +134,11 @@ export default function ArenaLatihan({
           Mulai dari yang mudah. Tingkat berikutnya terbuka setelah {SYARAT_NAIK} soal
           tingkat sebelumnya benar, jadi urutannya menuntun, bukan menghukum.
         </p>
+        {guru && (
+          <div className="lencana-guru" role="status">
+            Mode guru aktif: semua tingkat terbuka, jawaban di sini tidak mengubah kemajuan siswa.
+          </div>
+        )}
 
         {/* Kemajuan seluruh topik, satu bar. Ditaruh sebelum soal supaya siswa
             tahu posisinya sebelum mulai, bukan setelah selesai. */}
@@ -220,6 +231,9 @@ export default function ArenaLatihan({
                 )}
 
                 <p className="soal-teks">{s.pertanyaan}</p>
+                {/* Gambar situasi soal tampil SEBELUM dijawab: siswa cerita
+                    butuh melihat keadaannya, bukan menebak dari kalimat. */}
+                {s.gambar && <GambarSoal gambar={s.gambar} />}
 
                 <div className="opsi-daftar">
                   {s.pilihan.map((p, n) => {
@@ -281,6 +295,7 @@ export default function ArenaLatihan({
                 <div className="bahas-jawab">
                   Jawaban benar: <b>{String.fromCharCode(65 + s.benar)}</b>
                 </div>
+                {s.gambar && <GambarSoal gambar={s.gambar} />}
                 {s.langkah && s.langkah.length > 0 ? (
                   s.langkah.map((lg, i) => (
                     <div key={i} className="bahas-langkah">
@@ -290,6 +305,12 @@ export default function ArenaLatihan({
                   ))
                 ) : (
                   <p className="bahas-alasan">{s.alasan}</p>
+                )}
+                {s.jebakan && (
+                  <div className="bahas-jebakan">
+                    <div className="kicker">Kenapa pengecoh menggoda</div>
+                    <p>{s.jebakan}</p>
+                  </div>
                 )}
               </div>
             ) : (

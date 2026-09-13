@@ -232,7 +232,9 @@ h1, h2, h3, .disp {
 .nav-laci { position: relative; flex: none; }
 .nav-laci-tombol {
   display: inline-flex; align-items: center; gap: 6px;
-  border: 0; cursor: pointer; font: inherit;
+  border: 0; cursor: pointer; font-family: inherit; line-height: inherit;
+  /* `font: inherit` dulu menimpa ukuran 13,5 px milik .nav-tab, jadi
+     "Lanjutkan" tampak lebih besar dari tab lain (ARYA 13 Sep 2026). */
 }
 .nav-laci[data-buka='true'] .nav-laci-tombol { background: rgba(250, 249, 245, 0.08); color: var(--kertas-tinta); }
 .nav-laci-panah { font-size: 10px; line-height: 1; transition: transform var(--d-cepat) var(--kurva); }
@@ -3371,4 +3373,91 @@ main { animation: tab-masuk 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
      ada, dan ia menimpa segmen Tonton / Coba sendiri. Isian atas ini yang
      memberinya baris sendiri. */
   .materi-satu-layar[data-fokus='true'] .kolom.baca { padding-top: 54px; }
+}
+
+/* ============================================================
+   GAMBAR SOAL LATIHAN (13 Sep 2026)
+   Spek: docs/superpowers/specs/2026-09-13-latihan-bergambar-mode-guru-design.md
+   Gambar adalah data (GambarSoal) yang dirender SVG bergaya widget.
+   Lebarnya mengikuti wadah, tingginya dibatasi supaya panel tidak
+   menjulur; di HP batasnya lebih rendah.
+   ============================================================ */
+.gambar-soal {
+  margin: 14px 0 4px; padding: 10px 8px 6px;
+  background: var(--kartu); border: 1px solid var(--garis); border-radius: var(--r-kontrol);
+}
+.gambar-soal svg { display: block; width: 100%; height: auto; max-height: 260px; }
+.gambar-soal figcaption { margin: 6px 4px 0; font-size: 12.5px; color: var(--tinta-62); }
+@media (max-width: 860px) {
+  .gambar-soal svg { max-height: 210px; }
+}
+.kisi-contoh-gambar {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+  gap: 18px; margin: 22px 0 48px;
+}
+.kartu-contoh-gambar { border: 1px solid var(--garis); border-radius: var(--r-kartu); padding: 14px 16px; background: var(--cekung); }
+
+
+/* ============================================================
+   MODE GURU, LATAR KARTU LATIHAN, PEMBAHASAN BERJEBAKAN (13 Sep 2026)
+   Spek: docs/superpowers/specs/2026-09-13-latihan-bergambar-mode-guru-design.md
+   ============================================================ */
+.nav-guru {
+  flex: none; display: inline-flex; align-items: center; gap: 5px;
+  font-family: inherit; font-size: 12.5px; font-weight: 600; letter-spacing: 0.02em;
+  color: rgba(250, 249, 245, 0.72); background: transparent;
+  border: 1px solid rgba(250, 249, 245, 0.28); border-radius: var(--r-pil);
+  padding: 6px 12px; cursor: pointer; white-space: nowrap;
+  transition: color var(--d-cepat) var(--kurva), border-color var(--d-cepat) var(--kurva), background var(--d-cepat) var(--kurva);
+}
+.nav-guru:hover { color: var(--kertas-tinta); border-color: rgba(250, 249, 245, 0.6); background: rgba(250, 249, 245, 0.08); }
+.nav-guru-aktif { color: var(--panggung); background: var(--emas-terang); border-color: var(--emas-terang); }
+.nav-guru-aktif:hover { color: var(--panggung); background: var(--emas-cerah); border-color: var(--emas-cerah); }
+.dialog-guru {
+  border: 1px solid var(--garis); border-radius: var(--r-kartu); padding: 26px 28px;
+  width: min(92vw, 420px); background: var(--kertas); color: var(--tinta);
+  box-shadow: 0 24px 60px rgba(16, 26, 43, 0.28);
+}
+.dialog-guru::backdrop { background: rgba(16, 26, 43, 0.45); }
+.dialog-guru h2 { font-family: var(--font-serif), Georgia, serif; font-weight: 400; font-size: 24px; margin: 4px 0 8px; }
+.dialog-guru p { font-size: 14px; line-height: 1.6; color: var(--tinta-62); margin: 0 0 14px; }
+.dialog-guru label { display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 6px; }
+.dialog-guru input {
+  width: 100%; box-sizing: border-box; font: inherit; font-size: 16px;
+  padding: 10px 12px; border: 1px solid var(--garis); border-radius: var(--r-kontrol);
+  background: var(--kartu); color: var(--tinta);
+}
+.dialog-guru input:focus { outline: 2px solid var(--emas-terang); outline-offset: 1px; }
+.dialog-guru input[aria-invalid='true'] { border-color: var(--jingga); }
+.dialog-guru-salah { color: var(--jingga) !important; margin: 8px 0 0 !important; font-size: 13px !important; }
+.dialog-guru-aksi { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; }
+.lencana-guru {
+  display: inline-block; margin: 6px 0 14px; padding: 7px 12px;
+  font-size: 13px; font-weight: 600; color: var(--panggung);
+  background: var(--emas-terang); border-radius: var(--r-pil);
+}
+.kartu-bank { position: relative; overflow: hidden; }
+.kartu-bank > *:not(.latar-bab) { position: relative; z-index: 1; }
+.latar-bab {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  opacity: 0.16; pointer-events: none; z-index: 0;
+  transition: opacity var(--d-sedang) var(--kurva);
+}
+.kartu-bank:hover .latar-bab { opacity: 0.26; }
+.bahas-jebakan {
+  margin-top: 14px; padding: 12px 14px;
+  border-left: 3px solid var(--emas-terang); background: rgba(176, 138, 62, 0.08);
+  border-radius: 0 var(--r-kontrol) var(--r-kontrol) 0;
+}
+.bahas-jebakan .kicker { margin-bottom: 4px; }
+.bahas-jebakan p { margin: 0; font-size: 14px; line-height: 1.6; }
+@media (max-width: 860px) {
+  /* Di HP nav-meta disembunyikan, jadi tombol Guru sendiri yang mendorong
+     dirinya ke kanan, bersebelahan dengan tombol menu. */
+  .nav-guru { margin-left: auto; padding: 5px 10px; font-size: 12px; }
+}
+@media (max-width: 860px) {
+  /* tombol menu sudah punya margin-left auto; kalau Guru juga auto, ruangnya
+     terbagi dua dan Guru melayang di tengah. Guru yang mendorong, menu menempel. */
+  .nav-guru ~ .nav-tombol { margin-left: 0; }
 }
