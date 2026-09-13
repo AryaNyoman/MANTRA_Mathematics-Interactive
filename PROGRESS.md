@@ -1,5 +1,49 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 14 SEP (dini hari): BERKAS LOMBA PPPMI 2026 DIVISI A1 DISIAPKAN (di luar repo: D:\PPPMI-2026)
+
+ARYA (13 Sep malam) minta berkas Lomba Inovasi Media dan Pembelajaran
+Matematika PPPMI 2026 (Rakernas, Bali 1-3 Okt; tenggat kirim 25 Sep 23.59
+WIB). Keputusan: Divisi A1 Media Digital Interaktif, individu (S2 Pendidikan
+Matematika Undiksha), tanpa uji coba siswa, repo dijadikan publik oleh ARYA
+sendiri, data pribadi ditulis [kurung]. Rancangan dan fakta yang dikutip:
+`docs/superpowers/specs/2026-09-13-berkas-lomba-pppmi-2026-design.md`
+(commit 400fd17). Pedoman lomba: `C:\Users\ASUS\Downloads\Pedoman Lomba
+Inovasi Media dan Pembelajaran Matematika_PPPMI 2026.pdf`.
+- Berkas kerja di `D:\PPPMI-2026\kerja\` (python-docx lewat `dokumen.py`,
+  PDF diekspor Word lewat `ekspor_pdf.ps1`, pratinjau PyMuPDF): 01 Deskripsi
+  Karya (5 hlm, batas 3-5), 02 Skenario Pembelajaran Trigonometri sub-bab A
+  2x45 menit plus LKPD (7 hlm), 03 Petunjuk Penggunaan (4 hlm, ada tempat
+  kata kunci mode guru untuk juri), 04 Pernyataan Orisinalitas dan AI format
+  Lampiran 5 (2 hlm; Claude menulis kode dan draf atas keputusan ARYA,
+  edge-tts diungkap apa adanya), 05 Atribusi dan Lisensi (3 hlm), 06 Naskah
+  Video Demo (stempel waktu dibaca dari `demo/waktu.json`), 07 Jawaban
+  Formulir dan Daftar Periksa (bukan untuk dikirim). Tangkapan layar situs
+  tayang di `kerja/layar/` (playwright-cli, desktop 1920x1080 dan HP).
+- Video demo (syarat A1: 5-7 menit): rekaman layar tanpa suara dibuat skrip
+  `kerja/demo/rekam_demo.js` (run-code playwright-cli, screencast 1920x1080,
+  kursor palsu, kartu dan label overlay, potret HP tersemat). Percobaan 2
+  jadi 7:19 (kelewat), skrip dipercepat dan direkam ulang. ARYA mengisi suara
+  sambil menonton (naskah 06), Claude menggabungkan dengan ffmpeg.
+- Repo: `LICENSE` (kode MIT, isi CC BY-NC-SA 4.0) dan README (angka 13 Sep:
+  9 bab, 40 sub-bab, 105 materi, 104 alat, 57 video 1080p60, 272 kuis, 38
+  latihan; kredit suara edge-tts; bagian lisensi), commit 77418d3. Pemindaian
+  rahasia seluruh riwayat git bersih (tidak ada .env, kunci, token); nomor WA
+  ARYA ada di halaman Tentang (memang publik). Zip kode tanpa audio/video
+  18,6 MB: `kerja/09-Kode-Sumber-MANTRA.zip`.
+- Folder pengiriman `D:\PPPMI-2026\A1_NyomanAryaSejati_UNDIKSHA_MANTRA\`
+  dirakit `kerja/rakit_final.py` (nomor berkas mengikuti Lampiran 1).
+- MENUNGGU ARYA: halaman Tentang masih mengkredit ElevenLabs padahal suaranya
+  edge-tts (`web/app/tentang/page.tsx`); usul ganti kartu jadi jujur, belum
+  disentuh karena mengubah situs tayang. Juga: surat mahasiswa aktif, tanda
+  tangan koordinator prodi, rekaman suara, kata kunci guru, ubah repo ke
+  publik, unggah Drive, isi formulir go.undiksha.ac.id/lomba_PPMI.
+- Pelajaran: soal kuis diacak dari bank, jadi skrip demo tidak boleh
+  mengandalkan teks pilihan tertentu (percobaan 1 gagal di situ dan
+  rekamannya hilang; sekarang try/finally menutup screencast). Kursor palsu
+  yang digerakkan per langkah lewat page.evaluate memakan waktu nyata: 900 ms
+  gerak jadi 4 detik; langkahnya dikurangi.
+
 ## 13 SEP (siang): SUMBU-X/SUMBU-Y DI 10 VIDEO, B6 SEGITIGA BESAR/KECIL, C9 PENGINGAT GARIS SINGGUNG DAN ASAL ANGKA TAN
 
 Video (commit c5c1efd, deploy matra-fdgzwosru, alias mantra-matematika.vercel.app;
