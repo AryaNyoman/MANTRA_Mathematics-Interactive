@@ -53,9 +53,14 @@ per satu (antrean berbasis berkas daftar, 10:37 sampai 14:50):
 - Salinan 10 video produksi sebelum ditimpa: D:\MANTRA-BACKUP6-09-13-sebelum-sumbu\.
 - Jebakan baru: frame basi di qc/<video>/ ikut terbaca lembar kontak (nama
   detik-190_5.png), lembar.py kini menghapus foldernya dulu.
-Belum diputuskan ARYA: teks bacaan situs masih memakai "sumbu mendatar /
-sumbu tegak" di 33 tempat (Grafik Fungsi, Integral, Statistika, Vektor,
-Trigonometri); permintaannya khusus video.
+Situs juga (keputusan ARYA sore, commit f2e8bc0, deploy matra-bmind1jr3):
+48 tempat di 11 berkas materi dan kuis plus 3 label widget (arah dari
+sumbu-x, "Sumbu-y menampilkan", kalimat SumbuJujur) memakai sumbu-x/sumbu-y;
+bentuk "sumbu tegaknya dimulai" jadi "sumbu-y dimulai" (akhiran -nya tidak
+ditempelkan ke lambang), "Sumbu mendatarnya garis bilangan" jadi "Sumbu-x
+berupa garis bilangan". tsc bersih; diverifikasi di situs tayang lewat
+playwright-cli (Statistika materi 13: 0 sisa kata lama). Komentar kode tidak
+diubah.
 
 ## 13 SEP (pagi): REVISI ARYA KEDUA TAYANG: 44 KOTAK ANGKA, SAKLAR KATA, PEMUTAR, WIDGET SUDUT ISTIMEWA, TIGA VIDEO TRIGONOMETRI DIPERDALAM
 
