@@ -126,7 +126,7 @@ export default function SumbuJujur({ children }: PropWidget) {
       </table>
       <div className="catatan">
         Kedua grafik memakai angka yang sama persis, dan tidak ada satu pun yang salah.
-        Yang berbeda cuma dari angka berapa sumbu tegaknya dimulai. Memotong sumbu tidak
+        Yang berbeda cuma dari angka berapa sumbu-y dimulai. Memotong sumbu tidak
         selalu curang, misalnya untuk suhu tubuh justru wajib. Yang membedakan curang
         dan tidak adalah apakah pemotongan itu diberitahukan dengan jelas.
         {' '}{keterangan(D)}

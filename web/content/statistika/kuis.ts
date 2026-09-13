@@ -75,7 +75,7 @@ export const KUIS: SoalKuis[] = [
     ],
     benar: 1,
     alasan:
-      'Cara berangkat adalah kategori, bukan angka, jadi tidak punya letak pada garis bilangan. Histogram menuntut sumbu mendatar berupa garis bilangan dan batangnya rapat karena kelas bersebelahan bersambung. Kategori tidak bersambung, urutannya pun boleh ditukar.',
+      'Cara berangkat adalah kategori, bukan angka, jadi tidak punya letak pada garis bilangan. Histogram menuntut sumbu-x berupa garis bilangan dan batangnya rapat karena kelas bersebelahan bersambung. Kategori tidak bersambung, urutannya pun boleh ditukar.',
   },
   {
     id: 'st-06',
@@ -190,17 +190,17 @@ export const KUIS: SoalKuis[] = [
     id: 'st-14',
     tingkat: 'sedang',
     pertanyaan:
-      'Sebuah grafik garis memperlihatkan lonjakan tajam. Ternyata sumbu tegaknya dimulai dari 410, bukan dari 0. Apa yang sebaiknya disimpulkan?',
+      'Sebuah grafik garis memperlihatkan lonjakan tajam. Ternyata sumbu-y dimulai dari 410, bukan dari 0. Apa yang sebaiknya disimpulkan?',
     pilihan: [
       'Grafiknya salah dan angkanya palsu',
       'Kenaikannya nyata, tetapi terlihat jauh lebih besar daripada sebenarnya',
       'Kenaikannya memang besar',
       'Grafik seperti itu selalu curang',
-      'Sumbu tegak memang tidak pernah dimulai dari nol',
+      'Sumbu-y memang tidak pernah dimulai dari nol',
     ],
     benar: 1,
     alasan:
-      'Angkanya benar semua; yang berubah cuma dari berapa sumbu tegaknya dimulai. Memotong sumbu tidak selalu curang, misalnya untuk suhu tubuh justru wajib. Yang membedakan curang dan tidak adalah apakah pemotongan itu diberitahukan dengan jelas kepada pembacanya.',
+      'Angkanya benar semua; yang berubah cuma dari berapa sumbu-y dimulai. Memotong sumbu tidak selalu curang, misalnya untuk suhu tubuh justru wajib. Yang membedakan curang dan tidak adalah apakah pemotongan itu diberitahukan dengan jelas kepada pembacanya.',
   },
   {
     id: 'st-15',

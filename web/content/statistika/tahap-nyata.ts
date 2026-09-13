@@ -55,7 +55,7 @@ export const TAHAP_NYATA: TahapStatistika[] = [
       { jenis: 'paragraf', teks: 'Frekuensi relatif dari Materi 04 selalu harus dibaca bersama jumlahnya. Tanyakan juga siapa yang ditanya dan di mana. Kalau surveinya dilakukan di depan gerobak bakso, hasilnya sudah miring sebelum dihitung.' },
 
       { jenis: 'sesi', judul: 'Grafik di iklan dan berita' },
-      { jenis: 'paragraf', teks: 'Iklan memperlihatkan batang penjualan yang melonjak tinggi. Lihat sumbu tegaknya: mulai dari 480, bukan dari 0. Kenaikan dari 486 ke 512 memang ada, sekitar 5 persen, tetapi gambarnya berteriak "berlipat ganda". Angka yang sama, digambar dari nol, nyaris rata.' },
+      { jenis: 'paragraf', teks: 'Iklan memperlihatkan batang penjualan yang melonjak tinggi. Lihat sumbu-y: mulai dari 480, bukan dari 0. Kenaikan dari 486 ke 512 memang ada, sekitar 5 persen, tetapi gambarnya berteriak "berlipat ganda". Angka yang sama, digambar dari nol, nyaris rata.' },
       { jenis: 'paragraf', teks: 'Ini Materi 13 yang muncul setiap hari di layar HP: grafik dengan data benar tetap bisa menyesatkan. Pertanyaan pertamanya selalu sama. Sumbunya mulai dari berapa, dan apakah itu diberitahukan?' },
 
       { jenis: 'sesi', judul: 'Jam belajar dan nilai ujian' },

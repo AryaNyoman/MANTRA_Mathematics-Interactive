@@ -236,7 +236,7 @@ export const TAHAP: TahapVektor[] = [
         langkah: [
           'Tarik ujungnya ke kanan atas. Kedua komponen bertanda positif.',
           'Bawa ke kiri atas. Komponen mendatarnya berubah tanda, komponen tegaknya tidak.',
-          'Turunkan sampai tepat di sumbu mendatar. Komponen tegaknya jadi nol, dan panahnya berbaring rata.',
+          'Turunkan sampai tepat di sumbu-x. Komponen tegaknya jadi nol, dan panahnya berbaring rata.',
         ],
       },
       { jenis: 'sesi', judul: 'Menuliskannya: baris atau kolom' },
@@ -326,7 +326,7 @@ export const TAHAP: TahapVektor[] = [
         langkah: [
           'Bawa ujungnya ke kiri bawah sehingga kedua komponennya negatif. Panjangnya tetap positif.',
           'Cari letak yang membuat panjangnya tepat 5. Ada banyak, misalnya (4 3), (3 4), dan (-5 0).',
-          'Perhatikan busur ungunya: itulah arah, diukur dari sumbu mendatar berlawanan arah jarum jam.',
+          'Perhatikan busur ungunya: itulah arah, diukur dari sumbu-x berlawanan arah jarum jam.',
         ],
       },
       { jenis: 'sesi', judul: 'Arah: derajat dan mata angin' },
@@ -338,8 +338,8 @@ export const TAHAP: TahapVektor[] = [
         jenis: 'poin',
         judul: 'Dua cara menyebut arah, keduanya dipakai',
         butir: [
-          'Dalam derajat - diukur dari sumbu mendatar positif, berputar berlawanan arah jarum jam. Nol derajat menghadap kanan, 90 derajat menghadap atas.',
-          'Dalam mata angin - sumbu mendatar positif dianggap timur dan sumbu tegak positif dianggap utara, mengikuti kebiasaan peta. Ini yang dipakai kalau soalnya tentang kapal, pesawat, atau perjalanan.',
+          'Dalam derajat - diukur dari sumbu-x positif, berputar berlawanan arah jarum jam. Nol derajat menghadap kanan, 90 derajat menghadap atas.',
+          'Dalam mata angin - sumbu-x positif dianggap timur dan sumbu-y positif dianggap utara, mengikuti kebiasaan peta. Ini yang dipakai kalau soalnya tentang kapal, pesawat, atau perjalanan.',
         ],
       },
       {
@@ -354,7 +354,7 @@ export const TAHAP: TahapVektor[] = [
     intisari: [
       'Panjang vektor dicari dengan Pythagoras: akar dari jumlah kuadrat kedua komponennya.',
       'Panjang tidak pernah negatif, sebab komponennya dikuadratkan lebih dulu.',
-      'Arah dinyatakan dalam derajat dari sumbu mendatar, atau dalam mata angin.',
+      'Arah dinyatakan dalam derajat dari sumbu-x, atau dalam mata angin.',
       'Dua vektor bisa sama panjang tetapi tetap berbeda, karena arahnya belum tentu sama.',
     ],
     widget: 'panjang-dan-arah',
@@ -402,8 +402,8 @@ export const TAHAP: TahapVektor[] = [
       {
         jenis: 'poin',
         butir: [
-          'i - vektor satuan yang menghadap sumbu mendatar positif, yaitu (1 0).',
-          'j - vektor satuan yang menghadap sumbu tegak positif, yaitu (0 1).',
+          'i - vektor satuan yang menghadap sumbu-x positif, yaitu (1 0).',
+          'j - vektor satuan yang menghadap sumbu-y positif, yaitu (0 1).',
         ],
       },
       {

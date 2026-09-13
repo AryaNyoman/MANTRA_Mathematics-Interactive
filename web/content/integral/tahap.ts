@@ -75,7 +75,7 @@ export const TAHAP: TahapIntegral[] = [
       { jenis: 'sorot', teks: 'Yang dipegang adalah lajunya. Yang dicari adalah jumlahnya. Seluruh materi ini soal perjalanan dari laju kembali ke jumlah.' },
 
       { jenis: 'sesi', judul: 'Jalan pertama: jumlahnya terlihat sebagai luas' },
-      { jenis: 'paragraf', teks: 'Gambar grafik lajunya, dengan bulan pada sumbu mendatar dan juta rupiah per bulan pada sumbu tegak. Untuk satu bulan saja, pengeluarannya adalah laju dikali lama waktu, dan itu persis luas sebuah persegi panjang setinggi laju dan selebar satu bulan.' },
+      { jenis: 'paragraf', teks: 'Gambar grafik lajunya, dengan bulan pada sumbu-x dan juta rupiah per bulan pada sumbu-y. Untuk satu bulan saja, pengeluarannya adalah laju dikali lama waktu, dan itu persis luas sebuah persegi panjang setinggi laju dan selebar satu bulan.' },
       { jenis: 'paragraf', teks: 'Kalau tiap bulan dibuatkan persegi panjangnya, lalu semua luasnya dijumlahkan, yang didapat sudah dekat dengan total setahun. Baru dekat, belum tepat: laju di dalam satu bulan tidak benar-benar tetap, sedangkan persegi panjang menganggapnya tetap. Menjumlahkan potongan-potongan itu sama saja dengan mengukur luas daerah di bawah grafik lajunya.' },
       { jenis: 'paragraf', teks: 'Buku Matematika Tingkat Lanjut Kelas XII membuka bab ini dengan cara itu, memakai potongan berbentuk trapesium supaya tepi miringnya tertutup rapi. Untuk laju yang grafiknya garis lurus seperti ini, trapesium menutupinya tanpa sisa sedikit pun, jadi hasilnya tepat. Cara mengukur yang berlaku untuk kurva apa pun kita rapikan nanti.' },
       { jenis: 'sorot', teks: 'Kalau yang Anda punya adalah laju, maka jumlahnya adalah luas daerah di bawah grafik laju itu.' },
@@ -991,7 +991,7 @@ export const TAHAP: TahapIntegral[] = [
     intisari: [
       'Pola yang sama muncul di mana-mana: yang diketahui lajunya, yang dicari jumlahnya.',
       'Penjualan didapat dari laju penjualan, jarak dari kecepatan, usaha dari gaya, penghematan dari laju penghematan.',
-      'Satuan hasilnya selalu satuan sumbu tegak dikali satuan sumbu mendatar.',
+      'Satuan hasilnya selalu satuan sumbu-y dikali satuan sumbu-x.',
       'Pertanyaan "kapan modalnya kembali" dijawab dengan mencari batas atas yang membuat hasilnya sama dengan modal.',
     ],
     penjelasan: [
@@ -1061,8 +1061,8 @@ export const TAHAP: TahapIntegral[] = [
       { jenis: 'sorot', teks: 'Yang dipegang lajunya, yang dicari jumlahnya. Dari pengeluaran rumah tangga di Materi 01 sampai modal peralatan di halaman ini, semuanya pertanyaan yang sama.' },
     ],
     seringKeliru: {
-      judul: 'Satuan hasilnya dikira sama dengan satuan sumbu tegak',
-      isi: 'Grafiknya bersumbu tegak meter per detik, jadi terasa wajar kalau jawabannya juga dibaca meter per detik. Padahal yang dihitung adalah luas, dan luas selalu berupa perkalian dua sumbu. Kekeliruan ini menggoda karena angka pada sumbu tegak itulah yang paling menonjol di layar, sementara satuan sumbu mendatar sering terlupakan. Cara membedakannya: kalikan satuan kedua sumbunya. Meter per detik dikali detik menghasilkan meter, dan newton dikali meter menghasilkan joule.',
+      judul: 'Satuan hasilnya dikira sama dengan satuan sumbu-y',
+      isi: 'Sumbu-y grafiknya meter per detik, jadi terasa wajar kalau jawabannya juga dibaca meter per detik. Padahal yang dihitung adalah luas, dan luas selalu berupa perkalian dua sumbu. Kekeliruan ini menggoda karena angka pada sumbu-y itulah yang paling menonjol di layar, sementara satuan sumbu-x sering terlupakan. Cara membedakannya: kalikan satuan kedua sumbunya. Meter per detik dikali detik menghasilkan meter, dan newton dikali meter menghasilkan joule.',
     },
     widget: 'dunia-nyata-integral',
     siap: true,

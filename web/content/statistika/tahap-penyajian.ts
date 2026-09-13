@@ -145,7 +145,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
         jenis: 'poin',
         judul: 'Tiga beda yang menentukan',
         butir: [
-          'Sumbu mendatarnya garis bilangan - jadi urutan batangnya TIDAK boleh ditukar.',
+          'Sumbu-x berupa garis bilangan - jadi urutan batangnya TIDAK boleh ditukar.',
           'Batangnya menempel tanpa sela - sebab kelas yang bersebelahan memang bersambung, misalnya 150 sampai 160 lalu 160 sampai 170.',
           'Yang dibaca sebenarnya LUAS batang, bukan tingginya. Ini penting saat lebar kelasnya tidak sama, dan akan kita pakai di materi berikutnya.',
         ],

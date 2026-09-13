@@ -87,7 +87,7 @@ export default function FrekuensiRelatif({ children }: PropWidget) {
         </Papan>
       </div>
       <div className="kendali">
-        <Pilihan nama="Sumbu tegaknya menampilkan" arti="banyak siswa, atau bagian dari seluruh kelas"
+        <Pilihan nama="Sumbu-y menampilkan" arti="banyak siswa, atau bagian dari seluruh kelas"
           pilihan={[{ nilai: 'asli', label: 'Frekuensi asli' }, { nilai: 'relatif', label: 'Frekuensi relatif' }]}
           nilai={relatif ? 'relatif' : 'asli'} onPilih={(n) => setRelatif(n === 'relatif')} />
         <Petunjuk>

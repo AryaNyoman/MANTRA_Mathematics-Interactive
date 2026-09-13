@@ -381,7 +381,7 @@ export const TAHAP: Tahap[] = [
           'Geser ke sudut kecil, perhatikan nilai cos mendekati 1',
           'Terus geser melewati 90 derajat',
           'Nilai cos berubah jadi negatif, sementara sin masih positif',
-          'Itu karena titiknya sudah pindah ke kiri sumbu tegak',
+          'Itu karena titiknya sudah pindah ke kiri sumbu-y',
         ],
       },
       { jenis: 'sorot', teks: 'Rumus berubah jadi posisi. Tidak perlu membagi lagi, cukup dibaca dari letak titiknya.' },
@@ -391,7 +391,7 @@ export const TAHAP: Tahap[] = [
         butir: [
           'Nilai sin dan cos tidak pernah melebihi 1 atau kurang dari −1, karena titiknya tidak bisa keluar lingkaran',
           'Sudut boleh lebih dari 90° - segitiga tidak sanggup, lingkaran sanggup. Titiknya tinggal terus berputar',
-          'Di kiri sumbu tegak cos jadi negatif, di bawah sumbu mendatar sin jadi negatif. Tandanya mengikuti arah, bukan aturan hafalan',
+          'Di kiri sumbu-y cos jadi negatif, di bawah sumbu-x sin jadi negatif. Tandanya mengikuti arah, bukan aturan hafalan',
         ],
       },
       { jenis: 'paragraf', teks: 'Inilah alasan lingkaran satuan digambar di mana-mana. Ia bukan hiasan, ia mengubah tiga pecahan jadi satu titik yang bisa ditunjuk. Seret titik ungu di alatnya dan perhatikan kedua angkanya bergerak.' },
@@ -568,8 +568,8 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'poin',
         butir: [
-          'Sumbu mendatar grafik - bukan jarak, melainkan besar sudut yang sudah disapu',
-          'Sumbu tegak grafik - tinggi titik di lingkaran pada sudut itu, yaitu sin θ',
+          'Sumbu-x grafik - bukan jarak, melainkan besar sudut yang sudah disapu',
+          'Sumbu-y grafik - tinggi titik di lingkaran pada sudut itu, yaitu sin θ',
           'Garis putus-putus - penghubung antara tinggi di lingkaran dan titik di grafik',
         ],
       },
@@ -608,7 +608,7 @@ export const TAHAP: Tahap[] = [
     ],
     seringKeliru: {
       judul: 'Grafik sinus dikira gambar bentuk sesuatu',
-      isi: 'Sumbu mendatarnya bukan jarak atau posisi, melainkan besar sudut. Jadi kurva ini tidak menggambarkan bentuk benda apa pun, ia grafik nilai terhadap sudut, sama seperti grafik suhu terhadap waktu.',
+      isi: 'Sumbu-x bukan jarak atau posisi, melainkan besar sudut. Jadi kurva ini tidak menggambarkan bentuk benda apa pun, ia grafik nilai terhadap sudut, sama seperti grafik suhu terhadap waktu.',
     },
     widget: 'lingkaran-ke-grafik',
     video: { berkas: 'tahap8-grafik-sin.mp4', poster: 'tahap8-grafik-sin.jpg' },

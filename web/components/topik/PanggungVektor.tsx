@@ -394,7 +394,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
               <tbody>
                 <tr><td>komponen</td><td>({angka(vArah.x, 1)}  {angka(vArah.y, 1)})</td></tr>
                 <tr><td>kuadratnya dijumlahkan</td><td>{angka(vArah.x * vArah.x + vArah.y * vArah.y, 2)}</td></tr>
-                <tr><td>arah dari sumbu mendatar</td><td>{angka(sudutDerajat(vArah), 1)}°</td></tr>
+                <tr><td>arah dari sumbu-x</td><td>{angka(sudutDerajat(vArah), 1)}°</td></tr>
                 <tr className="tegas"><td>panjang, yaitu akarnya</td><td>{angka(panjang(vArah), 3)}</td></tr>
               </tbody>
             </table>

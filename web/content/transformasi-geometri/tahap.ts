@@ -364,8 +364,8 @@ export const TAHAP: TahapTransformasi[] = [
         judul: 'Titik A(1, 2) dicerminkan pada titik M(3, 3)',
         baris: [
           'M harus jadi titik tengah A dan A aksen, jadi rata-rata koordinat mendatarnya bernilai 3',
-          'Untuk sumbu mendatar: (1 + x aksen) dibagi 2 sama dengan 3, sehingga x aksen = 5',
-          'Untuk sumbu tegak: (2 + y aksen) dibagi 2 sama dengan 3, sehingga y aksen = 4',
+          'Untuk sumbu-x: (1 + x aksen) dibagi 2 sama dengan 3, sehingga x aksen = 5',
+          'Untuk sumbu-y: (2 + y aksen) dibagi 2 sama dengan 3, sehingga y aksen = 4',
           'Jadi A aksen (5, 4)',
           'Diperiksa dengan rumus jadi: 2 dikali 3 dikurangi 1 sama dengan 5, dan 2 dikali 3 dikurangi 2 sama dengan 4. Cocok',
         ],

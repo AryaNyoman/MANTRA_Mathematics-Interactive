@@ -65,12 +65,12 @@ export const TAHAP: TahapGrafik[] = [
     intisari: [
       'Grafik adalah cerita tentang bagaimana satu hal berubah mengikuti hal lain.',
       'Yang dibaca orang: naik atau turun, seberapa curam, di mana tertinggi dan terendah.',
-      'Sumbu mendatar dan sumbu tegak bukan peta. Grafik yang menanjak belum tentu benda yang mendaki.',
+      'Sumbu-x dan sumbu-y bukan peta. Grafik yang menanjak belum tentu benda yang mendaki.',
       'Membaca grafik bisa dilakukan sebelum tahu satu pun rumusnya.',
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Anda sudah sering melihat grafik, walaupun mungkin tidak pernah menyebutnya begitu: grafik kasus penyakit di berita, grafik langkah harian di ponsel, grafik nilai rapor. Semuanya dibaca dengan cara yang sama, dan cara itu yang kita rapikan di sini.' },
-      { jenis: 'paragraf', teks: 'Sebelum bicara rumus, mari lihat gambar dulu. Ini grafik perjalanan Ayu naik motor dari rumah ke sekolah. Sumbu mendatar adalah waktu dalam menit, sumbu tegak adalah jarak dari rumah dalam kilometer.' },
+      { jenis: 'paragraf', teks: 'Sebelum bicara rumus, mari lihat gambar dulu. Ini grafik perjalanan Ayu naik motor dari rumah ke sekolah. Sumbu-x adalah waktu dalam menit, sumbu-y adalah jarak dari rumah dalam kilometer.' },
       { jenis: 'paragraf', teks: 'Tidak ada rumus di sini, dan Anda memang tidak butuh rumus untuk membacanya. Yang Anda butuhkan cuma satu kebiasaan: baca grafiknya dari kiri ke kanan, seperti membaca kalimat.' },
       { jenis: 'sorot', teks: 'Bergerak ke kanan artinya waktu berjalan. Naik turunnya garis menceritakan apa yang terjadi pada saat itu.' },
 
@@ -112,13 +112,13 @@ export const TAHAP: TahapGrafik[] = [
       },
 
       { jenis: 'sesi', judul: 'Satu hal yang harus diluruskan sekarang juga' },
-      { jenis: 'paragraf', teks: 'Grafik tadi menanjak di menit 3 sampai 6. Menanjak di sini BUKAN berarti jalanannya menanjak. Sumbu tegaknya berisi jarak dari rumah, bukan ketinggian tanah. Yang naik adalah angkanya, bukan Ayu.' },
+      { jenis: 'paragraf', teks: 'Grafik tadi menanjak di menit 3 sampai 6. Menanjak di sini BUKAN berarti jalanannya menanjak. Sumbu-y berisi jarak dari rumah, bukan ketinggian tanah. Yang naik adalah angkanya, bukan Ayu.' },
       { jenis: 'paragraf', teks: 'Kekeliruan ini terdengar sepele, tapi ia terbawa terus. Nanti saat melihat grafik keuntungan perusahaan yang menurun, orang yang sama akan membayangkan sesuatu yang meluncur ke bawah, padahal yang terjadi adalah angkanya mengecil.' },
-      { jenis: 'sorot', teks: 'Selalu baca dulu: sumbu mendatarnya berisi apa, dan sumbu tegaknya berisi apa. Tanpa itu, grafik yang sama bisa diceritakan dengan dua cara yang bertentangan.' },
+      { jenis: 'sorot', teks: 'Selalu baca dulu: sumbu-x berisi apa, dan sumbu-y berisi apa. Tanpa itu, grafik yang sama bisa diceritakan dengan dua cara yang bertentangan.' },
     ],
     seringKeliru: {
       judul: 'Grafik yang naik berarti bendanya naik ke atas',
-      isi: 'Godaannya kuat karena kata naik memang berarti bergerak ke atas di dunia nyata, dan mata langsung membacanya begitu. Padahal yang naik adalah nilai pada sumbu tegak, dan isinya belum tentu ketinggian. Pada grafik perjalanan Ayu, sumbu tegaknya berisi jarak dari rumah. Garis yang menanjak berarti Ayu makin jauh dari rumah, bukan Ayu sedang mendaki. Kalau sumbu tegaknya diganti menjadi ketinggian tanah, gambar yang sama akan bercerita hal yang berbeda.',
+      isi: 'Godaannya kuat karena kata naik memang berarti bergerak ke atas di dunia nyata, dan mata langsung membacanya begitu. Padahal yang naik adalah nilai pada sumbu-y, dan isinya belum tentu ketinggian. Pada grafik perjalanan Ayu, sumbu-y berisi jarak dari rumah. Garis yang menanjak berarti Ayu makin jauh dari rumah, bukan Ayu sedang mendaki. Kalau sumbu-y diganti menjadi ketinggian tanah, gambar yang sama akan bercerita hal yang berbeda.',
     },
     widget: 'pembaca-grafik',
     siap: true,

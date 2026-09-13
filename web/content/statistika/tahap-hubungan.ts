@@ -37,7 +37,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       'Data bivariat: satu orang atau satu benda dicatat dua angkanya sekaligus.',
       'Tiap pasangan digambar sebagai satu titik, jadi sepuluh siswa menghasilkan sepuluh titik.',
       'Yang dibaca ada tiga: arah hubungan, bentuknya, dan kekuatannya.',
-      'Sumbu mendatar untuk yang dianggap penyebab, sumbu tegak untuk yang dianggap akibat.',
+      'Sumbu-x untuk yang dianggap penyebab, sumbu-y untuk yang dianggap akibat.',
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Sampai Materi 09, semua data kita cuma punya satu angka per orang: satu nilai, satu tinggi badan, satu waktu tempuh. Sekarang tiap siswa dicatat dua angkanya sekaligus.' },
@@ -53,8 +53,8 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       { jenis: 'paragraf', teks: 'Data berpasangan seperti ini disebut data bivariat. Cara membacanya bukan dengan menatap tabelnya, melainkan dengan menggambarnya: tiap pasangan jadi satu titik pada bidang koordinat.' },
 
       { jenis: 'sesi', judul: 'Sumbu mana untuk yang mana' },
-      { jenis: 'paragraf', teks: 'Kesepakatannya: yang dianggap penyebab, atau yang bisa kita atur, diletakkan di sumbu mendatar. Yang dianggap akibat, atau yang ingin kita ramalkan, diletakkan di sumbu tegak.' },
-      { jenis: 'paragraf', teks: 'Di sini lama belajar ada di sumbu mendatar dan nilai ujian di sumbu tegak, sebab kita ingin menebak nilai dari lama belajar, bukan sebaliknya. Menukar keduanya bukan cuma memutar gambar: garis yang nanti kita tarik di Materi 11 akan berbeda, dan tafsirannya juga berbeda.' },
+      { jenis: 'paragraf', teks: 'Kesepakatannya: yang dianggap penyebab, atau yang bisa kita atur, diletakkan di sumbu-x. Yang dianggap akibat, atau yang ingin kita ramalkan, diletakkan di sumbu-y.' },
+      { jenis: 'paragraf', teks: 'Di sini lama belajar ada di sumbu-x dan nilai ujian di sumbu-y, sebab kita ingin menebak nilai dari lama belajar, bukan sebaliknya. Menukar keduanya bukan cuma memutar gambar: garis yang nanti kita tarik di Materi 11 akan berbeda, dan tafsirannya juga berbeda.' },
 
       { jenis: 'sesi', judul: 'Tiga hal yang dibaca dari sebaran titik' },
       {
@@ -99,7 +99,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
     ],
     seringKeliru: {
       judul: 'Menukar tempat x dan y saat meletakkan titik',
-      isi: 'Kesalahan ini sering terjadi saat memindahkan angka dari tabel ke gambar, apalagi kalau tabelnya tersusun mendatar. Akibatnya pola datanya rusak, dan kesimpulan yang diambil ikut salah tanpa ada tanda peringatan apa pun. Periksa ulang satu titik saja sebagai contoh sebelum melanjutkan: siswa yang belajar 2 jam bernilai 55, jadi titiknya harus berada di 2 pada sumbu mendatar dan 55 pada sumbu tegak.',
+      isi: 'Kesalahan ini sering terjadi saat memindahkan angka dari tabel ke gambar, apalagi kalau tabelnya tersusun mendatar. Akibatnya pola datanya rusak, dan kesimpulan yang diambil ikut salah tanpa ada tanda peringatan apa pun. Periksa ulang satu titik saja sebagai contoh sebelum melanjutkan: siswa yang belajar 2 jam bernilai 55, jadi titiknya harus berada di 2 pada sumbu-x dan 55 pada sumbu-y.',
       sumber: 'Kotak peringatan untuk guru di Buku Panduan Guru Matematika SMA/SMK Kelas XI, Kemendikbudristek 2021, halaman 143, menyebut persis kesalahan ini beserta pemaksaan trend lurus pada data yang melengkung.',
     },
     widget: 'diagram-pencar',
@@ -304,7 +304,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
     pertanyaan: 'Semua angkanya benar. Kenapa kesimpulannya tetap salah?',
     intisari: [
       'Grafik bisa menyesatkan tanpa satu pun angka yang salah.',
-      'Cara paling sering: sumbu tegak tidak dimulai dari nol, sehingga selisih kecil terlihat raksasa.',
+      'Cara paling sering: sumbu-y tidak dimulai dari nol, sehingga selisih kecil terlihat raksasa.',
       'Pilihan lebar kelas, pilihan jenis rata-rata, dan gambar yang diperbesar dua arah juga bisa menyesatkan.',
       'Tiga pertanyaan wajib pada setiap grafik: sumbunya mulai dari berapa, datanya dari mana, dan apa yang tidak ditampilkan.',
     ],
@@ -312,9 +312,9 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       { jenis: 'paragraf', teks: 'Sebelas materi sebelumnya membangun alat untuk MEMBUAT ringkasan data. Materi terakhir ini membalik posisinya: sekarang Anda pembacanya, dan yang membuat grafiknya orang lain yang mungkin punya kepentingan.' },
       { jenis: 'sorot', teks: 'Grafik yang menyesatkan biasanya tidak berisi angka palsu. Justru itu yang membuatnya berbahaya: semuanya bisa diperiksa dan semuanya benar.' },
 
-      { jenis: 'sesi', judul: 'Cara 1, sumbu tegak yang dipotong' },
+      { jenis: 'sesi', judul: 'Cara 1, sumbu-y yang dipotong' },
       { jenis: 'paragraf', teks: 'Perpustakaan sekolah mencatat pengunjung selama lima bulan: 412, 418, 425, 421, dan 430 orang. Selisih terbesarnya 18 orang dari rata-rata sekitar 421, jadi sebenarnya cukup datar.' },
-      { jenis: 'paragraf', teks: 'Gambar grafiknya dengan sumbu tegak mulai dari nol, dan garisnya nyaris rata. Sekarang gambar lagi dengan sumbu tegak mulai dari 410. Grafik yang sama persis berubah jadi lonjakan tajam yang terlihat seperti keberhasilan besar.' },
+      { jenis: 'paragraf', teks: 'Gambar grafiknya dengan sumbu-y mulai dari nol, dan garisnya nyaris rata. Sekarang gambar lagi dengan sumbu-y mulai dari 410. Grafik yang sama persis berubah jadi lonjakan tajam yang terlihat seperti keberhasilan besar.' },
       {
         jenis: 'coba',
         teks: 'Alat interaktifnya menampilkan kedua versi berdampingan.',
@@ -335,7 +335,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       { jenis: 'sesi', judul: 'Cara 4, memilih rata-rata yang paling menguntungkan' },
       { jenis: 'paragraf', teks: 'Ingat kantor pada Materi 06. Kalau ingin kantor itu terdengar makmur, laporkan mean 12,22 juta. Kalau ingin terdengar sederhana, laporkan median 5,1 juta. Keduanya benar, keduanya "rata-rata", dan kata "rata-rata" saja tidak memberi tahu yang mana.' },
 
-      { jenis: 'sesi', judul: 'Cara 5, sumbu mendatar yang jaraknya tidak sama' },
+      { jenis: 'sesi', judul: 'Cara 5, sumbu-x yang jaraknya tidak sama' },
       { jenis: 'paragraf', teks: 'Grafik garis yang titik-titik waktunya berjarak 1 tahun, 1 tahun, lalu 5 tahun, tetapi digambar dengan jarak yang sama, akan memampatkan periode panjang menjadi terlihat sependek yang lain. Kecepatan perubahannya jadi terbaca salah.' },
 
       { jenis: 'sesi', judul: 'Tiga pertanyaan untuk setiap grafik' },

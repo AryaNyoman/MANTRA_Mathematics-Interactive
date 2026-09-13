@@ -199,7 +199,7 @@ export const KUIS: SoalKuis[] = [
     pertanyaan: 'Sudut antara vektor (1  1) dan vektor (0  3) adalah ...',
     pilihan: ['45 derajat', '90 derajat', '30 derajat', '60 derajat', '0 derajat'],
     benar: 0,
-    alasan: 'Vektor (1 1) menghadap 45 derajat dari sumbu mendatar, sedangkan (0 3) menghadap tepat ke atas yaitu 90 derajat. Selisihnya 45 derajat. Bisa juga lewat hasil kali titik: 3 dibagi hasil kali akar 2 dan 3, yaitu 1 per akar 2, dan itu kosinus 45 derajat.',
+    alasan: 'Vektor (1 1) menghadap 45 derajat dari sumbu-x, sedangkan (0 3) menghadap tepat ke atas yaitu 90 derajat. Selisihnya 45 derajat. Bisa juga lewat hasil kali titik: 3 dibagi hasil kali akar 2 dan 3, yaitu 1 per akar 2, dan itu kosinus 45 derajat.',
     tingkat: 'sulit',
   },
   {
@@ -270,7 +270,7 @@ export const KUIS: SoalKuis[] = [
   },
   {
     id: 'v31',
-    pertanyaan: 'Vektor (1  akar 3) membentuk sudut berapa terhadap sumbu mendatar positif?',
+    pertanyaan: 'Vektor (1  akar 3) membentuk sudut berapa terhadap sumbu-x positif?',
     pilihan: ['45 derajat', '30 derajat', '60 derajat', '90 derajat', '120 derajat'],
     benar: 2,
     alasan: 'Panjangnya akar dari 1 ditambah 3, yaitu 2. Kosinus sudutnya adalah komponen mendatar dibagi panjangnya, yaitu 1 per 2, dan itu kosinus 60 derajat. Pilihan 30 derajat muncul kalau yang dibandingkan komponen tegaknya, sehingga sudutnya terhitung dari sumbu yang salah.',

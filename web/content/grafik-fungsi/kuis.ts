@@ -27,7 +27,7 @@ export const KUIS: SoalKuis[] = [
     pertanyaan: 'Pada grafik jarak terhadap waktu, bagian garis yang MENDATAR berarti benda itu sedang apa?',
     pilihan: ['Berhenti', 'Bergerak dengan kecepatan tetap', 'Berbalik arah', 'Bergerak paling cepat', 'Melaju di jalan datar'],
     benar: 0,
-    alasan: 'Garis mendatar berarti jaraknya tidak berubah walaupun waktu terus berjalan, jadi bendanya diam. Pilihan terakhir menggoda karena kata "datar", padahal sumbu tegaknya berisi jarak, bukan ketinggian jalan.',
+    alasan: 'Garis mendatar berarti jaraknya tidak berubah walaupun waktu terus berjalan, jadi bendanya diam. Pilihan terakhir menggoda karena kata "datar", padahal sumbu-y berisi jarak, bukan ketinggian jalan.',
     tingkat: 'mudah',
   },
   {
