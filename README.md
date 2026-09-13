@@ -35,15 +35,18 @@ Karena itu tiap materi punya tiga lapis:
 
 | | Jumlah |
 |---|---:|
-| Bab | 7 |
-| Materi | 81 |
-| Alat interaktif | 92 |
-| Video animasi | 49 |
-| Soal kuis | 208 |
-| Soal latihan | 30 |
+| Bab | 9 |
+| Sub-bab | 40 |
+| Materi | 105 |
+| Alat interaktif | 104 |
+| Video animasi (1080p60, bertakarir) | 57 |
+| Soal kuis (bank soal empat tingkat) | 272 |
+| Soal latihan di halaman materi | 38 |
 
-Tujuh babnya: Perbandingan Trigonometri, Vektor dan Operasinya, Grafik Fungsi,
-Statistika, Limit, Ruang Tiga Dimensi, dan Transformasi Geometri.
+Sembilan babnya: Perbandingan Trigonometri, Vektor dan Operasinya, Grafik
+Fungsi, Statistika, Transformasi Geometri, Ruang Tiga Dimensi, Limit,
+Turunan, dan Integral (kelas 10 sampai 12). Angka dihitung 13 September 2026
+dari `web/content/`.
 
 ## Menjalankan di komputer sendiri
 
@@ -80,8 +83,11 @@ kontaknya frame demi frame. "Rendered" di log bukan bukti videonya benar.
 ## Yang dipakai membangunnya
 
 **Next.js 16** dan **React 19** untuk situsnya, **Tailwind v4** untuk gayanya,
-**ManimGL** untuk animasinya, dan **Claude** untuk menyusun kode, alat
-interaktif, serta naskah materi. Suara narasi memakai mesin ubah-teks-jadi-suara.
+**ManimGL** untuk animasinya, dan **Claude** (Claude Code, Anthropic) untuk
+menyusun kode situs, kode adegan animasi, alat interaktif, serta draf naskah
+materi, atas rancangan, standar, dan keputusan pembuatnya. Suara narasi
+adalah suara sintesis Microsoft Neural TTS (id-ID-ArdiNeural) lewat pustaka
+edge-tts. Situs ditayangkan di Vercel.
 
 Rujukan isinya: Buku Panduan Guru Kurikulum Merdeka, diktat kalkulus ITB, dan
 Stewart. Soal salinan selalu disertai sumbernya; yang tanpa keterangan adalah
@@ -104,12 +110,18 @@ Aturan lengkapnya ada di [`CLAUDE.md`](CLAUDE.md), dan status hariannya di
 
 ## Yang masih dikerjakan
 
-- **33 video masih 480p.** Itu mutu draf untuk ditinjau; render 1080p menyusul.
-- **Bank soal menu Latihan masih satu kumpulan dengan kuis bab.** Kuis sudah
-  mendahulukan soal yang belum pernah dikerjakan siswa di bank soal, tetapi
-  keduanya belum benar-benar terpisah.
-- Kredit suara di halaman Tentang menyebut ElevenLabs, sedangkan video yang
-  ada sekarang masih memakai mesin suara sebelumnya.
+- Bab berikutnya: Barisan dan Deret, Eksponen dan Logaritma, Peluang (sudah
+  ditandai "segera" di Peta Materi).
+- Bank soal menu Latihan sedang diperluas (15 soal per tingkat) dengan
+  pembahasan bergambar.
+- Uji coba terbatas di kelas untuk mengumpulkan umpan balik siswa dan guru.
+
+## Lisensi
+
+Kode sumber berlisensi **MIT**. Isi materi, soal, naskah, video, poster, dan
+gambar berlisensi **CC BY-NC-SA 4.0**: boleh dipakai dan disesuaikan untuk
+pembelajaran dengan menyebut "MANTRA, Nyoman Arya Sejati", nonkomersial,
+dan dibagikan dengan lisensi yang sama. Rinciannya di [`LICENSE`](LICENSE).
 
 ## Dibuat oleh
 

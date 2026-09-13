@@ -1,0 +1,55 @@
+MANTRA: Matematika Interaktif
+Hak cipta (c) 2026 Nyoman Arya Sejati, Universitas Pendidikan Ganesha
+https://mantra-matematika.vercel.app
+
+Karya ini dilisensikan dalam dua bagian.
+
+1. KODE SUMBER
+   Semua berkas kode dan konfigurasi (antara lain .ts, .tsx, .js, .mjs, .py,
+   .css, .yml, .json konfigurasi, dan skrip di web/, manim/, alat/):
+   Lisensi MIT (teks lengkap di bagian bawah berkas ini).
+
+2. ISI MATERI DAN MEDIA
+   Teks materi, soal dan pembahasan, naskah narasi, takarir (.vtt), video dan
+   poster di web/public/anim/, gambar dan logo MANTRA di web/public/mantra/,
+   serta dokumen rancangan dan naskah di docs/:
+   Creative Commons Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional
+   (CC BY-NC-SA 4.0), https://creativecommons.org/licenses/by-nc-sa/4.0/
+   Boleh dipakai dan disesuaikan untuk pembelajaran dengan menyebut
+   "MANTRA, Nyoman Arya Sejati, https://mantra-matematika.vercel.app" dan
+   membagikan hasil ubahannya dengan lisensi yang sama. Pemakaian komersial
+   memerlukan izin tertulis dari pemegang hak cipta.
+
+CATATAN
+- Suara narasi video adalah suara sintesis Microsoft Neural TTS
+  (id-ID-ArdiNeural) yang dihasilkan lewat pustaka edge-tts; suara itu milik
+  Microsoft dan tidak termasuk dalam lisensi di atas.
+- Nama dan logo ManimGL, Claude (Anthropic), WhatsApp, dan Universitas
+  Pendidikan Ganesha yang tampil di halaman Tentang adalah milik pemiliknya
+  masing-masing dan dipakai hanya untuk menyebut alat, sarana kontak, dan
+  afiliasi.
+- Pustaka pihak ketiga (Next.js, React, Tailwind CSS, ManimGL, edge-tts,
+  FFmpeg, dan lainnya) tunduk pada lisensinya masing-masing.
+
+---------------------------------------------------------------------------
+MIT License
+
+Copyright (c) 2026 Nyoman Arya Sejati
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
