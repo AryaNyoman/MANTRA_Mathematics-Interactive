@@ -58,7 +58,7 @@ function periksaGambar(g, cacat, id) {
   if ((g.jenis === 'batang' || g.jenis === 'garis-data') && g.kategori.length !== g.nilai.length) tolak('kategori dan nilai beda panjang')
   if (g.jenis === 'vektor' && (!Array.isArray(g.panah) || g.panah.length === 0)) tolak('panah kosong')
   if (g.jenis === 'balok' && g.ukuran.some((u) => !(u > 0))) tolak('ukuran harus positif')
-  if (g.jenis === 'bidang' && (!Array.isArray(g.bangun) || g.bangun.length < 2)) tolak('bangun kurang dari 2 titik')
+  if (g.jenis === 'bidang' && (!Array.isArray(g.bangun) || g.bangun.length < 1)) tolak('bangun kosong')
   if (g.jenis === 'svg' && (!g.viewBox || !g.isi)) tolak('viewBox dan isi wajib')
 }
 
