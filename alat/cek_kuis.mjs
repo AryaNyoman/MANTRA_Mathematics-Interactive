@@ -94,7 +94,8 @@ for (const b of bab) {
     const e = cek.get(s.id)
     if (e) {
       try {
-        const hasil = Function('Math', 's', `"use strict"; return (${e});`)(Math, s)
+        // D = derajat ke radian, supaya ekspresi cek boleh menulis Math.sin(30*D)
+        const hasil = Function('Math', 's', 'D', `"use strict"; return (${e});`)(Math, s, Math.PI / 180)
         if (!hasil) cacat.push(`${s.id}: cek gagal: ${e}`)
       } catch (err) {
         cacat.push(`${s.id}: cek tidak bisa dihitung: ${e} (${err.message})`)

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import type { GambarSoal as Data } from '@/content/tipe'
+import { ISI_TOPIK } from '@/content/daftar-isi'
 import GambarSoal from '@/components/latihan/gambar/GambarSoal'
 import Nav from '@/components/Nav'
 import Kaki from '@/components/mantra/Kaki'
@@ -10,9 +11,13 @@ export const metadata: Metadata = {
 }
 
 /**
- * Halaman pemeriksaan gambar soal: satu contoh tiap jenis. Tidak ditautkan
- * dari mana pun dan tidak diindeks; gunanya supaya perender bisa dipotret
- * Playwright dan dinilai sebelum dipakai ratusan soal (13 Sep 2026).
+ * Halaman pemeriksaan gambar soal. Tidak ditautkan dari mana pun dan tidak
+ * diindeks; gunanya supaya perender bisa dipotret Playwright dan dinilai
+ * (13 Sep 2026).
+ *
+ *   /latihan/contoh-gambar                 satu contoh tiap jenis
+ *   /latihan/contoh-gambar?bab=trigonometri semua gambar soal bab itu,
+ *                                           berlabel id dan tingkatnya
  */
 const CONTOH: { nama: string; gambar: Data }[] = [
   { nama: 'segitiga', gambar: { jenis: 'segitiga', sudut: 30, label: ['x', '12', '?'], namaSudut: '30°' } },
@@ -29,15 +34,22 @@ const CONTOH: { nama: string; gambar: Data }[] = [
   { nama: 'svg bebas', gambar: { jenis: 'svg', viewBox: '0 0 460 200', isi: '<rect x="40" y="40" width="380" height="120" rx="12" fill="none" stroke="#3A6EA5" stroke-width="2"/><text x="230" y="108" text-anchor="middle" font-size="16" fill="#1F2430">svg bebas</text>' } },
 ]
 
-export default function Halaman() {
+export default async function Halaman({ searchParams }: { searchParams: Promise<{ bab?: string }> }) {
+  const { bab } = await searchParams
+  const isi = bab ? ISI_TOPIK[bab] : undefined
+  const daftar = isi
+    ? isi.kuis.filter((s) => s.gambar).map((s) => ({ nama: `${s.id} · ${s.tingkat}`, gambar: s.gambar! }))
+    : CONTOH
   return (
     <>
       <Nav label="Contoh gambar soal" />
       <main className="mantra-lebar" style={{ paddingTop: 38 }}>
         <div className="kicker">Pemeriksaan</div>
-        <h1 className="judul-halaman">Contoh gambar soal, satu tiap jenis</h1>
+        <h1 className="judul-halaman">
+          {isi ? `Gambar soal ${bab}: ${daftar.length} dari ${isi.kuis.length} soal` : 'Contoh gambar soal, satu tiap jenis'}
+        </h1>
         <div className="kisi-contoh-gambar">
-          {CONTOH.map((c) => (
+          {daftar.map((c) => (
             <div key={c.nama} className="kartu-contoh-gambar">
               <div className="kicker">{c.nama}</div>
               <GambarSoal gambar={c.gambar} />
