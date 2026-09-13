@@ -353,12 +353,12 @@ class SambungPerjalanan(AdeganMatra):
         with sinema.babak(self, "hitung", DURASI, kata=KATA) as b:
             b.tunggu_kata("tiga tambah")
             hitung = self.papan.baris(r"3 + 1 = 4", TINTA, b=b)
-            b.tunggu_kata("sumbu tegak")
+            b.tunggu_kata("sumbu y")
             self.add(bantu_y, ruas_c, n_c, ruas_d, n_d)
-            b.main(ShowCreation(bantu_y), run_time=0.5)
+            b.main(ShowCreation(bantu_y), run_time=0.4)
             self.aktif["bantu y"] = bantu_y
             b.main(ShowCreation(ruas_c), FadeIn(n_c), ShowCreation(ruas_d), FadeIn(n_d),
-                   run_time=0.5)
+                   run_time=0.45)
             self.aktif["ruas c"] = ruas_c
             self.aktif["ruas d"] = ruas_d
             self.tulisan["angka c"] = n_c

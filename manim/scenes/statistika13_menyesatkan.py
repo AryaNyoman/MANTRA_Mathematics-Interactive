@@ -237,7 +237,7 @@ class Menyesatkan13(AdeganMatra):
             b.tunggu_kata("Sekarang")
             b.main(FadeOut(l_rata), run_time=0.5)
             buang("label rata")
-            b.tunggu_kata("Sumbu tegaknya")
+            b.tunggu_kata("Sumbu y")
             sumbu["bawah"], sumbu["atas"] = DASAR_POTONG, ATAS_POTONG
             taruh("sumbu tegak", sumbu_potong)
             taruh("titik", titik_potong)

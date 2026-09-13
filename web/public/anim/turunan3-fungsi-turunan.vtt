@@ -1,7 +1,7 @@
 WEBVTT
 
 NOTE Dibuat otomatis dari manim/narasi/turunan3-fungsi-turunan.json (waktu kata rekaman)
-NOTE naskah-sidik 7ebda33da653
+NOTE naskah-sidik 8a8b867d7035
 
 1
 00:00:00.101 --> 00:00:03.080
@@ -312,153 +312,153 @@ Bentuknya berbeda dari lengkungan hitam,
 karena yang dicatat memang berbeda.
 
 78
-00:04:02.301 --> 00:04:05.754
+00:04:02.301 --> 00:04:05.741
 Di kiri 0, kurva hitam menurun saat dibaca ke kanan.
 
 79
-00:04:06.503 --> 00:04:07.766
+00:04:06.489 --> 00:04:07.829
 Kemiringannya negatif,
 
 80
-00:04:07.766 --> 00:04:10.903
-sehingga grafik biru berada di bawah sumbu mendatar.
+00:04:07.829 --> 00:04:10.718
+sehingga grafik biru berada di bawah sumbu-x.
 
 81
-00:04:12.101 --> 00:04:14.685
+00:04:11.935 --> 00:04:14.519
 Di x = 0, garis singgung mendatar.
 
 82
-00:04:15.420 --> 00:04:16.620
+00:04:15.253 --> 00:04:16.453
 Kemiringannya 0,
 
 83
-00:04:16.620 --> 00:04:19.447
+00:04:16.453 --> 00:04:19.280
 sehingga grafik biru melewati pusat sumbu.
 
 84
-00:04:19.999 --> 00:04:23.320
+00:04:19.832 --> 00:04:23.153
 Di kanan 0, kurva naik dan kemiringannya positif.
 
 85
-00:04:24.534 --> 00:04:25.884
+00:04:24.367 --> 00:04:25.717
 Coba x = 3.
 
 86
-00:04:26.631 --> 00:04:29.846
+00:04:26.464 --> 00:04:29.680
 Fungsi awal memberi 3², yaitu 9.
 
 87
-00:04:30.591 --> 00:04:33.978
+00:04:30.425 --> 00:04:33.811
 Fungsi turunannya memberi 2 × 3, yaitu 6.
 
 88
-00:04:34.708 --> 00:04:37.595
+00:04:34.542 --> 00:04:37.428
 9 itu tinggi; 6 itu kemiringan.
 
 89
-00:04:38.816 --> 00:04:42.024
+00:04:38.649 --> 00:04:41.857
 Selain f′(x), kalau fungsi awal ditulis y,
 
 90
-00:04:42.024 --> 00:04:44.466
+00:04:41.857 --> 00:04:44.299
 turunannya bisa ditulis dy/dx.
 
 91
-00:04:45.199 --> 00:04:47.901
+00:04:45.032 --> 00:04:47.735
 Kedua tulisan ini menyatakan turunan yang sama.
 
 92
-00:04:49.116 --> 00:04:51.135
+00:04:48.949 --> 00:04:50.969
 Lambang dy/dx mengingatkan kita pada
 
 93
-00:04:51.135 --> 00:04:53.716
+00:04:50.969 --> 00:04:53.549
 perubahan tinggi dibanding perubahan mendatar,
 
 94
-00:04:53.716 --> 00:04:55.437
+00:04:53.549 --> 00:04:55.270
 ketika jaraknya mendekati 0.
 
 95
-00:04:56.169 --> 00:04:58.372
+00:04:56.002 --> 00:04:58.205
 Ini bukan nilai y dibagi x.
 
 96
-00:04:59.568 --> 00:05:01.902
+00:04:59.401 --> 00:05:01.736
 Apakah setiap titik selalu punya turunan?
 
 97
-00:05:02.635 --> 00:05:03.985
+00:05:02.468 --> 00:05:03.818
 Belum tentu.
 
 98
-00:05:04.493 --> 00:05:07.506
+00:05:04.326 --> 00:05:07.339
 Lihat grafik |x|, yang berbentuk huruf V.
 
 99
-00:05:07.506 --> 00:05:09.196
+00:05:07.339 --> 00:05:09.029
 Di 0 ada sudut tajam.
 
 100
-00:05:10.401 --> 00:05:11.601
+00:05:10.235 --> 00:05:11.435
 Dari kiri,
 
 101
-00:05:11.601 --> 00:05:14.929
+00:05:11.435 --> 00:05:14.762
 garis turun 1 untuk setiap langkah mendatar 1.
 
 102
-00:05:15.153 --> 00:05:17.014
+00:05:14.987 --> 00:05:16.847
 Kemiringannya −1.
 
 103
-00:05:17.746 --> 00:05:20.199
+00:05:17.579 --> 00:05:20.032
 Itulah tinggi jejak biru di sebelah kiri.
 
 104
-00:05:21.401 --> 00:05:22.601
+00:05:21.235 --> 00:05:22.435
 Dari kanan,
 
 105
-00:05:22.601 --> 00:05:25.860
+00:05:22.435 --> 00:05:25.693
 garis naik 1 untuk setiap langkah mendatar 1.
 
 106
-00:05:26.153 --> 00:05:28.001
+00:05:25.987 --> 00:05:27.834
 Kemiringannya +1.
 
 107
-00:05:28.733 --> 00:05:31.659
+00:05:28.566 --> 00:05:31.493
 Jejak biru di sebelah kanan berada di tinggi 1.
 
 108
-00:05:32.867 --> 00:05:34.938
+00:05:32.701 --> 00:05:34.772
 2 sisi memberi hasil berbeda.
 
 109
-00:05:35.673 --> 00:05:38.586
+00:05:35.507 --> 00:05:38.420
 Jadi di 0 tidak ada 1 nilai turunan yang cocok.
 
 110
-00:05:39.318 --> 00:05:40.803
+00:05:39.151 --> 00:05:40.636
 Bulatan kosong berarti nilai
 
 111
-00:05:40.803 --> 00:05:42.915
+00:05:40.636 --> 00:05:42.749
 itu tidak termasuk grafik turunannya.
 
 112
-00:05:44.134 --> 00:05:46.021
+00:05:43.967 --> 00:05:45.854
 Fungsi awal mencatat tinggi.
 
 113
-00:05:46.770 --> 00:05:48.773
+00:05:46.603 --> 00:05:48.606
 Fungsi turunan mencatat kemiringan,
 
 114
-00:05:48.773 --> 00:05:50.696
+00:05:48.606 --> 00:05:50.530
 pada titik yang turunannya ada.
 
 115
-00:05:51.427 --> 00:05:54.208
+00:05:51.260 --> 00:05:54.042
 Untuk x², turunannya 2x.

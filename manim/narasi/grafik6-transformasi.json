@@ -2,7 +2,7 @@
   "adegan": "GeserCerminRegang",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Transformasi Fungsi, Bagian 1 (Materi 06). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (bola menggelinding sekali di lembah x kuadrat; lima nilai f(x) dihitung lalu kurvanya ditarik; f(x) + 1 naik satu; f(x - 1) ke KANAN walau tandanya minus, karena isi kurung nol saat x = 1; perlakuan yang sama pada 2 akar x dan sinus; f(2x) memampat jadi setengah karena x dikalikan dua sebelum masuk mesin; aturan: luar kurung mengerjakan yang tertulis, dalam kurung kebalikannya). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1 dengan pertanyaan halaman, segar-ingat Fungsi Kuadrat Bagian 1 ((x - 3) kuadrat pindah ke kanan), bentuk umum y = f(x - h) + k, penutup menunjuk Bagian 2 (nilai mutlak). Seluruhnya dua dimensi; bola dan lembahnya digambar di bidang yang sama.",
+  "catatan": "Transformasi Fungsi, Bagian 1 (Materi 06). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (bola menggelinding sekali di lembah x kuadrat; lima nilai f(x) dihitung lalu kurvanya ditarik; f(x) + 1 naik satu; f(x - 1) ke KANAN walau tandanya minus, karena isi kurung nol saat x = 1; perlakuan yang sama pada 2 akar x dan sinus; f(2x) memampat jadi setengah karena x dikalikan dua sebelum masuk mesin; aturan: luar kurung mengerjakan yang tertulis, dalam kurung kebalikannya). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1 dengan pertanyaan halaman, segar-ingat Fungsi Kuadrat Bagian 1 ((x - 3) kuadrat pindah ke kanan), bentuk umum y = f(x - h) + k, penutup menunjuk Bagian 2 (nilai mutlak). Seluruhnya dua dimensi; bola dan lembahnya digambar di bidang yang sama. 13 Sep 2026: 'sumbu mendatar/tegak' diganti 'sumbu-x/sumbu-y' (ARYA).",
   "segmen": [
     {
       "id": "buka",
@@ -21,8 +21,8 @@
     },
     {
       "id": "datar",
-      "teks": "Sekarang lembahnya kita tinggalkan. Yang tersisa cuma gambarnya, di bidang datar, dengan sumbu mendatar untuk x dan sumbu tegak untuk y. Aturannya kita tulis dulu: f dari x sama dengan x kuadrat.",
-      "tulis": "Sekarang lembahnya kita tinggalkan. Yang tersisa cuma gambarnya, di bidang datar, dengan sumbu mendatar untuk x dan sumbu tegak untuk y. Aturannya kita tulis dulu: f(x) = x²."
+      "teks": "Sekarang lembahnya kita tinggalkan. Yang tersisa cuma gambarnya, di bidang datar, dengan sumbu x mendatar dan sumbu y tegak. Aturannya kita tulis dulu: f dari x sama dengan x kuadrat.",
+      "tulis": "Sekarang lembahnya kita tinggalkan. Yang tersisa cuma gambarnya, di bidang datar, dengan sumbu-x mendatar dan sumbu-y tegak. Aturannya kita tulis dulu: f(x) = x²."
     },
     {
       "id": "titik",

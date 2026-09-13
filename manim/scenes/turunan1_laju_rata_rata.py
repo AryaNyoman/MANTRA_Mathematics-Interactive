@@ -192,10 +192,10 @@ class TurunanLajuRataRata(AdeganMatra):
         with self.bagian("sumbu") as b:
             self.tunggu(b, "menjadi gambar")
             self.kosongkan(b)
-            self.tunggu(b, "sumbu datar")
+            self.tunggu(b, "sumbu x")
             self.muncul(b, sumbu_x=sumbu.x_axis)
             self.muncul(b, True, jam=lj)
-            self.tunggu(b, "sumbu tegak")
+            self.tunggu(b, "sumbu y")
             self.hilang(b, "sumbu_x", lama=.1)
             self.muncul(b, sumbu=sumbu)
             self.muncul(b, True, barang=lb)

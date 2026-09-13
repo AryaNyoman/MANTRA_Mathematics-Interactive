@@ -393,47 +393,120 @@ class TigaGrafikBersama(AdeganMatra):
 
         # ============ pembaginya menuju nol ============================== #
         kotak = SurroundingRectangle(tan_bawah, buff=0.08).set_stroke(AKSEN2, 2.5).set_fill(opacity=0)
+
+        # Kaca pembesar (revisi ARYA 13 Sep): lingkaran kecil di kiri terlalu
+        # mungil untuk memperlihatkan KENAPA tan 80 = 5,67 padahal tinggi dan
+        # mendatar masih di antara -1 dan 1. Lingkaran satuan besar di kolom
+        # kanan, ruas tinggi (merah) dan mendatar (biru) hidup mengikuti sudut.
+        KP, RK = np.array([X_KANAN, 0.35, 0.0]), 0.7
+        kaca_ling = Circle(radius=RK, stroke_color=TINTA, stroke_width=2.5, fill_opacity=0).move_to(KP)
+        kaca_sumbu = VGroup(Line(KP + LEFT * RK * 1.2, KP + RIGHT * RK * 1.2),
+                            Line(KP + DOWN * RK * 1.2, KP + UP * RK * 1.2)).set_stroke(REDUP, 1.5)
+        kaca_rangka = VGroup(kaca_ling, kaca_sumbu)
+        kaca_rangka.latar = True
+
+        def kaca_titik():
+            return KP + RK * arah_dari(th_tan.get_value())
+
+        def kaca_kaki():
+            return np.array([kaca_titik()[0], KP[1], 0.0])
+
+        kaca_jari = always_redraw(lambda: Line(KP, kaca_titik()).set_stroke(TINTA, 3))
+        kaca_tinggi = always_redraw(lambda: Line(kaca_kaki(), kaca_titik()).set_stroke(AKSEN, 5))
+        kaca_datar = always_redraw(lambda: Line(KP, kaca_kaki()).set_stroke(AKSEN2, 5))
+        kaca_dot = always_redraw(lambda: Dot(kaca_titik(), radius=0.06).set_color(TINTA))
+        kaca_hidup = VGroup(kaca_jari, kaca_tinggi, kaca_datar, kaca_dot)
+
+        def label_kaca(tinggi, datar):
+            # angka tinggi di kanan ruas merah, angka mendatar di bawah sumbu
+            lt = rumus(tinggi, 20, AKSEN).move_to(KP + np.array([-0.36, 0.32, 0.0]))
+            ld = rumus(datar, 20, AKSEN2).move_to(KP + np.array([0.05, -0.2, 0.0]))
+            return VGroup(lt, ld)
+
+        lab80 = label_kaca("0{,}98", "0{,}17")
+        lab89 = label_kaca("1{,}00", "0{,}017")
+        lab899 = label_kaca("1{,}00", "0{,}0017")
+
         with sinema.babak(self, "bagi", DURASI, kata=KATA) as b:
             b.tunggu_kata("pembaginya")
             b.main(ShowCreation(kotak), run_time=0.8)
             b.tunggu_kata("hasilnya")
             b.main(th_tan.animate.set_value(70), run_time=1.4, rate_func=linear)
             b.tunggu_kata("makin dekat")
-            b.main(th_tan.animate.set_value(80), run_time=1.2, rate_func=linear)
+            self.add(kaca_hidup)
+            b.main(FadeIn(kaca_rangka), th_tan.animate.set_value(78), run_time=1.2, rate_func=linear)
             b.tunggu_kata("kecil")
-            sorot_datar = p_tan["ruas"][1].copy().clear_updaters().set_stroke(AKSEN2, 14, opacity=0.45)
+            sorot_datar = kaca_datar.copy().clear_updaters().set_stroke(AKSEN2, 14, opacity=0.45)
             b.main(ShowCreationThenFadeOut(sorot_datar), run_time=0.9)
             self.remove(sorot_datar)
             b.tunggu_kata("besar")
-            b.main(th_tan.animate.set_value(85), run_time=0.9, rate_func=linear)
-        qc.periksa_adegan(self, zona_panel(*semua_panel), hud=hud(ident),
+            sorot_cabang0 = p_tan["kurva"][0].copy().clear_updaters().set_stroke(SOROT, 14, opacity=0.4)
+            b.main(ShowCreationThenFadeOut(sorot_cabang0), run_time=0.9)
+            self.remove(sorot_cabang0)
+        qc.periksa_adegan(self, {**zona_panel(*semua_panel), "kaca": kaca_rangka}, hud=hud(ident),
                           tulisan={**tulisan_panel(*semua_panel), "batas sin": batas_sin,
                                    "batas cos": batas_cos, "rumus tan": rumus_tan,
                                    "satu": satu_tan})
 
         # ============ angka: tan 80, 89, 89,9 ============================ #
-        deret = VGroup(rumus(r"\tan 80^\circ = 5{,}67", 24, TINTA),
-                       rumus(r"\tan 89^\circ = 57{,}29", 24, TINTA),
-                       rumus(r"\tan 89{,}9^\circ = 572{,}96", 24, SOROT))
-        deret.arrange(DOWN, aligned_edge=LEFT, buff=0.16).move_to([X_KANAN, Y_PANEL[0], 0])
-        sinema.batasi_lebar(deret, LEBAR_KANAN)
+        # Tabel sudut | mendatar | tan: tiap baris lahir saat sudutnya disebut,
+        # kolom mendatar sepuluh kali lebih kecil, kolom tan sepuluh kali lebih besar.
+        XA, XB, XC = X_KANAN - 0.35, X_KANAN - 0.15, X_KANAN + 1.2   # tepi kanan A, tepi kiri B, tepi kanan C
+        Y_TABEL = [Y_PANEL[0] + 0.55, Y_PANEL[0] + 0.2, Y_PANEL[0] - 0.14, Y_PANEL[0] - 0.48]
+        kepala = VGroup(teks("sudut", 17, REDUP), teks("mendatar", 17, AKSEN2), rumus(r"\tan\theta", 19, TINTA))
+        isi_tabel = [("80^\\circ", "0{,}17", "5{,}67", TINTA), ("89^\\circ", "0{,}017", "57{,}29", TINTA),
+                     ("89{,}9^\\circ", "0{,}0017", "572{,}96", SOROT)]
+        baris_tabel = [VGroup(rumus(a, 20, TINTA), rumus(m, 20, AKSEN2), rumus(t, 20, w)) for a, m, t, w in isi_tabel]
+        for y, baris in zip(Y_TABEL, [kepala] + baris_tabel):
+            baris[0].move_to([XA, y, 0], aligned_edge=RIGHT)
+            baris[1].move_to([XB, y, 0], aligned_edge=LEFT)
+            baris[2].move_to([XC, y, 0], aligned_edge=RIGHT)
+        tabel = VGroup(kepala, *baris_tabel)
+        deret = tabel
         with sinema.babak(self, "angka", DURASI, kata=KATA) as b:
-            b.tunggu_kata("Tangen")
-            b.main(FadeOut(kotak), FadeIn(deret[0], shift=LEFT * 0.1), run_time=0.6)
-            b.tunggu_kata("Tangen", ke=2)
-            b.main(FadeIn(deret[1], shift=LEFT * 0.1), run_time=0.6)
-            b.main(th_tan.animate.set_value(88), run_time=1.0, rate_func=linear)
-            b.tunggu_kata("Tangen", ke=3)
-            b.main(FadeIn(deret[2], shift=LEFT * 0.1), run_time=0.6)
-            b.main(th_tan.animate.set_value(89.5), run_time=1.2, rate_func=linear)
+            b.tunggu_kata("Lihat")
+            b.main(FadeOut(kotak), FadeIn(kepala, shift=LEFT * 0.1), run_time=0.6)
+            b.tunggu_kata("delapan puluh")
+            b.main(th_tan.animate.set_value(80), FadeIn(baris_tabel[0][0]), run_time=0.6, rate_func=linear)
+            b.tunggu_kata("tingginya")
+            sorot_tinggi = kaca_tinggi.copy().clear_updaters().set_stroke(AKSEN, 14, opacity=0.45)
+            b.main(FadeIn(lab80[0]), ShowCreationThenFadeOut(sorot_tinggi), run_time=0.8)
+            self.remove(sorot_tinggi)
+            b.tunggu_kata("mendatarnya")
+            sorot_datar = kaca_datar.copy().clear_updaters().set_stroke(AKSEN2, 14, opacity=0.45)
+            b.main(FadeIn(lab80[1]), FadeIn(baris_tabel[0][1]), ShowCreationThenFadeOut(sorot_datar), run_time=0.8)
+            self.remove(sorot_datar)
+            b.tunggu_kata("Tangennya")
+            b.main(FadeIn(baris_tabel[0][2], shift=LEFT * 0.1), run_time=0.6)
+            b.tunggu_kata("delapan puluh", ke=2)
+            b.main(th_tan.animate.set_value(89), FadeOut(lab80), FadeIn(baris_tabel[1][0]),
+                   run_time=1.0, rate_func=linear)
+            b.tunggu_kata("mendatarnya", ke=2)
+            b.main(FadeIn(lab89), FadeIn(baris_tabel[1][1]), run_time=0.6)
+            b.tunggu_kata("sepuluh")
+            b.main(Indicate(VGroup(baris_tabel[0][1], baris_tabel[1][1]), color=AKSEN2, scale_factor=1.0),
+                   run_time=0.8)
+            b.tunggu_kata("tangennya", ke=2)
+            b.main(FadeIn(baris_tabel[1][2], shift=LEFT * 0.1), run_time=0.6)
+            b.tunggu_kata("sepuluh", ke=2)
+            b.main(Indicate(VGroup(baris_tabel[0][2], baris_tabel[1][2]), color=SOROT, scale_factor=1.0),
+                   run_time=0.8)
+            b.tunggu_kata("delapan puluh", ke=3)
+            b.main(th_tan.animate.set_value(89.9), FadeOut(lab89), FadeIn(baris_tabel[2][0]),
+                   run_time=1.0, rate_func=linear)
+            b.tunggu_kata("mendatarnya", ke=3)
+            b.main(FadeIn(lab899), FadeIn(baris_tabel[2][1]), run_time=0.6)
+            b.tunggu_kata("tangennya", ke=3)
+            b.main(FadeIn(baris_tabel[2][2], shift=LEFT * 0.1), run_time=0.6)
             b.tunggu_kata("melesat")
             sorot_cabang0 = p_tan["kurva"][0].copy().clear_updaters().set_stroke(SOROT, 14, opacity=0.4)
-            b.main(ShowCreationThenFadeOut(sorot_cabang0), run_time=1.2)
+            b.main(ShowCreationThenFadeOut(sorot_cabang0), Indicate(baris_tabel[2][2], color=SOROT, scale_factor=1.0),
+                   run_time=1.2)
             self.remove(sorot_cabang0)
-        qc.periksa_adegan(self, zona_panel(*semua_panel), hud=hud(ident),
+        qc.periksa_adegan(self, {**zona_panel(*semua_panel), "kaca": kaca_rangka}, hud=hud(ident),
                           tulisan={**tulisan_panel(*semua_panel), "batas sin": batas_sin,
                                    "batas cos": batas_cos, "rumus tan": rumus_tan,
-                                   "satu": satu_tan, "deret": deret})
+                                   "satu": satu_tan, "tabel": tabel, "label kaca": lab899})
 
         # ============ jurang: asimtot, kurva melesat ===================== #
         asimtot = VGroup(*[
@@ -441,18 +514,19 @@ class TigaGrafikBersama(AdeganMatra):
                        dash_length=0.09).set_stroke(REDUP, 2)
             for d in (90, 270, 450)])
         tak_ada = VGroup(rumus(r"1 : 0", 26, AKSEN2), sinema.label("tak terdefinisi", ukuran=22, warna=AKSEN2))
-        tak_ada.arrange(DOWN, buff=0.08).move_to([X_KANAN, -0.75, 0])
+        tak_ada.arrange(DOWN, buff=0.08).move_to([X_KANAN, -0.85, 0])
         sinema.batasi_lebar(tak_ada, LEBAR_KANAN)
         with sinema.babak(self, "jurang", DURASI, kata=KATA) as b:
             b.tunggu_kata("Tepat")
-            b.main(th_tan.animate.set_value(90), run_time=0.7, rate_func=smooth)
+            b.main(th_tan.animate.set_value(90), FadeOut(lab899), run_time=0.7, rate_func=smooth)
             b.tunggu_kata("mendatarnya")
-            b.main(Flash(p_tan["pusat"], color=AKSEN2, flash_radius=0.28, line_length=0.14), run_time=0.6)
+            b.main(Flash(p_tan["pusat"], color=AKSEN2, flash_radius=0.28, line_length=0.14),
+                   Flash(KP, color=AKSEN2, flash_radius=0.32, line_length=0.16), run_time=0.6)
             b.tunggu_kata("pembagian")
             b.main(FadeIn(tak_ada, shift=UP * 0.1), run_time=0.7)
             b.tunggu_kata("terdefinisi")
             b.main(Indicate(tak_ada, color=SOROT, scale_factor=1.0), run_time=0.9)
-        qc.periksa_adegan(self, zona_panel(*semua_panel), hud=hud(ident),
+        qc.periksa_adegan(self, {**zona_panel(*semua_panel), "kaca": kaca_rangka}, hud=hud(ident),
                           tulisan={**tulisan_panel(*semua_panel), "batas sin": batas_sin,
                                    "batas cos": batas_cos, "rumus tan": rumus_tan,
                                    "satu": satu_tan, "deret": deret, "tak ada": tak_ada})
@@ -483,7 +557,8 @@ class TigaGrafikBersama(AdeganMatra):
         # ============ terulang di 270 ==================================== #
         with sinema.babak(self, "duaratus", DURASI, kata=KATA) as b:
             b.tunggu_kata("terulang")
-            b.main(FadeOut(tak_ada), FadeOut(deret), run_time=0.3)
+            self.remove(kaca_hidup)
+            b.main(FadeOut(tak_ada), FadeOut(deret), FadeOut(kaca_rangka), run_time=0.3)
             b.main(th_tan.animate.set_value(270), run_time=2.0, rate_func=linear)
             b.tunggu_kata("bawah")
             b.main(Flash(p_tan["titik_ling"](), color=AKSEN2, flash_radius=0.28, line_length=0.14),
@@ -587,7 +662,52 @@ class TigaGrafikBersama(AdeganMatra):
             sinema.batasi_lebar(c, LEBAR_KANAN)
         dinamis = [m for p in semua_panel for m in (p["jari"], p["titik"], p["ruas"], p["sambung"], p["titik_grafik"])]
         rangka_semua = VGroup(*[m for p in semua_panel for m in (p["rangka"], p["skala"], p["label"])])
-        with sinema.babak(self, "bonus1", DURASI, kata=KATA) as b:
+
+        # ---- pengingat dari Materi 06: csc, sec, cot lahir dari garis singgung
+        # (permintaan ARYA 13 Sep). Lingkaran satuan sedang di kiri, dua garis
+        # singgung, enam ruas; rumus segitiga kecil di kanan.
+        PB, RB = np.array([-3.0, -0.45, 0.0]), 1.5
+        TH_B = np.radians(40)
+        pb_kanan, pb_atas = PB + RIGHT * RB, PB + UP * RB
+        pb_P = PB + RB * np.array([np.cos(TH_B), np.sin(TH_B), 0.0])
+        pb_K = PB + RB * np.array([np.cos(TH_B), 0.0, 0.0])
+        pb_T = PB + RB * np.array([1.0, np.tan(TH_B), 0.0])
+        pb_C = PB + RB * np.array([1.0 / np.tan(TH_B), 1.0, 0.0])
+        sumbu_p = VGroup(Line(PB + LEFT * RB * 1.2, PB + RIGHT * RB * 1.55).set_stroke(REDUP, 1.8),
+                         Line(PB + DOWN * RB * 1.2, PB + UP * RB * 1.55).set_stroke(REDUP, 1.8))
+        sumbu_p.latar = True
+        lab_sx = rumus("x", 22, REDUP).next_to(sumbu_p[0].get_end(), DOWN, buff=0.1)
+        lab_sy = rumus("y", 22, REDUP).next_to(sumbu_p[1].get_end(), LEFT, buff=0.1)
+        ling_p = Circle(radius=RB, arc_center=PB).set_stroke(TINTA, 2.4)
+        jari_p = Line(PB, pb_C).set_stroke(REDUP, 1.8)
+        titik_p = Dot(pb_P, radius=0.06, color=TINTA)
+        busur_p = Arc(0, TH_B, radius=0.42, arc_center=PB).set_stroke(SOROT, 2.4)
+        lab_th_p = rumus(r"\theta", 24, SOROT).move_to(PB + 0.66 * np.array([np.cos(TH_B / 2), np.sin(TH_B / 2), 0.0]))
+        sing_x = Line(pb_kanan + DOWN * 0.35, pb_kanan + UP * (RB + 0.01)).set_stroke(AKSEN2, 2.2)
+        sing_y = Line(pb_atas + LEFT * 0.35, pb_atas + RIGHT * (RB / np.tan(TH_B) + 0.4)).set_stroke(AKSEN, 2.2)
+        lab_x1 = rumus("x = 1", 22, AKSEN2).next_to(sing_x.get_start(), DOWN, buff=0.08)
+        lab_y1 = rumus("y = 1", 22, AKSEN).next_to(sing_y.get_start(), LEFT, buff=0.08)
+        seg_p = Polygon(PB, pb_K, pb_P).set_stroke(width=0).set_fill(SOROT, 0.22)
+        lab_xk = rumus("x", 22, TINTA).next_to(Line(PB, pb_K), DOWN, buff=0.08)
+        lab_yk = rumus("y", 22, TINTA).next_to(Line(pb_K, pb_P), RIGHT, buff=0.08).shift(DOWN * 0.05)
+        # sec (pusat ke T) dan csc (pusat ke C) berimpit di satu sinar; digeser
+        # tipis ke dua sisi supaya keduanya terlihat (lembar kontak 480p detik 195).
+        n_sisi = rotate_vector(UP * 0.055, TH_B)
+        r_tan = Line(pb_kanan, pb_T).set_stroke(SOROT, 5)
+        r_sec = Line(PB, pb_T).set_stroke(AKSEN2, 5).shift(n_sisi)
+        r_cot = Line(pb_atas, pb_C).set_stroke(SOROT, 5)
+        r_csc = Line(PB, pb_C).set_stroke(AKSEN, 5).shift(-n_sisi)
+        l_tan = rumus(r"\tan\theta", 24, SOROT).next_to(r_tan, RIGHT, buff=0.1)
+        l_sec = rumus(r"\sec\theta", 24, AKSEN2).move_to(PB + 0.55 * (pb_T - PB) + rotate_vector(UP * 0.34, TH_B))
+        l_cot = rumus(r"\cot\theta", 24, SOROT).next_to(r_cot, UP, buff=0.1).shift(LEFT * 0.3)
+        l_csc = rumus(r"\csc\theta", 24, AKSEN).move_to((pb_T + pb_C) / 2 + rotate_vector(DOWN * 0.5, TH_B))
+        judul_tiga = VGroup(rumus(r"\csc\theta", 48, AKSEN), rumus(r"\sec\theta", 48, AKSEN2),
+                            rumus(r"\cot\theta", 48, SOROT)).arrange(RIGHT, buff=0.9).move_to([0, 0.1, 0])
+        k_csc = rumus(r"\csc\theta = \frac{1}{y}", 34, AKSEN)
+        k_sec = rumus(r"\sec\theta = \frac{1}{x}", 34, AKSEN2)
+        k_cot = rumus(r"\cot\theta = \frac{x}{y}", 34, SOROT)
+        k_tiga = VGroup(k_csc, k_sec, k_cot).arrange(DOWN, aligned_edge=LEFT, buff=0.38).move_to([3.4, -0.3, 0])
+        with sinema.babak(self, "bonus0", DURASI, kata=KATA) as b:
             b.tunggu_kata("bonus")
             ident3 = sinema.identitas(self, "bonus: csc, sec, cot")
             ident3.set_opacity(0.0)
@@ -596,16 +716,56 @@ class TigaGrafikBersama(AdeganMatra):
                    FadeOut(rangka_semua), FadeOut(asimtot), FadeOut(batas_sin), FadeOut(batas_cos),
                    FadeOut(rumus_tan), FadeOut(satu_tan), FadeOut(ulang_sin), FadeOut(ulang_cos),
                    FadeOut(ulang_tan), FadeOut(catat360), FadeOut(catat180), FadeOut(ident),
-                   run_time=0.7)
-            b.main(ident3.animate.set_opacity(1.0), ShowCreation(sumbu_b), FadeIn(skala_b),
-                   FadeIn(batas_b), run_time=0.9)
+                   ident3.animate.set_opacity(1.0), FadeIn(judul_tiga, shift=UP * 0.2), run_time=0.8)
             ident = ident3
-            b.tunggu_kata("Kosekan")
+            b.tunggu_kata("Ingat")
+            b.main(FadeOut(judul_tiga), run_time=0.3)
+            b.main(ShowCreation(sumbu_p), FadeIn(lab_sx), FadeIn(lab_sy), run_time=0.6)
+            b.main(ShowCreation(ling_p), run_time=0.8)
+            b.main(ShowCreation(jari_p), FadeIn(titik_p), ShowCreation(busur_p), FadeIn(lab_th_p),
+                   run_time=0.8)
+            b.tunggu_kata("garis singgung")
+            b.main(ShowCreation(sing_x), ShowCreation(sing_y), run_time=1.0)
+            b.tunggu_kata("x sama")
+            b.main(Indicate(sing_x, color=AKSEN2, scale_factor=1.0), FadeIn(lab_x1), run_time=0.7)
+            b.tunggu_kata("tangen")
+            b.main(ShowCreation(r_tan), FadeIn(l_tan), run_time=0.45)
+            b.tunggu_kata("sekan")
+            b.main(ShowCreation(r_sec), FadeIn(l_sec), run_time=0.6)
+            b.tunggu_kata("y sama")
+            b.main(Indicate(sing_y, color=AKSEN, scale_factor=1.0), FadeIn(lab_y1), run_time=0.7)
+            b.tunggu_kata("kotangen")
+            b.main(ShowCreation(r_cot), FadeIn(l_cot), run_time=0.45)
+            b.tunggu_kata("kosekan")
+            b.main(ShowCreation(r_csc), FadeIn(l_csc), run_time=0.6)
+            b.tunggu_kata("segitiga")
+            b.main(FadeIn(seg_p), FadeIn(lab_xk), FadeIn(lab_yk), run_time=0.7)
+            b.tunggu_kata("kosekan", ke=2)
+            b.main(Write(k_csc), run_time=1.0)
+            b.tunggu_kata("sekan", ke=2)
+            b.main(Write(k_sec), run_time=1.0)
+            b.tunggu_kata("kotangen", ke=2)
+            b.main(Write(k_cot), run_time=1.0)
+        qc.periksa_adegan(self, {"lingkaran": ling_p, "singgung x": sing_x, "singgung y": sing_y,
+                                 "tan": r_tan, "cot": r_cot, "rumus": k_tiga},
+                          hud=hud(ident), dunia={"sumbu": sumbu_p, "jari": jari_p},
+                          tulisan={"theta": lab_th_p, "x1": lab_x1, "y1": lab_y1, "xk": lab_xk,
+                                   "yk": lab_yk, "l tan": l_tan, "l sec": l_sec, "l cot": l_cot,
+                                   "l csc": l_csc, "sx": lab_sx, "sy": lab_sy})
+
+        gambar_p = VGroup(sumbu_p, lab_sx, lab_sy, ling_p, jari_p, titik_p, busur_p, lab_th_p, sing_x, sing_y,
+                          lab_x1, lab_y1, seg_p, lab_xk, lab_yk, r_tan, r_sec, r_cot, r_csc,
+                          l_tan, l_sec, l_cot, l_csc)
+        with sinema.babak(self, "bonus1", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Karena")
+            b.main(FadeOut(gambar_p), FadeOut(k_sec), FadeOut(k_cot),
+                   ReplacementTransform(k_csc, cap_csc), run_time=0.7)
+            b.main(ShowCreation(sumbu_b), FadeIn(skala_b), FadeIn(batas_b), run_time=0.7)
+            b.tunggu_kata("kosekan")
             b.main(ShowCreation(sin_b), run_time=0.8)
-            b.main(FadeIn(cap_csc, shift=LEFT * 0.1), run_time=0.5)
             b.tunggu_kata("Kurvanya")
             b.main(ShowCreation(csc_b), run_time=1.4)
-            b.tunggu_kata("sinus", ke=2)
+            b.tunggu_kata("sinus", ke=3)
             b.main(ShowCreation(as_sin), run_time=0.9)
             b.tunggu_kata("tidak")
             b.main(FadeIn(pita_b), run_time=0.6)

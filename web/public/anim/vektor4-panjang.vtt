@@ -1,7 +1,7 @@
 WEBVTT
 
 NOTE Dibuat otomatis dari manim/narasi/vektor4-panjang.json (waktu kata rekaman)
-NOTE naskah-sidik 8c0103ce0b95
+NOTE naskah-sidik d4c63f896973
 
 1
 00:00:00.101 --> 00:00:03.186
@@ -204,77 +204,77 @@ dan ukuran tidak pernah kurang dari 0.
 Panjang saja belum cukup untuk menyebut sebuah vektor.
 
 51
-00:02:34.555 --> 00:02:35.755
+00:02:34.555 --> 00:02:35.771
 Arahnya juga perlu,
 
 52
-00:02:35.755 --> 00:02:38.879
-dan arah diukur sebagai sudut dari sumbu mendatar,
+00:02:35.771 --> 00:02:38.523
+dan arah diukur sebagai sudut dari sumbu-x,
 
 53
-00:02:38.879 --> 00:02:40.653
+00:02:38.523 --> 00:02:40.337
 berlawanan arah jarum jam.
 
 54
-00:02:41.370 --> 00:02:45.507
+00:02:41.067 --> 00:02:45.204
 Untuk (4 2), sudutnya sekitar 26,6°.
 
 55
-00:02:46.735 --> 00:02:49.819
+00:02:46.401 --> 00:02:49.486
 Dan inilah sebabnya keduanya harus disebut bersama.
 
 56
-00:02:50.568 --> 00:02:51.850
+00:02:50.234 --> 00:02:51.517
 (3 4), (4 3),
 
 57
-00:02:51.850 --> 00:02:56.244
+00:02:51.517 --> 00:02:55.910
 dan (-5 0) panjangnya sama persis, yaitu 5.
 
 58
-00:02:56.974 --> 00:02:58.480
+00:02:56.641 --> 00:02:58.146
 Tetapi ketiganya menunjuk ke
 
 59
-00:02:58.480 --> 00:03:00.243
+00:02:58.146 --> 00:02:59.909
 arah yang sama sekali berbeda.
 
 60
-00:03:01.467 --> 00:03:02.998
+00:03:01.133 --> 00:03:02.665
 Jadi ingat dua hal.
 
 61
-00:03:03.734 --> 00:03:05.113
+00:03:03.400 --> 00:03:04.780
 Panjang panah adalah akar
 
 62
-00:03:05.113 --> 00:03:07.028
+00:03:04.780 --> 00:03:06.695
 dari jumlah kuadrat komponennya.
 
 63
-00:03:07.760 --> 00:03:09.280
+00:03:07.427 --> 00:03:08.947
 Dan panjang saja tidak pernah
 
 64
-00:03:09.280 --> 00:03:11.265
+00:03:08.947 --> 00:03:10.932
 cukup untuk menyebut sebuah vektor.
 
 65
-00:03:12.482 --> 00:03:13.809
+00:03:12.149 --> 00:03:13.476
 Di materi berikutnya,
 
 66
-00:03:13.809 --> 00:03:16.337
+00:03:13.476 --> 00:03:16.004
 Vektor dalam Sistem Koordinat, Bagian 3,
 
 67
-00:03:16.337 --> 00:03:18.107
+00:03:16.004 --> 00:03:17.773
 kita cari cara menyebut arah
 
 68
-00:03:18.107 --> 00:03:20.192
+00:03:17.773 --> 00:03:19.859
 saja tanpa ikut menyebut jauhnya:
 
 69
-00:03:20.192 --> 00:03:22.238
+00:03:19.859 --> 00:03:21.904
 panah yang panjangnya tepat 1.

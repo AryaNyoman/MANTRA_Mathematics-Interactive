@@ -2,7 +2,7 @@
   "adegan": "PanjangPanah",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Vektor dalam Sistem Koordinat, Bagian 2 (Materi 04). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (dua tiang, kabel; vektor (4 2); segitiga siku-siku dengan kabel sebagai sisi miring; 16 + 4 = 20, akar 20 = 2 akar 5 = 4,47; hasil tidak bulat itu biasa; (-3 4) kuadratnya 9 bukan -9, panjang 5; panjang tidak pernah negatif; arah = sudut dari sumbu mendatar 26,6 derajat; (3 4), (4 3), (-5 0) sama panjang beda arah). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2, segar-ingat Bagian 1 (panah (4 3) dicatat dua angka), bentuk umum |v| = akar(x^2 + y^2) lahir di dekat panahnya, penutup menunjuk Bagian 3 (vektor satuan). Angkanya sengaja (4 2), bukan (4 3): halaman sudah memakai (4 3) dan hasil akar 20 memperlihatkan panjang tidak selalu bulat.",
+  "catatan": "Vektor dalam Sistem Koordinat, Bagian 2 (Materi 04). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (dua tiang, kabel; vektor (4 2); segitiga siku-siku dengan kabel sebagai sisi miring; 16 + 4 = 20, akar 20 = 2 akar 5 = 4,47; hasil tidak bulat itu biasa; (-3 4) kuadratnya 9 bukan -9, panjang 5; panjang tidak pernah negatif; arah = sudut dari sumbu mendatar 26,6 derajat; (3 4), (4 3), (-5 0) sama panjang beda arah). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2, segar-ingat Bagian 1 (panah (4 3) dicatat dua angka), bentuk umum |v| = akar(x^2 + y^2) lahir di dekat panahnya, penutup menunjuk Bagian 3 (vektor satuan). Angkanya sengaja (4 2), bukan (4 3): halaman sudah memakai (4 3) dan hasil akar 20 memperlihatkan panjang tidak selalu bulat. 13 Sep 2026: 'sumbu mendatar/tegak' diganti 'sumbu-x/sumbu-y' (ARYA).",
   "segmen": [
     {
       "id": "buka",
@@ -66,8 +66,8 @@
     },
     {
       "id": "arah",
-      "teks": "Panjang saja belum cukup untuk menyebut sebuah vektor. Arahnya juga perlu, dan arah diukur sebagai sudut dari sumbu mendatar, berlawanan arah jarum jam. Untuk empat dua, sudutnya sekitar dua puluh enam koma enam derajat.",
-      "tulis": "Panjang saja belum cukup untuk menyebut sebuah vektor. Arahnya juga perlu, dan arah diukur sebagai sudut dari sumbu mendatar, berlawanan arah jarum jam. Untuk (4 2), sudutnya sekitar 26,6°."
+      "teks": "Panjang saja belum cukup untuk menyebut sebuah vektor. Arahnya juga perlu, dan arah diukur sebagai sudut dari sumbu x, berlawanan arah jarum jam. Untuk empat dua, sudutnya sekitar dua puluh enam koma enam derajat.",
+      "tulis": "Panjang saja belum cukup untuk menyebut sebuah vektor. Arahnya juga perlu, dan arah diukur sebagai sudut dari sumbu-x, berlawanan arah jarum jam. Untuk (4 2), sudutnya sekitar 26,6°."
     },
     {
       "id": "sama",

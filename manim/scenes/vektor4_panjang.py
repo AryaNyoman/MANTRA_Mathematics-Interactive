@@ -380,7 +380,7 @@ class PanjangPanah(AdeganMatra):
             self.tulisan.clear()
             b.tunggu_kata("Arahnya")
             self.sorot_pita(b, p_v, lama=0.8)
-            b.tunggu_kata("sumbu mendatar")
+            b.tunggu_kata("sumbu x")
             self.add(sumbu_bantu)
             b.main(ShowCreation(sumbu_bantu), run_time=0.6)
             self.aktif["sumbu bantu"] = sumbu_bantu

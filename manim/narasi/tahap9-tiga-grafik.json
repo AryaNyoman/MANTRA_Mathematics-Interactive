@@ -2,7 +2,7 @@
   "adegan": "TigaGrafikBersama",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Grafik Fungsi Trigonometri, Bagian 2 (Materi 09). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (tiga panel: sin mencatat tinggi, cos posisi mendatar dan berangkat 90 lebih awal, tan = tinggi : mendatar dengan jurang di 90, sin dan cos terkurung 1 dan -1, tan tanpa batas, tan mengulang tiap 180). Yang ditambah: pembuka sub-bab plus Bagian 2, segar-ingat grafik sinus dari Bagian 1, contoh angka tan 45 = 1, penutup menunjuk Penerapan Trigonometri. DIPERDALAM 13 Sep 2026 atas revisi ARYA (lebih pelan, 3 sampai 5 menit): tan tidak terdefinisi dijelaskan lewat pembagi yang mengecil (tan 80 = 5,67; tan 89 = 57,29; tan 89,9 = 572,96, sama dengan tabel halaman), pembagian dengan nol tidak punya jawaban, garis putus-putus yang tidak pernah disentuh, tanda negatif sesudah 90, terulang di 270; bonus grafik csc, sec, cot sebagai kebalikan (melesat di tempat pembaginya nol).",
+  "catatan": "Grafik Fungsi Trigonometri, Bagian 2 (Materi 09). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (tiga panel: sin mencatat tinggi, cos posisi mendatar dan berangkat 90 lebih awal, tan = tinggi : mendatar dengan jurang di 90, sin dan cos terkurung 1 dan -1, tan tanpa batas, tan mengulang tiap 180). Yang ditambah: pembuka sub-bab plus Bagian 2, segar-ingat grafik sinus dari Bagian 1, contoh angka tan 45 = 1, penutup menunjuk Penerapan Trigonometri. DIPERDALAM 13 Sep 2026 atas revisi ARYA (lebih pelan, 3 sampai 5 menit): tan tidak terdefinisi dijelaskan lewat pembagi yang mengecil (tan 80 = 5,67; tan 89 = 57,29; tan 89,9 = 572,96, sama dengan tabel halaman), pembagian dengan nol tidak punya jawaban, garis putus-putus yang tidak pernah disentuh, tanda negatif sesudah 90, terulang di 270; bonus grafik csc, sec, cot sebagai kebalikan (melesat di tempat pembaginya nol). 13 Sep 2026 (kedua): sebelum bonus, pengingat dari Lingkaran Satuan dan Sudut Istimewa, Bagian 2 bahwa csc, sec, cot lahir dari dua garis singgung (x = 1: tan dan sec; y = 1: cot dan csc) dan dari segitiga kecil csc = 1/y, sec = 1/x, cot = x/y (permintaan ARYA). 13 Sep 2026 (ketiga, ARYA): angka tan 80, 89, 89,9 diperlihatkan asalnya lewat kaca pembesar lingkaran di kolom kanan (tinggi hampir 1, mendatar 0,17 lalu 0,017 lalu 0,0017) dan tabel sudut, mendatar, tan: pembagi sepuluh kali lebih kecil, hasil sepuluh kali lebih besar.",
   "segmen": [
     {
       "id": "buka",
@@ -46,8 +46,8 @@
     },
     {
       "id": "angka",
-      "teks": "Lihat angkanya. Tangen delapan puluh derajat lima koma enam tujuh. Tangen delapan puluh sembilan derajat lima puluh tujuh koma dua sembilan. Tangen delapan puluh sembilan koma sembilan derajat lima ratus tujuh puluh dua koma sembilan enam. Makin dekat, makin melesat.",
-      "tulis": "Lihat angkanya. tan 80° = 5,67. tan 89° = 57,29. tan 89,9° = 572,96. Makin dekat, makin *melesat*."
+      "teks": "Lihat angkanya. Di delapan puluh derajat, tingginya nol koma sembilan delapan, tetapi posisi mendatarnya cuma nol koma tujuh belas. Tangennya lima koma enam tujuh, sudah jauh di atas satu. Di delapan puluh sembilan derajat, mendatarnya nol koma nol satu tujuh, sepuluh kali lebih kecil, dan tangennya lima puluh tujuh koma dua sembilan, sepuluh kali lebih besar. Di delapan puluh sembilan koma sembilan derajat, mendatarnya nol koma nol nol satu tujuh, dan tangennya lima ratus tujuh puluh dua koma sembilan enam. Makin dekat, makin melesat.",
+      "tulis": "Lihat angkanya. Di 80°, tingginya 0,98, tetapi posisi mendatarnya cuma 0,17. tan-nya 5,67, sudah jauh di atas 1. Di 89°, mendatarnya 0,017, sepuluh kali lebih kecil, dan tan-nya 57,29, sepuluh kali lebih besar. Di 89,9°, mendatarnya 0,0017, dan tan-nya 572,96. Makin dekat, makin *melesat*."
     },
     {
       "id": "jurang",
@@ -75,9 +75,14 @@
       "tulis": "sin dan cos mengulang setiap 360°. tan mengulang dua kali lebih cepat, setiap *180°*."
     },
     {
+      "id": "bonus0",
+      "teks": "Sebagai bonus, tiga perbandingan sisanya juga punya grafik. Ingat Lingkaran Satuan dan Sudut Istimewa, Bagian dua: ketiganya lahir dari garis singgung. Di garis singgung x sama dengan satu, ruasnya tangen dan sekan. Di garis singgung y sama dengan satu, ruasnya kotangen dan kosekan. Dan dari segitiga kecilnya, kosekan adalah satu per y, sekan satu per x, kotangen x per y.",
+      "tulis": "Sebagai bonus, tiga perbandingan sisanya juga punya grafik. Ingat Lingkaran Satuan dan Sudut Istimewa, Bagian 2: ketiganya lahir dari *garis singgung*. Di garis singgung x = 1, ruasnya tan θ dan sec θ. Di garis singgung y = 1, ruasnya cot θ dan csc θ. Dan dari segitiga kecilnya, csc θ = 1/y, sec θ = 1/x, cot θ = x/y."
+    },
+    {
       "id": "bonus1",
-      "teks": "Sebagai bonus, tiga perbandingan sisanya juga punya grafik. Kosekan adalah satu dibagi sinus. Kurvanya melesat persis di tempat sinus nol, yaitu di nol, seratus delapan puluh, dan tiga ratus enam puluh derajat, dan tidak pernah masuk ke antara satu dan minus satu.",
-      "tulis": "Sebagai bonus, tiga perbandingan sisanya juga punya grafik. csc θ = 1 : sin θ. Kurvanya melesat persis di tempat sinus nol, yaitu di 0°, 180°, dan 360°, dan tidak pernah masuk ke antara 1 dan -1."
+      "teks": "Karena y adalah sinus theta, kosekan adalah satu dibagi sinus. Kurvanya melesat persis di tempat sinus nol, yaitu di nol, seratus delapan puluh, dan tiga ratus enam puluh derajat, dan tidak pernah masuk ke antara satu dan minus satu.",
+      "tulis": "Karena y = sin θ, csc θ = 1 : sin θ. Kurvanya melesat persis di tempat sinus nol, yaitu di 0°, 180°, dan 360°, dan tidak pernah masuk ke antara 1 dan -1."
     },
     {
       "id": "bonus2",

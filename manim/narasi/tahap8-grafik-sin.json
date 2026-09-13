@@ -2,7 +2,7 @@
   "adegan": "GrafikSinusLahir",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Grafik Fungsi Trigonometri, Bagian 1 (Materi 08). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (titik berjalan di lingkaran satuan, tingginya dibawa ke papan grafik, puncak di 90, nol di 180, lembah di 270, satu putaran di 360, kurva mengulang). Yang ditambah: pembuka sub-bab plus Bagian 1, segar-ingat sin theta = tinggi titik dari Lingkaran Satuan Bagian 1, contoh angka sudut istimewa (sin 30 = 1/2, sin 60 = akar 3 per 2) dari Bagian 3, penutup menunjuk Bagian 2.",
+  "catatan": "Grafik Fungsi Trigonometri, Bagian 1 (Materi 08). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (titik berjalan di lingkaran satuan, tingginya dibawa ke papan grafik, puncak di 90, nol di 180, lembah di 270, satu putaran di 360, kurva mengulang). Yang ditambah: pembuka sub-bab plus Bagian 1, segar-ingat sin theta = tinggi titik dari Lingkaran Satuan Bagian 1, contoh angka sudut istimewa (sin 30 = 1/2, sin 60 = akar 3 per 2) dari Bagian 3, penutup menunjuk Bagian 2. 13 Sep 2026: 'sumbu mendatar/tegak' diganti 'sumbu-x/sumbu-y' (ARYA).",
   "segmen": [
     {
       "id": "buka",
@@ -26,8 +26,8 @@
     },
     {
       "id": "geser",
-      "teks": "Sekarang lingkarannya kita geser ke kiri, dan di sebelah kanan kita siapkan papan kosong. Sumbu mendatarnya besar sudut, sumbu tegaknya tinggi tadi.",
-      "tulis": "Sekarang lingkarannya kita geser ke kiri, dan di sebelah kanan kita siapkan papan kosong. Sumbu mendatarnya besar sudut, sumbu tegaknya tinggi tadi."
+      "teks": "Sekarang lingkarannya kita geser ke kiri, dan di sebelah kanan kita siapkan papan kosong. Sumbu x untuk besar sudut, sumbu y untuk tinggi tadi.",
+      "tulis": "Sekarang lingkarannya kita geser ke kiri, dan di sebelah kanan kita siapkan papan kosong. Sumbu-x untuk besar sudut, sumbu-y untuk tinggi tadi."
     },
     {
       "id": "sapu",

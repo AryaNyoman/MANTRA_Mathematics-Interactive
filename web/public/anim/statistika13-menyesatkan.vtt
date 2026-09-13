@@ -1,7 +1,7 @@
 WEBVTT
 
 NOTE Dibuat otomatis dari manim/narasi/statistika13-menyesatkan.json (waktu kata rekaman)
-NOTE naskah-sidik a845b59265f8
+NOTE naskah-sidik 1a8a50a2a307
 
 1
 00:00:00.101 --> 00:00:02.870
@@ -40,173 +40,173 @@ Perpustakaan sekolah mencatat pengunjung 5 bulan: 412,
 418, 425, 421, 430.
 
 10
-00:00:32.382 --> 00:00:34.964
-Digambar dengan sumbu tegak mulai dari nol,
+00:00:32.368 --> 00:00:34.840
+Digambar dengan sumbu-y mulai dari nol,
 
 11
-00:00:34.964 --> 00:00:36.375
+00:00:34.840 --> 00:00:36.321
 garisnya <b>nyaris rata</b>.
 
 12
-00:00:37.107 --> 00:00:38.599
+00:00:37.055 --> 00:00:38.546
 Memang begitu keadaannya:
 
 13
-00:00:38.599 --> 00:00:40.718
+00:00:38.546 --> 00:00:40.665
 naik turunnya cuma belasan orang.
 
 14
-00:00:41.934 --> 00:00:43.466
+00:00:41.867 --> 00:00:43.399
 Sekarang perhatikan.
 
 15
-00:00:44.200 --> 00:00:46.092
-Sumbu tegaknya kita naikkan,
+00:00:44.134 --> 00:00:45.635
+Sumbu-y kita naikkan,
 
 16
-00:00:46.092 --> 00:00:48.877
+00:00:45.635 --> 00:00:48.573
 tidak lagi dari nol melainkan dari 410.
 
 17
-00:00:49.608 --> 00:00:51.547
+00:00:49.304 --> 00:00:51.244
 Satu pun angkanya tidak diubah.
 
 18
-00:00:52.768 --> 00:00:56.102
+00:00:52.468 --> 00:00:55.802
 Dan grafik yang sama persis berubah jadi <b>lonjakan tajam</b>.
 
 19
-00:00:56.836 --> 00:00:58.697
+00:00:56.536 --> 00:00:58.397
 Kesannya keberhasilan besar.
 
 20
-00:00:59.443 --> 00:01:02.948
+00:00:59.143 --> 00:01:02.648
 Padahal titiknya di tempat yang sama, angkanya sama,
 
 21
-00:01:02.948 --> 00:01:04.298
+00:01:02.648 --> 00:01:03.998
 datanya satu.
 
 22
-00:01:05.167 --> 00:01:07.317
+00:01:04.867 --> 00:01:07.017
 Berapa besar sebenarnya kenaikannya?
 
 23
-00:01:08.067 --> 00:01:12.427
+00:01:07.767 --> 00:01:12.127
 Dari 412 ke 430, jadi 18 orang.
 
 24
-00:01:13.157 --> 00:01:16.978
+00:01:12.857 --> 00:01:16.678
 Dibandingkan sekitar 420, itu <b>4%</b>.
 
 25
-00:01:18.167 --> 00:01:20.265
+00:01:17.867 --> 00:01:19.965
 Memotong sumbu tidak selalu curang.
 
 26
-00:01:21.014 --> 00:01:22.214
+00:01:20.714 --> 00:01:21.914
 Untuk suhu tubuh,
 
 27
-00:01:22.214 --> 00:01:24.820
+00:01:21.914 --> 00:01:24.520
 mulai dari nol justru membuang seluruh isinya:
 
 28
-00:01:24.820 --> 00:01:27.519
+00:01:24.520 --> 00:01:27.219
 yang penting justru selisih satu dua derajat.
 
 29
-00:01:28.516 --> 00:01:31.429
+00:01:28.216 --> 00:01:31.129
 Yang membedakan curang dan tidak bukan pemotongannya,
 
 30
-00:01:31.429 --> 00:01:33.957
+00:01:31.129 --> 00:01:33.657
 melainkan apakah pemotongan itu <b>diberitahukan</b>,
 
 31
-00:01:33.957 --> 00:01:36.745
+00:01:33.657 --> 00:01:36.445
 atau disembunyikan supaya pembaca salah menduga.
 
 32
-00:01:37.982 --> 00:01:40.167
+00:01:37.682 --> 00:01:39.867
 Cara lain: harga naik dua kali lipat,
 
 33
-00:01:40.167 --> 00:01:41.819
+00:01:39.867 --> 00:01:41.519
 digambar sebagai gambar yang
 
 34
-00:01:41.819 --> 00:01:44.567
+00:01:41.519 --> 00:01:44.267
 tinggi dan lebarnya sama-sama dilipatduakan.
 
 35
-00:01:45.300 --> 00:01:48.686
+00:01:45.000 --> 00:01:48.386
 Luasnya jadi <b>empat kali</b>, dan mata membaca luas.
 
 36
-00:01:49.901 --> 00:01:53.157
+00:01:49.601 --> 00:01:52.857
 Cara ketiga: memilih rata-rata yang menguntungkan.
 
 37
-00:01:53.905 --> 00:01:58.121
+00:01:53.605 --> 00:01:57.821
 Kantor di Ukuran Pemusatan dan Penyebaran, Bagian 2,
 
 38
-00:01:58.121 --> 00:02:02.082
+00:01:57.821 --> 00:02:01.782
 bisa disebut bergaji 12,22 juta, atau 5,1 juta.
 
 39
-00:02:02.811 --> 00:02:04.161
+00:02:02.511 --> 00:02:03.861
 <b>Keduanya benar</b>.
 
 40
-00:02:05.282 --> 00:02:06.607
+00:02:04.982 --> 00:02:06.307
 Jadi aturan tetapnya:
 
 41
-00:02:06.607 --> 00:02:09.090
+00:02:06.307 --> 00:02:08.790
 tanyakan tiga hal pada setiap grafik.
 
 42
-00:02:09.823 --> 00:02:11.657
+00:02:09.523 --> 00:02:11.357
 Sumbunya mulai dari berapa.
 
 43
-00:02:12.389 --> 00:02:14.815
+00:02:12.089 --> 00:02:14.515
 Datanya dari mana dan dari berapa banyak.
 
 44
-00:02:15.547 --> 00:02:17.414
+00:02:15.247 --> 00:02:17.114
 Dan yang paling sering dilupakan:
 
 45
-00:02:17.414 --> 00:02:19.092
+00:02:17.114 --> 00:02:18.792
 <b>apa yang tidak ditampilkan</b>.
 
 46
-00:02:20.316 --> 00:02:21.538
+00:02:20.016 --> 00:02:21.238
 Itulah jawabannya:
 
 47
-00:02:21.538 --> 00:02:24.797
+00:02:21.238 --> 00:02:24.497
 angka yang benar bisa dipakai untuk menyesatkan,
 
 48
-00:02:24.797 --> 00:02:28.071
+00:02:24.497 --> 00:02:27.771
 lewat sumbu, lewat luas, lewat pilihan ukuran.
 
 49
-00:02:28.804 --> 00:02:32.204
+00:02:28.504 --> 00:02:31.904
 Yang salah bukan angkanya, melainkan <b>cara membacanya</b>.
 
 50
-00:02:33.416 --> 00:02:35.886
+00:02:33.116 --> 00:02:35.586
 Di materi berikutnya, Penerapan Statistika,
 
 51
-00:02:35.886 --> 00:02:38.931
+00:02:35.586 --> 00:02:38.631
 kita lihat di mana alat-alat ini benar-benar dipakai,
 
 52
-00:02:38.931 --> 00:02:41.724
+00:02:38.631 --> 00:02:41.424
 dan apa yang harus ditanyakan sebelum percaya.

@@ -2,7 +2,7 @@
   "adegan": "Menyesatkan13",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Hubungan Dua Variabel, Bagian 4 (Materi 13). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (pengunjung 412, 418, 425, 421, 430; sumbu dari nol nyaris rata; sumbu dipotong dari 410 jadi lonjakan tajam; kenaikan 18 dari 420 = 4 persen; memotong sumbu tidak selalu curang: suhu tubuh; bedanya diberitahukan atau tidak; luas empat kali; memilih rata-rata yang menguntungkan; tiga pertanyaan). Yang ditambah: pembuka menyebut sub-bab plus Bagian 4 dengan pertanyaan halaman, segar-ingat Penyajian Data Bagian 1 (satu angka bisa menipu), bentuk umum = tiga pertanyaan sebagai aturan tetap, penutup menunjuk Penerapan Statistika.",
+  "catatan": "Hubungan Dua Variabel, Bagian 4 (Materi 13). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (pengunjung 412, 418, 425, 421, 430; sumbu dari nol nyaris rata; sumbu dipotong dari 410 jadi lonjakan tajam; kenaikan 18 dari 420 = 4 persen; memotong sumbu tidak selalu curang: suhu tubuh; bedanya diberitahukan atau tidak; luas empat kali; memilih rata-rata yang menguntungkan; tiga pertanyaan). Yang ditambah: pembuka menyebut sub-bab plus Bagian 4 dengan pertanyaan halaman, segar-ingat Penyajian Data Bagian 1 (satu angka bisa menipu), bentuk umum = tiga pertanyaan sebagai aturan tetap, penutup menunjuk Penerapan Statistika. 13 Sep 2026: 'sumbu mendatar/tegak' diganti 'sumbu-x/sumbu-y' (ARYA).",
   "segmen": [
     {
       "id": "buka",
@@ -21,13 +21,13 @@
     },
     {
       "id": "jujur",
-      "teks": "Digambar dengan sumbu tegak mulai dari nol, garisnya nyaris rata. Memang begitu keadaannya: naik turunnya cuma belasan orang.",
-      "tulis": "Digambar dengan sumbu tegak mulai dari nol, garisnya *nyaris rata*. Memang begitu keadaannya: naik turunnya cuma belasan orang."
+      "teks": "Digambar dengan sumbu y mulai dari nol, garisnya nyaris rata. Memang begitu keadaannya: naik turunnya cuma belasan orang.",
+      "tulis": "Digambar dengan sumbu-y mulai dari nol, garisnya *nyaris rata*. Memang begitu keadaannya: naik turunnya cuma belasan orang."
     },
     {
       "id": "potong",
-      "teks": "Sekarang perhatikan. Sumbu tegaknya kita naikkan, tidak lagi dari nol melainkan dari empat ratus sepuluh. Satu pun angkanya tidak diubah.",
-      "tulis": "Sekarang perhatikan. Sumbu tegaknya kita naikkan, tidak lagi dari nol melainkan dari 410. Satu pun angkanya tidak diubah."
+      "teks": "Sekarang perhatikan. Sumbu y kita naikkan, tidak lagi dari nol melainkan dari empat ratus sepuluh. Satu pun angkanya tidak diubah.",
+      "tulis": "Sekarang perhatikan. Sumbu-y kita naikkan, tidak lagi dari nol melainkan dari 410. Satu pun angkanya tidak diubah."
     },
     {
       "id": "lonjak",

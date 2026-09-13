@@ -2,7 +2,7 @@
   "adegan": "TurunanFungsiBaru",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Revisi ARYA 8 Sep 2026: asal f'(x)=2x dibuktikan, tinggi vs kemiringan, jejak dihasilkan pengukuran, notasi dan sudut |x|; 3–6 menit. Pemicu animasi mengikuti WordBoundary. Video lain dipertahankan.",
+  "catatan": "Revisi ARYA 8 Sep 2026: asal f'(x)=2x dibuktikan, tinggi vs kemiringan, jejak dihasilkan pengukuran, notasi dan sudut |x|; 3–6 menit. Pemicu animasi mengikuti WordBoundary. Video lain dipertahankan. 13 Sep 2026: 'sumbu mendatar/tegak' diganti 'sumbu-x/sumbu-y' (ARYA).",
   "segmen": [
     {
       "id": "buka",
@@ -111,8 +111,8 @@
     },
     {
       "id": "tanda",
-      "teks": "Di kiri nol, kurva hitam menurun saat dibaca ke kanan. Kemiringannya negatif, sehingga grafik biru berada di bawah sumbu mendatar.",
-      "tulis": "Di kiri 0, kurva hitam menurun saat dibaca ke kanan. Kemiringannya negatif, sehingga grafik biru berada di bawah sumbu mendatar."
+      "teks": "Di kiri nol, kurva hitam menurun saat dibaca ke kanan. Kemiringannya negatif, sehingga grafik biru berada di bawah sumbu x.",
+      "tulis": "Di kiri 0, kurva hitam menurun saat dibaca ke kanan. Kemiringannya negatif, sehingga grafik biru berada di bawah sumbu-x."
     },
     {
       "id": "datar",

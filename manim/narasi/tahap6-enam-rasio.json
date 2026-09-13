@@ -2,7 +2,7 @@
   "adegan": "EnamRasioNyata",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Lingkaran Satuan dan Sudut Istimewa, Bagian 2 (Materi 06). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1; DIPERDALAM 13 Sep 2026 atas revisi ARYA: (1) segar-ingat dari Perbandingan Trigonometri, Bagian 4: keenam pembagian sebagai sisi, termasuk csc = miring : depan, sec = miring : samping, cot = samping : depan; (2) titik x = 1 dan y = 1 disebut dan ditandai; (3) ASAL rumusnya dijelaskan lewat DUA SEGITIGA SEBANGUN: segitiga kecil bersisi miring 1 (memberi y/x, 1/x) dan segitiga besar bersisi samping 1 (memberi ruas tan dan sec sebagai panjang); untuk garis singgung y = 1, sudut theta muncul lagi di titik tabrak karena garisnya sejajar sumbu mendatar, sehingga depan = 1 dan ruasnya cot dan csc; (4) contoh angka diperluas ke sec 1,25, cot 1,33, csc 1,67 sesuai tabel halaman. Isi lama (dua garis singgung, enam ruas, sudut digeser) tetap.",
+  "catatan": "Lingkaran Satuan dan Sudut Istimewa, Bagian 2 (Materi 06). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1; DIPERDALAM 13 Sep 2026 atas revisi ARYA: (1) segar-ingat dari Perbandingan Trigonometri, Bagian 4: keenam pembagian sebagai sisi, termasuk csc = miring : depan, sec = miring : samping, cot = samping : depan; (2) titik x = 1 dan y = 1 disebut dan ditandai; (3) ASAL rumusnya dijelaskan lewat DUA SEGITIGA SEBANGUN: segitiga kecil bersisi miring 1 (memberi y/x, 1/x) dan segitiga besar bersisi samping 1 (memberi ruas tan dan sec sebagai panjang); untuk garis singgung y = 1, sudut theta muncul lagi di titik tabrak karena garisnya sejajar sumbu mendatar, sehingga depan = 1 dan ruasnya cot dan csc; (4) contoh angka diperluas ke sec 1,25, cot 1,33, csc 1,67 sesuai tabel halaman. Isi lama (dua garis singgung, enam ruas, sudut digeser) tetap. 13 Sep 2026: 'sumbu mendatar/tegak' diganti 'sumbu-x/sumbu-y' (ARYA). Revisi ARYA 13 Sep (kedua): segitiga besar/kecil disorot dan diberi ikon di samping rumusnya; di contoh angka, segitiga yang dipakai sec, cot, csc disorot.",
   "segmen": [
     {
       "id": "buka",
@@ -26,8 +26,8 @@
     },
     {
       "id": "singgung",
-      "teks": "Sekarang tandai titik x sama dengan satu di sumbu mendatar, lalu tarik garis tegak yang menyentuh lingkaran di titik itu. Garis seperti ini disebut garis singgung.",
-      "tulis": "Sekarang tandai titik x = 1 di sumbu mendatar, lalu tarik garis tegak yang menyentuh lingkaran di titik itu. Garis seperti ini disebut *garis singgung*."
+      "teks": "Sekarang tandai titik x sama dengan satu di sumbu x, lalu tarik garis tegak yang menyentuh lingkaran di titik itu. Garis seperti ini disebut garis singgung.",
+      "tulis": "Sekarang tandai titik x = 1 di sumbu-x, lalu tarik garis tegak yang menyentuh lingkaran di titik itu. Garis seperti ini disebut *garis singgung*."
     },
     {
       "id": "sebangun",
@@ -36,8 +36,8 @@
     },
     {
       "id": "tan",
-      "teks": "Pada segitiga besar, tangen theta adalah depan dibagi samping, dan sampingnya satu. Jadi sisi depannya, ruas dari sumbu mendatar sampai titik tabrak, panjangnya persis tangen theta.",
-      "tulis": "Pada segitiga besar, tan θ = depan : samping, dan sampingnya 1. Jadi sisi depannya, ruas dari sumbu mendatar sampai titik tabrak, panjangnya persis *tan θ*."
+      "teks": "Pada segitiga besar, tangen theta adalah depan dibagi samping, dan sampingnya satu. Jadi sisi depannya, ruas dari sumbu x sampai titik tabrak, panjangnya persis tangen theta.",
+      "tulis": "Pada segitiga besar, tan θ = depan : samping, dan sampingnya 1. Jadi sisi depannya, ruas dari sumbu-x sampai titik tabrak, panjangnya persis *tan θ*."
     },
     {
       "id": "tan_xy",
@@ -51,18 +51,18 @@
     },
     {
       "id": "singgung2",
-      "teks": "Sekarang tandai titik y sama dengan satu di sumbu tegak, dan tarik garis singgung yang kedua. Kali ini mendatar, menyentuh lingkaran di bagian atas.",
-      "tulis": "Sekarang tandai titik y = 1 di sumbu tegak, dan tarik garis singgung yang kedua. Kali ini mendatar, menyentuh lingkaran di bagian atas."
+      "teks": "Sekarang tandai titik y sama dengan satu di sumbu y, dan tarik garis singgung yang kedua. Kali ini mendatar, menyentuh lingkaran di bagian atas.",
+      "tulis": "Sekarang tandai titik y = 1 di sumbu-y, dan tarik garis singgung yang kedua. Kali ini mendatar, menyentuh lingkaran di bagian atas."
     },
     {
       "id": "sejajar",
-      "teks": "Perpanjang lagi jari-jarinya sampai menabrak garis itu. Karena garis singgung ini sejajar sumbu mendatar, sudut theta muncul lagi di titik tabrak. Jadi pada segitiga besar yang baru, sisi depannya adalah ruas tegak dari pusat ke atas, panjangnya satu.",
-      "tulis": "Perpanjang lagi jari-jarinya sampai menabrak garis itu. Karena garis singgung ini *sejajar* sumbu mendatar, sudut θ muncul lagi di titik tabrak. Jadi pada segitiga besar yang baru, sisi depannya adalah ruas tegak dari pusat ke atas, panjangnya 1."
+      "teks": "Perpanjang lagi jari-jarinya sampai menabrak garis itu. Karena garis singgung ini sejajar sumbu x, sudut theta muncul lagi di titik tabrak. Jadi pada segitiga besar yang baru, sisi depannya adalah ruas tegak dari pusat ke atas, panjangnya satu.",
+      "tulis": "Perpanjang lagi jari-jarinya sampai menabrak garis itu. Karena garis singgung ini *sejajar* sumbu-x, sudut θ muncul lagi di titik tabrak. Jadi pada segitiga besar yang baru, sisi depannya adalah ruas tegak dari pusat ke atas, panjangnya 1."
     },
     {
       "id": "cot",
-      "teks": "Kotangen theta adalah samping dibagi depan, dan depannya satu. Jadi sisi sampingnya, ruas dari sumbu tegak sampai titik tabrak, panjangnya kotangen theta. Dari segitiga kecil, samping dibagi depan adalah x per y.",
-      "tulis": "cot θ = samping : depan, dan depannya 1. Jadi sisi sampingnya, ruas dari sumbu tegak sampai titik tabrak, panjangnya *cot θ*. Dari segitiga kecil, samping : depan adalah x/y."
+      "teks": "Kotangen theta adalah samping dibagi depan, dan depannya satu. Jadi sisi sampingnya, ruas dari sumbu y sampai titik tabrak, panjangnya kotangen theta. Dari segitiga kecil, samping dibagi depan adalah x per y.",
+      "tulis": "cot θ = samping : depan, dan depannya 1. Jadi sisi sampingnya, ruas dari sumbu-y sampai titik tabrak, panjangnya *cot θ*. Dari segitiga kecil, samping : depan adalah x/y."
     },
     {
       "id": "csc",
@@ -86,8 +86,8 @@
     },
     {
       "id": "contoh_tiga",
-      "teks": "Sekan theta sama dengan satu dibagi nol koma delapan, yaitu satu koma dua lima. Kotangen theta sama dengan nol koma delapan dibagi nol koma enam, yaitu satu koma tiga tiga. Dan kosekan theta sama dengan satu dibagi nol koma enam, yaitu satu koma enam tujuh. Sama dengan tabel di halaman materi ini.",
-      "tulis": "sec θ = 1 : 0,8, yaitu 1,25. cot θ = 0,8 : 0,6, yaitu 1,33. Dan csc θ = 1 : 0,6, yaitu 1,67. Sama dengan tabel di halaman materi ini."
+      "teks": "Sekan theta dibaca dari segitiga besar di garis x sama dengan satu. Hasilnya satu dibagi nol koma delapan, yaitu satu koma dua lima. Kotangen dan kosekan dibaca dari segitiga di garis y sama dengan satu. Kotangen theta sama dengan nol koma delapan dibagi nol koma enam, yaitu satu koma tiga tiga. Dan kosekan theta sama dengan satu dibagi nol koma enam, yaitu satu koma enam tujuh. Sama dengan tabel di halaman materi ini.",
+      "tulis": "sec θ dibaca dari *segitiga besar* di garis x = 1. Hasilnya 1 : 0,8, yaitu 1,25. cot θ dan csc θ dibaca dari segitiga di garis y = 1. cot θ = 0,8 : 0,6, yaitu 1,33. Dan csc θ = 1 : 0,6, yaitu 1,67. Sama dengan tabel di halaman materi ini."
     },
     {
       "id": "putar",

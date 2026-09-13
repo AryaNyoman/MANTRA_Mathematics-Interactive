@@ -2,7 +2,7 @@
   "adegan": "TurunanLajuRataRata",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Revisi atas arahan ARYA 8 September 2026: timing kata dan tabel, arti total dan rata-rata, kemiringan lengkap lalu miring = naik/datar, pembeda Pythagoras melalui 3–4–5 cm, satuan barang/jam. Target 3–6 menit. Kurva mengikuti interpolasi monoton widget. Turunan 2 dan 3 tidak diubah.",
+  "catatan": "Revisi atas arahan ARYA 8 September 2026: timing kata dan tabel, arti total dan rata-rata, kemiringan lengkap lalu miring = naik/datar, pembeda Pythagoras melalui 3–4–5 cm, satuan barang/jam. Target 3–6 menit. Kurva mengikuti interpolasi monoton widget. Turunan 2 dan 3 tidak diubah. 13 Sep 2026: 'sumbu mendatar/tegak' diganti 'sumbu-x/sumbu-y' (ARYA).",
   "segmen": [
     {
       "id": "buka",
@@ -61,8 +61,8 @@
     },
     {
       "id": "sumbu",
-      "teks": "Sekarang kita ubah catatan menjadi gambar. Sumbu datar menunjukkan waktu dalam jam. Sumbu tegak menunjukkan total barang yang sudah selesai.",
-      "tulis": "Sekarang kita ubah catatan menjadi gambar. Sumbu datar menunjukkan waktu dalam jam. Sumbu tegak menunjukkan total barang yang sudah selesai."
+      "teks": "Sekarang kita ubah catatan menjadi gambar. Sumbu x menunjukkan waktu dalam jam. Sumbu y menunjukkan total barang yang sudah selesai.",
+      "tulis": "Sekarang kita ubah catatan menjadi gambar. Sumbu-x menunjukkan waktu dalam jam. Sumbu-y menunjukkan total barang yang sudah selesai."
     },
     {
       "id": "titik",

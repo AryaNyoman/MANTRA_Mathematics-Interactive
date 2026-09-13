@@ -2,7 +2,7 @@
   "adegan": "SambungPerjalanan",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Operasi Vektor, Bagian 1 (Materi 06). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (pejalan berjalan (3 1) lalu (1 2); resultan (4 3); ujung ke pangkal; susunan keliru pangkal ke pangkal; garis bantu ke sumbu memperlihatkan 3 + 1 = 4 dan 1 + 2 = 3; jebakan panjang 3,16 + 2,24 = 5,4 padahal resultannya 5). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1, segar-ingat Vektor dalam Sistem Koordinat Bagian 1 (panah = dua angka), bentuk umum a + b = (a1 + b1, a2 + b2), penutup menunjuk Bagian 2 (jajar genjang). Kata 'panah hitam' diganti 'panah abu-abu' karena panahnya memang abu (REDUP).",
+  "catatan": "Operasi Vektor, Bagian 1 (Materi 06). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (pejalan berjalan (3 1) lalu (1 2); resultan (4 3); ujung ke pangkal; susunan keliru pangkal ke pangkal; garis bantu ke sumbu memperlihatkan 3 + 1 = 4 dan 1 + 2 = 3; jebakan panjang 3,16 + 2,24 = 5,4 padahal resultannya 5). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1, segar-ingat Vektor dalam Sistem Koordinat Bagian 1 (panah = dua angka), bentuk umum a + b = (a1 + b1, a2 + b2), penutup menunjuk Bagian 2 (jajar genjang). Kata 'panah hitam' diganti 'panah abu-abu' karena panahnya memang abu (REDUP). 13 Sep 2026: 'sumbu mendatar/tegak' diganti 'sumbu-x/sumbu-y' (ARYA).",
   "segmen": [
     {
       "id": "buka",
@@ -56,13 +56,13 @@
     },
     {
       "id": "komponen",
-      "teks": "Sebelum kita menghitung, lihat dulu dari mana angkanya datang. Kita jatuhkan garis bantu dari tiap ujung panah ke sumbu mendatar. Perjalanan pertama mengisi petak nol sampai tiga, perjalanan kedua menyambungnya dari tiga sampai empat.",
-      "tulis": "Sebelum kita menghitung, lihat dulu dari mana angkanya datang. Kita jatuhkan garis bantu dari tiap ujung panah ke sumbu mendatar. Perjalanan pertama mengisi petak 0 sampai 3, perjalanan kedua menyambungnya dari 3 sampai 4."
+      "teks": "Sebelum kita menghitung, lihat dulu dari mana angkanya datang. Kita jatuhkan garis bantu dari tiap ujung panah ke sumbu x. Perjalanan pertama mengisi petak nol sampai tiga, perjalanan kedua menyambungnya dari tiga sampai empat.",
+      "tulis": "Sebelum kita menghitung, lihat dulu dari mana angkanya datang. Kita jatuhkan garis bantu dari tiap ujung panah ke sumbu-x. Perjalanan pertama mengisi petak 0 sampai 3, perjalanan kedua menyambungnya dari 3 sampai 4."
     },
     {
       "id": "hitung",
-      "teks": "Itulah sebabnya yang mendatar dijumlahkan dengan yang mendatar: tiga tambah satu sama dengan empat. Dan dengan cara yang sama pada sumbu tegak: satu tambah dua sama dengan tiga.",
-      "tulis": "Itulah sebabnya yang mendatar dijumlahkan dengan yang mendatar: 3 + 1 = 4. Dan dengan cara yang sama pada sumbu tegak: 1 + 2 = 3."
+      "teks": "Itulah sebabnya yang mendatar dijumlahkan dengan yang mendatar: tiga tambah satu sama dengan empat. Dan dengan cara yang sama pada sumbu y: satu tambah dua sama dengan tiga.",
+      "tulis": "Itulah sebabnya yang mendatar dijumlahkan dengan yang mendatar: 3 + 1 = 4. Dan dengan cara yang sama pada sumbu-y: 1 + 2 = 3."
     },
     {
       "id": "umum",

@@ -1,7 +1,7 @@
 WEBVTT
 
 NOTE Dibuat otomatis dari manim/narasi/vektor6-sambung.json (waktu kata rekaman)
-NOTE naskah-sidik 05fe9e06b8ce
+NOTE naskah-sidik 6b5a293f66cf
 
 1
 00:00:00.101 --> 00:00:02.580
@@ -148,93 +148,93 @@ Perhatikan panah abu-abu ini jauh lebih pendek,
 dan arahnya pun berbeda.
 
 37
-00:01:45.668 --> 00:01:47.019
+00:01:45.668 --> 00:01:47.009
 Sebelum kita menghitung,
 
 38
-00:01:47.019 --> 00:01:49.252
+00:01:47.009 --> 00:01:49.226
 lihat dulu dari mana angkanya datang.
 
 39
-00:01:49.986 --> 00:01:51.547
+00:01:49.960 --> 00:01:51.607
 Kita jatuhkan garis bantu dari
 
 40
-00:01:51.547 --> 00:01:53.518
-tiap ujung panah ke sumbu mendatar.
+00:01:51.607 --> 00:01:53.294
+tiap ujung panah ke sumbu-x.
 
 41
-00:01:54.264 --> 00:01:57.032
+00:01:54.040 --> 00:01:56.808
 Perjalanan pertama mengisi petak 0 sampai 3,
 
 42
-00:01:57.032 --> 00:02:00.138
+00:01:56.808 --> 00:01:59.914
 perjalanan kedua menyambungnya dari 3 sampai 4.
 
 43
-00:02:01.349 --> 00:02:03.400
+00:02:01.149 --> 00:02:03.211
 Itulah sebabnya yang mendatar
 
 44
-00:02:03.400 --> 00:02:05.734
+00:02:03.211 --> 00:02:05.557
 dijumlahkan dengan yang mendatar:
 
 45
-00:02:05.734 --> 00:02:07.084
+00:02:05.557 --> 00:02:06.907
 3 + 1 = 4.
 
 46
-00:02:07.339 --> 00:02:11.804
-Dan dengan cara yang sama pada sumbu tegak: 1 + 2 = 3.
+00:02:07.165 --> 00:02:11.539
+Dan dengan cara yang sama pada sumbu-y: 1 + 2 = 3.
 
 47
-00:02:13.000 --> 00:02:14.597
+00:02:12.767 --> 00:02:14.364
 Bentuk umumnya begini.
 
 48
-00:02:15.347 --> 00:02:19.589
+00:02:15.114 --> 00:02:19.356
 a + b = (a₁ + b₁ a₂ + b₂).
 
 49
-00:02:20.320 --> 00:02:22.205
+00:02:20.086 --> 00:02:21.972
 Yang mendatar dengan yang mendatar,
 
 50
-00:02:22.205 --> 00:02:23.917
+00:02:21.972 --> 00:02:23.684
 yang tegak dengan yang tegak.
 
 51
-00:02:25.135 --> 00:02:27.193
+00:02:24.901 --> 00:02:26.959
 Tetapi hati-hati pada panjangnya.
 
 52
-00:02:27.941 --> 00:02:32.578
+00:02:27.708 --> 00:02:32.345
 Perjalanan pertama sekitar 3,16, yang kedua 2,24.
 
 53
-00:02:33.323 --> 00:02:37.446
+00:02:33.089 --> 00:02:37.213
 Dijumlahkan menjadi 5,4, padahal resultannya tepat 5.
 
 54
-00:02:38.668 --> 00:02:40.844
+00:02:38.435 --> 00:02:40.611
 Selisih itu bukan kesalahan hitung.
 
 55
-00:02:41.578 --> 00:02:43.425
+00:02:41.344 --> 00:02:43.192
 Komponen boleh dijumlahkan.
 
 56
-00:02:44.157 --> 00:02:45.596
+00:02:43.923 --> 00:02:45.363
 Panjang tidak boleh.
 
 57
-00:02:46.816 --> 00:02:50.061
+00:02:46.582 --> 00:02:49.828
 Di materi berikutnya, Operasi Vektor, Bagian 2,
 
 58
-00:02:50.061 --> 00:02:53.583
+00:02:49.828 --> 00:02:53.350
 kedua panah itu bekerja serentak, bukan bergantian,
 
 59
-00:02:53.583 --> 00:02:56.979
+00:02:53.350 --> 00:02:56.746
 dan segitiga ini berubah menjadi jajar genjang.

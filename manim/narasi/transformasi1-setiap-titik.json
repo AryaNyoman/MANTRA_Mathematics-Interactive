@@ -2,7 +2,7 @@
   "adegan": "TransformasiSetiapTitik",
   "suara": "id-ID-ArdiNeural",
   "tempo": "-5%",
-  "catatan": "Video 01 topik Transformasi Geometri, Materi 01 'Setiap titik ikut pindah'. VERSI 3 (8 Sep 2026, keputusan ARYA): ditulis ulang dari 18 segmen 130 detik jadi 30 segmen sekitar 5 menit, gaya rinci Turunan 02. Segar-ingat menagih VEKTOR MATERI 03 'Memecah panah jadi dua langkah', sebab di situlah siswa belajar satu panah dinamai dua angka, dan di video ini satu TITIK dinamai dua angka dengan cara yang sama. Rumus (x, y) -> (x, -y) DIBUKTIKAN dari jarak ke sumbu, bukan disodorkan sebagai pola dari dua contoh: itu perubahan pokok dari versi 2, yang cuma menyimpulkan pola. Materi ini nomor SATU, jadi satu-satunya istilah topik yang boleh muncul adalah prapeta dan peta; cermin, translasi, rotasi, dilatasi, matriks, dan komposisi semuanya masih di depan, dan kata 'cermin' sengaja diganti 'lipatan'. DISESUAIKAN v3.1 (MASTER 12 Sep 2026): pembuka menyebut sub-bab plus Bagian 1, segar-ingat menyebut Vektor dalam Sistem Koordinat Bagian 1, penutup menunjuk Bagian 2 dengan kata materi.",
+  "catatan": "Video 01 topik Transformasi Geometri, Materi 01 'Setiap titik ikut pindah'. VERSI 3 (8 Sep 2026, keputusan ARYA): ditulis ulang dari 18 segmen 130 detik jadi 30 segmen sekitar 5 menit, gaya rinci Turunan 02. Segar-ingat menagih VEKTOR MATERI 03 'Memecah panah jadi dua langkah', sebab di situlah siswa belajar satu panah dinamai dua angka, dan di video ini satu TITIK dinamai dua angka dengan cara yang sama. Rumus (x, y) -> (x, -y) DIBUKTIKAN dari jarak ke sumbu, bukan disodorkan sebagai pola dari dua contoh: itu perubahan pokok dari versi 2, yang cuma menyimpulkan pola. Materi ini nomor SATU, jadi satu-satunya istilah topik yang boleh muncul adalah prapeta dan peta; cermin, translasi, rotasi, dilatasi, matriks, dan komposisi semuanya masih di depan, dan kata 'cermin' sengaja diganti 'lipatan'. DISESUAIKAN v3.1 (MASTER 12 Sep 2026): pembuka menyebut sub-bab plus Bagian 1, segar-ingat menyebut Vektor dalam Sistem Koordinat Bagian 1, penutup menunjuk Bagian 2 dengan kata materi. 13 Sep 2026: 'sumbu mendatar/tegak' diganti 'sumbu-x/sumbu-y' (ARYA).",
   "segmen": [
     {
       "id": "buka",
@@ -101,8 +101,8 @@
     },
     {
       "id": "umum_bawah",
-      "teks": "Titik yang berjarak sama tetapi di sisi bawah punya tinggi negatif y. Sebab itulah arti tanda minus pada sumbu tegak.",
-      "tulis": "Titik yang berjarak sama tetapi di sisi bawah punya tinggi -y. Sebab itulah arti tanda minus pada sumbu tegak."
+      "teks": "Titik yang berjarak sama tetapi di sisi bawah punya tinggi negatif y. Sebab itulah arti tanda minus pada sumbu y.",
+      "tulis": "Titik yang berjarak sama tetapi di sisi bawah punya tinggi -y. Sebab itulah arti tanda minus pada sumbu-y."
     },
     {
       "id": "umum_x",

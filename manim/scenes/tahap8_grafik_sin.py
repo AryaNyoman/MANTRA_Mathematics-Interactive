@@ -226,10 +226,10 @@ class GrafikSinusLahir(AdeganMatra):
                    rr.animate.set_value(R_AKHIR), run_time=1.8, rate_func=smooth)
             b.tunggu_kata("papan")
             b.main(ShowCreation(papan_grafik), run_time=1.2)
-            b.tunggu_kata("Sumbu mendatarnya")
+            b.tunggu_kata("Sumbu x")
             b.main(FadeIn(angka), FadeIn(lab_sudut), FadeIn(sudut_hidup), FadeIn(busur),
                    run_time=0.8)
-            b.tunggu_kata("sumbu tegaknya")
+            b.tunggu_kata("sumbu y")
             b.main(FadeIn(lab_tinggi), run_time=0.6)
         dunia = {"sumbu": sumbu, "papan": papan_grafik}
         qc.periksa_adegan(self, {"lingkaran": lingkaran, "jari": jari, "titik": titik,

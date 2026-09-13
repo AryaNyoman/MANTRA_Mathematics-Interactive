@@ -273,9 +273,17 @@ class EnamRasioNyata(AdeganMatra):
         lab_tan = rumus(r"\tan\theta", 30, TINTA).next_to(ruas_tan, RIGHT, buff=0.16)
         kerja_tan = rumus(r"\tan\theta = \frac{\text{depan}}{\text{samping}} = \frac{\text{depan}}{1}",
                           32, TINTA).move_to([X_KERJA, Y_KERJA + 0.9, 0])
+        # Ikon segitiga kecil di samping rumus (permintaan ARYA 13 Sep: siswa
+        # harus tahu segitiga MANA yang dipakai tiap perbandingan).
+        def ikon(seg, warna, opasitas=0.35):
+            return seg.copy().clear_updaters().set_fill(warna, opasitas).set_stroke(TINTA, 2).set_height(0.5)
+
+        ikon_besar = ikon(seg_besar, SOROT).next_to(kerja_tan, LEFT, buff=0.3)
         with sinema.babak(self, "tan", DURASI, kata=KATA) as b:
+            b.tunggu_kata("Pada")
+            b.main(Indicate(seg_besar, color=SOROT, scale_factor=1.0), FadeIn(ikon_besar), run_time=0.9)
             b.tunggu_kata("tangen")
-            b.main(Write(kerja_tan), run_time=1.6)
+            b.main(Write(kerja_tan), run_time=1.4)
             b.tunggu_kata("sampingnya")
             b.main(Indicate(lab_samping1, color=SOROT), run_time=0.7)
             b.tunggu_kata("depannya")
@@ -283,7 +291,7 @@ class EnamRasioNyata(AdeganMatra):
             b.tunggu_kata("persis")
             b.main(FadeIn(lab_tan, shift=RIGHT * 0.12), run_time=0.6)
         qc.periksa_adegan(self, {"dasar": dasar, "singgung": sing_tegak, "tan": ruas_tan,
-                                 "kerja": kerja_tan},
+                                 "kerja": kerja_tan, "ikon": ikon_besar},
                           hud=hud(ident, papan), dunia={"sumbu": sumbu, "jari": jari},
                           tulisan={"x": lab_x, "y": lab_y, "theta": lab_theta,
                                    "cap": cap_singgung, "lab tan": lab_tan, "x1": lab_x1,
@@ -291,17 +299,19 @@ class EnamRasioNyata(AdeganMatra):
 
         kerja_tan2 = rumus(r"\tan\theta = \frac{y}{x}", 32, TINTA).next_to(kerja_tan, DOWN, buff=0.35)
         kerja_tan2.align_to(kerja_tan, LEFT)
+        ikon_kecil = ikon(seg_kecil, AKSEN2).next_to(kerja_tan2, LEFT, buff=0.3).align_to(ikon_besar, LEFT)
         with sinema.babak(self, "tan_xy", DURASI, kata=KATA) as b:
             b.tunggu_kata("kecil")
             b.main(Indicate(seg_kecil, color=AKSEN2, scale_factor=1.0), run_time=0.8)
             b.tunggu_kata("y dibagi")
-            b.main(Write(kerja_tan2), run_time=1.2)
+            b.main(FadeIn(ikon_kecil), Write(kerja_tan2), run_time=1.2)
             b.tunggu_kata("sama")
             papan.baris(r"\tan\theta = \frac{y}{x}", warna=TINTA, b=b)
             b.tunggu_kata("sebesar")
             b.main(Indicate(ruas_tan, color=SOROT, scale_factor=1.0), run_time=0.8)
         qc.periksa_adegan(self, {"dasar": dasar, "singgung": sing_tegak, "tan": ruas_tan,
-                                 "kerja": kerja_tan, "kerja2": kerja_tan2},
+                                 "kerja": kerja_tan, "kerja2": kerja_tan2, "ikon": ikon_besar,
+                                 "ikon2": ikon_kecil},
                           hud=hud(ident, papan), dunia={"sumbu": sumbu, "jari": jari},
                           tulisan={"x": lab_x, "y": lab_y, "theta": lab_theta,
                                    "cap": cap_singgung, "lab tan": lab_tan, "x1": lab_x1,
@@ -313,10 +323,15 @@ class EnamRasioNyata(AdeganMatra):
                           32, AKSEN2).move_to([X_KERJA, Y_KERJA + 0.9, 0])
         kerja_sec2 = rumus(r"\sec\theta = \frac{1}{x}", 32, AKSEN2).next_to(kerja_sec, DOWN, buff=0.35)
         kerja_sec2.align_to(kerja_sec, LEFT)
+        ikon_besar2 = ikon(seg_besar, SOROT).next_to(kerja_sec, LEFT, buff=0.3)
+        ikon_kecil2 = ikon(seg_kecil, AKSEN2).next_to(kerja_sec2, LEFT, buff=0.3).align_to(ikon_besar2, LEFT)
         with sinema.babak(self, "sec", DURASI, kata=KATA) as b:
             b.tunggu_kata("Sekan")
-            b.main(FadeOut(kerja_tan), FadeOut(kerja_tan2), run_time=0.3)
+            b.main(FadeOut(kerja_tan), FadeOut(kerja_tan2), FadeOut(ikon_besar), FadeOut(ikon_kecil),
+                   run_time=0.3)
             b.main(Write(kerja_sec), run_time=1.4)
+            b.tunggu_kata("besar")
+            b.main(Indicate(seg_besar, color=SOROT, scale_factor=1.0), FadeIn(ikon_besar2), run_time=0.8)
             b.tunggu_kata("miringnya")
             b.main(ruas_tan.animate.set_stroke(REDUP, TEBAL_REDUP),
                    lab_tan.animate.set_opacity(0.45), run_time=0.4)
@@ -324,10 +339,10 @@ class EnamRasioNyata(AdeganMatra):
             b.tunggu_kata("kecil")
             b.main(Indicate(seg_kecil, color=AKSEN2, scale_factor=1.0), run_time=0.8)
             b.tunggu_kata("satu per")
-            b.main(Write(kerja_sec2), run_time=1.0)
+            b.main(FadeIn(ikon_kecil2), Write(kerja_sec2), run_time=1.0)
             papan.baris(r"\sec\theta = \frac{1}{x}", warna=AKSEN2, b=b)
         qc.periksa_adegan(self, {"dasar": dasar, "sec": ruas_sec, "kerja": kerja_sec,
-                                 "kerja2": kerja_sec2},
+                                 "kerja2": kerja_sec2, "ikon": ikon_besar2, "ikon2": ikon_kecil2},
                           hud=hud(ident, papan), dunia={"sumbu": sumbu, "jari": jari},
                           tulisan={"x": lab_x, "y": lab_y, "theta": lab_theta,
                                    "cap": cap_singgung, "lab tan": lab_tan, "x1": lab_x1,
@@ -342,6 +357,7 @@ class EnamRasioNyata(AdeganMatra):
         with sinema.babak(self, "singgung2", DURASI, kata=KATA) as b:
             b.tunggu_kata("tandai")
             b.main(FadeOut(kerja_sec), FadeOut(kerja_sec2), FadeOut(seg_besar), FadeOut(lab_samping1),
+                   FadeOut(ikon_besar2), FadeOut(ikon_kecil2),
                    ruas_sec.animate.set_stroke(REDUP, TEBAL_REDUP), run_time=0.5)
             b.main(FadeIn(titik_y1, scale=0.5), FadeIn(lab_y1), run_time=0.5)
             b.tunggu_kata("mendatar")
@@ -389,9 +405,12 @@ class EnamRasioNyata(AdeganMatra):
                           32, TINTA).move_to([X_KERJA, Y_KERJA + 0.9, 0])
         kerja_cot2 = rumus(r"\cot\theta = \frac{x}{y}", 32, TINTA).next_to(kerja_cot, DOWN, buff=0.35)
         kerja_cot2.align_to(kerja_cot, LEFT)
+        ikon_atas = ikon(seg_atas, SOROT).next_to(kerja_cot, LEFT, buff=0.3)
+        ikon_kecil3 = ikon(seg_kecil, AKSEN2).next_to(kerja_cot2, LEFT, buff=0.3).align_to(ikon_atas, LEFT)
         with sinema.babak(self, "cot", DURASI, kata=KATA) as b:
             b.tunggu_kata("Kotangen")
-            b.main(Write(kerja_cot), run_time=1.4)
+            b.main(Indicate(seg_atas, color=SOROT, scale_factor=1.0), FadeIn(ikon_atas), Write(kerja_cot),
+                   run_time=1.4)
             b.tunggu_kata("sampingnya")
             b.main(ShowCreation(ruas_cot), run_time=1.0)
             b.tunggu_kata("panjangnya")
@@ -399,10 +418,10 @@ class EnamRasioNyata(AdeganMatra):
             b.tunggu_kata("kecil")
             b.main(Indicate(seg_kecil, color=AKSEN2, scale_factor=1.0), run_time=0.8)
             b.tunggu_kata("x per")
-            b.main(Write(kerja_cot2), run_time=1.0)
+            b.main(FadeIn(ikon_kecil3), Write(kerja_cot2), run_time=1.0)
             papan.baris(r"\cot\theta = \frac{x}{y}", warna=TINTA, b=b)
         qc.periksa_adegan(self, {"dasar": dasar, "cot": ruas_cot, "kerja": kerja_cot,
-                                 "kerja2": kerja_cot2},
+                                 "kerja2": kerja_cot2, "ikon": ikon_atas, "ikon2": ikon_kecil3},
                           hud=hud(ident, papan), dunia={"sumbu": sumbu, "jari": jari},
                           tulisan={"x": lab_x, "y": lab_y, "theta": lab_theta,
                                    "cap": cap_singgung, "lab tan": lab_tan, "lab cot": lab_cot,
@@ -415,19 +434,24 @@ class EnamRasioNyata(AdeganMatra):
                           32, AKSEN).move_to([X_KERJA, Y_KERJA + 0.9, 0])
         kerja_csc2 = rumus(r"\csc\theta = \frac{1}{y}", 32, AKSEN).next_to(kerja_csc, DOWN, buff=0.35)
         kerja_csc2.align_to(kerja_csc, LEFT)
+        ikon_atas2 = ikon(seg_atas, SOROT).next_to(kerja_csc, LEFT, buff=0.3)
+        ikon_kecil4 = ikon(seg_kecil, AKSEN2).next_to(kerja_csc2, LEFT, buff=0.3).align_to(ikon_atas2, LEFT)
         with sinema.babak(self, "csc", DURASI, kata=KATA) as b:
             b.tunggu_kata("Kosekan")
-            b.main(FadeOut(kerja_cot), FadeOut(kerja_cot2), run_time=0.3)
-            b.main(Write(kerja_csc), run_time=1.4)
+            b.main(FadeOut(kerja_cot), FadeOut(kerja_cot2), FadeOut(ikon_atas), FadeOut(ikon_kecil3),
+                   run_time=0.3)
+            b.main(Indicate(seg_atas, color=SOROT, scale_factor=1.0), FadeIn(ikon_atas2), Write(kerja_csc),
+                   run_time=1.4)
             b.tunggu_kata("miringnya")
             b.main(ruas_cot.animate.set_stroke(REDUP, TEBAL_REDUP),
                    lab_cot.animate.set_opacity(0.45), run_time=0.4)
             b.main(ShowCreation(ruas_csc), run_time=0.9)
             b.tunggu_kata("satu per")
-            b.main(Write(kerja_csc2), run_time=1.0)
+            b.main(Indicate(seg_kecil, color=AKSEN2, scale_factor=1.0), FadeIn(ikon_kecil4),
+                   Write(kerja_csc2), run_time=1.0)
             papan.baris(r"\csc\theta = \frac{1}{y}", warna=AKSEN, b=b)
         qc.periksa_adegan(self, {"dasar": dasar, "csc": ruas_csc, "kerja": kerja_csc,
-                                 "kerja2": kerja_csc2},
+                                 "kerja2": kerja_csc2, "ikon": ikon_atas2, "ikon2": ikon_kecil4},
                           hud=hud(ident, papan), dunia={"sumbu": sumbu, "jari": jari},
                           tulisan={"x": lab_x, "y": lab_y, "theta": lab_theta,
                                    "cap": cap_singgung, "lab tan": lab_tan, "lab cot": lab_cot,
@@ -440,6 +464,7 @@ class EnamRasioNyata(AdeganMatra):
         with sinema.babak(self, "enam", DURASI, kata=KATA) as b:
             b.tunggu_kata("Enam")
             b.main(FadeOut(kerja_csc), FadeOut(kerja_csc2), FadeOut(seg_atas), FadeOut(seg_kecil),
+                   FadeOut(ikon_atas2), FadeOut(ikon_kecil4),
                    FadeOut(lab_miring1), FadeOut(lab_depan1), FadeOut(busur_cc), FadeOut(lab_theta_cc),
                    ruas_tan.animate.set_stroke(TINTA, TEBAL_BIASA),
                    ruas_sec.animate.set_stroke(AKSEN2, TEBAL_BIASA),
@@ -524,24 +549,41 @@ class EnamRasioNyata(AdeganMatra):
             rumus(r"\cot\theta = 0{,}8 : 0{,}6 = 1{,}33", 34, TINTA),
             rumus(r"\csc\theta = 1 : 0{,}6 = 1{,}67", 34, AKSEN),
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).move_to([X_KERJA, Y_KERJA + 0.2, 0])
+        # Segitiga yang dipakai tiap perbandingan DISOROT lagi pada sudut 3-4-5
+        # (permintaan ARYA 13 Sep): segitiga besar di garis x = 1 untuk sec,
+        # segitiga di garis y = 1 untuk cot dan csc.
+        t345 = np.radians(SUDUT_345)
+        T345 = PUSAT + R * np.array([1.0, np.tan(t345), 0.0])
+        C345 = PUSAT + R * np.array([1.0 / np.tan(t345), 1.0, 0.0])
+        seg_besar_345 = Polygon(PUSAT, kanan, T345).set_stroke(width=0).set_fill(SOROT, 0.16)
+        seg_atas_345 = Polygon(PUSAT, atas, C345).set_stroke(width=0).set_fill(SOROT, 0.16)
+        ikon_c1 = ikon(seg_besar_345, SOROT).next_to(tiga_angka[0], LEFT, buff=0.3)
+        ikon_c2 = ikon(seg_atas_345, SOROT).next_to(tiga_angka[1], LEFT, buff=0.3).align_to(ikon_c1, LEFT)
+        ikon_c3 = ikon(seg_atas_345, SOROT).next_to(tiga_angka[2], LEFT, buff=0.3).align_to(ikon_c1, LEFT)
         with sinema.babak(self, "contoh_tiga", DURASI, kata=KATA) as b:
             b.tunggu_kata("Sekan")
             b.main(FadeOut(k1), FadeOut(k2), FadeOut(k3), FadeOut(k4), FadeOut(x08), FadeOut(y06),
                    run_time=0.3)
+            b.tunggu_kata("segitiga besar")
+            b.main(FadeIn(seg_besar_345), FadeIn(ikon_c1), run_time=0.6)
+            b.tunggu_kata("satu dibagi")
             b.main(Write(tiga_angka[0]), run_time=1.3)
             b.tunggu_kata("dua lima")
             b.main(Indicate(hidup[1], color=SOROT, scale_factor=1.0), run_time=0.8)
-            b.tunggu_kata("Kotangen")
-            b.main(Write(tiga_angka[1]), run_time=1.3)
+            b.tunggu_kata("segitiga di")
+            b.main(FadeOut(seg_besar_345), FadeIn(seg_atas_345), run_time=0.6)
+            b.tunggu_kata("Kotangen", ke=2)
+            b.main(FadeIn(ikon_c2), Write(tiga_angka[1]), run_time=1.3)
             b.tunggu_kata("tiga tiga")
-            b.main(Indicate(hidup[2], color=SOROT, scale_factor=1.0), run_time=0.8)
-            b.tunggu_kata("kosekan")
-            b.main(Write(tiga_angka[2]), run_time=1.3)
+            b.main(Indicate(hidup[2], color=SOROT, scale_factor=1.0), run_time=0.7)
+            b.tunggu_kata("kosekan", ke=2)
+            b.main(FadeIn(ikon_c3), Write(tiga_angka[2]), run_time=1.3)
             b.tunggu_kata("enam tujuh")
             b.main(Indicate(hidup[3], color=SOROT, scale_factor=1.0), run_time=0.8)
             b.tunggu_kata("tabel")
-            b.main(Indicate(tiga_angka, color=SOROT, scale_factor=1.0), run_time=0.9)
-        qc.periksa_adegan(self, {"dasar": dasar, "ruas": hidup, "tiga angka": tiga_angka},
+            b.main(FadeOut(seg_atas_345), Indicate(tiga_angka, color=SOROT, scale_factor=1.0), run_time=0.9)
+        qc.periksa_adegan(self, {"dasar": dasar, "ruas": hidup, "tiga angka": tiga_angka,
+                                 "ikon": VGroup(ikon_c1, ikon_c2, ikon_c3)},
                           hud=hud(ident, papan), dunia={"sumbu": sumbu, "jari": jari},
                           tulisan={"x": lab_x, "y": lab_y, "theta": lab_theta,
                                    "lab cot": lab_cot_hidup, "0,75": lab_075})
@@ -552,7 +594,8 @@ class EnamRasioNyata(AdeganMatra):
         ).move_to([PUSAT[0] + 1.1, PUSAT[1] + R * 2.3 + 0.35, 0]))
         with sinema.babak(self, "putar", DURASI, kata=KATA) as b:
             b.tunggu_kata("Geser")
-            b.main(FadeOut(tiga_angka), FadeOut(lab_075), run_time=0.3)
+            b.main(FadeOut(tiga_angka), FadeOut(lab_075), FadeOut(ikon_c1), FadeOut(ikon_c2), FadeOut(ikon_c3),
+                   run_time=0.3)
             b.main(FadeIn(sudut_hidup), FadeIn(lab_tan_hidup), run_time=0.4)
             b.tunggu_kata("berubah")
             b.main(theta.animate.set_value(SUDUT_MAKS), run_time=2.0, rate_func=smooth)

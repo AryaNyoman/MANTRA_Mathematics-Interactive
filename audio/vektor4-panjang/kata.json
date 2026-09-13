@@ -1518,7 +1518,7 @@
   },
   "arah": {
     "mulai": 150.7,
-    "durasi": 15.933333333333334,
+    "durasi": 15.6,
     "kata": [
       {
         "kata": "Panjang",
@@ -1563,137 +1563,137 @@
       {
         "kata": "Arahnya",
         "mulai": 3.85525,
-        "durasi": 0.39475
+        "durasi": 0.381583
       },
       {
         "kata": "juga",
-        "mulai": 4.25,
+        "mulai": 4.236833,
         "durasi": 0.236833
       },
       {
         "kata": "perlu",
-        "mulai": 4.486833,
+        "mulai": 4.473666,
         "durasi": 0.513166
       },
       {
         "kata": "dan",
-        "mulai": 5.302625,
+        "mulai": 5.289458,
         "durasi": 0.210541
       },
       {
         "kata": "arah",
-        "mulai": 5.513166,
-        "durasi": 0.263166
+        "mulai": 5.5,
+        "durasi": 0.236833
       },
       {
         "kata": "diukur",
-        "mulai": 5.776333,
+        "mulai": 5.736833,
         "durasi": 0.35525
       },
       {
         "kata": "sebagai",
-        "mulai": 6.131583,
-        "durasi": 0.328958
+        "mulai": 6.092125,
+        "durasi": 0.328916
       },
       {
         "kata": "sudut",
-        "mulai": 6.460541,
-        "durasi": 0.35525
+        "mulai": 6.421041,
+        "durasi": 0.315791
       },
       {
         "kata": "dari",
-        "mulai": 6.815791,
+        "mulai": 6.736833,
         "durasi": 0.184208
       },
       {
         "kata": "sumbu",
-        "mulai": 7.0,
-        "durasi": 0.25
+        "mulai": 6.921041,
+        "durasi": 0.289458
       },
       {
-        "kata": "mendatar",
-        "mulai": 7.25,
-        "durasi": 0.671041
+        "kata": "x",
+        "mulai": 7.210541,
+        "durasi": 0.434208
       },
       {
         "kata": "berlawanan",
-        "mulai": 8.184208,
+        "mulai": 7.881583,
         "durasi": 0.565791
       },
       {
         "kata": "arah",
-        "mulai": 8.75,
+        "mulai": 8.447375,
         "durasi": 0.236833
       },
       {
         "kata": "jarum",
-        "mulai": 8.986833,
+        "mulai": 8.684208,
         "durasi": 0.328958
       },
       {
         "kata": "jam",
-        "mulai": 9.315791,
+        "mulai": 9.013166,
         "durasi": 0.473666
       },
       {
         "kata": "Untuk",
-        "mulai": 10.66975,
-        "durasi": 0.315791
+        "mulai": 10.367125,
+        "durasi": 0.31575
       },
       {
         "kata": "empat",
-        "mulai": 10.985541,
+        "mulai": 10.682875,
         "durasi": 0.25
       },
       {
         "kata": "dua",
-        "mulai": 11.235541,
+        "mulai": 10.932875,
         "durasi": 0.486833
       },
       {
         "kata": "sudutnya",
-        "mulai": 12.038166,
+        "mulai": 11.735541,
         "durasi": 0.473666
       },
       {
         "kata": "sekitar",
-        "mulai": 12.511833,
+        "mulai": 12.209208,
         "durasi": 0.39475
       },
       {
         "kata": "dua",
-        "mulai": 12.906583,
+        "mulai": 12.603958,
         "durasi": 0.184208
       },
       {
         "kata": "puluh",
-        "mulai": 13.090791,
+        "mulai": 12.788166,
         "durasi": 0.184208
       },
       {
         "kata": "enam",
-        "mulai": 13.275,
-        "durasi": 0.276333
+        "mulai": 12.972375,
+        "durasi": 0.276291
       },
       {
         "kata": "koma",
-        "mulai": 13.551333,
+        "mulai": 13.248666,
         "durasi": 0.236833
       },
       {
         "kata": "enam",
-        "mulai": 13.788166,
+        "mulai": 13.485541,
         "durasi": 0.236833
       },
       {
         "kata": "derajat",
-        "mulai": 14.025,
+        "mulai": 13.722375,
         "durasi": 0.631583
       }
     ]
   },
   "sama": {
-    "mulai": 166.63333333333333,
+    "mulai": 166.29999999999998,
     "durasi": 14.733333333333333,
     "kata": [
       {
@@ -1844,7 +1844,7 @@
     ]
   },
   "tutup": {
-    "mulai": 181.36666666666665,
+    "mulai": 181.0333333333333,
     "durasi": 11.0,
     "kata": [
       {
@@ -1960,7 +1960,7 @@
     ]
   },
   "lanjut": {
-    "mulai": 192.36666666666665,
+    "mulai": 192.0333333333333,
     "durasi": 10.966666666666667,
     "kata": [
       {
