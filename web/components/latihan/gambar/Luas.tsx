@@ -1,7 +1,7 @@
 import { useId } from 'react'
 import { WARNA } from '@/lib/warna'
 import Sumbu from './Sumbu'
-import { LEBAR, MONO, buatBidang, buatFungsi, jalurKurva, type Jangkauan } from './dasar'
+import { LEBAR, MONO, angka, buatBidang, buatFungsi, jalurKurva, type Jangkauan } from './dasar'
 
 /**
  * Daerah di bawah kurva (atau di antara dua kurva) dari `dari` sampai
@@ -61,8 +61,8 @@ export default function Luas({
       </g>
       <line x1={b.X(dari)} y1={b.Y(0)} x2={b.X(dari)} y2={b.Y(f(dari))} stroke={WARNA.redup} strokeWidth={1.2} strokeDasharray="4 3" />
       <line x1={b.X(sampai)} y1={b.Y(0)} x2={b.X(sampai)} y2={b.Y(f(sampai))} stroke={WARNA.redup} strokeWidth={1.2} strokeDasharray="4 3" />
-      <text x={b.X(dari)} y={b.Y(0) + 24} fontSize={10.5} textAnchor="middle" fill={WARNA.sudut} fontFamily={MONO}>{dari}</text>
-      <text x={b.X(sampai)} y={b.Y(0) + 24} fontSize={10.5} textAnchor="middle" fill={WARNA.sudut} fontFamily={MONO}>{sampai}</text>
+      <text x={b.X(dari)} y={b.Y(0) + 24} fontSize={10.5} textAnchor="middle" fill={WARNA.sudut} fontFamily={MONO}>{labelBatas(dari)}</text>
+      <text x={b.X(sampai)} y={b.Y(0) + 24} fontSize={10.5} textAnchor="middle" fill={WARNA.sudut} fontFamily={MONO}>{labelBatas(sampai)}</text>
     </svg>
   )
 }
@@ -75,4 +75,14 @@ function jangkauanOtomatis(f: (x: number) => number, g: (x: number) => number, d
   }
   const lebar = sampai - dari
   return [Math.min(0, dari) - lebar * 0.2, sampai + lebar * 0.2, yMin - (yMaks - yMin) * 0.15 - 0.5, yMaks + (yMaks - yMin) * 0.15 + 0.5]
+}
+
+/** Batas integral: kelipatan π/2 ditulis dengan lambang π, selebihnya angka Indonesia. */
+function labelBatas(n: number): string {
+  const k = Math.round(n / (Math.PI / 2))
+  if (k !== 0 && Math.abs(n - k * Math.PI / 2) < 1e-3) {
+    const nama = ['', 'π/2', 'π', '3π/2', '2π']
+    return (k < 0 ? '-' : '') + (nama[Math.abs(k)] ?? `${Math.abs(k)}π/2`)
+  }
+  return angka(n, 2)
 }
