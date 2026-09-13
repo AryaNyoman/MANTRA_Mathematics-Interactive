@@ -18,12 +18,14 @@ export default function Balok({
   tambahan?: { nama: string; di: [number, number, number] }[]
   bidang?: string[]
 }) {
-  const TINGGI = 270
   const [p, l, t] = ukuran
   const K = 0.5, TH = (35 * Math.PI) / 180
   // skala supaya lebar total (p + l*K*cos) dan tinggi (t + l*K*sin) muat
   const lebarTotal = p + l * K * Math.cos(TH)
   const tinggiTotal = t + l * K * Math.sin(TH)
+  // Kanvas tetap 270 tinggi; balok yang kelewat kurus (mis. 4 x 3 x 12)
+  // memang mengecil, jadi soal memilih ukuran yang proporsinya wajar.
+  const TINGGI = 270
   const s = Math.min(300 / lebarTotal, 190 / tinggiTotal)
   const ox = (LEBAR - lebarTotal * s) / 2
   const oy = 30 + tinggiTotal * s
@@ -78,9 +80,13 @@ export default function Balok({
           </g>
         )
       })}
-      <text x={(sudut[A!]![0] + sudut[B!]![0]) / 2} y={sudut[A!]![1] + 26} fontSize={10.5} textAnchor="middle" fill={WARNA.samping} fontFamily={MONO}>{p}</text>
-      <text x={sudut[B!]![0] + 14} y={(sudut[B!]![1] + sudut[F!]![1]) / 2 + 4} fontSize={10.5} fill={WARNA.depan} fontFamily={MONO}>{t}</text>
-      <text x={(sudut[B!]![0] + sudut[C!]![0]) / 2 + 12} y={(sudut[B!]![1] + sudut[C!]![1]) / 2 + 12} fontSize={10.5} fill={WARNA.sudut} fontFamily={MONO}>{l}</text>
+      {!(p === l && l === t) && (
+        <>
+          <text x={(sudut[A!]![0] + sudut[B!]![0]) / 2} y={sudut[A!]![1] + 26} fontSize={10.5} textAnchor="middle" fill={WARNA.samping} fontFamily={MONO}>{p}</text>
+          <text x={sudut[B!]![0] + 14} y={(sudut[B!]![1] + sudut[F!]![1]) / 2 + 4} fontSize={10.5} fill={WARNA.depan} fontFamily={MONO}>{t}</text>
+          <text x={(sudut[B!]![0] + sudut[C!]![0]) / 2 + 12} y={(sudut[B!]![1] + sudut[C!]![1]) / 2 + 12} fontSize={10.5} fill={WARNA.sudut} fontFamily={MONO}>{l}</text>
+        </>
+      )}
     </svg>
   )
 }
