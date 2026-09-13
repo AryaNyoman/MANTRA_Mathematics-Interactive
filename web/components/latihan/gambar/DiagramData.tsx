@@ -1,6 +1,5 @@
 import { WARNA } from '@/lib/warna'
-import { petakSumbu } from '@/lib/petak-sumbu'
-import { GARIS_PETAK, GARIS_SUMBU, LEBAR, MONO, angka } from './dasar'
+import { GARIS_PETAK, GARIS_SUMBU, LEBAR, MONO, angka, petakAngka } from './dasar'
 
 /**
  * Diagram batang atau garis untuk soal statistika. Sumbu tegak mulai dari
@@ -21,7 +20,7 @@ export default function DiagramData({
   const kiri = 48, kanan = LEBAR - 16, atas = 18, bawah = TINGGI - 36
   const maks = Math.max(...nilai)
   const yMaks = maks + (maks - mulai) * 0.12
-  const petak = petakSumbu(mulai, yMaks, bawah - atas)
+  const petak = petakAngka(mulai, yMaks, bawah - atas)
   const Y = (v: number) => bawah - ((v - mulai) / (yMaks - mulai)) * (bawah - atas)
   const n = kategori.length
   const lebarSel = (kanan - kiri) / n

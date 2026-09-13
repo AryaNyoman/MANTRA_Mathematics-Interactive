@@ -5,7 +5,7 @@
  * aturan jarak label `petakSumbu` berlaku sama, dan di HP seluruh gambar
  * (termasuk hurufnya) mengecil serempak tanpa ada yang bertabrakan.
  */
-import { petakSumbu, type Petak } from '@/lib/petak-sumbu'
+import type { Petak } from '@/lib/petak-sumbu'
 
 export const LEBAR = 460
 export const MONO = 'var(--font-mono), sans-serif'
@@ -21,6 +21,29 @@ export function angka(n: number, desimal = 2): string {
 }
 
 export type Jangkauan = [number, number, number, number]
+
+/**
+ * Angka sumbu untuk gambar soal. Sama aturannya dengan `lib/petak-sumbu.ts`
+ * (langkah terkecil yang masih menyisakan jarak minimum antar label), tetapi
+ * calon langkahnya diperluas sampai 5.000: gambar soal eksponen dan
+ * statistika bisa berjangkauan ratusan sampai ribuan (galeri 14 Sep: sumbu
+ * 0 sampai 7.000 dengan langkah 100 menghasilkan 70 label yang menumpuk).
+ */
+const CALON = [0.5, 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000]
+
+export function petakAngka(min: number, maks: number, panjangGambar: number, jarakMin = 26): Petak[] {
+  const rentang = maks - min
+  if (!Number.isFinite(rentang) || rentang <= 0 || panjangGambar <= 0) return []
+  const perSatuan = panjangGambar / rentang
+  const langkah = CALON.find((l) => l * perSatuan >= jarakMin) ?? CALON[CALON.length - 1]!
+  const desimal = langkah < 1 ? 1 : 0
+  const hasil: Petak[] = []
+  for (let n = Math.ceil(min / langkah) * langkah; n <= maks + langkah * 1e-9; n += langkah) {
+    const nilai = Math.abs(n) < langkah * 1e-9 ? 0 : n
+    hasil.push({ nilai, label: angka(nilai, desimal) })
+  }
+  return hasil
+}
 
 export type Bidang = {
   X: (x: number) => number
@@ -66,8 +89,8 @@ export function buatBidang(
   const Y = (y: number) => atas + (yMaks - y) * sy
   return {
     X, Y,
-    petakX: petakSumbu(xMin, xMaks, lebarPakai),
-    petakY: petakSumbu(yMin, yMaks, tinggiPakai),
+    petakX: petakAngka(xMin, xMaks, lebarPakai),
+    petakY: petakAngka(yMin, yMaks, tinggiPakai),
     xMin, xMaks, yMin, yMaks,
     kiri, kanan: kiri + lebarPakai, atas, bawah: atas + tinggiPakai,
   }
