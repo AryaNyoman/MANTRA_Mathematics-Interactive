@@ -38,7 +38,8 @@ rencana: `docs/superpowers/plans/2026-09-13-latihan-bergambar-mode-guru.md`.
   matra-65kyvpery dihapus. Diverifikasi tayang: /latihan 9 kartu "60 soal",
   arena Limit menampilkan gambar dan tombol Guru.
 - Insiden 13 Sep: saat mencari dev server MANTRA, PID 25564 di port 3000
-  yang dimatikan ternyata dev server proyek lain (`D:\PROJECT AUTOMATION  WEBSITEacik`). Dev server MANTRA sejak itu di port 3210. Sudah
+  yang dimatikan ternyata dev server proyek lain (`D:\PROJECT AUTOMATION  WEBSITE
+acik`). Dev server MANTRA sejak itu di port 3210. Sudah
   dilaporkan ke ARYA.
 - Jebakan baru: perender Bidang dan pemeriksa harus menerima bangun satu titik
   (soal transformasi memindahkan satu titik); balok kurus (4x3x12) mengecil
@@ -67,9 +68,12 @@ Inovasi Media dan Pembelajaran Matematika_PPPMI 2026.pdf`.
   tayang di `kerja/layar/` (playwright-cli, desktop 1920x1080 dan HP).
 - Video demo (syarat A1: 5-7 menit): rekaman layar tanpa suara dibuat skrip
   `kerja/demo/rekam_demo.js` (run-code playwright-cli, screencast 1920x1080,
-  kursor palsu, kartu dan label overlay, potret HP tersemat). Percobaan 2
-  jadi 7:19 (kelewat), skrip dipercepat dan direkam ulang. ARYA mengisi suara
-  sambil menonton (naskah 06), Claude menggabungkan dengan ffmpeg.
+  kursor palsu, kartu dan label overlay, potret HP tersemat). Tujuh kali
+  rekam: 7:19 (kursor lambat), 4:56 (kelewat cepat), 5:12 dan 5:04 (tombol
+  Lanjut kuis di bawah lipatan layar, klik tidak kena), akhirnya 5:52
+  (`kerja/demo/06-Video-Demo-tanpa-suara.mp4`, H.264 1080p30). ARYA mengisi
+  suara sambil menonton (naskah 06 berstempel waktu), Claude menggabungkan
+  dengan ffmpeg. Lembar kontak tiap 10 detik sudah dinilai.
 - Repo: `LICENSE` (kode MIT, isi CC BY-NC-SA 4.0) dan README (angka 13 Sep:
   9 bab, 40 sub-bab, 105 materi, 104 alat, 57 video 1080p60, 272 kuis, 38
   latihan; kredit suara edge-tts; bagian lisensi), commit 77418d3. Pemindaian
@@ -87,7 +91,11 @@ Inovasi Media dan Pembelajaran Matematika_PPPMI 2026.pdf`.
   mengandalkan teks pilihan tertentu (percobaan 1 gagal di situ dan
   rekamannya hilang; sekarang try/finally menutup screencast). Kursor palsu
   yang digerakkan per langkah lewat page.evaluate memakan waktu nyata: 900 ms
-  gerak jadi 4 detik; langkahnya dikurangi.
+  gerak jadi 4 detik; langkahnya dikurangi. `getByRole('button', {name:
+  /lanjut/i})` mengenai menu nav "Lanjutkan"; klik pada elemen di luar
+  viewport diam saja, jadi klikElemen memanggil scrollIntoViewIfNeeded dulu.
+  Durasi antar-rekaman bergeser sampai 10 detik karena waktu muat halaman;
+  jangan menargetkan tepat di batas 5 atau 7 menit.
 
 ## 13 SEP (siang): SUMBU-X/SUMBU-Y DI 10 VIDEO, B6 SEGITIGA BESAR/KECIL, C9 PENGINGAT GARIS SINGGUNG DAN ASAL ANGKA TAN
 
