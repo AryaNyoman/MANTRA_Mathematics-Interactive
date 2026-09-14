@@ -124,7 +124,7 @@ for (const b of bab) {
     const langkah = Array.isArray(s.langkah) ? s.langkah : []
     const teksLangkah = langkah.map((lg) => (typeof lg === 'string' ? lg : lg?.teks ?? ''))
     const teks = [s.pertanyaan, s.alasan, s.jebakan ?? '', ...(s.pilihan ?? []), ...teksLangkah].join('\n')
-    if (teks.includes('—')) cacat.push(`${s.id}: ada em-dash`)
+    if (teks.includes('\u2014')) cacat.push(`${s.id}: ada em-dash`)
     if (/miskonsepsi/i.test(teks)) cacat.push(`${s.id}: kata "miskonsepsi" dilarang di halaman siswa`)
     for (const [i, lg] of langkah.entries()) {
       if (typeof lg === 'string') continue
