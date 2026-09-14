@@ -164,6 +164,20 @@ Inovasi Media dan Pembelajaran Matematika_PPPMI 2026.pdf`.
   disentuh karena mengubah situs tayang. Juga: surat mahasiswa aktif, tanda
   tangan koordinator prodi, rekaman suara, kata kunci guru, ubah repo ke
   publik, unggah Drive, isi formulir go.undiksha.ac.id/lomba_PPMI.
+- 14 Sep siang, permintaan ARYA: folder kirim diisi WORD (mau disunting sendiri)
+  dengan nomor mengikuti tabel 6.1 pedoman (01 isian Google Form + daftar
+  periksa, 02 keterangan aktif, 03 deskripsi, 04 skenario, 05 petunjuk, 06
+  tautan karya, 07 naskah + rekaman layar, 08 pernyataan, 09 atribusi, 10
+  zip kode). Dua TEMPLATE RESMI panitia (D:/PPPMI-2026/Template *.docx)
+  diisi lewat `kerja/isi_template_panitia.py` tanpa mengubah tata letak
+  (identitas, tabel AI 4 baris, blok tanda tangan); pernyataan versi sendiri
+  tidak dipakai lagi. Berkas lama di folder final dipindah ke `kerja/lama/`.
+  Angka soal 272 -> 540 di semua dokumen (bank 60 per bab tayang 14 Sep);
+  video demo direkam ulang (label tanpa angka) jadi 5:56. `git push` ke
+  GitHub main disetujui dan selesai (760 MB, 305 commit). ARYA berniat
+  mengganti suara ke ElevenLabs; peringatan: 57 video harus dirender ulang
+  dan dokumen harus cocok dengan situs saat penilaian 28-30 Sep; keputusan
+  (a) sesudah lomba atau (b) sebelum 25 Sep masih menunggu.
 - Pelajaran: soal kuis diacak dari bank, jadi skrip demo tidak boleh
   mengandalkan teks pilihan tertentu (percobaan 1 gagal di situ dan
   rekamannya hilang; sekarang try/finally menutup screencast). Kursor palsu
