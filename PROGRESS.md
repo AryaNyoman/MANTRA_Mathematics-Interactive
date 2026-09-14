@@ -1,5 +1,34 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 14 SEP (siang-sore): PEMBAHASAN LATIHAN DITOLAK ARYA; BELAJAR GAYA mathcyber1997 DULU
+
+ARYA (tangkapan arena Trigonometri): pembahasan yang tayang kemarin membingungkan
+(potongan kalimat), dan gambar di panel pembahasan cuma mengulang gambar soal
+("harusnya menunjukkan di mana kuadran III itu berasal"). Perintah: tiru cara kerja
+pembahasan mathcyber1997; bahasa formal tanpa kamu/Anda (disetujui); penulisan
+ulang 540 soal DITUNDA sampai ARYA menyuruh; sekarang belajar dulu dari
+`D:\MANIM-MATRA\PELAJARI BENTUK SOAL MATEMATIKA` (132 PDF soal yang dibeli ARYA;
+pembahasannya di situs yang tertaut tiap PDF). Zip dari Google Drive yang diunduh
+ARYA ternyata terpotong (1,1 MB), tetapi folder lokal yang ia siapkan lengkap.
+- 96 halaman pembahasan diunduh utuh (`pembahasan-web/*.md`, LaTeX mentah, penanda
+  gambar; `alat/unduh_pembahasan.py`, parser lxml karena html.parser memotong
+  halaman fungsi kuadrat di soal 1) plus 3 halaman tambahan (sudut dimensi tiga,
+  fungsi naik turun, garis singgung). 2.752 pembahasan diinventaris frasanya.
+- Dibaca penuh: perbandingan trigonometri dasar dan sudut istimewa, dimensi tiga
+  jarak dan sudut, turunan aljabar, aplikasi turunan, integral tentu, luas daerah,
+  limit aljabar dan tak hingga, vektor, statistika, transformasi, fungsi kuadrat;
+  yang lain diringkas kalimat pembuka dan penutupnya.
+- Hasil: `CATATAN-BELAJAR-PEMBAHASAN.md` (kerangka enam langkah, kata sambung,
+  gambar bantu per jenis, pola per topik, resep menulis MANTRA dengan sembilan
+  contoh, daftar perender yang harus dibangun, kesenjangan jenis soal tiap bank).
+  Diagnosis kesalahan kemarin: catatan bertitik dua, hitungan dilompati, alat
+  disebut belakangan, gambar soal diulang, penutup tanpa huruf jawaban.
+- Bahan berlisensi (PDF, salinan halaman, gambar) dikecualikan dari git lewat
+  .gitignore karena repo akan dipublikkan untuk PPPMI; catatan dan alat dilacak.
+- Belum dikerjakan (menunggu ARYA): langkah bergambar per butir, perender kuadran,
+  segitiga acuan, segitiga-umum, tabel, garis bilangan; lalu 540 soal ditulis ulang
+  bab per bab.
+
 ## 14 SEP (siang): LATIHAN BERGAMBAR, 9 BANK 60 SOAL, MODE GURU TAYANG (deploy matra-hbwlr3w1u)
 
 Permintaan ARYA 13 Sep (tangkapan /latihan): pembahasan bank soal diperpanjang

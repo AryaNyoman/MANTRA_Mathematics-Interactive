@@ -82,3 +82,12 @@ web/public/anim/*.mp4
 # puluhan MB per video; yang dilacak cukup mp3 gabungan, durasi.json, kata.json.
 audio/*/revisi/
 audio/*/*.wav
+
+# Bahan belajar 14 Sep 2026: PDF soal mathcyber1997 yang DIBELI ARYA (lisensi
+# pribadi) dan salinan halaman pembahasannya. Jangan masuk repo (repo akan
+# dipublikkan untuk lomba PPPMI). Catatan belajar dan alatnya boleh dilacak.
+PELAJARI BENTUK SOAL MATEMATIKA/MATERI MATEMATIKA FULL/
+PELAJARI BENTUK SOAL MATEMATIKA/UTBK DAN UNBK/
+PELAJARI BENTUK SOAL MATEMATIKA/pembahasan-web/
+PELAJARI BENTUK SOAL MATEMATIKA/gambar-web/
+PELAJARI BENTUK SOAL MATEMATIKA/teks-pdf/
