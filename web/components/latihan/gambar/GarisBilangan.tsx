@@ -22,6 +22,16 @@ export default function GarisBilangan({
   const X0 = 34, X1 = LEBAR - 34, Y = 68
   const X = (x: number) => X0 + ((Math.min(Math.max(x, kiri), kanan) - kiri) / (kanan - kiri)) * (X1 - X0)
   const takHingga = (x: number) => !Number.isFinite(x) || x <= kiri || x >= kanan
+  // label titik yang berdekatan (kurang dari 44 satuan gambar dari tetangga
+  // yang labelnya di bawah) dinaikkan ke atas garis supaya tidak bertumpuk
+  const letakLabel: number[] = []
+  const bawah: number[] = []
+  titik.forEach((t) => {
+    const x = takHingga(t.x) ? Number.NaN : X(t.x)
+    const rapat = bawah.some((px) => Math.abs(px - x) < 44)
+    letakLabel.push(rapat ? Y - 32 : Y + 26)
+    if (!rapat && Number.isFinite(x)) bawah.push(x)
+  })
   return (
     <svg viewBox={`0 0 ${LEBAR} ${TINGGI}`} preserveAspectRatio="xMidYMid meet" role="img"
          aria-label={`Garis bilangan dengan titik ${titik.map((t) => t.label ?? angka(t.x)).join(', ')}`}>
@@ -46,11 +56,12 @@ export default function GarisBilangan({
       {titik.map((t, i) => {
         if (takHingga(t.x)) return null
         const x = X(t.x)
+        const yLabel = letakLabel[i]
         return (
           <g key={`t${i}`}>
             <line x1={x} y1={Y - 7} x2={x} y2={Y + 7} stroke={GARIS_SUMBU} strokeWidth={1.2} />
             <circle cx={x} cy={Y} r={5} fill={t.kosong ? 'var(--kartu)' : WARNA.miring} stroke={WARNA.miring} strokeWidth={1.8} />
-            <text x={x} y={Y + 26} fontSize={12} textAnchor="middle" fill={WARNA.miring} fontFamily={MONO}>{t.label ?? angka(t.x)}</text>
+            <text x={x} y={yLabel} fontSize={12} textAnchor="middle" fill={WARNA.miring} fontFamily={MONO}>{t.label ?? angka(t.x)}</text>
           </g>
         )
       })}
