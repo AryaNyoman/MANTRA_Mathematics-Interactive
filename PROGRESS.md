@@ -1,5 +1,65 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 14 SEP (malam, lanjutan): ENAM REVISI ARYA (A2 DIROMBAK, 98 KOTAK COBA DITULIS ULANG), UJI SUARA ELEVENLABS (deploy matra-i75nlm6fd, push GitHub)
+
+ARYA menyetujui pembahasan gaya mathcyber1997 ("jadikan pembelajaranmu dalam
+membuat soal kedepannya"; sekarang standar tetap) lalu mengirim enam tangkapan
+layar. Materi Trigonometri A2 disebut "hampir semuanya salah"; ia minta cacat
+serupa di materi lain ikut dirombak.
+- Kartu /latihan: garis tingkat 4 px jadi 8 px bertepi, label "Mudah" dan
+  "Sangat sulit" 12 px tebal, sebab motif latar kartu mengaburkannya.
+- Widget Bayangan (A1): matahari ikut naik turun mengikuti sudut (duduk pada
+  garis sinar pohon, bingkai dilebarkan 460 jadi 530), bayangan digambar
+  sebagai bentuk gelap rebah di tanah (bukan garis biru), busur sudut sinar
+  berangka di ujung bayangan pohon.
+- Widget Segitiga Sebangun (A2): satu tarikan hanya mengubah SATU besaran.
+  Arah tarikan di 6 px pertama mengunci: mendatar = ukuran (sudut dibekukan),
+  tegak = sudut (sisi samping dibekukan). Panah petunjuk "ukuran" dan "sudut"
+  di pegangan, garis bantu putus-putus selama ditarik, kendali yang
+  bersangkutan ikut menyala. Diuji playwright: tarikan mendatar 100 ke 74
+  dengan sudut tetap 37; tarikan tegak 37 ke 21 dengan ukuran tetap.
+- Materi A2 ditulis ulang: sebangun, percobaan (butir menyebut tabel "Angka
+  dari segitiga" dan barisnya, diakhiri pertanyaan), sesi "Kenapa hasil
+  baginya tidak ikut berubah" (kotak pembesaran 4 kali dan k kali), sesi
+  "Yang berubah dan yang tidak"; sesi "Akibatnya" dan "Coba sendiri di
+  alatnya" dibuang; Sering keliru baru "Dikira sudutnya ikut membesar"
+  (yang lama menyebut tan 37° padahal sin cos tan baru di A4).
+- ATURAN BARU semua materi: kotak "Yuk bereksperimen" berisi tindakan dan
+  pengamatan saja, butir terakhir pertanyaan, tanpa kesimpulan; penutup
+  "Yang kamu temukan" (12 Sep) dicabut dari perender dan CSS; 11 kalimat
+  sorot yang menempel di bawah kotak dipindah ke penjelasan sesudahnya
+  (skrip pindah_sorot). 98 kotak coba di 9 topik ditulis ulang lewat
+  `alat/ringkas_coba.mjs` (mencetak semua kotak) dan skrip ubah_coba;
+  butir yang salah alat ikut terkoreksi (A3 menyebut "sudut B" padahal
+  alatnya hanya punya sudut A dan C). 14 sub judul fragmen diberi lanjutan
+  ("Soalnya: jarak B ke garis AG", "Aturannya: pusat dan faktor skala").
+- Tayang: tsc bersih, A2 dan /latihan dipotret, commit 6e7747c, push ke
+  GitHub AryaNyoman/MANTRA_Mathematics-Interactive (master ke main), deploy
+  matra-i75nlm6fd, alias dipindah, matra-e3sm819a0 dihapus, A2 dicek di
+  alamat produksi.
+
+UJI SUARA ELEVENLABS (permintaan ARYA malam ini): akun kini paket Creator
+(130.817 karakter/bulan). Suara yang diminta "Adam - American, Dark and Tough"
+(pustaka akun, voice_id IRHApOXLvnW57QJPQH2P). Diuji pada video pertama
+Trigonometri, yaitu Trigonometri 02 (Materi 01 tidak bervideo).
+- `manim/buat_narasi.py` menerima `--suara "eleven:<nama>"` (endpoint
+  with-timestamps, model eleven_multilingual_v2, waktu kata dari penjajaran
+  huruf, tempo -5% jadi speed 0,95) dan `--varian=-eleven` (tulis ke
+  `audio/<video>-eleven/`); `NARASI_VARIAN=-eleven` dibaca
+  `sinema.folder_audio`, JamKata, gabung_audio, buat_subtitle, cek_pemicu_urut,
+  sehingga narasi edge-tts produksi tidak tertimpa (commit 3054341).
+- Hasil: 15 segmen, 1.869 karakter, 147 detik. Panjang segmen berbeda sampai
+  3 detik dari edge-tts; render pertama gagal gerbang WaktuTidakMuat (babak
+  'simpul' 5,40 s lawan 5,23 s), diatasi `--napas 0.6` untuk uji. Render 480p
+  lolos (57 pemicu, terlambat terbesar 0,05 s), subtitle dibuat ulang dengan
+  waktu suara baru (vtt produksi dipulihkan dari git), lembar kontak dilihat.
+  Berkas: `media/uji-480p/tahap2-perbandingan-tetap-eleven-bersubtitle.mp4`
+  (dikirim ke ARYA bersama mp3 narasinya). Situs masih memakai suara edge-tts.
+- Catatan jujur: Adam suara Inggris Amerika; bahasa Indonesianya beraksen
+  asing dan pelafalan beberapa kata mungkin meleset. Kalau disetujui untuk
+  semua video, animasi tiap babak perlu ditinjau ulang karena panjang segmen
+  berubah, dan 58 video sekitar 110.000 karakter (muat dalam kuota sebulan).
+
 ## 14 SEP (malam): 540 PEMBAHASAN DITULIS ULANG GAYA mathcyber1997, TAYANG (deploy matra-e3sm819a0)
 
 ARYA menyetujui rancangan sore ("Saya sudah menyetujui semuanya, silahkan dibangun
