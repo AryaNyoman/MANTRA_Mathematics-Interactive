@@ -40,7 +40,7 @@ Karena itu tiap materi punya tiga lapis:
 | Materi | 105 |
 | Alat interaktif | 104 |
 | Video animasi (1080p60, bertakarir) | 57 |
-| Soal kuis (bank soal empat tingkat) | 272 |
+| Soal kuis (bank soal empat tingkat, 60 per bab) | 540 |
 | Soal latihan di halaman materi | 38 |
 
 Sembilan babnya: Perbandingan Trigonometri, Vektor dan Operasinya, Grafik

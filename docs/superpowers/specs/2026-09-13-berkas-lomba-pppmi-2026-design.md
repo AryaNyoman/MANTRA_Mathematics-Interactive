@@ -32,7 +32,7 @@ Matematika_PPPMI 2026.pdf` (18 halaman, dibaca utuh).
 - 57 video pembelajaran dirujuk materi, semua 1080p60 mp4 H.264 + AAC,
   total 205 menit, rata-rata 3,6 menit, tiap video bersubtitle vtt dan
   berposter. (58 dirender; `transformasi5-matriks` tidak dirujuk.)
-- 272 soal kuis berjenjang (mudah sampai sangat sulit) + 38 soal latihan
+- 540 soal kuis berjenjang (60 per bab, 15 per tingkat, pembahasan bergambar; 14 Sep, semula 272) + 38 soal latihan
   berpembahasan; pilihan lima (A-E), pengecoh = kekeliruan yang nyata.
 - Tanpa akun, tanpa basis data; kemajuan di localStorage.
 - Teknologi: Next.js 16, React 19, TypeScript, Tailwind v4 (situs);
