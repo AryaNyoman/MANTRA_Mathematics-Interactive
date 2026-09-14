@@ -253,6 +253,15 @@ Inovasi Media dan Pembelajaran Matematika_PPPMI 2026.pdf`.
   mengganti suara ke ElevenLabs; peringatan: 57 video harus dirender ulang
   dan dokumen harus cocok dengan situs saat penilaian 28-30 Sep; keputusan
   (a) sesudah lomba atau (b) sebelum 25 Sep masih menunggu.
+- 14 Sep sore: ARYA memilih (b), sudah berlangganan ElevenLabs, sesi lain
+  membuat ulang semua suara. Dokumen lomba, LICENSE, README, dan rancangan
+  diubah: ElevenLabs = suara final, edge-tts = tahap draf/revisi (tetap
+  diungkap, permintaan ARYA). Template pernyataan resmi: tabel AI jadi 5
+  baris (Claude Code, Claude Design, ElevenLabs, edge-tts draf, graphify).
+  Halaman Tentang tidak disentuh: kartu ElevenLabs menjadi benar begitu
+  semua video bersuara ElevenLabs. Syarat di daftar periksa: kalau pada 25
+  Sep belum semua 57 video bersuara ElevenLabs, dokumen dikembalikan ke
+  edge-tts sebelum diunggah.
 - Pelajaran: soal kuis diacak dari bank, jadi skrip demo tidak boleh
   mengandalkan teks pilihan tertentu (percobaan 1 gagal di situ dan
   rekamannya hilang; sekarang try/finally menutup screencast). Kursor palsu

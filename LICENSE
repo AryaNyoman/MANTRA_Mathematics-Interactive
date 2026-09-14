@@ -21,9 +21,13 @@ Karya ini dilisensikan dalam dua bagian.
    memerlukan izin tertulis dari pemegang hak cipta.
 
 CATATAN
-- Suara narasi video adalah suara sintesis Microsoft Neural TTS
-  (id-ID-ArdiNeural) yang dihasilkan lewat pustaka edge-tts; suara itu milik
-  Microsoft dan tidak termasuk dalam lisensi di atas.
+- Suara narasi video final adalah suara sintesis ElevenLabs yang dihasilkan
+  dengan akun berlangganan pemegang hak cipta (September 2026); pemakaian
+  audionya mengikuti ketentuan layanan ElevenLabs dan tidak termasuk dalam
+  lisensi di atas. Pada tahap draf dan revisi (Agustus sampai pertengahan
+  September 2026) narasi memakai suara sintesis Microsoft Neural TTS
+  (id-ID-ArdiNeural) lewat pustaka edge-tts; suara itu milik Microsoft dan
+  tidak dipakai pada video final.
 - Nama dan logo ManimGL, Claude (Anthropic), WhatsApp, dan Universitas
   Pendidikan Ganesha yang tampil di halaman Tentang adalah milik pemiliknya
   masing-masing dan dipakai hanya untuk menyebut alat, sarana kontak, dan

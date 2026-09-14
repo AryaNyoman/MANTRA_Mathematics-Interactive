@@ -15,8 +15,8 @@ Matematika_PPPMI 2026.pdf` (18 halaman, dibaca utuh).
 | Uji coba siswa | TIDAK (ARYA tidak punya waktu). Aspek "bukti implementasi" diisi argumentasi dampak; alternatif murah (2-3 teman/dosen mencoba 15 menit) ditawarkan, tidak wajib |
 | Repo GitHub (`AryaNyoman/MANTRA_Mathematics-Interactive`, sekarang PRIVAT) | dijadikan PUBLIK oleh ARYA sendiri setelah LICENSE, README, dan pemindaian rahasia siap; Claude tidak mengubah visibilitas |
 | Lisensi karya | kode MIT; isi materi, video, dan gambar CC BY-NC-SA 4.0 (usulan, menunggu ARYA saat LICENSE dibuat) |
-| Suara narasi | edge-tts (suara Microsoft `id-ID-ArdiNeural`) DIUNGKAP APA ADANYA di atribusi dan pernyataan AI; tidak direkam ulang (12 hari terlalu sempit untuk render ulang 57 video) |
-| Halaman Tentang situs | masih mengkredit ElevenLabs padahal suaranya edge-tts (`web/app/tentang/page.tsx`). Usul: kartu diganti jadi jujur. MENUNGGU IZIN ARYA karena mengubah situs tayang |
+| Suara narasi | DIUBAH 14 Sep: ARYA memilih (b), berlangganan ElevenLabs, suara semua video dibuat ulang di sesi lain. Dokumen menyebut ElevenLabs sebagai suara FINAL dan edge-tts (Microsoft `id-ID-ArdiNeural`) sebagai tahap draf/revisi, keduanya diungkap. Syarat: sebelum 25 Sep semua 57 video di situs sudah bersuara ElevenLabs; kalau tidak, dokumen dikembalikan ke edge-tts |
+| Halaman Tentang situs | kartu ElevenLabs menjadi benar begitu semua video bersuara ElevenLabs; tidak diubah (keputusan (b) 14 Sep). Kalau penggantian gagal sebelum kirim, kartu harus diganti kredit edge-tts |
 | Video demo 5-7 menit | dua jalur sekaligus: (A) naskah + daftar adegan berstempel waktu untuk direkam ARYA sendiri; (C) rekaman layar 1080p tanpa suara dibuat Claude lewat Playwright, ARYA mengisi suara, Claude menggabungkan |
 | Format dokumen | Word (.docx, bisa diedit dan ditandatangani) + PDF (yang dikirim). PDF diekspor lewat Word yang terpasang |
 | Lokasi kerja | `D:\PPPMI-2026\kerja\` (draf, skrip, tangkapan layar) dan `D:\PPPMI-2026\A1_NyomanAryaSejati_UNDIKSHA_MANTRA\` (final). Di repo hanya rancangan ini, LICENSE, README, dan catatan PROGRESS |

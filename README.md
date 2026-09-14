@@ -86,8 +86,9 @@ kontaknya frame demi frame. "Rendered" di log bukan bukti videonya benar.
 **ManimGL** untuk animasinya, dan **Claude** (Claude Code, Anthropic) untuk
 menyusun kode situs, kode adegan animasi, alat interaktif, serta draf naskah
 materi, atas rancangan, standar, dan keputusan pembuatnya. Suara narasi
-adalah suara sintesis Microsoft Neural TTS (id-ID-ArdiNeural) lewat pustaka
-edge-tts. Situs ditayangkan di Vercel.
+final adalah suara sintesis **ElevenLabs**; pada tahap draf dan revisi
+(sebelum pertengahan September 2026) narasinya memakai Microsoft Neural TTS
+(id-ID-ArdiNeural) lewat pustaka edge-tts. Situs ditayangkan di Vercel.
 
 Rujukan isinya: Buku Panduan Guru Kurikulum Merdeka, diktat kalkulus ITB, dan
 Stewart. Soal salinan selalu disertai sumbernya; yang tanpa keterangan adalah
