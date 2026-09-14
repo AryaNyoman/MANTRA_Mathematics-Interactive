@@ -29,12 +29,16 @@ tanpa pembulatan itu selisih frame menumpuk sampai satu detik di akhir video
 Mesin suara: edge-tts, suara Indonesia asli id-ID-ArdiNeural (bawaan).
 
 ELEVENLABS (14 Sep 2026, ARYA berlangganan paket Creator): suara bernama
-`eleven:<nama atau id suara>` di naskah, atau `--suara "eleven:Adam - American,
-Dark and Tough"` di baris perintah, merekam lewat ElevenLabs. Waktu tiap kata
-dihitung dari penjajaran huruf yang dikembalikan endpoint `with-timestamps`
-(model `eleven_multilingual_v2`, yang berbahasa Indonesia DAN memberi
-penjajaran). Kunci dibaca dari `.env.local` (ELEVENLABS_API_KEY), tidak pernah
-dicetak. Tempo "-5%" diterjemahkan ke `speed` 0,95.
+`eleven:<nama atau id suara>` di naskah, atau `--suara "eleven:Bian - Neutral,
+Calm and Clear"` di baris perintah, merekam lewat ElevenLabs. SELURUH naskah
+dikirim dalam SATU permintaan (ARYA: rekaman per kalimat membuat warna suara
+berubah antar kalimat); batas tiap segmen dan waktu tiap kata diambil dari
+penjajaran huruf yang dikembalikan endpoint `with-timestamps` (model
+`eleven_multilingual_v2`, yang berbahasa Indonesia DAN memberi penjajaran).
+Naskah di atas 4.500 huruf dipecah beberapa permintaan bersambung dengan
+konteks previous_text dan next_text. Kunci dibaca dari `.env.local`
+(ELEVENLABS_API_KEY), tidak pernah dicetak. Tempo "-5%" jadi `speed` 0,95.
+Fungsi `rekam_eleven` (per segmen) disimpan untuk keperluan khusus.
 
 Uji tanpa menimpa narasi produksi: `--varian -eleven` menulis ke
 `audio/<video>-eleven/`; adegan dan penggabung membaca folder itu bila
@@ -199,6 +203,147 @@ def rekam_eleven(teks: str, voice_id: str, tempo: str, kunci: str, mp3: Path, me
             time.sleep(3)
 
 
+# Satu permintaan utuh per video (ARYA 14 Sep malam: rekaman per kalimat membuat
+# warna suara Bian berubah-ubah antar kalimat, sebab tiap permintaan dimulai dari
+# nol). Seluruh naskah dikirim sekali; batas tiap segmen dan waktu tiap kata
+# diambil dari penjajaran huruf yang dikembalikan endpoint with-timestamps.
+BATAS_HURUF_ELEVEN = 4500      # di atas ini dipecah beberapa permintaan bersambung
+TEPI_DEPAN = 0.06               # detik suara yang disisakan sebelum kata pertama segmen
+TEPI_BELAKANG = 0.12            # detik sesudah kata terakhir (ekor bunyi), sebelum napas
+
+
+def _jajarkan_huruf(teks: str, pj: dict) -> list[tuple[float, float] | None]:
+    """Waktu (mulai, akhir) tiap huruf `teks`; spasi None. Penjajaran ElevenLabs
+    dicocokkan urut dengan mengabaikan spasi, supaya beda kecil normalisasi
+    tidak menggeser pemetaan."""
+    huruf, t0, t1 = pj["characters"], pj["character_start_times_seconds"], pj["character_end_times_seconds"]
+    waktu: list[tuple[float, float] | None] = [None] * len(teks)
+    j = 0
+    for i, c in enumerate(teks):
+        if c.isspace():
+            continue
+        while j < len(huruf) and huruf[j].isspace():
+            j += 1
+        if j >= len(huruf):
+            raise RuntimeError("penjajaran ElevenLabs lebih pendek dari teksnya")
+        waktu[i] = (t0[j], t1[j])
+        j += 1
+    return waktu
+
+
+def _kata_segmen(teks: str, waktu: list, awal: int, akhir: int) -> list[dict]:
+    kata: list[dict] = []
+    buf, ka, kb = "", None, None
+
+    def tutup():
+        nonlocal buf, ka, kb
+        if buf and ka is not None and any(c.isalnum() for c in buf):
+            kata.append({"kata": buf, "mulai": ka, "durasi": max(kb - ka, 0.01)})
+        buf, ka, kb = "", None, None
+
+    for i in range(awal, akhir):
+        c = teks[i]
+        if c.isspace():
+            tutup()
+            continue
+        if waktu[i] is None:
+            continue
+        if not buf:
+            ka = waktu[i][0]
+        buf += c
+        kb = waktu[i][1]
+    tutup()
+    return kata
+
+
+def _lembutkan_tepi(pcm: bytes, ms: float = 6.0) -> bytes:
+    """Landaikan beberapa milidetik di kedua ujung potongan supaya sambungan
+    dengan napas (sunyi) tidak berbunyi klik bila potongannya jatuh di tengah bunyi."""
+    import array
+    data = array.array("h", pcm)
+    n = min(int(LAJU * ms / 1000), len(data) // 2)
+    for k in range(n):
+        f = k / n
+        data[k] = int(data[k] * f)
+        data[len(data) - 1 - k] = int(data[len(data) - 1 - k] * f)
+    return data.tobytes()
+
+
+def rekam_eleven_utuh(segmen: list[tuple[str, str]], voice_id: str, tempo: str, kunci: str,
+                      cache: Path, model: str) -> dict[str, tuple[bytes, list[dict]]]:
+    """Rekam seluruh naskah sekali (atau beberapa bagian bersambung bila sangat
+    panjang), lalu kembalikan {id: (pcm suara segmen, kata relatif segmen)}.
+    Suara segmen = dari sedikit sebelum kata pertamanya sampai sedikit sesudah
+    kata terakhirnya; jeda alami di antara segmen dibuang, diganti napas yang
+    seragam oleh pemanggil."""
+    # bagi menjadi beberapa permintaan hanya bila melewati batas huruf
+    bagian: list[list[tuple[str, str]]] = [[]]
+    for ident, teks in segmen:
+        if bagian[-1] and sum(len(t) + 2 for _, t in bagian[-1]) + len(teks) > BATAS_HURUF_ELEVEN:
+            bagian.append([])
+        bagian[-1].append((ident, teks))
+
+    hasil: dict[str, tuple[bytes, list[dict]]] = {}
+    for nomor, bag in enumerate(bagian):
+        teks_penuh = "\n\n".join(t for _, t in bag)
+        sidik = hashlib.sha256((teks_penuh + voice_id + tempo + model).encode("utf-8")).hexdigest()[:12]
+        mentah = cache / f"utuh{nomor}-{sidik}.mp3"
+        meta = mentah.with_suffix(".json")
+        if not (mentah.exists() and meta.exists()):
+            badan = {
+                "text": teks_penuh,
+                "model_id": model,
+                "voice_settings": {"stability": 0.5, "similarity_boost": 0.75, "style": 0.0,
+                                   "use_speaker_boost": True, "speed": kecepatan_dari_tempo(tempo)},
+            }
+            # bagian bersambung: beri konteks teks sebelum dan sesudahnya supaya
+            # nada di sambungan tidak melompat
+            if nomor > 0:
+                badan["previous_text"] = "\n\n".join(t for _, t in bagian[nomor - 1])[-600:]
+            if nomor + 1 < len(bagian):
+                badan["next_text"] = "\n\n".join(t for _, t in bagian[nomor + 1])[:600]
+            jawab = _minta_eleven(f"/v1/text-to-speech/{voice_id}/with-timestamps?output_format=mp3_44100_128",
+                                  kunci, badan)
+            pj = jawab.get("alignment") or jawab.get("normalized_alignment")
+            if not jawab.get("audio_base64") or not pj:
+                raise RuntimeError("ElevenLabs tidak mengembalikan suara atau penjajaran")
+            mentah.write_bytes(base64.b64decode(jawab["audio_base64"]))
+            meta.write_text(json.dumps(pj, ensure_ascii=False), encoding="utf-8")
+            print(f"  [ElevenLabs] bagian {nomor + 1}/{len(bagian)}: {len(teks_penuh)} huruf direkam utuh")
+        pj = json.loads(meta.read_text(encoding="utf-8"))
+        waktu = _jajarkan_huruf(teks_penuh, pj)
+        pcm_penuh = pcm_dari(mentah)
+        total_detik = len(pcm_penuh) / 2 / LAJU
+
+        # kata tiap segmen (waktu mutlak dalam bagian ini)
+        daftar: list[tuple[str, list[dict]]] = []
+        posisi = 0
+        for ident, teks in bag:
+            awal = teks_penuh.index(teks, posisi)
+            akhir = awal + len(teks)
+            posisi = akhir
+            kata = _kata_segmen(teks_penuh, waktu, awal, akhir)
+            if not kata:
+                raise RuntimeError(f"segmen '{ident}' tidak punya kata berwaktu di penjajaran")
+            daftar.append((ident, kata))
+
+        # jendela suara tiap segmen, tidak saling tumpang tindih
+        for k, (ident, kata) in enumerate(daftar):
+            pertama = kata[0]["mulai"]
+            terakhir = kata[-1]["mulai"] + kata[-1]["durasi"]
+            batas_kiri = (daftar[k - 1][1][-1]["mulai"] + daftar[k - 1][1][-1]["durasi"]) if k else 0.0
+            batas_kanan = daftar[k + 1][1][0]["mulai"] if k + 1 < len(daftar) else total_detik
+            mulai = max(batas_kiri, pertama - TEPI_DEPAN)
+            selesai = min(batas_kanan, terakhir + TEPI_BELAKANG, total_detik)
+            a = int(mulai * LAJU) * 2
+            b = int(selesai * LAJU) * 2
+            pcm = _lembutkan_tepi(pcm_penuh[a:b])
+            relatif = [{"kata": w["kata"], "mulai": round(w["mulai"] - mulai, 6),
+                        "durasi": round(w["durasi"], 6)} for w in kata]
+            hasil[ident] = (pcm, relatif)
+    return hasil
+
+
 def pcm_dari(mp3: Path) -> bytes:
     return subprocess.run(
         ["ffmpeg", "-v", "error", "-i", str(mp3), "-f", "s16le", "-ac", "1", "-ar", str(LAJU), "-"],
@@ -239,20 +384,25 @@ async def buat(topik: str, napas: float = NAPAS, diam: bool = False,
     gabungan: list[bytes] = []
     sah: set[str] = {"narasi-penuh.mp3"}
     waktu = 0.0
+    utuh: dict[str, tuple[bytes, list[dict]]] = {}
+    if pakai_eleven:
+        utuh = rekam_eleven_utuh([(seg["id"], teks_ucap(seg)) for seg in naskah["segmen"]],
+                                 voice_id, tempo, kunci, cache, model)
     for i, seg in enumerate(naskah["segmen"], start=1):
         ident = seg["id"]
         teks = teks_ucap(seg)
-        sidik = hashlib.sha256((teks + suara + tempo + (model if pakai_eleven else "")).encode("utf-8")).hexdigest()[:12]
-        mentah = cache / f"{ident}-{sidik}.mp3"
-        meta = mentah.with_suffix(".json")
-        baru = not (mentah.exists() and meta.exists())
-        if baru:
-            if pakai_eleven:
-                rekam_eleven(teks, voice_id, tempo, kunci, mentah, meta, model)
-            else:
+        if pakai_eleven:
+            pcm, kata = utuh[ident]
+            baru = False
+        else:
+            sidik = hashlib.sha256((teks + suara + tempo).encode("utf-8")).hexdigest()[:12]
+            mentah = cache / f"{ident}-{sidik}.mp3"
+            meta = mentah.with_suffix(".json")
+            baru = not (mentah.exists() and meta.exists())
+            if baru:
                 await rekam(teks, suara, tempo, mentah, meta)
-        kata = json.loads(meta.read_text(encoding="utf-8"))
-        pcm = pcm_dari(mentah)
+            kata = json.loads(meta.read_text(encoding="utf-8"))
+            pcm = pcm_dari(mentah)
         # napas di ujung, lalu dibulatkan ke kisi frame
         n = math.ceil((len(pcm) // 2 + int(napas * LAJU)) / KISI) * KISI
         pcm += bytes(n * 2 - len(pcm))
@@ -269,7 +419,7 @@ async def buat(topik: str, napas: float = NAPAS, diam: bool = False,
         gabungan.append(pcm)
         waktu += lama
         if not diam:
-            tanda = "rekam" if baru else "cache"
+            tanda = "utuh" if pakai_eleven else ("rekam" if baru else "cache")
             print(f"  {i:02d} {ident:16s} {lama:6.2f} s  {len(kata):3d} kata  ({tanda})")
 
     penuh_wav = keluar / "narasi-penuh.wav"
