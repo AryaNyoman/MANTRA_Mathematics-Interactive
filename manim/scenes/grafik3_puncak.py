@@ -191,9 +191,11 @@ class BentukPuncak(AdeganMatra):
             b.tunggu_kata('hasilnya satu')
             self.muncul(b, True, bk3=bk[3], lama=0.8)
             b.tunggu_kata('Minus dua')
-            self.muncul(b, tk4=tk[4], lama=0.7)
-            self.muncul(b, True, bk4=bk[4], lama=0.7)
-            b.main(Indicate(VGroup(tk[3], tk[4]), color=SOROT, scale_factor=1.5), run_time=0.9)
+            # 0,5 / 0,5 / 0,6 (dulu 0,7 / 0,7 / 0,9): "Tanda minusnya" datang 1,8 detik
+            # sesudah "Minus dua" pada narasi Bian (14 Sep 2026)
+            self.muncul(b, tk4=tk[4], lama=0.5)
+            self.muncul(b, True, bk4=bk[4], lama=0.5)
+            b.main(Indicate(VGroup(tk[3], tk[4]), color=SOROT, scale_factor=1.5), run_time=0.6)
             b.tunggu_kata('Tanda minusnya')
             b.main(Indicate(VGroup(bk[3], bk[4]), color=SOROT, scale_factor=1.08), run_time=1.2)
 
@@ -347,9 +349,11 @@ class BentukPuncak(AdeganMatra):
             b.tunggu_kata('Satu langkah')
             self.papan(b, '2(4-3)^2-5', '=2(1)-5=-3', warna=AKSEN)
             b.tunggu_kata('Hasilnya')
-            self.muncul(b, tu0=tu[0], lama=0.8)
-            self.muncul(b, True, bu1=baris(1, '4', '-3'), lama=0.8)
-            b.main(Indicate(tu[0], color=AKSEN, scale_factor=2.0), run_time=0.9)
+            # 0,5 / 0,5 / 0,7 (dulu 0,8 / 0,8 / 0,9): narasi Bian menyisakan 2,0 detik
+            # sesudah "Hasilnya" (14 Sep 2026)
+            self.muncul(b, tu0=tu[0], lama=0.5)
+            self.muncul(b, True, bu1=baris(1, '4', '-3'), lama=0.5)
+            b.main(Indicate(tu[0], color=AKSEN, scale_factor=2.0), run_time=0.7)
 
         with self.bagian('contoh_kembar') as b:
             b.tunggu_kata('Satu langkah')

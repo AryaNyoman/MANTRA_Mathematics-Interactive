@@ -129,6 +129,16 @@ def lama_animasi(baris: str) -> float:
             lama += sum(float(x) for x in sorot)
         elif SOROT_TANPA_LAMA.search(baris):
             lama += 1.0
+    # Penolong adegan grafik3/grafik6 (14 Sep 2026): `self.muncul(b, ..., lama=X)`
+    # memakan X (bawaan 0,6), `self.hilang(b, ..., lama=X)` X (bawaan 0,4),
+    # `self.papan(b, ...)` 0,7. Dulu tidak dihitung, grafik3 lolos gerbang lalu
+    # gagal render di babak 'negatif'.
+    for nama, bawaan in (("self.muncul(", 0.6), ("self.hilang(", 0.4)):
+        if nama in baris:
+            nilai = LAMA_SOROT.findall(baris)
+            lama += float(nilai[0]) if nilai else bawaan
+    if "self.papan(" in baris:
+        lama += 0.7
     # Panggilan yang berlanjut ke baris berikutnya (tidak ditutup `)` di
     # baris ini) menaruh tahan= dan run_time= di baris lanjutannya, dan
     # baris lanjutan itu dihitung sendiri; jangan menambah nilai bawaan dua kali.
