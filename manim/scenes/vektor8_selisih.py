@@ -165,9 +165,11 @@ class SelisihPerjalanan(AdeganMatra):
             b.tunggu_kata("Supaya bisa")
             b.main(bidang.animate.set_stroke(opacity=GARIS_PENUH), run_time=1.0)
             b.tunggu_kata("dari atas")
+            # 0,9 dan 0,2 detik (dulu 1,1 dan 0,5): "Satu petak" datang 0,4 detik
+            # lebih cepat pada narasi Bian (14 Sep 2026)
             b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi),
-                   run_time=1.1)
-            b.main(bidang.angka.animate.set_opacity(0.75), run_time=0.5)
+                   run_time=0.9)
+            b.main(bidang.angka.animate.set_opacity(0.75), run_time=0.2)
             b.tunggu_kata("Satu petak")
             b.main(FadeOut(garis_tanya), run_time=0.4)
             self.remove(garis_tanya)

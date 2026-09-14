@@ -1,6 +1,6 @@
 {
   "adegan": "TransformasiUrutan",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Komposisi Transformasi, Bagian 2 (Materi 12, video 06 Transformasi). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (15 segmen, 2:06) yang sudah disetujui ARYA: ISI TETAP SAMA (titik A(3, 1) dicerminkan sumbu X lalu diputar 90 derajat mendarat di (1, 3); urutan dibalik mendarat di (-1, -3); yang dikerjakan pertama ditulis paling kanan; koordinat di ujung kanan, matriks terdekat menyentuh lebih dulu; perkalian dihitung sekotak demi sekotak; hasilnya matriks cermin y = x; diperiksa pada seluruh bentuk; urutan tertukar memberi cermin y = -x; contoh tandingan dua rotasi sepusat; baca dari kanan). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2 dengan pertanyaan halaman, segar-ingat Matriks Transformasi Bagian 1 (kedua matriksnya), ASAL RUMUS: kedua langkah ditulis sebagai perkalian M2(M1 titik) sehingga M2 M1 lahir dari tulisannya, bentuk umum M3 M2 M1 plus catatan translasi, penutup menunjuk Penerapan Transformasi Geometri. Angka sama persis dengan halaman Materi 09, 11, dan 12.",
   "segmen": [
@@ -99,5 +99,6 @@
       "teks": "Di materi berikutnya, Penerapan Transformasi Geometri, kita lihat siapa yang memakai semua ini setiap hari: motif batik, permainan di layar, dan lengan robot. Di sana matriks gabungan tadi dipakai ribuan kali per detik.",
       "tulis": "Di materi berikutnya, Penerapan Transformasi Geometri, kita lihat siapa yang memakai semua ini setiap hari: motif batik, permainan di layar, dan lengan robot. Di sana matriks gabungan tadi dipakai ribuan kali per detik."
     }
-  ]
+  ],
+  "napas": 0.6
 }

@@ -1,6 +1,6 @@
 {
   "adegan": "IntegralLuasDaerah",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Penerapan Integral, Bagian 1 (Materi 09 'Luas daerah, termasuk yang di bawah sumbu', video Integral). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (12 segmen, 1:55) yang sudah disetujui ARYA: ISI TETAP SAMA (kurva x kuadrat - 4x pada 0 sampai 6; titik potong 0 dan 4; merah di bawah sumbu, biru di atas; -32/3 dan +32/3; jumlah langsung nol; nol jawaban benar untuk integral, salah untuk luas; positifkan dulu: 64/3 kira-kira 21,3; kurva yang tidak memotong sumbu aman; gambar dulu). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1 dengan pertanyaan halaman, segar-ingat Luas dan Integral Tentu Bagian 3 (F(b) - F(a)) dan Bagian 2 (luas bertanda), ASAL ANGKA: antiturunan x kubik/3 - 2x kuadrat dihitung di layar untuk kedua bagian, bentuk umum luas = jumlah harga mutlak integral tiap bagian, kekeliruan dari halaman, rangkuman dengan pertanyaan, penutup menunjuk Penerapan Integral Bagian 2. Angka sama dengan halaman Materi 09 dan alat/klaim-video-integral09.json.",
   "segmen": [
@@ -79,5 +79,6 @@
       "teks": "Di materi berikutnya, Penerapan Integral, Bagian dua, sumbu x diganti dengan kurva kedua, dan cara berpikirnya ternyata hampir tidak berubah.",
       "tulis": "Di materi berikutnya, Penerapan Integral, Bagian 2, sumbu x diganti dengan kurva kedua, dan cara berpikirnya ternyata hampir tidak berubah."
     }
-  ]
+  ],
+  "napas": 0.6
 }

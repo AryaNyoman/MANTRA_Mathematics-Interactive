@@ -102,11 +102,13 @@ class TransformasiDilatasi(AdeganMatra):
             b.tunggu_kata("Translasi")
             # Bidang dulu, baru judul di atasnya: judul memudar pada 5,2 s dan
             # "Sebuah foto" baru pada 5,5 s; tanpa bidang, 0,3 s itu layar kosong.
-            b.main(FadeIn(bidang), run_time=0.5)
-            sinema.judul_pembuka(self, "Translasi, Rotasi, dan Dilatasi, Bagian 3", lama=4.6, y=2.6)
-            b.catat(4.6)
+            # 0,3 / lama 4,0 / 0,6 (dulu 0,5 / 4,6 / 0,7): narasi Bian sampai di
+            # "Sebuah foto" pada 4,4 s dan "diperbesar" pada 5,1 s (14 Sep 2026)
+            b.main(FadeIn(bidang), run_time=0.3)
+            sinema.judul_pembuka(self, "Translasi, Rotasi, dan Dilatasi, Bagian 3", lama=4.0, y=2.6)
+            b.catat(4.0)
             b.tunggu_kata("Sebuah foto")
-            b.main(ShowCreation(prapeta), run_time=0.7)
+            b.main(ShowCreation(prapeta), run_time=0.6)
             b.tunggu_kata("diperbesar")
             b.main(prapeta.animate.scale(1.3, about_point=asal), run_time=1.0)
             b.tunggu_kata("dari mana")

@@ -1,6 +1,6 @@
 {
   "adegan": "PerbandinganTetap",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Perbandingan Trigonometri, Bagian 2 (Materi 02). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (segitiga 1,8 dan 2,4 lalu 3 dan 4, hasil bagi 0,75, pengali k saling menghapus, sudut digeser barulah angkanya berubah). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2, segar-ingat ringkas dugaan dari Bagian 1 (pohon dan bayangan, 1,25), dan penutup yang menunjuk Bagian 3. Tidak ada Pythagoras: materi ini tidak membutuhkannya.",
   "segmen": [
@@ -79,5 +79,6 @@
       "teks": "Di materi berikutnya, Perbandingan Trigonometri, Bagian tiga, ketiga sisi segitiga ini kita beri nama, supaya perbandingan mana yang dimaksud bisa disebut dengan jelas.",
       "tulis": "Di materi berikutnya, Perbandingan Trigonometri, Bagian 3, ketiga sisi segitiga ini kita beri nama, supaya perbandingan mana yang dimaksud bisa disebut dengan jelas."
     }
-  ]
+  ],
+  "napas": 0.6
 }

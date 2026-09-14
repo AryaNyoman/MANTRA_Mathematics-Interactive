@@ -1,6 +1,6 @@
 {
   "adegan": "SudutIstimewaLahir",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Lingkaran Satuan dan Sudut Istimewa, Bagian 3 (Materi 07). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (persegi dipotong diagonal jadi 45-45-90 dengan miring akar 2; segitiga sama sisi dibelah jadi 30-60-90 dengan tegak akar 3; nilai sin 45, 30, 60; ketiganya di lingkaran satuan; jari-jari menyapu). Yang ditambah: pembuka sub-bab plus Bagian 3, segar-ingat koordinat (cos, sin) dari Bagian 1, asal akar 2 dan akar 3 DIHITUNG lewat Pythagoras (prasyarat nyata SMP, dipakai sungguhan), penutup menunjuk Grafik Fungsi Trigonometri Bagian 1. DIPERDALAM 13 Sep 2026 atas revisi ARYA: cos 45, cos 30, cos 60 disebut lengkap (dulu hanya sin); segitiganya diciutkan ke sisi miring 1 supaya sisinya persis nilai sin dan cos; setiap titik di lingkaran ditegaskan sebagai (cos theta, sin theta), dan di tiap sudut istimewa samping dan depannya dibaca sebelum koordinatnya ditulis; koordinat 45 derajat ditulis (akar 2 / 2, akar 2 / 2) seperti di tabel dan widget.",
   "segmen": [
@@ -94,5 +94,6 @@
       "teks": "Di materi berikutnya, Grafik Fungsi Trigonometri, Bagian satu, titik yang berputar di lingkaran ini kita rekam tingginya dari waktu ke waktu, dan lahirlah grafik sinus.",
       "tulis": "Di materi berikutnya, Grafik Fungsi Trigonometri, Bagian 1, titik yang berputar di lingkaran ini kita rekam tingginya dari waktu ke waktu, dan lahirlah grafik sinus."
     }
-  ]
+  ],
+  "napas": 0.6
 }

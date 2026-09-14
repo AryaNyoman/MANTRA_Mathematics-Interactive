@@ -110,7 +110,10 @@ BATAS_EKOR = 0.15
 # gerbang ini lalu gagal di render karena sorot_pita 1,0 detik tidak dihitung.
 LAMA_SOROT = re.compile(r'lama\s*=\s*([0-9.]+)')
 TAHAN = re.compile(r'tahan\s*=\s*([0-9.]+)')
-SOROT_TANPA_LAMA = re.compile(r'sorot_(?:pita|kotak|panah|cincin)\(')
+# `sorot_cincin(...)` (limit2, limit4) hanya MENGEMBALIKAN animasi yang lalu
+# diberi run_time oleh b.main, jadi tidak dihitung di sini (14 Sep 2026:
+# dulu ikut dihitung 1,0 s sehingga gerbang menolak babak yang sebenarnya muat).
+SOROT_TANPA_LAMA = re.compile(r'sorot_(?:pita|kotak|panah)\(')
 
 
 def lama_animasi(baris: str) -> float:
@@ -143,6 +146,34 @@ def lama_animasi(baris: str) -> float:
     return lama
 
 
+def gabung_baris_logis(baris: list[str]) -> list[str]:
+    """Satukan panggilan yang melanjut ke baris berikutnya (kurung belum
+    seimbang) menjadi satu baris logis, paling banyak enam baris fisik.
+    Tanpa ini `lahir_rumus(` bertahan= di baris lanjutan dihitung dua kali
+    (0,5 s dasar di baris pertama, lalu 0,5 s lagi bersama tahan=), sehingga
+    gerbang menolak babak yang sebenarnya muat (limit7, 14 Sep 2026)."""
+    hasil: list[str] = []
+    tumpuk: list[str] = []
+    saldo = 0
+    for b in baris:
+        if tumpuk:
+            tumpuk.append(b.strip())
+            saldo += b.count("(") - b.count(")")
+            if saldo <= 0 or len(tumpuk) >= 6:
+                hasil.append(" ".join(tumpuk))
+                tumpuk, saldo = [], 0
+            continue
+        saldo = b.count("(") - b.count(")")
+        if saldo > 0 and b.strip() and not b.strip().startswith("#"):
+            tumpuk = [b]
+        else:
+            hasil.append(b)
+            saldo = 0
+    if tumpuk:
+        hasil.append(" ".join(tumpuk))
+    return hasil
+
+
 def periksa(jalur: Path) -> int:
     isi = jalur.read_text(encoding="utf-8")
     m = TOPIK_BARIS.search(isi)
@@ -163,7 +194,7 @@ def periksa(jalur: Path) -> int:
     # Kejadian per babak, urut: ("tunggu", frasa, ke) atau ("animasi", detik).
     segmen_kini = None
     urut: dict[str, list[tuple]] = {}
-    for baris in isi.split("\n"):
+    for baris in gabung_baris_logis(isi.split("\n")):
         b = BABAK.search(baris)
         if b:
             segmen_kini = b.group(2)

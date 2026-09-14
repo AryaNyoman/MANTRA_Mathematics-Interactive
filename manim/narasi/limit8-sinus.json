@@ -1,6 +1,6 @@
 {
   "adegan": "LimitSinus",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Limit Trigonometri dan Kekontinuan, Bagian 1 (Materi 08). Ditulis ulang 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (sin x : x mentok 0 : 0; angka 0,1 memberi 0,9983 dan 0,01 memberi 0,999983; kenapa tepat 1: di lingkaran satuan tiga daerah bersarang, segitiga dalam setengah cos sin, juring setengah x, segitiga luar setengah tan; dibagi sin x jadi cos x < x : sin x < 1 : cos x; kedua penjepit menuju 1; syarat radian; jadi tepat 1 dari perbandingan luas, bukan tebakan tabel). Buktinya mengikuti buku Kemendikdasmen halaman 88 dan 89. Yang ditambah: pembuka sub-bab plus Bagian 1, segar-ingat dari Trigonometri (Lingkaran Satuan dan Sudut Istimewa, Bagian 2: sin tinggi, cos mendatar, tan ruas garis singgung), contoh angka di 0,5 radian untuk urutan luas (0,2104 < 0,25 < 0,2732), penutup menunjuk Bagian 2. Lingkaran satuannya memakai warna yang sama dengan video Trigonometri.",
   "segmen": [
@@ -79,5 +79,6 @@
       "teks": "Di materi berikutnya, Limit Trigonometri dan Kekontinuan, Bagian dua, kita kumpulkan semua cara sebuah grafik bisa putus, dan memberi nama pada yang tidak putus.",
       "tulis": "Di materi berikutnya, Limit Trigonometri dan Kekontinuan, Bagian 2, kita kumpulkan semua cara sebuah grafik bisa putus, dan memberi nama pada yang tidak putus."
     }
-  ]
+  ],
+  "napas": 0.6
 }

@@ -1,6 +1,6 @@
 {
   "adegan": "PerahuVektor",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Pengenalan Vektor, Bagian 1 (Materi 01). Disesuaikan MASTER 12 Sep 2026 ke standar v3.1 dari naskah v3 sesi Vektor (8 Sep): ISI TETAP SAMA (perahu didayung 3 km, arus 4 km, mendarat 4 petak ke kanan 3 ke atas; segitiga siku-siku dibentuk dulu baru dihitung, akar 25 = 5; dayung diputar searah 7, melawan 1, tegak 5; bentuk umum akar a kuadrat + b kuadrat; vektor lawan skalar; jebakan 3 + 4 = 7 hanya benar bila searah). Yang diubah: pembuka menyebut sub-bab plus Bagian 1; segar-ingat Pythagoras dipadatkan jadi SATU segmen (prasyarat nyata, dipakai di hitung1 sampai hitung3) tanpa contoh 3-4-5 yang mengulang hitungan utama; penutup menunjuk Pengenalan Vektor Bagian 2 (panah boleh dipindah), bukan lagi Materi 03. Kalimat narasi tidak ditulis sebagai teks di layar; tiga hasil 7, 1, 5 digambar sebagai tiga pasang panah kecil.",
   "segmen": [
@@ -149,5 +149,6 @@
       "teks": "Di materi berikutnya, Pengenalan Vektor, Bagian dua, kita lihat kenapa dua panah di tempat yang berbeda bisa jadi vektor yang sama, selama panjang dan arahnya sama.",
       "tulis": "Di materi berikutnya, Pengenalan Vektor, Bagian 2, kita lihat kenapa dua panah di tempat yang berbeda bisa jadi vektor yang sama, selama panjang dan arahnya sama."
     }
-  ]
+  ],
+  "napas": 0.6
 }

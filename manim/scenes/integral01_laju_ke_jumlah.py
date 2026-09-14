@@ -287,7 +287,7 @@ class IntegralLajuKeJumlah(AdeganMatra):
             b.tunggu_kata("membalik")
             b.main(Transform(maju, balik), run_time=1.8)
             b.tunggu_kata("asalnya")
-            b.main(Indicate(maju, color=SOROT), run_time=1.9)
+            b.main(Indicate(maju, color=SOROT), run_time=1.4)  # irama Bian (14 Sep 2026)
         qc.periksa_adegan(self, {"arah": maju},
                           hud={"identitas": ident, "papan": panel.semua()},
                           dunia={"papan ingat": s_ingat})
@@ -359,7 +359,7 @@ class IntegralLajuKeJumlah(AdeganMatra):
             b.tunggu_kata("lima")
             b.main(FadeIn(n2), run_time=1.2)
             b.tunggu_kata("cepat")
-            b.main(Indicate(VGroup(n1, n2), color=SOROT), run_time=1.6)
+            b.main(Indicate(VGroup(n1, n2), color=SOROT), run_time=1.1)  # irama Bian (14 Sep 2026)
         qc.periksa_adegan(self, {"tiga": n1, "lima": n2}, [("tiga", "lima")],
                           hud={"identitas": ident2, "papan": panel.semua()},
                           dunia={"papan laju": s_laju})
@@ -378,7 +378,7 @@ class IntegralLajuKeJumlah(AdeganMatra):
             b.tunggu_kata("dibaca")
             b.main(FadeOut(naik1), FadeOut(naik2), run_time=1.6)
             b.tunggu_kata("meleset")
-            b.main(Indicate(b_sesaat, color=SOROT), run_time=1.6)
+            b.main(Indicate(b_sesaat, color=SOROT), run_time=1.2)  # irama Bian (14 Sep 2026)
 
         # ---- grafik: garis lurus digambar -----------------------------
         with sinema.babak(self, "grafik", DURASI, kata=KATA) as b:
@@ -393,7 +393,7 @@ class IntegralLajuKeJumlah(AdeganMatra):
             b.tunggu_kata("Karena")
             b.main(Indicate(rum, color=AKSEN), run_time=1.8)
             b.tunggu_kata("garis")
-            b.main(ShowCreation(g_laju), run_time=2.2)
+            b.main(ShowCreation(g_laju), run_time=1.8)  # irama Bian (14 Sep 2026)
         qc.periksa_adegan(self, {"garis laju": g_laju},
                           hud={"identitas": ident2, "papan": panel.semua()},
                           dunia={"papan laju": s_laju})
@@ -483,11 +483,11 @@ class IntegralLajuKeJumlah(AdeganMatra):
             b.tunggu_kata("kiri")
             b.main(ShowCreation(sisi_kiri), FadeIn(l_kiri), run_time=1.8)
             b.tunggu_kata("satu")
-            b.main(Indicate(l_kiri, color=SOROT), run_time=1.6)
+            b.main(Indicate(l_kiri, color=SOROT), run_time=1.3)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("kanan")
             b.main(ShowCreation(sisi_kanan), FadeIn(l_kanan), run_time=1.8)
             b.tunggu_kata("lima")
-            b.main(Indicate(l_kanan, color=SOROT), run_time=1.6)
+            b.main(Indicate(l_kanan, color=SOROT), run_time=1.1)  # irama Bian (14 Sep 2026)
 
         # ---- hitungtrap: dihitung LANGKAH DEMI LANGKAH ---------------
         h1 = rumus(r"\tfrac{1}{2}(1 + 25)(12)", 34, AKSEN2)
@@ -551,7 +551,7 @@ class IntegralLajuKeJumlah(AdeganMatra):
             rum = sinema.ganti_rumus(self, rum, r"T' = 2x + 1", b=b,
                                      warna=SOROT, papan=panel)
             b.tunggu_kata("lajunya")
-            b.main(Indicate(rum, color=AKSEN), run_time=1.8)
+            b.main(Indicate(rum, color=AKSEN), run_time=1.5)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("mencari")
             b.main(Indicate(b_T, color=AKSEN), run_time=1.6)
 
@@ -577,7 +577,7 @@ class IntegralLajuKeJumlah(AdeganMatra):
             b.tunggu_kata("kuadrat")
             b.main(FadeIn(d1), run_time=1.8)
             b.tunggu_kata("satu")
-            b.main(FadeIn(d2), run_time=1.5)
+            b.main(FadeIn(d2), run_time=1.2)  # irama Bian (14 Sep 2026)
         with sinema.babak(self, "cocok", DURASI, kata=KATA) as b:
             b.tunggu_kata("Dijumlahkan")
             b.main(FadeIn(d3), run_time=1.8)
@@ -674,10 +674,10 @@ class IntegralLajuKeJumlah(AdeganMatra):
             b.main(Indicate(b_kel, color=SOROT), run_time=1.6)
             b.tunggu_kata("letaknya")
             b.main(Indicate(VGroup(k_pokok, k_atas, k_bawah), color=AKSEN),
-                   run_time=1.8)
+                   run_time=1.3)  # irama Bian (14 Sep 2026)
         with sinema.babak(self, "nol", DURASI, kata=KATA) as b:
             b.tunggu_kata("totalnya")
-            b.main(FadeIn(asal, scale=0.4), FadeIn(l_asal), run_time=1.8)
+            b.main(FadeIn(asal, scale=0.4), FadeIn(l_asal), run_time=1.5)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("Masukkan")
             b.main(FadeOut(k_atas), FadeOut(k_bawah), run_time=1.4)
             b.tunggu_kata("kecuali")

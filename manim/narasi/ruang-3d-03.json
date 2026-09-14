@@ -1,6 +1,6 @@
 {
   "adegan": "JarakSelaluTerpendek",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Jarak dalam Ruang, Bagian 1 (Materi 03). Disesuaikan MASTER 12 Sep 2026 ke standar v3.1 dari naskah v3 sesi Ruang 3D (9 Sep): ISI TETAP SAMA (banyak penghubung dari B ke garis AC; Q digeser, panjangnya turun lalu naik; terpendek tegak lurus; kaki tegak lurus Q(3,3,0), BQ = 3 akar 2; bukti segitiga BQR siku-siku di Q, BR kuadrat = BQ kuadrat + QR kuadrat dengan angka; QR kuadrat tidak pernah negatif). Yang diubah: pembuka menyebut sub-bab plus Bagian 1; segar-ingat menyebut Kedudukan Titik, Garis, dan Bidang Bagian 1; penutup menyebut Jarak dalam Ruang Bagian 5 dan menunjuk Bagian 2.",
   "segmen": [
@@ -154,5 +154,6 @@
       "teks": "Ingat kalimat ini sampai Jarak dalam Ruang, Bagian lima: setiap soal jarak adalah soal mencari kaki tegak lurus. Di materi berikutnya, Jarak dalam Ruang, Bagian dua, kita memakai Pythagoras dua kali berturut-turut.",
       "tulis": "Ingat kalimat ini sampai Jarak dalam Ruang, Bagian 5: setiap soal jarak adalah soal mencari kaki tegak lurus. Di materi berikutnya, Jarak dalam Ruang, Bagian 2, kita memakai Pythagoras *dua kali* berturut-turut."
     }
-  ]
+  ],
+  "napas": 0.6
 }

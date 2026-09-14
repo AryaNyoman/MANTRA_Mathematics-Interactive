@@ -1,6 +1,6 @@
 {
   "adegan": "GambarBolehBerbohong",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Kedudukan Titik, Garis, dan Bidang, Bagian 1 (Materi 01). Disesuaikan MASTER 12 Sep 2026 ke standar v3.1 dari naskah v3 sesi Ruang 3D (9 Sep): ISI TETAP SAMA (kubus rusuk 6, BD di lantai dan EG di atap tampak menyilang dari atas, padahal titik tengahnya (3,3,0) dan (3,3,6) terpisah 6; bayangan boleh berpotongan; nama bersilangan; tiga kemungkinan dua garis; angka yang memutuskan). Yang diubah: pembuka menyebut sub-bab plus Bagian 1; segar-ingat menyebut Vektor dalam Sistem Koordinat Bagian 2 (satu segmen, segmen Pythagoras SMP dibuang karena isinya sama); penutup menunjuk Bagian 2 (kosakata kedudukan).",
   "segmen": [
@@ -149,5 +149,6 @@
       "teks": "Di materi berikutnya, Kedudukan Titik, Garis, dan Bidang, Bagian dua, kebiasaan itu kita pakai untuk menamai setiap kedudukan: titik pada garis, garis pada bidang, sampai dua bidang yang sejajar.",
       "tulis": "Di materi berikutnya, Kedudukan Titik, Garis, dan Bidang, Bagian 2, kebiasaan itu kita pakai untuk menamai setiap kedudukan: titik pada garis, garis pada bidang, sampai dua bidang yang sejajar."
     }
-  ]
+  ],
+  "napas": 0.6
 }

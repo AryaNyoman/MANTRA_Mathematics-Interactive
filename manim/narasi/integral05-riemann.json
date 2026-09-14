@@ -1,6 +1,6 @@
 {
   "adegan": "IntegralRiemann",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Luas dan Integral Tentu, Bagian 1 (Materi 05 'Luas dari persegi panjang, jumlahan Riemann', video Integral). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (12 segmen, 2:00) yang sudah disetujui ARYA: ISI TETAP SAMA (daerah bertepi lengkung; tutupi dengan persegi panjang; partisi dan delta x; titik sampel; contoh f(x) = x pada 0 sampai 7, tujuh bagian: kanan 28, segitiga 24,5, kiri 21, terjepit; n = 14 selisih 1,75, n = 60 selisih 0,41; kurva turun 4 - x kuadrat: kiri 6,25 kanan 4,25; yang lebih tinggi menang). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1 dengan pertanyaan halaman, segar-ingat (empat bagian Membalik Turunan ditinggalkan sebentar; rumus SMP persegi panjang dan segitiga yang dibawa), ASAL RUMUS: kelebihan 28 - 24,5 = 3,5 dibaca dari tujuh segitiga kecil setengah satuan, bentuk umum jumlah f(x_i) delta x, rangkuman dengan pertanyaan halaman Materi 06, penutup menunjuk Luas dan Integral Tentu, Bagian 2. Seluruh angka sama dengan halaman Materi 05 (28, 21, 24,5, 26,25 selisih 1,75, selisih 0,41 pada n = 60, 6,25, 4,25).",
   "segmen": [
@@ -89,5 +89,6 @@
       "teks": "Di materi berikutnya, Luas dan Integral Tentu, Bagian dua, nilai yang dituju jepitan itu diberi nama, dan lambang untuk menuliskannya.",
       "tulis": "Di materi berikutnya, Luas dan Integral Tentu, Bagian 2, nilai yang dituju jepitan itu diberi nama, dan lambang untuk menuliskannya."
     }
-  ]
+  ],
+  "napas": 0.6
 }

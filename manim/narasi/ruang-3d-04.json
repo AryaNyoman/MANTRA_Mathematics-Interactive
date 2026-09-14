@@ -1,6 +1,6 @@
 {
   "adegan": "DuaKaliPythagoras",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Jarak dalam Ruang, Bagian 2 (Materi 04). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (85 detik) yang sudah disetujui ARYA: ISI TETAP SAMA (diagonal sisi AC, segitiga ABC siku-siku di B, AC kuadrat = 72 dibiarkan kuadrat; diagonal ruang AG, segitiga penolong ACG berdiri di dalam kubus, AG kuadrat = 72 + 36 = 108, AG = 6 akar 3; angka 3 di dalam akar = tiga arah). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2 dengan pertanyaan, segar-ingat Jarak dalam Ruang Bagian 1 (kaki tegak lurus, Pythagoras), contoh angka akar 72 = 8,49, peringatan yang dijumlahkan kuadratnya bukan panjangnya, bentuk umum diagonal balok akar(p^2 + l^2 + t^2), penutup menunjuk Bagian 3.",
   "segmen": [
@@ -64,5 +64,6 @@
       "teks": "Di materi berikutnya, Jarak dalam Ruang, Bagian tiga, titiknya di pojok dan garisnya diagonal ruang ini: di mana kaki tegak lurusnya jatuh?",
       "tulis": "Di materi berikutnya, Jarak dalam Ruang, Bagian 3, titiknya di pojok dan garisnya diagonal ruang ini: di mana kaki tegak lurusnya jatuh?"
     }
-  ]
+  ],
+  "napas": 0.6
 }

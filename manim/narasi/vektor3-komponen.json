@@ -1,6 +1,6 @@
 {
   "adegan": "PecahJadiKomponen",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Vektor dalam Sistem Koordinat, Bagian 1 (Materi 03). Disesuaikan MASTER 12 Sep 2026 ke standar v3.1 dari naskah v3 sesi Vektor (8 Sep): ISI TETAP SAMA (mobil 4 blok ke kanan lalu 3 blok naik = panah miring (4 3); urutan tidak boleh ditukar; tanda negatif; vektor kolom; koma hanya untuk titik; panah A(1,2) ke B(5,5) dihitung dari petak lalu ujung dikurangi pangkal; dibalik jadi (-4 -3); titik lawan panah). Yang diubah: pembuka menyebut sub-bab plus Bagian 1; segar-ingat menyebut Pengenalan Vektor Bagian 1 dan Bagian 2 (bukan Materi 01 dan 02); penutup menunjuk Vektor dalam Sistem Koordinat Bagian 2. Kalimat narasi tidak ditulis sebagai teks di layar; penutup memperlihatkan panah (4 3) dengan dua cara menulisnya, lalu segitiga 4-3 bertanda tanya sebagai pancingan Bagian 2.",
   "segmen": [
@@ -154,5 +154,6 @@
       "teks": "Di materi berikutnya, Vektor dalam Sistem Koordinat, Bagian dua, kita pakai kedua angka itu untuk menghitung panjang panahnya, lewat segitiga siku-siku yang sudah kita kenal.",
       "tulis": "Di materi berikutnya, Vektor dalam Sistem Koordinat, Bagian 2, kita pakai kedua angka itu untuk menghitung panjang panahnya, lewat segitiga siku-siku yang sudah kita kenal."
     }
-  ]
+  ],
+  "napas": 0.6
 }

@@ -1,6 +1,6 @@
 {
   "adegan": "SambungPerjalanan",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Operasi Vektor, Bagian 1 (Materi 06). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (pejalan berjalan (3 1) lalu (1 2); resultan (4 3); ujung ke pangkal; susunan keliru pangkal ke pangkal; garis bantu ke sumbu memperlihatkan 3 + 1 = 4 dan 1 + 2 = 3; jebakan panjang 3,16 + 2,24 = 5,4 padahal resultannya 5). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1, segar-ingat Vektor dalam Sistem Koordinat Bagian 1 (panah = dua angka), bentuk umum a + b = (a1 + b1, a2 + b2), penutup menunjuk Bagian 2 (jajar genjang). Kata 'panah hitam' diganti 'panah abu-abu' karena panahnya memang abu (REDUP). 13 Sep 2026: 'sumbu mendatar/tegak' diganti 'sumbu-x/sumbu-y' (ARYA).",
   "segmen": [
@@ -84,5 +84,6 @@
       "teks": "Di materi berikutnya, Operasi Vektor, Bagian dua, kedua panah itu bekerja serentak, bukan bergantian, dan segitiga ini berubah menjadi jajar genjang.",
       "tulis": "Di materi berikutnya, Operasi Vektor, Bagian 2, kedua panah itu bekerja serentak, bukan bergantian, dan segitiga ini berubah menjadi jajar genjang."
     }
-  ]
+  ],
+  "napas": 0.6
 }

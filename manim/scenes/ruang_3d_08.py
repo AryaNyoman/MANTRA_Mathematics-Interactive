@@ -119,8 +119,10 @@ class SudutGarisBersilangan(AdeganMatra):
             tunggu_kata_bergeser(b, frame, "mendarat")
             b.main(lab["H"].animate.scale(1.25), run_time=0.6)
             tunggu_kata_bergeser(b, frame, "bertemu")
-            b.main(Indicate(lab["A"], scale_factor=1.6, color=SOROT), run_time=1.0)
-            b.main(kamera.sudut(frame, -24, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI), run_time=1.6)
+            # 0,6 dan 1,2 detik (dulu 1,0 dan 1,6): narasi Bian menyisakan 2,0 detik
+            # sesudah "bertemu" (14 Sep 2026)
+            b.main(Indicate(lab["A"], scale_factor=1.6, color=SOROT), run_time=0.6)
+            b.main(kamera.sudut(frame, -24, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI), run_time=1.2)
         qc.periksa_adegan(self, {"BG": bg, "huruf H": lab["H"], "huruf A": lab["A"],
                                  "identitas": jati})
 

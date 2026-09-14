@@ -131,8 +131,8 @@ class IntegralSubstitusi(AdeganMatra):
         with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
             # v3.1 (12 Sep 2026): nama sub-bab plus Bagian dulu, baru pertanyaannya.
             b.tunggu_kata("Membalik")
-            sinema.judul_pembuka(self, "Membalik Turunan, Bagian 3", lama=3.0, y=2.6)
-            b.catat(3.0)
+            sinema.judul_pembuka(self, "Membalik Turunan, Bagian 3", lama=2.6, y=2.6)  # irama Bian (14 Sep 2026)
+            b.catat(2.6)
             b.tunggu_kata("Bagaimana")
             b.main(FadeIn(ident), run_time=0.6)
             b.tunggu_kata("antiturunan")
@@ -252,7 +252,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("antiturunan")
             b.main(FadeOut(lambang), FadeIn(pangkat[0]), run_time=2.0)
             b.tunggu_kata("dibagi")
-            b.main(FadeIn(pangkat[1]), FadeIn(pangkat[2]), run_time=2.2)
+            b.main(FadeIn(pangkat[1]), FadeIn(pangkat[2]), run_time=2.0)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("Berlaku")
             b.main(Indicate(pangkat[1], color=SOROT), run_time=1.0)
             b.tunggu_kata("kecuali")
@@ -315,7 +315,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("sebelas")
             b.main(Indicate(besar1, color=AKSEN), run_time=1.4)
             b.tunggu_kata("satu")
-            b.main(FadeIn(besar2), run_time=1.4)
+            b.main(FadeIn(besar2), run_time=1.2)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("Cara")
             b.main(Indicate(VGroup(besar1, besar2), color=SOROT), run_time=2.2)
         qc.periksa_adegan(self, {"soal": soal, "pangkat besar": VGroup(besar1, besar2)},
@@ -335,7 +335,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("Bagian")
             b.main(Indicate(b_m01, color=AKSEN), run_time=1.2)
             b.tunggu_kata("menebak")
-            b.main(Indicate(soal, color=AKSEN2), run_time=1.4)
+            b.main(Indicate(soal, color=AKSEN2), run_time=1.1)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("Naikkan")
             b.main(Indicate(soal[1], color=SOROT), run_time=0.9)
             b.tunggu_kata("lalu")
@@ -362,7 +362,7 @@ class IntegralSubstitusi(AdeganMatra):
 
         with sinema.babak(self, "periksa", DURASI, kata=KATA) as b:
             b.tunggu_kata("menurunkannya")
-            b.main(FadeOut(soal), FadeIn(turun[0]), run_time=1.6)
+            b.main(FadeOut(soal), FadeIn(turun[0]), run_time=1.2)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("Pangkat")
             b.main(FadeIn(turun[1]), run_time=1.0)
             b.tunggu_kata("lima")
@@ -382,7 +382,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("dikalikan")
             b.main(Indicate(turun[2], color=SOROT), run_time=0.7)
             b.tunggu_kata("kurungnya")
-            b.main(Indicate(turun[2], color=AKSEN), run_time=1.8)
+            b.main(Indicate(turun[2], color=AKSEN), run_time=1.3)  # irama Bian (14 Sep 2026)
         qc.periksa_adegan(self, {"turunan tebakan": turun},
                           hud={"identitas": ident2, "papan": panel.semua()})
 
@@ -394,7 +394,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("Turunan")
             b.main(FadeIn(isi[0]), FadeIn(isi[1]), run_time=1.2)
             b.tunggu_kata("adalah")
-            b.main(FadeIn(isi[2], scale=0.6), run_time=1.8)
+            b.main(FadeIn(isi[2], scale=0.6), run_time=1.3)  # irama Bian (14 Sep 2026)
         qc.periksa_adegan(self, {"turunan tebakan": turun, "turunan isi": isi},
                           [("turunan tebakan", "turunan isi")],
                           hud={"identitas": ident2, "papan": panel.semua()})
@@ -413,7 +413,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("lipat")
             b_lebih = panel.baris(r"\text{kelebihan } 2", warna=AKSEN, b=b)
             b.tunggu_kata("cari")
-            b.main(Indicate(b_lebih, color=SOROT), run_time=1.6)
+            b.main(Indicate(b_lebih, color=SOROT), run_time=1.2)  # irama Bian (14 Sep 2026)
 
         # Dinaikkan 0,9 satuan: di bawahnya nanti berdiri tiga baris
         # pemeriksaan, dan dari PANGGUNG dua baris terakhirnya jatuh ke jalur
@@ -428,7 +428,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("gampang")
             b.main(FadeOut(banding), run_time=1.4)
             b.tunggu_kata("Bagi")
-            b.main(FadeIn(benar[0], scale=0.9), run_time=2.2)
+            b.main(FadeIn(benar[0], scale=0.9), run_time=1.4)  # irama Bian (14 Sep 2026)
         qc.pastikan_hilang(self, {"perbandingan": banding, "turunan tebakan": turun},
                            nama="akhir babak bagi")
 
@@ -440,7 +440,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("dibagi")
             b.main(Indicate(benar[0], color=AKSEN2, scale_factor=1.05), run_time=1.2)
             b.tunggu_kata("C")
-            b.main(FadeIn(benar[1], scale=0.6), run_time=1.6)
+            b.main(FadeIn(benar[1], scale=0.6), run_time=1.0)  # irama Bian (14 Sep 2026)
         qc.periksa_adegan(self, {"jawaban benar": benar},
                           hud={"identitas": ident2, "papan": panel.semua()})
 
@@ -454,7 +454,7 @@ class IntegralSubstitusi(AdeganMatra):
 
         with sinema.babak(self, "buktijawab", DURASI, kata=KATA) as b:
             b.tunggu_kata("Diperiksa")
-            b.main(FadeIn(cek1), run_time=2.0)
+            b.main(FadeIn(cek1), run_time=1.5)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("Turunannya")
             b.main(FadeIn(cek2), run_time=2.4)
             b.tunggu_kata("lima")
@@ -490,7 +490,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("Maka")
             b.main(FadeOut(benar), run_time=1.2)
             b.tunggu_kata("u")
-            b.main(FadeIn(u_baris[0], scale=0.7), run_time=1.6)
+            b.main(FadeIn(u_baris[0], scale=0.7), run_time=1.0)  # irama Bian (14 Sep 2026)
 
         with sinema.babak(self, "du", DURASI, kata=KATA) as b:
             b.tunggu_kata("u")
@@ -545,7 +545,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("jadi")
             b.main(Transform(dalam_u, hasil_u12), run_time=1.4)
             b.tunggu_kata("belas")
-            b.main(Indicate(dalam_u, color=AKSEN), run_time=1.6)
+            b.main(Indicate(dalam_u, color=AKSEN), run_time=1.2)  # irama Bian (14 Sep 2026)
 
         benar2 = baris_rumus(
             (r"\frac{(2x + 1)^6}{12} + C", SOROT), ukuran=60,
@@ -586,13 +586,13 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("Pilih")
             b.main(FadeIn(langkah[0], shift=0.2 * RIGHT), run_time=0.6)
             b.tunggu_kata("Hitung")
-            b.main(FadeIn(langkah[1], shift=0.2 * RIGHT), run_time=1.5)
+            b.main(FadeIn(langkah[1], shift=0.2 * RIGHT), run_time=1.0)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("Cocokkan")
-            b.main(FadeIn(langkah[2], shift=0.2 * RIGHT), run_time=2.8)
+            b.main(FadeIn(langkah[2], shift=0.2 * RIGHT), run_time=2.0)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("Kerjakan")
-            b.main(FadeIn(langkah[3], shift=0.2 * RIGHT), run_time=1.3)
+            b.main(FadeIn(langkah[3], shift=0.2 * RIGHT), run_time=1.0)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("lalu")
-            b.main(Indicate(langkah, color=SOROT, scale_factor=1.04), run_time=2.4)
+            b.main(Indicate(langkah, color=SOROT, scale_factor=1.04), run_time=1.8)  # irama Bian (14 Sep 2026)
         qc.pastikan_hilang(self, {"identitas lama": ident2},
                            nama="pindah ke bentuk umum")
         qc.periksa_adegan(self, {"empat langkah": langkah},
@@ -611,7 +611,7 @@ class IntegralSubstitusi(AdeganMatra):
 
         with sinema.babak(self, "contoh2", DURASI, kata=KATA) as b:
             b.tunggu_kata("kedua")
-            b.main(FadeOut(langkah), run_time=1.4)
+            b.main(FadeOut(langkah), run_time=0.8)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("Integral")
             b.main(FadeIn(soal2, scale=0.9), run_time=1.4)
             b.tunggu_kata("dikali")
@@ -637,7 +637,7 @@ class IntegralSubstitusi(AdeganMatra):
             b_sesuai = panel.baris(r"\text{tidak perlu disesuaikan}",
                                   warna=SOROT, b=b)
             b.tunggu_kata("disesuaikan")
-            b.main(Indicate(b_sesuai, color=AKSEN), run_time=1.8)
+            b.main(Indicate(b_sesuai, color=AKSEN), run_time=1.4)  # irama Bian (14 Sep 2026)
         qc.periksa_adegan(self, {"soal kedua": soal2, "u dan du":
                                  VGroup(u2_baris, du2_baris)},
                           [("soal kedua", "u dan du")],
@@ -659,7 +659,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("hasilnya")
             b.main(Indicate(soal2, color=AKSEN), run_time=2.6)
             b.tunggu_kata("C")
-            b.main(FadeIn(jawab2[1], scale=0.6), run_time=1.6)
+            b.main(FadeIn(jawab2[1], scale=0.6), run_time=1.0)  # irama Bian (14 Sep 2026)
         qc.periksa_adegan(self, {"jawaban kedua": soal2},
                           hud={"identitas": ident3, "papan": panel.semua()})
 
@@ -670,7 +670,7 @@ class IntegralSubstitusi(AdeganMatra):
 
         with sinema.babak(self, "contoh3", DURASI, kata=KATA) as b:
             b.tunggu_kata("ketiga")
-            b.main(FadeOut(soal2), FadeOut(jawab2[1]), run_time=1.4)
+            b.main(FadeOut(soal2), FadeOut(jawab2[1]), run_time=1.0)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("Integral")
             b.main(FadeIn(soal3, scale=0.9), run_time=1.2)
             b.tunggu_kata("akar")
@@ -709,9 +709,9 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("pangkat")
             b.main(Indicate(soal3, color=AKSEN2), run_time=1.4)
             b.tunggu_kata("dibagi")
-            b.main(Indicate(soal3, color=AKSEN), run_time=1.6)
+            b.main(Indicate(soal3, color=AKSEN), run_time=1.3)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("C")
-            b.main(FadeIn(jawab3[1], scale=0.6), run_time=1.5)
+            b.main(FadeIn(jawab3[1], scale=0.6), run_time=1.1)  # irama Bian (14 Sep 2026)
 
         soal4 = baris_rumus(
             (r"\int", TINTA), (r"\sqrt{x^2 + 5}", AKSEN2), (r"dx", TINTA),

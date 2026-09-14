@@ -1,6 +1,6 @@
 {
   "adegan": "TransformasiRotasi",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Translasi, Rotasi, dan Dilatasi, Bagian 2 (Materi 06, video 03 Transformasi). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (18 segmen, 2:06) yang sudah disetujui ARYA: ISI TETAP SAMA (jarum (4, 0) seperempat putaran ke (0, 4); bentuk L diputar 90 derajat, jarak B ke pusat tetap; aturan (x, y) ke (-y, x) diuji pada B(6, 1); 270 derajat; setengah putaran = cermin titik asal; arah yang salah; pusat bukan titik asal: geser, putar, geser kembali; rumus sin cos). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2 dengan pertanyaan halaman, segar-ingat Prapeta Peta dan Pencerminan Bagian 4 (cermin titik asal) yang ditagih di babak sama, ASAL RUMUS: dua langkah B (6 ke kanan, 1 ke atas) ikut diputar sehingga (-y, x) lahir dari gambar, uji pada A, bentuk umum sin cos dicek pada 90 derajat, penutup menunjuk Bagian 3.",
   "segmen": [
@@ -99,5 +99,6 @@
       "teks": "Satu pertanyaan: kalau sebuah titik tepat berada di pusat putarannya, ke mana ia pergi? Di materi berikutnya, Translasi, Rotasi, dan Dilatasi, Bagian tiga, justru jarak ke pusat itulah yang diubah: bentuknya diperbesar.",
       "tulis": "Satu pertanyaan: kalau sebuah titik tepat berada *di* pusat putarannya, ke mana ia pergi? Di materi berikutnya, Translasi, Rotasi, dan Dilatasi, Bagian 3, justru jarak ke pusat itulah yang diubah: bentuknya diperbesar."
     }
-  ]
+  ],
+  "napas": 0.6
 }

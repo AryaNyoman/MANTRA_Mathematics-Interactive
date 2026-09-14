@@ -296,9 +296,11 @@ class LariKeTakHingga(AdeganMatra):
             b.tunggu_kata("seribu")
             b.main(Write(c2), run_time=1.1)
             b.tunggu_kata("menuju")
+            # tahan 0,1 dan run_time 0,5 (dulu 0,2 dan 0,8): narasi Bian menyisakan
+            # 1,5 detik sesudah "menuju" (14 Sep 2026)
             sinema.lahir_rumus(self, r"\frac{1}{x} \to 0", satu_per_x, papan, b=b, warna=SOROT,
-                               sebagai_utama=False, geser=np.array([0.0, -1.7, 0.0]), tahan=0.2,
-                               run_time=0.8)
+                               sebagai_utama=False, geser=np.array([0.0, -1.7, 0.0]), tahan=0.1,
+                               run_time=0.5)
         qc.periksa_adegan(self, {"satu per x": satu_per_x}, hud=hud(ident, papan), tulisan={"c1": c1, "c2": c2})
 
         # ============ soal: bagi dengan pangkat tertinggi ================ #
@@ -358,10 +360,12 @@ class LariKeTakHingga(AdeganMatra):
             b.tunggu_kata("tersisa")
             b.main(Write(sisa), run_time=0.9)
             b.tunggu_kata("limitnya")
-            b.main(FadeIn(hasil, scale=1.3), run_time=0.5)
+            # 0,3 / tahan 0,1 / 0,5 (dulu 0,5 / 0,2 / 0,8): narasi Bian menyisakan
+            # 1,7 detik sesudah "limitnya" (14 Sep 2026)
+            b.main(FadeIn(hasil, scale=1.3), run_time=0.3)
             sinema.lahir_rumus(self, r"\lim_{x \to \infty} \frac{3x^2 + 2x}{x^2 - 5} = 3", hasil, papan,
                                b=b, warna=SOROT, sebagai_utama=False, geser=np.array([3.2, 0.6, 0.0]),
-                               tahan=0.2, run_time=0.8)
+                               tahan=0.1, run_time=0.5)
         qc.periksa_adegan(self, {"soal": soal, "baris 2": baris2, "sisa": sisa}, hud=hud(ident, papan),
                           tulisan={"nol atas": nol_atas, "nol bawah": nol_bawah, "hasil": hasil})
 

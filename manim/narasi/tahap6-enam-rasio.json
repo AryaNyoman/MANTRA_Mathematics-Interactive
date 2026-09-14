@@ -1,6 +1,6 @@
 {
   "adegan": "EnamRasioNyata",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Lingkaran Satuan dan Sudut Istimewa, Bagian 2 (Materi 06). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1; DIPERDALAM 13 Sep 2026 atas revisi ARYA: (1) segar-ingat dari Perbandingan Trigonometri, Bagian 4: keenam pembagian sebagai sisi, termasuk csc = miring : depan, sec = miring : samping, cot = samping : depan; (2) titik x = 1 dan y = 1 disebut dan ditandai; (3) ASAL rumusnya dijelaskan lewat DUA SEGITIGA SEBANGUN: segitiga kecil bersisi miring 1 (memberi y/x, 1/x) dan segitiga besar bersisi samping 1 (memberi ruas tan dan sec sebagai panjang); untuk garis singgung y = 1, sudut theta muncul lagi di titik tabrak karena garisnya sejajar sumbu mendatar, sehingga depan = 1 dan ruasnya cot dan csc; (4) contoh angka diperluas ke sec 1,25, cot 1,33, csc 1,67 sesuai tabel halaman. Isi lama (dua garis singgung, enam ruas, sudut digeser) tetap. 13 Sep 2026: 'sumbu mendatar/tegak' diganti 'sumbu-x/sumbu-y' (ARYA). Revisi ARYA 13 Sep (kedua): segitiga besar/kecil disorot dan diberi ikon di samping rumusnya; di contoh angka, segitiga yang dipakai sec, cot, csc disorot.",
   "segmen": [
@@ -104,5 +104,6 @@
       "teks": "Di materi berikutnya, Lingkaran Satuan dan Sudut Istimewa, Bagian tiga, kita cari sudut-sudut yang nilai sinus dan cosinusnya bisa ditulis persis, tanpa kalkulator.",
       "tulis": "Di materi berikutnya, Lingkaran Satuan dan Sudut Istimewa, Bagian 3, kita cari sudut-sudut yang nilai sinus dan cosinusnya bisa ditulis *persis*, tanpa kalkulator."
     }
-  ]
+  ],
+  "napas": 0.6
 }

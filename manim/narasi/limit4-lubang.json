@@ -1,6 +1,6 @@
 {
   "adegan": "LubangDiGrafik",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Konsep Limit, Bagian 4 (Materi 04). Ditulis ulang 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (f(x) = (x kuadrat - 1) : (x - 1); di x = 1 hasilnya 0 : 0, tidak terdefinisi; grafiknya garis lurus dengan satu titik bolong; didekati dari kiri 0,9 dan 0,99 lalu dari kanan 1,1 dan 1,01, keduanya menuju 2; limitnya 2 walau titiknya kosong; pembilang difaktorkan (x - 1)(x + 1), faktor dicoret hanya kalau x bukan 1; sisanya x + 1; nilai fungsi dan limit dua hal berbeda). Yang ditambah: pembuka sub-bab plus Bagian 4, segar-ingat dari Bagian 3 (limit ada hanya kalau kiri dan kanan sepakat), contoh angka yang mengecek pemfaktoran di x = 0,9 (-0,19 : -0,1 = 1,9, cocok dengan tabel), penutup menunjuk Sifat Limit dan Cara Menghitungnya Bagian 1.",
   "segmen": [
@@ -79,5 +79,6 @@
       "teks": "Di materi berikutnya, Sifat Limit dan Cara Menghitungnya, Bagian satu, kita lihat kapan limit boleh dihitung dengan cara cepat: masukkan saja angkanya.",
       "tulis": "Di materi berikutnya, Sifat Limit dan Cara Menghitungnya, Bagian 1, kita lihat kapan limit boleh dihitung dengan cara cepat: masukkan saja angkanya."
     }
-  ]
+  ],
+  "napas": 0.6
 }

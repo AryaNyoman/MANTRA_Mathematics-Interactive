@@ -171,8 +171,10 @@ class SudutDenganBidang(AdeganMatra):
             tunggu_kata_bergeser(b, frame, "yaitu")
             b.main(ShowCreation(bd), run_time=0.9)
             tunggu_kata_bergeser(b, frame, "garis potong")
-            b.main(Indicate(bd, color=SOROT), run_time=1.0)
-            b.main(kamera.sudut(frame, -14, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI), run_time=1.2)
+            # 0,6 dan 1,0 detik (dulu 1,0 dan 1,2): "garis potong" adalah frasa terakhir,
+            # narasi Bian menyisakan 1,7 detik sesudahnya (14 Sep 2026)
+            b.main(Indicate(bd, color=SOROT), run_time=0.6)
+            b.main(kamera.sudut(frame, -14, 66, pusat=PUSAT, tinggi=TINGGI_BINGKAI), run_time=1.0)
         qc.periksa_adegan(self, {"bidang": bidang_bdg, "BD": bd, "huruf A": lab2["A"],
                                  "identitas": jati})
 

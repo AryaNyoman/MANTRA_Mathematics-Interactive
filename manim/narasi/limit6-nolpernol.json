@@ -1,6 +1,6 @@
 {
   "adegan": "NolPerNol",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Sifat Limit dan Cara Menghitungnya, Bagian 2 (Materi 06). Ditulis ulang 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (0 : 0 bukan berarti limitnya tidak ada, melainkan bentuknya belum bercerita; bukti: (2x - 4) : (x - 2) dan (x kuadrat - 4) : (x - 2) sama-sama 0 : 0 di x menuju 2 tetapi jawabannya 2 dan 4; cara 1 memfaktorkan dengan syarat x bukan 2; cara 2 mengalikan sekawan untuk (akar(x + 4) - 2) : x, hasil 1/4; urutan tetap: masukkan, kalau 0 : 0 tulis ulang bentuknya, masukkan lagi). Yang ditambah: pembuka sub-bab plus Bagian 2, segar-ingat Bagian 1 (cara cepat: masukkan angkanya), cek angka hasil cara 1 di x = 2,1 (0,41 : 0,1 = 4,1, dekat 4), penutup menunjuk Bagian 3 (x lari ke tak hingga).",
   "segmen": [
@@ -79,5 +79,6 @@
       "teks": "Di materi berikutnya, Sifat Limit dan Cara Menghitungnya, Bagian tiga, x-nya tidak lagi mendekati satu angka, melainkan lari ke tak hingga.",
       "tulis": "Di materi berikutnya, Sifat Limit dan Cara Menghitungnya, Bagian 3, x-nya tidak lagi mendekati satu angka, melainkan lari ke tak hingga."
     }
-  ]
+  ],
+  "napas": 0.6
 }

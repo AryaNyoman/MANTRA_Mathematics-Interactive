@@ -1,2910 +1,2910 @@
 {
   "buka": {
     "mulai": 0.0,
-    "durasi": 11.3,
+    "durasi": 10.966666666666667,
     "kata": [
       {
         "kata": "Kedudukan",
-        "mulai": 0.115791,
-        "durasi": 0.486833
+        "mulai": 0.0,
+        "durasi": 0.58
       },
       {
-        "kata": "Titik",
-        "mulai": 0.602625,
-        "durasi": 0.513166
+        "kata": "Titik,",
+        "mulai": 0.673,
+        "durasi": 0.674
       },
       {
-        "kata": "Garis",
-        "mulai": 1.40525,
-        "durasi": 0.631583
+        "kata": "Garis,",
+        "mulai": 1.591,
+        "durasi": 0.557
       },
       {
         "kata": "dan",
-        "mulai": 2.286833,
-        "durasi": 0.276333
+        "mulai": 2.218,
+        "durasi": 0.197
       },
       {
-        "kata": "Bidang",
-        "mulai": 2.563166,
-        "durasi": 0.565791
+        "kata": "Bidang,",
+        "mulai": 2.485,
+        "durasi": 0.534
       },
       {
         "kata": "Bagian",
-        "mulai": 3.40525,
-        "durasi": 0.460541
+        "mulai": 3.181,
+        "durasi": 0.441
       },
       {
-        "kata": "satu",
-        "mulai": 3.865791,
-        "durasi": 0.565791
+        "kata": "satu.",
+        "mulai": 3.692,
+        "durasi": 0.65
       },
       {
         "kata": "Kalau",
-        "mulai": 5.328958,
-        "durasi": 0.25
+        "mulai": 5.027,
+        "durasi": 0.267
       },
       {
         "kata": "dua",
-        "mulai": 5.578958,
-        "durasi": 0.171041
+        "mulai": 5.329,
+        "durasi": 0.163
       },
       {
         "kata": "garis",
-        "mulai": 5.75,
-        "durasi": 0.342125
+        "mulai": 5.55,
+        "durasi": 0.325
       },
       {
         "kata": "tampak",
-        "mulai": 6.092125,
-        "durasi": 0.31575
+        "mulai": 5.944,
+        "durasi": 0.291
       },
       {
         "kata": "menyilang",
-        "mulai": 6.407875,
-        "durasi": 0.407875
+        "mulai": 6.281,
+        "durasi": 0.395
       },
       {
         "kata": "pada",
-        "mulai": 6.815791,
-        "durasi": 0.184208
+        "mulai": 6.734,
+        "durasi": 0.174
       },
       {
         "kata": "sebuah",
-        "mulai": 7.0,
-        "durasi": 0.342125
+        "mulai": 6.954,
+        "durasi": 0.233
       },
       {
-        "kata": "gambar",
-        "mulai": 7.342125,
-        "durasi": 0.592125
+        "kata": "gambar,",
+        "mulai": 7.233,
+        "durasi": 0.685
       },
       {
         "kata": "apakah",
-        "mulai": 8.210541,
-        "durasi": 0.381583
+        "mulai": 8.092,
+        "durasi": 0.418
       },
       {
         "kata": "keduanya",
-        "mulai": 8.592125,
-        "durasi": 0.394708
+        "mulai": 8.557,
+        "durasi": 0.418
       },
       {
         "kata": "benar-benar",
-        "mulai": 8.986833,
-        "durasi": 0.486833
+        "mulai": 9.033,
+        "durasi": 0.464
       },
       {
-        "kata": "bertemu",
-        "mulai": 9.473666,
-        "durasi": 0.565791
+        "kata": "bertemu?",
+        "mulai": 9.555,
+        "durasi": 0.685
       }
     ]
   },
   "ingat-vektor": {
-    "mulai": 11.3,
-    "durasi": 10.266666666666667,
+    "mulai": 10.966666666666667,
+    "durasi": 11.266666666666667,
     "kata": [
       {
         "kata": "Di",
-        "mulai": 0.115791,
-        "durasi": 0.157875
+        "mulai": 0.06,
+        "durasi": 0.116
       },
       {
         "kata": "topik",
-        "mulai": 0.273666,
-        "durasi": 0.276333
+        "mulai": 0.234,
+        "durasi": 0.326
+      },
+      {
+        "kata": "Vektor,",
+        "mulai": 0.687,
+        "durasi": 0.743
       },
       {
         "kata": "Vektor",
-        "mulai": 0.55,
-        "durasi": 0.578958
-      },
-      {
-        "kata": "Vektor",
-        "mulai": 1.378958,
-        "durasi": 0.407875
+        "mulai": 1.825,
+        "durasi": 0.418
       },
       {
         "kata": "dalam",
-        "mulai": 1.786833,
-        "durasi": 0.236833
+        "mulai": 2.301,
+        "durasi": 0.209
       },
       {
         "kata": "Sistem",
-        "mulai": 2.023666,
-        "durasi": 0.35525
+        "mulai": 2.591,
+        "durasi": 0.372
       },
       {
-        "kata": "Koordinat",
-        "mulai": 2.378958,
-        "durasi": 0.671041
+        "kata": "Koordinat,",
+        "mulai": 3.032,
+        "durasi": 0.767
       },
       {
         "kata": "Bagian",
-        "mulai": 3.3,
-        "durasi": 0.407875
+        "mulai": 3.95,
+        "durasi": 0.348
       },
       {
-        "kata": "dua",
-        "mulai": 3.707875,
-        "durasi": 0.473666
+        "kata": "dua,",
+        "mulai": 4.344,
+        "durasi": 0.651
       },
       {
         "kata": "panjang",
-        "mulai": 4.457875,
-        "durasi": 0.381583
+        "mulai": 5.238,
+        "durasi": 0.418
       },
       {
         "kata": "panah",
-        "mulai": 4.839458,
-        "durasi": 0.25
+        "mulai": 5.714,
+        "durasi": 0.233
       },
       {
         "kata": "dihitung",
-        "mulai": 5.089458,
-        "durasi": 0.407875
+        "mulai": 5.993,
+        "durasi": 0.453
       },
       {
         "kata": "dengan",
-        "mulai": 5.497375,
-        "durasi": 0.223666
+        "mulai": 6.492,
+        "durasi": 0.209
       },
       {
-        "kata": "Pythagoras",
-        "mulai": 5.721041,
-        "durasi": 0.789458
+        "kata": "Pythagoras:",
+        "mulai": 6.759,
+        "durasi": 0.952
       },
       {
         "kata": "akar",
-        "mulai": 6.760541,
-        "durasi": 0.315791
+        "mulai": 7.99,
+        "durasi": 0.383
       },
       {
         "kata": "dari",
-        "mulai": 7.076333,
-        "durasi": 0.2105
+        "mulai": 8.454,
+        "durasi": 0.151
       },
       {
         "kata": "jumlah",
-        "mulai": 7.286833,
-        "durasi": 0.315791
+        "mulai": 8.663,
+        "durasi": 0.314
       },
       {
         "kata": "kuadrat",
-        "mulai": 7.602625,
-        "durasi": 0.39475
+        "mulai": 9.012,
+        "durasi": 0.406
       },
       {
         "kata": "setiap",
-        "mulai": 7.997375,
-        "durasi": 0.315791
+        "mulai": 9.464,
+        "durasi": 0.337
       },
       {
-        "kata": "langkahnya",
-        "mulai": 8.313166,
-        "durasi": 0.710541
+        "kata": "langkahnya.",
+        "mulai": 9.859,
+        "durasi": 0.662
       }
     ]
   },
   "ingat-bawa": {
-    "mulai": 21.56666666666667,
-    "durasi": 7.566666666666666,
+    "mulai": 22.233333333333334,
+    "durasi": 8.333333333333334,
     "kata": [
       {
         "kata": "Dua",
-        "mulai": 0.115791,
-        "durasi": 0.171041
+        "mulai": 0.06,
+        "durasi": 0.243
       },
       {
         "kata": "hal",
-        "mulai": 0.286833,
-        "durasi": 0.10525
+        "mulai": 0.338,
+        "durasi": 0.151
       },
       {
         "kata": "itu",
-        "mulai": 0.392125,
-        "durasi": 0.236833
+        "mulai": 0.559,
+        "durasi": 0.174
       },
       {
         "kata": "yang",
-        "mulai": 0.628958,
-        "durasi": 0.131583
+        "mulai": 0.803,
+        "durasi": 0.104
       },
       {
         "kata": "kita",
-        "mulai": 0.760541,
-        "durasi": 0.197333
+        "mulai": 0.93,
+        "durasi": 0.151
       },
       {
         "kata": "bawa",
-        "mulai": 0.957875,
-        "durasi": 0.276333
+        "mulai": 1.139,
+        "durasi": 0.244
       },
       {
         "kata": "ke",
-        "mulai": 1.234208,
-        "durasi": 0.078958
+        "mulai": 1.418,
+        "durasi": 0.07
       },
       {
         "kata": "topik",
-        "mulai": 1.313166,
-        "durasi": 0.276291
+        "mulai": 1.534,
+        "durasi": 0.221
       },
       {
         "kata": "baru",
-        "mulai": 1.589458,
-        "durasi": 0.184208
+        "mulai": 1.789,
+        "durasi": 0.163
       },
       {
-        "kata": "ini",
-        "mulai": 1.773666,
-        "durasi": 0.434208
+        "kata": "ini:",
+        "mulai": 2.01,
+        "durasi": 0.441
       },
       {
         "kata": "koordinat",
-        "mulai": 2.510541,
-        "durasi": 0.552625
+        "mulai": 2.881,
+        "durasi": 0.615
       },
       {
         "kata": "untuk",
-        "mulai": 3.063166,
-        "durasi": 0.223666
+        "mulai": 3.566,
+        "durasi": 0.244
       },
       {
         "kata": "menyebut",
-        "mulai": 3.286833,
-        "durasi": 0.315791
+        "mulai": 3.856,
+        "durasi": 0.337
       },
       {
-        "kata": "letak",
-        "mulai": 3.602625,
-        "durasi": 0.460541
+        "kata": "letak,",
+        "mulai": 4.239,
+        "durasi": 0.685
       },
       {
         "kata": "dan",
-        "mulai": 4.313166,
-        "durasi": 0.236833
+        "mulai": 5.121,
+        "durasi": 0.151
       },
       {
         "kata": "Pythagoras",
-        "mulai": 4.55,
-        "durasi": 0.592125
+        "mulai": 5.342,
+        "durasi": 0.708
       },
       {
         "kata": "untuk",
-        "mulai": 5.142125,
-        "durasi": 0.263125
+        "mulai": 6.248,
+        "durasi": 0.325
       },
       {
         "kata": "mengukur",
-        "mulai": 5.40525,
-        "durasi": 0.35525
+        "mulai": 6.642,
+        "durasi": 0.36
       },
       {
-        "kata": "jarak",
-        "mulai": 5.760541,
-        "durasi": 0.539458
+        "kata": "jarak.",
+        "mulai": 7.072,
+        "durasi": 0.534
       }
     ]
   },
   "kubus": {
-    "mulai": 29.133333333333336,
-    "durasi": 8.833333333333334,
+    "mulai": 30.56666666666667,
+    "durasi": 8.966666666666667,
     "kata": [
       {
         "kata": "Di",
-        "mulai": 0.100666,
-        "durasi": 0.197375
+        "mulai": 0.06,
+        "durasi": 0.104
       },
       {
         "kata": "depan",
-        "mulai": 0.298041,
-        "durasi": 0.342083
+        "mulai": 0.211,
+        "durasi": 0.394
       },
       {
         "kata": "kita",
-        "mulai": 0.640125,
-        "durasi": 0.25
+        "mulai": 0.721,
+        "durasi": 0.302
       },
       {
         "kata": "ada",
-        "mulai": 0.890125,
-        "durasi": 0.197375
+        "mulai": 1.058,
+        "durasi": 0.163
       },
       {
         "kata": "sebuah",
-        "mulai": 1.0875,
-        "durasi": 0.35525
+        "mulai": 1.267,
+        "durasi": 0.302
       },
       {
-        "kata": "kubus",
-        "mulai": 1.44275,
-        "durasi": 0.578958
+        "kata": "kubus.",
+        "mulai": 1.627,
+        "durasi": 0.708
       },
       {
-        "kata": "Panjang",
-        "mulai": 2.921041,
-        "durasi": 0.657875
+        "kata": "Panjang,",
+        "mulai": 2.707,
+        "durasi": 0.754
       },
       {
-        "kata": "lebar",
-        "mulai": 3.881583,
-        "durasi": 0.631583
+        "kata": "lebar,",
+        "mulai": 3.833,
+        "durasi": 0.743
       },
       {
         "kata": "dan",
-        "mulai": 4.776333,
-        "durasi": 0.276291
+        "mulai": 4.808,
+        "durasi": 0.198
       },
       {
         "kata": "tingginya",
-        "mulai": 5.052625,
-        "durasi": 0.381583
+        "mulai": 5.075,
+        "durasi": 0.535
       },
       {
-        "kata": "sama",
-        "mulai": 5.434208,
-        "durasi": 0.565791
+        "kata": "sama,",
+        "mulai": 5.679,
+        "durasi": 0.662
       },
       {
         "kata": "yaitu",
-        "mulai": 6.276333,
-        "durasi": 0.394708
+        "mulai": 6.759,
+        "durasi": 0.476
       },
       {
         "kata": "enam",
-        "mulai": 6.671041,
-        "durasi": 0.223666
+        "mulai": 7.305,
+        "durasi": 0.209
       },
       {
-        "kata": "satuan",
-        "mulai": 6.89475,
-        "durasi": 0.684208
+        "kata": "satuan.",
+        "mulai": 7.583,
+        "durasi": 0.639
       }
     ]
   },
   "rangka": {
-    "mulai": 37.96666666666667,
-    "durasi": 9.766666666666667,
+    "mulai": 39.53333333333334,
+    "durasi": 8.3,
     "kata": [
       {
         "kata": "Supaya",
-        "mulai": 0.101333,
-        "durasi": 0.434208
+        "mulai": 0.06,
+        "durasi": 0.418
       },
       {
         "kata": "bagian",
-        "mulai": 0.535541,
-        "durasi": 0.35525
+        "mulai": 0.536,
+        "durasi": 0.255
       },
       {
         "kata": "dalamnya",
-        "mulai": 0.890791,
-        "durasi": 0.39475
+        "mulai": 0.838,
+        "durasi": 0.279
       },
       {
         "kata": "ikut",
-        "mulai": 1.285541,
-        "durasi": 0.223666
+        "mulai": 1.163,
+        "durasi": 0.255
       },
       {
-        "kata": "terlihat",
-        "mulai": 1.509208,
-        "durasi": 0.631583
+        "kata": "terlihat,",
+        "mulai": 1.453,
+        "durasi": 0.581
       },
       {
         "kata": "dindingnya",
-        "mulai": 2.417125,
-        "durasi": 0.5
+        "mulai": 2.208,
+        "durasi": 0.418
       },
       {
         "kata": "kita",
-        "mulai": 2.917125,
-        "durasi": 0.25
+        "mulai": 2.661,
+        "durasi": 0.162
       },
       {
         "kata": "buat",
-        "mulai": 3.167125,
-        "durasi": 0.2105
+        "mulai": 2.87,
+        "durasi": 0.151
       },
       {
         "kata": "tembus",
-        "mulai": 3.377625,
-        "durasi": 0.263166
+        "mulai": 3.032,
+        "durasi": 0.186
       },
       {
-        "kata": "pandang",
-        "mulai": 3.640791,
-        "durasi": 0.592125
+        "kata": "pandang.",
+        "mulai": 3.276,
+        "durasi": 0.511
       },
       {
         "kata": "Kedelapan",
-        "mulai": 5.117125,
-        "durasi": 0.473666
+        "mulai": 4.286,
+        "durasi": 0.418
       },
       {
         "kata": "titik",
-        "mulai": 5.590791,
-        "durasi": 0.223666
+        "mulai": 4.739,
+        "durasi": 0.302
       },
       {
         "kata": "sudutnya",
-        "mulai": 5.814458,
-        "durasi": 0.460541
+        "mulai": 5.11,
+        "durasi": 0.418
       },
       {
         "kata": "diberi",
-        "mulai": 6.275,
-        "durasi": 0.263166
+        "mulai": 5.61,
+        "durasi": 0.22
       },
       {
-        "kata": "nama",
-        "mulai": 6.538166,
-        "durasi": 0.526333
+        "kata": "nama,",
+        "mulai": 5.877,
+        "durasi": 0.58
       },
       {
         "kata": "A",
-        "mulai": 7.353958,
-        "durasi": 0.171041
+        "mulai": 6.631,
+        "durasi": 0.07
       },
       {
         "kata": "sampai",
-        "mulai": 7.525,
-        "durasi": 0.381583
+        "mulai": 6.852,
+        "durasi": 0.29
       },
       {
         "kata": "H.",
-        "mulai": 7.906583,
-        "durasi": 0.578958
+        "mulai": 7.165,
+        "durasi": 0.395
       }
     ]
   },
   "koordinat": {
-    "mulai": 47.733333333333334,
-    "durasi": 10.133333333333333,
+    "mulai": 47.83333333333334,
+    "durasi": 11.133333333333333,
     "kata": [
       {
         "kata": "Titik",
-        "mulai": 0.101333,
-        "durasi": 0.394708
+        "mulai": 0.06,
+        "durasi": 0.337
       },
       {
         "kata": "A",
-        "mulai": 0.496041,
-        "durasi": 0.10525
+        "mulai": 0.49,
+        "durasi": 0.046
       },
       {
         "kata": "kita",
-        "mulai": 0.601333,
-        "durasi": 0.2105
+        "mulai": 0.664,
+        "durasi": 0.185
       },
       {
         "kata": "letakkan",
-        "mulai": 0.811833,
-        "durasi": 0.421041
+        "mulai": 0.896,
+        "durasi": 0.43
       },
       {
         "kata": "di",
-        "mulai": 1.232875,
-        "durasi": 0.092125
+        "mulai": 1.384,
+        "durasi": 0.069
       },
       {
         "kata": "titik",
-        "mulai": 1.325,
-        "durasi": 0.276333
+        "mulai": 1.511,
+        "durasi": 0.279
       },
       {
-        "kata": "asal",
-        "mulai": 1.601333,
-        "durasi": 0.565791
+        "kata": "asal.",
+        "mulai": 1.848,
+        "durasi": 0.522
       },
       {
         "kata": "Maka",
-        "mulai": 3.065791,
-        "durasi": 0.302625
+        "mulai": 2.73,
+        "durasi": 0.407
       },
       {
         "kata": "B",
-        "mulai": 3.368416,
-        "durasi": 0.197375
+        "mulai": 3.392,
+        "durasi": 0.105
       },
       {
         "kata": "ada",
-        "mulai": 3.565791,
-        "durasi": 0.276333
+        "mulai": 3.671,
+        "durasi": 0.174
       },
       {
         "kata": "di",
-        "mulai": 3.842125,
-        "durasi": 0.10525
+        "mulai": 3.88,
+        "durasi": 0.046
       },
       {
         "kata": "enam",
-        "mulai": 3.947375,
-        "durasi": 0.276291
+        "mulai": 3.973,
+        "durasi": 0.336
       },
       {
         "kata": "pada",
-        "mulai": 4.223666,
-        "durasi": 0.210541
+        "mulai": 4.576,
+        "durasi": 0.232
       },
       {
         "kata": "sumbu",
-        "mulai": 4.434208,
-        "durasi": 0.289458
+        "mulai": 4.855,
+        "durasi": 0.244
       },
       {
-        "kata": "x",
-        "mulai": 4.723666,
-        "durasi": 0.460541
+        "kata": "x,",
+        "mulai": 5.204,
+        "durasi": 0.429
       },
       {
         "kata": "D",
-        "mulai": 5.447375,
-        "durasi": 0.223666
+        "mulai": 5.854,
+        "durasi": 0.104
       },
       {
         "kata": "di",
-        "mulai": 5.671041,
-        "durasi": 0.10525
+        "mulai": 6.318,
+        "durasi": 0.093
       },
       {
         "kata": "enam",
-        "mulai": 5.776333,
-        "durasi": 0.263125
+        "mulai": 6.457,
+        "durasi": 0.314
       },
       {
         "kata": "pada",
-        "mulai": 6.039458,
-        "durasi": 0.210541
+        "mulai": 7.003,
+        "durasi": 0.186
       },
       {
         "kata": "sumbu",
-        "mulai": 6.25,
-        "durasi": 0.302625
+        "mulai": 7.224,
+        "durasi": 0.22
       },
       {
-        "kata": "y",
-        "mulai": 6.552625,
-        "durasi": 0.368416
+        "kata": "y,",
+        "mulai": 7.491,
+        "durasi": 0.429
       },
       {
         "kata": "dan",
-        "mulai": 7.184208,
-        "durasi": 0.263166
+        "mulai": 8.245,
+        "durasi": 0.163
       },
       {
         "kata": "E",
-        "mulai": 7.447375,
-        "durasi": 0.184208
+        "mulai": 8.536,
+        "durasi": 0.069
       },
       {
         "kata": "di",
-        "mulai": 7.631583,
-        "durasi": 0.118416
+        "mulai": 8.965,
+        "durasi": 0.093
       },
       {
         "kata": "enam",
-        "mulai": 7.75,
-        "durasi": 0.289458
+        "mulai": 9.104,
+        "durasi": 0.291
       },
       {
         "kata": "pada",
-        "mulai": 8.039458,
-        "durasi": 0.210541
+        "mulai": 9.604,
+        "durasi": 0.162
       },
       {
         "kata": "sumbu",
-        "mulai": 8.25,
-        "durasi": 0.289458
+        "mulai": 9.801,
+        "durasi": 0.163
       },
       {
-        "kata": "z",
-        "mulai": 8.539458,
-        "durasi": 0.342125
+        "kata": "z.",
+        "mulai": 9.998,
+        "durasi": 0.384
       }
     ]
   },
   "dua-ruas": {
-    "mulai": 57.86666666666667,
-    "durasi": 11.7,
+    "mulai": 58.966666666666676,
+    "durasi": 9.4,
     "kata": [
       {
         "kata": "Sekarang",
-        "mulai": 0.101333,
-        "durasi": 0.486833
+        "mulai": 0.06,
+        "durasi": 0.394
       },
       {
         "kata": "kita",
-        "mulai": 0.588166,
-        "durasi": 0.2105
+        "mulai": 0.489,
+        "durasi": 0.151
       },
       {
         "kata": "tarik",
-        "mulai": 0.798666,
-        "durasi": 0.289458
+        "mulai": 0.675,
+        "durasi": 0.221
       },
       {
         "kata": "dua",
-        "mulai": 1.088166,
-        "durasi": 0.197375
+        "mulai": 0.954,
+        "durasi": 0.151
       },
       {
         "kata": "ruas",
-        "mulai": 1.285541,
-        "durasi": 0.263125
+        "mulai": 1.139,
+        "durasi": 0.186
       },
       {
-        "kata": "garis",
-        "mulai": 1.548666,
-        "durasi": 0.592125
+        "kata": "garis.",
+        "mulai": 1.383,
+        "durasi": 0.534
       },
       {
         "kata": "Yang",
-        "mulai": 3.039458,
-        "durasi": 0.236833
+        "mulai": 2.254,
+        "durasi": 0.151
       },
       {
-        "kata": "biru",
-        "mulai": 3.276333,
-        "durasi": 0.539458
+        "kata": "biru,",
+        "mulai": 2.44,
+        "durasi": 0.418
       },
       {
         "kata": "B",
-        "mulai": 4.092125,
-        "durasi": 0.289458
+        "mulai": 2.985,
+        "durasi": 0.07
       },
       {
-        "kata": "D",
-        "mulai": 4.381583,
-        "durasi": 0.407875
+        "kata": "D,",
+        "mulai": 3.206,
+        "durasi": 0.383
       },
       {
         "kata": "tergeletak",
-        "mulai": 5.039458,
-        "durasi": 0.565791
+        "mulai": 3.926,
+        "durasi": 0.453
       },
       {
         "kata": "di",
-        "mulai": 5.60525,
-        "durasi": 0.092125
+        "mulai": 4.448,
+        "durasi": 0.035
       },
       {
         "kata": "lantai",
-        "mulai": 5.697375,
-        "durasi": 0.315791
+        "mulai": 4.518,
+        "durasi": 0.221
       },
       {
-        "kata": "kubus",
-        "mulai": 6.013166,
-        "durasi": 0.592125
+        "kata": "kubus.",
+        "mulai": 4.773,
+        "durasi": 0.604
       },
       {
         "kata": "Yang",
-        "mulai": 7.485541,
-        "durasi": 0.223666
+        "mulai": 5.981,
+        "durasi": 0.151
       },
       {
-        "kata": "merah",
-        "mulai": 7.709208,
-        "durasi": 0.565791
+        "kata": "merah,",
+        "mulai": 6.178,
+        "durasi": 0.488
       },
       {
         "kata": "E",
-        "mulai": 8.538166,
-        "durasi": 0.2105
+        "mulai": 6.828,
+        "durasi": 0.105
       },
       {
-        "kata": "G",
-        "mulai": 8.748666,
-        "durasi": 0.407875
+        "kata": "G,",
+        "mulai": 7.037,
+        "durasi": 0.441
       },
       {
         "kata": "ada",
-        "mulai": 9.393416,
-        "durasi": 0.302625
+        "mulai": 7.629,
+        "durasi": 0.279
       },
       {
         "kata": "di",
-        "mulai": 9.696041,
-        "durasi": 0.10525
+        "mulai": 7.955,
+        "durasi": 0.058
       },
       {
-        "kata": "atapnya",
-        "mulai": 9.801333,
-        "durasi": 0.64475
+        "kata": "atapnya.",
+        "mulai": 8.059,
+        "durasi": 0.592
       }
     ]
   },
   "panjang-bd": {
-    "mulai": 69.56666666666666,
-    "durasi": 12.133333333333333,
+    "mulai": 68.36666666666667,
+    "durasi": 11.4,
     "kata": [
       {
         "kata": "Berapa",
-        "mulai": 0.1,
-        "durasi": 0.39475
+        "mulai": 0.06,
+        "durasi": 0.233
       },
       {
         "kata": "panjang",
-        "mulai": 0.49475,
-        "durasi": 0.421041
+        "mulai": 0.327,
+        "durasi": 0.349
       },
       {
         "kata": "B",
-        "mulai": 0.915791,
-        "durasi": 0.184208
+        "mulai": 0.78,
+        "durasi": 0.058
       },
       {
-        "kata": "D",
-        "mulai": 1.1,
-        "durasi": 0.407875
+        "kata": "D?",
+        "mulai": 0.966,
+        "durasi": 0.383
       },
       {
         "kata": "Dari",
-        "mulai": 2.393416,
-        "durasi": 0.328958
+        "mulai": 1.732,
+        "durasi": 0.198
       },
       {
         "kata": "B",
-        "mulai": 2.722375,
-        "durasi": 0.184208
+        "mulai": 1.964,
+        "durasi": 0.035
       },
       {
         "kata": "ke",
-        "mulai": 2.906583,
-        "durasi": 0.10525
+        "mulai": 2.115,
+        "durasi": 0.058
       },
       {
         "kata": "D",
-        "mulai": 3.011833,
-        "durasi": 0.223666
+        "mulai": 2.22,
+        "durasi": 0.035
       },
       {
         "kata": "kita",
-        "mulai": 3.235541,
-        "durasi": 0.302625
+        "mulai": 2.533,
+        "durasi": 0.267
       },
       {
         "kata": "melangkah",
-        "mulai": 3.538166,
-        "durasi": 0.35525
+        "mulai": 2.835,
+        "durasi": 0.302
       },
       {
         "kata": "enam",
-        "mulai": 3.893416,
-        "durasi": 0.223666
+        "mulai": 3.16,
+        "durasi": 0.267
       },
       {
         "kata": "ke",
-        "mulai": 4.117125,
-        "durasi": 0.078916
+        "mulai": 3.497,
+        "durasi": 0.046
       },
       {
         "kata": "belakang",
-        "mulai": 4.196041,
-        "durasi": 0.473666
+        "mulai": 3.578,
+        "durasi": 0.441
       },
       {
         "kata": "dan",
-        "mulai": 4.66975,
-        "durasi": 0.171041
+        "mulai": 4.228,
+        "durasi": 0.151
       },
       {
         "kata": "enam",
-        "mulai": 4.840791,
-        "durasi": 0.25
+        "mulai": 4.437,
+        "durasi": 0.314
       },
       {
         "kata": "ke",
-        "mulai": 5.090791,
-        "durasi": 0.078958
+        "mulai": 4.902,
+        "durasi": 0.081
       },
       {
-        "kata": "kiri",
-        "mulai": 5.16975,
-        "durasi": 0.473666
+        "kata": "kiri.",
+        "mulai": 5.03,
+        "durasi": 0.51
       },
       {
         "kata": "Pythagoras",
-        "mulai": 6.539458,
-        "durasi": 0.618416
+        "mulai": 6.365,
+        "durasi": 0.464
       },
       {
         "kata": "memberi",
-        "mulai": 7.157875,
-        "durasi": 0.25
+        "mulai": 6.887,
+        "durasi": 0.244
       },
       {
         "kata": "enam",
-        "mulai": 7.407875,
-        "durasi": 0.223666
+        "mulai": 7.166,
+        "durasi": 0.209
       },
       {
         "kata": "kuadrat",
-        "mulai": 7.631583,
-        "durasi": 0.381583
+        "mulai": 7.444,
+        "durasi": 0.407
       },
       {
         "kata": "ditambah",
-        "mulai": 8.013166,
-        "durasi": 0.394708
+        "mulai": 7.978,
+        "durasi": 0.43
       },
       {
         "kata": "enam",
-        "mulai": 8.407875,
-        "durasi": 0.236833
+        "mulai": 8.431,
+        "durasi": 0.186
       },
       {
-        "kata": "kuadrat",
-        "mulai": 8.64475,
-        "durasi": 0.60525
+        "kata": "kuadrat,",
+        "mulai": 8.687,
+        "durasi": 0.592
       },
       {
         "kata": "yaitu",
-        "mulai": 9.526333,
-        "durasi": 0.381541
+        "mulai": 9.465,
+        "durasi": 0.232
       },
       {
         "kata": "tujuh",
-        "mulai": 9.907875,
-        "durasi": 0.328958
+        "mulai": 9.732,
+        "durasi": 0.22
       },
       {
         "kata": "puluh",
-        "mulai": 10.236833,
-        "durasi": 0.197375
+        "mulai": 9.975,
+        "durasi": 0.198
       },
       {
-        "kata": "dua",
-        "mulai": 10.434208,
-        "durasi": 0.434208
+        "kata": "dua.",
+        "mulai": 10.208,
+        "durasi": 0.464
       }
     ]
   },
   "akar-72": {
-    "mulai": 81.69999999999999,
-    "durasi": 11.466666666666667,
+    "mulai": 79.76666666666668,
+    "durasi": 12.0,
     "kata": [
       {
         "kata": "Akar",
-        "mulai": 0.115791,
-        "durasi": 0.276333
+        "mulai": 0.06,
+        "durasi": 0.325
       },
       {
         "kata": "tujuh",
-        "mulai": 0.392125,
-        "durasi": 0.276291
+        "mulai": 0.444,
+        "durasi": 0.232
       },
       {
         "kata": "puluh",
-        "mulai": 0.668416,
-        "durasi": 0.197375
+        "mulai": 0.699,
+        "durasi": 0.186
       },
       {
         "kata": "dua",
-        "mulai": 0.865791,
-        "durasi": 0.302625
+        "mulai": 0.908,
+        "durasi": 0.325
       },
       {
         "kata": "adalah",
-        "mulai": 1.168416,
-        "durasi": 0.328958
+        "mulai": 1.326,
+        "durasi": 0.348
       },
       {
         "kata": "enam",
-        "mulai": 1.497375,
-        "durasi": 0.289458
+        "mulai": 1.732,
+        "durasi": 0.232
       },
       {
         "kata": "akar",
-        "mulai": 1.786833,
-        "durasi": 0.25
+        "mulai": 2.046,
+        "durasi": 0.185
       },
       {
-        "kata": "dua",
-        "mulai": 2.036833,
-        "durasi": 0.513166
+        "kata": "dua,",
+        "mulai": 2.278,
+        "durasi": 0.511
       },
       {
         "kata": "kira-kira",
-        "mulai": 2.852625,
-        "durasi": 0.447375
+        "mulai": 3.195,
+        "durasi": 0.488
       },
       {
         "kata": "delapan",
-        "mulai": 3.3,
-        "durasi": 0.421041
+        "mulai": 3.729,
+        "durasi": 0.348
       },
       {
         "kata": "koma",
-        "mulai": 3.721041,
-        "durasi": 0.236833
+        "mulai": 4.147,
+        "durasi": 0.302
       },
       {
         "kata": "empat",
-        "mulai": 3.957875,
-        "durasi": 0.25
+        "mulai": 4.484,
+        "durasi": 0.278
       },
       {
-        "kata": "sembilan",
-        "mulai": 4.207875,
-        "durasi": 0.64475
+        "kata": "sembilan.",
+        "mulai": 4.797,
+        "durasi": 0.65
       },
       {
         "kata": "Jadi",
-        "mulai": 5.75,
-        "durasi": 0.315791
+        "mulai": 6.307,
+        "durasi": 0.209
       },
       {
         "kata": "kedua",
-        "mulai": 6.065791,
-        "durasi": 0.263166
+        "mulai": 6.562,
+        "durasi": 0.255
       },
       {
         "kata": "ruas",
-        "mulai": 6.328958,
-        "durasi": 0.223666
+        "mulai": 6.852,
+        "durasi": 0.43
       },
       {
         "kata": "ini",
-        "mulai": 6.552625,
-        "durasi": 0.289458
+        "mulai": 7.502,
+        "durasi": 0.221
       },
       {
         "kata": "punya",
-        "mulai": 6.842125,
-        "durasi": 0.263125
+        "mulai": 7.758,
+        "durasi": 0.197
       },
       {
         "kata": "panjang",
-        "mulai": 7.10525,
-        "durasi": 0.368416
+        "mulai": 8.002,
+        "durasi": 0.348
       },
       {
         "kata": "yang",
-        "mulai": 7.473666,
-        "durasi": 0.14475
+        "mulai": 8.396,
+        "durasi": 0.104
       },
       {
-        "kata": "nyata",
-        "mulai": 7.618416,
-        "durasi": 0.552625
+        "kata": "nyata,",
+        "mulai": 8.524,
+        "durasi": 0.661
       },
       {
         "kata": "bukan",
-        "mulai": 8.460541,
-        "durasi": 0.302625
+        "mulai": 9.522,
+        "durasi": 0.325
       },
       {
         "kata": "sekadar",
-        "mulai": 8.763166,
-        "durasi": 0.342083
+        "mulai": 9.905,
+        "durasi": 0.29
       },
       {
         "kata": "garis",
-        "mulai": 9.10525,
-        "durasi": 0.381583
+        "mulai": 10.265,
+        "durasi": 0.256
       },
       {
         "kata": "di",
-        "mulai": 9.486833,
-        "durasi": 0.10525
+        "mulai": 10.579,
+        "durasi": 0.058
       },
       {
-        "kata": "gambar",
-        "mulai": 9.592125,
-        "durasi": 0.60525
+        "kata": "gambar.",
+        "mulai": 10.683,
+        "durasi": 0.581
       }
     ]
   },
   "naik": {
-    "mulai": 93.16666666666666,
-    "durasi": 6.033333333333333,
+    "mulai": 91.76666666666668,
+    "durasi": 5.733333333333333,
     "kata": [
       {
         "kata": "Sekarang",
-        "mulai": 0.115791,
-        "durasi": 0.35525
+        "mulai": 0.06,
+        "durasi": 0.453
       },
       {
         "kata": "kameranya",
-        "mulai": 0.471041,
-        "durasi": 0.486833
+        "mulai": 0.548,
+        "durasi": 0.406
       },
       {
         "kata": "kita",
-        "mulai": 0.957875,
-        "durasi": 0.210541
+        "mulai": 0.989,
+        "durasi": 0.221
       },
       {
         "kata": "naikkan",
-        "mulai": 1.168416,
-        "durasi": 0.342125
+        "mulai": 1.256,
+        "durasi": 0.279
       },
       {
-        "kata": "pelan-pelan",
-        "mulai": 1.510541,
-        "durasi": 0.657875
+        "kata": "pelan-pelan,",
+        "mulai": 1.581,
+        "durasi": 0.673
       },
       {
         "kata": "sampai",
-        "mulai": 2.471041,
-        "durasi": 0.328958
+        "mulai": 2.417,
+        "durasi": 0.279
       },
       {
         "kata": "kubus",
-        "mulai": 2.8,
-        "durasi": 0.289458
+        "mulai": 2.742,
+        "durasi": 0.255
       },
       {
         "kata": "ini",
-        "mulai": 3.089458,
-        "durasi": 0.25
+        "mulai": 3.079,
+        "durasi": 0.162
       },
       {
         "kata": "terlihat",
-        "mulai": 3.339458,
-        "durasi": 0.381583
+        "mulai": 3.288,
+        "durasi": 0.36
       },
       {
         "kata": "tepat",
-        "mulai": 3.721041,
-        "durasi": 0.276333
+        "mulai": 3.682,
+        "durasi": 0.337
       },
       {
         "kata": "dari",
-        "mulai": 3.997375,
-        "durasi": 0.184208
+        "mulai": 4.089,
+        "durasi": 0.162
       },
       {
-        "kata": "atas",
-        "mulai": 4.181583,
-        "durasi": 0.578958
+        "kata": "atas.",
+        "mulai": 4.298,
+        "durasi": 0.696
       }
     ]
   },
   "dari-atas": {
-    "mulai": 99.19999999999999,
-    "durasi": 7.733333333333333,
+    "mulai": 97.50000000000001,
+    "durasi": 7.5,
     "kata": [
       {
         "kata": "Dari",
-        "mulai": 0.115791,
-        "durasi": 0.236833
+        "mulai": 0.06,
+        "durasi": 0.22
       },
       {
-        "kata": "atas",
-        "mulai": 0.352625,
-        "durasi": 0.565791
+        "kata": "atas,",
+        "mulai": 0.338,
+        "durasi": 0.639
       },
       {
         "kata": "kubus",
-        "mulai": 1.168416,
-        "durasi": 0.315791
+        "mulai": 1.116,
+        "durasi": 0.337
       },
       {
         "kata": "tampak",
-        "mulai": 1.484208,
-        "durasi": 0.328958
+        "mulai": 1.511,
+        "durasi": 0.348
       },
       {
         "kata": "sebagai",
-        "mulai": 1.813166,
-        "durasi": 0.342083
+        "mulai": 1.917,
+        "durasi": 0.302
       },
       {
         "kata": "sebuah",
-        "mulai": 2.15525,
-        "durasi": 0.342125
+        "mulai": 2.266,
+        "durasi": 0.313
       },
       {
-        "kata": "persegi",
-        "mulai": 2.497375,
-        "durasi": 0.64475
+        "kata": "persegi.",
+        "mulai": 2.614,
+        "durasi": 0.755
       },
       {
         "kata": "Kedua",
-        "mulai": 4.025,
-        "durasi": 0.302625
+        "mulai": 4.007,
+        "durasi": 0.337
       },
       {
         "kata": "ruas",
-        "mulai": 4.327625,
-        "durasi": 0.210541
+        "mulai": 4.379,
+        "durasi": 0.29
       },
       {
         "kata": "tadi",
-        "mulai": 4.538166,
-        "durasi": 0.328958
+        "mulai": 4.75,
+        "durasi": 0.279
       },
       {
         "kata": "menjadi",
-        "mulai": 4.867125,
-        "durasi": 0.368416
+        "mulai": 5.087,
+        "durasi": 0.29
       },
       {
         "kata": "kedua",
-        "mulai": 5.235541,
-        "durasi": 0.342083
+        "mulai": 5.424,
+        "durasi": 0.29
       },
       {
-        "kata": "diagonalnya",
-        "mulai": 5.577625,
-        "durasi": 0.89475
+        "kata": "diagonalnya.",
+        "mulai": 5.76,
+        "durasi": 0.987
       }
     ]
   },
   "silang": {
-    "mulai": 106.93333333333332,
-    "durasi": 7.766666666666667,
+    "mulai": 105.00000000000001,
+    "durasi": 7.5,
     "kata": [
       {
         "kata": "Keduanya",
-        "mulai": 0.101333,
-        "durasi": 0.5
+        "mulai": 0.06,
+        "durasi": 0.476
       },
       {
         "kata": "menyilang",
-        "mulai": 0.601333,
-        "durasi": 0.35525
+        "mulai": 0.582,
+        "durasi": 0.325
       },
       {
         "kata": "tepat",
-        "mulai": 0.956583,
-        "durasi": 0.328958
+        "mulai": 0.965,
+        "durasi": 0.337
       },
       {
         "kata": "di",
-        "mulai": 1.285541,
-        "durasi": 0.092083
+        "mulai": 1.372,
+        "durasi": 0.081
       },
       {
         "kata": "tengah",
-        "mulai": 1.377625,
-        "durasi": 0.236833
+        "mulai": 1.499,
+        "durasi": 0.233
       },
       {
-        "kata": "persegi",
-        "mulai": 1.614458,
-        "durasi": 0.64475
+        "kata": "persegi.",
+        "mulai": 1.766,
+        "durasi": 0.685
       },
       {
         "kata": "Pada",
-        "mulai": 3.157875,
-        "durasi": 0.223666
+        "mulai": 3.09,
+        "durasi": 0.221
       },
       {
         "kata": "gambar",
-        "mulai": 3.381583,
-        "durasi": 0.289458
+        "mulai": 3.369,
+        "durasi": 0.255
       },
       {
-        "kata": "ini",
-        "mulai": 3.671041,
-        "durasi": 0.486833
+        "kata": "ini,",
+        "mulai": 3.694,
+        "durasi": 0.429
       },
       {
         "kata": "mereka",
-        "mulai": 4.473666,
-        "durasi": 0.315791
+        "mulai": 4.286,
+        "durasi": 0.278
       },
       {
         "kata": "jelas",
-        "mulai": 4.789458,
-        "durasi": 0.315791
+        "mulai": 4.623,
+        "durasi": 0.348
       },
       {
         "kata": "berpotongan",
-        "mulai": 5.10525,
-        "durasi": 0.578958
+        "mulai": 5.064,
+        "durasi": 0.592
       },
       {
         "kata": "di",
-        "mulai": 5.684208,
-        "durasi": 0.078958
+        "mulai": 5.714,
+        "durasi": 0.081
       },
       {
         "kata": "satu",
-        "mulai": 5.763166,
-        "durasi": 0.263166
+        "mulai": 5.853,
+        "durasi": 0.29
       },
       {
-        "kata": "titik",
-        "mulai": 6.026333,
-        "durasi": 0.486833
+        "kata": "titik.",
+        "mulai": 6.19,
+        "durasi": 0.557
       }
     ]
   },
   "tebak": {
-    "mulai": 114.69999999999999,
-    "durasi": 8.5,
+    "mulai": 112.50000000000001,
+    "durasi": 9.333333333333334,
     "kata": [
       {
         "kata": "Coba",
-        "mulai": 0.101333,
-        "durasi": 0.302625
+        "mulai": 0.06,
+        "durasi": 0.243
       },
       {
         "kata": "tebak",
-        "mulai": 0.403958,
-        "durasi": 0.263166
+        "mulai": 0.35,
+        "durasi": 0.232
       },
       {
         "kata": "dulu",
-        "mulai": 0.667125,
-        "durasi": 0.276291
+        "mulai": 0.64,
+        "durasi": 0.279
       },
       {
         "kata": "sebelum",
-        "mulai": 0.943416,
-        "durasi": 0.35525
+        "mulai": 1.012,
+        "durasi": 0.348
       },
       {
         "kata": "kita",
-        "mulai": 1.298666,
-        "durasi": 0.197375
+        "mulai": 1.418,
+        "durasi": 0.197
       },
       {
-        "kata": "lanjutkan",
-        "mulai": 1.496041,
-        "durasi": 0.723666
+        "kata": "lanjutkan.",
+        "mulai": 1.65,
+        "durasi": 0.883
       },
       {
         "kata": "Menurut",
-        "mulai": 3.103958,
-        "durasi": 0.328916
+        "mulai": 3.171,
+        "durasi": 0.372
       },
       {
-        "kata": "kamu",
-        "mulai": 3.432875,
-        "durasi": 0.5
+        "kata": "kamu,",
+        "mulai": 3.589,
+        "durasi": 0.627
       },
       {
         "kata": "apakah",
-        "mulai": 4.222375,
-        "durasi": 0.473666
+        "mulai": 4.402,
+        "durasi": 0.406
       },
       {
         "kata": "B",
-        "mulai": 4.696041,
-        "durasi": 0.197375
+        "mulai": 4.866,
+        "durasi": 0.07
       },
       {
         "kata": "D",
-        "mulai": 4.893416,
-        "durasi": 0.197375
+        "mulai": 5.122,
+        "durasi": 0.069
       },
       {
         "kata": "dan",
-        "mulai": 5.090791,
-        "durasi": 0.184208
+        "mulai": 5.447,
+        "durasi": 0.139
       },
       {
         "kata": "E",
-        "mulai": 5.275,
-        "durasi": 0.157875
+        "mulai": 5.714,
+        "durasi": 0.046
       },
       {
         "kata": "G",
-        "mulai": 5.432875,
-        "durasi": 0.184208
+        "mulai": 5.888,
+        "durasi": 0.128
       },
       {
         "kata": "benar-benar",
-        "mulai": 5.617125,
-        "durasi": 0.5
+        "mulai": 6.55,
+        "durasi": 0.568
       },
       {
         "kata": "bertemu",
-        "mulai": 6.117125,
-        "durasi": 0.342083
+        "mulai": 7.188,
+        "durasi": 0.36
       },
       {
         "kata": "di",
-        "mulai": 6.459208,
-        "durasi": 0.092125
+        "mulai": 7.594,
+        "durasi": 0.07
       },
       {
         "kata": "titik",
-        "mulai": 6.551333,
-        "durasi": 0.236833
+        "mulai": 7.699,
+        "durasi": 0.244
       },
       {
-        "kata": "itu",
-        "mulai": 6.788166,
-        "durasi": 0.447375
+        "kata": "itu?",
+        "mulai": 8.024,
+        "durasi": 0.569
       }
     ]
   },
   "turun": {
-    "mulai": 123.19999999999999,
-    "durasi": 5.1,
+    "mulai": 121.83333333333334,
+    "durasi": 4.7,
     "kata": [
       {
         "kata": "Kita",
-        "mulai": 0.115791,
-        "durasi": 0.223666
+        "mulai": 0.06,
+        "durasi": 0.256
       },
       {
         "kata": "turunkan",
-        "mulai": 0.339458,
-        "durasi": 0.381583
+        "mulai": 0.362,
+        "durasi": 0.395
       },
       {
         "kata": "lagi",
-        "mulai": 0.721041,
-        "durasi": 0.223666
+        "mulai": 0.815,
+        "durasi": 0.209
       },
       {
-        "kata": "kameranya",
-        "mulai": 0.94475,
-        "durasi": 0.75
+        "kata": "kameranya,",
+        "mulai": 1.07,
+        "durasi": 0.767
       },
       {
         "kata": "dan",
-        "mulai": 2.010541,
-        "durasi": 0.236833
+        "mulai": 2.057,
+        "durasi": 0.163
       },
       {
         "kata": "jawabannya",
-        "mulai": 2.247375,
-        "durasi": 0.539458
+        "mulai": 2.29,
+        "durasi": 0.476
       },
       {
         "kata": "langsung",
-        "mulai": 2.786833,
-        "durasi": 0.35525
+        "mulai": 2.824,
+        "durasi": 0.336
       },
       {
-        "kata": "kelihatan",
-        "mulai": 3.142125,
-        "durasi": 0.697375
+        "kata": "kelihatan.",
+        "mulai": 3.195,
+        "durasi": 0.778
       }
     ]
   },
   "tidak": {
-    "mulai": 128.29999999999998,
-    "durasi": 7.133333333333334,
+    "mulai": 126.53333333333335,
+    "durasi": 6.833333333333333,
     "kata": [
       {
-        "kata": "Tidak",
-        "mulai": 0.1,
-        "durasi": 0.776333
+        "kata": "Tidak.",
+        "mulai": 0.06,
+        "durasi": 0.685
       },
       {
         "kata": "Yang",
-        "mulai": 1.776333,
-        "durasi": 0.197333
+        "mulai": 1.372,
+        "durasi": 0.197
       },
       {
         "kata": "biru",
-        "mulai": 1.973666,
-        "durasi": 0.263166
+        "mulai": 1.616,
+        "durasi": 0.278
       },
       {
         "kata": "tetap",
-        "mulai": 2.236833,
-        "durasi": 0.263166
+        "mulai": 1.941,
+        "durasi": 0.243
       },
       {
         "kata": "tergeletak",
-        "mulai": 2.5,
-        "durasi": 0.460541
+        "mulai": 2.254,
+        "durasi": 0.476
       },
       {
         "kata": "di",
-        "mulai": 2.960541,
-        "durasi": 0.092083
+        "mulai": 2.8,
+        "durasi": 0.046
       },
       {
-        "kata": "lantai",
-        "mulai": 3.052625,
-        "durasi": 0.60525
+        "kata": "lantai,",
+        "mulai": 2.881,
+        "durasi": 0.778
       },
       {
         "kata": "dan",
-        "mulai": 3.960541,
-        "durasi": 0.223666
+        "mulai": 3.868,
+        "durasi": 0.151
       },
       {
         "kata": "yang",
-        "mulai": 4.184208,
-        "durasi": 0.14475
+        "mulai": 4.089,
+        "durasi": 0.127
       },
       {
         "kata": "merah",
-        "mulai": 4.328958,
-        "durasi": 0.276291
+        "mulai": 4.263,
+        "durasi": 0.267
       },
       {
         "kata": "tetap",
-        "mulai": 4.60525,
-        "durasi": 0.263166
+        "mulai": 4.588,
+        "durasi": 0.278
       },
       {
         "kata": "menempel",
-        "mulai": 4.868416,
-        "durasi": 0.434208
+        "mulai": 4.913,
+        "durasi": 0.464
       },
       {
         "kata": "di",
-        "mulai": 5.302625,
-        "durasi": 0.092125
+        "mulai": 5.435,
+        "durasi": 0.058
       },
       {
-        "kata": "atap",
-        "mulai": 5.39475,
-        "durasi": 0.473666
+        "kata": "atap.",
+        "mulai": 5.54,
+        "durasi": 0.569
       }
     ]
   },
   "dua-titik": {
-    "mulai": 135.4333333333333,
-    "durasi": 7.166666666666667,
+    "mulai": 133.36666666666667,
+    "durasi": 8.9,
     "kata": [
       {
         "kata": "Titik",
-        "mulai": 0.115791,
-        "durasi": 0.25
+        "mulai": 0.06,
+        "durasi": 0.36
       },
       {
         "kata": "silang",
-        "mulai": 0.365791,
-        "durasi": 0.263166
+        "mulai": 0.49,
+        "durasi": 0.267
       },
       {
         "kata": "tadi",
-        "mulai": 0.628958,
-        "durasi": 0.289458
+        "mulai": 0.803,
+        "durasi": 0.302
       },
       {
         "kata": "ternyata",
-        "mulai": 0.918416,
-        "durasi": 0.421041
+        "mulai": 1.163,
+        "durasi": 0.372
       },
       {
         "kata": "bukan",
-        "mulai": 1.339458,
-        "durasi": 0.25
+        "mulai": 1.581,
+        "durasi": 0.314
       },
       {
         "kata": "satu",
-        "mulai": 1.589458,
-        "durasi": 0.223666
+        "mulai": 1.941,
+        "durasi": 0.209
       },
       {
-        "kata": "titik",
-        "mulai": 1.813166,
-        "durasi": 0.5
+        "kata": "titik,",
+        "mulai": 2.197,
+        "durasi": 0.719
       },
       {
         "kata": "melainkan",
-        "mulai": 2.615791,
-        "durasi": 0.460541
+        "mulai": 3.172,
+        "durasi": 0.499
       },
       {
         "kata": "dua",
-        "mulai": 3.076333,
-        "durasi": 0.144708
+        "mulai": 3.741,
+        "durasi": 0.209
       },
       {
         "kata": "titik",
-        "mulai": 3.221041,
-        "durasi": 0.223666
+        "mulai": 3.996,
+        "durasi": 0.36
       },
       {
         "kata": "berbeda",
-        "mulai": 3.44475,
-        "durasi": 0.421041
+        "mulai": 4.426,
+        "durasi": 0.545
       },
       {
         "kata": "yang",
-        "mulai": 3.865791,
-        "durasi": 0.14475
+        "mulai": 5.25,
+        "durasi": 0.186
       },
       {
         "kata": "kebetulan",
-        "mulai": 4.010541,
-        "durasi": 0.421041
+        "mulai": 5.494,
+        "durasi": 0.638
       },
       {
         "kata": "segaris",
-        "mulai": 4.431583,
-        "durasi": 0.5
+        "mulai": 6.353,
+        "durasi": 0.488
       },
       {
         "kata": "dengan",
-        "mulai": 4.931583,
-        "durasi": 0.25
+        "mulai": 6.934,
+        "durasi": 0.22
       },
       {
         "kata": "mata",
-        "mulai": 5.181583,
-        "durasi": 0.210541
+        "mulai": 7.212,
+        "durasi": 0.232
       },
       {
-        "kata": "kita",
-        "mulai": 5.392125,
-        "durasi": 0.526333
+        "kata": "kita.",
+        "mulai": 7.49,
+        "durasi": 0.674
       }
     ]
   },
   "hitung-p": {
-    "mulai": 142.59999999999997,
-    "durasi": 13.6,
+    "mulai": 142.26666666666668,
+    "durasi": 10.9,
     "kata": [
       {
         "kata": "Mari",
-        "mulai": 0.1,
-        "durasi": 0.342125
+        "mulai": 0.06,
+        "durasi": 0.302
       },
       {
         "kata": "kita",
-        "mulai": 0.442125,
-        "durasi": 0.223666
+        "mulai": 0.408,
+        "durasi": 0.174
       },
       {
         "kata": "buktikan",
-        "mulai": 0.665791,
-        "durasi": 0.5
+        "mulai": 0.629,
+        "durasi": 0.603
       },
       {
         "kata": "dengan",
-        "mulai": 1.165791,
-        "durasi": 0.236833
+        "mulai": 1.418,
+        "durasi": 0.337
       },
       {
-        "kata": "angka",
-        "mulai": 1.402625,
-        "durasi": 0.552625
+        "kata": "angka.",
+        "mulai": 1.824,
+        "durasi": 0.476
       },
       {
         "kata": "Titik",
-        "mulai": 2.840791,
-        "durasi": 0.302625
+        "mulai": 2.626,
+        "durasi": 0.267
       },
       {
         "kata": "tengah",
-        "mulai": 3.143416,
-        "durasi": 0.263166
+        "mulai": 2.916,
+        "durasi": 0.139
       },
       {
         "kata": "B",
-        "mulai": 3.406583,
-        "durasi": 0.184208
+        "mulai": 3.09,
+        "durasi": 0.046
       },
       {
         "kata": "D",
-        "mulai": 3.590791,
-        "durasi": 0.14475
+        "mulai": 3.229,
+        "durasi": 0.035
       },
       {
         "kata": "ada",
-        "mulai": 3.735541,
-        "durasi": 0.25
+        "mulai": 3.508,
+        "durasi": 0.22
       },
       {
         "kata": "di",
-        "mulai": 3.985541,
-        "durasi": 0.10525
+        "mulai": 3.752,
+        "durasi": 0.058
       },
       {
-        "kata": "tiga",
-        "mulai": 4.090791,
-        "durasi": 0.565791
+        "kata": "tiga,",
+        "mulai": 3.845,
+        "durasi": 0.418
       },
       {
-        "kata": "tiga",
-        "mulai": 4.946041,
-        "durasi": 0.618416
+        "kata": "tiga,",
+        "mulai": 4.588,
+        "durasi": 0.499
       },
       {
-        "kata": "nol",
-        "mulai": 5.814458,
-        "durasi": 0.565791
+        "kata": "nol.",
+        "mulai": 5.424,
+        "durasi": 0.476
       },
       {
         "kata": "Setengah",
-        "mulai": 7.261833,
-        "durasi": 0.434208
+        "mulai": 6.225,
+        "durasi": 0.29
       },
       {
         "kata": "jalan",
-        "mulai": 7.696041,
-        "durasi": 0.302625
+        "mulai": 6.561,
+        "durasi": 0.209
       },
       {
         "kata": "dari",
-        "mulai": 7.998666,
-        "durasi": 0.157875
+        "mulai": 6.794,
+        "durasi": 0.104
       },
       {
-        "kata": "enam",
-        "mulai": 8.156583,
-        "durasi": 0.460541
+        "kata": "enam,",
+        "mulai": 6.921,
+        "durasi": 0.395
+      },
+      {
+        "kata": "nol,",
+        "mulai": 7.502,
+        "durasi": 0.418
       },
       {
         "kata": "nol",
-        "mulai": 8.91975,
-        "durasi": 0.539458
-      },
-      {
-        "kata": "nol",
-        "mulai": 9.748666,
-        "durasi": 0.276333
+        "mulai": 8.129,
+        "durasi": 0.174
       },
       {
         "kata": "menuju",
-        "mulai": 10.025,
-        "durasi": 0.368416
+        "mulai": 8.349,
+        "durasi": 0.198
       },
       {
-        "kata": "nol",
-        "mulai": 10.393416,
-        "durasi": 0.39475
+        "kata": "nol,",
+        "mulai": 8.581,
+        "durasi": 0.36
       },
       {
-        "kata": "enam",
-        "mulai": 11.051333,
-        "durasi": 0.513166
+        "kata": "enam,",
+        "mulai": 9.069,
+        "durasi": 0.511
       },
       {
-        "kata": "nol",
-        "mulai": 11.788166,
-        "durasi": 0.565791
+        "kata": "nol.",
+        "mulai": 9.766,
+        "durasi": 0.406
       }
     ]
   },
   "hitung-q": {
-    "mulai": 156.19999999999996,
-    "durasi": 10.7,
+    "mulai": 153.16666666666669,
+    "durasi": 8.333333333333334,
     "kata": [
       {
         "kata": "Titik",
-        "mulai": 0.115791,
-        "durasi": 0.289458
+        "mulai": 0.06,
+        "durasi": 0.267
       },
       {
         "kata": "tengah",
-        "mulai": 0.40525,
-        "durasi": 0.25
+        "mulai": 0.362,
+        "durasi": 0.151
       },
       {
         "kata": "E",
-        "mulai": 0.65525,
-        "durasi": 0.14475
+        "mulai": 0.571,
+        "durasi": 0.023
       },
       {
         "kata": "G",
-        "mulai": 0.8,
-        "durasi": 0.157875
+        "mulai": 0.675,
+        "durasi": 0.082
       },
       {
         "kata": "ada",
-        "mulai": 0.957875,
-        "durasi": 0.25
+        "mulai": 1.151,
+        "durasi": 0.209
       },
       {
         "kata": "di",
-        "mulai": 1.207875,
-        "durasi": 0.10525
+        "mulai": 1.395,
+        "durasi": 0.047
       },
       {
-        "kata": "tiga",
-        "mulai": 1.313166,
-        "durasi": 0.565791
+        "kata": "tiga,",
+        "mulai": 1.465,
+        "durasi": 0.464
       },
       {
-        "kata": "tiga",
-        "mulai": 2.168416,
-        "durasi": 0.592125
+        "kata": "tiga,",
+        "mulai": 2.092,
+        "durasi": 0.58
       },
       {
-        "kata": "enam",
-        "mulai": 2.984208,
-        "durasi": 0.539458
+        "kata": "enam.",
+        "mulai": 2.8,
+        "durasi": 0.546
       },
       {
         "kata": "Setengah",
-        "mulai": 4.406583,
-        "durasi": 0.447375
+        "mulai": 3.624,
+        "durasi": 0.302
       },
       {
         "kata": "jalan",
-        "mulai": 4.853958,
-        "durasi": 0.289458
+        "mulai": 3.973,
+        "durasi": 0.174
       },
       {
         "kata": "dari",
-        "mulai": 5.143416,
-        "durasi": 0.197375
+        "mulai": 4.182,
+        "durasi": 0.116
       },
       {
-        "kata": "nol",
-        "mulai": 5.340791,
-        "durasi": 0.407875
+        "kata": "nol,",
+        "mulai": 4.333,
+        "durasi": 0.418
       },
       {
-        "kata": "nol",
-        "mulai": 6.038166,
-        "durasi": 0.513166
+        "kata": "nol,",
+        "mulai": 4.901,
+        "durasi": 0.395
       },
       {
         "kata": "enam",
-        "mulai": 6.801333,
-        "durasi": 0.276291
+        "mulai": 5.412,
+        "durasi": 0.279
       },
       {
         "kata": "menuju",
-        "mulai": 7.077625,
-        "durasi": 0.328958
+        "mulai": 5.737,
+        "durasi": 0.256
       },
       {
-        "kata": "enam",
-        "mulai": 7.406583,
-        "durasi": 0.447375
+        "kata": "enam,",
+        "mulai": 6.016,
+        "durasi": 0.418
       },
       {
-        "kata": "enam",
-        "mulai": 8.117125,
-        "durasi": 0.526333
+        "kata": "enam,",
+        "mulai": 6.526,
+        "durasi": 0.488
       },
       {
-        "kata": "enam",
-        "mulai": 8.867125,
-        "durasi": 0.552625
+        "kata": "enam.",
+        "mulai": 7.119,
+        "durasi": 0.476
       }
     ]
   },
   "beda": {
-    "mulai": 166.89999999999995,
-    "durasi": 12.966666666666667,
+    "mulai": 161.50000000000003,
+    "durasi": 9.733333333333333,
     "kata": [
       {
         "kata": "Bandingkan",
-        "mulai": 0.1,
-        "durasi": 0.671041
+        "mulai": 0.06,
+        "durasi": 0.348
       },
       {
-        "kata": "keduanya",
-        "mulai": 0.771041,
-        "durasi": 0.75
+        "kata": "keduanya.",
+        "mulai": 0.443,
+        "durasi": 0.546
       },
       {
         "kata": "Angka",
-        "mulai": 2.406583,
-        "durasi": 0.368416
+        "mulai": 1.279,
+        "durasi": 0.255
       },
       {
         "kata": "x-nya",
-        "mulai": 2.775,
-        "durasi": 0.315791
+        "mulai": 1.697,
+        "durasi": 0.174
       },
       {
-        "kata": "sama",
-        "mulai": 3.090791,
-        "durasi": 0.565791
+        "kata": "sama,",
+        "mulai": 1.906,
+        "durasi": 0.325
       },
       {
-        "kata": "tiga",
-        "mulai": 3.932875,
-        "durasi": 0.592125
+        "kata": "tiga.",
+        "mulai": 2.266,
+        "durasi": 0.511
       },
       {
         "kata": "Angka",
-        "mulai": 5.405916,
-        "durasi": 0.328958
+        "mulai": 3.508,
+        "durasi": 0.279
       },
       {
         "kata": "y-nya",
-        "mulai": 5.734875,
-        "durasi": 0.315791
+        "mulai": 3.856,
+        "durasi": 0.244
       },
       {
         "kata": "juga",
-        "mulai": 6.050666,
-        "durasi": 0.25
+        "mulai": 4.146,
+        "durasi": 0.163
       },
       {
-        "kata": "sama",
-        "mulai": 6.300666,
-        "durasi": 0.539458
+        "kata": "sama,",
+        "mulai": 4.344,
+        "durasi": 0.325
       },
       {
-        "kata": "tiga",
-        "mulai": 7.116458,
-        "durasi": 0.592125
+        "kata": "tiga.",
+        "mulai": 4.704,
+        "durasi": 0.534
       },
       {
         "kata": "Yang",
-        "mulai": 8.590791,
-        "durasi": 0.197375
+        "mulai": 5.772,
+        "durasi": 0.151
       },
       {
         "kata": "berbeda",
-        "mulai": 8.788166,
-        "durasi": 0.407875
+        "mulai": 5.946,
+        "durasi": 0.302
       },
       {
         "kata": "hanya",
-        "mulai": 9.196041,
-        "durasi": 0.223666
+        "mulai": 6.294,
+        "durasi": 0.163
       },
       {
         "kata": "angka",
-        "mulai": 9.41975,
-        "durasi": 0.184208
+        "mulai": 6.492,
+        "durasi": 0.151
       },
       {
-        "kata": "ketiganya",
-        "mulai": 9.603958,
-        "durasi": 0.776333
+        "kata": "ketiganya:",
+        "mulai": 6.677,
+        "durasi": 0.639
       },
       {
         "kata": "nol",
-        "mulai": 10.656583,
-        "durasi": 0.289458
+        "mulai": 7.85,
+        "durasi": 0.267
       },
       {
         "kata": "lawan",
-        "mulai": 10.946041,
-        "durasi": 0.263166
+        "mulai": 8.21,
+        "durasi": 0.232
       },
       {
-        "kata": "enam",
-        "mulai": 11.209208,
-        "durasi": 0.5
+        "kata": "enam.",
+        "mulai": 8.489,
+        "durasi": 0.522
       }
     ]
   },
   "jarak": {
-    "mulai": 179.86666666666662,
-    "durasi": 11.266666666666667,
+    "mulai": 171.23333333333335,
+    "durasi": 10.2,
     "kata": [
       {
         "kata": "Karena",
-        "mulai": 0.115791,
-        "durasi": 0.302625
+        "mulai": 0.06,
+        "durasi": 0.278
       },
       {
         "kata": "hanya",
-        "mulai": 0.418416,
-        "durasi": 0.223666
+        "mulai": 0.373,
+        "durasi": 0.174
       },
       {
         "kata": "tingginya",
-        "mulai": 0.642125,
-        "durasi": 0.381541
+        "mulai": 0.582,
+        "durasi": 0.337
       },
       {
         "kata": "yang",
-        "mulai": 1.023666,
-        "durasi": 0.131583
+        "mulai": 0.954,
+        "durasi": 0.092
       },
       {
-        "kata": "berbeda",
-        "mulai": 1.15525,
-        "durasi": 0.657875
+        "kata": "berbeda,",
+        "mulai": 1.07,
+        "durasi": 0.58
       },
       {
         "kata": "jaraknya",
-        "mulai": 2.142125,
-        "durasi": 0.513125
+        "mulai": 1.813,
+        "durasi": 0.394
       },
       {
         "kata": "adalah",
-        "mulai": 2.65525,
-        "durasi": 0.276333
+        "mulai": 2.231,
+        "durasi": 0.232
       },
       {
         "kata": "enam",
-        "mulai": 2.931583,
-        "durasi": 0.276291
+        "mulai": 2.521,
+        "durasi": 0.29
       },
       {
         "kata": "dikurangi",
-        "mulai": 3.207875,
-        "durasi": 0.407875
+        "mulai": 2.904,
+        "durasi": 0.418
       },
       {
-        "kata": "nol",
-        "mulai": 3.615791,
-        "durasi": 0.447375
+        "kata": "nol,",
+        "mulai": 3.368,
+        "durasi": 0.302
       },
       {
         "kata": "yaitu",
-        "mulai": 4.313166,
-        "durasi": 0.368416
+        "mulai": 3.81,
+        "durasi": 0.278
       },
       {
         "kata": "enam",
-        "mulai": 4.681583,
-        "durasi": 0.223666
+        "mulai": 4.146,
+        "durasi": 0.174
       },
       {
-        "kata": "satuan",
-        "mulai": 4.90525,
-        "durasi": 0.671041
+        "kata": "satuan.",
+        "mulai": 4.378,
+        "durasi": 0.604
       },
       {
         "kata": "Dua",
-        "mulai": 6.459208,
-        "durasi": 0.223666
+        "mulai": 5.98,
+        "durasi": 0.209
       },
       {
         "kata": "titik",
-        "mulai": 6.682875,
-        "durasi": 0.315791
+        "mulai": 6.224,
+        "durasi": 0.279
       },
       {
         "kata": "yang",
-        "mulai": 6.998666,
-        "durasi": 0.14475
+        "mulai": 6.538,
+        "durasi": 0.092
       },
       {
         "kata": "tampak",
-        "mulai": 7.143416,
-        "durasi": 0.289458
+        "mulai": 6.665,
+        "durasi": 0.244
       },
       {
         "kata": "berimpit",
-        "mulai": 7.432875,
-        "durasi": 0.315791
+        "mulai": 6.967,
+        "durasi": 0.348
       },
       {
         "kata": "itu",
-        "mulai": 7.748666,
-        "durasi": 0.342125
+        "mulai": 7.373,
+        "durasi": 0.128
       },
       {
         "kata": "terpisah",
-        "mulai": 8.090791,
-        "durasi": 0.473666
+        "mulai": 7.548,
+        "durasi": 0.452
       },
       {
         "kata": "sejauh",
-        "mulai": 8.564458,
-        "durasi": 0.421041
+        "mulai": 8.047,
+        "durasi": 0.313
       },
       {
         "kata": "satu",
-        "mulai": 8.985541,
-        "durasi": 0.289458
+        "mulai": 8.383,
+        "durasi": 0.279
       },
       {
         "kata": "rusuk",
-        "mulai": 9.275,
-        "durasi": 0.263166
+        "mulai": 8.72,
+        "durasi": 0.244
       },
       {
-        "kata": "penuh",
-        "mulai": 9.538166,
-        "durasi": 0.460541
+        "kata": "penuh.",
+        "mulai": 8.999,
+        "durasi": 0.464
       }
     ]
   },
   "kenapa": {
-    "mulai": 191.1333333333333,
-    "durasi": 8.2,
+    "mulai": 181.43333333333334,
+    "durasi": 7.266666666666667,
     "kata": [
       {
         "kata": "Kenapa",
-        "mulai": 0.101333,
-        "durasi": 0.381541
+        "mulai": 0.06,
+        "durasi": 0.325
       },
       {
         "kata": "gambarnya",
-        "mulai": 0.482875,
-        "durasi": 0.5
+        "mulai": 0.42,
+        "durasi": 0.337
       },
       {
         "kata": "bisa",
-        "mulai": 0.982875,
-        "durasi": 0.236833
+        "mulai": 0.792,
+        "durasi": 0.139
       },
       {
-        "kata": "menyesatkan",
-        "mulai": 1.21975,
-        "durasi": 0.763166
+        "kata": "menyesatkan?",
+        "mulai": 0.966,
+        "durasi": 0.836
       },
       {
         "kata": "Sebab",
-        "mulai": 2.867125,
-        "durasi": 0.35525
+        "mulai": 2.266,
+        "durasi": 0.302
       },
       {
         "kata": "memandang",
-        "mulai": 3.222375,
-        "durasi": 0.447375
+        "mulai": 2.638,
+        "durasi": 0.383
       },
       {
         "kata": "dari",
-        "mulai": 3.66975,
-        "durasi": 0.171041
+        "mulai": 3.067,
+        "durasi": 0.14
       },
       {
         "kata": "atas",
-        "mulai": 3.840791,
-        "durasi": 0.263166
+        "mulai": 3.253,
+        "durasi": 0.279
       },
       {
         "kata": "berarti",
-        "mulai": 4.103958,
-        "durasi": 0.394708
+        "mulai": 3.613,
+        "durasi": 0.313
       },
       {
         "kata": "membuang",
-        "mulai": 4.498666,
-        "durasi": 0.342125
+        "mulai": 3.973,
+        "durasi": 0.383
       },
       {
         "kata": "satu",
-        "mulai": 4.840791,
-        "durasi": 0.263166
+        "mulai": 4.402,
+        "durasi": 0.198
       },
       {
-        "kata": "arah",
-        "mulai": 5.103958,
-        "durasi": 0.5
+        "kata": "arah,",
+        "mulai": 4.658,
+        "durasi": 0.464
       },
       {
         "kata": "yaitu",
-        "mulai": 5.853958,
-        "durasi": 0.368416
+        "mulai": 5.378,
+        "durasi": 0.302
       },
       {
         "kata": "arah",
-        "mulai": 6.222375,
-        "durasi": 0.197375
+        "mulai": 5.714,
+        "durasi": 0.163
       },
       {
-        "kata": "tinggi",
-        "mulai": 6.41975,
-        "durasi": 0.539458
+        "kata": "tinggi.",
+        "mulai": 5.912,
+        "durasi": 0.627
       }
     ]
   },
   "bayangan": {
-    "mulai": 199.3333333333333,
-    "durasi": 8.566666666666666,
+    "mulai": 188.70000000000002,
+    "durasi": 9.1,
     "kata": [
       {
         "kata": "Yang",
-        "mulai": 0.101333,
-        "durasi": 0.2105
+        "mulai": 0.06,
+        "durasi": 0.174
       },
       {
         "kata": "kita",
-        "mulai": 0.311833,
-        "durasi": 0.197375
+        "mulai": 0.257,
+        "durasi": 0.163
       },
       {
         "kata": "lihat",
-        "mulai": 0.509208,
-        "durasi": 0.302625
+        "mulai": 0.466,
+        "durasi": 0.221
       },
       {
         "kata": "dari",
-        "mulai": 0.811833,
-        "durasi": 0.197375
+        "mulai": 0.733,
+        "durasi": 0.151
       },
       {
         "kata": "atas",
-        "mulai": 1.009208,
-        "durasi": 0.210541
+        "mulai": 0.931,
+        "durasi": 0.29
       },
       {
         "kata": "sebenarnya",
-        "mulai": 1.21975,
-        "durasi": 0.513125
+        "mulai": 1.256,
+        "durasi": 0.626
       },
       {
         "kata": "bayangan",
-        "mulai": 1.732875,
-        "durasi": 0.434208
+        "mulai": 2.103,
+        "durasi": 0.383
       },
       {
         "kata": "kedua",
-        "mulai": 2.167125,
-        "durasi": 0.276291
+        "mulai": 2.544,
+        "durasi": 0.244
       },
       {
         "kata": "ruas",
-        "mulai": 2.443416,
-        "durasi": 0.276333
+        "mulai": 2.811,
+        "durasi": 0.395
       },
       {
         "kata": "di",
-        "mulai": 2.71975,
-        "durasi": 0.10525
+        "mulai": 3.426,
+        "durasi": 0.093
       },
       {
-        "kata": "lantai",
-        "mulai": 2.825,
-        "durasi": 0.64475
+        "kata": "lantai.",
+        "mulai": 3.566,
+        "durasi": 0.731
       },
       {
         "kata": "Dua",
-        "mulai": 4.353958,
-        "durasi": 0.25
+        "mulai": 5.017,
+        "durasi": 0.197
       },
       {
         "kata": "bayangan",
-        "mulai": 4.603958,
-        "durasi": 0.4605
+        "mulai": 5.261,
+        "durasi": 0.395
       },
       {
         "kata": "boleh",
-        "mulai": 5.064458,
-        "durasi": 0.236833
+        "mulai": 5.725,
+        "durasi": 0.209
       },
       {
         "kata": "berpotongan",
-        "mulai": 5.301333,
-        "durasi": 0.60525
+        "mulai": 5.957,
+        "durasi": 0.674
       },
       {
         "kata": "walaupun",
-        "mulai": 5.906583,
-        "durasi": 0.486833
+        "mulai": 7.037,
+        "durasi": 0.441
       },
       {
         "kata": "bendanya",
-        "mulai": 6.393416,
-        "durasi": 0.368416
+        "mulai": 7.536,
+        "durasi": 0.314
       },
       {
-        "kata": "tidak",
-        "mulai": 6.761833,
-        "durasi": 0.526333
+        "kata": "tidak.",
+        "mulai": 7.885,
+        "durasi": 0.487
       }
     ]
   },
   "kubus-tetap": {
-    "mulai": 207.89999999999995,
-    "durasi": 8.633333333333333,
+    "mulai": 197.8,
+    "durasi": 9.9,
     "kata": [
       {
-        "kata": "Perhatikan",
-        "mulai": 0.115791,
-        "durasi": 0.736833
+        "kata": "Perhatikan,",
+        "mulai": 0.06,
+        "durasi": 0.882
       },
       {
         "kata": "kubusnya",
-        "mulai": 1.168416,
-        "durasi": 0.434208
-      },
-      {
-        "kata": "sendiri",
-        "mulai": 1.602625,
-        "durasi": 0.368416
-      },
-      {
-        "kata": "sama",
-        "mulai": 1.971041,
-        "durasi": 0.223666
-      },
-      {
-        "kata": "sekali",
-        "mulai": 2.19475,
-        "durasi": 0.342083
-      },
-      {
-        "kata": "tidak",
-        "mulai": 2.536833,
-        "durasi": 0.236833
-      },
-      {
-        "kata": "berubah",
-        "mulai": 2.773666,
-        "durasi": 0.342125
-      },
-      {
-        "kata": "selama",
-        "mulai": 3.115791,
-        "durasi": 0.289458
-      },
-      {
-        "kata": "tadi",
-        "mulai": 3.40525,
+        "mulai": 1.186,
         "durasi": 0.5
       },
       {
-        "kata": "Yang",
-        "mulai": 4.788166,
-        "durasi": 0.223666
+        "kata": "sendiri",
+        "mulai": 1.72,
+        "durasi": 0.418
+      },
+      {
+        "kata": "sama",
+        "mulai": 2.231,
+        "durasi": 0.256
+      },
+      {
+        "kata": "sekali",
+        "mulai": 2.521,
+        "durasi": 0.418
+      },
+      {
+        "kata": "tidak",
+        "mulai": 3.183,
+        "durasi": 0.302
       },
       {
         "kata": "berubah",
-        "mulai": 5.011833,
-        "durasi": 0.39475
+        "mulai": 3.52,
+        "durasi": 0.371
+      },
+      {
+        "kata": "selama",
+        "mulai": 3.984,
+        "durasi": 0.279
+      },
+      {
+        "kata": "tadi.",
+        "mulai": 4.309,
+        "durasi": 0.604
+      },
+      {
+        "kata": "Yang",
+        "mulai": 5.54,
+        "durasi": 0.186
+      },
+      {
+        "kata": "berubah",
+        "mulai": 5.761,
+        "durasi": 0.452
       },
       {
         "kata": "hanya",
-        "mulai": 5.406583,
-        "durasi": 0.223666
+        "mulai": 6.55,
+        "durasi": 0.267
       },
       {
         "kata": "tempat",
-        "mulai": 5.63025,
-        "durasi": 0.302625
+        "mulai": 6.864,
+        "durasi": 0.29
       },
       {
         "kata": "kita",
-        "mulai": 5.932875,
-        "durasi": 0.223666
+        "mulai": 7.212,
+        "durasi": 0.197
       },
       {
         "kata": "berdiri",
-        "mulai": 6.156583,
-        "durasi": 0.407875
+        "mulai": 7.456,
+        "durasi": 0.476
       },
       {
-        "kata": "memandangnya",
-        "mulai": 6.564458,
-        "durasi": 0.802625
+        "kata": "memandangnya.",
+        "mulai": 8.175,
+        "durasi": 0.999
       }
     ]
   },
   "nama": {
-    "mulai": 216.53333333333327,
-    "durasi": 8.8,
+    "mulai": 207.70000000000002,
+    "durasi": 9.5,
     "kata": [
       {
         "kata": "Dua",
-        "mulai": 0.101333,
-        "durasi": 0.25
+        "mulai": 0.06,
+        "durasi": 0.198
       },
       {
         "kata": "garis",
-        "mulai": 0.351333,
-        "durasi": 0.302625
+        "mulai": 0.316,
+        "durasi": 0.255
       },
       {
         "kata": "seperti",
-        "mulai": 0.653958,
-        "durasi": 0.302625
+        "mulai": 0.606,
+        "durasi": 0.325
       },
       {
         "kata": "ini",
-        "mulai": 0.956583,
-        "durasi": 0.289458
+        "mulai": 0.977,
+        "durasi": 0.302
       },
       {
         "kata": "punya",
-        "mulai": 1.246041,
-        "durasi": 0.302625
+        "mulai": 1.616,
+        "durasi": 0.279
       },
       {
         "kata": "nama",
-        "mulai": 1.548666,
-        "durasi": 0.197375
+        "mulai": 1.941,
+        "durasi": 0.174
       },
       {
-        "kata": "sendiri",
-        "mulai": 1.746041,
-        "durasi": 0.631583
+        "kata": "sendiri.",
+        "mulai": 2.15,
+        "durasi": 0.685
       },
       {
         "kata": "Karena",
-        "mulai": 3.276333,
-        "durasi": 0.289458
+        "mulai": 3.462,
+        "durasi": 0.511
       },
       {
         "kata": "tidak",
-        "mulai": 3.565791,
-        "durasi": 0.236833
+        "mulai": 4.193,
+        "durasi": 0.279
       },
       {
         "kata": "sejajar",
-        "mulai": 3.802625,
-        "durasi": 0.539458
+        "mulai": 4.495,
+        "durasi": 0.581
       },
       {
         "kata": "dan",
-        "mulai": 4.342125,
-        "durasi": 0.184208
+        "mulai": 5.157,
+        "durasi": 0.105
       },
       {
         "kata": "tidak",
-        "mulai": 4.526333,
-        "durasi": 0.236833
+        "mulai": 5.296,
+        "durasi": 0.221
       },
       {
         "kata": "pernah",
-        "mulai": 4.763166,
-        "durasi": 0.25
+        "mulai": 5.54,
+        "durasi": 0.279
       },
       {
-        "kata": "bertemu",
-        "mulai": 5.013166,
-        "durasi": 0.578958
+        "kata": "bertemu,",
+        "mulai": 5.854,
+        "durasi": 0.801
       },
       {
         "kata": "keduanya",
-        "mulai": 5.881583,
-        "durasi": 0.473666
+        "mulai": 6.991,
+        "durasi": 0.453
       },
       {
         "kata": "disebut",
-        "mulai": 6.35525,
-        "durasi": 0.39475
+        "mulai": 7.479,
+        "durasi": 0.348
       },
       {
-        "kata": "bersilangan",
-        "mulai": 6.75,
-        "durasi": 0.802625
+        "kata": "bersilangan.",
+        "mulai": 7.885,
+        "durasi": 0.883
       }
     ]
   },
   "umum-syarat": {
-    "mulai": 225.3333333333333,
-    "durasi": 9.833333333333334,
+    "mulai": 217.20000000000002,
+    "durasi": 10.233333333333333,
     "kata": [
       {
         "kata": "Bentuk",
-        "mulai": 0.1,
-        "durasi": 0.39475
+        "mulai": 0.06,
+        "durasi": 0.314
       },
       {
         "kata": "umumnya",
-        "mulai": 0.49475,
-        "durasi": 0.421041
+        "mulai": 0.443,
+        "durasi": 0.314
       },
       {
-        "kata": "begini",
-        "mulai": 0.915791,
-        "durasi": 0.64475
+        "kata": "begini.",
+        "mulai": 0.803,
+        "durasi": 0.732
       },
       {
         "kata": "Dua",
-        "mulai": 2.460541,
-        "durasi": 0.2105
+        "mulai": 1.941,
+        "durasi": 0.256
       },
       {
         "kata": "garis",
-        "mulai": 2.671041,
-        "durasi": 0.315791
+        "mulai": 2.255,
+        "durasi": 0.359
       },
       {
         "kata": "dalam",
-        "mulai": 2.986833,
-        "durasi": 0.236833
+        "mulai": 2.707,
+        "durasi": 0.209
       },
       {
         "kata": "ruang",
-        "mulai": 3.223666,
-        "durasi": 0.276333
+        "mulai": 2.986,
+        "durasi": 0.383
       },
       {
         "kata": "hanya",
-        "mulai": 3.5,
-        "durasi": 0.25
+        "mulai": 3.706,
+        "durasi": 0.278
       },
       {
         "kata": "punya",
-        "mulai": 3.75,
-        "durasi": 0.25
+        "mulai": 4.019,
+        "durasi": 0.256
       },
       {
         "kata": "tiga",
-        "mulai": 4.0,
-        "durasi": 0.289458
+        "mulai": 4.321,
+        "durasi": 0.256
       },
       {
-        "kata": "kemungkinan",
-        "mulai": 4.289458,
-        "durasi": 0.763166
+        "kata": "kemungkinan:",
+        "mulai": 4.623,
+        "durasi": 0.882
       },
       {
-        "kata": "berpotongan",
-        "mulai": 5.342125,
-        "durasi": 0.828958
+        "kata": "berpotongan,",
+        "mulai": 5.97,
+        "durasi": 0.917
       },
       {
-        "kata": "sejajar",
-        "mulai": 6.434208,
-        "durasi": 0.789458
+        "kata": "sejajar,",
+        "mulai": 7.108,
+        "durasi": 0.94
       },
       {
         "kata": "atau",
-        "mulai": 7.434208,
-        "durasi": 0.328958
+        "mulai": 8.269,
+        "durasi": 0.29
       },
       {
-        "kata": "bersilangan",
-        "mulai": 7.763166,
-        "durasi": 0.828958
+        "kata": "bersilangan.",
+        "mulai": 8.594,
+        "durasi": 0.905
       }
     ]
   },
   "umum-uji": {
-    "mulai": 235.16666666666663,
-    "durasi": 11.3,
+    "mulai": 227.43333333333334,
+    "durasi": 11.8,
     "kata": [
       {
         "kata": "Cara",
-        "mulai": 0.101333,
-        "durasi": 0.25
+        "mulai": 0.06,
+        "durasi": 0.325
       },
       {
         "kata": "memeriksanya",
-        "mulai": 0.351333,
-        "durasi": 0.618416
+        "mulai": 0.432,
+        "durasi": 0.662
       },
       {
         "kata": "tidak",
-        "mulai": 0.96975,
-        "durasi": 0.263125
+        "mulai": 1.14,
+        "durasi": 0.221
       },
       {
         "kata": "dengan",
-        "mulai": 1.232875,
-        "durasi": 0.223666
+        "mulai": 1.384,
+        "durasi": 0.186
       },
       {
         "kata": "melihat",
-        "mulai": 1.456583,
-        "durasi": 0.302625
+        "mulai": 1.628,
+        "durasi": 0.244
       },
       {
-        "kata": "gambar",
-        "mulai": 1.759208,
-        "durasi": 0.592125
+        "kata": "gambar,",
+        "mulai": 1.941,
+        "durasi": 0.616
       },
       {
         "kata": "melainkan",
-        "mulai": 2.640791,
-        "durasi": 0.526333
+        "mulai": 2.719,
+        "durasi": 0.43
       },
       {
         "kata": "dengan",
-        "mulai": 3.167125,
-        "durasi": 0.263125
+        "mulai": 3.183,
+        "durasi": 0.198
       },
       {
-        "kata": "koordinat",
-        "mulai": 3.43025,
-        "durasi": 0.684208
+        "kata": "koordinat.",
+        "mulai": 3.45,
+        "durasi": 0.964
       },
       {
         "kata": "Kalau",
-        "mulai": 5.013166,
-        "durasi": 0.223666
+        "mulai": 5.273,
+        "durasi": 0.256
       },
       {
         "kata": "ada",
-        "mulai": 5.236833,
-        "durasi": 0.184208
+        "mulai": 5.563,
+        "durasi": 0.151
       },
       {
         "kata": "satu",
-        "mulai": 5.421041,
-        "durasi": 0.210541
+        "mulai": 5.749,
+        "durasi": 0.198
       },
       {
         "kata": "titik",
-        "mulai": 5.631583,
-        "durasi": 0.328958
+        "mulai": 5.993,
+        "durasi": 0.29
       },
       {
         "kata": "yang",
-        "mulai": 5.960541,
-        "durasi": 0.131583
+        "mulai": 6.33,
+        "durasi": 0.093
       },
       {
         "kata": "ketiga",
-        "mulai": 6.092125,
-        "durasi": 0.302625
+        "mulai": 6.446,
+        "durasi": 0.453
       },
       {
         "kata": "angkanya",
-        "mulai": 6.39475,
-        "durasi": 0.407875
+        "mulai": 6.98,
+        "durasi": 0.464
       },
       {
         "kata": "sama-sama",
-        "mulai": 6.802625,
-        "durasi": 0.552625
+        "mulai": 7.479,
+        "durasi": 0.523
       },
       {
         "kata": "dimiliki",
-        "mulai": 7.35525,
-        "durasi": 0.407875
+        "mulai": 8.048,
+        "durasi": 0.406
       },
       {
         "kata": "kedua",
-        "mulai": 7.763166,
-        "durasi": 0.263166
+        "mulai": 8.524,
+        "durasi": 0.244
       },
       {
-        "kata": "garis",
-        "mulai": 8.026333,
-        "durasi": 0.552625
+        "kata": "garis,",
+        "mulai": 8.814,
+        "durasi": 0.685
       },
       {
         "kata": "keduanya",
-        "mulai": 8.828958,
-        "durasi": 0.4605
+        "mulai": 9.685,
+        "durasi": 0.43
       },
       {
-        "kata": "berpotongan",
-        "mulai": 9.289458,
-        "durasi": 0.776333
+        "kata": "berpotongan.",
+        "mulai": 10.149,
+        "durasi": 0.918
       }
     ]
   },
   "umum-gagal": {
-    "mulai": 246.46666666666664,
-    "durasi": 9.933333333333334,
+    "mulai": 239.23333333333335,
+    "durasi": 9.666666666666666,
     "kata": [
       {
         "kata": "Kalau",
-        "mulai": 0.115791,
-        "durasi": 0.210541
+        "mulai": 0.06,
+        "durasi": 0.267
       },
       {
         "kata": "tidak",
-        "mulai": 0.326333,
-        "durasi": 0.223666
+        "mulai": 0.362,
+        "durasi": 0.197
       },
       {
         "kata": "ada",
-        "mulai": 0.55,
-        "durasi": 0.14475
+        "mulai": 0.583,
+        "durasi": 0.174
       },
       {
         "kata": "titik",
-        "mulai": 0.69475,
-        "durasi": 0.263125
+        "mulai": 0.792,
+        "durasi": 0.267
       },
       {
         "kata": "seperti",
-        "mulai": 0.957875,
-        "durasi": 0.302625
+        "mulai": 1.105,
+        "durasi": 0.314
       },
       {
-        "kata": "itu",
-        "mulai": 1.260541,
-        "durasi": 0.486833
+        "kata": "itu,",
+        "mulai": 1.465,
+        "durasi": 0.697
       },
       {
         "kata": "dan",
-        "mulai": 2.05,
-        "durasi": 0.223666
+        "mulai": 2.382,
+        "durasi": 0.174
       },
       {
         "kata": "arah",
-        "mulai": 2.273666,
-        "durasi": 0.210541
+        "mulai": 2.638,
+        "durasi": 0.209
       },
       {
         "kata": "keduanya",
-        "mulai": 2.484208,
-        "durasi": 0.39475
+        "mulai": 2.881,
+        "durasi": 0.372
       },
       {
         "kata": "juga",
-        "mulai": 2.878958,
-        "durasi": 0.223666
+        "mulai": 3.288,
+        "durasi": 0.174
       },
       {
-        "kata": "berbeda",
-        "mulai": 3.102625,
-        "durasi": 0.64475
+        "kata": "berbeda,",
+        "mulai": 3.497,
+        "durasi": 0.824
       },
       {
         "kata": "maka",
-        "mulai": 4.010541,
-        "durasi": 0.302625
+        "mulai": 4.542,
+        "durasi": 0.313
       },
       {
         "kata": "keduanya",
-        "mulai": 4.313166,
-        "durasi": 0.407875
+        "mulai": 4.901,
+        "durasi": 0.36
       },
       {
-        "kata": "bersilangan",
-        "mulai": 4.721041,
-        "durasi": 0.789458
+        "kata": "bersilangan.",
+        "mulai": 5.308,
+        "durasi": 0.836
       },
       {
         "kata": "Persis",
-        "mulai": 6.393416,
-        "durasi": 0.381583
+        "mulai": 6.399,
+        "durasi": 0.395
       },
       {
         "kata": "seperti",
-        "mulai": 6.775,
-        "durasi": 0.407875
+        "mulai": 6.852,
+        "durasi": 0.325
       },
       {
         "kata": "B",
-        "mulai": 7.182875,
-        "durasi": 0.210541
+        "mulai": 7.223,
+        "durasi": 0.047
       },
       {
         "kata": "D",
-        "mulai": 7.393416,
-        "durasi": 0.236833
+        "mulai": 7.456,
+        "durasi": 0.058
       },
       {
         "kata": "dan",
-        "mulai": 7.63025,
-        "durasi": 0.223666
+        "mulai": 7.711,
+        "durasi": 0.116
       },
       {
         "kata": "E",
-        "mulai": 7.853958,
-        "durasi": 0.157875
+        "mulai": 7.943,
+        "durasi": 0.035
       },
       {
         "kata": "G",
-        "mulai": 8.011833,
-        "durasi": 0.171041
+        "mulai": 8.129,
+        "durasi": 0.07
       },
       {
-        "kata": "tadi",
-        "mulai": 8.182875,
-        "durasi": 0.513166
+        "kata": "tadi.",
+        "mulai": 8.338,
+        "durasi": 0.581
       }
     ]
   },
   "pesan": {
-    "mulai": 256.4,
-    "durasi": 7.9,
+    "mulai": 248.9,
+    "durasi": 8.033333333333333,
     "kata": [
       {
         "kata": "Jadi",
-        "mulai": 0.115791,
-        "durasi": 0.289458
+        "mulai": 0.06,
+        "durasi": 0.29
       },
       {
         "kata": "pesan",
-        "mulai": 0.40525,
-        "durasi": 0.263166
+        "mulai": 0.396,
+        "durasi": 0.209
       },
       {
         "kata": "materi",
-        "mulai": 0.668416,
-        "durasi": 0.276333
+        "mulai": 0.652,
+        "durasi": 0.267
       },
       {
         "kata": "ini",
-        "mulai": 0.94475,
-        "durasi": 0.223666
+        "mulai": 0.965,
+        "durasi": 0.163
       },
       {
         "kata": "singkat",
-        "mulai": 1.168416,
-        "durasi": 0.315791
+        "mulai": 1.163,
+        "durasi": 0.278
       },
       {
-        "kata": "saja",
-        "mulai": 1.484208,
-        "durasi": 0.578958
+        "kata": "saja:",
+        "mulai": 1.476,
+        "durasi": 0.569
       },
       {
         "kata": "pada",
-        "mulai": 2.339458,
-        "durasi": 0.25
+        "mulai": 2.451,
+        "durasi": 0.209
       },
       {
         "kata": "gambar",
-        "mulai": 2.589458,
-        "durasi": 0.302625
+        "mulai": 2.707,
+        "durasi": 0.29
       },
       {
-        "kata": "ruang",
-        "mulai": 2.892125,
-        "durasi": 0.473666
+        "kata": "ruang,",
+        "mulai": 3.02,
+        "durasi": 0.581
       },
       {
         "kata": "mata",
-        "mulai": 3.628958,
-        "durasi": 0.276291
+        "mulai": 3.833,
+        "durasi": 0.29
       },
       {
         "kata": "boleh",
-        "mulai": 3.90525,
-        "durasi": 0.223666
+        "mulai": 4.193,
+        "durasi": 0.197
       },
       {
-        "kata": "menduga",
-        "mulai": 4.128958,
-        "durasi": 0.631583
+        "kata": "menduga,",
+        "mulai": 4.425,
+        "durasi": 0.65
       },
       {
         "kata": "tetapi",
-        "mulai": 5.010541,
-        "durasi": 0.35525
+        "mulai": 5.238,
+        "durasi": 0.569
       },
       {
         "kata": "angka",
-        "mulai": 5.365791,
-        "durasi": 0.315791
+        "mulai": 5.923,
+        "durasi": 0.278
       },
       {
         "kata": "yang",
-        "mulai": 5.681583,
-        "durasi": 0.157875
+        "mulai": 6.26,
+        "durasi": 0.116
       },
       {
-        "kata": "memutuskan",
-        "mulai": 5.839458,
-        "durasi": 0.802625
+        "kata": "memutuskan.",
+        "mulai": 6.422,
+        "durasi": 0.871
       }
     ]
   },
   "tutup": {
-    "mulai": 264.29999999999995,
-    "durasi": 14.633333333333333,
+    "mulai": 256.93333333333334,
+    "durasi": 16.233333333333334,
     "kata": [
       {
         "kata": "Di",
-        "mulai": 0.101333,
-        "durasi": 0.171041
+        "mulai": 0.06,
+        "durasi": 0.116
       },
       {
         "kata": "materi",
-        "mulai": 0.272375,
-        "durasi": 0.302625
+        "mulai": 0.234,
+        "durasi": 0.291
       },
       {
-        "kata": "berikutnya",
-        "mulai": 0.575,
-        "durasi": 0.723666
+        "kata": "berikutnya,",
+        "mulai": 0.571,
+        "durasi": 0.72
       },
       {
         "kata": "Kedudukan",
-        "mulai": 1.561833,
-        "durasi": 0.447375
+        "mulai": 1.511,
+        "durasi": 0.476
       },
       {
-        "kata": "Titik",
-        "mulai": 2.009208,
-        "durasi": 0.486833
+        "kata": "Titik,",
+        "mulai": 2.034,
+        "durasi": 0.592
       },
       {
-        "kata": "Garis",
-        "mulai": 2.772375,
-        "durasi": 0.618416
+        "kata": "Garis,",
+        "mulai": 2.858,
+        "durasi": 0.546
       },
       {
         "kata": "dan",
-        "mulai": 3.588166,
-        "durasi": 0.263166
+        "mulai": 3.474,
+        "durasi": 0.151
       },
       {
-        "kata": "Bidang",
-        "mulai": 3.851333,
-        "durasi": 0.565791
+        "kata": "Bidang,",
+        "mulai": 3.694,
+        "durasi": 0.627
       },
       {
         "kata": "Bagian",
-        "mulai": 4.693416,
-        "durasi": 0.434208
+        "mulai": 4.728,
+        "durasi": 0.418
       },
       {
-        "kata": "dua",
-        "mulai": 5.127625,
-        "durasi": 0.473666
+        "kata": "dua,",
+        "mulai": 5.181,
+        "durasi": 0.499
       },
       {
         "kata": "kebiasaan",
-        "mulai": 5.877625,
-        "durasi": 0.473666
+        "mulai": 5.982,
+        "durasi": 0.58
       },
       {
         "kata": "itu",
-        "mulai": 6.351333,
-        "durasi": 0.263125
+        "mulai": 6.643,
+        "durasi": 0.175
       },
       {
         "kata": "kita",
-        "mulai": 6.614458,
-        "durasi": 0.210541
+        "mulai": 6.864,
+        "durasi": 0.174
       },
       {
         "kata": "pakai",
-        "mulai": 6.825,
-        "durasi": 0.315791
+        "mulai": 7.085,
+        "durasi": 0.29
       },
       {
         "kata": "untuk",
-        "mulai": 7.140791,
-        "durasi": 0.223666
+        "mulai": 7.445,
+        "durasi": 0.232
       },
       {
         "kata": "menamai",
-        "mulai": 7.364458,
-        "durasi": 0.342125
+        "mulai": 7.723,
+        "durasi": 0.453
       },
       {
         "kata": "setiap",
-        "mulai": 7.706583,
-        "durasi": 0.342083
+        "mulai": 8.246,
+        "durasi": 0.429
       },
       {
-        "kata": "kedudukan",
-        "mulai": 8.048666,
-        "durasi": 0.684208
+        "kata": "kedudukan:",
+        "mulai": 8.745,
+        "durasi": 0.789
       },
       {
         "kata": "titik",
-        "mulai": 9.022375,
-        "durasi": 0.302625
+        "mulai": 10.068,
+        "durasi": 0.407
       },
       {
         "kata": "pada",
-        "mulai": 9.325,
-        "durasi": 0.210541
+        "mulai": 10.533,
+        "durasi": 0.151
+      },
+      {
+        "kata": "garis,",
+        "mulai": 10.742,
+        "durasi": 0.708
       },
       {
         "kata": "garis",
-        "mulai": 9.535541,
-        "durasi": 0.513166
-      },
-      {
-        "kata": "garis",
-        "mulai": 10.298666,
-        "durasi": 0.35525
+        "mulai": 11.74,
+        "durasi": 0.383
       },
       {
         "kata": "pada",
-        "mulai": 10.653958,
-        "durasi": 0.2105
+        "mulai": 12.193,
+        "durasi": 0.186
       },
       {
-        "kata": "bidang",
-        "mulai": 10.864458,
-        "durasi": 0.552625
+        "kata": "bidang,",
+        "mulai": 12.425,
+        "durasi": 0.627
       },
       {
         "kata": "sampai",
-        "mulai": 11.68025,
-        "durasi": 0.368416
+        "mulai": 13.308,
+        "durasi": 0.383
       },
       {
         "kata": "dua",
-        "mulai": 12.048666,
-        "durasi": 0.184208
+        "mulai": 13.726,
+        "durasi": 0.232
       },
       {
         "kata": "bidang",
-        "mulai": 12.232875,
-        "durasi": 0.315791
+        "mulai": 14.016,
+        "durasi": 0.313
       },
       {
         "kata": "yang",
-        "mulai": 12.548666,
-        "durasi": 0.118416
+        "mulai": 14.41,
+        "durasi": 0.151
       },
       {
-        "kata": "sejajar",
-        "mulai": 12.667125,
-        "durasi": 0.723666
+        "kata": "sejajar.",
+        "mulai": 14.619,
+        "durasi": 1.011
       }
     ]
   }

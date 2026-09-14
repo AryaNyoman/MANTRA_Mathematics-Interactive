@@ -1,6 +1,6 @@
 {
   "adegan": "FungsiTidakPutus",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Limit Trigonometri dan Kekontinuan, Bagian 2 (Materi 09). Ditulis ulang 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (rel roller coaster; kontinu di c kalau nilai ada, limit ada, dan sama; fungsi mulus di x = 2 nilai 3 limit 3; empat cara rusak: berlubang, digeser, melompat, meledak; ketiga kerusakan pertama sudah ditemui; janji substitusi langsung dilunasi: suku banyak kontinu di semua titik; substitusi bukan definisi limit melainkan akibat kekontinuan). Yang ditambah: pembuka sub-bab plus Bagian 2, segar-ingat Bagian 1 (sin x : x dijepit menuju 1), contoh angka pada fungsi mulus (1,9 memberi 2,9 dan 2,1 memberi 3,1), rujukan kerusakan memakai nama sub-bab dan bagian, penutup menunjuk Penerapan Limit.",
   "segmen": [
@@ -74,5 +74,6 @@
       "teks": "Di materi berikutnya, Penerapan Limit, kita lihat di mana limit dan kekontinuan dipakai di dunia nyata.",
       "tulis": "Di materi berikutnya, Penerapan Limit, kita lihat di mana limit dan kekontinuan dipakai di dunia nyata."
     }
-  ]
+  ],
+  "napas": 0.6
 }

@@ -1,6 +1,6 @@
 {
   "adegan": "MendekatiBukanMenyentuh",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Konsep Limit, Bagian 2 (Materi 02). Ditulis ulang 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (f(x) = x kuadrat + 1 didekati ke 3 dari kiri 2,9 dan 2,99 lalu dari kanan 3,1 dan 3,01; kedua arah menuju 10; x tidak pernah diletakkan tepat di 3; permainan tantangan epsilon-delta tanpa lambang: 0,1 dijawab 0,016, 0,001 dijawab 0,00016; limit adalah janji yang sanggup memenuhi tantangan seketat apa pun). Yang ditambah: pembuka sub-bab plus Bagian 2, segar-ingat dari Bagian 1 (kecepatan kelapa menuju 20), catatan bahwa di fungsi ini nilai di 3 kebetulan juga 10 (pengantar Bagian 4), contoh angka yang mengecek jawaban tantangan pertama (3,016 memberi 10,096, jaraknya 0,096 kurang dari 0,1), penutup menunjuk Konsep Limit Bagian 3. Angka tantangan sudah diperiksa: delta 0,016 memberi selisih terburuk 0,0963 di bawah 0,1; delta 0,00016 memberi 0,00096 di bawah 0,001.",
   "segmen": [
@@ -84,5 +84,6 @@
       "teks": "Di materi berikutnya, Konsep Limit, Bagian tiga, kita lihat apa jadinya kalau arah kiri dan arah kanan tidak sepakat.",
       "tulis": "Di materi berikutnya, Konsep Limit, Bagian 3, kita lihat apa jadinya kalau arah kiri dan arah kanan tidak sepakat."
     }
-  ]
+  ],
+  "napas": 0.6
 }

@@ -116,16 +116,26 @@ def kunci_eleven() -> str:
 
 
 def _minta_eleven(jalur: str, kunci: str, badan: dict | None = None) -> dict:
+    """Satu permintaan ke ElevenLabs. Gangguan jaringan (koneksi putus, waktu
+    habis; WinError 10060 terjadi berkali-kali 14 Sep 2026) diulang sampai
+    empat kali; jawaban galat dari ElevenLabs (4xx/5xx) TIDAK diulang."""
     data = json.dumps(badan).encode("utf-8") if badan is not None else None
-    req = urllib.request.Request(
-        "https://api.elevenlabs.io" + jalur, data=data,
-        headers={"xi-api-key": kunci, "Content-Type": "application/json", "Accept": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=180) as r:
-            return json.loads(r.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        pesan = e.read().decode("utf-8", "replace")[:400]
-        raise RuntimeError(f"ElevenLabs {e.code} pada {jalur}: {pesan}") from None
+    for percobaan in range(4):
+        req = urllib.request.Request(
+            "https://api.elevenlabs.io" + jalur, data=data,
+            headers={"xi-api-key": kunci, "Content-Type": "application/json", "Accept": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=180) as r:
+                return json.loads(r.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            pesan = e.read().decode("utf-8", "replace")[:400]
+            raise RuntimeError(f"ElevenLabs {e.code} pada {jalur}: {pesan}") from None
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            if percobaan == 3:
+                raise
+            print(f"  [ElevenLabs] koneksi gagal ({e.__class__.__name__}), mencoba lagi dalam 10 detik")
+            time.sleep(10)
+    raise RuntimeError("tidak terjangkau")
 
 
 def id_suara_eleven(nama: str, kunci: str) -> str:
@@ -276,12 +286,21 @@ def rekam_eleven_utuh(segmen: list[tuple[str, str]], voice_id: str, tempo: str, 
     Suara segmen = dari sedikit sebelum kata pertamanya sampai sedikit sesudah
     kata terakhirnya; jeda alami di antara segmen dibuang, diganti napas yang
     seragam oleh pemanggil."""
-    # bagi menjadi beberapa permintaan hanya bila melewati batas huruf
+    # bagi menjadi beberapa permintaan hanya bila melewati batas huruf, dan
+    # bagiannya dibuat SEIMBANG (bukan diisi penuh lalu sisa kecil di ujung):
+    # bagian mungil berisi satu kalimat penutup terdengar beda warnanya, persis
+    # keluhan ARYA soal rekaman per kalimat (grafik3-puncak, 14 Sep 2026)
+    total = sum(len(t) + 2 for _, t in segmen)
+    banyak = max(1, math.ceil(total / BATAS_HURUF_ELEVEN))
+    sasaran = total / banyak
     bagian: list[list[tuple[str, str]]] = [[]]
+    terisi = 0
     for ident, teks in segmen:
-        if bagian[-1] and sum(len(t) + 2 for _, t in bagian[-1]) + len(teks) > BATAS_HURUF_ELEVEN:
+        if bagian[-1] and len(bagian) < banyak and terisi + (len(teks) + 2) / 2 > sasaran:
             bagian.append([])
+            terisi = 0
         bagian[-1].append((ident, teks))
+        terisi += len(teks) + 2
 
     hasil: dict[str, tuple[bytes, list[dict]]] = {}
     for nomor, bag in enumerate(bagian):
@@ -356,7 +375,7 @@ def tulis_wav(jalur: Path, pcm: bytes) -> None:
         w.writeframes(pcm)
 
 
-async def buat(topik: str, napas: float = NAPAS, diam: bool = False,
+async def buat(topik: str, napas: float | None = None, diam: bool = False,
                suara_paksa: str | None = None, varian: str = "", model: str = MODEL_ELEVEN,
                tempo_paksa: str | None = None) -> None:
     berkas_naskah = AKAR / "manim" / "narasi" / f"{topik}.json"
@@ -365,6 +384,10 @@ async def buat(topik: str, napas: float = NAPAS, diam: bool = False,
     naskah = json.loads(berkas_naskah.read_text(encoding="utf-8"))
     suara = suara_paksa or naskah.get("suara", SUARA_BAWAAN)
     tempo = tempo_paksa or naskah.get("tempo", TEMPO_BAWAAN)
+    # napas boleh ditetapkan di naskah ("napas": 0.6) supaya rekaman ulang
+    # produksi tidak bergantung pada ingatan akan bendera baris perintah
+    if napas is None:
+        napas = float(naskah.get("napas", NAPAS))
     pakai_eleven = suara.startswith(AWALAN_ELEVEN)
     kunci = voice_id = None
     if pakai_eleven:
@@ -453,7 +476,8 @@ async def buat(topik: str, napas: float = NAPAS, diam: bool = False,
 def main() -> None:
     p = argparse.ArgumentParser(description="Pembuat narasi MANTRA dengan waktu tiap kata")
     p.add_argument("topik", help="nama video, sama dengan nama berkas naskah tanpa .json")
-    p.add_argument("--napas", type=float, default=NAPAS, help="jeda di ujung tiap segmen, detik")
+    p.add_argument("--napas", type=float, default=None,
+                   help=f"jeda di ujung tiap segmen, detik (bawaan: kunci \"napas\" di naskah, kalau tidak ada {NAPAS})")
     p.add_argument("--diam", action="store_true")
     p.add_argument("--suara", default=None,
                    help='menimpa suara di naskah; "eleven:<nama suara>" memakai ElevenLabs')

@@ -1,6 +1,6 @@
 {
   "adegan": "LingkaranSatuanLahir",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Lingkaran Satuan dan Sudut Istimewa, Bagian 1 (Materi 05). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (segitiga diperkecil sampai miringnya 1, jejak titik jadi lingkaran satuan, penyebut 1 dicoret, koordinat titik = (cos, sin), sudut digeser). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1, segar-ingat dua rumus dari Bagian 4, contoh angka segitiga 3-4-5 yang diperkecil jadi (0,8, 0,6), penutup menunjuk Bagian 2. Tanpa Pythagoras.",
   "segmen": [
@@ -74,5 +74,6 @@
       "teks": "Di materi berikutnya, Lingkaran Satuan dan Sudut Istimewa, Bagian dua, empat perbandingan sisanya, tangen, kotangen, sekan, dan kosekan, kita tunjuk sebagai ruas garis di lingkaran yang sama.",
       "tulis": "Di materi berikutnya, Lingkaran Satuan dan Sudut Istimewa, Bagian 2, empat perbandingan sisanya, tangen, kotangen, sekan, dan kosekan, kita tunjuk sebagai ruas garis di lingkaran yang sama."
     }
-  ]
+  ],
+  "napas": 0.6
 }

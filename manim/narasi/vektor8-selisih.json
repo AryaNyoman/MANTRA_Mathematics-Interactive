@@ -1,6 +1,6 @@
 {
   "adegan": "SelisihPerjalanan",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Operasi Vektor, Bagian 3 (Materi 08). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (dua orang di (3 1) dan (1 2); a - b = a + (-b); lawan (1 2) adalah (-1 -2); dijumlahkan ujung ke pangkal, hasil (2 -1); kurangi langsung komponennya; panah yang sama muncul dari ujung b ke ujung a; arahnya dari b ke a; aturan AB = B - A berasal dari sini; b - a berlawanan arah). Yang ditambah: pembuka menyebut sub-bab plus Bagian 3, segar-ingat Operasi Vektor Bagian 1 (ujung ke pangkal, komponen dijumlahkan), bentuk umum a - b = (a1 - b1  a2 - b2), penutup menunjuk Bagian 4 (dikali bilangan). Vektor ditulis tanpa koma (3 1), titik tetap berkoma, mengikuti Vektor dalam Sistem Koordinat Bagian 1. Kalimat penutup lama 'dari ujung yang dikurangkan menuju ujung yang mengurangi' diganti 'dari ujung b menuju ujung a' karena maknanya rancu.",
   "segmen": [
@@ -84,5 +84,6 @@
       "teks": "Di materi berikutnya, Operasi Vektor, Bagian empat, sebuah panah dikalikan bilangan: panjangnya berubah, arahnya tetap, atau berbalik.",
       "tulis": "Di materi berikutnya, Operasi Vektor, Bagian 4, sebuah panah dikalikan bilangan: panjangnya berubah, arahnya tetap, atau berbalik."
     }
-  ]
+  ],
+  "napas": 0.6
 }

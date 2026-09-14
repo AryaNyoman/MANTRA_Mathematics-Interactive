@@ -1,6 +1,6 @@
 {
   "adegan": "TransformasiDilatasi",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Translasi, Rotasi, dan Dilatasi, Bagian 3 (Materi 07, video 04 Transformasi). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (17 segmen, 2:17) yang sudah disetujui ARYA: ISI TETAP SAMA (cubitan dua jari, pusat yang tidak bergerak, sinar dari pusat, tiap titik meluncur di garisnya, faktor 2: AB 5 jadi 10, aturan (x, y) ke (kx, ky) diuji pada B(6, 1), luas 4 kali, pizza, sudut tetap, faktor setengah, satu, negatif, pusat M(1, 1) faktor 3: A(2, 1) ke A'(4, 1) bukan (6, 3), luas 25 kali). Yang ditambah: pembuka menyebut sub-bab plus Bagian 3 dengan pertanyaan halaman, segar-ingat Bagian 2 (rotasi menjaga jarak ke pusat), ASAL RUMUS: kotak dari pusat ke B ikut membesar (6 kali 1 jadi 12 kali 2) sehingga (kx, ky) lahir dari gambar, bentuk umum A' = M + k(A - M) dan luas kali k kuadrat, penutup menunjuk Sifat Transformasi.",
   "segmen": [
@@ -104,5 +104,6 @@
       "teks": "Di materi berikutnya, Sifat Transformasi, kelima transformasi dijajarkan: mana yang mengubah luas, dan mana yang tidak mungkin.",
       "tulis": "Di materi berikutnya, Sifat Transformasi, kelima transformasi dijajarkan: mana yang mengubah luas, dan mana yang tidak mungkin."
     }
-  ]
+  ],
+  "napas": 0.6
 }

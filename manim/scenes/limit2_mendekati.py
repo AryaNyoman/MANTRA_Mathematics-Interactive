@@ -278,7 +278,8 @@ class MendekatiBukanMenyentuh(AdeganMatra):
         # ============ x tidak pernah tepat di 3 ========================== #
         with sinema.babak(self, "tekan", DURASI, kata=KATA) as b:
             b.tunggu_kata("Nilai")
-            b.main(sorot_cincin(tuju_x, AKSEN), run_time=1.0)
+            # 0,6 detik (dulu 1,0): kata "tepat" datang lebih cepat pada narasi Bian (14 Sep 2026)
+            b.main(sorot_cincin(tuju_x, AKSEN), run_time=0.6)
             b.tunggu_kata("tepat")
             b.main(Indicate(lab_c, color=AKSEN, scale_factor=1.2), run_time=0.8)
             b.tunggu_kata("kiri")

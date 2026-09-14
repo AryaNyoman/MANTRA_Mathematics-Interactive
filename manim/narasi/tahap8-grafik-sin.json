@@ -1,6 +1,6 @@
 {
   "adegan": "GrafikSinusLahir",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Grafik Fungsi Trigonometri, Bagian 1 (Materi 08). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (titik berjalan di lingkaran satuan, tingginya dibawa ke papan grafik, puncak di 90, nol di 180, lembah di 270, satu putaran di 360, kurva mengulang). Yang ditambah: pembuka sub-bab plus Bagian 1, segar-ingat sin theta = tinggi titik dari Lingkaran Satuan Bagian 1, contoh angka sudut istimewa (sin 30 = 1/2, sin 60 = akar 3 per 2) dari Bagian 3, penutup menunjuk Bagian 2. 13 Sep 2026: 'sumbu mendatar/tegak' diganti 'sumbu-x/sumbu-y' (ARYA).",
   "segmen": [
@@ -74,5 +74,6 @@
       "teks": "Di materi berikutnya, Grafik Fungsi Trigonometri, Bagian dua, kita jajarkan grafik sinus, cosinus, dan tangen, yang ketiganya lahir dari satu putaran yang sama.",
       "tulis": "Di materi berikutnya, Grafik Fungsi Trigonometri, Bagian 2, kita jajarkan grafik sin, cos, dan tan, yang ketiganya lahir dari satu putaran yang sama."
     }
-  ]
+  ],
+  "napas": 0.6
 }

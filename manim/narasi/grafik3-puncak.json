@@ -1,6 +1,6 @@
 {
   "adegan": "BentukPuncak",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Fungsi Kuadrat, Bagian 1 (Materi 03). Disesuaikan MASTER 12 Sep 2026 ke standar v3.1 dari naskah v3 sesi Grafik (8 Sep): ISI TETAP SAMA (mesin y = x kuadrat dijalankan, parabola, terendah di (0,0); naik 2; geser samping lewat kurung (x-3) kuadrat ke KANAN dan alasannya; (x+3) ke kiri; y = 2(x-3)^2 - 5 dihitung di 3, 4, 2, 5, 1; sumbu simetri x = 3 dan buktinya d kuadrat; bentuk umum y = a(x-h)^2 + k; peran a: 3 sempit, 0,3 lebar, -1 terbuka ke bawah). Yang diubah: pembuka menyebut sub-bab plus Bagian 1; segar-ingat menyebut Pengenalan Fungsi dan Grafik Bagian 2 (bukan Materi 02); penutup dipecah, segmen lanjut menunjuk Fungsi Kuadrat Bagian 2.",
   "segmen": [
@@ -154,5 +154,6 @@
       "teks": "Di materi berikutnya, Fungsi Kuadrat, Bagian dua, rumus yang datang sebagai ye sama dengan a eks kuadrat tambah be eks tambah ce kita kembalikan ke bentuk puncak.",
       "tulis": "Di materi berikutnya, Fungsi Kuadrat, Bagian 2, rumus yang datang sebagai y = ax² + bx + c kita kembalikan ke bentuk puncak."
     }
-  ]
+  ],
+  "napas": 0.6
 }

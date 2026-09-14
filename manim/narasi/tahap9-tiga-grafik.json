@@ -1,6 +1,6 @@
 {
   "adegan": "TigaGrafikBersama",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Grafik Fungsi Trigonometri, Bagian 2 (Materi 09). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (tiga panel: sin mencatat tinggi, cos posisi mendatar dan berangkat 90 lebih awal, tan = tinggi : mendatar dengan jurang di 90, sin dan cos terkurung 1 dan -1, tan tanpa batas, tan mengulang tiap 180). Yang ditambah: pembuka sub-bab plus Bagian 2, segar-ingat grafik sinus dari Bagian 1, contoh angka tan 45 = 1, penutup menunjuk Penerapan Trigonometri. DIPERDALAM 13 Sep 2026 atas revisi ARYA (lebih pelan, 3 sampai 5 menit): tan tidak terdefinisi dijelaskan lewat pembagi yang mengecil (tan 80 = 5,67; tan 89 = 57,29; tan 89,9 = 572,96, sama dengan tabel halaman), pembagian dengan nol tidak punya jawaban, garis putus-putus yang tidak pernah disentuh, tanda negatif sesudah 90, terulang di 270; bonus grafik csc, sec, cot sebagai kebalikan (melesat di tempat pembaginya nol). 13 Sep 2026 (kedua): sebelum bonus, pengingat dari Lingkaran Satuan dan Sudut Istimewa, Bagian 2 bahwa csc, sec, cot lahir dari dua garis singgung (x = 1: tan dan sec; y = 1: cot dan csc) dan dari segitiga kecil csc = 1/y, sec = 1/x, cot = x/y (permintaan ARYA). 13 Sep 2026 (ketiga, ARYA): angka tan 80, 89, 89,9 diperlihatkan asalnya lewat kaca pembesar lingkaran di kolom kanan (tinggi hampir 1, mendatar 0,17 lalu 0,017 lalu 0,0017) dan tabel sudut, mendatar, tan: pembagi sepuluh kali lebih kecil, hasil sepuluh kali lebih besar.",
   "segmen": [
@@ -99,5 +99,6 @@
       "teks": "Di materi berikutnya, Penerapan Trigonometri, kita lihat di mana sudut dan perbandingan ini dipakai di dunia nyata.",
       "tulis": "Di materi berikutnya, Penerapan Trigonometri, kita lihat di mana sudut dan perbandingan ini dipakai di dunia nyata."
     }
-  ]
+  ],
+  "napas": 0.6
 }

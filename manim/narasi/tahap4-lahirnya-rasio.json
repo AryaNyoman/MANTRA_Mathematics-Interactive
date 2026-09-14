@@ -1,6 +1,6 @@
 {
   "adegan": "LahirnyaRasio",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Perbandingan Trigonometri, Bagian 4 (Materi 04). Ditulis ulang 11 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (tiga sisi, enam cara membagi dihitung dulu baru diberi nama, kenapa tiga yang terkenal, tiga sisanya). Yang ditambah: pembuka menyebut sub-bab plus Bagian 4, segar-ingat ringkas nama sisi dari Bagian 3, contoh angka pada segitiga 3-4-5 (ada di halaman materinya), dan penutup yang menunjuk Lingkaran Satuan dan Sudut Istimewa, Bagian 1. Tidak ada Pythagoras: sisi 3-4-5 diberikan, bukan dihitung.",
   "segmen": [
@@ -84,5 +84,6 @@
       "teks": "Di materi berikutnya, Lingkaran Satuan dan Sudut Istimewa, Bagian satu, segitiga ini kita taruh di dalam lingkaran berjari-jari satu, dan sisi miringnya jadi tepat satu.",
       "tulis": "Di materi berikutnya, Lingkaran Satuan dan Sudut Istimewa, Bagian 1, segitiga ini kita taruh di dalam lingkaran berjari-jari 1, dan sisi miringnya jadi tepat 1."
     }
-  ]
+  ],
+  "napas": 0.6
 }

@@ -299,12 +299,14 @@ class TransformasiRotasi(AdeganMatra):
         with sinema.babak(self, "janji", DURASI, kata=KATA) as b:
             b.tunggu_kata("setengah")
             kosongkan_papan(self, papan, b=b, run_time=0.5)
+            # 0,5 / 0,9 / 0,9 (dulu 0,6 / 1,2 / 1,0): "hasilnya" dan "negatif x" datang
+            # lebih cepat pada narasi Bian (14 Sep 2026)
             b.main(FadeOut(peta_c), *[FadeOut(nama_c[h]) for h in nama_c], FadeOut(jari_3), FadeOut(jari_4),
-                   FadeOut(angka_3), FadeOut(angka_4), run_time=0.6)
+                   FadeOut(angka_3), FadeOut(angka_4), run_time=0.5)
             b.main(kamera.dunia_ke_peta(frame, pusat=pusat_b, tinggi=tinggi_b), FadeOut(bidang_c), FadeIn(bidang_b),
-                   run_time=1.2)
+                   run_time=0.9)
             b.tunggu_kata("hasilnya")
-            b.main(ShowCreation(peta_b), *[FadeIn(nama_b[h]) for h in nama_b], run_time=1.0)
+            b.main(ShowCreation(peta_b), *[FadeIn(nama_b[h]) for h in nama_b], run_time=0.9)
             b.tunggu_kata("negatif x")
             rum = sinema.ganti_rumus(self, rum, r"(x,\ y) \to (-x,\ -y)", b=b, run_time=1.0, warna=SOROT, papan=papan)
         qc.periksa_adegan(self, {"prapeta": prapeta, "peta": peta_b},
@@ -338,12 +340,14 @@ class TransformasiRotasi(AdeganMatra):
         with sinema.babak(self, "keliru", DURASI, kata=KATA) as b:
             b.tunggu_kata("kekeliruan")
             kosongkan_papan(self, papan, b=b, run_time=0.5)
+            # 0,5 / 0,8 / 0,6 (dulu 0,6 / 1,0 / 0,7): "Jarum merah" datang lebih cepat
+            # pada narasi Bian (14 Sep 2026)
             b.main(FadeOut(prapeta), *[FadeOut(nama_pra[h]) for h in nama_pra], FadeOut(peta_b),
-                   *[FadeOut(nama_b[h]) for h in nama_b], FadeOut(tanda_asal), run_time=0.6)
+                   *[FadeOut(nama_b[h]) for h in nama_b], FadeOut(tanda_asal), run_time=0.5)
             b.main(kamera.dunia_ke_peta(frame, pusat=pusat_d, tinggi=tinggi_d), FadeOut(bidang_b), FadeIn(bidang_d),
-                   run_time=1.0)
+                   run_time=0.8)
             # Rumus utama dikembalikan ke seperempat putaran: tiga babak berikutnya soal 90 derajat.
-            rum = sinema.ganti_rumus(self, rum, r"(x,\ y) \to (-y,\ x)", b=b, run_time=0.7, warna=AKSEN2, papan=papan)
+            rum = sinema.ganti_rumus(self, rum, r"(x,\ y) \to (-y,\ x)", b=b, run_time=0.6, warna=AKSEN2, papan=papan)
             b.tunggu_kata("Jarum merah")
             b.main(GrowArrow(jarum_salah), run_time=0.8)
             b.tunggu_kata("searah")

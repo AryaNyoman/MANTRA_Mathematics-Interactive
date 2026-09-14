@@ -146,7 +146,8 @@ class BentukPuncak(AdeganMatra):
             b.tunggu_kata('keluar tiga')
             self.muncul(b, True, ctl1=ctl1, lama=0.7)
             b.tunggu_kata('berjajar lurus')
-            b.main(ShowCreation(garis_lurus), run_time=2.0)
+            # 1,6 detik (dulu 2,0): narasi Bian menutup segmen ini lebih cepat (14 Sep 2026)
+            b.main(ShowCreation(garis_lurus), run_time=1.6)
             self.aktif['garis_lurus'] = garis_lurus
 
         # ---- mesin baru: y = x^2 ----

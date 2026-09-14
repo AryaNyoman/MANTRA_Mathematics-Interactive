@@ -1,6 +1,6 @@
 {
   "adegan": "LariKeTakHingga",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Sifat Limit dan Cara Menghitungnya, Bagian 3 (Materi 07). Ditulis ulang 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (pabrik: biaya tetap 5 juta plus 20 ribu per barang, rata-rata per barang merapat ke 20 ribu tanpa pernah sampai; tak hingga BUKAN bilangan melainkan keterangan arah; alat: 1/x menuju 0; (3x kuadrat + 2x) : (x kuadrat - 5) dibagi pangkat tertinggi, limitnya 3; asimtot datar y = 3; kurva boleh sedekat apa pun tetapi selisihnya tidak pernah nol). Yang ditambah: pembuka sub-bab plus Bagian 3, segar-ingat Bagian 2 (0 : 0 dibongkar dengan faktor atau sekawan), contoh angka untuk 1/x (x = 10 memberi 0,1; x = 1000 memberi 0,001), penutup menunjuk Limit Trigonometri dan Kekontinuan Bagian 1.",
   "segmen": [
@@ -74,5 +74,6 @@
       "teks": "Di materi berikutnya, Limit Trigonometri dan Kekontinuan, Bagian satu, kita buktikan kenapa sinus x dibagi x menuju tepat satu.",
       "tulis": "Di materi berikutnya, Limit Trigonometri dan Kekontinuan, Bagian 1, kita buktikan kenapa sin x dibagi x menuju tepat 1."
     }
-  ]
+  ],
+  "napas": 0.6
 }

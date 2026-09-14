@@ -241,9 +241,11 @@ class KecepatanSesaat(AdeganMatra):
             b.main(ShowCreation(sumbu), FadeIn(angka), FadeIn(nama_t), FadeIn(nama_s),
                    ShowCreation(kurva), run_time=1.4)
             b.tunggu_kata("lima")
+            # tahan 0,2 dan run_time 0,8 (dulu 0,5 dan 1,1): kata "Di" datang 0,5
+            # detik lebih cepat pada narasi Bian (14 Sep 2026)
             sinema.lahir_rumus(self, r"s(t) = 5t^2", sumbu, papan, b=b, warna=TINTA,
-                               sebagai_utama=False, geser=np.array([0.4, 1.0, 0.0]), tahan=0.5,
-                               run_time=1.1)
+                               sebagai_utama=False, geser=np.array([0.4, 1.0, 0.0]), tahan=0.2,
+                               run_time=0.8)
             b.tunggu_kata("Di")
             b.main(FadeIn(titik0), ShowCreation(pandu0), run_time=0.8)
         dunia = {"sumbu": sumbu, "pohon": pohon}

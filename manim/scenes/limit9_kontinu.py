@@ -308,7 +308,8 @@ class FungsiTidakPutus(AdeganMatra):
             b.tunggu_kata("meledak")
             b.main(FadeOut(gambar), FadeOut(panah_kiri), FadeOut(panah_kanan), FadeOut(pandu3), FadeOut(pandu5),
                    FadeOut(lab3), FadeOut(lab5), run_time=0.3)
-            b.main(ShowCreation(led_kiri), ShowCreation(led_kanan), run_time=1.1)
+            # 0,7 detik (dulu 1,1): "meledak" ke "Penyebutnya" hanya 1,1 detik pada narasi Bian (14 Sep 2026)
+            b.main(ShowCreation(led_kiri), ShowCreation(led_kanan), run_time=0.7)
             b.tunggu_kata("Penyebutnya")
             b.main(*lampu([False, True, False]), run_time=0.5)
             b.tunggu_kata("membesar")
@@ -368,8 +369,10 @@ class FungsiTidakPutus(AdeganMatra):
             b.main(FadeIn(pc), run_time=0.4)
             b.main(FadeOut(pc), run_time=0.4)
             b.tunggu_kata("boleh")
+            # tahan 0,1 dan run_time 0,5 (dulu 0,2 dan 0,8): "boleh" adalah kata terakhir,
+            # narasi Bian menyisakan 1,2 detik sesudahnya (14 Sep 2026)
             sinema.lahir_rumus(self, r"\lim_{x \to c} f(x) = f(c)", cepat, papan, b=b, warna=SOROT,
-                               sebagai_utama=False, geser=np.array([0.0, 1.0, 0.0]), tahan=0.2, run_time=0.8)
+                               sebagai_utama=False, geser=np.array([0.0, 1.0, 0.0]), tahan=0.1, run_time=0.5)
         gambar = VGroup(kurva2, titik2)
         qc.periksa_adegan(self, {"gambar": gambar, "bantu": bantu}, hud=hud(ident, papan), dunia=dunia,
                           tulisan={"syarat": syarat, "cepat": cepat})

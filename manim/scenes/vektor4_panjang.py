@@ -174,9 +174,10 @@ class PanjangPanah(AdeganMatra):
         # ============ terbang: tegak lurus, angka sumbu, identitas ======== #
         with sinema.babak(self, "terbang", DURASI, kata=KATA) as b:
             b.tunggu_kata("Kita lihat")
+            # 1,4 dan 0,3 detik (dulu 1,6 dan 0,4): "Satu petak" datang lebih cepat pada narasi Bian (14 Sep 2026)
             b.main(kamera.sudut(frame, theta=0, phi=0, pusat=pusat, tinggi=tinggi),
-                   run_time=1.6)
-            b.main(bidang.animate.set_stroke(opacity=GARIS_PENUH), run_time=0.4)
+                   run_time=1.4)
+            b.main(bidang.animate.set_stroke(opacity=GARIS_PENUH), run_time=0.3)
             b.tunggu_kata("Satu petak")
             b.main(bidang.angka.animate.set_opacity(0.75), run_time=0.7)
             ident = sinema.identitas(self, "1 petak = 1 meter", alas=True)

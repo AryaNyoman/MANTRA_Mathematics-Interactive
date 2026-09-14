@@ -1,6 +1,6 @@
 {
   "adegan": "IntegralTeoremaDasar",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Luas dan Integral Tentu, Bagian 3 (Materi 07 'Dua dunia yang ternyata satu, Teorema Dasar Kalkulus', video Integral). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (13 segmen, 2:20) yang sudah disetujui ARYA: ISI TETAP SAMA (dua pekerjaan berbeda asal; A(x) luas dari 0 sampai x; jejak di papan bawah; pita tipis lebar h tinggi f(x); dibagi h tinggal f(x); kira-kira: h = 0,2 di x = 2 memberi 0,88 lawan 0,80; TDK I; A dan F berbeda tetapan; C saling menghapus; contoh x kuadrat dari 1 sampai 3 = 26/3; n = 60 masih meleset 0,13). Yang ditambah: pembuka menyebut sub-bab plus Bagian 3 dengan pertanyaan halaman, segar-ingat Membalik Turunan Bagian 1 (antiturunan, tetapan C) dan Luas dan Integral Tentu Bagian 2 (tanda integral tentu), babak asal rumus dinamai jelas, bentuk umum TDK II, kekeliruan C ikut ditulis (dari halaman), rangkuman dengan pertanyaan, penutup menunjuk Bagian 4. Semua angka sama dengan halaman Materi 07 dan alat/klaim-video-integral07.json.",
   "segmen": [
@@ -94,5 +94,6 @@
       "teks": "Di materi berikutnya, Luas dan Integral Tentu, Bagian empat, alat ini dipakai dengan urutan kerja yang rapi, termasuk saat soalnya perlu disubstitusi lebih dulu.",
       "tulis": "Di materi berikutnya, Luas dan Integral Tentu, Bagian 4, alat ini dipakai dengan urutan kerja yang rapi, termasuk saat soalnya perlu disubstitusi lebih dulu."
     }
-  ]
+  ],
+  "napas": 0.6
 }

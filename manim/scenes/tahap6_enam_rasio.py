@@ -418,7 +418,9 @@ class EnamRasioNyata(AdeganMatra):
             b.tunggu_kata("kecil")
             b.main(Indicate(seg_kecil, color=AKSEN2, scale_factor=1.0), run_time=0.8)
             b.tunggu_kata("x per")
-            b.main(FadeIn(ikon_kecil3), Write(kerja_cot2), run_time=1.0)
+            # 0,7 detik (dulu 1,0): narasi Bian menutup segmen ini 0,2 detik lebih
+            # cepat daripada edge-tts (14 Sep 2026)
+            b.main(FadeIn(ikon_kecil3), Write(kerja_cot2), run_time=0.7)
             papan.baris(r"\cot\theta = \frac{x}{y}", warna=TINTA, b=b)
         qc.periksa_adegan(self, {"dasar": dasar, "cot": ruas_cot, "kerja": kerja_cot,
                                  "kerja2": kerja_cot2, "ikon": ikon_atas, "ikon2": ikon_kecil3},

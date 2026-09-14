@@ -328,10 +328,12 @@ class GeserCerminRegang(AdeganMatra):
             self.remove(akar_geser, *papan.semua())
             dunia.pop("kurva geser", None)
             papan = sinema.PapanRumus(self, ukuran=30, alas=True, tanpa_utama=True)
-            b.main(ReplacementTransform(akar0, sin0), run_time=0.8)
+            # 0,6 dan 0,4 detik (dulu 0,8 dan 0,6): kata "Aturannya" datang lebih
+            # cepat pada narasi Bian (14 Sep 2026)
+            b.main(ReplacementTransform(akar0, sin0), run_time=0.6)
             sin0.set_stroke(TINTA, 4.5)
             dunia["kurva"] = sin0
-            papan.baris(r"f(x) = 1{,}6\sin x + 1{,}6", TINTA, b=b, run_time=0.6)
+            papan.baris(r"f(x) = 1{,}6\sin x + 1{,}6", TINTA, b=b, run_time=0.4)
             b.tunggu_kata("Aturannya")
             self.add(sin_geser)
             sin_geser.shift(-dx1 - dy1)

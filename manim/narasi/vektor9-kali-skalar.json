@@ -1,6 +1,6 @@
 {
   "adegan": "KaliSkalar",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Operasi Vektor, Bagian 4 (Materi 09). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (bola ditendang, a = (2 1); pengali 3 memberi (6 3) arah tetap; setengah menyusut; pengali diturunkan terus melewati 0, vektor nol; -2 memberi (-4 -2) arah berbalik; panjang akar 5 = 2,24, 3 akar 5 = 6,71, 2 akar 5 = 4,47; panjang tidak pernah negatif; kelipatan berarti sejajar). Yang ditambah: pembuka menyebut sub-bab plus Bagian 4, segar-ingat Vektor dalam Sistem Koordinat Bagian 2 (rumus panjang), bentuk umum k a = (k a1  k a2), penutup menunjuk Penerapan Vektor. Pengalinya tetap BERGERAK TERUS dari 3 turun melewati 0 sampai -2.",
   "segmen": [
@@ -84,5 +84,6 @@
       "teks": "Di materi berikutnya, Penerapan Vektor, kita lihat di mana saja panah-panah ini benar-benar dipakai di dunia nyata.",
       "tulis": "Di materi berikutnya, Penerapan Vektor, kita lihat di mana saja panah-panah ini benar-benar dipakai di dunia nyata."
     }
-  ]
+  ],
+  "napas": 0.6
 }

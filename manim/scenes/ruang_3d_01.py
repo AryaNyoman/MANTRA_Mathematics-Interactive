@@ -185,9 +185,10 @@ class GambarBolehBerbohong(AdeganMatra):
         lab = huruf_sudut(frame, {"B": AKSEN2, "D": AKSEN2, "E": AKSEN, "G": AKSEN})
         with sinema.babak(self, "rangka", DURASI, kata=KATA) as b:
             tunggu_kata_bergeser(b, frame, "tembus")
+            # 1,2 detik (dulu 1,6): "Kedelapan" datang lebih cepat pada narasi Bian (14 Sep 2026)
             b.main(kubus.animate.set_opacity(0.14),
                    ShowCreation(rangka, lag_ratio=0.16),
-                   FadeOut(bayangan), run_time=1.6)
+                   FadeOut(bayangan), run_time=1.2)
             tunggu_kata_bergeser(b, frame, "Kedelapan")
             # Kameranya TETAP bergeser sementara hurufnya muncul: delapan huruf
             # kecil sendirian tidak terbaca sebagai gerakan (temuan 4 Sep).
@@ -295,8 +296,9 @@ class GambarBolehBerbohong(AdeganMatra):
         with sinema.babak(self, "turun", DURASI, kata=KATA) as b:
             b.tunggu_kata("turunkan")
             b.main(FadeOut(ajak), run_time=0.5)
+            # 3,7 detik (dulu 4,2): segmen narasi Bian lebih pendek (14 Sep 2026)
             b.main(kamera.sudut(frame, -30, 72, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
-                   run_time=4.2)
+                   run_time=3.7)
         qc.periksa_adegan(self, {"BD": bd, "EG": eg, "identitas": jati})
 
         with sinema.babak(self, "tidak", DURASI, kata=KATA) as b:
@@ -315,7 +317,8 @@ class GambarBolehBerbohong(AdeganMatra):
                    FadeIn(titik_bawah, scale=0.4), FadeIn(titik_atas, scale=0.4),
                    run_time=1.2)
             tunggu_kata_bergeser(b, frame, "mata")
-            b.main(kamera.putar_pelan(frame, 12), run_time=2.0)
+            # 1,6 detik (dulu 2,0): segmen narasi Bian lebih pendek (14 Sep 2026)
+            b.main(kamera.putar_pelan(frame, 12), run_time=1.6)
         qc.periksa_adegan(self, {"BD": bd, "EG": eg, "titik bawah": titik_bawah,
                                  "titik atas": titik_atas, "identitas": jati})
 
@@ -369,8 +372,9 @@ class GambarBolehBerbohong(AdeganMatra):
             tunggu_kata_bergeser(b, frame, "membuang")
             b.main(Indicate(tiang, scale_factor=1.15, color=SOROT), run_time=1.3)
             tunggu_kata_bergeser(b, frame, "tinggi")
+            # 1,2 detik (dulu 1,6): segmen narasi Bian lebih pendek (14 Sep 2026)
             b.main(kamera.sudut(frame, -18, 60, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
-                   run_time=1.6)
+                   run_time=1.2)
 
         with sinema.babak(self, "bayangan", DURASI, kata=KATA) as b:
             tunggu_kata_bergeser(b, frame, "bayangan")
@@ -392,8 +396,9 @@ class GambarBolehBerbohong(AdeganMatra):
                              + np.array([-2.2, 0.0, 0.7]), SOROT, 30)
         with sinema.babak(self, "nama", DURASI, kata=KATA) as b:
             tunggu_kata_bergeser(b, frame, "bersilangan")
-            b.main(FadeIn(payung), run_time=0.9)
-            b.main(Indicate(payung, color=SOROT), run_time=1.0)
+            # 0,7 dan 0,8 detik (dulu 0,9 dan 1,0): segmen narasi Bian lebih pendek (14 Sep 2026)
+            b.main(FadeIn(payung), run_time=0.7)
+            b.main(Indicate(payung, color=SOROT), run_time=0.8)
         # Panelnya sengaja KOSONG di sini: hitungan panjang BD sudah dihapus di
         # babak "naik", dan daftar tiga kedudukan baru ditulis di babak
         # berikutnya. Menyerahkan panel kosong ke qc membuatnya jatuh dengan
@@ -420,7 +425,8 @@ class GambarBolehBerbohong(AdeganMatra):
 
         with sinema.babak(self, "umum-gagal", DURASI, kata=KATA) as b:
             tunggu_kata_bergeser(b, frame, "bersilangan")
-            b.main(Indicate(payung, scale_factor=1.2, color=SOROT), run_time=1.3)
+            # 1,0 detik (dulu 1,3): "Persis" datang lebih cepat pada narasi Bian (14 Sep 2026)
+            b.main(Indicate(payung, scale_factor=1.2, color=SOROT), run_time=1.0)
             tunggu_kata_bergeser(b, frame, "Persis")
             b.main(Indicate(bd, color=AKSEN2), Indicate(eg, color=AKSEN), run_time=1.3)
 

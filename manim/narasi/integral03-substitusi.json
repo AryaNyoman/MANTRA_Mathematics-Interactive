@@ -1,6 +1,6 @@
 {
   "adegan": "IntegralSubstitusi",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Video Integral, Materi 03 'Substitusi, melihat lapisan'. DITULIS ULANG dengan STANDAR VIDEO v3 (keputusan ARYA 8 Sep 2026). Kerangka v3 dipenuhi urut: pembuka satu pertanyaan, segar-ingat Materi 01 dan Materi 02 dengan nomor dan namanya, contoh angka yang dihitung di layar, rumus DIBUKTIKAN dari contoh itu (bukan disodorkan), bentuk umum empat langkah, penutup yang menunjuk Materi 04. Video ini TIDAK BERGRAFIK dan itu disengaja: isinya seluruhnya aljabar lapisan, dan bidang koordinat hanya akan memberi gambar yang tidak dipakai; aturan proyek 3d-hanya-jika-dibutuhkan berlaku sama untuk bidang 2D. Angka diperiksa sympy lewat alat/klaim-video-integral03.json, TERMASUK arah gagalnya: tebakan naif (2x+1) pangkat 6 dibagi 6 dibuktikan DITOLAK alatnya. Warna: AKSEN2 biru = lapisan dalam u, AKSEN merah = faktor du dan angka yang harus disesuaikan, SOROT ungu = jawaban benar dan kesimpulan. Sama dengan widget 'cocokkan-lapisan' di halaman Materi 03. DISESUAIKAN v3.1 (MASTER 12 Sep 2026): pembuka menyebut sub-bab Membalik Turunan, Bagian 3; segar-ingat menyebut Bagian 1 dan Bagian 2; penutup menunjuk materi berikutnya, Membalik Turunan, Bagian 4.",
   "segmen": [
@@ -174,5 +174,6 @@
       "teks": "Ringkasnya, kalau yang dipangkatkan bukan x polos, beri nama isi itu u, cocokkan du, kerjakan, lalu kembalikan. Di materi berikutnya, Membalik Turunan, Bagian empat, cara memberi nama ini dipakai lagi untuk bentuk yang belum tertangani cara hari ini.",
       "tulis": "Ringkasnya, kalau yang dipangkatkan bukan x polos, beri nama isi itu u, cocokkan du, kerjakan, lalu kembalikan. Di materi berikutnya, Membalik Turunan, Bagian 4, cara memberi nama ini dipakai lagi untuk bentuk yang belum tertangani cara hari ini."
     }
-  ]
+  ],
+  "napas": 0.6
 }

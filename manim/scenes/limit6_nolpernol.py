@@ -243,12 +243,14 @@ class NolPerNol(AdeganMatra):
             b.tunggu_kata("Masukkan")
             b.main(FadeIn(subs1, shift=RIGHT * 0.15), run_time=0.6)
             b.tunggu_kata("hasilnya")
-            b.main(FadeIn(hasil1, scale=1.3), run_time=0.5)
+            # 0,3 / tahan 0,1 / 0,5 (dulu 0,5 / 0,2 / 0,8): narasi Bian menyisakan
+            # 1,8 detik sesudah "hasilnya", edge-tts dulu lebih longgar (14 Sep 2026)
+            b.main(FadeIn(hasil1, scale=1.3), run_time=0.3)
             # Hasilnya langsung ke panel di sini: kalau menunggu babak "cek",
             # kata "Di" (2,7 s) keburu lewat (WaktuTidakMuat pada render uji).
             sinema.lahir_rumus(self, r"\lim_{x \to 2} \frac{x^2 - 4}{x - 2} = 4", hasil1, papan, b=b,
                                warna=SOROT, sebagai_utama=False, geser=np.array([3.6, 0.6, 0.0]),
-                               tahan=0.2, run_time=0.8)
+                               tahan=0.1, run_time=0.5)
         qc.periksa_adegan(self, {"soal": soal1, "baris 2": baris2, "sisa": sisa1, "subs": subs1},
                           hud=hud(ident, papan), tulisan={"hasil": hasil1})
 

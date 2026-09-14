@@ -116,11 +116,12 @@ class TransformasiCerminGaris(AdeganMatra):
 
         with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
             b.tunggu_kata("Prapeta")
-            sinema.judul_pembuka(self, "Prapeta, Peta, dan Pencerminan, Bagian 2", lama=5.0, y=2.6)
-            b.catat(5.0)
-            # Pertanyaannya muncul pada "Cerminnya" (5,2 s), bukan "Kalau garisnya"
-            # (8,2 s): judul memudar pada 5,1 s dan jeda 3 detik itu terbaca
-            # cek_layar_kosong sebagai layar kosong (12 Sep 2026).
+            # lama 4,3 (dulu 5,0): narasi Bian sampai di "Cerminnya" pada 4,4 s (14 Sep 2026)
+            sinema.judul_pembuka(self, "Prapeta, Peta, dan Pencerminan, Bagian 2", lama=4.3, y=2.6)
+            b.catat(4.3)
+            # Pertanyaannya muncul pada "Cerminnya", bukan "Kalau garisnya":
+            # judul memudar lalu jeda 3 detik itu terbaca cek_layar_kosong
+            # sebagai layar kosong (12 Sep 2026).
             b.tunggu_kata("Cerminnya")
             b.main(FadeIn(tanya_buka, shift=0.3 * UP), run_time=1.0)
 
@@ -157,8 +158,10 @@ class TransformasiCerminGaris(AdeganMatra):
 
         with sinema.babak(self, "bawa", DURASI, kata=KATA) as b:
             b.tunggu_kata("boleh ada di mana saja")
-            b.main(sumbu_ingat.animate.shift(0.9 * UP), run_time=1.4)
-            b.main(Indicate(sumbu_ingat, color=AKSEN), run_time=1.2)
+            # 1,0 dan 0,7 detik (dulu 1,4 dan 1,2): frasa ini yang terakhir, narasi
+            # Bian menyisakan 1,9 detik (14 Sep 2026)
+            b.main(sumbu_ingat.animate.shift(0.9 * UP), run_time=1.0)
+            b.main(Indicate(sumbu_ingat, color=AKSEN), run_time=0.7)
 
         # ================================================================ #
         # KACA: dua meter di depan, dua meter di belakang                   #

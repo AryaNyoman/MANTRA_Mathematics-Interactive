@@ -1,6 +1,6 @@
 {
   "adegan": "KecepatanSesaat",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Konsep Limit, Bagian 1 (Materi 01). Ditulis ulang 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (speedometer; kecepatan = jarak : waktu; pada satu saat 0 : 0 tidak punya jawaban; jalan keluar: perpendek selangnya; kelapa jatuh s = 5t kuadrat; selang 1, 0,5, 0,1 detik memberi 25, 22,5, 20,5; menuju 20 tetapi tidak pernah sampai; aljabar 20 + 5h; syarat h bukan nol). Yang ditambah: pembuka sub-bab plus Bagian 1, segar-ingat rumus kecepatan dari SMP (prasyarat nyata, bukan materi Limit sebelumnya karena ini video pertama), hitungan aljabarnya dibuktikan langkah demi langkah (5(2+h) kuadrat dijabarkan), penutup menunjuk Konsep Limit Bagian 2.",
   "segmen": [
@@ -79,5 +79,6 @@
       "teks": "Di materi berikutnya, Konsep Limit, Bagian dua, kata mendekati ini kita rapikan menjadi kalimat yang bisa diuji.",
       "tulis": "Di materi berikutnya, Konsep Limit, Bagian 2, kata mendekati ini kita rapikan menjadi kalimat yang bisa diuji."
     }
-  ]
+  ],
+  "napas": 0.6
 }
