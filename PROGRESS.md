@@ -59,6 +59,21 @@ Trigonometri, yaitu Trigonometri 02 (Materi 01 tidak bervideo).
   asing dan pelafalan beberapa kata mungkin meleset. Kalau disetujui untuk
   semua video, animasi tiap babak perlu ditinjau ulang karena panjang segmen
   berubah, dan 58 video sekitar 110.000 karakter (muat dalam kuota sebulan).
+- Pembanding (permintaan ARYA berikutnya): dua suara Indonesia dari pustaka
+  ElevenLabs ditambahkan ke akun lewat API, "Ganesh - Warm, Intimidating and
+  Clear" (93hTIgYC2wj4AtGhp6WE) dan "Bian - Neutral, Calm and Clear"
+  (1k39YpzqXZn52BgyLyGO). Pada kecepatan 0,95 Ganesh 107 detik (bicara cepat,
+  jeda antarkalimat pendek) dan Bian 177 detik (edge-tts 143 detik). Bian muat
+  ke animasi apa adanya (napas 0,6). Ganesh tidak: pada 0,9 masih 10 pemicu
+  terlambat, pada 0,8 lima pemicu terlambat sampai 0,59 detik; video ujinya
+  dirender dengan `PEMICU_TOLERANSI=0.6` (toleransi yang hanya hidup bila
+  NARASI_VARIAN diisi, di `tunggu_kata` dan `laporkan_pemicu`), jadi lima
+  animasi mulai sedikit terlambat. `--tempo` ditambahkan ke buat_narasi.
+  Empat berkas dikirim ke ARYA: mp3 kedua suara pada pengaturan sama, dan
+  video uji `tahap2-perbandingan-tetap-{ganesh,bian}-bersubtitle.mp4`
+  (subtitle dibuat dengan NARASI_VARIAN lalu vtt produksi dipulihkan dari git).
+  Kalau Ganesh dipilih, animasi tiap babak harus ditulis ulang mengikuti
+  iramanya; kalau Bian, cukup napas 0,6 dan subtitle dibuat ulang.
 
 ## 14 SEP (malam): 540 PEMBAHASAN DITULIS ULANG GAYA mathcyber1997, TAYANG (deploy matra-e3sm819a0)
 
