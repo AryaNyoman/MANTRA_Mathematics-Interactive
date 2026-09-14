@@ -164,7 +164,7 @@ class JarakSelaluTerpendek(AdeganMatra):
             self.add(bq, titik_q)
             b.main(FadeIn(panel_hidup), run_time=0.7)
             b.tunggu_kata("angkanya")
-            b.main(t_q.animate.set_value(T_KAKI), run_time=2.4)
+            b.main(t_q.animate.set_value(T_KAKI), run_time=2.0)  # irama Bian, sisakan ekor (15 Sep 2026)
         qc.periksa_adegan(self, {"BQ": bq, "panel hidup": panel_hidup,
                                  "identitas": jati})
 

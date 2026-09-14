@@ -265,8 +265,9 @@ class GambarBolehBerbohong(AdeganMatra):
             b.main(FadeOut(lama_panel), run_time=0.6)
             papan.utama, papan.baris_lain = None, []
             sumbu_z_pamit(b, papan_koor, 0.8)
+            # 2,8 detik (dulu 3,2): segmen narasi Bian 5,7 s, "naikkan" pada 1,3 s (14 Sep 2026)
             b.main(kamera.dunia_ke_peta(frame, pusat=PUSAT, tinggi=TINGGI_BINGKAI),
-                   run_time=3.2)
+                   run_time=2.8)
         qc.periksa_adegan(self, {"BD": bd, "EG": eg, "identitas": jati})
 
         with sinema.babak(self, "dari-atas", DURASI, kata=KATA) as b:
@@ -421,7 +422,7 @@ class GambarBolehBerbohong(AdeganMatra):
             b.main(Indicate(n_bawah, color=AKSEN2), Indicate(n_atas, color=AKSEN),
                    run_time=1.4)
             tunggu_kata_bergeser(b, frame, "berpotongan")
-            b.main(kamera.putar_pelan(frame, 8), run_time=1.8)
+            b.main(kamera.putar_pelan(frame, 8), run_time=1.4)  # irama Bian, sisakan ekor (15 Sep 2026)
 
         with sinema.babak(self, "umum-gagal", DURASI, kata=KATA) as b:
             tunggu_kata_bergeser(b, frame, "bersilangan")

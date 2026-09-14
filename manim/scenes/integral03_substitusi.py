@@ -188,7 +188,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("cocok")
             b.main(FadeIn(alur[3]), FadeIn(alur[4]), run_time=1.6)
             b.tunggu_kata("benar")
-            b.main(Indicate(alur[4], color=AKSEN), run_time=1.6)
+            b.main(Indicate(alur[4], color=AKSEN), run_time=1.2)  # irama Bian, sisakan ekor (15 Sep 2026)
         qc.periksa_adegan(self, {"panah balik": panah_balik, "alur": alur},
                           [("panah balik", "alur")],
                           hud={"identitas": ident, "papan": panel.semua()})
@@ -236,7 +236,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("lambang")
             b.main(Indicate(lambang, color=AKSEN2), run_time=0.9)
             b.tunggu_kata("cepat")
-            b.main(Indicate(lambang[0], color=SOROT), run_time=1.4)
+            b.main(Indicate(lambang[0], color=SOROT), run_time=1.0)  # irama Bian, sisakan ekor (15 Sep 2026)
         qc.pastikan_hilang(self, {"panah balik": panah_balik, "keluarga": busur_kel},
                            nama="akhir segar-ingat Materi 01")
         qc.periksa_adegan(self, {"lambang": lambang},

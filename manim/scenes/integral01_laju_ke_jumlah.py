@@ -257,7 +257,7 @@ class IntegralLajuKeJumlah(AdeganMatra):
             b.tunggu_kata("membentuk")
             b.main(ShowCreation(singgung_c), run_time=1.4)
             b.tunggu_kata("namanya")
-            b.main(Indicate(b_t03, color=AKSEN), run_time=2.0)
+            b.main(Indicate(b_t03, color=AKSEN), run_time=1.6)  # irama Bian, sisakan ekor (15 Sep 2026)
         qc.periksa_adegan(self, {},
                           hud={"identitas": ident, "papan": panel.semua()},
                           dunia={"papan ingat": s_ingat})
@@ -351,8 +351,8 @@ class IntegralLajuKeJumlah(AdeganMatra):
             b.tunggu_kata("lajunya")
             b.main(FadeIn(t1, scale=0.5), run_time=1.2)
             b.tunggu_kata("tiga")
-            b.main(FadeIn(n1), run_time=1.2)
-            b.main(Indicate(n1, color=SOROT), run_time=1.2)
+            b.main(FadeIn(n1), run_time=1.0)  # irama Bian, sisakan ekor (15 Sep 2026)
+            b.main(Indicate(n1, color=SOROT), run_time=1.0)
         with sinema.babak(self, "baca2", DURASI, kata=KATA) as b:
             b.tunggu_kata("kedua")
             b.main(ShowCreation(naik2), FadeIn(t2, scale=0.5), run_time=1.6)

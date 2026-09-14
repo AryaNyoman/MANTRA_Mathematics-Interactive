@@ -98,8 +98,11 @@ RUN_TIME = re.compile(r'run_time\s*=\s*([0-9.]+)')
 PENOLONG = re.compile(
     r'(?:sumbu_z_pamit|sumbu_z_muncul)\([^)]*?,\s*([0-9.]+)\s*\)'
     r'|b\.(?:jeda|catat)\(\s*([0-9.]+)\s*\)')
-# Batas pemakluman ekor babak, sama dengan yang dipakai `sinema.Babak`.
-BATAS_EKOR = 0.15
+# Batas pemakluman ekor babak. `sinema.Babak` memakai 0,15 s, tetapi frame
+# dibulatkan ke 1/30 s sehingga ekor yang diramalkan 0,13 s bisa menjadi 0,15 s
+# saat render (ruang-3d-01 babak 'naik', 15 Sep 2026). Gerbang ini karena itu
+# lebih ketat daripada rendernya: sisakan paling sedikit 0,10 s.
+BATAS_EKOR = 0.05
 
 
 # Penolong adegan yang memakan waktu lewat kata kunci lain (12 Sep 2026):

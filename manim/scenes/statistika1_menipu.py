@@ -497,7 +497,7 @@ class Menipu1(AdeganMatra):
                                           b=b, run_time=1.8)
             HUD["jalur hitung"] = jumlah_b
             b.tunggu_kata("Lambang")
-            b.main(FadeOut(jumlah_b), run_time=0.6)
+            b.main(FadeOut(jumlah_b), run_time=0.3)  # irama Bian, sisakan ekor (15 Sep 2026)
             buang("jalur hitung")
             sinema.lahir_rumus(self, r"\bar{x} = \frac{x_1 + x_2 + \cdots + x_n}{n}",
                                titik_a[3], papan, b=b, warna=SOROT)
