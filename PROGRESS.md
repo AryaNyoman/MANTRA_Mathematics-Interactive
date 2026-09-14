@@ -1,5 +1,53 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 14 SEP (malam): 540 PEMBAHASAN DITULIS ULANG GAYA mathcyber1997, TAYANG (deploy matra-e3sm819a0)
+
+ARYA menyetujui rancangan sore ("Saya sudah menyetujui semuanya, silahkan dibangun
+ulang"). Semua 9 bank (60 soal per bab) ditulis ulang mengikuti resep di
+`PELAJARI BENTUK SOAL MATEMATIKA/CATATAN-BELAJAR-PEMBAHASAN.md`: kalimat utuh
+formal tanpa kamu/Anda, alat disebut lalu hitungan ditulis penuh, pemisalan,
+kata sambung baku (diperoleh, sehingga, dengan demikian), penutup "Jadi, ...
+(Jawaban X)", jebakan per pilihan ("Pilihan D, 3/5, lupa ..."). Gambar di
+pembahasan sekarang gambar BANTU yang lahir dari langkahnya, bukan ulangan
+gambar soal (ArenaLatihan tidak lagi memuat gambar soal di panel pembahasan).
+- Model dan perender (1b1b4da): `Langkah = string | { teks, gambar }`; jenis baru
+  `kuadran` (peta kuadran dengan sudut), `segitiga-umum` (tiga titik, tinggi,
+  siku, sudut; tata letak aturan kosinus), `tabel` (kolom baru dan baris sorot),
+  `garis-bilangan` (titik penuh/kosong, selang bertanda); tambahan `arsir` dan
+  `datar` di grafik, `proyeksi` di vektor, `bantu` di balok, `panah` dan `garis`
+  di bidang, `pecah`/`strip`/`labelBagian` di luas, `sorot` di segitiga. Galeri
+  `/latihan/contoh-gambar?bab=<slug>&mulai=<n>&jumlah=<n>` (potret penuh
+  Playwright berulang di atas 16.384 px, karena itu dipotong per irisan).
+- `alat/cek_kuis.mjs --ketat` memeriksa gaya: 3 sampai 9 langkah, tiap langkah
+  berkata penuntun dan bertitik, "(Jawaban X)" harus cocok dengan `benar`,
+  langkah terakhir "Jadi, ...", tanpa kamu/Anda/kalian, jebakan menyebut
+  "Pilihan X"; gambar langkah ikut divalidasi. `alat/ringkas_kuis.mjs` mencetak
+  bank untuk dibaca; `alat/acak_pilihan.mjs` (644e206) menyebar huruf jawaban
+  benar 12 per huruf (semula Turunan dan Grafik Fungsi 60 soal semuanya A) dan
+  memetakan ulang huruf di "(Jawaban X)" serta "Pilihan X".
+- Bank per bab (tiap bab 8 soal tertipis diganti jenis yang belum ada, id lama
+  dipertahankan, id baru ditambahkan): Trigonometri 45a3b36 (59 gambar bantu,
+  kuadran dan segitiga acuan), Ruang 3D df6baa6 (105 gambar: segitiga dicabut
+  dari kubus, garis bantu di balok), Limit 2cf9db7, Turunan 3425371, Integral
+  3b2d590, Vektor e09bd06 (proyeksi), Statistika 5f01961 (tabel frekuensi
+  kumulatif), Transformasi Geometri ef8d487 (panah bangun ke bayangan), Grafik
+  Fungsi afb19b3 (parabola dengan titik balik hasil hitungan, tabel pemeriksaan
+  titik, garis bilangan irisan syarat; 12 gambar soal yang langsung
+  membocorkan jawabannya dicabut, misalnya batang yang memuat angka jawaban).
+  Gerbang tiap bab: `cek_kuis --ketat` lolos, `tsc` bersih, galeri dipotret dan
+  dibaca satu per satu, arena dicoba (gambar muncul di bawah langkahnya).
+- Total: 540 soal, 540 pembahasan, 440 gambar langkah, 325 gambar soal, 476
+  cek mesin; `node alat/cek_kuis.mjs --semua --ketat` SEMUA LOLOS.
+- Tayang: `vercel deploy --prod` dari `web/` (matra-e3sm819a0), alias
+  mantra-matematika.vercel.app dipindah, deployment lama matra-hbwlr3w1u
+  dihapus; kesembilan halaman /latihan/<bab> dicek 200 dan arena Grafik Fungsi
+  dicoba di alamat produksi (gambar bantu tampil di langkah 2).
+- Pelajaran: heredoc Bash menelan backslash (penggantian tanda em-dash menjadi
+  kode u2014 bergaris miring terbalik diam-diam jadi tanpa perubahan), jadi
+  skrip perbaikan ditulis lewat berkas .py;
+  `io.open(..., 'w')` pernah menolak menimpa kuis.ts (EINVAL) selagi dev server
+  memantau berkas, obatnya tulis ke .tmp lalu `os.replace`.
+
 ## 14 SEP (siang-sore): PEMBAHASAN LATIHAN DITOLAK ARYA; BELAJAR GAYA mathcyber1997 DULU
 
 ARYA (tangkapan arena Trigonometri): pembahasan yang tayang kemarin membingungkan
