@@ -97,10 +97,10 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Alat interaktifnya adalah kejadian tadi dalam bentuk yang bisa Anda utak-atik. Geser sudut sinar mataharinya dan amati baik-baik.',
         langkah: [
-          'Geser ke sudut kecil: kedua bayangan memanjang jauh',
-          'Geser ke sudut besar: kedua bayangan memendek',
-          'Sekarang lihat dua angka hasil bagi di bawah gambar. Berubah tidak?',
-          'Kalau sudah yakin angkanya selalu kembar, Anda sudah paham inti materi ini',
+          'Geser ke sudut kecil, lalu ke sudut besar. Perhatikan apa yang terjadi pada panjang kedua bayangan dan pada letak mataharinya.',
+          'Baca dua angka hasil bagi di bawah gambar (tinggi dibagi bayangan) pada beberapa sudut yang berbeda.',
+          'Bandingkan hasil bagi milik orang dengan milik pohon pada sudut yang sama. Sama atau beda?',
+          'Menurut Anda, hasil bagi itu bergantung pada apa: tinggi bendanya, atau sudut mataharinya?',
         ],
       },
 
@@ -139,16 +139,25 @@ export const TAHAP: Tahap[] = [
       'Maka perbandingan hanya bergantung pada sudut.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Materi 01 berakhir pada satu dugaan: sudut yang sama memberi perbandingan yang sama. Sekarang kita buktikan.' },
+      /* Ditulis ulang 14 Sep 2026 atas kritik ARYA: kotak coba tidak boleh
+         memuat kesimpulan, sub judul "Akibatnya" tidak bermakna, sesi "Coba
+         sendiri di alatnya" mengulang kotak coba, dan kotak Sering keliru
+         menyebut tan padahal sin, cos, tan baru lahir di Materi 04. Alur
+         sekarang: sebangun, percobaan, KENAPA hasil baginya tetap, lalu apa
+         akibatnya bagi seluruh trigonometri. */
+      { jenis: 'paragraf', teks: 'Materi 01 berakhir pada satu dugaan: sudut yang sama memberi perbandingan yang sama. Sekarang kita buktikan, mula-mula dengan mengukur, lalu dengan alasan yang berlaku untuk semua segitiga.' },
+
       { jenis: 'sesi', judul: 'Dua segitiga sebangun' },
+      { jenis: 'paragraf', teks: 'Dua segitiga disebut sebangun bila ketiga sudutnya sama besar. Bentuknya persis sama; yang boleh berbeda hanya ukurannya, seperti satu foto yang dicetak di dua ukuran kertas.' },
       {
         jenis: 'poin',
         butir: [
-          'Sudutnya sama persis',
-          'Bentuknya identik - seperti foto yang sama dicetak di dua ukuran kertas',
-          'Hanya ukurannya yang berbeda',
+          'Sudutnya sama persis - inilah syaratnya, bukan panjang sisinya',
+          'Bentuknya identik - yang satu adalah pembesaran atau pengecilan yang lain',
+          'Ukurannya boleh berbeda - segitiga kecil dan besar sama-sama sah',
         ],
       },
+      { jenis: 'paragraf', teks: 'Ambil dua segitiga siku-siku sebangun dengan sudut 37° di titik A. Pada tiap segitiga, bagi sisi di depan sudut A dengan sisi di sampingnya.' },
       {
         jenis: 'contoh',
         judul: 'Ukur keduanya, lalu bagi',
@@ -158,40 +167,48 @@ export const TAHAP: Tahap[] = [
         ],
         simpul: 'Panjangnya berbeda jauh. Hasil baginya sama persis.',
       },
+
       {
         jenis: 'coba',
-        teks: 'Sekarang buktikan sendiri di alatnya, jangan percaya begitu saja.',
+        teks: 'Sekarang buktikan sendiri di alatnya. Di bawah kendalinya ada tabel "Angka dari segitiga": tiga baris pertama panjang sisi samping, depan, dan miring; baris terakhir hasil bagi depan ÷ samping.',
         langkah: [
-          'Tarik puncak segitiga menyamping: dua angka pertama berubah',
-          'Perhatikan angka hasil bagi di bawah: tidak ikut berubah',
-          'Sekarang tarik ke atas atau ke bawah, barulah angka itu bergerak',
-          'Kesimpulannya: yang menentukan hanya sudut, bukan ukuran',
+          'Geser kendali Besar segitiga, atau tarik titik puncaknya ke kanan dan ke kiri. Perhatikan ketiga panjang sisi di tabel.',
+          'Sambil menggeser, awasi baris terakhir, depan ÷ samping. Ikut berubah atau tidak?',
+          'Sekarang geser kendali Sudut θ, atau tarik titik puncaknya ke atas dan ke bawah. Apa yang terjadi pada baris terakhir itu?',
+          'Jadi, mana yang mengubah hasil bagi: ukuran segitiga atau sudutnya?',
         ],
       },
-      { jenis: 'sorot', teks: 'Diperbesar 4 kali? Pembilang dikali 4, penyebut dikali 4. Pada pembagian, keduanya saling menghapus.' },
-      { jenis: 'sesi', judul: 'Akibatnya' },
+
+      { jenis: 'sesi', judul: 'Kenapa hasil baginya tidak ikut berubah' },
+      { jenis: 'paragraf', teks: 'Segitiga besar adalah segitiga kecil yang diperbesar. Kalau pembesarannya 4 kali, SETIAP sisinya dikali 4: sisi depan, sisi samping, sisi miring, semuanya. Tidak ada sisi yang dikali lebih banyak dari sisi lain, sebab kalau ada, bentuknya berubah dan sudutnya ikut berubah.' },
+      {
+        jenis: 'contoh',
+        judul: 'Pembesaran 4 kali, diikuti angkanya',
+        baris: [
+          'Segitiga kecil   1,8 ÷ 2,4 = 0,75',
+          'Diperbesar 4 kali   (4 × 1,8) ÷ (4 × 2,4) = 7,2 ÷ 9,6 = 0,75',
+          'Diperbesar k kali   (k × 1,8) ÷ (k × 2,4) = 1,8 ÷ 2,4 = 0,75',
+        ],
+        simpul: 'Angka pembesaran muncul di atas dan di bawah garis bagi, lalu saling menghapus. Berapa pun pembesarannya, hasilnya 0,75.',
+      },
+      { jenis: 'sorot', teks: 'Pembilang dan penyebut dikali angka yang sama, jadi hasil baginya tetap. Yang tersisa hanyalah bentuk segitiganya, dan bentuk itu ditentukan oleh sudutnya.' },
+      { jenis: 'paragraf', teks: 'Inilah yang Anda lihat di alat tadi. Menarik puncak ke samping hanya mengalikan semua sisi dengan angka yang sama, sehingga baris terakhir diam. Menarik ke atas mengubah sudutnya, bentuknya berubah, dan barulah hasil baginya ikut berubah.' },
+
+      { jenis: 'sesi', judul: 'Yang berubah dan yang tidak' },
       {
         jenis: 'poin',
         butir: [
-          'Panjang bergantung pada ukuran - tidak bisa dijadikan patokan',
-          'Perbandingan tidak bergantung pada ukuran - hanya pada sudut',
-          'Satu sudut, satu angka - berlaku untuk semua segitiga siku-siku di dunia',
+          'Panjang sisi bergantung pada ukuran - tidak bisa dijadikan patokan',
+          'Hasil bagi dua sisi tidak bergantung pada ukuran - hanya pada sudut',
+          'Satu sudut, satu angka - berlaku untuk semua segitiga siku-siku bersudut 37°, sebesar apa pun, di mana pun',
         ],
       },
-      { jenis: 'sesi', judul: 'Coba sendiri di alatnya' },
-      {
-        jenis: 'poin',
-        butir: [
-          'Tarik titik puncak menyamping - dua angka pertama berubah, angka bawah diam',
-          'Tarik ke atas atau ke bawah - baru angka bawah ikut bergerak, karena sudutnya berubah',
-        ],
-      },
-      { jenis: 'paragraf', teks: 'Karena hasil baginya hanya bergantung pada sudut, angka itu bisa dihitung sekali lalu dibukukan. Itulah yang tersimpan di dalam kalkulator Anda, dan ia memang tidak perlu tahu segitiga mana yang Anda maksud.' },
+      { jenis: 'paragraf', teks: 'Karena hasil bagi itu hanya bergantung pada sudut, angkanya bisa dihitung sekali lalu dibukukan: 37° memberi 0,75, dan sudut lain memberi angka lain. Itulah yang tersimpan di dalam kalkulator Anda, dan ia memang tidak perlu tahu segitiga mana yang Anda maksud.' },
+      { jenis: 'paragraf', teks: 'Yang belum ada hanyalah namanya. Hasil bagi depan ÷ samping ini, dan hasil bagi pasangan sisi lainnya, akan mendapat nama resmi di Materi 04. Sebelum itu, Materi 03 memastikan kita sepakat dulu sisi mana yang disebut depan dan mana yang samping.' },
     ],
     seringKeliru: {
-      judul: '“tan 37° itu angka mati dari kalkulator”',
-      isi: 'Nilai tan, sin, dan cos sering dianggap angka hafalan yang disimpan pabrik di dalam mesin. Padahal itu hasil bagi dua sisi. Justru karena tidak bergantung pada ukuran segitiga, ia bisa disimpan.',
-      sumber: 'Buku Panduan Guru Matematika Kelas X, Bab 4, “membuktikan sinus dan cosinus suatu sudut berupa rasio, bukan nilai tetap”',
+      judul: 'Dikira sudutnya ikut membesar',
+      isi: 'Saat segitiga diperbesar dua kali, sering dikira sudutnya ikut dua kali lebih besar, atau hasil baginya ikut naik. Padahal pembesaran hanya mengalikan panjang sisi. Sudut mengukur bukaan antara dua sisi, bukan panjangnya, dan bukaan itu tidak berubah walaupun kedua sisinya diperpanjang. Karena sudutnya tetap, hasil bagi dua sisinya pun tetap.',
     },
     widget: 'segitiga-sebangun',
     video: { berkas: 'tahap2-perbandingan-tetap.mp4', poster: 'tahap2-perbandingan-tetap.jpg' },
@@ -226,14 +243,14 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Nama sisi bergantung sudut mana yang sedang dilihat. Buktikan di alatnya.',
         langkah: [
-          'Klik sudut A, perhatikan nama tiap sisinya',
-          'Sekarang klik sudut B pada segitiga yang sama',
-          'Sisi yang tadi bernama depan kini jadi samping',
-          'Hanya sisi miring yang namanya tidak pernah berpindah',
+          'Klik sudut A, lalu catat nama ketiga sisinya: mana depan, mana samping, mana miring.',
+          'Sekarang klik sudut C pada segitiga yang sama, dan catat lagi nama ketiga sisinya.',
+          'Bandingkan kedua catatan Anda. Sisi mana saja yang berganti nama, dan sisi mana yang tidak?',
+          'Menurut Anda, apa yang menentukan nama sebuah sisi: letaknya di gambar, atau sudut yang sedang dilihat?',
         ],
       },
-      { jenis: 'sorot', teks: 'Nama sisi ditentukan oleh SUDUT yang dirujuk, bukan oleh posisinya di gambar.' },
       { jenis: 'paragraf', teks: 'Di sinilah siswa paling sering tersandung. Segitiga siku-siku punya dua sudut lancip. Pindah dari sudut yang satu ke sudut yang lain, sisi depan dan sisi samping bertukar tempat.' },
+      { jenis: 'sorot', teks: 'Nama sisi ditentukan oleh SUDUT yang dirujuk, bukan oleh posisinya di gambar.' },
       {
         jenis: 'contoh',
         judul: 'Segitiga ABC, siku-siku di B',
@@ -278,7 +295,7 @@ export const TAHAP: Tahap[] = [
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Kita sudah punya tiga sisi dengan nama masing-masing. Pertanyaan berikutnya sederhana: ada berapa cara membagi satu sisi dengan sisi lainnya?' },
-      { jenis: 'sesi', judul: 'Hitung dulu' },
+      { jenis: 'sesi', judul: 'Hitung dulu ada berapa pasangan' },
       {
         jenis: 'poin',
         butir: [
@@ -291,13 +308,12 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Alat interaktifnya adalah pabrik perbandingan. Pilih sendiri pembilang dan penyebutnya.',
         langkah: [
-          'Pilih depan dibagi miring, lihat namanya muncul: sinus',
-          'Ganti jadi samping dibagi miring, itu cosinus',
-          'Coba depan dibagi samping, itu tangen',
-          'Coba juga tiga pasangan sisanya, semuanya punya nama',
+          'Pilih pembilang depan dan penyebut miring. Baca nama yang muncul untuk pembagian itu.',
+          'Ganti menjadi samping dibagi miring, lalu depan dibagi samping. Catat nama yang muncul untuk masing-masing.',
+          'Coba juga tiga pasangan sisanya. Berapa pasangan seluruhnya, dan adakah pasangan yang tidak punya nama?',
+          'Dari keenam nama itu, mana yang sudah pernah Anda dengar sebelum materi ini?',
         ],
       },
-      { jenis: 'sorot', teks: 'Enam pembagian, enam nama. sin, cos, dan tan hanyalah tiga di antaranya.' },
       {
         jenis: 'contoh',
         judul: 'Keenamnya pada segitiga 3-4-5',
@@ -311,6 +327,7 @@ export const TAHAP: Tahap[] = [
         ],
         simpul: 'Tiga baris bawah adalah kebalikan tiga baris atas, pecahannya tinggal dibalik.',
       },
+      { jenis: 'sorot', teks: 'Enam pembagian, enam nama. sin, cos, dan tan hanyalah tiga di antaranya.' },
       { jenis: 'sesi', judul: 'Kenapa hanya tiga yang diajarkan di SMA' },
       {
         jenis: 'poin',
@@ -378,13 +395,12 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Geser titik di lingkaran satuan dan amati kedua angka koordinatnya.',
         langkah: [
-          'Geser ke sudut kecil, perhatikan nilai cos mendekati 1',
-          'Terus geser melewati 90 derajat',
-          'Nilai cos berubah jadi negatif, sementara sin masih positif',
-          'Itu karena titiknya sudah pindah ke kiri sumbu-y',
+          'Geser titiknya ke sudut kecil, lalu baca kedua koordinatnya. Koordinat mana yang mendekati 1?',
+          'Terus geser sampai melewati 90°. Perhatikan tanda kedua koordinatnya.',
+          'Setelah lewat 90°, koordinat mana yang berubah tanda, dan mana yang belum?',
+          'Lihat letak titiknya di lingkaran saat itu. Menurut Anda, apa hubungan letak titik dengan tanda koordinatnya?',
         ],
       },
-      { jenis: 'sorot', teks: 'Rumus berubah jadi posisi. Tidak perlu membagi lagi, cukup dibaca dari letak titiknya.' },
       { jenis: 'sesi', judul: 'Tiga hal yang langsung terlihat' },
       {
         jenis: 'poin',
@@ -394,6 +410,7 @@ export const TAHAP: Tahap[] = [
           'Di kiri sumbu-y cos jadi negatif, di bawah sumbu-x sin jadi negatif. Tandanya mengikuti arah, bukan aturan hafalan',
         ],
       },
+      { jenis: 'sorot', teks: 'Rumus berubah jadi posisi. Tidak perlu membagi lagi, cukup dibaca dari letak titiknya.' },
       { jenis: 'paragraf', teks: 'Inilah alasan lingkaran satuan digambar di mana-mana. Ia bukan hiasan, ia mengubah tiga pecahan jadi satu titik yang bisa ditunjuk. Seret titik ungu di alatnya dan perhatikan kedua angkanya bergerak.' },
     ],
     seringKeliru: {
@@ -435,17 +452,17 @@ export const TAHAP: Tahap[] = [
           'cot θ - hal yang sama, tapi dengan garis mendatar yang menyentuh di y = 1',
         ],
       },
+      { jenis: 'sorot', teks: 'Inilah asal nama tangen: tangens berarti “yang menyentuh”. Ia memang ruas pada garis singgung.' },
       {
         jenis: 'coba',
         teks: 'Enam ruas garis, satu sudut. Geser sudutnya dan lihat keenamnya bergerak bersama.',
         langkah: [
-          'Geser ke sudut kecil: tan memendek, cot memanjang',
-          'Geser ke sudut besar: kebalikannya yang terjadi',
-          'Perhatikan sec selalu lebih panjang daripada jari-jari',
-          'Pikirkan kenapa: sec adalah 1 dibagi cos, dan cos selalu di bawah 1',
+          'Geser ke sudut kecil. Perhatikan ruas tan dan ruas cot: mana yang memendek, mana yang memanjang?',
+          'Geser ke sudut besar, lalu bandingkan dengan yang tadi.',
+          'Amati ruas sec pada beberapa sudut. Pernahkah ia lebih pendek daripada jari-jari?',
+          'Kalau tidak pernah, menurut Anda apa sebabnya?',
         ],
       },
-      { jenis: 'sorot', teks: 'Inilah asal nama tangen: tangens berarti “yang menyentuh”. Ia memang ruas pada garis singgung.' },
       { jenis: 'sesi', judul: 'Dua yang menembus keluar' },
       {
         jenis: 'poin',
@@ -493,13 +510,12 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Jalankan perjalanan sudutnya langkah demi langkah, jangan langsung ke akhir.',
         langkah: [
-          'Mulai dari 30 derajat, perhatikan koordinatnya',
-          'Lanjut ke 45 derajat, kedua koordinatnya jadi kembar',
-          'Lanjut ke 60 derajat, nilainya bertukar dengan yang di 30 derajat',
-          'Pertukaran itu bukan kebetulan, keduanya lahir dari segitiga yang sama',
+          'Mulai dari 30°, lalu catat kedua koordinat titiknya.',
+          'Lanjut ke 45°. Bandingkan kedua koordinatnya satu sama lain.',
+          'Lanjut ke 60°, lalu bandingkan koordinatnya dengan catatan di 30°.',
+          'Apa yang Anda perhatikan pada pasangan 30° dan 60°? Menurut Anda kebetulan, atau ada sebabnya?',
         ],
       },
-      { jenis: 'sorot', teks: 'Sudut istimewa bukan sudut yang angkanya bagus, tapi sudut yang nilainya bisa dihitung persis, tanpa alat.' },
       { jenis: 'sesi', judul: '45° lahir dari persegi' },
       {
         jenis: 'poin',
@@ -510,6 +526,7 @@ export const TAHAP: Tahap[] = [
           'Karena kedua sisinya kembar, sin 45° dan cos 45° juga kembar, dan tan 45° tepat 1',
         ],
       },
+      { jenis: 'sorot', teks: 'Sudut istimewa bukan sudut yang angkanya bagus, tapi sudut yang nilainya bisa dihitung persis, tanpa alat.' },
       { jenis: 'sesi', judul: '30° dan 60° lahir dari segitiga sama sisi' },
       {
         jenis: 'poin',
@@ -531,7 +548,7 @@ export const TAHAP: Tahap[] = [
         ],
         simpul: 'Perhatikan 30° dan 60° tertukar nilainya, karena keduanya sudut pelengkap.',
       },
-      { jenis: 'sesi', judul: 'Kenapa ini berguna' },
+      { jenis: 'sesi', judul: 'Kenapa nilai persis ini berguna' },
       {
         jenis: 'poin',
         butir: [
@@ -577,13 +594,12 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Sapukan sudutnya pelan-pelan dan perhatikan kurvanya terbentuk.',
         langkah: [
-          'Geser sampai 90 derajat, kurvanya mencapai puncak',
-          'Lanjut ke 180 derajat, kurvanya kembali menyentuh nol',
-          'Lanjut lagi melewati 360 derajat',
-          'Bentuk yang sama terulang persis, itulah arti berkala',
+          'Sapukan sudutnya sampai 90°. Setinggi apa kurvanya saat itu?',
+          'Lanjut ke 180°, lalu ke 270°. Di mana kurva menyentuh nol, dan di mana ia paling rendah?',
+          'Lanjut terus melewati 360°.',
+          'Bandingkan bentuk kurva sesudah 360° dengan bentuk sebelumnya. Apa yang Anda temukan?',
         ],
       },
-      { jenis: 'sorot', teks: 'Kurva sinus adalah catatan tinggi sebuah titik yang berputar. Bukan bentuk baru yang perlu dihafal.' },
       { jenis: 'sesi', judul: 'Yang langsung terbaca dari bentuknya' },
       {
         jenis: 'poin',
@@ -594,6 +610,7 @@ export const TAHAP: Tahap[] = [
           'Kembali nol di 360°, lalu seluruhnya mengulang persis sama',
         ],
       },
+      { jenis: 'sorot', teks: 'Kurva sinus adalah catatan tinggi sebuah titik yang berputar. Bukan bentuk baru yang perlu dihafal.' },
       {
         jenis: 'contoh',
         judul: 'Kenapa kurvanya melandai di puncak',
@@ -641,14 +658,14 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Gerakkan satu sudut dan amati ketiga kurva sekaligus.',
         langkah: [
-          'Perhatikan sin dan cos: bentuknya sama, hanya bergeser',
-          'Sekarang dekati 90 derajat dan lihat kurva tan',
-          'Tan melesat naik tanpa pernah menyentuh garis putus-putus',
-          'Itu bukan karena nilainya tak hingga, melainkan karena pembaginya nol',
+          'Bandingkan kurva sin dan cos. Apa persamaannya, dan apa bedanya?',
+          'Sekarang dekati 90° pelan-pelan sambil mengawasi kurva tan.',
+          'Perhatikan garis putus-putus di 90°. Apakah kurva tan pernah menyentuhnya?',
+          'Lihat nilai cos tepat di 90°. Menurut Anda, apa hubungannya dengan tingkah kurva tan di sana?',
         ],
       },
-      { jenis: 'sorot', teks: 'Grafik cos bentuknya persis grafik sin, hanya berangkat 90° lebih awal.' },
       { jenis: 'paragraf', teks: 'Masuk akal: saat sudut nol, titiknya berada paling kanan. Posisi mendatarnya sudah maksimum, sementara tingginya masih nol. Cos sudah di puncak ketika sin baru mulai.' },
+      { jenis: 'sorot', teks: 'Grafik cos bentuknya persis grafik sin, hanya berangkat 90° lebih awal.' },
       { jenis: 'sesi', judul: 'Kenapa tan punya jurang' },
       {
         jenis: 'poin',
@@ -777,15 +794,14 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Yang ini tidak perlu alat di layar. Ponsel di tangan Anda sudah cukup.',
         langkah: [
-          'Buka kamera, mundur selangkah, lihat berapa banyak yang tiba-tiba muat',
-          'Miringkan ponselnya pelan-pelan sampai layarnya berbalik sendiri',
-          'Perhatikan di sudut berapa kira-kira ia memutuskan berbalik',
-          'Keempat contoh di samping semuanya ada di dalam benda itu',
+          'Buka kamera ponsel, lalu mundur selangkah. Perhatikan berapa banyak pemandangan yang tiba-tiba muat di layar.',
+          'Miringkan ponselnya pelan-pelan sampai layarnya berbalik sendiri.',
+          'Perhatikan kira-kira pada kemiringan berapa ia memutuskan berbalik. Ulangi beberapa kali: selalu di sudut yang sama?',
+          'Lihat keempat contoh di samping. Menurut Anda, contoh mana saja yang sedang bekerja di dalam ponsel Anda?',
         ],
       },
-      { jenis: 'sorot', teks: 'Kurva yang Anda gambar di Materi 08 itu bukan latihan. Itu bentuk suara yang sedang Anda dengar.' },
-
       { jenis: 'paragraf', teks: 'Empat contoh, satu benda. Dan itu belum termasuk yang di luar genggaman: gelombang radio, arus listrik di rumah, pasang surut air laut, dan denyut jantung yang terbaca di layar rumah sakit, semuanya dijelaskan dengan kurva yang sama.' },
+      { jenis: 'sorot', teks: 'Kurva yang Anda gambar di Materi 08 itu bukan latihan. Itu bentuk suara yang sedang Anda dengar.' },
     ],
     seringKeliru: {
       judul: 'Mengira trigonometri hanya untuk mengukur tinggi pohon',

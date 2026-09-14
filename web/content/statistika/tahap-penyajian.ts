@@ -70,8 +70,9 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
         teks: 'Alat interaktifnya menampilkan kedua kelas sebagai titik di garis bilangan.',
         langkah: [
           'Seret titik di Kelas B menjauh ke kiri atau ke kanan.',
-          'Perhatikan rata-ratanya sering tidak berubah banyak, tetapi jangkauannya melompat.',
-          'Tekan "samakan rata-ratanya" untuk membuktikan bentuk data bisa diobrak-abrik sambil rata-ratanya dipertahankan tetap 7.',
+          'Perhatikan rata-ratanya dan jangkauannya. Mana yang berubah banyak, mana yang tidak?',
+          'Tekan "samakan rata-ratanya". Apa yang terjadi pada bentuk datanya, dan berapa rata-ratanya sekarang?',
+          'Kalau dua kelas punya rata-rata yang sama persis, apakah datanya pasti mirip?',
         ],
       },
 
@@ -160,8 +161,9 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
         teks: 'Alat interaktifnya menampilkan satu kumpulan data dalam empat bentuk gambar.',
         langkah: [
           'Tekan bergantian: line plot, diagram batang, histogram, diagram lingkaran.',
-          'Perhatikan tampilan yang tidak cocok dengan jenis datanya diberi tanda peringatan, bukan disembunyikan.',
-          'Bacalah peringatannya, sebab di situ letak pelajarannya.',
+          'Perhatikan tampilan mana yang diberi tanda peringatan, dan mana yang tidak.',
+          'Bacalah peringatannya. Apa alasan yang disebutkan?',
+          'Menurut Anda, apa yang menentukan gambar mana yang cocok untuk sebuah data?',
         ],
       },
 
@@ -201,10 +203,10 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
         jenis: 'coba',
         teks: 'Geser penggeser lebar kelas di alatnya, dari 1 sampai 10.',
         langkah: [
-          'Pada lebar 1, hampir tiap batang cuma berisi satu atau dua siswa. Gambarnya bergerigi dan polanya tenggelam.',
-          'Pada lebar 4 atau 5, terlihat kumpulan siswa menumpuk di sekitar 160 sampai 170.',
-          'Pada lebar 10, seluruh data cuma jadi empat batang, dan yang paling kanan cuma berisi satu siswa. Rapi, tetapi tumpukan di sekitar 160 sampai 170 sudah tidak terlihat lagi.',
-          'Perhatikan tabel frekuensi di sebelahnya ikut berubah, sebab tabel dan histogram itu benda yang sama dalam dua bentuk.',
+          'Setel lebar kelas ke 1. Berapa siswa yang mengisi tiap batang, dan seperti apa bentuk gambarnya?',
+          'Setel ke 4 atau 5. Di sekitar tinggi berapa siswa terlihat menumpuk?',
+          'Setel ke 10. Berapa batang yang tersisa, dan apakah tumpukan tadi masih terlihat?',
+          'Perhatikan tabel frekuensi di sebelahnya sambil menggeser. Apa hubungannya dengan histogram yang berubah?',
         ],
       },
 
@@ -298,9 +300,10 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
         jenis: 'coba',
         teks: 'Alat interaktifnya menampilkan kedua kelas berdampingan.',
         langkah: [
-          'Mulai dengan tampilan frekuensi asli. Kelas B terlihat menang hampir di semua kelompok nilai, dan memang wajar, siswanya lebih banyak.',
+          'Mulai dengan tampilan frekuensi asli. Kelas mana yang batangnya lebih tinggi di hampir semua kelompok nilai? Bandingkan dengan jumlah siswa tiap kelas.',
           'Tekan tombol untuk beralih ke frekuensi relatif.',
-          'Perhatikan kesimpulan di bawah gambar ikut berubah. Itu bukan kesalahan alatnya, itu memang intinya.',
+          'Perhatikan kesimpulan di bawah gambar. Apakah ia ikut berubah?',
+          'Kalau kesimpulannya berubah padahal datanya sama, tampilan mana yang lebih adil untuk membandingkan dua kelas yang jumlah siswanya berbeda?',
         ],
       },
 

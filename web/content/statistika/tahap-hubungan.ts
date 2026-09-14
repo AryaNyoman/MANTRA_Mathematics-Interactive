@@ -89,8 +89,9 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
         teks: 'Alat interaktifnya membiarkan Anda menyeret titiknya sendiri.',
         langkah: [
           'Tekan tombol contoh siap pakai: naik, turun, tidak berhubungan, melengkung.',
-          'Perhatikan keterangan arah dan bentuk di bawah gambar berubah mengikuti sebarannya.',
-          'Seret satu titik jauh ke atas, lalu perhatikan seberapa besar pengaruh satu titik saja terhadap kesan keseluruhan.',
+          'Perhatikan keterangan arah dan bentuk di bawah gambar pada tiap contoh.',
+          'Seret satu titik jauh ke atas. Apa yang terjadi pada keterangannya?',
+          'Seberapa besar pengaruh satu titik saja terhadap kesan keseluruhan? Apakah sama besar untuk data yang banyak dan yang sedikit?',
         ],
       },
 
@@ -142,9 +143,9 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
         teks: 'Alat interaktifnya membiarkan Anda menarik garisnya sendiri.',
         langkah: [
           'Seret ujung garis sampai menurut Anda paling pas.',
-          'Perhatikan ruas tegak dari tiap titik ke garis, itulah residunya.',
+          'Perhatikan ruas tegak dari tiap titik ke garis, yaitu residunya. Apa yang terjadi padanya saat garis digeser?',
           'Perhatikan angka jumlah kuadrat residu di bawah gambar, lalu coba perkecil terus.',
-          'Kalau sudah menyerah, tekan "tunjukkan garis terbaik" dan bandingkan.',
+          'Kalau sudah menyerah, tekan "tunjukkan garis terbaik". Seberapa jauh garis Anda dari garis itu?',
         ],
       },
 
@@ -264,9 +265,10 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
         jenis: 'coba',
         teks: 'Alat interaktifnya menampilkan beberapa sebaran dengan nilai r yang berbeda.',
         langkah: [
-          'Bandingkan sebaran dengan r sekitar 0,99 dan r sekitar 0,34.',
-          'Buka contoh melengkung, lalu perhatikan r nya nol padahal titik-titiknya membentuk lengkung yang rapi.',
-          'Seret satu titik dan perhatikan r ikut berubah. Satu titik saja bisa mengubahnya cukup banyak kalau datanya sedikit.',
+          'Bandingkan sebaran dengan r sekitar 0,99 dan r sekitar 0,34. Apa bedanya di gambar?',
+          'Buka contoh melengkung. Berapa r nya, dan cocokkah dengan pola yang Anda lihat?',
+          'Seret satu titik dan perhatikan r. Seberapa banyak satu titik bisa mengubahnya?',
+          'Kalau r bisa nol padahal titiknya membentuk lengkung yang rapi, apa sebenarnya yang diukur r?',
         ],
       },
 
@@ -320,8 +322,9 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
         teks: 'Alat interaktifnya menampilkan kedua versi berdampingan.',
         langkah: [
           'Geser batas bawah sumbu pada grafik kanan, dari 0 sampai 412.',
-          'Perhatikan angkanya tidak berubah sama sekali, cuma sumbunya.',
-          'Perhatikan seberapa berbeda kesan yang ditimbulkan kedua grafik itu, padahal datanya satu.',
+          'Perhatikan angka datanya. Apakah ada yang berubah?',
+          'Bandingkan kesan yang ditimbulkan kedua grafik itu, padahal datanya satu.',
+          'Grafik mana yang menurut Anda lebih jujur, dan kapan memotong sumbu masih bisa dibenarkan?',
         ],
       },
       { jenis: 'paragraf', teks: 'Memotong sumbu tidak selalu curang. Untuk data seperti suhu tubuh, mulai dari nol justru membuang seluruh informasinya. Yang membedakan curang dan tidak adalah apakah pemotongan itu DIBERITAHUKAN dengan jelas, atau disembunyikan supaya pembaca salah menduga.' },

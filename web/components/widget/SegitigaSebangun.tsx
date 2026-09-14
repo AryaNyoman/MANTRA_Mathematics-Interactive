@@ -1,8 +1,8 @@
 'use client'
 
-import { useCallback, useMemo, useRef } from 'react'
+import { useCallback, useMemo, useRef, useState } from 'react'
 import { WARNA } from '@/lib/warna'
-import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
+import { lepas, pegang, useSedangDiubah } from '@/components/kendali/sedang-diubah'
 
 /**
  * Widget "Segitiga Sebangun", Trigonometri Kelas 10.
@@ -18,6 +18,14 @@ import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
  * 2. Segitiganya harus bisa DITARIK LANGSUNG, bukan cuma lewat slider.
  *    Titik puncak diberi pegangan: geser ke atas-bawah mengubah sudut,
  *    ke kiri-kanan mengubah ukuran.
+ *
+ * 3. Satu tarikan hanya mengubah SATU besaran (ARYA, 14 Sep 2026: tarikan
+ *    bebas "terlalu licin", ukuran dan sudut berubah bersamaan padahal siswa
+ *    justru ingin membedakan keduanya). Arah tarikan yang menang di beberapa
+ *    piksel pertama mengunci tarikan itu: mendatar berarti ukuran saja,
+ *    tegak berarti sudut saja. Kunci yang aktif menyalakan kendali yang
+ *    bersangkutan, dan garis bantu putus-putus memperlihatkan arah yang
+ *    sedang dituruti.
  */
 
 const VW = 460
@@ -73,7 +81,10 @@ export default function SegitigaSebangun({
   onUbah?: (skalaBaru: number, derajatBaru: number) => void
 }) {
   const svgRef = useRef<SVGSVGElement>(null)
-  const menarik = useRef(false)
+  // keadaan tarikan: titik mulai (satuan SVG), nilai saat mulai, dan kunci
+  // arah yang diputuskan setelah jari bergerak cukup jauh
+  const tarikan = useRef<{ x: number; y: number; skala: number; derajat: number } | null>(null)
+  const [kunci, setKunci] = useState<'skala' | 'sudut' | null>(null)
   // Bagian gambar yang menyala mengikuti kendali yang sedang dipegang:
   // busur sudut saat "sudut", ketiga sisi saat "skala".
   const dipegang = useSedangDiubah()
@@ -107,34 +118,51 @@ export default function SegitigaSebangun({
     return { x: t.x, y: t.y }
   }, [])
 
+  const AMBANG = 6 // piksel SVG sebelum arah tarikan diputuskan
+
   const tarik = useCallback(
     (e: React.PointerEvent) => {
-      if (!menarik.current || !onUbah) return
+      const awal = tarikan.current
+      if (!awal || !onUbah) return
       const t = keSvg(e)
       if (!t) return
-      const lebarPx = Math.max(t.x - ox, 6)     // sisi samping, dalam piksel
-      const tinggiPx = Math.max(oy - t.y, 4)    // sisi depan, dalam piksel
-      const derajatBaru = jepit(
-        (Math.atan2(tinggiPx, lebarPx) * 180) / Math.PI,
-        BATAS.derajatMin, BATAS.derajatMaks,
-      )
-      const skalaBaru = jepit(
-        (lebarPx / ppc / SAMPING_MAKS) * 100,
-        BATAS.skalaMin, BATAS.skalaMaks,
-      )
-      onUbah(Math.round(skalaBaru), Math.round(derajatBaru))
+      const dx = t.x - awal.x
+      const dy = t.y - awal.y
+      let arah = kunci
+      if (!arah) {
+        if (Math.abs(dx) < AMBANG && Math.abs(dy) < AMBANG) return
+        arah = Math.abs(dx) >= Math.abs(dy) ? 'skala' : 'sudut'
+        setKunci(arah)
+        pegang(arah)
+      }
+      if (arah === 'skala') {
+        // hanya ukuran: sisi samping mengikuti jari, sudut dibekukan
+        const lebarPx = Math.max(t.x - ox, 6)
+        const skalaBaru = jepit((lebarPx / ppc / SAMPING_MAKS) * 100, BATAS.skalaMin, BATAS.skalaMaks)
+        onUbah(Math.round(skalaBaru), awal.derajat)
+      } else {
+        // hanya sudut: sisi samping dibekukan, puncak naik turun mengikuti jari
+        const lebarPx = (awal.skala / 100) * SAMPING_MAKS * ppc
+        const tinggiPx = Math.max(oy - t.y, 4)
+        const derajatBaru = jepit((Math.atan2(tinggiPx, lebarPx) * 180) / Math.PI, BATAS.derajatMin, BATAS.derajatMaks)
+        onUbah(awal.skala, Math.round(derajatBaru))
+      }
     },
-    [keSvg, onUbah, ox, oy, ppc],
+    [keSvg, onUbah, ox, oy, ppc, kunci],
   )
 
   const mulai = (e: React.PointerEvent) => {
     if (!onUbah) return
-    menarik.current = true
+    const t = keSvg(e)
+    if (!t) return
+    tarikan.current = { x: t.x, y: t.y, skala, derajat }
+    setKunci(null)
     ;(e.target as Element).setPointerCapture?.(e.pointerId)
-    tarik(e)
   }
   const selesai = (e: React.PointerEvent) => {
-    menarik.current = false
+    tarikan.current = null
+    if (kunci) lepas(kunci)
+    setKunci(null)
     ;(e.target as Element).releasePointerCapture?.(e.pointerId)
   }
 
@@ -201,10 +229,48 @@ export default function SegitigaSebangun({
         θ
       </text>
 
-      {/* pegangan di titik puncak, inilah yang ditarik langsung */}
+      {/* garis bantu arah tarikan yang sedang dikunci: mendatar untuk ukuran,
+          tegak untuk sudut, supaya siswa melihat hanya satu arah yang dituruti */}
+      {kunci === 'skala' && (
+        <line x1={ox + 10} y1={cy} x2={VW - 10} y2={cy} stroke={WARNA.samping} strokeWidth={1.4} strokeDasharray="6 5" opacity={0.75} />
+      )}
+      {kunci === 'sudut' && (
+        <line x1={bx} y1={12} x2={bx} y2={oy - 8} stroke={WARNA.sudut} strokeWidth={1.4} strokeDasharray="6 5" opacity={0.75} />
+      )}
+
+      {/* pegangan di titik puncak, inilah yang ditarik langsung; dua panah
+          kecil memberi tahu arah mana mengubah apa (ukuran ke samping, sudut
+          ke atas bawah) tanpa harus membaca petunjuk */}
       {onUbah && (
-        <g onPointerDown={mulai} style={{ cursor: 'grab' }}>
-          <circle cx={bx} cy={cy} r={16} fill="transparent" />
+        <g onPointerDown={mulai} style={{ cursor: kunci ? 'grabbing' : 'grab' }}>
+          <circle cx={bx} cy={cy} r={18} fill="transparent" />
+          {!kunci && (
+            <g fill="none" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" opacity={0.85}>
+              {/* panah dibalik arahnya bila puncak terlalu dekat tepi kanan atau tepi atas */}
+              {bx < VW - 84 ? (
+                <>
+                  <path d={`M ${bx + 13} ${cy} h 16 m -5 -4 l 5 4 l -5 4`} stroke={WARNA.samping} />
+                  <text x={bx + 33} y={cy + 4} fontSize={10.5} fill={WARNA.samping} fontFamily="var(--font-sans), sans-serif">ukuran</text>
+                </>
+              ) : (
+                <>
+                  <path d={`M ${bx - 13} ${cy} h -16 m 5 -4 l -5 4 l 5 4`} stroke={WARNA.samping} />
+                  <text x={bx - 33} y={cy + 4} textAnchor="end" fontSize={10.5} fill={WARNA.samping} fontFamily="var(--font-sans), sans-serif">ukuran</text>
+                </>
+              )}
+              {cy > 58 ? (
+                <>
+                  <path d={`M ${bx} ${cy - 13} v -16 m -4 5 l 4 -5 l 4 5`} stroke={WARNA.sudut} />
+                  <text x={bx + 6} y={cy - 32} fontSize={10.5} fill={WARNA.sudut} fontFamily="var(--font-sans), sans-serif">sudut</text>
+                </>
+              ) : (
+                <>
+                  <path d={`M ${bx} ${cy + 13} v 16 m -4 -5 l 4 5 l 4 -5`} stroke={WARNA.sudut} />
+                  <text x={bx + 6} y={cy + 42} fontSize={10.5} fill={WARNA.sudut} fontFamily="var(--font-sans), sans-serif">sudut</text>
+                </>
+              )}
+            </g>
+          )}
           <circle cx={bx} cy={cy} r={7} fill="var(--kartu)" stroke={WARNA.miring} strokeWidth={2.5} />
           <circle cx={bx} cy={cy} r={2.5} fill={WARNA.miring} />
         </g>

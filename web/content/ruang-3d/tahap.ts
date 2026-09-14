@@ -51,19 +51,20 @@ export const TAHAP: Tahap[] = [
         langkah: [
           'Tarik ke kiri atau ke kanan untuk memutari kubusnya.',
           'Tarik ke atas atau ke bawah untuk mengubah ketinggian mata.',
-          'Perhatikan tulisan di bawah gambar: kapan ia berubah dari tampak berpotongan menjadi tampak terpisah.',
+          'Perhatikan tulisan di bawah gambar. Kapan ia berubah dari "tampak berpotongan" menjadi "tampak terpisah"?',
+          'Selama Anda memutar, apakah kubusnya sendiri berubah? Lalu apa yang sebenarnya berubah?',
         ],
-      },
-      {
-        jenis: 'sorot',
-        teks:
-          'Yang berubah cuma sudut pandangnya. Kubusnya sendiri sama sekali tidak berubah.',
       },
       { jenis: 'sesi', judul: 'Kenapa gambarnya bisa menipu' },
       {
         jenis: 'paragraf',
         teks:
           'Kertas itu datar, benda ruang itu tidak. Setiap gambar bangun ruang adalah ruang yang dipipihkan menjadi dua arah saja. Dalam pemipihan itu selalu ada yang hilang, dan yang paling sering hilang adalah keterangan mana yang lebih dekat ke mata.',
+      },
+      {
+        jenis: 'sorot',
+        teks:
+          'Yang berubah cuma sudut pandangnya. Kubusnya sendiri sama sekali tidak berubah.',
       },
       {
         jenis: 'paragraf',
@@ -160,9 +161,10 @@ export const TAHAP: Tahap[] = [
         teks:
           'Pilih dua ruas di alatnya, lalu baca alasannya di bawah tabel angka.',
         langkah: [
-          'Mulai dari AB dan HG. Keduanya sejajar, dan Anda bisa membayangkan satu bidang, yaitu sisi depan yang direntangkan, memuat keduanya.',
-          'Ganti yang kedua jadi CG. Sekarang bersilangan. Coba cari bidang yang memuat keduanya, dan Anda tidak akan menemukannya.',
-          'Coba juga AC dengan BD, dua diagonal yang sama-sama di alas.',
+          'Mulai dari AB dan HG. Baca vonis alatnya, lalu coba bayangkan satu bidang datar yang memuat kedua ruas itu sekaligus. Ketemu?',
+          'Ganti yang kedua jadi CG. Sekarang vonisnya apa? Coba cari lagi bidang yang memuat keduanya.',
+          'Coba juga AC dengan BD, dua diagonal yang sama-sama di alas. Apa vonisnya kali ini?',
+          'Dari ketiga percobaan, pasangan mana yang tidak bisa dimuat satu bidang? Apa yang membedakannya dari yang lain?',
         ],
       },
       { jenis: 'sesi', judul: 'Garis terhadap bidang' },
@@ -231,7 +233,7 @@ export const TAHAP: Tahap[] = [
     video: { berkas: 'ruang-3d-03.mp4', poster: 'ruang-3d-03.jpg' },
     siap: true,
     penjelasan: [
-      { jenis: 'sesi', judul: 'Masalahnya dulu' },
+      { jenis: 'sesi', judul: 'Masalahnya: jarak yang mana?' },
       {
         jenis: 'paragraf',
         teks:
@@ -246,9 +248,10 @@ export const TAHAP: Tahap[] = [
         teks:
           'Geser titik Q sepanjang AC, dan perhatikan dua hal sekaligus.',
         langkah: [
-          'Angka BQ di bawah gambar naik turun mengikuti geseran.',
-          'Grafik kecil di kolom ini melacak angka itu. Bentuknya seperti lembah.',
-          'Cari dasar lembahnya. Persis di situ, tanda siku-siku menyala di titik Q.',
+          'Geser Q pelan-pelan dari A ke C sambil mengawasi angka BQ di bawah gambar.',
+          'Perhatikan grafik kecil di kolom ini. Bentuk apa yang ia gambar?',
+          'Cari dasar lembah grafik itu. Tanda apa yang menyala di titik Q tepat di situ?',
+          'Jadi, di mana BQ paling pendek, dan bagaimana kedudukan BQ terhadap AC saat itu?',
         ],
       },
       { jenis: 'sesi', judul: 'Kenapa titik terendahnya pasti yang siku-siku' },
@@ -350,10 +353,10 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Tekan tombol Langkah 2 di bawah gambar, lalu putar kubusnya.',
         langkah: [
-          'Segitiga ACG berdiri tegak di dalam kubus, tidak menempel pada sisi mana pun.',
-          'Alasnya AC, hasil hitungan langkah pertama tadi.',
-          'Sisi tegaknya CG, yaitu satu rusuk biasa.',
-          'Siku-sikunya di C, karena rusuk tegak selalu tegak lurus alas.',
+          'Tekan tombol Langkah 2, lalu putar kubusnya sampai segitiga ACG terlihat utuh. Apakah ia menempel pada salah satu sisi kubus?',
+          'Perhatikan alasnya, AC. Dari langkah mana panjang ruas itu sudah Anda dapatkan?',
+          'Perhatikan sisi tegaknya, CG. Ruas apa itu pada kubus?',
+          'Di titik mana tanda siku-sikunya, dan menurut Anda kenapa di situ?',
         ],
       },
       {
@@ -416,7 +419,7 @@ export const TAHAP: Tahap[] = [
     widget: 'jarak-ke-garis',
     siap: true,
     penjelasan: [
-      { jenis: 'sesi', judul: 'Soalnya' },
+      { jenis: 'sesi', judul: 'Soalnya: jarak B ke garis AG' },
       {
         jenis: 'paragraf',
         teks:
@@ -426,9 +429,10 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Putar kubusnya dan perhatikan letak titik K, si kaki tegak lurus.',
         langkah: [
-          'K tidak berada di rusuk mana pun, ia melayang di dalam kubus.',
-          'Ganti titiknya ke D, lalu ke E, dan bandingkan angkanya.',
-          'Ketiganya memberi angka yang sama persis. Itu bukan kebetulan.',
+          'Putar kubusnya dan cari letak titik K, si kaki tegak lurus. Apakah ia berada di rusuk mana pun?',
+          'Ganti titiknya ke D, lalu ke E, dan catat angkanya masing-masing.',
+          'Bandingkan ketiga angka itu. Sama atau beda?',
+          'Menurut Anda, kebetulan atau ada sebabnya? Perhatikan letak ketiga titik itu terhadap garis AG.',
         ],
       },
       { jenis: 'sesi', judul: 'Cara pertama: lewat segitiga' },
@@ -518,7 +522,7 @@ export const TAHAP: Tahap[] = [
     video: { berkas: 'ruang-3d-06.mp4', poster: 'ruang-3d-06.jpg' },
     siap: true,
     penjelasan: [
-      { jenis: 'sesi', judul: 'Soalnya' },
+      { jenis: 'sesi', judul: 'Soalnya: jarak A ke bidang BDE' },
       {
         jenis: 'paragraf',
         teks:
@@ -533,9 +537,10 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Putar kubusnya sampai ruas ungu itu terlihat benar-benar menembus.',
         langkah: [
-          'Ruas AK ungu adalah jaraknya, dan ia berhenti tepat di permukaan bidang.',
-          'Garis putus-putus samar adalah diagonal ruang AG. Titik K duduk persis di atasnya.',
-          'Ganti ke soal kedua, C ke bidang BDG, dan bandingkan angkanya.',
+          'Putar kubusnya sampai ruas ungu AK terlihat benar-benar menembus. Di mana ujung K berhenti?',
+          'Perhatikan garis putus-putus samar, diagonal ruang AG. Di mana letak titik K terhadap garis itu?',
+          'Ganti ke soal kedua, C ke bidang BDG, dan bandingkan angkanya dengan soal pertama.',
+          'Apa yang sama pada kedua soal itu, dan menurut Anda kenapa?',
         ],
       },
       { jenis: 'sesi', judul: 'Cara pertama: memakai simetri' },
@@ -634,9 +639,10 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Geser titik P sepanjang rusuk AE, dan awasi angkanya.',
         langkah: [
-          'Geser sampai ujung bawah, lalu sampai ujung atas.',
-          'Angka jaraknya tidak bergerak sedikit pun. Tetap 6.',
-          'Ruas ungu PK ikut berpindah, tetapi panjangnya tidak berubah.',
+          'Geser P sampai ujung bawah rusuk AE, lalu sampai ujung atas, sambil mengawasi angkanya.',
+          'Berapa angka jaraknya di ujung bawah, di tengah, dan di ujung atas?',
+          'Perhatikan ruas ungu PK. Apa yang berubah padanya, dan apa yang tidak?',
+          'Kalau angkanya tidak bergantung pada letak P, menurut Anda apa artinya bagi cara mengukur jarak garis ke bidang?',
         ],
       },
       { jenis: 'sesi', judul: 'Kenapa titiknya boleh mana saja' },
@@ -702,7 +708,7 @@ export const TAHAP: Tahap[] = [
     video: { berkas: 'ruang-3d-08.mp4', poster: 'ruang-3d-08.jpg' },
     siap: true,
     penjelasan: [
-      { jenis: 'sesi', judul: 'Masalahnya' },
+      { jenis: 'sesi', judul: 'Masalahnya: sudut tanpa titik sudut' },
       {
         jenis: 'paragraf',
         teks:
@@ -728,9 +734,10 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Geser BG dengan penggeser di bawah gambar, sampai penuh.',
         langkah: [
-          'Garis merah berjalan pelan-pelan tanpa berputar sedikit pun.',
-          'Posisi asalnya tetap terlihat samar sebagai pembanding.',
-          'Pada geseran penuh, BG mendarat tepat menjadi AH, diagonal sisi yang memang sudah ada.',
+          'Geser BG dengan penggeser di bawah gambar, sedikit demi sedikit. Perhatikan garis merahnya: apakah ia ikut berputar?',
+          'Perhatikan posisi asalnya yang tetap terlihat samar. Sejajarkah garis yang bergerak dengan bayangan asalnya?',
+          'Pada geseran penuh, di mana BG mendarat? Ruas apa pada kubus yang ditempatinya?',
+          'Sudut apa yang sekarang terlihat jelas, dan segitiga mana yang memuatnya?',
         ],
       },
       { jenis: 'sesi', judul: 'Jawabannya bisa ditebak tanpa kalkulator' },
@@ -849,10 +856,10 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Putar kubusnya sampai segitiga ACG terlihat utuh.',
         langkah: [
-          'Ruas merah AG adalah garisnya.',
-          'Ruas ungu AC adalah bayangannya di alas.',
-          'Garis putus-putus CG adalah tiang tegak yang menghubungkan keduanya.',
-          'Tanda siku-siku di C memastikan segitiganya memang siku-siku di sana.',
+          'Putar kubusnya sampai segitiga ACG terlihat utuh. Temukan ruas merah AG, garis yang ditanyakan.',
+          'Temukan ruas ungu AC. Di mana ia berada, dan apa hubungannya dengan AG?',
+          'Temukan garis putus-putus CG. Apa perannya dalam segitiga itu?',
+          'Di titik mana tanda siku-sikunya? Jadi, sudut antara AG dan alas kubus adalah sudut yang mana?',
         ],
       },
       { jenis: 'sesi', judul: 'Bagian kedua: bidang dengan bidang' },
@@ -890,10 +897,10 @@ export const TAHAP: Tahap[] = [
         teks:
           'Buktikan sendiri kalimat barusan. Tekan tombol Bidang dengan bidang, lalu geser titik P di sepanjang garis potong BD.',
         langkah: [
-          'Tepat di tengah BD, kedua tanda siku-siku menyala dan sudutnya terbaca 54,7 derajat.',
-          'Geser P ke arah B. Tanda siku-sikunya padam, sebab PC sudah tidak tegak lurus BD lagi.',
-          'Angkanya ikut turun. Di seperempat jalan dari B, yang terbaca sekitar 51,7 derajat.',
-          'Geser ke sisi yang lain, dan angkanya turun juga. Yang benar adalah angka terbesar, dan itu hanya muncul tepat di tengah.',
+          'Tekan tombol Bidang dengan bidang, lalu letakkan P tepat di tengah BD. Tanda apa yang menyala, dan berapa sudut yang terbaca?',
+          'Geser P ke arah B. Apa yang terjadi pada tanda siku-sikunya, dan pada angkanya?',
+          'Catat angkanya di seperempat jalan dari B.',
+          'Geser ke sisi yang lain. Di posisi mana angkanya paling besar? Menurut Anda, posisi mana yang memberi sudut antarbidang yang benar?',
         ],
       },
       { jenis: 'sesi', judul: 'Sudut selalu diambil yang tidak tumpul' },
@@ -975,17 +982,12 @@ export const TAHAP: Tahap[] = [
         teks:
           'Sebelum membaca keterangan tiap kartu, tutup dulu tulisannya dan tebak sendiri: materi mana yang mengajarkan hitungan di gambar itu.',
         langkah: [
-          'Lampu kelas: yang dicari ruas terpendek dari sebuah titik ke sebuah bidang. Itu materi 06.',
-          'Atap rumah: dua bidang bertemu pada satu garis, dan sudutnya diukur dari sana. Itu materi 09 bagian kedua.',
-          'Menara rangka: dua batang tanpa titik persekutuan dan tanpa bidang yang memuat keduanya. Itu materi 01 dan materi 02.',
-          'Tangga bersandar: sebuah garis miring dan bayangannya di lantai. Itu materi 09 bagian pertama.',
-          'Cocokkan tebakan Anda dengan tulisan di tiap kartu, lalu perhatikan angkanya di baris bawah gambar.',
+          'Lampu kelas: dari sebuah titik ke sebuah bidang, ruas mana yang dicari? Materi mana yang mengajarkannya?',
+          'Atap rumah: dua bidang bertemu pada satu garis. Sudutnya diukur dari mana, dan itu materi berapa?',
+          'Menara rangka: dua batang tanpa titik persekutuan dan tanpa bidang yang memuat keduanya. Apa nama kedudukannya, dan di materi mana itu dibahas?',
+          'Tangga bersandar: sebuah garis miring dan bayangannya di lantai. Sudut apa itu?',
+          'Cocokkan tebakan Anda dengan tulisan di tiap kartu, lalu perhatikan angkanya di baris bawah gambar. Berapa tebakan Anda yang tepat?',
         ],
-      },
-      {
-        jenis: 'sorot',
-        teks:
-          'Semua angka di keempat gambar dihitung dengan cara yang sama seperti materi 01 sampai 9, dan diperiksa mesin sebelum dipasang di sini.',
       },
       { jenis: 'sesi', judul: 'Lanjutannya kalau tertarik' },
       {
@@ -996,6 +998,11 @@ export const TAHAP: Tahap[] = [
           'Grafik komputer - setiap benda dalam permainan tiga dimensi diproyeksikan ke layar datar, persis seperti alat di halaman ini.',
           'Teknik sipil dan arsitektur - jarak, sudut, dan kemiringan adalah pekerjaan sehari-hari.',
         ],
+      },
+      {
+        jenis: 'sorot',
+        teks:
+          'Semua angka di keempat gambar dihitung dengan cara yang sama seperti materi 01 sampai 9, dan diperiksa mesin sebelum dipasang di sini.',
       },
     ],
     intisari: [

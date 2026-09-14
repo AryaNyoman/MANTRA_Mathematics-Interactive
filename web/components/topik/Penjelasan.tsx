@@ -30,11 +30,13 @@ import type { Blok } from '@/content/trigonometri'
  *
  * REVISI ARYA 12 Sep 2026 (tiga hal, berlaku semua materi):
  * - langkah di kotak "Yuk bereksperimen" bernomor 1, 2, 3, bukan butir polos;
- * - kalimat sorot yang berdiri TEPAT di bawah kotak itu (11 tempat) ternyata
- *   dibaca sebagai bagian kotaknya tanpa jelas maksudnya. Ia memang jawaban
- *   atas percobaannya, jadi kini dimasukkan ke dalam kotak sebagai penutup
- *   bersub-judul "Yang kamu temukan"; kalimat sorot lainnya diberi cap
- *   "Kalimat kunci" (semula "Intinya", ARYA 13 Sep: terdengar memaksa) supaya perannya terbaca;
+ * - kalimat sorot diberi cap "Kalimat kunci" (semula "Intinya", ARYA 13 Sep:
+ *   terdengar memaksa) supaya perannya terbaca. Penutup kotak "Yang kamu
+ *   temukan" (12 Sep) DICABUT 14 Sep atas kritik ARYA: kesimpulan tidak
+ *   boleh disodorkan selagi siswa bereksperimen. Kotak coba kini berhenti
+ *   pada pertanyaan, dan jawabannya menunggu di penjelasan sesudahnya;
+ *   kalimat sorot yang dulu menempel di bawah kotak dipindah ke dalam
+ *   penjelasan itu di berkas isinya;
  * - baris kotak contoh dulu dirapikan dengan spasi untuk huruf lebar-sama
  *   (MATRA lama). Rancangan MANTRA mengganti hurufnya (3 Sep), dan sejak itu
  *   spasinya tidak menjajarkan apa pun (foto ARYA: "Bayangan pohon 8 m"
@@ -54,12 +56,6 @@ export function pecahKolom(baris: string): string[] {
 
 export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: ReactNode }) {
   const letakSisipan = sisipan ? blok.findIndex((b) => b.jenis === 'coba') : -1
-  // Sorot yang langsung mengikuti kotak coba dirender DI DALAM kotak itu
-  // (lihat catatan revisi 12 Sep di atas), jadi indeksnya dilewati di bawah.
-  const sorotDalamCoba = new Set<number>()
-  blok.forEach((b, i) => {
-    if (b.jenis === 'coba' && blok[i + 1]?.jenis === 'sorot') sorotDalamCoba.add(i + 1)
-  })
   // Nomor sesi dihitung DULU, bukan dengan penghitung yang dinaikkan di dalam
   // map. React 19 melarang mengubah variabel setelah render selesai, dan pada
   // render ulang penghitung semacam itu memberi nomor yang berbeda-beda.
@@ -83,8 +79,7 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
             </div>
           )
 
-        if (b.jenis === 'coba') {
-          const temuan = blok[i + 1]
+        if (b.jenis === 'coba')
           return (
             <Fragment key={i}>
               <div className="kotak-coba">
@@ -95,27 +90,18 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
                     {b.langkah.map((l, n) => <li key={n}>{l}</li>)}
                   </ol>
                 )}
-                {temuan?.jenis === 'sorot' && (
-                  <div className="coba-temuan">
-                    <div className="coba-temuan-cap">Yang kamu temukan</div>
-                    <p>{temuan.teks}</p>
-                  </div>
-                )}
               </div>
               {i === letakSisipan && sisipan}
             </Fragment>
           )
-        }
 
-        if (b.jenis === 'sorot') {
-          if (sorotDalamCoba.has(i)) return null
+        if (b.jenis === 'sorot')
           return (
             <div key={i} className="sorot">
               <span className="sorot-cap">Kalimat kunci</span>
               <p>{b.teks}</p>
             </div>
           )
-        }
 
         if (b.jenis === 'poin')
           return (

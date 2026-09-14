@@ -61,7 +61,7 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
               <Angka nama="Sudut sinar matahari" arti="makin tinggi matahari, makin pendek bayangan" kunci="sinar" satuan="°"
                 nilai={sudutSinar} onUbah={setSudutSinar} min={BATAS_SUDUT.min} max={BATAS_SUDUT.maks} langkah={1} />
               <Petunjuk>
-                  kedua bayangan berubah panjang, tapi kedua hasil baginya tetap{' '}
+                  matahari ikut naik turun, kedua bayangan berubah panjang, tetapi kedua hasil baginya tetap{' '}
                   {angka(hitungBayangan(sudutSinar).tan)}
                 </Petunjuk>
             </div>
@@ -82,7 +82,8 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
                 nilai={skala} onUbah={setSkala} min={35} max={100} langkah={1} />
               <Angka nama="Sudut θ" arti="sudut di titik A, inilah yang menentukan rasionya" kunci="sudut" satuan="°"
                 nilai={derajat} onUbah={setDerajat} min={10} max={80} langkah={1} />
-              <Petunjuk>tarik titik puncaknya, atau geser kendali di atas ·
+              <Petunjuk>tarik titik puncaknya ke samping untuk ukuran, ke atas atau ke bawah untuk sudut
+                  (satu tarikan hanya mengubah satu hal), atau geser kendali di atas ·
                   skala tampilan 1 cm = {angka(hitungGeometri(skala, derajat).ppc, 1)} px</Petunjuk>
             </div>
           </>

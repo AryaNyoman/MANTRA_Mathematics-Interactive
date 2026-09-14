@@ -62,7 +62,7 @@ export const TAHAP_NYATA: TahapStatistika[] = [
       { jenis: 'paragraf', teks: 'Diagram pencar jam belajar seminggu lawan nilai ujian biasanya naik ke kanan: makin lama belajar, makin tinggi nilai. Hubungannya nyata dan koefisien korelasinya tinggi. Tetapi hubungan bukan berarti sebab. Siswa yang belajar lama mungkin juga tidur cukup, punya buku, atau lebih dulu paham materinya.' },
       { jenis: 'paragraf', teks: 'Diagram pencar dari Materi 10 dan koefisien korelasi dari Materi 12 memberi tahu seberapa rapat dua data bergerak bersama. Untuk mengklaim sebab, perlu percobaan yang mengendalikan hal lain, dan itu urusan penelitian, bukan sekadar gambar.' },
 
-      { jenis: 'sesi', judul: 'Satu benang merah' },
+      { jenis: 'sesi', judul: 'Satu benang merah dari semua contoh' },
       { jenis: 'sorot', teks: 'Angka tidak pernah berbicara sendiri. Yang berbicara adalah pilihan: apa yang diukur, siapa yang diukur, dan cara menampilkannya.' },
       {
         jenis: 'poin',
