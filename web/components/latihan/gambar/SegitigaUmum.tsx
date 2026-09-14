@@ -128,10 +128,11 @@ export default function SegitigaUmum({
       })}
       {sisiPasangan.map(([i, j], k) => {
         let m = tengah(T[i]!, T[j]!)
-        // kaki garis tinggi jatuh di tengah sisi (segitiga sama kaki): geser
-        // label sisi ke arah titik pertama supaya tidak menindih nama kaki
-        if (kaki && Math.hypot(kaki[0] - m[0], kaki[1] - m[1]) < 0.18 * Math.hypot(T[j]![0] - T[i]![0], T[j]![1] - T[i]![1])) {
-          m = [m[0] + (T[i]![0] - m[0]) * 0.45, m[1] + (T[i]![1] - m[1]) * 0.45]
+        // kaki garis tinggi jatuh dekat tengah sisi: geser label sisi ke arah
+        // ujung yang lebih jauh dari kaki supaya tidak menindih nama kakinya
+        if (kaki && Math.hypot(kaki[0] - m[0], kaki[1] - m[1]) < 0.25 * Math.hypot(T[j]![0] - T[i]![0], T[j]![1] - T[i]![1])) {
+          const jauhDariKaki = Math.hypot(kaki[0] - T[i]![0], kaki[1] - T[i]![1]) > Math.hypot(kaki[0] - T[j]![0], kaki[1] - T[j]![1]) ? T[i]! : T[j]!
+          m = [m[0] + (jauhDariKaki[0] - m[0]) * 0.5, m[1] + (jauhDariKaki[1] - m[1]) * 0.5]
         }
         const q = jauh(m, 15)
         const aktif = sorot === k

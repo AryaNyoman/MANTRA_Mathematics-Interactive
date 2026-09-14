@@ -15,10 +15,10 @@ export default function Kuadran({ sorot, sudut, label }: { sorot?: 1 | 2 | 3 | 4
   const RX = 170, RY = 104
   const ISI: Record<1 | 2 | 3 | 4, { nama: string; positif: string; x: number; y: number }> = {
     // nama kuadran ditaruh dekat pojok luar, menjauh dari sinar sudut di tengah
-    1: { nama: 'Kuadran I', positif: 'semua positif', x: CX + RX * 0.62, y: CY - RY * 0.6 },
-    2: { nama: 'Kuadran II', positif: 'sin positif', x: CX - RX * 0.62, y: CY - RY * 0.6 },
-    3: { nama: 'Kuadran III', positif: 'tan positif', x: CX - RX * 0.62, y: CY + RY * 0.55 },
-    4: { nama: 'Kuadran IV', positif: 'cos positif', x: CX + RX * 0.62, y: CY + RY * 0.55 },
+    1: { nama: 'Kuadran I', positif: 'semua positif', x: CX + RX * 0.72, y: CY - RY * 0.7 },
+    2: { nama: 'Kuadran II', positif: 'sin positif', x: CX - RX * 0.72, y: CY - RY * 0.7 },
+    3: { nama: 'Kuadran III', positif: 'tan positif', x: CX - RX * 0.72, y: CY + RY * 0.64 },
+    4: { nama: 'Kuadran IV', positif: 'cos positif', x: CX + RX * 0.72, y: CY + RY * 0.64 },
   }
   const kotak = (k: 1 | 2 | 3 | 4) => ({
     x: k === 1 || k === 4 ? CX : CX - RX,
@@ -58,8 +58,9 @@ export default function Kuadran({ sorot, sudut, label }: { sorot?: 1 | 2 | 3 | 4
           <path d={busur} fill="none" stroke={WARNA.depan} strokeWidth={1.8} />
           <line x1={CX} y1={CY} x2={ux} y2={uy} stroke={WARNA.depan} strokeWidth={2.2} />
           <circle cx={ux} cy={uy} r={3.6} fill={WARNA.depan} />
-          <text x={ux + (Math.cos(rad) >= 0 ? 8 : -8)} y={uy + (Math.sin(rad) >= 0 ? -6 : 14)} fontSize={12}
-                textAnchor={Math.cos(rad) >= 0 ? 'start' : 'end'} fill={WARNA.depan} fontFamily={MONO}>
+          {/* label di perpanjangan sinar, lewat ujungnya, supaya tidak masuk ke tulisan kuadran */}
+          <text x={CX + (panjang + 22) * Math.cos(rad)} y={CY - (panjang + 22) * Math.sin(rad) + 4} fontSize={12}
+                textAnchor="middle" fill={WARNA.depan} fontFamily={MONO}>
             {label ?? `${angka(sudut, 1)}°`}
           </text>
         </>

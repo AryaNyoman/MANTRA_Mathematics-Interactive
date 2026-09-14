@@ -33,7 +33,8 @@ const CONTOH: { nama: string; gambar: Data }[] = [
   { nama: 'luas dua kurva', gambar: { jenis: 'luas', fungsi: '4 - x*x', dari: -2, sampai: 2, fungsi2: 'x*x - 4' } },
   { nama: 'svg bebas', gambar: { jenis: 'svg', viewBox: '0 0 460 200', isi: '<rect x="40" y="40" width="380" height="120" rx="12" fill="none" stroke="#3A6EA5" stroke-width="2"/><text x="230" y="108" text-anchor="middle" font-size="16" fill="#1F2430">svg bebas</text>' } },
   // gambar bantu pembahasan (14 Sep 2026)
-  { nama: 'kuadran', gambar: { jenis: 'kuadran', sorot: 3, sudut: 210, label: 'α' } },
+  { nama: 'kuadran', gambar: { jenis: 'kuadran', sorot: 3, sudut: 225, label: '225°' } },
+  { nama: 'kuadran II', gambar: { jenis: 'kuadran', sorot: 2, sudut: 110, label: '110°' } },
   { nama: 'segitiga acuan', gambar: { jenis: 'segitiga', sudut: 37, label: ['Depan = 3', 'Samping = 4', 'Miring = ?'], namaSudut: 'α', sorot: 'miring' } },
   { nama: 'segitiga umum siku', gambar: { jenis: 'segitiga-umum', titik: ['A', 'J', 'E'], panjang: [4.24, 7.35, 6], sisi: ['3√2', '?', '6'], siku: 0, sorot: 1 } },
   { nama: 'segitiga umum tinggi', gambar: { jenis: 'segitiga-umum', titik: ['B', 'D', 'T'], panjang: [8, 6, 6], sisi: ['8', '6', '6'], tinggi: { dari: 2, label: '?', kaki: 'O' }, sorot: 'tinggi', sudut: [{ di: 0, label: 'θ' }] } },
