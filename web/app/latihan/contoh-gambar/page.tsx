@@ -49,8 +49,8 @@ const CONTOH: { nama: string; gambar: Data }[] = [
   { nama: 'balok bantu', gambar: { jenis: 'balok', ukuran: [6, 6, 6], ruas: [['A', 'K', '?']], bantu: [['A', 'G'], ['E', 'J', '3√6']], tambahan: [{ nama: 'J', di: [0.5, 0.5, 0] }, { nama: 'K', di: [0.333, 0.333, 0.333] }], bidang: ['B', 'D', 'E'] } },
 ]
 
-export default async function Halaman({ searchParams }: { searchParams: Promise<{ bab?: string }> }) {
-  const { bab } = await searchParams
+export default async function Halaman({ searchParams }: { searchParams: Promise<{ bab?: string; mulai?: string; jumlah?: string }> }) {
+  const { bab, mulai, jumlah } = await searchParams
   const isi = bab ? ISI_TOPIK[bab] : undefined
   // Per bab: gambar soal DAN gambar bantu tiap langkah pembahasan, supaya
   // keduanya bisa dipotret dan dinilai sekaligus (14 Sep 2026).
@@ -62,6 +62,9 @@ export default async function Halaman({ searchParams }: { searchParams: Promise<
         ),
       ])
     : CONTOH
+  // ?mulai=40&jumlah=40 memotong daftar: potret halaman penuh Playwright
+  // berulang sesudah 16.384 piksel, jadi bab bergambar banyak dipotret per bagian
+  const potongan = daftar.slice(Number(mulai ?? 0), Number(mulai ?? 0) + Number(jumlah ?? daftar.length))
   return (
     <>
       <Nav label="Contoh gambar soal" />
@@ -71,7 +74,7 @@ export default async function Halaman({ searchParams }: { searchParams: Promise<
           {isi ? `Gambar ${bab}: ${daftar.length} gambar dari ${isi.kuis.length} soal` : 'Contoh gambar soal, satu tiap jenis'}
         </h1>
         <div className="kisi-contoh-gambar">
-          {daftar.map((c) => (
+          {potongan.map((c) => (
             <div key={c.nama} className="kartu-contoh-gambar">
               <div className="kicker">{c.nama}</div>
               <GambarSoal gambar={c.gambar} />

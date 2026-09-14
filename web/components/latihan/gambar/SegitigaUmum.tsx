@@ -44,10 +44,11 @@ export default function SegitigaUmum({
   const semua = kakiMentah ? [...mentah, kakiMentah] : mentah
   const xs = semua.map((p) => p[0]), ys = semua.map((p) => p[1])
   const xMin = Math.min(...xs), xMaks = Math.max(...xs), yMin = Math.min(...ys), yMaks = Math.max(...ys)
-  const s = Math.min(300 / Math.max(xMaks - xMin, 1e-6), 150 / Math.max(yMaks - yMin, 1e-6))
-  // pusat kotak batas segitiga ditaruh di tengah kanvas (230, 118)
+  // kotak 330 x 176 satuan; sisanya tepi untuk nama titik dan label sisi
+  const s = Math.min(330 / Math.max(xMaks - xMin, 1e-6), 176 / Math.max(yMaks - yMin, 1e-6))
+  // pusat kotak batas segitiga ditaruh di tengah kanvas (230, 125)
   const ox = LEBAR / 2 - ((xMin + xMaks) / 2) * s
-  const oy = 118 + ((yMin + yMaks) / 2) * s
+  const oy = 125 + ((yMin + yMaks) / 2) * s
   const P = (p: Titik): Titik => [ox + p[0] * s, oy - p[1] * s]
   const T = mentah.map(P) as [Titik, Titik, Titik]
   const kaki = kakiMentah ? P(kakiMentah) : null
@@ -91,6 +92,11 @@ export default function SegitigaUmum({
         const dekat = Math.hypot(kaki[0] - U[0], kaki[1] - U[1]) < Math.hypot(kaki[0] - W[0], kaki[1] - W[1]) ? U : W
         const tengahTinggi = tengah(V, kaki)
         const arah = satuan(V, kaki)
+        // label garis tinggi ditaruh di sisi ujung alas yang lebih jauh dari
+        // kaki, supaya tidak menindih label sisi pendek di sebelahnya
+        const jauhU = Math.hypot(kaki[0] - U[0], kaki[1] - U[1]) > Math.hypot(kaki[0] - W[0], kaki[1] - W[1])
+        const keJauh: Titik = jauhU ? [U[0] - kaki[0], U[1] - kaki[1]] : [W[0] - kaki[0], W[1] - kaki[1]]
+        const tanda = (keJauh[0] * arah[1] - keJauh[1] * arah[0]) >= 0 ? 1 : -1
         return (
           <g>
             {diLuar && <line x1={dekat[0]} y1={dekat[1]} x2={kaki[0]} y2={kaki[1]} stroke={WARNA.redup} strokeWidth={1.2} strokeDasharray="3 3" />}
@@ -98,8 +104,8 @@ export default function SegitigaUmum({
                   strokeWidth={aktif ? 3 : 1.8} strokeDasharray={aktif ? undefined : '5 4'} />
             {tandaSiku(kaki, V, diLuar ? dekat : (dekat === U ? W : U), 9)}
             {tinggi.label && (
-              <text x={tengahTinggi[0] + arah[1] * 12 + 2} y={tengahTinggi[1] - arah[0] * 12 + 4} fontSize={12.5}
-                    fill={aktif ? WARNA.depan : WARNA.sudut} fontFamily={MONO}>{tinggi.label}</text>
+              <text x={tengahTinggi[0] + tanda * arah[1] * 13} y={tengahTinggi[1] - tanda * arah[0] * 13 + 4} fontSize={12.5}
+                    textAnchor="middle" fill={aktif ? WARNA.depan : WARNA.sudut} fontFamily={MONO}>{tinggi.label}</text>
             )}
             {tinggi.kaki && (() => {
               const q = jauh(kaki, 14)
