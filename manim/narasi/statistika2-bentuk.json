@@ -1,6 +1,6 @@
 {
   "adegan": "Bentuk2",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Penyajian Data, Bagian 2 (Materi 02). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1: isi naskah lama yang disetujui ARYA (dua jenis data; diagram batang bersela boleh ditukar; histogram rapat jadi kacau bila ditukar; diagram titik) dipadukan dengan tambahan naskah v3 sesi (frekuensi 8, 6, 12, 5, 9 dijumlahkan 40; persen 8 : 40 = 20 persen dan bentuk umumnya; kelompok tinggi badan 10 cm: 6, 22, 11, 1). Pembuka menyebut sub-bab plus Bagian 2, segar-ingat Bagian 1 (titik ditumpahkan ke garis nilai), penutup menunjuk Bagian 3 (lebar kelas). Data: web/content/statistika/data.json t02-cara-ke-sekolah dan t03-tinggi (40 siswa yang sama).",
   "segmen": [
@@ -79,5 +79,6 @@
       "teks": "Di materi berikutnya, Penyajian Data, Bagian tiga, keempat kelompok tinggi badan tadi tidak lagi sama lebarnya, dan kita lihat kenapa yang dibaca sebenarnya luas batangnya, bukan tingginya.",
       "tulis": "Di materi berikutnya, Penyajian Data, Bagian 3, keempat kelompok tinggi badan tadi tidak lagi sama lebarnya, dan kita lihat kenapa yang dibaca sebenarnya luas batangnya, bukan tingginya."
     }
-  ]
+  ],
+  "napas": 0.6
 }

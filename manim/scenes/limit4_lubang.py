@@ -143,8 +143,10 @@ class LubangDiGrafik(AdeganMatra):
             b.tunggu_kata("x")
             # Ditahan besar 2,6 detik sampai kalimatnya selesai: kalau langsung
             # terbang ke panel, layar kosong tiga detik (cek_layar_kosong).
+            # tahan 2,2 dan run_time 1,0 (dulu 2,6 dan bawaan 1,2): kata "x" datang
+            # pada 2,3 s dari segmen 6,4 s pada narasi Bian (14 Sep 2026)
             sinema.lahir_rumus(self, r"f(x) = \frac{x^2 - 1}{x - 1}", np.array([0.0, 0.4, 0.0]), papan,
-                               b=b, warna=TINTA, sebagai_utama=False, geser=ORIGIN, tahan=2.6)
+                               b=b, warna=TINTA, sebagai_utama=False, geser=ORIGIN, tahan=2.2, run_time=1.0)
 
         # ============ masukkan x = 1: 0 dibagi 0 ========================= #
         subs, subs_atas, subs_bawah = self.pecahan(r"f(1) =", r"1^2 - 1", r"1 - 1", ukuran=38)

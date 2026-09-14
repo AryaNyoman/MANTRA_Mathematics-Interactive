@@ -158,8 +158,8 @@ class Pemusatan5(AdeganMatra):
 
         with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
             b.tunggu_kata("Ukuran")
-            sinema.judul_pembuka(self, "Ukuran Pemusatan dan Penyebaran, Bagian 1", lama=3.6, y=2.6)
-            b.catat(3.6)
+            sinema.judul_pembuka(self, "Ukuran Pemusatan dan Penyebaran, Bagian 1", lama=3.4, y=2.6)  # irama Bian (14 Sep 2026)
+            b.catat(3.4)
             b.tunggu_kata("Delapan")
             HUD["identitas"] = sinema.identitas(self, "8 siswa, nilai 4 sampai 11")
             HUD["identitas"].set_opacity(0)

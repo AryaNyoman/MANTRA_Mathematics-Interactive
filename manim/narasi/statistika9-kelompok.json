@@ -1,6 +1,6 @@
 {
   "adegan": "Kelompok9",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Ukuran Pemusatan dan Penyebaran, Bagian 5 (Materi 09). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (40 lembar jawaban jadi enam batang; angka aslinya hilang; tepi kelas 49,5; titik tengah, mean 67,75; median membelah luas: 3, 11, 23; kurang 9 dari 12, tiga perempat lebar kelas, 59,5 + 7,5 = 67; luas kiri = luas kanan; modus condong ke tetangga yang lebih tinggi, 65,21; semua hampiran, median asli 67,5). Yang ditambah: pembuka menyebut sub-bab plus Bagian 5 dengan pertanyaan halaman, segar-ingat Penyajian Data Bagian 3 (luas batang mewakili banyaknya data), hitungan mean ditulis (2710 : 40), rumus modus dengan d1 = 4 dan d2 = 3 ditulis, bentuk umum ketiga rumus, penutup menunjuk Hubungan Dua Variabel Bagian 1.",
   "segmen": [
@@ -74,5 +74,6 @@
       "teks": "Di materi berikutnya, Hubungan Dua Variabel, Bagian satu, tiap siswa punya dua angka: lama belajar dan nilai ujian. Apakah keduanya berhubungan?",
       "tulis": "Di materi berikutnya, Hubungan Dua Variabel, Bagian 1, tiap siswa punya *dua angka*: lama belajar dan nilai ujian. Apakah keduanya berhubungan?"
     }
-  ]
+  ],
+  "napas": 0.6
 }

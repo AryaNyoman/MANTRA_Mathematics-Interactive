@@ -316,7 +316,7 @@ class Pencilan6(AdeganMatra):
             buang("beda", "label beda")
             taruh("titik karyawan", titik_karyawan)
             b.main(*[FadeOut(o, scale=0.35) for o in orang],
-                   LaggedStartMap(FadeIn, titik_karyawan, lag_ratio=0.08), run_time=1.3)
+                   LaggedStartMap(FadeIn, titik_karyawan, lag_ratio=0.08), run_time=1.0)  # irama Bian (14 Sep 2026)
             buang("orang")
             b.tunggu_kata("Gajinya")
             taruh("panah direktur", VGroup(panah0, n_dir0))

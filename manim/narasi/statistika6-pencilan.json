@@ -1,6 +1,6 @@
 {
   "adegan": "Pencilan6",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Ukuran Pemusatan dan Penyebaran, Bagian 2 (Materi 06). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (sembilan karyawan bergaji 4,2 sampai 7 juta, mean 5,24 dan median 5,00; direktur 75 juta masuk, penggaris ditarik jauh, karyawan jadi gerombolan; mean berlari ke 12,22, median cuma ke 5,10; di 12,22 tidak ada siapa-siapa; mean memakai nilai, median memakai urutan; direktur 120 juta: mean 16,72, median diam; jangan buang direkturnya; ganti ukurannya, pakai median). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2 dengan pertanyaan halaman, segar-ingat Bagian 1 (mean titik seimbang, median yang di tengah), hitungan mean 122,2 : 10 = 12,22 ditulis, bentuk umum: mean memakai nilai (jumlah x dibagi n), median memakai urutan, penutup menunjuk Bagian 3.",
   "segmen": [
@@ -79,5 +79,6 @@
       "teks": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian tiga, sebaran seluruh data digambarkan hanya dengan lima angka.",
       "tulis": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian 3, sebaran seluruh data digambarkan hanya dengan *lima angka*."
     }
-  ]
+  ],
+  "napas": 0.6
 }

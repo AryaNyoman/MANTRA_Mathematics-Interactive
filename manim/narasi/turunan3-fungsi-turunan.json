@@ -1,6 +1,6 @@
 {
   "adegan": "TurunanFungsiBaru",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Revisi ARYA 8 Sep 2026: asal f'(x)=2x dibuktikan, tinggi vs kemiringan, jejak dihasilkan pengukuran, notasi dan sudut |x|; 3–6 menit. Pemicu animasi mengikuti WordBoundary. Video lain dipertahankan. 13 Sep 2026: 'sumbu mendatar/tegak' diganti 'sumbu-x/sumbu-y' (ARYA).",
   "segmen": [
@@ -159,5 +159,6 @@
       "teks": "Fungsi awal mencatat tinggi. Fungsi turunan mencatat kemiringan, pada titik yang turunannya ada. Untuk eks kuadrat, turunannya dua eks.",
       "tulis": "Fungsi awal mencatat tinggi. Fungsi turunan mencatat kemiringan, pada titik yang turunannya ada. Untuk x², turunannya 2x."
     }
-  ]
+  ],
+  "napas": 0.6
 }

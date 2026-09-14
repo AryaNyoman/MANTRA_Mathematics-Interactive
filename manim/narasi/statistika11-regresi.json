@@ -1,6 +1,6 @@
 {
   "adegan": "Regresi11",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Hubungan Dua Variabel, Bagian 2 (Materi 11). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (tiga garis masuk akal; residu = jarak tegak; tanda residu; jumlahnya nol; dikuadratkan lalu dijumlah; garis diputar: 146, 56,9, 27,2, naik lagi; kuadrat terkecil, b = 3,2 dan a = 49,2; arti kemiringan; ekstrapolasi 40 jam = 177,2). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2 dengan pertanyaan halaman, segar-ingat Ukuran Pemusatan dan Penyebaran Bagian 4 (jumlah simpangan nol, kuadrat), rumus b dan a dihitung dengan angkanya (n = 10, jumlah x 65, jumlah y 700, jumlah xy 4814, jumlah x kuadrat 505), bentuk umum, penutup menunjuk Bagian 3.",
   "segmen": [
@@ -74,5 +74,6 @@
       "teks": "Di materi berikutnya, Hubungan Dua Variabel, Bagian tiga, kekuatan hubungan diberi angka, namanya r. Kalau r nya nol koma sembilan delapan, apakah yang satu menyebabkan yang lain?",
       "tulis": "Di materi berikutnya, Hubungan Dua Variabel, Bagian 3, kekuatan hubungan diberi angka, namanya r. Kalau r = 0,98, apakah yang satu *menyebabkan* yang lain?"
     }
-  ]
+  ],
+  "napas": 0.6
 }

@@ -1,6 +1,6 @@
 {
   "adegan": "Simpangan8",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Ukuran Pemusatan dan Penyebaran, Bagian 4 (Materi 08). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (dua mesin lima botol, rata-rata sama 500; jarak ke pusat; jumlah jarak nol; kuadrat jadi persegi; luas 10 lawan 250; varian 2 dan 50; sisi dua kali luas empat kali; akar mengembalikan satuan; 1,41 lawan 7,07; botol 490 kurang isi). Yang ditambah: pembuka menyebut sub-bab plus Bagian 4 dengan pertanyaan halaman, segar-ingat Bagian 1 (jumlah simpangan ke kiri dan ke kanan sama), bentuk umum s = akar dari jumlah kuadrat simpangan dibagi n dan varian s kuadrat dibaca lengkap, penutup menunjuk Bagian 5.",
   "segmen": [
@@ -79,5 +79,6 @@
       "teks": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian lima, angka aslinya sudah hilang dan yang tersisa cuma tabelnya. Apa yang masih bisa dihitung?",
       "tulis": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian 5, angka aslinya sudah hilang dan yang tersisa cuma *tabelnya*. Apa yang masih bisa dihitung?"
     }
-  ]
+  ],
+  "napas": 0.6
 }

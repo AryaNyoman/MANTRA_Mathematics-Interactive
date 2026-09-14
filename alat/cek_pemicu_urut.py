@@ -90,7 +90,7 @@ BABAK = re.compile(r"""(?:sinema\.babak\(\s*self,|self\.bagian\()\s*(['"])([^'"]
 # memeriksanya. `tunggu_sampai(` juga tidak cocok (bukan jam kata).
 # Kelompok: 1 kutip, 2 frasa, 3 ke=.
 TUNGGU = re.compile(
-    r"""tunggu_kata\w*\(\s*(?:[^)'"]*?,\s*)?(['"])([^'"]+)\1(?:\s*,\s*ke\s*=\s*(\d+))?""")
+    r"""tunggu(?:_kata\w*)?\(\s*(?:[^)'"]*?,\s*)?(['"])([^'"]+)\1(?:\s*,\s*ke\s*=\s*(\d+))?""")   # juga self.tunggu(b, "frasa") milik Turunan 1 sampai 3 (14 Sep 2026)
 TOPIK_BARIS = re.compile(r"""^TOPIK\s*=\s*(['"])([^'"]+)\1""", re.M)
 # run_time= pada baris animasi, untuk meramalkan jam adegan tanpa render.
 RUN_TIME = re.compile(r'run_time\s*=\s*([0-9.]+)')
@@ -136,6 +136,10 @@ def lama_animasi(baris: str) -> float:
     tahan = TAHAN.findall(baris)
     if tahan:
         lama += 0.5 + sum(float(x) for x in tahan)
+        # lahir_rumus dengan tahan= tetapi tanpa run_time= memakai bawaan 1,2
+        # (limit4 babak 'fungsi' gagal render 14 Sep 2026 karena ini tak dihitung)
+        if "lahir_rumus(" in baris and not rt:
+            lama += 1.2
     elif "lahir_rumus(" in baris:
         lama += 0.5 + ((0.6 + (0.0 if rt else 1.2)) if tertutup else 0.0)
     if not rt and tertutup:

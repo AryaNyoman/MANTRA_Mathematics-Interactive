@@ -1,6 +1,6 @@
 {
   "adegan": "Korelasi12",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Hubungan Dua Variabel, Bagian 3 (Materi 12). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (r = 0,98 pada jam belajar; r = -0,98 pada jam main gim; tanda arah, besar kekuatan; r kuadrat 0,97 = 97 persen dijelaskan, 3 persen dari hal lain; jebakan parabola y = x kuadrat dengan r = 0; selalu lihat gambarnya; korelasi bukan sebab-akibat). Yang ditambah: pembuka menyebut sub-bab plus Bagian 3 dengan pertanyaan halaman, segar-ingat Bagian 1 (arah dan kekuatan dibaca dengan mata), bentuk umum: r antara -1 dan 1, tanda = arah, besar = kekuatan, r kuadrat = bagian yang dijelaskan, penutup menunjuk Bagian 4.",
   "segmen": [
@@ -74,5 +74,6 @@
       "teks": "Di materi berikutnya, Hubungan Dua Variabel, Bagian empat, semua angkanya benar, tetapi kesimpulannya tetap salah. Bagaimana bisa?",
       "tulis": "Di materi berikutnya, Hubungan Dua Variabel, Bagian 4, semua angkanya benar, tetapi kesimpulannya tetap *salah*. Bagaimana bisa?"
     }
-  ]
+  ],
+  "napas": 0.6
 }

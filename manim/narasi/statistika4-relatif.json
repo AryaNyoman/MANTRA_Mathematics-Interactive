@@ -1,6 +1,6 @@
 {
   "adegan": "Relatif4",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Penyajian Data, Bagian 4 (Materi 04). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (Kelas A 25 siswa, Kelas B 40 siswa; 11 lawan 13 siswa bernilai 80 ke atas; batang mentah Kelas B menang; dibagi jumlahnya sendiri 0,44 lawan 0,325, kesimpulan berbalik; dua pertanyaan berbeda; nama frekuensi relatif; nilainya 0 sampai 1, jumlahnya 1). Yang ditambah: pembuka menyebut sub-bab plus Bagian 4 dengan pertanyaan, segar-ingat Bagian 2 (persen 8 dari 40 = 20%), cek jumlah frekuensi relatif Kelas A 0,44 + 0,56 = 1, penutup menunjuk Ukuran Pemusatan dan Penyebaran Bagian 1.",
   "segmen": [
@@ -64,5 +64,6 @@
       "teks": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian satu, rata-rata bukan lagi sekadar jumlah dibagi banyaknya: ia titik tempat data seimbang.",
       "tulis": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian 1, rata-rata bukan lagi sekadar jumlah dibagi banyaknya: ia titik tempat data seimbang."
     }
-  ]
+  ],
+  "napas": 0.6
 }

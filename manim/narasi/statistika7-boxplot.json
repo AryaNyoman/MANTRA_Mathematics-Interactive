@@ -1,6 +1,6 @@
 {
   "adegan": "Boxplot7",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Ukuran Pemusatan dan Penyebaran, Bagian 3 (Materi 07). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (15 waktu tempuh sudah urut; median data ke-8 = 15; tiap belahan dicari mediannya: Q1 = 10, Q3 = 25; arti seperempat, setengah, tiga perempat; boxplot lahir dari lima angka; cara membaca; JAK = 25 - 10 = 15 lawan jangkauan 60 - 5 = 55 yang ditentukan dua orang; pagar 1,5 JAK = 22,5, pagar atas 47,5, 60 pencilan). Yang ditambah: pembuka menyebut sub-bab plus Bagian 3 dengan pertanyaan halaman, segar-ingat median dari Bagian 1, bentuk umum lima angka dan pagar bawah/atas, penutup menunjuk Bagian 4.",
   "segmen": [
@@ -79,5 +79,6 @@
       "teks": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian empat, dua mesin isi ulang sama-sama rata-rata lima ratus mililiter, tetapi yang satu tetap ditolak pabrik.",
       "tulis": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian 4, dua mesin isi ulang sama-sama rata-rata 500 ml, tetapi yang satu tetap *ditolak* pabrik."
     }
-  ]
+  ],
+  "napas": 0.6
 }

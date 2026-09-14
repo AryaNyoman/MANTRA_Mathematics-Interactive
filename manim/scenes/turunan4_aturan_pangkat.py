@@ -356,7 +356,7 @@ class TurunanAturanPangkat(AdeganMatra):
         with sinema.babak(self, "bagi_h", DURASI, kata=KATA) as b:
             b.tunggu_kata("dibagi")
             b.main(FadeOut(sisa_penuh), run_time=0.4)
-            b.main(Write(tetap), run_time=1.0)
+            b.main(Write(tetap), run_time=0.9)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("hasilnya")
             b.main(Write(memuat), run_time=1.8)
         qc.periksa_adegan(self, {"tetap": tetap, "memuat": memuat},
@@ -466,8 +466,8 @@ class TurunanAturanPangkat(AdeganMatra):
             b.tunggu_kata("cuma angka")
             b.main(Write(konst), run_time=1.4)
             b.tunggu_kata("garis mendatar")
-            b.main(ShowCreation(datar), run_time=1.4)
-            b.main(FadeIn(l_datar, shift=UP * 0.2), run_time=0.9)
+            b.main(ShowCreation(datar), run_time=1.0)  # irama Bian (14 Sep 2026)
+            b.main(FadeIn(l_datar, shift=UP * 0.2), run_time=0.5)
 
         with sinema.babak(self, "konstan_nol", DURASI, kata=KATA) as b:
             b.tunggu_kata("tidak menanjak")

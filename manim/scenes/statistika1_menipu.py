@@ -414,7 +414,7 @@ class Menipu1(AdeganMatra):
                 b.main(Indicate(titik_a[i], scale_factor=2.2, color=SOROT), run_time=0.7)
             b.tunggu_kata("dijumlahkan")
             HUD["jalur hitung"] = jumlah_a
-            b.main(FadeIn(jumlah_a, shift=DOWN * 0.15), run_time=1.0)
+            b.main(FadeIn(jumlah_a, shift=DOWN * 0.15), run_time=0.8)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("hasilnya")
             jumlah_a = sinema.ganti_rumus(self, jumlah_a, "6+6+7+7+7+7+8+8 = 56",
                                           b=b, run_time=1.6)
@@ -428,9 +428,9 @@ class Menipu1(AdeganMatra):
             b.tunggu_kata("Banyaknya")
             b.main(LaggedStartMap(
                 lambda m, **kw: Indicate(m, scale_factor=1.8, color=AKSEN2, **kw),
-                titik_a, lag_ratio=0.08), run_time=1.1)
+                titik_a, lag_ratio=0.08), run_time=0.8)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("delapan")
-            b.main(denyut(titik_a, AKSEN2, 1.8, 0.06), run_time=1.6)
+            b.main(denyut(titik_a, AKSEN2, 1.8, 0.06), run_time=1.4)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("rata-ratanya")
             jumlah_a = sinema.ganti_rumus(self, jumlah_a, r"\frac{56}{8}", b=b, run_time=1.5)
             HUD["jalur hitung"] = jumlah_a
@@ -474,7 +474,7 @@ class Menipu1(AdeganMatra):
             jumlah_b = sinema.ganti_rumus(self, jumlah_b, r"\frac{56}{8} = 7", b=b, run_time=1.6)
             HUD["jalur hitung"] = jumlah_b
             b.tunggu_kata("tujuh")
-            b.main(Indicate(jumlah_b, scale_factor=1.3, color=SOROT), run_time=1.3)
+            b.main(Indicate(jumlah_b, scale_factor=1.3, color=SOROT), run_time=1.1)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("Persis")
             b.main(denyut(VGroup(*titik_a, *titik_b), SOROT, 1.6, 0.035),
                    run_time=1.4)
@@ -511,7 +511,7 @@ class Menipu1(AdeganMatra):
 
         with sinema.babak(self, "mediana", DURASI, kata=KATA) as b:
             b.tunggu_kata("Bagaimana")
-            papan.baris(r"\text{rata-rata}: 7 \text{ dan } 7", SOROT, run_time=0.85, b=b)
+            papan.baris(r"\text{rata-rata}: 7 \text{ dan } 7", SOROT, run_time=0.6, b=b)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("median")
             b.main(Indicate(papan.utama, scale_factor=1.16, color=SOROT), run_time=1.3)
             b.tunggu_kata("urut")
@@ -562,11 +562,11 @@ class Menipu1(AdeganMatra):
             b.tunggu_kata("urut")
             b.main(FadeOut(panah_urut2), run_time=0.5)
             taruh("panah urut", panah_urut3)
-            b.main(GrowArrow(panah_urut3), run_time=1.1)
+            b.main(GrowArrow(panah_urut3), run_time=0.8)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("keempat")
             b.main(Indicate(titik_b[3], scale_factor=2.4, color=SOROT), run_time=0.7)
             b.tunggu_kata("kelimanya")
-            b.main(Indicate(titik_b[4], scale_factor=2.4, color=SOROT), run_time=0.7)
+            b.main(Indicate(titik_b[4], scale_factor=2.4, color=SOROT), run_time=0.6)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("tujuh", ke=1)
             b.main(denyut([titik_b[3], titik_b[4]], AKSEN, 2.2, 0.12),
                    run_time=1.2)
@@ -587,7 +587,7 @@ class Menipu1(AdeganMatra):
             b.tunggu_kata("muncul", ke=1)
             b.main(LaggedStartMap(
                 lambda m, **kw: Indicate(m, scale_factor=1.6, color=SOROT, **kw),
-                semua_titik, lag_ratio=0.04), run_time=1.6)
+                semua_titik, lag_ratio=0.04), run_time=1.3)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("Kelas", ke=1)
             b.main(LaggedStartMap(
                 lambda m, **kw: Indicate(m, scale_factor=1.7, color=AKSEN2, **kw),
@@ -675,7 +675,7 @@ class Menipu1(AdeganMatra):
             b.main(denyut([titik_a[0], titik_b[0]], SOROT, 2.2, 0.12),
                    run_time=1.4)
             b.tunggu_kata("laporannya")
-            b.main(redup_kelompok.animate.set_opacity(0.28), run_time=1.8)
+            b.main(redup_kelompok.animate.set_opacity(0.28), run_time=1.5)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("datanya", ke=1)
             b.main(denyut(semua_titik, REDUP, 1.6, 0.035), run_time=1.2)
             b.tunggu_kata("sisa")
@@ -685,7 +685,7 @@ class Menipu1(AdeganMatra):
             taruh("hantu A", hantu_a)
             taruh("hantu B", hantu_b)
             b.main(LaggedStartMap(FadeIn, VGroup(*hantu_a, *hantu_b), lag_ratio=0.05),
-                   run_time=1.7)
+                   run_time=1.3)  # irama Bian (14 Sep 2026)
         periksa()
 
         # ==================================================================
@@ -784,7 +784,7 @@ class Menipu1(AdeganMatra):
             b.tunggu_kata("depan")
             taruh("tiang kanan", tiang_kanan)
             b.main(ShowCreation(tiang_kanan),
-                   Indicate(titik_b[7], scale_factor=2.4, color=AKSEN), run_time=1.7)
+                   Indicate(titik_b[7], scale_factor=2.4, color=AKSEN), run_time=1.4)  # irama Bian (14 Sep 2026)
         periksa()
 
         # ==================================================================

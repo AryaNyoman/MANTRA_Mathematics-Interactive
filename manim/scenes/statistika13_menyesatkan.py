@@ -165,7 +165,7 @@ class Menyesatkan13(AdeganMatra):
             taruh("garis", garis_buka)
             taruh("angka data", angka_buka)
             b.main(ShowCreation(sumbu_datar), FadeIn(nama_bulan), FadeIn(sumbu_potong), FadeIn(titik_buka),
-                   FadeIn(garis_buka), FadeIn(angka_buka), run_time=0.8)
+                   FadeIn(garis_buka), FadeIn(angka_buka), run_time=0.7)  # irama Bian (14 Sep 2026)
             b.tunggu_kata("benar")
             taruh("centang", centang, tulisan=True)
             b.main(FadeIn(centang, scale=1.5), run_time=0.5)

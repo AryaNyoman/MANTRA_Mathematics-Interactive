@@ -1,6 +1,6 @@
 {
   "adegan": "Pencar10",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Hubungan Dua Variabel, Bagian 1 (Materi 10). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (jam belajar dan nilai dari sepuluh siswa yang sama; pasangan (2, 55) jadi satu titik; awan naik = positif; jam main gim = negatif; kuat lawan lemah; awan bulat tanpa kecenderungan, contoh buatan; titik tidak boleh disambung berurutan; satu garis wakil; gambar dulu awannya). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1 dengan pertanyaan halaman, tidak ada segar-ingat (tidak ada prasyarat dari materi sebelumnya), bentuk umum: tiap orang sepasang angka (x, y), yang dibaca arah dan kekuatan, penutup menunjuk Bagian 2.",
   "segmen": [
@@ -69,5 +69,6 @@
       "teks": "Di materi berikutnya, Hubungan Dua Variabel, Bagian dua, sepuluh orang menarik garis yang paling pas pada titik yang sama. Garis siapa yang benar?",
       "tulis": "Di materi berikutnya, Hubungan Dua Variabel, Bagian 2, sepuluh orang menarik garis yang paling pas pada titik yang sama. Garis *siapa* yang benar?"
     }
-  ]
+  ],
+  "napas": 0.6
 }

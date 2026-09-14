@@ -1,6 +1,6 @@
 {
   "adegan": "TurunanAturanRantai",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Aturan Menurunkan, Bagian 3 (Materi 07 'Fungsi di dalam fungsi, aturan rantai', video 03 topik Turunan). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (15 segmen) yang sudah disetujui ARYA: ISI TETAP SAMA (jabaran (2x - 5) pangkat 8 yang tidak selesai; dua mesin berderet u = 3x dan y = 5u; tiga batang satu skala: tiga batang x mengisi batang u, lima batang u mengisi batang y, lima belas batang x mengisi batang y, jadi DIKALIKAN bukan dijumlahkan; pengali biasanya berubah; pembuktian aljabar (x kuadrat + 1) kuadrat dijabarkan, diturunkan, difaktorkan, ditulis ulang 2(x kuadrat + 1) kali 2x; aturannya; dipakai pada (2x - 5) pangkat 8 memberi 16(2x - 5) pangkat 7). Yang ditambah: pembuka menyebut sub-bab plus Bagian 3 dengan pertanyaan halaman, segar-ingat Bagian 1 (aturan pangkat suku demi suku), bentuk umum Leibniz dy/dx = dy/du kali du/dx, kekeliruan turunan bagian dalam tertinggal, rangkuman dengan pertanyaan, penutup menunjuk Bagian 4 (sinus, kosinus, e pangkat x). Semua angka sama dengan halaman Materi 07.",
   "segmen": [
@@ -99,5 +99,6 @@
       "teks": "Di materi berikutnya, Aturan Menurunkan, Bagian empat, fungsinya bukan pangkat lagi: sinus, kosinus, dan e pangkat x. Dari mana turunannya?",
       "tulis": "Di materi berikutnya, Aturan Menurunkan, Bagian 4, fungsinya bukan pangkat lagi: sinus, kosinus, dan eˣ. Dari mana turunannya?"
     }
-  ]
+  ],
+  "napas": 0.6
 }

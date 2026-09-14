@@ -1,6 +1,6 @@
 {
   "adegan": "TurunanGarisSinggung",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Rombakan 8 September 2026: motivasi, segitiga selisih, arti h, pendekatan, bukti lewat luas, limit dua sisi, definisi turunan. Rekaman baru dengan WordBoundary, tanpa definisi hanya menyentuh satu titik. Durasi mengikuti kebutuhan penjelasan. Medan tulis = kalimat utuh yang diucapkan dengan lambang (standar v3, 8 Sep 2026), disusun dari subtitle yang sudah disetujui.",
   "segmen": [
@@ -169,5 +169,6 @@
       "teks": "Jadi kita tidak menebak arah dari satu titik saja. Kita mempelajari dua titik yang semakin dekat. Angka kemiringan yang dituju itulah turunannya.",
       "tulis": "Jadi kita tidak menebak arah dari satu titik saja. Kita mempelajari dua titik yang semakin dekat. Angka kemiringan yang dituju itulah turunannya."
     }
-  ]
+  ],
+  "napas": 0.6
 }

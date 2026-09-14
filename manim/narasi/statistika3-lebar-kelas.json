@@ -1,6 +1,6 @@
 {
   "adegan": "LebarKelas3",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Penyajian Data, Bagian 3 (Materi 03). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (40 tinggi badan yang sama dikelompokkan tiga kali: lebar 5 tujuh batang, lebar 2 bergerigi, lebar 10 empat batang; lebar kelas pilihan manusia; contoh gabung dua kelas selebar 2 dengan tinggi 12 dan 4: menjumlah tinggi salah (luas 64), yang dijumlah luasnya 24 + 8 = 32, tinggi 8; luas mewakili banyaknya data). Yang ditambah: pembuka menyebut sub-bab plus Bagian 3, segar-ingat Bagian 2 (histogram 10 cm empat batang), frekuensi tiap batang dibaca, bentuk umum tinggi = frekuensi dibagi lebar, penutup menunjuk Bagian 4.",
   "segmen": [
@@ -69,5 +69,6 @@
       "teks": "Di materi berikutnya, Penyajian Data, Bagian empat, dua kelompok yang jumlah siswanya berbeda dibandingkan, dan takarannya harus disamakan dulu.",
       "tulis": "Di materi berikutnya, Penyajian Data, Bagian 4, dua kelompok yang jumlah siswanya berbeda dibandingkan, dan takarannya harus disamakan dulu."
     }
-  ]
+  ],
+  "napas": 0.6
 }

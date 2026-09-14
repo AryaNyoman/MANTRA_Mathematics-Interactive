@@ -1,6 +1,6 @@
 {
   "adegan": "TurunanAturanPangkat",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "catatan": "Video 04 topik Turunan, Materi 04 'Aturan pangkat lahir dari definisi'. STANDAR v3: 31 segmen, animasi dipicu per kata lewat sinema.JamKata. PENGHUBUNGNYA DIPERBAIKI: naskah lama membuka dengan 'itu pola, bukan bukti' karena video 03 versi lama cuma menyimpulkan 2x dari empat titik. Video 03 versi v3 SUDAH MEMBUKTIKANNYA lewat selisih tinggi dan limit, jadi pembuka lama itu membantah video sebelumnya. Segar-ingat sekarang menyebut nomor dan nama video 03, mengulang cara pembuktiannya secara ringkas, lalu mengajukan pertanyaan yang benar-benar belum dijawab: apakah hitungan panjang itu harus diulang untuk tiap pangkat. Contoh angkanya kemiringan x pangkat tiga di x = 2, dihitung dengan h = 0,1 lalu 0,01, mendekati 12 yang sama dengan 3 kali 2 kuadrat; sesudah itu barulah dibuktikan dengan huruf. Semua angka diperiksa alat/cek_turunan.py lewat klaim berawalan V04.",
   "segmen": [
     {
@@ -168,5 +168,6 @@
       "teks": "Di video kelima, Menurunkan suku demi suku, aturan ini dipakai pada fungsi yang punya banyak suku sekaligus.",
       "tulis": "Di video 5, Menurunkan suku demi suku, aturan ini dipakai pada fungsi yang punya banyak suku sekaligus."
     }
-  ]
+  ],
+  "napas": 0.6
 }

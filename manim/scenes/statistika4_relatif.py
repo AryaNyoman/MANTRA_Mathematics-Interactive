@@ -98,8 +98,8 @@ class Relatif4(AdeganMatra):
         tanya = rumus(r"\text{nilai} \geq 80\ ?", 34, SOROT).move_to([-0.2, 2.2, 0])
         with sinema.babak(self, "buka", DURASI, kata=KATA) as b:
             b.tunggu_kata("Penyajian")
-            sinema.judul_pembuka(self, "Penyajian Data, Bagian 4", lama=3.0, y=1.6)
-            b.catat(3.0)
+            sinema.judul_pembuka(self, "Penyajian Data, Bagian 4", lama=2.8, y=1.6)  # irama Bian (14 Sep 2026)
+            b.catat(2.8)
             b.tunggu_kata("Kelas A")
             b.main(ShowCreation(alas), FadeIn(nama_a), GrowFromEdge(seluruh_a, DOWN), run_time=0.9)
             b.tunggu_kata("siswa")
@@ -294,8 +294,8 @@ class Relatif4(AdeganMatra):
             b.tunggu_kata("bukan berapa")
             self.sorot_kotak(b, isi_a, isi_b, lama=1.0)
             b.tunggu_kata("dari berapa")
-            b.main(FadeIn(l_dari, shift=UP * 0.2), run_time=0.5)
-            self.sorot_kotak(b, rata_a, rata_b, lama=1.2)
+            b.main(FadeIn(l_dari, shift=UP * 0.2), run_time=0.4)  # irama Bian (14 Sep 2026)
+            self.sorot_kotak(b, rata_a, rata_b, lama=1.0)
         qc.periksa_adegan(self, {}, hud=hud(ident, papan),
                           dunia={"alas": alas, "rata A": rata_a, "rata B": rata_b, "isi A": isi_a, "isi B": isi_b, "sisi": sisi},
                           tulisan={"nama A": nama_a, "nama B": nama_b, "44": l_pa, "32,5": l_pb, "0": l_nol, "1": l_satu,

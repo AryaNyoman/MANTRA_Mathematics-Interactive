@@ -1,6 +1,6 @@
 {
   "adegan": "TurunanHasilKali",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Aturan Menurunkan, Bagian 2 (Materi 06 'Hasil kali dan hasil bagi', video 04 topik Turunan). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama (16 segmen) yang sudah disetujui ARYA: ISI TETAP SAMA (bantahan x kali x; persegi panjang u kali v; u = x + 1 dan v = x di x = 2 sehingga u = 3, v = 2; digeser h, tambahan berbentuk L: pita kanan, pita atas, pojok; dibagi h: 2, 3, dan h; h dikecilkan, pojok lenyap, 2 + 3 = 5; aturan u'v + uv'; catatan fungsi melengkung; contoh (x kuadrat + 1)(x - 3) = 3x kuadrat - 6x + 1 diperiksa lewat jalan kedua; hasil bagi disebut di penutup). Yang ditambah: pembuka menyebut sub-bab plus Bagian 2 dengan pertanyaan halaman, segar-ingat Aturan Menurunkan Bagian 1 (bantahan itu), ASAL RUMUS: pita kanan dibagi h adalah u'v dan pita atas dibagi h adalah uv' dibaca dari gambarnya lalu diperiksa dengan angka 1 kali 2 + 3 kali 1 = 5, kekeliruan hasil kali turunan 2x kali 1, rangkuman dengan pertanyaan (u = v = x memberi 2x), penutup menunjuk Bagian 3 (aturan rantai). Semua angka sama dengan halaman Materi 06.",
   "segmen": [
@@ -104,5 +104,6 @@
       "teks": "Di materi berikutnya, Aturan Menurunkan, Bagian tiga, fungsinya ada di dalam fungsi lain: kalau y bergantung pada u, dan u bergantung pada x, seberapa cepat y berubah terhadap x?",
       "tulis": "Di materi berikutnya, Aturan Menurunkan, Bagian 3, fungsinya ada di dalam fungsi lain: kalau y bergantung pada u, dan u bergantung pada x, seberapa cepat y berubah terhadap x?"
     }
-  ]
+  ],
+  "napas": 0.6
 }

@@ -1,6 +1,6 @@
 {
   "adegan": "Menipu1",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Penyajian Data, Bagian 1 (Materi 01). Disesuaikan MASTER 12 Sep 2026 ke standar v3.1 dari naskah v3 sesi Statistika (8 Sep): ISI TETAP SAMA. Yang diubah: pembuka menyebut sub-bab plus Bagian 1; rujukan Materi 7 dan 8 menjadi Ukuran Pemusatan dan Penyebaran Bagian 3 dan 4; penutup menunjuk Penyajian Data Bagian 2. Tulis ulang 8 September 2026, STANDAR VIDEO v3. Video PERTAMA topik Statistika, jadi segar-ingatnya menoleh ke prasyarat (tiga ukuran pemusatan yang sudah dipelajari di kelas 8 SMP), bukan ke materi MANTRA sebelumnya. Pembuka 3D lima detik: enam belas siswa berdiri, lalu menjadi enam belas titik. Dua rumus DILAHIRKAN dari hitungan di layar, bukan disodorkan: rata-rata sesudah 56 dibagi 8 dihitung dua kali, dan jangkauan sesudah 8 dikurangi 6 dan 11 dikurangi 3. Semua angka dari web/content/statistika/data.json butir t01-kelas-a dan t01-kelas-b, lolos alat/cek_statistik.py.",
   "segmen": [
@@ -164,5 +164,6 @@
       "teks": "Tadi kita baru melihat bedanya sesudah titiknya ditumpahkan kembali. Di materi berikutnya, Penyajian Data, Bagian dua, kita belajar cara menggambar data supaya bentuknya sudah terlihat sejak awal.",
       "tulis": "Tadi kita baru melihat bedanya sesudah titiknya ditumpahkan kembali. Di materi berikutnya, Penyajian Data, Bagian 2, kita belajar cara menggambar data supaya bentuknya sudah terlihat sejak awal."
     }
-  ]
+  ],
+  "napas": 0.6
 }

@@ -1,6 +1,6 @@
 {
   "adegan": "Pemusatan5",
-  "suara": "id-ID-ArdiNeural",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
   "tempo": "-5%",
   "catatan": "Ukuran Pemusatan dan Penyebaran, Bagian 1 (Materi 05). Ditulis ulang MASTER 12 Sep 2026 mengikuti standar v3.1 dari naskah lama yang sudah disetujui ARYA: ISI TETAP SAMA (delapan siswa bernilai 4, 5, 6, 7, 7, 8, 8, 11 berdiri di garis bilangan; modus 7 dan 8; median 7; garis jadi jungkat-jungkit, tumpuan di 8 jatuh ke kiri, digeser sampai mendatar di 7; jarak kiri 3 + 2 + 1 sama dengan jarak kanan 1 + 1 + 4; rumus 56 : 8 = 7 bukan arti rata-rata). Yang ditambah: pembuka menyebut sub-bab plus Bagian 1 dengan pertanyaan, tidak ada segar-ingat (tidak ada prasyarat dari materi sebelumnya), ASAL RUMUS: keseimbangan ditulis sebagai jumlah simpangan nol lalu diturunkan jadi x bar = 56 : 8, bentuk umum x bar = jumlah x dibagi n, penutup menunjuk Bagian 2.",
   "segmen": [
@@ -74,5 +74,6 @@
       "teks": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian dua, satu nilai jauh sendiri ikut masuk, dan papan ini akan berlari.",
       "tulis": "Di materi berikutnya, Ukuran Pemusatan dan Penyebaran, Bagian 2, satu nilai *jauh sendiri* ikut masuk, dan papan ini akan berlari."
     }
-  ]
+  ],
+  "napas": 0.6
 }
