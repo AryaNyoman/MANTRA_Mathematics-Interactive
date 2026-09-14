@@ -156,9 +156,11 @@ def lama_animasi(baris: str) -> float:
     elif "lahir_rumus(" in baris:
         lama += 0.5 + ((0.6 + (0.0 if rt else 1.2)) if tertutup else 0.0)
     if not rt and tertutup:
-        if "papan.baris(" in baris:
+        # PapanRumus boleh bernama apa saja (papan, panel, ...): integral03 memakai
+        # `panel.baris(...)` dan lolos gerbang lalu gagal render (15 Sep 2026).
+        if re.search(r"\b\w+\.baris\(", baris):
             lama += 0.8
-        if "papan.tumbuh(" in baris or "ganti_rumus(" in baris:
+        if re.search(r"\b\w+\.tumbuh\(", baris) or "ganti_rumus(" in baris:
             lama += 1.2
     return lama
 

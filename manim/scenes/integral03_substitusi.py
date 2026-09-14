@@ -462,8 +462,10 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("sama")
             b.main(FadeIn(cek3), run_time=1.2)
             b.tunggu_kata("cocok")
-            b_cocok = panel.baris(r"\text{cocok}", warna=SOROT, b=b)
-            b.main(Indicate(b_cocok, color=AKSEN), run_time=0.8)
+            # baris 0,5 dan Indicate 0,3 (dulu bawaan 0,8 dan 0,8): "cocok" kata
+            # terakhir, narasi Bian menyisakan 1,3 detik (15 Sep 2026)
+            b_cocok = panel.baris(r"\text{cocok}", warna=SOROT, b=b, run_time=0.5)
+            b.main(Indicate(b_cocok, color=AKSEN), run_time=0.3)
         qc.periksa_adegan(self, {"jawaban benar": benar,
                                  "pemeriksaan": VGroup(cek1, cek2, cek3)},
                           [("jawaban benar", "pemeriksaan")],
@@ -500,7 +502,7 @@ class IntegralSubstitusi(AdeganMatra):
             b.tunggu_kata("du")
             # 1,8 detik, bukan 2,2: baris panel di belakangnya memakan 0,9
             # detik lagi, dan babak ini cuma 7,4 detik.
-            b.main(FadeIn(du_baris), run_time=1.8)
+            b.main(FadeIn(du_baris), run_time=1.4)  # irama Bian, sisakan ekor (15 Sep 2026)
             b_u = panel.baris(r"u = 2x + 1", warna=AKSEN2, b=b)
 
         with sinema.babak(self, "tukar", DURASI, kata=KATA) as b:
