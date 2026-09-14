@@ -212,13 +212,14 @@ def tulis_wav(jalur: Path, pcm: bytes) -> None:
 
 
 async def buat(topik: str, napas: float = NAPAS, diam: bool = False,
-               suara_paksa: str | None = None, varian: str = "", model: str = MODEL_ELEVEN) -> None:
+               suara_paksa: str | None = None, varian: str = "", model: str = MODEL_ELEVEN,
+               tempo_paksa: str | None = None) -> None:
     berkas_naskah = AKAR / "manim" / "narasi" / f"{topik}.json"
     if not berkas_naskah.exists():
         raise SystemExit(f"naskah tidak ditemukan: {berkas_naskah}")
     naskah = json.loads(berkas_naskah.read_text(encoding="utf-8"))
     suara = suara_paksa or naskah.get("suara", SUARA_BAWAAN)
-    tempo = naskah.get("tempo", TEMPO_BAWAAN)
+    tempo = tempo_paksa or naskah.get("tempo", TEMPO_BAWAAN)
     pakai_eleven = suara.startswith(AWALAN_ELEVEN)
     kunci = voice_id = None
     if pakai_eleven:
@@ -310,8 +311,9 @@ def main() -> None:
                    help='akhiran folder keluaran, mis. "-eleven": ditulis ke audio/<video>-eleven/ '
                         "dan dibaca adegan bila NARASI_VARIAN diisi akhiran yang sama")
     p.add_argument("--model", default=MODEL_ELEVEN, help="model ElevenLabs (bawaan eleven_multilingual_v2)")
+    p.add_argument("--tempo", default=None, help='menimpa tempo di naskah, mis. "-10%%" (ElevenLabs: speed 0,9)')
     a = p.parse_args()
-    asyncio.run(buat(a.topik, a.napas, a.diam, a.suara, a.varian, a.model))
+    asyncio.run(buat(a.topik, a.napas, a.diam, a.suara, a.varian, a.model, a.tempo))
 
 
 if __name__ == "__main__":

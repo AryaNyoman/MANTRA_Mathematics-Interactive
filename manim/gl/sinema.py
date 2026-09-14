@@ -715,6 +715,9 @@ class Babak:
                 f"babak '{self.nama}': tunggu_kata butuh jam kata; pakai "
                 f"`with sinema.babak(self, nama, DURASI, kata=KATA) as b`.")
         sasaran = self.kata.jam(self.nama, frasa, ke=ke)
+        # toleransi longgar HANYA untuk render uji suara lain, lihat laporkan_pemicu
+        if os.environ.get("NARASI_VARIAN") and os.environ.get("PEMICU_TOLERANSI"):
+            batas = max(batas, float(os.environ["PEMICU_TOLERANSI"]))
         if self.scene.time - sasaran > batas:
             raise WaktuTidakMuat(
                 f"babak '{self.nama}': pemicu '{frasa}' (kemunculan ke-{ke}) jatuh di "
@@ -886,6 +889,13 @@ def laporkan_pemicu(scene, batas: float = 0.15) -> float:
     pemicu = getattr(scene, "pemicu", [])
     if not pemicu:
         return 0.0
+    # PEMICU_TOLERANSI (detik) HANYA untuk render uji suara lain (NARASI_VARIAN):
+    # irama mesin suara baru belum ditiru animasinya, jadi keterlambatan yang
+    # sedikit lebih besar dibiarkan lolos dan dilaporkan; render produksi tidak
+    # boleh memakainya (14 Sep 2026, uji Ganesh yang bicaranya cepat).
+    if os.environ.get("NARASI_VARIAN") and os.environ.get("PEMICU_TOLERANSI"):
+        batas = max(batas, float(os.environ["PEMICU_TOLERANSI"]))
+        print(f"  (uji suara {os.environ['NARASI_VARIAN']}: toleransi pemicu dilonggarkan ke {batas:.2f} s)")
     terburuk = max(pemicu, key=lambda p: p["video"] - p["audio"])
     selisih = terburuk["video"] - terburuk["audio"]
     print(f"  pemicu kata: {len(pemicu)} buah, terlambat terbesar {selisih:.3f} s "
