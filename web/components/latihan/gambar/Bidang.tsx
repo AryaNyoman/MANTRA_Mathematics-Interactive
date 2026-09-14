@@ -8,7 +8,7 @@ import { LEBAR, MONO, buatBidang, type Jangkauan } from './dasar'
  * rotasi/dilatasi bertanda silang.
  */
 export default function Bidang({
-  bangun, bayangan, cermin, pusat, jangkauan, labelBangun = [], labelBayangan = [],
+  bangun, bayangan, cermin, pusat, jangkauan, labelBangun = [], labelBayangan = [], panah = false, garis = [],
 }: {
   bangun: [number, number][]
   bayangan?: [number, number][]
@@ -17,6 +17,10 @@ export default function Bidang({
   jangkauan?: Jangkauan
   labelBangun?: string[]
   labelBayangan?: string[]
+  /** panah tipis dari tiap titik bangun ke bayangannya */
+  panah?: boolean
+  /** garis y = mx + c tambahan, misalnya garis yang ditransformasi */
+  garis?: { m: number; c: number; label?: string; warna?: 'samping' | 'sudut' | 'depan' }[]
 }) {
   const TINGGI = 300
   const j: Jangkauan = jangkauan ?? jangkauanOtomatis([...bangun, ...(bayangan ?? []), ...(pusat ? [pusat] : [])])
@@ -26,8 +30,35 @@ export default function Bidang({
   return (
     <svg viewBox={`0 0 ${LEBAR} ${TINGGI}`} preserveAspectRatio="xMidYMid meet" role="img"
          aria-label={`Bangun ${labelBangun.join('') || 'asal'}${bayangan ? ' dan bayangannya' : ''}`}>
+      <defs>
+        <marker id="panah-bidang" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill={WARNA.redup} />
+        </marker>
+      </defs>
       <Sumbu b={b} />
       {garisCermin && <line {...garisCermin} stroke={WARNA.redup} strokeWidth={1.5} strokeDasharray="6 4" />}
+      {garis.map((g, i) => {
+        const w = WARNA[g.warna ?? 'samping']
+        const yKiri = g.m * b.xMin + g.c, yKanan = g.m * b.xMaks + g.c
+        // potong garis pada tepi bidang supaya tidak keluar kanvas
+        const titik: [number, number][] = []
+        const coba = (x: number, y: number) => { if (x >= b.xMin - 1e-9 && x <= b.xMaks + 1e-9 && y >= b.yMin - 1e-9 && y <= b.yMaks + 1e-9) titik.push([x, y]) }
+        coba(b.xMin, yKiri); coba(b.xMaks, yKanan)
+        if (g.m !== 0) { coba((b.yMin - g.c) / g.m, b.yMin); coba((b.yMaks - g.c) / g.m, b.yMaks) }
+        if (titik.length < 2) return null
+        const [p, q] = [titik[0]!, titik[titik.length - 1]!]
+        return (
+          <g key={`g${i}`}>
+            <line x1={b.X(p[0])} y1={b.Y(p[1])} x2={b.X(q[0])} y2={b.Y(q[1])} stroke={w} strokeWidth={2} />
+            {g.label && <text x={b.X(q[0]) - 6} y={b.Y(q[1]) - 8} fontSize={11} textAnchor="end" fill={w} fontFamily={MONO}>{g.label}</text>}
+          </g>
+        )
+      })}
+      {panah && bayangan && bangun.map(([x, y], i) => {
+        const t = bayangan[i]
+        if (!t) return null
+        return <line key={`p${i}`} x1={b.X(x)} y1={b.Y(y)} x2={b.X(t[0])} y2={b.Y(t[1])} stroke={WARNA.redup} strokeWidth={1.2} strokeDasharray="3 3" markerEnd="url(#panah-bidang)" />
+      })}
       <polygon points={poli(bangun)} fill="rgba(58, 110, 165, 0.16)" stroke={WARNA.samping} strokeWidth={2} strokeLinejoin="round" />
       {bayangan && (
         <polygon points={poli(bayangan)} fill="rgba(106, 76, 147, 0.16)" stroke={WARNA.sudut} strokeWidth={2} strokeDasharray="7 4" strokeLinejoin="round" />

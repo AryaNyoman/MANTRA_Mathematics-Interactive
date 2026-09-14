@@ -295,20 +295,30 @@ export default function ArenaLatihan({
                 <div className="bahas-jawab">
                   Jawaban benar: <b>{String.fromCharCode(65 + s.benar)}</b>
                 </div>
-                {s.gambar && <GambarSoal gambar={s.gambar} />}
+                {/* Gambar soal TIDAK diulang di sini (ARYA, 14 Sep 2026: "bukan
+                    menggambar ulang kembali gambarnya"). Yang tampil adalah
+                    gambar BANTU milik langkah: bagan kuadran yang disorot,
+                    segitiga acuan, segitiga yang dicabut dari kubus. */}
                 {s.langkah && s.langkah.length > 0 ? (
-                  s.langkah.map((lg, i) => (
-                    <div key={i} className="bahas-langkah">
-                      <span className="no angka-rata">{i + 1}</span>
-                      <span>{lg}</span>
-                    </div>
-                  ))
+                  s.langkah.map((lg, i) => {
+                    const teks = typeof lg === 'string' ? lg : lg.teks
+                    const gambar = typeof lg === 'string' ? undefined : lg.gambar
+                    return (
+                      <div key={i} className="bahas-langkah">
+                        <span className="no angka-rata">{i + 1}</span>
+                        <div className="isi">
+                          <span>{teks}</span>
+                          {gambar && <GambarSoal gambar={gambar} />}
+                        </div>
+                      </div>
+                    )
+                  })
                 ) : (
                   <p className="bahas-alasan">{s.alasan}</p>
                 )}
                 {s.jebakan && (
                   <div className="bahas-jebakan">
-                    <div className="kicker">Kenapa pengecoh menggoda</div>
+                    <div className="kicker">Kenapa pilihan lain menggoda</div>
                     <p>{s.jebakan}</p>
                   </div>
                 )}

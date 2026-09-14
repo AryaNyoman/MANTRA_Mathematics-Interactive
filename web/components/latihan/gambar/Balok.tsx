@@ -10,11 +10,14 @@ import { LEBAR, MONO } from './dasar'
  * (px, py, pz) dalam 0 sampai 1 dari panjang, lebar, tinggi.
  */
 export default function Balok({
-  ukuran, titik = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'], ruas = [], tambahan = [], bidang = [],
+  ukuran, titik = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'], ruas = [], bantu = [], tambahan = [], bidang = [],
 }: {
   ukuran: [number, number, number]
   titik?: string[]
-  ruas?: [string, string][]
+  /** ruas tebal merah, boleh berlabel panjang di tengahnya */
+  ruas?: [string, string, string?][]
+  /** garis bantu ungu putus-putus (proyeksi, garis tinggi), boleh berlabel */
+  bantu?: [string, string, string?][]
   tambahan?: { nama: string; di: [number, number, number] }[]
   bidang?: string[]
 }) {
@@ -65,9 +68,25 @@ export default function Balok({
       )}
       {tersembunyi.map((ps, i) => garis(ps, true, `s${i}`))}
       {tampak.map((ps, i) => garis(ps, false, `t${i}`))}
+      {bantu.map((ps, i) => {
+        const a = sudut[ps[0]], b = sudut[ps[1]]
+        if (!a || !b) return null
+        return (
+          <g key={`h${i}`}>
+            <line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={WARNA.sudut} strokeWidth={1.8} strokeDasharray="5 4" />
+            {ps[2] && <text x={(a[0] + b[0]) / 2 + 8} y={(a[1] + b[1]) / 2 - 6} fontSize={10.5} fill={WARNA.sudut} fontFamily={MONO}>{ps[2]}</text>}
+          </g>
+        )
+      })}
       {ruas.map((ps, i) => {
         const a = sudut[ps[0]], b = sudut[ps[1]]
-        return a && b ? <line key={`r${i}`} x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={WARNA.depan} strokeWidth={2.8} /> : null
+        if (!a || !b) return null
+        return (
+          <g key={`r${i}`}>
+            <line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={WARNA.depan} strokeWidth={2.8} />
+            {ps[2] && <text x={(a[0] + b[0]) / 2 + 8} y={(a[1] + b[1]) / 2 - 6} fontSize={10.5} fill={WARNA.depan} fontFamily={MONO}>{ps[2]}</text>}
+          </g>
+        )
       })}
       {Object.keys(sudut).map((nama) => {
         const q = sudut[nama]!

@@ -10,11 +10,30 @@ type Panah = { dari?: [number, number]; ke: [number, number]; label?: string; wa
  * satu ke atas, di mana pun pangkalnya. `komponen` menggambar kaki
  * mendatar biru dan tegak merah putus-putus untuk panah yang disebut.
  */
-export default function Vektor({ panah, jangkauan, komponen = [] }: { panah: Panah[]; jangkauan?: Jangkauan; komponen?: number[] }) {
+export default function Vektor({
+  panah, jangkauan, komponen = [], proyeksi,
+}: {
+  panah: Panah[]
+  jangkauan?: Jangkauan
+  komponen?: number[]
+  /** proyeksi panah `dari` pada garis panah `ke`; keduanya harus berpangkal sama */
+  proyeksi?: { dari: number; ke: number; label?: string }
+}) {
   const TINGGI = 280
   const j: Jangkauan = jangkauan ?? jangkauanOtomatis(panah)
   const b = buatBidang(j, TINGGI)
   const warnaUrut: Panah['warna'][] = ['sudut', 'samping', 'depan', 'miring']
+  // kaki proyeksi: pangkal + ((a . u) u), u = arah satuan panah `ke`
+  const pro = (() => {
+    if (!proyeksi) return null
+    const a = panah[proyeksi.dari], v = panah[proyeksi.ke]
+    if (!a || !v) return null
+    const [x0, y0] = v.dari ?? [0, 0]
+    const n = Math.hypot(v.ke[0], v.ke[1]) || 1
+    const ux = v.ke[0] / n, uy = v.ke[1] / n
+    const t = a.ke[0] * ux + a.ke[1] * uy
+    return { x0, y0, ax: x0 + a.ke[0], ay: y0 + a.ke[1], kx: x0 + t * ux, ky: y0 + t * uy }
+  })()
   return (
     <svg viewBox={`0 0 ${LEBAR} ${TINGGI}`} preserveAspectRatio="xMidYMid meet" role="img"
          aria-label={`Vektor ${panah.map((p) => `(${p.ke[0]}, ${p.ke[1]})`).join(', ')}`}>
@@ -26,6 +45,28 @@ export default function Vektor({ panah, jangkauan, komponen = [] }: { panah: Pan
         ))}
       </defs>
       <Sumbu b={b} />
+      {pro && (
+        <g>
+          <line x1={b.X(pro.ax)} y1={b.Y(pro.ay)} x2={b.X(pro.kx)} y2={b.Y(pro.ky)} stroke={WARNA.redup} strokeWidth={1.4} strokeDasharray="4 3" />
+          <line x1={b.X(pro.x0)} y1={b.Y(pro.y0)} x2={b.X(pro.kx)} y2={b.Y(pro.ky)} stroke={WARNA.depan} strokeWidth={5} strokeLinecap="butt" opacity={0.85} />
+          {(() => {
+            // tanda siku di kaki proyeksi
+            const sx = b.X(pro.kx), sy = b.Y(pro.ky)
+            const dx = b.X(pro.x0) - sx, dy = b.Y(pro.y0) - sy
+            const n = Math.hypot(dx, dy) || 1
+            const ex = b.X(pro.ax) - sx, ey = b.Y(pro.ay) - sy
+            const m = Math.hypot(ex, ey) || 1
+            const k = 8
+            return (
+              <polyline points={`${sx + (dx / n) * k},${sy + (dy / n) * k} ${sx + (dx / n) * k + (ex / m) * k},${sy + (dy / n) * k + (ey / m) * k} ${sx + (ex / m) * k},${sy + (ey / m) * k}`}
+                        fill="none" stroke={WARNA.redup} strokeWidth={1.2} />
+            )
+          })()}
+          {proyeksi?.label && (
+            <text x={(b.X(pro.x0) + b.X(pro.kx)) / 2} y={(b.Y(pro.y0) + b.Y(pro.ky)) / 2 + 18} fontSize={11.5} textAnchor="middle" fill={WARNA.depan} fontFamily={MONO}>{proyeksi.label}</text>
+          )}
+        </g>
+      )}
       {panah.map((p, i) => {
         const [x0, y0] = p.dari ?? [0, 0]
         const x1 = x0 + p.ke[0], y1 = y0 + p.ke[1]

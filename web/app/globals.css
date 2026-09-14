@@ -3095,6 +3095,26 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .bahas-langkah .no {
   font-family: var(--font-serif), Georgia, serif; font-size: 16px; color: var(--emas);
 }
+.bahas-langkah .isi { min-width: 0; }
+/* gambar bantu milik langkah: menempel di bawah kalimatnya, lebih rapat
+   daripada gambar soal (14 Sep 2026) */
+.bahas-langkah .gambar-soal { margin: 8px 0 2px; }
+
+/* --- tabel data (statistika) di dalam figure gambar soal --- */
+.tabel-soal-bungkus { overflow-x: auto; }
+.tabel-soal {
+  border-collapse: collapse; margin: 0 auto; font-size: 13.5px; line-height: 1.5;
+  font-family: var(--font-mono), monospace; min-width: 60%;
+}
+.tabel-soal th, .tabel-soal td {
+  border: 1px solid var(--garis); padding: 5px 12px; text-align: center; white-space: nowrap;
+}
+.tabel-soal th { background: rgba(16, 26, 43, 0.05); font-weight: 600; }
+.tabel-soal th.baru, .tabel-soal td.baru { color: #6A4C93; background: rgba(106, 76, 147, 0.06); }
+.tabel-soal tr.sorot td { background: rgba(194, 94, 77, 0.12); font-weight: 700; }
+.tabel-soal tr.sorot td.baru { background: rgba(194, 94, 77, 0.18); }
+.tabel-soal tr.jumlah td { font-weight: 600; border-top: 2px solid var(--tinta-62, #555); }
+.gambar-soal[data-jenis="tabel"] { padding: 10px 8px; }
 .bahas-alasan { margin: 10px 0 0; font-size: 14.5px; line-height: 1.75; }
 .bahas-kosong { margin: 12px 0 0; font-size: 14px; line-height: 1.7; color: var(--tinta-62); }
 

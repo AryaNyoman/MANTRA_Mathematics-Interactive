@@ -32,13 +32,34 @@ const CONTOH: { nama: string; gambar: Data }[] = [
   { nama: 'luas', gambar: { jenis: 'luas', fungsi: 'x*x', dari: 0, sampai: 3, persegi: 6 } },
   { nama: 'luas dua kurva', gambar: { jenis: 'luas', fungsi: '4 - x*x', dari: -2, sampai: 2, fungsi2: 'x*x - 4' } },
   { nama: 'svg bebas', gambar: { jenis: 'svg', viewBox: '0 0 460 200', isi: '<rect x="40" y="40" width="380" height="120" rx="12" fill="none" stroke="#3A6EA5" stroke-width="2"/><text x="230" y="108" text-anchor="middle" font-size="16" fill="#1F2430">svg bebas</text>' } },
+  // gambar bantu pembahasan (14 Sep 2026)
+  { nama: 'kuadran', gambar: { jenis: 'kuadran', sorot: 3, sudut: 210, label: 'α' } },
+  { nama: 'segitiga acuan', gambar: { jenis: 'segitiga', sudut: 37, label: ['Depan = 3', 'Samping = 4', 'Miring = ?'], namaSudut: 'α', sorot: 'miring' } },
+  { nama: 'segitiga umum siku', gambar: { jenis: 'segitiga-umum', titik: ['A', 'J', 'E'], panjang: [4.24, 7.35, 6], sisi: ['3√2', '?', '6'], siku: 0, sorot: 1 } },
+  { nama: 'segitiga umum tinggi', gambar: { jenis: 'segitiga-umum', titik: ['B', 'D', 'T'], panjang: [8, 6, 6], sisi: ['8', '6', '6'], tinggi: { dari: 2, label: '?', kaki: 'O' }, sorot: 'tinggi', sudut: [{ di: 0, label: 'θ' }] } },
+  { nama: 'segitiga umum tumpul', gambar: { jenis: 'segitiga-umum', titik: ['P', 'Q', 'R'], panjang: [5, 4, 8], tinggi: { dari: 2, label: 't', kaki: 'S' } } },
+  { nama: 'tabel', gambar: { jenis: 'tabel', kepala: ['Nilai', 'f', 'F kumulatif'], baris: [['40-49', '3', '3'], ['50-59', '8', '11'], ['60-69', '12', '23'], ['70-79', '9', '32'], ['80-89', '6', '38'], ['90-99', '2', '40']], sorot: [2], kolomBaru: [2], jumlah: ['Jumlah', '40', ''] } },
+  { nama: 'garis bilangan', gambar: { jenis: 'garis-bilangan', titik: [{ x: -1 }, { x: 2, kosong: true }], selang: [{ dari: -4, sampai: -1, tanda: '+' }, { dari: -1, sampai: 2, tanda: '−', sorot: true }, { dari: 2, sampai: 5, tanda: '+' }] } },
+  { nama: 'grafik arsir', gambar: { jenis: 'grafik', fungsi: ['x*x*x - 3*x'], jangkauan: [-3, 3, -4, 4], arsir: [{ dari: -1, sampai: 1, label: 'turun' }], titik: [{ x: -1, y: 2, label: '(-1, 2)' }, { x: 1, y: -2, label: '(1, -2)' }], datar: [2] } },
+  { nama: 'luas pecah', gambar: { jenis: 'luas', fungsi: 'x*x - 1', dari: 0, sampai: 2, pecah: [1], labelBagian: ['L₁', 'L₂'], titik: [{ x: 1, y: 0, label: '(1, 0)' }] } },
+  { nama: 'luas strip', gambar: { jenis: 'luas', fungsi: 'x + 2', fungsi2: 'x*x', dari: -1, sampai: 2, strip: { x: 0.8, label: 'Δx' }, titik: [{ x: -1, y: 1, label: '(-1, 1)' }, { x: 2, y: 4, label: '(2, 4)' }], nama: ['y = x + 2', 'y = x²'] } },
+  { nama: 'vektor proyeksi', gambar: { jenis: 'vektor', panah: [{ ke: [5, 12], label: 'a' }, { ke: [3, 4], label: 'b' }], proyeksi: { dari: 0, ke: 1, label: '12,6' }, jangkauan: [-1, 13, -1, 13] } },
+  { nama: 'bidang panah', gambar: { jenis: 'bidang', bangun: [[1, 1], [3, 1], [2, 3]], bayangan: [[4, 2], [6, 2], [5, 4]], panah: true, labelBangun: ['A', 'B', 'C'], labelBayangan: ["A'", "B'", "C'"], garis: [{ m: 1, c: 2, label: 'y = x + 2' }] } },
+  { nama: 'balok bantu', gambar: { jenis: 'balok', ukuran: [6, 6, 6], ruas: [['A', 'K', '?']], bantu: [['A', 'G'], ['E', 'J', '3√6']], tambahan: [{ nama: 'J', di: [0.5, 0.5, 0] }, { nama: 'K', di: [0.333, 0.333, 0.333] }], bidang: ['B', 'D', 'E'] } },
 ]
 
 export default async function Halaman({ searchParams }: { searchParams: Promise<{ bab?: string }> }) {
   const { bab } = await searchParams
   const isi = bab ? ISI_TOPIK[bab] : undefined
+  // Per bab: gambar soal DAN gambar bantu tiap langkah pembahasan, supaya
+  // keduanya bisa dipotret dan dinilai sekaligus (14 Sep 2026).
   const daftar = isi
-    ? isi.kuis.filter((s) => s.gambar).map((s) => ({ nama: `${s.id} · ${s.tingkat}`, gambar: s.gambar! }))
+    ? isi.kuis.flatMap((s) => [
+        ...(s.gambar ? [{ nama: `${s.id} · ${s.tingkat} · soal`, gambar: s.gambar }] : []),
+        ...(s.langkah ?? []).flatMap((lg, i) =>
+          typeof lg === 'string' ? [] : [{ nama: `${s.id} · langkah ${i + 1}`, gambar: lg.gambar }],
+        ),
+      ])
     : CONTOH
   return (
     <>
@@ -46,7 +67,7 @@ export default async function Halaman({ searchParams }: { searchParams: Promise<
       <main className="mantra-lebar" style={{ paddingTop: 38 }}>
         <div className="kicker">Pemeriksaan</div>
         <h1 className="judul-halaman">
-          {isi ? `Gambar soal ${bab}: ${daftar.length} dari ${isi.kuis.length} soal` : 'Contoh gambar soal, satu tiap jenis'}
+          {isi ? `Gambar ${bab}: ${daftar.length} gambar dari ${isi.kuis.length} soal` : 'Contoh gambar soal, satu tiap jenis'}
         </h1>
         <div className="kisi-contoh-gambar">
           {daftar.map((c) => (

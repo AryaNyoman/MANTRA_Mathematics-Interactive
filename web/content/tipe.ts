@@ -95,6 +95,8 @@ export type GambarSoal =
       label: [string, string, string]
       /** nama sudutnya, misalnya "θ" atau "30°"; kosong = tanpa tanda sudut */
       namaSudut?: string
+      /** sisi yang sedang dicari atau dibicarakan, digambar lebih tebal (segitiga acuan pembahasan) */
+      sorot?: 'depan' | 'samping' | 'miring'
     }
   | {
       jenis: 'lingkaran'
@@ -104,6 +106,72 @@ export type GambarSoal =
       label?: string
       /** tampilkan kaki x (biru) dan y (merah) */
       kaki?: boolean
+    }
+  | {
+      /**
+       * Bagan empat kuadran untuk pembahasan tanda: nama kuadran, sudut batas
+       * 0°, 90°, 180°, 270°, dan fungsi yang bernilai positif di tiap kuadran
+       * (semua, sin, tan, cos). Satu kuadran boleh disorot, dan sebuah sudut
+       * boleh digambar sebagai sinar dari sumbu-x positif.
+       */
+      jenis: 'kuadran'
+      /** kuadran yang disorot, 1 sampai 4 */
+      sorot?: 1 | 2 | 3 | 4
+      /** sudut yang digambar sebagai sinar, derajat */
+      sudut?: number
+      /** nama sudut di ujung sinar, misalnya "α" */
+      label?: string
+    }
+  | {
+      /**
+       * Segitiga sembarang yang "dicabut" dari bangun ruang atau soal cerita,
+       * digambar datar dengan nama titik dan panjang sisinya. Bentuknya
+       * dihitung dari ketiga panjang (aturan kosinus), jadi gambar tidak
+       * berbohong tentang sudutnya.
+       */
+      jenis: 'segitiga-umum'
+      /** nama ketiga titik; titik pertama kiri bawah, kedua kanan bawah, ketiga di atas */
+      titik: [string, string, string]
+      /** panjang sisi untuk bentuknya: titik1-titik2, titik2-titik3, titik3-titik1 */
+      panjang: [number, number, number]
+      /** tulisan di tiap sisi, urutan sama dengan `panjang`; kosong = angkanya; "?" untuk yang dicari */
+      sisi?: [string, string, string]
+      /** indeks titik yang siku-siku (0, 1, atau 2), diberi tanda kotak */
+      siku?: 0 | 1 | 2
+      /** garis tinggi putus-putus dari titik ke sisi di hadapannya, dengan tanda siku dan nama kaki */
+      tinggi?: { dari: 0 | 1 | 2; label?: string; kaki?: string }
+      /** indeks sisi yang disorot (0, 1, 2) atau 'tinggi' */
+      sorot?: 0 | 1 | 2 | 'tinggi'
+      /** busur sudut bernama di titik tertentu */
+      sudut?: { di: 0 | 1 | 2; label: string }[]
+    }
+  | {
+      /**
+       * Tabel data (statistika): baris disorot untuk kelas yang dibahas,
+       * kolom tambahan (frekuensi kumulatif, f·x) diberi warna berbeda supaya
+       * terlihat mana yang datang dari soal dan mana yang dihitung.
+       */
+      jenis: 'tabel'
+      kepala: string[]
+      baris: string[][]
+      /** indeks baris yang disorot */
+      sorot?: number[]
+      /** indeks kolom yang merupakan hasil hitungan, bukan dari soal */
+      kolomBaru?: number[]
+      /** baris jumlah di bawah tabel, misalnya ["Jumlah", "40", "", "2.680"] */
+      jumlah?: string[]
+    }
+  | {
+      /**
+       * Garis bilangan untuk uji tanda (naik/turun, cekung), irisan syarat,
+       * dan selang penyelesaian. Titik bisa penuh (termasuk) atau kosong.
+       */
+      jenis: 'garis-bilangan'
+      /** [kiri, kanan]; bawaan mengikuti titik yang ada */
+      jangkauan?: [number, number]
+      titik: { x: number; label?: string; kosong?: boolean }[]
+      /** selang bertanda: tanda "+" atau "−" atau tulisan lain, disorot bila diminta */
+      selang?: { dari: number; sampai: number; tanda?: string; sorot?: boolean }[]
     }
   | {
       jenis: 'grafik'
@@ -119,6 +187,10 @@ export type GambarSoal =
       nama?: string[]
       /** titik berlubang (limit): titik digambar kosong */
       lubang?: { x: number; y: number }[]
+      /** selang x yang diarsir (fungsi naik, turun, daerah syarat), berlabel */
+      arsir?: { dari: number; sampai: number; label?: string }[]
+      /** garis mendatar putus-putus, misalnya asimtot datar y = 2 */
+      datar?: number[]
     }
   | {
       jenis: 'vektor'
@@ -126,6 +198,12 @@ export type GambarSoal =
       jangkauan?: [number, number, number, number]
       /** gambar komponen mendatar dan tegak putus-putus untuk panah ke-n */
       komponen?: number[]
+      /**
+       * Proyeksi panah `dari` pada garis panah `ke` (indeks di `panah`,
+       * keduanya harus berpangkal sama): garis putus-putus tegak lurus dari
+       * ujung `dari`, ruas proyeksinya ditebalkan dan diberi label.
+       */
+      proyeksi?: { dari: number; ke: number; label?: string }
     }
   | {
       jenis: 'batang' | 'garis-data'
@@ -144,8 +222,10 @@ export type GambarSoal =
       ukuran: [number, number, number]
       /** nama delapan titik sudut, urutan A B C D (alas, berlawanan jarum jam dari kiri depan) E F G H (atas) */
       titik?: string[]
-      /** ruas yang digambar tebal, pasangan nama titik */
-      ruas?: [string, string][]
+      /** ruas yang digambar tebal (merah), pasangan nama titik, boleh berlabel panjang */
+      ruas?: [string, string, string?][]
+      /** garis bantu putus-putus (ungu), pasangan nama titik, boleh berlabel */
+      bantu?: [string, string, string?][]
       /** titik tambahan di tengah rusuk/bidang: nama dan koordinat pecahan [px, py, pz] dalam 0..1 */
       tambahan?: { nama: string; di: [number, number, number] }[]
       /** bidang yang diarsir, daftar nama titik */
@@ -164,6 +244,10 @@ export type GambarSoal =
       jangkauan?: [number, number, number, number]
       labelBangun?: string[]
       labelBayangan?: string[]
+      /** panah tipis dari tiap titik bangun ke titik bayangannya (translasi, dilatasi) */
+      panah?: boolean
+      /** garis lurus tambahan y = mx + c yang digambar tipis, misalnya garis yang ditransformasi */
+      garis?: { m: number; c: number; label?: string; warna?: 'samping' | 'sudut' | 'depan' }[]
     }
   | {
       jenis: 'luas'
@@ -175,6 +259,19 @@ export type GambarSoal =
       /** fungsi kedua, untuk luas di antara dua kurva */
       fungsi2?: string
       jangkauan?: [number, number, number, number]
+      /** titik berlabel, misalnya titik potong kedua kurva */
+      titik?: { x: number; y: number; label?: string }[]
+      /**
+       * Daerah dipecah di absis ini (garis tegak putus-putus); tiap bagian
+       * diberi label dari `labelBagian` ("L₁", "L₂" atau "+", "−") dan
+       * bagian di bawah sumbu (fungsi negatif) diwarnai merah.
+       */
+      pecah?: number[]
+      labelBagian?: string[]
+      /** satu batang tegak selebar Δx di absis ini, untuk menjelaskan jumlah Riemann */
+      strip?: { x: number; label?: string }
+      /** keterangan kurva, urutannya fungsi lalu fungsi2 */
+      nama?: string[]
     }
   | {
       jenis: 'svg'
@@ -183,6 +280,15 @@ export type GambarSoal =
       isi: string
     }
 
+/**
+ * Satu langkah pembahasan: kalimat utuh, boleh membawa GAMBAR BANTU-nya
+ * sendiri (14 Sep 2026, meniru mathcyber1997). Gambar bantu itu gambar baru
+ * yang memuat hasil langkahnya (bagan kuadran yang disorot, segitiga acuan
+ * berlabel angka, segitiga yang dicabut dari kubus), bukan gambar soal yang
+ * diulang. Panel Pembahasan menaruh gambarnya tepat di bawah kalimatnya.
+ */
+export type Langkah = string | { teks: string; gambar: GambarSoal }
+
 export type SoalKuis = {
   /** dipakai untuk mengingat soal mana yang sudah pernah keluar */
   id: string
@@ -190,29 +296,30 @@ export type SoalKuis = {
   pilihan: string[]
   /** indeks jawaban benar */
   benar: number
-  /** dijelaskan setelah dijawab, termasuk kenapa yang salah itu menggoda */
+  /** ringkasan satu kalimat; dipakai kuis bab dan sebagai cadangan bila `langkah` kosong */
   alasan: string
   /**
    * Gambar situasi soal. Tampil di bawah soal SEBELUM dijawab (situasinya,
-   * tanpa membocorkan jawaban) dan di panel Pembahasan. Wajib untuk soal
-   * cerita, bangun, grafik, dan data; soal definisi boleh tanpa gambar.
+   * tanpa membocorkan jawaban). Wajib untuk soal cerita, bangun, grafik,
+   * dan data; soal definisi boleh tanpa gambar. Panel Pembahasan TIDAK
+   * mengulangnya (ARYA 14 Sep 2026): yang tampil di sana gambar bantu
+   * tiap langkah.
    */
   gambar?: GambarSoal
   /**
-   * Kenapa pengecoh terasa masuk akal: satu atau dua kalimat yang menyebut
-   * pilihan mana yang menggoda dan kekeliruan apa di baliknya.
+   * Kenapa pengecoh terasa masuk akal, satu kalimat per pengecoh yang layak
+   * dibahas: "Pilihan D, 3/5, lupa memberi tanda kuadran III."
    */
   jebakan?: string
   /**
-   * Langkah penyelesaian, satu butir satu langkah. OPSIONAL.
-   *
-   * Panel Pembahasan di halaman bank soal menampilkan langkah bernomor kalau
-   * medan ini ada, dan jatuh ke `alasan` kalau tidak. Sengaja tidak diwajibkan:
-   * memaksakannya berarti 32 soal kali tujuh topik harus ditulis ulang
-   * sekaligus. Isi `alasan` TIDAK boleh dipecah otomatis jadi langkah;
-   * kalimat penjelasan bukan langkah penyelesaian.
+   * Langkah penyelesaian bergaya mathcyber1997 (catatan belajar 14 Sep 2026,
+   * `PELAJARI BENTUK SOAL MATEMATIKA/CATATAN-BELAJAR-PEMBAHASAN.md` bagian 5):
+   * pembuka fakta kunci, pemisalan, alat disebut lalu hitungan penuh, tanda
+   * atau syarat dalam kurung, dan penutup "Jadi, ... adalah .... (Jawaban C)".
+   * Formal, tanpa "kamu" atau "Anda". `alat/cek_kuis.mjs --ketat` menolak
+   * butir tanpa kata kerja penuntun dan penutup tanpa huruf jawaban.
    */
-  langkah?: string[]
+  langkah?: Langkah[]
   tingkat: TingkatKuis
 }
 
