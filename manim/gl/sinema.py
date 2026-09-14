@@ -21,6 +21,7 @@ empat sesi mengulang kesalahan yang sama. Aturan yang DIPAKSAKAN di sini:
 5. ANGKA MEMAKAI KOMA (`AngkaKoma`). Teks HUD menempel di layar (`fix_in_frame`).
 """
 
+import os
 import re
 from contextlib import contextmanager
 from pathlib import Path
@@ -819,6 +820,14 @@ def babak(scene, nama: str, durasi: dict, kata=None):
 # yang ditulis `manim/buat_narasi.py` (penanda WordBoundary mesin suara).
 # ---------------------------------------------------------------------------
 
+def folder_audio(topik: str) -> Path:
+    """Folder narasi video: `audio/<topik>`, atau `audio/<topik><NARASI_VARIAN>`
+    bila peubah lingkungan itu diisi. Dipakai untuk menguji mesin suara lain
+    (14 Sep 2026: ElevenLabs) tanpa menimpa narasi produksi; adegan, JamKata,
+    gabung_audio, dan buat_subtitle membaca folder yang sama lewat fungsi ini."""
+    return AKAR / "audio" / (topik + os.environ.get("NARASI_VARIAN", ""))
+
+
 def _kata_polos(teks: str) -> str:
     return "".join(c for c in teks.lower() if c.isalnum())
 
@@ -834,7 +843,7 @@ class JamKata:
     """
 
     def __init__(self, topik: str):
-        berkas = AKAR / "audio" / topik / "kata.json"
+        berkas = folder_audio(topik) / "kata.json"
         if not berkas.exists():
             raise FileNotFoundError(
                 f"{berkas} tidak ada. Jalankan: python manim/buat_narasi.py {topik}")

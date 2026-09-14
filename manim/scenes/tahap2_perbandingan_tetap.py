@@ -33,7 +33,7 @@ from gl import kamera, qc, sinema  # noqa: E402
 
 AKAR = Path(__file__).resolve().parents[2]
 TOPIK = "tahap2-perbandingan-tetap"
-DURASI = json.loads((AKAR / "audio" / TOPIK / "durasi.json").read_text(encoding="utf-8"))["segmen"]
+DURASI = json.loads((sinema.folder_audio(TOPIK) / "durasi.json").read_text(encoding="utf-8"))["segmen"]
 KATA = sinema.JamKata(TOPIK)
 
 # --- segitiga di kiri; kaki layar (y < -2,55) milik subtitle -------------

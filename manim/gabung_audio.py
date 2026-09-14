@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -113,7 +114,8 @@ def main() -> None:
     berkas_latar = (AKAR / "manim" / "suara" / f"{latar}.ogg") if latar else None
     if berkas_latar is not None and not berkas_latar.exists():
         raise SystemExit(f"suara latar '{latar}' tidak ada: {berkas_latar}. Lihat manim/suara/README.md")
-    suara = AKAR / "audio" / a.topik / "narasi-penuh.mp3"
+    # NARASI_VARIAN (mis. "-eleven") memilih folder narasi uji, sama seperti adegan
+    suara = AKAR / "audio" / (a.topik + os.environ.get("NARASI_VARIAN", "")) / "narasi-penuh.mp3"
     if not suara.exists():
         raise SystemExit(f"narasi belum dibuat: {suara}\nJalankan dulu: python manim/buat_narasi.py {a.topik}")
 

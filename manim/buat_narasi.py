@@ -26,19 +26,34 @@ napas 0,35 detik di ujungnya, dan panjang tiap segmen dibulatkan ke kisi
 tanpa pembulatan itu selisih frame menumpuk sampai satu detik di akhir video
 (temuan Turunan 2).
 
-Mesin suara: edge-tts, suara Indonesia asli id-ID-ArdiNeural. ElevenLabs
-tidak dipakai: tingkat gratisnya mengunci semua suara Indonesia (31 Agu 2026).
+Mesin suara: edge-tts, suara Indonesia asli id-ID-ArdiNeural (bawaan).
+
+ELEVENLABS (14 Sep 2026, ARYA berlangganan paket Creator): suara bernama
+`eleven:<nama atau id suara>` di naskah, atau `--suara "eleven:Adam - American,
+Dark and Tough"` di baris perintah, merekam lewat ElevenLabs. Waktu tiap kata
+dihitung dari penjajaran huruf yang dikembalikan endpoint `with-timestamps`
+(model `eleven_multilingual_v2`, yang berbahasa Indonesia DAN memberi
+penjajaran). Kunci dibaca dari `.env.local` (ELEVENLABS_API_KEY), tidak pernah
+dicetak. Tempo "-5%" diterjemahkan ke `speed` 0,95.
+
+Uji tanpa menimpa narasi produksi: `--varian -eleven` menulis ke
+`audio/<video>-eleven/`; adegan dan penggabung membaca folder itu bila
+peubah lingkungan NARASI_VARIAN=-eleven diisi (lihat `sinema.folder_audio`).
 """
 
 from __future__ import annotations
 
 import argparse
 import asyncio
+import base64
 import hashlib
 import json
 import math
 import subprocess
 import sys
+import time
+import urllib.error
+import urllib.request
 import wave
 from pathlib import Path
 
@@ -50,6 +65,8 @@ KISI = LAJU // 30            # 1600 sampel = satu frame 30 fps (juga kelipatan 6
 NAPAS = 0.35                 # detik jeda di ujung tiap segmen
 SUARA_BAWAAN = "id-ID-ArdiNeural"
 TEMPO_BAWAAN = "-5%"
+AWALAN_ELEVEN = "eleven:"
+MODEL_ELEVEN = "eleven_multilingual_v2"
 
 
 def teks_ucap(seg: dict) -> str:
@@ -81,6 +98,107 @@ async def rekam(teks: str, suara: str, tempo: str, mp3: Path, meta: Path) -> Non
             await asyncio.sleep(2)
 
 
+# ---------------------------------------------------------------- ElevenLabs
+
+def kunci_eleven() -> str:
+    berkas = AKAR / ".env.local"
+    if berkas.exists():
+        for baris in berkas.read_text(encoding="utf-8").splitlines():
+            if baris.startswith("ELEVENLABS_API_KEY="):
+                nilai = baris.split("=", 1)[1].strip().strip('"').strip("'")
+                if nilai:
+                    return nilai
+    raise SystemExit("ELEVENLABS_API_KEY tidak ada di .env.local")
+
+
+def _minta_eleven(jalur: str, kunci: str, badan: dict | None = None) -> dict:
+    data = json.dumps(badan).encode("utf-8") if badan is not None else None
+    req = urllib.request.Request(
+        "https://api.elevenlabs.io" + jalur, data=data,
+        headers={"xi-api-key": kunci, "Content-Type": "application/json", "Accept": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=180) as r:
+            return json.loads(r.read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
+        pesan = e.read().decode("utf-8", "replace")[:400]
+        raise RuntimeError(f"ElevenLabs {e.code} pada {jalur}: {pesan}") from None
+
+
+def id_suara_eleven(nama: str, kunci: str) -> str:
+    """Nama suara di pustaka akun (persis, atau awalan tanpa peduli huruf besar) menjadi voice_id."""
+    if len(nama) == 20 and nama.isalnum():
+        return nama                     # sudah voice_id
+    daftar = _minta_eleven("/v1/voices", kunci)["voices"]
+    cocok = [v for v in daftar if v["name"].lower() == nama.lower()]
+    if not cocok:
+        cocok = [v for v in daftar if v["name"].lower().startswith(nama.lower())]
+    if len(cocok) != 1:
+        ada = ", ".join(v["name"] for v in daftar)
+        keterangan = "tidak ada" if not cocok else "ganda"
+        raise SystemExit(f"suara ElevenLabs '{nama}' {keterangan}. Yang ada: {ada}")
+    return cocok[0]["voice_id"]
+
+
+def kecepatan_dari_tempo(tempo: str) -> float:
+    """Tempo gaya edge-tts ("-5%", "+10%") menjadi pengali kecepatan ElevenLabs (0,7 sampai 1,2)."""
+    try:
+        persen = float(tempo.replace("%", "").replace("+", ""))
+    except ValueError:
+        persen = 0.0
+    return max(0.7, min(1.2, round(1 + persen / 100, 2)))
+
+
+def kata_dari_penjajaran(pj: dict) -> list[dict]:
+    """Penjajaran per huruf ElevenLabs menjadi daftar kata {kata, mulai, durasi} seperti WordBoundary."""
+    huruf = pj["characters"]
+    mulai = pj["character_start_times_seconds"]
+    akhir = pj["character_end_times_seconds"]
+    kata: list[dict] = []
+    buf, t0, t1 = "", None, None
+    for h, a, b in zip(huruf, mulai, akhir):
+        if h.isspace():
+            if buf:
+                kata.append({"kata": buf, "mulai": round(t0, 6), "durasi": round(max(t1 - t0, 0.01), 6)})
+            buf, t0, t1 = "", None, None
+            continue
+        if not buf:
+            t0 = a
+        buf += h
+        t1 = b
+    if buf:
+        kata.append({"kata": buf, "mulai": round(t0, 6), "durasi": round(max(t1 - t0, 0.01), 6)})
+    # tanda baca yang berdiri sendiri (mis. "-") bukan kata
+    return [k for k in kata if any(c.isalnum() for c in k["kata"])]
+
+
+def rekam_eleven(teks: str, voice_id: str, tempo: str, kunci: str, mp3: Path, meta: Path,
+                 model: str = MODEL_ELEVEN) -> None:
+    badan = {
+        "text": teks,
+        "model_id": model,
+        "voice_settings": {"stability": 0.5, "similarity_boost": 0.75, "style": 0.0,
+                           "use_speaker_boost": True, "speed": kecepatan_dari_tempo(tempo)},
+    }
+    for percobaan in range(3):
+        try:
+            hasil = _minta_eleven(f"/v1/text-to-speech/{voice_id}/with-timestamps?output_format=mp3_44100_128",
+                                  kunci, badan)
+            pj = hasil.get("alignment") or hasil.get("normalized_alignment")
+            if not hasil.get("audio_base64") or not pj:
+                raise RuntimeError("ElevenLabs tidak mengembalikan suara atau penjajaran kata")
+            kata = kata_dari_penjajaran(pj)
+            if not kata:
+                raise RuntimeError("penjajaran ElevenLabs kosong")
+            mp3.write_bytes(base64.b64decode(hasil["audio_base64"]))
+            meta.write_text(json.dumps(kata, ensure_ascii=False, indent=2), encoding="utf-8")
+            return
+        except RuntimeError as e:
+            # galat 4xx (kunci, kuota, suara) tidak akan sembuh dengan mengulang
+            if percobaan == 2 or "ElevenLabs 4" in str(e):
+                raise
+            time.sleep(3)
+
+
 def pcm_dari(mp3: Path) -> bytes:
     return subprocess.run(
         ["ffmpeg", "-v", "error", "-i", str(mp3), "-f", "s16le", "-ac", "1", "-ar", str(LAJU), "-"],
@@ -93,19 +211,27 @@ def tulis_wav(jalur: Path, pcm: bytes) -> None:
         w.writeframes(pcm)
 
 
-async def buat(topik: str, napas: float = NAPAS, diam: bool = False) -> None:
+async def buat(topik: str, napas: float = NAPAS, diam: bool = False,
+               suara_paksa: str | None = None, varian: str = "", model: str = MODEL_ELEVEN) -> None:
     berkas_naskah = AKAR / "manim" / "narasi" / f"{topik}.json"
     if not berkas_naskah.exists():
         raise SystemExit(f"naskah tidak ditemukan: {berkas_naskah}")
     naskah = json.loads(berkas_naskah.read_text(encoding="utf-8"))
-    suara = naskah.get("suara", SUARA_BAWAAN)
+    suara = suara_paksa or naskah.get("suara", SUARA_BAWAAN)
     tempo = naskah.get("tempo", TEMPO_BAWAAN)
-    keluar = AKAR / "audio" / topik
+    pakai_eleven = suara.startswith(AWALAN_ELEVEN)
+    kunci = voice_id = None
+    if pakai_eleven:
+        kunci = kunci_eleven()
+        voice_id = id_suara_eleven(suara[len(AWALAN_ELEVEN):].strip(), kunci)
+    keluar = AKAR / "audio" / (topik + varian)
     cache = keluar / "revisi"
     cache.mkdir(parents=True, exist_ok=True)
     if not diam:
         print(f"naskah : {berkas_naskah.name}  ({len(naskah['segmen'])} segmen)")
-        print(f"suara  : {suara}  (tempo {tempo}, napas {napas:.2f} s)\n")
+        mesin = f"ElevenLabs {model}, voice {voice_id}" if pakai_eleven else "edge-tts"
+        print(f"suara  : {suara}  [{mesin}]  (tempo {tempo}, napas {napas:.2f} s)")
+        print(f"keluar : {keluar.relative_to(AKAR)}/\n")
 
     durasi: dict[str, float] = {}
     jam: dict[str, dict] = {}
@@ -115,12 +241,15 @@ async def buat(topik: str, napas: float = NAPAS, diam: bool = False) -> None:
     for i, seg in enumerate(naskah["segmen"], start=1):
         ident = seg["id"]
         teks = teks_ucap(seg)
-        kunci = hashlib.sha256((teks + suara + tempo).encode("utf-8")).hexdigest()[:12]
-        mentah = cache / f"{ident}-{kunci}.mp3"
+        sidik = hashlib.sha256((teks + suara + tempo + (model if pakai_eleven else "")).encode("utf-8")).hexdigest()[:12]
+        mentah = cache / f"{ident}-{sidik}.mp3"
         meta = mentah.with_suffix(".json")
         baru = not (mentah.exists() and meta.exists())
         if baru:
-            await rekam(teks, suara, tempo, mentah, meta)
+            if pakai_eleven:
+                rekam_eleven(teks, voice_id, tempo, kunci, mentah, meta, model)
+            else:
+                await rekam(teks, suara, tempo, mentah, meta)
         kata = json.loads(meta.read_text(encoding="utf-8"))
         pcm = pcm_dari(mentah)
         # napas di ujung, lalu dibulatkan ke kisi frame
@@ -175,8 +304,14 @@ def main() -> None:
     p.add_argument("topik", help="nama video, sama dengan nama berkas naskah tanpa .json")
     p.add_argument("--napas", type=float, default=NAPAS, help="jeda di ujung tiap segmen, detik")
     p.add_argument("--diam", action="store_true")
+    p.add_argument("--suara", default=None,
+                   help='menimpa suara di naskah; "eleven:<nama suara>" memakai ElevenLabs')
+    p.add_argument("--varian", default="",
+                   help='akhiran folder keluaran, mis. "-eleven": ditulis ke audio/<video>-eleven/ '
+                        "dan dibaca adegan bila NARASI_VARIAN diisi akhiran yang sama")
+    p.add_argument("--model", default=MODEL_ELEVEN, help="model ElevenLabs (bawaan eleven_multilingual_v2)")
     a = p.parse_args()
-    asyncio.run(buat(a.topik, a.napas, a.diam))
+    asyncio.run(buat(a.topik, a.napas, a.diam, a.suara, a.varian, a.model))
 
 
 if __name__ == "__main__":

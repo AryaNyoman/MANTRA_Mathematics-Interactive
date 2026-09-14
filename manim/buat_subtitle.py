@@ -29,6 +29,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -310,8 +311,9 @@ def cue_dari_kata(seg: dict, jam_seg: dict) -> list[tuple[float, float, str]]:
 
 def buat(topik: str, diam: bool = False) -> Path:
     berkas_naskah = NASKAH / f"{topik}.json"
-    berkas_durasi = AKAR / "audio" / topik / "durasi.json"
-    berkas_kata = AKAR / "audio" / topik / "kata.json"
+    varian = os.environ.get("NARASI_VARIAN", "")   # folder narasi uji, lihat sinema.folder_audio
+    berkas_durasi = AKAR / "audio" / (topik + varian) / "durasi.json"
+    berkas_kata = AKAR / "audio" / (topik + varian) / "kata.json"
     if not berkas_naskah.exists():
         raise SystemExit(f"naskah tidak ada: {berkas_naskah}")
     if not berkas_durasi.exists():
