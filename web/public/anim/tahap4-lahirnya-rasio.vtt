@@ -4,217 +4,217 @@ NOTE Dibuat otomatis dari manim/narasi/tahap4-lahirnya-rasio.json (waktu kata re
 NOTE naskah-sidik 735ceda8135d
 
 1
-00:00:00.116 --> 00:00:03.174
+00:00:00.000 --> 00:00:03.227
 Perbandingan Trigonometri, Bagian 4.
 
 2
-00:00:03.907 --> 00:00:07.333
+00:00:03.715 --> 00:00:07.011
 Dari mana sinus, cosinus, dan tangen datang?
 
 3
-00:00:08.549 --> 00:00:09.994
+00:00:07.660 --> 00:00:09.415
 Di materi sebelumnya,
 
 4
-00:00:09.994 --> 00:00:12.471
+00:00:09.415 --> 00:00:12.425
 Perbandingan Trigonometri, Bagian 3,
 
 5
-00:00:12.471 --> 00:00:15.923
+00:00:12.425 --> 00:00:16.587
 ketiga sisi segitiga siku-siku sudah punya nama.
 
 6
-00:00:16.670 --> 00:00:18.796
+00:00:17.169 --> 00:00:19.643
 Sisi depan ada di seberang sudut θ,
 
 7
-00:00:18.796 --> 00:00:20.983
+00:00:19.643 --> 00:00:22.188
 sisi samping menempel pada sudutnya,
 
 8
-00:00:20.983 --> 00:00:23.623
+00:00:22.188 --> 00:00:25.237
 dan sisi miring ada di hadapan siku-siku.
 
 9
-00:00:24.835 --> 00:00:26.120
+00:00:25.893 --> 00:00:27.263
 Dari ketiga sisi itu,
 
 10
-00:00:26.120 --> 00:00:28.656
+00:00:27.263 --> 00:00:29.955
 ada berapa cara membaginya berpasangan?
 
 11
-00:00:29.390 --> 00:00:31.961
+00:00:30.212 --> 00:00:32.835
 Kita hitung dulu, baru diberi nama.
 
 12
-00:00:33.182 --> 00:00:35.202
+00:00:33.493 --> 00:00:35.687
 Ambil satu sisi sebagai pembilang,
 
 13
-00:00:35.202 --> 00:00:37.490
+00:00:35.687 --> 00:00:38.159
 dan satu sisi lain sebagai penyebut.
 
 14
-00:00:38.238 --> 00:00:40.293
+00:00:38.671 --> 00:00:41.359
 Ada 3 pilihan untuk yang di atas,
 
 15
-00:00:40.293 --> 00:00:42.375
+00:00:41.359 --> 00:00:44.034
 dan 2 sisa untuk yang di bawah.
 
 16
-00:00:43.601 --> 00:00:45.738
+00:00:44.693 --> 00:00:47.246
 Kenapa 2, bukan 3?
 
 17
-00:00:46.487 --> 00:00:48.091
+00:00:47.874 --> 00:00:49.834
 Sisi yang sudah dipakai di atas
 
 18
-00:00:48.091 --> 00:00:49.849
+00:00:49.834 --> 00:00:51.983
 tidak boleh dipakai lagi di bawah,
 
 19
-00:00:49.849 --> 00:00:52.689
+00:00:51.983 --> 00:00:55.420
 karena membagi sisi dengan dirinya sendiri selalu 1.
 
 20
-00:00:53.901 --> 00:00:55.986
+00:00:56.060 --> 00:00:59.078
 3 × 2 = 6.
 
 21
-00:00:56.720 --> 00:00:59.028
+00:00:59.532 --> 00:01:02.131
 Jadi ada <b>enam perbandingan</b> yang mungkin.
 
 22
-00:00:59.759 --> 00:01:02.028
+00:01:02.422 --> 00:01:04.999
 Tidak lebih, dan tidak kurang.
 
 23
-00:01:03.233 --> 00:01:05.041
+00:01:05.660 --> 00:01:07.470
 Dan keenamnya punya nama.
 
 24
-00:01:05.777 --> 00:01:07.588
+00:01:07.645 --> 00:01:09.800
 Tiga yang paling sering dipakai diberi
 
 25
-00:01:07.588 --> 00:01:09.598
+00:01:09.800 --> 00:01:12.161
 nama yang sudah Anda dengar sejak lama.
 
 26
-00:01:10.801 --> 00:01:12.820
+00:01:12.793 --> 00:01:15.126
 Sisi depan dibagi sisi miring.
 
 27
-00:01:13.554 --> 00:01:15.915
+00:01:15.336 --> 00:01:17.633
 Namanya <b>sinus</b>, disingkat sin.
 
 28
-00:01:17.135 --> 00:01:19.258
+00:01:18.293 --> 00:01:20.544
 Sisi samping dibagi sisi miring.
 
 29
-00:01:19.993 --> 00:01:22.524
+00:01:20.870 --> 00:01:23.447
 Namanya <b>cosinus</b>, disingkat cos.
 
 30
-00:01:23.735 --> 00:01:26.043
+00:01:24.093 --> 00:01:26.472
 Dan sisi depan dibagi sisi samping.
 
 31
-00:01:26.776 --> 00:01:29.202
+00:01:26.728 --> 00:01:28.991
 Namanya <b>tangen</b>, disingkat tan.
 
 32
-00:01:30.401 --> 00:01:31.787
+00:01:29.627 --> 00:01:30.977
 Coba dengan angka.
 
 33
-00:01:32.537 --> 00:01:35.967
+00:01:31.194 --> 00:01:34.486
 Segitiga dengan sisi depan 3, sisi samping 4,
 
 34
-00:01:35.967 --> 00:01:37.489
+00:01:34.486 --> 00:01:35.953
 dan sisi miring 5.
 
 35
-00:01:38.716 --> 00:01:42.510
+00:01:36.593 --> 00:01:40.423
 sin θ = 3/5 = 0,6.
 
 36
-00:01:43.258 --> 00:01:47.276
+00:01:41.132 --> 00:01:45.090
 cos θ = 4/5 = 0,8.
 
 37
-00:01:48.021 --> 00:01:52.316
+00:01:45.799 --> 00:01:50.175
 Dan tan θ = 3/4 = 0,75.
 
 38
-00:01:53.501 --> 00:01:55.399
+00:01:50.827 --> 00:01:52.833
 Ketiganya paling sering dipakai karena
 
 39
-00:01:55.399 --> 00:01:57.296
+00:01:52.833 --> 00:01:54.831
 sisi miring selalu yang terpanjang.
 
 40
-00:01:58.045 --> 00:02:00.196
+00:01:55.413 --> 00:01:57.828
 Membaginya dengan sisi miring memberi
 
 41
-00:02:00.196 --> 00:02:01.417
+00:01:57.828 --> 00:01:59.200
 angka antara 0 dan 1,
 
 42
-00:02:01.417 --> 00:02:03.603
+00:01:59.200 --> 00:02:01.635
 dan angka seperti itu enak dipakai.
 
 43
-00:02:04.801 --> 00:02:07.596
+00:02:02.293 --> 00:02:05.021
 Tiga sisanya adalah kebalikan dari ketiga tadi.
 
 44
-00:02:08.330 --> 00:02:11.822
+00:02:05.335 --> 00:02:08.457
 Namanya <b>kosekan, sekan, dan kotangen</b>.
 
 45
-00:02:12.568 --> 00:02:14.296
+00:02:09.166 --> 00:02:10.836
 Kita akan menemuinya lagi di
 
 46
-00:02:14.296 --> 00:02:17.284
+00:02:10.836 --> 00:02:13.728
 Lingkaran Satuan dan Sudut Istimewa, Bagian 2.
 
 47
-00:02:18.516 --> 00:02:19.716
+00:02:14.360 --> 00:02:15.560
 Jadi sin, cos,
 
 48
-00:02:19.716 --> 00:02:23.543
+00:02:15.560 --> 00:02:19.439
 dan tan bukan rumus yang muncul entah dari mana.
 
 49
-00:02:24.149 --> 00:02:27.246
+00:02:19.642 --> 00:02:23.333
 Ketiganya hanya 3 dari 6 cara membagi dua sisi.
 
 50
-00:02:28.449 --> 00:02:29.856
+00:02:23.993 --> 00:02:25.609
 Di materi berikutnya,
 
 51
-00:02:29.856 --> 00:02:32.936
+00:02:25.609 --> 00:02:29.149
 Lingkaran Satuan dan Sudut Istimewa, Bagian 1,
 
 52
-00:02:32.936 --> 00:02:34.476
+00:02:29.149 --> 00:02:30.919
 segitiga ini kita taruh
 
 53
-00:02:34.476 --> 00:02:36.753
+00:02:30.919 --> 00:02:33.536
 di dalam lingkaran berjari-jari 1,
 
 54
-00:02:36.753 --> 00:02:39.046
+00:02:33.536 --> 00:02:36.148
 dan sisi miringnya jadi tepat 1.

@@ -4,385 +4,385 @@ NOTE Dibuat otomatis dari manim/narasi/transformasi1-setiap-titik.json (waktu ka
 NOTE naskah-sidik 4b281c2f4766
 
 1
-00:00:00.116 --> 00:00:04.582
+00:00:00.000 --> 00:00:05.003
 Prapeta, Peta, dan Pencerminan, Bagian 1.
 
 2
-00:00:05.329 --> 00:00:07.337
+00:00:05.492 --> 00:00:07.478
 Kalau sebuah gambar berpindah tempat,
 
 3
-00:00:07.337 --> 00:00:08.953
+00:00:07.478 --> 00:00:09.078
 sebenarnya apa yang pindah?
 
 4
-00:00:10.182 --> 00:00:12.903
+00:00:09.727 --> 00:00:13.128
 Di Vektor dalam Sistem Koordinat, Bagian 1,
 
 5
-00:00:12.903 --> 00:00:14.864
+00:00:13.128 --> 00:00:15.581
 <b>Memecah panah jadi dua langkah</b>,
 
 6
-00:00:14.864 --> 00:00:18.344
+00:00:15.581 --> 00:00:19.932
 kita belajar satu panah bisa ditulis sebagai dua angka:
 
 7
-00:00:18.344 --> 00:00:21.214
+00:00:19.932 --> 00:00:23.484
 langkah mendatarnya, lalu langkah tegaknya.
 
 8
-00:00:22.401 --> 00:00:25.183
+00:00:24.127 --> 00:00:27.330
 Sebuah titik dinamai dengan cara yang persis sama.
 
 9
-00:00:25.932 --> 00:00:29.482
+00:00:27.795 --> 00:00:32.378
 Titik ini kita sebut (1, 1): 1 petak ke kanan,
 
 10
-00:00:29.482 --> 00:00:31.253
+00:00:32.378 --> 00:00:34.621
 lalu 1 petak ke atas.
 
 11
-00:00:32.467 --> 00:00:34.262
+00:00:35.260 --> 00:00:37.197
 Itulah yang kita bawa ke sini.
 
 12
-00:00:35.011 --> 00:00:36.768
+00:00:37.558 --> 00:00:39.806
 Kalau satu titik adalah dua angka,
 
 13
-00:00:36.768 --> 00:00:39.247
+00:00:39.806 --> 00:00:42.979
 maka memindahkan titik berarti mengubah sepasang
 
 14
-00:00:39.247 --> 00:00:41.411
+00:00:42.979 --> 00:00:45.708
 angka menjadi sepasang angka yang lain.
 
 15
-00:00:42.635 --> 00:00:44.722
+00:00:46.360 --> 00:00:49.159
 Bayangkan lapangan ini bisa dilipat,
 
 16
-00:00:44.722 --> 00:00:46.785
+00:00:49.159 --> 00:00:51.874
 tepat pada garis putus-putus itu.
 
 17
-00:00:48.001 --> 00:00:50.572
+00:00:52.527 --> 00:00:55.371
 Kita lihat dari atas, seperti peta.
 
 18
-00:00:51.307 --> 00:00:53.549
+00:00:55.813 --> 00:00:58.447
 1 petak = 1 satuan.
 
 19
-00:00:54.768 --> 00:00:57.273
+00:00:59.093 --> 00:01:01.890
 Bentuk huruf L ini yang akan kita pindahkan.
 
 20
-00:00:58.007 --> 00:01:01.736
+00:01:02.379 --> 00:01:05.861
 Tiga sudutnya diberi nama A, B, dan C.
 
 21
-00:01:02.935 --> 00:01:05.466
+00:01:06.493 --> 00:01:08.988
 Bentuk sebelum dipindah kita sebut <b>prapeta</b>.
 
 22
-00:01:06.200 --> 00:01:08.192
+00:01:09.233 --> 00:01:11.159
 Hasilnya nanti kita sebut <b>peta</b>.
 
 23
-00:01:08.939 --> 00:01:10.553
+00:01:11.566 --> 00:01:13.282
 Dua kata itu dipakai buku,
 
 24
-00:01:10.553 --> 00:01:12.628
+00:01:13.282 --> 00:01:15.478
 jadi kita pakai sejak sekarang.
 
 25
-00:01:13.833 --> 00:01:15.681
+00:01:16.127 --> 00:01:17.938
 Mulai dari satu titik saja.
 
 26
-00:01:16.416 --> 00:01:18.527
+00:01:18.252 --> 00:01:20.573
 Titik A ada di (1, 1).
 
 27
-00:01:19.273 --> 00:01:23.107
+00:01:20.887 --> 00:01:25.287
 Hitung sendiri petaknya: 1 ke kanan, 1 ke atas.
 
 28
-00:01:24.301 --> 00:01:26.741
+00:01:25.927 --> 00:01:28.933
 Sekarang lapangan itu dilipat pada sumbu X.
 
 29
-00:01:26.867 --> 00:01:28.333
+00:01:29.317 --> 00:01:31.081
 Ke mana titik A mendarat?
 
 30
-00:01:29.535 --> 00:01:32.329
+00:01:31.727 --> 00:01:35.117
 Titik A berjarak 1 petak di atas sumbu X.
 
 31
-00:01:33.078 --> 00:01:35.959
+00:01:35.733 --> 00:01:38.649
 Kalau kertasnya dilipat, jarak itu tidak berubah,
 
 32
-00:01:35.959 --> 00:01:37.873
+00:01:38.649 --> 00:01:40.585
 cuma pindah ke sisi yang lain.
 
 33
-00:01:39.116 --> 00:01:43.726
+00:01:41.227 --> 00:01:47.019
 Jadi bayangannya 1 petak di bawah sumbu X, di (1, -1).
 
 34
-00:01:44.459 --> 00:01:45.978
+00:01:47.519 --> 00:01:49.364
 Kita tulis A'.
 
 35
-00:01:47.201 --> 00:01:48.851
+00:01:50.027 --> 00:01:51.686
 Perhatikan dua angkanya.
 
 36
-00:01:49.585 --> 00:01:51.327
+00:01:51.942 --> 00:01:53.880
 Angka pertama tetap 1.
 
 37
-00:01:52.059 --> 00:01:53.840
+00:01:54.253 --> 00:01:56.154
 Yang berubah hanya angka kedua,
 
 38
-00:01:53.840 --> 00:01:55.657
+00:01:56.154 --> 00:01:58.083
 dan berubahnya cuma tandanya.
 
 39
-00:01:56.868 --> 00:01:58.886
+00:01:58.727 --> 00:02:00.689
 Satu contoh saja belum cukup.
 
 40
-00:01:59.620 --> 00:02:01.757
+00:02:00.991 --> 00:02:03.707
 Ambil titik C di (6, 2).
 
 41
-00:02:02.489 --> 00:02:04.981
+00:02:04.010 --> 00:02:06.842
 Kali ini ia <b>dua</b> petak di atas sumbu X.
 
 42
-00:02:06.201 --> 00:02:10.167
+00:02:07.493 --> 00:02:12.286
 Maka bayangannya 2 petak di bawah, di (6, -2).
 
 43
-00:02:10.901 --> 00:02:12.735
+00:02:12.671 --> 00:02:14.806
 Angka pertamanya tetap 6.
 
 44
-00:02:13.935 --> 00:02:16.269
+00:02:15.460 --> 00:02:17.874
 Sekarang bandingkan perjalanan keduanya.
 
 45
-00:02:17.003 --> 00:02:18.877
+00:02:18.189 --> 00:02:20.336
 Titik A berjalan 2 petak.
 
 46
-00:02:19.608 --> 00:02:21.561
+00:02:20.592 --> 00:02:22.669
 Titik C berjalan <b>empat</b> petak.
 
 47
-00:02:22.768 --> 00:02:24.534
+00:02:23.327 --> 00:02:25.407
 Kalau gambarnya diangkat utuh,
 
 48
-00:02:24.534 --> 00:02:27.273
+00:02:25.407 --> 00:02:28.609
 semua titik pasti berjalan sejauh yang sama.
 
 49
-00:02:28.022 --> 00:02:29.717
+00:02:28.924 --> 00:02:30.662
 Karena jaraknya berbeda-beda,
 
 50
-00:02:29.717 --> 00:02:32.146
+00:02:30.662 --> 00:02:33.149
 yang bekerja bukan pengangkatan gambar.
 
 51
-00:02:33.382 --> 00:02:35.326
+00:02:33.793 --> 00:02:35.946
 Sekarang kita buktikan aturannya,
 
 52
-00:02:35.326 --> 00:02:37.243
+00:02:35.946 --> 00:02:38.053
 bukan sekadar menebak polanya.
 
 53
-00:02:37.976 --> 00:02:41.257
+00:02:38.750 --> 00:02:42.058
 Ambil titik sembarang, sebut saja (x, y).
 
 54
-00:02:42.482 --> 00:02:46.251
+00:02:42.693 --> 00:02:46.801
 Angka kedua, y, adalah tingginya dari sumbu X.
 
 55
-00:02:46.984 --> 00:02:49.621
+00:02:47.116 --> 00:02:50.006
 Itulah jarak yang harus dipertahankan lipatan.
 
 56
-00:02:50.835 --> 00:02:52.627
+00:02:50.660 --> 00:02:53.120
 Titik yang berjarak sama tetapi
 
 57
-00:02:52.627 --> 00:02:54.361
+00:02:53.120 --> 00:02:55.651
 di sisi bawah punya tinggi -y.
 
 58
-00:02:54.361 --> 00:02:56.985
+00:02:56.279 --> 00:02:59.250
 Sebab itulah arti tanda minus pada sumbu-y.
 
 59
-00:02:58.200 --> 00:02:59.758
+00:02:59.893 --> 00:03:01.494
 Lalu angka pertamanya.
 
 60
-00:03:00.508 --> 00:03:02.264
+00:03:01.913 --> 00:03:04.142
 Lipatan itu tegak lurus sumbu X,
 
 61
-00:03:02.264 --> 00:03:03.636
+00:03:04.142 --> 00:03:05.884
 jadi tidak ada titik yang
 
 62
-00:03:03.636 --> 00:03:05.487
+00:03:05.884 --> 00:03:08.193
 bergeser ke kiri atau ke kanan.
 
 63
-00:03:06.216 --> 00:03:07.892
+00:03:08.484 --> 00:03:10.155
 Nilai x tinggal diam.
 
 64
-00:03:09.101 --> 00:03:13.054
+00:03:10.793 --> 00:03:16.377
 Jadi aturannya lahir sendiri: (x, y) menjadi (x, -y).
 
 65
-00:03:14.268 --> 00:03:16.102
+00:03:17.027 --> 00:03:18.977
 Kita uji balik ke contoh tadi.
 
 66
-00:03:16.836 --> 00:03:19.671
+00:03:19.361 --> 00:03:22.610
 (1, 1) memberi (1, -1).
 
 67
-00:03:20.402 --> 00:03:23.025
+00:03:23.064 --> 00:03:26.140
 (6, 2) memberi (6, -2).
 
 68
-00:03:23.757 --> 00:03:25.763
+00:03:26.211 --> 00:03:28.079
 Keduanya cocok dengan gambarnya.
 
 69
-00:03:26.968 --> 00:03:28.261
+00:03:28.727 --> 00:03:29.974
 Sekarang aturan itu kita
 
 70
-00:03:28.261 --> 00:03:30.513
+00:03:29.974 --> 00:03:32.151
 kenakan pada keenam sudutnya sekaligus.
 
 71
-00:03:31.261 --> 00:03:33.378
+00:03:32.465 --> 00:03:34.393
 Tiap sudut berjalan sendiri-sendiri,
 
 72
-00:03:33.378 --> 00:03:35.056
+00:03:34.393 --> 00:03:35.936
 di garisnya masing-masing.
 
 73
-00:03:36.267 --> 00:03:38.536
+00:03:36.593 --> 00:03:38.775
 Hasilnya inilah <b>peta</b> dari bentuk tadi.
 
 74
-00:03:39.270 --> 00:03:40.666
+00:03:39.484 --> 00:03:40.839
 Gambarnya ikut pindah hanya
 
 75
-00:03:40.666 --> 00:03:42.315
+00:03:40.839 --> 00:03:42.444
 karena semua titiknya pindah.
 
 76
-00:03:43.535 --> 00:03:46.093
+00:03:43.093 --> 00:03:45.716
 Sekarang kekeliruan yang paling sering terjadi.
 
 77
-00:03:46.827 --> 00:03:48.823
+00:03:46.297 --> 00:03:48.318
 Bentuk merah ini <b>digeser</b> turun,
 
 78
-00:03:48.823 --> 00:03:50.648
+00:03:48.318 --> 00:03:50.162
 semuanya sejauh yang sama.
 
 79
-00:03:51.868 --> 00:03:54.939
+00:03:50.793 --> 00:03:54.217
 Sekilas mirip, tetapi lihat kaki huruf L-nya.
 
 80
-00:03:55.672 --> 00:03:57.440
+00:03:54.531 --> 00:03:56.271
 Yang benar terbalik ke bawah.
 
 81
-00:03:58.173 --> 00:04:00.336
+00:03:56.853 --> 00:03:59.464
 Yang digeser tetap menghadap ke atas.
 
 82
-00:04:01.549 --> 00:04:04.857
+00:04:00.127 --> 00:04:03.679
 Cara memastikannya cuma satu: periksa satu titik.
 
 83
-00:04:05.590 --> 00:04:08.543
+00:04:04.214 --> 00:04:08.358
 Yang digeser menaruh A di (1, -3).
 
 84
-00:04:09.274 --> 00:04:12.148
+00:04:08.893 --> 00:04:12.456
 Aturan kita menaruhnya di (1, -1).
 
 85
-00:04:13.335 --> 00:04:14.850
+00:04:13.093 --> 00:04:14.807
 Rangkumannya satu kalimat:
 
 86
-00:04:14.850 --> 00:04:16.656
+00:04:14.807 --> 00:04:16.850
 yang berpindah bukan gambarnya,
 
 87
-00:04:16.656 --> 00:04:18.171
+00:04:16.850 --> 00:04:18.564
 melainkan setiap titiknya,
 
 88
-00:04:18.171 --> 00:04:21.235
+00:04:18.564 --> 00:04:22.009
 dan yang mengaturnya sebuah aturan pada dua angka.
 
 89
-00:04:22.435 --> 00:04:24.703
+00:04:22.660 --> 00:04:24.900
 Satu pertanyaan sebelum kita lanjut.
 
 90
-00:04:25.437 --> 00:04:27.898
+00:04:25.215 --> 00:04:28.318
 Kalau sebuah titik tepat berada <b>di</b> sumbu X,
 
 91
-00:04:27.898 --> 00:04:29.248
+00:04:28.318 --> 00:04:29.695
 ke mana ia pergi?
 
 92
-00:04:30.249 --> 00:04:34.617
+00:04:30.327 --> 00:04:35.022
 Di materi berikutnya, Prapeta, Peta, dan Pencerminan,
 
 93
-00:04:34.617 --> 00:04:38.228
+00:04:35.022 --> 00:04:38.894
 Bagian 2, garis lipatannya kita pindahkan.
 
 94
-00:04:38.975 --> 00:04:40.208
+00:04:39.278 --> 00:04:41.041
 Ia tidak harus sumbu X,
 
 95
-00:04:40.208 --> 00:04:41.549
+00:04:41.041 --> 00:04:42.958
 dan aturan dua angka tadi
 
 96
-00:04:41.549 --> 00:04:43.468
+00:04:42.958 --> 00:04:45.639
 yang akan kita ubah mengikutinya.

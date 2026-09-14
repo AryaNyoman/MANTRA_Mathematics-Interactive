@@ -4,241 +4,241 @@ NOTE Dibuat otomatis dari manim/narasi/tahap7-sudut-istimewa.json (waktu kata re
 NOTE naskah-sidik 4e009fc84f7c
 
 1
-00:00:00.101 --> 00:00:03.751
+00:00:00.000 --> 00:00:03.958
 Lingkaran Satuan dan Sudut Istimewa, Bagian 3.
 
 2
-00:00:04.500 --> 00:00:09.637
+00:00:04.667 --> 00:00:10.947
 Kenapa 30°, 45°, dan 60° disebut sudut istimewa?
 
 3
-00:00:10.849 --> 00:00:12.332
+00:00:11.593 --> 00:00:13.472
 Di materi sebelumnya,
 
 4
-00:00:12.332 --> 00:00:15.581
+00:00:13.472 --> 00:00:17.586
 Lingkaran Satuan dan Sudut Istimewa, Bagian 1,
 
 5
-00:00:15.581 --> 00:00:17.699
+00:00:17.586 --> 00:00:20.269
 tiap titik di lingkaran satuan
 
 6
-00:00:17.699 --> 00:00:20.039
+00:00:20.269 --> 00:00:23.191
 punya koordinat (cos θ, sin θ).
 
 7
-00:00:20.786 --> 00:00:22.097
+00:00:23.505 --> 00:00:24.981
 Untuk kebanyakan sudut,
 
 8
-00:00:22.097 --> 00:00:25.041
+00:00:24.981 --> 00:00:28.276
 angkanya desimal panjang yang tidak pernah habis.
 
 9
-00:00:26.249 --> 00:00:28.237
+00:00:28.927 --> 00:00:31.515
 Ada tiga sudut yang di
 
 10
-00:00:28.237 --> 00:00:31.399
+00:00:31.515 --> 00:00:35.633
 semua buku selalu disebut <b>istimewa</b>:
 
 11
-00:00:31.399 --> 00:00:33.175
+00:00:35.633 --> 00:00:37.901
 30°, 45°, dan 60°.
 
 12
-00:00:33.923 --> 00:00:36.144
+00:00:38.610 --> 00:00:41.229
 Istimewanya bukan karena angkanya bulat,
 
 13
-00:00:36.144 --> 00:00:38.849
+00:00:41.229 --> 00:00:44.391
 melainkan karena nilainya bisa <b>ditulis persis</b>.
 
 14
-00:00:40.067 --> 00:00:42.428
+00:00:45.027 --> 00:00:48.022
 Yang pertama lahir dari sebuah persegi.
 
 15
-00:00:43.177 --> 00:00:45.366
+00:00:48.603 --> 00:00:51.347
 Ambil persegi dengan panjang sisi 1,
 
 16
-00:00:45.366 --> 00:00:47.827
+00:00:51.347 --> 00:00:54.395
 lalu potong menurut garis diagonalnya.
 
 17
-00:00:49.035 --> 00:00:50.989
+00:00:55.027 --> 00:00:57.369
 Yang tersisa adalah segitiga
 
 18
-00:00:50.989 --> 00:00:53.303
+00:00:57.369 --> 00:01:00.112
 siku-siku dengan dua sudut 45°.
 
 19
-00:00:54.037 --> 00:00:55.898
+00:01:00.612 --> 00:01:02.875
 Kedua sisi tegaknya 1.
 
 20
-00:00:57.101 --> 00:00:59.699
+00:01:03.527 --> 00:01:06.324
 Sisi miringnya kita hitung dengan Pythagoras.
 
 21
-00:01:00.447 --> 00:01:05.203
+00:01:06.754 --> 00:01:13.034
 1² + 1² = 2, jadi sisi miringnya <b>√2</b>.
 
 22
-00:01:06.449 --> 00:01:11.428
+00:01:13.693 --> 00:01:20.484
 Jadi sin 45° = depan : miring = 1/√2.
 
 23
-00:01:12.161 --> 00:01:15.535
+00:01:21.205 --> 00:01:24.861
 Sebuah angka pasti, bukan hasil tekan kalkulator.
 
 24
-00:01:16.749 --> 00:01:21.899
+00:01:25.493 --> 00:01:31.981
 cos 45° = samping : miring, juga 1/√2.
 
 25
-00:01:22.646 --> 00:01:25.039
+00:01:32.296 --> 00:01:35.137
 Bentuk lain angka yang sama adalah <b>√2/2</b>,
 
 26
-00:01:25.039 --> 00:01:27.941
+00:01:35.137 --> 00:01:38.553
 dan bentuk itulah yang biasa ditulis di tabel.
 
 27
-00:01:29.135 --> 00:01:31.719
+00:01:39.193 --> 00:01:42.326
 Yang kedua lahir dari segitiga sama sisi.
 
 28
-00:01:32.453 --> 00:01:34.659
+00:01:42.850 --> 00:01:45.777
 Ambil segitiga yang ketiga sisinya 2,
 
 29
-00:01:34.659 --> 00:01:36.419
+00:01:45.777 --> 00:01:48.062
 lalu belah tepat di tengah.
 
 30
-00:01:37.635 --> 00:01:40.016
+00:01:48.693 --> 00:01:51.985
 Sekarang muncul segitiga siku-siku
 
 31
-00:01:40.016 --> 00:01:41.916
+00:01:51.985 --> 00:01:54.555
 dengan sudut 30° dan 60°.
 
 32
-00:01:42.650 --> 00:01:45.221
+00:01:54.846 --> 00:01:57.469
 Alasnya 1, dan miringnya 2.
 
 33
-00:01:46.435 --> 00:01:49.032
+00:01:58.127 --> 00:02:01.005
 Sisi tegaknya lagi-lagi dari Pythagoras.
 
 34
-00:01:49.781 --> 00:01:54.707
+00:02:01.285 --> 00:02:07.275
 2² − 1² = 3, jadi sisi tegaknya <b>√3</b>.
 
 35
-00:01:55.949 --> 00:01:59.849
+00:02:07.927 --> 00:02:12.594
 Dari situ, sin 30° = 1/2.
 
 36
-00:02:00.582 --> 00:02:03.850
+00:02:13.082 --> 00:02:17.516
 Dan sin 60° = √3/2.
 
 37
-00:02:05.068 --> 00:02:07.718
+00:02:18.160 --> 00:02:21.004
 Cosinusnya tinggal membaca sisi sampingnya.
 
 38
-00:02:08.467 --> 00:02:14.656
+00:02:21.318 --> 00:02:29.305
 cos 30° = √3/2, dan cos 60° = 1/2.
 
 39
-00:02:15.385 --> 00:02:16.903
+00:02:29.944 --> 00:02:31.360
 Nilainya <b>bertukar</b>.
 
 40
-00:02:18.116 --> 00:02:21.193
+00:02:31.993 --> 00:02:35.779
 Sekarang <b>ciutkan</b> segitiganya sampai sisi miringnya 1,
 
 41
-00:02:21.193 --> 00:02:23.608
+00:02:35.779 --> 00:02:38.714
 sama dengan jari-jari lingkaran satuan.
 
 42
-00:02:24.355 --> 00:02:29.676
+00:02:39.353 --> 00:02:46.191
 Segitiga 30-60 dibagi 2: sisinya menjadi 1/2 dan √3/2.
 
 43
-00:02:30.421 --> 00:02:35.374
+00:02:46.667 --> 00:02:53.180
 Segitiga 45 dibagi √2: kedua sisinya menjadi √2/2.
 
 44
-00:02:36.601 --> 00:02:39.146
+00:02:53.827 --> 00:02:56.798
 Sekarang taruh ketiganya di lingkaran satuan.
 
 45
-00:02:39.895 --> 00:02:43.266
+00:02:57.159 --> 00:03:01.598
 Setiap titik di lingkaran adalah (cos θ, sin θ):
 
 46
-00:02:43.266 --> 00:02:46.084
+00:03:01.598 --> 00:03:05.262
 sampingnya ke kanan, depannya ke atas.
 
 47
-00:02:47.316 --> 00:02:51.025
+00:03:05.893 --> 00:03:10.079
 Jari-jarinya menyapu dan berhenti di 30°:
 
 48
-00:02:51.025 --> 00:02:53.740
+00:03:10.079 --> 00:03:13.142
 sampingnya √3/2, depannya 1/2,
 
 49
-00:02:53.740 --> 00:02:56.242
+00:03:13.142 --> 00:03:15.946
 jadi titiknya (√3/2, 1/2).
 
 50
-00:02:56.975 --> 00:03:01.059
+00:03:16.376 --> 00:03:21.275
 Di 45°, (√2/2, √2/2).
 
 51
-00:03:01.791 --> 00:03:05.349
+00:03:21.763 --> 00:03:26.058
 Di 60°, (1/2, √3/2).
 
 52
-00:03:06.568 --> 00:03:09.336
+00:03:26.693 --> 00:03:30.338
 Itulah sebabnya ketiganya disebut istimewa.
 
 53
-00:03:10.085 --> 00:03:11.575
+00:03:30.652 --> 00:03:32.523
 Bukan karena mudah dihafal,
 
 54
-00:03:11.575 --> 00:03:13.230
+00:03:32.523 --> 00:03:34.601
 melainkan karena nilainya bisa
 
 55
-00:03:13.230 --> 00:03:15.090
+00:03:34.601 --> 00:03:36.898
 dihitung sendiri dengan tangan.
 
 56
-00:03:16.316 --> 00:03:17.617
+00:03:37.560 --> 00:03:39.501
 Di materi berikutnya,
 
 57
-00:03:17.617 --> 00:03:19.909
+00:03:39.501 --> 00:03:42.922
 Grafik Fungsi Trigonometri, Bagian 1,
 
 58
-00:03:19.909 --> 00:03:22.139
+00:03:42.922 --> 00:03:46.250
 titik yang berputar di lingkaran ini
 
 59
-00:03:22.139 --> 00:03:24.679
+00:03:46.250 --> 00:03:50.040
 kita rekam tingginya dari waktu ke waktu,
 
 60
-00:03:24.679 --> 00:03:26.439
+00:03:50.040 --> 00:03:52.594
 dan lahirlah grafik sinus.

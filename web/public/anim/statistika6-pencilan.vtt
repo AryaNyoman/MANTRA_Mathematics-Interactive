@@ -4,229 +4,229 @@ NOTE Dibuat otomatis dari manim/narasi/statistika6-pencilan.json (waktu kata rek
 NOTE naskah-sidik 5f048800ce1e
 
 1
-00:00:00.101 --> 00:00:03.291
+00:00:00.000 --> 00:00:03.796
 Ukuran Pemusatan dan Penyebaran, Bagian 2.
 
 2
-00:00:04.025 --> 00:00:06.820
+00:00:04.551 --> 00:00:07.720
 Gaji rata-rata di sebuah kantor 12 juta.
 
 3
-00:00:07.551 --> 00:00:10.464
+00:00:08.348 --> 00:00:11.853
 Kenapa hampir semua karyawannya tidak merasa begitu?
 
 4
-00:00:11.682 --> 00:00:12.882
+00:00:12.493 --> 00:00:13.693
 Di Bagian 1,
 
 5
-00:00:12.882 --> 00:00:15.493
+00:00:13.693 --> 00:00:16.959
 rata-rata adalah <b>titik tempat data seimbang</b>,
 
 6
-00:00:15.493 --> 00:00:18.965
+00:00:16.959 --> 00:00:21.189
 dan median adalah <b>yang di tengah</b> setelah data diurutkan.
 
 7
-00:00:19.209 --> 00:00:20.819
+00:00:21.189 --> 00:00:23.026
 Hari ini keduanya diuji oleh
 
 8
-00:00:20.819 --> 00:00:22.636
+00:00:23.026 --> 00:00:25.077
 satu nilai yang jauh sendiri.
 
 9
-00:00:23.835 --> 00:00:26.550
+00:00:25.727 --> 00:00:28.570
 Sebuah kantor kecil berisi 9 karyawan.
 
 10
-00:00:27.299 --> 00:00:32.094
+00:00:28.931 --> 00:00:34.526
 Ini gaji mereka, dalam juta rupiah, dari 4,2 sampai 7.
 
 11
-00:00:33.301 --> 00:00:37.228
+00:00:35.160 --> 00:00:39.652
 Rata-ratanya 5,24 juta, mediannya 5 juta.
 
 12
-00:00:37.976 --> 00:00:40.241
+00:00:40.501 --> 00:00:42.927
 Dua ukuran yang cara kerjanya berbeda,
 
 13
-00:00:40.241 --> 00:00:42.179
+00:00:42.927 --> 00:00:44.993
 tetapi jawabannya <b>hampir sama</b>.
 
 14
-00:00:42.909 --> 00:00:44.414
+00:00:45.377 --> 00:00:46.874
 Keduanya masuk akal.
 
 15
-00:00:45.634 --> 00:00:47.784
+00:00:47.527 --> 00:00:49.581
 Sekarang direkturnya ikut dihitung.
 
 16
-00:00:48.518 --> 00:00:50.550
+00:00:49.617 --> 00:00:51.868
 Gajinya 75 juta.
 
 17
-00:00:51.296 --> 00:00:54.036
+00:00:52.450 --> 00:00:55.469
 Supaya ia muat, penggarisnya ditarik jauh,
 
 18
-00:00:54.036 --> 00:00:57.578
+00:00:55.469 --> 00:00:59.357
 dan 9 karyawan tadi berdesakan jadi satu gerombolan.
 
 19
-00:00:58.801 --> 00:01:02.372
+00:00:59.993 --> 00:01:04.276
 Jumlah gaji 9 karyawan 47,2 juta.
 
 20
-00:01:03.121 --> 00:01:09.903
+00:01:04.660 --> 00:01:13.796
 Ditambah 75 jadi 122,2, dibagi 10 orang: 12,22 juta.
 
 21
-00:01:11.135 --> 00:01:12.969
+00:01:14.427 --> 00:01:16.261
 Perhatikan dua penanda tadi.
 
 22
-00:01:13.703 --> 00:01:17.932
+00:01:16.726 --> 00:01:21.903
 Mean <b>berlari</b> ke kanan, dari 5,24 ke 12,22.
 
 23
-00:01:18.678 --> 00:01:23.183
+00:01:22.380 --> 00:01:27.894
 Median hanya bergeser sedikit, dari 5,00 ke 5,10.
 
 24
-00:01:24.401 --> 00:01:27.604
+00:01:28.527 --> 00:01:32.357
 Dan di 12,22 itu <b>tidak ada siapa-siapa</b>.
 
 25
-00:01:28.338 --> 00:01:31.633
+00:01:32.718 --> 00:01:37.210
 9 dari 10 orang bergaji 7 juta atau kurang.
 
 26
-00:01:32.364 --> 00:01:35.672
+00:01:37.896 --> 00:01:42.098
 Rata-ratanya benar, tetapi tidak mewakili seorang pun.
 
 27
-00:01:36.901 --> 00:01:38.617
+00:01:42.760 --> 00:01:44.582
 Kenapa mean bisa diseret?
 
 28
-00:01:39.351 --> 00:01:41.712
+00:01:44.826 --> 00:01:47.879
 Karena mean memakai <b>nilai</b> setiap data.
 
 29
-00:01:42.458 --> 00:01:44.243
+00:01:48.344 --> 00:01:50.767
 Jarak gaji direktur ke pusat jauh
 
 30
-00:01:44.243 --> 00:01:46.353
+00:01:50.767 --> 00:01:53.631
 lebih panjang daripada milik siapa pun,
 
 31
-00:01:46.353 --> 00:01:48.450
+00:01:53.631 --> 00:01:56.424
 dan papan tadi harus tetap seimbang.
 
 32
-00:01:49.667 --> 00:01:51.290
+00:01:57.060 --> 00:01:58.766
 Median bekerja lain.
 
 33
-00:01:52.025 --> 00:01:53.728
+00:01:59.115 --> 00:02:00.925
 Ia hanya memakai <b>urutan</b>.
 
 34
-00:01:54.460 --> 00:01:56.804
+00:02:01.460 --> 00:02:04.056
 10 data ini dibariskan berjarak sama,
 
 35
-00:01:56.804 --> 00:01:59.044
+00:02:04.056 --> 00:02:06.521
 dan median adalah yang di tengah.
 
 36
-00:01:59.776 --> 00:02:02.913
+00:02:06.963 --> 00:02:10.399
 Bagi median, direktur cuma data paling kanan.
 
 37
-00:02:04.135 --> 00:02:08.771
+00:02:11.060 --> 00:02:16.179
 Bagaimana kalau gajinya bukan 75, melainkan 120 juta?
 
 38
-00:02:09.506 --> 00:02:12.669
+00:02:16.761 --> 00:02:20.405
 Mean lari lagi, jadi 16,72.
 
 39
-00:02:13.400 --> 00:02:15.471
+00:02:21.103 --> 00:02:23.320
 Median <b>tidak bergerak sedikit pun</b>.
 
 40
-00:02:16.667 --> 00:02:18.264
+00:02:23.960 --> 00:02:25.607
 Bentuk umumnya begini.
 
 41
-00:02:19.000 --> 00:02:21.288
+00:02:25.991 --> 00:02:28.763
 Mean = jumlah semua nilai dibagi n,
 
 42
-00:02:21.288 --> 00:02:23.531
+00:02:28.763 --> 00:02:31.447
 jadi <b>tiap nilai</b> ikut menariknya.
 
 43
-00:02:24.277 --> 00:02:26.739
+00:02:32.469 --> 00:02:35.640
 Median adalah data ke tengah setelah diurutkan,
 
 44
-00:02:26.739 --> 00:02:28.363
+00:02:35.640 --> 00:02:37.732
 jadi ia cuma peduli berapa data
 
 45
-00:02:28.363 --> 00:02:29.980
+00:02:37.732 --> 00:02:39.771
 di kiri dan berapa di kanan.
 
 46
-00:02:31.201 --> 00:02:34.799
+00:02:40.427 --> 00:02:44.547
 Godaannya, hapus saja direkturnya supaya angkanya rapi.
 
 47
-00:02:35.532 --> 00:02:36.882
+00:02:45.036 --> 00:02:46.386
 Jangan.
 
 48
-00:02:37.164 --> 00:02:38.715
+00:02:46.742 --> 00:02:48.552
 Gajinya memang benar segitu,
 
 49
-00:02:38.715 --> 00:02:41.801
+00:02:48.552 --> 00:02:52.129
 dan membuangnya berarti <b>berbohong</b> tentang kantor ini.
 
 50
-00:02:43.001 --> 00:02:46.257
+00:02:52.760 --> 00:02:56.393
 Yang diganti bukan datanya, melainkan <b>ukurannya</b>.
 
 51
-00:02:46.991 --> 00:02:50.246
+00:02:56.881 --> 00:03:00.596
 Untuk gaji dan harga rumah, median yang dipakai.
 
 52
-00:02:50.978 --> 00:02:52.813
+00:03:01.084 --> 00:03:03.586
 Itulah sebabnya karyawan tadi
 
 53
-00:02:52.813 --> 00:02:54.799
+00:03:03.586 --> 00:03:06.238
 tidak merasa bergaji 12 juta.
 
 54
-00:02:56.016 --> 00:02:57.367
+00:03:06.893 --> 00:03:08.735
 Di materi berikutnya,
 
 55
-00:02:57.367 --> 00:03:00.070
+00:03:08.735 --> 00:03:12.419
 Ukuran Pemusatan dan Penyebaran, Bagian 3,
 
 56
-00:03:00.070 --> 00:03:02.129
+00:03:12.419 --> 00:03:15.226
 sebaran seluruh data digambarkan
 
 57
-00:03:02.129 --> 00:03:03.824
+00:03:15.226 --> 00:03:17.481
 hanya dengan <b>lima angka</b>.

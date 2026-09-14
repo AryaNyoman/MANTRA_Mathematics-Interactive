@@ -4,281 +4,281 @@ NOTE Dibuat otomatis dari manim/narasi/turunan7-aturan-rantai.json (waktu kata r
 NOTE naskah-sidik ed1576a0c4de
 
 1
-00:00:00.101 --> 00:00:02.751
+00:00:00.000 --> 00:00:02.565
 Aturan Menurunkan, Bagian 3.
 
 2
-00:00:03.500 --> 00:00:06.693
+00:00:02.798 --> 00:00:06.561
 Kalau y bergantung pada u, dan u bergantung pada x,
 
 3
-00:00:06.693 --> 00:00:09.097
+00:00:06.561 --> 00:00:09.368
 seberapa cepat y berubah terhadap x?
 
 4
-00:00:10.316 --> 00:00:12.743
+00:00:10.027 --> 00:00:13.223
 Di Aturan Menurunkan, Bagian 1,
 
 5
-00:00:12.743 --> 00:00:16.736
+00:00:13.223 --> 00:00:18.481
 tiap suku diturunkan sendiri dengan aturan pangkat:
 
 6
-00:00:16.736 --> 00:00:18.295
+00:00:18.481 --> 00:00:20.487
 xⁿ menjadi n xⁿ⁻¹.
 
 7
-00:00:19.042 --> 00:00:22.239
+00:00:20.952 --> 00:00:24.472
 Sampai sekarang setiap fungsi bisa kita <b>jabarkan dulu</b>,
 
 8
-00:00:22.239 --> 00:00:23.589
+00:00:24.472 --> 00:00:25.822
 baru diturunkan.
 
 9
-00:00:24.549 --> 00:00:25.919
+00:00:26.327 --> 00:00:27.963
 Untuk (2x - 5)⁸,
 
 10
-00:00:25.919 --> 00:00:30.094
+00:00:27.963 --> 00:00:32.920
 kesabaran itu habis sebelum jabarannya selesai.
 
 11
-00:00:31.300 --> 00:00:33.121
+00:00:33.560 --> 00:00:35.429
 Lihat bentuknya baik-baik.
 
 12
-00:00:33.857 --> 00:00:35.914
+00:00:35.778 --> 00:00:38.157
 Ia <b>dua mesin</b> yang dipasang berderet.
 
 13
-00:00:36.661 --> 00:00:40.090
+00:00:38.507 --> 00:00:42.642
 Angka x masuk ke mesin pertama, hasilnya kita sebut u,
 
 14
-00:00:40.090 --> 00:00:43.416
+00:00:42.642 --> 00:00:46.621
 lalu u masuk ke mesin kedua, dan keluar sebagai y.
 
 15
-00:00:44.649 --> 00:00:46.896
+00:00:47.260 --> 00:00:49.534
 Perubahannya kita gambar sebagai batang,
 
 16
-00:00:46.896 --> 00:00:49.181
+00:00:49.534 --> 00:00:51.845
 ketiganya dengan <b>satu skala</b> yang sama.
 
 17
-00:00:49.928 --> 00:00:54.552
+00:00:52.275 --> 00:00:58.056
 Mesin dalamnya u = 3x, dan mesin luarnya y = 5u.
 
 18
-00:00:55.768 --> 00:00:58.031
+00:00:58.693 --> 00:01:01.508
 Satu langkah pada x menghasilkan batang u
 
 19
-00:00:58.031 --> 00:01:00.444
+00:01:01.508 --> 00:01:04.473
 yang bisa diisi tepat oleh <b>tiga</b> batang x.
 
 20
-00:01:01.178 --> 00:01:03.434
+00:01:04.962 --> 00:01:07.887
 Jadi tingkat pertama mengalikan 3.
 
 21
-00:01:04.668 --> 00:01:07.234
+00:01:08.527 --> 00:01:11.916
 Batang y bisa diisi tepat oleh <b>lima</b> batang u.
 
 22
-00:01:07.234 --> 00:01:09.055
+00:01:12.230 --> 00:01:14.319
 Tingkat kedua mengalikan 5.
 
 23
-00:01:10.268 --> 00:01:12.707
+00:01:14.960 --> 00:01:18.140
 Sekarang berapa batang x yang mengisi batang y?
 
 24
-00:01:13.440 --> 00:01:14.790
+00:01:18.895 --> 00:01:20.245
 Lima belas.
 
 25
-00:01:15.309 --> 00:01:16.659
+00:01:20.370 --> 00:01:21.720
 Bukan delapan.
 
 26
-00:01:17.310 --> 00:01:20.411
+00:01:21.891 --> 00:01:25.124
 Pengaruhnya bertingkat, maka angkanya <b>dikalikan</b>,
 
 27
-00:01:20.411 --> 00:01:21.761
+00:01:25.124 --> 00:01:26.487
 bukan dijumlahkan.
 
 28
-00:01:22.935 --> 00:01:25.914
+00:01:27.127 --> 00:01:30.458
 Dua mesin tadi lurus, jadi pengalinya tetap.
 
 29
-00:01:26.662 --> 00:01:28.495
+00:01:30.795 --> 00:01:32.874
 Kebanyakan fungsi tidak begitu:
 
 30
-00:01:28.495 --> 00:01:30.773
+00:01:32.874 --> 00:01:35.438
 pengalinya <b>ikut berubah</b> mengikuti x.
 
 31
-00:01:31.503 --> 00:01:33.969
+00:01:35.799 --> 00:01:38.608
 Karena itu kita butuh bentuk yang berlaku umum.
 
 32
-00:01:35.167 --> 00:01:36.527
+00:01:39.260 --> 00:01:40.629
 Dari mana rumusnya?
 
 33
-00:01:37.277 --> 00:01:39.488
+00:01:41.001 --> 00:01:44.134
 Kita ambil bentuk bertingkat
 
 34
-00:01:39.488 --> 00:01:41.698
+00:01:44.134 --> 00:01:47.266
 yang masih mudah dijabarkan:
 
 35
-00:01:41.698 --> 00:01:43.048
+00:01:47.266 --> 00:01:48.616
 (x² + 1)².
 
 36
-00:01:43.368 --> 00:01:46.952
+00:01:48.896 --> 00:01:53.783
 Jabarannya x⁴ + 2x² + 1.
 
 37
-00:01:48.168 --> 00:01:50.765
+00:01:54.427 --> 00:01:57.340
 Turunkan suku demi suku dengan aturan pangkat.
 
 38
-00:01:51.500 --> 00:01:54.360
+00:01:57.562 --> 00:02:01.044
 Hasilnya 4x³ + 4x.
 
 39
-00:01:55.582 --> 00:02:00.061
+00:02:01.693 --> 00:02:06.777
 Sekarang difaktorkan: 4x(x² + 1).
 
 40
-00:02:00.794 --> 00:02:03.115
+00:02:07.010 --> 00:02:09.343
 Bentuk di dalam kurung itu <b>kembali muncul</b>.
 
 41
-00:02:04.349 --> 00:02:09.512
+00:02:09.993 --> 00:02:16.494
 Ditulis ulang sedikit, ia menjadi 2(x² + 1) · 2x.
 
 42
-00:02:09.981 --> 00:02:11.820
+00:02:16.983 --> 00:02:19.252
 Ruas kiri turunan pangkat duanya,
 
 43
-00:02:11.820 --> 00:02:13.046
+00:02:19.252 --> 00:02:20.764
 dan 2x di kanan adalah
 
 44
-00:02:13.046 --> 00:02:15.091
+00:02:20.764 --> 00:02:23.251
 turunan dari yang di dalam kurung.
 
 45
-00:02:16.301 --> 00:02:17.687
+00:02:23.893 --> 00:02:25.320
 Itulah aturannya.
 
 46
-00:02:18.437 --> 00:02:20.057
+00:02:25.634 --> 00:02:27.553
 Turunkan bagian luarnya seolah
 
 47
-00:02:20.057 --> 00:02:21.785
+00:02:27.553 --> 00:02:29.600
 bagian dalam sebuah huruf biasa,
 
 48
-00:02:21.785 --> 00:02:24.311
+00:02:29.600 --> 00:02:32.564
 lalu <b>kalikan</b> dengan turunan bagian dalamnya.
 
 49
-00:02:25.041 --> 00:02:29.415
+00:02:32.913 --> 00:02:39.762
 Dengan lambang Leibniz: dy/dx = dy/du · du/dx.
 
 50
-00:02:30.601 --> 00:02:32.949
+00:02:40.393 --> 00:02:42.900
 Kembali ke soal yang tadi kita tinggalkan.
 
 51
-00:02:33.683 --> 00:02:37.359
+00:02:43.179 --> 00:02:46.847
 Bagian dalamnya 2x - 5, dan turunannya 2.
 
 52
-00:02:38.090 --> 00:02:40.122
+00:02:47.359 --> 00:02:49.413
 Bagian luarnya pangkat 8.
 
 53
-00:02:41.335 --> 00:02:43.985
+00:02:50.060 --> 00:02:52.671
 Turunkan luarnya, lalu kalikan 2.
 
 54
-00:02:44.719 --> 00:02:49.014
+00:02:52.939 --> 00:02:57.176
 Hasilnya 16(2x - 5)⁷.
 
 55
-00:02:49.745 --> 00:02:51.856
+00:02:57.606 --> 00:02:59.811
 Tanpa menjabarkan satu suku pun.
 
 56
-00:02:53.082 --> 00:02:54.740
+00:03:00.460 --> 00:03:02.218
 Kekeliruan yang paling sering:
 
 57
-00:02:54.740 --> 00:02:56.825
+00:03:02.218 --> 00:03:04.418
 turunan bagian dalamnya <b>tertinggal</b>.
 
 58
-00:02:57.557 --> 00:03:01.234
+00:03:04.674 --> 00:03:09.561
 8(2x - 5)⁷, lalu berhenti.
 
 59
-00:03:01.980 --> 00:03:03.409
+00:03:10.270 --> 00:03:11.741
 Pengali 2 itu yang hilang,
 
 60
-00:03:03.409 --> 00:03:06.472
+00:03:11.741 --> 00:03:14.890
 dan tanpanya jawabannya cuma separuh dari yang benar.
 
 61
-00:03:07.716 --> 00:03:09.216
+00:03:15.527 --> 00:03:17.311
 Rangkumannya satu kalimat:
 
 62
-00:03:09.216 --> 00:03:12.102
+00:03:17.311 --> 00:03:20.742
 fungsi bertingkat diturunkan tingkat demi tingkat,
 
 63
-00:03:12.102 --> 00:03:13.695
+00:03:20.742 --> 00:03:22.608
 dan pengalinya <b>dikalikan</b>.
 
 64
-00:03:14.442 --> 00:03:17.788
+00:03:23.317 --> 00:03:27.528
 Satu pertanyaan: kalau bagian dalamnya cuma x sendiri,
 
 65
-00:03:17.788 --> 00:03:18.988
+00:03:27.528 --> 00:03:28.728
 turunannya 1,
 
 66
-00:03:18.988 --> 00:03:20.724
+00:03:28.728 --> 00:03:30.912
 apakah aturan rantai kembali
 
 67
-00:03:20.724 --> 00:03:22.671
+00:03:30.912 --> 00:03:33.324
 menjadi aturan pangkat biasa?
 
 68
-00:03:23.468 --> 00:03:27.811
+00:03:33.793 --> 00:03:39.254
 Di materi berikutnya, Aturan Menurunkan, Bagian 4,
 
 69
-00:03:27.811 --> 00:03:32.565
+00:03:39.254 --> 00:03:45.193
 fungsinya bukan pangkat lagi: sinus, kosinus, dan eˣ.
 
 70
-00:03:33.298 --> 00:03:34.790
+00:03:45.508 --> 00:03:47.237
 Dari mana turunannya?

@@ -4,289 +4,289 @@ NOTE Dibuat otomatis dari manim/narasi/integral05-riemann.json (waktu kata rekam
 NOTE naskah-sidik 4361850e3f16
 
 1
-00:00:00.101 --> 00:00:03.041
+00:00:00.000 --> 00:00:04.063
 Luas dan Integral Tentu, Bagian 1.
 
 2
-00:00:03.774 --> 00:00:05.238
+00:00:04.377 --> 00:00:06.145
 Bagaimana mengukur luas daerah
 
 3
-00:00:05.238 --> 00:00:07.095
+00:00:06.145 --> 00:00:08.358
 yang salah satu tepinya <b>melengkung</b>?
 
 4
-00:00:08.301 --> 00:00:11.964
+00:00:08.993 --> 00:00:12.974
 Di Membalik Turunan, keempat bagiannya soal antiturunan.
 
 5
-00:00:12.699 --> 00:00:14.559
+00:00:13.231 --> 00:00:15.192
 Itu kita tinggalkan sebentar.
 
 6
-00:00:15.305 --> 00:00:18.040
+00:00:15.506 --> 00:00:19.036
 Yang dibawa hari ini justru rumus SMP:
 
 7
-00:00:18.040 --> 00:00:20.774
+00:00:19.036 --> 00:00:22.565
 luas persegi panjang, panjang · lebar,
 
 8
-00:00:20.774 --> 00:00:23.587
+00:00:22.565 --> 00:00:26.151
 dan luas segitiga, ½ · alas · tinggi.
 
 9
-00:00:24.801 --> 00:00:27.333
+00:00:26.793 --> 00:00:29.660
 Persegi panjang ini tinggal 3 · 2.
 
 10
-00:00:28.082 --> 00:00:30.158
+00:00:29.974 --> 00:00:32.963
 Tapi daerah ini tepi atasnya melengkung,
 
 11
-00:00:30.158 --> 00:00:33.008
+00:00:32.963 --> 00:00:36.997
 dan <b>tidak ada</b> dua sisi yang bisa langsung dikalikan.
 
 12
-00:00:34.216 --> 00:00:36.494
+00:00:37.660 --> 00:00:40.392
 Kalau bentuknya tidak bisa diukur langsung,
 
 13
-00:00:36.494 --> 00:00:38.287
+00:00:40.392 --> 00:00:42.512
 <b>tutupi</b> dengan bentuk yang bisa.
 
 14
-00:00:39.020 --> 00:00:41.525
+00:00:43.221 --> 00:00:46.181
 Satu persegi panjang jelas terlalu kasar.
 
 15
-00:00:42.735 --> 00:00:44.601
+00:00:46.827 --> 00:00:49.075
 Selangnya dipotong menjadi beberapa
 
 16
-00:00:44.601 --> 00:00:45.977
+00:00:49.075 --> 00:00:50.703
 bagian yang sama lebar.
 
 17
-00:00:46.725 --> 00:00:48.699
+00:00:51.285 --> 00:00:53.642
 Pembagian itu namanya <b>partisi</b>,
 
 18
-00:00:48.699 --> 00:00:51.415
+00:00:53.642 --> 00:00:56.856
 dan lebar tiap bagiannya kita sebut Δx.
 
 19
-00:00:52.635 --> 00:00:54.775
+00:00:57.493 --> 00:00:59.895
 Di tiap bagian didirikan persegi panjang
 
 20
-00:00:54.775 --> 00:00:56.850
+00:00:59.895 --> 00:01:02.206
 setinggi nilai fungsi di satu titik.
 
 21
-00:00:57.599 --> 00:01:00.153
+00:01:02.787 --> 00:01:05.680
 Titik pilihan itu namanya <b>titik sampel</b>:
 
 22
-00:01:00.153 --> 00:01:03.315
+00:01:05.680 --> 00:01:09.241
 boleh ujung kiri, ujung kanan, atau tengahnya.
 
 23
-00:01:04.549 --> 00:01:09.036
+00:01:09.893 --> 00:01:14.605
 Kita pakai contoh yang bisa diperiksa sendiri: f(x) = x,
 
 24
-00:01:09.036 --> 00:01:11.831
+00:01:14.605 --> 00:01:17.531
 dari 0 sampai 7, dibagi 7 bagian.
 
 25
-00:01:12.563 --> 00:01:14.423
+00:01:17.997 --> 00:01:19.656
 Lebar tiap bagiannya 1.
 
 26
-00:01:15.635 --> 00:01:17.443
+00:01:20.293 --> 00:01:21.999
 Titik sampelnya ujung kanan.
 
 27
-00:01:18.177 --> 00:01:22.393
+00:01:22.232 --> 00:01:26.120
 Tingginya 1, 2, 3, sampai 7.
 
 28
-00:01:23.139 --> 00:01:28.187
+00:01:26.504 --> 00:01:32.206
 Semua luasnya dijumlahkan: 1 + 2 + 3 + … + 7,
 
 29
-00:01:28.187 --> 00:01:29.683
+00:01:32.206 --> 00:01:33.876
 hasilnya <b>28</b>.
 
 30
-00:01:30.414 --> 00:01:32.106
+00:01:34.585 --> 00:01:36.492
 Jumlah persegi panjang seperti
 
 31
-00:01:32.106 --> 00:01:33.893
+00:01:36.492 --> 00:01:38.485
 ini namanya jumlahan Riemann.
 
 32
-00:01:35.116 --> 00:01:38.098
+00:01:39.127 --> 00:01:42.515
 Daerah aslinya segitiga siku-siku,
 
 33
-00:01:38.098 --> 00:01:42.660
+00:01:42.515 --> 00:01:47.696
 jadi luas sebenarnya bisa dihitung dengan rumus SMP:
 
 34
-00:01:42.660 --> 00:01:44.739
+00:01:47.696 --> 00:01:50.039
 ½ · 7 · 7, yaitu <b>24,5</b>.
 
 35
-00:01:45.968 --> 00:01:48.184
+00:01:50.693 --> 00:01:53.258
 Jadi 28 itu kelebihan.
 
 36
-00:01:48.932 --> 00:01:53.004
+00:01:53.572 --> 00:01:58.023
 Titik sampel kiri memberi 0 + 1 + … + 6, yaitu 21,
 
 37
-00:01:53.004 --> 00:01:54.701
+00:01:58.023 --> 00:01:59.864
 dan itu kekurangan.
 
 38
-00:01:55.431 --> 00:01:57.844
+00:02:00.178 --> 00:02:02.848
 Jawabannya <b>terjepit</b> di antara keduanya.
 
 39
-00:01:59.067 --> 00:02:00.651
+00:02:03.493 --> 00:02:05.036
 Dari mana kelebihannya?
 
 40
-00:02:01.401 --> 00:02:02.650
+00:02:05.617 --> 00:02:07.126
 Lihat tiap bagian:
 
 41
-00:02:02.650 --> 00:02:04.871
+00:02:07.126 --> 00:02:09.809
 persegi panjang kanan menyisakan
 
 42
-00:02:04.871 --> 00:02:06.884
+00:02:09.809 --> 00:02:12.240
 segitiga kecil di atas kurva,
 
 43
-00:02:06.884 --> 00:02:09.117
+00:02:12.240 --> 00:02:14.905
 7 buah, tiap-tiapnya ½ satuan.
 
 44
-00:02:09.861 --> 00:02:15.564
+00:02:15.265 --> 00:02:22.555
 7 · ½ = 3,5, persis 28 - 24,5.
 
 45
-00:02:16.768 --> 00:02:19.589
+00:02:23.193 --> 00:02:26.710
 Sekarang bagiannya digandakan jadi 14.
 
 46
-00:02:20.338 --> 00:02:24.078
+00:02:27.186 --> 00:02:31.780
 Segitiga sisanya jadi separuh lebar dan separuh tinggi,
 
 47
-00:02:24.078 --> 00:02:26.132
+00:02:31.780 --> 00:02:34.268
 dan selisihnya tinggal <b>1,75</b>.
 
 48
-00:02:26.863 --> 00:02:30.328
+00:02:34.826 --> 00:02:38.575
 Dengan 60 bagian, tinggal 0,41.
 
 49
-00:02:31.549 --> 00:02:35.896
+00:02:39.227 --> 00:02:45.196
 Bentuk umumnya: jumlahan Riemann adalah Σ f(xᵢ) · Δx,
 
 50
-00:02:35.896 --> 00:02:37.865
+00:02:45.196 --> 00:02:48.049
 untuk i dari 1 sampai n.
 
 51
-00:02:37.865 --> 00:02:39.065
+00:02:48.492 --> 00:02:49.692
 Makin besar n,
 
 52
-00:02:39.065 --> 00:02:41.830
+00:02:49.692 --> 00:02:52.651
 makin rapat jepitannya pada luas sebenarnya.
 
 53
-00:02:42.668 --> 00:02:44.726
+00:02:52.993 --> 00:02:55.234
 Satu hal yang sering disalahpahami:
 
 54
-00:02:44.726 --> 00:02:46.700
+00:02:55.234 --> 00:02:57.369
 kanan <b>tidak selalu</b> lebih besar.
 
 55
-00:02:47.434 --> 00:02:52.702
+00:02:57.660 --> 00:03:03.568
 Ganti kurvanya jadi 4 - x², 0 sampai 2, 4 bagian.
 
 56
-00:02:53.448 --> 00:02:56.730
+00:03:04.150 --> 00:03:08.340
 Kiri 6,25, kanan 4,25.
 
 57
-00:02:57.935 --> 00:03:00.098
+00:03:08.993 --> 00:03:11.406
 Kali ini justru <b>kiri</b> yang lebih besar.
 
 58
-00:03:00.833 --> 00:03:02.865
+00:03:11.988 --> 00:03:14.545
 Jadi bukan kanan yang selalu besar,
 
 59
-00:03:02.865 --> 00:03:05.419
+00:03:14.545 --> 00:03:17.758
 melainkan sisi tempat kurvanya lebih tinggi:
 
 60
-00:03:05.419 --> 00:03:07.218
+00:03:17.758 --> 00:03:20.022
 pada kurva naik itu sisi kanan,
 
 61
-00:03:07.218 --> 00:03:09.168
+00:03:20.022 --> 00:03:22.436
 pada kurva turun itu sisi kiri.
 
 62
-00:03:10.382 --> 00:03:11.807
+00:03:23.093 --> 00:03:24.731
 Rangkumannya satu kalimat:
 
 63
-00:03:11.807 --> 00:03:13.450
+00:03:24.731 --> 00:03:26.622
 daerah bertepi lengkung diukur
 
 64
-00:03:13.450 --> 00:03:15.805
+00:03:26.622 --> 00:03:29.331
 dengan <b>menutupinya</b> memakai persegi panjang,
 
 65
-00:03:15.805 --> 00:03:17.777
+00:03:29.331 --> 00:03:31.599
 dan makin banyak persegi panjangnya,
 
 66
-00:03:17.777 --> 00:03:20.282
+00:03:31.599 --> 00:03:34.458
 makin dekat jumlahannya ke luas sebenarnya.
 
 67
-00:03:21.015 --> 00:03:22.215
+00:03:35.480 --> 00:03:36.724
 Satu pertanyaan:
 
 68
-00:03:22.215 --> 00:03:24.733
+00:03:36.724 --> 00:03:39.910
 kalau bagiannya dibuat tak hingga banyak,
 
 69
-00:03:24.733 --> 00:03:26.083
+00:03:39.910 --> 00:03:41.459
 apa nama hasilnya?
 
 70
-00:03:26.968 --> 00:03:30.698
+00:03:42.093 --> 00:03:46.564
 Di materi berikutnya, Luas dan Integral Tentu, Bagian 2,
 
 71
-00:03:30.698 --> 00:03:33.495
+00:03:46.564 --> 00:03:49.918
 nilai yang dituju jepitan itu diberi nama,
 
 72
-00:03:33.495 --> 00:03:35.776
+00:03:49.918 --> 00:03:52.622
 dan lambang untuk menuliskannya.

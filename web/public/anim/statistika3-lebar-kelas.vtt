@@ -4,205 +4,205 @@ NOTE Dibuat otomatis dari manim/narasi/statistika3-lebar-kelas.json (waktu kata 
 NOTE naskah-sidik 1aee5ec53552
 
 1
-00:00:00.101 --> 00:00:02.659
+00:00:00.000 --> 00:00:02.495
 Penyajian Data, Bagian 3.
 
 2
-00:00:03.393 --> 00:00:04.593
+00:00:03.077 --> 00:00:04.390
 Data yang sama persis
 
 3
-00:00:04.593 --> 00:00:06.866
+00:00:04.390 --> 00:00:07.104
 bisa memberi histogram yang berbeda-beda.
 
 4
-00:00:07.484 --> 00:00:09.174
+00:00:07.686 --> 00:00:09.392
 Lebar kelas mana yang benar?
 
 5
-00:00:10.382 --> 00:00:13.727
+00:00:10.027 --> 00:00:14.274
 Di materi sebelumnya, Penyajian Data, Bagian 2,
 
 6
-00:00:13.727 --> 00:00:16.573
+00:00:14.274 --> 00:00:17.889
 40 tinggi badan dikelompokkan selebar 10
 
 7
-00:00:16.573 --> 00:00:19.427
+00:00:17.889 --> 00:00:21.473
 cm dan menjadi histogram empat batang.
 
 8
-00:00:20.160 --> 00:00:22.064
+00:00:21.984 --> 00:00:23.971
 Hari ini lebarnya kita ubah-ubah,
 
 9
-00:00:22.064 --> 00:00:24.350
+00:00:23.971 --> 00:00:26.349
 dan kita lihat apa yang ikut berubah.
 
 10
-00:00:25.568 --> 00:00:27.994
+00:00:26.993 --> 00:00:29.453
 Kita mulai dengan lebar 5 cm.
 
 11
-00:00:28.743 --> 00:00:33.287
+00:00:29.721 --> 00:00:34.820
 40 titik jatuh ke kotaknya masing-masing,
 
 12
-00:00:33.287 --> 00:00:38.867
+00:00:34.820 --> 00:00:41.063
 dan lahirlah <b>tujuh batang</b>: 1, 5, 11, 11, 7, 4, 1.
 
 13
-00:00:40.082 --> 00:00:41.415
+00:00:41.693 --> 00:00:43.231
 Polanya terbaca:
 
 14
-00:00:41.415 --> 00:00:45.311
+00:00:43.231 --> 00:00:47.706
 ada tumpukan siswa di sekitar 160 sampai 170.
 
 15
-00:00:46.044 --> 00:00:49.036
+00:00:47.962 --> 00:00:50.516
 Sekarang, siapa yang mewajibkan lebarnya 5?
 
 16
-00:00:50.233 --> 00:00:51.583
+00:00:51.160 --> 00:00:52.355
 Tidak ada.
 
 17
-00:00:51.987 --> 00:00:53.637
+00:00:52.355 --> 00:00:53.887
 Kita coba selebar 2.
 
 18
-00:00:54.369 --> 00:00:57.506
+00:00:54.143 --> 00:00:57.400
 Data yang sama persis, tidak satu pun angka diubah,
 
 19
-00:00:57.506 --> 00:00:59.440
+00:00:57.400 --> 00:00:59.402
 dan gambarnya jadi <b>bergerigi</b>.
 
 20
-00:01:00.171 --> 00:01:02.558
+00:00:59.890 --> 00:01:02.513
 Tiap batang cuma berisi satu dua siswa.
 
 21
-00:01:03.767 --> 00:01:05.470
+00:01:03.160 --> 00:01:04.843
 Sekarang selebar 10.
 
 22
-00:01:06.219 --> 00:01:08.184
+00:01:05.030 --> 00:01:07.298
 Cuma <b>empat batang</b>, rapi sekali,
 
 23
-00:01:08.184 --> 00:01:11.185
+00:01:07.298 --> 00:01:10.741
 dan yang paling kanan cuma berisi satu siswa.
 
 24
-00:01:11.915 --> 00:01:14.618
+00:01:11.055 --> 00:01:14.166
 Tetapi tumpukan tadi sudah tidak terlihat lagi.
 
 25
-00:01:15.835 --> 00:01:18.498
+00:01:14.827 --> 00:01:17.613
 Tiga gambar, satu kumpulan data.
 
 26
-00:01:19.246 --> 00:01:22.191
+00:01:18.415 --> 00:01:21.774
 Lebar kelas itu <b>pilihan manusia</b>, bukan hasil rumus,
 
 27
-00:01:22.191 --> 00:01:25.054
+00:01:21.774 --> 00:01:25.020
 dan tidak ada satu histogram yang paling benar.
 
 28
-00:01:26.268 --> 00:01:28.655
+00:01:25.660 --> 00:01:28.712
 Sekarang bagian yang paling sering dilewati.
 
 29
-00:01:29.403 --> 00:01:32.893
+00:01:29.514 --> 00:01:34.077
 Ambil dua kelas bersebelahan yang sama-sama selebar 2:
 
 30
-00:01:32.893 --> 00:01:35.369
+00:01:34.077 --> 00:01:37.269
 yang satu tingginya 12, yang lain 4.
 
 31
-00:01:36.100 --> 00:01:37.498
+00:01:37.897 --> 00:01:39.295
 Kalau keduanya digabung,
 
 32
-00:01:37.498 --> 00:01:39.513
+00:01:39.295 --> 00:01:41.309
 apa yang terjadi pada tingginya?
 
 33
-00:01:40.749 --> 00:01:44.598
+00:01:41.960 --> 00:01:46.410
 Jawaban cepat yang salah: tingginya dijumlah,
 
 34
-00:01:44.598 --> 00:01:46.031
+00:01:46.410 --> 00:01:48.043
 12 + 4 jadi 16.
 
 35
-00:01:46.778 --> 00:01:50.836
+00:01:48.264 --> 00:01:53.244
 Tetapi luasnya lalu jadi 4 × 16, yaitu 64.
 
 36
-00:01:51.566 --> 00:01:53.242
+00:01:54.255 --> 00:01:56.274
 <b>Dua kali lipat datanya</b>.
 
 37
-00:01:54.433 --> 00:01:56.004
+00:01:56.927 --> 00:01:58.668
 Yang dijumlah <b>luasnya</b>.
 
 38
-00:01:56.754 --> 00:02:02.589
+00:01:59.144 --> 00:02:06.748
 2 × 12 = 24, 2 × 4 = 8, jadi 32.
 
 39
-00:02:03.333 --> 00:02:08.444
+00:02:07.062 --> 00:02:13.064
 Lebarnya sekarang 4, jadi tingginya 32 : 4 = 8.
 
 40
-00:02:09.682 --> 00:02:10.882
+00:02:13.727 --> 00:02:15.088
 Bentuk umumnya:
 
 41
-00:02:10.882 --> 00:02:14.151
+00:02:15.088 --> 00:02:19.322
 tinggi batang = frekuensi dibagi lebar kelas.
 
 42
-00:02:14.723 --> 00:02:17.322
+00:02:19.706 --> 00:02:22.434
 Dengan begitu luasnya, tinggi × lebar,
 
 43
-00:02:17.322 --> 00:02:19.728
+00:02:22.434 --> 00:02:24.953
 selalu kembali menjadi frekuensi.
 
 44
-00:02:20.949 --> 00:02:23.934
+00:02:25.593 --> 00:02:29.102
 Yang mewakili banyaknya data adalah <b>luas</b> batangnya,
 
 45
-00:02:23.934 --> 00:02:25.284
+00:02:29.102 --> 00:02:30.452
 bukan tingginya.
 
 46
-00:02:25.753 --> 00:02:29.074
+00:02:31.050 --> 00:02:34.939
 Selama semua kelas sama lebar, membaca tinggi aman.
 
 47
-00:02:29.806 --> 00:02:31.418
+00:02:35.416 --> 00:02:37.225
 Begitu ada yang lebih lebar,
 
 48
-00:02:31.418 --> 00:02:33.640
+00:02:37.225 --> 00:02:39.699
 membaca tinggi <b>langsung menyesatkan</b>.
 
 49
-00:02:34.882 --> 00:02:37.858
+00:02:40.360 --> 00:02:43.950
 Di materi berikutnya, Penyajian Data, Bagian 4,
 
 50
-00:02:37.858 --> 00:02:41.340
+00:02:43.950 --> 00:02:48.152
 dua kelompok yang jumlah siswanya berbeda dibandingkan,
 
 51
-00:02:41.340 --> 00:02:43.769
+00:02:48.152 --> 00:02:51.052
 dan takarannya harus disamakan dulu.

@@ -4,225 +4,225 @@ NOTE Dibuat otomatis dari manim/narasi/statistika11-regresi.json (waktu kata rek
 NOTE naskah-sidik eeae6f1e24c1
 
 1
-00:00:00.101 --> 00:00:02.817
+00:00:00.000 --> 00:00:02.971
 Hubungan Dua Variabel, Bagian 2.
 
 2
-00:00:03.551 --> 00:00:05.417
+00:00:03.657 --> 00:00:06.024
 Kalau sepuluh orang menarik garis yang
 
 3
-00:00:05.417 --> 00:00:06.988
+00:00:06.024 --> 00:00:08.018
 paling pas pada titik yang sama,
 
 4
-00:00:06.988 --> 00:00:08.338
+00:00:08.018 --> 00:00:09.601
 garis <b>siapa</b> yang benar?
 
 5
-00:00:09.482 --> 00:00:12.219
+00:00:10.260 --> 00:00:14.000
 Di Ukuran Pemusatan dan Penyebaran, Bagian 4,
 
 6
-00:00:12.219 --> 00:00:13.739
+00:00:14.000 --> 00:00:16.078
 jarak ke pusat tidak bisa
 
 7
-00:00:13.739 --> 00:00:16.110
+00:00:16.078 --> 00:00:19.319
 langsung dijumlah karena jumlahnya nol,
 
 8
-00:00:16.110 --> 00:00:17.659
+00:00:19.319 --> 00:00:21.381
 jadi <b>dikuadratkan</b> dulu.
 
 9
-00:00:18.392 --> 00:00:20.976
+00:00:21.789 --> 00:00:24.539
 Cara yang sama dipakai hari ini untuk garis.
 
 10
-00:00:22.201 --> 00:00:26.009
+00:00:25.193 --> 00:00:29.325
 10 siswa, jam belajar seminggu dan nilai ujiannya.
 
 11
-00:00:26.758 --> 00:00:28.963
+00:00:29.814 --> 00:00:32.727
 Tiga orang menarik tiga garis berbeda,
 
 12
-00:00:28.963 --> 00:00:31.145
+00:00:32.727 --> 00:00:35.560
 dan ketiganya kelihatan masuk akal.
 
 13
-00:00:31.875 --> 00:00:33.075
+00:00:35.967 --> 00:00:37.291
 Supaya ada jawaban,
 
 14
-00:00:33.075 --> 00:00:36.540
+00:00:37.291 --> 00:00:41.272
 kita butuh cara <b>mengukur</b> seberapa meleset sebuah garis.
 
 15
-00:00:37.701 --> 00:00:38.901
+00:00:41.927 --> 00:00:43.210
 Untuk satu titik,
 
 16
-00:00:38.901 --> 00:00:41.943
+00:00:43.210 --> 00:00:47.058
 ukurannya adalah jarak <b>tegak</b> dari titik ke garis.
 
 17
-00:00:42.495 --> 00:00:44.478
+00:00:47.906 --> 00:00:50.239
 Bukan tegak lurus terhadap garisnya,
 
 18
-00:00:44.478 --> 00:00:45.966
+00:00:50.239 --> 00:00:51.990
 sebab yang ingin diperkecil
 
 19
-00:00:45.966 --> 00:00:47.934
+00:00:51.990 --> 00:00:54.279
 adalah kesalahan menebak nilai y.
 
 20
-00:00:49.133 --> 00:00:50.915
+00:00:54.927 --> 00:00:56.842
 Jarak itu namanya <b>residu</b>.
 
 21
-00:00:51.665 --> 00:00:52.865
+00:00:57.273 --> 00:00:58.493
 Titik di atas garis
 
 22
-00:00:52.865 --> 00:00:55.021
+00:00:58.493 --> 00:01:01.063
 berarti garisnya menebak terlalu rendah,
 
 23
-00:00:55.021 --> 00:00:57.543
+00:01:01.063 --> 00:01:04.040
 titik di bawah garis berarti terlalu tinggi.
 
 24
-00:00:58.582 --> 00:01:01.943
+00:01:04.693 --> 00:01:08.720
 Menjumlah semuanya gagal, persis seperti simpangan tadi.
 
 25
-00:01:02.675 --> 00:01:05.391
+00:01:09.244 --> 00:01:12.633
 Yang positif dan yang negatif <b>saling menghapus</b>.
 
 26
-00:01:06.601 --> 00:01:08.927
+00:01:13.293 --> 00:01:15.831
 Jadi tiap residu <b>dikuadratkan</b> dulu,
 
 27
-00:01:08.927 --> 00:01:10.804
+00:01:15.831 --> 00:01:17.866
 lalu semuanya dijumlahkan.
 
 28
-00:01:11.553 --> 00:01:14.093
+00:01:18.367 --> 00:01:21.778
 Sekarang seluruh kemelesetan sebuah
 
 29
-00:01:14.093 --> 00:01:16.492
+00:01:21.778 --> 00:01:24.949
 garis tinggal <b>satu angka</b>: 27,2.
 
 30
-00:01:17.716 --> 00:01:20.750
+00:01:25.593 --> 00:01:29.394
 Sekarang garisnya kita putar,
 
 31
-00:01:20.750 --> 00:01:26.550
+00:01:29.394 --> 00:01:36.621
 dan angka itu ikut berubah: 146, lalu 56,9, lalu <b>27,2</b>.
 
 32
-00:01:27.283 --> 00:01:29.564
+00:01:37.110 --> 00:01:39.547
 Diputar terus, ia naik lagi.
 
 33
-00:01:30.782 --> 00:01:34.014
+00:01:40.193 --> 00:01:44.057
 Jadi ada satu garis yang jumlah kuadratnya paling kecil,
 
 34
-00:01:34.014 --> 00:01:35.364
+00:01:44.057 --> 00:01:45.407
 dan cuma satu.
 
 35
-00:01:35.705 --> 00:01:37.828
+00:01:45.488 --> 00:01:48.064
 Itulah <b>metode kuadrat terkecil</b>.
 
 36
-00:01:38.560 --> 00:01:43.434
+00:01:48.645 --> 00:01:54.356
 Garis terbaiknya ŷ = 49,2 + 3,2x.
 
 37
-00:01:44.634 --> 00:01:46.337
+00:01:54.993 --> 00:01:56.524
 Dari mana 3,2?
 
 38
-00:01:47.086 --> 00:01:55.805
+00:01:56.908 --> 00:02:07.783
 Dari lima jumlah: n = 10, Σx = 65, Σy = 700, Σxy = 4814,
 
 39
-00:01:55.805 --> 00:01:57.512
+00:02:07.783 --> 00:02:09.875
 Σx² = 505.
 
 40
-00:01:58.257 --> 00:02:09.723
+00:02:10.306 --> 00:02:26.176
 b = (nΣxy - Σx Σy) : (nΣx² - (Σx)²) = 2640 : 825 = 3,2.
 
 41
-00:02:10.468 --> 00:02:16.960
+00:02:26.513 --> 00:02:35.708
 Lalu a = ȳ - b x̄ = 70 - 20,8 = 49,2.
 
 42
-00:02:18.182 --> 00:02:20.153
+00:02:36.360 --> 00:02:38.889
 Kemiringan 3,2 itu punya arti:
 
 43
-00:02:20.153 --> 00:02:22.911
+00:02:38.889 --> 00:02:42.429
 tiap tambahan <b>satu jam</b> belajar per minggu,
 
 44
-00:02:22.911 --> 00:02:25.622
+00:02:42.429 --> 00:02:45.867
 nilai diramalkan naik sekitar 3,2 poin.
 
 45
-00:02:26.833 --> 00:02:28.286
+00:02:46.527 --> 00:02:48.198
 Tetapi hati-hati.
 
 46
-00:02:29.036 --> 00:02:34.133
+00:02:48.710 --> 00:02:55.094
 Diteruskan sampai 40 jam, garis ini meramalkan 177,2.
 
 47
-00:02:34.878 --> 00:02:36.885
+00:02:55.722 --> 00:02:58.083
 Nilai ujian tidak bisa lewat 100,
 
 48
-00:02:36.885 --> 00:02:38.739
+00:02:58.083 --> 00:03:00.237
 dan <b>garisnya tidak tahu itu</b>.
 
 49
-00:02:39.949 --> 00:02:42.346
+00:03:00.893 --> 00:03:04.049
 Jadi garis yang benar bukan garis siapa-siapa,
 
 50
-00:02:42.346 --> 00:02:43.753
+00:03:04.049 --> 00:03:05.901
 melainkan garis yang <b>jumlah</b>
 
 51
-00:02:43.753 --> 00:02:45.368
+00:03:05.901 --> 00:03:08.027
 <b>kuadrat residunya paling kecil</b>,
 
 52
-00:02:45.368 --> 00:02:47.140
+00:03:08.027 --> 00:03:10.359
 dan ramalannya hanya boleh dipakai
 
 53
-00:02:47.140 --> 00:02:49.218
+00:03:10.359 --> 00:03:13.047
 di sekitar tempat datanya pernah ada.
 
 54
-00:02:50.449 --> 00:02:54.468
+00:03:13.693 --> 00:03:18.272
 Di materi berikutnya, Hubungan Dua Variabel, Bagian 3,
 
 55
-00:02:54.468 --> 00:02:57.744
+00:03:18.272 --> 00:03:21.982
 kekuatan hubungan diberi angka, namanya r.
 
 56
-00:02:58.477 --> 00:03:02.824
+00:03:22.830 --> 00:03:28.297
 Kalau r = 0,98, apakah yang satu <b>menyebabkan</b> yang lain?

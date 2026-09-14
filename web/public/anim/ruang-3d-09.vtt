@@ -4,197 +4,197 @@ NOTE Dibuat otomatis dari manim/narasi/ruang-3d-09.json (waktu kata rekaman)
 NOTE naskah-sidik 1c812d497b03
 
 1
-00:00:00.101 --> 00:00:02.554
+00:00:00.000 --> 00:00:02.600
 Sudut dalam Ruang, Bagian 2.
 
 2
-00:00:03.288 --> 00:00:06.055
+00:00:03.100 --> 00:00:06.363
 Bagaimana mengukur sudut antara garis dan bidang,
 
 3
-00:00:06.055 --> 00:00:07.504
+00:00:06.363 --> 00:00:08.045
 lalu antara dua bidang?
 
 4
-00:00:08.749 --> 00:00:10.609
+00:00:08.693 --> 00:00:11.243
 Di Sudut dalam Ruang, Bagian 1,
 
 5
-00:00:10.609 --> 00:00:13.128
+00:00:11.243 --> 00:00:14.698
 dua garis yang bersilangan diukur sudutnya
 
 6
-00:00:13.128 --> 00:00:15.978
+00:00:14.698 --> 00:00:18.549
 sesudah salah satunya digeser sampai bertemu.
 
 7
-00:00:16.711 --> 00:00:20.111
+00:00:18.817 --> 00:00:22.229
 Hari ini sasarannya bidang, dan kuncinya <b>bayangan</b>.
 
 8
-00:00:21.300 --> 00:00:22.687
+00:00:22.860 --> 00:00:24.210
 Bagian pertama.
 
 9
-00:00:23.437 --> 00:00:24.696
+00:00:24.636 --> 00:00:26.231
 Ini diagonal ruang AG,
 
 10
-00:00:24.696 --> 00:00:27.674
+00:00:26.231 --> 00:00:30.150
 sebuah garis miring yang menembus lantai di titik A.
 
 11
-00:00:27.674 --> 00:00:30.012
+00:00:30.731 --> 00:00:33.490
 Sudut yang dimaksud bukan sudut sembarangan,
 
 12
-00:00:30.012 --> 00:00:31.500
+00:00:33.490 --> 00:00:35.247
 melainkan sudut antara garis
 
 13
-00:00:31.500 --> 00:00:33.245
+00:00:35.247 --> 00:00:37.278
 itu dan <b>bayangannya</b> di lantai.
 
 14
-00:00:34.468 --> 00:00:37.605
+00:00:37.927 --> 00:00:41.421
 Bayangan A tetap A, sebab A memang di lantai.
 
 15
-00:00:38.339 --> 00:00:42.292
+00:00:41.874 --> 00:00:46.053
 Bayangan G jatuh di C, sebab GC tegak lurus lantai.
 
 16
-00:00:43.023 --> 00:00:45.542
+00:00:46.507 --> 00:00:48.793
 Jadi bayangan AG adalah <b>AC</b>.
 
 17
-00:00:46.782 --> 00:00:49.961
+00:00:49.427 --> 00:00:52.970
 Ingat dari Perbandingan Trigonometri, Bagian 4:
 
 18
-00:00:49.961 --> 00:00:53.222
+00:00:52.970 --> 00:00:56.589
 tangen sudut = sisi depan dibagi sisi samping.
 
 19
-00:00:53.969 --> 00:00:57.299
+00:00:56.880 --> 00:01:00.710
 Pada segitiga ACG yang siku-siku di C,
 
 20
-00:00:57.299 --> 00:01:01.567
+00:01:00.710 --> 00:01:05.598
 tangen sudutnya = 6 dibagi 6√2, yaitu 1 per √2.
 
 21
-00:01:02.297 --> 00:01:05.539
+00:01:06.087 --> 00:01:09.755
 Sudutnya kira-kira <b>35,26°</b>.
 
 22
-00:01:06.735 --> 00:01:09.714
+00:01:10.393 --> 00:01:13.318
 Bagian kedua, sudut antara dua <b>bidang</b>.
 
 23
-00:01:10.462 --> 00:01:12.235
+00:01:13.505 --> 00:01:15.456
 Bidang BDG memotong lantai,
 
 24
-00:01:12.235 --> 00:01:14.139
+00:01:15.456 --> 00:01:17.550
 dan persekutuannya bukan satu
 
 25
-00:01:14.139 --> 00:01:16.962
+00:01:17.550 --> 00:01:20.806
 titik melainkan satu garis penuh, yaitu BD.
 
 26
-00:01:16.962 --> 00:01:18.915
+00:01:21.121 --> 00:01:23.291
 Garis itu namanya <b>garis potong</b>.
 
 27
-00:01:20.135 --> 00:01:22.627
+00:01:23.927 --> 00:01:26.864
 Ambil titik P tepat di tengah BD.
 
 28
-00:01:23.375 --> 00:01:24.792
+00:01:27.178 --> 00:01:28.895
 Dari P kita tarik dua
 
 29
-00:01:24.792 --> 00:01:27.220
+00:01:28.895 --> 00:01:31.838
 garis yang sama-sama tegak lurus BD:
 
 30
-00:01:27.220 --> 00:01:29.933
+00:01:31.838 --> 00:01:35.096
 PC di lantai, dan PG di bidang miring.
 
 31
-00:01:30.664 --> 00:01:34.050
+00:01:35.654 --> 00:01:39.089
 Sudut di antara keduanya, itulah sudut kedua bidang.
 
 32
-00:01:35.267 --> 00:01:36.693
+00:01:39.727 --> 00:01:41.077
 Hitung dengan angka.
 
 33
-00:01:37.443 --> 00:01:41.080
+00:01:41.433 --> 00:01:45.055
 PC setengah diagonal sisi, yaitu 3√2.
 
 34
-00:01:41.810 --> 00:01:43.947
+00:01:45.334 --> 00:01:47.528
 CG rusuk, yaitu 6.
 
 35
-00:01:44.693 --> 00:01:48.672
+00:01:47.761 --> 00:01:51.962
 Tangen sudutnya 6 dibagi 3√2, yaitu √2.
 
 36
-00:01:49.402 --> 00:01:52.710
+00:01:52.672 --> 00:01:56.444
 Sudutnya kira-kira <b>54,74°</b>.
 
 37
-00:01:53.933 --> 00:01:55.399
+00:01:57.093 --> 00:01:58.544
 Bentuk umumnya dua.
 
 38
-00:01:56.135 --> 00:01:57.722
+00:01:59.253 --> 00:02:01.124
 Sudut garis dengan bidang =
 
 39
-00:01:57.722 --> 00:01:59.929
+00:02:01.124 --> 00:02:03.699
 sudut garis itu dengan bayangannya.
 
 40
-00:02:00.661 --> 00:02:02.838
+00:02:04.547 --> 00:02:06.967
 Sudut dua bidang diukur dari dua garis yang
 
 41
-00:02:02.838 --> 00:02:05.469
+00:02:06.967 --> 00:02:09.875
 tegak lurus garis potong di satu titik yang sama.
 
 42
-00:02:06.716 --> 00:02:09.286
+00:02:10.527 --> 00:02:13.570
 Syaratnya dua dan harus dipenuhi bersamaan:
 
 43
-00:02:09.286 --> 00:02:10.780
+00:02:13.570 --> 00:02:15.339
 tegak lurus garis potong,
 
 44
-00:02:10.780 --> 00:02:13.142
+00:02:15.339 --> 00:02:18.108
 dan bertumpu di <b>satu titik yang sama</b>.
 
 45
-00:02:13.889 --> 00:02:16.711
+00:02:18.689 --> 00:02:22.009
 Kalau P digeser, PC tidak lagi tegak lurus,
 
 46
-00:02:16.711 --> 00:02:19.289
+00:02:22.009 --> 00:02:25.016
 dan angka yang terbaca menjadi salah.
 
 47
-00:02:20.516 --> 00:02:23.406
+00:02:25.660 --> 00:02:29.451
 Di materi berikutnya, Penerapan Ruang Tiga Dimensi,
 
 48
-00:02:23.406 --> 00:02:24.992
+00:02:29.451 --> 00:02:31.533
 kita lihat di mana jarak dan
 
 49
-00:02:24.992 --> 00:02:27.692
+00:02:31.533 --> 00:02:35.028
 sudut di dalam ruang ini benar-benar dipakai.

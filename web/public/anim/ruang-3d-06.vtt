@@ -4,201 +4,201 @@ NOTE Dibuat otomatis dari manim/narasi/ruang-3d-06.json (waktu kata rekaman)
 NOTE naskah-sidik d62ef0e109a3
 
 1
-00:00:00.101 --> 00:00:02.685
+00:00:00.000 --> 00:00:02.727
 Jarak dalam Ruang, Bagian 4.
 
 2
-00:00:03.419 --> 00:00:04.705
+00:00:03.274 --> 00:00:04.997
 Bidangnya miring dan tidak
 
 3
-00:00:04.705 --> 00:00:06.438
+00:00:04.997 --> 00:00:07.267
 menyentuh titik itu sama sekali.
 
 4
-00:00:07.168 --> 00:00:08.518
+00:00:07.732 --> 00:00:09.082
 Berapa jaraknya?
 
 5
-00:00:09.682 --> 00:00:11.800
+00:00:09.593 --> 00:00:12.123
 Di Jarak dalam Ruang, Bagian 1,
 
 6
-00:00:11.800 --> 00:00:14.192
+00:00:12.123 --> 00:00:14.979
 jarak selalu ruas yang tegak lurus,
 
 7
-00:00:14.192 --> 00:00:16.938
+00:00:14.979 --> 00:00:18.229
 dan sasarannya waktu itu sebuah garis.
 
 8
-00:00:17.685 --> 00:00:19.466
+00:00:18.521 --> 00:00:20.749
 Hari ini aturannya sama persis,
 
 9
-00:00:19.466 --> 00:00:22.375
+00:00:20.749 --> 00:00:24.348
 hanya sasarannya berganti menjadi sebuah bidang.
 
 10
-00:00:23.567 --> 00:00:25.520
+00:00:24.993 --> 00:00:26.803
 Ini bidang BDE.
 
 11
-00:00:26.269 --> 00:00:28.063
+00:00:27.384 --> 00:00:29.597
 Ketiga sisinya diagonal sisi yang
 
 12
-00:00:28.063 --> 00:00:29.531
+00:00:29.597 --> 00:00:31.408
 bertemu di sekitar titik A,
 
 13
-00:00:29.531 --> 00:00:31.108
+00:00:31.408 --> 00:00:33.352
 dan bidang itu memotong pojok
 
 14
-00:00:31.108 --> 00:00:33.432
+00:00:33.352 --> 00:00:36.184
 kubus seperti pisau memotong ujung tahu.
 
 15
-00:00:34.635 --> 00:00:36.679
+00:00:36.827 --> 00:00:39.032
 Berapa jarak titik A ke bidang itu?
 
 16
-00:00:37.414 --> 00:00:40.564
+00:00:39.555 --> 00:00:42.689
 Seperti biasa, kita cari <b>kaki tegak lurusnya</b>.
 
 17
-00:00:41.295 --> 00:00:43.831
+00:00:43.131 --> 00:00:45.784
 Tarik ruas dari A yang tegak lurus bidang,
 
 18
-00:00:43.831 --> 00:00:45.550
+00:00:45.784 --> 00:00:47.577
 lalu ukur sampai menembus.
 
 19
-00:00:46.296 --> 00:00:47.823
+00:00:48.019 --> 00:00:49.617
 Kakinya jatuh di titik K,
 
 20
-00:00:47.823 --> 00:00:50.170
+00:00:49.617 --> 00:00:52.070
 dan K tidak punya nama di kubus ini.
 
 21
-00:00:51.367 --> 00:00:53.135
+00:00:52.727 --> 00:00:54.398
 Ada satu hal yang membantu.
 
 22
-00:00:53.885 --> 00:00:57.692
+00:00:54.677 --> 00:00:59.402
 AB, AD, dan AE sama panjang dan saling tegak lurus,
 
 23
-00:00:57.692 --> 00:01:01.575
+00:00:59.402 --> 00:01:04.185
 jadi K jatuh tepat di <b>sepertiga</b> diagonal ruang AG.
 
 24
-00:01:02.319 --> 00:01:08.548
+00:01:04.801 --> 00:01:10.802
 Karena AG = 6√3, jaraknya 2√3, kira-kira 3,46.
 
 25
-00:01:09.767 --> 00:01:11.259
+00:01:11.460 --> 00:01:12.922
 Cek dengan koordinat.
 
 26
-00:01:11.994 --> 00:01:16.894
+00:01:13.248 --> 00:01:19.029
 Sepertiga jalan dari A ke G berarti K ada di (2, 2, 2).
 
 27
-00:01:17.640 --> 00:01:24.580
+00:01:19.447 --> 00:01:27.341
 Jaraknya dari A: √(4 + 4 + 4) = √12, dan itu memang 2√3.
 
 28
-00:01:25.309 --> 00:01:26.659
+00:01:27.679 --> 00:01:29.029
 Cocok.
 
 29
-00:01:27.435 --> 00:01:28.635
+00:01:29.060 --> 00:01:30.260
 Cara tadi cepat,
 
 30
-00:01:28.635 --> 00:01:31.891
+00:01:30.260 --> 00:01:33.796
 tetapi hanya jalan kalau bangunnya kebetulan simetris.
 
 31
-00:01:32.360 --> 00:01:33.794
+00:01:34.261 --> 00:01:36.136
 Cara yang selalu jalan:
 
 32
-00:01:33.794 --> 00:01:37.224
+00:01:36.136 --> 00:01:40.619
 hitung volume limas A.BDE dengan <b>dua</b> alas yang berbeda,
 
 33
-00:01:37.224 --> 00:01:38.746
+00:01:40.619 --> 00:01:42.562
 lalu samakan keduanya.
 
 34
-00:01:39.949 --> 00:01:43.926
+00:01:43.193 --> 00:01:48.452
 Dengan alas segitiga ABD yang siku-siku,
 
 35
-00:01:43.926 --> 00:01:49.046
+00:01:48.452 --> 00:01:55.174
 volumenya ⅓ × luas alas × tinggi: ⅓ × 18 × 6 = 36.
 
 36
-00:01:49.779 --> 00:01:53.969
+00:01:55.744 --> 00:02:00.433
 Dengan alas segitiga BDE, luasnya 18√3.
 
 37
-00:01:54.715 --> 00:02:01.418
+00:02:00.922 --> 00:02:09.083
 Jadi 36 = ⅓ × 18√3 × jaraknya, dan jaraknya 2√3 juga.
 
 38
-00:02:02.649 --> 00:02:03.849
+00:02:09.727 --> 00:02:11.350
 Bentuk umumnya:
 
 39
-00:02:03.849 --> 00:02:07.730
+00:02:11.350 --> 00:02:16.588
 jarak titik ke bidang = 3V dibagi luas alasnya.
 
 40
-00:02:08.453 --> 00:02:09.864
+00:02:16.972 --> 00:02:18.492
 Itu bukan hafalan baru,
 
 41
-00:02:09.864 --> 00:02:12.221
+00:02:18.492 --> 00:02:21.023
 itu rumus volume limas yang <b>dibalik</b>.
 
 42
-00:02:13.449 --> 00:02:15.814
+00:02:21.660 --> 00:02:24.832
 Jadi ada dua jalan menuju angka yang sama:
 
 43
-00:02:15.814 --> 00:02:18.404
+00:02:24.832 --> 00:02:28.306
 kaki tegak lurus kalau letaknya mudah ditebak,
 
 44
-00:02:18.404 --> 00:02:19.849
+00:02:28.306 --> 00:02:30.193
 dan volume kalau tidak.
 
 45
-00:02:20.596 --> 00:02:22.442
+00:02:31.215 --> 00:02:33.516
 Keduanya bermula dari satu hal:
 
 46
-00:02:22.442 --> 00:02:24.378
+00:02:33.516 --> 00:02:35.893
 jarak selalu yang tegak lurus.
 
 47
-00:02:25.616 --> 00:02:28.942
+00:02:36.527 --> 00:02:40.466
 Di materi berikutnya, Jarak dalam Ruang, Bagian 5,
 
 48
-00:02:28.942 --> 00:02:31.336
+00:02:40.466 --> 00:02:43.303
 yang diukur bukan lagi sebuah titik,
 
 49
-00:02:31.336 --> 00:02:34.213
+00:02:43.303 --> 00:02:46.684
 melainkan garis atau bidang yang sejajar.
 
 50
-00:02:34.946 --> 00:02:37.254
+00:02:47.172 --> 00:02:50.341
 Kenapa cukup mengambil satu titik saja?

@@ -4,277 +4,277 @@ NOTE Dibuat otomatis dari manim/narasi/grafik6-transformasi.json (waktu kata rek
 NOTE naskah-sidik 1a7761d4d745
 
 1
-00:00:00.101 --> 00:00:02.857
+00:00:00.000 --> 00:00:02.878
 Transformasi Fungsi, Bagian 1.
 
 2
-00:00:03.591 --> 00:00:06.662
+00:00:03.402 --> 00:00:06.942
 Apakah aturan geser tadi cuma berlaku untuk parabola?
 
 3
-00:00:07.882 --> 00:00:10.249
+00:00:07.593 --> 00:00:10.817
 Di Fungsi Kuadrat, Bagian 1,
 
 4
-00:00:10.249 --> 00:00:12.869
+00:00:10.817 --> 00:00:14.387
 parabola pindah ke kanan begitu
 
 5
-00:00:12.869 --> 00:00:15.488
+00:00:14.387 --> 00:00:17.957
 angkanya masuk ke dalam kurung:
 
 6
-00:00:15.488 --> 00:00:18.427
+00:00:17.957 --> 00:00:21.906
 y = (x - 3)², puncaknya di x = 3.
 
 7
-00:00:19.160 --> 00:00:21.140
+00:00:22.453 --> 00:00:24.630
 Hari ini aturan itu kita rapikan,
 
 8
-00:00:21.140 --> 00:00:23.271
+00:00:24.630 --> 00:00:26.957
 lalu diuji pada bentuk yang lain.
 
 9
-00:00:24.467 --> 00:00:26.157
+00:00:27.593 --> 00:00:29.554
 Kita mulai dari yang nyata.
 
 10
-00:00:26.906 --> 00:00:29.843
+00:00:29.845 --> 00:00:34.021
 Bola ini menggelinding sekali di dasar lembah,
 
 11
-00:00:29.843 --> 00:00:32.675
+00:00:34.021 --> 00:00:37.983
 dan bentuk lembahnya persis grafik y = x².
 
 12
-00:00:33.868 --> 00:00:35.939
+00:00:38.627 --> 00:00:40.727
 Sekarang lembahnya kita tinggalkan.
 
 13
-00:00:36.688 --> 00:00:39.499
+00:00:41.204 --> 00:00:44.176
 Yang tersisa cuma gambarnya, di bidang datar,
 
 14
-00:00:39.499 --> 00:00:42.272
+00:00:44.176 --> 00:00:47.101
 dengan sumbu-x mendatar dan sumbu-y tegak.
 
 15
-00:00:43.002 --> 00:00:46.850
+00:00:47.810 --> 00:00:52.953
 Aturannya kita tulis dulu: f(x) = x².
 
 16
-00:00:48.068 --> 00:00:49.652
+00:00:53.593 --> 00:00:55.021
 Kenapa bentuknya begitu?
 
 17
-00:00:50.386 --> 00:00:52.655
+00:00:55.277 --> 00:00:57.424
 Bukan sihir, tapi dihitung.
 
 18
-00:00:53.386 --> 00:00:55.668
+00:00:58.005 --> 00:01:00.303
 x = -2 memberi 4.
 
 19
-00:00:56.398 --> 00:00:58.101
+00:01:00.687 --> 00:01:02.532
 -1 memberi 1.
 
 20
-00:00:58.832 --> 00:01:00.182
+00:01:02.916 --> 00:01:04.274
 0 memberi 0.
 
 21
-00:01:00.911 --> 00:01:02.377
+00:01:04.588 --> 00:01:06.131
 1 memberi 1.
 
 22
-00:01:03.109 --> 00:01:04.482
+00:01:06.446 --> 00:01:08.175
 2 memberi 4.
 
 23
-00:01:05.230 --> 00:01:07.571
+00:01:08.489 --> 00:01:11.171
 Lima titik inilah yang menentukan bentuknya,
 
 24
-00:01:07.571 --> 00:01:10.275
+00:01:11.171 --> 00:01:14.246
 dan kurvanya cuma menghubungkan titik-titik itu.
 
 25
-00:01:11.501 --> 00:01:13.374
+00:01:14.893 --> 00:01:16.750
 Sekarang perhatikan rumusnya.
 
 26
-00:01:14.124 --> 00:01:18.221
+00:01:17.053 --> 00:01:21.591
 Kita tulis f(x), lalu + 1, di luar kurung.
 
 27
-00:01:18.951 --> 00:01:20.993
+00:01:22.266 --> 00:01:24.526
 Seluruh grafiknya naik 1 satuan,
 
 28
-00:01:20.993 --> 00:01:22.930
+00:01:24.526 --> 00:01:26.653
 dan bentuknya tidak berubah.
 
 29
-00:01:23.662 --> 00:01:26.680
+00:01:27.339 --> 00:01:31.077
 Titik (2, 4) tadi sekarang jadi (2, 5).
 
 30
-00:01:27.901 --> 00:01:29.985
+00:01:31.727 --> 00:01:34.129
 Sekarang giliran yang di dalam kurung.
 
 31
-00:01:30.720 --> 00:01:32.883
+00:01:34.548 --> 00:01:37.171
 Kita tulis f(x - 1).
 
 32
-00:01:33.614 --> 00:01:36.569
+00:01:37.590 --> 00:01:41.033
 Coba tebak dulu: grafiknya bergeser ke kiri,
 
 33
-00:01:36.569 --> 00:01:37.919
+00:01:41.033 --> 00:01:42.383
 atau ke kanan?
 
 34
-00:01:38.868 --> 00:01:42.018
+00:01:42.927 --> 00:01:46.502
 Jawabannya ke kanan, walaupun tandanya minus.
 
 35
-00:01:42.752 --> 00:01:44.521
+00:01:46.712 --> 00:01:48.336
 Ini yang paling sering terbalik.
 
 36
-00:01:45.735 --> 00:01:47.085
+00:01:48.993 --> 00:01:50.247
 Kenapa ke kanan?
 
 37
-00:01:47.645 --> 00:01:50.900
+00:01:50.247 --> 00:01:54.530
 Karena isi kurungnya baru jadi 0 saat x = 1.
 
 38
-00:01:51.632 --> 00:01:54.466
+00:01:55.111 --> 00:01:58.501
 Titik terendah selalu pindah ke tempat isi kurungnya 0.
 
 39
-00:01:55.667 --> 00:01:57.146
+00:01:59.160 --> 00:02:00.842
 Sekarang bentuk lain.
 
 40
-00:01:57.896 --> 00:01:59.559
+00:02:01.157 --> 00:02:03.359
 Kita ganti f jadi 2√x,
 
 41
-00:01:59.559 --> 00:02:02.584
+00:02:03.359 --> 00:02:07.362
 lalu kenakan perlakuan yang sama persis:
 
 42
-00:02:02.584 --> 00:02:05.230
+00:02:07.362 --> 00:02:10.815
 - 1 di dalam kurung, + 1 di luar.
 
 43
-00:02:05.960 --> 00:02:08.242
+00:02:11.129 --> 00:02:13.590
 Perpindahannya tidak berubah sedikit pun.
 
 44
-00:02:09.435 --> 00:02:12.177
+00:02:14.227 --> 00:02:16.943
 Sekali lagi, sekarang gelombang sinus.
 
 45
-00:02:12.910 --> 00:02:15.573
+00:02:17.257 --> 00:02:20.031
 Aturannya memang tidak peduli bentuk grafiknya.
 
 46
-00:02:16.306 --> 00:02:18.132
+00:02:20.415 --> 00:02:22.669
 Yang di luar kurung menggeser tegak,
 
 47
-00:02:18.132 --> 00:02:20.311
+00:02:22.669 --> 00:02:25.325
 yang di dalam kurung menggeser mendatar.
 
 48
-00:02:21.516 --> 00:02:26.345
+00:02:25.960 --> 00:02:31.195
 Bentuk umumnya: y = f(x - h) + k.
 
 49
-00:02:26.345 --> 00:02:28.988
+00:02:32.218 --> 00:02:35.572
 Grafik f bergeser h ke kanan dan k ke atas,
 
 50
-00:02:28.988 --> 00:02:30.429
+00:02:35.572 --> 00:02:37.360
 apa pun bentuk f-nya.
 
 51
-00:02:31.633 --> 00:02:33.125
+00:02:37.993 --> 00:02:39.536
 Sekarang jebakannya.
 
 52
-00:02:33.875 --> 00:02:35.414
+00:02:39.839 --> 00:02:41.525
 Kita kembali ke parabola,
 
 53
-00:02:35.414 --> 00:02:38.210
+00:02:41.525 --> 00:02:44.575
 dan kali ini x dikalikan 2 di dalam kurung.
 
 54
-00:02:38.940 --> 00:02:42.014
+00:02:44.994 --> 00:02:48.004
 Tebak dulu: grafiknya jadi 2 kali lebih lebar,
 
 55
-00:02:42.014 --> 00:02:43.364
+00:02:48.004 --> 00:02:49.354
 atau setengahnya?
 
 56
-00:02:44.500 --> 00:02:46.058
+00:02:49.927 --> 00:02:51.296
 Jawabannya setengah.
 
 57
-00:02:46.808 --> 00:02:49.870
+00:02:51.924 --> 00:02:55.693
 Nilai 4 yang tadi baru tercapai di x = 2,
 
 58
-00:02:49.870 --> 00:02:52.484
+00:02:55.693 --> 00:02:58.877
 sekarang sudah tercapai di x = 1.
 
 59
-00:02:53.701 --> 00:02:57.167
+00:02:59.527 --> 00:03:03.392
 Alasannya, x sudah dikalikan 2 sebelum masuk mesin.
 
 60
-00:02:57.916 --> 00:03:01.618
+00:03:03.927 --> 00:03:07.618
 Waktu kita isi 1, mesinnya sebenarnya mengerjakan 2.
 
 61
-00:03:02.349 --> 00:03:05.946
+00:03:08.153 --> 00:03:12.030
 Jadi mesinnya sampai lebih awal, dan grafiknya memampat.
 
 62
-00:03:07.134 --> 00:03:08.916
+00:03:12.660 --> 00:03:14.470
 Jadi aturannya cuma dua.
 
 63
-00:03:09.665 --> 00:03:12.867
+00:03:14.819 --> 00:03:18.964
 Angka di luar kurung mengerjakan apa yang tertulis:
 
 64
-00:03:12.867 --> 00:03:14.217
+00:03:18.964 --> 00:03:20.658
 + 1 berarti naik 1.
 
 65
-00:03:14.940 --> 00:03:16.140
+00:03:21.147 --> 00:03:22.347
 Angka yang masuk ke
 
 66
-00:03:16.140 --> 00:03:18.158
+00:03:22.347 --> 00:03:24.772
 dalam kurung mengerjakan kebalikannya.
 
 67
-00:03:19.116 --> 00:03:22.677
+00:03:25.360 --> 00:03:29.745
 Di materi berikutnya, Transformasi Fungsi, Bagian 2,
 
 68
-00:03:22.677 --> 00:03:26.169
+00:03:29.745 --> 00:03:34.045
 bagian grafik yang ada di bawah sumbu dipaksa naik:
 
 69
-00:03:26.169 --> 00:03:28.647
+00:03:34.045 --> 00:03:37.062
 nilai mutlak, cara melipat grafik.

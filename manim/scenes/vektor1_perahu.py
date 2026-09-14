@@ -252,8 +252,29 @@ class PerahuVektor(AdeganMatra):
         # Panah dayung, arus, dan perpindahan sebenarnya
         # ==============================================================
         asal = np.array([0.0, 0.0, Z])
-        p_dayung = always_redraw(
-            lambda: Arrow(asal, asal + self.v_dayung(), buff=0, thickness=5).set_color(AKSEN2))
+
+        def bangun_bila_berubah(pembuat, kunci):
+            """Pengganti `always_redraw` yang HEMAT: bendanya dibangun ulang hanya
+            saat nilai kuncinya (sudut dayung, geseran) berubah, bukan tiap frame.
+            Render 1080p60 dengan tiga panah always_redraw mati diam-diam dua kali
+            di frame yang sama (11.142, 15 Sep 2026) tanpa pesan galat, sedangkan
+            480p15 (empat kali lebih sedikit frame) selesai: sumber daya OpenGL
+            habis oleh pembangunan ulang tiap frame."""
+            m = pembuat()
+            m.kunci_terakhir = kunci()
+
+            def perbarui(mob):
+                k = kunci()
+                if k != mob.kunci_terakhir:
+                    mob.become(pembuat())
+                    mob.kunci_terakhir = k
+            m.add_updater(perbarui)
+            return m
+
+        kunci_panah = lambda: (round(self.th.get_value(), 6), round(self.geser.get_value(), 6))
+        p_dayung = bangun_bila_berubah(
+            lambda: Arrow(asal, asal + self.v_dayung(), buff=0, thickness=5).set_color(AKSEN2),
+            kunci_panah)
         l_dayung = teks("dayung", 26, AKSEN2)
 
         def taruh_dayung(m):
@@ -278,17 +299,19 @@ class PerahuVektor(AdeganMatra):
             m.move_to(p)
 
         l_dayung.add_updater(taruh_dayung)
-        p_arus = always_redraw(
+        p_arus = bangun_bila_berubah(
             lambda: Arrow(self.ujung_dayung(), self.ujung_arus(), buff=0,
-                          thickness=5).set_color(AKSEN))
+                          thickness=5).set_color(AKSEN),
+            kunci_panah)
 
         def taruh_arus(m):
             m.move_to(self.ujung_dayung() + V_ARUS * 0.5 + 0.62 * UP)
 
         l_arus = teks("arus", 26, AKSEN)
         l_arus.add_updater(taruh_arus)
-        p_res = always_redraw(
-            lambda: Arrow(asal, self.ujung_res(), buff=0, thickness=7).set_color(SOROT))
+        p_res = bangun_bila_berubah(
+            lambda: Arrow(asal, self.ujung_res(), buff=0, thickness=7).set_color(SOROT),
+            kunci_panah)
         titik_ujung = Dot(radius=0.09).set_color(SOROT)
         titik_ujung.add_updater(lambda m: m.move_to(self.ujung_res()))
 

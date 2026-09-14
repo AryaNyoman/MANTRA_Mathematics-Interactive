@@ -4,277 +4,277 @@ NOTE Dibuat otomatis dari manim/narasi/vektor4-panjang.json (waktu kata rekaman)
 NOTE naskah-sidik d4c63f896973
 
 1
-00:00:00.101 --> 00:00:03.186
+00:00:00.000 --> 00:00:03.378
 Vektor dalam Sistem Koordinat, Bagian 2.
 
 2
-00:00:03.920 --> 00:00:07.122
+00:00:03.843 --> 00:00:07.220
 Sudah punya dua angka, lalu berapa panjang panahnya?
 
 3
-00:00:08.349 --> 00:00:12.159
+00:00:07.860 --> 00:00:12.364
 Di materi sebelumnya, Vektor dalam Sistem Koordinat,
 
 4
-00:00:12.159 --> 00:00:15.602
+00:00:12.364 --> 00:00:16.434
 Bagian 1, satu panah dicatat sebagai dua angka:
 
 5
-00:00:15.602 --> 00:00:19.341
+00:00:16.434 --> 00:00:20.828
 4 petak ke kanan, 3 petak ke atas, ditulis (4 3).
 
 6
-00:00:20.074 --> 00:00:21.687
+00:00:21.537 --> 00:00:23.506
 Hari ini kedua angka seperti itu
 
 7
-00:00:21.687 --> 00:00:24.106
+00:00:23.506 --> 00:00:26.424
 kita pakai untuk menghitung panjang panahnya.
 
 8
-00:00:25.316 --> 00:00:26.931
+00:00:27.060 --> 00:00:29.053
 Dua tiang berdiri di lapangan,
 
 9
-00:00:26.931 --> 00:00:28.278
+00:00:29.053 --> 00:00:30.713
 dan kita harus membentang
 
 10
-00:00:28.278 --> 00:00:30.097
+00:00:30.713 --> 00:00:32.922
 kabel lurus di antara keduanya.
 
 11
-00:00:30.830 --> 00:00:34.138
+00:00:33.410 --> 00:00:37.578
 Pertanyaannya: berapa meter kabel yang perlu disiapkan?
 
 12
-00:00:35.335 --> 00:00:36.893
+00:00:38.227 --> 00:00:39.840
 Kita lihat dari atas.
 
 13
-00:00:37.627 --> 00:00:39.777
+00:00:40.154 --> 00:00:42.719
 1 petak = 1 meter.
 
 14
-00:00:40.968 --> 00:00:42.816
+00:00:43.360 --> 00:00:46.012
 Tiang kedua berada 4 petak ke kanan
 
 15
-00:00:42.816 --> 00:00:45.026
+00:00:46.012 --> 00:00:49.117
 dan 2 petak ke atas dari tiang pertama.
 
 16
-00:00:45.759 --> 00:00:47.659
+00:00:49.606 --> 00:00:51.776
 Jadi vektornya (4 2).
 
 17
-00:00:48.868 --> 00:00:51.136
+00:00:52.427 --> 00:00:55.096
 Tapi 4 dan 2 bukan jawabannya.
 
 18
-00:00:51.885 --> 00:00:54.687
+00:00:55.283 --> 00:00:58.665
 Perhatikan: langkah mendatar, langkah tegak,
 
 19
-00:00:54.687 --> 00:00:55.961
+00:00:58.665 --> 00:01:00.202
 dan kabelnya sendiri
 
 20
-00:00:55.961 --> 00:00:58.403
+00:01:00.202 --> 00:01:03.119
 selalu membentuk segitiga siku-siku.
 
 21
-00:00:59.133 --> 00:01:01.625
+00:01:03.573 --> 00:01:06.149
 Dan kabelnya selalu jadi sisi miringnya.
 
 22
-00:01:02.835 --> 00:01:05.537
+00:01:06.793 --> 00:01:09.752
 Selama itu benar, Pythagoras berlaku.
 
 23
-00:01:06.286 --> 00:01:10.015
+00:01:10.044 --> 00:01:14.605
 Kuadratkan yang mendatar: 4² = 16.
 
 24
-00:01:10.745 --> 00:01:14.053
+00:01:14.896 --> 00:01:18.750
 Kuadratkan yang tegak: 2² = 4.
 
 25
-00:01:14.783 --> 00:01:16.604
+00:01:19.238 --> 00:01:20.944
 Jumlahkan jadi 20.
 
 26
-00:01:17.352 --> 00:01:23.646
+00:01:21.200 --> 00:01:28.990
 Lalu tarik akarnya: √20, atau 2√5, sekitar 4,47 meter.
 
 27
-00:01:24.835 --> 00:01:27.208
+00:01:29.627 --> 00:01:32.424
 Perhatikan hasilnya bukan bilangan bulat.
 
 28
-00:01:27.943 --> 00:01:29.553
+00:01:32.738 --> 00:01:34.433
 Itu justru yang biasa.
 
 29
-00:01:30.299 --> 00:01:32.095
+00:01:34.747 --> 00:01:36.781
 Panjang yang bulat rapi seperti
 
 30
-00:01:32.095 --> 00:01:33.717
+00:01:36.781 --> 00:01:38.619
 5 itu kebetulan yang jarang,
 
 31
-00:01:33.717 --> 00:01:35.067
+00:01:38.619 --> 00:01:39.969
 bukan aturan.
 
 32
-00:01:35.833 --> 00:01:37.444
+00:01:40.260 --> 00:01:41.815
 Bentuk umumnya begini.
 
 33
-00:01:38.194 --> 00:01:41.305
+00:01:42.071 --> 00:01:46.171
 Untuk panah dengan komponen x dan y,
 
 34
-00:01:41.305 --> 00:01:43.357
+00:01:46.171 --> 00:01:48.827
 panjangnya √(x² + y²).
 
 35
-00:01:44.087 --> 00:01:45.607
+00:01:49.142 --> 00:01:50.725
 Dua garis tegak yang mengapit
 
 36
-00:01:45.607 --> 00:01:47.224
+00:01:50.725 --> 00:01:52.403
 v itu lambang untuk panjang.
 
 37
-00:01:48.433 --> 00:01:49.991
+00:01:53.060 --> 00:01:54.661
 Sekarang pertanyaannya.
 
 38
-00:01:50.727 --> 00:01:52.744
+00:01:55.149 --> 00:01:57.318
 Kalau komponennya bertanda negatif,
 
 39
-00:01:52.744 --> 00:01:54.969
+00:01:57.318 --> 00:01:59.699
 apakah panjangnya ikut jadi negatif?
 
 40
-00:01:56.168 --> 00:02:00.042
+00:02:00.360 --> 00:02:04.817
 Kita coba dengan panah lain: (-3 4).
 
 41
-00:02:00.790 --> 00:02:04.388
+00:02:05.201 --> 00:02:09.322
 Komponen mendatarnya negatif, artinya bergeser ke kiri.
 
 42
-00:02:05.132 --> 00:02:10.269
+00:02:09.811 --> 00:02:15.696
 Kuadratkan: (-3)² = 9, bukan -9.
 
 43
-00:02:11.000 --> 00:02:13.413
+00:02:16.185 --> 00:02:18.854
 Lalu 4² = 16.
 
 44
-00:02:14.144 --> 00:02:17.005
+00:02:19.111 --> 00:02:22.070
 Jumlahnya 25, akarnya 5.
 
 45
-00:02:18.201 --> 00:02:19.956
+00:02:22.727 --> 00:02:24.409
 Jadi jawabannya tidak.
 
 46
-00:02:20.690 --> 00:02:22.959
+00:02:24.723 --> 00:02:27.532
 Minusnya hilang begitu dikuadratkan.
 
 47
-00:02:23.705 --> 00:02:25.796
+00:02:27.846 --> 00:02:30.430
 Panjang vektor tidak pernah negatif,
 
 48
-00:02:25.796 --> 00:02:27.248
+00:02:30.430 --> 00:02:32.224
 sebab panjang itu ukuran,
 
 49
-00:02:27.248 --> 00:02:29.605
+00:02:32.224 --> 00:02:35.102
 dan ukuran tidak pernah kurang dari 0.
 
 50
-00:02:30.801 --> 00:02:33.807
+00:02:35.760 --> 00:02:39.521
 Panjang saja belum cukup untuk menyebut sebuah vektor.
 
 51
-00:02:34.555 --> 00:02:35.771
+00:02:39.777 --> 00:02:41.213
 Arahnya juga perlu,
 
 52
-00:02:35.771 --> 00:02:38.523
+00:02:41.213 --> 00:02:44.464
 dan arah diukur sebagai sudut dari sumbu-x,
 
 53
-00:02:38.523 --> 00:02:40.337
+00:02:44.464 --> 00:02:46.580
 berlawanan arah jarum jam.
 
 54
-00:02:41.067 --> 00:02:45.204
+00:02:47.313 --> 00:02:52.408
 Untuk (4 2), sudutnya sekitar 26,6°.
 
 55
-00:02:46.401 --> 00:02:49.486
+00:02:53.060 --> 00:02:56.310
 Dan inilah sebabnya keduanya harus disebut bersama.
 
 56
-00:02:50.234 --> 00:02:51.517
+00:02:56.914 --> 00:02:58.219
 (3 4), (4 3),
 
 57
-00:02:51.517 --> 00:02:55.910
+00:02:58.219 --> 00:03:02.684
 dan (-5 0) panjangnya sama persis, yaitu 5.
 
 58
-00:02:56.641 --> 00:02:58.146
+00:03:02.998 --> 00:03:04.702
 Tetapi ketiganya menunjuk ke
 
 59
-00:02:58.146 --> 00:02:59.909
+00:03:04.702 --> 00:03:06.678
 arah yang sama sekali berbeda.
 
 60
-00:03:01.133 --> 00:03:02.665
+00:03:07.327 --> 00:03:08.987
 Jadi ingat dua hal.
 
 61
-00:03:03.400 --> 00:03:04.780
+00:03:09.301 --> 00:03:10.884
 Panjang panah adalah akar
 
 62
-00:03:04.780 --> 00:03:06.695
+00:03:10.884 --> 00:03:13.062
 dari jumlah kuadrat komponennya.
 
 63
-00:03:07.427 --> 00:03:08.947
+00:03:13.643 --> 00:03:15.295
 Dan panjang saja tidak pernah
 
 64
-00:03:08.947 --> 00:03:10.932
+00:03:15.295 --> 00:03:17.439
 cukup untuk menyebut sebuah vektor.
 
 65
-00:03:12.149 --> 00:03:13.476
+00:03:18.093 --> 00:03:19.736
 Di materi berikutnya,
 
 66
-00:03:13.476 --> 00:03:16.004
+00:03:19.736 --> 00:03:22.864
 Vektor dalam Sistem Koordinat, Bagian 3,
 
 67
-00:03:16.004 --> 00:03:17.773
+00:03:22.864 --> 00:03:25.054
 kita cari cara menyebut arah
 
 68
-00:03:17.773 --> 00:03:19.859
+00:03:25.054 --> 00:03:27.635
 saja tanpa ikut menyebut jauhnya:
 
 69
-00:03:19.859 --> 00:03:21.904
+00:03:27.635 --> 00:03:30.131
 panah yang panjangnya tepat 1.

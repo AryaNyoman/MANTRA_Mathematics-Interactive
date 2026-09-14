@@ -4,241 +4,241 @@ NOTE Dibuat otomatis dari manim/narasi/integral09-luas-daerah.json (waktu kata r
 NOTE naskah-sidik f25f7a1aab28
 
 1
-00:00:00.101 --> 00:00:02.712
+00:00:00.000 --> 00:00:02.530
 Penerapan Integral, Bagian 1.
 
 2
-00:00:03.461 --> 00:00:05.145
+00:00:03.030 --> 00:00:04.805
 Kalau kurvanya memotong sumbu x,
 
 3
-00:00:05.145 --> 00:00:06.671
+00:00:04.805 --> 00:00:06.415
 kenapa integralnya bisa <b>lebih</b>
 
 4
-00:00:06.671 --> 00:00:08.611
+00:00:06.415 --> 00:00:08.451
 <b>kecil</b> daripada luas yang terlihat?
 
 5
-00:00:09.849 --> 00:00:12.782
+00:00:09.093 --> 00:00:13.124
 Di Luas dan Integral Tentu, Bagian 3,
 
 6
-00:00:12.782 --> 00:00:16.270
+00:00:13.124 --> 00:00:18.066
 luas dihitung dari antiturunan: F(b) - F(a).
 
 7
-00:00:16.270 --> 00:00:19.406
+00:00:18.566 --> 00:00:21.983
 Dan di Bagian 2, hasil integral punya <b>tanda</b>:
 
 8
-00:00:19.406 --> 00:00:21.907
+00:00:21.983 --> 00:00:24.695
 di bawah sumbu, hasilnya negatif.
 
 9
-00:00:23.116 --> 00:00:24.780
+00:00:25.327 --> 00:00:27.171
 Ada satu kekeliruan yang paling
 
 10
-00:00:24.780 --> 00:00:26.175
+00:00:27.171 --> 00:00:28.718
 sering terjadi di bab ini,
 
 11
-00:00:26.175 --> 00:00:27.989
+00:00:28.718 --> 00:00:30.713
 dan gambarnya sederhana sekali.
 
 12
-00:00:28.737 --> 00:00:32.887
+00:00:31.387 --> 00:00:36.530
 Ambil kurva x² - 4x, dari 0 sampai 6.
 
 13
-00:00:34.116 --> 00:00:38.113
+00:00:37.160 --> 00:00:43.124
 Samakan dengan nol untuk mencari titik potongnya:
 
 14
-00:00:38.113 --> 00:00:41.200
+00:00:43.124 --> 00:00:47.655
 x(x - 4) = 0, jadi x = 0 atau x = 4.
 
 15
-00:00:41.932 --> 00:00:44.451
+00:00:48.480 --> 00:00:51.080
 Di titik itulah kurvanya <b>berpindah sisi</b>.
 
 16
-00:00:45.668 --> 00:00:48.423
+00:00:51.727 --> 00:00:54.907
 Dari 0 sampai 4 kurvanya di <b>bawah</b> sumbu.
 
 17
-00:00:49.157 --> 00:00:51.807
+00:00:55.199 --> 00:00:58.541
 Dari 4 sampai 6 kurvanya di <b>atas</b> sumbu.
 
 18
-00:00:52.539 --> 00:00:55.571
+00:00:58.832 --> 00:01:01.722
 Dua daerah, dan keduanya jelas terlihat.
 
 19
-00:00:56.816 --> 00:01:01.536
+00:01:02.360 --> 00:01:09.263
 Hitung bagian kirinya dengan antiturunan: x³/3 - 2x²,
 
 20
-00:01:01.536 --> 00:01:03.110
+00:01:09.263 --> 00:01:11.497
 dari 0 sampai 4.
 
 21
-00:01:03.843 --> 00:01:06.414
+00:01:11.730 --> 00:01:15.084
 Hasilnya -32/3.
 
 22
-00:01:07.161 --> 00:01:09.941
+00:01:15.317 --> 00:01:18.494
 Tandanya negatif karena kurvanya <b>di bawah sumbu</b>,
 
 23
-00:01:09.941 --> 00:01:11.771
+00:01:18.494 --> 00:01:20.564
 bukan karena luasnya negatif.
 
 24
-00:01:12.982 --> 00:01:18.414
+00:01:21.227 --> 00:01:28.539
 Bagian kanannya, dari 4 sampai 6: F(6) - F(4),
 
 25
-00:01:18.414 --> 00:01:22.343
+00:01:28.539 --> 00:01:33.776
 yaitu 0 - (-32/3), positif 32/3.
 
 26
-00:01:23.076 --> 00:01:25.726
+00:01:34.091 --> 00:01:36.841
 Kebetulan besarnya sama persis dengan yang kiri.
 
 27
-00:01:26.935 --> 00:01:28.690
+00:01:37.493 --> 00:01:39.326
 Sekarang jumlahkan langsung.
 
 28
-00:01:29.424 --> 00:01:33.693
+00:01:39.908 --> 00:01:45.143
 -32/3 + 32/3 = 0.
 
 29
-00:01:34.424 --> 00:01:36.216
+00:01:45.631 --> 00:01:47.772
 Dan itulah jebakannya: <b>nol</b>,
 
 30
-00:01:36.216 --> 00:01:39.219
+00:01:47.772 --> 00:01:51.331
 untuk daerah yang jelas-jelas ada di layar.
 
 31
-00:01:40.433 --> 00:01:42.149
+00:01:51.993 --> 00:01:53.768
 Nol itu bukan salah hitung.
 
 32
-00:01:42.885 --> 00:01:44.085
+00:01:54.477 --> 00:01:55.739
 Ia jawaban yang benar
 
 33
-00:01:44.085 --> 00:01:46.463
+00:01:55.739 --> 00:01:58.412
 untuk pertanyaan <b>berapa hasil integralnya</b>.
 
 34
-00:01:47.108 --> 00:01:48.308
+00:01:58.994 --> 00:02:00.194
 Ia hanya salah kalau
 
 35
-00:01:48.308 --> 00:01:50.641
+00:02:00.194 --> 00:02:02.896
 dipakai menjawab pertanyaan <b>berapa luasnya</b>.
 
 36
-00:01:51.667 --> 00:01:53.017
+00:02:03.527 --> 00:02:04.877
 Caranya begini.
 
 37
-00:01:53.698 --> 00:01:56.914
+00:02:04.990 --> 00:02:08.565
 <b>Positifkan dulu</b> tiap bagian, baru dijumlahkan.
 
 38
-00:01:57.659 --> 00:02:04.730
+00:02:08.879 --> 00:02:18.422
 32/3 + 32/3, hasilnya 64/3, kira-kira 21,3.
 
 39
-00:02:05.949 --> 00:02:09.429
+00:02:19.060 --> 00:02:23.815
 Bentuk umumnya: luas = Σ |∫ f| pada tiap bagian,
 
 40
-00:02:09.429 --> 00:02:13.060
+00:02:23.815 --> 00:02:28.719
 dengan selangnya dipecah di setiap titik potong.
 
 41
-00:02:13.807 --> 00:02:15.125
+00:02:29.428 --> 00:02:31.020
 Kalau dijumlahkan dulu,
 
 42
-00:02:15.125 --> 00:02:18.312
+00:02:31.020 --> 00:02:34.837
 dua bagian yang berlawanan tanda akan <b>saling memakan</b>.
 
 43
-00:02:19.534 --> 00:02:21.394
+00:02:35.493 --> 00:02:37.709
 Tidak semua soal serumit itu.
 
 44
-00:02:22.144 --> 00:02:24.744
+00:02:38.024 --> 00:02:41.198
 Kalau kurvanya tidak pernah turun di bawah sumbu,
 
 45
-00:02:24.744 --> 00:02:26.283
+00:02:41.198 --> 00:02:43.076
 tidak ada yang perlu dipecah,
 
 46
-00:02:26.283 --> 00:02:28.715
+00:02:43.076 --> 00:02:46.010
 dan luasnya memang <b>sama</b> dengan integralnya.
 
 47
-00:02:29.949 --> 00:02:31.538
+00:02:46.660 --> 00:02:48.836
 Kekeliruan yang paling sering:
 
 48
-00:02:31.538 --> 00:02:34.178
+00:02:48.836 --> 00:02:52.394
 luas dijawab langsung dengan hasil integralnya.
 
 49
-00:02:34.925 --> 00:02:38.054
+00:02:53.080 --> 00:02:57.304
 Pada puluhan latihan pengenalan kurvanya di atas sumbu,
 
 50
-00:02:38.054 --> 00:02:40.536
+00:02:57.304 --> 00:03:00.602
 jadi kebiasaan itu terasa seperti aturan.
 
 51
-00:02:41.266 --> 00:02:43.324
+00:03:00.894 --> 00:03:03.284
 Padahal kesamaan itu <b>bersyarat</b>.
 
 52
-00:02:44.535 --> 00:02:47.308
+00:03:03.927 --> 00:03:06.878
 Rangkumannya satu kalimat: <b>gambar dulu</b>,
 
 53
-00:02:47.308 --> 00:02:50.011
+00:03:06.878 --> 00:03:09.753
 cari titik potongnya, pecah selangnya,
 
 54
-00:02:50.011 --> 00:02:52.935
+00:03:09.753 --> 00:03:12.854
 positifkan tiap bagian, baru jumlahkan.
 
 55
-00:02:53.669 --> 00:02:54.869
+00:03:13.180 --> 00:03:14.380
 Satu pertanyaan:
 
 56
-00:02:54.869 --> 00:02:57.499
+00:03:14.380 --> 00:03:17.328
 kalau kurvanya seluruhnya di bawah sumbu,
 
 57
-00:02:57.499 --> 00:02:58.849
+00:03:17.328 --> 00:03:18.678
 berapa luasnya?
 
 58
-00:02:59.649 --> 00:03:02.916
+00:03:19.160 --> 00:03:23.408
 Di materi berikutnya, Penerapan Integral, Bagian 2,
 
 59
-00:03:02.916 --> 00:03:05.158
+00:03:23.408 --> 00:03:26.324
 sumbu x diganti dengan kurva kedua,
 
 60
-00:03:05.158 --> 00:03:08.575
+00:03:26.324 --> 00:03:30.722
 dan cara berpikirnya ternyata hampir tidak berubah.

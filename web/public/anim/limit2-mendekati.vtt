@@ -4,241 +4,241 @@ NOTE Dibuat otomatis dari manim/narasi/limit2-mendekati.json (waktu kata rekaman
 NOTE naskah-sidik d875cafedf06
 
 1
-00:00:00.101 --> 00:00:02.383
+00:00:00.000 --> 00:00:02.878
 Konsep Limit, Bagian 2.
 
 2
-00:00:03.117 --> 00:00:04.453
+00:00:03.251 --> 00:00:04.766
 Apa artinya mendekati,
 
 3
-00:00:04.453 --> 00:00:06.728
+00:00:04.766 --> 00:00:07.325
 kalau ternyata tidak pernah sampai?
 
 4
-00:00:07.949 --> 00:00:10.914
+00:00:07.960 --> 00:00:11.873
 Di materi sebelumnya, Konsep Limit, Bagian 1,
 
 5
-00:00:10.914 --> 00:00:13.286
+00:00:11.873 --> 00:00:15.004
 kecepatan rata-rata kelapa menuju 20
 
 6
-00:00:13.286 --> 00:00:15.592
+00:00:15.004 --> 00:00:18.047
 saat selangnya dibuat makin pendek,
 
 7
-00:00:15.592 --> 00:00:17.389
+00:00:18.047 --> 00:00:20.371
 tanpa selangnya pernah 0.
 
 8
-00:00:18.121 --> 00:00:20.745
+00:00:20.847 --> 00:00:23.854
 Kata mendekati itulah yang sekarang kita rapikan.
 
 9
-00:00:21.982 --> 00:00:26.475
+00:00:24.493 --> 00:00:30.297
 Kita pakai fungsi sederhana: f(x) = x² + 1.
 
 10
-00:00:27.207 --> 00:00:28.407
+00:00:30.681 --> 00:00:31.881
 Pertanyaannya,
 
 11
-00:00:28.407 --> 00:00:31.483
+00:00:31.881 --> 00:00:35.192
 ke mana f menuju kalau x didorong mendekati 3?
 
 12
-00:00:32.400 --> 00:00:33.932
+00:00:35.593 --> 00:00:37.090
 Didekati dari kiri.
 
 13
-00:00:34.682 --> 00:00:38.332
+00:00:37.323 --> 00:00:41.142
 Di 2,9, nilainya 9,41.
 
 14
-00:00:39.076 --> 00:00:42.713
+00:00:41.630 --> 00:00:45.298
 Di 2,99, 9,94.
 
 15
-00:00:43.934 --> 00:00:45.400
+00:00:45.960 --> 00:00:47.747
 Sekarang dari kanan.
 
 16
-00:00:46.135 --> 00:00:49.798
+00:00:48.235 --> 00:00:52.263
 Di 3,1, nilainya 10,61.
 
 17
-00:00:50.529 --> 00:00:53.785
+00:00:52.577 --> 00:00:56.059
 Di 3,01, 10,06.
 
 18
-00:00:55.001 --> 00:00:58.217
+00:00:56.693 --> 00:01:00.210
 Kedua arah menuju angka yang sama, yaitu 10.
 
 19
-00:00:58.951 --> 00:01:01.469
+00:01:00.721 --> 00:01:04.058
 Karena itulah kita katakan lim f(x)
 
 20
-00:01:01.469 --> 00:01:03.562
+00:01:04.058 --> 00:01:06.781
 untuk x → 3 sama dengan 10.
 
 21
-00:01:04.767 --> 00:01:06.325
+00:01:07.427 --> 00:01:08.912
 Perhatikan satu hal.
 
 22
-00:01:07.060 --> 00:01:09.776
+00:01:09.180 --> 00:01:12.290
 Nilai x tidak pernah diletakkan tepat di 3.
 
 23
-00:01:10.522 --> 00:01:12.625
+00:01:12.628 --> 00:01:14.985
 Ia hanya didorong sedekat-dekatnya,
 
 24
-00:01:12.625 --> 00:01:14.277
+00:01:14.985 --> 00:01:16.819
 dari kiri dan dari kanan.
 
 25
-00:01:15.468 --> 00:01:20.763
+00:01:17.460 --> 00:01:23.241
 Memang, kalau x tepat 3, f-nya 9 + 1, 10 juga.
 
 26
-00:01:21.496 --> 00:01:23.883
+00:01:23.950 --> 00:01:26.329
 Di fungsi ini keduanya kebetulan sama.
 
 27
-00:01:24.630 --> 00:01:26.203
+00:01:26.713 --> 00:01:28.576
 Nanti di Bagian 4 ada fungsi
 
 28
-00:01:26.203 --> 00:01:28.169
+00:01:28.576 --> 00:01:30.905
 yang di titiknya tidak punya nilai,
 
 29
-00:01:28.169 --> 00:01:29.780
+00:01:30.905 --> 00:01:32.785
 tetapi limitnya tetap ada.
 
 30
-00:01:30.968 --> 00:01:33.473
+00:01:33.427 --> 00:01:36.410
 Tapi kalimat mendekati masih terasa longgar.
 
 31
-00:01:34.207 --> 00:01:35.831
+00:01:36.899 --> 00:01:38.662
 Seberapa dekat itu dekat?
 
 32
-00:01:36.577 --> 00:01:39.226
+00:01:39.151 --> 00:01:42.612
 Ada satu cara menguji yang membuatnya jadi tegas,
 
 33
-00:01:39.226 --> 00:01:41.214
+00:01:42.612 --> 00:01:45.164
 dan bentuknya permainan tantangan.
 
 34
-00:01:42.435 --> 00:01:43.635
+00:01:45.827 --> 00:01:47.321
 Anda menantang:
 
 35
-00:01:43.635 --> 00:01:47.385
+00:01:47.321 --> 00:01:52.153
 saya mau f(x) berjarak kurang dari 0,1 dari 10.
 
 36
-00:01:48.069 --> 00:01:49.269
+00:01:52.735 --> 00:01:54.277
 Saya menjawab:
 
 37
-00:01:49.269 --> 00:01:52.977
+00:01:54.277 --> 00:01:59.607
 pakai x yang berjarak kurang dari 0,016 dari 3.
 
 38
-00:01:54.067 --> 00:01:55.417
+00:02:00.260 --> 00:02:01.610
 Coba cek.
 
 39
-00:01:55.782 --> 00:02:00.380
+00:02:01.618 --> 00:02:07.132
 Di x = 3,016, f-nya 10,096.
 
 40
-00:02:01.125 --> 00:02:06.025
+00:02:07.516 --> 00:02:13.344
 Jaraknya dari 10 hanya 0,096, memang kurang dari 0,1.
 
 41
-00:02:07.235 --> 00:02:10.990
+00:02:13.993 --> 00:02:18.357
 Anda menantang lebih ketat: kurang dari 0,001.
 
 42
-00:02:11.724 --> 00:02:13.228
+00:02:18.904 --> 00:02:21.161
 Saya menjawab lagi:
 
 43
-00:02:13.228 --> 00:02:16.703
+00:02:21.161 --> 00:02:26.298
 pakai x yang berjarak kurang dari 0,00016.
 
 44
-00:02:17.949 --> 00:02:21.555
+00:02:26.960 --> 00:02:31.067
 Limitnya 10 berarti: berapa pun ketatnya tantangan Anda,
 
 45
-00:02:21.555 --> 00:02:23.573
+00:02:31.067 --> 00:02:33.344
 saya selalu punya jawabannya.
 
 46
-00:02:24.306 --> 00:02:27.087
+00:02:33.926 --> 00:02:37.199
 Tidak ada tantangan yang membuat saya kehabisan akal.
 
 47
-00:02:28.301 --> 00:02:29.866
+00:02:37.860 --> 00:02:39.680
 Itulah beda antara kebetulan
 
 48
-00:02:29.866 --> 00:02:31.636
+00:02:39.680 --> 00:02:41.714
 dekat dan benar-benar menuju.
 
 49
-00:02:32.370 --> 00:02:33.848
+00:02:42.295 --> 00:02:44.025
 Kalau hanya kebetulan dekat,
 
 50
-00:02:33.848 --> 00:02:35.048
+00:02:44.025 --> 00:02:45.322
 cepat atau lambat ada
 
 51
-00:02:35.048 --> 00:02:37.045
+00:02:45.322 --> 00:02:47.635
 tantangan yang tidak bisa dipenuhi.
 
 52
-00:02:38.182 --> 00:02:40.184
+00:02:48.293 --> 00:02:50.613
 Di bangku kuliah permainan ini
 
 53
-00:02:40.184 --> 00:02:43.069
+00:02:50.613 --> 00:02:53.934
 ditulis dengan dua huruf Yunani, ε dan δ.
 
 54
-00:02:43.802 --> 00:02:45.530
+00:02:54.516 --> 00:02:56.210
 Anda belum perlu lambangnya.
 
 55
-00:02:46.277 --> 00:02:48.253
+00:02:56.594 --> 00:02:59.165
 Yang perlu dibawa adalah gagasannya:
 
 56
-00:02:48.253 --> 00:02:49.790
+00:02:59.165 --> 00:03:01.165
 limit itu janji yang sanggup
 
 57
-00:02:49.790 --> 00:02:51.861
+00:03:01.165 --> 00:03:03.814
 memenuhi tantangan seketat apa pun.
 
 58
-00:02:53.068 --> 00:02:55.870
+00:03:04.460 --> 00:03:07.968
 Di materi berikutnya, Konsep Limit, Bagian 3,
 
 59
-00:02:55.870 --> 00:02:57.925
+00:03:07.968 --> 00:03:10.540
 kita lihat apa jadinya kalau arah
 
 60
-00:02:57.925 --> 00:03:00.192
+00:03:10.540 --> 00:03:13.340
 kiri dan arah kanan tidak sepakat.

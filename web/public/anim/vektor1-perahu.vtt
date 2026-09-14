@@ -4,373 +4,373 @@ NOTE Dibuat otomatis dari manim/narasi/vektor1-perahu.json (waktu kata rekaman)
 NOTE naskah-sidik 78b8fb00460f
 
 1
-00:00:00.101 --> 00:00:02.607
+00:00:00.000 --> 00:00:02.693
 Pengenalan Vektor, Bagian 1.
 
 2
-00:00:03.341 --> 00:00:05.833
+00:00:03.402 --> 00:00:06.141
 Kenapa 3 + 4 tidak selalu 7?
 
 3
-00:00:07.035 --> 00:00:09.408
+00:00:06.793 --> 00:00:09.625
 Perahu di layar ini yang akan menjawabnya.
 
 4
-00:00:10.157 --> 00:00:13.481
+00:00:09.939 --> 00:00:13.920
 Supaya bisa kita hitung, sungainya kita lihat dari atas,
 
 5
-00:00:13.481 --> 00:00:15.649
+00:00:13.920 --> 00:00:16.486
 lalu kita pasang petak di atasnya.
 
 6
-00:00:16.379 --> 00:00:18.740
+00:00:17.509 --> 00:00:20.341
 1 petak = 1 km.
 
 7
-00:00:19.982 --> 00:00:22.482
+00:00:20.993 --> 00:00:23.988
 Bekal yang dipakai hari ini cuma satu,
 
 8
-00:00:22.482 --> 00:00:24.475
+00:00:23.988 --> 00:00:26.345
 teorema Pythagoras dari SMP.
 
 9
-00:00:25.222 --> 00:00:26.600
+00:00:26.833 --> 00:00:28.451
 Pada segitiga siku-siku,
 
 10
-00:00:26.600 --> 00:00:28.380
+00:00:28.451 --> 00:00:30.541
 kuadrat sisi miring sama dengan
 
 11
-00:00:28.380 --> 00:00:30.425
+00:00:30.541 --> 00:00:32.916
 jumlah kuadrat dua sisi tegaknya.
 
 12
-00:00:31.155 --> 00:00:33.634
+00:00:33.300 --> 00:00:35.911
 Biasanya segitiganya sudah tergambar.
 
 13
-00:00:34.365 --> 00:00:37.519
+00:00:36.098 --> 00:00:40.063
 Hari ini segitiganya belum ada: yang ada dua gerakan,
 
 14
-00:00:37.519 --> 00:00:39.752
+00:00:40.063 --> 00:00:42.831
 dan kita sendiri yang membentuknya.
 
 15
-00:00:40.967 --> 00:00:42.406
+00:00:43.493 --> 00:00:44.920
 Sekarang ceritanya.
 
 16
-00:00:43.142 --> 00:00:46.463
+00:00:45.409 --> 00:00:49.227
 Sebuah perahu berangkat dari titik ini, di tepi dekat.
 
 17
-00:00:47.194 --> 00:00:49.089
+00:00:49.809 --> 00:00:52.328
 Pendayungnya menghadap lurus ke seberang
 
 18
-00:00:49.089 --> 00:00:51.134
+00:00:52.328 --> 00:00:54.997
 dan tidak sekali pun membelokkan haluan.
 
 19
-00:00:52.335 --> 00:00:55.235
+00:00:55.660 --> 00:00:59.188
 Dayungnya membawa perahu 3 km ke seberang.
 
 20
-00:00:55.983 --> 00:00:57.620
+00:00:59.572 --> 00:01:01.685
 Panah biru ini naik 3 petak,
 
 21
-00:00:57.620 --> 00:01:00.225
+00:01:01.685 --> 00:01:05.005
 dan tidak bergeser sedikit pun ke samping.
 
 22
-00:01:01.433 --> 00:01:03.175
+00:01:05.660 --> 00:01:08.260
 Tetapi sungai punya arus.
 
 23
-00:01:03.911 --> 00:01:05.383
+00:01:08.574 --> 00:01:10.336
 Dalam waktu yang sama,
 
 24
-00:01:05.383 --> 00:01:07.943
+00:01:10.336 --> 00:01:13.368
 arus mendorong perahu 4 km ke hilir.
 
 25
-00:01:08.674 --> 00:01:11.271
+00:01:13.682 --> 00:01:16.886
 Panah merah ini bergeser 4 petak ke kanan.
 
 26
-00:01:12.468 --> 00:01:14.394
+00:01:17.527 --> 00:01:19.407
 Keduanya bekerja bersamaan.
 
 27
-00:01:15.128 --> 00:01:17.586
+00:01:19.756 --> 00:01:22.979
 Jadi perahu tidak menempuh panah biru saja,
 
 28
-00:01:17.586 --> 00:01:19.278
+00:01:22.979 --> 00:01:25.154
 dan tidak panah merah saja.
 
 29
-00:01:20.516 --> 00:01:22.737
+00:01:25.793 --> 00:01:28.748
 Yang benar-benar ditempuhnya panah ungu ini,
 
 30
-00:01:22.737 --> 00:01:25.311
+00:01:28.748 --> 00:01:32.120
 langsung dari titik berangkat ke titik mendarat.
 
 31
-00:01:26.533 --> 00:01:28.052
+00:01:32.760 --> 00:01:34.176
 Mari kita jalankan.
 
 32
-00:01:28.802 --> 00:01:31.484
+00:01:34.688 --> 00:01:37.850
 Perahunya menyusuri panah ungu, dan benar,
 
 33
-00:01:31.484 --> 00:01:33.294
+00:01:37.850 --> 00:01:39.958
 ia mendarat jauh di hilir.
 
 34
-00:01:34.500 --> 00:01:36.282
+00:01:40.593 --> 00:01:42.427
 Baca sendiri dari petaknya.
 
 35
-00:01:37.032 --> 00:01:39.924
+00:01:42.753 --> 00:01:46.938
 Perahu bergeser 4 petak ke kanan dan 3 petak ke atas,
 
 36
-00:01:39.924 --> 00:01:42.366
+00:01:46.938 --> 00:01:50.403
 padahal haluannya tidak pernah dibelokkan.
 
 37
-00:01:43.582 --> 00:01:44.883
+00:01:51.060 --> 00:01:52.523
 Pertanyaannya sekarang,
 
 38
-00:01:44.883 --> 00:01:47.522
+00:01:52.523 --> 00:01:55.471
 sejauh apa perahu itu benar-benar berpindah?
 
 39
-00:01:48.735 --> 00:01:51.095
+00:01:56.127 --> 00:01:59.121
 Perhatikan panah biru dan panah merah.
 
 40
-00:01:51.829 --> 00:01:53.755
+00:01:59.644 --> 00:02:01.710
 Keduanya bertemu tegak lurus.
 
 41
-00:01:54.487 --> 00:01:56.290
+00:02:02.059 --> 00:02:04.158
 Di sinilah segitiga siku-siku yang
 
 42
-00:01:56.290 --> 00:01:58.295
+00:02:04.158 --> 00:02:06.470
 tadi kita sebut akhirnya terbentuk.
 
 43
-00:01:59.516 --> 00:02:02.587
+00:02:07.127 --> 00:02:10.423
 Sisi tegaknya 3 km, dari dayung.
 
 44
-00:02:03.320 --> 00:02:06.509
+00:02:11.075 --> 00:02:14.464
 Sisi mendatarnya 4 km, dari arus.
 
 45
-00:02:07.240 --> 00:02:09.245
+00:02:14.755 --> 00:02:16.902
 Panah ungu jadi sisi miringnya.
 
 46
-00:02:10.467 --> 00:02:12.617
+00:02:17.560 --> 00:02:19.904
 Sekarang tinggal memakai bekal tadi.
 
 47
-00:02:13.352 --> 00:02:15.463
+00:02:20.254 --> 00:02:22.621
 3² = 9.
 
 48
-00:02:16.668 --> 00:02:18.871
+00:02:23.260 --> 00:02:25.871
 4² = 16.
 
 49
-00:02:19.605 --> 00:02:22.492
+00:02:26.220 --> 00:02:30.109
 9 + 16 = 25.
 
 50
-00:02:23.701 --> 00:02:25.824
+00:02:30.760 --> 00:02:33.093
 √25 = 5.
 
 51
-00:02:26.559 --> 00:02:29.946
+00:02:33.535 --> 00:02:36.913
 Jadi perahu berpindah 5 km, bukan 7.
 
 52
-00:02:31.135 --> 00:02:33.074
+00:02:37.560 --> 00:02:39.603
 Sekarang perhatikan baik-baik.
 
 53
-00:02:33.808 --> 00:02:36.814
+00:02:39.870 --> 00:02:43.074
 Angkanya kita kunci, tetap 3 dan 4.
 
 54
-00:02:37.544 --> 00:02:39.523
+00:02:43.423 --> 00:02:45.640
 Yang diubah hanya arah dayungnya.
 
 55
-00:02:40.256 --> 00:02:42.853
+00:02:46.593 --> 00:02:49.100
 Menurut Anda, hasilnya tetap 5?
 
 56
-00:02:44.068 --> 00:02:46.335
+00:02:49.760 --> 00:02:52.368
 Kalau dayung diputar sampai searah arus,
 
 57
-00:02:46.335 --> 00:02:47.902
+00:02:52.368 --> 00:02:54.148
 keduanya saling menambah.
 
 58
-00:02:48.636 --> 00:02:51.102
+00:02:54.694 --> 00:02:57.317
 Panah ungunya memanjang jadi 7 petak.
 
 59
-00:02:51.834 --> 00:02:56.036
+00:02:57.852 --> 00:03:02.089
 Di sini, dan hanya di sini, 3 + 4 memang 7.
 
 60
-00:02:57.235 --> 00:02:59.504
+00:03:02.727 --> 00:03:05.282
 Kalau dayung diputar sampai melawan arus,
 
 61
-00:02:59.504 --> 00:03:01.148
+00:03:05.282 --> 00:03:07.115
 keduanya saling mengurangi.
 
 62
-00:03:01.882 --> 00:03:05.321
+00:03:07.383 --> 00:03:11.074
 Panah ungunya menyusut, dan sisanya tinggal 1 petak.
 
 63
-00:03:06.549 --> 00:03:09.530
+00:03:11.727 --> 00:03:15.142
 Dan kalau dayung kembali tegak lurus seperti semula,
 
 64
-00:03:09.530 --> 00:03:10.883
+00:03:15.142 --> 00:03:16.672
 panjangnya kembali 5.
 
 65
-00:03:12.116 --> 00:03:17.075
+00:03:17.327 --> 00:03:22.792
 Satu pasang angka yang sama, tiga jawaban yang berbeda:
 
 66
-00:03:17.075 --> 00:03:18.425
+00:03:22.792 --> 00:03:24.234
 7, 1, atau 5.
 
 67
-00:03:19.129 --> 00:03:20.845
+00:03:24.699 --> 00:03:26.579
 Yang membedakan hanya arah.
 
 68
-00:03:22.034 --> 00:03:23.671
+00:03:27.227 --> 00:03:28.793
 Dan itu berlaku umum.
 
 69
-00:03:24.420 --> 00:03:27.804
+00:03:29.259 --> 00:03:34.008
 Untuk dua gerakan yang saling tegak lurus,
 
 70
-00:03:27.804 --> 00:03:30.452
+00:03:34.008 --> 00:03:37.663
 panjang gabungannya √(a² + b²).
 
 71
-00:03:31.668 --> 00:03:34.555
+00:03:38.293 --> 00:03:41.485
 Besaran yang butuh arah seperti ini punya nama sendiri.
 
 72
-00:03:35.288 --> 00:03:36.638
+00:03:41.997 --> 00:03:43.347
 Namanya vektor.
 
 73
-00:03:37.835 --> 00:03:41.332
+00:03:43.893 --> 00:03:47.446
 Lawannya, besaran yang cukup dinyatakan satu angka,
 
 74
-00:03:41.332 --> 00:03:42.682
+00:03:47.446 --> 00:03:48.796
 disebut skalar.
 
 75
-00:03:43.260 --> 00:03:47.936
+00:03:49.257 --> 00:03:54.480
 Massa 60 kg, suhu 27 derajat, waktu 2 jam.
 
 76
-00:03:49.134 --> 00:03:50.850
+00:03:55.127 --> 00:03:56.798
 Cara memeriksanya begini.
 
 77
-00:03:51.599 --> 00:03:55.565
+00:03:57.136 --> 00:04:01.732
 Coba tambahkan arah pada massa: massa 60 kg ke utara.
 
 78
-00:03:56.295 --> 00:03:58.291
+00:04:02.244 --> 00:04:04.454
 Kalimat itu tidak berarti apa-apa,
 
 79
-00:03:58.291 --> 00:04:00.261
+00:04:04.454 --> 00:04:06.620
 jadi massa memang bukan vektor.
 
 80
-00:04:01.482 --> 00:04:04.007
+00:04:07.260 --> 00:04:09.869
 Sebaliknya, perpindahan, kecepatan,
 
 81
-00:04:04.007 --> 00:04:07.475
+00:04:09.869 --> 00:04:13.447
 dan gaya belum selesai diceritakan tanpa arah.
 
 82
-00:04:08.207 --> 00:04:09.659
+00:04:13.785 --> 00:04:15.258
 Ketiganya vektor.
 
 83
-00:04:10.882 --> 00:04:12.082
+00:04:15.893 --> 00:04:17.093
 Karena itu,
 
 84
-00:04:12.082 --> 00:04:14.133
+00:04:17.093 --> 00:04:19.437
 melihat angka 3 dan 4 lalu langsung
 
 85
-00:04:14.133 --> 00:04:17.154
+00:04:19.437 --> 00:04:22.869
 menulis 7 adalah jebakan yang paling sering kena.
 
 86
-00:04:17.331 --> 00:04:18.700
+00:04:22.894 --> 00:04:24.564
 Menumpuk angka begitu saja
 
 87
-00:04:18.700 --> 00:04:20.639
+00:04:24.564 --> 00:04:26.898
 hanya benar kalau keduanya searah.
 
 88
-00:04:21.835 --> 00:04:23.608
+00:04:27.560 --> 00:04:29.734
 Jadi begitu arah ikut dihitung,
 
 89
-00:04:23.608 --> 00:04:26.274
+00:04:29.734 --> 00:04:32.969
 angka tidak boleh lagi ditumpuk begitu saja.
 
 90
-00:04:27.482 --> 00:04:30.478
+00:04:33.627 --> 00:04:37.595
 Di materi berikutnya, Pengenalan Vektor, Bagian 2,
 
 91
-00:04:30.478 --> 00:04:32.695
+00:04:37.595 --> 00:04:40.532
 kita lihat kenapa dua panah di tempat
 
 92
-00:04:32.695 --> 00:04:35.092
+00:04:40.532 --> 00:04:43.707
 yang berbeda bisa jadi vektor yang sama,
 
 93
-00:04:35.092 --> 00:04:37.159
+00:04:43.707 --> 00:04:46.397
 selama panjang dan arahnya sama.

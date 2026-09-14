@@ -4,405 +4,405 @@ NOTE Dibuat otomatis dari manim/narasi/vektor3-komponen.json (waktu kata rekaman
 NOTE naskah-sidik ba8b1e1fc9e2
 
 1
-00:00:00.116 --> 00:00:03.200
+00:00:00.000 --> 00:00:03.563
 Vektor dalam Sistem Koordinat, Bagian 1.
 
 2
-00:00:03.933 --> 00:00:06.217
+00:00:04.052 --> 00:00:06.638
 Bagaimana caranya panah bisa dihitung,
 
 3
-00:00:06.217 --> 00:00:07.570
+00:00:06.638 --> 00:00:08.149
 bukan cuma digambar?
 
 4
-00:00:08.782 --> 00:00:10.960
+00:00:08.793 --> 00:00:11.496
 Di Pengenalan Vektor, Bagian 1,
 
 5
-00:00:10.960 --> 00:00:13.498
+00:00:11.496 --> 00:00:14.609
 kita lihat angka saja tidak cukup.
 
 6
-00:00:14.246 --> 00:00:17.017
+00:00:14.865 --> 00:00:18.606
 Perahu yang didayung 3 km ke seberang,
 
 7
-00:00:17.017 --> 00:00:21.106
+00:00:18.606 --> 00:00:24.071
 lalu dibawa arus 4 km ke hilir, berpindah sejauh 5 km.
 
 8
-00:00:22.316 --> 00:00:25.113
+00:00:24.727 --> 00:00:28.329
 Yang kita pakai hari ini bukan angka 5 itu,
 
 9
-00:00:25.113 --> 00:00:28.170
+00:00:28.329 --> 00:00:32.267
 melainkan tempat mendaratnya: 4 petak ke kanan,
 
 10
-00:00:28.170 --> 00:00:29.520
+00:00:32.267 --> 00:00:33.758
 3 petak ke atas.
 
 11
-00:00:30.582 --> 00:00:32.650
+00:00:34.393 --> 00:00:37.116
 Dan di Pengenalan Vektor, Bagian 2,
 
 12
-00:00:32.650 --> 00:00:34.600
+00:00:37.116 --> 00:00:39.683
 kita lihat yang menentukan sebuah
 
 13
-00:00:34.600 --> 00:00:36.640
+00:00:39.683 --> 00:00:42.322
 panah hanya panjang dan arahnya.
 
 14
-00:00:37.388 --> 00:00:39.208
+00:00:43.240 --> 00:00:45.379
 Letaknya tidak ikut menentukan,
 
 15
-00:00:39.208 --> 00:00:41.590
+00:00:45.379 --> 00:00:48.150
 jadi panah boleh digeser ke mana saja.
 
 16
-00:00:42.801 --> 00:00:45.609
+00:00:48.793 --> 00:00:52.147
 Menggambar panah di kertas berpetak memang gamblang.
 
 17
-00:00:46.358 --> 00:00:48.231
+00:00:52.775 --> 00:00:55.577
 Tetapi begitu panahnya ada sepuluh,
 
 18
-00:00:48.231 --> 00:00:50.104
+00:00:55.577 --> 00:00:58.378
 menggambar satu per satu melelahkan
 
 19
-00:00:50.104 --> 00:00:52.074
+00:00:58.378 --> 00:01:01.249
 dan sering meleset satu dua kotak.
 
 20
-00:00:53.268 --> 00:00:55.971
+00:01:01.893 --> 00:01:04.980
 Jadi kita cari cara mencatatnya sebagai angka.
 
 21
-00:00:56.719 --> 00:00:58.801
+00:01:05.457 --> 00:01:08.176
 Untuk itu kita pindah ke peta kota,
 
 22
-00:00:58.801 --> 00:01:01.448
+00:01:08.176 --> 00:01:11.587
 dan 1 petak sekarang berarti 1 blok jalan.
 
 23
-00:01:02.668 --> 00:01:05.739
+00:01:12.227 --> 00:01:16.163
 Sebuah mobil hendak menuju satu tempat di seberang kota.
 
 24
-00:01:06.488 --> 00:01:07.742
+00:01:16.814 --> 00:01:18.299
 Kalau ia bisa terbang,
 
 25
-00:01:07.742 --> 00:01:10.308
+00:01:18.299 --> 00:01:21.336
 jalurnya cukup satu panah miring seperti ini,
 
 26
-00:01:10.308 --> 00:01:12.453
+00:01:21.336 --> 00:01:23.849
 langsung dari titik asal ke tujuan.
 
 27
-00:01:13.668 --> 00:01:15.660
+00:01:24.493 --> 00:01:26.663
 Tetapi mobil tidak bisa terbang.
 
 28
-00:01:16.394 --> 00:01:19.015
+00:01:27.303 --> 00:01:30.748
 Jadi ia berjalan 4 blok ke kanan lebih dulu,
 
 29
-00:01:19.015 --> 00:01:20.952
+00:01:30.748 --> 00:01:33.246
 lalu berbelok dan naik 3 blok.
 
 30
-00:01:22.167 --> 00:01:23.751
+00:01:33.893 --> 00:01:35.413
 Perhatikan baik-baik.
 
 31
-00:01:24.486 --> 00:01:26.234
+00:01:36.029 --> 00:01:38.193
 Mobilnya berhenti di titik yang sama
 
 32
-00:01:26.234 --> 00:01:28.228
+00:01:38.193 --> 00:01:40.626
 persis dengan ujung panah miring tadi.
 
 33
-00:01:28.960 --> 00:01:32.136
+00:01:41.045 --> 00:01:44.469
 Jalurnya berbeda, tetapi tempat tibanya sama.
 
 34
-00:01:33.349 --> 00:01:35.970
+00:01:45.127 --> 00:01:48.269
 Jadi satu panah miring, semiring apa pun,
 
 35
-00:01:35.970 --> 00:01:39.422
+00:01:48.269 --> 00:01:52.407
 selalu bisa diganti dua langkah: berapa jauh ke kanan,
 
 36
-00:01:39.422 --> 00:01:41.170
+00:01:52.407 --> 00:01:54.473
 lalu berapa jauh ke atas.
 
 37
-00:01:42.401 --> 00:01:44.130
+00:01:55.127 --> 00:01:57.018
 Kedua angka itu punya nama.
 
 38
-00:01:44.879 --> 00:01:47.119
+00:01:57.333 --> 00:02:00.019
 Yang mendatar disebut komponen mendatar,
 
 39
-00:01:47.119 --> 00:01:49.174
+00:02:00.019 --> 00:02:02.452
 yang tegak disebut komponen tegak.
 
 40
-00:01:50.368 --> 00:01:53.821
+00:02:03.093 --> 00:02:06.842
 Menuliskannya berdampingan di dalam kurung, (4 3).
 
 41
-00:01:54.555 --> 00:01:57.534
+00:02:07.551 --> 00:02:10.720
 Bentuk mendatar seperti ini disebut vektor baris.
 
 42
-00:01:58.733 --> 00:02:00.304
+00:02:11.360 --> 00:02:13.031
 Sekarang pertanyaannya.
 
 43
-00:02:01.054 --> 00:02:03.314
+00:02:13.415 --> 00:02:15.853
 Kalau kedua angka itu ditukar tempatnya,
 
 44
-00:02:03.314 --> 00:02:05.046
+00:02:15.853 --> 00:02:17.710
 apakah tujuannya tetap sama?
 
 45
-00:02:06.267 --> 00:02:07.617
+00:02:18.360 --> 00:02:19.487
 Tidak.
 
 46
-00:02:07.917 --> 00:02:10.753
+00:02:19.487 --> 00:02:23.436
 (3 4) berarti 3 blok ke kanan lalu 4 blok ke atas,
 
 47
-00:02:10.753 --> 00:02:12.115
+00:02:23.436 --> 00:02:25.331
 dan mobilnya berhenti di
 
 48
-00:02:12.115 --> 00:02:14.080
+00:02:25.331 --> 00:02:28.008
 tempat yang sama sekali berbeda.
 
 49
-00:02:15.301 --> 00:02:17.491
+00:02:28.660 --> 00:02:30.981
 Jadi urutannya tidak boleh ditukar.
 
 50
-00:02:18.239 --> 00:02:20.195
+00:02:31.423 --> 00:02:34.061
 Angka pertama selalu yang mendatar,
 
 51
-00:02:20.195 --> 00:02:22.021
+00:02:34.061 --> 00:02:36.473
 angka kedua selalu yang tegak.
 
 52
-00:02:23.235 --> 00:02:25.779
+00:02:37.127 --> 00:02:39.878
 Kedua angka itu juga boleh bertanda negatif.
 
 53
-00:02:26.528 --> 00:02:30.639
+00:02:40.518 --> 00:02:46.255
 (-3 4) berarti bergeser 3 blok ke kiri, bukan ke kanan,
 
 54
-00:02:30.639 --> 00:02:32.060
+00:02:46.255 --> 00:02:48.179
 lalu naik 4 blok.
 
 55
-00:02:33.282 --> 00:02:36.906
+00:02:48.827 --> 00:02:52.646
 Ada cara kedua menuliskannya, dan artinya sama persis.
 
 56
-00:02:37.639 --> 00:02:40.684
+00:02:52.972 --> 00:02:56.012
 Angka mendatar di atas, angka tegak di bawah.
 
 57
-00:02:41.415 --> 00:02:43.986
+00:02:56.513 --> 00:02:59.298
 Bentuk bertumpuk itu disebut vektor kolom.
 
 58
-00:02:45.201 --> 00:02:47.154
+00:02:59.960 --> 00:03:02.061
 Satu hal kecil yang sering luput.
 
 59
-00:02:47.903 --> 00:02:51.803
+00:03:02.283 --> 00:03:07.413
 Titik koordinat memakai koma, misalnya A(3, 4).
 
 60
-00:02:52.532 --> 00:02:54.630
+00:03:07.728 --> 00:03:09.991
 Vektor baris tidak memakai koma.
 
 61
-00:02:55.833 --> 00:02:57.654
+00:03:10.627 --> 00:03:12.426
 Bedanya memang disengaja.
 
 62
-00:02:58.404 --> 00:02:59.979
+00:03:12.995 --> 00:03:14.745
 Yang satu menyatakan letak,
 
 63
-00:02:59.979 --> 00:03:02.054
+00:03:14.745 --> 00:03:17.035
 yang lain menyatakan perpindahan.
 
 64
-00:03:03.268 --> 00:03:04.684
+00:03:17.693 --> 00:03:19.473
 Sampai di sini semua panah
 
 65
-00:03:04.684 --> 00:03:06.523
+00:03:19.473 --> 00:03:21.744
 kita berangkat dari titik asal.
 
 66
-00:03:07.257 --> 00:03:08.790
+00:03:22.326 --> 00:03:24.341
 Padahal panah dari titik A ke
 
 67
-00:03:08.790 --> 00:03:10.631
+00:03:24.341 --> 00:03:26.714
 titik B pun punya dua angka itu.
 
 68
-00:03:11.835 --> 00:03:15.458
+00:03:27.360 --> 00:03:31.063
 Ambil A(1, 2) dan B(5, 5).
 
 69
-00:03:16.193 --> 00:03:18.671
+00:03:31.401 --> 00:03:34.244
 Kita cari kedua angka panah dari A ke B.
 
 70
-00:03:19.867 --> 00:03:21.886
+00:03:34.893 --> 00:03:37.051
 Berapa jauh geser mendatarnya?
 
 71
-00:03:22.621 --> 00:03:25.678
+00:03:37.389 --> 00:03:41.173
 Dari x = 1 sampai x = 5.
 
 72
-00:03:26.425 --> 00:03:29.351
+00:03:41.511 --> 00:03:44.900
 Hitung petaknya satu per satu: 4 petak.
 
 73
-00:03:30.567 --> 00:03:32.098
+00:03:45.560 --> 00:03:46.910
 Berapa jauh naiknya?
 
 74
-00:03:32.834 --> 00:03:35.800
+00:03:47.302 --> 00:03:51.295
 Dari y = 2 sampai y = 5.
 
 75
-00:03:36.530 --> 00:03:37.880
+00:03:51.632 --> 00:03:52.982
 3 petak.
 
 76
-00:03:38.901 --> 00:03:41.893
+00:03:53.360 --> 00:03:56.749
 Sekarang perhatikan dari mana 4 dan 3 itu datang.
 
 77
-00:03:42.642 --> 00:03:46.937
+00:03:57.098 --> 00:04:02.159
 4 adalah 5 - 1, dan 3 adalah 5 - 2.
 
 78
-00:03:47.666 --> 00:03:49.316
+00:04:02.636 --> 00:04:04.481
 Ujung dikurangi pangkal.
 
 79
-00:03:50.535 --> 00:03:53.198
+00:04:05.127 --> 00:04:08.098
 Bentuk umumnya begitu untuk dua titik mana pun.
 
 80
-00:03:53.946 --> 00:03:56.666
+00:04:08.575 --> 00:04:12.231
 Angka mendatarnya x ujung - x pangkal,
 
 81
-00:03:56.666 --> 00:03:59.320
+00:04:12.231 --> 00:04:15.749
 angka tegaknya y ujung - y pangkal.
 
 82
-00:04:00.535 --> 00:04:04.481
+00:04:16.393 --> 00:04:20.961
 Kalau urutannya dibalik, pangkal dikurangi ujung,
 
 83
-00:04:04.481 --> 00:04:06.000
+00:04:20.961 --> 00:04:22.696
 hasilnya (-4 -3).
 
 84
-00:04:06.749 --> 00:04:09.766
+00:04:23.150 --> 00:04:26.418
 Itu bukan salah hitung, itu panah dari B ke A,
 
 85
-00:04:09.766 --> 00:04:11.294
+00:04:26.418 --> 00:04:28.060
 arahnya berkebalikan.
 
 86
-00:04:12.516 --> 00:04:14.164
+00:04:28.693 --> 00:04:30.749
 Dan lihat angkanya: (4 3),
 
 87
-00:04:14.164 --> 00:04:16.447
+00:04:30.749 --> 00:04:33.595
 sama persis dengan panah mobil tadi,
 
 88
-00:04:16.447 --> 00:04:19.324
+00:04:33.595 --> 00:04:37.145
 padahal berangkatnya dari tempat yang lain.
 
 89
-00:04:20.071 --> 00:04:22.024
+00:04:37.622 --> 00:04:40.345
 Persis seperti yang kita ingat di awal,
 
 90
-00:04:22.024 --> 00:04:24.076
+00:04:40.345 --> 00:04:43.147
 letaknya memang tidak ikut menentukan.
 
 91
-00:04:25.268 --> 00:04:27.694
+00:04:43.793 --> 00:04:47.159
 Karena itu titik dan panah jangan tertukar.
 
 92
-00:04:28.443 --> 00:04:31.089
+00:04:47.857 --> 00:04:51.572
 Titik (4, 3) selamanya di tempat yang sama,
 
 93
-00:04:31.089 --> 00:04:34.317
+00:04:51.572 --> 00:04:56.041
 sedangkan panah (4 3) boleh digambar di mana saja.
 
 94
-00:04:35.535 --> 00:04:38.250
+00:04:56.693 --> 00:05:00.326
 Jadi dua angka sudah cukup mewakili satu panah.
 
 95
-00:04:38.999 --> 00:04:41.271
+00:05:00.838 --> 00:05:03.461
 Itulah sebabnya vektor bisa dihitung,
 
 96
-00:04:41.271 --> 00:04:42.649
+00:05:03.461 --> 00:05:05.028
 bukan cuma digambar.
 
 97
-00:04:43.882 --> 00:04:45.114
+00:05:05.660 --> 00:05:07.271
 Di materi berikutnya,
 
 98
-00:04:45.114 --> 00:04:47.461
+00:05:07.271 --> 00:05:10.339
 Vektor dalam Sistem Koordinat, Bagian 2,
 
 99
-00:04:47.461 --> 00:04:48.751
+00:05:10.339 --> 00:05:12.027
 kita pakai kedua angka
 
 100
-00:04:48.751 --> 00:04:50.981
+00:05:12.027 --> 00:05:14.942
 itu untuk menghitung panjang panahnya,
 
 101
-00:04:50.981 --> 00:04:53.888
+00:05:14.942 --> 00:05:18.697
 lewat segitiga siku-siku yang sudah kita kenal.

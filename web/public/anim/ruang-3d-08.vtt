@@ -4,177 +4,177 @@ NOTE Dibuat otomatis dari manim/narasi/ruang-3d-08.json (waktu kata rekaman)
 NOTE naskah-sidik 3ea578b2744a
 
 1
-00:00:00.101 --> 00:00:02.672
+00:00:00.000 --> 00:00:02.681
 Sudut dalam Ruang, Bagian 1.
 
 2
-00:00:03.406 --> 00:00:04.818
+00:00:03.251 --> 00:00:04.719
 Bagaimana mengukur sudut dua
 
 3
-00:00:04.818 --> 00:00:06.582
+00:00:04.719 --> 00:00:06.547
 garis yang tidak pernah bertemu?
 
 4
-00:00:07.816 --> 00:00:11.096
+00:00:07.193 --> 00:00:11.076
 Di Kedudukan Titik, Garis, dan Bidang, Bagian 1,
 
 5
-00:00:11.096 --> 00:00:13.283
+00:00:11.076 --> 00:00:13.665
 dua garis yang tidak sejajar dan
 
 6
-00:00:13.283 --> 00:00:16.439
+00:00:13.665 --> 00:00:17.374
 tidak pernah bertemu kita sebut <b>bersilangan</b>.
 
 7
-00:00:17.172 --> 00:00:19.703
+00:00:17.677 --> 00:00:20.648
 Hari ini kita ukur sudut di antara keduanya.
 
 8
-00:00:20.916 --> 00:00:24.645
+00:00:21.293 --> 00:00:24.973
 Ini AC di lantai, dan ini BG di sisi kanan.
 
 9
-00:00:25.392 --> 00:00:27.685
+00:00:25.450 --> 00:00:28.036
 Keduanya <b>bersilangan</b>: tidak sejajar,
 
 10
-00:00:27.685 --> 00:00:30.318
+00:00:28.036 --> 00:00:30.987
 dan tidak punya satu pun titik bersama.
 
 11
-00:00:31.049 --> 00:00:33.449
+00:00:31.359 --> 00:00:34.040
 Padahal sudut selalu butuh titik sudut.
 
 12
-00:00:34.180 --> 00:00:36.120
+00:00:34.413 --> 00:00:36.583
 Jadi sudutnya diukur di mana?
 
 13
-00:00:37.335 --> 00:00:40.189
+00:00:37.227 --> 00:00:40.399
 Jalan keluarnya: kita geser salah satunya,
 
 14
-00:00:40.189 --> 00:00:43.669
+00:00:40.399 --> 00:00:44.251
 <b>sejajar dirinya sendiri</b>, sampai keduanya bertemu.
 
 15
-00:00:44.403 --> 00:00:46.293
+00:00:44.716 --> 00:00:47.070
 Perhatikan garis merah ini berjalan
 
 16
-00:00:46.293 --> 00:00:48.224
+00:00:47.070 --> 00:00:49.440
 pelan tanpa berputar sedikit pun.
 
 17
-00:00:49.449 --> 00:00:52.556
+00:00:50.093 --> 00:00:54.046
 Pada geseran penuh, BG mendarat tepat menjadi AH,
 
 18
-00:00:52.556 --> 00:00:55.560
+00:00:54.046 --> 00:00:57.825
 diagonal sisi yang memang sudah ada di kubus.
 
 19
-00:00:56.293 --> 00:00:58.640
+00:00:58.070 --> 00:01:00.263
 Sekarang keduanya bertemu di titik A.
 
 20
-00:00:59.882 --> 00:01:01.698
+00:01:00.893 --> 00:01:03.794
 Sekarang lihat segitiga ACH.
 
 21
-00:01:01.698 --> 00:01:05.026
+00:01:04.376 --> 00:01:08.121
 AC diagonal sisi alas, AH diagonal sisi kiri,
 
 22
-00:01:05.026 --> 00:01:07.098
+00:01:08.121 --> 00:01:10.435
 CH diagonal sisi belakang.
 
 23
-00:01:07.846 --> 00:01:11.561
+00:01:10.680 --> 00:01:14.476
 Ketiganya <b>6√2</b>, jadi segitiganya <b>sama sisi</b>.
 
 24
-00:01:12.767 --> 00:01:14.117
+00:01:15.127 --> 00:01:16.477
 Cek satu saja.
 
 25
-00:01:14.784 --> 00:01:20.460
+00:01:17.031 --> 00:01:22.638
 CH menghubungkan C di (6, 6, 0) dengan H di (0, 6, 6).
 
 26
-00:01:21.206 --> 00:01:26.402
+00:01:23.243 --> 00:01:29.541
 Selisihnya 6 pada x dan 6 pada z, jadi panjangnya √72,
 
 27
-00:01:26.402 --> 00:01:27.752
+00:01:29.541 --> 00:01:30.891
 yaitu 6√2.
 
 28
-00:01:28.243 --> 00:01:29.593
+00:01:31.265 --> 00:01:32.615
 Cocok.
 
 29
-00:01:30.382 --> 00:01:32.951
+00:01:32.660 --> 00:01:35.776
 Semua sudut segitiga sama sisi adalah <b>60°</b>,
 
 30
-00:01:32.951 --> 00:01:34.724
+00:01:35.776 --> 00:01:37.928
 dan kita mendapatkannya tanpa
 
 31
-00:01:34.724 --> 00:01:36.953
+00:01:37.928 --> 00:01:40.600
 satu pun perhitungan trigonometri.
 
 32
-00:01:38.182 --> 00:01:39.382
+00:01:41.260 --> 00:01:42.460
 Bentuk umumnya:
 
 33
-00:01:39.382 --> 00:01:41.627
+00:01:42.460 --> 00:01:45.242
 sudut dua garis bersilangan adalah sudut
 
 34
-00:01:41.627 --> 00:01:44.638
+00:01:45.242 --> 00:01:48.940
 dua garis berpotongan yang sejajar dengan keduanya.
 
 35
-00:01:45.027 --> 00:01:46.702
+00:01:49.364 --> 00:01:51.090
 Menggeser tidak mengubah arah,
 
 36
-00:01:46.702 --> 00:01:48.861
+00:01:51.090 --> 00:01:53.311
 dan karena itu tidak mengubah sudut.
 
 37
-00:01:50.068 --> 00:01:52.140
+00:01:53.960 --> 00:01:56.189
 Jadi kalau dua garis tidak bertemu,
 
 38
-00:01:52.140 --> 00:01:53.889
+00:01:56.189 --> 00:01:58.058
 jangan diukur di gambarnya.
 
 39
-00:01:54.623 --> 00:01:56.672
+00:01:58.581 --> 00:02:01.064
 Geser satu sejajar sampai bertemu,
 
 40
-00:01:56.672 --> 00:01:58.931
+00:02:01.064 --> 00:02:03.770
 lalu ukur sudut yang lahir di situ.
 
 41
-00:02:00.149 --> 00:02:03.562
+00:02:04.427 --> 00:02:08.999
 Di materi berikutnya, Sudut dalam Ruang, Bagian 2,
 
 42
-00:02:03.562 --> 00:02:05.746
+00:02:08.999 --> 00:02:11.926
 sudutnya bukan antara dua garis,
 
 43
-00:02:05.746 --> 00:02:08.066
+00:02:11.926 --> 00:02:15.035
 melainkan antara garis dan bidang,
 
 44
-00:02:08.066 --> 00:02:09.786
+00:02:15.035 --> 00:02:17.289
 lalu antara dua bidang.

@@ -4,205 +4,205 @@ NOTE Dibuat otomatis dari manim/narasi/statistika10-pencar.json (waktu kata reka
 NOTE naskah-sidik a3b3ef9ace7e
 
 1
-00:00:00.101 --> 00:00:02.896
+00:00:00.000 --> 00:00:02.983
 Hubungan Dua Variabel, Bagian 1.
 
 2
-00:00:03.630 --> 00:00:06.517
+00:00:03.680 --> 00:00:06.953
 Apakah lama belajar berhubungan dengan nilai ujian?
 
 3
-00:00:07.701 --> 00:00:10.864
+00:00:07.593 --> 00:00:11.342
 Sampai sini kita selalu mengurus satu jenis angka saja.
 
 4
-00:00:11.613 --> 00:00:14.815
+00:00:11.924 --> 00:00:15.624
 Sekarang <b>dua sekaligus</b>: jam belajar seminggu,
 
 5
-00:00:14.815 --> 00:00:17.882
+00:00:15.624 --> 00:00:19.145
 dan nilai ujian, dari 10 siswa yang sama.
 
 6
-00:00:19.068 --> 00:00:21.560
+00:00:19.793 --> 00:00:22.846
 Kuncinya kedua angka itu milik <b>orang yang sama</b>.
 
 7
-00:00:22.309 --> 00:00:25.266
+00:00:23.357 --> 00:00:26.822
 Jadi jangan dibaca sebagai dua daftar terpisah,
 
 8
-00:00:25.266 --> 00:00:26.801
+00:00:26.822 --> 00:00:28.593
 melainkan 10 pasangan.
 
 9
-00:00:27.531 --> 00:00:31.300
+00:00:29.023 --> 00:00:33.411
 Siswa pertama: (2, 55).
 
 10
-00:00:32.501 --> 00:00:34.414
+00:00:34.060 --> 00:00:36.184
 Tiap pasangan jadi satu titik.
 
 11
-00:00:35.163 --> 00:00:37.491
+00:00:36.464 --> 00:00:39.046
 Jam belajarnya menentukan letak mendatar,
 
 12
-00:00:37.491 --> 00:00:39.458
+00:00:39.046 --> 00:00:41.211
 nilainya menentukan letak tegak.
 
 13
-00:00:40.188 --> 00:00:43.970
+00:00:41.746 --> 00:00:46.192
 Siswa yang belajar 2 jam dan bernilai 55 duduk di sini.
 
 14
-00:00:45.168 --> 00:00:49.239
+00:00:46.827 --> 00:00:52.631
 10 titik, dan sekarang polanya kelihatan tanpa dihitung apa pun.
 
 15
-00:00:49.972 --> 00:00:51.872
+00:00:53.282 --> 00:00:55.835
 Makin ke kanan makin ke atas.
 
 16
-00:00:52.605 --> 00:00:54.702
+00:00:56.278 --> 00:00:58.378
 Ini yang disebut hubungan <b>positif</b>.
 
 17
-00:00:55.916 --> 00:00:58.059
+00:00:59.027 --> 00:01:01.801
 Sekarang data lain dari 10 siswa:
 
 18
-00:00:58.059 --> 00:01:00.092
+00:01:01.801 --> 00:01:04.389
 jam main gim dan nilai ujian.
 
 19
-00:01:00.825 --> 00:01:02.816
+00:01:04.855 --> 00:01:07.380
 Awannya condong ke arah sebaliknya,
 
 20
-00:01:02.816 --> 00:01:04.672
+00:01:07.380 --> 00:01:09.695
 makin ke kanan makin ke bawah.
 
 21
-00:01:05.403 --> 00:01:06.842
+00:01:10.497 --> 00:01:11.847
 Hubungan <b>negatif</b>.
 
 22
-00:01:08.068 --> 00:01:10.494
+00:01:12.460 --> 00:01:14.676
 Selain arah, ada <b>kekuatannya</b>.
 
 23
-00:01:11.228 --> 00:01:12.770
+00:01:15.025 --> 00:01:16.917
 Titik yang berdesakan rapat di
 
 24
-00:01:12.770 --> 00:01:15.181
+00:01:16.917 --> 00:01:19.842
 sekitar satu garis berarti hubungannya kuat.
 
 25
-00:01:15.913 --> 00:01:19.352
+00:01:20.377 --> 00:01:24.707
 Titik yang berserakan berarti lemah, walau arahnya sama.
 
 26
-00:01:20.568 --> 00:01:23.389
+00:01:25.360 --> 00:01:28.610
 Dan bisa juga tidak ada kecenderungan sama sekali.
 
 27
-00:01:24.123 --> 00:01:26.878
+00:01:29.261 --> 00:01:32.476
 Awannya bulat, tidak condong ke mana-mana.
 
 28
-00:01:27.610 --> 00:01:30.944
+00:01:32.837 --> 00:01:36.493
 Itu bukan kegagalan, itu juga sebuah jawaban.
 
 29
-00:01:32.134 --> 00:01:33.876
+00:01:37.127 --> 00:01:38.972
 Satu hal yang sering keliru.
 
 30
-00:01:34.611 --> 00:01:36.190
+00:01:39.345 --> 00:01:41.592
 Titik pada diagram pencar <b>tidak</b>
 
 31
-00:01:36.190 --> 00:01:38.735
+00:01:41.592 --> 00:01:45.149
 <b>boleh disambung berurutan</b> seperti grafik garis.
 
 32
-00:01:39.466 --> 00:01:42.840
+00:01:45.521 --> 00:01:49.897
 Tidak ada urutan waktu di sini, yang ada 10 orang.
 
 33
-00:01:44.035 --> 00:01:45.430
+00:01:50.527 --> 00:01:52.306
 Yang boleh ditarik cuma <b>satu</b>
 
 34
-00:01:45.430 --> 00:01:47.224
+00:01:52.306 --> 00:01:54.554
 garis yang mewakili seluruh awan.
 
 35
-00:01:47.958 --> 00:01:50.279
+00:01:54.857 --> 00:01:57.192
 Bagaimana memilih garis yang paling pas,
 
 36
-00:01:50.279 --> 00:01:51.937
+00:01:57.192 --> 00:01:58.861
 itu isi materi berikutnya.
 
 37
-00:01:53.149 --> 00:01:54.349
+00:01:59.493 --> 00:02:00.958
 Bentuk umumnya:
 
 38
-00:01:54.349 --> 00:01:57.468
+00:02:00.958 --> 00:02:05.253
 tiap orang menyumbang sepasang angka (x, y),
 
 39
-00:01:57.468 --> 00:01:59.673
+00:02:05.253 --> 00:02:08.234
 x ke mendatar dan y ke tegak.
 
 40
-00:02:00.283 --> 00:02:03.189
+00:02:08.630 --> 00:02:11.923
 Dari awannya kita baca dua hal: <b>arahnya</b>,
 
 41
-00:02:03.189 --> 00:02:05.949
+00:02:11.923 --> 00:02:15.051
 positif atau negatif, dan <b>kekuatannya</b>,
 
 42
-00:02:05.949 --> 00:02:07.696
+00:02:15.051 --> 00:02:17.011
 rapat atau berserakan.
 
 43
-00:02:08.901 --> 00:02:10.781
+00:02:17.660 --> 00:02:19.988
 Jadi langkah pertama menghadapi
 
 44
-00:02:10.781 --> 00:02:12.479
+00:02:19.988 --> 00:02:22.090
 dua jenis angka selalu sama:
 
 45
-00:02:12.479 --> 00:02:14.630
+00:02:22.090 --> 00:02:24.718
 <b>gambar dulu awannya</b>, baru hitung.
 
 46
-00:02:15.364 --> 00:02:16.976
+00:02:25.369 --> 00:02:27.186
 Gambarnya sering sudah menjawab
 
 47
-00:02:16.976 --> 00:02:18.738
+00:02:27.186 --> 00:02:29.153
 sebelum satu rumus pun dipakai.
 
 48
-00:02:19.949 --> 00:02:23.201
+00:02:29.793 --> 00:02:33.969
 Di materi berikutnya, Hubungan Dua Variabel, Bagian 2,
 
 49
-00:02:23.201 --> 00:02:25.128
+00:02:33.969 --> 00:02:36.444
 sepuluh orang menarik garis yang
 
 50
-00:02:25.128 --> 00:02:27.204
+00:02:36.444 --> 00:02:39.068
 paling pas pada titik yang sama.
 
 51
-00:02:27.937 --> 00:02:29.350
+00:02:39.650 --> 00:02:41.379
 Garis <b>siapa</b> yang benar?

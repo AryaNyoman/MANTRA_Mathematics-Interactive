@@ -4,309 +4,309 @@ NOTE Dibuat otomatis dari manim/narasi/integral07-teorema-dasar.json (waktu kata
 NOTE naskah-sidik 2245f1eb9813
 
 1
-00:00:00.116 --> 00:00:03.029
+00:00:00.000 --> 00:00:04.086
 Luas dan Integral Tentu, Bagian 3.
 
 2
-00:00:03.762 --> 00:00:05.101
+00:00:04.435 --> 00:00:05.827
 Luas dari persegi panjang
 
 3
-00:00:05.101 --> 00:00:07.609
+00:00:05.827 --> 00:00:08.428
 dan antiturunan tidak kelihatan berhubungan.
 
 4
-00:00:08.341 --> 00:00:09.807
+00:00:08.626 --> 00:00:10.030
 Kenapa ternyata <b>sama</b>?
 
 5
-00:00:11.049 --> 00:00:12.923
+00:00:10.660 --> 00:00:12.947
 Di Membalik Turunan, Bagian 1,
 
 6
-00:00:12.923 --> 00:00:15.046
+00:00:12.947 --> 00:00:15.538
 fungsi yang turunannya sama dengan
 
 7
-00:00:15.046 --> 00:00:16.732
+00:00:15.538 --> 00:00:17.596
 f kita sebut <b>antiturunan</b> f,
 
 8
-00:00:16.732 --> 00:00:18.668
+00:00:17.596 --> 00:00:20.109
 dan semuanya berbeda tetapan C.
 
 9
-00:00:18.668 --> 00:00:20.966
+00:00:20.365 --> 00:00:23.452
 Di Luas dan Integral Tentu, Bagian 2,
 
 10
-00:00:20.966 --> 00:00:24.072
+00:00:23.452 --> 00:00:27.624
 luas di bawah kurva ditulis dengan tanda integral,
 
 11
-00:00:24.072 --> 00:00:26.831
+00:00:27.624 --> 00:00:31.278
 batas bawah dan batas atasnya angka tetap.
 
 12
-00:00:28.035 --> 00:00:30.790
+00:00:31.927 --> 00:00:35.026
 Dua pekerjaan itu asal usulnya berbeda jauh.
 
 13
-00:00:31.523 --> 00:00:33.568
+00:00:35.515 --> 00:00:37.661
 Yang satu membalik mesin turunan.
 
 14
-00:00:34.300 --> 00:00:37.332
+00:00:38.150 --> 00:00:41.748
 Yang satu menumpuk persegi panjang untuk mengukur luas.
 
 15
-00:00:38.064 --> 00:00:39.264
+00:00:42.074 --> 00:00:43.317
 Tidak ada alasan yang
 
 16
-00:00:39.264 --> 00:00:41.407
+00:00:43.317 --> 00:00:45.835
 jelas kenapa keduanya harus berhubungan.
 
 17
-00:00:42.468 --> 00:00:44.381
+00:00:46.493 --> 00:00:48.593
 Sekarang satu perubahan kecil.
 
 18
-00:00:45.115 --> 00:00:48.292
+00:00:49.210 --> 00:00:52.726
 Batas atasnya jangan dipatok, biarkan <b>bergerak</b>.
 
 19
-00:00:49.023 --> 00:00:51.686
+00:00:53.343 --> 00:00:56.755
 Sebut A(x) luas dari 0 sampai x.
 
 20
-00:00:51.694 --> 00:00:54.410
+00:00:57.209 --> 00:00:59.866
 A bukan bilangan lagi, melainkan fungsi.
 
 21
-00:00:55.649 --> 00:00:57.732
+00:01:00.527 --> 00:01:03.014
 Tiap letak x memberi satu nilai luas,
 
 22
-00:00:57.732 --> 00:01:00.641
+00:01:03.014 --> 00:01:06.459
 dan nilai-nilai itu bisa digambar di papan bawah.
 
 23
-00:01:01.373 --> 00:01:03.352
+00:01:06.924 --> 00:01:09.013
 Jejaknya membentuk <b>kurva baru</b>.
 
 24
-00:01:04.567 --> 00:01:06.441
+00:01:09.660 --> 00:01:11.412
 Pertanyaan kuncinya begini.
 
 25
-00:01:07.176 --> 00:01:09.195
+00:01:11.703 --> 00:01:14.149
 Kalau x digeser sedikit ke kanan,
 
 26
-00:01:09.195 --> 00:01:10.997
+00:01:14.149 --> 00:01:16.300
 <b>seberapa cepat</b> A bertambah?
 
 27
-00:01:11.728 --> 00:01:14.089
+00:01:16.846 --> 00:01:19.411
 Coba tebak sambil melihat kedua papan.
 
 28
-00:01:15.300 --> 00:01:16.897
+00:01:20.060 --> 00:01:21.499
 Dari mana jawabannya?
 
 29
-00:01:17.632 --> 00:01:19.716
+00:01:22.057 --> 00:01:24.320
 Geser x sebesar h yang kecil.
 
 30
-00:01:20.463 --> 00:01:23.563
+00:01:24.786 --> 00:01:28.810
 Tambahan luasnya sebuah <b>pita tipis</b> di ujung kanan,
 
 31
-00:01:23.563 --> 00:01:26.192
+00:01:28.810 --> 00:01:32.180
 lebarnya h dan tingginya kira-kira f(x).
 
 32
-00:01:27.416 --> 00:01:29.942
+00:01:32.827 --> 00:01:36.228
 Jadi tambahannya kira-kira f(x) · h.
 
 33
-00:01:29.942 --> 00:01:32.566
+00:01:36.716 --> 00:01:39.525
 Bagi dengan h, tinggal f(x).
 
 34
-00:01:33.313 --> 00:01:35.040
+00:01:40.013 --> 00:01:42.122
 Itulah laju bertambahnya luas:
 
 35
-00:01:35.040 --> 00:01:36.479
+00:01:42.122 --> 00:01:43.880
 turunan A di titik x sama
 
 36
-00:01:36.479 --> 00:01:38.529
+00:01:43.880 --> 00:01:46.351
 dengan <b>tinggi kurva</b> di titik itu.
 
 37
-00:01:39.749 --> 00:01:41.281
+00:01:46.993 --> 00:01:48.799
 Kata <b>kira-kira</b> memang perlu:
 
 38
-00:01:41.281 --> 00:01:43.346
+00:01:48.799 --> 00:01:51.206
 tepi atas pita itu ikut melengkung.
 
 39
-00:01:44.094 --> 00:01:49.206
+00:01:51.521 --> 00:01:57.634
 Untuk h = 0,2 di titik 2, tambahan sebenarnya 0,88,
 
 40
-00:01:49.206 --> 00:01:51.060
+00:01:57.634 --> 00:01:59.821
 hampirannya 0,80.
 
 41
-00:01:51.790 --> 00:01:54.598
+00:02:00.542 --> 00:02:03.269
 Makin kecil h, makin rapat keduanya.
 
 42
-00:01:55.849 --> 00:01:57.652
+00:02:03.927 --> 00:02:06.294
 Maka A′ = f.
 
 43
-00:01:57.652 --> 00:01:59.498
+00:02:06.899 --> 00:02:09.156
 Kalimat itu boleh dibaca ulang:
 
 44
-00:01:59.498 --> 00:02:01.191
+00:02:09.156 --> 00:02:11.345
 A adalah <b>antiturunan</b> dari f.
 
 45
-00:02:01.191 --> 00:02:03.236
+00:02:11.985 --> 00:02:14.457
 Di situlah dua dunia tadi bertemu.
 
 46
-00:02:03.969 --> 00:02:06.290
+00:02:14.980 --> 00:02:17.313
 Inilah Teorema Dasar Kalkulus I.
 
 47
-00:02:07.501 --> 00:02:10.704
+00:02:17.960 --> 00:02:20.792
 Sekarang ambil antiturunan mana pun, sebut F.
 
 48
-00:02:11.453 --> 00:02:13.917
+00:02:21.315 --> 00:02:23.883
 Karena A dan F sama-sama antiturunan f,
 
 49
-00:02:13.917 --> 00:02:16.405
+00:02:23.883 --> 00:02:26.469
 keduanya cuma berbeda sebuah <b>tetapan</b>.
 
 50
-00:02:17.601 --> 00:02:21.120
+00:02:27.127 --> 00:02:31.596
 Luas dari 1 sampai 3 adalah A(3) - A(1).
 
 51
-00:02:21.868 --> 00:02:23.068
+00:02:32.433 --> 00:02:33.633
 Tulis dengan F,
 
 52
-00:02:23.068 --> 00:02:26.485
+00:02:33.633 --> 00:02:37.423
 dan tetapannya muncul dua kali dengan tanda berlawanan.
 
 53
-00:02:26.906 --> 00:02:28.674
+00:02:37.588 --> 00:02:39.282
 Keduanya <b>saling menghapus</b>.
 
 54
-00:02:29.916 --> 00:02:34.423
+00:02:39.927 --> 00:02:45.238
 Bentuk umumnya: ∫ f dari a sampai b = F(b) - F(a),
 
 55
-00:02:34.423 --> 00:02:37.908
+00:02:45.238 --> 00:02:49.319
 dengan F antiturunan mana pun dari f.
 
 56
-00:02:38.641 --> 00:02:41.001
+00:02:49.958 --> 00:02:52.094
 Inilah Teorema Dasar Kalkulus II.
 
 57
-00:02:42.249 --> 00:02:46.439
+00:02:52.727 --> 00:02:57.510
 Coba pada f(x) = x², dari 1 sampai 3.
 
 58
-00:02:47.171 --> 00:02:49.940
+00:02:58.045 --> 00:03:01.213
 Antiturunannya x³/3.
 
 59
-00:02:50.686 --> 00:02:56.178
+00:03:01.655 --> 00:03:07.680
 Batas atas memberi 9, batas bawah ⅓, selisihnya <b>26/3</b>.
 
 60
-00:02:57.416 --> 00:02:59.061
+00:03:08.327 --> 00:03:10.430
 Kekeliruan yang paling sering:
 
 61
-00:02:59.061 --> 00:03:01.842
+00:03:10.430 --> 00:03:13.945
 C ikut dituliskan pada hasil yang memakai batas.
 
 62
-00:03:02.575 --> 00:03:04.264
+00:03:14.259 --> 00:03:16.651
 Padahal C muncul di kedua nilai
 
 63
-00:03:04.264 --> 00:03:06.593
+00:03:16.651 --> 00:03:19.889
 itu dan sudah <b>terhapus</b> saat dikurangkan.
 
 64
-00:03:07.325 --> 00:03:10.541
+00:03:20.470 --> 00:03:24.278
 Jawabannya 26/3, tanpa C.
 
 65
-00:03:11.767 --> 00:03:13.338
+00:03:24.927 --> 00:03:26.389
 Bandingkan tenaganya.
 
 66
-00:03:14.088 --> 00:03:16.915
+00:03:26.796 --> 00:03:30.188
 Enam puluh persegi panjang masih meleset 0,13,
 
 67
-00:03:16.915 --> 00:03:19.646
+00:03:30.188 --> 00:03:33.436
 sedangkan pengurangan tadi langsung <b>tepat</b>.
 
 68
-00:03:20.376 --> 00:03:23.105
+00:03:33.750 --> 00:03:36.942
 Itulah sebabnya teorema ini disebut dasar.
 
 69
-00:03:24.349 --> 00:03:26.122
+00:03:37.593 --> 00:03:39.759
 Rangkumannya satu kalimat:
 
 70
-00:03:26.122 --> 00:03:29.258
+00:03:39.759 --> 00:03:43.590
 laju bertambahnya luas adalah <b>tinggi kurvanya</b>,
 
 71
-00:03:29.258 --> 00:03:32.749
+00:03:43.590 --> 00:03:47.821
 jadi luas dihitung dari antiturunan, F(b) - F(a).
 
 72
-00:03:33.482 --> 00:03:34.682
+00:03:48.460 --> 00:03:49.660
 Satu pertanyaan:
 
 73
-00:03:34.682 --> 00:03:37.365
+00:03:49.660 --> 00:03:52.581
 kalau batas bawah dan batas atasnya sama,
 
 74
-00:03:37.365 --> 00:03:38.715
+00:03:52.581 --> 00:03:53.931
 berapa hasilnya?
 
 75
-00:03:39.649 --> 00:03:43.115
+00:03:54.460 --> 00:03:58.650
 Di materi berikutnya, Luas dan Integral Tentu, Bagian 4,
 
 76
-00:03:43.115 --> 00:03:46.023
+00:03:58.650 --> 00:04:02.167
 alat ini dipakai dengan urutan kerja yang rapi,
 
 77
-00:03:46.023 --> 00:03:49.391
+00:04:02.167 --> 00:04:06.208
 termasuk saat soalnya perlu disubstitusi lebih dulu.

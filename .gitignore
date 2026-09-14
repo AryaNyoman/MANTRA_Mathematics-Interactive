@@ -42,6 +42,9 @@ videos/
 
 # Log MiKTeX nyasar saat cek_kode --dalam
 mfput.log
+
+# Log render, gabung, subtitle, deploy di akar proyek (363 berkas per 15 Sep 2026): jejak mesin, bukan sumber.
+log_*.txt
 *.aux
 web/public/anim/contoh-perahu.vtt
 

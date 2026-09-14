@@ -4,301 +4,301 @@ NOTE Dibuat otomatis dari manim/narasi/turunan6-hasil-kali.json (waktu kata reka
 NOTE naskah-sidik 2e8263599678
 
 1
-00:00:00.101 --> 00:00:02.659
+00:00:00.000 --> 00:00:03.552
 Aturan Menurunkan, Bagian 2.
 
 2
-00:00:03.393 --> 00:00:06.149
+00:00:04.122 --> 00:00:07.348
 Kenapa turunan hasil kali <b>bukan</b> hasil kali turunan?
 
 3
-00:00:07.382 --> 00:00:09.639
+00:00:07.993 --> 00:00:10.748
 Di Aturan Menurunkan, Bagian 1,
 
 4
-00:00:09.639 --> 00:00:12.770
+00:00:10.748 --> 00:00:14.569
 tiap suku boleh diturunkan sendiri-sendiri,
 
 5
-00:00:12.770 --> 00:00:15.610
+00:00:14.569 --> 00:00:18.035
 dan materi itu ditutup dengan bantahan:
 
 6
-00:00:15.610 --> 00:00:18.453
+00:00:18.035 --> 00:00:21.472
 turunan x · x adalah 2x, <b>bukan</b> 1 · 1.
 
 7
-00:00:19.186 --> 00:00:21.257
+00:00:21.705 --> 00:00:23.817
 Perkalian butuh aturannya sendiri.
 
 8
-00:00:22.467 --> 00:00:24.696
+00:00:24.460 --> 00:00:27.071
 Alasannya paling jelas kalau digambar.
 
 9
-00:00:25.446 --> 00:00:29.286
+00:00:27.444 --> 00:00:31.750
 Ambil sebuah persegi panjang: panjangnya kita sebut u,
 
 10
-00:00:29.286 --> 00:00:31.432
+00:00:31.750 --> 00:00:34.293
 lebarnya v, dan luasnya u · v.
 
 11
-00:00:31.432 --> 00:00:33.425
+00:00:34.839 --> 00:00:37.520
 Luas itulah yang mau kita turunkan.
 
 12
-00:00:34.649 --> 00:00:39.809
+00:00:38.160 --> 00:00:44.247
 Supaya bisa diperiksa, kita pakai angka: u = x + 1,
 
 13
-00:00:39.809 --> 00:00:41.123
+00:00:44.247 --> 00:00:45.597
 dan v = x.
 
 14
-00:00:41.123 --> 00:00:44.918
+00:00:46.032 --> 00:00:50.895
 Di x = 2, u bernilai 3 dan v bernilai 2.
 
 15
-00:00:46.149 --> 00:00:48.728
+00:00:51.527 --> 00:00:54.731
 Sekarang x digeser sedikit, sebesar h.
 
 16
-00:00:48.728 --> 00:00:51.886
+00:00:55.103 --> 00:00:58.230
 Panjangnya bertambah h, lebarnya juga bertambah h,
 
 17
-00:00:51.886 --> 00:00:53.931
+00:00:58.230 --> 00:01:00.256
 dan persegi panjangnya tumbuh.
 
 18
-00:00:55.149 --> 00:00:57.436
+00:01:00.893 --> 00:01:03.786
 Tambahan luasnya berbentuk huruf L,
 
 19
-00:00:57.436 --> 00:01:00.965
+00:01:03.786 --> 00:01:08.248
 terdiri atas tiga bagian: pita di kanan, pita di atas,
 
 20
-00:01:00.965 --> 00:01:03.075
+00:01:08.248 --> 00:01:10.877
 dan satu <b>pojok kecil</b> di sudut.
 
 21
-00:01:04.301 --> 00:01:05.513
+00:01:11.527 --> 00:01:12.801
 Ketiganya dibagi h,
 
 22
-00:01:05.513 --> 00:01:08.149
+00:01:12.801 --> 00:01:15.567
 sebab yang kita cari laju perubahannya.
 
 23
-00:01:08.897 --> 00:01:11.924
+00:01:15.939 --> 00:01:19.675
 Pita kanan memberi 2, pita atas memberi 3,
 
 24
-00:01:11.924 --> 00:01:13.732
+00:01:19.675 --> 00:01:21.871
 dan pojoknya memberi h.
 
 25
-00:01:14.934 --> 00:01:16.650
+00:01:22.527 --> 00:01:24.511
 Sekarang h dikecilkan.
 
 26
-00:01:17.399 --> 00:01:20.720
+00:01:24.721 --> 00:01:28.841
 Perhatikan: kedua pita tetap memberi 2 dan 3.
 
 27
-00:01:21.465 --> 00:01:23.059
+00:01:29.156 --> 00:01:30.966
 Yang menyusut hanya pojoknya,
 
 28
-00:01:23.059 --> 00:01:26.286
+00:01:30.966 --> 00:01:34.611
 sebab ia perkalian <b>dua</b> tambahan yang sama-sama mengecil.
 
 29
-00:01:27.516 --> 00:01:31.271
+00:01:35.260 --> 00:01:39.257
 Begitu h menuju 0, pojok itu lenyap sama sekali,
 
 30
-00:01:31.271 --> 00:01:34.942
+00:01:39.257 --> 00:01:43.154
 dan yang tersisa tinggal dua pita: 2 + 3 = 5.
 
 31
-00:01:36.133 --> 00:01:37.494
+00:01:43.793 --> 00:01:45.143
 Dari mana rumusnya?
 
 32
-00:01:38.244 --> 00:01:41.697
+00:01:45.221 --> 00:01:49.647
 Pita kanan lebarnya tambahan u dan tingginya v:
 
 33
-00:01:41.697 --> 00:01:43.533
+00:01:49.647 --> 00:01:52.151
 dibagi h, ia menjadi u′v.
 
 34
-00:01:43.533 --> 00:01:47.875
+00:01:52.466 --> 00:01:57.930
 Pita atas lebarnya u dan tebalnya tambahan v: dibagi h,
 
 35
-00:01:47.875 --> 00:01:49.225
+00:01:57.930 --> 00:01:59.570
 ia menjadi uv′.
 
 36
-00:01:50.435 --> 00:01:52.256
+00:02:00.227 --> 00:02:02.212
 Kedua pita itulah aturannya.
 
 37
-00:01:53.004 --> 00:01:57.523
+00:02:02.561 --> 00:02:07.889
 Turunan dari u · v adalah (u · v)′ = u′v + uv′.
 
 38
-00:01:58.268 --> 00:02:04.075
+00:02:08.238 --> 00:02:13.950
 Periksa dengan angkanya: 1 · 2 + 3 · 1 = 5.
 
 39
-00:02:05.268 --> 00:02:08.826
+00:02:14.593 --> 00:02:18.632
 Contoh tadi dua garis lurus, jadi angkanya persis tetap.
 
 40
-00:02:09.575 --> 00:02:11.216
+00:02:19.214 --> 00:02:21.208
 Pada fungsi yang melengkung,
 
 41
-00:02:11.216 --> 00:02:13.326
+00:02:21.208 --> 00:02:23.770
 kedua pita hanya <b>mendekati</b> nilainya,
 
 42
-00:02:13.326 --> 00:02:15.026
+00:02:23.770 --> 00:02:25.835
 tetapi pojoknya tetap lenyap,
 
 43
-00:02:15.026 --> 00:02:16.817
+00:02:25.835 --> 00:02:27.978
 dan aturannya tetap berlaku.
 
 44
-00:02:18.049 --> 00:02:22.831
+00:02:28.627 --> 00:02:34.640
 Kita coba pada bentuk yang melengkung: (x² + 1)(x - 3).
 
 45
-00:02:23.564 --> 00:02:26.806
+00:02:35.140 --> 00:02:37.693
 Bagian pertamanya u, bagian keduanya v.
 
 46
-00:02:28.049 --> 00:02:32.449
+00:02:38.327 --> 00:02:43.388
 Turunkan masing-masing sendiri: u′ = 2x, v′ = 1.
 
 47
-00:02:33.196 --> 00:02:38.925
+00:02:43.645 --> 00:02:49.821
 Susun ke rumusnya: 2x(x - 3) + (x² + 1) · 1.
 
 48
-00:02:40.149 --> 00:02:45.115
+00:02:50.460 --> 00:02:56.032
 Dijabarkan: 2x² - 6x + x² + 1.
 
 49
-00:02:45.862 --> 00:02:49.499
+00:02:56.683 --> 00:03:00.722
 Dirapikan: 3x² - 6x + 1.
 
 50
-00:02:50.716 --> 00:02:54.189
+00:03:01.360 --> 00:03:05.717
 Untuk bentuk sesederhana ini ada jalan kedua:
 
 51
-00:02:54.189 --> 00:02:57.122
+00:03:05.717 --> 00:03:09.396
 kalikan dulu menjadi x³ - 3x² + x - 3,
 
 52
-00:02:57.122 --> 00:02:59.511
+00:03:09.396 --> 00:03:12.354
 lalu turunkan suku demi suku.
 
 53
-00:03:00.243 --> 00:03:01.840
+00:03:12.529 --> 00:03:13.991
 Hasilnya <b>sama persis</b>.
 
 54
-00:03:03.049 --> 00:03:05.218
+00:03:14.627 --> 00:03:17.398
 Kekeliruan yang paling sering:
 
 55
-00:03:05.218 --> 00:03:08.688
+00:03:17.398 --> 00:03:21.833
 turunan hasil kali dikira hasil kali turunannya,
 
 56
-00:03:08.688 --> 00:03:10.068
+00:03:21.833 --> 00:03:23.554
 2x · 1, yaitu 2x.
 
 57
-00:03:10.800 --> 00:03:14.424
+00:03:23.729 --> 00:03:28.987
 Padahal jawabannya 3x² - 6x + 1.
 
 58
-00:03:15.170 --> 00:03:16.370
+00:03:29.476 --> 00:03:30.676
 Yang terlupa:
 
 59
-00:03:16.370 --> 00:03:18.256
+00:03:30.676 --> 00:03:32.969
 tiap bagian diturunkan sementara
 
 60
-00:03:18.256 --> 00:03:20.175
+00:03:32.969 --> 00:03:35.269
 bagian lainnya <b>dibiarkan utuh</b>.
 
 61
-00:03:20.949 --> 00:03:22.149
+00:03:35.660 --> 00:03:36.902
 Untuk pembagian,
 
 62
-00:03:22.149 --> 00:03:25.169
+00:03:36.902 --> 00:03:40.319
 aturannya mirip tetapi dua hal harus dijaga:
 
 63
-00:03:25.169 --> 00:03:27.914
+00:03:40.319 --> 00:03:43.425
 tandanya <b>pengurangan</b>, bukan penjumlahan,
 
 64
-00:03:27.914 --> 00:03:29.780
+00:03:43.425 --> 00:03:45.516
 dan seluruhnya dibagi v².
 
 65
-00:03:30.410 --> 00:03:32.612
+00:03:46.040 --> 00:03:48.221
 Langkah lengkapnya ada di halaman ini.
 
 66
-00:03:33.835 --> 00:03:35.321
+00:03:48.860 --> 00:03:50.788
 Rangkumannya satu kalimat:
 
 67
-00:03:35.321 --> 00:03:37.321
+00:03:50.788 --> 00:03:53.384
 turunan hasil kali adalah <b>dua pita</b>,
 
 68
-00:03:37.321 --> 00:03:39.207
+00:03:53.384 --> 00:03:55.831
 tiap bagian diturunkan bergantian
 
 69
-00:03:39.207 --> 00:03:41.643
+00:03:55.831 --> 00:03:58.948
 sementara bagian lainnya dibiarkan utuh.
 
 70
-00:03:42.391 --> 00:03:45.464
+00:03:59.472 --> 00:04:03.438
 Satu pertanyaan: kalau u dan v sama-sama x,
 
 71
-00:03:45.464 --> 00:03:47.686
+00:04:03.438 --> 00:04:06.262
 apakah aturan ini memberi 2x?
 
 72
-00:03:48.916 --> 00:03:52.205
+00:04:06.893 --> 00:04:10.960
 Di materi berikutnya, Aturan Menurunkan, Bagian 3,
 
 73
-00:03:52.205 --> 00:03:54.508
+00:04:10.960 --> 00:04:13.807
 fungsinya ada di dalam fungsi lain:
 
 74
-00:03:54.508 --> 00:03:57.863
+00:04:13.807 --> 00:04:17.955
 kalau y bergantung pada u, dan u bergantung pada x,
 
 75
-00:03:57.863 --> 00:04:00.382
+00:04:17.955 --> 00:04:21.033
 seberapa cepat y berubah terhadap x?

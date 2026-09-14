@@ -1,5 +1,63 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 15 SEP: SUARA BIAN (ELEVENLABS) DITERAPKAN KE SEMUA 57 VIDEO, RENDER ULANG 1080p60 (deploy lihat baris terakhir)
+
+Keputusan ARYA berurutan (14 Sep malam sampai 15 Sep): coba ElevenLabs lagi
+dengan suara "Adam" (dites di Trigonometri 02), bandingkan dua suara Indonesia
+dari pustaka ("Ganesh" dan "Bian"), "saya suka suara bian, tapi mengapa anda
+tidak menjadikan satu narasi saja? kenapa anda potong2?", lalu "oke sudah
+bagus, silahkan di terapkan ke seluruh video" dan "tunggu sampai semua selesai
+lalu deploy". Hasil: 57 naskah bersuara `eleven:Bian - Neutral, Calm and
+Clear`, 57 mp4 1080p60 dan 57 vtt di web/public/anim diganti, versi-anim.json
+dibuat ulang (183 berkas), cek_aset_video hanya menandai 4 demo non-materi.
+- Alur rekam baru (`manim/buat_narasi.py`): naskah bersuara `eleven:<nama>`
+  direkam SELURUHNYA dalam satu permintaan `with-timestamps` (model
+  eleven_multilingual_v2, kecepatan dari tempo), supaya warna suara tidak
+  berubah antar potongan. Batas segmen dan jam kata diambil dari penjajaran
+  huruf; jeda alami antarsegmen dibuang lalu diganti napas seragam (`"napas":
+  0.6` di naskah, edge-tts dulu 0,35); ujung potongan dilandaikan 6 ms; naskah
+  di atas 4.500 huruf dipecah seimbang dengan konteks previous_text/next_text
+  (pemecahan rakus pernah menyisakan ekor 281 huruf di grafik3, direkam ulang).
+  Permintaan diulang sampai empat kali bila jaringan putus (WinError 10060
+  terjadi beberapa kali). Kunci tetap hanya di .env.local.
+- Alat baru: `alat/terapkan_suara.py rekam|render|daftar` (rekam: tulis suara
+  dan napas ke naskah, rekam, gerbang cek_pemicu_urut; render: 1080p60 ketat
+  satu per satu lalu gabung_audio, buat_subtitle, cek_video, log di akar
+  proyek) dan `alat/lihat_babak.py <adegan> <babak>` (kode babak plus jam kata).
+  Rekam boleh 3 sekaligus (ARYA: akun boleh 10 bersamaan), render tetap satu.
+- Irama: Bian membaca sebagian kalimat lebih cepat dari edge-tts, jadi 28
+  adegan disetel (animasi dipendekkan, judul pembuka dipersingkat) sampai
+  gerbang lolos, tanpa mengubah naskah. Turunan 1 sampai 3 memakai pembungkus
+  sendiri (`self.tunggu(b, frasa)`) yang tidak menolak keterlambatan; angka
+  isyarat-render.json-nya 0,033 / 0,027 / 0,069 s (aman); tanda HILANG dan
+  MUNDUR gerbang pada ketiganya artefak loop, bukan cacat.
+- Gerbang `alat/cek_pemicu_urut.py` diperbaiki enam hal yang masing-masing
+  ketahuan dari render yang GAGAL sesudah lolos gerbang: sorot_cincin dihitung
+  ganda; panggilan multibaris dihitung ganda (baris digabung dulu); bawaan
+  run_time 1,2 pada lahir_rumus bertahan= tidak dihitung (limit4); self.muncul,
+  self.hilang, self.papan tidak dihitung (grafik3); PapanRumus bernama selain
+  papan (panel.baris di integral03) tidak dihitung; ekor minimal 0,05 s sebab
+  pembulatan frame membuat 0,13 s jadi 0,15 s (ruang-3d-01 dan 03).
+- vektor1-perahu: render 1080p60 mati diam-diam DUA KALI di frame 11.142 tanpa
+  pesan galat (480p15 selesai). Sebabnya tiga panah `always_redraw` dibangun
+  ulang tiap frame; diganti `bangun_bila_berubah` (dibangun ulang hanya saat
+  sudut atau geseran berubah). Render lalu selesai 13,2 menit, pemicu terlambat
+  terbesar 0,031 s. Pelajaran: always_redraw pada benda berat di video panjang
+  bisa menghabiskan sumber daya OpenGL tanpa galat; pakai updater berkunci.
+- Kuota ElevenLabs (Creator, 130.817 huruf per bulan, reset 14 Okt 2026):
+  terpakai 99.939 termasuk uji Adam, Ganesh, Bian (dua kali) di Trigonometri
+  02; sisa 30.878. Perkiraan awal saya (107 ribu untuk 29 video) meleset jauh
+  ke atas, sebab yang dihitung ternyata huruf naskah, bukan token.
+- Lembar kontak 57 video dibuat (qc/<video>/kontak.png); delapan yang paling
+  banyak disetel (limit4, grafik3, vektor1, ruang-3d-01, transformasi3,
+  integral03, statistika1, turunan3) dibuka dan dinilai: urutan gambar utuh,
+  tidak ada layar kosong. Yang lain hanya lewat gerbang otomatis dan
+  isyarat-render.json; belum ditonton satu per satu.
+- Beban repo: audio/ (narasi produksi) ikut dikomit sejak 910fefc; pack git
+  kini 1,08 GiB. Perlu keputusan ARYA: Git LFS untuk audio dan poster, atau
+  keluarkan audio/ dari git dan simpan di D:\MANTRA-BACKUP. 363 berkas
+  log_*.txt di akar proyek kini di-gitignore (jejak mesin).
+
 ## 14 SEP (malam, lanjutan): ENAM REVISI ARYA (A2 DIROMBAK, 98 KOTAK COBA DITULIS ULANG), UJI SUARA ELEVENLABS (deploy matra-i75nlm6fd, push GitHub)
 
 ARYA menyetujui pembahasan gaya mathcyber1997 ("jadikan pembelajaranmu dalam

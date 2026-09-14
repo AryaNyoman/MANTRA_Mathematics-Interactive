@@ -4,229 +4,229 @@ NOTE Dibuat otomatis dari manim/narasi/statistika7-boxplot.json (waktu kata reka
 NOTE naskah-sidik ccf10106e195
 
 1
-00:00:00.116 --> 00:00:03.371
+00:00:00.000 --> 00:00:03.679
 Ukuran Pemusatan dan Penyebaran, Bagian 3.
 
 2
-00:00:04.104 --> 00:00:06.104
+00:00:04.168 --> 00:00:06.752
 Bagaimana menggambarkan sebaran seluruh
 
 3
-00:00:06.104 --> 00:00:07.741
+00:00:06.752 --> 00:00:08.823
 data hanya dengan <b>lima angka</b>?
 
 4
-00:00:08.982 --> 00:00:10.182
+00:00:09.460 --> 00:00:10.660
 Di Bagian 1,
 
 5
-00:00:10.182 --> 00:00:13.213
+00:00:10.660 --> 00:00:14.600
 median adalah yang di tengah setelah data diurutkan:
 
 6
-00:00:13.213 --> 00:00:16.278
+00:00:14.600 --> 00:00:18.539
 ia <b>membelah</b> data jadi dua bagian yang sama banyak.
 
 7
-00:00:16.509 --> 00:00:18.633
+00:00:18.737 --> 00:00:21.243
 Hari ini pembelahan itu diteruskan.
 
 8
-00:00:19.849 --> 00:00:23.372
+00:00:21.893 --> 00:00:26.509
 15 siswa mencatat waktu tempuh ke sekolah, dalam menit,
 
 9
-00:00:23.372 --> 00:00:25.614
+00:00:26.509 --> 00:00:29.445
 sudah diurutkan dari yang terkecil:
 
 10
-00:00:25.614 --> 00:00:27.302
+00:00:29.445 --> 00:00:31.609
 5 menit sampai 60 menit.
 
 11
-00:00:28.501 --> 00:00:31.809
+00:00:32.260 --> 00:00:36.346
 Mediannya data ke-8, yaitu 15 menit.
 
 12
-00:00:32.543 --> 00:00:35.588
+00:00:36.626 --> 00:00:40.131
 7 data di kirinya, 7 data di kanannya.
 
 13
-00:00:36.816 --> 00:00:39.022
+00:00:40.793 --> 00:00:43.246
 Kuartil melanjutkan gagasan yang sama,
 
 14
-00:00:39.022 --> 00:00:40.913
+00:00:43.246 --> 00:00:45.332
 tetapi membelahnya jadi <b>empat</b>.
 
 15
-00:00:41.646 --> 00:00:45.007
+00:00:45.623 --> 00:00:49.720
 Caranya: tiap belahan tadi dicari mediannya sendiri.
 
 16
-00:00:46.201 --> 00:00:49.614
+00:00:50.360 --> 00:00:53.900
 Belahan kiri berisi 7 data, mediannya 10.
 
 17
-00:00:50.348 --> 00:00:51.932
+00:00:54.191 --> 00:00:55.955
 Itulah <b>kuartil satu</b>.
 
 18
-00:00:52.679 --> 00:00:56.303
+00:00:56.188 --> 00:01:00.181
 Belahan kanan juga 7 data, mediannya 25.
 
 19
-00:00:57.032 --> 00:00:58.630
+00:01:00.461 --> 00:01:02.120
 Itulah <b>kuartil tiga</b>.
 
 20
-00:00:59.833 --> 00:01:01.246
+00:01:02.760 --> 00:01:04.110
 Artinya begini.
 
 21
-00:01:01.982 --> 00:01:04.816
+00:01:04.397 --> 00:01:07.983
 Seperempat siswa menempuh 10 menit atau kurang.
 
 22
-00:01:05.548 --> 00:01:07.856
+00:01:08.263 --> 00:01:10.886
 Setengahnya 15 menit atau kurang.
 
 23
-00:01:08.587 --> 00:01:11.264
+00:01:11.107 --> 00:01:14.856
 Tiga perempatnya 25 menit atau kurang.
 
 24
-00:01:12.468 --> 00:01:15.105
+00:01:15.493 --> 00:01:18.789
 Sekarang kelima angka itu digambar sekaligus.
 
 25
-00:01:15.853 --> 00:01:18.814
+00:01:19.290 --> 00:01:23.358
 Sebuah kotak dari kuartil satu sampai kuartil tiga,
 
 26
-00:01:18.814 --> 00:01:20.904
+00:01:23.358 --> 00:01:26.230
 satu garis di dalamnya untuk median,
 
 27
-00:01:20.904 --> 00:01:23.609
+00:01:26.230 --> 00:01:29.889
 dan dua kumis ke data terkecil dan terbesar.
 
 28
-00:01:24.800 --> 00:01:26.253
+00:01:30.527 --> 00:01:32.152
 Itulah <b>boxplot</b>.
 
 29
-00:01:26.988 --> 00:01:29.520
+00:01:32.419 --> 00:01:35.263
 Kotaknya berisi setengah data yang di tengah.
 
 30
-00:01:30.266 --> 00:01:31.582
+00:01:35.972 --> 00:01:37.854
 Garis median yang tidak di
 
 31
-00:01:31.582 --> 00:01:33.404
+00:01:37.854 --> 00:01:40.461
 tengah kotak berarti datanya miring,
 
 32
-00:01:33.404 --> 00:01:34.923
+00:01:40.461 --> 00:01:42.633
 dan kumis yang panjang sebelah
 
 33
-00:01:34.923 --> 00:01:37.047
+00:01:42.633 --> 00:01:45.607
 menandakan ada ekor yang menjulur jauh.
 
 34
-00:01:38.235 --> 00:01:41.871
+00:01:46.260 --> 00:01:50.404
 Lebar kotaknya punya nama: <b>jangkauan antar kuartil</b>.
 
 35
-00:01:42.606 --> 00:01:46.098
+00:01:50.881 --> 00:01:54.700
 25 - 10 = 15 menit.
 
 36
-00:01:46.844 --> 00:01:51.968
+00:01:55.281 --> 00:02:01.109
 Bandingkan dengan jangkauan biasa, 60 - 5 = 55.
 
 37
-00:01:53.182 --> 00:01:55.706
+00:02:01.760 --> 00:02:05.103
 Angka 55 itu ditentukan oleh <b>dua orang saja</b>,
 
 38
-00:01:55.706 --> 00:01:58.609
+00:02:05.103 --> 00:02:08.899
 yang paling dekat dan yang paling jauh rumahnya.
 
 39
-00:01:59.342 --> 00:02:02.400
+00:02:09.747 --> 00:02:13.462
 Jangkauan antar kuartil tidak peduli pada keduanya.
 
 40
-00:02:03.601 --> 00:02:06.607
+00:02:14.093 --> 00:02:17.691
 Dan dari situ pencilan bisa ditemukan dengan hitungan.
 
 41
-00:02:07.355 --> 00:02:11.477
+00:02:18.539 --> 00:02:24.245
 Pagarnya 1,5 × JAK = 22,5,
 
 42
-00:02:11.477 --> 00:02:17.334
+00:02:24.245 --> 00:02:32.296
 jadi pagar atasnya 25 + 22,5 = 47,5.
 
 43
-00:02:18.064 --> 00:02:20.345
+00:02:32.785 --> 00:02:35.477
 Waktu 60 menit jatuh di luarnya.
 
 44
-00:02:21.582 --> 00:02:26.381
+00:02:36.127 --> 00:02:41.406
 Bentuk umumnya: lima angka itu data terkecil, Q1,
 
 45
-00:02:26.381 --> 00:02:29.469
+00:02:41.406 --> 00:02:44.788
 median, Q3, dan data terbesar.
 
 46
-00:02:30.217 --> 00:02:31.829
+00:02:45.102 --> 00:02:47.478
 JAK = Q3 - Q1,
 
 47
-00:02:31.829 --> 00:02:36.092
+00:02:47.478 --> 00:02:53.760
 dan data disebut pencilan kalau jatuh
 
 48
-00:02:36.092 --> 00:02:38.511
+00:02:53.760 --> 00:02:57.325
 di luar Q1 - 1,5 JAK,
 
 49
-00:02:38.511 --> 00:02:41.656
+00:02:57.325 --> 00:03:01.889
 atau di luar Q3 + 1,5 JAK.
 
 50
-00:02:42.882 --> 00:02:45.975
+00:03:02.527 --> 00:03:06.415
 Jadi lima angka cukup untuk menggambar seluruh sebaran:
 
 51
-00:02:45.975 --> 00:02:47.175
+00:03:06.415 --> 00:03:07.687
 di mana tengahnya,
 
 52
-00:02:47.175 --> 00:02:49.312
+00:03:07.687 --> 00:03:10.373
 seberapa lebar separuh yang di tengah,
 
 53
-00:02:49.312 --> 00:02:51.431
+00:03:10.373 --> 00:03:12.998
 dan seberapa jauh ekornya menjulur.
 
 54
-00:02:52.449 --> 00:02:53.834
+00:03:13.660 --> 00:03:15.512
 Di materi berikutnya,
 
 55
-00:02:53.834 --> 00:02:56.605
+00:03:15.512 --> 00:03:19.215
 Ukuran Pemusatan dan Penyebaran, Bagian 4,
 
 56
-00:02:56.605 --> 00:02:59.706
+00:03:19.215 --> 00:03:23.359
 dua mesin isi ulang sama-sama rata-rata 500 ml,
 
 57
-00:02:59.706 --> 00:03:02.362
+00:03:23.359 --> 00:03:26.860
 tetapi yang satu tetap <b>ditolak</b> pabrik.
