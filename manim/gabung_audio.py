@@ -185,9 +185,15 @@ def main() -> None:
             # mp4 menerima H.264 ManimGL apa adanya: gambar disalin, suara AAC.
             suara_kode = ["-c:a", "aac", "-b:a", "128k"]
             gambar_kode = ["-c:v", "copy"]
+    # faststart: "daftar isi" mp4 (atom moov) ditaruh di DEPAN berkas. Tanpa
+    # ini ffmpeg menaruhnya di ujung, dan browser harus melompat ke ujung dulu
+    # (beberapa permintaan bolak-balik ke server) sebelum bisa mulai memutar.
+    # Ke-61 video yang sudah tayang diperbaiki sekaligus 15 Sep 2026
+    # (alat/faststart_anim.py); untuk webm pilihan ini diabaikan ffmpeg.
+    wadah = ["-movflags", "+faststart"] if hasil.suffix == ".mp4" else []
     if berkas_latar is None:
         perintah = ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
-                    ] + gambar_kode + suara_kode + ["-shortest", str(hasil)]
+                    ] + gambar_kode + suara_kode + wadah + ["-shortest", str(hasil)]
     else:
         # Latar dikecilkan (0,12), lalu DITEKAN lagi tiap kali narasi berbunyi
         # (sidechaincompress: narasi = pengendali). amix normalize=0 supaya
@@ -200,7 +206,7 @@ def main() -> None:
         perintah = ["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(suara),
                     "-stream_loop", "-1", "-i", str(berkas_latar),
                     "-filter_complex", saring, "-map", "0:v", "-map", "[a]",
-                    ] + gambar_kode + suara_kode + ["-shortest", str(hasil)]
+                    ] + gambar_kode + suara_kode + wadah + ["-shortest", str(hasil)]
         print(f"latar  : {berkas_latar.relative_to(AKAR)}  (tipis, merendah saat narasi)")
     subprocess.run(perintah, check=True)
 
