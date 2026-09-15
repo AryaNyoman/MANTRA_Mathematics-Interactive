@@ -1,6 +1,6 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
-## 15 SEP: SUARA BIAN (ELEVENLABS) DITERAPKAN KE SEMUA 57 VIDEO, RENDER ULANG 1080p60 (deploy lihat baris terakhir)
+## 15 SEP: SUARA BIAN (ELEVENLABS) DITERAPKAN KE SEMUA 57 VIDEO, RENDER ULANG 1080p60 (deploy matra-oawt9hkvs, push GitHub cd26f96)
 
 Keputusan ARYA berurutan (14 Sep malam sampai 15 Sep): coba ElevenLabs lagi
 dengan suara "Adam" (dites di Trigonometri 02), bandingkan dua suara Indonesia
@@ -57,6 +57,13 @@ dibuat ulang (183 berkas), cek_aset_video hanya menandai 4 demo non-materi.
   kini 1,08 GiB. Perlu keputusan ARYA: Git LFS untuk audio dan poster, atau
   keluarkan audio/ dari git dan simpan di D:\MANTRA-BACKUP. 363 berkas
   log_*.txt di akar proyek kini di-gitignore (jejak mesin).
+- Deploy: `vercel deploy --prod --yes` GAGAL tiga kali berturut-turut dengan
+  "Internal Server Error" dari api.vercel.com/v2/files di tengah unggahan
+  (498 MB, 61 mp4), padahal status Vercel hijau; `--archive=tgz` (satu arsip,
+  bukan ribuan berkas) langsung berhasil. Pakai `--archive=tgz` untuk deploy
+  yang membawa banyak video. Tayang di mantra-matematika.vercel.app;
+  diverifikasi playwright: vektor1-perahu.mp4?v=79ac0deadb diputar, durasi
+  4:46, subtitle aktif di detik 42; deployment lama matra-i75nlm6fd dihapus.
 
 ## 14 SEP (malam, lanjutan): ENAM REVISI ARYA (A2 DIROMBAK, 98 KOTAK COBA DITULIS ULANG), UJI SUARA ELEVENLABS (deploy matra-i75nlm6fd, push GitHub)
 
