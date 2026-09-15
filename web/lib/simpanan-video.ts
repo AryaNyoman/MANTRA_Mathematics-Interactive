@@ -63,8 +63,12 @@ export async function ringkasanSimpanan(): Promise<RingkasanSimpanan> {
   }
 }
 
-/** Unduh video utuh lalu simpan; versi lama alamat yang sama dibuang. */
-export async function simpanVideo(alamat: string): Promise<boolean> {
+/** Unduh video utuh lalu simpan di bawah kunci `alamat`; versi lama alamat
+ *  yang sama dibuang. `alamatCadangan` (jalur lewat asal situs sendiri)
+ *  dicoba bila alamat utamanya gagal, misalnya diblokir peramban; isinya
+ *  tetap disimpan di bawah kunci alamat utama supaya pemutar (yang memakai
+ *  alamat utama saat sumbernya 'simpanan') menemukannya. */
+export async function simpanVideo(alamat: string, alamatCadangan = ''): Promise<boolean> {
   if (!simpananTersedia()) return false
   try {
     const penuh = new URL(alamat, window.location.href)
@@ -73,8 +77,16 @@ export async function simpanVideo(alamat: string): Promise<boolean> {
     // mode cors: Worker mengirim Access-Control-Allow-Origin *, jadi isinya
     // terbaca dan boleh disimpan (jawaban buram/opaque ditolak cache.put
     // untuk dipotong-potong nanti).
-    const r = await fetch(penuh.href, { mode: 'cors', credentials: 'omit' })
-    if (!r.ok || r.status !== 200 || !r.body) return false
+    let r: Response | null = null
+    try {
+      r = await fetch(penuh.href, { mode: 'cors', credentials: 'omit' })
+    } catch {
+      r = null
+    }
+    if ((!r || !r.ok) && alamatCadangan) {
+      r = await fetch(new URL(alamatCadangan, window.location.href).href, { credentials: 'omit' })
+    }
+    if (!r || !r.ok || r.status !== 200 || !r.body) return false
     await cache.put(penuh.href, r)
     for (const k of await cache.keys()) {
       const ku = new URL(k.url)

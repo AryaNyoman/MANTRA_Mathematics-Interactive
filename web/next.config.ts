@@ -6,6 +6,22 @@ const nextConfig: NextConfig = {
   // Kesalahan kompilasi & runtime tetap ditampilkan.
   devIndicators: false,
 
+  /**
+   * Jalur cadangan video lewat asal situs sendiri. Biasanya video diambil
+   * langsung dari Worker Cloudflare (NEXT_PUBLIC_ASAL_VIDEO). Pada jaringan
+   * tertentu (15 Sep 2026: resolver Telkomsel memetakan host Cloudflare ke
+   * IPv6 ULA fd00::, lalu Chrome memblokir permintaan lintas asal ke "alamat
+   * lokal" itu), pemutar mencoba jalur ini sebagai cadangan. Vercel
+   * meneruskannya sebagai proxy (Range ikut), dan lalu lintasnya dihitung
+   * sebagai Fast Origin Transfer (Hobby 10 GB/bulan), jadi HANYA untuk
+   * kegagalan, bukan jalur utama.
+   */
+  async rewrites() {
+    const asal = (process.env.NEXT_PUBLIC_ASAL_VIDEO ?? '').replace(/\/+$/, '')
+    if (!asal) return []
+    return [{ source: '/video-cadangan/:nama', destination: `${asal}/:nama` }]
+  },
+
   async headers() {
     return [
       {

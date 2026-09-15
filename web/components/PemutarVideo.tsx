@@ -46,6 +46,19 @@ export const alamatVideoJaringan = (nama: string) => {
 }
 
 /**
+ * Jalur cadangan lewat asal situs sendiri (rewrite /video-cadangan di
+ * next.config.ts), dipakai pemutar hanya bila alamat Worker gagal dimuat,
+ * misalnya Chrome memblokir permintaan lintas asal ke "alamat lokal" pada
+ * jaringan yang resolvernya memetakan host Cloudflare ke IPv6 ULA (15 Sep
+ * 2026). Kosong bila video memang dilayani dari /anim/ sendiri (dev).
+ */
+export const alamatVideoCadangan = (nama: string) => {
+  if (!ASAL_VIDEO) return ''
+  const v = (versiAnim as Record<string, string>)[nama]
+  return `/video-cadangan/${nama}?${v ? `v=${v}&` : ''}j=1`
+}
+
+/**
  * Pemutar video animasi Manim.
  *
  * Ditulis sekali untuk dipakai ketujuh video Trigonometri. Sebelum berkas ini
@@ -140,13 +153,18 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
      Sumber tidak boleh berganti selama elemen hidup (Chrome menolak jawaban
      Range yang berpindah sumber), maka `key` elemen ikut memuatnya. */
   const [sumber, setSumber] = useState<'simpanan' | 'jaringan' | null>(null)
+  /* Jalur cadangan (lihat alamatVideoCadangan): dicoba sekali per video
+     bila sumber jaringan gagal; kalau ini pun gagal, baru kotak galat. */
+  const [cadangan, setCadangan] = useState(false)
   useEffect(() => {
     let hidup = true
     const putuskan = simpananTersedia()
       ? apakahTersimpan(alamatAnim(berkas))
       : Promise.resolve(false)
     void putuskan.then((ada) => {
-      if (hidup) setSumber(ada ? 'simpanan' : 'jaringan')
+      if (!hidup) return
+      setCadangan(false)
+      setSumber(ada ? 'simpanan' : 'jaringan')
     })
     return () => {
       hidup = false
@@ -400,7 +418,7 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
       if (v.currentTime / v.duration < AMBANG_SIMPAN && !v.ended) return
       sibuk = true
       setKeadaan((k) => (k === 'tersimpan' ? k : 'menyimpan'))
-      void simpanVideo(alamat).then((berhasil) => {
+      void simpanVideo(alamat, alamatVideoCadangan(berkas)).then((berhasil) => {
         if (!hidup) return
         if (!berhasil) {
           gagalSekali = true
@@ -426,7 +444,7 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
       v?.removeEventListener('ended', cobaSimpan)
       v?.removeEventListener('loadedmetadata', pulih)
     }
-  }, [berkas, percobaan, sumber])
+  }, [berkas, percobaan, sumber, cadangan])
   const hapusSimpanan = () => {
     void hapusSemuaSimpanan().then(() => {
       setKeadaan('belum')
@@ -484,9 +502,16 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
           diulang dari nol. */}
       <div className="pemutar-layar">
       <video
-        key={`${berkas}-${percobaan}-${sumber ?? 'tunggu'}`}
+        key={`${berkas}-${percobaan}-${sumber ?? 'tunggu'}${cadangan ? '-cadangan' : ''}`}
         ref={video}
-        onError={() => setGalat(true)}
+        onError={() => {
+          // sumber jaringan gagal: coba jalur cadangan dulu, baru menyerah
+          if (sumber === 'jaringan' && !cadangan && alamatVideoCadangan(berkas)) {
+            setCadangan(true)
+            return
+          }
+          setGalat(true)
+        }}
         controls
         /* Tanpa `playsInline`, Safari di iPhone merebut video ke layar penuh
            begitu ditekan. Siswa jadi kehilangan penjelasan di sebelahnya,
@@ -500,7 +525,8 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
         {/* Jenis MIME mengikuti ekstensinya. Kalau dipatok "video/webm" untuk
             berkas .mp4, peramban menolak sumbernya sebelum mencoba memutar. */}
         {sumber !== null && (
-          <source src={sumber === 'simpanan' ? alamatAnim(berkas) : alamatVideoJaringan(berkas)}
+          <source src={sumber === 'simpanan' ? alamatAnim(berkas)
+                       : cadangan ? alamatVideoCadangan(berkas) : alamatVideoJaringan(berkas)}
                   type={berkas.endsWith('.mp4') ? 'video/mp4' : 'video/webm'} />
         )}
         <track
