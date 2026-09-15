@@ -1,5 +1,29 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 16 SEP: RATA KANAN-KIRI, KEPEKAAN TARIKAN SEMUA WIDGET DIPERIKSA (deploy matra-f9x5ydaii, push GitHub)
+
+- Baris simpanan video diringkas (ARYA: "bukan hal yang terlalu penting"):
+  kotak centang "Simpan video" di samping saklar subtitle, tulisan jadi
+  "Video tersimpan" bila ada, tautan "hapus" kecil.
+- Bacaan materi rata kanan-kiri (`.bacaan p, li`, hyphens auto, text-wrap
+  pretty); kalimat kunci dan judul tetap rata kiri. Chrome tidak memenggal
+  kata Indonesia, jadi sesekali jarak antarkata melebar.
+- ARYA: tarikan pegangan segitiga A2 "terlalu cepat berubah, licin", lalu
+  "cek semuanya satu-satu". Dibuat `alat/uji-seret/` (playwright-cli):
+  tiap halaman materi, tiap elemen ber-onPointerDown ditarik sintetis 60 px
+  ke empat arah, diukur geseran pegangan dan elemen lain serta perubahan
+  nilai kendali. 105 materi, 62 pegangan terukur (sisanya kendali slider
+  atau tombol). Temuan: hanya dua yang bergerak lebih cepat dari jari:
+  segitiga A2 (bingkai ikut membesar; kini diredam 0,4 kali jarak jari) dan
+  kubus 3D (0,42 derajat per piksel, rusuk bergeser 1,4 sampai 1,6 kali
+  jari; kini 0,3). Titik-titik lain mengikuti jari 1:1 atau melompat ke petak
+  (transformasi); titik yang menempel di kurva (turunan, integral) terlihat
+  cepat di bagian curam karena mengikuti kurvanya, dibiarkan.
+- Jebakan alat: `playwright-cli eval "a = 1; 'b'"` gagal diam-diam (dibungkus
+  jadi ekspresi), indeks dikirim lewat query `&p=`; bash yang dijalankan
+  lewat Start-Process tidak punya PATH (grep, playwright-cli tidak ada);
+  proses probe yang dihentikan TaskStop masih hidup dan merebut browser.
+
 ## 15 SEP SORE: FASTSTART 61 VIDEO, SIMPANAN VIDEO DI PERANGKAT (SERVICE WORKER), JALUR CADANGAN (deploy matra-8pvjatfdy, push GitHub)
 
 Permintaan ARYA: video jangan diunduh lagi saat dibuka kembali. Disetujui
