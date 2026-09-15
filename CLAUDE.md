@@ -103,6 +103,12 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
   lewat DNS. Alur sesudah merender: `node web/scripts/versi-anim.mjs`, lalu
   `python alat/unggah_anim_r2.py` (hanya yang berubah), baru deploy. Rahasia
   R2 dan token Cloudflare hanya di `.env.local`, jangan pernah dicetak.
+  mp4 wajib faststart (`gabung_audio.py` sudah; yang lama lewat
+  `alat/faststart_anim.py`). Pemutar punya jalur cadangan `/video-cadangan/`
+  (rewrite ke Worker, hanya saat alamat Worker gagal) dan simpanan di
+  perangkat siswa (`web/public/sw.js` + `lib/simpanan-video.ts`): SATU elemen
+  video SATU sumber, alamat bertanda `&j=1` = jaringan (petugas tidak
+  menyentuh); Chrome menolak jawaban Range yang berpindah sumber.
 - **Video: benda nyata harus terlihat seperti bendanya** (3D bercahaya dari
   `gl.ilustrasi`), kamera mulai dari dunia lalu terbang ke tempat matematika
   terbaca, rumus di atas gambar. Aturan lengkap: `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md`.

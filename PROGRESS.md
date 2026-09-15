@@ -1,5 +1,68 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 15 SEP SORE: FASTSTART 61 VIDEO, SIMPANAN VIDEO DI PERANGKAT (SERVICE WORKER), JALUR CADANGAN (deploy matra-8pvjatfdy, push GitHub)
+
+Permintaan ARYA: video jangan diunduh lagi saat dibuka kembali. Disetujui
+dua hal sekaligus (A dan B).
+- A. faststart: ke-61 mp4 menaruh atom moov di ujung berkas, jadi browser
+  harus melompat ke ujung dulu sebelum memutar. `alat/faststart_anim.py`
+  memindahkannya ke depan tanpa mengubah gambar dan suara (md5 aliran video
+  sama, ukuran +1 byte), `gabung_audio.py` memakai `-movflags +faststart`
+  untuk render berikutnya. Sidik ?v= 60 video berubah, diunggah ulang ke R2
+  (61 alamat Worker cocok).
+- B. Simpanan di perangkat: `web/public/sw.js` (service worker) melayani
+  video dari Cache Storage, termasuk Range (206 dari potongan Blob, 416 di
+  luar rentang, ETag disalin). Yang MENGISI simpanan halaman
+  (`lib/simpanan-video.ts`): saat video ditonton 90 persen atau habis,
+  berkas diunduh utuh sekali lagi lalu cache.put. Baris di bawah pemutar:
+  "Tersimpan di perangkat" / "Menyimpan..." / "Tersimpan otomatis setelah
+  ditonton hampir habis", saklar "Simpan otomatis hidup/mati"
+  (localStorage matra:video:simpan-otomatis), tombol "Hapus simpanan (n
+  video, MB)". `PetugasVideo` di layout mendaftarkan petugas; sw.js
+  dilayani no-cache.
+- Rancangan pertama (menyalin arus sambil diputar lewat tee di service
+  worker) DIBATALKAN: Chrome mematikan petugas yang menganggur 30 detik dan
+  membatasi satu peristiwa 5 menit; arus buatan JavaScript ikut mati, dan
+  yang mati itu pemutaran videonya. Unduhan kedua yang disengaja lebih aman;
+  di laptop biasanya terlayani cache HTTP.
+- Jebakan yang ketemu saat menguji (semua diperbaiki dan diuji ulang):
+  1. Chrome menolak jawaban Range yang BERPINDAH SUMBER di tengah hidup satu
+     elemen video ("FFmpegDemuxer: data source error"), dua arah: jaringan
+     lalu simpanan, atau simpanan lalu jaringan. Maka sumber diputuskan
+     SEBELUM elemen diberi <source> (`sumber` 'simpanan' | 'jaringan', ikut
+     `key` elemen; alamat jaringan bertanda &j=1 yang tidak disentuh
+     petugas; demo beranda selalu &j=1). Tombol hapus saat sedang diputar
+     dari simpanan membuat elemen baru bersumber jaringan dan melanjutkan
+     dari detik yang sama. Efek yang memegang elemen video (subtitle, papan
+     tik, ketuk, layar penuh) ikut bergantung pada `sumber`.
+  2. Chrome menjawab 206 untuk permintaan TANPA Range bila cache HTTP-nya
+     sudah punya potongan berkas dari pemutar (entri sparse); cache.put
+     menolak 206, jadi jawaban 206 yang utuh dibungkus ulang jadi 200.
+  3. Resolver Telkomsel di jaringan ini memetakan host Cloudflare (Worker,
+     pages.dev, cdnjs) dan GitHub ke IPv6 ULA fd00:aa:bb:2130::/96 (NAT64),
+     lalu Chrome memblokir permintaan lintas asal halaman publik ke "alamat
+     lokal" itu (Local Network Access, "Permission was denied for this
+     request to access the local address space"); tidak konsisten (kadang
+     lewat IPv4). Obat: jalur cadangan `/video-cadangan/:nama` (rewrite
+     Vercel ke Worker, Range diteruskan, 206 terbukti) yang dicoba pemutar
+     hanya bila alamat Worker gagal; `simpanVideo` juga memakainya dan
+     menyimpan di bawah kunci alamat Worker. Diuji dengan Worker dipaksa 503:
+     putar lewat cadangan, tersimpan, muat ulang diputar dari simpanan tanpa
+     jaringan sama sekali. Jalur ini menghitung Fast Origin Transfer Vercel
+     (Hobby 10 GB/bulan), jadi hanya untuk kegagalan.
+  4. Tepi Cloudflare menolak User-Agent "Python-urllib" (403); alat cek
+     memakai nama sendiri. Worker mengekspos ETag dan Content-Range lewat
+     Access-Control-Expose-Headers supaya halaman bisa membacanya.
+- Diuji (playwright, dev dan produksi): putar dari jaringan lalu tersimpan
+  otomatis pada 95 persen tanpa mengganggu elemen yang sedang diputar; muat
+  ulang: sumber simpanan, Range dijawab dari simpanan (x-mantra-simpanan:
+  ada), geser waktu ke 120 dan 200 detik jalan; hapus saat diputar: elemen
+  baru bersumber jaringan lanjut dari detik yang sama; saklar subtitle dan
+  panah papan tik tetap bekerja pada elemen baru.
+- Belum: HP sungguhan belum diuji (Cache Storage di Safari iPhone hangus
+  setelah 7 hari tidak dibuka kecuali dipasang ke layar utama); belum ada
+  pengukuran berapa siswa yang kena pemblokiran Local Network Access.
+
 ## 15 SEP SIANG: WIDGET A1 (MATAHARI DI ANTARA SINAR), VIDEO PINDAH KE CLOUDFLARE R2 LEWAT WORKER (deploy matra-jj0rw9osr, push GitHub)
 
 ARYA melihat grafik Deployment Storage Vercel terus naik (17,33 GB) walau
