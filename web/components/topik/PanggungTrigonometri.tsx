@@ -61,7 +61,8 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
               <Angka nama="Sudut sinar matahari" arti="makin tinggi matahari, makin pendek bayangan" kunci="sinar" satuan="°"
                 nilai={sudutSinar} onUbah={setSudutSinar} min={BATAS_SUDUT.min} max={BATAS_SUDUT.maks} langkah={1} />
               <Petunjuk>
-                  matahari ikut naik turun, kedua bayangan berubah panjang, tetapi kedua hasil baginya tetap{' '}
+                  sinar matahari sejajar karena mataharinya sangat jauh, jadi sudutnya sama di pohon dan di orang;
+                  kedua bayangan berubah panjang, tetapi kedua hasil baginya tetap{' '}
                   {angka(hitungBayangan(sudutSinar).tan)}
                 </Petunjuk>
             </div>

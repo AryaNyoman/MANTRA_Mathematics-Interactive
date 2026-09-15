@@ -25,6 +25,21 @@ import { WARNA } from '@/lib/warna'
  *   tetap ditulis di bawah tanah.
  * - Sudut sinar ditandai busur kecil di ujung bayangan pohon, lengkap dengan
  *   angkanya, sebab itulah besaran yang digeser siswa.
+ *
+ * REVISI ARYA 15 Sep 2026 ("sinar mataharinya harusnya mengikuti garis manusia
+ * juga, kenapa cuma pohon yang kena"):
+ * - Sinar matahari SEJAJAR (mataharinya sangat jauh), dan justru itu sebabnya
+ *   sudutnya sama di pohon dan di orang. Dua garis sejajar tidak mungkin
+ *   bertemu di satu matahari: jaraknya 52 px pada 25 derajat dan 275 px pada
+ *   70 derajat. Kalau dipaksa bertemu, sudut sinar orang melenceng sekitar
+ *   7 derajat dan angka hasil baginya tidak cocok lagi dengan gambarnya.
+ * - Maka matahari tidak duduk di garis pohon lagi, melainkan di langit DI
+ *   ANTARA kedua sinar, di tepi bingkai pada arah datangnya cahaya (tetap
+ *   ikut naik saat sudutnya membesar), dan kedua sinar diteruskan sejajar
+ *   sampai tepi bingkai.
+ * - Di sekeliling matahari digambar berkas garis cahaya tipis yang sejajar
+ *   dengan kedua sinar, supaya terbaca: satu matahari, cahaya sejajar,
+ *   menerpa pohon DAN orang.
  */
 
 const VW = 530
@@ -35,7 +50,10 @@ const X_ORANG = 96                // titik pijak orang
 const X_POHON = 424               // titik pijak pohon
 const TINGGI_ORANG = 1.6          // meter
 const TINGGI_POHON = 10           // meter
-const JARAK_MATAHARI = 78         // piksel dari puncak pohon ke pusat matahari
+const TEPI_MATAHARI = 30          // jarak pusat matahari dari tepi bingkai
+const PANJANG_CAHAYA = 62         // panjang garis cahaya tipis dari tepi bingkai
+const JARAK_CAHAYA = 40           // jarak antar garis cahaya (tegak lurus sinar)
+const RADIUS_BERKAS = 250         // garis cahaya hanya di sekitar matahari (jarak titik masuknya)
 
 export const BATAS_SUDUT = { min: 25, maks: 70 }
 
@@ -53,12 +71,51 @@ export function hitungBayangan(derajat: number) {
 const koma = (n: number, d = 2) => n.toFixed(d).replace('.', ',')
 
 /** Titik tempat sinar dari (x, y) dengan arah ke kanan atas menabrak tepi
- *  bingkai, supaya sinar bisa digambar sampai keluar gambar. */
-function ujungSinar(x: number, y: number, cos: number, sin: number) {
-  const keKanan = (VW - 6 - x) / cos
-  const keAtas = (y - 8) / sin
+ *  bingkai (dikurangi `tepi`), supaya sinar bisa digambar sampai keluar
+ *  gambar, atau supaya matahari duduk persis di tepi langit. */
+function ujungSinar(x: number, y: number, cos: number, sin: number, tepi = 6) {
+  const keKanan = (VW - tepi - x) / cos
+  const keAtas = (y - tepi - 2) / sin
   const d = Math.max(0, Math.min(keKanan, keAtas))
   return { x: x + d * cos, y: y - d * sin }
+}
+
+/** Berkas garis cahaya tipis yang sejajar kedua sinar: dua di luar tiap sinar
+ *  dan sisanya membagi rata ruang di antara keduanya. `geser` = jarak tegak
+ *  lurus dari garis tengah (positif ke sisi pohon); garis di dekat garis tengah
+ *  dilewati sebab tempat itu milik gambar matahari. Tiap garis mulai di tepi
+ *  bingkai (arah datangnya cahaya) dan masuk sepanjang PANJANG_CAHAYA; yang
+ *  masuk jauh dari matahari dilewati supaya berkasnya mengumpul di sekitarnya
+ *  (pada 70 derajat garis di tepi kanan bawah terlihat seperti coretan nyasar). */
+function garisCahaya(tengahX: number, setengahJarak: number, cos: number, sin: number,
+                     mx: number, my: number) {
+  const geseran: number[] = []
+  for (const sisi of [-1, 1]) {
+    geseran.push(sisi * (setengahJarak + JARAK_CAHAYA))
+    geseran.push(sisi * (setengahJarak + 2 * JARAK_CAHAYA))
+  }
+  const diDalam = Math.floor((2 * setengahJarak) / JARAK_CAHAYA) - 1
+  for (let i = 1; i <= diDalam; i++) {
+    geseran.push(-setengahJarak + (i * 2 * setengahJarak) / (diDalam + 1))
+  }
+  const hasil: { x1: number; y1: number; x2: number; y2: number }[] = []
+  for (const g of geseran) {
+    if (Math.abs(g) < TEPI_MATAHARI) continue
+    // titik dasar garis: garis tengah digeser tegak lurus sejauh g
+    const bx = tengahX + g * sin
+    const by = TANAH_Y + g * cos
+    const tMasuk = Math.min((VW - 8 - bx) / cos, (by - 8) / sin)
+    const tKeluar = Math.max((8 - bx) / cos, (by - (TANAH_Y - 6)) / sin)
+    if (tMasuk - tKeluar < PANJANG_CAHAYA) continue
+    const x1 = bx + tMasuk * cos
+    const y1 = by - tMasuk * sin
+    if (Math.hypot(x1 - mx, y1 - my) > RADIUS_BERKAS) continue
+    hasil.push({
+      x1, y1,
+      x2: bx + (tMasuk - PANJANG_CAHAYA) * cos, y2: by - (tMasuk - PANJANG_CAHAYA) * sin,
+    })
+  }
+  return hasil
 }
 
 export default function Bayangan({ derajat }: { derajat: number }) {
@@ -71,12 +128,18 @@ export default function Bayangan({ derajat }: { derajat: number }) {
   const bxOrang = X_ORANG - b.bayanganOrang * M_KE_PX
   const bxPohon = X_POHON - b.bayanganPohon * M_KE_PX
 
-  // matahari pada garis sinar pohon, sejauh JARAK_MATAHARI dari puncaknya
-  const mx = X_POHON + JARAK_MATAHARI * cos
-  const my = yPohon - JARAK_MATAHARI * sin
-  // sinar orang diteruskan sejajar sampai tepi bingkai (matahari sangat jauh,
-  // sinarnya sejajar; yang lewat pohon kebetulan menyentuh gambar matahari)
+  // kedua sinar sejajar, diteruskan sampai tepi bingkai (matahari sangat jauh)
+  const sinarPohon = ujungSinar(X_POHON, yPohon, cos, sin)
   const sinarOrang = ujungSinar(X_ORANG, yOrang, cos, sin)
+  // matahari di langit di antara kedua sinar: pada garis tengah yang sejajar
+  // keduanya lewat titik tengah kedua ujung bayangan, tepat di tepi bingkai
+  const tengahX = (bxOrang + bxPohon) / 2
+  const matahari = ujungSinar(tengahX, TANAH_Y, cos, sin, TEPI_MATAHARI)
+  const mx = matahari.x
+  const my = matahari.y
+  // jarak tegak lurus tiap sinar dari garis tengah
+  const setengahJarak = ((bxPohon - bxOrang) / 2) * sin
+  const cahaya = garisCahaya(tengahX, setengahJarak, cos, sin, mx, my)
 
   // busur sudut sinar di ujung bayangan pohon
   const rBusur = 26
@@ -99,8 +162,14 @@ export default function Bayangan({ derajat }: { derajat: number }) {
         <ellipse cx={bxOrang + 5} cy={TANAH_Y} rx={5.5} ry={2.6} />
       </g>
 
+      {/* berkas cahaya sejajar dari arah matahari */}
+      {cahaya.map((c, i) => (
+        <line key={i} x1={c.x1} y1={c.y1} x2={c.x2} y2={c.y2}
+              stroke={WARNA.sudut} strokeWidth={1.3} strokeLinecap="round" opacity={0.28} />
+      ))}
+
       {/* sinar matahari: melewati puncak benda, berhenti di ujung bayangan */}
-      <line x1={mx} y1={my} x2={bxPohon} y2={TANAH_Y}
+      <line x1={sinarPohon.x} y1={sinarPohon.y} x2={bxPohon} y2={TANAH_Y}
             stroke={WARNA.sudut} strokeWidth={1.6} strokeDasharray="5 4" opacity={0.85} />
       <line x1={sinarOrang.x} y1={sinarOrang.y} x2={bxOrang} y2={TANAH_Y}
             stroke={WARNA.sudut} strokeWidth={1.6} strokeDasharray="5 4" opacity={0.85} />
@@ -111,7 +180,7 @@ export default function Bayangan({ derajat }: { derajat: number }) {
       <text x={bxPohon - 6} y={TANAH_Y - 14} textAnchor="end" fontSize={13} fill={WARNA.sudut}
             fontFamily="var(--font-sans), sans-serif">{derajat}°</text>
 
-      {/* matahari, ikut bergerak mengikuti sudut sinar */}
+      {/* matahari di antara kedua sinar, ikut naik mengikuti sudut sinar */}
       <circle cx={mx} cy={my} r={13} fill={WARNA.sudut} opacity={0.9} />
       {[...Array(8)].map((_, i) => {
         const a = (i * Math.PI) / 4
@@ -135,8 +204,9 @@ export default function Bayangan({ derajat }: { derajat: number }) {
             stroke={WARNA.depan} strokeWidth={5} strokeLinecap="round" />
       <circle cx={X_ORANG} cy={yOrang - 4} r={5} fill={WARNA.depan} />
 
-      {/* keterangan */}
-      <text x={X_POHON - 8} y={(yPohon + TANAH_Y) / 2 + 5} textAnchor="end" fontSize={14} fill={WARNA.depan}
+      {/* keterangan; tinggi pohon di KANAN batang, sebab sinar pohon lewat di
+          kiri batang dan pada sudut besar menimpa tulisannya (15 Sep 2026) */}
+      <text x={X_POHON + 9} y={(yPohon + TANAH_Y) / 2 + 5} fontSize={14} fill={WARNA.depan}
             fontFamily="var(--font-sans), sans-serif">{TINGGI_POHON} m</text>
       <text x={(bxPohon + X_POHON) / 2} y={TANAH_Y + 20} textAnchor="middle" fontSize={14}
             fill={WARNA.samping} fontFamily="var(--font-sans), sans-serif">
