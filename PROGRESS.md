@@ -327,6 +327,12 @@ Inovasi Media dan Pembelajaran Matematika_PPPMI 2026.pdf`.
   semua video bersuara ElevenLabs. Syarat di daftar periksa: kalau pada 25
   Sep belum semua 57 video bersuara ElevenLabs, dokumen dikembalikan ke
   edge-tts sebelum diunggah.
+- 15 Sep: ARYA melaporkan semua video sudah bersuara Bian (ElevenLabs).
+  Diverifikasi: 57 naskah `manim/narasi/*.json` bersuara `eleven:Bian -
+  Neutral, Calm and Clear` (model eleven_multilingual_v2, commit dadfa0f),
+  dan ke-57 mp4 yang tayang berukuran sama persis dengan berkas lokal (HEAD
+  Content-Length). Nama suara dan model ditulis ke deskripsi, atribusi,
+  naskah demo, daftar periksa, template pernyataan, LICENSE, README.
 - Pelajaran: soal kuis diacak dari bank, jadi skrip demo tidak boleh
   mengandalkan teks pilihan tertentu (percobaan 1 gagal di situ dan
   rekamannya hilang; sekarang try/finally menutup screencast). Kursor palsu
