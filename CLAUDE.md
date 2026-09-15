@@ -93,6 +93,16 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
   `manimgl <berkas> <Adegan> -w --hd --config_file manim/hd60.yml` lalu
   `gabung_audio.py <nama-video> <Adegan> --keluar <nama-video>.mp4`. Versi uji
   480p tetap mp4 di `media/uji-480p/`.
+- **Video (mp4) TIDAK ikut deploy Vercel sejak 15 Sep 2026**: dilayani dari
+  bucket Cloudflare R2 `mantra-anim` lewat Worker
+  `https://mantra-video.mantra-matematika.workers.dev` (kode `alat/worker-video/`,
+  alamat di `web/.env.production`, mp4 dikecualikan di `web/.vercelignore`).
+  Sebabnya tiap deploy yang membawa folder video 505 MB menambah Deployment
+  Storage Vercel 0,5 GB dan angkanya tidak pernah turun (17,33 GB, batas Hobby
+  10 GB). JANGAN pakai alamat pub-....r2.dev: domain r2.dev diblokir Telkomsel
+  lewat DNS. Alur sesudah merender: `node web/scripts/versi-anim.mjs`, lalu
+  `python alat/unggah_anim_r2.py` (hanya yang berubah), baru deploy. Rahasia
+  R2 dan token Cloudflare hanya di `.env.local`, jangan pernah dicetak.
 - **Video: benda nyata harus terlihat seperti bendanya** (3D bercahaya dari
   `gl.ilustrasi`), kamera mulai dari dunia lalu terbang ke tempat matematika
   terbaca, rumus di atas gambar. Aturan lengkap: `docs/tugas/STANDAR-ILUSTRASI-VIDEO.md`.

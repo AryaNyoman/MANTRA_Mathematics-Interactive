@@ -98,7 +98,9 @@ const KLIP: Klip[] = [
   {
     jenis: 'video',
     label: 'Animasi bersuara',
-    berkas: 'tahap8-grafik-sin.webm',
+    // .mp4, bukan .webm: sejak 8 Sep 2026 semua video mp4, dan rujukan .webm ini
+    // membuat demo beranda 404 (hanya poster) sampai ketahuan 15 Sep 2026
+    berkas: 'tahap8-grafik-sin.mp4',
     poster: 'tahap8-grafik-sin.jpg',
     teks: true,
     judul: 'Animasi yang menjelaskan sebabnya',

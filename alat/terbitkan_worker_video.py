@@ -39,6 +39,8 @@ BUCKET = 'mantra-anim'
 API = 'https://api.cloudflare.com/client/v4'
 TANGGAL_KOMPAT = '2026-09-01'
 VIDEO_UJI = 'vektor1-perahu.mp4'
+# User-Agent bawaan urllib ditolak 403 oleh tepi Cloudflare (15 Sep 2026)
+UA = {'User-Agent': 'MANTRA-cek/1.0'}
 
 
 def baca_env(jalur):
@@ -96,12 +98,12 @@ def multipart(bagian):
 
 def periksa(url_dasar):
     url = f'{url_dasar}/{VIDEO_UJI}'
-    req = urllib.request.Request(url, method='HEAD')
+    req = urllib.request.Request(url, method='HEAD', headers=UA)
     with urllib.request.urlopen(req, timeout=60) as r:
         print(f'  HEAD {VIDEO_UJI}: {r.status}, {r.headers.get("Content-Length")} byte, '
               f'{r.headers.get("Content-Type")}, cache {r.headers.get("Cache-Control")}')
         ukuran = int(r.headers.get('Content-Length') or 0)
-    req = urllib.request.Request(url, headers={'Range': 'bytes=0-99'})
+    req = urllib.request.Request(url, headers={'Range': 'bytes=0-99', **UA})
     with urllib.request.urlopen(req, timeout=60) as r:
         isi = r.read()
         print(f'  GET Range 0-99: {r.status}, {len(isi)} byte, content-range {r.headers.get("Content-Range")}')
@@ -110,7 +112,7 @@ def periksa(url_dasar):
     lokal = os.path.join(AKAR, 'web', 'public', 'anim', VIDEO_UJI)
     if os.path.exists(lokal) and os.path.getsize(lokal) != ukuran:
         sys.exit(f'ukuran di Worker {ukuran} beda dengan lokal {os.path.getsize(lokal)}')
-    req = urllib.request.Request(f'{url_dasar}/tidak-ada.mp4', method='HEAD')
+    req = urllib.request.Request(f'{url_dasar}/tidak-ada.mp4', method='HEAD', headers=UA)
     try:
         urllib.request.urlopen(req, timeout=60)
         sys.exit('berkas yang tidak ada malah dijawab 200')

@@ -107,7 +107,9 @@ def daftar_bucket(s3, bucket):
 def periksa_publik(asal, nama, ukuran):
     """HEAD alamat publik: harus 200 dengan Content-Length yang sama."""
     url = f"{asal.rstrip('/')}/{nama}"
-    req = urllib.request.Request(url, method='HEAD')
+    # User-Agent bawaan urllib ("Python-urllib") ditolak 403 oleh tepi Cloudflare
+    # di depan Worker (15 Sep 2026); nama lain apa pun diterima.
+    req = urllib.request.Request(url, method='HEAD', headers={'User-Agent': 'MANTRA-cek/1.0'})
     try:
         with urllib.request.urlopen(req, timeout=60) as r:
             panjang = int(r.headers.get('Content-Length') or -1)
