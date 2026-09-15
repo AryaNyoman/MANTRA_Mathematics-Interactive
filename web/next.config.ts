@@ -23,6 +23,15 @@ const nextConfig: NextConfig = {
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
       },
+      {
+        // Petugas simpanan video: peramban harus selalu menanyakan versi
+        // terbarunya, supaya perbaikan petugas sampai ke siswa dalam sekali
+        // kunjungan, bukan setelah salinannya kedaluwarsa.
+        source: '/sw.js',
+        headers: [
+          { key: 'Cache-Control', value: 'no-cache, max-age=0' },
+        ],
+      },
     ]
   },
 }

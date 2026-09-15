@@ -20,6 +20,11 @@ function kepala(obj) {
   h.set('etag', obj.httpEtag)
   h.set('accept-ranges', 'bytes')
   h.set('access-control-allow-origin', '*')
+  // Petugas simpanan di situs (public/sw.js) mengambil video bermode cors dan
+  // perlu membaca ETag serta Content-Range; tanpa expose, hanya tajuk dasar
+  // (Content-Type, Content-Length, Cache-Control, Last-Modified) yang terbaca.
+  h.set('access-control-expose-headers', 'ETag, Content-Range, Accept-Ranges, Content-Length')
+  h.set('timing-allow-origin', '*')
   h.set('last-modified', obj.uploaded.toUTCString())
   if (!h.has('cache-control')) h.set('cache-control', 'public, max-age=31536000, immutable')
   return h

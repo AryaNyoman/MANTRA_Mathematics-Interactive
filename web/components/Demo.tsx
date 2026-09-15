@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react'
-import { alamatAnim } from '@/components/PemutarVideo'
+import { alamatAnim, alamatVideoJaringan } from '@/components/PemutarVideo'
 
 /**
  * Apakah pengguna minta gerakan dikurangi (Pengaturan sistem, bukan situs).
@@ -228,7 +228,7 @@ export default function Demo() {
                   onError={() => tandai(i)}
                 >
                   <source
-                    src={alamatAnim(k.berkas)}
+                    src={alamatVideoJaringan(k.berkas)}
                     type={k.berkas.endsWith('.webm') ? 'video/webm' : 'video/mp4'}
                   />
                   {k.teks && (

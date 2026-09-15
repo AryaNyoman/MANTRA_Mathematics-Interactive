@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Newsreader, Space_Grotesk } from 'next/font/google'
 import './globals.css'
+import PetugasVideo from '@/components/PetugasVideo'
 
 /**
  * Dua huruf saja, keputusan rancangan MANTRA (3 Sep 2026).
@@ -57,7 +58,10 @@ export default function RootLayout({
       lang="id"
       className={`${newsreader.variable} ${spaceGrotesk.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <PetugasVideo />
+      </body>
     </html>
   )
 }

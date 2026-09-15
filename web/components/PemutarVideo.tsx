@@ -2,6 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { bacaAngka, langgan, simpanAngka } from '@/lib/simpanan'
+import {
+  apakahTersimpan, hapusSemuaSimpanan, ringkasanSimpanan, simpanVideo, simpananTersedia,
+  teksMB, type RingkasanSimpanan,
+} from '@/lib/simpanan-video'
 import versiAnim from '@/lib/versi-anim.json'
 
 /**
@@ -27,6 +31,18 @@ export const alamatAnim = (nama: string) => {
   const ekor = v ? `?v=${v}` : ''
   if (ASAL_VIDEO && /\.(mp4|webm)$/i.test(nama)) return `${ASAL_VIDEO}/${nama}${ekor}`
   return `/anim/${nama}${ekor}`
+}
+
+/**
+ * Alamat video yang SELALU dari jaringan: tanda &j=1 membuat petugas simpanan
+ * (public/sw.js) tidak menyentuhnya. Satu elemen video hanya boleh dilayani
+ * satu sumber sepanjang hidupnya (Chrome menolak jawaban Range yang berpindah
+ * sumber, "FFmpegDemuxer: data source error", 15 Sep 2026), jadi elemen yang
+ * dibuat saat videonya belum tersimpan memakai alamat ini sampai dibuat ulang.
+ */
+export const alamatVideoJaringan = (nama: string) => {
+  const a = alamatAnim(nama)
+  return a + (a.includes('?') ? '&j=1' : '?j=1')
 }
 
 /**
@@ -80,6 +96,13 @@ const UKURAN = [85, 100, 125, 155] as const
 // huruf dikecilkan (buat_subtitle.py memecah kalimat sampai 56 huruf). Siswa
 // tetap bisa memperbesarnya lewat tombol di bawah pemutar.
 const BAWAAN = 0 // 85%
+// 1 = video yang ditonton hampir habis disimpan otomatis di perangkat
+// (bawaan), 0 = tidak. Untuk siswa yang memori atau kuotanya sempit.
+const KUNCI_SIMPAN = 'matra:video:simpan-otomatis'
+// Bagian video yang harus sudah ditonton sebelum disimpan: hampir habis,
+// supaya yang cuma mengintip sebentar tidak dibebani unduhan kedua.
+const AMBANG_SIMPAN = 0.9
+type KeadaanSimpanan = 'belum' | 'menyimpan' | 'tersimpan'
 
 export default function PemutarVideo({ berkas, poster, judul }: Props) {
   const bungkus = useRef<HTMLDivElement>(null)
@@ -109,6 +132,30 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
     window.clearTimeout(jamLencana.current)
     jamLencana.current = window.setTimeout(() => setLencana(null), 700)
   }, [])
+
+  /* Sumber elemen video ini, diputuskan SEBELUM elemennya diberi <source>:
+     'simpanan' (petugas melayani dari Cache Storage) atau 'jaringan'
+     (alamat bertanda &j=1, petugas tidak ikut campur). `null` = belum
+     diputuskan: elemen digambar tanpa <source> supaya tidak ada yang dimuat.
+     Sumber tidak boleh berganti selama elemen hidup (Chrome menolak jawaban
+     Range yang berpindah sumber), maka `key` elemen ikut memuatnya. */
+  const [sumber, setSumber] = useState<'simpanan' | 'jaringan' | null>(null)
+  useEffect(() => {
+    let hidup = true
+    const putuskan = simpananTersedia()
+      ? apakahTersimpan(alamatAnim(berkas))
+      : Promise.resolve(false)
+    void putuskan.then((ada) => {
+      if (hidup) setSumber(ada ? 'simpanan' : 'jaringan')
+    })
+    return () => {
+      hidup = false
+    }
+  }, [berkas, percobaan])
+  /* Waktu yang dipulihkan saat elemen dibuat ulang dengan sumber lain
+     (tombol hapus simpanan ditekan saat videonya sedang diputar dari
+     simpanan): elemen baru mulai dari detik yang sama. */
+  const pulihkan = useRef<{ detik: number; putar: boolean } | null>(null)
 
   /* Pilihan ukuran diingat antar materi: siswa yang perlu teks besar tidak
      harus mengaturnya ulang setiap kali berpindah.
@@ -153,7 +200,7 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
       v.removeEventListener('loadedmetadata', terapkan)
       v.textTracks.removeEventListener?.('addtrack', terapkan)
     }
-  }, [tampil, berkas, percobaan])
+  }, [tampil, berkas, percobaan, sumber])
 
   /* Spasi = putar/jeda, panah kiri/kanan = mundur/maju 5 detik (permintaan
      ARYA 12 dan 13 Sep 2026). Kontrol bawaan hanya menanggapi papan tik
@@ -208,7 +255,7 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
       document.removeEventListener('keydown', tekan)
       v.removeEventListener('play', pegang)
     }
-  }, [berkas, percobaan, geser])
+  }, [berkas, percobaan, geser, sumber])
 
   /* Di layar sentuh: ketuk dua kali separuh kanan video = maju 5 detik,
      separuh kiri = mundur 5 detik (permintaan ARYA 13 Sep 2026, pola yang
@@ -235,7 +282,7 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
     }
     v.addEventListener('pointerup', ketuk)
     return () => v.removeEventListener('pointerup', ketuk)
-  }, [berkas, percobaan, geser])
+  }, [berkas, percobaan, geser, sumber])
 
   /* Kontrol bawaan disembunyikan setelah DIAM_DETIK detik menonton tanpa
      disentuh, lalu muncul lagi begitu mouse digerakkan, layar disentuh, atau
@@ -301,13 +348,97 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
     }
     // `percobaan` ikut: "Coba lagi" membuat elemen video baru (key), dan
     // pendengar di sini harus pindah ke elemen yang baru itu.
-  }, [berkas, percobaan])
+    // `sumber` ikut (15 Sep 2026): elemen dibuat ulang saat sumbernya
+    // diputuskan (simpanan atau jaringan), pendengar harus pindah ke sana.
+  }, [berkas, percobaan, sumber])
 
   const ubah = (arah: -1 | 1) => {
     simpanAngka(
       KUNCI_UKURAN,
       Math.min(UKURAN.length - 1, Math.max(0, tingkat + arah)),
     )
+  }
+
+  /* Simpanan video di perangkat (Cache Storage). Petugas public/sw.js
+     melayani dari simpanan; yang mengisinya halaman ini: begitu video
+     ditonton hampir habis (AMBANG_SIMPAN) dan simpan otomatis hidup, berkas
+     diunduh utuh lalu disimpan (lib/simpanan-video.ts menjelaskan kenapa
+     unduhan kedua ini dipilih). `null` = tidak ada petugas (peramban lama,
+     atau bukan https): barisnya tidak digambar. Kegagalan (kuota penuh,
+     jaringan) hanya dicoba sekali per pemuatan halaman. */
+  const [keadaan, setKeadaan] = useState<KeadaanSimpanan | null>(null)
+  const [ringkasan, setRingkasan] = useState<RingkasanSimpanan | null>(null)
+  const otomatis = useSyncExternalStore(
+    langgan,
+    () => bacaAngka(KUNCI_SIMPAN, 1),
+    () => 1,
+  )
+  // Dibaca di dalam pendengar timeupdate tanpa memasang ulang pendengarnya
+  // tiap saklar diubah; diperbarui lewat efek (aturan react-hooks/refs
+  // melarang menulis ref saat render).
+  const otomatisRef = useRef(otomatis)
+  useEffect(() => {
+    otomatisRef.current = otomatis
+  }, [otomatis])
+  useEffect(() => {
+    if (!simpananTersedia()) return
+    let hidup = true
+    let sibuk = false
+    let gagalSekali = false
+    const alamat = alamatAnim(berkas)
+    const periksa = async () => {
+      const [ada, ringkas] = await Promise.all([apakahTersimpan(alamat), ringkasanSimpanan()])
+      if (!hidup) return
+      setKeadaan((k) => (ada ? 'tersimpan' : k === 'menyimpan' ? k : 'belum'))
+      setRingkasan(ringkas)
+    }
+    void periksa()
+    const v = video.current
+    const cobaSimpan = () => {
+      if (!v || sibuk || gagalSekali || otomatisRef.current !== 1) return
+      if (!Number.isFinite(v.duration) || v.duration <= 0) return
+      if (v.currentTime / v.duration < AMBANG_SIMPAN && !v.ended) return
+      sibuk = true
+      setKeadaan((k) => (k === 'tersimpan' ? k : 'menyimpan'))
+      void simpanVideo(alamat).then((berhasil) => {
+        if (!hidup) return
+        if (!berhasil) {
+          gagalSekali = true
+          setKeadaan('belum')
+        }
+        sibuk = false
+        void periksa()
+      })
+    }
+    v?.addEventListener('timeupdate', cobaSimpan)
+    v?.addEventListener('ended', cobaSimpan)
+    const pulih = () => {
+      const p = pulihkan.current
+      if (!v || !p) return
+      pulihkan.current = null
+      v.currentTime = p.detik
+      if (p.putar) void v.play().catch(() => {})
+    }
+    v?.addEventListener('loadedmetadata', pulih)
+    return () => {
+      hidup = false
+      v?.removeEventListener('timeupdate', cobaSimpan)
+      v?.removeEventListener('ended', cobaSimpan)
+      v?.removeEventListener('loadedmetadata', pulih)
+    }
+  }, [berkas, percobaan, sumber])
+  const hapusSimpanan = () => {
+    void hapusSemuaSimpanan().then(() => {
+      setKeadaan('belum')
+      setRingkasan({ jumlah: 0, byte: 0 })
+      if (sumber === 'simpanan') {
+        // elemen ini dilayani dari simpanan yang barusan dihapus: buat ulang
+        // dengan sumber jaringan, lanjut dari detik yang sama
+        const v = video.current
+        pulihkan.current = { detik: v?.currentTime ?? 0, putar: !!v && !v.paused && !v.ended }
+        setSumber('jaringan')
+      }
+    })
   }
 
   /* Kalau videonya gagal dimuat, kotaknya TIDAK dibiarkan hitam tanpa
@@ -353,7 +484,7 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
           diulang dari nol. */}
       <div className="pemutar-layar">
       <video
-        key={`${berkas}-${percobaan}`}
+        key={`${berkas}-${percobaan}-${sumber ?? 'tunggu'}`}
         ref={video}
         onError={() => setGalat(true)}
         controls
@@ -368,7 +499,10 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
       >
         {/* Jenis MIME mengikuti ekstensinya. Kalau dipatok "video/webm" untuk
             berkas .mp4, peramban menolak sumbernya sebelum mencoba memutar. */}
-        <source src={alamatAnim(berkas)} type={berkas.endsWith('.mp4') ? 'video/mp4' : 'video/webm'} />
+        {sumber !== null && (
+          <source src={sumber === 'simpanan' ? alamatAnim(berkas) : alamatVideoJaringan(berkas)}
+                  type={berkas.endsWith('.mp4') ? 'video/mp4' : 'video/webm'} />
+        )}
         <track
           kind="subtitles"
           src={alamatAnim(berkasSubtitle(berkas))}
@@ -400,6 +534,35 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
           +
         </button>
       </div>
+
+      {/* Baris simpanan: memberi tahu siswa videonya sudah ada di perangkat
+          (tidak diunduh lagi, bisa tanpa jaringan) dan menyediakan tombol
+          hapus untuk yang memorinya sempit. */}
+      {keadaan !== null && (
+        <div className="simpanan-video">
+          {keadaan === 'tersimpan' && (
+            <span className="ada">Tersimpan di perangkat: diputar lagi tanpa mengunduh</span>
+          )}
+          {keadaan === 'menyimpan' && <span>Menyimpan video di perangkat...</span>}
+          {keadaan === 'belum' && (
+            <span>
+              {otomatis
+                ? 'Tersimpan otomatis di perangkat setelah ditonton hampir habis'
+                : 'Tidak disimpan di perangkat'}
+            </span>
+          )}
+          <button type="button" className="saklar"
+                  aria-pressed={otomatis === 1}
+                  onClick={() => simpanAngka(KUNCI_SIMPAN, otomatis ? 0 : 1)}>
+            Simpan otomatis {otomatis ? 'hidup' : 'mati'}
+          </button>
+          {ringkasan !== null && ringkasan.jumlah > 0 && (
+            <button type="button" onClick={hapusSimpanan}>
+              Hapus simpanan ({ringkasan.jumlah} video, {teksMB(ringkasan.byte)})
+            </button>
+          )}
+        </div>
+      )}
     </div>
   )
 }
