@@ -1,5 +1,55 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 15 SEP SIANG: WIDGET A1 (MATAHARI DI ANTARA SINAR), VIDEO PINDAH KE CLOUDFLARE R2 LEWAT WORKER (deploy matra-jj0rw9osr, push GitHub)
+
+ARYA melihat grafik Deployment Storage Vercel terus naik (17,33 GB) walau
+deployment lama dihapus. Ternyata grafik "Last 30 Days" itu akumulasi
+periode: tiap deploy yang membawa folder video 505 MB menambah 0,5 GB dan
+angkanya tidak pernah turun. Keputusan ARYA: video dipindah ke Cloudflare R2.
+- Widget Bayangan (A1): ARYA minta sinar matahari mengenai orang juga, bukan
+  cuma pohon. Sinar sejajar tidak bisa bertemu di satu matahari (jaraknya 52
+  px pada 25 derajat, 275 px pada 70 derajat), jadi matahari dipindah ke
+  langit DI ANTARA kedua sinar (di tepi bingkai pada arah datangnya cahaya,
+  ikut naik saat sudut membesar), kedua sinar diteruskan sejajar sampai tepi,
+  ditambah berkas garis cahaya tipis sejajar di sekitar matahari. Label
+  "10 m" pindah ke kanan batang (sinar pohon menimpanya pada sudut besar).
+  Diuji playwright pada 25, 45, 70 derajat.
+- R2: ARYA membuat akun Cloudflare, bucket `mantra-anim` (APAC), token
+  Object Read & Write; 61 video (504,5 MB) diunggah `alat/unggah_anim_r2.py`
+  (boto3, satu bagian di bawah 64 MB supaya ETag = MD5, hanya yang berubah).
+  Alamat publik bawaan pub-....r2.dev TERNYATA DIBLOKIR TELKOMSEL lewat DNS
+  (jawaban Internet Baik 202.3.218.137; Google DNS memberi IP Cloudflare):
+  siswa Indonesia tidak akan bisa memutar dari sana. workers.dev dan
+  pages.dev tidak diblokir, jadi dibuat Worker `mantra-video`
+  (`alat/worker-video/index.js`: GET/HEAD, Range 206, ETag 304, 416 di luar
+  rentang, Cache-Control immutable dari metadata unggahan) yang diterbitkan
+  `alat/terbitkan_worker_video.py` lewat API Cloudflare (tanpa wrangler,
+  token templat "Edit Cloudflare Workers"; subdomain akun
+  `mantra-matematika` dibuat oleh alat). Jebakan R2 yang ketemu: `obj.range`
+  terisi walau tidak ada Range dan kuncinya ada semua bernilai undefined,
+  jadi 206 diputuskan dari header Range PERMINTAAN. Diuji langsung ke IP
+  Cloudflare (SNI) sebab resolver Telkomsel menyimpan NXDOMAIN 30 menit
+  (SOA minimum workers.dev 1800 s) dari kueri sebelum rekamannya ada.
+- Situs: `alamatAnim` memakai `NEXT_PUBLIC_ASAL_VIDEO` (web/.env.production,
+  dikomit) untuk mp4/webm; subtitle dan poster tetap di Vercel (kecil, dan
+  <track> lintas asal butuh CORS); sidik ?v= tetap. `versi-anim.mjs`
+  mempertahankan sidik video yang tidak ada di public/anim (prebuild di
+  Vercel). `public/anim/*.mp4` dikecualikan di web/.vercelignore: unggahan
+  deploy turun dari 498 MB menjadi 207 KB. Batas Worker gratis 100.000
+  permintaan per hari (satu pemutaran memakai beberapa permintaan Range).
+- Ketemu sambil lewat: demo "Animasi bersuara" di beranda merujuk
+  tahap8-grafik-sin.webm yang tidak ada sejak semua video jadi mp4 (8 Sep),
+  jadi sejak itu demo beranda 404 dan hanya memperlihatkan poster; diganti
+  .mp4, diverifikasi diputar. Tepi Cloudflare menolak User-Agent
+  "Python-urllib" (403), alat cek memakai nama sendiri.
+- Diverifikasi playwright di produksi: Vektor 01, Statistika 01, dan beranda
+  memutar video dari mantra-video.mantra-matematika.workers.dev (durasi
+  benar, subtitle 93 dan 119 cue dari Vercel, poster dari Vercel), 61 alamat
+  Worker cocok ukurannya dengan berkas lokal. Deployment lama dihapus,
+  tinggal produksi. Belum: kalau kelak lalu lintas besar (batas Worker
+  gratis 100.000 permintaan per hari), pasang domain sendiri di depan
+  bucket; r2.dev tetap jangan.
+
 ## 15 SEP: SUARA BIAN (ELEVENLABS) DITERAPKAN KE SEMUA 57 VIDEO, RENDER ULANG 1080p60 (deploy matra-oawt9hkvs, push GitHub cd26f96)
 
 Keputusan ARYA berurutan (14 Sep malam sampai 15 Sep): coba ElevenLabs lagi
