@@ -1,3 +1,7 @@
 node_modules
 .next
 .vercel
+# Video dilayani dari Cloudflare R2 lewat Worker (15 Sep 2026): jangan ikut deploy,
+# tiap deploy yang membawanya menambah Deployment Storage Vercel 0,5 GB.
+public/anim/*.mp4
+public/anim/*.webm

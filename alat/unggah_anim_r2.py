@@ -31,6 +31,7 @@ import argparse
 import hashlib
 import io
 import os
+import re
 import sys
 import urllib.request
 
@@ -72,9 +73,14 @@ def klien_r2(rahasia):
     kurang = [k for k in ('R2_ACCOUNT_ID', 'R2_ACCESS_KEY_ID', 'R2_SECRET_ACCESS_KEY') if not rahasia.get(k)]
     if kurang:
         sys.exit('Belum ada di .env.local: ' + ', '.join(kurang))
+    # Account ID = 32 heksadesimal. ARYA menempelkan seluruh alamat endpoint
+    # (https://<id>.r2.cloudflarestorage.com) pada 15 Sep 2026; keduanya diterima.
+    cocok = re.search(r'[0-9a-f]{32}', rahasia['R2_ACCOUNT_ID'].lower())
+    if not cocok:
+        sys.exit('R2_ACCOUNT_ID di .env.local tidak memuat 32 karakter heksadesimal')
     return boto3.client(
         's3',
-        endpoint_url=f"https://{rahasia['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
+        endpoint_url=f"https://{cocok.group(0)}.r2.cloudflarestorage.com",
         aws_access_key_id=rahasia['R2_ACCESS_KEY_ID'],
         aws_secret_access_key=rahasia['R2_SECRET_ACCESS_KEY'],
         region_name='auto',
