@@ -430,6 +430,10 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
     }
     v?.addEventListener('timeupdate', cobaSimpan)
     v?.addEventListener('ended', cobaSimpan)
+    // keadaan simpanan bisa berubah di luar komponen ini (materi lain di tab
+    // lain, atau peramban membuang simpanan); dibaca ulang tiap dijeda
+    const periksaLagi = () => { void periksa() }
+    v?.addEventListener('pause', periksaLagi)
     const pulih = () => {
       const p = pulihkan.current
       if (!v || !p) return
@@ -442,6 +446,7 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
       hidup = false
       v?.removeEventListener('timeupdate', cobaSimpan)
       v?.removeEventListener('ended', cobaSimpan)
+      v?.removeEventListener('pause', periksaLagi)
       v?.removeEventListener('loadedmetadata', pulih)
     }
   }, [berkas, percobaan, sumber, cadangan])
@@ -548,6 +553,24 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
                 onClick={() => simpanAngka(KUNCI_TAMPIL, tampil ? 0 : 1)}>
           Subtitle {tampil ? 'hidup' : 'mati'}
         </button>
+        {/* Simpanan di perangkat, sengaja kecil (ARYA 15 Sep 2026: "bukan hal
+            yang terlalu penting"): satu kotak centang = simpan otomatis
+            hidup/mati, tulisannya berganti saat video ini sudah tersimpan,
+            dan tautan "hapus" kecil bila ada yang tersimpan. */}
+        {keadaan !== null && (
+          <label className="simpan-video"
+                 title="Video yang ditonton hampir habis disimpan di perangkat ini, supaya berikutnya tidak diunduh lagi">
+            <input type="checkbox" checked={otomatis === 1}
+                   onChange={() => simpanAngka(KUNCI_SIMPAN, otomatis ? 0 : 1)} />
+            {keadaan === 'tersimpan' ? 'Video tersimpan' : keadaan === 'menyimpan' ? 'Menyimpan...' : 'Simpan video'}
+          </label>
+        )}
+        {keadaan !== null && ringkasan !== null && ringkasan.jumlah > 0 && (
+          <button type="button" className="hapus-simpanan" onClick={hapusSimpanan}
+                  title={`Hapus ${ringkasan.jumlah} video tersimpan (${teksMB(ringkasan.byte)})`}>
+            hapus
+          </button>
+        )}
         <span>Ukuran teks</span>
         <button type="button" onClick={() => ubah(-1)}
                 disabled={tingkat === 0} aria-label="Perkecil teks subtitle">
@@ -561,34 +584,6 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
         </button>
       </div>
 
-      {/* Baris simpanan: memberi tahu siswa videonya sudah ada di perangkat
-          (tidak diunduh lagi, bisa tanpa jaringan) dan menyediakan tombol
-          hapus untuk yang memorinya sempit. */}
-      {keadaan !== null && (
-        <div className="simpanan-video">
-          {keadaan === 'tersimpan' && (
-            <span className="ada">Tersimpan di perangkat: diputar lagi tanpa mengunduh</span>
-          )}
-          {keadaan === 'menyimpan' && <span>Menyimpan video di perangkat...</span>}
-          {keadaan === 'belum' && (
-            <span>
-              {otomatis
-                ? 'Tersimpan otomatis di perangkat setelah ditonton hampir habis'
-                : 'Tidak disimpan di perangkat'}
-            </span>
-          )}
-          <button type="button" className="saklar"
-                  aria-pressed={otomatis === 1}
-                  onClick={() => simpanAngka(KUNCI_SIMPAN, otomatis ? 0 : 1)}>
-            Simpan otomatis {otomatis ? 'hidup' : 'mati'}
-          </button>
-          {ringkasan !== null && ringkasan.jumlah > 0 && (
-            <button type="button" onClick={hapusSimpanan}>
-              Hapus simpanan ({ringkasan.jumlah} video, {teksMB(ringkasan.byte)})
-            </button>
-          )}
-        </div>
-      )}
     </div>
   )
 }
