@@ -86,7 +86,21 @@ export async function simpanVideo(alamat: string, alamatCadangan = ''): Promise<
     if ((!r || !r.ok) && alamatCadangan) {
       r = await fetch(new URL(alamatCadangan, window.location.href).href, { credentials: 'omit' })
     }
-    if (!r || !r.ok || r.status !== 200 || !r.body) return false
+    if (!r || !r.ok || !r.body) return false
+    if (r.status === 206) {
+      // Chrome kadang menjawab 206 untuk permintaan TANPA Range bila cache
+      // HTTP-nya sudah punya potongan berkas ini dari pemutar (entri sparse),
+      // padahal isinya utuh dari byte 0 sampai akhir. cache.put menolak 206,
+      // jadi dibungkus ulang sebagai 200 setelah dipastikan utuh.
+      const m = /^bytes (\d+)-(\d+)\/(\d+)$/.exec(r.headers.get('content-range') || '')
+      if (!m || Number(m[1]) !== 0 || Number(m[2]) !== Number(m[3]) - 1) return false
+      const h = new Headers(r.headers)
+      h.delete('content-range')
+      h.set('content-length', m[3])
+      r = new Response(r.body, { status: 200, headers: h })
+    } else if (r.status !== 200) {
+      return false
+    }
     await cache.put(penuh.href, r)
     for (const k of await cache.keys()) {
       const ku = new URL(k.url)
