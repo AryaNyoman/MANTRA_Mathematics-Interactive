@@ -27,8 +27,12 @@ import {
 
 export type Layar = Record<string, { x: number; y: number }>
 
-/** Seberapa cepat kubus berputar mengikuti tarikan, dalam derajat per piksel. */
-const KEPEKAAN = 0.42
+/** Seberapa cepat kubus berputar mengikuti tarikan, dalam derajat per piksel.
+ *  Semula 0,42 (satu putaran penuh tiap 860 px); diturunkan ke 0,3 (satu
+ *  putaran tiap 1.200 px) atas permintaan ARYA 16 Sep 2026: "atur
+ *  sensitivitasnya pelan-pelan saja". Diukur: tarikan 60 px kini memutar 18
+ *  derajat, rusuk kubus bergeser belasan piksel. */
+const KEPEKAAN = 0.3
 
 export default function Bingkai3D({
   bangun,
