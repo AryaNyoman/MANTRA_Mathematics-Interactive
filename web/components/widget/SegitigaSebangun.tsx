@@ -119,6 +119,11 @@ export default function SegitigaSebangun({
   }, [])
 
   const AMBANG = 6 // piksel SVG sebelum arah tarikan diputuskan
+  // Peredam tarikan (ARYA 16 Sep 2026: "terlalu cepat berubah, licin"):
+  // pegangan bergerak 0,4 kali jarak jari, jadi 10 piksel jari = 4 piksel
+  // perubahan. Pegangan sengaja tidak lagi persis di bawah jari; yang
+  // dipentingkan perubahan ukuran dan sudutnya terkendali.
+  const PEREDAM = 0.4
 
   const tarik = useCallback(
     (e: React.PointerEvent) => {
@@ -135,15 +140,18 @@ export default function SegitigaSebangun({
         setKunci(arah)
         pegang(arah)
       }
+      // titik acuan = titik mulai ditambah jarak jari yang sudah diredam
+      const xRedam = awal.x + dx * PEREDAM
+      const yRedam = awal.y + dy * PEREDAM
       if (arah === 'skala') {
-        // hanya ukuran: sisi samping mengikuti jari, sudut dibekukan
-        const lebarPx = Math.max(t.x - ox, 6)
+        // hanya ukuran: sisi samping mengikuti jari (diredam), sudut dibekukan
+        const lebarPx = Math.max(xRedam - ox, 6)
         const skalaBaru = jepit((lebarPx / ppc / SAMPING_MAKS) * 100, BATAS.skalaMin, BATAS.skalaMaks)
         onUbah(Math.round(skalaBaru), awal.derajat)
       } else {
         // hanya sudut: sisi samping dibekukan, puncak naik turun mengikuti jari
         const lebarPx = (awal.skala / 100) * SAMPING_MAKS * ppc
-        const tinggiPx = Math.max(oy - t.y, 4)
+        const tinggiPx = Math.max(oy - yRedam, 4)
         const derajatBaru = jepit((Math.atan2(tinggiPx, lebarPx) * 180) / Math.PI, BATAS.derajatMin, BATAS.derajatMaks)
         onUbah(awal.skala, Math.round(derajatBaru))
       }

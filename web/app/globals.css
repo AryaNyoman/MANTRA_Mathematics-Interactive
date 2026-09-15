@@ -644,6 +644,17 @@ h1, h2, h3, .disp {
 .bacaan > * + * { margin-top: 14px; }
 .bacaan p { margin: 0; font-size: 15px; line-height: 1.68; color: #3A3630; }
 
+/* Rata kanan-kiri untuk paragraf bacaan (permintaan ARYA 16 Sep 2026: tepi
+   kanan yang bergerigi terasa berantakan). `hyphens: auto` memenggal kata
+   panjang supaya jarak antarkata tidak melebar (lang="id" ada di <html>);
+   `text-wrap: pretty` menghindari satu kata yatim di baris terakhir. Kalimat
+   kunci (.sorot) dan judul tidak ikut: pendek, dan rata kanan-kiri pada satu
+   dua baris justru merenggangkan katanya. */
+.bacaan p, .bacaan li, .miskon p, .intisari li {
+  text-align: justify; hyphens: auto; text-wrap: pretty;
+}
+.bacaan .sorot p { text-align: left; }
+
 /* Kalimat inti: bercap "Kalimat kunci" sejak 12 Sep 2026 supaya perannya terbaca
    (ARYA mengira kalimat bergaris kiri ini bagian dari kotak di atasnya). */
 .bacaan .sorot {
