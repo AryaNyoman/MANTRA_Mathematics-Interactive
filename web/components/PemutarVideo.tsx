@@ -10,10 +10,23 @@ import versiAnim from '@/lib/versi-anim.json'
  * diganti isinya tanpa ganti nama tetap diambil peramban dari salinan lama
  * sampai setahun (Cache-Control immutable di next.config.ts): ARYA melihat
  * subtitle lama berjalan di atas video baru pada 12 Sep 2026.
+ *
+ * VIDEO (mp4/webm) DILAYANI DARI CLOUDFLARE R2 sejak 15 Sep 2026 (keputusan
+ * ARYA): tiap deploy Vercel yang membawa folder video 505 MB menambah
+ * Deployment Storage sekitar 0,5 GB dan angkanya tidak turun walau deployment
+ * dihapus (17,33 GB pada 15 Sep, batas Hobby 10 GB). Alamat dasarnya diisi
+ * lewat NEXT_PUBLIC_ASAL_VIDEO di web/.env.production (dibaca saat build,
+ * nilainya bukan rahasia). Kosong = ambil dari /anim/ sendiri (dev server).
+ * Subtitle dan poster tetap dari /anim/: kecil, dan <track> lintas asal
+ * butuh CORS. Sidik ?v= tetap dipakai supaya salinan lama tidak terpakai.
  */
+const ASAL_VIDEO = (process.env.NEXT_PUBLIC_ASAL_VIDEO ?? '').replace(/\/+$/, '')
+
 export const alamatAnim = (nama: string) => {
   const v = (versiAnim as Record<string, string>)[nama]
-  return v ? `/anim/${nama}?v=${v}` : `/anim/${nama}`
+  const ekor = v ? `?v=${v}` : ''
+  if (ASAL_VIDEO && /\.(mp4|webm)$/i.test(nama)) return `${ASAL_VIDEO}/${nama}${ekor}`
+  return `/anim/${nama}${ekor}`
 }
 
 /**

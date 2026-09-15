@@ -12,8 +12,14 @@
 //
 // Dijalankan otomatis sebelum build (prebuild di package.json). Jalankan
 // manual sesudah mengganti video: node scripts/versi-anim.mjs
+//
+// Sejak 15 Sep 2026 video (mp4/webm) dilayani dari Cloudflare R2 dan TIDAK
+// ikut terunggah ke Vercel (.vercelignore), jadi saat prebuild di Vercel
+// berkasnya tidak ada di public/anim. Sidik video yang sudah tercatat di
+// versi-anim.json dipertahankan; yang dihitung ulang hanya berkas yang ada.
+// Di komputer sendiri (video ada) daftarnya dibuat segar seperti semula.
 import { createHash } from 'node:crypto'
-import { createReadStream } from 'node:fs'
+import { createReadStream, existsSync, readFileSync } from 'node:fs'
 import { readdir, writeFile, stat } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -39,5 +45,17 @@ for (const n of nama) {
   if (!info.isFile()) continue
   hasil[n] = await sidik(join(FOLDER, n))
 }
-await writeFile(KELUAR, JSON.stringify(hasil, null, 2) + '\n', 'utf8')
-console.log(`versi-anim.json: ${Object.keys(hasil).length} berkas`)
+let dipertahankan = 0
+if (existsSync(KELUAR)) {
+  const lama = JSON.parse(readFileSync(KELUAR, 'utf8'))
+  for (const [n, v] of Object.entries(lama)) {
+    if (!(n in hasil) && /\.(mp4|webm)$/i.test(n)) {
+      hasil[n] = v
+      dipertahankan++
+    }
+  }
+}
+const urut = Object.fromEntries(Object.keys(hasil).sort().map((n) => [n, hasil[n]]))
+await writeFile(KELUAR, JSON.stringify(urut, null, 2) + '\n', 'utf8')
+console.log(`versi-anim.json: ${Object.keys(urut).length} berkas` +
+  (dipertahankan ? ` (${dipertahankan} video tidak ada di public/anim, sidik lamanya dipertahankan)` : ''))
