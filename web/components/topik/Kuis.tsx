@@ -113,7 +113,9 @@ export default function Kuis({
           return (
             <button key={n} className={`opsi ${kelas}`} onClick={() => jawab(n)} disabled={dipilih !== null}>
               <span className="huruf">{String.fromCharCode(65 + n)}</span>
-              <TeksMat teks={p} blok={false} />
+              <span className="isi"><TeksMat teks={p} blok={false} /></span>
+              {/* tanda ✓ atau ✕ tumbuh sesudah menjawab, bahasa umpan balik yang sama dengan bank soal */}
+              <span className="tanda" aria-hidden="true">{kelas === 'benar' ? '✓' : kelas === 'salah' ? '✕' : ''}</span>
             </button>
           )
         })}

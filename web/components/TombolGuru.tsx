@@ -1,7 +1,8 @@
 'use client'
 
-import { useId, useRef, useState } from 'react'
+import { useId, useState } from 'react'
 import { keluarGuru, masukGuru, useModeGuru } from '@/lib/mode-guru'
+import Jendela from '@/components/mantra/Jendela'
 
 /**
  * Tombol "Guru" di ujung kanan nav (ARYA 13 Sep 2026). Menekannya membuka
@@ -9,19 +10,22 @@ import { keluarGuru, masukGuru, useModeGuru } from '@/lib/mode-guru'
  * terbuka di peramban ini. Saat aktif tombolnya bertuliskan "Guru ✓" dan
  * menekannya keluar dari mode guru. Tidak dipasang di halaman belajar
  * (permintaan ARYA: halaman materi tempat mode fokus).
+ *
+ * Jendelanya memakai `Jendela` bersama (17 Sep 2026 malam): satu bentuk dan
+ * satu gerak dengan jendela skor, lencana, dan keluar di bank soal.
  */
 export default function TombolGuru() {
   const guru = useModeGuru()
-  const dialog = useRef<HTMLDialogElement>(null)
+  const [buka, setBuka] = useState(false)
   const [kata, setKata] = useState('')
   const [salah, setSalah] = useState(false)
   const [sibuk, setSibuk] = useState(false)
   const idMedan = useId()
 
-  function buka() {
+  function bukaDialog() {
     setKata('')
     setSalah(false)
-    dialog.current?.showModal()
+    setBuka(true)
   }
 
   async function kirim(e: React.FormEvent) {
@@ -29,7 +33,7 @@ export default function TombolGuru() {
     setSibuk(true)
     const cocok = await masukGuru(kata)
     setSibuk(false)
-    if (cocok) dialog.current?.close()
+    if (cocok) setBuka(false)
     else setSalah(true)
   }
 
@@ -44,11 +48,11 @@ export default function TombolGuru() {
 
   return (
     <>
-      <button type="button" className="nav-guru" title="Mode guru: buka semua latihan, kuis, dan pembahasan dengan kata kunci" onClick={buka}>
+      <button type="button" className="nav-guru" title="Mode guru: buka semua latihan, kuis, dan pembahasan dengan kata kunci" onClick={bukaDialog}>
         Guru
       </button>
-      <dialog ref={dialog} className="dialog-guru" aria-labelledby={`${idMedan}-judul`}>
-        <form onSubmit={kirim} method="dialog">
+      <Jendela buka={buka} onTutup={() => setBuka(false)} kelas="dialog-guru" labelId={`${idMedan}-judul`}>
+        <form onSubmit={kirim}>
           <div className="kicker">Mode guru</div>
           <h2 id={`${idMedan}-judul`}>Masukkan kata kunci</h2>
           <p>
@@ -75,7 +79,7 @@ export default function TombolGuru() {
             </p>
           )}
           <div className="dialog-guru-aksi">
-            <button type="button" className="pil-garis" onClick={() => dialog.current?.close()}>
+            <button type="button" className="pil-garis" onClick={() => setBuka(false)}>
               Batal
             </button>
             <button type="submit" className="pil-gelap" disabled={sibuk || kata.length === 0}>
@@ -83,7 +87,7 @@ export default function TombolGuru() {
             </button>
           </div>
         </form>
-      </dialog>
+      </Jendela>
     </>
   )
 }

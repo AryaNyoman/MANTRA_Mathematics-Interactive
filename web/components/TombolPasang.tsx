@@ -40,12 +40,17 @@ export default function TombolPasang() {
     }
   }, [])
 
+  /* Tetap dilepas dari DOM saat tidak ada tawaran (bukan memesan tempat
+     kosong seperti usulan rancangan): di iPhone dan Firefox peristiwa
+     pemasangan tidak pernah datang, dan celah kosong permanen di samping
+     tombol utama lebih mengganggu daripada satu pergeseran kecil saat
+     tombolnya muncul. Kemunculannya memudar masuk 200 ms (.tombol-pasang). */
   if (terpasang || !tawaran) return null
 
   return (
     <button
       type="button"
-      className="pil-garis"
+      className="pil-garis tombol-pasang"
       onClick={async () => {
         await tawaran.prompt()
         await tawaran.userChoice

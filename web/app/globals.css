@@ -595,7 +595,9 @@ h1, h2, h3, .disp {
   border-radius: 10px; padding: 15px 18px; margin-bottom: 16px;
 }
 .pembahasan ol { margin: 0; padding-left: 20px; font-size: 14.5px; line-height: 1.6; }
-.pembahasan ol li { padding: 4px 0; animation: naik var(--d-sedang) var(--kurva) both; }
+.pembahasan ol li { padding: 4px 0; }
+/* pembahasan kuis bab dan latihan materi: naik masuk sebagai hadiah sesudah menjawab (bahasa F) */
+.pembahasan { animation: naik-umpan 240ms var(--kurva) 60ms both; }
 .jawaban {
   display: flex; align-items: baseline; gap: 10px; margin-top: 12px;
   padding-top: 10px; border-top: 1px solid var(--garis);
@@ -622,6 +624,10 @@ h1, h2, h3, .disp {
 }
 .opsi:hover:not(:disabled) { border-color: var(--tegas); }
 .opsi:disabled { cursor: default; }
+.opsi .isi { flex: 1; min-width: 0; }
+.opsi .tanda { flex: none; font-weight: 600; font-size: 13px; margin-left: 6px; min-width: 14px; text-align: center; }
+.opsi.benar .tanda { color: var(--hijau); animation: tanda-tumbuh 200ms var(--kurva) both; }
+.opsi.salah .tanda { color: var(--jingga); animation: tanda-tumbuh 200ms var(--kurva) both; }
 .opsi .huruf {
   font-family: var(--font-mono), system-ui, sans-serif; font-size: 11px; font-weight: 600;
   color: var(--redup); border: 1px solid var(--garis); border-radius: 4px;
@@ -3106,7 +3112,7 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   font: inherit; font-size: 13px; font-weight: 600; text-transform: capitalize;
   padding: 9px 16px; border-radius: 999px; cursor: pointer; white-space: nowrap;
   border: 1px solid var(--garis-tegas); background: transparent; color: var(--tinta-72);
-  transition: background 0.22s, border-color 0.22s, color 0.22s, transform 0.22s;
+  transition: background var(--d-umpan) var(--kurva), border-color var(--d-umpan) var(--kurva), color var(--d-umpan) var(--kurva), transform var(--d-umpan) var(--kurva);
 }
 .keping .jml { font-size: 11px; opacity: 0.7; }
 .keping { min-height: 44px; }
@@ -3149,9 +3155,16 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   align-items: center; min-height: 48px; padding: 10px 14px;
   border-radius: 14px; cursor: pointer; text-align: left; font: inherit;
   border: 1px solid var(--garis-tegas); background: var(--kartu);
-  transition: border-color 0.22s, background 0.22s, transform 0.12s, opacity 0.22s;
+  /* F. umpan balik (sistem gerak Panggung tahap 2): memilih 120 ms, tanpa goyang */
+  transition: border-color 120ms var(--kurva), background 120ms var(--kurva), transform var(--d-umpan) var(--kurva), opacity var(--d-umpan);
 }
 .opsi-mantra:hover:not(:disabled) { border-color: var(--emas); }
+/* tanda ✓ dan ✕ tumbuh dari 0,4 saat Periksa; opsi salah TIDAK digoyang */
+.opsi-mantra[data-keadaan='benar'] .tanda, .opsi-mantra[data-keadaan='salah'] .tanda { animation: tanda-tumbuh 200ms var(--kurva) both; }
+/* badan soal berganti: geser 10 px dari arah tujuan + pudar, 180 ms (key per soal) */
+.soal-badan[data-arah='maju'] { animation: soal-kanan var(--d-soal) var(--kurva) both; }
+.soal-badan[data-arah='mundur'] { animation: soal-kiri var(--d-soal) var(--kurva) both; }
+.kabar-periksa { display: inline-block; animation: isi-ganti var(--d-cepat) linear both; }
 .opsi-mantra:active:not(:disabled) { transform: scale(0.99); }
 .opsi-mantra .huruf {
   width: 26px; height: 26px; border-radius: 50%; display: flex;
@@ -3159,6 +3172,14 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   background: rgba(16, 26, 43, 0.07); color: var(--tinta-62);
 }
 .opsi-mantra .isi { font-size: 15px; line-height: 1.5; }
+/* `.tanda` generik (label sudut widget "INTERAKTIF") memakai position absolute
+   dan latar gelap; di dalam opsi ia harus jadi teks biasa di kolom ketiga.
+   Sampai 17 Sep 2026 malam tanda ✓ dan ✕ ini nyasar ke sudut kiri atas kartu
+   soal karena aturan generik itu tidak dibatalkan. */
+.opsi-mantra .tanda, .opsi .tanda {
+  position: static; background: transparent; padding: 0; border-radius: 0;
+  font-family: inherit; letter-spacing: 0; z-index: auto;
+}
 .opsi-mantra .tanda { font-size: 13px; font-weight: 600; text-align: center; }
 /* Sebelum diperiksa: yang dipilih hanya DITANDAI, belum dinilai. Itu yang
    membuat siswa boleh berganti pikiran tanpa jawabannya terlanjur tercatat. */
@@ -3186,7 +3207,7 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   font-weight: 600; cursor: pointer; display: inline-flex; align-items: center;
   justify-content: center; border: 1px solid var(--garis-tegas);
   background: transparent; color: var(--tinta-72);
-  transition: transform 0.15s, background 0.2s, border-color 0.2s;
+  transition: transform var(--d-umpan) var(--kurva), background var(--d-umpan), border-color var(--d-umpan), color var(--d-umpan), box-shadow var(--d-umpan);
 }
 .peta-kotak:hover { transform: translateY(-1px); border-color: var(--emas); }
 .peta-kotak[data-keadaan='benar'] { background: rgba(110, 156, 122, 0.18); border-color: var(--hijau); color: var(--hijau); }
@@ -3233,19 +3254,61 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .lencana .ikon { grid-row: 1 / span 2; font-size: 24px; line-height: 1; text-align: center; }
 .lencana .nama { font-size: 13px; font-weight: 600; color: var(--tinta); }
 .lencana .syarat { font-size: 11.5px; line-height: 1.35; color: var(--tinta-62); }
+.lencana { transition: opacity var(--d-keluar), border-color var(--d-keluar), background var(--d-keluar); }
 .lencana[data-diraih='false'] { opacity: 0.55; }
 .lencana[data-diraih='false'] .ikon { filter: grayscale(1); }
 .lencana[data-diraih='true'] { border-color: var(--emas); background: var(--emas-10); }
 
-/* Jendela kecil (keluar, lencana baru) */
-.tirai-jendela {
-  position: fixed; inset: 0; z-index: 60; display: flex; align-items: center;
-  justify-content: center; padding: 20px; background: rgba(16, 26, 43, 0.45);
+/* ============================================================
+   D. Jendela (sistem gerak Panggung tahap 2, 17 Sep 2026)
+   SATU jenis jendela untuk skor, lencana, keluar, dan mode guru: elemen
+   `<dialog>` lewat components/mantra/Jendela.tsx. Layar lebar: jendela
+   membesar dari 0,96 sambil memudar masuk (400 ms), tirai memudar lebih
+   dulu; keluar lebih cepat (300 ms). HP: lembar naik dari bawah.
+   `transition-behavior: allow-discrete` pada display dan overlay membuat
+   peramban menunggu transisi keluar sebelum benar-benar menyembunyikan
+   dialog; `@starting-style` memberi titik awal transisi masuk. Panggung
+   di belakangnya ([data-panggung], hanya halaman bank soal) mundur ke
+   skala 0,985 selama jendela terbuka.
+   ============================================================ */
+.dialog-mantra {
+  border: 0; padding: 0; margin: auto; background: transparent; color: var(--tinta);
+  max-width: min(100vw - 32px, 26rem); max-height: calc(100dvh - 32px);
+  overflow: visible;
+  opacity: 0; transform: scale(var(--skala-jendela));
+  transition: opacity var(--d-keluar) var(--kurva-keluar), transform var(--d-keluar) var(--kurva-keluar),
+              overlay var(--d-keluar) allow-discrete, display var(--d-keluar) allow-discrete;
 }
-.jendela-kecil {
-  width: min(100%, 26rem); background: var(--kartu); border-radius: 18px;
-  padding: 24px 26px; box-shadow: 0 24px 60px rgba(16, 26, 43, 0.28);
+.dialog-mantra[open] {
+  opacity: 1; transform: none;
+  transition: opacity var(--d-keluar) linear 40ms, transform var(--d-jendela) var(--kurva) 40ms,
+              overlay var(--d-jendela) allow-discrete, display var(--d-jendela) allow-discrete;
 }
+@starting-style { .dialog-mantra[open] { opacity: 0; transform: scale(var(--skala-jendela)); } }
+.dialog-mantra::backdrop {
+  background: rgba(16, 26, 43, 0);
+  transition: background var(--d-keluar) linear, overlay var(--d-keluar) allow-discrete, display var(--d-keluar) allow-discrete;
+}
+.dialog-mantra[open]::backdrop { background: rgba(16, 26, 43, 0.45); }
+@starting-style { .dialog-mantra[open]::backdrop { background: rgba(16, 26, 43, 0); } }
+.dialog-mantra:focus { outline: none; }
+.jendela-isi {
+  background: var(--kartu); border-radius: 18px; padding: 24px 26px;
+  box-shadow: 0 24px 60px rgba(16, 26, 43, 0.28); max-height: calc(100dvh - 32px); overflow: auto;
+}
+[data-panggung] { transition: transform var(--d-jendela) var(--kurva-pindah); }
+body[data-jendela='true'] [data-panggung] { transform: scale(var(--skala-panggung)); }
+@media (max-width: 860px) {
+  .dialog-mantra { margin: auto 0 0; max-width: 100vw; width: 100%; transform: translateY(100%); }
+  .dialog-mantra[open] { transform: none; }
+  @starting-style { .dialog-mantra[open] { transform: translateY(100%); } }
+  .jendela-isi { border-radius: 20px 20px 0 0; padding: 22px 20px calc(22px + env(safe-area-inset-bottom)); max-height: 88dvh; }
+  body[data-jendela='true'] [data-panggung] { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dialog-mantra, .dialog-mantra[open], .dialog-mantra::backdrop { transition: none; }
+}
+.jendela-kecil { width: 100%; }
 .jendela-kecil h3 {
   font-family: var(--font-serif), Georgia, serif; font-weight: 500; font-size: 22px;
   margin: 0 0 8px; color: var(--tinta);
@@ -3259,6 +3322,11 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   display: flex; align-items: center; gap: 14px; text-align: left;
   padding: 12px 14px; margin-top: 10px; border-radius: 12px; background: var(--emas-10);
 }
+/* Perayaan lencana: keping tumbuh dari 0,8, cincin emas dari 0,6, lalu
+   baris teks dan tombol naik bertahap 50 ms (mulai 120 ms). Tanpa konfeti. */
+.dialog-mantra[open] .lencana-raih .ikon { animation: keping-tumbuh var(--d-jendela) var(--kurva) both; }
+.dialog-mantra[open] .lencana-raih { animation: cincin-tumbuh var(--d-jendela) var(--kurva) 40ms both; }
+.dialog-mantra[open] [data-tahap] { animation: naik-umpan var(--d-keluar) var(--kurva) both; animation-delay: calc(120ms + var(--jeda-tahap) * var(--n, 0)); }
 .lencana-raih .ikon { font-size: 34px; line-height: 1; }
 .lencana-raih .nama { font-size: 16px; font-weight: 600; color: var(--tinta); }
 .lencana-raih .syarat { font-size: 13px; color: var(--tinta-62); }
@@ -3267,8 +3335,12 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   font-family: var(--font-serif), Georgia, serif; font-size: 40px; line-height: 1.1;
   color: var(--tinta); margin: 6px 0 10px;
 }
-.skor-angka .benar { color: var(--hijau); }
-.skor-angka .pisah { color: var(--tinta-50); margin: 0 6px; }
+.skor-angka .benar { color: var(--hijau); font-variant-numeric: tabular-nums; }
+/* `.pisah` generik (pemisah langkah) punya latar dan lebar; di skor ia cuma garis miring */
+.skor-angka .pisah { color: var(--tinta-50); margin: 0 6px; background: none; width: auto; height: auto; display: inline; padding: 0; border: 0; }
+/* garis emas di bawah angka skor tergambar dari kiri sesudah angkanya mulai menghitung */
+.skor-angka .garis { display: block; height: 2px; width: 72px; margin-top: 8px; background: var(--emas); transform-origin: left center; }
+.dialog-mantra[open] .skor-angka .garis { animation: garis-tergambar 480ms var(--kurva) 120ms both; }
 .jendela-skor p { margin-bottom: 4px; }
 
 /* Rumus KaTeX di soal dan pembahasan (TeksMat, 17 Sep 2026). Sebaris:
@@ -3305,7 +3377,9 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .soal-aksi .kabar { font-size: 13px; flex: 1; min-width: 12rem; }
 
 /* --- panel pembahasan --- */
-.bahas-isi { animation: naik 0.34s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+/* pembahasan sebagai HADIAH sesudah Periksa: naik 8 px + pudar 240 ms, mulai
+   60 ms sesudah tanda benar/salah; yang memang sudah terbuka tampil diam */
+.bahas-isi[data-baru='true'] { animation: naik-umpan 240ms var(--kurva) 60ms both; }
 .bahas-jawab {
   margin: 12px 0 6px; font-size: 14px; color: var(--tinta-72);
 }
@@ -3424,6 +3498,8 @@ html[data-muat-awal='true'] [data-bertahap] > :nth-child(-n+5) {
   animation: naik-umpan var(--d-keluar) var(--kurva) backwards;
   animation-delay: calc(120ms + var(--jeda-tahap) * var(--n, 0));
 }
+/* Tombol pasang PWA memudar masuk begitu peramban mengizinkan */
+.tombol-pasang { animation: isi-ganti 200ms linear both; }
 /* Teks tombol yang berganti ("Mulai" jadi "Lanjutkan Materi 03", "Periksa"
    jadi "Berikutnya"): dibungkus `<span class="label" key={teks}>`, jadi
    teks barunya memudar masuk 140 ms, bukan berkedip. Lebar tombolnya
@@ -3564,6 +3640,8 @@ html[data-muat-awal='true'] [data-bertahap] > :nth-child(-n+5) {
    hilang, induk posisinya jadi seluruh panel dan lencananya mendarat di
    pojok kiri atas, menutupi remah roti. */
 .materi-satu-layar .tanda { display: none; }
+/* kecuali tanda ✓ ✕ di opsi kuis dan latihan materi (17 Sep 2026 malam) */
+.materi-satu-layar .opsi .tanda { display: inline-block; }
 
 /* Remah roti sebagai baris pertama bacaan, bukan bilah selebar halaman. */
 .materi-satu-layar .remah {
@@ -3712,12 +3790,10 @@ html[data-muat-awal='true'] [data-bertahap] > :nth-child(-n+5) {
 .nav-guru:hover { color: var(--kertas-tinta); border-color: rgba(250, 249, 245, 0.6); background: rgba(250, 249, 245, 0.08); }
 .nav-guru-aktif { color: var(--panggung); background: var(--emas-terang); border-color: var(--emas-terang); }
 .nav-guru-aktif:hover { color: var(--panggung); background: var(--emas-cerah); border-color: var(--emas-cerah); }
-.dialog-guru {
-  border: 1px solid var(--garis); border-radius: var(--r-kartu); padding: 26px 28px;
-  width: min(92vw, 420px); background: var(--kertas); color: var(--tinta);
-  box-shadow: 0 24px 60px rgba(16, 26, 43, 0.28);
-}
-.dialog-guru::backdrop { background: rgba(16, 26, 43, 0.45); }
+/* Dialog mode guru memakai Jendela (`.dialog-mantra`) sejak 17 Sep 2026 malam;
+   di sini hanya lebar dan isinya. */
+.dialog-guru { max-width: min(100vw - 32px, 420px); }
+.dialog-guru .jendela-isi { padding: 26px 28px; background: var(--kertas); }
 .dialog-guru h2 { font-family: var(--font-serif), Georgia, serif; font-weight: 400; font-size: 24px; margin: 4px 0 8px; }
 .dialog-guru p { font-size: 14px; line-height: 1.6; color: var(--tinta-62); margin: 0 0 14px; }
 .dialog-guru label { display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 6px; }

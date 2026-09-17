@@ -9,57 +9,57 @@ untuk lipat pohon dan mode fokus). Tanpa em-dash.
 
 ## Tahap 1: A pindah halaman, B nav, G daftar
 
-- [ ] 1.1 `web/app/globals.css`: ganti blok token gerak (baris 96 sampai 101) dengan
+- [x] 1.1 `web/app/globals.css`: ganti blok token gerak (baris 96 sampai 101) dengan
       blok 1 gerak-mantra.css (nama lama tetap); tambah keyframes blok 2; hapus
       `main { animation: tab-masuk }` beserta keyframes-nya; tempel blok 3
       (A), 4 (B), 9 (G) yang disesuaikan ke kelas yang ada. `::view-transition { pointer-events: none }`.
       Reduced motion: `::view-transition-old(*), -new(*), -group(*) { animation-duration: 0s }`.
-- [ ] 1.2 `web/react-canary.d.ts`: `/// <reference types="react/canary" />`.
-- [ ] 1.3 `web/components/mantra/Panggung.tsx` (client): `<ViewTransition enter="panggung-masuk" exit="panggung-keluar" default="none">`.
+- [x] 1.2 `web/react-canary.d.ts`: `/// <reference types="react/canary" />`.
+- [x] 1.3 `web/components/mantra/Panggung.tsx` (client): `<ViewTransition enter="panggung-masuk" exit="panggung-keluar" default="none">`.
       `web/components/mantra/ArahRute.tsx` (client, ±50 baris): klik tangkap
       pada `a[href]` internal + `popstate` → `html[data-arah]` (maju/kembali)
       dan `html[data-transisi]` 520 ms. `lib/arah-rute.ts`: `hitungArah(dari, ke)`,
       `aturArah(ke)` untuk `router.push`.
-- [ ] 1.4 `web/app/layout.tsx`: `<ArahRute />`, `<Nav />` sekali; hapus `<Nav>` dari
+- [x] 1.4 `web/app/layout.tsx`: `<ArahRute />`, `<Nav />` sekali; hapus `<Nav>` dari
       16 halaman; bungkus isi tiap halaman dengan `<Panggung>` (main + Kaki).
       `Nav.tsx`: label dari alamat (`/latihan/<topik>` → "Latihan <Nama>",
       `/latihan/contoh-gambar` → "Contoh gambar soal", `/latihan` → "Latihan",
       `/topik/<slug>` → nama topik) lalu `sesi.judul` menimpanya.
-- [ ] 1.5 `Nav.tsx`: tidak `return null` saat fokus (`data-fokus` + `inert`);
+- [x] 1.5 `Nav.tsx`: tidak `return null` saat fokus (`data-fokus` + `inert`);
       `.nav-tab-garis` satu elemen berpindah lewat `--garis-x/--garis-w`
       (ukur tab aktif per rute dan saat resize); `nav-meta key={teks}`;
       `.nav-menu` grid-template-rows (bukan display none) dengan `inert`
       saat tertutup; `data-belajar` memicu `naik-umpan` pada pil.
-- [ ] 1.6 `PetaMateri.tsx` (`kisi-bab`) dan `DaftarLatihan.tsx`: `data-bertahap`
+- [x] 1.6 `PetaMateri.tsx` (`kisi-bab`) dan `DaftarLatihan.tsx`: `data-bertahap`
       dengan `--n`, lepas `MunculSaatGulir` di daftar itu (satu sumber gerak);
       `[data-transisi]` mematikan bertahap.
-- [ ] 1.7 Elemen bersama: `judul-bab-<slug>` pada h3 kartu bab dan h1 HalamanTopik,
+- [x] 1.7 (DIHAPUS atas umpan balik ARYA) Elemen bersama: `judul-bab-<slug>` pada h3 kartu bab dan h1 HalamanTopik,
       `kartu-latihan-<slug>` pada kartu DaftarLatihan dan kepala ArenaLatihan
       (`<ViewTransition name share="morph" default="none">`); dibuang kalau
       hasilnya jelek.
-- [ ] 1.8 `app/topik/[slug]/page.tsx`: `data-isi-asli` pada pembungkus isi
+- [x] 1.8 `app/topik/[slug]/page.tsx`: `data-isi-asli` pada pembungkus isi
       (`isi-ganti` 160 ms) supaya kerangka → isi tidak melompat.
-- [ ] 1.9 Cek: Beranda → Peta Materi → belajar → kembali (arah), tab kanan/kiri,
+- [x] 1.9 Cek: Beranda → Peta Materi → belajar → kembali (arah), tab kanan/kiri,
       tombol Kembali peramban, menu HP, garis tab, reduced motion, laci HP
       masih menempel ke layar (transform main tidak ada).
 
 ## Tahap 2: D jendela, F umpan balik, E keping (bank soal, kuis, latihan bab)
 
-- [ ] 2.1 `web/components/mantra/Jendela.tsx` (`<dialog>`, showModal, Esc,
+- [x] 2.1 `web/components/mantra/Jendela.tsx` (`<dialog>`, showModal, Esc,
       klik tirai, `body[data-jendela]`, fokus kembali); CSS `.dialog-mantra`
       dengan `@starting-style` dan `allow-discrete`; HP lembar dari bawah.
       `TombolGuru` memakai kelas yang sama.
-- [ ] 2.2 `ArenaLatihan.tsx`: tiga jendela → `<Jendela>`; `useHitung` (900 ms,
+- [x] 2.2 `ArenaLatihan.tsx`: tiga jendela → `<Jendela>`; `useHitung` (900 ms,
       sessionStorage `matra:hitung-<halaman>`) untuk skor, `bar-besar`,
       `latihan-persen`; `.skor-angka .garis`; `.lencana-raih` bertahap `--n`.
-- [ ] 2.3 Umpan balik: `.opsi-mantra .tanda` `tanda-tumbuh`; `.kabar-periksa`;
+- [x] 2.3 Umpan balik: `.opsi-mantra .tanda` `tanda-tumbuh`; `.kabar-periksa`;
       `.kartu-soal key={no} data-arah` (Berikutnya, Sebelumnya, peta, keping);
       `.kartu-bahas[data-baru]` hanya sesudah Periksa; label tombol
       `key={teks}` dengan min-width; `.peta-kotak` transisi warna;
       `.lencana[data-raih]`; `TombolPasang` selalu dirakit `[data-siap]`.
-- [ ] 2.4 `Kuis.tsx`, `Latihan.tsx`: `.opsi .tanda` dan pembahasan `naik-umpan`
+- [x] 2.4 `Kuis.tsx`, `Latihan.tsx`: `.opsi .tanda` dan pembahasan `naik-umpan`
       dengan bahasa yang sama (tanpa goyang).
-- [ ] 2.5 Cek: Periksa benar/salah, Berikutnya 5× cepat, Lihat skor 2× cepat,
+- [x] 2.5 Cek: Periksa benar/salah, Berikutnya 5× cepat, Lihat skor 2× cepat,
       Esc dan fokus kembali, HP lembar dari bawah, reduced motion.
 
 ## Tahap 3: C laci dan panel, E pindah materi (halaman belajar)

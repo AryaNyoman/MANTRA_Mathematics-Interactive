@@ -1,5 +1,40 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 17 SEP MALAM (4): SISTEM GERAK TAHAP 2, JENDELA DAN UMPAN BALIK SOAL
+
+- `components/mantra/Jendela.tsx`: SATU jendela `<dialog>` (showModal) untuk
+  skor, lencana, keluar, dan mode guru (TombolGuru ikut). Kunci fokus, Esc,
+  fokus kembali ke pembuka dari peramban. CSS `.dialog-mantra`: layar lebar
+  membesar dari 0,96 + pudar (400 ms), tirai memudar lebih dulu, keluar 300
+  ms lewat `transition-behavior: allow-discrete` dan `@starting-style`; HP
+  lembar naik dari bawah. `body[data-jendela]` mengecilkan `[data-panggung]`
+  (main bank soal) ke 0,985; dua jendela boleh terbuka bersamaan (skor dan
+  lencana sesudah soal ke-15), tanda body dicabut saat yang terakhir tutup.
+- `lib/hitung.ts`: `useHitung` (0 ke nilai, 900 ms, ease-out kubik, jeda 120)
+  untuk angka skor (tiap jendela dibuka) dan persen plus batang ringkasan
+  (sekali per sesi tab, `sekaliPerSesi`, sessionStorage matra:hitung-*);
+  garis emas `.skor-angka .garis` tergambar; perayaan lencana: keping dan
+  cincin tumbuh, baris naik bertahap 50 ms (`data-tahap`, `--n`).
+- Umpan balik: tanda ✓ ✕ tumbuh dari 0,4 (opsi salah TIDAK digoyang), badan
+  soal `.soal-badan` berganti bergeser 10 px dari arah tujuan (key per soal,
+  `data-arah`; tombol Periksa/Sebelumnya/Berikutnya di luar pembungkus supaya
+  fokus tidak hilang), kabar memudar, pembahasan `.bahas-isi[data-baru]` naik
+  masuk hanya sesudah Periksa di kunjungan ini, peta soal dan keping 140 ms;
+  Kuis dan Latihan materi memakai bahasa yang sama (`.opsi .tanda`,
+  `.pembahasan` naik-umpan).
+- Dua cacat lama ketemu: aturan generik `.tanda` (label sudut widget,
+  position absolute) membuat ✓ ✕ opsi nyasar ke sudut kiri atas kartu soal,
+  dan `.materi-satu-layar .tanda { display: none }` menyembunyikannya di
+  kuis materi; keduanya dibatalkan untuk `.opsi`. `.pisah` generik memberi
+  kotak abu pada garis miring skor, dibatalkan.
+- Penyimpangan dari rancangan: TombolPasang tetap dilepas saat tidak ada
+  tawaran (celah kosong permanen di iPhone lebih buruk daripada satu
+  pergeseran kecil), hanya memudar masuk 200 ms.
+- Diuji playwright-cli 1280 dan 390 px: jawab, Periksa, Berikutnya 5x (fokus
+  tetap di tombol), Sebelumnya, jendela keluar (Esc, fokus kembali ke tautan,
+  main mundur 0,985), lembar HP, 15 soal dijawab lewat skrip lalu jendela
+  skor dan lencana, dialog guru, latihan materi; tsc, eslint, build lulus.
+
 ## 17 SEP MALAM (3): RUMUS BACAAN MATERI DITULIS DENGAN LAMBANG DAN DITATA KATEX; GERAK PINDAH HALAMAN DIKOREKSI
 
 ARYA (sesudah tahap 1 gerak tayang): (1) animasi judul yang terbang antar

@@ -3,7 +3,9 @@
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { aturArah } from '@/lib/arah-rute'
-import { useEffect, useState, useSyncExternalStore } from 'react'
+import { sekaliPerSesi, useHitung } from '@/lib/hitung'
+import Jendela from '@/components/mantra/Jendela'
+import { useEffect, useState, useSyncExternalStore, type CSSProperties } from 'react'
 import type { SoalKuis, TingkatKuis } from '@/content/tipe'
 import { cariBab } from '@/content/subbab'
 import { langgan } from '@/lib/simpanan'
@@ -87,7 +89,8 @@ export default function ArenaLatihan({
   const alamatTingkat = (t: TingkatKuis) => `/latihan/${topik}?tingkat=${encodeURIComponent(t)}`
 
   return (
-    <main className="mantra-lebar" style={{ paddingTop: 38 }}>
+    /* data-panggung: halaman mundur sedikit selama jendela terbuka (layar lebar). */
+    <main className="mantra-lebar" style={{ paddingTop: 38 }} data-panggung="">
       <div className="remah-latihan">
         <Link href="/latihan" data-tanpa-tanya="">Latihan</Link>
         <span className="remah-pisah">/</span>
@@ -157,6 +160,17 @@ function Ringkasan({
   buka: (t: TingkatKuis) => void
 }) {
   const diraih = new Set(k.lencana)
+  /* Persen dan batangnya menghitung dari nol SEKALI per sesi tab (kunci
+     matra:hitung-<topik>); dibuka lagi = langsung angka akhirnya. Diputuskan
+     sesudah hidup supaya gambaran server (angka akhir) tidak berbeda dari
+     gambaran pertama di peramban. */
+  const [hitung, setHitung] = useState(false)
+  useEffect(() => {
+    if (!sekaliPerSesi(`latihan-${nama}`)) return
+    const id = requestAnimationFrame(() => setHitung(true))
+    return () => cancelAnimationFrame(id)
+  }, [nama])
+  const persenTampil = useHitung(persen, hitung)
   return (
     <>
       <div className="kicker">Bank soal</div>
@@ -175,10 +189,10 @@ function Ringkasan({
             </div>
             <h2>Kemajuanmu di topik ini</h2>
           </div>
-          <div className="latihan-persen">{persen}%</div>
+          <div className="latihan-persen angka-rata">{persenTampil}%</div>
         </div>
         <div className="bar-besar" role="img" aria-label={`Kemajuan ${persen} persen`}>
-          <span style={{ width: `${persen}%` }} />
+          <span style={{ width: '100%', transform: `scaleX(${persenTampil / 100})`, transformOrigin: 'left center' }} />
         </div>
 
         {/* Lencana: dihidupkan lagi 17 Sep 2026 (ARYA: "agar siswa lebih
@@ -259,7 +273,14 @@ function Soal({
      tingkat, dan gambaran pertama di peramban sama dengan di server. */
   const ke = Math.min(k.posisi[tingkat] ?? 0, Math.max(soal.length - 1, 0))
   const s: SoalKuis | undefined = soal[ke]
-  const keSoal = (n: number) => simpanPosisi(topik, tingkat, Math.max(0, Math.min(n, soal.length - 1)))
+  /* Arah pergantian soal: Berikutnya dan lompat ke nomor lebih besar datang
+     dari kanan, Sebelumnya dari kiri; keping tingkat mengikuti urutannya. */
+  const [arah, setArah] = useState<'maju' | 'mundur'>('maju')
+  const keSoal = (n: number) => {
+    const tujuan = Math.max(0, Math.min(n, soal.length - 1))
+    setArah(tujuan >= ke ? 'maju' : 'mundur')
+    simpanPosisi(topik, tingkat, tujuan)
+  }
 
   /* Jawaban di KUNJUNGAN ini, per soal. Kalau belum ada, keadaan soal diambil
      dari simpanan: pernah benar = jawabannya tertandai dan pembahasan
@@ -280,6 +301,9 @@ function Soal({
   // berapa kali Periksa ditekan di kunjungan ini: penentu jendela keluar
   const [dijawabSesi, setDijawabSesi] = useState(0)
   const [lencanaBaru, setLencanaBaru] = useState<string[]>([])
+  // lencana tetap tergambar selama jendelanya memudar keluar; isinya baru
+  // diganti saat lencana berikutnya diraih
+  const [lencanaTutup, setLencanaTutup] = useState(false)
   const [tujuanKeluar, setTujuanKeluar] = useState<string | null>(null)
 
 
@@ -331,7 +355,10 @@ function Soal({
     if (guru) return
     catatJawaban(topik, s.id, pilih === s.benar, pilih)
     const baru = segarkanLencana(topik, bank)
-    if (baru.length > 0) setLencanaBaru(baru)
+    if (baru.length > 0) {
+      setLencanaBaru(baru)
+      setLencanaTutup(false)
+    }
   }
 
   /* Jendela keluar: menangkap klik tautan di mana pun di halaman (nav, remah,
@@ -378,6 +405,8 @@ function Soal({
     : 'var(--tinta-50)'
 
   const lencanaDiraih = LENCANA.filter((l) => lencanaBaru.includes(l.id))
+  // angka benar di jendela skor menghitung dari nol tiap kali jendelanya dibuka
+  const benarTampil = useHitung(jumlahBenar, skorTampil)
   // urutan tampilan pilihan soal ini: urut[posisi] = indeks asli di bank
   const urut = s ? urutanPilihan(s.id, benih, s.pilihan.length) : []
 
@@ -411,7 +440,11 @@ function Soal({
                     ? `Soal tingkat ${r.tingkat}`
                     : `Selesaikan ${SYARAT_NAIK} soal tingkat sebelumnya dulu`
                 }
-                onClick={() => { if (r.tingkat !== tingkat) gantiTingkat(r.tingkat) }}
+                onClick={() => {
+                  if (r.tingkat === tingkat) return
+                  setArah(URUT_TINGKAT.indexOf(r.tingkat) > URUT_TINGKAT.indexOf(tingkat) ? 'maju' : 'mundur')
+                  gantiTingkat(r.tingkat)
+                }}
               >
                 {r.tingkat}
                 <span className="jml angka-rata">
@@ -466,6 +499,12 @@ function Soal({
             </p>
           ) : (
             <>
+              {/* `key`: badan soal dibuat baru tiap soal berganti, jadi ia
+                  bergeser 10 px dari arah tujuannya (globals.css .soal-badan).
+                  Tombol Periksa, Sebelumnya, Berikutnya SENGAJA di luar
+                  pembungkus ini supaya tidak ikut dilepas dan fokus papan
+                  ketik tidak hilang saat menekan Berikutnya berulang. */}
+              <div className="soal-badan" key={`${tingkat}:${s.id}`} data-arah={arah}>
               <p className="soal-teks"><TeksMat teks={s.pertanyaan} /></p>
               {/* Gambar situasi soal tampil SEBELUM dijawab: siswa cerita
                   butuh melihat keadaannya, bukan menebak dari kalimat. */}
@@ -505,6 +544,7 @@ function Soal({
                   )
                 })}
               </div>
+              </div>
 
               <div className="soal-aksi">
                 <button
@@ -525,7 +565,7 @@ function Soal({
                     Berikutnya →
                   </button>
                 </span>
-                <span className="kabar" style={{ color: warnaKabar }}>
+                <span className="kabar kabar-periksa" key={kabar} style={{ color: warnaKabar }}>
                   {kabar}
                 </span>
               </div>
@@ -537,7 +577,10 @@ function Soal({
         <aside className="kartu-bahas" aria-live="polite">
           <div className="kicker">Pembahasan</div>
           {periksa && s ? (
-            <div className="bahas-isi">
+            /* data-baru: pembahasan yang baru saja dibuka lewat Periksa di
+               kunjungan ini naik masuk sebagai hadiah; yang memang sudah
+               terbuka (soal yang pernah benar dibuka lagi) tampil diam. */
+            <div className="bahas-isi" key={s.id} data-baru={jawabSesi[s.id] !== undefined}>
               <div className="bahas-jawab">
                 Jawaban benar: <b>{hurufTampil(urut, s.benar)}</b>
               </div>
@@ -578,18 +621,20 @@ function Soal({
         </aside>
       </div>
 
-      {/* Jendela skor sesudah semua soal tingkat ini terjawab */}
-      {skorTampil && (
-        <div className="tirai-jendela" role="dialog" aria-modal="true" aria-labelledby="judul-skor">
+      {/* Jendela skor sesudah semua soal tingkat ini terjawab. Ketiga jendela
+          memakai Jendela (<dialog>): kunci fokus, Esc, dan fokus kembali ke
+          tombol pembuka diberikan peramban. */}
+      <Jendela buka={skorTampil} onTutup={() => setSkorTampil(false)} labelId="judul-skor">
           <div className="jendela-kecil jendela-skor">
             <div className="kicker">Tingkat {tingkat} selesai</div>
             <h3 id="judul-skor">
               {jumlahSalah === 0 ? 'Semua benar!' : `${jumlahBenar} benar, ${jumlahSalah} salah`}
             </h3>
             <div className="skor-angka">
-              <span className="benar">{jumlahBenar}</span>
+              <span className="benar">{benarTampil}</span>
               <span className="pisah">/</span>
               <span>{soal.length}</span>
+              <span className="garis" aria-hidden="true" />
             </div>
             <p>
               {jumlahSalah === 0
@@ -613,33 +658,36 @@ function Soal({
               ) : null}
             </div>
           </div>
-        </div>
-      )}
+      </Jendela>
 
-      {/* Perayaan lencana baru: satu jendela kecil, ditutup sendiri oleh siswa. */}
-      {lencanaDiraih.length > 0 && (
-        <div className="tirai-jendela" role="dialog" aria-modal="true" aria-labelledby="judul-lencana">
+      {/* Perayaan lencana baru: satu jendela kecil, ditutup sendiri oleh siswa.
+          Keping dan cincin tumbuh, baris teks dan tombol naik bertahap
+          (data-tahap, --n). Tanpa konfeti. */}
+      <Jendela
+        buka={lencanaDiraih.length > 0 && !lencanaTutup}
+        onTutup={() => setLencanaTutup(true)}
+        labelId="judul-lencana"
+      >
           <div className="jendela-kecil jendela-lencana">
-            <div className="kicker">Lencana baru</div>
-            {lencanaDiraih.map((l) => (
+            <div className="kicker" data-tahap="" style={{ '--n': 0 } as CSSProperties}>Lencana baru</div>
+            {lencanaDiraih.map((l, i) => (
               <div key={l.id} className="lencana-raih">
                 <span className="ikon" aria-hidden="true">{l.ikon}</span>
-                <div>
-                  <div id="judul-lencana" className="nama">{l.nama}</div>
+                <div data-tahap="" style={{ '--n': i + 1 } as CSSProperties}>
+                  <div id={i === 0 ? 'judul-lencana' : undefined} className="nama">{l.nama}</div>
                   <div className="syarat">{l.syarat}</div>
                 </div>
               </div>
             ))}
-            <button type="button" className="pil-gelap" onClick={() => setLencanaBaru([])} autoFocus>
+            <button type="button" className="pil-gelap" data-tahap="" style={{ '--n': lencanaDiraih.length + 1 } as CSSProperties}
+                    onClick={() => setLencanaTutup(true)} autoFocus>
               Lanjut
             </button>
           </div>
-        </div>
-      )}
+      </Jendela>
 
       {/* Jendela keluar */}
-      {tujuanKeluar !== null && (
-        <div className="tirai-jendela" role="dialog" aria-modal="true" aria-labelledby="judul-keluar">
+      <Jendela buka={tujuanKeluar !== null} onTutup={() => setTujuanKeluar(null)} labelId="judul-keluar">
           <div className="jendela-kecil">
             <h3 id="judul-keluar">Keluar dari latihan?</h3>
             <p>Jawabanmu sudah tersimpan. Kamu bisa melanjutkan dari soal ini kapan saja.</p>
@@ -647,13 +695,12 @@ function Soal({
               <button type="button" className="pil-garis" onClick={() => setTujuanKeluar(null)} autoFocus>
                 Tetap di sini
               </button>
-              <button type="button" className="pil-gelap" onClick={() => pergi(tujuanKeluar)}>
+              <button type="button" className="pil-gelap" onClick={() => tujuanKeluar !== null && pergi(tujuanKeluar)}>
                 Keluar
               </button>
             </div>
           </div>
-        </div>
-      )}
+      </Jendela>
     </>
   )
 }

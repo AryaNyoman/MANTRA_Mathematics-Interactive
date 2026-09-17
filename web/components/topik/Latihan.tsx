@@ -51,7 +51,8 @@ export default function Latihan({ soal }: { soal: Soal[] }) {
               disabled={dipilih !== null}
             >
               <span className="huruf">{String.fromCharCode(65 + n)}</span>
-              <TeksMat teks={p} blok={false} />
+              <span className="isi"><TeksMat teks={p} blok={false} /></span>
+              <span className="tanda" aria-hidden="true">{kelas === 'benar' ? '✓' : kelas === 'salah' ? '✕' : ''}</span>
             </button>
           )
         })}

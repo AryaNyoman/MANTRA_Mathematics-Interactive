@@ -75,3 +75,10 @@ Prompt yang melahirkan rancangan ini: `../PROMPT-CLAUDE-DESIGN-GERAK.md`.
   bank soal dan daftar latihan**, bukan halaman belajar: `transform` pada
   `main` menjadikan `main` acuan bagi anak `position: fixed`, dan laci HP di
   halaman belajar pernah rusak karena itu (catatan 3 Sep di globals.css).
+- **TombolPasang tidak memesan tempat kosong.** Di iPhone dan Firefox peristiwa
+  `beforeinstallprompt` tidak pernah datang, jadi celah permanen di samping
+  tombol utama lebih mengganggu daripada satu pergeseran kecil saat tombolnya
+  muncul; tombolnya cukup memudar masuk 200 ms.
+- **Tombol Periksa, Sebelumnya, Berikutnya berada di luar badan soal yang
+  di-`key`**, supaya menekan Berikutnya lima kali berturut-turut tidak
+  melepas tombol yang sedang difokus.
