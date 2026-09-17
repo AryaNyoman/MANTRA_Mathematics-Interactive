@@ -7,7 +7,7 @@ import { TOPIK, type Topik } from '@/content/topik'
 import { cariBab } from '@/content/subbab'
 import type { SoalKuis } from '@/content/tipe'
 import { langgan } from '@/lib/simpanan'
-import { bacaLatihan, persenTopik, ringkasPerTingkat, SYARAT_NAIK } from '@/lib/latihan-kemajuan'
+import { bacaLatihan, KOSONG_JSON, LENCANA, persenTopik, ringkasPerTingkat, SYARAT_NAIK } from '@/lib/latihan-kemajuan'
 import { useModeGuru } from '@/lib/mode-guru'
 import LatarBab from '@/components/latihan/LatarBab'
 import MunculSaatGulir from '@/components/mantra/MunculSaatGulir'
@@ -109,7 +109,7 @@ function KartuBab({ topik, bank }: { topik: Topik; bank: SoalKuis[] }) {
   const kemajuan = useSyncExternalStore(
     langgan,
     () => JSON.stringify(bacaLatihan(topik.slug)),
-    () => JSON.stringify({ benar: [], dicoba: 0, lencana: [] }),
+    () => KOSONG_JSON,
   )
   const k = JSON.parse(kemajuan) as ReturnType<typeof bacaLatihan>
   const bab = cariBab(topik.slug)
@@ -130,6 +130,7 @@ function KartuBab({ topik, bank }: { topik: Topik; bank: SoalKuis[] }) {
           <div className="bab-kicker">
             {bab ? `${bab.kelas} · ` : ''}
             {bank.length} soal
+            {k.lencana.length > 0 ? ` · 🏅 ${k.lencana.length}/${LENCANA.length} lencana` : ''}
           </div>
           <h3>{topik.nama}</h3>
         </div>

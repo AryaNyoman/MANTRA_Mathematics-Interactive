@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import Nav from '@/components/Nav'
 import Kaki from '@/components/mantra/Kaki'
 import ArenaLatihan from '@/components/latihan/ArenaLatihan'
@@ -29,7 +30,10 @@ export default function LatihanVektor() {
   return (
     <>
       <Nav label="Latihan Vektor" />
-      <ArenaLatihan topik="vektor" nama="Vektor" bank={KUIS} />
+      {/* Suspense WAJIB: ArenaLatihan membaca ?tingkat= lewat useSearchParams (17 Sep 2026). */}
+      <Suspense fallback={null}>
+        <ArenaLatihan topik="vektor" nama="Vektor" bank={KUIS} />
+      </Suspense>
       <Kaki />
     </>
   )

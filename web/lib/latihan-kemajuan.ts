@@ -13,9 +13,14 @@ import type { TingkatKuis } from '@/content/trigonometri'
  * membuka halaman. Lencana yang dibagikan terlalu murah justru membuat siswa
  * mengejar lencana dan berhenti membaca.
  *
- * YANG DICATAT hanya id soal yang pernah BENAR. Salah tidak dihukum dan tidak
- * disimpan: siswa boleh mengulang soal yang sama sampai paham tanpa merasa
- * nilainya tercoreng permanen.
+ * YANG DIHITUNG hanya id soal yang pernah BENAR. Salah tidak dihukum: siswa
+ * boleh mengulang soal yang sama sampai paham tanpa merasa nilainya tercoreng
+ * permanen. Sejak 17 Sep 2026 (permintaan ARYA: peta soal "mana yang sudah
+ * dijawab, mana yang belum") pilihan TERAKHIR tiap soal ikut disimpan,
+ * termasuk yang salah, tetapi hanya sebagai tanda di peta dan untuk membuka
+ * kembali soalnya; tanda salah hilang begitu soal itu dijawab benar. Posisi
+ * soal terakhir tiap tingkat juga disimpan supaya refresh atau pindah tingkat
+ * tidak melempar siswa ke nomor satu.
  *
  * INI BUKAN PENILAIAN YANG SAH. Semuanya tersimpan di peramban siswa sendiri
  * dan bisa dihapus siapa pun. Hilang kalau ganti perangkat atau membersihkan
@@ -40,19 +45,39 @@ export type KemajuanLatihan = {
   dicoba: number
   /** id lencana yang sudah diraih */
   lencana: string[]
+  /** pilihan terakhir tiap soal (indeks opsi), termasuk yang salah */
+  jawaban: Record<string, number>
+  /** indeks soal yang terakhir dibuka di tiap tingkat */
+  posisi: Partial<Record<TingkatKuis, number>>
 }
 
-const KOSONG: KemajuanLatihan = { benar: [], dicoba: 0, lencana: [] }
+const KOSONG: KemajuanLatihan = { benar: [], dicoba: 0, lencana: [], jawaban: {}, posisi: {} }
+/** Gambaran server untuk useSyncExternalStore: harus string yang sama tiap kali. */
+export const KOSONG_JSON = JSON.stringify(KOSONG)
+
+function objekAngka(x: unknown): Record<string, number> {
+  if (!x || typeof x !== 'object') return {}
+  const hasil: Record<string, number> = {}
+  for (const [k, v] of Object.entries(x as Record<string, unknown>)) {
+    if (typeof v === 'number' && Number.isInteger(v) && v >= 0) hasil[k] = v
+  }
+  return hasil
+}
 
 export function bacaLatihan(topik: string): KemajuanLatihan {
   try {
     const mentah = baca(KUNCI + topik)
     if (!mentah) return KOSONG
     const d = JSON.parse(mentah) as Partial<KemajuanLatihan>
+    const posisi = objekAngka(d.posisi)
     return {
       benar: Array.isArray(d.benar) ? d.benar.filter((x): x is string => typeof x === 'string') : [],
       dicoba: typeof d.dicoba === 'number' && Number.isFinite(d.dicoba) ? d.dicoba : 0,
       lencana: Array.isArray(d.lencana) ? d.lencana.filter((x): x is string => typeof x === 'string') : [],
+      jawaban: objekAngka(d.jawaban),
+      posisi: Object.fromEntries(
+        Object.entries(posisi).filter(([t]) => (URUT_TINGKAT as string[]).includes(t)),
+      ) as Partial<Record<TingkatKuis, number>>,
     }
   } catch {
     return KOSONG
@@ -63,11 +88,18 @@ function simpan(topik: string, k: KemajuanLatihan): void {
   tulis(KUNCI + topik, JSON.stringify(k))
 }
 
-/** Catat satu jawaban. `id` hanya masuk daftar benar kalau memang benar. */
-export function catatJawaban(topik: string, id: string, tepat: boolean): void {
+/** Catat satu jawaban: pilihannya disimpan; `id` masuk daftar benar hanya kalau benar. */
+export function catatJawaban(topik: string, id: string, tepat: boolean, pilih: number): void {
   const k = bacaLatihan(topik)
   const benar = tepat && !k.benar.includes(id) ? [...k.benar, id] : k.benar
-  simpan(topik, { ...k, benar, dicoba: k.dicoba + 1 })
+  simpan(topik, { ...k, benar, dicoba: k.dicoba + 1, jawaban: { ...k.jawaban, [id]: pilih } })
+}
+
+/** Ingat soal ke berapa yang sedang dibuka di satu tingkat. */
+export function simpanPosisi(topik: string, tingkat: TingkatKuis, ke: number): void {
+  const k = bacaLatihan(topik)
+  if (k.posisi[tingkat] === ke) return
+  simpan(topik, { ...k, posisi: { ...k.posisi, [tingkat]: ke } })
 }
 
 // ---------------------------------------------------------------- kemajuan

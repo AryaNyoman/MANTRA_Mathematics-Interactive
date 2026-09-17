@@ -3090,6 +3090,98 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .opsi-mantra[data-keadaan='salah'] { border-color: var(--jingga); background: rgba(232, 88, 44, 0.09); }
 .opsi-mantra[data-keadaan='salah'] .huruf { background: var(--jingga); color: #fff; }
 .opsi-mantra[data-keadaan='salah'] .tanda { color: var(--jingga); }
+/* Pilihan yang dulu salah, saat soalnya dibuka lagi: ditandai tipis, boleh
+   dipilih ulang (17 Sep 2026). */
+.opsi-mantra[data-keadaan='salah-lalu'] { border-color: rgba(232, 88, 44, 0.45); border-style: dashed; }
+.opsi-mantra[data-keadaan='salah-lalu'] .tanda { color: var(--jingga); opacity: 0.7; }
+
+/* ---- Bank soal 17 Sep 2026: peta soal, arah, lencana, jendela kecil ---- */
+.tajuk-soal .tautan-ringkasan { text-decoration: none; }
+.tajuk-soal .tautan-ringkasan:hover { color: var(--emas); }
+.peta-soal {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 16px;
+}
+.peta-kotak {
+  width: 30px; height: 30px; border-radius: 8px; font: inherit; font-size: 12.5px;
+  font-weight: 600; cursor: pointer; display: inline-flex; align-items: center;
+  justify-content: center; border: 1px solid var(--garis-tegas);
+  background: transparent; color: var(--tinta-72);
+  transition: transform 0.15s, background 0.2s, border-color 0.2s;
+}
+.peta-kotak:hover { transform: translateY(-1px); border-color: var(--emas); }
+.peta-kotak[data-keadaan='benar'] { background: rgba(110, 156, 122, 0.18); border-color: var(--hijau); color: var(--hijau); }
+.peta-kotak[data-keadaan='salah'] { background: rgba(232, 88, 44, 0.12); border-color: var(--jingga); color: var(--jingga); }
+.peta-kotak[data-kini='true'] { box-shadow: 0 0 0 2px var(--kertas), 0 0 0 4px var(--tinta); }
+.peta-keterangan {
+  display: inline-flex; align-items: center; gap: 4px; margin-left: 8px;
+  font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tinta-50);
+}
+.peta-keterangan i {
+  display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-left: 8px;
+  border: 1px solid var(--garis-tegas);
+}
+.peta-keterangan i[data-keadaan='benar'] { background: rgba(110, 156, 122, 0.18); border-color: var(--hijau); }
+.peta-keterangan i[data-keadaan='salah'] { background: rgba(232, 88, 44, 0.12); border-color: var(--jingga); }
+.soal-arah { display: inline-flex; gap: 8px; }
+.soal-aksi .soal-arah .pil-garis { padding: 11px 16px; }
+.soal-aksi .pil-garis:disabled { opacity: 0.4; cursor: not-allowed; }
+.soal-aksi .pil-garis:disabled:hover { border-color: rgba(16, 26, 43, 0.22); color: var(--tinta); }
+
+/* Ubin tingkat sebagai tombol (ringkasan bank soal) */
+.kisi-tingkat-pilih { margin-bottom: 26px; }
+.ubin-tombol {
+  font: inherit; text-align: left; cursor: pointer; background: var(--kartu);
+  color: var(--tinta); display: block; width: 100%;
+}
+.ubin-tombol:disabled { cursor: not-allowed; opacity: 0.6; }
+.ubin-tombol:disabled:hover { transform: none; }
+.ubin-tombol .ajak {
+  margin-top: 8px; font-size: 12.5px; font-weight: 600; color: var(--emas); min-height: 1.2em;
+}
+.ubin-tombol:not(:disabled):hover { border-color: var(--emas); }
+
+/* Baris lencana di kartu kemajuan */
+.baris-lencana {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px; margin-top: 18px;
+}
+.lencana {
+  display: grid; grid-template-columns: 34px 1fr; grid-template-rows: auto auto;
+  column-gap: 10px; align-items: center; padding: 10px 12px;
+  border: 1px solid var(--garis); border-radius: 12px; background: var(--kertas);
+}
+.lencana .ikon { grid-row: 1 / span 2; font-size: 24px; line-height: 1; text-align: center; }
+.lencana .nama { font-size: 13px; font-weight: 600; color: var(--tinta); }
+.lencana .syarat { font-size: 11.5px; line-height: 1.35; color: var(--tinta-62); }
+.lencana[data-diraih='false'] { opacity: 0.55; }
+.lencana[data-diraih='false'] .ikon { filter: grayscale(1); }
+.lencana[data-diraih='true'] { border-color: var(--emas); background: var(--emas-10); }
+
+/* Jendela kecil (keluar, lencana baru) */
+.tirai-jendela {
+  position: fixed; inset: 0; z-index: 60; display: flex; align-items: center;
+  justify-content: center; padding: 20px; background: rgba(16, 26, 43, 0.45);
+}
+.jendela-kecil {
+  width: min(100%, 26rem); background: var(--kartu); border-radius: 18px;
+  padding: 24px 26px; box-shadow: 0 24px 60px rgba(16, 26, 43, 0.28);
+}
+.jendela-kecil h3 {
+  font-family: var(--font-serif), Georgia, serif; font-weight: 500; font-size: 22px;
+  margin: 0 0 8px; color: var(--tinta);
+}
+.jendela-kecil p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--tinta-72); }
+.jendela-aksi { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; flex-wrap: wrap; }
+.jendela-aksi .pil-garis, .jendela-aksi .pil-gelap { padding: 11px 20px; font-size: 13.5px; }
+.jendela-lencana { text-align: center; }
+.jendela-lencana .pil-gelap { margin-top: 16px; padding: 11px 24px; font-size: 13.5px; }
+.lencana-raih {
+  display: flex; align-items: center; gap: 14px; text-align: left;
+  padding: 12px 14px; margin-top: 10px; border-radius: 12px; background: var(--emas-10);
+}
+.lencana-raih .ikon { font-size: 34px; line-height: 1; }
+.lencana-raih .nama { font-size: 16px; font-weight: 600; color: var(--tinta); }
+.lencana-raih .syarat { font-size: 13px; color: var(--tinta-62); }
 .opsi-mantra[data-keadaan='redam'] { opacity: 0.5; }
 .opsi-mantra:disabled { cursor: default; }
 
