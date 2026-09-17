@@ -388,6 +388,11 @@ h1, h2, h3, .disp {
   font-weight: 600; padding: 9px 0;
 }
 .tabel-angka tr.tegas td:last-child { color: var(--bata); font-size: 20px; }
+/* Di halaman belajar nilainya tidak boleh patah ("(1, -1)" sempat jadi dua
+   baris saat tabel berdampingan dengan kendali, 18 Sep); labelnya yang
+   mengalah dan membungkus. */
+.materi-satu-layar .tabel-angka td:last-child { white-space: nowrap; padding-left: 10px; }
+.materi-satu-layar .tabel-angka td:first-child { overflow-wrap: anywhere; }
 
 /* ---------- kotak miskonsepsi ---------- */
 /* Kotak "Sering keliru". Namanya di kode masih `.miskon` karena dipakai di
@@ -3699,8 +3704,37 @@ html[data-muat-awal='true'] [data-bertahap] > :nth-child(-n+5) {
   min-width: 0; min-height: 0;
   overflow-y: auto; overflow-x: hidden;
   background: var(--cekung); border-left: 1px solid var(--garis);
-  padding: 14px; display: block; scrollbar-width: thin;
+  padding: 14px; scrollbar-width: thin;
+  /* Grid satu kolom; saat kolomnya lebar (500 px ke atas, KolomAlat.tsx
+     menulis data-lebar="lebar") kendali dan tabel angka berdampingan supaya
+     gambarnya mendapat lebih banyak tinggi (ARYA 18 Sep 2026: gambar dan
+     kendali harus terlihat bersama). Tinggi gambar disesuaikan KolomAlat.
+     Baris grid `max-content`, BUKAN `auto`: kotak gambar `.layar` memakai
+     overflow hidden, sehingga pada baris `auto` ukuran minimumnya nol dan
+     grid memerasnya sampai kolom pas (terukur 18 Sep: papan bawah terpotong
+     di 1920, hanya 107 px tersisa di 1366). Dengan max-content tiap baris
+     setinggi isinya, dan kalau lebih tinggi dari kolom, kolomnya menggulir. */
+  display: grid; grid-template-columns: minmax(0, 1fr); grid-auto-rows: max-content;
+  align-content: start; column-gap: 12px;
 }
+.materi-satu-layar .kolom.alat > * { min-width: 0; }
+.materi-satu-layar .kolom.alat[data-lebar='lebar'] { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+/* Yang berdampingan HANYA kendali, tabel angka, dan catatannya. Kepala, kotak
+   gambar, galeri contoh nyata, dan apa pun yang lain tetap selebar kolom
+   (galeri Turunan 12 sempat terjepit ke separuh kolom, 18 Sep). */
+.materi-satu-layar .kolom.alat[data-lebar='lebar'] > * { grid-column: 1 / -1; }
+.materi-satu-layar .kolom.alat[data-lebar='lebar'] > .kendali,
+.materi-satu-layar .kolom.alat[data-lebar='lebar'] > .blok,
+.materi-satu-layar .kolom.alat[data-lebar='lebar'] > .catatan { grid-column: auto; }
+/* Kendali membentang dua baris supaya catatan di bawah tabel angka mengisi
+   ruang kosong di kolom kanan, bukan membuka baris baru di bawah kendali
+   (terukur 18 Sep: baris tambahan itu memakan 53 px yang seharusnya untuk
+   gambar). Isi kendali menumpuk dari atas: tanpa ini, kendali yang lebih
+   pendek dari tabelnya diregangkan grid dan tombolnya ikut memanjang. */
+.materi-satu-layar .kolom.alat[data-lebar='lebar'] > .kendali { grid-row: span 2; align-content: start; }
+/* Widget tanpa tabel angka (Integral 02): kendalinya sendirian, jadi selebar
+   kolom, bukan setengah kolom dengan sebelah kanan kosong. */
+.materi-satu-layar .kolom.alat[data-lebar='lebar'] > .kendali:last-child { grid-column: 1 / -1; grid-row: auto; }
 .alat-kepala {
   display: flex; align-items: baseline; justify-content: space-between;
   gap: 12px; margin-bottom: 12px; padding: 0 4px;

@@ -3,7 +3,7 @@
 import { petakSumbu } from '@/lib/petak-sumbu'
 import { useId, type PointerEvent as ReactPointerEvent, type ReactNode, type Ref } from 'react'
 import {
-  GARIS_PETAK, GARIS_SUMBU, KOTAK, MAKS_HURUF_CATATAN, MONO, VH, VW, WARNA,
+  GARIS_PETAK, GARIS_SUMBU, MAKS_HURUF_CATATAN, MONO, VH, VW, WARNA, kotakUntuk,
   keLayar, labelSkala, type Jendela,
 } from '@/components/widget/integral/koordinat'
 
@@ -77,6 +77,9 @@ export default function Bidang({
   // satu halaman akan memakai pemotong yang sama.
   const idKotak = `kotak-${useId().replace(/:/g, '')}`
   const p = keLayar(jendela)
+  // tinggi bidang boleh berbeda per jendela (papan pendek untuk widget berpapan dua)
+  const TINGGI = jendela.tinggi ?? VH
+  const KOTAK = kotakUntuk(TINGGI)
   const petakX = petakSumbu(jendela.xMin, jendela.xMax, KOTAK.x1 - KOTAK.x0)
   const petakY = petakSumbu(jendela.yMin, jendela.yMax, KOTAK.y1 - KOTAK.y0)
 
@@ -88,7 +91,7 @@ export default function Bidang({
   return (
     <svg
       ref={svgRef}
-      viewBox={`0 0 ${VW} ${VH}`}
+      viewBox={`0 0 ${VW} ${TINGGI}`}
       preserveAspectRatio="xMidYMid meet"
       role="img"
       aria-label={aria}
@@ -157,13 +160,13 @@ export default function Bidang({
 
       {/* ---------- PITA BAWAH: catatan dan penunjuk skala ---------- */}
       {catatanBawah && (
-        <text x={KOTAK.x0} y={VH - 8} fontSize={10} fill={catatanBawah.warna ?? WARNA.redup}
+        <text x={KOTAK.x0} y={TINGGI - 8} fontSize={10} fill={catatanBawah.warna ?? WARNA.redup}
               fontFamily={MONO}>
           {potong(catatanBawah.teks, tandaSkala ? 36 : MAKS_HURUF_CATATAN)}
         </text>
       )}
       {tandaSkala && (
-        <text x={KOTAK.x1} y={VH - 8} textAnchor="end" fontSize={9.5} fill={WARNA.redup} fontFamily={MONO}>
+        <text x={KOTAK.x1} y={TINGGI - 8} textAnchor="end" fontSize={9.5} fill={WARNA.redup} fontFamily={MONO}>
           {labelSkala(jendela)}
         </text>
       )}

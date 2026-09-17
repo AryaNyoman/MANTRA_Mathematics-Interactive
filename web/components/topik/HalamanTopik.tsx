@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'reac
 import PemutarVideo from '@/components/PemutarVideo'
 import Penjelasan from '@/components/topik/Penjelasan'
 import TeksMat from '@/components/latihan/TeksMat'
+import KolomAlat from '@/components/topik/KolomAlat'
 import Latihan from '@/components/topik/Latihan'
 import Kuis from '@/components/topik/Kuis'
 import { useModeGuru } from '@/lib/mode-guru'
@@ -231,9 +232,13 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
      lebar. Nilainya disimpan supaya pilihan itu tidak hilang tiap kali
      halaman dimuat ulang; kuncinya tetap berawalan `matra:` seperti seluruh
      simpanan proyek ini. */
+  /* Lebar bawaan mengikuti layar (28 persen lebar jendela, 380 sampai 560
+     piksel): di layar 1920 kolom alat 537 piksel sehingga kendali dan tabel
+     angka bisa berdampingan dan gambarnya lebih tinggi; pilihan siswa yang
+     tersimpan tetap menang. Nilai server 380 supaya gambaran pertama sama. */
   const lebarAlat = useSyncExternalStore(
     langgan,
-    () => bacaAngka(KUNCI_LEBAR, LEBAR_ALAT_BAWAAN),
+    () => bacaAngka(KUNCI_LEBAR, Math.round(Math.min(560, Math.max(LEBAR_ALAT_BAWAAN, window.innerWidth * 0.28)))),
     () => LEBAR_ALAT_BAWAAN,
   )
   const [tarik, setTarik] = useState(false)
@@ -872,7 +877,9 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                 )}
 
                 {!padat && tahap && (
-                  <aside className="kolom alat" aria-label="Alat interaktif">
+                  /* KolomAlat menyesuaikan tinggi gambar supaya gambar, kendali,
+                     dan tabel angka muat bersama (lihat berkasnya). */
+                  <KolomAlat kunci={`${kunciLayar}:${lebarAlat}`}>
                     <div className="alat-kepala">
                       <span className="tanda-alat">
                         {tahap.widget ? `ALAT · ${tanda}` : 'RINGKASAN'}
@@ -892,7 +899,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                         </ul>
                       </div>
                     )}
-                  </aside>
+                  </KolomAlat>
                 )}
               </div>
             )}

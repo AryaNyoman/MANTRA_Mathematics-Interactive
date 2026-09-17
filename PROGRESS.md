@@ -1,5 +1,54 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 18 SEP: KOLOM ALAT: GAMBAR, KENDALI, DAN TABEL ANGKA TERLIHAT BERSAMA
+
+ARYA (dua tangkapan layar Turunan 03): di jendela lebar penggeser dan tabel
+angka terdorong keluar layar oleh dua papan yang membesar; di jendela sempit
+alatnya terlihat tetapi gambarnya kelewat kecil; "gambar 3 dan 4 harus bisa
+dilihat bersama-sama". Juga bertanya kenapa jejak di papan bawah garis lurus
+(jawab: papan bawah menggambar KEMIRINGAN kurva atas; untuk x² kemiringannya
+2x, memang garis lurus; itulah isi materinya).
+- `components/topik/KolomAlat.tsx` (baru): kolom alat mengukur tinggi kepala,
+  kendali, dan tabel, lalu mengecilkan gambar SECUKUPNYA supaya semuanya muat
+  tanpa gulir, dengan tiga tingkat: (1) dikecilkan hanya kalau hasilnya masih
+  380 px atau lebih (huruf di gambar berukuran tetap dalam satuan gambar,
+  jadi yang menentukan terbaca adalah lebar piksel); (2) kalau tidak, gambar
+  dibiarkan selebar kolom dan kendali menggulir di bawah gambar yang lengket
+  (laptop 1366 x 768: kolomnya 381 px, gambar tidak pernah dikecilkan);
+  (3) gambar yang kelewat tinggi sampai kendali pertamanya tersembunyi
+  dikecilkan sampai menyisakan 150 px, paling jauh ke skala 0,6. Isi kotak
+  gambar diukur SEMUA anaknya (Integral 02 dan 07 menaruh dua papan tanpa
+  pembungkus) lewat scrollHeight, lebar lewat getBoundingClientRect (svg tidak
+  punya offsetWidth). Lebar kolom bawaan ikut layar: 28 persen lebar jendela,
+  380 sampai 560 px (1920: 537 px).
+- `globals.css`: kolom alat jadi grid `max-content` (baris `auto` memeras
+  kotak gambar ber-overflow-hidden sampai 107 px); kolom 500 px ke atas
+  (`data-lebar="lebar"`) menaruh kendali dan tabel angka BERDAMPINGAN,
+  kendali membentang dua baris supaya catatan mengisi bawah tabel, kendali
+  tunggal (tanpa tabel) selebar kolom, `align-content: start` supaya tombol
+  tidak diregangkan; galeri contoh nyata tetap selebar kolom.
+- Widget berpapan dua (Turunan 03 dan 08 GrafikTurunan, 05 SusunPolinom;
+  Integral 02 NaikPangkat, 07 LuasYangTumbuh) memakai papan pendek
+  `PAPAN_DUA` (250 dan 230, bukan 320 dan 320): `Jendela.tinggi` opsional
+  dibaca `kotakUntuk` di `keLayar`, `keMatematika`, `Bidang` (turunan dan
+  integral). Dua papan pendek berdampingan dengan kendali TERLIHAT BERSAMA:
+  Turunan 03 di 1920 x 937 gambar 411 px, penggeser, fungsi, dan tabel
+  tanpa gulir; di 1366 x 768 kedua papan selebar kolom, penggeser terlihat,
+  tabel menggulir.
+- `alat/survei_alat.mjs` (baru): membuka semua 105 materi berwidget di
+  1920 x 937 dan 1366 x 768 (playwright-core dari @playwright/cli global,
+  Chromium yang sudah terpasang), mengukur gulir kolom, skala gambar, luber
+  samping, kendali pertama terlihat; `--potret <folder>` menyimpan potret.
+  Hasil akhir: 0 cacat; 75 materi muat seluruhnya di 1920 x 937; 30 masih
+  menggulir di situ (9 galeri contoh nyata yang memang menggulir, 21 widget
+  berkendali panjang: gambar sudah penuh dan kendali pertama terlihat, sisa
+  kendali dan tabel menggulir); di 1366 x 768 kendali menggulir di bawah
+  gambar lengket (rancangan 5 Sep), gambar tidak pernah dikecilkan.
+- Nilai tabel angka di halaman belajar tidak patah baris lagi ("(1, -1)"
+  sempat jadi dua baris saat tabel berdampingan dengan kendali).
+- Cek: playwright-cli 1920, 1366, HP 390 (alat sisip), sapu penggeser
+  Turunan 03 (jejak terbentuk, tabel berubah), tsc, eslint, next build.
+
 ## 17 SEP MALAM (5): KOTAK CONTOH DI HP TIDAK MEMOTONG RUMUS
 
 ARYA (tangkapan layar Turunan 03 di HP): rumus di kolom sempit patah di

@@ -5,7 +5,7 @@ import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import Bidang from '@/components/widget/integral/Bidang'
 import DaerahBertanda from '@/components/widget/integral/DaerahBertanda'
 import {
-  DAERAH_ATAS, WARNA, angka, jalurFungsi, jendelaTetap, keLayar, type Jendela,
+  DAERAH_ATAS, PAPAN_DUA, WARNA, angka, jalurFungsi, jendelaTetap, keLayar, type Jendela,
 } from '@/components/widget/integral/koordinat'
 import {
   batasi, bulatkanKe, posisiMatematika, titikTersentuh,
@@ -55,22 +55,22 @@ export const KURVA: KurvaTumbuh[] = [
     nilai: 'x', label: 'x', tulis: 'f(x) = x', tulisA: 'A(x) = x² / 2',
     f: (x) => x,
     A: (x) => (x * x) / 2,
-    jendelaAtas: jendelaTetap(-0.35, 3.35, -0.6, 3.6),
-    jendelaBawah: jendelaTetap(-0.35, 3.35, -0.7, 5.4),
+    jendelaAtas: jendelaTetap(-0.35, 3.35, -0.6, 3.6, PAPAN_DUA.atas),
+    jendelaBawah: jendelaTetap(-0.35, 3.35, -0.7, 5.4, PAPAN_DUA.bawah),
   },
   {
     nilai: 'x2', label: 'x²', tulis: 'f(x) = x²', tulisA: 'A(x) = x³ / 3',
     f: (x) => x * x,
     A: (x) => (x ** 3) / 3,
-    jendelaAtas: jendelaTetap(-0.35, 3.35, -1.2, 9.6),
-    jendelaBawah: jendelaTetap(-0.35, 3.35, -1.2, 9.6),
+    jendelaAtas: jendelaTetap(-0.35, 3.35, -1.2, 9.6, PAPAN_DUA.atas),
+    jendelaBawah: jendelaTetap(-0.35, 3.35, -1.2, 9.6, PAPAN_DUA.bawah),
   },
   {
     nilai: '4-x2', label: '4 - x²', tulis: 'f(x) = 4 - x²', tulisA: 'A(x) = 4x - x³ / 3',
     f: (x) => 4 - x * x,
     A: (x) => 4 * x - (x ** 3) / 3,
-    jendelaAtas: jendelaTetap(-0.35, 3.35, -5.8, 4.8),
-    jendelaBawah: jendelaTetap(-0.35, 3.35, -0.8, 6.2),
+    jendelaAtas: jendelaTetap(-0.35, 3.35, -5.8, 4.8, PAPAN_DUA.atas),
+    jendelaBawah: jendelaTetap(-0.35, 3.35, -0.8, 6.2, PAPAN_DUA.bawah),
   },
 ]
 

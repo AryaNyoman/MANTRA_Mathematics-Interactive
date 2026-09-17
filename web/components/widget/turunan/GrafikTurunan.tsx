@@ -3,7 +3,7 @@
 import { useState, type PointerEvent as ReactPointerEvent } from 'react'
 import Bidang from '@/components/widget/turunan/Bidang'
 import {
-  MONO, WARNA, angka, jalurFungsi, jalurGaris, jendelaTetap, keLayar, type Jendela,
+  MONO, PAPAN_DUA, WARNA, angka, jalurFungsi, jalurGaris, jendelaTetap, keLayar, type Jendela,
 } from '@/components/widget/turunan/koordinat'
 import { batasi, bulatkanKe, posisiDiGambar, posisiMatematika } from '@/components/widget/turunan/seret'
 import { fungsi } from '@/components/widget/turunan/fungsi'
@@ -71,9 +71,9 @@ function jendelaTurunan(nama: string): Jendela {
     if (y < lo) lo = y
     if (y > hi) hi = y
   }
-  if (!Number.isFinite(lo) || !Number.isFinite(hi)) return jendelaTetap(xMin, xMax, -1, 1)
+  if (!Number.isFinite(lo) || !Number.isFinite(hi)) return { ...jendelaTetap(xMin, xMax, -1, 1), tinggi: PAPAN_DUA.bawah }
   const tepi = Math.max((hi - lo) * 0.18, 0.4)
-  return jendelaTetap(xMin, xMax, lo - tepi, hi + tepi)
+  return { ...jendelaTetap(xMin, xMax, lo - tepi, hi + tepi), tinggi: PAPAN_DUA.bawah }
 }
 
 export default function GrafikTurunan({
@@ -96,7 +96,7 @@ export default function GrafikTurunan({
   const dipegang = useSedangDiubah()
   const [menyeret, setMenyeret] = useState(false)
   const fn = fungsi(nama)
-  const atas: Jendela = jendelaTetap(...fn.jendela)
+  const atas: Jendela = { ...jendelaTetap(...fn.jendela), tinggi: PAPAN_DUA.atas }
   const bawah = jendelaTurunan(nama)
   const pa = keLayar(atas)
   const pb = keLayar(bawah)
@@ -160,8 +160,8 @@ export default function GrafikTurunan({
       <Bidang
         jendela={bawah}
         keterangan={tebakan
-          ? `jejak kemiringan, dibandingkan dengan ${fn.rumusTurunan}`
-          : jejak.length > 3 ? 'jejak kemiringan f' : 'papan ini terisi saat Anda menyapu'}
+          ? `kemiringan kurva atas di tiap x, dibandingkan ${fn.rumusTurunan}`
+          : jejak.length > 3 ? 'kemiringan kurva atas di tiap x: inilah grafik f′' : 'sapu x: tiap titik di sini = kemiringan kurva atas'}
         catatanBawah={{ teks: `${jejak.length} titik terkumpul` }}
         aria={`Papan bawah, jejak kemiringan. ${jejak.length} titik sudah terkumpul.`}
         tandaSkala={false}

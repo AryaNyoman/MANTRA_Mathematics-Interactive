@@ -49,31 +49,56 @@ export const KOTAK = {
   y1: VH - TEPI.bawah,
 }
 
-export type Jendela = { xMin: number; xMax: number; yMin: number; yMax: number }
+export type Jendela = {
+  xMin: number; xMax: number; yMin: number; yMax: number
+  /**
+   * Tinggi bidang SVG untuk jendela ini, bawaan VH. Widget berpapan dua
+   * (GrafikTurunan) memakai papan yang lebih pendek supaya keduanya muat
+   * bertumpuk di kolom alat tanpa dikecilkan sampai tak terbaca (ARYA 18
+   * Sep 2026). Semua pemetaan (keLayar, keMatematika, Bidang) membacanya.
+   */
+  tinggi?: number
+}
+
+/**
+ * Tinggi papan untuk widget BERPAPAN DUA (f di atas, f′ di bawah: GrafikTurunan,
+ * SusunPolinom). Papan tunggal setinggi VH; dua papan setinggi VH bertumpuk
+ * mendorong penggeser dan tabel angka keluar layar (ARYA 18 Sep 2026), jadi
+ * keduanya dibuat lebih pendek: pada tinggi kolom yang sama gambarnya boleh
+ * lebih lebar, dan huruf serta angkanya tetap terbaca.
+ */
+export const PAPAN_DUA = { atas: 250, bawah: 230 }
+
+/** Kotak grafik untuk bidang setinggi `tinggi` (bawaan VH). */
+export function kotakUntuk(tinggi: number = VH) {
+  return { x0: TEPI.kiri, y0: TEPI.atas, x1: VW - TEPI.kanan, y1: tinggi - TEPI.bawah }
+}
 
 /** Jendela yang ditulis langsung. Sekadar supaya niatnya terbaca di widget. */
-export function jendelaTetap(xMin: number, xMax: number, yMin: number, yMax: number): Jendela {
-  return { xMin, xMax, yMin, yMax }
+export function jendelaTetap(xMin: number, xMax: number, yMin: number, yMax: number, tinggi?: number): Jendela {
+  return tinggi === undefined ? { xMin, xMax, yMin, yMax } : { xMin, xMax, yMin, yMax, tinggi }
 }
 
 /** Ubah koordinat matematika menjadi koordinat layar SVG. */
 export function keLayar(j: Jendela) {
-  const lebar = KOTAK.x1 - KOTAK.x0
-  const tinggi = KOTAK.y1 - KOTAK.y0
+  const kotak = kotakUntuk(j.tinggi)
+  const lebar = kotak.x1 - kotak.x0
+  const tinggi = kotak.y1 - kotak.y0
   return {
-    x: (x: number) => KOTAK.x0 + ((x - j.xMin) / (j.xMax - j.xMin)) * lebar,
+    x: (x: number) => kotak.x0 + ((x - j.xMin) / (j.xMax - j.xMin)) * lebar,
     /** sumbu y layar terbalik: nilai besar ada di ATAS */
-    y: (y: number) => KOTAK.y1 - ((y - j.yMin) / (j.yMax - j.yMin)) * tinggi,
+    y: (y: number) => kotak.y1 - ((y - j.yMin) / (j.yMax - j.yMin)) * tinggi,
   }
 }
 
 /** Kebalikan `keLayar`, dibutuhkan widget yang titiknya bisa diseret. */
 export function keMatematika(j: Jendela) {
-  const lebar = KOTAK.x1 - KOTAK.x0
-  const tinggi = KOTAK.y1 - KOTAK.y0
+  const kotak = kotakUntuk(j.tinggi)
+  const lebar = kotak.x1 - kotak.x0
+  const tinggi = kotak.y1 - kotak.y0
   return {
-    x: (px: number) => j.xMin + ((px - KOTAK.x0) / lebar) * (j.xMax - j.xMin),
-    y: (py: number) => j.yMin + ((KOTAK.y1 - py) / tinggi) * (j.yMax - j.yMin),
+    x: (px: number) => j.xMin + ((px - kotak.x0) / lebar) * (j.xMax - j.xMin),
+    y: (py: number) => j.yMin + ((kotak.y1 - py) / tinggi) * (j.yMax - j.yMin),
   }
 }
 

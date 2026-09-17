@@ -4,7 +4,7 @@ import { useState, type PointerEvent as ReactPointerEvent } from 'react'
 import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
 import Bidang from '@/components/widget/integral/Bidang'
 import {
-  DAERAH_ATAS, DAERAH_BAWAH, KOTAK, WARNA, angka, jalurFungsi, jendelaTetap, keLayar, type Jendela,
+  DAERAH_ATAS, DAERAH_BAWAH, PAPAN_DUA, WARNA, angka, jalurFungsi, jendelaTetap, keLayar, kotakUntuk, type Jendela,
 } from '@/components/widget/integral/koordinat'
 import {
   batasi, bulatkanKe, posisiMatematika, titikTersentuh,
@@ -77,45 +77,45 @@ const XW = 2.2
 export const PANGKAT: Pangkat[] = [
   {
     nilai: '0', label: '0', n: 0, tulis: '1', tulisF: 'x',
-    jendelaF: jendelaTetap(-XW, XW, -2.6, 2.6),
-    jendelaAntiturunan: jendelaTetap(-XW, XW, -7.6, 7.6),
+    jendelaF: jendelaTetap(-XW, XW, -2.6, 2.6, PAPAN_DUA.atas),
+    jendelaAntiturunan: jendelaTetap(-XW, XW, -7.6, 7.6, PAPAN_DUA.bawah),
     xMinSeret: -2, xAwal: 1.5,
   },
   {
     nilai: '1', label: '1', n: 1, tulis: 'x', tulisF: 'x² / 2',
-    jendelaF: jendelaTetap(-XW, XW, -5, 5),
-    jendelaAntiturunan: jendelaTetap(-XW, XW, -8, 8),
+    jendelaF: jendelaTetap(-XW, XW, -5, 5, PAPAN_DUA.atas),
+    jendelaAntiturunan: jendelaTetap(-XW, XW, -8, 8, PAPAN_DUA.bawah),
     xMinSeret: -2, xAwal: 1.5,
   },
   {
     nilai: '2', label: '2', n: 2, tulis: 'x²', tulisF: 'x³ / 3',
-    jendelaF: jendelaTetap(-XW, XW, -10, 10),
-    jendelaAntiturunan: jendelaTetap(-XW, XW, -10.5, 10.5),
+    jendelaF: jendelaTetap(-XW, XW, -10, 10, PAPAN_DUA.atas),
+    jendelaAntiturunan: jendelaTetap(-XW, XW, -10.5, 10.5, PAPAN_DUA.bawah),
     xMinSeret: -2, xAwal: 1.75,
   },
   {
     nilai: '3', label: '3', n: 3, tulis: 'x³', tulisF: 'x⁴ / 4',
-    jendelaF: jendelaTetap(-XW, XW, -22, 22),
-    jendelaAntiturunan: jendelaTetap(-XW, XW, -15, 15),
+    jendelaF: jendelaTetap(-XW, XW, -22, 22, PAPAN_DUA.atas),
+    jendelaAntiturunan: jendelaTetap(-XW, XW, -15, 15, PAPAN_DUA.bawah),
     xMinSeret: -2, xAwal: 1.75,
   },
   {
     nilai: '0.5', label: '½', n: 0.5, tulis: '√x', tulisF: '(2/3) x√x',
-    jendelaF: jendelaTetap(0, XW, -3.5, 3.5),
-    jendelaAntiturunan: jendelaTetap(0, XW, -7.5, 7.5),
+    jendelaF: jendelaTetap(0, XW, -3.5, 3.5, PAPAN_DUA.atas),
+    jendelaAntiturunan: jendelaTetap(0, XW, -7.5, 7.5, PAPAN_DUA.bawah),
     xMinSeret: 0.25, xAwal: 1.5,
   },
   {
     nilai: '-1', label: '-1', n: -1, tulis: '1/x', tulisF: 'tidak ada di SMA',
-    jendelaF: jendelaTetap(0, XW, -6, 6),
-    jendelaAntiturunan: jendelaTetap(0, XW, -6, 6),
+    jendelaF: jendelaTetap(0, XW, -6, 6, PAPAN_DUA.atas),
+    jendelaAntiturunan: jendelaTetap(0, XW, -6, 6, PAPAN_DUA.bawah),
     xMinSeret: 0.4, xAwal: 0.75,
     ditolak: true,
   },
   {
     nilai: '-2', label: '-2', n: -2, tulis: '1/x²', tulisF: '-1/x',
-    jendelaF: jendelaTetap(0, XW, -13, 13),
-    jendelaAntiturunan: jendelaTetap(0, XW, -8.5, 8.5),
+    jendelaF: jendelaTetap(0, XW, -13, 13, PAPAN_DUA.atas),
+    jendelaAntiturunan: jendelaTetap(0, XW, -8.5, 8.5, PAPAN_DUA.bawah),
     xMinSeret: 0.4, xAwal: 0.75,
   },
 ]
@@ -265,8 +265,8 @@ export default function NaikPangkat({
              jatuh di luar kotak dan tulisannya terpotong menjadi
              "ak pangkat -1". Ketahuan dari potret, bukan dari tsc. */
           <text
-            x={(KOTAK.x0 + KOTAK.x1) / 2}
-            y={(KOTAK.y0 + KOTAK.y1) / 2 - 10}
+            x={(kotakUntuk(pg.jendelaAntiturunan.tinggi).x0 + kotakUntuk(pg.jendelaAntiturunan.tinggi).x1) / 2}
+            y={(kotakUntuk(pg.jendelaAntiturunan.tinggi).y0 + kotakUntuk(pg.jendelaAntiturunan.tinggi).y1) / 2 - 10}
             textAnchor="middle"
             fontSize={13}
             fill={DAERAH_BAWAH}

@@ -162,6 +162,11 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
   `docs/superpowers/specs/2026-09-05-sistem-kendali-widget-design.md`.
 - **Widget tidak boleh memotong gambarnya sendiri.** Bingkai wajib menyesuaikan otomatis
   dan memberi tahu penggunanya lewat penunjuk skala. (Bug temuan ARYA, 31 Agu.)
+- **Gambar, kendali, dan tabel angka widget harus terlihat bersama** (ARYA
+  18 Sep 2026): `components/topik/KolomAlat.tsx` mengatur tingginya; widget
+  DUA papan memakai `PAPAN_DUA` (papan pendek), bukan dua papan 320. Sebelum
+  menyatakan widget beres: `node alat/survei_alat.mjs [bab] --potret <folder>`
+  (dev server hidup) dan buka potret yang bertanda.
 
 ## 🚨 GERBANG VIDEO - WAJIB, TANPA PENGECUALIAN
 

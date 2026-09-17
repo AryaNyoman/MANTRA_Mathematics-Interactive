@@ -3,7 +3,7 @@
 import { useState, type PointerEvent as ReactPointerEvent } from 'react'
 import Bidang from '@/components/widget/turunan/Bidang'
 import {
-  WARNA, angka, jalurFungsi, jalurGaris, jendelaTetap, keLayar, type Jendela,
+  PAPAN_DUA, WARNA, angka, jalurFungsi, jalurGaris, jendelaTetap, keLayar, type Jendela,
 } from '@/components/widget/turunan/koordinat'
 import { batasi, bulatkanKe, posisiDiGambar, posisiMatematika } from '@/components/widget/turunan/seret'
 import { useSedangDiubah } from '@/components/kendali/sedang-diubah'
@@ -118,8 +118,9 @@ export default function SusunPolinom({
   const fAksen = (t: number) => nilaiTurunan(koef, t)
   const tinggiAtas = tinggiPapan(f)
   const tinggiBawah = tinggiPapan(fAksen)
-  const ATAS: Jendela = jendelaTetap(-2.2, 2.2, -tinggiAtas, tinggiAtas)
-  const BAWAH: Jendela = jendelaTetap(-2.2, 2.2, -tinggiBawah, tinggiBawah)
+  // dua papan bertumpuk memakai papan pendek supaya muat bersama kendalinya
+  const ATAS: Jendela = { ...jendelaTetap(-2.2, 2.2, -tinggiAtas, tinggiAtas), tinggi: PAPAN_DUA.atas }
+  const BAWAH: Jendela = { ...jendelaTetap(-2.2, 2.2, -tinggiBawah, tinggiBawah), tinggi: PAPAN_DUA.bawah }
   const pa = keLayar(ATAS)
   const pb = keLayar(BAWAH)
   const bayangan = tanpaSuku(koef, dipegang)
