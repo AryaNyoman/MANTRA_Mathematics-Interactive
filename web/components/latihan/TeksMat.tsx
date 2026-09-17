@@ -1,52 +1,76 @@
-import type { ReactNode } from 'react'
+import type React from 'react'
+import katex from 'katex'
+import { latexTinggi, pisahkan, type Potongan } from '@/lib/mat-latex'
 
 /**
- * Teks soal dan pembahasan dengan PECAHAN BERSUSUN (ARYA 17 Sep 2026:
- * "saya ingin pecahan benar-benar terlihat mana atas mana bawah").
+ * Teks soal dan pembahasan dengan rumus tertata KaTeX (ARYA 17 Sep 2026:
+ * "integralnya dengan batasnya tidak jelas; lihat cara mathcyber1997 menulis
+ * rumus; terapkan di semua bab").
  *
- * Bank soal ditulis sebagai teks biasa dengan pecahan mendatar: "x⁶/6",
- * "−b/(2a)", "(x + 5)/2", "3/2.". Komponen ini mengenali pola
- * `pembilang/penyebut` lalu menyusunnya: pembilang di atas garis, penyebut
- * di bawah, tanpa mengubah isi bank. Tanda kurung yang HANYA membungkus
- * pembilang atau penyebut dibuang, sebab garis pecahannya sudah mengelompokkan
- * ("(x + 5)/2" menjadi x + 5 di atas 2). Tanda baca kalimat sesudah penyebut
- * ("3/2.") tetap di luar pecahan.
- *
- * Pembilang atau penyebut = kelompok berkurung tanpa kurung bersarang, atau
- * satu rangkaian tanpa spasi (angka, huruf, pangkat, tanda minus). Ini
- * mencakup 2.485 pecahan di seluruh bank (dihitung 17 Sep 2026) termasuk
- * singkatan de/sa/mi (depan, samping, miring) dan turunan ds/dt; satuan
- * seperti km/jam ikut bersusun, dan itu masih lazim dibaca "km per jam".
- * Bukan LaTeX: tidak ada pustaka tambahan, dan teksnya tetap bisa disalin.
+ * Bank soal tetap teks biasa (x², ∫₁³, √(9 − x²), 5x/6). `lib/mat-latex.ts`
+ * memilah prosa dan matematika lalu menjadikan matematikanya LaTeX;
+ * di sini LaTeX itu dirender KaTeX:
+ * - potongan pendek dirender sebaris dengan \displaystyle, jadi pecahan
+ *   utuh dan batas integral di atas bawah walau di tengah kalimat;
+ * - potongan tinggi yang panjang (integral berbatas, pecahan bertingkat)
+ *   dirender sebagai BLOK di baris sendiri, rata tengah, seperti pembahasan
+ *   mathcyber1997 ("tidak apa-apa menghabiskan dua baris, yang penting
+ *   terbaca"); `blok={false}` mematikannya untuk tombol pilihan;
+ * - KaTeX menolak = teks aslinya ditampilkan apa adanya, tidak ada yang
+ *   hilang. alat/cek_rumus.ts memastikan seluruh bank nol penolakan.
  */
-const POLA = /(\([^()\n]*\)|[^\s/()'",`]+)\s*\/\s*(\([^()\n]*\)|[^\s/()'",`.;:!?]+)/g
 
-function lepasKurung(t: string): string {
-  return t.startsWith('(') && t.endsWith(')') ? t.slice(1, -1).trim() : t
+const PANJANG_BLOK = 26
+
+function pantasBlok(p: Extract<Potongan, { jenis: 'mat' }>): boolean {
+  return (latexTinggi(p.latex) && p.latex.length > PANJANG_BLOK) || p.latex.length > 80
 }
 
-export function pecahBaris(teks: string): ReactNode[] {
-  const keluar: ReactNode[] = []
-  let akhir = 0
-  let n = 0
-  for (const m of teks.matchAll(POLA)) {
-    const awal = m.index ?? 0
-    const [utuh, atas, bawah] = m
-    // Tidak ada pengecualian kata: di seluruh bank tidak ada "dan/atau";
-    // yang ada sin/cos, luas/lebar, km/jam, semuanya memang pembagian.
-    if (awal > akhir) keluar.push(teks.slice(akhir, awal))
-    keluar.push(
-      <span className="pecahan" key={n++}>
-        <span className="atas">{lepasKurung(atas)}</span>
-        <span className="bawah">{lepasKurung(bawah)}</span>
-      </span>,
-    )
-    akhir = awal + utuh.length
+function Mat({ p, blok, ekor = '' }: { p: Extract<Potongan, { jenis: 'mat' }>; blok: boolean; ekor?: string }) {
+  const tampilBlok = blok && pantasBlok(p)
+  // tanda baca kalimat yang mengekor blok ikut masuk ke blok, supaya tidak
+  // menjadi baris berisi satu titik
+  const latex = p.latex + (ekor ? `\\,${ekor}` : '')
+  let html: string
+  try {
+    html = katex.renderToString(tampilBlok ? latex : `\\displaystyle ${latex}`, {
+      throwOnError: true,
+      displayMode: tampilBlok,
+      strict: false,
+      output: 'html',
+    })
+  } catch {
+    return <span className="mat-gagal">{p.teks}</span>
   }
-  if (akhir < teks.length) keluar.push(teks.slice(akhir))
-  return keluar
+  return (
+    <span
+      className={tampilBlok ? 'mat-blok' : 'mat-baris'}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  )
 }
 
-export default function TeksMat({ teks }: { teks: string }) {
-  return <>{pecahBaris(teks)}</>
+export default function TeksMat({ teks, blok = true }: { teks: string; blok?: boolean }) {
+  const potongan = pisahkan(teks)
+  const keluar: React.ReactNode[] = []
+  for (let i = 0; i < potongan.length; i++) {
+    const p = potongan[i]
+    if (p.jenis === 'prosa') {
+      keluar.push(<span key={i}>{p.teks}</span>)
+      continue
+    }
+    // Blok hanya untuk rumus di UJUNG kalimat (atau hanya diikuti tanda
+    // baca): "Absis titik balik dinyatakan oleh [rumus]." Rumus tinggi di
+    // tengah kalimat tetap sebaris (displaystyle), supaya satu kalimat tidak
+    // terpecah jadi baris-baris pendek berselang blok.
+    let ekor = ''
+    const berikut = potongan[i + 1]
+    const diUjung = !berikut || (berikut.jenis === 'prosa' && /^[.,;:]\s*$/.test(berikut.teks) && i + 2 >= potongan.length)
+    if (blok && diUjung && pantasBlok(p) && berikut) {
+      ekor = berikut.teks.trim()
+      i++
+    }
+    keluar.push(<Mat key={i} p={p} blok={blok && diUjung} ekor={ekor} />)
+  }
+  return <>{keluar}</>
 }

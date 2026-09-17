@@ -700,7 +700,7 @@ export const KUIS: SoalKuis[] = [
     pilihan: ['67', '65,21', '67,75', '69,5', '70'],
     benar: 2,
     langkah: [
-      'Alternatif I, rata-rata hitung: setiap kelas diwakili titik tengahnya x_i = (batas bawah + batas atas)/2, lalu x̄ = Σf_i x_i / Σf_i.',
+      'Alternatif I, rata-rata hitung: setiap kelas diwakili titik tengahnya x_i, yaitu setengah dari jumlah batas bawah dan batas atas, lalu x̄ = Σf_i x_i / Σf_i.',
       {
         teks: 'Lengkapi tabel dengan kolom titik tengah x_i dan hasil kali f_i x_i.',
         gambar: { jenis: 'tabel', kepala: ['Nilai', 'f_i', 'x_i', 'f_i x_i'], baris: [['40 − 49', '3', '44,5', '133,5'], ['50 − 59', '8', '54,5', '436'], ['60 − 69', '12', '64,5', '774'], ['70 − 79', '9', '74,5', '670,5'], ['80 − 89', '6', '84,5', '507'], ['90 − 99', '2', '94,5', '189']], kolomBaru: [2, 3], jumlah: ['Jumlah', '40', '', '2.710'] },

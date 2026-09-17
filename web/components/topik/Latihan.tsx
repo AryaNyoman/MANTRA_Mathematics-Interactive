@@ -1,5 +1,6 @@
 'use client'
 
+import TeksMat from '@/components/latihan/TeksMat'
 import { useState } from 'react'
 import type { Soal } from '@/content/trigonometri'
 
@@ -34,7 +35,7 @@ export default function Latihan({ soal }: { soal: Soal[] }) {
         <span className="label-soal">{s.label}</span>
       </div>
 
-      <p className="soal-teks">{s.pertanyaan}</p>
+      <p className="soal-teks"><TeksMat teks={s.pertanyaan} /></p>
 
       <div className="pilihan">
         {s.pilihan.map((p, n) => {
@@ -50,7 +51,7 @@ export default function Latihan({ soal }: { soal: Soal[] }) {
               disabled={dipilih !== null}
             >
               <span className="huruf">{String.fromCharCode(65 + n)}</span>
-              {p}
+              <TeksMat teks={p} blok={false} />
             </button>
           )
         })}
@@ -71,7 +72,7 @@ export default function Latihan({ soal }: { soal: Soal[] }) {
           <ol>
             {s.pembahasan.map((baris, n) => (
               <li key={n} style={{ animationDelay: `${n * 120}ms` }}>
-                {baris}
+                <TeksMat teks={baris} />
               </li>
             ))}
           </ol>

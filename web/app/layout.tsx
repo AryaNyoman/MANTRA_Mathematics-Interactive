@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Newsreader, Space_Grotesk } from 'next/font/google'
+import 'katex/dist/katex.min.css'
 import './globals.css'
 import PetugasVideo from '@/components/PetugasVideo'
 

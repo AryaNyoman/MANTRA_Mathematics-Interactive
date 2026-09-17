@@ -3191,16 +3191,18 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .skor-angka .pisah { color: var(--tinta-50); margin: 0 6px; }
 .jendela-skor p { margin-bottom: 4px; }
 
-/* Pecahan bersusun di teks soal dan pembahasan (TeksMat, 17 Sep 2026):
-   pembilang di atas garis, penyebut di bawah, sedikit lebih kecil dari
-   teksnya supaya tinggi barisnya tidak melonjak. */
-.pecahan {
-  display: inline-flex; flex-direction: column; align-items: center;
-  vertical-align: middle; line-height: 1.15; margin: 0 3px; font-size: 0.9em;
-  text-align: center;
-}
-.pecahan .atas { border-bottom: 1.5px solid currentColor; padding: 0 4px 1px; }
-.pecahan .bawah { padding: 1px 4px 0; }
+/* Rumus KaTeX di soal dan pembahasan (TeksMat, 17 Sep 2026). Sebaris:
+   sedikit lebih besar dari teks supaya pangkat dan batas terbaca; blok:
+   baris sendiri, rata tengah, dengan ruang napas, seperti pembahasan
+   mathcyber1997. Baris yang memuat rumus tinggi diberi jarak antarbaris
+   lebih longgar oleh KaTeX sendiri. */
+.mat-baris .katex { font-size: 1.08em; }
+.mat-blok { display: block; margin: 10px 0 12px; overflow-x: auto; overflow-y: hidden; }
+.mat-blok .katex-display { margin: 0; }
+.mat-blok .katex { font-size: 1.15em; }
+.opsi-mantra .isi .katex, .opsi .katex { font-size: 1.05em; }
+.mat-gagal { font-family: var(--font-mono), monospace; }
+.soal-teks .mat-baris .katex, .bahas-langkah .mat-baris .katex { line-height: 1.5; }
 .opsi-mantra[data-keadaan='redam'] { opacity: 0.5; }
 .opsi-mantra:disabled { cursor: default; }
 
