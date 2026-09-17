@@ -3292,7 +3292,8 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .cap .katex, .sesi-judul .katex, .judul-poin .katex { text-transform: none; letter-spacing: 0; }
 .cap .katex { font-size: 1.3em; }
 .sel-contoh .mat-baris .katex { font-size: 1.1em; line-height: 1.4; }
-.sel-contoh:has(.katex-display), .sel-contoh:has(.mfrac) { line-height: 2; }
+.sel-contoh:has(.katex-display), .sel-contoh:has(.mfrac), .sel-contoh:has(.mop) { padding: 5px 0; }
+.contoh-tabel { row-gap: 3px; }
 .bacaan .mat-blok .katex { font-size: 1.12em; }
 .opsi-mantra[data-keadaan='redam'] { opacity: 0.5; }
 .opsi-mantra:disabled { cursor: default; }

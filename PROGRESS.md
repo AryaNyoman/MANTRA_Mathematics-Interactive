@@ -1,5 +1,40 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 17 SEP MALAM (3): RUMUS BACAAN MATERI DITULIS DENGAN LAMBANG DAN DITATA KATEX; GERAK PINDAH HALAMAN DIKOREKSI
+
+ARYA (sesudah tahap 1 gerak tayang): (1) animasi judul yang terbang antar
+halaman tidak disukai, dihapus; (2) saat pindah halaman teks lama dan baru
+tidak boleh bertindih, dipercepat: sekarang halaman lama pergi 140 ms lalu
+halaman baru masuk 280 ms (berurutan, `--d-halaman-keluar/masuk`); (3)
+materi Integral menulis rumus dengan kata ("x kuadrat sama dengan x tambah
+2"), "kesalahan fatal", tulis seperti di soal dan periksa semua bab.
+- Penjelasan.tsx dan HalamanTopik (pertanyaan, Sering keliru, ringkasan)
+  kini merender teks lewat TeksMat (KaTeX), sama dengan bank soal. TeksMat
+  di-memo per teks supaya tarikan lebar kolom alat tidak tersendat.
+- Pengubah lib/mat-latex.ts diperluas: pecahan di pangkat jadi tfrac, `_c^b`
+  berhenti di pangkat, indeks Unicode ᵢₙ, elipsis dalam deretan, hasil kali
+  rapat (uv, xy, ax, by), `-sin` matematika, `sin x/x` = (sin x)/x dan
+  `1/cos² x`, dua angka berdampingan diberi jarak `\;` (vektor baris (4 3)
+  tidak jadi (43)), matriks `[[a, b], [c, d]]` jadi pmatrix, singkatan SMA,
+  UN, JAK, "layar HP" tetap prosa, `∘`.
+- Isi sembilan bab ditulis ulang di tempat rumus memakai kata: Integral (11
+  materi, paling parah), Turunan dan Limit (pembagian " : " jadi "/",
+  definisi turunan, aturan hasil kali dan bagi, garis singgung), Vektor
+  (semua kotak contoh; vektor baris tetap `(a b)` tanpa koma sesuai
+  penjelasan materinya sendiri, titik `A(1, 2)`), Transformasi (matriks,
+  aksen ′, M₁ M₂, T₂ ∘ T₁, k²), Grafik Fungsi (2ˣ, ²log, 1/x, →),
+  Ruang 3D (√n, pecahan, d = 2L/a, d = 3V/L), Statistika dan Trigonometri
+  (sedikit). CSS: rumus di cap tidak dikapitalkan, sel kotak contoh
+  berpecahan diberi ruang.
+- Pemeriksa baru `alat/cek_rumus_materi.ts` (5.058 teks, nol galat KaTeX;
+  `--kata` mendaftar rumus yang masih berkata, sisanya prosa wajar seperti
+  "aturan pangkat"), `alat/lihat_latex.ts` (lihat LaTeX satu teks),
+  `alat/cek_huruf_tunggal.ts` (konteks huruf tunggal yang dianggap rumus).
+  Dicek di dev server: Integral 10 dan 03, Transformasi 09, Turunan 02,
+  Vektor 12, Limit 08, nol `mat-gagal`. Aturan baru di CLAUDE.md.
+- Belum disentuh: teks di dalam WIDGET (label alat, misalnya "x akar (x² + 5)"
+  di alat substitusi Integral) masih teks biasa.
+
 ## 17 SEP MALAM (2): SISTEM GERAK PANGGUNG TAHAP 1, PINDAH HALAMAN DAN NAV
 
 Rancangan gerak dari Claude Design (HANDOFF, tabel spek A sampai K, CSS)

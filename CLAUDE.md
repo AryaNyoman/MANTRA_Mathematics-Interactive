@@ -120,6 +120,15 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
 - Widget 2D dibuat sendiri (SVG + React). Mafs TIDAK dipakai - tak dirawat 17 bulan.
 - **Penjelasan: pecah jadi blok** (paragraf pendek / daftar poin / kalimat sorot / kotak
   contoh) - bukan tembok paragraf. Tapi **isinya jangan dipangkas**.
+- **Rumus di soal DAN bacaan materi ditulis dengan LAMBANG, bukan kata**
+  (ARYA 17 Sep 2026: "x kuadrat sama dengan x tambah 2" itu kesalahan fatal).
+  Tulis `x² = x + 2`, `∫₀⁷ x dx`, `x³/3`, `√(x² + 5)`, `(sin x)/x`, vektor
+  baris `(4 3)`, matriks `[[a, b], [c, d]]`, `lim x→c`, `T₂ ∘ T₁`. Teksnya
+  tetap Unicode biasa; `TeksMat` (lib/mat-latex.ts) merendernya KaTeX di
+  soal, kuis, dan Penjelasan. Sebelum menyerahkan isi baru jalankan
+  `node alat/cek_rumus.ts` (bank) dan `node alat/cek_rumus_materi.ts --kata`
+  (materi): nol GALAT, dan daftar KATA? harus tinggal prosa wajar.
+  `node alat/lihat_latex.ts "teks"` memperlihatkan LaTeX yang dihasilkan.
 - **Kata "miskonsepsi" DILARANG muncul di halaman.** Itu istilah guru. Pakai
   "Sering keliru", dan taruh di BAWAH setelah siswa paham.
 - **Gaya visual terkunci: rancangan MANTRA** (sejak 3 Sep 2026, menggantikan
