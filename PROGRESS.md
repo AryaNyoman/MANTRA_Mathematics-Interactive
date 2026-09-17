@@ -1,5 +1,39 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 17 SEP MALAM: RUMUS SOAL DITATA KATEX SEPERTI MATHCYBER1997 (deploy matra-fcgmida4v, push GitHub)
+
+ARYA: "integralnya dengan batasnya tidak jelas; tidak apa-apa dua baris;
+lihat cara mathcyber1997 menulis rumus; terapkan di semua bab". mathcyber
+memakai LaTeX (inline $...$ dan blok $$egin{aligned}...$$ dengan \dfrac).
+- Bank soal TIDAK ditulis ulang (540 soal tetap teks Unicode). Pengubahnya
+  `web/lib/mat-latex.ts`: (1) `pisahkan` memilah kata demi kata jadi prosa
+  dan matematika (angka, lambang, huruf tunggal, nama ruas AB/ACG, fungsi
+  sin/log/lim, dx; tanda baca kalimat tetap prosa; koma daftar "(3, 4)" ikut
+  matematika bila kata berikutnya matematika; satuan sesudah angka jadi
+  	ext); (2) `keLatex` menokenkan matematika (kelompok kurung bersarang,
+  pangkat/indeks Unicode, ^(...), _min, √, ∛, ∫ berbatas, Σ, lim x→c, ²log,
+  x̄, ŷ, °, ′) dan menyusun \dfrac dengan aturan bank: pembilang = rangkaian
+  tanpa spasi (atau kelompok) di kiri garis miring; garis miring berspasi =
+  pecahan besar sampai tanda sama dengan terdekat.
+- `TeksMat` merender KaTeX: sebaris dengan \displaystyle (batas integral di
+  atas bawah walau di tengah kalimat), BLOK rata tengah hanya untuk rumus
+  tinggi di ujung kalimat (tanda baca pengekor ikut masuk blok). Dipakai di
+  bank soal (soal, pilihan, langkah, jebakan, alasan), kuis bab, dan
+  latihan materi. KaTeX gagal = teks asli ditampilkan. CSS KaTeX diimpor
+  di layout akar.
+- `alat/cek_rumus.ts` (Node 24, tanpa tsx): 7.231 teks dari kuis.ts dan
+  latihan.ts sembilan bab, 15.912 potongan matematika, NOL galat KaTeX;
+  `--html` membuat galeri qc/rumus.html (540 soal) yang dilihat lewat
+  static-server; jebakan yang ketemu dari galeri: "di" dikira dx (regex
+  diferensial dipersempit), "DAN" penekanan dikira ruas, "ke-2" dikira
+  pengurangan, tanda kurang ASCII berdiri sendiri di latihan.ts, \int
+  menempel huruf (\intx), ^ terputus dari pecahan (x^(1/2)/3), koma daftar
+  memecah "(3, 4)", kurung tak tertutup diberi penutup palsu. Satu langkah
+  st-47 ditulis ulang (pecahan berisi frasa berkurung).
+- Belum: teks BACAAN materi (tahap.ts) masih rumus Unicode biasa; kalau
+  ARYA mau, TeksMat bisa dipasang di Penjelasan.tsx dengan pemeriksaan
+  galeri yang sama.
+
 ## 17 SEP SORE: PILIHAN DIKOCOK, PECAHAN BERSUSUN, JENDELA SKOR (deploy matra-ba1rmtjvx, push GitHub)
 
 - Pilihan ganda dikocok saat ditampilkan (`lib/acak-pilihan.ts`): benih per
