@@ -4,6 +4,7 @@ import { useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import PemutarVideo from '@/components/PemutarVideo'
 import Penjelasan from '@/components/topik/Penjelasan'
+import TeksMat from '@/components/latihan/TeksMat'
 import Latihan from '@/components/topik/Latihan'
 import Kuis from '@/components/topik/Kuis'
 import { useModeGuru } from '@/lib/mode-guru'
@@ -650,7 +651,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                         {subKini ? `${subKini.huruf} · ` : ''}Materi {dua(tahap.no)}
                       </div>
                       <h1>{tahap.judul}</h1>
-                      <div className="sub">{tahap.pertanyaan}</div>
+                      <div className="sub"><TeksMat teks={tahap.pertanyaan} blok={false} /></div>
                     </>
                   )}
 
@@ -710,8 +711,8 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                               milik kotak itu. */}
                           <div className="miskon">
                             <div className="cap merah">Sering keliru</div>
-                            <b>{tahap.seringKeliru.judul}</b>
-                            <p style={{ margin: '6px 0 0' }}>{tahap.seringKeliru.isi}</p>
+                            <b><TeksMat teks={tahap.seringKeliru.judul} blok={false} /></b>
+                            <p style={{ margin: '6px 0 0' }}><TeksMat teks={tahap.seringKeliru.isi} /></p>
                             {tahap.seringKeliru.sumber && (
                               <div className="sumber">{tahap.seringKeliru.sumber}</div>
                             )}
@@ -766,7 +767,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                     <div className="baca-cepat">
                       <div className="cap">Ringkasan</div>
                       <ol>
-                        {tahap.intisari.map((b, i) => <li key={i}>{b}</li>)}
+                        {tahap.intisari.map((b, i) => <li key={i}><TeksMat teks={b} /></li>)}
                       </ol>
                     </div>
                   )}
@@ -887,7 +888,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                       <div className="alat-kosong">
                         <div className="cap">Intisari materi ini</div>
                         <ul className="intisari">
-                          {(tahap.intisari ?? []).map((b, i) => <li key={i}>{b}</li>)}
+                          {(tahap.intisari ?? []).map((b, i) => <li key={i}><TeksMat teks={b} /></li>)}
                         </ul>
                       </div>
                     )}

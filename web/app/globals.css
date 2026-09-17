@@ -3283,6 +3283,17 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .opsi-mantra .isi .katex, .opsi .katex { font-size: 1.05em; }
 .mat-gagal { font-family: var(--font-mono), monospace; }
 .soal-teks .mat-baris .katex, .bahas-langkah .mat-baris .katex { line-height: 1.5; }
+/* Rumus di BACAAN materi (17 Sep 2026 malam, ARYA: rumus ditulis dengan
+   kata-kata itu kesalahan fatal, tulis seperti di soal). Judul kotak contoh
+   dan cap lain memakai huruf kapital semua; rumus di dalamnya tidak boleh
+   ikut dikapitalkan (y = x² jangan jadi Y = X²), dan hurufnya dikembalikan
+   ke ukuran wajar supaya tidak tenggelam di label 10 px. Sel kotak contoh
+   yang memuat pecahan bersusun diberi jarak baris lebih longgar. */
+.cap .katex, .sesi-judul .katex, .judul-poin .katex { text-transform: none; letter-spacing: 0; }
+.cap .katex { font-size: 1.3em; }
+.sel-contoh .mat-baris .katex { font-size: 1.1em; line-height: 1.4; }
+.sel-contoh:has(.katex-display), .sel-contoh:has(.mfrac) { line-height: 2; }
+.bacaan .mat-blok .katex { font-size: 1.12em; }
 .opsi-mantra[data-keadaan='redam'] { opacity: 0.5; }
 .opsi-mantra:disabled { cursor: default; }
 

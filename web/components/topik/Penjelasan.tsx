@@ -1,5 +1,6 @@
 import { Fragment, type ReactNode } from 'react'
 import type { Blok } from '@/content/trigonometri'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Perender penjelasan bertahap.
@@ -67,7 +68,11 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
   return (
     <div className="bacaan">
       {blok.map((b, i) => {
-        if (b.jenis === 'paragraf') return <p key={i}>{b.teks}</p>
+        /* Semua teks lewat TeksMat (KaTeX), sama seperti bank soal: rumus
+           yang ditulis x², ∫₀⁷ x dx, atau 9/2 tampil sebagai rumus
+           sungguhan (ARYA 17 Sep 2026 malam). Sel kotak contoh dan judul
+           memakai blok={false}: rumusnya tetap sebaris. */
+        if (b.jenis === 'paragraf') return <p key={i}><TeksMat teks={b.teks} /></p>
 
         if (b.jenis === 'sesi')
           return (
@@ -75,7 +80,7 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
               <span className="sesi-no mono">
                 {String(nomor.get(i) ?? 1).padStart(2, '0')}
               </span>
-              <h2 className="sesi-judul">{b.judul}</h2>
+              <h2 className="sesi-judul"><TeksMat teks={b.judul} blok={false} /></h2>
             </div>
           )
 
@@ -84,10 +89,10 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
             <Fragment key={i}>
               <div className="kotak-coba">
                 <div className="coba-cap">🔬 Yuk bereksperimen!</div>
-                <p>{b.teks}</p>
+                <p><TeksMat teks={b.teks} /></p>
                 {b.langkah && (
                   <ol className="coba-langkah">
-                    {b.langkah.map((l, n) => <li key={n}>{l}</li>)}
+                    {b.langkah.map((l, n) => <li key={n}><TeksMat teks={l} /></li>)}
                   </ol>
                 )}
               </div>
@@ -99,24 +104,25 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
           return (
             <div key={i} className="sorot">
               <span className="sorot-cap">Kalimat kunci</span>
-              <p>{b.teks}</p>
+              <p><TeksMat teks={b.teks} /></p>
             </div>
           )
 
         if (b.jenis === 'poin')
           return (
             <div key={i} className="kelompok-poin">
-              {b.judul && <h3 className="judul-poin">{b.judul}</h3>}
+              {b.judul && <h3 className="judul-poin"><TeksMat teks={b.judul} blok={false} /></h3>}
               <ul className="poin">
                 {b.butir.map((teks, n) => {
                   const pisah = teks.indexOf(' - ')
                   return pisah > 0 ? (
                     <li key={n}>
-                      <b>{teks.slice(0, pisah)}</b>
-                      {teks.slice(pisah)}
+                      <b><TeksMat teks={teks.slice(0, pisah)} blok={false} /></b>
+                      {' - '}
+                      <TeksMat teks={teks.slice(pisah + 3)} />
                     </li>
                   ) : (
-                    <li key={n}>{teks}</li>
+                    <li key={n}><TeksMat teks={teks} /></li>
                   )
                 })}
               </ul>
@@ -140,7 +146,7 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
         const konsisten = jumlah.size <= 1
         return (
           <div key={i} className="contoh">
-            <div className="cap">{b.judul}</div>
+            <div className="cap"><TeksMat teks={b.judul} blok={false} /></div>
             {konsisten ? (
               <div
                 className={`contoh-tabel${kolom >= 4 ? ' lebar' : ''}`}
@@ -167,7 +173,7 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
                         className={`sel-contoh${isi === '' ? ' kosong' : ''}${baris.length === 1 ? ' penuh' : ''}`}
                         style={k === baris.length - 1 && k < kolom - 1 ? { gridColumn: `${k + 1} / -1` } : undefined}
                       >
-                        {isi}
+                        <TeksMat teks={isi} blok={false} />
                       </span>
                     ))}
                   </div>
@@ -180,7 +186,7 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
                 ))}
               </div>
             )}
-            {b.simpul && <div className="simpul">{b.simpul}</div>}
+            {b.simpul && <div className="simpul"><TeksMat teks={b.simpul} /></div>}
           </div>
         )
       })}

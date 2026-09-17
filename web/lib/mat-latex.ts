@@ -47,6 +47,8 @@ const LAMBANG: Record<string, string> = {
   '°': '^{\\circ}', '′': "'", '″': "''", '…': '\\ldots',
 }
 const FUNGSI = new Set(['sin', 'cos', 'tan', 'cot', 'sec', 'csc', 'log', 'ln', 'lim', 'arcsin', 'arccos', 'arctan'])
+// hasil kali dua tiga peubah yang ditulis rapat (uv pada aturan parsial, xy): bukan kata Indonesia
+const PRODUK = new Set(['uv', 'xy', 'ab', 'mn', 'pq', 'rs', 'xyz', 'abc', 'uw', 'vw', 'yz'])
 // bukan /^d./: "di", "de", "da" kata prosa Indonesia
 const DIFERENSIAL = /^d[xyztuvrshθ]$/
 const SATUAN = new Set(['cm', 'm', 'km', 'mm', 'dm', 'kg', 'g', 'ml', 'l', 'liter', 'detik', 'menit', 'jam',
@@ -58,19 +60,25 @@ const KATA_UNIT = /^([a-z]+[²³]?)(\/[a-z]+[²³]?)?$/
 /* ------------------------------------------------------------------ */
 
 const PUNGTUASI_AKHIR = /[.,;:!?…]+$/
-const HURUF_MAT = /[0-9=+−×·•÷±<>≤≥≠≈→⇒∞∫√∛Σ∑πθαβγΔδφωλμσ°′″⟂⊥∥∠△∈∉∪∩⊂∅^_\/|\[\]{}()]|[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁿˣʸᵃᵇᶜᵗᵘᵏ₀₁₂₃₄₅₆₇₈₉₊₋ₐ]|̄|[ŷâ]/
+const HURUF_MAT = /[0-9=+−×·•÷±<>≤≥≠≈→⇒∞∫√∛Σ∑πθαβγΔδφωλμσ°′″⟂⊥∥∠△∈∉∪∩⊂∅^_\/|\[\]{}()]|[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁿˣʸᵃᵇᶜᵗᵘᵏⁱᵐᵖʳˢ₀₁₂₃₄₅₆₇₈₉₊₋ₐₙₓᵢₖₘₜ]|̄|[ŷâ]/
 
 function intiKata(kata: string): string {
   return kata.replace(/^[(\[|]+/, '').replace(/[)\]|]+$/, '').replace(PUNGTUASI_AKHIR, '')
 }
 
 function kataMatematika(kata: string, sebelumnya: string | null): boolean {
+  // elipsis di tengah deretan: 1, 2, ..., n (hanya bila kata sebelumnya matematika)
+  if (/^(\.\.\.|…)[,;:]?$/.test(kata)) return sebelumnya !== null && kataMatematika(sebelumnya, null)
   const inti = intiKata(kata)
   if (!inti) return false
   if (/^(Jawaban|Pilihan|pilihan|Opsi|opsi)$/.test(intiKata(sebelumnya ?? '')) && /^[A-E]$/.test(inti)) return false
   if (/^[IVX]+$/.test(inti)) return false // kuadran III, bukan matematika
   if (/^[A-Z]{4,}$/.test(inti)) return false // TURUNAN, SEBELUM: penekanan prosa
-  if (/^(DAN|ATAU|INI|ITU|TAK|YA|KE|DI)$/.test(inti)) return false // penekanan prosa pendek
+  if (/^(DAN|ATAU|INI|ITU|TAK|YA|KE|DI|DUA|ADA)$/.test(inti)) return false // penekanan prosa pendek
+  // singkatan yang lazim di bacaan materi, bukan nama ruas: SMA, UN 2004, JAK
+  if (/^(SMA|SMK|SMP|SD|UN|UAN|PDF|JAK|TV)$/.test(inti) && !/^[A-Z]{1,3}$/.test(intiKata(sebelumnya ?? ''))) return false
+  // "layar HP", "di HP" prosa; "HP ⟂ AC" (ruas di kubus) matematika
+  if (inti === 'HP' && /^(layar|di|ke|dari|lewat|pakai|punya|pada|memakai|lewat|buka|dibuka)$/i.test(intiKata(sebelumnya ?? ''))) return false
   if (inti === '-' || inti === '–') return true // tanda kurang ASCII berdiri sendiri (latihan.ts memakainya)
   if (/^ke-\d+$/i.test(inti)) return false // urutan: detik ke-2, suku ke-3
   if (HURUF_MAT.test(inti)) {
@@ -78,6 +86,7 @@ function kataMatematika(kata: string, sebelumnya: string | null): boolean {
     return true
   }
   if (/^[a-zA-Z]$/.test(inti)) return true
+  if (PRODUK.has(inti)) return true
   if (/^[A-Z]{2,3}$/.test(inti)) return true // ruas AB, segitiga ACG
   if (/^[a-zA-Z][0-9]$/.test(inti)) return true // x1, P2
   const rendah = inti.toLowerCase()
@@ -119,12 +128,19 @@ export function pisahkan(teks: string): Potongan[] {
     let punct = bagian.match(PUNGTUASI_AKHIR)?.[0] ?? ''
     // koma desimal "1,28" atau "0,5" bukan tanda baca
     let inti = /^\d+,\d+$/.test(bagian) ? bagian : bagian.slice(0, bagian.length - punct.length)
+    // elipsis "..." atau "…" (boleh berkoma) adalah kata sendiri, bukan tanda baca ekor
+    const elipsis = bagian.match(/^(\.\.\.|…)([,;:]?)$/)
+    if (elipsis) {
+      inti = elipsis[1]
+      punct = elipsis[2]
+    }
     // koma pemisah daftar matematika ("(3, 4)", "{5, 7, x}", "1, 7, 5") ikut
     // matematika bila kata berikutnya juga matematika; koma kalimat ("x = 5,
     // maka") tetap prosa
     if (punct === ',' && inti) {
       const berikut = kata[ki + 2] ?? ''
-      if (berikut && kataMatematika(berikut.replace(PUNGTUASI_AKHIR, ''), inti) && kataMatematika(inti, kataSebelum)) {
+      const berikutInti = /^(\.\.\.|…)/.test(berikut) ? berikut.replace(/[,;:]$/, '') : berikut.replace(PUNGTUASI_AKHIR, '')
+      if (berikut && kataMatematika(berikutInti, inti) && kataMatematika(inti, kataSebelum)) {
         inti = bagian
         punct = ''
       }
@@ -276,6 +292,7 @@ function idKeLatex(v: string): string {
   if (FUNGSI.has(rendah)) return `\\${rendah} `
   if (DIFERENSIAL.test(v)) return `\\,${v}`
   if (v.length === 1) return v
+  if (PRODUK.has(v)) return v // uv, xy: hasil kali peubah, huruf miring
   if (/^[A-Z]+$/.test(v)) return v // ruas AB, segitiga ACG: huruf kapital miring berurutan
   if (SATUAN.has(rendah)) return `\\,\\text{${v}}`
   // kata lain (misalnya "luas", "de", "sa", "mi"): teks tegak
@@ -296,6 +313,11 @@ function rangkaian(tokens: Token[], dari: number, arah: 1 | -1): [number, number
   }
   while (b < tokens.length && !pemutus(tokens[b])) b++
   return [a, b]
+}
+
+/** Pecahan di dalam pangkat atau indeks ditulis kecil (u^{3/2}), bukan bersusun besar. */
+function kecil(latex: string): string {
+  return latex.replace(/\\dfrac/g, '\\tfrac').replace(/\\left\(/g, '(').replace(/\\right\)/g, ')')
 }
 
 function susun(tokens: Token[]): string {
@@ -371,11 +393,14 @@ function susun(tokens: Token[]): string {
         const next = t[i + 1]
         if (!next) break
         if (next.t === 'kelompok') {
-          keluar += `^{${susun(next.isi)}}`
+          keluar += `^{${kecil(susun(next.isi))}}`
           i++
         } else {
-          const [, kb] = rangkaian(t, i + 1, 1)
-          keluar += `^{${susun(t.slice(i + 1, kb))}}`
+          // ^b_c: pangkat berhenti sebelum garis bawah berikutnya
+          let [, kb] = rangkaian(t, i + 1, 1)
+          const gb = t.slice(i + 1, kb).findIndex((x) => x.t === 'garisbawah')
+          if (gb > 0) kb = i + 1 + gb
+          keluar += `^{${kecil(susun(t.slice(i + 1, kb)))}}`
           i = kb - 1
         }
         break
@@ -410,11 +435,14 @@ function susun(tokens: Token[]): string {
         const next = t[i + 1]
         if (!next) break
         if (next.t === 'kelompok') {
-          keluar += `_{${susun(next.isi)}}`
+          keluar += `_{${kecil(susun(next.isi))}}`
           i++
         } else {
-          const [, kb] = rangkaian(t, i + 1, 1)
-          keluar += `_{${susun(t.slice(i + 1, kb))}}`
+          // _c^b: indeks berhenti sebelum pangkat berikutnya (batas integral)
+          let [, kb] = rangkaian(t, i + 1, 1)
+          const cr = t.slice(i + 1, kb).findIndex((x) => x.t === 'caret')
+          if (cr > 0) kb = i + 1 + cr
+          keluar += `_{${kecil(susun(t.slice(i + 1, kb)))}}`
           i = kb - 1
         }
         break
@@ -433,7 +461,7 @@ function lepasKelompok(bagian: Token[]): Token[] {
 }
 
 export function keLatex(teksMat: string): string {
-  return susun(tokenisasi(teksMat))
+  return susun(tokenisasi(teksMat.replace(/\.\.\./g, '…')))
 }
 
 /** LaTeX potongan ini "tinggi" (pecahan, integral, akar, jumlah)? Penentu tampilan blok. */
