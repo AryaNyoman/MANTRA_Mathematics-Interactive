@@ -1,5 +1,44 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 17 SEP: BANK SOAL DIROMBAK, ENAM PERMINTAAN ARYA (deploy matra-e6u0m5ck3, push GitHub)
+
+- Dua tampilan di /latihan/<topik>: tanpa `?tingkat=` = RINGKASAN (kemajuan
+  topik, tujuh lencana, empat ubin tingkat sebagai tombol); dengan
+  `?tingkat=mudah` = SOALNYA SAJA (ARYA: "setelah memilih tingkat, siswa
+  fokus dengan soalnya"). Tingkat di alamat supaya refresh dan tombol
+  kembali peramban bekerja; sembilan halaman latihan dibungkus Suspense.
+- Peta soal: 15 kotak bernomor per tingkat, hijau = pernah benar, jingga =
+  pernah salah, kosong = belum; ketuk untuk melompat. Tombol "Sebelumnya"
+  dan "Berikutnya" (tidak melingkar).
+- Soal yang pernah benar dibuka lagi: jawaban tertandai, pembahasan
+  langsung terbuka, kabar "Sudah pernah benar. Baca lagi pembahasannya".
+  Yang pernah salah: pilihan lama bergaris putus jingga, boleh dijawab ulang,
+  pembahasan baru tampil sesudah diperiksa lagi.
+- Simpanan (`lib/latihan-kemajuan.ts`) bertambah `jawaban` (pilihan terakhir
+  tiap soal, termasuk salah; hanya tanda, bukan nilai) dan `posisi` (soal
+  terakhir per tingkat). Posisi dibaca dari simpanan sebagai satu sumber
+  kebenaran, bukan state lokal, jadi refresh dan pindah tingkat tidak
+  mengulang dari nomor satu. Gambaran server `KOSONG_JSON`.
+- Jendela keluar: menangkap klik tautan mana pun (nav, remah, kaki) sesudah
+  minimal satu jawaban diperiksa di kunjungan ini; "Keluar dari latihan?
+  Jawabanmu sudah tersimpan. Kamu bisa melanjutkan dari soal ini kapan
+  saja." Tetap di sini / Keluar. Tutup tab dan refresh tidak diberi
+  peringatan (peramban tidak mengizinkan kalimat sendiri, dan kemajuannya
+  sudah tersimpan). Next Link menghormati preventDefault dari pendengar
+  tangkap (capture) di document, terbukti.
+- Lencana dihidupkan lagi (dulu disembunyikan atas permintaan ARYA 3 Sep):
+  baris tujuh lencana di ringkasan (belum diraih tampil redup dengan
+  syaratnya), jendela perayaan saat lencana baru diraih, "🏅 n/7 lencana" di
+  kartu bab /latihan.
+- Diuji playwright (dev dan produksi): jawab benar memunculkan "Langkah
+  pertama"; jawab salah lalu kembali: pilihan lama bertanda; lompat lewat
+  peta; reload mendarat di soal yang sama dengan tanda-tanda utuh; jendela
+  keluar muncul saat menekan Beranda, "Tetap di sini" menahan, "Keluar"
+  meneruskan; lebar 400 px tidak melebar.
+- Belum diuji: pindah tingkat lewat keping (butuh 10 benar untuk membuka
+  tingkat kedua); logikanya sama dengan lompat peta (posisi per tingkat
+  dari simpanan).
+
 ## 16 SEP: RATA KANAN-KIRI, KEPEKAAN TARIKAN SEMUA WIDGET DIPERIKSA (deploy matra-f9x5ydaii, push GitHub)
 
 - Baris simpanan video diringkas (ARYA: "bukan hal yang terlalu penting"):
