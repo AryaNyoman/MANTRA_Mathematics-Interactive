@@ -7,11 +7,13 @@ import type { SoalKuis, TingkatKuis } from '@/content/tipe'
 import { cariBab } from '@/content/subbab'
 import { langgan } from '@/lib/simpanan'
 import {
-  bacaLatihan, catatJawaban, KOSONG_JSON, LENCANA, persenTopik, ringkasPerTingkat,
-  segarkanLencana, simpanPosisi, SYARAT_NAIK, URUT_TINGKAT,
+  bacaLatihan, catatJawaban, hapusJawaban, KOSONG_JSON, LENCANA, persenTopik,
+  ringkasPerTingkat, segarkanLencana, simpanPosisi, SYARAT_NAIK, URUT_TINGKAT,
 } from '@/lib/latihan-kemajuan'
+import { bacaBenih, HURUF, hurufTampil, petakanHuruf, urutanPilihan } from '@/lib/acak-pilihan'
 import KartuBayang from '@/components/mantra/KartuBayang'
 import GambarSoal from '@/components/latihan/gambar/GambarSoal'
+import TeksMat from '@/components/latihan/TeksMat'
 import { useModeGuru } from '@/lib/mode-guru'
 
 /**
@@ -35,6 +37,17 @@ import { useModeGuru } from '@/lib/mode-guru'
  * 6. JENDELA KELUAR saat menekan tautan lain di tengah mengerjakan (hanya
  *    bila di kunjungan ini sudah ada yang dijawab), dan LENCANA dihidupkan
  *    lagi: baris lencana di ringkasan, perayaan kecil saat lencana baru.
+ *
+ * Tambahan 17 Sep 2026 sore (ARYA):
+ * 7. PILIHAN GANDA DIKOCOK per tab (lib/acak-pilihan.ts) supaya siswa tidak
+ *    menghafal huruf jawaban; yang disimpan tetap indeks asli, dan huruf
+ *    di pembahasan diterjemahkan mengikuti urutan tampilan.
+ * 8. PECAHAN BERSUSUN di soal, pilihan, dan pembahasan (TeksMat).
+ * 9. JENDELA SKOR begitu ke-15 soal satu tingkat sudah dijawab: benar dan
+ *    salah, lalu pilihan "Baca-baca dulu" atau "Kerjakan ulang yang salah"
+ *    (hanya tanda salahnya yang dihapus, lalu melompat ke soal salah
+ *    pertama). Peta soal mengikuti JAWABAN TERAKHIR, bukan riwayat pernah
+ *    benar, supaya cocok dengan skor dan dengan tanda yang dihapus.
  *
  * Aturan kemajuan tetap di `lib/latihan-kemajuan.ts`; yang dihitung hanya
  * soal yang pernah BENAR. Menjawab tetap dua langkah: pilih, lalu Periksa.
@@ -68,6 +81,8 @@ export default function ArenaLatihan({
   const ringkas = ringkasPerTingkat(bank, k, guru)
   const persen = persenTopik(bank, k)
   const bab = cariBab(topik)
+  // benih kocokan pilihan: tetap selama tab hidup, '0' (urutan asli) di server
+  const benih = useSyncExternalStore(() => () => {}, bacaBenih, () => '0')
   const alamatTingkat = (t: TingkatKuis) => `/latihan/${topik}?tingkat=${encodeURIComponent(t)}`
 
   return (
@@ -101,7 +116,7 @@ export default function ArenaLatihan({
       ) : (
         <Soal
           topik={topik} nama={nama} bank={bank} tingkat={tingkat} k={k} ringkas={ringkas}
-          guru={guru}
+          guru={guru} benih={benih}
           gantiTingkat={(t) => router.push(alamatTingkat(t))}
           pergi={(alamat) => router.push(alamat)}
         />
@@ -217,7 +232,7 @@ function Ringkasan({
 type JawabSesi = { pilih: number | null; periksa: boolean }
 
 function Soal({
-  topik, nama, bank, tingkat, k, ringkas, guru, gantiTingkat, pergi,
+  topik, nama, bank, tingkat, k, ringkas, guru, benih, gantiTingkat, pergi,
 }: {
   topik: string
   nama: string
@@ -226,13 +241,13 @@ function Soal({
   k: Kemajuan
   ringkas: Ringkas
   guru: boolean
+  benih: string
   gantiTingkat: (t: TingkatKuis) => void
   pergi: (alamat: string) => void
 }) {
   const soal = bank.filter((s) => s.tingkat === tingkat)
   const barisTingkat = ringkas.find((r) => r.tingkat === tingkat)
   const terkunci = barisTingkat ? !barisTingkat.terbuka : false
-  const sudahBenar = new Set(k.benar)
 
   /* Posisi soal dibaca dari simpanan (satu sumber kebenaran), bukan state
      lokal: dengan begitu ia otomatis bertahan saat refresh dan pindah
@@ -262,6 +277,41 @@ function Soal({
   const [lencanaBaru, setLencanaBaru] = useState<string[]>([])
   const [tujuanKeluar, setTujuanKeluar] = useState<string | null>(null)
 
+
+  /* Jendela skor: dibuka dari periksaJawaban begitu jawaban itu melengkapi
+     ke-15 soal (bukan saat halaman dibuka dengan semuanya sudah terjawab dari
+     kemarin). Angkanya dihitung saat digambar, jadi selalu mengikuti keadaan
+     terbaru. */
+  const [skorTampil, setSkorTampil] = useState(false)
+
+  function ulangYangSalah() {
+    const ids = soal.filter((q) => nilaiSoal(q) === 'salah').map((q) => q.id)
+    setJawabSesi((j) => {
+      const baru = { ...j }
+      for (const id of ids) delete baru[id]
+      return baru
+    })
+    if (!guru) hapusJawaban(topik, ids)
+    const pertama = soal.findIndex((q) => ids.includes(q.id))
+    if (pertama >= 0) keSoal(pertama)
+    setSkorTampil(false)
+  }
+  const tingkatBerikut = URUT_TINGKAT[URUT_TINGKAT.indexOf(tingkat) + 1]
+  const berikutTerbuka = tingkatBerikut
+    ? ringkas.find((r) => r.tingkat === tingkatBerikut)?.terbuka ?? false
+    : false
+
+  /* Keadaan tiap soal menurut jawaban TERAKHIR (bukan riwayat pernah benar):
+     dipakai peta, skor, dan "kerjakan ulang yang salah". */
+  const nilaiSoal = (q: SoalKuis): 'benar' | 'salah' | 'belum' => {
+    const kq = keadaanSoal(q)
+    if (kq.pilih === null) return 'belum'
+    if (!kq.periksa && !kq.salahLalu) return 'belum'
+    return kq.pilih === q.benar ? 'benar' : 'salah'
+  }
+  const jumlahBenar = soal.filter((q) => nilaiSoal(q) === 'benar').length
+  const jumlahSalah = soal.filter((q) => nilaiSoal(q) === 'salah').length
+
   function pilihOpsi(n: number) {
     if (!s || periksa || terkunci) return
     setJawabSesi((j) => ({ ...j, [s.id]: { pilih: n, periksa: false } }))
@@ -271,6 +321,8 @@ function Soal({
     if (pilih === null || !s || periksa) return
     setJawabSesi((j) => ({ ...j, [s.id]: { pilih, periksa: true } }))
     setDijawabSesi((n) => n + 1)
+    // jawaban ini melengkapi seluruh soal tingkat ini: tampilkan skor
+    if (soal.every((q) => q.id === s.id || nilaiSoal(q) !== 'belum')) setSkorTampil(true)
     if (guru) return
     catatJawaban(topik, s.id, pilih === s.benar, pilih)
     const baru = segarkanLencana(topik, bank)
@@ -321,6 +373,8 @@ function Soal({
     : 'var(--tinta-50)'
 
   const lencanaDiraih = LENCANA.filter((l) => lencanaBaru.includes(l.id))
+  // urutan tampilan pilihan soal ini: urut[posisi] = indeks asli di bank
+  const urut = s ? urutanPilihan(s.id, benih, s.pilihan.length) : []
 
   return (
     <>
@@ -366,10 +420,7 @@ function Soal({
           {soal.length > 0 && (
             <div className="peta-soal" role="group" aria-label="Peta soal tingkat ini">
               {soal.map((q, i) => {
-                const kq = keadaanSoal(q)
-                const benarQ = guru ? kq.periksa && kq.pilih === q.benar : sudahBenar.has(q.id)
-                const salahQ = !benarQ && kq.pilih !== null && (kq.periksa || kq.salahLalu)
-                const keadaan = benarQ ? 'benar' : salahQ ? 'salah' : 'belum'
+                const keadaan = nilaiSoal(q)
                 return (
                   <button
                     key={q.id}
@@ -410,13 +461,16 @@ function Soal({
             </p>
           ) : (
             <>
-              <p className="soal-teks">{s.pertanyaan}</p>
+              <p className="soal-teks"><TeksMat teks={s.pertanyaan} /></p>
               {/* Gambar situasi soal tampil SEBELUM dijawab: siswa cerita
                   butuh melihat keadaannya, bukan menebak dari kalimat. */}
               {s.gambar && <GambarSoal gambar={s.gambar} />}
 
               <div className="opsi-daftar">
-                {s.pilihan.map((p, n) => {
+                {/* Urutan tampilan dikocok (urut); `n` = indeks ASLI yang
+                    disimpan dan dibandingkan dengan s.benar. */}
+                {urut.map((n, posisi) => {
+                  const p = s.pilihan[n]
                   const iniBenar = n === s.benar
                   const keadaan = !periksa
                     ? pilih === n
@@ -437,8 +491,8 @@ function Soal({
                       aria-pressed={pilih === n}
                       onClick={() => pilihOpsi(n)}
                     >
-                      <span className="huruf">{String.fromCharCode(65 + n)}</span>
-                      <span className="isi">{p}</span>
+                      <span className="huruf">{HURUF[posisi]}</span>
+                      <span className="isi"><TeksMat teks={p} /></span>
                       <span className="tanda" aria-hidden="true">
                         {periksa ? (iniBenar ? '✓' : pilih === n ? '✕' : '') : salahLalu && pilih === n ? '✕' : ''}
                       </span>
@@ -480,7 +534,7 @@ function Soal({
           {periksa && s ? (
             <div className="bahas-isi">
               <div className="bahas-jawab">
-                Jawaban benar: <b>{String.fromCharCode(65 + s.benar)}</b>
+                Jawaban benar: <b>{hurufTampil(urut, s.benar)}</b>
               </div>
               {/* Gambar soal TIDAK diulang di sini (ARYA, 14 Sep 2026: "bukan
                   menggambar ulang kembali gambarnya"). Yang tampil adalah
@@ -494,19 +548,19 @@ function Soal({
                     <div key={i} className="bahas-langkah">
                       <span className="no angka-rata">{i + 1}</span>
                       <div className="isi">
-                        <span>{teks}</span>
+                        <span><TeksMat teks={petakanHuruf(teks, urut)} /></span>
                         {gambar && <GambarSoal gambar={gambar} />}
                       </div>
                     </div>
                   )
                 })
               ) : (
-                <p className="bahas-alasan">{s.alasan}</p>
+                <p className="bahas-alasan"><TeksMat teks={petakanHuruf(s.alasan, urut)} /></p>
               )}
               {s.jebakan && (
                 <div className="bahas-jebakan">
                   <div className="kicker">Kenapa pilihan lain menggoda</div>
-                  <p>{s.jebakan}</p>
+                  <p><TeksMat teks={petakanHuruf(s.jebakan, urut)} /></p>
                 </div>
               )}
             </div>
@@ -518,6 +572,44 @@ function Soal({
           )}
         </aside>
       </div>
+
+      {/* Jendela skor sesudah semua soal tingkat ini terjawab */}
+      {skorTampil && (
+        <div className="tirai-jendela" role="dialog" aria-modal="true" aria-labelledby="judul-skor">
+          <div className="jendela-kecil jendela-skor">
+            <div className="kicker">Tingkat {tingkat} selesai</div>
+            <h3 id="judul-skor">
+              {jumlahSalah === 0 ? 'Semua benar!' : `${jumlahBenar} benar, ${jumlahSalah} salah`}
+            </h3>
+            <div className="skor-angka">
+              <span className="benar">{jumlahBenar}</span>
+              <span className="pisah">/</span>
+              <span>{soal.length}</span>
+            </div>
+            <p>
+              {jumlahSalah === 0
+                ? berikutTerbuka
+                  ? `Tingkat ${tingkatBerikut} sudah terbuka.`
+                  : 'Baca lagi pembahasannya kapan saja lewat peta soal.'
+                : 'Mau membaca pembahasannya dulu, atau langsung mengulang yang salah? Tanda soal yang benar tetap disimpan.'}
+            </p>
+            <div className="jendela-aksi">
+              <button type="button" className="pil-garis" onClick={() => setSkorTampil(false)} autoFocus>
+                Baca-baca dulu
+              </button>
+              {jumlahSalah > 0 ? (
+                <button type="button" className="pil-gelap" onClick={ulangYangSalah}>
+                  Kerjakan ulang yang salah
+                </button>
+              ) : berikutTerbuka && tingkatBerikut ? (
+                <button type="button" className="pil-gelap" onClick={() => gantiTingkat(tingkatBerikut)}>
+                  Lanjut ke tingkat {tingkatBerikut}
+                </button>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Perayaan lencana baru: satu jendela kecil, ditutup sendiri oleh siswa. */}
       {lencanaDiraih.length > 0 && (

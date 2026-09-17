@@ -95,6 +95,15 @@ export function catatJawaban(topik: string, id: string, tepat: boolean, pilih: n
   simpan(topik, { ...k, benar, dicoba: k.dicoba + 1, jawaban: { ...k.jawaban, [id]: pilih } })
 }
 
+/** Hapus pilihan tersimpan beberapa soal (kerjakan ulang yang salah): soalnya
+ *  kembali "belum dijawab" di peta. Daftar `benar` tidak disentuh. */
+export function hapusJawaban(topik: string, ids: readonly string[]): void {
+  const k = bacaLatihan(topik)
+  const jawaban = { ...k.jawaban }
+  for (const id of ids) delete jawaban[id]
+  simpan(topik, { ...k, jawaban })
+}
+
 /** Ingat soal ke berapa yang sedang dibuka di satu tingkat. */
 export function simpanPosisi(topik: string, tingkat: TingkatKuis, ke: number): void {
   const k = bacaLatihan(topik)

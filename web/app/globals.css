@@ -3182,6 +3182,25 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .lencana-raih .ikon { font-size: 34px; line-height: 1; }
 .lencana-raih .nama { font-size: 16px; font-weight: 600; color: var(--tinta); }
 .lencana-raih .syarat { font-size: 13px; color: var(--tinta-62); }
+.jendela-skor h3 { margin-bottom: 4px; }
+.skor-angka {
+  font-family: var(--font-serif), Georgia, serif; font-size: 40px; line-height: 1.1;
+  color: var(--tinta); margin: 6px 0 10px;
+}
+.skor-angka .benar { color: var(--hijau); }
+.skor-angka .pisah { color: var(--tinta-50); margin: 0 6px; }
+.jendela-skor p { margin-bottom: 4px; }
+
+/* Pecahan bersusun di teks soal dan pembahasan (TeksMat, 17 Sep 2026):
+   pembilang di atas garis, penyebut di bawah, sedikit lebih kecil dari
+   teksnya supaya tinggi barisnya tidak melonjak. */
+.pecahan {
+  display: inline-flex; flex-direction: column; align-items: center;
+  vertical-align: middle; line-height: 1.15; margin: 0 3px; font-size: 0.9em;
+  text-align: center;
+}
+.pecahan .atas { border-bottom: 1.5px solid currentColor; padding: 0 4px 1px; }
+.pecahan .bawah { padding: 1px 4px 0; }
 .opsi-mantra[data-keadaan='redam'] { opacity: 0.5; }
 .opsi-mantra:disabled { cursor: default; }
 
