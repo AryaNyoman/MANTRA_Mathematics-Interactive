@@ -921,7 +921,7 @@ export const TAHAP: TahapTransformasi[] = [
     ],
     seringKeliru: {
       judul: 'Baris matriks dikalikan dengan baris koordinatnya',
-      isi: 'Yang menggoda: koordinat (x, y) dan baris matriks sama-sama deretan dua angka, jadi keduanya terlihat sejenis. Cara membedakannya: hitung sekali dengan matriks yang tidak simetris, misalnya baris pertama 1 dan 2, baris kedua 0 dan 1, pada titik (3, 4). Cara yang benar memberi (1 dikali 3 ditambah 2 dikali 4, 0 dikali 3 ditambah 1 dikali 4), yaitu (11, 4). Lalu periksa di alatnya dengan angka yang sama. Kalau jawabanmu tidak cocok dengan gambarnya, caranya yang perlu diperbaiki, bukan gambarnya.',
+      isi: 'Yang menggoda: koordinat (x, y) dan baris matriks sama-sama deretan dua angka, jadi keduanya terlihat sejenis. Cara membedakannya: hitung sekali dengan matriks yang tidak simetris, misalnya [[1, 2], [0, 1]] pada titik (3, 4). Cara yang benar memberi (1 · 3 + 2 · 4, 0 · 3 + 1 · 4) = (11, 4). Lalu periksa di alatnya dengan angka yang sama. Kalau jawabanmu tidak cocok dengan gambarnya, caranya yang perlu diperbaiki, bukan gambarnya.',
     },
     intisari: [
       'Matriks 2×2 adalah empat angka pengali, disusun dua baris dua kolom.',

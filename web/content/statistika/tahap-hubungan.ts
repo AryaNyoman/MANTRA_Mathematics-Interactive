@@ -158,7 +158,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
           'dikumpulkan dulu dari tabel:',
           'n = 10',
           'jumlah x = 65, jumlah y = 700',
-          'jumlah x kali y = 4814, jumlah x² = 505',
+          'Σxy = 4814, Σx² = 505',
           '',
           'kemiringan b, memakai keempat jumlah tadi:',
           'b = (n × 4814 - 65 × 700) : (n × 505 - 65²)',
@@ -221,7 +221,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
     pertanyaan: 'Angka hubungannya 0,98. Berarti yang satu menyebabkan yang lain, kan?',
     intisari: [
       'Koefisien korelasi r berada antara -1 dan 1: tandanya arah, besarnya kekuatan.',
-      'Koefisien determinasi r kuadrat menyatakan bagian keragaman yang bisa dijelaskan garis.',
+      'Koefisien determinasi r² menyatakan bagian keragaman yang bisa dijelaskan garis.',
       'r hanya mengukur hubungan LURUS. Hubungan melengkung yang sempurna pun bisa memberi r nol.',
       'Korelasi sekuat apa pun tidak membuktikan sebab-akibat.',
     ],
@@ -242,7 +242,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       { jenis: 'paragraf', teks: 'Pada data jam belajar dan nilai tadi, r = 0,98. Itu sangat kuat, dan memang wajar sebab datanya buatan untuk latihan. Data dari dunia nyata jarang serapi itu.' },
 
       { jenis: 'sesi', judul: 'Koefisien determinasi' },
-      { jenis: 'paragraf', teks: 'Kuadratkan r, dan hasilnya punya arti yang lebih langsung bisa dipakai. Pada data kita r kuadrat sama dengan 0,97, artinya sekitar 97 persen keragaman nilai bisa dijelaskan oleh garis yang memakai lama belajar.' },
+      { jenis: 'paragraf', teks: 'Kuadratkan r, dan hasilnya punya arti yang lebih langsung bisa dipakai. Pada data kita r² = 0,97, artinya sekitar 97 persen keragaman nilai bisa dijelaskan oleh garis yang memakai lama belajar.' },
       { jenis: 'paragraf', teks: 'Sisa 3 persennya berasal dari hal lain yang tidak masuk hitungan: cara belajarnya, kondisi saat ujian, soal yang kebetulan cocok, dan banyak lagi. Angka ini berguna justru karena mengingatkan bahwa selalu ada bagian yang tidak dijelaskan.' },
 
       { jenis: 'sesi', judul: 'Angka saja tidak pernah cukup' },
@@ -254,7 +254,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
           'x    -3   -2   -1   0   1   2   3',
           'y     9    4    1   0   1   4   9',
           '',
-          'setiap y persis sama dengan x kuadrat',
+          'setiap y = x², persis',
           'r = 0,00',
         ],
         simpul: 'Setiap nilai y bisa ditebak dengan sempurna dari x nya. Tetapi karena polanya melengkung dan setangkup, r nya nol. Kalau hanya membaca angka r, hubungan sempurna ini akan dilaporkan sebagai "tidak ada hubungan".',
@@ -288,8 +288,8 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       { jenis: 'sorot', teks: 'Kalimat yang aman: "keduanya berhubungan kuat". Kalimat yang butuh bukti jauh lebih banyak: "yang satu menyebabkan yang lain".' },
     ],
     seringKeliru: {
-      judul: 'r sama dengan nol berarti tidak ada hubungan sama sekali',
-      isi: 'r sama dengan nol berarti tidak ada hubungan LURUS. Contoh di halaman ini punya r nol padahal setiap nilai y bisa ditebak dengan sempurna dari x nya. Kebalikannya juga berlaku: r yang besar tidak menjamin garis lurus itu model yang tepat. Gambarnya yang memutuskan, bukan angkanya.',
+      judul: 'r = 0 berarti tidak ada hubungan sama sekali',
+      isi: 'r = 0 berarti tidak ada hubungan LURUS. Contoh di halaman ini punya r nol padahal setiap nilai y bisa ditebak dengan sempurna dari x nya. Kebalikannya juga berlaku: r yang besar tidak menjamin garis lurus itu model yang tepat. Gambarnya yang memutuskan, bukan angkanya.',
       sumber: 'Korelasi product moment, koefisien determinasi, dan pembahasan korelasi dibandingkan sebab-akibat ada di Buku Panduan Guru Matematika SMA/SMK Kelas XI, Kemendikbudristek 2021, subbab A dan C, halaman 138 sampai 177.',
     },
     widget: 'kekuatan-hubungan',

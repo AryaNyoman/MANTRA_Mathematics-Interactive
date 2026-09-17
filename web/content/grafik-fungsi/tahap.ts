@@ -353,9 +353,9 @@ export const TAHAP: TahapGrafik[] = [
         jenis: 'poin',
         judul: 'Tiga kemungkinan, dan cuma tiga',
         butir: [
-          'D lebih dari nol - dua akar berbeda, grafiknya memotong sumbu x di dua titik',
+          'D > 0 - dua akar berbeda, grafiknya memotong sumbu x di dua titik',
           'D = 0 - dua akar kembar, grafiknya menyinggung sumbu x di satu titik',
-          'D kurang dari nol - tidak ada akar real, grafiknya tidak menyentuh sumbu x sama sekali',
+          'D < 0 - tidak ada akar real, grafiknya tidak menyentuh sumbu x sama sekali',
         ],
       },
       {
@@ -1098,8 +1098,8 @@ export const TAHAP: TahapGrafik[] = [
       { jenis: 'paragraf', teks: 'Dengan ini lingkaran topik ini tertutup. Materi 02 menuntut satu masukan satu keluaran; materi 12 menuntut syarat kebalikannya, satu keluaran satu masukan. Yang pertama membuat sebuah gambar layak disebut fungsi, yang kedua membuat fungsi itu layak dibalik.' },
     ],
     seringKeliru: {
-      judul: 'Lambang pangkat minus satu artinya satu per fungsinya',
-      isi: 'Di sini artinya bukan pecahan, melainkan mesin kebalikannya. Pada f(x) = x + 3, inversnya adalah x - 3, bukan 1 dibagi (x + 3). Godaannya kuat karena di aljabar biasa pangkat minus satu memang berarti satu per sesuatu. Cara mengeceknya: jalankan maju lalu balik, dan hasilnya harus kembali ke angka semula. Mulai dari 5, f(5) = 8, lalu 8 - 3 = 5, kembali ke asal, jadi benar. Kalau dipakai 1 dibagi 8, hasilnya 0,125, dan itu jelas tidak kembali ke 5.',
+      judul: 'Lambang f⁻¹ dikira 1/f',
+      isi: 'Di sini artinya bukan pecahan, melainkan mesin kebalikannya. Pada f(x) = x + 3, inversnya f⁻¹(x) = x - 3, bukan 1/(x + 3). Godaannya kuat karena di aljabar biasa pangkat -1 memang berarti satu per sesuatu: 2⁻¹ = 1/2. Cara mengeceknya: jalankan maju lalu balik, dan hasilnya harus kembali ke angka semula. Mulai dari 5, f(5) = 8, lalu 8 - 3 = 5, kembali ke asal, jadi benar. Kalau dipakai 1 dibagi 8, hasilnya 0,125, dan itu jelas tidak kembali ke 5.',
     },
     widget: 'mesin-balik',
     siap: true,

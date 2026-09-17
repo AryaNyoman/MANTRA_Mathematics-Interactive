@@ -343,7 +343,7 @@ export const TAHAP: Tahap[] = [
         jenis: 'poin',
         butir: [
           'Sinus - berawal dari kata Sanskerta jya-ardha, artinya setengah tali busur. Diserap ke bahasa Arab jadi jiba, lalu keliru dibaca sebagai jaib yang berarti teluk atau lipatan. Penerjemah Latin memakai kata sinus, yang juga berarti teluk. Jadi nama itu sebenarnya kecelakaan penerjemahan',
-          'Kosinus - dari complementi sinus, sinus dari sudut pelengkap. Pelengkap 30° adalah 60°, dan memang cos 30° sama dengan sin 60°',
+          'Kosinus - dari complementi sinus, sinus dari sudut pelengkap. Pelengkap 30° adalah 60°, dan memang cos 30° = sin 60°',
           'Tangen - dari kata Latin tangens, yang menyentuh. Di Materi 06 Anda akan melihat ia benar-benar berupa garis yang menyentuh lingkaran',
         ],
       },
@@ -703,7 +703,7 @@ export const TAHAP: Tahap[] = [
         jenis: 'poin',
         butir: [
           'csc θ = 1 ÷ sin θ - melesat di 0°, 180°, dan 360° (tempat sin nol), dan tidak pernah masuk ke antara −1 dan 1',
-          'sec θ = 1 ÷ cos θ - melesat di 90° dan 270° (tempat cos nol), jurangnya sama dengan tan',
+          'sec θ = 1/cos θ - melesat di 90° dan 270° (tempat cos nol), jurangnya sama dengan tan',
           'cot θ = cos θ ÷ sin θ - kebalikan tan: melesat di tempat sin nol, dan turun di tempat tan naik',
         ],
       },

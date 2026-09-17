@@ -245,7 +245,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       },
 
       { jenis: 'sesi', judul: 'JAK, dan cara menemukan pencilan dengan hitungan' },
-      { jenis: 'paragraf', teks: 'Jangkauan antar kuartil adalah Q3 dikurangi Q1. Pada data kita, JAK = 25 - 10 = 15 menit. Ia mengukur lebar setengah data yang di tengah, jadi ia sama sekali tidak peduli pada nilai terjauh.' },
+      { jenis: 'paragraf', teks: 'Jangkauan antar kuartil adalah JAK = Q₃ − Q₁. Pada data kita, JAK = 25 - 10 = 15 menit. Ia mengukur lebar setengah data yang di tengah, jadi ia sama sekali tidak peduli pada nilai terjauh.' },
       { jenis: 'paragraf', teks: 'Bandingkan dengan jangkauan biasa, yang di sini 60 - 5 = 55 menit. Angka 55 itu sepenuhnya ditentukan oleh dua orang saja, yaitu yang paling dekat dan yang paling jauh rumahnya.' },
       {
         jenis: 'contoh',
@@ -350,8 +350,8 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
         jenis: 'contoh',
         judul: 'Simpangan baku, akar dari varian',
         baris: [
-          'Mesin A   akar dari 2 = 1,41 ml',
-          'Mesin B   akar dari 50 = 7,07 ml',
+          'Mesin A   √2 = 1,41 ml',
+          'Mesin B   √50 = 7,07 ml',
         ],
         simpul: 'Sekarang angkanya bisa dibaca sebagai kalimat: isi botol Mesin A biasanya meleset sekitar 1,41 ml dari 500, sedangkan Mesin B sekitar 7,07 ml.',
       },
@@ -416,8 +416,8 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
         jenis: 'poin',
         judul: 'Tepi kelas',
         butir: [
-          'Tepi bawah = batas bawah dikurangi 0,5, jadi 40 menjadi 39,5.',
-          'Tepi atas = batas atas ditambah 0,5, jadi 49 menjadi 49,5.',
+          'Tepi bawah = batas bawah − 0,5, jadi 40 menjadi 39,5.',
+          'Tepi atas = batas atas + 0,5, jadi 49 menjadi 49,5.',
           'Panjang kelas p = tepi atas dikurangi tepi bawah = 49,5 - 39,5 = 10.',
         ],
       },

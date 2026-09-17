@@ -137,7 +137,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
           '',
           'jumlah         40 siswa    100%',
         ],
-        simpul: 'Angka buatan untuk latihan. Persentase dihitung dari 40, misalnya 8 dibagi 40 sama dengan 0,2 atau 20 persen.',
+        simpul: 'Angka buatan untuk latihan. Persentase dihitung dari 40, misalnya 8/40 = 0,2 atau 20 persen.',
       },
 
       { jenis: 'sesi', judul: 'Histogram, untuk data angka' },

@@ -539,7 +539,7 @@ export const TAHAP: TahapLimit[] = [
         jenis: 'poin',
         judul: 'Kenapa sekawan bekerja',
         butir: [
-          'Bentuk (a - b) dikali (a + b) selalu menghasilkan a² - b²',
+          'Bentuk (a - b)(a + b) selalu menghasilkan a² - b²',
           'Mengkuadratkan akar berarti akarnya hilang',
           'Akar yang hilang itulah yang tadi menghalangi pencoretan',
         ],
@@ -739,7 +739,7 @@ export const TAHAP: TahapLimit[] = [
 
       { jenis: 'sesi', judul: 'Kalau Anda pernah dengar aturan L Hopital' },
       { jenis: 'paragraf', teks: 'Sebagian siswa sudah pernah mendengar jalan pintas untuk bentuk 0/0: turunkan pembilang dan penyebutnya masing-masing, lalu masukkan angkanya. Namanya aturan L Hopital, dan ia memang bekerja pada banyak soal.' },
-      { jenis: 'paragraf', teks: 'Ada godaan besar untuk memakainya di sini. Turunan sin x adalah cos x, turunan x adalah 1, jadi hasilnya cos 0 dibagi 1 sama dengan 1. Cepat, rapi, dan jawabannya benar.' },
+      { jenis: 'paragraf', teks: 'Ada godaan besar untuk memakainya di sini. Turunan sin x adalah cos x, turunan x adalah 1, jadi hasilnya (cos 0)/1 = 1. Cepat, rapi, dan jawabannya benar.' },
       { jenis: 'sorot', teks: 'Tetapi sebagai BUKTI, langkah itu berputar-putar. Rumus turunan sin x justru diperoleh dari limit yang sedang kita buktikan ini.' },
       {
         jenis: 'poin',
