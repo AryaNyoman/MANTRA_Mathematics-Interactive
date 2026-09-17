@@ -1,5 +1,28 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 17 SEP SORE: PILIHAN DIKOCOK, PECAHAN BERSUSUN, JENDELA SKOR (deploy matra-ba1rmtjvx, push GitHub)
+
+- Pilihan ganda dikocok saat ditampilkan (`lib/acak-pilihan.ts`): benih per
+  tab di sessionStorage (tetap selama tab hidup, beda di tab lain), yang
+  disimpan tetap indeks ASLI, huruf di pembahasan ("(Jawaban C)", "Pilihan
+  D, ...") diterjemahkan dengan pola yang sama dengan alat/acak_pilihan.mjs.
+  Diuji: huruf di tombol, kepala pembahasan, dan langkah terakhir selalu
+  sama; jebakan menunjuk pilihan yang benar.
+- Pecahan bersusun (`components/latihan/TeksMat.tsx`, tanpa LaTeX): pola
+  pembilang/penyebut (rangkaian tanpa spasi atau kelompok berkurung) di
+  soal, pilihan, dan pembahasan disusun atas bawah; 2.485 pecahan di bank
+  tercakup; satuan seperti km/jam ikut bersusun (sengaja, tidak ada kasus
+  "dan/atau" di bank).
+- Jendela skor begitu jawaban ke-15 diperiksa: "n benar, m salah", tombol
+  "Baca-baca dulu" dan "Kerjakan ulang yang salah" (menghapus tanda soal
+  yang salah saja, `hapusJawaban`, lalu melompat ke soal salah pertama);
+  kalau semua benar, tawarkan tingkat berikutnya bila terbuka. Peta soal
+  kini mengikuti JAWABAN TERAKHIR (bukan riwayat pernah benar) supaya cocok
+  dengan skor dan tanda yang dihapus; daftar `benar` untuk kemajuan dan
+  lencana tidak berubah.
+- Dibuka dari periksaJawaban, bukan useEffect (aturan
+  react-hooks/set-state-in-effect).
+
 ## 17 SEP: BANK SOAL DIROMBAK, ENAM PERMINTAAN ARYA (deploy matra-e6u0m5ck3, push GitHub)
 
 - Dua tampilan di /latihan/<topik>: tanpa `?tingkat=` = RINGKASAN (kemajuan
