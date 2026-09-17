@@ -103,7 +103,11 @@
   --d-cepat: 160ms; --d-sedang: 320ms; --d-lambat: 600ms; --d-sinema: 3400ms;
   --d-ruang: 520ms; --d-keluar: 300ms; --d-jendela: 400ms; --d-materi: 280ms;
   --d-soal: 180ms; --d-umpan: 140ms; --d-hitung: 900ms; --jeda-tahap: 50ms;
-  --geser-ruang: 28px; --geser-balik: 20px; --geser-materi: 24px; --geser-soal: 10px; --geser-umpan: 8px;
+  /* Pindah halaman BERURUTAN (ARYA 17 Sep malam: teks lama dan baru tidak
+     boleh bertindih, dan lebih cepat): halaman lama pergi 140 ms, baru
+     sesudah itu halaman baru masuk 280 ms. Total 420 ms. */
+  --d-halaman-keluar: 140ms; --d-halaman-masuk: 280ms;
+  --geser-ruang: 20px; --geser-balik: 14px; --geser-materi: 24px; --geser-soal: 10px; --geser-umpan: 8px;
   --skala-tenggelam: 0.98; --skala-panggung: 0.985; --skala-jendela: 0.96;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -111,6 +115,7 @@
     --d-cepat: 0ms; --d-sedang: 0ms; --d-lambat: 0ms; --d-sinema: 0ms;
     --d-ruang: 0ms; --d-keluar: 0ms; --d-jendela: 0ms; --d-materi: 0ms;
     --d-soal: 0ms; --d-umpan: 0ms; --d-hitung: 0ms; --jeda-tahap: 0ms;
+    --d-halaman-keluar: 0ms; --d-halaman-masuk: 0ms;
     --geser-ruang: 0px; --geser-balik: 0px; --geser-materi: 0px; --geser-soal: 0px; --geser-umpan: 0px;
     --skala-tenggelam: 1; --skala-panggung: 1; --skala-jendela: 1;
   }
@@ -3349,12 +3354,15 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
    menjadikannya acuan bagi anak `position: fixed` sehingga laci daftar
    materi di HP pernah setinggi 4.840 piksel (3 Sep 2026).
    Arah datang dari `html[data-arah]`, ditulis `ArahRute` SEBELUM pindah:
-   maju (lebih dalam, tab di kanan) naik 28 px; kembali (tab di kiri, tombol
-   Kembali peramban) turun 20 px. Halaman lama tenggelam (skala 0,98) sambil
-   memudar, lebih cepat daripada yang masuk. Nav dan latar tidak digambar
-   ulang: nav bernama `nav` dan potret lamanya disembunyikan, `root` tanpa
-   animasi. Di peramban tanpa View Transitions halaman baru cukup memudar
-   masuk (opacity saja, tetap tanpa transform).
+   maju (lebih dalam, tab di kanan) naik 20 px; kembali (tab di kiri, tombol
+   Kembali peramban) turun 14 px. BERURUTAN, bukan bersamaan (ARYA 17 Sep
+   malam: tulisan lama dan baru yang saling tindih bikin pusing): halaman
+   lama tenggelam dan memudar habis dalam 140 ms, dan potret halaman baru
+   baru mulai sesudahnya (animation-delay = durasi keluar, fill both, jadi
+   sebelum itu ia belum terlihat). Nav dan latar tidak digambar ulang: nav
+   bernama `nav` dan potret lamanya disembunyikan, `root` tanpa animasi. Di
+   peramban tanpa View Transitions halaman baru cukup memudar masuk
+   (opacity saja, tetap tanpa transform).
    ============================================================ */
 ::view-transition { pointer-events: none; }
 .nav { view-transition-name: nav; }
@@ -3363,25 +3371,21 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 ::view-transition-new(nav) { animation: none; }
 ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
 ::view-transition-old(.panggung-keluar) {
-  animation: panggung-mundur var(--d-keluar) var(--kurva-keluar) both;
+  animation: panggung-mundur var(--d-halaman-keluar) var(--kurva-keluar) both;
 }
 ::view-transition-new(.panggung-masuk) {
-  animation: panggung-naik var(--d-ruang) var(--kurva) both;
+  animation: panggung-naik var(--d-halaman-masuk) var(--kurva) var(--d-halaman-keluar) both;
 }
 html[data-arah='kembali']::view-transition-new(.panggung-masuk) { animation-name: panggung-turun; }
-::view-transition-group(*) { animation-duration: var(--d-ruang); animation-timing-function: var(--kurva-pindah); }
-/* Elemen bersama: judul bab di Peta Materi menjadi judul kepala daftar
-   materi, judul kartu di /latihan menjadi judul bank soal
-   (`<ViewTransition name share="judul-pindah">` di komponennya). Kelompoknya
-   berpindah tempat dan ukuran selama 520 ms di atas kedua potret halaman. */
-::view-transition-group(.judul-pindah) { z-index: 60; }
+/* Tidak ada elemen bersama (judul yang "terbang" antar halaman): dicoba 17
+   Sep malam dan ARYA tidak suka. Jangan dipasang lagi. */
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(*), ::view-transition-new(*), ::view-transition-group(*) {
     animation-duration: 0s !important; animation-delay: 0s !important;
   }
 }
 @supports not (view-transition-name: a) {
-  main { animation: isi-ganti 260ms var(--kurva) backwards; }
+  main { animation: isi-ganti var(--d-halaman-masuk) var(--kurva) backwards; }
 }
 /* Tombol Kembali dan Maju peramban: Next memulihkan halaman dari simpanannya
    TANPA View Transition (terukur 17 Sep 2026), jadi `main` yang datang
@@ -3389,7 +3393,7 @@ html[data-arah='kembali']::view-transition-new(.panggung-masuk) { animation-name
    (`html[data-pop]`, ArahRute). `backwards`, bukan `both`: sesudah selesai
    `transform` dilepas, supaya `main` tidak lagi menjadi acuan anak
    `position: fixed` (laci daftar materi di HP). */
-html[data-pop='true'] main { animation: panggung-turun var(--d-ruang) var(--kurva) backwards; }
+html[data-pop='true'] main { animation: panggung-turun var(--d-halaman-masuk) var(--kurva) backwards; }
 /* Kerangka memuat digantikan isi asli: isinya memudar masuk di tempat
    kerangka, tanpa lompatan (HalamanTopik.tsx). `backwards`, bukan `both`:
    animasi opacity yang terus "mengisi" membuat `main` jadi stacking context

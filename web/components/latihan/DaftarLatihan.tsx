@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useSyncExternalStore, ViewTransition, type CSSProperties } from 'react'
+import { useSyncExternalStore, type CSSProperties } from 'react'
 import { ISI_TOPIK } from '@/content/daftar-isi'
 import { TOPIK, type Topik } from '@/content/topik'
 import { cariBab } from '@/content/subbab'
@@ -132,10 +132,7 @@ function KartuBab({ topik, bank, urutan }: { topik: Topik; bank: SoalKuis[]; uru
             {bank.length} soal
             {k.lencana.length > 0 ? ` · 🏅 ${k.lencana.length}/${LENCANA.length} lencana` : ''}
           </div>
-          {/* Elemen bersama dengan judul halaman bank soal (ArenaLatihan). */}
-          <ViewTransition name={`kartu-latihan-${topik.slug}`} share="judul-pindah" default="none">
-            <h3>{topik.nama}</h3>
-          </ViewTransition>
+          <h3>{topik.nama}</h3>
         </div>
         <span className="bank-persen angka-rata">{persen}%</span>
       </div>

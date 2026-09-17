@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { aturArah } from '@/lib/arah-rute'
-import { useEffect, useState, useSyncExternalStore, ViewTransition } from 'react'
+import { useEffect, useState, useSyncExternalStore } from 'react'
 import type { SoalKuis, TingkatKuis } from '@/content/tipe'
 import { cariBab } from '@/content/subbab'
 import { langgan } from '@/lib/simpanan'
@@ -110,7 +110,7 @@ export default function ArenaLatihan({
 
       {tingkat === null ? (
         <Ringkasan
-          slug={topik} nama={nama} bank={bank} k={k} ringkas={ringkas} persen={persen}
+          nama={nama} bank={bank} k={k} ringkas={ringkas} persen={persen}
           bab={bab ? `Bab ${bab.no} · ${bab.kelas} · ` : ''}
           buka={(t) => router.push(alamatTingkat(t))}
         />
@@ -146,9 +146,8 @@ type Kemajuan = ReturnType<typeof bacaLatihan>
 /* Tampilan 1: ringkasan kemajuan, lencana, pilih tingkat              */
 /* ------------------------------------------------------------------ */
 function Ringkasan({
-  slug, nama, bank, k, ringkas, persen, bab, buka,
+  nama, bank, k, ringkas, persen, bab, buka,
 }: {
-  slug: string
   nama: string
   bank: SoalKuis[]
   k: Kemajuan
@@ -161,10 +160,7 @@ function Ringkasan({
   return (
     <>
       <div className="kicker">Bank soal</div>
-      {/* Elemen bersama dengan judul kartu di daftar /latihan. */}
-      <ViewTransition name={`kartu-latihan-${slug}`} share="judul-pindah" default="none">
-        <h1 className="judul-halaman">{nama}</h1>
-      </ViewTransition>
+      <h1 className="judul-halaman">{nama}</h1>
       <p className="sub-italic">
         Mulai dari yang mudah. Tingkat berikutnya terbuka setelah {SYARAT_NAIK} soal
         tingkat sebelumnya benar, jadi urutannya menuntun, bukan menghukum.

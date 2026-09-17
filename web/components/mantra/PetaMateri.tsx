@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState, ViewTransition, type CSSProperties } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { bacaKemajuan } from '@/lib/kemajuan'
 import { langgan } from '@/lib/simpanan'
 import KartuBayang from './KartuBayang'
@@ -178,13 +178,7 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
                           dibuang (ARYA 10 Sep 2026): tanpa bukunya, "Bab 4"
                           tidak berarti apa-apa bagi siswa. */}
                       <div className="bab-kicker">{b.kelas}</div>
-                      {/* Elemen bersama: judul ini "berpindah" menjadi judul di kepala
-                          daftar materi halaman belajar (HalamanTopik) saat kartunya
-                          diklik; nama sama di dua halaman, `default="none"` supaya tidak
-                          ikut beranimasi pada perpindahan lain. */}
-                      <ViewTransition name={`judul-bab-${b.slug}`} share="judul-pindah" default="none">
-                        <h3>{b.nama}</h3>
-                      </ViewTransition>
+                      <h3>{b.nama}</h3>
                       <p className="bab-tanya">{b.pertanyaan}</p>
                     </div>
                     <div

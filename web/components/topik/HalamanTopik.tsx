@@ -1,7 +1,7 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore, ViewTransition } from 'react'
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import PemutarVideo from '@/components/PemutarVideo'
 import Penjelasan from '@/components/topik/Penjelasan'
 import Latihan from '@/components/topik/Latihan'
@@ -472,17 +472,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                   {/* Kelasnya saja: nomor bab milik buku sumber, tidak berarti
                       tanpa bukunya (ARYA 10 Sep 2026). */}
                   <div className="bab">{bab ? bab.kelas : topik.kelas}</div>
-                  {/* Elemen bersama dengan judul kartu bab di Peta Materi: judulnya
-                      "berpindah" ke sini saat halaman dibuka. Hanya di layar lebar;
-                      di HP kepala ini ada di dalam laci yang tersembunyi, dan judul
-                      yang terbang ke luar layar justru membingungkan. */}
-                  {padat ? (
-                    <div className="nama">{topik.nama}</div>
-                  ) : (
-                    <ViewTransition name={`judul-bab-${topik.slug}`} share="judul-pindah" default="none">
-                      <div className="nama">{topik.nama}</div>
-                    </ViewTransition>
-                  )}
+                  <div className="nama">{topik.nama}</div>
                 </div>
               )}
               {/* Dua tombol berbeda tugas, dan CSS yang memilih mana yang

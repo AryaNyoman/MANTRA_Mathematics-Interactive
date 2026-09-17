@@ -36,6 +36,16 @@ Prompt yang melahirkan rancangan ini: `../PROMPT-CLAUDE-DESIGN-GERAK.md`.
    4. H, I, J, K: korsel, pemutar, muncul saat gulir, 404, kerangka memuat,
       cincin fokus; lalu audit bagian 8 HANDOFF di desktop dan 390 px.
 
+4. **Umpan balik tahap 1 (17 Sep malam, sesudah melihat hasilnya):**
+   - elemen bersama (judul bab yang "terbang" ke halaman belajar, judul kartu
+     ke bank soal) DIHAPUS: "saya gak suka animasi judul yang terbang sana
+     sini". Baris A "Elemen bersama" menjadi tidak berlaku;
+   - pindah halaman BERURUTAN, bukan bersamaan: teks halaman lama dan baru
+     yang saling tindih membuat pusing. Halaman lama pergi dulu 140 ms, baru
+     halaman baru masuk 280 ms (`--d-halaman-keluar`, `--d-halaman-masuk`),
+     geser 20 px maju dan 14 px kembali. Menggantikan 520/300 bersamaan di
+     tabel A.
+
 ## Penyimpangan teknis dari HANDOFF (alasan di tiap butir)
 
 - **Tidak ada `experimental.viewTransition` dan tidak memasang React canary.**
