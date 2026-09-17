@@ -58,7 +58,7 @@ export const TAHAP: TahapVektor[] = [
     slug: 'angka-saja-tidak-cukup',
     judul: 'Angka saja tidak cukup',
     labelPendek: 'Kenapa',
-    pertanyaan: 'Kenapa 3 tambah 4 tidak selalu 7?',
+    pertanyaan: 'Kenapa 3 + 4 tidak selalu 7?',
     penjelasan: [
       {
         jenis: 'paragraf',
@@ -104,15 +104,15 @@ export const TAHAP: TahapVektor[] = [
         jenis: 'contoh',
         judul: 'Tiga km dan empat km, tiga kemungkinan',
         baris: [
-          'Searah: 3 tambah 4 memberi 7 km',
+          'Searah: 3 + 4 = 7 km',
           'Berlawanan arah: sisanya tinggal 1 km',
-          'Saling tegak lurus: hasilnya 5 km, dari akar 3 kuadrat ditambah 4 kuadrat',
+          'Saling tegak lurus: hasilnya √(3² + 4²) = √25 = 5 km',
         ],
         simpul: 'Angkanya sama persis, jawabannya tiga-tiganya berbeda. Yang membedakan hanya arah.',
       },
       {
         jenis: 'paragraf',
-        teks: 'Perahu tadi persis kasus ketiga. Dayung 3 km ke seberang dan arus 4 km ke hilir dalam satu jam menghasilkan gerak sebenarnya sepanjang akar dari 3 kuadrat ditambah 4 kuadrat, yaitu tepat 5 km, bukan 7 km.',
+        teks: 'Perahu tadi persis kasus ketiga. Dayung 3 km ke seberang dan arus 4 km ke hilir dalam satu jam menghasilkan gerak sebenarnya sepanjang √(3² + 4²) = 5 km, bukan 7 km.',
       },
     ],
     seringKeliru: {
@@ -122,7 +122,7 @@ export const TAHAP: TahapVektor[] = [
     intisari: [
       'Besaran yang butuh arah disebut vektor. Yang cukup satu angka disebut skalar.',
       'Perpindahan, kecepatan, dan gaya adalah vektor. Massa, suhu, dan waktu bukan.',
-      'Menjumlahkan vektor bergantung pada arah, jadi 3 tambah 4 bisa menjadi 7, bisa 1, bisa 5.',
+      'Menjumlahkan vektor bergantung pada arah, jadi 3 + 4 bisa menjadi 7, bisa 1, bisa 5.',
     ],
     widget: 'perahu-sungai',
     video: { berkas: 'vektor1-perahu.mp4', poster: 'vektor1-perahu.jpg' },
@@ -265,15 +265,15 @@ export const TAHAP: TahapVektor[] = [
         jenis: 'contoh',
         judul: 'Dari A(1, 2) ke B(5, 5)',
         baris: [
-          'Komponen mendatar: 5 dikurangi 1, hasilnya 4',
-          'Komponen tegak: 5 dikurangi 2, hasilnya 3',
-          'Jadi vektor AB ditulis (4 3)',
+          'Komponen mendatar: 5 − 1 = 4',
+          'Komponen tegak: 5 − 2 = 3',
+          'Jadi vektor AB = (4 3)',
         ],
         simpul: 'Ujung dikurangi pangkal. Bukan pangkal dikurangi ujung.',
       },
       {
         jenis: 'paragraf',
-        teks: 'Coba periksa sendiri dengan menggambar: dari A(1, 2), melangkah 4 ke kanan sampai di x sama dengan 5, lalu 3 ke atas sampai di y sama dengan 5. Betul mendarat di B.',
+        teks: 'Coba periksa sendiri dengan menggambar: dari A(1, 2), melangkah 4 ke kanan sampai di x = 5, lalu 3 ke atas sampai di y = 5. Betul mendarat di B.',
       },
     ],
     seringKeliru: {
@@ -312,12 +312,12 @@ export const TAHAP: TahapVektor[] = [
         jenis: 'contoh',
         judul: 'Panjang vektor (4 3)',
         baris: [
-          'Kuadratkan komponen mendatar: 4 kuadrat sama dengan 16',
-          'Kuadratkan komponen tegak: 3 kuadrat sama dengan 9',
-          'Jumlahkan: 16 ditambah 9 sama dengan 25',
-          'Tarik akarnya: akar 25 sama dengan 5',
+          'Kuadratkan komponen mendatar: 4² = 16',
+          'Kuadratkan komponen tegak: 3² = 9',
+          'Jumlahkan: 16 + 9 = 25',
+          'Tarik akarnya: √25 = 5',
         ],
-        simpul: 'Panjangnya 5 satuan. Ditulis dengan tanda mutlak di kedua sisinya.',
+        simpul: 'Panjangnya 5 satuan, ditulis dengan tanda mutlak di kedua sisinya: |(4 3)| = √(4² + 3²) = 5.',
       },
       {
         jenis: 'sorot',
@@ -356,7 +356,7 @@ export const TAHAP: TahapVektor[] = [
       isi: 'Diberi dua vektor sepanjang 6 dan 8, lalu ditanya panjang jumlahnya, banyak yang menjawab 14. Angka 14 hanya benar kalau keduanya searah. Kalau saling tegak lurus jawabannya 10, dan kalau berlawanan jawabannya 2. Panjang tidak bisa dijumlahkan sebelum arahnya diperhitungkan, dan cara yang aman adalah menjumlahkan komponennya dulu, baru mencari panjangnya.',
     },
     intisari: [
-      'Panjang vektor dicari dengan Pythagoras: akar dari jumlah kuadrat kedua komponennya.',
+      'Panjang vektor dicari dengan Pythagoras: |(a b)| = √(a² + b²), akar dari jumlah kuadrat kedua komponennya.',
       'Panjang tidak pernah negatif, sebab komponennya dikuadratkan lebih dulu.',
       'Arah dinyatakan dalam derajat dari sumbu-x, atau dalam mata angin.',
       'Dua vektor bisa sama panjang tetapi tetap berbeda, karena arahnya belum tentu sama.',
@@ -386,12 +386,12 @@ export const TAHAP: TahapVektor[] = [
         jenis: 'contoh',
         judul: 'Vektor satuan dari (3 4)',
         baris: [
-          'Cari panjangnya dulu: akar dari 9 ditambah 16, hasilnya 5',
-          'Bagi komponen mendatarnya: 3 dibagi 5 sama dengan 0,6',
-          'Bagi komponen tegaknya: 4 dibagi 5 sama dengan 0,8',
-          'Periksa: akar dari 0,36 ditambah 0,64 sama dengan akar 1, yaitu 1',
+          'Cari panjangnya dulu: √(9 + 16) = 5',
+          'Bagi komponen mendatarnya: 3/5 = 0,6',
+          'Bagi komponen tegaknya: 4/5 = 0,8',
+          'Periksa: √(0,36 + 0,64) = √1 = 1',
         ],
-        simpul: 'Vektor satuannya (0,6  0,8), dan panjangnya benar-benar 1.',
+        simpul: 'Vektor satuannya (3/5 4/5) = (0,6 0,8), dan panjangnya benar-benar 1.',
       },
       {
         jenis: 'coba',
@@ -413,7 +413,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Dengan keduanya, vektor bisa ditulis tanpa tanda kurung sama sekali. Vektor (3 4) sama artinya dengan 3i ditambah 4j. Bacanya: tiga langkah ke arah i, lalu empat langkah ke arah j.',
+        teks: 'Dengan keduanya, vektor bisa ditulis tanpa tanda kurung sama sekali. Vektor (3 4) sama artinya dengan 3i + 4j. Bacanya: tiga langkah ke arah i, lalu empat langkah ke arah j.',
       },
       { jenis: 'sesi', judul: 'Vektor posisi' },
       {
@@ -429,9 +429,9 @@ export const TAHAP: TahapVektor[] = [
         jenis: 'contoh',
         judul: 'Vektor satuan dari 2i + 2j - k',
         baris: [
-          'Panjangnya: akar dari 4 ditambah 4 ditambah 1, hasilnya akar 9, yaitu 3',
+          'Panjangnya: √(4 + 4 + 1) = √9 = 3',
           'Bagi tiap komponen dengan 3',
-          'Vektor satuannya: dua per tiga, dua per tiga, dan negatif satu per tiga',
+          'Vektor satuannya: (2/3)i + (2/3)j − (1/3)k',
         ],
         simpul: 'Gambarnya memang tidak ditampilkan di sini. Bangun ruang dibahas di topik Ruang Tiga Dimensi.',
       },
@@ -443,7 +443,7 @@ export const TAHAP: TahapVektor[] = [
     intisari: [
       'Vektor satuan dibuat dengan membagi tiap komponen dengan panjang vektornya.',
       'Panjangnya selalu tepat 1, jadi ia menyatakan arah saja.',
-      'i adalah (1 0) dan j adalah (0 1), sehingga (3 4) bisa ditulis 3i ditambah 4j.',
+      'i = (1 0) dan j = (0 1), sehingga (3 4) bisa ditulis 3i + 4j.',
       'Vektor posisi adalah vektor yang pangkalnya di titik asal.',
     ],
     widget: 'vektor-satuan',
@@ -494,10 +494,10 @@ export const TAHAP: TahapVektor[] = [
         jenis: 'contoh',
         judul: 'Jumlahkan (3 1) dan (1 2)',
         baris: [
-          'Komponen mendatar: 3 ditambah 1 sama dengan 4',
-          'Komponen tegak: 1 ditambah 2 sama dengan 3',
-          'Resultannya (4 3)',
-          'Panjang resultannya: akar dari 16 ditambah 9, yaitu 5',
+          'Komponen mendatar: 3 + 1 = 4',
+          'Komponen tegak: 1 + 2 = 3',
+          'Resultannya (3 1) + (1 2) = (4 3)',
+          'Panjang resultannya: √(16 + 9) = 5',
         ],
         simpul: 'Panjang kedua vektor asalnya sekitar 3,16 dan 2,24. Dijumlahkan hasilnya 5,40, bukan 5.',
       },
@@ -575,10 +575,10 @@ export const TAHAP: TahapVektor[] = [
         baris: [
           'Gaya pertama 6 newton ke timur, ditulis (6 0)',
           'Gaya kedua 8 newton ke utara, ditulis (0 8)',
-          'Resultannya (6 8)',
-          'Besarnya: akar dari 36 ditambah 64, yaitu akar 100, sama dengan 10 newton',
+          'Resultannya (6 0) + (0 8) = (6 8)',
+          'Besarnya: √(36 + 64) = √100 = 10 newton',
         ],
-        simpul: 'Enam ditambah delapan memberi sepuluh, bukan empat belas. Sudut antara keduanya yang menentukan.',
+        simpul: '6 newton dan 8 newton memberi 10 newton, bukan 14. Sudut antara keduanya yang menentukan.',
       },
     ],
     seringKeliru: {
@@ -608,7 +608,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'sorot',
-        teks: 'a dikurangi b sama artinya dengan a ditambah lawan b.',
+        teks: 'a − b sama artinya dengan a + (−b): a ditambah lawan b.',
       },
       {
         jenis: 'paragraf',
@@ -619,16 +619,16 @@ export const TAHAP: TahapVektor[] = [
         judul: 'Kurangi (3 1) dengan (1 2)',
         baris: [
           'Lawan dari (1 2) adalah (-1 -2)',
-          'Jumlahkan: 3 ditambah negatif 1 sama dengan 2',
-          'Lalu: 1 ditambah negatif 2 sama dengan negatif 1',
-          'Hasilnya (2 -1)',
+          'Jumlahkan: 3 + (-1) = 2',
+          'Lalu: 1 + (-2) = -1',
+          'Hasilnya (3 1) − (1 2) = (2 -1)',
         ],
         simpul: 'Lebih singkat lagi: kurangi saja komponennya langsung, mendatar dengan mendatar dan tegak dengan tegak.',
       },
       { jenis: 'sesi', judul: 'Gambaran kedua yang jauh lebih berguna' },
       {
         jenis: 'paragraf',
-        teks: 'Ada cara melihat pengurangan yang lebih sering terpakai di soal. Kalau a dan b sama-sama berangkat dari titik asal, maka a dikurangi b adalah panah DARI UJUNG b MENUJU UJUNG a.',
+        teks: 'Ada cara melihat pengurangan yang lebih sering terpakai di soal. Kalau a dan b sama-sama berangkat dari titik asal, maka a − b adalah panah DARI UJUNG b MENUJU UJUNG a.',
       },
       {
         jenis: 'paragraf',
@@ -638,11 +638,11 @@ export const TAHAP: TahapVektor[] = [
         jenis: 'contoh',
         judul: 'Vektor dari A(2, 1) ke B(6, 4)',
         baris: [
-          'Vektor posisi A adalah (2 1), vektor posisi B adalah (6 4)',
-          'Vektor AB adalah posisi B dikurangi posisi A',
-          'Mendatar: 6 dikurangi 2 sama dengan 4',
-          'Tegak: 4 dikurangi 1 sama dengan 3',
-          'Jadi AB sama dengan (4 3), panjangnya 5',
+          'Vektor posisi A adalah a = (2 1), vektor posisi B adalah b = (6 4)',
+          'Vektor AB = b − a, posisi B dikurangi posisi A',
+          'Mendatar: 6 − 2 = 4',
+          'Tegak: 4 − 1 = 3',
+          'Jadi AB = (4 3), panjangnya |AB| = 5',
         ],
         simpul: 'Ujung dikurangi pangkal. Sekarang alasannya terlihat, bukan sekadar dihafal.',
       },
@@ -659,13 +659,13 @@ export const TAHAP: TahapVektor[] = [
     ],
     seringKeliru: {
       judul: 'Membalik urutan pengurangan',
-      isi: 'Ditanya vektor dari A ke B, banyak yang menulis A dikurangi B karena A disebut lebih dulu. Yang benar B dikurangi A, yaitu ujung dikurangi pangkal. Salah urutan tidak membuat jawabannya sedikit meleset, melainkan menghasilkan panah yang arahnya berlawanan sama sekali. Cara mengingat yang aman: bayangkan berjalan DARI A, jadi A adalah titik yang ditinggalkan, dan yang ditinggalkan itulah yang dikurangkan.',
+      isi: 'Ditanya vektor dari A ke B, banyak yang menulis a − b karena A disebut lebih dulu. Yang benar AB = b − a, yaitu ujung dikurangi pangkal. Salah urutan tidak membuat jawabannya sedikit meleset, melainkan menghasilkan panah yang arahnya berlawanan sama sekali. Cara mengingat yang aman: bayangkan berjalan DARI A, jadi A adalah titik yang ditinggalkan, dan yang ditinggalkan itulah yang dikurangkan.',
     },
     intisari: [
-      'a dikurangi b sama dengan a ditambah lawan b.',
+      'a − b = a + (−b): a ditambah lawan b.',
       'Dengan komponen, cukup kurangkan komponennya masing-masing.',
-      'Kalau keduanya dari titik asal, a dikurangi b adalah panah dari ujung b ke ujung a.',
-      'Vektor dari A ke B adalah posisi B dikurangi posisi A, bukan sebaliknya.',
+      'Kalau keduanya dari titik asal, a − b adalah panah dari ujung b ke ujung a.',
+      'Vektor dari A ke B adalah AB = b − a, posisi B dikurangi posisi A, bukan sebaliknya.',
     ],
     widget: 'selisih-panah',
     video: { berkas: 'vektor8-selisih.mp4', poster: 'vektor8-selisih.jpg' },
@@ -709,11 +709,11 @@ export const TAHAP: TahapVektor[] = [
       { jenis: 'sesi', judul: 'Panjangnya berubah seberapa' },
       {
         jenis: 'contoh',
-        judul: 'Kalikan a = (2 1) dengan 3 dan dengan negatif 2',
+        judul: 'Kalikan a = (2 1) dengan 3 dan dengan -2',
         baris: [
-          'Panjang a: akar dari 4 ditambah 1, yaitu akar 5, sekitar 2,24',
-          '3 dikali a sama dengan (6 3), panjangnya 3 akar 5, sekitar 6,71',
-          'Negatif 2 dikali a sama dengan (-4 -2), panjangnya 2 akar 5, sekitar 4,47',
+          'Panjang a: |a| = √(4 + 1) = √5 ≈ 2,24',
+          '3a = (6 3), panjangnya 3√5 ≈ 6,71',
+          '-2a = (-4 -2), panjangnya 2√5 ≈ 4,47',
         ],
         simpul: 'Panjang barunya adalah panjang lama dikali pengalinya tanpa tanda minus. Panjang tetap tidak pernah negatif.',
       },
@@ -729,7 +729,7 @@ export const TAHAP: TahapVektor[] = [
     ],
     seringKeliru: {
       judul: 'Mengira pengali negatif membuat panjangnya negatif',
-      isi: 'Negatif 2 dikali (2 1) menghasilkan (-4 -2), dan panjangnya sekitar 4,47. Bukan negatif 4,47. Panjang adalah ukuran, dan ukuran tidak pernah kurang dari nol. Yang dibalik oleh tanda minus adalah ARAHNYA, bukan panjangnya. Kalau perhitungan panjang Anda menghasilkan angka negatif, pasti ada langkah yang keliru.',
+      isi: '-2 · (2 1) = (-4 -2), dan panjangnya 2√5 ≈ 4,47. Bukan -4,47. Panjang adalah ukuran, dan ukuran tidak pernah kurang dari nol. Yang dibalik oleh tanda minus adalah ARAHNYA, bukan panjangnya. Kalau perhitungan panjang Anda menghasilkan angka negatif, pasti ada langkah yang keliru.',
     },
     intisari: [
       'Vektor dikali bilangan biasa: kalikan tiap komponennya.',
@@ -764,7 +764,7 @@ export const TAHAP: TahapVektor[] = [
         baris: [
           'Dayung memberi perpindahan (0 3) km tiap jam, lurus ke seberang',
           'Arus memberi perpindahan (4 0) km tiap jam, ke hilir',
-          'Gerak sebenarnya: (0 3) ditambah (4 0) sama dengan (4 3)',
+          'Gerak sebenarnya: (0 3) + (4 0) = (4 3)',
           'Gerak tegaknya 3 km per jam, jadi menyeberang butuh 1 jam',
           'Selama 1 jam itu arus membawanya 4 km ke hilir',
         ],
@@ -839,9 +839,9 @@ export const TAHAP: TahapVektor[] = [
         jenis: 'contoh',
         judul: 'Hasil kali titik (4 3) dengan (2 0)',
         baris: [
-          'Lewat komponen: 4 dikali 2 sama dengan 8',
-          'Lalu: 3 dikali 0 sama dengan 0',
-          'Jumlahkan: 8 ditambah 0 sama dengan 8',
+          'Lewat komponen: 4 · 2 = 8',
+          'Lalu: 3 · 0 = 0',
+          'Jumlahkan: (4 3) · (2 0) = 8 + 0 = 8',
         ],
         simpul: 'Hasilnya 8. Sebuah angka, tanpa arah, jadi ia bukan vektor.',
       },
@@ -858,9 +858,9 @@ export const TAHAP: TahapVektor[] = [
         jenis: 'contoh',
         judul: 'Membuktikan (3 4) tegak lurus dengan (-4 3)',
         baris: [
-          'Mendatar: 3 dikali negatif 4 sama dengan negatif 12',
-          'Tegak: 4 dikali 3 sama dengan 12',
-          'Jumlahkan: negatif 12 ditambah 12 sama dengan 0',
+          'Mendatar: 3 · (-4) = -12',
+          'Tegak: 4 · 3 = 12',
+          'Jumlahkan: (3 4) · (-4 3) = -12 + 12 = 0',
         ],
         simpul: 'Nol, jadi keduanya tegak lurus. Tidak perlu busur, tidak perlu menggambar.',
       },
@@ -876,7 +876,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Kegunaan yang paling sering dipakai adalah mencari sudut: susun ulang rumus keduanya, sehingga kosinus sudutnya sama dengan hasil kali titik dibagi hasil kali kedua panjangnya.',
+        teks: 'Kegunaan yang paling sering dipakai adalah mencari sudut: susun ulang rumus keduanya, sehingga cos θ = (a · b)/(|a| |b|): hasil kali titik dibagi hasil kali kedua panjangnya.',
       },
     ],
     seringKeliru: {
@@ -886,7 +886,7 @@ export const TAHAP: TahapVektor[] = [
     intisari: [
       'Perkalian titik menghasilkan sebuah angka, bukan vektor.',
       'Lewat komponen: kalikan yang sejenis lalu jumlahkan.',
-      'Lewat panjang dan sudut: panjang a dikali panjang b dikali kosinus sudutnya.',
+      'Lewat panjang dan sudut: a · b = |a| |b| cos θ.',
       'Tandanya menunjukkan lancip, siku-siku, atau tumpul. Nol berarti tegak lurus.',
     ],
     widget: 'perkalian-titik',
@@ -916,8 +916,8 @@ export const TAHAP: TahapVektor[] = [
       {
         jenis: 'poin',
         butir: [
-          'Panjang proyeksi - sebuah ANGKA. Dihitung dengan hasil kali titik dibagi panjang b.',
-          'Vektor proyeksi - sebuah PANAH, lengkap dengan arahnya. Dihitung dengan hasil kali titik dibagi kuadrat panjang b, lalu dikalikan b.',
+          'Panjang proyeksi - sebuah ANGKA: (a · b)/|b|, hasil kali titik dibagi panjang b.',
+          'Vektor proyeksi - sebuah PANAH, lengkap dengan arahnya: ((a · b)/|b|²) b, hasil kali titik dibagi kuadrat panjang b, lalu dikalikan b.',
         ],
       },
       {
@@ -926,12 +926,12 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'contoh',
-        judul: 'Proyeksi (4 3) pada (2 0)',
+        judul: 'Proyeksi a = (4 3) pada b = (2 0)',
         baris: [
-          'Hasil kali titiknya: 4 dikali 2 ditambah 3 dikali 0, sama dengan 8',
-          'Panjang b: akar dari 4 ditambah 0, yaitu 2',
-          'Panjang proyeksinya: 8 dibagi 2, sama dengan 4',
-          'Vektor proyeksinya: 8 dibagi 4, lalu dikali (2 0), hasilnya (4 0)',
+          'Hasil kali titiknya: a · b = 4 · 2 + 3 · 0 = 8',
+          'Panjang b: |b| = √(4 + 0) = 2',
+          'Panjang proyeksinya: (a · b)/|b| = 8/2 = 4',
+          'Vektor proyeksinya: ((a · b)/|b|²) b = (8/4)(2 0) = (4 0)',
         ],
         simpul: 'Vektor a sepanjang 5, tetapi bayangannya pada b cuma 4. Selalu lebih pendek, kecuali kalau keduanya sudah searah.',
       },

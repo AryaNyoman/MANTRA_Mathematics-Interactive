@@ -91,7 +91,7 @@ export const TAHAP: TahapTurunan[] = [
         baris: [
           'tambahan barang     64 - 20   = 44 barang',
           'lama waktunya       3 - 1     = 2 jam',
-          'dibagi              44 : 2    = 22 barang per jam',
+          'dibagi              44/2    = 22 barang per jam',
         ],
         simpul: 'Antara jam ke-1 dan jam ke-3, pabrik ini rata-rata membuat 22 barang tiap jam.',
       },
@@ -141,9 +141,9 @@ export const TAHAP: TahapTurunan[] = [
         jenis: 'contoh',
         judul: 'Kurva yang sama, tiga jawaban berbeda',
         baris: [
-          'jam ke-1 sampai jam ke-2   (44 - 20) : 1  = 24 barang per jam',
-          'jam ke-1 sampai jam ke-3   (64 - 20) : 2  = 22 barang per jam',
-          'jam ke-3 sampai jam ke-5   (86 - 64) : 2  = 11 barang per jam',
+          'jam ke-1 sampai jam ke-2   (44 - 20)/1  = 24 barang per jam',
+          'jam ke-1 sampai jam ke-3   (64 - 20)/2  = 22 barang per jam',
+          'jam ke-3 sampai jam ke-5   (86 - 64)/2  = 11 barang per jam',
         ],
         simpul: 'Satu pabrik, satu hari yang sama, tiga angka yang berbeda. Semuanya benar.',
       },
@@ -168,7 +168,7 @@ export const TAHAP: TahapTurunan[] = [
     intisari: [
       'Saat titik kedua mendekati titik pertama, garis potong dapat mendekati suatu garis. Jika limit kemiringannya ada dan terhingga, garis yang dituju itu adalah garis singgung.',
       'Kemiringan garis singgung itu disebut kemiringan sesaat, dan angkanya disebut turunan di titik itu.',
-      'Rumusnya limit dari selisih dibagi selisih: f(x₁ + h) dikurangi f(x₁), dibagi h, saat h menuju 0.',
+      'Rumusnya limit dari selisih dibagi selisih: f′(x₁) = lim h→0 (f(x₁ + h) − f(x₁))/h.',
       'Pada pecahan asal, h harus bukan nol. Kita mencari limit ketika h mendekati nol; pada contoh ini, menyederhanakan pecahan membantu menghitung limitnya.',
       'Hasilnya satu angka untuk satu titik, bukan sebuah garis dan bukan sebuah rumus.',
     ],
@@ -179,21 +179,21 @@ export const TAHAP: TahapTurunan[] = [
 
       { jenis: 'sesi', judul: 'Titik kedua digeser mendekat' },
       { jenis: 'paragraf', teks: 'Sebut titik pertamanya P, dan titik kedua Q. Selisih mendatar dari P ke Q kita namai h. Untuk Q di kanan P, h positif; untuk Q di kiri P, h negatif. Saat besar selisih ini diperkecil, Q mendekati P dan arah garis potong PQ ikut berubah.' },
-      { jenis: 'paragraf', teks: 'Agar asal hitungannya terlihat jelas, kita beralih ke contoh baru, f(x) = x². Ini bukan kurva produksi pabrik tadi. Pada x = 1, tingginya 1² = 1, sehingga P = (1, 1). Pada x = 2, tingginya 2² = 4. Dari P ke titik itu, langkah mendatarnya 2 − 1 = 1 dan kenaikannya 4 − 1 = 3. Jadi kemiringan garis potongnya 3 : 1 = 3.' },
+      { jenis: 'paragraf', teks: 'Agar asal hitungannya terlihat jelas, kita beralih ke contoh baru, f(x) = x². Ini bukan kurva produksi pabrik tadi. Pada x = 1, tingginya 1² = 1, sehingga P = (1, 1). Pada x = 2, tingginya 2² = 4. Dari P ke titik itu, langkah mendatarnya 2 − 1 = 1 dan kenaikannya 4 − 1 = 3. Jadi kemiringan garis potongnya 3/1 = 3.' },
       {
         jenis: 'contoh',
         judul: 'Kemiringan garis potong saat h diperkecil',
         baris: [
-          'h = 1   dari (1, 1) ke (2, 4)   (4 - 1) : 1 = 3',
-          'h = 0,5   dari (1, 1) ke (1,5 ; 2,25)   (2,25 - 1) : 0,5 = 2,5',
-          'h = 0,1   dari (1, 1) ke (1,1 ; 1,21)   (1,21 - 1) : 0,1 = 2,1',
-          'h = 0,01   dari (1, 1) ke (1,01 ; 1,0201)   (1,0201 - 1) : 0,01 = 2,01',
+          'h = 1   dari (1, 1) ke (2, 4)   (4 - 1)/1 = 3',
+          'h = 0,5   dari (1, 1) ke (1,5 ; 2,25)   (2,25 - 1)/0,5 = 2,5',
+          'h = 0,1   dari (1, 1) ke (1,1 ; 1,21)   (1,21 - 1)/0,1 = 2,1',
+          'h = 0,01   dari (1, 1) ke (1,01 ; 1,0201)   (1,0201 - 1)/0,01 = 2,01',
         ],
         simpul: 'Angkanya merapat ke 2, dan garis potongnya makin menempel pada kurva di titik (1, 1).',
       },
       { jenis: 'paragraf', teks: 'Untuk contoh x² di x = 1 ini, kemiringan garis potong dapat dibuat sedekat yang kita mau ke 2 dengan mengambil h cukup dekat ke nol. Tabel memberi dugaan; hitungan berikut menjelaskan mengapa limitnya tepat 2.' },
 
-      { jenis: 'paragraf', teks: 'Mengapa posisi Q ditulis 1 + h? Karena P mulai pada x = 1, lalu kita melangkah sejauh h. Tinggi Q adalah f(1 + h) = (1 + h)². Selisih tingginya (1 + h)² − 1, sedangkan selisih mendatarnya h. Jadi pecahan [(1 + h)² − 1] : h berasal dari kenaikan dibagi langkah mendatar, bukan rumus yang muncul tiba-tiba.' },
+      { jenis: 'paragraf', teks: 'Mengapa posisi Q ditulis 1 + h? Karena P mulai pada x = 1, lalu kita melangkah sejauh h. Tinggi Q adalah f(1 + h) = (1 + h)². Selisih tingginya (1 + h)² − 1, sedangkan selisih mendatarnya h. Jadi pecahan [(1 + h)² − 1]/h berasal dari kenaikan dibagi langkah mendatar, bukan rumus yang muncul tiba-tiba.' },
 
       { jenis: 'sesi', judul: 'Dikerjakan dengan huruf, bukan dengan tabel' },
       { jenis: 'paragraf', teks: 'Tabel di atas meyakinkan, tapi belum membuktikan. Sekarang hitungan yang sama kita kerjakan dengan huruf h, tanpa memasukkan angka satu per satu.' },
@@ -204,8 +204,8 @@ export const TAHAP: TahapTurunan[] = [
           'tinggi titik Q       f(1 + h) = (1 + h)² = 1 + 2h + h²',
           'tinggi titik P       f(1) = 1',
           'selisih tingginya    (1 + 2h + h²) - 1 = 2h + h²',
-          'dibagi selisih x     (2h + h²) : h',
-          'faktorkan lalu bagi  h(2 + h) : h = 2 + h, untuk h ≠ 0',
+          'dibagi selisih x     (2h + h²)/h',
+          'faktorkan lalu bagi  h(2 + h)/h = 2 + h, untuk h ≠ 0',
           'ambil limit          saat h → 0, maka 2 + h → 2',
         ],
         simpul: 'Kemiringan sesaat kurva f(x) = x² di titik x = 1 adalah 2.',
@@ -214,12 +214,12 @@ export const TAHAP: TahapTurunan[] = [
         jenis: 'poin',
         judul: 'Urutan langkahnya tidak boleh dibalik',
         butir: [
-          'Sebelum disederhanakan - mengisi h = 0 memberi 0 dibagi 0, dan itu tidak punya arti',
+          'Sebelum disederhanakan - mengisi h = 0 memberi 0/0, dan itu tidak punya arti',
           'Mencoret h - hanya sah selama h bukan nol, sebab kita sedang membaginya',
           'Sesudah disederhanakan - untuk h ≠ 0, pecahan asal sama dengan 2 + h. Karena 2 + h mendekati 2 saat h mendekati nol, limit pecahan asal adalah 2; pecahan asal tetap tidak terdefinisi pada h = 0',
         ],
       },
-      { jenis: 'paragraf', teks: 'Aturan urutan ini persis yang Anda pelajari di topik Limit, Materi 04, pada bentuk 0 per 0. Di sini bentuk itu muncul lagi, dan kali ini ia punya arti gambar.' },
+      { jenis: 'paragraf', teks: 'Aturan urutan ini persis yang Anda pelajari di topik Limit, Materi 04, pada bentuk 0/0. Di sini bentuk itu muncul lagi, dan kali ini ia punya arti gambar.' },
 
       { jenis: 'paragraf', teks: 'Asal 1 + 2h + h² dapat dilihat lewat luas. Untuk h positif, pecah persegi bersisi 1 + h menjadi satu petak 1 × 1, dua persegi panjang 1 × h, dan satu petak h × h. Luasnya 1 + h + h + h² = 1 + 2h + h². Setelah dikurangi 1, tersisa 2h + h². Identitas aljabarnya juga berlaku untuk h negatif, walaupun gambar panjang tadi memakai h positif.' },
       { jenis: 'paragraf', teks: 'Kita juga harus memeriksa dari kiri P. Untuk h = −0,1, kemiringannya 2 + h = 1,9; untuk h = −0,01, kemiringannya 1,99. Dari kiri maupun kanan, nilai yang dituju sama, yaitu 2. Itulah alasan limit dua sisinya ada.' },
@@ -235,7 +235,7 @@ export const TAHAP: TahapTurunan[] = [
           'Turunan di sebuah titik - nama resmi untuk kemiringan sesaat tadi, ditulis f′(x₁)',
         ],
       },
-      { jenis: 'sorot', teks: 'Turunan di titik x₁ adalah limit dari [ f(x₁ + h) dikurangi f(x₁) ] dibagi h, saat h menuju 0, jika limitnya ada dan terhingga. Di titik bagian dalam domain, limit dari kiri dan kanan harus sama.' },
+      { jenis: 'sorot', teks: 'Turunan di titik x₁ adalah f′(x₁) = lim h→0 (f(x₁ + h) − f(x₁))/h, jika limitnya ada dan terhingga. Di titik bagian dalam domain, limit dari kiri dan kanan harus sama.' },
       { jenis: 'paragraf', teks: 'Untuk contoh tadi berarti f′(1) = 2. Satu angka, untuk satu titik. Bukan sebuah garis, dan bukan sebuah rumus yang berlaku di mana-mana.' },
 
       {
@@ -280,9 +280,9 @@ export const TAHAP: TahapTurunan[] = [
         jenis: 'contoh',
         judul: 'Cara yang sama, di tiga titik berbeda',
         baris: [
-          'di x = 2   [(2 + h)² - 2²] : h = (4h + h²) : h = 4 + h   menuju 4',
-          'di x = 1   [(1 + h)² - 1²] : h = (2h + h²) : h = 2 + h   menuju 2',
-          'di x = -1   [(-1 + h)² - 1] : h = (-2h + h²) : h = -2 + h   menuju -2',
+          'di x = 2   [(2 + h)² - 2²]/h = (4h + h²)/h = 4 + h   menuju 4',
+          'di x = 1   [(1 + h)² - 1²]/h = (2h + h²)/h = 2 + h   menuju 2',
+          'di x = -1   [(-1 + h)² - 1]/h = (-2h + h²)/h = -2 + h   menuju -2',
         ],
         simpul: 'Tiga titik, tiga angka: 4, 2, dan -2. Tidak ada yang baru selain titik yang dipilih.',
       },
@@ -308,7 +308,7 @@ export const TAHAP: TahapTurunan[] = [
           'kuadrat adalah perkalian     (x + h)(x + h) = x² + xh + hx + h²',
           'dua suku tengah sejenis      xh + hx = 2xh',
           'kurangi tinggi awal          (x² + 2xh + h²) - x² = 2xh + h²',
-          'bagi langkah mendatar        (2xh + h²) : h = 2x + h, dengan h ≠ 0',
+          'bagi langkah mendatar        (2xh + h²)/h = 2x + h, dengan h ≠ 0',
           'dekatkan h ke nol            2x + h menuju 2x, dari kedua sisi',
         ],
         simpul: 'Jadi kemiringan kurva x² di titik x adalah 2x. Rumus ini berlaku untuk setiap x real, bukan hanya empat contoh tadi.',
@@ -384,14 +384,14 @@ export const TAHAP: TahapTurunan[] = [
     penjelasan: [
       { jenis: 'paragraf', teks: 'Di Materi 03 kita sudah membuktikan f′(x) = 2x dari definisi turunan. Sekarang kita ulas hitungannya sebagai pijakan untuk memahami turunan pangkat lain.' },
 
-      { jenis: 'sesi', judul: 'Dibuktikan untuk x pangkat dua' },
+      { jenis: 'sesi', judul: 'Dibuktikan untuk x²' },
       {
         jenis: 'contoh',
         judul: 'Kemiringan f(x) = x² di titik x mana pun',
         baris: [
           'tinggi di titik sebelah    f(x + h) = (x + h)² = x² + 2xh + h²',
           'selisih tingginya          (x² + 2xh + h²) - x² = 2xh + h²',
-          'dibagi jarak mendatarnya   (2xh + h²) : h',
+          'dibagi jarak mendatarnya   (2xh + h²)/h',
           'h dicoret                  2x + h',
           'h didekatkan ke nol        2x + 0 = 2x',
         ],
@@ -399,7 +399,7 @@ export const TAHAP: TahapTurunan[] = [
       },
       { jenis: 'paragraf', teks: 'Perhatikan siapa yang menyelamatkan hitungan ini. Setelah dibagi h, semua sisa yang masih mengandung h lenyap begitu h didekatkan ke nol. Yang tertinggal hanya suku yang sama sekali tidak memuat h.' },
 
-      { jenis: 'sesi', judul: 'Diulang untuk pangkat tiga' },
+      { jenis: 'sesi', judul: 'Diulang untuk x³' },
       {
         jenis: 'contoh',
         judul: 'Kemiringan f(x) = x³',
@@ -424,7 +424,7 @@ export const TAHAP: TahapTurunan[] = [
         simpul: 'Pangkatnya turun dari depan menjadi pengali, lalu pangkat yang tertinggal berkurang satu.',
       },
       { jenis: 'sorot', teks: 'Aturan pangkat: untuk f(x) = a·xⁿ berlaku f′(x) = a·n·xⁿ⁻¹.' },
-      { jenis: 'paragraf', teks: 'Huruf a di depan hanya ikut terbawa. Misalnya f(x) = 5x³ memberi f′(x) = 5 kali 3 kali x², yaitu 15x².' },
+      { jenis: 'paragraf', teks: 'Huruf a di depan hanya ikut terbawa. Misalnya f(x) = 5x³ memberi f′(x) = 5 · 3 · x² = 15x².' },
 
       {
         jenis: 'coba',
@@ -444,7 +444,7 @@ export const TAHAP: TahapTurunan[] = [
         judul: 'Diperiksa dengan hitungan yang sama',
         baris: [
           'selisih tingginya   f(x + h) - f(x) = 7 - 7 = 0',
-          'dibagi h            0 : h = 0',
+          'dibagi h            0/h = 0',
           'h menuju nol        0',
         ],
         simpul: 'Turunan sebuah konstanta selalu 0.',
@@ -456,9 +456,9 @@ export const TAHAP: TahapTurunan[] = [
         jenis: 'contoh',
         judul: 'Ditulis ulang dulu, baru diturunkan',
         baris: [
-          '√x    ditulis  x^(1/2)    turunannya  (1/2)·x^(-1/2)  =  1 : (2√x)',
-          '1/x   ditulis  x^(-1)     turunannya  (-1)·x^(-2)     =  -1 : x²',
-          '1/x²  ditulis  x^(-2)     turunannya  (-2)·x^(-3)     =  -2 : x³',
+          '√x    ditulis  x^(1/2)    turunannya  (1/2)·x^(-1/2)  =  1/(2√x)',
+          '1/x   ditulis  x^(-1)     turunannya  (-1)·x^(-2)     =  -1/x²',
+          '1/x²  ditulis  x^(-2)     turunannya  (-2)·x^(-3)     =  -2/x³',
         ],
         simpul: 'Aturannya tidak berubah. Yang berubah hanya cara menuliskan fungsinya sebelum aturan dipakai.',
       },
@@ -515,7 +515,7 @@ export const TAHAP: TahapTurunan[] = [
           'suku -7   sebuah konstanta   0',
           'dirangkai: 12x³ - 4x + 5',
         ],
-        simpul: 'Jadi f′(x) = 12x³ dikurangi 4x ditambah 5. Suku -7 hilang tanpa bekas.',
+        simpul: 'Jadi f′(x) = 12x³ − 4x + 5. Suku -7 hilang tanpa bekas.',
       },
       { jenis: 'sorot', teks: 'Menurunkan jumlah berarti menurunkan tiap sukunya, lalu menjumlahkan hasilnya kembali.' },
       { jenis: 'paragraf', teks: 'Hilangnya angka -7 bukan kecerobohan. Menambahkan 7 pada sebuah fungsi hanya mengangkat seluruh grafiknya ke atas tanpa memiringkannya sedikit pun, jadi kemiringannya tidak berubah di titik mana pun.' },
@@ -540,7 +540,7 @@ export const TAHAP: TahapTurunan[] = [
           'ambil fungsi   f(x) = x · x, yang tidak lain adalah x²',
           'jawaban benar  f′(x) = 2x. Di x = 3 nilainya 6',
           'kalau dipecah  turunan x adalah 1, jadi 1 · 1 = 1',
-          'bandingkan     6 tidak sama dengan 1',
+          'bandingkan     6 ≠ 1',
         ],
         simpul: 'Satu contoh tandingan sudah cukup untuk membatalkan sebuah aturan.',
       },
@@ -561,13 +561,13 @@ export const TAHAP: TahapTurunan[] = [
     labelPendek: 'Kali, bagi',
     pertanyaan: 'Kenapa turunan hasil kali bukan hasil kali turunan?',
     intisari: [
-      'Aturan hasil kali: turunan dari u kali v adalah u′v ditambah uv′.',
+      'Aturan hasil kali: (uv)′ = u′v + uv′.',
       'Alasannya terlihat pada persegi panjang yang kedua sisinya bertambah: tambahan luasnya dua pita, ditambah pojok kecil yang lenyap.',
-      'Aturan hasil bagi: turunan dari u dibagi v adalah (u′v dikurangi uv′) dibagi v².',
+      'Aturan hasil bagi: (u/v)′ = (u′v − uv′)/v².',
       'Urutan pada pembilang hasil bagi tidak boleh dibalik, sebab tandanya ikut berbalik.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Materi 05 berakhir dengan sebuah bantahan: turunan dari x kali x adalah 2x, bukan 1. Jadi perkalian butuh aturannya sendiri. Sebelum aturannya ditulis, kita lihat dulu kenapa bentuknya harus begitu.' },
+      { jenis: 'paragraf', teks: 'Materi 05 berakhir dengan sebuah bantahan: turunan dari x · x adalah 2x, bukan 1. Jadi perkalian butuh aturannya sendiri. Sebelum aturannya ditulis, kita lihat dulu kenapa bentuknya harus begitu.' },
 
       { jenis: 'sesi', judul: 'Persegi panjang yang kedua sisinya bertambah' },
       { jenis: 'paragraf', teks: 'Bayangkan sebuah persegi panjang. Panjangnya sebuah fungsi yang kita sebut u, lebarnya fungsi lain yang kita sebut v. Luasnya u kali v, dan itulah fungsi yang mau kita turunkan.' },
@@ -582,7 +582,7 @@ export const TAHAP: TahapTurunan[] = [
         ],
       },
       { jenis: 'paragraf', teks: 'Ketiganya dibagi h. Dua pita pertama menyisakan angka yang berarti. Pojok kecilnya tidak: ia hasil perkalian DUA tambahan yang sama-sama mengecil, jadi ia menyusut jauh lebih cepat dan hilang begitu h menuju nol.' },
-      { jenis: 'sorot', teks: 'Aturan hasil kali: turunan dari u kali v adalah u′ kali v, ditambah u kali v′.' },
+      { jenis: 'sorot', teks: 'Aturan hasil kali: (uv)′ = u′v + uv′. Turunan yang pertama dikali yang kedua, ditambah yang pertama dikali turunan yang kedua.' },
       {
         jenis: 'contoh',
         judul: 'Menurunkan (x² + 1)(x - 3)',
@@ -609,20 +609,20 @@ export const TAHAP: TahapTurunan[] = [
       },
 
       { jenis: 'sesi', judul: 'Kalau bentuknya pembagian' },
-      { jenis: 'paragraf', teks: 'Untuk u dibagi v, aturannya mirip tetapi ada dua perbedaan yang harus dijaga: tandanya pengurangan, bukan penjumlahan, dan seluruhnya dibagi v kuadrat.' },
-      { jenis: 'sorot', teks: 'Aturan hasil bagi: turunan dari u dibagi v adalah (u′v dikurangi uv′), dibagi v².' },
+      { jenis: 'paragraf', teks: 'Untuk u/v, aturannya mirip tetapi ada dua perbedaan yang harus dijaga: tandanya pengurangan, bukan penjumlahan, dan seluruhnya dibagi v².' },
+      { jenis: 'sorot', teks: 'Aturan hasil bagi: (u/v)′ = (u′v − uv′)/v². Pembilangnya pengurangan, dan penyebutnya dikuadratkan.' },
       {
         jenis: 'contoh',
-        judul: 'Menurunkan (2x + 1) dibagi (x - 1)',
+        judul: 'Menurunkan f(x) = (2x + 1)/(x - 1)',
         baris: [
           'pilih bagiannya   u = 2x + 1 dan v = x - 1',
           'turunkan sendiri   u′ = 2 dan v′ = 1',
           'pembilangnya   u′v - uv′ = 2(x - 1) - (2x + 1)(1)',
           'jabarkan   2x - 2 - 2x - 1 = -3',
           'penyebutnya   v² = (x - 1)²',
-          'hasilnya   -3 : (x - 1)²',
+          'hasilnya   -3/(x - 1)²',
           'periksa angkanya   di x = 2 rumusnya memberi -3',
-          'dengan selisih kecil   (f(2,01) - f(2)) : 0,01 = -2,97, sudah dekat ke -3',
+          'dengan selisih kecil   (f(2,01) - f(2))/0,01 = -2,97, sudah dekat ke -3',
         ],
         simpul: 'Hasilnya selalu negatif untuk x berapa pun selain 1, dan itu cocok dengan grafiknya yang memang selalu menurun.',
       },
@@ -646,7 +646,7 @@ export const TAHAP: TahapTurunan[] = [
     intisari: [
       'Fungsi bertingkat punya bagian dalam dan bagian luar. Contohnya (x² + 1)³: yang dalam x² + 1, yang luar pangkat tiga.',
       'Aturan rantai: turunkan bagian luarnya dulu, lalu kalikan dengan turunan bagian dalamnya.',
-      'Dalam notasi Leibniz: dy/dx sama dengan dy/du dikali du/dx.',
+      'Dalam notasi Leibniz: dy/dx = (dy/du) · (du/dx).',
       'Kesalahan tersering adalah lupa mengalikan turunan bagian dalam.',
       'Bagian dalam boleh berupa waktu: kalau ukuran benda berubah tiap detik, isinya ikut berubah lewat aturan rantai.',
     ],
@@ -690,7 +690,7 @@ export const TAHAP: TahapTurunan[] = [
         ],
       },
       { jenis: 'sorot', teks: 'Aturan rantai: turunkan bagian luarnya seolah bagian dalam sebuah huruf biasa, lalu kalikan dengan turunan bagian dalamnya.' },
-      { jenis: 'paragraf', teks: 'Dengan notasi Leibniz dari Materi 03, aturan itu terlihat sangat rapi: dy/dx sama dengan dy/du dikali du/dx. Seolah du-nya saling meniadakan, walaupun perlu diingat lambang itu bukan pecahan biasa.' },
+      { jenis: 'paragraf', teks: 'Dengan notasi Leibniz dari Materi 03, aturan itu terlihat sangat rapi: dy/dx = (dy/du) · (du/dx). Seolah du-nya saling meniadakan, walaupun perlu diingat lambang itu bukan pecahan biasa.' },
       { jenis: 'paragraf', teks: 'Kenapa dikalikan, bukan dijumlahkan? Karena pengaruhnya bertingkat. Kalau u berubah tiga kali lebih cepat daripada x, dan y berubah lima kali lebih cepat daripada u, maka y berubah lima belas kali lebih cepat daripada x.' },
 
       {
@@ -718,13 +718,13 @@ export const TAHAP: TahapTurunan[] = [
       },
       {
         jenis: 'contoh',
-        judul: 'Menurunkan akar dari (3x + 1)',
+        judul: 'Menurunkan √(3x + 1)',
         baris: [
           'tulis sebagai pangkat   (3x + 1)^(1/2)',
           'bagian dalam            u = 3x + 1, turunannya 3',
           'bagian luar             u^(1/2), turunannya (1/2)u^(-1/2)',
           'kalikan                 (1/2)(3x + 1)^(-1/2) · 3',
-          'rapikan                 3 : (2√(3x + 1))',
+          'rapikan                 3/(2√(3x + 1))',
         ],
         simpul: 'Aturan pangkat dari Materi 04 tetap dipakai. Yang ditambahkan hanya pengali di belakang.',
       },
@@ -764,7 +764,7 @@ export const TAHAP: TahapTurunan[] = [
     intisari: [
       'Kemiringan grafik sinus di setiap titik sama dengan tinggi grafik kosinus di titik yang sama, jadi turunan sin x adalah cos x.',
       'Turunan cos x adalah negatif sin x. Tanda minusnya tidak boleh hilang.',
-      'Turunan tan x adalah 1 dibagi cos²x, diperoleh dari aturan hasil bagi.',
+      'Turunan tan x adalah 1/cos² x = sec² x, diperoleh dari aturan hasil bagi.',
       'Semua rumus itu hanya berlaku kalau sudutnya diukur dalam radian.',
       'Ada satu bilangan pokok yang membuat kemiringan kurva sama persis dengan tingginya. Bilangan itu disebut bilangan e, kira-kira 2,718.',
     ],
@@ -795,15 +795,15 @@ export const TAHAP: TahapTurunan[] = [
         jenis: 'contoh',
         judul: 'Kenapa turunan sin x keluar sebagai cos x',
         baris: [
-          'mulai dari definisi   [sin(x + h) - sin x] : h',
+          'mulai dari definisi   [sin(x + h) - sin x]/h',
           'jabarkan sin(x + h)   sin x · cos h + cos x · sin h',
-          'kelompokkan   sin x · (cos h - 1) : h + cos x · (sin h : h)',
-          'saat h menuju nol   (cos h - 1) : h menuju 0, dan (sin h : h) menuju 1',
+          'kelompokkan   sin x · (cos h - 1)/h + cos x · (sin h/h)',
+          'saat h menuju nol   (cos h - 1)/h menuju 0, dan (sin h/h) menuju 1',
           'tersisa   sin x · 0 + cos x · 1 = cos x',
         ],
         simpul: 'Jadi hasil bacaan grafik tadi memang benar, bukan kebetulan.',
       },
-      { jenis: 'paragraf', teks: 'Satu syarat penting menempel pada hitungan itu. Limit sin h dibagi h bernilai 1 hanya kalau sudut diukur dalam radian. Kalau sudutnya derajat, semua rumus di materi ini berubah dan menjadi jauh lebih berantakan. Karena itu, sejak sekarang sudut selalu radian.' },
+      { jenis: 'paragraf', teks: 'Satu syarat penting menempel pada hitungan itu. Limit (sin h)/h bernilai 1 hanya kalau sudut diukur dalam radian. Kalau sudutnya derajat, semua rumus di materi ini berubah dan menjadi jauh lebih berantakan. Karena itu, sejak sekarang sudut selalu radian.' },
 
       {
         jenis: 'coba',
@@ -817,7 +817,7 @@ export const TAHAP: TahapTurunan[] = [
       },
 
       { jenis: 'sesi', judul: 'Turunan tan x' },
-      { jenis: 'paragraf', teks: 'Untuk tangen kita tidak perlu mengulang apa pun. tan x adalah sin x dibagi cos x, dan aturan hasil bagi dari Materi 06 sudah cukup.' },
+      { jenis: 'paragraf', teks: 'Untuk tangen kita tidak perlu mengulang apa pun. tan x = (sin x)/(cos x), dan aturan hasil bagi dari Materi 06 sudah cukup.' },
       {
         jenis: 'contoh',
         judul: 'Menurunkan tan x',
@@ -827,9 +827,9 @@ export const TAHAP: TahapTurunan[] = [
           'pembilangnya         cos x · cos x - sin x · (-sin x) = cos²x + sin²x',
           'pakai identitas      cos²x + sin²x = 1',
           'penyebutnya          cos²x',
-          'hasilnya             1 : cos²x',
+          'hasilnya             1/cos²x',
         ],
-        simpul: 'Bentuk 1 dibagi cos²x sering ditulis sec²x. Nilainya tidak pernah negatif, dan itu cocok dengan grafik tangen yang selalu menanjak.',
+        simpul: 'Bentuk 1/cos² x sering ditulis sec² x. Nilainya tidak pernah negatif, dan itu cocok dengan grafik tangen yang selalu menanjak.',
       },
 
       { jenis: 'sesi', judul: 'Bilangan yang kemiringannya sama dengan tingginya' },
@@ -864,7 +864,7 @@ export const TAHAP: TahapTurunan[] = [
     labelPendek: 'Garis singgung',
     pertanyaan: 'Sekarang kemiringannya diketahui; bagaimana menulis persamaan garisnya?',
     intisari: [
-      'Persamaan garis singgung memakai rumus garis lama: y dikurangi y₁ sama dengan m dikali (x dikurangi x₁).',
+      'Persamaan garis singgung memakai rumus garis lama: y − y₁ = m(x − x₁).',
       'Yang baru hanya sumber nilai m, yaitu f′(x₁), bukan angka yang diberikan soal.',
       'Tiga langkahnya: cari titik singgungnya, cari turunannya, lalu susun persamaannya.',
       'Di puncak atau di dasar lembah, gradien garis singgungnya nol, dan garisnya mendatar.',
@@ -872,7 +872,7 @@ export const TAHAP: TahapTurunan[] = [
     penjelasan: [
       { jenis: 'paragraf', teks: 'Sejak Materi 02 kita selalu berhenti pada satu angka: kemiringannya. Garisnya sendiri sudah muncul di gambar, tetapi belum pernah kita tulis persamaannya. Sekarang saatnya.' },
       { jenis: 'paragraf', teks: 'Kabar baiknya, tidak ada rumus baru yang perlu dihafal. Rumus garis yang melalui satu titik dengan kemiringan tertentu sudah Anda pelajari di SMP.' },
-      { jenis: 'sorot', teks: 'y dikurangi y₁ sama dengan m dikali (x dikurangi x₁), dengan m diambil dari f′(x₁).' },
+      { jenis: 'sorot', teks: 'y − y₁ = m(x − x₁), dengan m diambil dari f′(x₁).' },
       { jenis: 'paragraf', teks: 'Satu-satunya hal baru adalah dari mana m datang. Dulu m diberikan oleh soal. Sekarang m harus dihitung sendiri, dan alatnya turunan.' },
 
       { jenis: 'sesi', judul: 'Tiga langkah yang selalu sama' },
@@ -922,7 +922,7 @@ export const TAHAP: TahapTurunan[] = [
       },
 
       { jenis: 'sesi', judul: 'Satu garis lagi yang sering disebut bersamanya' },
-      { jenis: 'paragraf', teks: 'Kadang soal meminta garis yang tegak lurus terhadap garis singgung di titik yang sama. Namanya garis normal, dan gradiennya negatif satu dibagi m. Materi ini tidak memperdalamnya, sebab yang penting sudah Anda punya: begitu m diketahui, semua garis lain di titik itu tinggal mengikuti.' },
+      { jenis: 'paragraf', teks: 'Kadang soal meminta garis yang tegak lurus terhadap garis singgung di titik yang sama. Namanya garis normal, dan gradiennya -1/m. Materi ini tidak memperdalamnya, sebab yang penting sudah Anda punya: begitu m diketahui, semua garis lain di titik itu tinggal mengikuti.' },
     ],
     seringKeliru: {
       judul: 'Gradien diambil dari f′(x₁), bukan dari f(x₁)',
@@ -1146,7 +1146,7 @@ export const TAHAP: TahapTurunan[] = [
           'jumlahnya   N(t) = 200 · e^(t/2)',
           'bagian dalam  t/2, turunannya 1/2, jadi aturan rantai Materi 07 dipakai',
           'turunkan    N′(t) = 200 · e^(t/2) · 1/2 = 100 · e^(t/2)',
-          'bandingkan  N′(t) = N(t) : 2',
+          'bandingkan  N′(t) = N(t)/2',
           'saat t = 0  N = 200 ekor, lajunya 100 ekor per jam',
           'saat t = 2  N kira-kira 544 ekor, lajunya kira-kira 272 ekor per jam',
         ],
@@ -1160,13 +1160,13 @@ export const TAHAP: TahapTurunan[] = [
         jenis: 'contoh',
         judul: 'Nilai optimum untuk luas pelatnya',
         baris: [
-          'isi tetap        π r² t = 1000, jadi t = 1000 : (π r²)',
+          'isi tetap        π r² t = 1000, jadi t = 1000/(π r²)',
           'luas pelatnya    L = 2π r² + 2π r t',
-          'ganti t          L(r) = 2π r² + 2000 : r',
-          'turunkan         L′(r) = 4π r - 2000 : r²',
-          'samakan nol      4π r = 2000 : r²',
+          'ganti t          L(r) = 2π r² + 2000/r',
+          'turunkan         L′(r) = 4π r - 2000/r²',
+          'samakan nol      4π r = 2000/r²',
           'kalikan r²       4π r³ = 2000',
-          'bagi 4π          r³ = 500 : π, jadi r kira-kira 5,42 cm',
+          'bagi 4π          r³ = 500/π, jadi r kira-kira 5,42 cm',
           'tingginya        t kira-kira 10,84 cm',
         ],
         simpul: 'Tinggi kaleng paling hemat sama dengan diameternya, dua kali jari-jarinya.',

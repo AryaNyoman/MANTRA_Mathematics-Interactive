@@ -347,6 +347,16 @@ function susun(tokens: Token[]): string {
     } else {
       ;[ka] = rangkaian(t, kiriAkhir - 1, -1)
       ;[, kb] = rangkaian(t, kananAwal, 1)
+      // Fungsi beserta argumennya adalah satu rangkaian: "sin x/x" adalah
+      // (sin x)/x, "1/cos θ" adalah 1/(cos θ), "sin 3x/5x" adalah (sin 3x)/(5x).
+      const fungsi = (x: Token | undefined) => !!x && x.t === 'id' && FUNGSI.has(x.v.toLowerCase())
+      if (ka - 2 >= 0 && t[ka - 1].t === 'spasi') {
+        const [fa] = rangkaian(t, ka - 2, -1) // rangkaian sebelum spasi: "sin" atau "cos²"
+        if (fungsi(t[fa])) ka = fa
+      }
+      if (fungsi(t[kananAwal]) && kb < t.length && t[kb].t === 'spasi' && kb + 1 < t.length) {
+        ;[, kb] = rangkaian(t, kb + 1, 1)
+      }
     }
     const atas = t.slice(ka, kiriAkhir)
     const bawah = t.slice(kananAwal, kb)
@@ -361,7 +371,20 @@ function susun(tokens: Token[]): string {
   for (let i = 0; i < t.length; i++) {
     const tok = t[i]
     switch (tok.t) {
-      case 'spasi': keluar += ' '; break
+      case 'spasi': {
+        // Dua angka berdampingan hanya dipisah spasi, misalnya vektor baris
+        // (4 3) di materi Vektor: LaTeX mengabaikan spasi, jadi tanpa jarak
+        // tegas keduanya menyatu menjadi (43). Angka negatif (4 -3) ikut.
+        if (i > 0 && t[i - 1].t === 'spasi') break // spasi beruntun cukup satu
+        let j = i + 1
+        while (j < t.length && t[j].t === 'spasi') j++
+        const sebelum = t[i - 1]
+        const sesudah = t[j]
+        const angka = (x: Token | undefined) => !!x && (x.t === 'num' || (x.t === 'teks' && /^(\\dfrac|\d)/.test(x.v)))
+        const minusAngka = !!sesudah && sesudah.t === 'op' && sesudah.v === '-' && angka(t[j + 1])
+        keluar += angka(sebelum) && (angka(sesudah) || minusAngka) ? '\\; ' : ' '
+        break
+      }
       case 'num': keluar += tok.v; break
       case 'id': {
         // lim x→c  ->  \lim_{x \to c}

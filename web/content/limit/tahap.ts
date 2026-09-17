@@ -61,7 +61,7 @@ export const TAHAP: TahapLimit[] = [
     pertanyaan: 'Kalau kecepatan itu jarak dibagi waktu, kenapa speedometer punya angka?',
     intisari: [
       'Jarak dibagi waktu hanya berlaku untuk satu selang, bukan satu titik waktu.',
-      'Pada satu saat, hitungan itu jadi 0 dibagi 0, dan itu tidak punya arti.',
+      'Pada satu saat, hitungan itu jadi 0/0, dan itu tidak punya arti.',
       'Jalan keluarnya: perpendek selangnya terus, lalu lihat angkanya menuju ke mana.',
       'Angka yang dituju itulah yang disebut limit.',
     ],
@@ -77,10 +77,10 @@ export const TAHAP: TahapLimit[] = [
         jenis: 'contoh',
         judul: 'Perpendek selangnya, lihat angkanya',
         baris: [
-          'detik 2 sampai 3   (45 - 20) : 1 = 25 m/s',
-          'detik 2 sampai 2,5   (31,25 - 20) : 0,5 = 22,5 m/s',
-          'detik 2 sampai 2,1   (22,05 - 20) : 0,1 = 20,5 m/s',
-          'detik 2 sampai 2,01   (20,2005 - 20) : 0,01 = 20,05 m/s',
+          'detik 2 sampai 3   (45 - 20)/1 = 25 m/s',
+          'detik 2 sampai 2,5   (31,25 - 20)/0,5 = 22,5 m/s',
+          'detik 2 sampai 2,1   (22,05 - 20)/0,1 = 20,5 m/s',
+          'detik 2 sampai 2,01   (20,2005 - 20)/0,01 = 20,05 m/s',
           'detik 2 sampai 2,001   ... = 20,005 m/s',
         ],
         simpul: 'Angkanya merapat ke 20. Itulah kecepatan kelapa tepat pada detik ke-2.',
@@ -94,7 +94,7 @@ export const TAHAP: TahapLimit[] = [
         judul: 'Rumusnya disederhanakan dulu',
         baris: [
           'jarak yang ditempuh   5(2 + h)² - 5(2)² = 20h + 5h²',
-          'dibagi waktunya   (20h + 5h²) : h',
+          'dibagi waktunya   (20h + 5h²)/h',
           'coret h   20 + 5h',
         ],
         simpul: 'Setelah h dicoret, barulah h boleh didekatkan ke nol. Hasilnya 20.',
@@ -103,7 +103,7 @@ export const TAHAP: TahapLimit[] = [
         jenis: 'poin',
         judul: 'Urutannya penting, dan ini yang sering terlewat',
         butir: [
-          'Sebelum disederhanakan - masukkan h = 0 memberi 0 dibagi 0, tidak punya arti',
+          'Sebelum disederhanakan - masukkan h = 0 memberi 0/0, tidak punya arti',
           'Mencoret h - hanya sah kalau h bukan nol, karena kita membaginya',
           'Sesudah disederhanakan - bentuk 20 + 5h aman untuk h berapa pun, termasuk nol',
         ],
@@ -129,7 +129,7 @@ export const TAHAP: TahapLimit[] = [
     ],
     seringKeliru: {
       judul: 'Dikira limit cuma cara berbelit untuk memasukkan angka',
-      isi: 'Kalau bentuk 20 + 5h dimasukkan h = 0, hasilnya memang 20. Dari situ mudah menyimpulkan bahwa limit hanya gaya-gayaan. Tapi bentuk 20 + 5h itu sendiri baru ada SETELAH h dicoret, dan mencoret h hanya boleh dilakukan untuk h yang bukan nol. Pada bentuk aslinya, memasukkan h = 0 memberi 0 dibagi 0 dan berhenti di situ. Jadi yang menyelamatkan hitungan ini bukan substitusi, melainkan penyederhanaan yang sah untuk semua h kecuali nol.',
+      isi: 'Kalau bentuk 20 + 5h dimasukkan h = 0, hasilnya memang 20. Dari situ mudah menyimpulkan bahwa limit hanya gaya-gayaan. Tapi bentuk 20 + 5h itu sendiri baru ada SETELAH h dicoret, dan mencoret h hanya boleh dilakukan untuk h yang bukan nol. Pada bentuk aslinya, memasukkan h = 0 memberi 0/0 dan berhenti di situ. Jadi yang menyelamatkan hitungan ini bukan substitusi, melainkan penyederhanaan yang sah untuk semua h kecuali nol.',
     },
     video: { berkas: 'limit1-kecepatan.mp4', poster: 'limit1-kecepatan.jpg' },
     widget: 'selang-menyusut',
@@ -177,7 +177,7 @@ export const TAHAP: TahapLimit[] = [
       { jenis: 'paragraf', teks: 'Kedua arah sepakat menuju 10. Kalau begitu, kita katakan limit f(x) untuk x mendekati 3 adalah 10.' },
 
       { jenis: 'sesi', judul: 'Kalimat resmi dari buku' },
-      { jenis: 'paragraf', teks: 'Buku Matematika Tingkat Lanjut Kelas XII menuliskannya begini: limit f(x) untuk x mendekati c sama dengan L berarti, untuk x yang mendekati c dari kiri maupun dari kanan, nilai f(x) mendekati L.' },
+      { jenis: 'paragraf', teks: 'Buku Matematika Tingkat Lanjut Kelas XII menuliskannya begini: lim x→c f(x) = L berarti, untuk x yang mendekati c dari kiri maupun dari kanan, nilai f(x) mendekati L.' },
       {
         jenis: 'poin',
         judul: 'Tiga hal yang perlu diperhatikan dari kalimat itu',
@@ -329,8 +329,8 @@ export const TAHAP: TahapLimit[] = [
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Perhatikan fungsi ini, dan jangan buru-buru menghitungnya:' },
-      { jenis: 'sorot', teks: 'f(x) = (x² - 1) dibagi (x - 1)' },
-      { jenis: 'paragraf', teks: 'Sekarang coba masukkan x = 1. Pembilangnya 1 - 1 = 0. Penyebutnya juga 1 - 1 = 0. Nol dibagi nol. Fungsi ini tidak punya nilai di x = 1, titik.' },
+      { jenis: 'sorot', teks: 'f(x) = (x² - 1)/(x - 1)' },
+      { jenis: 'paragraf', teks: 'Sekarang coba masukkan x = 1. Pembilangnya 1 - 1 = 0. Penyebutnya juga 1 - 1 = 0. Bentuknya 0/0. Fungsi ini tidak punya nilai di x = 1, titik.' },
       { jenis: 'paragraf', teks: 'Bukan bernilai nol, bukan bernilai tak hingga. Di x = 1, fungsi ini tidak terdefinisi sama sekali, seperti pertanyaan yang tidak punya jawaban.' },
 
       { jenis: 'sesi', judul: 'Tapi tetangganya baik-baik saja' },
@@ -352,7 +352,7 @@ export const TAHAP: TahapLimit[] = [
         judul: 'Sederhanakan, dengan satu syarat',
         baris: [
           'x² - 1 difaktorkan          (x - 1)(x + 1)',
-          'dibagi (x - 1)              (x - 1)(x + 1) : (x - 1)',
+          'dibagi (x - 1)              (x - 1)(x + 1)/(x - 1)',
           'coret, asal x bukan 1       x + 1',
         ],
         simpul: 'Jadi fungsinya sebenarnya garis y = x + 1, kecuali di x = 1 tempat ia berlubang.',
@@ -370,7 +370,7 @@ export const TAHAP: TahapLimit[] = [
       },
       { jenis: 'sorot', teks: 'Nilai fungsi dan limit adalah dua hal yang benar-benar berbeda. Yang satu bisa ada tanpa yang lain.' },
       { jenis: 'paragraf', teks: 'Sekarang kalimat dari Materi 02 itu masuk akal: limit tidak peduli apa yang terjadi tepat di titiknya. Justru karena tidak peduli, ia masih bisa menjawab walaupun titiknya bolong.' },
-      { jenis: 'paragraf', teks: 'Dan ternyata ini bukan kasus langka. Hitungan kecepatan sesaat di Materi 01 bentuknya persis seperti ini: 0 dibagi 0 kalau dipaksakan, tetapi punya limit yang rapi setelah disederhanakan. Seluruh kalkulus berdiri di atas bentuk semacam ini.' },
+      { jenis: 'paragraf', teks: 'Dan ternyata ini bukan kasus langka. Hitungan kecepatan sesaat di Materi 01 bentuknya persis seperti ini: 0/0 kalau dipaksakan, tetapi punya limit yang rapi setelah disederhanakan. Seluruh kalkulus berdiri di atas bentuk semacam ini.' },
 
       {
         jenis: 'coba',
@@ -384,8 +384,8 @@ export const TAHAP: TahapLimit[] = [
       },
     ],
     seringKeliru: {
-      judul: 'Dikira 0 dibagi 0 sama dengan 0, atau sama dengan 1',
-      isi: 'Bentuk 0 dibagi 0 bukan sebuah bilangan, dan tidak bernilai 0 maupun 1. Ia disebut bentuk tak tentu, artinya bentuk itu belum memberi tahu apa-apa. Fungsi yang berbeda bisa sama-sama menghasilkan 0 dibagi 0 tetapi punya limit yang berbeda: (x² - 1) dibagi (x - 1) limitnya 2, sedangkan (x² - 4) dibagi (x - 2) limitnya 4, padahal keduanya 0 dibagi 0 kalau dipaksakan. Karena itu bentuknya harus ditulis ulang dulu, bukan dijawab langsung.',
+      judul: 'Dikira 0/0 sama dengan 0, atau sama dengan 1',
+      isi: 'Bentuk 0/0 bukan sebuah bilangan, dan tidak bernilai 0 maupun 1. Ia disebut bentuk tak tentu, artinya bentuk itu belum memberi tahu apa-apa. Fungsi yang berbeda bisa sama-sama menghasilkan 0/0 tetapi punya limit yang berbeda: (x² - 1) dibagi (x - 1) limitnya 2, sedangkan (x² - 4) dibagi (x - 2) limitnya 4, padahal keduanya 0/0 kalau dipaksakan. Karena itu bentuknya harus ditulis ulang dulu, bukan dijawab langsung.',
     },
     video: { berkas: 'limit4-lubang.mp4', poster: 'limit4-lubang.jpg' },
     widget: 'lubang-grafik',
@@ -435,12 +435,12 @@ export const TAHAP: TahapLimit[] = [
       { jenis: 'sesi', judul: 'Dipakai pada soal sungguhan' },
       {
         jenis: 'contoh',
-        judul: 'Limit dari (3x² - x + 4) dibagi (x + 2) saat x mendekati 2',
+        judul: 'Limit (3x² - x + 4)/(x + 2) saat x mendekati 2',
         baris: [
           'periksa penyebutnya dulu   2 + 2 = 4, bukan nol, jadi aman',
           'masukkan ke pembilang   3(4) - 2 + 4 = 14',
           'masukkan ke penyebut   4',
-          'bagi   14 : 4 = 3,5',
+          'bagi   14/4 = 3,5',
         ],
         simpul: 'Limitnya 3,5 atau 7/2. Tanpa tabel, tanpa mendekat dari dua arah.',
       },
@@ -448,10 +448,10 @@ export const TAHAP: TahapLimit[] = [
         jenis: 'contoh',
         judul: 'Yang mengandung akar juga boleh',
         baris: [
-          'akar x dibagi (x² + 3x), saat x mendekati 4',
+          'lim x→4 √x/(x² + 3x)',
           'penyebutnya   16 + 12 = 28, bukan nol',
-          'pembilangnya   akar dari 4 = 2',
-          'bagi   2 : 28 = 1/14',
+          'pembilangnya   √4 = 2',
+          'bagi   2/28 = 1/14',
         ],
         simpul: 'Limitnya 1/14.',
       },
@@ -463,10 +463,10 @@ export const TAHAP: TahapLimit[] = [
         butir: [
           'Penyebut tidak nol - substitusi langsung sah, selesai',
           'Penyebut nol tapi pembilang bukan nol - limitnya biasanya tidak ada, dan grafiknya punya asimtot tegak. Dibahas di Materi 09',
-          'Penyebut nol DAN pembilang nol - inilah 0 dibagi 0, bentuknya harus ditulis ulang. Dibahas di Materi 06',
+          'Penyebut nol DAN pembilang nol - inilah 0/0, bentuknya harus ditulis ulang. Dibahas di Materi 06',
         ],
       },
-      { jenis: 'paragraf', teks: 'Jadi urutan kerjanya selalu sama: masukkan angkanya dulu untuk melihat apa yang terjadi. Kalau hasilnya wajar, selesai. Kalau muncul 0 dibagi 0, barulah pekerjaan yang sebenarnya dimulai.' },
+      { jenis: 'paragraf', teks: 'Jadi urutan kerjanya selalu sama: masukkan angkanya dulu untuk melihat apa yang terjadi. Kalau hasilnya wajar, selesai. Kalau muncul 0/0, barulah pekerjaan yang sebenarnya dimulai.' },
 
       {
         jenis: 'coba',
@@ -491,27 +491,27 @@ export const TAHAP: TahapLimit[] = [
   {
     no: 6,
     slug: 'nol-per-nol',
-    judul: 'Kalau hasilnya 0 dibagi 0',
+    judul: 'Kalau hasilnya 0/0',
     labelPendek: '0 per 0',
     pertanyaan: 'Substitusi buntu. Sekarang bagaimana?',
     intisari: [
-      'Bentuk 0 dibagi 0 bukan jawaban, melainkan tanda bahwa bentuknya harus ditulis ulang.',
+      'Bentuk 0/0 bukan jawaban, melainkan tanda bahwa bentuknya harus ditulis ulang.',
       'Tiga cara menulis ulang: memfaktorkan, mengalikan sekawan, membagi pangkat tertinggi.',
       'Yang dicari selalu sama: coret bagian yang membuat penyebutnya nol.',
       'Setelah tercoret, barulah angkanya dimasukkan.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Materi 05 berakhir pada satu simpul: masukkan angkanya dulu. Kalau hasilnya wajar, selesai. Kalau muncul 0 dibagi 0, pekerjaan yang sebenarnya baru dimulai. Materi ini tentang pekerjaan itu.' },
-      { jenis: 'sorot', teks: 'Bentuk 0 dibagi 0 tidak berarti limitnya tidak ada. Ia berarti bentuk yang Anda tulis belum memberi tahu apa-apa.' },
-      { jenis: 'paragraf', teks: 'Buktinya begini. Bentuk (x² - 1) : (x - 1) limitnya 2, sedangkan (x² - 4) : (x - 2) limitnya 4. Keduanya sama-sama memberi 0 dibagi 0 kalau angkanya dipaksakan masuk, tetapi jawabannya berbeda. Jadi tulisan 0 dibagi 0 memang belum mengandung keterangan apa pun.' },
+      { jenis: 'paragraf', teks: 'Materi 05 berakhir pada satu simpul: masukkan angkanya dulu. Kalau hasilnya wajar, selesai. Kalau muncul 0/0, pekerjaan yang sebenarnya baru dimulai. Materi ini tentang pekerjaan itu.' },
+      { jenis: 'sorot', teks: 'Bentuk 0/0 tidak berarti limitnya tidak ada. Ia berarti bentuk yang Anda tulis belum memberi tahu apa-apa.' },
+      { jenis: 'paragraf', teks: 'Buktinya begini. Bentuk (x² - 1)/(x - 1) limitnya 2, sedangkan (x² - 4)/(x - 2) limitnya 4. Keduanya sama-sama memberi 0/0 kalau angkanya dipaksakan masuk, tetapi jawabannya berbeda. Jadi tulisan 0/0 memang belum mengandung keterangan apa pun.' },
 
       { jenis: 'sesi', judul: 'Cara pertama: memfaktorkan' },
       { jenis: 'paragraf', teks: 'Kalau pembilang dan penyebut sama-sama bernilai nol di titik yang sama, keduanya pasti punya faktor yang sama. Temukan faktor itu, lalu coret.' },
       {
         jenis: 'contoh',
-        judul: 'Limit (x² - 4) : (x - 2) saat x mendekati 2',
+        judul: 'Limit (x² - 4)/(x - 2) saat x mendekati 2',
         baris: [
-          'coba masukkan dulu   (4 - 4) : (2 - 2) = 0 : 0',
+          'coba masukkan dulu   (4 - 4)/(2 - 2) = 0/0',
           'faktorkan pembilangnya   (x - 2)(x + 2)',
           'coret, asal x bukan 2   x + 2',
           'baru masukkan   2 + 2 = 4',
@@ -524,14 +524,14 @@ export const TAHAP: TahapLimit[] = [
       { jenis: 'paragraf', teks: 'Kalau ada tanda akar, memfaktorkan biasanya buntu. Yang dipakai adalah sekawan, yaitu bentuk yang sama persis tetapi tanda tengahnya dibalik. Mengalikan sebuah bentuk dengan sekawannya membuat akarnya hilang.' },
       {
         jenis: 'contoh',
-        judul: 'Limit (√(x + 4) - 2) : x saat x mendekati 0',
+        judul: 'Limit (√(x + 4) - 2)/x saat x mendekati 0',
         baris: [
-          'coba masukkan dulu   (2 - 2) : 0 = 0 : 0',
+          'coba masukkan dulu   (2 - 2)/0 = 0/0',
           'sekawan pembilangnya   √(x + 4) + 2',
           'kalikan atas dan bawah dengan sekawan itu',
           'pembilangnya jadi   (x + 4) - 4 = x',
-          'coret x   1 : (√(x + 4) + 2)',
-          'baru masukkan   1 : (2 + 2) = 1/4',
+          'coret x   1/(√(x + 4) + 2)',
+          'baru masukkan   1/(2 + 2) = 1/4',
         ],
         simpul: 'Limitnya 1/4, atau 0,25.',
       },
@@ -553,7 +553,7 @@ export const TAHAP: TahapLimit[] = [
         teks: 'Alat interaktifnya membongkar soal selangkah demi selangkah. Anda yang menekan majunya.',
         langkah: [
           'Pilih soalnya, lalu jalankan langkah pertama: masukkan angkanya.',
-          'Kalau muncul 0 dibagi 0, perhatikan cara apa saja yang ditawarkan alat.',
+          'Kalau muncul 0/0, perhatikan cara apa saja yang ditawarkan alat.',
           'Tekan maju satu langkah, dan baca nama cara di sebelah tiap baris.',
           'Di langkah pencoretan ada catatan kecil "asal x bukan ...". Menurut Anda, untuk apa catatan itu ada?',
         ],
@@ -566,7 +566,7 @@ export const TAHAP: TahapLimit[] = [
         butir: [
           'Masukkan angkanya, lihat apa yang terjadi',
           'Kalau hasilnya wajar, itu jawabannya, selesai',
-          'Kalau 0 dibagi 0, tulis ulang bentuknya: faktorkan, atau kalikan sekawan',
+          'Kalau 0/0, tulis ulang bentuknya: faktorkan, atau kalikan sekawan',
           'Setelah faktor pengganggunya tercoret, masukkan lagi angkanya',
         ],
       },
@@ -600,9 +600,9 @@ export const TAHAP: TahapLimit[] = [
         jenis: 'contoh',
         judul: 'Biaya rata-rata per barang',
         baris: [
-          '100 barang       (5.000.000 + 2.000.000) : 100        =  70.000',
-          '1.000 barang     (5.000.000 + 20.000.000) : 1.000     =  25.000',
-          '10.000 barang    (5.000.000 + 200.000.000) : 10.000   =  20.500',
+          '100 barang       (5.000.000 + 2.000.000)/100        =  70.000',
+          '1.000 barang     (5.000.000 + 20.000.000)/1.000     =  25.000',
+          '10.000 barang    (5.000.000 + 200.000.000)/10.000   =  20.500',
           '100.000 barang   ...                                  =  20.050',
         ],
         simpul: 'Merapat ke 20.000, tapi tidak pernah sampai. Biaya tetapnya selalu menyisakan sedikit.',
@@ -610,17 +610,17 @@ export const TAHAP: TahapLimit[] = [
       { jenis: 'sorot', teks: 'Tak hingga bukan bilangan. Ia tidak bisa dimasukkan ke rumus, karena tidak ada angka yang bernama tak hingga.' },
 
       { jenis: 'sesi', judul: 'Caranya: bagi dengan pangkat tertinggi' },
-      { jenis: 'paragraf', teks: 'Kalau x menuju tak hingga, pecahan seperti 1 : x menjadi sangat kecil. Semakin besar x, semakin dekat pecahan itu ke nol. Itulah alat utamanya, dan seluruh cara ini dibangun di atasnya.' },
+      { jenis: 'paragraf', teks: 'Kalau x menuju tak hingga, pecahan seperti 1/x menjadi sangat kecil. Semakin besar x, semakin dekat pecahan itu ke nol. Itulah alat utamanya, dan seluruh cara ini dibangun di atasnya.' },
       {
         jenis: 'contoh',
-        judul: 'Limit (3x² + 2x) : (x² - 5) saat x menuju tak hingga',
+        judul: 'Limit (3x² + 2x)/(x² - 5) saat x menuju tak hingga',
         baris: [
           'pangkat tertinggi   x²',
           'bagi semuanya dengan x²',
-          'pembilangnya jadi   3 + (2 : x)',
-          'penyebutnya jadi   1 - (5 : x²)',
-          'saat x membesar   2 : x menuju 0, 5 : x² menuju 0',
-          'yang tersisa   3 : 1',
+          'pembilangnya jadi   3 + (2/x)',
+          'penyebutnya jadi   1 - (5/x²)',
+          'saat x membesar   2/x menuju 0, 5/x² menuju 0',
+          'yang tersisa   3/1',
         ],
         simpul: 'Limitnya 3.',
       },
@@ -637,7 +637,7 @@ export const TAHAP: TahapLimit[] = [
         jenis: 'contoh',
         judul: 'Contoh yang pangkat atasnya lebih kecil',
         baris: [
-          'limit (2x + 7) : (x² + 1) saat x menuju tak hingga',
+          'limit (2x + 7)/(x² + 1) saat x menuju tak hingga',
           'pangkat atas 1, pangkat bawah 2',
           'penyebutnya tumbuh jauh lebih cepat daripada pembilangnya',
         ],
@@ -674,24 +674,24 @@ export const TAHAP: TahapLimit[] = [
     slug: 'limit-sinus',
     judul: 'Limit sinus jadi angka 1',
     labelPendek: 'Sinus',
-    pertanyaan: 'Kenapa sin x dibagi x menuju tepat 1, bukan sekadar mendekati?',
+    pertanyaan: 'Kenapa (sin x)/x menuju tepat 1, bukan sekadar mendekati?',
     intisari: [
       'Untuk sudut kecil, panjang busur dan panjang sin hampir sama.',
-      'Perbandingannya terjepit di antara cos θ dan 1 : cos θ.',
+      'Perbandingannya terjepit di antara cos θ dan 1/cos θ.',
       'Kedua penjepitnya menuju 1, jadi yang di tengah ikut menuju 1.',
       'Syarat mutlak: sudutnya dalam radian, bukan derajat.',
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Materi ini menyambung langsung ke topik Trigonometri. Kalau lingkaran satuan di topik itu sudah terasa akrab, bagian ini akan terasa seperti melanjutkan cerita yang sama, bukan memulai cerita baru.' },
-      { jenis: 'paragraf', teks: 'Pertanyaannya: berapa limit sin x : x saat x mendekati 0? Kalau dimasukkan langsung, sin 0 sama dengan 0 dan penyebutnya juga 0. Bentuk 0 dibagi 0 lagi.' },
+      { jenis: 'paragraf', teks: 'Pertanyaannya: berapa limit sin x/x saat x mendekati 0? Kalau dimasukkan langsung, sin 0 = 0 dan penyebutnya juga 0. Bentuk 0/0 lagi.' },
       {
         jenis: 'contoh',
         judul: 'Coba dengan angka, semuanya dalam radian',
         baris: [
-          'x = 0,5       sin x : x   =  0,9589',
-          'x = 0,1       sin x : x   =  0,9983',
-          'x = 0,01      sin x : x   =  0,999983',
-          'x = 0,001     sin x : x   =  0,99999983',
+          'x = 0,5       sin x/x   =  0,9589',
+          'x = 0,1       sin x/x   =  0,9983',
+          'x = 0,01      sin x/x   =  0,999983',
+          'x = 0,001     sin x/x   =  0,99999983',
         ],
         simpul: 'Merapat ke 1. Tapi kenapa tepat 1, dan bukan 0,9999 sekian?',
       },
@@ -708,29 +708,29 @@ export const TAHAP: TahapLimit[] = [
         ],
       },
       { jenis: 'paragraf', teks: 'Karena yang pertama termuat di dalam yang kedua, dan yang kedua termuat di dalam yang ketiga, urutan luasnya sudah pasti naik. Bagi ketiganya dengan sin θ, dan bentuknya menjadi rapi.' },
-      { jenis: 'sorot', teks: 'cos θ  <  θ : sin θ  <  1 : cos θ' },
-      { jenis: 'paragraf', teks: 'Sekarang kecilkan θ menuju 0. Nilai cos θ menuju 1, dan 1 : cos θ juga menuju 1. Jadi bentuk yang di tengah terjepit di antara dua hal yang sama-sama menuju 1. Ia tidak punya pilihan lain selain ikut menuju 1.' },
-      { jenis: 'paragraf', teks: 'Karena θ : sin θ menuju 1, maka kebalikannya, sin θ : θ, juga menuju 1. Selesai. Bukan hampir 1, melainkan tepat 1, dan sekarang alasannya jelas.' },
+      { jenis: 'sorot', teks: 'cos θ  <  θ/sin θ  <  1/cos θ' },
+      { jenis: 'paragraf', teks: 'Sekarang kecilkan θ menuju 0. Nilai cos θ menuju 1, dan 1/cos θ juga menuju 1. Jadi bentuk yang di tengah terjepit di antara dua hal yang sama-sama menuju 1. Ia tidak punya pilihan lain selain ikut menuju 1.' },
+      { jenis: 'paragraf', teks: 'Karena θ/sin θ menuju 1, maka kebalikannya, sin θ/θ, juga menuju 1. Selesai. Bukan hampir 1, melainkan tepat 1, dan sekarang alasannya jelas.' },
 
       { jenis: 'sesi', judul: 'Radian, bukan derajat' },
       { jenis: 'paragraf', teks: 'Bukti tadi memakai luas juring sama dengan ½ · θ. Rumus itu hanya benar kalau θ diukur dalam radian. Kalau sudutnya ditulis dalam derajat, luas juringnya bukan ½ · θ, dan seluruh rangkaian tadi runtuh.' },
-      { jenis: 'sorot', teks: 'Kalau sudutnya dalam derajat, limit sin x : x BUKAN 1. Ini kekeliruan yang sering terjadi dan jarang dijelaskan.' },
+      { jenis: 'sorot', teks: 'Kalau sudutnya dalam derajat, limit sin x/x BUKAN 1. Ini kekeliruan yang sering terjadi dan jarang dijelaskan.' },
 
       { jenis: 'sesi', judul: 'Yang langsung ikut ketahuan' },
       {
         jenis: 'poin',
-        judul: 'Sekali sin x : x diketahui, yang lain menyusul',
+        judul: 'Sekali sin x/x diketahui, yang lain menyusul',
         butir: [
-          'tan x : x juga menuju 1, karena tan x = sin x : cos x, dan cos x menuju 1',
-          'sin 3x : 5x menuju 3/5, yaitu perbandingan angka di depan sudutnya',
-          'Aturan umumnya: sin ax : bx menuju a : b',
+          'tan x/x juga menuju 1, karena tan x = sin x/cos x, dan cos x menuju 1',
+          'sin 3x/5x menuju 3/5, yaitu perbandingan angka di depan sudutnya',
+          'Aturan umumnya: sin ax/bx menuju a/b',
         ],
       },
       {
         jenis: 'contoh',
         judul: 'Dipakai langsung',
         baris: [
-          'limit sin 3x : 5x saat x mendekati 0',
+          'limit sin 3x/5x saat x mendekati 0',
           'angka di depan sudut atas    3',
           'angka di depan sudut bawah   5',
         ],
@@ -738,14 +738,14 @@ export const TAHAP: TahapLimit[] = [
       },
 
       { jenis: 'sesi', judul: 'Kalau Anda pernah dengar aturan L Hopital' },
-      { jenis: 'paragraf', teks: 'Sebagian siswa sudah pernah mendengar jalan pintas untuk bentuk 0 dibagi 0: turunkan pembilang dan penyebutnya masing-masing, lalu masukkan angkanya. Namanya aturan L Hopital, dan ia memang bekerja pada banyak soal.' },
+      { jenis: 'paragraf', teks: 'Sebagian siswa sudah pernah mendengar jalan pintas untuk bentuk 0/0: turunkan pembilang dan penyebutnya masing-masing, lalu masukkan angkanya. Namanya aturan L Hopital, dan ia memang bekerja pada banyak soal.' },
       { jenis: 'paragraf', teks: 'Ada godaan besar untuk memakainya di sini. Turunan sin x adalah cos x, turunan x adalah 1, jadi hasilnya cos 0 dibagi 1 sama dengan 1. Cepat, rapi, dan jawabannya benar.' },
       { jenis: 'sorot', teks: 'Tetapi sebagai BUKTI, langkah itu berputar-putar. Rumus turunan sin x justru diperoleh dari limit yang sedang kita buktikan ini.' },
       {
         jenis: 'poin',
         judul: 'Urutan sebenarnya, dan urutan itu tidak boleh dibalik',
         butir: [
-          'Perbandingan luas di lingkaran satuan membuktikan sin x dibagi x menuju 1',
+          'Perbandingan luas di lingkaran satuan membuktikan (sin x)/x menuju 1',
           'Hasil itu dipakai untuk membuktikan bahwa turunan sin x adalah cos x',
           'Baru setelah itu aturan L Hopital boleh memakai turunan sin x',
         ],
@@ -764,7 +764,7 @@ export const TAHAP: TahapLimit[] = [
       },
     ],
     seringKeliru: {
-      judul: 'Dikira sin x : x bisa dicoret jadi sin',
+      judul: 'Dikira sin x/x bisa dicoret jadi sin',
       isi: 'Tulisan sin x terlihat seperti perkalian antara sin dan x, sehingga muncul godaan mencoret x di atas dan di bawah lalu menyimpulkan hasilnya sin. Itu keliru, karena sin bukan bilangan yang dikalikan melainkan nama sebuah fungsi. Menulis sin tanpa sudut sama tidak bermaknanya dengan menulis tanda akar tanpa isi. Karena itu bentuk ini harus dikerjakan lewat perbandingan luas tadi, bukan lewat pencoretan.',
     },
     video: { berkas: 'limit8-sinus.mp4', poster: 'limit8-sinus.jpg' },
@@ -795,7 +795,7 @@ export const TAHAP: TahapLimit[] = [
         jenis: 'poin',
         judul: 'Ketiganya wajib, bukan pilih salah satu',
         butir: [
-          'Nilainya ada - f(c) memang punya hasil, bukan bentuk 0 dibagi 0',
+          'Nilainya ada - f(c) memang punya hasil, bukan bentuk 0/0',
           'Limitnya ada - kiri dan kanan sepakat menuju satu angka',
           'Keduanya sama - angka yang dituju itu persis sama dengan f(c)',
         ],
@@ -808,7 +808,7 @@ export const TAHAP: TahapLimit[] = [
         jenis: 'poin',
         judul: 'Gagal syarat pertama: berlubang',
         butir: [
-          'Contohnya (x² - 1) : (x - 1) di titik x = 1',
+          'Contohnya (x² - 1)/(x - 1) di titik x = 1',
           'Limitnya ada dan rapi, yaitu 2',
           'Tapi nilainya tidak ada sama sekali, jadi syarat pertama gagal',
           'Grafiknya garis lurus dengan satu titik bolong, sudah dibahas di Materi 04',
@@ -828,7 +828,7 @@ export const TAHAP: TahapLimit[] = [
         jenis: 'poin',
         judul: 'Gagal karena meledak: asimtot tegak',
         butir: [
-          'Contohnya 1 : (x - 2)² di titik x = 2',
+          'Contohnya 1/(x - 2)² di titik x = 2',
           'Penyebutnya nol, tetapi pembilangnya bukan nol',
           'Nilainya membesar tanpa batas, jadi tidak ada angka yang dituju',
           'Grafiknya menjulang tegak di dekat garis x = 2',
