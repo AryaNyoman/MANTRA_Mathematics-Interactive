@@ -90,15 +90,48 @@
   --bayang-media: 0 30px 60px -36px rgba(16, 26, 43, 0.7);
   --bayang-kartu: 0 20px 44px -30px rgba(16, 26, 43, 0.45);
 
-  /* --- gerak: satu kurva, empat durasi ---
-     cepat: hover/tekan. sedang: buka laci, ganti tab. lambat: masuk halaman.
-     sinema: menggambar kurva hero (sekali, tidak berulang). */
+  /* --- gerak: sistem "Panggung" (Claude Design, 17 Sep 2026) ---
+     Rancangan dan tabelnya: docs/desain-mantra/gerak/. Tiga kurva: `--kurva`
+     untuk masuk (melambat di akhir), `--kurva-keluar` untuk keluar (mencepat
+     di awal), `--kurva-pindah` untuk berpindah tempat (halus di kedua ujung).
+     Dua tingkat gerak: RUANG (pindah halaman, laci, jendela, materi: 280
+     sampai 520 ms, keluar 300) dan UMPAN BALIK (tekan, pilih, cek, pindah
+     soal: 140 sampai 180 ms). Nama token lama dipertahankan. */
   --kurva: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --kurva-keluar: cubic-bezier(0.4, 0, 1, 1);
+  --kurva-pindah: cubic-bezier(0.45, 0, 0.2, 1);
   --d-cepat: 160ms; --d-sedang: 320ms; --d-lambat: 600ms; --d-sinema: 3400ms;
+  --d-ruang: 520ms; --d-keluar: 300ms; --d-jendela: 400ms; --d-materi: 280ms;
+  --d-soal: 180ms; --d-umpan: 140ms; --d-hitung: 900ms; --jeda-tahap: 50ms;
+  --geser-ruang: 28px; --geser-balik: 20px; --geser-materi: 24px; --geser-soal: 10px; --geser-umpan: 8px;
+  --skala-tenggelam: 0.98; --skala-panggung: 0.985; --skala-jendela: 0.96;
 }
 @media (prefers-reduced-motion: reduce) {
-  :root { --d-cepat: 0ms; --d-sedang: 0ms; --d-lambat: 0ms; --d-sinema: 0ms; }
+  :root {
+    --d-cepat: 0ms; --d-sedang: 0ms; --d-lambat: 0ms; --d-sinema: 0ms;
+    --d-ruang: 0ms; --d-keluar: 0ms; --d-jendela: 0ms; --d-materi: 0ms;
+    --d-soal: 0ms; --d-umpan: 0ms; --d-hitung: 0ms; --jeda-tahap: 0ms;
+    --geser-ruang: 0px; --geser-balik: 0px; --geser-materi: 0px; --geser-soal: 0px; --geser-umpan: 0px;
+    --skala-tenggelam: 1; --skala-panggung: 1; --skala-jendela: 1;
+  }
 }
+
+/* Keyframes sistem gerak. Yang lama (naik, muncul, napas, letup, gambar,
+   denyut, putar) tetap dipakai di tempatnya masing-masing. */
+@keyframes panggung-naik   { from { opacity: 0; transform: translateY(var(--geser-ruang)); } }
+@keyframes panggung-turun  { from { opacity: 0; transform: translateY(calc(-1 * var(--geser-balik))); } }
+@keyframes panggung-mundur { to   { opacity: 0; transform: scale(var(--skala-tenggelam)); } }
+@keyframes materi-kanan { from { opacity: 0; transform: translateX(var(--geser-materi)); } }
+@keyframes materi-kiri  { from { opacity: 0; transform: translateX(calc(-1 * var(--geser-materi))); } }
+@keyframes soal-kanan   { from { opacity: 0; transform: translateX(var(--geser-soal)); } }
+@keyframes soal-kiri    { from { opacity: 0; transform: translateX(calc(-1 * var(--geser-soal))); } }
+@keyframes naik-umpan   { from { opacity: 0; transform: translateY(var(--geser-umpan)); } }
+@keyframes tanda-tumbuh { from { opacity: 0; transform: scale(0.4); } }
+@keyframes isi-ganti    { from { opacity: 0; } }
+@keyframes kunci-buka   { 40% { transform: scale(1.08); } }
+@keyframes keping-tumbuh { from { opacity: 0; transform: scale(0.8); } }
+@keyframes cincin-tumbuh { from { opacity: 0; transform: scale(0.6); } }
+@keyframes garis-tergambar { from { transform: scaleX(0); } }
 
 @theme inline {
   --color-kertas: var(--kertas);
@@ -178,9 +211,40 @@ h1, h2, h3, .disp {
 .merk { display: flex; align-items: center; line-height: 0; flex: none; }
 .merk-ikon { width: auto; height: 36px; }
 
-/* Deretan tab. Garis bawah emas tumbuh dari kiri (scaleX 0 ke 1), bukan
-   muncul jadi, supaya perpindahan tab terbaca sebagai gerak, bukan kedip. */
-.nav-menu { display: contents; }
+/* B. Nav sebagai jangkar (sistem gerak Panggung, 17 Sep 2026). Nav dirakit
+   sekali di layout dan tidak ikut potret pindah halaman. Saat mode fokus ia
+   tidak dilepas dari DOM, melainkan naik keluar layar (dan ditarik dari
+   aliran dengan margin negatif supaya halaman belajar mendapat seluruh
+   layar juga di peramban yang menolak layar penuh); `inert` dipasang dari
+   Nav.tsx supaya tidak bisa dijangkau Tab. */
+.nav { transition: transform var(--d-jendela) var(--kurva); }
+.nav[data-fokus='true'] {
+  transform: translateY(-100%); transition-timing-function: var(--kurva-keluar);
+  margin-bottom: calc(-1 * var(--nav)); pointer-events: none;
+}
+/* Wajah nav belajar: pil Mode fokus dan pil Materi NN naik masuk bersama
+   halamannya; label materi terakhir memudar saat teksnya berganti
+   (`key={teks}` di Nav.tsx). */
+.nav[data-belajar='true'] .nav-fokus,
+.nav[data-belajar='true'] .nav-materi,
+.nav[data-belajar='true'] .nav-fokus-kecil { animation: naik-umpan var(--d-keluar) var(--kurva) both; }
+.nav-meta { animation: isi-ganti var(--d-umpan) linear both; }
+
+/* Deretan tab. SATU garis emas (`.nav-garis`, anak langsung nav) yang
+   BERPINDAH dari tab lama ke tab baru, bukan garis per tab yang hilang lalu
+   tumbuh lagi. Posisi dan lebarnya diukur Nav.tsx dari tab aktif dan ditulis
+   ke `--garis-x`, `--garis-y`, `--garis-w`; garisnya selebar 1 piksel yang
+   di-scaleX, jadi hanya transform yang beranimasi. Transisi baru dinyalakan
+   sesudah pengukuran pertama (`data-siap`) supaya saat halaman dimuat garis
+   tidak meluncur dari pojok kiri. */
+.nav-menu, .nav-menu-isi { display: contents; }
+.nav-garis {
+  position: absolute; left: 0; top: 0; width: 1px; height: 2px; border-radius: 2px;
+  background: var(--emas-terang); pointer-events: none;
+  transform-origin: left center;
+  transform: translate(var(--garis-x, 0px), var(--garis-y, 0px)) scaleX(var(--garis-w, 0));
+}
+.nav-garis[data-siap='true'] { transition: transform var(--d-keluar) var(--kurva-pindah); }
 .nav-tab {
   position: relative; display: block;
   font-size: 13.5px; padding: 9px 12px; border-radius: var(--r-kontrol);
@@ -191,13 +255,6 @@ h1, h2, h3, .disp {
 .nav-tab:first-of-type { margin-left: 18px; }
 .nav-tab:hover { background: rgba(250, 249, 245, 0.08); color: var(--kertas-tinta); }
 .nav-tab[data-aktif='true'] { color: var(--kertas-tinta); font-weight: 600; }
-.nav-tab-garis {
-  position: absolute; left: 12px; right: 12px; bottom: 4px;
-  height: 2px; border-radius: 2px; background: var(--emas-terang);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform var(--d-sedang) var(--kurva);
-}
-.nav-tab[data-aktif='true'] .nav-tab-garis { transform: scaleX(1); }
 
 /* Label "terakhir dibuka". Ia yang mendorong tombol ke kanan (margin-left
    auto), dan ia satu-satunya yang boleh terpotong saat nav sempit. */
@@ -1591,17 +1648,35 @@ video::cue(b) { font-weight: 700; }
   .merk-ikon { height: 30px; }
 
   /* Tab pindah ke balik tombol. `display: contents` dicabut supaya panel
-     menu bisa menggambar kotaknya sendiri. */
+     menu bisa menggambar kotaknya sendiri. Menu turun 8 px sambil memudar
+     masuk (400 ms) dan kembali lebih cepat (300 ms); tingginya lewat
+     `grid-template-rows` 0fr ke 1fr pada satu anak `.nav-menu-isi`, jadi
+     tidak ada `height` yang dianimasikan. Saat tertutup `visibility: hidden`
+     (ditunda sampai geraknya selesai) membuat tab tidak bisa dijangkau
+     papan ketik, pengganti `display: none` yang lama. */
   .nav-menu {
-    display: none;
+    display: grid; grid-template-rows: 0fr;
     position: absolute; top: 100%; left: 0; right: 0; z-index: 29;
-    flex-direction: column; align-items: stretch; gap: 2px;
     background: var(--panggung); color: var(--kertas-tinta);
     border-bottom: 1px solid var(--kertas-garis);
     padding: 8px 16px 16px;
-    animation: naik var(--d-sedang) var(--kurva) both;
+    opacity: 0; transform: translateY(-8px); visibility: hidden;
+    transition: grid-template-rows var(--d-keluar) var(--kurva-keluar),
+                opacity var(--d-keluar) linear,
+                transform var(--d-keluar) var(--kurva-keluar),
+                visibility 0s linear var(--d-keluar);
   }
-  .nav-menu[data-buka='true'] { display: flex; }
+  .nav-menu[data-buka='true'] {
+    grid-template-rows: 1fr; opacity: 1; transform: none; visibility: visible;
+    transition: grid-template-rows var(--d-jendela) var(--kurva),
+                opacity var(--d-keluar) linear,
+                transform var(--d-jendela) var(--kurva),
+                visibility 0s;
+  }
+  .nav-menu-isi {
+    display: flex; flex-direction: column; align-items: stretch; gap: 2px;
+    min-height: 0; overflow: hidden;
+  }
 
   /* Tiap tautan setinggi 48 piksel supaya tidak meleset saat ditekan.
      Tab aktif ditandai garis tepi kiri emas, bukan garis bawah: di daftar
@@ -1614,7 +1689,7 @@ video::cue(b) { font-weight: 700; }
     border-radius: 0 var(--r-kontrol) var(--r-kontrol) 0;
   }
   .nav-menu .nav-tab[data-aktif='true'] { border-left-color: var(--emas-terang); }
-  .nav-tab-garis { display: none; }
+  .nav-garis { display: none; }
 
   /* Laci Lanjutkan ikut masuk kolom menu: tombolnya selebar menu, panelnya
      menempel di bawahnya (bukan melayang), tetap empat baris lalu gulir. */
@@ -1668,7 +1743,7 @@ video::cue(b) { font-weight: 700; }
   .nav-tombol span {
     display: block; width: 20px; height: 1.5px;
     background: var(--kertas-tinta);
-    transition: transform var(--d-sedang) var(--kurva);
+    transition: transform var(--d-keluar) var(--kurva-pindah);
   }
   .nav-tombol[data-buka='true'] span:first-child { transform: translateY(3.25px) rotate(45deg); }
   .nav-tombol[data-buka='true'] span:last-child { transform: translateY(-3.25px) rotate(-45deg); }
@@ -3264,25 +3339,82 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 }
 
 /* ============================================================
-   Perpindahan halaman (rancangan: `animTab`)
-   Di berkas rancangan tiap tampilan dibungkus animasi masuk yang dijalankan
-   ulang setiap kali tab berganti. Di Next.js tidak perlu pembungkus khusus:
-   berpindah rute membuat elemen `main` yang BARU, dan animasi CSS memang
-   berjalan saat elemen dibuat. Nav sengaja tidak ikut, sebab ia tetap di
-   tempatnya saat halaman berganti dan menganimasikannya justru terasa seperti
-   halaman dimuat ulang.
+   A. Pindah halaman: View Transitions (sistem gerak Panggung, 17 Sep 2026)
+   Tiap halaman dibungkus `<Panggung>` (components/mantra/Panggung.tsx), yaitu
+   `<ViewTransition>` React yang memberi POTRET halaman lama kelas
+   `panggung-keluar` dan potret halaman baru kelas `panggung-masuk`. Yang
+   bergerak adalah potretnya, bukan elemen `main` itu sendiri, jadi `main`
+   tidak pernah punya `transform`. Itu penting: sampai 17 Sep 2026 `main`
+   dianimasikan langsung (`tab-masuk`), dan `transform` pada `main`
+   menjadikannya acuan bagi anak `position: fixed` sehingga laci daftar
+   materi di HP pernah setinggi 4.840 piksel (3 Sep 2026).
+   Arah datang dari `html[data-arah]`, ditulis `ArahRute` SEBELUM pindah:
+   maju (lebih dalam, tab di kanan) naik 28 px; kembali (tab di kiri, tombol
+   Kembali peramban) turun 20 px. Halaman lama tenggelam (skala 0,98) sambil
+   memudar, lebih cepat daripada yang masuk. Nav dan latar tidak digambar
+   ulang: nav bernama `nav` dan potret lamanya disembunyikan, `root` tanpa
+   animasi. Di peramban tanpa View Transitions halaman baru cukup memudar
+   masuk (opacity saja, tetap tanpa transform).
    ============================================================ */
-@keyframes tab-masuk { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-/* `backwards`, BUKAN `both`, dan sebabnya halus tetapi merusak.
-   Dengan `both`, animasi terus menerapkan nilai bingkai terakhirnya selamanya,
-   sehingga `transform` pada `main` bernilai matriks satuan, bukan `none`.
-   Nilai `transform` apa pun selain `none` membuat elemen jadi ACUAN bagi anak
-   yang `position: fixed`. Akibatnya laci daftar materi di HP berpegangan pada
-   panel setinggi 4.700 piksel, bukan pada layar, dan tingginya ikut membengkak
-   (terukur 3 Sep 2026: laci jadi 4.840 piksel).
-   Dengan `backwards`, begitu animasinya selesai `transform` kembali ke `none`,
-   dan `main` berhenti jadi acuan. Gerakan masuknya sendiri tidak berubah. */
-main { animation: tab-masuk 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) backwards; }
+::view-transition { pointer-events: none; }
+.nav { view-transition-name: nav; }
+::view-transition-group(nav) { animation: none; z-index: 100; }
+::view-transition-old(nav) { display: none; }
+::view-transition-new(nav) { animation: none; }
+::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+::view-transition-old(.panggung-keluar) {
+  animation: panggung-mundur var(--d-keluar) var(--kurva-keluar) both;
+}
+::view-transition-new(.panggung-masuk) {
+  animation: panggung-naik var(--d-ruang) var(--kurva) both;
+}
+html[data-arah='kembali']::view-transition-new(.panggung-masuk) { animation-name: panggung-turun; }
+::view-transition-group(*) { animation-duration: var(--d-ruang); animation-timing-function: var(--kurva-pindah); }
+/* Elemen bersama: judul bab di Peta Materi menjadi judul kepala daftar
+   materi, judul kartu di /latihan menjadi judul bank soal
+   (`<ViewTransition name share="judul-pindah">` di komponennya). Kelompoknya
+   berpindah tempat dan ukuran selama 520 ms di atas kedua potret halaman. */
+::view-transition-group(.judul-pindah) { z-index: 60; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*), ::view-transition-new(*), ::view-transition-group(*) {
+    animation-duration: 0s !important; animation-delay: 0s !important;
+  }
+}
+@supports not (view-transition-name: a) {
+  main { animation: isi-ganti 260ms var(--kurva) backwards; }
+}
+/* Tombol Kembali dan Maju peramban: Next memulihkan halaman dari simpanannya
+   TANPA View Transition (terukur 17 Sep 2026), jadi `main` yang datang
+   diberi gerak "kembali" langsung selama jendela 700 ms sesudah popstate
+   (`html[data-pop]`, ArahRute). `backwards`, bukan `both`: sesudah selesai
+   `transform` dilepas, supaya `main` tidak lagi menjadi acuan anak
+   `position: fixed` (laci daftar materi di HP). */
+html[data-pop='true'] main { animation: panggung-turun var(--d-ruang) var(--kurva) backwards; }
+/* Kerangka memuat digantikan isi asli: isinya memudar masuk di tempat
+   kerangka, tanpa lompatan (HalamanTopik.tsx). `backwards`, bukan `both`:
+   animasi opacity yang terus "mengisi" membuat `main` jadi stacking context
+   selamanya, dan laci daftar materi (z-index 60 di dalam main) jadi
+   tergambar DI BAWAH nav (z-index 30). Ditemukan 17 Sep 2026. */
+[data-isi-asli] { animation: isi-ganti var(--d-cepat) var(--kurva) backwards; }
+
+/* G. Kemunculan bertahap daftar (kisi bab, kisi bank soal): HANYA saat
+   dokumen pertama kali dimuat (`html[data-muat-awal]`, dilepas ArahRute pada
+   pindah halaman pertama), paling banyak lima kartu pertama, jarak 50 ms.
+   Sesudah pindah halaman kartu tidak bergerak sendiri: seluruh halaman
+   sudah masuk sebagai satu potret, satu sumber gerak per momen. */
+html[data-muat-awal='true'] [data-bertahap] > :nth-child(-n+5) {
+  /* `backwards`, bukan `both`: sesudah selesai animasinya melepaskan
+     `transform`, jadi kartu yang naik saat disorot kursor tetap bisa naik. */
+  animation: naik-umpan var(--d-keluar) var(--kurva) backwards;
+  animation-delay: calc(120ms + var(--jeda-tahap) * var(--n, 0));
+}
+/* Teks tombol yang berganti ("Mulai" jadi "Lanjutkan Materi 03", "Periksa"
+   jadi "Berikutnya"): dibungkus `<span class="label" key={teks}>`, jadi
+   teks barunya memudar masuk 140 ms, bukan berkedip. Lebar tombolnya
+   dijaga tetap oleh min-width di tempat masing-masing. */
+.pil-emas .label, .pil-kecil-emas .label, .pil-gelap .label, .pil-garis .label {
+  animation: isi-ganti var(--d-umpan) linear both;
+}
 
 /* Label kanan pada tajuk berbaris disembunyikan di layar sangat sempit: pada
    375 piksel ia berimpit dengan judulnya dan garis pemisahnya tinggal

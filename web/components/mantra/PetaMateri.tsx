@@ -1,11 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, ViewTransition, type CSSProperties } from 'react'
 import { bacaKemajuan } from '@/lib/kemajuan'
 import { langgan } from '@/lib/simpanan'
 import KartuBayang from './KartuBayang'
-import MunculSaatGulir from './MunculSaatGulir'
 
 /**
  * Peta Materi: enam bab dikelompokkan per kelas, tiap bab memperlihatkan
@@ -125,7 +124,9 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
             <span className="jml angka-rata">{k.isi.length} bab</span>
             <span className="rel" />
           </div>
-          <div className="kisi-bab">
+          {/* `data-bertahap`: lima kartu pertama muncul bertahap saat dokumen
+              pertama dimuat (globals.css bagian G), `--n` urutannya. */}
+          <div className="kisi-bab" data-bertahap>
             {k.isi.map((b, i) => {
               const sudah = new Set(dibuka[b.slug] ?? [])
               const jumlahDibuka = b.slugTahap.filter((s) => sudah.has(s)).length
@@ -159,11 +160,12 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
               const warnaMaju = tuntas ? '#6E9C7A' : '#B08A3E'
 
               return (
-                <MunculSaatGulir key={b.slug} tunda={(i % 2) * 90}>
                 <KartuBayang
+                  key={b.slug}
                   className="kartu-mantra kartu-bab"
                   data-mulai={jumlahDibuka > 0}
                   data-tuntas={tuntas}
+                  style={{ '--n': i } as CSSProperties}
                 >
                   {/* Garis emas di bibir atas kartu. Ia tumbuh dari kiri saat
                       babnya sudah pernah dibuka atau saat kursor lewat, jadi
@@ -176,7 +178,13 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
                           dibuang (ARYA 10 Sep 2026): tanpa bukunya, "Bab 4"
                           tidak berarti apa-apa bagi siswa. */}
                       <div className="bab-kicker">{b.kelas}</div>
-                      <h3>{b.nama}</h3>
+                      {/* Elemen bersama: judul ini "berpindah" menjadi judul di kepala
+                          daftar materi halaman belajar (HalamanTopik) saat kartunya
+                          diklik; nama sama di dua halaman, `default="none"` supaya tidak
+                          ikut beranimasi pada perpindahan lain. */}
+                      <ViewTransition name={`judul-bab-${b.slug}`} share="judul-pindah" default="none">
+                        <h3>{b.nama}</h3>
+                      </ViewTransition>
                       <p className="bab-tanya">{b.pertanyaan}</p>
                     </div>
                     <div
@@ -244,7 +252,8 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
                       className="pil-kecil-emas"
                       style={{ background: warnaMaju }}
                     >
-                      {aksi}
+                      {/* `key`: teks tombol memudar berganti, bukan berkedip. */}
+                      <span className="label" key={aksi}>{aksi}</span>
                     </Link>
                     <Link href={`/latihan/${b.slug}`} className="pil-kecil-garis">
                       Latihan bab
@@ -259,7 +268,6 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
                     )}
                   </div>
                 </KartuBayang>
-                </MunculSaatGulir>
               )
             })}
           </div>

@@ -3,6 +3,8 @@ import { Newsreader, Space_Grotesk } from 'next/font/google'
 import 'katex/dist/katex.min.css'
 import './globals.css'
 import PetugasVideo from '@/components/PetugasVideo'
+import Nav from '@/components/Nav'
+import ArahRute from '@/components/mantra/ArahRute'
 
 /**
  * Dua huruf saja, keputusan rancangan MANTRA (3 Sep 2026).
@@ -55,11 +57,22 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
+    /* `data-muat-awal`: dokumen baru dimuat. Daftar (kisi bab, kisi bank
+       soal) muncul bertahap hanya selama atribut ini ada; ArahRute
+       melepasnya pada pindah halaman pertama, sebab sesudah itu seluruh
+       halaman masuk sebagai satu potret View Transition dan kartu tidak
+       boleh bergerak sendiri-sendiri (satu sumber gerak per momen). */
     <html
       lang="id"
       className={`${newsreader.variable} ${spaceGrotesk.variable}`}
+      data-muat-awal="true"
     >
       <body>
+        {/* Nav dirakit SEKALI di sini, bukan di tiap halaman (sistem gerak
+            Panggung, 17 Sep 2026): ia jangkar yang diam saat isi di bawahnya
+            berpindah. Label per halaman diturunkan Nav sendiri dari alamat. */}
+        <ArahRute />
+        <Nav />
         {children}
         <PetugasVideo />
       </body>

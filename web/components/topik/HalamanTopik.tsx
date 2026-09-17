@@ -1,7 +1,7 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore, ViewTransition } from 'react'
 import PemutarVideo from '@/components/PemutarVideo'
 import Penjelasan from '@/components/topik/Penjelasan'
 import Latihan from '@/components/topik/Latihan'
@@ -427,7 +427,10 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   // halaman belajar cukup satu layar. Di HP aturan ini dilepas, sebab di
   // sana kolom bertumpuk dan halaman memang harus menggulir.
   return (
-    <main ref={akarHalaman} className="mantra-lebar materi-satu-layar" data-fokus={fokus}>
+    /* `data-isi-asli`: isi ini memudar masuk 160 ms di tempat kerangka
+       SedangMemuat (opacity saja, tanpa transform, supaya `main` tidak
+       menjadi acuan laci yang `position: fixed`). */
+    <main ref={akarHalaman} className="mantra-lebar materi-satu-layar" data-fokus={fokus} data-isi-asli="">
       {/* Dipasang DI SINI, bukan di `layout.tsx`. Halaman ini dirakit di
           balik batas Suspense, jadi komponen yang berada di luarnya sempat
           menyentuh penggeser sebelum widgetnya selesai dihidupkan di
@@ -469,7 +472,17 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                   {/* Kelasnya saja: nomor bab milik buku sumber, tidak berarti
                       tanpa bukunya (ARYA 10 Sep 2026). */}
                   <div className="bab">{bab ? bab.kelas : topik.kelas}</div>
-                  <div className="nama">{topik.nama}</div>
+                  {/* Elemen bersama dengan judul kartu bab di Peta Materi: judulnya
+                      "berpindah" ke sini saat halaman dibuka. Hanya di layar lebar;
+                      di HP kepala ini ada di dalam laci yang tersembunyi, dan judul
+                      yang terbang ke luar layar justru membingungkan. */}
+                  {padat ? (
+                    <div className="nama">{topik.nama}</div>
+                  ) : (
+                    <ViewTransition name={`judul-bab-${topik.slug}`} share="judul-pindah" default="none">
+                      <div className="nama">{topik.nama}</div>
+                    </ViewTransition>
+                  )}
                 </div>
               )}
               {/* Dua tombol berbeda tugas, dan CSS yang memilih mana yang

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Suspense } from 'react'
 import { notFound } from 'next/navigation'
-import Nav from '@/components/Nav'
+import Panggung from '@/components/mantra/Panggung'
 import HalamanTopik from '@/components/topik/HalamanTopik'
 import SedangMemuat from '@/components/mantra/SedangMemuat'
 import { TOPIK, cariTopik } from '@/content/topik'
@@ -38,8 +38,7 @@ export default async function RuteTopik({
   if (!topik) notFound()
 
   return (
-    <>
-      <Nav label={topik.nama} />
+    <Panggung>
       {topik.siap ? (
         /* Suspense WAJIB: `HalamanTopik` membaca `?materi=` lewat
            `useSearchParams`, dan Next 16 menolak merakit halaman statis yang
@@ -69,6 +68,6 @@ export default async function RuteTopik({
           </Link>
         </main>
       )}
-    </>
+    </Panggung>
   )
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
-import Nav from '@/components/Nav'
+import Panggung from '@/components/mantra/Panggung'
 import ArenaLatihan from '@/components/latihan/ArenaLatihan'
 import { KUIS } from '@/content/transformasi-geometri'
 
@@ -31,12 +31,11 @@ export const metadata: Metadata = {
 
 export default function LatihanTransformasiGeometri() {
   return (
-    <>
-      <Nav label="Latihan Transformasi Geometri" />
+    <Panggung>
       {/* Suspense WAJIB: ArenaLatihan membaca ?tingkat= lewat useSearchParams (17 Sep 2026). */}
       <Suspense fallback={null}>
         <ArenaLatihan topik="transformasi-geometri" nama="Transformasi Geometri" bank={KUIS} />
       </Suspense>
-    </>
+    </Panggung>
   )
 }

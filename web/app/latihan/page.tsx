@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Nav from '@/components/Nav'
+import Panggung from '@/components/mantra/Panggung'
 import Kaki from '@/components/mantra/Kaki'
 import DaftarLatihan from '@/components/latihan/DaftarLatihan'
 
@@ -22,10 +22,9 @@ export const metadata: Metadata = {
  */
 export default function HalamanLatihan() {
   return (
-    <>
-      <Nav label="Latihan" />
+    <Panggung>
       <DaftarLatihan />
       <Kaki />
-    </>
+    </Panggung>
   )
 }

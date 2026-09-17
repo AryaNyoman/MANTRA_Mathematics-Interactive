@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Nav from '@/components/Nav'
+import Panggung from '@/components/mantra/Panggung'
 import Kaki from '@/components/mantra/Kaki'
 
 export const metadata: Metadata = {
@@ -14,8 +14,7 @@ const WA = '6282247933752'
 
 export default function Tentang() {
   return (
-    <>
-      <Nav />
+    <Panggung>
       <main className="mantra-lebar" style={{ paddingTop: 38 }}>
         {/* Judulnya MANTRA, bukan kalimat penjelas. Halaman ini berjudul
             "Tentang", jadi yang harus berdiri paling besar adalah nama yang
@@ -181,6 +180,6 @@ export default function Tentang() {
         <div style={{ height: 48 }} />
       </main>
       <Kaki />
-    </>
+    </Panggung>
   )
 }

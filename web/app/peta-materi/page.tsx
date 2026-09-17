@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Nav from '@/components/Nav'
+import Panggung from '@/components/mantra/Panggung'
 import Kaki from '@/components/mantra/Kaki'
 import PetaMateri, { type BabTampil } from '@/components/mantra/PetaMateri'
 import { BAB, BAB_SEGERA } from '@/content/subbab'
@@ -60,8 +60,7 @@ export default function HalamanPetaMateri() {
   })
 
   return (
-    <>
-      <Nav />
+    <Panggung>
       <main className="mantra-lebar" style={{ paddingTop: 38 }}>
         <div className="kicker">Peta Materi</div>
         <h1 className="judul-halaman">Pilih bab, lalu materinya. Kemajuanmu tercatat di sini.</h1>
@@ -95,6 +94,6 @@ export default function HalamanPetaMateri() {
         <div style={{ height: 40 }} />
       </main>
       <Kaki />
-    </>
+    </Panggung>
   )
 }

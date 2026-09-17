@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useEffect, useState, useSyncExternalStore } from 'react'
+import { aturArah } from '@/lib/arah-rute'
+import { useEffect, useState, useSyncExternalStore, ViewTransition } from 'react'
 import type { SoalKuis, TingkatKuis } from '@/content/tipe'
 import { cariBab } from '@/content/subbab'
 import { langgan } from '@/lib/simpanan'
@@ -109,7 +110,7 @@ export default function ArenaLatihan({
 
       {tingkat === null ? (
         <Ringkasan
-          nama={nama} bank={bank} k={k} ringkas={ringkas} persen={persen}
+          slug={topik} nama={nama} bank={bank} k={k} ringkas={ringkas} persen={persen}
           bab={bab ? `Bab ${bab.no} · ${bab.kelas} · ` : ''}
           buka={(t) => router.push(alamatTingkat(t))}
         />
@@ -118,7 +119,11 @@ export default function ArenaLatihan({
           topik={topik} nama={nama} bank={bank} tingkat={tingkat} k={k} ringkas={ringkas}
           guru={guru} benih={benih}
           gantiTingkat={(t) => router.push(alamatTingkat(t))}
-          pergi={(alamat) => router.push(alamat)}
+          pergi={(alamat) => {
+            // arah pindah halaman ditulis dulu (lib/arah-rute), baru pindah
+            aturArah(alamat.split(/[?#]/)[0])
+            router.push(alamat)
+          }}
         />
       )}
 
@@ -141,8 +146,9 @@ type Kemajuan = ReturnType<typeof bacaLatihan>
 /* Tampilan 1: ringkasan kemajuan, lencana, pilih tingkat              */
 /* ------------------------------------------------------------------ */
 function Ringkasan({
-  nama, bank, k, ringkas, persen, bab, buka,
+  slug, nama, bank, k, ringkas, persen, bab, buka,
 }: {
+  slug: string
   nama: string
   bank: SoalKuis[]
   k: Kemajuan
@@ -155,7 +161,10 @@ function Ringkasan({
   return (
     <>
       <div className="kicker">Bank soal</div>
-      <h1 className="judul-halaman">{nama}</h1>
+      {/* Elemen bersama dengan judul kartu di daftar /latihan. */}
+      <ViewTransition name={`kartu-latihan-${slug}`} share="judul-pindah" default="none">
+        <h1 className="judul-halaman">{nama}</h1>
+      </ViewTransition>
       <p className="sub-italic">
         Mulai dari yang mudah. Tingkat berikutnya terbuka setelah {SYARAT_NAIK} soal
         tingkat sebelumnya benar, jadi urutannya menuntun, bukan menghukum.

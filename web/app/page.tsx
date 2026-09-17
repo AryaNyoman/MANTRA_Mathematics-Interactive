@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import Nav from '@/components/Nav'
+import Panggung from '@/components/mantra/Panggung'
 import Demo from '@/components/Demo'
 import TombolPasang from '@/components/TombolPasang'
 import PitaKurva from '@/components/mantra/PitaKurva'
@@ -53,8 +53,7 @@ const FITUR = [
 
 export default function Beranda() {
   return (
-    <>
-      <Nav />
+    <Panggung>
       <main>
         <header className="hero">
           <div className="hero-isi">
@@ -137,6 +136,6 @@ export default function Beranda() {
         </section>
       </main>
       <Kaki />
-    </>
+    </Panggung>
   )
 }

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Nav from '@/components/Nav'
+import Panggung from '@/components/mantra/Panggung'
 import Kaki from '@/components/mantra/Kaki'
 
 /**
@@ -18,8 +18,7 @@ import Kaki from '@/components/mantra/Kaki'
  */
 export default function TidakDitemukan() {
   return (
-    <>
-      <Nav />
+    <Panggung>
       <main className="mantra galat-404">
         <div className="galat-isi">
           <svg viewBox="0 0 320 120" aria-hidden="true" className="galat-grafik">
@@ -74,6 +73,6 @@ export default function TidakDitemukan() {
         </div>
       </main>
       <Kaki />
-    </>
+    </Panggung>
   )
 }

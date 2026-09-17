@@ -1,5 +1,51 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 17 SEP MALAM (2): SISTEM GERAK PANGGUNG TAHAP 1, PINDAH HALAMAN DAN NAV
+
+Rancangan gerak dari Claude Design (HANDOFF, tabel spek A sampai K, CSS)
+disimpan di `docs/desain-mantra/gerak/`; keputusan ARYA dan penyimpangan
+teknis di `KEPUTUSAN.md` di folder itu; rencana empat tahap di
+`docs/superpowers/plans/2026-09-17-sistem-gerak-panggung.md`. Keputusan
+ARYA: bola di kurva beranda DIPERTAHANKAN (rancangan mengusulkan dibuang),
+tidak ada lipatan baru (sub-bab pohon, Sering keliru, Ringkasan, YouTube
+tetap selalu terbuka), deploy tiap tahap.
+- Token gerak baru di globals.css (tiga kurva, durasi ruang 520/300/400/280,
+  umpan balik 140/180, jarak geser, skala) plus keyframes sistem; reduced
+  motion menolkan semuanya.
+- Pindah halaman lewat `<ViewTransition>` React (Next 16.3 menyediakannya
+  tanpa bendera; `experimental.viewTransition` di HANDOFF sudah tidak ada):
+  `components/mantra/Panggung.tsx` membungkus isi tiap page.tsx (16 halaman
+  plus not-found), potret lama tenggelam 300 ms, potret baru naik 28 px 520
+  ms, arah dari `html[data-arah]` yang ditulis `ArahRute` (klik tautan fase
+  tangkap plus popstate) SEBELUM pindah. `main { animation: tab-masuk }`
+  dihapus: main tidak pernah lagi di-transform. Tombol Kembali peramban:
+  Next memulihkan halaman TANPA View Transition (diukur: startViewTransition
+  tidak dipanggil), jadi `html[data-pop]` 700 ms memberi main gerak turun
+  biasa (`backwards`, transform dilepas sesudahnya).
+- Nav dirakit sekali di layout (label dari alamat), jangkar bernama `nav`
+  (potret lamanya disembunyikan); mode fokus tidak lagi `return null`:
+  `data-fokus` + `inert`, naik keluar layar dan ditarik dari aliran; satu
+  garis tab `.nav-garis` berpindah antar tab (diukur, CSS variable,
+  transisi baru nyala sesudah ukur pertama); menu HP grid-template-rows
+  0fr ke 1fr dengan visibility tertunda; nav-meta `key={teks}`; pil Mode
+  fokus dan Materi NN naik masuk.
+- Daftar kartu (kisi bab, kisi bank soal) muncul bertahap HANYA saat dokumen
+  pertama dimuat (`html[data-muat-awal]`, dilepas ArahRute saat pindah
+  pertama); MunculSaatGulir dilepas dari dua daftar itu. Teks tombol "Mulai"
+  / "Lanjutkan Materi 03" memudar berganti (`.label key`).
+- Elemen bersama: judul kartu bab ke kepala pohon (layar lebar), judul kartu
+  /latihan ke judul bank soal (`share="judul-pindah"`). Di dev pasangannya
+  tidak terbentuk karena halaman belajar sempat menampilkan kerangka
+  (chunk belum dimuat); di produksi harus dicek dengan jeda animasi.
+- Jebakan yang ketemu: animasi opacity dengan fill `both` pada main membuat
+  main jadi stacking context selamanya sehingga laci HP (z 60) tergambar di
+  bawah nav (z 30); semua animasi pada main memakai `backwards`.
+- Diuji playwright-cli 1280 dan 390 px: transisi berjalan (animasi
+  panggung-mundur/naik pada potret main dan kaki, root dan nav diam),
+  kembali lewat popstate memberi panggung-turun, menu HP buka/tutup/Esc,
+  laci HP di atas nav dan setinggi layar, mode fokus masuk/keluar, tsc,
+  eslint, next build lulus.
+
 ## 17 SEP MALAM: RUMUS SOAL DITATA KATEX SEPERTI MATHCYBER1997 (deploy matra-fcgmida4v, push GitHub)
 
 ARYA: "integralnya dengan batasnya tidak jelas; tidak apa-apa dua baris;

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
-import Nav from '@/components/Nav'
+import Panggung from '@/components/mantra/Panggung'
 import Kaki from '@/components/mantra/Kaki'
 import ArenaLatihan from '@/components/latihan/ArenaLatihan'
 import { KUIS } from '@/content/ruang-3d'
@@ -21,13 +21,12 @@ export const metadata: Metadata = {
 
 export default function LatihanRuang3D() {
   return (
-    <>
-      <Nav label="Latihan Ruang 3D" />
+    <Panggung>
       {/* Suspense WAJIB: ArenaLatihan membaca ?tingkat= lewat useSearchParams (17 Sep 2026). */}
       <Suspense fallback={null}>
         <ArenaLatihan topik="ruang-3d" nama="Ruang Tiga Dimensi" bank={KUIS} />
       </Suspense>
       <Kaki />
-    </>
+    </Panggung>
   )
 }

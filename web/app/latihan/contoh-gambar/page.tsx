@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import type { GambarSoal as Data } from '@/content/tipe'
 import { ISI_TOPIK } from '@/content/daftar-isi'
 import GambarSoal from '@/components/latihan/gambar/GambarSoal'
-import Nav from '@/components/Nav'
+import Panggung from '@/components/mantra/Panggung'
 import Kaki from '@/components/mantra/Kaki'
 
 export const metadata: Metadata = {
@@ -66,8 +66,7 @@ export default async function Halaman({ searchParams }: { searchParams: Promise<
   // berulang sesudah 16.384 piksel, jadi bab bergambar banyak dipotret per bagian
   const potongan = daftar.slice(Number(mulai ?? 0), Number(mulai ?? 0) + Number(jumlah ?? daftar.length))
   return (
-    <>
-      <Nav label="Contoh gambar soal" />
+    <Panggung>
       <main className="mantra-lebar" style={{ paddingTop: 38 }}>
         <div className="kicker">Pemeriksaan</div>
         <h1 className="judul-halaman">
@@ -83,6 +82,6 @@ export default async function Halaman({ searchParams }: { searchParams: Promise<
         </div>
       </main>
       <Kaki />
-    </>
+    </Panggung>
   )
 }

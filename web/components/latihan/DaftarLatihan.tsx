@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useSyncExternalStore } from 'react'
+import { useSyncExternalStore, ViewTransition, type CSSProperties } from 'react'
 import { ISI_TOPIK } from '@/content/daftar-isi'
 import { TOPIK, type Topik } from '@/content/topik'
 import { cariBab } from '@/content/subbab'
@@ -10,7 +10,6 @@ import { langgan } from '@/lib/simpanan'
 import { bacaLatihan, KOSONG_JSON, LENCANA, persenTopik, ringkasPerTingkat, SYARAT_NAIK } from '@/lib/latihan-kemajuan'
 import { useModeGuru } from '@/lib/mode-guru'
 import LatarBab from '@/components/latihan/LatarBab'
-import MunculSaatGulir from '@/components/mantra/MunculSaatGulir'
 
 /**
  * Halaman /latihan versi MANTRA v2 (4 Sep 2026).
@@ -63,11 +62,11 @@ export default function DaftarLatihan() {
         </div>
       )}
 
-      <div className="kisi-bank">
+      {/* `data-bertahap`: lima kartu pertama muncul bertahap saat dokumen
+          pertama dimuat (globals.css bagian G), `--n` urutannya. */}
+      <div className="kisi-bank" data-bertahap>
         {siap.map((t, i) => (
-          <MunculSaatGulir key={t.slug} tunda={(i % 3) * 70}>
-            <KartuBab topik={t} bank={ISI_TOPIK[t.slug]!.kuis} />
-          </MunculSaatGulir>
+          <KartuBab key={t.slug} topik={t} bank={ISI_TOPIK[t.slug]!.kuis} urutan={i} />
         ))}
       </div>
 
@@ -103,7 +102,7 @@ export default function DaftarLatihan() {
  * karena hook tidak boleh dipanggil di dalam perulangan. Dengan begini tiap
  * bab punya satu komponen dengan satu hook, dan urutannya tetap.
  */
-function KartuBab({ topik, bank }: { topik: Topik; bank: SoalKuis[] }) {
+function KartuBab({ topik, bank, urutan }: { topik: Topik; bank: SoalKuis[]; urutan: number }) {
   // Dibaca sebagai external store: kemajuan berubah dari halaman lain, dan
   // React 19 melarang menyalinnya ke state lewat useEffect.
   const kemajuan = useSyncExternalStore(
@@ -122,6 +121,7 @@ function KartuBab({ topik, bank }: { topik: Topik; bank: SoalKuis[] }) {
     <Link
       href={`/latihan/${topik.slug}`}
       className="kartu-bank"
+      style={{ '--n': urutan } as CSSProperties}
       aria-label={`Latihan ${topik.nama}, ${persen} persen selesai dari ${bank.length} soal`}
     >
       <LatarBab slug={topik.slug} />
@@ -132,7 +132,10 @@ function KartuBab({ topik, bank }: { topik: Topik; bank: SoalKuis[] }) {
             {bank.length} soal
             {k.lencana.length > 0 ? ` · 🏅 ${k.lencana.length}/${LENCANA.length} lencana` : ''}
           </div>
-          <h3>{topik.nama}</h3>
+          {/* Elemen bersama dengan judul halaman bank soal (ArenaLatihan). */}
+          <ViewTransition name={`kartu-latihan-${topik.slug}`} share="judul-pindah" default="none">
+            <h3>{topik.nama}</h3>
+          </ViewTransition>
         </div>
         <span className="bank-persen angka-rata">{persen}%</span>
       </div>
