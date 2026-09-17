@@ -127,7 +127,7 @@ export const TAHAP: TahapTransformasi[] = [
         judul: 'Namanya diberikan setelah bendanya kita lihat',
         butir: [
           'Prapeta - bentuk asalnya, yang belum dikenai aturan apa pun. Awalan "pra" berarti sebelum.',
-          'Peta - hasilnya, setelah aturan itu dikenakan. Di gambar, titik peta ditandai petik, jadi pasangan titik A adalah A aksen.',
+          'Peta - hasilnya, setelah aturan itu dikenakan. Di gambar, titik peta ditandai petik, jadi pasangan titik A adalah A′.',
         ],
       },
       {
@@ -229,10 +229,10 @@ export const TAHAP: TahapTransformasi[] = [
           'Jarak A ke garis cerminnya: 5 - 1 = 4 satuan',
           'Bayangannya harus 4 satuan di seberang, jadi pada 5 + 4 = 9',
           'Nilai y tidak disentuh, sebab garis cerminnya tegak',
-          'Jadi A aksen (9, 2)',
-          'Diperiksa dengan rumus: 2 dikali 5 dikurangi 1 sama dengan 9. Cocok',
+          'Jadi A′(9, 2)',
+          'Diperiksa dengan rumus: 2 · 5 − 1 = 9. Cocok',
         ],
-        simpul: 'Rumus 2k - x hanyalah dua langkah pertama yang digabung: k dikurangi x memberi jaraknya, lalu ditambahkan lagi ke k.',
+        simpul: 'Rumus 2k - x hanyalah dua langkah pertama yang digabung: k − x memberi jaraknya, lalu ditambahkan lagi ke k: k + (k − x) = 2k − x.',
       },
       {
         jenis: 'coba',
@@ -292,9 +292,9 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'contoh',
         judul: 'Tiga titik dicerminkan pada garis y = x',
         baris: [
-          'A(2, 5) menjadi A aksen (5, 2), kedua angkanya bertukar tempat',
-          'B(-3, 4) menjadi B aksen (4, -3), tandanya ikut pindah bersama angkanya',
-          'C(6, 6) menjadi C aksen (6, 6), tidak berpindah sebab titiknya berada DI garis cerminnya',
+          'A(2, 5) menjadi A′(5, 2), kedua angkanya bertukar tempat',
+          'B(-3, 4) menjadi B′(4, -3), tandanya ikut pindah bersama angkanya',
+          'C(6, 6) menjadi C′(6, 6), tidak berpindah sebab titiknya berada DI garis cerminnya',
         ],
         simpul: 'Baris ketiga bukan kegagalan. Titik yang berada tepat di garis cermin memang tidak pernah berpindah, sama seperti kaca tidak memindahkan dirinya sendiri.',
       },
@@ -315,7 +315,7 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'coba',
         teks: 'Alat interaktifnya menuliskan koordinat ketiga sudut bernama, prapeta dan petanya berdampingan. Pilihan garisnya ada di bawah gambar.',
         langkah: [
-          'Baca titik B dan B aksen pada pilihan y = x. Apa yang terjadi pada kedua angkanya?',
+          'Baca titik B dan B′ pada pilihan y = x. Apa yang terjadi pada kedua angkanya?',
           'Ganti ke y = -x. Sekarang apa yang berubah pada angka dan pada tandanya?',
           'Sekarang kerjakan sendiri: titik B(-3, 4) dicerminkan pada y = -x. Di mana bayangannya?',
           'Cocokkan dengan alatnya. Apa beda aturan y = x dengan aturan y = -x?',
@@ -354,7 +354,7 @@ export const TAHAP: TahapTransformasi[] = [
       { jenis: 'sesi', judul: 'Pusatnya selalu tepat di tengah' },
       {
         jenis: 'sorot',
-        teks: 'Pencerminan pada titik M memindahkan P ke seberang M, sehingga M tepat di tengah antara P dan P aksen.',
+        teks: 'Pencerminan pada titik M memindahkan P ke seberang M, sehingga M tepat di tengah antara P dan P′.',
       },
       {
         jenis: 'paragraf',
@@ -364,11 +364,11 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'contoh',
         judul: 'Titik A(1, 2) dicerminkan pada titik M(3, 3)',
         baris: [
-          'M harus jadi titik tengah A dan A aksen, jadi rata-rata koordinat mendatarnya bernilai 3',
-          'Untuk sumbu-x: (1 + x aksen) dibagi 2 sama dengan 3, sehingga x aksen = 5',
-          'Untuk sumbu-y: (2 + y aksen) dibagi 2 sama dengan 3, sehingga y aksen = 4',
-          'Jadi A aksen (5, 4)',
-          'Diperiksa dengan rumus jadi: 2 dikali 3 dikurangi 1 sama dengan 5, dan 2 dikali 3 dikurangi 2 sama dengan 4. Cocok',
+          'M harus jadi titik tengah A dan A′, jadi rata-rata koordinat mendatarnya bernilai 3',
+          'Untuk sumbu-x: (1 + x′)/2 = 3, sehingga x′ = 5',
+          'Untuk sumbu-y: (2 + y′)/2 = 3, sehingga y′ = 4',
+          'Jadi A′(5, 4)',
+          'Diperiksa dengan rumus jadi: 2 · 3 − 1 = 5, dan 2 · 3 − 2 = 4. Cocok',
         ],
         simpul: 'Jadi rumusnya P(x, y) menjadi (2a - x, 2b - y) untuk pusat M(a, b). Bentuknya mirip rumus garis x = k di Materi 02, dan itu bukan kebetulan: keduanya berasal dari gagasan jarak sama.',
       },
@@ -436,7 +436,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'sorot',
-        teks: 'Titik P(x, y) oleh translasi (a, b) menjadi P aksen (x + a, y + b).',
+        teks: 'Titik P(x, y) oleh translasi (a, b) menjadi P′(x + a, y + b).',
       },
       {
         jenis: 'contoh',
@@ -444,7 +444,7 @@ export const TAHAP: TahapTransformasi[] = [
         baris: [
           'Komponen mendatarnya dijumlahkan, sebab geseran mendatar menambah nilai x: 1 + 4 = 5',
           'Komponen tegaknya dijumlahkan, sebab geseran tegak menambah nilai y: 2 + (-3) = -1',
-          'Jadi petanya A aksen (5, -1)',
+          'Jadi petanya A′(5, -1)',
         ],
         simpul: 'Perhatikan komponen tegaknya negatif, dan negatif itu berarti turun. Angka 3 tidak boleh dibaca lepas dari tanda minusnya.',
       },
@@ -569,7 +569,7 @@ export const TAHAP: TahapTransformasi[] = [
         judul: 'Menguji rumusnya pada sudut yang jawabannya sudah kita tahu',
         baris: [
           'Untuk a = 90 derajat: cos 90 bernilai 0 dan sin 90 bernilai 1',
-          'Masukkan: (x dikali 0 dikurangi y dikali 1, x dikali 1 ditambah y dikali 0)',
+          'Masukkan: (x · 0 − y · 1, x · 1 + y · 0)',
           'Hasilnya (-y, x), sama persis dengan aturan 90 derajat yang tadi kita baca dari gambar',
           'Untuk a = 180 derajat: cos 180 bernilai -1 dan sin 180 bernilai 0, hasilnya (-x, -y). Cocok juga',
         ],
@@ -593,9 +593,9 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'contoh',
         judul: 'Titik (2, 1) diputar 90 derajat terhadap pusat (1, 1)',
         baris: [
-          'Langkah 1, ukur dari pusatnya: (2 dikurangi 1, 1 dikurangi 1) sama dengan (1, 0)',
+          'Langkah 1, ukur dari pusatnya: (2 − 1, 1 − 1) = (1, 0)',
           'Langkah 2, putar 90 derajat dengan aturan (x, y) menjadi (-y, x): (1, 0) menjadi (0, 1)',
-          'Langkah 3, kembalikan dari pusatnya: (1 ditambah 0, 1 ditambah 1) sama dengan (1, 2)',
+          'Langkah 3, kembalikan dari pusatnya: (1 + 0, 1 + 1) = (1, 2)',
         ],
         simpul: 'Resep yang sama akan kita pakai lagi di Materi 07 untuk dilatasi. Sekali dikuasai, ia berlaku untuk semua transformasi yang punya pusat.',
       },
@@ -653,12 +653,12 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'contoh',
         judul: 'Titik A(2, 1) didilatasi faktor 3 berpusat di M(1, 1)',
         baris: [
-          'Langkah 1, ukur A dari pusat M: (2 dikurangi 1, 1 dikurangi 1) sama dengan (1, 0)',
-          'Langkah 2, kalikan dengan 3: (3, 0)',
-          'Langkah 3, kembalikan dari M: (1 ditambah 3, 1 ditambah 0) sama dengan (4, 1)',
-          'Jadi A aksen (4, 1)',
+          'Langkah 1, ukur A dari pusat M: (2 − 1, 1 − 1) = (1, 0)',
+          'Langkah 2, kalikan dengan 3: 3 · (1, 0) = (3, 0)',
+          'Langkah 3, kembalikan dari M: (1 + 3, 1 + 0) = (4, 1)',
+          'Jadi A′(4, 1)',
         ],
-        simpul: 'Periksa masuk akalnya: A berjarak 1 satuan dari M, dan A aksen berjarak 3 satuan. Tiga kali, sesuai faktornya.',
+        simpul: 'Periksa masuk akalnya: A berjarak 1 satuan dari M, dan A′ berjarak 3 satuan. Tiga kali, sesuai faktornya.',
       },
       { jenis: 'sesi', judul: 'Empat watak k yang harus kamu coba sendiri' },
       {
@@ -667,7 +667,7 @@ export const TAHAP: TahapTransformasi[] = [
           'k lebih dari 1 - bentuknya membesar dan menjauh dari pusat.',
           'k antara 0 dan 1 - bentuknya mengecil dan mendekat ke pusat. Faktor 0,5 membuatnya separuh, bukan setengahnya hilang.',
           'k negatif - bentuknya menyeberang ke sisi lain pusatnya, sambil berubah ukuran sebanyak nilai k tanpa tandanya.',
-          'k sama dengan 1 tidak mengubah apa pun, dan k sama dengan 0 meruntuhkan seluruh bentuk ke satu titik, yaitu pusatnya sendiri.',
+          'k = 1 tidak mengubah apa pun, dan k = 0 meruntuhkan seluruh bentuk ke satu titik, yaitu pusatnya sendiri.',
         ],
       },
       {
@@ -739,7 +739,7 @@ export const TAHAP: TahapTransformasi[] = [
           'Cermin pada garis: panjang tetap, sudut tetap, luas tetap, arah putar BERBALIK',
           'Cermin pada titik: panjang tetap, sudut tetap, luas tetap, arah putar tetap',
           'Rotasi: panjang tetap, sudut tetap, luas tetap, arah putar tetap',
-          'Dilatasi faktor k: panjang menjadi k kali tanpa tandanya, sudut TETAP, luas menjadi k kuadrat kali, arah putar tetap',
+          'Dilatasi faktor k: panjang menjadi |k| kali, sudut TETAP, luas menjadi k² kali, arah putar tetap',
         ],
         simpul: 'Empat baris pertama sama persis kecuali satu sel. Karena itu keempatnya sering disebut satu keluarga: transformasi yang mempertahankan jarak.',
       },
@@ -750,16 +750,16 @@ export const TAHAP: TahapTransformasi[] = [
       { jenis: 'sesi', judul: 'Dua baris yang paling sering mengejutkan' },
       {
         jenis: 'paragraf',
-        teks: 'Yang pertama: dilatasi mengubah luas sebanyak k KUADRAT kali, bukan k kali. Alasannya bisa dilihat tanpa rumus. Luas ditentukan oleh dua ukuran sekaligus, panjang dan lebar, dan keduanya sama-sama dikalikan k.',
+        teks: 'Yang pertama: dilatasi mengubah luas sebanyak k² kali, bukan k kali. Alasannya bisa dilihat tanpa rumus. Luas ditentukan oleh dua ukuran sekaligus, panjang dan lebar, dan keduanya sama-sama dikalikan k.',
       },
       {
         jenis: 'contoh',
         judul: 'Persegi bersisi 2, didilatasi faktor 3',
         baris: [
-          'Luas semula: 2 dikali 2 sama dengan 4 satuan luas',
-          'Sisinya menjadi 3 kali, yaitu 6',
-          'Luas barunya: 6 dikali 6 sama dengan 36 satuan luas',
-          'Nisbahnya: 36 dibagi 4 sama dengan 9, dan 9 adalah 3 kuadrat',
+          'Luas semula: 2 · 2 = 4 satuan luas',
+          'Sisinya menjadi 3 kali, yaitu 3 · 2 = 6',
+          'Luas barunya: 6 · 6 = 36 satuan luas',
+          'Nisbahnya: 36/4 = 9, dan 9 = 3²',
         ],
         simpul: 'Kalau kamu pernah membeli pizza, ini alasan pizza berdiameter dua kali lipat berisi EMPAT kali lebih banyak, bukan dua kali.',
       },
@@ -783,12 +783,12 @@ export const TAHAP: TahapTransformasi[] = [
         butir: [
           'Memeriksa jawaban - kalau soal memintamu memutar sebuah segitiga dan jawabanmu punya sisi yang lebih panjang, jawabannya salah tanpa perlu dihitung ulang.',
           'Menebak transformasi dari gambar - kalau ukurannya berubah, pasti ada dilatasi. Kalau arah putarnya berbalik, pasti ada pencerminan pada garis, dan jumlahnya ganjil.',
-          'Menghitung luas bayangan - tidak perlu menghitung koordinat semua titiknya. Untuk dilatasi, kalikan saja luas semula dengan k kuadrat.',
+          'Menghitung luas bayangan - tidak perlu menghitung koordinat semua titiknya. Untuk dilatasi, kalikan saja luas semula dengan k².',
         ],
       },
       {
         jenis: 'paragraf',
-        teks: 'Catatan jujur: pernyataan luas berubah k kuadrat kali kita terima di sini dari contoh persegi tadi, bukan dari bukti umum. Bukti untuk bangun apa pun memakai determinan matriks, yang cuma kita singgung sekali di Materi 09 dan tidak diujikan di topik ini.',
+        teks: 'Catatan jujur: pernyataan luas berubah k² kali kita terima di sini dari contoh persegi tadi, bukan dari bukti umum. Bukti untuk bangun apa pun memakai determinan matriks, yang cuma kita singgung sekali di Materi 09 dan tidak diujikan di topik ini.',
       },
     ],
     seringKeliru: {
@@ -799,7 +799,7 @@ export const TAHAP: TahapTransformasi[] = [
     intisari: [
       'Empat transformasi menjaga panjang dan sudut. Hanya dilatasi yang mengubah ukuran.',
       'Hanya pencerminan pada garis yang membalik arah putar.',
-      'Dilatasi mengubah luas sebanyak k kuadrat kali, bukan k kali.',
+      'Dilatasi mengubah luas sebanyak k² kali, bukan k kali.',
       'Dilatasi dengan k negatif tetap tidak membalik arah putar.',
     ],
     widget: 'meja-ukur',
@@ -818,7 +818,7 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'poin',
         judul: 'Sebelum mulai, dua keterangan',
         butir: [
-          'Materi ini BUKAN bab Matriks. Yang diambil hanya sebanyak yang dibutuhkan empat materi berikutnya: matriks 2x2 dikalikan koordinat, dan perkalian dua matriks. Tidak lebih.',
+          'Materi ini BUKAN bab Matriks. Yang diambil hanya sebanyak yang dibutuhkan empat materi berikutnya: matriks 2×2 dikalikan koordinat, dan perkalian dua matriks. Tidak lebih.',
           'Kalau di sekolahmu Matriks sudah diajarkan, materi ini bisa kamu lewati cepat. Kalau belum, tidak apa-apa: yang dibutuhkan di sini sedikit dan semuanya dibangun dari nol.',
         ],
       },
@@ -830,21 +830,21 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'contoh',
         judul: 'Empat aturan, satu bentuk yang sama',
         baris: [
-          'Cermin sumbu X: x baru = 1 kali x ditambah 0 kali y, dan y baru = 0 kali x ditambah -1 kali y',
-          'Cermin y = x: x baru = 0 kali x ditambah 1 kali y, dan y baru = 1 kali x ditambah 0 kali y',
-          'Rotasi 90 derajat: x baru = 0 kali x ditambah -1 kali y, dan y baru = 1 kali x ditambah 0 kali y',
-          'Dilatasi faktor k: x baru = k kali x ditambah 0 kali y, dan y baru = 0 kali x ditambah k kali y',
+          'Cermin sumbu X: x′ = 1 · x + 0 · y, dan y′ = 0 · x + (-1) · y',
+          'Cermin y = x: x′ = 0 · x + 1 · y, dan y′ = 1 · x + 0 · y',
+          'Rotasi 90 derajat: x′ = 0 · x + (-1) · y, dan y′ = 1 · x + 0 · y',
+          'Dilatasi faktor k: x′ = k · x + 0 · y, dan y′ = 0 · x + k · y',
         ],
         simpul: 'Yang berbeda hanya empat angka pengalinya. Kalimatnya identik. Kalau begitu, keempat angka itulah yang layak kita catat, dan kalimatnya cukup ditulis sekali.',
       },
       { jenis: 'sesi', judul: 'Empat angka, disusun dua baris dua kolom' },
       {
         jenis: 'paragraf',
-        teks: 'Susunan empat angka dalam dua baris dan dua kolom itu disebut matriks 2x2. Mengalikannya dengan koordinat sebuah titik berarti mengerjakan kalimat panjang tadi.',
+        teks: 'Susunan empat angka dalam dua baris dan dua kolom itu disebut matriks 2×2. Mengalikannya dengan koordinat sebuah titik berarti mengerjakan kalimat panjang tadi.',
       },
       {
         jenis: 'sorot',
-        teks: 'Matriks baris pertama a b dan baris kedua c d, dikalikan titik (x, y), memberi (ax + by, cx + dy).',
+        teks: 'Matriks [[a, b], [c, d]] dikalikan titik (x, y) memberi (ax + by, cx + dy).',
       },
       {
         jenis: 'poin',
@@ -857,10 +857,10 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'contoh',
-        judul: 'Matriks baris pertama 0 dan -1, baris kedua 1 dan 0, dikalikan titik (3, 2)',
+        judul: 'Matriks [[0, -1], [1, 0]] dikalikan titik (3, 2)',
         baris: [
-          'Baris pertama: 0 dikali 3 ditambah -1 dikali 2, hasilnya -2',
-          'Baris kedua: 1 dikali 3 ditambah 0 dikali 2, hasilnya 3',
+          'Baris pertama: 0 · 3 + (-1) · 2 = -2',
+          'Baris kedua: 1 · 3 + 0 · 2 = 3',
           'Jadi (3, 2) menjadi (-2, 3)',
           'Bandingkan dengan Materi 06: rotasi 90 derajat memberi (-y, x), dan untuk (3, 2) itu (-2, 3). Sama',
         ],
@@ -906,17 +906,17 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'contoh',
         judul: 'Matriks rotasi 90 derajat dikali matriks cermin sumbu X',
         baris: [
-          'Yang kiri: baris pertama 0 dan -1, baris kedua 1 dan 0',
-          'Yang kanan: baris pertama 1 dan 0, baris kedua 0 dan -1',
-          'Kolom pertama kanan adalah (1, 0). Dikalikan yang kiri: (0 dikali 1 ditambah -1 dikali 0, 1 dikali 1 ditambah 0 dikali 0) sama dengan (0, 1)',
-          'Kolom kedua kanan adalah (0, -1). Dikalikan yang kiri: (0 dikali 0 ditambah -1 dikali -1, 1 dikali 0 ditambah 0 dikali -1) sama dengan (1, 0)',
-          'Susun keduanya sebagai kolom: hasilnya baris pertama 0 dan 1, baris kedua 1 dan 0',
+          'Yang kiri: [[0, -1], [1, 0]]',
+          'Yang kanan: [[1, 0], [0, -1]]',
+          'Kolom pertama kanan adalah (1, 0). Dikalikan yang kiri: (0 · 1 + (-1) · 0, 1 · 1 + 0 · 0) = (0, 1)',
+          'Kolom kedua kanan adalah (0, -1). Dikalikan yang kiri: (0 · 0 + (-1) · (-1), 1 · 0 + 0 · (-1)) = (1, 0)',
+          'Susun keduanya sebagai kolom: [[0, -1], [1, 0]] [[1, 0], [0, -1]] = [[0, 1], [1, 0]]',
         ],
         simpul: 'Hasilnya matriks cermin pada garis y = x. Kenapa gabungan rotasi dan pencerminan bisa memberi pencerminan, dibahas tuntas di Materi 12.',
       },
       {
         jenis: 'paragraf',
-        teks: 'Catatan sekali lewat: angka ad dikurangi bc disebut determinan. Besarnya adalah pengali luas, dan tandanya menyatakan arah putarnya berbalik atau tidak. Kita tidak melatih determinan di topik ini, dan ia tidak akan keluar di soal. Disebut di sini hanya supaya kamu mengenalinya kalau bertemu nanti.',
+        teks: 'Catatan sekali lewat: angka ad − bc disebut determinan. Besarnya adalah pengali luas, dan tandanya menyatakan arah putarnya berbalik atau tidak. Kita tidak melatih determinan di topik ini, dan ia tidak akan keluar di soal. Disebut di sini hanya supaya kamu mengenalinya kalau bertemu nanti.',
       },
     ],
     seringKeliru: {
@@ -924,7 +924,7 @@ export const TAHAP: TahapTransformasi[] = [
       isi: 'Yang menggoda: koordinat (x, y) dan baris matriks sama-sama deretan dua angka, jadi keduanya terlihat sejenis. Cara membedakannya: hitung sekali dengan matriks yang tidak simetris, misalnya baris pertama 1 dan 2, baris kedua 0 dan 1, pada titik (3, 4). Cara yang benar memberi (1 dikali 3 ditambah 2 dikali 4, 0 dikali 3 ditambah 1 dikali 4), yaitu (11, 4). Lalu periksa di alatnya dengan angka yang sama. Kalau jawabanmu tidak cocok dengan gambarnya, caranya yang perlu diperbaiki, bukan gambarnya.',
     },
     intisari: [
-      'Matriks 2x2 adalah empat angka pengali, disusun dua baris dua kolom.',
+      'Matriks 2×2 adalah empat angka pengali, disusun dua baris dua kolom.',
       'Yang bertemu koordinat titik adalah BARIS matriks, bukan kolomnya.',
       'Kolom pertama adalah peta dari (1, 0), kolom kedua peta dari (0, 1).',
       'Dua matriks dikalikan dengan mengerjakan tiap kolom matriks kanan satu per satu.',
@@ -957,7 +957,7 @@ export const TAHAP: TahapTransformasi[] = [
           'Itu kolom pertama: 1 di atas, 0 di bawah',
           'Ke mana (0, 1) pergi? Nilai y-nya berbalik tanda, jadi ke (0, -1)',
           'Itu kolom kedua: 0 di atas, -1 di bawah',
-          'Jadi matriksnya baris pertama 1 dan 0, baris kedua 0 dan -1',
+          'Jadi matriksnya [[1, 0], [0, -1]]',
         ],
         simpul: 'Tidak ada yang dihafal di sini. Yang dipakai cuma aturan cermin sumbu X yang sudah kamu tahu sejak Materi 02.',
       },
@@ -966,13 +966,13 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'contoh',
         judul: 'Matriks tujuh transformasi, semua berpusat di titik asal',
         baris: [
-          'Cermin sumbu X: baris pertama 1 dan 0, baris kedua 0 dan -1',
-          'Cermin sumbu Y: baris pertama -1 dan 0, baris kedua 0 dan 1',
-          'Cermin garis y = x: baris pertama 0 dan 1, baris kedua 1 dan 0',
-          'Cermin garis y = -x: baris pertama 0 dan -1, baris kedua -1 dan 0',
-          'Cermin titik asal, sama dengan rotasi 180: baris pertama -1 dan 0, baris kedua 0 dan -1',
-          'Rotasi sudut a: baris pertama cos a dan -sin a, baris kedua sin a dan cos a',
-          'Dilatasi faktor k: baris pertama k dan 0, baris kedua 0 dan k',
+          'Cermin sumbu X: [[1, 0], [0, -1]]',
+          'Cermin sumbu Y: [[-1, 0], [0, 1]]',
+          'Cermin garis y = x: [[0, 1], [1, 0]]',
+          'Cermin garis y = -x: [[0, -1], [-1, 0]]',
+          'Cermin titik asal, sama dengan rotasi 180 derajat: [[-1, 0], [0, -1]]',
+          'Rotasi sudut a: [[cos a, -sin a], [sin a, cos a]]',
+          'Dilatasi faktor k: [[k, 0], [0, k]]',
         ],
         simpul: 'Periksa baris keenam pada a = 90 derajat: cos 90 bernilai 0 dan sin 90 bernilai 1, jadi matriksnya baris pertama 0 dan -1, baris kedua 1 dan 0. Itu yang kita pakai di Materi 09.',
       },
@@ -983,11 +983,11 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'sorot',
-        teks: 'Translasi TIDAK punya matriks 2x2 pengali. Ia ditulis sebagai PENJUMLAHAN matriks kolom.',
+        teks: 'Translasi TIDAK punya matriks 2×2 pengali. Ia ditulis sebagai PENJUMLAHAN matriks kolom.',
       },
       {
         jenis: 'paragraf',
-        teks: 'Alasannya bisa kamu buktikan sendiri dalam satu baris. Kalikan matriks apa pun dengan titik (0, 0). Baris pertama memberi a dikali 0 ditambah b dikali 0, yaitu nol. Baris kedua juga nol.',
+        teks: 'Alasannya bisa kamu buktikan sendiri dalam satu baris. Kalikan matriks apa pun dengan titik (0, 0). Baris pertama memberi a · 0 + b · 0 = 0. Baris kedua juga nol.',
       },
       {
         jenis: 'paragraf',
@@ -997,7 +997,7 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'poin',
         judul: 'Jadi bentuk tulisannya',
         butir: [
-          'Empat transformasi lain: koordinat titiknya DIKALIKAN sebuah matriks 2x2.',
+          'Empat transformasi lain: koordinat titiknya DIKALIKAN sebuah matriks 2×2.',
           'Translasi: koordinat titiknya DITAMBAH sebuah matriks kolom yang berisi a dan b.',
         ],
       },
@@ -1008,7 +1008,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Untuk pusat lain, tidak ada matriks 2x2 yang bisa dipakai. Yang dipakai tetap resep tiga langkah dari Materi 06 dan 07: geser ke titik asal, kerjakan, geser kembali.',
+        teks: 'Untuk pusat lain, tidak ada matriks 2×2 yang bisa dipakai. Yang dipakai tetap resep tiga langkah dari Materi 06 dan 07: geser ke titik asal, kerjakan, geser kembali.',
       },
       {
         jenis: 'coba',
@@ -1022,13 +1022,13 @@ export const TAHAP: TahapTransformasi[] = [
       },
     ],
     seringKeliru: {
-      judul: 'Translasi juga punya matriks 2x2, jadi tinggal dikalikan',
-      isi: 'Yang menggoda: empat transformasi lain memang begitu, dan buku pun menaruh translasi di bawah judul yang sama, yaitu "matriks yang berkaitan dengan translasi". Kata "berkaitan" itu benar, tetapi kaitannya lewat penjumlahan, bukan perkalian. Cara membedakannya: coba cari matriks yang memindahkan titik asal ke tempat lain. Kalikan matriks mana pun dengan (0, 0), hasilnya selalu (0, 0). Jadi tidak ada matriks 2x2 yang bisa menggeser bidang, dan pencarian itu memang tidak akan pernah berhasil.',
+      judul: 'Translasi juga punya matriks 2×2, jadi tinggal dikalikan',
+      isi: 'Yang menggoda: empat transformasi lain memang begitu, dan buku pun menaruh translasi di bawah judul yang sama, yaitu "matriks yang berkaitan dengan translasi". Kata "berkaitan" itu benar, tetapi kaitannya lewat penjumlahan, bukan perkalian. Cara membedakannya: coba cari matriks yang memindahkan titik asal ke tempat lain. Kalikan matriks mana pun dengan (0, 0), hasilnya selalu (0, 0). Jadi tidak ada matriks 2×2 yang bisa menggeser bidang, dan pencarian itu memang tidak akan pernah berhasil.',
       sumber: 'Buku Siswa Matematika Tingkat Lanjut SMA Kelas XI, Bab 4 bagian B nomor 3',
     },
     intisari: [
       'Matriks sebuah transformasi disusun dari peta titik (1, 0) dan (0, 1), bukan dihafal.',
-      'Translasi tidak punya matriks 2x2 pengali, sebab perkalian matriks selalu menahan titik asal.',
+      'Translasi tidak punya matriks 2×2 pengali, sebab perkalian matriks selalu menahan titik asal.',
       'Ketujuh matriks itu hanya berlaku untuk pusat di titik asal.',
       'Untuk pusat lain, resep tiga langkah tetap dipakai.',
     ],
@@ -1082,7 +1082,7 @@ export const TAHAP: TahapTransformasi[] = [
       { jenis: 'sesi', judul: 'Cara menuliskannya, dan satu jebakan di dalamnya' },
       {
         jenis: 'paragraf',
-        teks: 'Komposisi ditulis dengan lambang lingkaran kecil. Tulisan T2 lingkaran T1 dibaca "T2 komposisi T1", dan artinya T1 dikerjakan LEBIH DAHULU.',
+        teks: 'Komposisi ditulis dengan lambang lingkaran kecil. Tulisan T₂ ∘ T₁ dibaca "T₂ komposisi T₁", dan artinya T₁ dikerjakan LEBIH DAHULU.',
       },
       {
         jenis: 'paragraf',
@@ -1092,7 +1092,7 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'poin',
         judul: 'Cara mengingatnya tanpa menghafal',
         butir: [
-          'Tulis titiknya di paling kanan, misalnya T2 lingkaran T1 lalu (x, y).',
+          'Tulis titiknya di paling kanan, misalnya (T₂ ∘ T₁)(x, y).',
           'Yang paling dekat dengan titiknya, itu yang menyentuhnya lebih dulu. Di sini T1.',
           'Kerjakan dari kanan ke kiri, seperti membuka bungkus berlapis dari yang terluar.',
         ],
@@ -1129,7 +1129,7 @@ export const TAHAP: TahapTransformasi[] = [
     intisari: [
       'Komposisi berarti mengerjakan transformasi kedua pada HASIL yang pertama.',
       'Urutan menentukan hasil, dan itu keadaan yang biasa.',
-      'Pada tulisan T2 lingkaran T1, yang dikerjakan lebih dahulu adalah T1, yang di kanan.',
+      'Pada tulisan T₂ ∘ T₁, yang dikerjakan lebih dahulu adalah T₁, yang di kanan.',
       'Dua translasi, atau dua rotasi sepusat, boleh dibalik urutannya.',
     ],
     widget: 'dua-langkah',
@@ -1155,7 +1155,7 @@ export const TAHAP: TahapTransformasi[] = [
       { jenis: 'sesi', judul: 'Yang dikerjakan pertama ditulis paling kanan' },
       {
         jenis: 'sorot',
-        teks: 'Kalau T1 dikerjakan lebih dahulu lalu T2, matriks gabungannya adalah M2 dikali M1.',
+        teks: 'Kalau T₁ dikerjakan lebih dahulu lalu T₂, matriks gabungannya adalah M₂M₁.',
       },
       {
         jenis: 'paragraf',
@@ -1163,17 +1163,17 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Tulis begini: M2 lalu M1 lalu (x, y). Baca dari kanan. Titiknya bertemu M1 lebih dulu, baru hasilnya bertemu M2. Itu tepat urutan yang kita mau.',
+        teks: 'Tulis begini: M₂M₁(x, y). Baca dari kanan. Titiknya bertemu M₁ lebih dulu, baru hasilnya bertemu M₂. Itu tepat urutan yang kita mau.',
       },
       {
         jenis: 'contoh',
         judul: 'Cermin sumbu X lalu rotasi 90 derajat, pada titik (3, 1)',
         baris: [
-          'M1 adalah cermin sumbu X: baris pertama 1 dan 0, baris kedua 0 dan -1',
-          'M2 adalah rotasi 90 derajat: baris pertama 0 dan -1, baris kedua 1 dan 0',
-          'Kalikan M2 dengan M1, hasilnya baris pertama 0 dan 1, baris kedua 1 dan 0',
-          'Kenakan pada (3, 1): baris pertama memberi 0 dikali 3 ditambah 1 dikali 1, yaitu 1',
-          'Baris kedua memberi 1 dikali 3 ditambah 0 dikali 1, yaitu 3',
+          'M₁ adalah cermin sumbu X: M₁ = [[1, 0], [0, -1]]',
+          'M₂ adalah rotasi 90 derajat: M₂ = [[0, -1], [1, 0]]',
+          'Kalikan M₂ dengan M₁: M₂M₁ = [[0, -1], [1, 0]] [[1, 0], [0, -1]] = [[0, 1], [1, 0]]',
+          'Kenakan pada (3, 1): baris pertama memberi 0 · 3 + 1 · 1 = 1',
+          'Baris kedua memberi 1 · 3 + 0 · 1 = 3',
           'Jadi hasilnya (1, 3), sama persis dengan hitungan langkah demi langkah di Materi 11',
         ],
         simpul: 'Dan ada bonusnya: matriks gabungannya ternyata matriks cermin pada garis y = x. Jadi kedua langkah itu, digabung, sama dengan SATU pencerminan.',
@@ -1181,10 +1181,10 @@ export const TAHAP: TahapTransformasi[] = [
       { jenis: 'sesi', judul: 'Sekarang lihat apa yang terjadi kalau urutannya salah' },
       {
         jenis: 'contoh',
-        judul: 'Kalau M1 yang ditulis di depan',
+        judul: 'Kalau M₁ yang ditulis di depan',
         baris: [
-          'Kalikan M1 dengan M2, hasilnya baris pertama 0 dan -1, baris kedua -1 dan 0',
-          'Kenakan pada (3, 1): hasilnya (-1, -3)',
+          'Kalikan M₁ dengan M₂: M₁M₂ = [[1, 0], [0, -1]] [[0, -1], [1, 0]] = [[0, -1], [-1, 0]]',
+          'Kenakan pada (3, 1): M₁M₂(3, 1) = (-1, -3)',
           'Itu bukan jawaban yang salah begitu saja. Itu jawaban untuk urutan yang SEBALIKNYA, yaitu diputar dulu baru dicerminkan',
         ],
         simpul: 'Inilah yang membuat jebakan ini berbahaya: hasilnya terlihat masuk akal, dan biasanya tersedia sebagai pilihan di soal.',
@@ -1202,7 +1202,7 @@ export const TAHAP: TahapTransformasi[] = [
       { jenis: 'sesi', judul: 'Kalau langkahnya lebih dari dua' },
       {
         jenis: 'paragraf',
-        teks: 'Aturannya tidak berubah, cuma memanjang. Untuk T1 lalu T2 lalu T3, matriks gabungannya M3 dikali M2 dikali M1. Yang pertama dikerjakan tetap paling kanan.',
+        teks: 'Aturannya tidak berubah, cuma memanjang. Untuk T₁ lalu T₂ lalu T₃, matriks gabungannya M₃M₂M₁. Yang pertama dikerjakan tetap paling kanan.',
       },
       {
         jenis: 'paragraf',
@@ -1210,11 +1210,11 @@ export const TAHAP: TahapTransformasi[] = [
       },
     ],
     seringKeliru: {
-      judul: 'Dikerjakan T1 dulu, jadi M1 ditulis dulu',
+      judul: 'Dikerjakan T₁ dulu, jadi M₁ ditulis dulu',
       isi: 'Yang menggoda: begitulah cara kita membaca kalimat, dari kiri ke kanan, dan urutan itu terasa alami. Cara membedakannya: jangan mengingat aturannya, tulis titiknya. Letakkan koordinat titiknya di ujung kanan, lalu tanyakan matriks mana yang menyentuhnya lebih dulu. Yang menyentuh lebih dulu adalah yang paling dekat, dan itu yang dikerjakan lebih dulu. Kalau masih ragu, kerjakan satu langkah pada satu waktu seperti Materi 11: caranya lebih panjang, tetapi tidak punya jebakan ini sama sekali.',
     },
     intisari: [
-      'Matriks gabungan dua langkah adalah M2 dikali M1, dengan M1 yang dikerjakan lebih dahulu.',
+      'Matriks gabungan dua langkah adalah M₂M₁, dengan M₁ yang dikerjakan lebih dahulu.',
       'Yang dikerjakan pertama ditulis paling kanan, sebab ia yang paling dekat dengan titiknya.',
       'Urutan yang tertukar memberi jawaban untuk urutan sebaliknya, bukan jawaban yang kacau.',
       'Translasi tidak bisa digabungkan lewat perkalian, sebab ia penjumlahan.',

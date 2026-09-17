@@ -48,7 +48,7 @@ const LAMBANG: Record<string, string> = {
 }
 const FUNGSI = new Set(['sin', 'cos', 'tan', 'cot', 'sec', 'csc', 'log', 'ln', 'lim', 'arcsin', 'arccos', 'arctan'])
 // hasil kali dua tiga peubah yang ditulis rapat (uv pada aturan parsial, xy): bukan kata Indonesia
-const PRODUK = new Set(['uv', 'xy', 'ab', 'mn', 'pq', 'rs', 'xyz', 'abc', 'uw', 'vw', 'yz'])
+const PRODUK = new Set(['uv', 'xy', 'ab', 'mn', 'pq', 'rs', 'xyz', 'abc', 'uw', 'vw', 'yz', 'ax', 'by', 'cx', 'kx', 'ky', 'ad', 'bc'])
 // bukan /^d./: "di", "de", "da" kata prosa Indonesia
 const DIFERENSIAL = /^d[xyztuvrshθ]$/
 const SATUAN = new Set(['cm', 'm', 'km', 'mm', 'dm', 'kg', 'g', 'ml', 'l', 'liter', 'detik', 'menit', 'jam',
@@ -60,7 +60,7 @@ const KATA_UNIT = /^([a-z]+[²³]?)(\/[a-z]+[²³]?)?$/
 /* ------------------------------------------------------------------ */
 
 const PUNGTUASI_AKHIR = /[.,;:!?…]+$/
-const HURUF_MAT = /[0-9=+−×·•÷±<>≤≥≠≈→⇒∞∫√∛Σ∑πθαβγΔδφωλμσ°′″⟂⊥∥∠△∈∉∪∩⊂∅^_\/|\[\]{}()]|[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁿˣʸᵃᵇᶜᵗᵘᵏⁱᵐᵖʳˢ₀₁₂₃₄₅₆₇₈₉₊₋ₐₙₓᵢₖₘₜ]|̄|[ŷâ]/
+const HURUF_MAT = /[0-9=+−×·•÷±<>≤≥≠≈→⇒∘∞∫√∛Σ∑πθαβγΔδφωλμσ°′″⟂⊥∥∠△∈∉∪∩⊂∅^_\/|\[\]{}()]|[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻ⁿˣʸᵃᵇᶜᵗᵘᵏⁱᵐᵖʳˢ₀₁₂₃₄₅₆₇₈₉₊₋ₐₙₓᵢₖₘₜ]|̄|[ŷâ]/
 
 function intiKata(kata: string): string {
   return kata.replace(/^[(\[|]+/, '').replace(/[)\]|]+$/, '').replace(PUNGTUASI_AKHIR, '')
@@ -87,6 +87,8 @@ function kataMatematika(kata: string, sebelumnya: string | null): boolean {
   }
   if (/^[a-zA-Z]$/.test(inti)) return true
   if (PRODUK.has(inti)) return true
+  // tanda kurang ASCII di depan kata matematika: -sin θ, -x, -cos
+  if (/^-./.test(inti) && kataMatematika(inti.slice(1), sebelumnya)) return true
   if (/^[A-Z]{2,3}$/.test(inti)) return true // ruas AB, segitiga ACG
   if (/^[a-zA-Z][0-9]$/.test(inti)) return true // x1, P2
   const rendah = inti.toLowerCase()
@@ -443,6 +445,25 @@ function susun(tokens: Token[]): string {
         break
       }
       case 'kelompok': {
+        // Matriks: [[a, b], [c, d]] menjadi pmatrix (materi Transformasi
+        // Geometri). Baris = kelompok siku di dalam kelompok siku, dipisah koma.
+        if (tok.buka === '[' && tok.tertutup) {
+          const anak = tok.isi.filter((x) => x.t !== 'spasi')
+          const baris = anak.filter((x) => x.t === 'kelompok') as Extract<Token, { t: 'kelompok' }>[]
+          const pemisah = anak.filter((x) => !(x.t === 'kelompok'))
+          if (baris.length >= 2 && baris.every((b) => b.buka === '[' && b.tertutup) && pemisah.every((x) => x.t === 'op' && x.v === ',')) {
+            const sel = (b: Extract<Token, { t: 'kelompok' }>) => {
+              const kolom: Token[][] = [[]]
+              for (const x of b.isi) {
+                if (x.t === 'op' && x.v === ',') kolom.push([])
+                else kolom[kolom.length - 1].push(x)
+              }
+              return kolom.map((k) => susun(k).trim()).join(' & ')
+            }
+            keluar += `\\begin{pmatrix} ${baris.map(sel).join(' \\\\ ')} \\end{pmatrix}`
+            break
+          }
+        }
         const isi = susun(tok.isi)
         const buka = tok.buka === '{' ? '\\{' : tok.buka
         const tutup = tok.tutup === '}' ? '\\}' : tok.tutup
