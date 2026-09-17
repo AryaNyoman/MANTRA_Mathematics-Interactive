@@ -54,6 +54,11 @@ const DIFERENSIAL = /^d[xyztuvrshθ]$/
 const SATUAN = new Set(['cm', 'm', 'km', 'mm', 'dm', 'kg', 'g', 'ml', 'l', 'liter', 'detik', 'menit', 'jam',
   'rad', 'cm²', 'm²', 'cm³', 'm³', 'km/jam', 'm/s', 'm/s²', 'cm/menit', 'cm/detik', 'km²', 'ha'])
 const KATA_UNIT = /^([a-z]+[²³]?)(\/[a-z]+[²³]?)?$/
+// dua huruf peubah yang ditulis rapat (xh, hx, ah): tanpa vokal e, i, o supaya
+// "di", "ke", "oh" tetap prosa; "ya", "ah", "ku", "mu", "tu" dikecualikan
+const PASANGAN_PEUBAH = /^[abcdfghkmnpqrstuvwxyz]{2}$/
+const BUKAN_PEUBAH = new Set(['ya', 'ah', 'ku', 'mu', 'tu', 'hm', 'ny', 'sh', 'an', 'ha', 'na', 'pa', 'ma', 'ta', 'ka', 'sa', 'da', 'ba', 'ra', 'ga', 'wa', 'ca', 'fa', 'za', 'qa', 'va', 'xa'])
+const produkPeubah = (kata: string) => PRODUK.has(kata) || (PASANGAN_PEUBAH.test(kata) && !BUKAN_PEUBAH.has(kata) && !SATUAN.has(kata))
 
 /* ------------------------------------------------------------------ */
 /* Tahap 1: pisah prosa dan matematika                                   */
@@ -86,7 +91,7 @@ function kataMatematika(kata: string, sebelumnya: string | null): boolean {
     return true
   }
   if (/^[a-zA-Z]$/.test(inti)) return true
-  if (PRODUK.has(inti)) return true
+  if (produkPeubah(inti)) return true
   // tanda kurang ASCII di depan kata matematika: -sin θ, -x, -cos
   if (/^-./.test(inti) && kataMatematika(inti.slice(1), sebelumnya)) return true
   if (/^[A-Z]{2,3}$/.test(inti)) return true // ruas AB, segitiga ACG
@@ -142,7 +147,15 @@ export function pisahkan(teks: string): Potongan[] {
     if (punct === ',' && inti) {
       const berikut = kata[ki + 2] ?? ''
       const berikutInti = /^(\.\.\.|…)/.test(berikut) ? berikut.replace(/[,;:]$/, '') : berikut.replace(PUNGTUASI_AKHIR, '')
-      if (berikut && kataMatematika(berikutInti, inti) && kataMatematika(inti, kataSebelum)) {
+      // Deretan PERSAMAAN ("-2 = 2(-1), 0 = 2(0), 2 = 2(1)") tidak digabung
+      // jadi satu potongan: koma di antara dua persamaan yang kurungnya sudah
+      // seimbang tetap prosa, supaya di layar sempit barisnya patah di koma,
+      // bukan di tengah persamaan. Koma di dalam kurung "(3, 4)" tetap gabung.
+      const sejauhIni = mat + inti
+      const seimbang = (sejauhIni.match(/[(\[{]/g) ?? []).length === (sejauhIni.match(/[)\]}]/g) ?? []).length
+      const lanjutPersamaan = /[=<>≤≥≠≈]/.test(berikut) || /^[=<>≤≥≠≈]/.test(kata[ki + 4] ?? '')
+      const persamaan = seimbang && /[=<>≤≥≠≈]/.test(sejauhIni) && lanjutPersamaan
+      if (berikut && !persamaan && kataMatematika(berikutInti, inti) && kataMatematika(inti, kataSebelum)) {
         inti = bagian
         punct = ''
       }
@@ -294,7 +307,7 @@ function idKeLatex(v: string): string {
   if (FUNGSI.has(rendah)) return `\\${rendah} `
   if (DIFERENSIAL.test(v)) return `\\,${v}`
   if (v.length === 1) return v
-  if (PRODUK.has(v)) return v // uv, xy: hasil kali peubah, huruf miring
+  if (produkPeubah(v)) return v // uv, xy, xh: hasil kali peubah, huruf miring
   if (/^[A-Z]+$/.test(v)) return v // ruas AB, segitiga ACG: huruf kapital miring berurutan
   if (SATUAN.has(rendah)) return `\\,\\text{${v}}`
   // kata lain (misalnya "luas", "de", "sa", "mi"): teks tegak

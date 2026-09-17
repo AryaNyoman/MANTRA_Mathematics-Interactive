@@ -1,5 +1,23 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 17 SEP MALAM (5): KOTAK CONTOH DI HP TIDAK MEMOTONG RUMUS
+
+ARYA (tangkapan layar Turunan 03 di HP): rumus di kolom sempit patah di
+tengah ("= 4 + h" jatuh ke baris sendiri), "menuju 4" terpisah.
+- Di layar sempit (media 640 px) tabel kotak contoh TIDAK lagi dipaksa jadi
+  kolom: tiap baris jadi blok, sel pertama (label langkah) di baris sendiri,
+  sel berikutnya mengalir selebar kotak sebagai inline-block (tinggi pecahan
+  ikut dihitung, rumus utuh, patah hanya kalau lebih lebar dari layar).
+  Tabel angka pendek (semua sel maksimal 12 huruf, kelas `ringkas` dari
+  Penjelasan.tsx) tetap grid supaya kolomnya sejajar antarbaris.
+- Pengubah: pasangan huruf peubah rapat (xh, hx, bx, cy, px) jadi rumus
+  miring, bukan teks tegak (satuan cm, km, kg dan kata ya, ah, an tetap
+  prosa); deretan persamaan berkoma ("-2 = 2(-1), 0 = 2(0), ...") tidak
+  digabung jadi satu potongan supaya barisnya patah di koma, bukan di
+  tengah persamaan; deretan angka "i = 1, 2, ..., n" tetap satu.
+- Dicek 390 px dan 1280 px di Turunan 03 (kedua kotak), nol galat KaTeX di
+  bank dan materi.
+
 ## 17 SEP MALAM (4): SISTEM GERAK TAHAP 2, JENDELA DAN UMPAN BALIK SOAL
 
 - `components/mantra/Jendela.tsx`: SATU jendela `<dialog>` (showModal) untuk

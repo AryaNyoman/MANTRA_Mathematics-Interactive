@@ -144,12 +144,17 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
         const jumlah = new Set(sel.filter((s) => s.length >= 2).map((s) => s.length))
         const kolom = Math.max(1, ...sel.map((s) => s.length))
         const konsisten = jumlah.size <= 1
+        // Tabel angka pendek (semua sel paling panjang 12 huruf, misalnya
+        // x | -1 | 0 | 1 | 2) tetap grid di HP: kolomnya muat dan jajaran
+        // antarbarisnya justru isi tabelnya. Tabel lain di HP mengalir per
+        // baris (globals.css, media 640px).
+        const ringkas = kolom >= 2 && sel.every((s) => s.every((x) => x.length <= 12))
         return (
           <div key={i} className="contoh">
             <div className="cap"><TeksMat teks={b.judul} blok={false} /></div>
             {konsisten ? (
               <div
-                className={`contoh-tabel${kolom >= 4 ? ' lebar' : ''}`}
+                className={`contoh-tabel${kolom >= 4 ? ' lebar' : ''}${ringkas ? ' ringkas' : ''}`}
                 /* Tiap kolom selebar isinya kalau muat (max-content), dan
                    menyusut sampai kata terpanjangnya (auto) kalau layarnya
                    sempit, jadi di HP selnya membungkus di spasi, bukan

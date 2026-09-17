@@ -794,6 +794,36 @@ ul.poin li b { color: var(--tinta); font-weight: 600; }
   .contoh-tabel.lebar .sel-contoh.kosong { display: none; }
   .contoh-tabel.lebar .sel-contoh.penuh { white-space: normal; }
 }
+/* HP (ARYA 17 Sep 2026 malam, tangkapan layar Turunan 03: rumus di kolom
+   sempit terpotong di tengah, "= 4 + h" jatuh ke baris sendiri). Di layar
+   sempit tabel TIDAK dipaksa jadi kolom: tiap baris jadi satu blok, sel
+   pertama (label langkah) di baris sendiri, sel-sel berikutnya mengalir
+   selebar kotak sebagai inline-block, jadi rumusnya utuh dan hanya
+   berpindah baris kalau memang tidak muat selebar layar. inline-block, bukan
+   inline: tinggi pecahan bersusun ikut dihitung dalam tinggi barisnya
+   sehingga dua baris rumus tidak saling menindih. */
+@media (max-width: 640px) {
+  .contoh-tabel, .contoh-tabel.lebar { display: block; overflow: visible; contain: none; }
+  .contoh-tabel .baris-sel, .contoh-tabel.lebar .baris-sel { display: block; margin: 0 0 9px; }
+  .contoh-tabel .sel-contoh, .contoh-tabel.lebar .sel-contoh {
+    display: inline-block; max-width: 100%; vertical-align: baseline;
+    white-space: normal; line-height: 1.6; padding: 1px 12px 1px 0;
+  }
+  .contoh-tabel .baris-sel > .sel-contoh:first-child:not(:only-child):not(.kosong) {
+    display: block; font-weight: 600; color: var(--tinta-62); font-size: 12.5px; padding: 0; margin-bottom: 1px;
+  }
+  .contoh-tabel .sel-contoh.penuh { display: block; width: auto; min-width: 0; padding: 0; }
+  .contoh-tabel .sel-contoh.jeda { display: block; height: 4px; padding: 0; }
+  .contoh-tabel .sel-contoh.kosong { display: none; }
+  .contoh-tabel .sel-contoh:has(.mfrac) { padding: 3px 12px 3px 0; }
+  /* tabel angka pendek tetap grid (kelas ringkas dari Penjelasan.tsx) */
+  .contoh-tabel.ringkas { display: grid; column-gap: 14px; }
+  .contoh-tabel.ringkas .baris-sel { display: contents; }
+  .contoh-tabel.ringkas .sel-contoh, .contoh-tabel.ringkas .baris-sel > .sel-contoh:first-child {
+    display: block; font-weight: 400; color: #3A3630; font-size: 13px; padding: 0; margin: 0; white-space: nowrap;
+  }
+  .contoh-tabel.ringkas .sel-contoh.kosong { display: block; }
+}
 /* Kotak yang jajarannya disusun tangan (lebar kolom tidak seragam): huruf
    lebar-sama dari sistem, tanpa mengunduh keluarga huruf baru, supaya spasi
    penulisnya kembali menjajarkan kolom seperti semula. Baris yang terlalu
