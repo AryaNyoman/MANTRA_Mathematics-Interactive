@@ -29,9 +29,10 @@ export default function Tentang() {
             </p>
             <p>
               MANTRA adalah situs belajar matematika SMA yang menggabungkan
-              animasi penjelas dengan alat yang bisa dicoba sendiri. Dibuat
-              untuk siswa yang sudah bisa memakai rumus tetapi belum pernah
-              diperlihatkan dari mana rumus itu datang.
+              animasi penjelas dengan alat yang bisa dicoba sendiri. Tujuannya
+              memperkuat dan memperjelas pemahaman siswa tentang inti
+              matematika itu sendiri: dari mana sebuah rumus datang, kenapa
+              bentuknya begitu, dan kapan ia boleh dipakai.
             </p>
             {/* Jumlah bab sengaja TIDAK disebut angkanya. Jumlahnya masih
                 bertambah, dan kalimat yang menyebut angka akan basi diam-diam

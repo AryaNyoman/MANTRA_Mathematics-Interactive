@@ -1,4 +1,5 @@
-import type { Kanal, Soal } from '@/content/tipe'
+import type { KanalPerSubbab, Soal } from '@/content/tipe'
+import { K, kanal } from '../kanal-youtube.ts'
 
 /**
  * Latihan terbimbing topik Transformasi Geometri: 6 soal pilihan ganda A sampai E.
@@ -151,29 +152,41 @@ export const LATIHAN: Soal[] = [
  * Yang ditautkan kanalnya, bukan videonya, sebab video bisa dihapus pemiliknya
  * sedangkan kanal jarang hilang.
  */
-export const KANAL: Kanal[] = [
-  {
-    nama: 'm4th-lab',
-    handle: '@m4thlab',
-    url: 'https://www.youtube.com/@m4thlab',
-    cari: 'transformasi geometri kelas 11',
-  },
-  {
-    nama: 'Belajar Matematika SMA',
-    handle: '@TrieRush',
-    url: 'https://www.youtube.com/@TrieRush',
-    cari: 'refleksi rotasi dilatasi translasi',
-  },
-  {
-    nama: 'Bimbel SMARRT',
-    handle: '@BimbelSMARRT',
-    url: 'https://www.youtube.com/@BimbelSMARRT',
-    cari: 'matriks transformasi geometri',
-  },
-  {
-    nama: 'Ajar Pipolondo',
-    handle: '@AjarPipolondo',
-    url: 'https://www.youtube.com/@AjarPipolondo',
-    cari: 'soal komposisi transformasi',
-  },
-]
+export const KANAL: KanalPerSubbab = {
+  // A · Prapeta, Peta, dan Pencerminan
+  A: [
+    kanal(K.benni, 'transformasi geometri refleksi'),
+    kanal(K.leGuruLes, 'refleksi pencerminan'),
+    kanal(K.seekorLebah, 'refleksi'),
+  ],
+  // B · Translasi, Rotasi, dan Dilatasi
+  B: [
+    kanal(K.m4thlab, 'transformasi geometri translasi'),
+    kanal(K.benni, 'transformasi geometri rotasi'),
+    kanal(K.seekorLebah, 'dilatasi'),
+  ],
+  // C · Sifat Transformasi
+  C: [
+    kanal(K.matematikaHebat, 'transformasi geometri lengkap'),
+    kanal(K.bigCourse, 'transformasi geometri'),
+    kanal(K.kakWahyu, 'translasi pergeseran'),
+  ],
+  // D · Matriks Transformasi
+  D: [
+    kanal(K.m4thlab, 'transformasi geometri bagian 5 transformasi matriks'),
+    kanal(K.jendelaSains, 'transformasi geometri dengan matriks translasi pergeseran'),
+    kanal(K.bigCourse, 'matriks'),
+  ],
+  // E · Komposisi Transformasi
+  E: [
+    kanal(K.pingLie, 'komposisi transformasi'),
+    kanal(K.leGuruLes, 'transformasi campuran'),
+    kanal(K.m4thlab, 'transformasi matriks'),
+  ],
+  // F · Penerapan Transformasi Geometri
+  F: [
+    kanal(K.matematikaHebat, 'transformasi geometri lengkap'),
+    kanal(K.benni, 'transformasi geometri'),
+    kanal(K.leGuruLes, 'transformasi rotasi'),
+  ],
+}

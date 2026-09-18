@@ -118,11 +118,13 @@ export default function Beranda() {
           </div>
         </section>
 
-        <section className="mantra bagian-beranda" aria-label="Ajakan ke Peta Materi">
+        {/* Jumlah bab sengaja tidak disebut angkanya (ARYA 18 Sep 2026:
+            "tujuh bab" sudah basi, sekarang sembilan dan masih bisa bertambah). */}
+        <section className="mantra bagian-beranda akhir" aria-label="Ajakan ke Peta Materi">
           <MunculSaatGulir>
             <div className="ajakan">
               <div>
-                <h2>Tujuh bab, tersusun seperti buku</h2>
+                <h2>Bab demi bab, tersusun seperti buku</h2>
                 <p>
                   Tiap bab dipecah jadi sub-bab, tiap sub-bab berisi beberapa materi.
                   Peta lengkapnya beserta kemajuanmu ada di Peta Materi.

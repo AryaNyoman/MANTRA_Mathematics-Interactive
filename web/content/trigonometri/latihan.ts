@@ -15,7 +15,8 @@
  * `content/tipe.ts` sejak 1 September 2026.
  */
 export type { Soal, Kanal } from '@/content/tipe'
-import type { Soal, Kanal } from '@/content/tipe'
+import type { Soal, KanalPerSubbab } from '@/content/tipe'
+import { K, kanal } from '../kanal-youtube.ts'
 
 /* Tipe SoalKuis dan bank soalnya pindah ke ./kuis.ts (1 Sep 2026). */
 
@@ -147,29 +148,29 @@ export const LATIHAN: Soal[] = [
 /* tidak mati saat video dihapus atau diganti pemiliknya.               */
 /* ------------------------------------------------------------------ */
 
-export const KANAL: Kanal[] = [
-  {
-    nama: 'm4th-lab',
-    handle: '@m4thlab',
-    url: 'https://www.youtube.com/@m4thlab',
-    cari: 'perbandingan trigonometri segitiga siku-siku kelas 10',
-  },
-  {
-    nama: 'Belajar Matematika SMA',
-    handle: '@TrieRush',
-    url: 'https://www.youtube.com/@TrieRush',
-    cari: 'trigonometri dasar sudut istimewa',
-  },
-  {
-    nama: 'Bimbel SMARRT',
-    handle: '@BimbelSMARRT',
-    url: 'https://www.youtube.com/@BimbelSMARRT',
-    cari: 'perbandingan trigonometri',
-  },
-  {
-    nama: 'Ajar Pipolondo',
-    handle: '@AjarPipolondo',
-    url: 'https://www.youtube.com/@AjarPipolondo',
-    cari: 'soal trigonometri segitiga siku-siku',
-  },
-]
+export const KANAL: KanalPerSubbab = {
+  // A · Perbandingan Trigonometri
+  A: [
+    kanal(K.bigCourse, 'trigonometri dasar'),
+    kanal(K.billykur, 'trigonometri'),
+    kanal(K.matemaKita, 'trigonometri dasar sin cos tan'),
+  ],
+  // B · Lingkaran Satuan dan Sudut Istimewa
+  B: [
+    kanal(K.m4thlab, 'sudut istimewa semua kuadran'),
+    kanal(K.seekorLebah, 'perbandingan trigonometri sudut berelasi'),
+    kanal(K.leGuruLes, 'sistem kuadran relasi sudut trigonometri'),
+  ],
+  // C · Grafik Fungsi Trigonometri
+  C: [
+    kanal(K.bigCourse, 'grafik fungsi trigonometri'),
+    kanal(K.bomMatematika, 'grafik fungsi trigonometri'),
+    kanal(K.jendelaSains, 'menggambar grafik fungsi trigonometri'),
+  ],
+  // D · Penerapan Trigonometri
+  D: [
+    kanal(K.leGuruLes, 'aplikasi perbandingan trigonometri sudut depresi'),
+    kanal(K.jendelaSains, 'sudut elevasi sudut depresi'),
+    kanal(K.seekorLebah, 'soal cerita trigonometri'),
+  ],
+}

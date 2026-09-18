@@ -1,4 +1,5 @@
-import type { Kanal, Soal } from '@/content/tipe'
+import type { KanalPerSubbab, Soal } from '@/content/tipe'
+import { K, kanal } from '../kanal-youtube.ts'
 
 /**
  * Latihan terbimbing topik Vektor: 4 soal pilihan ganda A sampai E.
@@ -91,29 +92,35 @@ export const LATIHAN: Soal[] = [
 /* tidak mati saat video dihapus atau diganti pemiliknya.              */
 /* ------------------------------------------------------------------ */
 
-export const KANAL: Kanal[] = [
-  {
-    nama: 'm4th-lab',
-    handle: '@m4thlab',
-    url: 'https://www.youtube.com/@m4thlab',
-    cari: 'vektor dan operasinya kelas 10',
-  },
-  {
-    nama: 'Belajar Matematika SMA',
-    handle: '@TrieRush',
-    url: 'https://www.youtube.com/@TrieRush',
-    cari: 'penjumlahan vektor metode jajar genjang',
-  },
-  {
-    nama: 'Bimbel SMARRT',
-    handle: '@BimbelSMARRT',
-    url: 'https://www.youtube.com/@BimbelSMARRT',
-    cari: 'komponen vektor dan vektor satuan',
-  },
-  {
-    nama: 'Ajar Pipolondo',
-    handle: '@AjarPipolondo',
-    url: 'https://www.youtube.com/@AjarPipolondo',
-    cari: 'soal vektor perkalian skalar',
-  },
-]
+export const KANAL: KanalPerSubbab = {
+  // A · Pengenalan Vektor
+  A: [
+    kanal(K.m4thlab, 'konsep dasar vektor'),
+    kanal(K.quipper, 'vektor definisi vektor posisi'),
+    kanal(K.jendelaSains, 'definisi vektor'),
+  ],
+  // B · Vektor dalam Sistem Koordinat
+  B: [
+    kanal(K.quipper, 'vektor posisi panjang vektor'),
+    kanal(K.m4thlab, 'vektor posisi'),
+    kanal(K.bigCourse, 'vektor part 1 penjelasan dan operasi vektor'),
+  ],
+  // C · Operasi Vektor
+  C: [
+    kanal(K.m4thlab, 'operasi vektor'),
+    kanal(K.matematikaHebat, 'penjumlahan dan pengurangan vektor'),
+    kanal(K.jendelaSains, 'operasi vektor'),
+  ],
+  // D · Perkalian Titik dan Proyeksi
+  D: [
+    kanal(K.m4thlab, 'perkalian skalar dua vektor'),
+    kanal(K.matematikaHebat, 'vektor besar sudut antara dua vektor'),
+    kanal(K.m4thlab, 'vektor proyeksi'),
+  ],
+  // E · Penerapan Vektor
+  E: [
+    kanal(K.bigCourse, 'vektor fisika'),
+    kanal(K.quipper, 'vektor fisika besaran vektor'),
+    kanal(K.jendelaSains, 'vektor fisika operasi vektor'),
+  ],
+}

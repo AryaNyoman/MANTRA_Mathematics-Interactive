@@ -15,7 +15,8 @@
  * `python alat/cek_soal.py alat/soal-latihan-limit.json` memberi 5 dari 5 lolos.
  */
 
-import type { Kanal, Soal } from '@/content/tipe'
+import type { KanalPerSubbab, Soal } from '@/content/tipe'
+import { K, kanal } from '../kanal-youtube.ts'
 
 export const LATIHAN: Soal[] = [
   {
@@ -105,29 +106,29 @@ export const LATIHAN: Soal[] = [
 /* tidak mati saat video dihapus atau diganti pemiliknya.              */
 /* ------------------------------------------------------------------ */
 
-export const KANAL: Kanal[] = [
-  {
-    nama: 'm4th-lab',
-    handle: '@m4thlab',
-    url: 'https://www.youtube.com/@m4thlab',
-    cari: 'limit fungsi aljabar kelas 12',
-  },
-  {
-    nama: 'Belajar Matematika SMA',
-    handle: '@TrieRush',
-    url: 'https://www.youtube.com/@TrieRush',
-    cari: 'limit fungsi bentuk tak tentu',
-  },
-  {
-    nama: 'Bimbel SMARRT',
-    handle: '@BimbelSMARRT',
-    url: 'https://www.youtube.com/@BimbelSMARRT',
-    cari: 'limit fungsi trigonometri',
-  },
-  {
-    nama: 'Ajar Pipolondo',
-    handle: '@AjarPipolondo',
-    url: 'https://www.youtube.com/@AjarPipolondo',
-    cari: 'soal limit dan kekontinuan fungsi',
-  },
-]
+export const KANAL: KanalPerSubbab = {
+  // A · Konsep Limit
+  A: [
+    kanal(K.m4thlab, 'konsep dasar limit fungsi aljabar'),
+    kanal(K.bigCourse, 'limit fungsi aljabar'),
+    kanal(K.billykur, 'limit kelas 11'),
+  ],
+  // B · Sifat Limit dan Cara Menghitungnya
+  B: [
+    kanal(K.matematikaHebat, 'limit fungsi aljabar substitusi pemfaktoran'),
+    kanal(K.ajarPipolondo, 'tipe soal limit fungsi aljabar'),
+    kanal(K.seekorLebah, 'limit fungsi aljabar'),
+  ],
+  // C · Limit Trigonometri dan Kekontinuan
+  C: [
+    kanal(K.m4thlab, 'limit fungsi trigonometri'),
+    kanal(K.bigCourse, 'limit trigonometri'),
+    kanal(K.privatAlFaiz, 'limit fungsi trigonometri'),
+  ],
+  // D · Penerapan Limit
+  D: [
+    kanal(K.m4thlab, 'limit tak hingga'),
+    kanal(K.zeroTutorial, 'limit tak hingga'),
+    kanal(K.privatAlFaiz, 'limit tak hingga'),
+  ],
+}

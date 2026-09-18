@@ -23,7 +23,8 @@
  * integral tentu, jumlahan Riemann, maupun luas daerah.
  */
 
-import type { Kanal, Soal } from '@/content/tipe'
+import type { KanalPerSubbab, Soal } from '@/content/tipe'
+import { K, kanal } from '../kanal-youtube.ts'
 
 export const LATIHAN: Soal[] = [
   {
@@ -115,23 +116,23 @@ export const LATIHAN: Soal[] = [
   },
 ]
 
-export const KANAL: Kanal[] = [
-  {
-    nama: 'm4th-lab',
-    handle: '@m4thlab',
-    url: 'https://www.youtube.com/@m4thlab',
-    cari: 'integral tak tentu dan integral tentu kelas 12',
-  },
-  {
-    nama: 'Belajar Matematika SMA',
-    handle: '@TrieRush',
-    url: 'https://www.youtube.com/@TrieRush',
-    cari: 'integral substitusi',
-  },
-  {
-    nama: 'Bimbel SMARRT',
-    handle: '@BimbelSMARRT',
-    url: 'https://www.youtube.com/@BimbelSMARRT',
-    cari: 'luas daerah dengan integral',
-  },
-]
+export const KANAL: KanalPerSubbab = {
+  // A · Membalik Turunan
+  A: [
+    kanal(K.m4thlab, 'konsep dasar integral'),
+    kanal(K.zeroTutorial, 'integral dari dasar'),
+    kanal(K.matematikaHebat, 'integral tak tentu'),
+  ],
+  // B · Luas dan Integral Tentu
+  B: [
+    kanal(K.seekorLebah, 'integral tentu'),
+    kanal(K.m4thlab, 'integral tentu'),
+    kanal(K.matematikaHebat, 'luas daerah integral'),
+  ],
+  // C · Penerapan Integral
+  C: [
+    kanal(K.m4thlab, 'volume benda putar'),
+    kanal(K.pahamify, 'integral tentu'),
+    kanal(K.privatAlFaiz, 'cara cepat integral luas'),
+  ],
+}

@@ -18,7 +18,8 @@
  * `python alat/cek_turunan.py alat/soal-latihan-turunan.json`.
  */
 
-import type { Kanal, Soal } from '@/content/tipe'
+import type { KanalPerSubbab, Soal } from '@/content/tipe'
+import { K, kanal } from '../kanal-youtube.ts'
 
 export const LATIHAN: Soal[] = [
   {
@@ -120,29 +121,29 @@ export const LATIHAN: Soal[] = [
 /* pencariannya, disesuaikan dengan topik ini.                          */
 /* ------------------------------------------------------------------ */
 
-export const KANAL: Kanal[] = [
-  {
-    nama: 'm4th-lab',
-    handle: '@m4thlab',
-    url: 'https://www.youtube.com/@m4thlab',
-    cari: 'turunan fungsi aljabar kelas 12',
-  },
-  {
-    nama: 'Belajar Matematika SMA',
-    handle: '@TrieRush',
-    url: 'https://www.youtube.com/@TrieRush',
-    cari: 'aturan rantai turunan',
-  },
-  {
-    nama: 'Bimbel SMARRT',
-    handle: '@BimbelSMARRT',
-    url: 'https://www.youtube.com/@BimbelSMARRT',
-    cari: 'turunan fungsi trigonometri',
-  },
-  {
-    nama: 'Ajar Pipolondo',
-    handle: '@AjarPipolondo',
-    url: 'https://www.youtube.com/@AjarPipolondo',
-    cari: 'aplikasi turunan nilai maksimum minimum',
-  },
-]
+export const KANAL: KanalPerSubbab = {
+  // A · Kemiringan yang Berubah
+  A: [
+    kanal(K.m4thlab, 'konsep dasar turunan fungsi aljabar'),
+    kanal(K.bigCourse, 'aplikasi turunan aljabar definisi'),
+    kanal(K.quipper, 'turunan fungsi aljabar'),
+  ],
+  // B · Aturan Menurunkan
+  B: [
+    kanal(K.matematikaHebat, 'turunan fungsi aljabar'),
+    kanal(K.bigCourse, 'turunan trigonometri'),
+    kanal(K.m4thlab, 'turunan fungsi trigonometri'),
+  ],
+  // C · Turunan untuk Membaca Grafik
+  C: [
+    kanal(K.m4thlab, 'aplikasi turunan gradien garis singgung'),
+    kanal(K.matematikaHebat, 'nilai maksimum dan minimum'),
+    kanal(K.bigCourse, 'aplikasi turunan aljabar'),
+  ],
+  // D · Penerapan Turunan
+  D: [
+    kanal(K.m4thlab, 'aplikasi turunan'),
+    kanal(K.matematikaHebat, 'fungsi naik fungsi turun nilai stasioner'),
+    kanal(K.privatAlFaiz, 'aplikasi turunan fungsi naik dan turun'),
+  ],
+}

@@ -1,4 +1,5 @@
-import type { Kanal, Soal } from '@/content/tipe'
+import type { KanalPerSubbab, Soal } from '@/content/tipe'
+import { K, kanal } from '../kanal-youtube.ts'
 
 /**
  * Latihan dan kanal rujukan topik Ruang Tiga Dimensi.
@@ -110,29 +111,29 @@ export const LATIHAN: Soal[] = [
 /* tidak mati saat video dihapus atau diganti pemiliknya.              */
 /* ------------------------------------------------------------------ */
 
-export const KANAL: Kanal[] = [
-  {
-    nama: 'm4th-lab',
-    handle: '@m4thlab',
-    url: 'https://www.youtube.com/@m4thlab',
-    cari: 'dimensi tiga jarak titik ke bidang',
-  },
-  {
-    nama: 'Belajar Matematika SMA',
-    handle: '@TrieRush',
-    url: 'https://www.youtube.com/@TrieRush',
-    cari: 'kedudukan titik garis dan bidang',
-  },
-  {
-    nama: 'Bimbel SMARRT',
-    handle: '@BimbelSMARRT',
-    url: 'https://www.youtube.com/@BimbelSMARRT',
-    cari: 'sudut antara garis dan bidang dimensi tiga',
-  },
-  {
-    nama: 'Ajar Pipolondo',
-    handle: '@AjarPipolondo',
-    url: 'https://www.youtube.com/@AjarPipolondo',
-    cari: 'proyeksi pada bangun ruang',
-  },
-]
+export const KANAL: KanalPerSubbab = {
+  // A · Kedudukan Titik, Garis, dan Bidang
+  A: [
+    kanal(K.m4thlab, 'dimensi tiga bagian 1'),
+    kanal(K.privatAlFaiz, 'dimensi tiga kelas 12'),
+    kanal(K.bigCourse, 'dimensi tiga part 1'),
+  ],
+  // B · Jarak dalam Ruang
+  B: [
+    kanal(K.ajarPipolondo, 'jarak titik ke bidang dimensi tiga'),
+    kanal(K.privatAlFaiz, 'dimensi tiga jarak titik ke bidang'),
+    kanal(K.matematikaHebat, 'dimensi tiga jarak titik ke garis'),
+  ],
+  // C · Sudut dalam Ruang
+  C: [
+    kanal(K.matematikaHebat, 'dimensi tiga besar sudut antara dua garis'),
+    kanal(K.bigCourse, 'dimensi tiga part 4'),
+    kanal(K.privatAlFaiz, 'trik mudah bangun ruang tiga dimensi'),
+  ],
+  // D · Penerapan Ruang Tiga Dimensi
+  D: [
+    kanal(K.m4thlab, 'dimensi tiga bagian 3'),
+    kanal(K.privatAlFaiz, 'dimensi tiga'),
+    kanal(K.bigCourse, 'dimensi tiga'),
+  ],
+}

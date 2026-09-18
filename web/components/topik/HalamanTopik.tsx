@@ -462,6 +462,18 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   const sebelum = posisi > 0 ? tahapDari(urut[posisi - 1]) : undefined
   const sesudah = posisi >= 0 && posisi < urut.length - 1 ? tahapDari(urut[posisi + 1]) : undefined
   const subKini = tahap ? subDariNomor(tahap.no) : undefined
+  /* Kanal YouTube untuk sub-bab yang sedang dibaca; di Latihan dan Kuis
+     (tanpa sub-bab) kanal pertama tiap sub-bab, tiap kanal sekali. */
+  const kanalKini = (() => {
+    if (subKini && KANAL[subKini.huruf]) return KANAL[subKini.huruf]
+    const sudah = new Set<string>()
+    return Object.values(KANAL).flatMap((daftar) => {
+      const k = daftar[0]
+      if (!k || sudah.has(k.handle)) return []
+      sudah.add(k.handle)
+      return [k]
+    })
+  })()
   const subLanjut = sesudah ? subDariNomor(sesudah.no) : undefined
   const saranLanjut =
     subLanjut && subKini
@@ -875,7 +887,9 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                   )}
 
                   {/* Tautan kanal YouTube. Menuju HASIL PENCARIAN di kanal itu,
-                      bukan halaman depan kanal: siswa cukup satu klik. */}
+                      bukan halaman depan kanal: siswa cukup satu klik. Kanal dan
+                      kata kuncinya mengikuti SUB-BAB yang sedang dibaca (ARYA 18
+                      Sep 2026); di Latihan dan Kuis, satu kanal tiap sub-bab. */}
                   <div className="sesi-youtube">
                     <h2 className="youtube-judul">
                       <svg width="26" height="19" viewBox="0 0 28 20" aria-hidden="true">
@@ -885,12 +899,13 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                       Pelajari lebih dalam lewat YouTube!
                     </h2>
                     <p className="youtube-antar">
-                      Klik nama kanalnya, Anda langsung dibawa ke hasil pencarian topik
-                      ini di kanal tersebut.
+                      {subKini
+                        ? <>Untuk sub-bab <b>{subKini.huruf} · {subKini.nama}</b>. Klik nama kanalnya, Anda langsung dibawa ke hasil pencarian topik ini di kanal tersebut.</>
+                        : <>Satu kanal untuk tiap sub-bab bab ini. Klik nama kanalnya, Anda langsung dibawa ke hasil pencarian topiknya di kanal tersebut.</>}
                     </p>
                     <ul className="tautan">
-                      {KANAL.map((k) => (
-                        <li key={k.handle}>
+                      {kanalKini.map((k) => (
+                        <li key={`${k.handle}:${k.cari}`}>
                           <a
                             href={`${k.url}/search?query=${encodeURIComponent(k.cari)}`}
                             target="_blank"

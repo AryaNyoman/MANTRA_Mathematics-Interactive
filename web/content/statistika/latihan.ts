@@ -1,4 +1,5 @@
-import type { Kanal, Soal } from '@/content/tipe'
+import type { KanalPerSubbab, Soal } from '@/content/tipe'
+import { K, kanal } from '../kanal-youtube.ts'
 
 /**
  * Latihan terbimbing di dalam halaman topik Statistika.
@@ -103,29 +104,28 @@ export const LATIHAN: Soal[] = [
  * Kanalnya sama dengan yang dipakai topik lain di situs ini; yang berbeda cuma
  * kata kunci pencariannya.
  */
-export const KANAL: Kanal[] = [
-  {
-    nama: 'm4th-lab',
-    handle: '@m4thlab',
-    url: 'https://www.youtube.com/@m4thlab',
-    cari: 'statistika data kelompok kelas 10',
-  },
-  {
-    nama: 'Belajar Matematika SMA',
-    handle: '@TrieRush',
-    url: 'https://www.youtube.com/@TrieRush',
-    cari: 'ukuran pemusatan dan penyebaran data',
-  },
-  {
-    nama: 'Bimbel SMARRT',
-    handle: '@BimbelSMARRT',
-    url: 'https://www.youtube.com/@BimbelSMARRT',
-    cari: 'kuartil desil persentil data kelompok',
-  },
-  {
-    nama: 'Ajar Pipolondo',
-    handle: '@AjarPipolondo',
-    url: 'https://www.youtube.com/@AjarPipolondo',
-    cari: 'regresi linear dan korelasi kelas 11',
-  },
-]
+export const KANAL: KanalPerSubbab = {
+  // A · Penyajian Data
+  A: [
+    kanal(K.matematikaHebat, 'histogram dan poligon'),
+    kanal(K.leGuruLes, 'penyajian data statistika'),
+    kanal(K.rumahGemar, 'diagram lingkaran'),
+  ],
+  // B · Ukuran Pemusatan dan Penyebaran
+  B: [
+    kanal(K.rumahGemar, 'mean median modus'),
+    kanal(K.didiYuli, 'mean median modus data kelompok'),
+    kanal(K.galih, 'simpangan baku data kelompok'),
+  ],
+  // C · Hubungan Dua Variabel
+  C: [
+    kanal(K.bsMath, 'regresi linear'),
+    kanal(K.mediaMatematika, 'regresi linear best fit'),
+  ],
+  // D · Penerapan Statistika
+  D: [
+    kanal(K.matematikaHebat, 'statistika'),
+    kanal(K.privatAlFaiz, 'penalaran umum grafik'),
+    kanal(K.m4thlab, 'statistika'),
+  ],
+}

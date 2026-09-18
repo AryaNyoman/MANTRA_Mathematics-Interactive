@@ -334,3 +334,10 @@ export type Kanal = {
   /** kata kunci yang disarankan untuk dicari di kanal itu */
   cari: string
 }
+
+/**
+ * Kanal per SUB-BAB (huruf A, B, C, ...), ARYA 18 Sep 2026: tautan YouTube
+ * harus mengikuti nama sub-bab yang sedang dibaca, bukan satu daftar untuk
+ * seluruh bab. Layar Latihan dan Kuis memakai kanal pertama tiap sub-bab.
+ */
+export type KanalPerSubbab = Record<string, Kanal[]>

@@ -1,5 +1,38 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 18 SEP (4): TAUTAN YOUTUBE PER SUB-BAB, KREATOR DIGILIR; BERANDA DAN TENTANG
+
+ARYA: tautan YouTube harus mengikuti nama sub-bab (Integral A "Membalik
+Turunan" diberi "integral substitusi" yang belum diajarkan), jangan
+m4th-lab dan Bimbel SMARRT terus, boleh kreator lain asal ramai; beranda
+"Tujuh bab" sudah basi dan menempel ke kaki; Tentang jangan membingkai
+peruntukannya ("siswa yang sudah bisa memakai rumus").
+- `content/tipe.ts` `KanalPerSubbab`; `content/kanal-youtube.ts` daftar 30
+  kanal Indonesia beserta subscriber (dibaca dari YouTube 18 Sep); tiap
+  `content/<bab>/latihan.ts` `KANAL` per huruf sub-bab, 40 sub-bab, 113
+  tautan hasil pencarian di dalam kanal dengan kata kunci sesuai sub-bab
+  (pilihan ARYA: tetap pencarian kanal, bukan video tunggal). 22 kreator
+  dipakai (Ruangguru tidak: videonya tidak muncul di pencarian topik).
+- `alat/cek_kanal_youtube.mjs` (baru, tanpa API key): `cari` pencarian
+  YouTube umum (judul, tonton, kanal), `kanal` subscriber, `uji` pencarian
+  di dalam kanal, `periksa` memeriksa semua tautan: video teratas ada,
+  judul cocok lebih dari separuh kata kunci, >= 25 rb tontonan, kanal >=
+  100 rb subscriber atau video >= 75 rb; permintaan dijeda 2,5 detik dan
+  429 ditunggu (YouTube membatasi sesudah kira-kira 60 permintaan cepat).
+  Hasil: 113 tautan lolos. Sub-bab yang hanya punya dua tautan layak:
+  Grafik Fungsi F, Statistika C.
+- HalamanTopik: kotak YouTube menyebut sub-babnya ("Untuk sub-bab A ·
+  Membalik Turunan"); Latihan dan Kuis memakai kanal pertama tiap sub-bab.
+  `tsconfig` `allowImportingTsExtensions` supaya berkas isi bisa mengimpor
+  `../kanal-youtube.ts` dan tetap terbaca Node oleh pemeriksa.
+- Beranda: "Bab demi bab, tersusun seperti buku" (tanpa angka), bagian
+  akhir diberi jarak 56 sampai 96 px ke kaki. Tentang: "Tujuannya memperkuat
+  dan memperjelas pemahaman siswa tentang inti matematika itu sendiri: dari
+  mana sebuah rumus datang, kenapa bentuknya begitu, dan kapan ia boleh
+  dipakai."
+- Cek: periksa 113/113, playwright-cli Integral 01 dan Latihan, beranda,
+  Tentang; tsc, eslint, build.
+
 ## 18 SEP (3): SISTEM GERAK PANGGUNG TAHAP 3, LACI DAN PANEL HALAMAN BELAJAR (deploy matra-4wpzgflnm, push GitHub c4b39a8)
 
 - `HalamanTopik.tsx`: `pilihLayar` satu handler (arah geser + tutup laci +

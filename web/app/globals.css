@@ -2149,6 +2149,9 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 /* ---------- irama beranda v2 ----------
    Jarak antarbagian satu nilai saja, ikut lebar layar. */
 .bagian-beranda { padding-top: clamp(48px, 5vw, 72px); }
+/* Bagian terakhir beranda: jarak ke kaki halaman, supaya ajakan Peta Materi
+   tidak menempel ke "Built by" (ARYA 18 Sep 2026). */
+.bagian-beranda.akhir { padding-bottom: clamp(56px, 6vw, 96px); }
 /* Korsel menggantung menembus batas hero navy. Nilainya negatif dan ikut
    lebar layar, jadi tumpang tindihnya seimbang di HP maupun layar lebar.
    Kolom tengah dibatasi 880px: itu batas BACAAN untuk kotak medianya, bukan

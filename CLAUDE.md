@@ -143,6 +143,15 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
   `node alat/cari_foto_commons.mjs cari|ambil`, kecilkan dengan
   `python alat/kecilkan_foto.py`. Limit, Turunan, Integral membawa grafik
   kecil di bawah foto; bab lain foto saja.
+- **Tautan YouTube mengikuti SUB-BAB, bukan bab** (ARYA 18 Sep 2026):
+  `content/<bab>/latihan.ts` `KANAL` = kanal per huruf sub-bab dengan kata
+  kunci sesuai nama sub-babnya; daftar kanalnya di `content/kanal-youtube.ts`
+  (bahasa Indonesia, subscriber >= 100 rb atau videonya >= 75 rb tontonan,
+  kreator digilir, jangan m4th-lab terus). Setiap tautan WAJIB lolos
+  `node alat/cek_kanal_youtube.mjs periksa` (membaca YouTube: video teratas
+  ada, judulnya cocok kata kunci, >= 25 rb tontonan); `cari`, `kanal`, `uji`
+  untuk mencari kandidat. Kalau sebuah sub-bab hanya punya dua tautan yang
+  layak, dua saja: tautan yang tidak nyambung lebih buruk daripada tidak ada.
 - **Kata "miskonsepsi" DILARANG muncul di halaman.** Itu istilah guru. Pakai
   "Sering keliru", dan taruh di BAWAH setelah siswa paham.
 - **Gaya visual terkunci: rancangan MANTRA** (sejak 3 Sep 2026, menggantikan

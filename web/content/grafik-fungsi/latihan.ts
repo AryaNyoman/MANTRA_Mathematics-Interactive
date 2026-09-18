@@ -1,4 +1,5 @@
-import type { Kanal, Soal } from '@/content/tipe'
+import type { KanalPerSubbab, Soal } from '@/content/tipe'
+import { K, kanal } from '../kanal-youtube.ts'
 
 /**
  * Latihan di dalam halaman topik Grafik Fungsi: 4 soal pilihan ganda A sampai E.
@@ -125,29 +126,40 @@ export const LATIHAN: Soal[] = [
  * pemiliknya dan tautan mati lebih buruk daripada tidak ada tautan. Yang
  * diberikan kanalnya berikut kata kunci yang disarankan.
  */
-export const KANAL: Kanal[] = [
-  {
-    nama: 'Jendela Sains',
-    handle: '@JendelaSains',
-    url: 'https://www.youtube.com/@JendelaSains',
-    cari: 'fungsi kuadrat grafik',
-  },
-  {
-    nama: 'Le GuruLes',
-    handle: '@LeGuruLes',
-    url: 'https://www.youtube.com/@LeGuruLes',
-    cari: 'komposisi fungsi dan invers',
-  },
-  {
-    nama: '3Blue1Brown',
-    handle: '@3blue1brown',
-    url: 'https://www.youtube.com/@3blue1brown',
-    cari: 'exponential growth',
-  },
-  {
-    nama: 'Khan Academy',
-    handle: '@khanacademy',
-    url: 'https://www.youtube.com/@khanacademy',
-    cari: 'shifting and reflecting functions',
-  },
-]
+export const KANAL: KanalPerSubbab = {
+  // A · Pengenalan Fungsi dan Grafik
+  A: [
+    kanal(K.bigCourse, 'relasi dan pengertian fungsi'),
+    kanal(K.benni, 'relasi dan fungsi'),
+    kanal(K.lianna, 'fungsi dan bukan fungsi'),
+  ],
+  // B · Fungsi Kuadrat
+  B: [
+    kanal(K.m4thlab, 'fungsi kuadrat'),
+    kanal(K.leGuruLes, 'cara menggambar grafik fungsi kuadrat'),
+    kanal(K.seekorLebah, 'grafik fungsi kuadrat'),
+  ],
+  // C · Transformasi Fungsi
+  C: [
+    kanal(K.y2education, 'transformasi fungsi'),
+    kanal(K.seekorLebah, 'transformasi fungsi'),
+    kanal(K.jendelaSains, 'menggambar grafik fungsi nilai mutlak'),
+  ],
+  // D · Fungsi Eksponen dan Logaritma
+  D: [
+    kanal(K.mantappu, 'eksponen kelas 10'),
+    kanal(K.m4thlab, 'fungsi eksponen'),
+    kanal(K.pahamify, 'fungsi eksponensial'),
+  ],
+  // E · Fungsi Rasional, Komposisi, dan Invers
+  E: [
+    kanal(K.matematikaHebat, 'fungsi komposisi dan fungsi invers'),
+    kanal(K.mantappu, 'fungsi komposisi invers'),
+    kanal(K.ajarPipolondo, 'fungsi invers'),
+  ],
+  // F · Penerapan Grafik Fungsi
+  F: [
+    kanal(K.m4thlab, 'fungsi eksponen pertumbuhan peluruhan'),
+    kanal(K.leGuruLes, 'penerapan fungsi kuadrat'),
+  ],
+}
