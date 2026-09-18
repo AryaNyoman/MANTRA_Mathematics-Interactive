@@ -1,5 +1,31 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 18 SEP (3): SISTEM GERAK PANGGUNG TAHAP 3, LACI DAN PANEL HALAMAN BELAJAR
+
+- `HalamanTopik.tsx`: `pilihLayar` satu handler (arah geser + tutup laci +
+  ganti layar lewat `startTransition`, supaya materi lama tetap hidup selama
+  materi baru dirakit, 300 sampai 400 ms di produksi); isi bacaan dibungkus
+  `.panggung-isi key={layar} data-arah` (Lanjut atau materi lebih belakang
+  dari kanan, Kembali dari kiri, 280 ms, fill backwards); kolom alat
+  di-`key` per layar sehingga isinya memudar masuk; remah `.kini` memudar;
+  tirai laci selalu dirakit (`data-buka`, memudar keluar, di desktop
+  `display: none`), laci masuk 400 keluar 300 dengan visibility tertunda;
+  kuncup pohon: label memudar 140 ms (state `memudar`) baru kolom menyempit
+  400 ms, satu panah togel berputar; mode fokus: kolom pohon ke 0 px
+  bertransisi (bukan display none) lalu visibility hidden; lencana kuis
+  "Terkunci" ke "Siap" menyala sekali (`data-baru`); video dan alat-sisip
+  memudar masuk saat bertukar di HP; `LaciLanjut`: panel naik masuk 400 ms,
+  batang `scaleX` menyusul 80 ms.
+- `TeksMat.tsx`: hasil per teks disimpan lintas komponen (3000 teks) supaya
+  kunjungan ulang materi tidak mengurai dan merender KaTeX lagi.
+- Diukur (dev server): sebelum, bingkai pertama sesudah klik Lanjut 750 sampai
+  880 ms (halaman beku); sesudah startTransition 216 ms (produksi lama 300
+  sampai 430 ms, togel 21 ms). Dicek playwright-cli 1280 (Lanjut, Kembali,
+  kuncup, lebar, fokus, Lanjutkan) dan 390 (laci buka, pilih, Esc), gulir
+  kolom 0 saat pindah materi, transform tidak tertinggal.
+- Penyimpangan dari rancangan dicatat di `docs/desain-mantra/gerak/KEPUTUSAN.md`
+  (tanpa portal, tanpa lipatan sub-bab, tanpa min-height alat-sisip).
+
 ## 18 SEP (2): TEKS ALAT KATEX, GALERI DUNIA NYATA BERFOTO, PANEL TEKS JADI LEMBAR KERJA (deploy matra-23wwmzjhe, push GitHub 02e76fb)
 
 ARYA (enam tangkapan layar): teks alat interaktif belum bergaya bank soal

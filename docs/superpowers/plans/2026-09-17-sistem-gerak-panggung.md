@@ -64,17 +64,18 @@ untuk lipat pohon dan mode fokus). Tanpa em-dash.
 
 ## Tahap 3: C laci dan panel, E pindah materi (halaman belajar)
 
-- [ ] 3.1 `HalamanTopik.tsx`: laci HP + tirai lewat `createPortal` ke body;
-      `.tirai-laci[data-buka]` selalu dirakit; `.pohon[data-buka]`;
-      `pilihMateri` satu handler (tutup laci + arah + ganti layar).
-- [ ] 3.2 `.panggung-isi key={slug} data-arah` (Kembali kiri, Lanjut kanan,
-      pohon menurut urutan); remah dan kolom widget `isi-ganti`.
-- [ ] 3.3 Lipat pohon: `grid-template-columns` bertransisi, label memudar dulu,
+- [x] 3.1 `HalamanTopik.tsx`: laci HP + tirai (TANPA portal, lihat KEPUTUSAN);
+      `.tirai-laci[data-buka]` selalu dirakit; `.pohon[data-laci]` bertransisi
+      masuk 400 / keluar 300; `pilihLayar` satu handler (arah + tutup laci +
+      ganti layar lewat startTransition).
+- [x] 3.2 `.panggung-isi key={slug} data-arah` (Kembali kiri, Lanjut kanan,
+      pohon menurut urutan); remah `.kini` dan kolom widget `isi-ganti`.
+- [x] 3.3 Lipat pohon: `grid-template-columns` bertransisi, label memudar dulu,
       chevron putar; mode fokus: kolom pohon → 0 (ganti `display: none`).
-- [ ] 3.4 `.alat-sisip { min-height }` ajakan ↔ widget bertukar di tempat;
-      `.lencana-kunci[data-baru]` sekali saat terbuka; `LaciLanjut` panel
-      `naik-umpan`, batang `scaleX` mulai 80 ms.
-- [ ] 3.5 Cek: laci buka/pilih/tutup di 390 px, lipat pohon, fokus masuk/keluar,
+- [x] 3.4 `.alat-sisip` dan `.layar-atas` memudar masuk (min-height tidak,
+      lihat KEPUTUSAN); `.lencana-kunci[data-baru]` sekali saat terbuka;
+      `LaciLanjut` panel `naik-umpan`, batang `scaleX` mulai 80 ms.
+- [x] 3.5 Cek: laci buka/pilih/tutup di 390 px, lipat pohon, fokus masuk/keluar,
       Kembali/Lanjut, gulir kolom tetap 0 saat pindah materi.
 
 ## Tahap 4: H korsel dan video, I memuat dan 404, J mikro, K gulir

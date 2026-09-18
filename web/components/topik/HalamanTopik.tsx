@@ -1,7 +1,7 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
+import { startTransition, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import PemutarVideo from '@/components/PemutarVideo'
 import Penjelasan from '@/components/topik/Penjelasan'
 import TeksMat from '@/components/latihan/TeksMat'
@@ -154,6 +154,23 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   // supaya panggung tetap satu layar tanpa gulir atas-bawah.
   const [mode, setMode] = useState<'coba' | 'tonton'>('tonton')
   const [rel, setRel] = useState(false)
+  /* Kuncup pohon (sistem gerak Panggung tahap 3): label memudar dulu
+     (--d-umpan), BARU kolomnya menyempit (grid-template-columns bertransisi
+     di CSS). Kalau label ikut hilang bersamaan dengan kolom yang bergerak,
+     teksnya terpotong di tengah gerakan. Melebarkan kembali: seketika,
+     labelnya memudar masuk sendiri saat dipasang. */
+  const [memudar, setMemudar] = useState(false)
+  const togelRel = () => {
+    if (rel) {
+      setRel(false)
+      return
+    }
+    setMemudar(true)
+    window.setTimeout(() => {
+      setRel(true)
+      setMemudar(false)
+    }, 140)
+  }
   /* Laci daftar materi, HANYA berlaku di layar HP.
      Sebelum ini sidebar ditumpuk di atas isi materi dan tingginya dipatok
      60% layar, sehingga daftarnya terpotong di tengah baris dan baris Latihan
@@ -170,11 +187,25 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   // Materi yang centangnya sedang meletup. Sekali saja, saat pertama dibuka.
   const [letup, setLetup] = useState<string | null>(null)
 
-  /* Memilih layar SEKALIGUS menutup laci. Di HP, laci yang tetap terbuka
-     setelah materi dipilih menutupi materi yang baru saja dibuka. */
+  /* Arah geser isi saat berpindah materi (sistem gerak Panggung tahap 3):
+     Lanjut atau materi yang lebih belakang = isi datang dari kanan, Kembali
+     = dari kiri; 'diam' pada pemuatan pertama. Urutannya: materi menurut
+     nomor, lalu Latihan, lalu Kuis. */
+  const [arah, setArah] = useState<'maju' | 'mundur' | 'diam'>('diam')
+  const urutanLayar = (l: Layar) =>
+    l.jenis === 'tahap' ? urut.indexOf(TAHAP.find((x) => x.slug === l.slug)?.no ?? -1) : l.jenis === 'latihan' ? urut.length : urut.length + 1
+
+  /* Memilih layar SEKALIGUS menutup laci dan menentukan arah gesernya: satu
+     handler, satu render. Di HP, laci yang tetap terbuka setelah materi
+     dipilih menutupi materi yang baru saja dibuka. */
   const pilihLayar = (l: Layar) => {
-    setLayar(l)
+    setArah(urutanLayar(l) >= urutanLayar(layarPilih) ? 'maju' : 'mundur')
     setLaci(false)
+    // startTransition: merakit materi baru (ratusan rumus KaTeX, widget)
+    // butuh 300 sampai 400 ms di produksi; tanpa ini seluruh halaman membeku
+    // selama itu. Dengan transisi, materi lama tetap hidup sampai yang baru
+    // siap, lalu keduanya bertukar dan animasi gesernya mulai di saat itu.
+    startTransition(() => setLayar(l))
   }
 
   /* --- kemajuan, dibaca sebagai "external store" ------------------------
@@ -200,6 +231,22 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   const guru = useModeGuru()
   const terbuka = kuisTerbuka(kemajuan, TAHAP.length) || guru
   const jumlahDibuka = urut.filter((n) => dibuka.has(tahapDari(n)?.slug ?? '')).length
+  /* Lencana kuis "Terkunci" menjadi "Siap": menyala sekali, hanya saat
+     perubahannya terjadi di depan mata (bukan saat halaman dibuka dalam
+     keadaan sudah terbuka). */
+  const terbukaSebelumnya = useRef(terbuka)
+  const [kunciBaru, setKunciBaru] = useState(false)
+  useEffect(() => {
+    const berubah = !terbukaSebelumnya.current && terbuka
+    terbukaSebelumnya.current = terbuka
+    if (!berubah) return
+    const bingkai = requestAnimationFrame(() => setKunciBaru(true))
+    const id = window.setTimeout(() => setKunciBaru(false), 450)
+    return () => {
+      cancelAnimationFrame(bingkai)
+      window.clearTimeout(id)
+    }
+  }, [terbuka])
   const persen = Math.round((jumlahDibuka / urut.length) * 100)
   const menitKurang = Math.max(0, MENIT_MINIMUM - Math.floor(kemajuan.detik / 60))
 
@@ -287,9 +334,10 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
     if (!minta) return
     // requestAnimationFrame, bukan setLayar langsung: React 19 melarang
     // setState serentak di badan effect (react-hooks/set-state-in-effect).
-    const id = requestAnimationFrame(() =>
-      setLayar(minta === 'lanjut' ? tujuanLanjut() : awalDari(minta)),
-    )
+    const id = requestAnimationFrame(() => {
+      setArah('maju')
+      setLayar(minta === 'lanjut' ? tujuanLanjut() : awalDari(minta))
+    })
     return () => cancelAnimationFrame(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [minta])
@@ -457,18 +505,22 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
             <span aria-hidden="true">✕</span>Keluar fokus <span className="tuts">Esc</span>
           </button>
         )}
-        <div className="materi-badan" data-rel={rel}>
+        <div className="materi-badan" data-rel={rel} data-memudar={memudar}>
           {/* Tirai gelap di belakang laci. Sebuah tombol, bukan div: menutup
               laci harus bisa dilakukan tanpa tetikus, dan tombol sudah bisa
               ditekan lewat papan ketik tanpa tambahan apa pun. */}
-          {laci && (
-            <button
-              type="button"
-              className="tirai-laci"
-              aria-label="Tutup daftar materi"
-              onClick={() => setLaci(false)}
-            />
-          )}
+          {/* Selalu dirakit (data-buka), supaya tirainya bisa memudar keluar,
+              bukan lenyap seketika; saat tertutup ia tidak bisa diklik maupun
+              dijangkau Tab. */}
+          <button
+            type="button"
+            className="tirai-laci"
+            data-buka={laci}
+            aria-label="Tutup daftar materi"
+            aria-hidden={!laci}
+            tabIndex={laci ? 0 : -1}
+            onClick={() => setLaci(false)}
+          />
 
           {/* ======================= SIDEBAR POHON ======================= */}
           <aside className="pohon" id="pohon-materi" data-laci={laci}>
@@ -490,9 +542,9 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                 className="pohon-togel"
                 title={rel ? 'Lebarkan daftar materi' : 'Kuncupkan daftar materi'}
                 aria-expanded={!rel}
-                onClick={() => setRel((r) => !r)}
+                onClick={togelRel}
               >
-                {rel ? '»' : '«'}
+                <span className="pohon-togel-panah" aria-hidden="true">«</span>
               </button>
               <button
                 type="button"
@@ -586,7 +638,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                     <span className="nama" style={{ display: 'block' }}>Kuis</span>
                     <span className="syarat">{kuisSyarat}</span>
                   </span>
-                  <span className="lencana-kunci">{terbuka ? 'Siap' : 'Terkunci'}</span>
+                  <span className="lencana-kunci" data-baru={kunciBaru}>{terbuka ? 'Siap' : 'Terkunci'}</span>
                 </button>
               </div>
             )}
@@ -642,6 +694,13 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                       {tahap ? `Materi ${dua(tahap.no)}` : layar.jenis === 'latihan' ? 'Latihan' : 'Kuis'}
                     </span>
                   </div>
+
+                  {/* Isi bacaan berganti BERARAH (sistem gerak Panggung tahap
+                      3): key per layar membuat isi lama dibuang dan isi baru
+                      masuk bergeser 24 px dari arah tujuan; remah di atasnya
+                      tetap diam. Animasinya fill backwards: tidak ada transform
+                      yang tertinggal sesudahnya. */}
+                  <div className="panggung-isi" key={kunciLayar} data-arah={arah}>
 
                   {/* Segmen Tonton / Coba sendiri HANYA muncul di layar sempit.
                       Di layar lebar keduanya tampil sekaligus, jadi tombol
@@ -848,6 +907,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                       siapa pun.
                     </div>
                   </div>
+                  </div>
                 </div>
 
                 {/* KOLOM ALAT, di kanan. Hanya ada di layar lebar; di layar
@@ -879,7 +939,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                 {!padat && tahap && (
                   /* KolomAlat menyesuaikan tinggi gambar supaya gambar, kendali,
                      dan tabel angka muat bersama (lihat berkasnya). */
-                  <KolomAlat kunci={`${kunciLayar}:${lebarAlat}`}>
+                  <KolomAlat key={kunciLayar} kunci={`${kunciLayar}:${lebarAlat}`}>
                     <div className="alat-kepala">
                       <span className="tanda-alat">
                         {tahap.widget ? `ALAT · ${tanda}` : 'RINGKASAN'}

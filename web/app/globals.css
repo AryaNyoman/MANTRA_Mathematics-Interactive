@@ -308,7 +308,9 @@ h1, h2, h3, .disp {
   border: 1px solid var(--garis); border-radius: var(--r-kontrol);
   box-shadow: 0 18px 40px rgba(16, 26, 43, 0.18);
   padding: 6px;
-  animation: naik var(--d-sedang) var(--kurva) both;
+  /* Sistem gerak tahap 3: panel turun 8 px sambil memudar masuk (400 ms),
+     batangnya menyusul 80 ms kemudian (LaciLanjut.tsx). */
+  animation: naik-umpan var(--d-jendela) var(--kurva) backwards;
 }
 .nav-laci-judul {
   position: sticky; top: 0; z-index: 1;
@@ -331,7 +333,7 @@ h1, h2, h3, .disp {
   grid-column: 1 / -1; height: 3px; border-radius: 2px;
   background: rgba(16, 26, 43, 0.1); overflow: hidden;
 }
-.nav-laci-baris .batang span { display: block; height: 100%; background: var(--emas); }
+.nav-laci-baris .batang span { display: block; height: 100%; width: 100%; transform-origin: left center; background: var(--emas); }
 .nav-laci-baris[data-tuntas='true'] .batang span { background: #6E9C7A; }
 
 .sp { margin-left: auto; }
@@ -2811,14 +2813,36 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .keluar-fokus:hover { border-color: var(--tinta); }
 .keluar-fokus .tuts { font-weight: 400; color: var(--tinta-50); }
 
-/* Mode fokus: daftar materi disembunyikan, bacaan mendapat seluruh panel. */
-.materi-satu-layar[data-fokus='true'] .materi-badan { grid-template-columns: minmax(0, 1fr); }
-.materi-satu-layar[data-fokus='true'] .pohon { display: none; }
+/* Mode fokus: kolom pohon menyempit ke nol (bertransisi, tahap 3 sistem
+   gerak), bacaan mendapat seluruh panel. Pohon disembunyikan dari Tab dan
+   pembaca layar sesudah gerakannya selesai (visibility tertunda). */
+.materi-satu-layar[data-fokus='true'] .materi-badan { grid-template-columns: 0px minmax(0, 1fr); }
+.pohon { min-width: 0; transition: visibility 0s 0s, border-color var(--d-keluar) linear; }
+.materi-satu-layar[data-fokus='true'] .pohon {
+  visibility: hidden; border-right-color: transparent;
+  transition: visibility 0s var(--d-jendela), border-color var(--d-keluar) linear;
+}
 .materi-satu-layar[data-fokus='true'] .remah { display: none; }
 /* Dalam mode fokus nav tidak tergambar, jadi tinggi yang tersedia bukan lagi
    layar dikurangi nav melainkan seluruh layar. Tanpa baris ini panel
    berhenti 68 piksel sebelum dasar layar dan meninggalkan pita kosong. */
 .materi-satu-layar[data-fokus='true'] { height: 100dvh; }
+
+/* Isi bacaan berganti berarah saat pindah materi (HalamanTopik.tsx
+   `.panggung-isi` key per layar, data-arah dari pilihLayar). Fill
+   backwards: sesudah animasi tidak ada transform yang tertinggal, jadi
+   video layar penuh dan jendela di dalamnya tidak terganggu. */
+.panggung-isi[data-arah='maju'] { animation: materi-kanan var(--d-materi) var(--kurva) backwards; }
+.panggung-isi[data-arah='mundur'] { animation: materi-kiri var(--d-materi) var(--kurva) backwards; }
+.materi-satu-layar .kolom.alat > * { animation: isi-ganti var(--d-umpan) linear backwards; }
+.materi-satu-layar .remah .kini { display: inline-block; animation: isi-ganti var(--d-umpan) linear backwards; }
+/* Di HP: video dan alat bertukar tempat lewat tombol Tonton / Coba sendiri;
+   yang baru dipasang memudar masuk supaya pertukarannya tidak menyentak. */
+.materi-satu-layar .alat-sisip, .materi-satu-layar .layar-atas { animation: isi-ganti 200ms linear backwards; }
+@media (prefers-reduced-motion: reduce) {
+  .panggung-isi[data-arah], .materi-satu-layar .kolom.alat > *, .materi-satu-layar .remah .kini,
+  .materi-satu-layar .alat-sisip, .materi-satu-layar .layar-atas { animation-duration: 0s; }
+}
 
 /* Celah di atas bacaan saat mode fokus. Di keadaan biasa celah itu datang
    dari baris remah roti setinggi 54 piksel; mode fokus menyembunyikan remah
@@ -2856,9 +2880,29 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 /* Dua kolom: sidebar yang bisa dikuncupkan, lalu isi materi. */
 .materi-badan {
   display: grid; grid-template-columns: 280px minmax(0, 1fr);
-  transition: grid-template-columns var(--d-sedang) var(--kurva);
+  /* Sistem gerak Panggung tahap 3: kolom pohon menyempit 400 ms dengan
+     kurva pindah; label di dalamnya sudah memudar lebih dulu
+     (HalamanTopik.tsx `memudar`, 140 ms) supaya teks tidak terpotong di
+     tengah gerakan. */
+  transition: grid-template-columns var(--d-jendela) var(--kurva-pindah);
   min-height: 470px;
 }
+.pohon-kepala .bab, .pohon-kepala .nama, .pohon-maju-teks, .pohon-baris .judul,
+.pohon-baris .status, .pohon-sub .nama, .pohon-sub .hitung, .pohon-kaki {
+  transition: opacity var(--d-umpan) linear;
+}
+.materi-badan[data-memudar='true'] .pohon-kepala .bab, .materi-badan[data-memudar='true'] .pohon-kepala .nama,
+.materi-badan[data-memudar='true'] .pohon-maju-teks, .materi-badan[data-memudar='true'] .pohon-baris .judul,
+.materi-badan[data-memudar='true'] .pohon-baris .status, .materi-badan[data-memudar='true'] .pohon-sub .nama,
+.materi-badan[data-memudar='true'] .pohon-sub .hitung, .materi-badan[data-memudar='true'] .pohon-kaki { opacity: 0; }
+/* Melebar kembali: label yang baru dipasang memudar masuk. */
+.materi-badan[data-rel='false'] .pohon-baris .judul, .materi-badan[data-rel='false'] .pohon-sub .nama,
+.materi-badan[data-rel='false'] .pohon-kaki, .materi-badan[data-rel='false'] .pohon-kepala .nama {
+  animation: isi-ganti var(--d-umpan) linear backwards;
+}
+/* Satu panah yang berputar, bukan dua huruf yang bertukar. */
+.pohon-togel-panah { display: inline-block; transition: transform var(--d-keluar) var(--kurva-pindah); }
+.materi-badan[data-rel='true'] .pohon-togel-panah { transform: rotate(180deg); }
 /* Rel 80 piksel, bukan 62. Pada 62 nomor materi dua digit beserta cincin
    centangnya terpotong; ditemukan perancang saat pemeriksaan HP 4 Sep 2026. */
 .materi-badan[data-rel='true'] { grid-template-columns: 80px 1fr; }
@@ -2948,6 +2992,7 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .pohon-kaki .nama { font-size: 13.5px; font-weight: 600; }
 /* Syarat kunci kuis DITULIS, tidak pernah disembunyikan. */
 .pohon-kaki .syarat { font-size: 11px; color: var(--tinta-62); line-height: 1.4; }
+.pohon-kaki .lencana-kunci[data-baru='true'] { animation: kunci-buka var(--d-jendela) var(--kurva) both; }
 .pohon-kaki .lencana-kunci {
   font-size: 11px; color: var(--emas); border: 1px solid var(--emas);
   border-radius: 6px; padding: 2px 6px; white-space: nowrap;
@@ -2994,9 +3039,12 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   .pindah-materi { position: static; }
 }
 
-/* Tombol pembuka laci dan tirainya HANYA ada di layar HP. Di layar lebar
-   sidebar memang selalu terlihat, jadi keduanya disembunyikan. */
-.buka-laci, .laci-tutup { display: none; }
+/* Tombol pembuka laci, tombol tutupnya, dan tirainya HANYA ada di layar HP.
+   Di layar lebar sidebar memang selalu terlihat, jadi ketiganya
+   disembunyikan. Tirai sejak tahap 3 sistem gerak SELALU dirakit (supaya bisa
+   memudar keluar), jadi tanpa baris ini ia menjadi sel grid pertama di
+   desktop dan mendorong pohon ke kolom bacaan. */
+.buka-laci, .laci-tutup, .tirai-laci { display: none; }
 
 @media (max-width: 860px) {
   /* SIDEBAR JADI LACI, BUKAN TUMPUKAN.
@@ -3017,17 +3065,31 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
     border-right: 1px solid var(--garis); border-bottom: none;
     box-shadow: 0 0 60px -10px rgba(16, 26, 43, 0.45);
     transform: translateX(-101%);
-    transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
-    /* `visibility` ikut dimatikan supaya laci yang tertutup tidak bisa
-       dijangkau Tab. Tanpa ini papan ketik nyasar ke daftar materi yang
-       sedang berada di luar layar. */
+    /* Keluar 300 ms dengan kurva keluar (sistem gerak Panggung tahap 3);
+       `visibility` ikut dimatikan SESUDAH gerakannya selesai supaya laci
+       yang tertutup tidak bisa dijangkau Tab. Tanpa ini papan ketik nyasar
+       ke daftar materi yang sedang berada di luar layar. */
+    transition: transform var(--d-keluar) var(--kurva-keluar), visibility 0s var(--d-keluar);
     visibility: hidden;
   }
-  .pohon[data-laci='true'] { transform: none; visibility: visible; }
+  /* Masuk 400 ms dengan kurva pindah, terlihat seketika. */
+  .pohon[data-laci='true'] {
+    transform: none; visibility: visible;
+    transition: transform var(--d-jendela) var(--kurva-pindah), visibility 0s 0s;
+  }
+  /* Tirai selalu dirakit; memudar masuk bersamaan dengan laci, memudar
+     keluar 300 ms; saat tertutup tidak menangkap sentuhan. */
   .tirai-laci {
     display: block; position: fixed; inset: 0; z-index: 55;
     border: 0; padding: 0; cursor: pointer;
     background: rgba(16, 26, 43, 0.45);
+    opacity: 0; pointer-events: none;
+    transition: opacity var(--d-keluar) linear;
+  }
+  .tirai-laci[data-buka='true'] { opacity: 1; pointer-events: auto; }
+  @media (prefers-reduced-motion: reduce) {
+    .pohon, .pohon[data-laci='true'] { transition-duration: 0s; }
+    .tirai-laci { transition-duration: 0s; }
   }
   /* Di laci, sidebar SELALU lebar penuh: rel sempit tidak ada gunanya di sini. */
   .materi-badan[data-rel='true'] .pohon-baris { grid-template-columns: 22px 1fr 15px; padding: 8px 10px; justify-items: stretch; }

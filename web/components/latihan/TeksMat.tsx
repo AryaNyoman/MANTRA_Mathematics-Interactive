@@ -87,7 +87,29 @@ function susun(teks: string, blok: boolean): ReactNode[] {
   return keluar
 }
 
+/**
+ * Simpanan hasil per teks, LINTAS komponen dan lintas materi (18 Sep 2026).
+ * `useMemo` hanya menolong selama komponennya hidup; berpindah materi
+ * merakit ratusan TeksMat baru dan tiap pengurai serta KaTeX-nya berjalan
+ * lagi (terukur 1,2 detik sampai bingkai pertama di dev server pada materi
+ * ber-130 rumus). Rumus dan kalimat yang sama muncul berulang di seluruh
+ * situs, dan elemen React yang sudah jadi boleh dipakai ulang di tempat mana
+ * pun. Dibatasi 3000 teks; kalau penuh, dikosongkan dan diisi lagi.
+ */
+const SIMPANAN = new Map<string, ReactNode[]>()
+const BATAS_SIMPANAN = 3000
+
+function susunTersimpan(teks: string, blok: boolean): ReactNode[] {
+  const kunci = `${blok ? 'b' : 's'}|${teks}`
+  const ada = SIMPANAN.get(kunci)
+  if (ada) return ada
+  if (SIMPANAN.size >= BATAS_SIMPANAN) SIMPANAN.clear()
+  const isi = susun(teks, blok)
+  SIMPANAN.set(kunci, isi)
+  return isi
+}
+
 export default function TeksMat({ teks, blok = true }: { teks: string; blok?: boolean }) {
-  const isi = useMemo(() => susun(teks, blok), [teks, blok])
+  const isi = useMemo(() => susunTersimpan(teks, blok), [teks, blok])
   return <>{isi}</>
 }

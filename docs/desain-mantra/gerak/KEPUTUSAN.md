@@ -82,3 +82,26 @@ Prompt yang melahirkan rancangan ini: `../PROMPT-CLAUDE-DESIGN-GERAK.md`.
 - **Tombol Periksa, Sebelumnya, Berikutnya berada di luar badan soal yang
   di-`key`**, supaya menekan Berikutnya lima kali berturut-turut tidak
   melepas tombol yang sedang difokus.
+- **Tahap 3 (18 Sep 2026): laci HP dan tirai TIDAK dipindahkan ke portal
+  body.** Rancangan menyarankan `createPortal` supaya panggung boleh
+  di-transform; di halaman belajar `main` memang tidak pernah di-transform
+  (lihat butir `[data-panggung]` di atas) dan semua animasinya berisi
+  `backwards`, jadi `position: fixed` di dalam `main` aman. Portal justru
+  memindahkan pohon keluar dari grid di HP sesudah hidrasi (di server tata
+  letaknya desktop), dan itu merakit ulang seluruh daftar materi. Tirainya
+  sekarang selalu dirakit (`data-buka`) supaya memudar keluar, dan di desktop
+  disembunyikan `display: none` (kalau tidak ia jadi sel grid pertama).
+- **Kuncup pohon: label memudar dulu lewat state `memudar` (140 ms), baru
+  `rel` dinyalakan** dan kolomnya menyempit (grid-template-columns 400 ms).
+  Label memang dilepas dari DOM saat kuncup; mempertahankannya hanya untuk
+  dipudarkan berarti mengubah semua baris pohon.
+- **Isi bacaan berganti berarah lewat `key` dan `startTransition`.** Merakit
+  materi baru butuh 300 sampai 400 ms di produksi (ratusan rumus KaTeX,
+  widget); `startTransition` menjaga materi lama tetap hidup sampai yang baru
+  siap, dan animasi gesernya mulai saat pertukaran. Hasil TeksMat disimpan
+  lintas komponen (`SIMPANAN` di TeksMat.tsx) supaya kunjungan ulang murah.
+- **Lipatan sub-bab pohon (pohon-sub) tidak dibuat**: ARYA 17 Sep memutuskan
+  tidak ada lipatan baru.
+- **`.alat-sisip` tidak diberi `min-height`**: di HP yang bertukar adalah
+  video dan alat (tombol Tonton / Coba sendiri), tingginya memang berbeda;
+  keduanya cukup memudar masuk 200 ms saat dipasang.

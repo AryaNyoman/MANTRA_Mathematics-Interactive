@@ -64,11 +64,13 @@ export default function LaciLanjut({ onPilih }: { onPilih?: () => void }) {
       const id = requestAnimationFrame(() => setMaju(1))
       return () => cancelAnimationFrame(id)
     }
-    const mulai = performance.now()
+    // Mulai 80 ms sesudah panelnya naik masuk (rancangan gerak: batang
+    // menyusul panel), lalu 600 ms.
+    const mulai = performance.now() + 80
     let hidup = true
     const langkah = (t: number) => {
       if (!hidup) return
-      const p = Math.min(1, (t - mulai) / 600)
+      const p = Math.min(1, Math.max(0, (t - mulai) / 600))
       setMaju(1 - Math.pow(1 - p, 3))
       if (p < 1) requestAnimationFrame(langkah)
     }
@@ -144,7 +146,9 @@ export default function LaciLanjut({ onPilih }: { onPilih?: () => void }) {
                 <span className="nama">{b.nama}</span>
                 <span className="persen angka-rata">{Math.round(persen * maju)}%</span>
                 <span className="batang" aria-hidden>
-                  <span style={{ width: `${persen * maju}%` }} />
+                  {/* scaleX, bukan width: digerakkan compositor, tidak memicu
+                      tata letak ulang tiap bingkai (sistem gerak tahap 3). */}
+                  <span style={{ transform: `scaleX(${(persen * maju) / 100})` }} />
                 </span>
               </Link>
             )
