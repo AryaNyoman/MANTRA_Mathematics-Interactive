@@ -1,5 +1,33 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 18 SEP (7): GRAPHIFY DIPERBARUI PENUH DENGAN GROK (dokumen, bukan hanya kode)
+
+ARYA: "update ulang graphify, kali ini gunakan LLM Grok yang sudah saya pasang".
+- Peta sebelumnya hanya kode (AST) plus sisa ekstraksi dokumen 3 Sep; 86
+  dokumen yang berubah sejak itu (PROGRESS, docs/tugas, docs/superpowers,
+  docs/desain-mantra, arsip sesi, riset deep-learning-manim) hanya punya
+  25 simpul. Sekarang 776 simpul dari dokumen-dokumen itu: laporan Vektor 77,
+  MANTRA-INTEGRAL 48, alur belajar Turunan 42, Transformasi 41.
+- Hasil: 4989 simpul, 9495 sisi, 547 komunitas bernama (95 persen
+  EXTRACTED); dibanding pagi (4480 simpul, sebelum Grok). Grok 4.6 lewat
+  9router, `graphify extract . --backend grok --token-budget 6000
+  --max-concurrency 4`: 85 dokumen jadi 76 kiriman, 2 jam (17:00 sampai
+  19:00), 474 ribu token masuk, 906 ribu keluar, gratis. Lima dokumen
+  terpotong di batas keluaran (hasil sebagian dipakai): INVENTORY,
+  MANTRA-TURUNAN-INTEGRAL, MANTRA-TRANSFORMASI-GEOMETRI, dan dua lagi;
+  PROGRESS.md (30 ribu kata) hanya menghasilkan 9 simpul, memang catatan
+  harian, bukan dokumen konsep.
+- `.graphifyignore` (baru): salinan kode 3b1b di `deep-learning-manim/
+  sources/` (2819 simpul asing) dan semua media (1192 mp3 narasi, poster,
+  foto, tangkapan layar, render) dikeluarkan dari peta.
+- Nama komunitas sekarang bahasa Inggris (penamaan Grok lewat `graphify
+  label`); yang lama Indonesia. Kalau mengganggu, bisa diterjemahkan.
+- Jebakan: kiriman 30 ribu token (percobaan pertama, dibatalkan) menjejalkan
+  lima dokumen per jawaban dan mengisi cache dengan hasil tipis; cache-nya
+  dihapus sebelum diulang dengan 6000. `graphify cluster-only` TIDAK memanggil
+  LLM kalau komunitas berubah; harus `graphify label` sesudahnya. Hook
+  post-commit hanya AST (gratis), lapisan dokumen dipertahankan.
+
 ## 18 SEP (7): BERKAS LOMBA PPPMI DISESUAIKAN DENGAN PEMBARUAN SITUS 15-18 SEP (di D:\PPPMI-2026, bukan repo)
 
 Permintaan ARYA: perbarui berkas Word di folder kirim tanpa mengembalikan

@@ -2,3 +2,19 @@
 # di deep-learning-manim/sources adalah bahan riset, bukan kode MANTRA: tanpa
 # ini 2819 dari 7559 simpul peta berasal dari sana (18 Sep 2026).
 deep-learning-manim/sources/
+
+# Media dikeluarkan dari peta (keputusan lama, CLAUDE.md "Peta struktur"):
+# potongan suara narasi (audio/, 1192 mp3) sudah ada naskahnya sebagai teks,
+# poster dan foto galeri, tangkapan layar, serta render eksperimen tidak
+# menambah pengetahuan yang tidak sudah ada di dokumennya. 18 Sep 2026.
+*.mp3
+*.mp4
+*.webm
+*.ogg
+*.wav
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.svg
