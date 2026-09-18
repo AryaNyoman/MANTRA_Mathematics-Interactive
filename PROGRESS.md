@@ -1,6 +1,6 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
-## 18 SEP: KOLOM ALAT: GAMBAR, KENDALI, DAN TABEL ANGKA TERLIHAT BERSAMA
+## 18 SEP: KOLOM ALAT: GAMBAR, KENDALI, DAN TABEL ANGKA TERLIHAT BERSAMA (deploy matra-pcmvfqdyn, push GitHub a78bd2a)
 
 ARYA (dua tangkapan layar Turunan 03): di jendela lebar penggeser dan tabel
 angka terdorong keluar layar oleh dua papan yang membesar; di jendela sempit
