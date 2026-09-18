@@ -300,8 +300,8 @@
     "semantic_hash": "3822804b6fd7c350495098c83339c023"
   },
   "manim/gabung_audio.py": {
-    "mtime": 1789385813.778217,
-    "ast_hash": "d63e8622daf6d0b1e2b59bad5eb10c77",
+    "mtime": 1789461501.0087545,
+    "ast_hash": "585d7caaddc2acf6e0cb352067553696",
     "semantic_hash": ""
   },
   "manim/gl/__init__.py": {
@@ -570,8 +570,8 @@
     "semantic_hash": ""
   },
   "manim/scenes/vektor1_perahu.py": {
-    "mtime": 1789157659.1604598,
-    "ast_hash": "dd34fed3e3f15841ef641f758eeea52c",
+    "mtime": 1789425538.90485,
+    "ast_hash": "f6f2f027bb0e58a7fa8dfe5fe5a723c3",
     "semantic_hash": ""
   },
   "manim/scenes/vektor3_komponen.py": {
@@ -645,43 +645,43 @@
     "semantic_hash": "484adf62021056c9a46c2368b6eb265e"
   },
   "web/app/latihan/grafik-fungsi/page.tsx": {
-    "mtime": 1788443468.3785439,
-    "ast_hash": "e2b7729a889abb75c5ee7f251c5e454c",
-    "semantic_hash": "e2b7729a889abb75c5ee7f251c5e454c"
+    "mtime": 1789649036.5062828,
+    "ast_hash": "677a31b168c4953c113a5480528aa367",
+    "semantic_hash": ""
   },
   "web/app/latihan/limit/page.tsx": {
-    "mtime": 1788443468.3795578,
-    "ast_hash": "a6955f7c453d14573509b0bec0edb673",
-    "semantic_hash": "a6955f7c453d14573509b0bec0edb673"
+    "mtime": 1789649036.5092866,
+    "ast_hash": "780d9e7eafc3232789205e8968848228",
+    "semantic_hash": ""
   },
   "web/app/latihan/page.tsx": {
-    "mtime": 1788443468.3795578,
-    "ast_hash": "bf387e5e1569997f5e2bfa98a9366d43",
-    "semantic_hash": "bf387e5e1569997f5e2bfa98a9366d43"
+    "mtime": 1789649036.510284,
+    "ast_hash": "55338de4ceaffc69596a9aeb810115c5",
+    "semantic_hash": ""
   },
   "web/app/latihan/ruang-3d/page.tsx": {
-    "mtime": 1788443468.3805604,
-    "ast_hash": "14cd04d829d33b9da8f8094c5b61e0e0",
-    "semantic_hash": "14cd04d829d33b9da8f8094c5b61e0e0"
+    "mtime": 1789649036.5112815,
+    "ast_hash": "3fdeeb1afe7a609e78988bdc91491d69",
+    "semantic_hash": ""
   },
   "web/app/latihan/statistika/page.tsx": {
-    "mtime": 1788443468.3805604,
-    "ast_hash": "c255e88e8f1ced4d732f04f14f1a90db",
-    "semantic_hash": "c255e88e8f1ced4d732f04f14f1a90db"
+    "mtime": 1789649036.5132854,
+    "ast_hash": "61b26327eb0cc206ea0c6bcc3c5115ce",
+    "semantic_hash": ""
   },
   "web/app/latihan/trigonometri/page.tsx": {
-    "mtime": 1788443468.3805604,
-    "ast_hash": "640ef947697ab17846bf7bf0ff943e13",
-    "semantic_hash": "640ef947697ab17846bf7bf0ff943e13"
+    "mtime": 1789649036.516828,
+    "ast_hash": "3061b95149e8a69ab1a20bce89dfd76f",
+    "semantic_hash": ""
   },
   "web/app/latihan/vektor/page.tsx": {
-    "mtime": 1788443468.3815837,
-    "ast_hash": "342f7f40605d500b0df39ae78123f9a8",
-    "semantic_hash": "342f7f40605d500b0df39ae78123f9a8"
+    "mtime": 1789649036.5198562,
+    "ast_hash": "d806a3b7b1480e012ad4a571f5339f0d",
+    "semantic_hash": ""
   },
   "web/app/layout.tsx": {
-    "mtime": 1788565564.3249586,
-    "ast_hash": "4196bfb904148f21846da8704d0190e1",
+    "mtime": 1789648966.6400435,
+    "ast_hash": "1ebaa9a6dca144a7cc5ba9d862724002",
     "semantic_hash": ""
   },
   "web/app/manifest.ts": {
@@ -690,53 +690,53 @@
     "semantic_hash": "f78c30cbae32add8d06879cb27eba11e"
   },
   "web/app/page.tsx": {
-    "mtime": 1788565564.327973,
-    "ast_hash": "ec733527d2fd5ec5750dc75c4a5c56bf",
+    "mtime": 1789711757.5582533,
+    "ast_hash": "067841ef35c0422dbff53e70d1458d5f",
     "semantic_hash": ""
   },
   "web/app/peta-materi/page.tsx": {
-    "mtime": 1789121353.4687734,
-    "ast_hash": "af6f7737386dd2b5070856843b976b88",
+    "mtime": 1789649036.524746,
+    "ast_hash": "6496356d9273c04ee7cc64f4e76ed05e",
     "semantic_hash": ""
   },
   "web/app/tentang/page.tsx": {
-    "mtime": 1789121128.7756643,
-    "ast_hash": "d7f92da171a09cfad361d32d0ea7aa55",
+    "mtime": 1789711757.5592542,
+    "ast_hash": "830475af2cebfcf840f4dd7a961913a7",
     "semantic_hash": ""
   },
   "web/app/topik/[slug]/page.tsx": {
-    "mtime": 1788565564.3319745,
-    "ast_hash": "f2ae000a4f466d402d82987a408f9475",
+    "mtime": 1789649036.5288706,
+    "ast_hash": "4ee9a7bb07f1877fdc22b1267986bcd2",
     "semantic_hash": ""
   },
   "web/components/Demo.tsx": {
-    "mtime": 1789219174.9747238,
-    "ast_hash": "a31a674023e135d6b8962fba6cf1cefe",
+    "mtime": 1789717230.2486582,
+    "ast_hash": "84dc0db65f8b1712e925b00e388976a1",
     "semantic_hash": ""
   },
   "web/components/Nav.tsx": {
-    "mtime": 1789312943.354815,
-    "ast_hash": "d2b53a957480e96fbd4bd3ae2c60522b",
+    "mtime": 1789649014.1462018,
+    "ast_hash": "1d603aad45bbeb25d7725cd1b91147dd",
     "semantic_hash": ""
   },
   "web/components/PemutarVideo.tsx": {
-    "mtime": 1789237926.4797971,
-    "ast_hash": "b1aba3f11bdbff9454bcbacb20a64e1b",
+    "mtime": 1789718241.555817,
+    "ast_hash": "c19802b5b82016fbff7f2092d86571ae",
     "semantic_hash": ""
   },
   "web/components/TombolPasang.tsx": {
-    "mtime": 1788443468.3855839,
-    "ast_hash": "5bd521fd7964798494830b3c4631158a",
-    "semantic_hash": "5bd521fd7964798494830b3c4631158a"
+    "mtime": 1789655936.7533596,
+    "ast_hash": "4ad396da3fcef2de1bb1ad553aa6a127",
+    "semantic_hash": ""
   },
   "web/components/latihan/ArenaLatihan.tsx": {
-    "mtime": 1789359927.5845106,
-    "ast_hash": "4b53389ca4faac581173bea105126bb8",
+    "mtime": 1789655742.8854144,
+    "ast_hash": "ea088fce4cdfa4b17e3f7a49ef487e85",
     "semantic_hash": ""
   },
   "web/components/latihan/DaftarLatihan.tsx": {
-    "mtime": 1789312943.3558142,
-    "ast_hash": "0a6829127c95749b2f760eb05aad5578",
+    "mtime": 1789651866.858315,
+    "ast_hash": "0320bef46569ed98edb304762c564696",
     "semantic_hash": ""
   },
   "web/components/mantra/Kaki.tsx": {
@@ -750,13 +750,13 @@
     "semantic_hash": "bfc84368cf5c496a562edf66f07bf6a1"
   },
   "web/components/mantra/LogoParalaks.tsx": {
-    "mtime": 1788443468.3871121,
-    "ast_hash": "9ada17beed73f2ef071bf8ef5dcff5ed",
-    "semantic_hash": "9ada17beed73f2ef071bf8ef5dcff5ed"
+    "mtime": 1789717412.4282918,
+    "ast_hash": "06fea6f26f56ccbfb808f47a1c755743",
+    "semantic_hash": ""
   },
   "web/components/mantra/PetaMateri.tsx": {
-    "mtime": 1789121358.981536,
-    "ast_hash": "456a2d0ae91f5f05b8d9b0b0aedbae0c",
+    "mtime": 1789651866.8340006,
+    "ast_hash": "7c8eba0ce876e4f07b7a247c2d99bd9b",
     "semantic_hash": ""
   },
   "web/components/mantra/PitaKurva.tsx": {
@@ -765,33 +765,33 @@
     "semantic_hash": ""
   },
   "web/components/topik/HalamanTopik.tsx": {
-    "mtime": 1789312943.3568156,
-    "ast_hash": "a2a7fe31ada0b6d210e93878a48109d3",
+    "mtime": 1789714851.7583828,
+    "ast_hash": "cad34956c4641adefaa65270e6e277b7",
     "semantic_hash": ""
   },
   "web/components/topik/Kuis.tsx": {
-    "mtime": 1789312943.3568156,
-    "ast_hash": "a96bb22bbdeb9255ac7e19e839cae30f",
+    "mtime": 1789655895.8345625,
+    "ast_hash": "161a6f8419832c692108fde2a5ef81ce",
     "semantic_hash": ""
   },
   "web/components/topik/Latihan.tsx": {
-    "mtime": 1788565564.3506522,
-    "ast_hash": "fcb6a0356216de73d70081f310ed176d",
+    "mtime": 1789655895.8397138,
+    "ast_hash": "5446d947adf576ae1917b4ab65e86882",
     "semantic_hash": ""
   },
   "web/components/topik/PanggungGrafikFungsi.tsx": {
-    "mtime": 1788587034.396296,
-    "ast_hash": "347c4c9d94d00eca081b49908d36af8c",
+    "mtime": 1789694664.5864816,
+    "ast_hash": "94214aa3fb600be4007db2f1340c7934",
     "semantic_hash": ""
   },
   "web/components/topik/PanggungLimit.tsx": {
-    "mtime": 1788586752.2204146,
-    "ast_hash": "23f5e42fba1db3e94f0322c1bc4bbe49",
+    "mtime": 1789694664.5886605,
+    "ast_hash": "b9dc11fe264ab94190c2ed7243d6f4aa",
     "semantic_hash": ""
   },
   "web/components/topik/PanggungRuang3D.tsx": {
-    "mtime": 1788588307.9380536,
-    "ast_hash": "7f9cf250c54e3661b0c0352d358a7666",
+    "mtime": 1789694664.5891666,
+    "ast_hash": "160c236e152ee752d445638be071deaf",
     "semantic_hash": ""
   },
   "web/components/topik/PanggungStatistika.tsx": {
@@ -800,33 +800,33 @@
     "semantic_hash": ""
   },
   "web/components/topik/PanggungTrigonometri.tsx": {
-    "mtime": 1789382897.971618,
-    "ast_hash": "695c4efbff1f402085a02da1a73ea103",
+    "mtime": 1789694664.5913694,
+    "ast_hash": "b76f5d547c1df789499d620d0accdb4f",
     "semantic_hash": ""
   },
   "web/components/topik/PanggungVektor.tsx": {
-    "mtime": 1789300522.268954,
-    "ast_hash": "1b7ed6ddba6c74b14332d683d54aa01b",
+    "mtime": 1789694504.8221102,
+    "ast_hash": "5a72b10a8e92df7278ce32087a96b2f3",
     "semantic_hash": ""
   },
   "web/components/topik/Penjelasan.tsx": {
-    "mtime": 1789384289.1334789,
-    "ast_hash": "c4184a7cbcc6029ed9cc1fad186a077d",
+    "mtime": 1789659303.6505458,
+    "ast_hash": "eb4bd881ff6d2177c70bcb27d63f77d8",
     "semantic_hash": ""
   },
   "web/components/topik/jenis.ts": {
-    "mtime": 1788565564.367667,
-    "ast_hash": "144d2df217f07dcc21db8d503357f446",
+    "mtime": 1789710023.4626572,
+    "ast_hash": "34d1c2c6696fcea9a103095d62af61a9",
     "semantic_hash": ""
   },
   "web/components/widget/Bayangan.tsx": {
-    "mtime": 1789383151.12267,
-    "ast_hash": "ac858850e3c130e1fcdbb0c0b41929a1",
+    "mtime": 1789450467.2111905,
+    "ast_hash": "9286363bf7c753177aefa9442b866e1f",
     "semantic_hash": ""
   },
   "web/components/widget/DuniaNyata.tsx": {
-    "mtime": 1789237721.451637,
-    "ast_hash": "59a8e652cbb620ced7ee4f6d3f19888c",
+    "mtime": 1789697055.067405,
+    "ast_hash": "7a220a09300b4c46add8e06df29b5025",
     "semantic_hash": ""
   },
   "web/components/widget/EnamRasio.tsx": {
@@ -860,8 +860,8 @@
     "semantic_hash": ""
   },
   "web/components/widget/SegitigaSebangun.tsx": {
-    "mtime": 1789382817.2474475,
-    "ast_hash": "87386fb6fc8b35f840b2e7364c3f0c40",
+    "mtime": 1789489312.0646932,
+    "ast_hash": "63e4146a7be46e5dc13207a5a2aca688",
     "semantic_hash": ""
   },
   "web/components/widget/TigaGrafik.tsx": {
@@ -900,9 +900,9 @@
     "semantic_hash": "0cba6fd3e0b49f2ccd1faee958eac16b"
   },
   "web/components/widget/grafik-fungsi/DuniaNyataGrafik.tsx": {
-    "mtime": 1788443468.392128,
-    "ast_hash": "c7453a9166b9f3d0d2b8ea5ec23fa92d",
-    "semantic_hash": "c7453a9166b9f3d0d2b8ea5ec23fa92d"
+    "mtime": 1789697055.068874,
+    "ast_hash": "ea241d608b67a6775e0354c2b143394f",
+    "semantic_hash": ""
   },
   "web/components/widget/grafik-fungsi/LipatMutlak.tsx": {
     "mtime": 1788295112.946479,
@@ -960,9 +960,9 @@
     "semantic_hash": ""
   },
   "web/components/widget/limit/BongkarBertahap.tsx": {
-    "mtime": 1788254991.785615,
-    "ast_hash": "df557428e3e92b715f26497ad8d6938c",
-    "semantic_hash": "df557428e3e92b715f26497ad8d6938c"
+    "mtime": 1789695218.6156912,
+    "ast_hash": "c4234e840d76a742b371dcad88b281c4",
+    "semantic_hash": ""
   },
   "web/components/widget/limit/BusurLawanTali.tsx": {
     "mtime": 1788600857.3266425,
@@ -970,9 +970,9 @@
     "semantic_hash": ""
   },
   "web/components/widget/limit/DuniaNyataLimit.tsx": {
-    "mtime": 1788254991.7867582,
-    "ast_hash": "378cfb4b600d2680180d82049e72c686",
-    "semantic_hash": "378cfb4b600d2680180d82049e72c686"
+    "mtime": 1789696725.320413,
+    "ast_hash": "b3dfa2aeb1e82c0823dcb8edfd7bf9c0",
+    "semantic_hash": ""
   },
   "web/components/widget/limit/GarisMendekati.tsx": {
     "mtime": 1788600857.3233812,
@@ -985,9 +985,9 @@
     "semantic_hash": "8cdc6c147453677f5289bb474f19e8ee"
   },
   "web/components/widget/limit/MesinSifat.tsx": {
-    "mtime": 1788254991.787861,
-    "ast_hash": "1ee6c5b2da2251a9c3941264b3035b40",
-    "semantic_hash": "1ee6c5b2da2251a9c3941264b3035b40"
+    "mtime": 1789695218.6166925,
+    "ast_hash": "769860f610259ba36d22ad1d3b298d6b",
+    "semantic_hash": ""
   },
   "web/components/widget/limit/PerkecilTampilan.tsx": {
     "mtime": 1788254991.787861,
@@ -1015,9 +1015,9 @@
     "semantic_hash": ""
   },
   "web/components/widget/ruang-3d/Bingkai3D.tsx": {
-    "mtime": 1788363617.7897074,
-    "ast_hash": "f44c3f098c51db356c74353716cca9fb",
-    "semantic_hash": "f44c3f098c51db356c74353716cca9fb"
+    "mtime": 1789492468.2911663,
+    "ast_hash": "735a57bd70213119578bcc84ad79e691",
+    "semantic_hash": ""
   },
   "web/components/widget/ruang-3d/DiagonalKubus.tsx": {
     "mtime": 1788295264.4800124,
@@ -1025,9 +1025,9 @@
     "semantic_hash": "3bec509e506b22258e91d9449b9caaa0"
   },
   "web/components/widget/ruang-3d/DuniaNyataRuang.tsx": {
-    "mtime": 1788443468.3941247,
-    "ast_hash": "c2f70e32da5fcf5afae8d0edf593fa76",
-    "semantic_hash": "c2f70e32da5fcf5afae8d0edf593fa76"
+    "mtime": 1789696883.0275247,
+    "ast_hash": "27a17f34dce1098136ca9d5025a39451",
+    "semantic_hash": ""
   },
   "web/components/widget/ruang-3d/JarakKeBidang.tsx": {
     "mtime": 1788295264.4810143,
@@ -1080,28 +1080,28 @@
     "semantic_hash": "2b41126aa206ceac96b65104f82a85aa"
   },
   "web/components/widget/statistika/BentukData.tsx": {
-    "mtime": 1788587459.295599,
-    "ast_hash": "c0b1f089757bed0be667fc1e70475bc9",
+    "mtime": 1789694664.5969696,
+    "ast_hash": "e3eabe88886eb3666d3bfef7abd85f8d",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/DataKelompok.tsx": {
-    "mtime": 1788600857.3286638,
-    "ast_hash": "e45ec7c423f0c83b45eac198e0113e81",
+    "mtime": 1789694664.5979714,
+    "ast_hash": "654221596730c2fe34dacb560bd400d5",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/DiagramPencar.tsx": {
-    "mtime": 1788609709.6679058,
-    "ast_hash": "7144687a78c60a1ac39b5c02d7f1ec87",
+    "mtime": 1789694664.5979714,
+    "ast_hash": "397435a1c8e403dee54731ffeb94926d",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/DuaKelompok.tsx": {
-    "mtime": 1788609709.2054794,
-    "ast_hash": "a9dca200a793b4f4908473ba0763aee2",
+    "mtime": 1789694504.8248785,
+    "ast_hash": "c86a732a944d95ac53f2de6d858d8da5",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/FrekuensiRelatif.tsx": {
-    "mtime": 1789300522.2728786,
-    "ast_hash": "303c5e9d4ddbf136cb3c193ae25aa7ab",
+    "mtime": 1789694664.600972,
+    "ast_hash": "2b4cb2c6a01fa37344dfc8d018857919",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/GarisBilangan.tsx": {
@@ -1110,28 +1110,28 @@
     "semantic_hash": ""
   },
   "web/components/widget/statistika/GarisRegresi.tsx": {
-    "mtime": 1788605958.3331723,
-    "ast_hash": "4435450e5aee2d9a0b14aed0ba4d6f70",
+    "mtime": 1789694664.601973,
+    "ast_hash": "d8558f92c4163ccebd7204ec69380c1a",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/JarakKeRata.tsx": {
-    "mtime": 1788609709.3130362,
-    "ast_hash": "0c1d2a681c7c052ad192f2ab6b977e6f",
+    "mtime": 1789694504.8263857,
+    "ast_hash": "0c5e626fc5b824d0313ec24a81ef70ef",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/KekuatanHubungan.tsx": {
-    "mtime": 1788609709.7399611,
-    "ast_hash": "eaace21ae1465134ff497b5fe8dbc54d",
+    "mtime": 1789694664.6029713,
+    "ast_hash": "894ca45a42c7efdb04c2e7ad07c6206d",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/KotakGaris.tsx": {
-    "mtime": 1788609709.2910347,
-    "ast_hash": "923209ea598815a7f1c6b72b11ef423a",
+    "mtime": 1789694664.6029713,
+    "ast_hash": "23e349fe5446194c86ab9435950dd209",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/LebarKelas.tsx": {
-    "mtime": 1788587459.2822933,
-    "ast_hash": "d6058a7ccd3389ac40e77efef922e019",
+    "mtime": 1789694664.6039712,
+    "ast_hash": "1bb70740b13743edd0c7ac5666b0857e",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/Papan.tsx": {
@@ -1140,18 +1140,18 @@
     "semantic_hash": ""
   },
   "web/components/widget/statistika/SumbuJujur.tsx": {
-    "mtime": 1789300522.275877,
-    "ast_hash": "d4492ee3a3ce68a3b8039f78b49a7efd",
+    "mtime": 1789694664.604974,
+    "ast_hash": "82afb63c3857a7b54261cb4a751cfcc8",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/TarikPencilan.tsx": {
-    "mtime": 1788600857.330008,
-    "ast_hash": "732ab169463dc5347aad649a3819fc7b",
+    "mtime": 1789694664.604974,
+    "ast_hash": "44acd6fdbafa07aa9d6fd289bbefad4d",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/TigaUkuran.tsx": {
-    "mtime": 1788600857.3312066,
-    "ast_hash": "1d9e229b51abeb9374f4476aad765892",
+    "mtime": 1789694664.6063735,
+    "ast_hash": "93a94339dab78132fc2d95625bb2585f",
     "semantic_hash": ""
   },
   "web/components/widget/statistika/jenis.ts": {
@@ -1185,9 +1185,9 @@
     "semantic_hash": ""
   },
   "web/components/widget/vektor/DuniaNyataVektor.tsx": {
-    "mtime": 1788363554.1732435,
-    "ast_hash": "fb50d38102e80de2e91cd3b321f8744a",
-    "semantic_hash": "fb50d38102e80de2e91cd3b321f8744a"
+    "mtime": 1789697055.0702746,
+    "ast_hash": "25aac8897f9dac116d66fab6b9d59c9b",
+    "semantic_hash": ""
   },
   "web/components/widget/vektor/JajarGenjang.tsx": {
     "mtime": 1788609709.5213625,
@@ -1290,13 +1290,13 @@
     "semantic_hash": ""
   },
   "web/content/grafik-fungsi/latihan.ts": {
-    "mtime": 1788363555.5165699,
-    "ast_hash": "340ce5e16abf1f6a2f0807fff80cd75c",
-    "semantic_hash": "340ce5e16abf1f6a2f0807fff80cd75c"
+    "mtime": 1789714201.5060213,
+    "ast_hash": "ecf6e33df8b8c11d4f9c4a78f00151f3",
+    "semantic_hash": ""
   },
   "web/content/grafik-fungsi/tahap.ts": {
-    "mtime": 1789384096.6417227,
-    "ast_hash": "dd16bbd896172ca452564c48e7651488",
+    "mtime": 1789654860.980369,
+    "ast_hash": "7300de704dbb949003f62885d10b4d3d",
     "semantic_hash": ""
   },
   "web/content/limit/index.ts": {
@@ -1310,13 +1310,13 @@
     "semantic_hash": ""
   },
   "web/content/limit/latihan.ts": {
-    "mtime": 1788254991.7921593,
-    "ast_hash": "7f04c964600ef847d7b8b20761ddf2b4",
-    "semantic_hash": "7f04c964600ef847d7b8b20761ddf2b4"
+    "mtime": 1789714158.7651234,
+    "ast_hash": "c4009c25d37ff2a0e102f1283c41e482",
+    "semantic_hash": ""
   },
   "web/content/limit/tahap.ts": {
-    "mtime": 1789384261.3418555,
-    "ast_hash": "7aac158881e8252d17208994f3bc7f4d",
+    "mtime": 1789654884.4841793,
+    "ast_hash": "6193ed4e583b6f785e111de03f4e2397",
     "semantic_hash": ""
   },
   "web/content/ruang-3d/index.ts": {
@@ -1330,13 +1330,13 @@
     "semantic_hash": ""
   },
   "web/content/ruang-3d/latihan.ts": {
-    "mtime": 1788295264.4914737,
-    "ast_hash": "733c2c48e5d011679fdc521d98a7d97e",
-    "semantic_hash": "733c2c48e5d011679fdc521d98a7d97e"
+    "mtime": 1789714275.8508751,
+    "ast_hash": "e6307f6a1d2f7600b821703a1d025556",
+    "semantic_hash": ""
   },
   "web/content/ruang-3d/tahap.ts": {
-    "mtime": 1789384261.3428276,
-    "ast_hash": "a1f18bc23a5d472a22ba1082872ba823",
+    "mtime": 1789654771.0352893,
+    "ast_hash": "72c667d5e778f6ef4310c5600f4bc273",
     "semantic_hash": ""
   },
   "web/content/statistika/data.json": {
@@ -1355,28 +1355,28 @@
     "semantic_hash": "fa383fe91d163cf5b6b4f6952f88894b"
   },
   "web/content/statistika/kuis.ts": {
-    "mtime": 1789368219.7277079,
-    "ast_hash": "575199d2900c4472a3d6277abc13f0b9",
+    "mtime": 1789627119.9419649,
+    "ast_hash": "15530c49c270abee302ceb3986a45cad",
     "semantic_hash": ""
   },
   "web/content/statistika/latihan.ts": {
-    "mtime": 1788295263.0296926,
-    "ast_hash": "e904b7ef6dc80309ff0c37f2b7210226",
-    "semantic_hash": "e904b7ef6dc80309ff0c37f2b7210226"
+    "mtime": 1789714307.8587224,
+    "ast_hash": "7e030b5fdd5c95654ad610638a40bcce",
+    "semantic_hash": ""
   },
   "web/content/statistika/tahap-hubungan.ts": {
-    "mtime": 1789384096.656123,
-    "ast_hash": "08feaa794b9a2f34c3e534f3f7885688",
+    "mtime": 1789654816.270445,
+    "ast_hash": "f68b6269de251b502182f4a2ec616c66",
     "semantic_hash": ""
   },
   "web/content/statistika/tahap-pemusatan.ts": {
-    "mtime": 1789384096.6538527,
-    "ast_hash": "698b7646560bf0b802032d4134c8cecc",
+    "mtime": 1789654816.270445,
+    "ast_hash": "6c26ddaa90c4da09ffdf70e8a3d40e94",
     "semantic_hash": ""
   },
   "web/content/statistika/tahap-penyajian.ts": {
-    "mtime": 1789384096.6528523,
-    "ast_hash": "562ce80bbdf4284bceead4cbc0801853",
+    "mtime": 1789654816.2714052,
+    "ast_hash": "c71332aac08002aa0450da015e55fc84",
     "semantic_hash": ""
   },
   "web/content/statistika/tahap.ts": {
@@ -1395,8 +1395,8 @@
     "semantic_hash": ""
   },
   "web/content/tipe.ts": {
-    "mtime": 1789359659.832087,
-    "ast_hash": "67652f205e6b375286439c98c621b9ad",
+    "mtime": 1789713919.2860074,
+    "ast_hash": "f6012557d3795dcae77e71134dee6539",
     "semantic_hash": ""
   },
   "web/content/topik.ts": {
@@ -1415,13 +1415,13 @@
     "semantic_hash": ""
   },
   "web/content/trigonometri/latihan.ts": {
-    "mtime": 1789121128.842495,
-    "ast_hash": "090abfe56c0e96bc4af08f1435ad41c9",
+    "mtime": 1789714994.8140683,
+    "ast_hash": "65c7cf31fabbed4d6eb8a3f9c87d1669",
     "semantic_hash": ""
   },
   "web/content/trigonometri/tahap.ts": {
-    "mtime": 1789384261.346322,
-    "ast_hash": "d39a0b281c10f09c1e9a22bc7e18231f",
+    "mtime": 1789654816.2734036,
+    "ast_hash": "1d191dda8cab2a6268a2a16b6fa19af9",
     "semantic_hash": ""
   },
   "web/content/vektor/index.ts": {
@@ -1435,13 +1435,13 @@
     "semantic_hash": ""
   },
   "web/content/vektor/latihan.ts": {
-    "mtime": 1788295077.013234,
-    "ast_hash": "fef9469947a877dfe1480db591bbd78e",
-    "semantic_hash": "fef9469947a877dfe1480db591bbd78e"
+    "mtime": 1789714239.0964525,
+    "ast_hash": "d6f9939be16971f3cb2f7693b30abf2d",
+    "semantic_hash": ""
   },
   "web/content/vektor/tahap.ts": {
-    "mtime": 1789384096.6636953,
-    "ast_hash": "d16dc510d094d7deefb6feb304621a56",
+    "mtime": 1789654193.0014799,
+    "ast_hash": "3fbdf430da9f09bc0712c25aff26b225",
     "semantic_hash": ""
   },
   "web/eslint.config.mjs": {
@@ -1455,8 +1455,8 @@
     "semantic_hash": "da6bcea764b4e5ad2bb23ab3141cdb70"
   },
   "web/lib/latihan-kemajuan.ts": {
-    "mtime": 1789312943.3537993,
-    "ast_hash": "7af54ac924eab182f0519300bf437cfe",
+    "mtime": 1789620164.6785994,
+    "ast_hash": "ac89c582cb353efe5836ab7e683750a6",
     "semantic_hash": ""
   },
   "web/lib/simpanan.ts": {
@@ -1475,13 +1475,13 @@
     "semantic_hash": "447fea0e118f4544dcb52b255e782920"
   },
   "web/next.config.ts": {
-    "mtime": 1788194549.5843337,
-    "ast_hash": "7eacbc383e7c737072e6450c0532eecf",
-    "semantic_hash": "7eacbc383e7c737072e6450c0532eecf"
+    "mtime": 1789464353.361448,
+    "ast_hash": "e02995afe596fa7bc686c5d2b58bef6c",
+    "semantic_hash": ""
   },
   "web/package.json": {
-    "mtime": 1789218316.3571944,
-    "ast_hash": "737f71f6c6ceb6d2c1b976197b7ef9f4",
+    "mtime": 1789626248.3329847,
+    "ast_hash": "899e39f557071f161b77605f724cc772",
     "semantic_hash": ""
   },
   "web/postcss.config.mjs": {
@@ -1490,9 +1490,9 @@
     "semantic_hash": "239f3ebf717465dc636818a1a619398d"
   },
   "web/public/gambar/sumber.json": {
-    "mtime": 1788295261.5731752,
-    "ast_hash": "8e8c6d46b4a3135b83a314ac67c78472",
-    "semantic_hash": "8e8c6d46b4a3135b83a314ac67c78472"
+    "mtime": 1789696543.787493,
+    "ast_hash": "3f5b6283a6ae1f691f70c0db5921b8ca",
+    "semantic_hash": ""
   },
   "web/public/merek/sumber.json": {
     "mtime": 1788194498.7387192,
@@ -1500,9 +1500,9 @@
     "semantic_hash": "ffce563dcd762b3fdd82008b366813f7"
   },
   "web/tsconfig.json": {
-    "mtime": 1788155536.9197795,
-    "ast_hash": "02fc19ad21338c2ab820a70136310db4",
-    "semantic_hash": "02fc19ad21338c2ab820a70136310db4"
+    "mtime": 1789710269.0985885,
+    "ast_hash": "1d54fdca14002b739e09eb02624e4359",
+    "semantic_hash": ""
   },
   "web/vercel.json": {
     "mtime": 1788255437.5863502,
@@ -1510,13 +1510,13 @@
     "semantic_hash": "70803fcfe0c0ffd5294dcb2199bf820b"
   },
   "CLAUDE.md": {
-    "mtime": 1789140819.795441,
-    "ast_hash": "c9c058c15f8a8f75abf35dd02767c2d4",
+    "mtime": 1789714610.3827324,
+    "ast_hash": "141422234f0ef74b52f56df4730e0e2f",
     "semantic_hash": ""
   },
   "PROGRESS.md": {
-    "mtime": 1789391447.1075778,
-    "ast_hash": "a3c74cba2a0c4da1ad9ca710a2d6e743",
+    "mtime": 1789718660.9398673,
+    "ast_hash": "1f468ce6caa8dd0faf9aff1aba3ec768",
     "semantic_hash": ""
   },
   "alat/lingkungan/pip-freeze-2026-09-02-sebelum-manimgl.txt": {
@@ -2135,33 +2135,33 @@
     "semantic_hash": ""
   },
   "web/app/latihan/transformasi-geometri/page.tsx": {
-    "mtime": 1788454437.0757954,
-    "ast_hash": "af2532a5e29323ef13a4ce7320248610",
+    "mtime": 1789649036.5152874,
+    "ast_hash": "c7b4ee43300b038f80973c80ef59dfcb",
     "semantic_hash": ""
   },
   "web/app/not-found.tsx": {
-    "mtime": 1788565564.3259723,
-    "ast_hash": "024b17adc8bee4f82b750e51c3af1aa1",
+    "mtime": 1789717442.9632688,
+    "ast_hash": "b2acc07b8d0a8cc0a32286c8eef6c39e",
     "semantic_hash": ""
   },
   "web/components/kendali/Angka.tsx": {
-    "mtime": 1788587459.3620994,
-    "ast_hash": "66f8f9eb6c165550c88d12c92c929557",
+    "mtime": 1789694554.3966398,
+    "ast_hash": "5be06919ea97ed71edcbb00b4ddade10",
     "semantic_hash": ""
   },
   "web/components/kendali/Koordinat.tsx": {
-    "mtime": 1789121128.776737,
-    "ast_hash": "c595123c34252e184b2f09a8e936e95c",
+    "mtime": 1789694554.3997712,
+    "ast_hash": "41d86201dc33bb81573d920b09e825aa",
     "semantic_hash": ""
   },
   "web/components/kendali/Petunjuk.tsx": {
-    "mtime": 1788579114.2488759,
-    "ast_hash": "d4ab8b99d3e0c3b175ccf6a58500e272",
+    "mtime": 1789694588.2745242,
+    "ast_hash": "304d77785780f27a08a06c9ecc754a56",
     "semantic_hash": ""
   },
   "web/components/kendali/Pilihan.tsx": {
-    "mtime": 1788579110.6442494,
-    "ast_hash": "ec2ef25b4e1c2890d874cde47a2167b5",
+    "mtime": 1789694554.4142852,
+    "ast_hash": "ffc59439f0dcadd9be15d0211ed77af0",
     "semantic_hash": ""
   },
   "web/components/kendali/index.ts": {
@@ -2175,8 +2175,8 @@
     "semantic_hash": ""
   },
   "web/components/mantra/MunculSaatGulir.tsx": {
-    "mtime": 1788565564.3414967,
-    "ast_hash": "9c40ba3ec84be1adb1397de310f58c1c",
+    "mtime": 1789717564.8863976,
+    "ast_hash": "18f99a9337f3810a46917cd79f9077d4",
     "semantic_hash": ""
   },
   "web/components/mantra/PenggeserEmas.tsx": {
@@ -2185,13 +2185,13 @@
     "semantic_hash": ""
   },
   "web/components/mantra/SedangMemuat.tsx": {
-    "mtime": 1788565564.346269,
-    "ast_hash": "b711e72165d86101150fe3b248454a98",
+    "mtime": 1789717412.4259923,
+    "ast_hash": "dc40578e3357fc51e9914e06f87088d9",
     "semantic_hash": ""
   },
   "web/components/topik/PanggungTransformasiGeometri.tsx": {
-    "mtime": 1788609709.7524922,
-    "ast_hash": "e81c9eae8ee9b3e6b38f2ae7a0b155ba",
+    "mtime": 1789694664.5913694,
+    "ast_hash": "663d6f746629c2c0d51939dab786262d",
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/Bentuk.tsx": {
@@ -2230,8 +2230,8 @@
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/DuniaNyataTransformasi.tsx": {
-    "mtime": 1788454437.081216,
-    "ast_hash": "559a2ff8927b2e522324441a1bc08da6",
+    "mtime": 1789696980.4799032,
+    "ast_hash": "9fff233ac52ac6e9e7104951871566a8",
     "semantic_hash": ""
   },
   "web/components/widget/transformasi-geometri/Garis.tsx": {
@@ -2305,13 +2305,13 @@
     "semantic_hash": ""
   },
   "web/content/transformasi-geometri/latihan.ts": {
-    "mtime": 1788454437.0900698,
-    "ast_hash": "f6520ec4e3eefe6b109f6c228e984183",
+    "mtime": 1789714534.5175927,
+    "ast_hash": "716c0311f1ded4b4e181cd490d52f18b",
     "semantic_hash": ""
   },
   "web/content/transformasi-geometri/tahap.ts": {
-    "mtime": 1789384261.3448102,
-    "ast_hash": "14dd82b5c113bb4a473ccc10eb74a6c8",
+    "mtime": 1789654884.4851809,
+    "ast_hash": "e4e324269d75d8d6bea7c9bf811c3544",
     "semantic_hash": ""
   },
   "web/lib/petak-sumbu.ts": {
@@ -2325,8 +2325,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1789391229.9147816,
-    "ast_hash": "407a1203aeeee11116a691e3ac9e4500",
+    "mtime": 1789449709.0391407,
+    "ast_hash": "13a0c418437e91904f184d49a03e966e",
     "semantic_hash": ""
   },
   "docs/desain-mantra/MANTRA-v2.dc.html": {
@@ -3195,8 +3195,8 @@
     "semantic_hash": ""
   },
   "web/components/widget/statistika/DuniaNyataStatistika.tsx": {
-    "mtime": 1788606944.2187886,
-    "ast_hash": "20a0b8ed78056b3207d68fc03a5a2be9",
+    "mtime": 1789696935.2433712,
+    "ast_hash": "ff10c2dca5e451650ee394ca9ec26d97",
     "semantic_hash": ""
   },
   "web/content/statistika/tahap-nyata.ts": {
@@ -3545,13 +3545,13 @@
     "semantic_hash": ""
   },
   "web/app/latihan/integral/page.tsx": {
-    "mtime": 1788775898.4619572,
-    "ast_hash": "0220b8b20c1a6c87fd79242b0504590b",
+    "mtime": 1789649036.5082848,
+    "ast_hash": "0d7fdd05228dec2d2dcb64f0f949dff7",
     "semantic_hash": ""
   },
   "web/app/latihan/turunan/page.tsx": {
-    "mtime": 1788775898.463961,
-    "ast_hash": "40a11259f0392205ec4e43f8a99137ad",
+    "mtime": 1789649036.5178556,
+    "ast_hash": "67f407fe2fd951c70ed9118dd4e025e1",
     "semantic_hash": ""
   },
   "web/components/topik/PanggungIntegral.tsx": {
@@ -3560,18 +3560,18 @@
     "semantic_hash": ""
   },
   "web/components/topik/PanggungTurunan.tsx": {
-    "mtime": 1788775898.46695,
-    "ast_hash": "917750cdd06bbf2e668efc3f858cf666",
+    "mtime": 1789694504.8206022,
+    "ast_hash": "090c9ac8233813286dae5335c58f4c00",
     "semantic_hash": ""
   },
   "web/components/widget/integral/Bidang.tsx": {
-    "mtime": 1788778105.4425921,
-    "ast_hash": "47ee6bfd3755d73b91b37090c5b6c958",
+    "mtime": 1789684229.6746023,
+    "ast_hash": "9c06d09dd0da54ae83383613a73150e6",
     "semantic_hash": ""
   },
   "web/components/widget/integral/CocokkanLapisan.tsx": {
-    "mtime": 1788778105.4451034,
-    "ast_hash": "299ee7dc64727dc807c07f5b4dfe782d",
+    "mtime": 1789695402.2682831,
+    "ast_hash": "401cb4a43582b21659841a325e0fa70c",
     "semantic_hash": ""
   },
   "web/components/widget/integral/DaerahBertanda.tsx": {
@@ -3585,13 +3585,13 @@
     "semantic_hash": ""
   },
   "web/components/widget/integral/DuniaNyataIntegral.tsx": {
-    "mtime": 1788778105.4489734,
-    "ast_hash": "d2285c70bbf31194c3b65e28db91d868",
+    "mtime": 1789696823.4203963,
+    "ast_hash": "5cfd429746b9595a722657dea6650654",
     "semantic_hash": ""
   },
   "web/components/widget/integral/HitungBertahap.tsx": {
-    "mtime": 1788778105.4512846,
-    "ast_hash": "0a678f105ded4a4bab3ac0d7907e5e1a",
+    "mtime": 1789695402.2682831,
+    "ast_hash": "82a595010c2d629c137289f3ae8c0943",
     "semantic_hash": ""
   },
   "web/components/widget/integral/LuasDuaDaerah.tsx": {
@@ -3600,8 +3600,8 @@
     "semantic_hash": ""
   },
   "web/components/widget/integral/LuasYangTumbuh.tsx": {
-    "mtime": 1788778105.4547224,
-    "ast_hash": "ca1a2316a502f9b096a52aaeca4130d5",
+    "mtime": 1789684229.6789696,
+    "ast_hash": "020555424acf15364e4d84b1ae334542",
     "semantic_hash": ""
   },
   "web/components/widget/integral/MesinBalik.tsx": {
@@ -3610,13 +3610,13 @@
     "semantic_hash": ""
   },
   "web/components/widget/integral/NaikPangkat.tsx": {
-    "mtime": 1788778105.4577205,
-    "ast_hash": "27c555abf752d4686e6d4f85374dcd90",
+    "mtime": 1789684229.6765676,
+    "ast_hash": "ad88020f1a00ffba36329244e4243ded",
     "semantic_hash": ""
   },
   "web/components/widget/integral/PasangkanTurunanIntegral.tsx": {
-    "mtime": 1788778105.4588935,
-    "ast_hash": "95329b94a05bbbb81b212594c97adef4",
+    "mtime": 1789695218.618204,
+    "ast_hash": "5f157b9f3415b04c60c1f85dfe2f1214",
     "semantic_hash": ""
   },
   "web/components/widget/integral/PecahSelang.tsx": {
@@ -3630,8 +3630,8 @@
     "semantic_hash": ""
   },
   "web/components/widget/integral/koordinat.ts": {
-    "mtime": 1788778105.4639788,
-    "ast_hash": "3b274e70a759b64e065851c14bc01f8d",
+    "mtime": 1789684229.6746023,
+    "ast_hash": "90b44e34fa737033aa9fe61de36c7236",
     "semantic_hash": ""
   },
   "web/components/widget/integral/seret.ts": {
@@ -3640,13 +3640,13 @@
     "semantic_hash": ""
   },
   "web/components/widget/turunan/Bidang.tsx": {
-    "mtime": 1788775898.4719276,
-    "ast_hash": "4f31507539d936d5ecf4232108197b84",
+    "mtime": 1789680331.165766,
+    "ast_hash": "a5aef100fe03fceee71eeb00b4ff31a5",
     "semantic_hash": ""
   },
   "web/components/widget/turunan/DuniaNyataTurunan.tsx": {
-    "mtime": 1788775898.4734693,
-    "ast_hash": "03dc7a8f971587d1ed67e9b48fa63020",
+    "mtime": 1789697424.274544,
+    "ast_hash": "1f4bd04b789dc8c9d1b1a6f03d4f0dea",
     "semantic_hash": ""
   },
   "web/components/widget/turunan/GarisPotong.tsx": {
@@ -3660,8 +3660,8 @@
     "semantic_hash": ""
   },
   "web/components/widget/turunan/GrafikTurunan.tsx": {
-    "mtime": 1788775898.4806983,
-    "ast_hash": "e49c89f57eff019452058282ede9fc24",
+    "mtime": 1789682937.1737168,
+    "ast_hash": "0c2207d09b78d9bd4ceff09315b150af",
     "semantic_hash": ""
   },
   "web/components/widget/turunan/KotakTerbesar.tsx": {
@@ -3695,8 +3695,8 @@
     "semantic_hash": ""
   },
   "web/components/widget/turunan/SusunPolinom.tsx": {
-    "mtime": 1788775898.488713,
-    "ast_hash": "a6e6f2e09a1778d426148fe234eca9a3",
+    "mtime": 1789682413.7243402,
+    "ast_hash": "ec38fc12ca2904138958236f5acc9f2f",
     "semantic_hash": ""
   },
   "web/components/widget/turunan/fungsi.ts": {
@@ -3705,8 +3705,8 @@
     "semantic_hash": ""
   },
   "web/components/widget/turunan/koordinat.ts": {
-    "mtime": 1788775898.490711,
-    "ast_hash": "03aced7392103c2865f479bbf5d64912",
+    "mtime": 1789684229.6755652,
+    "ast_hash": "7f90f125daa8186b01b09b1c1643a1e0",
     "semantic_hash": ""
   },
   "web/components/widget/turunan/seret.ts": {
@@ -3725,13 +3725,13 @@
     "semantic_hash": ""
   },
   "web/content/integral/latihan.ts": {
-    "mtime": 1788778988.8708558,
-    "ast_hash": "5fb195797031cf3936f50748b282f0f2",
+    "mtime": 1789714072.1000416,
+    "ast_hash": "7edcb3364338fd09c6d146458e448021",
     "semantic_hash": ""
   },
   "web/content/integral/tahap.ts": {
-    "mtime": 1789384096.6447225,
-    "ast_hash": "c08ae9151912bddc81a4e8e30a5a910a",
+    "mtime": 1789653395.6039438,
+    "ast_hash": "af3b8cc3850531dfde088010df5bd883",
     "semantic_hash": ""
   },
   "web/content/turunan/index.ts": {
@@ -3745,13 +3745,13 @@
     "semantic_hash": ""
   },
   "web/content/turunan/latihan.ts": {
-    "mtime": 1788775898.5102108,
-    "ast_hash": "72c666e0cb159f6f7b8003e93d7c4d5c",
+    "mtime": 1789714388.9309833,
+    "ast_hash": "8ac2d2f283a6614c2335b80871d1ec3f",
     "semantic_hash": ""
   },
   "web/content/turunan/tahap.ts": {
-    "mtime": 1789384096.6617012,
-    "ast_hash": "6e231102b5e6f2b5708ed56b0fdd3467",
+    "mtime": 1789653732.5275793,
+    "ast_hash": "efaa329fd29b35f7b9062bf6cb38c0b5",
     "semantic_hash": ""
   },
   "docs/tugas/laporan/MANTRA-INTEGRAL.md": {
@@ -6225,8 +6225,8 @@
     "semantic_hash": ""
   },
   "web/components/LaciLanjut.tsx": {
-    "mtime": 1789121247.6998453,
-    "ast_hash": "b3a01bf2d50c505d0af0e6f15ce13ea7",
+    "mtime": 1789703814.1347108,
+    "ast_hash": "e51ce82ca57f8700438e0ca374a93d3b",
     "semantic_hash": ""
   },
   "docs/tugas/PERAPIAN-2026-09-11.md": {
@@ -7339,41 +7339,6 @@
     "ast_hash": "a6d4c2babeaa36770b3d7ca18b9b2ffb",
     "semantic_hash": ""
   },
-  "log_v1_480.txt": {
-    "mtime": 1789157463.1379106,
-    "ast_hash": "70bddae6e7d7a7cf921279b206fa7610",
-    "semantic_hash": ""
-  },
-  "log_v1_hd.txt": {
-    "mtime": 1789158589.870123,
-    "ast_hash": "d7a4fca335cca557ab5e579177cfb35c",
-    "semantic_hash": ""
-  },
-  "log_v3_480.txt": {
-    "mtime": 1789160639.0712206,
-    "ast_hash": "9592b81aae7cb8d283231f3798e73a2d",
-    "semantic_hash": ""
-  },
-  "log_v3_hd.txt": {
-    "mtime": 1789161581.942028,
-    "ast_hash": "4ef2539ed46109a040410da19e29b702",
-    "semantic_hash": ""
-  },
-  "log_v4_480.txt": {
-    "mtime": 1789159311.7294378,
-    "ast_hash": "9686aeb72f417bf26fcea17e5d7770b7",
-    "semantic_hash": ""
-  },
-  "log_v4_hd.txt": {
-    "mtime": 1789160096.3922992,
-    "ast_hash": "3bb82c1e62cf6cfbdb2f9d28e8373568",
-    "semantic_hash": ""
-  },
-  "log_v6_480.txt": {
-    "mtime": 1789161861.1468208,
-    "ast_hash": "7110363df00e8487efabc8b05759a6c9",
-    "semantic_hash": ""
-  },
   "audio/grafik3-puncak/30-lanjut.mp3": {
     "mtime": 1789393052.6034553,
     "ast_hash": "b28eb7ca6326da5cc3140d4938339269",
@@ -7924,26 +7889,6 @@
     "ast_hash": "7b0a49a037a7291e61374e21a43c7852",
     "semantic_hash": ""
   },
-  "log_v6_hd.txt": {
-    "mtime": 1789162421.928105,
-    "ast_hash": "4cbfc1eaec5a681ed7feb0de675da159",
-    "semantic_hash": ""
-  },
-  "log_v8_480.txt": {
-    "mtime": 1789162564.175034,
-    "ast_hash": "4a756f0be9840be821dac4339cc4bd07",
-    "semantic_hash": ""
-  },
-  "log_v8_hd.txt": {
-    "mtime": 1789163127.9975033,
-    "ast_hash": "33b1bcd3366680c5007f366dbcad0523",
-    "semantic_hash": ""
-  },
-  "log_v9_480.txt": {
-    "mtime": 1789163624.393416,
-    "ast_hash": "5d4014391d67069750a1b69641b9e9d9",
-    "semantic_hash": ""
-  },
   "audio/ruang-3d-01/03-ingat-bawa.mp3": {
     "mtime": 1789393238.755336,
     "ast_hash": "14f8215cc16017aea2dcb9839a4684b7",
@@ -8089,16 +8034,6 @@
     "ast_hash": "0b5f545a524cc0a4d8e82d5411deca72",
     "semantic_hash": ""
   },
-  "log_g3_480.txt": {
-    "mtime": 1789164597.1241157,
-    "ast_hash": "8d196b745ad97a33e1e7039e5c60b91c",
-    "semantic_hash": ""
-  },
-  "log_v9_hd.txt": {
-    "mtime": 1789164339.0980635,
-    "ast_hash": "d6d26513336422a3a2ccc714a84e15f1",
-    "semantic_hash": ""
-  },
   "audio/ruang-3d-04/02-ingat.mp3": {
     "mtime": 1789393396.7822697,
     "ast_hash": "8cb5304f331902d558e4be1c7041cfb5",
@@ -8212,26 +8147,6 @@
   "audio/ruang-3d-09/kata.json": {
     "mtime": 1789393621.2835262,
     "ast_hash": "b75153cf19cfb1bd999f1d32dfb0e035",
-    "semantic_hash": ""
-  },
-  "log_g3_hd.txt": {
-    "mtime": 1789166010.0608022,
-    "ast_hash": "2828d8ce2e30a05b63c1777ea7b0ff72",
-    "semantic_hash": ""
-  },
-  "log_g6_480.txt": {
-    "mtime": 1789165149.4740667,
-    "ast_hash": "5a1aa947c945af2d69188b323e16a50c",
-    "semantic_hash": ""
-  },
-  "log_g6_hd.txt": {
-    "mtime": 1789166432.1609702,
-    "ast_hash": "5d5ff97f95a1773254b9cf3fa815091b",
-    "semantic_hash": ""
-  },
-  "log_r01_480.txt": {
-    "mtime": 1789166981.9268234,
-    "ast_hash": "af896b01c33041396042e9979612ef32",
     "semantic_hash": ""
   },
   "audio/ruang-3d-08/02-ingat.mp3": {
@@ -8432,306 +8347,6 @@
   "manim/scenes/uji/uji_sudut_acg.py": {
     "mtime": 1789169414.8278637,
     "ast_hash": "bb8338ebf22498734f2abf9f5daa3e4c",
-    "semantic_hash": ""
-  },
-  "log_hd_gelombang3.txt": {
-    "mtime": 1789197018.1796627,
-    "ast_hash": "f9fc05361895f7384d15432e225f7916",
-    "semantic_hash": ""
-  },
-  "log_hd_ruang.txt": {
-    "mtime": 1789177317.9291317,
-    "ast_hash": "9e174afab89f9ed43e823cb976999375",
-    "semantic_hash": ""
-  },
-  "log_hd_ruang_3d_01.txt": {
-    "mtime": 1789190895.7950537,
-    "ast_hash": "ef7b9cf54895f2b7f197f8545ff827fe",
-    "semantic_hash": ""
-  },
-  "log_hd_ruang_3d_01b.txt": {
-    "mtime": 1789182204.5437348,
-    "ast_hash": "d0c38c6e09afc9cec44c32abc5faabb7",
-    "semantic_hash": ""
-  },
-  "log_hd_ruang_3d_03.txt": {
-    "mtime": 1789174149.4040349,
-    "ast_hash": "53aa9564ff20602b198d7d3b43d6c4da",
-    "semantic_hash": ""
-  },
-  "log_hd_ruang_3d_04.txt": {
-    "mtime": 1789177317.824347,
-    "ast_hash": "79aa591bf4cb5cc76f7af445e0c6cfc1",
-    "semantic_hash": ""
-  },
-  "log_hd_ruang_3d_06.txt": {
-    "mtime": 1789174820.639439,
-    "ast_hash": "52df819fc36fc7c6bd9ba3c0cc0501f0",
-    "semantic_hash": ""
-  },
-  "log_hd_ruang_3d_08.txt": {
-    "mtime": 1789175356.5900354,
-    "ast_hash": "1ea0c07ed3e259baa4c415526d165075",
-    "semantic_hash": ""
-  },
-  "log_hd_ruang_3d_09.txt": {
-    "mtime": 1789176351.6196413,
-    "ast_hash": "f0fcefe85518f420ac5c2ecd9fa690f5",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika.txt": {
-    "mtime": 1789186895.0478048,
-    "ast_hash": "2d78c5a07613a313d61f1e621834fbfb",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika10_pencar.txt": {
-    "mtime": 1789188437.4552608,
-    "ast_hash": "28252b2347bce1e26841e8d76d524ca3",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika11_regresi.txt": {
-    "mtime": 1789186894.8945706,
-    "ast_hash": "da8c6da3a282e5606a5f5f7bb9941d73",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika12_korelasi.txt": {
-    "mtime": 1789188734.1220748,
-    "ast_hash": "d981d0cb89bcda43ea1a56f5f14ccafe",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika13_menyesatkan.txt": {
-    "mtime": 1789269414.7052007,
-    "ast_hash": "777056c766418981002f2fac9ea9cf75",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika1_menipu.txt": {
-    "mtime": 1789183487.1987238,
-    "ast_hash": "a562e9544e5afc36ff892b183a2f3cc8",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika2.txt": {
-    "mtime": 1789190895.937177,
-    "ast_hash": "2316cc5e675f77e5782c699de5c5d2f5",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika2_bentuk.txt": {
-    "mtime": 1789184024.1556952,
-    "ast_hash": "a39bc47939a364e4ef7cd78284bfd288",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika3_lebar_kelas.txt": {
-    "mtime": 1789187247.46711,
-    "ast_hash": "0b3251c42b392632b901c307a442215c",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika4_relatif.txt": {
-    "mtime": 1789184405.0074317,
-    "ast_hash": "f57c9a037f63bf5bd3eabad534b74f3e",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika5_pemusatan.txt": {
-    "mtime": 1789185717.359154,
-    "ast_hash": "a7e47d83295e556dbd9bd746b60f9e81",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika6_pencilan.txt": {
-    "mtime": 1789186132.7154086,
-    "ast_hash": "caf98860f717c729dbaf4785da4e4108",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika7_boxplot.txt": {
-    "mtime": 1789186517.5265896,
-    "ast_hash": "c36493d0f9c3a8b18dcf2b92035f22bd",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika8_simpangan.txt": {
-    "mtime": 1789187791.4795878,
-    "ast_hash": "875989168c11b70219eedc2df31c3225",
-    "semantic_hash": ""
-  },
-  "log_hd_statistika9_kelompok.txt": {
-    "mtime": 1789188163.4424953,
-    "ast_hash": "c695e3a06b9a9923efbb56aa5ab01d62",
-    "semantic_hash": ""
-  },
-  "log_hd_transformasi1_setiap_titik.txt": {
-    "mtime": 1789271363.4452295,
-    "ast_hash": "3ecdf3b4cac7aac53959fca4ffdd7ea6",
-    "semantic_hash": ""
-  },
-  "log_r03_480.txt": {
-    "mtime": 1789167634.5585,
-    "ast_hash": "ab3a17d406f97687a497cdac4630095f",
-    "semantic_hash": ""
-  },
-  "log_r04_480.txt": {
-    "mtime": 1789171464.0962474,
-    "ast_hash": "3b77506f02d94f92689fdb7ac9640e1c",
-    "semantic_hash": ""
-  },
-  "log_r06_480.txt": {
-    "mtime": 1789169003.0815597,
-    "ast_hash": "122bf4a36fa2bf355d706681c38e209e",
-    "semantic_hash": ""
-  },
-  "log_r08_480.txt": {
-    "mtime": 1789169467.3909955,
-    "ast_hash": "fdb970a131ac22ff301527b8d2ae298b",
-    "semantic_hash": ""
-  },
-  "log_r09_480.txt": {
-    "mtime": 1789169464.0670073,
-    "ast_hash": "1721762f39f346c8331d3b32af1a2c0a",
-    "semantic_hash": ""
-  },
-  "log_uji_integral01_laju_ke_jumlah.txt": {
-    "mtime": 1789191138.9441786,
-    "ast_hash": "8e21caf5cc6c6110df2e3c0d220867e1",
-    "semantic_hash": ""
-  },
-  "log_uji_integral03_substitusi.txt": {
-    "mtime": 1789191351.4241745,
-    "ast_hash": "fdeb8b9c0601f4314d69a0045fc838a6",
-    "semantic_hash": ""
-  },
-  "log_uji_integral05_riemann.txt": {
-    "mtime": 1789192834.753594,
-    "ast_hash": "78894a9d26f052da8e49547e30eb4ae8",
-    "semantic_hash": ""
-  },
-  "log_uji_integral07_teorema_dasar.txt": {
-    "mtime": 1789191536.177117,
-    "ast_hash": "4f251f59a5cc9d7353238d6f51a8f126",
-    "semantic_hash": ""
-  },
-  "log_uji_integral09_luas_daerah.txt": {
-    "mtime": 1789191795.352594,
-    "ast_hash": "b75175abbe5eab3de6a43fb921fe0aaf",
-    "semantic_hash": ""
-  },
-  "log_uji_statistika.txt": {
-    "mtime": 1789182783.3218257,
-    "ast_hash": "f900441ed54439217871c150414bf409",
-    "semantic_hash": ""
-  },
-  "log_uji_statistika10_pencar.txt": {
-    "mtime": 1789182272.3210113,
-    "ast_hash": "b3eedfb31eb69e009b7ffe66e408d6a7",
-    "semantic_hash": ""
-  },
-  "log_uji_statistika11_regresi.txt": {
-    "mtime": 1789178332.4878106,
-    "ast_hash": "8a285f9088e5463dd08a26a16c8e81e1",
-    "semantic_hash": ""
-  },
-  "log_uji_statistika12_korelasi.txt": {
-    "mtime": 1789182645.3854501,
-    "ast_hash": "0d874aab9651e9062e79ca3a5957c7fa",
-    "semantic_hash": ""
-  },
-  "log_uji_statistika13_menyesatkan.txt": {
-    "mtime": 1789182783.1098354,
-    "ast_hash": "191acf88f6e58dd1555ec538577f4e19",
-    "semantic_hash": ""
-  },
-  "log_uji_statistika1_menipu.txt": {
-    "mtime": 1789177156.188686,
-    "ast_hash": "4ee38f51062ca642b3057e09073f9cd3",
-    "semantic_hash": ""
-  },
-  "log_uji_statistika2_bentuk.txt": {
-    "mtime": 1789179078.3790543,
-    "ast_hash": "f90d07ce780fd7037c0cd5e277bc226f",
-    "semantic_hash": ""
-  },
-  "log_uji_statistika3_lebar_kelas.txt": {
-    "mtime": 1789181519.992809,
-    "ast_hash": "7b3e94df42c499a9c1610ce8188a6327",
-    "semantic_hash": ""
-  },
-  "log_uji_statistika4_relatif.txt": {
-    "mtime": 1789177504.2541354,
-    "ast_hash": "95a0a2abf98cb8fbeaf31820b5b464e8",
-    "semantic_hash": ""
-  },
-  "log_uji_statistika5_pemusatan.txt": {
-    "mtime": 1789180137.2340627,
-    "ast_hash": "1ddc1ac5eb8683a3fb2a2358b0f460af",
-    "semantic_hash": ""
-  },
-  "log_uji_statistika6_pencilan.txt": {
-    "mtime": 1789180383.1372898,
-    "ast_hash": "1eaf38ff800873a2632196b3ae187f44",
-    "semantic_hash": ""
-  },
-  "log_uji_statistika7_boxplot.txt": {
-    "mtime": 1789177995.297907,
-    "ast_hash": "6d550e440386daa36f1d8ede7861ece7",
-    "semantic_hash": ""
-  },
-  "log_uji_statistika8_simpangan.txt": {
-    "mtime": 1789181824.4074543,
-    "ast_hash": "519b373ac8eb4b150d02c453df39fa96",
-    "semantic_hash": ""
-  },
-  "log_uji_statistika9_kelompok.txt": {
-    "mtime": 1789182068.4938285,
-    "ast_hash": "1f6ae0b3a5be5c723dc5e47413b9d61a",
-    "semantic_hash": ""
-  },
-  "log_uji_t3.txt": {
-    "mtime": 1789191351.5846684,
-    "ast_hash": "16faef46943bb6a7c37a35db9d424112",
-    "semantic_hash": ""
-  },
-  "log_uji_t4.txt": {
-    "mtime": 1789191795.5320325,
-    "ast_hash": "d5a4d3031750be2a49d570d45ad31a87",
-    "semantic_hash": ""
-  },
-  "log_uji_transformasi.txt": {
-    "mtime": 1789185799.0784943,
-    "ast_hash": "c05d6190a19d15a1eafc2ca19a570dc4",
-    "semantic_hash": ""
-  },
-  "log_uji_transformasi1_setiap_titik.txt": {
-    "mtime": 1789186695.2906463,
-    "ast_hash": "8842d5430222b79f2d1adaa15c48cfd6",
-    "semantic_hash": ""
-  },
-  "log_uji_transformasi2.txt": {
-    "mtime": 1789187709.257055,
-    "ast_hash": "567b1a880aa682e7e2a334703deb318b",
-    "semantic_hash": ""
-  },
-  "log_uji_transformasi2_cermin_garis.txt": {
-    "mtime": 1789193481.4519434,
-    "ast_hash": "5633dadd9eeccc416e99311e6a6cc717",
-    "semantic_hash": ""
-  },
-  "log_uji_transformasi3_rotasi.txt": {
-    "mtime": 1789187134.086661,
-    "ast_hash": "ed53e5ed00d28c9f8f5bc1d3542384d0",
-    "semantic_hash": ""
-  },
-  "log_uji_transformasi4_dilatasi.txt": {
-    "mtime": 1789190506.697061,
-    "ast_hash": "491af911e2a5a7dd7d93a30004ff612a",
-    "semantic_hash": ""
-  },
-  "log_uji_transformasi6_urutan.txt": {
-    "mtime": 1789185798.8775365,
-    "ast_hash": "d98d05fc58cda93babc4e03555c41b7f",
-    "semantic_hash": ""
-  },
-  "log_uji_turunan6_hasil_kali.txt": {
-    "mtime": 1789190665.46834,
-    "ast_hash": "a905c8b57bf914a14ef2ecb58e7a58fb",
-    "semantic_hash": ""
-  },
-  "log_uji_turunan7_aturan_rantai.txt": {
-    "mtime": 1789190802.539126,
-    "ast_hash": "f9a8fc4cea5b45469d3466348b45eaaa",
     "semantic_hash": ""
   },
   "audio/integral05-riemann/02-ingat.mp3": {
@@ -10134,89 +9749,14 @@
     "ast_hash": "999bd308cbac1934f75f9c77a9407246",
     "semantic_hash": ""
   },
-  "log_hd_gelombang4.txt": {
-    "mtime": 1789198751.167426,
-    "ast_hash": "d11bceb7022bbb8f1555395aa7b9b250",
-    "semantic_hash": ""
-  },
-  "log_hd_gelombang5.txt": {
-    "mtime": 1789199526.327001,
-    "ast_hash": "4bfe00864ab9898f8fb72f5127a3d591",
-    "semantic_hash": ""
-  },
-  "log_hd_integral01_laju_ke_jumlah.txt": {
-    "mtime": 1789196273.289519,
-    "ast_hash": "c4a360ae873f6044adef243a71ba6f73",
-    "semantic_hash": ""
-  },
-  "log_hd_integral03_substitusi.txt": {
-    "mtime": 1789197018.0239496,
-    "ast_hash": "28eaf98d0c44d4ea6d2fa19fce6d27f0",
-    "semantic_hash": ""
-  },
-  "log_hd_integral05_riemann.txt": {
-    "mtime": 1789197493.666561,
-    "ast_hash": "0fd2ff6808d796f6da67a6c19e9305de",
-    "semantic_hash": ""
-  },
-  "log_hd_integral07_teorema_dasar.txt": {
-    "mtime": 1789198219.6325107,
-    "ast_hash": "66d28f0bebd070837fd9224fc949591e",
-    "semantic_hash": ""
-  },
-  "log_hd_integral09_luas_daerah.txt": {
-    "mtime": 1789198750.9708674,
-    "ast_hash": "d5610ae24557b8a21dc9e33addcde10e",
-    "semantic_hash": ""
-  },
-  "log_hd_transformasi2_cermin_garis.txt": {
-    "mtime": 1789199526.1918366,
-    "ast_hash": "1d848783f0682903e73335ae241c6965",
-    "semantic_hash": ""
-  },
-  "log_hd_transformasi3_rotasi.txt": {
-    "mtime": 1789193248.4689937,
-    "ast_hash": "fa95e7bd3de7f923671f1955e4d3416d",
-    "semantic_hash": ""
-  },
-  "log_hd_transformasi4_dilatasi.txt": {
-    "mtime": 1789193769.4064407,
-    "ast_hash": "9815eb516d8d1fa0098934c49e2f2f01",
-    "semantic_hash": ""
-  },
-  "log_hd_transformasi6_urutan.txt": {
-    "mtime": 1789194333.831103,
-    "ast_hash": "863604b86d96e74b140355fdd4671b53",
-    "semantic_hash": ""
-  },
-  "log_hd_turunan6_hasil_kali.txt": {
-    "mtime": 1789194930.0778444,
-    "ast_hash": "debe155d6949105f1d58e9745b53f629",
-    "semantic_hash": ""
-  },
-  "log_hd_turunan7_aturan_rantai.txt": {
-    "mtime": 1789195415.4770043,
-    "ast_hash": "085f14486c39043e97ae9bb654124fd6",
-    "semantic_hash": ""
-  },
-  "log_uji_t5.txt": {
-    "mtime": 1789192834.9806802,
-    "ast_hash": "c7e31ecb47a354fc37821b9520ad9d54",
-    "semantic_hash": ""
-  },
-  "log_uji_t6.txt": {
-    "mtime": 1789193481.6461253,
-    "ast_hash": "cd3cac439ff1c1935e077259a75ff320",
-    "semantic_hash": ""
-  },
   "web/lib/versi-anim.json": {
-    "mtime": 1789282293.983603,
-    "ast_hash": "3745efb8ad9ebce5f1682324968c16e0",
+    "mtime": 1789461628.857159,
+    "ast_hash": "a1ebda20e110ff2573f4a43e7a881ce8",
     "semantic_hash": ""
   },
   "web/scripts/versi-anim.mjs": {
-    "mtime": 1789218258.1734552,
-    "ast_hash": "927990eabb843ca7986e8330cc1eaede",
+    "mtime": 1789450749.524796,
+    "ast_hash": "519584c77f5c0fa615c72314b8df2a3e",
     "semantic_hash": ""
   },
   "alat/potret_versi_ui.mjs": {
@@ -10382,51 +9922,6 @@
   "docs/tesis/versi-ui/v4-mantra-sekarang/peta-materi-laptop.png": {
     "mtime": 1789228324.3709428,
     "ast_hash": "84c5421267b09ebfa81794dfb99f1688",
-    "semantic_hash": ""
-  },
-  "log_hd_antre_trig.txt": {
-    "mtime": 1789243828.3707964,
-    "ast_hash": "db3ccd3490ac1a4ca3c6e36bf86dd9a4",
-    "semantic_hash": ""
-  },
-  "log_hd_antre_trig2.txt": {
-    "mtime": 1789244655.1199198,
-    "ast_hash": "a51aa3323747f0d39a921861adf40308",
-    "semantic_hash": ""
-  },
-  "log_hd_antre_trig3.txt": {
-    "mtime": 1789247275.901735,
-    "ast_hash": "3fcbe9f240413e2dcd6c5bda10cf2961",
-    "semantic_hash": ""
-  },
-  "log_hd_tahap6_enam_rasio.txt": {
-    "mtime": 1789268376.472249,
-    "ast_hash": "9306388f87c4da830ed8e5ebf1557e72",
-    "semantic_hash": ""
-  },
-  "log_hd_tahap7_sudut_istimewa.txt": {
-    "mtime": 1789244654.889839,
-    "ast_hash": "b60511158130e5a7508b39dbadf07990",
-    "semantic_hash": ""
-  },
-  "log_hd_tahap9_tiga_grafik.txt": {
-    "mtime": 1789282212.2607002,
-    "ast_hash": "6186d9d5741d23d1c8e6db379a4ff9b5",
-    "semantic_hash": ""
-  },
-  "log_uji_tahap6.txt": {
-    "mtime": 1789264446.0505934,
-    "ast_hash": "46aeca2569545bf7be24c669a33e4989",
-    "semantic_hash": ""
-  },
-  "log_uji_tahap7.txt": {
-    "mtime": 1789243390.7757993,
-    "ast_hash": "81c4a5122422d8a239b09f57bc0a585a",
-    "semantic_hash": ""
-  },
-  "log_uji_tahap9.txt": {
-    "mtime": 1789280648.9918516,
-    "ast_hash": "2295990a35f15f13e46029f7c8fc2235",
     "semantic_hash": ""
   },
   "audio/tahap6-enam-rasio/02-ingat4.mp3": {
@@ -10609,46 +10104,6 @@
     "ast_hash": "7e24eaa48dc8a6ef07ab6be603466576",
     "semantic_hash": ""
   },
-  "log_hd_antre_c9.txt": {
-    "mtime": 1789282212.4258566,
-    "ast_hash": "16fda233ceae894506f45989e755381b",
-    "semantic_hash": ""
-  },
-  "log_hd_antre_sumbu.txt": {
-    "mtime": 1789274926.8881035,
-    "ast_hash": "a352c4e6e3170f42f181294204e8f0d9",
-    "semantic_hash": ""
-  },
-  "log_hd_grafik6_transformasi.txt": {
-    "mtime": 1789268996.9157846,
-    "ast_hash": "fef4001cb45fc71f326ea6aabcf02124",
-    "semantic_hash": ""
-  },
-  "log_hd_tahap8_grafik_sin.txt": {
-    "mtime": 1789270434.9828253,
-    "ast_hash": "cefdcc13feed10073335c9e12a95a1fc",
-    "semantic_hash": ""
-  },
-  "log_hd_turunan1_laju_rata_rata.txt": {
-    "mtime": 1789272387.5941148,
-    "ast_hash": "fc7f0ba22a8a79de48340c61066db9e3",
-    "semantic_hash": ""
-  },
-  "log_hd_turunan3_fungsi_turunan.txt": {
-    "mtime": 1789273347.6678503,
-    "ast_hash": "afc8e21eda745c5f49904327f60707df",
-    "semantic_hash": ""
-  },
-  "log_hd_vektor4_panjang.txt": {
-    "mtime": 1789273917.663096,
-    "ast_hash": "1660c1f38dff8ec23a6452cd855f3e79",
-    "semantic_hash": ""
-  },
-  "log_hd_vektor6_sambung.txt": {
-    "mtime": 1789274455.2031147,
-    "ast_hash": "6e041badf31dfdf66d400d94098e4e92",
-    "semantic_hash": ""
-  },
   "audio/tahap9-tiga-grafik/15-bonus0.mp3": {
     "mtime": 1789391893.5988066,
     "ast_hash": "dd08195a7d477784aacd34e4ca2353d4",
@@ -10690,13 +10145,13 @@
     "semantic_hash": ""
   },
   "web/app/latihan/contoh-gambar/page.tsx": {
-    "mtime": 1789362351.095623,
-    "ast_hash": "4902b2055aca066d2c346b57790e69ab",
+    "mtime": 1789649036.505284,
+    "ast_hash": "8f5f3ca043b74dc3ac0dee3b92ead193",
     "semantic_hash": ""
   },
   "web/components/TombolGuru.tsx": {
-    "mtime": 1789312645.9302194,
-    "ast_hash": "1e799ce8d531f02e06cfab875c985810",
+    "mtime": 1789655667.3462234,
+    "ast_hash": "20c8b6ac48d279f6963f57f0613dbe49",
     "semantic_hash": ""
   },
   "web/components/latihan/LatarBab.tsx": {
@@ -10765,18 +10220,8 @@
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-09-13-berkas-lomba-pppmi-2026-design.md": {
-    "mtime": 1789391229.9157853,
-    "ast_hash": "c19f61c06ed27e253ed9d488353bbd04",
-    "semantic_hash": ""
-  },
-  "log_dev_3210.txt": {
-    "mtime": 1789384561.591899,
-    "ast_hash": "309f4822f989418c7f4454cc2198e90f",
-    "semantic_hash": ""
-  },
-  "log_deploy_t1.txt": {
-    "mtime": 1789313780.7746572,
-    "ast_hash": "8dd6bc67cc1a02e10a8c7baf292a49c5",
+    "mtime": 1789449709.0405147,
+    "ast_hash": "cda4eeb98b6b20400d5756d29f680f59",
     "semantic_hash": ""
   },
   "PELAJARI BENTUK SOAL MATEMATIKA/alat/daftar_soal_mantra.py": {
@@ -10839,486 +10284,6 @@
     "ast_hash": "843a75c4cc8d25ed8328a1adb0bc91ad",
     "semantic_hash": ""
   },
-  "log_deploy_bank.txt": {
-    "mtime": 1789371207.6827452,
-    "ast_hash": "a5cc3ad32096e542c334110905ef143f",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/durasi.json": {
-    "mtime": 1789386511.1728036,
-    "ast_hash": "e4aa428decaff8da418da7ef19e8a0fa",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/kata.json": {
-    "mtime": 1789386511.1758156,
-    "ast_hash": "6ef0553c60bfb4ef8a921e181c323c75",
-    "semantic_hash": ""
-  },
-  "log_deploy_revisi.txt": {
-    "mtime": 1789385356.1803532,
-    "ast_hash": "f7a24829f25e4d9535627f5993e74d30",
-    "semantic_hash": ""
-  },
-  "log_uji_eleven_tahap2.txt": {
-    "mtime": 1789386642.8770876,
-    "ast_hash": "f6aafeea8be782243985bfd7bc595fe7",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/01-buka.mp3": {
-    "mtime": 1789386506.5064697,
-    "ast_hash": "2e3363d67a846136a7d6f3b2884791f6",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/02-ingat.mp3": {
-    "mtime": 1789386506.873976,
-    "ast_hash": "39321d612de59f13ad7ca3424faccd29",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/03-dugaan.mp3": {
-    "mtime": 1789386507.1184964,
-    "ast_hash": "8deeca63fb4536980f24f42d925870e7",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/04-segitiga.mp3": {
-    "mtime": 1789386507.356497,
-    "ast_hash": "97f62bf77052116798a185f2c5fb73d4",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/05-bagi1.mp3": {
-    "mtime": 1789386507.5785837,
-    "ast_hash": "c171cb97da7c5ec4532e798478ca6f9f",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/06-besarkan.mp3": {
-    "mtime": 1789386507.7962995,
-    "ast_hash": "e567e68dd1625cc36f53593f84500572",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/07-ukur2.mp3": {
-    "mtime": 1789386508.0152647,
-    "ast_hash": "acd0b2448c2b34a9bca84d25a7add6de",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/08-bagi2.mp3": {
-    "mtime": 1789386508.2406251,
-    "ast_hash": "bb677a5533b6782f493da83ed458a749",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/09-kenapa.mp3": {
-    "mtime": 1789386508.4815621,
-    "ast_hash": "9d861583cdeea1cf1d31e76452ba21e1",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/10-hapus.mp3": {
-    "mtime": 1789386508.7484677,
-    "ast_hash": "aa64b343a6e274a562b6de7fe756f9d3",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/11-berapapun.mp3": {
-    "mtime": 1789386508.9715781,
-    "ast_hash": "1d36303231de4ee5db4f5630b46e98e6",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/12-geser.mp3": {
-    "mtime": 1789386509.1613605,
-    "ast_hash": "dd3b423566b55df45afbb3554673f3bb",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/13-simpul.mp3": {
-    "mtime": 1789386509.3429725,
-    "ast_hash": "635689ceabfab9a17869a1daa802960c",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/14-tutup.mp3": {
-    "mtime": 1789386509.5774674,
-    "ast_hash": "94160e48834c0278d2956f84711b2bdc",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/15-lanjut.mp3": {
-    "mtime": 1789386509.8328817,
-    "ast_hash": "5cf12cd910e45f5e4b0aade7417a01e8",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-eleven/narasi-penuh.mp3": {
-    "mtime": 1789386511.1654952,
-    "ast_hash": "36f3fd497474154b27b31ad9fbb9b342",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/durasi.json": {
-    "mtime": 1789388968.0224383,
-    "ast_hash": "f5ef84817659db78da1bca954c7880f6",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/kata.json": {
-    "mtime": 1789388968.025591,
-    "ast_hash": "0985038fb79ed40cdafb0894b58d659d",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/durasi.json": {
-    "mtime": 1789389301.9295585,
-    "ast_hash": "e633a8f4a21d1c1a4ffe1703e52ed1b3",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/kata.json": {
-    "mtime": 1789389301.9330022,
-    "ast_hash": "7a832abed546d7c8fa21030c98cbab74",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/durasi.json": {
-    "mtime": 1789389161.868248,
-    "ast_hash": "0813f59e757328f9ed812ee8f1fc31ef",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/kata.json": {
-    "mtime": 1789389161.8712473,
-    "ast_hash": "97d60733e2a3b4262aadf6297d7630d8",
-    "semantic_hash": ""
-  },
-  "log_uji_bian_tahap2.txt": {
-    "mtime": 1789389357.6574154,
-    "ast_hash": "e823152d69e7f14a5d6412d59be8624a",
-    "semantic_hash": ""
-  },
-  "log_uji_ganesh_tahap2.txt": {
-    "mtime": 1789389710.6539555,
-    "ast_hash": "e1914ca3ba457211013d4ae213d4bb11",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/01-buka.mp3": {
-    "mtime": 1789388921.7911198,
-    "ast_hash": "4b2b36d1b39675352e72a589f210ab49",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/02-ingat.mp3": {
-    "mtime": 1789388925.5625181,
-    "ast_hash": "5d0cc81b360bb1472d70e0282b567786",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/03-dugaan.mp3": {
-    "mtime": 1789388928.3680723,
-    "ast_hash": "65560ec42603bc46037ee567fba34d5f",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/04-segitiga.mp3": {
-    "mtime": 1789388931.7187827,
-    "ast_hash": "d8a4e99a81bf0a72ddb88412bcb27a2d",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/05-bagi1.mp3": {
-    "mtime": 1789388934.6439962,
-    "ast_hash": "9b3f26bd2c4121f49b4a7fc371c97ab6",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/06-besarkan.mp3": {
-    "mtime": 1789388937.391721,
-    "ast_hash": "d025c1577d74c00250e2332360915ffd",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/07-ukur2.mp3": {
-    "mtime": 1789388939.9233882,
-    "ast_hash": "15a39ef4e8051bd96d4e1c67d2f8c1f8",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/08-bagi2.mp3": {
-    "mtime": 1789388943.5245962,
-    "ast_hash": "c54573a42248ec009418788a519de726",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/09-kenapa.mp3": {
-    "mtime": 1789388947.2553272,
-    "ast_hash": "6c4c2c781f25f657fb2d05e19460726a",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/10-hapus.mp3": {
-    "mtime": 1789388950.2477467,
-    "ast_hash": "897bfaa888ae06e4179a20b93e421253",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/11-berapapun.mp3": {
-    "mtime": 1789388952.7898135,
-    "ast_hash": "54d3b71471e1cbfba3aca23828633730",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/12-geser.mp3": {
-    "mtime": 1789388955.3936896,
-    "ast_hash": "ba6937f44df3656ce2e7b6bd227721a9",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/13-simpul.mp3": {
-    "mtime": 1789388957.8003705,
-    "ast_hash": "d2485b347896c3770cfb76a4a3961624",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/14-tutup.mp3": {
-    "mtime": 1789388961.748075,
-    "ast_hash": "4bd01ae59d85ad03fa91ebef6cd93d8d",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/15-lanjut.mp3": {
-    "mtime": 1789388966.7286441,
-    "ast_hash": "db09053fb6645e49be7520143ea7d9d2",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian/narasi-penuh.mp3": {
-    "mtime": 1789388968.0163813,
-    "ast_hash": "0b23385cb9fae7743de04871bfff37dc",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/01-buka.mp3": {
-    "mtime": 1789389297.8899467,
-    "ast_hash": "718653da69d44e8317cb18f06d9098c6",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/02-ingat.mp3": {
-    "mtime": 1789389298.1555064,
-    "ast_hash": "c68b231522b3be1767f664635b703d19",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/03-dugaan.mp3": {
-    "mtime": 1789389298.3559074,
-    "ast_hash": "029238120c9eb8dfcabbbd1994ad919c",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/04-segitiga.mp3": {
-    "mtime": 1789389298.6020904,
-    "ast_hash": "c296c3a816e32949226d30ac66870319",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/05-bagi1.mp3": {
-    "mtime": 1789389298.827746,
-    "ast_hash": "87472c9b7788997d84be5fb126e416eb",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/06-besarkan.mp3": {
-    "mtime": 1789389299.0499482,
-    "ast_hash": "89735f00d5e7e8143771ae76225a86d9",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/07-ukur2.mp3": {
-    "mtime": 1789389299.2527263,
-    "ast_hash": "8fdf66ca41434d457b4b4c63230d50b1",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/08-bagi2.mp3": {
-    "mtime": 1789389299.4460506,
-    "ast_hash": "2002048e10fe9265592fa4c0e6b1fc75",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/09-kenapa.mp3": {
-    "mtime": 1789389299.6518967,
-    "ast_hash": "6e929ecf66059e7d5f1549905082aea2",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/10-hapus.mp3": {
-    "mtime": 1789389299.8663225,
-    "ast_hash": "c29958df712871bebf2c8957cd835247",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/11-berapapun.mp3": {
-    "mtime": 1789389300.047541,
-    "ast_hash": "c3d9b4f50bd53709a7b173fff5030fad",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/12-geser.mp3": {
-    "mtime": 1789389300.234408,
-    "ast_hash": "f7d28705166666e6eeaa19784fbc1d03",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/13-simpul.mp3": {
-    "mtime": 1789389300.4112933,
-    "ast_hash": "c6ac24ffea1b16ecb0157a0989151ca5",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/14-tutup.mp3": {
-    "mtime": 1789389300.6059253,
-    "ast_hash": "bdb0cfcfed65562460a0a13fc6f58c89",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/15-lanjut.mp3": {
-    "mtime": 1789389300.833709,
-    "ast_hash": "7c8b7e77550ea9fc0e457afbc814eb4a",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh95/narasi-penuh.mp3": {
-    "mtime": 1789389301.9232886,
-    "ast_hash": "5250dc0096819a0d1cd28c90d6f57bcb",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/01-buka.mp3": {
-    "mtime": 1789389123.1189566,
-    "ast_hash": "e39c8a93c832cd877027ce8d1ad6c12e",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/02-ingat.mp3": {
-    "mtime": 1789389126.6147182,
-    "ast_hash": "9966e38ba5083b6e68d5f9d1c3304cc0",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/03-dugaan.mp3": {
-    "mtime": 1789389129.4809892,
-    "ast_hash": "cc5957840df21c26dc49716def0422da",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/04-segitiga.mp3": {
-    "mtime": 1789389132.12246,
-    "ast_hash": "96eef9c819af58bf65fa627524999fa2",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/05-bagi1.mp3": {
-    "mtime": 1789389134.6535552,
-    "ast_hash": "0735ad007f880cfe3ffbcd1afca96fd8",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/06-besarkan.mp3": {
-    "mtime": 1789389136.8709865,
-    "ast_hash": "56f14099735fc315ae1eb695c2cef027",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/07-ukur2.mp3": {
-    "mtime": 1789389139.9151087,
-    "ast_hash": "6f2d3854d0eee87c988f8078f2aeed19",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/08-bagi2.mp3": {
-    "mtime": 1789389142.0734594,
-    "ast_hash": "5d6a95e03ae574ac47a62944be8bd7dd",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/09-kenapa.mp3": {
-    "mtime": 1789389144.4441037,
-    "ast_hash": "8e4040f39f3b603d08f9b9428c7da217",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/10-hapus.mp3": {
-    "mtime": 1789389147.7807233,
-    "ast_hash": "9acb926ec68a64a5f99e0b0211a9e101",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/11-berapapun.mp3": {
-    "mtime": 1789389150.0303366,
-    "ast_hash": "f55aec65ad2eca81714e9653afcf92dc",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/12-geser.mp3": {
-    "mtime": 1789389152.4060967,
-    "ast_hash": "b4ae1730d968d285d68375459ff1dac3",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/13-simpul.mp3": {
-    "mtime": 1789389154.6128078,
-    "ast_hash": "c40c484256ec3a2e78f7403eedbc4aa2",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/14-tutup.mp3": {
-    "mtime": 1789389157.3549147,
-    "ast_hash": "bb0902fb102dd17f5f8eca8d4804408b",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/15-lanjut.mp3": {
-    "mtime": 1789389160.8162358,
-    "ast_hash": "3273d213ae89d96f4eb11e1fc40e0143",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-ganesh/narasi-penuh.mp3": {
-    "mtime": 1789389161.8619308,
-    "ast_hash": "a2863f74998f91b0e7907dc335ffca5e",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/durasi.json": {
-    "mtime": 1789390612.1178627,
-    "ast_hash": "f4e85defea0198d18fcbb61a9b07a4d1",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/kata.json": {
-    "mtime": 1789390612.1198654,
-    "ast_hash": "7e44d3d66e877b2aede7abe295263d30",
-    "semantic_hash": ""
-  },
-  "log_uji_bian2_tahap2.txt": {
-    "mtime": 1789390605.6663675,
-    "ast_hash": "d48f5a85b4f8771746de21cd0c6f27ef",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/01-buka.mp3": {
-    "mtime": 1789390608.9422002,
-    "ast_hash": "b2c6adacf546f839a9a48e09ccd7266d",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/02-ingat.mp3": {
-    "mtime": 1789390609.1417384,
-    "ast_hash": "5961c03ad41c1f1773d3a5791d6096fd",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/03-dugaan.mp3": {
-    "mtime": 1789390609.278837,
-    "ast_hash": "393869f48e65b91c11f0bd745b10f1c0",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/04-segitiga.mp3": {
-    "mtime": 1789390609.4194262,
-    "ast_hash": "2676ad5f0e0b2e92e00e60b8622e8eea",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/05-bagi1.mp3": {
-    "mtime": 1789390609.5574024,
-    "ast_hash": "158f285bcfe3c46f03383cc5dc276b1a",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/06-besarkan.mp3": {
-    "mtime": 1789390609.6915271,
-    "ast_hash": "188a8eb6537d813ec3933d7d13f97c46",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/07-ukur2.mp3": {
-    "mtime": 1789390609.8263683,
-    "ast_hash": "50789a8bb5d6b551b02d2b54abe6ad58",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/08-bagi2.mp3": {
-    "mtime": 1789390609.963976,
-    "ast_hash": "b2975efb8ca6408d29e6e4dd860c456b",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/09-kenapa.mp3": {
-    "mtime": 1789390610.1077628,
-    "ast_hash": "d38e17ddca693d293e9852bbad43cbe8",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/10-hapus.mp3": {
-    "mtime": 1789390610.2557173,
-    "ast_hash": "1ce27dbf130469e75d85ae9cb36914c0",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/11-berapapun.mp3": {
-    "mtime": 1789390610.3899007,
-    "ast_hash": "d33cb99e8111fd683d6fee0122479ab7",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/12-geser.mp3": {
-    "mtime": 1789390610.5157912,
-    "ast_hash": "a2568e9a515b48a19f15e645f86fc780",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/13-simpul.mp3": {
-    "mtime": 1789390610.634064,
-    "ast_hash": "c66c4b620e7473fb811420b2affc5383",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/14-tutup.mp3": {
-    "mtime": 1789390610.792335,
-    "ast_hash": "ac5d5c50e937457d5b7075b9fe56b1da",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/15-lanjut.mp3": {
-    "mtime": 1789390610.9588144,
-    "ast_hash": "42680e815e5cbd096f1d72db1dcbae6b",
-    "semantic_hash": ""
-  },
-  "audio/tahap2-perbandingan-tetap-bian2/narasi-penuh.mp3": {
-    "mtime": 1789390612.1118653,
-    "ast_hash": "f3a1761a19b5389128cdce02f48ae08b",
-    "semantic_hash": ""
-  },
   "alat/terapkan_suara.py": {
     "mtime": 1789391261.5280926,
     "ast_hash": "fe2b10c31a62ade6ad0d301f9593c9e4",
@@ -11329,664 +10294,2134 @@
     "ast_hash": "05251c7bbff3a8ca243f4a6fff452fbd",
     "semantic_hash": ""
   },
-  "log_gabung_tahap2-perbandingan-tetap.txt": {
-    "mtime": 1789392395.1600862,
-    "ast_hash": "e496cea9a2873d9813ed3d68dd081f10",
+  "alat/unggah_anim_r2.py": {
+    "mtime": 1789458067.519669,
+    "ast_hash": "50de14a7e191aa0ea520b73fa99e1920",
     "semantic_hash": ""
   },
-  "log_gabung_tahap4-lahirnya-rasio.txt": {
-    "mtime": 1789392774.0313292,
-    "ast_hash": "bc4b68c4f694a963f18db2e4e876bb51",
+  "alat/terbitkan_worker_video.py": {
+    "mtime": 1789458067.5255542,
+    "ast_hash": "2ef08ee9dfa6ab954ba2622cd50e3344",
     "semantic_hash": ""
   },
-  "log_gabung_tahap5-lingkaran-satuan.txt": {
-    "mtime": 1789393303.4653468,
-    "ast_hash": "8ea3a292cfeaf8d1077dd50e19147a56",
+  "alat/worker-video/index.js": {
+    "mtime": 1789462489.1042387,
+    "ast_hash": "6f010c284373d7acfacb69ab802e91b7",
     "semantic_hash": ""
   },
-  "log_gabung_tahap6-enam-rasio.txt": {
-    "mtime": 1789394358.2306411,
-    "ast_hash": "8f953888516a57ec5c17b913c751cee1",
+  "alat/faststart_anim.py": {
+    "mtime": 1789461521.623927,
+    "ast_hash": "0ea6927d880045f4ad9ad3cdb013f7a7",
     "semantic_hash": ""
   },
-  "log_gabung_tahap7-sudut-istimewa.txt": {
-    "mtime": 1789394781.807871,
-    "ast_hash": "d6bc508caabf09eca5fe2f5f3424e8d6",
+  "web/components/PetugasVideo.tsx": {
+    "mtime": 1789462300.9836013,
+    "ast_hash": "1ddf46d4500778758ac22f933f800cc8",
     "semantic_hash": ""
   },
-  "log_gabung_tahap8-grafik-sin.txt": {
-    "mtime": 1789395308.4461267,
-    "ast_hash": "c0e0c49eb4079c928da903e49624a952",
+  "web/lib/simpanan-video.ts": {
+    "mtime": 1789464774.2323997,
+    "ast_hash": "0d243ea137210069cbdac340a9097345",
     "semantic_hash": ""
   },
-  "log_hd_tahap2-perbandingan-tetap.txt": {
-    "mtime": 1789392391.1758916,
-    "ast_hash": "91e66df79c304002148b0a35b43dc53f",
+  "web/public/sw.js": {
+    "mtime": 1789463430.3508651,
+    "ast_hash": "fdbf5198188064725c9ea01ae688350c",
     "semantic_hash": ""
   },
-  "log_hd_tahap4-lahirnya-rasio.txt": {
-    "mtime": 1789392769.1494784,
-    "ast_hash": "5b570ee0178169c5afe6859b31b37db0",
+  "alat/uji-seret/jalankan.sh": {
+    "mtime": 1789492510.813996,
+    "ast_hash": "816348ae3d61ac37781327a0178156a2",
     "semantic_hash": ""
   },
-  "log_hd_tahap5-lingkaran-satuan.txt": {
-    "mtime": 1789393298.1216202,
-    "ast_hash": "4c03f82047efd6b98c2db56bbbe066d2",
+  "alat/uji-seret/probe_seret.js": {
+    "mtime": 1789492510.6785717,
+    "ast_hash": "296caf7ad2a324d228e75fdb412170ba",
     "semantic_hash": ""
   },
-  "log_hd_tahap6-enam-rasio.txt": {
-    "mtime": 1789394350.7583032,
-    "ast_hash": "2f69876850dd551b34b64a41b0cd9625",
+  "alat/uji-seret/ringkas_probe.py": {
+    "mtime": 1789492510.815022,
+    "ast_hash": "cfb47ca2d197d18cfb2edbcefe7f32b5",
     "semantic_hash": ""
   },
-  "log_hd_tahap7-sudut-istimewa.txt": {
-    "mtime": 1789394776.4317281,
-    "ast_hash": "a98439fa98c5d69a8512fe0fa3bd44cf",
+  "deep-learning-manim/advanced/analysis/evidence.json": {
+    "mtime": 1789544241.943112,
+    "ast_hash": "553137b9717c03853017aeda4718756d",
     "semantic_hash": ""
   },
-  "log_hd_tahap8-grafik-sin.txt": {
-    "mtime": 1789395304.2316718,
-    "ast_hash": "777d101a409ed1a871bd053c692b062b",
+  "deep-learning-manim/advanced/film/renders/qa/IngatanSistem-bounds.json": {
+    "mtime": 1789543763.2731488,
+    "ast_hash": "4be2874fbbc9f3ed64da1f34d5e6dc6d",
     "semantic_hash": ""
   },
-  "log_hd_tahap9-tiga-grafik.txt": {
-    "mtime": 1789396652.3175306,
-    "ast_hash": "c33f63b3b362c0d474f54d71d4e0bc17",
+  "deep-learning-manim/advanced/film/renders/qa/SidikRedaman-bounds.json": {
+    "mtime": 1789544160.3886836,
+    "ast_hash": "03bb7ea246ca0e295ffabc6947e5b62d",
     "semantic_hash": ""
   },
-  "log_kontak_tahap2-perbandingan-tetap.txt": {
-    "mtime": 1789392404.023409,
-    "ast_hash": "b70d7fabf9d8a9e3f3d23f3d2018e132",
+  "deep-learning-manim/advanced/film/renders/qa/TigaTanggapan-bounds.json": {
+    "mtime": 1789543151.0859337,
+    "ast_hash": "ea9ed719ab57200bc25b18a8e3d99663",
     "semantic_hash": ""
   },
-  "log_kontak_tahap4-lahirnya-rasio.txt": {
-    "mtime": 1789392784.650714,
-    "ast_hash": "6ad8e8f67887c5801e0863f938172cf2",
+  "deep-learning-manim/advanced/film/renders/qa/delivery-validation.json": {
+    "mtime": 1789544202.6139798,
+    "ast_hash": "0db9693abeed9fd12b912b930372818a",
     "semantic_hash": ""
   },
-  "log_kontak_tahap5-lingkaran-satuan.txt": {
-    "mtime": 1789393317.8208106,
-    "ast_hash": "3d64e561ff0cee2893a8ed2b4c50713f",
+  "deep-learning-manim/advanced/film/ruang_ukur.py": {
+    "mtime": 1789544173.7583196,
+    "ast_hash": "f365e105b7fecabd6878d6069e5487c3",
     "semantic_hash": ""
   },
-  "log_kontak_tahap6-enam-rasio.txt": {
-    "mtime": 1789394376.2058227,
-    "ast_hash": "9db6405d2a36b19f10e81e9a672f7c2b",
+  "deep-learning-manim/advanced/labs/dynamics.py": {
+    "mtime": 1789542806.552011,
+    "ast_hash": "6b3086d36562c58bcb50e2a3942905da",
     "semantic_hash": ""
   },
-  "log_kontak_tahap7-sudut-istimewa.txt": {
-    "mtime": 1789394795.7572038,
-    "ast_hash": "9658e5c6d81d20e669a08701e5d95a02",
+  "deep-learning-manim/advanced/labs/graphics-results.json": {
+    "mtime": 1789542384.410995,
+    "ast_hash": "f9646e07de7ea525f406e5b48e763eb9",
     "semantic_hash": ""
   },
-  "log_kontak_tahap8-grafik-sin.txt": {
-    "mtime": 1789395316.4263484,
-    "ast_hash": "091bb66be05b2b098553884d92412fae",
+  "deep-learning-manim/advanced/labs/graphics_audit.py": {
+    "mtime": 1789544142.476122,
+    "ast_hash": "f336e04f5f34852f2904bf344c9daf97",
     "semantic_hash": ""
   },
-  "log_rekam_ruang.txt": {
-    "mtime": 1789393626.6682086,
-    "ast_hash": "56cadac401bcc050824dececacef78b9",
+  "deep-learning-manim/advanced/labs/model-verification.json": {
+    "mtime": 1789543014.9468539,
+    "ast_hash": "07faa31a3eb9a7ddbf4a430b62f314d9",
     "semantic_hash": ""
   },
-  "log_rekam_transformasi_integral.txt": {
-    "mtime": 1789394326.106815,
-    "ast_hash": "ccc1ad0e64a1a2ed712fcbb851dd8348",
+  "deep-learning-manim/advanced/labs/numerical-results.json": {
+    "mtime": 1789543673.4055932,
+    "ast_hash": "9cf776a81ed293c0565bfcaf8992bb56",
     "semantic_hash": ""
   },
-  "log_rekam_vektor.txt": {
-    "mtime": 1789393785.6036296,
-    "ast_hash": "b134240e0c73aa34dfec788e1c988943",
+  "deep-learning-manim/advanced/labs/numerical_audit.py": {
+    "mtime": 1789543665.8509233,
+    "ast_hash": "31fd86ac7ed3ca6969b593ec247f663d",
     "semantic_hash": ""
   },
-  "log_subtitle_tahap2-perbandingan-tetap.txt": {
-    "mtime": 1789392395.318669,
-    "ast_hash": "6e6dd1ef1f3bbfda3c3e5558b4fcef4e",
+  "deep-learning-manim/advanced/labs/render-geometry-verification.json": {
+    "mtime": 1789543970.59995,
+    "ast_hash": "fa139946734614c4a15ea86feaae3019",
     "semantic_hash": ""
   },
-  "log_subtitle_tahap4-lahirnya-rasio.txt": {
-    "mtime": 1789392774.2925484,
-    "ast_hash": "57c77bd77dfadf488ebc3b109ba4c5ab",
+  "deep-learning-manim/advanced/labs/verify_models.py": {
+    "mtime": 1789542376.7897165,
+    "ast_hash": "fc959953da903eb55b86d0ea198d2698",
     "semantic_hash": ""
   },
-  "log_subtitle_tahap5-lingkaran-satuan.txt": {
-    "mtime": 1789393303.6627219,
-    "ast_hash": "474b9662dd1481474a4359517474608d",
+  "deep-learning-manim/advanced/labs/verify_render_geometry.py": {
+    "mtime": 1789543937.0241146,
+    "ast_hash": "a91ecc138d2c4186e6f8257dc0d9517e",
     "semantic_hash": ""
   },
-  "log_subtitle_tahap6-enam-rasio.txt": {
-    "mtime": 1789394358.4298327,
-    "ast_hash": "4118186e86faaef253b854b86ead4761",
+  "deep-learning-manim/advanced/package-validation.json": {
+    "mtime": 1789544242.1242766,
+    "ast_hash": "cfa7da99ab451f0b0c3deb9611169f97",
     "semantic_hash": ""
   },
-  "log_subtitle_tahap7-sudut-istimewa.txt": {
-    "mtime": 1789394781.9687552,
-    "ast_hash": "fdfb5d5635931cda8073b88118acd6be",
+  "deep-learning-manim/advanced/reference/analysis-summary.json": {
+    "mtime": 1789541698.764631,
+    "ast_hash": "9c9b96f157748ca016f56892a867be9d",
     "semantic_hash": ""
   },
-  "log_subtitle_tahap8-grafik-sin.txt": {
-    "mtime": 1789395308.588029,
-    "ast_hash": "6e7c06493be5cdc9d7a3bdc81a153a0d",
+  "deep-learning-manim/advanced/reference/history/derivatives-history.json": {
+    "mtime": 1789541693.5664642,
+    "ast_hash": "efd940ebf9cafad0a73b54d9cf57cf65",
     "semantic_hash": ""
   },
-  "log_terapkan_trig.txt": {
-    "mtime": 1789396677.2760575,
-    "ast_hash": "3de57ef1301b0c51221812bde7aa1ff9",
+  "deep-learning-manim/advanced/reference/history/manim/manimlib/animation/transform.py": {
+    "mtime": 1789542001.3963542,
+    "ast_hash": "33d0571223f28399508f089c88429bd6",
     "semantic_hash": ""
   },
-  "log_gabung_limit1-kecepatan.txt": {
-    "mtime": 1789397107.872926,
-    "ast_hash": "a7eeda67925e0a4e944871a2c7d5c9ee",
+  "deep-learning-manim/advanced/reference/history/manim/manimlib/utils/rate_functions.py": {
+    "mtime": 1789542001.9642756,
+    "ast_hash": "d02d72e4415fdf03b428f3453ededd4a",
     "semantic_hash": ""
   },
-  "log_gabung_limit2-mendekati.txt": {
-    "mtime": 1789397515.696716,
-    "ast_hash": "c72d9c71ac872323e5426e969cc1c6d0",
+  "deep-learning-manim/advanced/reference/history/manim/pyproject.toml": {
+    "mtime": 1789542002.5442412,
+    "ast_hash": "15f74f5bce84f9e085939b56c44a5ece",
     "semantic_hash": ""
   },
-  "log_gabung_limit6-nolpernol.txt": {
-    "mtime": 1789397831.9415798,
-    "ast_hash": "5313a039a9cd802be762a8ea4dc84ecf",
+  "deep-learning-manim/advanced/reference/history/provenance.json": {
+    "mtime": 1789542002.5472467,
+    "ast_hash": "f57bb5851527dae5c5d686df5e5fcb6a",
     "semantic_hash": ""
   },
-  "log_gabung_limit7-takhingga.txt": {
-    "mtime": 1789398087.2162528,
-    "ast_hash": "5f13cee9af1cb4a82b52a6789665d299",
+  "deep-learning-manim/advanced/reference/history/videos-commit.json": {
+    "mtime": 1789541540.1778255,
+    "ast_hash": "dab52a2e63eba4ad8b66f7d0cb4e0d71",
     "semantic_hash": ""
   },
-  "log_gabung_tahap9-tiga-grafik.txt": {
-    "mtime": 1789396660.0005732,
-    "ast_hash": "4f1491f4aa40e896246de9268f263f55",
+  "deep-learning-manim/advanced/reference/metadata.json": {
+    "mtime": 1789541309.0870938,
+    "ast_hash": "625d5d3fc7bedbc32e254b80578d1311",
     "semantic_hash": ""
   },
-  "log_hd_limit1-kecepatan.txt": {
-    "mtime": 1789397103.5136676,
-    "ast_hash": "3f2e4837076cc62429e6b681d16d73ab",
+  "deep-learning-manim/advanced/reference/probe.json": {
+    "mtime": 1789541455.191708,
+    "ast_hash": "a74733ed2ee8e2a1a779501203b50ff4",
     "semantic_hash": ""
   },
-  "log_hd_limit2-mendekati.txt": {
-    "mtime": 1789397510.7135875,
-    "ast_hash": "4be3fa9ecfa18bdbf5e4454386577051",
+  "deep-learning-manim/advanced/tools/analyze_reference.py": {
+    "mtime": 1789541452.2527285,
+    "ast_hash": "ab3470f81c86b8bf85e17ae08bbfc266",
     "semantic_hash": ""
   },
-  "log_hd_limit4-lubang.txt": {
-    "mtime": 1789397583.6361654,
-    "ast_hash": "b2004bc091276a734712c22c1b775da7",
+  "deep-learning-manim/advanced/tools/build_catalog.py": {
+    "mtime": 1789543045.2029512,
+    "ast_hash": "d883fdb5bf091897224400af04962d32",
     "semantic_hash": ""
   },
-  "log_hd_limit6-nolpernol.txt": {
-    "mtime": 1789397827.3486285,
-    "ast_hash": "82ccd522133318765c8159aa1317e2cc",
+  "deep-learning-manim/advanced/tools/detail_frames.py": {
+    "mtime": 1789541996.712092,
+    "ast_hash": "951cab95818fdca136e0779afd91d81b",
     "semantic_hash": ""
   },
-  "log_hd_limit7-takhingga.txt": {
-    "mtime": 1789398082.9714417,
-    "ast_hash": "3ba43690ba47f3d17c41185bf01457e1",
+  "deep-learning-manim/advanced/tools/provenance.py": {
+    "mtime": 1789541996.7111232,
+    "ast_hash": "7051c77066edfbe45da92a6e64edbc7b",
     "semantic_hash": ""
   },
-  "log_hd_limit8-sinus.txt": {
-    "mtime": 1789398518.6086125,
-    "ast_hash": "e90dcc50b05bdc9c6ac5b6d8aba594b7",
+  "deep-learning-manim/advanced/tools/validate_delivery.py": {
+    "mtime": 1789544173.752217,
+    "ast_hash": "7505996a06df696065e2dda9a17ff966",
     "semantic_hash": ""
   },
-  "log_kontak_limit1-kecepatan.txt": {
-    "mtime": 1789397118.124066,
-    "ast_hash": "9351b15cb33748e8abdbfe654ed61a89",
+  "deep-learning-manim/advanced/tools/validate_package.py": {
+    "mtime": 1789544173.755318,
+    "ast_hash": "5266d92471e1927f03d086e09845e664",
     "semantic_hash": ""
   },
-  "log_kontak_limit2-mendekati.txt": {
-    "mtime": 1789397529.5484667,
-    "ast_hash": "fe01c3d060b948f985f648a32f246960",
+  "deep-learning-manim/examples/models.py": {
+    "mtime": 1789539393.317238,
+    "ast_hash": "2fbbe02d3238941ae92dce23990c09df",
     "semantic_hash": ""
   },
-  "log_kontak_limit6-nolpernol.txt": {
-    "mtime": 1789397844.0572267,
-    "ast_hash": "b70597593dfc6b1263a8e19403c636c7",
+  "deep-learning-manim/examples/studies.py": {
+    "mtime": 1789540057.990137,
+    "ast_hash": "3a2657c4992ebcd2101b3b9b677a2b3f",
     "semantic_hash": ""
   },
-  "log_kontak_limit7-takhingga.txt": {
-    "mtime": 1789398097.804743,
-    "ast_hash": "6755d0b0e605008d00d68403a5593b13",
+  "deep-learning-manim/research/evidence.json": {
+    "mtime": 1789539884.5969124,
+    "ast_hash": "a020b0474eee62b00726f304b2ac605c",
     "semantic_hash": ""
   },
-  "log_kontak_tahap9-tiga-grafik.txt": {
-    "mtime": 1789396677.2383432,
-    "ast_hash": "576774f2aa519ba99f7d4de87c64c10a",
+  "deep-learning-manim/research/inventory.json": {
+    "mtime": 1789539445.6152446,
+    "ast_hash": "45bb0a9cd4f497355e241569861aa6d6",
     "semantic_hash": ""
   },
-  "log_rekam_stat1.txt": {
-    "mtime": 1789397278.027999,
-    "ast_hash": "79be2ef43b62682c3207f540ac9e54f8",
+  "deep-learning-manim/research/render-metadata.json": {
+    "mtime": 1789539996.6615782,
+    "ast_hash": "a9be4cfb635355958a17119746d76897",
     "semantic_hash": ""
   },
-  "log_rekam_stat2.txt": {
-    "mtime": 1789397149.8187704,
-    "ast_hash": "c84c1d3dffd169e64d214c2e51b01d07",
+  "deep-learning-manim/research/statistics.json": {
+    "mtime": 1789539445.6241279,
+    "ast_hash": "80503534e47afa773a2ecf6f317be556",
     "semantic_hash": ""
   },
-  "log_rekam_turunan.txt": {
-    "mtime": 1789397306.0248322,
-    "ast_hash": "2950f6b2464ae9f3f369531216666a9c",
+  "deep-learning-manim/tools/build_sources.py": {
+    "mtime": 1789539840.2014592,
+    "ast_hash": "31c1b9c9853c050d83bbcfabff0516d8",
     "semantic_hash": ""
   },
-  "log_subtitle_limit1-kecepatan.txt": {
-    "mtime": 1789397108.0461204,
-    "ast_hash": "4bc37c4037e348e28afcfce514d68ea6",
+  "deep-learning-manim/tools/inspect_renders.py": {
+    "mtime": 1789539878.2400591,
+    "ast_hash": "8c3a686f27efb0cc25a190e0f4c30593",
     "semantic_hash": ""
   },
-  "log_subtitle_limit2-mendekati.txt": {
-    "mtime": 1789397515.869858,
-    "ast_hash": "680e5549980ffd83a1c23cae81e4ffb7",
+  "deep-learning-manim/tools/inventory.py": {
+    "mtime": 1789538960.7804928,
+    "ast_hash": "ad79a798848301e79a9f5df3213257bc",
     "semantic_hash": ""
   },
-  "log_subtitle_limit6-nolpernol.txt": {
-    "mtime": 1789397832.1019628,
-    "ast_hash": "cdd51cd26ba68b238d37db90a6b11756",
+  "deep-learning-manim/tools/read_source.py": {
+    "mtime": 1789538614.3494794,
+    "ast_hash": "8aa510f624bb7223f54b583b49b66633",
     "semantic_hash": ""
   },
-  "log_subtitle_limit7-takhingga.txt": {
-    "mtime": 1789398087.364292,
-    "ast_hash": "1d8ea91e9ea2b28e4e717c84c78c55de",
+  "deep-learning-manim/tools/validate_research.py": {
+    "mtime": 1789539494.3870668,
+    "ast_hash": "02b0cfe3bb263e7555c2312e0fa214a5",
     "semantic_hash": ""
   },
-  "log_subtitle_tahap9-tiga-grafik.txt": {
-    "mtime": 1789396660.1576943,
-    "ast_hash": "c50419b3babfec4a7a2fb2c86fd0116e",
+  "deep-learning-manim/README.md": {
+    "mtime": 1789543428.2241979,
+    "ast_hash": "eae095c98d6d9b5cde2634ebdc8de8b0",
     "semantic_hash": ""
   },
-  "log_terapkan_limit_grafik.txt": {
-    "mtime": 1789399318.3012507,
-    "ast_hash": "5f7d4a7f41dca2b9aebcbcd0fb2b6916",
+  "deep-learning-manim/advanced/README.md": {
+    "mtime": 1789543921.4849026,
+    "ast_hash": "b4476d0370ea71ef24abf0f071fbdbbc",
     "semantic_hash": ""
   },
-  "log_gabung_grafik6-transformasi.txt": {
-    "mtime": 1789399304.525482,
-    "ast_hash": "c184a08015861bd13f85ffa34b38e366",
+  "deep-learning-manim/advanced/WORKLOG.md": {
+    "mtime": 1789544142.4771266,
+    "ast_hash": "7364a18bec426ce371926448ec291051",
     "semantic_hash": ""
   },
-  "log_gabung_limit8-sinus.txt": {
-    "mtime": 1789398522.701425,
-    "ast_hash": "ba1f51bc9d40f4087667d2c28c54bb04",
+  "deep-learning-manim/advanced/analysis/01-bedah-penyutradaraan.md": {
+    "mtime": 1789542682.01881,
+    "ast_hash": "0ebb8fc6f67c632283db4fa082b6b030",
     "semantic_hash": ""
   },
-  "log_gabung_limit9-kontinu.txt": {
-    "mtime": 1789398835.3633976,
-    "ast_hash": "4e1422972e479840d11911e0c6e27903",
+  "deep-learning-manim/advanced/analysis/02-engineering-lintas-tahun.md": {
+    "mtime": 1789542682.0208108,
+    "ast_hash": "8dd8274aab970835cb5852b375714805",
     "semantic_hash": ""
   },
-  "log_hd_grafik3-puncak.txt": {
-    "mtime": 1789398968.4434679,
-    "ast_hash": "26dd5921c735b8eb7f1edd360986482d",
+  "deep-learning-manim/advanced/analysis/03-presisi-numerik.md": {
+    "mtime": 1789542806.5530064,
+    "ast_hash": "7a3305b5ecf71c8e7fbd69529696a83a",
     "semantic_hash": ""
   },
-  "log_hd_grafik6-transformasi.txt": {
-    "mtime": 1789399298.5174475,
-    "ast_hash": "a186f5a9308ba73e0eb95d0d3bce977f",
+  "deep-learning-manim/advanced/analysis/04-anggaran-grafis.md": {
+    "mtime": 1789543767.0479846,
+    "ast_hash": "bcf9d633b312e282a5a69553b804cc99",
     "semantic_hash": ""
   },
-  "log_hd_limit9-kontinu.txt": {
-    "mtime": 1789398831.0027955,
-    "ast_hash": "4c6dd9258fb46ed62fe667f3a695a272",
+  "deep-learning-manim/advanced/analysis/05-perbedaan-dengan-catatan-lama.md": {
+    "mtime": 1789543187.0458598,
+    "ast_hash": "70f66c702623f7f1d23789a2d3ade9be",
     "semantic_hash": ""
   },
-  "log_hd_vektor1-perahu.txt": {
-    "mtime": 1789400022.788231,
-    "ast_hash": "6f0592bc72b827cd034f137235e8406a",
+  "deep-learning-manim/advanced/analysis/SOURCES.md": {
+    "mtime": 1789544241.943112,
+    "ast_hash": "20c945f53f5f5308993e67a5db03c806",
     "semantic_hash": ""
   },
-  "log_kontak_grafik6-transformasi.txt": {
-    "mtime": 1789399318.253279,
-    "ast_hash": "9677ca7f5c517dd06090b15c61d6180b",
+  "deep-learning-manim/advanced/film/QA.md": {
+    "mtime": 1789544142.4751222,
+    "ast_hash": "f72c6aa92bf4443c0170b67d266f5565",
     "semantic_hash": ""
   },
-  "log_kontak_limit8-sinus.txt": {
-    "mtime": 1789398531.8362906,
-    "ast_hash": "158d59fc32032297cd2a2d1e01f7f664",
+  "deep-learning-manim/advanced/film/README.md": {
+    "mtime": 1789543278.8510199,
+    "ast_hash": "bdc2786f9912892d7084af50018113ad",
     "semantic_hash": ""
   },
-  "log_kontak_limit9-kontinu.txt": {
-    "mtime": 1789398847.0701065,
-    "ast_hash": "381c89aecdee157c405c9bd9e652a32a",
+  "deep-learning-manim/advanced/film/delivery.yml": {
+    "mtime": 1789542212.5210164,
+    "ast_hash": "606cee48dab2bee19c02380d63017cd5",
     "semantic_hash": ""
   },
-  "log_subtitle_grafik6-transformasi.txt": {
-    "mtime": 1789399304.6906972,
-    "ast_hash": "45ec630db86bb9a56335259b1a46b2b1",
+  "deep-learning-manim/advanced/film/preview.yml": {
+    "mtime": 1789542212.5190167,
+    "ast_hash": "d10081bd98a6aa9b082c4b329284572d",
     "semantic_hash": ""
   },
-  "log_subtitle_limit8-sinus.txt": {
-    "mtime": 1789398522.8452106,
-    "ast_hash": "6f7abc8257872b482c2fdb7fb88656f0",
+  "deep-learning-manim/advanced/index.html": {
+    "mtime": 1789543428.2211945,
+    "ast_hash": "88b94a67793686f856e9843711a69347",
     "semantic_hash": ""
   },
-  "log_subtitle_limit9-kontinu.txt": {
-    "mtime": 1789398835.5103252,
-    "ast_hash": "7c165265615c6169017e89dab7c9a2ff",
+  "deep-learning-manim/advanced/reference/history/manim/LICENSE.md": {
+    "mtime": 1789538449.9697027,
+    "ast_hash": "4dcd34a873b29747480010329c976a6b",
     "semantic_hash": ""
   },
-  "log_terapkan_sisa.txt": {
-    "mtime": 1789409903.2308986,
-    "ast_hash": "8a6e593e18c33c035c4d22c541a9f058",
+  "deep-learning-manim/advanced/style/STYLEGUIDE.md": {
+    "mtime": 1789543921.4839,
+    "ast_hash": "afc39135a30746db539f221531854cde",
     "semantic_hash": ""
   },
-  "log_gabung_vektor3-komponen.txt": {
-    "mtime": 1789400764.2366092,
-    "ast_hash": "011e6723b5364065a28bda22d2683cd7",
+  "deep-learning-manim/examples/README.md": {
+    "mtime": 1789540057.9891417,
+    "ast_hash": "3fc2e21a709dcae869ae2dfe8763d4a9",
     "semantic_hash": ""
   },
-  "log_gabung_vektor4-panjang.txt": {
-    "mtime": 1789401136.6622903,
-    "ast_hash": "21d40ed83357983b3260a660638fa25a",
+  "deep-learning-manim/examples/custom_config.yml": {
+    "mtime": 1789539595.9871168,
+    "ast_hash": "7e00e15269944fb8cd843e7a0e407b5b",
     "semantic_hash": ""
   },
-  "log_gabung_vektor6-sambung.txt": {
-    "mtime": 1789401537.5999937,
-    "ast_hash": "7beb58a80365380c79c11a0aa36132a4",
+  "deep-learning-manim/examples/render-log.txt": {
+    "mtime": 1789539574.5035532,
+    "ast_hash": "2ed620c946a575b7104fd8ce5e69c8b9",
     "semantic_hash": ""
   },
-  "log_gabung_vektor8-selisih.txt": {
-    "mtime": 1789401970.8138783,
-    "ast_hash": "4e6092566bd8ab2d22a959fc5c2d0a80",
+  "deep-learning-manim/examples/render-refinement-log.txt": {
+    "mtime": 1789539967.7112732,
+    "ast_hash": "fa539d3656446155342fd536d85776ff",
     "semantic_hash": ""
   },
-  "log_gabung_vektor9-kali-skalar.txt": {
-    "mtime": 1789402553.5632608,
-    "ast_hash": "5e56e38f59a5b09219eb5ea19bfc8276",
+  "deep-learning-manim/examples/storyboard-template.md": {
+    "mtime": 1789539297.885723,
+    "ast_hash": "5fb71ec08d9fe5bb050f4e8e495ed053",
     "semantic_hash": ""
   },
-  "log_hd_ruang-3d-01.txt": {
-    "mtime": 1789402963.9200528,
-    "ast_hash": "cb0ce058b16730a15dedf7e39837bd0e",
+  "deep-learning-manim/lessons/01-prinsip-dan-bukti.md": {
+    "mtime": 1789538960.7861402,
+    "ast_hash": "cfe3fb101499cdddcf18de472f2cb381",
     "semantic_hash": ""
   },
-  "log_hd_ruang-3d-03.txt": {
-    "mtime": 1789403211.8671246,
-    "ast_hash": "3787fda8e21caab7e63366b93d544f6a",
+  "deep-learning-manim/lessons/02-bedah-skrip-2024-2026.md": {
+    "mtime": 1789538960.7881463,
+    "ast_hash": "13d0ad61dae19f5c82c11dd60469c223",
     "semantic_hash": ""
   },
-  "log_hd_ruang-3d-04.txt": {
-    "mtime": 1789403913.9657423,
-    "ast_hash": "49927537f97a880f808e32a82488af31",
+  "deep-learning-manim/lessons/03-koreografi-dan-waktu.md": {
+    "mtime": 1789540057.9911416,
+    "ast_hash": "4b12052f57b3b6d76d53fb0a2b604998",
     "semantic_hash": ""
   },
-  "log_hd_vektor3-komponen.txt": {
-    "mtime": 1789400756.3049538,
-    "ast_hash": "fc1bc7df59245620289b75e6cd70d43e",
+  "deep-learning-manim/lessons/04-model-dan-presisi.md": {
+    "mtime": 1789539595.9947045,
+    "ast_hash": "3b391de2c0c2d34e2735c5a1ce07e06b",
     "semantic_hash": ""
   },
-  "log_hd_vektor4-panjang.txt": {
-    "mtime": 1789401131.068658,
-    "ast_hash": "9dc5b5750e4c675472f733998b80a7f6",
+  "deep-learning-manim/lessons/05-komposisi-kamera-material.md": {
+    "mtime": 1789539126.5383492,
+    "ast_hash": "d5cc502fb9db47152a96d7e546306a40",
     "semantic_hash": ""
   },
-  "log_hd_vektor6-sambung.txt": {
-    "mtime": 1789401532.781698,
-    "ast_hash": "10e62ff4acd40970f77b0d7b2c1da922",
+  "deep-learning-manim/lessons/06-engine-dan-workflow.md": {
+    "mtime": 1789539126.540351,
+    "ast_hash": "2672007bc0205f55941156999a26d192",
     "semantic_hash": ""
   },
-  "log_hd_vektor8-selisih.txt": {
-    "mtime": 1789401965.3408735,
-    "ast_hash": "a1ba381e79ba13351a7170cb6840f5ab",
+  "deep-learning-manim/lessons/07-penerapan-matra.md": {
+    "mtime": 1789539297.8847163,
+    "ast_hash": "60b2fe891d7fee1bceb6d00d69d3896e",
     "semantic_hash": ""
   },
-  "log_hd_vektor9-kali-skalar.txt": {
-    "mtime": 1789402547.689069,
-    "ast_hash": "c84e8a7cf7106d61b70a2a74a3fd8aea",
+  "deep-learning-manim/research/INVENTORY.md": {
+    "mtime": 1789539445.6251209,
+    "ast_hash": "0746f2859d9cf455b10d4eba6813172e",
     "semantic_hash": ""
   },
-  "log_kontak_vektor3-komponen.txt": {
-    "mtime": 1789400780.9314382,
-    "ast_hash": "b1be0f755d1b463bad2648d2894fc437",
+  "deep-learning-manim/research/SOURCES.md": {
+    "mtime": 1789539884.5959108,
+    "ast_hash": "3ede44a750a2a41fc7ef3f0d2a3f9864",
     "semantic_hash": ""
   },
-  "log_kontak_vektor4-panjang.txt": {
-    "mtime": 1789401149.3900175,
-    "ast_hash": "4931c83078e5749647c7582eb86a5bf1",
+  "deep-learning-manim/research/VALIDATION.md": {
+    "mtime": 1789540057.988138,
+    "ast_hash": "465f7930b030b3e36029ef3228093d93",
     "semantic_hash": ""
   },
-  "log_kontak_vektor6-sambung.txt": {
-    "mtime": 1789401548.49892,
-    "ast_hash": "2ab49a649e39b4730e9239316eb09da3",
+  "deep-learning-manim/research/inventory-run.txt": {
+    "mtime": 1789539445.686988,
+    "ast_hash": "af2ae6a770511ff822ead5cfa0942e61",
     "semantic_hash": ""
   },
-  "log_kontak_vektor8-selisih.txt": {
-    "mtime": 1789401982.7523055,
-    "ast_hash": "8eae4aa644c6b9b32d86cd25f59a96bc",
+  "deep-learning-manim/advanced/film/previews/IngatanSistem.png": {
+    "mtime": 1789542822.3236911,
+    "ast_hash": "cf8310eee485e1bcdbd6e67e18c80e25",
     "semantic_hash": ""
   },
-  "log_kontak_vektor9-kali-skalar.txt": {
-    "mtime": 1789402566.5639546,
-    "ast_hash": "b077d51ee64c7bef763b9abb9272f263",
+  "deep-learning-manim/advanced/film/previews/SidikRedaman.png": {
+    "mtime": 1789543044.8861556,
+    "ast_hash": "948aaa6dce27f18788e403a3dccfc364",
     "semantic_hash": ""
   },
-  "log_subtitle_vektor3-komponen.txt": {
-    "mtime": 1789400764.4000416,
-    "ast_hash": "d98c9dde6e11a070342f6536ecc23072",
+  "deep-learning-manim/advanced/film/previews/TigaTanggapan.png": {
+    "mtime": 1789543045.0532026,
+    "ast_hash": "870b6e7b014a8329f801596e8828634e",
     "semantic_hash": ""
   },
-  "log_subtitle_vektor4-panjang.txt": {
-    "mtime": 1789401136.8548858,
-    "ast_hash": "00d5b40c904a9cd6d0886e2dc8db8516",
+  "deep-learning-manim/advanced/film/renders/IngatanSistem.png": {
+    "mtime": 1789544192.738973,
+    "ast_hash": "d9bc882a1e09e1c42ce338f0ce294977",
     "semantic_hash": ""
   },
-  "log_subtitle_vektor6-sambung.txt": {
-    "mtime": 1789401537.7449803,
-    "ast_hash": "cd9df699a13f5f247563146fcd554574",
+  "deep-learning-manim/advanced/film/renders/SidikRedaman.png": {
+    "mtime": 1789544202.4543896,
+    "ast_hash": "b48933cf254fb324e5f1af0094b37dfc",
     "semantic_hash": ""
   },
-  "log_subtitle_vektor8-selisih.txt": {
-    "mtime": 1789401970.9743686,
-    "ast_hash": "383bf9361145cd0fde0a9872a94d0403",
+  "deep-learning-manim/advanced/film/renders/TigaTanggapan.png": {
+    "mtime": 1789544182.0521533,
+    "ast_hash": "157d52154032b6c640a3506c2b387e25",
     "semantic_hash": ""
   },
-  "log_subtitle_vektor9-kali-skalar.txt": {
-    "mtime": 1789402553.7095435,
-    "ast_hash": "7e9789e27b92b90a219256df07d14a00",
+  "deep-learning-manim/advanced/film/renders/qa/IngatanSistem-contact.jpg": {
+    "mtime": 1789544192.2848146,
+    "ast_hash": "b7e69034ff294633d314c8ec99b1f67f",
     "semantic_hash": ""
   },
-  "log_gabung_integral01-laju-ke-jumlah.txt": {
-    "mtime": 1789409136.4043007,
-    "ast_hash": "375841417ced5cf8e884561c834b99bc",
+  "deep-learning-manim/advanced/film/renders/qa/IngatanSistem/00.jpg": {
+    "mtime": 1789544187.397079,
+    "ast_hash": "9c738dae788ee06e8bdd8bded0d13fb0",
     "semantic_hash": ""
   },
-  "log_gabung_ruang-3d-04.txt": {
-    "mtime": 1789403918.1169097,
-    "ast_hash": "51ea7e84f977a5a620f0105a820567fe",
+  "deep-learning-manim/advanced/film/renders/qa/IngatanSistem/01.jpg": {
+    "mtime": 1789544187.8415802,
+    "ast_hash": "2130ab976fd8c6ea825e01dabab04051",
     "semantic_hash": ""
   },
-  "log_gabung_ruang-3d-06.txt": {
-    "mtime": 1789404754.7026627,
-    "ast_hash": "2b55972aedaea87f79d1f0015d307898",
+  "deep-learning-manim/advanced/film/renders/qa/IngatanSistem/02.jpg": {
+    "mtime": 1789544188.0718389,
+    "ast_hash": "111571ddca1f59a9c8238a95228772a2",
     "semantic_hash": ""
   },
-  "log_gabung_ruang-3d-08.txt": {
-    "mtime": 1789405416.060091,
-    "ast_hash": "dc4fa93c70110f9339fba4519f3d3c27",
+  "deep-learning-manim/advanced/film/renders/qa/IngatanSistem/03.jpg": {
+    "mtime": 1789544188.41101,
+    "ast_hash": "1505a879b95b907093e0351a82b88dc8",
     "semantic_hash": ""
   },
-  "log_gabung_ruang-3d-09.txt": {
-    "mtime": 1789406105.4833946,
-    "ast_hash": "6c1cedb3ad1499473215d42cd6f9516c",
+  "deep-learning-manim/advanced/film/renders/qa/IngatanSistem/04.jpg": {
+    "mtime": 1789544188.9796896,
+    "ast_hash": "76f275e30569406a0c4c4456cd5bacc9",
     "semantic_hash": ""
   },
-  "log_gabung_transformasi1-setiap-titik.txt": {
-    "mtime": 1789406676.1567402,
-    "ast_hash": "c84822cb773b58fca6181d9522ebb5e3",
+  "deep-learning-manim/advanced/film/renders/qa/IngatanSistem/05.jpg": {
+    "mtime": 1789544189.3646853,
+    "ast_hash": "21fee751a001f2f6707bc4bb7e647a9c",
     "semantic_hash": ""
   },
-  "log_gabung_transformasi2-cermin-garis.txt": {
-    "mtime": 1789407169.2880595,
-    "ast_hash": "e82d39628178cf9ef5e3a9f1f05e5998",
+  "deep-learning-manim/advanced/film/renders/qa/IngatanSistem/06.jpg": {
+    "mtime": 1789544189.9279363,
+    "ast_hash": "3062ad8f4bd7794fb91d71802c0842eb",
     "semantic_hash": ""
   },
-  "log_gabung_transformasi3-rotasi.txt": {
-    "mtime": 1789407566.5818713,
-    "ast_hash": "3a48a22324f6b489ca1707461ef49580",
+  "deep-learning-manim/advanced/film/renders/qa/IngatanSistem/07.jpg": {
+    "mtime": 1789544190.3510344,
+    "ast_hash": "4b03d1f4275af8792cb5337543b88b61",
     "semantic_hash": ""
   },
-  "log_gabung_transformasi4-dilatasi.txt": {
-    "mtime": 1789408014.8190923,
-    "ast_hash": "65d10abb302faf949db51262da6e2316",
+  "deep-learning-manim/advanced/film/renders/qa/IngatanSistem/08.jpg": {
+    "mtime": 1789544191.0021076,
+    "ast_hash": "1d6d9bc1e47733d1ad6854bd2ae4036f",
     "semantic_hash": ""
   },
-  "log_gabung_transformasi6-urutan.txt": {
-    "mtime": 1789408452.1483884,
-    "ast_hash": "dd775449ab4531c7bd6e56abd25c52f7",
+  "deep-learning-manim/advanced/film/renders/qa/IngatanSistem/09.jpg": {
+    "mtime": 1789544191.3314416,
+    "ast_hash": "1e880b047bf1900ddcf7e9f7b0539d31",
     "semantic_hash": ""
   },
-  "log_hd_integral01-laju-ke-jumlah.txt": {
-    "mtime": 1789409127.0156255,
-    "ast_hash": "75c73e9ee8271419d608eaf55de90232",
+  "deep-learning-manim/advanced/film/renders/qa/IngatanSistem/10.jpg": {
+    "mtime": 1789544191.8706005,
+    "ast_hash": "f472f8871bf13bf73716930249eaf92f",
     "semantic_hash": ""
   },
-  "log_hd_integral03-substitusi.txt": {
-    "mtime": 1789409427.2581134,
-    "ast_hash": "f771d649b0e97fe748f62baf80725aba",
+  "deep-learning-manim/advanced/film/renders/qa/IngatanSistem/11.jpg": {
+    "mtime": 1789544192.2054794,
+    "ast_hash": "69696ac2214bb7210c09462fef5d54af",
     "semantic_hash": ""
   },
-  "log_hd_integral05-riemann.txt": {
-    "mtime": 1789409893.3011978,
-    "ast_hash": "7234f77cb513dda17cf7b9dbc1092966",
+  "deep-learning-manim/advanced/film/renders/qa/SidikRedaman-contact.jpg": {
+    "mtime": 1789544202.0718083,
+    "ast_hash": "0e217af5e9370976521fca3307e8ac32",
     "semantic_hash": ""
   },
-  "log_hd_ruang-3d-06.txt": {
-    "mtime": 1789404750.5584545,
-    "ast_hash": "5324566db4e37a75155c960c6d98dc54",
+  "deep-learning-manim/advanced/film/renders/qa/SidikRedaman/00.jpg": {
+    "mtime": 1789544198.0969458,
+    "ast_hash": "353d7b6f6c430db46c1eb2e479d0075c",
     "semantic_hash": ""
   },
-  "log_hd_ruang-3d-08.txt": {
-    "mtime": 1789405412.1094565,
-    "ast_hash": "4360fa2ba4c164691af22eb5b0ad0718",
+  "deep-learning-manim/advanced/film/renders/qa/SidikRedaman/01.jpg": {
+    "mtime": 1789544198.4950259,
+    "ast_hash": "1db0ac5d0fcc562ecd07158ff69db113",
     "semantic_hash": ""
   },
-  "log_hd_ruang-3d-09.txt": {
-    "mtime": 1789406100.527928,
-    "ast_hash": "93970803252bdde1d43a856c76602fec",
+  "deep-learning-manim/advanced/film/renders/qa/SidikRedaman/02.jpg": {
+    "mtime": 1789544198.7446742,
+    "ast_hash": "79b232e6a5f6092d09bfda5f3372044d",
     "semantic_hash": ""
   },
-  "log_hd_transformasi1-setiap-titik.txt": {
-    "mtime": 1789406668.8508604,
-    "ast_hash": "aa3967d90e6e40c3cc0058bac61abac2",
+  "deep-learning-manim/advanced/film/renders/qa/SidikRedaman/03.jpg": {
+    "mtime": 1789544199.1043196,
+    "ast_hash": "20d075a0ff657a08b052a60e7c010c18",
     "semantic_hash": ""
   },
-  "log_hd_transformasi2-cermin-garis.txt": {
-    "mtime": 1789407161.6632144,
-    "ast_hash": "e707b61e858cca8ddf3ca9e1d4618daf",
+  "deep-learning-manim/advanced/film/renders/qa/SidikRedaman/04.jpg": {
+    "mtime": 1789544199.3261058,
+    "ast_hash": "b7244e7010c57c9b0fd238864115a7c9",
     "semantic_hash": ""
   },
-  "log_hd_transformasi3-rotasi.txt": {
-    "mtime": 1789407560.8770714,
-    "ast_hash": "cf39dce72524c5f18b52cf96cc0b7023",
+  "deep-learning-manim/advanced/film/renders/qa/SidikRedaman/05.jpg": {
+    "mtime": 1789544199.699594,
+    "ast_hash": "6b3821e53facd2a1c8ccbf689f7f6445",
     "semantic_hash": ""
   },
-  "log_hd_transformasi4-dilatasi.txt": {
-    "mtime": 1789408008.6118329,
-    "ast_hash": "69fd5903d213f5c8021ff68fbf878e85",
+  "deep-learning-manim/advanced/film/renders/qa/SidikRedaman/06.jpg": {
+    "mtime": 1789544199.9212623,
+    "ast_hash": "ebced4194eb01da429acc15da9260c8b",
     "semantic_hash": ""
   },
-  "log_hd_transformasi6-urutan.txt": {
-    "mtime": 1789408445.3426065,
-    "ast_hash": "64e2785e6a6f04b83b08f9c10306f78a",
+  "deep-learning-manim/advanced/film/renders/qa/SidikRedaman/07.jpg": {
+    "mtime": 1789544200.326169,
+    "ast_hash": "0202430c174b6d3df114319746eb7605",
     "semantic_hash": ""
   },
-  "log_kontak_integral01-laju-ke-jumlah.txt": {
-    "mtime": 1789409168.528325,
-    "ast_hash": "af1c6ab2126c3cf56bf7dba6deefe28e",
+  "deep-learning-manim/advanced/film/renders/qa/SidikRedaman/08.jpg": {
+    "mtime": 1789544200.532209,
+    "ast_hash": "24f458f7c20981c60613aef136a73c4a",
     "semantic_hash": ""
   },
-  "log_kontak_ruang-3d-04.txt": {
-    "mtime": 1789403931.8232327,
-    "ast_hash": "06e0a888cd7098ef4e149f513d0531ae",
+  "deep-learning-manim/advanced/film/renders/qa/SidikRedaman/09.jpg": {
+    "mtime": 1789544200.927632,
+    "ast_hash": "afed1e683772adf2fe70615c4a0caa05",
     "semantic_hash": ""
   },
-  "log_kontak_ruang-3d-06.txt": {
-    "mtime": 1789404767.3221056,
-    "ast_hash": "783990d8a3433893bf4877f624cebbe5",
+  "deep-learning-manim/advanced/film/renders/qa/SidikRedaman/10.jpg": {
+    "mtime": 1789544201.5627253,
+    "ast_hash": "66e345a0bb29281ee46565e9d4fe122f",
     "semantic_hash": ""
   },
-  "log_kontak_ruang-3d-08.txt": {
-    "mtime": 1789405427.7196033,
-    "ast_hash": "492ce94e997e9f5e8ed9708c6ca9ade1",
+  "deep-learning-manim/advanced/film/renders/qa/SidikRedaman/11.jpg": {
+    "mtime": 1789544201.9923642,
+    "ast_hash": "8c6f75809f667f9d5f376598172243eb",
     "semantic_hash": ""
   },
-  "log_kontak_ruang-3d-09.txt": {
-    "mtime": 1789406124.0416608,
-    "ast_hash": "fca1879f116e7348ffe310063ce9e6cc",
+  "deep-learning-manim/advanced/film/renders/qa/TigaTanggapan-contact.jpg": {
+    "mtime": 1789544181.7725928,
+    "ast_hash": "eaab0f835b1427a853e9720853c23243",
     "semantic_hash": ""
   },
-  "log_kontak_transformasi1-setiap-titik.txt": {
-    "mtime": 1789406701.601966,
-    "ast_hash": "9ee925c7c4f92dd76545e0a450f9aee9",
+  "deep-learning-manim/advanced/film/renders/qa/TigaTanggapan/00.jpg": {
+    "mtime": 1789544179.3398397,
+    "ast_hash": "6af27180ebac312989baf827ff6af68d",
     "semantic_hash": ""
   },
-  "log_kontak_transformasi2-cermin-garis.txt": {
-    "mtime": 1789407193.9721508,
-    "ast_hash": "bc8a73f16f197cd5a056a1a87200826c",
+  "deep-learning-manim/advanced/film/renders/qa/TigaTanggapan/01.jpg": {
+    "mtime": 1789544179.5746703,
+    "ast_hash": "7bd18c42d3bf6bdc517731d8c10de6d2",
     "semantic_hash": ""
   },
-  "log_kontak_transformasi3-rotasi.txt": {
-    "mtime": 1789407584.6203935,
-    "ast_hash": "9240e3325ac68c8acd0c59f3ad1bd62a",
+  "deep-learning-manim/advanced/film/renders/qa/TigaTanggapan/02.jpg": {
+    "mtime": 1789544179.6831894,
+    "ast_hash": "dd68cae8c1a2bf9251c316294c7774f6",
     "semantic_hash": ""
   },
-  "log_kontak_transformasi4-dilatasi.txt": {
-    "mtime": 1789408034.3744762,
-    "ast_hash": "df9825bb36ab6843d98a02ec1ddb366d",
+  "deep-learning-manim/advanced/film/renders/qa/TigaTanggapan/03.jpg": {
+    "mtime": 1789544179.8870914,
+    "ast_hash": "d167d1be962c15e5538efadca7978c43",
     "semantic_hash": ""
   },
-  "log_kontak_transformasi6-urutan.txt": {
-    "mtime": 1789408475.3382661,
-    "ast_hash": "451346be69757a6fe69e3e06ea9ea827",
+  "deep-learning-manim/advanced/film/renders/qa/TigaTanggapan/04.jpg": {
+    "mtime": 1789544180.1768136,
+    "ast_hash": "a3be752095949fca1d0587fd8ea3b4b9",
     "semantic_hash": ""
   },
-  "log_subtitle_integral01-laju-ke-jumlah.txt": {
-    "mtime": 1789409136.5864546,
-    "ast_hash": "75f0d15905387e5e84ca5d540600ef2d",
+  "deep-learning-manim/advanced/film/renders/qa/TigaTanggapan/05.jpg": {
+    "mtime": 1789544180.352294,
+    "ast_hash": "d6fd14b4216a7af74dca087024439414",
     "semantic_hash": ""
   },
-  "log_subtitle_ruang-3d-04.txt": {
-    "mtime": 1789403918.268574,
-    "ast_hash": "d4963fe7f3b42bf5c87c788eb7a24672",
+  "deep-learning-manim/advanced/film/renders/qa/TigaTanggapan/06.jpg": {
+    "mtime": 1789544180.6410086,
+    "ast_hash": "4c81da120096e49656c241432ef8f5d5",
     "semantic_hash": ""
   },
-  "log_subtitle_ruang-3d-06.txt": {
-    "mtime": 1789404754.8659246,
-    "ast_hash": "e858d7e9a7df2a2aa85426a62d0f5501",
+  "deep-learning-manim/advanced/film/renders/qa/TigaTanggapan/07.jpg": {
+    "mtime": 1789544180.7973347,
+    "ast_hash": "dbde05601beb1bc188c2713dd1dcb010",
     "semantic_hash": ""
   },
-  "log_subtitle_ruang-3d-08.txt": {
-    "mtime": 1789405416.2269793,
-    "ast_hash": "dcb62a095d32b4093ba158a06ac74c80",
+  "deep-learning-manim/advanced/film/renders/qa/TigaTanggapan/08.jpg": {
+    "mtime": 1789544181.0576324,
+    "ast_hash": "ed0f1d4a56d499a65847a9852de6a4b1",
     "semantic_hash": ""
   },
-  "log_subtitle_ruang-3d-09.txt": {
-    "mtime": 1789406105.6837616,
-    "ast_hash": "dfdb821ac2bd1f6be9b2bcc687f07c48",
+  "deep-learning-manim/advanced/film/renders/qa/TigaTanggapan/09.jpg": {
+    "mtime": 1789544181.191954,
+    "ast_hash": "43cfa1877a46331b4ed12cf860d10264",
     "semantic_hash": ""
   },
-  "log_subtitle_transformasi1-setiap-titik.txt": {
-    "mtime": 1789406676.3328488,
-    "ast_hash": "806b61246590d31ae611f6f288a22672",
+  "deep-learning-manim/advanced/film/renders/qa/TigaTanggapan/10.jpg": {
+    "mtime": 1789544181.4163928,
+    "ast_hash": "aee5aa86f709bb64012ed6c1f1862904",
     "semantic_hash": ""
   },
-  "log_subtitle_transformasi2-cermin-garis.txt": {
-    "mtime": 1789407169.4606705,
-    "ast_hash": "3a2113526fcb83ebfb477604983e6cff",
+  "deep-learning-manim/advanced/film/renders/qa/TigaTanggapan/11.jpg": {
+    "mtime": 1789544181.736528,
+    "ast_hash": "be3e29ddbe8991382395a83c71c1ba82",
     "semantic_hash": ""
   },
-  "log_subtitle_transformasi3-rotasi.txt": {
-    "mtime": 1789407566.7670577,
-    "ast_hash": "bdac064c62e5f44b58206e716490e630",
+  "deep-learning-manim/advanced/labs/amplitude-phase.png": {
+    "mtime": 1789543673.4035883,
+    "ast_hash": "d93143e3cfd4662cf5e7a812832475de",
     "semantic_hash": ""
   },
-  "log_subtitle_transformasi4-dilatasi.txt": {
-    "mtime": 1789408014.995206,
-    "ast_hash": "734d6525f02afda1fa818efaa167df5d",
+  "deep-learning-manim/advanced/labs/forcing-error.png": {
+    "mtime": 1789543673.0154655,
+    "ast_hash": "7f59a747bda8118d338ec420ad5f902c",
     "semantic_hash": ""
   },
-  "log_subtitle_transformasi6-urutan.txt": {
-    "mtime": 1789408452.3234868,
-    "ast_hash": "99fcc1be1f03aaefae8040df86191d16",
+  "deep-learning-manim/advanced/labs/sampling.png": {
+    "mtime": 1789542384.7563026,
+    "ast_hash": "14166588cb6502d70744b1b46b34bfe2",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/decompose.jpg": {
+    "mtime": 1789542008.9868426,
+    "ast_hash": "a7a38e595f883c08f44bad3117f03285",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/decompose/01.jpg": {
+    "mtime": 1789542007.449358,
+    "ast_hash": "1a33462db6d237fd3f856a1b8e71a20e",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/decompose/02.jpg": {
+    "mtime": 1789542007.567892,
+    "ast_hash": "d1bbf942e5461df980e98ef8bd5abb97",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/decompose/03.jpg": {
+    "mtime": 1789542007.7881377,
+    "ast_hash": "21827c1e2cf0bb8bd72e09242c721e09",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/decompose/04.jpg": {
+    "mtime": 1789542008.037486,
+    "ast_hash": "5aeb4933af0966ee2e61cbb78ce53685",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/decompose/05.jpg": {
+    "mtime": 1789542008.1361525,
+    "ast_hash": "156973e81a07f85f1e81974f8d0fc1f0",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/decompose/06.jpg": {
+    "mtime": 1789542008.2040153,
+    "ast_hash": "53c559e56c4ad303265306bfd91ca4e6",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/decompose/07.jpg": {
+    "mtime": 1789542008.3001146,
+    "ast_hash": "1e84ecc36d2921c03f7a4002635f6625",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/decompose/08.jpg": {
+    "mtime": 1789542008.3786366,
+    "ast_hash": "495839b567bf27844bd44b11100d8cd7",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/decompose/09.jpg": {
+    "mtime": 1789542008.4923856,
+    "ast_hash": "9febfa7f7a2dc311ec4a704e6565004a",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/decompose/10.jpg": {
+    "mtime": 1789542008.5622578,
+    "ast_hash": "545503e3320bb0ca9af8ed8736364f1b",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/decompose/11.jpg": {
+    "mtime": 1789542008.6410975,
+    "ast_hash": "545503e3320bb0ca9af8ed8736364f1b",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/decompose/12.jpg": {
+    "mtime": 1789542008.7264643,
+    "ast_hash": "57f7ff2f36746c5ead03fb9e0e722507",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/derivative.jpg": {
+    "mtime": 1789542006.7123055,
+    "ast_hash": "8a4608b1399839f07c0ac4b9a79de987",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/derivative/01.jpg": {
+    "mtime": 1789542005.3804564,
+    "ast_hash": "43298fd58bf8987f2ac77115e31b833e",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/derivative/02.jpg": {
+    "mtime": 1789542005.4735687,
+    "ast_hash": "8cdf15e1ee44463a07451f4173c84f9a",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/derivative/03.jpg": {
+    "mtime": 1789542005.5592504,
+    "ast_hash": "f83085e03b3bf2a25fd08b45e41dff59",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/derivative/04.jpg": {
+    "mtime": 1789542005.6337135,
+    "ast_hash": "f83085e03b3bf2a25fd08b45e41dff59",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/derivative/05.jpg": {
+    "mtime": 1789542005.7212288,
+    "ast_hash": "3a46ec285354da5589718b6e75d2a60d",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/derivative/06.jpg": {
+    "mtime": 1789542005.8110063,
+    "ast_hash": "97daab9f013ca3359af59d330070b789",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/derivative/07.jpg": {
+    "mtime": 1789542005.90941,
+    "ast_hash": "ab59b9298101dcfc2d62913e213df0c8",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/derivative/08.jpg": {
+    "mtime": 1789542006.0607495,
+    "ast_hash": "77914f7986d46f417adc1c1b99dc8dd9",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/derivative/09.jpg": {
+    "mtime": 1789542006.194127,
+    "ast_hash": "53ddf1573afabee6ef868e9fc71cd48d",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/derivative/10.jpg": {
+    "mtime": 1789542006.2712479,
+    "ast_hash": "79c8326508122a7674f6f0d73d21228d",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/derivative/11.jpg": {
+    "mtime": 1789542006.3778174,
+    "ast_hash": "f5dc50b7bd4180ba2b4ab05b9b85def5",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/derivative/12.jpg": {
+    "mtime": 1789542006.4677532,
+    "ast_hash": "7a45db1c9bcd9a211108259c539afee0",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/factor.jpg": {
+    "mtime": 1789542007.2248578,
+    "ast_hash": "cfb95027547768c1fe25f5a9125e6f13",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/factor/01.jpg": {
+    "mtime": 1789542005.549969,
+    "ast_hash": "61a47ebbc214fb6b94d426405a8880b8",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/factor/02.jpg": {
+    "mtime": 1789542005.6970284,
+    "ast_hash": "a1ec9edeba151e424f7e25a88ac2e8c6",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/factor/03.jpg": {
+    "mtime": 1789542005.8671799,
+    "ast_hash": "ac9795d456247c10f4fce39466d3b9c1",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/factor/04.jpg": {
+    "mtime": 1789542006.0919971,
+    "ast_hash": "0c2650a6b0e53c0339792f7c005801c8",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/factor/05.jpg": {
+    "mtime": 1789542006.2782514,
+    "ast_hash": "a3ace91a6bacf2c4b56b756d0f40ead5",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/factor/06.jpg": {
+    "mtime": 1789542006.4231906,
+    "ast_hash": "d3a6418c8d7b0b41fb0dfcc59113d90b",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/factor/07.jpg": {
+    "mtime": 1789542006.5581596,
+    "ast_hash": "6cb998b9a279b96b14d1d363c9a1b309",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/factor/08.jpg": {
+    "mtime": 1789542006.663875,
+    "ast_hash": "549b415a02cd7ba0a9cfcbf8684deff8",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/factor/09.jpg": {
+    "mtime": 1789542006.7816136,
+    "ast_hash": "cb810acde90bbf51f1167f68c98ca15a",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/factor/10.jpg": {
+    "mtime": 1789542006.8954065,
+    "ast_hash": "b68f5a320f993f6371e20474ffaceb97",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/factor/11.jpg": {
+    "mtime": 1789542006.991606,
+    "ast_hash": "b68f5a320f993f6371e20474ffaceb97",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/factor/12.jpg": {
+    "mtime": 1789542007.1322029,
+    "ast_hash": "c372a13ddbea5d64705adebf165b3156",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/hook.jpg": {
+    "mtime": 1789542007.142548,
+    "ast_hash": "a6735fa7eeb9039b3af40959b06573ed",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/hook/01.jpg": {
+    "mtime": 1789542005.3240442,
+    "ast_hash": "de7798ca31527220971135bd8486dd19",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/hook/02.jpg": {
+    "mtime": 1789542005.4756918,
+    "ast_hash": "211fa68a79c8503b4483e06f31e472fa",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/hook/03.jpg": {
+    "mtime": 1789542005.6337135,
+    "ast_hash": "069c18819aa7984dd0f671114c375be8",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/hook/04.jpg": {
+    "mtime": 1789542005.7711546,
+    "ast_hash": "6b5ab988d64fa2e4da7cca4f13227deb",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/hook/05.jpg": {
+    "mtime": 1789542005.9519875,
+    "ast_hash": "8ae09094c574341da2f4dca20732de2b",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/hook/06.jpg": {
+    "mtime": 1789542006.0909898,
+    "ast_hash": "1c09de3051a088e0b509e0b347891877",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/hook/07.jpg": {
+    "mtime": 1789542006.25536,
+    "ast_hash": "caa88445de8abf8f6a73e5e93ad51222",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/hook/08.jpg": {
+    "mtime": 1789542006.4153826,
+    "ast_hash": "93ecbc07db60d312793393a15bfd6b6c",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/hook/09.jpg": {
+    "mtime": 1789542006.5829666,
+    "ast_hash": "6e57f6ed8095cd65b4b07ce54b3787c3",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/hook/10.jpg": {
+    "mtime": 1789542006.7070374,
+    "ast_hash": "a53de68b005053803d86db7e87e21338",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/hook/11.jpg": {
+    "mtime": 1789542006.8451693,
+    "ast_hash": "ef403e8912b28d53b48bfa042f5c1067",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/hook/12.jpg": {
+    "mtime": 1789542006.9411955,
+    "ast_hash": "2829e208e157d429bc189e278654fa23",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/poles.jpg": {
+    "mtime": 1789542009.3239675,
+    "ast_hash": "36b8f9da8982be12ef1c84ccf306b2aa",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/poles/01.jpg": {
+    "mtime": 1789542007.7953756,
+    "ast_hash": "d503c8d64ee1a9172206dd59fcfeca51",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/poles/02.jpg": {
+    "mtime": 1789542007.9538736,
+    "ast_hash": "9b04470d04d92039e6fdef4fa1128634",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/poles/03.jpg": {
+    "mtime": 1789542008.167567,
+    "ast_hash": "ff1918afef08b25cfcee955d16bf31ab",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/poles/04.jpg": {
+    "mtime": 1789542008.3477025,
+    "ast_hash": "846da397659ae751e92bb3818f8775bb",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/poles/05.jpg": {
+    "mtime": 1789542008.4500747,
+    "ast_hash": "6411ea138fff739c92001479c63e9e88",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/poles/06.jpg": {
+    "mtime": 1789542008.5525956,
+    "ast_hash": "caf60e66ab33ed0ace8418ff8f6509b0",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/poles/07.jpg": {
+    "mtime": 1789542008.7845633,
+    "ast_hash": "6a4bf555e698d1f70eab7ac1b1682f6a",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/poles/08.jpg": {
+    "mtime": 1789542008.893929,
+    "ast_hash": "5f444997c8f0da4689eb78bddb4af501",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/poles/09.jpg": {
+    "mtime": 1789542008.9704587,
+    "ast_hash": "4aa671114d9905703aca81fbb50b4fdc",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/poles/10.jpg": {
+    "mtime": 1789542009.0434773,
+    "ast_hash": "ee553ccfff24fb5bd21a73db96b4dfa7",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/poles/11.jpg": {
+    "mtime": 1789542009.116807,
+    "ast_hash": "7f729ceeac7a3ea2b97041cca15b2460",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/poles/12.jpg": {
+    "mtime": 1789542009.208296,
+    "ast_hash": "02a8a2c48f56625e8ec7471f1f27cb55",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/proof.jpg": {
+    "mtime": 1789542009.623834,
+    "ast_hash": "575ce193c0b20ba77acbe03532b91685",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/proof/01.jpg": {
+    "mtime": 1789542007.9370863,
+    "ast_hash": "8efe47859d81c99902ec17bbed564d5d",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/proof/02.jpg": {
+    "mtime": 1789542008.0840852,
+    "ast_hash": "c7ab41aba24c7f0a97854af781012abb",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/proof/03.jpg": {
+    "mtime": 1789542008.2463207,
+    "ast_hash": "b1415462625e76d1829594f912def0db",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/proof/04.jpg": {
+    "mtime": 1789542008.4616175,
+    "ast_hash": "776fdb80ff9eb8a956688d8b74aeb9b1",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/proof/05.jpg": {
+    "mtime": 1789542008.7009027,
+    "ast_hash": "8e98880e5d477f291f4ac1d93e5e1aea",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/proof/06.jpg": {
+    "mtime": 1789542008.8590274,
+    "ast_hash": "e7b6afda29b63907fc6d1bc82ca60f86",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/proof/07.jpg": {
+    "mtime": 1789542009.022287,
+    "ast_hash": "a023517648f7a0ebfa75ddefb9281a22",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/proof/08.jpg": {
+    "mtime": 1789542009.153924,
+    "ast_hash": "a023517648f7a0ebfa75ddefb9281a22",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/proof/09.jpg": {
+    "mtime": 1789542009.2756166,
+    "ast_hash": "08516af696961ea1f8e4079560f578c1",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/proof/10.jpg": {
+    "mtime": 1789542009.3566318,
+    "ast_hash": "8cfbb0a2721fac011a8eb0f2853f5401",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/proof/11.jpg": {
+    "mtime": 1789542009.4606156,
+    "ast_hash": "16e7e07b1fcddc1b115355b25c8ad512",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/details/proof/12.jpg": {
+    "mtime": 1789542009.555901,
+    "ast_hash": "ea7600c21a807b8791d9140c3a006e48",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0001.jpg": {
+    "mtime": 1789541455.7450871,
+    "ast_hash": "bd91216be0fb2d556acb174ebe6f2b09",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0002.jpg": {
+    "mtime": 1789541456.5084312,
+    "ast_hash": "1dfb8f035e7c4b0fef24974296eb9de2",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0003.jpg": {
+    "mtime": 1789541457.4228168,
+    "ast_hash": "f3ddf66d73a095dd34dc146ea5a316f9",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0004.jpg": {
+    "mtime": 1789541458.3319485,
+    "ast_hash": "eb416a76418d5c78fbfedb9c12e096d4",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0005.jpg": {
+    "mtime": 1789541459.3689008,
+    "ast_hash": "74928d3f81d42b86423ecd0cb5363b78",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0006.jpg": {
+    "mtime": 1789541460.498728,
+    "ast_hash": "5757581edd6b0999e8b81da5d10ad4f4",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0007.jpg": {
+    "mtime": 1789541461.377463,
+    "ast_hash": "04637156b1d96dd9e2dce34534e237cf",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0008.jpg": {
+    "mtime": 1789541462.2119682,
+    "ast_hash": "c25bc660b5b193b5ca66b7172c6f60e4",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0009.jpg": {
+    "mtime": 1789541462.9232213,
+    "ast_hash": "cdfc8db9ba9cdb9745e46b83c1e99cda",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0010.jpg": {
+    "mtime": 1789541463.7023423,
+    "ast_hash": "6bdcad3c81f97fb6a01f10d633b1568b",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0011.jpg": {
+    "mtime": 1789541464.6342788,
+    "ast_hash": "3c5b2ea4bb0d08d152a09a393f6b6f3c",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0012.jpg": {
+    "mtime": 1789541465.3498106,
+    "ast_hash": "4b4b9219931cd86a88e07db63634c9b0",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0013.jpg": {
+    "mtime": 1789541466.2511065,
+    "ast_hash": "e83ff8611da6fff9170b879c03365839",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0014.jpg": {
+    "mtime": 1789541467.4076865,
+    "ast_hash": "49b71617e52409157a1f6ce8e4ec67b9",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0015.jpg": {
+    "mtime": 1789541468.5410936,
+    "ast_hash": "1eec3b43d23054a0618b8c41d6dbf023",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0016.jpg": {
+    "mtime": 1789541469.8231225,
+    "ast_hash": "80f2c7da21ff06124d0d1ffba67a45c9",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0017.jpg": {
+    "mtime": 1789541470.517397,
+    "ast_hash": "6165353f7a5e32548ba272e140955d69",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0018.jpg": {
+    "mtime": 1789541471.3918746,
+    "ast_hash": "4a51b48b60148ee038cfe2604a413594",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0019.jpg": {
+    "mtime": 1789541472.1937554,
+    "ast_hash": "f538027632d658ecfc83a115fc76a03f",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0020.jpg": {
+    "mtime": 1789541472.8619285,
+    "ast_hash": "29e616995b1328faccdf58673fa7a478",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0021.jpg": {
+    "mtime": 1789541473.7737255,
+    "ast_hash": "e9ccf3b040f7d40e05f74a9e378a28c9",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0022.jpg": {
+    "mtime": 1789541474.8004327,
+    "ast_hash": "dc8cbcfc47c34ead09c766a3b996a805",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0023.jpg": {
+    "mtime": 1789541475.6678953,
+    "ast_hash": "bfa9be24413ef8d2ce348dbbf7ffc4e3",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0024.jpg": {
+    "mtime": 1789541476.5963125,
+    "ast_hash": "eadd7aab3fe133e22a8b661803dbcb8e",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0025.jpg": {
+    "mtime": 1789541477.3838968,
+    "ast_hash": "4e78849bedd58aa54f3848f135ff1a07",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0026.jpg": {
+    "mtime": 1789541478.4676256,
+    "ast_hash": "933ecd3bdc09efa36e50b272575953c5",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0027.jpg": {
+    "mtime": 1789541479.9295554,
+    "ast_hash": "6c2b420726f0fe59489303a258c1e6e4",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0028.jpg": {
+    "mtime": 1789541481.2855735,
+    "ast_hash": "402836e9bbeaf0cc62eb21b8b20e7377",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0029.jpg": {
+    "mtime": 1789541481.8921885,
+    "ast_hash": "af726d4c31594a89a5be949e8aae48f4",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0030.jpg": {
+    "mtime": 1789541482.619237,
+    "ast_hash": "e43ec31369983622f11e251e938f132a",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0031.jpg": {
+    "mtime": 1789541483.2803998,
+    "ast_hash": "651d922527ef9b315089a1370d8456b4",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0032.jpg": {
+    "mtime": 1789541483.8210545,
+    "ast_hash": "72800d89be6f6d7ec8d46dde10cf8baa",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0033.jpg": {
+    "mtime": 1789541484.552518,
+    "ast_hash": "cf19ccaa9190d6efd6793c6e6861c37c",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0034.jpg": {
+    "mtime": 1789541485.469585,
+    "ast_hash": "b6be6bdf1276009e23fd3393e41b6a0f",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0035.jpg": {
+    "mtime": 1789541486.2203608,
+    "ast_hash": "c7c0e9cf098b631c10d67b641b08bf58",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0036.jpg": {
+    "mtime": 1789541487.0179093,
+    "ast_hash": "8bde0c0a04d0f9a411308b6c4c2b5e44",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0037.jpg": {
+    "mtime": 1789541487.653543,
+    "ast_hash": "3ba2531ab2e07b54607114eefa9fab2f",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0038.jpg": {
+    "mtime": 1789541488.5142858,
+    "ast_hash": "f512ae1511aea499c35ad9d76dee3da6",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0039.jpg": {
+    "mtime": 1789541489.4458106,
+    "ast_hash": "74129af8456f37349b51b63f849c40be",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0040.jpg": {
+    "mtime": 1789541490.2831547,
+    "ast_hash": "76accba9101fd26dee64a90613813599",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0041.jpg": {
+    "mtime": 1789541491.2818682,
+    "ast_hash": "93a024481bc2f46ea1fb45d8e05f29a7",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0042.jpg": {
+    "mtime": 1789541492.2912917,
+    "ast_hash": "68072408d78323d3c91df98f3396be8e",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0043.jpg": {
+    "mtime": 1789541493.1690972,
+    "ast_hash": "2ef9c2a9fde807e2db8f782599bca403",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0044.jpg": {
+    "mtime": 1789541493.8614426,
+    "ast_hash": "2d6bb58b4caf3c28efaf8e922522421e",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0045.jpg": {
+    "mtime": 1789541494.945318,
+    "ast_hash": "d82f5ebfa216c9a85d105f2b4497f695",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0046.jpg": {
+    "mtime": 1789541496.0842962,
+    "ast_hash": "2ceffd0c722762e4b8ee6d17464d3c01",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0047.jpg": {
+    "mtime": 1789541497.1979778,
+    "ast_hash": "ec94148d15911d6a372287eda02c9eb6",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0048.jpg": {
+    "mtime": 1789541498.3588789,
+    "ast_hash": "1a65783ed75713739bb6f593fe85405e",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0049.jpg": {
+    "mtime": 1789541499.2334256,
+    "ast_hash": "a59c2a04ae923791d34a3b4a0e213e06",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0050.jpg": {
+    "mtime": 1789541500.0010502,
+    "ast_hash": "7041636af64979c7d22e76873a207fa6",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0051.jpg": {
+    "mtime": 1789541500.6437542,
+    "ast_hash": "3b5e8415b8b45f44139ffed04b93096f",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0052.jpg": {
+    "mtime": 1789541501.2905984,
+    "ast_hash": "05cf55a5fc954a4ab9fdf06e4a4d2492",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0053.jpg": {
+    "mtime": 1789541501.9573731,
+    "ast_hash": "55200ddeb20c0bde043f5ff90a05eadf",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0054.jpg": {
+    "mtime": 1789541502.704151,
+    "ast_hash": "2c43b3de5b525efe7f01e50ab0f1f839",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0055.jpg": {
+    "mtime": 1789541503.2270706,
+    "ast_hash": "772880cf54c46236a58e4a56801986d3",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0056.jpg": {
+    "mtime": 1789541503.9110327,
+    "ast_hash": "94c3b46631bb8b9b1e6af40088d25bbe",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0057.jpg": {
+    "mtime": 1789541504.6679568,
+    "ast_hash": "f23a090a81818ef1867204a64e974215",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0058.jpg": {
+    "mtime": 1789541505.3683891,
+    "ast_hash": "828d9087cfd04ef1f86f6ecd8845135a",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0059.jpg": {
+    "mtime": 1789541506.093258,
+    "ast_hash": "2383c92eaeabf8fdd0c560f38d3eca76",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0060.jpg": {
+    "mtime": 1789541506.7703419,
+    "ast_hash": "52734075a1f8d9c35d4dc8df1782f9af",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0061.jpg": {
+    "mtime": 1789541507.3995137,
+    "ast_hash": "d0ddcff27f6fa91a57305c1fb9ec56e7",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0062.jpg": {
+    "mtime": 1789541508.2136946,
+    "ast_hash": "3ca63ffd500bd384d40b076d359cf469",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0063.jpg": {
+    "mtime": 1789541509.3289118,
+    "ast_hash": "f6eedf264934bf1cf583f8a29f750df4",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0064.jpg": {
+    "mtime": 1789541510.0577817,
+    "ast_hash": "98220d5b49eef7ac49c1a4171b942cdb",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0065.jpg": {
+    "mtime": 1789541510.6092603,
+    "ast_hash": "3a023c5ae8f3b94fd0d94c60e2f8f082",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0066.jpg": {
+    "mtime": 1789541511.2999074,
+    "ast_hash": "79039c8bcee903698b9c0ad3627620ea",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0067.jpg": {
+    "mtime": 1789541512.0176876,
+    "ast_hash": "c0ed8441f46bbe4f5021137e6df4892a",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0068.jpg": {
+    "mtime": 1789541512.8070834,
+    "ast_hash": "7a397c353e35c396260b21818a03be61",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0069.jpg": {
+    "mtime": 1789541513.842242,
+    "ast_hash": "4df33fc24590363455746e1331f19269",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0070.jpg": {
+    "mtime": 1789541514.9040766,
+    "ast_hash": "68e9c13a6339c70305164829a083042a",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0071.jpg": {
+    "mtime": 1789541515.9366906,
+    "ast_hash": "ca6f0877e9ced6d85b59b0f934375944",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0072.jpg": {
+    "mtime": 1789541516.835058,
+    "ast_hash": "386ddbacecf144b2d4b6752b37ec8d81",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0073.jpg": {
+    "mtime": 1789541517.4727378,
+    "ast_hash": "23dd46f4e01e93b65654403292774dcb",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0074.jpg": {
+    "mtime": 1789541518.3143647,
+    "ast_hash": "59bb0d29263c1a82623735c42399e16d",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0075.jpg": {
+    "mtime": 1789541519.5024445,
+    "ast_hash": "8688a5fb51ddb219ca6a91a8e2f102e3",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0076.jpg": {
+    "mtime": 1789541520.4259503,
+    "ast_hash": "758dc71611eb3389f6b1c5739a32c537",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0077.jpg": {
+    "mtime": 1789541521.0429504,
+    "ast_hash": "79fb08e849c3e3651a67fefa59e3ac73",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0078.jpg": {
+    "mtime": 1789541521.880041,
+    "ast_hash": "fdbcdc397cfeaa8ec1f1730817086609",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0079.jpg": {
+    "mtime": 1789541522.6864781,
+    "ast_hash": "98a2537d6e159f3cd60e7d0a94a2ceba",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0080.jpg": {
+    "mtime": 1789541523.5458667,
+    "ast_hash": "827e9b8fc59c4e3246eadbd34169fe2d",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0081.jpg": {
+    "mtime": 1789541524.4401555,
+    "ast_hash": "68ba091f8d18ffc142ec6bf55e089a13",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0082.jpg": {
+    "mtime": 1789541525.1507761,
+    "ast_hash": "576a428120cfbd15e3c4d155140dd9ac",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0083.jpg": {
+    "mtime": 1789541526.1804316,
+    "ast_hash": "4aa5d6cd62acd3b40244b42d175c1451",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0084.jpg": {
+    "mtime": 1789541527.2051425,
+    "ast_hash": "d686229156d2d9665df3349f516390cd",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0085.jpg": {
+    "mtime": 1789541528.3299692,
+    "ast_hash": "70ff152ad458b98debb49fdddc104c2a",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0086.jpg": {
+    "mtime": 1789541529.4993458,
+    "ast_hash": "4d3aeb8facd9b36692c2fd8e6590a14b",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0087.jpg": {
+    "mtime": 1789541530.761099,
+    "ast_hash": "5cb7c1fb9a5a25257ebee5ba600e24e7",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0088.jpg": {
+    "mtime": 1789541531.9111662,
+    "ast_hash": "e226ce247aeaab9372eaa43bf375f0de",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0089.jpg": {
+    "mtime": 1789541532.5354552,
+    "ast_hash": "1234d72eb829fa0fd54a6aac60c6550e",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0090.jpg": {
+    "mtime": 1789541532.977641,
+    "ast_hash": "b367db3694e6ad0f3cf2327449c04e67",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0091.jpg": {
+    "mtime": 1789541533.85071,
+    "ast_hash": "0801b88e39fc795144c1b47207df2f2b",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0092.jpg": {
+    "mtime": 1789541534.4393182,
+    "ast_hash": "8110b56abc9c0ddd82c81de0c44d45da",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0093.jpg": {
+    "mtime": 1789541535.2513208,
+    "ast_hash": "de0012b5807912b4fa0882a62d55b323",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0094.jpg": {
+    "mtime": 1789541535.9952054,
+    "ast_hash": "14c3983292cf18073b376ab34803d63e",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0095.jpg": {
+    "mtime": 1789541536.757901,
+    "ast_hash": "85ceb1efe1df4fd9d165b94a17769e65",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0096.jpg": {
+    "mtime": 1789541537.469347,
+    "ast_hash": "b8afc3c6c0bf6363dfb04309d912e510",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0097.jpg": {
+    "mtime": 1789541538.2152376,
+    "ast_hash": "0f69d4bd6a2f3d990b595812325ac675",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0098.jpg": {
+    "mtime": 1789541538.98329,
+    "ast_hash": "f0b6bebeacf451834619d944e1bf19cc",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0099.jpg": {
+    "mtime": 1789541539.6329541,
+    "ast_hash": "4547b048660b193a992e49a7e483b008",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0100.jpg": {
+    "mtime": 1789541540.1778255,
+    "ast_hash": "0708593582d6bfd155b75ef0e547e8f3",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0101.jpg": {
+    "mtime": 1789541540.8323667,
+    "ast_hash": "6a883beb6c6eccd7e2490d7c0a12c5c5",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0102.jpg": {
+    "mtime": 1789541541.471723,
+    "ast_hash": "329d854d762d265949709da8bdd5a300",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0103.jpg": {
+    "mtime": 1789541542.1834648,
+    "ast_hash": "067f1adfe5df247218da3e29af458aaf",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0104.jpg": {
+    "mtime": 1789541543.1654682,
+    "ast_hash": "57fef4359ff1513072d7864d2ea66e35",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0105.jpg": {
+    "mtime": 1789541544.012082,
+    "ast_hash": "0e48b1b04faa7d03dfdf1371eec8a93a",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0106.jpg": {
+    "mtime": 1789541544.9257417,
+    "ast_hash": "1f9a0224d81d63723bbe4799e757f43e",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0107.jpg": {
+    "mtime": 1789541546.0314386,
+    "ast_hash": "2e852e7bebddb05caa2b44d91cabfce3",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0108.jpg": {
+    "mtime": 1789541546.738086,
+    "ast_hash": "2ce4edcd3d5f01be00423d420e7703cf",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0109.jpg": {
+    "mtime": 1789541547.306947,
+    "ast_hash": "b582c48f8ec8cbb9dd6057a2ad9d2ec2",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0110.jpg": {
+    "mtime": 1789541547.9642856,
+    "ast_hash": "95c59805a79e99b111d6239e5799e162",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0111.jpg": {
+    "mtime": 1789541548.712615,
+    "ast_hash": "04a923c04626e9f50b31f3dd0e6e76aa",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0112.jpg": {
+    "mtime": 1789541549.4253802,
+    "ast_hash": "e60112d27ca3bc25a6e82e4b750e3d25",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0113.jpg": {
+    "mtime": 1789541550.2109683,
+    "ast_hash": "286d5a4ea24d49b7bf2056fe52964b4d",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0114.jpg": {
+    "mtime": 1789541551.1285522,
+    "ast_hash": "764cac6bf887196fb7c9eee1fd50abf8",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0115.jpg": {
+    "mtime": 1789541551.7862656,
+    "ast_hash": "57b941fa20e9ef1316342ae63dd0f513",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0116.jpg": {
+    "mtime": 1789541552.444629,
+    "ast_hash": "064038a3eabd0526609d123013540a71",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0117.jpg": {
+    "mtime": 1789541553.1030293,
+    "ast_hash": "3e69fc0264f6afae578acdfb251c92ed",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0118.jpg": {
+    "mtime": 1789541553.73286,
+    "ast_hash": "8951a0c3ab66187e4d298dfaa7a7d8f1",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0119.jpg": {
+    "mtime": 1789541554.2899241,
+    "ast_hash": "cf7ff28c59d4003b6ccc19f39ca417ce",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0120.jpg": {
+    "mtime": 1789541555.0526228,
+    "ast_hash": "31263627ac19fd0ad21ae56423967ed1",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0121.jpg": {
+    "mtime": 1789541555.8581853,
+    "ast_hash": "8aab24d507680de58c1bcae1cfed5267",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0122.jpg": {
+    "mtime": 1789541556.4569392,
+    "ast_hash": "2c074f029ed362a7027ef57f34ef84e7",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0123.jpg": {
+    "mtime": 1789541557.0718145,
+    "ast_hash": "22aaafda5ecc576c5f7e3803b49ac850",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0124.jpg": {
+    "mtime": 1789541557.7871213,
+    "ast_hash": "39ff70c38891a569e4dcee4d381c6cc1",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0125.jpg": {
+    "mtime": 1789541558.5169141,
+    "ast_hash": "e37df645e1602b8f599c63c9056eaa3d",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0126.jpg": {
+    "mtime": 1789541559.0828476,
+    "ast_hash": "5e8257075ff55e49bbb5280040387a76",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0127.jpg": {
+    "mtime": 1789541559.7482686,
+    "ast_hash": "f288f442bd27893ef15c874492f8cc84",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0128.jpg": {
+    "mtime": 1789541560.3375726,
+    "ast_hash": "313d72d151969336c13143387703d40a",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0129.jpg": {
+    "mtime": 1789541561.1222951,
+    "ast_hash": "921602d5ddef02162c8f538909a371dd",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0130.jpg": {
+    "mtime": 1789541561.7619898,
+    "ast_hash": "a0ed42bec6c4ef1f0c00367e262e3b63",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0131.jpg": {
+    "mtime": 1789541562.4991422,
+    "ast_hash": "ab90178cee71aaeab7bf6eb0d7662a05",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0132.jpg": {
+    "mtime": 1789541563.3120337,
+    "ast_hash": "095412759f31ac4e63c4ba788c8575e8",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0133.jpg": {
+    "mtime": 1789541564.2879324,
+    "ast_hash": "0a3d8a67a0dd6cd4764eccc48a0cb136",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0134.jpg": {
+    "mtime": 1789541564.892986,
+    "ast_hash": "b4411da307086ff14800a101c25d372c",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0135.jpg": {
+    "mtime": 1789541565.5527296,
+    "ast_hash": "179cbcc31ccb969e983ce153c3640588",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0136.jpg": {
+    "mtime": 1789541566.326389,
+    "ast_hash": "c7f8da33ddec943b7d8e01b1970e52e1",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0137.jpg": {
+    "mtime": 1789541567.1608136,
+    "ast_hash": "f7508b40ae99a403d8f10717fdb0749e",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/frame-0138.jpg": {
+    "mtime": 1789541568.1055205,
+    "ast_hash": "a6648896fe2fd40288ded5d5b7079183",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/sheet-01.jpg": {
+    "mtime": 1789541569.0583284,
+    "ast_hash": "ab78422d2b2da346c76cc121f49f9d62",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/sheet-02.jpg": {
+    "mtime": 1789541569.0873294,
+    "ast_hash": "c6e6773d62e931b26d6e59396eba4f32",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/sheet-03.jpg": {
+    "mtime": 1789541569.1155605,
+    "ast_hash": "f9a105638b906bd09924f91cc53c08eb",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/sheet-04.jpg": {
+    "mtime": 1789541569.1455827,
+    "ast_hash": "fc52361cc85c52e78c21123ee61ff9c6",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/sheet-05.jpg": {
+    "mtime": 1789541569.1749945,
+    "ast_hash": "b33d058fdf83e7bcf42ad17ef2cde8b9",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/sheet-06.jpg": {
+    "mtime": 1789541569.203624,
+    "ast_hash": "b30bae2fe1b5ab546e63bea048bb3f49",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/sheet-07.jpg": {
+    "mtime": 1789541569.244519,
+    "ast_hash": "99bdb087af943db6365fa30c126c75fa",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/sheet-08.jpg": {
+    "mtime": 1789541569.2736368,
+    "ast_hash": "523fb0eac9bef73f19a4e75ec9ce9ac8",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/sheet-09.jpg": {
+    "mtime": 1789541569.3016355,
+    "ast_hash": "a37c5c245402a3c7e689fa3f54a90f51",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/sheet-10.jpg": {
+    "mtime": 1789541569.333368,
+    "ast_hash": "46bb7908dcbb3d62c3663acf80c2d1b5",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/sheet-11.jpg": {
+    "mtime": 1789541569.3678205,
+    "ast_hash": "ecc63085e9669f746c0aa32a7189cb55",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/overview/sheet-12.jpg": {
+    "mtime": 1789541569.3890402,
+    "ast_hash": "51bcdf971be13b655f590f80b1af0181",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/examples/renders/KameraMembukaBentuk-contact.png": {
+    "mtime": 1789539996.6534128,
+    "ast_hash": "878dca3163ca8b7529904469b214e3b8",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/examples/renders/SatuParameter-contact.png": {
+    "mtime": 1789539996.2989798,
+    "ast_hash": "e77a3e8b7fd96ccf14f02fc7f7161a20",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/examples/renders/TransformasiBermakna-contact.png": {
+    "mtime": 1789539996.4615102,
+    "ast_hash": "68ab23b04ab4a705aa52ab6ee36e5846",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/film/previews/IngatanSistem.mp4": {
+    "mtime": 1789542507.3284101,
+    "ast_hash": "d23053b93d7489cf815dac0b55367f40",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/film/previews/SidikRedaman.mp4": {
+    "mtime": 1789542901.8453987,
+    "ast_hash": "8f63f2afacbbc67b406432ad277674eb",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/film/previews/TigaTanggapan.mp4": {
+    "mtime": 1789542933.7505407,
+    "ast_hash": "02af32f9f0c7fdfe45185526e758e146",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/film/renders/IngatanSistem.mp4": {
+    "mtime": 1789543763.6986847,
+    "ast_hash": "6e9900ae26dc886fbd6cfe946b8565ab",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/film/renders/SidikRedaman.mp4": {
+    "mtime": 1789544160.5554385,
+    "ast_hash": "360290f06d84b378f92b9f8d7cce21b3",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/film/renders/TigaTanggapan.mp4": {
+    "mtime": 1789543151.2977722,
+    "ast_hash": "d784f610eeb212d90ac6f3a67cb7f7c8",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/advanced/reference/FE-hM1kRK4Y.mp4": {
+    "mtime": 1789541370.3474224,
+    "ast_hash": "63b853f4ce58012e0dc81463e5e2fae3",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/examples/renders/KameraMembukaBentuk.mp4": {
+    "mtime": 1789539967.68573,
+    "ast_hash": "daa18da1b26bd27476445c5ceffd77d6",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/examples/renders/SatuParameter.mp4": {
+    "mtime": 1789539546.0151968,
+    "ast_hash": "94859643c178a1a0db070dbe46c1b194",
+    "semantic_hash": ""
+  },
+  "deep-learning-manim/examples/renders/TransformasiBermakna.mp4": {
+    "mtime": 1789539962.9643056,
+    "ast_hash": "3c7d99603d9c93812d560d6df3c28c05",
+    "semantic_hash": ""
+  },
+  "web/components/latihan/TeksMat.tsx": {
+    "mtime": 1789705057.6181996,
+    "ast_hash": "42ad9c49ce8fec625d7a7f729b8e8471",
+    "semantic_hash": ""
+  },
+  "web/lib/acak-pilihan.ts": {
+    "mtime": 1789620149.964968,
+    "ast_hash": "da068c2a17b888c453bd5badc5061413",
+    "semantic_hash": ""
+  },
+  "alat/cek_rumus.ts": {
+    "mtime": 1789628072.5205564,
+    "ast_hash": "1720cf6d18ca5ce7f074453dead03565",
+    "semantic_hash": ""
+  },
+  "web/lib/mat-latex.ts": {
+    "mtime": 1789659600.6602955,
+    "ast_hash": "faa335d691851f1ec52597d709b22254",
+    "semantic_hash": ""
+  },
+  "docs/desain-mantra/PROMPT-CLAUDE-DESIGN-GERAK.md": {
+    "mtime": 1789627689.3784096,
+    "ast_hash": "d6e4ff77deb304ced1a9d24936399ae3",
+    "semantic_hash": ""
+  },
+  "docs/desain-mantra/gerak/gerak-spek.json": {
+    "mtime": 1789648418.7666795,
+    "ast_hash": "775592a4d13491a7c2f56593b893c09d",
+    "semantic_hash": ""
+  },
+  "docs/desain-mantra/gerak/HANDOFF-GERAK.md": {
+    "mtime": 1789648418.7232735,
+    "ast_hash": "e34f7849a68a386c2be5919ba3a66426",
+    "semantic_hash": ""
+  },
+  "docs/desain-mantra/gerak/KEPUTUSAN.md": {
+    "mtime": 1789718578.8395927,
+    "ast_hash": "3bd2cd09b3577dc0b48081619da720da",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-09-17-sistem-gerak-panggung.md": {
+    "mtime": 1789718579.1018462,
+    "ast_hash": "5b7151798e23311851eafb0826df50c0",
+    "semantic_hash": ""
+  },
+  "web/components/mantra/ArahRute.tsx": {
+    "mtime": 1789649907.2907014,
+    "ast_hash": "eab6558f007ac2f94eab5f0c08d8896e",
+    "semantic_hash": ""
+  },
+  "web/components/mantra/Panggung.tsx": {
+    "mtime": 1789648954.3871653,
+    "ast_hash": "7bf4756d82968714c33c6a9e5538a1a0",
+    "semantic_hash": ""
+  },
+  "web/lib/arah-rute.ts": {
+    "mtime": 1789648928.830994,
+    "ast_hash": "64221bd1724787657bdfc3030c7d8746",
+    "semantic_hash": ""
+  },
+  "web/react-canary.d.ts": {
+    "mtime": 1789648901.8534446,
+    "ast_hash": "a6e147c58a5457cf4d9bf980352351ba",
+    "semantic_hash": ""
+  },
+  "alat/cek_rumus_materi.ts": {
+    "mtime": 1789652351.8049061,
+    "ast_hash": "992a21a9819f402fe6f26d7717607f3a",
+    "semantic_hash": ""
+  },
+  "alat/lihat_latex.ts": {
+    "mtime": 1789652725.2354832,
+    "ast_hash": "520ed9620b8884754bb7f7f8f3c8b3eb",
+    "semantic_hash": ""
+  },
+  "alat/cek_huruf_tunggal.ts": {
+    "mtime": 1789654911.808065,
+    "ast_hash": "cb889a764924776b1d54ddbf58d6da1b",
+    "semantic_hash": ""
+  },
+  "web/components/mantra/Jendela.tsx": {
+    "mtime": 1789656971.6388128,
+    "ast_hash": "183450f7e43e9f015952942eaba47175",
+    "semantic_hash": ""
+  },
+  "web/lib/hitung.ts": {
+    "mtime": 1789655581.048319,
+    "ast_hash": "c1e28a0660cb9f0ba82d72d79cb73851",
+    "semantic_hash": ""
+  },
+  "alat/survei_alat.mjs": {
+    "mtime": 1789697256.3402724,
+    "ast_hash": "8e9e02c23ef6170e99046a575a82c84e",
+    "semantic_hash": ""
+  },
+  "web/components/topik/KolomAlat.tsx": {
+    "mtime": 1789684654.3759441,
+    "ast_hash": "dac601e7b2251baf514a90c2c546f523",
+    "semantic_hash": ""
+  },
+  "alat/cari_foto_commons.mjs": {
+    "mtime": 1789695777.170992,
+    "ast_hash": "09dd9ecdc3903354b22b826e1f993a06",
+    "semantic_hash": ""
+  },
+  "alat/katex_widget_codemod.py": {
+    "mtime": 1789694664.3978524,
+    "ast_hash": "d27ab7498ae1a6e9607c868bfc571fc7",
+    "semantic_hash": ""
+  },
+  "alat/kecilkan_foto.py": {
+    "mtime": 1789696390.7138288,
+    "ast_hash": "0de690c58a4d9137463e1d2bc5602616",
+    "semantic_hash": ""
+  },
+  "web/components/widget/GaleriNyata.tsx": {
+    "mtime": 1789696601.8012898,
+    "ast_hash": "31bc05d27fcb2dfbf9346c0766f39192",
+    "semantic_hash": ""
+  },
+  "web/components/widget/Lembar.tsx": {
+    "mtime": 1789695086.9991236,
+    "ast_hash": "aa5e4451afa67084d79a7a8b0bfe8c8c",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/integral/jarak-kecepatan.jpg": {
+    "mtime": 1789696414.9533322,
+    "ast_hash": "ce3848b3dcb54c0f5347b167e7e62aca",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/integral/modal-kembali.jpg": {
+    "mtime": 1789696415.5290618,
+    "ast_hash": "c11eebf2908396d8fb8ae76e4e563586",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/integral/penjualan.jpg": {
+    "mtime": 1789696415.7582273,
+    "ast_hash": "018cef8db456e0756069484532055f95",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/integral/usaha-gaya.jpg": {
+    "mtime": 1789696416.1067693,
+    "ast_hash": "eeb23f782c5215981e6f02109189d50b",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/limit/biaya-produksi.jpg": {
+    "mtime": 1789696411.7353022,
+    "ast_hash": "c43dd2c39426bbce13b26f5e40e04b77",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/limit/kadar-obat.jpg": {
+    "mtime": 1789696411.967677,
+    "ast_hash": "bac555b687569972c6a28be01702fe6c",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/limit/populasi-danau.jpg": {
+    "mtime": 1789696412.9381542,
+    "ast_hash": "573fb4e9ffaa5d0439a2059c76c02d9b",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/limit/rel-wahana.jpg": {
+    "mtime": 1789696413.6524487,
+    "ast_hash": "cca435fe13754526998fd3088fcd92a4",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/ruang-3d/garis-bersilangan.jpg": {
+    "mtime": 1789696443.6811414,
+    "ast_hash": "788b571dde56287b2cf9baf9fbceb289",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/ruang-3d/jarak-titik-bidang.jpg": {
+    "mtime": 1789696417.1159816,
+    "ast_hash": "9a715c2f5583570b725bd8022839c1ec",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/ruang-3d/sudut-bidang-bidang.jpg": {
+    "mtime": 1789696417.2756307,
+    "ast_hash": "69e61b16f4051792c62d1f8fc10621a8",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/ruang-3d/sudut-garis-bidang.jpg": {
+    "mtime": 1789696417.577545,
+    "ast_hash": "8be299eed147d53842d2d23f689f4f76",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/statistika/curah-hujan.jpg": {
+    "mtime": 1789696417.6683338,
+    "ast_hash": "c68e96d3425357c1d46f8a37f568ee3f",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/statistika/grafik-iklan.jpg": {
+    "mtime": 1789696418.0642762,
+    "ast_hash": "bbe5fb622729d117f0c33cb23001a515",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/statistika/jajanan-kantin.jpg": {
+    "mtime": 1789696418.3882892,
+    "ast_hash": "6a48d03baec8d941912f6e1d090a5a13",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/statistika/jam-belajar.jpg": {
+    "mtime": 1789696418.7566237,
+    "ast_hash": "e1628e175a0a60fa2af5ac98628ee085",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/statistika/nilai-rapor.jpg": {
+    "mtime": 1789696418.8727381,
+    "ast_hash": "240adfeb01b2eda1510fdabc51d4a75d",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/statistika/pemain-laga.jpg": {
+    "mtime": 1789696419.5237079,
+    "ast_hash": "8ebb74c8dc3804525de286fea32a9d24",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/transformasi/benda-berputar.jpg": {
+    "mtime": 1789696420.35476,
+    "ast_hash": "d29b55e02f601892ec47676b5c6aee90",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/transformasi/lengan-robot.jpg": {
+    "mtime": 1789696420.5378215,
+    "ast_hash": "51b3e54eeec482859c67f8a8b5040342",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/transformasi/motif-kain.jpg": {
+    "mtime": 1789696443.865283,
+    "ast_hash": "de265c6ae6f3e9cac567bcba1ab20051",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/turunan/bakteri-cawan.jpg": {
+    "mtime": 1789696414.4200528,
+    "ast_hash": "ecf7d5e4c04695a4045b442c4dce8792",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/turunan/biaya-barang.jpg": {
+    "mtime": 1789696414.5890975,
+    "ast_hash": "d51998410528bc27d75947eeed10793a",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/turunan/bola-dilempar.jpg": {
+    "mtime": 1789696414.7113073,
+    "ast_hash": "43d316b3ce971bf015b18faa22bebcb5",
+    "semantic_hash": ""
+  },
+  "web/public/gambar/turunan/kaleng.jpg": {
+    "mtime": 1789696414.8404124,
+    "ast_hash": "e0a05d85d0ff8765c3a5c93050aff090",
+    "semantic_hash": ""
+  },
+  "alat/cek_kanal_youtube.mjs": {
+    "mtime": 1789714965.8342028,
+    "ast_hash": "f58a8dc90fd7c5052be0e3c85e346a7e",
+    "semantic_hash": ""
+  },
+  "web/content/kanal-youtube.ts": {
+    "mtime": 1789713919.2874706,
+    "ast_hash": "3111aad8c9331d655e13850b50cba08d",
+    "semantic_hash": ""
+  },
+  "web/components/mantra/GrafikTan.tsx": {
+    "mtime": 1789717427.3343506,
+    "ast_hash": "9fd7348cb8d70f153eadd9d32d3ff9f7",
     "semantic_hash": ""
   }
 }

@@ -1,0 +1,4 @@
+# Dibaca graphify (sintaks .gitignore). Salinan kode 3b1b/manim dan 3b1b/videos
+# di deep-learning-manim/sources adalah bahan riset, bukan kode MANTRA: tanpa
+# ini 2819 dari 7559 simpul peta berasal dari sana (18 Sep 2026).
+deep-learning-manim/sources/
