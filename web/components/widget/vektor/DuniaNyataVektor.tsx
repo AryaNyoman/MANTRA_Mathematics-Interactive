@@ -17,6 +17,8 @@
  * `app/globals.css` bukan wilayah sesi ini untuk diubah.
  */
 
+import GaleriNyata from '@/components/widget/GaleriNyata'
+
 type Kartu = {
   id: string
   nomor: string
@@ -36,7 +38,7 @@ const CONTOH: Kartu[] = [
     gambar: 'vektor/perahu-sungai.jpg',
     vektor: 'kecepatan dayung dan kecepatan arus',
     inti: 'Ini cerita pembuka topik ini. Pendayung menentukan arah dayungnya, tetapi arus menambahkan geraknya sendiri. Yang benar-benar terjadi adalah jumlah keduanya, dan itulah sebabnya perahu mendarat lebih ke hilir daripada yang dibidik.',
-    hitungan: 'dayung (0 3) + arus (2 0) = gerak (2 3), panjangnya akar 13 atau sekitar 3,61',
+    hitungan: 'dayung (0 3) + arus (2 0) = gerak (2 3), panjangnya √13 ≈ 3,61',
   },
   {
     id: 'pesawat',
@@ -69,32 +71,10 @@ const CONTOH: Kartu[] = [
 
 export default function DuniaNyataVektor() {
   return (
-    <div className="galeri-nyata">
-      {CONTOH.map((c) => (
-        <figure key={c.id} className="kartu-nyata">
-          <div className="foto-nyata">
-            {/* `next/image` sengaja tidak dipakai: keempat foto harus tampil
-                UTUH, dan `contain` pada bingkai yang tingginya ikut layar lebih
-                mudah dijamin dengan img biasa. Pola ini sudah dipakai galeri
-                Materi 10 Trigonometri. */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`/gambar/${c.gambar}`} alt={c.judul} loading="lazy" />
-          </div>
-          <figcaption>
-            <span className="nyata-no mono">{c.nomor}</span>
-            <h3>{c.judul}</h3>
-            <p>{c.inti}</p>
-            <code className="nyata-rumus mono">{c.hitungan}</code>
-          </figcaption>
-        </figure>
-      ))}
-      {/* Keterangan lisensi ditaruh DI SINI, bukan di dalam penjelasan materi.
-          Ini teks meta, bukan pelajaran: guru tidak membacakan catatan kaki di
-          tengah kelas. Tetap wajib ada, sebab foto salinan harus bersumber. */}
-      <p className="sumber">
-        Keempat foto berlisensi terbuka. Sumber, nama pemotret, dan lisensinya
-        dicatat di berkas sumber.json pada situs ini.
-      </p>
-    </div>
+    <GaleriNyata
+      kartu={CONTOH.map((c) => ({
+        id: c.id, gambar: c.gambar, nomor: c.nomor, judul: c.judul, inti: c.inti, rumus: c.hitungan,
+      }))}
+    />
   )
 }

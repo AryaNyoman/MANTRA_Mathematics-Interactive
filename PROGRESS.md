@@ -1,5 +1,42 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 18 SEP (2): TEKS ALAT KATEX, GALERI DUNIA NYATA BERFOTO, PANEL TEKS JADI LEMBAR KERJA
+
+ARYA (enam tangkapan layar): teks alat interaktif belum bergaya bank soal
+(KaTeX); galeri dunia nyata banyak yang cuma grafik ("ya pakai foto yang
+nyata dong"); alat Integral berbasis teks terlihat kosong dan hancur saat
+kolom disempitkan. Pilihan ARYA: Limit, Turunan, Integral foto + grafik
+kecil di bawahnya, bab lain foto saja; ketiganya dikerjakan sekaligus.
+- KaTeX di teks alat: komponen kendali (`Angka`, `Koordinat`, `Pilihan`,
+  `Petunjuk`) menata nama, arti, label pilihan, dan petunjuknya lewat
+  `TeksMat`; tabel angka, cap, catatan, dan Petunjuk berekspresi di 9
+  berkas Panggung dan 13 widget Statistika dibungkus lewat
+  `alat/katex_widget_codemod.py` (sekitar 540 tempat). Rumus KaTeX di label
+  tidak boleh patah; nilai tabel yang panjang boleh patah sesudah tanda =
+  (baris tegas 20 px sempat meluber). Survei: 1.293 rumus tertata, 0 gagal.
+- `components/widget/Lembar.tsx` (baru): lembar kerja bernomor untuk Limit
+  05 dan 06, Integral 03, 04, 08: kotak soal, langkah dengan nomor, nama,
+  isi, syarat; langkah yang belum dibuka tergambar redup (peta kerja tanpa
+  bocor jawaban); kemajuan berbatang; kolom nama pindah ke atas saat PANEL
+  sempit (container query, bukan lebar layar; kolom 300 px di laptop pun
+  rapi). Integral 04 jadi kisi kartu pasangan (∫ f dx = F + C, cocok hijau,
+  belum cocok bata). Semua rumusnya ditulis ulang berlambang (∫₀³ ..., lim
+  x→2 ..., [x³/3]₁³, u^(3/2)/3 + C).
+- `components/widget/GaleriNyata.tsx` (baru): kartu galeri bersama (foto
+  utuh, grafik kecil opsional, nomor, judul, kalimat KaTeX, baris rumus,
+  kredit). 25 foto Wikimedia Commons berlisensi bebas dicari dan diunduh
+  lewat `alat/cari_foto_commons.mjs` (API Commons, saring lisensi dan
+  bentuk mendatar, lembar kontak calon), dikecilkan `alat/kecilkan_foto.py`
+  (1000 px, di bawah 150 KB; dua foto 820 px), dicatat di `sumber.json`
+  (pemotret, lisensi, halaman); pemotret 4 foto lama Trigonometri dilengkapi.
+  Enam galeri (Limit, Turunan, Integral, Ruang 3D, Statistika, Transformasi)
+  berfoto; teks Ruang 3D dan Transformasi disesuaikan dengan fotonya (balon
+  udara, simpang susun, bianglala). Trigonometri, Grafik Fungsi, Vektor
+  ikut memakai komponen bersama sehingga kreditnya seragam (syarat CC BY).
+- Cek: playwright-cli 1920, 1366, kolom 300 px, HP 390 (Integral 04, 08,
+  Trigonometri 10, Turunan 12); survei 105 widget 0 cacat; tsc, eslint,
+  next build.
+
 ## 18 SEP: KOLOM ALAT: GAMBAR, KENDALI, DAN TABEL ANGKA TERLIHAT BERSAMA (deploy matra-pcmvfqdyn, push GitHub a78bd2a)
 
 ARYA (dua tangkapan layar Turunan 03): di jendela lebar penggeser dan tabel

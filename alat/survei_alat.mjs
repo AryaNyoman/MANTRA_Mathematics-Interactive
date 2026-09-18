@@ -20,6 +20,7 @@
  *   svg     ukuran SVG pertama (lebar x tinggi piksel)
  *   kendali "ya" kalau kendali pertama terlihat tanpa menggulir
  *   samping piksel luber mendatar (harus 0)
+ *   katex   banyak rumus yang tertata KaTeX; GAGAL n = rumus yang ditolak KaTeX (cacat)
  *
  * Butuh dev server yang sudah hidup (bawaan port 3210) dan playwright-core dari
  * @playwright/cli global (peramban Chromium-nya sudah terpasang oleh CLI itu).
@@ -111,6 +112,11 @@ function ukurDiHalaman() {
     layarTinggi: layar ? Math.round(r(layar).height) : 0,
     kendaliTerlihat: kendali ? (r(kendali).top + Math.min(r(kendali).height, 80) <= kr.bottom ? 'ya' : 'tidak') : '-',
     tanpaLayar: !layar,
+    // rumus KaTeX di teks alat (18 Sep 2026): jumlah yang tertata dan yang
+    // DITOLAK KaTeX (teks aslinya ditampilkan apa adanya, kelas .mat-gagal)
+    katex: k.querySelectorAll('.katex').length,
+    gagal: k.querySelectorAll('.mat-gagal').length,
+    gagalTeks: [...k.querySelectorAll('.mat-gagal')].slice(0, 3).map((e) => e.textContent),
   }
 }
 
@@ -166,7 +172,7 @@ for (const bab of BAB) {
     // tersembunyi, atau gambar dikecilkan di bawah skala 0,6.
     // "~"  = catatan: pada ukuran PERTAMA (yang terbesar) kolom masih
     // menggulir; wajar untuk kendali panjang, tetapi layak dilihat.
-    const cacat = hasil.some((u) => u.galat || u.samping > 0 || (u.skala !== null && u.skala < 0.6) || u.kendaliTerlihat === 'tidak')
+    const cacat = hasil.some((u) => u.galat || u.samping > 0 || (u.skala !== null && u.skala < 0.6) || u.kendaliTerlihat === 'tidak' || u.gagal > 0)
     const catatan = !cacat && hasil[0] && !hasil[0].galat && hasil[0].gulir > 0
     if (cacat) masalah++
     const tanda = cacat ? '!! ' : catatan ? '~  ' : '   '
@@ -174,7 +180,7 @@ for (const bab of BAB) {
     const ringkas = hasil.map((u, i) => {
       const [w, h] = UKURAN[i]
       if (u.galat) return `${w}x${h}: ${u.galat}`
-      return `${w}x${h}: kolom ${u.kolom} gulir ${u.gulir} skala ${u.skala ?? '-'} svg ${u.svg}${u.jumlahSvg > 1 ? ` (+${u.jumlahSvg - 1})` : ''} kendali ${u.kendaliTerlihat}${u.samping ? ` SAMPING ${u.samping}` : ''}${u.tanpaLayar ? ' TANPA .layar' : ''}`
+      return `${w}x${h}: kolom ${u.kolom} gulir ${u.gulir} skala ${u.skala ?? '-'} svg ${u.svg}${u.jumlahSvg > 1 ? ` (+${u.jumlahSvg - 1})` : ''} kendali ${u.kendaliTerlihat}${u.samping ? ` SAMPING ${u.samping}` : ''}${u.tanpaLayar ? ' TANPA .layar' : ''} katex ${u.katex}${u.gagal ? ` GAGAL ${u.gagal} ${JSON.stringify(u.gagalTeks)}` : ''}`
     })
     console.log(`${tanda}${bab} ${String(t.no).padStart(2, '0')} ${t.widget.padEnd(28)} ${ringkas.join(' | ')}`)
   }

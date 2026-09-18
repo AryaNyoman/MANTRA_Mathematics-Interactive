@@ -41,6 +41,7 @@ import GrafikTurunan, {
   AWAL as AWAL_03, FUNGSI_TERSEDIA as FUNGSI_03,
   FUNGSI_SINUS, MAKS_JEJAK, batasX, tabelGrafikTurunan,
 } from '@/components/widget/turunan/GrafikTurunan'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Panggung Turunan: penyetelan kesebelas widgetnya, dan tidak lebih.
@@ -63,13 +64,13 @@ import GrafikTurunan, {
 function Tabel({ judul, baris }: { judul: string; baris: Array<{ nama: string; nilai: string }> }) {
   return (
     <div className="blok">
-      <div className="cap">{judul}</div>
+      <div className="cap"><TeksMat teks={`${judul}`} blok={false} /></div>
       <table className="tabel-angka">
         <tbody>
           {baris.map((b, i) => (
             <tr key={b.nama} className={i === baris.length - 1 ? 'tegas' : undefined}>
-              <td>{b.nama}</td>
-              <td>{b.nilai}</td>
+              <td><TeksMat teks={`${b.nama}`} blok={false} /></td>
+              <td><TeksMat teks={`${b.nilai}`} blok={false} /></td>
             </tr>
           ))}
         </tbody>
@@ -474,23 +475,19 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
         {tampilWidget && tahap.widget === 'sekan-ke-tangen' && (
           <>
             <Tabel judul="Angka dari alat" baris={tabelSekan(x2, h2, fungsi2)} />
-            <div className="catatan">
-              Selisihnya mengecil terus, tetapi tidak pernah nol selama h masih ada.
-            </div>
+            <div className="catatan"><TeksMat teks="Selisihnya mengecil terus, tetapi tidak pernah nol selama h masih ada." /></div>
           </>
         )}
         {tampilWidget && tahap.widget === 'mesin-pangkat' && (
           <>
             <Tabel judul="Angka dari alat" baris={tabelPangkat(pangkat4, x4, h4)} />
             <div className="blok">
-              <div className="cap">Kotak hitung</div>
-              <div className="catatan">
-                {uraianPangkat(pangkat4).map((baris) => (
+              <div className="cap"><TeksMat teks="Kotak hitung" blok={false} /></div>
+              <div className="catatan"><TeksMat teks={`${uraianPangkat(pangkat4).map((baris) => (
                   <div key={baris} style={{ fontFamily: 'var(--font-mono), monospace', fontSize: '0.82rem' }}>
                     {baris}
                   </div>
-                ))}
-              </div>
+                ))}`} /></div>
             </div>
           </>
         )}
@@ -503,58 +500,41 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
         {tampilWidget && tahap.widget === 'peta-tanda' && (
           <>
             <Tabel judul="Angka dari alat" baris={tabelTanda(kurva10, x10)} />
-            <div className="catatan">
-              Yang dibaca hanya TANDA f aksen, bukan nilainya. Angka penguji boleh
-              dipilih bebas, asal berada di selang yang benar.
-            </div>
+            <div className="catatan"><TeksMat teks="Yang dibaca hanya TANDA f aksen, bukan nilainya. Angka penguji boleh dipilih bebas, asal berada di selang yang benar." /></div>
           </>
         )}
         {tampilWidget && tahap.widget === 'kotak-terbesar' && (
           <>
             <Tabel judul="Angka dari alat" baris={tabelKotak(x11)} />
-            <div className="catatan">
-              Yang ditanyakan isi kotaknya, bukan besar potongannya. Perhatikan
-              satuannya: potongan dalam cm, isi dalam cm kubik.
-            </div>
+            <div className="catatan"><TeksMat teks="Yang ditanyakan isi kotaknya, bukan besar potongannya. Perhatikan satuannya: potongan dalam cm, isi dalam cm kubik." /></div>
           </>
         )}
         {tampilWidget && tahap.widget === 'kemiringan-sinus' && (
           <>
             <Tabel judul="Angka dari alat" baris={tabelGrafikTurunan(x8, fungsi8)} />
-            <div className="catatan">
-              {jejak8.length === 0
+            <div className="catatan"><TeksMat teks={`${jejak8.length === 0
                 ? 'Papan bawah masih kosong. Sapu x dulu, tebak bentuknya, baru tekan Tampilkan.'
-                : `Sudah ${angka(jejak8.length, 0)} titik tercatat. Semua sudut di sini radian.`}
-            </div>
+                : `Sudah ${angka(jejak8.length, 0)} titik tercatat. Semua sudut di sini radian.`}`} /></div>
           </>
         )}
         {tampilWidget && tahap.widget === 'mesin-bertingkat' && (
           <>
             <Tabel judul="Angka dari alat" baris={tabelBertingkat(x7, h7, dalam7, luar7)} />
-            <div className="catatan">
-              Kedua pengali itu dikalikan, bukan dijumlahkan. Kalau u berubah tiga kali
-              lebih cepat daripada x, dan y berubah lima kali lebih cepat daripada u,
-              maka y berubah lima belas kali lebih cepat daripada x.
-            </div>
+            <div className="catatan"><TeksMat teks="Kedua pengali itu dikalikan, bukan dijumlahkan. Kalau u berubah tiga kali lebih cepat daripada x, dan y berubah lima kali lebih cepat daripada u, maka y berubah lima belas kali lebih cepat daripada x." /></div>
           </>
         )}
         {tampilWidget && tahap.widget === 'luas-berubah' && (
           <>
             <Tabel judul="Angka dari alat" baris={tabelLuas(x6, h6)} />
-            <div className="catatan">
-              Dua pita menyisakan angka yang berarti. Pojoknya tidak: ia hasil kali DUA
-              tambahan yang sama-sama mengecil.
-            </div>
+            <div className="catatan"><TeksMat teks="Dua pita menyisakan angka yang berarti. Pojoknya tidak: ia hasil kali DUA tambahan yang sama-sama mengecil." /></div>
           </>
         )}
         {tampilWidget && tahap.widget === 'grafik-turunan' && (
           <>
             <Tabel judul="Angka dari alat" baris={tabelGrafikTurunan(x3, fungsi3)} />
-            <div className="catatan">
-              {jejak.length === 0
+            <div className="catatan"><TeksMat teks={`${jejak.length === 0
                 ? 'Papan bawah masih kosong. Sapu x dulu.'
-                : `Sudah ${angka(jejak.length, 0)} titik kemiringan tercatat di papan bawah.`}
-            </div>
+                : `Sudah ${angka(jejak.length, 0)} titik kemiringan tercatat di papan bawah.`}`} /></div>
           </>
         )}
       </>

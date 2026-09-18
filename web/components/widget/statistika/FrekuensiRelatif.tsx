@@ -8,6 +8,7 @@ import { TEPI, angka, keLayar, kotak, pita } from '@/components/widget/statistik
 import { kelompokkan } from '@/components/widget/statistika/statistik'
 import { keterangan, tunggal } from '@/content/statistika/data'
 import type { PropWidget } from '@/components/widget/statistika/jenis'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Tahap 4. Dua kelompok berbeda ukuran, dibandingkan dua cara.
@@ -90,44 +91,37 @@ export default function FrekuensiRelatif({ children }: PropWidget) {
         <Pilihan nama="Sumbu-y menampilkan" arti="banyak siswa, atau bagian dari seluruh kelas"
           pilihan={[{ nilai: 'asli', label: 'Frekuensi asli' }, { nilai: 'relatif', label: 'Frekuensi relatif' }]}
           nilai={relatif ? 'relatif' : 'asli'} onPilih={(n) => setRelatif(n === 'relatif')} />
-        <Petunjuk>
-            {relatif
+        <Petunjuk><TeksMat teks={`${relatif
               ? 'takarannya sudah disamakan. Sekarang kedua kelas benar-benar bisa diadu'
-              : 'Kelas B menang hampir di semua kelompok nilai, dan itu wajar saja: siswanya memang lebih banyak'}
-          </Petunjuk>
+              : 'Kelas B menang hampir di semua kelompok nilai, dan itu wajar saja: siswanya memang lebih banyak'}`} blok={false} /></Petunjuk>
       </div>
     </>
   )
 
   const kanan = (
     <div className="blok">
-      <div className="cap">Siswa bernilai 80 ke atas</div>
+      <div className="cap"><TeksMat teks="Siswa bernilai 80 ke atas" blok={false} /></div>
       <table className="tabel-angka">
         <tbody>
           <tr>
-            <td>Kelas A</td>
-            <td>{ATAS_A} dari {A.data.length}</td>
+            <td><TeksMat teks="Kelas A" blok={false} /></td>
+            <td><TeksMat teks={`${ATAS_A} dari ${A.data.length}`} blok={false} /></td>
           </tr>
           <tr>
-            <td>Kelas B</td>
-            <td>{ATAS_B} dari {B.data.length}</td>
+            <td><TeksMat teks="Kelas B" blok={false} /></td>
+            <td><TeksMat teks={`${ATAS_B} dari ${B.data.length}`} blok={false} /></td>
           </tr>
           <tr className="tegas">
-            <td>bagiannya, Kelas A</td>
+            <td><TeksMat teks="bagiannya, Kelas A" blok={false} /></td>
             <td>{angka((ATAS_A / A.data.length) * 100, 1)}%</td>
           </tr>
           <tr className="tegas">
-            <td>bagiannya, Kelas B</td>
+            <td><TeksMat teks="bagiannya, Kelas B" blok={false} /></td>
             <td>{angka((ATAS_B / B.data.length) * 100, 1)}%</td>
           </tr>
         </tbody>
       </table>
-      <div className="catatan">
-        Dihitung mentah, Kelas B menang: {ATAS_B} orang lawan {ATAS_A} orang. Dihitung
-        sebagai bagian dari kelasnya sendiri, kesimpulannya berbalik. Kedua hitungan
-        itu benar; yang berbeda adalah pertanyaan yang dijawabnya.
-        {' '}{keterangan(A)}
-      </div>
+      <div className="catatan"><TeksMat teks={`Dihitung mentah, Kelas B menang: ${ATAS_B} orang lawan ${ATAS_A} orang. Dihitung sebagai bagian dari kelasnya sendiri, kesimpulannya berbalik. Kedua hitungan itu benar; yang berbeda adalah pertanyaan yang dijawabnya. ${keterangan(A)}`} /></div>
     </div>
   )
 

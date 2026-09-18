@@ -13,6 +13,7 @@ import TigaGrafik from '@/components/widget/TigaGrafik'
 import DuniaNyata from '@/components/widget/DuniaNyata'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Petunjuk, Pilihan } from '@/components/kendali'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Panggung Trigonometri: penyetelan kesepuluh widgetnya, dan tidak lebih.
@@ -60,11 +61,7 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
             <div className="kendali">
               <Angka nama="Sudut sinar matahari" arti="makin tinggi matahari, makin pendek bayangan" kunci="sinar" satuan="°"
                 nilai={sudutSinar} onUbah={setSudutSinar} min={BATAS_SUDUT.min} max={BATAS_SUDUT.maks} langkah={1} />
-              <Petunjuk>
-                  sinar matahari sejajar karena mataharinya sangat jauh, jadi sudutnya sama di pohon dan di orang;
-                  kedua bayangan berubah panjang, tetapi kedua hasil baginya tetap{' '}
-                  {angka(hitungBayangan(sudutSinar).tan)}
-                </Petunjuk>
+              <Petunjuk><TeksMat teks={`sinar matahari sejajar karena mataharinya sangat jauh, jadi sudutnya sama di pohon dan di orang; kedua bayangan berubah panjang, tetapi kedua hasil baginya tetap ${angka(hitungBayangan(sudutSinar).tan)}`} blok={false} /></Petunjuk>
             </div>
           </>
         )}
@@ -83,9 +80,7 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
                 nilai={skala} onUbah={setSkala} min={35} max={100} langkah={1} />
               <Angka nama="Sudut θ" arti="sudut di titik A, inilah yang menentukan rasionya" kunci="sudut" satuan="°"
                 nilai={derajat} onUbah={setDerajat} min={10} max={80} langkah={1} />
-              <Petunjuk>tarik titik puncaknya ke samping untuk ukuran, ke atas atau ke bawah untuk sudut
-                  (satu tarikan hanya mengubah satu hal), atau geser kendali di atas ·
-                  skala tampilan 1 cm = {angka(hitungGeometri(skala, derajat).ppc, 1)} px</Petunjuk>
+              <Petunjuk><TeksMat teks={`tarik titik puncaknya ke samping untuk ukuran, ke atas atau ke bawah untuk sudut (satu tarikan hanya mengubah satu hal), atau geser kendali di atas · skala tampilan 1 cm = ${angka(hitungGeometri(skala, derajat).ppc, 1)} px`} blok={false} /></Petunjuk>
             </div>
           </>
         )}
@@ -206,77 +201,70 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
         {/* angka hidup hanya untuk tahap yang punya widget berangka */}
         {tampilWidget && tahap.widget === 'segitiga-sebangun' && (
           <div className="blok">
-            <div className="cap">Angka dari segitiga</div>
+            <div className="cap"><TeksMat teks="Angka dari segitiga" blok={false} /></div>
             <AngkaSegitiga skala={skala} derajat={derajat} />
           </div>
         )}
         {tampilWidget && tahap.widget === 'pabrik-rasio' && (
           <div className="blok">
-            <div className="cap">Hasil pilihan Anda</div>
+            <div className="cap"><TeksMat teks="Hasil pilihan Anda" blok={false} /></div>
             <HasilRasio pembilang={pembilang} penyebut={penyebut} />
           </div>
         )}
         {tampilWidget && tahap.widget === 'enam-rasio' && (
           <div className="blok">
-            <div className="cap">Keenamnya pada sudut {sudutEnam}°</div>
+            <div className="cap"><TeksMat teks={`Keenamnya pada sudut ${sudutEnam}°`} blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
                 {URUT_RASIO.map((r) => (
                   <tr key={r} className={sorotRasio === r ? 'tegas' : undefined}>
-                    <td>{RASIO[r].lambang}, {RASIO[r].nama}</td>
+                    <td><TeksMat teks={`${RASIO[r].lambang}, ${RASIO[r].nama}`} blok={false} /></td>
                     <td>{angka(hitungEnam(sudutEnam)[r], 3)}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <div className="catatan">{RASIO[sorotRasio].letak}</div>
+            <div className="catatan"><TeksMat teks={`${RASIO[sorotRasio].letak}`} /></div>
           </div>
         )}
         {tampilWidget && tahap.widget === 'perjalanan-sudut' && (
           <div className="blok">
-            <div className="cap">
-              θ = {tulisSudut(ISTIMEWA[langkahIstimewa], satuanSudut)}
-              {' '}({tulisSudut(ISTIMEWA[langkahIstimewa], satuanSudut === 'radian' ? 'derajat' : 'radian')})
-            </div>
+            <div className="cap"><TeksMat teks={`θ = ${tulisSudut(ISTIMEWA[langkahIstimewa], satuanSudut)} (${tulisSudut(ISTIMEWA[langkahIstimewa], satuanSudut === 'radian' ? 'derajat' : 'radian')})`} blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>sin θ</td><td>{ISTIMEWA[langkahIstimewa].sin}</td></tr>
-                <tr><td>cos θ</td><td>{ISTIMEWA[langkahIstimewa].cos}</td></tr>
-                <tr className="tegas"><td>tan θ = sin θ : cos θ</td><td>{ISTIMEWA[langkahIstimewa].tan}</td></tr>
-                <tr><td>titik (cos θ, sin θ)</td><td>({ISTIMEWA[langkahIstimewa].cos}, {ISTIMEWA[langkahIstimewa].sin})</td></tr>
+                <tr><td><TeksMat teks="sin θ" blok={false} /></td><td><TeksMat teks={`${ISTIMEWA[langkahIstimewa].sin}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="cos θ" blok={false} /></td><td><TeksMat teks={`${ISTIMEWA[langkahIstimewa].cos}`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="tan θ = sin θ : cos θ" blok={false} /></td><td><TeksMat teks={`${ISTIMEWA[langkahIstimewa].tan}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="titik (cos θ, sin θ)" blok={false} /></td><td><TeksMat teks={`(${ISTIMEWA[langkahIstimewa].cos}, ${ISTIMEWA[langkahIstimewa].sin})`} blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">{ISTIMEWA[langkahIstimewa].asal}</div>
+            <div className="catatan"><TeksMat teks={`${ISTIMEWA[langkahIstimewa].asal}`} /></div>
           </div>
         )}
         {tampilWidget && tahap.widget === 'lingkaran-satuan' && (
           <div className="blok">
-            <div className="cap">Titik pada sudut {sudutLingkaran}°</div>
+            <div className="cap"><TeksMat teks={`Titik pada sudut ${sudutLingkaran}°`} blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>cos θ, koordinat x</td><td>{angka3(hitungLingkaran(sudutLingkaran).cos)}</td></tr>
-                <tr><td>sin θ, koordinat y</td><td>{angka3(hitungLingkaran(sudutLingkaran).sin)}</td></tr>
-                <tr className="tegas"><td>jari-jari (sisi miring)</td><td>1</td></tr>
+                <tr><td><TeksMat teks="cos θ, koordinat x" blok={false} /></td><td>{angka3(hitungLingkaran(sudutLingkaran).cos)}</td></tr>
+                <tr><td><TeksMat teks="sin θ, koordinat y" blok={false} /></td><td>{angka3(hitungLingkaran(sudutLingkaran).sin)}</td></tr>
+                <tr className="tegas"><td><TeksMat teks="jari-jari (sisi miring)" blok={false} /></td><td><TeksMat teks="1" blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Titiknya selalu berada di (cos θ, sin θ). Tidak ada pembagian sama sekali.
-            </div>
+            <div className="catatan"><TeksMat teks="Titiknya selalu berada di (cos θ, sin θ). Tidak ada pembagian sama sekali." /></div>
           </div>
         )}
         {tampilWidget && tahap.widget === 'penamaan-sisi' && (
           <div className="blok">
-            <div className="cap">Dilihat dari sudut {sudutDilihat}</div>
+            <div className="cap"><TeksMat teks={`Dilihat dari sudut ${sudutDilihat}`} blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>sisi depan</td><td>{sudutDilihat === 'A' ? 'BC' : 'AB'}</td></tr>
-                <tr><td>sisi samping</td><td>{sudutDilihat === 'A' ? 'AB' : 'BC'}</td></tr>
-                <tr className="tegas"><td>sisi miring</td><td>AC</td></tr>
+                <tr><td><TeksMat teks="sisi depan" blok={false} /></td><td><TeksMat teks={`${sudutDilihat === 'A' ? 'BC' : 'AB'}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="sisi samping" blok={false} /></td><td><TeksMat teks={`${sudutDilihat === 'A' ? 'AB' : 'BC'}`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="sisi miring" blok={false} /></td><td><TeksMat teks="AC" blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Klik sudut yang lain di gambar. Sisi depan dan samping bertukar; sisi miring tidak.
-            </div>
+            <div className="catatan"><TeksMat teks="Klik sudut yang lain di gambar. Sisi depan dan samping bertukar; sisi miring tidak." /></div>
           </div>
         )}
       </>
@@ -320,19 +308,16 @@ function HasilRasio({ pembilang, penyebut }: { pembilang: NamaSisi; penyebut: Na
     <>
       <table className="tabel-angka">
         <tbody>
-          <tr><td>pembilang</td><td>{pembilang} = {SISI[pembilang].panjang}</td></tr>
-          <tr><td>penyebut</td><td>{penyebut} = {SISI[penyebut].panjang}</td></tr>
+          <tr><td><TeksMat teks="pembilang" blok={false} /></td><td><TeksMat teks={`${pembilang} = ${SISI[pembilang].panjang}`} blok={false} /></td></tr>
+          <tr><td><TeksMat teks="penyebut" blok={false} /></td><td><TeksMat teks={`${penyebut} = ${SISI[penyebut].panjang}`} blok={false} /></td></tr>
           <tr className="tegas">
-            <td>{r.pecahan}</td>
+            <td><TeksMat teks={`${r.pecahan}`} blok={false} /></td>
             <td>{angka(r.nilai, 3)}</td>
           </tr>
         </tbody>
       </table>
       {r.sama ? (
-        <div className="catatan">
-          Sisi yang sama dibagi dirinya sendiri selalu 1. Tidak ada nama khusus untuk ini -
-          pilih dua sisi yang berbeda.
-        </div>
+        <div className="catatan"><TeksMat teks="Sisi yang sama dibagi dirinya sendiri selalu 1. Tidak ada nama khusus untuk ini - pilih dua sisi yang berbeda." /></div>
       ) : r.resmi ? (
         <div className="nama-resmi">
           <span className="lambang mono">{r.resmi.lambang}</span>
@@ -349,10 +334,10 @@ function AngkaSegitiga({ skala, derajat }: { skala: number; derajat: number }) {
   return (
     <table className="tabel-angka">
       <tbody>
-        <tr><td>sisi samping</td><td>{angka(g.sampingCm)} cm</td></tr>
-        <tr><td>sisi depan</td><td>{angka(g.depanCm)} cm</td></tr>
-        <tr><td>sisi miring</td><td>{angka(g.miringCm)} cm</td></tr>
-        <tr className="tegas"><td>depan ÷ samping</td><td>{angka(g.tan, 3)}</td></tr>
+        <tr><td><TeksMat teks="sisi samping" blok={false} /></td><td><TeksMat teks={`${angka(g.sampingCm)} cm`} blok={false} /></td></tr>
+        <tr><td><TeksMat teks="sisi depan" blok={false} /></td><td><TeksMat teks={`${angka(g.depanCm)} cm`} blok={false} /></td></tr>
+        <tr><td><TeksMat teks="sisi miring" blok={false} /></td><td><TeksMat teks={`${angka(g.miringCm)} cm`} blok={false} /></td></tr>
+        <tr className="tegas"><td><TeksMat teks="depan ÷ samping" blok={false} /></td><td>{angka(g.tan, 3)}</td></tr>
       </tbody>
     </table>
   )

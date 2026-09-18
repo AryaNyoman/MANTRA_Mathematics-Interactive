@@ -1,5 +1,6 @@
 'use client'
 
+import TeksMat from '@/components/latihan/TeksMat'
 import Angka from './Angka'
 
 /**
@@ -45,8 +46,8 @@ export default function Koordinat({
     <div className="kendali-koordinat" data-kunci={k}>
       <div className="kendali-nama">
         <span>
-          <b>{nama}</b>
-          {arti && <span className="kendali-arti"> · {arti}</span>}
+          <b><TeksMat teks={nama} blok={false} /></b>
+          {arti && <span className="kendali-arti"> · <TeksMat teks={arti} blok={false} /></span>}
         </span>
         <span className="kendali-notasi angka-rata" aria-label={`${nama} sama dengan ${rapi(nilai.x)} koma ${rapi(nilai.y)}`}>
           <span className="notasi-kolom" aria-hidden="true">

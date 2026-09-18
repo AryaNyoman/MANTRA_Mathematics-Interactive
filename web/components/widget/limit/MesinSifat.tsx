@@ -1,5 +1,7 @@
 'use client'
 
+import Lembar, { LembarLangkah, LembarSelesai, LembarSoal, LembarTolak } from '@/components/widget/Lembar'
+
 /**
  * Widget "Mesin Sifat Limit", Limit tahap 5.
  *
@@ -43,7 +45,7 @@ export const PETUNJUK_SALAH: Record<Sifat, string> = {
   jumlah: 'Sifat jumlah dan selisih dipakai saat bentuknya berupa suku-suku yang dipisahkan tanda tambah atau kurang, bukan saat masih berupa pecahan atau akar.',
   kali: 'Sifat hasil kali dipakai saat bentuknya dua hal yang dikalikan, dan keduanya sama-sama mengandung x. Angka pengali biasa itu urusan sifat kelipatan.',
   bagi: 'Sifat hasil bagi dipakai saat bentuknya masih satu pecahan utuh yang belum dipisah, DAN limit penyebutnya bukan nol. Periksa penyebutnya lebih dulu.',
-  pangkat: 'Sifat pangkat dipakai saat ada bentuk berpangkat yang isinya mengandung x, misalnya x kuadrat, bukan saat pangkatnya sudah lepas.',
+  pangkat: 'Sifat pangkat dipakai saat ada bentuk berpangkat yang isinya mengandung x, misalnya x², bukan saat pangkatnya sudah lepas.',
   akar: 'Sifat akar dipakai saat ada tanda akar yang isinya mengandung x, dan isinya tidak negatif di titik itu.',
 }
 
@@ -59,67 +61,67 @@ export type SoalSifat = {
 
 export const SOAL_SIFAT: SoalSifat[] = [
   {
-    judul: 'lim (3x² - x + 4) : (x + 2)   saat x menuju 2',
+    judul: 'lim x→2 (3x² - x + 4)/(x + 2)',
     langkah: [
       {
         sifat: 'bagi',
-        tampil: '[ lim (3x² - x + 4) ] : [ lim (x + 2) ]',
+        tampil: '(lim x→2 (3x² - x + 4))/(lim x→2 (x + 2))',
         catatan: 'Boleh, karena limit penyebutnya 2 + 2 = 4, bukan nol. Periksa syarat ini SEBELUM memisahkan.',
       },
       {
         sifat: 'jumlah',
-        tampil: '[ lim 3x² - lim x + lim 4 ] : [ lim x + lim 2 ]',
+        tampil: '(lim x→2 3x² - lim x→2 x + lim x→2 4)/(lim x→2 x + lim x→2 2)',
         catatan: 'Limit dari penjumlahan sama dengan penjumlahan limitnya. Berlaku juga untuk pengurangan.',
       },
       {
         sifat: 'kelipatan',
-        tampil: '[ 3 · lim x² - lim x + lim 4 ] : [ lim x + lim 2 ]',
+        tampil: '(3 · lim x→2 x² - lim x→2 x + lim x→2 4)/(lim x→2 x + lim x→2 2)',
         catatan: 'Angka pengali boleh dikeluarkan dari limit. Angka 3 tidak dipengaruhi oleh x.',
       },
       {
         sifat: 'pangkat',
-        tampil: '[ 3 · (lim x)² - lim x + lim 4 ] : [ lim x + lim 2 ]',
+        tampil: '(3 · (lim x→2 x)² - lim x→2 x + lim x→2 4)/(lim x→2 x + lim x→2 2)',
         catatan: 'Limit boleh masuk ke dalam pangkat. Sekarang semuanya tinggal limit dari x dan limit dari angka.',
       },
       {
         sifat: 'dasar',
-        tampil: '[ 3 · 2² - 2 + 4 ] : [ 2 + 2 ]  =  14 : 4',
+        tampil: '(3 · 2² - 2 + 4)/(2 + 2) = 14/4',
         catatan: 'Limit dari x adalah 2, limit dari angka tetap adalah angka itu sendiri. Selesai.',
       },
     ],
-    jawaban: '14 : 4  =  7/2  =  3,5',
+    jawaban: '14/4 = 7/2 = 3,5',
   },
   {
-    judul: 'lim √x : (x² + 3x)   saat x menuju 4',
+    judul: 'lim x→4 √x/(x² + 3x)',
     langkah: [
       {
         sifat: 'bagi',
-        tampil: '[ lim √x ] : [ lim (x² + 3x) ]',
+        tampil: '(lim x→4 √x)/(lim x→4 (x² + 3x))',
         catatan: 'Boleh, karena limit penyebutnya 16 + 12 = 28, bukan nol.',
       },
       {
         sifat: 'akar',
-        tampil: '[ √(lim x) ] : [ lim (x² + 3x) ]',
+        tampil: '√(lim x→4 x)/(lim x→4 (x² + 3x))',
         catatan: 'Limit boleh masuk ke dalam akar, asalkan isinya tidak negatif. Di sini isinya 4, aman.',
       },
       {
         sifat: 'jumlah',
-        tampil: '[ √(lim x) ] : [ lim x² + lim 3x ]',
+        tampil: '√(lim x→4 x)/(lim x→4 x² + lim x→4 3x)',
         catatan: 'Penyebutnya dipecah jadi dua suku.',
       },
       {
         sifat: 'dasar',
-        tampil: '[ √4 ] : [ 16 + 12 ]  =  2 : 28',
+        tampil: '√4/(16 + 12) = 2/28',
         catatan: 'Masukkan limit x sama dengan 4 ke mana-mana. Selesai.',
       },
     ],
-    jawaban: '2 : 28  =  1/14',
+    jawaban: '2/28 = 1/14',
   },
   {
-    judul: 'lim (x² - 4) : (x - 2)   saat x menuju 2',
+    judul: 'lim x→2 (x² - 4)/(x - 2)',
     langkah: [],
     buntu:
-      'Sifat hasil bagi TIDAK berlaku di sini, karena limit penyebutnya 2 - 2 = 0. Sifat yang lain pun tidak menolong, sebab masalahnya bukan pada susunan melainkan pada bentuknya: kalau angkanya dipaksa masuk, hasilnya 0 dibagi 0. Soal seperti ini dikerjakan dengan cara lain, dan caranya ada di Materi 06.',
+      'Sifat hasil bagi TIDAK berlaku di sini, karena limit penyebutnya 2 - 2 = 0. Sifat yang lain pun tidak menolong, sebab masalahnya bukan pada susunan melainkan pada bentuknya: kalau angkanya dipaksa masuk, hasilnya 0/0. Soal seperti ini dikerjakan dengan cara lain, dan caranya ada di Materi 06.',
   },
 ]
 
@@ -134,45 +136,28 @@ export default function MesinSifat({
   onPilih: (s: Sifat) => void
 }) {
   const s = SOAL_SIFAT[Math.min(Math.max(soal, 0), SOAL_SIFAT.length - 1)]
+  const terbuka = Math.min(Math.max(langkah, 0), s.langkah.length)
   const selesai = !s.buntu && langkah >= s.langkah.length
+  // Langkah yang sudah dibuka bernama sifatnya; yang belum, namanya kosong
+  // (siswa yang menentukan), tetapi barisnya tetap tergambar redup.
+  const daftar = s.langkah.map((l, i) => (i < terbuka
+    ? { nama: NAMA_SIFAT[l.sifat], teks: l.tampil, syarat: l.catatan }
+    : { nama: '', teks: '' }))
 
   return (
-    <div className="mesin">
-      <div className="mesin-soal">{s.judul}</div>
+    <Lembar>
+      <LembarSoal soal={s.judul} cara={s.buntu ? undefined : 'pilih sifat yang dipakai di tiap langkah'} />
+      {daftar.length > 0 && <LembarLangkah langkah={daftar} terbuka={terbuka} />}
 
-      <ol className="mesin-langkah">
-        {s.langkah.slice(0, langkah).map((l, i) => (
-          <li key={i}>
-            <div className="mesin-cap">{NAMA_SIFAT[l.sifat]}</div>
-            <div className="mesin-bentuk">{l.tampil}</div>
-            <div className="mesin-catatan">{l.catatan}</div>
-          </li>
-        ))}
-      </ol>
+      {s.buntu && <LembarTolak judul="Mesin berhenti." teks={s.buntu} />}
 
-      {s.buntu && (
-        <div className="mesin-tolak" role="status">
-          <b>Mesin berhenti.</b>
-          <p>{s.buntu}</p>
-        </div>
-      )}
+      {selesai && <LembarSelesai teks={`Limitnya ${s.jawaban}`} />}
 
-      {selesai && (
-        <div className="mesin-selesai" role="status">
-          <b>Selesai.</b> Limitnya {s.jawaban}
-        </div>
-      )}
-
-      {pesan && !selesai && (
-        <div className="mesin-tolak" role="status">
-          <b>Belum tepat.</b>
-          <p>{pesan}</p>
-        </div>
-      )}
+      {pesan && !selesai && <LembarTolak judul="Belum tepat." teks={pesan} />}
 
       {!selesai && (
-        <div className="mesin-pilihan">
-          <div className="mesin-tanya">
+        <div className="lembar-pilihan">
+          <div className="lembar-tanya">
             {s.buntu
               ? 'Silakan coba sifat mana pun. Tidak ada yang berhasil, dan itu memang yang mau ditunjukkan.'
               : `Sifat mana yang dipakai untuk langkah ke-${langkah + 1}?`}
@@ -186,6 +171,6 @@ export default function MesinSifat({
           </div>
         </div>
       )}
-    </div>
+    </Lembar>
   )
 }

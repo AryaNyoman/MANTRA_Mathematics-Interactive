@@ -18,8 +18,11 @@
  *
  * Fotonya dipasang dua per baris dengan `object-fit: contain`, jadi tidak ada
  * bagian gambar yang terpotong pada ukuran layar mana pun. (Aturan proyek:
- * widget tidak boleh memotong gambarnya sendiri.)
+ * widget tidak boleh memotong gambarnya sendiri.) Sejak 18 Sep 2026 kartunya
+ * digambar komponen bersama GaleriNyata (baris kredit foto, rumus KaTeX).
  */
+
+import GaleriNyata from '@/components/widget/GaleriNyata'
 
 export type Contoh = {
   id: string
@@ -35,13 +38,13 @@ export const CONTOH: Contoh[] = [
     id: 'kamera', gambar: 'kamera.jpg', nomor: '01',
     judul: 'Kamera, seberapa lebar yang muat',
     inti: 'Lensa ponsel punya sudut pandang yang tetap, kira-kira 78°. Makin jauh Anda berdiri, makin lebar pemandangan yang masuk bingkai, dan tangen setengah sudut pandang itulah yang menghitung lebarnya.',
-    rumus: 'lebar bingkai = 2 × jarak × tan(sudut pandang : 2)',
+    rumus: 'lebar bingkai = 2 × jarak × tan(sudut pandang/2)',
   },
   {
     id: 'layar', gambar: 'miring.jpg', nomor: '02',
     judul: 'Layar yang berputar sendiri',
     inti: 'Sensor di ponsel mengukur tarikan gravitasi ke arah mendatar dan ke arah tegak layar. Perbandingan dua angka itu adalah tangen sudut kemiringannya, jadi ponsel tahu seberapa miring dirinya dan kapan layar harus berputar.',
-    rumus: 'tan(sudut kemiringan) = tarikan mendatar : tarikan tegak',
+    rumus: 'tan(sudut kemiringan) = tarikan mendatar/tarikan tegak',
   },
   {
     id: 'game', gambar: 'game.jpg', nomor: '03',
@@ -69,24 +72,10 @@ export const koma = (n: number, digit = 2) => n.toFixed(digit).replace('.', ',')
 
 export default function DuniaNyata() {
   return (
-    <div className="galeri-nyata">
-      {CONTOH.map((c) => (
-        <figure key={c.id} className="kartu-nyata">
-          <div className="foto-nyata">
-            {/* `next/image` sengaja tidak dipakai di sini: keempat foto harus
-                tampil UTUH, dan `contain` pada bingkai yang tingginya ikut
-                layar lebih mudah dijamin dengan img biasa. */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`/gambar/${c.gambar}`} alt={c.judul} loading="lazy" />
-          </div>
-          <figcaption>
-            <span className="nyata-no mono">{c.nomor}</span>
-            <h3>{c.judul}</h3>
-            <p>{c.inti}</p>
-            <code className="nyata-rumus mono">{c.rumus}</code>
-          </figcaption>
-        </figure>
-      ))}
-    </div>
+    <GaleriNyata
+      kartu={CONTOH.map((c) => ({
+        id: c.id, gambar: c.gambar, nomor: c.nomor, judul: c.judul, inti: c.inti, rumus: c.rumus,
+      }))}
+    />
   )
 }

@@ -129,6 +129,20 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
   `node alat/cek_rumus.ts` (bank) dan `node alat/cek_rumus_materi.ts --kata`
   (materi): nol GALAT, dan daftar KATA? harus tinggal prosa wajar.
   `node alat/lihat_latex.ts "teks"` memperlihatkan LaTeX yang dihasilkan.
+  Teks ALAT juga (18 Sep 2026): label kendali, tabel angka, catatan, cap,
+  petunjuk, dan panel teks lewat `TeksMat`; komponen kendali sudah
+  melakukannya sendiri, tabel dan catatan di Panggung dibungkus
+  (`alat/katex_widget_codemod.py` untuk berkas baru); survei alat
+  menghitung `.mat-gagal`, harus nol. Widget berupa susunan langkah
+  memakai `components/widget/Lembar.tsx`, jangan menulis tata letak sendiri.
+- **Galeri "dunia nyata" berfoto asli** (ARYA 18 Sep 2026), lewat
+  `components/widget/GaleriNyata.tsx`: foto Wikimedia Commons berlisensi
+  bebas (CC0, domain publik, CC BY, CC BY-SA) di `web/public/gambar/<bab>/`,
+  1000 px dan di bawah 150 KB, catatannya di `public/gambar/sumber.json`
+  (kartu menampilkan kredit dari situ). Cari dan unduh dengan
+  `node alat/cari_foto_commons.mjs cari|ambil`, kecilkan dengan
+  `python alat/kecilkan_foto.py`. Limit, Turunan, Integral membawa grafik
+  kecil di bawah foto; bab lain foto saja.
 - **Kata "miskonsepsi" DILARANG muncul di halaman.** Itu istilah guru. Pakai
   "Sering keliru", dan taruh di BAWAH setelah siswa paham.
 - **Gaya visual terkunci: rancangan MANTRA** (sejak 3 Sep 2026, menggantikan

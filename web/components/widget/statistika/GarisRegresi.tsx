@@ -11,6 +11,7 @@ import { useSeret } from '@/components/widget/statistika/seret'
 import { kuadratResiduGaris, regresi } from '@/components/widget/statistika/statistik'
 import { bivariat, keterangan } from '@/content/statistika/data'
 import type { PropWidget } from '@/components/widget/statistika/jenis'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Tahap 11. Siswa menarik garisnya sendiri, lalu diadu dengan garis kuadrat
@@ -126,38 +127,30 @@ export default function GarisRegresi({ children }: PropWidget) {
           nilai={kiriY} onUbah={setKiriY} min={J.yMin} max={J.yMax} langkah={0.1} desimal={1} />
         <Angka nama="Ujung kanan garis" arti="tinggi garis di tepi kanan" kunci="kanan"
           nilai={kananY} onUbah={setKananY} min={J.yMin} max={J.yMax} langkah={0.1} desimal={1} />
-        <Petunjuk>
-            {selisihLebih <= 0.5
+        <Petunjuk><TeksMat teks={`${selisihLebih <= 0.5
               ? 'garis Anda sudah sedekat itu dengan yang terbaik. Tidak ada garis lain yang bisa lebih kecil lagi'
-              : `garis Anda masih ${angka(selisihLebih, 1)} lebih besar daripada yang terbaik. Seret kedua ujungnya`}
-          </Petunjuk>
+              : `garis Anda masih ${angka(selisihLebih, 1)} lebih besar daripada yang terbaik. Seret kedua ujungnya`}`} blok={false} /></Petunjuk>
       </div>
     </>
   )
 
   const kanan = (
     <div className="blok">
-      <div className="cap">Garis Anda lawan garis kuadrat terkecil</div>
+      <div className="cap"><TeksMat teks="Garis Anda lawan garis kuadrat terkecil" blok={false} /></div>
       <table className="tabel-angka">
         <tbody>
-          <tr><td>kemiringan garis Anda</td><td>{angka(gradienSiswa, 2)}</td></tr>
-          <tr><td>perpotongan garis Anda</td><td>{angka(konstantaSiswa, 2)}</td></tr>
-          <tr className="tegas"><td>jumlah kuadrat residu Anda</td><td>{angka(kuadratSiswa, 1)}</td></tr>
-          <tr><td>kemiringan terbaik</td><td>{angka(HITUNG.gradien, 2)}</td></tr>
-          <tr><td>perpotongan terbaik</td><td>{angka(HITUNG.konstanta, 2)}</td></tr>
+          <tr><td><TeksMat teks="kemiringan garis Anda" blok={false} /></td><td>{angka(gradienSiswa, 2)}</td></tr>
+          <tr><td><TeksMat teks="perpotongan garis Anda" blok={false} /></td><td>{angka(konstantaSiswa, 2)}</td></tr>
+          <tr className="tegas"><td><TeksMat teks="jumlah kuadrat residu Anda" blok={false} /></td><td>{angka(kuadratSiswa, 1)}</td></tr>
+          <tr><td><TeksMat teks="kemiringan terbaik" blok={false} /></td><td>{angka(HITUNG.gradien, 2)}</td></tr>
+          <tr><td><TeksMat teks="perpotongan terbaik" blok={false} /></td><td>{angka(HITUNG.konstanta, 2)}</td></tr>
           <tr className="tegas">
-            <td>jumlah kuadrat residu terkecil</td>
+            <td><TeksMat teks="jumlah kuadrat residu terkecil" blok={false} /></td>
             <td>{angka(HITUNG.jumlahKuadratResidu, 1)}</td>
           </tr>
         </tbody>
       </table>
-      <div className="catatan">
-        Garis terbaiknya y-topi = {angka(HITUNG.konstanta, 1)} + {angka(HITUNG.gradien, 1)}x.
-        Dibaca begini: tiap tambahan satu jam belajar per minggu, nilai diramalkan
-        naik sekitar {angka(HITUNG.gradien, 1)} poin. Angka {angka(HITUNG.konstanta, 1)} adalah
-        ramalan untuk nol jam belajar, dan itu di luar rentang datanya, jadi jangan
-        dipercaya begitu saja. {keterangan(D)}
-      </div>
+      <div className="catatan"><TeksMat teks={`Garis terbaiknya y-topi = ${angka(HITUNG.konstanta, 1)} + ${angka(HITUNG.gradien, 1)}x. Dibaca begini: tiap tambahan satu jam belajar per minggu, nilai diramalkan naik sekitar ${angka(HITUNG.gradien, 1)} poin. Angka ${angka(HITUNG.konstanta, 1)} adalah ramalan untuk nol jam belajar, dan itu di luar rentang datanya, jadi jangan dipercaya begitu saja. ${keterangan(D)}`} /></div>
     </div>
   )
 

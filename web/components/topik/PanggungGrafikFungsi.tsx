@@ -48,6 +48,7 @@ import {
 } from '@/components/widget/grafik-fungsi/transformasi'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Koordinat, Petunjuk, Pilihan } from '@/components/kendali'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Panggung Grafik Fungsi: penyetelan kesebelas widgetnya, dan tidak lebih.
@@ -168,11 +169,9 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
                 nilai={bentukUji} onPilih={setBentukUji} />
               <Angka nama="Letak garis tegak" arti="x tempat garis tegaknya berdiri" kunci="x"
                 nilai={xUji} onUbah={setXUji} min={BATAS_GARIS.min} max={BATAS_GARIS.maks} langkah={BATAS_GARIS.langkah} />
-              <Petunjuk>
-                {ADALAH_FUNGSI[bentukUji]
+              <Petunjuk><TeksMat teks={`${ADALAH_FUNGSI[bentukUji]
                   ? 'geser ke mana pun, potongnya tetap satu. Ini grafik fungsi.'
-                  : 'cari posisi yang memotong dua kali, dan buktinya selesai.'}
-              </Petunjuk>
+                  : 'cari posisi yang memotong dua kali, dan buktinya selesai.'}`} blok={false} /></Petunjuk>
             </div>
           </>
         )}
@@ -356,13 +355,11 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
                 nilai={mesin} onPilih={setMesin} />
               <Angka nama="Angka yang dijalankan" arti="x yang dimasukkan ke mesin" kunci="masuk"
                 nilai={masukMesin} onUbah={setMasukMesin} min={BATAS_MASUK.min} max={BATAS_MASUK.maks} langkah={BATAS_MASUK.langkah} />
-              <Petunjuk>
-                {tahap.widget === 'dua-mesin'
+              <Petunjuk><TeksMat teks={`${tahap.widget === 'dua-mesin'
                   ? 'dua kurva berbeda berarti urutan mesin memang berpengaruh.'
                   : INVERS[mesin]
                     ? 'satu-satu, jadi inversnya ada dan grafiknya cerminan terhadap y = x.'
-                    : 'kuadrat tidak satu-satu, jadi inversnya tidak ada. Itu isi pelajarannya.'}
-              </Petunjuk>
+                    : 'kuadrat tidak satu-satu, jadi inversnya tidak ada. Itu isi pelajarannya.'}`} blok={false} /></Petunjuk>
             </div>
           </>
         )}
@@ -379,22 +376,22 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
       <>
         {tampilWidget && tahap.widget === 'pembaca-grafik' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>waktu</td><td>{angka(waktu, 1)} menit</td></tr>
-                <tr className="tegas"><td>jarak dari rumah</td><td>{angka(jarak(waktu), 2)} km</td></tr>
-                <tr><td>bagian cerita</td><td>{babakDi(waktu).judul}</td></tr>
+                <tr><td><TeksMat teks="waktu" blok={false} /></td><td><TeksMat teks={`${angka(waktu, 1)} menit`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="jarak dari rumah" blok={false} /></td><td><TeksMat teks={`${angka(jarak(waktu), 2)} km`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="bagian cerita" blok={false} /></td><td><TeksMat teks={`${babakDi(waktu).judul}`} blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">{babakDi(waktu).isi}</div>
+            <div className="catatan"><TeksMat teks={`${babakDi(waktu).isi}`} /></div>
             <div className="cap" style={{ marginTop: '0.9rem' }}>Seluruh perjalanannya</div>
             <table className="tabel-angka">
               <tbody>
                 {BABAK.map((b) => (
                   <tr key={b.dari} className={b === babakDi(waktu) ? 'tegas' : undefined}>
-                    <td>menit {b.dari} sampai {b.sampai}</td>
-                    <td>{b.judul}</td>
+                    <td><TeksMat teks={`menit ${b.dari} sampai ${b.sampai}`} blok={false} /></td>
+                    <td><TeksMat teks={`${b.judul}`} blok={false} /></td>
                   </tr>
                 ))}
               </tbody>
@@ -404,58 +401,53 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
 
         {tampilWidget && tahap.widget === 'uji-garis-tegak' && (
           <div className="blok">
-            <div className="cap">Hasil uji garis tegak</div>
+            <div className="cap"><TeksMat teks="Hasil uji garis tegak" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>gambar</td><td>{NAMA_BENTUK[bentukUji]}</td></tr>
-                <tr><td>rumusnya</td><td>{RUMUS_BENTUK[bentukUji]}</td></tr>
-                <tr><td>garis tegak di</td><td>x = {angka(xUji, 1)}</td></tr>
+                <tr><td><TeksMat teks="gambar" blok={false} /></td><td><TeksMat teks={`${NAMA_BENTUK[bentukUji]}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="rumusnya" blok={false} /></td><td><TeksMat teks={`${RUMUS_BENTUK[bentukUji]}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="garis tegak di" blok={false} /></td><td><TeksMat teks={`x = ${angka(xUji, 1)}`} blok={false} /></td></tr>
                 <tr className="tegas">
-                  <td>banyak titik potong</td>
+                  <td><TeksMat teks="banyak titik potong" blok={false} /></td>
                   <td>{potongUji.length}</td>
                 </tr>
                 {potongUji.map((y, i) => (
-                  <tr key={i}><td>nilai y ke-{i + 1}</td><td>{angka(y, 2)}</td></tr>
+                  <tr key={i}><td><TeksMat teks={`nilai y ke-${i + 1}`} blok={false} /></td><td>{angka(y, 2)}</td></tr>
                 ))}
               </tbody>
             </table>
-            <div className="catatan">
-              {ADALAH_FUNGSI[bentukUji]
+            <div className="catatan"><TeksMat teks={`${ADALAH_FUNGSI[bentukUji]
                 ? 'Gambar ini grafik fungsi: tidak ada satu pun garis tegak yang memotongnya lebih dari sekali.'
-                : 'Gambar ini BUKAN grafik fungsi. Ada garis tegak yang memotongnya dua kali, artinya satu masukan punya dua keluaran.'}
-            </div>
+                : 'Gambar ini BUKAN grafik fungsi. Ada garis tegak yang memotongnya dua kali, artinya satu masukan punya dua keluaran.'}`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'bentuk-puncak' && (
           <div className="blok">
-            <div className="cap">Yang terbaca langsung dari rumusnya</div>
+            <div className="cap"><TeksMat teks="Yang terbaca langsung dari rumusnya" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>a</td><td>{angka(a, 1)}</td></tr>
-                <tr><td>h</td><td>{angka(h, 1)}</td></tr>
-                <tr><td>k</td><td>{angka(k, 1)}</td></tr>
-                <tr className="tegas"><td>puncak</td><td>{tulisTitik(h, k, 1)}</td></tr>
-                <tr><td>sumbu simetri</td><td>x = {angka(h, 1)}</td></tr>
-                <tr><td>arah bukaan</td><td>{a > 0 ? 'ke atas' : a < 0 ? 'ke bawah' : 'bukan parabola'}</td></tr>
+                <tr><td><TeksMat teks="a" blok={false} /></td><td>{angka(a, 1)}</td></tr>
+                <tr><td><TeksMat teks="h" blok={false} /></td><td>{angka(h, 1)}</td></tr>
+                <tr><td><TeksMat teks="k" blok={false} /></td><td>{angka(k, 1)}</td></tr>
+                <tr className="tegas"><td><TeksMat teks="puncak" blok={false} /></td><td><TeksMat teks={`${tulisTitik(h, k, 1)}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="sumbu simetri" blok={false} /></td><td><TeksMat teks={`x = ${angka(h, 1)}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="arah bukaan" blok={false} /></td><td><TeksMat teks={`${a > 0 ? 'ke atas' : a < 0 ? 'ke bawah' : 'bukan parabola'}`} blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Tidak satu pun angka di tabel ini perlu dihitung. Semuanya sudah tertulis di dalam
-              rumusnya, dan itulah sebabnya bentuk ini disebut bentuk puncak.
-            </div>
+            <div className="catatan"><TeksMat teks="Tidak satu pun angka di tabel ini perlu dihitung. Semuanya sudah tertulis di dalam rumusnya, dan itulah sebabnya bentuk ini disebut bentuk puncak." /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'wajah-parabola' && (
           <div className="blok">
-            <div className="cap">Langkah demi langkah</div>
+            <div className="cap"><TeksMat teks="Langkah demi langkah" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
                 {langkahLengkap(cWajah).map((l, n) => (
                   <tr key={n} className={n === langkahWajah ? 'tegas' : undefined}>
                     <td>{n + 1}</td>
-                    <td>{l.baris}</td>
+                    <td><TeksMat teks={`${l.baris}`} blok={false} /></td>
                   </tr>
                 ))}
               </tbody>
@@ -463,14 +455,14 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
             <div className="cap" style={{ marginTop: '0.9rem' }}>Hasilnya</div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>puncak</td><td>{tulisTitik(pucukWajah.h, pucukWajah.k, 1)}</td></tr>
-                <tr><td>potong sumbu y</td><td>{tulisTitik(0, cWajah, 1)}</td></tr>
-                <tr className="tegas"><td>diskriminan</td><td>{angka(Dwajah, 1)}</td></tr>
+                <tr><td><TeksMat teks="puncak" blok={false} /></td><td><TeksMat teks={`${tulisTitik(pucukWajah.h, pucukWajah.k, 1)}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="potong sumbu y" blok={false} /></td><td><TeksMat teks={`${tulisTitik(0, cWajah, 1)}`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="diskriminan" blok={false} /></td><td>{angka(Dwajah, 1)}</td></tr>
                 <tr>
-                  <td>potong sumbu x</td>
-                  <td>{akarWajah.length === 0
+                  <td><TeksMat teks="potong sumbu x" blok={false} /></td>
+                  <td><TeksMat teks={`${akarWajah.length === 0
                     ? 'tidak ada'
-                    : akarWajah.map((r) => angka(r, 2)).join(' dan ')}</td>
+                    : akarWajah.map((r) => angka(r, 2)).join(' dan ')}`} blok={false} /></td>
                 </tr>
               </tbody>
             </table>
@@ -479,139 +471,123 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
 
         {tampilWidget && tahap.widget === 'susun-parabola' && (
           <div className="blok">
-            <div className="cap">Satu parabola, tiga cara menulisnya</div>
+            <div className="cap"><TeksMat teks="Satu parabola, tiga cara menulisnya" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
                 {tigaBentuk(posSusun).map((b) => (
-                  <tr key={b.nama}><td>{b.nama}</td><td>{b.rumus}</td></tr>
+                  <tr key={b.nama}><td><TeksMat teks={`${b.nama}`} blok={false} /></td><td><TeksMat teks={`${b.rumus}`} blok={false} /></td></tr>
                 ))}
               </tbody>
             </table>
             {parSusun && (
               <table className="tabel-angka" style={{ marginTop: '0.6rem' }}>
                 <tbody>
-                  <tr className="tegas"><td>nilai a</td><td>{angka(parSusun.a, 3)}</td></tr>
-                  <tr><td>arah bukaan</td><td>{parSusun.a > 0 ? 'ke atas' : 'ke bawah'}</td></tr>
+                  <tr className="tegas"><td><TeksMat teks="nilai a" blok={false} /></td><td>{angka(parSusun.a, 3)}</td></tr>
+                  <tr><td><TeksMat teks="arah bukaan" blok={false} /></td><td><TeksMat teks={`${parSusun.a > 0 ? 'ke atas' : 'ke bawah'}`} blok={false} /></td></tr>
                 </tbody>
               </table>
             )}
-            <div className="catatan">
-              Ketiganya menggambarkan parabola yang sama persis. Yang dipilih di soal adalah yang
-              paling cocok dengan apa yang sudah diketahui.
-            </div>
+            <div className="catatan"><TeksMat teks="Ketiganya menggambarkan parabola yang sama persis. Yang dipilih di soal adalah yang paling cocok dengan apa yang sudah diketahui." /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'papan-transformasi' && (
           <div className="blok">
-            <div className="cap">Rumus yang sedang tersusun</div>
+            <div className="cap"><TeksMat teks="Rumus yang sedang tersusun" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>fungsi dasar</td><td>{RUMUS_DASAR[dasarTrans]}</td></tr>
-                <tr className="tegas"><td>sekarang</td><td>{tulisFungsi(langkahTrans)}</td></tr>
+                <tr><td><TeksMat teks="fungsi dasar" blok={false} /></td><td><TeksMat teks={`${RUMUS_DASAR[dasarTrans]}`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="sekarang" blok={false} /></td><td><TeksMat teks={`${tulisFungsi(langkahTrans)}`} blok={false} /></td></tr>
               </tbody>
             </table>
             <div className="cap" style={{ marginTop: '0.9rem' }}>Urutan yang sudah ditekan</div>
             <table className="tabel-angka">
               <tbody>
                 {langkahTrans.length === 0 ? (
-                  <tr><td>belum ada</td><td>tekan salah satu tombol</td></tr>
+                  <tr><td><TeksMat teks="belum ada" blok={false} /></td><td><TeksMat teks="tekan salah satu tombol" blok={false} /></td></tr>
                 ) : (
                   langkahTrans.map((l, n) => (
                     <tr key={n}>
-                      <td>{n + 1}. {NAMA_LANGKAH[l]}</td>
-                      <td>{['kanan', 'kiri', 'cermin-y', 'mampat-x'].includes(l)
+                      <td><TeksMat teks={`${n + 1}. ${NAMA_LANGKAH[l]}`} blok={false} /></td>
+                      <td><TeksMat teks={`${['kanan', 'kiri', 'cermin-y', 'mampat-x'].includes(l)
                         ? 'di dalam kurung'
-                        : 'di luar kurung'}</td>
+                        : 'di luar kurung'}`} blok={false} /></td>
                     </tr>
                   ))
                 )}
               </tbody>
             </table>
-            <div className="catatan">
-              Yang di luar kurung mengerjakan hasilnya, jadi akibatnya persis seperti yang tertulis.
-              Yang di dalam kurung mengerjakan masukannya, jadi akibatnya kebalikannya.
-            </div>
+            <div className="catatan"><TeksMat teks="Yang di luar kurung mengerjakan hasilnya, jadi akibatnya persis seperti yang tertulis. Yang di dalam kurung mengerjakan masukannya, jadi akibatnya kebalikannya." /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'lipat-mutlak' && (
           <div className="blok">
-            <div className="cap">Bandingkan di x = -1</div>
+            <div className="cap"><TeksMat teks="Bandingkan di x = -1" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>fungsi dasar</td><td>{NAMA_DASAR_MUTLAK[dasarMutlak]}</td></tr>
-                <tr><td>tanpa mutlak</td><td>{angka(FUNGSI_MUTLAK[dasarMutlak](X_BANDING), 2)}</td></tr>
-                <tr><td>mutlak di luar</td><td>{angka(bangunLipatan(dasarMutlak, 'luar')(X_BANDING), 2)}</td></tr>
-                <tr><td>mutlak di dalam</td><td>{angka(bangunLipatan(dasarMutlak, 'dalam')(X_BANDING), 2)}</td></tr>
-                <tr className="tegas"><td>yang tampil sekarang</td><td>{rumusLipatan(dasarMutlak, lipat)}</td></tr>
+                <tr><td><TeksMat teks="fungsi dasar" blok={false} /></td><td><TeksMat teks={`${NAMA_DASAR_MUTLAK[dasarMutlak]}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="tanpa mutlak" blok={false} /></td><td>{angka(FUNGSI_MUTLAK[dasarMutlak](X_BANDING), 2)}</td></tr>
+                <tr><td><TeksMat teks="mutlak di luar" blok={false} /></td><td><TeksMat teks={`${angka(bangunLipatan(dasarMutlak, 'luar')(X_BANDING), 2)}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="mutlak di dalam" blok={false} /></td><td><TeksMat teks={`${angka(bangunLipatan(dasarMutlak, 'dalam')(X_BANDING), 2)}`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="yang tampil sekarang" blok={false} /></td><td><TeksMat teks={`${rumusLipatan(dasarMutlak, lipat)}`} blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              {dasarMutlak === 'garis'
+            <div className="catatan"><TeksMat teks={`${dasarMutlak === 'garis'
                 ? 'Pada f(x) = x - 2, di titik x = -1 bentuk pertama memberi 3 dan bentuk kedua memberi -1. Dua jawaban berbeda, jadi keduanya jelas bukan hal yang sama.'
-                : 'Pada parabola ini, mutlak di dalam tidak mengubah apa pun, karena |x| yang dikuadratkan sama saja dengan x yang dikuadratkan. Coba fungsi garis untuk melihat bedanya.'}
-            </div>
+                : 'Pada parabola ini, mutlak di dalam tidak mengubah apa pun, karena |x| yang dikuadratkan sama saja dengan x yang dikuadratkan. Coba fungsi garis untuk melihat bedanya.'}`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'balapan-tumbuh' && (
           <div className="blok">
-            <div className="cap">Papan skor balapan</div>
+            <div className="cap"><TeksMat teks="Papan skor balapan" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>langkah</td><td>linear · kuadrat · eksponen</td></tr>
+                <tr><td><TeksMat teks="langkah" blok={false} /></td><td><TeksMat teks="linear · kuadrat · eksponen" blok={false} /></td></tr>
                 {tabelBalapan(pokokBalap, akhirBalap).slice(-7).map((r) => (
                   <tr key={r.x} className={r.x === akhirBalap ? 'tegas' : undefined}>
-                    <td>{r.x}</td>
-                    <td>
-                      {angka(r.linear, 0)} · {angka(r.kuadrat, 0)} ·{' '}
-                      {r.eksponen >= 1000 ? angka(r.eksponen, 0) : angka(r.eksponen, 2)}
-                    </td>
+                    <td><TeksMat teks={`${r.x}`} blok={false} /></td>
+                    <td><TeksMat teks={`${angka(r.linear, 0)} · ${angka(r.kuadrat, 0)} · ${r.eksponen >= 1000 ? angka(r.eksponen, 0) : angka(r.eksponen, 2)}`} blok={false} /></td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <div className="catatan">
-              {pokokBalap < 1
+            <div className="catatan"><TeksMat teks={`${pokokBalap < 1
                 ? 'Pengalinya di bawah 1, jadi yang terjadi peluruhan: angkanya mengecil terus mendekati nol tanpa pernah sampai.'
                 : langkahMenyalip(pokokBalap, akhirBalap) !== null
                   ? `Kurva eksponen menyalip kurva kuadrat di langkah ${langkahMenyalip(pokokBalap, akhirBalap)}. Sebelum itu ia justru kalah, dan itulah sebabnya pertumbuhan eksponen sering terlambat disadari.`
-                  : 'Sampai garis akhir ini eksponen belum menyalip kuadrat. Geser garis akhirnya lebih jauh ke kanan.'}
-            </div>
+                  : 'Sampai garis akhir ini eksponen belum menyalip kuadrat. Geser garis akhirnya lebih jauh ke kanan.'}`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'cermin-yx' && (
           <div className="blok">
-            <div className="cap">Titik yang bertukar koordinat</div>
+            <div className="cap"><TeksMat teks="Titik yang bertukar koordinat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>pada eksponen</td><td>pada logaritma</td></tr>
+                <tr><td><TeksMat teks="pada eksponen" blok={false} /></td><td><TeksMat teks="pada logaritma" blok={false} /></td></tr>
                 {PASANGAN.map((x) => {
                   const y = Math.pow(pokokCermin, x)
                   return (
                     <tr key={x}>
-                      <td>{tulisTitik(x, y, 2)}</td>
-                      <td>{tulisTitik(y, x, 2)}</td>
+                      <td><TeksMat teks={`${tulisTitik(x, y, 2)}`} blok={false} /></td>
+                      <td><TeksMat teks={`${tulisTitik(y, x, 2)}`} blok={false} /></td>
                     </tr>
                   )
                 })}
               </tbody>
             </table>
-            <div className="catatan">
-              Menukar x dengan y pada tiap titik sama artinya dengan mencerminkan seluruh gambar
-              terhadap garis y = x. Karena itu grafik logaritma tidak perlu dihafal terpisah.
-            </div>
+            <div className="catatan"><TeksMat teks="Menukar x dengan y pada tiap titik sama artinya dengan mencerminkan seluruh gambar terhadap garis y = x. Karena itu grafik logaritma tidak perlu dihafal terpisah." /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'asimtot-rasional' && (
           <div className="blok">
-            <div className="cap">Mendekati asimtot tegak</div>
+            <div className="cap"><TeksMat teks="Mendekati asimtot tegak" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>jarak x ke asimtot</td><td>nilai y</td></tr>
+                <tr><td><TeksMat teks="jarak x ke asimtot" blok={false} /></td><td><TeksMat teks="nilai y" blok={false} /></td></tr>
                 {tabelDekatAsimtot(hRas, kRas).map((r) => (
                   <tr key={r.jarak}>
                     <td>{angka(r.jarak, 3)}</td>
@@ -625,45 +601,35 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
               <tbody>
                 {tabelJauh(hRas, kRas).map((r) => (
                   <tr key={r.x}>
-                    <td>x = {r.x.toLocaleString('id-ID')}</td>
+                    <td><TeksMat teks={`x = ${r.x.toLocaleString('id-ID')}`} blok={false} /></td>
                     <td>{angka(r.y, 6)}</td>
                   </tr>
                 ))}
-                <tr className="tegas"><td>asimtot datar</td><td>y = {angka(kRas, 1)}</td></tr>
+                <tr className="tegas"><td><TeksMat teks="asimtot datar" blok={false} /></td><td><TeksMat teks={`y = ${angka(kRas, 1)}`} blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Rumusnya sekarang {rumusRasional(hRas, kRas)}. Nilainya makin merapat ke{' '}
-              {angka(kRas, 1)}, tetapi tidak pernah sama dengannya. Alasan lengkapnya dijawab di
-              topik Limit materi 07.
-            </div>
+            <div className="catatan"><TeksMat teks={`Rumusnya sekarang ${rumusRasional(hRas, kRas)}. Nilainya makin merapat ke ${angka(kRas, 1)}, tetapi tidak pernah sama dengannya. Alasan lengkapnya dijawab di topik Limit materi 07.`} /></div>
           </div>
         )}
 
         {tampilWidget && (tahap.widget === 'dua-mesin' || tahap.widget === 'mesin-balik') && (
           <div className="blok">
-            <div className="cap">Perjalanan angka {angka(masukMesin, 1)}</div>
+            <div className="cap"><TeksMat teks={`Perjalanan angka ${angka(masukMesin, 1)}`} blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>mesin f</td><td>{NAMA_F[mesin]}</td></tr>
-                <tr><td>mesin g</td><td>{G_RUMUS}</td></tr>
-                <tr><td>g dulu, lalu f</td><td>
-                  {angka(masukMesin, 1)} ke {angka(jejak.gDulu.antara, 2)} ke {angka(jejak.gDulu.akhir, 2)}
-                </td></tr>
-                <tr><td>f dulu, lalu g</td><td>
-                  {angka(masukMesin, 1)} ke {angka(jejak.fDulu.antara, 2)} ke {angka(jejak.fDulu.akhir, 2)}
-                </td></tr>
-                <tr className="tegas"><td>{RUMUS_FG[mesin]}</td><td>{angka(jejak.gDulu.akhir, 2)}</td></tr>
-                <tr className="tegas"><td>{RUMUS_GF[mesin]}</td><td>{angka(jejak.fDulu.akhir, 2)}</td></tr>
+                <tr><td><TeksMat teks="mesin f" blok={false} /></td><td><TeksMat teks={`${NAMA_F[mesin]}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="mesin g" blok={false} /></td><td><TeksMat teks={`${G_RUMUS}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="g dulu, lalu f" blok={false} /></td><td><TeksMat teks={`${angka(masukMesin, 1)} ke ${angka(jejak.gDulu.antara, 2)} ke ${angka(jejak.gDulu.akhir, 2)}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="f dulu, lalu g" blok={false} /></td><td><TeksMat teks={`${angka(masukMesin, 1)} ke ${angka(jejak.fDulu.antara, 2)} ke ${angka(jejak.fDulu.akhir, 2)}`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks={`${RUMUS_FG[mesin]}`} blok={false} /></td><td>{angka(jejak.gDulu.akhir, 2)}</td></tr>
+                <tr className="tegas"><td><TeksMat teks={`${RUMUS_GF[mesin]}`} blok={false} /></td><td>{angka(jejak.fDulu.akhir, 2)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              {tahap.widget === 'mesin-balik'
+            <div className="catatan"><TeksMat teks={`${tahap.widget === 'mesin-balik'
                 ? INVERS[mesin]
                   ? 'Fungsi ini satu-satu, jadi inversnya ada. Grafik inversnya adalah cerminan grafik aslinya terhadap garis y = x.'
                   : 'Fungsi kuadrat tidak satu-satu: dua masukan berbeda memberi keluaran yang sama, misalnya 3 dan -3 sama-sama memberi 10. Karena itu inversnya tidak ada, kecuali domainnya dibatasi.'
-                : 'Urutan mesin berpengaruh. Yang dikerjakan lebih dulu adalah yang paling dekat dengan x, dan menukarnya biasanya memberi hasil yang berbeda.'}
-            </div>
+                : 'Urutan mesin berpengaruh. Yang dikerjakan lebih dulu adalah yang paling dekat dengan x, dan menukarnya biasanya memberi hasil yang berbeda.'}`} /></div>
           </div>
         )}
       </>

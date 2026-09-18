@@ -9,6 +9,7 @@ import { propTitikSeret, useSeret } from '@/components/widget/statistika/seret'
 import { ringkasTunggal } from '@/components/widget/statistika/statistik'
 import { tunggal } from '@/content/statistika/data'
 import type { PropWidget } from '@/components/widget/statistika/jenis'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Tahap 1. Dua kelompok yang ketiga ukuran pemusatannya sama persis, tetapi
@@ -159,7 +160,7 @@ export default function DuaKelompok({ children }: PropWidget) {
 
   const kanan = (
     <div className="blok">
-      <div className="cap">Angka dari alat</div>
+      <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
       <table className="tabel-angka">
         <thead>
           <tr>
@@ -171,7 +172,7 @@ export default function DuaKelompok({ children }: PropWidget) {
         <tbody>
           {baris.map(([nama, a, b, tegas]) => (
             <tr key={nama} className={tegas ? 'tegas' : undefined}>
-              <td>{nama}</td>
+              <td><TeksMat teks={`${nama}`} blok={false} /></td>
               {/*
                 Kolom terakhir sudah disorot oleh globals.css pada baris tegas.
                 Kolom Kelas A disamakan di sini, sebab kalau tidak, baris
@@ -188,12 +189,9 @@ export default function DuaKelompok({ children }: PropWidget) {
           ))}
         </tbody>
       </table>
-      <div className="catatan">
-        {utuh
+      <div className="catatan"><TeksMat teks={`${utuh
           ? 'Data aslinya: ketiga ukuran pemusatan sama persis, 7 semua. Yang membedakan cuma jangkauan, 2 lawan 8.'
-          : 'Data Kelas B sudah Anda ubah. Perhatikan rata-rata boleh sama sambil jangkauannya jauh berbeda.'}
-        {' '}Angka ini dibuat untuk latihan, bukan data sungguhan.
-      </div>
+          : 'Data Kelas B sudah Anda ubah. Perhatikan rata-rata boleh sama sambil jangkauannya jauh berbeda.'} Angka ini dibuat untuk latihan, bukan data sungguhan.`} /></div>
     </div>
   )
 

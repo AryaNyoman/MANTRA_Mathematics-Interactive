@@ -1,38 +1,29 @@
 'use client'
 
-import { DAERAH_ATAS, MONO, WARNA } from '@/components/widget/integral/koordinat'
+import GaleriNyata, { type KartuNyata } from '@/components/widget/GaleriNyata'
+import { DAERAH_ATAS, WARNA } from '@/components/widget/integral/koordinat'
 
 /**
  * Galeri "Integral di sekitar kita", Materi 11. TIDAK interaktif.
  *
- * KENAPA GAMBAR SENDIRI, BUKAN FOTO
- * Sama alasannya dengan galeri Limit: yang mau ditunjukkan di sini bukan DI
- * MANA bendanya berada, melainkan BENTUK daerah yang luasnya dihitung. Foto
- * mobil tidak memperlihatkan luas di bawah grafik kecepatan; grafiknya yang
- * memperlihatkan. Sekalian menghindari urusan lisensi gambar.
+ * Sejak 18 Sep 2026 tiap kartu berfoto asli (Wikimedia Commons, lisensi
+ * bebas, catatan di public/gambar/sumber.json), dan grafik kecilnya tetap
+ * dibawa di bawah foto (pilihan ARYA): yang dihitung adalah LUAS daerah di
+ * bawah kurva, dan foto mobil tidak memperlihatkan daerah itu, grafiknya
+ * yang memperlihatkan.
  *
  * KENAPA JALURNYA DIHITUNG, BUKAN DITULIS TANGAN
- * Galeri Limit menuliskan jalur SVG-nya sebagai teks, dan itu cukup di sana
- * sebab yang digambar cuma bentuk umum. Di sini gambarnya harus COCOK dengan
- * angka yang tertulis di kartunya: daerah yang terarsir adalah daerah yang
- * luasnya disebutkan. Jalur yang ditulis tangan cepat atau lambat akan
- * berbeda dari rumusnya, dan gambar yang membantah keterangannya sendiri lebih
- * merusak daripada gambar yang tidak ada.
- *
- * Kelas CSS `galeri-limit` sengaja dipakai ulang, bukan dibuat yang baru:
- * bentuk kartunya memang harus sama supaya siswa mengenalinya sebagai jenis
- * halaman yang sama. Menyalin CSS-nya dengan nama lain cuma menambah dua
- * tempat yang harus dijaga tetap seragam.
- *
- * SELURUH ANGKA DI BERKAS INI DIPERIKSA sympy lewat `alat/materi-integral.json`:
- * 20.000 (m11-penjualan-ponsel), 35 (m11-jarak-dari-kecepatan), 50/3
- * (m11-usaha-pegas), dan 36.000 pada t = 4 (m11-penghematan-empat-tahun,
- * m11-penghematan-akar).
+ * Gambarnya harus COCOK dengan angka yang tertulis di kartunya: daerah yang
+ * terarsir adalah daerah yang luasnya disebutkan. Jalur yang ditulis tangan
+ * cepat atau lambat akan berbeda dari rumusnya, dan gambar yang membantah
+ * keterangannya sendiri lebih merusak daripada gambar yang tidak ada.
  */
 
 const KOTAK = { x0: 6, x1: 194, yAtas: 8, yBawah: 88 }
 
 type Kartu = {
+  id: string
+  gambar: string
   judul: string
   isi: string
   hasil: string
@@ -47,32 +38,36 @@ type Kartu = {
 
 const KARTU: Kartu[] = [
   {
+    id: 'penjualan', gambar: 'integral/penjualan.jpg',
     judul: 'Penjualan dari laju penjualan',
-    isi: 'Yang tercatat banyak unit terjual per tahun, bukan totalnya. Totalnya adalah luas di bawah grafik itu.',
+    isi: 'Yang tercatat di kasir adalah banyak unit terjual per tahun, bukan totalnya. Totalnya adalah luas di bawah grafik laju itu.',
     hasil: '4 tahun pertama: 20.000 unit',
     f: (x) => 3000 * Math.sqrt(x) + 1000,
     xMin: 0, xMax: 5, yMaks: 7800,
     isiDari: 0, isiSampai: 4,
   },
   {
+    id: 'jarak', gambar: 'integral/jarak-kecepatan.jpg',
     judul: 'Jarak dari kecepatan',
-    isi: 'Mobil melambat teratur, 12 dikurangi 2t meter per detik. Jarak yang ditempuh adalah luas di bawah grafik kecepatan.',
+    isi: 'Mobil melambat teratur, v(t) = 12 - 2t meter per detik. Jarak yang ditempuh adalah luas di bawah grafik kecepatan.',
     hasil: '5 detik pertama: 35 meter',
     f: (t) => 12 - 2 * t,
     xMin: 0, xMax: 6, yMaks: 13,
     isiDari: 0, isiSampai: 5,
   },
   {
+    id: 'usaha', gambar: 'integral/usaha-gaya.jpg',
     judul: 'Usaha yang dilakukan gaya',
-    isi: 'Gaya berubah sepanjang jalan, jadi rumus gaya dikali jarak tidak berlaku. Jalannya dipotong-potong, lalu dijumlahkan.',
+    isi: 'Gaya tarikan berubah sepanjang jalan, jadi rumus gaya dikali jarak tidak berlaku. Jalannya dipotong-potong, lalu dijumlahkan.',
     hasil: 'dari 1 ke 3: 50/3 joule',
     f: (x) => x * x + 2 * x,
     xMin: 0, xMax: 3.5, yMaks: 20,
     isiDari: 1, isiSampai: 3,
   },
   {
+    id: 'modal', gambar: 'integral/modal-kembali.jpg',
     judul: 'Kapan modal kembali',
-    isi: 'Peralatan seharga 36.000 menghemat biaya dengan laju 4.000x + 1.000 per tahun. Yang dicari bukan hasilnya, melainkan batas atasnya.',
+    isi: 'Panel surya seharga 36.000 menghemat biaya listrik dengan laju 4.000x + 1.000 per tahun. Yang dicari bukan hasilnya, melainkan batas atasnya.',
     hasil: 'penghematan menutup modal pada tahun ke-4',
     f: (x) => 4000 * x + 1000,
     xMin: 0, xMax: 5, yMaks: 22000,
@@ -113,27 +108,30 @@ function jalurIsi(k: Kartu, langkah = 60): string {
   return titik.join(' ')
 }
 
-export default function DuniaNyataIntegral() {
+function Grafik({ k }: { k: Kartu }) {
   return (
-    <div className="galeri-limit">
-      {KARTU.map((k) => (
-        <figure key={k.judul}>
-          <svg viewBox="0 0 200 96" role="img" aria-label={`Grafik untuk ${k.judul}. ${k.hasil}.`}>
-            <line x1={KOTAK.x0} y1={KOTAK.yBawah} x2={KOTAK.x1} y2={KOTAK.yBawah}
-                  stroke="#D6CDBC" strokeWidth={1.2} />
-            <line x1={KOTAK.x0} y1={KOTAK.yAtas} x2={KOTAK.x0} y2={KOTAK.yBawah}
-                  stroke="#D6CDBC" strokeWidth={1.2} />
-            <path d={jalurIsi(k)} fill={DAERAH_ATAS} fillOpacity={0.3} stroke="none" />
-            <path d={jalurKurva(k)} fill="none" stroke={WARNA.miring} strokeWidth={2.2}
-                  strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          <figcaption>
-            <b>{k.judul}</b>
-            <p>{k.isi}</p>
-            <span style={{ fontFamily: MONO }}>{k.hasil}</span>
-          </figcaption>
-        </figure>
-      ))}
-    </div>
+    <svg viewBox="0 0 200 96" role="img" aria-label={`Grafik untuk ${k.judul}. ${k.hasil}.`}>
+      <line x1={KOTAK.x0} y1={KOTAK.yBawah} x2={KOTAK.x1} y2={KOTAK.yBawah}
+            stroke="#D6CDBC" strokeWidth={1.2} />
+      <line x1={KOTAK.x0} y1={KOTAK.yAtas} x2={KOTAK.x0} y2={KOTAK.yBawah}
+            stroke="#D6CDBC" strokeWidth={1.2} />
+      <path d={jalurIsi(k)} fill={DAERAH_ATAS} fillOpacity={0.3} stroke="none" />
+      <path d={jalurKurva(k)} fill="none" stroke={WARNA.miring} strokeWidth={2.2}
+            strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   )
+}
+
+const KARTU_NYATA: KartuNyata[] = KARTU.map((k, i) => ({
+  id: k.id,
+  gambar: k.gambar,
+  nomor: String(i + 1).padStart(2, '0'),
+  judul: k.judul,
+  inti: k.isi,
+  rumus: k.hasil,
+  grafik: <Grafik k={k} />,
+}))
+
+export default function DuniaNyataIntegral() {
+  return <GaleriNyata kartu={KARTU_NYATA} />
 }

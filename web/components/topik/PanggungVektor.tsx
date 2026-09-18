@@ -19,6 +19,7 @@ import {
 } from '@/components/widget/vektor/geometri'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Kembalikan, Koordinat, Petunjuk } from '@/components/kendali'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Panggung Vektor: penyetelan widgetnya, dan tidak lebih.
@@ -330,215 +331,182 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
       <>
         {tampilWidget && tahap.widget === 'perahu-sungai' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>dayung dalam 1 jam</td><td>({angka(dayung.x, 1)}  {angka(dayung.y, 1)}) km</td></tr>
-                <tr><td>arus dalam 1 jam</td><td>({angka(arus.x, 1)}  {angka(arus.y, 1)}) km</td></tr>
-                <tr><td>gerak sebenarnya</td><td>({angka(gerak.x, 1)}  {angka(gerak.y, 1)}) km</td></tr>
+                <tr><td><TeksMat teks="dayung dalam 1 jam" blok={false} /></td><td><TeksMat teks={`(${angka(dayung.x, 1)}  ${angka(dayung.y, 1)}) km`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="arus dalam 1 jam" blok={false} /></td><td><TeksMat teks={`(${angka(arus.x, 1)}  ${angka(arus.y, 1)}) km`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="gerak sebenarnya" blok={false} /></td><td><TeksMat teks={`(${angka(gerak.x, 1)}  ${angka(gerak.y, 1)}) km`} blok={false} /></td></tr>
                 <tr className="tegas">
-                  <td>hanyut ke hilir</td>
-                  <td>{seberang ? `${angka(seberang.hanyut, 2)} km` : 'tidak sampai'}</td>
+                  <td><TeksMat teks="hanyut ke hilir" blok={false} /></td>
+                  <td><TeksMat teks={`${seberang ? `${angka(seberang.hanyut, 2)} km` : 'tidak sampai'}`} blok={false} /></td>
                 </tr>
               </tbody>
             </table>
-            <div className="catatan">
-              {seberang
+            <div className="catatan"><TeksMat teks={`${seberang
                 ? `Sungainya selebar ${LEBAR_SUNGAI} km, dan gerak tegaknya ${angka(gerak.y, 1)} km per jam, jadi menyeberang butuh ${angka(seberang.waktu, 2)} jam. Selama itu arus sempat membawanya ${angka(seberang.hanyut, 2)} km ke hilir.`
-                : 'Gerak tegaknya nol atau justru menjauh dari seberang, jadi perahunya hanya terbawa arus. Ini bukan kerusakan alat: menghadapkan dayung ke arah yang salah memang berakibat begitu.'}
-            </div>
+                : 'Gerak tegaknya nol atau justru menjauh dari seberang, jadi perahunya hanya terbawa arus. Ini bukan kerusakan alat: menghadapkan dayung ke arah yang salah memang berakibat begitu.'}`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'panah-berpindah' && (
           <div className="blok">
-            <div className="cap">Membandingkan kedua panah</div>
+            <div className="cap"><TeksMat teks="Membandingkan kedua panah" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>acuan</td><td>({angka(acuan.x, 1)}  {angka(acuan.y, 1)})</td></tr>
-                <tr><td>panah coba</td><td>({angka(coba.x, 1)}  {angka(coba.y, 1)})</td></tr>
-                <tr><td>panjang acuan</td><td>{angka(panjang(acuan), 3)}</td></tr>
-                <tr className="tegas"><td>panjang panah coba</td><td>{angka(panjang(coba), 3)}</td></tr>
+                <tr><td><TeksMat teks="acuan" blok={false} /></td><td><TeksMat teks={`(${angka(acuan.x, 1)}  ${angka(acuan.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="panah coba" blok={false} /></td><td><TeksMat teks={`(${angka(coba.x, 1)}  ${angka(coba.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="panjang acuan" blok={false} /></td><td>{angka(panjang(acuan), 3)}</td></tr>
+                <tr className="tegas"><td><TeksMat teks="panjang panah coba" blok={false} /></td><td>{angka(panjang(coba), 3)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              {hubungan.kalimat}. Perhatikan tabel ini hanya berisi KOMPONEN dan PANJANG, tidak
-              satu pun menyebut letak. Letak memang tidak ikut menentukan.
-            </div>
+            <div className="catatan"><TeksMat teks={`${hubungan.kalimat}. Perhatikan tabel ini hanya berisi KOMPONEN dan PANJANG, tidak satu pun menyebut letak. Letak memang tidak ikut menentukan.`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'pecah-komponen' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>komponen mendatar</td><td>{angka(vKomponen.x, 1)}</td></tr>
-                <tr><td>komponen tegak</td><td>{angka(vKomponen.y, 1)}</td></tr>
-                <tr><td>ditulis vektor baris</td><td>({angka(vKomponen.x, 1)}  {angka(vKomponen.y, 1)})</td></tr>
-                <tr className="tegas"><td>panjang panah</td><td>{angka(panjang(vKomponen), 3)}</td></tr>
+                <tr><td><TeksMat teks="komponen mendatar" blok={false} /></td><td>{angka(vKomponen.x, 1)}</td></tr>
+                <tr><td><TeksMat teks="komponen tegak" blok={false} /></td><td>{angka(vKomponen.y, 1)}</td></tr>
+                <tr><td><TeksMat teks="ditulis vektor baris" blok={false} /></td><td><TeksMat teks={`(${angka(vKomponen.x, 1)}  ${angka(vKomponen.y, 1)})`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="panjang panah" blok={false} /></td><td>{angka(panjang(vKomponen), 3)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Panjangnya berasal dari Pythagoras: akar dari {angka(vKomponen.x, 1)} kuadrat
-              ditambah {angka(vKomponen.y, 1)} kuadrat. Perhitungan itu dibahas tuntas di
-              Materi 04.
-            </div>
+            <div className="catatan"><TeksMat teks={`Panjangnya berasal dari Pythagoras: akar dari ${angka(vKomponen.x, 1)} kuadrat ditambah ${angka(vKomponen.y, 1)} kuadrat. Perhitungan itu dibahas tuntas di Materi 04.`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'panjang-dan-arah' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>komponen</td><td>({angka(vArah.x, 1)}  {angka(vArah.y, 1)})</td></tr>
-                <tr><td>kuadratnya dijumlahkan</td><td>{angka(vArah.x * vArah.x + vArah.y * vArah.y, 2)}</td></tr>
-                <tr><td>arah dari sumbu-x</td><td>{angka(sudutDerajat(vArah), 1)}°</td></tr>
-                <tr className="tegas"><td>panjang, yaitu akarnya</td><td>{angka(panjang(vArah), 3)}</td></tr>
+                <tr><td><TeksMat teks="komponen" blok={false} /></td><td><TeksMat teks={`(${angka(vArah.x, 1)}  ${angka(vArah.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="kuadratnya dijumlahkan" blok={false} /></td><td>{angka(vArah.x * vArah.x + vArah.y * vArah.y, 2)}</td></tr>
+                <tr><td><TeksMat teks="arah dari sumbu-x" blok={false} /></td><td>{angka(sudutDerajat(vArah), 1)}°</td></tr>
+                <tr className="tegas"><td><TeksMat teks="panjang, yaitu akarnya" blok={false} /></td><td>{angka(panjang(vArah), 3)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Arah itu setara dengan {mataAngin(vArah)}. Perhatikan komponennya boleh negatif,
-              tetapi panjangnya tidak pernah: dikuadratkan dulu, tanda minusnya hilang di situ.
-            </div>
+            <div className="catatan"><TeksMat teks={`Arah itu setara dengan ${mataAngin(vArah)}. Perhatikan komponennya boleh negatif, tetapi panjangnya tidak pernah: dikuadratkan dulu, tanda minusnya hilang di situ.`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'vektor-satuan' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>v</td><td>({angka(vSatuan.x, 1)}  {angka(vSatuan.y, 1)})</td></tr>
-                <tr><td>panjang v</td><td>{angka(panjang(vSatuan), 3)}</td></tr>
-                <tr><td>tiap komponen dibagi panjangnya</td><td>({angka(eSatuan.x, 3)}  {angka(eSatuan.y, 3)})</td></tr>
-                <tr className="tegas"><td>panjang vektor satuan</td><td>{angka(panjang(eSatuan), 3)}</td></tr>
+                <tr><td><TeksMat teks="v" blok={false} /></td><td><TeksMat teks={`(${angka(vSatuan.x, 1)}  ${angka(vSatuan.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="panjang v" blok={false} /></td><td>{angka(panjang(vSatuan), 3)}</td></tr>
+                <tr><td><TeksMat teks="tiap komponen dibagi panjangnya" blok={false} /></td><td><TeksMat teks={`(${angka(eSatuan.x, 3)}  ${angka(eSatuan.y, 3)})`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="panjang vektor satuan" blok={false} /></td><td>{angka(panjang(eSatuan), 3)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Panjangnya selalu 1, berapa pun v-nya. Itu bukan kebetulan: membagi sebuah vektor
-              dengan panjangnya sendiri memang menyisakan arahnya saja.
-            </div>
+            <div className="catatan"><TeksMat teks="Panjangnya selalu 1, berapa pun v-nya. Itu bukan kebetulan: membagi sebuah vektor dengan panjangnya sendiri memang menyisakan arahnya saja." /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'sambung-panah' && (
           <div className="blok">
-            <div className="cap">Menjumlahkan lewat komponen</div>
+            <div className="cap"><TeksMat teks="Menjumlahkan lewat komponen" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>a</td><td>({angka(aSambung.x, 1)}  {angka(aSambung.y, 1)})</td></tr>
-                <tr><td>b</td><td>({angka(bSambung.x, 1)}  {angka(bSambung.y, 1)})</td></tr>
-                <tr><td>komponen mendatarnya dijumlah</td><td>{angka(aSambung.x, 1)} + {angka(bSambung.x, 1)} = {angka(hasilSambung.x, 1)}</td></tr>
-                <tr className="tegas"><td>a + b</td><td>({angka(hasilSambung.x, 1)}  {angka(hasilSambung.y, 1)})</td></tr>
+                <tr><td><TeksMat teks="a" blok={false} /></td><td><TeksMat teks={`(${angka(aSambung.x, 1)}  ${angka(aSambung.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="b" blok={false} /></td><td><TeksMat teks={`(${angka(bSambung.x, 1)}  ${angka(bSambung.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="komponen mendatarnya dijumlah" blok={false} /></td><td><TeksMat teks={`${angka(aSambung.x, 1)} + ${angka(bSambung.x, 1)} = ${angka(hasilSambung.x, 1)}`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="a + b" blok={false} /></td><td><TeksMat teks={`(${angka(hasilSambung.x, 1)}  ${angka(hasilSambung.y, 1)})`} blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Panjang a adalah {angka(panjang(aSambung), 2)} dan panjang b adalah{' '}
-              {angka(panjang(bSambung), 2)}, tetapi panjang jumlahnya{' '}
-              {angka(panjang(hasilSambung), 2)}. Panjangnya tidak ikut dijumlahkan.
-            </div>
+            <div className="catatan"><TeksMat teks={`Panjang a adalah ${angka(panjang(aSambung), 2)} dan panjang b adalah ${angka(panjang(bSambung), 2)}, tetapi panjang jumlahnya ${angka(panjang(hasilSambung), 2)}. Panjangnya tidak ikut dijumlahkan.`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'jajar-genjang' && (
           <div className="blok">
-            <div className="cap">Resultan dua vektor</div>
+            <div className="cap"><TeksMat teks="Resultan dua vektor" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>a</td><td>({angka(aJajar.x, 1)}  {angka(aJajar.y, 1)})</td></tr>
-                <tr><td>b</td><td>({angka(bJajar.x, 1)}  {angka(bJajar.y, 1)})</td></tr>
-                <tr><td>panjang a dan panjang b</td><td>{angka(panjang(aJajar), 2)} dan {angka(panjang(bJajar), 2)}</td></tr>
-                <tr className="tegas"><td>panjang resultan</td><td>{angka(panjang(hasilJajar), 3)}</td></tr>
+                <tr><td><TeksMat teks="a" blok={false} /></td><td><TeksMat teks={`(${angka(aJajar.x, 1)}  ${angka(aJajar.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="b" blok={false} /></td><td><TeksMat teks={`(${angka(bJajar.x, 1)}  ${angka(bJajar.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="panjang a dan panjang b" blok={false} /></td><td><TeksMat teks={`${angka(panjang(aJajar), 2)} dan ${angka(panjang(bJajar), 2)}`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="panjang resultan" blok={false} /></td><td>{angka(panjang(hasilJajar), 3)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Angka resultannya sama persis dengan cara segitiga di Materi 06. Yang berbeda cuma
-              gambarnya, dan gambar dipilih mengikuti ceritanya: berurutan atau serentak.
-            </div>
+            <div className="catatan"><TeksMat teks="Angka resultannya sama persis dengan cara segitiga di Materi 06. Yang berbeda cuma gambarnya, dan gambar dipilih mengikuti ceritanya: berurutan atau serentak." /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'selisih-panah' && (
           <div className="blok">
-            <div className="cap">Mengurangi lewat komponen</div>
+            <div className="cap"><TeksMat teks="Mengurangi lewat komponen" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>a</td><td>({angka(aSelisih.x, 1)}  {angka(aSelisih.y, 1)})</td></tr>
-                <tr><td>b</td><td>({angka(bSelisih.x, 1)}  {angka(bSelisih.y, 1)})</td></tr>
-                <tr><td>a - b</td><td>({angka(hasilSelisih.x, 1)}  {angka(hasilSelisih.y, 1)})</td></tr>
-                <tr className="tegas"><td>b - a, kebalikannya</td><td>({angka(-hasilSelisih.x, 1)}  {angka(-hasilSelisih.y, 1)})</td></tr>
+                <tr><td><TeksMat teks="a" blok={false} /></td><td><TeksMat teks={`(${angka(aSelisih.x, 1)}  ${angka(aSelisih.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="b" blok={false} /></td><td><TeksMat teks={`(${angka(bSelisih.x, 1)}  ${angka(bSelisih.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="a - b" blok={false} /></td><td><TeksMat teks={`(${angka(hasilSelisih.x, 1)}  ${angka(hasilSelisih.y, 1)})`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="b - a, kebalikannya" blok={false} /></td><td><TeksMat teks={`(${angka(-hasilSelisih.x, 1)}  ${angka(-hasilSelisih.y, 1)})`} blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Kedua baris terakhir berlawanan tanda. Itu sebabnya urutan tidak boleh dibalik:
-              a dikurangi b dan b dikurangi a adalah dua panah yang berlawanan arah.
-            </div>
+            <div className="catatan"><TeksMat teks="Kedua baris terakhir berlawanan tanda. Itu sebabnya urutan tidak boleh dibalik: a dikurangi b dan b dikurangi a adalah dua panah yang berlawanan arah." /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'kali-skalar' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>a</td><td>({angka(aKali.x, 1)}  {angka(aKali.y, 1)})</td></tr>
-                <tr><td>pengali</td><td>{angka(k, 2)}</td></tr>
-                <tr><td>hasilnya</td><td>({angka(hasilKali.x, 2)}  {angka(hasilKali.y, 2)})</td></tr>
+                <tr><td><TeksMat teks="a" blok={false} /></td><td><TeksMat teks={`(${angka(aKali.x, 1)}  ${angka(aKali.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="pengali" blok={false} /></td><td>{angka(k, 2)}</td></tr>
+                <tr><td><TeksMat teks="hasilnya" blok={false} /></td><td><TeksMat teks={`(${angka(hasilKali.x, 2)}  ${angka(hasilKali.y, 2)})`} blok={false} /></td></tr>
                 <tr className="tegas">
-                  <td>panjangnya berubah</td>
-                  <td>{angka(panjang(aKali), 2)} menjadi {angka(panjang(hasilKali), 2)}</td>
+                  <td><TeksMat teks="panjangnya berubah" blok={false} /></td>
+                  <td><TeksMat teks={`${angka(panjang(aKali), 2)} menjadi ${angka(panjang(hasilKali), 2)}`} blok={false} /></td>
                 </tr>
               </tbody>
             </table>
-            <div className="catatan">
-              {k > 0
+            <div className="catatan"><TeksMat teks={`${k > 0
                 ? 'Pengali positif tidak mengubah arah sama sekali, hanya panjangnya.'
                 : k < 0
                   ? 'Pengali negatif membalik arahnya, dan panjangnya mengikuti nilai pengali tanpa tandanya. Panjang tetap tidak negatif.'
-                  : 'Pengali nol memberi vektor nol: panjangnya nol dan arahnya tidak ada.'}
-            </div>
+                  : 'Pengali nol memberi vektor nol: panjangnya nol dan arahnya tidak ada.'}`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'perkalian-titik' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>a</td><td>({angka(aTitik.x, 1)}  {angka(aTitik.y, 1)})</td></tr>
-                <tr><td>b</td><td>({angka(bTitik.x, 1)}  {angka(bTitik.y, 1)})</td></tr>
-                <tr><td>lewat komponen</td><td>{angka(aTitik.x, 1)}({angka(bTitik.x, 1)}) + {angka(aTitik.y, 1)}({angka(bTitik.y, 1)})</td></tr>
-                <tr><td>sudut antara keduanya</td><td>{angka(sudutTitik, 1)}°</td></tr>
-                <tr className="tegas"><td>a . b</td><td>{Math.abs(hasilTitik) < 0.005 ? '0' : angka(hasilTitik, 2)}</td></tr>
+                <tr><td><TeksMat teks="a" blok={false} /></td><td><TeksMat teks={`(${angka(aTitik.x, 1)}  ${angka(aTitik.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="b" blok={false} /></td><td><TeksMat teks={`(${angka(bTitik.x, 1)}  ${angka(bTitik.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="lewat komponen" blok={false} /></td><td><TeksMat teks={`${angka(aTitik.x, 1)}(${angka(bTitik.x, 1)}) + ${angka(aTitik.y, 1)}(${angka(bTitik.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="sudut antara keduanya" blok={false} /></td><td>{angka(sudutTitik, 1)}°</td></tr>
+                <tr className="tegas"><td><TeksMat teks="a . b" blok={false} /></td><td><TeksMat teks={`${Math.abs(hasilTitik) < 0.005 ? '0' : angka(hasilTitik, 2)}`} blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Lewat panjang dan sudut hasilnya sama: {angka(panjang(aTitik), 2)} dikali{' '}
-              {angka(panjang(bTitik), 2)} dikali kosinus {angka(sudutTitik, 1)} derajat. Perhatikan
-              hasilnya sebuah angka, bukan panah.
-            </div>
+            <div className="catatan"><TeksMat teks={`Lewat panjang dan sudut hasilnya sama: ${angka(panjang(aTitik), 2)} dikali ${angka(panjang(bTitik), 2)} dikali kosinus ${angka(sudutTitik, 1)} derajat. Perhatikan hasilnya sebuah angka, bukan panah.`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'proyeksi' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>a</td><td>({angka(aProyeksi.x, 1)}  {angka(aProyeksi.y, 1)})</td></tr>
-                <tr><td>b</td><td>({angka(bProyeksi.x, 1)}  {angka(bProyeksi.y, 1)})</td></tr>
-                <tr><td>a . b dibagi panjang b</td><td>{angka(titik(aProyeksi, bProyeksi), 2)} dibagi {angka(panjang(bProyeksi), 2)}</td></tr>
-                <tr><td>panjang proyeksinya</td><td>{angka(panjangBayangan, 3)}</td></tr>
-                <tr className="tegas"><td>vektor proyeksinya</td><td>({angka(bayangan.x, 2)}  {angka(bayangan.y, 2)})</td></tr>
+                <tr><td><TeksMat teks="a" blok={false} /></td><td><TeksMat teks={`(${angka(aProyeksi.x, 1)}  ${angka(aProyeksi.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="b" blok={false} /></td><td><TeksMat teks={`(${angka(bProyeksi.x, 1)}  ${angka(bProyeksi.y, 1)})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="a . b dibagi panjang b" blok={false} /></td><td><TeksMat teks={`${angka(titik(aProyeksi, bProyeksi), 2)} dibagi ${angka(panjang(bProyeksi), 2)}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="panjang proyeksinya" blok={false} /></td><td>{angka(panjangBayangan, 3)}</td></tr>
+                <tr className="tegas"><td><TeksMat teks="vektor proyeksinya" blok={false} /></td><td><TeksMat teks={`(${angka(bayangan.x, 2)}  ${angka(bayangan.y, 2)})`} blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              {panjangBayangan < 0
+            <div className="catatan"><TeksMat teks={`${panjangBayangan < 0
                 ? 'Panjang proyeksinya negatif, dan itu benar: bayangannya jatuh ke arah yang berlawanan dengan b, sebab sudut keduanya tumpul.'
-                : 'Baris keempat sebuah angka, baris kelima sebuah panah. Keduanya disebut proyeksi, jadi bacalah soalnya baik-baik: yang diminta panjangnya atau vektornya.'}
-            </div>
+                : 'Baris keempat sebuah angka, baris kelima sebuah panah. Keduanya disebut proyeksi, jadi bacalah soalnya baik-baik: yang diminta panjangnya atau vektornya.'}`} /></div>
           </div>
         )}
       </>

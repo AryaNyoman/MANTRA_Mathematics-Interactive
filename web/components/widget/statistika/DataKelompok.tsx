@@ -11,6 +11,7 @@ import { ringkasKelompok } from '@/components/widget/statistika/statistik'
 import { kelompok, keterangan } from '@/content/statistika/data'
 import type { Kelas } from '@/components/widget/statistika/statistik'
 import type { PropWidget } from '@/components/widget/statistika/jenis'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Tahap 9. Rumus interpolasi dibuktikan oleh gambarnya sendiri.
@@ -188,53 +189,47 @@ export default function DataKelompok({ children }: PropWidget) {
             </button>
           </div>
         </div>
-        <Petunjuk>
-            {seimbang
+        <Petunjuk><TeksMat teks={`${seimbang
               ? `seimbang. Kiri dan kanan sama-sama ${angka(kiriJumlah, 1)} siswa, dan rumus interpolasi memberi angka yang sama`
               : selisih < 0
                 ? `masih ${angka(-selisih, 1)} siswa lebih banyak di kanan, geser ke kanan`
-                : `masih ${angka(selisih, 1)} siswa lebih banyak di kiri, geser ke kiri`}
-          </Petunjuk>
+                : `masih ${angka(selisih, 1)} siswa lebih banyak di kiri, geser ke kiri`}`} blok={false} /></Petunjuk>
       </div>
     </>
   )
 
   const kanan = (
     <div className="blok">
-      <div className="cap">Tabel frekuensi, klik barisnya untuk menyorot batangnya</div>
+      <div className="cap"><TeksMat teks="Tabel frekuensi, klik barisnya untuk menyorot batangnya" blok={false} /></div>
       <table className="tabel-angka">
         <tbody>
           {kelas.map((kl, i) => (
             <tr key={i} className={terpilih === i ? 'tegas' : undefined}
                 onClick={() => setTerpilih(i === terpilih ? null : i)}
                 style={{ cursor: 'pointer' }}>
-              <td>{kl.label} · tengah {angka((kl.bawah + kl.atas) / 2, 1)}</td>
+              <td><TeksMat teks={`${kl.label} · tengah ${angka((kl.bawah + kl.atas) / 2, 1)}`} blok={false} /></td>
               <td>{kl.f}</td>
             </tr>
           ))}
-          <tr><td>banyak data</td><td>{R.n}</td></tr>
+          <tr><td><TeksMat teks="banyak data" blok={false} /></td><td>{R.n}</td></tr>
         </tbody>
       </table>
       <div className="cap" style={{ marginTop: 14 }}>Hasil rumus data berkelompok</div>
       <table className="tabel-angka">
         <tbody>
-          <tr><td>mean</td><td>{angka(R.mean, 2)}</td></tr>
-          <tr className="tegas"><td>median</td><td>{angka(R.median, 2)}</td></tr>
-          <tr className="tegas"><td>modus</td><td>{angka(R.modus, 2)}</td></tr>
-          <tr><td>selisih tetangga kiri d1</td><td>{d1}</td></tr>
-          <tr><td>selisih tetangga kanan d2</td><td>{d2}</td></tr>
-          <tr><td>tengah kelas modus</td><td>{angka(tengahPuncak, 1)}</td></tr>
-          <tr><td>Q1</td><td>{angka(R.q1, 2)}</td></tr>
-          <tr><td>Q3</td><td>{angka(R.q3, 2)}</td></tr>
+          <tr><td><TeksMat teks="mean" blok={false} /></td><td>{angka(R.mean, 2)}</td></tr>
+          <tr className="tegas"><td><TeksMat teks="median" blok={false} /></td><td>{angka(R.median, 2)}</td></tr>
+          <tr className="tegas"><td><TeksMat teks="modus" blok={false} /></td><td>{angka(R.modus, 2)}</td></tr>
+          <tr><td><TeksMat teks="selisih tetangga kiri d1" blok={false} /></td><td>{d1}</td></tr>
+          <tr><td><TeksMat teks="selisih tetangga kanan d2" blok={false} /></td><td>{d2}</td></tr>
+          <tr><td><TeksMat teks="tengah kelas modus" blok={false} /></td><td>{angka(tengahPuncak, 1)}</td></tr>
+          <tr><td><TeksMat teks="Q1" blok={false} /></td><td>{angka(R.q1, 2)}</td></tr>
+          <tr><td><TeksMat teks="Q3" blok={false} /></td><td>{angka(R.q3, 2)}</td></tr>
         </tbody>
       </table>
-      <div className="catatan">
-        Modus {angka(R.modus, 2)} jatuh {condong}.
-        {' '}{diubah
+      <div className="catatan"><TeksMat teks={`Modus ${angka(R.modus, 2)} jatuh ${condong}. ${diubah
           ? 'Tabel ini sudah Anda ubah, jadi angkanya bukan lagi angka contoh di bacaan. Modusnya tetap berada di dalam batang tertinggi, tetapi letaknya di dalam batang itu ditarik oleh tetangga yang lebih tinggi. Tekan "Kembalikan semula" untuk kembali ke tabel 40 siswa.'
-          : 'Angka aslinya keempat puluh siswa itu sebenarnya masih ada, dan mean sesungguhnya 68 sedangkan mediannya 67,5. Hampiran dari tabel meleset sedikit, dan itu memang sifatnya: titik tengah kelas adalah tebakan yang masuk akal, bukan kebenaran.'}
-        {' '}{keterangan(D)}
-      </div>
+          : 'Angka aslinya keempat puluh siswa itu sebenarnya masih ada, dan mean sesungguhnya 68 sedangkan mediannya 67,5. Hampiran dari tabel meleset sedikit, dan itu memang sifatnya: titik tengah kelas adalah tebakan yang masuk akal, bukan kebenaran.'} ${keterangan(D)}`} /></div>
     </div>
   )
 

@@ -1,5 +1,6 @@
 'use client'
 
+import TeksMat from '@/components/latihan/TeksMat'
 import { useId, useState } from 'react'
 import { lepas, pegang } from './sedang-diubah'
 
@@ -82,8 +83,8 @@ export default function Angka({
     <div className="kendali-angka" data-kunci={k}>
       <label htmlFor={id} className="kendali-nama">
         <span>
-          <b>{nama}</b>
-          {arti && <span className="kendali-arti"> · {arti}</span>}
+          <b><TeksMat teks={nama} blok={false} /></b>
+          {arti && <span className="kendali-arti"> · <TeksMat teks={arti} blok={false} /></span>}
         </span>
         <span className="kendali-nilai angka-rata">
           {tampil}

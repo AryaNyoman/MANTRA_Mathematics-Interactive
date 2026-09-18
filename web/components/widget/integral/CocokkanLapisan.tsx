@@ -1,5 +1,7 @@
 'use client'
 
+import Lembar, { LembarJudul, LembarLangkah, LembarSelesai, LembarSisa, LembarSoal, LembarTolak } from '@/components/widget/Lembar'
+
 /**
  * Widget Materi 03: memilih u, lalu melihat akibat pilihannya.
  *
@@ -48,10 +50,10 @@ export const SOAL: SoalLapisan[] = [
   {
     nilai: 'pangkat-lima',
     label: '(2x + 1)⁵',
-    judul: 'cari antiturunan dari (2x + 1)⁵',
+    judul: '∫ (2x + 1)⁵ dx',
     calon: [
       {
-        nilai: 'isi', label: 'u = 2x + 1', du: 'du = 2 dx', sisa: 'dx saja', benar: true,
+        nilai: 'isi', label: 'u = 2x + 1', du: 'du = 2 dx', sisa: 'dx', benar: true,
         alasan: 'sisa dx kurang faktor 2 dibanding du. Yang kurang cuma sebuah angka, jadi bisa ditambal dengan mengalikan setengah.',
       },
       {
@@ -66,17 +68,17 @@ export const SOAL: SoalLapisan[] = [
       },
     ],
     baris: [
-      { nama: 'tulis ulang', teks: 'setengah kali u⁵ du', sifat: 'faktor setengah menambal kekurangan tadi' },
-      { nama: 'aturan pangkat', teks: 'setengah kali u⁶ per 6' },
-      { nama: 'rapikan', teks: 'u⁶ per 12' },
-      { nama: 'kembalikan', teks: 'ganti u dengan 2x + 1' },
+      { nama: 'tulis ulang', teks: '(1/2) ∫ u⁵ du', sifat: 'faktor 1/2 menambal kekurangan tadi' },
+      { nama: 'aturan pangkat', teks: '(1/2) · u⁶/6' },
+      { nama: 'rapikan', teks: 'u⁶/12' },
+      { nama: 'kembalikan', teks: '(2x + 1)⁶/12 + C' },
     ],
-    jawaban: '(2x + 1)⁶ dibagi 12, ditambah C',
+    jawaban: '∫ (2x + 1)⁵ dx = (2x + 1)⁶/12 + C',
   },
   {
     nilai: 'buku',
     label: '2x(x² + 5)⁴',
-    judul: 'cari antiturunan dari 2x(x² + 5)⁴',
+    judul: '∫ 2x(x² + 5)⁴ dx',
     calon: [
       {
         nilai: 'isi', label: 'u = x² + 5', du: 'du = 2x dx', sisa: '2x dx', benar: true,
@@ -94,40 +96,40 @@ export const SOAL: SoalLapisan[] = [
       },
     ],
     baris: [
-      { nama: 'tulis ulang', teks: 'u⁴ du', sifat: 'du sudah lengkap, tidak perlu disesuaikan' },
-      { nama: 'aturan pangkat', teks: 'u⁵ per 5' },
-      { nama: 'kembalikan', teks: 'ganti u dengan x² + 5' },
+      { nama: 'tulis ulang', teks: '∫ u⁴ du', sifat: 'du sudah lengkap, tidak perlu disesuaikan' },
+      { nama: 'aturan pangkat', teks: 'u⁵/5' },
+      { nama: 'kembalikan', teks: '(x² + 5)⁵/5 + C' },
     ],
-    jawaban: '(x² + 5)⁵ dibagi 5, ditambah C. Ini Contoh Soal 3.3 di buku.',
+    jawaban: '∫ 2x(x² + 5)⁴ dx = (x² + 5)⁵/5 + C. Ini Contoh Soal 3.3 di buku.',
   },
   {
     nilai: 'akar',
-    label: 'x akar (x² + 5)',
-    judul: 'cari antiturunan dari x kali akar (x² + 5)',
+    label: 'x√(x² + 5)',
+    judul: '∫ x√(x² + 5) dx',
     calon: [
       {
         nilai: 'isi', label: 'u = x² + 5', du: 'du = 2x dx', sisa: 'x dx', benar: true,
         alasan: 'sisa x dx adalah setengah dari du. Kekurangannya sebuah angka, jadi seluruhnya dikali setengah dan substitusinya jalan.',
       },
       {
-        nilai: 'akar', label: 'u = akar (x² + 5)', du: 'du = x dibagi akar (x² + 5), dikali dx', sisa: 'x dx',
+        nilai: 'akar', label: 'u = √(x² + 5)', du: 'du = x/√(x² + 5) dx', sisa: 'x dx',
         benar: false,
         alasan: 'du-nya sendiri masih memuat akar, jadi menyamakannya dengan sisa soal butuh langkah tambahan. Ambil isi akarnya saja, bukan akarnya.',
       },
       {
-        nilai: 'x', label: 'u = x', du: 'du = dx', sisa: 'x akar (x² + 5)',
+        nilai: 'x', label: 'u = x', du: 'du = dx', sisa: 'x√(x² + 5)',
         benar: false,
         alasan: 'u tidak menutupi apa pun, jadi bentuk soalnya tidak berubah sedikit pun.',
       },
     ],
     baris: [
-      { nama: 'tulis ulang', teks: 'setengah kali akar u du', sifat: 'faktor setengah menambal kekurangan tadi' },
-      { nama: 'ubah akarnya', teks: 'akar u sama dengan u pangkat setengah' },
-      { nama: 'aturan pangkat', teks: 'setengah kali (u pangkat tiga per dua) dibagi tiga per dua' },
-      { nama: 'rapikan', teks: 'u pangkat tiga per dua, dibagi 3' },
-      { nama: 'kembalikan', teks: 'ganti u dengan x² + 5' },
+      { nama: 'tulis ulang', teks: '(1/2) ∫ √u du', sifat: 'faktor 1/2 menambal kekurangan tadi' },
+      { nama: 'ubah akarnya', teks: '√u = u^(1/2)' },
+      { nama: 'aturan pangkat', teks: '(1/2) · u^(3/2)/(3/2)' },
+      { nama: 'rapikan', teks: 'u^(3/2)/3' },
+      { nama: 'kembalikan', teks: '(x² + 5)^(3/2)/3 + C' },
     ],
-    jawaban: '(x² + 5) pangkat tiga per dua, dibagi 3, ditambah C',
+    jawaban: '∫ x√(x² + 5) dx = (x² + 5)^(3/2)/3 + C',
   },
 ]
 
@@ -148,59 +150,31 @@ export default function CocokkanLapisan({
 }) {
   const s = soalDari(soal)
   const c = s.calon.find((k) => k.nilai === calon) ?? s.calon[0]
-  const tampil = c.benar ? s.baris.slice(0, Math.min(Math.max(langkah, 0), s.baris.length)) : []
+  const terbuka = c.benar ? Math.min(Math.max(langkah, 0), s.baris.length) : 0
   const selesai = c.benar && langkah >= s.baris.length
 
+  // Akibat pilihannya, selalu ditulis lengkap: du-nya apa, sisanya apa, dan
+  // kenapa itu cocok atau tidak.
+  const pemeriksaan = [
+    { nama: 'du-nya', teks: c.du },
+    { nama: 'sisa di soal', teks: c.sisa, syarat: c.alasan },
+  ]
+
   return (
-    <div className="bongkar">
-      <div className="bongkar-atas">
-        <div className="bongkar-soal">{s.judul}</div>
-        <div className="bongkar-cara">calon yang dipilih: {c.label}</div>
-      </div>
-
-      {/* Akibat pilihannya, selalu ditulis lengkap: du-nya apa, sisanya apa,
-          dan kenapa itu cocok atau tidak. */}
-      <ol className="bongkar-baris">
-        <li>
-          <span className="bongkar-nama">du-nya</span>
-          <span className="bongkar-teks">{c.du}</span>
-        </li>
-        <li>
-          <span className="bongkar-nama">sisa di soal</span>
-          <span className="bongkar-teks">{c.sisa}</span>
-          <span className="bongkar-syarat">{c.alasan}</span>
-        </li>
-      </ol>
-
+    <Lembar>
+      <LembarSoal soal={`cari ${s.judul}`} cara={`calon yang dipilih: ${c.label}`} />
+      <LembarLangkah langkah={pemeriksaan} terbuka={2} />
       {c.benar ? (
         <>
-          <div className="bongkar-atas">
-            <div className="bongkar-cara">penyelesaiannya</div>
-          </div>
-          <ol className="bongkar-baris">
-            {tampil.map((b, i) => (
-              <li key={i}>
-                <span className="bongkar-nama">{b.nama}</span>
-                <span className="bongkar-teks">{b.teks}</span>
-                {b.sifat && <span className="bongkar-syarat">{b.sifat}</span>}
-              </li>
-            ))}
-          </ol>
-          {selesai ? (
-            <div className="mesin-selesai" role="status">
-              <b>Selesai.</b> {s.jawaban}
-            </div>
-          ) : (
-            <div className="bongkar-sisa">
-              masih ada {s.baris.length - tampil.length} langkah lagi
-            </div>
-          )}
+          <LembarJudul>penyelesaiannya</LembarJudul>
+          <LembarLangkah langkah={s.baris.map((b) => ({ nama: b.nama, teks: b.teks, syarat: b.sifat }))} terbuka={terbuka} nomorAwal={3} />
+          {selesai
+            ? <LembarSelesai teks={s.jawaban} />
+            : <LembarSisa terbuka={terbuka} total={s.baris.length} />}
         </>
       ) : (
-        <div className="bongkar-sisa">
-          Calon ini tidak bisa dilanjutkan. Coba calon yang lain, dan bandingkan sisanya.
-        </div>
+        <LembarTolak judul="Calon ini tidak bisa dilanjutkan." teks="Coba calon yang lain, dan bandingkan sisanya." />
       )}
-    </div>
+    </Lembar>
   )
 }

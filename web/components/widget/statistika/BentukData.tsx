@@ -9,6 +9,7 @@ import { TEPI_KATEGORI, VH, VW, angka, keLayar, kotak, petak, pita } from '@/com
 import { kelompokkan } from '@/components/widget/statistika/statistik'
 import { kategori as ambilKategori, keterangan, tunggal } from '@/content/statistika/data'
 import type { PropWidget } from '@/components/widget/statistika/jenis'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Tahap 2. Satu kumpulan data, empat bentuk gambar.
@@ -181,11 +182,9 @@ export default function BentukData({ children }: PropWidget) {
         <Pilihan nama="Bentuk gambarnya" arti="tidak semua bentuk cocok untuk semua jenis data"
           pilihan={(Object.keys(NAMA_BENTUK) as Bentuk[]).map((b) => ({ nilai: b, label: NAMA_BENTUK[b] }))}
           nilai={bentuk} onPilih={setBentuk} />
-        <Petunjuk>
-            {peringatan
+        <Petunjuk><TeksMat teks={`${peringatan
               ? `tidak cocok. ${peringatan}`
-              : `${NAMA_BENTUK[bentuk]} memang bentuk yang tepat untuk data ${jenis} ini`}
-          </Petunjuk>
+              : `${NAMA_BENTUK[bentuk]} memang bentuk yang tepat untuk data ${jenis} ini`}`} blok={false} /></Petunjuk>
       </div>
     </>
   )
@@ -198,26 +197,21 @@ export default function BentukData({ children }: PropWidget) {
 
   const kanan = (
     <div className="blok">
-      <div className="cap">
-        {jenis === 'kategori' ? 'Cara 40 siswa berangkat ke sekolah' : `Tinggi badan 40 siswa, kelas selebar ${LEBAR_KELAS} cm`}
-      </div>
+      <div className="cap"><TeksMat teks={`${jenis === 'kategori' ? 'Cara 40 siswa berangkat ke sekolah' : `Tinggi badan 40 siswa, kelas selebar ${LEBAR_KELAS} cm`}`} blok={false} /></div>
       <table className="tabel-angka">
         <tbody>
           {barisTabel.map(([nama, isi]) => (
-            <tr key={nama}><td>{nama}</td><td>{isi}</td></tr>
+            <tr key={nama}><td><TeksMat teks={`${nama}`} blok={false} /></td><td><TeksMat teks={`${isi}`} blok={false} /></td></tr>
           ))}
           <tr className="tegas">
-            <td>jumlah</td>
-            <td>{jenis === 'kategori' ? `${totalKat} siswa` : `${ANGKA.data.length} siswa`}</td>
+            <td><TeksMat teks="jumlah" blok={false} /></td>
+            <td><TeksMat teks={`${jenis === 'kategori' ? `${totalKat} siswa` : `${ANGKA.data.length} siswa`}`} blok={false} /></td>
           </tr>
         </tbody>
       </table>
-      <div className="catatan">
-        {peringatan
+      <div className="catatan"><TeksMat teks={`${peringatan
           ? `Gambar yang sedang tampil TIDAK cocok untuk data ini. ${peringatan}`
-          : 'Tabel dan gambar di panel Alat adalah benda yang sama dalam dua bentuk. Kalau salah satunya bercerita lain, ada yang salah.'}
-        {' '}{keterangan(jenis === 'kategori' ? KAT : ANGKA)}
-      </div>
+          : 'Tabel dan gambar di panel Alat adalah benda yang sama dalam dua bentuk. Kalau salah satunya bercerita lain, ada yang salah.'} ${keterangan(jenis === 'kategori' ? KAT : ANGKA)}`} /></div>
     </div>
   )
 

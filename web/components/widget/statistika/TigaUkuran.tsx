@@ -10,6 +10,7 @@ import { propTitikSeret, useSeret } from '@/components/widget/statistika/seret'
 import { ringkasTunggal } from '@/components/widget/statistika/statistik'
 import { keterangan, tunggal } from '@/content/statistika/data'
 import type { PropWidget } from '@/components/widget/statistika/jenis'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Tahap 5. Mean sebagai TITIK SEIMBANG, bukan sekadar jumlah dibagi banyak.
@@ -135,11 +136,9 @@ export default function TigaUkuran({ children }: PropWidget) {
             <button onClick={() => { setData(D.data); setTumpu(null) }}>Kembalikan semula</button>
           </div>
         </div>
-        <Petunjuk>
-            {seimbang
+        <Petunjuk><TeksMat teks={`${seimbang
               ? 'geser penopangnya sedikit saja, papannya langsung miring'
-              : `jumlah simpangan ke penopang ${angka(torsi, 2)}, bukan nol, jadi papannya miring`}
-          </Petunjuk>
+              : `jumlah simpangan ke penopang ${angka(torsi, 2)}, bukan nol, jadi papannya miring`}`} blok={false} /></Petunjuk>
       </div>
     </>
   )
@@ -147,25 +146,21 @@ export default function TigaUkuran({ children }: PropWidget) {
   const simpangan = data.map((v) => v - r.mean)
   const kanan = (
     <div className="blok">
-      <div className="cap">Angka dari alat</div>
+      <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
       <table className="tabel-angka">
         <tbody>
-          <tr><td>data terurut</td><td>{[...data].sort((a, b) => a - b).join('  ')}</td></tr>
-          <tr><td>jumlah</td><td>{angka(r.jumlah, 2)}</td></tr>
-          <tr className="tegas"><td>rata-rata</td><td>{angka(r.mean, 3)}</td></tr>
-          <tr><td>median</td><td>{angka(r.median, 2)}</td></tr>
-          <tr><td>modus</td><td>{r.modus.map((m) => angka(m, 2)).join(', ') || 'tidak ada'}</td></tr>
+          <tr><td><TeksMat teks="data terurut" blok={false} /></td><td><TeksMat teks={`${[...data].sort((a, b) => a - b).join('  ')}`} blok={false} /></td></tr>
+          <tr><td><TeksMat teks="jumlah" blok={false} /></td><td>{angka(r.jumlah, 2)}</td></tr>
+          <tr className="tegas"><td><TeksMat teks="rata-rata" blok={false} /></td><td>{angka(r.mean, 3)}</td></tr>
+          <tr><td><TeksMat teks="median" blok={false} /></td><td>{angka(r.median, 2)}</td></tr>
+          <tr><td><TeksMat teks="modus" blok={false} /></td><td><TeksMat teks={`${r.modus.map((m) => angka(m, 2)).join(', ') || 'tidak ada'}`} blok={false} /></td></tr>
           <tr className="tegas">
-            <td>jumlah simpangan ke rata-rata</td>
+            <td><TeksMat teks="jumlah simpangan ke rata-rata" blok={false} /></td>
             <td>{angka(simpangan.reduce((a, b) => a + b, 0), 3)}</td>
           </tr>
         </tbody>
       </table>
-      <div className="catatan">
-        Baris terakhir selalu nol, berapa pun datanya diubah. Itulah arti mean sebagai
-        titik seimbang, dan itu pula sebabnya simpangan harus dikuadratkan dulu sebelum
-        bisa dipakai mengukur sebaran di Tahap 8. {keterangan(D)}
-      </div>
+      <div className="catatan"><TeksMat teks={`Baris terakhir selalu nol, berapa pun datanya diubah. Itulah arti mean sebagai titik seimbang, dan itu pula sebabnya simpangan harus dikuadratkan dulu sebelum bisa dipakai mengukur sebaran di Tahap 8. ${keterangan(D)}`} /></div>
     </div>
   )
 

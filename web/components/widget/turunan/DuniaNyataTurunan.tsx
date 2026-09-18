@@ -1,24 +1,22 @@
 'use client'
 
-import { MONO, WARNA } from '@/components/widget/turunan/koordinat'
+import GaleriNyata, { type KartuNyata } from '@/components/widget/GaleriNyata'
+import { WARNA } from '@/components/widget/turunan/koordinat'
 
 /**
  * Galeri "Turunan di sekitar kita", Materi 12. TIDAK interaktif.
  *
- * KENAPA KURVANYA DIHITUNG, BUKAN DIGAMBAR TANGAN
- * Galeri Limit menuliskan jalur bezier-nya langsung, dan itu cukup di sana
- * karena yang ditunjukkan cuma BENTUK umum. Di sini tiap kartu memuat angka
- * yang juga tertulis di bacaan, misalnya puncak 125 meter pada detik ke-5.
- * Kalau kurvanya digambar tangan, gambar dan angka bisa berselisih tanpa ada
- * yang menyadarinya. Jadi jalurnya dihitung dari rumus yang sama dengan yang
- * dipakai bacaan, dan aturan proyek "kurva harus lahir dari nilai yang
- * dihitung" ikut terpenuhi.
+ * Sejak 18 Sep 2026 tiap kartu berfoto asli (Wikimedia Commons, lisensi
+ * bebas, catatan di public/gambar/sumber.json), dan grafik kecilnya tetap
+ * dibawa di bawah foto (pilihan ARYA: di bab Turunan bentuk kurvanya ikut
+ * menjelaskan).
  *
- * KENAPA TATA LETAKNYA GAYA SEBARIS
- * Galeri Limit memakai kelas `.galeri-limit` di globals.css. Berkas itu wilayah
- * sesi MATRA-DESAIN-UI-UX, jadi sesi ini tidak boleh menambah kelas baru di
- * sana, dan memakai kelas milik topik lain akan membuat perubahan gaya Limit
- * diam-diam mengubah tampilan Turunan.
+ * KENAPA KURVANYA DIHITUNG, BUKAN DIGAMBAR TANGAN
+ * Tiap kartu memuat angka yang juga tertulis di bacaan, misalnya puncak 125
+ * meter pada detik ke-5. Kalau kurvanya digambar tangan, gambar dan angka
+ * bisa berselisih tanpa ada yang menyadarinya. Jadi jalurnya dihitung dari
+ * rumus yang sama dengan yang dipakai bacaan (aturan proyek: kurva harus
+ * lahir dari nilai yang dihitung).
  */
 
 const KOTAK = { lebar: 200, tinggi: 96, kiri: 8, kanan: 194, atas: 10, bawah: 84 }
@@ -41,6 +39,8 @@ function jalurKartu(
 }
 
 type Kartu = {
+  id: string
+  gambar: string
   judul: string
   isi: string
   tanda: string
@@ -56,9 +56,10 @@ const biayaMarginal = (x: number) => 15000 + 40 * x
 
 const KARTU: Kartu[] = [
   {
+    id: 'bola', gambar: 'turunan/bola-dilempar.jpg',
     judul: 'Bola yang dilempar ke atas',
     isi: 'Tingginya h(t) = 50t - 5t². Turunan pertamanya kecepatan, turunan keduanya percepatan yang tetap -10.',
-    tanda: 'kecepatan nol tepat di puncak, detik ke-5',
+    tanda: 'kecepatan nol tepat di puncak, pada detik kelima',
     jalur: jalurKartu(tinggiBola, 0, 10, 0, 140),
     titik: {
       x: KOTAK.kiri + (5 / 10) * (KOTAK.kanan - KOTAK.kiri),
@@ -66,15 +67,17 @@ const KARTU: Kartu[] = [
     },
   },
   {
+    id: 'bakteri', gambar: 'turunan/bakteri-cawan.jpg',
     judul: 'Bakteri di cawan',
-    isi: 'Jumlahnya N(t) = 200·e^(t/2). Lajunya selalu setengah dari jumlahnya sendiri, jadi makin banyak makin cepat.',
+    isi: 'Jumlahnya N(t) = 200 · e^(t/2). Lajunya selalu setengah dari jumlahnya sendiri, jadi makin banyak makin cepat.',
     tanda: 'laju sebanding dengan jumlahnya',
     jalur: jalurKartu(bakteri, 0, 4, 0, 1600),
   },
   {
+    id: 'kaleng', gambar: 'turunan/kaleng.jpg',
     judul: 'Kaleng paling hemat pelat',
     isi: 'Isinya dipatok 1 liter. Luas pelatnya L(r) = 2πr² + 2000/r, dan turunannya nol saat tinggi kaleng sama dengan diameternya.',
-    tanda: 'paling hemat di r kira-kira 5,42 cm',
+    tanda: 'paling hemat di r ≈ 5,42 cm',
     jalur: jalurKartu(luasKaleng, 3, 9, 500, 900),
     titik: {
       x: KOTAK.kiri + ((5.42 - 3) / 6) * (KOTAK.kanan - KOTAK.kiri),
@@ -82,8 +85,9 @@ const KARTU: Kartu[] = [
     },
   },
   {
+    id: 'biaya', gambar: 'turunan/biaya-barang.jpg',
     judul: 'Biaya membuat satu barang lagi',
-    isi: 'Biaya totalnya 2.000.000 + 15.000x + 20x². Turunannya disebut biaya marginal, dan angkanya naik seiring produksi.',
+    isi: 'Biaya totalnya B(x) = 2.000.000 + 15.000x + 20x². Turunannya disebut biaya marginal, dan angkanya naik seiring produksi.',
     tanda: 'di barang ke-100, tambahannya 19.000 rupiah',
     jalur: jalurKartu(biayaMarginal, 0, 200, 14000, 24000),
     titik: {
@@ -93,37 +97,37 @@ const KARTU: Kartu[] = [
   },
 ]
 
-export default function DuniaNyataTurunan() {
+function Grafik({ k }: { k: Kartu }) {
   return (
-    <div style={{ display: 'grid', gap: 14 }}>
-      {KARTU.map((k) => (
-        <figure key={k.judul} className="blok" style={{ margin: 0 }}>
-          <div className="cap">{k.judul}</div>
-          <svg viewBox={`0 0 ${KOTAK.lebar} ${KOTAK.tinggi}`} role="img"
-               aria-label={`Bentuk kurva untuk ${k.judul}. ${k.tanda}.`}
-               style={{ width: '100%', height: 'auto', maxWidth: 320 }}>
-            <line x1={KOTAK.kiri} y1={KOTAK.bawah} x2={KOTAK.kanan} y2={KOTAK.bawah}
-                  stroke="#D6CDBC" strokeWidth={1.2} />
-            <line x1={KOTAK.kiri} y1={KOTAK.atas - 4} x2={KOTAK.kiri} y2={KOTAK.bawah}
-                  stroke="#D6CDBC" strokeWidth={1.2} />
-            <path d={k.jalur} fill="none" stroke={WARNA.miring} strokeWidth={2}
-                  strokeLinecap="round" />
-            {k.titik && (
-              <>
-                <line x1={k.titik.x} y1={k.titik.y} x2={k.titik.x} y2={KOTAK.bawah}
-                      stroke={WARNA.sudut} strokeWidth={1} strokeDasharray="3 3" opacity={0.7} />
-                <circle cx={k.titik.x} cy={k.titik.y} r={3.4} fill={WARNA.sudut} />
-              </>
-            )}
-          </svg>
-          <figcaption style={{ margin: 0 }}>
-            <p style={{ margin: '0.4rem 0 0.3rem' }}>{k.isi}</p>
-            <span style={{ fontFamily: MONO, fontSize: '0.78rem', color: WARNA.sudut }}>
-              {k.tanda}
-            </span>
-          </figcaption>
-        </figure>
-      ))}
-    </div>
+    <svg viewBox={`0 0 ${KOTAK.lebar} ${KOTAK.tinggi}`} role="img"
+         aria-label={`Bentuk kurva untuk ${k.judul}. ${k.tanda}.`}>
+      <line x1={KOTAK.kiri} y1={KOTAK.bawah} x2={KOTAK.kanan} y2={KOTAK.bawah}
+            stroke="#D6CDBC" strokeWidth={1.2} />
+      <line x1={KOTAK.kiri} y1={KOTAK.atas - 4} x2={KOTAK.kiri} y2={KOTAK.bawah}
+            stroke="#D6CDBC" strokeWidth={1.2} />
+      <path d={k.jalur} fill="none" stroke={WARNA.miring} strokeWidth={2}
+            strokeLinecap="round" />
+      {k.titik && (
+        <>
+          <line x1={k.titik.x} y1={k.titik.y} x2={k.titik.x} y2={KOTAK.bawah}
+                stroke={WARNA.sudut} strokeWidth={1} strokeDasharray="3 3" opacity={0.7} />
+          <circle cx={k.titik.x} cy={k.titik.y} r={3.4} fill={WARNA.sudut} />
+        </>
+      )}
+    </svg>
   )
+}
+
+const KARTU_NYATA: KartuNyata[] = KARTU.map((k, i) => ({
+  id: k.id,
+  gambar: k.gambar,
+  nomor: String(i + 1).padStart(2, '0'),
+  judul: k.judul,
+  inti: k.isi,
+  rumus: k.tanda,
+  grafik: <Grafik k={k} />,
+}))
+
+export default function DuniaNyataTurunan() {
+  return <GaleriNyata kartu={KARTU_NYATA} />
 }

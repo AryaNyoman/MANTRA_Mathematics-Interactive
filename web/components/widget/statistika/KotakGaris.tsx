@@ -9,6 +9,7 @@ import { propTitikSeret, useSeret } from '@/components/widget/statistika/seret'
 import { ringkasTunggal } from '@/components/widget/statistika/statistik'
 import { keterangan, tunggal } from '@/content/statistika/data'
 import type { PropWidget } from '@/components/widget/statistika/jenis'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Tahap 7. Boxplot yang terbentuk dari titik datanya sendiri.
@@ -147,41 +148,34 @@ export default function KotakGaris({ children }: PropWidget) {
             <button onClick={() => setData(D.data)}>Kembalikan semula</button>
           </div>
         </div>
-        <Petunjuk>
-            {pagar
+        <Petunjuk><TeksMat teks={`${pagar
               ? r.pencilan.length > 0
                 ? `${r.pencilan.length} titik di luar pagar, ditandai warna bata dan tidak dijangkau kumisnya`
                 : 'tidak ada titik yang jatuh di luar pagar'
-              : 'seret titik paling kanan mendekat. Kumisnya memendek, tetapi kotaknya nyaris tidak berubah'}
-          </Petunjuk>
+              : 'seret titik paling kanan mendekat. Kumisnya memendek, tetapi kotaknya nyaris tidak berubah'}`} blok={false} /></Petunjuk>
       </div>
     </>
   )
 
   const kanan = (
     <div className="blok">
-      <div className="cap">Ringkasan lima angka</div>
+      <div className="cap"><TeksMat teks="Ringkasan lima angka" blok={false} /></div>
       <table className="tabel-angka">
         <tbody>
-          <tr><td>minimum</td><td>{angka(r.min, 1)}</td></tr>
-          <tr><td>Q1</td><td>{angka(r.q1, 2)}</td></tr>
-          <tr className="tegas"><td>median, yaitu Q2</td><td>{angka(r.median, 2)}</td></tr>
-          <tr><td>Q3</td><td>{angka(r.q3, 2)}</td></tr>
-          <tr><td>maksimum</td><td>{angka(r.maks, 1)}</td></tr>
-          <tr className="tegas"><td>JAK = Q3 - Q1</td><td>{angka(r.jak, 2)}</td></tr>
-          <tr><td>jangkauan biasa</td><td>{angka(r.jangkauan, 2)}</td></tr>
+          <tr><td><TeksMat teks="minimum" blok={false} /></td><td>{angka(r.min, 1)}</td></tr>
+          <tr><td><TeksMat teks="Q1" blok={false} /></td><td>{angka(r.q1, 2)}</td></tr>
+          <tr className="tegas"><td><TeksMat teks="median, yaitu Q2" blok={false} /></td><td>{angka(r.median, 2)}</td></tr>
+          <tr><td><TeksMat teks="Q3" blok={false} /></td><td>{angka(r.q3, 2)}</td></tr>
+          <tr><td><TeksMat teks="maksimum" blok={false} /></td><td>{angka(r.maks, 1)}</td></tr>
+          <tr className="tegas"><td><TeksMat teks="JAK = Q3 - Q1" blok={false} /></td><td>{angka(r.jak, 2)}</td></tr>
+          <tr><td><TeksMat teks="jangkauan biasa" blok={false} /></td><td>{angka(r.jangkauan, 2)}</td></tr>
           <tr>
-            <td>pencilan menurut pagar</td>
-            <td>{r.pencilan.length > 0 ? r.pencilan.map((v) => angka(v, 1)).join(', ') : 'tidak ada'}</td>
+            <td><TeksMat teks="pencilan menurut pagar" blok={false} /></td>
+            <td><TeksMat teks={`${r.pencilan.length > 0 ? r.pencilan.map((v) => angka(v, 1)).join(', ') : 'tidak ada'}`} blok={false} /></td>
           </tr>
         </tbody>
       </table>
-      <div className="catatan">
-        Bandingkan dua baris tebal dengan jangkauan biasa. Jangkauan sepenuhnya
-        ditentukan oleh dua orang saja, yang paling dekat dan yang paling jauh rumahnya.
-        JAK mengukur setengah data yang di tengah, jadi ia tidak ikut tertipu oleh satu
-        orang yang rumahnya jauh sekali. {keterangan(D)}
-      </div>
+      <div className="catatan"><TeksMat teks={`Bandingkan dua baris tebal dengan jangkauan biasa. Jangkauan sepenuhnya ditentukan oleh dua orang saja, yang paling dekat dan yang paling jauh rumahnya. JAK mengukur setengah data yang di tengah, jadi ia tidak ikut tertipu oleh satu orang yang rumahnya jauh sekali. ${keterangan(D)}`} /></div>
     </div>
   )
 

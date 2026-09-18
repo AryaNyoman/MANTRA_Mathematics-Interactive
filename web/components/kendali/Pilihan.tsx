@@ -1,4 +1,5 @@
 'use client'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Pilihan dari beberapa kemungkinan: tombol segmen dalam satu pil, yang aktif
@@ -25,8 +26,8 @@ export default function Pilihan<T extends string>({
     <div className="kendali-pilihan" role="group" aria-label={nama}>
       <div className="kendali-nama">
         <span>
-          <b>{nama}</b>
-          {arti && <span className="kendali-arti"> · {arti}</span>}
+          <b><TeksMat teks={nama} blok={false} /></b>
+          {arti && <span className="kendali-arti"> · <TeksMat teks={arti} blok={false} /></span>}
         </span>
       </div>
       <div className="pilihan-segmen">
@@ -37,7 +38,7 @@ export default function Pilihan<T extends string>({
             aria-pressed={p.nilai === nilai}
             onClick={() => onPilih(p.nilai)}
           >
-            {p.label}
+            <TeksMat teks={p.label} blok={false} />
           </button>
         ))}
       </div>

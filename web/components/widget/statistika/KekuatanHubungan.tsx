@@ -11,6 +11,7 @@ import { useSeret } from '@/components/widget/statistika/seret'
 import { bentukTrend, regresi } from '@/components/widget/statistika/statistik'
 import { bivariat, keterangan } from '@/content/statistika/data'
 import type { PropWidget } from '@/components/widget/statistika/jenis'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Tahap 12. Angka r, dan batasnya.
@@ -132,33 +133,27 @@ export default function KekuatanHubungan({ children }: PropWidget) {
         <Pilihan nama="Contoh siap pakai" arti="atau seret titiknya sendiri di gambar"
           pilihan={CONTOH.map((c, n) => ({ nilai: String(n), label: c.nama }))}
           nilai={String(pilih)} onPilih={(n) => gantiContoh(Number(n))} />
-        <Petunjuk>
-            {menyesatkan
+        <Petunjuk><TeksMat teks={`${menyesatkan
               ? `r = ${angkaTetap(h.r, 2)}, seolah tidak ada hubungan. Padahal setiap y bisa ditebak sempurna dari x nya. Inilah sebabnya angka r tidak boleh dibaca tanpa gambarnya`
-              : `tanda r menunjukkan arah, besarnya menunjukkan kerapatan titik ke garis`}
-          </Petunjuk>
+              : `tanda r menunjukkan arah, besarnya menunjukkan kerapatan titik ke garis`}`} blok={false} /></Petunjuk>
       </div>
     </>
   )
 
   const kanan = (
     <div className="blok">
-      <div className="cap">{contoh.butir.judul}</div>
+      <div className="cap"><TeksMat teks={`${contoh.butir.judul}`} blok={false} /></div>
       <table className="tabel-angka">
         <tbody>
-          <tr className="tegas"><td>koefisien korelasi r</td><td>{angkaTetap(h.r, 3)}</td></tr>
-          <tr><td>koefisien determinasi r kuadrat</td><td>{angkaTetap(h.r2, 3)}</td></tr>
-          <tr><td>arah</td><td>{trend.arah}</td></tr>
-          <tr><td>bentuk</td><td>{trend.bentuk}</td></tr>
+          <tr className="tegas"><td><TeksMat teks="koefisien korelasi r" blok={false} /></td><td>{angkaTetap(h.r, 3)}</td></tr>
+          <tr><td><TeksMat teks="koefisien determinasi r kuadrat" blok={false} /></td><td>{angkaTetap(h.r2, 3)}</td></tr>
+          <tr><td><TeksMat teks="arah" blok={false} /></td><td><TeksMat teks={`${trend.arah}`} blok={false} /></td></tr>
+          <tr><td><TeksMat teks="bentuk" blok={false} /></td><td><TeksMat teks={`${trend.bentuk}`} blok={false} /></td></tr>
         </tbody>
       </table>
-      <div className="catatan">
-        {menyesatkan
+      <div className="catatan"><TeksMat teks={`${menyesatkan
           ? 'Contoh ini yang paling penting di seluruh materi ini. Angka r nol berarti tidak ada hubungan LURUS, bukan berarti tidak ada hubungan sama sekali.'
-          : `Bacaan r kuadrat: sekitar ${angka(h.r2 * 100, 0)} persen keragaman y bisa dijelaskan oleh garis yang memakai x. Sisanya berasal dari hal lain yang tidak masuk hitungan.`}
-        {' '}Dan sekuat apa pun angkanya, ia tetap tidak membuktikan bahwa yang satu
-        menyebabkan yang lain. {keterangan(contoh.butir)}
-      </div>
+          : `Bacaan r kuadrat: sekitar ${angka(h.r2 * 100, 0)} persen keragaman y bisa dijelaskan oleh garis yang memakai x. Sisanya berasal dari hal lain yang tidak masuk hitungan.`} Dan sekuat apa pun angkanya, ia tetap tidak membuktikan bahwa yang satu menyebabkan yang lain. ${keterangan(contoh.butir)}`} /></div>
     </div>
   )
 

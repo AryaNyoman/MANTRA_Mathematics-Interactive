@@ -7,6 +7,7 @@ import { GARIS_PETAK, GARIS_SUMBU, MONO, PERAN } from '@/components/widget/stati
 import { VH, VW, angka, petak } from '@/components/widget/statistika/skala'
 import { keterangan, tunggal } from '@/content/statistika/data'
 import type { PropWidget } from '@/components/widget/statistika/jenis'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Tahap 13. Data yang sama persis, dua sumbu tegak, dua kesan yang berbeda jauh.
@@ -103,34 +104,26 @@ export default function SumbuJujur({ children }: PropWidget) {
       <div className="kendali">
         <Angka nama="Sumbu kanan mulai dari" arti="0 berarti jujur, makin besar makin banyak yang dipotong" kunci="potong"
           nilai={potong} onUbah={setPotong} min={0} max={MIN_DATA} langkah={5} />
-        <Petunjuk>
-            {potong === 0
+        <Petunjuk><TeksMat teks={`${potong === 0
               ? 'kedua grafik sekarang sama. Naikkan angkanya dan perhatikan grafik kanan mulai berlebihan'
-              : `naik ${angka(MAKS - MIN_DATA, 0)} orang dari ${angka(MIN_DATA, 0)}, sekitar ${angka(((MAKS - MIN_DATA) / MIN_DATA) * 100, 1)} persen. Di grafik kanan kenaikan itu memenuhi hampir seluruh tingginya`}
-          </Petunjuk>
+              : `naik ${angka(MAKS - MIN_DATA, 0)} orang dari ${angka(MIN_DATA, 0)}, sekitar ${angka(((MAKS - MIN_DATA) / MIN_DATA) * 100, 1)} persen. Di grafik kanan kenaikan itu memenuhi hampir seluruh tingginya`}`} blok={false} /></Petunjuk>
       </div>
     </>
   )
 
   const kanan = (
     <div className="blok">
-      <div className="cap">Pengunjung perpustakaan, lima bulan</div>
+      <div className="cap"><TeksMat teks="Pengunjung perpustakaan, lima bulan" blok={false} /></div>
       <table className="tabel-angka">
         <tbody>
           {D.data.map((v, i) => (
-            <tr key={i}><td>{BULAN[i]}</td><td>{v} orang</td></tr>
+            <tr key={i}><td><TeksMat teks={`${BULAN[i]}`} blok={false} /></td><td><TeksMat teks={`${v} orang`} blok={false} /></td></tr>
           ))}
-          <tr className="tegas"><td>selisih terbesar</td><td>{MAKS - MIN_DATA} orang</td></tr>
-          <tr><td>naiknya</td><td>{angka(((MAKS - MIN_DATA) / MIN_DATA) * 100, 1)}%</td></tr>
+          <tr className="tegas"><td><TeksMat teks="selisih terbesar" blok={false} /></td><td><TeksMat teks={`${MAKS - MIN_DATA} orang`} blok={false} /></td></tr>
+          <tr><td><TeksMat teks="naiknya" blok={false} /></td><td>{angka(((MAKS - MIN_DATA) / MIN_DATA) * 100, 1)}%</td></tr>
         </tbody>
       </table>
-      <div className="catatan">
-        Kedua grafik memakai angka yang sama persis, dan tidak ada satu pun yang salah.
-        Yang berbeda cuma dari angka berapa sumbu-y dimulai. Memotong sumbu tidak
-        selalu curang, misalnya untuk suhu tubuh justru wajib. Yang membedakan curang
-        dan tidak adalah apakah pemotongan itu diberitahukan dengan jelas.
-        {' '}{keterangan(D)}
-      </div>
+      <div className="catatan"><TeksMat teks={`Kedua grafik memakai angka yang sama persis, dan tidak ada satu pun yang salah. Yang berbeda cuma dari angka berapa sumbu-y dimulai. Memotong sumbu tidak selalu curang, misalnya untuk suhu tubuh justru wajib. Yang membedakan curang dan tidak adalah apakah pemotongan itu diberitahukan dengan jelas. ${keterangan(D)}`} /></div>
     </div>
   )
 

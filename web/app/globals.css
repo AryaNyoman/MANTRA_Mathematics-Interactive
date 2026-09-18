@@ -1384,10 +1384,22 @@ video::cue(b) { font-weight: 700; }
 .kartu-nyata h3 { margin: 0 0 7px; font-size: 17px; color: var(--tinta); }
 .kartu-nyata p { margin: 0 0 10px; font-size: 14px; line-height: 1.6; color: var(--tinta); }
 .nyata-rumus {
-  display: block; font-size: 12px; color: var(--redup);
+  display: block; font-size: 12.5px; color: var(--redup); line-height: 1.5;
   background: var(--kertas); border: 1px solid var(--garis);
   border-radius: 6px; padding: 7px 9px; white-space: normal;
 }
+.nyata-rumus .katex { font-size: 1.1em; color: var(--tinta); }
+/* Grafik kecil di bawah foto (Limit, Turunan, Integral; pilihan ARYA 18 Sep
+   2026): bentuk kurvanya adalah inti contohnya, fotonya menunjukkan di mana. */
+.grafik-nyata { border-bottom: 1px solid var(--garis); background: var(--petak); padding: 6px 10px 2px; }
+.grafik-nyata svg { display: block; width: 100%; height: auto; max-height: 6.5rem; }
+/* Kredit foto: syarat lisensi CC BY dan CC BY-SA, ditulis kecil di kaki
+   kartu, dengan tautan ke halaman Wikimedia Commons-nya. */
+.nyata-kredit {
+  display: block; margin-top: 8px; font-family: var(--font-mono), system-ui, sans-serif;
+  font-size: 10.5px; letter-spacing: 0.02em; color: var(--tinta-50, var(--redup)); line-height: 1.5;
+}
+.nyata-kredit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
 /* Aturan lama untuk cuplikan layar di korsel DIHAPUS. Ukuran klip sekarang
    diatur oleh `.demo-panggung` yang dikunci 16:9 beserta `.demo-slide` di
@@ -1498,103 +1510,109 @@ video::cue(b) { font-weight: 700; }
 }
 
 /* ============================================================
-   Widget topik Limit yang berupa susunan langkah, bukan gambar
-   (Mesin Sifat di Materi 05, Bongkar Bertahap di Materi 06)
-   Ditaruh di dalam .isi-gulir, seperti widget Dunia Nyata.
+   LEMBAR KERJA: widget yang berupa susunan langkah, bukan gambar
+   (Limit 05 Mesin Sifat, Limit 06 Bongkar Bertahap, Integral 03 Cocokkan
+   Lapisan, 04 Pasangkan, 08 Hitung Bertahap). Komponen bersama
+   components/widget/Lembar.tsx. Diganti 18 Sep 2026 (ARYA: panel lama
+   terlihat seperti gambar kosong dan hancur saat kolom alat disempitkan).
+   Lebar kolom nama mengikuti lebar PANEL (container query), bukan lebar
+   layar: kolom alat 300 px di laptop pun dapat susunan sempit.
    ============================================================ */
 
-.mesin, .bongkar { font-size: 14px; }
+.lembar { container-type: inline-size; font-size: 14px; }
 
-.mesin-soal, .bongkar-soal {
-  font-family: var(--font-mono), system-ui, sans-serif; font-size: 15px;
-  color: var(--tinta); background: var(--petak);
-  border: 1px solid var(--garis); border-radius: 9px; padding: 11px 14px;
+.lembar-kepala { display: grid; gap: 6px; }
+.lembar-soal {
+  font-size: 15.5px; color: var(--tinta); background: var(--petak);
+  border: 1px solid var(--garis); border-radius: 9px; padding: 10px 14px;
+  line-height: 1.6;
 }
-
-.bongkar-atas { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-.bongkar-atas .bongkar-soal { flex: 1 1 20rem; }
-.bongkar-cara {
+.lembar-soal .katex { font-size: 1.12em; }
+.lembar-cara, .lembar-judul {
   font-family: var(--font-mono), system-ui, sans-serif; font-size: 10.5px;
   letter-spacing: 0.08em; text-transform: uppercase; color: var(--hijau);
 }
+.lembar-cara .katex, .lembar-judul .katex { text-transform: none; letter-spacing: 0; font-size: 1.25em; }
+.lembar-judul { margin-top: 14px; }
 
-.mesin-langkah, .bongkar-baris { list-style: none; margin: 14px 0 0; padding: 0; }
-.mesin-langkah > li + li, .bongkar-baris > li + li { margin-top: 10px; }
-
-.mesin-langkah > li {
-  border-left: 3px solid var(--hijau); padding: 2px 0 2px 12px;
+.lembar-langkah { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 6px; }
+.lembar-langkah > li {
+  display: grid; grid-template-columns: 1.5rem minmax(6.5rem, 8.5rem) minmax(0, 1fr);
+  column-gap: 10px; row-gap: 3px; align-items: baseline;
+  padding: 7px 9px; border-radius: 9px; border: 1px solid transparent;
+  transition: background-color var(--d-umpan) var(--kurva), opacity var(--d-umpan) var(--kurva);
 }
-.mesin-cap {
-  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10px;
-  letter-spacing: 0.09em; text-transform: uppercase; color: var(--hijau);
+.lembar-langkah > li[data-terkini='true'] { background: var(--petak); border-color: var(--garis); }
+.lembar-langkah > li[data-buka='false'] { opacity: 0.5; }
+.lembar-no {
+  width: 1.5rem; height: 1.5rem; border-radius: 50%; align-self: start;
+  display: grid; place-items: center;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 11px; font-weight: 600;
+  background: var(--tinta); color: var(--kertas);
 }
-.mesin-bentuk {
-  font-family: var(--font-mono), system-ui, sans-serif; font-size: 14px;
-  margin: 3px 0 4px; color: var(--tinta); overflow-wrap: anywhere;
+.lembar-langkah > li[data-buka='false'] .lembar-no {
+  background: transparent; color: var(--redup); border: 1px dashed var(--garis);
 }
-.mesin-catatan { font-size: 13px; line-height: 1.55; color: #3A3630; }
-
-.mesin-tanya { margin: 14px 0 8px; font-size: 14px; color: #3A3630; }
-
-.mesin-tolak {
-  margin-top: 14px; border-left: 3px solid var(--bata); background: #FBF3EF;
-  border-radius: 0 9px 9px 0; padding: 11px 14px;
+.lembar-nama {
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10.5px;
+  letter-spacing: 0.07em; text-transform: uppercase; color: var(--redup);
+  line-height: 1.5; padding-top: 2px;
 }
-.mesin-tolak p { margin: 5px 0 0; font-size: 13.5px; line-height: 1.6; }
-
-.mesin-selesai {
-  margin-top: 14px; border-left: 3px solid var(--hijau); background: #EFF4F1;
-  border-radius: 0 9px 9px 0; padding: 11px 14px; font-size: 14px;
-}
-
-.mesin-pilihan { margin-top: 4px; }
-
-/* --- Bongkar Bertahap --- */
-.bongkar-baris > li {
-  display: grid; grid-template-columns: 8.5rem 1fr; gap: 4px 12px;
-  align-items: baseline;
-}
-.bongkar-nama {
-  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10px;
-  letter-spacing: 0.08em; text-transform: uppercase; color: var(--redup);
-  text-align: right;
-}
-.bongkar-teks {
-  font-family: var(--font-mono), system-ui, sans-serif; font-size: 14px;
-  color: var(--tinta); overflow-wrap: anywhere;
-}
-.bongkar-syarat {
-  grid-column: 2; font-size: 12.5px; line-height: 1.5; color: var(--sisi-sudut);
+.lembar-nama .katex { text-transform: none; letter-spacing: 0; font-size: 1.2em; }
+.lembar-nama-kosong { font-style: italic; letter-spacing: 0.04em; }
+.lembar-teks { font-size: 14.5px; color: var(--tinta); line-height: 1.6; overflow-wrap: anywhere; }
+.lembar-teks .katex { font-size: 1.08em; }
+.lembar-nanti { color: var(--redup); letter-spacing: 0.15em; }
+.lembar-syarat {
+  grid-column: 3; font-size: 12.5px; line-height: 1.5; color: var(--sisi-sudut);
   border-left: 2px solid var(--sisi-sudut); padding-left: 9px;
 }
-.bongkar-sisa {
-  margin-top: 14px; font-family: var(--font-mono), system-ui, sans-serif;
-  font-size: 10.5px; letter-spacing: 0.08em; color: var(--redup);
+/* Panel sempit: nama langkah di atas isinya, nomor tetap di kiri. */
+@container (max-width: 27rem) {
+  .lembar-langkah > li { grid-template-columns: 1.5rem minmax(0, 1fr); }
+  .lembar-nama { grid-column: 2; padding-top: 4px; }
+  .lembar-teks, .lembar-nanti, .lembar-syarat { grid-column: 2; }
 }
 
-/* Layar sempit: kolom nama langkah pindah ke atas supaya rumusnya tidak
-   terjepit jadi satu huruf per baris. */
-@media (max-width: 640px) {
-  .bongkar-baris > li { grid-template-columns: 1fr; }
-  .bongkar-nama { text-align: left; }
-  .bongkar-syarat { grid-column: 1; }
+.lembar-sisa {
+  margin-top: 12px; display: grid; gap: 6px;
+  font-family: var(--font-mono), system-ui, sans-serif; font-size: 10.5px;
+  letter-spacing: 0.06em; color: var(--redup); line-height: 1.5;
 }
+.lembar-sisa-bar { display: block; height: 3px; border-radius: 2px; background: var(--garis); overflow: hidden; }
+.lembar-sisa-bar > span { display: block; height: 100%; background: var(--emas); transition: width var(--d-umpan) var(--kurva); }
 
-/* --- galeri Materi 10 Limit dan Materi 14 Statistika: grafik digambar sendiri --- */
-.galeri-limit , .galeri-statistika {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 18px;
+.lembar-selesai {
+  margin-top: 12px; border-left: 3px solid var(--hijau); background: #EFF4F1;
+  border-radius: 0 9px 9px 0; padding: 10px 14px; font-size: 14px; line-height: 1.6;
 }
-.galeri-limit figure , .galeri-statistika figure {
-  margin: 0; border: 1px solid var(--garis); border-radius: 12px;
-  background: var(--kartu); overflow: hidden;
+.lembar-tolak {
+  margin-top: 12px; border-left: 3px solid var(--bata); background: #FBF3EF;
+  border-radius: 0 9px 9px 0; padding: 10px 14px; font-size: 14px;
 }
-.galeri-limit svg , .galeri-statistika svg { display: block; width: 100%; height: auto; background: var(--petak); }
-.galeri-limit figcaption , .galeri-statistika figcaption { padding: 11px 14px 13px; }
-.galeri-limit figcaption b , .galeri-statistika figcaption b { font-size: 14.5px; }
-.galeri-limit figcaption p , .galeri-statistika figcaption p { margin: 5px 0 7px; font-size: 13px; line-height: 1.55; color: #3A3630; }
-.galeri-limit figcaption span , .galeri-statistika figcaption span {
-  font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--hijau);
+.lembar-tolak p { margin: 4px 0 0; font-size: 13.5px; line-height: 1.6; }
+.lembar-pilihan { margin-top: 12px; }
+.lembar-tanya { margin: 0 0 8px; font-size: 14px; color: #3A3630; }
+
+/* Kisi kartu pasangan (Integral 04): fungsi dan antiturunannya di satu
+   kartu, dua kolom saat panel lebar, satu kolom saat sempit. */
+.pasangan { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+@container (max-width: 27rem) { .pasangan { grid-template-columns: 1fr; } }
+.pasangan > li {
+  display: grid; gap: 3px; align-content: start;
+  padding: 9px 11px; border-radius: 9px; border: 1px solid var(--garis); background: var(--kertas);
+  transition: border-color var(--d-umpan) var(--kurva), box-shadow var(--d-umpan) var(--kurva);
 }
+.pasangan > li[data-nyala='true'] { border-color: var(--emas); box-shadow: 0 0 0 2px rgba(176, 138, 62, 0.22); }
+.pasangan > li[data-cocok='true'] { border-color: var(--hijau); }
+.pasangan > li[data-cocok='false'] { border-color: var(--bata); }
+.pasangan-f { font-size: 15px; color: var(--tinta); }
+.pasangan-f .katex, .pasangan-anti .katex { font-size: 1.1em; }
+.pasangan-anti { font-size: 15px; color: var(--tinta); }
+.pasangan-belum { font-size: 12.5px; font-style: italic; color: var(--redup); }
+.pasangan-cek { font-size: 12px; line-height: 1.5; color: var(--sisi-sudut); }
+.pasangan > li[data-cocok='true'] .pasangan-cek { color: var(--hijau); }
+.pasangan > li[data-cocok='false'] .pasangan-cek { color: var(--bata); }
 
 /* Tiga kata kerja di slogan beranda: ditebalkan dan diberi warna aksen situs.
    Memakai --hijau, aksen SITUS, bukan warna matematika. Warna matematika
@@ -3399,6 +3417,19 @@ body[data-jendela='true'] [data-panggung] { transform: scale(var(--skala-panggun
 .cap .katex, .sesi-judul .katex, .judul-poin .katex { text-transform: none; letter-spacing: 0; }
 .cap .katex { font-size: 1.3em; }
 .sel-contoh .mat-baris .katex { font-size: 1.1em; line-height: 1.4; }
+/* Teks ALAT (kendali, tabel angka, catatan, panel teks) ikut KaTeX sejak
+   18 Sep 2026 (ARYA: alat belum bergaya bank soal). Di kolom yang sempit
+   satu rumus tidak boleh patah di tengah (KaTeX memecah "m(x - x₁)" di
+   tanda kurang); prosa di sekitarnya yang membungkus. */
+.materi-satu-layar .kendali-nama .katex, .materi-satu-layar .pilihan-segmen .katex,
+.materi-satu-layar .tabel-angka td:first-child .katex, .materi-satu-layar .cap .katex,
+.lembar-nama .katex, .lembar-cara .katex { white-space: nowrap; }
+/* Nilai tabel dan kalimat panjang boleh patah di antara potongan KaTeX
+   (sesudah tanda = atau +) kalau memang tidak muat: rumus "(1 + 3, 1 - 2)
+   = (4, -1)" pada baris tegas 20 px sempat meluber 20 px keluar kolom. */
+.materi-satu-layar .tabel-angka td:last-child { white-space: normal; }
+.kendali-nama .katex, .pilihan-segmen .katex, .kendali-petunjuk .katex, .tabel-angka .katex,
+.materi-satu-layar .catatan .katex { font-size: 1.06em; }
 .sel-contoh:has(.katex-display), .sel-contoh:has(.mfrac), .sel-contoh:has(.mop) { padding: 5px 0; }
 .contoh-tabel { row-gap: 3px; }
 .bacaan .mat-blok .katex { font-size: 1.12em; }

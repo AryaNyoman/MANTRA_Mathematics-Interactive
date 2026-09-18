@@ -8,6 +8,7 @@ import { TEPI, angka, keLayar, kotak } from '@/components/widget/statistika/skal
 import { kelompokkan, ringkasTunggal } from '@/components/widget/statistika/statistik'
 import { keterangan, tunggal } from '@/content/statistika/data'
 import type { PropWidget } from '@/components/widget/statistika/jenis'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Tahap 3. Data yang sama, lebar kelas berbeda, bentuk histogram berbeda.
@@ -68,37 +69,30 @@ export default function LebarKelas({ children }: PropWidget) {
         <Pilihan nama="Lebar kelas" arti={`jadi ${kelas.length} kelas`}
           pilihan={LEBAR_PILIHAN.map((l, i) => ({ nilai: String(i), label: `${l} cm` }))}
           nilai={String(pilihan)} onPilih={(n) => setPilihan(Number(n))} />
-        <Petunjuk>
-            {lebar <= 2
+        <Petunjuk><TeksMat teks={`${lebar <= 2
               ? 'terlalu sempit. Tiap batang cuma berisi satu dua siswa, dan polanya tenggelam di antara gerigi'
               : lebar >= 8
                 ? 'terlalu lebar. Rapi, tetapi tumpukan siswa di sekitar 160 sampai 170 sudah tidak terlihat lagi'
-                : 'di rentang ini polanya paling terbaca: siswa menumpuk di sekitar 160 sampai 170 cm'}
-          </Petunjuk>
+                : 'di rentang ini polanya paling terbaca: siswa menumpuk di sekitar 160 sampai 170 cm'}`} blok={false} /></Petunjuk>
       </div>
     </>
   )
 
   const kanan = (
     <div className="blok">
-      <div className="cap">Tabel frekuensi, lebar kelas {lebar} cm</div>
+      <div className="cap"><TeksMat teks={`Tabel frekuensi, lebar kelas ${lebar} cm`} blok={false} /></div>
       <table className="tabel-angka">
         <tbody>
           {kelas.map((kl, i) => (
             <tr key={i}>
-              <td>{kl.bawah} sampai {kl.atas}</td>
+              <td><TeksMat teks={`${kl.bawah} sampai ${kl.atas}`} blok={false} /></td>
               <td>{kl.f}</td>
             </tr>
           ))}
-          <tr className="tegas"><td>jumlah</td><td>{D.data.length}</td></tr>
+          <tr className="tegas"><td><TeksMat teks="jumlah" blok={false} /></td><td>{D.data.length}</td></tr>
         </tbody>
       </table>
-      <div className="catatan">
-        Datanya tidak berubah sedikit pun saat penggesernya digerakkan. Yang berubah cuma
-        cara mengelompokkannya. Nilai terkecil tetap {angka(R.min, 0)} cm, terbesar
-        tetap {angka(R.maks, 0)} cm, dan rata-ratanya tetap {angka(R.mean, 1)} cm.
-        {' '}{keterangan(D)}
-      </div>
+      <div className="catatan"><TeksMat teks={`Datanya tidak berubah sedikit pun saat penggesernya digerakkan. Yang berubah cuma cara mengelompokkannya. Nilai terkecil tetap ${angka(R.min, 0)} cm, terbesar tetap ${angka(R.maks, 0)} cm, dan rata-ratanya tetap ${angka(R.mean, 1)} cm. ${keterangan(D)}`} /></div>
     </div>
   )
 

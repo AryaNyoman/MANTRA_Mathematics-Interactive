@@ -23,6 +23,7 @@ import {
 import { angka } from '@/components/widget/transformasi-geometri/papan'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Kembalikan, Koordinat, Petunjuk, Pilihan } from '@/components/kendali'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Panggung Transformasi Geometri: penyetelan widgetnya, dan tidak lebih.
@@ -129,19 +130,15 @@ const PASANGAN: { nama: string; t1: Transformasi; t2: Transformasi }[] = [
 function TabelMatriks({ m, judul }: { m: Matriks | null; judul: string }) {
   return (
     <div className="blok">
-      <div className="cap">{judul}</div>
+      <div className="cap"><TeksMat teks={`${judul}`} blok={false} /></div>
       {m === null ? (
-        <div className="catatan">
-          Tidak ada. Transformasi ini memindahkan titik asal, sedangkan perkalian matriks
-          apa pun selalu memetakan titik asal ke titik asal. Jadi matriks 2x2 pengalinya
-          memang tidak mungkin ada, bukan cuma belum ditemukan.
-        </div>
+        <div className="catatan"><TeksMat teks="Tidak ada. Transformasi ini memindahkan titik asal, sedangkan perkalian matriks apa pun selalu memetakan titik asal ke titik asal. Jadi matriks 2x2 pengalinya memang tidak mungkin ada, bukan cuma belum ditemukan." /></div>
       ) : (
         <table className="tabel-angka">
           <tbody>
-            <tr><td>baris pertama</td><td>{angka(m.a, 3)} &nbsp; {angka(m.b, 3)}</td></tr>
-            <tr><td>baris kedua</td><td>{angka(m.c, 3)} &nbsp; {angka(m.d, 3)}</td></tr>
-            <tr className="tegas"><td>determinan</td><td>{angka(determinan(m), 3)}</td></tr>
+            <tr><td><TeksMat teks="baris pertama" blok={false} /></td><td><TeksMat teks={`${angka(m.a, 3)}   ${angka(m.b, 3)}`} blok={false} /></td></tr>
+            <tr><td><TeksMat teks="baris kedua" blok={false} /></td><td><TeksMat teks={`${angka(m.c, 3)}   ${angka(m.d, 3)}`} blok={false} /></td></tr>
+            <tr className="tegas"><td><TeksMat teks="determinan" blok={false} /></td><td>{angka(determinan(m), 3)}</td></tr>
           </tbody>
         </table>
       )}
@@ -159,7 +156,7 @@ function TabelMatriks({ m, judul }: { m: Matriks | null; judul: string }) {
 function TabelSudut({ peta, judul }: { peta: Titik[]; judul: string }) {
   return (
     <div className="blok">
-      <div className="cap">{judul}</div>
+      <div className="cap"><TeksMat teks={`${judul}`} blok={false} /></div>
       <table className="tabel-angka">
         <tbody>
           {SUDUT_BERNAMA.map((s) => {
@@ -168,8 +165,8 @@ function TabelSudut({ peta, judul }: { peta: Titik[]; judul: string }) {
             if (!t || !q) return null
             return (
               <tr key={s.nama} className={s.nama === 'A' ? 'tegas' : undefined}>
-                <td>{s.nama} ({angka(t.x, 1)}, {angka(t.y, 1)})</td>
-                <td>{s.nama}&#39; ({angka(q.x, 1)}, {angka(q.y, 1)})</td>
+                <td><TeksMat teks={`${s.nama} (${angka(t.x, 1)}, ${angka(t.y, 1)})`} blok={false} /></td>
+                <td><TeksMat teks={`${s.nama}' (${angka(q.x, 1)}, ${angka(q.y, 1)})`} blok={false} /></td>
               </tr>
             )
           })}
@@ -440,11 +437,9 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
                 pilihan={PASANGAN.map((p, i) => ({ nilai: String(i), label: p.nama }))} nilai={String(pasangan)} onPilih={(n) => setPasangan(Number(n))} />
               <Pilihan nama="Urutan" arti="mana yang dikerjakan lebih dulu"
                 pilihan={[{ nilai: 'asli', label: 'seperti tertulis' }, { nilai: 'balik', label: 'ditukar' }]} nilai={dibalik ? 'balik' : 'asli'} onPilih={(n) => setDibalik(n === 'balik')} />
-              <Petunjuk>
-                {tahap.widget === 'urutan-matriks'
+              <Petunjuk><TeksMat teks={`${tahap.widget === 'urutan-matriks'
                   ? 'bentuk biru dan merah datang dari dua transformasi yang sama persis, cuma berbeda urutan.'
-                  : 'bentuk yang paling samar adalah hasil langkah pertama. Itu persinggahan, bukan jawaban.'}
-              </Petunjuk>
+                  : 'bentuk yang paling samar adalah hasil langkah pertama. Itu persinggahan, bukan jawaban.'}`} blok={false} /></Petunjuk>
             </div>
           </>
         )}
@@ -463,39 +458,30 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
           <>
             <TabelSudut peta={petaBebas} judul="Prapeta dan petanya" />
             <div className="blok">
-              <div className="cap">Yang berubah dan yang tidak</div>
+              <div className="cap"><TeksMat teks="Yang berubah dan yang tidak" blok={false} /></div>
               <table className="tabel-angka">
                 <tbody>
                   <tr>
-                    <td>panjang AB</td>
-                    <td>
-                      {angka(jarak(BENTUK_L[0], BENTUK_L[1]), 2)} menjadi{' '}
-                      {angka(jarak(petaBebas[0], petaBebas[1]), 2)}
-                    </td>
+                    <td><TeksMat teks="panjang AB" blok={false} /></td>
+                    <td><TeksMat teks={`${angka(jarak(BENTUK_L[0], BENTUK_L[1]), 2)} menjadi ${angka(jarak(petaBebas[0], petaBebas[1]), 2)}`} blok={false} /></td>
                   </tr>
                   <tr>
-                    <td>luas bentuknya</td>
-                    <td>
-                      {angka(luasPoligon(BENTUK_L), 2)} menjadi {angka(luasPoligon(petaBebas), 2)}
-                    </td>
+                    <td><TeksMat teks="luas bentuknya" blok={false} /></td>
+                    <td><TeksMat teks={`${angka(luasPoligon(BENTUK_L), 2)} menjadi ${angka(luasPoligon(petaBebas), 2)}`} blok={false} /></td>
                   </tr>
                   <tr className="tegas">
-                    <td>arah putar A ke B ke C</td>
-                    <td>
-                      {arahPutarPoligon(petaBebas) === arahPutarPoligon(BENTUK_L)
+                    <td><TeksMat teks="arah putar A ke B ke C" blok={false} /></td>
+                    <td><TeksMat teks={`${arahPutarPoligon(petaBebas) === arahPutarPoligon(BENTUK_L)
                         ? 'tetap'
-                        : 'berbalik'}
-                    </td>
+                        : 'berbalik'}`} blok={false} /></td>
                   </tr>
                 </tbody>
               </table>
-              <div className="catatan">
-                {PILIHAN_MATERI_1[pilihan1].t.jenis === 'dilatasi'
+              <div className="catatan"><TeksMat teks={`${PILIHAN_MATERI_1[pilihan1].t.jenis === 'dilatasi'
                   ? 'Hanya dilatasi yang mengubah panjang dan luas. Empat pilihan lain menjaga keduanya, dan itu yang membuat keempatnya satu keluarga.'
                   : arahPutarPoligon(petaBebas) === arahPutarPoligon(BENTUK_L)
                     ? 'Panjang, luas, dan arah putarnya sama-sama tidak berubah. Yang berpindah hanya letaknya.'
-                    : 'Panjang dan luasnya tidak berubah, tetapi arah putarnya berbalik. Hanya pencerminan pada GARIS yang melakukan itu, dan sebabnya dibahas di Materi 08.'}
-              </div>
+                    : 'Panjang dan luasnya tidak berubah, tetapi arah putarnya berbalik. Hanya pencerminan pada GARIS yang melakukan itu, dan sebabnya dibahas di Materi 08.'}`} /></div>
             </div>
           </>
         )}
@@ -504,27 +490,22 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
           <>
             <TabelSudut peta={petaGeser} judul="Setiap koordinat ditambah geserannya" />
             <div className="blok">
-              <div className="cap">Geseran yang sedang dipakai</div>
+              <div className="cap"><TeksMat teks="Geseran yang sedang dipakai" blok={false} /></div>
               <table className="tabel-angka">
                 <tbody>
-                  <tr><td>komponen mendatar</td><td>{angka(geser.x, 1)}</td></tr>
-                  <tr><td>komponen tegak</td><td>{angka(geser.y, 1)}</td></tr>
+                  <tr><td><TeksMat teks="komponen mendatar" blok={false} /></td><td>{angka(geser.x, 1)}</td></tr>
+                  <tr><td><TeksMat teks="komponen tegak" blok={false} /></td><td>{angka(geser.y, 1)}</td></tr>
                   <tr className="tegas">
-                    <td>A ({angka(A.x, 1)}, {angka(A.y, 1)}) menjadi</td>
-                    <td>
-                      ({angka(A.x, 1)} + {angka(geser.x, 1)}, {angka(A.y, 1)} + {angka(geser.y, 1)})
-                      {' = '}({angka(petaGeser[0].x, 1)}, {angka(petaGeser[0].y, 1)})
-                    </td>
+                    <td><TeksMat teks={`A (${angka(A.x, 1)}, ${angka(A.y, 1)}) menjadi`} blok={false} /></td>
+                    <td><TeksMat teks={`(${angka(A.x, 1)} + ${angka(geser.x, 1)}, ${angka(A.y, 1)} + ${angka(geser.y, 1)})${' = '}(${angka(petaGeser[0].x, 1)}, ${angka(petaGeser[0].y, 1)})`} blok={false} /></td>
                   </tr>
                 </tbody>
               </table>
-              <div className="catatan">
-                {geser.x === 0 && geser.y === 0
+              <div className="catatan"><TeksMat teks={`${geser.x === 0 && geser.y === 0
                   ? 'Geserannya nol, jadi petanya menempel tepat di prapetanya. Itu sah: translasi nol memang tidak memindahkan apa pun.'
                   : geser.y < 0
                     ? 'Komponen tegaknya negatif, dan itu berarti nilai y berkurang. Nilai y yang berkurang berarti bentuknya TURUN, bukan naik.'
-                    : 'Perhatikan ketiga baris tabel memakai geseran yang sama persis. Tidak ada titik yang mendapat perlakuan berbeda, dan itu sebabnya garis penghubungnya sejajar.'}
-              </div>
+                    : 'Perhatikan ketiga baris tabel memakai geseran yang sama persis. Tidak ada titik yang mendapat perlakuan berbeda, dan itu sebabnya garis penghubungnya sejajar.'}`} /></div>
             </div>
           </>
         )}
@@ -536,34 +517,24 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               judul={`Cermin pada ${arahCermin === 'tegak' ? 'x' : 'y'} = ${angka(nilaiCermin, 1)}`}
             />
             <div className="blok">
-              <div className="cap">Memeriksa kesamaan jaraknya pada titik A</div>
+              <div className="cap"><TeksMat teks="Memeriksa kesamaan jaraknya pada titik A" blok={false} /></div>
               <table className="tabel-angka">
                 <tbody>
                   <tr>
-                    <td>jarak A ke garis cerminnya</td>
-                    <td>{angka(Math.abs((arahCermin === 'tegak' ? A.x : A.y) - nilaiCermin), 2)}</td>
+                    <td><TeksMat teks="jarak A ke garis cerminnya" blok={false} /></td>
+                    <td><TeksMat teks={`${angka(Math.abs((arahCermin === 'tegak' ? A.x : A.y) - nilaiCermin), 2)}`} blok={false} /></td>
                   </tr>
                   <tr>
-                    <td>jarak garis cermin ke A aksen</td>
-                    <td>
-                      {angka(Math.abs((arahCermin === 'tegak' ? petaLurus[0].x : petaLurus[0].y) - nilaiCermin), 2)}
-                    </td>
+                    <td><TeksMat teks="jarak garis cermin ke A aksen" blok={false} /></td>
+                    <td><TeksMat teks={`${angka(Math.abs((arahCermin === 'tegak' ? petaLurus[0].x : petaLurus[0].y) - nilaiCermin), 2)}`} blok={false} /></td>
                   </tr>
                   <tr className="tegas">
-                    <td>lewat rumus 2k dikurangi koordinatnya</td>
-                    <td>
-                      2({angka(nilaiCermin, 1)}) - {angka(arahCermin === 'tegak' ? A.x : A.y, 1)}
-                      {' = '}
-                      {angka(arahCermin === 'tegak' ? petaLurus[0].x : petaLurus[0].y, 1)}
-                    </td>
+                    <td><TeksMat teks="lewat rumus 2k dikurangi koordinatnya" blok={false} /></td>
+                    <td><TeksMat teks={`2(${angka(nilaiCermin, 1)}) - ${angka(arahCermin === 'tegak' ? A.x : A.y, 1)}${' = '}${angka(arahCermin === 'tegak' ? petaLurus[0].x : petaLurus[0].y, 1)}`} blok={false} /></td>
                   </tr>
                 </tbody>
               </table>
-              <div className="catatan">
-                Kedua baris pertama selalu bernilai sama, di mana pun garis cerminnya diletakkan.
-                Baris ketiga menunjukkan rumusnya cuma jalan pintas untuk kedua baris itu, bukan
-                aturan baru yang perlu dihafal terpisah.
-              </div>
+              <div className="catatan"><TeksMat teks="Kedua baris pertama selalu bernilai sama, di mana pun garis cerminnya diletakkan. Baris ketiga menunjukkan rumusnya cuma jalan pintas untuk kedua baris itu, bukan aturan baru yang perlu dihafal terpisah." /></div>
             </div>
           </>
         )}
@@ -572,12 +543,10 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
           <>
             <TabelSudut peta={petaMiring} judul={`Cermin pada garis ${naik ? 'y = x' : 'y = -x'}`} />
             <div className="blok">
-              <div className="cap">Apa yang terjadi pada koordinatnya</div>
-              <div className="catatan">
-                {naik
+              <div className="cap"><TeksMat teks="Apa yang terjadi pada koordinatnya" blok={false} /></div>
+              <div className="catatan"><TeksMat teks={`${naik
                   ? 'Kedua koordinatnya bertukar tempat, dan tandanya ikut pindah bersama angkanya. Titik yang kebetulan berada DI garis cerminnya tidak berpindah sama sekali, sama seperti kaca tidak memindahkan dirinya sendiri.'
-                  : 'Kedua koordinatnya bertukar tempat, LALU kedua tandanya berbalik. Dua pekerjaan, bukan satu. Bandingkan sendiri dengan pilihan y = x di alatnya: angkanya sama, tandanya yang berbeda.'}
-              </div>
+                  : 'Kedua koordinatnya bertukar tempat, LALU kedua tandanya berbalik. Dua pekerjaan, bukan satu. Bandingkan sendiri dengan pilihan y = x di alatnya: angkanya sama, tandanya yang berbeda.'}`} /></div>
             </div>
           </>
         )}
@@ -589,34 +558,26 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
               judul={`Cermin pada titik (${angka(pusatCermin.x, 1)}, ${angka(pusatCermin.y, 1)})`}
             />
             <div className="blok">
-              <div className="cap">Pusatnya selalu titik tengah</div>
+              <div className="cap"><TeksMat teks="Pusatnya selalu titik tengah" blok={false} /></div>
               <table className="tabel-angka">
                 <tbody>
                   <tr>
-                    <td>rata-rata mendatar A dan A aksen</td>
-                    <td>
-                      ({angka(A.x, 1)} + {angka(petaTitik[0].x, 1)}) : 2 ={' '}
-                      {angka((A.x + petaTitik[0].x) / 2, 2)}
-                    </td>
+                    <td><TeksMat teks="rata-rata mendatar A dan A aksen" blok={false} /></td>
+                    <td><TeksMat teks={`(${angka(A.x, 1)} + ${angka(petaTitik[0].x, 1)}) : 2 = ${angka((A.x + petaTitik[0].x) / 2, 2)}`} blok={false} /></td>
                   </tr>
                   <tr>
-                    <td>rata-rata tegak A dan A aksen</td>
-                    <td>
-                      ({angka(A.y, 1)} + {angka(petaTitik[0].y, 1)}) : 2 ={' '}
-                      {angka((A.y + petaTitik[0].y) / 2, 2)}
-                    </td>
+                    <td><TeksMat teks="rata-rata tegak A dan A aksen" blok={false} /></td>
+                    <td><TeksMat teks={`(${angka(A.y, 1)} + ${angka(petaTitik[0].y, 1)}) : 2 = ${angka((A.y + petaTitik[0].y) / 2, 2)}`} blok={false} /></td>
                   </tr>
                   <tr className="tegas">
-                    <td>pusat yang sedang dipakai</td>
-                    <td>({angka(pusatCermin.x, 1)}, {angka(pusatCermin.y, 1)})</td>
+                    <td><TeksMat teks="pusat yang sedang dipakai" blok={false} /></td>
+                    <td><TeksMat teks={`(${angka(pusatCermin.x, 1)}, ${angka(pusatCermin.y, 1)})`} blok={false} /></td>
                   </tr>
                 </tbody>
               </table>
-              <div className="catatan">
-                {pusatCermin.x === 0 && pusatCermin.y === 0
+              <div className="catatan"><TeksMat teks={`${pusatCermin.x === 0 && pusatCermin.y === 0
                   ? 'Pusatnya di titik asal, jadi kedua tanda koordinatnya berbalik. Ingat gambar ini: di Materi 06 kita akan menemukan rotasi 180 derajat memberi gambar yang sama persis.'
-                  : 'Ketiga baris ini bukan tiga hitungan terpisah. Dua baris pertama menghitung titik tengahnya, dan baris ketiga menunjukkan hasilnya memang pusat yang sedang Anda pegang.'}
-              </div>
+                  : 'Ketiga baris ini bukan tiga hitungan terpisah. Dua baris pertama menghitung titik tengahnya, dan baris ketiga menunjukkan hasilnya memang pusat yang sedang Anda pegang.'}`} /></div>
             </div>
           </>
         )}
@@ -625,32 +586,28 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
           <>
             <TabelSudut peta={petaPutar} judul={`Rotasi ${angka(derajat, 0)} derajat`} />
             <div className="blok">
-              <div className="cap">Jarak ke pusat putarnya tidak berubah</div>
+              <div className="cap"><TeksMat teks="Jarak ke pusat putarnya tidak berubah" blok={false} /></div>
               <table className="tabel-angka">
                 <tbody>
                   <tr>
-                    <td>jarak B ke pusat</td>
+                    <td><TeksMat teks="jarak B ke pusat" blok={false} /></td>
                     <td>{angka(jarak(B, pusatPutar), 3)}</td>
                   </tr>
                   <tr>
-                    <td>jarak B aksen ke pusat</td>
+                    <td><TeksMat teks="jarak B aksen ke pusat" blok={false} /></td>
                     <td>{angka(jarak(petaPutar[1], pusatPutar), 3)}</td>
                   </tr>
                   <tr className="tegas">
-                    <td>panjang sisi AB</td>
-                    <td>
-                      {angka(jarak(A, B), 3)} menjadi {angka(jarak(petaPutar[0], petaPutar[1]), 3)}
-                    </td>
+                    <td><TeksMat teks="panjang sisi AB" blok={false} /></td>
+                    <td><TeksMat teks={`${angka(jarak(A, B), 3)} menjadi ${angka(jarak(petaPutar[0], petaPutar[1]), 3)}`} blok={false} /></td>
                   </tr>
                 </tbody>
               </table>
-              <div className="catatan">
-                {derajat % 360 === 180 || derajat % 360 === -180
+              <div className="catatan"><TeksMat teks={`${derajat % 360 === 180 || derajat % 360 === -180
                   ? 'Setengah putaran. Perhatikan koordinat di tabel atas: keduanya berbalik tanda, persis rumus pencerminan pada titik di Materi 05. Janji yang dibuat di sana terbukti di sini.'
                   : derajat % 90 === 0
                     ? 'Sudut kelipatan 90 derajat memberi koordinat bulat, jadi jawabannya bisa dibaca langsung dari gambar tanpa kalkulator.'
-                    : `Sudut ini bukan kelipatan 90 derajat, jadi koordinatnya tidak lagi bulat. Di sinilah rumus dengan cos dan sin dipakai: cos ${angka(derajat, 0)}° bernilai ${angka(Math.cos((derajat * Math.PI) / 180), 3)} dan sin ${angka(derajat, 0)}° bernilai ${angka(Math.sin((derajat * Math.PI) / 180), 3)}.`}
-              </div>
+                    : `Sudut ini bukan kelipatan 90 derajat, jadi koordinatnya tidak lagi bulat. Di sinilah rumus dengan cos dan sin dipakai: cos ${angka(derajat, 0)}° bernilai ${angka(Math.cos((derajat * Math.PI) / 180), 3)} dan sin ${angka(derajat, 0)}° bernilai ${angka(Math.sin((derajat * Math.PI) / 180), 3)}.`}`} /></div>
             </div>
           </>
         )}
@@ -659,80 +616,60 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
           <>
             <TabelSudut peta={petaBesar} judul={`Dilatasi faktor ${angka(k, 2)}`} />
             <div className="blok">
-              <div className="cap">Yang dikalikan k, dan yang dikalikan k kuadrat</div>
+              <div className="cap"><TeksMat teks="Yang dikalikan k, dan yang dikalikan k kuadrat" blok={false} /></div>
               <table className="tabel-angka">
                 <tbody>
                   <tr>
-                    <td>jarak A ke pusat</td>
-                    <td>
-                      {angka(jarak(A, pusatDilatasi), 2)} menjadi{' '}
-                      {angka(jarak(petaBesar[0], pusatDilatasi), 2)}
-                    </td>
+                    <td><TeksMat teks="jarak A ke pusat" blok={false} /></td>
+                    <td><TeksMat teks={`${angka(jarak(A, pusatDilatasi), 2)} menjadi ${angka(jarak(petaBesar[0], pusatDilatasi), 2)}`} blok={false} /></td>
                   </tr>
                   <tr>
-                    <td>panjang sisi AB</td>
-                    <td>
-                      {angka(jarak(A, B), 2)} menjadi {angka(jarak(petaBesar[0], petaBesar[1]), 2)}
-                    </td>
+                    <td><TeksMat teks="panjang sisi AB" blok={false} /></td>
+                    <td><TeksMat teks={`${angka(jarak(A, B), 2)} menjadi ${angka(jarak(petaBesar[0], petaBesar[1]), 2)}`} blok={false} /></td>
                   </tr>
                   <tr className="tegas">
-                    <td>luas bentuknya</td>
-                    <td>
-                      {angka(luasPoligon(BENTUK_L), 2)} menjadi {angka(luasPoligon(petaBesar), 2)}
-                    </td>
+                    <td><TeksMat teks="luas bentuknya" blok={false} /></td>
+                    <td><TeksMat teks={`${angka(luasPoligon(BENTUK_L), 2)} menjadi ${angka(luasPoligon(petaBesar), 2)}`} blok={false} /></td>
                   </tr>
                 </tbody>
               </table>
-              <div className="catatan">
-                {k === 0
+              <div className="catatan"><TeksMat teks={`${k === 0
                   ? 'Faktor nol meruntuhkan seluruh bentuk ke satu titik, yaitu pusatnya sendiri. Luasnya nol, dan itu benar.'
-                  : `Panjangnya menjadi ${angka(Math.abs(k), 2)} kali, sedangkan luasnya menjadi ${angka(k * k, 2)} kali. Angka kedua adalah kuadrat angka pertama, sebab luas ditentukan dua ukuran sekaligus dan keduanya sama-sama dikalikan k.`}
-              </div>
+                  : `Panjangnya menjadi ${angka(Math.abs(k), 2)} kali, sedangkan luasnya menjadi ${angka(k * k, 2)} kali. Angka kedua adalah kuadrat angka pertama, sebab luas ditentukan dua ukuran sekaligus dan keduanya sama-sama dikalikan k.`}`} /></div>
             </div>
           </>
         )}
 
         {tampilWidget && tahap.widget === 'meja-ukur' && (
           <div className="blok">
-            <div className="cap">Empat ukuran, prapeta dibandingkan petanya</div>
+            <div className="cap"><TeksMat teks="Empat ukuran, prapeta dibandingkan petanya" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
                 <tr>
-                  <td>panjang sisi AB</td>
-                  <td>
-                    {angka(jarak(A, B), 2)} menjadi {angka(jarak(petaUkur[0], petaUkur[1]), 2)}
-                  </td>
+                  <td><TeksMat teks="panjang sisi AB" blok={false} /></td>
+                  <td><TeksMat teks={`${angka(jarak(A, B), 2)} menjadi ${angka(jarak(petaUkur[0], petaUkur[1]), 2)}`} blok={false} /></td>
                 </tr>
                 <tr>
-                  <td>besar sudut di B</td>
-                  <td>
-                    {angka(sudutDi(A, B, C), 1)}° menjadi{' '}
-                    {angka(sudutDi(petaUkur[0], petaUkur[1], petaUkur[2]), 1)}°
-                  </td>
+                  <td><TeksMat teks="besar sudut di B" blok={false} /></td>
+                  <td><TeksMat teks={`${angka(sudutDi(A, B, C), 1)}° menjadi ${angka(sudutDi(petaUkur[0], petaUkur[1], petaUkur[2]), 1)}°`} blok={false} /></td>
                 </tr>
                 <tr>
-                  <td>luas bentuknya</td>
-                  <td>
-                    {angka(luasPoligon(BENTUK_L), 2)} menjadi {angka(luasPoligon(petaUkur), 2)}
-                  </td>
+                  <td><TeksMat teks="luas bentuknya" blok={false} /></td>
+                  <td><TeksMat teks={`${angka(luasPoligon(BENTUK_L), 2)} menjadi ${angka(luasPoligon(petaUkur), 2)}`} blok={false} /></td>
                 </tr>
                 <tr className="tegas">
-                  <td>arah putar A ke B ke C</td>
-                  <td>
-                    {arahPutarPoligon(petaUkur) === arahPutarPoligon(BENTUK_L)
+                  <td><TeksMat teks="arah putar A ke B ke C" blok={false} /></td>
+                  <td><TeksMat teks={`${arahPutarPoligon(petaUkur) === arahPutarPoligon(BENTUK_L)
                       ? 'tetap'
-                      : 'BERBALIK'}
-                  </td>
+                      : 'BERBALIK'}`} blok={false} /></td>
                 </tr>
               </tbody>
             </table>
-            <div className="catatan">
-              {arahPutarPoligon(petaUkur) !== arahPutarPoligon(BENTUK_L)
+            <div className="catatan"><TeksMat teks={`${arahPutarPoligon(petaUkur) !== arahPutarPoligon(BENTUK_L)
                 ? 'Hanya baris terakhir yang berubah. Panjang, sudut, dan luasnya utuh, tetapi urutan A ke B ke C berbalik arah. Itu tanda pengenal pencerminan pada garis, dan itu pula sebabnya bayangan tangan kanan adalah tangan kiri.'
                 : tUkur.jenis === 'dilatasi'
                   ? `Panjang dan luasnya berubah, tetapi sudutnya tidak, dan arah putarnya juga tidak. Bentuknya memang terlihat terjungkir kalau k negatif, tetapi urutan A ke B ke C tetap searah. Dilatasi berfaktor negatif sama dengan dilatasi positif lalu diputar setengah lingkaran, dan setengah putaran tidak membalik urutan.`
-                  : 'Keempat ukurannya tidak berubah sama sekali. Transformasi ini hanya memindahkan bentuknya, tanpa menyentuh bentuk maupun ukurannya.'}
-            </div>
+                  : 'Keempat ukurannya tidak berubah sama sekali. Transformasi ini hanya memindahkan bentuknya, tanpa menyentuh bentuk maupun ukurannya.'}`} /></div>
           </div>
         )}
 
@@ -740,31 +677,26 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
           <>
             <TabelMatriks m={mesin} judul="Matriks yang sedang Anda setel" />
             <div className="blok">
-              <div className="cap">Dibaca lewat kolomnya</div>
+              <div className="cap"><TeksMat teks="Dibaca lewat kolomnya" blok={false} /></div>
               <table className="tabel-angka">
                 <tbody>
                   <tr>
-                    <td>kolom 1, peta dari (1, 0)</td>
-                    <td>({angka(mesin.a, 2)}, {angka(mesin.c, 2)})</td>
+                    <td><TeksMat teks="kolom 1, peta dari (1, 0)" blok={false} /></td>
+                    <td><TeksMat teks={`(${angka(mesin.a, 2)}, ${angka(mesin.c, 2)})`} blok={false} /></td>
                   </tr>
                   <tr>
-                    <td>kolom 2, peta dari (0, 1)</td>
-                    <td>({angka(mesin.b, 2)}, {angka(mesin.d, 2)})</td>
+                    <td><TeksMat teks="kolom 2, peta dari (0, 1)" blok={false} /></td>
+                    <td><TeksMat teks={`(${angka(mesin.b, 2)}, ${angka(mesin.d, 2)})`} blok={false} /></td>
                   </tr>
                   <tr className="tegas">
-                    <td>coba pada titik (3, 2)</td>
-                    <td>
-                      ({angka(kenakan(mesin, { x: 3, y: 2 }).x, 2)},{' '}
-                      {angka(kenakan(mesin, { x: 3, y: 2 }).y, 2)})
-                    </td>
+                    <td><TeksMat teks="coba pada titik (3, 2)" blok={false} /></td>
+                    <td><TeksMat teks={`(${angka(kenakan(mesin, { x: 3, y: 2 }).x, 2)}, ${angka(kenakan(mesin, { x: 3, y: 2 }).y, 2)})`} blok={false} /></td>
                   </tr>
                 </tbody>
               </table>
-              <div className="catatan">
-                {Math.abs(determinan(mesin)) < 1e-9
+              <div className="catatan"><TeksMat teks={`${Math.abs(determinan(mesin)) < 1e-9
                   ? 'Determinannya nol, dan itu berarti kedua panahnya segaris. Perseginya runtuh jadi ruas, luasnya nol, dan transformasi seperti ini tidak bisa dibatalkan: banyak titik berbeda mendarat di tempat yang sama.'
-                  : `Baris ketiga dihitung begini: baris pertama matriks bertemu (3, 2) memberi ${angka(mesin.a, 2)} dikali 3 ditambah ${angka(mesin.b, 2)} dikali 2. Yang bertemu koordinat titiknya adalah BARIS, bukan kolom.`}
-              </div>
+                  : `Baris ketiga dihitung begini: baris pertama matriks bertemu (3, 2) memberi ${angka(mesin.a, 2)} dikali 3 ditambah ${angka(mesin.b, 2)} dikali 2. Yang bertemu koordinat titiknya adalah BARIS, bukan kolom.`}`} /></div>
             </div>
           </>
         )}
@@ -773,37 +705,26 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
           <>
             <TabelMatriks m={matriksDari(tCocok)} judul={`Matriks ${namaTransformasi(tCocok)}`} />
             <div className="blok">
-              <div className="cap">Dibaca dari gambar, bukan dihafal</div>
+              <div className="cap"><TeksMat teks="Dibaca dari gambar, bukan dihafal" blok={false} /></div>
               <table className="tabel-angka">
                 <tbody>
                   <tr>
-                    <td>peta dari (1, 0)</td>
-                    <td>
-                      ({angka(kenakanTransformasi(tCocok, { x: 1, y: 0 }).x, 2)},{' '}
-                      {angka(kenakanTransformasi(tCocok, { x: 1, y: 0 }).y, 2)})
-                    </td>
+                    <td><TeksMat teks="peta dari (1, 0)" blok={false} /></td>
+                    <td><TeksMat teks={`(${angka(kenakanTransformasi(tCocok, { x: 1, y: 0 }).x, 2)}, ${angka(kenakanTransformasi(tCocok, { x: 1, y: 0 }).y, 2)})`} blok={false} /></td>
                   </tr>
                   <tr>
-                    <td>peta dari (0, 1)</td>
-                    <td>
-                      ({angka(kenakanTransformasi(tCocok, { x: 0, y: 1 }).x, 2)},{' '}
-                      {angka(kenakanTransformasi(tCocok, { x: 0, y: 1 }).y, 2)})
-                    </td>
+                    <td><TeksMat teks="peta dari (0, 1)" blok={false} /></td>
+                    <td><TeksMat teks={`(${angka(kenakanTransformasi(tCocok, { x: 0, y: 1 }).x, 2)}, ${angka(kenakanTransformasi(tCocok, { x: 0, y: 1 }).y, 2)})`} blok={false} /></td>
                   </tr>
                   <tr className="tegas">
-                    <td>peta dari titik asal (0, 0)</td>
-                    <td>
-                      ({angka(kenakanTransformasi(tCocok, { x: 0, y: 0 }).x, 2)},{' '}
-                      {angka(kenakanTransformasi(tCocok, { x: 0, y: 0 }).y, 2)})
-                    </td>
+                    <td><TeksMat teks="peta dari titik asal (0, 0)" blok={false} /></td>
+                    <td><TeksMat teks={`(${angka(kenakanTransformasi(tCocok, { x: 0, y: 0 }).x, 2)}, ${angka(kenakanTransformasi(tCocok, { x: 0, y: 0 }).y, 2)})`} blok={false} /></td>
                   </tr>
                 </tbody>
               </table>
-              <div className="catatan">
-                {matriksDari(tCocok) === null
+              <div className="catatan"><TeksMat teks={`${matriksDari(tCocok) === null
                   ? 'Perhatikan baris terakhir: titik asal TIDAK bertahan di tempatnya. Itulah bukti bahwa transformasi ini mustahil ditulis sebagai perkalian matriks, sebab perkalian matriks apa pun memetakan (0, 0) ke (0, 0).'
-                  : 'Perhatikan baris terakhir tetap (0, 0). Itu syarat yang harus dipenuhi supaya sebuah transformasi punya matriks 2x2, dan kedua baris di atasnya langsung menjadi kolom matriksnya.'}
-              </div>
+                  : 'Perhatikan baris terakhir tetap (0, 0). Itu syarat yang harus dipenuhi supaya sebuah transformasi punya matriks 2x2, dan kedua baris di atasnya langsung menjadi kolom matriksnya.'}`} /></div>
             </div>
           </>
         )}
@@ -811,38 +732,27 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
         {tampilWidget && (tahap.widget === 'dua-langkah' || tahap.widget === 'urutan-matriks') && (
           <>
             <div className="blok">
-              <div className="cap">Titik A dikerjakan langkah demi langkah</div>
+              <div className="cap"><TeksMat teks="Titik A dikerjakan langkah demi langkah" blok={false} /></div>
               <table className="tabel-angka">
                 <tbody>
-                  <tr><td>A, prapeta</td><td>({angka(A.x, 1)}, {angka(A.y, 1)})</td></tr>
+                  <tr><td><TeksMat teks="A, prapeta" blok={false} /></td><td><TeksMat teks={`(${angka(A.x, 1)}, ${angka(A.y, 1)})`} blok={false} /></td></tr>
                   <tr>
-                    <td>setelah {namaTransformasi(t1)}</td>
-                    <td>
-                      ({angka(kenakanTransformasi(t1, A).x, 1)},{' '}
-                      {angka(kenakanTransformasi(t1, A).y, 1)})
-                    </td>
+                    <td><TeksMat teks={`setelah ${namaTransformasi(t1)}`} blok={false} /></td>
+                    <td><TeksMat teks={`(${angka(kenakanTransformasi(t1, A).x, 1)}, ${angka(kenakanTransformasi(t1, A).y, 1)})`} blok={false} /></td>
                   </tr>
                   <tr className="tegas">
-                    <td>setelah {namaTransformasi(t2)}</td>
-                    <td>
-                      ({angka(kenakanTransformasi(t2, kenakanTransformasi(t1, A)).x, 1)},{' '}
-                      {angka(kenakanTransformasi(t2, kenakanTransformasi(t1, A)).y, 1)})
-                    </td>
+                    <td><TeksMat teks={`setelah ${namaTransformasi(t2)}`} blok={false} /></td>
+                    <td><TeksMat teks={`(${angka(kenakanTransformasi(t2, kenakanTransformasi(t1, A)).x, 1)}, ${angka(kenakanTransformasi(t2, kenakanTransformasi(t1, A)).y, 1)})`} blok={false} /></td>
                   </tr>
                   <tr>
-                    <td>kalau urutannya dibalik</td>
-                    <td>
-                      ({angka(kenakanTransformasi(t1, kenakanTransformasi(t2, A)).x, 1)},{' '}
-                      {angka(kenakanTransformasi(t1, kenakanTransformasi(t2, A)).y, 1)})
-                    </td>
+                    <td><TeksMat teks="kalau urutannya dibalik" blok={false} /></td>
+                    <td><TeksMat teks={`(${angka(kenakanTransformasi(t1, kenakanTransformasi(t2, A)).x, 1)}, ${angka(kenakanTransformasi(t1, kenakanTransformasi(t2, A)).y, 1)})`} blok={false} /></td>
                   </tr>
                 </tbody>
               </table>
-              <div className="catatan">
-                {PASANGAN[pasangan].nama === 'dua translasi'
+              <div className="catatan"><TeksMat teks={`${PASANGAN[pasangan].nama === 'dua translasi'
                   ? 'Kedua baris terakhir bernilai sama. Dua translasi memang boleh dibalik urutannya, sebab hasilnya sama dengan menjumlahkan kedua vektornya, dan penjumlahan tidak peduli urutan.'
-                  : 'Kedua baris terakhir berbeda, dan itu keadaan yang biasa. Baris ketiga jawaban untuk urutan yang diminta soal, baris keempat jawaban untuk urutan yang sebaliknya. Yang keempat biasanya tersedia sebagai pengecoh.'}
-              </div>
+                  : 'Kedua baris terakhir berbeda, dan itu keadaan yang biasa. Baris ketiga jawaban untuk urutan yang diminta soal, baris keempat jawaban untuk urutan yang sebaliknya. Yang keempat biasanya tersedia sebagai pengecoh.'}`} /></div>
             </div>
 
             {tahap.widget === 'urutan-matriks' && (
@@ -856,11 +766,9 @@ export default function PanggungTransformasiGeometri({ tahap, tampilWidget, chil
                   judul="M1 dikali M2, urutan yang tertukar"
                 />
                 <div className="blok">
-                  <div className="catatan">
-                    {mGabung === null
+                  <div className="catatan"><TeksMat teks={`${mGabung === null
                       ? 'Salah satu langkahnya translasi, dan translasi bukan perkalian matriks. Jadi kedua langkah ini tidak bisa digabungkan jadi satu matriks. Kerjakan langkah demi langkah seperti tabel di atas.'
-                      : 'Bandingkan keempat angka pada kedua tabel di atas. Keduanya matriks yang berbeda, dan itu sebabnya jawabannya berbeda. Matriks yang tertukar urutannya bukan memberi jawaban yang kacau, melainkan jawaban untuk urutan yang sebaliknya.'}
-                  </div>
+                      : 'Bandingkan keempat angka pada kedua tabel di atas. Keduanya matriks yang berbeda, dan itu sebabnya jawabannya berbeda. Matriks yang tertukar urutannya bukan memberi jawaban yang kacau, melainkan jawaban untuk urutan yang sebaliknya.'}`} /></div>
                 </div>
               </>
             )}

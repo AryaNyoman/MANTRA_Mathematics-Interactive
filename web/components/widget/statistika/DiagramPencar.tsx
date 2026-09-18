@@ -11,6 +11,7 @@ import { useSeret } from '@/components/widget/statistika/seret'
 import { bentukTrend } from '@/components/widget/statistika/statistik'
 import { bivariat, keterangan } from '@/content/statistika/data'
 import type { PropWidget } from '@/components/widget/statistika/jenis'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Tahap 10. Membaca arah, bentuk, dan kekuatan dari sebaran titik.
@@ -133,32 +134,25 @@ export default function DiagramPencar({ children }: PropWidget) {
         <Pilihan nama="Contoh siap pakai" arti="atau seret titiknya sendiri di gambar"
           pilihan={CONTOH.map((c, n) => ({ nilai: String(n), label: c.nama }))}
           nilai={String(pilih)} onPilih={(n) => gantiContoh(Number(n))} />
-        <Petunjuk>
-            {trend.bentuk === 'melengkung'
+        <Petunjuk><TeksMat teks={`${trend.bentuk === 'melengkung'
               ? 'polanya melengkung. Garis lurus tidak akan cocok untuk data seperti ini, dan angka hubungannya pun akan menyesatkan'
-              : `titiknya ${trend.kekuatan === 'kuat' ? 'menempel rapat pada pola' : trend.kekuatan === 'sedang' ? 'agak berpencar dari pola' : 'berpencar jauh, polanya samar'}`}
-          </Petunjuk>
+              : `titiknya ${trend.kekuatan === 'kuat' ? 'menempel rapat pada pola' : trend.kekuatan === 'sedang' ? 'agak berpencar dari pola' : 'berpencar jauh, polanya samar'}`}`} blok={false} /></Petunjuk>
       </div>
     </>
   )
 
   const kanan = (
     <div className="blok">
-      <div className="cap">{contoh.butir.judul}</div>
+      <div className="cap"><TeksMat teks={`${contoh.butir.judul}`} blok={false} /></div>
       <table className="tabel-angka">
         <tbody>
-          <tr><td>banyak pasangan</td><td>{titik.length}</td></tr>
-          <tr className="tegas"><td>arah</td><td>{trend.arah}</td></tr>
-          <tr className="tegas"><td>bentuk</td><td>{trend.bentuk}</td></tr>
-          <tr><td>kekuatan</td><td>{trend.kekuatan}</td></tr>
+          <tr><td><TeksMat teks="banyak pasangan" blok={false} /></td><td>{titik.length}</td></tr>
+          <tr className="tegas"><td><TeksMat teks="arah" blok={false} /></td><td><TeksMat teks={`${trend.arah}`} blok={false} /></td></tr>
+          <tr className="tegas"><td><TeksMat teks="bentuk" blok={false} /></td><td><TeksMat teks={`${trend.bentuk}`} blok={false} /></td></tr>
+          <tr><td><TeksMat teks="kekuatan" blok={false} /></td><td><TeksMat teks={`${trend.kekuatan}`} blok={false} /></td></tr>
         </tbody>
       </table>
-      <div className="catatan">
-        Ketiga baris itu dibaca dari GAMBARNYA, bukan dari rumus. Angka yang mengukur
-        kekuatan hubungan baru diperkenalkan di Materi 12, dan di situ akan terlihat
-        bahwa angka saja tidak pernah cukup tanpa melihat sebarannya.
-        {' '}{keterangan(contoh.butir)}
-      </div>
+      <div className="catatan"><TeksMat teks={`Ketiga baris itu dibaca dari GAMBARNYA, bukan dari rumus. Angka yang mengukur kekuatan hubungan baru diperkenalkan di Materi 12, dan di situ akan terlihat bahwa angka saja tidak pernah cukup tanpa melihat sebarannya. ${keterangan(contoh.butir)}`} /></div>
     </div>
   )
 

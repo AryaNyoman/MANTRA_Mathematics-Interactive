@@ -1,5 +1,8 @@
 'use client'
 
+import Lembar, { LembarSelesai, LembarSisa, LembarSoal } from '@/components/widget/Lembar'
+import TeksMat from '@/components/latihan/TeksMat'
+
 /**
  * Widget Materi 04: mencocokkan fungsi dengan antiturunannya.
  *
@@ -49,7 +52,7 @@ export const KANAN: KartuAnti[] = [
   { nilai: 'min-cos', label: '-cos x', turunan: 'sin x' },
   { nilai: 'sin', label: 'sin x', turunan: 'cos x' },
   { nilai: 'exp', label: 'eˣ', turunan: 'eˣ' },
-  { nilai: 'x3-per-3', label: 'x³ / 3', turunan: 'x²' },
+  { nilai: 'x3-per-3', label: 'x³/3', turunan: 'x²' },
   { nilai: 'tan', label: 'tan x', turunan: 'sec² x' },
   { nilai: 'min-1-per-x', label: '-1/x', turunan: '1/x²' },
 ]
@@ -74,31 +77,34 @@ export default function PasangkanTurunanIntegral({
   const sudahDijawab = KIRI.filter((k) => jawaban[k.nilai]).length
 
   return (
-    <div className="bongkar">
-      <div className="bongkar-atas">
-        <div className="bongkar-soal">pasangkan tiap fungsi dengan antiturunannya</div>
-        <div className="bongkar-cara">
-          tiap tebakan diperiksa dengan satu cara saja: turunkan lagi
-        </div>
-      </div>
+    <Lembar>
+      <LembarSoal soal="pasangkan tiap fungsi dengan antiturunannya" cara="tiap tebakan diperiksa dengan satu cara saja: turunkan lagi" />
 
-      <ol className="bongkar-baris">
+      {/* Kisi kartu pasangan: dua kolom saat panelnya lebar, satu saat sempit
+          (container query di CSS). Kartu yang sedang dipilih di kendali
+          menyala. */}
+      <ol className="pasangan">
         {KIRI.map((k) => {
           const dipilih = jawaban[k.nilai]
           const anti = dipilih ? antiDari(dipilih) : undefined
           const cocok = dipilih === k.benar
           const disorot = k.nilai === kartu
           return (
-            <li key={k.nilai} className={disorot ? 'nyala' : undefined}>
-              <span className="bongkar-nama">{k.fungsi}</span>
-              <span className="bongkar-teks">
-                {anti ? anti.label : 'belum dipasangkan'}
-              </span>
+            <li key={k.nilai} data-nyala={disorot} data-cocok={anti ? cocok : undefined}>
+              <span className="pasangan-f"><TeksMat teks={`∫ ${k.fungsi} dx`} blok={false} /></span>
+              {anti ? (
+                <span className="pasangan-anti"><TeksMat teks={`= ${anti.label} + C`} blok={false} /></span>
+              ) : (
+                <span className="pasangan-belum">belum dipasangkan</span>
+              )}
               {anti && (
-                <span className="bongkar-syarat">
-                  {cocok
-                    ? `cocok: turunan ${anti.label} adalah ${anti.turunan}`
-                    : `belum cocok: turunan ${anti.label} adalah ${anti.turunan}, bukan ${k.fungsi}`}
+                <span className="pasangan-cek">
+                  <TeksMat
+                    teks={cocok
+                      ? `cocok: turunan ${anti.label} adalah ${anti.turunan}`
+                      : `belum cocok: turunan ${anti.label} adalah ${anti.turunan}, bukan ${k.fungsi}`}
+                    blok={false}
+                  />
                 </span>
               )}
             </li>
@@ -107,16 +113,14 @@ export default function PasangkanTurunanIntegral({
       </ol>
 
       {benarSemua ? (
-        <div className="mesin-selesai" role="status">
-          <b>Keenamnya cocok.</b> Semuanya diperiksa dengan cara yang sama:
-          turunkan hasilnya, lalu lihat apakah kembali ke fungsi semula.
-        </div>
+        <LembarSelesai judul="Keenamnya cocok." teks="Semuanya diperiksa dengan cara yang sama: turunkan hasilnya, lalu lihat apakah kembali ke fungsi semula." />
       ) : (
-        <div className="bongkar-sisa">
-          sudah dipasangkan {sudahDijawab} dari {KIRI.length}. Yang belum cocok masih
-          menunjukkan turunannya, jadi selisihnya bisa dibaca sendiri.
-        </div>
+        <LembarSisa
+          terbuka={sudahDijawab}
+          total={KIRI.length}
+          teks={`sudah dipasangkan ${sudahDijawab} dari ${KIRI.length}; yang belum cocok tetap menunjukkan turunannya, jadi selisihnya bisa dibaca sendiri`}
+        />
       )}
-    </div>
+    </Lembar>
   )
 }

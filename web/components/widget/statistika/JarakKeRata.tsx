@@ -11,6 +11,7 @@ import { propTitikSeret, useSeret } from '@/components/widget/statistika/seret'
 import { ringkasTunggal } from '@/components/widget/statistika/statistik'
 import { keterangan, tunggal } from '@/content/statistika/data'
 import type { PropWidget } from '@/components/widget/statistika/jenis'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Tahap 8. Simpangan baku dibangun bertahap, dan kuadratnya digambar sebagai
@@ -125,29 +126,23 @@ export default function JarakKeRata({ children }: PropWidget) {
 
   const kanan = (
     <div className="blok">
-      <div className="cap">
-        {mesin === 'sendiri' ? 'Data yang Anda ubah sendiri' : `Mesin ${mesin}`}
-      </div>
+      <div className="cap"><TeksMat teks={`${mesin === 'sendiri' ? 'Data yang Anda ubah sendiri' : `Mesin ${mesin}`}`} blok={false} /></div>
       <table className="tabel-angka">
         <tbody>
-          <tr><td>isi botol</td><td>{data.join('  ')}</td></tr>
-          <tr><td>rata-rata</td><td>{angka(r.mean, 2)} ml</td></tr>
-          <tr><td>simpangan</td><td>{simpangan.map((s) => angka(s, 1)).join('  ')}</td></tr>
+          <tr><td><TeksMat teks="isi botol" blok={false} /></td><td><TeksMat teks={`${data.join('  ')}`} blok={false} /></td></tr>
+          <tr><td><TeksMat teks="rata-rata" blok={false} /></td><td><TeksMat teks={`${angka(r.mean, 2)} ml`} blok={false} /></td></tr>
+          <tr><td><TeksMat teks="simpangan" blok={false} /></td><td><TeksMat teks={`${simpangan.map((s) => angka(s, 1)).join('  ')}`} blok={false} /></td></tr>
           <tr className="tegas">
-            <td>jumlah simpangan</td>
+            <td><TeksMat teks="jumlah simpangan" blok={false} /></td>
             <td>{angka(simpangan.reduce((a, b) => a + b, 0), 2)}</td>
           </tr>
-          <tr><td>kuadratnya</td><td>{kuadrat.map((s) => angka(s, 1)).join('  ')}</td></tr>
-          <tr><td>jumlah kuadrat</td><td>{angka(kuadrat.reduce((a, b) => a + b, 0), 2)}</td></tr>
-          <tr><td>varian, dibagi {data.length}</td><td>{angka(r.varian, 3)}</td></tr>
-          <tr className="tegas"><td>simpangan baku</td><td>{angka(r.simpanganBaku, 3)} ml</td></tr>
+          <tr><td><TeksMat teks="kuadratnya" blok={false} /></td><td><TeksMat teks={`${kuadrat.map((s) => angka(s, 1)).join('  ')}`} blok={false} /></td></tr>
+          <tr><td><TeksMat teks="jumlah kuadrat" blok={false} /></td><td>{angka(kuadrat.reduce((a, b) => a + b, 0), 2)}</td></tr>
+          <tr><td><TeksMat teks={`varian, dibagi ${data.length}`} blok={false} /></td><td>{angka(r.varian, 3)}</td></tr>
+          <tr className="tegas"><td><TeksMat teks="simpangan baku" blok={false} /></td><td><TeksMat teks={`${angka(r.simpanganBaku, 3)} ml`} blok={false} /></td></tr>
         </tbody>
       </table>
-      <div className="catatan">
-        Baris tebal pertama selalu nol, dan itulah alasan seluruh langkah pengkuadratan
-        ada. Baris tebal terakhir dibaca begini: isi botolnya biasanya meleset
-        sekitar {angka(r.simpanganBaku, 2)} ml dari rata-ratanya. {keterangan(A)}
-      </div>
+      <div className="catatan"><TeksMat teks={`Baris tebal pertama selalu nol, dan itulah alasan seluruh langkah pengkuadratan ada. Baris tebal terakhir dibaca begini: isi botolnya biasanya meleset sekitar ${angka(r.simpanganBaku, 2)} ml dari rata-ratanya. ${keterangan(A)}`} /></div>
     </div>
   )
 

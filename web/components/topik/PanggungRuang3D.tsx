@@ -20,6 +20,7 @@ import DuniaNyataRuang from '@/components/widget/ruang-3d/DuniaNyataRuang'
 import { SUDUT_AWAL, bulat, type Sudut } from '@/components/widget/ruang-3d/ruang'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Petunjuk, Pilihan } from '@/components/kendali'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Panggung Ruang Tiga Dimensi: penyetelan widgetnya, dan tidak lebih.
@@ -238,11 +239,9 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
                   </button>
                 </>
               )}
-              <Petunjuk>
-                {modeSudut === 1
+              <Petunjuk><TeksMat teks={`${modeSudut === 1
                   ? 'geser P menjauh dari tengah, dan sudut yang terbaca ikut berubah. Hanya di tengah sudutnya sah.'
-                  : 'putar kubusnya sampai kedua kaki sudutnya terlihat jelas, lalu baca sudutnya di tabel.'}
-              </Petunjuk>
+                  : 'putar kubusnya sampai kedua kaki sudutnya terlihat jelas, lalu baca sudutnya di tabel.'}`} blok={false} /></Petunjuk>
               {tombolKembali}
             </div>
           </>
@@ -256,171 +255,147 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
       <>
         {w === 'kubus-putar' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>sudut putar</td><td>{bulat(sudut.mendatar, 0)}°</td></tr>
-                <tr><td>tinggi mata</td><td>{bulat(sudut.menunduk, 0)}°</td></tr>
-                <tr><td>di gambar terlihat</td>
-                    <td>{potongTahap1 ? 'berpotongan' : 'terpisah'}</td></tr>
-                <tr className="tegas"><td>kedudukan BD dan EG</td><td>{LETAK}</td></tr>
-                <tr className="tegas"><td>jarak BD ke EG</td><td>{bulat(JARAK_ASLI)} satuan</td></tr>
+                <tr><td><TeksMat teks="sudut putar" blok={false} /></td><td>{bulat(sudut.mendatar, 0)}°</td></tr>
+                <tr><td><TeksMat teks="tinggi mata" blok={false} /></td><td>{bulat(sudut.menunduk, 0)}°</td></tr>
+                <tr><td><TeksMat teks="di gambar terlihat" blok={false} /></td>
+                    <td><TeksMat teks={`${potongTahap1 ? 'berpotongan' : 'terpisah'}`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="kedudukan BD dan EG" blok={false} /></td><td><TeksMat teks={`${LETAK}`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="jarak BD ke EG" blok={false} /></td><td><TeksMat teks={`${bulat(JARAK_ASLI)} satuan`} blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Dua baris terakhir tidak pernah berubah berapa pun kubusnya diputar.
-              Yang berubah cuma baris ketiga, yaitu apa yang kebetulan terlihat.
-            </div>
+            <div className="catatan"><TeksMat teks="Dua baris terakhir tidak pernah berubah berapa pun kubusnya diputar. Yang berubah cuma baris ketiga, yaitu apa yang kebetulan terlihat." /></div>
           </div>
         )}
 
         {w === 'pemilih-kedudukan' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>ruas biru</td><td>{r1.nama} ({r1.jenis})</td></tr>
-                <tr><td>ruas merah</td><td>{r2.nama} ({r2.jenis})</td></tr>
-                <tr className="tegas"><td>kedudukannya</td><td>{hasilRuas.letak}</td></tr>
+                <tr><td><TeksMat teks="ruas biru" blok={false} /></td><td><TeksMat teks={`${r1.nama} (${r1.jenis})`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="ruas merah" blok={false} /></td><td><TeksMat teks={`${r2.nama} (${r2.jenis})`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="kedudukannya" blok={false} /></td><td><TeksMat teks={`${hasilRuas.letak}`} blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">{hasilRuas.alasan}.</div>
+            <div className="catatan"><TeksMat teks={`${hasilRuas.alasan}.`} /></div>
           </div>
         )}
 
         {w === 'kaki-tegak-lurus' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>letak Q pada AC</td><td>{bulat(tKaki * 100, 0)}%</td></tr>
-                <tr><td>panjang BQ sekarang</td><td>{bulat(panjangDi(tKaki), 3)}</td></tr>
-                <tr className="tegas"><td>paling pendek</td><td>{bulat(JARAK_TERPENDEK, 3)}</td></tr>
-                <tr><td>tercapai saat Q di</td><td>{bulat(T_TERBAIK * 100, 0)}%</td></tr>
+                <tr><td><TeksMat teks="letak Q pada AC" blok={false} /></td><td>{bulat(tKaki * 100, 0)}%</td></tr>
+                <tr><td><TeksMat teks="panjang BQ sekarang" blok={false} /></td><td>{bulat(panjangDi(tKaki), 3)}</td></tr>
+                <tr className="tegas"><td><TeksMat teks="paling pendek" blok={false} /></td><td>{bulat(JARAK_TERPENDEK, 3)}</td></tr>
+                <tr><td><TeksMat teks="tercapai saat Q di" blok={false} /></td><td>{bulat(T_TERBAIK * 100, 0)}%</td></tr>
               </tbody>
             </table>
             <GrafikPanjang t={tKaki} />
-            <div className="catatan">
-              Lembah grafik itu jatuh tepat di posisi siku-siku. Itu bukan kebetulan,
-              dan itulah sebabnya jarak selalu diukur tegak lurus.
-            </div>
+            <div className="catatan"><TeksMat teks="Lembah grafik itu jatuh tepat di posisi siku-siku. Itu bukan kebetulan, dan itulah sebabnya jarak selalu diukur tegak lurus." /></div>
           </div>
         )}
 
         {w === 'diagonal-kubus' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>rusuk kubus</td><td>6</td></tr>
+                <tr><td><TeksMat teks="rusuk kubus" blok={false} /></td><td><TeksMat teks="6" blok={false} /></td></tr>
                 <tr className={langkah === 0 ? 'tegas' : undefined}>
-                  <td>diagonal sisi AC</td><td>{bulat(DIAGONAL_SISI, 3)}</td></tr>
+                  <td><TeksMat teks="diagonal sisi AC" blok={false} /></td><td>{bulat(DIAGONAL_SISI, 3)}</td></tr>
                 <tr className={langkah === 1 ? 'tegas' : undefined}>
-                  <td>diagonal ruang AG</td><td>{bulat(DIAGONAL_RUANG, 3)}</td></tr>
+                  <td><TeksMat teks="diagonal ruang AG" blok={false} /></td><td>{bulat(DIAGONAL_RUANG, 3)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Diagonal ruang bukan rumus baru. Ia Pythagoras yang dipakai untuk
-              kedua kalinya, dengan hasil yang pertama sebagai salah satu sisinya.
-            </div>
+            <div className="catatan"><TeksMat teks="Diagonal ruang bukan rumus baru. Ia Pythagoras yang dipakai untuk kedua kalinya, dengan hasil yang pertama sebagai salah satu sisinya." /></div>
           </div>
         )}
 
         {w === 'jarak-ke-garis' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
                 {PILIHAN.map((n) => (
                   <tr key={n} className={n === PILIHAN[titikGaris] ? 'tegas' : undefined}>
-                    <td>jarak {n} ke garis AG</td>
+                    <td><TeksMat teks={`jarak ${n} ke garis AG`} blok={false} /></td>
                     <td>{bulat(hitungGaris(n).jarak, 3)}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <div className="catatan">
-              Ketiganya sama, yaitu {bulat(garis.jarak, 3)}, atau 2 akar 6. Diagonal ruang
-              adalah sumbu simetri kubus, jadi ketiga tetangga titik A duduk mengelilinginya
-              seperti tiga kaki payung.
-            </div>
+            <div className="catatan"><TeksMat teks={`Ketiganya sama, yaitu ${bulat(garis.jarak, 3)}, atau 2 akar 6. Diagonal ruang adalah sumbu simetri kubus, jadi ketiga tetangga titik A duduk mengelilinginya seperti tiga kaki payung.`} /></div>
           </div>
         )}
 
         {w === 'jarak-ke-bidang' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>titik yang diukur</td><td>{bidang.titik}</td></tr>
-                <tr><td>bidangnya</td><td>{bidang.bidang.join('')}</td></tr>
-                <tr className="tegas"><td>jaraknya</td><td>{bulat(bidang.jarak, 3)}</td></tr>
+                <tr><td><TeksMat teks="titik yang diukur" blok={false} /></td><td><TeksMat teks={`${bidang.titik}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="bidangnya" blok={false} /></td><td><TeksMat teks={`${bidang.bidang.join('')}`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="jaraknya" blok={false} /></td><td>{bulat(bidang.jarak, 3)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Kedua soal memberi angka yang sama, 2 akar 3. Itu simetri kubus, bukan kebetulan.
-              Soal kedua persis soal EBTANAS 1992.
-            </div>
+            <div className="catatan"><TeksMat teks="Kedua soal memberi angka yang sama, 2 akar 3. Itu simetri kubus, bukan kebetulan. Soal kedua persis soal EBTANAS 1992." /></div>
           </div>
         )}
 
         {w === 'jarak-sejajar' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>letak P pada AE</td><td>{bulat(tSejajar * 100, 0)}%</td></tr>
-                <tr className="tegas"><td>jarak P ke bidang {NAMA_BIDANG}</td>
+                <tr><td><TeksMat teks="letak P pada AE" blok={false} /></td><td>{bulat(tSejajar * 100, 0)}%</td></tr>
+                <tr className="tegas"><td><TeksMat teks={`jarak P ke bidang ${NAMA_BIDANG}`} blok={false} /></td>
                     <td>{bulat(sejajar.jarak, 3)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Angkanya tetap 6 di mana pun P diletakkan. Itu sebabnya jarak garis ke bidang
-              sejajar boleh dihitung dari satu titik sembarang saja.
-            </div>
+            <div className="catatan"><TeksMat teks="Angkanya tetap 6 di mana pun P diletakkan. Itu sebabnya jarak garis ke bidang sejajar boleh dihitung dari satu titik sembarang saja." /></div>
           </div>
         )}
 
         {w === 'sudut-bersilangan' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>geseran BG</td><td>{bulat(geser * 100, 0)}%</td></tr>
-                <tr><td>BG mendarat jadi</td><td>{geser > 0.985 ? 'AH' : 'belum'}</td></tr>
-                <tr className="tegas"><td>sudut AC dengan BG</td><td>{bulat(SUDUT_JAWAB, 0)}°</td></tr>
+                <tr><td><TeksMat teks="geseran BG" blok={false} /></td><td>{bulat(geser * 100, 0)}%</td></tr>
+                <tr><td><TeksMat teks="BG mendarat jadi" blok={false} /></td><td><TeksMat teks={`${geser > 0.985 ? 'AH' : 'belum'}`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="sudut AC dengan BG" blok={false} /></td><td>{bulat(SUDUT_JAWAB, 0)}°</td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Menggeser garis sejajar dirinya sendiri tidak mengubah sudut. Itu sebabnya
-              cara ini sah, dan sudut yang dicari ternyata sudut segitiga sama sisi ACH.
-            </div>
+            <div className="catatan"><TeksMat teks="Menggeser garis sejajar dirinya sendiri tidak mengubah sudut. Itu sebabnya cara ini sah, dan sudut yang dicari ternyata sudut segitiga sama sisi ACH." /></div>
           </div>
         )}
 
         {w === 'sudut-bidang' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
                 {MODE.map((x, i) => (
                   <tr key={x.nama} className={i === modeSudut ? 'tegas' : undefined}>
-                    <td>{x.ringkas}</td><td>{bulat(x.jawab, 2)}°</td>
+                    <td><TeksMat teks={`${x.ringkas}`} blok={false} /></td><td>{bulat(x.jawab, 2)}°</td>
                   </tr>
                 ))}
                 {modeSudut === 1 && !tumpuanBenar(tTumpu) && (
                   <tr>
-                    <td>yang terbaca saat P meleset</td>
+                    <td><TeksMat teks="yang terbaca saat P meleset" blok={false} /></td>
                     <td>{bulat(sudutTerbaca(tTumpu), 2)}°</td>
                   </tr>
                 )}
               </tbody>
             </table>
-            <div className="catatan">
-              {modeSudut === 1 && !tumpuanBenar(tTumpu)
+            <div className="catatan"><TeksMat teks={`${modeSudut === 1 && !tumpuanBenar(tTumpu)
                 ? 'PC tidak lagi tegak lurus BD, jadi angka yang terbaca turun. Yang benar adalah yang terbesar, dan itu hanya di tengah BD.'
-                : `${m.catatan}.`}
-            </div>
+                : `${m.catatan}.`}`} /></div>
           </div>
         )}
       </>

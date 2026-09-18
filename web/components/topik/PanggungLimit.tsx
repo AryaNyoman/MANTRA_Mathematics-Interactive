@@ -18,6 +18,7 @@ import DuniaNyataLimit from '@/components/widget/limit/DuniaNyataLimit'
 import { angka } from '@/components/widget/limit/koordinat'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Petunjuk, Pilihan } from '@/components/kendali'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Panggung Limit: penyetelan kesembilan widgetnya, dan tidak lebih.
@@ -146,11 +147,9 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
               <Pilihan nama="Soal" arti="pilih yang mau dibongkar dengan sifat limit"
                 pilihan={SOAL_SIFAT.map((sf, n) => ({ nilai: String(n), label: `Soal ${n + 1}${sf.buntu ? ' (jebakan)' : ''}` }))}
                 nilai={String(soalSifat)} onPilih={(n) => gantiSoalSifat(Number(n))} />
-              <Petunjuk>
-                {soalSif.buntu
+              <Petunjuk><TeksMat teks={`${soalSif.buntu
                   ? 'soal ini memang tidak bisa diselesaikan dengan sifat limit, dan itu yang mau ditunjukkan.'
-                  : `pilih sifat yang tepat di tiap langkah. Sekarang langkah ${Math.min(langkahSifat + 1, soalSif.langkah.length)} dari ${soalSif.langkah.length}.`}
-              </Petunjuk>
+                  : `pilih sifat yang tepat di tiap langkah. Sekarang langkah ${Math.min(langkahSifat + 1, soalSif.langkah.length)} dari ${soalSif.langkah.length}.`}`} blok={false} /></Petunjuk>
             </div>
           </>
         )}
@@ -225,150 +224,128 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
       <>
         {tampilWidget && tahap.widget === 'selang-menyusut' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>panjang selang h</td><td>{angka(h, 3)} detik</td></tr>
-                <tr><td>jarak yang ditempuh</td><td>{angka(5 * (2 + h) ** 2 - 20, 4)} m</td></tr>
-                <tr className="tegas"><td>kecepatan rata-rata</td><td>{angka(kecepatanRata(h), 3)} m/s</td></tr>
+                <tr><td><TeksMat teks="panjang selang h" blok={false} /></td><td><TeksMat teks={`${angka(h, 3)} detik`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="jarak yang ditempuh" blok={false} /></td><td><TeksMat teks={`${angka(5 * (2 + h) ** 2 - 20, 4)} m`} blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="kecepatan rata-rata" blok={false} /></td><td><TeksMat teks={`${angka(kecepatanRata(h), 3)} m/s`} blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Rumusnya 20 + 5h. Selisihnya ke 20 adalah {angka(5 * h, 3)}, dan selisih itu mengecil
-              mengikuti h tanpa pernah menjadi nol.
-            </div>
+            <div className="catatan"><TeksMat teks={`Rumusnya 20 + 5h. Selisihnya ke 20 adalah ${angka(5 * h, 3)}, dan selisih itu mengecil mengikuti h tanpa pernah menjadi nol.`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'garis-mendekati' && (
           <div className="blok">
-            <div className="cap">Angka dari alat</div>
+            <div className="cap"><TeksMat teks="Angka dari alat" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>x</td><td>{angka(xDekat, 3)}</td></tr>
-                <tr><td>f(x) = x² + 1</td><td>{angka(fDekat(xDekat), 5)}</td></tr>
-                <tr><td>selisih x ke c</td><td>{angka(Math.abs(xDekat - C_DEKAT), 3)}</td></tr>
-                <tr className="tegas"><td>selisih f(x) ke L</td><td>{angka(Math.abs(fDekat(xDekat) - L_DEKAT), 5)}</td></tr>
+                <tr><td><TeksMat teks="x" blok={false} /></td><td>{angka(xDekat, 3)}</td></tr>
+                <tr><td><TeksMat teks="f(x) = x² + 1" blok={false} /></td><td>{angka(fDekat(xDekat), 5)}</td></tr>
+                <tr><td><TeksMat teks="selisih x ke c" blok={false} /></td><td>{angka(Math.abs(xDekat - C_DEKAT), 3)}</td></tr>
+                <tr className="tegas"><td><TeksMat teks="selisih f(x) ke L" blok={false} /></td><td>{angka(Math.abs(fDekat(xDekat) - L_DEKAT), 5)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Kedua selisih mengecil bersamaan. Itulah arti kalimat &quot;f(x) mendekati L saat x mendekati c&quot;.
-            </div>
+            <div className="catatan"><TeksMat teks={`Kedua selisih mengecil bersamaan. Itulah arti kalimat "f(x) mendekati L saat x mendekati c".`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'tarif-melompat' && (
           <div className="blok">
-            <div className="cap">Kedua sisi pada c = {angka(cTarif, 1)} jam</div>
+            <div className="cap"><TeksMat teks={`Kedua sisi pada c = ${angka(cTarif, 1)} jam`} blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>dari kiri</td><td>{angka(tarif(cTarif - jarakTarif), 0)} ribu</td></tr>
-                <tr><td>dari kanan</td><td>{angka(tarif(cTarif + jarakTarif), 0)} ribu</td></tr>
+                <tr><td><TeksMat teks="dari kiri" blok={false} /></td><td><TeksMat teks={`${angka(tarif(cTarif - jarakTarif), 0)} ribu`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="dari kanan" blok={false} /></td><td><TeksMat teks={`${angka(tarif(cTarif + jarakTarif), 0)} ribu`} blok={false} /></td></tr>
                 <tr className="tegas">
-                  <td>limitnya</td>
-                  <td>
-                    {tarif(cTarif - jarakTarif) === tarif(cTarif + jarakTarif)
+                  <td><TeksMat teks="limitnya" blok={false} /></td>
+                  <td><TeksMat teks={`${tarif(cTarif - jarakTarif) === tarif(cTarif + jarakTarif)
                       ? `${angka(tarif(cTarif), 0)} ribu`
-                      : 'tidak ada'}
-                  </td>
+                      : 'tidak ada'}`} blok={false} /></td>
                 </tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Nilai fungsinya di c tetap ada, yaitu {angka(tarif(cTarif), 0)} ribu. Punya nilai bukan
-              jaminan punya limit.
-            </div>
+            <div className="catatan"><TeksMat teks={`Nilai fungsinya di c tetap ada, yaitu ${angka(tarif(cTarif), 0)} ribu. Punya nilai bukan jaminan punya limit.`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'lubang-grafik' && (
           <div className="blok">
-            <div className="cap">Tetangga kiri dan kanan titik 1</div>
+            <div className="cap"><TeksMat teks="Tetangga kiri dan kanan titik 1" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>x = 0,99</td><td>1,99</td></tr>
-                <tr><td>x = 0,999</td><td>1,999</td></tr>
-                <tr className="tegas"><td>x = 1</td><td>tidak ada</td></tr>
-                <tr><td>x = 1,001</td><td>2,001</td></tr>
-                <tr><td>x = 1,01</td><td>2,01</td></tr>
+                <tr><td><TeksMat teks="x = 0,99" blok={false} /></td><td><TeksMat teks="1,99" blok={false} /></td></tr>
+                <tr><td><TeksMat teks="x = 0,999" blok={false} /></td><td><TeksMat teks="1,999" blok={false} /></td></tr>
+                <tr className="tegas"><td><TeksMat teks="x = 1" blok={false} /></td><td><TeksMat teks="tidak ada" blok={false} /></td></tr>
+                <tr><td><TeksMat teks="x = 1,001" blok={false} /></td><td><TeksMat teks="2,001" blok={false} /></td></tr>
+                <tr><td><TeksMat teks="x = 1,01" blok={false} /></td><td><TeksMat teks="2,01" blok={false} /></td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Nilai fungsinya tidak ada, limitnya 2. Bandingkan dengan Materi 03, yang keadaannya
-              justru terbalik.
-            </div>
+            <div className="catatan"><TeksMat teks="Nilai fungsinya tidak ada, limitnya 2. Bandingkan dengan Materi 03, yang keadaannya justru terbalik." /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'perkecil-tampilan' && (
           <div className="blok">
-            <div className="cap">Seberapa dekat kurvanya ke garis y = 3</div>
+            <div className="cap"><TeksMat teks="Seberapa dekat kurvanya ke garis y = 3" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>di x</td><td>{angka(xJauh, 0)}</td></tr>
-                <tr><td>nilai f(x)</td><td>{angka(fJauh(xJauh), 6)}</td></tr>
-                <tr className="tegas"><td>selisih ke 3</td><td>{angka(fJauh(xJauh) - ASIMTOT, 6)}</td></tr>
+                <tr><td><TeksMat teks="di x" blok={false} /></td><td>{angka(xJauh, 0)}</td></tr>
+                <tr><td><TeksMat teks="nilai f(x)" blok={false} /></td><td>{angka(fJauh(xJauh), 6)}</td></tr>
+                <tr className="tegas"><td><TeksMat teks="selisih ke 3" blok={false} /></td><td>{angka(fJauh(xJauh) - ASIMTOT, 6)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Selisihnya mengecil terus, tetapi tidak pernah nol. Itulah bedanya mendekati dan menyentuh.
-            </div>
+            <div className="catatan"><TeksMat teks="Selisihnya mengecil terus, tetapi tidak pernah nol. Itulah bedanya mendekati dan menyentuh." /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'busur-lawan-tali' && (
           <div className="blok">
-            <div className="cap">Angka pada sudut {derajatBusur}°</div>
+            <div className="cap"><TeksMat teks={`Angka pada sudut ${derajatBusur}°`} blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>θ dalam radian</td><td>{angka(radBusur, 5)}</td></tr>
-                <tr><td>sin θ</td><td>{angka(Math.sin(radBusur), 5)}</td></tr>
-                <tr className="tegas"><td>sin θ dibagi θ</td><td>{angka(nisbahBusur, 6)}</td></tr>
+                <tr><td><TeksMat teks="θ dalam radian" blok={false} /></td><td>{angka(radBusur, 5)}</td></tr>
+                <tr><td><TeksMat teks="sin θ" blok={false} /></td><td>{angka(Math.sin(radBusur), 5)}</td></tr>
+                <tr className="tegas"><td><TeksMat teks="sin θ dibagi θ" blok={false} /></td><td>{angka(nisbahBusur, 6)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan">
-              Kalau sudutnya dibaca sebagai derajat, angka pembaginya menjadi {angka(derajatBusur, 0)},
-              dan perbandingannya {angka(Math.sin(radBusur) / derajatBusur, 5)}. Jauh dari 1. Itu
-              sebabnya radian bukan pilihan, melainkan syarat.
-            </div>
+            <div className="catatan"><TeksMat teks={`Kalau sudutnya dibaca sebagai derajat, angka pembaginya menjadi ${angka(derajatBusur, 0)}, dan perbandingannya ${angka(Math.sin(radBusur) / derajatBusur, 5)}. Jauh dari 1. Itu sebabnya radian bukan pilihan, melainkan syarat.`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'perusak-fungsi' && (
           <div className="blok">
-            <div className="cap">Ketiga syarat di x = 2</div>
+            <div className="cap"><TeksMat teks="Ketiga syarat di x = 2" blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
-                <tr><td>1. f(2) ada</td><td>{syarat.nilaiAda ? 'ya' : 'tidak'}</td></tr>
-                <tr><td>2. limitnya ada</td><td>{syarat.limitAda ? 'ya' : 'tidak'}</td></tr>
-                <tr><td>3. keduanya sama</td><td>{syarat.samaNilainya ? 'ya' : 'tidak'}</td></tr>
+                <tr><td><TeksMat teks="1. f(2) ada" blok={false} /></td><td><TeksMat teks={`${syarat.nilaiAda ? 'ya' : 'tidak'}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="2. limitnya ada" blok={false} /></td><td><TeksMat teks={`${syarat.limitAda ? 'ya' : 'tidak'}`} blok={false} /></td></tr>
+                <tr><td><TeksMat teks="3. keduanya sama" blok={false} /></td><td><TeksMat teks={`${syarat.samaNilainya ? 'ya' : 'tidak'}`} blok={false} /></td></tr>
                 <tr className="tegas">
-                  <td>kontinu di x = 2</td>
-                  <td>{rusak === 'mulus' ? 'ya' : 'tidak'}</td>
+                  <td><TeksMat teks="kontinu di x = 2" blok={false} /></td>
+                  <td><TeksMat teks={`${rusak === 'mulus' ? 'ya' : 'tidak'}`} blok={false} /></td>
                 </tr>
               </tbody>
             </table>
-            <div className="catatan">{KETERANGAN[rusak]}</div>
+            <div className="catatan"><TeksMat teks={`${KETERANGAN[rusak]}`} /></div>
           </div>
         )}
 
         {tampilWidget && tahap.widget === 'mesin-sifat' && !soalSif.buntu && (
           <div className="blok">
-            <div className="cap">Kemajuan pada soal {soalSifat + 1}</div>
+            <div className="cap"><TeksMat teks={`Kemajuan pada soal ${soalSifat + 1}`} blok={false} /></div>
             <table className="tabel-angka">
               <tbody>
                 {soalSif.langkah.map((l, n) => (
                   <tr key={n} className={n < langkahSifat ? 'tegas' : undefined}>
-                    <td>langkah {n + 1}</td>
-                    <td>{n < langkahSifat ? NAMA_SIFAT[l.sifat] : 'belum'}</td>
+                    <td><TeksMat teks={`langkah ${n + 1}`} blok={false} /></td>
+                    <td><TeksMat teks={`${n < langkahSifat ? NAMA_SIFAT[l.sifat] : 'belum'}`} blok={false} /></td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <div className="catatan">
-              Penolakan mesin sengaja tidak menyebutkan sifat mana yang benar, supaya yang dilatih
-              adalah cara membaca bentuk, bukan kesabaran menekan tombol.
-            </div>
+            <div className="catatan"><TeksMat teks="Penolakan mesin sengaja tidak menyebutkan sifat mana yang benar, supaya yang dilatih adalah cara membaca bentuk, bukan kesabaran menekan tombol." /></div>
           </div>
         )}
       </>

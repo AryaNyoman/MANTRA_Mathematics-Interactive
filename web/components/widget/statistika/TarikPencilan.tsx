@@ -10,6 +10,7 @@ import { propTitikSeret, useSeret } from '@/components/widget/statistika/seret'
 import { ringkasTunggal } from '@/components/widget/statistika/statistik'
 import { keterangan, tunggal } from '@/content/statistika/data'
 import type { PropWidget } from '@/components/widget/statistika/jenis'
+import TeksMat from '@/components/latihan/TeksMat'
 
 /**
  * Tahap 6. Satu titik ditarik jauh, mean ikut lari, median bertahan.
@@ -104,36 +105,28 @@ export default function TarikPencilan({ children }: PropWidget) {
       <div className="kendali">
         <Angka nama="Gaji direktur" arti="satu angka yang jauh dari yang lain" kunci="direktur" satuan=" juta"
           nilai={direktur} onUbah={(n) => pindah(0, n)} min={7.5} max={MAKS} langkah={0.5} />
-        <Petunjuk>
-            median berhenti di {angka(r.median, 2)} juta dan tidak bergerak lagi, berapa pun
-            gaji direkturnya. Rata-rata terus mengejar
-          </Petunjuk>
+        <Petunjuk><TeksMat teks={`median berhenti di ${angka(r.median, 2)} juta dan tidak bergerak lagi, berapa pun gaji direkturnya. Rata-rata terus mengejar`} blok={false} /></Petunjuk>
       </div>
     </>
   )
 
   const kanan = (
     <div className="blok">
-      <div className="cap">Sepuluh orang, dengan direktur</div>
+      <div className="cap"><TeksMat teks="Sepuluh orang, dengan direktur" blok={false} /></div>
       <table className="tabel-angka">
         <tbody>
-          <tr><td>gaji direktur</td><td>{angka(direktur, 1)} juta</td></tr>
-          <tr className="tegas"><td>rata-rata</td><td>{angka(r.mean, 2)} juta</td></tr>
-          <tr className="tegas"><td>median</td><td>{angka(r.median, 2)} juta</td></tr>
-          <tr><td>selisih keduanya</td><td>{angka(selisih, 2)} juta</td></tr>
-          <tr><td>pagar atas 1,5 × JAK</td><td>{angka(r.pagarAtas, 2)} juta</td></tr>
+          <tr><td><TeksMat teks="gaji direktur" blok={false} /></td><td><TeksMat teks={`${angka(direktur, 1)} juta`} blok={false} /></td></tr>
+          <tr className="tegas"><td><TeksMat teks="rata-rata" blok={false} /></td><td><TeksMat teks={`${angka(r.mean, 2)} juta`} blok={false} /></td></tr>
+          <tr className="tegas"><td><TeksMat teks="median" blok={false} /></td><td><TeksMat teks={`${angka(r.median, 2)} juta`} blok={false} /></td></tr>
+          <tr><td><TeksMat teks="selisih keduanya" blok={false} /></td><td><TeksMat teks={`${angka(selisih, 2)} juta`} blok={false} /></td></tr>
+          <tr><td><TeksMat teks="pagar atas 1,5 × JAK" blok={false} /></td><td><TeksMat teks={`${angka(r.pagarAtas, 2)} juta`} blok={false} /></td></tr>
           <tr>
-            <td>ditandai pencilan</td>
-            <td>{r.pencilan.length > 0 ? r.pencilan.map((v) => angka(v, 1)).join(', ') : 'tidak ada'}</td>
+            <td><TeksMat teks="ditandai pencilan" blok={false} /></td>
+            <td><TeksMat teks={`${r.pencilan.length > 0 ? r.pencilan.map((v) => angka(v, 1)).join(', ') : 'tidak ada'}`} blok={false} /></td>
           </tr>
         </tbody>
       </table>
-      <div className="catatan">
-        Tanpa direktur, sembilan karyawan itu punya rata-rata {angka(rTanpa.mean, 2)} juta dan
-        median {angka(rTanpa.median, 2)} juta, dua angka yang berdekatan dan sama-sama masuk akal.
-        Selisih rata-rata dan median yang membesar adalah tanda datanya miring.
-        {' '}{keterangan(DENGAN)}
-      </div>
+      <div className="catatan"><TeksMat teks={`Tanpa direktur, sembilan karyawan itu punya rata-rata ${angka(rTanpa.mean, 2)} juta dan median ${angka(rTanpa.median, 2)} juta, dua angka yang berdekatan dan sama-sama masuk akal. Selisih rata-rata dan median yang membesar adalah tanda datanya miring. ${keterangan(DENGAN)}`} /></div>
     </div>
   )
 
