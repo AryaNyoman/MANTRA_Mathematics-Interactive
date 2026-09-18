@@ -1,6 +1,6 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
-## 18 SEP (6): SISTEM GERAK PANGGUNG TAHAP 4 (TERAKHIR): KORSEL, PEMUTAR, GULIR, 404, AUDIT (deploy DEPLOY_ID, push GitHub COMMIT_ID)
+## 18 SEP (6): SISTEM GERAK PANGGUNG TAHAP 4 (TERAKHIR): KORSEL, PEMUTAR, GULIR, 404, AUDIT (deploy matra-m78yjl1sn, push GitHub 9430af0)
 
 Rencana `docs/superpowers/plans/2026-09-17-sistem-gerak-panggung.md` selesai
 semua (tahap 1 sampai 4). Penyimpangan dan hasil audit: `docs/desain-mantra/gerak/KEPUTUSAN.md`.
@@ -33,7 +33,7 @@ semua (tahap 1 sampai 4). Penyimpangan dan hasil audit: `docs/desain-mantra/gera
 - Cek: tsc, eslint (react-hooks/set-state-in-effect memaksa MunculSaatGulir
   menulis DOM langsung), build, playwright 1280 dan 390.
 
-## 18 SEP (5): TAUTAN YOUTUBE LANGSUNG KE VIDEONYA (HP), PENCARIAN KANAL JADI CADANGAN (deploy DEPLOY_ID, push GitHub COMMIT_ID)
+## 18 SEP (5): TAUTAN YOUTUBE LANGSUNG KE VIDEONYA (HP), PENCARIAN KANAL JADI CADANGAN (deploy matra-1ppgt2s5x, push GitHub 93df0ce)
 
 ARYA: pencariannya cocok, tetapi di HP tautan pencarian di dalam kanal
 dibuka aplikasi YouTube sebagai beranda kanal saja (di desktop atau bila
