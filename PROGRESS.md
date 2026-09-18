@@ -1,6 +1,6 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
-## 18 SEP (4): TAUTAN YOUTUBE PER SUB-BAB, KREATOR DIGILIR; BERANDA DAN TENTANG
+## 18 SEP (4): TAUTAN YOUTUBE PER SUB-BAB, KREATOR DIGILIR; BERANDA DAN TENTANG (deploy matra-bjxj2274n, push GitHub 9ae49a1)
 
 ARYA: tautan YouTube harus mengikuti nama sub-bab (Integral A "Membalik
 Turunan" diberi "integral substitusi" yang belum diajarkan), jangan
