@@ -1,6 +1,6 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
-## 18 SEP (3): SISTEM GERAK PANGGUNG TAHAP 3, LACI DAN PANEL HALAMAN BELAJAR
+## 18 SEP (3): SISTEM GERAK PANGGUNG TAHAP 3, LACI DAN PANEL HALAMAN BELAJAR (deploy matra-4wpzgflnm, push GitHub c4b39a8)
 
 - `HalamanTopik.tsx`: `pilihLayar` satu handler (arah geser + tutup laci +
   ganti layar lewat `startTransition`, supaya materi lama tetap hidup selama
@@ -22,7 +22,9 @@
   880 ms (halaman beku); sesudah startTransition 216 ms (produksi lama 300
   sampai 430 ms, togel 21 ms). Dicek playwright-cli 1280 (Lanjut, Kembali,
   kuncup, lebar, fokus, Lanjutkan) dan 390 (laci buka, pilih, Esc), gulir
-  kolom 0 saat pindah materi, transform tidak tertinggal.
+  kolom 0 saat pindah materi, transform tidak tertinggal. Produksi sesudah
+  deploy: bingkai pertama 22 ms, isi berganti 350 sampai 690 ms pada
+  kunjungan pertama (widget besar), 179 ms pada kunjungan ulang.
 - Penyimpangan dari rancangan dicatat di `docs/desain-mantra/gerak/KEPUTUSAN.md`
   (tanpa portal, tanpa lipatan sub-bab, tanpa min-height alat-sisip).
 
