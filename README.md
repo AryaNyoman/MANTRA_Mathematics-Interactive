@@ -91,7 +91,7 @@ eleven_multilingual_v2); pada tahap draf dan revisi
 (sebelum pertengahan September 2026) narasinya memakai Microsoft Neural TTS
 (id-ID-ArdiNeural) lewat pustaka edge-tts. Situs ditayangkan di Vercel.
 
-Rujukan isinya: Buku Panduan Guru Kurikulum Merdeka, diktat kalkulus ITB, dan
+Rujukan isinya: buku panduan guru matematika SMA (Kemendikbudristek, 2021), diktat kalkulus ITB, dan
 Stewart. Soal salinan selalu disertai sumbernya; yang tanpa keterangan adalah
 tulisan sendiri.
 
