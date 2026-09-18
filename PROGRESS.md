@@ -1,5 +1,38 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 18 SEP (6): SISTEM GERAK PANGGUNG TAHAP 4 (TERAKHIR): KORSEL, PEMUTAR, GULIR, 404, AUDIT (deploy DEPLOY_ID, push GitHub COMMIT_ID)
+
+Rencana `docs/superpowers/plans/2026-09-17-sistem-gerak-panggung.md` selesai
+semua (tahap 1 sampai 4). Penyimpangan dan hasil audit: `docs/desain-mantra/gerak/KEPUTUSAN.md`.
+- Korsel beranda (`Demo.tsx`): rel 500 ms `--kurva-pindah`; titik aktif
+  melebar lewat TRANSFORM saja (dua tutup bulat `::before`/`::after` bergeser
+  11 px + ruas tengah direntangkan, tetangga bergeser lewat `:has`), tampak
+  sama dengan versi `width`; penanda memuat jadi balok bernapas seukuran
+  kotak (`putar` dicabut). TIDAK ada pergantian otomatis 7 s walau spek
+  memintanya: ARYA mencabutnya 5 Sep.
+- Pemutar video: lencana "+5 detik" selalu terpasang (`data-tampil`: muncul
+  seketika, tahan 700 ms, pudar 200 ms, tulisan tetap); kotak galat memudar
+  masuk 200 ms; saklar subtitle transisi warna 140 ms. `.tombol-putar`,
+  gagang saklar, batang simpan tidak ada di MANTRA (kendali bawaan, tombol
+  teks, kotak centang), dilewati.
+- `MunculSaatGulir`: kelas `.muncul-gulir[data-tampil]` (naik 12 px + pudar
+  400 ms), threshold 0,2, rootMargin -40 px, unobserve, atribut ditulis ke
+  DOM. `LogoParalaks` mati di layar sentuh. 404: grafik tan jadi
+  `GrafikTan.tsx` (klien) yang mengunci gambar sesudah 2,2 s; reduced motion
+  langsung tergambar. `SedangMemuat` setinggi panggung (`.memuat-panggung`).
+- Mikro: `:focus-visible` universal (dulu hanya a, button, .tombol); pil
+  emas transisi background 160 ms lewat token; `.nyala` tetap seketika.
+- Pergeseran tata letak halaman materi 0,0006 (baris "Simpan video" muncul
+  sesudah hidrasi) DIHILANGKAN: tempatnya dipesan sejak render server,
+  tersembunyi sampai pemeriksaan simpanan selesai. Layout Shift lima
+  halaman = 0.
+- Audit lewat playwright-cli run-code: reduced motion (emulasi), Layout
+  Shift, jendela keluar (fokus awal, Tab terkurung, Esc, fokus kembali),
+  Berikutnya 5 kali cepat (1 ke 6), Lanjut 3 kali cepat (01 ke 04), grep
+  keyframes terlarang; BELUM: 60 fps CPU 4 kali (tidak ada alat profil).
+- Cek: tsc, eslint (react-hooks/set-state-in-effect memaksa MunculSaatGulir
+  menulis DOM langsung), build, playwright 1280 dan 390.
+
 ## 18 SEP (5): TAUTAN YOUTUBE LANGSUNG KE VIDEONYA (HP), PENCARIAN KANAL JADI CADANGAN (deploy DEPLOY_ID, push GitHub COMMIT_ID)
 
 ARYA: pencariannya cocok, tetapi di HP tautan pencarian di dalam kanal

@@ -19,13 +19,17 @@ import { useEffect, useRef } from 'react'
  *    menggulir.
  *
  * Kalau pengguna meminta gerak dikurangi, paralaksnya dimatikan sama sekali.
+ * Di layar sentuh (`pointer: coarse`) juga dimatikan: HP menggulir dengan
+ * momentum, pendengar gulirnya menyala ratusan kali, dan pergeseran 26 px
+ * di logo tidak sepadan dengan baterainya (sistem gerak Panggung, K).
  */
 export default function LogoParalaks() {
   const acuan = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const kurangiGerak = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (kurangiGerak) return
+    const layarSentuh = window.matchMedia('(pointer: coarse)').matches
+    if (kurangiGerak || layarSentuh) return
 
     let menunggu = false
     const perbarui = () => {

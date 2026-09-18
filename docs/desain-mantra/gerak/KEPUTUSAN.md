@@ -105,3 +105,52 @@ Prompt yang melahirkan rancangan ini: `../PROMPT-CLAUDE-DESIGN-GERAK.md`.
 - **`.alat-sisip` tidak diberi `min-height`**: di HP yang bertukar adalah
   video dan alat (tombol Tonton / Coba sendiri), tingginya memang berbeda;
   keduanya cukup memudar masuk 200 ms saat dipasang.
+- **Tahap 4 (18 Sep 2026): korsel beranda TIDAK berganti sendiri.** HANDOFF
+  dan spek H menulis "otomatis 7 s, berhenti saat hover/fokus/sentuh";
+  ARYA sudah mencabut pergantian otomatis 5 Sep 2026 (video slide pertama
+  tidak pernah sempat selesai, slide yang sedang dibaca berpindah di tengah
+  kalimat). Keputusan ARYA menang: slide hanya berganti lewat panah, titik,
+  atau papan ketik. Rel tetap 500 ms dengan `--kurva-pindah`.
+- **Titik korsel melebar lewat transform, tetapi bukan `scaleX(2.2)` pada
+  satu pil**: scaleX menyepeng ujung bulatnya jadi elips. Batang 28 px
+  dirakit dari dua tutup bulat (`::before`, `::after`) yang bergeser 11 px
+  dan ruas tengah 22 px yang direntangkan dari nol; titik tetangga ikut
+  bergeser 11 px lewat transform (`:has(~ [data-aktif])`), jadi barisnya
+  tetap rata tengah tanpa tata letak ulang. Tampak akhirnya sama persis
+  dengan versi lama yang mengubah `width`.
+- **`.tombol-putar`, `.saklar .gagang`, `.simpan-video .batang` tidak ada di
+  MANTRA**: pemutarnya memakai kendali bawaan peramban (tidak ada tombol
+  putar sendiri), saklar subtitle adalah tombol teks `aria-pressed` (diberi
+  transisi warna 140 ms), dan simpan video adalah kotak centang tanpa batang
+  kemajuan. Butir spek itu tidak dipindahkan.
+- **Lencana geser "+5 detik" selalu terpasang** (`data-tampil`, bukan bongkar
+  pasang): tekanan panah beruntun memperpanjang tahannya 700 ms, lalu memudar
+  200 ms dengan tulisannya tetap ada. Versi bongkar pasang membiarkan animasi
+  pudar lama habis di tengah tekanan berikutnya, lencananya lenyap padahal
+  tulisannya masih berganti.
+- **`.nyala` tetap seketika, tanpa transisi 140 ms**: kelasnya dipasang pada
+  elemen SVG (circle, line, path, g) tanpa kelas dasar, dan transisi `filter`
+  pada `g` berisi banyak anak mahal. Reduced motion pun memintanya "warna
+  saja".
+- **Tempat kotak centang "Simpan video" dipesan sejak render server**
+  (`useSyncExternalStore`, jawaban server "petugas ada", tersembunyi sampai
+  pemeriksaan simpanan selesai). Tanpa ini Layout Shift halaman materi 0,0006:
+  barisnya melebar 112 px dan bergeser ke kiri sesudah hidrasi. Sesudahnya 0.
+- **MunculSaatGulir menulis `data-tampil` langsung ke DOM**, bukan state
+  React: satu atribut tidak perlu merakit ulang isinya, dan aturan
+  `react-hooks/set-state-in-effect` menolak setState sinkron di efek.
+- **Cincin fokus memakai `--oker`** (yang memang sama dengan `--emas`), tetapi
+  selektornya jadi `:focus-visible` universal: sebelumnya hanya tautan,
+  tombol, dan `.tombol`; kotak centang, `summary`, dan elemen ber-`tabindex`
+  tidak bercincin.
+- **Audit tahap 4 (18 Sep 2026)**: reduced motion (emulasi Playwright):
+  token 0 ms, rel korsel dan titik 0, MunculSaatGulir langsung tampil, kurva
+  404 langsung tergambar; Layout Shift beranda, /topik/integral,
+  /topik/trigonometri materi 2, /latihan/turunan, /peta-materi = 0; jendela
+  keluar latihan: fokus awal "Tetap di sini", Tab tiga kali tetap di dalam,
+  Esc menutup dan fokus kembali ke tautan pembuka; Berikutnya 5 kali cepat:
+  soal 1 ke 6, fokus tetap di tombol; Lanjut 3 kali cepat: Materi 01 ke 04;
+  tidak ada galat konsol. **Belum diukur: 60 fps pada CPU 4 kali lebih
+  lambat** (playwright-cli tidak membawa profil kinerja); yang bisa
+  dijamin dari kodenya: semua gerak tahap 1 sampai 4 hanya transform dan
+  opacity kecuali `grid-template-columns` lipat pohon dan mode fokus.

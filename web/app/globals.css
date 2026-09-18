@@ -119,10 +119,15 @@
     --geser-ruang: 0px; --geser-balik: 0px; --geser-materi: 0px; --geser-soal: 0px; --geser-umpan: 0px;
     --skala-tenggelam: 1; --skala-panggung: 1; --skala-jendela: 1;
   }
+  /* Durasi yang ditulis angka, bukan token: rel korsel (Demo.tsx juga
+     mematikannya sebaris), lencana geser video, kotak galat video. */
+  .demo-rel, .lencana-geser { transition: none; }
+  .video-galat { animation: none; }
 }
 
 /* Keyframes sistem gerak. Yang lama (naik, muncul, napas, letup, gambar,
-   denyut, putar) tetap dipakai di tempatnya masing-masing. */
+   denyut) tetap dipakai di tempatnya masing-masing; `putar` dicabut 18 Sep
+   2026 bersama lingkaran memuat korsel (diganti balok napas). */
 @keyframes panggung-naik   { from { opacity: 0; transform: translateY(var(--geser-ruang)); } }
 @keyframes panggung-turun  { from { opacity: 0; transform: translateY(calc(-1 * var(--geser-balik))); } }
 @keyframes panggung-mundur { to   { opacity: 0; transform: scale(var(--skala-tenggelam)); } }
@@ -366,7 +371,10 @@ h1, h2, h3, .disp {
   display: block; text-decoration: none;
 }
 .tombol.garis { background: transparent; color: var(--tinta); border: 1px solid var(--garis); }
-.tombol:focus-visible, a:focus-visible, button:focus-visible {
+/* Cincin fokus papan ketik: emas, muncul SEKETIKA (outline tidak pernah
+   ditransisikan), untuk semua yang bisa difokus, bukan hanya tautan dan
+   tombol (sistem gerak Panggung, J). */
+:focus-visible {
   outline: 2px solid var(--oker); outline-offset: 2px;
 }
 /* Di atas permukaan navy emas #B08A3E hanya 3,4:1 terhadap latarnya, pas-pasan
@@ -1005,6 +1013,8 @@ video::cue(b) { font-weight: 700; }
 .atur-subtitle .saklar {
   width: auto; padding: 0 10px; margin-right: 6px;
   letter-spacing: 0.06em; text-transform: uppercase; font-size: 10.5px;
+  transition: background var(--d-umpan) var(--kurva), border-color var(--d-umpan) var(--kurva),
+              color var(--d-umpan) var(--kurva);
 }
 .atur-subtitle .saklar[aria-pressed="true"] {
   background: var(--emas); border-color: var(--emas); color: var(--tinta);
@@ -1063,7 +1073,7 @@ video::cue(b) { font-weight: 700; }
    2. Perpindahan klip terjadi seketika tanpa gerak. Sekarang kelima klip
       berjajar di satu rel yang digeser, jadi perpindahannya terlihat.
    3. Kotaknya sempat KOSONG saat isi klip baru masih dimuat. Sekarang ada
-      penanda memuat yang berputar di atas kotak selama isinya belum siap. */
+      penanda memuat (balok bernapas) di atas kotak selama isinya belum siap. */
 .demo {
   max-width: none; margin: 0 auto;
   display: flex; flex-direction: column; gap: 18px;
@@ -1083,7 +1093,7 @@ video::cue(b) { font-weight: 700; }
    klip yang pernah dibuka tidak perlu dimuat ulang saat dikunjungi lagi. */
 .demo-rel {
   display: flex; height: 100%; width: 100%;
-  transition: transform 500ms var(--kurva);
+  transition: transform 500ms var(--kurva-pindah);
   will-change: transform;
 }
 .demo-slide {
@@ -1098,17 +1108,23 @@ video::cue(b) { font-weight: 700; }
   background: var(--kertas); z-index: 2;
 }
 /* Teks yang hanya dibacakan pembaca layar, tidak terlihat mata. Dipakai untuk
-   memberi tahu bahwa cuplikan sedang dimuat, sebab lingkaran berputar tidak
+   memberi tahu bahwa cuplikan sedang dimuat, sebab balok yang bernapas tidak
    berarti apa-apa bagi yang tidak melihatnya. */
 .hanya-pembaca {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
 }
-@keyframes putar { to { transform: rotate(360deg); } }
+/* Balok bernapas seukuran kotak (sistem gerak Panggung tahap 4, 18 Sep 2026),
+   menggantikan lingkaran berputar: lingkaran menyiratkan ada yang sedang
+   dikerjakan, padahal yang terjadi cuma menunggu berkasnya. Latar kertasnya
+   tetap pekat supaya poster di bawahnya tidak berkedip ikut napasnya. */
 .demo-muat i {
-  display: block; width: 34px; height: 34px; border-radius: 50%;
-  border: 2px solid rgba(16, 26, 43, 0.14); border-top-color: var(--emas);
-  animation: putar 900ms linear infinite;
+  position: absolute; inset: 0; display: block;
+  background: rgba(16, 26, 43, 0.08);
+  animation: napas 1.6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .demo-muat i { animation: none; opacity: 0.6; }
 }
 
 /* Baris bawah: label jenis di kiri, keterangan di tengah, tombol di kanan. */
@@ -1151,18 +1167,39 @@ video::cue(b) { font-weight: 700; }
 
 /* Titik penanda. Yang aktif MELEBAR jadi garis pendek, bukan sekadar
    berganti warna: bentuk lebih cepat terbaca daripada warna. Tombolnya
-   setinggi 24px walau titiknya 6px, supaya sasaran sentuhnya tetap layak. */
+   setinggi 24px walau titiknya 6px, supaya sasaran sentuhnya tetap layak.
+
+   Melebarnya lewat TRANSFORM saja (sistem gerak Panggung tahap 4), tanpa
+   mengubah lebar: batang 28 px dirakit dari dua tutup bulat (::before,
+   ::after) yang bergeser 11 px ke kiri dan kanan, plus ruas tengah 22 px
+   (span) yang direntangkan dari nol. Saat tidak aktif kedua tutupnya
+   bertumpuk di tengah jadi satu titik 6 px. Titik tetangga ikut bergeser
+   11 px lewat transform, jadi barisnya tetap rata tengah tanpa satu pun
+   tata letak ulang. (scaleX pada satu pil menyepeng ujung bulatnya.) */
 .demo-titik { display: flex; gap: 6px; justify-content: center; }
 .demo-titik button {
-  height: 24px; padding: 0 3px; border: 0; background: transparent;
-  cursor: pointer; display: grid; align-items: center;
+  position: relative; width: 12px; height: 24px; padding: 0; border: 0;
+  background: transparent; cursor: pointer;
+  transition: transform var(--d-sedang) var(--kurva);
+}
+.demo-titik button::before, .demo-titik button::after, .demo-titik button span {
+  content: ''; position: absolute; top: 50%; left: 50%; height: 6px;
+  background: var(--garis-tegas);
+  transition: transform var(--d-sedang) var(--kurva), background var(--d-sedang) var(--kurva);
+}
+.demo-titik button::before, .demo-titik button::after {
+  width: 6px; margin: -3px 0 0 -3px; border-radius: 50%;
 }
 .demo-titik button span {
-  display: block; width: 6px; height: 6px; border-radius: 999px;
-  background: var(--garis-tegas);
-  transition: width var(--d-sedang) var(--kurva), background var(--d-sedang) var(--kurva);
+  display: block; width: 22px; margin: -3px 0 0 -11px; transform: scaleX(0);
 }
-.demo-titik button[data-aktif='true'] span { width: 28px; background: var(--emas); }
+.demo-titik button[data-aktif='true']::before { transform: translateX(-11px); }
+.demo-titik button[data-aktif='true']::after { transform: translateX(11px); }
+.demo-titik button[data-aktif='true'] span { transform: scaleX(1); }
+.demo-titik button[data-aktif='true']::before, .demo-titik button[data-aktif='true']::after,
+.demo-titik button[data-aktif='true'] span { background: var(--emas); }
+.demo-titik button:has(~ button[data-aktif='true']) { transform: translateX(-11px); }
+.demo-titik button[data-aktif='true'] ~ button { transform: translateX(11px); }
 
 @media (max-width: 860px) {
   .demo-bawah { grid-template-columns: minmax(0, 1fr) auto; }
@@ -1261,16 +1298,19 @@ video::cue(b) { font-weight: 700; }
   position: relative; display: flex; justify-content: center;
   max-width: 100%; max-height: 100%; min-height: 0; touch-action: manipulation;
 }
+/* Lencana "+5 detik": muncul SEKETIKA saat `data-tampil` dinyalakan (durasi
+   transisi 0), ditahan 700 ms oleh PemutarVideo, lalu memudar keluar 200 ms.
+   Elemennya selalu terpasang, jadi tekanan panah beruntun cuma memperpanjang
+   tahannya, bukan mengulang animasi dari nol atau membiarkannya habis. */
 .lencana-geser {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   padding: 8px 14px; border-radius: 999px; background: rgba(16, 26, 43, 0.78);
   color: var(--kertas); font-family: var(--font-mono), system-ui, sans-serif;
   font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
-  pointer-events: none; animation: lencana-pudar 0.7s ease-out forwards;
+  pointer-events: none; opacity: 0; transition: opacity 200ms linear;
 }
-@keyframes lencana-pudar {
-  0% { opacity: 1; } 70% { opacity: 1; } 100% { opacity: 0; }
-}
+.lencana-geser:empty { visibility: hidden; }
+.lencana-geser[data-tampil='true'] { opacity: 1; transition-duration: 0s; }
 
 /* ============================================================
    Penanda sesi dan kotak eksperimen di dalam materi
@@ -1899,15 +1939,16 @@ video::cue(b) { font-weight: 700; }
   .tombol-utama, .tombol-pasang, .tombol-wa { min-height: 44px; }
 
   /* Titik korsel: yang TERLIHAT tetap titik 6 piksel (atau batang 28 piksel
-     saat aktif), tapi daerah yang bisa ditekan dibesarkan jadi 44 piksel
-     tingginya lewat isian, bukan lewat memperbesar titiknya.
-
-     Titiknya digambar oleh `span` di dalam tombol, BUKAN oleh `::before`.
-     Sampai 4 Sep 2026 aturan di sini masih menggambar titik keduanya lewat
-     `::before`, sehingga di HP tiap tombol memperlihatkan DUA tanda
-     sekaligus: lingkaran kosong warisan lama di sebelah titik yang baru. */
+     saat aktif), tapi daerah yang bisa ditekan dibesarkan jadi 44 x 26
+     piksel lewat ukuran tombolnya, bukan lewat memperbesar titiknya.
+     Tutup bulat dan ruas tengahnya tetap diposisikan dari titik tengah
+     tombol, jadi lebar tombol boleh berbeda dari desktop. (Sampai 4 Sep 2026
+     aturan di sini menggambar titik kedua lewat `::before` warisan lama,
+     sehingga tiap tombol memperlihatkan DUA tanda; sejak tahap 4 sistem
+     gerak, `::before` dan `::after` memang tutup bulat batangnya, satu
+     aturan untuk semua lebar layar.) */
   .demo-titik { gap: 2px; }
-  .demo-titik button { height: 44px; padding: 0 10px; }
+  .demo-titik button { height: 44px; width: 26px; }
 
   /* Penggeser widget. Batangnya tetap tipis, yang membesar cuma daerah
      tangkapnya. */
@@ -2001,7 +2042,10 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   display: inline-flex; align-items: center; justify-content: center;
   border: 0; font: inherit; font-weight: 600;
   border-radius: 999px; cursor: pointer; text-decoration: none;
-  white-space: nowrap; transition: transform 0.2s, border-color 0.2s, color 0.2s, opacity 0.2s;
+  white-space: nowrap;
+  transition: transform var(--d-cepat) var(--kurva), border-color var(--d-cepat) var(--kurva),
+              color var(--d-cepat) var(--kurva), background var(--d-cepat) var(--kurva),
+              opacity var(--d-cepat) var(--kurva);
 }
 .pil-emas:disabled, .pil-gelap:disabled, .pil-garis:disabled {
   opacity: 0.4; cursor: not-allowed; transform: none;
@@ -2099,6 +2143,18 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .naik-2 { animation-delay: 120ms; }
 .naik-3 { animation-delay: 180ms; }
 .naik-4 { animation-delay: 240ms; }
+
+/* Muncul saat digulir (MunculSaatGulir.tsx, sistem gerak K): naik 12 px dan
+   memudar masuk 400 ms, sekali, begitu seperlima elemennya masuk layar.
+   Pengguna yang meminta gerak dikurangi langsung melihat isinya. */
+.muncul-gulir {
+  opacity: 0; transform: translateY(12px);
+  transition: opacity var(--d-jendela) var(--kurva), transform var(--d-jendela) var(--kurva);
+}
+.muncul-gulir[data-tampil='true'] { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .muncul-gulir { opacity: 1; transform: none; transition: none; }
+}
 
 /* Kurva digambar sekali lalu tinggal. `both` menahan keadaan akhir, jadi
    peramban yang melewatkan animasinya tetap melihat kurva utuh. */
@@ -2275,6 +2331,7 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   aspect-ratio: 16 / 9; border-radius: var(--r-kontrol);
   background-color: var(--panggung); color: var(--kertas-tinta);
   display: grid; place-items: center; text-align: center; padding: 20px;
+  animation: isi-ganti 200ms linear both;
   background-image:
     repeating-linear-gradient(to right, var(--kertas-petak) 0 1px, transparent 1px 30px),
     repeating-linear-gradient(to bottom, var(--kertas-petak) 0 1px, transparent 1px 30px);
@@ -2470,6 +2527,10 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .bacaan .alat-sisip { margin: 18px 0 28px; }
 
 /* ---------- keadaan memuat ---------- */
+/* Kerangka /topik setinggi panggung materi (`.materi-satu-layar`), supaya
+   kaki halaman tidak melompat saat isi aslinya datang (sistem gerak I). */
+.memuat-panggung { min-height: calc(100dvh - var(--nav)); box-sizing: border-box; }
+@media (max-width: 860px) { .memuat-panggung { min-height: 0; } }
 .memuat-panel {
   border: 1px solid var(--garis); border-radius: var(--r-kartu);
   background: var(--kartu); padding: 26px 24px;
@@ -2486,6 +2547,16 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .memuat-kabar { margin: 14px 0 0; font-size: 12.5px; color: var(--tinta-50); }
 
 /* ---------- halaman 404 ---------- */
+/* Momen tanda tangan 404: dua ruas kurva tan tergambar (1,6 s, ruas kedua
+   mulai 0,7 s) dan label x = 90 derajat muncul (1,8 s). GrafikTan.tsx
+   menyalakan `data-selesai` sesudah 2,2 s supaya perakitan ulang tidak
+   mengulang gambarnya; gerak dikurangi = semuanya langsung tergambar. */
+.galat-grafik[data-selesai='true'] path, .galat-grafik[data-selesai='true'] text {
+  animation: none !important; stroke-dashoffset: 0; opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .galat-grafik path, .galat-grafik text { animation-duration: 0s !important; animation-delay: 0s !important; }
+}
 .galat-404 {
   flex: 1; display: grid; place-items: center;
   padding-top: clamp(40px, 6vw, 96px); padding-bottom: clamp(40px, 6vw, 96px);

@@ -15,10 +15,13 @@
  * `aria-busy` beserta tulisan tersembunyi memberi tahu pembaca layar apa
  * yang sedang terjadi, sebab balok yang memudar tidak berarti apa-apa bagi
  * yang tidak melihatnya.
+ *
+ * Pembungkusnya (`.memuat-panggung`) setinggi panggung materi di desktop,
+ * supaya kaki halaman tidak melompat saat kerangka ini diganti isi aslinya.
  */
 export default function SedangMemuat() {
   return (
-    <div className="mantra-lebar" style={{ paddingTop: 16 }}>
+    <div className="mantra-lebar memuat-panggung" style={{ paddingTop: 16 }}>
       <div className="memuat-panel" role="status" aria-busy="true">
         <div className="memuat-cap">Memuat materi</div>
         <div className="memuat-baris">

@@ -80,17 +80,19 @@ untuk lipat pohon dan mode fokus). Tanpa em-dash.
 
 ## Tahap 4: H korsel dan video, I memuat dan 404, J mikro, K gulir
 
-- [ ] 4.1 `Demo.tsx`: `.demo-rel` transisi 500 ms, titik aktif `scaleX`,
+- [x] 4.1 `Demo.tsx`: `.demo-rel` transisi 500 ms, titik aktif `scaleX`,
       jeda 7 s berhenti saat hover/fokus/sentuh/reduced motion, slot video
-      belum siap = balok `napas` seukuran slide.
-- [ ] 4.2 `PemutarVideo.tsx`: `data-putar` → `.tombol-putar` mengecil pudar;
+      belum siap = balok `napas` seukuran slide. (Dikerjakan 18 Sep 2026
+      TANPA jeda otomatis 7 s: ARYA mencabutnya 5 Sep; titik lewat tutup
+      bulat + ruas, lihat KEPUTUSAN.md.)
+- [x] 4.2 `PemutarVideo.tsx`: `data-putar` → `.tombol-putar` mengecil pudar;
       `.lencana-geser[data-tampil]`; `.saklar` gagang; `.simpan-video .batang`;
       `.video-galat` memudar masuk; subtitle tanpa transisi.
-- [ ] 4.3 `MunculSaatGulir.tsx`: kelas `.muncul-gulir[data-tampil]`, threshold .2,
+- [x] 4.3 `MunculSaatGulir.tsx`: kelas `.muncul-gulir[data-tampil]`, threshold .2,
       rootMargin -40px, unobserve; `LogoParalaks` mati di `(pointer: coarse)`;
       `not-found.tsx` `data-selesai` 2,2 s; `SedangMemuat` seukuran panggung.
-- [ ] 4.4 `:focus-visible` cincin emas; `.nyala` bayangan lingkar; `.pil-emas:hover`.
-- [ ] 4.5 Audit bagian 8 HANDOFF: reduced motion, Layout Shift 0, fokus dan Esc,
+- [x] 4.4 `:focus-visible` cincin emas; `.nyala` bayangan lingkar; `.pil-emas:hover`.
+- [x] 4.5 Audit bagian 8 HANDOFF: reduced motion, Layout Shift 0, fokus dan Esc,
       CPU 4× 60 fps (pindah halaman, jendela, laci, fokus), ketukan cepat,
       grep tidak ada `tab-masuk`, `shake`, `goyang`, `infinite` selain `napas`,
       `putar`, korsel; tidak ada em-dash.

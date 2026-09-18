@@ -258,6 +258,9 @@ export default function Demo() {
           ))}
         </div>
 
+        {/* Penanda memuat: balok yang BERNAPAS seukuran kotak (sistem gerak
+            Panggung tahap 4), bukan lingkaran berputar. Lingkaran menyiratkan
+            ada yang sedang dikerjakan; yang terjadi cuma menunggu berkasnya. */}
         {!siap.includes(ke) && (
           <div className="demo-muat" role="status" aria-live="polite">
             <i aria-hidden="true" />

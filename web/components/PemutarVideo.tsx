@@ -126,8 +126,11 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
   const [percobaan, setPercobaan] = useState(0)
   // Lencana "+5 detik" / "-5 detik" yang muncul sekejap di atas video tiap
   // kali digeser lewat panah atau ketukan ganda, supaya siswa tahu apa yang
-  // barusan terjadi.
-  const [lencana, setLencana] = useState<string | null>(null)
+  // barusan terjadi. Elemennya SELALU terpasang; yang berganti cuma
+  // `data-tampil`, supaya ia bisa memudar keluar (200 ms) dan tulisannya
+  // tetap ada selama pudarnya. Dengan bongkar pasang, tekanan panah yang
+  // beruntun membiarkan animasi lama habis di tengah tekanan berikutnya.
+  const [lencana, setLencana] = useState<{ teks: string; tampil: boolean }>({ teks: '', tampil: false })
   const jamLencana = useRef<number | undefined>(undefined)
   const geser = useCallback((detik: number, dari?: number) => {
     const v = video.current
@@ -141,9 +144,9 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
       // kemudian supaya hasil akhirnya tetap 5 detik dari titik semula.
       window.setTimeout(() => { v.currentTime = tujuan }, 80)
     }
-    setLencana(detik > 0 ? `+${detik} detik` : `${detik} detik`)
+    setLencana({ teks: detik > 0 ? `+${detik} detik` : `${detik} detik`, tampil: true })
     window.clearTimeout(jamLencana.current)
-    jamLencana.current = window.setTimeout(() => setLencana(null), 700)
+    jamLencana.current = window.setTimeout(() => setLencana((l) => ({ ...l, tampil: false })), 700)
   }, [])
 
   /* Sumber elemen video ini, diputuskan SEBELUM elemennya diberi <source>:
@@ -386,6 +389,13 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
      jaringan) hanya dicoba sekali per pemuatan halaman. */
   const [keadaan, setKeadaan] = useState<KeadaanSimpanan | null>(null)
   const [ringkasan, setRingkasan] = useState<RingkasanSimpanan | null>(null)
+  // Tempat kotak centang "Simpan video" DIPESAN sejak render server
+  // (jawaban server: petugas ada), tersembunyi sampai pemeriksaan simpanan
+  // selesai. Kalau dipasang baru sesudah pemeriksaan, barisnya melebar dan
+  // bergeser ke kiri sepersekian detik sesudah halaman tampil (audit sistem
+  // gerak tahap 4: pergeseran tata letak harus nol). Peramban tanpa petugas
+  // (bukan https, peramban lama) mencabut pesanan itu sesudah hidrasi.
+  const petugasAda = useSyncExternalStore(langgan, simpananTersedia, () => true)
   const otomatis = useSyncExternalStore(
     langgan,
     () => bacaAngka(KUNCI_SIMPAN, 1),
@@ -544,7 +554,7 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
         Peramban Anda tidak bisa memutar video ini. Penjelasan lengkapnya tetap
         tersedia sebagai teks di bawahnya.
       </video>
-      {lencana && <div className="lencana-geser" aria-live="polite">{lencana}</div>}
+      <div className="lencana-geser" data-tampil={lencana.tampil} aria-live="polite">{lencana.teks}</div>
       </div>
 
       <div className="atur-subtitle">
@@ -557,8 +567,9 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
             yang terlalu penting"): satu kotak centang = simpan otomatis
             hidup/mati, tulisannya berganti saat video ini sudah tersimpan,
             dan tautan "hapus" kecil bila ada yang tersimpan. */}
-        {keadaan !== null && (
+        {(petugasAda || keadaan !== null) && (
           <label className="simpan-video"
+                 style={keadaan === null ? { visibility: 'hidden' } : undefined}
                  title="Video yang ditonton hampir habis disimpan di perangkat ini, supaya berikutnya tidak diunduh lagi">
             <input type="checkbox" checked={otomatis === 1}
                    onChange={() => simpanAngka(KUNCI_SIMPAN, otomatis ? 0 : 1)} />

@@ -5,20 +5,25 @@ import { useEffect, useRef, type ReactNode } from 'react'
 /**
  * Membungkus sesuatu supaya ia naik dan memudar masuk saat pertama kali
  * masuk layar, lalu dilepaskan.
- * Patokan: `docs/desain-mantra/MANTRA-v2.dc.html` baris 672 sampai 678.
+ * Patokan: `docs/desain-mantra/MANTRA-v2.dc.html` baris 672 sampai 678;
+ * sistem gerak Panggung (K) `docs/desain-mantra/gerak/HANDOFF-GERAK.md`.
  *
  * Kenapa hanya SEKALI: elemen yang memudar keluar-masuk tiap kali digulir
  * bolak-balik terasa gelisah, dan yang lebih buruk, isinya jadi tidak bisa
  * dipercaya ada di sana saat orang menggulir kembali ke atas.
  *
- * `rootMargin: 0 0 -8% 0` menahan pemicunya sedikit di dalam layar. Tanpa
- * itu elemen dinyatakan masuk saat baris pertamanya baru menyentuh tepi
- * bawah, dan animasinya sudah selesai sebelum orang sempat melihatnya.
+ * Pemicunya: seperlima elemen sudah masuk layar (`threshold: 0.2`) dan
+ * tepi bawah layar dianggap 40 px lebih tinggi (`rootMargin`). Tanpa itu
+ * elemen dinyatakan masuk saat baris pertamanya baru menyentuh tepi bawah,
+ * dan animasinya sudah selesai sebelum orang sempat melihatnya.
  *
- * Kalau pengguna minta gerak dikurangi, isinya langsung ditampilkan penuh.
- * Kalau `IntersectionObserver` tidak ada, isinya juga langsung ditampilkan:
- * gagal dengan isi terlihat jauh lebih baik daripada gagal dengan halaman
- * yang tampak kosong.
+ * Geraknya ditulis di CSS (`.muncul-gulir[data-tampil]`, globals.css):
+ * naik 12 px dan memudar, 400 ms, kurva masuk. `data-tampil` ditulis
+ * langsung ke DOM, bukan lewat state React: satu atribut berubah tidak perlu
+ * merakit ulang seluruh isinya. Kalau pengguna minta gerak dikurangi, aturan
+ * CSS yang sama menampilkannya langsung. Kalau `IntersectionObserver` tidak
+ * ada, isinya juga langsung ditampilkan: gagal dengan isi terlihat jauh
+ * lebih baik daripada gagal dengan halaman yang tampak kosong.
  */
 export default function MunculSaatGulir({
   children,
@@ -35,16 +40,9 @@ export default function MunculSaatGulir({
   useEffect(() => {
     const el = acuan.current
     if (!el) return
+    const tampilkan = () => { el.dataset.tampil = 'true' }
 
-    const tampilkan = () => {
-      el.style.opacity = '1'
-      el.style.animation = ''
-    }
-
-    if (
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-      typeof IntersectionObserver === 'undefined'
-    ) {
+    if (typeof IntersectionObserver === 'undefined') {
       tampilkan()
       return
     }
@@ -54,20 +52,21 @@ export default function MunculSaatGulir({
         for (const e of entri) {
           if (!e.isIntersecting) continue
           pengamat.unobserve(e.target)
-          el.style.animation = `naik var(--d-lambat) var(--kurva) ${tunda}ms both`
+          tampilkan()
         }
       },
-      { rootMargin: '0px 0px -8% 0px' },
+      { threshold: 0.2, rootMargin: '0px 0px -40px 0px' },
     )
     pengamat.observe(el)
     return () => pengamat.disconnect()
-  }, [tunda])
+  }, [])
 
-  // `opacity: 0` ditulis di gaya sebaris, bukan lewat kelas, supaya tidak
-  // ada kedip pada peramban yang menerapkan CSS lebih lambat daripada
-  // menggambar isi.
   return (
-    <div ref={acuan} className={className} style={{ opacity: 0 }}>
+    <div
+      ref={acuan}
+      className={className ? `muncul-gulir ${className}` : 'muncul-gulir'}
+      style={tunda ? { transitionDelay: `${tunda}ms` } : undefined}
+    >
       {children}
     </div>
   )
