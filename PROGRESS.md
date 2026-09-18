@@ -1,6 +1,6 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
-## 18 SEP (2): TEKS ALAT KATEX, GALERI DUNIA NYATA BERFOTO, PANEL TEKS JADI LEMBAR KERJA
+## 18 SEP (2): TEKS ALAT KATEX, GALERI DUNIA NYATA BERFOTO, PANEL TEKS JADI LEMBAR KERJA (deploy matra-23wwmzjhe, push GitHub 02e76fb)
 
 ARYA (enam tangkapan layar): teks alat interaktif belum bergaya bank soal
 (KaTeX); galeri dunia nyata banyak yang cuma grafik ("ya pakai foto yang
