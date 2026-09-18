@@ -16,9 +16,19 @@ gerak yang menghormati "kurangi gerak"; angka video 216 menit, rata-rata 3,8
 menit, 9 MB. Atas izin ARYA: sel 09 "tidak ada gambar pihak ketiga" (kini
 salah) diubah, tanggal keadaan 18 Sep, baris ChatGPT (logo) ditambahkan ke
 tabel AI berkas 08 karena 09 menyebut logo dibuat dengan ChatGPT. 03
-Deskripsi tetap 5 halaman (Gambar 1 dikecilkan 16,6 ke 13 cm). Belum
-diputuskan: rekam ulang video demo (alat A2 dan bank soal di rekaman sudah
-versi lama).
+Deskripsi tetap 5 halaman (Gambar 1 dikecilkan 16,6 ke 13 cm).
+- Video demo DIREKAM ULANG (ARYA: "ya direkam aja ulang") memakai situs 18
+  Sep: alat A2 lewat kendali Besar segitiga dan Sudut θ, bank soal lewat ubin
+  Mudah, Periksa jawaban, jendela lencana "Langkah pertama" ditutup lewat
+  tombolnya, Berikutnya; kartu cara kerja: Cloudflare R2, ElevenLabs (Bian),
+  36 pemeriksa, "105 materi dan 540 soal, disusun mengikuti urutan materi SMA"
+  (tanpa menyebut buku panduan). Hasil 5:49, `kerja/demo/06-Video-Demo-tanpa-suara.mp4`
+  disalin ke folder kirim; 07-Naskah: kolom Waktu dan durasi diperbarui di
+  tempat, "dua puluh tujuh" jadi "tiga puluh enam" pemeriksa. Jebakan baru:
+  tombol pilihan jawaban tidak bisa dicari lewat nama aksesibilitas (huruf
+  di lencana .huruf, isi KaTeX aria-hidden), pakai `main button:has(> .huruf)`;
+  jawaban benar pertama memunculkan <dialog> lencana yang menelan klik
+  berikutnya.
 
 ## 18 SEP (6): SISTEM GERAK PANGGUNG TAHAP 4 (TERAKHIR): KORSEL, PEMUTAR, GULIR, 404, AUDIT (deploy matra-m78yjl1sn, push GitHub 9430af0)
 
