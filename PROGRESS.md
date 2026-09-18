@@ -1,5 +1,25 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 18 SEP (7): BERKAS LOMBA PPPMI DISESUAIKAN DENGAN PEMBARUAN SITUS 15-18 SEP (di D:\PPPMI-2026, bukan repo)
+
+Permintaan ARYA: perbarui berkas Word di folder kirim tanpa mengembalikan
+apa pun yang sudah ia hapus. Caranya: isi tiap berkas dibandingkan dengan
+versi terakhir skrip (difflib) untuk mengetahui suntingan ARYA, lalu HANYA
+disisipkan paragraf, butir, dan baris tabel baru lewat
+`D:\PPPMI-2026\kerja\sisip_18_09.py` (python-docx, di tempat; cadangan di
+`kerja\lama\*-sebelum-18-09.docx`). Yang masuk: video di Cloudflare R2 dan
+simpanan di perangkat, bank soal (peta soal, kocok, jendela skor, lencana,
+?tingkat=), rumus KaTeX, 39 foto galeri Wikimedia Commons (CC0 7, domain
+publik 4, CC BY 10, CC BY-SA 18) dengan baris atribusi baru, tautan YouTube
+per sub-bab (118 tautan, 40 sub-bab, 25 kanal), kolom alat, lembar kerja,
+gerak yang menghormati "kurangi gerak"; angka video 216 menit, rata-rata 3,8
+menit, 9 MB. Atas izin ARYA: sel 09 "tidak ada gambar pihak ketiga" (kini
+salah) diubah, tanggal keadaan 18 Sep, baris ChatGPT (logo) ditambahkan ke
+tabel AI berkas 08 karena 09 menyebut logo dibuat dengan ChatGPT. 03
+Deskripsi tetap 5 halaman (Gambar 1 dikecilkan 16,6 ke 13 cm). Belum
+diputuskan: rekam ulang video demo (alat A2 dan bank soal di rekaman sudah
+versi lama).
+
 ## 18 SEP (6): SISTEM GERAK PANGGUNG TAHAP 4 (TERAKHIR): KORSEL, PEMUTAR, GULIR, 404, AUDIT (deploy matra-m78yjl1sn, push GitHub 9430af0)
 
 Rencana `docs/superpowers/plans/2026-09-17-sistem-gerak-panggung.md` selesai
