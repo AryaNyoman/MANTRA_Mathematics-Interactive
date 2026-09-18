@@ -95,32 +95,32 @@ export const LATIHAN: Soal[] = [
 export const KANAL: KanalPerSubbab = {
   // A · Pengenalan Vektor
   A: [
-    kanal(K.m4thlab, 'konsep dasar vektor'),
-    kanal(K.quipper, 'vektor definisi vektor posisi'),
-    kanal(K.jendelaSains, 'definisi vektor'),
+    kanal(K.m4thlab, 'konsep dasar vektor', '5jKGcT-JYtw', 'Konsep Dasar Vektor (Vektor Bagian 1) Matematika Peminatan Kelas 10 - m4thlab'),
+    kanal(K.quipper, 'vektor definisi vektor posisi', 'kGRP6kECWjs', 'Vektor (Definisi Vektor, Vektor Posisi, & Panjang Vektor) - Matematika Kelas 10 - Quipper Video'),
+    kanal(K.jendelaSains, 'definisi vektor', 'd0Nn9Wr3eZE', 'Vektor • Part 1: Definisi Vektor dan Cara Menyatakan Vektor'),
   ],
   // B · Vektor dalam Sistem Koordinat
   B: [
-    kanal(K.quipper, 'vektor posisi panjang vektor'),
-    kanal(K.m4thlab, 'vektor posisi'),
-    kanal(K.bigCourse, 'vektor part 1 penjelasan dan operasi vektor'),
+    kanal(K.quipper, 'vektor posisi panjang vektor', 'kGRP6kECWjs', 'Vektor (Definisi Vektor, Vektor Posisi, & Panjang Vektor) - Matematika Kelas 10 - Quipper Video'),
+    kanal(K.m4thlab, 'vektor posisi', 'BQBF7iIQfYk', 'Vektor Posisi (Vektor Bagian 2) Matematika Peminatan Kelas 10 - m4thlab'),
+    kanal(K.bigCourse, 'vektor part 1 penjelasan dan operasi vektor', 'kLHRRj2COPE', 'Matematika kelas X - Vektor part 1 - Penjelasan dan Operasi Vektor'),
   ],
   // C · Operasi Vektor
   C: [
-    kanal(K.m4thlab, 'operasi vektor'),
-    kanal(K.matematikaHebat, 'penjumlahan dan pengurangan vektor'),
-    kanal(K.jendelaSains, 'operasi vektor'),
+    kanal(K.m4thlab, 'operasi vektor', '31XXrJbBZQ8', 'Operasi Vektor Secara Analitik dan Geometri  (Vektor Bagian 3) Matematika Peminatan Kelas 10'),
+    kanal(K.matematikaHebat, 'penjumlahan dan pengurangan vektor', 'vLT9YlEIQWg', 'cara muda penjumlahan dan pengurangan bentuk VEKTOR'),
+    kanal(K.jendelaSains, 'operasi vektor', 'HWGx525jTtg', 'Vektor Fisika • Part 2: Konsep & Operasi Vektor (Penjumlahan, Pengurangan, Perkalian)'),
   ],
   // D · Perkalian Titik dan Proyeksi
   D: [
-    kanal(K.m4thlab, 'perkalian skalar dua vektor'),
-    kanal(K.matematikaHebat, 'vektor besar sudut antara dua vektor'),
-    kanal(K.m4thlab, 'vektor proyeksi'),
+    kanal(K.m4thlab, 'perkalian skalar dua vektor', 'pvSE0bdLpuQ', 'Perkalian Skalar Dua Vektor | Perkalian Titik | Dot Product (Vektor Bagian 7) MTK Peminatan Kelas X'),
+    kanal(K.matematikaHebat, 'vektor besar sudut antara dua vektor', 'OqImUl7ZzOM', 'VEKTOR - Besar sudut antara dua vektor'),
+    kanal(K.m4thlab, 'vektor proyeksi', 'hzdvzb3Nmi0', 'Panjang Proyeksi dan Proyeksi Skalar (Vektor Bagian 8) | Matematika Peminatan Kelas X'),
   ],
   // E · Penerapan Vektor
   E: [
-    kanal(K.bigCourse, 'vektor fisika'),
-    kanal(K.quipper, 'vektor fisika besaran vektor'),
-    kanal(K.jendelaSains, 'vektor fisika operasi vektor'),
+    kanal(K.bigCourse, 'vektor fisika', '-vh_vqZkBiQ', 'Fisika kelas X - Vektor part 1 - Cara Menggambar dan Menghitung Vektor'),
+    kanal(K.quipper, 'vektor fisika besaran vektor', 'OJrffDuVXjM', 'Vektor Fisika Kelas 10 - Besaran Vektor - Kurikulum 2013 Revisi (Quipper Video)'),
+    kanal(K.jendelaSains, 'vektor fisika operasi vektor', 'HWGx525jTtg', 'Vektor Fisika • Part 2: Konsep & Operasi Vektor (Penjumlahan, Pengurangan, Perkalian)'),
   ],
 }

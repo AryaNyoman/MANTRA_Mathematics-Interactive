@@ -129,37 +129,37 @@ export const LATIHAN: Soal[] = [
 export const KANAL: KanalPerSubbab = {
   // A · Pengenalan Fungsi dan Grafik
   A: [
-    kanal(K.bigCourse, 'relasi dan pengertian fungsi'),
-    kanal(K.benni, 'relasi dan fungsi'),
-    kanal(K.lianna, 'fungsi dan bukan fungsi'),
+    kanal(K.bigCourse, 'relasi dan pengertian fungsi', 'cqZg8Guf82g', 'Matematika X - Fungsi Komposisi part 1 : Relasi dan Pengertian Fungsi'),
+    kanal(K.benni, 'relasi dan fungsi', 'YSx4GjhvxGM', 'Relasi dan Fungsi [Part 1] - Menyatakan Relasi'),
+    kanal(K.lianna, 'fungsi dan bukan fungsi', 'BaIu-mZJsjg', 'cara menentukan fungsi dan bukan fungsi | relasi & fungsi | matematika'),
   ],
   // B · Fungsi Kuadrat
   B: [
-    kanal(K.m4thlab, 'fungsi kuadrat'),
-    kanal(K.leGuruLes, 'cara menggambar grafik fungsi kuadrat'),
-    kanal(K.seekorLebah, 'grafik fungsi kuadrat'),
+    kanal(K.m4thlab, 'fungsi kuadrat', 'IwFQPIdqqqQ', 'Fungsi Kuadrat Bagian 1 - Matematika Wajib Kelas X m4thlab'),
+    kanal(K.leGuruLes, 'cara menggambar grafik fungsi kuadrat', 'paoM_0T33hE', 'Fungsi Kuadrat (2) - Cara Menggambar Grafik Fungsi Kuadrat - Matematika SMP'),
+    kanal(K.seekorLebah, 'grafik fungsi kuadrat', 'I4DsSSuVudA', 'CARA MUDAH MENGGAMBAR GRAFIK FUNGSI KUADRAT‼️'),
   ],
   // C · Transformasi Fungsi
   C: [
-    kanal(K.y2education, 'transformasi fungsi'),
-    kanal(K.seekorLebah, 'transformasi fungsi'),
-    kanal(K.jendelaSains, 'menggambar grafik fungsi nilai mutlak'),
+    kanal(K.y2education, 'transformasi fungsi', 'XtyaNBGA8uA', 'Transformasi Fungsi #Part 1 // Perubahan Grafik Fungsi Akibat Translasi/Pergeseran Grafik Fungsi'),
+    kanal(K.seekorLebah, 'transformasi fungsi', 'T0COfoBIrq0', 'TRANSFORMASI FUNGSI‼️DILATASI (LENGKAP)'),
+    kanal(K.jendelaSains, 'menggambar grafik fungsi nilai mutlak', 'weuPESnKpkw', 'Nilai Mutlak • Part 2: Contoh Soal Cara Menggambar Grafik Fungsi Nilai Mutlak'),
   ],
   // D · Fungsi Eksponen dan Logaritma
   D: [
-    kanal(K.mantappu, 'eksponen kelas 10'),
-    kanal(K.m4thlab, 'fungsi eksponen'),
-    kanal(K.pahamify, 'fungsi eksponensial'),
+    kanal(K.mantappu, 'eksponen kelas 10', 'AlrOq3W7IZ4', 'EKSPONEN ITU ASYIK! Bahas Eksponen Kelas 10 | Study With Jerome Polin'),
+    kanal(K.m4thlab, 'fungsi eksponen', 'NVxky6JC3gw', 'Fungsi Eksponen Matematika Peminatan Kelas X - Apersepsi Masalah COVID-19'),
+    kanal(K.pahamify, 'fungsi eksponensial', 'I4w6i7n3A_I', 'Matematika IPA Kelas X: Pengertian Fungsi Eksponensial'),
   ],
   // E · Fungsi Rasional, Komposisi, dan Invers
   E: [
-    kanal(K.matematikaHebat, 'fungsi komposisi dan fungsi invers'),
-    kanal(K.mantappu, 'fungsi komposisi invers'),
-    kanal(K.ajarPipolondo, 'fungsi invers'),
+    kanal(K.matematikaHebat, 'fungsi komposisi dan fungsi invers', 'o-ESReWkrzw', 'Fungsi komposisi dan fungsi invers'),
+    kanal(K.mantappu, 'fungsi komposisi invers', 'U1QPR2eIXHQ', 'TRIK CEPAT FUNGSI KOMPOSISI & INVERS UTBK SNBT‼️ WAJIB PAHAM! | Jerome Polin'),
+    kanal(K.ajarPipolondo, 'fungsi invers', '013sCXz9abs', 'FUNGSI INVERS KELAS 11, KONSEP DAN CONTOH SOAL mudah dipahami'),
   ],
   // F · Penerapan Grafik Fungsi
   F: [
-    kanal(K.m4thlab, 'fungsi eksponen pertumbuhan peluruhan'),
-    kanal(K.leGuruLes, 'penerapan fungsi kuadrat'),
+    kanal(K.m4thlab, 'fungsi eksponen pertumbuhan peluruhan', 'fj4B6etl8zs', 'Eksponen & Logaritma Bagian 2 - Fungsi Eksponen - Pertumbuhan  & Peluruhan Kelas X Kurikulum Merdeka'),
+    kanal(K.leGuruLes, 'penerapan fungsi kuadrat', 'TH8SACF1OHQ', 'Fungsi Kuadrat (3) - Penerapan Fungsi Kuadrat, Soal Aplikasi Fungsi Kuadrat - Matematika SMP'),
   ],
 }

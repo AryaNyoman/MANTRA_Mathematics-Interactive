@@ -114,26 +114,26 @@ export const LATIHAN: Soal[] = [
 export const KANAL: KanalPerSubbab = {
   // A · Kedudukan Titik, Garis, dan Bidang
   A: [
-    kanal(K.m4thlab, 'dimensi tiga bagian 1'),
-    kanal(K.privatAlFaiz, 'dimensi tiga kelas 12'),
-    kanal(K.bigCourse, 'dimensi tiga part 1'),
+    kanal(K.m4thlab, 'dimensi tiga bagian 1', 'xWA4AKKUQPU', 'Analisis Bangun Ruang (Dimensi Tiga) Matematika Wajib Kelas XII Bagian 1 - Jarak Titik ke Titik'),
+    kanal(K.privatAlFaiz, 'dimensi tiga kelas 12', 'NAYChUtv7H4', 'Dimensi Tiga Kelas 12 - Jarak Titik Ke Titik'),
+    kanal(K.bigCourse, 'dimensi tiga part 1', '2KvwzC8cyxs', 'Matematika kelas XII - Dimensi Tiga part 1'),
   ],
   // B · Jarak dalam Ruang
   B: [
-    kanal(K.ajarPipolondo, 'jarak titik ke bidang dimensi tiga'),
-    kanal(K.privatAlFaiz, 'dimensi tiga jarak titik ke bidang'),
-    kanal(K.matematikaHebat, 'dimensi tiga jarak titik ke garis'),
+    kanal(K.ajarPipolondo, 'jarak titik ke bidang dimensi tiga', 'vmqxUZtayXE', 'Cara Hitung JARAK TITIK KE BIDANG Dimensi Tiga Kubus'),
+    kanal(K.privatAlFaiz, 'dimensi tiga jarak titik ke bidang', 'RPVZdflO_PY', 'Trik Mudah Dimensi Tiga (Bangun Ruang) Jarak Titik Ke Bidang Hanya 5 detik !!!'),
+    kanal(K.matematikaHebat, 'dimensi tiga jarak titik ke garis', 'TiIYrpjBGWA', 'DIMENSI TIGA - Jarak titik ke Garis pada kubus'),
   ],
   // C · Sudut dalam Ruang
   C: [
-    kanal(K.matematikaHebat, 'dimensi tiga besar sudut antara dua garis'),
-    kanal(K.bigCourse, 'dimensi tiga part 4'),
-    kanal(K.privatAlFaiz, 'trik mudah bangun ruang tiga dimensi'),
+    kanal(K.matematikaHebat, 'dimensi tiga besar sudut antara dua garis', 'H8s5tDEwk0c', 'DIMENSI TIGA - Besar sudut antara  dua garis'),
+    kanal(K.bigCourse, 'dimensi tiga part 4', '9U-0HttsKoQ', 'Matematika kelas XII - Dimensi Tiga part 4'),
+    kanal(K.privatAlFaiz, 'trik mudah bangun ruang tiga dimensi', '9DgwzzG0dQM', 'TRIK MUDAH BANGUN RUANG TIGA DIMENSI'),
   ],
   // D · Penerapan Ruang Tiga Dimensi
   D: [
-    kanal(K.m4thlab, 'dimensi tiga bagian 3'),
-    kanal(K.privatAlFaiz, 'dimensi tiga'),
-    kanal(K.bigCourse, 'dimensi tiga'),
+    kanal(K.m4thlab, 'dimensi tiga bagian 3', 'jy2MJ8Hd1lY', 'Analisis Bangun Ruang (Dimensi Tiga) Matematika Wajib Kelas XII Bagian 3 - Jarak Titik ke Bidang'),
+    kanal(K.privatAlFaiz, 'dimensi tiga', 'NAYChUtv7H4', 'Dimensi Tiga Kelas 12 - Jarak Titik Ke Titik'),
+    kanal(K.bigCourse, 'dimensi tiga', '2KvwzC8cyxs', 'Matematika kelas XII - Dimensi Tiga part 1'),
   ],
 }

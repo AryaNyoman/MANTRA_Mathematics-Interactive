@@ -900,20 +900,39 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                     </h2>
                     <p className="youtube-antar">
                       {subKini
-                        ? <>Untuk sub-bab <b>{subKini.huruf} · {subKini.nama}</b>. Klik nama kanalnya, Anda langsung dibawa ke hasil pencarian topik ini di kanal tersebut.</>
-                        : <>Satu kanal untuk tiap sub-bab bab ini. Klik nama kanalnya, Anda langsung dibawa ke hasil pencarian topiknya di kanal tersebut.</>}
+                        ? <>Untuk sub-bab <b>{subKini.huruf} · {subKini.nama}</b>. Klik judulnya, videonya langsung terbuka; &ldquo;lainnya di kanal ini&rdquo; membuka pencarian topik ini di kanal tersebut.</>
+                        : <>Satu video untuk tiap sub-bab bab ini. Klik judulnya, videonya langsung terbuka; &ldquo;lainnya di kanal ini&rdquo; membuka pencarian topiknya di kanal tersebut.</>}
                     </p>
+                    {/* Tautan utama ke VIDEO-nya (ID diperiksa alat/cek_kanal_youtube.mjs):
+                        aplikasi YouTube di HP mengabaikan pencarian di dalam kanal
+                        dan hanya membuka beranda kanalnya (ARYA 18 Sep 2026);
+                        pencarian kanal tetap ada sebagai tautan kedua. */}
                     <ul className="tautan">
                       {kanalKini.map((k) => (
                         <li key={`${k.handle}:${k.cari}`}>
                           <a
-                            href={`${k.url}/search?query=${encodeURIComponent(k.cari)}`}
+                            href={k.video ? `https://www.youtube.com/watch?v=${k.video}` : `${k.url}/search?query=${encodeURIComponent(k.cari)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            ▶ {k.nama} <span className="mono">{k.handle}</span>
+                            ▶ {k.video && k.judul ? k.judul : k.nama}
                           </a>
-                          <span className="cari">{k.cari}</span>
+                          <span className="cari">
+                            {k.nama} <span className="mono">{k.handle}</span>
+                            {k.video && (
+                              <>
+                                {' · '}
+                                <a
+                                  className="tautan-kanal"
+                                  href={`${k.url}/search?query=${encodeURIComponent(k.cari)}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  lainnya di kanal ini
+                                </a>
+                              </>
+                            )}
+                          </span>
                         </li>
                       ))}
                     </ul>

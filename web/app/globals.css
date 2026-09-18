@@ -668,6 +668,14 @@ h1, h2, h3, .disp {
 .tautan a:hover { color: var(--bata); text-decoration: underline; }
 .tautan .mono { font-size: 11px; color: var(--redup); }
 .cari { font-size: 12px; color: var(--redup); font-style: italic; }
+/* Tautan kedua di baris kanal: pencarian topik di dalam kanal (untuk desktop). */
+.tautan .tautan-kanal { color: var(--emas-tua); text-decoration: underline; text-underline-offset: 2px; }
+.tautan .tautan-kanal:hover { color: var(--bata); }
+@media (max-width: 860px) {
+  /* Di HP tautan kedua ikut aturan 44 px milik .tautan a, tetapi ia
+     sebaris dengan nama kanal: kembalikan ke sebaris biasa. */
+  .tautan .cari .tautan-kanal { display: inline; min-height: 0; }
+}
 
 /* ============================================================
    Daftar 10 tahap belajar (menggantikan tab lama)

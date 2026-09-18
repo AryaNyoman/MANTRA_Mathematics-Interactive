@@ -124,26 +124,26 @@ export const LATIHAN: Soal[] = [
 export const KANAL: KanalPerSubbab = {
   // A · Kemiringan yang Berubah
   A: [
-    kanal(K.m4thlab, 'konsep dasar turunan fungsi aljabar'),
-    kanal(K.bigCourse, 'aplikasi turunan aljabar definisi'),
-    kanal(K.quipper, 'turunan fungsi aljabar'),
+    kanal(K.m4thlab, 'konsep dasar turunan fungsi aljabar', 'TE1BqPXXX7E', 'Konsep Dasar Turunan Fungsi Aljabar Matematika Wajib Kelas 11 m4thlab'),
+    kanal(K.bigCourse, 'aplikasi turunan aljabar definisi', 'qajoM79KNUo', 'Matematika kelas XI - Aplikasi Turunan Aljabar part 1 - Definisi & Pengertian'),
+    kanal(K.quipper, 'turunan fungsi aljabar', 'xES12YqwsPA', 'Turunan Fungsi Aljabar - Matematika Kelas 11 (Quipper Video)'),
   ],
   // B · Aturan Menurunkan
   B: [
-    kanal(K.matematikaHebat, 'turunan fungsi aljabar'),
-    kanal(K.bigCourse, 'turunan trigonometri'),
-    kanal(K.m4thlab, 'turunan fungsi trigonometri'),
+    kanal(K.matematikaHebat, 'turunan fungsi aljabar', '-j-0duE7AhQ', 'Turunan fungsi aljabar'),
+    kanal(K.bigCourse, 'turunan trigonometri', '4Dvf-kaxvYM', 'Matematika kelas XII - Turunan Trigonometri part 1 - Rumus Dasar dan Berpangkat - 2022'),
+    kanal(K.m4thlab, 'turunan fungsi trigonometri', 'Dm8l1JeNva4', 'Turunan Fungsi Trigonometri Kelas 12 Matematika Peminatan'),
   ],
   // C · Turunan untuk Membaca Grafik
   C: [
-    kanal(K.m4thlab, 'aplikasi turunan gradien garis singgung'),
-    kanal(K.matematikaHebat, 'nilai maksimum dan minimum'),
-    kanal(K.bigCourse, 'aplikasi turunan aljabar'),
+    kanal(K.m4thlab, 'aplikasi turunan gradien garis singgung', 'oKLSwrbcYaU', 'Aplikasi Turunan 1 | Gradien, Persamaan Garis Singgung dan Persamaan Garis Normal'),
+    kanal(K.matematikaHebat, 'nilai maksimum dan minimum', 'RtBaWhapGEE', 'Cara mudah menentukan nilai maksimum dan minimum suatu fungsi'),
+    kanal(K.bigCourse, 'aplikasi turunan aljabar', 'qajoM79KNUo', 'Matematika kelas XI - Aplikasi Turunan Aljabar part 1 - Definisi & Pengertian'),
   ],
   // D · Penerapan Turunan
   D: [
-    kanal(K.m4thlab, 'aplikasi turunan'),
-    kanal(K.matematikaHebat, 'fungsi naik fungsi turun nilai stasioner'),
-    kanal(K.privatAlFaiz, 'aplikasi turunan fungsi naik dan turun'),
+    kanal(K.m4thlab, 'aplikasi turunan', 'oKLSwrbcYaU', 'Aplikasi Turunan 1 | Gradien, Persamaan Garis Singgung dan Persamaan Garis Normal'),
+    kanal(K.matematikaHebat, 'fungsi naik fungsi turun nilai stasioner', 'mcxpyAOM_z8', 'Fungsi Naik, fungsi turun, nilai stasioner, titik stasioner, nilai maksimum dan minimum suatu fungsi'),
+    kanal(K.privatAlFaiz, 'aplikasi turunan fungsi naik dan turun', 'sHYS40tAyLU', 'TKA SAINTEK UTBK 2022 - FUNGSI NAIK DAN TURUN | APLIKASI TURUNAN'),
   ],
 }

@@ -107,25 +107,25 @@ export const LATIHAN: Soal[] = [
 export const KANAL: KanalPerSubbab = {
   // A · Penyajian Data
   A: [
-    kanal(K.matematikaHebat, 'histogram dan poligon'),
-    kanal(K.leGuruLes, 'penyajian data statistika'),
-    kanal(K.rumahGemar, 'diagram lingkaran'),
+    kanal(K.matematikaHebat, 'histogram dan poligon', 'UqWLcTirNjU', 'Cara menentukan histogram dan poligon data kelompok'),
+    kanal(K.leGuruLes, 'penyajian data statistika', '59AcZRfSqEE', 'Statistika (2) - Penyajian Data Statistika, Diagram Lingkaran, Diagram Batang - Matematika SMP'),
+    kanal(K.rumahGemar, 'diagram lingkaran', 'bjM5fxGG61Q', 'CARA MENGHITUNG DIAGRAM LINGKARAN PERSEN //Part 2'),
   ],
   // B · Ukuran Pemusatan dan Penyebaran
   B: [
-    kanal(K.rumahGemar, 'mean median modus'),
-    kanal(K.didiYuli, 'mean median modus data kelompok'),
-    kanal(K.galih, 'simpangan baku data kelompok'),
+    kanal(K.rumahGemar, 'mean median modus', 'LsgtdG842fw', 'CARA MENENTUKAN MEAN MEDIAN MODUS DATA TUNGGAL||STATISTIKA'),
+    kanal(K.didiYuli, 'mean median modus data kelompok', 'LXVg1WnoeGk', 'Menentukan Mean, Median, dan Modus Data Kelompok'),
+    kanal(K.galih, 'simpangan baku data kelompok', 'myUUUxEVuVs', 'DATA KELOMPOK : Simpangan Baku, Deviasi Standar, Simpangan Rata-Rata, Ragam,Variansi, Jangkauan'),
   ],
   // C · Hubungan Dua Variabel
   C: [
-    kanal(K.bsMath, 'regresi linear'),
-    kanal(K.mediaMatematika, 'regresi linear best fit'),
+    kanal(K.bsMath, 'regresi linear', 'RypkXx4YG6Y', 'Pengertian Regresi Linear - Matematika Wajib Kelas XI Kurikulum Merdeka'),
+    kanal(K.mediaMatematika, 'regresi linear best fit', 'cLmtaBTrtnk', 'REGRESI LINEAR I Best Fit'),
   ],
   // D · Penerapan Statistika
   D: [
-    kanal(K.matematikaHebat, 'statistika'),
-    kanal(K.privatAlFaiz, 'penalaran umum grafik'),
-    kanal(K.m4thlab, 'statistika'),
+    kanal(K.matematikaHebat, 'statistika', 'APDjLfxq6vY', 'Statistika : Cara mudah menentukan nilai Mean, median dan modus data kelompok'),
+    kanal(K.privatAlFaiz, 'penalaran umum grafik', 'GWDr5b4p9xY', 'SOAL UTBK 2025 PENALARAN UMUM GRAFIK'),
+    kanal(K.m4thlab, 'statistika', 'zT4Pk6m0KtQ', 'Statistika Bagian 1 - Mengenal Unsur-unsur serta Cara Penyajian Data Tabel Distribusi Frekuensi'),
   ],
 }

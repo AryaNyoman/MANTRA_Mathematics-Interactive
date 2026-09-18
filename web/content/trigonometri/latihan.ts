@@ -151,26 +151,26 @@ export const LATIHAN: Soal[] = [
 export const KANAL: KanalPerSubbab = {
   // A · Perbandingan Trigonometri
   A: [
-    kanal(K.bigCourse, 'trigonometri dasar'),
-    kanal(K.billykur, 'trigonometri'),
-    kanal(K.matemaKita, 'trigonometri dasar sin cos tan'),
+    kanal(K.bigCourse, 'trigonometri dasar', 'y1BZBU5YXcM', 'Matematika kelas X - Trigonometri dasar part 1 - Definisi, Konversi dan Dasar dasar'),
+    kanal(K.billykur, 'trigonometri', 'JEd8rox_yNs', 'Pembahasan materi TRIGONOMETRI dasar! Belajar bersama di #MatematikAsik'),
+    kanal(K.matemaKita, 'trigonometri dasar sin cos tan', 'u_ciJpBlFJs', 'Trigonometri Dasar: Sin Cos Tan | Depan Samping Miring | Matematika SMA'),
   ],
   // B · Lingkaran Satuan dan Sudut Istimewa
   B: [
-    kanal(K.m4thlab, 'sudut istimewa semua kuadran'),
-    kanal(K.seekorLebah, 'perbandingan trigonometri sudut berelasi'),
-    kanal(K.leGuruLes, 'sistem kuadran relasi sudut trigonometri'),
+    kanal(K.m4thlab, 'sudut istimewa semua kuadran', '-Y4w7E-cgWU', 'Cara Mudah Menentukan Nilai Trigonometri Sudut Istimewa Semua Kuadran'),
+    kanal(K.seekorLebah, 'perbandingan trigonometri sudut berelasi', 'CyHFrAivR8E', 'PERBANDINGAN TRIGONOMETRI SUDUT BERELASI (10 SMA - WAJIB)'),
+    kanal(K.leGuruLes, 'sistem kuadran relasi sudut trigonometri', 'sn-ZSKpLGmE', 'Matematika SMA - Trigonometri (3) -Sistem Kuadran, Relasi Sudut Trigonometri (A)'),
   ],
   // C · Grafik Fungsi Trigonometri
   C: [
-    kanal(K.bigCourse, 'grafik fungsi trigonometri'),
-    kanal(K.bomMatematika, 'grafik fungsi trigonometri'),
-    kanal(K.jendelaSains, 'menggambar grafik fungsi trigonometri'),
+    kanal(K.bigCourse, 'grafik fungsi trigonometri', 'oSfFRzijT-A', 'Matematika kelas X - Grafik Fungsi Trigonometri'),
+    kanal(K.bomMatematika, 'grafik fungsi trigonometri', '1t_KJ5Gyrh0', 'Grafik fungsi trigonometri, grafik trigonometri'),
+    kanal(K.jendelaSains, 'menggambar grafik fungsi trigonometri', 'ugEECyCVwnY', 'Trigonometri • Part 31: Menggambar Grafik Fungsi y=sin x dengan Lingkaran Satuan'),
   ],
   // D · Penerapan Trigonometri
   D: [
-    kanal(K.leGuruLes, 'aplikasi perbandingan trigonometri sudut depresi'),
-    kanal(K.jendelaSains, 'sudut elevasi sudut depresi'),
-    kanal(K.seekorLebah, 'soal cerita trigonometri'),
+    kanal(K.leGuruLes, 'aplikasi perbandingan trigonometri sudut depresi', 'pFslqVEMmOY', 'Matematika SMA - Trigonometri (2) - Aplikasi Perbandingan Trigonometri, Sudut Depresi & Elevasi (A)'),
+    kanal(K.jendelaSains, 'sudut elevasi sudut depresi', 'p4l1EEZv1AQ', 'Trigonometri • Part 29: Sudut Elevasi, Sudut Depresi, dan Jurusan Tiga Angka'),
+    kanal(K.seekorLebah, 'soal cerita trigonometri', 'qmD8uhdiGxk', 'SOAL CERITA TRIGONOMETRI‼️KELUAR DI PTS DAN PAS GENAP MTK WAJIB'),
   ],
 }

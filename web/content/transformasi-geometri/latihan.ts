@@ -155,38 +155,38 @@ export const LATIHAN: Soal[] = [
 export const KANAL: KanalPerSubbab = {
   // A · Prapeta, Peta, dan Pencerminan
   A: [
-    kanal(K.benni, 'transformasi geometri refleksi'),
-    kanal(K.leGuruLes, 'refleksi pencerminan'),
-    kanal(K.seekorLebah, 'refleksi'),
+    kanal(K.benni, 'transformasi geometri refleksi', 'mOZiUChba6Y', 'Transformasi Geometri [Part 1] - Refleksi (Pencerminan)'),
+    kanal(K.leGuruLes, 'refleksi pencerminan', '097rIkJ0-Pg', 'Transformasi (2) - Refleksi, Pencerminan, Rumus Pencerminan - Matematika SMP'),
+    kanal(K.seekorLebah, 'refleksi', '1QljHgF5Uts', '[FULL] TRIK CEPAT PAHAM REFLEKSI‼️'),
   ],
   // B · Translasi, Rotasi, dan Dilatasi
   B: [
-    kanal(K.m4thlab, 'transformasi geometri translasi'),
-    kanal(K.benni, 'transformasi geometri rotasi'),
-    kanal(K.seekorLebah, 'dilatasi'),
+    kanal(K.m4thlab, 'transformasi geometri translasi', 'iojzS-0DI_g', 'Transformasi Geometri Bagian 1 - Translasi (Pergeseran) Matematika Wajib Kelas 11'),
+    kanal(K.benni, 'transformasi geometri rotasi', 'D6j16axCf1M', 'Transformasi Geometri [Part 3] - Rotasi (Perputaran)'),
+    kanal(K.seekorLebah, 'dilatasi', 'xuDHY9r74no', '[FuLL] TRIK MEMAHAMI SOAL-SOAL DILATASI‼️'),
   ],
   // C · Sifat Transformasi
   C: [
-    kanal(K.matematikaHebat, 'transformasi geometri lengkap'),
-    kanal(K.bigCourse, 'transformasi geometri'),
-    kanal(K.kakWahyu, 'translasi pergeseran'),
+    kanal(K.matematikaHebat, 'transformasi geometri lengkap', '4ojT0jS_pR8', '(LENGKAP) TRANSFORMASI GEOMETRI - Translasi, Refleksi, Rotasi dan Dilatasi'),
+    kanal(K.bigCourse, 'transformasi geometri', 'aVqoMTZUrBA', 'Matematika kelas XI - Transformasi Geometri'),
+    kanal(K.kakWahyu, 'translasi pergeseran', '5Rlyp-t0R_U', 'Penjelasan Lengkap Tentang Translasi (Pergeseran)'),
   ],
   // D · Matriks Transformasi
   D: [
-    kanal(K.m4thlab, 'transformasi geometri bagian 5 transformasi matriks'),
-    kanal(K.jendelaSains, 'transformasi geometri dengan matriks translasi pergeseran'),
-    kanal(K.bigCourse, 'matriks'),
+    kanal(K.m4thlab, 'transformasi geometri bagian 5 transformasi matriks', 'KBX6B1-ULF0', 'Transformasi Geometri Bagian 5 -Transformasi Matriks Matematika Wajib Kelas 11'),
+    kanal(K.jendelaSains, 'transformasi geometri dengan matriks translasi pergeseran', '2av7ogY0Iek', 'Transformasi Geometri dengan Matriks • Part 1: Translasi / Pergeseran'),
+    kanal(K.bigCourse, 'matriks', '-2pSwVmHySY', 'Matematika kelas XI - Matriks part 1 - Ordo dan Dasar Operasi Matriks'),
   ],
   // E · Komposisi Transformasi
   E: [
-    kanal(K.pingLie, 'komposisi transformasi'),
-    kanal(K.leGuruLes, 'transformasi campuran'),
-    kanal(K.m4thlab, 'transformasi matriks'),
+    kanal(K.pingLie, 'komposisi transformasi', '1hbJ8nRks7c', 'Trik Cepat Komposisi Transformasi - Transformasi Geometri #TanyaPINGLIE'),
+    kanal(K.leGuruLes, 'transformasi campuran', 'EtSZYw0XyE0', 'Transformasi (5) - Transformasi Campuran - Matematika SMP'),
+    kanal(K.m4thlab, 'transformasi matriks', 'KBX6B1-ULF0', 'Transformasi Geometri Bagian 5 -Transformasi Matriks Matematika Wajib Kelas 11'),
   ],
   // F · Penerapan Transformasi Geometri
   F: [
-    kanal(K.matematikaHebat, 'transformasi geometri lengkap'),
-    kanal(K.benni, 'transformasi geometri'),
-    kanal(K.leGuruLes, 'transformasi rotasi'),
+    kanal(K.matematikaHebat, 'transformasi geometri lengkap', '4ojT0jS_pR8', '(LENGKAP) TRANSFORMASI GEOMETRI - Translasi, Refleksi, Rotasi dan Dilatasi'),
+    kanal(K.benni, 'transformasi geometri', 'mOZiUChba6Y', 'Transformasi Geometri [Part 1] - Refleksi (Pencerminan)'),
+    kanal(K.leGuruLes, 'transformasi rotasi', 'tM6RMmQ80QM', 'Transformasi (4) - Transformasi Rotasi, Rumus Tranformasi Rotasi, Soal Rotasi - Matematika SMP'),
   ],
 }

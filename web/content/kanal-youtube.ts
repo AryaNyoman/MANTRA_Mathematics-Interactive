@@ -49,5 +49,10 @@ export const K = {
   mediaMatematika: k('Media Matematika', '@mediamatematika3641'), // 11 rb, video regresi linear 123 rb tonton
 } as const
 
-/** Kanal beserta kata kunci pencariannya untuk satu sub-bab. */
-export const kanal = (dasar: KanalDasar, cari: string): Kanal => ({ ...dasar, cari })
+/**
+ * Kanal beserta kata kunci pencariannya untuk satu sub-bab. `video` dan
+ * `judul` (video teratas untuk kata kunci itu) ditulis oleh
+ * `alat/cek_kanal_youtube.mjs periksa --tulis`, jangan diisi tangan.
+ */
+export const kanal = (dasar: KanalDasar, cari: string, video?: string, judul?: string): Kanal =>
+  video ? { ...dasar, cari, video, judul } : { ...dasar, cari }

@@ -12,11 +12,16 @@
  *       nama kanal dan jumlah subscriber
  *   node alat/cek_kanal_youtube.mjs uji @m4thlab "integral tak tentu"
  *       tiga video teratas hasil pencarian DI DALAM kanal itu
- *   node alat/cek_kanal_youtube.mjs periksa [bab ...]
+ *   node alat/cek_kanal_youtube.mjs periksa [--tulis] [bab ...]
  *       memeriksa semua KANAL di web/content: video teratas pencarian
  *       kanalnya ada, judulnya cocok dengan kata kunci, >= 25 rb tontonan,
- *       dan kanalnya >= 100 rb subscriber (atau videonya >= 200 rb tontonan);
- *       keluar 1 kalau ada yang gagal. Hasil kanal disimpan sementara supaya tidak diunduh
+ *       dan kanalnya >= 100 rb subscriber (atau videonya >= 75 rb tontonan);
+ *       ID video yang tersimpan di berkas isi harus masih ada di hasil
+ *       pencarian (kalau tidak: "video hilang"). Dengan --tulis, ID dan judul
+ *       video teratas DITULIS ke berkas isi (`kanal(K.x, 'kata', 'ID', 'judul')`);
+ *       tautan utama di halaman memakai ID itu (ARYA 18 Sep 2026: aplikasi
+ *       YouTube di HP mengabaikan pencarian di dalam kanal). Keluar 1 kalau
+ *       ada yang gagal. Hasil kanal disimpan sementara supaya tidak diunduh
  *       berulang.
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
@@ -147,6 +152,12 @@ async function muatKanal(bab) {
   return mod.KANAL
 }
 
+/** Nama di objek K (content/kanal-youtube.ts) -> handle, untuk menulis kembali ke berkas isi. */
+const K_HANDLE = Object.fromEntries(
+  [...readFileSync(path.join(AKAR, 'web', 'content', 'kanal-youtube.ts'), 'utf8').matchAll(/^\s+(\w+): k\('[^']*', '(@[^']+)'\)/gm)]
+    .map((m) => [m[1], m[2]]),
+)
+
 export const ribu = (n) => (n >= 1e6 ? `${(n / 1e6).toFixed(1)} jt` : `${Math.round(n / 1e3)} rb`)
 
 // Baris perintah hanya berjalan kalau berkas ini dijalankan langsung, bukan
@@ -175,11 +186,16 @@ if (!dijalankanLangsung) {
   for (const v of hasil.slice(0, 5)) console.log(`${ribu(v.tonton).padStart(8)}  ${v.judul.slice(0, 90)}`)
   if (!hasil.length) console.log('(tidak ada hasil)')
 } else if (perintah === 'periksa') {
-  const BAB = arg.length ? arg : ['trigonometri', 'limit', 'grafik-fungsi', 'vektor', 'ruang-3d', 'statistika', 'transformasi-geometri', 'turunan', 'integral']
+  const tulis = arg.includes('--tulis')
+  const babArg = arg.filter((a) => !a.startsWith('--'))
+  const BAB = babArg.length ? babArg : ['trigonometri', 'limit', 'grafik-fungsi', 'vektor', 'ruang-3d', 'statistika', 'transformasi-geometri', 'turunan', 'integral']
   const simpanan = bacaSimpanan()
   let gagal = 0
   for (const bab of BAB) {
     const kanal = await muatKanal(bab)
+    const berkasIsi = path.join(AKAR, 'web', 'content', bab, 'latihan.ts')
+    let isi = readFileSync(berkasIsi, 'utf8')
+    let berubah = 0
     for (const [huruf, daftar] of Object.entries(kanal)) {
       for (const k of daftar) {
         const handle = k.handle
@@ -193,21 +209,52 @@ if (!dijalankanLangsung) {
         }
         const sub = simpanan[handle].subscriber
         // Pencarian kanal kadang mengembalikan halaman kosong sesaat; coba dua kali.
-        let teratas = null
-        for (let coba = 0; coba < 2 && !teratas; coba++) {
-          try { teratas = (await cariDiKanal(handle, k.cari))[0] || null } catch { teratas = null }
-          if (!teratas) await jeda(4000)
+        let hasil = []
+        for (let coba = 0; coba < 2 && !hasil.length; coba++) {
+          try { hasil = await cariDiKanal(handle, k.cari) } catch { hasil = [] }
+          if (!hasil.length) await jeda(4000)
         }
-        const masalah = []
-        if (!teratas) masalah.push('pencarian kosong')
+        // Video yang dipakai: yang tersimpan kalau masih ada di 10 teratas,
+        // kalau tidak (atau belum ada) video teratas.
+        const tersimpan = k.video ? hasil.slice(0, 10).find((v) => v.id === k.video) : null
+        const teratas = tersimpan || hasil[0] || null
+        // masalahMutu: video teratas tidak layak, JANGAN ditulis ke berkas isi
+        // (18 Sep 2026 pencarian kanal BIG Course sesaat mengembalikan video
+        // Transformasi Geometri untuk "trigonometri dasar" dan sempat tertulis).
+        const masalahMutu = []
+        if (!teratas) masalahMutu.push('pencarian kosong')
         else {
-          if (sub < BATAS_SUBSCRIBER && teratas.tonton < BATAS_TONTON_KANAL_KECIL) masalah.push(`subscriber ${ribu(sub)} dan tontonan ${ribu(teratas.tonton)}`)
-          else if (teratas.tonton < BATAS_TONTON) masalah.push(`tontonan ${ribu(teratas.tonton)}`)
-          if (!cocokJudul(k.cari, teratas.judul)) masalah.push('judul tidak cocok dengan kata kunci')
+          if (sub < BATAS_SUBSCRIBER && teratas.tonton < BATAS_TONTON_KANAL_KECIL) masalahMutu.push(`subscriber ${ribu(sub)} dan tontonan ${ribu(teratas.tonton)}`)
+          else if (teratas.tonton < BATAS_TONTON) masalahMutu.push(`tontonan ${ribu(teratas.tonton)}`)
+          if (!cocokJudul(k.cari, teratas.judul)) masalahMutu.push('judul tidak cocok dengan kata kunci')
         }
+        const masalah = [...masalahMutu]
+        if (teratas && k.video && !tersimpan) masalah.push(`video ${k.video} hilang dari pencarian`)
+        if (teratas && !k.video && !tulis) masalah.push('ID video belum ditulis (jalankan --tulis)')
         if (masalah.length) gagal++
         console.log(`${masalah.length ? '!! ' : '   '}${bab} ${huruf} ${handle.padEnd(22)} ${ribu(sub).padStart(7)}  "${k.cari}"  ->  ${teratas ? `${ribu(teratas.tonton)} | ${teratas.judul.slice(0, 70)}` : '-'}${masalah.length ? `  [${masalah.join(', ')}]` : ''}`)
+        // --tulis: tanam atau perbarui ID dan judul di berkas isi, hanya kalau
+        // video teratasnya layak (judul cocok, tontonan cukup).
+        if (tulis && teratas && masalahMutu.length) console.log(`   (tidak ditulis: ${masalahMutu.join(', ')})`)
+        if (tulis && teratas && !masalahMutu.length && (!tersimpan || k.judul !== teratas.judul)) {
+          const kunciK = Object.entries(K_HANDLE).find(([, h]) => h === handle)?.[0]
+          if (!kunciK) { console.log(`   (tidak tahu nama K untuk ${handle}, lewati)`); continue }
+          // Pola persis untuk entri INI: tanpa ID (belum ditulis) atau dengan
+          // ID lamanya. Kata kunci yang sama bisa dipakai dua sub-bab (Transformasi
+          // C dan F), jadi pola longgar akan menimpa entri yang salah.
+          const cariAman = k.cari.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+          const pola = k.video
+            ? new RegExp(`kanal\\(K\\.${kunciK}, '${cariAman}', '${k.video}', '(?:[^'\\\\]|\\\\.)*'\\)`)
+            : new RegExp(`kanal\\(K\\.${kunciK}, '${cariAman}'\\)`)
+          const judulAman = teratas.judul.replace(/\\/g, '\\\\').replace(/'/g, "\\'")
+          const baru = `kanal(K.${kunciK}, '${k.cari}', '${teratas.id}', '${judulAman}')`
+          if (pola.test(isi)) { isi = isi.replace(pola, baru); berubah++ } else console.log(`   (pola tidak ketemu untuk ${kunciK} "${k.cari}")`)
+        }
       }
+    }
+    if (tulis && berubah) {
+      writeFileSync(berkasIsi, isi)
+      console.log(`   ${bab}: ${berubah} ID video ditulis ke ${path.relative(AKAR, berkasIsi)}`)
     }
   }
   tulisSimpanan(simpanan)

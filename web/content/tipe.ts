@@ -333,6 +333,16 @@ export type Kanal = {
   url: string
   /** kata kunci yang disarankan untuk dicari di kanal itu */
   cari: string
+  /**
+   * ID video YouTube yang menjadi tautan utama (ARYA 18 Sep 2026: di HP
+   * aplikasi YouTube mengabaikan pencarian di dalam kanal dan hanya membuka
+   * beranda kanalnya, jadi tautan utama harus langsung ke videonya).
+   * Diisi dan diperiksa `node alat/cek_kanal_youtube.mjs periksa --tulis`:
+   * video teratas hasil pencarian kanal untuk `cari`.
+   */
+  video?: string
+  /** judul video itu, untuk ditampilkan */
+  judul?: string
 }
 
 /**

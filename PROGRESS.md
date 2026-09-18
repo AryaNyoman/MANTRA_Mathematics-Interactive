@@ -1,5 +1,34 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 18 SEP (5): TAUTAN YOUTUBE LANGSUNG KE VIDEONYA (HP), PENCARIAN KANAL JADI CADANGAN (deploy DEPLOY_ID, push GitHub COMMIT_ID)
+
+ARYA: pencariannya cocok, tetapi di HP tautan pencarian di dalam kanal
+dibuka aplikasi YouTube sebagai beranda kanal saja (di desktop atau bila
+disalin, langsung ke videonya). Pilihan ARYA: tautan utama langsung ke
+video yang sudah diperiksa, pencarian kanal tetap ada sebagai cadangan.
+- `content/tipe.ts` `Kanal` bertambah `video?` (ID) dan `judul?`;
+  `kanal(K.x, 'kata', 'ID', 'judul')` di `content/kanal-youtube.ts`. ID
+  dan judul DITULIS ALAT (`periksa --tulis`), bukan tangan: 118 tautan di
+  40 sub-bab semuanya ber-ID.
+- `alat/cek_kanal_youtube.mjs periksa [--tulis]`: memakai video tersimpan
+  kalau masih ada di 10 teratas pencarian kanal, kalau tidak "video hilang"
+  (gagal); `--tulis` menanam atau mengganti ID lewat pola persis per entri
+  (kata kunci yang sama dipakai dua sub-bab, Transformasi C dan F, jadi
+  pola longgar menimpa entri yang salah) dan HANYA kalau video teratasnya
+  layak: pencarian kanal BIG Course sesaat mengembalikan video Transformasi
+  Geometri untuk "trigonometri dasar" dan sempat tertulis; sekarang ditolak
+  ("tidak ditulis: judul tidak cocok").
+- HalamanTopik: judul videonya jadi tautan (`watch?v=ID`, terbuka di
+  aplikasi YouTube), di bawahnya nama kanal, handle, dan tautan kedua
+  "lainnya di kanal ini" (`.tautan-kanal`) ke pencarian topik itu di kanal
+  tersebut; pengantar kotak menjelaskan keduanya.
+- Cek: `periksa` 118/118 lolos ("semua tautan lolos"); playwright-cli 390 px
+  Integral 01 dan Trigonometri 01 (href `watch?v=`, judul, tautan kanal);
+  tsc, eslint, build.
+- Belum dilakukan (menunggu ARYA): m4th-lab masih terbanyak (25 dari 118),
+  Matematika Hebat dan BIG Course 15; Grafik Fungsi F dan Statistika C
+  hanya dua tautan. Berikutnya: sistem gerak tahap 4 kalau ARYA "lanjut".
+
 ## 18 SEP (4): TAUTAN YOUTUBE PER SUB-BAB, KREATOR DIGILIR; BERANDA DAN TENTANG (deploy matra-bjxj2274n, push GitHub 9ae49a1)
 
 ARYA: tautan YouTube harus mengikuti nama sub-bab (Integral A "Membalik

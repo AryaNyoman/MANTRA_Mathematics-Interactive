@@ -119,20 +119,20 @@ export const LATIHAN: Soal[] = [
 export const KANAL: KanalPerSubbab = {
   // A · Membalik Turunan
   A: [
-    kanal(K.m4thlab, 'konsep dasar integral'),
-    kanal(K.zeroTutorial, 'integral dari dasar'),
-    kanal(K.matematikaHebat, 'integral tak tentu'),
+    kanal(K.m4thlab, 'konsep dasar integral', '1gG1Md4EV3U', 'Konsep Dasar Integral Fungsi Aljabar (Integral Part 1) M4THLAB'),
+    kanal(K.zeroTutorial, 'integral dari dasar', 'E86ckq8yLUU', 'BELAJAR INTEGRAL DARI DASAR DALAM 12 MENIT!'),
+    kanal(K.matematikaHebat, 'integral tak tentu', 'T6e0NRTIQ0o', 'LENGKAP Integral tak tentu, integral tertentu, integral subtitusi dan integral parsial'),
   ],
   // B · Luas dan Integral Tentu
   B: [
-    kanal(K.seekorLebah, 'integral tentu'),
-    kanal(K.m4thlab, 'integral tentu'),
-    kanal(K.matematikaHebat, 'luas daerah integral'),
+    kanal(K.seekorLebah, 'integral tentu', 'Zek5XtB5jMQ', 'MEMAHAMI INTEGRAL TENTU'),
+    kanal(K.m4thlab, 'integral tentu', '_IHMYE0f6jE', 'Integral Tentu dan Sifat-sifatnya - Bahas soal UTBK TKA Saintek (Integral Part 3) M4THLAB'),
+    kanal(K.matematikaHebat, 'luas daerah integral', 'tOgZndkMSGk', 'Cara mudah menentukan luas daerah menggunakan rumus integral'),
   ],
   // C · Penerapan Integral
   C: [
-    kanal(K.m4thlab, 'volume benda putar'),
-    kanal(K.pahamify, 'integral tentu'),
-    kanal(K.privatAlFaiz, 'cara cepat integral luas'),
+    kanal(K.m4thlab, 'volume benda putar', '-kI9uhmtENc', 'Menentukan Volume Benda Putar dengan Menggunakan Integral (Integral Part 5) M4THLAB'),
+    kanal(K.pahamify, 'integral tentu', 'Wel_Eu3JX3U', 'Matematika Kelas XII: Integral Tentu'),
+    kanal(K.privatAlFaiz, 'cara cepat integral luas', 'b4m9Uf1qPYA', 'SOAL UJIAN MANDIRI 2022 - CARA CEPAT INTEGRAL LUAS'),
   ],
 }

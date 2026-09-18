@@ -109,26 +109,26 @@ export const LATIHAN: Soal[] = [
 export const KANAL: KanalPerSubbab = {
   // A · Konsep Limit
   A: [
-    kanal(K.m4thlab, 'konsep dasar limit fungsi aljabar'),
-    kanal(K.bigCourse, 'limit fungsi aljabar'),
-    kanal(K.billykur, 'limit kelas 11'),
+    kanal(K.m4thlab, 'konsep dasar limit fungsi aljabar', 'zE8m4xNizDY', 'Konsep Dasar Limit Fungsi Aljabar Matematika Wajib Kelas 11 m4thlab'),
+    kanal(K.bigCourse, 'limit fungsi aljabar', 'hw6t7xBzy6o', 'Matematika kelas XI - Limit Fungsi Aljabar part 1 - Limit Mendekati Nilai / Konstanta'),
+    kanal(K.billykur, 'limit kelas 11', 'iaWkWXeOusg', 'Pembahasan materi LIMIT KELAS 11 | #MatematikAsik'),
   ],
   // B · Sifat Limit dan Cara Menghitungnya
   B: [
-    kanal(K.matematikaHebat, 'limit fungsi aljabar substitusi pemfaktoran'),
-    kanal(K.ajarPipolondo, 'tipe soal limit fungsi aljabar'),
-    kanal(K.seekorLebah, 'limit fungsi aljabar'),
+    kanal(K.matematikaHebat, 'limit fungsi aljabar substitusi pemfaktoran', 'XdhZOzMSM0Y', 'Limit Fungsi Aljabar : Metode Subtitusi Langsung dan Pemfaktoran'),
+    kanal(K.ajarPipolondo, 'tipe soal limit fungsi aljabar', 'kgVDtLSCGh4', '6 Tipe Soal LIMIT Fungsi ALJABAR dan Cara Jawabnya | Matematika Wajib Kelas 11 ajar pipolondo'),
+    kanal(K.seekorLebah, 'limit fungsi aljabar', '9rIyzyh8I-k', 'LIMIT FUNGSI ALJABAR'),
   ],
   // C · Limit Trigonometri dan Kekontinuan
   C: [
-    kanal(K.m4thlab, 'limit fungsi trigonometri'),
-    kanal(K.bigCourse, 'limit trigonometri'),
-    kanal(K.privatAlFaiz, 'limit fungsi trigonometri'),
+    kanal(K.m4thlab, 'limit fungsi trigonometri', '_nrLpuoZAgo', 'Bahas Tuntas Limit Fungsi Trigonometri Matematika Peminatan Kelas XII'),
+    kanal(K.bigCourse, 'limit trigonometri', 'G0giFwuakxM', 'Matematika Kelas XI - Limit Trigonometri part 1 - Limit Mendekati 0 atau Nilai'),
+    kanal(K.privatAlFaiz, 'limit fungsi trigonometri', 'Qi5yMDRLQQc', 'LIMIT FUNGSI TRIGONOMETRI KELAS 12'),
   ],
   // D · Penerapan Limit
   D: [
-    kanal(K.m4thlab, 'limit tak hingga'),
-    kanal(K.zeroTutorial, 'limit tak hingga'),
-    kanal(K.privatAlFaiz, 'limit tak hingga'),
+    kanal(K.m4thlab, 'limit tak hingga', 'xr1ZGe4JwC0', 'Bahas Tuntas Limit Tak Hingga Fungsi Aljabar Matematika Peminatan Kelas XII'),
+    kanal(K.zeroTutorial, 'limit tak hingga', 'lJEm6h1KauA', 'PAHAM LIMIT TAK HINGGA DALAM 5 MENIT !'),
+    kanal(K.privatAlFaiz, 'limit tak hingga', 'PvallD22R3g', 'UTBK 2022 - LIMIT TAK HINGGA'),
   ],
 }

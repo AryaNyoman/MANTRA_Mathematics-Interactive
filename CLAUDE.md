@@ -147,11 +147,16 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
   `content/<bab>/latihan.ts` `KANAL` = kanal per huruf sub-bab dengan kata
   kunci sesuai nama sub-babnya; daftar kanalnya di `content/kanal-youtube.ts`
   (bahasa Indonesia, subscriber >= 100 rb atau videonya >= 75 rb tontonan,
-  kreator digilir, jangan m4th-lab terus). Setiap tautan WAJIB lolos
-  `node alat/cek_kanal_youtube.mjs periksa` (membaca YouTube: video teratas
-  ada, judulnya cocok kata kunci, >= 25 rb tontonan); `cari`, `kanal`, `uji`
-  untuk mencari kandidat. Kalau sebuah sub-bab hanya punya dua tautan yang
-  layak, dua saja: tautan yang tidak nyambung lebih buruk daripada tidak ada.
+  kreator digilir, jangan m4th-lab terus). Tautan utama menuju VIDEO-nya
+  (`kanal(K.x, 'kata', 'ID', 'judul')`, ID ditulis alat lewat
+  `node alat/cek_kanal_youtube.mjs periksa --tulis`, jangan diketik tangan):
+  aplikasi YouTube di HP mengabaikan pencarian di dalam kanal dan hanya
+  membuka beranda kanal; pencarian kanal tetap ada sebagai tautan kedua.
+  Setiap tautan WAJIB lolos `node alat/cek_kanal_youtube.mjs periksa`
+  (membaca YouTube: videonya masih ada di hasil pencarian, judulnya cocok kata
+  kunci, >= 25 rb tontonan); `cari`, `kanal`, `uji` untuk mencari kandidat.
+  Kalau sebuah sub-bab hanya punya dua tautan yang layak, dua saja: tautan
+  yang tidak nyambung lebih buruk daripada tidak ada.
 - **Kata "miskonsepsi" DILARANG muncul di halaman.** Itu istilah guru. Pakai
   "Sering keliru", dan taruh di BAWAH setelah siswa paham.
 - **Gaya visual terkunci: rancangan MANTRA** (sejak 3 Sep 2026, menggantikan
