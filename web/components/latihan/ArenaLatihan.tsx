@@ -350,8 +350,14 @@ function Soal({
     if (pilih === null || !s || periksa) return
     setJawabSesi((j) => ({ ...j, [s.id]: { pilih, periksa: true } }))
     setDijawabSesi((n) => n + 1)
-    // jawaban ini melengkapi seluruh soal tingkat ini: tampilkan skor
-    if (soal.every((q) => q.id === s.id || nilaiSoal(q) !== 'belum')) setSkorTampil(true)
+    // Jawaban ini melengkapi seluruh soal tingkat ini DAN tidak ada lagi soal
+    // yang masih menunggu dijawab ulang (salah dari kunjungan sebelumnya):
+    // tampilkan skor. Tanpa syarat kedua, siswa yang kembali dengan 15 soal
+    // tersimpan dan memperbaiki soal salahnya satu per satu disodori jendela
+    // skor tiap kali Periksa ditekan (ARYA 19 Sep 2026); sekarang jendelanya
+    // menunggu sampai soal salah terakhir dikerjakan ulang.
+    const lain = soal.filter((q) => q.id !== s.id)
+    if (lain.every((q) => nilaiSoal(q) !== 'belum' && !keadaanSoal(q).salahLalu)) setSkorTampil(true)
     if (guru) return
     catatJawaban(topik, s.id, pilih === s.benar, pilih)
     const baru = segarkanLencana(topik, bank)

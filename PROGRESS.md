@@ -1,5 +1,22 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 19 SEP: JENDELA SKOR TIDAK LAGI MUNCUL TIAP SOAL SALAH DIPERBAIKI (deploy DEPLOY_ID, push GitHub COMMIT_ID)
+
+ARYA: siswa yang kembali dengan 15 soal tersimpan lalu memperbaiki soal
+salahnya satu per satu disodori jendela skor tiap kali Periksa ditekan
+(syaratnya "semua 15 soal punya jawaban" terpenuhi lagi tiap kali). Usul
+ARYA: hapus semua jawaban salah saat mulai menjawab ulang; dipilih cara 2
+(tanpa menghapus): jendela skor hanya dibuka bila semua soal terjawab DAN
+tidak ada lagi soal yang masih bertanda "salah dari kunjungan sebelumnya"
+(`salahLalu`). Tanda merah di peta soal tetap ada sampai soalnya dikerjakan
+ulang; "Kerjakan ulang yang salah" tidak berubah.
+- `components/latihan/ArenaLatihan.tsx` `periksaJawaban`: satu syarat.
+- Uji Playwright (konteks bersih, /latihan/turunan mudah): 15 soal dijawab,
+  jendela skor muncul tepat sekali ("3 benar, 12 salah"); muat ulang
+  (kunjungan baru), 12 soal salah dijawab ulang: 11 pertama tanpa jendela,
+  yang ke-12 memunculkannya sekali. Jendela lencana yang ikut muncul saat
+  lencana diraih ditutup lewat Lanjut di ujinya.
+
 ## 18 SEP (8): GRAPHIFY DIPERBARUI PENUH DENGAN GROK (dokumen, bukan hanya kode)
 
 ARYA: "update ulang graphify, kali ini gunakan LLM Grok yang sudah saya pasang".
