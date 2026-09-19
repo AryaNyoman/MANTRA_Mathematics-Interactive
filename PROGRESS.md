@@ -1,6 +1,6 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
-## 19 SEP: JENDELA SKOR TIDAK LAGI MUNCUL TIAP SOAL SALAH DIPERBAIKI (deploy DEPLOY_ID, push GitHub COMMIT_ID)
+## 19 SEP: JENDELA SKOR TIDAK LAGI MUNCUL TIAP SOAL SALAH DIPERBAIKI (deploy matra-lb02q867e, push GitHub 242ea60)
 
 ARYA: siswa yang kembali dengan 15 soal tersimpan lalu memperbaiki soal
 salahnya satu per satu disodori jendela skor tiap kali Periksa ditekan
