@@ -926,6 +926,7 @@ export const TAHAP: Tahap[] = [
       isi: 'Titik yang diputar 90° sering dikira cuma "pindah ke kuadran II, jadi cos-nya negatif", lalu ditulis (−cos θ, sin θ). Itu koordinat untuk cerminan 180° − θ, bukan untuk putaran θ + 90°. Pada putaran, segitiga kecilnya ikut berputar, jadi sin dan cos bertukar peran: hasilnya (−sin θ, cos θ). Cara memeriksanya: θ = 40° memberi 130°, dan cos 130° ≈ −0,64 = −sin 40°, bukan −0,77.',
     },
     widget: 'sudut-berelasi',
+    video: { berkas: 'tahap11-sudut-berelasi.mp4', poster: 'tahap11-sudut-berelasi.jpg' },
     siap: true,
   },
 ]

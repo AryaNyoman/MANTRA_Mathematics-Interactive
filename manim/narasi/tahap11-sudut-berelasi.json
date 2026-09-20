@@ -1,0 +1,94 @@
+{
+  "adegan": "SudutBerelasiLahir",
+  "suara": "eleven:Bian - Neutral, Calm and Clear",
+  "tempo": "-5%",
+  "catatan": "Lingkaran Satuan dan Sudut Istimewa, Bagian 4 (Materi 11, ditambahkan 20 Sep 2026 atas keputusan ARYA: tiga soal kuis bab menguji sudut berelasi yang belum pernah diajarkan). Standar v3.1: pembuka sub-bab plus Bagian 4 dan satu pertanyaan; segar-ingat prasyarat nyata (koordinat titik di lingkaran satuan = (cos theta, sin theta) dari Bagian 1); contoh angka theta = 40 derajat (0,77; 0,64); asal rumus dari GERAK titiknya (diputar 90 derajat: segitiga kecilnya ikut berputar sehingga sin dan cos bertukar peran dan yang ke kiri bertanda minus; dicerminkan ke kiri; dibalik ke seberang; dicerminkan ke bawah), bentuk umum keempat relasi; pola tanda per kuadran; sering keliru -cos vs -sin diperiksa dengan angka; penutup menunjuk Grafik Fungsi Trigonometri Bagian 1. Isinya sejalan dengan bacaan dan widget materi 11 (P diseret, Q mengikuti relasi).",
+  "napas": 0.6,
+  "segmen": [
+    {
+      "id": "buka",
+      "teks": "Lingkaran Satuan dan Sudut Istimewa, Bagian empat. Kalau titiknya diputar sembilan puluh derajat, ke mana sinus dan cosinusnya pergi?",
+      "tulis": "Lingkaran Satuan dan Sudut Istimewa, Bagian 4. Kalau titiknya diputar 90°, ke mana sin dan cos-nya pergi?"
+    },
+    {
+      "id": "ingat",
+      "teks": "Di materi sebelumnya, Lingkaran Satuan dan Sudut Istimewa, Bagian satu, setiap titik di lingkaran satuan punya koordinat cosinus theta koma sinus theta. Sudutnya diukur dari sumbu x positif, berlawanan arah jarum jam.",
+      "tulis": "Di materi sebelumnya, Lingkaran Satuan dan Sudut Istimewa, Bagian 1, setiap titik di lingkaran satuan punya koordinat (cos θ, sin θ). Sudutnya diukur dari sumbu x positif, berlawanan arah jarum jam."
+    },
+    {
+      "id": "masalah",
+      "teks": "Sudut istimewa yang kita hitung di Bagian tiga semuanya ada di kuadran satu. Bagaimana dengan seratus tiga puluh derajat? Tidak ada segitiga siku-siku yang sudutnya seratus tiga puluh.",
+      "tulis": "Sudut istimewa yang kita hitung di Bagian 3 semuanya ada di kuadran I. Bagaimana dengan 130°? Tidak ada segitiga siku-siku yang sudutnya 130°."
+    },
+    {
+      "id": "titikp",
+      "teks": "Ambil titik P pada sudut empat puluh derajat. Jarak mendatarnya cosinus empat puluh derajat, kira-kira nol koma tujuh tujuh. Tingginya sinus empat puluh derajat, kira-kira nol koma enam empat.",
+      "tulis": "Ambil titik P pada sudut 40°. Jarak mendatarnya cos 40°, kira-kira 0,77. Tingginya sin 40°, kira-kira 0,64."
+    },
+    {
+      "id": "putar",
+      "teks": "Sekarang putar P seperempat putaran, sembilan puluh derajat, berlawanan arah jarum jam. Titik barunya kita sebut Q. Sudutnya empat puluh tambah sembilan puluh, yaitu seratus tiga puluh derajat.",
+      "tulis": "Sekarang putar P seperempat putaran, 90°, berlawanan arah jarum jam. Titik barunya kita sebut Q. Sudutnya 40° + 90°, yaitu 130°."
+    },
+    {
+      "id": "segitiga",
+      "teks": "Perhatikan segitiga kecil di bawah P. Segitiga itu ikut berputar sembilan puluh derajat. Sisi yang tadinya mendatar sekarang berdiri tegak, dan sisi yang tadinya tegak sekarang rebah mendatar.",
+      "tulis": "Perhatikan segitiga kecil di bawah P. Segitiga itu ikut berputar 90°. Sisi yang tadinya mendatar sekarang berdiri tegak, dan sisi yang tadinya tegak sekarang rebah mendatar."
+    },
+    {
+      "id": "bacaq",
+      "teks": "Jadi tinggi Q sama dengan jarak mendatar P, yaitu nol koma tujuh tujuh. Dan jarak mendatar Q sama dengan tinggi P, nol koma enam empat, tetapi sekarang ke arah kiri, jadi bertanda negatif.",
+      "tulis": "Jadi tinggi Q sama dengan jarak mendatar P, yaitu 0,77. Dan jarak mendatar Q sama dengan tinggi P, 0,64, tetapi sekarang ke arah kiri, jadi bertanda negatif."
+    },
+    {
+      "id": "rumusputar",
+      "teks": "Dalam huruf, koordinat Q adalah negatif sinus theta koma cosinus theta. Artinya sinus theta tambah sembilan puluh derajat sama dengan cosinus theta, dan cosinus theta tambah sembilan puluh derajat sama dengan negatif sinus theta.",
+      "tulis": "Dalam huruf, koordinat Q adalah (−sin θ, cos θ). Artinya sin(θ + 90°) = cos θ, dan cos(θ + 90°) = −sin θ."
+    },
+    {
+      "id": "cermin",
+      "teks": "Cara kedua memindahkan P: cerminkan pada sumbu y. Tingginya tidak berubah, jarak mendatarnya sama besar tetapi sekarang di sebelah kiri. Sudut Q menjadi seratus delapan puluh dikurangi theta.",
+      "tulis": "Cara kedua memindahkan P: cerminkan pada sumbu y. Tingginya tidak berubah, jarak mendatarnya sama besar tetapi sekarang di sebelah kiri. Sudut Q menjadi 180° − θ."
+    },
+    {
+      "id": "rumuscermin",
+      "teks": "Jadi sinus seratus delapan puluh dikurangi theta sama dengan sinus theta. Cosinusnya berbalik tanda: cosinus seratus delapan puluh dikurangi theta sama dengan negatif cosinus theta.",
+      "tulis": "Jadi sin(180° − θ) = sin θ. Cosinusnya berbalik tanda: cos(180° − θ) = −cos θ."
+    },
+    {
+      "id": "balik",
+      "teks": "Cara ketiga: putar setengah putaran. Q tepat di seberang pusat, jadi kedua koordinatnya berbalik tanda. Sinus seratus delapan puluh tambah theta sama dengan negatif sinus theta, dan cosinusnya negatif cosinus theta.",
+      "tulis": "Cara ketiga: putar setengah putaran. Q tepat di seberang pusat, jadi kedua koordinatnya berbalik tanda. sin(180° + θ) = −sin θ, dan cos(180° + θ) = −cos θ."
+    },
+    {
+      "id": "bawah",
+      "teks": "Cara keempat: cerminkan ke bawah, pada sumbu x. Jarak mendatarnya tetap, tingginya berbalik ke bawah. Sinus tiga ratus enam puluh dikurangi theta sama dengan negatif sinus theta, dan cosinusnya tetap cosinus theta.",
+      "tulis": "Cara keempat: cerminkan ke bawah, pada sumbu x. Jarak mendatarnya tetap, tingginya berbalik ke bawah. sin(360° − θ) = −sin θ, dan cosinusnya tetap cos θ."
+    },
+    {
+      "id": "pola",
+      "teks": "Empat relasi, satu pola. Besarnya selalu sinus theta atau cosinus theta dari sudut acuan di kuadran satu. Tandanya mengikuti kuadran: di kuadran dua hanya sinus yang positif, di kuadran tiga hanya tangen, di kuadran empat hanya cosinus.",
+      "tulis": "Empat relasi, satu pola. Besarnya selalu sin θ atau cos θ dari sudut acuan di kuadran I. Tandanya mengikuti kuadran: di kuadran II hanya sinus yang positif, di kuadran III hanya tangen, di kuadran IV hanya cosinus."
+    },
+    {
+      "id": "tukar",
+      "teks": "Lalu kapan sinus dan cosinus bertukar tempat? Hanya kalau perpindahannya lewat sembilan puluh derajat, seperti putaran tadi. Lewat seratus delapan puluh atau tiga ratus enam puluh, keduanya tetap di tempatnya, hanya tandanya yang bisa berubah.",
+      "tulis": "Lalu kapan sinus dan cosinus bertukar tempat? Hanya kalau perpindahannya lewat 90°, seperti putaran tadi. Lewat 180° atau 360°, keduanya tetap di tempatnya, hanya tandanya yang bisa berubah."
+    },
+    {
+      "id": "keliru",
+      "teks": "Yang sering tertukar: titik yang diputar sembilan puluh derajat ditulis negatif cosinus theta koma sinus theta. Itu hasil cerminan, bukan putaran. Periksa dengan angka: cosinus seratus tiga puluh derajat adalah negatif nol koma enam empat, sama dengan negatif sinus empat puluh derajat, bukan negatif nol koma tujuh tujuh.",
+      "tulis": "Yang sering tertukar: titik yang diputar 90° ditulis (−cos θ, sin θ). Itu hasil cerminan, bukan putaran. Periksa dengan angka: cos 130° adalah −0,64, sama dengan −sin 40°, bukan −0,77."
+    },
+    {
+      "id": "tutup",
+      "teks": "Tanda mengikuti kuadran, besarnya mengikuti sudut acuan. Rumus relasi hanyalah cara singkat menulis dua hal itu, dan keduanya bisa dibaca langsung dari lingkaran.",
+      "tulis": "Tanda mengikuti kuadran, besarnya mengikuti sudut acuan. Rumus relasi hanyalah cara singkat menulis dua hal itu, dan keduanya bisa dibaca langsung dari lingkaran."
+    },
+    {
+      "id": "lanjut",
+      "teks": "Di materi berikutnya, Grafik Fungsi Trigonometri, Bagian satu, titik yang berputar di lingkaran ini kita rekam tingginya dari waktu ke waktu, dan lahirlah grafik sinus.",
+      "tulis": "Di materi berikutnya, Grafik Fungsi Trigonometri, Bagian 1, titik yang berputar di lingkaran ini kita rekam tingginya dari waktu ke waktu, dan lahirlah grafik sinus."
+    }
+  ]
+}
