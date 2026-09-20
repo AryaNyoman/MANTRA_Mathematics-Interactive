@@ -51,7 +51,9 @@ export default function Pembahasan({
       )}
       {soal.jebakan && (
         <div className="bahas-jebakan">
-          <div className="kicker">Kenapa pilihan lain menggoda</div>
+          {/* Judulnya dulu "Kenapa pilihan lain menggoda"; ARYA 20 Sep 2026:
+              bahasanya jelek. Isinya tetap: alasan tiap pengecoh salah. */}
+          <div className="kicker">Kenapa yang lain salah</div>
           <p><TeksMat teks={petakanHuruf(soal.jebakan, urut)} /></p>
         </div>
       )}
