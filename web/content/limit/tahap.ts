@@ -13,7 +13,7 @@
  * Buku mulai dari definisi, lalu sifat, lalu bentuk sulit. Di sini bentuk yang
  * TIDAK bisa disubstitusi diperkenalkan lebih dulu (Tahap 1 dan Tahap 4), baru
  * cara cepatnya (Tahap 5). Alasannya: salah paham "limit itu ya nilai fungsi
- * di titik itu" lahir justru karena hampir semua soal sekolah bisa dijawab
+ * di titik itu" lahir malah karena hampir semua soal sekolah bisa dijawab
  * dengan memasukkan angka, sehingga siswa mengira limit adalah substitusi
  * yang dibuat berbelit.
  *
@@ -108,9 +108,9 @@ export const TAHAP: TahapLimit[] = [
           'Sesudah disederhanakan - bentuk 20 + 5h aman untuk h berapa pun, termasuk nol',
         ],
       },
-      { jenis: 'sorot', teks: 'Limit bukan cara berbelit untuk memasukkan angka. Limit adalah cara menjawab pertanyaan yang angkanya justru tidak boleh dimasukkan.' },
-      { jenis: 'paragraf', teks: 'Satu hal lagi yang perlu diluruskan sejak awal. Huruf h di atas BUKAN benda ajaib yang "sangat kecil tak berhingga". Ia angka biasa: 1, lalu 0,5, lalu 0,1, lalu 0,001. Angka yang bisa Anda tulis dan hitung sendiri.' },
-      { jenis: 'paragraf', teks: 'Yang kita lakukan hanyalah mengecilkan angka biasa itu terus menerus, lalu memperhatikan ke mana hasilnya menuju. Tidak ada satu pun langkah yang memakai bilangan gaib. Membayangkan h sebagai sesuatu yang mistis justru membuat limit terasa jauh lebih sulit daripada yang sebenarnya.' },
+      { jenis: 'sorot', teks: 'Limit bukan cara berbelit untuk memasukkan angka. Limit adalah cara menjawab pertanyaan yang angkanya malah tidak boleh dimasukkan.' },
+      { jenis: 'paragraf', teks: 'Satu hal lagi yang perlu diluruskan sejak awal. Huruf h di atas BUKAN benda ajaib yang "sangat kecil tak berhingga". Semuanya angka biasa: 1, lalu 0,5, lalu 0,1, lalu 0,001. Angka yang bisa Anda tulis dan hitung sendiri.' },
+      { jenis: 'paragraf', teks: 'Yang kita lakukan hanyalah mengecilkan angka biasa itu terus menerus, lalu memperhatikan ke mana hasilnya menuju. Tidak ada satu pun langkah yang memakai bilangan gaib. Membayangkan h sebagai sesuatu yang mistis malah membuat limit terasa jauh lebih sulit daripada yang sebenarnya.' },
 
       {
         jenis: 'coba',
@@ -118,18 +118,18 @@ export const TAHAP: TahapLimit[] = [
         langkah: [
           'Mulai dari selang 1 detik. Perhatikan di mana garis pada grafik memotong kurva.',
           'Perpendek selangnya. Apa yang terjadi pada kedua titik potong itu?',
-          'Perhatikan angka kecepatan di bawah gambar setiap kali selangnya diperpendek. Menuju ke angka berapa ia?',
+          'Perhatikan angka kecepatan di bawah gambar setiap kali selangnya diperpendek. Menuju ke angka berapa nilainya?',
           'Kalau selangnya sudah sangat pendek, seperti apa garis potongnya terhadap kurva? Menurut Anda, angka kecepatan itu menggambarkan apa?',
         ],
       },
 
       { jenis: 'sesi', judul: 'Untuk apa ini nantinya' },
-      { jenis: 'paragraf', teks: 'Cara berpikir barusan bukan hanya soal kelapa jatuh. Ia dipakai untuk menghitung laju perubahan apa pun: kecepatan kendaraan, laju obat berkurang di dalam darah, laju penambahan penduduk, dan kemiringan grafik di satu titik. Semuanya berpangkal pada satu ide: jangan hitung di titiknya, hitung di sekitarnya lalu rapatkan.' },
+      { jenis: 'paragraf', teks: 'Cara berpikir barusan bukan hanya soal kelapa jatuh. Limit dipakai untuk menghitung laju perubahan apa pun: kecepatan kendaraan, laju obat berkurang di dalam darah, laju penambahan penduduk, dan kemiringan grafik di satu titik. Semuanya berpangkal pada satu ide: jangan hitung di titiknya, hitung di sekitarnya lalu rapatkan.' },
       { jenis: 'paragraf', teks: 'Materi berikutnya merapikan ide "merapat" itu jadi kalimat yang tepat, supaya bisa dipakai untuk fungsi apa pun, bukan cuma untuk kelapa.' },
     ],
     seringKeliru: {
       judul: 'Dikira limit cuma cara berbelit untuk memasukkan angka',
-      isi: 'Kalau bentuk 20 + 5h dimasukkan h = 0, hasilnya memang 20. Dari situ mudah menyimpulkan bahwa limit hanya gaya-gayaan. Tapi bentuk 20 + 5h itu sendiri baru ada SETELAH h dicoret, dan mencoret h hanya boleh dilakukan untuk h yang bukan nol. Pada bentuk aslinya, memasukkan h = 0 memberi 0/0 dan berhenti di situ. Jadi yang menyelamatkan hitungan ini bukan substitusi, melainkan penyederhanaan yang sah untuk semua h kecuali nol.',
+      isi: 'Kalau bentuk 20 + 5h dimasukkan h = 0, hasilnya memang 20. Dari situ mudah menyimpulkan bahwa limit hanya gaya-gayaan. Tapi bentuk 20 + 5h itu sendiri baru ada SETELAH h dicoret, dan mencoret h hanya boleh dilakukan untuk h yang bukan nol. Pada bentuk aslinya, memasukkan h = 0 memberi 0/0 dan berhenti di situ. Jadi yang menyelamatkan hitungan ini bukan substitusi, tetapi penyederhanaan yang sah untuk semua h kecuali nol.',
     },
     video: { berkas: 'limit1-kecepatan.mp4', poster: 'limit1-kecepatan.jpg' },
     widget: 'selang-menyusut',
@@ -187,8 +187,8 @@ export const TAHAP: TahapLimit[] = [
           'Kata "mendekati", bukan "sampai". x tidak pernah diletakkan tepat di c',
         ],
       },
-      { jenis: 'sorot', teks: 'Limit sama sekali tidak peduli apa yang terjadi tepat di titik c. Ia hanya melihat tetangga-tetangganya.' },
-      { jenis: 'paragraf', teks: 'Kalimat itu terdengar aneh sekarang, karena pada contoh di atas nilai f(3) kebetulan memang 10, sama dengan limitnya. Materi 03 dan Materi 04 akan menunjukkan bahwa kebetulan itu tidak selalu terjadi, dan justru di situlah limit menjadi berguna.' },
+      { jenis: 'sorot', teks: 'Limit sama sekali tidak peduli apa yang terjadi tepat di titik c. Limit hanya melihat tetangga-tetangganya.' },
+      { jenis: 'paragraf', teks: 'Kalimat itu terdengar aneh sekarang, karena pada contoh di atas nilai f(3) kebetulan memang 10, sama dengan limitnya. Materi 03 dan Materi 04 akan menunjukkan bahwa kebetulan itu tidak selalu terjadi, dan malah di situlah limit menjadi berguna.' },
 
       {
         jenis: 'coba',
@@ -214,16 +214,16 @@ export const TAHAP: TahapLimit[] = [
         ],
       },
       { jenis: 'sorot', teks: 'Limitnya 10 berarti: berapa pun ketatnya tantangan Anda, saya SELALU punya jawabannya. Tidak ada tantangan yang membuat saya kehabisan akal.' },
-      { jenis: 'paragraf', teks: 'Itulah beda antara "kebetulan dekat" dan "benar-benar menuju". Kalau f(x) hanya kebetulan dekat, cepat atau lambat ada tantangan yang tidak bisa dipenuhi. Kalau ia benar-benar menuju L, jawabannya selalu ada.' },
+      { jenis: 'paragraf', teks: 'Itulah beda antara "kebetulan dekat" dan "benar-benar menuju". Kalau f(x) hanya kebetulan dekat, cepat atau lambat ada tantangan yang tidak bisa dipenuhi. Kalau fungsinya benar-benar menuju L, jawabannya selalu ada.' },
       { jenis: 'paragraf', teks: 'Di bangku kuliah permainan ini ditulis dengan dua huruf Yunani dan disebut definisi epsilon-delta. Anda belum perlu lambangnya sekarang. Yang perlu Anda bawa adalah gagasannya: limit itu janji yang sanggup memenuhi tantangan seketat apa pun.' },
 
       { jenis: 'sesi', judul: 'Kenapa tidak boleh berhenti di satu arah saja' },
-      { jenis: 'paragraf', teks: 'Kalau kita hanya memeriksa dari kiri, kita bisa tertipu. Ada fungsi yang dari kiri menuju satu angka, tapi dari kanan menuju angka yang berbeda. Fungsi seperti itu tidak punya limit di titik tersebut, walaupun kedua sisinya masing-masing rapi.' },
+      { jenis: 'paragraf', teks: 'Kalau kita hanya memeriksa dari kiri, kita bisa salah. Ada fungsi yang dari kiri menuju satu angka, tapi dari kanan menuju angka yang berbeda. Fungsi seperti itu tidak punya limit di titik tersebut, walaupun kedua sisinya masing-masing rapi.' },
       { jenis: 'paragraf', teks: 'Itu persis yang dibahas pada materi berikutnya, dan contohnya ada di karcis parkir.' },
     ],
     seringKeliru: {
       judul: 'Dikira "mendekati" itu sama dengan "akhirnya sampai"',
-      isi: 'Dalam bahasa sehari-hari, mendekat biasanya berujung sampai. Dalam limit tidak. Nilai x boleh dibuat sedekat apa pun ke c, tetapi tidak pernah diletakkan tepat di c. Justru karena tidak pernah sampai itulah limit tetap bisa menjawab walaupun f(c) sendiri tidak ada. Ini bukan kekurangan definisi, melainkan sumber kekuatannya.',
+      isi: 'Dalam bahasa sehari-hari, mendekat biasanya berujung sampai. Dalam limit tidak. Nilai x boleh dibuat sedekat apa pun ke c, tetapi tidak pernah diletakkan tepat di c. Malah karena tidak pernah sampai itulah limit tetap bisa menjawab walaupun f(c) sendiri tidak ada. Ini bukan kekurangan definisi, tetapi sumber kekuatannya.',
     },
     video: { berkas: 'limit2-mendekati.mp4', poster: 'limit2-mendekati.jpg' },
     widget: 'garis-mendekati',
@@ -286,8 +286,8 @@ export const TAHAP: TahapLimit[] = [
         jenis: 'coba',
         teks: 'Alat interaktifnya adalah grafik tarif tadi. Dua penunjuk merayap dari kiri dan dari kanan.',
         langkah: [
-          'Jalankan penunjuk kiri. Di angka berapa ia berhenti?',
-          'Jalankan penunjuk kanan. Di angka berapa ia berhenti?',
+          'Jalankan penunjuk kiri. Di angka berapa nilainya berhenti?',
+          'Jalankan penunjuk kanan. Di angka berapa nilainya berhenti?',
           'Perhatikan grafiknya di jam kedua. Apa yang Anda lihat di sana?',
           'Geser titik tujuannya ke tempat lain yang tidak ada lompatannya. Bagaimana kedua penunjuk sekarang?',
         ],
@@ -355,7 +355,7 @@ export const TAHAP: TahapLimit[] = [
           'dibagi (x - 1)              (x - 1)(x + 1)/(x - 1)',
           'coret, asal x bukan 1       x + 1',
         ],
-        simpul: 'Jadi fungsinya sebenarnya garis y = x + 1, kecuali di x = 1 tempat ia berlubang.',
+        simpul: 'Jadi fungsinya sebenarnya garis y = x + 1, kecuali di x = 1 tempat garisnya berlubang.',
       },
       { jenis: 'paragraf', teks: 'Grafiknya adalah garis lurus biasa, dengan satu lubang sekecil titik tepat di (1, 2). Kalau lubang itu tidak digambar, tidak ada yang bisa membedakannya dari garis biasa.' },
 
@@ -369,7 +369,7 @@ export const TAHAP: TahapLimit[] = [
         ],
       },
       { jenis: 'sorot', teks: 'Nilai fungsi dan limit adalah dua hal yang benar-benar berbeda. Yang satu bisa ada tanpa yang lain.' },
-      { jenis: 'paragraf', teks: 'Sekarang kalimat dari Materi 02 itu masuk akal: limit tidak peduli apa yang terjadi tepat di titiknya. Justru karena tidak peduli, ia masih bisa menjawab walaupun titiknya bolong.' },
+      { jenis: 'paragraf', teks: 'Sekarang kalimat dari Materi 02 itu masuk akal: limit tidak peduli apa yang terjadi tepat di titiknya. Malah karena tidak peduli, limit masih bisa menjawab walaupun titiknya bolong.' },
       { jenis: 'paragraf', teks: 'Dan ternyata ini bukan kasus langka. Hitungan kecepatan sesaat di Materi 01 bentuknya persis seperti ini: 0/0 kalau dipaksakan, tetapi punya limit yang rapi setelah disederhanakan. Seluruh kalkulus berdiri di atas bentuk semacam ini.' },
 
       {
@@ -385,7 +385,7 @@ export const TAHAP: TahapLimit[] = [
     ],
     seringKeliru: {
       judul: 'Dikira 0/0 sama dengan 0, atau sama dengan 1',
-      isi: 'Bentuk 0/0 bukan sebuah bilangan, dan tidak bernilai 0 maupun 1. Ia disebut bentuk tak tentu, artinya bentuk itu belum memberi tahu apa-apa. Fungsi yang berbeda bisa sama-sama menghasilkan 0/0 tetapi punya limit yang berbeda: (x² - 1) dibagi (x - 1) limitnya 2, sedangkan (x² - 4) dibagi (x - 2) limitnya 4, padahal keduanya 0/0 kalau dipaksakan. Karena itu bentuknya harus ditulis ulang dulu, bukan dijawab langsung.',
+      isi: 'Bentuk 0/0 bukan sebuah bilangan, dan tidak bernilai 0 maupun 1. Bentuk itu disebut bentuk tak tentu, artinya bentuk itu belum memberi tahu apa-apa. Fungsi yang berbeda bisa sama-sama menghasilkan 0/0 tetapi punya limit yang berbeda: (x² - 1) dibagi (x - 1) limitnya 2, sedangkan (x² - 4) dibagi (x - 2) limitnya 4, padahal keduanya 0/0 kalau dipaksakan. Karena itu bentuknya harus ditulis ulang dulu, bukan dijawab langsung.',
     },
     video: { berkas: 'limit4-lubang.mp4', poster: 'limit4-lubang.jpg' },
     widget: 'lubang-grafik',
@@ -407,7 +407,7 @@ export const TAHAP: TahapLimit[] = [
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Sampai di sini limit terlihat merepotkan: harus membuat tabel, mendekat dari dua arah, dan berhati-hati soal lubang. Untungnya, untuk sebagian besar fungsi yang ditemui di sekolah, ada jalan pintas yang jauh lebih cepat.' },
-      { jenis: 'paragraf', teks: 'Jalan pintas itu bukan tebakan. Ia berdiri di atas tujuh sifat limit yang sudah dibuktikan orang.' },
+      { jenis: 'paragraf', teks: 'Jalan pintas itu bukan tebakan. Jalan pintas itu berdiri di atas tujuh sifat limit yang sudah dibuktikan orang.' },
 
       { jenis: 'sesi', judul: 'Tujuh sifat limit' },
       {
@@ -495,14 +495,14 @@ export const TAHAP: TahapLimit[] = [
     labelPendek: '0 per 0',
     pertanyaan: 'Substitusi buntu. Sekarang bagaimana?',
     intisari: [
-      'Bentuk 0/0 bukan jawaban, melainkan tanda bahwa bentuknya harus ditulis ulang.',
+      'Bentuk 0/0 bukan jawaban, tetapi tanda bahwa bentuknya harus ditulis ulang.',
       'Tiga cara menulis ulang: memfaktorkan, mengalikan sekawan, membagi pangkat tertinggi.',
       'Yang dicari selalu sama: coret bagian yang membuat penyebutnya nol.',
       'Setelah tercoret, barulah angkanya dimasukkan.',
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Materi 05 berakhir pada satu simpul: masukkan angkanya dulu. Kalau hasilnya wajar, selesai. Kalau muncul 0/0, pekerjaan yang sebenarnya baru dimulai. Materi ini tentang pekerjaan itu.' },
-      { jenis: 'sorot', teks: 'Bentuk 0/0 tidak berarti limitnya tidak ada. Ia berarti bentuk yang Anda tulis belum memberi tahu apa-apa.' },
+      { jenis: 'sorot', teks: 'Bentuk 0/0 tidak berarti limitnya tidak ada. Artinya, bentuk yang Anda tulis belum memberi tahu apa-apa.' },
       { jenis: 'paragraf', teks: 'Buktinya begini. Bentuk (x² - 1)/(x - 1) limitnya 2, sedangkan (x² - 4)/(x - 2) limitnya 4. Keduanya sama-sama memberi 0/0 kalau angkanya dipaksakan masuk, tetapi jawabannya berbeda. Jadi tulisan 0/0 memang belum mengandung keterangan apa pun.' },
 
       { jenis: 'sesi', judul: 'Cara pertama: memfaktorkan' },
@@ -546,7 +546,7 @@ export const TAHAP: TahapLimit[] = [
       },
 
       { jenis: 'sesi', judul: 'Cara ketiga: membagi dengan pangkat tertinggi' },
-      { jenis: 'paragraf', teks: 'Cara ini dipakai kalau x tidak menuju sebuah angka, melainkan menuju tak hingga. Karena itu ia dibahas tuntas di materi berikutnya. Namanya disebut di sini supaya ketiga cara itu terkumpul di satu tempat dan mudah diingat sebagai satu kelompok.' },
+      { jenis: 'paragraf', teks: 'Cara ini dipakai kalau x tidak menuju sebuah angka, tetapi menuju tak hingga. Karena itu cara ini dibahas tuntas di materi berikutnya. Namanya disebut di sini supaya ketiga cara itu terkumpul di satu tempat dan mudah diingat sebagai satu kelompok.' },
 
       {
         jenis: 'coba',
@@ -573,7 +573,7 @@ export const TAHAP: TahapLimit[] = [
     ],
     seringKeliru: {
       judul: 'Mencoret dianggap boleh kapan saja',
-      isi: 'Mencoret (x - 2) dari atas dan bawah terasa seperti aturan aljabar biasa, padahal ia hanya sah kalau (x - 2) bukan nol, yaitu kalau x bukan 2. Kalau syarat itu dilupakan, orang menyimpulkan bahwa fungsi asli dan fungsi hasil coretan sama persis. Padahal keduanya berbeda tepat di satu titik: yang asli berlubang di x = 2, hasil coretannya tidak. Gambar di Materi 04 memperlihatkan bedanya.',
+      isi: 'Mencoret (x - 2) dari atas dan bawah terasa seperti aturan aljabar biasa, padahal pencoretan itu hanya sah kalau (x - 2) bukan nol, yaitu kalau x bukan 2. Kalau syarat itu dilupakan, orang menyimpulkan bahwa fungsi asli dan fungsi hasil coretan sama persis. Padahal keduanya berbeda tepat di satu titik: yang asli berlubang di x = 2, hasil coretannya tidak. Gambar di Materi 04 memperlihatkan bedanya.',
     },
     video: { berkas: 'limit6-nolpernol.mp4', poster: 'limit6-nolpernol.jpg' },
     widget: 'bongkar-bertahap',
@@ -588,8 +588,8 @@ export const TAHAP: TahapLimit[] = [
     labelPendek: 'Tak hingga',
     pertanyaan: 'Kenapa grafik bisa mendatar tapi tidak pernah menyentuh garisnya?',
     intisari: [
-      'Tak hingga bukan bilangan, jadi ia tidak bisa disubstitusi.',
-      'Ia keterangan arah: x dibuat sebesar-besarnya tanpa batas.',
+      'Tak hingga bukan bilangan, jadi tidak bisa disubstitusi.',
+      'Tak hingga adalah keterangan arah: x dibuat sebesar-besarnya tanpa batas.',
       'Caranya membagi pembilang dan penyebut dengan pangkat tertinggi.',
       'Garis yang didekati tapi tidak pernah disentuh disebut asimtot datar.',
     ],
@@ -607,7 +607,7 @@ export const TAHAP: TahapLimit[] = [
         ],
         simpul: 'Merapat ke 20.000, tapi tidak pernah sampai. Biaya tetapnya selalu menyisakan sedikit.',
       },
-      { jenis: 'sorot', teks: 'Tak hingga bukan bilangan. Ia tidak bisa dimasukkan ke rumus, karena tidak ada angka yang bernama tak hingga.' },
+      { jenis: 'sorot', teks: 'Tak hingga bukan bilangan. Tak hingga tidak bisa dimasukkan ke rumus, karena tidak ada angka yang bernama tak hingga.' },
 
       { jenis: 'sesi', judul: 'Caranya: bagi dengan pangkat tertinggi' },
       { jenis: 'paragraf', teks: 'Kalau x menuju tak hingga, pecahan seperti 1/x menjadi sangat kecil. Semakin besar x, semakin dekat pecahan itu ke nol. Itulah alat utamanya, dan seluruh cara ini dibangun di atasnya.' },
@@ -646,7 +646,7 @@ export const TAHAP: TahapLimit[] = [
 
       { jenis: 'sesi', judul: 'Asimtot datar' },
       { jenis: 'paragraf', teks: 'Kalau limit sebuah fungsi saat x menuju tak hingga adalah sebuah angka, katakanlah 3, maka grafiknya akan semakin mendatar dan merapat ke garis mendatar y = 3. Garis itu disebut asimtot datar.' },
-      { jenis: 'paragraf', teks: 'Kurvanya boleh sedekat apa pun ke garis itu. Pada contoh biaya pabrik tadi ia bahkan tidak pernah menyentuhnya, karena selalu ada sisa kecil dari biaya tetap yang tidak bisa dihilangkan berapa pun banyaknya barang.' },
+      { jenis: 'paragraf', teks: 'Kurvanya boleh sedekat apa pun ke garis itu. Pada contoh biaya pabrik tadi kurvanya bahkan tidak pernah menyentuh garis itu, karena selalu ada sisa kecil dari biaya tetap yang tidak bisa dihilangkan berapa pun banyaknya barang.' },
 
       {
         jenis: 'coba',
@@ -661,7 +661,7 @@ export const TAHAP: TahapLimit[] = [
     ],
     seringKeliru: {
       judul: 'Tak hingga dikira sebuah bilangan yang sangat besar',
-      isi: 'Kalau tak hingga dianggap bilangan, muncul godaan memasukkannya ke rumus lalu menulis hal seperti tak hingga dibagi tak hingga sama dengan 1. Itu tidak sah, karena tak hingga bukan bilangan dan tidak bisa dibagi. Yang benar, tak hingga adalah keterangan arah: ia memberi tahu bahwa x dibuat membesar tanpa batas. Karena itu jawabannya dicari dari kecenderungan bentuknya, bukan dari substitusi.',
+      isi: 'Kalau tak hingga dianggap bilangan, orang mudah memasukkannya ke rumus lalu menulis hal seperti tak hingga dibagi tak hingga sama dengan 1. Itu tidak sah, karena tak hingga bukan bilangan dan tidak bisa dibagi. Yang benar, tak hingga adalah keterangan arah yang memberi tahu bahwa x dibuat membesar tanpa batas. Karena itu jawabannya dicari dari kecenderungan bentuknya, bukan dari substitusi.',
     },
     video: { berkas: 'limit7-takhingga.mp4', poster: 'limit7-takhingga.jpg' },
     widget: 'perkecil-tampilan',
@@ -674,7 +674,7 @@ export const TAHAP: TahapLimit[] = [
     slug: 'limit-sinus',
     judul: 'Limit sinus jadi angka 1',
     labelPendek: 'Sinus',
-    pertanyaan: 'Kenapa (sin x)/x menuju tepat 1, bukan sekadar mendekati?',
+    pertanyaan: 'Kenapa (sin x)/x menuju tepat 1, bukan cuma mendekati?',
     intisari: [
       'Untuk sudut kecil, panjang busur dan panjang sin hampir sama.',
       'Perbandingannya terjepit di antara cos θ dan 1/cos θ.',
@@ -709,8 +709,8 @@ export const TAHAP: TahapLimit[] = [
       },
       { jenis: 'paragraf', teks: 'Karena yang pertama termuat di dalam yang kedua, dan yang kedua termuat di dalam yang ketiga, urutan luasnya sudah pasti naik. Bagi ketiganya dengan sin θ, dan bentuknya menjadi rapi.' },
       { jenis: 'sorot', teks: 'cos θ  <  θ/sin θ  <  1/cos θ' },
-      { jenis: 'paragraf', teks: 'Sekarang kecilkan θ menuju 0. Nilai cos θ menuju 1, dan 1/cos θ juga menuju 1. Jadi bentuk yang di tengah terjepit di antara dua hal yang sama-sama menuju 1. Ia tidak punya pilihan lain selain ikut menuju 1.' },
-      { jenis: 'paragraf', teks: 'Karena θ/sin θ menuju 1, maka kebalikannya, sin θ/θ, juga menuju 1. Selesai. Bukan hampir 1, melainkan tepat 1, dan sekarang alasannya jelas.' },
+      { jenis: 'paragraf', teks: 'Sekarang kecilkan θ menuju 0. Nilai cos θ menuju 1, dan 1/cos θ juga menuju 1. Jadi bentuk yang di tengah terjepit di antara dua hal yang sama-sama menuju 1. Fungsi yang terjepit itu tidak punya pilihan lain selain ikut menuju 1.' },
+      { jenis: 'paragraf', teks: 'Karena θ/sin θ menuju 1, maka kebalikannya, sin θ/θ, juga menuju 1. Selesai. Bukan hampir 1, tetapi tepat 1, dan sekarang alasannya jelas.' },
 
       { jenis: 'sesi', judul: 'Radian, bukan derajat' },
       { jenis: 'paragraf', teks: 'Bukti tadi memakai luas juring sama dengan ½ · θ. Rumus itu hanya benar kalau θ diukur dalam radian. Kalau sudutnya ditulis dalam derajat, luas juringnya bukan ½ · θ, dan seluruh rangkaian tadi runtuh.' },
@@ -738,9 +738,9 @@ export const TAHAP: TahapLimit[] = [
       },
 
       { jenis: 'sesi', judul: 'Kalau Anda pernah dengar aturan L Hopital' },
-      { jenis: 'paragraf', teks: 'Sebagian siswa sudah pernah mendengar jalan pintas untuk bentuk 0/0: turunkan pembilang dan penyebutnya masing-masing, lalu masukkan angkanya. Namanya aturan L Hopital, dan ia memang bekerja pada banyak soal.' },
-      { jenis: 'paragraf', teks: 'Ada godaan besar untuk memakainya di sini. Turunan sin x adalah cos x, turunan x adalah 1, jadi hasilnya (cos 0)/1 = 1. Cepat, rapi, dan jawabannya benar.' },
-      { jenis: 'sorot', teks: 'Tetapi sebagai BUKTI, langkah itu berputar-putar. Rumus turunan sin x justru diperoleh dari limit yang sedang kita buktikan ini.' },
+      { jenis: 'paragraf', teks: 'Sebagian siswa sudah pernah mendengar jalan pintas untuk bentuk 0/0: turunkan pembilang dan penyebutnya masing-masing, lalu masukkan angkanya. Namanya aturan L Hopital, dan aturan itu memang bekerja pada banyak soal.' },
+      { jenis: 'paragraf', teks: 'Rasanya ingin memakainya di sini. Turunan sin x adalah cos x, turunan x adalah 1, jadi hasilnya (cos 0)/1 = 1. Cepat, rapi, dan jawabannya benar.' },
+      { jenis: 'sorot', teks: 'Tetapi sebagai BUKTI, langkah itu berputar-putar. Rumus turunan sin x malah diperoleh dari limit yang sedang kita buktikan ini.' },
       {
         jenis: 'poin',
         judul: 'Urutan sebenarnya, dan urutan itu tidak boleh dibalik',
@@ -750,7 +750,7 @@ export const TAHAP: TahapLimit[] = [
           'Baru setelah itu aturan L Hopital boleh memakai turunan sin x',
         ],
       },
-      { jenis: 'paragraf', teks: 'Jadi memakai L Hopital untuk membuktikan limit ini sama saja dengan meminjam uang dari orang yang belum punya uang. Sebagai alat hitung cepat ia sah dipakai di soal lain, tetapi sebagai bukti untuk limit ini ia tidak berlaku. Karena itulah buktinya harus lewat gambar lingkaran tadi.' },
+      { jenis: 'paragraf', teks: 'Jadi memakai L Hopital untuk membuktikan limit ini sama saja dengan meminjam uang dari orang yang belum punya uang. Sebagai alat hitung cepat aturan itu sah dipakai di soal lain, tetapi sebagai bukti untuk limit ini aturan itu tidak berlaku. Karena itulah buktinya harus lewat gambar lingkaran tadi.' },
 
       {
         jenis: 'coba',
@@ -765,7 +765,7 @@ export const TAHAP: TahapLimit[] = [
     ],
     seringKeliru: {
       judul: 'Dikira sin x/x bisa dicoret jadi sin',
-      isi: 'Tulisan sin x terlihat seperti perkalian antara sin dan x, sehingga muncul godaan mencoret x di atas dan di bawah lalu menyimpulkan hasilnya sin. Itu keliru, karena sin bukan bilangan yang dikalikan melainkan nama sebuah fungsi. Menulis sin tanpa sudut sama tidak bermaknanya dengan menulis tanda akar tanpa isi. Karena itu bentuk ini harus dikerjakan lewat perbandingan luas tadi, bukan lewat pencoretan.',
+      isi: 'Tulisan sin x terlihat seperti perkalian antara sin dan x, sehingga orang mudah mencoret x di atas dan di bawah lalu menyimpulkan hasilnya sin. Itu keliru, karena sin bukan bilangan yang dikalikan tetapi nama sebuah fungsi. Menulis sin tanpa sudut sama tidak bermaknanya dengan menulis tanda akar tanpa isi. Karena itu bentuk ini harus dikerjakan lewat perbandingan luas tadi, bukan lewat pencoretan.',
     },
     video: { berkas: 'limit8-sinus.mp4', poster: 'limit8-sinus.jpg' },
     widget: 'busur-lawan-tali',
@@ -849,7 +849,7 @@ export const TAHAP: TahapLimit[] = [
       { jenis: 'sesi', judul: 'Janji dari Materi 05 dilunasi di sini' },
       { jenis: 'paragraf', teks: 'Pada Materi 05 dikatakan bahwa substitusi langsung sah untuk suku banyak, tetapi alasannya sengaja ditunda. Sekarang alasannya bisa disebutkan utuh.' },
       { jenis: 'sorot', teks: 'Suku banyak kontinu di semua titik. Karena kontinu berarti limit sama dengan nilai fungsi, maka menghitung limitnya boleh dilakukan dengan memasukkan angkanya.' },
-      { jenis: 'paragraf', teks: 'Jadi substitusi bukan definisi limit, melainkan akibat dari kontinuitas. Untuk fungsi yang tidak kontinu di titik itu, jalan pintasnya langsung gugur, persis seperti yang terjadi di Materi 04 dan Materi 06. Sekarang seluruh alurnya tertutup rapi.' },
+      { jenis: 'paragraf', teks: 'Jadi substitusi bukan definisi limit, tetapi akibat dari kontinuitas. Untuk fungsi yang tidak kontinu di titik itu, jalan pintasnya langsung gugur, persis seperti yang terjadi di Materi 04 dan Materi 06. Sekarang seluruh alurnya tertutup rapi.' },
 
       {
         jenis: 'coba',
@@ -864,7 +864,7 @@ export const TAHAP: TahapLimit[] = [
     ],
     seringKeliru: {
       judul: 'Kontinu dikira sama dengan mulus tanpa sudut tajam',
-      isi: 'Kontinu hanya menuntut grafiknya tidak putus, bukan tidak bersudut. Grafik nilai mutlak, yang bentuknya seperti huruf V, tetap kontinu di titik sudutnya karena pensilnya tidak perlu diangkat. Yang gagal di titik itu bukan kontinuitas, melainkan sifat lain yang baru dipelajari saat masuk ke turunan. Jadi bersudut tetap kontinu, sedangkan berlubang, melompat, dan meledak tidak.',
+      isi: 'Kontinu hanya menuntut grafiknya tidak putus, bukan tidak bersudut. Grafik nilai mutlak, yang bentuknya seperti huruf V, tetap kontinu di titik sudutnya karena pensilnya tidak perlu diangkat. Yang gagal di titik itu bukan kontinuitas, tetapi sifat lain yang baru dipelajari saat masuk ke turunan. Jadi bersudut tetap kontinu, sedangkan berlubang, melompat, dan meledak tidak.',
     },
     video: { berkas: 'limit9-kontinu.mp4', poster: 'limit9-kontinu.jpg' },
     widget: 'perusak-fungsi',
@@ -905,7 +905,7 @@ export const TAHAP: TahapLimit[] = [
 
       { jenis: 'sesi', judul: 'Satu benang merah dari keempat contoh' },
       { jenis: 'sorot', teks: 'Keempatnya menanyakan hal yang sama: ke mana sesuatu menuju, bukan berapa nilainya sekarang.' },
-      { jenis: 'paragraf', teks: 'Itulah yang membuat limit berguna. Ia menjawab pertanyaan tentang tujuan, bukan tentang keadaan. Dan sering kali tujuan itulah yang perlu diketahui sebelum keputusan diambil: sebelum wahananya dibangun, sebelum dosisnya ditetapkan, sebelum harganya dipasang.' },
+      { jenis: 'paragraf', teks: 'Itulah yang membuat limit berguna. Limit menjawab pertanyaan tentang tujuan, bukan tentang keadaan. Dan sering kali tujuan itulah yang perlu diketahui sebelum keputusan diambil: sebelum wahananya dibangun, sebelum dosisnya ditetapkan, sebelum harganya dipasang.' },
     ],
     widget: 'dunia-nyata-limit',
     siap: true,

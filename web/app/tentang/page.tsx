@@ -32,7 +32,7 @@ export default function Tentang() {
               animasi penjelas dengan alat yang bisa dicoba sendiri. Tujuannya
               memperkuat dan memperjelas pemahaman siswa tentang inti
               matematika itu sendiri: dari mana sebuah rumus datang, kenapa
-              bentuknya begitu, dan kapan ia boleh dipakai.
+              bentuknya begitu, dan kapan rumus itu boleh dipakai.
             </p>
             {/* Jumlah bab sengaja TIDAK disebut angkanya. Jumlahnya masih
                 bertambah, dan kalimat yang menyebut angka akan basi diam-diam

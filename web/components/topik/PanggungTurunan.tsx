@@ -434,7 +434,7 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
                 }} />
               <Kembalikan onClick={() => { setX10(AWAL_10.x); setKurva10(AWAL_10.kurva) }} />
               <Petunjuk>
-                perhatikan pitanya berganti warna tepat di akar f aksen, bukan di tempat lain. Pada x pangkat tiga ia tidak berganti sama sekali.
+                perhatikan pitanya berganti warna tepat di akar f aksen, bukan di tempat lain. Pada x pangkat tiga warnanya tidak berganti sama sekali.
               </Petunjuk>
             </div>
           </>
@@ -526,7 +526,7 @@ export default function PanggungTurunan({ tahap, tampilWidget, children }: PropP
         {tampilWidget && tahap.widget === 'luas-berubah' && (
           <>
             <Tabel judul="Angka dari alat" baris={tabelLuas(x6, h6)} />
-            <div className="catatan"><TeksMat teks="Dua pita menyisakan angka yang berarti. Pojoknya tidak: ia hasil kali DUA tambahan yang sama-sama mengecil." /></div>
+            <div className="catatan"><TeksMat teks="Dua pita menyisakan angka yang berarti. Pojoknya tidak: pojok itu hasil kali DUA tambahan yang sama-sama mengecil." /></div>
           </>
         )}
         {tampilWidget && tahap.widget === 'grafik-turunan' && (

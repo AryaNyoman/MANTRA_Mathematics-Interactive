@@ -132,7 +132,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Kata "peta" di sini tidak berhubungan dengan peta wilayah. Ia berarti hasil pemetaan, seperti kata "memetakan" pada fungsi di topik Grafik Fungsi.',
+        teks: 'Kata "peta" di sini tidak berhubungan dengan peta wilayah. Peta berarti hasil pemetaan, seperti kata "memetakan" pada fungsi di topik Grafik Fungsi.',
       },
       {
         jenis: 'coba',
@@ -161,7 +161,7 @@ export const TAHAP: TahapTransformasi[] = [
     ],
     seringKeliru: {
       judul: 'Yang dipindah kan gambarnya, bukan titiknya',
-      isi: 'Ini menggoda karena di layar memang gambar yang terlihat bergerak, dan tangan kita memang biasa memindahkan benda utuh. Cara membedakannya ada di alat interaktifnya: bandingkan panjang keenam garis putus-putus itu. Titik A berjalan dua petak, titik C berjalan empat petak. Benda utuh yang dipindahkan tangan mustahil punya bagian yang berjalan lebih jauh daripada bagian lain. Yang bisa begitu hanya aturan yang bekerja pada setiap titik satu per satu.',
+      isi: 'Ini tampak benar karena di layar memang gambar yang terlihat bergerak, dan tangan kita memang biasa memindahkan benda utuh. Cara membedakannya ada di alat interaktifnya: bandingkan panjang keenam garis putus-putus itu. Titik A berjalan dua petak, titik C berjalan empat petak. Benda utuh yang dipindahkan tangan mustahil punya bagian yang berjalan lebih jauh daripada bagian lain. Yang bisa begitu hanya aturan yang bekerja pada setiap titik satu per satu.',
     },
     intisari: [
       'Transformasi memasangkan setiap titik dengan satu titik tujuan.',
@@ -204,14 +204,14 @@ export const TAHAP: TahapTransformasi[] = [
       { jenis: 'sesi', judul: 'Mulai dari cermin yang paling sederhana' },
       {
         jenis: 'paragraf',
-        teks: 'Kita pakai sumbu Y sebagai kaca. Sebuah titik di kanan sumbu Y akan mendarat di kiri, sejauh yang sama. Nilai tegaknya tidak berubah sedikit pun, sebab bergerak tegak lurus terhadap garis tegak berarti bergerak mendatar saja.',
+        teks: 'Kita pakai sumbu Y sebagai kaca. Sebuah titik di kanan sumbu Y akan mendarat di kiri, sejauh yang sama. Nilai tegaknya tidak berubah sedikit pun, karena bergerak tegak lurus terhadap garis tegak berarti bergerak mendatar saja.',
       },
       {
         jenis: 'contoh',
         judul: 'Empat aturan yang semuanya berasal dari satu gagasan',
         baris: [
-          'Cermin sumbu Y, yaitu garis x = 0: P(x, y) menjadi (-x, y), sebab hanya nilai mendatarnya menyeberang',
-          'Cermin sumbu X, yaitu garis y = 0: P(x, y) menjadi (x, -y), sebab hanya nilai tegaknya menyeberang',
+          'Cermin sumbu Y, yaitu garis x = 0: P(x, y) menjadi (-x, y), karena hanya nilai mendatarnya menyeberang',
+          'Cermin sumbu X, yaitu garis y = 0: P(x, y) menjadi (x, -y), karena hanya nilai tegaknya menyeberang',
           'Cermin garis x = k: P(x, y) menjadi (2k - x, y)',
           'Cermin garis y = h: P(x, y) menjadi (x, 2h - y)',
         ],
@@ -228,7 +228,7 @@ export const TAHAP: TahapTransformasi[] = [
         baris: [
           'Jarak A ke garis cerminnya: 5 - 1 = 4 satuan',
           'Bayangannya harus 4 satuan di seberang, jadi pada 5 + 4 = 9',
-          'Nilai y tidak disentuh, sebab garis cerminnya tegak',
+          'Nilai y tidak disentuh, karena garis cerminnya tegak',
           'Jadi A′(9, 2)',
           'Diperiksa dengan rumus: 2 · 5 − 1 = 9. Cocok',
         ],
@@ -247,7 +247,7 @@ export const TAHAP: TahapTransformasi[] = [
     ],
     seringKeliru: {
       judul: 'Dicerminkan pada garis x = 5 berarti nilai x dikurangi 5',
-      isi: 'Yang menggoda: angka 5 memang muncul di rumus garisnya, dan mengurangi adalah hal pertama yang terpikir. Cara membedakannya: gambar dulu, baru hitung. Titik dengan x = 1 kalau dikurangi 5 memberi negatif 4, jadi bayangannya akan jatuh jauh di kiri sumbu Y. Padahal garis cerminnya ada di x = 5 dan titiknya di kirinya, sehingga bayangannya wajib berada di KANAN garis itu. Satu gambar sudah cukup meruntuhkan cara itu.',
+      isi: 'Yang terasa benar: angka 5 memang muncul di rumus garisnya, dan mengurangi adalah hal pertama yang terpikir. Cara membedakannya: gambar dulu, baru hitung. Titik dengan x = 1 kalau dikurangi 5 memberi negatif 4, jadi bayangannya akan jatuh jauh di kiri sumbu Y. Padahal garis cerminnya ada di x = 5 dan titiknya di kirinya, sehingga bayangannya wajib berada di KANAN garis itu. Satu gambar sudah cukup meruntuhkan cara itu.',
     },
     intisari: [
       'Pencerminan memindahkan titik tegak lurus ke seberang garis, dengan jarak yang sama.',
@@ -294,7 +294,7 @@ export const TAHAP: TahapTransformasi[] = [
         baris: [
           'A(2, 5) menjadi A′(5, 2), kedua angkanya bertukar tempat',
           'B(-3, 4) menjadi B′(4, -3), tandanya ikut pindah bersama angkanya',
-          'C(6, 6) menjadi C′(6, 6), tidak berpindah sebab titiknya berada DI garis cerminnya',
+          'C(6, 6) menjadi C′(6, 6), tidak berpindah karena titiknya berada DI garis cerminnya',
         ],
         simpul: 'Baris ketiga bukan kegagalan. Titik yang berada tepat di garis cermin memang tidak pernah berpindah, sama seperti kaca tidak memindahkan dirinya sendiri.',
       },
@@ -324,7 +324,7 @@ export const TAHAP: TahapTransformasi[] = [
     ],
     seringKeliru: {
       judul: 'Cermin pada y = -x cukup membalik tandanya, tanpa menukar',
-      isi: 'Yang menggoda: tanda minus di rumus garisnya lebih menarik perhatian daripada pertukaran posisinya, jadi kita mengerjakan yang terlihat dan melupakan yang tidak. Cara membedakannya: uji dengan titik yang kedua koordinatnya berbeda jauh, misalnya (1, 9). Kalau hanya tanda yang dibalik, hasilnya (-1, -9). Gambarkan keduanya, lalu tarik garis dari (1, 9) ke (-1, -9). Garis itu tidak tegak lurus terhadap y = -x, jadi jawabannya tidak mungkin benar. Jawaban yang benar (-9, -1).',
+      isi: 'Yang terasa benar: tanda minus di rumus garisnya lebih menarik perhatian daripada pertukaran posisinya, jadi kita mengerjakan yang terlihat dan melupakan yang tidak. Cara membedakannya: uji dengan titik yang kedua koordinatnya berbeda jauh, misalnya (1, 9). Kalau hanya tanda yang dibalik, hasilnya (-1, -9). Gambarkan keduanya, lalu tarik garis dari (1, 9) ke (-1, -9). Garis itu tidak tegak lurus terhadap y = -x, jadi jawabannya tidak mungkin benar. Jawaban yang benar (-9, -1).',
     },
     intisari: [
       'Cermin pada y = x menukar kedua koordinatnya.',
@@ -370,7 +370,7 @@ export const TAHAP: TahapTransformasi[] = [
           'Jadi A′(5, 4)',
           'Diperiksa dengan rumus jadi: 2 · 3 − 1 = 5, dan 2 · 3 − 2 = 4. Cocok',
         ],
-        simpul: 'Jadi rumusnya P(x, y) menjadi (2a - x, 2b - y) untuk pusat M(a, b). Bentuknya mirip rumus garis x = k di Materi 02, dan itu bukan kebetulan: keduanya berasal dari gagasan jarak sama.',
+        simpul: 'Jadi rumusnya P(x, y) menjadi (2a - x, 2b - y) untuk pusat M(a, b). Bentuknya mirip rumus garis x = k di Materi 02, dan memang begitu: keduanya berasal dari gagasan jarak sama.',
       },
       {
         jenis: 'poin',
@@ -393,7 +393,7 @@ export const TAHAP: TahapTransformasi[] = [
       { jenis: 'sesi', judul: 'Satu janji untuk materi berikutnya' },
       {
         jenis: 'paragraf',
-        teks: 'Kalau kamu menaruh pusatnya di titik asal tadi, bentuknya terlihat seperti diputar setengah lingkaran, bukan seperti dilipat. Itu bukan kebetulan.',
+        teks: 'Kalau kamu menaruh pusatnya di titik asal tadi, bentuknya terlihat seperti diputar setengah lingkaran, bukan seperti dilipat. Itu memang selalu begitu.',
       },
       {
         jenis: 'paragraf',
@@ -402,7 +402,7 @@ export const TAHAP: TahapTransformasi[] = [
     ],
     seringKeliru: {
       judul: 'Cermin pada titik itu sama saja dengan cermin pada garis',
-      isi: 'Yang menggoda: keduanya memakai kata "cermin". Cara membedakannya: perhatikan urutan huruf A, B, C pada gambar. Pada cermin garis, berjalan dari A ke B ke C berbalik arah, seperti bayangan tangan kanan di kaca yang menjadi tangan kiri. Pada cermin titik, urutan itu TETAP searah. Sebabnya akan kita lihat dua materi lagi.',
+      isi: 'Yang terasa benar: keduanya memakai kata "cermin". Cara membedakannya: perhatikan urutan huruf A, B, C pada gambar. Pada cermin garis, berjalan dari A ke B ke C berbalik arah, seperti bayangan tangan kanan di kaca yang menjadi tangan kiri. Pada cermin titik, urutan itu TETAP searah. Sebabnya akan kita lihat dua materi lagi.',
     },
     intisari: [
       'Pencerminan pada titik M menaruh M tepat di tengah antara prapeta dan petanya.',
@@ -442,8 +442,8 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'contoh',
         judul: 'Titik A(1, 2) digeser sejauh (4, -3)',
         baris: [
-          'Komponen mendatarnya dijumlahkan, sebab geseran mendatar menambah nilai x: 1 + 4 = 5',
-          'Komponen tegaknya dijumlahkan, sebab geseran tegak menambah nilai y: 2 + (-3) = -1',
+          'Komponen mendatarnya dijumlahkan, karena geseran mendatar menambah nilai x: 1 + 4 = 5',
+          'Komponen tegaknya dijumlahkan, karena geseran tegak menambah nilai y: 2 + (-3) = -1',
           'Jadi petanya A′(5, -1)',
         ],
         simpul: 'Perhatikan komponen tegaknya negatif, dan negatif itu berarti turun. Angka 3 tidak boleh dibaca lepas dari tanda minusnya.',
@@ -458,7 +458,7 @@ export const TAHAP: TahapTransformasi[] = [
           'Bandingkan panjang keenam garis penghubung itu. Sama atau berbeda? Bandingkan dengan yang Anda lihat di Materi 01.',
         ],
       },
-      { jenis: 'sesi', judul: 'Kesejajaran itu bukan kebetulan' },
+      { jenis: 'sesi', judul: 'Kesejajaran itu memang selalu terjadi' },
       {
         jenis: 'paragraf',
         teks: 'Di gambar, keenam garis penghubung selalu sejajar dan selalu sama panjang. Sebabnya sederhana: setiap titik dijumlahkan dengan vektor yang sama. Tidak ada titik yang mendapat perlakuan berbeda.',
@@ -478,11 +478,11 @@ export const TAHAP: TahapTransformasi[] = [
     ],
     seringKeliru: {
       judul: 'Translasi (3, -2) berarti geser 3 ke kanan dan 2 ke atas',
-      isi: 'Yang menggoda di sini adalah angka 2 terbaca lepas dari tanda minusnya, sebab kita membaca "dua" lebih dulu daripada tandanya. Cara membedakannya: ingat komponen tegak itu menambah nilai y, dan menambah bilangan negatif berarti nilai y berkurang. Nilai y yang berkurang berarti titiknya turun. Jadi (3, -2) adalah 3 ke kanan dan 2 ke BAWAH.',
+      isi: 'Yang terasa benar di sini adalah angka 2 terbaca lepas dari tanda minusnya, karena kita membaca "dua" lebih dulu daripada tandanya. Cara membedakannya: ingat komponen tegak itu menambah nilai y, dan menambah bilangan negatif berarti nilai y berkurang. Nilai y yang berkurang berarti titiknya turun. Jadi (3, -2) adalah 3 ke kanan dan 2 ke BAWAH.',
     },
     intisari: [
       'Translasi menambahkan vektor geseran ke koordinat setiap titik.',
-      'Keenam garis penghubungnya sejajar dan sama panjang, sebab setiap titik dijumlahkan dengan vektor yang sama.',
+      'Keenam garis penghubungnya sejajar dan sama panjang, karena setiap titik dijumlahkan dengan vektor yang sama.',
       'Bentuk dan ukurannya tidak berubah. Hanya letaknya.',
     ],
     widget: 'geser-bentuk',
@@ -495,7 +495,7 @@ export const TAHAP: TahapTransformasi[] = [
     slug: 'rotasi',
     judul: 'Memutar terhadap sebuah pusat',
     labelPendek: 'Rotasi',
-    pertanyaan: 'Jarum jam berputar seperempat putaran. Kalau ujungnya semula di titik (4, 0), di mana ia sekarang?',
+    pertanyaan: 'Jarum jam berputar seperempat putaran. Kalau ujungnya semula di titik (4, 0), di mana ujungnya sekarang?',
     penjelasan: [
       {
         jenis: 'paragraf',
@@ -503,7 +503,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Kalau diputar berlawanan arah jarum jam, ia berpindah dari sumbu X positif ke sumbu Y positif. Jadi jawabannya (0, 4). Kita mulai dari kasus-kasus seperti ini, yang bisa dibaca dari gambar.',
+        teks: 'Kalau diputar berlawanan arah jarum jam, ujungnya berpindah dari sumbu X positif ke sumbu Y positif. Jadi jawabannya (0, 4). Kita mulai dari kasus-kasus seperti ini, yang bisa dibaca dari gambar.',
       },
       { jenis: 'sesi', judul: 'Kesepakatan arah, supaya tidak salah paham' },
       {
@@ -531,7 +531,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Jadi pencerminan pada sebuah titik bukan jenis transformasi yang berdiri sendiri. Ia setengah putaran, dan kita boleh menyebutnya dengan nama mana pun.',
+        teks: 'Jadi pencerminan pada sebuah titik bukan jenis transformasi yang berdiri sendiri. Pencerminan pada titik adalah setengah putaran, dan kita boleh menyebutnya dengan nama mana pun.',
       },
       {
         jenis: 'coba',
@@ -554,7 +554,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Sekarang titik (0, 1). Ia berada seperempat putaran di depan (1, 0), dan tetap begitu setelah keduanya diputar bersama. Jadi ia mendarat di (-sin a, cos a).',
+        teks: 'Sekarang titik (0, 1). Titik (0, 1) berada seperempat putaran di depan (1, 0), dan tetap begitu setelah keduanya diputar bersama. Jadi titik itu mendarat di (-sin a, cos a).',
       },
       {
         jenis: 'sorot',
@@ -597,12 +597,12 @@ export const TAHAP: TahapTransformasi[] = [
           'Langkah 2, putar 90 derajat dengan aturan (x, y) menjadi (-y, x): (1, 0) menjadi (0, 1)',
           'Langkah 3, kembalikan dari pusatnya: (1 + 0, 1 + 1) = (1, 2)',
         ],
-        simpul: 'Resep yang sama akan kita pakai lagi di Materi 07 untuk dilatasi. Sekali dikuasai, ia berlaku untuk semua transformasi yang punya pusat.',
+        simpul: 'Resep yang sama akan kita pakai lagi di Materi 07 untuk dilatasi. Sekali dikuasai, cara ini berlaku untuk semua transformasi yang punya pusat.',
       },
     ],
     seringKeliru: {
       judul: 'Rotasi 90 derajat berarti nilai x dan y ditukar',
-      isi: 'Yang menggoda: hasilnya (-y, x) memang mengandung pertukaran, jadi separuh dugaan itu benar dan separuhnya lagi terlupakan. Cara membedakannya: bandingkan dengan cermin pada garis y = x di Materi 03, yang hasilnya (y, x) tanpa tanda minus. Kalau keduanya sama, dua transformasi yang gambarnya jelas berbeda akan punya rumus yang sama, dan itu mustahil. Uji dengan titik (2, 0): rotasi 90 derajat memberi (0, 2) yang berada di atas, sedangkan cermin y = x memberi (0, 2) juga. Kebetulan sama. Uji lagi dengan (2, 1): rotasi memberi (-1, 2), cermin memberi (1, 2). Sekarang bedanya terlihat.',
+      isi: 'Yang terasa benar: hasilnya (-y, x) memang mengandung pertukaran, jadi separuh dugaan itu benar dan separuhnya lagi terlupakan. Cara membedakannya: bandingkan dengan cermin pada garis y = x di Materi 03, yang hasilnya (y, x) tanpa tanda minus. Kalau keduanya sama, dua transformasi yang gambarnya jelas berbeda akan punya rumus yang sama, dan itu mustahil. Uji dengan titik (2, 0): rotasi 90 derajat memberi (0, 2) yang berada di atas, sedangkan cermin y = x memberi (0, 2) juga. Kebetulan sama. Uji lagi dengan (2, 1): rotasi memberi (-1, 2), cermin memberi (1, 2). Sekarang bedanya terlihat.',
     },
     intisari: [
       'Rotasi menjaga jarak setiap titik ke pusatnya, hanya arahnya yang berubah.',
@@ -675,7 +675,7 @@ export const TAHAP: TahapTransformasi[] = [
         teks: 'Alat interaktifnya punya penggeser faktor dari -3 sampai 3, dan pusatnya bisa ditarik.',
         langkah: [
           'Geser faktornya melewati angka 1. Apa yang terjadi pada peta tepat saat faktornya 1?',
-          'Lewati angka 0 perlahan. Apa yang terjadi pada bentuknya tepat di 0, dan di mana ia muncul kembali sesudahnya?',
+          'Lewati angka 0 perlahan. Apa yang terjadi pada bentuknya tepat di 0, dan di mana bentuknya muncul kembali sesudahnya?',
           'Perhatikan keterangan nisbah di pita bawah. Bandingkan dengan faktor yang sedang Anda setel.',
           'Setel ke 3, lalu lihat penunjuk skala di pojok kanan bawah. Apa yang dilakukan bingkainya, dan menurut Anda kenapa?',
         ],
@@ -687,12 +687,12 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Dilatasi satu-satunya yang mengubah ukuran. Karena itu ia sering disebut terpisah dari keempat yang lain. Perbandingannya kita periksa dengan angka di Materi 08.',
+        teks: 'Dilatasi satu-satunya yang mengubah ukuran. Karena itu dilatasi sering disebut terpisah dari keempat yang lain. Perbandingannya kita periksa dengan angka di Materi 08.',
       },
     ],
     seringKeliru: {
       judul: 'Dilatasi faktor 3 berarti setiap koordinat dikalikan 3',
-      isi: 'Yang menggoda: untuk pusat di titik asal, kalimat itu memang benar, dan kasus itulah yang paling sering muncul di contoh. Kekeliruannya baru terlihat saat pusatnya dipindah. Cara membedakannya: uji dengan pusat M(1, 1) dan titik A(2, 1). Mengalikan langsung memberi (6, 3), yang berjarak lebih dari 5 satuan dari M. Padahal jaraknya seharusnya 3 kali 1, yaitu 3 satuan saja. Selalu ukur dari pusatnya dulu.',
+      isi: 'Yang terasa benar: untuk pusat di titik asal, kalimat itu memang benar, dan kasus itulah yang paling sering muncul di contoh. Kekeliruannya baru terlihat saat pusatnya dipindah. Cara membedakannya: uji dengan pusat M(1, 1) dan titik A(2, 1). Mengalikan langsung memberi (6, 3), yang berjarak lebih dari 5 satuan dari M. Padahal jaraknya seharusnya 3 kali 1, yaitu 3 satuan saja. Selalu ukur dari pusatnya dulu.',
     },
     intisari: [
       'Dilatasi butuh dua keterangan: pusat dan faktor skala k.',
@@ -715,7 +715,7 @@ export const TAHAP: TahapTransformasi[] = [
     penjelasan: [
       {
         jenis: 'paragraf',
-        teks: 'Kita sudah punya lima aturan. Sekarang kita berhenti sejenak, dan mengukur. Bukan menghitung peta sebuah titik, melainkan menanyakan sifat apa yang bertahan dan sifat apa yang runtuh.',
+        teks: 'Kita sudah punya lima aturan. Sekarang kita berhenti sejenak, dan mengukur. Bukan menghitung peta sebuah titik, tetapi menanyakan sifat apa yang bertahan dan sifat apa yang runtuh.',
       },
       {
         jenis: 'paragraf',
@@ -777,7 +777,7 @@ export const TAHAP: TahapTransformasi[] = [
           'Terakhir ganti ke dilatasi -2. Bentuknya terjungkir, tetapi bagaimana baris arah putarnya? Sesuai dugaan Anda?',
         ],
       },
-      { jenis: 'sesi', judul: 'Kenapa ini berguna, bukan sekadar daftar' },
+      { jenis: 'sesi', judul: 'Kenapa ini berguna, bukan cuma daftar' },
       {
         jenis: 'poin',
         butir: [
@@ -788,12 +788,12 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Catatan jujur: pernyataan luas berubah k² kali kita terima di sini dari contoh persegi tadi, bukan dari bukti umum. Bukti untuk bangun apa pun memakai determinan matriks, yang cuma kita singgung sekali di Materi 09 dan tidak diujikan di topik ini.',
+        teks: 'pernyataan luas berubah k² kali kita terima di sini dari contoh persegi tadi, bukan dari bukti umum. Bukti untuk bangun apa pun memakai determinan matriks, yang cuma kita singgung sekali di Materi 09 dan tidak diujikan di topik ini.',
       },
     ],
     seringKeliru: {
       judul: 'Dilatasi selalu mempertahankan jarak antara dua titik',
-      isi: 'Pernyataan ini diambil dari daftar benar-salah di rangkuman Bab 4 buku sumber, dan pernyataan itu SALAH. Yang menggoda: empat transformasi lain memang mempertahankan jarak, jadi kita terbawa menganggap kelimanya sekeluarga. Cara membedakannya: satu contoh sudah cukup meruntuhkannya. Ambil dua titik berjarak 3, lalu dilatasi dengan k = 2. Jaraknya menjadi 6. Jarak yang berubah itulah tanda pengenal dilatasi, dan itu sebabnya ia tidak masuk keluarga yang empat.',
+      isi: 'Pernyataan ini diambil dari daftar benar-salah di rangkuman Bab 4 buku sumber, dan pernyataan itu SALAH. Yang terasa benar: empat transformasi lain memang mempertahankan jarak, jadi kita terbawa menganggap kelimanya sekeluarga. Cara membedakannya: satu contoh sudah cukup meruntuhkannya. Ambil dua titik berjarak 3, lalu dilatasi dengan k = 2. Jaraknya menjadi 6. Jarak yang berubah itulah tanda pengenal dilatasi, dan itu sebabnya dilatasi tidak masuk keluarga yang empat.',
       sumber: 'Buku Siswa Matematika Tingkat Lanjut SMA Kelas XI, Bab 4, bagian Rangkuman',
     },
     intisari: [
@@ -864,7 +864,7 @@ export const TAHAP: TahapTransformasi[] = [
           'Jadi (3, 2) menjadi (-2, 3)',
           'Bandingkan dengan Materi 06: rotasi 90 derajat memberi (-y, x), dan untuk (3, 2) itu (-2, 3). Sama',
         ],
-        simpul: 'Jadi matriks itu bukan hal baru. Ia cuma cara lain menuliskan rotasi 90 derajat yang sudah kita kenal.',
+        simpul: 'Jadi matriks itu bukan hal baru. Matriks itu cuma cara lain menuliskan rotasi 90 derajat yang sudah kita kenal.',
       },
       { jenis: 'sesi', judul: 'Cara membaca matriks yang membuatnya berhenti terasa acak' },
       {
@@ -916,12 +916,12 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Catatan sekali lewat: angka ad − bc disebut determinan. Besarnya adalah pengali luas, dan tandanya menyatakan arah putarnya berbalik atau tidak. Kita tidak melatih determinan di topik ini, dan ia tidak akan keluar di soal. Disebut di sini hanya supaya kamu mengenalinya kalau bertemu nanti.',
+        teks: 'Catatan sekali lewat: angka ad − bc disebut determinan. Besarnya adalah pengali luas, dan tandanya menyatakan arah putarnya berbalik atau tidak. Kita tidak melatih determinan di topik ini, dan determinan tidak akan keluar di soal. Disebut di sini hanya supaya kamu mengenalinya kalau bertemu nanti.',
       },
     ],
     seringKeliru: {
       judul: 'Baris matriks dikalikan dengan baris koordinatnya',
-      isi: 'Yang menggoda: koordinat (x, y) dan baris matriks sama-sama deretan dua angka, jadi keduanya terlihat sejenis. Cara membedakannya: hitung sekali dengan matriks yang tidak simetris, misalnya [[1, 2], [0, 1]] pada titik (3, 4). Cara yang benar memberi (1 · 3 + 2 · 4, 0 · 3 + 1 · 4) = (11, 4). Lalu periksa di alatnya dengan angka yang sama. Kalau jawabanmu tidak cocok dengan gambarnya, caranya yang perlu diperbaiki, bukan gambarnya.',
+      isi: 'Yang terasa benar: koordinat (x, y) dan baris matriks sama-sama deretan dua angka, jadi keduanya terlihat sejenis. Cara membedakannya: hitung sekali dengan matriks yang tidak simetris, misalnya [[1, 2], [0, 1]] pada titik (3, 4). Cara yang benar memberi (1 · 3 + 2 · 4, 0 · 3 + 1 · 4) = (11, 4). Lalu periksa di alatnya dengan angka yang sama. Kalau jawabanmu tidak cocok dengan gambarnya, caranya yang perlu diperbaiki, bukan gambarnya.',
     },
     intisari: [
       'Matriks 2×2 adalah empat angka pengali, disusun dua baris dua kolom.',
@@ -953,7 +953,7 @@ export const TAHAP: TahapTransformasi[] = [
         jenis: 'contoh',
         judul: 'Menyusun matriks cermin sumbu X, langkah demi langkah',
         baris: [
-          'Ke mana (1, 0) pergi? Cermin sumbu X membalik tanda y, dan y-nya sudah nol, jadi ia tetap di (1, 0)',
+          'Ke mana (1, 0) pergi? Cermin sumbu X membalik tanda y, dan y-nya sudah nol, jadi titiknya tetap di (1, 0)',
           'Itu kolom pertama: 1 di atas, 0 di bawah',
           'Ke mana (0, 1) pergi? Nilai y-nya berbalik tanda, jadi ke (0, -1)',
           'Itu kolom kedua: 0 di atas, -1 di bawah',
@@ -983,7 +983,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'sorot',
-        teks: 'Translasi TIDAK punya matriks 2×2 pengali. Ia ditulis sebagai PENJUMLAHAN matriks kolom.',
+        teks: 'Translasi TIDAK punya matriks 2×2 pengali. Translasi ditulis sebagai PENJUMLAHAN matriks kolom.',
       },
       {
         jenis: 'paragraf',
@@ -991,7 +991,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Jadi perkalian matriks apa pun selalu memetakan titik asal ke titik asal. Padahal translasi justru memindahkannya. Karena itu translasi mustahil ditulis sebagai perkalian, seberapa pun kita mencari matriksnya.',
+        teks: 'Jadi perkalian matriks apa pun selalu memetakan titik asal ke titik asal. Padahal translasi malah memindahkannya. Karena itu translasi mustahil ditulis sebagai perkalian, seberapa pun kita mencari matriksnya.',
       },
       {
         jenis: 'poin',
@@ -1023,12 +1023,12 @@ export const TAHAP: TahapTransformasi[] = [
     ],
     seringKeliru: {
       judul: 'Translasi juga punya matriks 2×2, jadi tinggal dikalikan',
-      isi: 'Yang menggoda: empat transformasi lain memang begitu, dan buku pun menaruh translasi di bawah judul yang sama, yaitu "matriks yang berkaitan dengan translasi". Kata "berkaitan" itu benar, tetapi kaitannya lewat penjumlahan, bukan perkalian. Cara membedakannya: coba cari matriks yang memindahkan titik asal ke tempat lain. Kalikan matriks mana pun dengan (0, 0), hasilnya selalu (0, 0). Jadi tidak ada matriks 2×2 yang bisa menggeser bidang, dan pencarian itu memang tidak akan pernah berhasil.',
+      isi: 'Yang terasa benar: empat transformasi lain memang begitu, dan buku pun menaruh translasi di bawah judul yang sama, yaitu "matriks yang berkaitan dengan translasi". Kata "berkaitan" itu benar, tetapi kaitannya lewat penjumlahan, bukan perkalian. Cara membedakannya: coba cari matriks yang memindahkan titik asal ke tempat lain. Kalikan matriks mana pun dengan (0, 0), hasilnya selalu (0, 0). Jadi tidak ada matriks 2×2 yang bisa menggeser bidang, dan pencarian itu memang tidak akan pernah berhasil.',
       sumber: 'Buku Siswa Matematika Tingkat Lanjut SMA Kelas XI, Bab 4 bagian B nomor 3',
     },
     intisari: [
       'Matriks sebuah transformasi disusun dari peta titik (1, 0) dan (0, 1), bukan dihafal.',
-      'Translasi tidak punya matriks 2×2 pengali, sebab perkalian matriks selalu menahan titik asal.',
+      'Translasi tidak punya matriks 2×2 pengali, karena perkalian matriks selalu menahan titik asal.',
       'Ketujuh matriks itu hanya berlaku untuk pusat di titik asal.',
       'Untuk pusat lain, resep tiga langkah tetap dipakai.',
     ],
@@ -1086,7 +1086,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Ini terasa terbalik dari cara kita membaca kalimat. Sebabnya bukan kesengajaan yang menyulitkan: lambang itu diwarisi dari komposisi fungsi, tempat yang di kanan memang dikerjakan lebih dulu karena ia yang paling dekat dengan bilangannya.',
+        teks: 'Ini terasa terbalik dari cara kita membaca kalimat. Sebabnya bukan kesengajaan yang menyulitkan: lambang itu diwarisi dari komposisi fungsi, tempat yang di kanan memang dikerjakan lebih dulu karena posisinya paling dekat dengan bilangannya.',
       },
       {
         jenis: 'poin',
@@ -1124,7 +1124,7 @@ export const TAHAP: TahapTransformasi[] = [
     ],
     seringKeliru: {
       judul: 'Sudah dicerminkan, jadi tinggal dijawab hasil pencerminannya',
-      isi: 'Yang menggoda: langkah pertama sudah memberi jawaban yang terlihat lengkap, berupa sebuah titik yang rapi. Otak kita cenderung berhenti begitu ada jawaban di tangan. Cara membedakannya: baca ulang soalnya dan hitung berapa kali kata "lalu" atau "dilanjutkan" muncul. Setiap satu kata itu berarti satu langkah lagi. Kalau kamu berhenti setelah satu langkah pada soal dua langkah, jawabanmu adalah hasil antaranya, dan itu biasanya sudah disediakan sebagai pengecoh.',
+      isi: 'Yang terasa benar: langkah pertama sudah memberi jawaban yang terlihat lengkap, berupa sebuah titik yang rapi. Otak kita cenderung berhenti begitu ada jawaban di tangan. Cara membedakannya: baca ulang soalnya dan hitung berapa kali kata "lalu" atau "dilanjutkan" muncul. Setiap satu kata itu berarti satu langkah lagi. Kalau kamu berhenti setelah satu langkah pada soal dua langkah, jawabanmu adalah hasil antaranya, dan itu biasanya sudah disediakan sebagai pengecoh.',
     },
     intisari: [
       'Komposisi berarti mengerjakan transformasi kedua pada HASIL yang pertama.',
@@ -1206,18 +1206,18 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Catatan penting: kalau salah satu langkahnya translasi, cara ini tidak bisa dipakai untuk langkah itu, sebab translasi bukan perkalian. Kerjakan translasinya terpisah, pada urutan yang tepat.',
+        teks: 'Catatan penting: kalau salah satu langkahnya translasi, cara ini tidak bisa dipakai untuk langkah itu, karena translasi bukan perkalian. Kerjakan translasinya terpisah, pada urutan yang tepat.',
       },
     ],
     seringKeliru: {
       judul: 'Dikerjakan T₁ dulu, jadi M₁ ditulis dulu',
-      isi: 'Yang menggoda: begitulah cara kita membaca kalimat, dari kiri ke kanan, dan urutan itu terasa alami. Cara membedakannya: jangan mengingat aturannya, tulis titiknya. Letakkan koordinat titiknya di ujung kanan, lalu tanyakan matriks mana yang menyentuhnya lebih dulu. Yang menyentuh lebih dulu adalah yang paling dekat, dan itu yang dikerjakan lebih dulu. Kalau masih ragu, kerjakan satu langkah pada satu waktu seperti Materi 11: caranya lebih panjang, tetapi tidak punya jebakan ini sama sekali.',
+      isi: 'Yang terasa benar: begitulah cara kita membaca kalimat, dari kiri ke kanan, dan urutan itu terasa alami. Cara membedakannya: jangan mengingat aturannya, tulis titiknya. Letakkan koordinat titiknya di ujung kanan, lalu tanyakan matriks mana yang menyentuhnya lebih dulu. Yang menyentuh lebih dulu adalah yang paling dekat, dan itu yang dikerjakan lebih dulu. Kalau masih ragu, kerjakan satu langkah pada satu waktu seperti Materi 11: caranya lebih panjang, tetapi tidak punya jebakan ini sama sekali.',
     },
     intisari: [
       'Matriks gabungan dua langkah adalah M₂M₁, dengan M₁ yang dikerjakan lebih dahulu.',
-      'Yang dikerjakan pertama ditulis paling kanan, sebab ia yang paling dekat dengan titiknya.',
+      'Yang dikerjakan pertama ditulis paling kanan, karena posisinya paling dekat dengan titiknya.',
       'Urutan yang tertukar memberi jawaban untuk urutan sebaliknya, bukan jawaban yang kacau.',
-      'Translasi tidak bisa digabungkan lewat perkalian, sebab ia penjumlahan.',
+      'Translasi tidak bisa digabungkan lewat perkalian, karena translasi adalah penjumlahan.',
     ],
     widget: 'urutan-matriks',
     video: { berkas: 'transformasi6-urutan.mp4', poster: 'transformasi6-urutan.jpg' },
@@ -1238,7 +1238,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Kalau rumus di halaman ini salah, ketiga gambar itu ikut salah. Jadi gambarnya bukan sekadar menemani materinya, melainkan membuktikannya.',
+        teks: 'Kalau rumus di halaman ini salah, ketiga gambar itu ikut salah. Jadi gambarnya bukan cuma menemani materinya, tetapi membuktikannya.',
       },
       { jenis: 'sesi', judul: 'Tiga tempat yang paling sering' },
       {
@@ -1256,7 +1256,7 @@ export const TAHAP: TahapTransformasi[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Dengan matriks, ketiga transformasi itu dikalikan lebih dulu menjadi SATU matriks. Setelah itu tiap titik cukup dikenai satu hitungan saja. Itulah alasan Materi 12 ada, dan alasannya bukan kerapian, melainkan kecepatan.',
+        teks: 'Dengan matriks, ketiga transformasi itu dikalikan lebih dulu menjadi SATU matriks. Setelah itu tiap titik cukup dikenai satu hitungan saja. Itulah alasan Materi 12 ada, dan alasannya bukan kerapian, tetapi kecepatan.',
       },
       { jenis: 'sesi', judul: 'Bedanya dengan materi Transformasi di topik Grafik Fungsi' },
       {

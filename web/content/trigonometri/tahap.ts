@@ -50,7 +50,7 @@ export const TAHAP: Tahap[] = [
     penjelasan: [
       /* PEMBUKA: satu masalah kecil yang bisa dibayangkan siapa pun, lalu
          langsung dipecahkan. Baru setelah itu masuk ke sesi bernomor. */
-      { jenis: 'paragraf', teks: 'Di depan rumah Anda ada pohon kelapa. Berapa tingginya? Meteran Anda cuma tiga meter, dan memanjat jelas bukan pilihan. Pertanyaannya terdengar sepele, tapi jawabannya butuh cara yang sama sekali berbeda dari sekadar mengukur.' },
+      { jenis: 'paragraf', teks: 'Di depan rumah Anda ada pohon kelapa. Berapa tingginya? Meteran Anda cuma tiga meter, dan memanjat jelas bukan pilihan. Pertanyaannya terdengar sepele, tapi jawabannya butuh cara yang sama sekali berbeda dari cuma mengukur.' },
       { jenis: 'paragraf', teks: 'Caranya begini: tunggu siang yang cerah, lalu ukur panjang bayangan pohon itu di tanah. Ukur juga tinggi badan Anda dan panjang bayangan Anda sendiri, pada jam yang sama. Empat angka itu sudah cukup untuk mengetahui tinggi pohonnya, tanpa menyentuh pohon sama sekali.' },
       {
         jenis: 'contoh',
@@ -78,7 +78,7 @@ export const TAHAP: Tahap[] = [
           'Jarak Bumi ke Bulan - tidak perlu dijelaskan',
         ],
       },
-      { jenis: 'paragraf', teks: 'Tetapi ada dua hal yang justru selalu gampang diukur, bahkan dengan alat seadanya.' },
+      { jenis: 'paragraf', teks: 'Tetapi ada dua hal yang malah selalu gampang diukur, bahkan dengan alat seadanya.' },
       {
         jenis: 'poin',
         judul: 'Yang selalu mudah',
@@ -120,7 +120,7 @@ export const TAHAP: Tahap[] = [
     ],
     seringKeliru: {
       judul: 'Dikira daftar rumus yang harus dihafal',
-      isi: 'Banyak yang menganggap trigonometri sebagai kumpulan rumus untuk dihafal menjelang ujian, lalu dilupakan. Padahal ia lahir dari kebutuhan yang sangat praktis: mengukur sesuatu yang tidak bisa didatangi. Astronom Yunani memakainya untuk memperkirakan jarak Bumi ke Bulan lebih dari dua ribu tahun lalu, jauh sebelum ada kalkulator. Yang mereka punya hanya sudut, bayangan, dan pembagian.',
+      isi: 'Banyak yang menganggap trigonometri sebagai kumpulan rumus untuk dihafal menjelang ujian, lalu dilupakan. Padahal trigonometri lahir dari kebutuhan yang sangat praktis: mengukur sesuatu yang tidak bisa didatangi. Astronom Yunani memakainya untuk memperkirakan jarak Bumi ke Bulan lebih dari dua ribu tahun lalu, jauh sebelum ada kalkulator. Yang mereka punya hanya sudut, bayangan, dan pembagian.',
     },
     widget: 'bayangan',
     siap: true,
@@ -181,7 +181,7 @@ export const TAHAP: Tahap[] = [
       },
 
       { jenis: 'sesi', judul: 'Kenapa hasil baginya tidak ikut berubah' },
-      { jenis: 'paragraf', teks: 'Segitiga besar adalah segitiga kecil yang diperbesar. Kalau pembesarannya 4 kali, SETIAP sisinya dikali 4: sisi depan, sisi samping, sisi miring, semuanya. Tidak ada sisi yang dikali lebih banyak dari sisi lain, sebab kalau ada, bentuknya berubah dan sudutnya ikut berubah.' },
+      { jenis: 'paragraf', teks: 'Segitiga besar adalah segitiga kecil yang diperbesar. Kalau pembesarannya 4 kali, SETIAP sisinya dikali 4: sisi depan, sisi samping, sisi miring, semuanya. Tidak ada sisi yang dikali lebih banyak dari sisi lain, karena kalau ada, bentuknya berubah dan sudutnya ikut berubah.' },
       {
         jenis: 'contoh',
         judul: 'Pembesaran 4 kali, diikuti angkanya',
@@ -204,7 +204,7 @@ export const TAHAP: Tahap[] = [
           'Satu sudut, satu angka - berlaku untuk semua segitiga siku-siku bersudut 37°, sebesar apa pun, di mana pun',
         ],
       },
-      { jenis: 'paragraf', teks: 'Karena hasil bagi itu hanya bergantung pada sudut, angkanya bisa dihitung sekali lalu dibukukan: 37° memberi 0,75, dan sudut lain memberi angka lain. Itulah yang tersimpan di dalam kalkulator Anda, dan ia memang tidak perlu tahu segitiga mana yang Anda maksud.' },
+      { jenis: 'paragraf', teks: 'Karena hasil bagi itu hanya bergantung pada sudut, angkanya bisa dihitung sekali lalu dibukukan: 37° memberi 0,75, dan sudut lain memberi angka lain. Itulah yang tersimpan di dalam kalkulator Anda, dan kalkulator memang tidak perlu tahu segitiga mana yang Anda maksud.' },
       { jenis: 'paragraf', teks: 'Yang belum ada hanyalah namanya. Hasil bagi depan ÷ samping ini, dan hasil bagi pasangan sisi lainnya, akan mendapat nama resmi di Materi 04. Sebelum itu, Materi 03 memastikan kita sepakat dulu sisi mana yang disebut depan dan mana yang samping.' },
     ],
     seringKeliru: {
@@ -274,7 +274,7 @@ export const TAHAP: Tahap[] = [
     ],
     seringKeliru: {
       judul: 'Nama sisi dikira melekat pada garisnya',
-      isi: 'Banyak siswa menghafal “yang tegak itu sisi depan” lalu memakainya untuk semua soal. Begitu segitiganya diputar atau sudut yang ditanya berpindah, hafalan itu langsung menyesatkan.',
+      isi: 'Banyak siswa menghafal “yang tegak itu sisi depan” lalu memakainya untuk semua soal. Begitu segitiganya diputar atau sudut yang ditanya berpindah, hafalan itu langsung salah.',
       sumber: 'Buku Panduan Guru Matematika Kelas X, Bab 4, kunci jawaban Latihan 4.1 nomor 2',
     },
     widget: 'penamaan-sisi',
@@ -345,14 +345,14 @@ export const TAHAP: Tahap[] = [
         butir: [
           'Sinus - berawal dari kata Sanskerta jya-ardha, artinya setengah tali busur. Diserap ke bahasa Arab jadi jiba, lalu keliru dibaca sebagai jaib yang berarti teluk atau lipatan. Penerjemah Latin memakai kata sinus, yang juga berarti teluk. Jadi nama itu sebenarnya kecelakaan penerjemahan',
           'Kosinus - dari complementi sinus, sinus dari sudut pelengkap. Pelengkap 30° adalah 60°, dan memang cos 30° = sin 60°',
-          'Tangen - dari kata Latin tangens, yang menyentuh. Di Materi 06 Anda akan melihat ia benar-benar berupa garis yang menyentuh lingkaran',
+          'Tangen - dari kata Latin tangens, yang menyentuh. Di Materi 06 Anda akan melihat tangen benar-benar berupa ruas garis yang menyentuh lingkaran',
         ],
       },
       { jenis: 'paragraf', teks: 'Coba sendiri di alatnya: pilih sisi mana yang jadi pembilang dan mana yang jadi penyebut, lalu lihat nama resminya muncul.' },
     ],
     seringKeliru: {
       judul: 'Dikira tiga rumus terpisah yang harus dihafal',
-      isi: 'Ketiganya bukan rumus terpisah, melainkan tiga label untuk tiga pembagian dari kumpulan yang sama. Begitu panjang ketiga sisinya diketahui, keenam nilai itu bisa dihitung tanpa menghafal apa pun. Yang perlu diingat cuma sisi mana dibagi sisi mana.',
+      isi: 'Ketiganya bukan rumus terpisah, tetapi tiga label untuk tiga pembagian dari kumpulan yang sama. Begitu panjang ketiga sisinya diketahui, keenam nilai itu bisa dihitung tanpa menghafal apa pun. Yang perlu diingat cuma sisi mana dibagi sisi mana.',
     },
     widget: 'pabrik-rasio',
     video: { berkas: 'tahap4-lahirnya-rasio.mp4', poster: 'tahap4-lahirnya-rasio.jpg' },
@@ -382,7 +382,7 @@ export const TAHAP: Tahap[] = [
         ],
         simpul: 'Penyebutnya lenyap. Yang tersisa hanya panjang sisinya sendiri.',
       },
-      { jenis: 'paragraf', teks: 'Sekarang letakkan segitiga itu di dalam lingkaran berjari-jari 1, sudutnya di pusat. Jari-jari lingkaran otomatis menjadi sisi miring, dan panjangnya selalu 1, ke arah mana pun ia menunjuk.' },
+      { jenis: 'paragraf', teks: 'Sekarang letakkan segitiga itu di dalam lingkaran berjari-jari 1, sudutnya di pusat. Jari-jari lingkaran otomatis menjadi sisi miring, dan panjangnya selalu 1, ke arah mana pun jari-jarinya menunjuk.' },
       { jenis: 'sesi', judul: 'Akibatnya, untuk titik di lingkaran itu' },
       {
         jenis: 'poin',
@@ -412,11 +412,11 @@ export const TAHAP: Tahap[] = [
         ],
       },
       { jenis: 'sorot', teks: 'Rumus berubah jadi posisi. Tidak perlu membagi lagi, cukup dibaca dari letak titiknya.' },
-      { jenis: 'paragraf', teks: 'Inilah alasan lingkaran satuan digambar di mana-mana. Ia bukan hiasan, ia mengubah tiga pecahan jadi satu titik yang bisa ditunjuk. Seret titik ungu di alatnya dan perhatikan kedua angkanya bergerak.' },
+      { jenis: 'paragraf', teks: 'Inilah alasan lingkaran satuan digambar di mana-mana. Lingkaran satuan bukan gambar tambahan; lingkaran itu mengubah tiga pecahan jadi satu titik yang bisa ditunjuk. Seret titik ungu di alatnya dan perhatikan kedua angkanya bergerak.' },
     ],
     seringKeliru: {
       judul: 'Dikira topik terpisah dari segitiga siku-siku',
-      isi: 'Banyak siswa memperlakukan lingkaran satuan sebagai bab baru yang harus dihafal sendiri. Padahal ia segitiga yang sama, hanya dengan sisi miring dipaksa bernilai 1 lalu diletakkan di pusat lingkaran. Tidak ada konsep baru, hanya penyederhanaan.',
+      isi: 'Banyak siswa memperlakukan lingkaran satuan sebagai bab baru yang harus dihafal sendiri. Padahal lingkaran satuan memakai segitiga yang sama, hanya dengan sisi miring dipaksa bernilai 1 lalu diletakkan di pusat lingkaran. Tidak ada konsep baru, hanya penyederhanaan.',
     },
     widget: 'lingkaran-satuan',
     video: { berkas: 'tahap5-lingkaran-satuan.mp4', poster: 'tahap5-lingkaran-satuan.jpg' },
@@ -453,14 +453,14 @@ export const TAHAP: Tahap[] = [
           'cot θ - hal yang sama, tapi dengan garis mendatar yang menyentuh di y = 1',
         ],
       },
-      { jenis: 'sorot', teks: 'Inilah asal nama tangen: tangens berarti “yang menyentuh”. Ia memang ruas pada garis singgung.' },
+      { jenis: 'sorot', teks: 'Inilah asal nama tangen: tangens berarti “yang menyentuh”. Tangen memang ruas pada garis singgung.' },
       {
         jenis: 'coba',
         teks: 'Enam ruas garis, satu sudut. Geser sudutnya dan lihat keenamnya bergerak bersama.',
         langkah: [
           'Geser ke sudut kecil. Perhatikan ruas tan dan ruas cot: mana yang memendek, mana yang memanjang?',
           'Geser ke sudut besar, lalu bandingkan dengan yang tadi.',
-          'Amati ruas sec pada beberapa sudut. Pernahkah ia lebih pendek daripada jari-jari?',
+          'Amati ruas sec pada beberapa sudut. Pernahkah ruas itu lebih pendek daripada jari-jari?',
           'Kalau tidak pernah, menurut Anda apa sebabnya?',
         ],
       },
@@ -483,7 +483,7 @@ export const TAHAP: Tahap[] = [
         ],
         simpul: 'Di 45° semuanya berpasangan kembar, karena segitiganya sama kaki.',
       },
-      { jenis: 'paragraf', teks: 'Geser sudutnya di alatnya, lalu klik nama rasio yang ingin disorot. Perhatikan tan memanjang tak terkendali saat sudut mendekati 90°, sementara cot justru menyusut, dan sebaliknya saat sudut mengecil.' },
+      { jenis: 'paragraf', teks: 'Geser sudutnya di alatnya, lalu klik nama rasio yang ingin disorot. Perhatikan tan memanjang tak terkendali saat sudut mendekati 90°, sementara cot malah menyusut, dan sebaliknya saat sudut mengecil.' },
     ],
     seringKeliru: {
       judul: 'sec dikira kebalikan sin',
@@ -535,7 +535,7 @@ export const TAHAP: Tahap[] = [
           'Gambar segitiga sama sisi bersisi 2, lalu belah tepat di tengah',
           'Alasnya terpotong jadi 1, sisi miringnya tetap 2, dan tingginya √3',
           'Sudut 60° tetap utuh, sudut 30° adalah separuh dari yang dibelah',
-          'Jadi sin 30° = 1/2 - tepat setengah, bukan kebetulan',
+          'Jadi sin 30° = 1/2 - tepat setengah, dan memang harus begitu',
         ],
       },
       {
@@ -578,15 +578,15 @@ export const TAHAP: Tahap[] = [
       'Biarkan titiknya terus berputar, jangan berhenti.',
       'Catat tingginya pada setiap sudut.',
       'Catatan itulah kurva sinus.',
-      'Gelombang bukan bentuk baru - ia rekaman tinggi sebuah putaran.',
+      'Gelombang bukan bentuk baru - gelombang itu rekaman tinggi sebuah putaran.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Sampai Materi 07 titiknya selalu kita hentikan di sudut tertentu. Sekarang biarkan ia terus berputar, dan catat tingginya sepanjang perjalanan.' },
+      { jenis: 'paragraf', teks: 'Sampai Materi 07 titiknya selalu kita hentikan di sudut tertentu. Sekarang biarkan titiknya terus berputar, dan catat tingginya sepanjang perjalanan.' },
       { jenis: 'sesi', judul: 'Cara membacanya' },
       {
         jenis: 'poin',
         butir: [
-          'Sumbu-x grafik - bukan jarak, melainkan besar sudut yang sudah disapu',
+          'Sumbu-x grafik - bukan jarak, tetapi besar sudut yang sudah disapu',
           'Sumbu-y grafik - tinggi titik di lingkaran pada sudut itu, yaitu sin θ',
           'Garis putus-putus - penghubung antara tinggi di lingkaran dan titik di grafik',
         ],
@@ -596,7 +596,7 @@ export const TAHAP: Tahap[] = [
         teks: 'Sapukan sudutnya pelan-pelan dan perhatikan kurvanya terbentuk.',
         langkah: [
           'Sapukan sudutnya sampai 90°. Setinggi apa kurvanya saat itu?',
-          'Lanjut ke 180°, lalu ke 270°. Di mana kurva menyentuh nol, dan di mana ia paling rendah?',
+          'Lanjut ke 180°, lalu ke 270°. Di mana kurva menyentuh nol, dan di mana kurva paling rendah?',
           'Lanjut terus melewati 360°.',
           'Bandingkan bentuk kurva sesudah 360° dengan bentuk sebelumnya. Apa yang Anda temukan?',
         ],
@@ -626,7 +626,7 @@ export const TAHAP: Tahap[] = [
     ],
     seringKeliru: {
       judul: 'Grafik sinus dikira gambar bentuk sesuatu',
-      isi: 'Sumbu-x bukan jarak atau posisi, melainkan besar sudut. Jadi kurva ini tidak menggambarkan bentuk benda apa pun, ia grafik nilai terhadap sudut, sama seperti grafik suhu terhadap waktu.',
+      isi: 'Sumbu-x bukan jarak atau posisi, tetapi besar sudut. Jadi kurva ini tidak menggambarkan bentuk benda apa pun, kurva ini grafik nilai terhadap sudut, sama seperti grafik suhu terhadap waktu.',
     },
     widget: 'lingkaran-ke-grafik',
     video: { berkas: 'tahap8-grafik-sin.mp4', poster: 'tahap8-grafik-sin.jpg' },
@@ -686,7 +686,7 @@ export const TAHAP: Tahap[] = [
           'tan 89,9°   572,96',
           'tan 90°   tidak terdefinisi',
         ],
-        simpul: 'Bukan “tak hingga”, melainkan tidak terdefinisi, tidak ada angka yang bisa ditulis di situ.',
+        simpul: 'Bukan “tak hingga”, tetapi tidak terdefinisi, tidak ada angka yang bisa ditulis di situ.',
       },
       { jenis: 'sesi', judul: 'Tiga perbedaan yang terlihat sekaligus' },
       {
@@ -797,7 +797,7 @@ export const TAHAP: Tahap[] = [
         langkah: [
           'Buka kamera ponsel, lalu mundur selangkah. Perhatikan berapa banyak pemandangan yang tiba-tiba muat di layar.',
           'Miringkan ponselnya pelan-pelan sampai layarnya berbalik sendiri.',
-          'Perhatikan kira-kira pada kemiringan berapa ia memutuskan berbalik. Ulangi beberapa kali: selalu di sudut yang sama?',
+          'Perhatikan kira-kira pada kemiringan berapa layarnya berbalik. Ulangi beberapa kali: selalu di sudut yang sama?',
           'Lihat keempat contoh di samping. Menurut Anda, contoh mana saja yang sedang bekerja di dalam ponsel Anda?',
         ],
       },
@@ -829,9 +829,9 @@ export const TAHAP: Tahap[] = [
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Di Materi 05 titik pada lingkaran satuan selalu berada di (cos θ, sin θ), dan di Materi 07 nilainya dihitung untuk sudut istimewa di kuadran I. Sekarang pertanyaannya: bagaimana dengan 130°, 220°, atau 320°? Tidak ada segitiga siku-siku yang sudutnya 130°.' },
-      { jenis: 'sorot', teks: 'Setiap sudut di kuadran mana pun punya kembaran di kuadran I, namanya sudut acuan. Besar sin dan cos-nya sama persis; yang berbeda hanya tandanya.' },
+      { jenis: 'sorot', teks: 'Setiap sudut di kuadran mana pun punya pasangan di kuadran I, namanya sudut acuan. Besar sin dan cos-nya sama persis; yang berbeda hanya tandanya.' },
 
-      { jenis: 'sesi', judul: 'Dua titik yang bersaudara' },
+      { jenis: 'sesi', judul: 'Dua titik yang berpasangan' },
       { jenis: 'paragraf', teks: 'Ambil θ = 40°. Titik P-nya berada di (cos 40°, sin 40°) = (0,77; 0,64). Sekarang pindahkan P dengan empat cara: diputar seperempat putaran, dicerminkan ke kiri, dibalik ke seberang pusat, dan dicerminkan ke bawah. Tiap cara menghasilkan titik baru Q, dan koordinat Q ternyata bisa dibaca dari koordinat P tanpa menghitung ulang.' },
 
       { jenis: 'sesi', judul: 'Diputar 90°: θ + 90°' },

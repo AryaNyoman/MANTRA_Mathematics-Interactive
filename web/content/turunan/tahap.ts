@@ -63,7 +63,7 @@ export const TAHAP: TahapTurunan[] = [
       'Laju perubahan rata-rata adalah selisih hasil dibagi selisih waktu.',
       'Angka itu sama persis dengan kemiringan garis yang menghubungkan dua titik pada kurva.',
       'Garis penghubung dua titik pada kurva itu namanya garis potong, atau garis sekan.',
-      'Nilainya bergantung pada dua titik mana yang dipilih. Itulah sebabnya ia disebut rata-rata.',
+      'Nilainya bergantung pada dua titik mana yang dipilih. Itulah sebabnya angka itu disebut rata-rata.',
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Sebuah pabrik kecil mencatat berapa barang yang sudah selesai sejak mesin dinyalakan. Catatannya begini.' },
@@ -136,7 +136,7 @@ export const TAHAP: TahapTurunan[] = [
       },
 
       { jenis: 'sesi', judul: 'Kenapa disebut rata-rata' },
-      { jenis: 'paragraf', teks: 'Kata rata-rata di sini bukan hiasan. Angkanya berubah kalau dua titik yang dipilih berubah, walaupun kurvanya itu-itu juga.' },
+      { jenis: 'paragraf', teks: 'Kata rata-rata di sini penting. Angkanya berubah kalau dua titik yang dipilih berubah, walaupun kurvanya itu-itu juga.' },
       {
         jenis: 'contoh',
         judul: 'Kurva yang sama, tiga jawaban berbeda',
@@ -152,7 +152,7 @@ export const TAHAP: TahapTurunan[] = [
     ],
     seringKeliru: {
       judul: 'Laju rata-rata bukan nilai di tengah selang',
-      isi: 'Godaannya masuk akal: kalau ditanya rata-rata antara jam ke-1 dan jam ke-3, banyak yang langsung melihat jam ke-2 lalu menjawab 44. Yang dibaca itu jumlah barang di tengah selang, bukan lajunya. Laju rata-rata sama sekali tidak peduli apa yang terjadi di antara kedua titik. Ia hanya menghitung selisih ujung dibagi selisih waktu, yaitu 22 barang per jam. Cara membedakannya: laju selalu punya satuan gabungan, yaitu barang PER jam. Kalau jawaban Anda satuannya cuma barang, yang Anda hitung bukan laju.',
+      isi: 'Terasa masuk akal: kalau ditanya rata-rata antara jam ke-1 dan jam ke-3, banyak yang langsung melihat jam ke-2 lalu menjawab 44. Yang dibaca itu jumlah barang di tengah selang, bukan lajunya. Laju rata-rata sama sekali tidak peduli apa yang terjadi di antara kedua titik. Laju rata-rata hanya menghitung selisih ujung dibagi selisih waktu, yaitu 22 barang per jam. Cara membedakannya: laju selalu punya satuan gabungan, yaitu barang PER jam. Kalau jawaban Anda satuannya cuma barang, yang Anda hitung bukan laju.',
     },
     video: { berkas: 'turunan1-laju-rata-rata.mp4', poster: 'turunan1-laju-rata-rata.jpg' },
     widget: 'garis-potong',
@@ -215,11 +215,11 @@ export const TAHAP: TahapTurunan[] = [
         judul: 'Urutan langkahnya tidak boleh dibalik',
         butir: [
           'Sebelum disederhanakan - mengisi h = 0 memberi 0/0, dan itu tidak punya arti',
-          'Mencoret h - hanya sah selama h bukan nol, sebab kita sedang membaginya',
+          'Mencoret h - hanya sah selama h bukan nol, karena kita sedang membaginya',
           'Sesudah disederhanakan - untuk h ≠ 0, pecahan asal sama dengan 2 + h. Karena 2 + h mendekati 2 saat h mendekati nol, limit pecahan asal adalah 2; pecahan asal tetap tidak terdefinisi pada h = 0',
         ],
       },
-      { jenis: 'paragraf', teks: 'Aturan urutan ini persis yang Anda pelajari di topik Limit, Materi 04, pada bentuk 0/0. Di sini bentuk itu muncul lagi, dan kali ini ia punya arti gambar.' },
+      { jenis: 'paragraf', teks: 'Aturan urutan ini persis yang Anda pelajari di topik Limit, Materi 04, pada bentuk 0/0. Di sini bentuk itu muncul lagi, dan kali ini bentuk itu punya arti gambar.' },
 
       { jenis: 'paragraf', teks: 'Asal 1 + 2h + h² dapat dilihat lewat luas. Untuk h positif, pecah persegi bersisi 1 + h menjadi satu petak 1 × 1, dua persegi panjang 1 × h, dan satu petak h × h. Luasnya 1 + h + h + h² = 1 + 2h + h². Setelah dikurangi 1, tersisa 2h + h². Identitas aljabarnya juga berlaku untuk h negatif, walaupun gambar panjang tadi memakai h positif.' },
       { jenis: 'paragraf', teks: 'Kita juga harus memeriksa dari kiri P. Untuk h = −0,1, kemiringannya 2 + h = 1,9; untuk h = −0,01, kemiringannya 1,99. Dari kiri maupun kanan, nilai yang dituju sama, yaitu 2. Itulah alasan limit dua sisinya ada.' },
@@ -253,7 +253,7 @@ export const TAHAP: TahapTurunan[] = [
     ],
     seringKeliru: {
       judul: 'Turunan itu angkanya, bukan garisnya',
-      isi: 'Karena garis singgung yang paling menonjol di gambar, banyak yang menjawab pertanyaan "berapa turunannya" dengan menggambar sebuah garis. Godaannya wajar: garis itulah yang baru saja lahir di layar. Tapi yang disebut turunan adalah KEMIRINGAN garis itu, yaitu satu angka seperti 2. Garisnya sendiri punya persamaan tersendiri, dan cara menulisnya akan dibahas belakangan. Cara membedakannya: turunan bisa Anda tulis di kalkulator, garis singgung tidak.',
+      isi: 'Karena garis singgung yang paling menonjol di gambar, banyak yang menjawab pertanyaan "berapa turunannya" dengan menggambar sebuah garis. Terasa wajar: garis itulah yang baru saja lahir di layar. Tapi yang disebut turunan adalah KEMIRINGAN garis itu, yaitu satu angka seperti 2. Garisnya sendiri punya persamaan tersendiri, dan cara menulisnya akan dibahas belakangan. Cara membedakannya: turunan bisa Anda tulis di kalkulator, garis singgung tidak.',
     },
     video: { berkas: 'turunan2-garis-singgung.mp4', poster: 'turunan2-garis-singgung.jpg' },
     widget: 'sekan-ke-tangen',
@@ -271,7 +271,7 @@ export const TAHAP: TahapTurunan[] = [
       'Untuk f(x) = x², kemiringannya di tiap titik ternyata selalu 2x, jadi f′(x) = 2x.',
       'Dua cara menulis turunan yang sama: notasi aksen f′(x), dan notasi Leibniz dy/dx.',
       'dy/dx menyatakan laju perubahan y terhadap x; ini bukan pembagian nilai y dengan nilai x.',
-      'Bentuk f′ bisa sangat berbeda dari bentuk f, sebab f′ mencatat kemiringan, bukan tinggi.',
+      'Bentuk f′ bisa sangat berbeda dari bentuk f, karena f′ mencatat kemiringan, bukan tinggi.',
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Di Materi 02 kita baru mendapat satu angka: kemiringan kurva f(x) = x² di titik x = 1 adalah 2. Wajar kalau muncul pertanyaan berikutnya. Bagaimana di titik lain?' },
@@ -332,7 +332,7 @@ export const TAHAP: TahapTurunan[] = [
         judul: 'Dua notasi, satu arti',
         butir: [
           'Notasi aksen - f′(x), dibaca "f aksen x". Lambang aksen menandai fungsi turunannya',
-          'Cara Leibniz - dy/dx, dibaca "de y de x". Ia mengingatkan asal usulnya, yaitu perubahan y dibagi perubahan x',
+          'Cara Leibniz - dy/dx, dibaca "de y de x". Cara ini mengingatkan asal usulnya, yaitu perubahan y dibagi perubahan x',
         ],
       },
       { jenis: 'paragraf', teks: 'Pada materi ini, baca dy/dx sebagai satu lambang turunan. Artinya laju perubahan y terhadap x, yang berasal dari limit perbandingan perubahan tinggi dengan perubahan mendatar. Ini bukan pembagian nilai y oleh nilai x.' },
@@ -362,7 +362,7 @@ export const TAHAP: TahapTurunan[] = [
     ],
     seringKeliru: {
       judul: 'f′ bukan f yang digambar lebih kecil',
-      isi: 'Karena keduanya digambar berdampingan dan sama-sama berasal dari satu kurva, f′ sering dikira versi mengecil atau versi bergeser dari f. Godaannya kuat pada f(x) = x², sebab di sana f′ memang terlihat lebih landai. Coba pada f(x) = x³ dikurangi 3x: bentuk f punya dua belokan, sedangkan f′ hanya sebuah parabola. Keduanya bukan kurva yang sama, dan itu langsung terlihat. Sebabnya sederhana: f mencatat TINGGI, sedangkan f′ mencatat KEMIRINGAN, dan dua hal itu tidak harus mirip.',
+      isi: 'Karena keduanya digambar berdampingan dan sama-sama berasal dari satu kurva, f′ sering dikira versi mengecil atau versi bergeser dari f. Terasa benar pada f(x) = x², karena di sana f′ memang terlihat lebih landai. Coba pada f(x) = x³ dikurangi 3x: bentuk f punya dua belokan, sedangkan f′ hanya sebuah parabola. Keduanya bukan kurva yang sama, dan itu langsung terlihat. Sebabnya sederhana: f mencatat TINGGI, sedangkan f′ mencatat KEMIRINGAN, dan dua hal itu tidak harus mirip.',
     },
     video: { berkas: 'turunan3-fungsi-turunan.mp4', poster: 'turunan3-fungsi-turunan.jpg' },
     widget: 'grafik-turunan',
@@ -376,9 +376,9 @@ export const TAHAP: TahapTurunan[] = [
     labelPendek: 'Pangkat',
     pertanyaan: 'Kenapa turunan x² adalah 2x, x³ adalah 3x², dan seterusnya?',
     intisari: [
-      'Aturan pangkat bukan hafalan. Ia hasil hitungan limit yang sama, diulang untuk tiap pangkat.',
+      'Aturan pangkat bukan hafalan. Aturan pangkat adalah hasil hitungan limit yang sama, diulang untuk tiap pangkat.',
       'Untuk f(x) = axⁿ berlaku f′(x) = a·n·xⁿ⁻¹: pangkat dikalikan ke depan, lalu pangkatnya berkurang satu.',
-      'Turunan fungsi konstan adalah 0, sebab grafiknya garis mendatar yang kemiringannya nol.',
+      'Turunan fungsi konstan adalah 0, karena grafiknya garis mendatar yang kemiringannya nol.',
       'Aturan yang sama berlaku untuk pangkat pecahan dan pangkat negatif, asal ditulis dulu sebagai pangkat.',
     ],
     penjelasan: [
@@ -466,7 +466,7 @@ export const TAHAP: TahapTurunan[] = [
     ],
     seringKeliru: {
       judul: 'Turunan x² bukan x',
-      isi: 'Kalimat pendek "pangkatnya turun satu" sering diingat separuh, sehingga x² menjadi x dan x³ menjadi x². Godaannya besar karena separuh kalimat itu memang benar. Yang hilang adalah langkah pertamanya: pangkat lama dikalikan ke depan dulu. Jadi x² memberi 2x, bukan x. Cara memeriksanya cepat: pada kurva x² di titik x = 3, kemiringannya terlihat lebih curam daripada 3. Alat di atas menunjukkan angka 6, dan 6 itulah 2 kali 3.',
+      isi: 'Kalimat pendek "pangkatnya turun satu" sering diingat separuh, sehingga x² menjadi x dan x³ menjadi x². Terasa benar karena separuh kalimat itu memang benar. Yang hilang adalah langkah pertamanya: pangkat lama dikalikan ke depan dulu. Jadi x² memberi 2x, bukan x. Cara memeriksanya cepat: pada kurva x² di titik x = 3, kemiringannya terlihat lebih curam daripada 3. Alat di atas menunjukkan angka 6, dan 6 itulah 2 kali 3.',
     },
     video: { berkas: 'turunan4-aturan-pangkat.mp4', poster: 'turunan4-aturan-pangkat.jpg' },
     widget: 'mesin-pangkat',
@@ -531,8 +531,8 @@ export const TAHAP: TahapTurunan[] = [
         ],
       },
 
-      { jenis: 'sesi', judul: 'Yang justru tidak boleh dipecah' },
-      { jenis: 'paragraf', teks: 'Kemudahan tadi menggoda untuk dipakai di mana-mana. Sayangnya ia hanya berlaku untuk jumlah dan selisih. Untuk perkalian, cara itu langsung salah, dan salahnya bisa diperlihatkan dengan satu contoh yang sangat sederhana.' },
+      { jenis: 'sesi', judul: 'Yang malah tidak boleh dipecah' },
+      { jenis: 'paragraf', teks: 'Kemudahan tadi membuat orang ingin memakainya di mana-mana. Sayangnya cara itu hanya berlaku untuk jumlah dan selisih. Untuk perkalian, cara itu langsung salah, dan salahnya bisa diperlihatkan dengan satu contoh yang sangat sederhana.' },
       {
         jenis: 'contoh',
         judul: 'Bukti bahwa perkalian tidak boleh dipecah',
@@ -548,7 +548,7 @@ export const TAHAP: TahapTurunan[] = [
     ],
     seringKeliru: {
       judul: 'Turunan hasil kali bukan hasil kali turunan',
-      isi: 'Setelah melihat jumlah boleh dipecah, hampir semua orang mencoba memecah perkalian dengan cara yang sama, lalu menulis turunan u kali v sebagai turunan u dikali turunan v. Godaannya kuat sebab polanya terasa seragam. Contoh x kali x membantahnya dalam satu baris: jawabannya 2x, bukan 1. Cara mengingatnya: menambah dua hal berarti menambah kedua kemiringannya, tetapi mengalikan dua hal membuat keduanya saling memperbesar, dan pengaruh itu tidak bisa dipisah begitu saja.',
+      isi: 'Setelah melihat jumlah boleh dipecah, hampir semua orang mencoba memecah perkalian dengan cara yang sama, lalu menulis turunan u kali v sebagai turunan u dikali turunan v. Terasa benar karena polanya terasa seragam. Contoh x kali x membantahnya dalam satu baris: jawabannya 2x, bukan 1. Cara mengingatnya: menambah dua hal berarti menambah kedua kemiringannya, tetapi mengalikan dua hal membuat keduanya saling memperbesar, dan pengaruh itu tidak bisa dipisah begitu saja.',
     },
     widget: 'susun-polinom',
     siap: true,
@@ -564,7 +564,7 @@ export const TAHAP: TahapTurunan[] = [
       'Aturan hasil kali: (uv)′ = u′v + uv′.',
       'Alasannya terlihat pada persegi panjang yang kedua sisinya bertambah: tambahan luasnya dua pita, ditambah pojok kecil yang lenyap.',
       'Aturan hasil bagi: (u/v)′ = (u′v − uv′)/v².',
-      'Urutan pada pembilang hasil bagi tidak boleh dibalik, sebab tandanya ikut berbalik.',
+      'Urutan pada pembilang hasil bagi tidak boleh dibalik, karena tandanya ikut berbalik.',
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Materi 05 berakhir dengan sebuah bantahan: turunan dari x · x adalah 2x, bukan 1. Jadi perkalian butuh aturannya sendiri. Sebelum aturannya ditulis, kita lihat dulu kenapa bentuknya harus begitu.' },
@@ -581,7 +581,7 @@ export const TAHAP: TahapTurunan[] = [
           'Pojok kecil - tambahan u dikali tambahan v, sebuah kotak mungil di sudut',
         ],
       },
-      { jenis: 'paragraf', teks: 'Ketiganya dibagi h. Dua pita pertama menyisakan angka yang berarti. Pojok kecilnya tidak: ia hasil perkalian DUA tambahan yang sama-sama mengecil, jadi ia menyusut jauh lebih cepat dan hilang begitu h menuju nol.' },
+      { jenis: 'paragraf', teks: 'Ketiganya dibagi h. Dua pita pertama menyisakan angka yang berarti. Pojok kecilnya tidak: pojok itu hasil perkalian DUA tambahan yang sama-sama mengecil, jadi pojok itu menyusut jauh lebih cepat dan hilang begitu h menuju nol.' },
       { jenis: 'sorot', teks: 'Aturan hasil kali: (uv)′ = u′v + uv′. Turunan yang pertama dikali yang kedua, ditambah yang pertama dikali turunan yang kedua.' },
       {
         jenis: 'contoh',
@@ -626,11 +626,11 @@ export const TAHAP: TahapTurunan[] = [
         ],
         simpul: 'Hasilnya selalu negatif untuk x berapa pun selain 1, dan itu cocok dengan grafiknya yang memang selalu menurun.',
       },
-      { jenis: 'paragraf', teks: 'Syarat tambahan yang sering terlupa: v tidak boleh nol. Pada contoh tadi berarti x tidak boleh 1, sebab di situ fungsinya sendiri tidak punya nilai.' },
+      { jenis: 'paragraf', teks: 'Syarat tambahan yang sering terlupa: v tidak boleh nol. Pada contoh tadi berarti x tidak boleh 1, karena di situ fungsinya sendiri tidak punya nilai.' },
     ],
     seringKeliru: {
       judul: 'Pembilang aturan hasil bagi tidak boleh dibalik',
-      isi: 'Karena aturan hasil kali boleh ditulis dalam urutan mana saja, banyak yang mengira aturan hasil bagi juga begitu, lalu menulis uv′ dikurangi u′v. Godaannya masuk akal, sebab pada perkalian urutan memang tidak penting. Di sini penting, sebab yang di tengah adalah tanda kurang. Membalik urutannya membalik tanda seluruh jawaban. Pada contoh di atas, jawabannya berubah dari -3 menjadi 3, dan grafik yang terlihat menurun akan terbaca menanjak. Cara mengingatnya: yang diturunkan lebih dulu selalu bagian ATAS.',
+      isi: 'Karena aturan hasil kali boleh ditulis dalam urutan mana saja, banyak yang mengira aturan hasil bagi juga begitu, lalu menulis uv′ dikurangi u′v. Terasa masuk akal, karena pada perkalian urutan memang tidak penting. Di sini penting, karena yang di tengah adalah tanda kurang. Membalik urutannya membalik tanda seluruh jawaban. Pada contoh di atas, jawabannya berubah dari -3 menjadi 3, dan grafik yang terlihat menurun akan terbaca menanjak. Cara mengingatnya: yang diturunkan lebih dulu selalu bagian ATAS.',
     },
     video: { berkas: 'turunan6-hasil-kali.mp4', poster: 'turunan6-hasil-kali.jpg' },
     widget: 'luas-berubah',
@@ -677,7 +677,7 @@ export const TAHAP: TahapTurunan[] = [
         ],
         simpul: 'Bentuknya sama persis: turunan pangkat, dikali 2x.',
       },
-      { jenis: 'paragraf', teks: 'Dua hasil itu memberi pola yang sulit dianggap kebetulan. Angka 2x yang selalu muncul di belakang bukan angka sembarangan. Ia turunan dari x² + 1, yaitu bagian yang duduk di dalam kurung.' },
+      { jenis: 'paragraf', teks: 'Dua hasil itu memberi pola yang sulit dianggap kebetulan. Angka 2x yang selalu muncul di belakang bukan angka sembarangan. Angka itu turunan dari x² + 1, yaitu bagian yang duduk di dalam kurung.' },
 
       { jenis: 'sesi', judul: 'Bagian dalam dan bagian luar' },
       { jenis: 'paragraf', teks: 'Fungsi seperti (x² + 1)³ sebenarnya dua mesin yang dipasang berderet. Angka x masuk ke mesin pertama yang menghitung x² + 1. Hasilnya, sebut saja u, masuk ke mesin kedua yang memangkatkan tiga. Bentuk seperti ini di kelas sebelumnya Anda kenal sebagai komposisi fungsi.' },
@@ -748,7 +748,7 @@ export const TAHAP: TahapTurunan[] = [
     ],
     seringKeliru: {
       judul: 'Turunan bagian dalam sering tertinggal',
-      isi: 'Jawaban yang paling sering muncul untuk (2x - 5)⁵ adalah 5(2x - 5)⁴, lalu berhenti. Godaannya besar sebab bagian itu sudah terlihat lengkap dan mirip aturan pangkat yang sudah dikuasai. Yang hilang adalah pengali 2, yaitu turunan dari 2x - 5. Jawaban benarnya 10(2x - 5)⁴. Cara memeriksanya tanpa menghitung ulang: kalau bagian dalamnya diganti menjadi x saja, pengalinya menjadi 1 dan jawaban pendek tadi baru benar. Selama bagian dalamnya bukan x polos, selalu ada pengali yang harus ikut.',
+      isi: 'Jawaban yang paling sering muncul untuk (2x - 5)⁵ adalah 5(2x - 5)⁴, lalu berhenti. Terasa benar karena bagian itu sudah terlihat lengkap dan mirip aturan pangkat yang sudah dikuasai. Yang hilang adalah pengali 2, yaitu turunan dari 2x - 5. Jawaban benarnya 10(2x - 5)⁴. Cara memeriksanya tanpa menghitung ulang: kalau bagian dalamnya diganti menjadi x saja, pengalinya menjadi 1 dan jawaban pendek tadi baru benar. Selama bagian dalamnya bukan x polos, selalu ada pengali yang harus ikut.',
     },
     video: { berkas: 'turunan7-aturan-rantai.mp4', poster: 'turunan7-aturan-rantai.jpg' },
     widget: 'mesin-bertingkat',
@@ -784,9 +784,9 @@ export const TAHAP: TahapTurunan[] = [
         ],
         simpul: 'Deretan angka 1, 0, -1, 0 itu persis nilai cos x di keempat titik yang sama.',
       },
-      { jenis: 'paragraf', teks: 'Kalau seluruh kemiringan itu digambar sebagai kurva baru, cara yang sudah kita pakai di Materi 03, hasilnya bukan kurva asing. Ia grafik kosinus.' },
+      { jenis: 'paragraf', teks: 'Kalau seluruh kemiringan itu digambar sebagai kurva baru, cara yang sudah kita pakai di Materi 03, hasilnya bukan kurva asing. Kurva itu grafik kosinus.' },
       { jenis: 'sorot', teks: 'Turunan sin x adalah cos x.' },
-      { jenis: 'paragraf', teks: 'Diperlakukan sama, grafik kosinus memberi hasil yang mirip tetapi terbalik. Di x = 0 grafik kosinus sedang di puncak, jadi kemiringannya 0. Sesudah itu ia menurun, jadi kemiringannya negatif.' },
+      { jenis: 'paragraf', teks: 'Diperlakukan sama, grafik kosinus memberi hasil yang mirip tetapi terbalik. Di x = 0 grafik kosinus sedang di puncak, jadi kemiringannya 0. Sesudah itu kurvanya menurun, jadi kemiringannya negatif.' },
       { jenis: 'sorot', teks: 'Turunan cos x adalah negatif sin x.' },
 
       { jenis: 'sesi', judul: 'Diperiksa lewat definisi, bukan cuma dilihat' },
@@ -801,7 +801,7 @@ export const TAHAP: TahapTurunan[] = [
           'saat h menuju nol   (cos h - 1)/h menuju 0, dan (sin h/h) menuju 1',
           'tersisa   sin x · 0 + cos x · 1 = cos x',
         ],
-        simpul: 'Jadi hasil bacaan grafik tadi memang benar, bukan kebetulan.',
+        simpul: 'Jadi hasil bacaan grafik tadi memang benar.',
       },
       { jenis: 'paragraf', teks: 'Satu syarat penting menempel pada hitungan itu. Limit (sin h)/h bernilai 1 hanya kalau sudut diukur dalam radian. Kalau sudutnya derajat, semua rumus di materi ini berubah dan menjadi jauh lebih berantakan. Karena itu, sejak sekarang sudut selalu radian.' },
 
@@ -833,7 +833,7 @@ export const TAHAP: TahapTurunan[] = [
       },
 
       { jenis: 'sesi', judul: 'Bilangan yang kemiringannya sama dengan tingginya' },
-      { jenis: 'paragraf', teks: 'Sekarang fungsi eksponen, yaitu fungsi yang x-nya duduk di pangkat, seperti 2ˣ. Perhatikan bedanya dengan x²: yang berubah bukan yang dipangkatkan, melainkan pangkatnya sendiri.' },
+      { jenis: 'paragraf', teks: 'Sekarang fungsi eksponen, yaitu fungsi yang x-nya duduk di pangkat, seperti 2ˣ. Perhatikan bedanya dengan x²: yang berubah bukan yang dipangkatkan, tetapi pangkatnya sendiri.' },
       { jenis: 'paragraf', teks: 'Kalau kemiringan kurva 2ˣ dihitung di beberapa titik lalu dibandingkan dengan tingginya sendiri, muncul hal yang menarik: perbandingannya selalu angka yang sama.' },
       {
         jenis: 'contoh',
@@ -845,13 +845,13 @@ export const TAHAP: TahapTurunan[] = [
         ],
         simpul: 'Pengalinya menyeberangi angka 1 di suatu tempat antara 2,7 dan 3.',
       },
-      { jenis: 'paragraf', teks: 'Bilangan pokok yang membuat pengali itu tepat 1 memang ada, dan ia bukan bilangan bulat. Nilainya kira-kira 2,71828, dan diberi nama bilangan e.' },
+      { jenis: 'paragraf', teks: 'Bilangan pokok yang membuat pengali itu tepat 1 memang ada, dan bilangan itu bukan bilangan bulat. Nilainya kira-kira 2,71828, dan diberi nama bilangan e.' },
       { jenis: 'sorot', teks: 'Turunan eˣ adalah eˣ. Di antara semua kurva berbentuk aˣ, hanya kurva inilah yang tingginya sama persis dengan kemiringannya di setiap titik.' },
       { jenis: 'paragraf', teks: 'Itulah sebabnya e muncul di mana-mana pada persoalan pertumbuhan, dan sebabnya kalkulator punya tombolnya sendiri. Untuk bilangan pokok lain seperti 2ˣ, turunannya masih ada, hanya ikut membawa angka pengali seperti pada tabel di atas.' },
     ],
     seringKeliru: {
       judul: 'Tanda minus pada turunan cos x sering hilang',
-      isi: 'Karena sin dan cos selalu muncul berpasangan dan saling bertukar, banyak yang menghafalnya sebagai "sin jadi cos, cos jadi sin" lalu berhenti. Godaannya besar sebab setengahnya memang benar. Yang hilang adalah tanda minusnya: turunan cos x adalah negatif sin x. Cara memeriksanya tanpa menghafal: lihat grafik kosinus tepat sesudah x = 0. Grafiknya terlihat MENURUN di sana, jadi turunannya wajib negatif. Padahal sin x justru positif sesudah 0. Berarti yang benar negatif sin x.',
+      isi: 'Karena sin dan cos selalu muncul berpasangan dan saling bertukar, banyak yang menghafalnya sebagai "sin jadi cos, cos jadi sin" lalu berhenti. Terasa benar karena setengahnya memang benar. Yang hilang adalah tanda minusnya: turunan cos x adalah negatif sin x. Cara memeriksanya tanpa menghafal: lihat grafik kosinus tepat sesudah x = 0. Grafiknya terlihat MENURUN di sana, jadi turunannya wajib negatif. Padahal sin x malah positif sesudah 0. Berarti yang benar negatif sin x.',
     },
     widget: 'kemiringan-sinus',
     siap: true,
@@ -908,7 +908,7 @@ export const TAHAP: TahapTurunan[] = [
         ],
         simpul: 'Gradiennya nol, jadi garis singgungnya mendatar. Titik (-1, 0) memang titik terendah kurva itu.',
       },
-      { jenis: 'paragraf', teks: 'Hasil kedua itu bukan kebetulan dan bukan kasus aneh. Garis singgung yang mendatar sering menandai tempat kurva berhenti menurun dan mulai menanjak, atau sebaliknya. Tetapi tidak selalu, dan pengecualiannya kita bahas di Materi 10. Sifat itu akan kita pakai serius di dua materi terakhir.' },
+      { jenis: 'paragraf', teks: 'Hasil kedua itu bukan kasus aneh. Garis singgung yang mendatar sering menandai tempat kurva berhenti menurun dan mulai menanjak, atau sebaliknya. Tetapi tidak selalu, dan pengecualiannya kita bahas di Materi 10. Sifat itu akan kita pakai serius di dua materi terakhir.' },
 
       {
         jenis: 'coba',
@@ -922,7 +922,7 @@ export const TAHAP: TahapTurunan[] = [
       },
 
       { jenis: 'sesi', judul: 'Satu garis lagi yang sering disebut bersamanya' },
-      { jenis: 'paragraf', teks: 'Kadang soal meminta garis yang tegak lurus terhadap garis singgung di titik yang sama. Namanya garis normal, dan gradiennya -1/m. Materi ini tidak memperdalamnya, sebab yang penting sudah Anda punya: begitu m diketahui, semua garis lain di titik itu tinggal mengikuti.' },
+      { jenis: 'paragraf', teks: 'Kadang soal meminta garis yang tegak lurus terhadap garis singgung di titik yang sama. Namanya garis normal, dan gradiennya -1/m. Materi ini tidak memperdalamnya, karena yang penting sudah Anda punya: begitu m diketahui, semua garis lain di titik itu tinggal mengikuti.' },
     ],
     seringKeliru: {
       judul: 'Gradien diambil dari f′(x₁), bukan dari f(x₁)',
@@ -972,7 +972,7 @@ export const TAHAP: TahapTurunan[] = [
         ],
         simpul: 'Jadi kurvanya naik sampai x = -1, lalu turun sampai x = 1, lalu naik lagi. Bentuk berlekuk dua yang khas.',
       },
-      { jenis: 'paragraf', teks: 'Angka penguji seperti -2, 0, dan 2 boleh dipilih bebas, asal berada di selang yang benar. Nilai f′ di situ tidak perlu rapi, sebab yang dibaca hanya tandanya.' },
+      { jenis: 'paragraf', teks: 'Angka penguji seperti -2, 0, dan 2 boleh dipilih bebas, asal berada di selang yang benar. Nilai f′ di situ tidak perlu rapi, karena yang dibaca hanya tandanya.' },
       { jenis: 'paragraf', teks: 'Dua titik stasioner tadi, x = -1 dan x = 1, adalah tempat kurvanya berhenti sejenak sebelum berganti arah. Di gambar, di situlah garis singgungnya mendatar seperti yang Anda temukan sendiri di Materi 09.' },
 
       {
@@ -987,7 +987,7 @@ export const TAHAP: TahapTurunan[] = [
       },
 
       { jenis: 'sesi', judul: 'Satu peringatan sebelum lanjut' },
-      { jenis: 'paragraf', teks: 'Godaan terbesar setelah menguasai tabel tanda adalah menyimpulkan bahwa setiap tempat f′ bernilai nol pasti puncak atau lembah. Itu tidak benar, dan bantahannya sederhana.' },
+      { jenis: 'paragraf', teks: 'Kekeliruan yang paling sering muncul setelah menguasai tabel tanda adalah menyimpulkan bahwa setiap tempat f′ bernilai nol pasti puncak atau lembah. Itu tidak benar, dan bantahannya sederhana.' },
       {
         jenis: 'contoh',
         judul: 'Kurva f(x) = x³ di sekitar nol',
@@ -999,11 +999,11 @@ export const TAHAP: TahapTurunan[] = [
         ],
         simpul: 'Tandanya positif di kedua sisi. Kurvanya cuma mendatar sesaat lalu menanjak lagi, tanpa pernah berbalik arah.',
       },
-      { jenis: 'paragraf', teks: 'Jadi f′ bernilai nol baru memberi tahu bahwa kurvanya sedang diam. Apakah ia benar-benar berbalik arah atau hanya beristirahat sejenak, itu yang akan kita putuskan pada materi berikutnya.' },
+      { jenis: 'paragraf', teks: 'Jadi f′ bernilai nol baru memberi tahu bahwa kurvanya sedang diam. Apakah kurvanya benar-benar berbalik arah atau hanya beristirahat sejenak, itu yang akan kita putuskan pada materi berikutnya.' },
     ],
     seringKeliru: {
       judul: 'Turunan nol belum tentu puncak atau lembah',
-      isi: 'Hampir semua contoh di soal sekolah memang berupa puncak atau lembah, jadi wajar kalau siswa menyimpulkan f′ = 0 selalu berarti begitu. Kurva x³ di titik x = 0 membantahnya: turunannya nol di sana, tetapi kurvanya tetap menanjak sebelum dan sesudahnya. Cara membedakannya bukan dengan menghafal, melainkan dengan memeriksa tanda f′ di KEDUA sisi titik itu. Kalau tandanya berbeda, kurvanya berbalik. Kalau tandanya sama, ia hanya mendatar sesaat.',
+      isi: 'Hampir semua contoh di soal sekolah memang berupa puncak atau lembah, jadi wajar kalau siswa menyimpulkan f′ = 0 selalu berarti begitu. Kurva x³ di titik x = 0 membantahnya: turunannya nol di sana, tetapi kurvanya tetap menanjak sebelum dan sesudahnya. Cara membedakannya bukan dengan menghafal, tetapi dengan memeriksa tanda f′ di KEDUA sisi titik itu. Kalau tandanya berbeda, kurvanya berbalik. Kalau tandanya sama, kurvanya hanya mendatar sesaat.',
     },
     widget: 'peta-tanda',
     siap: true,
@@ -1032,11 +1032,11 @@ export const TAHAP: TahapTurunan[] = [
         judul: 'Ukuran kotak setelah dipotong dan dilipat',
         baris: [
           'tinggi kotak        x',
-          'panjang alasnya     18 - 2x, sebab dipotong di kedua ujung',
+          'panjang alasnya     18 - 2x, karena dipotong di kedua ujung',
           'lebar alasnya       18 - 2x, karena kartonnya persegi',
           'isinya              V(x) = (18 - 2x)² · x',
         ],
-        simpul: 'x tidak boleh nol atau kurang, dan tidak boleh 9 atau lebih, sebab alasnya akan habis.',
+        simpul: 'x tidak boleh nol atau kurang, dan tidak boleh 9 atau lebih, karena alasnya akan habis.',
       },
       { jenis: 'paragraf', teks: 'Sebelum diturunkan, kurungnya dijabarkan supaya bisa dikerjakan suku demi suku dengan cara Materi 05.' },
       {
@@ -1075,7 +1075,7 @@ export const TAHAP: TahapTurunan[] = [
           'Tandanya sama di kedua sisi - bukan titik balik, kurvanya hanya mendatar sesaat',
         ],
       },
-      { jenis: 'paragraf', teks: 'Terakhir, isinya dihitung. Ini langkah yang paling sering terlewat, padahal justru inilah yang ditanyakan.' },
+      { jenis: 'paragraf', teks: 'Terakhir, isinya dihitung. Ini langkah yang paling sering terlewat, padahal malah inilah yang ditanyakan.' },
       {
         jenis: 'contoh',
         judul: 'Isi kotak terbesarnya',
@@ -1085,7 +1085,7 @@ export const TAHAP: TahapTurunan[] = [
         ],
         simpul: 'Isi terbesarnya 432 cm³, dicapai saat pojoknya dipotong 3 cm.',
       },
-      { jenis: 'paragraf', teks: 'Pemeriksaan ujung selang itu bukan basa basi. Untuk sebagian soal, nilai terbesarnya justru berada di ujung dan bukan di titik yang turunannya nol. Di soal ini kedua ujungnya memberi isi nol, jadi x = 3 aman sebagai jawabannya.' },
+      { jenis: 'paragraf', teks: 'Pemeriksaan ujung selang itu bukan basa basi. Untuk sebagian soal, nilai terbesarnya malah berada di ujung dan bukan di titik yang turunannya nol. Di soal ini kedua ujungnya memberi isi nol, jadi x = 3 aman sebagai jawabannya.' },
 
       {
         jenis: 'coba',
@@ -1099,8 +1099,8 @@ export const TAHAP: TahapTurunan[] = [
       },
     ],
     seringKeliru: {
-      judul: 'Nilai terbesarnya bukan nilai x, melainkan nilai fungsinya',
-      isi: 'Setelah bersusah payah mendapat x = 3, banyak yang berhenti di situ dan menulis 3 sebagai jawaban. Godaannya wajar sebab angka itulah hasil kerja paling berat. Tapi yang ditanyakan isi kotaknya, dan isinya 432 cm³. Angka 3 menjawab pertanyaan DI MANA, bukan BERAPA. Cara memeriksanya: lihat satuannya. Potongan pojok satuannya cm, sedangkan isi kotak satuannya cm³. Kalau jawaban Anda bersatuan cm untuk pertanyaan tentang isi, ada satu langkah yang belum dikerjakan.',
+      judul: 'Nilai terbesarnya bukan nilai x, tetapi nilai fungsinya',
+      isi: 'Setelah bersusah payah mendapat x = 3, banyak yang berhenti di situ dan menulis 3 sebagai jawaban. Terasa wajar karena angka itulah hasil kerja paling berat. Tapi yang ditanyakan isi kotaknya, dan isinya 432 cm³. Angka 3 menjawab pertanyaan DI MANA, bukan BERAPA. Cara memeriksanya: lihat satuannya. Potongan pojok satuannya cm, sedangkan isi kotak satuannya cm³. Kalau jawaban Anda bersatuan cm untuk pertanyaan tentang isi, ada satu langkah yang belum dikerjakan.',
     },
     widget: 'kotak-terbesar',
     siap: true,
@@ -1138,7 +1138,7 @@ export const TAHAP: TahapTurunan[] = [
       { jenis: 'paragraf', teks: 'Menurunkan dua kali punya nama sendiri, yaitu turunan kedua. Di sini artinya langsung terbaca: turunan pertama memberi kecepatan, turunan kedua memberi percepatan. Nilainya tetap -10, dan tanda minus itu berarti tarikan bumi bekerja ke bawah sepanjang waktu, bahkan saat bolanya masih naik.' },
 
       { jenis: 'sesi', judul: 'Sesuatu yang tumbuh sebanding dengan jumlahnya' },
-      { jenis: 'paragraf', teks: 'Bakteri di cawan bertambah lebih cepat kalau bakterinya sudah banyak, sebab yang membelah diri lebih banyak. Jadi lajunya sebanding dengan jumlahnya sendiri. Sebagai angka contoh, ambil jumlah bakteri N(t) = 200 · e^(t/2) dengan t dalam jam.' },
+      { jenis: 'paragraf', teks: 'Bakteri di cawan bertambah lebih cepat kalau bakterinya sudah banyak, karena yang membelah diri lebih banyak. Jadi lajunya sebanding dengan jumlahnya sendiri. Sebagai angka contoh, ambil jumlah bakteri N(t) = 200 · e^(t/2) dengan t dalam jam.' },
       {
         jenis: 'contoh',
         judul: 'Lajunya selalu setengah dari jumlahnya',
@@ -1171,7 +1171,7 @@ export const TAHAP: TahapTurunan[] = [
         ],
         simpul: 'Tinggi kaleng paling hemat sama dengan diameternya, dua kali jari-jarinya.',
       },
-      { jenis: 'paragraf', teks: 'Uji tandanya juga wajib, seperti yang ditegaskan Materi 11: L′(4) kira-kira -74,7 dan L′(7) kira-kira 47,1. Tandanya berubah dari negatif ke positif, jadi ukuran itu memang membuat pelatnya paling sedikit, bukan paling banyak. Langkahnya sama persis dengan soal kotak di Materi 11: susun rumusnya, turunkan, samakan nol. Yang berganti hanya bendanya. Kaleng di rak toko biasanya tidak sependek itu, sebab bentuk juga dipilih agar enak digenggam dan muat di rak, bukan cuma agar hemat pelat.' },
+      { jenis: 'paragraf', teks: 'Uji tandanya juga wajib, seperti yang ditegaskan Materi 11: L′(4) kira-kira -74,7 dan L′(7) kira-kira 47,1. Tandanya berubah dari negatif ke positif, jadi ukuran itu memang membuat pelatnya paling sedikit, bukan paling banyak. Langkahnya sama persis dengan soal kotak di Materi 11: susun rumusnya, turunkan, samakan nol. Yang berganti hanya bendanya. Kaleng di rak toko biasanya tidak sependek itu, karena bentuk juga dipilih agar enak digenggam dan muat di rak, bukan cuma agar hemat pelat.' },
 
       { jenis: 'sesi', judul: 'Biaya membuat satu barang berikutnya' },
       { jenis: 'paragraf', teks: 'Sebuah usaha punya biaya tetap dan biaya yang bertambah seiring jumlah produksi. Sebagai angka contoh, biaya total untuk membuat x barang adalah B(x) = 2.000.000 + 15.000x + 20x² rupiah.' },

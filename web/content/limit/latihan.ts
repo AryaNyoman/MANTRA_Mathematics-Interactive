@@ -73,8 +73,8 @@ export const LATIHAN: Soal[] = [
     benar: 0,
     jawaban: 'Kesalahannya menganggap 0 dibagi 0 sama dengan 1. Jawaban yang benar 6',
     pembahasan: [
-      'Bentuk 0 dibagi 0 bukan bilangan, jadi ia tidak sama dengan 1 dan tidak sama dengan 0.',
-      'Ia disebut bentuk tak tentu: bentuk itu belum memberi tahu apa-apa dan harus ditulis ulang.',
+      'Bentuk 0 dibagi 0 bukan bilangan, jadi bentuk itu tidak sama dengan 1 dan tidak sama dengan 0.',
+      'Namanya bentuk tak tentu: bentuk itu belum memberi tahu apa-apa dan harus ditulis ulang.',
       'Faktorkan pembilangnya: x² - 9 = (x - 3)(x + 3).',
       'Coret (x - 3), sah karena x bukan 3, dan limit memang tidak pernah meletakkan x tepat di 3.',
       'Sisanya x + 3. Masukkan 3, hasilnya 6.',

@@ -40,10 +40,10 @@ export const LATIHAN: Soal[] = [
     pertanyaan:
       'Di Sekolah A, 18 dari 60 siswa ikut ekstrakurikuler musik. Di Sekolah B, 25 dari 100 siswa. Pernyataan mana yang benar?',
     pilihan: [
-      'Sekolah B lebih tinggi, sebab 25 siswa lebih banyak daripada 18 siswa',
+      'Sekolah B lebih tinggi, karena 25 siswa lebih banyak daripada 18 siswa',
       'Sekolah A lebih tinggi, yaitu 30 persen lawan 25 persen',
-      'Keduanya sama saja, sebab selisihnya kecil',
-      'Tidak bisa dibandingkan sama sekali, sebab jumlah siswanya berbeda',
+      'Keduanya sama saja, karena selisihnya kecil',
+      'Tidak bisa dibandingkan sama sekali, karena jumlah siswanya berbeda',
       'Sekolah B lebih tinggi, yaitu 25 persen lawan 18 persen',
     ],
     benar: 1,
@@ -55,7 +55,7 @@ export const LATIHAN: Soal[] = [
       'Sekolah B: 25 dibagi 100 sama dengan 0,25, yaitu 25 persen.',
       'Jadi bagian siswa yang ikut musik lebih besar di Sekolah A, walaupun jumlah orangnya lebih sedikit.',
       'Pilihan terakhir menganggap angka 18 itu sendiri sudah berupa persen. Itu kekeliruan yang sering terjadi saat penyebutnya tidak diperhatikan.',
-      'Pilihan "tidak bisa dibandingkan" terlalu jauh: justru karena jumlahnya berbeda, frekuensi relatif diciptakan.',
+      'Pilihan "tidak bisa dibandingkan" terlalu jauh: malah karena jumlahnya berbeda, frekuensi relatif diciptakan.',
     ],
   },
   {
@@ -73,7 +73,7 @@ export const LATIHAN: Soal[] = [
       'JAK = 13 - 5,5 = 7,5. Lalu 1,5 kali JAK sama dengan 11,25.',
       'Pagar bawah = 5,5 - 11,25 = -5,75. Pagar atas = 13 + 11,25 = 24,25.',
       'Yang berada di luar pagar hanya 30. Nilai 3 masih jauh di dalam pagar bawah, dan 14 masih di bawah 24,25.',
-      'Ditandai sebagai pencilan bukan berarti harus dibuang. Ia berarti perlu diperiksa dari mana asalnya.',
+      'Ditandai sebagai pencilan bukan berarti harus dibuang. Artinya, perlu diperiksa dari mana asalnya.',
     ],
   },
   {

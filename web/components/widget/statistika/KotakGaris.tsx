@@ -175,7 +175,7 @@ export default function KotakGaris({ children }: PropWidget) {
           </tr>
         </tbody>
       </table>
-      <div className="catatan"><TeksMat teks={`Bandingkan dua baris tebal dengan jangkauan biasa. Jangkauan sepenuhnya ditentukan oleh dua orang saja, yang paling dekat dan yang paling jauh rumahnya. JAK mengukur setengah data yang di tengah, jadi ia tidak ikut tertipu oleh satu orang yang rumahnya jauh sekali. ${keterangan(D)}`} /></div>
+      <div className="catatan"><TeksMat teks={`Bandingkan dua baris tebal dengan jangkauan biasa. Jangkauan sepenuhnya ditentukan oleh dua orang saja, yang paling dekat dan yang paling jauh rumahnya. JAK mengukur setengah data yang di tengah, jadi JAK tidak ikut terpengaruh oleh satu orang yang rumahnya jauh sekali. ${keterangan(D)}`} /></div>
     </div>
   )
 

@@ -10,7 +10,7 @@ export const ISTILAH: { istilah: string; arti: string }[] = [
   { istilah: 'notasi aksen', arti: 'f′(x), cara menulis turunan dengan tanda aksen' },
   { istilah: 'notasi Leibniz', arti: 'dy/dx, laju perubahan y terhadap x; bukan pembagian y dengan x' },
   { istilah: 'aturan pangkat', arti: 'untuk f(x) = a·xⁿ berlaku f′(x) = a·n·xⁿ⁻¹; pangkat dikalikan ke depan, lalu pangkatnya berkurang satu; hasil hitungan limit, bukan hafalan' },
-  { istilah: 'turunan konstanta', arti: 'nol, sebab grafik fungsi konstan mendatar' },
+  { istilah: 'turunan konstanta', arti: 'nol, karena grafik fungsi konstan mendatar' },
   { istilah: 'suku demi suku', arti: 'jumlah dan selisih boleh diturunkan tiap sukunya; angka pengali ikut terbawa' },
   { istilah: 'aturan hasil kali', arti: '(uv)′ = u′v + uv′; turunan hasil kali bukan hasil kali turunan' },
   { istilah: 'aturan hasil bagi', arti: '(u/v)′ = (u′v − uv′)/v²; urutan pembilangnya tidak boleh dibalik' },

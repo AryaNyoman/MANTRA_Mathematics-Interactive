@@ -252,7 +252,7 @@ export const KUIS: SoalKuis[] = [
     benar: 1,
     langkah: [
       'Gunakan aturan integral dasar: konstanta pengali boleh dikeluarkan, ∫3 cos x dx = 3∫cos x dx.',
-      'Karena ∫cos x dx = sin x + C (sebab (sin x)′ = cos x), diperoleh 3 sin x + C.',
+      'Karena ∫cos x dx = sin x + C (karena (sin x)′ = cos x), diperoleh 3 sin x + C.',
       'Jadi, antiturunan dari 3 cos x adalah 3 sin x + C. (Jawaban B)',
     ],
     jebakan: 'Pilihan D, sin 3x + C, memindahkan pengali 3 ke dalam sudut; sin 3x turunannya 3 cos 3x, bukan 3 cos x. Pilihan E, (3/2) sin x, membagi pengali 2 seolah aturan pangkat berlaku pada konstanta.',
@@ -275,7 +275,7 @@ export const KUIS: SoalKuis[] = [
       },
       'Jadi, F(x) = x² + 1. (Jawaban B)',
     ],
-    jebakan: 'Pilihan C, x² + C, berhenti sebelum memakai syarat F(0) = 1 yang justru menentukan C. Pilihan A, x², mengambil C = 0 tanpa alasan. Pilihan D, 2x + 1, mengintegralkan dengan keliru (hanya menambah 1 pada turunannya).',
+    jebakan: 'Pilihan C, x² + C, berhenti sebelum memakai syarat F(0) = 1 yang malah menentukan C. Pilihan A, x², mengambil C = 0 tanpa alasan. Pilihan D, 2x + 1, mengintegralkan dengan keliru (hanya menambah 1 pada turunannya).',
     alasan: 'F = x² + C; F(0) = 1 memberi C = 1.',
   },
   // =============================================================== SEDANG
@@ -333,7 +333,7 @@ export const KUIS: SoalKuis[] = [
       },
       'Jadi, nilai dari ∫₋₃³ f(x) dx = 8. (Jawaban C)',
     ],
-    jebakan: 'Pilihan B, 0, adalah sifat fungsi GANJIL (f(−x) = −f(x)), tempat kedua bagian saling meniadakan; untuk fungsi genap keduanya justru berjumlah. Pilihan A, 4, hanya mengambil separuh selang.',
+    jebakan: 'Pilihan B, 0, adalah sifat fungsi GANJIL (f(−x) = −f(x)), tempat kedua bagian saling meniadakan; untuk fungsi genap keduanya malah berjumlah. Pilihan A, 4, hanya mengambil separuh selang.',
     alasan: 'Genap: ∫₋₃³ f = 2∫₀³ f = 8.',
   },
   {
@@ -367,7 +367,7 @@ export const KUIS: SoalKuis[] = [
       'Sebagai pemeriksaan, ((x² + 1)⁴/4)′ = 4(x² + 1)³ · 2x/4 = 2x(x² + 1)³, kembali ke integrannya.',
       'Jadi, antiturunan dari 2x(x² + 1)³ adalah (x² + 1)⁴/4 + C. (Jawaban D)',
     ],
-    jebakan: 'Pilihan A, 2x(x² + 1)⁴/4, mengintegralkan (x² + 1)³ seolah 2x konstanta dan membiarkannya ikut; padahal 2x justru terpakai sebagai du. Pilihan C, (x² + 1)⁴/8, membagi 2 sekali lagi padahal 2x sudah terserap.',
+    jebakan: 'Pilihan A, 2x(x² + 1)⁴/4, mengintegralkan (x² + 1)³ seolah 2x konstanta dan membiarkannya ikut; padahal 2x malah terpakai sebagai du. Pilihan C, (x² + 1)⁴/8, membagi 2 sekali lagi padahal 2x sudah terserap.',
     alasan: 'Substitusi u = x² + 1, du = 2x dx: u⁴/4 + C.',
   },
   {
@@ -582,7 +582,7 @@ export const KUIS: SoalKuis[] = [
     langkah: [
       'Dengan menggunakan aturan integral dasar beserta definisi integral tentu, diperoleh ∫₋₂² (x³ − 4x) dx = [x⁴/4 − 2x²]₋₂² = ((1/4)(2)⁴ − 2(2)²) − ((1/4)(−2)⁴ − 2(−2)²) = (4 − 8) − (4 − 8) = (−4) − (−4) = 0.',
       {
-        teks: 'Hasil 0 itu bukan kebetulan: f(x) = x³ − 4x adalah fungsi ganjil (f(−x) = −f(x)), sehingga pada selang simetris bagian di atas sumbu (−2 < x < 0) dan bagian di bawah sumbu (0 < x < 2) sama besar dan saling meniadakan, seperti gambar berikut.',
+        teks: 'Hasil 0 itu ada sebabnya: f(x) = x³ − 4x adalah fungsi ganjil (f(−x) = −f(x)), sehingga pada selang simetris bagian di atas sumbu (−2 < x < 0) dan bagian di bawah sumbu (0 < x < 2) sama besar dan saling meniadakan, seperti gambar berikut.',
         gambar: { jenis: 'luas', fungsi: 'x*x*x - 4*x', dari: -2, sampai: 2, jangkauan: [-2.5, 2.5, -4, 4], pecah: [0], labelBagian: ['+4', '−4'] },
       },
       'Jadi, nilai dari ∫₋₂² (x³ − 4x) dx = 0. (Jawaban B)',

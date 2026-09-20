@@ -60,7 +60,7 @@ export const KUIS: SoalKuis[] = [
       'Garis miring, parabola terbuka ke atas, grafik tangga, dan kurva sinus semuanya dipotong setiap garis tegak paling banyak sekali, sehingga ketiganya grafik fungsi.',
       'Jadi, yang bukan grafik fungsi adalah lingkaran. (Jawaban C)',
     ],
-    jebakan: 'Pilihan D, grafik tangga, menggoda karena tampak "putus-putus", tetapi tiap x tetap punya satu y (lompatannya tidak memberi dua nilai di x yang sama). Pilihan E, kurva sinus, menggoda karena berulang, tetapi tiap x tetap satu y.',
+    jebakan: 'Pilihan D, grafik tangga, tampak benar karena tampak "putus-putus", tetapi tiap x tetap punya satu y (lompatannya tidak memberi dua nilai di x yang sama). Pilihan E, kurva sinus, tampak benar karena berulang, tetapi tiap x tetap satu y.',
     alasan: 'Lingkaran gagal uji garis tegak: satu x memberi dua y.',
   },
   {
@@ -175,7 +175,7 @@ export const KUIS: SoalKuis[] = [
       'Untuk x = 1 dan x = −1 nilainya ada, yaitu 1 dan −1.',
       'Jadi, grafik y = 1/x tidak mempunyai nilai pada x = 0. (Jawaban C)',
     ],
-    jebakan: 'Pilihan E, 1 dan −1, menggoda karena grafiknya "berbelok" di sekitar sana, tetapi f(1) = 1 dan f(−1) = −1 terdefinisi. Pilihan D lupa bahwa penyebut tidak boleh nol.',
+    jebakan: 'Pilihan E, 1 dan −1, tampak benar karena grafiknya "berbelok" di sekitar sana, tetapi f(1) = 1 dan f(−1) = −1 terdefinisi. Pilihan D lupa bahwa penyebut tidak boleh nol.',
     alasan: 'Penyebut x tidak boleh 0.',
   },
   {
@@ -198,7 +198,7 @@ export const KUIS: SoalKuis[] = [
       },
       'Jadi, titik yang dilalui grafik adalah (2, −1). (Jawaban A)',
     ],
-    jebakan: 'Pilihan C, (0, −1), menggoda karena konstanta persamaannya 1 dan mudah salah tanda; f(0) = +1, sehingga titik potong sumbu-y adalah (0, 1). Pilihan B, (1, 1), salah menghitung 1 − 3 + 1.',
+    jebakan: 'Pilihan C, (0, −1), tampak benar karena konstanta persamaannya 1 dan mudah salah tanda; f(0) = +1, sehingga titik potong sumbu-y adalah (0, 1). Pilihan B, (1, 1), salah menghitung 1 − 3 + 1.',
     alasan: 'f(2) = 4 − 6 + 1 = −1, cocok; titik lain tidak.',
   },
   {
@@ -217,7 +217,7 @@ export const KUIS: SoalKuis[] = [
       'Uji ini tidak berbicara tentang y: nilai y = 4 dicapai oleh dua x (2 dan −2), dan itu tidak melanggar syarat fungsi.',
       'Jadi, lolos uji garis tegak berarti setiap garis tegak memotong grafik paling banyak satu kali, sehingga tiap x punya satu y. (Jawaban B)',
     ],
-    jebakan: 'Pilihan D, setiap y punya tepat satu x, adalah syarat fungsi SATU-SATU (uji garis mendatar), yang justru gagal pada y = x². Pilihan C, simetris, memang benar untuk y = x² tetapi bukan arti uji garis tegak.',
+    jebakan: 'Pilihan D, setiap y punya tepat satu x, adalah syarat fungsi SATU-SATU (uji garis mendatar), yang malah gagal pada y = x². Pilihan C, simetris, memang benar untuk y = x² tetapi bukan arti uji garis tegak.',
     alasan: 'Uji garis tegak = tiap x satu y (definisi fungsi).',
   },
   {
@@ -399,7 +399,7 @@ export const KUIS: SoalKuis[] = [
       'Alasannya, agar f(x + 2) memberi nilai yang sama dengan f(x) di suatu titik, x harus diambil 2 lebih kecil, sehingga setiap titik bergeser ke kiri.',
       'Jadi, grafik y = f(x + 2) adalah grafik y = f(x) yang digeser 2 satuan ke kiri. (Jawaban D)',
     ],
-    jebakan: 'Pilihan A, 2 satuan ke kanan, mengikuti tanda plus; tanda plus di dalam kurung justru berarti geser ke kiri. Pilihan B, 2 ke atas, adalah arti f(x) + 2, dengan angka di luar f.',
+    jebakan: 'Pilihan A, 2 satuan ke kanan, mengikuti tanda plus; tanda plus di dalam kurung malah berarti geser ke kiri. Pilihan B, 2 ke atas, adalah arti f(x) + 2, dengan angka di luar f.',
     alasan: 'x → x + 2: geser 2 ke kiri.',
   },
   {
@@ -576,7 +576,7 @@ export const KUIS: SoalKuis[] = [
       },
       'Jadi, grafik y = f(x) − 3 adalah grafik y = f(x) yang digeser 3 satuan ke bawah. (Jawaban D)',
     ],
-    jebakan: 'Pilihan C, 3 ke kanan, adalah arti f(x − 3), dengan angka di DALAM kurung. Pilihan B, 3 ke atas, membaca tanda minus terbalik. Pilihan E keliru: pencerminan mengubah arah bukaan atau letak kiri kanan, bukan sekadar menggeser.',
+    jebakan: 'Pilihan C, 3 ke kanan, adalah arti f(x − 3), dengan angka di DALAM kurung. Pilihan B, 3 ke atas, membaca tanda minus terbalik. Pilihan E keliru: pencerminan mengubah arah bukaan atau letak kiri kanan, bukan cuma menggeser.',
     alasan: 'y − 3: setiap titik turun 3.',
   },
   {
@@ -678,7 +678,7 @@ export const KUIS: SoalKuis[] = [
       },
       'Jadi, titik itu berpindah ke (3, 5). (Jawaban C)',
     ],
-    jebakan: 'Pilihan A, (12, 5), mengalikan absis dengan 2; yang benar, 2x harus sama dengan 6 sehingga x justru mengecil. Pilihan B, (6, 10), mengalikan ordinat, yaitu arti y = 2f(x), bukan f(2x).',
+    jebakan: 'Pilihan A, (12, 5), mengalikan absis dengan 2; yang benar, 2x harus sama dengan 6 sehingga x malah mengecil. Pilihan B, (6, 10), mengalikan ordinat, yaitu arti y = 2f(x), bukan f(2x).',
     alasan: '2x = 6 memberi x = 3; y tetap 5.',
   },
   {
@@ -778,7 +778,7 @@ export const KUIS: SoalKuis[] = [
       'Daerah asal: agar akarnya ada, 9 − x² ≥ 0, yaitu x² ≤ 9, sehingga −3 ≤ x ≤ 3. Secara gambar, setengah lingkaran membentang dari x = −3 sampai x = 3.',
       'Daerah hasil: y = √(9 − x²) paling kecil 0 (saat x = ±3) dan paling besar √9 = 3 (saat x = 0), sehingga 0 ≤ y ≤ 3.',
       {
-        teks: 'Perhatikan sketsa berikut: lebar grafik dari −3 sampai 3 (daerah asal) dan tingginya dari 0 sampai 3 (daerah hasil). Setiap garis tegak memotongnya paling banyak sekali, sehingga ia memang fungsi.',
+        teks: 'Perhatikan sketsa berikut: lebar grafik dari −3 sampai 3 (daerah asal) dan tingginya dari 0 sampai 3 (daerah hasil). Setiap garis tegak memotongnya paling banyak sekali, sehingga kurva itu memang fungsi.',
         gambar: { jenis: 'grafik', fungsi: ['Math.sqrt(9 - x*x)'], jangkauan: [-4, 4, -1, 4], titik: [{ x: -3, y: 0, label: '(-3, 0)' }, { x: 3, y: 0, label: '(3, 0)' }, { x: 0, y: 3, label: '(0, 3)' }], arsir: [{ dari: -3, sampai: 3, label: 'daerah asal' }], datar: [3] },
       },
       'Jadi, daerah asalnya −3 ≤ x ≤ 3 dan daerah hasilnya 0 ≤ y ≤ 3. (Jawaban D)',
@@ -794,7 +794,7 @@ export const KUIS: SoalKuis[] = [
     pilihan: ['grafiknya melengkung, bukan garis lurus', 'hasilnya tidak pernah negatif', 'dua masukan berbeda bisa memberi keluaran yang sama', 'grafiknya tidak memotong sumbu-X di dua titik', 'rumusnya tidak bisa dibalik secara aljabar'],
     benar: 2,
     langkah: [
-      'Ingat bahwa suatu fungsi mempunyai fungsi invers hanya bila ia satu-satu: dua masukan berbeda selalu memberi keluaran berbeda, sehingga tiap keluaran dapat dikembalikan ke tepat satu masukan.',
+      'Ingat bahwa suatu fungsi mempunyai fungsi invers hanya bila fungsi itu satu-satu: dua masukan berbeda selalu memberi keluaran berbeda, sehingga tiap keluaran dapat dikembalikan ke tepat satu masukan.',
       'Pada f(x) = x², masukan 3 dan −3 sama-sama memberi keluaran 9. Bila f⁻¹ ada, nilai f⁻¹(9) harus 3 sekaligus −3, yang mustahil bagi sebuah fungsi.',
       {
         teks: 'Secara gambar, garis mendatar y = 9 memotong grafik di dua titik: grafik gagal uji garis mendatar, seperti gambar berikut.',
@@ -1034,7 +1034,7 @@ export const KUIS: SoalKuis[] = [
       },
       'Jadi, tanda a, c, dan D berturut-turut adalah a < 0, c < 0, D < 0. (Jawaban A)',
     ],
-    jebakan: 'Pilihan E, D > 0, bertentangan dengan "tidak memotong sumbu-X": D > 0 justru berarti dua titik potong. Pilihan C, c > 0, mustahil di sini: parabola terbuka ke bawah yang memotong sumbu-y di atas sumbu-X pasti memotong sumbu-X dua kali. Pilihan B dan D membaca bukaan ke bawah sebagai a > 0.',
+    jebakan: 'Pilihan E, D > 0, bertentangan dengan "tidak memotong sumbu-X": D > 0 malah berarti dua titik potong. Pilihan C, c > 0, mustahil di sini: parabola terbuka ke bawah yang memotong sumbu-y di atas sumbu-X pasti memotong sumbu-X dua kali. Pilihan B dan D membaca bukaan ke bawah sebagai a > 0.',
     alasan: 'Bukaan → a, titik (0, c) → c, titik potong sumbu-X → D.',
   },
   {
@@ -1095,13 +1095,13 @@ export const KUIS: SoalKuis[] = [
       'Periksa pernyataan (2): f(0) adalah ordinat titik potong dengan sumbu-y, yaitu 3. Benar.',
       'Periksa pernyataan (3): sumbu simetri melalui puncak, x = 1, tepat di tengah −1 dan 3. Benar.',
       {
-        teks: 'Periksa pernyataan (4): f(x) > 0 saat grafik berada DI ATAS sumbu-X, yaitu di antara kedua pembuat nol, −1 < x < 3; untuk x < −1 atau x > 3 grafik justru di bawah sumbu-X. Salah.',
+        teks: 'Periksa pernyataan (4): f(x) > 0 saat grafik berada DI ATAS sumbu-X, yaitu di antara kedua pembuat nol, −1 < x < 3; untuk x < −1 atau x > 3 grafik malah di bawah sumbu-X. Salah.',
         gambar: { jenis: 'grafik', fungsi: ['-x*x + 2*x + 3'], jangkauan: [-3, 5, -6, 6], titik: [{ x: -1, y: 0, label: '-1' }, { x: 3, y: 0, label: '3' }], arsir: [{ dari: -1, sampai: 3, label: 'f(x) > 0' }], datar: [0] },
       },
       'Jadi, pernyataan yang benar adalah (1), (2), dan (3). (Jawaban B)',
     ],
     jebakan: 'Pilihan E, semua benar, menerima pernyataan (4) karena pola "x < x₁ atau x > x₂" terasa akrab; pola itu berlaku bagi parabola terbuka ke ATAS. Pilihan C, (1) dan (3), meragukan f(0) = 3 padahal grafik jelas memotong sumbu-y di 3. Pilihan D membaca bukaan ke bawah sebagai a > 0.',
-    alasan: 'f(x) = −x² + 2x + 3; (4) salah karena f > 0 justru di −1 < x < 3.',
+    alasan: 'f(x) = −x² + 2x + 3; (4) salah karena f > 0 malah di −1 < x < 3.',
   },
   {
     // cek: 36 - 4*(5 - (-4)) === 0 && 3*3 - 4*3 + 5 === 2*3 - 4

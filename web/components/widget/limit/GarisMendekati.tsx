@@ -105,7 +105,7 @@ export default function GarisMendekati({ x }: { x: number }) {
       </text>
       <text x={X0} y={54} fontSize={10.5} fill={tepatDiC ? WARNA.depan : WARNA.redup} fontFamily={MONO}>
         {tepatDiC
-          ? 'x diletakkan TEPAT di 3. Limit tidak pernah melakukan ini, ia hanya melihat tetangganya.'
+          ? 'x diletakkan TEPAT di 3. Limit tidak pernah melakukan ini, limit hanya melihat tetangganya.'
           : `selisih ke c: ${angka(Math.abs(x - C), 3)}   ·   selisih ke L: ${angka(Math.abs(nilai - L), 4)}`}
       </text>
       <text x={X1} y={VH - 8} textAnchor="end" fontSize={9.5} fill={WARNA.redup} fontFamily={MONO}>

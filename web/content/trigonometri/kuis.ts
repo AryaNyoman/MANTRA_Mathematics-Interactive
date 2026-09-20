@@ -3,7 +3,7 @@
  *
  * SEJARAH: 1 Sep 2026 bank ini 32 soal (8 per tingkat). 13 Sep 2026 ARYA
  * meminta 15 soal per tingkat, pembahasan bernomor bergambar, dan penjelasan
- * kenapa pengecoh menggoda. 14 Sep 2026 ARYA MENOLAK pembahasannya
+ * kenapa pengecoh tampak benar. 14 Sep 2026 ARYA MENOLAK pembahasannya
  * (potongan catatan, hitungan dilompati, gambar soal diulang mentah) dan
  * memerintahkan meniru cara mathcyber1997 menulis pembahasan. Semua
  * pembahasan ditulis ulang mengikuti catatan belajar
@@ -505,7 +505,7 @@ export const KUIS: SoalKuis[] = [
       'Dengan demikian, cos θ pada segitiga kedua = 12/15 = 4/5, sama persis dengan cos θ pada segitiga pertama = 4/5, karena faktor 3 pada pembilang dan penyebut saling mencoret.',
       'Jadi, nilai cos θ pada segitiga kedua sama saja dengan pada segitiga pertama. (Jawaban D)',
     ],
-    jebakan: 'Pilihan A, tiga kali lipat, mengira perbandingan ikut membesar bersama sisinya, padahal pembilang dan penyebut membesar bersama sehingga hasil baginya tetap. Justru karena inilah nilai perbandingan trigonometri hanya bergantung pada sudut.',
+    jebakan: 'Pilihan A, tiga kali lipat, mengira perbandingan ikut membesar bersama sisinya, padahal pembilang dan penyebut membesar bersama sehingga hasil baginya tetap. Malah karena inilah nilai perbandingan trigonometri hanya bergantung pada sudut.',
     alasan: 'Sebangun berarti semua sisi dikali angka yang sama; perbandingannya tetap.',
   },
   {
@@ -544,7 +544,7 @@ export const KUIS: SoalKuis[] = [
       'Hubungan ini berlaku untuk sudut berapa pun, sin² θ + cos² θ = 1, dan dikenal sebagai identitas Pythagoras.',
       'Jadi, nilai sin² 40° + cos² 40° adalah 1. (Jawaban B)',
     ],
-    jebakan: 'Pilihan E, bergantung pada sudutnya, menggoda karena sin 40° dan cos 40° memang bergantung pada sudut, tetapi jumlah kuadratnya selalu 1 untuk sudut apa pun. Pilihan D, 1,64, adalah (sin 40° + cos 40°)² yang keliru dianggap sama dengan sin² 40° + cos² 40°.',
+    jebakan: 'Pilihan E, bergantung pada sudutnya, tampak benar karena sin 40° dan cos 40° memang bergantung pada sudut, tetapi jumlah kuadratnya selalu 1 untuk sudut apa pun. Pilihan D, 1,64, adalah (sin 40° + cos 40°)² yang keliru dianggap sama dengan sin² 40° + cos² 40°.',
     alasan: 'Identitas Pythagoras: sin² θ + cos² θ = 1 untuk sudut berapa pun.',
   },
   {
@@ -558,7 +558,7 @@ export const KUIS: SoalKuis[] = [
     langkah: [
       'Perhatikan bahwa 25° + 65° = 90°, sehingga kedua sudut itu saling berpenyiku (komplemen): keduanya adalah dua sudut lancip pada satu segitiga siku-siku.',
       {
-        teks: 'Misalkan sisi-sisi segitiga itu a (di hadapan sudut 25°), b, dan c (sisi miring). Dilihat dari sudut 25°, sisi a adalah sisi depan, sehingga sin 25° = a/c. Dilihat dari sudut 65° di pojok atas, sisi a yang sama justru menjadi sisi samping, sehingga cos 65° = a/c.',
+        teks: 'Misalkan sisi-sisi segitiga itu a (di hadapan sudut 25°), b, dan c (sisi miring). Dilihat dari sudut 25°, sisi a adalah sisi depan, sehingga sin 25° = a/c. Dilihat dari sudut 65° di pojok atas, sisi a yang sama malah menjadi sisi samping, sehingga cos 65° = a/c.',
         gambar: { jenis: 'segitiga', sudut: 25, label: ['a', 'b', 'c'], namaSudut: '25°', sorot: 'depan' },
       },
       'Dengan demikian, cos 65° = sin 25° = 0,42. Secara umum berlaku cos(90° − θ) = sin θ.',
@@ -576,7 +576,7 @@ export const KUIS: SoalKuis[] = [
     pilihan: ['1/√3', '√3', '1', '2', '√3/2'],
     benar: 1,
     langkah: [
-      'Perhatikan bahwa segitiga siku-siku bersudut 60° mempunyai sudut lancip lain 30°, sehingga ia separuh dari segitiga sama sisi: sisi di hadapan sudut 30° adalah setengah sisi miring.',
+      'Perhatikan bahwa segitiga siku-siku bersudut 60° mempunyai sudut lancip lain 30°, sehingga segitiga itu separuh dari segitiga sama sisi: sisi di hadapan sudut 30° adalah setengah sisi miring.',
       {
         teks: 'Misalkan sisi miringnya 2, maka sisi di hadapan sudut 30° (yaitu sisi samping sudut 60°) adalah 1, dan dengan teorema Pythagoras sisi depan sudut 60° adalah √(2² − 1²) = √3, seperti segitiga acuan berikut.',
         gambar: { jenis: 'segitiga', sudut: 60, label: ['√3', '1', '2'], namaSudut: '60°', sorot: 'depan' },
@@ -646,7 +646,7 @@ export const KUIS: SoalKuis[] = [
       'Dengan menggunakan hubungan sudut berelasi sin(180° − α) = sin α, diperoleh sin 150° = sin 30° = 1/2 = 0,5.',
       'Jadi, nilai sin 150° adalah 0,5. (Jawaban C)',
     ],
-    jebakan: 'Pilihan A, −0,5, memberi tanda negatif hanya karena sudutnya "besar", padahal di kuadran II sinus justru positif. Pilihan B, 0,866, adalah sin 60°; sudut acuannya salah dihitung sebagai 150° − 90° = 60°, padahal acuan diambil terhadap sumbu-x (180°), bukan sumbu-y.',
+    jebakan: 'Pilihan A, −0,5, memberi tanda negatif hanya karena sudutnya "besar", padahal di kuadran II sinus malah positif. Pilihan B, 0,866, adalah sin 60°; sudut acuannya salah dihitung sebagai 150° − 90° = 60°, padahal acuan diambil terhadap sumbu-x (180°), bukan sumbu-y.',
     alasan: '150° = 180° − 30° di kuadran II, sin positif: sin 150° = sin 30° = 0,5.',
   },
   {
@@ -937,7 +937,7 @@ export const KUIS: SoalKuis[] = [
       'Untuk itu, sin α = −de/mi = −3/5. (Sinus sudut bernilai negatif ketika berada di kuadran III.)',
       'Jadi, nilai sin α = −3/5. (Jawaban E)',
     ],
-    jebakan: 'Pilihan C, 3/5, lupa memberi tanda kuadran III. Pilihan B, −4/5, adalah nilai cos α, bukan sin α. Pilihan A, −3/4, memberi tanda negatif pada tan α, padahal tangen di kuadran III justru positif.',
+    jebakan: 'Pilihan C, 3/5, lupa memberi tanda kuadran III. Pilihan B, −4/5, adalah nilai cos α, bukan sin α. Pilihan A, −3/4, memberi tanda negatif pada tan α, padahal tangen di kuadran III malah positif.',
     alasan: 'Segitiga acuan 3-4-5 memberi |sin α| = 3/5; di kuadran III sinus negatif: −3/5.',
   },
   {

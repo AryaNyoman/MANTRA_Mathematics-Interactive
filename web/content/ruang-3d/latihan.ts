@@ -96,7 +96,7 @@ export const LATIHAN: Soal[] = [
     jawaban: '4 akar 6 cm, kira-kira 9,798 cm',
     pembahasan: [
       'Proyeksi sebuah ruas pada bidang didapat dengan memproyeksikan kedua ujungnya, lalu menghubungkan hasilnya.',
-      'Titik D sudah terletak pada bidang BDHF, sebab D memang salah satu sudut bidang itu. Jadi bayangan D adalah D sendiri.',
+      'Titik D sudah terletak pada bidang BDHF, karena D memang salah satu sudut bidang itu. Jadi bayangan D adalah D sendiri.',
       'Tinggal mencari bayangan titik E. Bidang BDHF adalah bidang diagonal yang tegak, dan bayangan E jatuh di tengah antara E dan G, yaitu titik pusat tutup kubus.',
       'Sebut bayangan itu titik K. Jarak E ke bidang BDHF adalah setengah diagonal tutup, yaitu 4 akar 2.',
       'Sekarang hitung DK dengan Pythagoras pada segitiga siku-siku yang terbentuk. Hasilnya 4 akar 6.',

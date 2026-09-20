@@ -99,7 +99,7 @@ export const KUIS: SoalKuis[] = [
       'Dengan demikian, lim x→c f(x) = 5, berapa pun nilai f(c), bahkan bila f(c) tidak ada.',
       'Jadi, nilai lim x→c f(x) = 5. (Jawaban C)',
     ],
-    jebakan: 'Pilihan A, 10, menjumlahkan kedua limit sepihak, padahal keduanya menunjuk nilai yang SAMA, bukan dua bagian yang digabung. Pilihan E menggoda karena f(c) terasa penting, padahal limit tidak bergantung pada nilai fungsi tepat di c.',
+    jebakan: 'Pilihan A, 10, menjumlahkan kedua limit sepihak, padahal keduanya menunjuk nilai yang SAMA, bukan dua bagian yang digabung. Pilihan E tampak benar karena f(c) terasa penting, padahal limit tidak bergantung pada nilai fungsi tepat di c.',
     alasan: 'Limit kiri = limit kanan = 5, jadi limitnya 5.',
   },
   {
@@ -118,7 +118,7 @@ export const KUIS: SoalKuis[] = [
       'Karena lim x→c⁻ f(x) = 2 ≠ 7 = lim x→c⁺ f(x), kedua sisi tidak sepakat, sehingga nilai lim x→c f(x) tidak ada.',
       'Jadi, lim x→c f(x) tidak ada. (Jawaban E)',
     ],
-    jebakan: 'Pilihan C, 4,5, mengambil rata-rata 2 dan 7, seolah limit adalah jalan tengah; limit bukan kompromi, melainkan satu nilai yang disepakati kedua sisi. Pilihan B, 7, memilih limit kanan saja karena titik hitamnya di sana.',
+    jebakan: 'Pilihan C, 4,5, mengambil rata-rata 2 dan 7, seolah limit adalah jalan tengah; limit bukan kompromi, tetapi satu nilai yang disepakati kedua sisi. Pilihan B, 7, memilih limit kanan saja karena titik hitamnya di sana.',
     alasan: 'Limit kiri 2 dan limit kanan 7 berbeda, jadi limitnya tidak ada.',
   },
   {
@@ -217,7 +217,7 @@ export const KUIS: SoalKuis[] = [
       'Karena limit kiri sama dengan limit kanan, lim x→1 f(x) = 2.',
       'Jadi, nilai lim x→1 f(x) = 2. (Jawaban D)',
     ],
-    jebakan: 'Pilihan C, tidak ada karena titiknya kosong, mencampuradukkan nilai fungsi dengan limit; justru contoh inilah yang menunjukkan limit bisa ada tanpa f(1). Pilihan A, 1, menyalin absis lubang, bukan tingginya.',
+    jebakan: 'Pilihan C, tidak ada karena titiknya kosong, mencampuradukkan nilai fungsi dengan limit; malah contoh inilah yang menunjukkan limit bisa ada tanpa f(1). Pilihan A, 1, menyalin absis lubang, bukan tingginya.',
     alasan: 'Kedua sisi menuju 2; lubang di (1, 2) tidak memengaruhi limit.',
   },
   {
@@ -278,7 +278,7 @@ export const KUIS: SoalKuis[] = [
       'Dengan demikian, lim x→∞ 1/x = 0. Ini fakta dasar yang dipakai pada semua limit tak hingga: 1/xⁿ → 0 untuk n > 0.',
       'Jadi, nilai dari lim x→∞ 1/x = 0. (Jawaban A)',
     ],
-    jebakan: 'Pilihan C, tak hingga, menukar arah: yang menuju tak hingga adalah x, sedangkan 1/x justru mengecil. Pilihan D, tidak ada, mengira nilai yang tidak pernah tercapai (0) tidak boleh jadi limit; limit adalah tujuan, bukan nilai yang harus dicapai.',
+    jebakan: 'Pilihan C, tak hingga, menukar arah: yang menuju tak hingga adalah x, sedangkan 1/x malah mengecil. Pilihan D, tidak ada, mengira nilai yang tidak pernah tercapai (0) tidak boleh jadi limit; limit adalah tujuan, bukan nilai yang harus dicapai.',
     alasan: '1/x menyusut ke 0 ketika x membesar tanpa batas.',
   },
   {
@@ -386,7 +386,7 @@ export const KUIS: SoalKuis[] = [
       },
       'Jadi, nilai dari lim x→∞ (3x + 1)/(x − 2) = 3. (Jawaban E)',
     ],
-    jebakan: 'Pilihan B, 1/2, membagi konstanta 1 dengan −2 dengan tanda terbalik, padahal konstanta justru tidak berpengaruh ketika x sangat besar. Pilihan C, tak hingga, hanya melihat pembilang membesar tanpa membandingkannya dengan penyebut.',
+    jebakan: 'Pilihan B, 1/2, membagi konstanta 1 dengan −2 dengan tanda terbalik, padahal konstanta malah tidak berpengaruh ketika x sangat besar. Pilihan C, tak hingga, hanya melihat pembilang membesar tanpa membandingkannya dengan penyebut.',
     alasan: 'Bagi dengan x: (3 + 1/x)/(1 − 2/x) → 3/1 = 3.',
   },
   {
@@ -405,7 +405,7 @@ export const KUIS: SoalKuis[] = [
       'Dengan demikian, sudut tajam tidak melanggar kekontinuan; sudut tajam hanya membuat fungsi tidak mempunyai TURUNAN di titik itu.',
       'Jadi, yang bukan syarat kekontinuan adalah grafiknya tidak boleh punya sudut tajam di c. (Jawaban A)',
     ],
-    jebakan: 'Pilihan E menggoda karena berbunyi seperti kalimat definisi, padahal isinya benar (memang ketiganya harus terpenuhi sekaligus), sehingga bukan jawaban dari "yang BUKAN syarat". Sudut tajam sering dikira memutus kurva karena tampak "patah", padahal penanya tidak perlu diangkat.',
+    jebakan: 'Pilihan E tampak benar karena berbunyi seperti kalimat definisi, padahal isinya benar (memang ketiganya harus terpenuhi sekaligus), sehingga bukan jawaban dari "yang BUKAN syarat". Sudut tajam sering dikira memutus kurva karena tampak "patah", padahal penanya tidak perlu diangkat.',
     alasan: 'Syarat kontinu: f(c) ada, limit ada, limit = f(c). Sudut tajam (seperti |x| di 0) tidak melanggar; itu soal turunan.',
   },
   {
@@ -669,7 +669,7 @@ export const KUIS: SoalKuis[] = [
       'Karena lim x→3 f(x) = 6 harus sama dengan f(3) = a, diperoleh a = 6.',
       'Jadi, nilai a supaya f kontinu di x = 3 adalah 6. (Jawaban C)',
     ],
-    jebakan: 'Pilihan D, 9, menghitung 3² dari pembilang saja. Pilihan E menyerah karena f(3) semula tidak terdefinisi, padahal lubang seperti ini justru selalu bisa ditambal dengan nilai limitnya.',
+    jebakan: 'Pilihan D, 9, menghitung 3² dari pembilang saja. Pilihan E menyerah karena f(3) semula tidak terdefinisi, padahal lubang seperti ini malah selalu bisa ditambal dengan nilai limitnya.',
     alasan: 'Limitnya 6, jadi a = 6 menambal lubang di (3, 6).',
   },
   {
@@ -733,7 +733,7 @@ export const KUIS: SoalKuis[] = [
     pilihan: ['1', 'limitnya tidak ada', '-1', '0', 'tak hingga'],
     benar: 1,
     langkah: [
-      'Substitusi langsung x = 4 memberi bentuk taktentu 0/0. Karena ada nilai mutlak, tinjau limit kiri dan limit kanan secara terpisah, sebab |x − 4| membuka menjadi bentuk yang berbeda di kedua sisi.',
+      'Substitusi langsung x = 4 memberi bentuk taktentu 0/0. Karena ada nilai mutlak, tinjau limit kiri dan limit kanan secara terpisah, karena |x − 4| membuka menjadi bentuk yang berbeda di kedua sisi.',
       'Untuk x < 4, nilai x − 4 negatif sehingga |x − 4| = −(x − 4). Dengan demikian, lim x→4⁻ |x − 4|/(x − 4) = lim x→4⁻ −(x − 4)/(x − 4) = −1.',
       'Untuk x > 4, nilai x − 4 positif sehingga |x − 4| = x − 4. Dengan demikian, lim x→4⁺ |x − 4|/(x − 4) = lim x→4⁺ (x − 4)/(x − 4) = 1.',
       {
@@ -1118,7 +1118,7 @@ export const KUIS: SoalKuis[] = [
       'Dengan demikian, lim x→∞ (2x + sin x)/x = 2 + 0 = 2.',
       'Jadi, nilai dari lim x→∞ (2x + sin x)/x = 2. (Jawaban E)',
     ],
-    jebakan: 'Pilihan A menggoda karena sin x memang tidak mempunyai limit di tak hingga, tetapi yang dibagi x adalah sin x, dan hasil bagi itu menuju 0. Pilihan B, 3, mengganti sin x dengan nilai terbesarnya 1 lalu menganggap 1/x tidak menghilang.',
+    jebakan: 'Pilihan A tampak benar karena sin x memang tidak mempunyai limit di tak hingga, tetapi yang dibagi x adalah sin x, dan hasil bagi itu menuju 0. Pilihan B, 3, mengganti sin x dengan nilai terbesarnya 1 lalu menganggap 1/x tidak menghilang.',
     alasan: '(2x + sin x)/x = 2 + (sin x)/x → 2 + 0 = 2 (teorema apit).',
   },
   {

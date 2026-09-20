@@ -22,7 +22,7 @@ export const ISTILAH: { istilah: string; arti: string }[] = [
   { istilah: 'luas setelah dilatasi', arti: 'berubah k² kali, bukan k kali' },
   { istilah: 'matriks 2×2', arti: 'empat angka pengali disusun dua baris dua kolom [[a, b], [c, d]]; dikalikan titik (x, y) memberi (ax + by, cx + dy)' },
   { istilah: 'kolom matriks', arti: 'kolom pertama = peta titik (1, 0), kolom kedua = peta titik (0, 1); cara menyusun matriks tanpa menghafal' },
-  { istilah: 'matriks transformasi', arti: 'matriks tiap transformasi berpusat di titik asal; translasi TIDAK punya matriks pengali, ia penjumlahan matriks kolom' },
+  { istilah: 'matriks transformasi', arti: 'matriks tiap transformasi berpusat di titik asal; translasi TIDAK punya matriks pengali, translasi adalah penjumlahan matriks kolom' },
   { istilah: 'komposisi transformasi', arti: 'mengerjakan transformasi kedua pada HASIL yang pertama; pada T₂ ∘ T₁, T₁ dikerjakan lebih dahulu' },
   { istilah: 'matriks gabungan', arti: 'M₂M₁ untuk T₁ lalu T₂: yang dikerjakan pertama ditulis paling kanan karena paling dekat dengan titiknya' },
   { istilah: 'urutan menentukan', arti: 'membalik urutan komposisi biasanya mengubah hasil; pengecualiannya dua translasi atau dua rotasi sepusat' },

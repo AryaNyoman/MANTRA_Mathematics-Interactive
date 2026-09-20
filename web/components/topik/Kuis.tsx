@@ -110,12 +110,12 @@ export default function Kuis({
           <div className="skor mono" aria-live="polite">{skorTampil} / {jumlah}</div>
           <p>
             {persen === 100
-              ? 'Semua benar. Konsep bab ini sudah pegang.'
+              ? 'Semua benar. Bab ini sudah kamu kuasai.'
               : persen >= 70
-                ? 'Sudah kuat. Baca pembahasan soal yang salah di bawah, lalu buka materinya sekali lagi.'
+                ? 'Sudah bagus. Baca pembahasan soal yang salah di bawah, lalu buka materinya sekali lagi.'
                 : persen >= 50
-                  ? 'Separuh jalan. Tiap soal yang salah di bawah menunjuk materi yang perlu dibaca ulang.'
-                  : 'Belum nyantol. Baca pembahasannya, buka materi yang ditunjuk, lalu ulangi kuisnya.'}
+                  ? 'Setengahnya benar. Tiap soal yang salah di bawah menunjuk materi yang perlu dibaca ulang.'
+                  : 'Masih banyak yang salah. Baca pembahasannya, buka materi yang ditunjuk, lalu ulangi kuisnya.'}
           </p>
           {rekor !== null && <p className="catatan">Nilai terbaik Anda di perangkat ini: {rekor} / {jumlah}</p>}
         </div>

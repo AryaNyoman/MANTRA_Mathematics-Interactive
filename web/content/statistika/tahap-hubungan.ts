@@ -50,11 +50,11 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
         ],
         simpul: 'Angka buatan untuk latihan, bukan hasil penelitian sungguhan.',
       },
-      { jenis: 'paragraf', teks: 'Data berpasangan seperti ini disebut data bivariat. Cara membacanya bukan dengan menatap tabelnya, melainkan dengan menggambarnya: tiap pasangan jadi satu titik pada bidang koordinat.' },
+      { jenis: 'paragraf', teks: 'Data berpasangan seperti ini disebut data bivariat. Cara membacanya bukan dengan menatap tabelnya, tetapi dengan menggambarnya: tiap pasangan jadi satu titik pada bidang koordinat.' },
 
       { jenis: 'sesi', judul: 'Sumbu mana untuk yang mana' },
       { jenis: 'paragraf', teks: 'Kesepakatannya: yang dianggap penyebab, atau yang bisa kita atur, diletakkan di sumbu-x. Yang dianggap akibat, atau yang ingin kita ramalkan, diletakkan di sumbu-y.' },
-      { jenis: 'paragraf', teks: 'Di sini lama belajar ada di sumbu-x dan nilai ujian di sumbu-y, sebab kita ingin menebak nilai dari lama belajar, bukan sebaliknya. Menukar keduanya bukan cuma memutar gambar: garis yang nanti kita tarik di Materi 11 akan berbeda, dan tafsirannya juga berbeda.' },
+      { jenis: 'paragraf', teks: 'Di sini lama belajar ada di sumbu-x dan nilai ujian di sumbu-y, karena kita ingin menebak nilai dari lama belajar, bukan sebaliknya. Menukar keduanya bukan cuma memutar gambar: garis yang nanti kita tarik di Materi 11 akan berbeda, dan tafsirannya juga berbeda.' },
 
       { jenis: 'sesi', judul: 'Tiga hal yang dibaca dari sebaran titik' },
       {
@@ -82,7 +82,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
           'Lemah - polanya masih terasa, tetapi titiknya berpencar jauh dari pola itu.',
         ],
       },
-      { jenis: 'paragraf', teks: 'Pada data kita, arahnya naik, bentuknya mendekati lurus, dan titiknya cukup rapat. Perhatikan satu hal: kenaikannya tidak mulus. Siswa yang belajar 5 jam justru bernilai 63, lebih rendah daripada yang belajar 4 jam. Itu wajar, dan itulah sebabnya kita bicara kecenderungan, bukan aturan.' },
+      { jenis: 'paragraf', teks: 'Pada data kita, arahnya naik, bentuknya mendekati lurus, dan titiknya cukup rapat. Perhatikan satu hal: kenaikannya tidak mulus. Siswa yang belajar 5 jam malah bernilai 63, lebih rendah daripada yang belajar 4 jam. Itu wajar, dan itulah sebabnya kita bicara kecenderungan, bukan aturan.' },
 
       {
         jenis: 'coba',
@@ -96,7 +96,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       },
 
       { jenis: 'sesi', judul: 'Peringatan yang harus dibawa sejak sekarang' },
-      { jenis: 'paragraf', teks: 'Titik yang naik bersama-sama menunjukkan bahwa keduanya BERGERAK BERSAMA. Itu saja. Ia tidak membuktikan bahwa yang satu menyebabkan yang lain. Bahasan lengkapnya ada di Materi 12, dan itu bagian paling penting dari seluruh topik ini.' },
+      { jenis: 'paragraf', teks: 'Titik yang naik bersama-sama menunjukkan bahwa keduanya BERGERAK BERSAMA. Itu saja. Diagram pencar tidak membuktikan bahwa yang satu menyebabkan yang lain. Bahasan lengkapnya ada di Materi 12, dan itu bagian paling penting dari seluruh topik ini.' },
     ],
     seringKeliru: {
       judul: 'Menukar tempat x dan y saat meletakkan titik',
@@ -125,7 +125,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
       { jenis: 'paragraf', teks: 'Setiap orang bisa menarik garis di antara titik-titik tadi, dan tiap orang akan menarik garis yang sedikit berbeda. Supaya ada jawaban, kita butuh ukuran untuk membandingkan dua garis.' },
 
       { jenis: 'sesi', judul: 'Residu, sisa jarak yang tidak tertangkap garis' },
-      { jenis: 'paragraf', teks: 'Untuk sebuah titik, residu adalah selisih antara nilai sesungguhnya dan nilai yang diramalkan garis. Jaraknya diukur TEGAK, bukan tegak lurus terhadap garisnya, sebab yang ingin kita perkecil adalah kesalahan meramal nilai y.' },
+      { jenis: 'paragraf', teks: 'Untuk sebuah titik, residu adalah selisih antara nilai sesungguhnya dan nilai yang diramalkan garis. Jaraknya diukur TEGAK, bukan tegak lurus terhadap garisnya, karena yang ingin kita perkecil adalah kesalahan meramal nilai y.' },
       {
         jenis: 'poin',
         judul: 'Tanda residu',
@@ -135,7 +135,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
           'Titik yang tepat di garis punya residu nol.',
         ],
       },
-      { jenis: 'paragraf', teks: 'Seperti pada simpangan di Materi 08, residu tidak bisa langsung dijumlah, sebab yang positif dan yang negatif saling menghapus. Jadi residunya dikuadratkan dulu, lalu dijumlahkan.' },
+      { jenis: 'paragraf', teks: 'Seperti pada simpangan di Materi 08, residu tidak bisa langsung dijumlah, karena yang positif dan yang negatif saling menghapus. Jadi residunya dikuadratkan dulu, lalu dijumlahkan.' },
       { jenis: 'sorot', teks: 'Garis terbaik adalah garis yang membuat jumlah kuadrat residu sekecil mungkin. Itu yang disebut metode kuadrat terkecil, dan hanya ada satu garis yang memenuhinya.' },
 
       {
@@ -173,11 +173,11 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
         ],
         simpul: 'Jadi garis regresinya: y-topi = 49,2 + 3,2x',
       },
-      { jenis: 'paragraf', teks: 'Tanda topi di atas y itu penting. Ia menandakan bahwa yang dihasilkan garis adalah nilai RAMALAN, bukan nilai sungguhan. Siswa yang belajar 5 jam diramalkan bernilai 65,2 padahal nilai aslinya 63, dan selisih itu adalah residunya.' },
+      { jenis: 'paragraf', teks: 'Tanda topi di atas y itu penting. Topi itu menandakan bahwa yang dihasilkan garis adalah nilai RAMALAN, bukan nilai sungguhan. Siswa yang belajar 5 jam diramalkan bernilai 65,2 padahal nilai aslinya 63, dan selisih itu adalah residunya.' },
 
       { jenis: 'sesi', judul: 'Membaca gradien dalam bahasa manusia' },
-      { jenis: 'paragraf', teks: 'Angka 3,2 bukan sekadar kemiringan gambar. Ia punya arti: setiap tambahan satu jam belajar per minggu, nilai diramalkan naik sekitar 3,2 poin.' },
-      { jenis: 'paragraf', teks: 'Angka 49,2 adalah nilai ramalan saat x sama dengan nol. Hati-hati di sini: data kita paling sedikit 2 jam, tidak ada satu pun siswa yang belajar 0 jam. Jadi 49,2 bukan hasil pengamatan, melainkan hasil menarik garis ke daerah yang tidak ada datanya sama sekali.' },
+      { jenis: 'paragraf', teks: 'Angka 3,2 bukan cuma kemiringan gambar. Angka itu punya arti: setiap tambahan satu jam belajar per minggu, nilai diramalkan naik sekitar 3,2 poin.' },
+      { jenis: 'paragraf', teks: 'Angka 49,2 adalah nilai ramalan saat x sama dengan nol. Hati-hati di sini: data kita paling sedikit 2 jam, tidak ada satu pun siswa yang belajar 0 jam. Jadi 49,2 bukan hasil pengamatan, tetapi hasil menarik garis ke daerah yang tidak ada datanya sama sekali.' },
 
       { jenis: 'sesi', judul: 'Interpolasi aman, ekstrapolasi berbahaya' },
       {
@@ -190,7 +190,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
           'x = 40 jam (jauh di luar rentang data)',
           '   ramalan = 49,2 + 3,2 × 40 = 177,2, mustahil, nilai tertinggi 100',
         ],
-        simpul: 'Garisnya tidak tahu bahwa nilai ujian tidak bisa lebih dari 100. Ia cuma garis, dan ia akan terus naik selamanya kalau diminta.',
+        simpul: 'Garisnya tidak tahu bahwa nilai ujian tidak bisa lebih dari 100. Garis regresi cuma garis, dan garis itu akan terus naik selamanya kalau diminta.',
       },
       {
         jenis: 'poin',
@@ -239,14 +239,14 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
           'Tanda menunjukkan arah, besarnya menunjukkan kerapatan titik ke garis.',
         ],
       },
-      { jenis: 'paragraf', teks: 'Pada data jam belajar dan nilai tadi, r = 0,98. Itu sangat kuat, dan memang wajar sebab datanya buatan untuk latihan. Data dari dunia nyata jarang serapi itu.' },
+      { jenis: 'paragraf', teks: 'Pada data jam belajar dan nilai tadi, r = 0,98. Itu sangat kuat, dan memang wajar karena datanya buatan untuk latihan. Data dari dunia nyata jarang serapi itu.' },
 
       { jenis: 'sesi', judul: 'Koefisien determinasi' },
       { jenis: 'paragraf', teks: 'Kuadratkan r, dan hasilnya punya arti yang lebih langsung bisa dipakai. Pada data kita r² = 0,97, artinya sekitar 97 persen keragaman nilai bisa dijelaskan oleh garis yang memakai lama belajar.' },
-      { jenis: 'paragraf', teks: 'Sisa 3 persennya berasal dari hal lain yang tidak masuk hitungan: cara belajarnya, kondisi saat ujian, soal yang kebetulan cocok, dan banyak lagi. Angka ini berguna justru karena mengingatkan bahwa selalu ada bagian yang tidak dijelaskan.' },
+      { jenis: 'paragraf', teks: 'Sisa 3 persennya berasal dari hal lain yang tidak masuk hitungan: cara belajarnya, kondisi saat ujian, soal yang kebetulan cocok, dan banyak lagi. Angka ini berguna malah karena mengingatkan bahwa selalu ada bagian yang tidak dijelaskan.' },
 
       { jenis: 'sesi', judul: 'Angka saja tidak pernah cukup' },
-      { jenis: 'paragraf', teks: 'Ada jebakan besar pada r, dan jebakan ini sering dilupakan: r hanya mengukur kelurusan. Kalau hubungannya melengkung, r bisa nol padahal hubungannya justru sempurna.' },
+      { jenis: 'paragraf', teks: 'Ada jebakan besar pada r, dan jebakan ini sering dilupakan: r hanya mengukur kelurusan. Kalau hubungannya melengkung, r bisa nol padahal hubungannya malah sempurna.' },
       {
         jenis: 'contoh',
         judul: 'Hubungan sempurna dengan r nol',
@@ -279,12 +279,12 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
         judul: 'Empat kemungkinan di balik korelasi kuat',
         butir: [
           'A memang menyebabkan B.',
-          'Justru terbalik, B yang menyebabkan A. Contohnya: apakah belajar lama membuat nilai bagus, atau anak yang memang paham jadi betah belajar lama?',
+          'Malah terbalik, B yang menyebabkan A. Contohnya: apakah belajar lama membuat nilai bagus, atau anak yang memang paham jadi betah belajar lama?',
           'Ada faktor ketiga yang menyebabkan keduanya. Penjualan es krim dan jumlah orang tenggelam naik bersamaan, tetapi es krim tidak menenggelamkan siapa pun; yang menaikkan keduanya adalah cuaca panas. Ini ilustrasi yang biasa dipakai untuk menjelaskan, bukan hasil penelitian tertentu.',
           'Kebetulan belaka. Kalau cukup banyak pasangan data diperiksa, pasti ada yang kebetulan bergerak bersama tanpa hubungan apa pun.',
         ],
       },
-      { jenis: 'paragraf', teks: 'Membedakan keempatnya tidak bisa dilakukan dari diagram pencar. Ia butuh percobaan yang dirancang, atau setidaknya penalaran tentang bagaimana kedua hal itu mungkin saling berkaitan. Statistika bisa menunjukkan bahwa dua hal bergerak bersama; ia tidak bisa memberi tahu kenapa.' },
+      { jenis: 'paragraf', teks: 'Membedakan keempatnya tidak bisa dilakukan dari diagram pencar. Sebab-akibat butuh percobaan yang dirancang, atau setidaknya penalaran tentang bagaimana kedua hal itu mungkin saling berkaitan. Statistika bisa menunjukkan bahwa dua hal bergerak bersama; statistika tidak bisa memberi tahu kenapa.' },
       { jenis: 'sorot', teks: 'Kalimat yang aman: "keduanya berhubungan kuat". Kalimat yang butuh bukti jauh lebih banyak: "yang satu menyebabkan yang lain".' },
     ],
     seringKeliru: {
@@ -301,22 +301,22 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
   {
     no: 13,
     slug: 'grafik-menyesatkan',
-    judul: 'Grafik yang menyesatkan',
+    judul: 'Grafik yang memberi kesan keliru',
     labelPendek: 'Membaca kritis',
     pertanyaan: 'Semua angkanya benar. Kenapa kesimpulannya tetap salah?',
     intisari: [
-      'Grafik bisa menyesatkan tanpa satu pun angka yang salah.',
+      'Grafik bisa memberi kesan keliru tanpa satu pun angka yang salah.',
       'Cara paling sering: sumbu-y tidak dimulai dari nol, sehingga selisih kecil terlihat raksasa.',
-      'Pilihan lebar kelas, pilihan jenis rata-rata, dan gambar yang diperbesar dua arah juga bisa menyesatkan.',
+      'Pilihan lebar kelas, pilihan jenis rata-rata, dan gambar yang diperbesar dua arah juga bisa memberi kesan keliru.',
       'Tiga pertanyaan wajib pada setiap grafik: sumbunya mulai dari berapa, datanya dari mana, dan apa yang tidak ditampilkan.',
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Sebelas materi sebelumnya membangun alat untuk MEMBUAT ringkasan data. Materi terakhir ini membalik posisinya: sekarang Anda pembacanya, dan yang membuat grafiknya orang lain yang mungkin punya kepentingan.' },
-      { jenis: 'sorot', teks: 'Grafik yang menyesatkan biasanya tidak berisi angka palsu. Justru itu yang membuatnya berbahaya: semuanya bisa diperiksa dan semuanya benar.' },
+      { jenis: 'sorot', teks: 'Grafik yang memberi kesan keliru biasanya tidak berisi angka palsu. Malah itu yang membuatnya berbahaya: semuanya bisa diperiksa dan semuanya benar.' },
 
       { jenis: 'sesi', judul: 'Cara 1, sumbu-y yang dipotong' },
       { jenis: 'paragraf', teks: 'Perpustakaan sekolah mencatat pengunjung selama lima bulan: 412, 418, 425, 421, dan 430 orang. Selisih terbesarnya 18 orang dari rata-rata sekitar 421, jadi sebenarnya cukup datar.' },
-      { jenis: 'paragraf', teks: 'Gambar grafiknya dengan sumbu-y mulai dari nol, dan garisnya nyaris rata. Sekarang gambar lagi dengan sumbu-y mulai dari 410. Grafik yang sama persis berubah jadi lonjakan tajam yang terlihat seperti keberhasilan besar.' },
+      { jenis: 'paragraf', teks: 'Gambar grafiknya dengan sumbu-y mulai dari nol, dan garisnya hampir rata. Sekarang gambar lagi dengan sumbu-y mulai dari 410. Grafik yang sama persis berubah jadi lonjakan tajam yang terlihat seperti keberhasilan besar.' },
       {
         jenis: 'coba',
         teks: 'Alat interaktifnya menampilkan kedua versi berdampingan.',
@@ -327,7 +327,7 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
           'Grafik mana yang menurut Anda lebih jujur, dan kapan memotong sumbu masih bisa dibenarkan?',
         ],
       },
-      { jenis: 'paragraf', teks: 'Memotong sumbu tidak selalu curang. Untuk data seperti suhu tubuh, mulai dari nol justru membuang seluruh informasinya. Yang membedakan curang dan tidak adalah apakah pemotongan itu DIBERITAHUKAN dengan jelas, atau disembunyikan supaya pembaca salah menduga.' },
+      { jenis: 'paragraf', teks: 'Memotong sumbu tidak selalu curang. Untuk data seperti suhu tubuh, mulai dari nol malah membuang seluruh informasinya. Yang membedakan curang dan tidak adalah apakah pemotongan itu DIBERITAHUKAN dengan jelas, atau disembunyikan supaya pembaca salah menduga.' },
 
       { jenis: 'sesi', judul: 'Cara 2, lebar kelas yang dipilih-pilih' },
       { jenis: 'paragraf', teks: 'Kita sudah melihatnya sendiri di Materi 03: data yang sama bisa jadi beberapa histogram yang berbeda bentuk. Orang yang ingin menunjukkan "tidak ada masalah" tinggal memilih lebar kelas yang membuat tumpukan mencurigakan itu larut ke dalam kelas yang besar.' },
@@ -348,14 +348,14 @@ export const TAHAP_HUBUNGAN: TahapStatistika[] = [
         butir: [
           'Sumbunya mulai dari berapa? Kalau tidak dari nol, apakah itu diberitahukan?',
           'Datanya dari mana, siapa yang mengumpulkan, dan dari berapa banyak? Perbandingan tanpa jumlah tidak bisa dinilai, seperti di Materi 04.',
-          'Apa yang TIDAK ditampilkan? Bulan yang dilewati, kelompok yang tidak masuk, dan rentang waktu yang dipotong biasanya bukan kebetulan.',
+          'Apa yang TIDAK ditampilkan? Bulan yang dilewati, kelompok yang tidak masuk, dan rentang waktu yang dipotong biasanya disengaja.',
         ],
       },
-      { jenis: 'paragraf', teks: 'Ketiga pertanyaan itu tidak menuntut hitungan apa pun. Ia cuma menuntut kebiasaan untuk berhenti sebentar sebelum menyimpulkan, dan kebiasaan itu jauh lebih berguna daripada rumus mana pun di topik ini.' },
+      { jenis: 'paragraf', teks: 'Ketiga pertanyaan itu tidak menuntut hitungan apa pun. Materi ini cuma menuntut kebiasaan untuk berhenti sebentar sebelum menyimpulkan, dan kebiasaan itu jauh lebih berguna daripada rumus mana pun di topik ini.' },
     ],
     seringKeliru: {
-      judul: 'Grafik yang datanya benar tidak mungkin menipu',
-      isi: 'Justru grafik yang paling menyesatkan hampir selalu berisi data yang benar. Yang menyesatkan bukan angkanya, melainkan pilihan cara menampilkannya: dari mana sumbu dimulai, selebar apa kelasnya, rata-rata jenis mana yang disebut, dan bagian mana yang tidak ikut ditampilkan. Menyalahkan angka adalah cara yang salah untuk memeriksa grafik. Periksalah pilihannya.',
+      judul: 'Dikira grafik yang datanya benar pasti memberi kesan yang benar',
+      isi: 'Malah grafik yang kesannya paling keliru hampir selalu berisi data yang benar. Yang membuat kesannya keliru bukan angkanya, tetapi pilihan cara menampilkannya: dari mana sumbu dimulai, selebar apa kelasnya, rata-rata jenis mana yang disebut, dan bagian mana yang tidak ikut ditampilkan. Menyalahkan angka adalah cara yang salah untuk memeriksa grafik. Periksalah pilihannya.',
     },
     widget: 'sumbu-jujur',
     video: { berkas: 'statistika13-menyesatkan.mp4', poster: 'statistika13-menyesatkan.jpg' },

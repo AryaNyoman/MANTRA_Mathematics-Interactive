@@ -36,10 +36,10 @@ Hasilnya? Nol koma tujuh lima. Sama persis.
 Nah, di sinilah banyak orang salah paham. Waktu kita menekan tombol tangen di kalkulator,
 kita sering mengira jawabannya itu angka mati yang sudah dihafal mesin.
 Padahal bukan. Yang kita hitung itu perbandingan. Sisi depan dibagi sisi samping.
-Dan justru karena ia perbandingan, ukurannya tidak penting.
+Dan malah karena nilainya perbandingan, ukurannya tidak penting.
 Mau segitiganya sebesar buku tulis atau sebesar lapangan bola, selama sudutnya sama,
 hasil baginya tetap sama.
-Itulah sebabnya kalkulator sanggup menjawab, walaupun ia tidak pernah tahu
+Itulah sebabnya kalkulator sanggup menjawab, walaupun kalkulator tidak pernah tahu
 segitiga mana yang sedang kamu maksud.
 `.trim()
 
@@ -100,14 +100,14 @@ export const LATIHAN: Soal[] = [
       'Tangen memakai sisi depan dibagi sisi SAMPING, bukan dibagi sisi miring.',
       'Terhadap sudut A: sisi depan = BC, sisi samping = AB, sisi miring = AC.',
       'Yang benar: tan 30° = BC/AB = 5/AB.',
-      'Kalau memang AC yang ingin dipakai, perbandingannya bukan tangen melainkan sinus: sin 30° = BC/AC = 5/AC.',
+      'Kalau memang AC yang ingin dipakai, perbandingannya bukan tangen tetapi sinus: sin 30° = BC/AC = 5/AC.',
     ],
     jawaban: 'AC adalah sisi miring; seharusnya tan 30° = BC/AB',
     pilihan: [
       'Tidak ada kesalahan, penulisannya sudah benar',
       'Kesalahannya pada nilai 30°, seharusnya 60°',
       'AC adalah sisi miring; seharusnya tan 30° = BC/AB',
-      'BC bukan sisi depan sudut A, melainkan sisi samping',
+      'BC bukan sisi depan sudut A, tetapi sisi samping',
       'Seharusnya memakai sin, bukan tan',
     ],
     benar: 2,

@@ -62,7 +62,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
         simpul: 'Untuk data ganjil langkahnya lebih pendek: mediannya satu nilai, yaitu yang tepat di tengah.',
       },
 
-      { jenis: 'sesi', judul: 'Mean, dan kenapa ia disebut titik seimbang' },
+      { jenis: 'sesi', judul: 'Mean, dan kenapa mean disebut titik seimbang' },
       { jenis: 'paragraf', teks: 'Mean, atau rata-rata, adalah jumlah seluruh data dibagi banyaknya data.' },
       {
         jenis: 'contoh',
@@ -88,16 +88,16 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
           'jumlah simpangan positif = +6',
           'totalnya = 0',
         ],
-        simpul: 'Ini bukan kebetulan pada contoh ini saja. Untuk data apa pun, jumlah simpangan terhadap mean selalu tepat nol. Itulah arti "titik seimbang".',
+        simpul: 'Ini berlaku bukan pada contoh ini saja. Untuk data apa pun, jumlah simpangan terhadap mean selalu tepat nol. Itulah arti "titik seimbang".',
       },
-      { jenis: 'paragraf', teks: 'Sifat ini akan kita pakai lagi di Materi 08. Ia sekaligus menjelaskan kenapa simpangan baku harus dikuadratkan dulu: kalau simpangannya dijumlah apa adanya, hasilnya selalu nol, dan ukuran yang selalu nol tidak mengukur apa-apa.' },
+      { jenis: 'paragraf', teks: 'Sifat ini akan kita pakai lagi di Materi 08. Sifat ini sekaligus menjelaskan kenapa simpangan baku harus dikuadratkan dulu: kalau simpangannya dijumlah apa adanya, hasilnya selalu nol, dan ukuran yang selalu nol tidak mengukur apa-apa.' },
 
       {
         jenis: 'coba',
         teks: 'Alat interaktifnya menaruh data di atas papan jungkat-jungkit. Penopangnya adalah mean, median ditandai garis di bawah papan, dan modus terbaca dari tumpukan titik yang paling tinggi.',
         langkah: [
           'Seret satu titik ke kanan. Apa yang terjadi pada penopang papan, yaitu mean?',
-          'Perhatikan garis median di bawah papan. Apakah ia ikut bergeser?',
+          'Perhatikan garis median di bawah papan. Apakah garis itu ikut bergeser?',
           'Coba pindahkan penopangnya sendiri ke tempat lain. Apa yang terjadi pada papannya?',
           'Di posisi mana papan itu seimbang? Apa hubungannya dengan mean?',
         ],
@@ -109,7 +109,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
         judul: 'Pegangan singkat',
         butir: [
           'Data kategori - hanya modus yang bisa dipakai.',
-          'Data angka yang setangkup dan tanpa pencilan - mean paling banyak memberi informasi, sebab ia memakai semua data.',
+          'Data angka yang setangkup dan tanpa pencilan - mean paling banyak memberi informasi, karena mean memakai semua data.',
           'Data yang miring atau punya pencilan, misalnya gaji dan harga rumah - median lebih jujur mewakili "orang kebanyakan".',
         ],
       },
@@ -117,7 +117,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
     ],
     seringKeliru: {
       judul: 'Median itu angka yang ada di tengah daftar',
-      isi: 'Hanya benar kalau daftarnya sudah terurut. Pada data 8, 3, 5, angka yang tertulis di tengah adalah 3, tetapi mediannya 5, sebab setelah diurutkan datanya menjadi 3, 5, 8. Melewatkan langkah mengurutkan adalah kesalahan yang paling sering terjadi pada soal median, dan paling sederhana dihindari: urutkan dulu.',
+      isi: 'Hanya benar kalau daftarnya sudah terurut. Pada data 8, 3, 5, angka yang tertulis di tengah adalah 3, tetapi mediannya 5, karena setelah diurutkan datanya menjadi 3, 5, 8. Melewatkan langkah mengurutkan adalah kesalahan yang paling sering terjadi pada soal median, dan paling sederhana dihindari: urutkan dulu.',
     },
     widget: 'tiga-ukuran',
     video: { berkas: 'statistika5-pemusatan.mp4', poster: 'statistika5-pemusatan.jpg' },
@@ -155,7 +155,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       { jenis: 'paragraf', teks: 'Bandingkan dengan kantor yang sama tanpa direkturnya. Sembilan karyawan itu saja punya mean 5,24 juta dan median 5 juta. Kedua angka itu berdekatan, dan keduanya masuk akal sebagai gambaran.' },
 
       { jenis: 'sesi', judul: 'Kenapa mean tertarik tetapi median tidak' },
-      { jenis: 'paragraf', teks: 'Di Materi 05 kita membuktikan mean adalah titik seimbang: jumlah simpangan ke kirinya sama besar dengan jumlah simpangan ke kanannya. Sifat itu juga yang membuatnya bisa diseret. Mean memakai NILAI setiap data. Satu data yang nilainya raksasa ikut masuk ke dalam penjumlahan dengan bobot penuh, jadi ia menyeret hasilnya.' },
+      { jenis: 'paragraf', teks: 'Di Materi 05 kita membuktikan mean adalah titik seimbang: jumlah simpangan ke kirinya sama besar dengan jumlah simpangan ke kanannya. Sifat itu juga yang membuatnya bisa diseret. Mean memakai NILAI setiap data. Satu data yang nilainya raksasa ikut masuk ke dalam penjumlahan dengan bobot penuh, jadi data itu menyeret hasilnya.' },
       { jenis: 'paragraf', teks: 'Median hanya memakai POSISI. Bagi median, gaji direktur itu cuma "satu data yang ada di paling kanan". Mau 75 juta atau 750 juta, posisinya tetap sama, dan mediannya tidak berubah sedikit pun.' },
       {
         jenis: 'coba',
@@ -176,14 +176,14 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
         butir: [
           'Salah catat - misalnya tinggi badan tertulis 1670 cm. Ini memang pantas diperbaiki atau dibuang, dan pembuangannya wajib disebutkan.',
           'Kejadian yang jarang tetapi nyata - gaji direktur benar segitu. Membuangnya berarti berbohong tentang kantor itu.',
-          'Justru yang paling penting - satu pasien yang sembuh padahal obatnya sama, satu sekolah yang nilainya melonjak. Dalam banyak penelitian, pencilan adalah temuannya, bukan gangguannya.',
+          'Malah yang paling penting - satu pasien yang sembuh padahal obatnya sama, satu sekolah yang nilainya melonjak. Dalam banyak penelitian, pencilan adalah temuannya, bukan gangguannya.',
         ],
       },
       { jenis: 'paragraf', teks: 'Karena itu urutan yang benar adalah: temukan pencilannya, periksa dari mana asalnya, baru putuskan. Cara menemukannya dengan hitungan, bukan dengan perasaan, ada di materi berikutnya lewat pagar 1,5 kali jangkauan antar kuartil. Untuk data gaji tadi, pagar itu ada di 7,8 juta, dan gaji 75 juta jatuh jauh di luarnya.' },
     ],
     seringKeliru: {
       judul: 'Data yang jauh sendiri itu pasti salah catat, hapus saja',
-      isi: 'Menghapus data karena ia mengganggu adalah cara paling cepat membuat kesimpulan yang salah, dan sulit dilacak orang lain. Pencilan diperiksa asal-usulnya lebih dulu. Kalau ternyata memang nyata, ia tetap tinggal, dan yang berubah bukan datanya melainkan ukuran yang dipakai: gunakan median, bukan mean.',
+      isi: 'Menghapus data karena mengganggu adalah cara paling cepat membuat kesimpulan yang salah, dan sulit dilacak orang lain. Pencilan diperiksa asal-usulnya lebih dulu. Kalau ternyata memang nyata, data itu tetap tinggal, dan yang berubah bukan datanya tetapi ukuran yang dipakai: gunakan median, bukan mean.',
       sumber: 'Pokok materi "Penggunaan Ukuran Pemusatan" dengan kosakata "Pencilan" ada di Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, halaman 206.',
     },
     widget: 'tarik-pencilan',
@@ -202,11 +202,11 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       'Kuartil membelah data terurut menjadi empat bagian yang sama banyak.',
       'Ringkasan lima angka: minimum, Q1, median, Q3, maksimum.',
       'Jangkauan antar kuartil (JAK) = Q3 - Q1, yaitu lebar setengah data yang di tengah.',
-      'JAK kebal terhadap pencilan, sedangkan jangkauan biasa langsung ikut tertipu olehnya.',
+      'JAK kebal terhadap pencilan, sedangkan jangkauan biasa langsung ikut terpengaruh olehnya.',
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Lima belas siswa mencatat berapa menit waktu tempuh mereka ke sekolah. Setelah diurutkan: 5, 7, 8, 10, 10, 12, 15, 15, 18, 20, 22, 25, 30, 35, 60.' },
-      { jenis: 'paragraf', teks: 'Median sudah kita kenal: ia membelah data menjadi dua bagian sama banyak. Kuartil melanjutkan gagasan itu, tetapi membelahnya menjadi empat.' },
+      { jenis: 'paragraf', teks: 'Median sudah kita kenal: median membelah data menjadi dua bagian sama banyak. Kuartil melanjutkan gagasan itu, tetapi membelahnya menjadi empat.' },
 
       { jenis: 'sesi', judul: 'Menemukan ketiga kuartil' },
       {
@@ -245,7 +245,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       },
 
       { jenis: 'sesi', judul: 'JAK, dan cara menemukan pencilan dengan hitungan' },
-      { jenis: 'paragraf', teks: 'Jangkauan antar kuartil adalah JAK = Q₃ − Q₁. Pada data kita, JAK = 25 - 10 = 15 menit. Ia mengukur lebar setengah data yang di tengah, jadi ia sama sekali tidak peduli pada nilai terjauh.' },
+      { jenis: 'paragraf', teks: 'Jangkauan antar kuartil adalah JAK = Q₃ − Q₁. Pada data kita, JAK = 25 - 10 = 15 menit. JAK mengukur lebar setengah data yang di tengah, jadi JAK sama sekali tidak peduli pada nilai terjauh.' },
       { jenis: 'paragraf', teks: 'Bandingkan dengan jangkauan biasa, yang di sini 60 - 5 = 55 menit. Angka 55 itu sepenuhnya ditentukan oleh dua orang saja, yaitu yang paling dekat dan yang paling jauh rumahnya.' },
       {
         jenis: 'contoh',
@@ -259,7 +259,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
           '',
           'data di luar pagar: 60',
         ],
-        simpul: 'Jadi waktu tempuh 60 menit ditandai sebagai pencilan, dan itu keputusan hitungan, bukan perasaan. Ia belum tentu salah, mungkin memang ada siswa yang rumahnya jauh sekali.',
+        simpul: 'Jadi waktu tempuh 60 menit ditandai sebagai pencilan, dan itu keputusan hitungan, bukan perasaan. Nilai itu belum tentu salah, mungkin memang ada siswa yang rumahnya jauh sekali.',
       },
       {
         jenis: 'coba',
@@ -274,7 +274,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
     ],
     seringKeliru: {
       judul: 'Kotak yang lebih lebar berarti datanya lebih banyak',
-      isi: 'Godaannya datang dari histogram. Di sana batang yang lebih besar memang berarti data yang lebih banyak, dan mata membawa kebiasaan itu ke boxplot. Padahal setiap bagian dari boxplot selalu berisi tepat seperempat data, berapa pun lebarnya. Kotak yang lebar berarti seperempat sampai setengah data yang di tengah itu tersebar di rentang yang luas, bukan berarti jumlah datanya lebih banyak. Boxplot memang tidak menampilkan banyak data sama sekali, dan itu kelemahannya: dua boxplot yang identik bisa berasal dari 10 data dan dari 10.000 data.',
+      isi: 'Kesan itu datang dari histogram. Di sana batang yang lebih besar memang berarti data yang lebih banyak, dan mata membawa kebiasaan itu ke boxplot. Padahal setiap bagian dari boxplot selalu berisi tepat seperempat data, berapa pun lebarnya. Kotak yang lebar berarti seperempat sampai setengah data yang di tengah itu tersebar di rentang yang luas, bukan berarti jumlah datanya lebih banyak. Boxplot memang tidak menampilkan banyak data sama sekali, dan itu kelemahannya: dua boxplot yang identik bisa berasal dari 10 data dan dari 10.000 data.',
       sumber: 'Cara menentukan kuartil mengikuti Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, halaman 227 sampai 228.',
     },
     widget: 'kotak-garis',
@@ -291,7 +291,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
     pertanyaan: 'Dua mesin isi ulang sama-sama rata-rata 500 ml. Kenapa yang satu tetap ditolak pabrik?',
     intisari: [
       'Simpangan baku mengukur seberapa jauh data biasanya menyimpang dari mean.',
-      'Simpangan tidak bisa langsung dijumlah, sebab jumlahnya selalu nol.',
+      'Simpangan tidak bisa langsung dijumlah, karena jumlahnya selalu nol.',
       'Karena itu simpangan dikuadratkan dulu, dirata-ratakan (itu varian), lalu diakarkan.',
       'Diakarkan supaya satuannya kembali sama dengan satuan data aslinya.',
     ],
@@ -328,11 +328,11 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
           'Mesin A    -2 + (-1) + 0 + 1 + 2 = 0',
           'Mesin B   -10 + (-5) + 0 + 5 + 10 = 0',
         ],
-        simpul: 'Keduanya nol. Bukan kebetulan: seperti di Materi 05, jumlah simpangan terhadap mean SELALU nol, untuk data apa pun. Ukuran yang selalu nol tidak mengukur apa-apa.',
+        simpul: 'Keduanya nol. Memang selalu begitu: seperti di Materi 05, jumlah simpangan terhadap mean SELALU nol, untuk data apa pun. Ukuran yang selalu nol tidak mengukur apa-apa.',
       },
 
       { jenis: 'sesi', judul: 'Langkah 3, kuadratkan supaya tidak saling menghapus' },
-      { jenis: 'paragraf', teks: 'Yang membuat jumlahnya nol adalah tanda minus. Jadi tanda itu harus dihilangkan. Caranya dikuadratkan, sebab bilangan negatif dikuadratkan menjadi positif.' },
+      { jenis: 'paragraf', teks: 'Yang membuat jumlahnya nol adalah tanda minus. Jadi tanda itu harus dihilangkan. Caranya dikuadratkan, karena bilangan negatif dikuadratkan menjadi positif.' },
       {
         jenis: 'contoh',
         judul: 'Kuadrat simpangan, lalu dirata-ratakan',
@@ -340,7 +340,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
           'Mesin A    4 + 1 + 0 + 1 + 4 = 10        varian = 10 : 5 = 2',
           'Mesin B    100 + 25 + 0 + 25 + 100 = 250  varian = 250 : 5 = 50',
         ],
-        simpul: 'Angka ini disebut varian. Ia sudah berhasil membedakan kedua mesin: 2 lawan 50.',
+        simpul: 'Angka ini disebut varian. Varian sudah berhasil membedakan kedua mesin: 2 lawan 50.',
       },
       { jenis: 'paragraf', teks: 'Kuadrat itu bisa dibayangkan sebagai luas persegi yang sisinya sepanjang simpangan. Alat interaktifnya menggambarnya persis seperti itu, jadi varian adalah rata-rata luas persegi tersebut.' },
 
@@ -371,7 +371,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
     ],
     seringKeliru: {
       judul: 'Simpangan baku besar berarti nilainya jelek',
-      isi: 'Simpangan baku tidak tahu apa-apa tentang bagus atau jelek. Ia cuma mengukur lebar sebaran. Kelas dengan rata-rata 90 dan simpangan baku besar berarti ada yang sangat tinggi dan ada yang tertinggal, bukan berarti kelasnya buruk. Dan untuk beberapa hal, sebaran lebar justru bagus: kalau yang diukur adalah keragaman jawaban dalam sebuah diskusi, simpangan baku nol berarti semua orang menjawab persis sama.',
+      isi: 'Simpangan baku tidak tahu apa-apa tentang bagus atau jelek. Simpangan baku cuma mengukur lebar sebaran. Kelas dengan rata-rata 90 dan simpangan baku besar berarti ada yang sangat tinggi dan ada yang tertinggal, bukan berarti kelasnya buruk. Dan untuk beberapa hal, sebaran lebar malah bagus: kalau yang diukur adalah keragaman jawaban dalam sebuah diskusi, simpangan baku nol berarti semua orang menjawab persis sama.',
       sumber: 'Urutan varian lalu simpangan baku mengikuti Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, subbab E halaman 207.',
     },
     widget: 'jarak-ke-rata',
@@ -393,7 +393,7 @@ export const TAHAP_PEMUSATAN: TahapStatistika[] = [
       'Modus dicari lewat kesebangunan di dalam batang tertinggi.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Data yang sampai ke tangan kita sering sudah berupa tabel, bukan daftar angka. Laporan sekolah, data pemerintah, dan hasil sensus hampir selalu begitu, sebab menampilkan ribuan angka satu per satu tidak ada gunanya.' },
+      { jenis: 'paragraf', teks: 'Data yang sampai ke tangan kita sering sudah berupa tabel, bukan daftar angka. Laporan sekolah, data pemerintah, dan hasil sensus hampir selalu begitu, karena menampilkan ribuan angka satu per satu tidak ada gunanya.' },
       {
         jenis: 'contoh',
         judul: 'Nilai ujian 40 siswa',

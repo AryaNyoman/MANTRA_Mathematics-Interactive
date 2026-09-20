@@ -59,11 +59,11 @@ export const TAHAP: TahapGrafik[] = [
   {
     no: 1,
     slug: 'grafik-bercerita',
-    judul: 'Grafik itu bercerita',
+    judul: 'Membaca grafik seperti membaca cerita',
     labelPendek: 'Membaca',
     pertanyaan: 'Apa yang sebenarnya diceritakan sebuah grafik?',
     intisari: [
-      'Grafik adalah cerita tentang bagaimana satu hal berubah mengikuti hal lain.',
+      'Grafik menunjukkan bagaimana satu hal berubah mengikuti hal lain.',
       'Yang dibaca orang: naik atau turun, seberapa curam, di mana tertinggi dan terendah.',
       'Sumbu-x dan sumbu-y bukan peta. Grafik yang menanjak belum tentu benda yang mendaki.',
       'Membaca grafik bisa dilakukan sebelum tahu satu pun rumusnya.',
@@ -113,12 +113,12 @@ export const TAHAP: TahapGrafik[] = [
 
       { jenis: 'sesi', judul: 'Satu hal yang harus diluruskan sekarang juga' },
       { jenis: 'paragraf', teks: 'Grafik tadi menanjak di menit 3 sampai 6. Menanjak di sini BUKAN berarti jalanannya menanjak. Sumbu-y berisi jarak dari rumah, bukan ketinggian tanah. Yang naik adalah angkanya, bukan Ayu.' },
-      { jenis: 'paragraf', teks: 'Kekeliruan ini terdengar sepele, tapi ia terbawa terus. Nanti saat melihat grafik keuntungan perusahaan yang menurun, orang yang sama akan membayangkan sesuatu yang meluncur ke bawah, padahal yang terjadi adalah angkanya mengecil.' },
+      { jenis: 'paragraf', teks: 'Kekeliruan ini terdengar sepele, tapi kekeliruan itu terbawa terus. Nanti saat melihat grafik keuntungan perusahaan yang menurun, orang yang sama akan membayangkan sesuatu yang meluncur ke bawah, padahal yang terjadi adalah angkanya mengecil.' },
       { jenis: 'sorot', teks: 'Selalu baca dulu: sumbu-x berisi apa, dan sumbu-y berisi apa. Tanpa itu, grafik yang sama bisa diceritakan dengan dua cara yang bertentangan.' },
     ],
     seringKeliru: {
       judul: 'Grafik yang naik berarti bendanya naik ke atas',
-      isi: 'Godaannya kuat karena kata naik memang berarti bergerak ke atas di dunia nyata, dan mata langsung membacanya begitu. Padahal yang naik adalah nilai pada sumbu-y, dan isinya belum tentu ketinggian. Pada grafik perjalanan Ayu, sumbu-y berisi jarak dari rumah. Garis yang menanjak berarti Ayu makin jauh dari rumah, bukan Ayu sedang mendaki. Kalau sumbu-y diganti menjadi ketinggian tanah, gambar yang sama akan bercerita hal yang berbeda.',
+      isi: 'Terasa benar karena kata naik memang berarti bergerak ke atas di dunia nyata, dan mata langsung membacanya begitu. Padahal yang naik adalah nilai pada sumbu-y, dan isinya belum tentu ketinggian. Pada grafik perjalanan Ayu, sumbu-y berisi jarak dari rumah. Garis yang menanjak berarti Ayu makin jauh dari rumah, bukan Ayu sedang mendaki. Kalau sumbu-y diganti menjadi ketinggian tanah, gambar yang sama akan menunjukkan hal yang berbeda.',
     },
     widget: 'pembaca-grafik',
     siap: true,
@@ -154,10 +154,10 @@ export const TAHAP: TahapGrafik[] = [
         simpul: 'Kelima titik itu diplot, lalu titik-titik lain di antaranya ikut dihitung. Yang terbentuk adalah garis lurus.',
       },
       { jenis: 'sorot', teks: 'Grafik bukan bentuk yang harus dihafal. Grafik adalah jejak dari menjalankan aturannya berkali-kali.' },
-      { jenis: 'paragraf', teks: 'Kalimat itu terdengar biasa, tapi ia yang membedakan siswa yang menghafal dari siswa yang mengerti. Kalau grafik adalah jejak sebuah aturan, maka mengubah aturannya sedikit akan mengubah jejaknya dengan cara yang bisa ditebak. Seluruh sisa topik ini berdiri di atas kalimat itu.' },
+      { jenis: 'paragraf', teks: 'Kalimat itu terdengar biasa, tapi kalimat itulah yang membedakan siswa yang menghafal dari siswa yang mengerti. Kalau grafik adalah jejak sebuah aturan, maka mengubah aturannya sedikit akan mengubah jejaknya dengan cara yang bisa ditebak. Seluruh sisa topik ini berdiri di atas kalimat itu.' },
 
       { jenis: 'sesi', judul: 'Satu masukan, satu keluaran. Tidak boleh lebih' },
-      { jenis: 'paragraf', teks: 'Ada satu syarat yang membuat sebuah mesin layak disebut fungsi: satu masukan hanya boleh menghasilkan satu keluaran. Mesin yang kadang mengeluarkan 3 dan kadang mengeluarkan -3 untuk masukan yang sama bukan fungsi, ia mesin rusak.' },
+      { jenis: 'paragraf', teks: 'Ada satu syarat yang membuat sebuah mesin layak disebut fungsi: satu masukan hanya boleh menghasilkan satu keluaran. Mesin yang kadang mengeluarkan 3 dan kadang mengeluarkan -3 untuk masukan yang sama bukan fungsi, tetapi mesin rusak.' },
       { jenis: 'paragraf', teks: 'Sekarang lihat akibatnya pada gambar. Semua titik dengan nilai x yang sama berjajar pada satu garis tegak. Jadi kalau ada garis tegak yang memotong gambarnya di dua tempat, berarti ada satu x dengan dua y sekaligus.' },
       { jenis: 'sorot', teks: 'Uji garis tegak: geser sebuah garis tegak menyusuri gambarnya. Kalau ada satu saja posisi yang memotong lebih dari sekali, gambar itu bukan grafik fungsi.' },
       {
@@ -195,7 +195,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     seringKeliru: {
       judul: 'Lingkaran itu fungsi karena rumusnya ada',
-      isi: 'Punya rumus bukan syaratnya. Syaratnya satu masukan menghasilkan satu keluaran. Pada lingkaran x² + y² = 25, masukan x = 3 menghasilkan y = 4 dan y = -4 sekaligus, jadi ia gagal. Yang benar: lingkaran adalah kurva yang bagus dan berguna, tetapi ia bukan grafik fungsi. Kalau dipotong jadi setengah lingkaran atas saja, barulah ia menjadi fungsi.',
+      isi: 'Punya rumus bukan syaratnya. Syaratnya satu masukan menghasilkan satu keluaran. Pada lingkaran x² + y² = 25, masukan x = 3 menghasilkan y = 4 dan y = -4 sekaligus, jadi lingkaran gagal. Yang benar: lingkaran adalah kurva yang bagus dan berguna, tetapi lingkaran bukan grafik fungsi. Kalau dipotong jadi setengah lingkaran atas saja, barulah potongan itu menjadi fungsi.',
     },
     widget: 'uji-garis-tegak',
     siap: true,
@@ -222,7 +222,7 @@ export const TAHAP: TahapGrafik[] = [
 
       { jenis: 'sesi', judul: 'Kenapa puncaknya tepat di (h, k)' },
       { jenis: 'paragraf', teks: 'Perhatikan bagian (x - h)². Apa pun isinya, dikuadratkan pasti nol atau positif. Jadi bagian itu tidak pernah negatif, dan nilai terkecilnya adalah nol.' },
-      { jenis: 'paragraf', teks: 'Kapan ia nol? Hanya saat x = h. Di situlah kurungnya kosong, dan yang tersisa cuma k. Jadi kalau a positif, titik itulah yang paling rendah.' },
+      { jenis: 'paragraf', teks: 'Kapan isi kurungnya nol? Hanya saat x = h. Di situlah kurungnya kosong, dan yang tersisa cuma k. Jadi kalau a positif, titik itulah yang paling rendah.' },
       {
         jenis: 'contoh',
         judul: 'Coba pada y = 2(x - 3)² - 5',
@@ -249,7 +249,7 @@ export const TAHAP: TahapGrafik[] = [
           'a nol - bukan parabola lagi. Suku x² hilang dan yang tersisa garis lurus',
         ],
       },
-      { jenis: 'paragraf', teks: 'Peran a ini bukan hafalan yang dikarang. Buku Kelas 10 justru membuat siswa menemukannya sendiri: sepuluh grafik digambar, lalu dikelompokkan mana yang terbuka ke atas dan mana yang ke bawah, sampai kesimpulannya muncul dari pengamatan.' },
+      { jenis: 'paragraf', teks: 'Peran a ini bukan hafalan yang dikarang. Buku Kelas 10 malah membuat siswa menemukannya sendiri: sepuluh grafik digambar, lalu dikelompokkan mana yang terbuka ke atas dan mana yang ke bawah, sampai kesimpulannya muncul dari pengamatan.' },
 
       {
         jenis: 'coba',
@@ -272,14 +272,14 @@ export const TAHAP: TahapGrafik[] = [
           'Titik terendah terjadi saat isi kurungnya nol',
           'Isi kurungnya x - 3, dan itu nol saat x bernilai 3',
           'Jadi titik terendahnya pindah ke x = 3, yaitu ke kanan',
-          'Kalau kurungnya x + 3, ia nol saat x bernilai -3, jadi pindahnya ke kiri',
+          'Kalau kurungnya x + 3, isinya nol saat x bernilai -3, jadi pindahnya ke kiri',
         ],
       },
-      { jenis: 'sorot', teks: 'Bukan tandanya yang dibaca, melainkan angka yang membuat kurungnya kosong.' },
+      { jenis: 'sorot', teks: 'Bukan tandanya yang dibaca, tetapi angka yang membuat kurungnya kosong.' },
     ],
     seringKeliru: {
       judul: 'Tanda minus di dalam kurung berarti geser ke kiri',
-      isi: 'Justru ke kanan. Yang menentukan letak puncak bukan tanda yang tertulis, melainkan nilai x yang membuat isi kurungnya menjadi nol. Pada (x - 3)², isi kurungnya nol saat x = 3, jadi puncaknya di kanan. Pada (x + 3)², isi kurungnya nol saat x = -3, jadi puncaknya di kiri. Aturan ini akan muncul lagi di materi 06 dalam bentuk yang lebih umum, dan berlaku untuk semua fungsi, bukan cuma parabola.',
+      isi: 'Malah ke kanan. Yang menentukan letak puncak bukan tanda yang tertulis, tetapi nilai x yang membuat isi kurungnya menjadi nol. Pada (x - 3)², isi kurungnya nol saat x = 3, jadi puncaknya di kanan. Pada (x + 3)², isi kurungnya nol saat x = -3, jadi puncaknya di kiri. Aturan ini akan muncul lagi di materi 06 dalam bentuk yang lebih umum, dan berlaku untuk semua fungsi, bukan cuma parabola.',
     },
     widget: 'bentuk-puncak',
     video: { berkas: 'grafik3-puncak.mp4', poster: 'grafik3-puncak.jpg' },
@@ -303,7 +303,7 @@ export const TAHAP: TahapGrafik[] = [
       { jenis: 'paragraf', teks: 'Parabola jembatan gantung dari materi 03 tidak berubah bentuknya sedikit pun di materi ini. Yang berubah cuma cara menuliskannya, dan itu penting karena buku dan soal ujian hampir selalu memakai tulisan yang satu lagi.' },
       { jenis: 'paragraf', teks: 'Bentuk yang dipakai buku dan soal ujian:' },
       { jenis: 'sorot', teks: 'y = ax² + bx + c' },
-      { jenis: 'paragraf', teks: 'Namanya bentuk umum. Bentuk ini tidak seramah bentuk puncak, karena puncaknya tidak kelihatan. Tapi ia bukan parabola jenis lain. Ia parabola yang sama, cuma kurungnya sudah dijabarkan.' },
+      { jenis: 'paragraf', teks: 'Namanya bentuk umum. Bentuk ini tidak seramah bentuk puncak, karena puncaknya tidak kelihatan. Tapi itu bukan parabola jenis lain. Parabolanya sama, cuma kurungnya sudah dijabarkan.' },
       {
         jenis: 'contoh',
         judul: 'Buktikan sendiri: jabarkan bentuk puncak',
@@ -329,7 +329,7 @@ export const TAHAP: TahapGrafik[] = [
         ],
         simpul: 'Puncaknya (1, -18).',
       },
-      { jenis: 'paragraf', teks: 'Cara kedua namanya melengkapkan kuadrat. Lebih panjang, tetapi ia tidak sekadar memberi jawaban: ia mengembalikan rumusnya ke bentuk puncak, sehingga seluruh isi materi 03 bisa dipakai lagi.' },
+      { jenis: 'paragraf', teks: 'Cara kedua namanya melengkapkan kuadrat. Lebih panjang, tetapi cara ini tidak cuma memberi jawaban: cara ini mengembalikan rumusnya ke bentuk puncak, sehingga seluruh isi materi 03 bisa dipakai lagi.' },
       {
         jenis: 'contoh',
         judul: 'Cara 2: melengkapkan kuadrat',
@@ -385,7 +385,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     seringKeliru: {
       judul: 'D negatif berarti grafiknya tidak ada',
-      isi: 'Godaannya masuk akal: di banyak soal, D negatif memang berarti tidak ada jawaban, jadi kata tidak ada terbawa ke grafiknya sekalian. Padahal yang tidak ada cuma akarnya. Grafiknya tetap ada, tetap parabola utuh, dan tetap bisa digambar. Yang tidak ada adalah titik potongnya dengan sumbu x. Parabola dengan D negatif melayang seluruhnya di satu sisi sumbu x, entah semuanya di atas atau semuanya di bawah. Contohnya y = x² + 4: D = 0 - 4(1)(4) = -16, dan memang grafiknya ada di atas sumbu x sepenuhnya, dengan puncak di (0, 4).',
+      isi: 'Terasa masuk akal: di banyak soal, D negatif memang berarti tidak ada jawaban, jadi kata tidak ada terbawa ke grafiknya sekalian. Padahal yang tidak ada cuma akarnya. Grafiknya tetap ada, tetap parabola utuh, dan tetap bisa digambar. Yang tidak ada adalah titik potongnya dengan sumbu x. Parabola dengan D negatif melayang seluruhnya di satu sisi sumbu x, entah semuanya di atas atau semuanya di bawah. Contohnya y = x² + 4: D = 0 - 4(1)(4) = -16, dan memang grafiknya ada di atas sumbu x sepenuhnya, dengan puncak di (0, 4).',
     },
     widget: 'wajah-parabola',
     siap: true,
@@ -405,10 +405,10 @@ export const TAHAP: TahapGrafik[] = [
       'Satu parabola bisa ditulis tiga cara, dan ketiganya benar.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Sampai sini kita selalu mulai dari rumus lalu menggambar. Di dunia nyata urutannya justru sering terbalik: yang ada datanya, dan rumusnya yang harus dicari.' },
+      { jenis: 'paragraf', teks: 'Sampai sini kita selalu mulai dari rumus lalu menggambar. Di dunia nyata urutannya malah sering terbalik: yang ada datanya, dan rumusnya yang harus dicari.' },
       { jenis: 'paragraf', teks: 'Sebelum itu, satu bentuk terakhir perlu diperkenalkan.' },
       { jenis: 'sorot', teks: 'y = a(x - p)(x - q)' },
-      { jenis: 'paragraf', teks: 'Namanya bentuk faktor. Kegunaannya persis seperti bentuk puncak, hanya saja yang terbaca langsung bukan puncaknya, melainkan titik potongnya dengan sumbu x.' },
+      { jenis: 'paragraf', teks: 'Namanya bentuk faktor. Kegunaannya persis seperti bentuk puncak, hanya saja yang terbaca langsung bukan puncaknya, tetapi titik potongnya dengan sumbu x.' },
       { jenis: 'paragraf', teks: 'Alasannya sama seperti materi 03. Hasil kali dua bilangan bernilai nol kalau salah satunya nol. Jadi y bernilai nol saat x = p atau saat x = q, dan di kedua tempat itulah grafiknya menyentuh sumbu x.' },
 
       { jenis: 'sesi', judul: 'Satu parabola, tiga cara menulisnya' },
@@ -478,7 +478,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     seringKeliru: {
       judul: 'Kalau titik potongnya -2 dan 3, rumusnya (x + 2)(x + 3)',
-      isi: 'Godaannya wajar: akarnya memang tertulis -2, jadi tangan langsung menyalin tanda minusnya menjadi (x - 2), atau menyalin angkanya apa adanya menjadi (x + 2)(x + 3). Padahal yang dikurangkan adalah akarnya, jadi bentuknya (x - p)(x - q). Untuk akar -2 dan 3, hasilnya (x - (-2))(x - 3), yaitu (x + 2)(x - 3). Cara mengeceknya cepat: masukkan x = 3 dan lihat apakah hasilnya nol. Pada (x + 2)(x - 3) hasilnya 5 kali 0 sama dengan nol, jadi benar. Pada (x + 2)(x + 3) hasilnya 5 kali 6 sama dengan 30, jelas bukan nol, jadi salah.',
+      isi: 'Terasa wajar: akarnya memang tertulis -2, jadi tangan langsung menyalin tanda minusnya menjadi (x - 2), atau menyalin angkanya apa adanya menjadi (x + 2)(x + 3). Padahal yang dikurangkan adalah akarnya, jadi bentuknya (x - p)(x - q). Untuk akar -2 dan 3, hasilnya (x - (-2))(x - 3), yaitu (x + 2)(x - 3). Cara mengeceknya cepat: masukkan x = 3 dan lihat apakah hasilnya nol. Pada (x + 2)(x - 3) hasilnya 5 kali 0 sama dengan nol, jadi benar. Pada (x + 2)(x + 3) hasilnya 5 kali 6 sama dengan 30, jelas bukan nol, jadi salah.',
     },
     widget: 'susun-parabola',
     siap: true,
@@ -521,7 +521,7 @@ export const TAHAP: TahapGrafik[] = [
           'f(-x) - dicerminkan terhadap sumbu y, terbalik kiri kanan',
         ],
       },
-      { jenis: 'paragraf', teks: 'Daftar itu terlihat seperti enam hafalan terpisah, dan begitulah biasanya ia diajarkan. Padahal keenamnya hanya dua kalimat.' },
+      { jenis: 'paragraf', teks: 'Daftar itu terlihat seperti enam hafalan terpisah, dan begitulah biasanya daftar itu diajarkan. Padahal keenamnya hanya dua kalimat.' },
       { jenis: 'sorot', teks: 'Angka yang ada di LUAR kurung mengerjakan apa yang tertulis. Angka yang masuk ke DALAM kurung mengerjakan kebalikannya.' },
 
       { jenis: 'sesi', judul: 'Kenapa yang di dalam kurung bekerja terbalik' },
@@ -555,12 +555,12 @@ export const TAHAP: TahapGrafik[] = [
 
       { jenis: 'sesi', judul: 'Berlaku juga untuk grafik yang belum kita pelajari' },
       { jenis: 'paragraf', teks: 'Salah satu fungsi dasar di alat itu adalah kurva sinus, yang bentuknya bergelombang. Kurva itu milik topik Trigonometri, dan pembentukannya dijelaskan lengkap di sana pada materi 08.' },
-      { jenis: 'paragraf', teks: 'Di sini ia dipakai untuk satu keperluan saja: membuktikan bahwa aturan tadi tidak peduli bentuk grafiknya. Gelombang yang digeser ke kanan tetap bergeser ke kanan, dan f(2x) tetap memampatkannya jadi setengah. Anda belum perlu tahu dari mana gelombang itu berasal untuk melihat itu.' },
+      { jenis: 'paragraf', teks: 'Di sini kurva sinus dipakai untuk satu keperluan saja: membuktikan bahwa aturan tadi tidak peduli bentuk grafiknya. Gelombang yang digeser ke kanan tetap bergeser ke kanan, dan f(2x) tetap memampatkannya jadi setengah. Anda belum perlu tahu dari mana gelombang itu berasal untuk melihat itu.' },
       { jenis: 'sorot', teks: 'Enam aturan tadi dipelajari sekali, lalu dipakai di sisa topik ini dan di topik lain. Materi 07, 9, dan 10 semuanya berdiri di atasnya.' },
     ],
     seringKeliru: {
       judul: 'f(2x) berarti grafiknya jadi dua kali lebih lebar',
-      isi: 'Godaannya kuat karena mengalikan dua di mana pun biasanya berarti membesarkan, dan itu benar untuk angka yang di LUAR kurung. Di dalam kurung akibatnya justru terbalik: hasilnya setengahnya. Angka 2 mengalikan x sebelum masuk mesin, jadi mesinnya mencapai nilai yang sama pada x yang setengahnya, dan seluruh kejadian pada grafik terjadi lebih awal. Cek cepat pada f(x) = x²: nilai 4 muncul di x = 2, tetapi pada f(2x) nilai 4 sudah muncul di x = 1. Yang membuat grafik dua kali lebih lebar justru f(x/2), karena di situ x dibagi dua dulu.',
+      isi: 'Terasa benar karena mengalikan dua di mana pun biasanya berarti membesarkan, dan itu benar untuk angka yang di LUAR kurung. Di dalam kurung akibatnya malah terbalik: hasilnya setengahnya. Angka 2 mengalikan x sebelum masuk mesin, jadi mesinnya mencapai nilai yang sama pada x yang setengahnya, dan seluruh kejadian pada grafik terjadi lebih awal. Cek cepat pada f(x) = x²: nilai 4 muncul di x = 2, tetapi pada f(2x) nilai 4 sudah muncul di x = 1. Yang membuat grafik dua kali lebih lebar malah f(x/2), karena di situ x dibagi dua dulu.',
     },
     widget: 'papan-transformasi',
     video: { berkas: 'grafik6-transformasi.mp4', poster: 'grafik6-transformasi.jpg' },
@@ -614,8 +614,8 @@ export const TAHAP: TahapGrafik[] = [
         jenis: 'poin',
         judul: 'Ingat aturan materi 06',
         butir: [
-          'y = |f(x)| - mutlaknya di LUAR, jadi ia mengerjakan HASILNYA. Semua hasil negatif dibalik jadi positif',
-          'y = f(|x|) - mutlaknya di DALAM, jadi ia mengerjakan MASUKANNYA. Semua x negatif diganti pasangan positifnya',
+          'y = |f(x)| - mutlaknya di LUAR, jadi mutlaknya mengerjakan HASILNYA. Semua hasil negatif dibalik jadi positif',
+          'y = f(|x|) - mutlaknya di DALAM, jadi mutlaknya mengerjakan MASUKANNYA. Semua x negatif diganti pasangan positifnya',
         ],
       },
       {
@@ -689,7 +689,7 @@ export const TAHAP: TahapGrafik[] = [
         ],
         simpul: 'Empat fase pertama masih terasa kecil. Empat fase berikutnya sudah ribuan.',
       },
-      { jenis: 'paragraf', teks: 'Yang membuat angka itu meledak bukan penambahan yang besar, melainkan cara bertambahnya. Tiap fase, angkanya DIKALIKAN tiga, bukan ditambah tiga.' },
+      { jenis: 'paragraf', teks: 'Yang membuat angka itu meledak bukan penambahan yang besar, tetapi cara bertambahnya. Tiap fase, angkanya DIKALIKAN tiga, bukan ditambah tiga.' },
       { jenis: 'sorot', teks: 'Fungsi linear menambah dengan jumlah yang sama tiap langkah. Fungsi eksponen mengalikan dengan angka yang sama tiap langkah.' },
       { jenis: 'paragraf', teks: 'Perbedaan satu kata itu, ditambah lawan dikalikan, yang membuat keduanya berpisah sangat jauh.' },
 
@@ -709,7 +709,7 @@ export const TAHAP: TahapGrafik[] = [
         ],
         simpul: 'Di x = 2 ketiganya masih berdekatan. Di x = 20, yang eksponen sudah jutaan.',
       },
-      { jenis: 'paragraf', teks: 'Perhatikan bahwa di awal, fungsi eksponen justru kalah dari fungsi kuadrat. Di x = 3, x² memberi 9 sedangkan 2ˣ baru memberi 8. Itu sebabnya pertumbuhan eksponen sering terlambat disadari orang: pada awalnya ia memang terlihat biasa saja.' },
+      { jenis: 'paragraf', teks: 'Perhatikan bahwa di awal, fungsi eksponen malah kalah dari fungsi kuadrat. Di x = 3, x² memberi 9 sedangkan 2ˣ baru memberi 8. Itu sebabnya pertumbuhan eksponen sering terlambat disadari orang: pada awalnya pertumbuhannya memang terlihat biasa saja.' },
 
       { jenis: 'sesi', judul: 'Bentuk umumnya, dan dua wajahnya' },
       { jenis: 'sorot', teks: 'y = a · bˣ' },
@@ -736,7 +736,7 @@ export const TAHAP: TahapGrafik[] = [
         ],
         simpul: 'Rumusnya y = 300 × 0,6ˣ. Selalu berkurang, tetapi tidak pernah benar-benar nol.',
       },
-      { jenis: 'paragraf', teks: 'Contoh peluruhan lain yang dipakai buku: kadar obat dalam darah yang berkurang tiap jam, dan itu justru alasan dokter menentukan jadwal minum obat, bukan asal.' },
+      { jenis: 'paragraf', teks: 'Contoh peluruhan lain yang dipakai buku: kadar obat dalam darah yang berkurang tiap jam, dan itu malah alasan dokter menentukan jadwal minum obat, bukan asal.' },
 
       {
         jenis: 'coba',
@@ -750,14 +750,14 @@ export const TAHAP: TahapGrafik[] = [
       },
 
       { jenis: 'sesi', judul: 'Grafiknya menempel pada sumbu, tapi tidak menyentuh' },
-      { jenis: 'paragraf', teks: 'Perhatikan grafik peluruhan tadi. Ia turun terus, makin lama makin mendatar, dan makin dekat ke sumbu x. Tetapi ia tidak pernah menyentuhnya.' },
+      { jenis: 'paragraf', teks: 'Perhatikan grafik peluruhan tadi. Grafiknya turun terus, makin lama makin mendatar, dan makin dekat ke sumbu x. Tetapi grafiknya tidak pernah menyentuh sumbu itu.' },
       { jenis: 'paragraf', teks: 'Alasannya bisa dicek sendiri: 300 dikalikan 0,6 berkali-kali tetap menghasilkan bilangan positif, sekecil apa pun. Tidak ada satu pun langkah yang bisa membuatnya nol.' },
       { jenis: 'paragraf', teks: 'Garis yang didekati tanpa pernah disentuh seperti itu punya nama: asimtot. Untuk grafik eksponen, asimtotnya sumbu x sendiri.' },
       { jenis: 'sorot', teks: 'Kenapa jaraknya bisa mengecil terus tanpa pernah menjadi nol, dan bagaimana perilaku itu dihitung, dijawab lengkap di topik Limit materi 07. Di sini kita cukup mengenalinya di gambar.' },
     ],
     seringKeliru: {
       judul: '2ˣ dan x² itu mirip, sama-sama pangkat',
-      isi: 'Letak x nya yang berbeda, dan itu mengubah segalanya. Pada x², yang berubah adalah bilangan yang dipangkatkan, sedangkan pangkatnya tetap 2. Pada 2ˣ, yang berubah justru pangkatnya. Akibatnya terlihat begitu angkanya dibesarkan: di x = 10, x² memberi 100 sedangkan 2ˣ memberi 1.024. Di x = 20, selisihnya 400 lawan lebih dari satu juta.',
+      isi: 'Letak x nya yang berbeda, dan itu mengubah segalanya. Pada x², yang berubah adalah bilangan yang dipangkatkan, sedangkan pangkatnya tetap 2. Pada 2ˣ, yang berubah malah pangkatnya. Akibatnya terlihat begitu angkanya dibesarkan: di x = 10, x² memberi 100 sedangkan 2ˣ memberi 1.024. Di x = 20, selisihnya 400 lawan lebih dari satu juta.',
     },
     widget: 'balapan-tumbuh',
     siap: true,
@@ -774,7 +774,7 @@ export const TAHAP: TahapGrafik[] = [
       'Logaritma menanyakan pangkatnya, bukan hasilnya.',
       'Grafik logaritma adalah grafik eksponen yang dicerminkan terhadap garis y = x.',
       'Karena pencerminan itu, domainnya hanya x positif dan grafiknya selalu lewat (1, 0).',
-      'Naiknya sangat lambat, justru karena eksponen naiknya sangat cepat.',
+      'Naiknya sangat lambat, malah karena eksponen naiknya sangat cepat.',
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Materi 08 selalu menanyakan hal yang sama: diketahui pangkatnya, berapa hasilnya. 2³ berapa? Delapan.' },
@@ -809,7 +809,7 @@ export const TAHAP: TahapGrafik[] = [
         simpul: 'Tiap titik bertukar koordinat. Dan menukar x dengan y sama artinya dengan mencerminkan terhadap garis y = x.',
       },
       { jenis: 'paragraf', teks: 'Garis y = x adalah garis miring yang lewat titik asal, tempat nilai x dan y selalu sama. Melipat gambar pada garis itu persis memindahkan tiap titik ke posisi tukarannya.' },
-      { jenis: 'sorot', teks: 'Grafik logaritma bukan bentuk baru yang perlu dihafal. Ia grafik eksponen yang dilipat pada garis y = x.' },
+      { jenis: 'sorot', teks: 'Grafik logaritma bukan bentuk baru yang perlu dihafal. Grafik logaritma adalah grafik eksponen yang dilipat pada garis y = x.' },
 
       { jenis: 'sesi', judul: 'Empat hal yang langsung terbaca dari pencerminan itu' },
       {
@@ -822,14 +822,14 @@ export const TAHAP: TahapGrafik[] = [
           'Naiknya sangat lambat - karena eksponen naiknya sangat cepat. Untuk menambah tinggi satu satuan, x nya harus dilipatgandakan',
         ],
       },
-      { jenis: 'paragraf', teks: 'Kelambatan itu justru yang membuat logaritma berguna. Skala Richter untuk gempa, satuan desibel untuk suara, dan pH untuk keasaman semuanya memakai logaritma, supaya angka yang jangkauannya jutaan kali lipat bisa ditulis dalam skala 1 sampai 14.' },
+      { jenis: 'paragraf', teks: 'Kelambatan itu malah yang membuat logaritma berguna. Skala Richter untuk gempa, satuan desibel untuk suara, dan pH untuk keasaman semuanya memakai logaritma, supaya angka yang jangkauannya jutaan kali lipat bisa ditulis dalam skala 1 sampai 14.' },
 
       {
         jenis: 'coba',
         teks: 'Alat interaktifnya menggambar garis y = x sebagai garis putus-putus, lalu melipat grafik eksponen ke seberangnya.',
         langkah: [
           'Jalankan pelipatannya pelan-pelan. Di mana titik (0, 1) mendarat?',
-          'Perhatikan asimtot mendatarnya. Menjadi apa ia setelah dilipat?',
+          'Perhatikan asimtot mendatarnya. Menjadi apa grafiknya setelah dilipat?',
           'Ubah bilangan pokoknya. Apakah kedua kurva berubah sendiri-sendiri, atau bersamaan?',
           'Coba bilangan pokok antara 0 dan 1. Apa yang terjadi pada kedua grafiknya?',
         ],
@@ -838,7 +838,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     seringKeliru: {
       judul: 'Logaritma dari bilangan negatif hasilnya negatif',
-      isi: 'Godaannya masuk akal: di hampir semua hitungan lain, memasukkan bilangan negatif memberi hasil negatif, jadi polanya terasa berlaku di sini juga. Padahal di sini tidak ada hasilnya sama sekali. Logaritma menanyakan "pangkat berapa", dan tidak ada satu pun pangkat yang membuat bilangan positif berubah menjadi negatif. Dua pangkat berapa pun, termasuk pangkat negatif dan pangkat pecahan, hasilnya selalu positif. Itu sebabnya domain fungsi logaritma hanya bilangan positif, dan grafiknya berhenti di sumbu y tanpa pernah menyeberang ke kiri.',
+      isi: 'Terasa masuk akal: di hampir semua hitungan lain, memasukkan bilangan negatif memberi hasil negatif, jadi polanya terasa berlaku di sini juga. Padahal di sini tidak ada hasilnya sama sekali. Logaritma menanyakan "pangkat berapa", dan tidak ada satu pun pangkat yang membuat bilangan positif berubah menjadi negatif. Dua pangkat berapa pun, termasuk pangkat negatif dan pangkat pecahan, hasilnya selalu positif. Itu sebabnya domain fungsi logaritma hanya bilangan positif, dan grafiknya berhenti di sumbu y tanpa pernah menyeberang ke kiri.',
     },
     widget: 'cermin-yx',
     siap: true,
@@ -867,7 +867,7 @@ export const TAHAP: TahapGrafik[] = [
           'Sebagian sudah pernah lewat - kata asimtot sudah dipakai di materi 08',
         ],
       },
-      { jenis: 'paragraf', teks: 'Ada satu grafik yang bentuknya paling mengejutkan siswa waktu pertama kali melihatnya: grafik y = 1/x. Ia terbelah menjadi dua bagian yang tidak bersambung, dan kedua bagiannya menempel pada sumbu tanpa pernah menyentuhnya.' },
+      { jenis: 'paragraf', teks: 'Ada satu grafik yang bentuknya paling mengejutkan siswa waktu pertama kali melihatnya: grafik y = 1/x. Grafiknya terbelah menjadi dua bagian yang tidak bersambung, dan kedua bagiannya menempel pada sumbu tanpa pernah menyentuhnya.' },
       { jenis: 'paragraf', teks: 'Padahal rumusnya sederhana sekali. Mari kita lihat dari mana bentuk itu datang, seperti biasa: jalankan mesinnya.' },
       {
         jenis: 'contoh',
@@ -884,10 +884,10 @@ export const TAHAP: TahapGrafik[] = [
         simpul: 'Makin x mendekat ke nol, makin besar hasilnya. Dan tepat di nol, mesinnya berhenti bekerja.',
       },
       { jenis: 'paragraf', teks: 'Pembagian dengan nol memang tidak punya jawaban, jadi x = 0 tidak boleh dimasukkan. Itulah sebabnya grafiknya terbelah: ada satu nilai x yang benar-benar kosong, dan kurvanya tidak bisa menyeberanginya.' },
-      { jenis: 'sorot', teks: 'Asimtot tegak muncul di tempat penyebutnya bernilai nol. Bukan karena grafiknya malas menyentuh garis itu, melainkan karena di sana fungsinya memang tidak punya nilai.' },
+      { jenis: 'sorot', teks: 'Asimtot tegak muncul di tempat penyebutnya bernilai nol. Bukan karena grafiknya malas menyentuh garis itu, tetapi karena di sana fungsinya memang tidak punya nilai.' },
 
       { jenis: 'sesi', judul: 'Asimtot yang satu lagi, arahnya mendatar' },
-      { jenis: 'paragraf', teks: 'Sekarang dorong ke arah sebaliknya. Bukan mendekati nol, melainkan menjauh sejauh-jauhnya.' },
+      { jenis: 'paragraf', teks: 'Sekarang dorong ke arah sebaliknya. Bukan mendekati nol, tetapi menjauh sejauh-jauhnya.' },
       {
         jenis: 'contoh',
         judul: 'Besarkan x nya terus',
@@ -899,7 +899,7 @@ export const TAHAP: TahapGrafik[] = [
         ],
         simpul: 'Hasilnya mengecil terus mendekati nol, tetapi tidak pernah benar-benar nol.',
       },
-      { jenis: 'paragraf', teks: '1/1.000.000 memang sangat kecil, tetapi ia masih bilangan positif. Berapa pun besarnya x, 1/x tidak akan pernah menghasilkan nol tepat. Jadi grafiknya mendekati sumbu x tanpa menyentuh, dan sumbu x itulah asimtot datarnya.' },
+      { jenis: 'paragraf', teks: '1/1.000.000 memang sangat kecil, tetapi angka itu masih bilangan positif. Berapa pun besarnya x, 1/x tidak akan pernah menghasilkan nol tepat. Jadi grafiknya mendekati sumbu x tanpa menyentuh, dan sumbu x itulah asimtot datarnya.' },
       { jenis: 'sorot', teks: 'Sama seperti materi 08: alasan lengkap kenapa jaraknya mengecil terus tanpa pernah nol, dan cara menghitung perilakunya, ada di topik Limit materi 07. Bukalah materi itu kalau ingin jawabannya, bukan cuma gambarnya.' },
 
       { jenis: 'sesi', judul: 'Menggeser 1/x, dan asimtotnya ikut pindah' },
@@ -931,7 +931,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     seringKeliru: {
       judul: 'Kalau ditarik cukup jauh, grafiknya akhirnya menyentuh asimtotnya',
-      isi: 'Godaannya datang dari mata: di layar, jarak sepersejuta satuan memang tidak bisa dibedakan dari nol, jadi kurvanya terlihat menempel. Tetapi menyentuh tidak pernah terjadi. Yang terjadi hanya jaraknya mengecil terus. Pada y = 1/x, di x = 1.000.000 nilainya masih 0,000001, dan itu bukan nol. Di x = 1.000.000.000 pun ia masih positif. Tidak ada satu pun nilai x yang membuatnya tepat nol, jadi kurvanya tidak pernah menyentuh sumbu x. Kalimat "mendekati tanpa menyentuh" itu bukan kiasan, melainkan pernyataan yang bisa dibuktikan, dan pembuktiannya ada di topik Limit.',
+      isi: 'Kesan itu datang dari mata: di layar, jarak sepersejuta satuan memang tidak bisa dibedakan dari nol, jadi kurvanya terlihat menempel. Tetapi menyentuh tidak pernah terjadi. Yang terjadi hanya jaraknya mengecil terus. Pada y = 1/x, di x = 1.000.000 nilainya masih 0,000001, dan itu bukan nol. Di x = 1.000.000.000 pun nilainya masih positif. Tidak ada satu pun nilai x yang membuatnya tepat nol, jadi kurvanya tidak pernah menyentuh sumbu x. Kalimat "mendekati tanpa menyentuh" itu bukan kiasan, tetapi pernyataan yang bisa dibuktikan, dan pembuktiannya ada di topik Limit.',
     },
     widget: 'asimtot-rasional',
     siap: true,
@@ -970,7 +970,7 @@ export const TAHAP: TahapGrafik[] = [
       },
 
       { jenis: 'sesi', judul: 'Menyusun rumus komposisinya, bukan cuma nilainya' },
-      { jenis: 'paragraf', teks: 'Menghitung satu angka sudah cukup untuk melihat urutannya berpengaruh. Tapi soal biasanya meminta rumus lengkapnya, bukan satu nilai. Caranya sama persis, hanya saja yang dimasukkan bukan angka melainkan seluruh rumus mesin pertama.' },
+      { jenis: 'paragraf', teks: 'Menghitung satu angka sudah cukup untuk melihat urutannya berpengaruh. Tapi soal biasanya meminta rumus lengkapnya, bukan satu nilai. Caranya sama persis, hanya saja yang dimasukkan bukan angka tetapi seluruh rumus mesin pertama.' },
       {
         jenis: 'contoh',
         judul: 'Rumus lengkap untuk kedua urutan',
@@ -1013,7 +1013,7 @@ export const TAHAP: TahapGrafik[] = [
           'Geser angkanya pelan-pelan. Pernahkah kedua bulatan penandanya bertemu?',
         ],
       },
-      { jenis: 'paragraf', teks: 'Satu pertanyaan sengaja disimpan untuk materi berikutnya. Kalau sebuah mesin mengubah 5 menjadi 13, adakah mesin lain yang mengembalikan 13 menjadi 5? Mesin itu ada, dan ia yang menutup seluruh isi topik ini.' },
+      { jenis: 'paragraf', teks: 'Satu pertanyaan sengaja disimpan untuk materi berikutnya. Kalau sebuah mesin mengubah 5 menjadi 13, adakah mesin lain yang mengembalikan 13 menjadi 5? Mesin itu ada, dan mesin itulah penutup seluruh isi topik ini.' },
     ],
     seringKeliru: {
       judul: 'f komposisi g sama saja dengan g komposisi f, kan mesinnya itu-itu juga',
@@ -1038,8 +1038,8 @@ export const TAHAP: TahapGrafik[] = [
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Materi 11 merangkai dua mesin supaya bekerja berurutan. Sekarang pertanyaan yang arahnya berbeda: kalau sebuah mesin mengubah 5 menjadi 13, adakah mesin lain yang mengembalikan 13 menjadi 5?' },
-      { jenis: 'paragraf', teks: 'Mesin itu ada, dan namanya fungsi invers. Ia membatalkan pekerjaan fungsi aslinya, langkah demi langkah dengan urutan terbalik.' },
-      { jenis: 'paragraf', teks: 'Perhatikan kata terbalik itu, karena di situlah letak seluruh caranya. Kalau memakai kaus kaki lalu sepatu, melepasnya bukan kaus kaki dulu, melainkan sepatu dulu.' },
+      { jenis: 'paragraf', teks: 'Mesin itu ada, dan namanya fungsi invers. Invers membatalkan pekerjaan fungsi aslinya, langkah demi langkah dengan urutan terbalik.' },
+      { jenis: 'paragraf', teks: 'Perhatikan kata terbalik itu, karena di situlah letak seluruh caranya. Kalau memakai kaus kaki lalu sepatu, melepasnya bukan kaus kaki dulu, tetapi sepatu dulu.' },
       {
         jenis: 'contoh',
         judul: 'Bongkar f(x) = 2x + 3',
@@ -1099,7 +1099,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     seringKeliru: {
       judul: 'Lambang f⁻¹ dikira 1/f',
-      isi: 'Di sini artinya bukan pecahan, melainkan mesin kebalikannya. Pada f(x) = x + 3, inversnya f⁻¹(x) = x - 3, bukan 1/(x + 3). Godaannya kuat karena di aljabar biasa pangkat -1 memang berarti satu per sesuatu: 2⁻¹ = 1/2. Cara mengeceknya: jalankan maju lalu balik, dan hasilnya harus kembali ke angka semula. Mulai dari 5, f(5) = 8, lalu 8 - 3 = 5, kembali ke asal, jadi benar. Kalau dipakai 1 dibagi 8, hasilnya 0,125, dan itu jelas tidak kembali ke 5.',
+      isi: 'Di sini artinya bukan pecahan, tetapi mesin kebalikannya. Pada f(x) = x + 3, inversnya f⁻¹(x) = x - 3, bukan 1/(x + 3). Terasa benar karena di aljabar biasa pangkat -1 memang berarti satu per sesuatu: 2⁻¹ = 1/2. Cara mengeceknya: jalankan maju lalu balik, dan hasilnya harus kembali ke angka semula. Mulai dari 5, f(5) = 8, lalu 8 - 3 = 5, kembali ke asal, jadi benar. Kalau dipakai 1 dibagi 8, hasilnya 0,125, dan itu jelas tidak kembali ke 5.',
     },
     widget: 'mesin-balik',
     siap: true,
@@ -1120,7 +1120,7 @@ export const TAHAP: TahapGrafik[] = [
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Dua belas materi sebelumnya membahas bentuk dan aturannya. Materi ini menunjukkan di mana bentuk-bentuk itu benar-benar dipakai orang untuk bekerja, bukan untuk ujian.' },
-      { jenis: 'paragraf', teks: 'Tidak ada alat yang perlu dicoba di sini. Yang perlu dilakukan cuma satu: mengenali bentuk yang sudah Anda pelajari saat ia muncul di luar buku pelajaran.' },
+      { jenis: 'paragraf', teks: 'Tidak ada alat yang perlu dicoba di sini. Yang perlu dilakukan cuma satu: mengenali bentuk yang sudah Anda pelajari saat bentuk itu muncul di luar buku pelajaran.' },
       { jenis: 'sorot', teks: 'Kalau setelah membaca bagian ini Anda mulai melihat parabola di air mancur dan grafik eksponen di berita bunga bank, tujuan topik ini sudah tercapai.' },
       {
         jenis: 'poin',
@@ -1135,7 +1135,7 @@ export const TAHAP: TahapGrafik[] = [
         ],
       },
       { jenis: 'paragraf', teks: 'Contoh terakhir layak dipikirkan sebentar. Waktu tempuh sama dengan jarak dibagi kecepatan, dan itu fungsi rasional. Grafiknya turun tajam lalu melandai. Artinya menambah kecepatan dari 20 ke 40 km per jam menghemat banyak sekali waktu, tetapi menambah dari 100 ke 120 hampir tidak terasa.' },
-      { jenis: 'paragraf', teks: 'Kesimpulan itu tidak bisa ditebak dari perasaan. Ia terbaca langsung dari bentuk grafiknya, dan itulah gunanya mempelajari bentuk.' },
+      { jenis: 'paragraf', teks: 'Kesimpulan itu tidak bisa ditebak dari perasaan. Kesimpulan itu terbaca langsung dari bentuk grafiknya, dan itulah gunanya mempelajari bentuk.' },
     ],
     widget: 'dunia-nyata-grafik',
     siap: true,

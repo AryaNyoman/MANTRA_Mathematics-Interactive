@@ -844,7 +844,7 @@ export const KUIS: SoalKuis[] = [
     langkah: [
       'Baca aturan matriksnya: (x, y) → (2 · x + 0 · y, 0 · x + 2 · y) = (2x, 2y); setiap koordinat dikalikan 2.',
       'Aturan (x, y) → (kx, ky) adalah konsep dilatasi berpusat O dengan faktor k; di sini k = 2.',
-      'Translasi tidak dapat diwakili matriks 2 × 2 (ia menambah, bukan mengalikan), rotasi 180° diwakili (−1 0; 0 −1), dan faktor 4 akan diwakili (4 0; 0 4).',
+      'Translasi tidak dapat diwakili matriks 2 × 2 (translasi menambah, bukan mengalikan), rotasi 180° diwakili (−1 0; 0 −1), dan faktor 4 akan diwakili (4 0; 0 4).',
       'Jadi, matriks itu mewakili dilatasi pusat O faktor 2. (Jawaban C)',
     ],
     jebakan: 'Pilihan A, translasi (2, 2), mengira angka 2 pada matriks berarti geseran; matriks mengalikan koordinat, bukan menambahnya. Pilihan E, faktor 4, mengalikan kedua unsur diagonal (4 adalah determinannya, faktor luas, bukan faktor skala).',
@@ -982,7 +982,7 @@ export const KUIS: SoalKuis[] = [
       'Pasangan D dengan P(0, 0): rotasi 90° terhadap O memberi (0, 0), lalu rotasi 90° terhadap (1, 1) memberi (2, 0); urutan dibalik: rotasi terhadap (1, 1) memberi (2, 0), lalu rotasi terhadap O memberi (0, 2); berbeda.',
       'Jadi, pasangan yang hasilnya tetap sama walau urutannya dibalik adalah translasi (2, 1) dan translasi (−3, 4). (Jawaban B)',
     ],
-    jebakan: 'Pilihan D menggoda karena keduanya rotasi 90°, tetapi pusatnya berbeda sehingga tidak komutatif; dua rotasi hanya komutatif bila pusatnya sama. Pilihan E menggoda karena translasinya searah sumbu-x, tetapi dilatasi melipatgandakan geseran yang dilakukan sebelumnya.',
+    jebakan: 'Pilihan D tampak benar karena keduanya rotasi 90°, tetapi pusatnya berbeda sehingga tidak komutatif; dua rotasi hanya komutatif bila pusatnya sama. Pilihan E tampak benar karena translasinya searah sumbu-x, tetapi dilatasi melipatgandakan geseran yang dilakukan sebelumnya.',
     alasan: 'Hanya dua translasi yang komutatif (penjumlahan vektor); pasangan lain memberi hasil berbeda saat dibalik.',
   },
   {

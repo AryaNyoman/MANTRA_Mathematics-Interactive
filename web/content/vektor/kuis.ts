@@ -39,10 +39,10 @@ export const KUIS: SoalKuis[] = [
     langkah: [
       'Ingat bahwa vektor adalah besaran yang mempunyai besar DAN arah, sedangkan skalar hanya mempunyai besar.',
       'Periksa tiap pilihan: suhu, massa, waktu, dan panjang tali cukup dinyatakan dengan satu angka beserta satuannya (30°C, 2 kg, 5 detik, 3 m); tidak ada arahnya, jadi keempatnya skalar.',
-      'Perpindahan berbeda: "5 km" belum lengkap tanpa arahnya, misalnya 5 km ke utara; dua perpindahan yang sama jauhnya tetapi berlawanan arah membawa ke tempat yang berbeda. Perpindahan mempunyai besar dan arah, sehingga ia vektor.',
+      'Perpindahan berbeda: "5 km" belum lengkap tanpa arahnya, misalnya 5 km ke utara; dua perpindahan yang sama jauhnya tetapi berlawanan arah membawa ke tempat yang berbeda. Perpindahan mempunyai besar dan arah, sehingga perpindahan adalah vektor.',
       'Jadi, besaran yang termasuk vektor adalah perpindahan. (Jawaban A)',
     ],
-    jebakan: 'Pilihan E, panjang tali, menggoda karena tali bisa "diarahkan", tetapi panjangnya sendiri tidak punya arah; yang punya arah adalah gaya tarik pada tali, bukan panjangnya. Pilihan B, suhu, tidak punya arah walau bisa negatif; tanda negatif bukan arah.',
+    jebakan: 'Pilihan E, panjang tali, tampak benar karena tali bisa "diarahkan", tetapi panjangnya sendiri tidak punya arah; yang punya arah adalah gaya tarik pada tali, bukan panjangnya. Pilihan B, suhu, tidak punya arah walau bisa negatif; tanda negatif bukan arah.',
     alasan: 'Vektor punya besar dan arah; hanya perpindahan yang begitu.',
   },
   {
@@ -180,7 +180,7 @@ export const KUIS: SoalKuis[] = [
       },
       'Jadi, vektor lawan dari (5, −2) adalah (−5, 2). (Jawaban C)',
     ],
-    jebakan: 'Pilihan B, (−5, −2), hanya membalik tanda komponen pertama; kedua komponen harus dibalik. Pilihan E, (−2, 5), menukar urutan komponen sekaligus membalik tanda, bukan lawan melainkan vektor lain.',
+    jebakan: 'Pilihan B, (−5, −2), hanya membalik tanda komponen pertama; kedua komponen harus dibalik. Pilihan E, (−2, 5), menukar urutan komponen sekaligus membalik tanda, bukan lawan tetapi vektor lain.',
     alasan: '−(5, −2) = (−5, 2): kedua komponen berganti tanda.',
   },
   {
@@ -194,7 +194,7 @@ export const KUIS: SoalKuis[] = [
       'Berapa pun panjang a, pembagian dengan |a| membuat panjangnya menjadi |a|/|a| = 1. Untuk |a| = 17, panjang vektor satuannya 17/17 = 1.',
       'Jadi, panjang vektor satuan dari vektor yang panjangnya 17 adalah 1. (Jawaban E)',
     ],
-    jebakan: 'Pilihan B, 1/17, adalah PENGALI yang dipakai untuk membuat vektor satuan (a dikali 1/17), bukan panjang hasilnya. Pilihan D menggoda karena arah vektor satuan memang mengikuti a, tetapi panjangnya selalu 1.',
+    jebakan: 'Pilihan B, 1/17, adalah PENGALI yang dipakai untuk membuat vektor satuan (a dikali 1/17), bukan panjang hasilnya. Pilihan D tampak benar karena arah vektor satuan memang mengikuti a, tetapi panjangnya selalu 1.',
     alasan: 'Vektor satuan selalu panjangnya 1.',
   },
   {

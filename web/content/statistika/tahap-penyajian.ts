@@ -26,7 +26,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
   {
     no: 1,
     slug: 'satu-angka-menipu',
-    judul: 'Kenapa satu angka bisa menipu',
+    judul: 'Kenapa satu angka bisa memberi kesan keliru',
     labelPendek: 'Kenapa',
     pertanyaan: 'Dua kelas rata-ratanya sama persis. Apakah keduanya sama saja?',
     intisari: [
@@ -87,7 +87,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
         ],
         simpul: 'Sekarang kedua kelas itu akhirnya terlihat berbeda: 2 lawan 8.',
       },
-      { jenis: 'paragraf', teks: 'Jangkauan sudah lumayan, tetapi ia cuma melihat dua data, yang paling kecil dan yang paling besar, lalu mengabaikan semua yang di tengah. Di Materi 07 dan Materi 08 kita akan bertemu ukuran sebaran yang lebih jujur, yaitu jangkauan antar kuartil dan simpangan baku. Sebagai bocoran, simpangan baku Kelas A adalah 0,71 sedangkan Kelas B 2,69.' },
+      { jenis: 'paragraf', teks: 'Jangkauan sudah lumayan, tetapi jangkauan cuma melihat dua data, yang paling kecil dan yang paling besar, lalu mengabaikan semua yang di tengah. Di Materi 07 dan Materi 08 kita akan bertemu ukuran sebaran yang lebih jujur, yaitu jangkauan antar kuartil dan simpangan baku. Sebagai bocoran, simpangan baku Kelas A adalah 0,71 sedangkan Kelas B 2,69.' },
     ],
     seringKeliru: {
       judul: 'Rata-rata sama, jadi datanya mirip',
@@ -113,7 +113,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Empat puluh angka yang berbaris di dalam tabel hampir tidak bisa dibaca manusia. Mata kita jauh lebih cepat menangkap panjang dan tinggi daripada menangkap deretan angka. Itu sebabnya data digambar.' },
-      { jenis: 'paragraf', teks: 'Tetapi tidak semua gambar cocok untuk semua data. Yang menentukan bukan selera, melainkan jenis datanya.' },
+      { jenis: 'paragraf', teks: 'Tetapi tidak semua gambar cocok untuk semua data. Yang menentukan bukan selera, tetapi jenis datanya.' },
       {
         jenis: 'poin',
         judul: 'Dua jenis data',
@@ -124,7 +124,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
       },
 
       { jenis: 'sesi', judul: 'Diagram batang, untuk kategori' },
-      { jenis: 'paragraf', teks: 'Pada diagram batang, tiap batang mewakili satu kategori dan tingginya menunjukkan banyaknya. Antar batang diberi sela, dan sela itu bukan hiasan: ia menandakan bahwa kategori sebelah menyebelah tidak menyambung. Karena itu pula urutan batangnya boleh ditukar tanpa mengubah arti.' },
+      { jenis: 'paragraf', teks: 'Pada diagram batang, tiap batang mewakili satu kategori dan tingginya menunjukkan banyaknya. Antar batang diberi sela, dan sela itu ada artinya: sela itu menandakan bahwa kategori sebelah menyebelah tidak menyambung. Karena itu pula urutan batangnya boleh ditukar tanpa mengubah arti.' },
       {
         jenis: 'contoh',
         judul: 'Cara 40 siswa berangkat ke sekolah',
@@ -141,13 +141,13 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
       },
 
       { jenis: 'sesi', judul: 'Histogram, untuk data angka' },
-      { jenis: 'paragraf', teks: 'Histogram terlihat mirip diagram batang, dan justru itu yang membuatnya sering tertukar. Bedanya mendasar, bukan sekadar gaya gambar.' },
+      { jenis: 'paragraf', teks: 'Histogram terlihat mirip diagram batang, dan malah itu yang membuatnya sering tertukar. Bedanya mendasar, bukan cuma gaya gambar.' },
       {
         jenis: 'poin',
         judul: 'Tiga beda yang menentukan',
         butir: [
           'Sumbu-x berupa garis bilangan - jadi urutan batangnya TIDAK boleh ditukar.',
-          'Batangnya menempel tanpa sela - sebab kelas yang bersebelahan memang bersambung, misalnya 150 sampai 160 lalu 160 sampai 170.',
+          'Batangnya menempel tanpa sela - karena kelas yang bersebelahan memang bersambung, misalnya 150 sampai 160 lalu 160 sampai 170.',
           'Yang dibaca sebenarnya LUAS batang, bukan tingginya. Ini penting saat lebar kelasnya tidak sama, dan akan kita pakai di materi berikutnya.',
         ],
       },
@@ -168,12 +168,12 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
       },
 
       { jenis: 'sesi', judul: 'Diagram lingkaran, dan kenapa harus hati-hati' },
-      { jenis: 'paragraf', teks: 'Diagram lingkaran menjawab satu pertanyaan saja dengan baik: berapa bagian tiap kategori dari keseluruhan. Ia gagal untuk hal lain, sebab mata manusia buruk sekali membandingkan luas juring yang mirip.' },
-      { jenis: 'paragraf', teks: 'Coba tebak mana yang lebih besar antara 22,5 persen dan 20 persen hanya dengan melihat dua juring tanpa angka. Hampir mustahil. Itu sebabnya tiap potongan di alatnya selalu diberi label angkanya, dan itu bukan hiasan melainkan syarat supaya gambarnya bisa dibaca.' },
+      { jenis: 'paragraf', teks: 'Diagram lingkaran menjawab satu pertanyaan saja dengan baik: berapa bagian tiap kategori dari keseluruhan. Diagram lingkaran gagal untuk hal lain, karena mata manusia buruk sekali membandingkan luas juring yang mirip.' },
+      { jenis: 'paragraf', teks: 'Coba tebak mana yang lebih besar antara 22,5 persen dan 20 persen hanya dengan melihat dua juring tanpa angka. Hampir mustahil. Itu sebabnya tiap potongan di alatnya selalu diberi label angkanya, dan itu syarat supaya gambarnya bisa dibaca.' },
     ],
     seringKeliru: {
       judul: 'Diagram batang dan histogram itu sama, cuma beda nama',
-      isi: 'Keduanya memang sama-sama batang, tetapi menjawab jenis data yang berbeda. Ujinya begini: coba tukar posisi dua batang yang bersebelahan. Kalau artinya tidak berubah, itu diagram batang, sebab kategori tidak punya urutan. Kalau artinya jadi kacau, itu histogram, sebab sumbunya garis bilangan dan angka 160 tidak bisa dipindah ke sebelah kanan angka 170.',
+      isi: 'Keduanya memang sama-sama batang, tetapi menjawab jenis data yang berbeda. Ujinya begini: coba tukar posisi dua batang yang bersebelahan. Kalau artinya tidak berubah, itu diagram batang, karena kategori tidak punya urutan. Kalau artinya jadi kacau, itu histogram, karena sumbunya garis bilangan dan angka 160 tidak bisa dipindah ke sebelah kanan angka 170.',
       sumber: 'Pembahasannya mengikuti Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, subbab A halaman 211.',
     },
     widget: 'bentuk-data',
@@ -185,7 +185,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
   {
     no: 3,
     slug: 'lebar-kelas',
-    judul: 'Lebar kelas mengubah cerita',
+    judul: 'Lebar kelas mengubah kesan',
     labelPendek: 'Lebar kelas',
     pertanyaan: 'Dari data yang sama persis, kenapa bisa lahir dua histogram yang bentuknya berbeda?',
     intisari: [
@@ -195,7 +195,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
       'Karena itu histogram wajib dibaca lewat luas, bukan lewat tinggi saja.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Empat puluh siswa diukur tinggi badannya. Angka terkecil 152 cm, terbesar 180 cm, rata-ratanya 166,1 cm. Data yang sama ini akan kita gambar berkali-kali, dan tiap kali hasilnya bisa bercerita lain.' },
+      { jenis: 'paragraf', teks: 'Empat puluh siswa diukur tinggi badannya. Angka terkecil 152 cm, terbesar 180 cm, rata-ratanya 166,1 cm. Data yang sama ini akan kita gambar berkali-kali, dan tiap kali hasilnya bisa memberi kesan lain.' },
       { jenis: 'paragraf', teks: 'Untuk membuat histogram, tinggi badan harus dikelompokkan lebih dulu. Nah, selebar apa satu kelompok? Lima sentimeter? Sepuluh? Dua? Tidak ada rumus yang mewajibkan salah satunya.' },
       { jenis: 'sorot', teks: 'Data tidak berubah sedikit pun. Yang berubah cuma cara mengelompokkannya. Tetapi bentuk gambarnya, dan kesimpulan yang diambil orang darinya, bisa berbeda jauh.' },
 
@@ -222,9 +222,9 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
           '',
           'kelas 8 sampai 12   lebar 4   tinggi 8   luas 4 × 8 = 32',
         ],
-        simpul: 'Tinggi gabungannya 8, bukan 16. Yang dipertahankan luasnya, sebab luas itulah yang mewakili banyaknya data.',
+        simpul: 'Tinggi gabungannya 8, bukan 16. Yang dipertahankan luasnya, karena luas itulah yang mewakili banyaknya data.',
       },
-      { jenis: 'paragraf', teks: 'Contoh perhitungan ini diambil dari buku panduan guru Kelas X. Selama lebar semua kelas sama, membaca tinggi saja aman, dan itu sebabnya di sekolah aturan luas sering tidak terasa. Begitu ada satu kelas yang lebih lebar dari yang lain, membaca tinggi langsung menyesatkan.' },
+      { jenis: 'paragraf', teks: 'Contoh perhitungan ini diambil dari buku panduan guru Kelas X. Selama lebar semua kelas sama, membaca tinggi saja aman, dan itu sebabnya di sekolah aturan luas sering tidak terasa. Begitu ada satu kelas yang lebih lebar dari yang lain, membaca tinggi langsung keliru.' },
 
       { jenis: 'sesi', judul: 'Jadi lebar berapa yang dipilih?' },
       {
@@ -236,11 +236,11 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
           'Kalau ragu, coba beberapa lebar lalu bandingkan. Itu bukan kecurangan, itu cara kerja yang wajar.',
         ],
       },
-      { jenis: 'paragraf', teks: 'Ada juga aturan praktis yang sering diajarkan, yaitu aturan Sturges, yang memberi saran banyak kelas berdasarkan banyak data. Perlakukan ia sebagai saran awal, bukan sebagai kebenaran. Aturan itu tidak tahu apa-apa tentang data Anda.' },
+      { jenis: 'paragraf', teks: 'Ada juga aturan praktis yang sering diajarkan, yaitu aturan Sturges, yang memberi saran banyak kelas berdasarkan banyak data. Perlakukan hasilnya sebagai saran awal, bukan sebagai kebenaran. Aturan itu tidak tahu apa-apa tentang data Anda.' },
     ],
     seringKeliru: {
       judul: 'Banyak kelas sudah ditentukan rumus, jadi cuma ada satu histogram yang benar',
-      isi: 'Tidak. Rumus seperti aturan Sturges memberi saran, bukan keharusan, dan buku pun menunjukkan dua histogram berbeda yang lahir dari sumber data yang sama. Yang benar-benar salah bukan memilih lebar yang berbeda, melainkan memilih lebar tertentu supaya kesimpulan yang diinginkan muncul, lalu menyembunyikan bahwa pilihan itu pernah dibuat. Kita bahas lagi di Materi 13.',
+      isi: 'Tidak. Rumus seperti aturan Sturges memberi saran, bukan keharusan, dan buku pun menunjukkan dua histogram berbeda yang lahir dari sumber data yang sama. Yang benar-benar salah bukan memilih lebar yang berbeda, tetapi memilih lebar tertentu supaya kesimpulan yang diinginkan muncul, lalu menyembunyikan bahwa pilihan itu pernah dibuat. Kita bahas lagi di Materi 13.',
       sumber: 'Perhitungan luas gabungan kelas mengikuti Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, halaman 211.',
     },
     widget: 'lebar-kelas',
@@ -256,7 +256,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
     labelPendek: 'Frekuensi relatif',
     pertanyaan: 'Kelas A 25 siswa, Kelas B 40 siswa. Kelas mana yang lebih banyak siswanya bernilai 80 ke atas?',
     intisari: [
-      'Membandingkan frekuensi mentah antar kelompok berbeda ukuran hampir selalu menyesatkan.',
+      'Membandingkan frekuensi mentah antar kelompok berbeda ukuran hampir selalu keliru.',
       'Frekuensi relatif adalah frekuensi dibagi banyak data, jadi takarannya disamakan.',
       'Bentuknya boleh pecahan desimal atau persen; keduanya angka yang sama.',
       'Jumlah seluruh frekuensi relatif selalu 1, atau 100 persen.',
@@ -302,7 +302,7 @@ export const TAHAP_PENYAJIAN: TahapStatistika[] = [
         langkah: [
           'Mulai dengan tampilan frekuensi asli. Kelas mana yang batangnya lebih tinggi di hampir semua kelompok nilai? Bandingkan dengan jumlah siswa tiap kelas.',
           'Tekan tombol untuk beralih ke frekuensi relatif.',
-          'Perhatikan kesimpulan di bawah gambar. Apakah ia ikut berubah?',
+          'Perhatikan kesimpulan di bawah gambar. Apakah kesimpulannya ikut berubah?',
           'Kalau kesimpulannya berubah padahal datanya sama, tampilan mana yang lebih adil untuk membandingkan dua kelas yang jumlah siswanya berbeda?',
         ],
       },

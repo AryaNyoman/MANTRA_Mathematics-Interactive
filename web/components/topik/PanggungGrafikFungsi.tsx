@@ -556,7 +556,7 @@ export default function PanggungGrafikFungsi({ tahap, tampilWidget, children }: 
             <div className="catatan"><TeksMat teks={`${pokokBalap < 1
                 ? 'Pengalinya di bawah 1, jadi yang terjadi peluruhan: angkanya mengecil terus mendekati nol tanpa pernah sampai.'
                 : langkahMenyalip(pokokBalap, akhirBalap) !== null
-                  ? `Kurva eksponen menyalip kurva kuadrat di langkah ${langkahMenyalip(pokokBalap, akhirBalap)}. Sebelum itu ia justru kalah, dan itulah sebabnya pertumbuhan eksponen sering terlambat disadari.`
+                  ? `Kurva eksponen menyalip kurva kuadrat di langkah ${langkahMenyalip(pokokBalap, akhirBalap)}. Sebelum itu eksponen malah kalah, dan itulah sebabnya pertumbuhan eksponen sering terlambat disadari.`
                   : 'Sampai garis akhir ini eksponen belum menyalip kuadrat. Geser garis akhirnya lebih jauh ke kanan.'}`} /></div>
           </div>
         )}

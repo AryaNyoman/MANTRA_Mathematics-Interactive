@@ -56,7 +56,7 @@ export const LATIHAN: Soal[] = [
       'Komponen mendatar: -2 ditambah 4, hasilnya 2.',
       'Komponen tegak: 5 ditambah negatif 7. Menambah bilangan negatif berarti mengurangi, jadi 5 dikurangi 7 sama dengan -2.',
       'Jadi petanya (2, -2).',
-      'Periksa dengan menggambar: dari (-2, 5) melangkah 4 ke kanan, lalu 7 ke BAWAH sebab komponen tegaknya negatif. Mendarat di (2, -2). Betul.',
+      'Periksa dengan menggambar: dari (-2, 5) melangkah 4 ke kanan, lalu 7 ke BAWAH karena komponen tegaknya negatif. Mendarat di (2, -2). Betul.',
     ],
   },
   {
@@ -67,10 +67,10 @@ export const LATIHAN: Soal[] = [
     benar: 1,
     jawaban: '(-5  4)',
     pembahasan: [
-      'Jangan langsung ke rumus. Hitung jaraknya dulu, sebab dari situlah rumusnya datang.',
+      'Jangan langsung ke rumus. Hitung jaraknya dulu, karena dari situlah rumusnya datang.',
       'Jarak A ke garis cerminnya: dari x sama dengan 1 ke x sama dengan -2 berjarak 3 satuan.',
       'Bayangannya harus 3 satuan di seberang garis itu, jadi di x sama dengan -2 dikurangi 3, yaitu -5.',
-      'Nilai y tidak disentuh sama sekali, sebab garis cerminnya tegak dan perpindahannya mendatar.',
+      'Nilai y tidak disentuh sama sekali, karena garis cerminnya tegak dan perpindahannya mendatar.',
       'Jadi petanya (-5, 4). Diperiksa dengan rumus 2k dikurangi x: 2 dikali -2 dikurangi 1 sama dengan -5. Cocok.',
       'Pilihan (3, 4) datang dari mengurangi k, dan pilihan (-3, 4) datang dari berhenti di jaraknya tanpa menambahkannya kembali. Keduanya bisa dibantah dengan satu gambar: titiknya di kanan garis, jadi bayangannya wajib di kiri garis, dan tidak boleh melewati -5.',
     ],
@@ -104,7 +104,7 @@ export const LATIHAN: Soal[] = [
       'Koordinat tegaknya: (-1 ditambah 5) dibagi 2 sama dengan 2.',
       'Jadi M(5, 2).',
       'Diperiksa maju: A(3, -1) dicerminkan pada M(5, 2) memberi (2 dikali 5 dikurangi 3, 2 dikali 2 dikurangi -1), yaitu (7, 5). Sama dengan A aksen yang diketahui. Betul.',
-      'Pilihan (4, 6) adalah selisih A aksen dikurangi A. Selisih itu memang berguna, tetapi ia menyatakan seberapa jauh titiknya berpindah, bukan di mana cerminnya berada.',
+      'Pilihan (4, 6) adalah selisih A aksen dikurangi A. Selisih itu memang berguna, tetapi selisih itu menyatakan seberapa jauh titiknya berpindah, bukan di mana cerminnya berada.',
     ],
   },
   {
@@ -149,7 +149,7 @@ export const LATIHAN: Soal[] = [
  * yang kata pencariannya disesuaikan. Kanalnya tidak diganti-ganti per topik
  * dengan sengaja: keempatnya sudah diperiksa nyata dan masih aktif, dan
  * mengarang nama kanal baru berisiko menautkan siswa ke tempat yang tidak ada.
- * Yang ditautkan kanalnya, bukan videonya, sebab video bisa dihapus pemiliknya
+ * Yang ditautkan kanalnya, bukan videonya, karena video bisa dihapus pemiliknya
  * sedangkan kanal jarang hilang.
  */
 export const KANAL: KanalPerSubbab = {

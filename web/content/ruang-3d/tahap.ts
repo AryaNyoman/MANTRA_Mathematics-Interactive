@@ -34,7 +34,7 @@ export const TAHAP: Tahap[] = [
     judul: 'Gambar ruang boleh berbohong',
     pertanyaan:
       'Dua garis ini tampak berpotongan di gambar. Kenapa di benda aslinya tidak?',
-    labelPendek: 'Gambar yang menipu',
+    labelPendek: 'Gambar yang mengecoh mata',
     widget: 'kubus-putar',
     video: { berkas: 'ruang-3d-01.mp4', poster: 'ruang-3d-01.jpg' },
     siap: true,
@@ -51,11 +51,11 @@ export const TAHAP: Tahap[] = [
         langkah: [
           'Tarik ke kiri atau ke kanan untuk memutari kubusnya.',
           'Tarik ke atas atau ke bawah untuk mengubah ketinggian mata.',
-          'Perhatikan tulisan di bawah gambar. Kapan ia berubah dari "tampak berpotongan" menjadi "tampak terpisah"?',
+          'Perhatikan tulisan di bawah gambar. Kapan gambarnya berubah dari "tampak berpotongan" menjadi "tampak terpisah"?',
           'Selama Anda memutar, apakah kubusnya sendiri berubah? Lalu apa yang sebenarnya berubah?',
         ],
       },
-      { jenis: 'sesi', judul: 'Kenapa gambarnya bisa menipu' },
+      { jenis: 'sesi', judul: 'Kenapa gambarnya bisa salah dibaca' },
       {
         jenis: 'paragraf',
         teks:
@@ -75,7 +75,7 @@ export const TAHAP: Tahap[] = [
         jenis: 'poin',
         judul: 'Tiga hal yang perlu dibaca di setiap gambar ruang',
         butir: [
-          'Garis putus-putus - rusuk yang terhalang badan bendanya sendiri, jadi ia ada tetapi tidak terlihat langsung.',
+          'Garis putus-putus - rusuk yang terhalang badan bendanya sendiri, jadi rusuk itu ada tetapi tidak terlihat langsung.',
           'Bidang tembus pandang - digambar samar supaya isinya terlihat, bukan berarti bidangnya berlubang.',
           'Panjang di gambar bukan panjang sebenarnya - rusuk yang menjauh dari mata digambar lebih pendek, padahal panjangnya sama.',
         ],
@@ -154,7 +154,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'sorot',
         teks:
-          'Yang membedakan sejajar dari bersilangan bukan "tidak bertemu", sebab keduanya memang tidak bertemu. Yang membedakan: ada tidaknya satu bidang yang memuat keduanya.',
+          'Yang membedakan sejajar dari bersilangan bukan "tidak bertemu", karena keduanya memang tidak bertemu. Yang membedakan: ada tidaknya satu bidang yang memuat keduanya.',
       },
       {
         jenis: 'coba',
@@ -188,7 +188,7 @@ export const TAHAP: Tahap[] = [
         judul: 'Hanya dua kemungkinan',
         butir: [
           'Sejajar - tidak punya titik persekutuan sama sekali. Contoh: alas ABCD dan tutup EFGH.',
-          'Berpotongan - persekutuannya bukan satu titik, melainkan satu garis penuh, yang disebut garis potong. Contoh: bidang BDG memotong alas pada garis BD.',
+          'Berpotongan - persekutuannya bukan satu titik, tetapi satu garis penuh, yang disebut garis potong. Contoh: bidang BDG memotong alas pada garis BD.',
         ],
       },
       {
@@ -212,7 +212,7 @@ export const TAHAP: Tahap[] = [
     seringKeliru: {
       judul: 'Bersilangan dikira sama dengan sejajar',
       isi:
-        'Keduanya memang sama-sama tidak pernah bertemu, jadi wajar tertukar. Bedanya di arah: garis sejajar punya arah yang sama persis, sehingga jaraknya tetap sama di sepanjang garis. Garis bersilangan arahnya berbeda, dan keduanya berada pada dua bidang sejajar yang berlainan. Uji cepatnya: kalau kedua garis bisa dimuat oleh satu bidang, ia sejajar atau berpotongan. Kalau tidak bisa, ia bersilangan.',
+        'Keduanya memang sama-sama tidak pernah bertemu, jadi wajar tertukar. Bedanya di arah: garis sejajar punya arah yang sama persis, sehingga jaraknya tetap sama di sepanjang garis. Garis bersilangan arahnya berbeda, dan keduanya berada pada dua bidang sejajar yang berlainan. Uji cepatnya: kalau kedua garis bisa dimuat oleh satu bidang, keduanya sejajar atau berpotongan. Kalau tidak bisa, keduanya bersilangan.',
     },
     intisari: [
       'Dua garis: berpotongan, sejajar, atau bersilangan. Tidak ada kemungkinan lain.',
@@ -249,7 +249,7 @@ export const TAHAP: Tahap[] = [
           'Geser titik Q sepanjang AC, dan perhatikan dua hal sekaligus.',
         langkah: [
           'Geser Q pelan-pelan dari A ke C sambil mengawasi angka BQ di bawah gambar.',
-          'Perhatikan grafik kecil di kolom ini. Bentuk apa yang ia gambar?',
+          'Perhatikan grafik kecil di kolom ini. Bentuk apa yang tergambar?',
           'Cari dasar lembah grafik itu. Tanda apa yang menyala di titik Q tepat di situ?',
           'Jadi, di mana BQ paling pendek, dan bagaimana kedudukan BQ terhadap AC saat itu?',
         ],
@@ -262,7 +262,7 @@ export const TAHAP: Tahap[] = [
       },
       {
         jenis: 'contoh',
-        judul: 'Pythagoras yang menutup perkara',
+        judul: 'Pythagoras menyelesaikan sisanya',
         baris: [
           'BR² = BQ² + QR²',
           'QR itu panjang, jadi QR² selalu positif.',
@@ -306,7 +306,7 @@ export const TAHAP: Tahap[] = [
     seringKeliru: {
       judul: 'Jarak diukur ke titik yang paling menonjol di gambar',
       isi:
-        'Godaannya besar: menghubungkan B ke ujung A atau ujung C, karena keduanya titik bernama yang langsung kelihatan di gambar. Padahal kaki tegak lurus sering jatuh di tengah-tengah, di titik yang tidak punya nama. Sebelum menghitung, tentukan dulu di mana kakinya jatuh. Kalau kakinya di luar ruas garisnya, barulah ujung terdekat yang dipakai.',
+        'Yang terasa benar: menghubungkan B ke ujung A atau ujung C, karena keduanya titik bernama yang langsung kelihatan di gambar. Padahal kaki tegak lurus sering jatuh di tengah-tengah, di titik yang tidak punya nama. Sebelum menghitung, tentukan dulu di mana kakinya jatuh. Kalau kakinya di luar ruas garisnya, barulah ujung terdekat yang dipakai.',
     },
     intisari: [
       'Jarak adalah yang terpendek, dan yang terpendek selalu yang tegak lurus.',
@@ -347,13 +347,13 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Diagonal ruang menghubungkan dua titik sudut yang tidak berada pada satu sisi, misalnya A dengan G. Ia menembus bagian dalam kubus. Di sinilah orang sering tersesat, karena segitiga penolongnya tidak tergambar di kertas dan harus dibayangkan berdiri di dalam kubus.',
+          'Diagonal ruang menghubungkan dua titik sudut yang tidak berada pada satu sisi, misalnya A dengan G. Diagonal itu menembus bagian dalam kubus. Di sinilah orang sering salah langkah, karena segitiga penolongnya tidak tergambar di kertas dan harus dibayangkan berdiri di dalam kubus.',
       },
       {
         jenis: 'coba',
         teks: 'Tekan tombol Langkah 2 di bawah gambar, lalu putar kubusnya.',
         langkah: [
-          'Tekan tombol Langkah 2, lalu putar kubusnya sampai segitiga ACG terlihat utuh. Apakah ia menempel pada salah satu sisi kubus?',
+          'Tekan tombol Langkah 2, lalu putar kubusnya sampai segitiga ACG terlihat utuh. Apakah garis itu menempel pada salah satu sisi kubus?',
           'Perhatikan alasnya, AC. Dari langkah mana panjang ruas itu sudah Anda dapatkan?',
           'Perhatikan sisi tegaknya, CG. Ruas apa itu pada kubus?',
           'Di titik mana tanda siku-sikunya, dan menurut Anda kenapa di situ?',
@@ -373,13 +373,13 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'sorot',
         teks:
-          'Diagonal ruang bukan rumus baru. Ia Pythagoras yang dipakai untuk kedua kalinya, dengan hasil yang pertama sebagai salah satu sisinya.',
+          'Diagonal ruang bukan rumus baru. Rumus itu Pythagoras yang dipakai untuk kedua kalinya, dengan hasil yang pertama sebagai salah satu sisinya.',
       },
       { jenis: 'sesi', judul: 'Kenapa jawabannya √3' },
       {
         jenis: 'paragraf',
         teks:
-          'Kalau rusuknya a, langkah pertama memberi a√2, lalu langkah kedua menjumlahkan 2a² dengan a², hasilnya 3a². Jadi diagonal ruangnya a√3. Angka 3 di dalam akar itu bukan kebetulan: ia menghitung ada berapa arah yang dilewati, yaitu panjang, lebar, dan tinggi.',
+          'Kalau rusuknya a, langkah pertama memberi a√2, lalu langkah kedua menjumlahkan 2a² dengan a², hasilnya 3a². Jadi diagonal ruangnya a√3. Angka 3 di dalam akar itu ada artinya: angka itu menghitung ada berapa arah yang dilewati, yaitu panjang, lebar, dan tinggi.',
       },
       {
         jenis: 'poin',
@@ -423,13 +423,13 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Kubus ABCD.EFGH dengan rusuk 6. Berapa jarak titik B ke garis AG? Garis AG adalah diagonal ruang, jadi kakinya tidak jatuh di titik sudut mana pun. Ia jatuh di suatu tempat di dalam kubus yang tidak punya nama.',
+          'Kubus ABCD.EFGH dengan rusuk 6. Berapa jarak titik B ke garis AG? Garis AG adalah diagonal ruang, jadi kakinya tidak jatuh di titik sudut mana pun. Kakinya jatuh di suatu tempat di dalam kubus yang tidak punya nama.',
       },
       {
         jenis: 'coba',
         teks: 'Putar kubusnya dan perhatikan letak titik K, si kaki tegak lurus.',
         langkah: [
-          'Putar kubusnya dan cari letak titik K, si kaki tegak lurus. Apakah ia berada di rusuk mana pun?',
+          'Putar kubusnya dan cari letak titik K, si kaki tegak lurus. Apakah titik itu berada di rusuk mana pun?',
           'Ganti titiknya ke D, lalu ke E, dan catat angkanya masing-masing.',
           'Bandingkan ketiga angka itu. Sama atau beda?',
           'Menurut Anda, kebetulan atau ada sebabnya? Perhatikan letak ketiga titik itu terhadap garis AG.',
@@ -455,7 +455,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Luas segitiga bisa dihitung dari dua pasangan alas dan tinggi yang berbeda, dan hasilnya wajib sama. Pasangan itulah yang dipakai untuk memancing jaraknya keluar.',
+          'Luas segitiga bisa dihitung dari dua pasangan alas dan tinggi yang berbeda, dan hasilnya wajib sama. Pasangan itulah yang dipakai untuk menghitung jaraknya.',
       },
       {
         jenis: 'contoh',
@@ -472,7 +472,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'sorot',
         teks:
-          'Jarak titik ke garis d = 2L/a, dengan L luas segitiga dan a panjang alasnya. Rumus itu bukan hafalan baru, ia cuma luas segitiga yang dibalik.',
+          'Jarak titik ke garis d = 2L/a, dengan L luas segitiga dan a panjang alasnya. Rumus itu bukan hafalan baru, cuma luas segitiga yang dibalik.',
       },
       { jenis: 'sesi', judul: 'Kenapa B, D, dan E memberi angka yang sama' },
       {
@@ -501,7 +501,7 @@ export const TAHAP: Tahap[] = [
     seringKeliru: {
       judul: 'Jarak diukur ke ujung garisnya',
       isi:
-        'Karena A dan G adalah titik sudut yang menonjol, banyak yang menghitung BA atau BG lalu menyebutnya jarak. BA = 6 dan BG = 8,485, keduanya lebih besar daripada 4,899. Keduanya memang menghubungkan B ke garis AG, tetapi bukan yang terpendek. Yang terpendek jatuh di titik tanpa nama di tengah, dan justru itulah yang dicari.',
+        'Karena A dan G adalah titik sudut yang menonjol, banyak yang menghitung BA atau BG lalu menyebutnya jarak. BA = 6 dan BG = 8,485, keduanya lebih besar daripada 4,899. Keduanya memang menghubungkan B ke garis AG, tetapi bukan yang terpendek. Yang terpendek jatuh di titik tanpa nama di tengah, dan malah itulah yang dicari.',
     },
     intisari: [
       'Jarak titik ke garis pada kubus rusuk 6, dari B ke AG: 2√6.',
@@ -526,7 +526,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Kubus ABCD.EFGH rusuk 6. Berapa jarak titik A ke bidang BDE? Bidang BDE dibentuk oleh tiga diagonal sisi yang bertemu di sekitar titik A, dan ia memotong pojok kubus seperti pisau memotong ujung tahu.',
+          'Kubus ABCD.EFGH rusuk 6. Berapa jarak titik A ke bidang BDE? Bidang BDE dibentuk oleh tiga diagonal sisi yang bertemu di sekitar titik A, dan bidang itu memotong pojok kubus seperti pisau memotong ujung tahu.',
       },
       {
         jenis: 'paragraf',
@@ -588,7 +588,7 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Soal kedua di alatnya, jarak C ke bidang BDG, adalah soal EBTANAS 1992. Jawabannya juga 2√3. Titik dan bidangnya berbeda, tetapi susunannya kembar: sebuah titik sudut dan bidang yang memotong ketiga tetangganya. Mengenali kembaran seperti ini menghemat banyak waktu di ujian.',
+          'Soal kedua di alatnya, jarak C ke bidang BDG, adalah soal EBTANAS 1992. Jawabannya juga 2√3. Titik dan bidangnya berbeda, tetapi susunannya kembar: sebuah titik sudut dan bidang yang memotong ketiga tetangganya. Mengenali kesamaan seperti ini menghemat banyak waktu di ujian.',
       },
       {
         jenis: 'contoh',
@@ -609,7 +609,7 @@ export const TAHAP: Tahap[] = [
     seringKeliru: {
       judul: 'Jarak ditarik ke titik sudut bidangnya',
       isi:
-        'Karena B, D, dan E adalah titik yang bernama dan terlihat, godaannya adalah menghitung AB, AD, atau AE lalu menyebutnya jarak ke bidang BDE. Ketiganya bernilai 6, sedangkan jarak yang benar 3,464. Ruas AB memang menyentuh bidang BDE, tetapi ia miring terhadap bidang itu, jadi bukan yang terpendek. Yang tegak lurus menusuk di titik K yang tidak bernama.',
+        'Karena B, D, dan E adalah titik yang bernama dan terlihat, yang sering terjadi adalah menghitung AB, AD, atau AE lalu menyebutnya jarak ke bidang BDE. Ketiganya bernilai 6, sedangkan jarak yang benar 3,464. Ruas AB memang menyentuh bidang BDE, tetapi ruas itu miring terhadap bidang itu, jadi bukan yang terpendek. Yang tegak lurus menusuk di titik K yang tidak bernama.',
     },
     intisari: [
       'Jarak titik ke bidang: tarik ruas tegak lurus bidang itu, ukur sampai menusuk.',
@@ -680,13 +680,13 @@ export const TAHAP: Tahap[] = [
       {
         jenis: 'paragraf',
         teks:
-          'Semua ini hanya berlaku kalau memang sejajar. Kalau garisnya menembus bidang, jaraknya nol, sebab keduanya bersentuhan. Kalau garisnya terletak pada bidang, jaraknya juga nol. Jadi periksa kedudukannya dulu, seperti di materi 02, baru hitung.',
+          'Semua ini hanya berlaku kalau memang sejajar. Kalau garisnya menembus bidang, jaraknya nol, karena keduanya bersentuhan. Kalau garisnya terletak pada bidang, jaraknya juga nol. Jadi periksa kedudukannya dulu, seperti di materi 02, baru hitung.',
       },
     ],
     seringKeliru: {
       judul: 'Titik yang dipilih dianggap mengubah jawaban',
       isi:
-        'Banyak yang ragu dan mencoba beberapa titik lalu bingung karena hasilnya sama, mengira ada yang salah. Justru itu tandanya benar. Yang perlu dipastikan bukan titiknya, melainkan sejajarnya. Kalau ternyata tidak sejajar, hasilnya memang akan berbeda-beda, dan itu pertanda soalnya bukan soal jarak sejajar.',
+        'Banyak yang ragu dan mencoba beberapa titik lalu bingung karena hasilnya sama, mengira ada yang salah. Malah itu tandanya benar. Yang perlu dipastikan bukan titiknya, tetapi sejajarnya. Kalau ternyata tidak sejajar, hasilnya memang akan berbeda-beda, dan itu pertanda soalnya bukan soal jarak sejajar.',
     },
     intisari: [
       'Jarak garis ke bidang sejajar dan jarak dua bidang sejajar bukan rumus baru.',
@@ -734,7 +734,7 @@ export const TAHAP: Tahap[] = [
         jenis: 'coba',
         teks: 'Geser BG dengan penggeser di bawah gambar, sampai penuh.',
         langkah: [
-          'Geser BG dengan penggeser di bawah gambar, sedikit demi sedikit. Perhatikan garis merahnya: apakah ia ikut berputar?',
+          'Geser BG dengan penggeser di bawah gambar, sedikit demi sedikit. Perhatikan garis merahnya: apakah garis itu ikut berputar?',
           'Perhatikan posisi asalnya yang tetap terlihat samar. Sejajarkah garis yang bergerak dengan bayangan asalnya?',
           'Pada geseran penuh, di mana BG mendarat? Ruas apa pada kubus yang ditempatinya?',
           'Sudut apa yang sekarang terlihat jelas, dan segitiga mana yang memuatnya?',
@@ -780,7 +780,7 @@ export const TAHAP: Tahap[] = [
           'Sudut yang kosinusnya 1/2 adalah 60°, sama dengan hasil di atas.',
         ],
         simpul:
-          'Aturan kosinus bukan milik topik ini. Ia dipelajari di bab Trigonometri buku sekolah, dan di sini cuma dipinjam sebagai alat hitung.',
+          'Aturan kosinus bukan milik topik ini. Aturan kosinus dipelajari di bab Trigonometri buku sekolah, dan di sini cuma dipinjam sebagai alat hitung.',
       },
       {
         jenis: 'paragraf',
@@ -843,8 +843,8 @@ export const TAHAP: Tahap[] = [
         jenis: 'contoh',
         judul: 'Diagonal ruang AG terhadap alas ABCD',
         baris: [
-          'Bayangan titik A pada alas adalah A sendiri, sebab A memang di alas.',
-          'Bayangan titik G pada alas adalah C, sebab GC tegak lurus alas.',
+          'Bayangan titik A pada alas adalah A sendiri, karena A memang di alas.',
+          'Bayangan titik G pada alas adalah C, karena GC tegak lurus alas.',
           'Jadi bayangan AG adalah AC, panjangnya 6√2.',
           'Sekarang lihat segitiga ACG, siku-siku di C.',
           'tan sudut = CG/AC = 6/(6√2)',
@@ -857,7 +857,7 @@ export const TAHAP: Tahap[] = [
         teks: 'Putar kubusnya sampai segitiga ACG terlihat utuh.',
         langkah: [
           'Putar kubusnya sampai segitiga ACG terlihat utuh. Temukan ruas merah AG, garis yang ditanyakan.',
-          'Temukan ruas ungu AC. Di mana ia berada, dan apa hubungannya dengan AG?',
+          'Temukan ruas ungu AC. Di mana ruas itu berada, dan apa hubungannya dengan AG?',
           'Temukan garis putus-putus CG. Apa perannya dalam segitiga itu?',
           'Di titik mana tanda siku-sikunya? Jadi, sudut antara AG dan alas kubus adalah sudut yang mana?',
         ],
@@ -877,7 +877,7 @@ export const TAHAP: Tahap[] = [
         jenis: 'contoh',
         judul: 'Bidang BDG terhadap alas ABCD',
         baris: [
-          'Garis potongnya BD, sebab B dan D dimiliki kedua bidang.',
+          'Garis potongnya BD, karena B dan D dimiliki kedua bidang.',
           'Ambil titik P di tengah BD.',
           'PC tegak lurus BD, dan PC ada di alas. Panjang PC = 3√2.',
           'PG tegak lurus BD, dan PG ada di bidang BDG.',
@@ -929,7 +929,7 @@ export const TAHAP: Tahap[] = [
     seringKeliru: {
       judul: 'Dua garis bantunya bertumpu di titik yang berbeda',
       isi:
-        'Ini kekeliruan yang paling sering di seluruh topik. Kedua garis dipilih sudah benar tegak lurus garis potong, tetapi yang satu bertumpu di titik B dan yang lain di titik D. Sudut yang terbaca lalu bukan sudut antara kedua bidang itu, melainkan angka yang tidak berarti apa-apa. Kebiasaan yang menyelamatkan: tandai dulu satu titik pada garis potong, beri nama, dan tarik kedua garis bantu DARI titik itu.',
+        'Ini kekeliruan yang paling sering di seluruh topik. Kedua garis dipilih sudah benar tegak lurus garis potong, tetapi yang satu bertumpu di titik B dan yang lain di titik D. Sudut yang terbaca lalu bukan sudut antara kedua bidang itu, tetapi angka yang tidak berarti apa-apa. Kebiasaan yang menyelamatkan: tandai dulu satu titik pada garis potong, beri nama, dan tarik kedua garis bantu DARI titik itu.',
     },
     intisari: [
       'Sudut garis dengan bidang: sudut antara garis dan bayangannya (proyeksinya) pada bidang.',
@@ -962,11 +962,11 @@ export const TAHAP: Tahap[] = [
         butir: [
           'Lampu kelas - jarak titik ke bidang. Tukang listrik mengukur lurus ke bawah, bukan ke pojok ruangan.',
           'Atap rumah - sudut bidang dengan bidang. Terlalu landai, air menggenang. Terlalu curam, boros bahan.',
-          'Menara rangka - dua batang bersilangan. Di foto keduanya tampak menyilang di satu titik, aslinya lewat di sisi yang berbeda, dan justru karena itu keduanya bisa dipasang tanpa bertabrakan.',
+          'Menara rangka - dua batang bersilangan. Di foto keduanya tampak menyilang di satu titik, aslinya lewat di sisi yang berbeda, dan malah karena itu keduanya bisa dipasang tanpa bertabrakan.',
           'Tangga bersandar - sudut garis dengan bidang. Aturan tukang: sekitar 75 derajat.',
         ],
       },
-      { jenis: 'sesi', judul: 'Kenapa ini bukan sekadar soal sekolah' },
+      { jenis: 'sesi', judul: 'Kenapa ini bukan cuma soal sekolah' },
       {
         jenis: 'paragraf',
         teks:

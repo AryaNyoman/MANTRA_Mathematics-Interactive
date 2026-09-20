@@ -153,7 +153,7 @@ export default function KekuatanHubungan({ children }: PropWidget) {
       </table>
       <div className="catatan"><TeksMat teks={`${menyesatkan
           ? 'Contoh ini yang paling penting di seluruh materi ini. Angka r nol berarti tidak ada hubungan LURUS, bukan berarti tidak ada hubungan sama sekali.'
-          : `Bacaan r kuadrat: sekitar ${angka(h.r2 * 100, 0)} persen keragaman y bisa dijelaskan oleh garis yang memakai x. Sisanya berasal dari hal lain yang tidak masuk hitungan.`} Dan sekuat apa pun angkanya, ia tetap tidak membuktikan bahwa yang satu menyebabkan yang lain. ${keterangan(contoh.butir)}`} /></div>
+          : `Bacaan r kuadrat: sekitar ${angka(h.r2 * 100, 0)} persen keragaman y bisa dijelaskan oleh garis yang memakai x. Sisanya berasal dari hal lain yang tidak masuk hitungan.`} Dan sekuat apa pun angkanya, angka itu tetap tidak membuktikan bahwa yang satu menyebabkan yang lain. ${keterangan(contoh.butir)}`} /></div>
     </div>
   )
 

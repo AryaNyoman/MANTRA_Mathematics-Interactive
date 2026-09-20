@@ -8,7 +8,7 @@ export const ISTILAH: { istilah: string; arti: string }[] = [
   { istilah: 'sisi samping', arti: 'sisi yang menempel pada sudut yang sedang dilihat, selain sisi miring' },
   { istilah: 'sinus (sin)', arti: 'sisi depan dibagi sisi miring; pada lingkaran satuan, tinggi titiknya (koordinat tegak)' },
   { istilah: 'kosinus (cos)', arti: 'sisi samping dibagi sisi miring; pada lingkaran satuan, koordinat mendatar titiknya' },
-  { istilah: 'tangen (tan)', arti: 'sisi depan dibagi sisi samping; sama dengan sin dibagi cos; namanya berarti "yang menyentuh" karena ia ruas pada garis singgung' },
+  { istilah: 'tangen (tan)', arti: 'sisi depan dibagi sisi samping; sama dengan sin dibagi cos; namanya berarti "yang menyentuh" karena tangen adalah ruas pada garis singgung' },
   { istilah: 'kotangen (cot)', arti: 'kebalikan tan: sisi samping dibagi sisi depan' },
   { istilah: 'sekan (sec)', arti: 'kebalikan cos: sisi miring dibagi sisi samping (bukan kebalikan sin)' },
   { istilah: 'kosekan (csc)', arti: 'kebalikan sin: sisi miring dibagi sisi depan' },

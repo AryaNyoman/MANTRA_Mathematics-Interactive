@@ -7,7 +7,7 @@ import { K, kanal } from '../kanal-youtube.ts'
  * KALIBRASI KESULITAN
  * Ditakar ke Latihan 3.1 sampai 3.6 pada Buku Panduan Guru Matematika SMA/SMK
  * Kelas X (Kemendikbudristek 2021), halaman 108 sampai 133. Soal di sana bukan
- * sekadar menjumlahkan dua vektor: ada komponen tiga dimensi, ada pembuktian
+ * cuma menjumlahkan dua vektor: ada komponen tiga dimensi, ada pembuktian
  * tiga titik segaris lewat kelipatan, dan ada resultan yang dibaca dari peta.
  * Karena itu soal keempat di bawah memakai bentuk segaris, bukan penjumlahan
  * biasa. Aturan proyek: soal buatan sendiri cenderung terlalu mudah.

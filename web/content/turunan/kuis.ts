@@ -904,7 +904,7 @@ export const KUIS: SoalKuis[] = [
     pilihan: ['y = 2x + 1', 'y = x − 1', 'y = −1', 'y = 2x − 1', 'y = 2x'],
     benar: 3,
     langkah: [
-      'Perhatikan bahwa titik (0, −1) TIDAK terletak pada parabola (0² ≠ −1), sehingga ia bukan titik singgung. Misalkan titik singgungnya (a, a²).',
+      'Perhatikan bahwa titik (0, −1) TIDAK terletak pada parabola (0² ≠ −1), sehingga titik itu bukan titik singgung. Misalkan titik singgungnya (a, a²).',
       'Gradien garis singgung di titik itu adalah f′(a) = 2a, sehingga persamaan garis singgungnya y − a² = 2a(x − a), yaitu y = 2ax − a².',
       'Garis itu harus melalui (0, −1): −1 = 2a(0) − a², sehingga a² = 1 dan a = 1 atau a = −1. Ada dua garis singgung, yaitu dari titik singgung (1, 1) dan (−1, 1).',
       {

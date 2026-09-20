@@ -115,7 +115,7 @@ export const KUIS: SoalKuis[] = [
       'Histogram dan diagram garis dipakai untuk data angka: histogram untuk data berkelompok yang batangnya menyambung, diagram garis untuk perubahan sepanjang waktu.',
       'Jadi, sajian yang tepat adalah diagram batang, karena datanya berupa kategori. (Jawaban C)',
     ],
-    jebakan: 'Pilihan A, histogram, menggoda karena bentuknya mirip diagram batang; bedanya histogram untuk data angka berkelas dan batangnya rapat. Pilihan D, diagram garis, keliru karena tidak ada urutan waktu yang menghubungkan "sepeda" ke "motor".',
+    jebakan: 'Pilihan A, histogram, tampak benar karena bentuknya mirip diagram batang; bedanya histogram untuk data angka berkelas dan batangnya rapat. Pilihan D, diagram garis, keliru karena tidak ada urutan waktu yang menghubungkan "sepeda" ke "motor".',
     alasan: 'Data kategori disajikan dengan diagram batang terpisah.',
   },
   {
@@ -144,7 +144,7 @@ export const KUIS: SoalKuis[] = [
       'Dengan demikian, di bawah Q₁ terdapat seperempat data, yaitu 25 persen.',
       'Jadi, bagian data yang nilainya di bawah Q₁ adalah 25 persen. (Jawaban D)',
     ],
-    jebakan: 'Pilihan B, 50 persen, adalah bagian di bawah median (Q₂). Pilihan C, 75 persen, adalah bagian di bawah Q₃. Pilihan E menggoda karena NILAI Q₁ memang bergantung data, tetapi bagiannya selalu seperempat.',
+    jebakan: 'Pilihan B, 50 persen, adalah bagian di bawah median (Q₂). Pilihan C, 75 persen, adalah bagian di bawah Q₃. Pilihan E tampak benar karena NILAI Q₁ memang bergantung data, tetapi bagiannya selalu seperempat.',
     alasan: 'Kuartil membagi data jadi empat bagian sama banyak: di bawah Q₁ ada 25 persen.',
   },
   {
@@ -159,7 +159,7 @@ export const KUIS: SoalKuis[] = [
       'Dengan demikian, setiap nilai sama dengan rata-ratanya, sehingga semua nilai data sama, misalnya 7, 7, 7, 7.',
       'Jadi, simpangan baku 0 berarti semua nilainya sama. (Jawaban B)',
     ],
-    jebakan: 'Pilihan C, rata-ratanya nol, mengacaukan ukuran sebaran dengan ukuran pemusatan; data 5, 5, 5 bersimpangan baku 0 walau rata-ratanya 5. Pilihan D justru kebalikannya: sebaran lebar berarti simpangan baku besar.',
+    jebakan: 'Pilihan C, rata-ratanya nol, mengacaukan ukuran sebaran dengan ukuran pemusatan; data 5, 5, 5 bersimpangan baku 0 walau rata-ratanya 5. Pilihan D malah kebalikannya: sebaran lebar berarti simpangan baku besar.',
     alasan: 'Σ(x − x̄)² = 0 hanya bila semua x = x̄.',
   },
   {
@@ -207,7 +207,7 @@ export const KUIS: SoalKuis[] = [
       'Tampak bahwa nilai terbesar adalah 430 pada bulan Mei; Maret (425) tertinggi kedua, lalu April turun ke 421 sebelum naik lagi.',
       'Jadi, bulan dengan pengunjung terbanyak adalah Mei. (Jawaban B)',
     ],
-    jebakan: 'Pilihan A, Mar, menggoda karena batang Maret terlihat menonjol setelah kenaikan dua bulan berturut-turut, tetapi Mei tetap lebih tinggi. Perbedaan antar batang kecil (belasan orang), sehingga angkanya harus dibaca, bukan dikira-kira.',
+    jebakan: 'Pilihan A, Mar, tampak benar karena batang Maret terlihat menonjol setelah kenaikan dua bulan berturut-turut, tetapi Mei tetap lebih tinggi. Perbedaan antar batang kecil (belasan orang), sehingga angkanya harus dibaca, bukan dikira-kira.',
     alasan: 'Batang tertinggi 430 pada Mei.',
   },
   {
@@ -292,7 +292,7 @@ export const KUIS: SoalKuis[] = [
       'Dengan demikian, kesamaan ketiga ukuran pemusatan tidak menjamin apa pun tentang sebaran (jangkauan, simpangan baku) maupun banyak siswanya.',
       'Jadi, yang pasti dapat disimpulkan hanyalah belum ada yang bisa disimpulkan tentang sebarannya. (Jawaban B)',
     ],
-    jebakan: 'Pilihan C dan D menggoda karena "sama persis" terdengar menyeluruh, padahal ketiga ukuran itu satu jenis (pemusatan). Pilihan A terlalu jauh: dua kelas dengan ringkasan yang sama bisa berisi nilai yang sangat berbeda.',
+    jebakan: 'Pilihan C dan D tampak benar karena "sama persis" terdengar menyeluruh, padahal ketiga ukuran itu satu jenis (pemusatan). Pilihan A terlalu jauh: dua kelas dengan ringkasan yang sama bisa berisi nilai yang sangat berbeda.',
     alasan: 'Pemusatan sama tidak menentukan sebaran; contoh 6,7,7,7,8 dan 3,7,7,7,11.',
   },
   {
@@ -300,7 +300,7 @@ export const KUIS: SoalKuis[] = [
     id: 'st-10',
     tingkat: 'sedang',
     pertanyaan: 'Sekolah A: 18 dari 60 siswa ikut ekstrakurikuler musik. Sekolah B: 25 dari 100 siswa. Sekolah yang bagian pesertanya lebih besar adalah…',
-    pilihan: ['sekolah B, sebab 25 lebih banyak daripada 18', 'sama saja', 'tidak bisa dibandingkan', 'sekolah A, yaitu 30 persen lawan 25 persen', 'sekolah B, yaitu 25 persen lawan 18 persen'],
+    pilihan: ['sekolah B, karena 25 lebih banyak daripada 18', 'sama saja', 'tidak bisa dibandingkan', 'sekolah A, yaitu 30 persen lawan 25 persen', 'sekolah B, yaitu 25 persen lawan 18 persen'],
     benar: 3,
     langkah: [
       'Karena banyak siswa kedua sekolah berbeda, yang dibandingkan haruslah frekuensi RELATIF (bagian dari keseluruhan), bukan frekuensi mutlak.',
@@ -335,7 +335,7 @@ export const KUIS: SoalKuis[] = [
     tingkat: 'sedang',
     pertanyaan: 'Gaji sembilan karyawan sekitar 5 juta, lalu satu direktur bergaji 75 juta ikut dihitung. Ukuran yang paling mewakili gaji orang kebanyakan di kantor itu adalah…',
     gambar: { jenis: 'batang', kategori: ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'dir'], nilai: [4.5, 4.8, 5, 5, 5.1, 5.2, 5.5, 6, 7, 75], satuan: 'juta', sorot: [9] },
-    pilihan: ['median, sebab tidak tertarik oleh satu nilai yang jauh', 'mean, sebab memakai semua data', 'modus, sebab paling sering muncul', 'jangkauan', 'ketiganya sama saja'],
+    pilihan: ['median, karena tidak tertarik oleh satu nilai yang jauh', 'mean, karena memakai semua data', 'modus, karena paling sering muncul', 'jangkauan', 'ketiganya sama saja'],
     benar: 0,
     langkah: [
       'Perhatikan bahwa nilai 75 juta jauh terpisah dari sembilan nilai lainnya; nilai seperti itu disebut pencilan.',
@@ -344,9 +344,9 @@ export const KUIS: SoalKuis[] = [
         gambar: { jenis: 'tabel', kepala: ['Ukuran', 'Nilai', 'Mewakili orang kebanyakan?'], baris: [['mean', '≈ 12,3 juta', 'tidak; tertarik oleh 75 juta'], ['median', '5,15 juta', 'ya']], sorot: [1] },
       },
       'Mean ikut tertarik ke atas oleh satu nilai ekstrem karena semua nilai ikut dijumlahkan, sedangkan median hanya memakai POSISI tengah sehingga tidak terpengaruh seberapa jauh pencilan itu.',
-      'Jadi, ukuran yang paling mewakili gaji orang kebanyakan adalah median, sebab tidak tertarik oleh satu nilai yang jauh. (Jawaban A)',
+      'Jadi, ukuran yang paling mewakili gaji orang kebanyakan adalah median, karena tidak tertarik oleh satu nilai yang jauh. (Jawaban A)',
     ],
-    jebakan: 'Pilihan B menggoda karena "memakai semua data" terdengar adil, tetapi justru itulah yang membuat mean mudah tertarik pencilan. Pilihan C, modus, tidak tepat karena gaji yang persis sama jarang berulang.',
+    jebakan: 'Pilihan B tampak benar karena "memakai semua data" terdengar adil, tetapi malah itulah yang membuat mean mudah tertarik pencilan. Pilihan C, modus, tidak tepat karena gaji yang persis sama jarang berulang.',
     alasan: 'Ada pencilan 75 juta; mean tertarik ke 12,3 juta, median tetap 5,15 juta.',
   },
   {
@@ -374,13 +374,13 @@ export const KUIS: SoalKuis[] = [
     langkah: [
       'Perhatikan bahwa angkanya tetap benar: dari 412 ke 430 memang naik 18 orang. Yang berubah hanyalah KESAN yang ditimbulkan gambarnya.',
       {
-        teks: 'Bandingkan dengan grafik yang sumbu tegaknya dimulai dari 0: kenaikan 18 dari 412 hanya sekitar 4 persen, sehingga garisnya nyaris datar, seperti gambar berikut.',
+        teks: 'Bandingkan dengan grafik yang sumbu tegaknya dimulai dari 0: kenaikan 18 dari 412 hanya sekitar 4 persen, sehingga garisnya hampir datar, seperti gambar berikut.',
         gambar: { jenis: 'garis-data', kategori: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei'], nilai: [412, 418, 425, 421, 430], satuan: 'orang', mulai: 0 },
       },
       'Memotong sumbu-y di 410 membuat selisih 20 orang memenuhi seluruh tinggi gambar, sehingga perubahan kecil tampak seperti lonjakan. Sumbu yang dipotong boleh dipakai untuk memperlihatkan perubahan kecil, tetapi pembaca harus memperhatikan angka sumbunya.',
       'Jadi, kenaikannya nyata, tetapi terlihat jauh lebih besar daripada sebenarnya. (Jawaban A)',
     ],
-    jebakan: 'Pilihan B dan D terlalu jauh: angkanya tidak palsu dan memotong sumbu tidak selalu curang, hanya perlu dibaca dengan hati-hati. Pilihan C tertipu oleh kesan gambar tanpa membaca skala sumbunya.',
+    jebakan: 'Pilihan B dan D terlalu jauh: angkanya tidak palsu dan memotong sumbu tidak selalu curang, hanya perlu dibaca dengan hati-hati. Pilihan C terbawa kesan gambar tanpa membaca skala sumbunya.',
     alasan: 'Angkanya benar (naik 18 dari 412, sekitar 4%), tetapi sumbu yang dipotong membesarkan kesannya.',
   },
   {
@@ -398,7 +398,7 @@ export const KUIS: SoalKuis[] = [
       'Mengurutkan data tidak mengubah histogram (histogram memang menghitung per kelas), dan memakai frekuensi relatif hanya mengubah skala tinggi batang, bukan bentuknya.',
       'Jadi, dua histogram dari data yang sama dapat berbeda bentuk karena lebar kelasnya dipilih berbeda. (Jawaban B)',
     ],
-    jebakan: 'Pilihan D menggoda karena frekuensi relatif memang mengubah angka sumbu tegak, tetapi perbandingan tinggi antar batang tetap sama sehingga bentuknya tidak berubah. Pilihan A dan E mengira histogram tunggal untuk satu data.',
+    jebakan: 'Pilihan D tampak benar karena frekuensi relatif memang mengubah angka sumbu tegak, tetapi perbandingan tinggi antar batang tetap sama sehingga bentuknya tidak berubah. Pilihan A dan E mengira histogram tunggal untuk satu data.',
     alasan: 'Lebar kelas adalah pilihan; kelas berbeda memberi bentuk berbeda.',
   },
   {
@@ -417,7 +417,7 @@ export const KUIS: SoalKuis[] = [
       'Kerapatan titik pada garis menunjukkan kekuatan hubungan, bukan sebab-akibat; diagram pencar tidak pernah membuktikan bahwa yang satu menyebabkan yang lain.',
       'Jadi, bacaannya: arah naik, bentuk mendekati lurus, hubungan kuat. (Jawaban C)',
     ],
-    jebakan: 'Pilihan E menggoda karena hubungan kuat terasa seperti sebab-akibat, padahal korelasi hanya menyatakan kebersamaan pola. Pilihan A keliru pada dua hal: bentuknya lurus dan hubungannya kuat karena titik-titiknya rapat.',
+    jebakan: 'Pilihan E tampak benar karena hubungan kuat terasa seperti sebab-akibat, padahal korelasi hanya menyatakan kebersamaan pola. Pilihan A keliru pada dua hal: bentuknya lurus dan hubungannya kuat karena titik-titiknya rapat.',
     alasan: 'Naik, hampir segaris, rapat: positif, linear, kuat.',
   },
   {
@@ -789,7 +789,7 @@ export const KUIS: SoalKuis[] = [
       },
       'Jadi, nilai yang termasuk pencilan adalah 48. (Jawaban E)',
     ],
-    jebakan: 'Pilihan D, 5, menggoda karena tampak jauh dari Q₁, tetapi 5 tepat sama dengan pagar bawah sehingga tidak di luar pagar. Pilihan A, 44, dan C, 40, berada di antara Q₃ dan pagar atas, masih wajar.',
+    jebakan: 'Pilihan D, 5, tampak benar karena tampak jauh dari Q₁, tetapi 5 tepat sama dengan pagar bawah sehingga tidak di luar pagar. Pilihan A, 44, dan C, 40, berada di antara Q₃ dan pagar atas, masih wajar.',
     alasan: 'JAK = 10, pagar 5 dan 45; hanya 48 yang di luar.',
   },
   {
@@ -811,7 +811,7 @@ export const KUIS: SoalKuis[] = [
       'Pernyataan (4): frekuensi relatif kelas 50 − 59 adalah 8/40 = 0,2 = 20 persen. Benar.',
       'Jadi, pernyataan yang benar adalah (1), (2), dan (4). (Jawaban D)',
     ],
-    jebakan: 'Pilihan C, semua benar, tertipu pernyataan (3) yang mengira kelas median adalah kelas setelah "setengah tabel" (kelas ke-4 dari 6); kelas median ditentukan oleh frekuensi kumulatif, bukan urutan kelas. Pilihan A melewatkan (4) karena mengira frekuensi relatif harus pecahan.',
+    jebakan: 'Pilihan C, semua benar, terbawa pernyataan (3) yang mengira kelas median adalah kelas setelah "setengah tabel" (kelas ke-4 dari 6); kelas median ditentukan oleh frekuensi kumulatif, bukan urutan kelas. Pilihan A melewatkan (4) karena mengira frekuensi relatif harus pecahan.',
     alasan: '(1) 17 benar, (2) 60 − 69 benar, (3) salah (median di 60 − 69), (4) 20% benar.',
   },
   {
@@ -851,7 +851,7 @@ export const KUIS: SoalKuis[] = [
       'Karena itu r = 0 tidak boleh dibaca sebagai "tidak berhubungan sama sekali"; yang tidak ada hanyalah hubungan lurusnya. Garis regresinya tetap dapat dihitung (mendatar), hanya tidak berguna.',
       'Jadi, pernyataan yang benar: tidak ada hubungan lurus, tetapi bisa saja berhubungan melengkung. (Jawaban E)',
     ],
-    jebakan: 'Pilihan A adalah kekeliruan paling lazim: menyamakan "tidak berkorelasi" dengan "tidak berhubungan". Pilihan D menukar r = 0 dengan r negatif. Pilihan C keliru karena garis regresi selalu bisa dihitung selama datanya ada.',
+    jebakan: 'Pilihan A adalah kekeliruan paling biasa: menyamakan "tidak berkorelasi" dengan "tidak berhubungan". Pilihan D menukar r = 0 dengan r negatif. Pilihan C keliru karena garis regresi selalu bisa dihitung selama datanya ada.',
     alasan: 'r mengukur hubungan lurus saja; y = x² berhubungan kuat tetapi r = 0.',
   },
   {
@@ -861,7 +861,7 @@ export const KUIS: SoalKuis[] = [
     pilihan: ['es krim menyebabkan orang tenggelam', 'orang tenggelam menyebabkan penjualan es krim naik', 'korelasinya pasti salah hitung', 'ada faktor ketiga, misalnya cuaca panas, yang menaikkan keduanya', 'keduanya tidak berhubungan sama sekali'],
     benar: 3,
     langkah: [
-      'Ingat bahwa korelasi kuat hanya menyatakan kedua besaran naik-turun bersamaan; ia tidak menyatakan yang satu menyebabkan yang lain.',
+      'Ingat bahwa korelasi kuat hanya menyatakan kedua besaran naik-turun bersamaan; korelasi tidak menyatakan yang satu menyebabkan yang lain.',
       'Cari penjelasan yang masuk akal: pada cuaca panas, lebih banyak orang membeli es krim DAN lebih banyak orang berenang, sehingga kejadian tenggelam pun bertambah. Cuaca panas adalah faktor ketiga (peubah pengganggu) yang menggerakkan keduanya.',
       'Dengan demikian, korelasinya benar (tidak salah hitung) dan keduanya memang berhubungan lewat faktor ketiga, tetapi tidak saling menyebabkan.',
       'Jadi, kesimpulan yang paling tepat: ada faktor ketiga, misalnya cuaca panas, yang menaikkan keduanya. (Jawaban D)',
@@ -875,7 +875,7 @@ export const KUIS: SoalKuis[] = [
     tingkat: 'sangat sulit',
     pertanyaan: 'Garis regresi ŷ = 49,2 + 3,2x dibuat dari data siswa yang belajar 2 sampai 11 jam. Garis itu dipakai untuk meramal siswa yang belajar 40 jam, hasilnya 177,2. Masalahnya adalah…',
     gambar: { jenis: 'grafik', fungsi: ['49.2 + 3.2*x'], jangkauan: [0, 42, 40, 190], titik: [{ x: 2, y: 55.6, label: 'data 2 sampai 11' }, { x: 11, y: 84.4 }, { x: 40, y: 177.2, label: '177,2?' }], tegak: [11] },
-    pilihan: ['ekstrapolasi terlalu jauh, dan nilainya mustahil sebab maksimal 100', 'tidak ada masalah, rumusnya sudah benar', 'seharusnya memakai median', 'angka 40 kurang besar', 'garisnya harus dihitung ulang'],
+    pilihan: ['ekstrapolasi terlalu jauh, dan nilainya mustahil karena maksimal 100', 'tidak ada masalah, rumusnya sudah benar', 'seharusnya memakai median', 'angka 40 kurang besar', 'garisnya harus dihitung ulang'],
     benar: 0,
     langkah: [
       'Perhatikan bahwa garis regresi hanya dibangun dari data dengan x antara 2 dan 11 jam; di luar rentang itu tidak ada bukti bahwa polanya tetap lurus.',
@@ -885,7 +885,7 @@ export const KUIS: SoalKuis[] = [
         gambar: { jenis: 'grafik', fungsi: ['49.2 + 3.2*x'], jangkauan: [0, 42, 40, 190], titik: [{ x: 11, y: 84.4, label: 'ujung data' }, { x: 40, y: 177.2, label: '177,2 mustahil' }], tegak: [11], datar: [100], arsir: [{ dari: 2, sampai: 11, label: 'rentang data' }] },
       },
       'Rumusnya tidak salah dan tidak perlu dihitung ulang; yang keliru adalah memakainya jauh di luar rentang data.',
-      'Jadi, masalahnya adalah ekstrapolasi terlalu jauh, dan nilainya mustahil sebab maksimal 100. (Jawaban A)',
+      'Jadi, masalahnya adalah ekstrapolasi terlalu jauh, dan nilainya mustahil karena maksimal 100. (Jawaban A)',
     ],
     jebakan: 'Pilihan B percaya rumus tanpa memeriksa kemasukakalan hasilnya. Pilihan E mengira garisnya salah, padahal garis itu tetap sah untuk 2 sampai 11 jam; yang salah pemakaiannya.',
     alasan: 'Ekstrapolasi ke x = 40 jauh di luar data 2 sampai 11; 177,2 melebihi nilai maksimum 100.',
@@ -975,10 +975,10 @@ export const KUIS: SoalKuis[] = [
         teks: 'Ambil contoh 4, 5, 6, 7, 8 (mean 6, median 6). Bila 8 ditarik menjadi 80, mean melonjak ke 20,4, tetapi urutannya tetap dan datum ke-3 tetap 6, seperti tabel berikut.',
         gambar: { jenis: 'tabel', kepala: ['Data', 'Mean', 'Median'], baris: [['4, 5, 6, 7, 8', '6', '6'], ['4, 5, 6, 7, 80', '20,4', '6'], ['4, 5, 6, 7, 800', '164,4', '6']], kolomBaru: [1, 2] },
       },
-      'Selama nilai yang ditarik tetap berada di sisi kanan, ia tetap menempati posisi terakhir, sehingga posisi tengah dan nilainya tidak berubah; mean berubah karena setiap nilai ikut dijumlahkan.',
+      'Selama nilai yang ditarik tetap berada di sisi kanan, nilai itu tetap menempati posisi terakhir, sehingga posisi tengah dan nilainya tidak berubah; mean berubah karena setiap nilai ikut dijumlahkan.',
       'Jadi, median tidak bergerak karena median hanya memakai posisi data, bukan nilainya. (Jawaban A)',
     ],
-    jebakan: 'Pilihan D, mengabaikan data terbesar, hampir benar tetapi keliru: median tidak "mengabaikan" apa pun, ia tetap memperhitungkan posisi data terbesar; hanya besarnya nilai yang tidak berpengaruh. Pilihan C terbalik: median justru memerlukan pengurutan.',
+    jebakan: 'Pilihan D, mengabaikan data terbesar, hampir benar tetapi keliru: median tidak "mengabaikan" apa pun, median tetap memperhitungkan posisi data terbesar; hanya besarnya nilai yang tidak berpengaruh. Pilihan C terbalik: median malah memerlukan pengurutan.',
     alasan: 'Median bergantung posisi tengah; nilai ekstrem hanya mengubah urutan ujung.',
   },
   {
@@ -1045,7 +1045,7 @@ export const KUIS: SoalKuis[] = [
     benar: 2,
     langkah: [
       'Misalkan kelima bilangan terurut a ≤ b ≤ c ≤ d ≤ e. Median 8 berarti c = 8, dan mean 8 berarti jumlahnya a + b + c + d + e = 5 × 8 = 40.',
-      'Modus tunggal 10 berarti 10 muncul paling sering, dan karena 10 > c = 8, nilai 10 hanya bisa menempati d dan e: d = e = 10. (Kalau hanya satu 10, ia tidak menjadi modus.)',
+      'Modus tunggal 10 berarti 10 muncul paling sering, dan karena 10 > c = 8, nilai 10 hanya bisa menempati d dan e: d = e = 10. (Kalau hanya satu 10, angka itu tidak menjadi modus.)',
       'Dengan demikian, a + b = 40 − 8 − 10 − 10 = 12, dengan a ≤ b < 8 dan a ≠ b (kalau a = b, akan ada dua modus, padahal modusnya tunggal).',
       'Supaya a sekecil mungkin, b harus sebesar mungkin: b maksimum 7 (harus kurang dari median 8, dan b = 8 membuat 8 muncul dua kali menyaingi modus), sehingga a = 12 − 7 = 5. Datanya 5, 7, 8, 10, 10: mean 40/5 = 8, median 8, modus tunggal 10.',
       'Jadi, nilai terkecil yang mungkin adalah 5. (Jawaban C)',

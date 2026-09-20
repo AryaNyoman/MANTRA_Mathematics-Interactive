@@ -135,7 +135,7 @@ export default function DiagramPencar({ children }: PropWidget) {
           pilihan={CONTOH.map((c, n) => ({ nilai: String(n), label: c.nama }))}
           nilai={String(pilih)} onPilih={(n) => gantiContoh(Number(n))} />
         <Petunjuk><TeksMat teks={`${trend.bentuk === 'melengkung'
-              ? 'polanya melengkung. Garis lurus tidak akan cocok untuk data seperti ini, dan angka hubungannya pun akan menyesatkan'
+              ? 'polanya melengkung. Garis lurus tidak akan cocok untuk data seperti ini, dan angka hubungannya pun akan memberi kesan keliru'
               : `titiknya ${trend.kekuatan === 'kuat' ? 'menempel rapat pada pola' : trend.kekuatan === 'sedang' ? 'agak berpencar dari pola' : 'berpencar jauh, polanya samar'}`}`} blok={false} /></Petunjuk>
       </div>
     </>

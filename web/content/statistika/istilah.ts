@@ -17,7 +17,7 @@ export const ISTILAH: { istilah: string; arti: string }[] = [
   { istilah: 'kuartil', arti: 'tiga nilai (Q1, Q2 = median, Q3) yang membelah data terurut menjadi empat bagian sama banyak' },
   { istilah: 'ringkasan lima angka', arti: 'minimum, Q1, median, Q3, maksimum' },
   { istilah: 'boxplot', arti: 'gambar ringkasan lima angka: kotak dari Q1 ke Q3 dengan garis median, dan kumis ke minimum dan maksimum' },
-  { istilah: 'jangkauan', arti: 'maksimum dikurangi minimum; langsung tertipu pencilan' },
+  { istilah: 'jangkauan', arti: 'maksimum dikurangi minimum; langsung terpengaruh pencilan' },
   { istilah: 'jangkauan antar kuartil (JAK)', arti: 'Q3 − Q1, lebar setengah data yang di tengah; kebal terhadap pencilan' },
   { istilah: 'simpangan', arti: 'jarak sebuah data ke mean, x − x̄; jumlah semua simpangan selalu nol' },
   { istilah: 'varian', arti: 'rata-rata kuadrat simpangan; satuannya kuadrat satuan data' },

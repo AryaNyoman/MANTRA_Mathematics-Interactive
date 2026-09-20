@@ -96,7 +96,7 @@ export const KUIS: SoalKuis[] = [
       'Karena AB ∥ DC (sisi persegi ABCD) dan DC ∥ HG (sisi persegi DCGH), maka AB ∥ HG; keduanya sebidang pada ABGH dan tidak pernah berpotongan.',
       'Jadi, kedudukan garis AB terhadap garis HG adalah sejajar. (Jawaban C)',
     ],
-    jebakan: 'Pilihan B, bersilangan, menggoda karena AB dan HG tidak berada pada satu sisi kubus, padahal keduanya sebidang pada bidang diagonal ABGH. Bersilangan berarti tidak sejajar DAN tidak berpotongan, seperti AB dengan CG.',
+    jebakan: 'Pilihan B, bersilangan, tampak benar karena AB dan HG tidak berada pada satu sisi kubus, padahal keduanya sebidang pada bidang diagonal ABGH. Bersilangan berarti tidak sejajar DAN tidak berpotongan, seperti AB dengan CG.',
     alasan: 'AB ∥ DC dan DC ∥ HG, jadi AB ∥ HG (sebidang pada ABGH, tak berpotongan).',
   },
   {
@@ -176,7 +176,7 @@ export const KUIS: SoalKuis[] = [
       'Garis AG tidak tegak lurus bidang alas, karena sudut antara AG dan proyeksinya AC bukan 90°; pada segitiga ACG, tan ∠GAC = CG/AC = s/(s√2) = 1/√2, bukan tak terdefinisi.',
       'Jadi, kedudukan garis AG terhadap bidang alas ABCD adalah menembus bidang. (Jawaban E)',
     ],
-    jebakan: 'Pilihan C, tegak lurus bidang, menggoda karena AG "naik" dari alas, padahal AG miring; yang tegak lurus alas adalah rusuk AE. Pilihan A keliru karena hanya titik A yang terletak pada bidang, bukan seluruh garis.',
+    jebakan: 'Pilihan C, tegak lurus bidang, tampak benar karena AG "naik" dari alas, padahal AG miring; yang tegak lurus alas adalah rusuk AE. Pilihan A keliru karena hanya titik A yang terletak pada bidang, bukan seluruh garis.',
     alasan: 'AG bersekutu dengan alas hanya di A dan tidak tegak lurus: menembus.',
   },
   {
@@ -504,7 +504,7 @@ export const KUIS: SoalKuis[] = [
       'Dua garis yang tidak berpotongan dan tidak sejajar tidak dapat dimuat dalam satu bidang; kedudukan seperti itu disebut bersilangan.',
       'Jadi, kedudukan garis AC terhadap garis BG adalah bersilangan. (Jawaban A)',
     ],
-    jebakan: 'Pilihan B, berpotongan di B, menggoda karena B adalah ujung BG dan terlihat dekat AC pada gambar, padahal B bukan titik pada garis AC (B dan AC hanya sebidang). Pilihan E keliru karena G berada di luar bidang alas.',
+    jebakan: 'Pilihan B, berpotongan di B, tampak benar karena B adalah ujung BG dan terlihat dekat AC pada gambar, padahal B bukan titik pada garis AC (B dan AC hanya sebidang). Pilihan E keliru karena G berada di luar bidang alas.',
     alasan: 'AC dan BG tidak sejajar dan tidak berpotongan: bersilangan.',
   },
   {
@@ -1287,7 +1287,7 @@ export const KUIS: SoalKuis[] = [
       'Untuk itu, 108 cos θ = 108 − 72 = 36, sehingga cos θ = 36/108 = 1/3 dan θ = arccos(1/3) ≈ 70,53°.',
       'Jadi, besar sudut antara bidang BDE dan bidang BDG kira-kira 70,53°. (Jawaban B)',
     ],
-    jebakan: 'Pilihan A, 54,74°, adalah sudut SATU bidang (BDG) dengan alas; sudut antara kedua bidang miring itu bukan dua kalinya (109,47°) melainkan pelurusnya, 70,53°, karena keduanya condong ke arah yang berlawanan. Pilihan E, 90°, mengira EM ⟂ GM.',
+    jebakan: 'Pilihan A, 54,74°, adalah sudut SATU bidang (BDG) dengan alas; sudut antara kedua bidang miring itu bukan dua kalinya (109,47°) tetapi pelurusnya, 70,53°, karena keduanya condong ke arah yang berlawanan. Pilihan E, 90°, mengira EM ⟂ GM.',
     alasan: 'Aturan kosinus pada segitiga EMG (3√6, 3√6, 6√2): cos θ = 1/3, θ ≈ 70,53°.',
   },
   {

@@ -35,7 +35,7 @@ export const KARTU: KartuNyata[] = [
   {
     id: 'tangga', gambar: 'ruang-3d/sudut-garis-bidang.jpg', nomor: '04',
     judul: 'Sudut garis dengan bidang',
-    inti: 'Aturan tukang: tangga aman kalau sudutnya dengan lantai sekitar 75°. Terlalu tegak, ia bisa jatuh ke belakang. Terlalu landai, kakinya bisa tergelincir. Sudutnya diukur ke bayangan tangga di lantai.',
+    inti: 'Aturan tukang: tangga aman kalau sudutnya dengan lantai sekitar 75°. Terlalu tegak, tangganya bisa jatuh ke belakang. Terlalu landai, kakinya bisa tergelincir. Sudutnya diukur ke bayangan tangga di lantai.',
     rumus: 'tan 75° ≈ 3,7, jadi kaki tangga kira-kira seperempat tingginya dari dinding',
   },
 ]

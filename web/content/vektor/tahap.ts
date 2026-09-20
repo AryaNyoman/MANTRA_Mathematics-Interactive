@@ -62,7 +62,7 @@ export const TAHAP: TahapVektor[] = [
     penjelasan: [
       {
         jenis: 'paragraf',
-        teks: 'Sebuah perahu menyeberangi sungai. Pendayungnya menghadap lurus ke tepi seberang dan mendayung sekuat tenaga, tidak sekali pun membelokkan haluan. Namun begitu mendarat, ia tidak berada di seberang tempat ia berangkat. Ia berada jauh di hilir.',
+        teks: 'Sebuah perahu menyeberangi sungai. Pendayungnya menghadap lurus ke tepi seberang dan mendayung sekuat tenaga, tidak sekali pun membelokkan haluan. Namun begitu mendarat, perahu tidak berada di seberang tempat berangkatnya. Perahu berada jauh di hilir.',
       },
       {
         jenis: 'paragraf',
@@ -71,7 +71,7 @@ export const TAHAP: TahapVektor[] = [
       { jenis: 'sesi', judul: 'Ada besaran yang tidak selesai dijelaskan satu angka' },
       {
         jenis: 'paragraf',
-        teks: 'Sebagian besaran cukup dinyatakan dengan satu angka dan satuannya. Sebagian lagi tidak, dan justru menyesatkan kalau dipaksa begitu.',
+        teks: 'Sebagian besaran cukup dinyatakan dengan satu angka dan satuannya. Sebagian lagi tidak, dan malah salah kalau dipaksa begitu.',
       },
       {
         jenis: 'poin',
@@ -144,7 +144,7 @@ export const TAHAP: TahapVektor[] = [
         jenis: 'poin',
         judul: 'Yang BUKAN vektor, dan alasannya',
         butir: [
-          'Garis melengkung - vektor harus lurus, sebab satu vektor menyatakan satu arah saja.',
+          'Garis melengkung - vektor harus lurus, karena satu vektor menyatakan satu arah saja.',
           'Garis berkepala panah di kedua ujungnya - arahnya jadi dua, dan itu sama saja dengan tidak menyebut arah.',
           'Garis patah yang berbelok - itu dua vektor yang disambung, bukan satu.',
         ],
@@ -184,7 +184,7 @@ export const TAHAP: TahapVektor[] = [
           'Vektor ekuivalen - panjang sama, arah sama. Dianggap vektor yang sama.',
           'Vektor lawan - panjang sama, arah berkebalikan. Lawan dari AB adalah BA, ditulis juga negatif AB.',
           'Vektor berkebalikan - arahnya sama tetapi panjangnya kebalikannya. Berguna nanti saat membicarakan vektor satuan.',
-          'Vektor nol - pangkal dan ujungnya berimpit. Panjangnya nol, dan ia satu-satunya vektor yang tidak punya arah.',
+          'Vektor nol - pangkal dan ujungnya berimpit. Panjangnya nol, dan vektor nol satu-satunya vektor yang tidak punya arah.',
         ],
       },
     ],
@@ -283,7 +283,7 @@ export const TAHAP: TahapVektor[] = [
     },
     intisari: [
       'Satu panah bisa diganti dua langkah: mendatar lalu tegak. Kedua angkanya disebut komponen.',
-      'Urutan komponen tidak boleh ditukar, sebab (3 4) dan (4 3) berbeda arah.',
+      'Urutan komponen tidak boleh ditukar, karena (3 4) dan (4 3) berbeda arah.',
       'Vektor baris ditulis tanpa koma, supaya tidak tertukar dengan titik koordinat.',
       'Vektor dari A ke B dicari dengan ujung dikurangi pangkal.',
     ],
@@ -357,7 +357,7 @@ export const TAHAP: TahapVektor[] = [
     },
     intisari: [
       'Panjang vektor dicari dengan Pythagoras: |(a b)| = √(a² + b²), akar dari jumlah kuadrat kedua komponennya.',
-      'Panjang tidak pernah negatif, sebab komponennya dikuadratkan lebih dulu.',
+      'Panjang tidak pernah negatif, karena komponennya dikuadratkan lebih dulu.',
       'Arah dinyatakan dalam derajat dari sumbu-x, atau dalam mata angin.',
       'Dua vektor bisa sama panjang tetapi tetap berbeda, karena arahnya belum tentu sama.',
     ],
@@ -399,7 +399,7 @@ export const TAHAP: TahapVektor[] = [
         langkah: [
           'Panjangkan panah hitam sampai jauh. Apa yang terjadi pada panah ungunya?',
           'Putar arahnya. Apakah panah ungu ikut berputar?',
-          'Perhatikan baris terakhir di tabel: panjang vektor satuan. Pernahkah ia berubah?',
+          'Perhatikan baris terakhir di tabel: panjang vektor satuan. Pernahkah angkanya berubah?',
           'Jadi, dari panah hitam, apa yang diambil panah ungu dan apa yang dibuangnya?',
         ],
       },
@@ -438,11 +438,11 @@ export const TAHAP: TahapVektor[] = [
     ],
     seringKeliru: {
       judul: 'Vektor satuan dikira selalu i atau j',
-      isi: 'Vektor satuan bukan cuma dua. Setiap vektor yang panjangnya 1 adalah vektor satuan, ke arah mana pun ia menghadap. Vektor (0,6  0,8) panjangnya 1, jadi ia vektor satuan, walaupun ia bukan i maupun j. Yang istimewa dari i dan j hanyalah arahnya yang berimpit dengan sumbu, sehingga enak dipakai sebagai patokan.',
+      isi: 'Vektor satuan bukan cuma dua. Setiap vektor yang panjangnya 1 adalah vektor satuan, ke arah mana pun vektor itu menghadap. Vektor (0,6  0,8) panjangnya 1, jadi termasuk vektor satuan, walaupun bukan i maupun j. Yang istimewa dari i dan j hanyalah arahnya yang berimpit dengan sumbu, sehingga enak dipakai sebagai patokan.',
     },
     intisari: [
       'Vektor satuan dibuat dengan membagi tiap komponen dengan panjang vektornya.',
-      'Panjangnya selalu tepat 1, jadi ia menyatakan arah saja.',
+      'Panjangnya selalu tepat 1, jadi vektor satuan menyatakan arah saja.',
       'i = (1 0) dan j = (0 1), sehingga (3 4) bisa ditulis 3i + 4j.',
       'Vektor posisi adalah vektor yang pangkalnya di titik asal.',
     ],
@@ -468,7 +468,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Setelah tersambung, tarik panah dari pangkal yang pertama sampai ujung yang terakhir. Panah itulah hasil penjumlahannya, dan namanya RESULTAN. Cara ini disebut metode segitiga, sebab ketiga panahnya membentuk segitiga.',
+        teks: 'Setelah tersambung, tarik panah dari pangkal yang pertama sampai ujung yang terakhir. Panah itulah hasil penjumlahannya, dan namanya RESULTAN. Cara ini disebut metode segitiga, karena ketiga panahnya membentuk segitiga.',
       },
       {
         jenis: 'coba',
@@ -476,8 +476,8 @@ export const TAHAP: TahapVektor[] = [
         langkah: [
           'Tarik ujung panah biru. Apa yang terjadi pada panah merah?',
           'Tarik ujung panah merah. Apa yang terjadi pada panah hitam?',
-          'Perhatikan panah hitam pada tiap perubahan. Dari mana ia berangkat, dan di mana ia berakhir?',
-          'Kalau panah hitam adalah hasil jumlah, apa yang ia wakili dalam cerita perjalanan?',
+          'Perhatikan panah hitam pada tiap perubahan. Dari mana panah itu berangkat, dan di mana berakhirnya?',
+          'Kalau panah hitam adalah hasil jumlah, apa yang diwakilinya dalam cerita perjalanan?',
         ],
       },
       { jenis: 'sesi', judul: 'Kalau perjalanannya lebih dari dua' },
@@ -508,7 +508,7 @@ export const TAHAP: TahapVektor[] = [
     ],
     seringKeliru: {
       judul: 'Menyambung pangkal ke pangkal',
-      isi: 'Kesalahan gambar yang paling sering terjadi adalah menempelkan kedua pangkal di satu titik, lalu menarik panah dari ujung ke ujung. Yang terbentuk bukan resultan, melainkan SELISIH kedua vektor itu, dan panjangnya bisa jauh berbeda. Untuk penjumlahan cara segitiga, yang menempel adalah ujung vektor pertama dengan pangkal vektor kedua.',
+      isi: 'Kesalahan gambar yang paling sering terjadi adalah menempelkan kedua pangkal di satu titik, lalu menarik panah dari ujung ke ujung. Yang terbentuk bukan resultan, tetapi SELISIH kedua vektor itu, dan panjangnya bisa jauh berbeda. Untuk penjumlahan cara segitiga, yang menempel adalah ujung vektor pertama dengan pangkal vektor kedua.',
       sumber: 'Buku Panduan Guru Matematika SMA/SMK Kelas X, Kemendikbudristek 2021, Bab 3 bagian C.1, halaman 111 sampai 114.',
     },
     intisari: [
@@ -535,7 +535,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Menggambarnya dengan cara sambung akan terasa aneh, sebab tidak ada yang perlu disambung. Untuk keadaan semacam ini dipakai METODE JAJAR GENJANG.',
+        teks: 'Menggambarnya dengan cara sambung akan terasa aneh, karena tidak ada yang perlu disambung. Untuk keadaan semacam ini dipakai METODE JAJAR GENJANG.',
       },
       { jenis: 'sesi', judul: 'Cara menggambarnya' },
       {
@@ -604,7 +604,7 @@ export const TAHAP: TahapVektor[] = [
     penjelasan: [
       {
         jenis: 'paragraf',
-        teks: 'Pengurangan vektor tidak butuh aturan baru sama sekali. Ia cuma penjumlahan yang salah satu vektornya dibalik arahnya.',
+        teks: 'Pengurangan vektor tidak butuh aturan baru sama sekali. Pengurangan cuma penjumlahan yang salah satu vektornya dibalik arahnya.',
       },
       {
         jenis: 'sorot',
@@ -644,7 +644,7 @@ export const TAHAP: TahapVektor[] = [
           'Tegak: 4 − 1 = 3',
           'Jadi AB = (4 3), panjangnya |AB| = 5',
         ],
-        simpul: 'Ujung dikurangi pangkal. Sekarang alasannya terlihat, bukan sekadar dihafal.',
+        simpul: 'Ujung dikurangi pangkal. Sekarang alasannya terlihat, bukan cuma dihafal.',
       },
       {
         jenis: 'coba',
@@ -659,7 +659,7 @@ export const TAHAP: TahapVektor[] = [
     ],
     seringKeliru: {
       judul: 'Membalik urutan pengurangan',
-      isi: 'Ditanya vektor dari A ke B, banyak yang menulis a − b karena A disebut lebih dulu. Yang benar AB = b − a, yaitu ujung dikurangi pangkal. Salah urutan tidak membuat jawabannya sedikit meleset, melainkan menghasilkan panah yang arahnya berlawanan sama sekali. Cara mengingat yang aman: bayangkan berjalan DARI A, jadi A adalah titik yang ditinggalkan, dan yang ditinggalkan itulah yang dikurangkan.',
+      isi: 'Ditanya vektor dari A ke B, banyak yang menulis a − b karena A disebut lebih dulu. Yang benar AB = b − a, yaitu ujung dikurangi pangkal. Salah urutan tidak membuat jawabannya sedikit meleset, tetapi menghasilkan panah yang arahnya berlawanan sama sekali. Cara mengingat yang aman: bayangkan berjalan DARI A, jadi A adalah titik yang ditinggalkan, dan yang ditinggalkan itulah yang dikurangkan.',
     },
     intisari: [
       'a − b = a + (−b): a ditambah lawan b.',
@@ -724,7 +724,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Contohnya (2 1) dan (6 3) sejajar, sebab yang kedua adalah tiga kali yang pertama. Begitu juga (2 1) dan (-4 -2): keduanya sejajar walaupun arahnya berlawanan, sebab sejajar hanya bicara tentang garisnya, bukan tentang ke mana menghadapnya.',
+        teks: 'Contohnya (2 1) dan (6 3) sejajar, karena yang kedua adalah tiga kali yang pertama. Begitu juga (2 1) dan (-4 -2): keduanya sejajar walaupun arahnya berlawanan, karena sejajar hanya bicara tentang garisnya, bukan tentang ke mana menghadapnya.',
       },
     ],
     seringKeliru: {
@@ -778,11 +778,11 @@ export const TAHAP: TahapVektor[] = [
       { jenis: 'sesi', judul: 'Memecah, bukan menjumlah' },
       {
         jenis: 'paragraf',
-        teks: 'Perahu layar memakai arah sebaliknya: bukan menjumlahkan dua vektor, melainkan memecah satu vektor menjadi dua komponen. Gaya angin yang menekan layar dipecah menjadi bagian yang mendorong ke depan dan bagian yang mendorong ke samping. Lunas di bawah perahu menahan yang menyamping, sehingga yang tersisa mendorong perahu maju.',
+        teks: 'Perahu layar memakai arah sebaliknya: bukan menjumlahkan dua vektor, tetapi memecah satu vektor menjadi dua komponen. Gaya angin yang menekan layar dipecah menjadi bagian yang mendorong ke depan dan bagian yang mendorong ke samping. Lunas di bawah perahu menahan yang menyamping, sehingga yang tersisa mendorong perahu maju.',
       },
       {
         jenis: 'paragraf',
-        teks: 'Itulah kenapa perahu layar bisa melaju menyerong terhadap angin, bukan cuma searah tiupannya. Caranya persis pemecahan komponen di Materi 03, hanya sumbunya bukan mendatar dan tegak, melainkan arah maju dan arah samping perahu.',
+        teks: 'Itulah kenapa perahu layar bisa melaju menyerong terhadap angin, bukan cuma searah tiupannya. Caranya persis pemecahan komponen di Materi 03, hanya sumbunya bukan mendatar dan tegak, tetapi arah maju dan arah samping perahu.',
       },
       { jenis: 'sesi', judul: 'Vektor yang dipakai terang-terangan' },
       {
@@ -796,8 +796,8 @@ export const TAHAP: TahapVektor[] = [
     ],
     intisari: [
       'Perahu, pesawat, dan layar semuanya persoalan yang sama: dua gerak atau dua gaya yang berlaku bersamaan.',
-      'Kadang yang dibutuhkan menjumlahkan vektor, kadang justru memecahnya jadi komponen.',
-      'Peta lempeng bumi memakai vektor secara langsung: arah panah dan panjangnya bercerita.',
+      'Kadang yang dibutuhkan menjumlahkan vektor, kadang malah memecahnya jadi komponen.',
+      'Peta lempeng bumi memakai vektor secara langsung: arah panah dan panjangnya langsung terbaca.',
       'Semua yang dipakai di sini sudah dibahas di Materi 01 sampai 09.',
     ],
     widget: 'dunia-nyata-vektor',
@@ -833,7 +833,7 @@ export const TAHAP: TahapVektor[] = [
       },
       {
         jenis: 'paragraf',
-        teks: 'Cara pertama dipakai kalau komponennya diketahui, dan itu yang paling sering. Cara kedua dipakai kalau yang diketahui panjang dan sudutnya, atau justru kalau sudutnya yang dicari.',
+        teks: 'Cara pertama dipakai kalau komponennya diketahui, dan itu yang paling sering. Cara kedua dipakai kalau yang diketahui panjang dan sudutnya, atau malah kalau sudutnya yang dicari.',
       },
       {
         jenis: 'contoh',
@@ -843,9 +843,9 @@ export const TAHAP: TahapVektor[] = [
           'Lalu: 3 · 0 = 0',
           'Jumlahkan: (4 3) · (2 0) = 8 + 0 = 8',
         ],
-        simpul: 'Hasilnya 8. Sebuah angka, tanpa arah, jadi ia bukan vektor.',
+        simpul: 'Hasilnya 8. Sebuah angka, tanpa arah, jadi hasilnya bukan vektor.',
       },
-      { jenis: 'sesi', judul: 'Tandanya bercerita tentang sudutnya' },
+      { jenis: 'sesi', judul: 'Tandanya menunjukkan sudutnya' },
       {
         jenis: 'poin',
         butir: [

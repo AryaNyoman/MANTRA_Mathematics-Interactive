@@ -405,7 +405,7 @@ export default function PanggungVektor({ tahap, tampilWidget, children }: PropPa
                 <tr className="tegas"><td><TeksMat teks="panjang vektor satuan" blok={false} /></td><td>{angka(panjang(eSatuan), 3)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan"><TeksMat teks="Panjangnya selalu 1, berapa pun v-nya. Itu bukan kebetulan: membagi sebuah vektor dengan panjangnya sendiri memang menyisakan arahnya saja." /></div>
+            <div className="catatan"><TeksMat teks="Panjangnya selalu 1, berapa pun v-nya. Itu memang harus begitu: membagi sebuah vektor dengan panjangnya sendiri memang menyisakan arahnya saja." /></div>
           </div>
         )}
 

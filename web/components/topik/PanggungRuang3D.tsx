@@ -296,7 +296,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
               </tbody>
             </table>
             <GrafikPanjang t={tKaki} />
-            <div className="catatan"><TeksMat teks="Lembah grafik itu jatuh tepat di posisi siku-siku. Itu bukan kebetulan, dan itulah sebabnya jarak selalu diukur tegak lurus." /></div>
+            <div className="catatan"><TeksMat teks="Lembah grafik itu jatuh tepat di posisi siku-siku. Itu memang selalu begitu, dan itulah sebabnya jarak selalu diukur tegak lurus." /></div>
           </div>
         )}
 
@@ -312,7 +312,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
                   <td><TeksMat teks="diagonal ruang AG" blok={false} /></td><td>{bulat(DIAGONAL_RUANG, 3)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan"><TeksMat teks="Diagonal ruang bukan rumus baru. Ia Pythagoras yang dipakai untuk kedua kalinya, dengan hasil yang pertama sebagai salah satu sisinya." /></div>
+            <div className="catatan"><TeksMat teks="Diagonal ruang bukan rumus baru, cuma Pythagoras yang dipakai untuk kedua kalinya, dengan hasil yang pertama sebagai salah satu sisinya." /></div>
           </div>
         )}
 
@@ -343,7 +343,7 @@ export default function PanggungRuang3D({ tahap, tampilWidget, children }: PropP
                 <tr className="tegas"><td><TeksMat teks="jaraknya" blok={false} /></td><td>{bulat(bidang.jarak, 3)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan"><TeksMat teks="Kedua soal memberi angka yang sama, 2 akar 3. Itu simetri kubus, bukan kebetulan. Soal kedua persis soal EBTANAS 1992." /></div>
+            <div className="catatan"><TeksMat teks="Kedua soal memberi angka yang sama, 2 akar 3. Itu simetri kubus. Soal kedua persis soal EBTANAS 1992." /></div>
           </div>
         )}
 

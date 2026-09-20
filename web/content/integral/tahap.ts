@@ -11,7 +11,7 @@
  * Kementerian Pendidikan Dasar dan Menengah. Bab 3 "Integral", halaman cetak
  * 159 sampai 219 (berkas LIMIT.pdf, halaman PDF = cetak + 16). Contoh dan
  * angkanya ditulis sendiri, urutan konsep dan definisinya mengikuti buku.
- * Materi 10 (luas antara dua kurva) di luar bab buku, ditambahkan karena lazim
+ * Materi 10 (luas antara dua kurva) di luar bab buku, ditambahkan karena biasa
  * di ujian SMA; dinyatakan begitu di bacaannya. Volume benda putar TIDAK
  * masuk (keputusan ARYA 5 Sep 2026).
  *
@@ -19,7 +19,7 @@
  * Buku mencetak Sifat 3.2 dengan syarat "n bilangan rasional dan n != 0"
  * (halaman cetak 168, PDF 184; sudah dilihat sebagai gambar, bukan hasil
  * ekstraksi teks). Syarat itu keliru: yang membuat rumus xˆ(n+1)/(n+1) tidak
- * berlaku adalah n = -1, sebab di situ penyebutnya nol. Nilai n = 0 justru
+ * berlaku adalah n = -1, karena di situ penyebutnya nol. Nilai n = 0 malah
  * aman, hasilnya x + C, sama dengan Sifat 3.1. Halaman ini menulis syarat
  * yang benar (n tidak sama dengan -1) dan tidak menyebut salah cetak itu ke
  * siswa; catatannya ada di sini dan di laporan sesi.
@@ -70,7 +70,7 @@ export const TAHAP: TahapIntegral[] = [
       'Antiturunan tidak pernah tunggal. Selalu ada tambahan tetapan C, dan C baru bisa dipilih kalau ada satu keterangan tambahan.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Sebuah keluarga mencatat pengeluaran mereka. Yang tercatat bukan totalnya, melainkan seberapa cepat pengeluaran itu bertambah tiap bulan. Pada bulan ke-x, angkanya 2x + 1 juta rupiah per bulan.' },
+      { jenis: 'paragraf', teks: 'Sebuah keluarga mencatat pengeluaran mereka. Yang tercatat bukan totalnya, tetapi seberapa cepat pengeluaran itu bertambah tiap bulan. Pada bulan ke-x, angkanya 2x + 1 juta rupiah per bulan.' },
       { jenis: 'paragraf', teks: 'Angka itu laju pada satu saat, bukan tambahan sebulan penuh. Pada bulan ke-1 lajunya 3 juta per bulan, pada bulan ke-2 sudah 5 juta per bulan, pada bulan ke-3 sudah 7 juta per bulan, dan terus naik di antaranya. Pertanyaan keluarga itu sederhana: setahun ini kami menghabiskan berapa?' },
       { jenis: 'sorot', teks: 'Yang dipegang adalah lajunya. Yang dicari adalah jumlahnya. Seluruh materi ini soal perjalanan dari laju kembali ke jumlah.' },
 
@@ -96,7 +96,7 @@ export const TAHAP: TahapIntegral[] = [
       { jenis: 'paragraf', teks: 'Fungsi yang turunannya adalah f disebut antiturunan dari f. Awalan anti di situ berarti melawan arah, bukan meniadakan. Buku menuliskannya sebagai Definisi 3.1 pada halaman 166.' },
 
       { jenis: 'sesi', judul: 'Kenapa selalu ada tambahan C' },
-      { jenis: 'paragraf', teks: 'Sekarang periksa tebakan lain: x² + x + 7. Turunannya juga 2x + 1, sebab turunan sebuah tetapan adalah nol. Begitu pula x² + x - 3, dan x² + x + 1000.' },
+      { jenis: 'paragraf', teks: 'Sekarang periksa tebakan lain: x² + x + 7. Turunannya juga 2x + 1, karena turunan sebuah tetapan adalah nol. Begitu pula x² + x - 3, dan x² + x + 1000.' },
       { jenis: 'paragraf', teks: 'Jadi antiturunan tidak pernah tunggal. Ada satu keluarga fungsi yang semuanya punya turunan sama, dan anggotanya beda hanya oleh sebuah tetapan. Tetapan itu ditulis C.' },
       {
         jenis: 'poin',
@@ -132,12 +132,12 @@ export const TAHAP: TahapIntegral[] = [
         ],
         simpul: 'Totalnya 156 juta rupiah setahun. Angka yang sama juga muncul kalau luas di bawah grafik lajunya diukur, dan alasan kedua jalan itu bertemu baru akan kita buktikan di Materi 07.',
       },
-      { jenis: 'paragraf', teks: 'Dua jalan tadi terasa sangat berbeda. Yang satu soal mengukur luas, yang satu soal membalik mesin turunan. Bahwa keduanya memberi jawaban yang sama adalah hal yang mengejutkan, dan itu justru puncak topik ini.' },
+      { jenis: 'paragraf', teks: 'Dua jalan tadi terasa sangat berbeda. Yang satu soal mengukur luas, yang satu soal membalik mesin turunan. Bahwa keduanya memberi jawaban yang sama adalah hal yang mengejutkan, dan itu malah puncak topik ini.' },
       { jenis: 'paragraf', teks: 'Materi berikutnya memberi lambang tetap untuk "semua antiturunan f", supaya pekerjaan menebak tadi tidak perlu diulang tiap kali.' },
     ],
     seringKeliru: {
       judul: 'Dikira menurunkan lalu membalikkannya mengembalikan fungsi yang persis sama',
-      isi: 'Turunkan x² + x, hasilnya 2x + 1. Balikkan lagi, hasilnya x² + x + C. Fungsi yang keluar bukan yang tadi masuk, melainkan seluruh keluarganya. Kekeliruan ini menggoda karena pada contoh sekolah C sering kebetulan nol, sehingga jawabannya kelihatan sama. Cara membedakannya: tanyakan apakah soal memberi satu keterangan tambahan di luar laju. Kalau tidak ada, jawabannya wajib memuat C, dan menghilangkan C berarti memilih satu anggota keluarga tanpa alasan.',
+      isi: 'Turunkan x² + x, hasilnya 2x + 1. Balikkan lagi, hasilnya x² + x + C. Fungsi yang keluar bukan yang tadi masuk, tetapi seluruh keluarganya. Kekeliruan ini tampak benar karena pada contoh sekolah C sering kebetulan nol, sehingga jawabannya kelihatan sama. Cara membedakannya: tanyakan apakah soal memberi satu keterangan tambahan di luar laju. Kalau tidak ada, jawabannya wajib memuat C, dan menghilangkan C berarti memilih satu anggota keluarga tanpa alasan.',
     },
     widget: 'mesin-balik',
     siap: true,
@@ -170,7 +170,7 @@ export const TAHAP: TahapIntegral[] = [
           'dx di belakang - menyebut peubah mana yang dipakai, dan sekaligus menandai di mana pekerjaannya berhenti',
         ],
       },
-      { jenis: 'paragraf', teks: 'Seluruh tulisan itu bernama integral tak tentu. Kata "tak tentu" bukan berarti hasilnya tidak jelas. Artinya hasilnya belum satu, sebab C belum ditentukan, persis seperti yang kita lihat di Materi 01.' },
+      { jenis: 'paragraf', teks: 'Seluruh tulisan itu bernama integral tak tentu. Kata "tak tentu" bukan berarti hasilnya tidak jelas. Artinya hasilnya belum satu, karena C belum ditentukan, persis seperti yang kita lihat di Materi 01.' },
 
       { jenis: 'sesi', judul: 'Aturan pangkat, dan satu pangkat yang dikecualikan' },
       { jenis: 'paragraf', teks: 'Aturan yang paling sering dipakai adalah aturan pangkat, yaitu Sifat 3.2 di buku. Bunyinya: untuk mencari antiturunan xⁿ, naikkan pangkatnya satu, lalu bagi dengan pangkat yang baru itu: ∫ xⁿ dx = xⁿ⁺¹/(n + 1) + C.' },
@@ -183,7 +183,7 @@ export const TAHAP: TahapIntegral[] = [
           'buang kelebihannya  bagi tebakan tadi dengan n + 1',
           'jadi jawabannya     xⁿ⁺¹/(n + 1) + C',
         ],
-        simpul: 'Pembaginya bukan hiasan. Ia ada untuk membatalkan faktor yang muncul saat pangkat diturunkan.',
+        simpul: 'Pembaginya penting. Pembagi itu ada untuk membatalkan faktor yang muncul saat pangkat diturunkan.',
       },
       { jenis: 'paragraf', teks: 'Dari cara itu terlihat kapan aturannya tidak bisa dipakai: kalau n + 1 bernilai nol, yaitu saat n bernilai -1. Membagi dengan nol tidak punya arti, jadi pangkat -1 adalah satu-satunya pangkat yang harus dikeluarkan dari aturan ini. Antiturunan dari x⁻¹ memang ada, tetapi bentuknya lain dan tidak dibahas di SMA.' },
       { jenis: 'sorot', teks: 'Naikkan pangkatnya, lalu bagi dengan pangkat yang baru. Berlaku untuk pangkat berapa pun kecuali -1.' },
@@ -233,13 +233,13 @@ export const TAHAP: TahapIntegral[] = [
           'suku 1               pangkat naik jadi 1, bagi 1: x',
           'periksa              turunan x³ - 2x² + x adalah 3x² - 4x + 1',
         ],
-        simpul: 'Hasilnya ∫ (3x² - 4x + 1) dx = x³ - 2x² + x + C. Satu C saja untuk seluruh jawaban, bukan satu C tiap suku, sebab jumlah beberapa tetapan tetap sebuah tetapan.',
+        simpul: 'Hasilnya ∫ (3x² - 4x + 1) dx = x³ - 2x² + x + C. Satu C saja untuk seluruh jawaban, bukan satu C tiap suku, karena jumlah beberapa tetapan tetap sebuah tetapan.',
       },
       { jenis: 'paragraf', teks: 'Aturan pangkat tadi hanya bekerja kalau yang dipangkatkan adalah x sendirian. Materi berikutnya menangani bentuk yang isinya sudah bukan x saja, misalnya (2x + 1)⁵.' },
     ],
     seringKeliru: {
       judul: 'Dikira antiturunan x² adalah 2x',
-      isi: 'Yang ditulis di situ adalah turunannya, bukan antiturunannya. Kekeliruan ini menggoda karena kedua kata itu memakai bahan yang sama, yaitu pangkat dan koefisien, sehingga tangan bergerak ke arah yang sudah lebih sering dilatih di topik Turunan. Cara membedakannya cuma satu dan selalu berhasil: turunkan jawaban Anda. Turunan 2x adalah 2, bukan x², jadi 2x bukan jawabannya. Turunan x³/3 adalah x², jadi ∫ x² dx = x³/3 + C.',
+      isi: 'Yang ditulis di situ adalah turunannya, bukan antiturunannya. Kekeliruan ini tampak benar karena kedua kata itu memakai bahan yang sama, yaitu pangkat dan koefisien, sehingga tangan bergerak ke arah yang sudah lebih sering dilatih di topik Turunan. Cara membedakannya cuma satu dan selalu berhasil: turunkan jawaban Anda. Turunan 2x adalah 2, bukan x², jadi 2x bukan jawabannya. Turunan x³/3 adalah x², jadi ∫ x² dx = x³/3 + C.',
     },
     widget: 'naik-pangkat',
     siap: true,
@@ -273,7 +273,7 @@ export const TAHAP: TahapIntegral[] = [
         ],
         simpul: 'Kelebihan faktor 2. Jadi tebakan tadi harus dibagi 2, dan jawabannya (2x + 1)⁶/12 + C.',
       },
-      { jenis: 'paragraf', teks: 'Angka 2 itu bukan datang dari mana-mana. Ia turunan dari isi kurungnya. Di topik Turunan, faktor itu muncul karena aturan rantai. Substitusi adalah cara merapikan urusan faktor tersebut supaya tidak perlu ditebak dan dibetulkan belakangan.' },
+      { jenis: 'paragraf', teks: 'Angka 2 itu bukan datang dari mana-mana. Itu turunan dari isi kurungnya. Di topik Turunan, faktor itu muncul karena aturan rantai. Substitusi adalah cara merapikan urusan faktor tersebut supaya tidak perlu ditebak dan dibetulkan belakangan.' },
 
       { jenis: 'sesi', judul: 'Memberi nama pada lapisan dalam' },
       { jenis: 'paragraf', teks: 'Namai isi kurungnya u. Jadi u = 2x + 1. Turunan u terhadap x adalah 2, dan itu ditulis sebagai du = 2 dx. Bentuk du inilah yang harus dicari di dalam soal.' },
@@ -287,14 +287,14 @@ export const TAHAP: TahapIntegral[] = [
           'Kerjakan lalu kembalikan - selesaikan dalam u, lalu tulis lagi u sebagai bentuk aslinya dalam x',
         ],
       },
-      { jenis: 'sorot', teks: 'Substitusi bukan trik. Ia aturan rantai yang dibaca dari kanan ke kiri.' },
+      { jenis: 'sorot', teks: 'Substitusi bukan trik. Substitusi adalah aturan rantai yang dibaca dari kanan ke kiri.' },
 
       {
         jenis: 'coba',
         teks: 'Alat interaktifnya memberi sebuah soal dan tiga calon u. Pilih satu, dan mesin menunjukkan akibatnya.',
         langkah: [
           'Pilih dulu calon u yang menurut Anda salah, lalu perhatikan bagian soal yang disorot.',
-          'Lihat sisanya di panel. Apakah sisa itu bisa menjadi du? Baca sebab yang disebut mesin.',
+          'Lihat sisanya di panel. Apakah sisa itu bisa menjadi du? Baca karena yang disebut mesin.',
           'Sekarang pilih calon yang menurut Anda benar. Bagaimana sisanya sekarang dibandingkan dengan du?',
           'Buka langkahnya satu per satu sampai jawaban akhir. Apa yang dilakukan baris terakhir terhadap u?',
         ],
@@ -340,7 +340,7 @@ export const TAHAP: TahapIntegral[] = [
       },
 
       { jenis: 'sesi', judul: 'Kapan substitusi tidak bisa dipakai' },
-      { jenis: 'paragraf', teks: 'Substitusi bukan alat yang cocok untuk semua bentuk. Ia hanya bekerja kalau sisa soal, setelah bagian u diambil, memang berbentuk du atau kelipatan angkanya.' },
+      { jenis: 'paragraf', teks: 'Substitusi bukan alat yang cocok untuk semua bentuk. Substitusi hanya bekerja kalau sisa soal, setelah bagian u diambil, memang berbentuk du atau kelipatan angkanya.' },
       { jenis: 'paragraf', teks: 'Contoh 3 tadi berhasil karena yang kurang cuma sebuah angka, yaitu setengah. Angka boleh dipindah-pindah keluar masuk tanda integral, jadi kekurangan seperti itu selalu bisa ditambal.' },
       { jenis: 'paragraf', teks: 'Sekarang ganti soalnya menjadi ∫ √(x² + 5) dx saja, tanpa x di depan. Dengan u yang sama, du tetap menuntut 2x dx, sementara yang tersedia hanya dx. Yang kurang memuat x, dan x tidak boleh dipindah-pindah seperti angka. Substitusi berhenti di situ, dan bentuk seperti itu tidak dibahas di SMA.' },
       { jenis: 'sorot', teks: 'Kekurangan berupa angka boleh diperbaiki. Kekurangan yang memuat x tidak.' },
@@ -348,7 +348,7 @@ export const TAHAP: TahapIntegral[] = [
     ],
     seringKeliru: {
       judul: 'Lupa membagi turunan isinya',
-      isi: 'Jawaban (2x + 1)⁶/6 terlihat sangat masuk akal, sebab bentuknya persis mengikuti aturan pangkat. Yang tidak terlihat adalah faktor 2 yang muncul saat lapisan dalamnya ikut diturunkan. Godaannya kuat karena pada bentuk seperti (x + 1)⁵ jawaban itu memang benar, dan turunan isinya kebetulan 1 sehingga tidak mengubah apa-apa. Cara membedakannya: turunkan jawaban Anda sampai selesai, termasuk mengalikan dengan turunan isi kurung. Kalau muncul angka tambahan, jawabannya harus dibagi angka itu.',
+      isi: 'Jawaban (2x + 1)⁶/6 terlihat sangat masuk akal, karena bentuknya persis mengikuti aturan pangkat. Yang tidak terlihat adalah faktor 2 yang muncul saat lapisan dalamnya ikut diturunkan. Terasa benar karena pada bentuk seperti (x + 1)⁵ jawaban itu memang benar, dan turunan isinya kebetulan 1 sehingga tidak mengubah apa-apa. Cara membedakannya: turunkan jawaban Anda sampai selesai, termasuk mengalikan dengan turunan isi kurung. Kalau muncul angka tambahan, jawabannya harus dibagi angka itu.',
     },
     widget: 'cocokkan-lapisan',
     siap: true,
@@ -392,7 +392,7 @@ export const TAHAP: TahapIntegral[] = [
         butir: [
           'u sebaiknya menjadi lebih sederhana kalau diturunkan - x menjadi 1, dan itu kemajuan',
           'dv harus masih bisa dicari antiturunannya - sin x dx bisa, jadi boleh dipilih',
-          'Kalau pilihannya terbalik - sisanya justru menjadi lebih rumit daripada soal semula, dan itu tanda untuk menukar pilihan',
+          'Kalau pilihannya terbalik - sisanya malah menjadi lebih rumit daripada soal semula, dan itu tanda untuk menukar pilihan',
         ],
       },
       {
@@ -413,10 +413,10 @@ export const TAHAP: TahapIntegral[] = [
         jenis: 'poin',
         judul: 'Sifat 3.8 dan 3.9, semuanya bisa Anda periksa sendiri',
         butir: [
-          '∫ sin x dx = -cos x + C - sebab turunan -cos x adalah sin x',
-          '∫ cos x dx = sin x + C - sebab turunan sin x adalah cos x',
-          '∫ sec² x dx = tan x + C - sebab turunan tan x adalah sec² x',
-          '∫ eˣ dx = eˣ + C - sebab eˣ adalah fungsi yang turunannya dirinya sendiri',
+          '∫ sin x dx = -cos x + C - karena turunan -cos x adalah sin x',
+          '∫ cos x dx = sin x + C - karena turunan sin x adalah cos x',
+          '∫ sec² x dx = tan x + C - karena turunan tan x adalah sec² x',
+          '∫ eˣ dx = eˣ + C - karena eˣ adalah fungsi yang turunannya dirinya sendiri',
           '∫ eᵃˣ dx = eᵃˣ/a + C - dengan a ≠ 0',
         ],
       },
@@ -447,7 +447,7 @@ export const TAHAP: TahapIntegral[] = [
         ],
         simpul: 'Hasilnya ∫ x² sin x dx = -x² cos x + 2x sin x + 2 cos x + C. Ini Contoh Soal 3.5 di buku, halaman 175.',
       },
-      { jenis: 'paragraf', teks: 'Perlu dikatakan apa adanya: di antara semua alat di topik ini, parsial paling jarang muncul di soal ujian SMA. Ia dimuat di sini karena ada di buku dan karena asal usulnya bagus untuk dipahami, bukan karena akan sering Anda pakai.' },
+      { jenis: 'paragraf', teks: 'Perlu dikatakan apa adanya: di antara semua alat di topik ini, parsial paling jarang muncul di soal ujian SMA. Parsial dimuat di sini karena ada di buku dan karena asal usulnya bagus untuk dipahami, bukan karena akan sering Anda pakai.' },
       { jenis: 'paragraf', teks: 'Sampai di sini semua pekerjaan kita masih soal membalik turunan. Belum satu pun yang menghitung luas. Materi berikutnya memulai dari titik yang sama sekali lain, dan untuk sementara tampak tidak berhubungan dengan empat materi ini.' },
     ],
     seringKeliru: {
@@ -473,7 +473,7 @@ export const TAHAP: TahapIntegral[] = [
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Empat materi terakhir seluruhnya soal membalik turunan. Sekarang kita tinggalkan itu sebentar dan mulai dari tempat yang sama sekali lain: mengukur luas.' },
-      { jenis: 'paragraf', teks: 'Luas persegi panjang sudah punya rumus, tinggal panjang dikali lebar. Luas segitiga dan trapesium juga sudah punya rumus. Tetapi daerah di bawah sebuah kurva tidak punya rumus siap pakai, sebab tepi atasnya melengkung dan tidak ada dua sisi yang bisa langsung dikalikan.' },
+      { jenis: 'paragraf', teks: 'Luas persegi panjang sudah punya rumus, tinggal panjang dikali lebar. Luas segitiga dan trapesium juga sudah punya rumus. Tetapi daerah di bawah sebuah kurva tidak punya rumus siap pakai, karena tepi atasnya melengkung dan tidak ada dua sisi yang bisa langsung dikalikan.' },
       { jenis: 'sorot', teks: 'Kalau bentuknya tidak bisa diukur langsung, tutupi dengan bentuk yang bisa. Itu gagasan seluruh materi ini.' },
 
       { jenis: 'sesi', judul: 'Menutupi daerah dengan persegi panjang' },
@@ -482,7 +482,7 @@ export const TAHAP: TahapIntegral[] = [
       { jenis: 'paragraf', teks: 'Jumlahkan luas semua persegi panjang tadi. Hasilnya disebut jumlahan Riemann, mengikuti nama Bernhard Riemann yang merapikan gagasan ini pada abad ke-19. Buku membahasnya di halaman 178 sampai 183.' },
       {
         jenis: 'poin',
-        judul: 'Tiga pilihan titik sampel yang lazim',
+        judul: 'Tiga pilihan titik sampel yang biasa',
         butir: [
           'Kiri - tinggi diambil dari ujung kiri tiap bagian',
           'Kanan - tinggi diambil dari ujung kanan tiap bagian',
@@ -523,7 +523,7 @@ export const TAHAP: TahapIntegral[] = [
       },
 
       { jenis: 'sesi', judul: 'Kiri dan kanan, mana yang lebih besar' },
-      { jenis: 'paragraf', teks: 'Pada contoh f(x) = x tadi, jumlahan kanan lebih besar daripada jumlahan kiri. Godaannya besar untuk menyimpulkan bahwa itu selalu terjadi. Coba periksa dengan kurva yang menurun.' },
+      { jenis: 'paragraf', teks: 'Pada contoh f(x) = x tadi, jumlahan kanan lebih besar daripada jumlahan kiri. Mudah sekali menyimpulkan bahwa itu selalu terjadi. Coba periksa dengan kurva yang menurun.' },
       {
         jenis: 'contoh',
         judul: 'Empat persegi panjang pada f(x) = 4 − x², selang [0, 2]',
@@ -532,14 +532,14 @@ export const TAHAP: TahapIntegral[] = [
           'titik sampel kiri   tingginya 4; 3,75; 3; 1,75, jumlahan luasnya 6,25',
           'titik sampel kanan  tingginya 3,75; 3; 1,75; 0, jumlahan luasnya 4,25',
         ],
-        simpul: 'Kali ini justru kiri yang lebih besar. Luas sebenarnya kira-kira 5,33, dan cara menghitungnya baru akan kita punya di Materi 07.',
+        simpul: 'Kali ini malah kiri yang lebih besar. Luas sebenarnya kira-kira 5,33, dan cara menghitungnya baru akan kita punya di Materi 07.',
       },
-      { jenis: 'paragraf', teks: 'Jadi bukan kanan yang selalu besar, melainkan sisi tempat kurvanya lebih tinggi. Pada kurva naik itu sisi kanan, pada kurva turun itu sisi kiri.' },
+      { jenis: 'paragraf', teks: 'Jadi bukan kanan yang selalu besar, tetapi sisi tempat kurvanya lebih tinggi. Pada kurva naik itu sisi kanan, pada kurva turun itu sisi kiri.' },
       { jenis: 'paragraf', teks: 'Sampai di sini kita punya cara mengukur yang jujur tetapi belum selesai: hasilnya selalu berupa hampiran, dan makin baik hanya kalau n diperbesar. Materi berikutnya memberi nama untuk nilai yang dituju jepitan itu, dan lambang untuk menuliskannya.' },
     ],
     seringKeliru: {
       judul: 'Dikira jumlahan dengan titik sampel kanan selalu lebih besar',
-      isi: 'Pada contoh pertama tadi memang begitu, dan hampir semua contoh pengenalan memakai kurva yang naik, sehingga polanya terasa seperti hukum. Padahal yang menentukan bukan kiri atau kanannya, melainkan di sisi mana kurva itu lebih tinggi. Pada kurva yang menurun seperti f(x) = 4 − x², jumlahan kiri justru yang lebih besar. Cara membedakannya: sebelum menyimpulkan, lihat dulu kurvanya naik atau turun pada selang yang diminta.',
+      isi: 'Pada contoh pertama tadi memang begitu, dan hampir semua contoh pengenalan memakai kurva yang naik, sehingga polanya terasa seperti hukum. Padahal yang menentukan bukan kiri atau kanannya, tetapi di sisi mana kurva itu lebih tinggi. Pada kurva yang menurun seperti f(x) = 4 − x², jumlahan kiri malah yang lebih besar. Cara membedakannya: sebelum menyimpulkan, lihat dulu kurvanya naik atau turun pada selang yang diminta.',
     },
     widget: 'persegi-panjang-menumpuk',
     siap: true,
@@ -559,7 +559,7 @@ export const TAHAP: TahapIntegral[] = [
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Di Materi 05, jumlahan Riemann selalu meleset sedikit, dan kelesetannya mengecil kalau bagiannya diperbanyak. Yang belum kita punya adalah nama untuk nilai yang dituju.' },
-      { jenis: 'paragraf', teks: 'Di topik Limit, cara berpikir seperti itu sudah punya namanya sendiri: bukan hasil pada satu langkah tertentu, melainkan nilai yang dituju barisan hasilnya. Gagasan yang sama dipakai di sini.' },
+      { jenis: 'paragraf', teks: 'Di topik Limit, cara berpikir seperti itu sudah punya namanya sendiri: bukan hasil pada satu langkah tertentu, tetapi nilai yang dituju barisan hasilnya. Gagasan yang sama dipakai di sini.' },
 
       { jenis: 'sesi', judul: 'Namanya dan cara menuliskannya' },
       { jenis: 'paragraf', teks: 'Nilai yang dituju jumlahan Riemann saat banyaknya bagian diperbesar tanpa henti disebut integral tentu. Lambangnya tanda integral yang sudah kita kenal, ditambah dua angka: batas bawah di kakinya dan batas atas di kepalanya, ∫ₐᵇ f(x) dx.' },
@@ -569,7 +569,7 @@ export const TAHAP: TahapIntegral[] = [
         butir: [
           'Tanpa batas - hasilnya sebuah keluarga fungsi, lengkap dengan C',
           'Dengan batas - hasilnya sebuah bilangan, dan C tidak muncul sama sekali',
-          'Kata "tentu" - berarti nilainya sudah tertentu, sebab selangnya sudah dipatok dari a sampai b',
+          'Kata "tentu" - berarti nilainya sudah tertentu, karena selangnya sudah dipatok dari a sampai b',
         ],
       },
       {
@@ -615,7 +615,7 @@ export const TAHAP: TahapIntegral[] = [
 
       { jenis: 'sesi', judul: 'Bagian yang berada di bawah sumbu' },
       { jenis: 'paragraf', teks: 'Sejauh ini semua kurva contoh berada di atas sumbu x, sehingga semua persegi panjangnya punya tinggi positif. Sekarang lihat apa yang terjadi kalau kurvanya turun melewati sumbu.' },
-      { jenis: 'paragraf', teks: 'Di daerah itu nilai fungsinya negatif. Tinggi persegi panjangnya ikut negatif, jadi luas yang dijumlahkan juga negatif. Ini bukan kesalahan hitung, melainkan memang begitu cara kerjanya, dan hasil seperti itu disebut luas bertanda.' },
+      { jenis: 'paragraf', teks: 'Di daerah itu nilai fungsinya negatif. Tinggi persegi panjangnya ikut negatif, jadi luas yang dijumlahkan juga negatif. Ini bukan kesalahan hitung, tetapi memang begitu cara kerjanya, dan hasil seperti itu disebut luas bertanda.' },
       {
         jenis: 'contoh',
         judul: 'Kurva f(x) = x³ − 4x pada selang [-2, 2]',
@@ -627,12 +627,12 @@ export const TAHAP: TahapIntegral[] = [
         simpul: 'Hasilnya nol, walaupun di layar jelas terlihat ada dua daerah berwarna yang tidak kosong. Dua bagian itu sama besar dan tandanya berlawanan.',
       },
       { jenis: 'sorot', teks: 'Integral tentu menghitung luas bertanda, bukan luas yang terlihat. Keduanya sama hanya kalau kurvanya tidak pernah turun di bawah sumbu.' },
-      { jenis: 'paragraf', teks: 'Bedanya kelihatan sepele sekarang, tetapi justru di situlah kekeliruan paling sering terjadi pada soal ujian. Materi 09 khusus membahasnya.' },
+      { jenis: 'paragraf', teks: 'Bedanya kelihatan sepele sekarang, tetapi malah di situlah kekeliruan paling sering terjadi pada soal ujian. Materi 09 khusus membahasnya.' },
       { jenis: 'paragraf', teks: 'Sekarang kita punya dua dunia yang lengkap dan terpisah: membalik turunan di Materi 01 sampai 04, dan mengukur luas di Materi 05 dan 06. Materi berikutnya menunjukkan bahwa keduanya ternyata benda yang sama.' },
     ],
     seringKeliru: {
       judul: 'Dikira hasilnya tidak mungkin negatif karena luas selalu positif',
-      isi: 'Luas sebuah bidang di dunia nyata memang tidak pernah negatif, dan naluri itu benar untuk bidang. Yang dihitung integral tentu bukan bidangnya, melainkan jumlah persegi panjang yang tingginya diambil dari nilai fungsi, dan nilai fungsi boleh negatif. Godaannya kuat karena semua contoh awal memakai kurva di atas sumbu, sehingga dua hal yang berbeda terlihat sama. Cara membedakannya: gambar dulu kurvanya. Kalau ada bagian yang berada di bawah sumbu pada selang yang diminta, hasil integralnya bukan luas yang terlihat.',
+      isi: 'Luas sebuah bidang di dunia nyata memang tidak pernah negatif, dan naluri itu benar untuk bidang. Yang dihitung integral tentu bukan bidangnya, tetapi jumlah persegi panjang yang tingginya diambil dari nilai fungsi, dan nilai fungsi boleh negatif. Terasa benar karena semua contoh awal memakai kurva di atas sumbu, sehingga dua hal yang berbeda terlihat sama. Cara membedakannya: gambar dulu kurvanya. Kalau ada bagian yang berada di bawah sumbu pada selang yang diminta, hasil integralnya bukan luas yang terlihat.',
     },
     widget: 'pecah-selang',
     siap: true,
@@ -646,18 +646,18 @@ export const TAHAP: TahapIntegral[] = [
     labelPendek: 'TDK',
     pertanyaan: 'Luas dari persegi panjang dan antiturunan tidak kelihatan berhubungan. Kenapa ternyata sama?',
     intisari: [
-      'Fungsi luas A(x) mengukur luas bertanda dari a sampai x, jadi ia berubah saat x digeser.',
+      'Fungsi luas A(x) mengukur luas bertanda dari a sampai x, jadi nilainya berubah saat x digeser.',
       'Teorema Dasar Kalkulus I: laju bertambahnya luas di titik x persis sama dengan tinggi kurva di titik itu.',
       'Karena itu fungsi luas adalah salah satu antiturunan dari fungsinya.',
       'Teorema Dasar Kalkulus II: ∫ₐᵇ f(x) dx = F(b) − F(a), dan C hilang dengan sendirinya.',
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Kita punya dua pekerjaan yang asal usulnya berbeda jauh. Yang pertama membalik mesin turunan. Yang kedua menumpuk persegi panjang dan menjumlahkan luasnya. Tidak ada alasan yang jelas kenapa keduanya harus berhubungan.' },
-      { jenis: 'paragraf', teks: 'Namun di Materi 01 kita sudah melihat tanda pertamanya: total pengeluaran bisa dicari lewat luas di bawah grafik laju, dan bisa juga lewat antiturunan, dan keduanya memberi 156 juta. Materi ini menjelaskan kenapa itu bukan kebetulan.' },
+      { jenis: 'paragraf', teks: 'Namun di Materi 01 kita sudah melihat tanda pertamanya: total pengeluaran bisa dicari lewat luas di bawah grafik laju, dan bisa juga lewat antiturunan, dan keduanya memberi 156 juta. Materi ini menjelaskan kenapa keduanya memang harus sama.' },
 
       { jenis: 'sesi', judul: 'Luas yang dibiarkan tumbuh' },
       { jenis: 'paragraf', teks: 'Selama ini batas atas selalu sebuah angka tetap. Sekarang biarkan batas atasnya bergerak. Sebut A(x) luas bertanda dari a sampai x, dengan x bisa digeser ke kanan.' },
-      { jenis: 'paragraf', teks: 'A bukan bilangan lagi, melainkan fungsi. Untuk tiap letak x ada satu nilai luas. Kalau x digeser ke kanan, A bertambah selama kurvanya berada di atas sumbu; kalau kurvanya sedang di bawah sumbu, A justru berkurang, sesuai luas bertanda di Materi 06. Fungsi seperti ini disebut fungsi luas.' },
+      { jenis: 'paragraf', teks: 'A bukan bilangan lagi, tetapi fungsi. Untuk tiap letak x ada satu nilai luas. Kalau x digeser ke kanan, A bertambah selama kurvanya berada di atas sumbu; kalau kurvanya sedang di bawah sumbu, A malah berkurang, sesuai luas bertanda di Materi 06. Fungsi seperti ini disebut fungsi luas.' },
       { jenis: 'paragraf', teks: 'Sekarang pertanyaan kuncinya. Kalau x digeser sedikit ke kanan, seberapa cepat A bertambah? Coba tebak dulu sebelum membaca lanjutannya, sambil membayangkan kurva yang tinggi dan kurva yang rendah.' },
 
       { jenis: 'sesi', judul: 'Pita tipis di ujung kanan' },
@@ -694,13 +694,13 @@ export const TAHAP: TahapIntegral[] = [
         jenis: 'contoh',
         judul: 'Kenapa jawabannya cukup F(b) − F(a)',
         baris: [
-          'sifat batas sama  A(a) = 0, sebab lebarnya nol',
+          'sifat batas sama  A(a) = 0, karena lebarnya nol',
           'yang dicari       A(b), yaitu luas dari a sampai b',
           'tulis ulang       A(b) = A(b) − A(a)',
           'ganti A dengan F  A(x) = F(x) + C, jadi selisih itu menjadi (F(b) + C) − (F(a) + C)',
           'C saling hapus    ∫ₐᵇ f(x) dx = F(b) − F(a)',
         ],
-        simpul: 'Inilah Teorema Dasar Kalkulus II, halaman 192. C hilang bukan karena diabaikan, melainkan karena benar-benar terhapus saat dikurangkan.',
+        simpul: 'Inilah Teorema Dasar Kalkulus II, halaman 192. C hilang bukan karena diabaikan, tetapi karena benar-benar terhapus saat dikurangkan.',
       },
       {
         jenis: 'contoh',
@@ -713,12 +713,12 @@ export const TAHAP: TahapIntegral[] = [
         ],
         simpul: 'Hasilnya ∫₁³ x² dx = 26/3 ≈ 8,67. Ini Contoh Soal 3.9 di buku, halaman 193, dan didapat tanpa menumpuk satu persegi panjang pun.',
       },
-      { jenis: 'paragraf', teks: 'Bandingkan dengan pekerjaan di Materi 06 yang memerlukan rumus deret dan perhitungan limit. Perbedaan tenaganya besar sekali, dan itulah sebabnya teorema ini disebut dasar: ia menopang hampir semua hitungan integral yang akan Anda temui.' },
+      { jenis: 'paragraf', teks: 'Bandingkan dengan pekerjaan di Materi 06 yang memerlukan rumus deret dan perhitungan limit. Perbedaan tenaganya besar sekali, dan itulah sebabnya teorema ini disebut dasar: teorema ini menopang hampir semua hitungan integral yang akan Anda temui.' },
       { jenis: 'paragraf', teks: 'Materi berikutnya melatih cara memakainya dengan rapi, termasuk saat soalnya perlu disubstitusi lebih dulu.' },
     ],
     seringKeliru: {
       judul: 'C ikut dituliskan pada hasil yang memakai batas',
-      isi: 'Sudah tertanam bahwa antiturunan wajib memakai C, jadi tangan otomatis menuliskannya juga di sini. Yang terlewat adalah bahwa jawabannya berupa selisih dua nilai, dan tetapan yang sama muncul di kedua nilai itu lalu saling menghapus. Bukan berarti C boleh dilupakan; ia memang ada, cuma tidak pernah bertahan sampai jawaban akhir. Cara membedakannya: lihat apakah ada dua angka batas pada tanda integralnya. Kalau ada, jawabannya sebuah bilangan dan tidak boleh memuat C.',
+      isi: 'Sudah tertanam bahwa antiturunan wajib memakai C, jadi tangan otomatis menuliskannya juga di sini. Yang terlewat adalah bahwa jawabannya berupa selisih dua nilai, dan tetapan yang sama muncul di kedua nilai itu lalu saling menghapus. Bukan berarti C boleh dilupakan; C memang ada, cuma tidak pernah bertahan sampai jawaban akhir. Cara membedakannya: lihat apakah ada dua angka batas pada tanda integralnya. Kalau ada, jawabannya sebuah bilangan dan tidak boleh memuat C.',
     },
     widget: 'luas-yang-tumbuh',
     siap: true,
@@ -729,7 +729,7 @@ export const TAHAP: TahapIntegral[] = [
     slug: 'menghitung-integral-tentu',
     judul: 'Menghitung integral tentu',
     labelPendek: 'Menghitung',
-    pertanyaan: 'Sekarang alatnya lengkap; bagaimana urutan kerja yang tidak tersesat?',
+    pertanyaan: 'Sekarang alatnya lengkap; bagaimana urutan kerja yang tidak salah jalan?',
     intisari: [
       'Urutannya tetap: cari antiturunannya, masukkan batas atas, kurangi hasil batas bawah.',
       'Tanda kurung siku dengan dua angka di tepinya adalah cara menyimpan pekerjaan yang belum selesai.',
@@ -738,19 +738,19 @@ export const TAHAP: TahapIntegral[] = [
     ],
     penjelasan: [
       { jenis: 'paragraf', teks: 'Semua bahan sudah ada. Aturan pangkat dan perapian dari Materi 02, substitusi dari Materi 03, sifat trigonometri dan eksponensial dari Materi 04, sifat integral tentu dari Materi 06, dan cara cepat dari Materi 07.' },
-      { jenis: 'paragraf', teks: 'Yang belum ada adalah kebiasaan menuliskannya. Soal integral tentu jarang salah karena konsepnya; ia salah karena langkahnya tertukar atau ada batas yang lupa diganti.' },
+      { jenis: 'paragraf', teks: 'Yang belum ada adalah kebiasaan menuliskannya. Soal integral tentu jarang salah karena konsepnya; salahnya karena langkahnya tertukar atau ada batas yang lupa diganti.' },
 
       { jenis: 'sesi', judul: 'Tiga langkah dan satu tanda' },
       {
         jenis: 'poin',
         judul: 'Urutan yang tidak pernah berubah',
         butir: [
-          'Cari antiturunannya - tanpa C, sebab C akan terhapus',
+          'Cari antiturunannya - tanpa C, karena C akan terhapus',
           'Masukkan batas atas - ganti setiap x dengan angka batas atas',
           'Kurangi dengan batas bawah - ganti setiap x dengan angka batas bawah, lalu kurangkan',
         ],
       },
-      { jenis: 'paragraf', teks: 'Di antara langkah pertama dan kedua, antiturunannya ditulis di dalam tanda kurung siku, dengan batas bawah di kaki kanan dan batas atas di kepala kanan: [F(x)]ₐᵇ = F(b) − F(a). Tanda kurung siku itu bukan hiasan: ia mengingatkan bahwa pekerjaannya belum selesai, batasnya belum dimasukkan.' },
+      { jenis: 'paragraf', teks: 'Di antara langkah pertama dan kedua, antiturunannya ditulis di dalam tanda kurung siku, dengan batas bawah di kaki kanan dan batas atas di kepala kanan: [F(x)]ₐᵇ = F(b) − F(a). Tanda kurung siku itu ada gunanya: tanda itu mengingatkan bahwa pekerjaannya belum selesai, batasnya belum dimasukkan.' },
       {
         jenis: 'contoh',
         judul: 'Menghitung ∫₀³ (x² − 3x + 2) dx',
@@ -761,7 +761,7 @@ export const TAHAP: TahapIntegral[] = [
           'masukkan batas bawah   F(0) = 0',
           'kurangkan              F(3) − F(0) = 1,5 − 0 = 1,5',
         ],
-        simpul: 'Hasilnya ∫₀³ (x² − 3x + 2) dx = 3/2 = 1,5. Angka positif walaupun sebagian kurvanya berada di bawah sumbu, sebab bagian yang di atas lebih besar.',
+        simpul: 'Hasilnya ∫₀³ (x² − 3x + 2) dx = 3/2 = 1,5. Angka positif walaupun sebagian kurvanya berada di bawah sumbu, karena bagian yang di atas lebih besar.',
       },
 
       { jenis: 'sesi', judul: 'Kalau soalnya perlu disubstitusi' },
@@ -796,7 +796,7 @@ export const TAHAP: TahapIntegral[] = [
     ],
     seringKeliru: {
       judul: 'Rumusnya sudah dalam u tetapi batasnya masih batas x',
-      isi: 'Setelah substitusi, bentuk soalnya berubah menjadi u, dan di papan tulis batas 0 dan 2 tetap terlihat menempel di tanda integral. Pekerjaannya lalu diteruskan begitu saja, tanpa menyadari bahwa dua angka itu sekarang mengukur benda yang berbeda. Godaannya kuat karena hasilnya tetap keluar berupa angka yang kelihatan wajar, jadi tidak ada tanda bahaya apa pun. Cara membedakannya: setiap kali huruf peubahnya berganti, tanyakan batas ini milik siapa. Kalau rumusnya sudah dalam u, batasnya harus batas u.',
+      isi: 'Setelah substitusi, bentuk soalnya berubah menjadi u, dan di papan tulis batas 0 dan 2 tetap terlihat menempel di tanda integral. Pekerjaannya lalu diteruskan begitu saja, tanpa menyadari bahwa dua angka itu sekarang mengukur benda yang berbeda. Terasa benar karena hasilnya tetap keluar berupa angka yang kelihatan wajar, jadi tidak ada tanda bahaya apa pun. Cara membedakannya: setiap kali huruf peubahnya berganti, tanyakan batas ini milik siapa. Kalau rumusnya sudah dalam u, batasnya harus batas u.',
     },
     widget: 'hitung-bertahap',
     siap: true,
@@ -816,7 +816,7 @@ export const TAHAP: TahapIntegral[] = [
       'Menghitung tanpa memecah bisa memberi jawaban nol untuk daerah yang jelas-jelas ada.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Di Materi 06 kita sudah bertemu kurva yang sebagian berada di bawah sumbu, dan hasilnya nol padahal ada dua daerah berwarna di layar. Sekarang kita hadapi hal itu langsung, sebab inilah bentuk soal yang paling sering dijawab keliru.' },
+      { jenis: 'paragraf', teks: 'Di Materi 06 kita sudah bertemu kurva yang sebagian berada di bawah sumbu, dan hasilnya nol padahal ada dua daerah berwarna di layar. Sekarang kita hadapi hal itu langsung, karena inilah bentuk soal yang paling sering dijawab keliru.' },
       { jenis: 'paragraf', teks: 'Pertanyaannya harus dibaca hati-hati. "Berapa hasil integralnya" dan "berapa luas daerahnya" adalah dua pertanyaan berbeda, dan jawabannya hanya kebetulan sama pada kasus tertentu.' },
 
       { jenis: 'sesi', judul: 'Tiga keadaan, tiga perlakuan' },
@@ -829,7 +829,7 @@ export const TAHAP: TahapIntegral[] = [
           'Memotong sumbu - pecah selangnya di titik potong, hitung tiap bagian, jadikan positif satu per satu, baru dijumlahkan',
         ],
       },
-      { jenis: 'paragraf', teks: 'Titik potong dengan sumbu dicari dengan menyamakan fungsinya dengan nol. Di titik itulah kurva bisa berpindah dari atas ke bawah atau sebaliknya. Kadang ia cuma menyentuh sumbu lalu kembali ke sisi yang sama, dan memotong di situ tetap aman: bagian yang terbentuk sekadar dua potong yang tandanya sama.' },
+      { jenis: 'paragraf', teks: 'Titik potong dengan sumbu dicari dengan menyamakan fungsinya dengan nol. Di titik itulah kurva bisa berpindah dari atas ke bawah atau sebaliknya. Kadang kurvanya cuma menyentuh sumbu lalu kembali ke sisi yang sama, dan memotong di situ tetap aman: bagian yang terbentuk cuma dua potong yang tandanya sama.' },
       { jenis: 'sorot', teks: 'Positifkan dulu tiap bagian, baru jumlahkan. Kalau dijumlahkan dulu, dua bagian yang berlawanan tanda akan saling memakan.' },
 
       { jenis: 'sesi', judul: 'Contoh yang memperlihatkan bedanya paling tajam' },
@@ -845,7 +845,7 @@ export const TAHAP: TahapIntegral[] = [
         ],
         simpul: 'Luas daerahnya 64/3 ≈ 21,3 satuan luas. Hasil integralnya nol. Dua jawaban yang sangat berbeda dari satu gambar yang sama.',
       },
-      { jenis: 'paragraf', teks: 'Angka nol itu bukan salah hitung. Ia jawaban yang benar untuk pertanyaan "berapa hasil integralnya". Ia hanya salah kalau dipakai menjawab pertanyaan "berapa luas daerahnya".' },
+      { jenis: 'paragraf', teks: 'Angka nol itu bukan salah hitung. Angka itu jawaban yang benar untuk pertanyaan "berapa hasil integralnya". Angka itu hanya salah kalau dipakai menjawab pertanyaan "berapa luas daerahnya".' },
 
       {
         jenis: 'coba',
@@ -885,7 +885,7 @@ export const TAHAP: TahapIntegral[] = [
           'pakai substitusi   u = x² + 5, sehingga du = 2x dx, batasnya u = 5 sampai u = 9',
           'hasilnya           (1/2) ∫₅⁹ √u du = (1/3)(27 − 5√5)',
         ],
-        simpul: 'L = (1/3)(27 − 5√5) ≈ 5,27 satuan luas. Ini Contoh Soal 3.13 di buku, halaman 204. Langkah pertamanya bukan menghitung, melainkan memeriksa letak kurvanya.',
+        simpul: 'L = (1/3)(27 − 5√5) ≈ 5,27 satuan luas. Ini Contoh Soal 3.13 di buku, halaman 204. Langkah pertamanya bukan menghitung, tetapi memeriksa letak kurvanya.',
       },
       { jenis: 'sorot', teks: 'Langkah pertama soal luas selalu sama: gambar dulu, lalu cari titik potongnya. Menghitung adalah langkah terakhir, bukan langkah pertama.' },
       { jenis: 'paragraf', teks: 'Materi berikutnya mengganti sumbu x dengan kurva kedua, dan cara berpikirnya ternyata hampir tidak berubah.' },
@@ -911,17 +911,17 @@ export const TAHAP: TahapIntegral[] = [
       'Kalau kedua kurva bertukar posisi di dalam selang, daerahnya dipecah di titik tukar itu.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Bagian ini di luar Bab 3 buku Matematika Tingkat Lanjut Kelas XII, tetapi lazim keluar di ujian SMA, jadi dimuat di sini. Bahannya seluruhnya berasal dari materi sebelumnya.' },
+      { jenis: 'paragraf', teks: 'Bagian ini di luar Bab 3 buku Matematika Tingkat Lanjut Kelas XII, tetapi biasa keluar di ujian SMA, jadi dimuat di sini. Bahannya seluruhnya berasal dari materi sebelumnya.' },
       { jenis: 'paragraf', teks: 'Sampai sekarang daerah yang kita ukur selalu punya alas berupa sumbu x. Sekarang alasnya diganti dengan kurva lain. Contohnya daerah yang terkurung antara parabola y = x² dan garis y = x + 2.' },
 
       { jenis: 'sesi', judul: 'Persegi panjang yang alasnya bukan sumbu' },
       { jenis: 'paragraf', teks: 'Kembali ke gambar di Materi 05. Waktu itu tiap persegi panjang berdiri di atas sumbu, sehingga tingginya adalah nilai fungsi. Sekarang persegi panjangnya berdiri di atas kurva bawah dan berhenti di kurva atas.' },
-      { jenis: 'paragraf', teks: 'Jadi tingginya bukan lagi f(x), melainkan selisih antara kurva atas dan kurva bawah, f(x) − g(x). Sisanya sama persis: lebarnya tetap Δx, jumlahnya tetap dijumlahkan, dan bagiannya tetap diperbanyak.' },
+      { jenis: 'paragraf', teks: 'Jadi tingginya bukan lagi f(x), tetapi selisih antara kurva atas dan kurva bawah, f(x) − g(x). Sisanya sama persis: lebarnya tetap Δx, jumlahnya tetap dijumlahkan, dan bagiannya tetap diperbanyak.' },
       { jenis: 'sorot', teks: 'Yang berubah cuma tinggi persegi panjangnya. Seluruh cara berpikirnya sama dengan Materi 05 sampai 07.' },
       { jenis: 'paragraf', teks: 'Karena itu jawabannya berupa integral dari selisih kedua kurva, yaitu yang di atas dikurangi yang di bawah, dihitung dari batas kiri sampai batas kanan: L = ∫ₐᵇ (f(x) − g(x)) dx.' },
 
       { jenis: 'sesi', judul: 'Mencari batas kiri dan kanan' },
-      { jenis: 'paragraf', teks: 'Batasnya tidak diberikan pada soal seperti ini. Batas itu adalah tempat kedua kurva bertemu, sebab di luar titik pertemuan daerahnya tidak lagi terkurung.' },
+      { jenis: 'paragraf', teks: 'Batasnya tidak diberikan pada soal seperti ini. Batas itu adalah tempat kedua kurva bertemu, karena di luar titik pertemuan daerahnya tidak lagi terkurung.' },
       {
         jenis: 'contoh',
         judul: 'Titik potong parabola y = x² dan garis y = x + 2',
@@ -973,11 +973,11 @@ export const TAHAP: TahapIntegral[] = [
         simpul: 'Luas seluruhnya 1/2. Kalau selangnya tidak dipecah dan urutannya dipakai satu macam saja, hasilnya nol.',
       },
       { jenis: 'sorot', teks: 'Di titik potong, urutan atas dan bawah bisa bertukar. Periksa satu titik di tiap bagian sebelum menuliskan pengurangannya.' },
-      { jenis: 'paragraf', teks: 'Materi terakhir tidak menambah alat baru. Ia memperlihatkan di mana semua ini benar-benar dipakai orang di luar kelas.' },
+      { jenis: 'paragraf', teks: 'Materi terakhir tidak menambah alat baru. Materi ini memperlihatkan di mana semua ini benar-benar dipakai orang di luar kelas.' },
     ],
     seringKeliru: {
       judul: 'Urutan pengurangan dianggap bebas',
-      isi: 'Karena yang dicari luas, dan luas tidak pernah negatif, godaannya besar untuk menganggap urutannya tidak penting dan tanda minus di akhir tinggal dibuang. Persoalannya, membuang tanda minus di akhir kebetulan benar untuk satu daerah, tetapi menyesatkan begitu daerahnya lebih dari satu: dua bagian yang urutannya berbeda akan saling menghapus sebelum sempat dipositifkan. Cara membedakannya: ambil satu angka di dalam selang, masukkan ke kedua kurva, dan lihat sendiri mana yang nilainya lebih besar. Yang lebih besar itulah yang ditulis di depan.',
+      isi: 'Karena yang dicari luas, dan luas tidak pernah negatif, mudah sekali menganggap urutannya tidak penting dan tanda minus di akhir tinggal dibuang. Persoalannya, membuang tanda minus di akhir kebetulan benar untuk satu daerah, tetapi salah begitu daerahnya lebih dari satu: dua bagian yang urutannya berbeda akan saling menghapus sebelum sempat dipositifkan. Cara membedakannya: ambil satu angka di dalam selang, masukkan ke kedua kurva, dan lihat sendiri mana yang nilainya lebih besar. Yang lebih besar itulah yang ditulis di depan.',
     },
     widget: 'dua-kurva',
     siap: true,
@@ -996,7 +996,7 @@ export const TAHAP: TahapIntegral[] = [
       'Pertanyaan "kapan modalnya kembali" dijawab dengan mencari batas atas yang membuat hasilnya sama dengan modal.',
     ],
     penjelasan: [
-      { jenis: 'paragraf', teks: 'Halaman ini tidak menambah aturan baru. Ia memperlihatkan empat keadaan yang bentuk pertanyaannya sama persis dengan pertanyaan pembuka Materi 01, hanya bendanya yang berganti.' },
+      { jenis: 'paragraf', teks: 'Halaman ini tidak menambah aturan baru. Galeri ini memperlihatkan empat keadaan yang bentuk pertanyaannya sama persis dengan pertanyaan pembuka Materi 01, hanya bendanya yang berganti.' },
       { jenis: 'sorot', teks: 'Kalau yang tercatat adalah kecepatan bertambahnya sesuatu, maka jumlah sesuatu itu adalah luas di bawah grafiknya.' },
       { jenis: 'paragraf', teks: 'Semua angka di bawah ini adalah angka contoh, dipilih supaya hitungannya bisa Anda ikuti sampai selesai. Dua di antaranya diambil dari buku dan disebutkan halamannya.' },
 
@@ -1045,7 +1045,7 @@ export const TAHAP: TahapIntegral[] = [
 
       { jenis: 'sesi', judul: 'Empat, kapan modal kembali' },
       { jenis: 'paragraf', teks: 'Sebuah perusahaan membeli peralatan seharga 36.000 satuan rupiah. Peralatan itu menghemat biaya dengan laju h(x) = 4.000x + 1.000 per tahun pada tahun ke-x. Kapan penghematannya sudah menutup harga beli?' },
-      { jenis: 'paragraf', teks: 'Pertanyaan ini bentuknya berbeda dari tiga yang tadi. Yang dicari bukan hasilnya, melainkan batas atasnya. Jadi hasilnya ditulis dulu sebagai fungsi dari batas yang belum diketahui, baru disamakan dengan 36.000.' },
+      { jenis: 'paragraf', teks: 'Pertanyaan ini bentuknya berbeda dari tiga yang tadi. Yang dicari bukan hasilnya, tetapi batas atasnya. Jadi hasilnya ditulis dulu sebagai fungsi dari batas yang belum diketahui, baru disamakan dengan 36.000.' },
       {
         jenis: 'contoh',
         judul: 'Mencari batas atas yang membuat hasilnya 36.000',
@@ -1063,7 +1063,7 @@ export const TAHAP: TahapIntegral[] = [
     ],
     seringKeliru: {
       judul: 'Satuan hasilnya dikira sama dengan satuan sumbu-y',
-      isi: 'Sumbu-y grafiknya meter per detik, jadi terasa wajar kalau jawabannya juga dibaca meter per detik. Padahal yang dihitung adalah luas, dan luas selalu berupa perkalian dua sumbu. Kekeliruan ini menggoda karena angka pada sumbu-y itulah yang paling menonjol di layar, sementara satuan sumbu-x sering terlupakan. Cara membedakannya: kalikan satuan kedua sumbunya. Meter per detik dikali detik menghasilkan meter, dan newton dikali meter menghasilkan joule.',
+      isi: 'Sumbu-y grafiknya meter per detik, jadi terasa wajar kalau jawabannya juga dibaca meter per detik. Padahal yang dihitung adalah luas, dan luas selalu berupa perkalian dua sumbu. Kekeliruan ini tampak benar karena angka pada sumbu-y itulah yang paling menonjol di layar, sementara satuan sumbu-x sering terlupakan. Cara membedakannya: kalikan satuan kedua sumbunya. Meter per detik dikali detik menghasilkan meter, dan newton dikali meter menghasilkan joule.',
     },
     widget: 'dunia-nyata-integral',
     siap: true,

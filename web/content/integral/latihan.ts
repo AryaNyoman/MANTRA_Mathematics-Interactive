@@ -42,12 +42,12 @@ export const LATIHAN: Soal[] = [
     benar: 2,
     jawaban: 'x³ - 2x² + x + C',
     pembahasan: [
-      'Kerjakan suku demi suku, sebab penjumlahan dan pengurangan boleh dipecah (Sifat 3.13 dan 3.14).',
+      'Kerjakan suku demi suku, karena penjumlahan dan pengurangan boleh dipecah (Sifat 3.13 dan 3.14).',
       'Suku 3x²: pangkat naik jadi 3, lalu dibagi 3. Hasilnya x³.',
       'Suku -4x: pangkat naik jadi 2, lalu dibagi 2. Hasilnya -2x².',
       'Suku 1: pangkat naik jadi 1, lalu dibagi 1. Hasilnya x.',
       'Periksa dengan menurunkan: turunan x³ - 2x² + x adalah 3x² - 4x + 1, kembali ke soal semula.',
-      'Pilihan 6x - 4 adalah TURUNAN dari soal, bukan antiturunannya. Pilihan tanpa C juga salah, sebab satu antiturunan saja bukan jawaban lengkap.',
+      'Pilihan 6x - 4 adalah TURUNAN dari soal, bukan antiturunannya. Pilihan tanpa C juga salah, karena satu antiturunan saja bukan jawaban lengkap.',
     ],
   },
   {
@@ -105,7 +105,7 @@ export const LATIHAN: Soal[] = [
     benar: 0,
     jawaban: '64/3 satuan luas',
     pembahasan: [
-      'Langkah pertama bukan menghitung, melainkan mencari titik potong dengan sumbu x. Samakan x² - 4x dengan nol, dan didapat x = 0 serta x = 4.',
+      'Langkah pertama bukan menghitung, tetapi mencari titik potong dengan sumbu x. Samakan x² - 4x dengan nol, dan didapat x = 0 serta x = 4.',
       'Titik potong x = 4 berada di dalam selang, jadi selangnya WAJIB dipecah di situ.',
       'Bagian 0 sampai 4: kurvanya di bawah sumbu, hasilnya -32/3.',
       'Bagian 4 sampai 6: kurvanya di atas sumbu, hasilnya 32/3.',
