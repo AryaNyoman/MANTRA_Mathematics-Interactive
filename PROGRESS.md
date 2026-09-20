@@ -1,5 +1,45 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 21 SEP DINI HARI: VIDEO TRIGONOMETRI 11 SUDUT BERELASI TAYANG; JATAH ASISTEN 5 PER IP; JUDUL KOTAK PENGECOH (deploy matra-pd4z8zwyl, push GitHub 4f4a3eb)
+
+- ARYA (20 Sep malam): "Hapus 'kenapa pilihan yang lain menggoda/menipu',
+  bahasanya jelek banget" (judul kotak pengecoh di pembahasan). Diganti
+  "Kenapa yang lain salah" (`components/latihan/Pembahasan.tsx`, dipakai
+  Latihan dan Kuis). Kata "menggoda" masih dipakai 41 kalimat jebakan di
+  bank soal ("Pilihan B menggoda karena ..."), belum diganti, menunggu kata
+  pilihan ARYA. ARYA juga minta daftar bahasa "AI banget" yang sering saya
+  pakai; jawabannya di chat, belum ada penyisiran teks.
+- Jatah Asisten Tanya diturunkan ARYA dari 20 jadi 5 pertanyaan per IP per
+  hari (`lib/tanya/pembatas.ts` bawaan 5, teks panel, CLAUDE.md). Diuji di
+  produksi: sisa 4 sesudah satu kiriman; kunci IP uji dihapus lagi. Catatan:
+  per IP berarti satu sekolah yang berbagi wifi hanya dapat 5 sehari.
+- Video materi 11 `tahap11-sudut-berelasi` (Lingkaran Satuan dan Sudut
+  Istimewa, Bagian 4): naskah 17 segmen, 3.460 huruf, Bian ElevenLabs satu
+  permintaan, 4 menit 38 detik; adegan `manim/scenes/tahap11_sudut_berelasi.py`
+  (P pada 40 derajat, segitiga kecilnya DIPUTAR 90 derajat sehingga sisi biru
+  yang tadinya mendatar berdiri tegak: bukti visual sin dan cos bertukar
+  peran; lalu cermin ke kiri, balik ke seberang, cermin ke bawah, tiap relasi
+  lahir di dekat Q lalu terbang ke panel; angka romawi kuadran plus
+  keterangan tanda di ruang kerja; panah 90 dan 180 derajat; sering keliru
+  (-cos, sin) dicoret dan diperiksa dengan cos 130 = -0,64). Gerbang:
+  cek_kode, cek_pemicu_urut (85 pemicu, terlambat terbesar 0,033 s),
+  cek_pembuka_video, cek_subtitle, cek_layar_kosong, cek_aset_video,
+  buat_poster (detik 100). Lembar kontak 480p dibuka dua kali dan 1080p dua
+  kali; yang diperbaiki dari situ: label 40 derajat menindih sisi miring,
+  0,64 dan -0,64 jatuh di garis lingkaran, 0,77 menindih busur, "130
+  derajat" di dalam segitiga Q, teks "I: semua positif" menindih P, panah
+  90 derajat melintasi label y (label disembunyikan sementara) dan
+  menyentuh label P, cek angka keluar bingkai kanan (tangkapan qc), layar
+  kosong 6 detik di awal segar-ingat (pertanyaan ditahan sampai nama sub-bab
+  disebut). mp4 9,5 MB diunggah ke R2 (62 video cocok), `video` di
+  tahap.ts, bekal trigonometri dibuat ulang, deploy; di produksi video
+  termuat dari Worker (durasi 278,27 s, satu jalur subtitle).
+- Belum: video 07 (Sudut istimewa) masih menutup dengan "materi berikutnya,
+  Grafik Fungsi Trigonometri, Bagian 1", padahal urutan belajar sekarang 07
+  lalu 11; memperbaikinya berarti merekam ulang seluruh naskah 07 (satu
+  permintaan ElevenLabs, 2,9 ribu huruf) dan merender ulang 1080p. Kuota
+  ElevenLabs sesudah video ini kira-kira 27 ribu huruf sampai 14 Okt.
+
 ## 20 SEP: KUIS BAB V2 (SATU PAKET 10 SOAL TERKURASI, PENILAIAN DULU, PEMBAHASAN BERGAMBAR DI AKHIR), MATERI TRIGONOMETRI 11 SUDUT BERELASI, ASISTEN TANYA TAYANG (deploy matra-gicw5xh4u, push GitHub aa895ac)
 
 ARYA melihat tiga soal kuis Trigonometri (k48, k50, k59, "sangat sulit")
