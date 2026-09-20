@@ -1,0 +1,1429 @@
+{
+  "trigonometri": {
+    "kenapa": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 138,
+        "sampai": 141,
+        "catatan": "mengukur panjang lewat perbandingan"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 43,
+        "sampai": 45,
+        "catatan": "fungsi trigonometri"
+      }
+    ],
+    "perbandingan-tetap": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 139,
+        "sampai": 142,
+        "catatan": "perbandingan sisi segitiga siku-siku"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 18,
+        "sampai": 19,
+        "catatan": "fungsi trigonometri pada lingkaran"
+      }
+    ],
+    "menamai-sisi": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 140,
+        "sampai": 144,
+        "catatan": "nama sisi depan, samping, miring"
+      }
+    ],
+    "lahirnya-sin-cos-tan": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 140,
+        "sampai": 146,
+        "catatan": "sinus, kosinus, tangen"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 18,
+        "sampai": 19,
+        "catatan": "definisi fungsi trigonometri"
+      }
+    ],
+    "lingkaran-satuan": [
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 18,
+        "sampai": 20,
+        "catatan": "lingkaran berjari-jari satu"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 43,
+        "sampai": 46,
+        "catatan": "nilai trigonometri sudut"
+      }
+    ],
+    "enam-rasio": [
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 18,
+        "sampai": 20,
+        "catatan": "tan, cot, sec, csc"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 43,
+        "sampai": 46,
+        "catatan": "identitas trigonometri"
+      }
+    ],
+    "sudut-istimewa": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 146,
+        "sampai": 149,
+        "catatan": "nilai sudut istimewa"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 18,
+        "sampai": 19,
+        "catatan": "nilai eksak"
+      }
+    ],
+    "grafik-sin": [
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 18,
+        "sampai": 20,
+        "catatan": "grafik fungsi trigonometri"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 46,
+        "sampai": 48,
+        "catatan": "grafik sinus dan kosinus"
+      }
+    ],
+    "tiga-grafik": [
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 18,
+        "sampai": 20,
+        "catatan": "grafik sin, cos, tan"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 46,
+        "sampai": 49,
+        "catatan": "periode dan grafik"
+      }
+    ],
+    "dunia-nyata": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 146,
+        "sampai": 153,
+        "catatan": "pemanfaatan perbandingan trigonometri"
+      }
+    ]
+  },
+  "limit": {
+    "kecepatan-sesaat": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 96,
+        "sampai": 100,
+        "catatan": "pengantar limit fungsi"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 21,
+        "sampai": 23,
+        "catatan": "konsep limit"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 63,
+        "sampai": 65,
+        "catatan": "pengantar limit"
+      }
+    ],
+    "mendekati": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 98,
+        "sampai": 100,
+        "catatan": "definisi limit"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 21,
+        "sampai": 23,
+        "catatan": "definisi limit"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 63,
+        "sampai": 66,
+        "catatan": "limit secara intuitif"
+      }
+    ],
+    "dua-arah": [
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 25,
+        "sampai": 26,
+        "catatan": "limit sepihak"
+      },
+      {
+        "sumber": "lanjut-12",
+        "dari": 98,
+        "sampai": 100,
+        "catatan": "limit kiri dan kanan"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 63,
+        "sampai": 66,
+        "catatan": "limit satu sisi"
+      }
+    ],
+    "lubang": [
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 21,
+        "sampai": 23,
+        "catatan": "fungsi berlubang di satu titik"
+      },
+      {
+        "sumber": "lanjut-12",
+        "dari": 98,
+        "sampai": 101,
+        "catatan": "nilai fungsi dan limit"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 63,
+        "sampai": 66,
+        "catatan": "limit dan nilai fungsi"
+      }
+    ],
+    "cara-cepat": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 101,
+        "sampai": 103,
+        "catatan": "sifat-sifat limit"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 23,
+        "sampai": 24,
+        "catatan": "teorema limit"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 72,
+        "sampai": 74,
+        "catatan": "teorema limit"
+      }
+    ],
+    "nol-per-nol": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 101,
+        "sampai": 104,
+        "catatan": "limit bentuk tak tentu"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 22,
+        "sampai": 24,
+        "catatan": "penyederhanaan pecahan"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 72,
+        "sampai": 74,
+        "catatan": "memfaktorkan dan sekawan"
+      }
+    ],
+    "tak-hingga": [
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 27,
+        "sampai": 28,
+        "catatan": "limit di tak hingga"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 79,
+        "sampai": 81,
+        "catatan": "limit di tak hingga dan asimtot"
+      }
+    ],
+    "limit-sinus": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 104,
+        "sampai": 109,
+        "catatan": "limit fungsi trigonometri"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 77,
+        "sampai": 78,
+        "catatan": "limit trigonometri"
+      }
+    ],
+    "kontinu": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 110,
+        "sampai": 113,
+        "catatan": "kekontinuan"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 29,
+        "sampai": 31,
+        "catatan": "kekontinuan fungsi"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 84,
+        "sampai": 86,
+        "catatan": "kekontinuan"
+      }
+    ],
+    "dunia-nyata": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 96,
+        "sampai": 97,
+        "catatan": "limit dalam produksi"
+      },
+      {
+        "sumber": "lanjut-12",
+        "dari": 110,
+        "sampai": 113,
+        "catatan": "kekontinuan dalam penerapan"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 29,
+        "sampai": 31,
+        "catatan": "teorema nilai antara"
+      }
+    ]
+  },
+  "grafik-fungsi": {
+    "grafik-bercerita": [
+      {
+        "sumber": "kemdikbud-11",
+        "dari": 31,
+        "sampai": 36,
+        "catatan": "fungsi sebagai masukan dan keluaran"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 29,
+        "sampai": 31,
+        "catatan": "fungsi dan grafiknya"
+      }
+    ],
+    "potret-aturan": [
+      {
+        "sumber": "kemdikbud-11",
+        "dari": 31,
+        "sampai": 38,
+        "catatan": "fungsi, domain, range"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 14,
+        "sampai": 15,
+        "catatan": "definisi fungsi"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 29,
+        "sampai": 32,
+        "catatan": "grafik fungsi"
+      }
+    ],
+    "bentuk-puncak": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 179,
+        "sampai": 186,
+        "catatan": "grafik fungsi kuadrat"
+      }
+    ],
+    "bentuk-umum": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 184,
+        "sampai": 190,
+        "catatan": "titik potong, puncak, diskriminan"
+      }
+    ],
+    "menyusun-parabola": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 191,
+        "sampai": 198,
+        "catatan": "mengonstruksi fungsi kuadrat"
+      }
+    ],
+    "geser-cermin-regang": [
+      {
+        "sumber": "purcell-solusi",
+        "dari": 37,
+        "sampai": 40,
+        "catatan": "operasi dan pergeseran fungsi"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 15,
+        "sampai": 16,
+        "catatan": "operasi pada fungsi"
+      }
+    ],
+    "nilai-mutlak": [
+      {
+        "sumber": "purcell-solusi",
+        "dari": 29,
+        "sampai": 32,
+        "catatan": "grafik nilai mutlak"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 8,
+        "sampai": 8,
+        "catatan": "sifat nilai mutlak"
+      }
+    ],
+    "eksponen": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 32,
+        "sampai": 40,
+        "catatan": "fungsi eksponen, pertumbuhan dan peluruhan"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 98,
+        "sampai": 100,
+        "catatan": "fungsi eksponen"
+      }
+    ],
+    "logaritma": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 44,
+        "sampai": 51,
+        "catatan": "logaritma dan sifatnya"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 92,
+        "sampai": 94,
+        "catatan": "logaritma sebagai fungsi"
+      }
+    ],
+    "fungsi-rasional": [
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 48,
+        "sampai": 49,
+        "catatan": "asimtot"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 79,
+        "sampai": 81,
+        "catatan": "asimtot datar dan tegak"
+      }
+    ],
+    "komposisi": [
+      {
+        "sumber": "kemdikbud-11",
+        "dari": 51,
+        "sampai": 60,
+        "catatan": "komposisi fungsi"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 16,
+        "sampai": 17,
+        "catatan": "fungsi komposisi"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 37,
+        "sampai": 40,
+        "catatan": "komposisi"
+      }
+    ],
+    "invers": [
+      {
+        "sumber": "kemdikbud-11",
+        "dari": 61,
+        "sampai": 70,
+        "catatan": "fungsi invers"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 95,
+        "sampai": 97,
+        "catatan": "fungsi invers"
+      }
+    ],
+    "dunia-nyata": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 32,
+        "sampai": 36,
+        "catatan": "penerapan pertumbuhan dan peluruhan"
+      },
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 199,
+        "sampai": 202,
+        "catatan": "penerapan fungsi kuadrat"
+      }
+    ]
+  },
+  "vektor": {
+    "angka-saja-tidak-cukup": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 104,
+        "sampai": 108,
+        "catatan": "besaran vektor dan skalar"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 673,
+        "sampai": 674,
+        "catatan": "vektor"
+      }
+    ],
+    "panah-yang-boleh-dipindah": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 106,
+        "sampai": 112,
+        "catatan": "notasi dan kesamaan vektor"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 673,
+        "sampai": 674,
+        "catatan": "vektor"
+      }
+    ],
+    "memecah-panah": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 115,
+        "sampai": 121,
+        "catatan": "vektor dalam koordinat"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 673,
+        "sampai": 674,
+        "catatan": "komponen vektor"
+      }
+    ],
+    "panjang-dan-arah": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 115,
+        "sampai": 121,
+        "catatan": "besar dan arah vektor"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 673,
+        "sampai": 674,
+        "catatan": "panjang vektor"
+      }
+    ],
+    "arah-tanpa-panjang": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 117,
+        "sampai": 121,
+        "catatan": "vektor satuan dan vektor posisi"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 674,
+        "sampai": 675,
+        "catatan": "vektor satuan"
+      }
+    ],
+    "menjumlah-vektor": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 122,
+        "sampai": 128,
+        "catatan": "penjumlahan vektor"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 673,
+        "sampai": 674,
+        "catatan": "penjumlahan vektor"
+      }
+    ],
+    "jajar-genjang": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 122,
+        "sampai": 128,
+        "catatan": "metode jajar genjang"
+      }
+    ],
+    "mengurangi-vektor": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 125,
+        "sampai": 131,
+        "catatan": "pengurangan vektor"
+      }
+    ],
+    "kali-skalar": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 128,
+        "sampai": 134,
+        "catatan": "perkalian skalar dengan vektor"
+      }
+    ],
+    "dunia-nyata": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 104,
+        "sampai": 106,
+        "catatan": "vektor dalam navigasi"
+      },
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 132,
+        "sampai": 134,
+        "catatan": "penerapan vektor"
+      }
+    ],
+    "perkalian-titik": [
+      {
+        "sumber": "purcell-solusi",
+        "dari": 677,
+        "sampai": 679,
+        "catatan": "perkalian titik"
+      }
+    ],
+    "proyeksi": [
+      {
+        "sumber": "purcell-solusi",
+        "dari": 677,
+        "sampai": 679,
+        "catatan": "proyeksi vektor"
+      }
+    ]
+  },
+  "ruang-3d": {
+    "gambar-boleh-berbohong": [
+      {
+        "sumber": "purcell-solusi",
+        "dari": 668,
+        "sampai": 670,
+        "catatan": "koordinat di ruang"
+      }
+    ],
+    "kosakata-kedudukan": [
+      {
+        "sumber": "purcell-solusi",
+        "dari": 668,
+        "sampai": 670,
+        "catatan": "bidang dan garis di ruang"
+      }
+    ],
+    "jarak-terpendek": [
+      {
+        "sumber": "purcell-solusi",
+        "dari": 677,
+        "sampai": 679,
+        "catatan": "sudut dan proyeksi"
+      }
+    ],
+    "dua-kali-pythagoras": [
+      {
+        "sumber": "purcell-solusi",
+        "dari": 668,
+        "sampai": 670,
+        "catatan": "rumus jarak di ruang"
+      }
+    ],
+    "jarak-titik-ke-garis": [
+      {
+        "sumber": "purcell-solusi",
+        "dari": 700,
+        "sampai": 701,
+        "catatan": "garis di ruang"
+      }
+    ],
+    "jarak-titik-ke-bidang": [
+      {
+        "sumber": "purcell-solusi",
+        "dari": 681,
+        "sampai": 682,
+        "catatan": "bidang dan jarak titik ke bidang"
+      }
+    ],
+    "jarak-sejajar": [
+      {
+        "sumber": "purcell-solusi",
+        "dari": 681,
+        "sampai": 682,
+        "catatan": "bidang sejajar"
+      }
+    ],
+    "sudut-garis-bersilangan": [
+      {
+        "sumber": "purcell-solusi",
+        "dari": 677,
+        "sampai": 679,
+        "catatan": "sudut antara dua arah"
+      }
+    ],
+    "sudut-dengan-bidang": [
+      {
+        "sumber": "purcell-solusi",
+        "dari": 681,
+        "sampai": 682,
+        "catatan": "sudut dengan bidang"
+      }
+    ],
+    "dunia-nyata": []
+  },
+  "statistika": {
+    "satu-angka-menipu": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 224,
+        "sampai": 227,
+        "catatan": "ukuran pemusatan"
+      },
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 232,
+        "sampai": 234,
+        "catatan": "ukuran penyebaran"
+      }
+    ],
+    "bentuk-data": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 208,
+        "sampai": 213,
+        "catatan": "diagram batang dan histogram"
+      }
+    ],
+    "lebar-kelas": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 211,
+        "sampai": 216,
+        "catatan": "interval kelas histogram"
+      }
+    ],
+    "frekuensi-relatif": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 218,
+        "sampai": 223,
+        "catatan": "frekuensi relatif"
+      }
+    ],
+    "tiga-ukuran": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 224,
+        "sampai": 227,
+        "catatan": "mean, median, modus"
+      }
+    ],
+    "pencilan": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 221,
+        "sampai": 223,
+        "catatan": "pencilan dan pengaruhnya"
+      },
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 228,
+        "sampai": 231,
+        "catatan": "kuartil"
+      }
+    ],
+    "kuartil": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 228,
+        "sampai": 231,
+        "catatan": "kuartil dan jangkauan"
+      }
+    ],
+    "simpangan-baku": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 232,
+        "sampai": 234,
+        "catatan": "varian dan simpangan baku"
+      }
+    ],
+    "data-kelompok": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 224,
+        "sampai": 231,
+        "catatan": "ukuran data berkelompok"
+      }
+    ],
+    "diagram-pencar": [
+      {
+        "sumber": "kemdikbud-11",
+        "dari": 141,
+        "sampai": 148,
+        "catatan": "diagram pencar"
+      }
+    ],
+    "garis-regresi": [
+      {
+        "sumber": "kemdikbud-11",
+        "dari": 153,
+        "sampai": 160,
+        "catatan": "regresi linear"
+      }
+    ],
+    "korelasi": [
+      {
+        "sumber": "kemdikbud-11",
+        "dari": 167,
+        "sampai": 172,
+        "catatan": "koefisien korelasi dan determinasi"
+      }
+    ],
+    "grafik-menyesatkan": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 209,
+        "sampai": 213,
+        "catatan": "membaca dan menyajikan data"
+      }
+    ],
+    "statistika-di-sekitar-kita": [
+      {
+        "sumber": "kemdikbud-10",
+        "dari": 208,
+        "sampai": 210,
+        "catatan": "penerapan penyajian data"
+      },
+      {
+        "sumber": "kemdikbud-11",
+        "dari": 141,
+        "sampai": 143,
+        "catatan": "data dua variabel"
+      }
+    ]
+  },
+  "transformasi-geometri": {
+    "prapeta-dan-peta": [
+      {
+        "sumber": "siswa-11",
+        "dari": 192,
+        "sampai": 196,
+        "catatan": "transformasi geometri, prapeta dan peta"
+      }
+    ],
+    "cermin-garis-lurus": [
+      {
+        "sumber": "siswa-11",
+        "dari": 194,
+        "sampai": 198,
+        "catatan": "pencerminan terhadap sumbu"
+      },
+      {
+        "sumber": "siswa-11",
+        "dari": 204,
+        "sampai": 206,
+        "catatan": "pencerminan terhadap garis x = h dan y = k"
+      }
+    ],
+    "cermin-garis-miring": [
+      {
+        "sumber": "siswa-11",
+        "dari": 199,
+        "sampai": 203,
+        "catatan": "pencerminan terhadap y = x dan y = -x"
+      }
+    ],
+    "cermin-titik": [
+      {
+        "sumber": "siswa-11",
+        "dari": 207,
+        "sampai": 209,
+        "catatan": "pencerminan terhadap titik"
+      }
+    ],
+    "translasi": [
+      {
+        "sumber": "siswa-11",
+        "dari": 210,
+        "sampai": 211,
+        "catatan": "translasi"
+      }
+    ],
+    "rotasi": [
+      {
+        "sumber": "siswa-11",
+        "dari": 211,
+        "sampai": 214,
+        "catatan": "rotasi"
+      }
+    ],
+    "dilatasi": [
+      {
+        "sumber": "siswa-11",
+        "dari": 214,
+        "sampai": 217,
+        "catatan": "dilatasi"
+      }
+    ],
+    "yang-tetap": [
+      {
+        "sumber": "siswa-11",
+        "dari": 214,
+        "sampai": 217,
+        "catatan": "sifat dilatasi dan transformasi lain"
+      }
+    ],
+    "matriks-secukupnya": [
+      {
+        "sumber": "siswa-11",
+        "dari": 218,
+        "sampai": 223,
+        "catatan": "matriks transformasi"
+      }
+    ],
+    "matriks-transformasi": [
+      {
+        "sumber": "siswa-11",
+        "dari": 220,
+        "sampai": 227,
+        "catatan": "matriks tiap transformasi"
+      }
+    ],
+    "komposisi": [
+      {
+        "sumber": "siswa-11",
+        "dari": 230,
+        "sampai": 233,
+        "catatan": "komposisi transformasi"
+      }
+    ],
+    "komposisi-matriks": [
+      {
+        "sumber": "siswa-11",
+        "dari": 231,
+        "sampai": 236,
+        "catatan": "matriks komposisi transformasi"
+      }
+    ],
+    "dunia-nyata": [
+      {
+        "sumber": "siswa-11",
+        "dari": 192,
+        "sampai": 193,
+        "catatan": "transformasi di sekitar kita"
+      }
+    ]
+  },
+  "turunan": {
+    "laju-rata-rata": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 114,
+        "sampai": 116,
+        "catatan": "laju perubahan rata-rata"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 32,
+        "sampai": 33,
+        "catatan": "garis singgung dan kecepatan"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 94,
+        "sampai": 96,
+        "catatan": "dua masalah satu tema"
+      }
+    ],
+    "garis-singgung-lahir": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 116,
+        "sampai": 118,
+        "catatan": "definisi turunan"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 32,
+        "sampai": 34,
+        "catatan": "garis singgung dan definisi turunan"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 94,
+        "sampai": 97,
+        "catatan": "garis singgung"
+      }
+    ],
+    "turunan-sebagai-fungsi": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 117,
+        "sampai": 118,
+        "catatan": "penulisan turunan"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 34,
+        "sampai": 35,
+        "catatan": "turunan sebagai fungsi dan notasinya"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 99,
+        "sampai": 101,
+        "catatan": "turunan"
+      }
+    ],
+    "aturan-pangkat": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 119,
+        "sampai": 122,
+        "catatan": "aturan pangkat dan sifat turunan"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 35,
+        "sampai": 36,
+        "catatan": "aturan turunan"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 107,
+        "sampai": 109,
+        "catatan": "aturan mencari turunan"
+      }
+    ],
+    "suku-demi-suku": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 119,
+        "sampai": 122,
+        "catatan": "sifat turunan jumlah dan kelipatan"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 107,
+        "sampai": 109,
+        "catatan": "aturan jumlah dan kelipatan"
+      }
+    ],
+    "hasil-kali-dan-bagi": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 122,
+        "sampai": 126,
+        "catatan": "aturan hasil kali dan hasil bagi"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 108,
+        "sampai": 110,
+        "catatan": "aturan hasil kali dan hasil bagi"
+      }
+    ],
+    "aturan-rantai": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 127,
+        "sampai": 129,
+        "catatan": "aturan rantai"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 36,
+        "sampai": 37,
+        "catatan": "aturan rantai"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 115,
+        "sampai": 117,
+        "catatan": "aturan rantai"
+      }
+    ],
+    "sinus-kosinus-eksponen": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 130,
+        "sampai": 135,
+        "catatan": "turunan fungsi trigonometri"
+      },
+      {
+        "sumber": "lanjut-12",
+        "dari": 139,
+        "sampai": 142,
+        "catatan": "turunan fungsi eksponen"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 36,
+        "sampai": 37,
+        "catatan": "turunan trigonometri"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 112,
+        "sampai": 113,
+        "catatan": "turunan fungsi trigonometri"
+      }
+    ],
+    "persamaan-garis-singgung": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 144,
+        "sampai": 147,
+        "catatan": "persamaan garis singgung"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 32,
+        "sampai": 32,
+        "catatan": "garis singgung"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 94,
+        "sampai": 97,
+        "catatan": "garis singgung kurva"
+      }
+    ],
+    "naik-turun-diam": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 148,
+        "sampai": 152,
+        "catatan": "fungsi naik dan turun"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 44,
+        "sampai": 45,
+        "catatan": "kemonotonan"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 158,
+        "sampai": 160,
+        "catatan": "kemonotonan dan kecekungan"
+      }
+    ],
+    "titik-balik": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 153,
+        "sampai": 160,
+        "catatan": "titik ekstrem, nilai balik"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 42,
+        "sampai": 43,
+        "catatan": "maksimum dan minimum"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 168,
+        "sampai": 170,
+        "catatan": "ekstrem lokal"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 174,
+        "sampai": 176,
+        "catatan": "soal praktis maksimum minimum"
+      }
+    ],
+    "turunan-di-sekitar-kita": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 164,
+        "sampai": 170,
+        "catatan": "aplikasi turunan di berbagai bidang"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 33,
+        "sampai": 33,
+        "catatan": "kecepatan sesaat"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 55,
+        "sampai": 56,
+        "catatan": "penerapan ekonomi"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 174,
+        "sampai": 176,
+        "catatan": "soal praktis"
+      }
+    ]
+  },
+  "integral": {
+    "membalik-turunan": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 176,
+        "sampai": 184,
+        "catatan": "antiturunan"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 51,
+        "sampai": 52,
+        "catatan": "antiturunan"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 225,
+        "sampai": 227,
+        "catatan": "antiturunan"
+      }
+    ],
+    "tanda-integral": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 182,
+        "sampai": 187,
+        "catatan": "integral tak tentu dan aturan pangkat"
+      },
+      {
+        "sumber": "itb-kalkulus2",
+        "dari": 3,
+        "sampai": 5,
+        "catatan": "antiderivatif"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 225,
+        "sampai": 227,
+        "catatan": "aturan integral"
+      }
+    ],
+    "substitusi": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 188,
+        "sampai": 190,
+        "catatan": "pengintegralan dengan substitusi"
+      },
+      {
+        "sumber": "itb-kalkulus2",
+        "dari": 8,
+        "sampai": 11,
+        "catatan": "integrasi dengan substitusi"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 270,
+        "sampai": 272,
+        "catatan": "substitusi"
+      }
+    ],
+    "parsial-trigonometri-eksponen": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 191,
+        "sampai": 192,
+        "catatan": "aturan integrasi parsial"
+      },
+      {
+        "sumber": "itb-kalkulus2",
+        "dari": 5,
+        "sampai": 6,
+        "catatan": "antiderivatif trigonometri"
+      },
+      {
+        "sumber": "itb-kalkulus2",
+        "dari": 14,
+        "sampai": 16,
+        "catatan": "integrasi parsial"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 418,
+        "sampai": 421,
+        "catatan": "integrasi parsial"
+      }
+    ],
+    "jumlahan-riemann": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 194,
+        "sampai": 201,
+        "catatan": "jumlahan Riemann"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 58,
+        "sampai": 64,
+        "catatan": "luas lewat poligon dan jumlah Riemann"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 249,
+        "sampai": 252,
+        "catatan": "pengantar luas"
+      }
+    ],
+    "integral-tentu": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 202,
+        "sampai": 206,
+        "catatan": "integral tentu dan sifatnya"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 64,
+        "sampai": 67,
+        "catatan": "integral tentu"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 259,
+        "sampai": 262,
+        "catatan": "integral tentu"
+      }
+    ],
+    "teorema-dasar-kalkulus": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 207,
+        "sampai": 209,
+        "catatan": "teorema dasar kalkulus"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 68,
+        "sampai": 69,
+        "catatan": "teorema dasar kalkulus"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 264,
+        "sampai": 267,
+        "catatan": "teorema dasar kalkulus"
+      }
+    ],
+    "menghitung-integral-tentu": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 209,
+        "sampai": 212,
+        "catatan": "menghitung integral tentu"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 264,
+        "sampai": 266,
+        "catatan": "menghitung integral tentu"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 270,
+        "sampai": 272,
+        "catatan": "substitusi pada integral tentu"
+      }
+    ],
+    "luas-daerah": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 213,
+        "sampai": 217,
+        "catatan": "luas daerah bidang datar"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 78,
+        "sampai": 79,
+        "catatan": "luas daerah dan bagian negatif"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 295,
+        "sampai": 297,
+        "catatan": "luas daerah bidang"
+      }
+    ],
+    "luas-antara-dua-kurva": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 213,
+        "sampai": 217,
+        "catatan": "luas antara dua kurva"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 78,
+        "sampai": 81,
+        "catatan": "luas antara dua kurva"
+      },
+      {
+        "sumber": "purcell-solusi",
+        "dari": 295,
+        "sampai": 298,
+        "catatan": "luas antara dua kurva"
+      }
+    ],
+    "integral-di-sekitar-kita": [
+      {
+        "sumber": "lanjut-12",
+        "dari": 220,
+        "sampai": 227,
+        "catatan": "penerapan integral"
+      },
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 86,
+        "sampai": 87,
+        "catatan": "kerja"
+      }
+    ]
+  }
+}
