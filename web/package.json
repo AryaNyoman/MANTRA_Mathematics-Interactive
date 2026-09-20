@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/versi-anim.mjs",
+    "prebuild": "node scripts/versi-anim.mjs && node scripts/periksa-bekal.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
