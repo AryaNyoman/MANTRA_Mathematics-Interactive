@@ -1,5 +1,50 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 21 SEP: BAHASA SISWA DISISIR DARI KATA "AI BANGET" (deploy matra-3nm88oros, push GitHub ea533d3)
+
+Keputusan ARYA (21 Sep dini hari) atas daftar yang saya buat sendiri:
+ganti/hapus kata ganti "ia" untuk benda; "sebab, melainkan, justru,
+sekadar, lazim, nyaris, kelak"; pembuka dramatis KECUALI "perhatikan",
+"bayangkan", "inilah/itulah sebabnya", "di sinilah" (yang dibuang: "bukan
+kebetulan", "bukan hiasan"); benda yang dihidupkan KECUALI "rumus lahir"
+(dibuang: grafik bercerita, menutup perkara, memancing keluar, kembaran,
+bersaudara); cap penyemangat buatan; kata penguat kosong HANYA "Catatan
+jujur"; dan "menggoda/menipu/menyesatkan" dengan "tampak benar karena"
+sebagai pengganti di pengecoh.
+- Alat baru `alat/sapu_bahasa.py`: `hitung` (per pola per berkas), `daftar
+  <pola>` (kalimatnya), `ganti` (kata sambung otomatis di content/ saja:
+  sebab jadi karena, melainkan jadi tetapi, justru jadi malah, sekadar jadi
+  cuma, lazim jadi biasa, nyaris jadi hampir, "menggoda karena" jadi
+  "tampak benar karena"): 259 baris. `alat/sapu_bahasa_tangan.py`: 268
+  penggantian tangan yang butuh kalimat baru ("ia" jadi nama bendanya,
+  misalnya "Ia cuma garis" jadi "Garis regresi cuma garis"; "Godaannya kuat
+  karena" jadi "Terasa benar karena"; "Yang menggoda:" jadi "Yang terasa
+  benar:"; "bukan kebetulan" jadi "memang selalu begitu"/"ada sebabnya";
+  "bukan hiasan" jadi "penting"/"ada gunanya"; judul materi Statistika 13
+  jadi "Grafik yang memberi kesan keliru", Statistika 01 "Kenapa satu angka
+  bisa memberi kesan keliru", Grafik Fungsi 01 "Membaca grafik seperti
+  membaca cerita", Ruang 3D label "Gambar yang mengecoh mata"; kalimat skor
+  kuis jadi apa adanya: "Masih banyak yang salah", "Setengahnya benar",
+  "Sudah bagus", "Bab ini sudah kamu kuasai"). Sepuluh teks antarmuka di
+  components dan halaman Tentang ikut. Semua keputusan kata tersimpan di
+  berkasnya, bukan hanya di chat.
+- Yang SENGAJA tidak disentuh: komentar kode (tidak dibaca siswa), "ia"
+  untuk orang ("Perajin ... Ia menggambar SATU"), kata "sebab-akibat" (nama
+  konsep), "soal cerita" dan "cerita perahu" (bukan personifikasi), slug dan
+  nama berkas video (`grafik-menyesatkan`, `satu-angka-menipu`,
+  `statistika13-menyesatkan.mp4`: kunci kemajuan siswa dan R2), dan SEMUA
+  naskah video (suara sudah direkam; subtitle wajib sama huruf demi huruf).
+  Akibatnya narasi video Statistika 01 dan 13 masih mengucapkan "menipu" dan
+  "menyesatkan" sementara judul materinya sudah diganti; menyamakan berarti
+  merekam ulang dua naskah (ElevenLabs) dan merender ulang.
+- Gerbang: tsc, cek_rumus_materi 0 galat, cek_rumus 0 galat, cek_kuis
+  --semua --ketat lolos, cek_kuis_bab lolos, cek_urutan_belajar 6 temuan
+  lama (sudah ada sebelum sapuan, diperiksa lewat stash), bekal 106 materi
+  dibuat ulang, build, deploy; halaman Statistika 13 di produksi diperiksa
+  Playwright: judul baru tampil, tak ada sisa kata terlarang.
+- Kata yang tetap ada dan memang diizinkan: "persis", "memang", "sungguhan",
+  "Perhatikan", "Bayangkan", "Itulah sebabnya", "Di sinilah", "rumus lahir".
+
 ## 21 SEP DINI HARI: VIDEO TRIGONOMETRI 11 SUDUT BERELASI TAYANG; JATAH ASISTEN 5 PER IP; JUDUL KOTAK PENGECOH (deploy matra-pd4z8zwyl, push GitHub 4f4a3eb)
 
 - ARYA (20 Sep malam): "Hapus 'kenapa pilihan yang lain menggoda/menipu',
