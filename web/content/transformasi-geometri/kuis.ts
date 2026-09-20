@@ -26,7 +26,7 @@
  * `--ketat` juga memeriksa gaya pembahasannya.
  */
 export type { TingkatKuis, SoalKuis } from '@/content/tipe'
-import type { SoalKuis } from '@/content/tipe'
+import type { ButirKuisBab, SoalKuis } from '@/content/tipe'
 
 export const KUIS: SoalKuis[] = [
   // ================================================================ MUDAH
@@ -1191,4 +1191,23 @@ export const KUIS: SoalKuis[] = [
     jebakan: 'Pilihan D, (8, −1), membatalkan translasi dengan MENAMBAHKAN (3, −2) lagi alih-alih mengurangkannya. Pilihan C, (−2, 7), mengurangkan translasi dari (1, 5) tanpa membatalkan cermin dulu. Pilihan E, (3, 2), menukar hasil akhir.',
     alasan: 'Mundur: (1, 5) → (5, 1) → (2, 3).',
   },
+]
+
+/**
+ * Paket kuis bab: 10 soal yang konsepnya diajarkan materi bab ini, dengan
+ * materi asalnya (ARYA 20 Sep 2026). Dikurasi dengan membaca soal dan
+ * bacaan materinya; soal bank lain tetap di menu Latihan. Urutan soal dan
+ * pilihannya diacak di peramban. Pemeriksa: `node alat/cek_kuis_bab.mjs`.
+ */
+export const KUIS_BAB: ButirKuisBab[] = [
+  { id: 'tg-s05', materi: 'cermin-garis-lurus' },
+  { id: 'tg-s06', materi: 'cermin-garis-miring' },
+  { id: 'tg-l07', materi: 'cermin-titik' },
+  { id: 'tg-s11', materi: 'translasi' },
+  { id: 'tg-s08', materi: 'rotasi' },
+  { id: 'tg-s10', materi: 'dilatasi' },
+  { id: 'tg-luas-dilatasi', materi: 'yang-tetap' },
+  { id: 'tg-s16', materi: 'matriks-secukupnya' },
+  { id: 'tg-x12', materi: 'matriks-transformasi' },
+  { id: 'tg-komposisi-cermin-translasi', materi: 'komposisi' },
 ]

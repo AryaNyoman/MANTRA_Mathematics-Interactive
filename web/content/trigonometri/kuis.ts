@@ -31,7 +31,7 @@
  * `--ketat` juga memeriksa gaya pembahasannya.
  */
 export type { TingkatKuis, SoalKuis } from '@/content/tipe'
-import type { SoalKuis } from '@/content/tipe'
+import type { ButirKuisBab, SoalKuis } from '@/content/tipe'
 
 export const KUIS: SoalKuis[] = [
   // ================================================================ MUDAH
@@ -1230,4 +1230,23 @@ export const KUIS: SoalKuis[] = [
     jebakan: 'Pilihan E, 0,96, lupa membagi 2 setelah mendapat 2 sin θ cos θ. Pilihan D, 0,70, membagi 1,4 dengan 2, seolah hasil kali sama dengan setengah jumlah. Pilihan C, 0,40, mengurangkan 1,4 − 1 tanpa mengkuadratkan.',
     alasan: 'Kuadratkan: 1 + 2 sin θ cos θ = 1,96, jadi sin θ cos θ = 0,48.',
   },
+]
+
+/**
+ * Paket kuis bab: 10 soal yang konsepnya diajarkan materi bab ini, dengan
+ * materi asalnya (ARYA 20 Sep 2026). Dikurasi dengan membaca soal dan
+ * bacaan materinya; soal bank lain tetap di menu Latihan. Urutan soal dan
+ * pilihannya diacak di peramban. Pemeriksa: `node alat/cek_kuis_bab.mjs`.
+ */
+export const KUIS_BAB: ButirKuisBab[] = [
+  { id: 'k01', materi: 'menamai-sisi' },
+  { id: 'k18', materi: 'perbandingan-tetap' },
+  { id: 'k17', materi: 'enam-rasio' },
+  { id: 'k04', materi: 'lahirnya-sin-cos-tan' },
+  { id: 'k05', materi: 'lingkaran-satuan' },
+  { id: 'k36', materi: 'sudut-istimewa' },
+  { id: 'k39', materi: 'grafik-sin' },
+  { id: 'k59', materi: 'sudut-berelasi' },
+  { id: 'k48', materi: 'sudut-berelasi' },
+  { id: 'k50', materi: 'sudut-berelasi' },
 ]

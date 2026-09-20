@@ -14,6 +14,8 @@ export type BekalMateri = {
   pertanyaan: string
   sebelum: { no: number; slug: string; judul: string } | null
   sesudah: { no: number; slug: string; judul: string } | null
+  /** seluruh materi bab ini; tautan [[bab:slug]] hanya boleh dari sini */
+  daftar?: { no: number; slug: string; judul: string }[]
   bacaan: string
   istilah: Istilah[]
   kutipan: Kutipan[]

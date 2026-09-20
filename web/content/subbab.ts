@@ -72,7 +72,8 @@ export const BAB: Bab[] = [
     tanya: 'Kenapa satu sudut cukup untuk menghitung tinggi gedung sampai bentuk gelombang?',
     sub: [
       { huruf: 'A', nama: 'Perbandingan Trigonometri', nomor: [1, 2, 3, 4] },
-      { huruf: 'B', nama: 'Lingkaran Satuan dan Sudut Istimewa', nomor: [5, 6, 7] },
+      // 11 (Sudut berelasi) ditambahkan 20 Sep 2026, belajarnya sesudah Sudut istimewa
+      { huruf: 'B', nama: 'Lingkaran Satuan dan Sudut Istimewa', nomor: [5, 6, 7, 11] },
       { huruf: 'C', nama: 'Grafik Fungsi Trigonometri', nomor: [8, 9] },
       { huruf: 'D', nama: 'Penerapan Trigonometri', nomor: [10] },
     ],

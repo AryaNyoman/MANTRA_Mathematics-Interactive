@@ -10,6 +10,7 @@ import EnamRasio, { BATAS_ENAM, RASIO, URUT_RASIO, hitungEnam, type Rasio } from
 import PerjalananSudut, { ISTIMEWA, tulisSudut, type SatuanSudut } from '@/components/widget/PerjalananSudut'
 import LingkaranKeGrafik, { BATAS_SAPU } from '@/components/widget/LingkaranKeGrafik'
 import TigaGrafik from '@/components/widget/TigaGrafik'
+import SudutBerelasi, { BATAS_ACUAN, RELASI, URUT_RELASI, hitungBerelasi, type Relasi } from '@/components/widget/SudutBerelasi'
 import DuniaNyata from '@/components/widget/DuniaNyata'
 import type { PropPanggung } from '@/components/topik/jenis'
 import { Angka, Petunjuk, Pilihan } from '@/components/kendali'
@@ -44,6 +45,9 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
   const [sorotRasio, setSorotRasio] = useState<Rasio>('tan')
   const [langkahIstimewa, setLangkahIstimewa] = useState(2)
   const [sudutSapu, setSudutSapu] = useState(200)
+  // Materi 11: sudut acuan P (kuadran I) dan relasi yang menghasilkan Q
+  const [sudutAcuan, setSudutAcuan] = useState(40)
+  const [relasi, setRelasi] = useState<Relasi>('90+')
 
   let kiri: ReactNode = null
   let kanan: ReactNode = null
@@ -183,6 +187,22 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
           </>
         )}
 
+        {tampilWidget && tahap.widget === 'sudut-berelasi' && (
+          <>
+            <div className="layar">
+              <SudutBerelasi derajat={sudutAcuan} relasi={relasi} onUbah={setSudutAcuan} />
+            </div>
+            <div className="kendali">
+              <Angka nama="Sudut acuan θ" arti="titik P di kuadran I; Q mengikuti relasinya" kunci="acuan" satuan="°"
+                nilai={sudutAcuan} onUbah={setSudutAcuan} min={BATAS_ACUAN.min} max={BATAS_ACUAN.maks} langkah={1} />
+              <Pilihan nama="Relasi" arti="cara memindahkan P menjadi Q"
+                pilihan={URUT_RELASI.map((r) => ({ nilai: r, label: RELASI[r].label }))}
+                nilai={relasi} onPilih={setRelasi} />
+              <Petunjuk><TeksMat teks={`Q ${RELASI[relasi].nama}: besar sin dan cos-nya sama dengan milik P, bandingkan tandanya`} blok={false} /></Petunjuk>
+            </div>
+          </>
+        )}
+
         {/* Materi 10 bukan alat, melainkan galeri. Tugasnya menunjukkan
             DI MANA trigonometri berada, dan untuk itu foto utuh sudah
             cukup. Penggeser yang dulu ada di sini tidak menjelaskan
@@ -254,6 +274,24 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
             <div className="catatan"><TeksMat teks="Titiknya selalu berada di (cos θ, sin θ). Tidak ada pembagian sama sekali." /></div>
           </div>
         )}
+        {tampilWidget && tahap.widget === 'sudut-berelasi' && (() => {
+          const h = hitungBerelasi(sudutAcuan, relasi)
+          const r = RELASI[relasi]
+          return (
+            <div className="blok">
+              <div className="cap"><TeksMat teks={`P pada ${sudutAcuan}°, Q pada ${h.sudutQ}°`} blok={false} /></div>
+              <table className="tabel-angka">
+                <tbody>
+                  <tr><td><TeksMat teks="cos θ, milik P" blok={false} /></td><td>{angka3(h.cosP)}</td></tr>
+                  <tr><td><TeksMat teks="sin θ, milik P" blok={false} /></td><td>{angka3(h.sinP)}</td></tr>
+                  <tr className="tegas"><td><TeksMat teks={`cos ${h.sudutQ}°, milik Q`} blok={false} /></td><td>{angka3(h.cosQ)}</td></tr>
+                  <tr className="tegas"><td><TeksMat teks={`sin ${h.sudutQ}°, milik Q`} blok={false} /></td><td>{angka3(h.sinQ)}</td></tr>
+                </tbody>
+              </table>
+              <div className="catatan"><TeksMat teks={`${r.koordinat}, jadi ${r.sin} dan ${r.cos}.`} /></div>
+            </div>
+          )
+        })()}
         {tampilWidget && tahap.widget === 'penamaan-sisi' && (
           <div className="blok">
             <div className="cap"><TeksMat teks={`Dilihat dari sudut ${sudutDilihat}`} blok={false} /></div>

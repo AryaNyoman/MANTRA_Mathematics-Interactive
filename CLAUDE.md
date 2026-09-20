@@ -157,6 +157,24 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
   kunci, >= 25 rb tontonan); `cari`, `kanal`, `uji` untuk mencari kandidat.
   Kalau sebuah sub-bab hanya punya dua tautan yang layak, dua saja: tautan
   yang tidak nyambung lebih buruk daripada tidak ada.
+- **Kuis bab = penilaian, satu paket 10 soal** (ARYA 20 Sep 2026): tiap
+  `content/<bab>/kuis.ts` punya `KUIS_BAB` (id soal bank + `materi` asalnya);
+  hanya soal yang konsepnya TERTULIS di bacaan bab itu yang boleh masuk
+  (soal bank lain tetap di menu Latihan). Siswa menjawab 10 soal (urutan dan
+  pilihan diacak), menekan Kumpulkan, baru melihat skor plus pembahasan
+  bergambar semua soal; soal salah diberi tombol "Baca Materi NN". Pemeriksa
+  `node alat/cek_kuis_bab.mjs` (10 butir, id dan slug sah, tiap sub-bab
+  terwakili). Materi baru yang ada soalnya: tambahkan ke `KUIS_BAB`.
+- **Asisten Tanya** (Haiku 4.5, sejak 20 Sep 2026): bekal di `web/bekal/`
+  (git-ignored karena memuat teks buku berlisensi; dibangun `node
+  alat/bekal_asisten.mjs`, prebuild memeriksa kesegarannya, peta halaman
+  sumber di `alat/bekal/peta-sumber.json`), aturan model di
+  `web/lib/tanya/aturan.ts` (tanpa markdown, tanpa em-dash, tautan
+  `[[bab:slug]]` hanya dari daftar materi bab), jatah 20 pertanyaan per IP
+  per hari lewat Upstash. Uji jawaban: `node alat/uji_tanya/jalankan.mjs`
+  (50 pertanyaan, dev server 3210 dengan `TANYA_TANPA_PEMBATAS=1`, kira-kira
+  Rp 7 ribu sekali jalan). Rahasia hanya di `web/.env.local` dan env Vercel,
+  jangan pernah dicetak. Materi baru: jalankan bekal_asisten untuk babnya.
 - **Kata "miskonsepsi" DILARANG muncul di halaman.** Itu istilah guru. Pakai
   "Sering keliru", dan taruh di BAWAH setelah siswa paham.
 - **Gaya visual terkunci: rancangan MANTRA** (sejak 3 Sep 2026, menggantikan

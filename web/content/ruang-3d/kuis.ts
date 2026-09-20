@@ -27,7 +27,7 @@
  * `--ketat` juga memeriksa gaya pembahasannya.
  */
 export type { TingkatKuis, SoalKuis } from '@/content/tipe'
-import type { SoalKuis } from '@/content/tipe'
+import type { ButirKuisBab, SoalKuis } from '@/content/tipe'
 
 export const KUIS: SoalKuis[] = [
   // ================================================================ MUDAH
@@ -1407,4 +1407,23 @@ export const KUIS: SoalKuis[] = [
     jebakan: 'Pilihan B, 3 cm, mengambil rusuk AD atau AE, padahal keduanya tidak tegak lurus bidang CDEF yang miring 45°. Pilihan A, 3√2 cm, adalah seluruh diagonal AH, bukan setengahnya.',
     alasan: 'CDEF ⟂ ADHE; jarak A ke DE = setengah diagonal AH = (3/2)√2 cm.',
   },
+]
+
+/**
+ * Paket kuis bab: 10 soal yang konsepnya diajarkan materi bab ini, dengan
+ * materi asalnya (ARYA 20 Sep 2026). Dikurasi dengan membaca soal dan
+ * bacaan materinya; soal bank lain tetap di menu Latihan. Urutan soal dan
+ * pilihannya diacak di peramban. Pemeriksa: `node alat/cek_kuis_bab.mjs`.
+ */
+export const KUIS_BAB: ButirKuisBab[] = [
+  { id: 'r04', materi: 'kosakata-kedudukan' },
+  { id: 'r08', materi: 'kosakata-kedudukan' },
+  { id: 'r36', materi: 'jarak-terpendek' },
+  { id: 'r02', materi: 'dua-kali-pythagoras' },
+  { id: 'r09', materi: 'jarak-titik-ke-garis' },
+  { id: 'r16', materi: 'jarak-titik-ke-garis' },
+  { id: 'r14', materi: 'jarak-titik-ke-bidang' },
+  { id: 'r05', materi: 'jarak-sejajar' },
+  { id: 'r25', materi: 'sudut-garis-bersilangan' },
+  { id: 'r41', materi: 'sudut-dengan-bidang' },
 ]

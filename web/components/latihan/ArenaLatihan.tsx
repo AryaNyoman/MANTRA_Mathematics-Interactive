@@ -13,9 +13,10 @@ import {
   bacaLatihan, catatJawaban, hapusJawaban, KOSONG_JSON, LENCANA, persenTopik,
   ringkasPerTingkat, segarkanLencana, simpanPosisi, SYARAT_NAIK, URUT_TINGKAT,
 } from '@/lib/latihan-kemajuan'
-import { bacaBenih, HURUF, hurufTampil, petakanHuruf, urutanPilihan } from '@/lib/acak-pilihan'
+import { bacaBenih, HURUF, urutanPilihan } from '@/lib/acak-pilihan'
 import KartuBayang from '@/components/mantra/KartuBayang'
 import GambarSoal from '@/components/latihan/gambar/GambarSoal'
+import Pembahasan from '@/components/latihan/Pembahasan'
 import TeksMat from '@/components/latihan/TeksMat'
 import { useModeGuru } from '@/lib/mode-guru'
 
@@ -586,38 +587,7 @@ function Soal({
             /* data-baru: pembahasan yang baru saja dibuka lewat Periksa di
                kunjungan ini naik masuk sebagai hadiah; yang memang sudah
                terbuka (soal yang pernah benar dibuka lagi) tampil diam. */
-            <div className="bahas-isi" key={s.id} data-baru={jawabSesi[s.id] !== undefined}>
-              <div className="bahas-jawab">
-                Jawaban benar: <b>{hurufTampil(urut, s.benar)}</b>
-              </div>
-              {/* Gambar soal TIDAK diulang di sini (ARYA, 14 Sep 2026: "bukan
-                  menggambar ulang kembali gambarnya"). Yang tampil adalah
-                  gambar BANTU milik langkah: bagan kuadran yang disorot,
-                  segitiga acuan, segitiga yang dicabut dari kubus. */}
-              {s.langkah && s.langkah.length > 0 ? (
-                s.langkah.map((lg, i) => {
-                  const teks = typeof lg === 'string' ? lg : lg.teks
-                  const gambar = typeof lg === 'string' ? undefined : lg.gambar
-                  return (
-                    <div key={i} className="bahas-langkah">
-                      <span className="no angka-rata">{i + 1}</span>
-                      <div className="isi">
-                        <span><TeksMat teks={petakanHuruf(teks, urut)} /></span>
-                        {gambar && <GambarSoal gambar={gambar} />}
-                      </div>
-                    </div>
-                  )
-                })
-              ) : (
-                <p className="bahas-alasan"><TeksMat teks={petakanHuruf(s.alasan, urut)} /></p>
-              )}
-              {s.jebakan && (
-                <div className="bahas-jebakan">
-                  <div className="kicker">Kenapa pilihan lain menggoda</div>
-                  <p><TeksMat teks={petakanHuruf(s.jebakan, urut)} /></p>
-                </div>
-              )}
-            </div>
+            <Pembahasan key={s.id} soal={s} urut={urut} baru={jawabSesi[s.id] !== undefined} />
           ) : (
             <p className="bahas-kosong">
               Langkah penyelesaiannya muncul di sini setelah Anda menekan Periksa

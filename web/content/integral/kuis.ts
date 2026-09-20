@@ -27,7 +27,7 @@
  * `--ketat` juga memeriksa gaya pembahasannya.
  */
 export type { TingkatKuis, SoalKuis } from '@/content/tipe'
-import type { SoalKuis } from '@/content/tipe'
+import type { ButirKuisBab, SoalKuis } from '@/content/tipe'
 
 export const KUIS: SoalKuis[] = [
   // ================================================================ MUDAH
@@ -1138,4 +1138,23 @@ export const KUIS: SoalKuis[] = [
     jebakan: 'Pilihan A, 16 m, adalah PERPINDAHAN (∫₀⁸ v dt = 25 − 9), bukan jarak tempuh; gerak mundur ikut dihitung sebagai jarak. Pilihan B, 25 m, hanya bagian maju. Pilihan E, 80 m, mengalikan kecepatan awal 10 dengan 8 detik.',
     alasan: 'Partisi di t = 5: 25 + |−9| = 34 m.',
   },
+]
+
+/**
+ * Paket kuis bab: 10 soal yang konsepnya diajarkan materi bab ini, dengan
+ * materi asalnya (ARYA 20 Sep 2026). Dikurasi dengan membaca soal dan
+ * bacaan materinya; soal bank lain tetap di menu Latihan. Urutan soal dan
+ * pilihannya diacak di peramban. Pemeriksa: `node alat/cek_kuis_bab.mjs`.
+ */
+export const KUIS_BAB: ButirKuisBab[] = [
+  { id: 'int-md15', materi: 'membalik-turunan' },
+  { id: 'int-sd4', materi: 'substitusi' },
+  { id: 'int-sl4', materi: 'parsial-trigonometri-eksponen' },
+  { id: 'int-sd17', materi: 'jumlahan-riemann' },
+  { id: 'int-sd14', materi: 'integral-tentu' },
+  { id: 'int-sd1', materi: 'teorema-dasar-kalkulus' },
+  { id: 'int-sl1', materi: 'menghitung-integral-tentu' },
+  { id: 'int-sl3', materi: 'luas-daerah' },
+  { id: 'int-sl8', materi: 'luas-antara-dua-kurva' },
+  { id: 'int-sl15', materi: 'integral-di-sekitar-kita' },
 ]

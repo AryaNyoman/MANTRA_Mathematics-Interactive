@@ -29,13 +29,16 @@ export function teksBekal(b: BekalMateri): string {
     ]
       .filter(Boolean)
       .join('\n'),
+    b.daftar?.length
+      ? `DAFTAR MATERI BAB INI (tautan [[bab:slug]] hanya boleh memakai slug dari daftar ini)\n${b.daftar.map((d) => `Materi ${dua(d.no)}: ${d.judul} [[${b.bab}:${d.slug}]]`).join('\n')}`
+      : '',
     `TEKS MATERI MANTRA\n${b.bacaan}`,
     `ISTILAH MANTRA (istilah ini yang dipakai)\n${b.istilah.map((i) => `- ${i.istilah}: ${i.arti}`).join('\n')}`,
   ]
   for (const k of b.kutipan) {
     bagian.push(`RUJUKAN (${k.label}; jelaskan ulang dengan kata sendiri, jangan dikutip)\n${k.teks}`)
   }
-  return bagian.join('\n\n')
+  return bagian.filter(Boolean).join('\n\n')
 }
 
 export function susun(

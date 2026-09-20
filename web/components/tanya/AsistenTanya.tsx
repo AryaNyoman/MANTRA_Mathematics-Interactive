@@ -1,7 +1,7 @@
 'use client'
 import { useCallback, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from 'react'
 import { KonteksTanya } from './konteks'
-import PanelTanya from './PanelTanya'
+import PanelTanya, { type MateriTautan } from './PanelTanya'
 import TombolTanyaBlok from './TombolTanyaBlok'
 import { kirimTanya, GalatTanya } from '@/lib/tanya/klien'
 import type { GambarTanya, PesanRiwayat } from '@/lib/tanya/jenis'
@@ -17,7 +17,21 @@ const RIWAYAT_MAKS = 12
  * materi. Kalau `slug` null (layar latihan atau kuis), anaknya dirender apa
  * adanya tanpa asisten.
  */
-export default function AsistenTanya({ bab, slug, children }: { bab: string; slug: string | null; children: ReactNode }) {
+export default function AsistenTanya({
+  bab,
+  slug,
+  materi,
+  onBukaMateri,
+  children,
+}: {
+  bab: string
+  slug: string | null
+  /** daftar materi bab ini, untuk nama tautan "Materi 05 · Lingkaran satuan" */
+  materi: MateriTautan[]
+  /** membuka materi lain tanpa memuat ulang halaman (pilihLayar rangka) */
+  onBukaMateri: (slug: string) => void
+  children: ReactNode
+}) {
   const kunci = `matra:tanya:${bab}:${slug ?? '-'}`
   const tersimpan = useSyncExternalStore(langgan, () => baca(kunci) ?? '[]', bacaDiServer)
   const riwayatTersimpan = useMemo<PesanRiwayat[]>(() => {
@@ -106,6 +120,9 @@ export default function AsistenTanya({ bab, slug, children }: { bab: string; slu
         sisa={sisa}
         onTanya={tanya}
         onBersihkan={() => tulis(kunci, '[]')}
+        bab={bab}
+        materi={materi}
+        onBukaMateri={onBukaMateri}
       />
     </KonteksTanya.Provider>
   )

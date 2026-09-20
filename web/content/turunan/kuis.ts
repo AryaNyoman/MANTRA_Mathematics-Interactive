@@ -32,7 +32,7 @@
  * gaya pembahasannya.
  */
 export type { TingkatKuis, SoalKuis } from '@/content/tipe'
-import type { SoalKuis } from '@/content/tipe'
+import type { ButirKuisBab, SoalKuis } from '@/content/tipe'
 
 export const KUIS: SoalKuis[] = [
   // ================================================================ MUDAH
@@ -1179,4 +1179,23 @@ export const KUIS: SoalKuis[] = [
     jebakan: 'Pilihan A, 3, adalah jarak ke titik puncak (0, 0), yang ternyata bukan yang terdekat; titik terdekat berada di kedua sisi parabola. Pilihan D, (1/2)√5, menyalin akar x² = 5/2 sebagai jaraknya.',
     alasan: 'D(x) = x⁴ − 5x² + 9; D′ = 0 di x² = 5/2 memberi D = 11/4, jarak (1/2)√11.',
   },
+]
+
+/**
+ * Paket kuis bab: 10 soal yang konsepnya diajarkan materi bab ini, dengan
+ * materi asalnya (ARYA 20 Sep 2026). Dikurasi dengan membaca soal dan
+ * bacaan materinya; soal bank lain tetap di menu Latihan. Urutan soal dan
+ * pilihannya diacak di peramban. Pemeriksa: `node alat/cek_kuis_bab.mjs`.
+ */
+export const KUIS_BAB: ButirKuisBab[] = [
+  { id: 'turunan-mudah-14', materi: 'laju-rata-rata' },
+  { id: 'turunan-mudah-16', materi: 'garis-singgung-lahir' },
+  { id: 'turunan-mudah-04', materi: 'aturan-pangkat' },
+  { id: 'turunan-mudah-03', materi: 'suku-demi-suku' },
+  { id: 'turunan-sedang-01', materi: 'hasil-kali-dan-bagi' },
+  { id: 'turunan-sedang-02', materi: 'aturan-rantai' },
+  { id: 'turunan-sedang-05', materi: 'sinus-kosinus-eksponen' },
+  { id: 'turunan-sedang-04', materi: 'persamaan-garis-singgung' },
+  { id: 'turunan-sulit-01', materi: 'naik-turun-diam' },
+  { id: 'turunan-sulit-02', materi: 'titik-balik' },
 ]

@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import Link from 'next/link'
 import TeksMat from '@/components/latihan/TeksMat'
 import type { GambarTanya, PesanRiwayat } from '@/lib/tanya/jenis'
 
@@ -15,29 +14,87 @@ type Props = {
   sisa: number | null
   onTanya: (pertanyaan: string, gambar: GambarTanya | null) => void
   onBersihkan: () => void
+  bab: string
+  materi: MateriTautan[]
+  onBukaMateri: (slug: string) => void
 }
 
-const POLA_TAUTAN = /(\[\[[a-z0-9-]+:[a-z0-9-]+\]\])/g
+export type MateriTautan = { no: number; slug: string; labelPendek: string }
 
-/** Jawaban asisten: paragraf lewat TeksMat, tanda [[bab:slug]] jadi tautan materi. */
-function Jawaban({ teks }: { teks: string }) {
+const POLA_TAUTAN = /(\[\[[a-z0-9-]+:[a-z0-9-]+\]\])/g
+const POLA_TEBAL = /(\*\*[^*]+\*\*)/g
+const POLA_BUTIR = /^\s*(?:[-•*]|\d+[.)])\s+/
+
+type PropJawaban = {
+  teks: string
+  bab: string
+  materi: MateriTautan[]
+  onBukaMateri: (slug: string) => void
+}
+
+/**
+ * Satu baris jawaban: tanda [[bab:slug]] menjadi tombol "Materi 05 ·
+ * Lingkaran satuan" yang membuka materinya di halaman ini (20 Sep 2026);
+ * slug yang tidak dikenal atau bab lain dibuang supaya model yang mengarang
+ * slug tidak menghasilkan tautan mati. Huruf tebal Markdown (**...**)
+ * tetap dihormati walau aturannya melarang, sebab model kadang memakainya.
+ */
+function Sebaris({ teks, bab, materi, onBukaMateri }: PropJawaban) {
+  return (
+    <>
+      {teks.split(POLA_TEBAL).map((bagian, i) => {
+        const tebal = /^\*\*[^*]+\*\*$/.test(bagian)
+        const isi = tebal ? bagian.slice(2, -2) : bagian
+        const potongan = isi.split(POLA_TAUTAN).map((b, j) => {
+          const m = /^\[\[([a-z0-9-]+):([a-z0-9-]+)\]\]$/.exec(b)
+          if (m) {
+            const t = m[1] === bab ? materi.find((x) => x.slug === m[2]) : undefined
+            if (!t) return null
+            return (
+              <button key={j} type="button" className="tanya-tautan" onClick={() => onBukaMateri(t.slug)}>
+                Materi {String(t.no).padStart(2, '0')} · {t.labelPendek}
+              </button>
+            )
+          }
+          return b ? <TeksMat key={j} teks={b} blok={false} /> : null
+        })
+        return tebal ? <b key={i}>{potongan}</b> : <span key={i}>{potongan}</span>
+      })}
+    </>
+  )
+}
+
+/**
+ * Jawaban asisten: paragraf dipisah baris kosong; baris yang diawali "-",
+ * "•", atau "1." dikelompokkan menjadi daftar. Tanda hubung panjang diganti
+ * koma (aturan MANTRA: tanpa em-dash).
+ */
+function Jawaban(p: PropJawaban) {
+  const bersih = p.teks.replace(/\s*[—–]\s*/g, ', ')
   return (
     <div className="tanya-jawaban">
-      {teks.split(/\n{2,}/).map((par, i) => (
-        <p key={i}>
-          {par.split(POLA_TAUTAN).map((b, j) => {
-            const m = /^\[\[([a-z0-9-]+):([a-z0-9-]+)\]\]$/.exec(b)
-            if (m) {
-              return (
-                <Link key={j} className="tanya-tautan" href={`/topik/${m[1]}?materi=${m[2]}`}>
-                  lihat materi
-                </Link>
-              )
-            }
-            return b ? <TeksMat key={j} teks={b} blok={false} /> : null
-          })}
-        </p>
-      ))}
+      {bersih.split(/\n{2,}/).map((par, i) => {
+        const baris = par.split('\n')
+        const bagian: { jenis: 'p' | 'ol' | 'ul'; isi: string[] }[] = []
+        for (const b of baris) {
+          const butir = POLA_BUTIR.test(b)
+          const jenis = butir ? (/^\s*\d/.test(b) ? 'ol' : 'ul') : 'p'
+          const akhir = bagian[bagian.length - 1]
+          if (akhir && akhir.jenis === jenis && jenis !== 'p') akhir.isi.push(b.replace(POLA_BUTIR, ''))
+          else if (akhir && akhir.jenis === 'p' && jenis === 'p') akhir.isi.push(b)
+          else bagian.push({ jenis, isi: [butir ? b.replace(POLA_BUTIR, '') : b] })
+        }
+        return bagian.map((bg, j) => {
+          const kunci = `${i}-${j}`
+          if (bg.jenis === 'p') return <p key={kunci}><Sebaris {...p} teks={bg.isi.join(' ')} /></p>
+          const Daftar = bg.jenis
+          return (
+            <Daftar key={kunci}>
+              {bg.isi.map((b, k) => <li key={k}><Sebaris {...p} teks={b} /></li>)}
+            </Daftar>
+          )
+        })
+      })}
     </div>
   )
 }
@@ -111,7 +168,7 @@ export default function PanelTanya(p: Props) {
         )}
         {p.riwayat.map((r, i) => (
           <div key={i} className={`tanya-pesan ${r.peran}`}>
-            {r.peran === 'siswa' ? <p>{r.teks}</p> : <Jawaban teks={r.teks} />}
+            {r.peran === 'siswa' ? <p>{r.teks}</p> : <Jawaban teks={r.teks} bab={p.bab} materi={p.materi} onBukaMateri={p.onBukaMateri} />}
           </div>
         ))}
         {p.sedang && p.riwayat[p.riwayat.length - 1]?.teks === '' && (

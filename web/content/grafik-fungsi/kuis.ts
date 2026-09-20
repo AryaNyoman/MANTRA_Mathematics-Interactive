@@ -25,7 +25,7 @@
  * `--ketat` juga memeriksa gaya pembahasannya.
  */
 export type { TingkatKuis, SoalKuis } from '@/content/tipe'
-import type { SoalKuis } from '@/content/tipe'
+import type { ButirKuisBab, SoalKuis } from '@/content/tipe'
 
 export const KUIS: SoalKuis[] = [
   // ================================================================ MUDAH
@@ -1249,4 +1249,23 @@ export const KUIS: SoalKuis[] = [
     jebakan: 'Pilihan A, 90, mengalikan 45 dengan 2, mengira b = 2. Pilihan C, 65, menambah 20 tiap langkah (pola linear 5, 25, 45, 65), padahal fungsinya eksponen. Pilihan D, 405, adalah f(4).',
     alasan: 'a = 5, b = 3: f(3) = 5 · 27 = 135.',
   },
+]
+
+/**
+ * Paket kuis bab: 10 soal yang konsepnya diajarkan materi bab ini, dengan
+ * materi asalnya (ARYA 20 Sep 2026). Dikurasi dengan membaca soal dan
+ * bacaan materinya; soal bank lain tetap di menu Latihan. Urutan soal dan
+ * pilihannya diacak di peramban. Pemeriksa: `node alat/cek_kuis_bab.mjs`.
+ */
+export const KUIS_BAB: ButirKuisBab[] = [
+  { id: 'gf-m01', materi: 'grafik-bercerita' },
+  { id: 'gf-m02', materi: 'potret-aturan' },
+  { id: 'gf-m03', materi: 'bentuk-puncak' },
+  { id: 'gf-s02', materi: 'bentuk-umum' },
+  { id: 'gf-s03', materi: 'menyusun-parabola' },
+  { id: 'gf-s04', materi: 'geser-cermin-regang' },
+  { id: 'gf-m06', materi: 'eksponen' },
+  { id: 'gf-m07', materi: 'logaritma' },
+  { id: 'gf-s09', materi: 'fungsi-rasional' },
+  { id: 'gf-s10', materi: 'invers' },
 ]

@@ -5,8 +5,10 @@
  * poin terlarang yang muncul, dan biaya token. Penilaian akhir dibaca manusia.
  *
  *   node alat/uji_tanya/jalankan.mjs            semua
- *   node alat/uji_tanya/jalankan.mjs turunan    satu bab
+ *   node alat/uji_tanya/jalankan.mjs turunan    satu bab (atau id: trig-01 luar-02)
  *   TANYA_ALAMAT=https://.../api/tanya node alat/uji_tanya/jalankan.mjs
+ * Berkas hasil ditulis ulang tiap kali; jalankan subset hanya untuk melihat
+ * jawabannya di layar (`--tanpa-berkas`) atau terima hasilnya menimpa.
  */
 import { readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
@@ -14,8 +16,10 @@ import { fileURLToPath } from 'node:url'
 
 const DIR = path.dirname(fileURLToPath(import.meta.url))
 const ALAMAT = process.env.TANYA_ALAMAT ?? 'http://localhost:3210/api/tanya'
-const pilih = process.argv.slice(2)
-const semua = JSON.parse(readFileSync(path.join(DIR, 'pertanyaan.json'), 'utf8')).filter((q) => !pilih.length || pilih.includes(q.bab))
+const argv = process.argv.slice(2)
+const tanpaBerkas = argv.includes('--tanpa-berkas')
+const pilih = argv.filter((a) => !a.startsWith('--'))
+const semua = JSON.parse(readFileSync(path.join(DIR, 'pertanyaan.json'), 'utf8')).filter((q) => !pilih.length || pilih.includes(q.bab) || pilih.includes(q.id))
 
 async function tanya(q) {
   const res = await fetch(ALAMAT, {
@@ -78,10 +82,11 @@ for (const q of semua) {
     '',
   )
   process.stdout.write(`${q.id.padEnd(14)} ${tanda.padEnd(8)} ${detik}s\n`)
+  if (tanpaBerkas) process.stdout.write(`${teks.trim()}\n\n`)
 }
 // Haiku 4.5: $1 masuk, $5 keluar, cache baca 10 persen, cache tulis 125 persen per juta token; Rp 16.000 per dolar
 const rp = ((masuk * 1 + cacheBaca * 0.1 + cacheTulis * 1.25 + keluar * 5) / 1e6) * 16000
 const ringkas = `Ringkasan: ${semua.length} pertanyaan, ${bermasalah} perlu diperiksa manusia, ${((Date.now() - mulai) / 1000).toFixed(0)} detik, token masuk ${masuk} + cache baca ${cacheBaca} + cache tulis ${cacheTulis}, keluar ${keluar}; biaya kira-kira Rp ${Math.round(rp)} (Rp ${Math.round(rp / Math.max(1, semua.length))} per pertanyaan)`
 baris.push(ringkas)
-writeFileSync(path.join(DIR, `hasil-${tanggal}.md`), baris.filter((b) => b !== undefined).join('\n'))
+if (!tanpaBerkas) writeFileSync(path.join(DIR, `hasil-${tanggal}.md`), baris.filter((b) => b !== undefined).join('\n'))
 console.log(ringkas)

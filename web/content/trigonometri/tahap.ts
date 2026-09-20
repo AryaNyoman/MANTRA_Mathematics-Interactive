@@ -22,6 +22,7 @@ export type Widget =
   | 'perjalanan-sudut'
   | 'lingkaran-ke-grafik'
   | 'tiga-grafik'
+  | 'sudut-berelasi'
   | 'dunia-nyata'
 
 /*
@@ -808,6 +809,123 @@ export const TAHAP: Tahap[] = [
       isi: 'Mengukur yang tidak terjangkau memang pintu masuknya, dan itu memang cerita Materi 01. Tapi begitu sesuatu berputar atau berulang secara teratur, suara, cahaya, arus listrik, pasang surut, gerak game, sin dan cos hampir selalu ikut. Trigonometri lebih sering dipakai untuk hal yang BERULANG daripada untuk segitiga.',
     },
     widget: 'dunia-nyata',
+    siap: true,
+  },
+  {
+    /* Materi 11 ditambahkan 20 Sep 2026 (keputusan ARYA): tiga soal kuis bab
+       (k48, k50, k59) menguji sudut berelasi, padahal belum ada materi yang
+       mengajarkannya. Nomornya 11 tetapi urutan belajarnya di sub-bab B
+       sesudah Sudut istimewa (content/subbab.ts). */
+    no: 11,
+    slug: 'sudut-berelasi',
+    judul: 'Sudut berelasi: berputar melewati kuadran',
+    labelPendek: 'Sudut berelasi',
+    pertanyaan: 'Kalau titiknya diputar 90°, ke mana sin dan cos-nya pergi?',
+    intisari: [
+      'Setiap sudut di kuadran mana pun punya sudut acuan di kuadran I: besar sin dan cos-nya sama, hanya tandanya yang mengikuti kuadran.',
+      'Diputar 90°: (cos θ, sin θ) menjadi (−sin θ, cos θ). Tinggi lama jadi jarak mendatar baru dengan tanda minus, jarak mendatar lama jadi tinggi baru.',
+      'Dicerminkan ke kiri (180° − θ): sin tetap, cos berbalik tanda. Dibalik ke seberang (180° + θ): keduanya berbalik. Dicerminkan ke bawah (360° − θ): sin berbalik, cos tetap.',
+      'Rumus relasinya tidak dihafal, dibaca dari letak titik di lingkaran satuan.',
+    ],
+    penjelasan: [
+      { jenis: 'paragraf', teks: 'Di Materi 05 titik pada lingkaran satuan selalu berada di (cos θ, sin θ), dan di Materi 07 nilainya dihitung untuk sudut istimewa di kuadran I. Sekarang pertanyaannya: bagaimana dengan 130°, 220°, atau 320°? Tidak ada segitiga siku-siku yang sudutnya 130°.' },
+      { jenis: 'sorot', teks: 'Setiap sudut di kuadran mana pun punya kembaran di kuadran I, namanya sudut acuan. Besar sin dan cos-nya sama persis; yang berbeda hanya tandanya.' },
+
+      { jenis: 'sesi', judul: 'Dua titik yang bersaudara' },
+      { jenis: 'paragraf', teks: 'Ambil θ = 40°. Titik P-nya berada di (cos 40°, sin 40°) = (0,77; 0,64). Sekarang pindahkan P dengan empat cara: diputar seperempat putaran, dicerminkan ke kiri, dibalik ke seberang pusat, dan dicerminkan ke bawah. Tiap cara menghasilkan titik baru Q, dan koordinat Q ternyata bisa dibaca dari koordinat P tanpa menghitung ulang.' },
+
+      { jenis: 'sesi', judul: 'Diputar 90°: θ + 90°' },
+      { jenis: 'paragraf', teks: 'Putar P seperempat putaran berlawanan arah jarum jam. Jari-jarinya ikut berputar 90°, dan segitiga kecil di bawah P ikut berputar: sisi yang tadinya mendatar kini tegak, yang tadinya tegak kini mendatar. Tinggi P yang lama, sin θ, menjadi jarak mendatar Q, tetapi ke arah kiri, jadi bertanda minus. Jarak mendatar P yang lama, cos θ, menjadi tinggi Q.' },
+      {
+        jenis: 'contoh',
+        judul: 'Titik 40° diputar 90° menjadi titik 130°',
+        baris: [
+          'P pada 40°   (cos 40°, sin 40°)   (0,77; 0,64)',
+          'Q pada 130°   (−sin 40°, cos 40°)   (−0,64; 0,77)',
+        ],
+        simpul: 'Angkanya bertukar tempat, dan yang pindah ke kiri mendapat tanda minus. Jadi sin(θ + 90°) = cos θ dan cos(θ + 90°) = −sin θ.',
+      },
+
+      { jenis: 'sesi', judul: 'Dicerminkan ke kiri: 180° − θ' },
+      { jenis: 'paragraf', teks: 'Cerminkan P pada sumbu y. Tingginya tidak berubah, jarak mendatarnya sama besar tetapi sekarang di sebelah kiri. Sudut Q, diukur dari sumbu x positif, besarnya 180° − θ.' },
+      {
+        jenis: 'contoh',
+        judul: 'Titik 40° dicerminkan ke kiri menjadi titik 140°',
+        baris: [
+          'P pada 40°   (cos 40°, sin 40°)   (0,77; 0,64)',
+          'Q pada 140°   (−cos 40°, sin 40°)   (−0,77; 0,64)',
+        ],
+        simpul: 'sin(180° − θ) = sin θ, sedangkan cos(180° − θ) = −cos θ.',
+      },
+
+      { jenis: 'sesi', judul: 'Dibalik ke seberang: 180° + θ' },
+      { jenis: 'paragraf', teks: 'Putar P setengah putaran, atau cerminkan pada pusat lingkaran. Q berada tepat di seberang, jadi kedua koordinatnya berbalik tanda.' },
+      {
+        jenis: 'contoh',
+        judul: 'Titik 40° dibalik menjadi titik 220°',
+        baris: [
+          'P pada 40°   (cos 40°, sin 40°)   (0,77; 0,64)',
+          'Q pada 220°   (−cos 40°, −sin 40°)   (−0,77; −0,64)',
+        ],
+        simpul: 'sin(180° + θ) = −sin θ dan cos(180° + θ) = −cos θ. Karena keduanya berbalik, hasil baginya tidak berubah: tan(180° + θ) = tan θ.',
+      },
+
+      { jenis: 'sesi', judul: 'Dicerminkan ke bawah: 360° − θ, atau −θ' },
+      { jenis: 'paragraf', teks: 'Cerminkan P pada sumbu x. Jarak mendatarnya tetap, tingginya berbalik ke bawah. Sudut Q boleh disebut 360° − θ atau −θ: keduanya menunjuk titik yang sama.' },
+      {
+        jenis: 'contoh',
+        judul: 'Titik 40° dicerminkan ke bawah menjadi titik 320°',
+        baris: [
+          'P pada 40°   (cos 40°, sin 40°)   (0,77; 0,64)',
+          'Q pada 320°   (cos 40°, −sin 40°)   (0,77; −0,64)',
+        ],
+        simpul: 'sin(360° − θ) = −sin θ, sedangkan cos(360° − θ) = cos θ.',
+      },
+
+      { jenis: 'sesi', judul: 'Satu lagi yang masih di kuadran I: 90° − θ' },
+      { jenis: 'paragraf', teks: 'Cerminkan P pada garis y = x, garis miring yang membelah kuadran I. Koordinatnya bertukar tempat tanpa berubah tanda: Q = (sin θ, cos θ). Dari sinilah nama kosinus berasal: cos θ = sin(90° − θ), sinus dari sudut pelengkapnya.' },
+      {
+        jenis: 'contoh',
+        judul: 'Kelima relasi dalam satu tabel, θ di kuadran I',
+        baris: [
+          'sudut   sin   cos   tan',
+          '90° − θ   cos θ   sin θ   cot θ',
+          '90° + θ   cos θ   −sin θ   −cot θ',
+          '180° − θ   sin θ   −cos θ   −tan θ',
+          '180° + θ   −sin θ   −cos θ   tan θ',
+          '360° − θ   −sin θ   cos θ   −tan θ',
+        ],
+        simpul: 'Kolom tan tidak perlu dihafal terpisah: tan = sin : cos, jadi tandanya tinggal dibagi. Untuk cot, sec, dan csc, balik saja pecahannya.',
+      },
+      {
+        jenis: 'poin',
+        judul: 'Cara membaca tanpa menghafal',
+        butir: [
+          'Tentukan kuadran Q, lalu tandanya: di kuadran II hanya sin yang positif, di kuadran III hanya tan, di kuadran IV hanya cos',
+          'Besarnya ambil dari sudut acuan θ di kuadran I',
+          'Kalau relasinya lewat 90° atau 270° (θ + 90°, 90° − θ), sin dan cos bertukar peran; kalau lewat 180° atau 360°, tidak bertukar',
+        ],
+      },
+      {
+        jenis: 'coba',
+        teks: 'Putar dan cerminkan titik P, lalu bandingkan koordinat Q dengan koordinat P.',
+        langkah: [
+          'Atur θ ke 40° dan pilih relasi θ + 90°. Baca koordinat P dan Q. Angka mana yang pindah tempat, dan mana yang berubah tanda?',
+          'Ganti ke 180° − θ. Sekarang angka mana yang tetap sama persis?',
+          'Seret P ke sudut lain, misalnya 70°, lalu ulangi kedua relasi tadi. Apakah pola tukar dan tandanya ikut berubah?',
+          'Pilih 180° + θ dan 360° − θ. Di kuadran mana Q berada pada tiap pilihan, dan koordinat mana yang negatif?',
+        ],
+      },
+
+      { jenis: 'sesi', judul: 'Kalau sudutnya ditulis dalam radian' },
+      { jenis: 'paragraf', teks: 'Sudut boleh ditulis dalam radian: satu putaran penuh adalah 2π radian, jadi 180° = π radian dan 1 radian ≈ 57,3°. Relasinya sama persis, hanya tulisannya berganti: 180° − θ menjadi π − θ, 180° + θ menjadi π + θ, dan seterusnya. Angka seperti "sin 2" berarti sinus dari 2 radian, sekitar 115°: titiknya di kuadran II, jadi nilainya positif dan sama besar dengan sin 65°.' },
+      { jenis: 'sorot', teks: 'Tanda mengikuti kuadran, besarnya mengikuti sudut acuan. Rumus relasi hanyalah cara singkat menulis kedua hal itu.' },
+    ],
+    seringKeliru: {
+      judul: 'Dikira −cos θ, padahal −sin θ: putaran dan cerminan itu berbeda',
+      isi: 'Titik yang diputar 90° sering dikira cuma "pindah ke kuadran II, jadi cos-nya negatif", lalu ditulis (−cos θ, sin θ). Itu koordinat untuk cerminan 180° − θ, bukan untuk putaran θ + 90°. Pada putaran, segitiga kecilnya ikut berputar, jadi sin dan cos bertukar peran: hasilnya (−sin θ, cos θ). Cara memeriksanya: θ = 40° memberi 130°, dan cos 130° ≈ −0,64 = −sin 40°, bukan −0,77.',
+    },
+    widget: 'sudut-berelasi',
     siap: true,
   },
 ]

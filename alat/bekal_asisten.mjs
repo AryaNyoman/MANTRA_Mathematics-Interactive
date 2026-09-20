@@ -121,6 +121,8 @@ export async function kemas(daftarBab = BAB, { keluar = path.join(AKAR, 'web', '
         pertanyaan: t.pertanyaan,
         sebelum: tetangga(i - 1),
         sesudah: tetangga(i + 1),
+        // seluruh materi bab: model hanya boleh menautkan slug yang ada di sini
+        daftar: tahap.map((x) => ({ no: x.no, slug: x.slug, judul: x.judul })),
         bacaan,
         istilah: ISTILAH,
         kutipan,

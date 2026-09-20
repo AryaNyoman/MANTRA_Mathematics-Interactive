@@ -665,6 +665,33 @@ h1, h2, h3, .disp {
 .kuis-selesai p { max-width: 420px; margin: 0 auto 12px; }
 .kuis-selesai .tombol { margin: 16px auto 0; width: fit-content; padding: 11px 22px; }
 
+/* --- kuis bab v2: peta soal saat menjawab, dan halaman hasil (20 Sep 2026) --- */
+.kuis .peta-kotak[data-keadaan='terjawab'] { background: var(--panggung); border-color: var(--panggung); color: var(--kertas); }
+.kuis .soal-aksi { justify-content: space-between; }
+.kuis .soal-aksi .pil-gelap { padding: 11px 26px; }
+.opsi-mantra[data-keadaan='redam'] { opacity: 0.55; }
+/* pilihan di halaman hasil: bukan tombol, cuma catatan jawaban */
+.opsi-diam { cursor: default; }
+.kuis-hasil .kuis-selesai { padding-bottom: 8px; }
+.hasil-daftar { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+.hasil-soal {
+  background: var(--kartu); border: 1px solid var(--garis); border-radius: 20px;
+  padding: 18px 20px 20px; border-left: 4px solid var(--hijau);
+}
+.hasil-soal[data-benar='false'] { border-left-color: var(--jingga); }
+.hasil-kepala { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+.hasil-kepala .kicker { margin: 0; }
+.hasil-tanda { margin-left: auto; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--hijau); }
+.hasil-soal[data-benar='false'] .hasil-tanda { color: var(--jingga); }
+.hasil-soal .soal-teks { margin: 8px 0 14px; }
+.hasil-bahas {
+  margin-top: 16px; padding: 14px 16px 16px; background: var(--cekung);
+  border-radius: 14px;
+}
+.hasil-bahas > .kicker { margin-bottom: 2px; }
+.hasil-soal .baca-materi { margin-top: 14px; padding: 11px 18px; font-size: 13.5px; }
+.hasil-aksi { display: flex; justify-content: center; margin-top: 22px; }
+
 /* --- daftar tautan kanal --- */
 .tautan { list-style: none; padding: 0; margin: 8px 0 0; font-size: 14px; }
 .tautan li {
@@ -2570,7 +2597,15 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 }
 .tanya-pesan.asisten .tanya-jawaban p { margin: 0 0 8px; font-size: 15px; line-height: 1.7; color: #3A3630; }
 .tanya-pesan.asisten .tanya-jawaban p:last-child { margin-bottom: 0; }
-.tanya-tautan { color: var(--emas-tua); text-decoration: underline; }
+.tanya-tautan {
+  font: inherit; background: none; border: 0; padding: 0; cursor: pointer;
+  color: var(--emas-tua); text-decoration: underline; text-underline-offset: 2px;
+}
+.tanya-tautan:hover { color: var(--tinta); }
+.tanya-pesan.asisten .tanya-jawaban ol, .tanya-pesan.asisten .tanya-jawaban ul {
+  margin: 0 0 8px; padding-left: 22px; font-size: 15px; line-height: 1.7; color: #3A3630;
+}
+.tanya-pesan.asisten .tanya-jawaban li { margin: 2px 0; }
 .tanya-memuat i {
   display: block; width: 44px; height: 10px; border-radius: 6px;
   background: rgba(16, 26, 43, 0.08); animation: napas 1.4s ease-in-out infinite;

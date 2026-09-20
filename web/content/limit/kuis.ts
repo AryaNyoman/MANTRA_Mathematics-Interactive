@@ -27,7 +27,7 @@
  * `--ketat` juga memeriksa gaya pembahasannya.
  */
 export type { TingkatKuis, SoalKuis } from '@/content/tipe'
-import type { SoalKuis } from '@/content/tipe'
+import type { ButirKuisBab, SoalKuis } from '@/content/tipe'
 
 export const KUIS: SoalKuis[] = [
   // ================================================================ MUDAH
@@ -1142,4 +1142,23 @@ export const KUIS: SoalKuis[] = [
     jebakan: 'Pilihan B, 3, menjumlahkan a + b alih-alih mengalikannya. Pilihan D, 6, muncul bila b dihitung dari 1 + b = 3 keliru menjadi b = 3 lalu dikalikan 2.',
     alasan: 'a + 2 = 3 memberi a = 1; 1 + b = 3 memberi b = 2; a × b = 2.',
   },
+]
+
+/**
+ * Paket kuis bab: 10 soal yang konsepnya diajarkan materi bab ini, dengan
+ * materi asalnya (ARYA 20 Sep 2026). Dikurasi dengan membaca soal dan
+ * bacaan materinya; soal bank lain tetap di menu Latihan. Urutan soal dan
+ * pilihannya diacak di peramban. Pemeriksa: `node alat/cek_kuis_bab.mjs`.
+ */
+export const KUIS_BAB: ButirKuisBab[] = [
+  { id: 'k01', materi: 'mendekati' },
+  { id: 'k05', materi: 'dua-arah' },
+  { id: 'k35', materi: 'lubang' },
+  { id: 'k08', materi: 'cara-cepat' },
+  { id: 'k62', materi: 'cara-cepat' },
+  { id: 'k09', materi: 'nol-per-nol' },
+  { id: 'k17', materi: 'nol-per-nol' },
+  { id: 'k12', materi: 'tak-hingga' },
+  { id: 'k11', materi: 'limit-sinus' },
+  { id: 'k13', materi: 'kontinu' },
 ]

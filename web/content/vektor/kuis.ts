@@ -26,7 +26,7 @@
  * `--ketat` juga memeriksa gaya pembahasannya.
  */
 export type { TingkatKuis, SoalKuis } from '@/content/tipe'
-import type { SoalKuis } from '@/content/tipe'
+import type { ButirKuisBab, SoalKuis } from '@/content/tipe'
 
 export const KUIS: SoalKuis[] = [
   // ================================================================ MUDAH
@@ -1150,4 +1150,23 @@ export const KUIS: SoalKuis[] = [
     jebakan: 'Pilihan A, 1, salah tanda saat menyelesaikan 5 + 5t = 0. Pilihan C, −5, berhenti pada 5t = −5 tanpa membagi 5. Pilihan E, 0, mengira a sendiri sudah tegak lurus dengan dirinya, padahal a • a = 5 ≠ 0.',
     alasan: '(2 + t)·2 + (1 + 3t)·1 = 5 + 5t = 0 memberi t = −1.',
   },
+]
+
+/**
+ * Paket kuis bab: 10 soal yang konsepnya diajarkan materi bab ini, dengan
+ * materi asalnya (ARYA 20 Sep 2026). Dikurasi dengan membaca soal dan
+ * bacaan materinya; soal bank lain tetap di menu Latihan. Urutan soal dan
+ * pilihannya diacak di peramban. Pemeriksa: `node alat/cek_kuis_bab.mjs`.
+ */
+export const KUIS_BAB: ButirKuisBab[] = [
+  { id: 'v01', materi: 'angka-saja-tidak-cukup' },
+  { id: 'v37', materi: 'panah-yang-boleh-dipindah' },
+  { id: 'v06', materi: 'memecah-panah' },
+  { id: 'v02', materi: 'panjang-dan-arah' },
+  { id: 'v10', materi: 'arah-tanpa-panjang' },
+  { id: 'v03', materi: 'menjumlah-vektor' },
+  { id: 'v11', materi: 'jajar-genjang' },
+  { id: 'v04', materi: 'mengurangi-vektor' },
+  { id: 'v38', materi: 'kali-skalar' },
+  { id: 'v21', materi: 'perkalian-titik' },
 ]

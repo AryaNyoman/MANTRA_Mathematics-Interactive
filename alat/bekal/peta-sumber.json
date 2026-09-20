@@ -127,6 +127,14 @@
         "sampai": 153,
         "catatan": "pemanfaatan perbandingan trigonometri"
       }
+    ],
+    "sudut-berelasi": [
+      {
+        "sumber": "itb-kalkulus1",
+        "dari": 18,
+        "sampai": 20,
+        "catatan": "sifat sin dan cos: sudut negatif, periode, rumus jumlah sudut"
+      }
     ]
   },
   "limit": {

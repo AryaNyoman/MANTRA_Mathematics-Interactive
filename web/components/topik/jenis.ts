@@ -1,5 +1,5 @@
 import type { ComponentType, ReactNode } from 'react'
-import type { KanalPerSubbab, Soal, SoalKuis, Tahap } from '@/content/tipe'
+import type { ButirKuisBab, KanalPerSubbab, Soal, SoalKuis, Tahap } from '@/content/tipe'
 
 /**
  * Perjanjian antara rangka halaman topik dan isi tiap topik.
@@ -41,6 +41,8 @@ export type IsiTopik = {
   tahap: Tahap[]
   latihan: Soal[]
   kuis: SoalKuis[]
+  /** paket 10 soal kuis bab beserta materi asalnya (kurasi, lihat ButirKuisBab) */
+  kuisBab: ButirKuisBab[]
   kanal: KanalPerSubbab
   Panggung: ComponentType<PropPanggung>
 }

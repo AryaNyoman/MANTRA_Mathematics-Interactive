@@ -26,7 +26,7 @@
  * `--ketat` juga memeriksa gaya pembahasannya.
  */
 export type { TingkatKuis, SoalKuis } from '@/content/tipe'
-import type { SoalKuis } from '@/content/tipe'
+import type { ButirKuisBab, SoalKuis } from '@/content/tipe'
 
 const TABEL40 = {
   kepala: ['Nilai', 'f'],
@@ -1108,4 +1108,23 @@ export const KUIS: SoalKuis[] = [
     jebakan: 'Pilihan B, 80 persen, menyalin r sebagai persentase, padahal yang menyatakan bagian keragaman adalah r². Pilihan D, 89 persen, menarik akar 0,8 (√0,8 ≈ 0,89), arah yang terbalik. Pilihan E, 16 persen, mengkuadratkan sisa 1 − 0,8 = 0,2 lalu salah membaca hasilnya.',
     alasan: 'r² = 0,8² = 0,64 = 64 persen.',
   },
+]
+
+/**
+ * Paket kuis bab: 10 soal yang konsepnya diajarkan materi bab ini, dengan
+ * materi asalnya (ARYA 20 Sep 2026). Dikurasi dengan membaca soal dan
+ * bacaan materinya; soal bank lain tetap di menu Latihan. Urutan soal dan
+ * pilihannya diacak di peramban. Pemeriksa: `node alat/cek_kuis_bab.mjs`.
+ */
+export const KUIS_BAB: ButirKuisBab[] = [
+  { id: 'st-15', materi: 'lebar-kelas' },
+  { id: 'st-10', materi: 'frekuensi-relatif' },
+  { id: 'st-34', materi: 'tiga-ukuran' },
+  { id: 'st-12', materi: 'pencilan' },
+  { id: 'st-43', materi: 'simpangan-baku' },
+  { id: 'st-18', materi: 'data-kelompok' },
+  { id: 'st-16', materi: 'diagram-pencar' },
+  { id: 'st-22', materi: 'garis-regresi' },
+  { id: 'st-26', materi: 'korelasi' },
+  { id: 'st-14', materi: 'grafik-menyesatkan' },
 ]

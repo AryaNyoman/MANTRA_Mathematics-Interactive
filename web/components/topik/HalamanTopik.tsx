@@ -47,9 +47,6 @@ function bacaPadat() {
 const LEBAR_ALAT_BAWAAN = 380
 const KUNCI_LEBAR = 'matra:lebar-alat'
 
-/** Berapa soal yang dikerjakan dalam satu sesi kuis, diambil dari bank soal. */
-const SOAL_PER_SESI = 8
-
 const dua = (n: number) => String(n).padStart(2, '0')
 
 /**
@@ -85,7 +82,7 @@ export default function HalamanTopik({ topik }: { topik: Topik }) {
 }
 
 function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
-  const { tahap: TAHAP, latihan: LATIHAN, kuis: KUIS, kanal: KANAL, Panggung } = isi
+  const { tahap: TAHAP, latihan: LATIHAN, kuis: KUIS, kuisBab: KUIS_BAB, kanal: KANAL, Panggung } = isi
   const bab = cariBab(topik.slug)
 
   // Sub-bab yang benar-benar punya materinya. Kalau `subbab.ts` menyebut nomor
@@ -720,7 +717,13 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                       selama animasi masuk; `key` per materi membersihkan
                       keadaannya. Di layar latihan dan kuis (slug null) tidak
                       ada asisten. */}
-                  <AsistenTanya key={tahap?.slug ?? '-'} bab={topik.slug} slug={tahap?.slug ?? null}>
+                  <AsistenTanya
+                    key={tahap?.slug ?? '-'}
+                    bab={topik.slug}
+                    slug={tahap?.slug ?? null}
+                    materi={TAHAP}
+                    onBukaMateri={(slug) => pilihLayar({ jenis: 'tahap', slug })}
+                  >
                   <div className="panggung-isi" key={kunciLayar} data-arah={arah}>
 
                   {/* Segmen Tonton / Coba sendiri HANYA muncul di layar sempit.
@@ -818,7 +821,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                         <p>
                           {layar.jenis === 'latihan'
                             ? 'Empat soal dengan tingkat kesulitan menaik: dari menerapkan perbandingan, memeriksa syarat, menemukan kesalahan orang lain, sampai penerapan dua langkah. Buka pembahasan hanya setelah benar-benar mentok.'
-                            : 'Delapan soal pilihan ganda. Setelah menjawab, Anda langsung melihat alasannya, termasuk kenapa pilihan yang keliru itu terasa masuk akal. Nilai terbaik disimpan di peramban ini saja.'}
+                            : 'Sepuluh soal pilihan ganda dari materi bab ini. Jawab semuanya dulu (boleh mundur lewat peta soal), lalu tekan Kumpulkan: skor dan pembahasan tiap soal muncul sesudahnya, dan soal yang salah menunjuk materi yang perlu dibaca ulang. Nilai terbaik disimpan di peramban ini saja.'}
                         </p>
                       </div>
                     </>
@@ -832,14 +835,16 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                   {layar.jenis === 'latihan' && <Latihan soal={LATIHAN} />}
 
                   {layar.jenis === 'kuis' && (
-                    /* 8 soal per sesi, diambil dari bank 32 soal, dan yang sudah
-                       pernah keluar dihindari. Jadi mengulang kuis berarti
-                       bertemu soal baru. (Permintaan ARYA, 1 Sep 2026.) */
+                    /* Satu paket 10 soal kuis bab (KUIS_BAB), urutan soal dan
+                       pilihan diacak; jawab semua dulu, pembahasan di halaman
+                       hasil, soal salah diberi tombol ke materinya (keputusan
+                       ARYA 20 Sep 2026). */
                     <Kuis
+                      paket={KUIS_BAB}
                       bank={KUIS}
-                      jumlah={SOAL_PER_SESI}
+                      tahap={TAHAP}
                       kunciSimpan={`matra:kuis:${topik.slug}`}
-                      topik={topik.slug}
+                      onBacaMateri={(slug) => pilihLayar({ jenis: 'tahap', slug })}
                     />
                   )}
 

@@ -84,3 +84,17 @@ export function petakanHuruf(teks: string, urut: number[]): string {
     )
     .replace(/\bjawaban ([A-E])\b/g, (_, h: string) => `jawaban ${ganti(h)}`)
 }
+
+/**
+ * Kocok salinan daftar (Fisher-Yates dengan Math.random), tidak mengubah
+ * aslinya. Dipakai kuis bab mengacak URUTAN SOAL saat kuis dibuka; hanya
+ * boleh dipanggil di peramban (komponen kuis tidak pernah dirender di server).
+ */
+export function kocok<T>(daftar: readonly T[]): T[] {
+  const a = [...daftar]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}

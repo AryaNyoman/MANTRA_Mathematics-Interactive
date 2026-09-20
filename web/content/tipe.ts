@@ -323,6 +323,20 @@ export type SoalKuis = {
   tingkat: TingkatKuis
 }
 
+/**
+ * Satu butir paket kuis bab (keputusan ARYA 20 Sep 2026): kuis bab hanya
+ * memuat soal yang konsepnya diajarkan di bab itu, dan tiap soal menunjuk
+ * materi asalnya supaya jawaban salah bisa diberi tombol "Baca Materi".
+ * Soal bank yang konsepnya di luar materi tetap hidup di menu Latihan.
+ * Pemeriksanya `alat/cek_kuis_bab.mjs`.
+ */
+export type ButirKuisBab = {
+  /** id soal di `KUIS` bab yang sama */
+  id: string
+  /** slug materi (`TAHAP[].slug`) yang mengajarkan konsep soal ini */
+  materi: string
+}
+
 /* ------------------------------------------------------------------ */
 /* Rujukan luar                                                        */
 /* ------------------------------------------------------------------ */
