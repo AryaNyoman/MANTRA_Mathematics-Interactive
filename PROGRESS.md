@@ -1,6 +1,6 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
-## 20 SEP: KUIS BAB V2 (SATU PAKET 10 SOAL TERKURASI, PENILAIAN DULU, PEMBAHASAN BERGAMBAR DI AKHIR), MATERI TRIGONOMETRI 11 SUDUT BERELASI, ASISTEN TANYA TAYANG (deploy matra-gicw5xh4u, push GitHub a059491)
+## 20 SEP: KUIS BAB V2 (SATU PAKET 10 SOAL TERKURASI, PENILAIAN DULU, PEMBAHASAN BERGAMBAR DI AKHIR), MATERI TRIGONOMETRI 11 SUDUT BERELASI, ASISTEN TANYA TAYANG (deploy matra-gicw5xh4u, push GitHub aa895ac)
 
 ARYA melihat tiga soal kuis Trigonometri (k48, k50, k59, "sangat sulit")
 yang konsepnya tidak ada di materi, dan pembahasan satu kalimat yang tidak
