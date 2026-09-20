@@ -19,6 +19,7 @@ import {
 } from '@/lib/kemajuan'
 import { aturSesi, daftarkanAkar, keluarFokus, lepasSesi, useSesiBelajar } from '@/lib/sesi-belajar'
 import PenggeserEmas from '@/components/mantra/PenggeserEmas'
+import AsistenTanya from '@/components/tanya/AsistenTanya'
 
 type Layar = { jenis: 'tahap'; slug: string } | { jenis: 'latihan' } | { jenis: 'kuis' }
 
@@ -712,6 +713,14 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                       masuk bergeser 24 px dari arah tujuan; remah di atasnya
                       tetap diam. Animasinya fill backwards: tidak ada transform
                       yang tertinggal sesudahnya. */}
+                  {/* Asisten Tanya membungkus isi materi: tombol Jelaskan di
+                      tiap blok bacaan dan tombol Tanya saat teks diblok
+                      membuka panelnya. Panelnya `position: fixed`, jadi
+                      pembungkusnya DI LUAR .panggung-isi yang ber-transform
+                      selama animasi masuk; `key` per materi membersihkan
+                      keadaannya. Di layar latihan dan kuis (slug null) tidak
+                      ada asisten. */}
+                  <AsistenTanya key={tahap?.slug ?? '-'} bab={topik.slug} slug={tahap?.slug ?? null}>
                   <div className="panggung-isi" key={kunciLayar} data-arah={arah}>
 
                   {/* Segmen Tonton / Coba sendiri HANYA muncul di layar sempit.
@@ -942,6 +951,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                     </div>
                   </div>
                   </div>
+                  </AsistenTanya>
                 </div>
 
                 {/* KOLOM ALAT, di kanan. Hanya ada di layar lebar; di layar
