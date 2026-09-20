@@ -7,6 +7,13 @@ const nextConfig: NextConfig = {
   devIndicators: false,
 
   /**
+   * Bekal Asisten Tanya (web/bekal/*.json, dibuat alat/bekal_asisten.mjs,
+   * di luar git) dibaca rute /api/tanya lewat fs; tanpa daftar ini Vercel
+   * tidak membawanya ke bundel fungsi.
+   */
+  outputFileTracingIncludes: { '/api/tanya': ['./bekal/**/*'] },
+
+  /**
    * Jalur cadangan video lewat asal situs sendiri. Biasanya video diambil
    * langsung dari Worker Cloudflare (NEXT_PUBLIC_ASAL_VIDEO). Pada jaringan
    * tertentu (15 Sep 2026: resolver Telkomsel memetakan host Cloudflare ke
