@@ -1,5 +1,63 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 20 SEP: KUIS BAB V2 (SATU PAKET 10 SOAL TERKURASI, PENILAIAN DULU, PEMBAHASAN BERGAMBAR DI AKHIR), MATERI TRIGONOMETRI 11 SUDUT BERELASI, ASISTEN TANYA TAYANG (deploy matra-gicw5xh4u, push GitHub a059491)
+
+ARYA melihat tiga soal kuis Trigonometri (k48, k50, k59, "sangat sulit")
+yang konsepnya tidak ada di materi, dan pembahasan satu kalimat yang tidak
+menjelaskan. Keputusannya: 10 soal per paket; materi Sudut Berelasi lengkap
+(bacaan, widget, video); kuis = penilaian, jawab semua dulu, pembahasan di
+akhir; soal bergambar dibahas dengan gambar; soal salah diberi tombol ke
+materinya; Asisten Tanya juga menautkan materi dengan namanya. Rancangan:
+`docs/superpowers/specs/2026-09-20-kuis-bab-v2-sudut-berelasi-design.md`.
+- KURASI `KUIS_BAB` sembilan bab (90 soal dari bank 540): tiap soal dibaca
+  lalu dicocokkan dengan bacaan materinya (grep kata kunci di `tahap.ts`);
+  yang konsepnya tidak tertulis dibuang dari kuis bab (radian, elevasi,
+  determinan, desil, r², transformasi data, sin 2x, dot product 3D, dan
+  sebagainya tetap ada di menu Latihan). Pemeriksa baru
+  `alat/cek_kuis_bab.mjs`: 10 butir, id ada di KUIS, materi ada di TAHAP dan
+  siap, tiap sub-bab (kecuali Penerapan) terwakili, soal bergambar punya
+  langkah bergambar. Semua bab lolos.
+- `components/topik/Kuis.tsx` ditulis ulang: urutan soal dikocok
+  (`kocok` di lib/acak-pilihan.ts; lib/soal-acak.ts dihapus), pilihan dikocok
+  per benih tab, peta soal 1 sampai 10 (terisi = terjawab, benar/salah belum
+  ditunjukkan), Sebelumnya/Berikutnya, Kumpulkan (jendela konfirmasi bila
+  ada yang kosong), halaman hasil: skor menghitung, tiap soal dengan pilihan
+  siswa dan kunci, pembahasan lewat komponen bersama
+  `components/latihan/Pembahasan.tsx` (dicabut dari ArenaLatihan, jadi
+  Latihan dan Kuis satu perender), jebakan, tombol "Baca Materi NN · Nama"
+  yang memanggil `pilihLayar`. Skor terbaik tetap `matra:kuis:<bab>` (kini
+  dari 10; rekor lama dari 8 tampil apa adanya), hasil terakhir
+  `matra:kuis:<bab>:terakhir`. `IsiTopik.kuisBab`, `ButirKuisBab` di tipe.ts.
+- Materi Trigonometri 11 `sudut-berelasi` (sub-bab B jadi [5, 6, 7, 11]):
+  bacaan θ + 90°, 180° − θ, 180° + θ, 360° − θ, 90° − θ dari lingkaran
+  satuan dengan contoh 40°, tabel lima relasi, poin tanda per kuadran, catatan
+  radian (untuk k50), sering keliru −cos θ vs −sin θ; widget
+  `components/widget/SudutBerelasi.tsx` (P diseret di kuadran I, Q mengikuti
+  relasi yang dipilih, tabel angka P dan Q di kolom kanan). cek_rumus_materi
+  0 galat, survei alat 0 cacat, uji Playwright 1280 dan 390. VIDEO BELUM:
+  `tahap11-sudut-berelasi` menyusul (naskah v3.1, Bian, kira-kira 4 ribu
+  huruf ElevenLabs).
+- Asisten Tanya (ARYA memasang ANTHROPIC_API_KEY dan Upstash siang ini):
+  uji 50 pertanyaan `alat/uji_tanya/jalankan.mjs` lewat dev server: 231 detik,
+  Rp 6.611 (Rp 132 per pertanyaan; cache prompt terbaca 216 ribu token),
+  jawaban benar semua yang dibaca, penolakan luar topik dan injeksi bekerja.
+  Tiga perbaikan dari hasilnya: model memakai **tebal** dan em-dash (aturan
+  10 kini teks polos, renderer tetap menghormati tebal dan daftar), model
+  mengarang slug `[[integral:aturan-pangkat]]` (bekal kini memuat DAFTAR
+  MATERI BAB INI, aturan 4 hanya boleh slug dari daftar, renderer membuang
+  slug tak dikenal), dan tautan kini tombol "Materi 05 · Lingkaran satuan"
+  yang membuka materinya di halaman yang sama (`onBukaMateri` dari rangka).
+  Hasil uji tersimpan `alat/uji_tanya/hasil-2026-09-20.md`. Env produksi
+  Vercel: ANTHROPIC_API_KEY, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN
+  (sensitive, tanpa TANYA_TANPA_PEMBATAS). Produksi diuji: satu jawaban
+  sungguhan (sisa 19), 20 kiriman berikutnya lolos, ke-21 ditolak 429
+  dengan kalimat ramah, kunci jatah IP uji dihapus dari Upstash sesudahnya.
+  Jebakan: mengedit berkas web/ saat uji berjalan membuat dev server
+  mengembalikan 500 ke semua permintaan (impor yang hilang sesaat), jadi 24
+  pertanyaan pertama harus diulang.
+- Belum: batas belanja bulanan di Console Anthropic (hanya ARYA yang bisa),
+  video materi 11, pemantauan jawaban bersama ARYA.
+
 ## 19 SEP: JENDELA SKOR TIDAK LAGI MUNCUL TIAP SOAL SALAH DIPERBAIKI (deploy matra-lb02q867e, push GitHub 242ea60)
 
 ARYA: siswa yang kembali dengan 15 soal tersimpan lalu memperbaiki soal
