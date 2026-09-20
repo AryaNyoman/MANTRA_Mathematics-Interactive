@@ -46,3 +46,4 @@ next-env.d.ts
 # .env.production DIKOMIT: hanya berisi NEXT_PUBLIC_ASAL_VIDEO (alamat publik
 # bucket R2, bukan rahasia). Rahasia R2 ada di ../.env.local (dibaca alat Python).
 !.env.production
+!.env.example
