@@ -1,0 +1,9 @@
+{
+  "kemdikbud-10": { "berkas": "D:\\BAHAN MATEMATIKA\\Buku Matematika Kelas 10 - Guru.pdf", "label": "buku kelas 10", "jenis": "kemdikbud" },
+  "kemdikbud-11": { "berkas": "D:\\BAHAN MATEMATIKA\\Buku Matematika Kelas 11 - Guru.pdf", "label": "buku kelas 11", "jenis": "kemdikbud" },
+  "kemdikbud-12": { "berkas": "D:\\BAHAN MATEMATIKA\\Matematika_BS_KLS_XII_Rev.pdf", "label": "buku kelas 12", "jenis": "kemdikbud" },
+  "lanjut-12": { "berkas": "D:\\BAHAN MATEMATIKA\\LIMIT.pdf", "label": "buku tingkat lanjut kelas 12", "jenis": "kemdikbud" },
+  "itb-kalkulus1": { "berkas": "D:\\SEKOLAH S1 & S2\\S1\\matematika\\kalkulus 1.pdf", "label": "diktat kalkulus 1", "jenis": "itb" },
+  "itb-kalkulus2": { "berkas": "D:\\SEKOLAH S1 & S2\\S1\\matematika\\kalkulus 2.pdf", "label": "diktat kalkulus 2", "jenis": "itb" },
+  "purcell-solusi": { "berkas": "D:\\SEKOLAH S1 & S2\\S1\\matematika\\Calculus (9rd Edition) - Solution.pdf", "label": "penyelesaian soal kalkulus", "jenis": "purcell" }
+}
