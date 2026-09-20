@@ -170,7 +170,7 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
   alat/bekal_asisten.mjs`, prebuild memeriksa kesegarannya, peta halaman
   sumber di `alat/bekal/peta-sumber.json`), aturan model di
   `web/lib/tanya/aturan.ts` (tanpa markdown, tanpa em-dash, tautan
-  `[[bab:slug]]` hanya dari daftar materi bab), jatah 20 pertanyaan per IP
+  `[[bab:slug]]` hanya dari daftar materi bab), jatah 5 pertanyaan per IP
   per hari lewat Upstash. Uji jawaban: `node alat/uji_tanya/jalankan.mjs`
   (50 pertanyaan, dev server 3210 dengan `TANYA_TANPA_PEMBATAS=1`, kira-kira
   Rp 7 ribu sekali jalan). Rahasia hanya di `web/.env.local` dan env Vercel,

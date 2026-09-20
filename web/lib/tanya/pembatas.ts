@@ -1,14 +1,14 @@
 /**
  * Jatah harian per IP lewat Upstash Redis REST (tanpa SDK). Kunci
  * tanya:<tanggal WIB>:<ip>, INCR lalu EXPIRE 26 jam. Batas dari env
- * TANYA_BATAS_HARIAN (bawaan 20; keputusan ARYA 20 Sep 2026: tanpa batas per
- * menit, tanpa batas per peramban). Upstash tidak terjangkau = MENOLAK
+ * TANYA_BATAS_HARIAN (bawaan 5, diturunkan ARYA dari 20 pada 20 Sep 2026 malam;
+ * tanpa batas per menit, tanpa batas per peramban). Upstash tidak terjangkau = MENOLAK
  * (gagal-tertutup) supaya kuota API tidak terbuka tanpa pagar, kecuali
  * TANYA_TANPA_PEMBATAS=1 untuk pengembangan lokal.
  */
 export const batasHarian = (): number => {
   const n = Number(process.env.TANYA_BATAS_HARIAN)
-  return Number.isFinite(n) && n > 0 ? Math.floor(n) : 20
+  return Number.isFinite(n) && n > 0 ? Math.floor(n) : 5
 }
 
 export function kunciHari(ip: string, kini = new Date()): string {

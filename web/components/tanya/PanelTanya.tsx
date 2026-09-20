@@ -233,7 +233,7 @@ export default function PanelTanya(p: Props) {
           </button>
         </div>
         <div className="tanya-catatan">
-          {p.sisa !== null ? `Sisa jatah hari ini: ${p.sisa}` : 'Jatah 20 pertanyaan per hari'}
+          {p.sisa !== null ? `Sisa jatah hari ini: ${p.sisa}` : 'Jatah 5 pertanyaan per hari'}
           {p.riwayat.length > 0 && (
             <>
               {' · '}
