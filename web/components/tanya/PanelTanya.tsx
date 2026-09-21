@@ -152,7 +152,7 @@ function LembarCetak({
       <div className="cetak-kepala">
         <div className="cetak-merek">MANTRA · Asisten Tanya</div>
         <h1>Catatan tanya jawab: {namaBab}</h1>
-        <div className="cetak-tanggal">Disimpan {tanggal}. Jawaban asisten berpijak pada materi MANTRA; periksa kembali ke bacaannya bila ragu.</div>
+        <div className="cetak-tanggal">Disimpan {tanggal}. Jawaban asisten berpijak pada materi MANTRA, tetapi AI bisa salah: pastikan ke gurumu sebelum dijadikan pegangan.</div>
       </div>
       {daftar.map((p) => (
         <section key={p.slug} className="cetak-materi">
@@ -322,6 +322,14 @@ export default function PanelTanya(p: Props) {
       ) : (
         <>
           <div className="tanya-isi">
+            {/* Peringatan merah di awal, sebelum bertanya (ARYA 21 Sep 2026):
+                AI bisa salah, membantu memahami, bukan penentu benar; pastikan
+                ke guru. Selalu di puncak percakapan, ikut tergulir ke atas
+                saat percakapannya panjang. */}
+            <div className="tanya-peringatan" role="note">
+              <b>Perhatian: jawaban AI bisa salah.</b> Asisten ini membantu kamu memahami materi dan maksud
+              pertanyaanmu, bukan penentu benar atau salah. Untuk memastikan jawabannya, tanyakan langsung ke gurumu.
+            </div>
             {p.riwayat.length === 0 && !p.kutipan && (
               <p className="tanya-pengantar">
                 Blok kalimat yang belum jelas di bacaan lalu tekan Tanya, atau tulis pertanyaanmu di bawah.

@@ -2637,6 +2637,14 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .tanya-tautan-cetak { text-decoration: underline; color: #8A6A2A; }
 .tanya-isi { flex: 1 1 auto; overflow: auto; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; }
 .tanya-pengantar { margin: 0; color: var(--tinta-72); font-size: 14px; line-height: 1.6; }
+/* Peringatan "AI bisa salah" (ARYA 21 Sep 2026): merah bata palet situs,
+   warna yang sama dengan tanda "Salah", di puncak percakapan. */
+.tanya-peringatan {
+  margin: 0 0 12px; padding: 10px 12px; border-radius: 0 10px 10px 0;
+  border-left: 3px solid var(--bata); background: rgba(232, 88, 44, 0.08);
+  color: var(--bata); font-size: 13px; line-height: 1.55;
+}
+.tanya-peringatan b { font-weight: 700; }
 .tanya-pesan.siswa p {
   margin: 0; padding: 10px 14px; border-radius: 14px 14px 4px 14px;
   background: rgba(176, 138, 62, 0.14); font-size: 14px; line-height: 1.55; white-space: pre-wrap;
