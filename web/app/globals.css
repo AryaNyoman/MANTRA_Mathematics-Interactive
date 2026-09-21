@@ -691,6 +691,14 @@ h1, h2, h3, .disp {
 .hasil-bahas > .kicker { margin-bottom: 2px; }
 .hasil-soal .baca-materi { margin-top: 14px; padding: 11px 18px; font-size: 13.5px; }
 .hasil-aksi { display: flex; justify-content: center; margin-top: 22px; }
+/* Halaman hasil satu soal sekaligus (ARYA 21 Sep 2026): peta hasil di atas
+   kartu soalnya, Sebelumnya/Berikutnya dan tombol ulang di bawah. Tombol
+   ulang selama jeda 30 menit menampilkan hitung mundurnya. */
+.kuis-hasil .hasil-soal { margin-top: 14px; }
+.kuis-hasil .hasil-arah { justify-content: space-between; margin-top: 18px; }
+.kuis-hasil .hasil-arah .pil-gelap { padding: 11px 22px; font-variant-numeric: tabular-nums; min-width: 12.5em; }
+.kuis-hasil .hasil-arah .pil-gelap:disabled { opacity: 0.55; cursor: not-allowed; }
+.hasil-jeda { margin: 10px 0 0; text-align: right; }
 
 /* --- daftar tautan kanal --- */
 .tautan { list-style: none; padding: 0; margin: 8px 0 0; font-size: 14px; }
@@ -3206,6 +3214,15 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   align-items: center; justify-content: center; font-size: 9px; color: #fff;
 }
 .pohon-baris[data-selesai='true'] .status { border-color: var(--hijau); background: var(--hijau); }
+/* Cincin 2 menit membaca di materi yang sedang terbuka (ARYA 21 Sep 2026):
+   ditumpangkan di atas lingkaran status, terisi searah jarum jam. */
+.pohon-baris .status { position: relative; }
+.status-baca {
+  position: absolute; inset: -1.5px; width: calc(100% + 3px); height: calc(100% + 3px);
+  transform: rotate(-90deg);
+}
+.status-baca circle { transition: stroke-dashoffset 1s linear; }
+@media (prefers-reduced-motion: reduce) { .status-baca circle { transition: none; } }
 @keyframes letup {
   0% { transform: scale(0.4); opacity: 0.3; }
   60% { transform: scale(1.35); }
@@ -3259,7 +3276,24 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   flex: 1; min-width: 0; text-align: center;
   font-size: var(--t-meta); color: var(--tinta-50);
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
+/* Garis 2 menit membaca (ARYA 21 Sep 2026) di bibir atas bilah pindah:
+   emas selama terisi, hijau sesaat saat genap. Lebarnya bertransisi 1 detik
+   linear, mengikuti irama detiknya, jadi terlihat mengalir, bukan melompat.
+   Bilahnya sticky (di HP relative), jadi garis absolutnya menempel padanya. */
+.pindah-baca {
+  /* di dasar bilah (bagian latar yang pekat), bukan di bibir atasnya yang
+     tembus pandang dan menimpa baris bacaan terakhir */
+  position: absolute; left: 0; right: 0; bottom: 5px; height: 2px;
+  background: rgba(16, 26, 43, 0.08); border-radius: 2px; overflow: hidden;
+}
+.pindah-baca > span {
+  display: block; height: 100%; background: var(--emas);
+  transition: width 1s linear, background var(--d-umpan) var(--kurva);
+}
+.pindah-baca[data-genap='true'] > span { background: var(--hijau); }
+@media (prefers-reduced-motion: reduce) { .pindah-baca > span { transition: none; } }
 .pindah-lanjut {
   margin-left: auto; border: 0;
   background: var(--emas); color: var(--panggung);
@@ -3267,9 +3301,11 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .pindah-lanjut:hover { background: var(--emas-cerah); transform: translateY(-2px); }
 .pindah-materi button:active { transform: scale(0.97); }
 @media (max-width: 860px) {
-  /* Di HP baris ini hanya muat untuk dua tombolnya. */
+  /* Di HP baris ini hanya muat untuk dua tombolnya. `relative`, bukan
+     `static`: sticky-nya dilepas, tetapi garis 2 menit (absolute) tetap
+     menempel di bilah ini. */
   .pindah-petunjuk { display: none; }
-  .pindah-materi { position: static; }
+  .pindah-materi { position: relative; }
 }
 
 /* Tombol pembuka laci, tombol tutupnya, dan tirainya HANYA ada di layar HP.

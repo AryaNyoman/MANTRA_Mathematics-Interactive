@@ -137,7 +137,7 @@ export default function LaciLanjut({ onPilih }: { onPilih?: () => void }) {
                 className="nav-laci-baris"
                 role="menuitem"
                 data-tuntas={tuntas}
-                title={tuntas ? `${b.nama}: semua materi sudah dibuka` : `Lanjutkan ${b.nama}`}
+                title={tuntas ? `${b.nama}: semua materi selesai dibaca` : `Lanjutkan ${b.nama}`}
                 onClick={() => {
                   setBuka(false)
                   onPilih?.()

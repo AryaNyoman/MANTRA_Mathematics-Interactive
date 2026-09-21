@@ -79,6 +79,32 @@ mustahil ditulis kata.
 - Dikesampingkan ARYA (tanpa kredit ElevenLabs): rekam ulang video 07
   (masih menunjuk Grafik Fungsi Trigonometri) dan Statistika 01/13 (masih
   mengucapkan menipu/menyesatkan).
+- Kuis lebih ketat (ARYA, sesudahnya; deploy matra-3x5l1hn43):
+  * Tiap materi harus DIBACA 2 MENIT TANPA PUTUS sebelum dicentang hijau
+    (`lib/kemajuan.ts` MENIT_BACA, pencatat di HalamanTopik): mulai 0 saat
+    materi dibuka, hanya berjalan saat tab terlihat (berpindah tab = jeda,
+    pilihan ARYA), hangus kalau pindah materi, ke Latihan/Kuis, tutup atau
+    muat ulang halaman. Kuis terbuka saat semua materi bab selesai; syarat
+    10 menit total dihapus; mode guru tetap bebas. Medan simpanan tetap
+    `dibuka` supaya centang lama siswa tidak hilang (pilihan ARYA).
+    Penanda: cincin hijau terisi di baris materi aktif, garis emas di dasar
+    bilah Kembali/Lanjut (terlihat di HP juga), teks "dibaca 0:45 dari
+    2:00", syarat kuis "Baca tiap materi 2 menit tanpa putus (n/11
+    selesai)". Diuji Playwright waktu nyata: hitung, hangus saat pindah,
+    jeda saat tab disembunyikan, genap di 2:00 membuka kuis; di produksi
+    juga.
+  * Jeda 30 menit sebelum kuis boleh diulang (`JEDA_ULANG_MENIT` di
+    Kuis.tsx): waktu kumpul, urutan soal, dan jawaban disimpan di
+    `matra:kuis:<bab>:terakhir`, jadi memuat ulang halaman selama jeda
+    tetap memperlihatkan hasil yang sama; tombol "Ulangi dalam 29:59"
+    menghitung mundur; mode guru bebas jeda. Bukan pengamanan (simpanan di
+    peramban siswa), sudah ditulis di komentar.
+  * Pembahasan hasil SATU SOAL SEKALIGUS: peta hasil berwarna (hijau
+    benar, jingga salah), Sebelumnya/Berikutnya, kartu soal dengan pilihan,
+    pembahasan, dan tombol Baca Materi; bukan sepuluh kartu bertumpuk.
+  * Bug: sidebar yang dikuncupkan di desktop ikut kuncup saat jendela
+    dikecilkan ke laci HP (nama materi hilang). `rel` kini diabaikan di
+    bawah 860 px (`KUERI_LACI`), dan pulih saat dilebarkan lagi.
 - Bank Soal dan Limit 05 (ARYA, sesudahnya; deploy matra-p4ke0ndd5): menu
   nav "Latihan" jadi "Bank Soal" (alamat `/latihan` tetap), judul halaman
   `/latihan` dan `/latihan/<bab>`, kicker, remah arena. Kartu Peta Materi:

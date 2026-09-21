@@ -165,6 +165,15 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
   bergambar semua soal; soal salah diberi tombol "Baca Materi NN". Pemeriksa
   `node alat/cek_kuis_bab.mjs` (10 butir, id dan slug sah, tiap sub-bab
   terwakili). Materi baru yang ada soalnya: tambahkan ke `KUIS_BAB`.
+  Sejak 21 Sep 2026 (ARYA): kuis terbuka hanya kalau SEMUA materi bab
+  selesai DIBACA 2 MENIT TANPA PUTUS (`lib/kemajuan.ts`: pencatatnya di
+  HalamanTopik, jeda saat tab tersembunyi, hangus saat meninggalkan materi;
+  medan simpanan tetap `dibuka`, data lama dibiarkan); syarat 10 menit
+  total dihapus; mode guru tetap bebas. Sesudah Kumpulkan ada JEDA 30 MENIT
+  sebelum boleh mengulang (`JEDA_ULANG_MENIT`, waktu dan jawabannya di
+  `matra:kuis:<bab>:terakhir`, memuat ulang halaman memperlihatkan hasil
+  yang sama), dan pembahasan hasil ditampilkan SATU SOAL SEKALIGUS dengan
+  peta hasil berwarna, bukan sepuluh sekaligus.
 - **Dua "latihan" yang berbeda** (ARYA 21 Sep 2026): menu nav **Bank Soal**
   (`/latihan`, alamat sengaja tetap) = 60 soal berjenjang per bab; baris
   **Latihan · 4 soal** di daftar materi halaman belajar = pemanasan bab plus

@@ -3,34 +3,41 @@
 import { baca, tulis } from '@/lib/simpanan'
 
 /**
- * Pencatat kemajuan membaca, dipakai untuk membuka kunci kuis.
+ * Pencatat kemajuan membaca, dipakai untuk membuka kunci kuis dan mengisi
+ * centang hijau di daftar materi.
  *
- * SYARATNYA (permintaan ARYA, 1 Sep 2026):
- *   1. kesepuluh materi pernah dibuka, DAN
- *   2. total waktu membaca mencapai 10 menit.
+ * SYARATNYA (ARYA 21 Sep 2026, menggantikan aturan 1 Sep "semua materi
+ * pernah dibuka dan total 10 menit"):
+ *   setiap materi harus DIBACA 2 MENIT TANPA PUTUS. Pencatat waktunya ada di
+ *   halaman belajar (HalamanTopik): mulai dari 0 saat materi dibuka, hanya
+ *   berjalan selama tab terlihat (berpindah tab = jeda, bukan hangus), dan
+ *   hangus kembali ke 0 kalau siswa meninggalkan materinya (pindah materi,
+ *   ke Latihan atau Kuis, menutup atau memuat ulang halaman) sebelum 2
+ *   menit. Tepat di 2 menit slug materinya dicatat ke `dibuka`.
+ *   Kuis terbuka saat SEMUA materi bab tercatat; tidak ada lagi syarat
+ *   menit total. Mode guru (lib/mode-guru.ts) membuka kuis tanpa syarat.
  *
- * Syarat itu SENGAJA tidak diumumkan ke siswa. Yang tampil hanya ajakan halus
- * untuk menyelesaikan materinya dulu. Alasannya: kalau angkanya disebut,
- * siswa akan mengejar angka itu, bukan membaca.
+ * Nama medan `dibuka` dipertahankan walau artinya kini "selesai dibaca 2
+ * menit": kunci dan bentuk simpanannya tidak berubah, jadi centang yang
+ * sudah tersimpan siswa dari aturan lama tetap berlaku (keputusan ARYA 21
+ * Sep: data lama dibiarkan). `detik` = total detik membaca bab, tetap
+ * dihitung sebagai catatan, tidak lagi menjadi syarat.
  *
  * INI BUKAN PENGAMANAN, dan tidak boleh diperlakukan begitu. Catatannya ada di
  * peramban siswa sendiri dan bisa dihapus siapa pun yang mau. Tujuannya
  * mendorong kebiasaan membaca sebelum menguji diri, bukan mencegah kecurangan.
  * Skor kuis di sini tidak sah sebagai penilaian.
- *
- * Waktu hanya bertambah selama tab benar-benar terlihat dan materi sedang
- * dibuka, sehingga meninggalkan halaman semalaman tidak dihitung sebagai
- * membaca.
  */
 
 const KUNCI = 'matra:kemajuan:'
-export const MENIT_MINIMUM = 10
-const DETIK_MINIMUM = MENIT_MINIMUM * 60
+/** lama membaca tanpa putus yang dituntut dari tiap materi */
+export const MENIT_BACA = 2
+export const DETIK_BACA = MENIT_BACA * 60
 
 export type Kemajuan = {
-  /** slug materi yang pernah dibuka */
+  /** slug materi yang sudah selesai dibaca (2 menit tanpa putus) */
   dibuka: string[]
-  /** total detik membaca, hanya dihitung saat tab terlihat */
+  /** total detik membaca, hanya dihitung saat tab terlihat; catatan saja */
   detik: number
 }
 
@@ -52,6 +59,7 @@ export function bacaKemajuan(topik: string): Kemajuan {
   }
 }
 
+/** Mencatat materi selesai dibaca. Dipanggil HalamanTopik tepat di 2 menit. */
 export function catatDibuka(topik: string, slug: string): void {
   const k = bacaKemajuan(topik)
   if (k.dibuka.includes(slug)) return
@@ -63,18 +71,20 @@ export function tambahDetik(topik: string, detik: number): void {
   tulis(KUNCI + topik, JSON.stringify({ ...k, detik: k.detik + detik }))
 }
 
-/** Kuis terbuka kalau kedua syarat terpenuhi. */
-export function kuisTerbuka(k: Kemajuan, jumlahMateri: number): boolean {
-  return k.dibuka.length >= jumlahMateri && k.detik >= DETIK_MINIMUM
+/** Kuis terbuka kalau setiap materi bab (yang sudah dibangun) selesai dibaca. */
+export function kuisTerbuka(k: Kemajuan, slugMateri: string[]): boolean {
+  if (slugMateri.length === 0) return false
+  const sudah = new Set(k.dibuka)
+  return slugMateri.every((s) => sudah.has(s))
 }
 
 /**
  * Ajakan yang ditampilkan saat kuis masih terkunci.
  *
- * Sengaja tidak menyebut berapa materi lagi atau berapa menit lagi: yang perlu
- * diketahui siswa hanyalah bahwa membaca dulu itu bagian dari alurnya. Tetapi
- * juga tidak boleh diam sama sekali, karena tombol mati tanpa keterangan akan
- * dikira situsnya rusak.
+ * Sengaja tidak menyebut berapa materi lagi: yang perlu diketahui siswa
+ * hanyalah bahwa membaca dulu itu bagian dari alurnya. Tetapi juga tidak
+ * boleh diam sama sekali, karena tombol mati tanpa keterangan akan dikira
+ * situsnya rusak.
  */
 export function ajakan(): string {
   return 'Selesaikan dulu materinya, kuis terbuka setelah itu'

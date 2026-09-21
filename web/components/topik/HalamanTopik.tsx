@@ -15,7 +15,7 @@ import type { Topik } from '@/content/topik'
 import { cariBab, type SubBab } from '@/content/subbab'
 import { bacaAngka, langgan, simpanAngka } from '@/lib/simpanan'
 import {
-  bacaKemajuan, catatDibuka, tambahDetik, kuisTerbuka, MENIT_MINIMUM,
+  bacaKemajuan, catatDibuka, tambahDetik, kuisTerbuka, DETIK_BACA, MENIT_BACA,
 } from '@/lib/kemajuan'
 import { aturSesi, daftarkanAkar, keluarFokus, lepasSesi, useSesiBelajar } from '@/lib/sesi-belajar'
 import PenggeserEmas from '@/components/mantra/PenggeserEmas'
@@ -44,6 +44,26 @@ function langganPadat(ubah: () => void) {
 function bacaPadat() {
   return window.matchMedia(KUERI_PADAT).matches
 }
+
+/**
+ * Di bawah 860 piksel sidebar menjadi LACI (globals.css). Keadaan "rel"
+ * (sidebar dikuncupkan di layar lebar) tidak boleh ikut ke laci: ARYA 21 Sep
+ * 2026 mengecilkan jendela Chrome sesudah menguncupkan sidebar, dan lacinya
+ * terbuka tanpa satu pun nama materi. Dibaca sebagai external store,
+ * sama seperti `padat`.
+ */
+const KUERI_LACI = '(max-width: 860px)'
+function langganLaci(ubah: () => void) {
+  const m = window.matchMedia(KUERI_LACI)
+  m.addEventListener('change', ubah)
+  return () => m.removeEventListener('change', ubah)
+}
+function bacaLaci() {
+  return window.matchMedia(KUERI_LACI).matches
+}
+
+/** "1:05" dari detik. */
+const menitDetik = (d: number) => `${Math.floor(d / 60)}:${String(d % 60).padStart(2, '0')}`
 
 /** Lebar awal kolom ALAT, dalam piksel. Sama dengan rancangan. */
 const LEBAR_ALAT_BAWAAN = 380
@@ -162,7 +182,10 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   // Tahap yang punya video menampilkan salah satu saja pada satu waktu,
   // supaya panggung tetap satu layar tanpa gulir atas-bawah.
   const [mode, setMode] = useState<'coba' | 'tonton'>('tonton')
-  const [rel, setRel] = useState(false)
+  const [relPilih, setRel] = useState(false)
+  // Di mode laci (layar sempit) kuncupan sidebar diabaikan; lihat KUERI_LACI.
+  const modeLaci = useSyncExternalStore(langganLaci, bacaLaci, () => false)
+  const rel = relPilih && !modeLaci
   /* Kuncup pohon (sistem gerak Panggung tahap 3): label memudar dulu
      (--d-umpan), BARU kolomnya menyempit (grid-template-columns bertransisi
      di CSS). Kalau label ikut hilang bersamaan dengan kolom yang bergerak,
@@ -236,9 +259,17 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
   )
   const kemajuan = JSON.parse(kemajuanJson) as ReturnType<typeof bacaKemajuan>
   const dibuka = new Set(kemajuan.dibuka)
-  // Mode guru (lib/mode-guru.ts) membuka kuis tanpa syarat materi dan menit.
+  // Mode guru (lib/mode-guru.ts) membuka kuis tanpa syarat membaca.
   const guru = useModeGuru()
-  const terbuka = kuisTerbuka(kemajuan, TAHAP.length) || guru
+  // Syarat kuis: SEMUA materi yang sudah dibangun selesai dibaca 2 menit
+  // (lib/kemajuan.ts). Materi yang belum dibangun (siap false) tidak dituntut.
+  const slugSiap = useMemo(
+    () => urut.map(tahapDari).filter((t): t is NonNullable<typeof t> => Boolean(t?.siap)).map((t) => t.slug),
+    // urut dan tahapDari turunan tetap dari isi topik
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [topik.slug],
+  )
+  const terbuka = kuisTerbuka(kemajuan, slugSiap) || guru
   const jumlahDibuka = urut.filter((n) => dibuka.has(tahapDari(n)?.slug ?? '')).length
   /* Lencana kuis "Terkunci" menjadi "Siap": menyala sekali, hanya saat
      perubahannya terjadi di depan mata (bukan saat halaman dibuka dalam
@@ -257,7 +288,6 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
     }
   }, [terbuka])
   const persen = Math.round((jumlahDibuka / urut.length) * 100)
-  const menitKurang = Math.max(0, MENIT_MINIMUM - Math.floor(kemajuan.detik / 60))
 
   /* Kunci kuis dijaga di SINI, bukan hanya di tombolnya. Alamat `?materi=kuis`
      bisa diketik sendiri, dan kalau syaratnya belum lewat siswa dilempar ke
@@ -367,23 +397,48 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
     window.scrollTo(0, 0)
   }, [kunciLayar])
 
+  /* PEMBACA 2 MENIT TANPA PUTUS (ARYA 21 Sep 2026): materi baru dicatat
+     selesai (centang hijau, syarat kuis) sesudah dibaca DETIK_BACA detik
+     berturut-turut, bukan begitu dibuka. Hitungannya hidup di sini saja:
+     - detik hanya bertambah saat tab terlihat; berpindah tab = jeda, dan
+       hitungan lanjut dari angka yang sama saat kembali (pilihan ARYA);
+     - meninggalkan materinya (pindah materi, ke Latihan atau Kuis, menutup
+       atau memuat ulang halaman) sebelum genap = hangus: effect dibersihkan
+       dan hitungan berikutnya mulai dari 0 lagi;
+     - materi yang sudah tercatat tidak dihitung lagi.
+     `baca` = {slug, detik} supaya angka materi lama tidak sempat tampil di
+     materi baru; setState-nya dari dalam interval, bukan badan effect. */
+  const [baca, setBaca] = useState<{ slug: string; detik: number } | null>(null)
   useEffect(() => {
     if (layar.jenis !== 'tahap' || !lanjutBeres) return
-    const baru = !bacaKemajuan(topik.slug).dibuka.includes(layar.slug)
-    catatDibuka(topik.slug, layar.slug)
-    if (baru) {
-      // Centang meletup sekali, saat materi PERTAMA kali dibuka. Dijadwalkan
-      // lewat requestAnimationFrame, bukan setState serentak: React 19
-      // melarangnya di dalam effect (react-hooks/set-state-in-effect).
-      const slug = layar.slug
-      const bingkai = requestAnimationFrame(() => setLetup(slug))
-      const id = window.setTimeout(() => setLetup(null), 600)
-      return () => {
-        cancelAnimationFrame(bingkai)
-        window.clearTimeout(id)
+    const slug = layar.slug
+    if (bacaKemajuan(topik.slug).dibuka.includes(slug)) return
+    let detik = 0
+    let selesai = false
+    // mulai dari 0 (lewat rAF, bukan setState serentak di badan effect)
+    const bingkai = requestAnimationFrame(() => setBaca({ slug, detik: 0 }))
+    const id = window.setInterval(() => {
+      if (selesai || document.visibilityState !== 'visible') return
+      detik += 1
+      setBaca({ slug, detik })
+      if (detik >= DETIK_BACA) {
+        selesai = true
+        window.clearInterval(id)
+        catatDibuka(topik.slug, slug)
+        // centang meletup sekali, tepat saat 2 menitnya genap
+        setLetup(slug)
+        window.setTimeout(() => setLetup((l) => (l === slug ? null : l)), 600)
       }
+    }, 1000)
+    return () => {
+      // hangus: hitungan materi ini dibuang bersama effect-nya; angkanya
+      // tidak dipakai lagi karena `detikBaca` hanya membaca slug yang aktif
+      cancelAnimationFrame(bingkai)
+      window.clearInterval(id)
     }
   }, [layar, topik.slug, lanjutBeres])
+  // detik membaca materi yang sedang terbuka (0 kalau belum berjalan)
+  const detikBaca = layar.jenis === 'tahap' && baca?.slug === layar.slug ? baca.detik : 0
 
   /* Selama laci terbuka, halaman di belakangnya dikunci supaya tidak ikut
      bergulir saat jari menggeser di atas tirai. Esc menutupnya, sama seperti
@@ -493,8 +548,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
 
   const kuisSyarat = terbuka
     ? 'Terbuka'
-    : `Buka ${TAHAP.length} materi (${jumlahDibuka}/${TAHAP.length})` +
-      (menitKurang > 0 ? ` dan baca ${MENIT_MINIMUM} menit` : '')
+    : `Baca tiap materi ${MENIT_BACA} menit tanpa putus (${jumlahDibuka}/${slugSiap.length} selesai)`
 
   // `materi-satu-layar`: halaman ini TIDAK menggulir. Kotak materi mengisi
   // sisa layar di bawah nav, dan yang menggulir hanya isi di dalamnya
@@ -586,7 +640,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
               </div>
               {!rel && (
                 <div className="pohon-maju-teks angka-rata">
-                  {jumlahDibuka} dari {urut.length} materi dibuka · {persen}%
+                  {jumlahDibuka} dari {urut.length} materi selesai dibaca · {persen}%
                 </div>
               )}
             </div>
@@ -629,8 +683,21 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                         <span className="no">{dua(t.no)}</span>
                         {!rel && <span className="judul">{t.judul}</span>}
                         {!rel && (
-                          <span className="status" aria-hidden="true">
-                            {selesai ? '✓' : ''}
+                          <span
+                            className="status"
+                            aria-hidden="true"
+                            title={!selesai && aktif && detikBaca > 0 ? `dibaca ${menitDetik(detikBaca)} dari ${MENIT_BACA}:00` : undefined}
+                          >
+                            {selesai ? '✓' : null}
+                            {/* Cincin yang terisi selama 2 menit membaca materi
+                                yang sedang terbuka: supaya siswa tahu centangnya
+                                sedang menunggu, bukan rusak. Keliling r=6 = 37,7. */}
+                            {!selesai && aktif && detikBaca > 0 && (
+                              <svg className="status-baca" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="6" fill="none" stroke="var(--hijau)" strokeWidth="2.5"
+                                  strokeDasharray="37.7" strokeDashoffset={(37.7 * (1 - Math.min(1, detikBaca / DETIK_BACA))).toFixed(1)} />
+                              </svg>
+                            )}
                           </span>
                         )}
                       </button>
@@ -877,6 +944,7 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                       tahap={TAHAP}
                       kunciSimpan={`matra:kuis:${topik.slug}`}
                       onBacaMateri={(slug) => pilihLayar({ jenis: 'tahap', slug })}
+                      guru={guru}
                     />
                   )}
 
@@ -904,7 +972,25 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                        membaca separuh harus menggulir sampai habis dulu untuk
                        menemukannya. Sekarang ia selalu ada di bawah mata,
                        cukup satu baris. */
-                    <div className="pindah-materi">
+                    <div className="pindah-materi" data-membaca={!dibuka.has(tahap.slug)}>
+                      {/* Garis tipis di bibir atas bilah: terisi selama 2 menit
+                          membaca (ARYA 21 Sep 2026), terlihat di HP juga, tempat
+                          petunjuk teksnya disembunyikan. Hijau penuh sesaat
+                          saat genap (letup), lalu hilang karena materinya
+                          sudah tercatat. */}
+                      {(!dibuka.has(tahap.slug) || letup === tahap.slug) && (
+                        <span
+                          className="pindah-baca"
+                          role="progressbar"
+                          aria-label={`Membaca ${menitDetik(detikBaca)} dari ${MENIT_BACA} menit`}
+                          aria-valuemin={0}
+                          aria-valuemax={DETIK_BACA}
+                          aria-valuenow={Math.min(DETIK_BACA, detikBaca)}
+                          data-genap={dibuka.has(tahap.slug)}
+                        >
+                          <span style={{ width: `${dibuka.has(tahap.slug) ? 100 : Math.min(100, (detikBaca / DETIK_BACA) * 100)}%` }} />
+                        </span>
+                      )}
                       <button
                         type="button"
                         className="pindah-kembali"
@@ -915,8 +1001,15 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                         ← Kembali
                       </button>
                       {/* Petunjuk sub-bab disembunyikan di HP: di sana baris
-                          ini hanya muat untuk dua tombolnya. */}
-                      {saranLanjut && <span className="pindah-petunjuk">{saranLanjut}</span>}
+                          ini hanya muat untuk dua tombolnya. Selama 2 menit
+                          membaca belum genap, petunjuknya menyebut hitungannya. */}
+                      {(saranLanjut || !dibuka.has(tahap.slug)) && (
+                        <span className="pindah-petunjuk">
+                          {!dibuka.has(tahap.slug)
+                            ? `dibaca ${menitDetik(detikBaca)} dari ${MENIT_BACA}:00`
+                            : saranLanjut}
+                        </span>
+                      )}
                       <button
                         type="button"
                         className="pindah-lanjut"
