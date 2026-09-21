@@ -3,22 +3,67 @@ import { useEffect, useState } from 'react'
 
 type Posisi = { x: number; y: number; teks: string }
 
+/** Elemen yang memulai baris baru saat blokan diubah jadi teks. */
+const BLOK = new Set([
+  'P', 'DIV', 'LI', 'OL', 'UL', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'TR', 'TABLE',
+  'BLOCKQUOTE', 'SECTION', 'ARTICLE', 'DL', 'DT', 'DD', 'PRE', 'FIGURE', 'FIGCAPTION', 'HR',
+])
+
 /**
- * Teks yang diblok, dengan rumus KaTeX dikembalikan ke teks aslinya: KaTeX
- * menaruh "90°" sebagai "90", "∘" di simpul terpisah, sehingga
- * `toString()` seleksi menghasilkan "90 ∘". TeksMat menyimpan teks Unicode
- * aslinya di `data-teks`; rumus yang terkena blok (utuh atau sebagian)
- * diganti seluruh teks itu.
+ * Menyalin isi blokan menjadi teks yang SUSUNAN BARISNYA terjaga (ARYA 21 Sep
+ * 2026: kotak contoh yang diblok tadinya luruh jadi satu paragraf, "Bayangan
+ * pohon8 mTinggi Anda1,6 m"). Tiap elemen blok jadi baris sendiri, butir
+ * daftar diberi "•", sel kotak contoh (`.sel-contoh`) dipisah " · " supaya
+ * satu baris tabel tetap satu baris. Rumus KaTeX dikembalikan ke teks
+ * aslinya lewat `data-teks` TeksMat (KaTeX menaruh "90°" sebagai "90" dan
+ * "∘" di simpul terpisah).
  */
+function kumpulkan(simpul: Node, keluar: string[]): void {
+  if (simpul.nodeType === Node.TEXT_NODE) {
+    keluar.push(simpul.textContent ?? '')
+    return
+  }
+  if (simpul instanceof Element) {
+    const teks = simpul.getAttribute('data-teks')
+    if (teks !== null) {
+      keluar.push(teks)
+      return
+    }
+    if (simpul.tagName === 'BR') {
+      keluar.push('\n')
+      return
+    }
+    const blok = BLOK.has(simpul.tagName)
+    if (blok) keluar.push('\n')
+    if (simpul.tagName === 'LI') keluar.push('• ')
+    for (const anak of Array.from(simpul.childNodes)) kumpulkan(anak, keluar)
+    if (simpul.classList.contains('sel-contoh')) keluar.push(' · ')
+    if (blok) keluar.push('\n')
+    return
+  }
+  // DocumentFragment
+  for (const anak of Array.from(simpul.childNodes)) kumpulkan(anak, keluar)
+}
+
+/* Satu baris per blok, tanpa baris kosong: dua blok bersebelahan memberi
+   dua ganti baris, dan untuk kutipan satu saja sudah cukup. */
+function rapikan(mentah: string): string {
+  return mentah
+    .split('\n')
+    .map((b) => b.replace(/[ \t ]+/g, ' ').replace(/^\s*·\s*/, '').replace(/\s*·\s*$/, '').trim())
+    .filter((b) => b !== '')
+    .join('\n')
+}
+
 function teksSeleksi(sel: Selection): string {
   const rentang = sel.getRangeAt(0)
   const wadah = rentang.commonAncestorContainer
   const induk = wadah instanceof Element ? wadah : wadah.parentElement
   const rumusSaja = induk?.closest('[data-teks]')
   if (rumusSaja) return rumusSaja.getAttribute('data-teks') ?? ''
-  const potongan = rentang.cloneContents()
-  potongan.querySelectorAll('[data-teks]').forEach((el) => el.replaceWith(el.getAttribute('data-teks') ?? ''))
-  return (potongan.textContent ?? '').replace(/\s+/g, ' ').trim()
+  const keluar: string[] = []
+  kumpulkan(rentang.cloneContents(), keluar)
+  return rapikan(keluar.join(''))
 }
 
 /**

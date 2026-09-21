@@ -79,6 +79,28 @@ mustahil ditulis kata.
 - Dikesampingkan ARYA (tanpa kredit ElevenLabs): rekam ulang video 07
   (masih menunjuk Grafik Fungsi Trigonometri) dan Statistika 01/13 (masih
   mengucapkan menipu/menyesatkan).
+- Asisten Tanya dirapikan (ARYA, sesudahnya; deploy matra-7razqp27z):
+  * Kutipan blokan menjaga SUSUNAN BARISNYA (`TombolTanyaBlok` menyalin
+    isi blokan blok demi blok: tiap elemen blok satu baris, butir daftar
+    "•", sel kotak contoh dipisah " · "), bukan luruh jadi satu paragraf.
+  * Kutipan dan pertanyaan DIBEDAKAN: giliran siswa disimpan `{teks,
+    kutipan}` (`PesanRiwayat.kutipan`, ke server digabung), di panel
+    kutipan kotak abu-abu bergaris navy bercap "Yang diblok" dan
+    pertanyaan gelembung emas; di PDF sama.
+  * Jawaban: ganti baris tunggal dipertahankan (`<br>`), nomor daftar
+    hidup lagi (preflight Tailwind mematikan list-style: langkah "1., 2."
+    sempat tanpa nomor), nomor yang ditulis model dipakai apa adanya
+    (`<li value>`), di PDF nomor ditulis teks. Aturan 11 di
+    `lib/tanya/aturan.ts`: tiap besaran di baris sendiri, tiap langkah satu
+    butir bernomor, ÷ atau pecahan a/b mengikuti materi. Satu pertanyaan
+    uji sungguhan: hasilnya sesuai contoh ARYA.
+  * Riwayat DISATUKAN lintas bab: tab "Riwayat (n)" memuat semua bab,
+    dinamai "Trigonometri: Materi 01" plus judul pendek (`namaPercakapan`
+    di AsistenTanya, `daftarRiwayat()` tanpa bab), lencana daftar materi
+    menghitung semua bab, "Buka" bab lain menuju
+    `/topik/<bab>?materi=<slug>&tanya=1` (panel langsung terbuka), PDF
+    memuat semua bab (`mantra-tanya-<tanggal>.pdf`). Uji riwayat 24 lolos.
+  * Pindah tab Materi ini / Riwayat memudar masuk 180 ms (`.tanya-isi[data-tab]`).
 - Peringatan AI (ARYA, sesudahnya; deploy matra-2wbi4aawo): kotak merah
   bata di puncak percakapan Asisten Tanya, "Perhatian: jawaban AI bisa
   salah. Asisten ini membantu kamu memahami materi dan maksud pertanyaanmu,

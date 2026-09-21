@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import TeksMat from '@/components/latihan/TeksMat'
 import type { GambarTanya, PesanRiwayat } from '@/lib/tanya/jenis'
 import { UMUR_HARI, sisaHari, umurTeks, type Percakapan } from '@/lib/tanya/riwayat'
@@ -27,9 +27,12 @@ type Props = {
   sisa: number | null
   onTanya: (pertanyaan: string, gambar: GambarTanya | null) => void
   onBersihkan: () => void
-  // ---- riwayat seluruh bab ----
+  // ---- riwayat SEMUA bab (ARYA 21 Sep 2026) ----
   daftar: Percakapan[]
-  onHapusPercakapan: (slug: string) => void
+  /** "Trigonometri: Materi 01" plus judul pendek materinya, bab mana pun */
+  namaPercakapan: (bab: string, slug: string) => { nama: string; judul: string }
+  onBukaPercakapan: (bab: string, slug: string) => void
+  onHapusPercakapan: (bab: string, slug: string) => void
 }
 
 const POLA_TAUTAN = /(\[\[[a-z0-9-]+:[a-z0-9-]+\]\])/g
@@ -37,9 +40,27 @@ const POLA_TEBAL = /(\*\*[^*]+\*\*)/g
 const POLA_BUTIR = /^\s*(?:[-•*]|\d+[.)])\s+/
 
 const dua = (n: number) => String(n).padStart(2, '0')
-const labelMateri = (materi: MateriTautan[], slug: string) => {
-  const t = materi.find((x) => x.slug === slug)
-  return t ? `Materi ${dua(t.no)} · ${t.labelPendek}` : slug
+
+/**
+ * Giliran siswa: kutipan (teks yang diblok) di kotak tersendiri dengan
+ * susunan barisnya terjaga, lalu pertanyaannya. Warnanya dibedakan (ARYA 21
+ * Sep 2026): kutipan abu-abu bergaris kiri, pertanyaan emas. Giliran lama
+ * (sebelum ada medan `kutipan`) tetap tampil apa adanya.
+ */
+function GiliranSiswa({ r, cetak }: { r: PesanRiwayat; cetak?: boolean }) {
+  const awalan = cetak ? 'cetak' : 'tanya'
+  return (
+    <>
+      {r.kutipan && (
+        <div className={`${awalan}-kutip`}>
+          <span className="kutip-cap">Yang diblok</span>
+          <blockquote>{r.kutipan}</blockquote>
+        </div>
+      )}
+      {(r.teks || !r.kutipan) && <p>{r.teks}</p>}
+      {!r.teks && r.kutipan && <p className="tanya-minta">Minta dijelaskan.</p>}
+    </>
+  )
 }
 
 type PropJawaban = {
@@ -96,22 +117,52 @@ export function Jawaban(p: PropJawaban) {
     <div className="tanya-jawaban">
       {bersih.split(/\n{2,}/).map((par, i) => {
         const baris = par.split('\n')
-        const bagian: { jenis: 'p' | 'ol' | 'ul'; isi: string[] }[] = []
+        // `nomor`: angka yang ditulis model ("2. Tinggi tiang"), dipakai apa
+        // adanya supaya langkah 2 yang terpisah paragraf dari langkah 1 tidak
+        // kembali bernomor 1.
+        const bagian: { jenis: 'p' | 'ol' | 'ul'; isi: string[]; nomor: number[] }[] = []
         for (const b of baris) {
           const butir = POLA_BUTIR.test(b)
           const jenis = butir ? (/^\s*\d/.test(b) ? 'ol' : 'ul') : 'p'
+          const nomor = jenis === 'ol' ? Number(/^\s*(\d+)/.exec(b)?.[1] ?? 0) : 0
           const akhir = bagian[bagian.length - 1]
-          if (akhir && akhir.jenis === jenis && jenis !== 'p') akhir.isi.push(b.replace(POLA_BUTIR, ''))
-          else if (akhir && akhir.jenis === 'p' && jenis === 'p') akhir.isi.push(b)
-          else bagian.push({ jenis, isi: [butir ? b.replace(POLA_BUTIR, '') : b] })
+          if (akhir && akhir.jenis === jenis && jenis !== 'p') {
+            akhir.isi.push(b.replace(POLA_BUTIR, ''))
+            akhir.nomor.push(nomor)
+          } else if (akhir && akhir.jenis === 'p' && jenis === 'p') akhir.isi.push(b)
+          else bagian.push({ jenis, isi: [butir ? b.replace(POLA_BUTIR, '') : b], nomor: [nomor] })
         }
         return bagian.map((bg, j) => {
           const kunci = `${i}-${j}`
-          if (bg.jenis === 'p') return <p key={kunci}><Sebaris {...p} teks={bg.isi.join(' ')} /></p>
+          // Ganti baris tunggal DIPERTAHANKAN (ARYA 21 Sep 2026): "Bayangan
+          // tiang: 6 m" dan "Tinggi Anda: 1,7 m" harus tetap dua baris,
+          // bukan dirangkai jadi satu kalimat.
+          if (bg.jenis === 'p') {
+            return (
+              <p key={kunci}>
+                {bg.isi.map((b, k) => (
+                  <Fragment key={k}>
+                    {k > 0 && <br />}
+                    <Sebaris {...p} teks={b} />
+                  </Fragment>
+                ))}
+              </p>
+            )
+          }
           const Daftar = bg.jenis
+          // Di lembar PDF nomor ditulis sebagai teks: html2canvas menggambar
+          // ::marker melenceng ke atas baris.
           return (
-            <Daftar key={kunci}>
-              {bg.isi.map((b, k) => <li key={k}><Sebaris {...p} teks={b} /></li>)}
+            <Daftar key={kunci} className={p.cetak ? 'cetak-daftar' : undefined}>
+              {bg.isi.map((b, k) => {
+                const n = bg.jenis === 'ol' ? bg.nomor[k] || k + 1 : 0
+                return (
+                  <li key={k} value={bg.jenis === 'ol' ? n : undefined}>
+                    {p.cetak && <span className="cetak-nomor">{bg.jenis === 'ol' ? `${n}.` : '•'}</span>}
+                    <Sebaris {...p} teks={b} />
+                  </li>
+                )
+              })}
             </Daftar>
           )
         })
@@ -133,16 +184,19 @@ async function kecilkanGambar(berkas: File): Promise<GambarTanya> {
 }
 
 /**
- * Lembar yang difoto menjadi PDF: seluruh percakapan bab, satu bagian per
- * materi. Dirender hanya selama ekspor, di luar layar.
+ * Lembar yang difoto menjadi PDF: seluruh percakapan SEMUA bab, satu bagian
+ * per materi ("Trigonometri: Materi 01 · Kenapa kita butuh trigonometri").
+ * Dirender hanya selama ekspor, di luar layar. Tautan materi di jawaban
+ * hanya dikenali untuk bab yang sedang dibuka (daftar materinya ada di
+ * sini); untuk bab lain tandanya dibuang oleh Sebaris.
  */
 function LembarCetak({
-  namaBab, daftar, materi, bab, onBukaMateri, acuan,
+  daftar, materi, bab, namaPercakapan, onBukaMateri, acuan,
 }: {
-  namaBab: string
   daftar: Percakapan[]
   materi: MateriTautan[]
   bab: string
+  namaPercakapan: (bab: string, slug: string) => { nama: string; judul: string }
   onBukaMateri: (slug: string) => void
   acuan: React.RefObject<HTMLDivElement | null>
 }) {
@@ -151,22 +205,25 @@ function LembarCetak({
     <div ref={acuan} className="tanya-cetak" aria-hidden="true">
       <div className="cetak-kepala">
         <div className="cetak-merek">MANTRA · Asisten Tanya</div>
-        <h1>Catatan tanya jawab: {namaBab}</h1>
+        <h1>Catatan tanya jawab</h1>
         <div className="cetak-tanggal">Disimpan {tanggal}. Jawaban asisten berpijak pada materi MANTRA, tetapi AI bisa salah: pastikan ke gurumu sebelum dijadikan pegangan.</div>
       </div>
-      {daftar.map((p) => (
-        <section key={p.slug} className="cetak-materi">
-          <h2>{labelMateri(materi, p.slug)}</h2>
-          {p.pesan.map((r, i) => (
-            <div key={i} className={`cetak-pesan ${r.peran}`}>
-              <div className="cetak-peran">{r.peran === 'siswa' ? 'Pertanyaan' : 'Asisten'}</div>
-              {r.peran === 'siswa'
-                ? <p>{r.teks}</p>
-                : <Jawaban teks={r.teks} bab={bab} materi={materi} onBukaMateri={onBukaMateri} cetak />}
-            </div>
-          ))}
-        </section>
-      ))}
+      {daftar.map((p) => {
+        const n = namaPercakapan(p.bab, p.slug)
+        return (
+          <section key={`${p.bab}:${p.slug}`} className="cetak-materi">
+            <h2>{n.nama}{n.judul ? ` · ${n.judul}` : ''}</h2>
+            {p.pesan.map((r, i) => (
+              <div key={i} className={`cetak-pesan ${r.peran}`}>
+                <div className="cetak-peran">{r.peran === 'siswa' ? 'Pertanyaan' : 'Asisten'}</div>
+                {r.peran === 'siswa'
+                  ? <GiliranSiswa r={r} cetak />
+                  : <Jawaban teks={r.teks} bab={p.bab === bab ? bab : ''} materi={materi} onBukaMateri={onBukaMateri} cetak />}
+              </div>
+            ))}
+          </section>
+        )
+      })}
     </div>
   )
 }
@@ -213,7 +270,7 @@ export default function PanelTanya(p: Props) {
         const { eksporPdf } = await import('@/lib/tanya/pdf')
         if (!lembar.current || batal) return
         const tanggal = new Date().toISOString().slice(0, 10)
-        await eksporPdf(lembar.current, `mantra-tanya-${p.bab}-${tanggal}.pdf`)
+        await eksporPdf(lembar.current, `mantra-tanya-${tanggal}.pdf`)
       } catch (e) {
         if (!batal) setGalatEkspor(e instanceof Error ? `PDF gagal dibuat: ${e.message}` : 'PDF gagal dibuat.')
       } finally {
@@ -223,7 +280,7 @@ export default function PanelTanya(p: Props) {
     return () => {
       batal = true
     }
-  }, [mengekspor, p.bab])
+  }, [mengekspor])
 
   const kirim = () => {
     if (p.sedang || (!pertanyaan.trim() && !p.kutipan && !gambar)) return
@@ -259,42 +316,42 @@ export default function PanelTanya(p: Props) {
             Materi ini
           </button>
           <button type="button" role="tab" aria-selected={lihatRiwayat} onClick={() => p.onGantiTampilan('riwayat')}>
-            Riwayat bab{p.daftar.length ? ` (${p.daftar.length})` : ''}
+            Riwayat{p.daftar.length ? ` (${p.daftar.length})` : ''}
           </button>
         </div>
       )}
 
+      {/* `key` per tab: isi tab yang baru dipasang ulang dan memudar masuk
+          (animasi .tanya-isi[data-tab], ARYA 21 Sep 2026). */}
       {lihatRiwayat ? (
-        <div className="tanya-isi tanya-riwayat">
+        <div className="tanya-isi tanya-riwayat" data-tab="riwayat" key="riwayat">
           {p.daftar.length === 0 ? (
             <p className="tanya-pengantar">
-              Belum ada percakapan di bab ini. Buka sebuah materi, blok kalimat yang belum jelas, lalu tekan Tanya.
+              Belum ada percakapan. Buka sebuah materi, blok kalimat yang belum jelas, lalu tekan Tanya.
             </p>
           ) : (
             <ul className="riwayat-daftar">
-              {p.daftar.map((c) => (
-                <li key={c.slug} className="riwayat-butir" data-kini={c.slug === p.slugKini}>
-                  <div className="riwayat-nama">{labelMateri(p.materi, c.slug)}</div>
-                  <div className="riwayat-meta">
-                    {jumlahTanya(c.pesan)} tanya jawab · {umurTeks(c.t)} · terhapus dalam {sisaHari(c.t)} hari
-                  </div>
-                  <div className="riwayat-aksi">
-                    <button
-                      type="button"
-                      className="pil-garis"
-                      onClick={() => {
-                        if (c.slug !== p.slugKini) p.onBukaMateri(c.slug)
-                        p.onGantiTampilan('percakapan')
-                      }}
-                    >
-                      {c.slug === p.slugKini ? 'Lihat' : 'Buka'}
-                    </button>
-                    <button type="button" className="tanya-bersih" onClick={() => p.onHapusPercakapan(c.slug)}>
-                      hapus
-                    </button>
-                  </div>
-                </li>
-              ))}
+              {p.daftar.map((c) => {
+                const kini = c.bab === p.bab && c.slug === p.slugKini
+                const n = p.namaPercakapan(c.bab, c.slug)
+                return (
+                  <li key={`${c.bab}:${c.slug}`} className="riwayat-butir" data-kini={kini}>
+                    <div className="riwayat-nama">{n.nama}</div>
+                    {n.judul && <div className="riwayat-judul">{n.judul}</div>}
+                    <div className="riwayat-meta">
+                      {jumlahTanya(c.pesan)} tanya jawab · {umurTeks(c.t)} · terhapus dalam {sisaHari(c.t)} hari
+                    </div>
+                    <div className="riwayat-aksi">
+                      <button type="button" className="pil-garis" onClick={() => p.onBukaPercakapan(c.bab, c.slug)}>
+                        {kini ? 'Lihat' : 'Buka'}
+                      </button>
+                      <button type="button" className="tanya-bersih" onClick={() => p.onHapusPercakapan(c.bab, c.slug)}>
+                        hapus
+                      </button>
+                    </div>
+                  </li>
+                )
+              })}
             </ul>
           )}
           <div className="riwayat-kaki">
@@ -311,17 +368,17 @@ export default function PanelTanya(p: Props) {
             </button>
             {galatEkspor && <p className="tanya-galat" role="alert">{galatEkspor}</p>}
             <p className="tanya-catatan">
-              Riwayat hanya tersimpan di peramban ini dan terhapus sendiri {UMUR_HARI} hari sesudah percakapan terakhir.
-              Simpan PDF-nya kalau ingin dibaca lagi.
+              Riwayat semua bab hanya tersimpan di peramban ini dan tiap percakapan terhapus sendiri {UMUR_HARI} hari
+              sesudah pesan terakhirnya. Simpan PDF-nya kalau ingin dibaca lagi.
             </p>
           </div>
           {mengekspor && (
-            <LembarCetak namaBab={p.namaBab} daftar={p.daftar} materi={p.materi} bab={p.bab} onBukaMateri={p.onBukaMateri} acuan={lembar} />
+            <LembarCetak daftar={p.daftar} materi={p.materi} bab={p.bab} namaPercakapan={p.namaPercakapan} onBukaMateri={p.onBukaMateri} acuan={lembar} />
           )}
         </div>
       ) : (
         <>
-          <div className="tanya-isi">
+          <div className="tanya-isi" data-tab="percakapan" key="percakapan">
             {/* Peringatan merah di awal, sebelum bertanya (ARYA 21 Sep 2026):
                 AI bisa salah, membantu memahami, bukan penentu benar; pastikan
                 ke guru. Selalu di puncak percakapan, ikut tergulir ke atas
@@ -338,7 +395,7 @@ export default function PanelTanya(p: Props) {
             )}
             {p.riwayat.map((r, i) => (
               <div key={i} className={`tanya-pesan ${r.peran}`}>
-                {r.peran === 'siswa' ? <p>{r.teks}</p> : <Jawaban teks={r.teks} bab={p.bab} materi={p.materi} onBukaMateri={p.onBukaMateri} />}
+                {r.peran === 'siswa' ? <GiliranSiswa r={r} /> : <Jawaban teks={r.teks} bab={p.bab} materi={p.materi} onBukaMateri={p.onBukaMateri} />}
               </div>
             ))}
             {p.sedang && p.riwayat[p.riwayat.length - 1]?.teks === '' && (
@@ -357,7 +414,7 @@ export default function PanelTanya(p: Props) {
           <div className="tanya-kaki">
             {p.kutipan && (
               <div className="tanya-kutipan">
-                <span>“{p.kutipan.length > 160 ? p.kutipan.slice(0, 160) + '…' : p.kutipan}”</span>
+                <span className="kutip-pratinjau">“{p.kutipan.length > 200 ? p.kutipan.slice(0, 200) + '…' : p.kutipan}”</span>
                 <button type="button" onClick={p.onHapusKutipan} aria-label="Hapus kutipan">
                   ✕
                 </button>

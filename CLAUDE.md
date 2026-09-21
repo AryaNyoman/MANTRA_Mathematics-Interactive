@@ -195,9 +195,11 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
   fokus); bertanya hanya dengan memblok teks di bacaan, kotak Sering
   keliru, dan Ringkasan (`TombolTanyaBlok`, kutipan rumus diambil dari
   `data-teks` TeksMat). Panel berkepala navy, dibuka juga dari tombol
-  "Asisten Tanya" di daftar materi; tab "Riwayat bab" memuat semua
-  percakapan bab per materi, bisa disimpan PDF (`lib/tanya/pdf.ts`, jsPDF
-  plus html2canvas). Riwayat di localStorage `matra:tanya:<bab>:<slug>`
+  "Asisten Tanya" di daftar materi; tab "Riwayat" memuat percakapan SEMUA
+  bab ("Trigonometri: Materi 01"), bisa disimpan PDF (`lib/tanya/pdf.ts`,
+  jsPDF plus html2canvas). Kutipan blokan disimpan terpisah dari
+  pertanyaan (`PesanRiwayat.kutipan`, susunan barisnya terjaga) dan
+  ditampilkan beda warna. Riwayat di localStorage `matra:tanya:<bab>:<slug>`
   (`lib/tanya/riwayat.ts`), 12 pesan per materi, terhapus 7 hari sesudah
   pesan terakhir, dan siswa diberi tahu. Cache prompt bawaan 5 menit
   (`TANYA_CACHE_TTL=1h` hanya kalau lalu lintas rapat: penulisan 1 jam

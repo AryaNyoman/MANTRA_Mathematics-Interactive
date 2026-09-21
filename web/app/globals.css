@@ -2649,6 +2649,43 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   margin: 0; padding: 10px 14px; border-radius: 14px 14px 4px 14px;
   background: rgba(176, 138, 62, 0.14); font-size: 14px; line-height: 1.55; white-space: pre-wrap;
 }
+/* Giliran siswa (ARYA 21 Sep 2026): kutipan yang diblok abu-abu bergaris
+   kiri navy dengan cap "Yang diblok", susunan barisnya terjaga (pre-wrap);
+   pertanyaan sendiri tetap gelembung emas. */
+.tanya-kutip {
+  margin: 0 0 6px; padding: 8px 12px 9px; border-left: 3px solid var(--panggung);
+  background: rgba(16, 26, 43, 0.06); border-radius: 0 10px 10px 0;
+}
+.tanya-kutip .kutip-cap, .cetak-kutip .kutip-cap {
+  display: block; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--tinta-50); margin-bottom: 3px;
+}
+.tanya-kutip blockquote, .cetak-kutip blockquote {
+  margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--tinta-72);
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.tanya-pesan.siswa .tanya-minta { font-style: italic; color: var(--tinta-72); }
+.tanya-kutipan .kutip-pratinjau { white-space: pre-line; }
+/* di PDF: kutipan kotak abu-abu, pertanyaan emas, supaya siswa tahu mana
+   yang ia blok dan mana yang ia tanyakan */
+.tanya-cetak .cetak-kutip {
+  margin: 0 0 6px; padding: 8px 12px 9px; border-left: 3px solid #101A2B;
+  background: #F1F0EC; border-radius: 0 8px 8px 0;
+}
+.tanya-cetak .cetak-kutip blockquote { color: #3A3630; font-size: 13.5px; }
+.tanya-cetak .cetak-pesan.siswa > p {
+  background: rgba(176, 138, 62, 0.16); border-radius: 10px; padding: 8px 12px; display: inline-block;
+}
+.tanya-cetak .cetak-pesan.siswa .tanya-minta { font-style: italic; color: #6B6560; }
+/* nama percakapan lintas bab: "Trigonometri: Materi 01" lalu judul pendeknya */
+.riwayat-judul { font-size: 13px; color: var(--tinta-72); margin-top: 1px; }
+/* Berpindah tab Materi ini / Riwayat (ARYA 21 Sep 2026): isi yang baru
+   memudar masuk sambil naik 8 px, 220 ms, irama umpan balik sistem gerak. */
+.tanya-isi[data-tab] { animation: tanya-tab-masuk var(--d-soal) var(--kurva) both; }
+@keyframes tanya-tab-masuk {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
 .tanya-pesan.asisten .tanya-jawaban p { margin: 0 0 8px; font-size: 15px; line-height: 1.7; color: #3A3630; }
 .tanya-pesan.asisten .tanya-jawaban p:last-child { margin-bottom: 0; }
 .tanya-tautan {
@@ -2656,10 +2693,20 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
   color: var(--emas-tua); text-decoration: underline; text-underline-offset: 2px;
 }
 .tanya-tautan:hover { color: var(--tinta); }
+/* Nomor dan bulatan daftar dihidupkan lagi: preflight Tailwind mematikan
+   list-style semua ol dan ul, jadi langkah "1., 2." jawaban asisten sempat
+   tampil tanpa nomornya (ketahuan 21 Sep 2026). Berlaku di panel dan PDF. */
+.tanya-jawaban ol { list-style: decimal; }
+.tanya-jawaban ul { list-style: disc; }
+.tanya-jawaban ol, .tanya-jawaban ul { margin: 0 0 8px; padding-left: 24px; }
 .tanya-pesan.asisten .tanya-jawaban ol, .tanya-pesan.asisten .tanya-jawaban ul {
-  margin: 0 0 8px; padding-left: 22px; font-size: 15px; line-height: 1.7; color: #3A3630;
+  font-size: 15px; line-height: 1.7; color: #3A3630;
 }
-.tanya-pesan.asisten .tanya-jawaban li { margin: 2px 0; }
+.tanya-jawaban li { margin: 2px 0; padding-left: 2px; }
+.tanya-jawaban li::marker { color: var(--emas-tua); font-weight: 600; font-variant-numeric: tabular-nums; }
+.tanya-cetak .cetak-daftar { list-style: none; padding-left: 4px; }
+.tanya-cetak .cetak-daftar li { display: flex; gap: 6px; align-items: baseline; }
+.tanya-cetak .cetak-nomor { flex: none; min-width: 1.4em; color: #8A6A2A; font-weight: 600; }
 .tanya-memuat i {
   display: block; width: 44px; height: 10px; border-radius: 6px;
   background: rgba(16, 26, 43, 0.08); animation: napas 1.4s ease-in-out infinite;

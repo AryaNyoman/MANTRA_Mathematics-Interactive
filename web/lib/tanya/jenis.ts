@@ -36,7 +36,13 @@ export type IndeksBekal = Record<
   { nama: string; materi: Record<string, { no: number; judul: string; sub: string | null }> }
 >
 
-export type PesanRiwayat = { peran: 'siswa' | 'asisten'; teks: string }
+/**
+ * Satu giliran percakapan. `kutipan` (sejak 21 Sep 2026) = teks yang diblok
+ * siswa, disimpan terpisah dari pertanyaannya supaya di panel dan PDF
+ * keduanya bisa dibedakan warnanya dan susunan barisnya terjaga; ke server
+ * keduanya digabung jadi satu `teks` (penapis hanya mengenal peran dan teks).
+ */
+export type PesanRiwayat = { peran: 'siswa' | 'asisten'; teks: string; kutipan?: string }
 
 export type GambarTanya = { jenis: 'image/jpeg' | 'image/png' | 'image/webp'; data: string }
 

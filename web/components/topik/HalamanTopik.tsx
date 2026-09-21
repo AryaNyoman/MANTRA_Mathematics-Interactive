@@ -147,9 +147,13 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
      daftar riwayat yang berpindah materi tidak menutup panelnya. Jumlah
      percakapan tersimpan dibaca sebagai external store untuk lencana di
      daftar materi. */
-  const [asistenTerbuka, setAsistenTerbuka] = useState(false)
+  /* `?tanya=1` (dari "Buka" riwayat bab lain, 21 Sep 2026): panel langsung
+     terbuka di percakapan materi yang dituju. Dibaca sekali saat dipasang. */
+  const mintaTanya = useSearchParams()?.get('tanya') === '1'
+  const [asistenTerbuka, setAsistenTerbuka] = useState(mintaTanya)
   const [asistenTampilan, setAsistenTampilan] = useState<TampilanTanya>('percakapan')
-  const sidikTanya = useSyncExternalStore(langgan, () => sidikRiwayat(topik.slug), () => '')
+  // riwayat SEMUA bab, untuk lencana "n percakapan tersimpan" di daftar materi
+  const sidikTanya = useSyncExternalStore(langgan, () => sidikRiwayat(), () => '')
   const jumlahPercakapan = sidikTanya ? sidikTanya.split('|').length : 0
 
   /* ?materi=lanjut datang dari laci "Lanjutkan" di nav (ARYA 10 Sep 2026):

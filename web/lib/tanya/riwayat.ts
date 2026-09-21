@@ -71,10 +71,12 @@ export function tulisRiwayat(bab: string, slug: string, pesan: PesanRiwayat[], k
 export const hapusRiwayat = (bab: string, slug: string) => tulisRiwayat(bab, slug, [])
 
 /**
- * Semua percakapan satu bab, terbaru dulu. Sekaligus membersihkan yang
- * kedaluwarsa. Di server (tanpa localStorage) hasilnya kosong.
+ * Semua percakapan, terbaru dulu: satu bab kalau `bab` diberi, SEMUA bab
+ * kalau tidak (ARYA 21 Sep 2026: riwayat disatukan lintas bab, dinamai
+ * "Trigonometri: Materi 01"). Sekaligus membersihkan yang kedaluwarsa. Di
+ * server (tanpa localStorage) hasilnya kosong.
  */
-export function daftarRiwayat(bab: string, kini = Date.now()): Percakapan[] {
+export function daftarRiwayat(bab?: string, kini = Date.now()): Percakapan[] {
   const hasil: Percakapan[] = []
   let n = 0
   try {
@@ -82,28 +84,31 @@ export function daftarRiwayat(bab: string, kini = Date.now()): Percakapan[] {
   } catch {
     return hasil
   }
-  const awalan = `${AWALAN}${bab}:`
+  const awalan = bab ? `${AWALAN}${bab}:` : AWALAN
   const kunci: string[] = []
   for (let i = 0; i < n; i++) {
     const k = localStorage.key(i)
     if (k && k.startsWith(awalan)) kunci.push(k)
   }
   for (const k of kunci) {
+    const sisa = k.slice(AWALAN.length)
+    const pisah = sisa.indexOf(':')
+    if (pisah <= 0) continue
     const d = urai(baca(k), kini)
     if (!d || d.pesan.length === 0) continue
     if (kini - d.t > UMUR_MS) {
       hapusKunci(k)
       continue
     }
-    hasil.push({ bab, slug: k.slice(awalan.length), t: d.t, pesan: d.pesan })
+    hasil.push({ bab: sisa.slice(0, pisah), slug: sisa.slice(pisah + 1), t: d.t, pesan: d.pesan })
   }
   return hasil.sort((a, b) => b.t - a.t)
 }
 
 /** Sidik ringkas daftar riwayat untuk useSyncExternalStore (string stabil). */
-export function sidikRiwayat(bab: string, kini = Date.now()): string {
+export function sidikRiwayat(bab?: string, kini = Date.now()): string {
   return daftarRiwayat(bab, kini)
-    .map((p) => `${p.slug}:${p.t}:${p.pesan.length}`)
+    .map((p) => `${p.bab}:${p.slug}:${p.t}:${p.pesan.length}`)
     .join('|')
 }
 

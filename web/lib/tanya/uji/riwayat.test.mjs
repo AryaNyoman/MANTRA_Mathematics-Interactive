@@ -54,6 +54,17 @@ test('daftar per bab terbaru dulu, sidik berubah saat isinya berubah, hapus memb
   assert.equal(gudang.has('matra:tanya:turunan:c'), true)
 })
 
+test('tanpa bab: semua bab, terbaru dulu, dengan nama babnya', () => {
+  gudang.clear()
+  tulisRiwayat('limit', 'a', pesan(2), 100)
+  tulisRiwayat('turunan', 'c', pesan(2), 300)
+  tulisRiwayat('trigonometri', 'kenapa', pesan(4), 200)
+  gudang.set('matra:kemajuan:limit', '{"dibuka":[]}') // kunci lain tidak ikut
+  assert.deepEqual(daftarRiwayat(undefined, 400).map((p) => `${p.bab}:${p.slug}`), ['turunan:c', 'trigonometri:kenapa', 'limit:a'])
+  assert.equal(sidikRiwayat(undefined, 400).split('|').length, 3)
+  assert.deepEqual(daftarRiwayat('limit', 400).map((p) => p.slug), ['a'])
+})
+
 test('paling banyak 12 pesan disimpan; umur teks', () => {
   gudang.clear()
   tulisRiwayat('limit', 'a', pesan(20), 100)
