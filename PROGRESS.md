@@ -1,5 +1,28 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 21 SEP SORE: VIDEO DEMO PPPMI DIREKAM ULANG 60 FPS (di D:\PPPMI-2026, bukan repo)
+
+Permintaan ARYA: naskah demo 21 Sep disetujui, video demo dibuat ulang
+dengan 60 fps (versi 18 Sep 30 fps). Hasil: `07-Video-Demo-MANTRA-tanpa-suara.mp4`
+6:44, 1920x1080 H.264 60 fps, 28 MB, 17 adegan (Asisten Tanya dan kuis bab
+satu paket ikut), diperiksa frame demi frame lewat lembar kontak.
+- Perekam bawaan playwright-cli dikunci 25 fps dan VP8 1 Mbps (buram), tool
+  globalnya tidak boleh diubah, jadi dipakai salinan playwright-core lokal
+  (`kerja/demo/rekam60/`) yang ditambal: fps 60, H.264 crf 18 lewat FFmpeg
+  sistem, log tiap frame, jam mulai rekaman dicatat supaya potongan tepat
+  di t0 skrip (bukan tebakan). `pasca.py` memotong dari t0 sampai cap selesai.
+- Jebakan screencast Chrome: perubahan tunggal (kartu muncul lalu diam)
+  bisa tidak menghasilkan frame sama sekali; rekaman pertama kehilangan
+  kartu penutup 14 detik. Lapisan sekarang muncul dengan pudar 0,4 s plus
+  goyang opacity supaya pasti terekam.
+- Jatah Asisten Tanya 5 per IP per hari: tiap rekaman penuh memakai satu.
+  Rekaman ketiga (jawaban kuis benar lewat kunci `KUNCI_KUIS`) putus karena
+  DNS, jadi adegan kuis sampai penutup direkam terpisah tanpa Asisten dan
+  disambung ke rekaman kedua pada frame kerangka muat halaman kuis
+  (`sambung.py`); sambungan tidak terlihat, skor kuis 3/10.
+- Naskah DRAF 21 Sep diisi stempel waktu nyata. Berkas 07 dan dokumen lain
+  di folder kirim BELUM disentuh (menunggu aba-aba ARYA).
+
 ## 21 SEP SIANG: REVISI ARYA, ASISTEN TANYA TANPA TOMBOL "?", RIWAYAT PER BAB PLUS PDF, SLIDER SUDUT MENTOK ANGKA BULAT (deploy matra-itfbsk4vt)
 
 Permintaan ARYA (21 Sep pagi, tiga tangkapan layar) dan keputusannya lewat
