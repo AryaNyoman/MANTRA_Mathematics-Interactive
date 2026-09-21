@@ -83,9 +83,8 @@ export default function Beranda() {
             </h1>
             <p className="hero-sub naik naik-3">
               Setiap rumus dijelaskan lewat <b className="sorot-animasi">animasi</b>,
-              dibuktikan lewat <b className="sorot-visual">visualisasi</b>, diuji
-              sendiri lewat <b className="sorot-interaksi">interaksi</b>, dan yang masih
-              bingung bisa <b className="sorot-tanya">ditanyakan</b> langsung. Kamu melihat
+              dibuktikan lewat <b className="sorot-visual">visualisasi</b>, dan diuji
+              sendiri lewat <b className="sorot-interaksi">interaksi</b>. Kamu melihat
               cara kerjanya, bukan hanya menghafalnya.
             </p>
             <div className="hero-aksi naik naik-4">
