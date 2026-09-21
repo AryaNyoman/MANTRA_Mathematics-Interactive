@@ -79,6 +79,11 @@ mustahil ditulis kata.
 - Dikesampingkan ARYA (tanpa kredit ElevenLabs): rekam ulang video 07
   (masih menunjuk Grafik Fungsi Trigonometri) dan Statistika 01/13 (masih
   mengucapkan menipu/menyesatkan).
+- Peringatan AI (ARYA, sesudahnya; deploy matra-2wbi4aawo): kotak merah
+  bata di puncak percakapan Asisten Tanya, "Perhatian: jawaban AI bisa
+  salah. Asisten ini membantu kamu memahami materi dan maksud pertanyaanmu,
+  bukan penentu benar atau salah. Untuk memastikan jawabannya, tanyakan
+  langsung ke gurumu."; kalimat serupa di kepala PDF riwayat.
 - Kuis lebih ketat (ARYA, sesudahnya; deploy matra-3x5l1hn43):
   * Tiap materi harus DIBACA 2 MENIT TANPA PUTUS sebelum dicentang hijau
     (`lib/kemajuan.ts` MENIT_BACA, pencatat di HalamanTopik): mulai 0 saat
