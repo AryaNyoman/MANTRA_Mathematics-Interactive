@@ -100,7 +100,8 @@ export default function Tentang() {
               <p>
                 Dipakai menyusun kode animasi, alat interaktif, dan naskah materi,
                 dengan rujukan buku panduan guru matematika SMA dan diktat
-                kalkulus.
+                kalkulus. Juga menjawab pertanyaan siswa di Asisten Tanya,
+                berpijak pada materi yang sedang dibaca.
               </p>
               <a href="https://claude.com/product/overview/" target="_blank" rel="noreferrer">
                 claude.com →

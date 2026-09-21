@@ -56,6 +56,15 @@ mustahil ditulis kata.
 - Dikesampingkan ARYA (tanpa kredit ElevenLabs): rekam ulang video 07
   (masih menunjuk Grafik Fungsi Trigonometri) dan Statistika 01/13 (masih
   mengucapkan menipu/menyesatkan).
+- Beranda (ARYA, sesudahnya; deploy matra-kt3z7yrbx): kartu fitur keempat
+  "Tanya langsung saat bingung" (nomor emas, kelas `sorot-tanya`), judul
+  seksi "Empat hal yang kamu dapat di sini", kalimat hero ditambah "dan yang
+  masih bingung bisa ditanyakan langsung"; kartu Claude di Tentang menyebut
+  Asisten Tanya. Kisi `auto-fit` menampung empat kolom di 1366 dan 1920,
+  satu kolom di HP (dicek Playwright). Saran saya yang diterima: TIDAK ada
+  kartu kelima; empat kartu = satu cerita (tonton, coba, uji, tanya), dan
+  hal praktis (tanpa akun, bisa dipasang, video tersimpan di HP) sudah
+  terwakili tombol Pasang dan kalimat "tersimpan di HP-mu".
 
 ## 21 SEP: BAHASA SISWA DISISIR DARI KATA "AI BANGET" (deploy matra-3nm88oros, push GitHub ea533d3)
 

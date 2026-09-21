@@ -49,6 +49,16 @@ const FITUR = [
     isi: 'Empat tingkat, pembahasan bertahap, kemajuan tersimpan di HP-mu.',
     tunda: 180,
   },
+  // Kartu keempat (ARYA 21 Sep 2026): Asisten Tanya jadi fitur unggulan.
+  // Kisi `auto-fit` sudah menampung empat kolom di layar lebar, 2x2 di
+  // laptop kecil, satu kolom di HP; tidak ada tata letak baru.
+  {
+    no: '04',
+    kelas: 'sorot-tanya',
+    judul: 'Tanya langsung saat bingung',
+    isi: 'Blok kalimat yang belum jelas, lalu tanyakan. Jawabannya dari materi yang sedang kamu baca, riwayatnya bisa jadi catatan PDF.',
+    tunda: 270,
+  },
 ] as const
 
 export default function Beranda() {
@@ -73,8 +83,9 @@ export default function Beranda() {
             </h1>
             <p className="hero-sub naik naik-3">
               Setiap rumus dijelaskan lewat <b className="sorot-animasi">animasi</b>,
-              dibuktikan lewat <b className="sorot-visual">visualisasi</b>, dan diuji
-              sendiri lewat <b className="sorot-interaksi">interaksi</b>. Kamu melihat
+              dibuktikan lewat <b className="sorot-visual">visualisasi</b>, diuji
+              sendiri lewat <b className="sorot-interaksi">interaksi</b>, dan yang masih
+              bingung bisa <b className="sorot-tanya">ditanyakan</b> langsung. Kamu melihat
               cara kerjanya, bukan hanya menghafalnya.
             </p>
             <div className="hero-aksi naik naik-4">
@@ -101,7 +112,7 @@ export default function Beranda() {
               dan memintanya diberi judul. Menghapusnya lagi berarti
               mengulang kembali keluhan yang sudah pernah diperbaiki. */}
           <div className="tajuk-baris">
-            <h2 id="fitur-unggulan">Tiga hal yang kamu dapat di sini</h2>
+            <h2 id="fitur-unggulan">Empat hal yang kamu dapat di sini</h2>
             <span className="rel" />
             <span className="kanan">Fitur unggulan</span>
           </div>

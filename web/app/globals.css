@@ -2132,6 +2132,8 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .sorot-animasi { color: var(--biru-terang); }
 .sorot-visual { color: var(--hijau-terang); }
 .sorot-interaksi { color: var(--jingga-terang); }
+/* kata keempat (Asisten Tanya, 21 Sep 2026) memakai emas terang di atas navy */
+.sorot-tanya { color: var(--emas-terang); }
 .hero-aksi {
   display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
   width: 100%; max-width: 26rem;
@@ -2229,6 +2231,7 @@ button, a, input, select, summary, [role="button"] { touch-action: manipulation;
 .kartu-fitur .sorot-animasi { color: var(--biru); }
 .kartu-fitur .sorot-visual { color: var(--hijau); }
 .kartu-fitur .sorot-interaksi { color: var(--jingga); }
+.kartu-fitur .sorot-tanya { color: var(--emas-tua); }
 
 .kisi-tiga {
   display: grid;
