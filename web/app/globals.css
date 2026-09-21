@@ -1649,6 +1649,11 @@ video::cue(b) { font-weight: 700; }
   .lembar-langkah > li { grid-template-columns: 1.5rem minmax(0, 1fr); }
   .lembar-nama { grid-column: 2; padding-top: 4px; }
   .lembar-teks, .lembar-nanti, .lembar-syarat { grid-column: 2; }
+  /* Langkah yang belum dibuka cuma berisi nama dan "· · ·": tetap satu
+     baris. Ditumpuk dua baris, lima langkah Limit 05 memakan 365 px di
+     kolom laptop 1366 dan kendalinya terdorong keluar layar (21 Sep 2026). */
+  .lembar-langkah > li[data-buka='false'] { grid-template-columns: 1.5rem auto minmax(0, 1fr); }
+  .lembar-langkah > li[data-buka='false'] .lembar-nanti { grid-column: 3; }
 }
 
 .lembar-sisa {

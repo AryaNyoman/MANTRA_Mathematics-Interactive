@@ -93,7 +93,7 @@ export default function ArenaLatihan({
     /* data-panggung: halaman mundur sedikit selama jendela terbuka (layar lebar). */
     <main className="mantra-lebar" style={{ paddingTop: 38 }} data-panggung="">
       <div className="remah-latihan">
-        <Link href="/latihan" data-tanpa-tanya="">Latihan</Link>
+        <Link href="/latihan" data-tanpa-tanya="">Bank Soal</Link>
         <span className="remah-pisah">/</span>
         {tingkat ? (
           <>

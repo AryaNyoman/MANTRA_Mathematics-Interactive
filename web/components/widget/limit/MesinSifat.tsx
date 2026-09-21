@@ -121,7 +121,7 @@ export const SOAL_SIFAT: SoalSifat[] = [
     judul: 'lim x→2 (x² - 4)/(x - 2)',
     langkah: [],
     buntu:
-      'Sifat hasil bagi TIDAK berlaku di sini, karena limit penyebutnya 2 - 2 = 0. Sifat yang lain pun tidak menolong, sebab masalahnya bukan pada susunan melainkan pada bentuknya: kalau angkanya dipaksa masuk, hasilnya 0/0. Soal seperti ini dikerjakan dengan cara lain, dan caranya ada di Materi 06.',
+      'Sifat hasil bagi TIDAK berlaku di sini, karena limit penyebutnya 2 - 2 = 0. Sifat yang lain pun tidak menolong, karena masalahnya bukan pada susunan, tetapi pada bentuknya: kalau angkanya dipaksa masuk, hasilnya 0/0. Soal seperti ini dikerjakan dengan cara lain, dan caranya ada di Materi 06.',
   },
 ]
 

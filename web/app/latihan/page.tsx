@@ -4,7 +4,7 @@ import Kaki from '@/components/mantra/Kaki'
 import DaftarLatihan from '@/components/latihan/DaftarLatihan'
 
 export const metadata: Metadata = {
-  title: 'Latihan | MANTRA',
+  title: 'Bank Soal | MANTRA',
   description:
     'Bank soal berjenjang dari mudah sampai sangat sulit, dengan kemajuan dan lencana yang tersimpan di peramban Anda sendiri.',
 }

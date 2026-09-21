@@ -22,7 +22,7 @@ import { KUIS } from '@/content/vektor'
  * dianggap salah tempat.
  */
 export const metadata: Metadata = {
-  title: 'Latihan Vektor | MANTRA',
+  title: 'Bank Soal Vektor | MANTRA',
   description: 'Soal vektor berjenjang dari mudah sampai sangat sulit, dengan pembahasan.',
 }
 

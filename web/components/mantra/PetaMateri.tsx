@@ -32,8 +32,10 @@ import KartuBayang from './KartuBayang'
  *      baru sebagian        -> "Lanjutkan Materi 07" (materi pertama yang
  *                              BELUM dibuka menurut urutan sub-bab, bukan
  *                              sekadar jumlah yang sudah dibuka)
- *      sudah semua          -> "Ulangi belajar", dan tautan kuis muncul
- *                              karena syarat kuis otomatis terpenuhi.
+ *      sudah semua          -> "Ulangi belajar", dan tautan Kuis serta Bank
+ *                              Soal muncul karena syarat kuis otomatis
+ *                              terpenuhi (Bank Soal ikut ditahan sampai 100
+ *                              persen, ARYA 21 Sep 2026).
  */
 
 export type MateriTampil = {
@@ -249,16 +251,23 @@ export default function PetaMateri({ bab }: { bab: BabTampil[] }) {
                       {/* `key`: teks tombol memudar berganti, bukan berkedip. */}
                       <span className="label" key={aksi}>{aksi}</span>
                     </Link>
-                    <Link href={`/latihan/${b.slug}`} className="pil-kecil-garis">
-                      Latihan bab
-                    </Link>
-                    {/* Kuis hanya muncul kalau seluruh materi sudah dibuka.
-                        Syarat kuncinya memang itu, jadi menampilkannya lebih
-                        awal berarti menjanjikan tombol yang akan mati. */}
+                    {/* Kuis dan Bank Soal hanya muncul kalau seluruh materi
+                        sudah dibuka (ARYA 21 Sep 2026; urutan Ulangi belajar,
+                        Kuis, Bank Soal). Syarat kunci kuis memang itu, jadi
+                        menampilkannya lebih awal berarti menjanjikan tombol
+                        yang akan mati. Bank soalnya sendiri tetap terbuka
+                        kapan saja lewat menu Bank Soal di nav; yang ditahan
+                        cuma tombol di kartu, supaya urutan belajarnya jelas:
+                        materi dulu, baru soal. */}
                     {tuntas && (
-                      <Link href={`/topik/${b.slug}?materi=kuis`} className="pil-kecil-garis">
-                        Kuis
-                      </Link>
+                      <>
+                        <Link href={`/topik/${b.slug}?materi=kuis`} className="pil-kecil-garis">
+                          Kuis
+                        </Link>
+                        <Link href={`/latihan/${b.slug}`} className="pil-kecil-garis">
+                          Bank Soal
+                        </Link>
+                      </>
                     )}
                   </div>
                 </KartuBayang>

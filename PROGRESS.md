@@ -56,6 +56,19 @@ mustahil ditulis kata.
 - Dikesampingkan ARYA (tanpa kredit ElevenLabs): rekam ulang video 07
   (masih menunjuk Grafik Fungsi Trigonometri) dan Statistika 01/13 (masih
   mengucapkan menipu/menyesatkan).
+- Bank Soal dan Limit 05 (ARYA, sesudahnya; deploy matra-p4ke0ndd5): menu
+  nav "Latihan" jadi "Bank Soal" (alamat `/latihan` tetap), judul halaman
+  `/latihan` dan `/latihan/<bab>`, kicker, remah arena. Kartu Peta Materi:
+  urutan "Ulangi belajar, Kuis, Bank Soal", Kuis dan Bank Soal hanya tampil
+  saat 100 persen (bank soal tetap terbuka lewat menu). Baris "Latihan · 4
+  soal" di halaman belajar TETAP "Latihan" (isinya beda: pemanasan bab).
+  Limit 05 mesin sifat: tabel "Kemajuan pada soal" dibuang (mengulang
+  daftar langkah di lembar kerja), catatannya ke Petunjuk; langkah yang
+  belum dibuka di panel sempit jadi satu baris (`globals.css` .lembar,
+  ikut merapikan Limit 06). Survei Limit: 0 cacat, Limit 05 gulir 0 di
+  1920 dan 84 di 1366 dengan kendali terlihat (sebelumnya 512, kendali
+  tersembunyi). Teks buntu Soal 3 dibersihkan dari sebab/melainkan, dan
+  "ia" di catatan Bank Soal.
 - Beranda (ARYA, sesudahnya; deploy matra-kt3z7yrbx): kartu fitur keempat
   "Tanya langsung saat bingung" (nomor emas, kelas `sorot-tanya`), judul
   seksi "Empat hal yang kamu dapat di sini", kalimat hero ditambah "dan yang

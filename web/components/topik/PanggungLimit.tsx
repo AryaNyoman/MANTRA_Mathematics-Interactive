@@ -5,9 +5,7 @@ import SelangMenyusut, { LANGKAH_H, kecepatanRata } from '@/components/widget/li
 import GarisMendekati, { BATAS_X, C as C_DEKAT, L as L_DEKAT, f as fDekat } from '@/components/widget/limit/GarisMendekati'
 import TarifMelompat, { BATAS_C, BATAS_JARAK, tarif } from '@/components/widget/limit/TarifMelompat'
 import LubangGrafik, { LEBAR_TAMPILAN } from '@/components/widget/limit/LubangGrafik'
-import MesinSifat, {
-  NAMA_SIFAT, PETUNJUK_SALAH, SOAL_SIFAT, type Sifat,
-} from '@/components/widget/limit/MesinSifat'
+import MesinSifat, { PETUNJUK_SALAH, SOAL_SIFAT, type Sifat } from '@/components/widget/limit/MesinSifat'
 import BongkarBertahap, { SOAL_BONGKAR } from '@/components/widget/limit/BongkarBertahap'
 import PerkecilTampilan, { ASIMTOT, LEBAR_X, f as fJauh } from '@/components/widget/limit/PerkecilTampilan'
 import BusurLawanTali, { BATAS_DERAJAT } from '@/components/widget/limit/BusurLawanTali'
@@ -149,7 +147,7 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
                 nilai={String(soalSifat)} onPilih={(n) => gantiSoalSifat(Number(n))} />
               <Petunjuk><TeksMat teks={`${soalSif.buntu
                   ? 'soal ini memang tidak bisa diselesaikan dengan sifat limit, dan itu yang mau ditunjukkan.'
-                  : `pilih sifat yang tepat di tiap langkah. Sekarang langkah ${Math.min(langkahSifat + 1, soalSif.langkah.length)} dari ${soalSif.langkah.length}.`}`} blok={false} /></Petunjuk>
+                  : `pilih sifat yang tepat di tiap langkah, sekarang langkah ${Math.min(langkahSifat + 1, soalSif.langkah.length)} dari ${soalSif.langkah.length}; kalau ditolak, mesin memberi cirinya, bukan jawabannya.`}`} blok={false} /></Petunjuk>
             </div>
           </>
         )}
@@ -334,22 +332,11 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
           </div>
         )}
 
-        {tampilWidget && tahap.widget === 'mesin-sifat' && !soalSif.buntu && (
-          <div className="blok">
-            <div className="cap"><TeksMat teks={`Kemajuan pada soal ${soalSifat + 1}`} blok={false} /></div>
-            <table className="tabel-angka">
-              <tbody>
-                {soalSif.langkah.map((l, n) => (
-                  <tr key={n} className={n < langkahSifat ? 'tegas' : undefined}>
-                    <td><TeksMat teks={`langkah ${n + 1}`} blok={false} /></td>
-                    <td><TeksMat teks={`${n < langkahSifat ? NAMA_SIFAT[l.sifat] : 'belum'}`} blok={false} /></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <div className="catatan"><TeksMat teks="Penolakan mesin sengaja tidak menyebutkan sifat mana yang benar, supaya yang dilatih adalah cara membaca bentuk, bukan kesabaran menekan tombol." /></div>
-          </div>
-        )}
+        {/* Mesin sifat (Limit 05) TIDAK punya tabel angka: tabel "Kemajuan
+            pada soal" yang dulu ada di sini mengulang persis daftar langkah di
+            lembar kerjanya, dan membuat kolom alat menggulir 70 px di 1920
+            dan 512 px di laptop 1366 (survei 21 Sep 2026, dibuang atas
+            keputusan ARYA). Catatannya pindah ke Petunjuk. */}
       </>
     )
   }

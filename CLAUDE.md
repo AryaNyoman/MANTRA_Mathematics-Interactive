@@ -160,11 +160,18 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
 - **Kuis bab = penilaian, satu paket 10 soal** (ARYA 20 Sep 2026): tiap
   `content/<bab>/kuis.ts` punya `KUIS_BAB` (id soal bank + `materi` asalnya);
   hanya soal yang konsepnya TERTULIS di bacaan bab itu yang boleh masuk
-  (soal bank lain tetap di menu Latihan). Siswa menjawab 10 soal (urutan dan
+  (soal bank lain tetap di menu Bank Soal). Siswa menjawab 10 soal (urutan dan
   pilihan diacak), menekan Kumpulkan, baru melihat skor plus pembahasan
   bergambar semua soal; soal salah diberi tombol "Baca Materi NN". Pemeriksa
   `node alat/cek_kuis_bab.mjs` (10 butir, id dan slug sah, tiap sub-bab
   terwakili). Materi baru yang ada soalnya: tambahkan ke `KUIS_BAB`.
+- **Dua "latihan" yang berbeda** (ARYA 21 Sep 2026): menu nav **Bank Soal**
+  (`/latihan`, alamat sengaja tetap) = 60 soal berjenjang per bab; baris
+  **Latihan · 4 soal** di daftar materi halaman belajar = pemanasan bab plus
+  tautan YouTube, namanya tetap "Latihan". Di kartu Peta Materi tombol
+  urut "Ulangi belajar, Kuis, Bank Soal", dan Kuis serta Bank Soal hanya
+  tampil saat materi bab 100 persen (bank soalnya tetap bisa dibuka lewat
+  menu nav kapan saja).
 - **Asisten Tanya** (Haiku 4.5, sejak 20 Sep 2026): bekal di `web/bekal/`
   (git-ignored karena memuat teks buku berlisensi; dibangun `node
   alat/bekal_asisten.mjs`, prebuild memeriksa kesegarannya, peta halaman

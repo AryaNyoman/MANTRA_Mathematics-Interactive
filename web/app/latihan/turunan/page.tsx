@@ -6,7 +6,7 @@ import ArenaLatihan from '@/components/latihan/ArenaLatihan'
 import { KUIS } from '@/content/turunan'
 
 export const metadata: Metadata = {
-  title: 'Latihan Turunan | MANTRA',
+  title: 'Bank Soal Turunan | MANTRA',
   description: 'Soal turunan berjenjang dari mudah sampai sangat sulit, dengan pembahasan.',
 }
 

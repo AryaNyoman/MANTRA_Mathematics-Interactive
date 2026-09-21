@@ -6,7 +6,7 @@ import ArenaLatihan from '@/components/latihan/ArenaLatihan'
 import { KUIS } from '@/content/integral'
 
 export const metadata: Metadata = {
-  title: 'Latihan Integral | MANTRA',
+  title: 'Bank Soal Integral | MANTRA',
   description: 'Soal integral berjenjang dari mudah sampai sangat sulit, dengan pembahasan.',
 }
 

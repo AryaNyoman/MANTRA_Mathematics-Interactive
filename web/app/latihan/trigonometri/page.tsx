@@ -6,7 +6,7 @@ import ArenaLatihan from '@/components/latihan/ArenaLatihan'
 import { KUIS } from '@/content/trigonometri'
 
 export const metadata: Metadata = {
-  title: 'Latihan Trigonometri | MANTRA',
+  title: 'Bank Soal Trigonometri | MANTRA',
   description: 'Soal trigonometri berjenjang dari mudah sampai sangat sulit, dengan pembahasan.',
 }
 

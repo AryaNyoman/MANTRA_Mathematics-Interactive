@@ -49,7 +49,7 @@ export default function DaftarLatihan() {
 
   return (
     <main className="mantra-lebar" style={{ paddingTop: 38 }}>
-      <div className="kicker">Latihan</div>
+      <div className="kicker">Bank Soal</div>
       <h1 className="judul-halaman">Pilih bab yang mau kamu latih</h1>
       <p className="sub-italic">
         Tiap bab punya empat tingkat, 15 soal tiap tingkat. Tingkat berikutnya
@@ -89,8 +89,8 @@ export default function DaftarLatihan() {
         <b>Nilai di sini bukan penilaian resmi.</b>
         <p>
           Kemajuan tersimpan di peramban kamu sendiri, tidak dikirim ke mana pun.
-          Karena itu ia hilang kalau kamu berganti perangkat atau membersihkan
-          riwayat.
+          Karena itu kemajuannya hilang kalau kamu berganti perangkat atau
+          membersihkan riwayat.
         </p>
       </div>
     </main>

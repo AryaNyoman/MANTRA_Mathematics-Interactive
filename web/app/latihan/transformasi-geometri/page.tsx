@@ -24,7 +24,7 @@ import { KUIS } from '@/content/transformasi-geometri'
  * `web/components/latihan/*`, bukan `web/app/latihan/`.
  */
 export const metadata: Metadata = {
-  title: 'Latihan Transformasi Geometri | MANTRA',
+  title: 'Bank Soal Transformasi Geometri | MANTRA',
   description:
     'Soal transformasi geometri berjenjang dari mudah sampai sangat sulit, dengan pembahasan: translasi, pencerminan, rotasi, dilatasi, dan komposisi.',
 }

@@ -54,19 +54,21 @@ import TombolGuru from './TombolGuru'
 const TAB = [
   { href: '/', nama: 'Beranda' },
   { href: '/peta-materi', nama: 'Peta Materi' },
-  { href: '/latihan', nama: 'Latihan' },
+  // "Bank Soal" sejak 21 Sep 2026 (ARYA): alamatnya tetap /latihan supaya
+  // tautan yang sudah disebar tidak putus.
+  { href: '/latihan', nama: 'Bank Soal' },
   { href: '/tentang', nama: 'Tentang' },
 ] as const
 
 /** Label "terakhir dibuka" untuk halaman yang bukan halaman belajar. */
 function labelDariAlamat(jalur: string): string | undefined {
-  if (jalur === '/latihan') return 'Latihan'
+  if (jalur === '/latihan') return 'Bank Soal'
   if (jalur === '/latihan/contoh-gambar') return 'Contoh gambar soal'
   const [, awal, slug] = jalur.split('/')
   if (!slug) return undefined
   const topik = cariTopik(slug)
   if (!topik) return undefined
-  if (awal === 'latihan') return `Latihan ${topik.nama}`
+  if (awal === 'latihan') return `Bank Soal ${topik.nama}`
   if (awal === 'topik') return topik.nama
   return undefined
 }
