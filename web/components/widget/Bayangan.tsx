@@ -55,18 +55,32 @@ const PANJANG_CAHAYA = 62         // panjang garis cahaya tipis dari tepi bingka
 const JARAK_CAHAYA = 40           // jarak antar garis cahaya (tegak lurus sinar)
 const RADIUS_BERKAS = 250         // garis cahaya hanya di sekitar matahari (jarak titik masuknya)
 
-export const BATAS_SUDUT = { min: 25, maks: 70 }
+// 15 sampai 90 penuh (ARYA 21 Sep 2026: slider sudut harus mentok di angka
+// bulat). Di bawah 25° bayangan pohon lebih panjang daripada ruang di kirinya,
+// jadi seluruh gambar diperkecil (SKALA) dan penunjuk skalanya ditulis; di 90°
+// matahari tepat di atas kepala, bayangan nol, dan hasil baginya tidak ada.
+export const BATAS_SUDUT = { min: 15, maks: 90 }
+const RUANG_BAYANGAN = X_POHON - 24   // piksel yang tersedia untuk bayangan pohon
 
 export function hitungBayangan(derajat: number) {
-  const tan = Math.tan((derajat * Math.PI) / 180)
+  const tegak = derajat >= 90
+  const tan = tegak ? Infinity : Math.tan((derajat * Math.PI) / 180)
+  const bayanganPohon = tegak ? 0 : TINGGI_POHON / tan
+  // gambar diperkecil hanya bila bayangan pohon tidak muat di kiri pohon
+  const skala = Math.min(1, RUANG_BAYANGAN / Math.max(1, bayanganPohon * M_KE_PX))
   return {
     tan,
-    bayanganOrang: TINGGI_ORANG / tan,
-    bayanganPohon: TINGGI_POHON / tan,
+    tegak,
+    bayanganOrang: tegak ? 0 : TINGGI_ORANG / tan,
+    bayanganPohon,
     tinggiOrang: TINGGI_ORANG,
     tinggiPohon: TINGGI_POHON,
+    skala,
   }
 }
+
+/** Hasil bagi tinggi : bayangan sebagai teks; di 90° bayangannya nol. */
+export const angkaBayangan = (tan: number) => (Number.isFinite(tan) ? tan.toFixed(2).replace('.', ',') : 'tidak terdefinisi')
 
 const koma = (n: number, d = 2) => n.toFixed(d).replace('.', ',')
 
@@ -123,10 +137,12 @@ export default function Bayangan({ derajat }: { derajat: number }) {
   const rad = (derajat * Math.PI) / 180
   const cos = Math.cos(rad)
   const sin = Math.sin(rad)
-  const yOrang = TANAH_Y - TINGGI_ORANG * M_KE_PX
-  const yPohon = TANAH_Y - TINGGI_POHON * M_KE_PX
-  const bxOrang = X_ORANG - b.bayanganOrang * M_KE_PX
-  const bxPohon = X_POHON - b.bayanganPohon * M_KE_PX
+  // satu skala untuk tinggi DAN bayangan, supaya sudutnya tetap benar di gambar
+  const px = M_KE_PX * b.skala
+  const yOrang = TANAH_Y - TINGGI_ORANG * px
+  const yPohon = TANAH_Y - TINGGI_POHON * px
+  const bxOrang = X_ORANG - b.bayanganOrang * px
+  const bxPohon = X_POHON - b.bayanganPohon * px
 
   // kedua sinar sejajar, diteruskan sampai tepi bingkai (matahari sangat jauh)
   const sinarPohon = ujungSinar(X_POHON, yPohon, cos, sin)
@@ -179,6 +195,11 @@ export default function Bayangan({ derajat }: { derajat: number }) {
             fill="none" stroke={WARNA.sudut} strokeWidth={2} />
       <text x={bxPohon - 6} y={TANAH_Y - 14} textAnchor="end" fontSize={13} fill={WARNA.sudut}
             fontFamily="var(--font-sans), sans-serif">{derajat}°</text>
+      {b.skala < 1 && (
+        <text x={8} y={16} fontSize={11} fill={WARNA.redup} fontFamily="var(--font-mono), sans-serif">
+          gambar diperkecil {koma(b.skala * 100, 0)}% supaya bayangannya muat
+        </text>
+      )}
 
       {/* matahari di antara kedua sinar, ikut naik mengikuti sudut sinar */}
       <circle cx={mx} cy={my} r={13} fill={WARNA.sudut} opacity={0.9} />
@@ -219,15 +240,26 @@ export default function Bayangan({ derajat }: { derajat: number }) {
         {koma(b.bayanganOrang, 2)} m
       </text>
 
-      {/* dua hasil bagi, ditempel di masing-masing benda */}
-      <text x={X_POHON} y={TANAH_Y + 42} textAnchor="end" fontSize={15} fill={WARNA.sudut}
-            fontFamily="var(--font-mono), sans-serif">
-        {TINGGI_POHON} ÷ {koma(b.bayanganPohon, 1)} = {koma(b.tan)}
-      </text>
-      <text x={X_ORANG - 40} y={TANAH_Y + 42} fontSize={15} fill={WARNA.sudut}
-            fontFamily="var(--font-mono), sans-serif">
-        {koma(TINGGI_ORANG, 1)} ÷ {koma(b.bayanganOrang, 2)} = {koma(b.tan)}
-      </text>
+      {/* dua hasil bagi, ditempel di masing-masing benda; di 90° keduanya
+          "tidak terdefinisi" dan kalau ditulis dua kali saling menimpa di
+          tengah, jadi cukup satu kalimat di tengah */}
+      {b.tegak ? (
+        <text x={VW / 2} y={TANAH_Y + 42} textAnchor="middle" fontSize={15} fill={WARNA.sudut}
+              fontFamily="var(--font-mono), sans-serif">
+          bayangan 0 m: {TINGGI_POHON} ÷ 0 dan {koma(TINGGI_ORANG, 1)} ÷ 0 tidak terdefinisi
+        </text>
+      ) : (
+        <>
+          <text x={X_POHON} y={TANAH_Y + 42} textAnchor="end" fontSize={15} fill={WARNA.sudut}
+                fontFamily="var(--font-mono), sans-serif">
+            {TINGGI_POHON} ÷ {koma(b.bayanganPohon, 1)} = {angkaBayangan(b.tan)}
+          </text>
+          <text x={X_ORANG - 40} y={TANAH_Y + 42} fontSize={15} fill={WARNA.sudut}
+                fontFamily="var(--font-mono), sans-serif">
+            {koma(TINGGI_ORANG, 1)} ÷ {koma(b.bayanganOrang, 2)} = {angkaBayangan(b.tan)}
+          </text>
+        </>
+      )}
     </svg>
   )
 }

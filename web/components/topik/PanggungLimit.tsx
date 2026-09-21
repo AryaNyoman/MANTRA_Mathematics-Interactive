@@ -307,10 +307,12 @@ export default function PanggungLimit({ tahap, tampilWidget, children }: PropPan
               <tbody>
                 <tr><td><TeksMat teks="θ dalam radian" blok={false} /></td><td>{angka(radBusur, 5)}</td></tr>
                 <tr><td><TeksMat teks="sin θ" blok={false} /></td><td>{angka(Math.sin(radBusur), 5)}</td></tr>
-                <tr className="tegas"><td><TeksMat teks="sin θ dibagi θ" blok={false} /></td><td>{angka(nisbahBusur, 6)}</td></tr>
+                <tr className="tegas"><td><TeksMat teks="sin θ dibagi θ" blok={false} /></td><td>{derajatBusur === 0 ? 'tidak terdefinisi (0 : 0)' : angka(nisbahBusur, 6)}</td></tr>
               </tbody>
             </table>
-            <div className="catatan"><TeksMat teks={`Kalau sudutnya dibaca sebagai derajat, angka pembaginya menjadi ${angka(derajatBusur, 0)}, dan perbandingannya ${angka(Math.sin(radBusur) / derajatBusur, 5)}. Jauh dari 1. Itu sebabnya radian bukan pilihan, melainkan syarat.`} /></div>
+            <div className="catatan"><TeksMat teks={derajatBusur === 0
+              ? 'Tepat di 0° tidak ada yang bisa dibagi: busur 0, tali 0. Yang punya nilai adalah LIMIT-nya saat θ mendekati 0, dan nilai itu 1. Geser sedikit ke kanan dan lihat angkanya.'
+              : `Kalau sudutnya dibaca sebagai derajat, angka pembaginya menjadi ${angka(derajatBusur, 0)}, dan perbandingannya ${angka(Math.sin(radBusur) / derajatBusur, 5)}. Jauh dari 1. Itu sebabnya radian bukan pilihan, tetapi syarat.`} /></div>
           </div>
         )}
 

@@ -47,7 +47,9 @@ export function susun(
   potongan: Potongan[],
   ttl: '5m' | '1h',
 ): { sistem: BlokSistem[]; pesan: PesanModel[] } {
-  const cache = { type: 'ephemeral' as const, ttl }
+  // ttl 5 menit adalah bawaan API dan medannya tidak dikenal tanpa header beta:
+  // ditulis hanya untuk 1 jam
+  const cache = ttl === '1h' ? { type: 'ephemeral' as const, ttl } : { type: 'ephemeral' as const }
   const sistem: BlokSistem[] = [
     { type: 'text', text: ATURAN, cache_control: cache },
     { type: 'text', text: teksBekal(bekal), cache_control: cache },

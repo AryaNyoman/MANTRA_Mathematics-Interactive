@@ -52,10 +52,14 @@ function renderMat(p: Extract<Potongan, { jenis: 'mat' }>, kunci: number, tampil
   } catch {
     return <span key={kunci} className="mat-gagal">{p.teks}</span>
   }
+  // data-teks = teks Unicode aslinya ("90°", "(−cos θ, sin θ)"): dipakai
+  // tombol Tanya saat siswa memblok bacaan, supaya kutipannya bukan
+  // serpihan KaTeX ("90 ∘")
   return (
     <span
       key={kunci}
       className={tampilBlok ? 'mat-blok' : 'mat-baris'}
+      data-teks={ekor ? `${p.teks}${ekor}` : p.teks}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   )

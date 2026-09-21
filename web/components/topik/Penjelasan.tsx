@@ -1,8 +1,6 @@
 import { Fragment, type ReactNode } from 'react'
 import type { Blok } from '@/content/trigonometri'
 import TeksMat from '@/components/latihan/TeksMat'
-import TombolJelaskan from '@/components/tanya/TombolJelaskan'
-import { teksBlok } from '@/lib/tanya/teks-blok'
 
 /**
  * Perender penjelasan bertahap.
@@ -74,11 +72,11 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
            yang ditulis x², ∫₀⁷ x dx, atau 9/2 tampil sebagai rumus
            sungguhan (ARYA 17 Sep 2026 malam). Sel kotak contoh dan judul
            memakai blok={false}: rumusnya tetap sebaris. */
-        /* Blok paragraf, kalimat kunci, poin, dan contoh dibungkus tombol
-           "Jelaskan" (Asisten Tanya); sesi dan kotak coba tidak. Di luar
-           halaman materi pembungkusnya lewat begitu saja. */
+        /* Tombol "?" per blok DIHAPUS 21 Sep 2026 (ARYA: mengganggu fokus,
+           terutama di HP). Bertanya ke Asisten lewat blok teks (tombol Tanya
+           melayang) atau lewat daftar materi. */
         if (b.jenis === 'paragraf')
-          return <TombolJelaskan key={i} teks={teksBlok(b)}><p><TeksMat teks={b.teks} /></p></TombolJelaskan>
+          return <p key={i}><TeksMat teks={b.teks} /></p>
 
         if (b.jenis === 'sesi')
           return (
@@ -108,18 +106,15 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
 
         if (b.jenis === 'sorot')
           return (
-            <TombolJelaskan key={i} teks={teksBlok(b)}>
-              <div className="sorot">
-                <span className="sorot-cap">Kalimat kunci</span>
-                <p><TeksMat teks={b.teks} /></p>
-              </div>
-            </TombolJelaskan>
+            <div key={i} className="sorot">
+              <span className="sorot-cap">Kalimat kunci</span>
+              <p><TeksMat teks={b.teks} /></p>
+            </div>
           )
 
         if (b.jenis === 'poin')
           return (
-            <TombolJelaskan key={i} teks={teksBlok(b)}>
-            <div className="kelompok-poin">
+            <div key={i} className="kelompok-poin">
               {b.judul && <h3 className="judul-poin"><TeksMat teks={b.judul} blok={false} /></h3>}
               <ul className="poin">
                 {b.butir.map((teks, n) => {
@@ -136,7 +131,6 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
                 })}
               </ul>
             </div>
-            </TombolJelaskan>
           )
 
         // Kotak contoh: baris dipecah jadi sel, lalu disusun sebagai grid
@@ -160,8 +154,7 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
         // baris (globals.css, media 640px).
         const ringkas = kolom >= 2 && sel.every((s) => s.every((x) => x.length <= 12))
         return (
-          <TombolJelaskan key={i} teks={teksBlok(b)}>
-          <div className="contoh">
+          <div key={i} className="contoh">
             <div className="cap"><TeksMat teks={b.judul} blok={false} /></div>
             {konsisten ? (
               <div
@@ -204,7 +197,6 @@ export default function Penjelasan({ blok, sisipan }: { blok: Blok[]; sisipan?: 
             )}
             {b.simpul && <div className="simpul"><TeksMat teks={b.simpul} /></div>}
           </div>
-          </TombolJelaskan>
         )
       })}
       {letakSisipan < 0 && sisipan}

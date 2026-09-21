@@ -1,49 +1,71 @@
 'use client'
 import { useCallback, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from 'react'
-import { KonteksTanya } from './konteks'
-import PanelTanya, { type MateriTautan } from './PanelTanya'
+import PanelTanya, { type MateriTautan, type Tampilan } from './PanelTanya'
 import TombolTanyaBlok from './TombolTanyaBlok'
 import { kirimTanya, GalatTanya } from '@/lib/tanya/klien'
 import type { GambarTanya, PesanRiwayat } from '@/lib/tanya/jenis'
-import { baca, bacaDiServer, langgan, tulis } from '@/lib/simpanan'
-
-const RIWAYAT_MAKS = 12
+import { bacaDiServer, langgan } from '@/lib/simpanan'
+import { bacaRiwayat, daftarRiwayat, hapusRiwayat, RIWAYAT_MAKS, sidikRiwayat, tulisRiwayat } from '@/lib/tanya/riwayat'
 
 /**
- * Penyedia Asisten Tanya untuk satu materi: memasang konteks (tombol Jelaskan
- * dan Tanya membukanya), panel jawaban, dan riwayat per materi di localStorage
- * (`matra:tanya:<bab>:<slug>`, maksimal 12 pesan). Server tidak menyimpan
- * apa pun. Dipasang dengan `key={slug}` supaya keadaannya bersih tiap ganti
- * materi. Kalau `slug` null (layar latihan atau kuis), anaknya dirender apa
- * adanya tanpa asisten.
+ * Penyedia Asisten Tanya untuk satu halaman bab: tombol Tanya saat teks
+ * diblok, panel jawaban, dan riwayat per materi di localStorage
+ * (lib/tanya/riwayat.ts: `matra:tanya:<bab>:<slug>`, 12 pesan, 7 hari).
+ * Server tidak menyimpan apa pun.
+ *
+ * Perubahan 21 Sep 2026 (ARYA): tombol "?" per blok dihapus (mengganggu
+ * fokus, terutama di HP); bertanya lewat blok teks saja. Panel punya tab
+ * "Riwayat bab" (semua percakapan bab ini, bisa disimpan PDF) dan bisa dibuka
+ * dari daftar materi. Di layar latihan dan kuis (`slug` null) hanya
+ * riwayatnya yang bisa dilihat.
+ *
+ * Dipasang dengan `key={slug}` supaya keadaan percakapan (kutipan, jawaban
+ * yang sedang mengalir) bersih tiap ganti materi. Keadaan TERBUKA dan tab
+ * panel dipegang rangka halaman (`terbuka`, `tampilan`), supaya panel tetap
+ * terbuka saat "Buka" di daftar riwayat berpindah materi.
  */
 export default function AsistenTanya({
   bab,
+  namaBab,
   slug,
   materi,
   onBukaMateri,
+  terbuka,
+  onUbahTerbuka,
+  tampilan,
+  onUbahTampilan,
   children,
 }: {
   bab: string
+  namaBab: string
   slug: string | null
   /** daftar materi bab ini, untuk nama tautan "Materi 05 · Lingkaran satuan" */
   materi: MateriTautan[]
   /** membuka materi lain tanpa memuat ulang halaman (pilihLayar rangka) */
   onBukaMateri: (slug: string) => void
+  terbuka: boolean
+  onUbahTerbuka: (b: boolean) => void
+  tampilan: Tampilan
+  onUbahTampilan: (t: Tampilan) => void
   children: ReactNode
 }) {
-  const kunci = `matra:tanya:${bab}:${slug ?? '-'}`
-  const tersimpan = useSyncExternalStore(langgan, () => baca(kunci) ?? '[]', bacaDiServer)
+  // riwayat materi ini dan sidik riwayat bab, keduanya external store
+  const sidikMateri = useSyncExternalStore(
+    langgan,
+    () => (slug ? JSON.stringify(bacaRiwayat(bab, slug)) : '[]'),
+    () => '[]',
+  )
   const riwayatTersimpan = useMemo<PesanRiwayat[]>(() => {
     try {
-      const r = JSON.parse(tersimpan ?? '[]') as unknown
+      const r = JSON.parse(sidikMateri) as unknown
       return Array.isArray(r) ? (r as PesanRiwayat[]) : []
     } catch {
       return []
     }
-  }, [tersimpan])
+  }, [sidikMateri])
+  const sidikBab = useSyncExternalStore(langgan, () => sidikRiwayat(bab), () => bacaDiServer() ?? '')
+  const daftar = useMemo(() => (sidikBab ? daftarRiwayat(bab) : []), [sidikBab, bab])
 
-  const [terbuka, setTerbuka] = useState(false)
   const [kutipan, setKutipan] = useState('')
   // giliran yang sedang berjalan: pertanyaan siswa dan jawaban yang mengalir
   const [berjalan, setBerjalan] = useState<{ tanya: string; jawab: string } | null>(null)
@@ -53,9 +75,10 @@ export default function AsistenTanya({
 
   const bukaPanel = useCallback((k: string) => {
     setKutipan(k)
-    setTerbuka(true)
+    onUbahTampilan('percakapan')
+    onUbahTerbuka(true)
     setGalat(null)
-  }, [])
+  }, [onUbahTampilan, onUbahTerbuka])
 
   const tanya = useCallback(
     async (pertanyaan: string, gambar: GambarTanya | null) => {
@@ -81,8 +104,7 @@ export default function AsistenTanya({
           ac.signal,
         )
         setSisa(akhir.sisa)
-        const baru = [...riwayatTersimpan, { peran: 'siswa' as const, teks: tanyaTeks }, { peran: 'asisten' as const, teks: jawab }]
-        tulis(kunci, JSON.stringify(baru.slice(-RIWAYAT_MAKS)))
+        tulisRiwayat(bab, slug, [...riwayatTersimpan, { peran: 'siswa', teks: tanyaTeks }, { peran: 'asisten', teks: jawab }])
         setKutipan('')
       } catch (e) {
         if (ac.signal.aborted) return
@@ -91,27 +113,31 @@ export default function AsistenTanya({
         if (!ac.signal.aborted) setBerjalan(null)
       }
     },
-    [bab, slug, kutipan, berjalan, riwayatTersimpan, kunci],
+    [bab, slug, kutipan, berjalan, riwayatTersimpan],
   )
-
-  const nilai = useMemo(() => ({ bukaPanel, aktif: slug !== null }), [bukaPanel, slug])
-  if (slug === null) return <>{children}</>
 
   const riwayat: PesanRiwayat[] = berjalan
     ? [...riwayatTersimpan, { peran: 'siswa', teks: berjalan.tanya }, { peran: 'asisten', teks: berjalan.jawab }]
     : riwayatTersimpan
 
   return (
-    <KonteksTanya.Provider value={nilai}>
+    <>
       {children}
-      <TombolTanyaBlok onTanya={bukaPanel} />
+      {slug !== null && <TombolTanyaBlok onTanya={bukaPanel} />}
       <PanelTanya
         terbuka={terbuka}
         onTutup={() => {
-          setTerbuka(false)
+          onUbahTerbuka(false)
           batal.current?.abort()
           setBerjalan(null)
         }}
+        tampilan={tampilan}
+        onGantiTampilan={onUbahTampilan}
+        bab={bab}
+        namaBab={namaBab}
+        materi={materi}
+        slugKini={slug}
+        onBukaMateri={onBukaMateri}
         kutipan={kutipan}
         onHapusKutipan={() => setKutipan('')}
         riwayat={riwayat}
@@ -119,11 +145,10 @@ export default function AsistenTanya({
         galat={galat}
         sisa={sisa}
         onTanya={tanya}
-        onBersihkan={() => tulis(kunci, '[]')}
-        bab={bab}
-        materi={materi}
-        onBukaMateri={onBukaMateri}
+        onBersihkan={() => slug && hapusRiwayat(bab, slug)}
+        daftar={daftar}
+        onHapusPercakapan={(s) => hapusRiwayat(bab, s)}
       />
-    </KonteksTanya.Provider>
+    </>
   )
 }

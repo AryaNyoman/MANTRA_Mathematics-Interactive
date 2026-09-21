@@ -2,8 +2,9 @@
  * Pemanggil Anthropic Messages API untuk Asisten Tanya, diadaptasi dari LENTERA
  * HARUM src/lib/chat/penyedia.ts: fetch langsung (tanpa SDK), aliran SSE,
  * pemakaian token (Math.max, bukan +=, karena usage dilaporkan dua kali:
- * di message_start dan message_delta), TTL cache 1 jam dengan mundur otomatis
- * ke 5 menit bila API menolak header betanya. Tanpa alat, tanpa PII.
+ * di message_start dan message_delta), TTL cache 5 menit (bawaan) atau 1 jam
+ * dengan mundur otomatis ke 5 menit bila API menolak header betanya. Tanpa
+ * alat, tanpa PII.
  *
  * Variabel lingkungan dibaca saat runtime supaya build dan uji tetap hijau
  * tanpa ANTHROPIC_API_KEY.
@@ -17,7 +18,14 @@ const VERSI_API = '2023-06-01'
 const BETA_TTL_1H = 'extended-cache-ttl-2025-04-11'
 
 export const modelTanya = (): string => (process.env.ANTHROPIC_MODEL ?? '').trim() || MODEL_BAWAAN
-export const umurCache = (): '5m' | '1h' => (process.env.TANYA_CACHE_TTL === '5m' ? '5m' : '1h')
+/**
+ * Bawaan 5 menit sejak 21 Sep 2026: tulis cache 1 jam bertarif 2 kali harga
+ * masuk, 5 menit 1,25 kali. Pertanyaan siswa jarang beruntun di materi yang
+ * sama dalam satu jam, jadi cache panjang lebih sering dibayar daripada
+ * dipakai (terukur: $1,17 untuk 80 jawaban uji, hampir separuhnya tulis cache).
+ * TANYA_CACHE_TTL=1h mengembalikan yang lama.
+ */
+export const umurCache = (): '5m' | '1h' => (process.env.TANYA_CACHE_TTL === '1h' ? '1h' : '5m')
 export const asistenSiap = (): boolean => Boolean(process.env.ANTHROPIC_API_KEY)
 
 export type Pemakaian = { masuk: number; keluar: number; cacheTulis: number; cacheBaca: number }

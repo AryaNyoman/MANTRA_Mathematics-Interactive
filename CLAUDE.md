@@ -175,6 +175,22 @@ Pelajaran produksi Turunan 1 sampai 3 (timing, subtitle, QC):
   (50 pertanyaan, dev server 3210 dengan `TANYA_TANPA_PEMBATAS=1`, kira-kira
   Rp 7 ribu sekali jalan). Rahasia hanya di `web/.env.local` dan env Vercel,
   jangan pernah dicetak. Materi baru: jalankan bekal_asisten untuk babnya.
+  Sejak 21 Sep 2026 (ARYA): TIDAK ADA tombol "?" per blok (mengganggu
+  fokus); bertanya hanya dengan memblok teks di bacaan, kotak Sering
+  keliru, dan Ringkasan (`TombolTanyaBlok`, kutipan rumus diambil dari
+  `data-teks` TeksMat). Panel berkepala navy, dibuka juga dari tombol
+  "Asisten Tanya" di daftar materi; tab "Riwayat bab" memuat semua
+  percakapan bab per materi, bisa disimpan PDF (`lib/tanya/pdf.ts`, jsPDF
+  plus html2canvas). Riwayat di localStorage `matra:tanya:<bab>:<slug>`
+  (`lib/tanya/riwayat.ts`), 12 pesan per materi, terhapus 7 hari sesudah
+  pesan terakhir, dan siswa diberi tahu. Cache prompt bawaan 5 menit
+  (`TANYA_CACHE_TTL=1h` hanya kalau lalu lintas rapat: penulisan 1 jam
+  dua kali harga input).
+- **Slider sudut mentok di angka bulat** (ARYA 21 Sep 2026: ujung 89° atau
+  359° "menyangkut ketelitian"): batas 0 sampai 90, 180, atau 360 persis.
+  Ujung yang mustahil digambar tidak dilarang, tetapi dijelaskan dengan
+  kata: "tidak terdefinisi", "tak terhingga", "0 : 0" (Bayangan,
+  SegitigaSebangun, EnamRasio, SudutBerelasi, BusurLawanTali).
 - **Kata "miskonsepsi" DILARANG muncul di halaman.** Itu istilah guru. Pakai
   "Sering keliru", dan taruh di BAWAH setelah siswa paham.
 - **Gaya visual terkunci: rancangan MANTRA** (sejak 3 Sep 2026, menggantikan

@@ -4,9 +4,31 @@ import { useEffect, useState } from 'react'
 type Posisi = { x: number; y: number; teks: string }
 
 /**
- * Tombol "Tanya" melayang saat siswa memblok 8 sampai 1.200 huruf di dalam
- * `.bacaan`. Posisinya dibaca dari kotak seleksi; `onMouseDown` mencegah
- * seleksinya hilang sebelum klik terdaftar.
+ * Teks yang diblok, dengan rumus KaTeX dikembalikan ke teks aslinya: KaTeX
+ * menaruh "90°" sebagai "90", "∘" di simpul terpisah, sehingga
+ * `toString()` seleksi menghasilkan "90 ∘". TeksMat menyimpan teks Unicode
+ * aslinya di `data-teks`; rumus yang terkena blok (utuh atau sebagian)
+ * diganti seluruh teks itu.
+ */
+function teksSeleksi(sel: Selection): string {
+  const rentang = sel.getRangeAt(0)
+  const wadah = rentang.commonAncestorContainer
+  const induk = wadah instanceof Element ? wadah : wadah.parentElement
+  const rumusSaja = induk?.closest('[data-teks]')
+  if (rumusSaja) return rumusSaja.getAttribute('data-teks') ?? ''
+  const potongan = rentang.cloneContents()
+  potongan.querySelectorAll('[data-teks]').forEach((el) => el.replaceWith(el.getAttribute('data-teks') ?? ''))
+  return (potongan.textContent ?? '').replace(/\s+/g, ' ').trim()
+}
+
+/**
+ * Tombol "Tanya" melayang saat siswa memblok 8 sampai 1.200 huruf di bacaan
+ * materi: paragraf dan kotak-kotaknya (`.bacaan`), kotak "Sering keliru"
+ * (`.miskon`), dan Ringkasan (`.baca-cepat`); ARYA 21 Sep 2026 meminta
+ * kotak sering keliru ikut. Posisinya dibaca dari kotak seleksi;
+ * `onMouseDown` mencegah seleksinya hilang sebelum klik terdaftar. Sejak
+ * tombol "?" per blok dihapus, inilah satu-satunya jalan bertanya dari
+ * bacaan, di HP maupun laptop.
  */
 export default function TombolTanyaBlok({ onTanya }: { onTanya: (kutipan: string) => void }) {
   const [posisi, setPosisi] = useState<Posisi | null>(null)
@@ -14,13 +36,17 @@ export default function TombolTanyaBlok({ onTanya }: { onTanya: (kutipan: string
   useEffect(() => {
     const perbarui = () => {
       const sel = window.getSelection()
-      const teks = sel?.toString().replace(/\s+/g, ' ').trim() ?? ''
-      if (!sel || sel.isCollapsed || sel.rangeCount === 0 || teks.length < 8 || teks.length > 1200) {
+      if (!sel || sel.isCollapsed || sel.rangeCount === 0) {
         setPosisi(null)
         return
       }
-      const akar = sel.anchorNode?.parentElement?.closest('.bacaan')
+      const akar = sel.anchorNode?.parentElement?.closest('.bacaan, .miskon, .baca-cepat')
       if (!akar) {
+        setPosisi(null)
+        return
+      }
+      const teks = teksSeleksi(sel)
+      if (teks.length < 8 || teks.length > 1200) {
         setPosisi(null)
         return
       }

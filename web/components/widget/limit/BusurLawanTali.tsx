@@ -22,7 +22,9 @@ import { MONO, VH, VW, WARNA, angka } from '@/components/widget/limit/koordinat'
  * lingkarannya benar-benar habis.
  */
 
-export const BATAS_DERAJAT = { min: 1, maks: 80, langkah: 1 }
+// 0 sampai 90 penuh (ARYA 21 Sep 2026). Di 0° busur dan tali sama-sama nol:
+// hasil baginya 0 : 0, tidak terdefinisi, dan itulah persis soal limitnya.
+export const BATAS_DERAJAT = { min: 0, maks: 90, langkah: 1 }
 
 /* --- kolom kiri: lingkaran --- */
 const CX = 100
@@ -39,7 +41,8 @@ export default function BusurLawanTali({ derajat }: { derajat: number }) {
   const rad = (d * Math.PI) / 180
   const s = Math.sin(rad)
   const c = Math.cos(rad)
-  const nisbah = s / rad
+  const nisbah = rad === 0 ? NaN : s / rad
+  const takTentu = Number.isNaN(nisbah)
 
   const px = CX + c * R
   const py = CY - s * R
@@ -52,7 +55,7 @@ export default function BusurLawanTali({ derajat }: { derajat: number }) {
 
   return (
     <svg viewBox={`0 0 ${VW} ${VH}`} preserveAspectRatio="xMidYMid meet" role="img"
-         aria-label={`Sudut ${d} derajat, perbandingan sin theta dibagi theta bernilai ${angka(nisbah, 5)}`}>
+         aria-label={`Sudut ${d} derajat, perbandingan sin theta dibagi theta ${takTentu ? 'tidak terdefinisi' : 'bernilai ' + angka(nisbah, 5)}`}>
       {/* ================= kolom kiri: lingkaran satuan ================= */}
       <line x1={CX - R - 12} y1={CY} x2={CX + R + 12} y2={CY} stroke="#D6CDBC" strokeWidth={1.2} />
       <line x1={CX} y1={CY - R - 12} x2={CX} y2={CY + 20} stroke="#D6CDBC" strokeWidth={1.2} />
@@ -75,10 +78,10 @@ export default function BusurLawanTali({ derajat }: { derajat: number }) {
         θ = {angka(d, 0)}° = {angka(rad, 4)} rad
       </text>
       <text x={KANAN} y={68} fontSize={15} fill={WARNA.miring} fontFamily={MONO}>
-        sin θ : θ = {angka(nisbah, 6)}
+        sin θ : θ = {takTentu ? '0 : 0, tidak terdefinisi' : angka(nisbah, 6)}
       </text>
       <text x={KANAN} y={90} fontSize={10.5} fill={WARNA.redup} fontFamily={MONO}>
-        {d <= 5 ? 'kedua batang nyaris sama panjang' : 'busur masih terlihat lebih panjang'}
+        {takTentu ? 'di 0° keduanya nol: limitnya yang bernilai 1' : d <= 5 ? 'kedua batang hampir sama panjang' : 'busur masih terlihat lebih panjang'}
       </text>
 
       <text x={KANAN} y={128} fontSize={11} fill={WARNA.sudut} fontFamily={MONO}>
@@ -93,7 +96,7 @@ export default function BusurLawanTali({ derajat }: { derajat: number }) {
           terlihat walaupun sudah sangat tipis */}
       <rect x={KANAN} y={180} width={BATANG_MAKS} height={9} rx={4.5}
             fill={WARNA.depan} opacity={0.16} />
-      <rect x={KANAN} y={180} width={Math.max(panjangSin, 0)} height={9} rx={4.5} fill={WARNA.depan} />
+      <rect x={KANAN} y={180} width={takTentu ? 0 : Math.max(panjangSin, 0)} height={9} rx={4.5} fill={WARNA.depan} />
 
       <text x={KANAN} y={224} fontSize={10.5} fill={WARNA.redup} fontFamily={MONO}>
         busur SELALU sedikit lebih

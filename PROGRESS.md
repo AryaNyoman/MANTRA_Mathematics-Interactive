@@ -1,5 +1,62 @@
 # PROGRESS: MANTRA (dulu MATRA)
 
+## 21 SEP SIANG: REVISI ARYA, ASISTEN TANYA TANPA TOMBOL "?", RIWAYAT PER BAB PLUS PDF, SLIDER SUDUT MENTOK ANGKA BULAT (deploy matra-itfbsk4vt)
+
+Permintaan ARYA (21 Sep pagi, tiga tangkapan layar) dan keputusannya lewat
+empat pertanyaan pilihan: letak asisten di daftar materi (sidebar/laci),
+ekspor berkas PDF langsung (bukan dialog cetak), riwayat per bab
+dikelompokkan per materi, slider mentok ke angka bulat dengan ujung yang
+mustahil ditulis kata.
+- Biaya Asisten $1,17 padahal ARYA baru bertanya sekali: itu ~80 jawaban
+  uji saya (dua putaran `alat/uji_tanya`, 50 pertanyaan tiap putaran) plus
+  penulisan cache 1 jam yang harganya DUA KALI harga input (bukan 1,25 kali
+  seperti saya tulis semula; 1,25 itu untuk cache 5 menit). Bawaan cache
+  sekarang 5 menit (`lib/tanya/penyedia.ts` `umurCache`, `susun.ts` tanpa
+  `ttl` untuk 5m); `TANYA_CACHE_TTL=1h` hanya bila lalu lintas rapat.
+  Pertanyaan pertama (dingin) kira-kira Rp 300 sampai 400, berikutnya dalam
+  5 menit kira-kira Rp 100.
+- Tombol "?" per blok DIHAPUS di HP dan desktop (mengganggu fokus):
+  `TombolJelaskan.tsx` dan `konteks.ts` dibuang, `Penjelasan.tsx` polos
+  lagi. Bertanya hanya lewat blok teks (`TombolTanyaBlok`), sekarang juga di
+  kotak Sering keliru (`.miskon`) dan Ringkasan (`.baca-cepat`). Kutipan
+  rumus dibaca dari `data-teks` yang ditanam `TeksMat` (Unicode aslinya,
+  "90°" dan "(−cos θ, sin θ)"), bukan serpihan KaTeX "90 ∘".
+- Panel berkepala navy `.tanya-kepala` (kicker Asisten Tanya + nama bab +
+  tutup) supaya batas jendelanya jelas; dua tab: "Materi ini" dan "Riwayat
+  bab (n)". Tombol "Asisten Tanya" di kaki daftar materi (di bawah Kuis;
+  di HP di dalam laci) dengan lencana "n percakapan tersimpan"; membuka tab
+  Riwayat kalau sudah ada percakapan. Keadaan terbuka dan tab dipegang
+  `HalamanTopik` supaya "Buka" di daftar riwayat yang berpindah materi
+  tidak menutup panelnya. Di layar latihan dan kuis hanya riwayatnya.
+- Riwayat `lib/tanya/riwayat.ts`: kunci `matra:tanya:<bab>:<slug>` berisi
+  `{t, pesan}`, 12 pesan per materi, terhapus 7 hari sesudah pesan terakhir
+  (dibersihkan saat dibaca), bentuk lama (array) tetap terbaca. Panel
+  menulis "tersimpan 7 hari" dan tiap butir "terhapus dalam n hari". Uji
+  `lib/tanya/uji/riwayat.test.mjs` (localStorage tiruan; 23 uji lolos).
+- PDF `lib/tanya/pdf.ts`: lembar `.tanya-cetak` dirender di luar layar
+  hanya selama ekspor, difoto html2canvas skala 2, dipotong per halaman A4
+  jsPDF, kaki "MANTRA · Asisten Tanya · halaman n"; nama berkas
+  `mantra-tanya-<bab>-<tanggal>.pdf`. Diuji: 172 KB, rumus KaTeX ikut
+  tergambar, tautan materi jadi teks emas.
+- Slider sudut (ARYA: "risih, menyangkut ketelitian"): Bayangan 15 sampai
+  90 (bayangan 0 m, "tidak terdefinisi", gambar diperkecil supaya bayangan
+  panjang muat, satu kalimat di 90° supaya dua keterangan tidak bertindih),
+  SegitigaSebangun 0 sampai 90 (sisi depan dan miring "tak terhingga" tanpa
+  cm, gambar memakai tan 85° sebagai batas), EnamRasio 0 sampai 90 (tan dan
+  sec "tak terhingga", garisnya terpotong dengan label "...tak terhingga"),
+  LingkaranSatuan 0 sampai 360, SudutBerelasi 0 sampai 90 (dulu 89),
+  BusurLawanTali 0 sampai 90 ("0 : 0, tidak terdefinisi" plus catatan
+  limitnya 1). Diperiksa Playwright di tiap ujung; survei kolom alat
+  Trigonometri 0 cacat, Limit 1 cacat LAMA (Limit 05 mesin-sifat menggulir
+  70 px di 1920, bukan dari perubahan ini).
+- Gerbang: 23 uji node, tsc, eslint, build, Playwright di dev dan produksi
+  (tidak ada tombol "?", blok Sering keliru memunculkan Tanya, kepala navy,
+  riwayat, PDF terunduh, laci HP), sapu_bahasa: baris baru bebas kata
+  terlarang.
+- Dikesampingkan ARYA (tanpa kredit ElevenLabs): rekam ulang video 07
+  (masih menunjuk Grafik Fungsi Trigonometri) dan Statistika 01/13 (masih
+  mengucapkan menipu/menyesatkan).
+
 ## 21 SEP: BAHASA SISWA DISISIR DARI KATA "AI BANGET" (deploy matra-3nm88oros, push GitHub ea533d3)
 
 Keputusan ARYA (21 Sep dini hari) atas daftar yang saya buat sendiri:

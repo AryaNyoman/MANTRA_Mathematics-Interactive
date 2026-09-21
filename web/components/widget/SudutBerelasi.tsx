@@ -77,7 +77,8 @@ export const RELASI: Record<
   },
 }
 
-export const BATAS_ACUAN = { min: 0, maks: 89 }
+// 0 sampai 90 penuh (ARYA 21 Sep 2026: slider sudut harus mentok di angka bulat)
+export const BATAS_ACUAN = { min: 0, maks: 90 }
 
 export function hitungBerelasi(derajat: number, relasi: Relasi) {
   const radP = (derajat * Math.PI) / 180
@@ -130,7 +131,7 @@ export default function SudutBerelasi({
       const t = p.matrixTransform(ctm.inverse())
       let d = (Math.atan2(CY - t.y, t.x - CX) * 180) / Math.PI
       // P sudut acuan, tetap di kuadran I: seretan ke luar dipotong ke batas
-      if (d < -90) d = 89
+      if (d < -90) d = 90
       d = Math.max(BATAS_ACUAN.min, Math.min(BATAS_ACUAN.maks, d))
       onUbah(Math.round(d))
     },

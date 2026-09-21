@@ -3,10 +3,10 @@
 import { useState, type ReactNode } from 'react'
 import SegitigaSebangun, { hitungGeometri, angka } from '@/components/widget/SegitigaSebangun'
 import PenamaanSisi, { type SudutAktif } from '@/components/widget/PenamaanSisi'
-import Bayangan, { BATAS_SUDUT, hitungBayangan } from '@/components/widget/Bayangan'
+import Bayangan, { BATAS_SUDUT, angkaBayangan, hitungBayangan } from '@/components/widget/Bayangan'
 import PabrikRasio, { hitungRasio, SISI, type NamaSisi } from '@/components/widget/PabrikRasio'
 import LingkaranSatuan, { hitungLingkaran, angka3 } from '@/components/widget/LingkaranSatuan'
-import EnamRasio, { BATAS_ENAM, RASIO, URUT_RASIO, hitungEnam, type Rasio } from '@/components/widget/EnamRasio'
+import EnamRasio, { BATAS_ENAM, RASIO, URUT_RASIO, angkaRasio, hitungEnam, type Rasio } from '@/components/widget/EnamRasio'
 import PerjalananSudut, { ISTIMEWA, tulisSudut, type SatuanSudut } from '@/components/widget/PerjalananSudut'
 import LingkaranKeGrafik, { BATAS_SAPU } from '@/components/widget/LingkaranKeGrafik'
 import TigaGrafik from '@/components/widget/TigaGrafik'
@@ -65,7 +65,7 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
             <div className="kendali">
               <Angka nama="Sudut sinar matahari" arti="makin tinggi matahari, makin pendek bayangan" kunci="sinar" satuan="°"
                 nilai={sudutSinar} onUbah={setSudutSinar} min={BATAS_SUDUT.min} max={BATAS_SUDUT.maks} langkah={1} />
-              <Petunjuk><TeksMat teks={`sinar matahari sejajar karena mataharinya sangat jauh, jadi sudutnya sama di pohon dan di orang; kedua bayangan berubah panjang, tetapi kedua hasil baginya tetap ${angka(hitungBayangan(sudutSinar).tan)}`} blok={false} /></Petunjuk>
+              <Petunjuk><TeksMat teks={`sinar matahari sejajar karena mataharinya sangat jauh, jadi sudutnya sama di pohon dan di orang; kedua bayangan berubah panjang, tetapi kedua hasil baginya tetap ${angkaBayangan(hitungBayangan(sudutSinar).tan)}`} blok={false} /></Petunjuk>
             </div>
           </>
         )}
@@ -83,7 +83,7 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
               <Angka nama="Besar segitiga" arti="hanya memperbesar gambarnya, sudutnya tidak ikut berubah" kunci="skala" satuan="%"
                 nilai={skala} onUbah={setSkala} min={35} max={100} langkah={1} />
               <Angka nama="Sudut θ" arti="sudut di titik A, inilah yang menentukan rasionya" kunci="sudut" satuan="°"
-                nilai={derajat} onUbah={setDerajat} min={10} max={80} langkah={1} />
+                nilai={derajat} onUbah={setDerajat} min={0} max={90} langkah={1} />
               <Petunjuk><TeksMat teks={`tarik titik puncaknya ke samping untuk ukuran, ke atas atau ke bawah untuk sudut (satu tarikan hanya mengubah satu hal), atau geser kendali di atas · skala tampilan 1 cm = ${angka(hitungGeometri(skala, derajat).ppc, 1)} px`} blok={false} /></Petunjuk>
             </div>
           </>
@@ -125,7 +125,7 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
             </div>
             <div className="kendali">
               <Angka nama="Sudut θ" arti="diukur dari sumbu x positif, berlawanan arah jarum jam" kunci="sudut" satuan="°"
-                nilai={sudutLingkaran} onUbah={setSudutLingkaran} min={0} max={359} langkah={1} />
+                nilai={sudutLingkaran} onUbah={setSudutLingkaran} min={0} max={360} langkah={1} />
               <Petunjuk>lewati 90° dan perhatikan cos mulai bernilai negatif</Petunjuk>
             </div>
           </>
@@ -239,7 +239,7 @@ export default function PanggungTrigonometri({ tahap, tampilWidget, children }: 
                 {URUT_RASIO.map((r) => (
                   <tr key={r} className={sorotRasio === r ? 'tegas' : undefined}>
                     <td><TeksMat teks={`${RASIO[r].lambang}, ${RASIO[r].nama}`} blok={false} /></td>
-                    <td>{angka(hitungEnam(sudutEnam)[r], 3)}</td>
+                    <td>{angkaRasio(hitungEnam(sudutEnam)[r])}</td>
                   </tr>
                 ))}
               </tbody>
@@ -369,13 +369,15 @@ function HasilRasio({ pembilang, penyebut }: { pembilang: NamaSisi; penyebut: Na
 
 function AngkaSegitiga({ skala, derajat }: { skala: number; derajat: number }) {
   const g = hitungGeometri(skala, derajat)
+  // di 90° sisi depan dan miringnya tak terhingga: tanpa satuan cm
+  const cm = (v: number) => (Number.isFinite(v) ? `${angka(v)} cm` : angka(v))
   return (
     <table className="tabel-angka">
       <tbody>
-        <tr><td><TeksMat teks="sisi samping" blok={false} /></td><td><TeksMat teks={`${angka(g.sampingCm)} cm`} blok={false} /></td></tr>
-        <tr><td><TeksMat teks="sisi depan" blok={false} /></td><td><TeksMat teks={`${angka(g.depanCm)} cm`} blok={false} /></td></tr>
-        <tr><td><TeksMat teks="sisi miring" blok={false} /></td><td><TeksMat teks={`${angka(g.miringCm)} cm`} blok={false} /></td></tr>
-        <tr className="tegas"><td><TeksMat teks="depan ÷ samping" blok={false} /></td><td>{angka(g.tan, 3)}</td></tr>
+        <tr><td><TeksMat teks="sisi samping" blok={false} /></td><td><TeksMat teks={cm(g.sampingCm)} blok={false} /></td></tr>
+        <tr><td><TeksMat teks="sisi depan" blok={false} /></td><td><TeksMat teks={cm(g.depanCm)} blok={false} /></td></tr>
+        <tr><td><TeksMat teks="sisi miring" blok={false} /></td><td><TeksMat teks={cm(g.miringCm)} blok={false} /></td></tr>
+        <tr className="tegas"><td><TeksMat teks="depan ÷ samping" blok={false} /></td><td>{g.tegakLurus ? 'tidak terdefinisi' : angka(g.tan, 3)}</td></tr>
       </tbody>
     </table>
   )

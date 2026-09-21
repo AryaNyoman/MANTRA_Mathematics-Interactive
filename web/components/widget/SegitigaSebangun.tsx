@@ -35,7 +35,12 @@ const LEBAR = VW - PAD * 2
 const TINGGI = VH - PAD * 2
 const SAMPING_MAKS = 5 // cm saat slider 100%
 
-export const BATAS = { derajatMin: 10, derajatMaks: 80, skalaMin: 35, skalaMaks: 100 }
+// Sudut 0 sampai 90 penuh (ARYA 21 Sep 2026: slider harus mentok di angka
+// bulat). Di 90° sisi depan dan sisi miring tak terhingga: gambarnya dijepit
+// seperti pada 85° (sisi depan menjulang keluar bingkai) dan angkanya ditulis
+// kata, bukan bilangan raksasa.
+export const BATAS = { derajatMin: 0, derajatMaks: 90, skalaMin: 35, skalaMaks: 100 }
+const TAN_GAMBAR_MAKS = Math.tan((85 * Math.PI) / 180)
 
 export type Geometri = {
   sampingCm: number
@@ -46,27 +51,38 @@ export type Geometri = {
   cos: number
   /** piksel per cm, berubah saat bingkai menyesuaikan */
   ppc: number
+  /** tan yang dipakai menggambar (dijepit di 85° supaya 90° masih tergambar) */
+  tanGambar: number
+  /** benar tepat di 90°: sisi depan dan miring tak terhingga */
+  tegakLurus: boolean
 }
 
 export function hitungGeometri(skalaPersen: number, derajat: number): Geometri {
   const s = skalaPersen / 100
   const rad = (derajat * Math.PI) / 180
-  const ppc = Math.min(LEBAR / SAMPING_MAKS, TINGGI / (SAMPING_MAKS * Math.tan(rad)))
+  const tegakLurus = derajat >= 90
+  const tan = tegakLurus ? Infinity : Math.tan(rad)
+  const tanGambar = Math.min(tan, TAN_GAMBAR_MAKS)
+  // tan 0° = 0 membuat pembaginya nol: Infinity kalah di min(), jadi aman
+  const ppc = Math.min(LEBAR / SAMPING_MAKS, TINGGI / (SAMPING_MAKS * tanGambar))
   const sampingCm = SAMPING_MAKS * s
-  const depanCm = sampingCm * Math.tan(rad)
+  const depanCm = sampingCm * tan
   return {
     sampingCm,
     depanCm,
-    miringCm: Math.hypot(sampingCm, depanCm),
-    tan: Math.tan(rad),
+    miringCm: tegakLurus ? Infinity : Math.hypot(sampingCm, depanCm),
+    tan,
     sin: Math.sin(rad),
     cos: Math.cos(rad),
     ppc,
+    tanGambar,
+    tegakLurus,
   }
 }
 
 /** Angka gaya Indonesia: pemisah desimal koma. */
-export const angka = (n: number, desimal = 2) => n.toFixed(desimal).replace('.', ',')
+export const angka = (n: number, desimal = 2) =>
+  Number.isFinite(n) ? n.toFixed(desimal).replace('.', ',') : 'tak terhingga'
 
 const jepit = (n: number, min: number, maks: number) => Math.min(maks, Math.max(min, n))
 
@@ -91,19 +107,19 @@ export default function SegitigaSebangun({
   const nyalaSudut = dipegang === 'sudut'
   const nyalaSkala = dipegang === 'skala'
 
-  const { sampingCm, depanCm, ppc } = hitungGeometri(skala, derajat)
+  const { sampingCm, depanCm, ppc, tanGambar, tegakLurus } = hitungGeometri(skala, derajat)
   const rad = (derajat * Math.PI) / 180
 
   // Titik asal ditempatkan agar segitiga TERBESAR pada sudut ini berada di
   // tengah bidang. Dihitung dari ukuran maksimum (bukan ukuran sekarang),
   // supaya titik sudut theta tidak melompat-lompat saat slider ukuran digeser.
   const sampingMaksPx = SAMPING_MAKS * ppc
-  const depanMaksPx = SAMPING_MAKS * Math.tan(rad) * ppc
+  const depanMaksPx = SAMPING_MAKS * tanGambar * ppc
   const ox = (VW - sampingMaksPx) / 2
   const oy = (VH + depanMaksPx) / 2
 
   const bx = ox + sampingCm * ppc
-  const cy = oy - depanCm * ppc
+  const cy = oy - sampingCm * tanGambar * ppc
 
   // ---- menarik langsung: ubah titik puncak jadi sudut + ukuran ----
   const keSvg = useCallback((e: React.PointerEvent): { x: number; y: number } | null => {
@@ -208,6 +224,11 @@ export default function SegitigaSebangun({
         sampingCm,
       )} sentimeter dan sisi depan ${angka(depanCm)} sentimeter`}
     >
+      {tegakLurus && (
+        <text x={VW - 10} y={22} textAnchor="end" fontSize={12} fill={WARNA.depan} fontFamily="var(--font-mono), sans-serif">
+          90°: sisi depan menjulang tak terhingga, tidak ada segitiganya
+        </text>
+      )}
       <g>
         {petak.map(({ key, ...garis }) => (
           <line key={key} {...garis} stroke="#EDE6DA" strokeWidth={1} />

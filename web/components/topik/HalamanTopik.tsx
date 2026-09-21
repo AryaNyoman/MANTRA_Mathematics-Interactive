@@ -20,6 +20,8 @@ import {
 import { aturSesi, daftarkanAkar, keluarFokus, lepasSesi, useSesiBelajar } from '@/lib/sesi-belajar'
 import PenggeserEmas from '@/components/mantra/PenggeserEmas'
 import AsistenTanya from '@/components/tanya/AsistenTanya'
+import type { Tampilan as TampilanTanya } from '@/components/tanya/PanelTanya'
+import { sidikRiwayat } from '@/lib/tanya/riwayat'
 
 type Layar = { jenis: 'tahap'; slug: string } | { jenis: 'latihan' } | { jenis: 'kuis' }
 
@@ -120,6 +122,15 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
 
   const minta = useSearchParams()?.get('materi') ?? null
   const [layarPilih, setLayar] = useState<Layar>(() => awalDari(minta))
+  /* Panel Asisten Tanya: terbuka dan tabnya dipegang di sini (bukan di
+     AsistenTanya yang dipasang ulang tiap ganti materi), supaya "Buka" di
+     daftar riwayat yang berpindah materi tidak menutup panelnya. Jumlah
+     percakapan tersimpan dibaca sebagai external store untuk lencana di
+     daftar materi. */
+  const [asistenTerbuka, setAsistenTerbuka] = useState(false)
+  const [asistenTampilan, setAsistenTampilan] = useState<TampilanTanya>('percakapan')
+  const sidikTanya = useSyncExternalStore(langgan, () => sidikRiwayat(topik.slug), () => '')
+  const jumlahPercakapan = sidikTanya ? sidikTanya.split('|').length : 0
 
   /* ?materi=lanjut datang dari laci "Lanjutkan" di nav (ARYA 10 Sep 2026):
      materi pertama yang BELUM dibuka menurut urutan sub-bab; kalau semua
@@ -650,6 +661,23 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                   </span>
                   <span className="lencana-kunci" data-baru={kunciBaru}>{terbuka ? 'Siap' : 'Terkunci'}</span>
                 </button>
+                {/* Asisten Tanya dari daftar materi (ARYA 21 Sep 2026): tempat
+                    mencari riwayat chat tanpa tombol yang mengganggu bacaan.
+                    Dibuka di tab Riwayat kalau sudah ada percakapan. */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAsistenTampilan(jumlahPercakapan > 0 || !tahap ? 'riwayat' : 'percakapan')
+                    setAsistenTerbuka(true)
+                    setLaci(false)
+                  }}
+                >
+                  <span className="ikon" aria-hidden="true">✦</span>
+                  <span>
+                    <span className="nama" style={{ display: 'block' }}>Asisten Tanya</span>
+                    <span className="syarat">{jumlahPercakapan > 0 ? `${jumlahPercakapan} percakapan tersimpan` : 'blok teks di bacaan untuk bertanya'}</span>
+                  </span>
+                </button>
               </div>
             )}
           </aside>
@@ -710,19 +738,23 @@ function Rangka({ topik, isi }: { topik: Topik; isi: IsiTopik }) {
                       masuk bergeser 24 px dari arah tujuan; remah di atasnya
                       tetap diam. Animasinya fill backwards: tidak ada transform
                       yang tertinggal sesudahnya. */}
-                  {/* Asisten Tanya membungkus isi materi: tombol Jelaskan di
-                      tiap blok bacaan dan tombol Tanya saat teks diblok
-                      membuka panelnya. Panelnya `position: fixed`, jadi
-                      pembungkusnya DI LUAR .panggung-isi yang ber-transform
-                      selama animasi masuk; `key` per materi membersihkan
-                      keadaannya. Di layar latihan dan kuis (slug null) tidak
-                      ada asisten. */}
+                  {/* Asisten Tanya membungkus isi materi: tombol Tanya saat
+                      teks diblok membuka panelnya. Panelnya `position: fixed`,
+                      jadi pembungkusnya DI LUAR .panggung-isi yang
+                      ber-transform selama animasi masuk; `key` per materi
+                      membersihkan percakapannya. Di layar latihan dan kuis
+                      (slug null) hanya riwayat bab yang bisa dilihat. */}
                   <AsistenTanya
                     key={tahap?.slug ?? '-'}
                     bab={topik.slug}
+                    namaBab={topik.nama}
                     slug={tahap?.slug ?? null}
                     materi={TAHAP}
                     onBukaMateri={(slug) => pilihLayar({ jenis: 'tahap', slug })}
+                    terbuka={asistenTerbuka}
+                    onUbahTerbuka={setAsistenTerbuka}
+                    tampilan={asistenTampilan}
+                    onUbahTampilan={setAsistenTampilan}
                   >
                   <div className="panggung-isi" key={kunciLayar} data-arah={arah}>
 

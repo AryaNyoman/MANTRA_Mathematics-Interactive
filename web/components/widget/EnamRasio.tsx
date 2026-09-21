@@ -10,8 +10,10 @@ import { WARNA } from '@/lib/warna'
  * bukan sekadar rumus di kertas. tan benar-benar garis singgung, sec benar-benar
  * garis potong, dan panjangnya bisa diukur.
  *
- * Sudut dibatasi 25°-65° supaya keenam ruas tetap muat di bingkai, di luar
- * rentang itu cot atau tan melesat sangat panjang.
+ * Sudut 0° sampai 90° penuh (ARYA 21 Sep 2026: slider sudut harus mentok di
+ * angka bulat). Di dekat kedua ujung, tan/sec (dekat 90°) dan cot/csc (dekat
+ * 0°) melesat sangat panjang: ruasnya digambar sampai tepi bingkai dengan
+ * tanda "..." dan angkanya ditulis "tak terhingga", bukan dipotong diam-diam.
  */
 
 const VW = 460
@@ -20,7 +22,11 @@ const CX = 162
 const CY = 208
 const R = 86 // jari-jari 1 satuan
 
-export const BATAS_ENAM = { min: 25, maks: 65 }
+export const BATAS_ENAM = { min: 0, maks: 90 }
+
+/** Angka rasio; yang melesat (tan 90°, cot 0°, dan kebalikannya) ditulis kata. */
+export const angkaRasio = (v: number, desimal = 3) =>
+  !Number.isFinite(v) || Math.abs(v) > 1e6 ? 'tak terhingga' : v.toFixed(desimal).replace('.', ',')
 
 export type Rasio = 'sin' | 'cos' | 'tan' | 'cot' | 'sec' | 'csc'
 
@@ -48,10 +54,16 @@ export default function EnamRasio({ derajat, sorot }: { derajat: number; sorot: 
   const py = CY - e.sin * R
   // T = titik potong jari-jari yang diperpanjang dengan garis singgung x = 1
   const Tx = CX + R
-  const Ty = CY - e.tan * R
+  const TyAsli = CY - e.tan * R
   // K = titik potong dengan garis singgung y = 1
-  const Kx = CX + e.cot * R
+  const KxAsli = CX + e.cot * R
   const Ky = CY - R
+  // Dekat 90° T melesat ke atas, dekat 0° K melesat ke kanan: ruasnya
+  // digambar sampai tepi bingkai lalu diberi tanda putus, bukan dipotong diam-diam.
+  const tPutus = TyAsli < 14
+  const kPutus = KxAsli > VW - 14
+  const Ty = tPutus ? 14 : TyAsli
+  const Kx = kPutus ? VW - 14 : KxAsli
 
   const w = (r: Rasio) => (sorot === r ? 6 : 2.5)
   const o = (r: Rasio) => (sorot === r ? 1 : 0.22)
@@ -89,6 +101,18 @@ export default function EnamRasio({ derajat, sorot }: { derajat: number; sorot: 
       {/* sin: kaki -> titik */}
       <line x1={px} y1={CY} x2={px} y2={py} stroke={WARNA.depan} strokeWidth={w('sin')} opacity={o('sin')} strokeLinecap="round" />
 
+      {/* tanda ruas yang melesat keluar bingkai */}
+      {tPutus && (
+        <text x={Tx + 8} y={22} fontSize={14} fill={WARNA.sudut} fontFamily="var(--font-mono), sans-serif">
+          ...tak terhingga
+        </text>
+      )}
+      {kPutus && (
+        <text x={VW - 12} y={Ky - 8} textAnchor="end" fontSize={14} fill="#B5793F" fontFamily="var(--font-mono), sans-serif">
+          tak terhingga...
+        </text>
+      )}
+
       {/* busur sudut */}
       <path d={`M ${CX + 26} ${CY} A 26 26 0 0 0 ${CX + 26 * Math.cos(e.rad)} ${CY - 26 * Math.sin(e.rad)}`}
             fill="none" stroke={WARNA.sudut} strokeWidth={2} />
@@ -100,7 +124,7 @@ export default function EnamRasio({ derajat, sorot }: { derajat: number; sorot: 
       {/* keterangan ruas yang sedang disorot */}
       <text x={VW - 10} y={VH - 26} textAnchor="end" fontSize={15} fill="#211E1A"
             fontFamily="var(--font-mono), sans-serif">
-        {RASIO[sorot].lambang} = {e[sorot].toFixed(3).replace('.', ',')}
+        {RASIO[sorot].lambang} = {angkaRasio(e[sorot])}
       </text>
       <text x={VW - 10} y={VH - 9} textAnchor="end" fontSize={11} fill={WARNA.redup}
             fontFamily="var(--font-mono), sans-serif">
