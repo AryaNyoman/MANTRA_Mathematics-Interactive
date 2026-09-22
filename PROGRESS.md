@@ -23,6 +23,26 @@ satu paket ikut), diperiksa frame demi frame lewat lembar kontak.
 - Naskah DRAF 21 Sep diisi stempel waktu nyata. Berkas 07 dan dokumen lain
   di folder kirim BELUM disentuh (menunggu aba-aba ARYA).
 
+## 22 SEP: TEKS TENTANG, VIDEO TANPA TOMBOL UNDUH (deploy matra-4zp583lss)
+
+- Tentang (ARYA): "Bahasanya bahasa SMA, bukan bahasa diktat" diganti
+  "...materi yang disajikan dengan bahasa sederhana dan mudah dipahami"
+  (alasan ARYA: jangan terkesan menggurui yang sudah ada). Beranda: ujung
+  kalimat hero "dan yang masih bingung bisa ditanyakan langsung" dihapus.
+- Video (ARYA, dari HP): menahan video memunculkan menu Chrome "Download
+  video". `PemutarVideo`: `onContextMenu` dicegah di pembungkus dan
+  `controlsList="nodownload"` di elemen video. Diuji di produksi: menu
+  konteks dibatalkan, atribut ada. BUKAN pengaman: alamat mp4 tetap bisa
+  dibaca orang yang paham peramban; pemblokiran referer di Worker sengaja
+  TIDAK dipasang karena akan mematikan video di peramban yang
+  menyembunyikan referer (Brave, Firefox mode ketat), dan jalur
+  /video-cadangan lewat proxy Vercel tidak membawa referer.
+- Jebakan: `npm run build` lokal gagal "next/font/google queries have
+  exactly one entry" (cache Turbopack di `.next` rusak, bukan kode);
+  sembuh sesudah `.next/cache`, `server`, `static`, `types`, `diagnostics`
+  dihapus (folder `dev` milik dev server dibiarkan). Skrip deploy kini
+  hanya memindahkan alias kalau keluaran vercel memuat "ready".
+
 ## 21 SEP SIANG: REVISI ARYA, ASISTEN TANYA TANPA TOMBOL "?", RIWAYAT PER BAB PLUS PDF, SLIDER SUDUT MENTOK ANGKA BULAT (deploy matra-itfbsk4vt)
 
 Permintaan ARYA (21 Sep pagi, tiga tangkapan layar) dan keputusannya lewat

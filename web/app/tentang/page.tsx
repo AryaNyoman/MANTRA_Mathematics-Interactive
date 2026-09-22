@@ -39,8 +39,8 @@ export default function Tentang() {
                 tanpa ada yang ingat memperbaikinya. */}
             <p>
               Isinya disusun per bab: tiap bab
-              dipecah jadi sub-bab, tiap sub-bab berisi beberapa materi.
-              Bahasanya bahasa SMA, bukan bahasa diktat.
+              dipecah jadi sub-bab, tiap sub-bab berisi beberapa materi yang
+              disajikan dengan bahasa sederhana dan mudah dipahami.
             </p>
           </div>
           {/* Lambang MANTRA, BUKAN cuplikan grafik sinus. Cuplikan animasi

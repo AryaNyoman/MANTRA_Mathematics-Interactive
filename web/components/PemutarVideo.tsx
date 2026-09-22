@@ -503,7 +503,14 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
   }
 
   return (
-    <div ref={bungkus} className="pemutar-bungkus">
+    /* Menu tekan-lama dan klik kanan dimatikan (ARYA 22 Sep 2026: di HP,
+       menahan video memunculkan "Download video"). Bersama
+       `controlsList="nodownload"` di elemen videonya, tidak ada lagi tombol
+       unduh yang ditawarkan peramban. Ini menutup jalan yang gampang saja,
+       BUKAN pengaman: alamat mp4-nya tetap bisa dibaca orang yang paham
+       peramban, dan memblokirnya di Worker berdasarkan referer akan
+       mematikan video di peramban yang menyembunyikan referer. */
+    <div ref={bungkus} className="pemutar-bungkus" onContextMenu={(e) => e.preventDefault()}>
       {/* Tanpa pembungkus tambahan di dalam: `.layar video` di globals.css
           sudah mengatur batas ukuran dalam rem, dan aturan itu sengaja dibuat
           supaya kotaknya ikut mengecil saat pengguna memperkecil zoom. */}
@@ -528,6 +535,9 @@ export default function PemutarVideo({ berkas, poster, judul }: Props) {
           setGalat(true)
         }}
         controls
+        /* Menu ⋮ kontrol bawaan Chrome tanpa tombol Download (lihat catatan
+           di pembungkus). */
+        controlsList="nodownload"
         /* Tanpa `playsInline`, Safari di iPhone merebut video ke layar penuh
            begitu ditekan. Siswa jadi kehilangan penjelasan di sebelahnya,
            dan harus keluar dulu untuk membacanya. (Temuan audit HP,
