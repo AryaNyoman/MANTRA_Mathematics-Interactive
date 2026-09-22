@@ -37,6 +37,18 @@ satu paket ikut), diperiksa frame demi frame lewat lembar kontak.
   TIDAK dipasang karena akan mematikan video di peramban yang
   menyembunyikan referer (Brave, Firefox mode ketat), dan jalur
   /video-cadangan lewat proxy Vercel tidak membawa referer.
+- Ikon aplikasi (ARYA, dari HP): lambang terpotong di layar pembuka
+  aplikasi yang sudah dipasang. Sebabnya ikon yang sama dipakai untuk
+  'any' DAN 'maskable', padahal gambarnya penuh sampai tepi, sedangkan
+  Android memotong ikon maskable ke lingkaran 80 persen. Dibuat berkas
+  terpisah dari `public/mantra/mantra-simbol-gelap.png`: `ikon-v2-{192,512}`
+  (navy bersudut bulat, lambang 74 persen) dan `ikon-maskable-{192,512}`
+  (navy penuh, lambang 54 persen, muat di lingkaran zona aman). NAMA BERKAS
+  SENGAJA BARU: WebAPK yang sudah terpasang menyimpan salinan ikonnya dan
+  hanya memperbaruinya kalau ISI manifest berubah, jadi mengganti gambar di
+  alamat lama tidak pernah sampai ke HP. ARYA perlu membuka situsnya
+  beberapa kali (Chrome memeriksa manifest sekitar sehari sekali) atau
+  memasang ulang aplikasinya.
 - Jebakan: `npm run build` lokal gagal "next/font/google queries have
   exactly one entry" (cache Turbopack di `.next` rusak, bukan kode);
   sembuh sesudah `.next/cache`, `server`, `static`, `types`, `diagnostics`
